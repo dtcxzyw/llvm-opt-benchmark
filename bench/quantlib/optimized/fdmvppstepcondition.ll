@@ -1013,7 +1013,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %29, i64 %28
   %30 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !8
   %31 = load ptr, ptr %stateEvolveFcts_.i, align 8, !tbaa !50
-  %_M_manager.i.i.i = getelementptr inbounds nuw %"class.std::function", ptr %31, i64 %30, i32 0, i32 1
+  %add.ptr.i3.i = getelementptr inbounds nuw %"class.std::function", ptr %31, i64 %30
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i, i64 16
   %32 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !62
   %tobool.not.i.i.not.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.not.i, label %invoke.cont16, label %if.else.i
@@ -1554,7 +1555,8 @@ entry:
   %2 = load i64, ptr %add.ptr.i, align 8, !tbaa !8
   %stateEvolveFcts_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %3 = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !50
-  %_M_manager.i.i = getelementptr inbounds nuw %"class.std::function", ptr %3, i64 %2, i32 0, i32 1
+  %add.ptr.i3 = getelementptr inbounds nuw %"class.std::function", ptr %3, i64 %2
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3, i64 16
   %4 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !62
   %tobool.not.i.i.not = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not, label %cleanup, label %if.else

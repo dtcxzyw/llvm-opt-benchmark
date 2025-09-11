@@ -1103,12 +1103,12 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %84 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.val.i, i64 %83
   %85 = add i32 %82, 1
   store i32 %85, ptr %81, align 4, !tbaa !37
-  switch i8 %19, label %146 [
+  switch i8 %19, label %147 [
     i8 8, label %86
     i8 6, label %96
     i8 7, label %105
-    i8 9, label %117
-    i8 10, label %142
+    i8 9, label %118
+    i8 10, label %143
     i8 5, label %"_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit"
   ]
 
@@ -1150,56 +1150,57 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %112 = load i32, ptr %111, align 4, !tbaa !146
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.val.i, i64 %113, i32 1
-  %115 = load i32, ptr %114, align 8, !tbaa !3
-  %116 = icmp eq i32 %110, %115
+  %114 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.val.i, i64 %113
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %116 = load i32, ptr %115, align 8, !tbaa !3
+  %117 = icmp eq i32 %110, %116
   br label %"_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit"
 
-117:                                              ; preds = %79
-  %118 = load i8, ptr %84, align 8, !tbaa !148
-  %119 = icmp eq i8 %118, 1
-  br i1 %119, label %120, label %"_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit"
+118:                                              ; preds = %79
+  %119 = load i8, ptr %84, align 8, !tbaa !148
+  %120 = icmp eq i8 %119, 1
+  br i1 %120, label %121, label %"_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit"
 
-120:                                              ; preds = %117
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %122 = load i32, ptr %121, align 4, !tbaa !146
-  %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw %"class.llvm::MCRegisterClass", ptr %.val2.i, i64 %123
-  %125 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %126 = load i32, ptr %125, align 8, !tbaa !3
-  %127 = lshr i32 %126, 3
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 22
-  %129 = load i16, ptr %128, align 2, !tbaa !151
-  %130 = zext i16 %129 to i32
-  %.not.i.i.i = icmp samesign ult i32 %127, %130
-  br i1 %.not.i.i.i, label %131, label %"_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit"
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %123 = load i32, ptr %122, align 4, !tbaa !146
+  %124 = zext i32 %123 to i64
+  %125 = getelementptr inbounds nuw %"class.llvm::MCRegisterClass", ptr %.val2.i, i64 %124
+  %126 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %127 = load i32, ptr %126, align 8, !tbaa !3
+  %128 = lshr i32 %127, 3
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 22
+  %130 = load i16, ptr %129, align 2, !tbaa !151
+  %131 = zext i16 %130 to i32
+  %.not.i.i.i = icmp samesign ult i32 %128, %131
+  br i1 %.not.i.i.i, label %132, label %"_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit"
 
-131:                                              ; preds = %120
-  %132 = and i32 %126, 7
-  %133 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %134 = load ptr, ptr %133, align 8, !tbaa !154
-  %135 = zext nneg i32 %127 to i64
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %135
-  %137 = load i8, ptr %136, align 1, !tbaa !3
-  %138 = zext i8 %137 to i32
-  %139 = shl nuw nsw i32 1, %132
-  %140 = and i32 %139, %138
-  %141 = icmp ne i32 %140, 0
+132:                                              ; preds = %121
+  %133 = and i32 %127, 7
+  %134 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %135 = load ptr, ptr %134, align 8, !tbaa !154
+  %136 = zext nneg i32 %128 to i64
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
+  %138 = load i8, ptr %137, align 1, !tbaa !3
+  %139 = zext i8 %138 to i32
+  %140 = shl nuw nsw i32 1, %133
+  %141 = and i32 %140, %139
+  %142 = icmp ne i32 %141, 0
   br label %"_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit"
 
-142:                                              ; preds = %79
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %144 = load i32, ptr %143, align 4, !tbaa !146
-  %145 = tail call noundef zeroext i1 %.val3.i(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(304) %9, i32 noundef %144) #14
+143:                                              ; preds = %79
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %145 = load i32, ptr %144, align 4, !tbaa !146
+  %146 = tail call noundef zeroext i1 %.val3.i(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(304) %9, i32 noundef %145) #14
   br label %"_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit"
 
-146:                                              ; preds = %79
+147:                                              ; preds = %79
   unreachable
 
-"_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit": ; preds = %20, %33, %45, %60, %76, %79, %86, %89, %96, %99, %105, %108, %117, %120, %131, %142
-  %.0.i.i = phi i1 [ %32, %20 ], [ %.not.i.i, %33 ], [ true, %45 ], [ true, %60 ], [ %78, %76 ], [ %145, %142 ], [ false, %86 ], [ %95, %89 ], [ false, %117 ], [ true, %79 ], [ false, %96 ], [ %104, %99 ], [ false, %105 ], [ %116, %108 ], [ %141, %131 ], [ false, %120 ]
-  %147 = xor i1 %.0.i.i, true
-  ret i1 %147
+"_ZZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEENK3$_1clERKNS_16AliasPatternCondE.exit": ; preds = %20, %33, %45, %60, %76, %79, %86, %89, %96, %99, %105, %108, %118, %121, %132, %143
+  %.0.i.i = phi i1 [ %32, %20 ], [ %.not.i.i, %33 ], [ true, %45 ], [ true, %60 ], [ %78, %76 ], [ %146, %143 ], [ false, %86 ], [ %95, %89 ], [ false, %118 ], [ true, %79 ], [ false, %96 ], [ %104, %99 ], [ false, %105 ], [ %117, %108 ], [ %142, %132 ], [ false, %121 ]
+  %148 = xor i1 %.0.i.i, true
+  ret i1 %148
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

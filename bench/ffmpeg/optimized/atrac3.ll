@@ -333,14 +333,14 @@ define internal i32 @atrac3_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
 
 14:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef %8) #9
-  br label %349
+  br label %352
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 1024, ptr %16, align 8, !tbaa !55
   %17 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #9
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %349, label %19
+  br i1 %18, label %352, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 4624
@@ -981,14 +981,17 @@ channel_weighting.exit.i:                         ; preds = %.loopexit.i184.i, %
   %340 = getelementptr inbounds nuw i8, ptr %338, i64 2048
   %341 = getelementptr inbounds nuw i8, ptr %338, i64 3072
   %342 = load ptr, ptr %334, align 8, !tbaa !51
-  %343 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %342, i64 %indvars.iv254.i, i32 9
-  tail call void @ff_atrac_iqmf(ptr noundef %338, ptr noundef nonnull %339, i32 noundef 256, ptr noundef %338, ptr noundef nonnull %343, ptr noundef nonnull %335) #9
-  %344 = load ptr, ptr %334, align 8, !tbaa !51
-  %345 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %344, i64 %indvars.iv254.i, i32 10
-  tail call void @ff_atrac_iqmf(ptr noundef nonnull %341, ptr noundef nonnull %340, i32 noundef 256, ptr noundef nonnull %340, ptr noundef nonnull %345, ptr noundef nonnull %335) #9
-  %346 = load ptr, ptr %334, align 8, !tbaa !51
-  %347 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %346, i64 %indvars.iv254.i, i32 11
-  tail call void @ff_atrac_iqmf(ptr noundef %338, ptr noundef nonnull %340, i32 noundef 512, ptr noundef %338, ptr noundef nonnull %347, ptr noundef nonnull %335) #9
+  %343 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %342, i64 %indvars.iv254.i
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 15344
+  tail call void @ff_atrac_iqmf(ptr noundef %338, ptr noundef nonnull %339, i32 noundef 256, ptr noundef %338, ptr noundef nonnull %344, ptr noundef nonnull %335) #9
+  %345 = load ptr, ptr %334, align 8, !tbaa !51
+  %346 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %345, i64 %indvars.iv254.i
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 15528
+  tail call void @ff_atrac_iqmf(ptr noundef nonnull %341, ptr noundef nonnull %340, i32 noundef 256, ptr noundef nonnull %340, ptr noundef nonnull %347, ptr noundef nonnull %335) #9
+  %348 = load ptr, ptr %334, align 8, !tbaa !51
+  %349 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %348, i64 %indvars.iv254.i
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 15712
+  tail call void @ff_atrac_iqmf(ptr noundef %338, ptr noundef nonnull %340, i32 noundef 512, ptr noundef %338, ptr noundef nonnull %350, ptr noundef nonnull %335) #9
   %indvars.iv.next255.i = add nuw nsw i64 %indvars.iv254.i, 1
   %exitcond258.not.i = icmp eq i64 %indvars.iv.next255.i, %wide.trip.count257.i
   br i1 %exitcond258.not.i, label %decode_frame.exit, label %336, !llvm.loop !83
@@ -996,15 +999,15 @@ channel_weighting.exit.i:                         ; preds = %.loopexit.i184.i, %
 .loopexit:                                        ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %172, %._crit_edge.i35, %95, %.lr.ph211.i
   %.1.i.ph = phi i32 [ -1094995529, %.lr.ph211.i ], [ %179, %172 ], [ -1094995529, %._crit_edge.i35 ], [ %107, %95 ], [ %71, %.lr.ph.split.us.i ], [ %332, %.lr.ph.split.i ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.20) #9
-  br label %349
+  br label %352
 
 decode_frame.exit:                                ; preds = %336, %.thread191.i, %73, %.preheader.i
   store i32 1, ptr %2, align 4, !tbaa !43
-  %348 = load i32, ptr %11, align 4, !tbaa !40
-  br label %349
+  %351 = load i32, ptr %11, align 4, !tbaa !40
+  br label %352
 
-349:                                              ; preds = %15, %decode_frame.exit, %.loopexit, %14
-  %.025 = phi i32 [ -1094995529, %14 ], [ %.1.i.ph, %.loopexit ], [ %348, %decode_frame.exit ], [ %17, %15 ]
+352:                                              ; preds = %15, %decode_frame.exit, %.loopexit, %14
+  %.025 = phi i32 [ -1094995529, %14 ], [ %.1.i.ph, %.loopexit ], [ %351, %decode_frame.exit ], [ %17, %15 ]
   ret i32 %.025
 }
 
@@ -1027,7 +1030,7 @@ define internal i32 @atrac3al_decode_frame(ptr noundef %0, ptr noundef initializ
   store i32 1024, ptr %5, align 8, !tbaa !55
   %6 = tail call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #9
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %69, label %8
+  br i1 %7, label %72, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1130,29 +1133,32 @@ define internal i32 @atrac3al_decode_frame(ptr noundef %0, ptr noundef initializ
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 2048
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 3072
   %62 = load ptr, ptr %28, align 8, !tbaa !51
-  %63 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %62, i64 %indvars.iv11.i, i32 9
-  tail call void @ff_atrac_iqmf(ptr noundef %58, ptr noundef nonnull %59, i32 noundef 256, ptr noundef %58, ptr noundef nonnull %63, ptr noundef nonnull %30) #9
-  %64 = load ptr, ptr %28, align 8, !tbaa !51
-  %65 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %64, i64 %indvars.iv11.i, i32 10
-  tail call void @ff_atrac_iqmf(ptr noundef nonnull %61, ptr noundef nonnull %60, i32 noundef 256, ptr noundef nonnull %60, ptr noundef nonnull %65, ptr noundef nonnull %30) #9
-  %66 = load ptr, ptr %28, align 8, !tbaa !51
-  %67 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %66, i64 %indvars.iv11.i, i32 11
-  tail call void @ff_atrac_iqmf(ptr noundef %58, ptr noundef nonnull %60, i32 noundef 512, ptr noundef %58, ptr noundef nonnull %67, ptr noundef nonnull %30) #9
+  %63 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %62, i64 %indvars.iv11.i
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 15344
+  tail call void @ff_atrac_iqmf(ptr noundef %58, ptr noundef nonnull %59, i32 noundef 256, ptr noundef %58, ptr noundef nonnull %64, ptr noundef nonnull %30) #9
+  %65 = load ptr, ptr %28, align 8, !tbaa !51
+  %66 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %65, i64 %indvars.iv11.i
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 15528
+  tail call void @ff_atrac_iqmf(ptr noundef nonnull %61, ptr noundef nonnull %60, i32 noundef 256, ptr noundef nonnull %60, ptr noundef nonnull %67, ptr noundef nonnull %30) #9
+  %68 = load ptr, ptr %28, align 8, !tbaa !51
+  %69 = getelementptr inbounds nuw %struct.ChannelUnit, ptr %68, i64 %indvars.iv11.i
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 15712
+  tail call void @ff_atrac_iqmf(ptr noundef %58, ptr noundef nonnull %60, i32 noundef 512, ptr noundef %58, ptr noundef nonnull %70, ptr noundef nonnull %30) #9
   %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
   %exitcond15.not.i = icmp eq i64 %indvars.iv.next12.i, %wide.trip.count.i
   br i1 %exitcond15.not.i, label %.loopexit, label %56, !llvm.loop !86
 
 al_decode_frame.exit:                             ; preds = %31
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.20) #9
-  br label %69
+  br label %72
 
 .loopexit:                                        ; preds = %56, %8
   store i32 1, ptr %2, align 4, !tbaa !43
-  %68 = load i32, ptr %11, align 8, !tbaa !54
-  br label %69
+  %71 = load i32, ptr %11, align 8, !tbaa !54
+  br label %72
 
-69:                                               ; preds = %4, %.loopexit, %al_decode_frame.exit
-  %.0 = phi i32 [ %38, %al_decode_frame.exit ], [ %68, %.loopexit ], [ %6, %4 ]
+72:                                               ; preds = %4, %.loopexit, %al_decode_frame.exit
+  %.0 = phi i32 [ %38, %al_decode_frame.exit ], [ %71, %.loopexit ], [ %6, %4 ]
   ret i32 %.0
 }
 

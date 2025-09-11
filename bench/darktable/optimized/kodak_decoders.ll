@@ -2352,7 +2352,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw18kodak_65000_decodeEPsi(ptr nound
 
 125:                                              ; preds = %120
   %notmask = shl nsw i32 -1, %95
-  %.neg = add nsw i32 %notmask, 1
+  %.neg = add nuw nsw i32 %notmask, 1
   %126 = add nsw i32 %.neg, %116
   br label %127
 

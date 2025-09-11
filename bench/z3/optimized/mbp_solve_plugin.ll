@@ -1804,20 +1804,20 @@ _ZNK6vectorISt4pairIbP4exprELb0EjE5emptyEv.exit:  ; preds = %_ZNK6vectorISt4pair
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %73 = add i32 %70, -1
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %"struct.std::pair", ptr %68, i64 %74, i32 1
-  %76 = load ptr, ptr %75, align 8, !tbaa !57
-  store ptr %76, ptr %9, align 8, !tbaa !24
-  %77 = getelementptr inbounds nuw %"struct.std::pair", ptr %68, i64 %74
-  %78 = load i8, ptr %77, align 8, !tbaa !59, !range !60, !noundef !61
+  %75 = getelementptr inbounds nuw %"struct.std::pair", ptr %68, i64 %74
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !57
+  store ptr %77, ptr %9, align 8, !tbaa !24
+  %78 = load i8, ptr %75, align 8, !tbaa !59, !range !60, !noundef !61
   store i32 %73, ptr %69, align 4, !tbaa !56
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, 65535
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.thread
 
 83:                                               ; preds = %72
-  %84 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %85 = load ptr, ptr %84, align 8, !tbaa !3
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8, !tbaa !13
@@ -1834,8 +1834,8 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %83
   br i1 %93, label %94, label %_ZNK17arith_recognizers6is_subEPK4expr.exit
 
 94:                                               ; preds = %_ZNK17arith_recognizers6is_addEPK4expr.exit
-  %95 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %96 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %97 = load i32, ptr %96, align 8, !tbaa !23
   %98 = zext i32 %97 to i64
   %.idx = shl nuw nsw i64 %98, 3
@@ -1925,7 +1925,7 @@ _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
   br i1 %130, label %131, label %_ZNK17arith_recognizers9is_uminusEPK4expr.exit
 
 131:                                              ; preds = %_ZNK17arith_recognizers6is_subEPK4expr.exit
-  %132 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %133 = load ptr, ptr %132, align 8, !tbaa !24
   %134 = getelementptr inbounds i8, ptr %68, i64 -8
   %135 = load i32, ptr %134, align 4, !tbaa !56
@@ -1955,7 +1955,7 @@ _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
   %143 = load i32, ptr %142, align 4, !tbaa !56
   %144 = add i32 %143, 1
   store i32 %144, ptr %142, align 4, !tbaa !56
-  %145 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %146 = load i32, ptr %145, align 8, !tbaa !23
   %147 = icmp ugt i32 %146, 1
   br i1 %147, label %.lr.ph153, label %.loopexit139
@@ -2025,7 +2025,7 @@ _ZNK17arith_recognizers9is_uminusEPK4expr.exit:   ; preds = %_ZNK17arith_recogni
 
 180:                                              ; preds = %_ZNK17arith_recognizers9is_uminusEPK4expr.exit
   %181 = xor i8 %78, 1
-  %182 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %182 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %183 = load ptr, ptr %182, align 8, !tbaa !24
   %184 = getelementptr inbounds i8, ptr %68, i64 -8
   %185 = load i32, ptr %184, align 4, !tbaa !56

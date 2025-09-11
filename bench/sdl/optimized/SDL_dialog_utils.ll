@@ -326,69 +326,70 @@ define hidden noundef ptr @validate_filters(ptr noundef readonly captures(addres
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %4 = getelementptr inbounds nuw %struct.SDL_DialogFileFilter, ptr %0, i64 %indvars.iv, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @SDL_strcmp_REAL(ptr noundef %5, ptr noundef nonnull @.str.2) #4
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %28, label %.preheader.i
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
+  %4 = getelementptr inbounds nuw %struct.SDL_DialogFileFilter, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call i32 @SDL_strcmp_REAL(ptr noundef %6, ptr noundef nonnull @.str.2) #4
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %29, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph
-  %8 = load i8, ptr %5, align 1
-  %.not35.i = icmp eq i8 %8, 0
+  %9 = load i8, ptr %6, align 1
+  %.not35.i = icmp eq i8 %9, 0
   br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %20
-  %9 = phi i8 [ %22, %20 ], [ %8, %.preheader.i ]
-  %.02036.i = phi ptr [ %21, %20 ], [ %5, %.preheader.i ]
-  %10 = and i8 %9, -33
-  %11 = add i8 %10, -65
-  %or.cond33.i = icmp ult i8 %11, 26
-  %12 = add i8 %9, -48
-  %or.cond28.i = icmp ult i8 %12, 10
+.lr.ph.i:                                         ; preds = %.preheader.i, %21
+  %10 = phi i8 [ %23, %21 ], [ %9, %.preheader.i ]
+  %.02036.i = phi ptr [ %22, %21 ], [ %6, %.preheader.i ]
+  %11 = and i8 %10, -33
+  %12 = add i8 %11, -65
+  %or.cond33.i = icmp ult i8 %12, 26
+  %13 = add i8 %10, -48
+  %or.cond28.i = icmp ult i8 %13, 10
   %or.cond34.i = or i1 %or.cond28.i, %or.cond33.i
-  br i1 %or.cond34.i, label %20, label %13
+  br i1 %or.cond34.i, label %21, label %14
 
-13:                                               ; preds = %.lr.ph.i
-  switch i8 %9, label %.thread [
-    i8 45, label %20
-    i8 95, label %20
-    i8 46, label %20
-    i8 59, label %14
+14:                                               ; preds = %.lr.ph.i
+  switch i8 %10, label %.thread [
+    i8 45, label %21
+    i8 95, label %21
+    i8 46, label %21
+    i8 59, label %15
   ]
 
-14:                                               ; preds = %13
-  %15 = icmp eq ptr %.02036.i, %5
-  br i1 %15, label %.thread, label %16
+15:                                               ; preds = %14
+  %16 = icmp eq ptr %.02036.i, %6
+  br i1 %16, label %.thread, label %17
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.02036.i, i64 -1
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 59
-  br i1 %19, label %.thread, label %20
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds i8, ptr %.02036.i, i64 -1
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 59
+  br i1 %20, label %.thread, label %21
 
-20:                                               ; preds = %16, %13, %13, %13, %.lr.ph.i
-  %21 = getelementptr inbounds nuw i8, ptr %.02036.i, i64 1
-  %22 = load i8, ptr %21, align 1
-  %.not.i = icmp eq i8 %22, 0
+21:                                               ; preds = %17, %14, %14, %14, %.lr.ph.i
+  %22 = getelementptr inbounds nuw i8, ptr %.02036.i, i64 1
+  %23 = load i8, ptr %22, align 1
+  %.not.i = icmp eq i8 %23, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %20, %.preheader.i
-  %23 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %5) #4
-  %24 = getelementptr i8, ptr %5, i64 %23
-  %25 = getelementptr i8, ptr %24, i64 -1
-  %26 = load i8, ptr %25, align 1
-  %27 = icmp eq i8 %26, 59
-  br i1 %27, label %.thread, label %28
+._crit_edge.i:                                    ; preds = %21, %.preheader.i
+  %24 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %6) #4
+  %25 = getelementptr i8, ptr %6, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -1
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp eq i8 %27, 59
+  br i1 %28, label %.thread, label %29
 
-28:                                               ; preds = %.lr.ph, %._crit_edge.i
+29:                                               ; preds = %.lr.ph, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !8
 
-.thread:                                          ; preds = %28, %._crit_edge.i, %13, %14, %16, %2
-  %.3 = phi ptr [ null, %2 ], [ @.str.3, %16 ], [ @.str.3, %14 ], [ @.str.5, %13 ], [ null, %28 ], [ @.str.3, %._crit_edge.i ]
+.thread:                                          ; preds = %29, %._crit_edge.i, %14, %15, %17, %2
+  %.3 = phi ptr [ null, %2 ], [ @.str.3, %17 ], [ @.str.3, %15 ], [ @.str.5, %14 ], [ null, %29 ], [ @.str.3, %._crit_edge.i ]
   ret ptr %.3
 }
 

@@ -322,38 +322,39 @@ define dso_local noundef zeroext i1 @_ZN4llvm17GenericSSAContextINS_15MachineFun
   %17 = zext i24 %16 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
-  %.sroa.025.031 = phi i32 [ 0, %.lr.ph.preheader ], [ %.sroa.025.1, %26 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
+  %.sroa.025.031 = phi i32 [ 0, %.lr.ph.preheader ], [ %.sroa.025.1, %27 ]
   %18 = load ptr, ptr %11, align 8, !tbaa !11
-  %19 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %18, i64 %indvars.iv, i32 1
-  %20 = load i32, ptr %19, align 4, !tbaa !38
-  %.not29 = icmp eq i32 %20, %14
-  br i1 %.not29, label %26, label %21
+  %19 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %21 = load i32, ptr %20, align 4, !tbaa !38
+  %.not29 = icmp eq i32 %21, %14
+  br i1 %.not29, label %27, label %22
 
-21:                                               ; preds = %.lr.ph
-  %22 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %10, i32 %20) #10
-  %23 = getelementptr i8, ptr %22, i64 68
-  %.val = load i16, ptr %23, align 4, !tbaa !165
-  switch i16 %.val, label %24 [
-    i16 67, label %26
-    i16 10, label %26
+22:                                               ; preds = %.lr.ph
+  %23 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %10, i32 %21) #10
+  %24 = getelementptr i8, ptr %23, i64 68
+  %.val = load i16, ptr %24, align 4, !tbaa !165
+  switch i16 %.val, label %25 [
+    i16 67, label %27
+    i16 10, label %27
   ]
 
-24:                                               ; preds = %21
+25:                                               ; preds = %22
   %.not = icmp ne i32 %.sroa.025.031, 0
-  %25 = icmp ne i32 %.sroa.025.031, %20
-  %or.cond = and i1 %.not, %25
-  br i1 %or.cond, label %.critedge20, label %26
+  %26 = icmp ne i32 %.sroa.025.031, %21
+  %or.cond = and i1 %.not, %26
+  br i1 %or.cond, label %.critedge20, label %27
 
-26:                                               ; preds = %21, %21, %24, %.lr.ph
-  %.sroa.025.1 = phi i32 [ %.sroa.025.031, %21 ], [ %.sroa.025.031, %.lr.ph ], [ %20, %24 ], [ %.sroa.025.031, %21 ]
+27:                                               ; preds = %22, %22, %25, %.lr.ph
+  %.sroa.025.1 = phi i32 [ %.sroa.025.031, %22 ], [ %.sroa.025.031, %.lr.ph ], [ %21, %25 ], [ %.sroa.025.031, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not18.not = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %.not18.not, label %.lr.ph, label %.critedge20, !llvm.loop !166
 
-.critedge20:                                      ; preds = %26, %24, %7, %1, %4
-  %.0 = phi i1 [ %6, %4 ], [ false, %1 ], [ true, %7 ], [ true, %26 ], [ false, %24 ]
+.critedge20:                                      ; preds = %27, %25, %7, %1, %4
+  %.0 = phi i1 [ %6, %4 ], [ false, %1 ], [ true, %7 ], [ true, %27 ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -367,19 +368,20 @@ define dso_local noundef i32 @_ZN4llvm17GenericSSAContextINS_15MachineFunctionEE
   %3 = load i16, ptr %2, align 4, !tbaa !165
   %4 = add i16 %3, -131
   %switch.i.i.i.i.i.i.i.i = icmp ult i16 %4, -4
-  br i1 %switch.i.i.i.i.i.i.i.i, label %12, label %5
+  br i1 %switch.i.i.i.i.i.i.i.i, label %13, label %5
 
 5:                                                ; preds = %1
   %6 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = zext i32 %6 to i64
-  %10 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %8, i64 %9, i32 3
-  %11 = load i32, ptr %10, align 8, !tbaa !38
-  br label %12
+  %10 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load i32, ptr %11, align 8, !tbaa !38
+  br label %13
 
-12:                                               ; preds = %1, %5
-  %spec.select = phi i32 [ %11, %5 ], [ 0, %1 ]
+13:                                               ; preds = %1, %5
+  %spec.select = phi i32 [ %12, %5 ], [ 0, %1 ]
   ret i32 %spec.select
 }
 

@@ -6923,33 +6923,33 @@ define hidden void @_PyTypes_FiniExtTypes(ptr noundef %0) local_unnamed_addr #1 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 189680
   br label %4
 
-4:                                                ; preds = %1, %17
-  %.09 = phi i64 [ 10, %1 ], [ %8, %17 ]
+4:                                                ; preds = %1, %18
+  %.09 = phi i64 [ 10, %1 ], [ %8, %18 ]
   %5 = load i64, ptr %2, align 8, !tbaa !303
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %18, label %7
+  br i1 %6, label %19, label %7
 
 7:                                                ; preds = %4
   %8 = add nsw i64 %.09, -1
   %9 = getelementptr %struct.managed_static_type_state, ptr %3, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+  br i1 %11, label %18, label %12
 
 12:                                               ; preds = %7
-  %.idx.i = shl i64 %8, 4
-  %13 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 13752), i64 %.idx.i
-  %14 = load i64, ptr %13, align 8, !tbaa !304
-  %15 = icmp eq i64 %14, 1
-  %16 = zext i1 %15 to i32
-  tail call fastcc void @fini_static_type(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %16)
-  br label %17
+  %13 = getelementptr %struct.anon.47, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 13744), i64 %8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load i64, ptr %14, align 8, !tbaa !304
+  %16 = icmp eq i64 %15, 1
+  %17 = zext i1 %16 to i32
+  tail call fastcc void @fini_static_type(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %17)
+  br label %18
 
-17:                                               ; preds = %7, %12
+18:                                               ; preds = %7, %12
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %18, label %4, !llvm.loop !306
+  br i1 %.not, label %19, label %4, !llvm.loop !306
 
-18:                                               ; preds = %4, %17
+19:                                               ; preds = %4, %18
   ret void
 }
 
@@ -7375,9 +7375,8 @@ clear_static_type_objects.exit:                   ; preds = %lookup_tp_subclasse
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 %..i
   %181 = getelementptr %struct.managed_static_type_state, ptr %180, i64 %177
   store ptr null, ptr %181, align 8, !tbaa !20
-  %.idx = shl i64 %179, 4
-  %182 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 %.idx
-  %183 = getelementptr i8, ptr %182, i64 8
+  %182 = getelementptr %struct.anon.47, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 %179
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = atomicrmw add ptr %183, i64 -1 seq_cst, align 8
   br i1 %.not.i17, label %189, label %185
 
@@ -15112,9 +15111,8 @@ _PyMutex_Lock.exit.i:                             ; preds = %38, %34
   %.not2931.i = icmp eq i32 %2, 0
   %48 = add i64 %46, 199
   %49 = select i1 %.not2931.i, i64 %48, i64 %47
-  %.idx.i = shl i64 %49, 4
-  %50 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 %.idx.i
-  %51 = getelementptr i8, ptr %50, i64 8
+  %50 = getelementptr %struct.anon.47, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = atomicrmw add ptr %51, i64 1 seq_cst, align 8
   %.34.i = select i1 %.not2931.i, i64 189680, i64 180064
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 %.34.i
@@ -15742,24 +15740,25 @@ define dso_local ptr @_PyType_GetSlotWrapperNames() local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %.preheader, %_Py_NewRef.exit
-  %.01012 = phi i64 [ 0, %.preheader ], [ %12, %_Py_NewRef.exit ]
-  %5 = getelementptr %struct.wrapperbase, ptr @slotdefs, i64 %.01012, i32 6
-  %6 = load ptr, ptr %5, align 8, !tbaa !322
-  %7 = load i32, ptr %6, align 8, !tbaa !102
-  %8 = icmp slt i32 %7, 0
-  br i1 %8, label %_Py_NewRef.exit, label %9
+  %.01012 = phi i64 [ 0, %.preheader ], [ %13, %_Py_NewRef.exit ]
+  %5 = getelementptr %struct.wrapperbase, ptr @slotdefs, i64 %.01012
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %7 = load ptr, ptr %6, align 8, !tbaa !322
+  %8 = load i32, ptr %7, align 8, !tbaa !102
+  %9 = icmp slt i32 %8, 0
+  br i1 %9, label %_Py_NewRef.exit, label %10
 
-9:                                                ; preds = %4
-  %10 = add nuw i32 %7, 1
-  store i32 %10, ptr %6, align 8, !tbaa !102
+10:                                               ; preds = %4
+  %11 = add nuw i32 %8, 1
+  store i32 %11, ptr %7, align 8, !tbaa !102
   br label %_Py_NewRef.exit
 
-_Py_NewRef.exit:                                  ; preds = %4, %9
+_Py_NewRef.exit:                                  ; preds = %4, %10
   %.val = load ptr, ptr %3, align 8, !tbaa !103
-  %11 = getelementptr ptr, ptr %.val, i64 %.01012
-  store ptr %6, ptr %11, align 8, !tbaa !105
-  %12 = add nuw nsw i64 %.01012, 1
-  %exitcond.not = icmp eq i64 %12, 94
+  %12 = getelementptr ptr, ptr %.val, i64 %.01012
+  store ptr %7, ptr %12, align 8, !tbaa !105
+  %13 = add nuw nsw i64 %.01012, 1
+  %exitcond.not = icmp eq i64 %13, 94
   br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !428
 
 .loopexit:                                        ; preds = %_Py_NewRef.exit, %0

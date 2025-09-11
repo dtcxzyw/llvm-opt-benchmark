@@ -136632,18 +136632,19 @@ define void @_ZN5typst11foundations2ty4Type5field17h2166012b195a074eE(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false)
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  br label %48
+  br label %49
 
 43:                                               ; preds = %19
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !24412, !noalias !24417, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds { { { { [2 x i64] } } }, i64, { { i8, [31 x i8] }, ptr, i8, [7 x i8] } }, ptr %45, i64 %17, i32 2
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %46, ptr %47, align 8
+  %46 = getelementptr inbounds { { { { [2 x i64] } } }, i64, { { i8, [31 x i8] }, ptr, i8, [7 x i8] } }, ptr %45, i64 %17
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %47, ptr %48, align 8
   store i64 0, ptr %0, align 8
-  br label %48
+  br label %49
 
-48:                                               ; preds = %43, %"_ZN5typst11foundations2ty4Type5field28_$u7b$$u7b$closure$u7d$$u7d$17h61c187c977b3615aE.llvm.3683678558897460461.exit"
+49:                                               ; preds = %43, %"_ZN5typst11foundations2ty4Type5field28_$u7b$$u7b$closure$u7d$$u7d$17h61c187c977b3615aE.llvm.3683678558897460461.exit"
   ret void
 }
 
@@ -137396,7 +137397,7 @@ _ZN5typst11foundations7content7Content13field_by_name17hd9569f6e8eca3d41E.exit: 
   %100 = extractvalue { i64, i64 } %99, 0
   %101 = extractvalue { i64, i64 } %99, 1
   %102 = icmp eq i64 %100, 1
-  br i1 %102, label %103, label %112
+  br i1 %102, label %103, label %113
 
 103:                                              ; preds = %94
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 32
@@ -137411,17 +137412,18 @@ _ZN5typst11foundations7content7Content13field_by_name17hd9569f6e8eca3d41E.exit: 
 108:                                              ; preds = %103
   %109 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %110 = load ptr, ptr %109, align 8, !alias.scope !24604, !noalias !24609, !nonnull !7, !noundef !7
-  %111 = getelementptr inbounds { { { { [2 x i64] } } }, i64, { { i8, [31 x i8] }, ptr, i8, [7 x i8] } }, ptr %110, i64 %101, i32 2
+  %111 = getelementptr inbounds { { { { [2 x i64] } } }, i64, { { i8, [31 x i8] }, ptr, i8, [7 x i8] } }, ptr %110, i64 %101
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24612)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24615)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !24617
-  call void @"_ZN71_$LT$typst..foundations..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17ha48c16cb206e134aE.llvm.3683678558897460461"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %111), !noalias !24617
+  call void @"_ZN71_$LT$typst..foundations..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17ha48c16cb206e134aE.llvm.3683678558897460461"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %112), !noalias !24617
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !24615
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !24617
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h472f717d1078498dE.llvm.3683678558897460461.exit"
 
-112:                                              ; preds = %94
+113:                                              ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !24596
   call void @"_ZN5typst11foundations6module6Module5field28_$u7b$$u7b$closure$u7d$$u7d$17hddb25e7a1df419cbE.llvm.12850028421071809815"(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7), !noalias !24618
   %.sroa.513.8.copyload = load ptr, ptr %6, align 8, !noalias !24619
@@ -137429,14 +137431,14 @@ _ZN5typst11foundations7content7Content13field_by_name17hd9569f6e8eca3d41E.exit: 
   %.sroa.915.8.copyload = load i64, ptr %.sroa.915.8..sroa_idx, align 8, !noalias !24619
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !24596
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.513.8.copyload, ptr %113, align 8, !alias.scope !24617
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.513.8.copyload, ptr %114, align 8, !alias.scope !24617
   %.sroa.915.8..sroa_idx16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.915.8.copyload, ptr %.sroa.915.8..sroa_idx16, align 8, !alias.scope !24617
   store i8 30, ptr %0, align 8, !alias.scope !24612, !noalias !24615
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h472f717d1078498dE.llvm.3683678558897460461.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h472f717d1078498dE.llvm.3683678558897460461.exit": ; preds = %112, %108, %76, %72, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h472f717d1078498dE.llvm.3683678558897460461.exit6", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h472f717d1078498dE.llvm.3683678558897460461.exit4", %_ZN5typst11foundations7content7Content13field_by_name17hd9569f6e8eca3d41E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h453aa3994c850db4E.llvm.3683678558897460461.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hef8bf88a8298237fE.llvm.3683678558897460461.exit", %20
+"_ZN4core6result19Result$LT$T$C$E$GT$3map17h472f717d1078498dE.llvm.3683678558897460461.exit": ; preds = %113, %108, %76, %72, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h472f717d1078498dE.llvm.3683678558897460461.exit6", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h472f717d1078498dE.llvm.3683678558897460461.exit4", %_ZN5typst11foundations7content7Content13field_by_name17hd9569f6e8eca3d41E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h453aa3994c850db4E.llvm.3683678558897460461.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hef8bf88a8298237fE.llvm.3683678558897460461.exit", %20
   ret void
 }
 

@@ -20102,7 +20102,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit:
 19:                                               ; preds = %16, %14
   %.026.i = phi ptr [ %17, %16 ], [ %3, %14 ]
   %.0.i = phi i32 [ %18, %16 ], [ %8, %14 ]
-  %20 = icmp ult i32 %.0.i, 10
+  %20 = icmp samesign ult i32 %.0.i, 10
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %19, %32
@@ -20282,7 +20282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 102:                                              ; preds = %100, %99
   %.026.i14 = phi ptr [ %101, %100 ], [ %94, %99 ]
   %.0.i15 = phi i32 [ %74, %100 ], [ %8, %99 ]
-  %103 = icmp ult i32 %.0.i15, 10
+  %103 = icmp samesign ult i32 %.0.i15, 10
   br i1 %103, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i19, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %102, %115
@@ -20659,7 +20659,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit:
 19:                                               ; preds = %16, %14
   %.026.i = phi ptr [ %17, %16 ], [ %3, %14 ]
   %.0.i = phi i32 [ %18, %16 ], [ %8, %14 ]
-  %20 = icmp ult i32 %.0.i, 10
+  %20 = icmp samesign ult i32 %.0.i, 10
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %19, %32
@@ -20839,7 +20839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 102:                                              ; preds = %100, %99
   %.026.i14 = phi ptr [ %101, %100 ], [ %94, %99 ]
   %.0.i15 = phi i32 [ %74, %100 ], [ %8, %99 ]
-  %103 = icmp ult i32 %.0.i15, 10
+  %103 = icmp samesign ult i32 %.0.i15, 10
   br i1 %103, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i19, label %.lr.ph.i.i.i16
 
 .lr.ph.i.i.i16:                                   ; preds = %102, %115

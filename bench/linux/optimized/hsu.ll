@@ -283,7 +283,8 @@ define internal fastcc void @hsu_dma_start_channel(ptr noundef readonly captures
   %48 = getelementptr i8, ptr %47, i64 32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %45, ptr elementtype(i32) %48) #11, !srcloc !11
   %49 = load ptr, ptr %36, align 8
-  %50 = getelementptr %struct.hsu_dma_sg, ptr %49, i64 %39, i32 1
+  %.split = getelementptr %struct.hsu_dma_sg, ptr %49, i64 %39
+  %50 = getelementptr i8, ptr %.split, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = load ptr, ptr %19, align 8
   %53 = getelementptr i8, ptr %52, i64 %41
@@ -622,7 +623,8 @@ define internal noundef ptr @hsu_dma_prep_slave_sg(ptr noundef %0, ptr noundef %
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = load ptr, ptr %14, align 8
-  %31 = getelementptr %struct.hsu_dma_sg, ptr %30, i64 %22, i32 1
+  %.split = getelementptr %struct.hsu_dma_sg, ptr %30, i64 %22
+  %31 = getelementptr i8, ptr %.split, i64 8
   store i32 %29, ptr %31, align 8
   %32 = zext i32 %29 to i64
   %33 = load i64, ptr %20, align 8
@@ -806,7 +808,8 @@ define internal i32 @hsu_dma_tx_status(ptr noundef %0, i32 noundef %1, ptr nound
   %43 = phi i32 [ %33, %37 ], [ %49, %42 ]
   %44 = phi i32 [ 0, %37 ], [ %48, %42 ]
   %45 = sext i32 %43 to i64
-  %46 = getelementptr %struct.hsu_dma_sg, ptr %39, i64 %45, i32 1
+  %.split = getelementptr %struct.hsu_dma_sg, ptr %39, i64 %45
+  %46 = getelementptr i8, ptr %.split, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, %44
   %49 = add nuw i32 %43, 1
@@ -1122,7 +1125,8 @@ define dso_local noundef i32 @hsu_dma_remove(ptr noundef readonly captures(none)
 9:                                                ; preds = %9, %7
   %10 = phi i64 [ 0, %7 ], [ %13, %9 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr %struct.hsu_dma_chan, ptr %11, i64 %10, i32 0, i32 1
+  %.split = getelementptr %struct.hsu_dma_chan, ptr %11, i64 %10
+  %12 = getelementptr i8, ptr %.split, i64 112
   tail call void @tasklet_kill(ptr noundef %12) #11
   %13 = add nuw nsw i64 %10, 1
   %14 = load i16, ptr %4, align 8

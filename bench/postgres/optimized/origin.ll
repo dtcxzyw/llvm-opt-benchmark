@@ -519,18 +519,20 @@ ReplicationOriginShmemSize.exit22:                ; preds = %13, %16
 .lr.ph26:                                         ; preds = %.loopexit23, %.lr.ph26
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph26 ], [ 0, %.loopexit23 ]
   %39 = load ptr, ptr @replication_states, align 8
-  %40 = getelementptr inbounds nuw %struct.ReplicationState, ptr %39, i64 %indvars.iv, i32 5
-  %41 = load ptr, ptr @replication_states_ctl, align 8
-  %42 = load i32, ptr %41, align 8
-  call void @LWLockInitialize(ptr noundef nonnull %40, i32 noundef %42) #10
-  %43 = load ptr, ptr @replication_states, align 8
-  %44 = getelementptr inbounds nuw %struct.ReplicationState, ptr %43, i64 %indvars.iv, i32 4
-  call void @ConditionVariableInit(ptr noundef nonnull %44) #10
+  %40 = getelementptr inbounds nuw %struct.ReplicationState, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %42 = load ptr, ptr @replication_states_ctl, align 8
+  %43 = load i32, ptr %42, align 8
+  call void @LWLockInitialize(ptr noundef nonnull %41, i32 noundef %43) #10
+  %44 = load ptr, ptr @replication_states, align 8
+  %45 = getelementptr inbounds nuw %struct.ReplicationState, ptr %44, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 28
+  call void @ConditionVariableInit(ptr noundef nonnull %46) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = load i32, ptr @max_replication_slots, align 4
-  %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph26, label %.loopexit, !llvm.loop !10
+  %47 = load i32, ptr @max_replication_slots, align 4
+  %48 = sext i32 %47 to i64
+  %49 = icmp slt i64 %indvars.iv.next, %48
+  br i1 %49, label %.lr.ph26, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph26, %.loopexit23, %ReplicationOriginShmemSize.exit, %0
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -905,7 +907,7 @@ define dso_local void @StartupReplicationOrigin() local_unnamed_addr #0 {
   %67 = getelementptr inbounds %struct.ReplicationState, ptr %65, i64 %66
   store i16 %64, ptr %67, align 8
   %68 = load i64, ptr %37, align 8
-  %69 = getelementptr inbounds %struct.ReplicationState, ptr %65, i64 %66, i32 1
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i64 %68, ptr %69, align 8
   %70 = add i32 %.03358, 1
   %71 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10

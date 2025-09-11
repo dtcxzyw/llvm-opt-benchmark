@@ -865,51 +865,54 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN7Imf_3_426getCompressionNumScanlinesENS_11CompressionE(i32 noundef %0) local_unnamed_addr #7 {
   %or.cond = icmp ugt i32 %0, 9
-  br i1 %or.cond, label %6, label %2
+  br i1 %or.cond, label %7, label %2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3, i32 2
-  %5 = load i32, ptr %4, align 8, !tbaa !35
-  br label %6
+  %4 = getelementptr inbounds nuw %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %6 = load i32, ptr %5, align 8, !tbaa !35
+  br label %7
 
-6:                                                ; preds = %1, %2
-  %.0 = phi i32 [ %5, %2 ], [ -1, %1 ]
+7:                                                ; preds = %1, %2
+  %.0 = phi i32 [ %6, %2 ], [ -1, %1 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN7Imf_3_418isLossyCompressionENS_11CompressionE(i32 noundef %0) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 10
-  br i1 %or.cond, label %2, label %7
+  br i1 %or.cond, label %2, label %8
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3, i32 3
-  %5 = load i8, ptr %4, align 4, !tbaa !39, !range !40, !noundef !41
-  %6 = trunc nuw i8 %5 to i1
-  br label %7
+  %4 = getelementptr inbounds nuw %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 68
+  %6 = load i8, ptr %5, align 4, !tbaa !39, !range !40, !noundef !41
+  %7 = trunc nuw i8 %6 to i1
+  br label %8
 
-7:                                                ; preds = %2, %1
-  %8 = phi i1 [ false, %1 ], [ %6, %2 ]
-  ret i1 %8
+8:                                                ; preds = %2, %1
+  %9 = phi i1 [ false, %1 ], [ %7, %2 ]
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN7Imf_3_422isValidDeepCompressionENS_11CompressionE(i32 noundef %0) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 10
-  br i1 %or.cond, label %2, label %7
+  br i1 %or.cond, label %2, label %8
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3, i32 4
-  %5 = load i8, ptr %4, align 1, !tbaa !42, !range !40, !noundef !41
-  %6 = trunc nuw i8 %5 to i1
-  br label %7
+  %4 = getelementptr inbounds nuw %"struct.Imf_3_4::CompressionDesc", ptr @_ZN7Imf_3_4L8IdToDescE, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 69
+  %6 = load i8, ptr %5, align 1, !tbaa !42, !range !40, !noundef !41
+  %7 = trunc nuw i8 %6 to i1
+  br label %8
 
-7:                                                ; preds = %2, %1
-  %8 = phi i1 [ false, %1 ], [ %6, %2 ]
-  ret i1 %8
+8:                                                ; preds = %2, %1
+  %9 = phi i1 [ false, %1 ], [ %7, %2 ]
+  ret i1 %9
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable

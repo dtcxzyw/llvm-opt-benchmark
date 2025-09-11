@@ -16090,7 +16090,8 @@ _ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE13binary_searchERKS3_.exit: ; pre
 if.end143:                                        ; preds = %_ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE13binary_searchERKS3_.exit
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
   %conv.i404 = and i64 %sub.ptr.div.i.i.i, 4294967295
-  %Win32Key = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %46, i64 %conv.i404, i32 1
+  %Win32Key.split = getelementptr inbounds nuw %"struct.irr::CIrrDeviceSDL::SKeyMap", ptr %46, i64 %conv.i404
+  %Win32Key = getelementptr inbounds nuw i8, ptr %Win32Key.split, i64 4
   %51 = load i32, ptr %Win32Key, align 4, !tbaa !883
   %cmp144 = icmp eq i32 %51, 0
   br i1 %cmp144, label %if.then145, label %if.end147

@@ -6912,18 +6912,18 @@ _ZNK17QArrayDataPointerI7QStringE5flagsEv.exit:   ; preds = %38, %_ZNK17QArrayDa
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN14InterfaceFrame15showContextMenuE6QPointE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 align 2 {
-  switch i32 %0, label %18 [
+  switch i32 %0, label %19 [
     i32 0, label %6
     i32 1, label %9
   ]
 
 6:                                                ; preds = %5
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %18, label %8
+  br i1 %7, label %19, label %8
 
 8:                                                ; preds = %6
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 40) #29
-  br label %18
+  br label %19
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6931,15 +6931,16 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN14InterfaceFrame15sho
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_capture_opts, i64 16), align 8
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %.val to i64
-  %14 = getelementptr %struct.interface_tag, ptr %12, i64 %13, i32 18
-  %15 = load i8, ptr %14, align 1, !range !42, !noundef !43
-  %16 = xor i8 %15, 1
-  store i8 %16, ptr %14, align 1
-  %17 = load ptr, ptr @mainApp, align 8
-  tail call void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef align 8 dereferenceable_or_null(216) %17, i32 noundef 6)
-  br label %18
+  %14 = getelementptr %struct.interface_tag, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 137
+  %16 = load i8, ptr %15, align 1, !range !42, !noundef !43
+  %17 = xor i8 %16, 1
+  store i8 %17, ptr %15, align 1
+  %18 = load ptr, ptr @mainApp, align 8
+  tail call void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef align 8 dereferenceable_or_null(216) %18, i32 noundef 6)
+  br label %19
 
-18:                                               ; preds = %6, %8, %9, %5
+19:                                               ; preds = %6, %8, %9, %5
   ret void
 }
 

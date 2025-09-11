@@ -12055,13 +12055,14 @@ define internal fastcc void @collectRoleNames(ptr noundef %0) unnamed_addr #4 {
   %15 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 1) #14
   %16 = tail call ptr @pg_strdup(ptr noundef %15) #14
   %17 = load ptr, ptr @rolenames, align 8
-  %18 = getelementptr inbounds nuw %struct.RoleNameItem, ptr %17, i64 %indvars.iv, i32 1
-  store ptr %16, ptr %18, align 8
+  %18 = getelementptr inbounds nuw %struct.RoleNameItem, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr %16, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr @nrolenames, align 4
-  %20 = sext i32 %19 to i64
-  %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  %20 = load i32, ptr @nrolenames, align 4
+  %21 = sext i32 %20 to i64
+  %22 = icmp slt i64 %indvars.iv.next, %21
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @PQclear(ptr noundef %2) #14
@@ -12850,11 +12851,11 @@ define internal fastcc void @collectComments(ptr noundef %0) unnamed_addr #4 {
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds %struct.CommentItem, ptr %50, i64 %52
   store ptr %49, ptr %53, align 8
-  %54 = getelementptr inbounds %struct.CommentItem, ptr %50, i64 %52, i32 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 %16, ptr %54, align 8
-  %55 = getelementptr inbounds %struct.CommentItem, ptr %50, i64 %52, i32 2
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 %19, ptr %55, align 4
-  %56 = getelementptr inbounds %struct.CommentItem, ptr %50, i64 %52, i32 3
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i32 %22, ptr %56, align 8
   %57 = add i32 %51, 1
   store i32 %57, ptr @ncomments, align 4
@@ -12892,9 +12893,9 @@ define internal fastcc void @collectSecLabels(ptr noundef %0) unnamed_addr #4 {
   %14 = icmp sgt i32 %10, 0
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1, %65
-  %.053 = phi i32 [ %66, %65 ], [ 0, %1 ]
-  %.04452 = phi ptr [ %.151, %65 ], [ null, %1 ]
+.lr.ph:                                           ; preds = %1, %66
+  %.053 = phi i32 [ %67, %66 ], [ 0, %1 ]
+  %.04452 = phi ptr [ %.151, %66 ], [ null, %1 ]
   %15 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %7) #14
   %16 = tail call i64 @strtoul(ptr noundef captures(none) %15, ptr noundef null, i32 noundef 10) #14
   %17 = trunc i64 %16 to i32
@@ -12925,7 +12926,7 @@ define internal fastcc void @collectSecLabels(ptr noundef %0) unnamed_addr #4 {
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.ext, %.sroa.0.0.insert.ext
   %32 = tail call ptr @findObjectByCatalogId(i64 %.sroa.0.0.insert.insert) #14
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %65, label %.thread
+  br i1 %33, label %66, label %.thread
 
 .thread:                                          ; preds = %28, %31
   %.150 = phi ptr [ %32, %31 ], [ %.04452, %28 ]
@@ -12964,32 +12965,33 @@ define internal fastcc void @collectSecLabels(ptr noundef %0) unnamed_addr #4 {
   %51 = load ptr, ptr @seclabels, align 8
   %52 = load i32, ptr @nseclabels, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %struct.SecLabelItem, ptr %51, i64 %53, i32 1
-  store ptr %50, ptr %54, align 8
-  %55 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %6) #14
-  %56 = tail call ptr @pg_strdup(ptr noundef %55) #14
-  %57 = load ptr, ptr @seclabels, align 8
-  %58 = load i32, ptr @nseclabels, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct.SecLabelItem, ptr %57, i64 %59
-  store ptr %56, ptr %60, align 8
-  %61 = getelementptr inbounds %struct.SecLabelItem, ptr %57, i64 %59, i32 2
-  store i32 %17, ptr %61, align 8
-  %62 = getelementptr inbounds %struct.SecLabelItem, ptr %57, i64 %59, i32 3
-  store i32 %20, ptr %62, align 4
-  %63 = getelementptr inbounds %struct.SecLabelItem, ptr %57, i64 %59, i32 4
-  store i32 %23, ptr %63, align 8
-  %64 = add i32 %58, 1
-  store i32 %64, ptr @nseclabels, align 4
-  br label %65
+  %54 = getelementptr inbounds %struct.SecLabelItem, ptr %51, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store ptr %50, ptr %55, align 8
+  %56 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %6) #14
+  %57 = tail call ptr @pg_strdup(ptr noundef %56) #14
+  %58 = load ptr, ptr @seclabels, align 8
+  %59 = load i32, ptr @nseclabels, align 4
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds %struct.SecLabelItem, ptr %58, i64 %60
+  store ptr %57, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  store i32 %17, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 20
+  store i32 %20, ptr %63, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  store i32 %23, ptr %64, align 8
+  %65 = add i32 %59, 1
+  store i32 %65, ptr @nseclabels, align 4
+  br label %66
 
-65:                                               ; preds = %31, %48
+66:                                               ; preds = %31, %48
   %.151 = phi ptr [ null, %31 ], [ %.150, %48 ]
-  %66 = add nuw nsw i32 %.053, 1
-  %exitcond.not = icmp eq i32 %66, %10
+  %67 = add nuw nsw i32 %.053, 1
+  %exitcond.not = icmp eq i32 %67, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %65, %1
+._crit_edge:                                      ; preds = %66, %1
   tail call void @PQclear(ptr noundef %4) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %2) #14
   ret void
@@ -13024,43 +13026,49 @@ define internal fastcc void @collectBinaryUpgradeClassOids(ptr noundef %0) unnam
   %15 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 1) #14
   %16 = load i8, ptr %15, align 1
   %17 = load ptr, ptr @binaryUpgradeClassOids, align 8
-  %18 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %17, i64 %indvars.iv, i32 1
-  store i8 %16, ptr %18, align 4
-  %19 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 2) #14
-  %20 = tail call i64 @strtoul(ptr noundef captures(none) %19, ptr noundef null, i32 noundef 10) #14
-  %21 = trunc i64 %20 to i32
-  %22 = load ptr, ptr @binaryUpgradeClassOids, align 8
-  %23 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %22, i64 %indvars.iv, i32 2
-  store i32 %21, ptr %23, align 4
-  %24 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 3) #14
-  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #14
-  %26 = trunc i64 %25 to i32
-  %27 = load ptr, ptr @binaryUpgradeClassOids, align 8
-  %28 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %27, i64 %indvars.iv, i32 3
-  store i32 %26, ptr %28, align 4
-  %29 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 4) #14
-  %30 = tail call i64 @strtoul(ptr noundef captures(none) %29, ptr noundef null, i32 noundef 10) #14
-  %31 = trunc i64 %30 to i32
-  %32 = load ptr, ptr @binaryUpgradeClassOids, align 8
-  %33 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %32, i64 %indvars.iv, i32 4
-  store i32 %31, ptr %33, align 4
-  %34 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 5) #14
-  %35 = tail call i64 @strtoul(ptr noundef captures(none) %34, ptr noundef null, i32 noundef 10) #14
-  %36 = trunc i64 %35 to i32
-  %37 = load ptr, ptr @binaryUpgradeClassOids, align 8
-  %38 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %37, i64 %indvars.iv, i32 5
-  store i32 %36, ptr %38, align 4
-  %39 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 6) #14
-  %40 = tail call i64 @strtoul(ptr noundef captures(none) %39, ptr noundef null, i32 noundef 10) #14
-  %41 = trunc i64 %40 to i32
-  %42 = load ptr, ptr @binaryUpgradeClassOids, align 8
-  %43 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %42, i64 %indvars.iv, i32 6
-  store i32 %41, ptr %43, align 4
+  %18 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i8 %16, ptr %19, align 4
+  %20 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 2) #14
+  %21 = tail call i64 @strtoul(ptr noundef captures(none) %20, ptr noundef null, i32 noundef 10) #14
+  %22 = trunc i64 %21 to i32
+  %23 = load ptr, ptr @binaryUpgradeClassOids, align 8
+  %24 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i32 %22, ptr %25, align 4
+  %26 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 3) #14
+  %27 = tail call i64 @strtoul(ptr noundef captures(none) %26, ptr noundef null, i32 noundef 10) #14
+  %28 = trunc i64 %27 to i32
+  %29 = load ptr, ptr @binaryUpgradeClassOids, align 8
+  %30 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
+  store i32 %28, ptr %31, align 4
+  %32 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 4) #14
+  %33 = tail call i64 @strtoul(ptr noundef captures(none) %32, ptr noundef null, i32 noundef 10) #14
+  %34 = trunc i64 %33 to i32
+  %35 = load ptr, ptr @binaryUpgradeClassOids, align 8
+  %36 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %35, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store i32 %34, ptr %37, align 4
+  %38 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 5) #14
+  %39 = tail call i64 @strtoul(ptr noundef captures(none) %38, ptr noundef null, i32 noundef 10) #14
+  %40 = trunc i64 %39 to i32
+  %41 = load ptr, ptr @binaryUpgradeClassOids, align 8
+  %42 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 20
+  store i32 %40, ptr %43, align 4
+  %44 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %9, i32 noundef 6) #14
+  %45 = tail call i64 @strtoul(ptr noundef captures(none) %44, ptr noundef null, i32 noundef 10) #14
+  %46 = trunc i64 %45 to i32
+  %47 = load ptr, ptr @binaryUpgradeClassOids, align 8
+  %48 = getelementptr inbounds nuw %struct.BinaryUpgradeClassOidItem, ptr %47, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  store i32 %46, ptr %49, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = load i32, ptr @nbinaryUpgradeClassOids, align 4
-  %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  %50 = load i32, ptr @nbinaryUpgradeClassOids, align 4
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i64 %indvars.iv.next, %51
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13068,7 +13076,7 @@ define internal fastcc void @collectSequences(ptr noundef %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 100000
-  br i1 %4, label %86, label %5
+  br i1 %4, label %95, label %5
 
 5:                                                ; preds = %1
   %6 = icmp samesign ult i32 %3, 180000
@@ -13105,7 +13113,7 @@ define internal fastcc void @collectSequences(ptr noundef %0) unnamed_addr #4 {
 
 ._crit_edge:                                      ; preds = %parse_sequence_type.exit.tail, %16
   tail call void @PQclear(ptr noundef %17) #14
-  br label %86
+  br label %95
 
 .lr.ph:                                           ; preds = %16, %parse_sequence_type.exit.tail
   %indvars.iv = phi i64 [ %indvars.iv.next, %parse_sequence_type.exit.tail ], [ 0, %16 ]
@@ -13140,79 +13148,88 @@ define internal fastcc void @collectSequences(ptr noundef %0) unnamed_addr #4 {
 parse_sequence_type.exit:                         ; preds = %31
   %38 = trunc nuw nsw i64 %indvars.iv.i to i32
   %39 = load ptr, ptr @sequences, align 8
-  %40 = getelementptr inbounds nuw %struct.SequenceItem, ptr %39, i64 %indvars.iv, i32 1
-  store i32 %38, ptr %40, align 4
-  %41 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 2) #14
-  %42 = tail call i64 @strtol(ptr noundef captures(none) %41, ptr noundef null, i32 noundef 10) #14
-  %43 = load ptr, ptr @sequences, align 8
-  %44 = getelementptr inbounds nuw %struct.SequenceItem, ptr %43, i64 %indvars.iv, i32 5
-  store i64 %42, ptr %44, align 8
-  %45 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 3) #14
-  %46 = tail call i64 @strtol(ptr noundef captures(none) %45, ptr noundef null, i32 noundef 10) #14
-  %47 = load ptr, ptr @sequences, align 8
-  %48 = getelementptr inbounds nuw %struct.SequenceItem, ptr %47, i64 %indvars.iv, i32 6
-  store i64 %46, ptr %48, align 8
-  %49 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 4) #14
-  %50 = tail call i64 @strtol(ptr noundef captures(none) %49, ptr noundef null, i32 noundef 10) #14
-  %51 = load ptr, ptr @sequences, align 8
-  %52 = getelementptr inbounds nuw %struct.SequenceItem, ptr %51, i64 %indvars.iv, i32 4
-  store i64 %50, ptr %52, align 8
-  %53 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 5) #14
-  %54 = tail call i64 @strtol(ptr noundef captures(none) %53, ptr noundef null, i32 noundef 10) #14
-  %55 = load ptr, ptr @sequences, align 8
-  %56 = getelementptr inbounds nuw %struct.SequenceItem, ptr %55, i64 %indvars.iv, i32 3
-  store i64 %54, ptr %56, align 8
-  %57 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 6) #14
+  %40 = getelementptr inbounds nuw %struct.SequenceItem, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  store i32 %38, ptr %41, align 4
+  %42 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 2) #14
+  %43 = tail call i64 @strtol(ptr noundef captures(none) %42, ptr noundef null, i32 noundef 10) #14
+  %44 = load ptr, ptr @sequences, align 8
+  %45 = getelementptr inbounds nuw %struct.SequenceItem, ptr %44, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  store i64 %43, ptr %46, align 8
+  %47 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 3) #14
+  %48 = tail call i64 @strtol(ptr noundef captures(none) %47, ptr noundef null, i32 noundef 10) #14
+  %49 = load ptr, ptr @sequences, align 8
+  %50 = getelementptr inbounds nuw %struct.SequenceItem, ptr %49, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  store i64 %48, ptr %51, align 8
+  %52 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 4) #14
+  %53 = tail call i64 @strtol(ptr noundef captures(none) %52, ptr noundef null, i32 noundef 10) #14
+  %54 = load ptr, ptr @sequences, align 8
+  %55 = getelementptr inbounds nuw %struct.SequenceItem, ptr %54, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  store i64 %53, ptr %56, align 8
+  %57 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 5) #14
   %58 = tail call i64 @strtol(ptr noundef captures(none) %57, ptr noundef null, i32 noundef 10) #14
   %59 = load ptr, ptr @sequences, align 8
-  %60 = getelementptr inbounds nuw %struct.SequenceItem, ptr %59, i64 %indvars.iv, i32 7
-  store i64 %58, ptr %60, align 8
-  %61 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 7) #14
-  %62 = load i8, ptr %61, align 1
-  %.not47 = icmp eq i8 %62, 116
+  %60 = getelementptr inbounds nuw %struct.SequenceItem, ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  store i64 %58, ptr %61, align 8
+  %62 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 6) #14
+  %63 = tail call i64 @strtol(ptr noundef captures(none) %62, ptr noundef null, i32 noundef 10) #14
+  %64 = load ptr, ptr @sequences, align 8
+  %65 = getelementptr inbounds nuw %struct.SequenceItem, ptr %64, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
+  store i64 %63, ptr %66, align 8
+  %67 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 7) #14
+  %68 = load i8, ptr %67, align 1
+  %.not47 = icmp eq i8 %68, 116
   br i1 %.not47, label %sub_143, label %parse_sequence_type.exit.tail41
 
 sub_143:                                          ; preds = %parse_sequence_type.exit
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  %64 = load i8, ptr %63, align 1
-  %65 = icmp eq i8 %64, 0
-  %66 = zext i1 %65 to i8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 1
+  %70 = load i8, ptr %69, align 1
+  %71 = icmp eq i8 %70, 0
+  %72 = zext i1 %71 to i8
   br label %parse_sequence_type.exit.tail41
 
 parse_sequence_type.exit.tail41:                  ; preds = %parse_sequence_type.exit, %sub_143
-  %67 = phi i8 [ 0, %parse_sequence_type.exit ], [ %66, %sub_143 ]
-  %68 = load ptr, ptr @sequences, align 8
-  %69 = getelementptr inbounds nuw %struct.SequenceItem, ptr %68, i64 %indvars.iv, i32 2
-  store i8 %67, ptr %69, align 8
-  %70 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 8) #14
-  %71 = tail call i64 @strtol(ptr noundef captures(none) %70, ptr noundef null, i32 noundef 10) #14
-  %72 = load ptr, ptr @sequences, align 8
-  %73 = getelementptr inbounds nuw %struct.SequenceItem, ptr %72, i64 %indvars.iv, i32 8
-  store i64 %71, ptr %73, align 8
-  %74 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 9) #14
-  %75 = load i8, ptr %74, align 1
-  %.not48 = icmp eq i8 %75, 116
+  %73 = phi i8 [ 0, %parse_sequence_type.exit ], [ %72, %sub_143 ]
+  %74 = load ptr, ptr @sequences, align 8
+  %75 = getelementptr inbounds nuw %struct.SequenceItem, ptr %74, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store i8 %73, ptr %76, align 8
+  %77 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 8) #14
+  %78 = tail call i64 @strtol(ptr noundef captures(none) %77, ptr noundef null, i32 noundef 10) #14
+  %79 = load ptr, ptr @sequences, align 8
+  %80 = getelementptr inbounds nuw %struct.SequenceItem, ptr %79, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
+  store i64 %78, ptr %81, align 8
+  %82 = tail call ptr @PQgetvalue(ptr noundef %17, i32 noundef %24, i32 noundef 9) #14
+  %83 = load i8, ptr %82, align 1
+  %.not48 = icmp eq i8 %83, 116
   br i1 %.not48, label %sub_1, label %parse_sequence_type.exit.tail
 
 sub_1:                                            ; preds = %parse_sequence_type.exit.tail41
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 1
-  %77 = load i8, ptr %76, align 1
-  %78 = icmp eq i8 %77, 0
-  %79 = zext i1 %78 to i8
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 1
+  %85 = load i8, ptr %84, align 1
+  %86 = icmp eq i8 %85, 0
+  %87 = zext i1 %86 to i8
   br label %parse_sequence_type.exit.tail
 
 parse_sequence_type.exit.tail:                    ; preds = %parse_sequence_type.exit.tail41, %sub_1
-  %80 = phi i8 [ 0, %parse_sequence_type.exit.tail41 ], [ %79, %sub_1 ]
-  %81 = load ptr, ptr @sequences, align 8
-  %82 = getelementptr inbounds nuw %struct.SequenceItem, ptr %81, i64 %indvars.iv, i32 9
-  store i8 %80, ptr %82, align 8
+  %88 = phi i8 [ 0, %parse_sequence_type.exit.tail41 ], [ %87, %sub_1 ]
+  %89 = load ptr, ptr @sequences, align 8
+  %90 = getelementptr inbounds nuw %struct.SequenceItem, ptr %89, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
+  store i8 %88, ptr %91, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %83 = load i32, ptr @nsequences, align 4
-  %84 = sext i32 %83 to i64
-  %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  %92 = load i32, ptr @nsequences, align 4
+  %93 = sext i32 %92 to i64
+  %94 = icmp slt i64 %indvars.iv.next, %93
+  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
-86:                                               ; preds = %1, %._crit_edge
+95:                                               ; preds = %1, %._crit_edge
   ret void
 }
 
@@ -30610,7 +30627,7 @@ findSecLabels.exit:                               ; preds = %.lr.ph80.i, %74, %7
 
 96:                                               ; preds = %94, %92, %89
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %81, ptr noundef nonnull @.str.782, ptr noundef %2) #14
-  %97 = getelementptr inbounds nuw %struct.SecLabelItem, ptr %.2.lcssa.i, i64 %indvars.iv, i32 1
+  %97 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = load i32, ptr %83, align 8
   %100 = load i8, ptr %84, align 4, !range !7, !noundef !8

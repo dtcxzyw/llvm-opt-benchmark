@@ -10554,7 +10554,7 @@ if.then4.i.i47:                                   ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEPKc.exit52:               ; preds = %if.then.i.i50, %if.then4.i.i47
   %phi.call.i49 = phi ptr [ %call3.i.i51, %if.then.i.i50 ], [ %retval.0.i, %if.then4.i.i47 ]
   %18 = load ptr, ptr %this, align 8
-  %second = getelementptr inbounds nuw %"struct.std::pair.5", ptr %5, i64 %conv.i, i32 1
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr.i31, i64 4
   %19 = load i32, ptr %second, align 4
   %vtable.i54 = load ptr, ptr %18, align 8
   %vfn.i55 = getelementptr inbounds nuw i8, ptr %vtable.i54, i64 8
@@ -15837,7 +15837,8 @@ _ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit24:  ; preds = %for.body.i14
   %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.5", ptr %6, i64 %conv
   store i32 %conv2.i, ptr %add.ptr.i, align 4
   %7 = load ptr, ptr %regexStringIDMap_, align 8
-  %second = getelementptr inbounds nuw %"struct.std::pair.5", ptr %7, i64 %conv, i32 1
+  %add.ptr.i25 = getelementptr inbounds nuw %"struct.std::pair.5", ptr %7, i64 %conv
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr.i25, i64 4
   store i32 %conv2.i12, ptr %second, align 4
   br label %if.end
 

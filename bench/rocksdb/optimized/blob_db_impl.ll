@@ -44956,11 +44956,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %18
 
 18:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit"
-  %19 = phi i64 [ %13, %.lr.ph ], [ %127, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit" ]
-  %.022 = phi i64 [ %2, %.lr.ph ], [ %96, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit" ]
+  %19 = phi i64 [ %13, %.lr.ph ], [ %131, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit" ]
+  %.022 = phi i64 [ %2, %.lr.ph ], [ %100, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit" ]
   %storemerge21 = phi ptr [ %.fr, %.lr.ph ], [ %.sroa.012.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit" ]
   %20 = icmp eq i64 %.022, 0
-  br i1 %20, label %21, label %95
+  br i1 %20, label %21, label %99
 
 21:                                               ; preds = %18
   %22 = ptrtoint ptr %storemerge21 to i64
@@ -44982,7 +44982,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %36
 
 36:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i", %25
-  %.08.i.i.i = phi i64 [ %28, %25 ], [ %59, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i" ]
+  %.08.i.i.i = phi i64 [ %28, %25 ], [ %61, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i" ]
   %37 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.08.i.i.i
   %.sroa.08.0.copyload.i.i.i = load i64, ptr %37, align 8
   %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -44996,193 +44996,197 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.042.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i, %36 ]
   %39 = shl i64 %.042.i.i.i.i, 1
   %40 = add i64 %39, 2
-  %41 = or disjoint i64 %39, 1
-  %42 = getelementptr %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %40, i32 1
-  %.val.i.i.i.i.i = load i64, ptr %42, align 8, !tbaa !548
-  %43 = getelementptr %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %41, i32 1
-  %.val1.i.i.i.i.i = load i64, ptr %43, align 8, !tbaa !548
-  %44 = icmp ult i64 %.val.i.i.i.i.i, %.val1.i.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %44, i64 %41, i64 %40
-  %45 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %spec.select.i.i.i.i
-  %46 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.042.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false), !tbaa.struct !554
-  %47 = icmp slt i64 %spec.select.i.i.i.i, %30
-  br i1 %47, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1187
+  %41 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %40
+  %42 = or disjoint i64 %39, 1
+  %43 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %42
+  %44 = getelementptr i8, ptr %41, i64 8
+  %.val.i.i.i.i.i = load i64, ptr %44, align 8, !tbaa !548
+  %45 = getelementptr i8, ptr %43, i64 8
+  %.val1.i.i.i.i.i = load i64, ptr %45, align 8, !tbaa !548
+  %46 = icmp ult i64 %.val.i.i.i.i.i, %.val1.i.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %46, i64 %42, i64 %40
+  %47 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %spec.select.i.i.i.i
+  %48 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.042.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false), !tbaa.struct !554
+  %49 = icmp slt i64 %spec.select.i.i.i.i, %30
+  br i1 %49, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1187
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %36
   %.0.lcssa.i.i.i.i = phi i64 [ %.08.i.i.i, %36 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %48 = icmp eq i64 %.0.lcssa.i.i.i.i, %28
-  %or.cond.i.i.i = select i1 %32, i1 %48, i1 false
-  br i1 %or.cond.i.i.i, label %49, label %50
+  %50 = icmp eq i64 %.0.lcssa.i.i.i.i, %28
+  %or.cond.i.i.i = select i1 %32, i1 %50, i1 false
+  br i1 %or.cond.i.i.i, label %51, label %52
 
-49:                                               ; preds = %._crit_edge.i.i.i.i
+51:                                               ; preds = %._crit_edge.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !tbaa.struct !554
-  br label %50
+  br label %52
 
-50:                                               ; preds = %49, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %33, %49 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %51 = icmp sgt i64 %.1.i.i.i.i, %.08.i.i.i
-  br i1 %51, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i"
+52:                                               ; preds = %51, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %33, %51 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %53 = icmp sgt i64 %.1.i.i.i.i, %.08.i.i.i
+  br i1 %53, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %50, %55
-  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %55 ], [ %.1.i.i.i.i, %50 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %52, %57
+  %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %57 ], [ %.1.i.i.i.i, %52 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %52 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.0911.i.i.i.i.i
-  %53 = getelementptr i8, ptr %52, i64 8
-  %.val.i.i.i.i.i.i = load i64, ptr %53, align 8, !tbaa !548
-  %54 = icmp ult i64 %.val.i.i.i.i.i.i, %.sroa.49.0.copyload.i.i.i
-  br i1 %54, label %55, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i"
+  %54 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.0911.i.i.i.i.i
+  %55 = getelementptr i8, ptr %54, i64 8
+  %.val.i.i.i.i.i.i = load i64, ptr %55, align 8, !tbaa !548
+  %56 = icmp ult i64 %.val.i.i.i.i.i.i, %.sroa.49.0.copyload.i.i.i
+  br i1 %56, label %57, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i"
 
-55:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.010.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false), !tbaa.struct !554
-  %57 = icmp sgt i64 %.0911.i.i.i.i.i, %.08.i.i.i
-  br i1 %57, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i", !llvm.loop !1188
+57:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %58 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.010.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 24, i1 false), !tbaa.struct !554
+  %59 = icmp sgt i64 %.0911.i.i.i.i.i, %.08.i.i.i
+  br i1 %59, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i", !llvm.loop !1188
 
-"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i": ; preds = %55, %.lr.ph.i.i.i.i.i, %50
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %50 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %55 ]
-  %58 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.0.lcssa.i.i.i.i.i
-  store i64 %.sroa.08.0.copyload.i.i.i, ptr %58, align 8
-  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %58, i64 8
+"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i": ; preds = %57, %.lr.ph.i.i.i.i.i, %52
+  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %52 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %57 ]
+  %60 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.0.lcssa.i.i.i.i.i
+  store i64 %.sroa.08.0.copyload.i.i.i, ptr %60, align 8
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i64 %.sroa.49.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !57
-  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i64 %.sroa.510.0.copyload.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !tbaa !57
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
-  %59 = add nsw i64 %.08.i.i.i, -1
+  %61 = add nsw i64 %.08.i.i.i, -1
   br i1 %.not.i.i.i, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit.i", label %36, !llvm.loop !1189
 
 "_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i", %21
-  %60 = icmp sgt i64 %23, 24
-  br i1 %60, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit"
+  %62 = icmp sgt i64 %23, 24
+  br i1 %62, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit"
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i"
-  %.sroa.0.03.i.i = phi ptr [ %61, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i" ], [ %storemerge21, %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit.i" ]
-  %61 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -24
-  %.sroa.07.0.copyload.i.i10.i = load i64, ptr %61, align 8
+  %.sroa.0.03.i.i = phi ptr [ %63, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i" ], [ %storemerge21, %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit.i" ]
+  %63 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -24
+  %.sroa.07.0.copyload.i.i10.i = load i64, ptr %63, align 8
   %.sroa.48.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
   %.sroa.48.0.copyload.i.i.i = load i64, ptr %.sroa.48.0..sroa.0.0..sroa_idx.i.i.i, align 8, !tbaa !57
   %.sroa.59.0..sroa.0.0..sroa_idx.i.i11.i = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %.sroa.59.0.copyload.i.i12.i = load i64, ptr %.sroa.59.0..sroa.0.0..sroa_idx.i.i11.i, align 8, !tbaa !57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, i64 24, i1 false), !tbaa.struct !554
-  %62 = ptrtoint ptr %61 to i64
-  %63 = sub i64 %62, %11
-  %64 = sdiv exact i64 %63, 24
-  %65 = add nsw i64 %64, -1
-  %66 = sdiv i64 %65, 2
-  %67 = icmp sgt i64 %63, 48
-  br i1 %67, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i13.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, i64 24, i1 false), !tbaa.struct !554
+  %64 = ptrtoint ptr %63 to i64
+  %65 = sub i64 %64, %11
+  %66 = sdiv exact i64 %65, 24
+  %67 = add nsw i64 %66, -1
+  %68 = sdiv i64 %67, 2
+  %69 = icmp sgt i64 %65, 48
+  br i1 %69, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i13.i
 
 .lr.ph.i.i.i23.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i23.i
   %.042.i.i.i24.i = phi i64 [ %spec.select.i.i.i27.i, %.lr.ph.i.i.i23.i ], [ 0, %.lr.ph.i9.i ]
-  %68 = shl i64 %.042.i.i.i24.i, 1
-  %69 = add i64 %68, 2
-  %70 = or disjoint i64 %68, 1
-  %71 = getelementptr %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %69, i32 1
-  %.val.i.i.i.i25.i = load i64, ptr %71, align 8, !tbaa !548
-  %72 = getelementptr %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %70, i32 1
-  %.val1.i.i.i.i26.i = load i64, ptr %72, align 8, !tbaa !548
-  %73 = icmp ult i64 %.val.i.i.i.i25.i, %.val1.i.i.i.i26.i
-  %spec.select.i.i.i27.i = select i1 %73, i64 %70, i64 %69
-  %74 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %spec.select.i.i.i27.i
-  %75 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.042.i.i.i24.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false), !tbaa.struct !554
-  %76 = icmp slt i64 %spec.select.i.i.i27.i, %66
-  br i1 %76, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i13.i, !llvm.loop !1187
+  %70 = shl i64 %.042.i.i.i24.i, 1
+  %71 = add i64 %70, 2
+  %72 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %71
+  %73 = or disjoint i64 %70, 1
+  %74 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %73
+  %75 = getelementptr i8, ptr %72, i64 8
+  %.val.i.i.i.i25.i = load i64, ptr %75, align 8, !tbaa !548
+  %76 = getelementptr i8, ptr %74, i64 8
+  %.val1.i.i.i.i26.i = load i64, ptr %76, align 8, !tbaa !548
+  %77 = icmp ult i64 %.val.i.i.i.i25.i, %.val1.i.i.i.i26.i
+  %spec.select.i.i.i27.i = select i1 %77, i64 %73, i64 %71
+  %78 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %spec.select.i.i.i27.i
+  %79 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.042.i.i.i24.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %78, i64 24, i1 false), !tbaa.struct !554
+  %80 = icmp slt i64 %spec.select.i.i.i27.i, %68
+  br i1 %80, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i13.i, !llvm.loop !1187
 
 ._crit_edge.i.i.i13.i:                            ; preds = %.lr.ph.i.i.i23.i, %.lr.ph.i9.i
   %.0.lcssa.i.i.i14.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i27.i, %.lr.ph.i.i.i23.i ]
-  %77 = and i64 %64, 1
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %79, label %87
+  %81 = and i64 %66, 1
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %83, label %91
 
-79:                                               ; preds = %._crit_edge.i.i.i13.i
-  %80 = add nsw i64 %64, -2
-  %81 = ashr exact i64 %80, 1
-  %82 = icmp eq i64 %.0.lcssa.i.i.i14.i, %81
-  br i1 %82, label %.thread.i.i.i, label %87
+83:                                               ; preds = %._crit_edge.i.i.i13.i
+  %84 = add nsw i64 %66, -2
+  %85 = ashr exact i64 %84, 1
+  %86 = icmp eq i64 %.0.lcssa.i.i.i14.i, %85
+  br i1 %86, label %.thread.i.i.i, label %91
 
-.thread.i.i.i:                                    ; preds = %79
-  %83 = shl nuw nsw i64 %.0.lcssa.i.i.i14.i, 1
-  %84 = or disjoint i64 %83, 1
-  %85 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %84
-  %86 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.0.lcssa.i.i.i14.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false), !tbaa.struct !554
+.thread.i.i.i:                                    ; preds = %83
+  %87 = shl nuw nsw i64 %.0.lcssa.i.i.i14.i, 1
+  %88 = or disjoint i64 %87, 1
+  %89 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %88
+  %90 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.0.lcssa.i.i.i14.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %89, i64 24, i1 false), !tbaa.struct !554
   br label %.lr.ph.i.i.i.i16.i.preheader
 
-87:                                               ; preds = %79, %._crit_edge.i.i.i13.i
+91:                                               ; preds = %83, %._crit_edge.i.i.i13.i
   %.not.i.i15.i = icmp eq i64 %.0.lcssa.i.i.i14.i, 0
   br i1 %.not.i.i15.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i", label %.lr.ph.i.i.i.i16.i.preheader
 
-.lr.ph.i.i.i.i16.i.preheader:                     ; preds = %87, %.thread.i.i.i
-  %.010.i.i.i.i17.i.ph = phi i64 [ %.0.lcssa.i.i.i14.i, %87 ], [ %84, %.thread.i.i.i ]
+.lr.ph.i.i.i.i16.i.preheader:                     ; preds = %91, %.thread.i.i.i
+  %.010.i.i.i.i17.i.ph = phi i64 [ %.0.lcssa.i.i.i14.i, %91 ], [ %88, %.thread.i.i.i ]
   br label %.lr.ph.i.i.i.i16.i
 
-.lr.ph.i.i.i.i16.i:                               ; preds = %.lr.ph.i.i.i.i16.i.preheader, %91
-  %.010.i.i.i.i17.i = phi i64 [ %.0911.i.i1011.i.i.i, %91 ], [ %.010.i.i.i.i17.i.ph, %.lr.ph.i.i.i.i16.i.preheader ]
+.lr.ph.i.i.i.i16.i:                               ; preds = %.lr.ph.i.i.i.i16.i.preheader, %95
+  %.010.i.i.i.i17.i = phi i64 [ %.0911.i.i1011.i.i.i, %95 ], [ %.010.i.i.i.i17.i.ph, %.lr.ph.i.i.i.i16.i.preheader ]
   %.0911.in.i.i.i.i18.i = add nsw i64 %.010.i.i.i.i17.i, -1
   %.0911.i.i1011.i.i.i = lshr i64 %.0911.in.i.i.i.i18.i, 1
-  %88 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.0911.i.i1011.i.i.i
-  %89 = getelementptr i8, ptr %88, i64 8
-  %.val.i.i.i.i.i19.i = load i64, ptr %89, align 8, !tbaa !548
-  %90 = icmp ult i64 %.val.i.i.i.i.i19.i, %.sroa.48.0.copyload.i.i.i
-  br i1 %90, label %91, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i"
+  %92 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.0911.i.i1011.i.i.i
+  %93 = getelementptr i8, ptr %92, i64 8
+  %.val.i.i.i.i.i19.i = load i64, ptr %93, align 8, !tbaa !548
+  %94 = icmp ult i64 %.val.i.i.i.i.i19.i, %.sroa.48.0.copyload.i.i.i
+  br i1 %94, label %95, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i"
 
-91:                                               ; preds = %.lr.ph.i.i.i.i16.i
-  %92 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.010.i.i.i.i17.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %88, i64 24, i1 false), !tbaa.struct !554
+95:                                               ; preds = %.lr.ph.i.i.i.i16.i
+  %96 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.010.i.i.i.i17.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %92, i64 24, i1 false), !tbaa.struct !554
   %.not12.i.i.i = icmp ult i64 %.0911.in.i.i.i.i18.i, 2
   br i1 %.not12.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i", label %.lr.ph.i.i.i.i16.i, !llvm.loop !1188
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i": ; preds = %91, %.lr.ph.i.i.i.i16.i, %87
-  %.0.lcssa.i.i.i.i20.i = phi i64 [ 0, %87 ], [ %.010.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %91 ]
-  %93 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.0.lcssa.i.i.i.i20.i
-  store i64 %.sroa.07.0.copyload.i.i10.i, ptr %93, align 8
-  %.sroa.4.0..sroa_idx.i.i.i21.i = getelementptr inbounds nuw i8, ptr %93, i64 8
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i": ; preds = %95, %.lr.ph.i.i.i.i16.i, %91
+  %.0.lcssa.i.i.i.i20.i = phi i64 [ 0, %91 ], [ %.010.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %95 ]
+  %97 = getelementptr inbounds %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %.0.lcssa.i.i.i.i20.i
+  store i64 %.sroa.07.0.copyload.i.i10.i, ptr %97, align 8
+  %.sroa.4.0..sroa_idx.i.i.i21.i = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 %.sroa.48.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i21.i, align 8, !tbaa !57
-  %.sroa.5.0..sroa_idx.i.i.i22.i = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %.sroa.5.0..sroa_idx.i.i.i22.i = getelementptr inbounds nuw i8, ptr %97, i64 16
   store i64 %.sroa.59.0.copyload.i.i12.i, ptr %.sroa.5.0..sroa_idx.i.i.i22.i, align 8, !tbaa !57
-  %94 = icmp sgt i64 %63, 24
-  br i1 %94, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !1190
+  %98 = icmp sgt i64 %65, 24
+  br i1 %98, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !1190
 
-95:                                               ; preds = %18
-  %96 = add nsw i64 %.022, -1
-  %97 = udiv i64 %19, 48
-  %98 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %97
-  %99 = getelementptr inbounds i8, ptr %storemerge21, i64 -24
+99:                                               ; preds = %18
+  %100 = add nsw i64 %.022, -1
+  %101 = udiv i64 %19, 48
+  %102 = getelementptr inbounds nuw %"struct.rocksdb::CompactionFileInfo", ptr %.fr51.i.i, i64 %101
+  %103 = getelementptr inbounds i8, ptr %storemerge21, i64 -24
   %.val.i.i.i16 = load i64, ptr %16, align 8, !tbaa !548
-  %100 = getelementptr i8, ptr %98, i64 8
-  %.val1.i.i.i17 = load i64, ptr %100, align 8, !tbaa !548
-  %101 = icmp ult i64 %.val.i.i.i16, %.val1.i.i.i17
-  %102 = getelementptr i8, ptr %storemerge21, i64 -16
-  %.val1.i27.i.i = load i64, ptr %102, align 8, !tbaa !548
-  br i1 %101, label %103, label %110
+  %104 = getelementptr i8, ptr %102, i64 8
+  %.val1.i.i.i17 = load i64, ptr %104, align 8, !tbaa !548
+  %105 = icmp ult i64 %.val.i.i.i16, %.val1.i.i.i17
+  %106 = getelementptr i8, ptr %storemerge21, i64 -16
+  %.val1.i27.i.i = load i64, ptr %106, align 8, !tbaa !548
+  br i1 %105, label %107, label %114
 
-103:                                              ; preds = %95
-  %104 = icmp ult i64 %.val1.i.i.i17, %.val1.i27.i.i
-  br i1 %104, label %105, label %106
+107:                                              ; preds = %99
+  %108 = icmp ult i64 %.val1.i.i.i17, %.val1.i27.i.i
+  br i1 %108, label %109, label %110
 
-105:                                              ; preds = %103
+109:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, i64 24, i1 false), !tbaa.struct !554
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, ptr noundef nonnull align 8 dereferenceable(24) %98, i64 24, i1 false), !tbaa.struct !554
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !554
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, ptr noundef nonnull align 8 dereferenceable(24) %102, i64 24, i1 false), !tbaa.struct !554
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !554
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-106:                                              ; preds = %103
-  %107 = icmp ult i64 %.val.i.i.i16, %.val1.i27.i.i
-  br i1 %107, label %108, label %109
+110:                                              ; preds = %107
+  %111 = icmp ult i64 %.val.i.i.i16, %.val1.i27.i.i
+  br i1 %111, label %112, label %113
 
-108:                                              ; preds = %106
+112:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, i64 24, i1 false), !tbaa.struct !554
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false), !tbaa.struct !554
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !554
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, ptr noundef nonnull align 8 dereferenceable(24) %103, i64 24, i1 false), !tbaa.struct !554
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !554
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-109:                                              ; preds = %106
+113:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, i64 24, i1 false), !tbaa.struct !554
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !tbaa.struct !554
@@ -45190,11 +45194,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-110:                                              ; preds = %95
-  %111 = icmp ult i64 %.val.i.i.i16, %.val1.i27.i.i
-  br i1 %111, label %112, label %113
+114:                                              ; preds = %99
+  %115 = icmp ult i64 %.val.i.i.i16, %.val1.i27.i.i
+  br i1 %115, label %116, label %117
 
-112:                                              ; preds = %110
+116:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, i64 24, i1 false), !tbaa.struct !554
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !tbaa.struct !554
@@ -45202,56 +45206,56 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-113:                                              ; preds = %110
-  %114 = icmp ult i64 %.val1.i.i.i17, %.val1.i27.i.i
-  br i1 %114, label %115, label %116
+117:                                              ; preds = %114
+  %118 = icmp ult i64 %.val1.i.i.i17, %.val1.i27.i.i
+  br i1 %118, label %119, label %120
 
-115:                                              ; preds = %113
+119:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, i64 24, i1 false), !tbaa.struct !554
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false), !tbaa.struct !554
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !554
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, ptr noundef nonnull align 8 dereferenceable(24) %103, i64 24, i1 false), !tbaa.struct !554
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !554
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-116:                                              ; preds = %113
+120:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, i64 24, i1 false), !tbaa.struct !554
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, ptr noundef nonnull align 8 dereferenceable(24) %98, i64 24, i1 false), !tbaa.struct !554
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !554
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fr51.i.i, ptr noundef nonnull align 8 dereferenceable(24) %102, i64 24, i1 false), !tbaa.struct !554
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !554
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader": ; preds = %116, %115, %112, %109, %108, %105
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader": ; preds = %120, %119, %116, %113, %112, %109
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader", %125
-  %.sroa.012.0.i.i = phi ptr [ %120, %125 ], [ %15, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %125 ], [ %storemerge21, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader", %129
+  %.sroa.012.0.i.i = phi ptr [ %124, %129 ], [ %15, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %129 ], [ %storemerge21, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader" ]
   %.val1.i.i13.i = load i64, ptr %17, align 8, !tbaa !548
-  br label %117
+  br label %121
 
-117:                                              ; preds = %117, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i"
-  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i" ], [ %120, %117 ]
-  %118 = getelementptr i8, ptr %.sroa.012.1.i.i, i64 8
-  %.val.i.i14.i = load i64, ptr %118, align 8, !tbaa !548
-  %119 = icmp ult i64 %.val.i.i14.i, %.val1.i.i13.i
-  %120 = getelementptr i8, ptr %.sroa.012.1.i.i, i64 24
-  br i1 %119, label %117, label %.preheader.i.i, !llvm.loop !1191
+121:                                              ; preds = %121, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i"
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i" ], [ %124, %121 ]
+  %122 = getelementptr i8, ptr %.sroa.012.1.i.i, i64 8
+  %.val.i.i14.i = load i64, ptr %122, align 8, !tbaa !548
+  %123 = icmp ult i64 %.val.i.i14.i, %.val1.i.i13.i
+  %124 = getelementptr i8, ptr %.sroa.012.1.i.i, i64 24
+  br i1 %123, label %121, label %.preheader.i.i, !llvm.loop !1191
 
-.preheader.i.i:                                   ; preds = %117, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %117 ]
+.preheader.i.i:                                   ; preds = %121, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %121 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -24
-  %121 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -16
-  %.val1.i9.i.i = load i64, ptr %121, align 8, !tbaa !548
-  %122 = icmp ult i64 %.val1.i.i13.i, %.val1.i9.i.i
-  br i1 %122, label %.preheader.i.i, label %123, !llvm.loop !1192
+  %125 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -16
+  %.val1.i9.i.i = load i64, ptr %125, align 8, !tbaa !548
+  %126 = icmp ult i64 %.val1.i.i13.i, %.val1.i9.i.i
+  br i1 %126, label %.preheader.i.i, label %127, !llvm.loop !1192
 
-123:                                              ; preds = %.preheader.i.i
-  %124 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.0.1.i.i
-  br i1 %124, label %125, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit"
+127:                                              ; preds = %.preheader.i.i
+  %128 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.0.1.i.i
+  br i1 %128, label %129, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit"
 
-125:                                              ; preds = %123
+129:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.012.1.i.i, i64 24, i1 false), !tbaa.struct !554
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.012.1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.1.i.i, i64 24, i1 false), !tbaa.struct !554
@@ -45259,12 +45263,12 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_SI_T0_.exit.i", !llvm.loop !1193
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit": ; preds = %123
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_T0_T1_"(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge21, i64 noundef %96)
-  %126 = ptrtoint ptr %.sroa.012.1.i.i to i64
-  %127 = sub i64 %126, %11
-  %128 = icmp sgt i64 %127, 384
-  br i1 %128, label %18, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !1194
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit": ; preds = %127
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_T0_T1_"(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge21, i64 noundef %100)
+  %130 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %131 = sub i64 %130, %11
+  %132 = icmp sgt i64 %131, 384
+  br i1 %132, label %18, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !1194
 
 "_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEET_SI_SI_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_RT0_.exit.i.i", %3, %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN7rocksdb18CompactionFileInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_7blob_db10BlobDBImpl24ProcessCompactionJobInfoERKNS2_17CompactionJobInfoEE3$_0EEEvT_SI_SI_T0_.exit.i"
   ret void

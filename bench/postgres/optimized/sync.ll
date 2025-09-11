@@ -100,9 +100,9 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph45, label %.thread35
 
-.lr.ph45:                                         ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.lr.ph ]
-  %.0184043 = phi i32 [ %.1.ph, %37 ], [ 10, %.lr.ph ]
+.lr.ph45:                                         ; preds = %.lr.ph, %38
+  %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %.lr.ph ]
+  %.0184043 = phi i32 [ %.1.ph, %38 ], [ 10, %.lr.ph ]
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
@@ -110,7 +110,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 26
   %11 = load i8, ptr %10, align 2, !range !4, !noundef !5
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %37, label %13
+  br i1 %12, label %38, label %13
 
 13:                                               ; preds = %.lr.ph45
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -122,97 +122,98 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
 18:                                               ; preds = %13
   %19 = load i16, ptr %9, align 8
   %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %20, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = call i32 %22(ptr noundef nonnull %9, ptr noundef nonnull %1) #9
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %33
+  %21 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = call i32 %23(ptr noundef nonnull %9, ptr noundef nonnull %1) #9
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %26, label %34
 
-25:                                               ; preds = %18
-  %26 = tail call ptr @__errno_location() #10
-  %27 = load i32, ptr %26, align 4
-  %.not25 = icmp eq i32 %27, 2
-  br i1 %.not25, label %33, label %28
+26:                                               ; preds = %18
+  %27 = tail call ptr @__errno_location() #10
+  %28 = load i32, ptr %27, align 4
+  %.not25 = icmp eq i32 %28, 2
+  br i1 %.not25, label %34, label %29
 
-28:                                               ; preds = %25
-  %29 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #9
-  br i1 %29, label %30, label %33
+29:                                               ; preds = %26
+  %30 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #9
+  br i1 %30, label %31, label %34
 
-30:                                               ; preds = %28
-  %31 = call i32 @errcode_for_file_access() #9
-  %32 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #9
+31:                                               ; preds = %29
+  %32 = call i32 @errcode_for_file_access() #9
+  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #9
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 243, ptr noundef nonnull @__func__.SyncPostCheckpoint) #9
-  br label %33
+  br label %34
 
-33:                                               ; preds = %25, %30, %28, %18
+34:                                               ; preds = %26, %31, %29, %18
   store i8 1, ptr %10, align 2
-  %34 = add nsw i32 %.0184043, -1
-  %35 = icmp slt i32 %.0184043, 2
-  br i1 %35, label %36, label %37
+  %35 = add nsw i32 %.0184043, -1
+  %36 = icmp slt i32 %.0184043, 2
+  br i1 %36, label %37, label %38
 
-36:                                               ; preds = %33
+37:                                               ; preds = %34
   call void @AbsorbSyncRequests() #9
-  br label %37
+  br label %38
 
-37:                                               ; preds = %.lr.ph45, %36, %33
-  %.1.ph = phi i32 [ %34, %33 ], [ 10, %36 ], [ %.0184043, %.lr.ph45 ]
+38:                                               ; preds = %.lr.ph45, %37, %34
+  %.1.ph = phi i32 [ %35, %34 ], [ 10, %37 ], [ %.0184043, %.lr.ph45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = load i32, ptr %3, align 4
-  %39 = sext i32 %38 to i64
-  %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph45, label %.thread35.loopexit
+  %39 = load i32, ptr %3, align 4
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %indvars.iv.next, %40
+  br i1 %41, label %.lr.ph45, label %.thread35.loopexit
 
 .split:                                           ; preds = %13
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %42 = load ptr, ptr @pendingUnlinks, align 8
-  %43 = getelementptr i8, ptr %42, i64 16
-  %.val = load ptr, ptr %43, align 8
-  %44 = ptrtoint ptr %41 to i64
-  %45 = ptrtoint ptr %.val to i64
-  %46 = sub i64 %44, %45
-  %47 = lshr exact i64 %46, 3
-  %48 = trunc i64 %47 to i32
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.lr.ph47.preheader, label %._crit_edge
+  %43 = load ptr, ptr @pendingUnlinks, align 8
+  %44 = getelementptr i8, ptr %43, i64 16
+  %.val = load ptr, ptr %44, align 8
+  %45 = ptrtoint ptr %42 to i64
+  %46 = ptrtoint ptr %.val to i64
+  %47 = sub i64 %45, %46
+  %48 = lshr exact i64 %47, 3
+  %49 = trunc i64 %48 to i32
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %.lr.ph47.preheader, label %._crit_edge
 
 .lr.ph47.preheader:                               ; preds = %.split
-  %50 = and i64 %47, 2147483647
+  %51 = and i64 %48, 2147483647
   br label %.lr.ph47
 
-.thread35.loopexit:                               ; preds = %37
+.thread35.loopexit:                               ; preds = %38
   %.pre55 = load ptr, ptr @pendingUnlinks, align 8
   br label %.thread35
 
 .thread35:                                        ; preds = %.thread35.loopexit, %.lr.ph, %0
-  %51 = phi ptr [ %.pre55, %.thread35.loopexit ], [ %2, %.lr.ph ], [ null, %0 ]
-  call void @list_free_deep(ptr noundef %51) #9
-  br label %59
+  %52 = phi ptr [ %.pre55, %.thread35.loopexit ], [ %2, %.lr.ph ], [ null, %0 ]
+  call void @list_free_deep(ptr noundef %52) #9
+  br label %60
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph47
   %.pre = load ptr, ptr @pendingUnlinks, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.split
-  %52 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %42, %.split ]
-  %53 = call ptr @list_delete_first_n(ptr noundef %52, i32 noundef %48) #9
-  br label %59
+  %53 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %43, %.split ]
+  %54 = call ptr @list_delete_first_n(ptr noundef %53, i32 noundef %49) #9
+  br label %60
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv52 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next53, %.lr.ph47 ]
-  %54 = load ptr, ptr @pendingUnlinks, align 8
-  %55 = getelementptr i8, ptr %54, i64 16
-  %.val26 = load ptr, ptr %55, align 8
-  %56 = getelementptr inbounds nuw %union.ListCell, ptr %.val26, i64 %indvars.iv52
-  %57 = load ptr, ptr %56, align 8
-  call void @pfree(ptr noundef %57) #9
+  %55 = load ptr, ptr @pendingUnlinks, align 8
+  %56 = getelementptr i8, ptr %55, i64 16
+  %.val26 = load ptr, ptr %56, align 8
+  %57 = getelementptr inbounds nuw %union.ListCell, ptr %.val26, i64 %indvars.iv52
+  %58 = load ptr, ptr %57, align 8
+  call void @pfree(ptr noundef %58) #9
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %58 = icmp samesign ult i64 %indvars.iv.next53, %50
-  br i1 %58, label %.lr.ph47, label %._crit_edge.loopexit, !llvm.loop !6
+  %59 = icmp samesign ult i64 %indvars.iv.next53, %51
+  br i1 %59, label %.lr.ph47, label %._crit_edge.loopexit, !llvm.loop !6
 
-59:                                               ; preds = %._crit_edge, %.thread35
-  %storemerge = phi ptr [ %53, %._crit_edge ], [ null, %.thread35 ]
+60:                                               ; preds = %._crit_edge, %.thread35
+  %storemerge = phi ptr [ %54, %._crit_edge ], [ null, %.thread35 ]
   store ptr %storemerge, ptr @pendingUnlinks, align 8
   ret void
 }
@@ -490,22 +491,22 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
   %4 = alloca i8, align 1
-  switch i32 %1, label %57 [
+  switch i32 %1, label %59 [
     i32 2, label %5
     i32 3, label %10
-    i32 1, label %48
+    i32 1, label %50
   ]
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @pendingOps, align 8
   %7 = tail call ptr @hash_search(ptr noundef %6, ptr noundef %0, i32 noundef 0, ptr noundef null) #9
   %.not39 = icmp eq ptr %7, null
-  br i1 %.not39, label %73, label %8
+  br i1 %.not39, label %75, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 26
   store i8 1, ptr %9, align 2
-  br label %73
+  br label %75
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -515,123 +516,125 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   %.not40 = icmp eq ptr %12, null
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10, %24
-  %13 = phi ptr [ %25, %24 ], [ %12, %10 ]
+.lr.ph:                                           ; preds = %10, %25
+  %13 = phi ptr [ %26, %25 ], [ %12, %10 ]
   %14 = load i16, ptr %13, align 8
   %15 = load i16, ptr %0, align 8
   %16 = icmp eq i16 %14, %15
-  br i1 %16, label %17, label %24
+  br i1 %16, label %17, label %25
 
 17:                                               ; preds = %.lr.ph
   %18 = sext i16 %14 to i64
-  %19 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %18, i32 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = call zeroext i1 %20(ptr noundef nonnull %0, ptr noundef nonnull %13) #9
-  br i1 %21, label %22, label %24
+  %19 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = call zeroext i1 %21(ptr noundef nonnull %0, ptr noundef nonnull %13) #9
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %13, i64 26
-  store i8 1, ptr %23, align 2
-  br label %24
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 26
+  store i8 1, ptr %24, align 2
+  br label %25
 
-24:                                               ; preds = %22, %17, %.lr.ph
-  %25 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
-  %.not = icmp eq ptr %25, null
+25:                                               ; preds = %23, %17, %.lr.ph
+  %26 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
+  %.not = icmp eq ptr %26, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %24, %10
-  %26 = load ptr, ptr @pendingUnlinks, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %.not37 = icmp eq ptr %26, null
+._crit_edge:                                      ; preds = %25, %10
+  %27 = load ptr, ptr @pendingUnlinks, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %.not37 = icmp eq ptr %27, null
   br i1 %.not37, label %.critedge, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %._crit_edge
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %29 = load i32, ptr %27, align 4
-  %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph46, label %.critedge
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = load i32, ptr %28, align 4
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %.lr.ph46, label %.critedge
 
-.lr.ph46:                                         ; preds = %.lr.ph43, %44
-  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.lr.ph43 ]
-  %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i16, ptr %33, align 8
-  %35 = load i16, ptr %0, align 8
-  %36 = icmp eq i16 %34, %35
-  br i1 %36, label %37, label %44
+.lr.ph46:                                         ; preds = %.lr.ph43, %46
+  %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph43 ]
+  %32 = load ptr, ptr %29, align 8
+  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i16, ptr %34, align 8
+  %36 = load i16, ptr %0, align 8
+  %37 = icmp eq i16 %35, %36
+  br i1 %37, label %38, label %46
 
-.critedge:                                        ; preds = %44, %.lr.ph43, %._crit_edge
+.critedge:                                        ; preds = %46, %.lr.ph43, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %73
+  br label %75
 
-37:                                               ; preds = %.lr.ph46
-  %38 = sext i16 %34 to i64
-  %39 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %38, i32 2
-  %40 = load ptr, ptr %39, align 8
-  %41 = call zeroext i1 %40(ptr noundef nonnull %0, ptr noundef nonnull %33) #9
-  br i1 %41, label %42, label %44
+38:                                               ; preds = %.lr.ph46
+  %39 = sext i16 %35 to i64
+  %40 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load ptr, ptr %41, align 8
+  %43 = call zeroext i1 %42(ptr noundef nonnull %0, ptr noundef nonnull %34) #9
+  br i1 %43, label %44, label %46
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %33, i64 26
-  store i8 1, ptr %43, align 2
-  br label %44
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 26
+  store i8 1, ptr %45, align 2
+  br label %46
 
-44:                                               ; preds = %42, %37, %.lr.ph46
+46:                                               ; preds = %44, %38, %.lr.ph46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = load i32, ptr %27, align 4
-  %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph46, label %.critedge
+  %47 = load i32, ptr %28, align 4
+  %48 = sext i32 %47 to i64
+  %49 = icmp slt i64 %indvars.iv.next, %48
+  br i1 %49, label %.lr.ph46, label %.critedge
 
-48:                                               ; preds = %2
-  %49 = load ptr, ptr @pendingOpsCxt, align 8
-  %50 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %49, ptr @CurrentMemoryContext, align 8
-  %51 = tail call ptr @palloc(i64 noundef 32) #9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %52 = load i16, ptr @checkpoint_cycle_ctr, align 2
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store i16 %52, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 26
-  store i8 0, ptr %54, align 2
-  %55 = load ptr, ptr @pendingUnlinks, align 8
-  %56 = tail call ptr @lappend(ptr noundef %55, ptr noundef nonnull %51) #9
-  store ptr %56, ptr @pendingUnlinks, align 8
-  store ptr %50, ptr @CurrentMemoryContext, align 8
-  br label %73
+50:                                               ; preds = %2
+  %51 = load ptr, ptr @pendingOpsCxt, align 8
+  %52 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %51, ptr @CurrentMemoryContext, align 8
+  %53 = tail call ptr @palloc(i64 noundef 32) #9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  %54 = load i16, ptr @checkpoint_cycle_ctr, align 2
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  store i16 %54, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 26
+  store i8 0, ptr %56, align 2
+  %57 = load ptr, ptr @pendingUnlinks, align 8
+  %58 = tail call ptr @lappend(ptr noundef %57, ptr noundef nonnull %53) #9
+  store ptr %58, ptr @pendingUnlinks, align 8
+  store ptr %52, ptr @CurrentMemoryContext, align 8
+  br label %75
 
-57:                                               ; preds = %2
-  %58 = load ptr, ptr @pendingOpsCxt, align 8
-  %59 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %58, ptr @CurrentMemoryContext, align 8
+59:                                               ; preds = %2
+  %60 = load ptr, ptr @pendingOpsCxt, align 8
+  %61 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %60, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %60 = load ptr, ptr @pendingOps, align 8
-  %61 = call ptr @hash_search(ptr noundef %60, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4) #9
-  %62 = load i8, ptr %4, align 1, !range !4, !noundef !5
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %68
+  %62 = load ptr, ptr @pendingOps, align 8
+  %63 = call ptr @hash_search(ptr noundef %62, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4) #9
+  %64 = load i8, ptr %4, align 1, !range !4, !noundef !5
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %66, label %70
 
-64:                                               ; preds = %57
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 26
-  %66 = load i8, ptr %65, align 2, !range !4, !noundef !5
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %68, label %72
+66:                                               ; preds = %59
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 26
+  %68 = load i8, ptr %67, align 2, !range !4, !noundef !5
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %70, label %74
 
-68:                                               ; preds = %64, %57
-  %69 = load i16, ptr @sync_cycle_ctr, align 2
-  %70 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  store i16 %69, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %61, i64 26
-  store i8 0, ptr %71, align 2
-  br label %72
+70:                                               ; preds = %66, %59
+  %71 = load i16, ptr @sync_cycle_ctr, align 2
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  store i16 %71, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 26
+  store i8 0, ptr %73, align 2
+  br label %74
 
-72:                                               ; preds = %68, %64
-  store ptr %59, ptr @CurrentMemoryContext, align 8
+74:                                               ; preds = %70, %66
+  store ptr %61, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %73
+  br label %75
 
-73:                                               ; preds = %5, %8, %.critedge, %72, %48
+75:                                               ; preds = %5, %8, %.critedge, %74, %50
   ret void
 }
 

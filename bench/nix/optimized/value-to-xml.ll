@@ -12244,9 +12244,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(224) ptr @_ZN5boost1
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
-  %9 = phi ptr [ %4, %.lr.ph ], [ %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
-  %10 = phi ptr [ %3, %.lr.ph ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
-  %.018 = phi i64 [ 0, %.lr.ph ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
+  %9 = phi ptr [ %4, %.lr.ph ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
+  %10 = phi ptr [ %3, %.lr.ph ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
+  %.018 = phi i64 [ 0, %.lr.ph ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %7, align 8
   %13 = load ptr, ptr %5, align 8
@@ -12278,82 +12278,83 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(224) ptr @_ZN5boost1
   br i1 %.not16, label %.critedge, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 .critedge:                                        ; preds = %21, %8, %25
-  %33 = getelementptr inbounds %"struct.boost::io::detail::format_item", ptr %9, i64 %.018, i32 2
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %33 = getelementptr inbounds %"struct.boost::io::detail::format_item", ptr %9, i64 %.018
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i64, ptr %34, align 8
   %.not17 = icmp eq i64 %35, 0
   br i1 %.not17, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %.critedge
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 0, ptr %34, align 8
-  %36 = load ptr, ptr %33, align 8
-  store i8 0, ptr %36, align 1
+  %37 = load ptr, ptr %36, align 8
+  store i8 0, ptr %37, align 1
   %.pre = load ptr, ptr %2, align 8
   %.pre23 = load ptr, ptr %0, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %.sink.split.i.i, %.critedge, %25
-  %37 = phi ptr [ %.pre23, %.sink.split.i.i ], [ %9, %.critedge ], [ %9, %25 ]
-  %38 = phi ptr [ %.pre, %.sink.split.i.i ], [ %10, %.critedge ], [ %10, %25 ]
-  %39 = add nuw i64 %.018, 1
-  %40 = ptrtoint ptr %38 to i64
-  %41 = ptrtoint ptr %37 to i64
-  %42 = sub i64 %40, %41
-  %43 = sdiv exact i64 %42, 136
-  %44 = icmp ult i64 %39, %43
-  br i1 %44, label %8, label %._crit_edge, !llvm.loop !76
+  %38 = phi ptr [ %.pre23, %.sink.split.i.i ], [ %9, %.critedge ], [ %9, %25 ]
+  %39 = phi ptr [ %.pre, %.sink.split.i.i ], [ %10, %.critedge ], [ %10, %25 ]
+  %40 = add nuw i64 %.018, 1
+  %41 = ptrtoint ptr %39 to i64
+  %42 = ptrtoint ptr %38 to i64
+  %43 = sub i64 %41, %42
+  %44 = sdiv exact i64 %43, 136
+  %45 = icmp ult i64 %40, %44
+  br i1 %45, label %8, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %1
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 0, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i8 0, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %51 = load i32, ptr %50, align 8
-  %52 = load ptr, ptr %47, align 8
-  %53 = ptrtoint ptr %49 to i64
-  %54 = ptrtoint ptr %52 to i64
-  %55 = sub i64 %53, %54
-  %56 = shl nsw i64 %55, 3
-  %57 = zext i32 %51 to i64
-  %58 = sub nsw i64 0, %57
-  %.not = icmp eq i64 %56, %58
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 0, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i8 0, ptr %47, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load i32, ptr %51, align 8
+  %53 = load ptr, ptr %48, align 8
+  %54 = ptrtoint ptr %50 to i64
+  %55 = ptrtoint ptr %53 to i64
+  %56 = sub i64 %54, %55
+  %57 = shl nsw i64 %56, 3
+  %58 = zext i32 %52 to i64
+  %59 = sub nsw i64 0, %58
+  %.not = icmp eq i64 %57, %59
   br i1 %.not, label %.critedge2, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph19.preheader, label %.critedge2
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp sgt i32 %61, 0
+  br i1 %62, label %.lr.ph19.preheader, label %.critedge2
 
 .lr.ph19.preheader:                               ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %60 to i64
+  %wide.trip.count = zext nneg i32 %61 to i64
   br label %.lr.ph19
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next, %69 ]
-  %62 = trunc nsw i64 %indvars.iv to i32
-  %63 = sdiv i32 %62, 64
-  %.sext = sext i32 %63 to i64
-  %64 = getelementptr inbounds i64, ptr %52, i64 %.sext
-  %65 = and i64 %indvars.iv, 63
-  %66 = shl nuw i64 1, %65
-  %67 = load i64, ptr %64, align 8
-  %68 = and i64 %67, %66
-  %.not15 = icmp eq i64 %68, 0
-  br i1 %.not15, label %.critedge2, label %69
+.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %70
+  %indvars.iv = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next, %70 ]
+  %63 = trunc nsw i64 %indvars.iv to i32
+  %64 = sdiv i32 %63, 64
+  %.sext = sext i32 %64 to i64
+  %65 = getelementptr inbounds i64, ptr %53, i64 %.sext
+  %66 = and i64 %indvars.iv, 63
+  %67 = shl nuw i64 1, %66
+  %68 = load i64, ptr %65, align 8
+  %69 = and i64 %68, %67
+  %.not15 = icmp eq i64 %69, 0
+  br i1 %.not15, label %.critedge2, label %70
 
-69:                                               ; preds = %.lr.ph19
+70:                                               ; preds = %.lr.ph19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %70, ptr %45, align 4
+  %71 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %71, ptr %46, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph19, !llvm.loop !77
 
-.critedge2:                                       ; preds = %69, %.lr.ph19, %.preheader, %._crit_edge
+.critedge2:                                       ; preds = %70, %.lr.ph19, %.preheader, %._crit_edge
   ret ptr %0
 }
 
@@ -17241,100 +17242,102 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3
   %.039 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKNS2_6FormalES9_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit ]
   %14 = shl i64 %.039, 1
   %15 = add i64 %14, 2
-  %16 = or disjoint i64 %14, 1
-  %17 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %15, i32 1
-  %.sroa.07.0.copyload.i.i = load i32, ptr %17, align 4
-  %18 = load i32, ptr %11, align 8
-  %19 = freeze i32 %18
-  %20 = add i32 %.sroa.07.0.copyload.i.i, -1
-  %or.cond.not.i.i.i = icmp ult i32 %20, %19
-  br i1 %or.cond.not.i.i.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i, label %21
+  %16 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %15
+  %17 = or disjoint i64 %14, 1
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %.sroa.07.0.copyload.i.i = load i32, ptr %18, align 4
+  %19 = load i32, ptr %11, align 8
+  %20 = freeze i32 %19
+  %21 = add i32 %.sroa.07.0.copyload.i.i, -1
+  %or.cond.not.i.i.i = icmp ult i32 %21, %20
+  br i1 %or.cond.not.i.i.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i, label %22
 
-21:                                               ; preds = %13
+22:                                               ; preds = %13
   tail call void @abort() #29
   unreachable
 
 _ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i:     ; preds = %13
-  %22 = zext i32 %20 to i64
-  %23 = lshr i64 %22, 13
-  %24 = load ptr, ptr %12, align 8
-  %25 = getelementptr inbounds nuw %"class.std::vector.191", ptr %24, i64 %23
-  %26 = and i64 %22, 8191
-  %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %26
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %16, i32 1
-  %.sroa.04.0.copyload.i.i = load i32, ptr %32, align 4
-  %33 = add i32 %.sroa.04.0.copyload.i.i, -1
-  %or.cond.not.i12.i.i = icmp ult i32 %33, %19
-  br i1 %or.cond.not.i12.i.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i, label %34
+  %23 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %17
+  %24 = zext i32 %21 to i64
+  %25 = lshr i64 %24, 13
+  %26 = load ptr, ptr %12, align 8
+  %27 = getelementptr inbounds nuw %"class.std::vector.191", ptr %26, i64 %25
+  %28 = and i64 %24, 8191
+  %29 = load ptr, ptr %27, align 8
+  %30 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %28
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %.sroa.04.0.copyload.i.i = load i32, ptr %34, align 4
+  %35 = add i32 %.sroa.04.0.copyload.i.i, -1
+  %or.cond.not.i12.i.i = icmp ult i32 %35, %20
+  br i1 %or.cond.not.i12.i.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i, label %36
 
-34:                                               ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i
+36:                                               ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i
   tail call void @abort() #29
   unreachable
 
 _ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i:   ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit.i.i
-  %35 = zext i32 %33 to i64
-  %36 = lshr i64 %35, 13
-  %37 = getelementptr inbounds nuw %"class.std::vector.191", ptr %24, i64 %36
-  %38 = and i64 %35, 8191
-  %39 = load ptr, ptr %37, align 8
-  %40 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %39, i64 %38
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load i64, ptr %41, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %42, i64 %31)
-  %43 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
-  br i1 %43, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %37 = zext i32 %35 to i64
+  %38 = lshr i64 %37, 13
+  %39 = getelementptr inbounds nuw %"class.std::vector.191", ptr %26, i64 %38
+  %40 = and i64 %37, 8191
+  %41 = load ptr, ptr %39, align 8
+  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %41, i64 %40
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load i64, ptr %43, align 8
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %44, i64 %33)
+  %45 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
+  br i1 %45, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i
-  %44 = load ptr, ptr %40, align 8
-  %45 = tail call i32 @memcmp(ptr noundef %29, ptr noundef %44, i64 noundef %.sroa.speculated.i.i.i.i) #28
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKNS2_6FormalES9_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit
+  %46 = load ptr, ptr %42, align 8
+  %47 = tail call i32 @memcmp(ptr noundef %31, ptr noundef %46, i64 noundef %.sroa.speculated.i.i.i.i) #28
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKNS2_6FormalES9_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNK3nix11SymbolTableixENS_6SymbolE.exit13.i.i
-  %47 = sub i64 %31, %42
-  %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %47, i64 -2147483648)
+  %49 = sub i64 %33, %44
+  %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %49, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
   %.0.i4.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKNS2_6FormalES9_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKNS2_6FormalES9_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
-  %.0.i.i.i.i = phi i32 [ %.0.i4.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ], [ %45, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
-  %48 = icmp slt i32 %.0.i.i.i.i, 0
-  %spec.select = select i1 %48, i64 %16, i64 %15
-  %49 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %spec.select
-  %50 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %.039
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false)
-  %51 = icmp slt i64 %spec.select, %9
-  br i1 %51, label %13, label %._crit_edge, !llvm.loop !117
+  %.0.i.i.i.i = phi i32 [ %.0.i4.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ], [ %47, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %50 = icmp slt i32 %.0.i.i.i.i, 0
+  %spec.select = select i1 %50, i64 %17, i64 %15
+  %51 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %spec.select
+  %52 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %.039
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
+  %53 = icmp slt i64 %spec.select, %9
+  br i1 %53, label %13, label %._crit_edge, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKNS2_6FormalES9_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit, %6
   %.0.lcssa = phi i64 [ %1, %6 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3nix7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKNS2_6FormalES9_E_EclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit ]
-  %52 = and i64 %2, 1
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %54, label %63
+  %54 = and i64 %2, 1
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %56, label %65
 
-54:                                               ; preds = %._crit_edge
-  %55 = add nsw i64 %2, -2
-  %56 = ashr exact i64 %55, 1
-  %57 = icmp eq i64 %.0.lcssa, %56
-  br i1 %57, label %58, label %63
+56:                                               ; preds = %._crit_edge
+  %57 = add nsw i64 %2, -2
+  %58 = ashr exact i64 %57, 1
+  %59 = icmp eq i64 %.0.lcssa, %58
+  br i1 %59, label %60, label %65
 
-58:                                               ; preds = %54
-  %59 = shl nsw i64 %.0.lcssa, 1
-  %60 = or disjoint i64 %59, 1
-  %61 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %60
-  %62 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false)
-  br label %63
+60:                                               ; preds = %56
+  %61 = shl nsw i64 %.0.lcssa, 1
+  %62 = or disjoint i64 %61, 1
+  %63 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %62
+  %64 = getelementptr inbounds %"struct.nix::Formal", ptr %0, i64 %.0.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false)
+  br label %65
 
-63:                                               ; preds = %58, %54, %._crit_edge
-  %.1 = phi i64 [ %60, %58 ], [ %.0.lcssa, %54 ], [ %.0.lcssa, %._crit_edge ]
-  %64 = ptrtoint ptr %5 to i64
-  store i64 %64, ptr %7, align 8
+65:                                               ; preds = %60, %56, %._crit_edge
+  %.1 = phi i64 [ %62, %60 ], [ %.0.lcssa, %56 ], [ %.0.lcssa, %._crit_edge ]
+  %66 = ptrtoint ptr %5 to i64
+  store i64 %66, ptr %7, align 8
   call void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SG_E_EEEvT_T0_SK_T1_RT2_(ptr %0, i64 noundef %.1, i64 noundef %1, i64 %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(8) %7)
   ret void
 }

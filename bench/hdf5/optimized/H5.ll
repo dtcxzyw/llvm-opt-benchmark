@@ -1710,8 +1710,7 @@ switch.early.test:                                ; preds = %6
 
 49:                                               ; preds = %.preheader, %49
   %.15080 = phi i64 [ 0, %.preheader ], [ %52, %49 ]
-  %.idx = shl nuw nsw i64 %.15080, 4
-  %50 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.idx
+  %50 = getelementptr inbounds nuw %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.15080
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %48, ptr %51, align 8, !tbaa !46
   %52 = add nuw nsw i64 %.15080, 1

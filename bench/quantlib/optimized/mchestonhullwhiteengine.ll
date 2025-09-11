@@ -441,7 +441,8 @@ cond.false.i:                                     ; preds = %for.cond.cleanup
 
 invoke.cont35:                                    ; preds = %invoke.cont35.lr.ph, %invoke.cont35
   %j.063 = phi i64 [ 0, %invoke.cont35.lr.ph ], [ %inc, %invoke.cont35 ]
-  %values_.i = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %0, i64 %j.063, i32 1
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %0, i64 %j.063
+  %values_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 72
   %29 = load ptr, ptr %values_.i, align 8, !tbaa !32
   %30 = getelementptr i8, ptr %29, i64 %sub.ptr.sub.i.i.i.i34
   %arrayidx.i.i = getelementptr i8, ptr %30, i64 -8

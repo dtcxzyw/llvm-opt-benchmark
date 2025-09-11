@@ -263,17 +263,17 @@ define internal fastcc ptr @Abc_NtkToIvy(ptr noundef %0) unnamed_addr #0 {
   %80 = getelementptr i8, ptr %26, i64 28
   %.val42.i.i = load i32, ptr %80, align 4, !tbaa !46
   %81 = icmp sgt i32 %.val42.i.i, 2
-  br i1 %81, label %82, label %112
+  br i1 %81, label %82, label %113
 
 82:                                               ; preds = %79
   %83 = tail call i32 @Abc_SopGetCubeNum(ptr noundef %.028.i.i) #15
   %84 = icmp sgt i32 %83, 1
-  br i1 %84, label %85, label %112
+  br i1 %84, label %85, label %113
 
 85:                                               ; preds = %82
   %86 = tail call i32 @Abc_SopIsExorType(ptr noundef %.028.i.i) #15
   %.not31.i.i = icmp eq i32 %86, 0
-  br i1 %.not31.i.i, label %87, label %112
+  br i1 %.not31.i.i, label %87, label %113
 
 87:                                               ; preds = %85
   %88 = tail call ptr @Dec_Factor(ptr noundef %.028.i.i) #15
@@ -290,58 +290,59 @@ define internal fastcc ptr @Abc_NtkToIvy(ptr noundef %0) unnamed_addr #0 {
 94:                                               ; preds = %94, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %94 ]
   %.val.i12.i = load ptr, ptr %92, align 8, !tbaa !51
+  %95 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val.i12.i, i64 %indvars.iv.i.i
   %.val12.i.i = load ptr, ptr %26, align 8, !tbaa !41
   %.val13.i.i = load ptr, ptr %93, align 8, !tbaa !44
-  %95 = getelementptr i8, ptr %.val12.i.i, i64 32
-  %.val12.val.i.i = load ptr, ptr %95, align 8, !tbaa !45
-  %96 = getelementptr i8, ptr %.val12.val.i.i, i64 8
-  %.val12.val.val.i.i = load ptr, ptr %96, align 8, !tbaa !37
-  %97 = getelementptr inbounds nuw i32, ptr %.val13.i.i, i64 %indvars.iv.i.i
-  %98 = load i32, ptr %97, align 4, !tbaa !25
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds ptr, ptr %.val12.val.val.i.i, i64 %99
-  %101 = load ptr, ptr %100, align 8, !tbaa !38
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 64
-  %103 = load ptr, ptr %102, align 8, !tbaa !33
-  %104 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val.i12.i, i64 %indvars.iv.i.i, i32 2
-  store ptr %103, ptr %104, align 8, !tbaa !33
+  %96 = getelementptr i8, ptr %.val12.i.i, i64 32
+  %.val12.val.i.i = load ptr, ptr %96, align 8, !tbaa !45
+  %97 = getelementptr i8, ptr %.val12.val.i.i, i64 8
+  %.val12.val.val.i.i = load ptr, ptr %97, align 8, !tbaa !37
+  %98 = getelementptr inbounds nuw i32, ptr %.val13.i.i, i64 %indvars.iv.i.i
+  %99 = load i32, ptr %98, align 4, !tbaa !25
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds ptr, ptr %.val12.val.val.i.i, i64 %100
+  %102 = load ptr, ptr %101, align 8, !tbaa !38
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 64
+  %104 = load ptr, ptr %103, align 8, !tbaa !33
+  %105 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  store ptr %104, ptr %105, align 8, !tbaa !33
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %105 = load i32, ptr %89, align 4, !tbaa !47
-  %106 = sext i32 %105 to i64
-  %107 = icmp slt i64 %indvars.iv.next.i.i, %106
-  br i1 %107, label %94, label %.critedge.i.i, !llvm.loop !52
+  %106 = load i32, ptr %89, align 4, !tbaa !47
+  %107 = sext i32 %106 to i64
+  %108 = icmp slt i64 %indvars.iv.next.i.i, %107
+  br i1 %108, label %94, label %.critedge.i.i, !llvm.loop !52
 
 .critedge.i.i:                                    ; preds = %94, %87
-  %108 = tail call ptr @Dec_GraphToNetworkIvy(ptr noundef %2, ptr noundef nonnull %88) #15
-  %109 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %110 = load ptr, ptr %109, align 8, !tbaa !51
-  %.not.i.i11.i = icmp eq ptr %110, null
-  br i1 %.not.i.i11.i, label %Abc_NodeStrashAigFactorAig.exit.i, label %111
+  %109 = tail call ptr @Dec_GraphToNetworkIvy(ptr noundef %2, ptr noundef nonnull %88) #15
+  %110 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %111 = load ptr, ptr %110, align 8, !tbaa !51
+  %.not.i.i11.i = icmp eq ptr %111, null
+  br i1 %.not.i.i11.i, label %Abc_NodeStrashAigFactorAig.exit.i, label %112
 
-111:                                              ; preds = %.critedge.i.i
-  tail call void @free(ptr noundef nonnull %110) #15
+112:                                              ; preds = %.critedge.i.i
+  tail call void @free(ptr noundef nonnull %111) #15
   br label %Abc_NodeStrashAigFactorAig.exit.i
 
-Abc_NodeStrashAigFactorAig.exit.i:                ; preds = %111, %.critedge.i.i
+Abc_NodeStrashAigFactorAig.exit.i:                ; preds = %112, %.critedge.i.i
   tail call void @free(ptr noundef nonnull %88) #15
   br label %Abc_NodeStrashAig.exit.i
 
-112:                                              ; preds = %85, %82, %79
-  %113 = tail call i32 @Abc_SopIsExorType(ptr noundef %.028.i.i) #15
+113:                                              ; preds = %85, %82, %79
+  %114 = tail call i32 @Abc_SopIsExorType(ptr noundef %.028.i.i) #15
   %.val39.i.i.i = load ptr, ptr %23, align 8, !tbaa !27
-  %114 = ptrtoint ptr %.val39.i.i.i to i64
-  %115 = xor i64 %114, 1
-  %116 = inttoptr i64 %115 to ptr
-  %117 = load i8, ptr %.028.i.i, align 1, !tbaa !33
-  %.not47.i.i.i = icmp eq i8 %117, 0
+  %115 = ptrtoint ptr %.val39.i.i.i to i64
+  %116 = xor i64 %115, 1
+  %117 = inttoptr i64 %116 to ptr
+  %118 = load i8, ptr %.028.i.i, align 1, !tbaa !33
+  %.not47.i.i.i = icmp eq i8 %118, 0
   br i1 %.not47.i.i.i, label %Abc_NodeStrashAigSopAig.exit.i.i, label %.lr.ph50.i.i.i
 
-.lr.ph50.i.i.i:                                   ; preds = %112
+.lr.ph50.i.i.i:                                   ; preds = %113
   %.val41.i.i.i = load i32, ptr %80, align 4, !tbaa !46
-  %118 = getelementptr i8, ptr %26, i64 32
-  %.fr.i.i.i = freeze i32 %113
+  %119 = getelementptr i8, ptr %26, i64 32
+  %.fr.i.i.i = freeze i32 %114
   %.not38.i.i.i = icmp eq i32 %.fr.i.i.i, 0
-  %119 = sext i32 %.val41.i.i.i to i64
+  %120 = sext i32 %.val41.i.i.i to i64
   br i1 %.not38.i.i.i, label %.lr.ph50.split.us.i.i.i, label %.lr.ph50.split.i.i.i
 
 .lr.ph50.split.us.ithread-pre-split.i.i:          ; preds = %.critedge.us.i.i.i
@@ -352,68 +353,68 @@ Abc_NodeStrashAigFactorAig.exit.i:                ; preds = %111, %.critedge.i.i
 .lr.ph50.split.us.i.i.i:                          ; preds = %.lr.ph50.i.i.i, %.lr.ph50.split.us.ithread-pre-split.i.i
   %.val.us.i.i.i = phi ptr [ %.val.us.i.pre.i.i, %.lr.ph50.split.us.ithread-pre-split.i.i ], [ %.val39.i.i.i, %.lr.ph50.i.i.i ]
   %.val4044.us.i.i.i = phi i32 [ %.val4044.us.i.pr.i.i, %.lr.ph50.split.us.ithread-pre-split.i.i ], [ %.val41.i.i.i, %.lr.ph50.i.i.i ]
-  %.03249.us.i.i.i = phi ptr [ %121, %.lr.ph50.split.us.ithread-pre-split.i.i ], [ %116, %.lr.ph50.i.i.i ]
-  %.03548.us.i.i.i = phi ptr [ %123, %.lr.ph50.split.us.ithread-pre-split.i.i ], [ %.028.i.i, %.lr.ph50.i.i.i ]
-  %120 = icmp sgt i32 %.val4044.us.i.i.i, 0
-  br i1 %120, label %.lr.ph.us.i.i.i, label %.critedge.us.i.i.i
+  %.03249.us.i.i.i = phi ptr [ %122, %.lr.ph50.split.us.ithread-pre-split.i.i ], [ %117, %.lr.ph50.i.i.i ]
+  %.03548.us.i.i.i = phi ptr [ %124, %.lr.ph50.split.us.ithread-pre-split.i.i ], [ %.028.i.i, %.lr.ph50.i.i.i ]
+  %121 = icmp sgt i32 %.val4044.us.i.i.i, 0
+  br i1 %121, label %.lr.ph.us.i.i.i, label %.critedge.us.i.i.i
 
-.critedge.us.i.i.i:                               ; preds = %144, %.lr.ph50.split.us.i.i.i
-  %.0.lcssa.us.i.i.i = phi ptr [ %.val.us.i.i.i, %.lr.ph50.split.us.i.i.i ], [ %.1.us.i.i.i, %144 ]
-  %121 = tail call ptr @Ivy_Or(ptr noundef %2, ptr noundef %.03249.us.i.i.i, ptr noundef %.0.lcssa.us.i.i.i) #15
-  %122 = getelementptr i8, ptr %.03548.us.i.i.i, i64 %119
-  %123 = getelementptr i8, ptr %122, i64 3
-  %124 = load i8, ptr %123, align 1, !tbaa !33
-  %.not.us.i.i.i = icmp eq i8 %124, 0
+.critedge.us.i.i.i:                               ; preds = %145, %.lr.ph50.split.us.i.i.i
+  %.0.lcssa.us.i.i.i = phi ptr [ %.val.us.i.i.i, %.lr.ph50.split.us.i.i.i ], [ %.1.us.i.i.i, %145 ]
+  %122 = tail call ptr @Ivy_Or(ptr noundef %2, ptr noundef %.03249.us.i.i.i, ptr noundef %.0.lcssa.us.i.i.i) #15
+  %123 = getelementptr i8, ptr %.03548.us.i.i.i, i64 %120
+  %124 = getelementptr i8, ptr %123, i64 3
+  %125 = load i8, ptr %124, align 1, !tbaa !33
+  %.not.us.i.i.i = icmp eq i8 %125, 0
   br i1 %.not.us.i.i.i, label %Abc_NodeStrashAigSopAig.exit.i.i, label %.lr.ph50.split.us.ithread-pre-split.i.i, !llvm.loop !53
 
-.lr.ph.us.i.i.i:                                  ; preds = %.lr.ph50.split.us.i.i.i, %144
-  %.val40.us.i53.i.i = phi i32 [ %.val40.us.i.i.i, %144 ], [ %.val4044.us.i.i.i, %.lr.ph50.split.us.i.i.i ]
-  %indvars.iv55.i.i.i = phi i64 [ %indvars.iv.next56.i.i.i, %144 ], [ 0, %.lr.ph50.split.us.i.i.i ]
-  %.046.us.i.i.i = phi ptr [ %.1.us.i.i.i, %144 ], [ %.val.us.i.i.i, %.lr.ph50.split.us.i.i.i ]
+.lr.ph.us.i.i.i:                                  ; preds = %.lr.ph50.split.us.i.i.i, %145
+  %.val40.us.i53.i.i = phi i32 [ %.val40.us.i.i.i, %145 ], [ %.val4044.us.i.i.i, %.lr.ph50.split.us.i.i.i ]
+  %indvars.iv55.i.i.i = phi i64 [ %indvars.iv.next56.i.i.i, %145 ], [ 0, %.lr.ph50.split.us.i.i.i ]
+  %.046.us.i.i.i = phi ptr [ %.1.us.i.i.i, %145 ], [ %.val.us.i.i.i, %.lr.ph50.split.us.i.i.i ]
   %.val42.us.i.i.i = load ptr, ptr %26, align 8, !tbaa !41
-  %.val43.us.i.i.i = load ptr, ptr %118, align 8, !tbaa !44
-  %125 = getelementptr i8, ptr %.val42.us.i.i.i, i64 32
-  %.val42.val.us.i.i.i = load ptr, ptr %125, align 8, !tbaa !45
-  %126 = getelementptr i8, ptr %.val42.val.us.i.i.i, i64 8
-  %.val42.val.val.us.i.i.i = load ptr, ptr %126, align 8, !tbaa !37
-  %127 = getelementptr inbounds nuw i32, ptr %.val43.us.i.i.i, i64 %indvars.iv55.i.i.i
-  %128 = load i32, ptr %127, align 4, !tbaa !25
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds ptr, ptr %.val42.val.val.us.i.i.i, i64 %129
-  %131 = load ptr, ptr %130, align 8, !tbaa !38
-  %132 = getelementptr inbounds nuw i8, ptr %.03548.us.i.i.i, i64 %indvars.iv55.i.i.i
-  %133 = load i8, ptr %132, align 1, !tbaa !33
-  switch i8 %133, label %144 [
-    i8 49, label %140
-    i8 48, label %134
+  %.val43.us.i.i.i = load ptr, ptr %119, align 8, !tbaa !44
+  %126 = getelementptr i8, ptr %.val42.us.i.i.i, i64 32
+  %.val42.val.us.i.i.i = load ptr, ptr %126, align 8, !tbaa !45
+  %127 = getelementptr i8, ptr %.val42.val.us.i.i.i, i64 8
+  %.val42.val.val.us.i.i.i = load ptr, ptr %127, align 8, !tbaa !37
+  %128 = getelementptr inbounds nuw i32, ptr %.val43.us.i.i.i, i64 %indvars.iv55.i.i.i
+  %129 = load i32, ptr %128, align 4, !tbaa !25
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds ptr, ptr %.val42.val.val.us.i.i.i, i64 %130
+  %132 = load ptr, ptr %131, align 8, !tbaa !38
+  %133 = getelementptr inbounds nuw i8, ptr %.03548.us.i.i.i, i64 %indvars.iv55.i.i.i
+  %134 = load i8, ptr %133, align 1, !tbaa !33
+  switch i8 %134, label %145 [
+    i8 49, label %141
+    i8 48, label %135
   ]
 
-134:                                              ; preds = %.lr.ph.us.i.i.i
-  %135 = getelementptr inbounds nuw i8, ptr %131, i64 64
-  %136 = load ptr, ptr %135, align 8, !tbaa !33
-  %137 = ptrtoint ptr %136 to i64
-  %138 = xor i64 %137, 1
-  %139 = inttoptr i64 %138 to ptr
+135:                                              ; preds = %.lr.ph.us.i.i.i
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 64
+  %137 = load ptr, ptr %136, align 8, !tbaa !33
+  %138 = ptrtoint ptr %137 to i64
+  %139 = xor i64 %138, 1
+  %140 = inttoptr i64 %139 to ptr
   br label %.sink.split.i.i.i
 
-140:                                              ; preds = %.lr.ph.us.i.i.i
-  %141 = getelementptr inbounds nuw i8, ptr %131, i64 64
-  %142 = load ptr, ptr %141, align 8, !tbaa !33
+141:                                              ; preds = %.lr.ph.us.i.i.i
+  %142 = getelementptr inbounds nuw i8, ptr %132, i64 64
+  %143 = load ptr, ptr %142, align 8, !tbaa !33
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %140, %134
-  %.sink.i.i.i = phi ptr [ %142, %140 ], [ %139, %134 ]
-  %143 = tail call ptr @Ivy_And(ptr noundef %2, ptr noundef %.046.us.i.i.i, ptr noundef %.sink.i.i.i) #15
+.sink.split.i.i.i:                                ; preds = %141, %135
+  %.sink.i.i.i = phi ptr [ %143, %141 ], [ %140, %135 ]
+  %144 = tail call ptr @Ivy_And(ptr noundef %2, ptr noundef %.046.us.i.i.i, ptr noundef %.sink.i.i.i) #15
   %.val40.us.i.pre.i.i = load i32, ptr %80, align 4, !tbaa !46
-  br label %144
+  br label %145
 
-144:                                              ; preds = %.sink.split.i.i.i, %.lr.ph.us.i.i.i
+145:                                              ; preds = %.sink.split.i.i.i, %.lr.ph.us.i.i.i
   %.val40.us.i.i.i = phi i32 [ %.val40.us.i53.i.i, %.lr.ph.us.i.i.i ], [ %.val40.us.i.pre.i.i, %.sink.split.i.i.i ]
-  %.1.us.i.i.i = phi ptr [ %.046.us.i.i.i, %.lr.ph.us.i.i.i ], [ %143, %.sink.split.i.i.i ]
+  %.1.us.i.i.i = phi ptr [ %.046.us.i.i.i, %.lr.ph.us.i.i.i ], [ %144, %.sink.split.i.i.i ]
   %indvars.iv.next56.i.i.i = add nuw nsw i64 %indvars.iv55.i.i.i, 1
-  %145 = sext i32 %.val40.us.i.i.i to i64
-  %146 = icmp slt i64 %indvars.iv.next56.i.i.i, %145
-  br i1 %146, label %.lr.ph.us.i.i.i, label %.critedge.us.i.i.i, !llvm.loop !54
+  %146 = sext i32 %.val40.us.i.i.i to i64
+  %147 = icmp slt i64 %indvars.iv.next56.i.i.i, %146
+  br i1 %147, label %.lr.ph.us.i.i.i, label %.critedge.us.i.i.i, !llvm.loop !54
 
 .lr.ph50.split.ithread-pre-split.i.i:             ; preds = %.critedge.i.i.i
   %.val4044.i.pr.i.i = load i32, ptr %80, align 4, !tbaa !46
@@ -423,147 +424,147 @@ Abc_NodeStrashAigFactorAig.exit.i:                ; preds = %111, %.critedge.i.i
 .lr.ph50.split.i.i.i:                             ; preds = %.lr.ph50.i.i.i, %.lr.ph50.split.ithread-pre-split.i.i
   %.val.i.i.i = phi ptr [ %.val.i.pre.i.i, %.lr.ph50.split.ithread-pre-split.i.i ], [ %.val39.i.i.i, %.lr.ph50.i.i.i ]
   %.val4044.i.i.i = phi i32 [ %.val4044.i.pr.i.i, %.lr.ph50.split.ithread-pre-split.i.i ], [ %.val41.i.i.i, %.lr.ph50.i.i.i ]
-  %.03249.i.i.i = phi ptr [ %170, %.lr.ph50.split.ithread-pre-split.i.i ], [ %116, %.lr.ph50.i.i.i ]
-  %.03548.i.i.i = phi ptr [ %172, %.lr.ph50.split.ithread-pre-split.i.i ], [ %.028.i.i, %.lr.ph50.i.i.i ]
-  %147 = icmp sgt i32 %.val4044.i.i.i, 0
-  br i1 %147, label %.lr.ph.i.i.i, label %.critedge.i.i.i
+  %.03249.i.i.i = phi ptr [ %171, %.lr.ph50.split.ithread-pre-split.i.i ], [ %117, %.lr.ph50.i.i.i ]
+  %.03548.i.i.i = phi ptr [ %173, %.lr.ph50.split.ithread-pre-split.i.i ], [ %.028.i.i, %.lr.ph50.i.i.i ]
+  %148 = icmp sgt i32 %.val4044.i.i.i, 0
+  br i1 %148, label %.lr.ph.i.i.i, label %.critedge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph50.split.i.i.i, %167
-  %.val40.i50.i.i = phi i32 [ %.val40.i.i.i, %167 ], [ %.val4044.i.i.i, %.lr.ph50.split.i.i.i ]
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %167 ], [ 0, %.lr.ph50.split.i.i.i ]
-  %.046.i.i.i = phi ptr [ %.1.i.i.i, %167 ], [ %.val.i.i.i, %.lr.ph50.split.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph50.split.i.i.i, %168
+  %.val40.i50.i.i = phi i32 [ %.val40.i.i.i, %168 ], [ %.val4044.i.i.i, %.lr.ph50.split.i.i.i ]
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %168 ], [ 0, %.lr.ph50.split.i.i.i ]
+  %.046.i.i.i = phi ptr [ %.1.i.i.i, %168 ], [ %.val.i.i.i, %.lr.ph50.split.i.i.i ]
   %.val42.i.i.i = load ptr, ptr %26, align 8, !tbaa !41
-  %.val43.i.i.i = load ptr, ptr %118, align 8, !tbaa !44
-  %148 = getelementptr i8, ptr %.val42.i.i.i, i64 32
-  %.val42.val.i.i.i = load ptr, ptr %148, align 8, !tbaa !45
-  %149 = getelementptr i8, ptr %.val42.val.i.i.i, i64 8
-  %.val42.val.val.i.i.i = load ptr, ptr %149, align 8, !tbaa !37
-  %150 = getelementptr inbounds nuw i32, ptr %.val43.i.i.i, i64 %indvars.iv.i.i.i
-  %151 = load i32, ptr %150, align 4, !tbaa !25
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %.val42.val.val.i.i.i, i64 %152
-  %154 = load ptr, ptr %153, align 8, !tbaa !38
-  %155 = getelementptr inbounds nuw i8, ptr %.03548.i.i.i, i64 %indvars.iv.i.i.i
-  %156 = load i8, ptr %155, align 1, !tbaa !33
-  switch i8 %156, label %167 [
-    i8 49, label %157
-    i8 48, label %160
+  %.val43.i.i.i = load ptr, ptr %119, align 8, !tbaa !44
+  %149 = getelementptr i8, ptr %.val42.i.i.i, i64 32
+  %.val42.val.i.i.i = load ptr, ptr %149, align 8, !tbaa !45
+  %150 = getelementptr i8, ptr %.val42.val.i.i.i, i64 8
+  %.val42.val.val.i.i.i = load ptr, ptr %150, align 8, !tbaa !37
+  %151 = getelementptr inbounds nuw i32, ptr %.val43.i.i.i, i64 %indvars.iv.i.i.i
+  %152 = load i32, ptr %151, align 4, !tbaa !25
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds ptr, ptr %.val42.val.val.i.i.i, i64 %153
+  %155 = load ptr, ptr %154, align 8, !tbaa !38
+  %156 = getelementptr inbounds nuw i8, ptr %.03548.i.i.i, i64 %indvars.iv.i.i.i
+  %157 = load i8, ptr %156, align 1, !tbaa !33
+  switch i8 %157, label %168 [
+    i8 49, label %158
+    i8 48, label %161
   ]
 
-157:                                              ; preds = %.lr.ph.i.i.i
-  %158 = getelementptr inbounds nuw i8, ptr %154, i64 64
-  %159 = load ptr, ptr %158, align 8, !tbaa !33
+158:                                              ; preds = %.lr.ph.i.i.i
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 64
+  %160 = load ptr, ptr %159, align 8, !tbaa !33
   br label %.sink.split60.i.i.i
 
-160:                                              ; preds = %.lr.ph.i.i.i
-  %161 = getelementptr inbounds nuw i8, ptr %154, i64 64
-  %162 = load ptr, ptr %161, align 8, !tbaa !33
-  %163 = ptrtoint ptr %162 to i64
-  %164 = xor i64 %163, 1
-  %165 = inttoptr i64 %164 to ptr
+161:                                              ; preds = %.lr.ph.i.i.i
+  %162 = getelementptr inbounds nuw i8, ptr %155, i64 64
+  %163 = load ptr, ptr %162, align 8, !tbaa !33
+  %164 = ptrtoint ptr %163 to i64
+  %165 = xor i64 %164, 1
+  %166 = inttoptr i64 %165 to ptr
   br label %.sink.split60.i.i.i
 
-.sink.split60.i.i.i:                              ; preds = %160, %157
-  %.sink61.i.i.i = phi ptr [ %159, %157 ], [ %165, %160 ]
-  %166 = tail call ptr @Ivy_And(ptr noundef %2, ptr noundef %.046.i.i.i, ptr noundef %.sink61.i.i.i) #15
+.sink.split60.i.i.i:                              ; preds = %161, %158
+  %.sink61.i.i.i = phi ptr [ %160, %158 ], [ %166, %161 ]
+  %167 = tail call ptr @Ivy_And(ptr noundef %2, ptr noundef %.046.i.i.i, ptr noundef %.sink61.i.i.i) #15
   %.val40.i.pre.i.i = load i32, ptr %80, align 4, !tbaa !46
-  br label %167
+  br label %168
 
-167:                                              ; preds = %.sink.split60.i.i.i, %.lr.ph.i.i.i
+168:                                              ; preds = %.sink.split60.i.i.i, %.lr.ph.i.i.i
   %.val40.i.i.i = phi i32 [ %.val40.i50.i.i, %.lr.ph.i.i.i ], [ %.val40.i.pre.i.i, %.sink.split60.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.046.i.i.i, %.lr.ph.i.i.i ], [ %166, %.sink.split60.i.i.i ]
+  %.1.i.i.i = phi ptr [ %.046.i.i.i, %.lr.ph.i.i.i ], [ %167, %.sink.split60.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %168 = sext i32 %.val40.i.i.i to i64
-  %169 = icmp slt i64 %indvars.iv.next.i.i.i, %168
-  br i1 %169, label %.lr.ph.i.i.i, label %.critedge.i.i.i, !llvm.loop !54
+  %169 = sext i32 %.val40.i.i.i to i64
+  %170 = icmp slt i64 %indvars.iv.next.i.i.i, %169
+  br i1 %170, label %.lr.ph.i.i.i, label %.critedge.i.i.i, !llvm.loop !54
 
-.critedge.i.i.i:                                  ; preds = %167, %.lr.ph50.split.i.i.i
-  %.0.lcssa.i.i.i = phi ptr [ %.val.i.i.i, %.lr.ph50.split.i.i.i ], [ %.1.i.i.i, %167 ]
-  %170 = tail call ptr @Ivy_Exor(ptr noundef %2, ptr noundef %.03249.i.i.i, ptr noundef %.0.lcssa.i.i.i) #15
-  %171 = getelementptr i8, ptr %.03548.i.i.i, i64 %119
-  %172 = getelementptr i8, ptr %171, i64 3
-  %173 = load i8, ptr %172, align 1, !tbaa !33
-  %.not.i.i.i = icmp eq i8 %173, 0
+.critedge.i.i.i:                                  ; preds = %168, %.lr.ph50.split.i.i.i
+  %.0.lcssa.i.i.i = phi ptr [ %.val.i.i.i, %.lr.ph50.split.i.i.i ], [ %.1.i.i.i, %168 ]
+  %171 = tail call ptr @Ivy_Exor(ptr noundef %2, ptr noundef %.03249.i.i.i, ptr noundef %.0.lcssa.i.i.i) #15
+  %172 = getelementptr i8, ptr %.03548.i.i.i, i64 %120
+  %173 = getelementptr i8, ptr %172, i64 3
+  %174 = load i8, ptr %173, align 1, !tbaa !33
+  %.not.i.i.i = icmp eq i8 %174, 0
   br i1 %.not.i.i.i, label %Abc_NodeStrashAigSopAig.exit.i.i, label %.lr.ph50.split.ithread-pre-split.i.i, !llvm.loop !53
 
-Abc_NodeStrashAigSopAig.exit.i.i:                 ; preds = %.critedge.i.i.i, %.critedge.us.i.i.i, %112
-  %.032.lcssa.i.i.i = phi ptr [ %116, %112 ], [ %121, %.critedge.us.i.i.i ], [ %170, %.critedge.i.i.i ]
-  %174 = tail call i32 @Abc_SopIsComplement(ptr noundef nonnull %.028.i.i) #15
-  %.not37.i.i.i = icmp eq i32 %174, 0
-  %175 = ptrtoint ptr %.032.lcssa.i.i.i to i64
-  %176 = xor i64 %175, 1
-  %177 = inttoptr i64 %176 to ptr
-  %.2.i.i.i = select i1 %.not37.i.i.i, ptr %.032.lcssa.i.i.i, ptr %177
+Abc_NodeStrashAigSopAig.exit.i.i:                 ; preds = %.critedge.i.i.i, %.critedge.us.i.i.i, %113
+  %.032.lcssa.i.i.i = phi ptr [ %117, %113 ], [ %122, %.critedge.us.i.i.i ], [ %171, %.critedge.i.i.i ]
+  %175 = tail call i32 @Abc_SopIsComplement(ptr noundef nonnull %.028.i.i) #15
+  %.not37.i.i.i = icmp eq i32 %175, 0
+  %176 = ptrtoint ptr %.032.lcssa.i.i.i to i64
+  %177 = xor i64 %176, 1
+  %178 = inttoptr i64 %177 to ptr
+  %.2.i.i.i = select i1 %.not37.i.i.i, ptr %.032.lcssa.i.i.i, ptr %178
   br label %Abc_NodeStrashAig.exit.i
 
 Abc_NodeStrashAig.exit.i:                         ; preds = %Abc_NodeStrashAigSopAig.exit.i.i, %Abc_NodeStrashAigFactorAig.exit.i, %73, %36, %35
-  %.0.i.i = phi ptr [ %.val34.i.i, %35 ], [ %64, %36 ], [ %78, %73 ], [ %.2.i.i.i, %Abc_NodeStrashAigSopAig.exit.i.i ], [ %108, %Abc_NodeStrashAigFactorAig.exit.i ]
-  %178 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  store ptr %.0.i.i, ptr %178, align 8, !tbaa !33
+  %.0.i.i = phi ptr [ %.val34.i.i, %35 ], [ %64, %36 ], [ %78, %73 ], [ %.2.i.i.i, %Abc_NodeStrashAigSopAig.exit.i.i ], [ %109, %Abc_NodeStrashAigFactorAig.exit.i ]
+  %179 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  store ptr %.0.i.i, ptr %179, align 8, !tbaa !33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load i32, ptr %20, align 4, !tbaa !35
-  %179 = sext i32 %.val.i to i64
-  %180 = icmp slt i64 %indvars.iv.next.i, %179
-  br i1 %180, label %24, label %.critedge.i, !llvm.loop !55
+  %180 = sext i32 %.val.i to i64
+  %181 = icmp slt i64 %indvars.iv.next.i, %180
+  br i1 %181, label %24, label %.critedge.i, !llvm.loop !55
 
 .critedge.i:                                      ; preds = %Abc_NodeStrashAig.exit.i, %.critedge
-  %181 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %182 = load ptr, ptr %181, align 8, !tbaa !37
-  %.not.i10.i = icmp eq ptr %182, null
-  br i1 %.not.i10.i, label %Abc_NtkStrashPerformAig.exit, label %183
+  %182 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %183 = load ptr, ptr %182, align 8, !tbaa !37
+  %.not.i10.i = icmp eq ptr %183, null
+  br i1 %.not.i10.i, label %Abc_NtkStrashPerformAig.exit, label %184
 
-183:                                              ; preds = %.critedge.i
-  tail call void @free(ptr noundef nonnull %182) #15
+184:                                              ; preds = %.critedge.i
+  tail call void @free(ptr noundef nonnull %183) #15
   br label %Abc_NtkStrashPerformAig.exit
 
-Abc_NtkStrashPerformAig.exit:                     ; preds = %.critedge.i, %183
+Abc_NtkStrashPerformAig.exit:                     ; preds = %.critedge.i, %184
   tail call void @free(ptr noundef nonnull %19) #15
-  %184 = getelementptr i8, ptr %0, i64 64
-  %.val3139 = load ptr, ptr %184, align 8, !tbaa !56
-  %185 = getelementptr i8, ptr %.val3139, i64 4
-  %.val31.val40 = load i32, ptr %185, align 4, !tbaa !35
-  %186 = icmp sgt i32 %.val31.val40, 0
-  br i1 %186, label %.lr.ph43, label %.critedge2
+  %185 = getelementptr i8, ptr %0, i64 64
+  %.val3139 = load ptr, ptr %185, align 8, !tbaa !56
+  %186 = getelementptr i8, ptr %.val3139, i64 4
+  %.val31.val40 = load i32, ptr %186, align 4, !tbaa !35
+  %187 = icmp sgt i32 %.val31.val40, 0
+  br i1 %187, label %.lr.ph43, label %.critedge2
 
 .lr.ph43:                                         ; preds = %Abc_NtkStrashPerformAig.exit, %.lr.ph43
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.lr.ph43 ], [ 0, %Abc_NtkStrashPerformAig.exit ]
   %.val3142 = phi ptr [ %.val31, %.lr.ph43 ], [ %.val3139, %Abc_NtkStrashPerformAig.exit ]
-  %187 = getelementptr i8, ptr %.val3142, i64 8
-  %.val32.val = load ptr, ptr %187, align 8, !tbaa !37
-  %188 = getelementptr inbounds nuw ptr, ptr %.val32.val, i64 %indvars.iv47
-  %189 = load ptr, ptr %188, align 8, !tbaa !38
-  %.val28 = load ptr, ptr %189, align 8, !tbaa !41
-  %190 = getelementptr i8, ptr %189, i64 32
-  %.val29 = load ptr, ptr %190, align 8, !tbaa !44
-  %191 = getelementptr i8, ptr %.val28, i64 32
-  %.val28.val = load ptr, ptr %191, align 8, !tbaa !45
+  %188 = getelementptr i8, ptr %.val3142, i64 8
+  %.val32.val = load ptr, ptr %188, align 8, !tbaa !37
+  %189 = getelementptr inbounds nuw ptr, ptr %.val32.val, i64 %indvars.iv47
+  %190 = load ptr, ptr %189, align 8, !tbaa !38
+  %.val28 = load ptr, ptr %190, align 8, !tbaa !41
+  %191 = getelementptr i8, ptr %190, i64 32
+  %.val29 = load ptr, ptr %191, align 8, !tbaa !44
+  %192 = getelementptr i8, ptr %.val28, i64 32
+  %.val28.val = load ptr, ptr %192, align 8, !tbaa !45
   %.val29.val = load i32, ptr %.val29, align 4, !tbaa !25
-  %192 = getelementptr i8, ptr %.val28.val, i64 8
-  %.val28.val.val = load ptr, ptr %192, align 8, !tbaa !37
-  %193 = sext i32 %.val29.val to i64
-  %194 = getelementptr inbounds ptr, ptr %.val28.val.val, i64 %193
-  %195 = load ptr, ptr %194, align 8, !tbaa !38
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 64
-  %197 = load ptr, ptr %196, align 8, !tbaa !33
-  %198 = getelementptr i8, ptr %189, i64 20
-  %.val30 = load i32, ptr %198, align 4
-  %199 = lshr i32 %.val30, 10
-  %200 = and i32 %199, 1
-  %201 = ptrtoint ptr %197 to i64
-  %202 = zext nneg i32 %200 to i64
-  %203 = xor i64 %202, %201
-  %204 = inttoptr i64 %203 to ptr
-  %205 = tail call ptr @Ivy_ObjCreatePo(ptr noundef %2, ptr noundef %204) #15
+  %193 = getelementptr i8, ptr %.val28.val, i64 8
+  %.val28.val.val = load ptr, ptr %193, align 8, !tbaa !37
+  %194 = sext i32 %.val29.val to i64
+  %195 = getelementptr inbounds ptr, ptr %.val28.val.val, i64 %194
+  %196 = load ptr, ptr %195, align 8, !tbaa !38
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 64
+  %198 = load ptr, ptr %197, align 8, !tbaa !33
+  %199 = getelementptr i8, ptr %190, i64 20
+  %.val30 = load i32, ptr %199, align 4
+  %200 = lshr i32 %.val30, 10
+  %201 = and i32 %200, 1
+  %202 = ptrtoint ptr %198 to i64
+  %203 = zext nneg i32 %201 to i64
+  %204 = xor i64 %203, %202
+  %205 = inttoptr i64 %204 to ptr
+  %206 = tail call ptr @Ivy_ObjCreatePo(ptr noundef %2, ptr noundef %205) #15
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %.val31 = load ptr, ptr %184, align 8, !tbaa !56
-  %206 = getelementptr i8, ptr %.val31, i64 4
-  %.val31.val = load i32, ptr %206, align 4, !tbaa !35
-  %207 = sext i32 %.val31.val to i64
-  %208 = icmp slt i64 %indvars.iv.next48, %207
-  br i1 %208, label %.lr.ph43, label %.critedge2, !llvm.loop !57
+  %.val31 = load ptr, ptr %185, align 8, !tbaa !56
+  %207 = getelementptr i8, ptr %.val31, i64 4
+  %.val31.val = load i32, ptr %207, align 4, !tbaa !35
+  %208 = sext i32 %.val31.val to i64
+  %209 = icmp slt i64 %indvars.iv.next48, %208
+  br i1 %209, label %.lr.ph43, label %.critedge2, !llvm.loop !57
 
 .critedge2:                                       ; preds = %.lr.ph43, %Abc_NtkStrashPerformAig.exit
-  %209 = tail call i32 @Ivy_ManCleanup(ptr noundef %2) #15
+  %210 = tail call i32 @Ivy_ManCleanup(ptr noundef %2) #15
   ret ptr %2
 }
 

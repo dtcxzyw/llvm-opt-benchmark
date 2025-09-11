@@ -1250,7 +1250,7 @@ define internal fastcc void @do_callback(ptr noundef readonly captures(none) %0,
 
 15:                                               ; preds = %13
   tail call void @_efree(ptr noundef %.0100) #11
-  br label %134
+  br label %130
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1307,230 +1307,227 @@ define internal fastcc void @do_callback(ptr noundef readonly captures(none) %0,
   %invariant.gep = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
   %invariant.gep129 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
   %invariant.gep131 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
+  %invariant.gep133 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
   %40 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !123
   %42 = tail call i32 @sqlite3_value_type(ptr noundef %41) #11
   switch i32 %42, label %zend_string_alloc.exit [
     i32 1, label %43
-    i32 2, label %48
-    i32 5, label %52
+    i32 2, label %47
+    i32 5, label %50
   ]
 
 43:                                               ; preds = %.lr.ph
-  %gep130 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep129, i64 %indvars.iv
+  %gep132 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep131, i64 %indvars.iv
   %44 = load ptr, ptr %40, align 8, !tbaa !123
   %45 = tail call i32 @sqlite3_value_int(ptr noundef %44) #11
   %46 = sext i32 %45 to i64
-  store i64 %46, ptr %gep130, align 8, !tbaa !31
-  %47 = getelementptr inbounds nuw i8, ptr %gep130, i64 8
-  store i32 4, ptr %47, align 8, !tbaa !31
-  br label %69
+  store i64 %46, ptr %gep132, align 8, !tbaa !31
+  br label %64
 
-48:                                               ; preds = %.lr.ph
+47:                                               ; preds = %.lr.ph
+  %gep130 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep129, i64 %indvars.iv
+  %48 = load ptr, ptr %40, align 8, !tbaa !123
+  %49 = tail call double @sqlite3_value_double(ptr noundef %48) #11
+  store double %49, ptr %gep130, align 8, !tbaa !31
+  br label %64
+
+50:                                               ; preds = %.lr.ph
   %gep = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep, i64 %indvars.iv
-  %49 = load ptr, ptr %40, align 8, !tbaa !123
-  %50 = tail call double @sqlite3_value_double(ptr noundef %49) #11
-  store double %50, ptr %gep, align 8, !tbaa !31
-  %51 = getelementptr inbounds nuw i8, ptr %gep, i64 8
-  store i32 5, ptr %51, align 8, !tbaa !31
-  br label %69
-
-52:                                               ; preds = %.lr.ph
-  %53 = add nuw nsw i64 %indvars.iv, %39
-  %54 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %53, i32 1
-  store i32 1, ptr %54, align 8, !tbaa !31
-  br label %69
+  br label %64
 
 zend_string_alloc.exit:                           ; preds = %.lr.ph
-  %gep132 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep131, i64 %indvars.iv
-  %55 = load ptr, ptr %40, align 8, !tbaa !123
-  %56 = tail call ptr @sqlite3_value_text(ptr noundef %55) #11
-  %57 = load ptr, ptr %40, align 8, !tbaa !123
-  %58 = tail call i32 @sqlite3_value_bytes(ptr noundef %57) #11
-  %59 = sext i32 %58 to i64
-  %60 = and i64 %59, -8
-  %61 = add nsw i64 %60, 32
-  %62 = tail call noalias ptr @_emalloc(i64 noundef %61) #13
-  store i32 1, ptr %62, align 4, !tbaa !92
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  store i32 22, ptr %63, align 4, !tbaa !31
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i64 0, ptr %64, align 8, !tbaa !108
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store i64 %59, ptr %65, align 8, !tbaa !110
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %66, ptr align 1 %56, i64 %59, i1 false)
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %59
-  store i8 0, ptr %67, align 1, !tbaa !31
-  store ptr %62, ptr %gep132, align 8, !tbaa !31
-  %68 = getelementptr inbounds nuw i8, ptr %gep132, i64 8
-  store i32 262, ptr %68, align 8, !tbaa !31
-  br label %69
+  %gep134 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep133, i64 %indvars.iv
+  %51 = load ptr, ptr %40, align 8, !tbaa !123
+  %52 = tail call ptr @sqlite3_value_text(ptr noundef %51) #11
+  %53 = load ptr, ptr %40, align 8, !tbaa !123
+  %54 = tail call i32 @sqlite3_value_bytes(ptr noundef %53) #11
+  %55 = sext i32 %54 to i64
+  %56 = and i64 %55, -8
+  %57 = add nsw i64 %56, 32
+  %58 = tail call noalias ptr @_emalloc(i64 noundef %57) #13
+  store i32 1, ptr %58, align 4, !tbaa !92
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  store i32 22, ptr %59, align 4, !tbaa !31
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store i64 0, ptr %60, align 8, !tbaa !108
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  store i64 %55, ptr %61, align 8, !tbaa !110
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %62, ptr align 1 %52, i64 %55, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %55
+  store i8 0, ptr %63, align 1, !tbaa !31
+  store ptr %58, ptr %gep134, align 8, !tbaa !31
+  br label %64
 
-69:                                               ; preds = %43, %48, %52, %zend_string_alloc.exit
+64:                                               ; preds = %43, %47, %50, %zend_string_alloc.exit
+  %gep132.sink = phi ptr [ %gep132, %43 ], [ %gep130, %47 ], [ %gep, %50 ], [ %gep134, %zend_string_alloc.exit ]
+  %.sink = phi i32 [ 4, %43 ], [ 5, %47 ], [ 1, %50 ], [ 262, %zend_string_alloc.exit ]
+  %65 = getelementptr inbounds nuw i8, ptr %gep132.sink, i64 8
+  store i32 %.sink, ptr %65, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %69, %37
-  %70 = load ptr, ptr %0, align 8, !tbaa !96
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %72 = load i32, ptr %71, align 4, !tbaa !31
-  %73 = and i32 %72, 262144
-  %.not.i = icmp eq i32 %73, 0
-  br i1 %.not.i, label %zend_call_known_fcc.exit, label %74, !prof !44
+._crit_edge:                                      ; preds = %64, %37
+  %66 = load ptr, ptr %0, align 8, !tbaa !96
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  %68 = load i32, ptr %67, align 4, !tbaa !31
+  %69 = and i32 %68, 262144
+  %.not.i = icmp eq i32 %69, 0
+  br i1 %.not.i, label %zend_call_known_fcc.exit, label %70, !prof !44
 
-74:                                               ; preds = %._crit_edge
-  %75 = tail call noalias ptr @_emalloc_256() #11
-  %76 = load ptr, ptr %0, align 8, !tbaa !96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %75, ptr noundef nonnull align 8 dereferenceable(256) %76, i64 256, i1 false)
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !31
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !31
-  %81 = and i32 %80, 64
-  %.not.i112 = icmp eq i32 %81, 0
-  br i1 %.not.i112, label %82, label %zend_call_known_fcc.exit
+70:                                               ; preds = %._crit_edge
+  %71 = tail call noalias ptr @_emalloc_256() #11
+  %72 = load ptr, ptr %0, align 8, !tbaa !96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %71, ptr noundef nonnull align 8 dereferenceable(256) %72, i64 256, i1 false)
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !31
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !31
+  %77 = and i32 %76, 64
+  %.not.i112 = icmp eq i32 %77, 0
+  br i1 %.not.i112, label %78, label %zend_call_known_fcc.exit
 
-82:                                               ; preds = %74
-  %83 = load i32, ptr %78, align 4, !tbaa !92
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %78, align 4, !tbaa !92
+78:                                               ; preds = %70
+  %79 = load i32, ptr %74, align 4, !tbaa !92
+  %80 = add i32 %79, 1
+  store i32 %80, ptr %74, align 4, !tbaa !92
   br label %zend_call_known_fcc.exit
 
-zend_call_known_fcc.exit:                         ; preds = %82, %74, %._crit_edge
-  %.0.i = phi ptr [ %70, %._crit_edge ], [ %75, %74 ], [ %75, %82 ]
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !98
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = load ptr, ptr %87, align 8, !tbaa !111
-  call void @zend_call_known_function(ptr noundef nonnull %.0.i, ptr noundef %86, ptr noundef %88, ptr noundef nonnull %6, i32 noundef %8, ptr noundef %.0100, ptr noundef null) #11
+zend_call_known_fcc.exit:                         ; preds = %78, %70, %._crit_edge
+  %.0.i = phi ptr [ %66, %._crit_edge ], [ %71, %70 ], [ %71, %78 ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %82 = load ptr, ptr %81, align 8, !tbaa !98
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %84 = load ptr, ptr %83, align 8, !tbaa !111
+  call void @zend_call_known_function(ptr noundef nonnull %.0.i, ptr noundef %82, ptr noundef %84, ptr noundef nonnull %6, i32 noundef %8, ptr noundef %.0100, ptr noundef null) #11
   %.not108 = icmp eq ptr %.0100, null
-  br i1 %.not108, label %96, label %.preheader
+  br i1 %.not108, label %92, label %.preheader
 
 .preheader:                                       ; preds = %zend_call_known_fcc.exit
   br i1 %38, label %.lr.ph117.preheader, label %._crit_edge118
 
 .lr.ph117.preheader:                              ; preds = %.preheader
-  %89 = zext nneg i32 %spec.store.select to i64
-  %90 = zext nneg i32 %8 to i64
+  %85 = zext nneg i32 %spec.store.select to i64
+  %86 = zext nneg i32 %8 to i64
   br label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
-  %indvars.iv120 = phi i64 [ %89, %.lr.ph117.preheader ], [ %indvars.iv.next121, %.lr.ph117 ]
-  %91 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %indvars.iv120
-  call void @zval_ptr_dtor(ptr noundef nonnull %91) #11
+  %indvars.iv120 = phi i64 [ %85, %.lr.ph117.preheader ], [ %indvars.iv.next121, %.lr.ph117 ]
+  %87 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %indvars.iv120
+  call void @zval_ptr_dtor(ptr noundef nonnull %87) #11
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %92 = icmp samesign ult i64 %indvars.iv.next121, %90
-  br i1 %92, label %.lr.ph117, label %._crit_edge118
+  %88 = icmp samesign ult i64 %indvars.iv.next121, %86
+  br i1 %88, label %.lr.ph117, label %._crit_edge118
 
 ._crit_edge118:                                   ; preds = %.lr.ph117, %.preheader
-  br i1 %7, label %93, label %95
+  br i1 %7, label %89, label %91
 
-93:                                               ; preds = %._crit_edge118
-  %94 = getelementptr inbounds nuw i8, ptr %.0100, i64 16
-  call void @zval_ptr_dtor(ptr noundef nonnull %94) #11
-  br label %95
+89:                                               ; preds = %._crit_edge118
+  %90 = getelementptr inbounds nuw i8, ptr %.0100, i64 16
+  call void @zval_ptr_dtor(ptr noundef nonnull %90) #11
+  br label %91
 
-95:                                               ; preds = %93, %._crit_edge118
+91:                                               ; preds = %89, %._crit_edge118
   call void @_efree(ptr noundef nonnull %.0100) #11
-  br label %96
+  br label %92
 
-96:                                               ; preds = %95, %zend_call_known_fcc.exit
-  %97 = icmp ne ptr %2, null
-  %or.cond = and i1 %97, %7
-  br i1 %or.cond, label %116, label %98
+92:                                               ; preds = %91, %zend_call_known_fcc.exit
+  %93 = icmp ne ptr %2, null
+  %or.cond = and i1 %93, %7
+  br i1 %or.cond, label %112, label %94
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %100 = load i8, ptr %99, align 8, !tbaa !31
-  switch i8 %100, label %try_convert_to_string.exit [
-    i8 0, label %113
-    i8 4, label %101
-    i8 1, label %104
-    i8 5, label %105
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %96 = load i8, ptr %95, align 8, !tbaa !31
+  switch i8 %96, label %try_convert_to_string.exit [
+    i8 0, label %109
+    i8 4, label %97
+    i8 1, label %100
+    i8 5, label %101
     i8 6, label %try_convert_to_string.exit.thread
   ]
 
-101:                                              ; preds = %98
-  %102 = load i64, ptr %6, align 8, !tbaa !31
-  %103 = trunc i64 %102 to i32
-  call void @sqlite3_result_int(ptr noundef %3, i32 noundef %103) #11
-  br label %114
+97:                                               ; preds = %94
+  %98 = load i64, ptr %6, align 8, !tbaa !31
+  %99 = trunc i64 %98 to i32
+  call void @sqlite3_result_int(ptr noundef %3, i32 noundef %99) #11
+  br label %110
 
-104:                                              ; preds = %98
+100:                                              ; preds = %94
   call void @sqlite3_result_null(ptr noundef %3) #11
-  br label %114
+  br label %110
 
-105:                                              ; preds = %98
-  %106 = load double, ptr %6, align 8, !tbaa !31
-  call void @sqlite3_result_double(ptr noundef %3, double noundef %106) #11
-  br label %114
+101:                                              ; preds = %94
+  %102 = load double, ptr %6, align 8, !tbaa !31
+  call void @sqlite3_result_double(ptr noundef %3, double noundef %102) #11
+  br label %110
 
-try_convert_to_string.exit:                       ; preds = %98
-  %107 = call zeroext i1 @_try_convert_to_string(ptr noundef nonnull %6) #11
-  br i1 %107, label %try_convert_to_string.exit.thread, label %114
+try_convert_to_string.exit:                       ; preds = %94
+  %103 = call zeroext i1 @_try_convert_to_string(ptr noundef nonnull %6) #11
+  br i1 %103, label %try_convert_to_string.exit.thread, label %110
 
-try_convert_to_string.exit.thread:                ; preds = %98, %try_convert_to_string.exit
-  %108 = load ptr, ptr %6, align 8, !tbaa !31
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %110 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %111 = load i64, ptr %110, align 8, !tbaa !110
-  %112 = trunc i64 %111 to i32
-  call void @sqlite3_result_text(ptr noundef %3, ptr noundef nonnull %109, i32 noundef %112, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #11
-  br label %114
+try_convert_to_string.exit.thread:                ; preds = %94, %try_convert_to_string.exit
+  %104 = load ptr, ptr %6, align 8, !tbaa !31
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %107 = load i64, ptr %106, align 8, !tbaa !110
+  %108 = trunc i64 %107 to i32
+  call void @sqlite3_result_text(ptr noundef %3, ptr noundef nonnull %105, i32 noundef %108, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #11
+  br label %110
 
-113:                                              ; preds = %98
+109:                                              ; preds = %94
   call void @sqlite3_result_error(ptr noundef %3, ptr noundef nonnull @.str.9, i32 noundef 0) #11
-  br label %114
+  br label %110
 
-114:                                              ; preds = %try_convert_to_string.exit, %101, %104, %105, %try_convert_to_string.exit.thread, %113
+110:                                              ; preds = %try_convert_to_string.exit, %97, %100, %101, %try_convert_to_string.exit.thread, %109
   %.not109 = icmp eq ptr %.0104, null
-  br i1 %.not109, label %129, label %115
+  br i1 %.not109, label %125, label %111
 
-115:                                              ; preds = %114
+111:                                              ; preds = %110
   call void @zval_ptr_dtor(ptr noundef nonnull %.0104) #11
-  br label %129
+  br label %125
 
-116:                                              ; preds = %96
+112:                                              ; preds = %92
   %.not110 = icmp eq ptr %.0104, null
-  br i1 %.not110, label %129, label %117
+  br i1 %.not110, label %125, label %113
 
-117:                                              ; preds = %116
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %119 = load i8, ptr %118, align 8, !tbaa !31
-  %120 = icmp eq i8 %119, 0
-  br i1 %120, label %134, label %121
+113:                                              ; preds = %112
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %115 = load i8, ptr %114, align 8, !tbaa !31
+  %116 = icmp eq i8 %115, 0
+  br i1 %116, label %130, label %117
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %.0104, align 8, !tbaa !31
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  call void @zval_ptr_dtor(ptr noundef nonnull %123) #11
-  %124 = load ptr, ptr %.0104, align 8, !tbaa !31
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load ptr, ptr %6, align 8, !tbaa !31
-  %127 = load i32, ptr %118, align 8, !tbaa !31
-  store ptr %126, ptr %125, align 8, !tbaa !31
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  store i32 %127, ptr %128, align 8, !tbaa !31
-  store i32 0, ptr %118, align 8, !tbaa !31
-  br label %129
+117:                                              ; preds = %113
+  %118 = load ptr, ptr %.0104, align 8, !tbaa !31
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  call void @zval_ptr_dtor(ptr noundef nonnull %119) #11
+  %120 = load ptr, ptr %.0104, align 8, !tbaa !31
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %122 = load ptr, ptr %6, align 8, !tbaa !31
+  %123 = load i32, ptr %114, align 8, !tbaa !31
+  store ptr %122, ptr %121, align 8, !tbaa !31
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  store i32 %123, ptr %124, align 8, !tbaa !31
+  store i32 0, ptr %114, align 8, !tbaa !31
+  br label %125
 
-129:                                              ; preds = %116, %121, %114, %115
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %131 = load i8, ptr %130, align 8, !tbaa !31
-  %132 = icmp eq i8 %131, 0
-  br i1 %132, label %134, label %133
+125:                                              ; preds = %112, %117, %110, %111
+  %126 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %127 = load i8, ptr %126, align 8, !tbaa !31
+  %128 = icmp eq i8 %127, 0
+  br i1 %128, label %130, label %129
 
-133:                                              ; preds = %129
+129:                                              ; preds = %125
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
-  br label %134
+  br label %130
 
-134:                                              ; preds = %129, %133, %117, %15
+130:                                              ; preds = %125, %129, %113, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

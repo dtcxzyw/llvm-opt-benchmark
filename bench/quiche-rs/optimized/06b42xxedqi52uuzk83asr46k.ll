@@ -3747,7 +3747,7 @@ define { i64, i64 } @_ZN6quiche5dgram13DatagramQueue14peek_front_len17h50bf29a76
   br i1 %or.cond, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17ha85e259968637e40E.exit.thread", label %7
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17ha85e259968637e40E.exit.thread": ; preds = %7, %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %14, %7 ]
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %15, %7 ]
   %.sroa.0.0 = phi i64 [ 0, %1 ], [ 1, %7 ]
   %5 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %6 = insertvalue { i64, i64 } %5, i64 %.sroa.4.0, 1
@@ -3761,10 +3761,11 @@ define { i64, i64 } @_ZN6quiche5dgram13DatagramQueue14peek_front_len17h50bf29a76
   %.sroa.01.0.i = sub nuw i64 %9, %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !166, !nonnull !3, !noundef !3
-  %13 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %12, i64 %.sroa.01.0.i, i32 1
-  %14 = load i64, ptr %13, align 8, !noundef !3
-  %15 = icmp sgt i64 %14, -1
-  tail call void @llvm.assume(i1 %15)
+  %13 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %12, i64 %.sroa.01.0.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !3
+  %16 = icmp sgt i64 %15, -1
+  tail call void @llvm.assume(i1 %16)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17ha85e259968637e40E.exit.thread"
 }
 

@@ -162,13 +162,13 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_inflateInit2(ptr noundef cap
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.loopexit139, label %4
+  br i1 %3, label %.loopexit141, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.loopexit139, label %8
+  br i1 %7, label %.loopexit141, label %8
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8
@@ -179,7 +179,7 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %.loopexit139
+  br i1 %14, label %15, label %.loopexit141
 
 15:                                               ; preds = %11, %8
   %16 = load i32, ptr %6, align 8
@@ -239,7 +239,7 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %64
 
 64:                                               ; preds = %1063, %19
-  %65 = phi i32 [ %20, %19 ], [ %.pre967, %1063 ]
+  %65 = phi i32 [ %20, %19 ], [ %.pre969, %1063 ]
   %66 = phi ptr [ %21, %19 ], [ %1064, %1063 ]
   %67 = phi ptr [ %23, %19 ], [ %1065, %1063 ]
   %68 = phi i32 [ %29, %19 ], [ %1066, %1063 ]
@@ -248,7 +248,7 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
   %71 = phi i32 [ %33, %19 ], [ %1069, %1063 ]
   %72 = phi i32 [ %26, %19 ], [ %1070, %1063 ]
   %73 = phi i32 [ 0, %19 ], [ %1071, %1063 ]
-  switch i32 %65, label %.loopexit139 [
+  switch i32 %65, label %.loopexit141 [
     i32 0, label %82
     i32 9, label %78
     i32 10, label %158
@@ -258,21 +258,21 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
     i32 14, label %thread-pre-split
     i32 15, label %74
     i32 16, label %310
-    i32 17, label %._crit_edge970
+    i32 17, label %._crit_edge972
     i32 18, label %622
-    i32 19, label %thread-pre-split120
+    i32 19, label %thread-pre-split122
     i32 20, label %824
-    i32 21, label %thread-pre-split122
+    i32 21, label %thread-pre-split124
     i32 22, label %1010
     i32 23, label %1073
     i32 24, label %1080
-    i32 26, label %.loopexit132.loopexit1925
-    i32 27, label %.loopexit132
-    i32 28, label %.loopexit139.loopexit
+    i32 26, label %.loopexit134.loopexit1927
+    i32 27, label %.loopexit134
+    i32 28, label %.loopexit141.loopexit
   ]
 
-._crit_edge970:                                   ; preds = %64
-  %.pre971 = load i32, ptr %44, align 4
+._crit_edge972:                                   ; preds = %64
+  %.pre973 = load i32, ptr %44, align 4
   br label %373
 
 74:                                               ; preds = %64
@@ -434,7 +434,7 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
   store i64 %167, ptr %27, align 8
   store i64 %161, ptr %30, align 8
   store i32 %162, ptr %32, align 8
-  br label %.loopexit139
+  br label %.loopexit141
 
 168:                                              ; preds = %158
   store i64 1, ptr %37, align 8
@@ -447,7 +447,7 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
   %171 = phi i32 [ %68, %64 ], [ %160, %168 ]
   %172 = phi i64 [ %70, %64 ], [ %161, %168 ]
   %173 = phi i32 [ %71, %64 ], [ %162, %168 ]
-  br i1 %59, label %.loopexit132, label %174
+  br i1 %59, label %.loopexit134, label %174
 
 174:                                              ; preds = %169, %64
   %175 = phi ptr [ %66, %64 ], [ %170, %169 ]
@@ -464,7 +464,7 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
 
 183:                                              ; preds = %181
   %184 = icmp eq i32 %176, 0
-  br i1 %184, label %.loopexit132, label %190
+  br i1 %184, label %.loopexit134, label %190
 
 185:                                              ; preds = %174
   %186 = and i32 %178, 7
@@ -495,7 +495,7 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
   store i32 %205, ptr %60, align 4
   %206 = lshr i32 %204, 1
   %207 = and i32 %206, 3
-  switch i32 %207, label %default.unreachable1090 [
+  switch i32 %207, label %default.unreachable1092 [
     i32 0, label %211
     i32 1, label %208
     i32 2, label %209
@@ -516,7 +516,7 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
   store ptr @.str.3, ptr %39, align 8
   br label %211
 
-default.unreachable1090:                          ; preds = %199
+default.unreachable1092:                          ; preds = %199
   unreachable
 
 211:                                              ; preds = %210, %209, %208, %199
@@ -601,7 +601,7 @@ thread-pre-split:                                 ; preds = %64
   %261 = tail call i32 @llvm.umin.i32(i32 %254, i32 %256)
   %262 = tail call i32 @llvm.umin.i32(i32 %261, i32 %69)
   %263 = icmp eq i32 %262, 0
-  br i1 %263, label %.loopexit132, label %264
+  br i1 %263, label %.loopexit134, label %264
 
 264:                                              ; preds = %260
   %265 = zext i32 %262 to i64
@@ -664,47 +664,47 @@ thread-pre-split:                                 ; preds = %64
   %306 = icmp samesign ugt i32 %296, 29
   %307 = icmp samesign ugt i32 %299, 29
   %308 = or i1 %306, %307
-  br i1 %308, label %309, label %.thread1091
+  br i1 %308, label %309, label %.thread1093
 
 309:                                              ; preds = %290
   store ptr @.str.5, ptr %39, align 8
   store i32 27, ptr %6, align 8
   br label %1063
 
-.thread1091:                                      ; preds = %290
+.thread1093:                                      ; preds = %290
   store i32 0, ptr %44, align 4
   store i32 16, ptr %6, align 8
   br label %312
 
 310:                                              ; preds = %64
-  %.pre968 = load i32, ptr %44, align 4
-  %.pre969 = load i32, ptr %43, align 8
-  %311 = icmp ult i32 %.pre968, %.pre969
-  br i1 %311, label %312, label %thread-pre-split113
+  %.pre970 = load i32, ptr %44, align 4
+  %.pre971 = load i32, ptr %43, align 8
+  %311 = icmp ult i32 %.pre970, %.pre971
+  br i1 %311, label %312, label %thread-pre-split115
 
-312:                                              ; preds = %.thread1091, %310
-  %313 = phi i32 [ %305, %.thread1091 ], [ %71, %310 ]
-  %314 = phi i64 [ %304, %.thread1091 ], [ %70, %310 ]
-  %315 = phi i32 [ %292, %.thread1091 ], [ %68, %310 ]
-  %316 = phi ptr [ %291, %.thread1091 ], [ %66, %310 ]
-  %317 = phi i32 [ 0, %.thread1091 ], [ %.pre968, %310 ]
-  %318 = phi i32 [ %303, %.thread1091 ], [ %.pre969, %310 ]
+312:                                              ; preds = %.thread1093, %310
+  %313 = phi i32 [ %305, %.thread1093 ], [ %71, %310 ]
+  %314 = phi i64 [ %304, %.thread1093 ], [ %70, %310 ]
+  %315 = phi i32 [ %292, %.thread1093 ], [ %68, %310 ]
+  %316 = phi ptr [ %291, %.thread1093 ], [ %66, %310 ]
+  %317 = phi i32 [ 0, %.thread1093 ], [ %.pre970, %310 ]
+  %318 = phi i32 [ %303, %.thread1093 ], [ %.pre971, %310 ]
   %319 = zext i32 %317 to i64
   %320 = zext i32 %318 to i64
   br label %328
 
-thread-pre-split113:                              ; preds = %346, %310
-  %321 = phi i32 [ %.pre968, %310 ], [ %354, %346 ]
+thread-pre-split115:                              ; preds = %346, %310
+  %321 = phi i32 [ %.pre970, %310 ], [ %354, %346 ]
   %322 = phi ptr [ %66, %310 ], [ %347, %346 ]
   %323 = phi i32 [ %68, %310 ], [ %348, %346 ]
   %324 = phi i64 [ %70, %310 ], [ %359, %346 ]
   %325 = phi i32 [ %71, %310 ], [ %360, %346 ]
   %326 = icmp ult i32 %321, 19
-  br i1 %326, label %.preheader131.preheader, label %368
+  br i1 %326, label %.preheader133.preheader, label %368
 
-.preheader131.preheader:                          ; preds = %thread-pre-split113
+.preheader133.preheader:                          ; preds = %thread-pre-split115
   %327 = zext nneg i32 %321 to i64
-  br label %.preheader131
+  br label %.preheader133
 
 328:                                              ; preds = %346, %312
   %329 = phi i64 [ %319, %312 ], [ %353, %346 ]
@@ -717,7 +717,7 @@ thread-pre-split113:                              ; preds = %346, %310
 
 335:                                              ; preds = %328
   %336 = icmp eq i32 %332, 0
-  br i1 %336, label %.loopexit132, label %337
+  br i1 %336, label %.loopexit134, label %337
 
 337:                                              ; preds = %335
   %338 = or disjoint i32 %330, 8
@@ -748,10 +748,10 @@ thread-pre-split113:                              ; preds = %346, %310
   %359 = lshr i64 %349, 3
   %360 = add i32 %350, -3
   %361 = icmp samesign ult i64 %353, %320
-  br i1 %361, label %328, label %thread-pre-split113, !llvm.loop !11
+  br i1 %361, label %328, label %thread-pre-split115, !llvm.loop !11
 
-.preheader131:                                    ; preds = %.preheader131.preheader, %.preheader131
-  %indvars.iv = phi i64 [ %327, %.preheader131.preheader ], [ %indvars.iv.next, %.preheader131 ]
+.preheader133:                                    ; preds = %.preheader133.preheader, %.preheader133
+  %indvars.iv = phi i64 [ %327, %.preheader133.preheader ], [ %indvars.iv.next, %.preheader133 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %362 = getelementptr i16, ptr @zlib_inflate.order, i64 %indvars.iv
   %363 = load i16, ptr %362, align 2
@@ -760,13 +760,13 @@ thread-pre-split113:                              ; preds = %346, %310
   store i16 0, ptr %365, align 2
   %366 = and i64 %indvars.iv.next, 4294967295
   %exitcond.not = icmp eq i64 %366, 19
-  br i1 %exitcond.not, label %367, label %.preheader131, !llvm.loop !12
+  br i1 %exitcond.not, label %367, label %.preheader133, !llvm.loop !12
 
-367:                                              ; preds = %.preheader131
+367:                                              ; preds = %.preheader133
   store i32 19, ptr %44, align 4
   br label %368
 
-368:                                              ; preds = %367, %thread-pre-split113
+368:                                              ; preds = %367, %thread-pre-split115
   store ptr %46, ptr %47, align 8
   store ptr %46, ptr %48, align 8
   store i32 7, ptr %49, align 8
@@ -784,42 +784,43 @@ thread-pre-split113:                              ; preds = %346, %310
   store i32 17, ptr %6, align 8
   br label %373
 
-373:                                              ; preds = %._crit_edge970, %372
-  %374 = phi i32 [ %.pre971, %._crit_edge970 ], [ 0, %372 ]
-  %375 = phi ptr [ %66, %._crit_edge970 ], [ %322, %372 ]
-  %376 = phi i32 [ %68, %._crit_edge970 ], [ %323, %372 ]
-  %377 = phi i64 [ %70, %._crit_edge970 ], [ %324, %372 ]
-  %378 = phi i32 [ %71, %._crit_edge970 ], [ %325, %372 ]
-  %379 = phi i32 [ %73, %._crit_edge970 ], [ 0, %372 ]
+373:                                              ; preds = %._crit_edge972, %372
+  %374 = phi i32 [ %.pre973, %._crit_edge972 ], [ 0, %372 ]
+  %375 = phi ptr [ %66, %._crit_edge972 ], [ %322, %372 ]
+  %376 = phi i32 [ %68, %._crit_edge972 ], [ %323, %372 ]
+  %377 = phi i64 [ %70, %._crit_edge972 ], [ %324, %372 ]
+  %378 = phi i32 [ %71, %._crit_edge972 ], [ %325, %372 ]
+  %379 = phi i32 [ %73, %._crit_edge972 ], [ 0, %372 ]
   %380 = load i32, ptr %41, align 4
   %381 = load i32, ptr %42, align 8
   %382 = add i32 %381, %380
   %383 = icmp ult i32 %374, %382
-  br i1 %383, label %.preheader129.preheader, label %.loopexit130
+  br i1 %383, label %.preheader131.preheader, label %.loopexit132
 
-.preheader129.preheader:                          ; preds = %373
-  %.pre972 = load ptr, ptr %48, align 8
-  %.pre973 = load i32, ptr %49, align 8
-  %384 = shl nsw i32 -1, %.pre973
+.preheader131.preheader:                          ; preds = %373
+  %.pre974 = load ptr, ptr %48, align 8
+  %.pre975 = load i32, ptr %49, align 8
+  %384 = shl nsw i32 -1, %.pre975
   %385 = xor i32 %384, -1
-  br label %.preheader129
+  br label %.preheader131
 
-.preheader129:                                    ; preds = %.preheader129.preheader, %598
-  %386 = phi i32 [ %603, %598 ], [ %378, %.preheader129.preheader ]
-  %387 = phi i64 [ %602, %598 ], [ %377, %.preheader129.preheader ]
-  %388 = phi i32 [ %601, %598 ], [ %376, %.preheader129.preheader ]
-  %389 = phi ptr [ %600, %598 ], [ %375, %.preheader129.preheader ]
-  %390 = phi i32 [ %599, %598 ], [ %374, %.preheader129.preheader ]
+.preheader131:                                    ; preds = %.preheader131.preheader, %598
+  %386 = phi i32 [ %603, %598 ], [ %378, %.preheader131.preheader ]
+  %387 = phi i64 [ %602, %598 ], [ %377, %.preheader131.preheader ]
+  %388 = phi i32 [ %601, %598 ], [ %376, %.preheader131.preheader ]
+  %389 = phi ptr [ %600, %598 ], [ %375, %.preheader131.preheader ]
+  %390 = phi i32 [ %599, %598 ], [ %374, %.preheader131.preheader ]
   %391 = trunc i64 %387 to i32
   %392 = and i32 %385, %391
   %393 = zext nneg i32 %392 to i64
-  %394 = getelementptr %struct.code, ptr %.pre972, i64 %393, i32 1
+  %.split = getelementptr %struct.code, ptr %.pre974, i64 %393
+  %394 = getelementptr i8, ptr %.split, i64 1
   %395 = load i8, ptr %394, align 1
   %396 = zext i8 %395 to i32
   %397 = icmp ult i32 %386, %396
   br i1 %397, label %398, label %424
 
-398:                                              ; preds = %.preheader129
+398:                                              ; preds = %.preheader131
   %399 = zext nneg i32 %386 to i64
   br label %400
 
@@ -842,7 +843,8 @@ thread-pre-split113:                              ; preds = %346, %310
   %414 = trunc i64 %412 to i32
   %415 = and i32 %414, %385
   %416 = zext nneg i32 %415 to i64
-  %417 = getelementptr %struct.code, ptr %.pre972, i64 %416, i32 1
+  %.split113 = getelementptr %struct.code, ptr %.pre974, i64 %416
+  %417 = getelementptr i8, ptr %.split113, i64 1
   %418 = load i8, ptr %417, align 1
   %419 = zext i8 %418 to i64
   %420 = icmp samesign ult i64 %413, %419
@@ -853,15 +855,16 @@ thread-pre-split113:                              ; preds = %346, %310
   %423 = trunc nuw nsw i64 %413 to i32
   br label %424
 
-424:                                              ; preds = %421, %.preheader129
-  %425 = phi i64 [ %393, %.preheader129 ], [ %416, %421 ]
-  %426 = phi i32 [ %396, %.preheader129 ], [ %422, %421 ]
-  %427 = phi ptr [ %389, %.preheader129 ], [ %408, %421 ]
-  %428 = phi i32 [ %388, %.preheader129 ], [ %407, %421 ]
-  %429 = phi i64 [ %387, %.preheader129 ], [ %412, %421 ]
-  %430 = phi i32 [ %386, %.preheader129 ], [ %423, %421 ]
-  %431 = phi i8 [ %395, %.preheader129 ], [ %418, %421 ]
-  %432 = getelementptr %struct.code, ptr %.pre972, i64 %425, i32 2
+424:                                              ; preds = %421, %.preheader131
+  %425 = phi i64 [ %393, %.preheader131 ], [ %416, %421 ]
+  %426 = phi i32 [ %396, %.preheader131 ], [ %422, %421 ]
+  %427 = phi ptr [ %389, %.preheader131 ], [ %408, %421 ]
+  %428 = phi i32 [ %388, %.preheader131 ], [ %407, %421 ]
+  %429 = phi i64 [ %387, %.preheader131 ], [ %412, %421 ]
+  %430 = phi i32 [ %386, %.preheader131 ], [ %423, %421 ]
+  %431 = phi i8 [ %395, %.preheader131 ], [ %418, %421 ]
+  %.split114 = getelementptr %struct.code, ptr %.pre974, i64 %425
+  %432 = getelementptr i8, ptr %.split114, i64 2
   %433 = load i16, ptr %432, align 2
   %434 = icmp ult i16 %433, 16
   br i1 %434, label %435, label %468
@@ -1067,8 +1070,8 @@ thread-pre-split113:                              ; preds = %346, %310
   %577 = and i32 %576, 127
   %578 = add nuw nsw i32 %577, 11
   %579 = lshr i64 %575, 7
-  %reass.sub549 = sub i32 %573, %426
-  %580 = add i32 %reass.sub549, -7
+  %reass.sub551 = sub i32 %573, %426
+  %580 = add i32 %reass.sub551, -7
   br label %581
 
 581:                                              ; preds = %569, %540, %513
@@ -1104,7 +1107,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %602 = phi i64 [ %463, %457 ], [ %584, %597 ]
   %603 = phi i32 [ %464, %457 ], [ %585, %597 ]
   %604 = icmp ult i32 %599, %382
-  br i1 %604, label %.preheader129, label %.loopexit130, !llvm.loop !19
+  br i1 %604, label %.preheader131, label %.loopexit132, !llvm.loop !19
 
 .thread:                                          ; preds = %504, %581
   %605 = phi ptr [ %505, %504 ], [ %582, %581 ]
@@ -1115,11 +1118,11 @@ thread-pre-split113:                              ; preds = %346, %310
   store i32 27, ptr %6, align 8
   br label %1063
 
-.loopexit130:                                     ; preds = %598, %373
+.loopexit132:                                     ; preds = %598, %373
   %.ph = phi ptr [ %375, %373 ], [ %600, %598 ]
-  %.ph116 = phi i32 [ %376, %373 ], [ %601, %598 ]
-  %.ph117 = phi i64 [ %377, %373 ], [ %602, %598 ]
-  %.ph118 = phi i32 [ %378, %373 ], [ %603, %598 ]
+  %.ph118 = phi i32 [ %376, %373 ], [ %601, %598 ]
+  %.ph119 = phi i64 [ %377, %373 ], [ %602, %598 ]
+  %.ph120 = phi i32 [ %378, %373 ], [ %603, %598 ]
   store ptr %46, ptr %47, align 8
   store ptr %46, ptr %48, align 8
   store i32 9, ptr %49, align 8
@@ -1127,12 +1130,12 @@ thread-pre-split113:                              ; preds = %346, %310
   %610 = icmp eq i32 %609, 0
   br i1 %610, label %612, label %611
 
-611:                                              ; preds = %.loopexit130
+611:                                              ; preds = %.loopexit132
   store ptr @.str.8, ptr %39, align 8
   store i32 27, ptr %6, align 8
   br label %1063
 
-612:                                              ; preds = %.loopexit130
+612:                                              ; preds = %.loopexit132
   %613 = load ptr, ptr %47, align 8
   store ptr %613, ptr %51, align 8
   store i32 6, ptr %52, align 4
@@ -1155,9 +1158,9 @@ thread-pre-split113:                              ; preds = %346, %310
 
 622:                                              ; preds = %621, %64
   %623 = phi ptr [ %66, %64 ], [ %.ph, %621 ]
-  %624 = phi i32 [ %68, %64 ], [ %.ph116, %621 ]
-  %625 = phi i64 [ %70, %64 ], [ %.ph117, %621 ]
-  %626 = phi i32 [ %71, %64 ], [ %.ph118, %621 ]
+  %624 = phi i32 [ %68, %64 ], [ %.ph118, %621 ]
+  %625 = phi i64 [ %70, %64 ], [ %.ph119, %621 ]
+  %626 = phi i32 [ %71, %64 ], [ %.ph120, %621 ]
   %627 = phi i32 [ %73, %64 ], [ 0, %621 ]
   %628 = icmp ugt i32 %624, 5
   %629 = icmp ugt i32 %69, 257
@@ -1368,25 +1371,25 @@ thread-pre-split113:                              ; preds = %346, %310
   store i32 19, ptr %6, align 8
   br label %781
 
-thread-pre-split120:                              ; preds = %64
-  %.pr121 = load i32, ptr %53, align 4
+thread-pre-split122:                              ; preds = %64
+  %.pr123 = load i32, ptr %53, align 4
   br label %781
 
-781:                                              ; preds = %thread-pre-split120, %779
-  %782 = phi i32 [ %.pr121, %thread-pre-split120 ], [ %780, %779 ]
-  %783 = phi ptr [ %66, %thread-pre-split120 ], [ %756, %779 ]
-  %784 = phi i32 [ %68, %thread-pre-split120 ], [ %757, %779 ]
-  %785 = phi i64 [ %70, %thread-pre-split120 ], [ %765, %779 ]
-  %786 = phi i32 [ %71, %thread-pre-split120 ], [ %766, %779 ]
-  %787 = phi i32 [ %73, %thread-pre-split120 ], [ %627, %779 ]
+781:                                              ; preds = %thread-pre-split122, %779
+  %782 = phi i32 [ %.pr123, %thread-pre-split122 ], [ %780, %779 ]
+  %783 = phi ptr [ %66, %thread-pre-split122 ], [ %756, %779 ]
+  %784 = phi i32 [ %68, %thread-pre-split122 ], [ %757, %779 ]
+  %785 = phi i64 [ %70, %thread-pre-split122 ], [ %765, %779 ]
+  %786 = phi i32 [ %71, %thread-pre-split122 ], [ %766, %779 ]
+  %787 = phi i32 [ %73, %thread-pre-split122 ], [ %627, %779 ]
   %788 = icmp eq i32 %782, 0
   br i1 %788, label %819, label %789
 
 789:                                              ; preds = %781
   %790 = icmp ult i32 %786, %782
-  br i1 %790, label %.preheader127, label %.loopexit128
+  br i1 %790, label %.preheader129, label %.loopexit130
 
-.preheader127:                                    ; preds = %789, %796
+.preheader129:                                    ; preds = %789, %796
   %791 = phi i32 [ %804, %796 ], [ %786, %789 ]
   %792 = phi i64 [ %803, %796 ], [ %785, %789 ]
   %793 = phi i32 [ %797, %796 ], [ %784, %789 ]
@@ -1394,7 +1397,7 @@ thread-pre-split120:                              ; preds = %64
   %795 = icmp eq i32 %793, 0
   br i1 %795, label %1172, label %796
 
-796:                                              ; preds = %.preheader127
+796:                                              ; preds = %.preheader129
   %797 = add i32 %793, -1
   %798 = getelementptr i8, ptr %794, i64 1
   %799 = load i8, ptr %794, align 1
@@ -1404,9 +1407,9 @@ thread-pre-split120:                              ; preds = %64
   %803 = add i64 %802, %792
   %804 = add i32 %791, 8
   %805 = icmp ult i32 %804, %782
-  br i1 %805, label %.preheader127, label %.loopexit128, !llvm.loop !22
+  br i1 %805, label %.preheader129, label %.loopexit130, !llvm.loop !22
 
-.loopexit128:                                     ; preds = %796, %789
+.loopexit130:                                     ; preds = %796, %789
   %806 = phi ptr [ %783, %789 ], [ %798, %796 ]
   %807 = phi i32 [ %784, %789 ], [ %797, %796 ]
   %808 = phi i64 [ %785, %789 ], [ %803, %796 ]
@@ -1423,11 +1426,11 @@ thread-pre-split120:                              ; preds = %64
   %818 = sub i32 %809, %782
   br label %819
 
-819:                                              ; preds = %.loopexit128, %781
-  %820 = phi ptr [ %806, %.loopexit128 ], [ %783, %781 ]
-  %821 = phi i32 [ %807, %.loopexit128 ], [ %784, %781 ]
-  %822 = phi i64 [ %817, %.loopexit128 ], [ %785, %781 ]
-  %823 = phi i32 [ %818, %.loopexit128 ], [ %786, %781 ]
+819:                                              ; preds = %.loopexit130, %781
+  %820 = phi ptr [ %806, %.loopexit130 ], [ %783, %781 ]
+  %821 = phi i32 [ %807, %.loopexit130 ], [ %784, %781 ]
+  %822 = phi i64 [ %817, %.loopexit130 ], [ %785, %781 ]
+  %823 = phi i32 [ %818, %.loopexit130 ], [ %786, %781 ]
   store i32 20, ptr %6, align 8
   br label %824
 
@@ -1602,29 +1605,29 @@ thread-pre-split120:                              ; preds = %64
   store i32 21, ptr %6, align 8
   br label %960
 
-thread-pre-split122:                              ; preds = %64
-  %.pr123 = load i32, ptr %53, align 4
+thread-pre-split124:                              ; preds = %64
+  %.pr125 = load i32, ptr %53, align 4
   br label %960
 
-960:                                              ; preds = %thread-pre-split122, %957
-  %961 = phi i32 [ %.pr123, %thread-pre-split122 ], [ %959, %957 ]
-  %962 = phi ptr [ %66, %thread-pre-split122 ], [ %942, %957 ]
-  %963 = phi i32 [ %68, %thread-pre-split122 ], [ %943, %957 ]
-  %964 = phi i64 [ %70, %thread-pre-split122 ], [ %951, %957 ]
-  %965 = phi i32 [ %71, %thread-pre-split122 ], [ %952, %957 ]
-  %966 = phi i32 [ %73, %thread-pre-split122 ], [ %829, %957 ]
+960:                                              ; preds = %thread-pre-split124, %957
+  %961 = phi i32 [ %.pr125, %thread-pre-split124 ], [ %959, %957 ]
+  %962 = phi ptr [ %66, %thread-pre-split124 ], [ %942, %957 ]
+  %963 = phi i32 [ %68, %thread-pre-split124 ], [ %943, %957 ]
+  %964 = phi i64 [ %70, %thread-pre-split124 ], [ %951, %957 ]
+  %965 = phi i32 [ %71, %thread-pre-split124 ], [ %952, %957 ]
+  %966 = phi i32 [ %73, %thread-pre-split124 ], [ %829, %957 ]
   %967 = icmp eq i32 %961, 0
-  br i1 %967, label %._crit_edge975, label %968
+  br i1 %967, label %._crit_edge977, label %968
 
-._crit_edge975:                                   ; preds = %960
-  %.pre976 = load i32, ptr %54, align 8
+._crit_edge977:                                   ; preds = %960
+  %.pre978 = load i32, ptr %54, align 8
   br label %998
 
 968:                                              ; preds = %960
   %969 = icmp ult i32 %965, %961
-  br i1 %969, label %.preheader125, label %.loopexit126
+  br i1 %969, label %.preheader127, label %.loopexit128
 
-.preheader125:                                    ; preds = %968, %975
+.preheader127:                                    ; preds = %968, %975
   %970 = phi i32 [ %983, %975 ], [ %965, %968 ]
   %971 = phi i64 [ %982, %975 ], [ %964, %968 ]
   %972 = phi i32 [ %976, %975 ], [ %963, %968 ]
@@ -1632,7 +1635,7 @@ thread-pre-split122:                              ; preds = %64
   %974 = icmp eq i32 %972, 0
   br i1 %974, label %1157, label %975
 
-975:                                              ; preds = %.preheader125
+975:                                              ; preds = %.preheader127
   %976 = add i32 %972, -1
   %977 = getelementptr i8, ptr %973, i64 1
   %978 = load i8, ptr %973, align 1
@@ -1642,9 +1645,9 @@ thread-pre-split122:                              ; preds = %64
   %982 = add i64 %981, %971
   %983 = add i32 %970, 8
   %984 = icmp ult i32 %983, %961
-  br i1 %984, label %.preheader125, label %.loopexit126, !llvm.loop !25
+  br i1 %984, label %.preheader127, label %.loopexit128, !llvm.loop !25
 
-.loopexit126:                                     ; preds = %975, %968
+.loopexit128:                                     ; preds = %975, %968
   %985 = phi ptr [ %962, %968 ], [ %977, %975 ]
   %986 = phi i32 [ %963, %968 ], [ %976, %975 ]
   %987 = phi i64 [ %964, %968 ], [ %982, %975 ]
@@ -1661,12 +1664,12 @@ thread-pre-split122:                              ; preds = %64
   %997 = sub i32 %988, %961
   br label %998
 
-998:                                              ; preds = %._crit_edge975, %.loopexit126
-  %999 = phi i32 [ %994, %.loopexit126 ], [ %.pre976, %._crit_edge975 ]
-  %1000 = phi ptr [ %985, %.loopexit126 ], [ %962, %._crit_edge975 ]
-  %1001 = phi i32 [ %986, %.loopexit126 ], [ %963, %._crit_edge975 ]
-  %1002 = phi i64 [ %996, %.loopexit126 ], [ %964, %._crit_edge975 ]
-  %1003 = phi i32 [ %997, %.loopexit126 ], [ %965, %._crit_edge975 ]
+998:                                              ; preds = %._crit_edge977, %.loopexit128
+  %999 = phi i32 [ %994, %.loopexit128 ], [ %.pre978, %._crit_edge977 ]
+  %1000 = phi ptr [ %985, %.loopexit128 ], [ %962, %._crit_edge977 ]
+  %1001 = phi i32 [ %986, %.loopexit128 ], [ %963, %._crit_edge977 ]
+  %1002 = phi i64 [ %996, %.loopexit128 ], [ %964, %._crit_edge977 ]
+  %1003 = phi i32 [ %997, %.loopexit128 ], [ %965, %._crit_edge977 ]
   %1004 = load i32, ptr %55, align 8
   %1005 = sub i32 %72, %69
   %1006 = add i32 %1005, %1004
@@ -1689,7 +1692,7 @@ thread-pre-split122:                              ; preds = %64
   %1014 = phi i32 [ %71, %64 ], [ %1003, %1009 ]
   %1015 = phi i32 [ %73, %64 ], [ %966, %1009 ]
   %1016 = icmp eq i32 %69, 0
-  br i1 %1016, label %.loopexit132, label %1017
+  br i1 %1016, label %.loopexit134, label %1017
 
 1017:                                             ; preds = %1010
   %1018 = sub i32 %72, %69
@@ -1760,13 +1763,13 @@ thread-pre-split122:                              ; preds = %64
 1063:                                             ; preds = %.thread, %1127, %1075, %1072, %1059, %1008, %956, %778, %774, %770, %646, %620, %611, %371, %309, %272, %264, %249, %211, %185, %132, %130, %122, %118, %89
   %1064 = phi ptr [ %1105, %1127 ], [ %66, %1075 ], [ %1011, %1072 ], [ %1011, %1059 ], [ %1000, %1008 ], [ %942, %956 ], [ %652, %646 ], [ %756, %770 ], [ %756, %774 ], [ %756, %778 ], [ %.ph, %611 ], [ %.ph, %620 ], [ %322, %371 ], [ %291, %309 ], [ %267, %264 ], [ %255, %272 ], [ %241, %249 ], [ %175, %185 ], [ %200, %211 ], [ %66, %89 ], [ %108, %118 ], [ %108, %122 ], [ %108, %130 ], [ %108, %132 ], [ %605, %.thread ]
   %1065 = phi ptr [ %67, %1127 ], [ %1078, %1075 ], [ %1056, %1072 ], [ %1056, %1059 ], [ %67, %1008 ], [ %67, %956 ], [ %649, %646 ], [ %67, %770 ], [ %67, %774 ], [ %67, %778 ], [ %67, %611 ], [ %67, %620 ], [ %67, %371 ], [ %67, %309 ], [ %269, %264 ], [ %67, %272 ], [ %67, %249 ], [ %67, %185 ], [ %67, %211 ], [ %67, %89 ], [ %67, %118 ], [ %67, %122 ], [ %67, %130 ], [ %67, %132 ], [ %67, %.thread ]
-  %1066 = phi i32 [ %1106, %1127 ], [ %68, %1075 ], [ %1012, %1072 ], [ %1012, %1059 ], [ %1001, %1008 ], [ %943, %956 ], [ %654, %646 ], [ %757, %770 ], [ %757, %774 ], [ %757, %778 ], [ %.ph116, %611 ], [ %.ph116, %620 ], [ %323, %371 ], [ %292, %309 ], [ %266, %264 ], [ %256, %272 ], [ %242, %249 ], [ %176, %185 ], [ %201, %211 ], [ %68, %89 ], [ %109, %118 ], [ %109, %122 ], [ %109, %130 ], [ %109, %132 ], [ %606, %.thread ]
+  %1066 = phi i32 [ %1106, %1127 ], [ %68, %1075 ], [ %1012, %1072 ], [ %1012, %1059 ], [ %1001, %1008 ], [ %943, %956 ], [ %654, %646 ], [ %757, %770 ], [ %757, %774 ], [ %757, %778 ], [ %.ph118, %611 ], [ %.ph118, %620 ], [ %323, %371 ], [ %292, %309 ], [ %266, %264 ], [ %256, %272 ], [ %242, %249 ], [ %176, %185 ], [ %201, %211 ], [ %68, %89 ], [ %109, %118 ], [ %109, %122 ], [ %109, %130 ], [ %109, %132 ], [ %606, %.thread ]
   %1067 = phi i32 [ %69, %1127 ], [ %1079, %1075 ], [ %1060, %1072 ], [ %1060, %1059 ], [ %69, %1008 ], [ %69, %956 ], [ %651, %646 ], [ %69, %770 ], [ %69, %774 ], [ %69, %778 ], [ %69, %611 ], [ %69, %620 ], [ %69, %371 ], [ %69, %309 ], [ %268, %264 ], [ %69, %272 ], [ %69, %249 ], [ %69, %185 ], [ %69, %211 ], [ %69, %89 ], [ %69, %118 ], [ %69, %122 ], [ %69, %130 ], [ %69, %132 ], [ %69, %.thread ]
-  %1068 = phi i64 [ %1107, %1127 ], [ %70, %1075 ], [ %1013, %1072 ], [ %1013, %1059 ], [ %1002, %1008 ], [ %951, %956 ], [ %655, %646 ], [ %765, %770 ], [ %765, %774 ], [ %765, %778 ], [ %.ph117, %611 ], [ %.ph117, %620 ], [ %324, %371 ], [ %304, %309 ], [ %257, %264 ], [ %257, %272 ], [ %243, %249 ], [ %188, %185 ], [ %213, %211 ], [ %70, %89 ], [ %110, %118 ], [ %110, %122 ], [ %124, %130 ], [ 0, %132 ], [ %607, %.thread ]
-  %1069 = phi i32 [ %1108, %1127 ], [ %71, %1075 ], [ %1014, %1072 ], [ %1014, %1059 ], [ %1003, %1008 ], [ %952, %956 ], [ %656, %646 ], [ %766, %770 ], [ %766, %774 ], [ %766, %778 ], [ %.ph118, %611 ], [ %.ph118, %620 ], [ %325, %371 ], [ %305, %309 ], [ %258, %264 ], [ %258, %272 ], [ %244, %249 ], [ %189, %185 ], [ %214, %211 ], [ %71, %89 ], [ %111, %118 ], [ %111, %122 ], [ %131, %130 ], [ 0, %132 ], [ %608, %.thread ]
+  %1068 = phi i64 [ %1107, %1127 ], [ %70, %1075 ], [ %1013, %1072 ], [ %1013, %1059 ], [ %1002, %1008 ], [ %951, %956 ], [ %655, %646 ], [ %765, %770 ], [ %765, %774 ], [ %765, %778 ], [ %.ph119, %611 ], [ %.ph119, %620 ], [ %324, %371 ], [ %304, %309 ], [ %257, %264 ], [ %257, %272 ], [ %243, %249 ], [ %188, %185 ], [ %213, %211 ], [ %70, %89 ], [ %110, %118 ], [ %110, %122 ], [ %124, %130 ], [ 0, %132 ], [ %607, %.thread ]
+  %1069 = phi i32 [ %1108, %1127 ], [ %71, %1075 ], [ %1014, %1072 ], [ %1014, %1059 ], [ %1003, %1008 ], [ %952, %956 ], [ %656, %646 ], [ %766, %770 ], [ %766, %774 ], [ %766, %778 ], [ %.ph120, %611 ], [ %.ph120, %620 ], [ %325, %371 ], [ %305, %309 ], [ %258, %264 ], [ %258, %272 ], [ %244, %249 ], [ %189, %185 ], [ %214, %211 ], [ %71, %89 ], [ %111, %118 ], [ %111, %122 ], [ %131, %130 ], [ 0, %132 ], [ %608, %.thread ]
   %1070 = phi i32 [ %69, %1127 ], [ %72, %1075 ], [ %72, %1072 ], [ %72, %1059 ], [ %72, %1008 ], [ %72, %956 ], [ %72, %646 ], [ %72, %770 ], [ %72, %774 ], [ %72, %778 ], [ %72, %611 ], [ %72, %620 ], [ %72, %371 ], [ %72, %309 ], [ %72, %264 ], [ %72, %272 ], [ %72, %249 ], [ %72, %185 ], [ %72, %211 ], [ %72, %89 ], [ %72, %118 ], [ %72, %122 ], [ %72, %130 ], [ %72, %132 ], [ %72, %.thread ]
   %1071 = phi i32 [ %73, %1127 ], [ %73, %1075 ], [ %1015, %1072 ], [ %1015, %1059 ], [ %966, %1008 ], [ %829, %956 ], [ %627, %646 ], [ %627, %770 ], [ %627, %774 ], [ %627, %778 ], [ %609, %611 ], [ %618, %620 ], [ %369, %371 ], [ %73, %309 ], [ %73, %264 ], [ %73, %272 ], [ %73, %249 ], [ %73, %185 ], [ %73, %211 ], [ %73, %89 ], [ %73, %118 ], [ %73, %122 ], [ %73, %130 ], [ %73, %132 ], [ %379, %.thread ]
-  %.pre967 = load i32, ptr %6, align 8
+  %.pre969 = load i32, ptr %6, align 8
   br label %64, !llvm.loop !27
 
 1072:                                             ; preds = %1059
@@ -1775,7 +1778,7 @@ thread-pre-split122:                              ; preds = %64
 
 1073:                                             ; preds = %64
   %1074 = icmp eq i32 %69, 0
-  br i1 %1074, label %.loopexit132, label %1075
+  br i1 %1074, label %.loopexit134, label %1075
 
 1075:                                             ; preds = %1073
   %1076 = load i32, ptr %40, align 4
@@ -1867,104 +1870,104 @@ thread-pre-split122:                              ; preds = %64
   %1132 = phi i32 [ %71, %1080 ], [ 0, %1121 ]
   %1133 = phi i32 [ %72, %1080 ], [ %69, %1121 ]
   store i32 26, ptr %6, align 8
-  br label %.loopexit132
+  br label %.loopexit134
 
 1134:                                             ; preds = %440
   %1135 = trunc nuw nsw i64 %441 to i32
-  br label %.loopexit132
+  br label %.loopexit134
 
 1136:                                             ; preds = %552
   %1137 = trunc nuw nsw i64 %553 to i32
-  br label %.loopexit132
+  br label %.loopexit134
 
 1138:                                             ; preds = %487
   %1139 = trunc nuw nsw i64 %488 to i32
-  br label %.loopexit132
+  br label %.loopexit134
 
 1140:                                             ; preds = %523
   %1141 = trunc nuw nsw i64 %524 to i32
-  br label %.loopexit132
+  br label %.loopexit134
 
 1142:                                             ; preds = %90
   %1143 = trunc nuw nsw i64 %91 to i32
-  br label %.loopexit132
+  br label %.loopexit134
 
 1144:                                             ; preds = %137
   %1145 = trunc nuw nsw i64 %138 to i32
-  br label %.loopexit132
+  br label %.loopexit134
 
 1146:                                             ; preds = %223
   %1147 = trunc nuw i64 %224 to i32
-  br label %.loopexit132
+  br label %.loopexit134
 
 1148:                                             ; preds = %273
   %1149 = trunc nuw nsw i64 %274 to i32
-  br label %.loopexit132
+  br label %.loopexit134
 
 1150:                                             ; preds = %1087
   %1151 = trunc nuw nsw i64 %1088 to i32
-  br label %.loopexit132
+  br label %.loopexit134
 
 1152:                                             ; preds = %400
   %1153 = zext i32 %388 to i64
   %1154 = shl i32 %388, 3
   %1155 = add i32 %1154, %386
   %1156 = getelementptr i8, ptr %389, i64 %1153
-  br label %.loopexit132
+  br label %.loopexit134
 
-1157:                                             ; preds = %.preheader125
+1157:                                             ; preds = %.preheader127
   %1158 = shl i32 %963, 3
   %1159 = add i32 %965, %1158
   %1160 = zext i32 %963 to i64
   %1161 = getelementptr i8, ptr %962, i64 %1160
-  br label %.loopexit132
+  br label %.loopexit134
 
 1162:                                             ; preds = %900
   %1163 = zext i32 %872 to i64
   %1164 = shl i32 %872, 3
   %1165 = add i32 %874, %1164
   %1166 = getelementptr i8, ptr %871, i64 %1163
-  br label %.loopexit132
+  br label %.loopexit134
 
 1167:                                             ; preds = %844
   %1168 = zext i32 %826 to i64
   %1169 = shl i32 %826, 3
   %1170 = add i32 %828, %1169
   %1171 = getelementptr i8, ptr %825, i64 %1168
-  br label %.loopexit132
+  br label %.loopexit134
 
-1172:                                             ; preds = %.preheader127
+1172:                                             ; preds = %.preheader129
   %1173 = shl i32 %784, 3
   %1174 = add i32 %786, %1173
   %1175 = zext i32 %784 to i64
   %1176 = getelementptr i8, ptr %783, i64 %1175
-  br label %.loopexit132
+  br label %.loopexit134
 
 1177:                                             ; preds = %714
   %1178 = zext i32 %685 to i64
   %1179 = shl i32 %685, 3
   %1180 = add i32 %687, %1179
   %1181 = getelementptr i8, ptr %684, i64 %1178
-  br label %.loopexit132
+  br label %.loopexit134
 
 1182:                                             ; preds = %657
   %1183 = zext i32 %624 to i64
   %1184 = shl i32 %624, 3
   %1185 = add i32 %626, %1184
   %1186 = getelementptr i8, ptr %623, i64 %1183
-  br label %.loopexit132
+  br label %.loopexit134
 
-.loopexit132.loopexit1925:                        ; preds = %64
-  br label %.loopexit132
+.loopexit134.loopexit1927:                        ; preds = %64
+  br label %.loopexit134
 
-.loopexit132:                                     ; preds = %1073, %1010, %260, %183, %169, %335, %64, %.loopexit132.loopexit1925, %1182, %1177, %1172, %1167, %1162, %1157, %1152, %1150, %1148, %1146, %1144, %1142, %1140, %1138, %1136, %1134, %1128
-  %1187 = phi i32 [ %69, %1128 ], [ %69, %1134 ], [ %69, %1136 ], [ %69, %1138 ], [ %69, %1140 ], [ %69, %1142 ], [ %69, %1144 ], [ %69, %1146 ], [ %69, %1148 ], [ %69, %1150 ], [ %69, %1152 ], [ %69, %1157 ], [ %69, %1162 ], [ %69, %1167 ], [ %69, %1172 ], [ %69, %1177 ], [ %69, %1182 ], [ %69, %64 ], [ %69, %335 ], [ 0, %1073 ], [ 0, %1010 ], [ %69, %260 ], [ %69, %183 ], [ %69, %169 ], [ %69, %.loopexit132.loopexit1925 ]
-  %1188 = phi ptr [ %1129, %1128 ], [ %444, %1134 ], [ %556, %1136 ], [ %491, %1138 ], [ %527, %1140 ], [ %94, %1142 ], [ %141, %1144 ], [ %227, %1146 ], [ %277, %1148 ], [ %1091, %1150 ], [ %1156, %1152 ], [ %1161, %1157 ], [ %1166, %1162 ], [ %1171, %1167 ], [ %1176, %1172 ], [ %1181, %1177 ], [ %1186, %1182 ], [ %66, %64 ], [ %333, %335 ], [ %66, %1073 ], [ %1011, %1010 ], [ %255, %260 ], [ %175, %183 ], [ %170, %169 ], [ %66, %.loopexit132.loopexit1925 ]
-  %1189 = phi i32 [ %1130, %1128 ], [ 0, %1134 ], [ 0, %1136 ], [ 0, %1138 ], [ 0, %1140 ], [ 0, %1142 ], [ 0, %1144 ], [ 0, %1146 ], [ 0, %1148 ], [ 0, %1150 ], [ 0, %1152 ], [ 0, %1157 ], [ 0, %1162 ], [ 0, %1167 ], [ 0, %1172 ], [ 0, %1177 ], [ 0, %1182 ], [ %68, %64 ], [ 0, %335 ], [ %68, %1073 ], [ %1012, %1010 ], [ %256, %260 ], [ 0, %183 ], [ %171, %169 ], [ %68, %.loopexit132.loopexit1925 ]
-  %1190 = phi i64 [ %1131, %1128 ], [ %442, %1134 ], [ %554, %1136 ], [ %489, %1138 ], [ %525, %1140 ], [ %92, %1142 ], [ %139, %1144 ], [ %225, %1146 ], [ %275, %1148 ], [ %1089, %1150 ], [ %402, %1152 ], [ %971, %1157 ], [ %902, %1162 ], [ %846, %1167 ], [ %792, %1172 ], [ %716, %1177 ], [ %659, %1182 ], [ %70, %64 ], [ %331, %335 ], [ %70, %1073 ], [ %1013, %1010 ], [ %257, %260 ], [ %177, %183 ], [ %172, %169 ], [ %70, %.loopexit132.loopexit1925 ]
-  %1191 = phi i32 [ %1132, %1128 ], [ %1135, %1134 ], [ %1137, %1136 ], [ %1139, %1138 ], [ %1141, %1140 ], [ %1143, %1142 ], [ %1145, %1144 ], [ %1147, %1146 ], [ %1149, %1148 ], [ %1151, %1150 ], [ %1155, %1152 ], [ %1159, %1157 ], [ %1165, %1162 ], [ %1170, %1167 ], [ %1174, %1172 ], [ %1180, %1177 ], [ %1185, %1182 ], [ %71, %64 ], [ %330, %335 ], [ %71, %1073 ], [ %1014, %1010 ], [ %258, %260 ], [ %178, %183 ], [ %173, %169 ], [ %71, %.loopexit132.loopexit1925 ]
-  %1192 = phi i32 [ %1133, %1128 ], [ %72, %1134 ], [ %72, %1136 ], [ %72, %1138 ], [ %72, %1140 ], [ %72, %1142 ], [ %72, %1144 ], [ %72, %1146 ], [ %72, %1148 ], [ %72, %1150 ], [ %72, %1152 ], [ %72, %1157 ], [ %72, %1162 ], [ %72, %1167 ], [ %72, %1172 ], [ %72, %1177 ], [ %72, %1182 ], [ %72, %64 ], [ %72, %335 ], [ %72, %169 ], [ %72, %183 ], [ %72, %260 ], [ %72, %1010 ], [ %72, %1073 ], [ %72, %.loopexit132.loopexit1925 ]
-  %1193 = phi i32 [ 1, %1128 ], [ %379, %1134 ], [ %379, %1136 ], [ %379, %1138 ], [ %379, %1140 ], [ %73, %1142 ], [ %73, %1144 ], [ %73, %1146 ], [ %73, %1148 ], [ %73, %1150 ], [ %379, %1152 ], [ %966, %1157 ], [ %829, %1162 ], [ %829, %1167 ], [ %787, %1172 ], [ %627, %1177 ], [ %627, %1182 ], [ -3, %64 ], [ %73, %335 ], [ %73, %1073 ], [ %1015, %1010 ], [ %73, %260 ], [ %73, %183 ], [ %73, %169 ], [ 1, %.loopexit132.loopexit1925 ]
+.loopexit134:                                     ; preds = %1073, %1010, %260, %183, %169, %335, %64, %.loopexit134.loopexit1927, %1182, %1177, %1172, %1167, %1162, %1157, %1152, %1150, %1148, %1146, %1144, %1142, %1140, %1138, %1136, %1134, %1128
+  %1187 = phi i32 [ %69, %1128 ], [ %69, %1134 ], [ %69, %1136 ], [ %69, %1138 ], [ %69, %1140 ], [ %69, %1142 ], [ %69, %1144 ], [ %69, %1146 ], [ %69, %1148 ], [ %69, %1150 ], [ %69, %1152 ], [ %69, %1157 ], [ %69, %1162 ], [ %69, %1167 ], [ %69, %1172 ], [ %69, %1177 ], [ %69, %1182 ], [ %69, %64 ], [ %69, %335 ], [ 0, %1073 ], [ 0, %1010 ], [ %69, %260 ], [ %69, %183 ], [ %69, %169 ], [ %69, %.loopexit134.loopexit1927 ]
+  %1188 = phi ptr [ %1129, %1128 ], [ %444, %1134 ], [ %556, %1136 ], [ %491, %1138 ], [ %527, %1140 ], [ %94, %1142 ], [ %141, %1144 ], [ %227, %1146 ], [ %277, %1148 ], [ %1091, %1150 ], [ %1156, %1152 ], [ %1161, %1157 ], [ %1166, %1162 ], [ %1171, %1167 ], [ %1176, %1172 ], [ %1181, %1177 ], [ %1186, %1182 ], [ %66, %64 ], [ %333, %335 ], [ %66, %1073 ], [ %1011, %1010 ], [ %255, %260 ], [ %175, %183 ], [ %170, %169 ], [ %66, %.loopexit134.loopexit1927 ]
+  %1189 = phi i32 [ %1130, %1128 ], [ 0, %1134 ], [ 0, %1136 ], [ 0, %1138 ], [ 0, %1140 ], [ 0, %1142 ], [ 0, %1144 ], [ 0, %1146 ], [ 0, %1148 ], [ 0, %1150 ], [ 0, %1152 ], [ 0, %1157 ], [ 0, %1162 ], [ 0, %1167 ], [ 0, %1172 ], [ 0, %1177 ], [ 0, %1182 ], [ %68, %64 ], [ 0, %335 ], [ %68, %1073 ], [ %1012, %1010 ], [ %256, %260 ], [ 0, %183 ], [ %171, %169 ], [ %68, %.loopexit134.loopexit1927 ]
+  %1190 = phi i64 [ %1131, %1128 ], [ %442, %1134 ], [ %554, %1136 ], [ %489, %1138 ], [ %525, %1140 ], [ %92, %1142 ], [ %139, %1144 ], [ %225, %1146 ], [ %275, %1148 ], [ %1089, %1150 ], [ %402, %1152 ], [ %971, %1157 ], [ %902, %1162 ], [ %846, %1167 ], [ %792, %1172 ], [ %716, %1177 ], [ %659, %1182 ], [ %70, %64 ], [ %331, %335 ], [ %70, %1073 ], [ %1013, %1010 ], [ %257, %260 ], [ %177, %183 ], [ %172, %169 ], [ %70, %.loopexit134.loopexit1927 ]
+  %1191 = phi i32 [ %1132, %1128 ], [ %1135, %1134 ], [ %1137, %1136 ], [ %1139, %1138 ], [ %1141, %1140 ], [ %1143, %1142 ], [ %1145, %1144 ], [ %1147, %1146 ], [ %1149, %1148 ], [ %1151, %1150 ], [ %1155, %1152 ], [ %1159, %1157 ], [ %1165, %1162 ], [ %1170, %1167 ], [ %1174, %1172 ], [ %1180, %1177 ], [ %1185, %1182 ], [ %71, %64 ], [ %330, %335 ], [ %71, %1073 ], [ %1014, %1010 ], [ %258, %260 ], [ %178, %183 ], [ %173, %169 ], [ %71, %.loopexit134.loopexit1927 ]
+  %1192 = phi i32 [ %1133, %1128 ], [ %72, %1134 ], [ %72, %1136 ], [ %72, %1138 ], [ %72, %1140 ], [ %72, %1142 ], [ %72, %1144 ], [ %72, %1146 ], [ %72, %1148 ], [ %72, %1150 ], [ %72, %1152 ], [ %72, %1157 ], [ %72, %1162 ], [ %72, %1167 ], [ %72, %1172 ], [ %72, %1177 ], [ %72, %1182 ], [ %72, %64 ], [ %72, %335 ], [ %72, %169 ], [ %72, %183 ], [ %72, %260 ], [ %72, %1010 ], [ %72, %1073 ], [ %72, %.loopexit134.loopexit1927 ]
+  %1193 = phi i32 [ 1, %1128 ], [ %379, %1134 ], [ %379, %1136 ], [ %379, %1138 ], [ %379, %1140 ], [ %73, %1142 ], [ %73, %1144 ], [ %73, %1146 ], [ %73, %1148 ], [ %73, %1150 ], [ %379, %1152 ], [ %966, %1157 ], [ %829, %1162 ], [ %829, %1167 ], [ %787, %1172 ], [ %627, %1177 ], [ %627, %1182 ], [ -3, %64 ], [ %73, %335 ], [ %73, %1073 ], [ %1015, %1010 ], [ %73, %260 ], [ %73, %183 ], [ %73, %169 ], [ 1, %.loopexit134.loopexit1927 ]
   store ptr %67, ptr %22, align 8
   %1194 = zext i32 %1187 to i64
   store i64 %1194, ptr %24, align 8
@@ -1975,13 +1978,13 @@ thread-pre-split122:                              ; preds = %64
   store i32 %1191, ptr %32, align 8
   %1196 = load i32, ptr %57, align 4
   %1197 = icmp eq i32 %1196, 0
-  br i1 %1197, label %1198, label %.loopexit132._crit_edge
+  br i1 %1197, label %1198, label %.loopexit134._crit_edge
 
-.loopexit132._crit_edge:                          ; preds = %.loopexit132
-  %.pre977 = load i64, ptr %24, align 8
+.loopexit134._crit_edge:                          ; preds = %.loopexit134
+  %.pre979 = load i64, ptr %24, align 8
   br label %1205
 
-1198:                                             ; preds = %.loopexit132
+1198:                                             ; preds = %.loopexit134
   %1199 = load i32, ptr %6, align 8
   %1200 = icmp ult i32 %1199, 24
   br i1 %1200, label %1201, label %1258
@@ -1992,8 +1995,8 @@ thread-pre-split122:                              ; preds = %64
   %1204 = icmp eq i64 %1203, %1202
   br i1 %1204, label %1258, label %1205
 
-1205:                                             ; preds = %.loopexit132._crit_edge, %1201
-  %1206 = phi i64 [ %.pre977, %.loopexit132._crit_edge ], [ %1203, %1201 ]
+1205:                                             ; preds = %.loopexit134._crit_edge, %1201
+  %1206 = phi i64 [ %.pre979, %.loopexit134._crit_edge ], [ %1203, %1201 ]
   %1207 = load ptr, ptr %5, align 8
   %1208 = trunc i64 %1206 to i32
   %1209 = sub i32 %1192, %1208
@@ -2130,22 +2133,22 @@ thread-pre-split122:                              ; preds = %64
 1303:                                             ; preds = %1300
   %1304 = load ptr, ptr %5, align 8
   %1305 = icmp eq ptr %1304, null
-  br i1 %1305, label %.loopexit139, label %1306
+  br i1 %1305, label %.loopexit141, label %1306
 
 1306:                                             ; preds = %1303
   %1307 = load i32, ptr %1304, align 8
   %1308 = icmp eq i32 %1307, 13
-  br i1 %1308, label %1309, label %.loopexit139
+  br i1 %1308, label %1309, label %.loopexit141
 
 1309:                                             ; preds = %1306
   %1310 = getelementptr inbounds nuw i8, ptr %1304, i64 72
   %1311 = load i32, ptr %1310, align 8
   %1312 = icmp eq i32 %1311, 0
-  br i1 %1312, label %1313, label %.loopexit139
+  br i1 %1312, label %1313, label %.loopexit141
 
 1313:                                             ; preds = %1309
   store i32 11, ptr %1304, align 8
-  br label %.loopexit139
+  br label %.loopexit141
 
 1314:                                             ; preds = %1300, %1297, %1283
   %1315 = icmp eq i64 %1264, 0
@@ -2155,13 +2158,13 @@ thread-pre-split122:                              ; preds = %64
   %1319 = or i1 %1318, %1317
   %1320 = select i1 %1319, i1 %1295, i1 false
   %1321 = select i1 %1320, i32 -5, i32 %1193
-  br label %.loopexit139
+  br label %.loopexit141
 
-.loopexit139.loopexit:                            ; preds = %64
-  br label %.loopexit139
+.loopexit141.loopexit:                            ; preds = %64
+  br label %.loopexit141
 
-.loopexit139:                                     ; preds = %64, %.loopexit139.loopexit, %1314, %1313, %1309, %1306, %1303, %165, %11, %4, %2
-  %1322 = phi i32 [ %1321, %1314 ], [ 2, %165 ], [ -2, %11 ], [ -2, %4 ], [ -2, %2 ], [ 0, %1313 ], [ -2, %1303 ], [ -3, %1309 ], [ -3, %1306 ], [ -4, %.loopexit139.loopexit ], [ -2, %64 ]
+.loopexit141:                                     ; preds = %64, %.loopexit141.loopexit, %1314, %1313, %1309, %1306, %1303, %165, %11, %4, %2
+  %1322 = phi i32 [ %1321, %1314 ], [ 2, %165 ], [ -2, %11 ], [ -2, %4 ], [ -2, %2 ], [ 0, %1313 ], [ -2, %1303 ], [ -3, %1309 ], [ -3, %1306 ], [ -4, %.loopexit141.loopexit ], [ -2, %64 ]
   ret i32 %1322
 }
 

@@ -875,55 +875,56 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %1
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %10 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv, i32 2
-  %11 = load i32, ptr %10, align 8, !tbaa !29
-  %12 = icmp eq i32 %11, %0
-  br i1 %12, label %.preheader, label %18
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
+  %10 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load i32, ptr %11, align 8, !tbaa !29
+  %13 = icmp eq i32 %12, %0
+  br i1 %13, label %.preheader, label %19
 
 .preheader:                                       ; preds = %.lr.ph
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
-  %14 = add nsw i32 %8, -1
-  %15 = icmp sgt i32 %14, %13
-  br i1 %15, label %.lr.ph17.preheader, label %._crit_edge
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  %15 = add nsw i32 %8, -1
+  %16 = icmp sgt i32 %15, %14
+  br i1 %16, label %.lr.ph17.preheader, label %._crit_edge
 
 .lr.ph17.preheader:                               ; preds = %.preheader
-  %wide.trip.count26 = zext nneg i32 %14 to i64
+  %wide.trip.count26 = zext nneg i32 %15 to i64
   br label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %.lr.ph17.preheader, %.lr.ph17
   %indvars.iv23 = phi i64 [ %indvars.iv, %.lr.ph17.preheader ], [ %indvars.iv.next24, %.lr.ph17 ]
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %16 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv.next24
-  %17 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !tbaa.struct !31
+  %17 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv.next24
+  %18 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !31
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
   br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph17, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph17, %.preheader
-  %.1.lcssa = phi i32 [ %13, %.preheader ], [ %14, %.lr.ph17 ]
+  %.1.lcssa = phi i32 [ %14, %.preheader ], [ %15, %.lr.ph17 ]
   store i32 %.1.lcssa, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_num_decoratorsE, align 4, !tbaa !10
   br label %.loopexit
 
-18:                                               ; preds = %.lr.ph
+19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
-.loopexit:                                        ; preds = %18, %.preheader12, %._crit_edge
-  %19 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE monotonic, align 4
-  %20 = and i32 %19, 2
-  %21 = atomicrmw xchg ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 %20 release, align 4
-  %.not4.i = icmp ult i32 %21, 8
-  br i1 %.not4.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit, label %22
+.loopexit:                                        ; preds = %19, %.preheader12, %._crit_edge
+  %20 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE monotonic, align 4
+  %21 = and i32 %20, 2
+  %22 = atomicrmw xchg ptr @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 %21 release, align 4
+  %.not4.i = icmp ult i32 %22, 8
+  br i1 %.not4.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit, label %23
 
-22:                                               ; preds = %.loopexit
-  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 noundef %21) #28
+23:                                               ; preds = %.loopexit
+  tail call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_115g_decorators_muE, i32 noundef %22) #28
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit
 
-_ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %1, %22, %.loopexit, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
-  %.pre-phi.i.i11 = phi i1 [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ true, %.loopexit ], [ true, %22 ], [ false, %1 ]
+_ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %1, %23, %.loopexit, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit
+  %.pre-phi.i.i11 = phi i1 [ false, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit ], [ true, %.loopexit ], [ true, %23 ], [ false, %1 ]
   ret i1 %.pre-phi.i.i11
 }
 
@@ -2406,69 +2407,70 @@ define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110
   %.02847 = phi i64 [ 0, %.lr.ph ], [ %.129, %17 ]
   %18 = add i64 %.02648, %.02847
   %19 = lshr i64 %18, 1
-  %20 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val40, i64 %19, i32 2
-  %21 = load ptr, ptr %20, align 8, !tbaa !104
-  %22 = icmp ult ptr %1, %21
-  %23 = add nuw i64 %19, 1
-  %.129 = select i1 %22, i64 %.02847, i64 %23
-  %.127 = select i1 %22, i64 %19, i64 %.02648
-  %24 = icmp ult i64 %.129, %.127
-  br i1 %24, label %17, label %._crit_edge, !llvm.loop !105
+  %20 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val40, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !104
+  %23 = icmp ult ptr %1, %22
+  %24 = add nuw i64 %19, 1
+  %.129 = select i1 %23, i64 %.02847, i64 %24
+  %.127 = select i1 %23, i64 %19, i64 %.02648
+  %25 = icmp ult i64 %.129, %.127
+  br i1 %25, label %17, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %17, %16
   %.028.lcssa = phi i64 [ 0, %16 ], [ %.129, %17 ]
   %.not = icmp eq i64 %.028.lcssa, %.val
-  br i1 %.not, label %34, label %25
+  br i1 %.not, label %35, label %26
 
-25:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   %.val41 = load ptr, ptr %6, align 16, !tbaa !100
-  %26 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val41, i64 %.028.lcssa
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !104
-  %29 = icmp ugt ptr %28, %1
-  br i1 %29, label %31, label %30
+  %27 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val41, i64 %.028.lcssa
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8, !tbaa !104
+  %30 = icmp ugt ptr %29, %1
+  br i1 %30, label %32, label %31
 
-30:                                               ; preds = %25
+31:                                               ; preds = %26
   tail call void @abort() #29
   unreachable
 
-31:                                               ; preds = %25
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !55
-  %.not35 = icmp ult ptr %1, %33
-  br i1 %.not35, label %34, label %.loopexit45
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !55
+  %.not35 = icmp ult ptr %1, %34
+  br i1 %.not35, label %35, label %.loopexit45
 
-34:                                               ; preds = %31, %._crit_edge
+35:                                               ; preds = %32, %._crit_edge
   br i1 %.not50, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %34, %42
-  %.010.i = phi i64 [ %43, %42 ], [ 0, %34 ]
+.lr.ph.i:                                         ; preds = %35, %43
+  %.010.i = phi i64 [ %44, %43 ], [ 0, %35 ]
   %.val7.i = load ptr, ptr %6, align 16, !tbaa !100
-  %35 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val7.i, i64 %.010.i
-  %36 = load ptr, ptr %35, align 8, !tbaa !54
-  tail call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %36)
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %38 = load i32, ptr %37, align 8, !tbaa !51
-  %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %40, label %42
+  %36 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val7.i, i64 %.010.i
+  %37 = load ptr, ptr %36, align 8, !tbaa !54
+  tail call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %37)
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %39 = load i32, ptr %38, align 8, !tbaa !51
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %41, label %43
 
-40:                                               ; preds = %.lr.ph.i
-  %41 = tail call i32 @close(i32 noundef %38)
-  br label %42
+41:                                               ; preds = %.lr.ph.i
+  %42 = tail call i32 @close(i32 noundef %39)
+  br label %43
 
-42:                                               ; preds = %40, %.lr.ph.i
-  %43 = add i64 %.010.i, 1
+43:                                               ; preds = %41, %.lr.ph.i
+  %44 = add i64 %.010.i, 1
   %.val.i = load i64, ptr %0, align 16, !tbaa !99
-  %.not.i = icmp eq i64 %43, %.val.i
+  %.not.i = icmp eq i64 %44, %.val.i
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !101
 
-.loopexit:                                        ; preds = %42, %34
+.loopexit:                                        ; preds = %43, %35
   store i64 0, ptr %0, align 16, !tbaa !99
   store i8 0, ptr %4, align 1, !tbaa !48
   br i1 %.not51, label %7, label %.loopexit45, !llvm.loop !106
 
-.loopexit45:                                      ; preds = %31, %7, %.loopexit, %15
-  %spec.select = phi ptr [ null, %15 ], [ %26, %31 ], [ null, %7 ], [ null, %.loopexit ]
+.loopexit45:                                      ; preds = %32, %7, %.loopexit, %15
+  %spec.select = phi ptr [ null, %15 ], [ %27, %32 ], [ null, %7 ], [ null, %.loopexit ]
   ret ptr %spec.select
 }
 
@@ -2640,7 +2642,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
   %53 = and i32 %47, 15
   %54 = add nuw nsw i32 %53, 9
   %55 = select i1 %51, i32 %52, i32 %54
-  %56 = sext i32 %55 to i64
+  %56 = zext nneg i32 %55 to i64
   %57 = or i64 %50, %56
   %58 = getelementptr inbounds nuw i8, ptr %.02635.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %58, %38
@@ -2724,7 +2726,7 @@ switch.early.test.i.i69:                          ; preds = %.lr.ph.i.i64
   %79 = and i32 %73, 15
   %80 = add nuw nsw i32 %79, 9
   %81 = select i1 %77, i32 %78, i32 %80
-  %82 = sext i32 %81 to i64
+  %82 = zext nneg i32 %81 to i64
   %83 = or i64 %76, %82
   %84 = getelementptr inbounds nuw i8, ptr %.02635.i.i66, i64 1
   %exitcond.not.i.i70 = icmp eq ptr %84, %38
@@ -2860,7 +2862,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %120 = and i32 %114, 15
   %121 = add nuw nsw i32 %120, 9
   %122 = select i1 %118, i32 %119, i32 %121
-  %123 = sext i32 %122 to i64
+  %123 = zext nneg i32 %122 to i64
   %124 = or i64 %117, %123
   %125 = getelementptr inbounds nuw i8, ptr %.02635.i, i64 1
   %exitcond.not.i = icmp eq ptr %125, %38

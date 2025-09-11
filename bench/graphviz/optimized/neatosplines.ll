@@ -288,8 +288,8 @@ define noalias noundef ptr @makeObstacle(ptr noundef %0, ptr noundef readonly ca
   switch i32 %6, label %.loopexit [
     i32 1, label %7
     i32 3, label %7
-    i32 2, label %225
-    i32 4, label %270
+    i32 2, label %223
+    i32 4, label %268
   ]
 
 7:                                                ; preds = %3, %3
@@ -443,94 +443,94 @@ gv_calloc.exit:                                   ; preds = %73
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = uitofp nneg i64 %.0267355 to double
   %82 = icmp eq i64 %.0267355, 4
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %83 = getelementptr %struct.pointf_s, ptr %74, i64 %.0267355
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.0268354, label %gv_calloc.exit.split.us, label %gv_calloc.exit.split
 
 gv_calloc.exit.split.us:                          ; preds = %gv_calloc.exit
-  %84 = load i8, ptr %83, align 8, !tbaa !78, !range !43, !noundef !79
-  %85 = trunc nuw i8 %84 to i1
-  %86 = fneg double %.sroa.13.0351
-  %87 = fneg double %.sroa.068.0352
-  br i1 %85, label %gv_calloc.exit.split.us.split.us, label %gv_calloc.exit.split.us.split
+  %85 = load i8, ptr %84, align 8, !tbaa !78, !range !43, !noundef !79
+  %86 = trunc nuw i8 %85 to i1
+  %87 = fneg double %.sroa.13.0351
+  %88 = fneg double %.sroa.068.0352
+  br i1 %86, label %gv_calloc.exit.split.us.split.us, label %gv_calloc.exit.split.us.split
 
 gv_calloc.exit.split.us.split.us:                 ; preds = %gv_calloc.exit.split.us
   br i1 %82, label %gv_calloc.exit.split.us.split.us.split.us, label %gv_calloc.exit.split.us.split.us.split
 
-gv_calloc.exit.split.us.split.us.split.us:        ; preds = %gv_calloc.exit.split.us.split.us, %91
-  %.0270325.us.us.us = phi i64 [ %108, %91 ], [ 0, %gv_calloc.exit.split.us.split.us ]
+gv_calloc.exit.split.us.split.us.split.us:        ; preds = %gv_calloc.exit.split.us.split.us, %92
+  %.0270325.us.us.us = phi i64 [ %109, %92 ], [ 0, %gv_calloc.exit.split.us.split.us ]
   switch i64 %.0270325.us.us.us, label %default.unreachable [
-    i64 0, label %91
-    i64 1, label %90
-    i64 2, label %89
-    i64 3, label %88
+    i64 0, label %92
+    i64 1, label %91
+    i64 2, label %90
+    i64 3, label %89
   ]
 
-88:                                               ; preds = %gv_calloc.exit.split.us.split.us.split.us
-  br label %91
-
 89:                                               ; preds = %gv_calloc.exit.split.us.split.us.split.us
-  br label %91
+  br label %92
 
 90:                                               ; preds = %gv_calloc.exit.split.us.split.us.split.us
-  br label %91
+  br label %92
 
-91:                                               ; preds = %90, %89, %88, %gv_calloc.exit.split.us.split.us.split.us
-  %.0272.us.us.us = phi double [ %.sroa.13.0351, %90 ], [ %86, %89 ], [ %86, %88 ], [ %.sroa.13.0351, %gv_calloc.exit.split.us.split.us.split.us ]
-  %.0271.us.us.us = phi double [ %87, %90 ], [ %87, %89 ], [ %.sroa.068.0352, %88 ], [ %.sroa.068.0352, %gv_calloc.exit.split.us.split.us.split.us ]
-  %92 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us.us.us
-  %93 = load double, ptr %92, align 8, !tbaa !60
-  %94 = fadd double %.0271.us.us.us, %93
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %96 = load double, ptr %95, align 8, !tbaa !61
-  %97 = fadd double %.0272.us.us.us, %96
-  %98 = load ptr, ptr %13, align 8, !tbaa !20
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
-  %100 = load double, ptr %99, align 8, !tbaa !80
-  %101 = fadd double %94, %100
-  %102 = sub nuw nsw i64 3, %.0270325.us.us.us
-  %103 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %102
-  store double %101, ptr %103, align 8, !tbaa !60
-  %104 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %105 = load double, ptr %104, align 8, !tbaa !81
-  %106 = fadd double %97, %105
-  %107 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %102, i32 1
-  store double %106, ptr %107, align 8, !tbaa !61
-  %108 = add nuw nsw i64 %.0270325.us.us.us, 1
-  %exitcond335.not = icmp eq i64 %108, 4
+91:                                               ; preds = %gv_calloc.exit.split.us.split.us.split.us
+  br label %92
+
+92:                                               ; preds = %91, %90, %89, %gv_calloc.exit.split.us.split.us.split.us
+  %.0272.us.us.us = phi double [ %.sroa.13.0351, %91 ], [ %87, %90 ], [ %87, %89 ], [ %.sroa.13.0351, %gv_calloc.exit.split.us.split.us.split.us ]
+  %.0271.us.us.us = phi double [ %88, %91 ], [ %88, %90 ], [ %.sroa.068.0352, %89 ], [ %.sroa.068.0352, %gv_calloc.exit.split.us.split.us.split.us ]
+  %93 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us.us.us
+  %94 = load double, ptr %93, align 8, !tbaa !60
+  %95 = fadd double %.0271.us.us.us, %94
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %97 = load double, ptr %96, align 8, !tbaa !61
+  %98 = fadd double %.0272.us.us.us, %97
+  %99 = load ptr, ptr %13, align 8, !tbaa !20
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %101 = load double, ptr %100, align 8, !tbaa !80
+  %102 = fadd double %95, %101
+  %103 = xor i64 %.0270325.us.us.us, -1
+  %104 = getelementptr %struct.pointf_s, ptr %83, i64 %103
+  store double %102, ptr %104, align 8, !tbaa !60
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 40
+  %106 = load double, ptr %105, align 8, !tbaa !81
+  %107 = fadd double %98, %106
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  store double %107, ptr %108, align 8, !tbaa !61
+  %109 = add nuw nsw i64 %.0270325.us.us.us, 1
+  %exitcond335.not = icmp eq i64 %109, 4
   br i1 %exitcond335.not, label %.loopexit, label %gv_calloc.exit.split.us.split.us.split.us, !llvm.loop !82
 
 gv_calloc.exit.split.us.split.us.split:           ; preds = %gv_calloc.exit.split.us.split.us
-  %109 = load ptr, ptr %13, align 8, !tbaa !20
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 40
-  br label %112
+  %110 = load ptr, ptr %13, align 8, !tbaa !20
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 40
+  br label %113
 
-112:                                              ; preds = %112, %gv_calloc.exit.split.us.split.us.split
-  %.0270325.us.us = phi i64 [ 0, %gv_calloc.exit.split.us.split.us.split ], [ %132, %112 ]
-  %113 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us.us
-  %114 = load double, ptr %113, align 8, !tbaa !60
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %116 = load double, ptr %115, align 8, !tbaa !61
-  %117 = call double @hypot(double noundef %114, double noundef %116) #20, !tbaa !83
-  %118 = fdiv double %.sroa.068.0352, %117
-  %119 = fadd double %118, 1.000000e+00
-  %120 = fmul double %114, %119
-  %121 = fdiv double %.sroa.13.0351, %117
-  %122 = fadd double %121, 1.000000e+00
-  %123 = fmul double %116, %122
-  %124 = load double, ptr %110, align 8, !tbaa !80
-  %125 = fadd double %120, %124
-  %126 = xor i64 %.0270325.us.us, -1
-  %127 = add i64 %.0267355, %126
-  %128 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %127
-  store double %125, ptr %128, align 8, !tbaa !60
-  %129 = load double, ptr %111, align 8, !tbaa !81
-  %130 = fadd double %123, %129
-  %131 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %127, i32 1
+113:                                              ; preds = %113, %gv_calloc.exit.split.us.split.us.split
+  %.0270325.us.us = phi i64 [ 0, %gv_calloc.exit.split.us.split.us.split ], [ %132, %113 ]
+  %114 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us.us
+  %115 = load double, ptr %114, align 8, !tbaa !60
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %117 = load double, ptr %116, align 8, !tbaa !61
+  %118 = call double @hypot(double noundef %115, double noundef %117) #20, !tbaa !83
+  %119 = fdiv double %.sroa.068.0352, %118
+  %120 = fadd double %119, 1.000000e+00
+  %121 = fmul double %115, %120
+  %122 = fdiv double %.sroa.13.0351, %118
+  %123 = fadd double %122, 1.000000e+00
+  %124 = fmul double %117, %123
+  %125 = load double, ptr %111, align 8, !tbaa !80
+  %126 = fadd double %121, %125
+  %127 = xor i64 %.0270325.us.us, -1
+  %128 = getelementptr %struct.pointf_s, ptr %83, i64 %127
+  store double %126, ptr %128, align 8, !tbaa !60
+  %129 = load double, ptr %112, align 8, !tbaa !81
+  %130 = fadd double %124, %129
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store double %130, ptr %131, align 8, !tbaa !61
   %132 = add nuw i64 %.0270325.us.us, 1
   %exitcond334.not = icmp eq i64 %132, %.0267355
-  br i1 %exitcond334.not, label %.loopexit, label %112, !llvm.loop !82
+  br i1 %exitcond334.not, label %.loopexit, label %113, !llvm.loop !82
 
 gv_calloc.exit.split.us.split:                    ; preds = %gv_calloc.exit.split.us
   %133 = load ptr, ptr %13, align 8, !tbaa !20
@@ -539,7 +539,7 @@ gv_calloc.exit.split.us.split:                    ; preds = %gv_calloc.exit.spli
   br label %136
 
 136:                                              ; preds = %136, %gv_calloc.exit.split.us.split
-  %.0270325.us = phi i64 [ 0, %gv_calloc.exit.split.us.split ], [ %151, %136 ]
+  %.0270325.us = phi i64 [ 0, %gv_calloc.exit.split.us.split ], [ %150, %136 ]
   %137 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us
   %138 = load double, ptr %137, align 8, !tbaa !60
   %139 = fmul double %.sroa.068.0352, %138
@@ -549,340 +549,338 @@ gv_calloc.exit.split.us.split:                    ; preds = %gv_calloc.exit.spli
   %143 = load double, ptr %134, align 8, !tbaa !80
   %144 = fadd double %139, %143
   %145 = xor i64 %.0270325.us, -1
-  %146 = add i64 %.0267355, %145
-  %147 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %146
-  store double %144, ptr %147, align 8, !tbaa !60
-  %148 = load double, ptr %135, align 8, !tbaa !81
-  %149 = fadd double %142, %148
-  %150 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %146, i32 1
-  store double %149, ptr %150, align 8, !tbaa !61
-  %151 = add nuw i64 %.0270325.us, 1
-  %exitcond332.not = icmp eq i64 %151, %.0267355
+  %146 = getelementptr %struct.pointf_s, ptr %83, i64 %145
+  store double %144, ptr %146, align 8, !tbaa !60
+  %147 = load double, ptr %135, align 8, !tbaa !81
+  %148 = fadd double %142, %147
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  store double %148, ptr %149, align 8, !tbaa !61
+  %150 = add nuw i64 %.0270325.us, 1
+  %exitcond332.not = icmp eq i64 %150, %.0267355
   br i1 %exitcond332.not, label %.loopexit, label %136, !llvm.loop !82
 
 gv_calloc.exit.split:                             ; preds = %gv_calloc.exit
-  %152 = load ptr, ptr %13, align 8, !tbaa !20
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 120
-  %154 = load double, ptr %153, align 8, !tbaa !64
-  %155 = fmul double %154, 7.200000e+01
-  %156 = getelementptr inbounds nuw i8, ptr %152, i64 128
-  %157 = load double, ptr %156, align 8, !tbaa !65
-  %158 = fmul double %157, 7.200000e+01
-  %159 = load i8, ptr %83, align 8, !tbaa !78, !range !43, !noundef !79
-  %160 = trunc nuw i8 %159 to i1
-  %161 = getelementptr inbounds nuw i8, ptr %152, i64 32
-  %162 = getelementptr inbounds nuw i8, ptr %152, i64 40
-  br label %163
+  %151 = load ptr, ptr %13, align 8, !tbaa !20
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 120
+  %153 = load double, ptr %152, align 8, !tbaa !64
+  %154 = fmul double %153, 7.200000e+01
+  %155 = getelementptr inbounds nuw i8, ptr %151, i64 128
+  %156 = load double, ptr %155, align 8, !tbaa !65
+  %157 = fmul double %156, 7.200000e+01
+  %158 = load i8, ptr %84, align 8, !tbaa !78, !range !43, !noundef !79
+  %159 = trunc nuw i8 %158 to i1
+  %160 = getelementptr inbounds nuw i8, ptr %151, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %151, i64 40
+  br label %162
 
-163:                                              ; preds = %gv_calloc.exit.split, %167
-  %.0270325 = phi i64 [ 0, %gv_calloc.exit.split ], [ %224, %167 ]
-  br i1 %160, label %164, label %167
+162:                                              ; preds = %gv_calloc.exit.split, %166
+  %.0270325 = phi i64 [ 0, %gv_calloc.exit.split ], [ %222, %166 ]
+  br i1 %159, label %163, label %166
 
 default.unreachable:                              ; preds = %gv_calloc.exit.split.us.split.us.split.us
   unreachable
 
-164:                                              ; preds = %163
-  %165 = load double, ptr %1, align 8, !tbaa !74
-  %166 = load double, ptr %80, align 8, !tbaa !76
-  br label %167
+163:                                              ; preds = %162
+  %164 = load double, ptr %1, align 8, !tbaa !74
+  %165 = load double, ptr %80, align 8, !tbaa !76
+  br label %166
 
-167:                                              ; preds = %163, %164
-  %.sroa.13.3 = phi double [ %166, %164 ], [ 0.000000e+00, %163 ]
-  %.sroa.068.3 = phi double [ %165, %164 ], [ 0.000000e+00, %163 ]
-  %168 = fadd double %155, %.sroa.068.3
-  %169 = fmul double %168, 5.000000e-01
-  %170 = fadd double %158, %.sroa.13.3
-  %171 = fmul double %170, 5.000000e-01
-  %172 = uitofp i64 %.0270325 to double
-  %173 = fadd double %172, -5.000000e-01
-  %174 = fmul double %173, 0x401921FB54442D18
-  %175 = fdiv double %174, %81
-  %176 = fadd double %172, 5.000000e-01
-  %177 = fmul double %176, 0x401921FB54442D18
-  %178 = fdiv double %177, %81
-  %179 = call double @cos(double noundef %175) #20, !tbaa !83
-  %180 = fmul double %179, %169
-  %181 = call double @sin(double noundef %175) #20, !tbaa !83
-  %182 = fmul double %171, %181
-  %183 = call double @cos(double noundef %178) #20, !tbaa !83
-  %184 = fmul double %169, %183
-  %185 = call double @sin(double noundef %178) #20, !tbaa !83
-  %186 = fmul double %171, %185
-  %187 = fcmp oge double %182, 0.000000e+00
-  %188 = fmul double %171, %180
-  %189 = fneg double %188
-  %190 = select i1 %187, double %189, double %188
-  %191 = fneg double %180
-  %192 = fmul double %180, %191
-  %193 = call double @llvm.fmuladd.f64(double %169, double %169, double %192)
-  %194 = call double @sqrt(double noundef %193) #20, !tbaa !83
-  %195 = fmul double %169, %194
-  %196 = fdiv double %190, %195
-  %197 = fcmp oge double %186, 0.000000e+00
-  %198 = fmul double %171, %184
-  %199 = fneg double %198
-  %200 = select i1 %197, double %199, double %198
-  %201 = fneg double %184
-  %202 = fmul double %184, %201
-  %203 = call double @llvm.fmuladd.f64(double %169, double %169, double %202)
-  %204 = call double @sqrt(double noundef %203) #20, !tbaa !83
-  %205 = fmul double %169, %204
-  %206 = fdiv double %200, %205
-  %207 = fneg double %182
-  %208 = call double @llvm.fmuladd.f64(double %196, double %180, double %207)
-  %209 = fneg double %206
-  %210 = call double @llvm.fmuladd.f64(double %209, double %184, double %208)
-  %211 = fadd double %186, %210
-  %212 = fsub double %196, %206
-  %213 = fdiv double %211, %212
-  %214 = fsub double %213, %180
-  %215 = call double @llvm.fmuladd.f64(double %196, double %214, double %182)
-  %216 = load double, ptr %161, align 8, !tbaa !80
-  %217 = fadd double %213, %216
-  %218 = xor i64 %.0270325, -1
-  %219 = add i64 %.0267355, %218
-  %220 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %219
-  store double %217, ptr %220, align 8, !tbaa !60
-  %221 = load double, ptr %162, align 8, !tbaa !81
-  %222 = fadd double %215, %221
-  %223 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %219, i32 1
-  store double %222, ptr %223, align 8, !tbaa !61
-  %224 = add nuw i64 %.0270325, 1
-  %exitcond.not = icmp eq i64 %224, %.0267355
-  br i1 %exitcond.not, label %.loopexit, label %163, !llvm.loop !82
+166:                                              ; preds = %162, %163
+  %.sroa.13.3 = phi double [ %165, %163 ], [ 0.000000e+00, %162 ]
+  %.sroa.068.3 = phi double [ %164, %163 ], [ 0.000000e+00, %162 ]
+  %167 = fadd double %154, %.sroa.068.3
+  %168 = fmul double %167, 5.000000e-01
+  %169 = fadd double %157, %.sroa.13.3
+  %170 = fmul double %169, 5.000000e-01
+  %171 = uitofp i64 %.0270325 to double
+  %172 = fadd double %171, -5.000000e-01
+  %173 = fmul double %172, 0x401921FB54442D18
+  %174 = fdiv double %173, %81
+  %175 = fadd double %171, 5.000000e-01
+  %176 = fmul double %175, 0x401921FB54442D18
+  %177 = fdiv double %176, %81
+  %178 = call double @cos(double noundef %174) #20, !tbaa !83
+  %179 = fmul double %178, %168
+  %180 = call double @sin(double noundef %174) #20, !tbaa !83
+  %181 = fmul double %170, %180
+  %182 = call double @cos(double noundef %177) #20, !tbaa !83
+  %183 = fmul double %168, %182
+  %184 = call double @sin(double noundef %177) #20, !tbaa !83
+  %185 = fmul double %170, %184
+  %186 = fcmp oge double %181, 0.000000e+00
+  %187 = fmul double %170, %179
+  %188 = fneg double %187
+  %189 = select i1 %186, double %188, double %187
+  %190 = fneg double %179
+  %191 = fmul double %179, %190
+  %192 = call double @llvm.fmuladd.f64(double %168, double %168, double %191)
+  %193 = call double @sqrt(double noundef %192) #20, !tbaa !83
+  %194 = fmul double %168, %193
+  %195 = fdiv double %189, %194
+  %196 = fcmp oge double %185, 0.000000e+00
+  %197 = fmul double %170, %183
+  %198 = fneg double %197
+  %199 = select i1 %196, double %198, double %197
+  %200 = fneg double %183
+  %201 = fmul double %183, %200
+  %202 = call double @llvm.fmuladd.f64(double %168, double %168, double %201)
+  %203 = call double @sqrt(double noundef %202) #20, !tbaa !83
+  %204 = fmul double %168, %203
+  %205 = fdiv double %199, %204
+  %206 = fneg double %181
+  %207 = call double @llvm.fmuladd.f64(double %195, double %179, double %206)
+  %208 = fneg double %205
+  %209 = call double @llvm.fmuladd.f64(double %208, double %183, double %207)
+  %210 = fadd double %185, %209
+  %211 = fsub double %195, %205
+  %212 = fdiv double %210, %211
+  %213 = fsub double %212, %179
+  %214 = call double @llvm.fmuladd.f64(double %195, double %213, double %181)
+  %215 = load double, ptr %160, align 8, !tbaa !80
+  %216 = fadd double %212, %215
+  %217 = xor i64 %.0270325, -1
+  %218 = getelementptr %struct.pointf_s, ptr %83, i64 %217
+  store double %216, ptr %218, align 8, !tbaa !60
+  %219 = load double, ptr %161, align 8, !tbaa !81
+  %220 = fadd double %214, %219
+  %221 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  store double %220, ptr %221, align 8, !tbaa !61
+  %222 = add nuw i64 %.0270325, 1
+  %exitcond.not = icmp eq i64 %222, %.0267355
+  br i1 %exitcond.not, label %.loopexit, label %162, !llvm.loop !82
 
-225:                                              ; preds = %3
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %227 = load ptr, ptr %226, align 8, !tbaa !20
-  %228 = getelementptr inbounds nuw i8, ptr %227, i64 24
-  %229 = load ptr, ptr %228, align 8, !tbaa !52
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  %.sroa.0135.0.copyload140 = load double, ptr %230, align 8, !tbaa !11
-  %.sroa.10.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %229, i64 24
+223:                                              ; preds = %3
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %225 = load ptr, ptr %224, align 8, !tbaa !20
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 24
+  %227 = load ptr, ptr %226, align 8, !tbaa !52
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 16
+  %.sroa.0135.0.copyload140 = load double, ptr %228, align 8, !tbaa !11
+  %.sroa.10.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %227, i64 24
   %.sroa.10.0.copyload143 = load double, ptr %.sroa.10.0..sroa_idx142, align 8, !tbaa !11
-  %.sroa.15.0..sroa_idx150 = getelementptr inbounds nuw i8, ptr %229, i64 32
+  %.sroa.15.0..sroa_idx150 = getelementptr inbounds nuw i8, ptr %227, i64 32
   %.sroa.15.0.copyload151 = load double, ptr %.sroa.15.0..sroa_idx150, align 8, !tbaa !11
-  %.sroa.21.0..sroa_idx156 = getelementptr inbounds nuw i8, ptr %229, i64 40
+  %.sroa.21.0..sroa_idx156 = getelementptr inbounds nuw i8, ptr %227, i64 40
   %.sroa.21.0.copyload157 = load double, ptr %.sroa.21.0..sroa_idx156, align 8, !tbaa !11
-  %231 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 73) 16) #17
-  %232 = icmp eq ptr %231, null
-  br i1 %232, label %233, label %gv_alloc.exit291
+  %229 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 73) 16) #17
+  %230 = icmp eq ptr %229, null
+  br i1 %230, label %231, label %gv_alloc.exit291
 
-233:                                              ; preds = %225
-  %234 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %235 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef nonnull @.str.6, i64 noundef 16) #18
+231:                                              ; preds = %223
+  %232 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef nonnull @.str.6, i64 noundef 16) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 
-gv_alloc.exit291:                                 ; preds = %225
-  %236 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  store i64 4, ptr %236, align 8, !tbaa !69
-  %237 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 4, i64 noundef 16) #17
-  %238 = icmp eq ptr %237, null
-  br i1 %238, label %239, label %gv_calloc.exit292
+gv_alloc.exit291:                                 ; preds = %223
+  %234 = getelementptr inbounds nuw i8, ptr %229, i64 8
+  store i64 4, ptr %234, align 8, !tbaa !69
+  %235 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 4, i64 noundef 16) #17
+  %236 = icmp eq ptr %235, null
+  br i1 %236, label %237, label %gv_calloc.exit292
 
-239:                                              ; preds = %gv_alloc.exit291
-  %240 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.6, i64 noundef 64) #18
+237:                                              ; preds = %gv_alloc.exit291
+  %238 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.6, i64 noundef 64) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 
 gv_calloc.exit292:                                ; preds = %gv_alloc.exit291
-  store ptr %237, ptr %231, align 8, !tbaa !77
-  %242 = getelementptr inbounds nuw i8, ptr %227, i64 32
-  %.sroa.0101.0.copyload = load double, ptr %242, align 8, !tbaa !11
-  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %227, i64 40
+  store ptr %235, ptr %229, align 8, !tbaa !77
+  %240 = getelementptr inbounds nuw i8, ptr %225, i64 32
+  %.sroa.0101.0.copyload = load double, ptr %240, align 8, !tbaa !11
+  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %225, i64 40
   %.sroa.20.0.copyload = load double, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !11
-  %243 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %244 = load i8, ptr %243, align 8, !tbaa !78, !range !43, !noundef !79
-  %245 = trunc nuw i8 %244 to i1
-  %246 = load double, ptr %1, align 8, !tbaa !74
-  br i1 %245, label %247, label %261
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %242 = load i8, ptr %241, align 8, !tbaa !78, !range !43, !noundef !79
+  %243 = trunc nuw i8 %242 to i1
+  %244 = load double, ptr %1, align 8, !tbaa !74
+  br i1 %243, label %245, label %259
 
-247:                                              ; preds = %gv_calloc.exit292
-  %248 = fsub double %.sroa.0135.0.copyload140, %246
-  %249 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %250 = load double, ptr %249, align 8, !tbaa !76
-  %251 = fsub double %.sroa.10.0.copyload143, %250
-  %252 = fadd double %.sroa.0101.0.copyload, %248
-  %253 = fadd double %.sroa.20.0.copyload, %251
-  store double %252, ptr %237, align 8, !tbaa !11
-  %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store double %253, ptr %.sroa.430.0..sroa_idx, align 8, !tbaa !11
-  %254 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  %255 = fadd double %.sroa.21.0.copyload157, %250
-  %256 = fadd double %.sroa.20.0.copyload, %255
-  store double %252, ptr %254, align 8, !tbaa !11
-  %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 24
-  store double %256, ptr %.sroa.428.0..sroa_idx, align 8, !tbaa !11
-  %257 = getelementptr inbounds nuw i8, ptr %237, i64 32
-  %258 = fadd double %.sroa.15.0.copyload151, %246
-  %259 = fadd double %.sroa.0101.0.copyload, %258
-  store double %259, ptr %257, align 8, !tbaa !11
-  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 40
-  store double %256, ptr %.sroa.426.0..sroa_idx, align 8, !tbaa !11
-  %260 = getelementptr inbounds nuw i8, ptr %237, i64 48
-  store double %259, ptr %260, align 8, !tbaa !11
+245:                                              ; preds = %gv_calloc.exit292
+  %246 = fsub double %.sroa.0135.0.copyload140, %244
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %248 = load double, ptr %247, align 8, !tbaa !76
+  %249 = fsub double %.sroa.10.0.copyload143, %248
+  %250 = fadd double %.sroa.0101.0.copyload, %246
+  %251 = fadd double %.sroa.20.0.copyload, %249
+  store double %250, ptr %235, align 8, !tbaa !11
+  %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 8
+  store double %251, ptr %.sroa.430.0..sroa_idx, align 8, !tbaa !11
+  %252 = getelementptr inbounds nuw i8, ptr %235, i64 16
+  %253 = fadd double %.sroa.21.0.copyload157, %248
+  %254 = fadd double %.sroa.20.0.copyload, %253
+  store double %250, ptr %252, align 8, !tbaa !11
+  %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 24
+  store double %254, ptr %.sroa.428.0..sroa_idx, align 8, !tbaa !11
+  %255 = getelementptr inbounds nuw i8, ptr %235, i64 32
+  %256 = fadd double %.sroa.15.0.copyload151, %244
+  %257 = fadd double %.sroa.0101.0.copyload, %256
+  store double %257, ptr %255, align 8, !tbaa !11
+  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 40
+  store double %254, ptr %.sroa.426.0..sroa_idx, align 8, !tbaa !11
+  %258 = getelementptr inbounds nuw i8, ptr %235, i64 48
+  store double %257, ptr %258, align 8, !tbaa !11
   br label %.loopexit.sink.split
 
-261:                                              ; preds = %gv_calloc.exit292
-  %262 = getelementptr i8, ptr %1, i64 8
-  %.val276 = load double, ptr %262, align 8, !tbaa !76
-  %263 = tail call double @llvm.fmuladd.f64(double %.sroa.0135.0.copyload140, double %246, double %.sroa.0101.0.copyload)
-  %264 = tail call double @llvm.fmuladd.f64(double %.sroa.10.0.copyload143, double %.val276, double %.sroa.20.0.copyload)
-  store double %263, ptr %237, align 8, !tbaa !11
-  %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store double %264, ptr %.sroa.422.0..sroa_idx, align 8, !tbaa !11
-  %265 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  %266 = tail call double @llvm.fmuladd.f64(double %.sroa.21.0.copyload157, double %.val276, double %.sroa.20.0.copyload)
-  store double %263, ptr %265, align 8, !tbaa !11
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 24
-  store double %266, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !11
-  %267 = getelementptr inbounds nuw i8, ptr %237, i64 32
-  %268 = tail call double @llvm.fmuladd.f64(double %.sroa.15.0.copyload151, double %246, double %.sroa.0101.0.copyload)
-  store double %268, ptr %267, align 8, !tbaa !11
-  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 40
-  store double %266, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !11
-  %269 = getelementptr inbounds nuw i8, ptr %237, i64 48
-  store double %268, ptr %269, align 8, !tbaa !11
+259:                                              ; preds = %gv_calloc.exit292
+  %260 = getelementptr i8, ptr %1, i64 8
+  %.val276 = load double, ptr %260, align 8, !tbaa !76
+  %261 = tail call double @llvm.fmuladd.f64(double %.sroa.0135.0.copyload140, double %244, double %.sroa.0101.0.copyload)
+  %262 = tail call double @llvm.fmuladd.f64(double %.sroa.10.0.copyload143, double %.val276, double %.sroa.20.0.copyload)
+  store double %261, ptr %235, align 8, !tbaa !11
+  %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 8
+  store double %262, ptr %.sroa.422.0..sroa_idx, align 8, !tbaa !11
+  %263 = getelementptr inbounds nuw i8, ptr %235, i64 16
+  %264 = tail call double @llvm.fmuladd.f64(double %.sroa.21.0.copyload157, double %.val276, double %.sroa.20.0.copyload)
+  store double %261, ptr %263, align 8, !tbaa !11
+  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 24
+  store double %264, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !11
+  %265 = getelementptr inbounds nuw i8, ptr %235, i64 32
+  %266 = tail call double @llvm.fmuladd.f64(double %.sroa.15.0.copyload151, double %244, double %.sroa.0101.0.copyload)
+  store double %266, ptr %265, align 8, !tbaa !11
+  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 40
+  store double %264, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !11
+  %267 = getelementptr inbounds nuw i8, ptr %235, i64 48
+  store double %266, ptr %267, align 8, !tbaa !11
   br label %.loopexit.sink.split
 
-270:                                              ; preds = %3
-  %271 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 73) 16) #17
-  %272 = icmp eq ptr %271, null
-  br i1 %272, label %273, label %gv_alloc.exit307
+268:                                              ; preds = %3
+  %269 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 73) 16) #17
+  %270 = icmp eq ptr %269, null
+  br i1 %270, label %271, label %gv_alloc.exit307
 
-273:                                              ; preds = %270
-  %274 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %275 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %274, ptr noundef nonnull @.str.6, i64 noundef 16) #18
+271:                                              ; preds = %268
+  %272 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %273 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %272, ptr noundef nonnull @.str.6, i64 noundef 16) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 
-gv_alloc.exit307:                                 ; preds = %270
-  %276 = getelementptr inbounds nuw i8, ptr %271, i64 8
-  store i64 4, ptr %276, align 8, !tbaa !69
-  %277 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 4, i64 noundef 16) #17
-  %278 = icmp eq ptr %277, null
-  br i1 %278, label %279, label %gv_calloc.exit308
+gv_alloc.exit307:                                 ; preds = %268
+  %274 = getelementptr inbounds nuw i8, ptr %269, i64 8
+  store i64 4, ptr %274, align 8, !tbaa !69
+  %275 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 4, i64 noundef 16) #17
+  %276 = icmp eq ptr %275, null
+  br i1 %276, label %277, label %gv_calloc.exit308
 
-279:                                              ; preds = %gv_alloc.exit307
-  %280 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %281 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %280, ptr noundef nonnull @.str.6, i64 noundef 64) #18
+277:                                              ; preds = %gv_alloc.exit307
+  %278 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %279 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %278, ptr noundef nonnull @.str.6, i64 noundef 64) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 
 gv_calloc.exit308:                                ; preds = %gv_alloc.exit307
-  store ptr %277, ptr %271, align 8, !tbaa !77
-  %282 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %283 = load ptr, ptr %282, align 8, !tbaa !20
-  %284 = getelementptr inbounds nuw i8, ptr %283, i64 32
-  %.sroa.0101.0.copyload117 = load double, ptr %284, align 8, !tbaa !11
-  %.sroa.20.0..sroa_idx118 = getelementptr inbounds nuw i8, ptr %283, i64 40
+  store ptr %275, ptr %269, align 8, !tbaa !77
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %281 = load ptr, ptr %280, align 8, !tbaa !20
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 32
+  %.sroa.0101.0.copyload117 = load double, ptr %282, align 8, !tbaa !11
+  %.sroa.20.0..sroa_idx118 = getelementptr inbounds nuw i8, ptr %281, i64 40
   %.sroa.20.0.copyload119 = load double, ptr %.sroa.20.0..sroa_idx118, align 8, !tbaa !11
-  %285 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %286 = load i8, ptr %285, align 8, !tbaa !78, !range !43, !noundef !79
-  %287 = trunc nuw i8 %286 to i1
-  %288 = getelementptr inbounds nuw i8, ptr %283, i64 104
-  %289 = load double, ptr %288, align 8, !tbaa !62
-  %290 = fneg double %289
-  br i1 %287, label %291, label %326
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %284 = load i8, ptr %283, align 8, !tbaa !78, !range !43, !noundef !79
+  %285 = trunc nuw i8 %284 to i1
+  %286 = getelementptr inbounds nuw i8, ptr %281, i64 104
+  %287 = load double, ptr %286, align 8, !tbaa !62
+  %288 = fneg double %287
+  br i1 %285, label %289, label %324
 
-291:                                              ; preds = %gv_calloc.exit308
-  %292 = load double, ptr %1, align 8, !tbaa !74
-  %293 = fsub double %290, %292
-  %294 = getelementptr inbounds nuw i8, ptr %283, i64 96
-  %295 = load double, ptr %294, align 8, !tbaa !84
-  %296 = fneg double %295
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %298 = load double, ptr %297, align 8, !tbaa !76
-  %299 = fsub double %296, %298
-  %300 = fadd double %.sroa.0101.0.copyload117, %293
-  %301 = fadd double %.sroa.20.0.copyload119, %299
-  store double %300, ptr %277, align 8, !tbaa !11
-  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %277, i64 8
-  store double %301, ptr %.sroa.414.0..sroa_idx, align 8, !tbaa !11
-  %302 = getelementptr inbounds nuw i8, ptr %277, i64 16
-  %303 = load double, ptr %288, align 8, !tbaa !62
-  %304 = fneg double %303
-  %305 = fsub double %304, %292
-  %306 = load double, ptr %294, align 8, !tbaa !84
-  %307 = fadd double %298, %306
-  %308 = fadd double %.sroa.0101.0.copyload117, %305
-  %309 = fadd double %.sroa.20.0.copyload119, %307
-  store double %308, ptr %302, align 8, !tbaa !11
-  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %277, i64 24
-  store double %309, ptr %.sroa.412.0..sroa_idx, align 8, !tbaa !11
-  %310 = getelementptr inbounds nuw i8, ptr %277, i64 32
-  %311 = getelementptr inbounds nuw i8, ptr %283, i64 112
-  %312 = load double, ptr %311, align 8, !tbaa !63
-  %313 = fadd double %292, %312
-  %314 = load double, ptr %294, align 8, !tbaa !84
-  %315 = fadd double %298, %314
-  %316 = fadd double %.sroa.0101.0.copyload117, %313
-  %317 = fadd double %.sroa.20.0.copyload119, %315
-  store double %316, ptr %310, align 8, !tbaa !11
-  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %277, i64 40
-  store double %317, ptr %.sroa.410.0..sroa_idx, align 8, !tbaa !11
-  %318 = getelementptr inbounds nuw i8, ptr %277, i64 48
-  %319 = load double, ptr %311, align 8, !tbaa !63
-  %320 = fadd double %292, %319
-  %321 = load double, ptr %294, align 8, !tbaa !84
-  %322 = fneg double %321
-  %323 = fsub double %322, %298
-  %324 = fadd double %.sroa.0101.0.copyload117, %320
-  %325 = fadd double %.sroa.20.0.copyload119, %323
-  store double %324, ptr %318, align 8, !tbaa !11
+289:                                              ; preds = %gv_calloc.exit308
+  %290 = load double, ptr %1, align 8, !tbaa !74
+  %291 = fsub double %288, %290
+  %292 = getelementptr inbounds nuw i8, ptr %281, i64 96
+  %293 = load double, ptr %292, align 8, !tbaa !84
+  %294 = fneg double %293
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %296 = load double, ptr %295, align 8, !tbaa !76
+  %297 = fsub double %294, %296
+  %298 = fadd double %.sroa.0101.0.copyload117, %291
+  %299 = fadd double %.sroa.20.0.copyload119, %297
+  store double %298, ptr %275, align 8, !tbaa !11
+  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 8
+  store double %299, ptr %.sroa.414.0..sroa_idx, align 8, !tbaa !11
+  %300 = getelementptr inbounds nuw i8, ptr %275, i64 16
+  %301 = load double, ptr %286, align 8, !tbaa !62
+  %302 = fneg double %301
+  %303 = fsub double %302, %290
+  %304 = load double, ptr %292, align 8, !tbaa !84
+  %305 = fadd double %296, %304
+  %306 = fadd double %.sroa.0101.0.copyload117, %303
+  %307 = fadd double %.sroa.20.0.copyload119, %305
+  store double %306, ptr %300, align 8, !tbaa !11
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 24
+  store double %307, ptr %.sroa.412.0..sroa_idx, align 8, !tbaa !11
+  %308 = getelementptr inbounds nuw i8, ptr %275, i64 32
+  %309 = getelementptr inbounds nuw i8, ptr %281, i64 112
+  %310 = load double, ptr %309, align 8, !tbaa !63
+  %311 = fadd double %290, %310
+  %312 = load double, ptr %292, align 8, !tbaa !84
+  %313 = fadd double %296, %312
+  %314 = fadd double %.sroa.0101.0.copyload117, %311
+  %315 = fadd double %.sroa.20.0.copyload119, %313
+  store double %314, ptr %308, align 8, !tbaa !11
+  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 40
+  store double %315, ptr %.sroa.410.0..sroa_idx, align 8, !tbaa !11
+  %316 = getelementptr inbounds nuw i8, ptr %275, i64 48
+  %317 = load double, ptr %309, align 8, !tbaa !63
+  %318 = fadd double %290, %317
+  %319 = load double, ptr %292, align 8, !tbaa !84
+  %320 = fneg double %319
+  %321 = fsub double %320, %296
+  %322 = fadd double %.sroa.0101.0.copyload117, %318
+  %323 = fadd double %.sroa.20.0.copyload119, %321
+  store double %322, ptr %316, align 8, !tbaa !11
   br label %.loopexit.sink.split
 
-326:                                              ; preds = %gv_calloc.exit308
-  %327 = getelementptr inbounds nuw i8, ptr %283, i64 96
-  %328 = load double, ptr %327, align 8, !tbaa !84
-  %329 = fneg double %328
+324:                                              ; preds = %gv_calloc.exit308
+  %325 = getelementptr inbounds nuw i8, ptr %281, i64 96
+  %326 = load double, ptr %325, align 8, !tbaa !84
+  %327 = fneg double %326
   %.val283 = load double, ptr %1, align 8, !tbaa !74
-  %330 = getelementptr i8, ptr %1, i64 8
-  %.val284 = load double, ptr %330, align 8, !tbaa !76
-  %331 = tail call double @llvm.fmuladd.f64(double %290, double %.val283, double %.sroa.0101.0.copyload117)
-  %332 = tail call double @llvm.fmuladd.f64(double %329, double %.val284, double %.sroa.20.0.copyload119)
-  store double %331, ptr %277, align 8, !tbaa !11
-  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %277, i64 8
-  store double %332, ptr %.sroa.46.0..sroa_idx, align 8, !tbaa !11
-  %333 = getelementptr inbounds nuw i8, ptr %277, i64 16
-  %334 = load double, ptr %288, align 8, !tbaa !62
-  %335 = fneg double %334
-  %336 = load double, ptr %327, align 8, !tbaa !84
-  %337 = tail call double @llvm.fmuladd.f64(double %335, double %.val283, double %.sroa.0101.0.copyload117)
-  %338 = tail call double @llvm.fmuladd.f64(double %336, double %.val284, double %.sroa.20.0.copyload119)
-  store double %337, ptr %333, align 8, !tbaa !11
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %277, i64 24
-  store double %338, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !11
-  %339 = getelementptr inbounds nuw i8, ptr %277, i64 32
-  %340 = getelementptr inbounds nuw i8, ptr %283, i64 112
-  %341 = load double, ptr %340, align 8, !tbaa !63
-  %342 = load double, ptr %327, align 8, !tbaa !84
-  %343 = tail call double @llvm.fmuladd.f64(double %341, double %.val283, double %.sroa.0101.0.copyload117)
-  %344 = tail call double @llvm.fmuladd.f64(double %342, double %.val284, double %.sroa.20.0.copyload119)
-  store double %343, ptr %339, align 8, !tbaa !11
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %277, i64 40
-  store double %344, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !11
-  %345 = getelementptr inbounds nuw i8, ptr %277, i64 48
-  %346 = load double, ptr %340, align 8, !tbaa !63
-  %347 = load double, ptr %327, align 8, !tbaa !84
-  %348 = fneg double %347
-  %349 = tail call double @llvm.fmuladd.f64(double %346, double %.val283, double %.sroa.0101.0.copyload117)
-  %350 = tail call double @llvm.fmuladd.f64(double %348, double %.val284, double %.sroa.20.0.copyload119)
-  store double %349, ptr %345, align 8, !tbaa !11
+  %328 = getelementptr i8, ptr %1, i64 8
+  %.val284 = load double, ptr %328, align 8, !tbaa !76
+  %329 = tail call double @llvm.fmuladd.f64(double %288, double %.val283, double %.sroa.0101.0.copyload117)
+  %330 = tail call double @llvm.fmuladd.f64(double %327, double %.val284, double %.sroa.20.0.copyload119)
+  store double %329, ptr %275, align 8, !tbaa !11
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 8
+  store double %330, ptr %.sroa.46.0..sroa_idx, align 8, !tbaa !11
+  %331 = getelementptr inbounds nuw i8, ptr %275, i64 16
+  %332 = load double, ptr %286, align 8, !tbaa !62
+  %333 = fneg double %332
+  %334 = load double, ptr %325, align 8, !tbaa !84
+  %335 = tail call double @llvm.fmuladd.f64(double %333, double %.val283, double %.sroa.0101.0.copyload117)
+  %336 = tail call double @llvm.fmuladd.f64(double %334, double %.val284, double %.sroa.20.0.copyload119)
+  store double %335, ptr %331, align 8, !tbaa !11
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 24
+  store double %336, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !11
+  %337 = getelementptr inbounds nuw i8, ptr %275, i64 32
+  %338 = getelementptr inbounds nuw i8, ptr %281, i64 112
+  %339 = load double, ptr %338, align 8, !tbaa !63
+  %340 = load double, ptr %325, align 8, !tbaa !84
+  %341 = tail call double @llvm.fmuladd.f64(double %339, double %.val283, double %.sroa.0101.0.copyload117)
+  %342 = tail call double @llvm.fmuladd.f64(double %340, double %.val284, double %.sroa.20.0.copyload119)
+  store double %341, ptr %337, align 8, !tbaa !11
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 40
+  store double %342, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !11
+  %343 = getelementptr inbounds nuw i8, ptr %275, i64 48
+  %344 = load double, ptr %338, align 8, !tbaa !63
+  %345 = load double, ptr %325, align 8, !tbaa !84
+  %346 = fneg double %345
+  %347 = tail call double @llvm.fmuladd.f64(double %344, double %.val283, double %.sroa.0101.0.copyload117)
+  %348 = tail call double @llvm.fmuladd.f64(double %346, double %.val284, double %.sroa.20.0.copyload119)
+  store double %347, ptr %343, align 8, !tbaa !11
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %261, %247, %326, %291
-  %.sink360 = phi ptr [ %277, %291 ], [ %277, %326 ], [ %237, %247 ], [ %237, %261 ]
-  %.sink = phi double [ %325, %291 ], [ %350, %326 ], [ %253, %247 ], [ %264, %261 ]
-  %.0.ph = phi ptr [ %271, %291 ], [ %271, %326 ], [ %231, %247 ], [ %231, %261 ]
+.loopexit.sink.split:                             ; preds = %259, %245, %324, %289
+  %.sink360 = phi ptr [ %275, %289 ], [ %275, %324 ], [ %235, %245 ], [ %235, %259 ]
+  %.sink = phi double [ %323, %289 ], [ %348, %324 ], [ %251, %245 ], [ %262, %259 ]
+  %.0.ph = phi ptr [ %269, %289 ], [ %269, %324 ], [ %229, %245 ], [ %229, %259 ]
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink360, i64 56
   store double %.sink, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %167, %136, %112, %91, %.loopexit.sink.split, %3
-  %.0 = phi ptr [ null, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ %8, %91 ], [ %8, %112 ], [ %8, %136 ], [ %8, %167 ]
+.loopexit:                                        ; preds = %166, %136, %113, %92, %.loopexit.sink.split, %3
+  %.0 = phi ptr [ null, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ %8, %92 ], [ %8, %113 ], [ %8, %136 ], [ %8, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

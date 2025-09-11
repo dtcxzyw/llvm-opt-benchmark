@@ -138,7 +138,7 @@ define i32 @cli_scangpt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 9:                                                ; preds = %6, %2
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1) #7
-  br label %106
+  br label %107
 
 10:                                               ; preds = %6
   %11 = icmp eq i64 %1, 0
@@ -156,7 +156,7 @@ define i32 @cli_scangpt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 15:                                               ; preds = %12
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #7
-  br label %106
+  br label %107
 
 .thread:                                          ; preds = %..thread_crit_edge, %10
   %16 = phi ptr [ %.pre, %..thread_crit_edge ], [ %8, %10 ]
@@ -169,7 +169,7 @@ define i32 @cli_scangpt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 20:                                               ; preds = %.thread
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4, i64 noundef %18, i64 noundef %.092) #7
-  br label %106
+  br label %107
 
 21:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -195,7 +195,7 @@ fmap_readn.exit.i:                                ; preds = %23
   call void @mbr_convert_to_host(ptr noundef nonnull %3) #7
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %30 = load i8, ptr %29, align 1, !tbaa !26
-  switch i8 %30, label %39 [
+  switch i8 %30, label %40 [
     i8 -18, label %31
     i8 -19, label %.loopexit.sink.split
   ]
@@ -220,207 +220,208 @@ fmap_readn.exit.i:                                ; preds = %23
 
 36:                                               ; preds = %.preheader, %35
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ 1, %.preheader ]
-  %37 = getelementptr inbounds nuw %struct.mbr_partition_entry, ptr %3, i64 %indvars.iv.i, i32 2
-  %38 = load i8, ptr %37, align 1, !tbaa !26
-  %.not12.i = icmp eq i8 %38, 0
+  %37 = getelementptr inbounds nuw %struct.mbr_partition_entry, ptr %3, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %39 = load i8, ptr %38, align 1, !tbaa !26
+  %.not12.i = icmp eq i8 %39, 0
   br i1 %.not12.i, label %35, label %.loopexit.sink.split
 
-39:                                               ; preds = %28
+40:                                               ; preds = %28
   br label %.loopexit.sink.split
 
 gpt_check_mbr.exit:                               ; preds = %21, %23, %fmap_readn.exit.i
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.49) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %106
+  br label %107
 
-.loopexit.sink.split:                             ; preds = %36, %28, %39
-  %.str.51.sink = phi ptr [ @.str.53, %39 ], [ @.str.52, %28 ], [ @.str.51, %36 ]
+.loopexit.sink.split:                             ; preds = %36, %28, %40
+  %.str.51.sink = phi ptr [ @.str.53, %40 ], [ @.str.52, %28 ], [ @.str.51, %36 ]
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull %.str.51.sink) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.loopexit.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #7
-  %40 = load ptr, ptr %7, align 8, !tbaa !12
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 88
-  %42 = load i64, ptr %41, align 8, !tbaa !25
-  %or.cond.not = icmp ult i64 %.092, %42
-  br i1 %or.cond.not, label %43, label %fmap_readn.exit.thread
+  %41 = load ptr, ptr %7, align 8, !tbaa !12
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 88
+  %43 = load i64, ptr %42, align 8, !tbaa !25
+  %or.cond.not = icmp ult i64 %.092, %43
+  br i1 %or.cond.not, label %44, label %fmap_readn.exit.thread
 
-43:                                               ; preds = %.loopexit
-  %44 = sub nuw i64 %42, %.092
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %44, i64 92)
-  %45 = getelementptr inbounds nuw i8, ptr %40, i64 104
-  %46 = load ptr, ptr %45, align 8, !tbaa !3
-  %47 = call ptr %46(ptr noundef nonnull %40, i64 noundef %.092, i64 noundef %spec.select.i, i32 noundef 0) #7
-  %.not26.i = icmp eq ptr %47, null
+44:                                               ; preds = %.loopexit
+  %45 = sub nuw i64 %43, %.092
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %45, i64 92)
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 104
+  %47 = load ptr, ptr %46, align 8, !tbaa !3
+  %48 = call ptr %47(ptr noundef nonnull %41, i64 noundef %.092, i64 noundef %spec.select.i, i32 noundef 0) #7
+  %.not26.i = icmp eq ptr %48, null
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
-fmap_readn.exit:                                  ; preds = %43
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %47, i64 %spec.select.i, i1 false)
-  %.not65 = icmp ugt i64 %44, 91
-  br i1 %.not65, label %48, label %fmap_readn.exit.thread
+fmap_readn.exit:                                  ; preds = %44
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %48, i64 %spec.select.i, i1 false)
+  %.not65 = icmp ugt i64 %45, 91
+  br i1 %.not65, label %49, label %fmap_readn.exit.thread
 
-fmap_readn.exit.thread:                           ; preds = %43, %.loopexit, %fmap_readn.exit
+fmap_readn.exit.thread:                           ; preds = %44, %.loopexit, %fmap_readn.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #7
-  br label %106
+  br label %107
 
-48:                                               ; preds = %fmap_readn.exit
-  %49 = sub i64 %18, %.092
-  %50 = call fastcc i32 @gpt_validate_header(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
-  %.not66 = icmp eq i32 %50, 0
-  br i1 %.not66, label %63, label %51
+49:                                               ; preds = %fmap_readn.exit
+  %50 = sub i64 %18, %.092
+  %51 = call fastcc i32 @gpt_validate_header(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
+  %.not66 = icmp eq i32 %51, 0
+  br i1 %.not66, label %64, label %52
 
-51:                                               ; preds = %48
+52:                                               ; preds = %49
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #7
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8) #7
-  %52 = load ptr, ptr %7, align 8, !tbaa !12
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 88
-  %54 = load i64, ptr %53, align 8, !tbaa !25
-  %or.cond101.not = icmp ult i64 %49, %54
-  br i1 %or.cond101.not, label %55, label %fmap_readn.exit85.thread
+  %53 = load ptr, ptr %7, align 8, !tbaa !12
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 88
+  %55 = load i64, ptr %54, align 8, !tbaa !25
+  %or.cond101.not = icmp ult i64 %50, %55
+  br i1 %or.cond101.not, label %56, label %fmap_readn.exit85.thread
 
-55:                                               ; preds = %51
-  %56 = sub nuw i64 %54, %49
-  %spec.select.i82 = call i64 @llvm.umin.i64(i64 %56, i64 92)
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 104
-  %58 = load ptr, ptr %57, align 8, !tbaa !3
-  %59 = call ptr %58(ptr noundef nonnull %52, i64 noundef %49, i64 noundef %spec.select.i82, i32 noundef 0) #7
-  %.not26.i83 = icmp eq ptr %59, null
+56:                                               ; preds = %52
+  %57 = sub nuw i64 %55, %50
+  %spec.select.i82 = call i64 @llvm.umin.i64(i64 %57, i64 92)
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 104
+  %59 = load ptr, ptr %58, align 8, !tbaa !3
+  %60 = call ptr %59(ptr noundef nonnull %53, i64 noundef %50, i64 noundef %spec.select.i82, i32 noundef 0) #7
+  %.not26.i83 = icmp eq ptr %60, null
   br i1 %.not26.i83, label %fmap_readn.exit85.thread, label %fmap_readn.exit85
 
-fmap_readn.exit85:                                ; preds = %55
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 1 %59, i64 %spec.select.i82, i1 false)
-  %.not70 = icmp ugt i64 %56, 91
-  br i1 %.not70, label %60, label %fmap_readn.exit85.thread
+fmap_readn.exit85:                                ; preds = %56
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 1 %60, i64 %spec.select.i82, i1 false)
+  %.not70 = icmp ugt i64 %57, 91
+  br i1 %.not70, label %61, label %fmap_readn.exit85.thread
 
-fmap_readn.exit85.thread:                         ; preds = %55, %51, %fmap_readn.exit85
+fmap_readn.exit85.thread:                         ; preds = %56, %52, %fmap_readn.exit85
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #7
-  br label %106
+  br label %107
 
-60:                                               ; preds = %fmap_readn.exit85
-  %61 = call fastcc i32 @gpt_validate_header(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
-  %.not71 = icmp eq i32 %61, 0
-  br i1 %.not71, label %80, label %62
+61:                                               ; preds = %fmap_readn.exit85
+  %62 = call fastcc i32 @gpt_validate_header(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
+  %.not71 = icmp eq i32 %62, 0
+  br i1 %.not71, label %81, label %63
 
-62:                                               ; preds = %60
+63:                                               ; preds = %61
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #7
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #7
-  br label %106
+  br label %107
 
-63:                                               ; preds = %48
+64:                                               ; preds = %49
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #7
-  %64 = load ptr, ptr %7, align 8, !tbaa !12
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 88
-  %66 = load i64, ptr %65, align 8, !tbaa !25
-  %or.cond102.not = icmp ult i64 %49, %66
-  br i1 %or.cond102.not, label %67, label %.sink.split
+  %65 = load ptr, ptr %7, align 8, !tbaa !12
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 88
+  %67 = load i64, ptr %66, align 8, !tbaa !25
+  %or.cond102.not = icmp ult i64 %50, %67
+  br i1 %or.cond102.not, label %68, label %.sink.split
 
-67:                                               ; preds = %63
-  %68 = sub nuw i64 %66, %49
-  %spec.select.i87 = call i64 @llvm.umin.i64(i64 %68, i64 92)
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 104
-  %70 = load ptr, ptr %69, align 8, !tbaa !3
-  %71 = call ptr %70(ptr noundef nonnull %64, i64 noundef %49, i64 noundef %spec.select.i87, i32 noundef 0) #7
-  %.not26.i88 = icmp eq ptr %71, null
+68:                                               ; preds = %64
+  %69 = sub nuw i64 %67, %50
+  %spec.select.i87 = call i64 @llvm.umin.i64(i64 %69, i64 92)
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 104
+  %71 = load ptr, ptr %70, align 8, !tbaa !3
+  %72 = call ptr %71(ptr noundef nonnull %65, i64 noundef %50, i64 noundef %spec.select.i87, i32 noundef 0) #7
+  %.not26.i88 = icmp eq ptr %72, null
   br i1 %.not26.i88, label %.sink.split, label %fmap_readn.exit90
 
-fmap_readn.exit90:                                ; preds = %67
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 1 %71, i64 %spec.select.i87, i1 false)
-  %.not67 = icmp ugt i64 %68, 91
-  br i1 %.not67, label %72, label %.sink.split
+fmap_readn.exit90:                                ; preds = %68
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 1 %72, i64 %spec.select.i87, i1 false)
+  %.not67 = icmp ugt i64 %69, 91
+  br i1 %.not67, label %73, label %.sink.split
 
-72:                                               ; preds = %fmap_readn.exit90
-  %73 = call fastcc i32 @gpt_validate_header(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
-  %.not68 = icmp eq i32 %73, 0
-  br i1 %.not68, label %74, label %.sink.split
+73:                                               ; preds = %fmap_readn.exit90
+  %74 = call fastcc i32 @gpt_validate_header(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
+  %.not68 = icmp eq i32 %74, 0
+  br i1 %.not68, label %75, label %.sink.split
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %76 = load i32, ptr %75, align 8, !tbaa !29
-  %77 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %78 = load i32, ptr %77, align 8, !tbaa !29
-  %.not69 = icmp eq i32 %76, %78
-  br i1 %.not69, label %.sink.split, label %79
+75:                                               ; preds = %73
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %77 = load i32, ptr %76, align 8, !tbaa !29
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %79 = load i32, ptr %78, align 8, !tbaa !29
+  %.not69 = icmp eq i32 %77, %79
+  br i1 %.not69, label %.sink.split, label %80
 
-79:                                               ; preds = %74
+80:                                               ; preds = %75
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #7
   br label %.sink.split
 
-.sink.split:                                      ; preds = %74, %72, %fmap_readn.exit90, %63, %67, %79
-  %.str.9.sink = phi ptr [ @.str.14, %79 ], [ @.str.9, %67 ], [ @.str.9, %63 ], [ @.str.9, %fmap_readn.exit90 ], [ @.str.10, %72 ], [ @.str.15, %74 ]
-  %.050.ph = phi i32 [ 3, %79 ], [ 1, %67 ], [ 1, %63 ], [ 1, %fmap_readn.exit90 ], [ 1, %72 ], [ 1, %74 ]
+.sink.split:                                      ; preds = %75, %73, %fmap_readn.exit90, %64, %68, %80
+  %.str.9.sink = phi ptr [ @.str.14, %80 ], [ @.str.9, %68 ], [ @.str.9, %64 ], [ @.str.9, %fmap_readn.exit90 ], [ @.str.10, %73 ], [ @.str.15, %75 ]
+  %.050.ph = phi i32 [ 3, %80 ], [ 1, %68 ], [ 1, %64 ], [ 1, %fmap_readn.exit90 ], [ 1, %73 ], [ 1, %75 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.9.sink) #7
-  br label %80
+  br label %81
 
-80:                                               ; preds = %.sink.split, %60
-  %.050 = phi i32 [ 2, %60 ], [ %.050.ph, %.sink.split ]
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %82 = load ptr, ptr %81, align 8, !tbaa !31
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load i32, ptr %83, align 4, !tbaa !32
-  %85 = and i32 %84, 256
-  %.not72 = icmp eq i32 %85, 0
-  br i1 %.not72, label %96, label %86
+81:                                               ; preds = %.sink.split, %61
+  %.050 = phi i32 [ 2, %61 ], [ %.050.ph, %.sink.split ]
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %83 = load ptr, ptr %82, align 8, !tbaa !31
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %85 = load i32, ptr %84, align 4, !tbaa !32
+  %86 = and i32 %85, 256
+  %.not72 = icmp eq i32 %86, 0
+  br i1 %.not72, label %97, label %87
 
-86:                                               ; preds = %80
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %88 = load ptr, ptr %87, align 8, !tbaa !34
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %90 = load i32, ptr %89, align 4, !tbaa !35
-  %91 = and i32 %90, 512
-  %.not73 = icmp eq i32 %91, 0
-  br i1 %.not73, label %96, label %92
+87:                                               ; preds = %81
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %89 = load ptr, ptr %88, align 8, !tbaa !34
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %91 = load i32, ptr %90, align 4, !tbaa !35
+  %92 = and i32 %91, 512
+  %.not73 = icmp eq i32 %92, 0
+  br i1 %.not73, label %97, label %93
 
-92:                                               ; preds = %86
-  %93 = call fastcc i32 @gpt_partition_intersection(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
-  %.not74 = icmp eq i32 %93, 0
-  br i1 %.not74, label %94, label %106
+93:                                               ; preds = %87
+  %94 = call fastcc i32 @gpt_partition_intersection(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
+  %.not74 = icmp eq i32 %94, 0
+  br i1 %.not74, label %95, label %107
 
-94:                                               ; preds = %92
-  %95 = call fastcc i32 @gpt_partition_intersection(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
-  %.not75 = icmp eq i32 %95, 0
-  br i1 %.not75, label %96, label %106
+95:                                               ; preds = %93
+  %96 = call fastcc i32 @gpt_partition_intersection(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
+  %.not75 = icmp eq i32 %96, 0
+  br i1 %.not75, label %97, label %107
 
-96:                                               ; preds = %94, %86, %80
+97:                                               ; preds = %95, %87, %81
   switch i32 %.050, label %default.unreachable123 [
-    i32 1, label %97
-    i32 2, label %99
-    i32 3, label %101
+    i32 1, label %98
+    i32 2, label %100
+    i32 3, label %102
   ]
 
-97:                                               ; preds = %96
+98:                                               ; preds = %97
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16) #7
-  %98 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
-  %.not79 = icmp eq i32 %98, 0
-  br i1 %.not79, label %105, label %106
+  %99 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
+  %.not79 = icmp eq i32 %99, 0
+  br i1 %.not79, label %106, label %107
 
-99:                                               ; preds = %96
+100:                                              ; preds = %97
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17) #7
-  %100 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
-  %.not78 = icmp eq i32 %100, 0
-  br i1 %.not78, label %105, label %106
+  %101 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
+  %.not78 = icmp eq i32 %101, 0
+  br i1 %.not78, label %106, label %107
 
-101:                                              ; preds = %96
+102:                                              ; preds = %97
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #7
-  %102 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
-  %.not76 = icmp eq i32 %102, 0
-  br i1 %.not76, label %103, label %106
+  %103 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %4, i64 noundef %.092)
+  %.not76 = icmp eq i32 %103, 0
+  br i1 %.not76, label %104, label %107
 
-103:                                              ; preds = %101
+104:                                              ; preds = %102
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #7
-  %104 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
-  %.not77 = icmp eq i32 %104, 0
-  br i1 %.not77, label %105, label %106
+  %105 = call fastcc i32 @gpt_scan_partitions(ptr noundef %0, ptr noundef nonnull byval(%struct.gpt_header) align 8 %5, i64 noundef %.092)
+  %.not77 = icmp eq i32 %105, 0
+  br i1 %.not77, label %106, label %107
 
-default.unreachable123:                           ; preds = %96
+default.unreachable123:                           ; preds = %97
   unreachable
 
-105:                                              ; preds = %103, %99, %97
-  br label %106
+106:                                              ; preds = %104, %100, %98
+  br label %107
 
-106:                                              ; preds = %gpt_check_mbr.exit, %103, %101, %99, %97, %94, %92, %105, %62, %fmap_readn.exit85.thread, %fmap_readn.exit.thread, %20, %15, %9
-  %.051 = phi i32 [ 26, %15 ], [ 26, %20 ], [ 26, %gpt_check_mbr.exit ], [ 26, %fmap_readn.exit.thread ], [ 26, %fmap_readn.exit85.thread ], [ 26, %62 ], [ %93, %92 ], [ %95, %94 ], [ 0, %105 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ 2, %9 ]
+107:                                              ; preds = %gpt_check_mbr.exit, %104, %102, %100, %98, %95, %93, %106, %63, %fmap_readn.exit85.thread, %fmap_readn.exit.thread, %20, %15, %9
+  %.051 = phi i32 [ 26, %15 ], [ 26, %20 ], [ 26, %gpt_check_mbr.exit ], [ 26, %fmap_readn.exit.thread ], [ 26, %fmap_readn.exit85.thread ], [ 26, %63 ], [ %94, %93 ], [ %96, %95 ], [ 0, %106 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ 2, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.051

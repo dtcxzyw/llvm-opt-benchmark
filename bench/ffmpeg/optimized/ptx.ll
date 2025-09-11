@@ -47,7 +47,7 @@ define internal i32 @ptx_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 43, ptr %26, align 8, !tbaa !17
   %27 = zext i16 %14 to i64
-  %28 = icmp slt i64 %9, %27
+  %28 = icmp samesign ult i64 %9, %27
   br i1 %28, label %61, label %29
 
 29:                                               ; preds = %25

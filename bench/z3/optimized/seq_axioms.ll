@@ -1414,12 +1414,13 @@ define hidden void @_ZN3smt10seq_axioms9set_phaseEP4expr(ptr noundef nonnull rea
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8872
   %10 = load ptr, ptr %9, align 8, !tbaa !120
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %10, i64 %11, i32 1
-  %13 = load i64, ptr %12, align 8
-  %14 = and i64 %13, -201326593
-  %15 = select i1 %.not.i, i64 201326592, i64 67108864
-  %16 = or disjoint i64 %14, %15
-  store i64 %16, ptr %12, align 8
+  %12 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, -201326593
+  %16 = select i1 %.not.i, i64 201326592, i64 67108864
+  %17 = or disjoint i64 %15, %16
+  store i64 %17, ptr %13, align 8
   ret void
 }
 
@@ -1960,12 +1961,13 @@ define internal void @"_ZNSt17_Function_handlerIFvP4exprEZN3smt10seq_axiomsC1ERN
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8872
   %10 = load ptr, ptr %9, align 8, !tbaa !120
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %10, i64 %11, i32 1
-  %13 = load i64, ptr %12, align 8
-  %14 = and i64 %13, -201326593
-  %15 = select i1 %.not.i.i.i.i.i, i64 201326592, i64 67108864
-  %16 = or disjoint i64 %14, %15
-  store i64 %16, ptr %12, align 8
+  %12 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = and i64 %14, -201326593
+  %16 = select i1 %.not.i.i.i.i.i, i64 201326592, i64 67108864
+  %17 = or disjoint i64 %15, %16
+  store i64 %17, ptr %13, align 8
   ret void
 }
 

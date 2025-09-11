@@ -1685,21 +1685,21 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase7_resizeEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %39, i32 noundef 4, i32 noundef %32) #16
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %.loopexit83
+  br i1 %41, label %42, label %.loopexit85
 
 42:                                               ; preds = %31
   %43 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase7_resizeEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %39, i32 noundef 4, i32 noundef %32) #16
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %.loopexit83
+  br i1 %44, label %45, label %.loopexit85
 
 45:                                               ; preds = %42
   %46 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase7_resizeEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %39, i32 noundef 4, i32 noundef %34) #16
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %.loopexit83
+  br i1 %47, label %48, label %.loopexit85
 
 48:                                               ; preds = %45
   %49 = icmp eq i32 %36, 0
-  br i1 %49, label %.loopexit116, label %50
+  br i1 %49, label %.loopexit118, label %50
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -1717,7 +1717,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = call noundef i32 @_ZN6asmjit9_abi_1_1013ZoneBitVector7_resizeEPNS0_13ZoneAllocatorEjjb(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull %61, i32 noundef %32, i32 noundef %32, i1 noundef zeroext false) #16
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %.loopexit83
+  br i1 %63, label %64, label %.loopexit85
 
 64:                                               ; preds = %54
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 136
@@ -1725,7 +1725,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = call noundef i32 @_ZN6asmjit9_abi_1_1013ZoneBitVector7_resizeEPNS0_13ZoneAllocatorEjjb(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull %67, i32 noundef %32, i32 noundef %32, i1 noundef zeroext false) #16
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %.loopexit83
+  br i1 %69, label %70, label %.loopexit85
 
 70:                                               ; preds = %64
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 152
@@ -1733,7 +1733,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = call noundef i32 @_ZN6asmjit9_abi_1_1013ZoneBitVector7_resizeEPNS0_13ZoneAllocatorEjjb(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %73, i32 noundef %32, i32 noundef %32, i1 noundef zeroext false) #16
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %.loopexit83
+  br i1 %75, label %76, label %.loopexit85
 
 76:                                               ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %58, i64 168
@@ -1741,7 +1741,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = call noundef i32 @_ZN6asmjit9_abi_1_1013ZoneBitVector7_resizeEPNS0_13ZoneAllocatorEjjb(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull %79, i32 noundef %32, i32 noundef %32, i1 noundef zeroext false) #16
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %.loopexit83
+  br i1 %81, label %82, label %.loopexit85
 
 82:                                               ; preds = %76
   %83 = getelementptr inbounds nuw i8, ptr %58, i64 24
@@ -1766,13 +1766,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %99 = load i32, ptr %98, align 8, !tbaa !176
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %.loopexit113, label %101
+  br i1 %100, label %.loopexit115, label %101
 
 101:                                              ; preds = %94
   %102 = zext i32 %99 to i64
   br label %104
 
-.loopexit113:                                     ; preds = %181, %94
+.loopexit115:                                     ; preds = %181, %94
   %103 = add i32 %87, 1
   br label %184
 
@@ -1814,8 +1814,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   br i1 %134, label %.sink.split, label %136
 
 .sink.split:                                      ; preds = %129, %104
-  %.sink327 = phi i32 [ 262144, %104 ], [ 131072, %129 ]
-  %135 = or i32 %114, %.sink327
+  %.sink330 = phi i32 [ 262144, %104 ], [ 131072, %129 ]
+  %135 = or i32 %114, %.sink330
   store i32 %135, ptr %113, align 4, !tbaa !182
   br label %136
 
@@ -1887,10 +1887,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
 181:                                              ; preds = %176, %172, %159
   %182 = add nuw nsw i64 %105, 1
   %183 = icmp eq i64 %182, %102
-  br i1 %183, label %.loopexit113, label %104, !llvm.loop !186
+  br i1 %183, label %.loopexit115, label %104, !llvm.loop !186
 
-184:                                              ; preds = %.loopexit113, %86
-  %185 = phi i32 [ %103, %.loopexit113 ], [ %87, %86 ]
+184:                                              ; preds = %.loopexit115, %86
+  %185 = phi i32 [ %103, %.loopexit115 ], [ %87, %86 ]
   %186 = icmp eq ptr %89, %85
   br i1 %186, label %187, label %86, !llvm.loop !187
 
@@ -1903,25 +1903,25 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   store i32 %185, ptr %192, align 4, !tbaa !24
   %193 = add nuw nsw i64 %55, 1
   %194 = icmp eq i64 %193, %53
-  br i1 %194, label %.loopexit116, label %54, !llvm.loop !188
+  br i1 %194, label %.loopexit118, label %54, !llvm.loop !188
 
-.loopexit116:                                     ; preds = %187, %48
+.loopexit118:                                     ; preds = %187, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %195 = call noundef i32 @_ZN6asmjit9_abi_1_1013ZoneStackBase5_initEPNS0_13ZoneAllocatorEm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %39, i64 noundef 272) #16
   %196 = icmp eq i32 %195, 0
-  br i1 %196, label %197, label %.loopexit92
+  br i1 %196, label %197, label %.loopexit94
 
-197:                                              ; preds = %.loopexit116
+197:                                              ; preds = %.loopexit118
   %198 = load i32, ptr %33, align 8, !tbaa !3
   %199 = call noundef i32 @_ZN6asmjit9_abi_1_1013ZoneBitVector7_resizeEPNS0_13ZoneAllocatorEjjb(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %39, i32 noundef %198, i32 noundef %198, i1 noundef zeroext true) #16
   %200 = icmp eq i32 %199, 0
-  br i1 %200, label %201, label %.loopexit92
+  br i1 %200, label %201, label %.loopexit94
 
 201:                                              ; preds = %197
-  br i1 %49, label %.loopexit112, label %202
+  br i1 %49, label %.loopexit114, label %202
 
 202:                                              ; preds = %201
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -1939,7 +1939,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %215 = icmp eq i64 %214, 0
   br label %234
 
-.loopexit112:                                     ; preds = %498, %201
+.loopexit114:                                     ; preds = %498, %201
   %216 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %217 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %218 = load ptr, ptr %216, align 8, !tbaa !10
@@ -1949,9 +1949,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
   %223 = load ptr, ptr %222, align 8, !tbaa !146
   %224 = icmp eq ptr %220, %223
-  br i1 %224, label %.loopexit99, label %225
+  br i1 %224, label %.loopexit101, label %225
 
-225:                                              ; preds = %.loopexit112
+225:                                              ; preds = %.loopexit114
   %226 = icmp ult i32 %37, 64
   %227 = zext nneg i32 %38 to i64
   %228 = shl nuw nsw i64 %227, 3
@@ -1975,7 +1975,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
 242:                                              ; preds = %234
   %243 = getelementptr inbounds nuw i8, ptr %238, i64 136
   %244 = load ptr, ptr %243, align 8, !tbaa !135
-  br label %.loopexit110
+  br label %.loopexit112
 
 245:                                              ; preds = %234
   %246 = getelementptr inbounds nuw i8, ptr %238, i64 104
@@ -1984,25 +1984,25 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %249 = load ptr, ptr %246, align 8, !tbaa !9
   %250 = zext i32 %240 to i64
   %251 = getelementptr i8, ptr %248, i64 %208
-  br i1 %204, label %.loopexit106, label %.split
+  br i1 %204, label %.loopexit108, label %.split157
 
-.split:                                           ; preds = %245, %.loopexit101
-  %252 = phi i64 [ %351, %.loopexit101 ], [ 0, %245 ]
+.split157:                                        ; preds = %245, %.loopexit103
+  %252 = phi i64 [ %351, %.loopexit103 ], [ 0, %245 ]
   %253 = getelementptr inbounds nuw ptr, ptr %249, i64 %252
   %254 = load ptr, ptr %253, align 8, !tbaa !10
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 120
   %256 = load ptr, ptr %255, align 8, !tbaa !135
   br i1 %209, label %286, label %257
 
-257:                                              ; preds = %.split
+257:                                              ; preds = %.split157
   %258 = getelementptr i8, ptr %256, i64 %208
   %259 = icmp ult ptr %248, %258
   %260 = icmp ult ptr %256, %251
   %261 = and i1 %260, %259
-  br i1 %261, label %286, label %.preheader104
+  br i1 %261, label %286, label %.preheader106
 
-.preheader104:                                    ; preds = %257, %.preheader104
-  %262 = phi i64 [ %283, %.preheader104 ], [ 0, %257 ]
+.preheader106:                                    ; preds = %257, %.preheader106
+  %262 = phi i64 [ %283, %.preheader106 ], [ 0, %257 ]
   %263 = getelementptr inbounds nuw i64, ptr %248, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 32
   %265 = getelementptr inbounds nuw i8, ptr %263, i64 64
@@ -2029,18 +2029,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   store <4 x i64> %282, ptr %266, align 8, !tbaa !136, !alias.scope !189, !noalias !192
   %283 = add nuw nsw i64 %262, 16
   %284 = icmp eq i64 %283, %210
-  br i1 %284, label %285, label %.preheader104, !llvm.loop !194
+  br i1 %284, label %285, label %.preheader106, !llvm.loop !194
 
-285:                                              ; preds = %.preheader104
-  br i1 %211, label %.loopexit101, label %286
+285:                                              ; preds = %.preheader106
+  br i1 %211, label %.loopexit103, label %286
 
-286:                                              ; preds = %285, %257, %.split
-  %287 = phi i64 [ 0, %257 ], [ 0, %.split ], [ %210, %285 ]
-  br i1 %213, label %.loopexit103, label %.preheader102
+286:                                              ; preds = %285, %257, %.split157
+  %287 = phi i64 [ 0, %257 ], [ 0, %.split157 ], [ %210, %285 ]
+  br i1 %213, label %.loopexit105, label %.preheader104
 
-.preheader102:                                    ; preds = %286, %.preheader102
-  %288 = phi i64 [ %295, %.preheader102 ], [ %287, %286 ]
-  %289 = phi i64 [ %296, %.preheader102 ], [ 0, %286 ]
+.preheader104:                                    ; preds = %286, %.preheader104
+  %288 = phi i64 [ %295, %.preheader104 ], [ %287, %286 ]
+  %289 = phi i64 [ %296, %.preheader104 ], [ 0, %286 ]
   %290 = getelementptr inbounds nuw i64, ptr %248, i64 %288
   %291 = load i64, ptr %290, align 8, !tbaa !136
   %292 = getelementptr inbounds nuw i64, ptr %256, i64 %288
@@ -2050,16 +2050,16 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %295 = add nuw nsw i64 %288, 1
   %296 = add nuw nsw i64 %289, 1
   %297 = icmp eq i64 %296, %212
-  br i1 %297, label %.loopexit103, label %.preheader102, !llvm.loop !197
+  br i1 %297, label %.loopexit105, label %.preheader104, !llvm.loop !197
 
-.loopexit103:                                     ; preds = %.preheader102, %286
-  %298 = phi i64 [ %287, %286 ], [ %295, %.preheader102 ]
+.loopexit105:                                     ; preds = %.preheader104, %286
+  %298 = phi i64 [ %287, %286 ], [ %295, %.preheader104 ]
   %299 = sub nsw i64 %287, %207
   %300 = icmp ugt i64 %299, -8
-  br i1 %300, label %.loopexit101, label %.preheader100
+  br i1 %300, label %.loopexit103, label %.preheader102
 
-.preheader100:                                    ; preds = %.loopexit103, %.preheader100
-  %301 = phi i64 [ %349, %.preheader100 ], [ %298, %.loopexit103 ]
+.preheader102:                                    ; preds = %.loopexit105, %.preheader102
+  %301 = phi i64 [ %349, %.preheader102 ], [ %298, %.loopexit105 ]
   %302 = getelementptr inbounds i64, ptr %248, i64 %301
   %303 = load i64, ptr %302, align 8, !tbaa !136
   %304 = getelementptr inbounds i64, ptr %256, i64 %301
@@ -2117,15 +2117,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   store i64 %348, ptr %344, align 8, !tbaa !136
   %349 = add nuw nsw i64 %301, 8
   %350 = icmp eq i64 %349, %207
-  br i1 %350, label %.loopexit101, label %.preheader100, !llvm.loop !198
+  br i1 %350, label %.loopexit103, label %.preheader102, !llvm.loop !198
 
-.loopexit101:                                     ; preds = %.preheader100, %.loopexit103, %285
+.loopexit103:                                     ; preds = %.preheader102, %.loopexit105, %285
   %351 = add nuw nsw i64 %252, 1
   %352 = icmp eq i64 %351, %250
-  br i1 %352, label %.loopexit110, label %.split, !llvm.loop !199
+  br i1 %352, label %.loopexit112, label %.split157, !llvm.loop !199
 
-.loopexit110:                                     ; preds = %.loopexit101, %242
-  %353 = phi ptr [ %244, %242 ], [ %248, %.loopexit101 ]
+.loopexit112:                                     ; preds = %.loopexit103, %242
+  %353 = phi ptr [ %244, %242 ], [ %248, %.loopexit103 ]
   %354 = ptrtoint ptr %353 to i64
   %355 = getelementptr inbounds nuw i8, ptr %238, i64 120
   %356 = load ptr, ptr %355, align 8, !tbaa !135
@@ -2136,9 +2136,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %361 = getelementptr inbounds nuw i8, ptr %238, i64 168
   %362 = load ptr, ptr %361, align 8, !tbaa !135
   %363 = ptrtoint ptr %362 to i64
-  br i1 %204, label %.loopexit106, label %364
+  br i1 %204, label %.loopexit108, label %364
 
-364:                                              ; preds = %.loopexit110
+364:                                              ; preds = %.loopexit112
   br i1 %209, label %418, label %365
 
 365:                                              ; preds = %364
@@ -2150,10 +2150,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %371 = sub i64 %357, %363
   %372 = icmp ult i64 %371, 128
   %373 = or i1 %370, %372
-  br i1 %373, label %418, label %.preheader109
+  br i1 %373, label %418, label %.preheader111
 
-.preheader109:                                    ; preds = %365, %.preheader109
-  %374 = phi i64 [ %415, %.preheader109 ], [ 0, %365 ]
+.preheader111:                                    ; preds = %365, %.preheader111
+  %374 = phi i64 [ %415, %.preheader111 ], [ 0, %365 ]
   %375 = getelementptr inbounds nuw i64, ptr %356, i64 %374
   %376 = getelementptr inbounds nuw i64, ptr %353, i64 %374
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 32
@@ -2200,18 +2200,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   store <4 x i64> %411, ptr %414, align 8, !tbaa !136
   %415 = add nuw nsw i64 %374, 16
   %416 = icmp eq i64 %415, %210
-  br i1 %416, label %417, label %.preheader109, !llvm.loop !200
+  br i1 %416, label %417, label %.preheader111, !llvm.loop !200
 
-417:                                              ; preds = %.preheader109
-  br i1 %211, label %.loopexit106, label %418
+417:                                              ; preds = %.preheader111
+  br i1 %211, label %.loopexit108, label %418
 
 418:                                              ; preds = %417, %365, %364
   %419 = phi i64 [ 0, %365 ], [ 0, %364 ], [ %210, %417 ]
-  br i1 %215, label %.loopexit108, label %.preheader107
+  br i1 %215, label %.loopexit110, label %.preheader109
 
-.preheader107:                                    ; preds = %418, %.preheader107
-  %420 = phi i64 [ %432, %.preheader107 ], [ %419, %418 ]
-  %421 = phi i64 [ %433, %.preheader107 ], [ 0, %418 ]
+.preheader109:                                    ; preds = %418, %.preheader109
+  %420 = phi i64 [ %432, %.preheader109 ], [ %419, %418 ]
+  %421 = phi i64 [ %433, %.preheader109 ], [ 0, %418 ]
   %422 = getelementptr inbounds nuw i64, ptr %356, i64 %420
   %423 = getelementptr inbounds nuw i64, ptr %353, i64 %420
   %424 = load i64, ptr %423, align 8, !tbaa !136
@@ -2226,16 +2226,16 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %432 = add nuw nsw i64 %420, 1
   %433 = add nuw nsw i64 %421, 1
   %434 = icmp eq i64 %433, %214
-  br i1 %434, label %.loopexit108, label %.preheader107, !llvm.loop !201
+  br i1 %434, label %.loopexit110, label %.preheader109, !llvm.loop !201
 
-.loopexit108:                                     ; preds = %.preheader107, %418
-  %435 = phi i64 [ %419, %418 ], [ %432, %.preheader107 ]
+.loopexit110:                                     ; preds = %.preheader109, %418
+  %435 = phi i64 [ %419, %418 ], [ %432, %.preheader109 ]
   %436 = sub nsw i64 %419, %207
   %437 = icmp ugt i64 %436, -4
-  br i1 %437, label %.loopexit106, label %.preheader105
+  br i1 %437, label %.loopexit108, label %.preheader107
 
-.preheader105:                                    ; preds = %.loopexit108, %.preheader105
-  %438 = phi i64 [ %482, %.preheader105 ], [ %435, %.loopexit108 ]
+.preheader107:                                    ; preds = %.loopexit110, %.preheader107
+  %438 = phi i64 [ %482, %.preheader107 ], [ %435, %.loopexit110 ]
   %439 = getelementptr inbounds i64, ptr %356, i64 %438
   %440 = getelementptr inbounds i64, ptr %353, i64 %438
   %441 = load i64, ptr %440, align 8, !tbaa !136
@@ -2285,9 +2285,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   store i64 %481, ptr %472, align 8, !tbaa !136
   %482 = add nuw nsw i64 %438, 4
   %483 = icmp eq i64 %482, %207
-  br i1 %483, label %.loopexit106, label %.preheader105, !llvm.loop !202
+  br i1 %483, label %.loopexit108, label %.preheader107, !llvm.loop !202
 
-.loopexit106:                                     ; preds = %.preheader105, %245, %.loopexit108, %417, %.loopexit110
+.loopexit108:                                     ; preds = %.preheader107, %245, %.loopexit110, %417, %.loopexit112
   %484 = load ptr, ptr %205, align 8, !tbaa !10
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 24
   %486 = load ptr, ptr %485, align 8, !tbaa !146
@@ -2297,10 +2297,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %490 = icmp ult i64 %489, %487
   br i1 %490, label %491, label %498
 
-491:                                              ; preds = %.loopexit106
+491:                                              ; preds = %.loopexit108
   %492 = call noundef i32 @_ZN6asmjit9_abi_1_1013ZoneStackBase13_prepareBlockEjm(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 1, i64 noundef 32) #16
   %493 = icmp eq i32 %492, 0
-  br i1 %493, label %494, label %.loopexit92
+  br i1 %493, label %494, label %.loopexit94
 
 494:                                              ; preds = %491
   %495 = load ptr, ptr %205, align 8, !tbaa !10
@@ -2308,21 +2308,21 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   %497 = load ptr, ptr %496, align 8, !tbaa !146
   br label %498
 
-498:                                              ; preds = %494, %.loopexit106
-  %499 = phi ptr [ %486, %.loopexit106 ], [ %497, %494 ]
-  %500 = phi ptr [ %484, %.loopexit106 ], [ %495, %494 ]
+498:                                              ; preds = %494, %.loopexit108
+  %499 = phi ptr [ %486, %.loopexit108 ], [ %497, %494 ]
+  %500 = phi ptr [ %484, %.loopexit108 ], [ %495, %494 ]
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 24
   %502 = getelementptr inbounds nuw i8, ptr %499, i64 8
   store ptr %238, ptr %499, align 8, !tbaa !10
   store ptr %502, ptr %501, align 8, !tbaa !146
   %503 = add nuw nsw i64 %235, 1
   %504 = icmp eq i64 %503, %206
-  br i1 %504, label %.loopexit112, label %234, !llvm.loop !203
+  br i1 %504, label %.loopexit114, label %234, !llvm.loop !203
 
-505:                                              ; preds = %.loopexit93, %225
-  %506 = phi ptr [ %220, %225 ], [ %873, %.loopexit93 ]
-  %507 = phi ptr [ %218, %225 ], [ %871, %.loopexit93 ]
-  %508 = phi i32 [ %36, %225 ], [ %870, %.loopexit93 ]
+505:                                              ; preds = %.loopexit95, %225
+  %506 = phi ptr [ %220, %225 ], [ %873, %.loopexit95 ]
+  %507 = phi ptr [ %218, %225 ], [ %871, %.loopexit95 ]
+  %508 = phi i32 [ %36, %225 ], [ %870, %.loopexit95 ]
   %509 = getelementptr inbounds nuw i8, ptr %507, i64 16
   %510 = getelementptr inbounds nuw i8, ptr %506, i64 8
   %511 = load ptr, ptr %506, align 8, !tbaa !10
@@ -2352,7 +2352,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %527 = getelementptr inbounds nuw i8, ptr %511, i64 112
   %528 = load i32, ptr %527, align 8, !tbaa !3
   %529 = icmp eq i32 %528, 0
-  br i1 %529, label %.loopexit93, label %530
+  br i1 %529, label %.loopexit95, label %530
 
 530:                                              ; preds = %_ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit
   %531 = getelementptr inbounds nuw i8, ptr %511, i64 104
@@ -2361,33 +2361,33 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %534 = load ptr, ptr %531, align 8, !tbaa !9
   %535 = zext i32 %528 to i64
   %536 = getelementptr i8, ptr %533, i64 %228
-  br i1 %226, label %.loopexit93, label %.split155
+  br i1 %226, label %.loopexit95, label %.split158
 
-.split157.us:                                     ; preds = %.loopexit88
-  br i1 %646, label %649, label %.loopexit93
+.split160.us:                                     ; preds = %.loopexit90
+  br i1 %646, label %649, label %.loopexit95
 
-.split155:                                        ; preds = %530, %.loopexit88
-  %537 = phi i64 [ %647, %.loopexit88 ], [ 0, %530 ]
-  %538 = phi i1 [ %646, %.loopexit88 ], [ false, %530 ]
+.split158:                                        ; preds = %530, %.loopexit90
+  %537 = phi i64 [ %647, %.loopexit90 ], [ 0, %530 ]
+  %538 = phi i1 [ %646, %.loopexit90 ], [ false, %530 ]
   %539 = getelementptr inbounds nuw ptr, ptr %534, i64 %537
   %540 = load ptr, ptr %539, align 8, !tbaa !10
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 120
   %542 = load ptr, ptr %541, align 8, !tbaa !135
   br i1 %229, label %588, label %543
 
-543:                                              ; preds = %.split155
+543:                                              ; preds = %.split158
   %544 = getelementptr i8, ptr %542, i64 %228
   %545 = icmp ult ptr %533, %544
   %546 = icmp ult ptr %542, %536
   %547 = and i1 %546, %545
-  br i1 %547, label %588, label %.preheader91
+  br i1 %547, label %588, label %.preheader93
 
-.preheader91:                                     ; preds = %543, %.preheader91
-  %548 = phi i64 [ %581, %.preheader91 ], [ 0, %543 ]
-  %549 = phi <4 x i64> [ %577, %.preheader91 ], [ zeroinitializer, %543 ]
-  %550 = phi <4 x i64> [ %578, %.preheader91 ], [ zeroinitializer, %543 ]
-  %551 = phi <4 x i64> [ %579, %.preheader91 ], [ zeroinitializer, %543 ]
-  %552 = phi <4 x i64> [ %580, %.preheader91 ], [ zeroinitializer, %543 ]
+.preheader93:                                     ; preds = %543, %.preheader93
+  %548 = phi i64 [ %581, %.preheader93 ], [ 0, %543 ]
+  %549 = phi <4 x i64> [ %577, %.preheader93 ], [ zeroinitializer, %543 ]
+  %550 = phi <4 x i64> [ %578, %.preheader93 ], [ zeroinitializer, %543 ]
+  %551 = phi <4 x i64> [ %579, %.preheader93 ], [ zeroinitializer, %543 ]
+  %552 = phi <4 x i64> [ %580, %.preheader93 ], [ zeroinitializer, %543 ]
   %553 = getelementptr inbounds nuw i64, ptr %533, i64 %548
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 32
   %555 = getelementptr inbounds nuw i8, ptr %553, i64 64
@@ -2422,24 +2422,24 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %580 = or <4 x i64> %576, %552
   %581 = add nuw nsw i64 %548, 16
   %582 = icmp eq i64 %581, %230
-  br i1 %582, label %583, label %.preheader91, !llvm.loop !209
+  br i1 %582, label %583, label %.preheader93, !llvm.loop !209
 
-583:                                              ; preds = %.preheader91
+583:                                              ; preds = %.preheader93
   %584 = or <4 x i64> %578, %577
   %585 = or <4 x i64> %584, %579
   %586 = or <4 x i64> %585, %580
   %587 = call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %586)
-  br i1 %231, label %.loopexit88, label %588
+  br i1 %231, label %.loopexit90, label %588
 
-588:                                              ; preds = %583, %543, %.split155
-  %589 = phi i64 [ 0, %543 ], [ 0, %.split155 ], [ %230, %583 ]
-  %590 = phi i64 [ 0, %543 ], [ 0, %.split155 ], [ %587, %583 ]
-  br i1 %233, label %.loopexit90, label %.preheader89
+588:                                              ; preds = %583, %543, %.split158
+  %589 = phi i64 [ 0, %543 ], [ 0, %.split158 ], [ %230, %583 ]
+  %590 = phi i64 [ 0, %543 ], [ 0, %.split158 ], [ %587, %583 ]
+  br i1 %233, label %.loopexit92, label %.preheader91
 
-.preheader89:                                     ; preds = %588, %.preheader89
-  %591 = phi i64 [ %601, %.preheader89 ], [ %589, %588 ]
-  %592 = phi i64 [ %600, %.preheader89 ], [ %590, %588 ]
-  %593 = phi i64 [ %602, %.preheader89 ], [ 0, %588 ]
+.preheader91:                                     ; preds = %588, %.preheader91
+  %591 = phi i64 [ %601, %.preheader91 ], [ %589, %588 ]
+  %592 = phi i64 [ %600, %.preheader91 ], [ %590, %588 ]
+  %593 = phi i64 [ %602, %.preheader91 ], [ 0, %588 ]
   %594 = getelementptr inbounds nuw i64, ptr %533, i64 %591
   %595 = load i64, ptr %594, align 8, !tbaa !136
   %596 = getelementptr inbounds nuw i64, ptr %542, i64 %591
@@ -2451,19 +2451,19 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %601 = add nuw nsw i64 %591, 1
   %602 = add nuw nsw i64 %593, 1
   %603 = icmp eq i64 %602, %232
-  br i1 %603, label %.loopexit90, label %.preheader89, !llvm.loop !210
+  br i1 %603, label %.loopexit92, label %.preheader91, !llvm.loop !210
 
-.loopexit90:                                      ; preds = %.preheader89, %588
-  %604 = phi i64 [ undef, %588 ], [ %600, %.preheader89 ]
-  %605 = phi i64 [ %589, %588 ], [ %601, %.preheader89 ]
-  %606 = phi i64 [ %590, %588 ], [ %600, %.preheader89 ]
+.loopexit92:                                      ; preds = %.preheader91, %588
+  %604 = phi i64 [ undef, %588 ], [ %600, %.preheader91 ]
+  %605 = phi i64 [ %589, %588 ], [ %601, %.preheader91 ]
+  %606 = phi i64 [ %590, %588 ], [ %600, %.preheader91 ]
   %607 = sub nsw i64 %589, %227
   %608 = icmp ugt i64 %607, -4
-  br i1 %608, label %.loopexit88, label %.preheader87
+  br i1 %608, label %.loopexit90, label %.preheader89
 
-.preheader87:                                     ; preds = %.loopexit90, %.preheader87
-  %609 = phi i64 [ %642, %.preheader87 ], [ %605, %.loopexit90 ]
-  %610 = phi i64 [ %641, %.preheader87 ], [ %606, %.loopexit90 ]
+.preheader89:                                     ; preds = %.loopexit92, %.preheader89
+  %609 = phi i64 [ %642, %.preheader89 ], [ %605, %.loopexit92 ]
+  %610 = phi i64 [ %641, %.preheader89 ], [ %606, %.loopexit92 ]
   %611 = getelementptr inbounds i64, ptr %533, i64 %609
   %612 = load i64, ptr %611, align 8, !tbaa !136
   %613 = getelementptr inbounds i64, ptr %542, i64 %609
@@ -2501,17 +2501,17 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %641 = or i64 %633, %640
   %642 = add nuw nsw i64 %609, 4
   %643 = icmp eq i64 %642, %227
-  br i1 %643, label %.loopexit88, label %.preheader87, !llvm.loop !211
+  br i1 %643, label %.loopexit90, label %.preheader89, !llvm.loop !211
 
-.loopexit88:                                      ; preds = %.preheader87, %.loopexit90, %583
-  %644 = phi i64 [ %587, %583 ], [ %604, %.loopexit90 ], [ %641, %.preheader87 ]
+.loopexit90:                                      ; preds = %.preheader89, %.loopexit92, %583
+  %644 = phi i64 [ %587, %583 ], [ %604, %.loopexit92 ], [ %641, %.preheader89 ]
   %645 = icmp ne i64 %644, 0
   %646 = or i1 %538, %645
   %647 = add nuw nsw i64 %537, 1
   %648 = icmp eq i64 %647, %535
-  br i1 %648, label %.split157.us, label %.split155, !llvm.loop !199
+  br i1 %648, label %.split160.us, label %.split158, !llvm.loop !199
 
-649:                                              ; preds = %.split157.us
+649:                                              ; preds = %.split160.us
   %650 = getelementptr inbounds nuw i8, ptr %511, i64 120
   %651 = load ptr, ptr %650, align 8, !tbaa !135
   %652 = getelementptr inbounds nuw i8, ptr %511, i64 152
@@ -2535,14 +2535,14 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %668 = icmp ult ptr %655, %657
   %669 = and i1 %668, %667
   %670 = or i1 %666, %669
-  br i1 %670, label %735, label %.preheader98
+  br i1 %670, label %735, label %.preheader100
 
-.preheader98:                                     ; preds = %656, %.preheader98
-  %671 = phi i64 [ %728, %.preheader98 ], [ 0, %656 ]
-  %672 = phi <4 x i64> [ %724, %.preheader98 ], [ zeroinitializer, %656 ]
-  %673 = phi <4 x i64> [ %725, %.preheader98 ], [ zeroinitializer, %656 ]
-  %674 = phi <4 x i64> [ %726, %.preheader98 ], [ zeroinitializer, %656 ]
-  %675 = phi <4 x i64> [ %727, %.preheader98 ], [ zeroinitializer, %656 ]
+.preheader100:                                    ; preds = %656, %.preheader100
+  %671 = phi i64 [ %728, %.preheader100 ], [ 0, %656 ]
+  %672 = phi <4 x i64> [ %724, %.preheader100 ], [ zeroinitializer, %656 ]
+  %673 = phi <4 x i64> [ %725, %.preheader100 ], [ zeroinitializer, %656 ]
+  %674 = phi <4 x i64> [ %726, %.preheader100 ], [ zeroinitializer, %656 ]
+  %675 = phi <4 x i64> [ %727, %.preheader100 ], [ zeroinitializer, %656 ]
   %676 = getelementptr inbounds nuw i64, ptr %651, i64 %671
   %677 = getelementptr inbounds nuw i8, ptr %676, i64 32
   %678 = getelementptr inbounds nuw i8, ptr %676, i64 64
@@ -2601,24 +2601,24 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %727 = or <4 x i64> %723, %675
   %728 = add nuw nsw i64 %671, 16
   %729 = icmp eq i64 %728, %230
-  br i1 %729, label %730, label %.preheader98, !llvm.loop !222
+  br i1 %729, label %730, label %.preheader100, !llvm.loop !222
 
-730:                                              ; preds = %.preheader98
+730:                                              ; preds = %.preheader100
   %731 = or <4 x i64> %725, %724
   %732 = or <4 x i64> %731, %726
   %733 = or <4 x i64> %732, %727
   %734 = call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %733)
-  br i1 %231, label %.loopexit95, label %735
+  br i1 %231, label %.loopexit97, label %735
 
 735:                                              ; preds = %730, %656, %649
   %736 = phi i64 [ 0, %656 ], [ 0, %649 ], [ %230, %730 ]
   %737 = phi i64 [ 0, %656 ], [ 0, %649 ], [ %734, %730 ]
-  br i1 %233, label %.loopexit97, label %.preheader96
+  br i1 %233, label %.loopexit99, label %.preheader98
 
-.preheader96:                                     ; preds = %735, %.preheader96
-  %738 = phi i64 [ %754, %.preheader96 ], [ %736, %735 ]
-  %739 = phi i64 [ %753, %.preheader96 ], [ %737, %735 ]
-  %740 = phi i64 [ %755, %.preheader96 ], [ 0, %735 ]
+.preheader98:                                     ; preds = %735, %.preheader98
+  %738 = phi i64 [ %754, %.preheader98 ], [ %736, %735 ]
+  %739 = phi i64 [ %753, %.preheader98 ], [ %737, %735 ]
+  %740 = phi i64 [ %755, %.preheader98 ], [ 0, %735 ]
   %741 = getelementptr inbounds nuw i64, ptr %651, i64 %738
   %742 = load i64, ptr %741, align 8, !tbaa !136
   %743 = getelementptr inbounds nuw i64, ptr %533, i64 %738
@@ -2636,19 +2636,19 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %754 = add nuw nsw i64 %738, 1
   %755 = add nuw nsw i64 %740, 1
   %756 = icmp eq i64 %755, %232
-  br i1 %756, label %.loopexit97, label %.preheader96, !llvm.loop !223
+  br i1 %756, label %.loopexit99, label %.preheader98, !llvm.loop !223
 
-.loopexit97:                                      ; preds = %.preheader96, %735
-  %757 = phi i64 [ undef, %735 ], [ %753, %.preheader96 ]
-  %758 = phi i64 [ %736, %735 ], [ %754, %.preheader96 ]
-  %759 = phi i64 [ %737, %735 ], [ %753, %.preheader96 ]
+.loopexit99:                                      ; preds = %.preheader98, %735
+  %757 = phi i64 [ undef, %735 ], [ %753, %.preheader98 ]
+  %758 = phi i64 [ %736, %735 ], [ %754, %.preheader98 ]
+  %759 = phi i64 [ %737, %735 ], [ %753, %.preheader98 ]
   %760 = sub nsw i64 %736, %227
   %761 = icmp ugt i64 %760, -4
-  br i1 %761, label %.loopexit95, label %.preheader94
+  br i1 %761, label %.loopexit97, label %.preheader96
 
-.preheader94:                                     ; preds = %.loopexit97, %.preheader94
-  %762 = phi i64 [ %819, %.preheader94 ], [ %758, %.loopexit97 ]
-  %763 = phi i64 [ %818, %.preheader94 ], [ %759, %.loopexit97 ]
+.preheader96:                                     ; preds = %.loopexit99, %.preheader96
+  %762 = phi i64 [ %819, %.preheader96 ], [ %758, %.loopexit99 ]
+  %763 = phi i64 [ %818, %.preheader96 ], [ %759, %.loopexit99 ]
   %764 = getelementptr inbounds i64, ptr %651, i64 %762
   %765 = load i64, ptr %764, align 8, !tbaa !136
   %766 = getelementptr inbounds i64, ptr %533, i64 %762
@@ -2710,19 +2710,19 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %818 = or i64 %804, %817
   %819 = add nuw nsw i64 %762, 4
   %820 = icmp eq i64 %819, %227
-  br i1 %820, label %.loopexit95, label %.preheader94, !llvm.loop !224
+  br i1 %820, label %.loopexit97, label %.preheader96, !llvm.loop !224
 
-.loopexit95:                                      ; preds = %.preheader94, %.loopexit97, %730
-  %821 = phi i64 [ %734, %730 ], [ %757, %.loopexit97 ], [ %818, %.preheader94 ]
+.loopexit97:                                      ; preds = %.preheader96, %.loopexit99, %730
+  %821 = phi i64 [ %734, %730 ], [ %757, %.loopexit99 ], [ %818, %.preheader96 ]
   %822 = icmp eq i64 %821, 0
-  br i1 %822, label %.loopexit93, label %823
+  br i1 %822, label %.loopexit95, label %823
 
-823:                                              ; preds = %.loopexit95
+823:                                              ; preds = %.loopexit97
   %824 = getelementptr inbounds nuw i8, ptr %511, i64 88
   %825 = getelementptr inbounds nuw i8, ptr %511, i64 96
   %826 = load i32, ptr %825, align 8, !tbaa !3
   %827 = icmp eq i32 %826, 0
-  br i1 %827, label %.loopexit93, label %828
+  br i1 %827, label %.loopexit95, label %828
 
 828:                                              ; preds = %823
   %829 = zext i32 %826 to i64
@@ -2761,7 +2761,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
 855:                                              ; preds = %846
   %856 = call noundef i32 @_ZN6asmjit9_abi_1_1013ZoneStackBase13_prepareBlockEjm(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 1, i64 noundef 32) #16
   %857 = icmp eq i32 %856, 0
-  br i1 %857, label %858, label %.loopexit92
+  br i1 %857, label %858, label %.loopexit94
 
 858:                                              ; preds = %855
   %859 = load ptr, ptr %217, align 8, !tbaa !10
@@ -2781,9 +2781,9 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
 867:                                              ; preds = %862, %830
   %868 = add nuw nsw i64 %831, 1
   %869 = icmp eq i64 %868, %829
-  br i1 %869, label %.loopexit93, label %830, !llvm.loop !225
+  br i1 %869, label %.loopexit95, label %830, !llvm.loop !225
 
-.loopexit93:                                      ; preds = %867, %530, %823, %.loopexit95, %.split157.us, %_ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit
+.loopexit95:                                      ; preds = %867, %530, %823, %.loopexit97, %.split160.us, %_ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit
   %870 = add i32 %508, 1
   %871 = load ptr, ptr %216, align 8, !tbaa !10
   %872 = getelementptr inbounds nuw i8, ptr %871, i64 16
@@ -2792,28 +2792,28 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %875 = getelementptr inbounds nuw i8, ptr %874, i64 24
   %876 = load ptr, ptr %875, align 8, !tbaa !146
   %877 = icmp eq ptr %873, %876
-  br i1 %877, label %.loopexit99, label %505, !llvm.loop !226
+  br i1 %877, label %.loopexit101, label %505, !llvm.loop !226
 
-.loopexit92:                                      ; preds = %491, %855, %197, %.loopexit116
-  %878 = phi i32 [ %195, %.loopexit116 ], [ %199, %197 ], [ %856, %855 ], [ %492, %491 ]
+.loopexit94:                                      ; preds = %491, %855, %197, %.loopexit118
+  %878 = phi i32 [ %195, %.loopexit118 ], [ %199, %197 ], [ %856, %855 ], [ %492, %491 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %879 = call noundef i32 @_ZN6asmjit9_abi_1_1013ZoneStackBase5_initEPNS0_13ZoneAllocatorEm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef null, i64 noundef 0) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit83
+  br label %.loopexit85
 
-.loopexit99:                                      ; preds = %.loopexit93, %.loopexit112
-  %880 = phi i32 [ %36, %.loopexit112 ], [ %870, %.loopexit93 ]
+.loopexit101:                                     ; preds = %.loopexit95, %.loopexit114
+  %880 = phi i32 [ %36, %.loopexit114 ], [ %870, %.loopexit95 ]
   %881 = call noundef i32 @_ZN6asmjit9_abi_1_1013ZoneStackBase5_initEPNS0_13ZoneAllocatorEm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef null, i64 noundef 0) #16
   call void @_ZN6asmjit9_abi_1_1013ZoneBitVector7releaseEPNS0_13ZoneAllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %39) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %882 = call noundef i32 @_ZN6asmjit9_abi_1_1013ZoneStackBase5_initEPNS0_13ZoneAllocatorEm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef null, i64 noundef 0) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %19, label %.loopexit86, label %883
+  br i1 %19, label %.loopexit88, label %883
 
-883:                                              ; preds = %.loopexit99
+883:                                              ; preds = %.loopexit101
   %884 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull @.str.13, i32 noundef %880) #16
   %885 = icmp eq i32 %34, 0
-  br i1 %885, label %.loopexit86, label %886
+  br i1 %885, label %.loopexit88, label %886
 
 886:                                              ; preds = %883
   %887 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2831,7 +2831,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %897 = load i32, ptr %896, align 8, !tbaa !144
   %898 = call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0, ptr noundef nonnull @.str.14, i32 noundef %897) #16
   %899 = icmp eq i32 %898, 0
-  br i1 %899, label %900, label %.loopexit83
+  br i1 %899, label %900, label %.loopexit85
 
 900:                                              ; preds = %891
   %901 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass18_dumpBlockLivenessERNS0_6StringEPKNS0_7RABlockE(ptr noundef nonnull align 8 dereferenceable(944) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %895) #16
@@ -2848,16 +2848,16 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %912 = call noundef i32 %911(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef %905, i64 noundef %908) #16
   %913 = add nuw nsw i64 %892, 1
   %914 = icmp eq i64 %913, %890
-  br i1 %914, label %.loopexit86, label %891, !llvm.loop !227
+  br i1 %914, label %.loopexit88, label %891, !llvm.loop !227
 
-.loopexit86:                                      ; preds = %900, %883, %.loopexit99
+.loopexit88:                                      ; preds = %900, %883, %.loopexit101
   %915 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %916 = zext i32 %32 to i64
   br label %923
 
 917:                                              ; preds = %949
   %918 = icmp eq i32 %34, 0
-  br i1 %918, label %.loopexit82, label %919
+  br i1 %918, label %.loopexit84, label %919
 
 919:                                              ; preds = %917
   %920 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2865,8 +2865,8 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %922 = zext i32 %34 to i64
   br label %953
 
-923:                                              ; preds = %949, %.loopexit86
-  %924 = phi i64 [ 0, %.loopexit86 ], [ %950, %949 ]
+923:                                              ; preds = %949, %.loopexit88
+  %924 = phi i64 [ 0, %.loopexit88 ], [ %950, %949 ]
   %925 = load ptr, ptr %915, align 8, !tbaa !9
   %926 = getelementptr inbounds nuw ptr, ptr %925, i64 %924
   %927 = load ptr, ptr %926, align 8, !tbaa !10
@@ -2882,7 +2882,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %935 = getelementptr inbounds nuw i8, ptr %927, i64 112
   %936 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase8_reserveEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %935, ptr noundef nonnull %39, i32 noundef 8, i32 noundef %930) #16
   %937 = icmp eq i32 %936, 0
-  br i1 %937, label %938, label %.loopexit83
+  br i1 %937, label %938, label %.loopexit85
 
 938:                                              ; preds = %934, %923
   %939 = load ptr, ptr %4, align 8, !tbaa !9
@@ -2897,14 +2897,14 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %946 = getelementptr inbounds nuw i8, ptr %927, i64 128
   %947 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase8_reserveEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %946, ptr noundef nonnull %39, i32 noundef 8, i32 noundef %941) #16
   %948 = icmp eq i32 %947, 0
-  br i1 %948, label %949, label %.loopexit83, !prof !228
+  br i1 %948, label %949, label %.loopexit85, !prof !228
 
 949:                                              ; preds = %945, %938
   %950 = add nuw nsw i64 %924, 1
   %951 = icmp eq i64 %950, %916
   br i1 %951, label %917, label %923, !llvm.loop !229
 
-.loopexit82:                                      ; preds = %1277, %917
+.loopexit84:                                      ; preds = %1277, %917
   %952 = load ptr, ptr %915, align 8, !tbaa !9
   br label %1281
 
@@ -2942,57 +2942,57 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %978 = and i32 %977, -64
   %979 = zext i32 %978 to i64
   %980 = icmp eq i32 %978, 0
-  br i1 %980, label %.thread, label %.preheader80.preheader
+  br i1 %980, label %.thread, label %.preheader82.preheader
 
-.preheader80.preheader:                           ; preds = %963
+.preheader82.preheader:                           ; preds = %963
   %981 = getelementptr inbounds nuw i8, ptr %958, i64 120
   %982 = load ptr, ptr %981, align 8, !tbaa !135
-  br label %.preheader80
+  br label %.preheader82
 
-.preheader80:                                     ; preds = %.preheader80.preheader, %988
-  %983 = phi i64 [ %989, %988 ], [ 0, %.preheader80.preheader ]
-  %984 = phi ptr [ %986, %988 ], [ %982, %.preheader80.preheader ]
+.preheader82:                                     ; preds = %.preheader82.preheader, %988
+  %983 = phi i64 [ %989, %988 ], [ 0, %.preheader82.preheader ]
+  %984 = phi ptr [ %986, %988 ], [ %982, %.preheader82.preheader ]
   %985 = load i64, ptr %984, align 8, !tbaa !136
   %986 = getelementptr inbounds nuw i8, ptr %984, i64 8
   %987 = icmp eq i64 %985, 0
-  br i1 %987, label %988, label %.preheader78
+  br i1 %987, label %988, label %.preheader80
 
-988:                                              ; preds = %.preheader80
+988:                                              ; preds = %.preheader82
   %989 = add nuw nsw i64 %983, 64
   %990 = icmp samesign ult i64 %989, %979
-  br i1 %990, label %.preheader80, label %.thread, !llvm.loop !232
+  br i1 %990, label %.preheader82, label %.thread, !llvm.loop !232
 
 .thread:                                          ; preds = %988, %1053, %963
   %991 = getelementptr inbounds nuw i8, ptr %958, i64 136
   br label %1055
 
-.preheader78:                                     ; preds = %.preheader80, %1053
-  %992 = phi ptr [ %1007, %1053 ], [ %986, %.preheader80 ]
-  %993 = phi i64 [ %1009, %1053 ], [ %983, %.preheader80 ]
-  %994 = phi i64 [ %1008, %1053 ], [ %985, %.preheader80 ]
+.preheader80:                                     ; preds = %.preheader82, %1053
+  %992 = phi ptr [ %1007, %1053 ], [ %986, %.preheader82 ]
+  %993 = phi i64 [ %1009, %1053 ], [ %983, %.preheader82 ]
+  %994 = phi i64 [ %1008, %1053 ], [ %985, %.preheader82 ]
   %995 = call i64 @llvm.cttz.i64(i64 %994, i1 true), !range !233
   %996 = add i64 %994, -1
   %997 = and i64 %996, %994
   %998 = icmp eq i64 %997, 0
-  br i1 %998, label %.preheader, label %.loopexit76
+  br i1 %998, label %.preheader, label %.loopexit78
 
-.preheader:                                       ; preds = %.preheader78, %1003
-  %999 = phi ptr [ %1004, %1003 ], [ %992, %.preheader78 ]
-  %1000 = phi i64 [ %1001, %1003 ], [ %993, %.preheader78 ]
+.preheader:                                       ; preds = %.preheader80, %1003
+  %999 = phi ptr [ %1004, %1003 ], [ %992, %.preheader80 ]
+  %1000 = phi i64 [ %1001, %1003 ], [ %993, %.preheader80 ]
   %1001 = add i64 %1000, 64
   %1002 = icmp ult i64 %1001, %979
-  br i1 %1002, label %1003, label %.loopexit76
+  br i1 %1002, label %1003, label %.loopexit78
 
 1003:                                             ; preds = %.preheader
   %1004 = getelementptr inbounds nuw i8, ptr %999, i64 8
   %1005 = load i64, ptr %999, align 8, !tbaa !136
   %1006 = icmp eq i64 %1005, 0
-  br i1 %1006, label %.preheader, label %.loopexit76, !llvm.loop !234
+  br i1 %1006, label %.preheader, label %.loopexit78, !llvm.loop !234
 
-.loopexit76:                                      ; preds = %1003, %.preheader, %.preheader78
-  %1007 = phi ptr [ %992, %.preheader78 ], [ %999, %.preheader ], [ %1004, %1003 ]
-  %1008 = phi i64 [ %997, %.preheader78 ], [ 0, %.preheader ], [ %1005, %1003 ]
-  %1009 = phi i64 [ %993, %.preheader78 ], [ %1001, %.preheader ], [ %1001, %1003 ]
+.loopexit78:                                      ; preds = %1003, %.preheader, %.preheader80
+  %1007 = phi ptr [ %992, %.preheader80 ], [ %999, %.preheader ], [ %1004, %1003 ]
+  %1008 = phi i64 [ %997, %.preheader80 ], [ 0, %.preheader ], [ %1005, %1003 ]
+  %1009 = phi i64 [ %993, %.preheader80 ], [ %1001, %.preheader ], [ %1001, %1003 ]
   %1010 = add i64 %995, %993
   %1011 = and i64 %1010, 4294967295
   %1012 = load ptr, ptr %915, align 8, !tbaa !9
@@ -3013,11 +3013,12 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1026 = icmp eq i32 %1025, 0
   br i1 %1026, label %1035, label %1027
 
-1027:                                             ; preds = %.loopexit76
+1027:                                             ; preds = %.loopexit78
   %1028 = add i32 %1025, -1
   %1029 = zext i32 %1028 to i64
   %1030 = load ptr, ptr %1023, align 8, !tbaa !9
-  %1031 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RALiveSpan", ptr %1030, i64 %1029, i32 0, i32 1
+  %.split = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RALiveSpan", ptr %1030, i64 %1029
+  %1031 = getelementptr inbounds nuw i8, ptr %.split, i64 4
   %1032 = load i32, ptr %1031, align 4, !tbaa !235
   %1033 = icmp ult i32 %1032, %955
   br i1 %1033, label %1035, label %1034
@@ -3026,7 +3027,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   store i32 %972, ptr %1031, align 4, !tbaa !235
   br label %1053
 
-1035:                                             ; preds = %1027, %.loopexit76
+1035:                                             ; preds = %1027, %.loopexit78
   %1036 = getelementptr inbounds nuw i8, ptr %1014, i64 92
   %1037 = load i32, ptr %1036, align 4, !tbaa !13
   %1038 = icmp eq i32 %1025, %1037
@@ -3058,7 +3059,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
 
 1053:                                             ; preds = %1044, %1034
   %1054 = icmp eq i64 %1008, 0
-  br i1 %1054, label %.thread, label %.preheader78, !llvm.loop !237
+  br i1 %1054, label %.thread, label %.preheader80, !llvm.loop !237
 
 1055:                                             ; preds = %1269, %.thread
   %1056 = phi ptr [ %1271, %1269 ], [ %965, %.thread ]
@@ -3081,7 +3082,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1070 = getelementptr inbounds nuw i8, ptr %1065, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1070, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !239
   %1071 = icmp eq i32 %1068, 0
-  br i1 %1071, label %.loopexit75, label %1072
+  br i1 %1071, label %.loopexit77, label %1072
 
 1072:                                             ; preds = %1063
   %1073 = ptrtoint ptr %1056 to i64
@@ -3164,7 +3165,8 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1131 = add i32 %1128, -1
   %1132 = zext i32 %1131 to i64
   %1133 = load ptr, ptr %1123, align 8, !tbaa !9
-  %1134 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RALiveSpan", ptr %1133, i64 %1132, i32 0, i32 1
+  %.split70 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RALiveSpan", ptr %1133, i64 %1132
+  %1134 = getelementptr inbounds nuw i8, ptr %.split70, i64 4
   %1135 = load i32, ptr %1134, align 4, !tbaa !235
   %1136 = icmp ult i32 %1135, %1126
   br i1 %1136, label %1137, label %1161
@@ -3243,7 +3245,8 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1187 = add i32 %1186, -1
   %1188 = zext i32 %1187 to i64
   %1189 = load ptr, ptr %1123, align 8, !tbaa !9
-  %1190 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RALiveSpan", ptr %1189, i64 %1188, i32 0, i32 1
+  %.split71 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RALiveSpan", ptr %1189, i64 %1188
+  %1190 = getelementptr inbounds nuw i8, ptr %.split71, i64 4
   store i32 %1185, ptr %1190, align 4, !tbaa !235
   %1191 = zext nneg i8 %1180 to i64
   %1192 = getelementptr inbounds nuw i32, ptr %8, i64 %1191
@@ -3350,17 +3353,17 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
 1259:                                             ; preds = %1255, %1247
   %1260 = add nuw nsw i64 %1077, 1
   %1261 = icmp eq i64 %1260, %1075
-  br i1 %1261, label %.loopexit75, label %1076, !llvm.loop !248
+  br i1 %1261, label %.loopexit77, label %1076, !llvm.loop !248
 
-.loopexit75:                                      ; preds = %1259, %1063
+.loopexit77:                                      ; preds = %1259, %1063
   %1262 = add i32 %1057, 2
   %1263 = load <4 x i32>, ptr %1070, align 4, !tbaa !24
   %1264 = call <4 x i32> @llvm.umax.v4i32(<4 x i32> %1058, <4 x i32> %1263)
   br label %1265
 
-1265:                                             ; preds = %.loopexit75, %1055
-  %1266 = phi i32 [ %1057, %1055 ], [ %1262, %.loopexit75 ]
-  %1267 = phi <4 x i32> [ %1058, %1055 ], [ %1264, %.loopexit75 ]
+1265:                                             ; preds = %.loopexit77, %1055
+  %1266 = phi i32 [ %1057, %1055 ], [ %1262, %.loopexit77 ]
+  %1267 = phi <4 x i32> [ %1058, %1055 ], [ %1264, %.loopexit77 ]
   %1268 = icmp eq ptr %1056, %967
   br i1 %1268, label %1273, label %1269
 
@@ -3372,7 +3375,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
 .loopexit:                                        ; preds = %1039, %1141
   %1272 = phi i32 [ %1142, %1141 ], [ %1040, %1039 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.loopexit83
+  br label %.loopexit85
 
 1273:                                             ; preds = %1265
   %1274 = getelementptr inbounds nuw i8, ptr %958, i64 52
@@ -3387,10 +3390,10 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1278 = phi i32 [ %1266, %1273 ], [ %955, %953 ]
   %1279 = add nuw nsw i64 %954, 1
   %1280 = icmp eq i64 %1279, %922
-  br i1 %1280, label %.loopexit82, label %953, !llvm.loop !250
+  br i1 %1280, label %.loopexit84, label %953, !llvm.loop !250
 
-1281:                                             ; preds = %1364, %.loopexit82
-  %1282 = phi i64 [ 0, %.loopexit82 ], [ %1377, %1364 ]
+1281:                                             ; preds = %1364, %.loopexit84
+  %1282 = phi i64 [ 0, %.loopexit84 ], [ %1377, %1364 ]
   %1283 = getelementptr inbounds nuw ptr, ptr %952, i64 %1282
   %1284 = load ptr, ptr %1283, align 8, !tbaa !10
   %1285 = getelementptr inbounds nuw i8, ptr %1284, i64 80
@@ -3405,8 +3408,8 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
 1292:                                             ; preds = %1281
   %1293 = mul nuw nsw i64 %1289, 12
   %1294 = add nsw i64 %1293, -12
-  %1295 = icmp ult i64 %1294, 384
-  br i1 %1295, label %.preheader374, label %1296
+  %1295 = icmp samesign ult i64 %1294, 384
+  br i1 %1295, label %.preheader377, label %1296
 
 1296:                                             ; preds = %1292
   %1297 = udiv i64 %1294, 12
@@ -3414,7 +3417,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1299 = and i64 %1298, 31
   %1300 = icmp eq i64 %1299, 0
   %1301 = select i1 %1300, i64 32, i64 %1299
-  %1302 = sub nsw i64 %1298, %1301
+  %1302 = sub nuw nsw i64 %1298, %1301
   %1303 = getelementptr i8, ptr %1286, i64 192
   %1304 = getelementptr i8, ptr %1286, i64 288
   br label %1305
@@ -3455,22 +3458,22 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   br i1 %1337, label %1338, label %1305, !llvm.loop !251
 
 1338:                                             ; preds = %1305
-  %1339 = mul i64 %1302, 12
+  %1339 = mul nuw nsw i64 %1302, 12
   %1340 = getelementptr i8, ptr %1286, i64 %1339
   %1341 = add <8 x i32> %1333, %1332
   %1342 = add <8 x i32> %1341, %1334
   %1343 = add <8 x i32> %1342, %1335
   %1344 = call i32 @llvm.vector.reduce.add.v8i32(<8 x i32> %1343)
-  br label %.preheader374
+  br label %.preheader377
 
-.preheader374:                                    ; preds = %1338, %1292
+.preheader377:                                    ; preds = %1338, %1292
   %.ph = phi i32 [ %1344, %1338 ], [ 0, %1292 ]
-  %.ph375 = phi ptr [ %1340, %1338 ], [ %1286, %1292 ]
+  %.ph378 = phi ptr [ %1340, %1338 ], [ %1286, %1292 ]
   br label %1345
 
-1345:                                             ; preds = %.preheader374, %1345
-  %1346 = phi i32 [ %1352, %1345 ], [ %.ph, %.preheader374 ]
-  %1347 = phi ptr [ %1353, %1345 ], [ %.ph375, %.preheader374 ]
+1345:                                             ; preds = %.preheader377, %1345
+  %1346 = phi i32 [ %1352, %1345 ], [ %.ph, %.preheader377 ]
+  %1347 = phi ptr [ %1353, %1345 ], [ %.ph378, %.preheader377 ]
   %1348 = getelementptr inbounds nuw i8, ptr %1347, i64 4
   %1349 = load i32, ptr %1348, align 4, !tbaa !235
   %1350 = load i32, ptr %1347, align 4, !tbaa !252
@@ -3538,17 +3541,17 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   call void @_ZN6asmjit9_abi_1_1010ZoneVectorIjE7releaseEPNS0_13ZoneAllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %39) #16
   call void @_ZN6asmjit9_abi_1_1010ZoneVectorIjE7releaseEPNS0_13ZoneAllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %39) #16
   call void @_ZN6asmjit9_abi_1_1010ZoneVectorIjE7releaseEPNS0_13ZoneAllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %39) #16
-  br label %.loopexit83
+  br label %.loopexit85
 
-.loopexit83:                                      ; preds = %76, %70, %64, %54, %891, %945, %934, %1396, %.loopexit, %.loopexit92, %45, %42, %31
-  %1397 = phi i32 [ %46, %45 ], [ %43, %42 ], [ %40, %31 ], [ 0, %1396 ], [ %878, %.loopexit92 ], [ %1272, %.loopexit ], [ %936, %934 ], [ %947, %945 ], [ %898, %891 ], [ %80, %76 ], [ %74, %70 ], [ %68, %64 ], [ %62, %54 ]
+.loopexit85:                                      ; preds = %76, %70, %64, %54, %891, %945, %934, %1396, %.loopexit, %.loopexit94, %45, %42, %31
+  %1397 = phi i32 [ %46, %45 ], [ %43, %42 ], [ %40, %31 ], [ 0, %1396 ], [ %878, %.loopexit94 ], [ %1272, %.loopexit ], [ %936, %934 ], [ %947, %945 ], [ %898, %891 ], [ %80, %76 ], [ %74, %70 ], [ %68, %64 ], [ %62, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %1398
 
-1398:                                             ; preds = %.loopexit83, %29, %20
-  %1399 = phi i32 [ %1397, %.loopexit83 ], [ 0, %29 ], [ 0, %20 ]
+1398:                                             ; preds = %.loopexit85, %29, %20
+  %1399 = phi i32 [ %1397, %.loopexit85 ], [ 0, %29 ], [ 0, %20 ]
   %1400 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %1399
@@ -4018,7 +4021,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass17runLocalAllocatorEv
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %31 = zext i32 %27 to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !9
-  %33 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RASharedAssignment", ptr %32, i64 %31, i32 2
+  %.split = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RASharedAssignment", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %.split, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !271
   %35 = icmp eq ptr %34, null
   br i1 %35, label %61, label %.loopexit
@@ -7880,7 +7884,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass23setBlockEntryAssign
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = zext i32 %6 to i64
   %11 = load ptr, ptr %9, align 8, !tbaa !9
-  %12 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RASharedAssignment", ptr %11, i64 %10, i32 2
+  %.split = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RASharedAssignment", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %.split, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !271
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %147
@@ -8950,7 +8955,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass16updateStackFrameEv(
 82:                                               ; preds = %77
   %83 = and i32 %79, 255
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 256), i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !33
   %87 = zext i8 %86 to i32
   %88 = getelementptr inbounds nuw i8, ptr %75, i64 4
@@ -9225,7 +9230,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN6asmjit9_abi_1_1010BaseRAPass20_ma
 48:                                               ; preds = %43
   %49 = and i32 %45, 255
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 256), i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !33
   %53 = zext i8 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 4

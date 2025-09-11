@@ -1081,7 +1081,8 @@ define dso_local void @__free_pages_core(ptr noundef %0, i32 noundef %1) local_u
   %18 = load ptr, ptr %17, align 8
   %19 = lshr i64 %15, 56
   %20 = and i64 %19, 3
-  %21 = getelementptr %struct.zone, ptr %18, i64 %20, i32 12
+  %.split = getelementptr %struct.zone, ptr %18, i64 %20
+  %21 = getelementptr i8, ptr %.split, i64 136
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %21, i64 %14, ptr elementtype(i64) %21) #22, !srcloc !28
   tail call fastcc void @__free_pages_ok(ptr noundef %0, i32 noundef %1, i32 noundef 2)
   ret void
@@ -3477,7 +3478,8 @@ define dso_local void @split_page(ptr noundef %0, i32 noundef %1) #7 align 16 {
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 1, %5 ], [ %10, %7 ]
-  %9 = getelementptr %struct.page, ptr %0, i64 %8, i32 3
+  %.split = getelementptr %struct.page, ptr %0, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 52
   store volatile i32 1, ptr %9, align 4
   %10 = add nuw nsw i64 %8, 1
   %11 = icmp eq i64 %10, %6
@@ -5070,7 +5072,7 @@ select.unfold:                                    ; preds = %74
 192:                                              ; preds = %201, %190
   %193 = phi i1 [ true, %190 ], [ false, %201 ]
   %194 = phi i64 [ 0, %190 ], [ 1, %201 ]
-  %195 = getelementptr [2 x i32], ptr @fallbacks, i64 1, i64 %194
+  %195 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @fallbacks, i64 8), i64 %194
   %196 = load i32, ptr %195, align 4
   %197 = sext i32 %196 to i64
   %198 = getelementptr %struct.list_head, ptr %186, i64 %197
@@ -6322,7 +6324,7 @@ find_suitable_fallback.exit:                      ; preds = %.backedge.i, %375
 408:                                              ; preds = %417, %406
   %409 = phi i1 [ true, %406 ], [ false, %417 ]
   %410 = phi i64 [ 0, %406 ], [ 1, %417 ]
-  %411 = getelementptr [2 x i32], ptr @fallbacks, i64 1, i64 %410
+  %411 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @fallbacks, i64 8), i64 %410
   %412 = load i32, ptr %411, align 4
   %413 = sext i32 %412 to i64
   %414 = getelementptr %struct.list_head, ptr %402, i64 %413
@@ -9191,7 +9193,8 @@ define dso_local void @adjust_managed_page_count(ptr noundef readonly captures(n
   %6 = load ptr, ptr %5, align 8
   %7 = lshr i64 %3, 56
   %8 = and i64 %7, 3
-  %9 = getelementptr %struct.zone, ptr %6, i64 %8, i32 12
+  %.split = getelementptr %struct.zone, ptr %6, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 136
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %9, i64 %1, ptr elementtype(i64) %9) #22, !srcloc !28
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @_totalram_pages, i64 %1, ptr nonnull elementtype(i64) @_totalram_pages) #22, !srcloc !28
   ret void
@@ -9288,7 +9291,8 @@ define dso_local i64 @free_reserved_area(ptr noundef %0, ptr noundef %1, i32 nou
   %63 = load ptr, ptr %62, align 8
   %64 = lshr i64 %60, 56
   %65 = and i64 %64, 3
-  %66 = getelementptr %struct.zone, ptr %63, i64 %65, i32 12
+  %.split = getelementptr %struct.zone, ptr %63, i64 %65
+  %66 = getelementptr i8, ptr %.split, i64 136
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %66, i64 1, ptr elementtype(i64) %66) #22, !srcloc !28
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @_totalram_pages, i64 1, ptr nonnull elementtype(i64) @_totalram_pages) #22, !srcloc !28
   %67 = getelementptr i8, ptr %18, i64 4096
@@ -9771,15 +9775,15 @@ define internal fastcc void @setup_per_zone_lowmem_reserve() unnamed_addr #0 ali
   %3 = phi ptr [ %40, %39 ], [ %1, %0 ]
   br label %7
 
-.split11:                                         ; preds = %.split, %.split.us
-  %4 = phi i64 [ %22, %.split.us ], [ %19, %.split ]
+.split12:                                         ; preds = %.split10, %.split10.us
+  %4 = phi i64 [ %22, %.split10.us ], [ %19, %.split10 ]
   %5 = add nuw nsw i64 %9, 1
   %6 = icmp eq i64 %4, 3
   br i1 %6, label %39, label %7, !llvm.loop !219
 
-7:                                                ; preds = %.split11, %.preheader7
-  %8 = phi i64 [ 0, %.preheader7 ], [ %4, %.split11 ]
-  %9 = phi i64 [ 1, %.preheader7 ], [ %5, %.split11 ]
+7:                                                ; preds = %.split12, %.preheader7
+  %8 = phi i64 [ 0, %.preheader7 ], [ %4, %.split12 ]
+  %9 = phi i64 [ 1, %.preheader7 ], [ %5, %.split12 ]
   %10 = getelementptr %struct.zone, ptr %3, i64 %8
   %11 = getelementptr i32, ptr @sysctl_lowmem_reserve_ratio, i64 %8
   %12 = load i32, ptr %11, align 4
@@ -9788,7 +9792,7 @@ define internal fastcc void @setup_per_zone_lowmem_reserve() unnamed_addr #0 ali
 
 .thread:                                          ; preds = %7
   %14 = add nuw nsw i64 %8, 1
-  br label %.split.us.preheader
+  br label %.split10.us.preheader
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 136
@@ -9797,27 +9801,29 @@ define internal fastcc void @setup_per_zone_lowmem_reserve() unnamed_addr #0 ali
   %19 = add nuw nsw i64 %8, 1
   %20 = sext i32 %12 to i64
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  br i1 %18, label %.split.us.preheader, label %.split
+  br i1 %18, label %.split10.us.preheader, label %.split10
 
-.split.us.preheader:                              ; preds = %.thread, %15
+.split10.us.preheader:                            ; preds = %.thread, %15
   %22 = phi i64 [ %14, %.thread ], [ %19, %15 ]
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  br label %.split.us
+  br label %.split10.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %.split.us
-  %24 = phi i64 [ %28, %.split.us ], [ %9, %.split.us.preheader ]
-  %25 = getelementptr %struct.zone, ptr %3, i64 %24, i32 12
+.split10.us:                                      ; preds = %.split10.us.preheader, %.split10.us
+  %24 = phi i64 [ %28, %.split10.us ], [ %9, %.split10.us.preheader ]
+  %.split.us = getelementptr %struct.zone, ptr %3, i64 %24
+  %25 = getelementptr i8, ptr %.split.us, i64 136
   %26 = load volatile i64, ptr %25, align 8
   %27 = getelementptr i64, ptr %23, i64 %24
   store i64 0, ptr %27, align 8
   %28 = add nuw nsw i64 %24, 1
   %29 = icmp eq i64 %28, 4
-  br i1 %29, label %.split11, label %.split.us, !llvm.loop !220
+  br i1 %29, label %.split12, label %.split10.us, !llvm.loop !220
 
-.split:                                           ; preds = %15, %.split
-  %30 = phi i64 [ %37, %.split ], [ %9, %15 ]
-  %31 = phi i64 [ %34, %.split ], [ 0, %15 ]
-  %32 = getelementptr %struct.zone, ptr %3, i64 %30, i32 12
+.split10:                                         ; preds = %15, %.split10
+  %30 = phi i64 [ %37, %.split10 ], [ %9, %15 ]
+  %31 = phi i64 [ %34, %.split10 ], [ 0, %15 ]
+  %.split = getelementptr %struct.zone, ptr %3, i64 %30
+  %32 = getelementptr i8, ptr %.split, i64 136
   %33 = load volatile i64, ptr %32, align 8
   %34 = add i64 %33, %31
   %35 = udiv i64 %34, %20
@@ -9825,9 +9831,9 @@ define internal fastcc void @setup_per_zone_lowmem_reserve() unnamed_addr #0 ali
   store i64 %35, ptr %36, align 8
   %37 = add nuw nsw i64 %30, 1
   %38 = icmp eq i64 %37, 4
-  br i1 %38, label %.split11, label %.split, !llvm.loop !220
+  br i1 %38, label %.split12, label %.split10, !llvm.loop !220
 
-39:                                               ; preds = %.split11
+39:                                               ; preds = %.split12
   %40 = tail call ptr @next_online_pgdat(ptr noundef nonnull %3) #22
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.loopexit8, label %.preheader7, !llvm.loop !221

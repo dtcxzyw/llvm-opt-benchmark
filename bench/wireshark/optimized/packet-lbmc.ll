@@ -10133,7 +10133,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 0, 256) i32 @dissect_nhdr_unhandled(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 256) i32 @dissect_nhdr_unhandled(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %6 = load i32, ptr @hf_lbmc_unhandled, align 4
   %7 = zext i8 %5 to i32

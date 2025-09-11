@@ -525,7 +525,7 @@ define void @_ZN7mitsuba4util11time_stringEfb(ptr dead_on_unwind noalias writabl
 
 8:                                                ; preds = %3
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.14, i64 noundef 3)
-  br label %29
+  br label %30
 
 9:                                                ; preds = %3
   %10 = tail call contract noundef float @llvm.fabs.f32(float %1)
@@ -534,7 +534,7 @@ define void @_ZN7mitsuba4util11time_stringEfb(ptr dead_on_unwind noalias writabl
 
 12:                                               ; preds = %9
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.15, i64 noundef 3)
-  br label %29
+  br label %30
 
 13:                                               ; preds = %9
   %14 = fcmp contract olt float %1, 0.000000e+00
@@ -550,7 +550,7 @@ define void @_ZN7mitsuba4util11time_stringEfb(ptr dead_on_unwind noalias writabl
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !noalias !10
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
-  br label %29
+  br label %30
 
 19:                                               ; preds = %15
   %20 = landingpad { ptr, i32 }
@@ -578,11 +578,12 @@ define void @_ZN7mitsuba4util11time_stringEfb(ptr dead_on_unwind noalias writabl
   store float %.lcssa, ptr %4, align 4
   %.str.17..str.18 = select i1 %2, ptr @.str.17, ptr @.str.18
   %27 = and i64 %.0.lcssa, 4294967295
-  %28 = getelementptr inbounds nuw %struct.Order, ptr %5, i64 %27, i32 1
-  call void @_ZN10tinyformat6formatIJfPKcEEENSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEES2_DpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull %.str.17..str.18, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %28)
-  br label %29
+  %28 = getelementptr inbounds nuw %struct.Order, ptr %5, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  call void @_ZN10tinyformat6formatIJfPKcEEENSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEES2_DpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull %.str.17..str.18, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %29)
+  br label %30
 
-29:                                               ; preds = %.critedge, %18, %12, %8
+30:                                               ; preds = %.critedge, %18, %12, %8
   ret void
 }
 

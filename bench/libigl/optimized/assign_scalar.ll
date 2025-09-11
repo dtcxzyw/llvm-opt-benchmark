@@ -12765,7 +12765,7 @@ define linkonce_odr dso_local void @_ZN4CORE12Realbase_forIdEdlEPvm(ptr noundef 
 define linkonce_odr dso_local noundef ptr @_ZN4CORE10MemoryPoolINS_12Realbase_forIdEELi1024EE8allocateEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !288
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %39
+  br i1 %4, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = tail call noalias noundef nonnull dereferenceable(49152) ptr @_Znwm(i64 noundef 49152) #42
@@ -12838,23 +12838,24 @@ _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader: ; preds = %12, %_ZNSt6vec
 35:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 49144
   store ptr null, ptr %36, align 8, !tbaa !291
-  br label %39
+  br label %40
 
 _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit ], [ 0, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<double>>::Thunk", ptr %6, i64 %indvars.iv.next
-  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<double>>::Thunk", ptr %6, i64 %indvars.iv, i32 1
-  store ptr %37, ptr %38, align 8, !tbaa !291
+  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<double>>::Thunk", ptr %6, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  store ptr %37, ptr %39, align 8, !tbaa !291
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1023
   br i1 %exitcond.not, label %35, label %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit, !llvm.loop !293
 
-39:                                               ; preds = %35, %2
-  %40 = phi ptr [ %6, %35 ], [ %3, %2 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load ptr, ptr %41, align 8, !tbaa !291
-  store ptr %42, ptr %0, align 8, !tbaa !288
-  ret ptr %40
+40:                                               ; preds = %35, %2
+  %41 = phi ptr [ %6, %35 ], [ %3, %2 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %43 = load ptr, ptr %42, align 8, !tbaa !291
+  store ptr %43, ptr %0, align 8, !tbaa !288
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14949,7 +14950,7 @@ _ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16c
 define linkonce_odr dso_local noundef ptr @_ZN4CORE10MemoryPoolINS_11BigFloatRepELi1024EE8allocateEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !259
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %39
+  br i1 %4, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = tail call noalias noundef nonnull dereferenceable(81920) ptr @_Znwm(i64 noundef 81920) #42
@@ -15022,23 +15023,24 @@ _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader: ; preds = %12, %_ZNSt6vec
 35:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 81904
   store ptr null, ptr %36, align 16, !tbaa !266
-  br label %39
+  br label %40
 
 _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit ], [ 0, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::BigFloatRep>::Thunk", ptr %6, i64 %indvars.iv.next
-  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::BigFloatRep>::Thunk", ptr %6, i64 %indvars.iv, i32 1
-  store ptr %37, ptr %38, align 16, !tbaa !266
+  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::BigFloatRep>::Thunk", ptr %6, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  store ptr %37, ptr %39, align 16, !tbaa !266
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1023
   br i1 %exitcond.not, label %35, label %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit, !llvm.loop !361
 
-39:                                               ; preds = %35, %2
-  %40 = phi ptr [ %6, %35 ], [ %3, %2 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
-  %42 = load ptr, ptr %41, align 16, !tbaa !266
-  store ptr %42, ptr %0, align 8, !tbaa !259
-  ret ptr %40
+40:                                               ; preds = %35, %2
+  %41 = phi ptr [ %6, %35 ], [ %3, %2 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
+  %43 = load ptr, ptr %42, align 16, !tbaa !266
+  store ptr %43, ptr %0, align 8, !tbaa !259
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -30895,7 +30897,7 @@ _ZN4CORE7extLong11getNegInftyEv.exit.i:           ; preds = %22, %20, %17
 define linkonce_odr dso_local noundef ptr @_ZN4CORE10MemoryPoolINS_12Realbase_forIlEELi1024EE8allocateEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !471
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %39
+  br i1 %4, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = tail call noalias noundef nonnull dereferenceable(49152) ptr @_Znwm(i64 noundef 49152) #42
@@ -30968,23 +30970,24 @@ _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader: ; preds = %12, %_ZNSt6vec
 35:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 49144
   store ptr null, ptr %36, align 8, !tbaa !474
-  br label %39
+  br label %40
 
 _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit ], [ 0, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<long>>::Thunk", ptr %6, i64 %indvars.iv.next
-  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<long>>::Thunk", ptr %6, i64 %indvars.iv, i32 1
-  store ptr %37, ptr %38, align 8, !tbaa !474
+  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<long>>::Thunk", ptr %6, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  store ptr %37, ptr %39, align 8, !tbaa !474
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1023
   br i1 %exitcond.not, label %35, label %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit, !llvm.loop !476
 
-39:                                               ; preds = %35, %2
-  %40 = phi ptr [ %6, %35 ], [ %3, %2 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load ptr, ptr %41, align 8, !tbaa !474
-  store ptr %42, ptr %0, align 8, !tbaa !471
-  ret ptr %40
+40:                                               ; preds = %35, %2
+  %41 = phi ptr [ %6, %35 ], [ %3, %2 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %43 = load ptr, ptr %42, align 8, !tbaa !474
+  store ptr %43, ptr %0, align 8, !tbaa !471
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -32553,7 +32556,7 @@ define linkonce_odr dso_local void @_ZN4CORE12Realbase_forIN5boost14multiprecisi
 define linkonce_odr dso_local noundef ptr @_ZN4CORE10MemoryPoolINS_12Realbase_forIN5boost14multiprecision6numberINS3_8backends15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEELNS3_26expression_template_optionE1EEEEELi1024EE8allocateEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !497
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %39
+  br i1 %4, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = tail call noalias noundef nonnull dereferenceable(81920) ptr @_Znwm(i64 noundef 81920) #42
@@ -32626,23 +32629,24 @@ _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader: ; preds = %12, %_ZNSt6vec
 35:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 81904
   store ptr null, ptr %36, align 16, !tbaa !500
-  br label %39
+  br label %40
 
 _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit ], [ 0, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<>>>>::Thunk", ptr %6, i64 %indvars.iv.next
-  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<>>>>::Thunk", ptr %6, i64 %indvars.iv, i32 1
-  store ptr %37, ptr %38, align 16, !tbaa !500
+  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<boost::multiprecision::number<boost::multiprecision::backends::cpp_int_backend<>>>>::Thunk", ptr %6, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  store ptr %37, ptr %39, align 16, !tbaa !500
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1023
   br i1 %exitcond.not, label %35, label %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit, !llvm.loop !503
 
-39:                                               ; preds = %35, %2
-  %40 = phi ptr [ %6, %35 ], [ %3, %2 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
-  %42 = load ptr, ptr %41, align 16, !tbaa !500
-  store ptr %42, ptr %0, align 8, !tbaa !497
-  ret ptr %40
+40:                                               ; preds = %35, %2
+  %41 = phi ptr [ %6, %35 ], [ %3, %2 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
+  %43 = load ptr, ptr %42, align 16, !tbaa !500
+  store ptr %43, ptr %0, align 8, !tbaa !497
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -37715,7 +37719,7 @@ define linkonce_odr dso_local void @_ZN4CORE12Realbase_forIN5boost14multiprecisi
 define linkonce_odr dso_local noundef ptr @_ZN4CORE10MemoryPoolINS_12Realbase_forIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEELi1024EE8allocateEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !571
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %39
+  br i1 %4, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = tail call noalias noundef nonnull dereferenceable(114688) ptr @_Znwm(i64 noundef 114688) #42
@@ -37788,23 +37792,24 @@ _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader: ; preds = %12, %_ZNSt6vec
 35:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 114672
   store ptr null, ptr %36, align 16, !tbaa !574
-  br label %39
+  br label %40
 
 _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit ], [ 0, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<boost::multiprecision::number<boost::multiprecision::backends::rational_adaptor<boost::multiprecision::backends::cpp_int_backend<>>>>>::Thunk", ptr %6, i64 %indvars.iv.next
-  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<boost::multiprecision::number<boost::multiprecision::backends::rational_adaptor<boost::multiprecision::backends::cpp_int_backend<>>>>>::Thunk", ptr %6, i64 %indvars.iv, i32 1
-  store ptr %37, ptr %38, align 16, !tbaa !574
+  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<boost::multiprecision::number<boost::multiprecision::backends::rational_adaptor<boost::multiprecision::backends::cpp_int_backend<>>>>>::Thunk", ptr %6, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
+  store ptr %37, ptr %39, align 16, !tbaa !574
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1023
   br i1 %exitcond.not, label %35, label %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit, !llvm.loop !579
 
-39:                                               ; preds = %35, %2
-  %40 = phi ptr [ %6, %35 ], [ %3, %2 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
-  %42 = load ptr, ptr %41, align 16, !tbaa !574
-  store ptr %42, ptr %0, align 8, !tbaa !571
-  ret ptr %40
+40:                                               ; preds = %35, %2
+  %41 = phi ptr [ %6, %35 ], [ %3, %2 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
+  %43 = load ptr, ptr %42, align 16, !tbaa !574
+  store ptr %43, ptr %0, align 8, !tbaa !571
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -53292,7 +53297,7 @@ define linkonce_odr dso_local void @_ZN4CORE12Realbase_forINS_8BigFloatEEdlEPvm(
 define linkonce_odr dso_local noundef ptr @_ZN4CORE10MemoryPoolINS_12Realbase_forINS_8BigFloatEEELi1024EE8allocateEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !788
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %39
+  br i1 %4, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = tail call noalias noundef nonnull dereferenceable(49152) ptr @_Znwm(i64 noundef 49152) #42
@@ -53365,23 +53370,24 @@ _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader: ; preds = %12, %_ZNSt6vec
 35:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 49144
   store ptr null, ptr %36, align 8, !tbaa !791
-  br label %39
+  br label %40
 
 _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit ], [ 0, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<CORE::BigFloat>>::Thunk", ptr %6, i64 %indvars.iv.next
-  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<CORE::BigFloat>>::Thunk", ptr %6, i64 %indvars.iv, i32 1
-  store ptr %37, ptr %38, align 8, !tbaa !791
+  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::Realbase_for<CORE::BigFloat>>::Thunk", ptr %6, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  store ptr %37, ptr %39, align 8, !tbaa !791
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1023
   br i1 %exitcond.not, label %35, label %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit, !llvm.loop !795
 
-39:                                               ; preds = %35, %2
-  %40 = phi ptr [ %6, %35 ], [ %3, %2 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load ptr, ptr %41, align 8, !tbaa !791
-  store ptr %42, ptr %0, align 8, !tbaa !788
-  ret ptr %40
+40:                                               ; preds = %35, %2
+  %41 = phi ptr [ %6, %35 ], [ %3, %2 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %43 = load ptr, ptr %42, align 8, !tbaa !791
+  store ptr %43, ptr %0, align 8, !tbaa !788
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -60860,7 +60866,7 @@ _ZN4CORE8BigFloatD2Ev.exit:                       ; preds = %25, %46
 define linkonce_odr dso_local noundef ptr @_ZN4CORE10MemoryPoolINS_9AddSubRepINS_3SubEEELi1024EE8allocateEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !763
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %39
+  br i1 %4, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = tail call noalias noundef nonnull dereferenceable(81920) ptr @_Znwm(i64 noundef 81920) #42
@@ -60933,30 +60939,31 @@ _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader: ; preds = %12, %_ZNSt6vec
 35:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 81912
   store ptr null, ptr %36, align 8, !tbaa !766
-  br label %39
+  br label %40
 
 _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit ], [ 0, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::AddSubRep<CORE::Sub>>::Thunk", ptr %6, i64 %indvars.iv.next
-  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::AddSubRep<CORE::Sub>>::Thunk", ptr %6, i64 %indvars.iv, i32 1
-  store ptr %37, ptr %38, align 8, !tbaa !766
+  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::AddSubRep<CORE::Sub>>::Thunk", ptr %6, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 72
+  store ptr %37, ptr %39, align 8, !tbaa !766
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1023
   br i1 %exitcond.not, label %35, label %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit, !llvm.loop !924
 
-39:                                               ; preds = %35, %2
-  %40 = phi ptr [ %6, %35 ], [ %3, %2 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 72
-  %42 = load ptr, ptr %41, align 8, !tbaa !766
-  store ptr %42, ptr %0, align 8, !tbaa !763
-  ret ptr %40
+40:                                               ; preds = %35, %2
+  %41 = phi ptr [ %6, %35 ], [ %3, %2 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
+  %43 = load ptr, ptr %42, align 8, !tbaa !766
+  store ptr %43, ptr %0, align 8, !tbaa !763
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN4CORE10MemoryPoolINS_14ConstDoubleRepELi1024EE8allocateEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !925
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %39
+  br i1 %4, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = tail call noalias noundef nonnull dereferenceable(57344) ptr @_Znwm(i64 noundef 57344) #42
@@ -61029,23 +61036,24 @@ _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader: ; preds = %12, %_ZNSt6vec
 35:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 57336
   store ptr null, ptr %36, align 8, !tbaa !928
-  br label %39
+  br label %40
 
 _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit ], [ 0, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::ConstDoubleRep>::Thunk", ptr %6, i64 %indvars.iv.next
-  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::ConstDoubleRep>::Thunk", ptr %6, i64 %indvars.iv, i32 1
-  store ptr %37, ptr %38, align 8, !tbaa !928
+  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::ConstDoubleRep>::Thunk", ptr %6, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  store ptr %37, ptr %39, align 8, !tbaa !928
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1023
   br i1 %exitcond.not, label %35, label %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit, !llvm.loop !932
 
-39:                                               ; preds = %35, %2
-  %40 = phi ptr [ %6, %35 ], [ %3, %2 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  %42 = load ptr, ptr %41, align 8, !tbaa !928
-  store ptr %42, ptr %0, align 8, !tbaa !925
-  ret ptr %40
+40:                                               ; preds = %35, %2
+  %41 = phi ptr [ %6, %35 ], [ %3, %2 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
+  %43 = load ptr, ptr %42, align 8, !tbaa !928
+  store ptr %43, ptr %0, align 8, !tbaa !925
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -65909,7 +65917,7 @@ _ZNK4CORE4ExprngEv.exit:                          ; preds = %55, %58
 define linkonce_odr dso_local noundef ptr @_ZN4CORE10MemoryPoolINS_6NegRepELi1024EE8allocateEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !941
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %39
+  br i1 %4, label %5, label %40
 
 5:                                                ; preds = %2
   %6 = tail call noalias noundef nonnull dereferenceable(65536) ptr @_Znwm(i64 noundef 65536) #42
@@ -65982,23 +65990,24 @@ _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader: ; preds = %12, %_ZNSt6vec
 35:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 65528
   store ptr null, ptr %36, align 8, !tbaa !944
-  br label %39
+  br label %40
 
 _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit ], [ 0, %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::NegRep>::Thunk", ptr %6, i64 %indvars.iv.next
-  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::NegRep>::Thunk", ptr %6, i64 %indvars.iv, i32 1
-  store ptr %37, ptr %38, align 8, !tbaa !944
+  %38 = getelementptr inbounds nuw %"struct.CORE::MemoryPool<CORE::NegRep>::Thunk", ptr %6, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  store ptr %37, ptr %39, align 8, !tbaa !944
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1023
   br i1 %exitcond.not, label %35, label %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit, !llvm.loop !1025
 
-39:                                               ; preds = %35, %2
-  %40 = phi ptr [ %6, %35 ], [ %3, %2 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  %42 = load ptr, ptr %41, align 8, !tbaa !944
-  store ptr %42, ptr %0, align 8, !tbaa !941
-  ret ptr %40
+40:                                               ; preds = %35, %2
+  %41 = phi ptr [ %6, %35 ], [ %3, %2 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
+  %43 = load ptr, ptr %42, align 8, !tbaa !944
+  store ptr %43, ptr %0, align 8, !tbaa !941
+  ret ptr %41
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

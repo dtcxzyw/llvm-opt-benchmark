@@ -391,40 +391,42 @@ define hidden void @"_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..
   br label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit"
 
 "_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit": ; preds = %4, %2
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ %5, %4 ]
+  %.sroa.0.0 = phi i64 [ 0, %2 ], [ %6, %4 ]
   %3 = icmp eq i64 %.sroa.0.0, %1
-  br i1 %3, label %7, label %4
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit"
-  %5 = add i64 %.sroa.0.0, 1
-  %6 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %0, i64 %.sroa.0.0, i32 2
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
-          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit" unwind label %9
+  %5 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %0, i64 %.sroa.0.0
+  %6 = add i64 %.sroa.0.0, 1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit" unwind label %10
 
-7:                                                ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit"
+8:                                                ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit"
   ret void
 
-"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7": ; preds = %11, %9
-  %.sroa.0.1 = phi i64 [ %5, %9 ], [ %12, %11 ]
-  %8 = icmp eq i64 %.sroa.0.1, %1
-  br i1 %8, label %14, label %11
+"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7": ; preds = %12, %10
+  %.sroa.0.1 = phi i64 [ %6, %10 ], [ %14, %12 ]
+  %9 = icmp eq i64 %.sroa.0.1, %1
+  br i1 %9, label %16, label %12
 
-9:                                                ; preds = %4
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %4
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7"
 
-11:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7"
-  %12 = add i64 %.sroa.0.1, 1
-  %13 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %0, i64 %.sroa.0.1, i32 2
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13)
-          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7" unwind label %15
+12:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7"
+  %13 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %0, i64 %.sroa.0.1
+  %14 = add i64 %.sroa.0.1, 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
+          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7" unwind label %17
 
-14:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7"
-  resume { ptr, i32 } %10
+16:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7"
+  resume { ptr, i32 } %11
 
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %12
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #17
   unreachable
@@ -482,41 +484,43 @@ define hidden void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$$LP$uv_p
   br label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i.i"
 
 "_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i.i": ; preds = %7, %1
-  %.sroa.0.0.i.i = phi i64 [ 0, %1 ], [ %8, %7 ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %1 ], [ %9, %7 ]
   %6 = icmp eq i64 %.sroa.0.0.i.i, %5
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54915377ceb2bd96E.llvm.7080728239506869614.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i.i"
-  %8 = add i64 %.sroa.0.0.i.i, 1
-  %9 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.0.i.i, i32 2
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
-          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i.i" unwind label %11, !noalias !70
+  %8 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.0.i.i
+  %9 = add i64 %.sroa.0.0.i.i, 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i.i" unwind label %12, !noalias !70
 
-"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i.i": ; preds = %13, %11
-  %.sroa.0.1.i.i = phi i64 [ %8, %11 ], [ %14, %13 ]
-  %10 = icmp eq i64 %.sroa.0.1.i.i, %5
-  br i1 %10, label %.body, label %13
+"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i.i": ; preds = %14, %12
+  %.sroa.0.1.i.i = phi i64 [ %9, %12 ], [ %16, %14 ]
+  %11 = icmp eq i64 %.sroa.0.1.i.i, %5
+  br i1 %11, label %.body, label %14
 
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i.i"
 
-13:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i.i"
-  %14 = add i64 %.sroa.0.1.i.i, 1
-  %15 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.1.i.i, i32 2
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
-          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i.i" unwind label %16, !noalias !70
+14:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i.i"
+  %15 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.1.i.i
+  %16 = add i64 %.sroa.0.1.i.i, 1
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17)
+          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i.i" unwind label %18, !noalias !70
 
-16:                                               ; preds = %13
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %14
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #17, !noalias !73
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i.i"
   tail call void @"_ZN4core3ptr184drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$$GT$17hb396af56a0563b6bE.llvm.7080728239506869614"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #18
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54915377ceb2bd96E.llvm.7080728239506869614.exit": ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
@@ -526,33 +530,33 @@ define hidden void @"_ZN4core3ptr177drop_in_place$LT$alloc..vec..Vec$LT$$LP$uv_p
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  %18 = load i64, ptr %0, align 8, !range !9, !alias.scope !90, !noalias !85, !noundef !3
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i", label %20
+  %20 = load i64, ptr %0, align 8, !range !9, !alias.scope !90, !noalias !85, !noundef !3
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i", label %22
 
-20:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54915377ceb2bd96E.llvm.7080728239506869614.exit"
-  %21 = mul nuw i64 %18, 24
+22:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54915377ceb2bd96E.llvm.7080728239506869614.exit"
+  %23 = mul nuw i64 %20, 24
   store i64 8, ptr %.sroa.4.i.i.i, align 8, !alias.scope !85, !noalias !90
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i"
 
-"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i": ; preds = %20, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54915377ceb2bd96E.llvm.7080728239506869614.exit"
-  %.sink7.i.sroa.phi.i.i.i = phi ptr [ %.sroa.4.i.i.i, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54915377ceb2bd96E.llvm.7080728239506869614.exit" ], [ %.sroa.8.i.i.i, %20 ]
-  %.sink.i.i.i.i = phi i64 [ 0, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54915377ceb2bd96E.llvm.7080728239506869614.exit" ], [ %21, %20 ]
+"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i": ; preds = %22, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54915377ceb2bd96E.llvm.7080728239506869614.exit"
+  %.sink7.i.sroa.phi.i.i.i = phi ptr [ %.sroa.4.i.i.i, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54915377ceb2bd96E.llvm.7080728239506869614.exit" ], [ %.sroa.8.i.i.i, %22 ]
+  %.sink.i.i.i.i = phi i64 [ 0, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54915377ceb2bd96E.llvm.7080728239506869614.exit" ], [ %23, %22 ]
   store i64 %.sink.i.i.i.i, ptr %.sink7.i.sroa.phi.i.i.i, align 8, !alias.scope !85, !noalias !90
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i = load i64, ptr %.sroa.4.i.i.i, align 8, !range !18, !noalias !91, !noundef !3
-  %22 = icmp eq i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, 0
-  br i1 %22, label %"_ZN4core3ptr184drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$$GT$17hb396af56a0563b6bE.llvm.7080728239506869614.exit", label %23
-
-23:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i"
-  %.sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.0..sroa.8.i.i.0..sroa.8.i.0..sroa.8.i.0..sroa.8.0..sroa.8.0..sroa.8.16..i.i.i = load i64, ptr %.sroa.8.i.i.i, align 8, !noalias !91, !noundef !3
-  %24 = icmp eq i64 %.sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.0..sroa.8.i.i.0..sroa.8.i.0..sroa.8.i.0..sroa.8.0..sroa.8.0..sroa.8.16..i.i.i, 0
+  %24 = icmp eq i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, 0
   br i1 %24, label %"_ZN4core3ptr184drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$$GT$17hb396af56a0563b6bE.llvm.7080728239506869614.exit", label %25
 
-25:                                               ; preds = %23
+25:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i"
+  %.sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.0..sroa.8.i.i.0..sroa.8.i.0..sroa.8.i.0..sroa.8.0..sroa.8.0..sroa.8.16..i.i.i = load i64, ptr %.sroa.8.i.i.i, align 8, !noalias !91, !noundef !3
+  %26 = icmp eq i64 %.sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.0..sroa.8.i.i.0..sroa.8.i.0..sroa.8.i.0..sroa.8.0..sroa.8.0..sroa.8.16..i.i.i, 0
+  br i1 %26, label %"_ZN4core3ptr184drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$$GT$17hb396af56a0563b6bE.llvm.7080728239506869614.exit", label %27
+
+27:                                               ; preds = %25
   tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %.sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.0..sroa.8.i.i.0..sroa.8.i.0..sroa.8.i.0..sroa.8.0..sroa.8.0..sroa.8.16..i.i.i, i64 noundef range(i64 1, -9223372036854775807) %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i) #16, !noalias !91
   br label %"_ZN4core3ptr184drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$$GT$17hb396af56a0563b6bE.llvm.7080728239506869614.exit"
 
-"_ZN4core3ptr184drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$$GT$17hb396af56a0563b6bE.llvm.7080728239506869614.exit": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i", %23, %25
+"_ZN4core3ptr184drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$$GT$17hb396af56a0563b6bE.llvm.7080728239506869614.exit": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i", %25, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i.i)
   ret void
@@ -2065,37 +2069,39 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i"
 
 "_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i": ; preds = %7, %1
-  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %8, %7 ]
+  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %9, %7 ]
   %6 = icmp eq i64 %.sroa.0.0.i, %5
   br i1 %6, label %"_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$u5d$$GT$17h43d94f97ba9237caE.llvm.7080728239506869614.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i"
-  %8 = add i64 %.sroa.0.0.i, 1
-  %9 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.0.i, i32 2
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
-          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i" unwind label %11
+  %8 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.0.i
+  %9 = add i64 %.sroa.0.0.i, 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
+          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i" unwind label %12
 
-"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i": ; preds = %13, %11
-  %.sroa.0.1.i = phi i64 [ %8, %11 ], [ %14, %13 ]
-  %10 = icmp eq i64 %.sroa.0.1.i, %5
-  br i1 %10, label %16, label %13
+"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i": ; preds = %14, %12
+  %.sroa.0.1.i = phi i64 [ %9, %12 ], [ %16, %14 ]
+  %11 = icmp eq i64 %.sroa.0.1.i, %5
+  br i1 %11, label %18, label %14
 
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i"
 
-13:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i"
-  %14 = add i64 %.sroa.0.1.i, 1
-  %15 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.1.i, i32 2
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
-          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i" unwind label %17
+14:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i"
+  %15 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.1.i
+  %16 = add i64 %.sroa.0.1.i, 1
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17)
+          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i" unwind label %19
 
-16:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i"
-  resume { ptr, i32 } %12
+18:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i"
+  resume { ptr, i32 } %13
 
-17:                                               ; preds = %13
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #17, !noalias !477
   unreachable
@@ -2436,73 +2442,75 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
 
 .body:                                            ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i"
   tail call fastcc void @"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$C$alloc..alloc..Global$GT$$GT$17h24d1b969e75ccae6E"(ptr nonnull %0) #18
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %16
 
 "_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i": ; preds = %10, %1
-  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %11, %10 ]
+  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %12, %10 ]
   %9 = icmp eq i64 %.sroa.0.0.i, %8
   br i1 %9, label %"_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$u5d$$GT$17h43d94f97ba9237caE.llvm.7080728239506869614.exit", label %10
 
 10:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i"
-  %11 = add nuw nsw i64 %.sroa.0.0.i, 1
-  %12 = getelementptr inbounds nuw { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.0.i, i32 2
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
-          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i" unwind label %14
+  %11 = getelementptr inbounds nuw { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.0.i
+  %12 = add nuw nsw i64 %.sroa.0.0.i, 1
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13)
+          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i" unwind label %15
 
-"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i": ; preds = %16, %14
-  %.sroa.0.1.i = phi i64 [ %11, %14 ], [ %17, %16 ]
-  %13 = icmp eq i64 %.sroa.0.1.i, %8
-  br i1 %13, label %.body, label %16
+"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i": ; preds = %17, %15
+  %.sroa.0.1.i = phi i64 [ %12, %15 ], [ %19, %17 ]
+  %14 = icmp eq i64 %.sroa.0.1.i, %8
+  br i1 %14, label %.body, label %17
 
-14:                                               ; preds = %10
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %10
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i"
 
-16:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i"
-  %17 = add i64 %.sroa.0.1.i, 1
-  %18 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.1.i, i32 2
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18)
-          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i" unwind label %19
+17:                                               ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i"
+  %18 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %3, i64 %.sroa.0.1.i
+  %19 = add i64 %.sroa.0.1.i, 1
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_platform_tags..platform_tag..PlatformTag$GT$17h05395c90c135c0c7E.llvm.7080728239506869614"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20)
+          to label %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit7.i" unwind label %21
 
-19:                                               ; preds = %16
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %17
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #17, !noalias !521
   unreachable
 
 "_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$u5d$$GT$17h43d94f97ba9237caE.llvm.7080728239506869614.exit": ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$GT$17h32d5ca18972baebcE.llvm.7080728239506869614.exit.i"
-  %21 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i64, ptr %22, align 8, !noundef !3
+  %23 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i.i.i.i.i)
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i.i.i", label %25
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i.i.i", label %27
 
-25:                                               ; preds = %"_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$u5d$$GT$17h43d94f97ba9237caE.llvm.7080728239506869614.exit"
-  %26 = mul nuw i64 %23, 24
+27:                                               ; preds = %"_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$u5d$$GT$17h43d94f97ba9237caE.llvm.7080728239506869614.exit"
+  %28 = mul nuw i64 %25, 24
   store i64 8, ptr %.sroa.4.i.i.i.i.i, align 8, !alias.scope !524, !noalias !527
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i.i.i"
 
-"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i.i.i": ; preds = %25, %"_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$u5d$$GT$17h43d94f97ba9237caE.llvm.7080728239506869614.exit"
-  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %"_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$u5d$$GT$17h43d94f97ba9237caE.llvm.7080728239506869614.exit" ], [ %.sroa.8.i.i.i.i.i, %25 ]
-  %.sink.i.i.i.i.i.i = phi i64 [ 0, %"_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$u5d$$GT$17h43d94f97ba9237caE.llvm.7080728239506869614.exit" ], [ %26, %25 ]
+"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i.i.i": ; preds = %27, %"_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$u5d$$GT$17h43d94f97ba9237caE.llvm.7080728239506869614.exit"
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %"_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$u5d$$GT$17h43d94f97ba9237caE.llvm.7080728239506869614.exit" ], [ %.sroa.8.i.i.i.i.i, %27 ]
+  %.sink.i.i.i.i.i.i = phi i64 [ 0, %"_ZN4core3ptr164drop_in_place$LT$$u5b$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$u5d$$GT$17h43d94f97ba9237caE.llvm.7080728239506869614.exit" ], [ %28, %27 ]
   store i64 %.sink.i.i.i.i.i.i, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !524, !noalias !527
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !18, !noalias !535, !noundef !3
-  %27 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
-  br i1 %27, label %"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$C$alloc..alloc..Global$GT$$GT$17h24d1b969e75ccae6E.exit", label %28
-
-28:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i.i.i"
-  %.sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.0..sroa.8.i.i.0..sroa.8.i.0..sroa.8.i.0..sroa.8.0..sroa.8.0..sroa.8.16..i.i.i.i.i = load i64, ptr %.sroa.8.i.i.i.i.i, align 8, !noalias !535, !noundef !3
-  %29 = icmp eq i64 %.sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.0..sroa.8.i.i.0..sroa.8.i.0..sroa.8.i.0..sroa.8.0..sroa.8.0..sroa.8.16..i.i.i.i.i, 0
+  %29 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %29, label %"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$C$alloc..alloc..Global$GT$$GT$17h24d1b969e75ccae6E.exit", label %30
 
-30:                                               ; preds = %28
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %.sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.0..sroa.8.i.i.0..sroa.8.i.0..sroa.8.i.0..sroa.8.0..sroa.8.0..sroa.8.16..i.i.i.i.i, i64 noundef range(i64 1, -9223372036854775807) %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i) #16, !noalias !535
+30:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i.i.i"
+  %.sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.0..sroa.8.i.i.0..sroa.8.i.0..sroa.8.i.0..sroa.8.0..sroa.8.0..sroa.8.16..i.i.i.i.i = load i64, ptr %.sroa.8.i.i.i.i.i, align 8, !noalias !535, !noundef !3
+  %31 = icmp eq i64 %.sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.0..sroa.8.i.i.0..sroa.8.i.0..sroa.8.i.0..sroa.8.0..sroa.8.0..sroa.8.16..i.i.i.i.i, 0
+  br i1 %31, label %"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$C$alloc..alloc..Global$GT$$GT$17h24d1b969e75ccae6E.exit", label %32
+
+32:                                               ; preds = %30
+  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %.sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.i.0..sroa.8.i.i.0..sroa.8.i.i.0..sroa.8.i.0..sroa.8.i.0..sroa.8.0..sroa.8.0..sroa.8.16..i.i.i.i.i, i64 noundef range(i64 1, -9223372036854775807) %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i) #16, !noalias !535
   br label %"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$C$alloc..alloc..Global$GT$$GT$17h24d1b969e75ccae6E.exit"
 
-"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$C$alloc..alloc..Global$GT$$GT$17h24d1b969e75ccae6E.exit": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i.i.i", %28, %30
+"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$uv_platform_tags..language_tag..LanguageTag$C$uv_platform_tags..abi_tag..AbiTag$C$uv_platform_tags..platform_tag..PlatformTag$RP$$C$alloc..alloc..Global$GT$$GT$17h24d1b969e75ccae6E.exit": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h56d2083f80bfb939E.llvm.16643587273057872551.exit.i.i.i.i.i", %30, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i.i.i.i)
   ret void

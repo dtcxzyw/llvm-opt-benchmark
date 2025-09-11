@@ -4001,7 +4001,7 @@ switch.lookup:                                    ; preds = %3
 20:                                               ; preds = %12
   %21 = tail call fastcc noundef i32 @_ZL9readModRMPN4llvm15X86Disassembler19InternalInstructionE(ptr noundef %1)
   %.not16 = icmp eq i32 %21, 0
-  br i1 %.not16, label %22, label %33
+  br i1 %.not16, label %22, label %34
 
 22:                                               ; preds = %20
   %23 = load i32, ptr %8, align 8, !tbaa !76
@@ -4009,27 +4009,28 @@ switch.lookup:                                    ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 105
   %26 = load i8, ptr %25, align 1, !tbaa !78
   %27 = tail call fastcc noundef zeroext i16 @_ZL6decodeN4llvm15X86Disassembler10OpcodeTypeENS0_18InstructionContextEhh(i32 noundef %23, i32 noundef %7, i8 noundef zeroext %24, i8 noundef zeroext %26)
-  br label %32
+  br label %33
 
 switch.lookup17:                                  ; preds = %12
   %28 = zext nneg i32 %9 to i64
   %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL28getInstructionIDWithAttrMaskPtPN4llvm15X86Disassembler19InternalInstructionEt.9, i64 %28
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %29 = getelementptr inbounds nuw %struct.OpcodeDecision, ptr %switch.load19, i64 %13
-  %.sink45.i.in = getelementptr inbounds nuw %struct.ModRMDecision, ptr %29, i64 %17, i32 1
+  %30 = getelementptr inbounds nuw %struct.ModRMDecision, ptr %29, i64 %17
+  %.sink45.i.in = getelementptr inbounds nuw i8, ptr %30, i64 4
   %.sink45.i = load i32, ptr %.sink45.i.in, align 4, !tbaa !135
-  %30 = zext i32 %.sink45.i to i64
-  %31 = getelementptr inbounds nuw i16, ptr @_ZL10modRMTable, i64 %30
-  %.042.i = load i16, ptr %31, align 2, !tbaa !81
-  br label %32
-
-32:                                               ; preds = %switch.lookup17, %22
-  %storemerge = phi i16 [ %.042.i, %switch.lookup17 ], [ %27, %22 ]
-  store i16 %storemerge, ptr %0, align 2, !tbaa !81
+  %31 = zext i32 %.sink45.i to i64
+  %32 = getelementptr inbounds nuw i16, ptr @_ZL10modRMTable, i64 %31
+  %.042.i = load i16, ptr %32, align 2, !tbaa !81
   br label %33
 
-33:                                               ; preds = %20, %32
-  %.015 = phi i32 [ 0, %32 ], [ -1, %20 ]
+33:                                               ; preds = %switch.lookup17, %22
+  %storemerge = phi i16 [ %.042.i, %switch.lookup17 ], [ %27, %22 ]
+  store i16 %storemerge, ptr %0, align 2, !tbaa !81
+  br label %34
+
+34:                                               ; preds = %20, %33
+  %.015 = phi i32 [ 0, %33 ], [ -1, %20 ]
   ret i32 %.015
 }
 

@@ -2686,7 +2686,8 @@ if.then:                                          ; preds = %for.body
 
 if.then7:                                         ; preds = %if.then
   %5 = load ptr, ptr %fields_.i, align 8
-  %all_names_.i = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %5, i64 %indvars.iv, i32 5
+  %add.ptr.i40 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %5, i64 %indvars.iv
+  %all_names_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i40, i64 8
   %6 = load ptr, ptr %all_names_.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %prefix)
   %call.i41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %6)

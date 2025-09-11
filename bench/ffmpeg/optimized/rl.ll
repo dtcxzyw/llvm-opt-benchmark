@@ -178,7 +178,7 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
 
 15:                                               ; preds = %2, %.loopexit
   %indvars.iv59 = phi i64 [ 31, %2 ], [ %indvars.iv.next60, %.loopexit ]
-  %.04556 = phi i16 [ 32, %2 ], [ %55, %.loopexit ]
+  %.04556 = phi i16 [ 32, %2 ], [ %56, %.loopexit ]
   %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv59
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   %.not = icmp eq ptr %17, null
@@ -235,15 +235,16 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
   %.0 = phi i8 [ 66, %.lr.ph ], [ 0, %29 ], [ 66, %31 ], [ %spec.select54, %34 ]
   %47 = trunc i16 %27 to i8
   %48 = load ptr, ptr %16, align 8, !tbaa !22
-  %49 = getelementptr inbounds nuw %struct.VLCElem, ptr %48, i64 %indvars.iv, i32 0, i32 0, i32 1
-  store i8 %47, ptr %49, align 2, !tbaa !4
-  %50 = load ptr, ptr %16, align 8, !tbaa !22
-  %51 = getelementptr inbounds nuw %struct.VLCElem, ptr %50, i64 %indvars.iv
-  store i16 %.044, ptr %51, align 2, !tbaa !4
-  %52 = load ptr, ptr %16, align 8, !tbaa !22
-  %53 = getelementptr inbounds nuw %struct.VLCElem, ptr %52, i64 %indvars.iv
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 3
-  store i8 %.0, ptr %54, align 1, !tbaa !4
+  %49 = getelementptr inbounds nuw %struct.VLCElem, ptr %48, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 2
+  store i8 %47, ptr %50, align 2, !tbaa !4
+  %51 = load ptr, ptr %16, align 8, !tbaa !22
+  %52 = getelementptr inbounds nuw %struct.VLCElem, ptr %51, i64 %indvars.iv
+  store i16 %.044, ptr %52, align 2, !tbaa !4
+  %53 = load ptr, ptr %16, align 8, !tbaa !22
+  %54 = getelementptr inbounds nuw %struct.VLCElem, ptr %53, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 3
+  store i8 %.0, ptr %55, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
@@ -251,7 +252,7 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
 .loopexit:                                        ; preds = %46, %18, %15
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, -1
   %.not65 = icmp eq i64 %indvars.iv59, 0
-  %55 = trunc i64 %indvars.iv59 to i16
+  %56 = trunc i64 %indvars.iv59 to i16
   br i1 %.not65, label %14, label %15
 }
 

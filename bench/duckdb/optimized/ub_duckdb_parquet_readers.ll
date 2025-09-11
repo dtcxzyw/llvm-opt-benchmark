@@ -4243,8 +4243,8 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_1
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %51
-  %61 = add i64 %.375, -1
-  %62 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %11, i64 %61, i32 1
+  %61 = getelementptr %"struct.duckdb::list_entry_t", ptr %11, i64 %.375
+  %62 = getelementptr i8, ptr %61, i64 -8
   %63 = load i64, ptr %62, align 8, !tbaa !310
   %64 = add i64 %63, 1
   store i64 %64, ptr %62, align 8, !tbaa !310
@@ -4268,7 +4268,7 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_1
   %74 = add i64 %.05274, %50
   %75 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %11, i64 %.375
   store i64 %74, ptr %75, align 8, !tbaa !313
-  %76 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %11, i64 %.375, i32 1
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 1, ptr %76, align 8, !tbaa !310
   br label %97
 
@@ -4281,7 +4281,7 @@ define linkonce_odr noundef i64 @_ZN6duckdb16ListColumnReader12ReadInternalINS_1
   %81 = add i64 %.05274, %50
   %82 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %11, i64 %.375
   store i64 %81, ptr %82, align 8, !tbaa !313
-  %83 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %11, i64 %.375, i32 1
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 0, ptr %83, align 8, !tbaa !310
   br label %97
 

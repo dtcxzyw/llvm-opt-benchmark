@@ -373,14 +373,14 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %156 = zext nneg i32 %129 to i64
   %157 = getelementptr inbounds nuw %struct.code, ptr %155, i64 %156
   store i8 %154, ptr %157, align 2, !tbaa !22
-  %158 = getelementptr inbounds nuw %struct.code, ptr %155, i64 %156, i32 1
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 1
   store i8 %73, ptr %158, align 1, !tbaa !24
   %159 = ptrtoint ptr %133 to i64
   %160 = ptrtoint ptr %155 to i64
   %161 = sub i64 %159, %160
   %162 = lshr exact i64 %161, 2
   %163 = trunc i64 %162 to i16
-  %164 = getelementptr inbounds nuw %struct.code, ptr %155, i64 %156, i32 2
+  %164 = getelementptr inbounds nuw i8, ptr %157, i64 2
   store i16 %163, ptr %164, align 2, !tbaa !25
   br label %.outer
 

@@ -940,7 +940,8 @@ define dso_local void @intel_gt_reset(ptr noundef %0, i32 noundef %1, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 832
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
-  %15 = getelementptr %struct.i915_fence_reg, ptr %13, i64 %14, i32 2
+  %.split = getelementptr %struct.i915_fence_reg, ptr %13, i64 %14
+  %15 = getelementptr i8, ptr %.split, i64 24
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %41, label %18

@@ -4737,7 +4737,7 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDES6_EEENS_14iterator_ra
   %186 = load ptr, ptr %171, align 8, !tbaa !21, !noalias !294
   %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %.sroa.4.0.extract.shift.i.i
   %188 = and i64 %185, 4294967295
-  %189 = getelementptr inbounds nuw ptr, ptr %186, i64 %188
+  %189 = getelementptr ptr, ptr %186, i64 %188
   %.not2428.i.i.i.i = icmp samesign eq i64 %.sroa.4.0.extract.shift.i.i, %188
   br i1 %.not2428.i.i.i.i, label %_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 

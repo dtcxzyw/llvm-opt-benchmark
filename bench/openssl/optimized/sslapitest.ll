@@ -23229,34 +23229,35 @@ define internal void @sslapi_info_callback(ptr noundef %0, i32 noundef %1, i32 n
 41:                                               ; preds = %32
   %42 = and i32 %1, 1
   %.not17 = icmp eq i32 %42, 0
-  br i1 %.not17, label %51, label %43
+  br i1 %.not17, label %52, label %43
 
 43:                                               ; preds = %41
   %44 = tail call ptr @SSL_state_string(ptr noundef %0) #24
   %45 = load i32, ptr @info_cb_this_state, align 4, !tbaa !14
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds %struct.info_cb_states_st, ptr %6, i64 %46, i32 1
-  %48 = load ptr, ptr %47, align 8, !tbaa !179
-  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %48) #25
-  %50 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 7898, ptr noundef nonnull @.str.813, ptr noundef nonnull @.str.218, i32 noundef %49, i32 noundef 0) #24
-  %.not18 = icmp eq i32 %50, 0
-  br i1 %.not18, label %.sink.split, label %51
+  %47 = getelementptr inbounds %struct.info_cb_states_st, ptr %6, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !179
+  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %49) #25
+  %51 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 7898, ptr noundef nonnull @.str.813, ptr noundef nonnull @.str.218, i32 noundef %50, i32 noundef 0) #24
+  %.not18 = icmp eq i32 %51, 0
+  br i1 %.not18, label %.sink.split, label %52
 
-51:                                               ; preds = %43, %41
-  %52 = and i32 %1, 32
-  %.not19 = icmp eq i32 %52, 0
-  br i1 %.not19, label %55, label %53
+52:                                               ; preds = %43, %41
+  %53 = and i32 %1, 32
+  %.not19 = icmp eq i32 %53, 0
+  br i1 %.not19, label %56, label %54
 
-53:                                               ; preds = %51
-  %54 = tail call i32 @SSL_in_init(ptr noundef %0) #24
-  %.not20 = icmp eq i32 %54, 0
-  br i1 %.not20, label %55, label %.sink.split
+54:                                               ; preds = %52
+  %55 = tail call i32 @SSL_in_init(ptr noundef %0) #24
+  %.not20 = icmp eq i32 %55, 0
+  br i1 %.not20, label %56, label %.sink.split
 
-.sink.split:                                      ; preds = %53, %43, %32, %10, %18, %25, %3
+.sink.split:                                      ; preds = %54, %43, %32, %10, %18, %25, %3
   store i1 true, ptr @info_cb_failed, align 4
-  br label %55
+  br label %56
 
-55:                                               ; preds = %.sink.split, %51, %53
+56:                                               ; preds = %.sink.split, %52, %54
   ret void
 }
 

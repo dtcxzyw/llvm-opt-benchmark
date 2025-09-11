@@ -953,7 +953,7 @@ define internal void @uat_sec_record_post_update() #0 {
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr %struct.uat_security_record_s, ptr %7, i64 %indvars.iv, i32 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %16

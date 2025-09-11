@@ -3283,239 +3283,237 @@ put_var_int.exit50:                               ; preds = %._crit_edge.i47
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @reftable_obj_record_decode(ptr noundef captures(none) initializes((8, 16), (24, 32)) %0, ptr noundef readonly byval(%struct.reftable_buf) align 8 captures(none) %1, i8 noundef zeroext %2, ptr %3, i64 %4, i32 %5, ptr readnone captures(none) %6) #5 {
-  %8 = load ptr, ptr %0, align 8, !tbaa !50
-  tail call void @reftable_free(ptr noundef %8) #17
+  %8 = zext i8 %2 to i64
+  %9 = load ptr, ptr %0, align 8, !tbaa !50
+  tail call void @reftable_free(ptr noundef %9) #17
   store ptr null, ptr %0, align 8, !tbaa !50
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !54
-  tail call void @reftable_free(ptr noundef %10) #17
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !54
+  tail call void @reftable_free(ptr noundef %11) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !20
-  %13 = tail call ptr @reftable_malloc(i64 noundef %12) #17
-  store ptr %13, ptr %0, align 8, !tbaa !50
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %get_var_int.exit.thread, label %14
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load i64, ptr %12, align 8, !tbaa !20
+  %14 = tail call ptr @reftable_malloc(i64 noundef %13) #17
+  store ptr %14, ptr %0, align 8, !tbaa !50
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %get_var_int.exit.thread, label %15
 
-14:                                               ; preds = %7
-  %15 = zext i8 %2 to i64
+15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %17, i64 %12, i1 false)
-  %18 = trunc i64 %12 to i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %17, i64 %13, i1 false)
+  %18 = trunc i64 %13 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %18, ptr %19, align 8, !tbaa !53
   %20 = icmp eq i8 %2, 0
-  br i1 %20, label %21, label %44
+  br i1 %20, label %22, label %.thread145
 
-21:                                               ; preds = %14
+.thread145:                                       ; preds = %15
+  store ptr null, ptr %10, align 8, !tbaa !54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %21, align 8, !tbaa !55
+  br label %st_mult.exit
+
+22:                                               ; preds = %15
   %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %get_var_int.exit.thread, label %22
+  br i1 %.not.i, label %get_var_int.exit.thread, label %23
 
-22:                                               ; preds = %21
-  %23 = load i8, ptr %3, align 1, !tbaa !12
-  %24 = and i8 %23, 127
-  %25 = zext nneg i8 %24 to i64
+23:                                               ; preds = %22
+  %24 = load i8, ptr %3, align 1, !tbaa !12
+  %25 = and i8 %24, 127
+  %26 = zext nneg i8 %25 to i64
   %.01929.i = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %.not2230.i = icmp sgt i8 %23, -1
+  %.not2230.i = icmp sgt i8 %24, -1
   br i1 %.not2230.i, label %get_var_int.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %4
-  br label %27
+.lr.ph.i:                                         ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %4
+  br label %28
 
-27:                                               ; preds = %28, %.lr.ph.i
-  %.01932.i = phi ptr [ %.01929.i, %.lr.ph.i ], [ %.019.i, %28 ]
-  %.031.i = phi i64 [ %25, %.lr.ph.i ], [ %34, %28 ]
+28:                                               ; preds = %29, %.lr.ph.i
+  %.01932.i = phi ptr [ %.01929.i, %.lr.ph.i ], [ %.019.i, %29 ]
+  %.031.i = phi i64 [ %26, %.lr.ph.i ], [ %35, %29 ]
   %or.cond.i = icmp ult i64 %.031.i, 144115188075855871
-  %.not25.i = icmp ult ptr %.01932.i, %26
+  %.not25.i = icmp ult ptr %.01932.i, %27
   %or.cond26.i = select i1 %or.cond.i, i1 %.not25.i, i1 false
-  br i1 %or.cond26.i, label %28, label %get_var_int.exit.thread
+  br i1 %or.cond26.i, label %29, label %get_var_int.exit.thread
 
-28:                                               ; preds = %27
-  %29 = load i8, ptr %.01932.i, align 1, !tbaa !12
-  %30 = shl nuw i64 %.031.i, 7
-  %31 = add nuw i64 %30, 128
-  %32 = and i8 %29, 127
-  %33 = zext nneg i8 %32 to i64
-  %34 = or disjoint i64 %31, %33
+29:                                               ; preds = %28
+  %30 = load i8, ptr %.01932.i, align 1, !tbaa !12
+  %31 = shl nuw i64 %.031.i, 7
+  %32 = add nuw i64 %31, 128
+  %33 = and i8 %30, 127
+  %34 = zext nneg i8 %33 to i64
+  %35 = or disjoint i64 %32, %34
   %.019.i = getelementptr inbounds nuw i8, ptr %.01932.i, i64 1
-  %.not22.i = icmp sgt i8 %29, -1
-  br i1 %.not22.i, label %get_var_int.exit, label %27, !llvm.loop !13
+  %.not22.i = icmp sgt i8 %30, -1
+  br i1 %.not22.i, label %get_var_int.exit, label %28, !llvm.loop !13
 
-get_var_int.exit:                                 ; preds = %28, %22
-  %.0.lcssa.i = phi i64 [ %25, %22 ], [ %34, %28 ]
-  %.019.lcssa.i = phi ptr [ %.01929.i, %22 ], [ %.019.i, %28 ]
-  %35 = ptrtoint ptr %.019.lcssa.i to i64
-  %36 = ptrtoint ptr %3 to i64
-  %37 = sub i64 %35, %36
-  %38 = trunc i64 %37 to i32
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %get_var_int.exit.thread, label %40
+get_var_int.exit:                                 ; preds = %29, %23
+  %.0.lcssa.i = phi i64 [ %26, %23 ], [ %35, %29 ]
+  %.019.lcssa.i = phi ptr [ %.01929.i, %23 ], [ %.019.i, %29 ]
+  %36 = ptrtoint ptr %.019.lcssa.i to i64
+  %37 = ptrtoint ptr %3 to i64
+  %38 = sub i64 %36, %37
+  %39 = trunc i64 %38 to i32
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %get_var_int.exit.thread, label %41
 
-40:                                               ; preds = %get_var_int.exit
-  %41 = and i64 %37, 2147483647
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 %41
-  %43 = sub i64 %4, %41
-  br label %44
+41:                                               ; preds = %get_var_int.exit
+  store ptr null, ptr %10, align 8, !tbaa !54
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %42, align 8, !tbaa !55
+  %43 = icmp eq i64 %.0.lcssa.i, 0
+  br i1 %43, label %get_var_int.exit.thread, label %44
 
-44:                                               ; preds = %40, %14
-  %.sroa.10.0 = phi i64 [ %43, %40 ], [ %4, %14 ]
-  %.sroa.0.0 = phi ptr [ %42, %40 ], [ %3, %14 ]
-  %.097 = phi i64 [ %.0.lcssa.i, %40 ], [ %15, %14 ]
-  store ptr null, ptr %9, align 8, !tbaa !54
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %45, align 8, !tbaa !55
-  %46 = icmp eq i64 %.097, 0
-  br i1 %46, label %47, label %50
+44:                                               ; preds = %41
+  %45 = and i64 %38, 2147483647
+  %46 = sub i64 %4, %45
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %45
+  %mul.ov.i = icmp ugt i64 %.0.lcssa.i, 2305843009213693951
+  br i1 %mul.ov.i, label %48, label %st_mult.exit
 
-47:                                               ; preds = %44
-  %48 = sub i64 %4, %.sroa.10.0
-  %49 = trunc i64 %48 to i32
-  br label %get_var_int.exit.thread
-
-50:                                               ; preds = %44
-  %mul.ov.i = icmp ugt i64 %.097, 2305843009213693951
-  br i1 %mul.ov.i, label %51, label %st_mult.exit
-
-51:                                               ; preds = %50
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, i64 noundef 8, i64 noundef %.097) #18
+48:                                               ; preds = %44
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, i64 noundef 8, i64 noundef %.0.lcssa.i) #18
   unreachable
 
-st_mult.exit:                                     ; preds = %50
-  %52 = shl nuw i64 %.097, 3
-  %53 = tail call ptr @reftable_malloc(i64 noundef %52) #17
-  store ptr %53, ptr %9, align 8, !tbaa !54
-  %.not46 = icmp eq ptr %53, null
-  br i1 %.not46, label %get_var_int.exit.thread, label %54
+st_mult.exit:                                     ; preds = %.thread145, %44
+  %.sroa.10.0104152 = phi i64 [ %4, %.thread145 ], [ %46, %44 ]
+  %.sroa.0.0106151 = phi ptr [ %3, %.thread145 ], [ %47, %44 ]
+  %.097107150 = phi i64 [ %8, %.thread145 ], [ %.0.lcssa.i, %44 ]
+  %49 = phi ptr [ %21, %.thread145 ], [ %42, %44 ]
+  %50 = shl nuw i64 %.097107150, 3
+  %51 = tail call ptr @reftable_malloc(i64 noundef %50) #17
+  store ptr %51, ptr %10, align 8, !tbaa !54
+  %.not46 = icmp eq ptr %51, null
+  br i1 %.not46, label %get_var_int.exit.thread, label %52
 
-54:                                               ; preds = %st_mult.exit
-  %55 = trunc i64 %.097 to i32
-  store i32 %55, ptr %45, align 8, !tbaa !55
-  %.not.i49 = icmp eq i64 %.sroa.10.0, 0
-  br i1 %.not.i49, label %get_var_int.exit.thread, label %56
+52:                                               ; preds = %st_mult.exit
+  %53 = trunc i64 %.097107150 to i32
+  store i32 %53, ptr %49, align 8, !tbaa !55
+  %.not.i49 = icmp eq i64 %.sroa.10.0104152, 0
+  br i1 %.not.i49, label %get_var_int.exit.thread, label %54
 
-56:                                               ; preds = %54
-  %57 = load i8, ptr %.sroa.0.0, align 1, !tbaa !12
-  %58 = and i8 %57, 127
-  %59 = zext nneg i8 %58 to i64
-  %.01929.i50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 1
-  %.not2230.i51 = icmp sgt i8 %57, -1
+54:                                               ; preds = %52
+  %55 = load i8, ptr %.sroa.0.0106151, align 1, !tbaa !12
+  %56 = and i8 %55, 127
+  %57 = zext nneg i8 %56 to i64
+  %.01929.i50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0106151, i64 1
+  %.not2230.i51 = icmp sgt i8 %55, -1
   br i1 %.not2230.i51, label %get_var_int.exit64, label %.lr.ph.i52
 
-.lr.ph.i52:                                       ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.sroa.10.0
-  br label %61
+.lr.ph.i52:                                       ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0106151, i64 %.sroa.10.0104152
+  br label %59
 
-61:                                               ; preds = %62, %.lr.ph.i52
-  %.01932.i53 = phi ptr [ %.01929.i50, %.lr.ph.i52 ], [ %.019.i59, %62 ]
-  %.031.i54 = phi i64 [ %59, %.lr.ph.i52 ], [ %68, %62 ]
+59:                                               ; preds = %60, %.lr.ph.i52
+  %.01932.i53 = phi ptr [ %.01929.i50, %.lr.ph.i52 ], [ %.019.i59, %60 ]
+  %.031.i54 = phi i64 [ %57, %.lr.ph.i52 ], [ %66, %60 ]
   %or.cond.i55 = icmp ult i64 %.031.i54, 144115188075855871
-  %.not25.i56 = icmp ult ptr %.01932.i53, %60
+  %.not25.i56 = icmp ult ptr %.01932.i53, %58
   %or.cond26.i57 = select i1 %or.cond.i55, i1 %.not25.i56, i1 false
-  br i1 %or.cond26.i57, label %62, label %get_var_int.exit.thread
+  br i1 %or.cond26.i57, label %60, label %get_var_int.exit.thread
 
-62:                                               ; preds = %61
-  %63 = load i8, ptr %.01932.i53, align 1, !tbaa !12
-  %64 = shl nuw i64 %.031.i54, 7
-  %65 = add nuw i64 %64, 128
-  %66 = and i8 %63, 127
-  %67 = zext nneg i8 %66 to i64
-  %68 = or disjoint i64 %65, %67
+60:                                               ; preds = %59
+  %61 = load i8, ptr %.01932.i53, align 1, !tbaa !12
+  %62 = shl nuw i64 %.031.i54, 7
+  %63 = add nuw i64 %62, 128
+  %64 = and i8 %61, 127
+  %65 = zext nneg i8 %64 to i64
+  %66 = or disjoint i64 %63, %65
   %.019.i59 = getelementptr inbounds nuw i8, ptr %.01932.i53, i64 1
-  %.not22.i60 = icmp sgt i8 %63, -1
-  br i1 %.not22.i60, label %get_var_int.exit64, label %61, !llvm.loop !13
+  %.not22.i60 = icmp sgt i8 %61, -1
+  br i1 %.not22.i60, label %get_var_int.exit64, label %59, !llvm.loop !13
 
-get_var_int.exit64:                               ; preds = %62, %56
-  %69 = phi i64 [ %59, %56 ], [ %68, %62 ]
-  %.019.lcssa.i63 = phi ptr [ %.01929.i50, %56 ], [ %.019.i59, %62 ]
-  store i64 %69, ptr %53, align 8, !tbaa !15
-  %70 = ptrtoint ptr %.019.lcssa.i63 to i64
-  %71 = ptrtoint ptr %.sroa.0.0 to i64
-  %72 = sub i64 %70, %71
-  %73 = trunc i64 %72 to i32
-  %74 = icmp slt i32 %73, 0
-  br i1 %74, label %get_var_int.exit.thread, label %75
+get_var_int.exit64:                               ; preds = %60, %54
+  %67 = phi i64 [ %57, %54 ], [ %66, %60 ]
+  %.019.lcssa.i63 = phi ptr [ %.01929.i50, %54 ], [ %.019.i59, %60 ]
+  store i64 %67, ptr %51, align 8, !tbaa !15
+  %68 = ptrtoint ptr %.019.lcssa.i63 to i64
+  %69 = ptrtoint ptr %.sroa.0.0106151 to i64
+  %70 = sub i64 %68, %69
+  %71 = trunc i64 %70 to i32
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %get_var_int.exit.thread, label %73
 
-75:                                               ; preds = %get_var_int.exit64
-  %76 = and i64 %72, 2147483647
-  %77 = sub i64 %.sroa.10.0, %76
-  %.not47118.not = icmp eq i64 %.097, 1
-  br i1 %.not47118.not, label %.thread108, label %.lr.ph.preheader
+73:                                               ; preds = %get_var_int.exit64
+  %74 = and i64 %70, 2147483647
+  %75 = sub i64 %.sroa.10.0104152, %74
+  %.not47127 = icmp samesign ugt i64 %.097107150, 1
+  br i1 %.not47127, label %.lr.ph.preheader, label %.thread117
 
-.lr.ph.preheader:                                 ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %76
-  %umax = tail call i64 @llvm.umax.i64(i64 %.097, i64 2)
+.lr.ph.preheader:                                 ; preds = %73
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.0106151, i64 %74
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %97
-  %.033122 = phi i64 [ %103, %97 ], [ 1, %.lr.ph.preheader ]
-  %.036121 = phi i64 [ %101, %97 ], [ %69, %.lr.ph.preheader ]
-  %.sroa.0.1120 = phi ptr [ %99, %97 ], [ %78, %.lr.ph.preheader ]
-  %.sroa.10.1119 = phi i64 [ %100, %97 ], [ %77, %.lr.ph.preheader ]
-  %.not.i65 = icmp eq i64 %.sroa.10.1119, 0
-  br i1 %.not.i65, label %get_var_int.exit.thread, label %79
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %95
+  %.033131 = phi i64 [ %101, %95 ], [ 1, %.lr.ph.preheader ]
+  %.036130 = phi i64 [ %99, %95 ], [ %67, %.lr.ph.preheader ]
+  %.sroa.0.1129 = phi ptr [ %97, %95 ], [ %76, %.lr.ph.preheader ]
+  %.sroa.10.1128 = phi i64 [ %98, %95 ], [ %75, %.lr.ph.preheader ]
+  %.not.i65 = icmp eq i64 %.sroa.10.1128, 0
+  br i1 %.not.i65, label %get_var_int.exit.thread, label %77
 
-79:                                               ; preds = %.lr.ph
-  %80 = load i8, ptr %.sroa.0.1120, align 1, !tbaa !12
-  %81 = and i8 %80, 127
-  %82 = zext nneg i8 %81 to i64
-  %.01929.i66 = getelementptr inbounds nuw i8, ptr %.sroa.0.1120, i64 1
-  %.not2230.i67 = icmp sgt i8 %80, -1
+77:                                               ; preds = %.lr.ph
+  %78 = load i8, ptr %.sroa.0.1129, align 1, !tbaa !12
+  %79 = and i8 %78, 127
+  %80 = zext nneg i8 %79 to i64
+  %.01929.i66 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 1
+  %.not2230.i67 = icmp sgt i8 %78, -1
   br i1 %.not2230.i67, label %get_var_int.exit80, label %.lr.ph.i68
 
-.lr.ph.i68:                                       ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.1120, i64 %.sroa.10.1119
-  br label %84
+.lr.ph.i68:                                       ; preds = %77
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 %.sroa.10.1128
+  br label %82
 
-84:                                               ; preds = %85, %.lr.ph.i68
-  %.01932.i69 = phi ptr [ %.01929.i66, %.lr.ph.i68 ], [ %.019.i75, %85 ]
-  %.031.i70 = phi i64 [ %82, %.lr.ph.i68 ], [ %91, %85 ]
+82:                                               ; preds = %83, %.lr.ph.i68
+  %.01932.i69 = phi ptr [ %.01929.i66, %.lr.ph.i68 ], [ %.019.i75, %83 ]
+  %.031.i70 = phi i64 [ %80, %.lr.ph.i68 ], [ %89, %83 ]
   %or.cond.i71 = icmp ult i64 %.031.i70, 144115188075855871
-  %.not25.i72 = icmp ult ptr %.01932.i69, %83
+  %.not25.i72 = icmp ult ptr %.01932.i69, %81
   %or.cond26.i73 = select i1 %or.cond.i71, i1 %.not25.i72, i1 false
-  br i1 %or.cond26.i73, label %85, label %get_var_int.exit.thread
+  br i1 %or.cond26.i73, label %83, label %get_var_int.exit.thread
 
-85:                                               ; preds = %84
-  %86 = load i8, ptr %.01932.i69, align 1, !tbaa !12
-  %87 = shl nuw i64 %.031.i70, 7
-  %88 = add nuw i64 %87, 128
-  %89 = and i8 %86, 127
-  %90 = zext nneg i8 %89 to i64
-  %91 = or disjoint i64 %88, %90
+83:                                               ; preds = %82
+  %84 = load i8, ptr %.01932.i69, align 1, !tbaa !12
+  %85 = shl nuw i64 %.031.i70, 7
+  %86 = add nuw i64 %85, 128
+  %87 = and i8 %84, 127
+  %88 = zext nneg i8 %87 to i64
+  %89 = or disjoint i64 %86, %88
   %.019.i75 = getelementptr inbounds nuw i8, ptr %.01932.i69, i64 1
-  %.not22.i76 = icmp sgt i8 %86, -1
-  br i1 %.not22.i76, label %get_var_int.exit80, label %84, !llvm.loop !13
+  %.not22.i76 = icmp sgt i8 %84, -1
+  br i1 %.not22.i76, label %get_var_int.exit80, label %82, !llvm.loop !13
 
-get_var_int.exit80:                               ; preds = %85, %79
-  %.0.lcssa.i78 = phi i64 [ %82, %79 ], [ %91, %85 ]
-  %.019.lcssa.i79 = phi ptr [ %.01929.i66, %79 ], [ %.019.i75, %85 ]
-  %92 = ptrtoint ptr %.019.lcssa.i79 to i64
-  %93 = ptrtoint ptr %.sroa.0.1120 to i64
-  %94 = sub i64 %92, %93
-  %95 = trunc i64 %94 to i32
-  %96 = icmp sgt i32 %95, -1
-  br i1 %96, label %97, label %get_var_int.exit.thread
+get_var_int.exit80:                               ; preds = %83, %77
+  %.0.lcssa.i78 = phi i64 [ %80, %77 ], [ %89, %83 ]
+  %.019.lcssa.i79 = phi ptr [ %.01929.i66, %77 ], [ %.019.i75, %83 ]
+  %90 = ptrtoint ptr %.019.lcssa.i79 to i64
+  %91 = ptrtoint ptr %.sroa.0.1129 to i64
+  %92 = sub i64 %90, %91
+  %93 = trunc i64 %92 to i32
+  %94 = icmp sgt i32 %93, -1
+  br i1 %94, label %95, label %get_var_int.exit.thread
 
-97:                                               ; preds = %get_var_int.exit80
-  %98 = and i64 %94, 2147483647
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.1120, i64 %98
-  %100 = sub i64 %.sroa.10.1119, %98
-  %101 = add i64 %.0.lcssa.i78, %.036121
-  %102 = getelementptr inbounds nuw i64, ptr %53, i64 %.033122
-  store i64 %101, ptr %102, align 8, !tbaa !15
-  %103 = add nuw i64 %.033122, 1
-  %exitcond.not = icmp eq i64 %103, %umax
-  br i1 %exitcond.not, label %.thread108, label %.lr.ph, !llvm.loop !57
+95:                                               ; preds = %get_var_int.exit80
+  %96 = and i64 %92, 2147483647
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 %96
+  %98 = sub i64 %.sroa.10.1128, %96
+  %99 = add i64 %.0.lcssa.i78, %.036130
+  %100 = getelementptr inbounds nuw i64, ptr %51, i64 %.033131
+  store i64 %99, ptr %100, align 8, !tbaa !15
+  %101 = add nuw i64 %.033131, 1
+  %exitcond.not = icmp eq i64 %101, %.097107150
+  br i1 %exitcond.not, label %.thread117, label %.lr.ph, !llvm.loop !57
 
-.thread108:                                       ; preds = %97, %75
-  %.sroa.10.1.lcssa = phi i64 [ %77, %75 ], [ %100, %97 ]
-  %104 = sub i64 %4, %.sroa.10.1.lcssa
-  %105 = trunc i64 %104 to i32
+.thread117:                                       ; preds = %95, %73
+  %.sroa.10.1.lcssa = phi i64 [ %75, %73 ], [ %98, %95 ]
+  %102 = sub i64 %4, %.sroa.10.1.lcssa
+  %103 = trunc i64 %102 to i32
   br label %get_var_int.exit.thread
 
-get_var_int.exit.thread:                          ; preds = %27, %61, %get_var_int.exit80, %.lr.ph, %84, %54, %21, %get_var_int.exit64, %st_mult.exit, %get_var_int.exit, %7, %.thread108, %47
-  %.0 = phi i32 [ %49, %47 ], [ %105, %.thread108 ], [ -13, %7 ], [ %38, %get_var_int.exit ], [ -13, %st_mult.exit ], [ %73, %get_var_int.exit64 ], [ -1, %21 ], [ -1, %54 ], [ -1, %84 ], [ %95, %get_var_int.exit80 ], [ -1, %.lr.ph ], [ -1, %61 ], [ -1, %27 ]
+get_var_int.exit.thread:                          ; preds = %28, %59, %get_var_int.exit80, %.lr.ph, %82, %41, %52, %22, %get_var_int.exit64, %st_mult.exit, %get_var_int.exit, %7, %.thread117
+  %.0 = phi i32 [ %103, %.thread117 ], [ -13, %7 ], [ %39, %get_var_int.exit ], [ -13, %st_mult.exit ], [ %71, %get_var_int.exit64 ], [ -1, %22 ], [ -1, %52 ], [ %39, %41 ], [ -1, %82 ], [ %93, %get_var_int.exit80 ], [ -1, %.lr.ph ], [ -1, %59 ], [ -1, %28 ]
   ret i32 %.0
 }
 

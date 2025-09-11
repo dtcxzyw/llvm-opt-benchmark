@@ -7769,7 +7769,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126DerefFuncDeleteExp
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %32 = icmp ne i8 %27, 49
   %.not73 = or i1 %.not7215, %32
-  br i1 %.not73, label %45, label %33
+  br i1 %.not73, label %46, label %33
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %0, align 8, !tbaa !347
@@ -7779,62 +7779,63 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126DerefFuncDeleteExp
 35:                                               ; preds = %33
   %36 = load i64, ptr %31, align 16
   %37 = lshr i64 %36, 48
-  %38 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %34, i64 %37, i32 0, i32 0, i32 2
-  %39 = load i64, ptr %38, align 8, !tbaa !16
-  %40 = and i64 %39, -16
-  %41 = inttoptr i64 %40 to ptr
-  %42 = load ptr, ptr %41, align 16, !tbaa !148
-  %43 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %42) #19
-  %44 = load ptr, ptr %2, align 8, !tbaa !353
-  %.not78 = icmp eq ptr %43, %44
+  %38 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load i64, ptr %39, align 8, !tbaa !16
+  %41 = and i64 %40, -16
+  %42 = inttoptr i64 %41 to ptr
+  %43 = load ptr, ptr %42, align 16, !tbaa !148
+  %44 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %43) #19
+  %45 = load ptr, ptr %2, align 8, !tbaa !353
+  %.not78 = icmp eq ptr %44, %45
   br i1 %.not78, label %.loopexit, label %.critedge84
 
-45:                                               ; preds = %30
-  %46 = icmp ne i8 %27, 47
-  %.not74 = or i1 %.not7215, %46
-  br i1 %.not74, label %51, label %47
+46:                                               ; preds = %30
+  %47 = icmp ne i8 %27, 47
+  %.not74 = or i1 %.not7215, %47
+  br i1 %.not74, label %52, label %48
 
-47:                                               ; preds = %45
-  %48 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %25) #19
-  %49 = load ptr, ptr %2, align 8, !tbaa !353
-  %50 = icmp eq ptr %48, %49
-  br i1 %50, label %.loopexit, label %.critedge84
+48:                                               ; preds = %46
+  %49 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %25) #19
+  %50 = load ptr, ptr %2, align 8, !tbaa !353
+  %51 = icmp eq ptr %49, %50
+  br i1 %51, label %.loopexit, label %.critedge84
 
-51:                                               ; preds = %45
-  %52 = icmp ne i8 %27, 45
-  %.not75 = or i1 %.not7215, %52
-  br i1 %.not75, label %.critedge84, label %53
+52:                                               ; preds = %46
+  %53 = icmp ne i8 %27, 45
+  %.not75 = or i1 %.not7215, %53
+  br i1 %.not75, label %.critedge84, label %54
 
-53:                                               ; preds = %51
-  %54 = load i64, ptr %31, align 16
-  %55 = and i64 %54, 524288
-  %.not.i = icmp eq i64 %55, 0
+54:                                               ; preds = %52
+  %55 = load i64, ptr %31, align 16
+  %56 = and i64 %55, 524288
+  %.not.i = icmp eq i64 %56, 0
   %.sroa.0.0.in.v.i = select i1 %.not.i, i64 8, i64 48
   %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.0.0.in.v.i
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 8, !tbaa !16
-  %56 = and i64 %.sroa.0.0.i, -16
-  %57 = inttoptr i64 %56 to ptr
-  %58 = load ptr, ptr %57, align 16, !tbaa !148
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load i8, ptr %59, align 16
-  %61 = icmp ne i8 %60, 47
-  %.not7619 = icmp eq ptr %58, null
-  %.not76 = or i1 %.not7619, %61
-  br i1 %.not76, label %.critedge84, label %62
+  %57 = and i64 %.sroa.0.0.i, -16
+  %58 = inttoptr i64 %57 to ptr
+  %59 = load ptr, ptr %58, align 16, !tbaa !148
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load i8, ptr %60, align 16
+  %62 = icmp ne i8 %61, 47
+  %.not7619 = icmp eq ptr %59, null
+  %.not76 = or i1 %.not7619, %62
+  br i1 %.not76, label %.critedge84, label %63
 
-62:                                               ; preds = %53
-  %63 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %58) #19
-  %64 = load ptr, ptr %2, align 8, !tbaa !353
-  %65 = icmp eq ptr %63, %64
-  br i1 %65, label %.loopexit, label %.critedge84
+63:                                               ; preds = %54
+  %64 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %59) #19
+  %65 = load ptr, ptr %2, align 8, !tbaa !353
+  %66 = icmp eq ptr %64, %65
+  br i1 %66, label %.loopexit, label %.critedge84
 
-.critedge84:                                      ; preds = %35, %33, %51, %47, %62, %53, %10, %5
-  %.351 = phi ptr [ %7, %5 ], [ %12, %10 ], [ %12, %53 ], [ %12, %62 ], [ %12, %47 ], [ %12, %51 ], [ %12, %33 ], [ %12, %35 ]
+.critedge84:                                      ; preds = %35, %33, %52, %48, %63, %54, %10, %5
+  %.351 = phi ptr [ %7, %5 ], [ %12, %10 ], [ %12, %54 ], [ %12, %63 ], [ %12, %48 ], [ %12, %52 ], [ %12, %33 ], [ %12, %35 ]
   %.not = icmp eq ptr %.351, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %35, %47, %62, %.critedge84, %8, %1
-  %.14 = phi i1 [ false, %1 ], [ true, %35 ], [ true, %47 ], [ true, %62 ], [ false, %.critedge84 ], [ false, %8 ]
+.loopexit:                                        ; preds = %35, %48, %63, %.critedge84, %8, %1
+  %.14 = phi i1 [ false, %1 ], [ true, %35 ], [ true, %48 ], [ true, %63 ], [ false, %.critedge84 ], [ false, %8 ]
   ret i1 %.14
 }
 

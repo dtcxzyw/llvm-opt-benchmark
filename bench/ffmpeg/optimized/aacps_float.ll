@@ -1765,12 +1765,12 @@ ipdopd_reset.exit.i:                              ; preds = %ipdopd_reset.exit.s
   br label %.sink.split.i.us
 
 .sink.split.i.us:                                 ; preds = %1039, %1032
-  %.sink64 = phi float [ %1040, %1039 ], [ %1031, %1032 ]
-  %.sink63 = phi float [ %1043, %1039 ], [ %1034, %1032 ]
+  %.sink63 = phi float [ %1040, %1039 ], [ %1031, %1032 ]
+  %.sink62 = phi float [ %1043, %1039 ], [ %1034, %1032 ]
   %.sink = phi float [ %1046, %1039 ], [ %1036, %1032 ]
   %.sink.i.us = phi float [ %1049, %1039 ], [ %1038, %1032 ]
-  store float %.sink64, ptr %876, align 16, !tbaa !13
-  store float %.sink63, ptr %877, align 4, !tbaa !13
+  store float %.sink63, ptr %876, align 16, !tbaa !13
+  store float %.sink62, ptr %877, align 4, !tbaa !13
   store float %.sink, ptr %878, align 8, !tbaa !13
   store float %.sink.i.us, ptr %879, align 4, !tbaa !13
   br label %1050
@@ -1833,12 +1833,11 @@ ipdopd_reset.exit.i:                              ; preds = %ipdopd_reset.exit.s
   %1091 = zext i1 %1090 to i64
   %1092 = getelementptr inbounds nuw ptr, ptr %887, i64 %1091
   %1093 = load ptr, ptr %1092, align 8, !tbaa !49
-  %.idx.us = shl nuw nsw i64 %indvars.iv362.i.us, 8
-  %1094 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.us
+  %1094 = getelementptr inbounds nuw [32 x [2 x float]], ptr %53, i64 %indvars.iv362.i.us
   %1095 = getelementptr inbounds nuw i8, ptr %1094, i64 8
   %1096 = sext i32 %1008 to i64
   %1097 = getelementptr inbounds [2 x float], ptr %1095, i64 %1096
-  %1098 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.us
+  %1098 = getelementptr inbounds nuw [32 x [2 x float]], ptr %52, i64 %indvars.iv362.i.us
   %1099 = getelementptr inbounds nuw i8, ptr %1098, i64 8
   %1100 = getelementptr inbounds [2 x float], ptr %1099, i64 %1096
   call void %1093(ptr noundef nonnull %1097, ptr noundef nonnull %1100, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %1010) #12

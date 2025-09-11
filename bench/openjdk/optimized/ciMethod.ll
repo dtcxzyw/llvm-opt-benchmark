@@ -867,13 +867,13 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit29: ; preds = %94, %
   %105 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0.0, i64 %indvars.iv
   %106 = load i16, ptr %105, align 2
   %107 = zext i16 %106 to i32
-  %108 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0.0, i64 %indvars.iv, i32 1
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i32
-  %111 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0.0, i64 %indvars.iv, i32 2
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %112 = load i16, ptr %111, align 2
   %113 = zext i16 %112 to i32
-  %114 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0.0, i64 %indvars.iv, i32 3
+  %114 = getelementptr inbounds nuw i8, ptr %105, i64 6
   %115 = load i16, ptr %114, align 2
   %116 = zext i16 %115 to i32
   store ptr %104, ptr %103, align 8

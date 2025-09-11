@@ -1224,28 +1224,29 @@ define linkonce_odr hidden void @_ZN23JfrNetworkInterfaceName11on_rotationEv(ptr
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %6
 
-6:                                                ; preds = %.lr.ph, %13
-  %7 = phi i32 [ %3, %.lr.ph ], [ %14, %13 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
+6:                                                ; preds = %.lr.ph, %14
+  %7 = phi i32 [ %3, %.lr.ph ], [ %15, %14 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %struct.InterfaceEntry, ptr %8, i64 %indvars.iv, i32 4
-  %10 = load i8, ptr %9, align 8
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %13
+  %9 = getelementptr inbounds nuw %struct.InterfaceEntry, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %11 = load i8, ptr %10, align 8
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %6
-  store i8 0, ptr %9, align 8
+13:                                               ; preds = %6
+  store i8 0, ptr %10, align 8
   %.pre = load i32, ptr %2, align 4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %6, %12
-  %14 = phi i32 [ %7, %6 ], [ %.pre, %12 ]
+14:                                               ; preds = %6, %13
+  %15 = phi i32 [ %7, %6 ], [ %.pre, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = sext i32 %14 to i64
-  %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !13
+  %16 = sext i32 %15 to i64
+  %17 = icmp slt i64 %indvars.iv.next, %16
+  br i1 %17, label %6, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %13, %1
+._crit_edge:                                      ; preds = %14, %1
   ret void
 }
 

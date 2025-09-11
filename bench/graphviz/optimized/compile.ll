@@ -6789,8 +6789,8 @@ define internal fastcc noalias noundef ptr @mkStmts(ptr noundef %0, ptr noundef 
   %.not7.i = icmp eq ptr %1, null
   br label %27
 
-27:                                               ; preds = %.lr.ph, %122
-  %.074 = phi i64 [ 0, %.lr.ph ], [ %123, %122 ]
+27:                                               ; preds = %.lr.ph, %123
+  %.074 = phi i64 [ 0, %.lr.ph ], [ %124, %123 ]
   %28 = add i64 %21, %.074
   %29 = urem i64 %28, %23
   %30 = getelementptr inbounds nuw %struct.case_info, ptr %19, i64 %29
@@ -6904,7 +6904,7 @@ checkGuard.exit:                                  ; preds = %67, %63, %59, %27
   %68 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %69 = load ptr, ptr %68, align 8, !tbaa !148
   %.not37 = icmp eq ptr %69, null
-  br i1 %.not37, label %122, label %70
+  br i1 %.not37, label %123, label %70
 
 70:                                               ; preds = %checkGuard.exit
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull @.str.193, ptr noundef %3, i64 noundef %.074)
@@ -6979,110 +6979,111 @@ agxbclear.exit.thread.i45:                        ; preds = %agxbputc.exit.i53, 
 agxbuse.exit58:                                   ; preds = %agxbclear.exit.thread.i45, %91
   %93 = phi ptr [ %92, %91 ], [ %5, %agxbclear.exit.thread.i45 ]
   %94 = call fastcc ptr @compile(ptr noundef %0, ptr noundef %1, ptr noundef %71, i32 noundef %73, ptr noundef %93, ptr noundef null, i32 noundef 259)
-  %95 = getelementptr inbounds nuw %struct.case_stmt, ptr %13, i64 %.074, i32 1
-  store ptr %94, ptr %95, align 8, !tbaa !150
-  %96 = call i32 @getErrorErrors() #25
-  %.not38 = icmp eq i32 %96, 0
-  br i1 %.not38, label %97, label %.critedge
+  %95 = getelementptr inbounds nuw %struct.case_stmt, ptr %13, i64 %.074
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  store ptr %94, ptr %96, align 8, !tbaa !150
+  %97 = call i32 @getErrorErrors() #25
+  %.not38 = icmp eq i32 %97, 0
+  br i1 %.not38, label %98, label %.critedge
 
-97:                                               ; preds = %agxbuse.exit58
-  %98 = load ptr, ptr %95, align 8, !tbaa !150
-  %.not39 = icmp eq ptr %98, null
-  br i1 %.not39, label %99, label %122
+98:                                               ; preds = %agxbuse.exit58
+  %99 = load ptr, ptr %96, align 8, !tbaa !150
+  %.not39 = icmp eq ptr %99, null
+  br i1 %.not39, label %100, label %123
 
-99:                                               ; preds = %97
+100:                                              ; preds = %98
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr noundef nonnull @.str.194, ptr noundef %3, i64 noundef %.074)
-  %100 = load i32, ptr %72, align 8, !tbaa !149
+  %101 = load i32, ptr %72, align 8, !tbaa !149
   %.val.i59 = load i8, ptr %24, align 1, !tbaa !65
   switch i8 %.val.i59, label %agxblen.exit.i.i72 [
-    i8 -1, label %102
+    i8 -1, label %103
     i8 31, label %agxbclear.exit.thread.i60
   ]
 
-agxblen.exit.i.i72:                               ; preds = %99
-  %101 = zext i8 %.val.i59 to i64
+agxblen.exit.i.i72:                               ; preds = %100
+  %102 = zext i8 %.val.i59 to i64
   br label %agxbsizeof.exit.i.i61
 
-102:                                              ; preds = %99
-  %103 = load i64, ptr %25, align 8, !tbaa !65
-  %104 = load i64, ptr %26, align 8, !tbaa !65
+103:                                              ; preds = %100
+  %104 = load i64, ptr %25, align 8, !tbaa !65
+  %105 = load i64, ptr %26, align 8, !tbaa !65
   br label %agxbsizeof.exit.i.i61
 
-agxbsizeof.exit.i.i61:                            ; preds = %102, %agxblen.exit.i.i72
-  %.0.i20.i.i62 = phi i64 [ %103, %102 ], [ %101, %agxblen.exit.i.i72 ]
-  %.0.i14.i.i63 = phi i64 [ %104, %102 ], [ 31, %agxblen.exit.i.i72 ]
+agxbsizeof.exit.i.i61:                            ; preds = %103, %agxblen.exit.i.i72
+  %.0.i20.i.i62 = phi i64 [ %104, %103 ], [ %102, %agxblen.exit.i.i72 ]
+  %.0.i14.i.i63 = phi i64 [ %105, %103 ], [ 31, %agxblen.exit.i.i72 ]
   %.not.i5.i64 = icmp ult i64 %.0.i20.i.i62, %.0.i14.i.i63
-  br i1 %.not.i5.i64, label %106, label %105
+  br i1 %.not.i5.i64, label %107, label %106
 
-105:                                              ; preds = %agxbsizeof.exit.i.i61
+106:                                              ; preds = %agxbsizeof.exit.i.i61
   call fastcc void @agxbmore(ptr noundef nonnull %5, i64 noundef 1)
   %.val.i15.pre.i.i65 = load i8, ptr %24, align 1, !tbaa !65
-  br label %106
+  br label %107
 
-106:                                              ; preds = %105, %agxbsizeof.exit.i.i61
-  %.val.i15.i.i66 = phi i8 [ %.val.i15.pre.i.i65, %105 ], [ %.val.i59, %agxbsizeof.exit.i.i61 ]
+107:                                              ; preds = %106, %agxbsizeof.exit.i.i61
+  %.val.i15.i.i66 = phi i8 [ %.val.i15.pre.i.i65, %106 ], [ %.val.i59, %agxbsizeof.exit.i.i61 ]
   %.not.i16.i.i67 = icmp eq i8 %.val.i15.i.i66, -1
-  br i1 %.not.i16.i.i67, label %112, label %107
+  br i1 %.not.i16.i.i67, label %113, label %108
 
-107:                                              ; preds = %106
-  %108 = zext i8 %.val.i15.i.i66 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %5, i64 %108
-  store i8 0, ptr %109, align 1, !tbaa !65
-  %110 = load i8, ptr %24, align 1, !tbaa !65
-  %111 = add i8 %110, 1
-  store i8 %111, ptr %24, align 1, !tbaa !65
+108:                                              ; preds = %107
+  %109 = zext i8 %.val.i15.i.i66 to i64
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 %109
+  store i8 0, ptr %110, align 1, !tbaa !65
+  %111 = load i8, ptr %24, align 1, !tbaa !65
+  %112 = add i8 %111, 1
+  store i8 %112, ptr %24, align 1, !tbaa !65
   br label %agxbputc.exit.i68
 
-112:                                              ; preds = %106
-  %113 = load i64, ptr %25, align 8, !tbaa !65
-  %114 = load ptr, ptr %5, align 8, !tbaa !65
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 %113
-  store i8 0, ptr %115, align 1, !tbaa !65
-  %116 = load i64, ptr %25, align 8, !tbaa !65
-  %117 = add i64 %116, 1
-  store i64 %117, ptr %25, align 8, !tbaa !65
+113:                                              ; preds = %107
+  %114 = load i64, ptr %25, align 8, !tbaa !65
+  %115 = load ptr, ptr %5, align 8, !tbaa !65
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %114
+  store i8 0, ptr %116, align 1, !tbaa !65
+  %117 = load i64, ptr %25, align 8, !tbaa !65
+  %118 = add i64 %117, 1
+  store i64 %118, ptr %25, align 8, !tbaa !65
   %.val.i6.pr.i71 = load i8, ptr %24, align 1, !tbaa !65
   br label %agxbputc.exit.i68
 
-agxbputc.exit.i68:                                ; preds = %112, %107
-  %.val.i8.pr.i69 = phi i8 [ %.val.i6.pr.i71, %112 ], [ %111, %107 ]
+agxbputc.exit.i68:                                ; preds = %113, %108
+  %.val.i8.pr.i69 = phi i8 [ %.val.i6.pr.i71, %113 ], [ %112, %108 ]
   %.not.i7.i70 = icmp eq i8 %.val.i8.pr.i69, -1
-  br i1 %.not.i7.i70, label %118, label %agxbclear.exit.thread.i60
+  br i1 %.not.i7.i70, label %119, label %agxbclear.exit.thread.i60
 
-agxbclear.exit.thread.i60:                        ; preds = %agxbputc.exit.i68, %99
+agxbclear.exit.thread.i60:                        ; preds = %agxbputc.exit.i68, %100
   store i8 0, ptr %24, align 1, !tbaa !65
   br label %agxbuse.exit73
 
-118:                                              ; preds = %agxbputc.exit.i68
+119:                                              ; preds = %agxbputc.exit.i68
   store i64 0, ptr %25, align 8, !tbaa !65
-  %119 = load ptr, ptr %5, align 8, !tbaa !65
+  %120 = load ptr, ptr %5, align 8, !tbaa !65
   br label %agxbuse.exit73
 
-agxbuse.exit73:                                   ; preds = %agxbclear.exit.thread.i60, %118
-  %120 = phi ptr [ %119, %118 ], [ %5, %agxbclear.exit.thread.i60 ]
-  %121 = call fastcc ptr @compile(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.195, i32 noundef %100, ptr noundef %120, ptr noundef null, i32 noundef 259)
-  store ptr %121, ptr %95, align 8, !tbaa !150
-  br label %122
+agxbuse.exit73:                                   ; preds = %agxbclear.exit.thread.i60, %119
+  %121 = phi ptr [ %120, %119 ], [ %5, %agxbclear.exit.thread.i60 ]
+  %122 = call fastcc ptr @compile(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.195, i32 noundef %101, ptr noundef %121, ptr noundef null, i32 noundef 259)
+  store ptr %122, ptr %96, align 8, !tbaa !150
+  br label %123
 
-122:                                              ; preds = %97, %agxbuse.exit73, %checkGuard.exit
-  %123 = add nuw i64 %.074, 1
-  %exitcond.not = icmp eq i64 %123, %.val42
+123:                                              ; preds = %98, %agxbuse.exit73, %checkGuard.exit
+  %124 = add nuw i64 %.074, 1
+  %exitcond.not = icmp eq i64 %124, %.val42
   br i1 %exitcond.not, label %.critedge, label %27, !llvm.loop !151
 
-.critedge:                                        ; preds = %122, %agxbuse.exit58, %agxbuse.exit
+.critedge:                                        ; preds = %123, %agxbuse.exit58, %agxbuse.exit
   %.val40.pre = load i8, ptr %24, align 1, !tbaa !65
-  %124 = icmp eq i8 %.val40.pre, -1
-  br i1 %124, label %125, label %agxbfree.exit
+  %125 = icmp eq i8 %.val40.pre, -1
+  br i1 %125, label %126, label %agxbfree.exit
 
-125:                                              ; preds = %.critedge
+126:                                              ; preds = %.critedge
   %.val = load ptr, ptr %5, align 8
   call void @free(ptr noundef %.val) #25
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %.critedge.thread, %.critedge, %125
-  %126 = phi ptr [ %7, %.critedge.thread ], [ %13, %.critedge ], [ %13, %125 ]
+agxbfree.exit:                                    ; preds = %.critedge.thread, %.critedge, %126
+  %127 = phi ptr [ %7, %.critedge.thread ], [ %13, %.critedge ], [ %13, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %126
+  ret ptr %127
 }
 
 declare ptr @exnoncast(ptr noundef) local_unnamed_addr #2

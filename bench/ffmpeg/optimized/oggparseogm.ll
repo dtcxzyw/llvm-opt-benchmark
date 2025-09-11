@@ -64,7 +64,7 @@ bytestream2_peek_byte.exit:                       ; preds = %bytestream2_init.ex
 bytestream2_peek_byte.exit68:                     ; preds = %bytestream2_peek_byte.exit
   switch i8 %26, label %bytestream2_peek_byte.exit.thread [
     i8 1, label %28
-    i8 3, label %169
+    i8 3, label %170
   ]
 
 28:                                               ; preds = %bytestream2_peek_byte.exit68
@@ -105,12 +105,12 @@ bytestream2_get_le32.exit:                        ; preds = %32, %37
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 %.0.i83, ptr %44, align 8, !tbaa !48
   %45 = icmp eq i32 %41, 12
-  br i1 %45, label %46, label %68
+  br i1 %45, label %46, label %69
 
 46:                                               ; preds = %bytestream2_get_le32.exit
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 808
   store i32 2, ptr %47, align 8, !tbaa !49
-  br label %68
+  br label %69
 
 48:                                               ; preds = %bytestream2_peek_byte.exit70
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -120,7 +120,7 @@ bytestream2_get_le32.exit:                        ; preds = %32, %37
   store i32 94210, ptr %51, align 4, !tbaa !47
   %..i76 = tail call i64 @llvm.umin.i64(i64 %gepdiff, i64 12)
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 %..i76
-  br label %68
+  br label %69
 
 bytestream2_peek_byte.exit72.thread:              ; preds = %bytestream2_peek_byte.exit70, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -128,249 +128,249 @@ bytestream2_peek_byte.exit72.thread:              ; preds = %bytestream2_peek_by
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !37
   store i32 1, ptr %54, align 8, !tbaa !44
-  %..i77 = tail call i64 @llvm.smin.i64(i64 %gepdiff, i64 8)
-  %55 = getelementptr inbounds i8, ptr %29, i64 %..i77
-  %.neg = xor i64 %..i77, -1
+  %55 = tail call i64 @llvm.umin.i64(i64 %gepdiff, i64 8)
+  %56 = getelementptr inbounds nuw i8, ptr %29, i64 %55
+  %.neg = xor i64 %55, -1
   %gepdiff188 = add nsw i64 %.neg, %22
-  %56 = tail call i64 @llvm.smin.i64(i64 %gepdiff188, i64 4)
-  %57 = and i64 %56, 4294967295
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3, ptr nonnull align 1 %55, i64 %57, i1 false)
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %57
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 0, ptr %59, align 4, !tbaa !36
-  %60 = call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 16) #8
-  %61 = trunc i64 %60 to i32
-  %62 = tail call i32 @ff_codec_get_id(ptr noundef nonnull @ff_codec_wav_tags, i32 noundef %61) #8
-  %63 = load ptr, ptr %53, align 8, !tbaa !37
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  store i32 %62, ptr %64, align 4, !tbaa !47
-  %.not66 = icmp eq i32 %62, 86018
-  br i1 %.not66, label %67, label %65
+  %57 = tail call i64 @llvm.smin.i64(i64 %gepdiff188, i64 4)
+  %58 = and i64 %57, 4294967295
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3, ptr nonnull align 1 %56, i64 %58, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i8 0, ptr %60, align 4, !tbaa !36
+  %61 = call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 16) #8
+  %62 = trunc i64 %61 to i32
+  %63 = tail call i32 @ff_codec_get_id(ptr noundef nonnull @ff_codec_wav_tags, i32 noundef %62) #8
+  %64 = load ptr, ptr %53, align 8, !tbaa !37
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  store i32 %63, ptr %65, align 4, !tbaa !47
+  %.not66 = icmp eq i32 %63, 86018
+  br i1 %.not66, label %68, label %66
 
-65:                                               ; preds = %bytestream2_peek_byte.exit72.thread
-  %66 = getelementptr inbounds nuw i8, ptr %12, i64 808
-  store i32 1, ptr %66, align 8, !tbaa !49
-  br label %67
-
-67:                                               ; preds = %65, %bytestream2_peek_byte.exit72.thread
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+66:                                               ; preds = %bytestream2_peek_byte.exit72.thread
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 808
+  store i32 1, ptr %67, align 8, !tbaa !49
   br label %68
 
-68:                                               ; preds = %bytestream2_get_le32.exit, %46, %48, %67
-  %69 = phi ptr [ %42, %46 ], [ %42, %bytestream2_get_le32.exit ], [ %50, %48 ], [ %63, %67 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %46 ], [ %.sroa.0.2, %bytestream2_get_le32.exit ], [ %52, %48 ], [ %58, %67 ]
-  %70 = ptrtoint ptr %.sroa.0.0 to i64
-  %71 = sub i64 %24, %70
-  %72 = icmp slt i64 %71, 4
-  br i1 %72, label %bytestream2_get_le32.exit85, label %73
+68:                                               ; preds = %66, %bytestream2_peek_byte.exit72.thread
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %69
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 4
-  %75 = load i32, ptr %.sroa.0.0, align 1, !tbaa !36
-  %.pre = ptrtoint ptr %74 to i64
+69:                                               ; preds = %bytestream2_get_le32.exit, %46, %48, %68
+  %70 = phi ptr [ %42, %46 ], [ %42, %bytestream2_get_le32.exit ], [ %50, %48 ], [ %64, %68 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %46 ], [ %.sroa.0.2, %bytestream2_get_le32.exit ], [ %52, %48 ], [ %59, %68 ]
+  %71 = ptrtoint ptr %.sroa.0.0 to i64
+  %72 = sub i64 %24, %71
+  %73 = icmp slt i64 %72, 4
+  br i1 %73, label %bytestream2_get_le32.exit85, label %74
+
+74:                                               ; preds = %69
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 4
+  %76 = load i32, ptr %.sroa.0.0, align 1, !tbaa !36
+  %.pre = ptrtoint ptr %75 to i64
   br label %bytestream2_get_le32.exit85
 
-bytestream2_get_le32.exit85:                      ; preds = %68, %73
-  %.pre-phi = phi i64 [ %24, %68 ], [ %.pre, %73 ]
-  %.sroa.0.3 = phi ptr [ %23, %68 ], [ %74, %73 ]
-  %.0.i84 = phi i32 [ 0, %68 ], [ %75, %73 ]
-  %76 = load i32, ptr %18, align 4, !tbaa !35
-  %. = tail call i32 @llvm.umin.i32(i32 %.0.i84, i32 %76)
-  %77 = sub i64 %24, %.pre-phi
-  %78 = icmp slt i64 %77, 8
-  br i1 %78, label %bytestream2_get_le64.exit, label %79
+bytestream2_get_le32.exit85:                      ; preds = %69, %74
+  %.pre-phi = phi i64 [ %24, %69 ], [ %.pre, %74 ]
+  %.sroa.0.3 = phi ptr [ %23, %69 ], [ %75, %74 ]
+  %.0.i84 = phi i32 [ 0, %69 ], [ %76, %74 ]
+  %77 = load i32, ptr %18, align 4, !tbaa !35
+  %. = tail call i32 @llvm.umin.i32(i32 %.0.i84, i32 %77)
+  %78 = sub i64 %24, %.pre-phi
+  %79 = icmp slt i64 %78, 8
+  br i1 %79, label %bytestream2_get_le64.exit, label %80
 
-79:                                               ; preds = %bytestream2_get_le32.exit85
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.3, i64 8
-  %81 = load i64, ptr %.sroa.0.3, align 1, !tbaa !36
-  %.pre189 = ptrtoint ptr %80 to i64
+80:                                               ; preds = %bytestream2_get_le32.exit85
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.3, i64 8
+  %82 = load i64, ptr %.sroa.0.3, align 1, !tbaa !36
+  %.pre189 = ptrtoint ptr %81 to i64
   br label %bytestream2_get_le64.exit
 
-bytestream2_get_le64.exit:                        ; preds = %bytestream2_get_le32.exit85, %79
-  %.pre-phi190 = phi i64 [ %24, %bytestream2_get_le32.exit85 ], [ %.pre189, %79 ]
-  %.sroa.0.6 = phi ptr [ %23, %bytestream2_get_le32.exit85 ], [ %80, %79 ]
-  %.0.i92 = phi i64 [ 0, %bytestream2_get_le32.exit85 ], [ %81, %79 ]
-  %82 = sub i64 %24, %.pre-phi190
-  %83 = icmp slt i64 %82, 8
-  br i1 %83, label %bytestream2_get_le64.exit94.thread, label %bytestream2_get_le64.exit94
+bytestream2_get_le64.exit:                        ; preds = %bytestream2_get_le32.exit85, %80
+  %.pre-phi190 = phi i64 [ %24, %bytestream2_get_le32.exit85 ], [ %.pre189, %80 ]
+  %.sroa.0.6 = phi ptr [ %23, %bytestream2_get_le32.exit85 ], [ %81, %80 ]
+  %.0.i92 = phi i64 [ 0, %bytestream2_get_le32.exit85 ], [ %82, %80 ]
+  %83 = sub i64 %24, %.pre-phi190
+  %84 = icmp slt i64 %83, 8
+  br i1 %84, label %bytestream2_get_le64.exit94.thread, label %bytestream2_get_le64.exit94
 
 bytestream2_get_le64.exit94:                      ; preds = %bytestream2_get_le64.exit
-  %84 = load i64, ptr %.sroa.0.6, align 1, !tbaa !36
-  %85 = icmp ne i64 %.0.i92, 0
-  %86 = icmp ne i64 %84, 0
-  %or.cond = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond, label %87, label %bytestream2_get_le64.exit94.thread
+  %85 = load i64, ptr %.sroa.0.6, align 1, !tbaa !36
+  %86 = icmp ne i64 %.0.i92, 0
+  %87 = icmp ne i64 %85, 0
+  %or.cond = select i1 %86, i1 %87, i1 false
+  br i1 %or.cond, label %88, label %bytestream2_get_le64.exit94.thread
 
 bytestream2_get_le64.exit94.thread:               ; preds = %bytestream2_get_le64.exit, %bytestream2_get_le64.exit94
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.4) #8
   br label %bytestream2_peek_byte.exit.thread
 
-87:                                               ; preds = %bytestream2_get_le64.exit94
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  %89 = ptrtoint ptr %88 to i64
-  %90 = sub i64 %24, %89
-  %..i78 = tail call i64 @llvm.smin.i64(i64 %90, i64 4)
-  %91 = getelementptr inbounds i8, ptr %88, i64 %..i78
-  %92 = ptrtoint ptr %91 to i64
-  %93 = sub i64 %24, %92
-  %..i79 = tail call i64 @llvm.smin.i64(i64 %93, i64 8)
-  %94 = getelementptr inbounds i8, ptr %91, i64 %..i79
-  %95 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %96 = load i32, ptr %69, align 8, !tbaa !44
-  %97 = icmp eq i32 %96, 0
-  %98 = ptrtoint ptr %94 to i64
-  %99 = sub i64 %24, %98
-  br i1 %97, label %100, label %114
+88:                                               ; preds = %bytestream2_get_le64.exit94
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
+  %90 = ptrtoint ptr %89 to i64
+  %91 = sub i64 %24, %90
+  %..i78 = tail call i64 @llvm.smin.i64(i64 %91, i64 4)
+  %92 = getelementptr inbounds i8, ptr %89, i64 %..i78
+  %93 = ptrtoint ptr %92 to i64
+  %94 = sub i64 %24, %93
+  %..i79 = tail call i64 @llvm.smin.i64(i64 %94, i64 8)
+  %95 = getelementptr inbounds i8, ptr %92, i64 %..i79
+  %96 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %97 = load i32, ptr %70, align 8, !tbaa !44
+  %98 = icmp eq i32 %97, 0
+  %99 = ptrtoint ptr %95 to i64
+  %100 = sub i64 %24, %99
+  br i1 %98, label %101, label %115
 
-100:                                              ; preds = %87
-  %101 = icmp slt i64 %99, 4
-  br i1 %101, label %bytestream2_get_le32.exit87, label %102
+101:                                              ; preds = %88
+  %102 = icmp slt i64 %100, 4
+  br i1 %102, label %bytestream2_get_le32.exit87, label %103
 
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %104 = load i32, ptr %94, align 1, !tbaa !36
-  %.pre191 = ptrtoint ptr %103 to i64
+103:                                              ; preds = %101
+  %104 = getelementptr inbounds nuw i8, ptr %95, i64 4
+  %105 = load i32, ptr %95, align 1, !tbaa !36
+  %.pre191 = ptrtoint ptr %104 to i64
   br label %bytestream2_get_le32.exit87
 
-bytestream2_get_le32.exit87:                      ; preds = %100, %102
-  %.pre-phi192 = phi i64 [ %24, %100 ], [ %.pre191, %102 ]
-  %.sroa.0.4 = phi ptr [ %23, %100 ], [ %103, %102 ]
-  %.0.i86 = phi i32 [ 0, %100 ], [ %104, %102 ]
-  %105 = getelementptr inbounds nuw i8, ptr %69, i64 72
-  store i32 %.0.i86, ptr %105, align 8, !tbaa !62
-  %106 = sub i64 %24, %.pre-phi192
-  %107 = icmp slt i64 %106, 4
-  br i1 %107, label %bytestream2_get_le32.exit89, label %108
+bytestream2_get_le32.exit87:                      ; preds = %101, %103
+  %.pre-phi192 = phi i64 [ %24, %101 ], [ %.pre191, %103 ]
+  %.sroa.0.4 = phi ptr [ %23, %101 ], [ %104, %103 ]
+  %.0.i86 = phi i32 [ 0, %101 ], [ %105, %103 ]
+  %106 = getelementptr inbounds nuw i8, ptr %70, i64 72
+  store i32 %.0.i86, ptr %106, align 8, !tbaa !62
+  %107 = sub i64 %24, %.pre-phi192
+  %108 = icmp slt i64 %107, 4
+  br i1 %108, label %bytestream2_get_le32.exit89, label %109
 
-108:                                              ; preds = %bytestream2_get_le32.exit87
-  %109 = load i32, ptr %.sroa.0.4, align 1, !tbaa !36
+109:                                              ; preds = %bytestream2_get_le32.exit87
+  %110 = load i32, ptr %.sroa.0.4, align 1, !tbaa !36
   br label %bytestream2_get_le32.exit89
 
-bytestream2_get_le32.exit89:                      ; preds = %bytestream2_get_le32.exit87, %108
-  %.0.i88 = phi i32 [ %109, %108 ], [ 0, %bytestream2_get_le32.exit87 ]
-  %110 = getelementptr inbounds nuw i8, ptr %69, i64 76
-  store i32 %.0.i88, ptr %110, align 4, !tbaa !63
-  %111 = trunc i64 %.0.i92 to i32
-  %112 = trunc i64 %84 to i32
-  %113 = mul i32 %112, 10000000
-  tail call void @avpriv_set_pts_info(ptr noundef nonnull %12, i32 noundef 64, i32 noundef %111, i32 noundef %113) #8
-  br label %167
+bytestream2_get_le32.exit89:                      ; preds = %bytestream2_get_le32.exit87, %109
+  %.0.i88 = phi i32 [ %110, %109 ], [ 0, %bytestream2_get_le32.exit87 ]
+  %111 = getelementptr inbounds nuw i8, ptr %70, i64 76
+  store i32 %.0.i88, ptr %111, align 4, !tbaa !63
+  %112 = trunc i64 %.0.i92 to i32
+  %113 = trunc i64 %85 to i32
+  %114 = mul i32 %113, 10000000
+  tail call void @avpriv_set_pts_info(ptr noundef nonnull %12, i32 noundef 64, i32 noundef %112, i32 noundef %114) #8
+  br label %168
 
-114:                                              ; preds = %87
-  %115 = icmp slt i64 %99, 2
-  br i1 %115, label %bytestream2_get_le16.exit, label %116
+115:                                              ; preds = %88
+  %116 = icmp slt i64 %100, 2
+  br i1 %116, label %bytestream2_get_le16.exit, label %117
 
-116:                                              ; preds = %114
-  %117 = getelementptr inbounds nuw i8, ptr %94, i64 2
-  %118 = load i16, ptr %94, align 1, !tbaa !36
-  %119 = zext i16 %118 to i32
-  %.pre193 = ptrtoint ptr %117 to i64
+117:                                              ; preds = %115
+  %118 = getelementptr inbounds nuw i8, ptr %95, i64 2
+  %119 = load i16, ptr %95, align 1, !tbaa !36
+  %120 = zext i16 %119 to i32
+  %.pre193 = ptrtoint ptr %118 to i64
   br label %bytestream2_get_le16.exit
 
-bytestream2_get_le16.exit:                        ; preds = %114, %116
-  %.pre-phi194 = phi i64 [ %24, %114 ], [ %.pre193, %116 ]
-  %.sroa.0.8 = phi ptr [ %23, %114 ], [ %117, %116 ]
-  %.0.i95 = phi i32 [ 0, %114 ], [ %119, %116 ]
-  %120 = getelementptr inbounds nuw i8, ptr %69, i64 132
-  store i32 %.0.i95, ptr %120, align 4, !tbaa !64
-  %121 = sub i64 %24, %.pre-phi194
-  %..i80 = tail call i64 @llvm.smin.i64(i64 %121, i64 2)
-  %122 = getelementptr inbounds i8, ptr %.sroa.0.8, i64 %..i80
-  %123 = ptrtoint ptr %122 to i64
-  %124 = sub i64 %24, %123
-  %125 = icmp slt i64 %124, 4
-  br i1 %125, label %bytestream2_get_le32.exit91, label %126
+bytestream2_get_le16.exit:                        ; preds = %115, %117
+  %.pre-phi194 = phi i64 [ %24, %115 ], [ %.pre193, %117 ]
+  %.sroa.0.8 = phi ptr [ %23, %115 ], [ %118, %117 ]
+  %.0.i95 = phi i32 [ 0, %115 ], [ %120, %117 ]
+  %121 = getelementptr inbounds nuw i8, ptr %70, i64 132
+  store i32 %.0.i95, ptr %121, align 4, !tbaa !64
+  %122 = sub i64 %24, %.pre-phi194
+  %..i80 = tail call i64 @llvm.smin.i64(i64 %122, i64 2)
+  %123 = getelementptr inbounds i8, ptr %.sroa.0.8, i64 %..i80
+  %124 = ptrtoint ptr %123 to i64
+  %125 = sub i64 %24, %124
+  %126 = icmp slt i64 %125, 4
+  br i1 %126, label %bytestream2_get_le32.exit91, label %127
 
-126:                                              ; preds = %bytestream2_get_le16.exit
-  %127 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  %128 = load i32, ptr %122, align 1, !tbaa !36
-  %129 = shl i32 %128, 3
-  %130 = zext i32 %129 to i64
+127:                                              ; preds = %bytestream2_get_le16.exit
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  %129 = load i32, ptr %123, align 1, !tbaa !36
+  %130 = shl i32 %129, 3
+  %131 = zext i32 %130 to i64
   br label %bytestream2_get_le32.exit91
 
-bytestream2_get_le32.exit91:                      ; preds = %bytestream2_get_le16.exit, %126
-  %.sroa.0.5 = phi ptr [ %127, %126 ], [ %23, %bytestream2_get_le16.exit ]
-  %.0.i90 = phi i64 [ %130, %126 ], [ 0, %bytestream2_get_le16.exit ]
-  %131 = getelementptr inbounds nuw i8, ptr %69, i64 48
-  store i64 %.0.i90, ptr %131, align 8, !tbaa !65
-  %132 = mul i64 %84, 10000000
-  %133 = udiv i64 %132, %.0.i92
-  %134 = trunc i64 %133 to i32
-  %135 = getelementptr inbounds nuw i8, ptr %69, i64 152
-  store i32 %134, ptr %135, align 8, !tbaa !66
-  tail call void @avpriv_set_pts_info(ptr noundef nonnull %12, i32 noundef 64, i32 noundef 1, i32 noundef %134) #8
-  %136 = icmp ugt i32 %., 55
-  br i1 %136, label %137, label %147
+bytestream2_get_le32.exit91:                      ; preds = %bytestream2_get_le16.exit, %127
+  %.sroa.0.5 = phi ptr [ %128, %127 ], [ %23, %bytestream2_get_le16.exit ]
+  %.0.i90 = phi i64 [ %131, %127 ], [ 0, %bytestream2_get_le16.exit ]
+  %132 = getelementptr inbounds nuw i8, ptr %70, i64 48
+  store i64 %.0.i90, ptr %132, align 8, !tbaa !65
+  %133 = mul i64 %85, 10000000
+  %134 = udiv i64 %133, %.0.i92
+  %135 = trunc i64 %134 to i32
+  %136 = getelementptr inbounds nuw i8, ptr %70, i64 152
+  store i32 %135, ptr %136, align 8, !tbaa !66
+  tail call void @avpriv_set_pts_info(ptr noundef nonnull %12, i32 noundef 64, i32 noundef 1, i32 noundef %135) #8
+  %137 = icmp ugt i32 %., 55
+  br i1 %137, label %138, label %148
 
-137:                                              ; preds = %bytestream2_get_le32.exit91
-  %138 = load ptr, ptr %95, align 8, !tbaa !37
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %140 = load i32, ptr %139, align 4, !tbaa !47
-  %141 = icmp eq i32 %140, 86018
-  br i1 %141, label %142, label %.thread182
+138:                                              ; preds = %bytestream2_get_le32.exit91
+  %139 = load ptr, ptr %96, align 8, !tbaa !37
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  %141 = load i32, ptr %140, align 4, !tbaa !47
+  %142 = icmp eq i32 %141, 86018
+  br i1 %142, label %143, label %.thread182
 
-142:                                              ; preds = %137
-  %143 = ptrtoint ptr %.sroa.0.5 to i64
-  %144 = sub i64 %24, %143
-  %..i81 = tail call i64 @llvm.smin.i64(i64 %144, i64 4)
-  %145 = getelementptr inbounds i8, ptr %.sroa.0.5, i64 %..i81
-  %146 = add i32 %., -4
-  br label %147
+143:                                              ; preds = %138
+  %144 = ptrtoint ptr %.sroa.0.5 to i64
+  %145 = sub i64 %24, %144
+  %..i81 = tail call i64 @llvm.smin.i64(i64 %145, i64 4)
+  %146 = getelementptr inbounds i8, ptr %.sroa.0.5, i64 %..i81
+  %147 = add i32 %., -4
+  br label %148
 
-147:                                              ; preds = %142, %bytestream2_get_le32.exit91
-  %.sroa.0.1 = phi ptr [ %145, %142 ], [ %.sroa.0.5, %bytestream2_get_le32.exit91 ]
-  %.058 = phi i32 [ %146, %142 ], [ %., %bytestream2_get_le32.exit91 ]
-  %148 = icmp ugt i32 %.058, 52
-  br i1 %148, label %.thread182, label %167
+148:                                              ; preds = %143, %bytestream2_get_le32.exit91
+  %.sroa.0.1 = phi ptr [ %146, %143 ], [ %.sroa.0.5, %bytestream2_get_le32.exit91 ]
+  %.058 = phi i32 [ %147, %143 ], [ %., %bytestream2_get_le32.exit91 ]
+  %149 = icmp ugt i32 %.058, 52
+  br i1 %149, label %.thread182, label %168
 
-.thread182:                                       ; preds = %137, %147
-  %.058186 = phi i32 [ %.058, %147 ], [ %., %137 ]
-  %.sroa.0.1185 = phi ptr [ %.sroa.0.1, %147 ], [ %.sroa.0.5, %137 ]
-  %149 = add i32 %.058186, -52
-  %150 = ptrtoint ptr %.sroa.0.1185 to i64
-  %151 = sub i64 %24, %150
-  %152 = trunc i64 %151 to i32
-  %153 = icmp ugt i32 %149, %152
-  br i1 %153, label %bytestream2_peek_byte.exit.thread, label %154
+.thread182:                                       ; preds = %138, %148
+  %.058186 = phi i32 [ %.058, %148 ], [ %., %138 ]
+  %.sroa.0.1185 = phi ptr [ %.sroa.0.1, %148 ], [ %.sroa.0.5, %138 ]
+  %150 = add i32 %.058186, -52
+  %151 = ptrtoint ptr %.sroa.0.1185 to i64
+  %152 = sub i64 %24, %151
+  %153 = trunc i64 %152 to i32
+  %154 = icmp ugt i32 %150, %153
+  br i1 %154, label %bytestream2_peek_byte.exit.thread, label %155
 
-154:                                              ; preds = %.thread182
-  %155 = load ptr, ptr %95, align 8, !tbaa !37
-  %156 = tail call i32 @ff_alloc_extradata(ptr noundef %155, i32 noundef %149) #8
-  %157 = icmp slt i32 %156, 0
-  br i1 %157, label %bytestream2_peek_byte.exit.thread, label %158
+155:                                              ; preds = %.thread182
+  %156 = load ptr, ptr %96, align 8, !tbaa !37
+  %157 = tail call i32 @ff_alloc_extradata(ptr noundef %156, i32 noundef %150) #8
+  %158 = icmp slt i32 %157, 0
+  br i1 %158, label %bytestream2_peek_byte.exit.thread, label %159
 
-158:                                              ; preds = %154
-  %159 = load ptr, ptr %95, align 8, !tbaa !37
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  %161 = load ptr, ptr %160, align 8, !tbaa !67
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 24
-  %163 = load i32, ptr %162, align 8, !tbaa !68
-  %164 = zext i32 %163 to i64
-  %165 = tail call i64 @llvm.smin.i64(i64 %151, i64 %164)
-  %166 = and i64 %165, 4294967295
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %161, ptr align 1 %.sroa.0.1185, i64 %166, i1 false)
-  br label %167
+159:                                              ; preds = %155
+  %160 = load ptr, ptr %96, align 8, !tbaa !37
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
+  %162 = load ptr, ptr %161, align 8, !tbaa !67
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 24
+  %164 = load i32, ptr %163, align 8, !tbaa !68
+  %165 = zext i32 %164 to i64
+  %166 = tail call i64 @llvm.smin.i64(i64 %152, i64 %165)
+  %167 = and i64 %166, 4294967295
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %162, ptr align 1 %.sroa.0.1185, i64 %167, i1 false)
+  br label %168
 
-167:                                              ; preds = %147, %158, %bytestream2_get_le32.exit89
-  %168 = getelementptr inbounds nuw i8, ptr %12, i64 280
-  store i32 1, ptr %168, align 8, !tbaa !69
+168:                                              ; preds = %148, %159, %bytestream2_get_le32.exit89
+  %169 = getelementptr inbounds nuw i8, ptr %12, i64 280
+  store i32 1, ptr %169, align 8, !tbaa !69
   br label %bytestream2_peek_byte.exit.thread
 
-169:                                              ; preds = %bytestream2_peek_byte.exit68
+170:                                              ; preds = %bytestream2_peek_byte.exit68
   %..i82 = tail call i64 @llvm.umin.i64(i64 %22, i64 7)
-  %170 = trunc nuw nsw i64 %..i82 to i32
-  %171 = sub nsw i32 %19, %170
-  %172 = icmp sgt i32 %171, 1
-  br i1 %172, label %173, label %bytestream2_peek_byte.exit.thread
+  %171 = trunc nuw nsw i64 %..i82 to i32
+  %172 = sub nsw i32 %19, %171
+  %173 = icmp sgt i32 %172, 1
+  br i1 %173, label %174, label %bytestream2_peek_byte.exit.thread
 
-173:                                              ; preds = %169
-  %174 = getelementptr inbounds nuw i8, ptr %17, i64 %..i82
-  %175 = add nsw i32 %171, -1
-  %176 = tail call i32 @ff_vorbis_stream_comment(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull %174, i32 noundef %175) #8
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds nuw i8, ptr %17, i64 %..i82
+  %176 = add nsw i32 %172, -1
+  %177 = tail call i32 @ff_vorbis_stream_comment(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull %175, i32 noundef %176) #8
   br label %bytestream2_peek_byte.exit.thread
 
-bytestream2_peek_byte.exit.thread:                ; preds = %bytestream2_peek_byte.exit68, %bytestream2_init.exit, %167, %169, %173, %154, %.thread182, %bytestream2_peek_byte.exit, %bytestream2_get_le64.exit94.thread
-  %.0 = phi i32 [ -1094995529, %bytestream2_get_le64.exit94.thread ], [ 0, %bytestream2_peek_byte.exit ], [ -1094995529, %.thread182 ], [ %156, %154 ], [ 1, %173 ], [ 1, %169 ], [ 1, %167 ], [ 0, %bytestream2_init.exit ], [ 1, %bytestream2_peek_byte.exit68 ]
+bytestream2_peek_byte.exit.thread:                ; preds = %bytestream2_peek_byte.exit68, %bytestream2_init.exit, %168, %170, %174, %155, %.thread182, %bytestream2_peek_byte.exit, %bytestream2_get_le64.exit94.thread
+  %.0 = phi i32 [ -1094995529, %bytestream2_get_le64.exit94.thread ], [ 0, %bytestream2_peek_byte.exit ], [ -1094995529, %.thread182 ], [ %157, %155 ], [ 1, %174 ], [ 1, %170 ], [ 1, %168 ], [ 0, %bytestream2_init.exit ], [ 1, %bytestream2_peek_byte.exit68 ]
   ret i32 %.0
 }
 

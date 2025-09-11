@@ -4060,7 +4060,7 @@ add_mem_num.exit:                                 ; preds = %532, %539
   %585 = sext i32 %583 to i64
   %586 = getelementptr %struct.UnsetAddr, ptr %584, i64 %585
   store i32 %564, ptr %586, align 8, !tbaa !201
-  %587 = getelementptr %struct.UnsetAddr, ptr %584, i64 %585, i32 1
+  %587 = getelementptr inbounds nuw i8, ptr %586, i64 8
   store ptr %568, ptr %587, align 8, !tbaa !203
   %588 = add i32 %583, 1
   store i32 %588, ptr %566, align 8, !tbaa !62
@@ -5923,30 +5923,30 @@ define internal fastcc range(i32 -11, 1) i32 @unset_addr_list_fix(ptr noundef no
 8:                                                ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %9 = load ptr, ptr %3, align 8, !tbaa !65
-  %10 = getelementptr %struct.UnsetAddr, ptr %9, i64 %indvars.iv, i32 1
-  %11 = load ptr, ptr %10, align 8, !tbaa !203
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !142
-  %14 = and i32 %13, 512
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %.critedge37, label %15
+  %10 = getelementptr %struct.UnsetAddr, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !203
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !142
+  %15 = and i32 %14, 512
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %.critedge37, label %16
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %17 = load i32, ptr %16, align 4, !tbaa !209
-  %18 = getelementptr %struct.UnsetAddr, ptr %9, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 8, !tbaa !201
+16:                                               ; preds = %8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %18 = load i32, ptr %17, align 4, !tbaa !209
+  %19 = load i32, ptr %10, align 8, !tbaa !201
   %20 = add i32 %19, 4
   %21 = load i32, ptr %6, align 4, !tbaa !37
   %22 = icmp ult i32 %21, %20
   br i1 %22, label %.preheader, label %._crit_edge
 
-._crit_edge:                                      ; preds = %15
+._crit_edge:                                      ; preds = %16
   %.pre = load ptr, ptr %1, align 8, !tbaa !17
   br label %31
 
-.preheader:                                       ; preds = %15, %.preheader
-  %23 = phi i32 [ %24, %.preheader ], [ %21, %15 ]
+.preheader:                                       ; preds = %16, %.preheader
+  %23 = phi i32 [ %24, %.preheader ], [ %21, %16 ]
   %24 = shl i32 %23, 1
   %25 = icmp ult i32 %24, %20
   br i1 %25, label %.preheader, label %26, !llvm.loop !212
@@ -5967,7 +5967,7 @@ define internal fastcc range(i32 -11, 1) i32 @unset_addr_list_fix(ptr noundef no
   %32 = phi ptr [ %.pre, %._crit_edge ], [ %29, %30 ]
   %33 = sext i32 %19 to i64
   %34 = getelementptr i8, ptr %32, i64 %33
-  store i32 %17, ptr %34, align 1
+  store i32 %18, ptr %34, align 1
   %35 = load i32, ptr %7, align 8, !tbaa !115
   %36 = icmp ult i32 %35, %20
   br i1 %36, label %37, label %.critedge
@@ -10550,41 +10550,42 @@ add_char_opt_map_info.exit:                       ; preds = %5, %map_position_va
 37:                                               ; preds = %.lr.ph, %add_char_opt_map_info.exit23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %add_char_opt_map_info.exit23 ]
   %38 = load ptr, ptr %34, align 8, !tbaa !167
-  %39 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %6, i64 %indvars.iv, i32 2
-  %40 = load i32, ptr %39, align 4, !tbaa !7
-  %41 = call i32 %38(i32 noundef %40, ptr noundef nonnull %7, ptr noundef nonnull %3) #20
-  %42 = load i8, ptr %7, align 1, !tbaa !34
-  %43 = zext i8 %42 to i64
-  %44 = getelementptr i8, ptr %9, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !34
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %47, label %add_char_opt_map_info.exit23
+  %39 = getelementptr %struct.OnigCaseFoldCodeItem, ptr %6, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i32, ptr %40, align 4, !tbaa !7
+  %42 = call i32 %38(i32 noundef %41, ptr noundef nonnull %7, ptr noundef nonnull %3) #20
+  %43 = load i8, ptr %7, align 1, !tbaa !34
+  %44 = zext i8 %43 to i64
+  %45 = getelementptr i8, ptr %9, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !34
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %48, label %add_char_opt_map_info.exit23
 
-47:                                               ; preds = %37
-  store i8 1, ptr %44, align 1, !tbaa !34
-  %48 = icmp sgt i8 %42, -1
-  br i1 %48, label %49, label %map_position_value.exit.i21
+48:                                               ; preds = %37
+  store i8 1, ptr %45, align 1, !tbaa !34
+  %49 = icmp sgt i8 %43, -1
+  br i1 %49, label %50, label %map_position_value.exit.i21
 
-49:                                               ; preds = %47
-  %50 = icmp eq i8 %42, 0
-  br i1 %50, label %51, label %54
+50:                                               ; preds = %48
+  %51 = icmp eq i8 %43, 0
+  br i1 %51, label %52, label %55
 
-51:                                               ; preds = %49
-  %52 = load i32, ptr %35, align 4, !tbaa !160
-  %53 = icmp sgt i32 %52, 1
-  br i1 %53, label %map_position_value.exit.i21, label %54
+52:                                               ; preds = %50
+  %53 = load i32, ptr %35, align 4, !tbaa !160
+  %54 = icmp sgt i32 %53, 1
+  br i1 %54, label %map_position_value.exit.i21, label %55
 
-54:                                               ; preds = %51, %49
-  %55 = getelementptr i16, ptr @map_position_value.ByteValTable, i64 %43
-  %56 = load i16, ptr %55, align 2, !tbaa !98
-  %57 = sext i16 %56 to i32
+55:                                               ; preds = %52, %50
+  %56 = getelementptr i16, ptr @map_position_value.ByteValTable, i64 %44
+  %57 = load i16, ptr %56, align 2, !tbaa !98
+  %58 = sext i16 %57 to i32
   br label %map_position_value.exit.i21
 
-map_position_value.exit.i21:                      ; preds = %54, %51, %47
-  %.0.i.i22 = phi i32 [ %57, %54 ], [ 20, %51 ], [ 4, %47 ]
-  %58 = load i32, ptr %36, align 8, !tbaa !263
-  %59 = add i32 %58, %.0.i.i22
-  store i32 %59, ptr %36, align 8, !tbaa !263
+map_position_value.exit.i21:                      ; preds = %55, %52, %48
+  %.0.i.i22 = phi i32 [ %58, %55 ], [ 20, %52 ], [ 4, %48 ]
+  %59 = load i32, ptr %36, align 8, !tbaa !263
+  %60 = add i32 %59, %.0.i.i22
+  store i32 %60, ptr %36, align 8, !tbaa !263
   br label %add_char_opt_map_info.exit23
 
 add_char_opt_map_info.exit23:                     ; preds = %37, %map_position_value.exit.i21

@@ -21192,18 +21192,18 @@ _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13
 
 .lr.ph:                                           ; preds = %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit, %.lr.ph
   %.036 = phi i64 [ %51, %.lr.ph ], [ 0, %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit ]
-  %40 = getelementptr inbounds nuw %struct.SortingRecord, ptr %4, i64 %.036, i32 2
-  %41 = load i8, ptr %40, align 4, !tbaa !565
-  %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %3, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !69
-  %45 = getelementptr inbounds nuw %struct.SortingRecord, ptr %4, i64 %.036
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 28
+  %40 = getelementptr inbounds nuw %struct.SortingRecord, ptr %4, i64 %.036
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  %42 = load i8, ptr %41, align 4, !tbaa !565
+  %43 = zext i8 %42 to i64
+  %44 = getelementptr inbounds nuw ptr, ptr %3, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !69
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %47 = load i8, ptr %46, align 4, !tbaa !565
   %48 = zext i8 %47 to i64
   %49 = getelementptr inbounds nuw ptr, ptr %3, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !69
-  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %44, ptr noundef %50)
+  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %45, ptr noundef %50)
   %51 = add nuw nsw i64 %.036, 2
   %52 = icmp samesign ult i64 %51, %35
   br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !566
@@ -21290,18 +21290,18 @@ _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13
 
 .lr.ph:                                           ; preds = %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit, %.lr.ph
   %.036 = phi i64 [ %51, %.lr.ph ], [ 0, %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit ]
-  %40 = getelementptr inbounds nuw %struct.SortingRecord.329, ptr %4, i64 %.036, i32 2
-  %41 = load i8, ptr %40, align 4, !tbaa !570
-  %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %3, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !69
-  %45 = getelementptr inbounds nuw %struct.SortingRecord.329, ptr %4, i64 %.036
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 28
+  %40 = getelementptr inbounds nuw %struct.SortingRecord.329, ptr %4, i64 %.036
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  %42 = load i8, ptr %41, align 4, !tbaa !570
+  %43 = zext i8 %42 to i64
+  %44 = getelementptr inbounds nuw ptr, ptr %3, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !69
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %47 = load i8, ptr %46, align 4, !tbaa !570
   %48 = zext i8 %47 to i64
   %49 = getelementptr inbounds nuw ptr, ptr %3, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !69
-  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %44, ptr noundef %50)
+  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %45, ptr noundef %50)
   %51 = add nuw nsw i64 %.036, 2
   %52 = icmp samesign ult i64 %51, %35
   br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !571
@@ -25563,18 +25563,18 @@ _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13
 
 .lr.ph:                                           ; preds = %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit, %.lr.ph
   %.03548 = phi i64 [ %53, %.lr.ph ], [ 0, %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit ]
-  %42 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %5, i64 %.03548, i32 2
-  %43 = load i8, ptr %42, align 4, !tbaa !623
-  %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %4, i64 %44
-  %46 = load ptr, ptr %45, align 8, !tbaa !69
-  %47 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %5, i64 %.03548
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
+  %42 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %5, i64 %.03548
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
+  %44 = load i8, ptr %43, align 4, !tbaa !623
+  %45 = zext i8 %44 to i64
+  %46 = getelementptr inbounds nuw ptr, ptr %4, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !69
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %49 = load i8, ptr %48, align 4, !tbaa !623
   %50 = zext i8 %49 to i64
   %51 = getelementptr inbounds nuw ptr, ptr %4, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !69
-  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %46, ptr noundef %52)
+  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %47, ptr noundef %52)
   %53 = add nuw nsw i64 %.03548, 2
   %54 = icmp samesign ult i64 %53, %37
   br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !624
@@ -25591,18 +25591,18 @@ _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13
 
 57:                                               ; preds = %.thread, %57
   %.047 = phi i64 [ 0, %.thread ], [ %69, %57 ]
-  %58 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %5, i64 %.047, i32 2
-  %59 = load i8, ptr %58, align 4, !tbaa !623
-  %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %4, i64 %60
-  %62 = load ptr, ptr %61, align 8, !tbaa !69
-  %63 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %5, i64 %.047
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 28
+  %58 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %5, i64 %.047
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %60 = load i8, ptr %59, align 4, !tbaa !623
+  %61 = zext i8 %60 to i64
+  %62 = getelementptr inbounds nuw ptr, ptr %4, i64 %61
+  %63 = load ptr, ptr %62, align 8, !tbaa !69
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %65 = load i8, ptr %64, align 4, !tbaa !623
   %66 = zext i8 %65 to i64
   %67 = getelementptr inbounds nuw ptr, ptr %4, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !69
-  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %62, ptr noundef %68)
+  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %63, ptr noundef %68)
   %69 = add nuw nsw i64 %.047, 2
   %70 = icmp samesign ult i64 %.047, 4
   br i1 %70, label %57, label %.loopexit, !llvm.loop !625
@@ -25692,18 +25692,18 @@ _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13
 
 .lr.ph:                                           ; preds = %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit, %.lr.ph
   %.03548 = phi i64 [ %53, %.lr.ph ], [ 0, %_ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordEvT_S8_.exit ]
-  %42 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %5, i64 %.03548, i32 2
-  %43 = load i8, ptr %42, align 4, !tbaa !629
-  %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %4, i64 %44
-  %46 = load ptr, ptr %45, align 8, !tbaa !69
-  %47 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %5, i64 %.03548
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
+  %42 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %5, i64 %.03548
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
+  %44 = load i8, ptr %43, align 4, !tbaa !629
+  %45 = zext i8 %44 to i64
+  %46 = getelementptr inbounds nuw ptr, ptr %4, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !69
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %49 = load i8, ptr %48, align 4, !tbaa !629
   %50 = zext i8 %49 to i64
   %51 = getelementptr inbounds nuw ptr, ptr %4, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !69
-  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %46, ptr noundef %52)
+  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %47, ptr noundef %52)
   %53 = add nuw nsw i64 %.03548, 2
   %54 = icmp samesign ult i64 %53, %37
   br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !630
@@ -25720,18 +25720,18 @@ _ZSt4sortIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13
 
 57:                                               ; preds = %.thread, %57
   %.047 = phi i64 [ 0, %.thread ], [ %69, %57 ]
-  %58 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %5, i64 %.047, i32 2
-  %59 = load i8, ptr %58, align 4, !tbaa !629
-  %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %4, i64 %60
-  %62 = load ptr, ptr %61, align 8, !tbaa !69
-  %63 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %5, i64 %.047
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 28
+  %58 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %5, i64 %.047
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %60 = load i8, ptr %59, align 4, !tbaa !629
+  %61 = zext i8 %60 to i64
+  %62 = getelementptr inbounds nuw ptr, ptr %4, i64 %61
+  %63 = load ptr, ptr %62, align 8, !tbaa !69
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %65 = load i8, ptr %64, align 4, !tbaa !629
   %66 = zext i8 %65 to i64
   %67 = getelementptr inbounds nuw ptr, ptr %4, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !69
-  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %62, ptr noundef %68)
+  call void @_ZN11Contraction13makeSiblingMCEP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %63, ptr noundef %68)
   %69 = add nuw nsw i64 %.047, 2
   %70 = icmp samesign ult i64 %.047, 4
   br i1 %70, label %57, label %.loopexit, !llvm.loop !631

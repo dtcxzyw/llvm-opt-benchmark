@@ -45,6 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.ResourceMarkImpl = type { ptr, %"class.ResourceArea::SavedState" }
 %"class.ResourceArea::SavedState" = type { ptr, ptr, ptr, i64 }
 %class.stringStream = type <{ %class.outputStream, ptr, i64, i64, i8, [48 x i8], [7 x i8] }>
+%class.ImmutableOopMapPair = type { i32, i32 }
 
 $_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz = comdat any
 
@@ -3633,18 +3634,18 @@ define hidden noundef zeroext i1 @_ZN12ConstantPool32has_local_signature_at_if_l
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 65536) i32 @_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  switch i32 %2, label %27 [
+  switch i32 %2, label %28 [
     i32 186, label %4
     i32 180, label %12
     i32 178, label %12
     i32 181, label %12
     i32 179, label %12
-    i32 185, label %19
-    i32 233, label %19
-    i32 183, label %19
-    i32 184, label %19
-    i32 182, label %19
-    i32 227, label %19
+    i32 185, label %20
+    i32 233, label %20
+    i32 183, label %20
+    i32 184, label %20
+    i32 182, label %20
+    i32 227, label %20
   ]
 
 4:                                                ; preds = %3
@@ -3655,7 +3656,7 @@ define hidden noundef range(i32 0, 65536) i32 @_ZN12ConstantPool11to_cp_indexEiN
   %9 = sext i32 %1 to i64
   %10 = getelementptr %class.ResolvedIndyEntry, ptr %8, i64 %9
   %11 = getelementptr i8, ptr %10, i64 18
-  br label %30
+  br label %31
 
 12:                                               ; preds = %3, %3, %3, %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3663,29 +3664,30 @@ define hidden noundef range(i32 0, 65536) i32 @_ZN12ConstantPool11to_cp_indexEiN
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
-  %18 = getelementptr %class.ResolvedFieldEntry, ptr %16, i64 %17, i32 8, i64 2
-  br label %30
+  %18 = getelementptr %class.ResolvedFieldEntry, ptr %16, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 22
+  br label %31
 
-19:                                               ; preds = %3, %3, %3, %3, %3, %3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %23 = load ptr, ptr %22, align 8
-  %24 = sext i32 %1 to i64
-  %25 = getelementptr %class.ResolvedMethodEntry, ptr %23, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 24
-  br label %30
+20:                                               ; preds = %3, %3, %3, %3, %3, %3
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %1 to i64
+  %26 = getelementptr %class.ResolvedMethodEntry, ptr %24, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 24
+  br label %31
 
-27:                                               ; preds = %3
-  %28 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull @.str.16, i32 noundef %2) #17
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
+28:                                               ; preds = %3
+  %29 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull @.str.16, i32 noundef %2) #17
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 752) #18
   unreachable
 
-30:                                               ; preds = %19, %12, %4
-  %.0.in.in = phi ptr [ %11, %4 ], [ %18, %12 ], [ %26, %19 ]
+31:                                               ; preds = %20, %12, %4
+  %.0.in.in = phi ptr [ %11, %4 ], [ %19, %12 ], [ %27, %20 ]
   %.0.in = load i16, ptr %.0.in.in, align 2
   %.0 = zext i16 %.0.in to i32
   ret i32 %.0
@@ -3835,18 +3837,18 @@ _ZNK11constantTag13has_bootstrapEv.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_atEiN9Bytecodes4CodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  switch i32 %2, label %27 [
+  switch i32 %2, label %28 [
     i32 186, label %4
     i32 180, label %12
     i32 178, label %12
     i32 181, label %12
     i32 179, label %12
-    i32 185, label %19
-    i32 233, label %19
-    i32 183, label %19
-    i32 184, label %19
-    i32 182, label %19
-    i32 227, label %19
+    i32 185, label %20
+    i32 233, label %20
+    i32 183, label %20
+    i32 184, label %20
+    i32 182, label %20
+    i32 227, label %20
   ]
 
 4:                                                ; preds = %3
@@ -3865,39 +3867,40 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_at
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
-  %18 = getelementptr %class.ResolvedFieldEntry, ptr %16, i64 %17, i32 8, i64 2
+  %18 = getelementptr %class.ResolvedFieldEntry, ptr %16, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 22
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
-19:                                               ; preds = %3, %3, %3, %3, %3, %3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %23 = load ptr, ptr %22, align 8
-  %24 = sext i32 %1 to i64
-  %25 = getelementptr %class.ResolvedMethodEntry, ptr %23, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 24
+20:                                               ; preds = %3, %3, %3, %3, %3, %3
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %1 to i64
+  %26 = getelementptr %class.ResolvedMethodEntry, ptr %24, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 24
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
-27:                                               ; preds = %3
-  %28 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull @.str.16, i32 noundef %2) #17
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
+28:                                               ; preds = %3
+  %29 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull @.str.16, i32 noundef %2) #17
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 752) #18
   unreachable
 
-_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %19
-  %.0.in.in.i = phi ptr [ %11, %4 ], [ %18, %12 ], [ %26, %19 ]
+_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %20
+  %.0.in.in.i = phi ptr [ %11, %4 ], [ %19, %12 ], [ %27, %20 ]
   %.0.in.i = load i16, ptr %.0.in.in.i, align 2
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = zext i16 %.0.in.i to i64
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
-  %35 = load volatile i8, ptr %34, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %34 = zext i16 %.0.in.i to i64
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
+  %36 = load volatile i8, ptr %35, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
   %.pn.i = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.0.in.in.in.i = getelementptr inbounds nuw i64, ptr %.pn.i, i64 %33
+  %.0.in.in.in.i = getelementptr inbounds nuw i64, ptr %.pn.i, i64 %34
   %.0.in.in.i2 = load i32, ptr %.0.in.in.in.i, align 8
   %.0.in.i3 = lshr i32 %.0.in.in.i2, 16
   %.0.i4 = trunc nuw i32 %.0.in.i3 to i16
@@ -3906,18 +3909,18 @@ _ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden i8 @_ZN12ConstantPool10tag_ref_atEiN9Bytecodes4CodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  switch i32 %2, label %27 [
+  switch i32 %2, label %28 [
     i32 186, label %4
     i32 180, label %12
     i32 178, label %12
     i32 181, label %12
     i32 179, label %12
-    i32 185, label %19
-    i32 233, label %19
-    i32 183, label %19
-    i32 184, label %19
-    i32 182, label %19
-    i32 227, label %19
+    i32 185, label %20
+    i32 233, label %20
+    i32 183, label %20
+    i32 184, label %20
+    i32 182, label %20
+    i32 227, label %20
   ]
 
 4:                                                ; preds = %3
@@ -3936,38 +3939,39 @@ define hidden i8 @_ZN12ConstantPool10tag_ref_atEiN9Bytecodes4CodeE(ptr noundef n
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
-  %18 = getelementptr %class.ResolvedFieldEntry, ptr %16, i64 %17, i32 8, i64 2
+  %18 = getelementptr %class.ResolvedFieldEntry, ptr %16, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 22
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
-19:                                               ; preds = %3, %3, %3, %3, %3, %3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %23 = load ptr, ptr %22, align 8
-  %24 = sext i32 %1 to i64
-  %25 = getelementptr %class.ResolvedMethodEntry, ptr %23, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 24
+20:                                               ; preds = %3, %3, %3, %3, %3, %3
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %1 to i64
+  %26 = getelementptr %class.ResolvedMethodEntry, ptr %24, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 24
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
-27:                                               ; preds = %3
-  %28 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull @.str.16, i32 noundef %2) #17
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
+28:                                               ; preds = %3
+  %29 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull @.str.16, i32 noundef %2) #17
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 752) #18
   unreachable
 
-_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %19
-  %.0.in.in.i = phi ptr [ %11, %4 ], [ %18, %12 ], [ %26, %19 ]
+_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %20
+  %.0.in.in.i = phi ptr [ %11, %4 ], [ %19, %12 ], [ %27, %20 ]
   %.0.in.i = load i16, ptr %.0.in.in.i, align 2
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = zext i16 %.0.in.i to i64
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
-  %35 = load volatile i8, ptr %34, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %34 = zext i16 %.0.in.i to i64
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
+  %36 = load volatile i8, ptr %35, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
-  ret i8 %35
+  ret i8 %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -3982,18 +3986,18 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool27uncached_klass_ref_index_a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i16 @_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  switch i32 %2, label %27 [
+  switch i32 %2, label %28 [
     i32 186, label %4
     i32 180, label %12
     i32 178, label %12
     i32 181, label %12
     i32 179, label %12
-    i32 185, label %19
-    i32 233, label %19
-    i32 183, label %19
-    i32 184, label %19
-    i32 182, label %19
-    i32 227, label %19
+    i32 185, label %20
+    i32 233, label %20
+    i32 183, label %20
+    i32 184, label %20
+    i32 182, label %20
+    i32 227, label %20
   ]
 
 4:                                                ; preds = %3
@@ -4012,36 +4016,37 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool18klass_ref_index_atEiN9Byte
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
-  %18 = getelementptr %class.ResolvedFieldEntry, ptr %16, i64 %17, i32 8, i64 2
+  %18 = getelementptr %class.ResolvedFieldEntry, ptr %16, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 22
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
-19:                                               ; preds = %3, %3, %3, %3, %3, %3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %23 = load ptr, ptr %22, align 8
-  %24 = sext i32 %1 to i64
-  %25 = getelementptr %class.ResolvedMethodEntry, ptr %23, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 24
+20:                                               ; preds = %3, %3, %3, %3, %3, %3
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %1 to i64
+  %26 = getelementptr %class.ResolvedMethodEntry, ptr %24, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 24
   br label %_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit
 
-27:                                               ; preds = %3
-  %28 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull @.str.16, i32 noundef %2) #17
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
+28:                                               ; preds = %3
+  %29 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull @.str.16, i32 noundef %2) #17
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 752) #18
   unreachable
 
-_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %19
-  %.0.in.in.i = phi ptr [ %11, %4 ], [ %18, %12 ], [ %26, %19 ]
+_ZN12ConstantPool11to_cp_indexEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %20
+  %.0.in.in.i = phi ptr [ %11, %4 ], [ %19, %12 ], [ %27, %20 ]
   %.0.in.i = load i16, ptr %.0.in.in.i, align 2
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %31 = zext i16 %.0.in.i to i64
-  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %31
-  %33 = load i32, ptr %32, align 8
-  %34 = trunc i32 %33 to i16
-  ret i16 %34
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %32 = zext i16 %.0.in.i to i64
+  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %34 = load i32, ptr %33, align 8
+  %35 = trunc i32 %34 to i16
+  ret i16 %35
 }
 
 declare void @_ZN12LinkResolver25check_klass_accessibilityEP5KlassS1_P10JavaThread(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -4070,18 +4075,18 @@ define hidden noundef zeroext i16 @_ZN12ConstantPool22signature_ref_index_atEi(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN12ConstantPool12klass_ref_atEiN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(68) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.constantPoolHandle, align 8
-  switch i32 %2, label %29 [
+  switch i32 %2, label %30 [
     i32 186, label %6
     i32 180, label %14
     i32 178, label %14
     i32 181, label %14
     i32 179, label %14
-    i32 185, label %21
-    i32 233, label %21
-    i32 183, label %21
-    i32 184, label %21
-    i32 182, label %21
-    i32 227, label %21
+    i32 185, label %22
+    i32 233, label %22
+    i32 183, label %22
+    i32 184, label %22
+    i32 182, label %22
+    i32 227, label %22
   ]
 
 6:                                                ; preds = %4
@@ -4100,90 +4105,91 @@ define hidden noundef ptr @_ZN12ConstantPool12klass_ref_atEiN9Bytecodes4CodeEP10
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %1 to i64
-  %20 = getelementptr %class.ResolvedFieldEntry, ptr %18, i64 %19, i32 8, i64 2
+  %20 = getelementptr %class.ResolvedFieldEntry, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 22
   br label %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
 
-21:                                               ; preds = %4, %4, %4, %4, %4, %4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %25 = load ptr, ptr %24, align 8
-  %26 = sext i32 %1 to i64
-  %27 = getelementptr %class.ResolvedMethodEntry, ptr %25, i64 %26
-  %28 = getelementptr i8, ptr %27, i64 24
+22:                                               ; preds = %4, %4, %4, %4, %4, %4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %26 = load ptr, ptr %25, align 8
+  %27 = sext i32 %1 to i64
+  %28 = getelementptr %class.ResolvedMethodEntry, ptr %26, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 24
   br label %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
 
-29:                                               ; preds = %4
-  %30 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull @.str.16, i32 noundef %2) #17
-  %31 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %31, align 1
+30:                                               ; preds = %4
+  %31 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str.16, i32 noundef %2) #17
+  %32 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %32, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 752) #18
   unreachable
 
-_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit: ; preds = %6, %14, %21
-  %.0.in.in.i.i = phi ptr [ %13, %6 ], [ %20, %14 ], [ %28, %21 ]
+_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit: ; preds = %6, %14, %22
+  %.0.in.in.i.i = phi ptr [ %13, %6 ], [ %21, %14 ], [ %29, %22 ]
   %.0.in.i.i = load i16, ptr %.0.in.in.i.i, align 2
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %33 = zext i16 %.0.in.i.i to i64
-  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
-  %35 = load i32, ptr %34, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %34 = zext i16 %.0.in.i.i to i64
+  %35 = getelementptr inbounds nuw i64, ptr %33, i64 %34
+  %36 = load i32, ptr %35, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %3, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 816
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp eq i32 %39, %41
-  br i1 %42, label %43, label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %3, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 816
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp eq i32 %40, %42
+  br i1 %43, label %44, label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit
 
-43:                                               ; preds = %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
-  %44 = add nsw i32 %39, 1
-  %45 = icmp sgt i32 %39, -1
-  %46 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %44)
-  %47 = icmp samesign ult i32 %46, 2
-  %or.cond.i.i.i.i.i.i.i = select i1 %45, i1 %47, i1 false
-  %48 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %44, i1 true)
-  %49 = sub nuw nsw i32 32, %48
-  %50 = shl nuw i32 1, %49
-  %.0.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i32 %44, i32 %50
-  tail call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %.0.i.i.i.i.i.i.i)
-  %.pre.i.i.i.i = load i32, ptr %38, align 8
+44:                                               ; preds = %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
+  %45 = add nsw i32 %40, 1
+  %46 = icmp sgt i32 %40, -1
+  %47 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %45)
+  %48 = icmp samesign ult i32 %47, 2
+  %or.cond.i.i.i.i.i.i.i = select i1 %46, i1 %48, i1 false
+  %49 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %45, i1 true)
+  %50 = sub nuw nsw i32 32, %49
+  %51 = shl nuw i32 1, %50
+  %.0.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i32 %45, i32 %51
+  tail call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef %.0.i.i.i.i.i.i.i)
+  %.pre.i.i.i.i = load i32, ptr %39, align 8
   br label %_ZN12ConstantPool8klass_atEiP10JavaThread.exit
 
-_ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit, %43
-  %51 = phi i32 [ %.pre.i.i.i.i, %43 ], [ %39, %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit ]
-  %52 = and i32 %35, 65535
-  %53 = add nsw i32 %51, 1
-  store i32 %53, ptr %38, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = sext i32 %51 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
-  store ptr %0, ptr %57, align 8
-  %58 = call noundef ptr @_ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %52, ptr noundef nonnull %3)
+_ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit, %44
+  %52 = phi i32 [ %.pre.i.i.i.i, %44 ], [ %40, %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit ]
+  %53 = and i32 %36, 65535
+  %54 = add nsw i32 %52, 1
+  store i32 %54, ptr %39, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = sext i32 %52 to i64
+  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
+  store ptr %0, ptr %58, align 8
+  %59 = call noundef ptr @_ZN12ConstantPool13klass_at_implERK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %53, ptr noundef nonnull %3)
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %58
+  ret ptr %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN12ConstantPool22klass_ref_at_noresolveEiN9Bytecodes4CodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  switch i32 %2, label %27 [
+  switch i32 %2, label %28 [
     i32 186, label %4
     i32 180, label %12
     i32 178, label %12
     i32 181, label %12
     i32 179, label %12
-    i32 185, label %19
-    i32 233, label %19
-    i32 183, label %19
-    i32 184, label %19
-    i32 182, label %19
-    i32 227, label %19
+    i32 185, label %20
+    i32 233, label %20
+    i32 183, label %20
+    i32 184, label %20
+    i32 182, label %20
+    i32 227, label %20
   ]
 
 4:                                                ; preds = %3
@@ -4202,43 +4208,44 @@ define hidden noundef ptr @_ZN12ConstantPool22klass_ref_at_noresolveEiN9Bytecode
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
-  %18 = getelementptr %class.ResolvedFieldEntry, ptr %16, i64 %17, i32 8, i64 2
+  %18 = getelementptr %class.ResolvedFieldEntry, ptr %16, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 22
   br label %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
 
-19:                                               ; preds = %3, %3, %3, %3, %3, %3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %23 = load ptr, ptr %22, align 8
-  %24 = sext i32 %1 to i64
-  %25 = getelementptr %class.ResolvedMethodEntry, ptr %23, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 24
+20:                                               ; preds = %3, %3, %3, %3, %3, %3
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %24 = load ptr, ptr %23, align 8
+  %25 = sext i32 %1 to i64
+  %26 = getelementptr %class.ResolvedMethodEntry, ptr %24, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 24
   br label %_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit
 
-27:                                               ; preds = %3
-  %28 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull @.str.16, i32 noundef %2) #17
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
+28:                                               ; preds = %3
+  %29 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull @.str.16, i32 noundef %2) #17
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 752) #18
   unreachable
 
-_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %19
-  %.0.in.in.i.i = phi ptr [ %11, %4 ], [ %18, %12 ], [ %26, %19 ]
+_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE.exit: ; preds = %4, %12, %20
+  %.0.in.in.i.i = phi ptr [ %11, %4 ], [ %19, %12 ], [ %27, %20 ]
   %.0.in.i.i = load i16, ptr %.0.in.in.i.i, align 2
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %31 = zext i16 %.0.in.i.i to i64
-  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %31
-  %33 = load i32, ptr %32, align 8
-  %34 = and i32 %33, 65535
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %30, i64 %35
-  %37 = load i32, ptr %36, align 8
-  %38 = lshr i32 %37, 16
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  ret ptr %41
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %32 = zext i16 %.0.in.i.i to i64
+  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %34 = load i32, ptr %33, align 8
+  %35 = and i32 %34, 65535
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr inbounds nuw i64, ptr %31, i64 %36
+  %38 = load i32, ptr %37, align 8
+  %39 = lshr i32 %38, 16
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw i64, ptr %31, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  ret ptr %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -11453,17 +11460,16 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   br i1 %.not11.i.i, label %_ZNK5frame7oop_mapEv.exit, label %_ZNK5frame7oop_mapEv.exit.thread23
 
 _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %46 = lshr i32 %44, 21
-  %47 = and i32 %46, 2040
-  %.idx.i.i.i.i = zext nneg i32 %47 to i64
-  %48 = getelementptr i8, ptr %45, i64 %.idx.i.i.i.i
-  %49 = getelementptr i8, ptr %48, i64 4
+  %45 = lshr i32 %44, 24
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %47 = zext nneg i32 %45 to i64
+  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 3
-  %54 = getelementptr inbounds i8, ptr %45, i64 %53
+  %54 = getelementptr inbounds i8, ptr %46, i64 %53
   %55 = sext i32 %50 to i64
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
   store ptr %56, ptr %28, align 8

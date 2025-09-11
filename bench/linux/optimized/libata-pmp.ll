@@ -1631,7 +1631,8 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %219 = load i32, ptr %158, align 8
   %220 = add i32 %219, -1
   %221 = sext i32 %220 to i64
-  %222 = getelementptr %struct.ata_link, ptr %218, i64 %221, i32 5
+  %.split = getelementptr %struct.ata_link, ptr %218, i64 %221
+  %222 = getelementptr i8, ptr %.split, i64 752
   %223 = load i32, ptr %222, align 16
   %224 = or i32 %223, 32
   store i32 %224, ptr %222, align 16

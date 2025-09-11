@@ -6724,15 +6724,14 @@ h5tools_dump_simple_dset.exit:                    ; preds = %56, %64, %68, %124,
   br i1 %exitcond130.not.i.i, label %._crit_edge.i.i, label %435, !llvm.loop !127
 
 ._crit_edge.i.i:                                  ; preds = %435
-  br i1 %416, label %.preheader92.i.i, label %.loopexit.i.i
+  br i1 %416, label %.lr.ph110.i.preheader.i, label %.loopexit.i.i
 
-.preheader92.i.i:                                 ; preds = %._crit_edge.i.i
-  %449 = add nsw i64 %417, -2
-  %.not119.i.i = icmp eq i64 %449, 0
-  br i1 %.not119.i.i, label %.loopexit.i.i, label %.lr.ph110.i.i
+.lr.ph110.i.preheader.i:                          ; preds = %._crit_edge.i.i
+  %449 = add nsw i64 %417, -3
+  br label %.lr.ph110.i.i
 
-.lr.ph110.i.i:                                    ; preds = %.preheader92.i.i, %.lr.ph110.i.i
-  %.2109.i.i = phi i64 [ %460, %.lr.ph110.i.i ], [ 0, %.preheader92.i.i ]
+.lr.ph110.i.i:                                    ; preds = %.lr.ph110.i.i, %.lr.ph110.i.preheader.i
+  %.2109.i.i = phi i64 [ %460, %.lr.ph110.i.i ], [ 0, %.lr.ph110.i.preheader.i ]
   %450 = getelementptr inbounds nuw i64, ptr %10, i64 %.2109.i.i
   %451 = load i64, ptr %450, align 8, !tbaa !19
   %452 = getelementptr inbounds nuw i64, ptr %427, i64 %.2109.i.i
@@ -6746,10 +6745,10 @@ h5tools_dump_simple_dset.exit:                    ; preds = %56, %64, %68, %124,
   %459 = getelementptr inbounds nuw i64, ptr %12, i64 %.2109.i.i
   store i64 1, ptr %459, align 8, !tbaa !19
   %460 = add nuw nsw i64 %.2109.i.i, 1
-  %exitcond131.not.i.i = icmp eq i64 %460, %449
+  %exitcond131.not.i.i = icmp eq i64 %.2109.i.i, %449
   br i1 %exitcond131.not.i.i, label %.loopexit.i.i, label %.lr.ph110.i.i, !llvm.loop !128
 
-.loopexit.i.i:                                    ; preds = %.lr.ph110.i.i, %.preheader92.i.i, %._crit_edge.i.i
+.loopexit.i.i:                                    ; preds = %.lr.ph110.i.i, %._crit_edge.i.i
   %.not120.i.i = icmp eq i64 %.082186.i.i, 0
   br i1 %.not120.i.i, label %.thread49.i, label %.lr.ph116.i.i
 

@@ -525,7 +525,7 @@ unpack.exit:                                      ; preds = %181, %197, %210, %1
   %319 = ashr exact i32 %318, 22
   %320 = add nuw nsw i32 %310, 10
   %321 = tail call i32 @llvm.umin.i32(i32 %297, i32 %320)
-  %322 = getelementptr inbounds nuw [2 x i32], ptr %299, i64 %indvars.iv.i, i64 1
+  %322 = getelementptr inbounds nuw i8, ptr %311, i64 4
   store i32 %319, ptr %322, align 4, !tbaa !31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

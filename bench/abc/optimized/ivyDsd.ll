@@ -425,7 +425,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %77 = shl nuw i32 1, %72
   %78 = shl i32 %76, %77
   %.0.i147.us = or i32 %78, %76
-  %79 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %73, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !12
   %81 = and i32 %80, %0
   %82 = lshr i32 %81, %77
@@ -443,26 +443,26 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %88 = shl i32 %87, 1
   %89 = ashr exact i32 %88, 1
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %90, i64 1
-  %92 = load i32, ptr %91, align 4, !tbaa !12
-  %93 = and i32 %92, %.0.i147.us
-  %94 = shl nuw i32 1, %89
-  %95 = lshr i32 %93, %94
-  %.0.i.i140.us = or i32 %95, %93
-  %96 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %90
-  %97 = load i32, ptr %96, align 8, !tbaa !12
+  %91 = getelementptr inbounds [2 x i32], ptr @s_Masks, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %93 = load i32, ptr %92, align 4, !tbaa !12
+  %94 = and i32 %93, %.0.i147.us
+  %95 = shl nuw i32 1, %89
+  %96 = lshr i32 %94, %95
+  %.0.i.i140.us = or i32 %96, %94
+  %97 = load i32, ptr %91, align 8, !tbaa !12
   %98 = and i32 %97, %.0.i147.us
-  %99 = shl i32 %98, %94
+  %99 = shl i32 %98, %95
   %.0.i6.i141.us = or i32 %99, %98
   %.not180.us = icmp eq i32 %.0.i.i140.us, %.0.i6.i141.us
   br i1 %.not180.us, label %106, label %100
 
 100:                                              ; preds = %85
-  %101 = and i32 %92, %.0.i144.us
-  %102 = lshr i32 %101, %94
+  %101 = and i32 %93, %.0.i144.us
+  %102 = lshr i32 %101, %95
   %.0.i.i.us = or i32 %102, %101
   %103 = and i32 %97, %.0.i144.us
-  %104 = shl i32 %103, %94
+  %104 = shl i32 %103, %95
   %.0.i6.i.us = or i32 %104, %103
   %.not181.us = icmp eq i32 %.0.i.i.us, %.0.i6.i.us
   br i1 %.not181.us, label %106, label %105

@@ -405,89 +405,91 @@ _ZN4llvm15SmallVectorImplIjE6resizeEm.exit:       ; preds = %2, %.sink.split.i.i
   %36 = load ptr, ptr %35, align 8, !tbaa !107
   br label %42
 
-._crit_edge:                                      ; preds = %62
-  %37 = udiv i32 %63, %32
+._crit_edge:                                      ; preds = %63
+  %37 = udiv i32 %64, %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 %37, ptr %38, align 8, !tbaa !106
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !107
   %41 = load ptr, ptr %15, align 8, !tbaa !25
-  br label %64
+  br label %65
 
-42:                                               ; preds = %.lr.ph, %62
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %43 = phi i32 [ %32, %.lr.ph ], [ %63, %62 ]
-  %44 = getelementptr inbounds nuw %"struct.llvm::MCProcResourceDesc", ptr %36, i64 %indvars.iv, i32 1
-  %45 = load i32, ptr %44, align 8, !tbaa !108
-  %.not21 = icmp eq i32 %45, 0
-  br i1 %.not21, label %62, label %46
+42:                                               ; preds = %.lr.ph, %63
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
+  %43 = phi i32 [ %32, %.lr.ph ], [ %64, %63 ]
+  %44 = getelementptr inbounds nuw %"struct.llvm::MCProcResourceDesc", ptr %36, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i32, ptr %45, align 8, !tbaa !108
+  %.not21 = icmp eq i32 %46, 0
+  br i1 %.not21, label %63, label %47
 
-46:                                               ; preds = %42
-  %47 = icmp eq i32 %43, 0
-  br i1 %47, label %_ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit, label %48
+47:                                               ; preds = %42
+  %48 = icmp eq i32 %43, 0
+  br i1 %48, label %_ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit, label %49
 
-48:                                               ; preds = %46
-  %49 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %43, i1 true)
-  %50 = lshr exact i32 %43, %49
-  %51 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %45, i1 true)
-  %52 = lshr exact i32 %45, %51
-  %53 = tail call i32 @llvm.umin.i32(i32 %49, i32 %51)
-  %spec.select3334.i.i = tail call i32 @llvm.umin.i32(i32 %50, i32 %52)
-  %54 = icmp eq i32 %50, %52
-  br i1 %54, label %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i, label %.lr.ph.i.i
+49:                                               ; preds = %47
+  %50 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %43, i1 true)
+  %51 = lshr exact i32 %43, %50
+  %52 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %46, i1 true)
+  %53 = lshr exact i32 %46, %52
+  %54 = tail call i32 @llvm.umin.i32(i32 %50, i32 %52)
+  %spec.select3334.i.i = tail call i32 @llvm.umin.i32(i32 %51, i32 %53)
+  %55 = icmp eq i32 %51, %53
+  br i1 %55, label %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %48, %.lr.ph.i.i
-  %spec.select3337.i.i = phi i32 [ %spec.select33.i.i, %.lr.ph.i.i ], [ %spec.select3334.i.i, %48 ]
-  %.02736.i.i = phi i32 [ %spec.select3337.i.i, %.lr.ph.i.i ], [ %50, %48 ]
-  %.02835.i.i = phi i32 [ %57, %.lr.ph.i.i ], [ %52, %48 ]
+.lr.ph.i.i:                                       ; preds = %49, %.lr.ph.i.i
+  %spec.select3337.i.i = phi i32 [ %spec.select33.i.i, %.lr.ph.i.i ], [ %spec.select3334.i.i, %49 ]
+  %.02736.i.i = phi i32 [ %spec.select3337.i.i, %.lr.ph.i.i ], [ %51, %49 ]
+  %.02835.i.i = phi i32 [ %58, %.lr.ph.i.i ], [ %53, %49 ]
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
-  %55 = sub i32 %spec.select.i.i, %spec.select3337.i.i
-  %56 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %55, i1 true)
-  %57 = lshr exact i32 %55, %56
-  %spec.select33.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %57)
-  %58 = icmp eq i32 %spec.select3337.i.i, %57
-  br i1 %58, label %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i, label %.lr.ph.i.i, !llvm.loop !110
+  %56 = sub i32 %spec.select.i.i, %spec.select3337.i.i
+  %57 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %56, i1 true)
+  %58 = lshr exact i32 %56, %57
+  %spec.select33.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %58)
+  %59 = icmp eq i32 %spec.select3337.i.i, %58
+  br i1 %59, label %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i, label %.lr.ph.i.i, !llvm.loop !110
 
-_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i:          ; preds = %.lr.ph.i.i, %48
-  %spec.select33.lcssa.i.i = phi i32 [ %spec.select3334.i.i, %48 ], [ %spec.select33.i.i, %.lr.ph.i.i ]
-  %59 = shl i32 %spec.select33.lcssa.i.i, %53
-  %60 = udiv i32 %43, %59
-  %61 = mul i32 %60, %45
+_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i:          ; preds = %.lr.ph.i.i, %49
+  %spec.select33.lcssa.i.i = phi i32 [ %spec.select3334.i.i, %49 ], [ %spec.select33.i.i, %.lr.ph.i.i ]
+  %60 = shl i32 %spec.select33.lcssa.i.i, %54
+  %61 = udiv i32 %43, %60
+  %62 = mul i32 %61, %46
   br label %_ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit
 
-_ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %46, %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i
-  %.0.i = phi i32 [ %61, %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i ], [ 0, %46 ]
+_ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %47, %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i
+  %.0.i = phi i32 [ %62, %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i ], [ 0, %47 ]
   store i32 %.0.i, ptr %33, align 4, !tbaa !105
-  br label %62
+  br label %63
 
-62:                                               ; preds = %_ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit, %42
-  %63 = phi i32 [ %.0.i, %_ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit ], [ %43, %42 ]
+63:                                               ; preds = %_ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit, %42
+  %64 = phi i32 [ %.0.i, %_ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit ], [ %43, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
   br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !112
 
-._crit_edge26:                                    ; preds = %70, %._crit_edge.thread
+._crit_edge26:                                    ; preds = %72, %._crit_edge.thread
   ret void
 
-64:                                               ; preds = %._crit_edge, %70
-  %indvars.iv30 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next31, %70 ]
-  %65 = getelementptr inbounds nuw %"struct.llvm::MCProcResourceDesc", ptr %40, i64 %indvars.iv30, i32 1
-  %66 = load i32, ptr %65, align 8, !tbaa !108
-  %.not = icmp eq i32 %66, 0
-  br i1 %.not, label %70, label %67
+65:                                               ; preds = %._crit_edge, %72
+  %indvars.iv30 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next31, %72 ]
+  %66 = getelementptr inbounds nuw %"struct.llvm::MCProcResourceDesc", ptr %40, i64 %indvars.iv30
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load i32, ptr %67, align 8, !tbaa !108
+  %.not = icmp eq i32 %68, 0
+  br i1 %.not, label %72, label %69
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr %33, align 4, !tbaa !105
-  %69 = udiv i32 %68, %66
-  br label %70
+69:                                               ; preds = %65
+  %70 = load i32, ptr %33, align 4, !tbaa !105
+  %71 = udiv i32 %70, %68
+  br label %72
 
-70:                                               ; preds = %64, %67
-  %71 = phi i32 [ %69, %67 ], [ 0, %64 ]
-  %72 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv30
-  store i32 %71, ptr %72, align 4, !tbaa !97
+72:                                               ; preds = %65, %69
+  %73 = phi i32 [ %71, %69 ], [ 0, %65 ]
+  %74 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv30
+  store i32 %73, ptr %74, align 4, !tbaa !97
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %16
-  br i1 %exitcond34.not, label %._crit_edge26, label %64, !llvm.loop !113
+  br i1 %exitcond34.not, label %._crit_edge26, label %65, !llvm.loop !113
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1227,15 +1229,16 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK4llvm16TargetSchedMo
   %6 = load ptr, ptr %5, align 8, !tbaa !162
   %7 = zext i32 %1 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8, i32 4
-  %10 = load i16, ptr %9, align 2, !tbaa !133
-  %11 = zext i16 %10 to i32
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %13 = load ptr, ptr %12, align 8, !tbaa !56
-  %14 = tail call noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoEj(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(304) %13, i32 noundef %11) #13
-  %15 = icmp sgt i32 %14, -1
-  %16 = select i1 %15, i32 %14, i32 1000
-  ret i32 %16
+  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  %11 = load i16, ptr %10, align 2, !tbaa !133
+  %12 = zext i16 %11 to i32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %14 = load ptr, ptr %13, align 8, !tbaa !56
+  %15 = tail call noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoEj(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(304) %14, i32 noundef %12) #13
+  %16 = icmp sgt i32 %15, -1
+  %17 = select i1 %16, i32 %15, i32 1000
+  ret i32 %17
 }
 
 declare noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoEj(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(304), i32 noundef) local_unnamed_addr #5
@@ -1257,7 +1260,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK4llvm16TargetSchedMo
   %13 = load ptr, ptr %12, align 8, !tbaa !102
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = tail call noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_11MCInstrInfoERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(304) %11, ptr noundef nonnull align 8 dereferenceable(44) %14, ptr noundef nonnull align 8 dereferenceable(128) %1) #13
-  br label %30
+  br label %31
 
 16:                                               ; preds = %2
   %17 = load i32, ptr %1, align 8, !tbaa !164
@@ -1267,19 +1270,20 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK4llvm16TargetSchedMo
   %21 = load ptr, ptr %20, align 8, !tbaa !162
   %22 = zext i32 %17 to i64
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %21, i64 %23, i32 4
-  %25 = load i16, ptr %24, align 2, !tbaa !133
-  %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %28 = load ptr, ptr %27, align 8, !tbaa !56
-  %29 = tail call noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoEj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(304) %28, i32 noundef %26) #13
-  br label %30
+  %24 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %21, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 6
+  %26 = load i16, ptr %25, align 2, !tbaa !133
+  %27 = zext i16 %26 to i32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %29 = load ptr, ptr %28, align 8, !tbaa !56
+  %30 = tail call noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoEj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(304) %29, i32 noundef %27) #13
+  br label %31
 
-30:                                               ; preds = %16, %9
-  %.sink4 = phi i32 [ %29, %16 ], [ %15, %9 ]
-  %31 = icmp sgt i32 %.sink4, -1
-  %32 = select i1 %31, i32 %.sink4, i32 1000
-  ret i32 %32
+31:                                               ; preds = %16, %9
+  %.sink4 = phi i32 [ %30, %16 ], [ %15, %9 ]
+  %32 = icmp sgt i32 %.sink4, -1
+  %33 = select i1 %32, i32 %.sink4, i32 1000
+  ret i32 %33
 }
 
 declare noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_11MCInstrInfoERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(304), ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #5
@@ -1295,117 +1299,119 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel20computeOutputLatencyE
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !144
   %11 = zext i32 %2 to i64
-  %12 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %10, i64 %11, i32 1
-  %13 = load i32, ptr %12, align 4, !tbaa !173
-  %14 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !174
-  %17 = load ptr, ptr %16, align 8, !tbaa !3
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 200
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(304) %16) #13
-  %21 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %3, i32 %13, ptr noundef %20, i1 noundef zeroext false) #13
-  %.not27 = icmp eq i32 %21, -1
-  br i1 %.not27, label %22, label %31
+  %12 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !173
+  %15 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #13
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !174
+  %18 = load ptr, ptr %17, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 200
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(304) %17) #13
+  %22 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %3, i32 %14, ptr noundef %21, i1 noundef zeroext false) #13
+  %.not27 = icmp eq i32 %22, -1
+  br i1 %.not27, label %23, label %32
 
-22:                                               ; preds = %8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %24 = load ptr, ptr %23, align 8, !tbaa !102
-  %25 = load ptr, ptr %24, align 8, !tbaa !3
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 848
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull align 8 dereferenceable(70) %3) #13
-  br i1 %28, label %29, label %31
+23:                                               ; preds = %8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %25 = load ptr, ptr %24, align 8, !tbaa !102
+  %26 = load ptr, ptr %25, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 848
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull align 8 dereferenceable(70) %3) #13
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %22
-  %30 = tail call noundef i32 @_ZNK4llvm16TargetSchedModel19computeInstrLatencyEPKNS_12MachineInstrEb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i1 noundef zeroext true)
+30:                                               ; preds = %23
+  %31 = tail call noundef i32 @_ZNK4llvm16TargetSchedModel19computeInstrLatencyEPKNS_12MachineInstrEb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i1 noundef zeroext true)
   br label %.critedge26
 
-31:                                               ; preds = %22, %8
-  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
-  %33 = trunc nuw i8 %32 to i1
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %35, null
-  %37 = select i1 %33, i1 %36, i1 false
-  br i1 %37, label %38, label %.critedge26
+32:                                               ; preds = %23, %8
+  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
+  %34 = trunc nuw i8 %33 to i1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  %38 = select i1 %34, i1 %37, i1 false
+  br i1 %38, label %39, label %.critedge26
 
-38:                                               ; preds = %31
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !114
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 6
-  %42 = load i16, ptr %41, align 2, !tbaa !133
-  %43 = zext i16 %42 to i64
-  %44 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %35, i64 %43
-  %45 = load i16, ptr %44, align 2
-  %46 = and i16 %45, 8191
-  %cond.i = icmp eq i16 %46, 8190
+39:                                               ; preds = %32
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !114
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 6
+  %43 = load i16, ptr %42, align 2, !tbaa !133
+  %44 = zext i16 %43 to i64
+  %45 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %36, i64 %44
+  %46 = load i16, ptr %45, align 2
+  %47 = and i16 %46, 8191
+  %cond.i = icmp eq i16 %47, 8190
   br i1 %cond.i, label %.lr.ph.i, label %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit
 
-.lr.ph.i:                                         ; preds = %38
-  %47 = zext i16 %42 to i32
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  br label %49
+.lr.ph.i:                                         ; preds = %39
+  %48 = zext i16 %43 to i32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  br label %50
 
-49:                                               ; preds = %49, %.lr.ph.i
-  %.01012.i = phi i32 [ %47, %.lr.ph.i ], [ %54, %49 ]
-  %50 = load ptr, ptr %48, align 8, !tbaa !56
-  %51 = load ptr, ptr %50, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 224
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(304) %50, i32 noundef %.01012.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(280) %0) #13
-  %55 = load ptr, ptr %34, align 8, !tbaa !135
-  %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %55, i64 %56
-  %58 = load i16, ptr %57, align 2
-  %59 = and i16 %58, 8191
-  %60 = icmp eq i16 %59, 8190
-  br i1 %60, label %49, label %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit, !llvm.loop !136
+50:                                               ; preds = %50, %.lr.ph.i
+  %.01012.i = phi i32 [ %48, %.lr.ph.i ], [ %55, %50 ]
+  %51 = load ptr, ptr %49, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 224
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(304) %51, i32 noundef %.01012.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(280) %0) #13
+  %56 = load ptr, ptr %35, align 8, !tbaa !135
+  %57 = zext i32 %55 to i64
+  %58 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %56, i64 %57
+  %59 = load i16, ptr %58, align 2
+  %60 = and i16 %59, 8191
+  %61 = icmp eq i16 %60, 8190
+  br i1 %61, label %50, label %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit, !llvm.loop !136
 
-_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit: ; preds = %49, %38
-  %.pre-phi = phi i16 [ %46, %38 ], [ %59, %49 ]
-  %.011.i = phi ptr [ %44, %38 ], [ %57, %49 ]
+_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit: ; preds = %50, %39
+  %.pre-phi = phi i16 [ %47, %39 ], [ %60, %50 ]
+  %.011.i = phi ptr [ %45, %39 ], [ %58, %50 ]
   %.not28 = icmp eq i16 %.pre-phi, 8191
-  br i1 %.not28, label %.critedge26, label %61
+  br i1 %.not28, label %.critedge26, label %62
 
-61:                                               ; preds = %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %63 = load ptr, ptr %62, align 8, !tbaa !56
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 176
-  %65 = load ptr, ptr %64, align 8, !tbaa !286
-  %66 = getelementptr inbounds nuw i8, ptr %.011.i, i64 2
-  %67 = load i16, ptr %66, align 2, !tbaa !287
-  %68 = zext i16 %67 to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::MCWriteProcResEntry", ptr %65, i64 %68
-  %70 = getelementptr inbounds nuw i8, ptr %.011.i, i64 4
-  %71 = load i16, ptr %70, align 2, !tbaa !288
-  %72 = zext i16 %71 to i64
-  %.idx = mul nuw nsw i64 %72, 6
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx
-  %.not29 = icmp eq i16 %71, 0
+62:                                               ; preds = %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %64 = load ptr, ptr %63, align 8, !tbaa !56
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 176
+  %66 = load ptr, ptr %65, align 8, !tbaa !286
+  %67 = getelementptr inbounds nuw i8, ptr %.011.i, i64 2
+  %68 = load i16, ptr %67, align 2, !tbaa !287
+  %69 = zext i16 %68 to i64
+  %70 = getelementptr inbounds nuw %"struct.llvm::MCWriteProcResEntry", ptr %66, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %.011.i, i64 4
+  %72 = load i16, ptr %71, align 2, !tbaa !288
+  %73 = zext i16 %72 to i64
+  %.idx = mul nuw nsw i64 %73, 6
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
+  %.not29 = icmp eq i16 %72, 0
   br i1 %.not29, label %.critedge26, label %.lr.ph
 
-.lr.ph:                                           ; preds = %61
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %75 = load ptr, ptr %74, align 8, !tbaa !107
-  br label %78
+.lr.ph:                                           ; preds = %62
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %76 = load ptr, ptr %75, align 8, !tbaa !107
+  br label %79
 
-76:                                               ; preds = %78
-  %77 = getelementptr inbounds nuw i8, ptr %.02130, i64 6
-  %.not = icmp eq ptr %77, %73
-  br i1 %.not, label %.critedge26, label %78, !llvm.loop !289
+77:                                               ; preds = %79
+  %78 = getelementptr inbounds nuw i8, ptr %.02130, i64 6
+  %.not = icmp eq ptr %78, %74
+  br i1 %.not, label %.critedge26, label %79, !llvm.loop !289
 
-78:                                               ; preds = %.lr.ph, %76
-  %.02130 = phi ptr [ %69, %.lr.ph ], [ %77, %76 ]
-  %79 = load i16, ptr %.02130, align 2, !tbaa !290
-  %80 = zext i16 %79 to i64
-  %81 = getelementptr inbounds nuw %"struct.llvm::MCProcResourceDesc", ptr %75, i64 %80, i32 3
-  %82 = load i32, ptr %81, align 8, !tbaa !292
-  %.not24 = icmp eq i32 %82, 0
-  br i1 %.not24, label %.critedge26, label %76
+79:                                               ; preds = %.lr.ph, %77
+  %.02130 = phi ptr [ %70, %.lr.ph ], [ %78, %77 ]
+  %80 = load i16, ptr %.02130, align 2, !tbaa !290
+  %81 = zext i16 %80 to i64
+  %82 = getelementptr inbounds nuw %"struct.llvm::MCProcResourceDesc", ptr %76, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = load i32, ptr %83, align 8, !tbaa !292
+  %.not24 = icmp eq i32 %84, 0
+  br i1 %.not24, label %.critedge26, label %77
 
-.critedge26:                                      ; preds = %78, %76, %61, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit, %29, %31, %4
-  %.0 = phi i32 [ 1, %4 ], [ %30, %29 ], [ 0, %31 ], [ 0, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit ], [ 0, %61 ], [ 1, %78 ], [ 0, %76 ]
+.critedge26:                                      ; preds = %79, %77, %62, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit, %30, %32, %4
+  %.0 = phi i32 [ 1, %4 ], [ %31, %30 ], [ 0, %32 ], [ 0, %_ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit ], [ 0, %62 ], [ 1, %79 ], [ 0, %77 ]
   ret i32 %.0
 }
 
@@ -1495,47 +1501,48 @@ define dso_local noundef double @_ZNK4llvm16TargetSchedModel27computeReciprocalT
   %6 = load ptr, ptr %5, align 8, !tbaa !162
   %7 = zext i32 %1 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8, i32 4
-  %10 = load i16, ptr %9, align 2, !tbaa !133
-  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedItins, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
-  %12 = trunc nuw i8 %11 to i1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp ne ptr %14, null
-  %16 = select i1 %12, i1 %15, i1 false
-  br i1 %16, label %17, label %21
+  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  %11 = load i16, ptr %10, align 2, !tbaa !133
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedItins, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
+  %13 = trunc nuw i8 %12 to i1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp ne ptr %15, null
+  %17 = select i1 %13, i1 %16, i1 false
+  br i1 %17, label %18, label %22
 
-17:                                               ; preds = %2
-  %18 = zext i16 %10 to i32
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %20 = tail call noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughputEjRKNS_18InstrItineraryDataE(i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(104) %19) #13
+18:                                               ; preds = %2
+  %19 = zext i16 %11 to i32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %21 = tail call noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughputEjRKNS_18InstrItineraryDataE(i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(104) %20) #13
   br label %.thread
 
-21:                                               ; preds = %2
-  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
-  %23 = trunc nuw i8 %22 to i1
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp ne ptr %25, null
-  %27 = select i1 %23, i1 %26, i1 false
-  br i1 %27, label %28, label %.thread
+22:                                               ; preds = %2
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16EnableSchedModel, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
+  %24 = trunc nuw i8 %23 to i1
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr %26, null
+  %28 = select i1 %24, i1 %27, i1 false
+  br i1 %28, label %29, label %.thread
 
-28:                                               ; preds = %21
-  %29 = zext i16 %10 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %25, i64 %29
-  %31 = load i16, ptr %30, align 2
-  %32 = and i16 %31, 8190
-  %switch = icmp eq i16 %32, 8190
-  br i1 %switch, label %.thread, label %33
+29:                                               ; preds = %22
+  %30 = zext i16 %11 to i64
+  %31 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %26, i64 %30
+  %32 = load i16, ptr %31, align 2
+  %33 = and i16 %32, 8190
+  %switch = icmp eq i16 %33, 8190
+  br i1 %switch, label %.thread, label %34
 
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %35 = load ptr, ptr %34, align 8, !tbaa !56
-  %36 = tail call noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE(ptr noundef nonnull align 8 dereferenceable(304) %35, ptr noundef nonnull align 2 dereferenceable(14) %30) #13
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %36 = load ptr, ptr %35, align 8, !tbaa !56
+  %37 = tail call noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE(ptr noundef nonnull align 8 dereferenceable(304) %36, ptr noundef nonnull align 2 dereferenceable(14) %31) #13
   br label %.thread
 
-.thread:                                          ; preds = %28, %21, %33, %17
-  %.0 = phi double [ %20, %17 ], [ %36, %33 ], [ 0.000000e+00, %21 ], [ 0.000000e+00, %28 ]
+.thread:                                          ; preds = %29, %22, %34, %18
+  %.0 = phi double [ %21, %18 ], [ %37, %34 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %29 ]
   ret double %.0
 }
 
@@ -1575,15 +1582,16 @@ define dso_local noundef double @_ZNK4llvm16TargetSchedModel27computeReciprocalT
   %28 = load i32, ptr %1, align 8, !tbaa !164
   %29 = zext i32 %28 to i64
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %27, i64 %30, i32 4
-  %32 = load i16, ptr %31, align 2, !tbaa !133
-  %33 = zext i16 %32 to i32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %35 = tail call noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughputEjRKNS_18InstrItineraryDataE(i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(104) %34) #13
+  %31 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %27, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 6
+  %33 = load i16, ptr %32, align 2, !tbaa !133
+  %34 = zext i16 %33 to i32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %36 = tail call noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughputEjRKNS_18InstrItineraryDataE(i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(104) %35) #13
   br label %_ZNK4llvm16TargetSchedModel27computeReciprocalThroughputEj.exit
 
 _ZNK4llvm16TargetSchedModel27computeReciprocalThroughputEj.exit: ; preds = %23, %16, %9
-  %.0 = phi double [ %15, %9 ], [ %35, %23 ], [ 0.000000e+00, %16 ]
+  %.0 = phi double [ %15, %9 ], [ %36, %23 ], [ 0.000000e+00, %16 ]
   ret double %.0
 }
 

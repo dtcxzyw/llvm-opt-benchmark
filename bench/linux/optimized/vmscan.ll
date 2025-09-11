@@ -6375,7 +6375,8 @@ prepare_kswapd_sleep.exit20:                      ; preds = %126
 
 .preheader31:                                     ; preds = %231, %242
   %236 = phi i64 [ %243, %242 ], [ 3, %231 ]
-  %237 = getelementptr %struct.zone, ptr %0, i64 %236, i32 12
+  %.split = getelementptr %struct.zone, ptr %0, i64 %236
+  %237 = getelementptr i8, ptr %.split, i64 136
   %238 = load volatile i64, ptr %237, align 8
   %239 = icmp eq i64 %238, 0
   br i1 %239, label %242, label %240

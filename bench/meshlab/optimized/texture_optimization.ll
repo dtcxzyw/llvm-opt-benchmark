@@ -3091,8 +3091,8 @@ define void @_Z11TrimTextureR4MeshRSt6vectorI11TextureSizeSaIS2_EEb(ptr noundef 
   %wide.trip.count = zext i32 %5 to i64
   br label %.lr.ph197
 
-.lr.ph197:                                        ; preds = %.lr.ph197.preheader, %192
-  %indvars.iv209 = phi i64 [ 0, %.lr.ph197.preheader ], [ %indvars.iv.next210, %192 ]
+.lr.ph197:                                        ; preds = %.lr.ph197.preheader, %193
+  %indvars.iv209 = phi i64 [ 0, %.lr.ph197.preheader ], [ %indvars.iv.next210, %193 ]
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw %"class.std::vector", ptr %6, i64 %indvars.iv209
   %8 = load ptr, ptr %7, align 8
@@ -3241,7 +3241,7 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
   %61 = fcmp olt double %60, %59
   %.sroa.speculated118 = select i1 %61, double %60, double %59
   %62 = fcmp ogt double %.sroa.speculated118, 0x3FEE666666666666
-  br i1 %62, label %192, label %63
+  br i1 %62, label %193, label %63
 
 63:                                               ; preds = %._crit_edge
   %64 = load ptr, ptr %1, align 8
@@ -3485,35 +3485,36 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75:      ; preds = %181, %174, %173
   store i32 %186, ptr %188, align 4
   %189 = fptosi double %103 to i32
   %190 = load ptr, ptr %1, align 8
-  %191 = getelementptr inbounds nuw %struct.TextureSize, ptr %190, i64 %indvars.iv209, i32 1
-  store i32 %189, ptr %191, align 4
-  br label %192
+  %191 = getelementptr inbounds nuw %struct.TextureSize, ptr %190, i64 %indvars.iv209
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
+  store i32 %189, ptr %192, align 4
+  br label %193
 
-192:                                              ; preds = %._crit_edge, %.thread247
+193:                                              ; preds = %._crit_edge, %.thread247
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count
   br i1 %exitcond212.not, label %._crit_edge198, label %.lr.ph197, !llvm.loop !38
 
-._crit_edge198:                                   ; preds = %192, %.preheader158
-  %193 = load ptr, ptr %4, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %195 = load ptr, ptr %194, align 8
-  %.not4.i.i.i.i76 = icmp eq ptr %193, %195
+._crit_edge198:                                   ; preds = %193, %.preheader158
+  %194 = load ptr, ptr %4, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %196 = load ptr, ptr %195, align 8
+  %.not4.i.i.i.i76 = icmp eq ptr %194, %196
   br i1 %.not4.i.i.i.i76, label %_ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exit.i84, label %.lr.ph.i.i.i.i77
 
 .lr.ph.i.i.i.i77:                                 ; preds = %._crit_edge198, %_ZSt8_DestroyISt6vectorIP8MeshFaceSaIS2_EEEvPT_.exit.i.i.i.i80
-  %.05.i.i.i.i78 = phi ptr [ %198, %_ZSt8_DestroyISt6vectorIP8MeshFaceSaIS2_EEEvPT_.exit.i.i.i.i80 ], [ %193, %._crit_edge198 ]
-  %196 = load ptr, ptr %.05.i.i.i.i78, align 8
-  %.not.i.i.i.i.i.i.i.i79 = icmp eq ptr %196, null
-  br i1 %.not.i.i.i.i.i.i.i.i79, label %_ZSt8_DestroyISt6vectorIP8MeshFaceSaIS2_EEEvPT_.exit.i.i.i.i80, label %197
+  %.05.i.i.i.i78 = phi ptr [ %199, %_ZSt8_DestroyISt6vectorIP8MeshFaceSaIS2_EEEvPT_.exit.i.i.i.i80 ], [ %194, %._crit_edge198 ]
+  %197 = load ptr, ptr %.05.i.i.i.i78, align 8
+  %.not.i.i.i.i.i.i.i.i79 = icmp eq ptr %197, null
+  br i1 %.not.i.i.i.i.i.i.i.i79, label %_ZSt8_DestroyISt6vectorIP8MeshFaceSaIS2_EEEvPT_.exit.i.i.i.i80, label %198
 
-197:                                              ; preds = %.lr.ph.i.i.i.i77
-  call void @_ZdlPv(ptr noundef nonnull %196) #24
+198:                                              ; preds = %.lr.ph.i.i.i.i77
+  call void @_ZdlPv(ptr noundef nonnull %197) #24
   br label %_ZSt8_DestroyISt6vectorIP8MeshFaceSaIS2_EEEvPT_.exit.i.i.i.i80
 
-_ZSt8_DestroyISt6vectorIP8MeshFaceSaIS2_EEEvPT_.exit.i.i.i.i80: ; preds = %197, %.lr.ph.i.i.i.i77
-  %198 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i78, i64 24
-  %.not.i.i.i.i81 = icmp eq ptr %198, %195
+_ZSt8_DestroyISt6vectorIP8MeshFaceSaIS2_EEEvPT_.exit.i.i.i.i80: ; preds = %198, %.lr.ph.i.i.i.i77
+  %199 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i78, i64 24
+  %.not.i.i.i.i81 = icmp eq ptr %199, %196
   br i1 %.not.i.i.i.i81, label %_ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i82, label %.lr.ph.i.i.i.i77, !llvm.loop !35
 
 _ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i82: ; preds = %_ZSt8_DestroyISt6vectorIP8MeshFaceSaIS2_EEEvPT_.exit.i.i.i.i80
@@ -3521,15 +3522,15 @@ _ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-spl
   br label %_ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exit.i84
 
 _ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exit.i84: ; preds = %_ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i82, %._crit_edge198
-  %199 = phi ptr [ %.pr.i83, %_ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i82 ], [ %193, %._crit_edge198 ]
-  %.not.i.i.i85 = icmp eq ptr %199, null
-  br i1 %.not.i.i.i85, label %_ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit86, label %200
+  %200 = phi ptr [ %.pr.i83, %_ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i82 ], [ %194, %._crit_edge198 ]
+  %.not.i.i.i85 = icmp eq ptr %200, null
+  br i1 %.not.i.i.i85, label %_ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit86, label %201
 
-200:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exit.i84
-  call void @_ZdlPv(ptr noundef nonnull %199) #24
+201:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exit.i84
+  call void @_ZdlPv(ptr noundef nonnull %200) #24
   br label %_ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit86
 
-_ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit86: ; preds = %_ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exit.i84, %200
+_ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit86: ; preds = %_ZSt8_DestroyIPSt6vectorIP8MeshFaceSaIS2_EES4_EvT_S6_RSaIT0_E.exit.i84, %201
   ret void
 }
 

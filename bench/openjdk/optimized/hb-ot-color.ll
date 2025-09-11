@@ -2470,6 +2470,7 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit33: ; preds = 
 
 _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37: ; preds = %43
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
+  %58 = getelementptr inbounds nuw %"struct.OT::BitmapSizeTable", ptr %42, i64 %indvars.iv
   %.pre = load i8, ptr %3, align 1
   %.pre53 = load i8, ptr %7, align 1
   %.pre54 = load i8, ptr %12, align 1
@@ -2484,11 +2485,9 @@ _ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37: ; preds = 
   %.pre69 = or disjoint i64 %.pre63, %.pre67
   %.pre71 = zext i8 %.pre55 to i64
   %.pre73 = or disjoint i64 %.pre69, %.pre71
-  %58 = icmp samesign ult i64 %indvars.iv, %.pre73
-  %.idx = mul nuw nsw i64 %indvars.iv, 48
-  %59 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 44
-  br i1 %58, label %61, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
+  %59 = icmp samesign ult i64 %indvars.iv, %.pre73
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 44
+  br i1 %59, label %61, label %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit40
 
 61:                                               ; preds = %_ZNK2OT7ArrayOfINS_15BitmapSizeTableENS_7IntTypeIjLj4EEEEixEi.exit37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13

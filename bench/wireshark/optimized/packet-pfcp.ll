@@ -4940,36 +4940,37 @@ define internal fastcc void @pfcp_register_generic_ie_dissector(i16 noundef zero
   tail call void @proto_register_subtree_array(ptr noundef %10, i32 noundef %5)
   %12 = load i32, ptr @proto_pfcp, align 4
   %13 = tail call ptr @register_dissector_table(ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef 5, i32 noundef 1)
-  br label %21
+  br label %22
 
 14:                                               ; preds = %6, %14
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr %struct.pfcp_generic_ie, ptr %4, i64 %indvars.iv, i32 4
-  store i32 -1, ptr %15, align 8
-  %16 = getelementptr ptr, ptr %10, i64 %indvars.iv
-  store ptr %15, ptr %16, align 8
+  %15 = getelementptr %struct.pfcp_generic_ie, ptr %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store i32 -1, ptr %16, align 8
+  %17 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  store ptr %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %11, label %14, !llvm.loop !14
 
-17:                                               ; preds = %21
-  %18 = load i32, ptr @proto_pfcp, align 4
-  %19 = tail call ptr @register_dissector_with_data(ptr noundef %1, ptr noundef nonnull @dissect_pfcp_generic_enterprise_ie, i32 noundef %18, ptr noundef %13)
-  %20 = zext nneg i16 %0 to i32
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.2011, i32 noundef %20, ptr noundef %19)
+18:                                               ; preds = %22
+  %19 = load i32, ptr @proto_pfcp, align 4
+  %20 = tail call ptr @register_dissector_with_data(ptr noundef %1, ptr noundef nonnull @dissect_pfcp_generic_enterprise_ie, i32 noundef %19, ptr noundef %13)
+  %21 = zext nneg i16 %0 to i32
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.2011, i32 noundef %21, ptr noundef %20)
   ret void
 
-21:                                               ; preds = %11, %21
-  %indvars.iv30 = phi i64 [ 0, %11 ], [ %indvars.iv.next31, %21 ]
-  %22 = getelementptr %struct.pfcp_generic_ie, ptr %4, i64 %indvars.iv30
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i16 %24 to i32
-  %26 = tail call ptr @create_dissector_handle_with_data(ptr noundef nonnull @dissect_pfcp_generic_ie_cb, i32 noundef -1, ptr noundef %22)
-  tail call void @dissector_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %26)
+22:                                               ; preds = %11, %22
+  %indvars.iv30 = phi i64 [ 0, %11 ], [ %indvars.iv.next31, %22 ]
+  %23 = getelementptr %struct.pfcp_generic_ie, ptr %4, i64 %indvars.iv30
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
+  %25 = load i16, ptr %24, align 2
+  %26 = zext i16 %25 to i32
+  %27 = tail call ptr @create_dissector_handle_with_data(ptr noundef nonnull @dissect_pfcp_generic_ie_cb, i32 noundef -1, ptr noundef %23)
+  tail call void @dissector_add_uint(ptr noundef %2, i32 noundef %26, ptr noundef %27)
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count
-  br i1 %exitcond34.not, label %17, label %21, !llvm.loop !15
+  br i1 %exitcond34.not, label %18, label %22, !llvm.loop !15
 }
 
 ; Function Attrs: null_pointer_is_valid

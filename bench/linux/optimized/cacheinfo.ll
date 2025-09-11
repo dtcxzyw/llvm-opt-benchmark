@@ -925,7 +925,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.loopexit32, label %8
+  br i1 %7, label %.loopexit34, label %8
 
 8:                                                ; preds = %1
   %9 = sext i32 %0 to i64
@@ -1011,8 +1011,8 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   %70 = icmp eq i32 %19, 3
   br i1 %70, label %.preheader, label %115
 
-.preheader:                                       ; preds = %69, %.thread23
-  %71 = phi i64 [ %113, %.thread23 ], [ 0, %69 ]
+.preheader:                                       ; preds = %69, %.thread25
+  %71 = phi i64 [ %113, %.thread25 ], [ 0, %69 ]
   %72 = load i64, ptr %10, align 8
   %73 = add i64 %72, ptrtoint (ptr @cpu_llc_shared_map to i64)
   %74 = inttoptr i64 %73 to ptr
@@ -1032,7 +1032,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   %84 = tail call ptr @get_cpu_cacheinfo(i32 noundef %81) #13
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %.thread23, label %87
+  br i1 %86, label %.thread25, label %87
 
 87:                                               ; preds = %83
   %88 = getelementptr i8, ptr %85, i64 248
@@ -1047,13 +1047,13 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   %95 = shl nsw i64 -1, %90
   %96 = and i64 %94, %95
   %97 = icmp eq i64 %96, 0
-  br i1 %97, label %.thread23, label %98
+  br i1 %97, label %.thread25, label %98
 
 98:                                               ; preds = %89
   %99 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %96) #15, !srcloc !18
   %100 = and i64 %99, 4294967232
   %101 = icmp eq i64 %100, 0
-  br i1 %101, label %102, label %.thread23
+  br i1 %101, label %102, label %.thread25
 
 102:                                              ; preds = %98
   %103 = and i64 %99, 63
@@ -1071,9 +1071,9 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   %109 = add nuw nsw i64 %99, 1
   %110 = and i64 %109, 127
   %111 = icmp samesign ugt i64 %110, 63
-  br i1 %111, label %.thread23, label %89, !prof !21, !llvm.loop !22
+  br i1 %111, label %.thread25, label %89, !prof !21, !llvm.loop !22
 
-.thread23:                                        ; preds = %89, %108, %98, %83
+.thread25:                                        ; preds = %89, %108, %98, %83
   %112 = add nuw nsw i64 %80, 1
   %113 = and i64 %112, 127
   %114 = icmp samesign ugt i64 %113, 63
@@ -1095,8 +1095,8 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   %126 = sext i32 %19 to i64
   br label %127
 
-127:                                              ; preds = %119, %.thread27
-  %128 = phi i64 [ 0, %119 ], [ %182, %.thread27 ]
+127:                                              ; preds = %119, %.thread29
+  %128 = phi i64 [ 0, %119 ], [ %182, %.thread29 ]
   %129 = load i64, ptr @__cpu_online_mask, align 8
   %130 = shl nsw i64 -1, %128
   %131 = and i64 %129, %130
@@ -1113,7 +1113,7 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   %138 = tail call ptr @get_cpu_cacheinfo(i32 noundef %135) #13
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq ptr %139, null
-  br i1 %140, label %.thread27, label %141
+  br i1 %140, label %.thread29, label %141
 
 141:                                              ; preds = %137
   %142 = and i64 %134, 63
@@ -1126,26 +1126,27 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   %149 = icmp ult i32 %148, %124
   %150 = icmp ugt i32 %148, %125
   %151 = or i1 %149, %150
-  br i1 %151, label %.thread27, label %152
+  br i1 %151, label %.thread29, label %152
 
 152:                                              ; preds = %141
-  %153 = getelementptr %struct.cacheinfo, ptr %139, i64 %126, i32 8
-  %.pre37 = load i64, ptr @__cpu_online_mask, align 8
+  %.split = getelementptr %struct.cacheinfo, ptr %139, i64 %126
+  %153 = getelementptr i8, ptr %.split, i64 32
+  %.pre39 = load i64, ptr @__cpu_online_mask, align 8
   br label %154
 
 154:                                              ; preds = %152, %176
-  %155 = phi i64 [ %.pre37, %152 ], [ %177, %176 ]
+  %155 = phi i64 [ %.pre39, %152 ], [ %177, %176 ]
   %156 = phi i64 [ 0, %152 ], [ %179, %176 ]
   %157 = shl nsw i64 -1, %156
   %158 = and i64 %155, %157
   %159 = icmp eq i64 %158, 0
-  br i1 %159, label %.thread27, label %160
+  br i1 %159, label %.thread29, label %160
 
 160:                                              ; preds = %154
   %161 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %158) #15, !srcloc !18
   %162 = and i64 %161, 4294967232
   %163 = icmp eq i64 %162, 0
-  br i1 %163, label %164, label %.thread27
+  br i1 %163, label %164, label %.thread29
 
 164:                                              ; preds = %160
   %165 = and i64 %161, 63
@@ -1170,9 +1171,9 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   %178 = add nuw nsw i64 %161, 1
   %179 = and i64 %178, 127
   %180 = icmp samesign ugt i64 %179, 63
-  br i1 %180, label %.thread27, label %154, !prof !21, !llvm.loop !24
+  br i1 %180, label %.thread29, label %154, !prof !21, !llvm.loop !24
 
-.thread27:                                        ; preds = %154, %176, %160, %141, %137
+.thread29:                                        ; preds = %154, %176, %160, %141, %137
   %181 = add nuw nsw i64 %134, 1
   %182 = and i64 %181, 127
   %183 = icmp samesign ugt i64 %182, 63
@@ -1181,7 +1182,8 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 184:                                              ; preds = %115, %22
   %185 = load ptr, ptr %63, align 8
   %186 = sext i32 %19 to i64
-  %187 = getelementptr %struct.cacheinfo, ptr %185, i64 %186, i32 8
+  %.split22 = getelementptr %struct.cacheinfo, ptr %185, i64 %186
+  %187 = getelementptr i8, ptr %.split22, i64 32
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %187, i64 %15) #13, !srcloc !20
   %188 = icmp eq i32 %26, 0
   br i1 %188, label %.thread, label %189
@@ -1232,7 +1234,8 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
 
 221:                                              ; preds = %218
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %187, i64 %204) #13, !srcloc !20
-  %222 = getelementptr %struct.cacheinfo, ptr %219, i64 %186, i32 8
+  %.split23 = getelementptr %struct.cacheinfo, ptr %219, i64 %186
+  %222 = getelementptr i8, ptr %.split23, i64 32
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %222, i64 %15) #13, !srcloc !20
   br label %223
 
@@ -1242,19 +1245,19 @@ define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef
   %226 = icmp samesign ugt i64 %225, 63
   br i1 %226, label %.thread, label %193, !prof !21, !llvm.loop !26
 
-.thread:                                          ; preds = %127, %.thread27, %133, %.preheader, %.thread23, %79, %193, %223, %199, %184
+.thread:                                          ; preds = %127, %.thread29, %133, %.preheader, %.thread25, %79, %193, %223, %199, %184
   %227 = add nuw i32 %19, 1
   %228 = load i32, ptr %5, align 8
   %229 = icmp ult i32 %227, %228
-  br i1 %229, label %17, label %.loopexit32, !llvm.loop !27
+  br i1 %229, label %17, label %.loopexit34, !llvm.loop !27
 
-.loopexit32:                                      ; preds = %.thread, %1
+.loopexit34:                                      ; preds = %.thread, %1
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 1, ptr %230, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %.loopexit32
-  %231 = phi i32 [ 0, %.loopexit32 ], [ %20, %17 ]
+.loopexit:                                        ; preds = %17, %.loopexit34
+  %231 = phi i32 [ 0, %.loopexit34 ], [ %20, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %231
 }

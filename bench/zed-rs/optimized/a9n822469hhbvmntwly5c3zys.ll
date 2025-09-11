@@ -14346,17 +14346,17 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4text14BufferSnapshot
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2796
   br label %.invoke73
 
-.invoke73:                                        ; preds = %144, %78, %118
-  %.sink87.sroa.phi = phi ptr [ %.sink87.sroa.gep, %144 ], [ %.sink87.sroa.gep88, %78 ], [ %.sink87.sroa.gep89, %118 ]
-  %.sink87.sroa.phi90 = phi ptr [ %.sink87.sroa.gep91, %144 ], [ %.sink87.sroa.gep92, %78 ], [ %.sink87.sroa.gep93, %118 ]
-  %.sink87.sroa.phi94 = phi ptr [ %.sink87.sroa.gep95, %144 ], [ %.sink87.sroa.gep96, %78 ], [ %.sink87.sroa.gep97, %118 ]
-  %.sink87.sroa.phi98 = phi ptr [ %.sink87.sroa.gep99, %144 ], [ %.sink87.sroa.gep100, %78 ], [ %.sink87.sroa.gep101, %118 ]
-  %.sink87 = phi ptr [ %11, %144 ], [ %5, %78 ], [ %4, %118 ]
-  %anon.5d443eac470b995ea7043842dd24c6a8.158.sink = phi ptr [ @anon.5d443eac470b995ea7043842dd24c6a8.158, %144 ], [ @anon.54651faf5a9e2e08cf45392d07caa153.35.llvm.13982400825416426396, %78 ], [ @anon.54651faf5a9e2e08cf45392d07caa153.35.llvm.13982400825416426396, %118 ]
-  %.sink84 = phi i64 [ 3, %144 ], [ 1, %78 ], [ 1, %118 ]
-  %.sink79 = phi ptr [ %10, %144 ], [ inttoptr (i64 8 to ptr), %78 ], [ inttoptr (i64 8 to ptr), %118 ]
-  %.sink = phi i64 [ 3, %144 ], [ 0, %78 ], [ 0, %118 ]
-  %119 = phi ptr [ @anon.5d443eac470b995ea7043842dd24c6a8.159, %144 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.151, %78 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.154, %118 ]
+.invoke73:                                        ; preds = %145, %78, %118
+  %.sink87.sroa.phi = phi ptr [ %.sink87.sroa.gep, %145 ], [ %.sink87.sroa.gep88, %78 ], [ %.sink87.sroa.gep89, %118 ]
+  %.sink87.sroa.phi90 = phi ptr [ %.sink87.sroa.gep91, %145 ], [ %.sink87.sroa.gep92, %78 ], [ %.sink87.sroa.gep93, %118 ]
+  %.sink87.sroa.phi94 = phi ptr [ %.sink87.sroa.gep95, %145 ], [ %.sink87.sroa.gep96, %78 ], [ %.sink87.sroa.gep97, %118 ]
+  %.sink87.sroa.phi98 = phi ptr [ %.sink87.sroa.gep99, %145 ], [ %.sink87.sroa.gep100, %78 ], [ %.sink87.sroa.gep101, %118 ]
+  %.sink87 = phi ptr [ %11, %145 ], [ %5, %78 ], [ %4, %118 ]
+  %anon.5d443eac470b995ea7043842dd24c6a8.158.sink = phi ptr [ @anon.5d443eac470b995ea7043842dd24c6a8.158, %145 ], [ @anon.54651faf5a9e2e08cf45392d07caa153.35.llvm.13982400825416426396, %78 ], [ @anon.54651faf5a9e2e08cf45392d07caa153.35.llvm.13982400825416426396, %118 ]
+  %.sink84 = phi i64 [ 3, %145 ], [ 1, %78 ], [ 1, %118 ]
+  %.sink79 = phi ptr [ %10, %145 ], [ inttoptr (i64 8 to ptr), %78 ], [ inttoptr (i64 8 to ptr), %118 ]
+  %.sink = phi i64 [ 3, %145 ], [ 0, %78 ], [ 0, %118 ]
+  %119 = phi ptr [ @anon.5d443eac470b995ea7043842dd24c6a8.159, %145 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.151, %78 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.154, %118 ]
   store ptr %anon.5d443eac470b995ea7043842dd24c6a8.158.sink, ptr %.sink87, align 8
   store i64 %.sink84, ptr %.sink87.sroa.phi98, align 8
   store ptr null, ptr %.sink87.sroa.phi94, align 8
@@ -14368,7 +14368,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4text14BufferSnapshot
 120:                                              ; preds = %115
   %121 = load i32, ptr %62, align 8, !alias.scope !2791, !noalias !2794, !noundef !9
   %.not.i29 = icmp eq i32 %121, 0
-  br i1 %.not.i29, label %144, label %122
+  br i1 %.not.i29, label %145, label %122
 
 122:                                              ; preds = %120
   %123 = zext i32 %121 to i64
@@ -14388,7 +14388,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4text14BufferSnapshot
   %134 = load i32, ptr %133, align 8, !noalias !2796, !noundef !9
   %135 = zext i32 %134 to i64
   %136 = icmp eq i64 %132, %135
-  br i1 %136, label %144, label %138
+  br i1 %136, label %145, label %138
 
 .invoke71:                                        ; preds = %122, %81
   %137 = phi ptr [ @anon.5d443eac470b995ea7043842dd24c6a8.151, %81 ], [ @anon.5d443eac470b995ea7043842dd24c6a8.154, %122 ]
@@ -14407,30 +14407,31 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4text14BufferSnapshot
   unreachable
 
 "_ZN4core3ptr105drop_in_place$LT$sum_tree..cursor..Cursor$LT$text..InsertionFragment$C$text..InsertionFragmentKey$GT$$GT$17h4cbe0e044efec894E.exit37": ; preds = %138
-  %143 = getelementptr inbounds nuw { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }, ptr %127, i64 %132, i32 2, i32 0, i32 1
+  %143 = getelementptr inbounds nuw { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }, ptr %127, i64 %132
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 48
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN4text7locator7Locator7min_ref17h1778a13c79369ef9E.exit
 
-144:                                              ; preds = %120, %130
+145:                                              ; preds = %120, %130
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %15, ptr %10, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5d63c87038405de0E", ptr %.sroa.419.0..sroa_idx, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %0, ptr %146, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %0, ptr %147, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr @"_ZN53_$LT$text..BufferId$u20$as$u20$core..fmt..Display$GT$3fmt17hf447f7b25401d991E", ptr %.sroa.411.0..sroa_idx, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr %145, ptr %147, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store ptr %146, ptr %148, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr @"_ZN50_$LT$clock..Global$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d5ceff3daabdf24E", ptr %.sroa.415.0..sroa_idx, align 8
   br label %.invoke73
 
 _ZN4text7locator7Locator7min_ref17h1778a13c79369ef9E.exit: ; preds = %77, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit23", %46, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit", %"_ZN4core3ptr105drop_in_place$LT$sum_tree..cursor..Cursor$LT$text..InsertionFragment$C$text..InsertionFragmentKey$GT$$GT$17h4cbe0e044efec894E.exit37"
-  %.sroa.0.0 = phi ptr [ %143, %"_ZN4core3ptr105drop_in_place$LT$sum_tree..cursor..Cursor$LT$text..InsertionFragment$C$text..InsertionFragmentKey$GT$$GT$17h4cbe0e044efec894E.exit37" ], [ @_ZN4text7locator3MIN17h5b18a3bc6606d0fbE.llvm.4959952686000743593, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit" ], [ @_ZN4text7locator3MIN17h5b18a3bc6606d0fbE.llvm.4959952686000743593, %46 ], [ @_ZN4text7locator3MAX17h3d9144d35b9a4610E.llvm.4959952686000743593, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit23" ], [ @_ZN4text7locator3MAX17h3d9144d35b9a4610E.llvm.4959952686000743593, %77 ]
+  %.sroa.0.0 = phi ptr [ %144, %"_ZN4core3ptr105drop_in_place$LT$sum_tree..cursor..Cursor$LT$text..InsertionFragment$C$text..InsertionFragmentKey$GT$$GT$17h4cbe0e044efec894E.exit37" ], [ @_ZN4text7locator3MIN17h5b18a3bc6606d0fbE.llvm.4959952686000743593, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit" ], [ @_ZN4text7locator3MIN17h5b18a3bc6606d0fbE.llvm.4959952686000743593, %46 ], [ @_ZN4text7locator3MAX17h3d9144d35b9a4610E.llvm.4959952686000743593, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit23" ], [ @_ZN4text7locator3MAX17h3d9144d35b9a4610E.llvm.4959952686000743593, %77 ]
   ret ptr %.sroa.0.0
 }
 

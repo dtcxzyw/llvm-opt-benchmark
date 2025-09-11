@@ -139,8 +139,8 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL8str_byteP9lua_State(p
 25:                                               ; preds = %21
   call void @_Z15luaL_checkstackP9lua_StateiPKc(ptr noundef %0, i32 noundef %23, ptr noundef nonnull @.str.19)
   %26 = zext nneg i32 %18 to i64
-  %27 = add nuw i32 %spec.select, 1
-  %28 = sub i32 %27, %18
+  %27 = add nuw nsw i32 %spec.select, 1
+  %28 = sub nsw i32 %27, %18
   %wide.trip.count = zext i32 %28 to i64
   %invariant.gep = getelementptr i8, ptr %3, i64 %26
   br label %29

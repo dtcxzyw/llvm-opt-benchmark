@@ -5004,7 +5004,7 @@ vector.ph:                                        ; preds = %vector.memcheck
   %n.mod.vf = and i64 %wide.trip.count, 7
   %24 = icmp eq i64 %n.mod.vf, 0
   %25 = select i1 %24, i64 8, i64 %n.mod.vf
-  %n.vec = sub nsw i64 %wide.trip.count, %25
+  %n.vec = sub nuw nsw i64 %wide.trip.count, %25
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -5432,7 +5432,8 @@ for.body63.epil:                                  ; preds = %for.cond.cleanup62.
   %idxprom.i210.epil = zext i32 %add64.epil to i64
   %arrayidx.i211.epil = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.epil
   %39 = load i8, ptr %arrayidx.i211.epil, align 1, !tbaa !58
-  %param1.epil = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv249.epil, i32 1
+  %param1.epil.split = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv249.epil
+  %param1.epil = getelementptr inbounds nuw i8, ptr %param1.epil.split, i64 2
   store i8 %39, ptr %param1.epil, align 2, !tbaa !208
   %indvars.iv.next250.epil = add nuw nsw i64 %indvars.iv249.epil, 1
   %epil.iter280.next = add nuw nsw i64 %epil.iter280, 1
@@ -5452,7 +5453,8 @@ for.body63:                                       ; preds = %for.body63, %for.bo
   %idxprom.i210 = zext i32 %add64 to i64
   %arrayidx.i211 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210
   %41 = load i8, ptr %arrayidx.i211, align 1, !tbaa !58
-  %param1 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv249, i32 1
+  %param1.split = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv249
+  %param1 = getelementptr inbounds nuw i8, ptr %param1.split, i64 2
   store i8 %41, ptr %param1, align 2, !tbaa !208
   %indvars.iv.next250 = or disjoint i64 %indvars.iv249, 1
   %42 = trunc i64 %indvars.iv.next250 to i32
@@ -5460,7 +5462,8 @@ for.body63:                                       ; preds = %for.body63, %for.bo
   %idxprom.i210.1 = zext i32 %add64.1 to i64
   %arrayidx.i211.1 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.1
   %43 = load i8, ptr %arrayidx.i211.1, align 1, !tbaa !58
-  %param1.1 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next250, i32 1
+  %param1.1.split = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next250
+  %param1.1 = getelementptr inbounds nuw i8, ptr %param1.1.split, i64 2
   store i8 %43, ptr %param1.1, align 2, !tbaa !208
   %indvars.iv.next250.1 = or disjoint i64 %indvars.iv249, 2
   %44 = trunc i64 %indvars.iv.next250.1 to i32
@@ -5468,7 +5471,8 @@ for.body63:                                       ; preds = %for.body63, %for.bo
   %idxprom.i210.2 = zext i32 %add64.2 to i64
   %arrayidx.i211.2 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.2
   %45 = load i8, ptr %arrayidx.i211.2, align 1, !tbaa !58
-  %param1.2 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next250.1, i32 1
+  %param1.2.split = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next250.1
+  %param1.2 = getelementptr inbounds nuw i8, ptr %param1.2.split, i64 2
   store i8 %45, ptr %param1.2, align 2, !tbaa !208
   %indvars.iv.next250.2 = or disjoint i64 %indvars.iv249, 3
   %46 = trunc i64 %indvars.iv.next250.2 to i32
@@ -5476,7 +5480,8 @@ for.body63:                                       ; preds = %for.body63, %for.bo
   %idxprom.i210.3 = zext i32 %add64.3 to i64
   %arrayidx.i211.3 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.3
   %47 = load i8, ptr %arrayidx.i211.3, align 1, !tbaa !58
-  %param1.3 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next250.2, i32 1
+  %param1.3.split = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next250.2
+  %param1.3 = getelementptr inbounds nuw i8, ptr %param1.3.split, i64 2
   store i8 %47, ptr %param1.3, align 2, !tbaa !208
   %indvars.iv.next250.3 = add nuw i64 %indvars.iv249, 4
   %niter283.ncmp.3 = icmp eq i64 %indvars.iv.next250.3, %unroll_iter282
@@ -5527,7 +5532,8 @@ for.body134:                                      ; preds = %for.body134, %for.b
   %idxprom.i214 = zext i32 %add135 to i64
   %arrayidx.i215 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i214
   %57 = load i8, ptr %arrayidx.i215, align 1, !tbaa !58
-  %param2143 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv254, i32 2
+  %param2143.split = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv254
+  %param2143 = getelementptr inbounds nuw i8, ptr %param2143.split, i64 3
   store i8 %57, ptr %param2143, align 1, !tbaa !47
   %indvars.iv.next255 = or disjoint i64 %indvars.iv254, 1
   %58 = trunc i64 %indvars.iv.next255 to i32
@@ -5535,7 +5541,8 @@ for.body134:                                      ; preds = %for.body134, %for.b
   %idxprom.i214.1 = zext i32 %add135.1 to i64
   %arrayidx.i215.1 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i214.1
   %59 = load i8, ptr %arrayidx.i215.1, align 1, !tbaa !58
-  %param2143.1 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next255, i32 2
+  %param2143.1.split = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next255
+  %param2143.1 = getelementptr inbounds nuw i8, ptr %param2143.1.split, i64 3
   store i8 %59, ptr %param2143.1, align 1, !tbaa !47
   %indvars.iv.next255.1 = or disjoint i64 %indvars.iv254, 2
   %60 = trunc i64 %indvars.iv.next255.1 to i32
@@ -5543,7 +5550,8 @@ for.body134:                                      ; preds = %for.body134, %for.b
   %idxprom.i214.2 = zext i32 %add135.2 to i64
   %arrayidx.i215.2 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i214.2
   %61 = load i8, ptr %arrayidx.i215.2, align 1, !tbaa !58
-  %param2143.2 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next255.1, i32 2
+  %param2143.2.split = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next255.1
+  %param2143.2 = getelementptr inbounds nuw i8, ptr %param2143.2.split, i64 3
   store i8 %61, ptr %param2143.2, align 1, !tbaa !47
   %indvars.iv.next255.2 = or disjoint i64 %indvars.iv254, 3
   %62 = trunc i64 %indvars.iv.next255.2 to i32
@@ -5551,7 +5559,8 @@ for.body134:                                      ; preds = %for.body134, %for.b
   %idxprom.i214.3 = zext i32 %add135.3 to i64
   %arrayidx.i215.3 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i214.3
   %63 = load i8, ptr %arrayidx.i215.3, align 1, !tbaa !58
-  %param2143.3 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next255.2, i32 2
+  %param2143.3.split = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next255.2
+  %param2143.3 = getelementptr inbounds nuw i8, ptr %param2143.3.split, i64 3
   store i8 %63, ptr %param2143.3, align 1, !tbaa !47
   %indvars.iv.next255.3 = add nuw nsw i64 %indvars.iv254, 4
   %niter288.ncmp.3 = icmp eq i64 %indvars.iv.next255.3, %unroll_iter287
@@ -5574,7 +5583,8 @@ for.body134.epil:                                 ; preds = %delete.notnull.i.i2
   %idxprom.i214.epil = zext i32 %add135.epil to i64
   %arrayidx.i215.epil = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i214.epil
   %65 = load i8, ptr %arrayidx.i215.epil, align 1, !tbaa !58
-  %param2143.epil = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv254.epil, i32 2
+  %param2143.epil.split = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv254.epil
+  %param2143.epil = getelementptr inbounds nuw i8, ptr %param2143.epil.split, i64 3
   store i8 %65, ptr %param2143.epil, align 1, !tbaa !47
   %indvars.iv.next255.epil = add nuw nsw i64 %indvars.iv254.epil, 1
   %epil.iter285.next = add nuw nsw i64 %epil.iter285, 1

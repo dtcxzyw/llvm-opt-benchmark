@@ -94,11 +94,11 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   store i64 128, ptr %5, align 8, !tbaa !4
   br label %8
 
-6:                                                ; preds = %242, %71
-  %.1503 = phi ptr [ %221, %242 ], [ %.2504, %71 ]
-  %.1490 = phi ptr [ %222, %242 ], [ %72, %71 ]
-  %.1476 = phi i32 [ %243, %242 ], [ %66, %71 ]
-  %.1 = phi i32 [ %.8, %242 ], [ -2, %71 ]
+6:                                                ; preds = %243, %72
+  %.1503 = phi ptr [ %222, %243 ], [ %.2504, %72 ]
+  %.1490 = phi ptr [ %223, %243 ], [ %73, %72 ]
+  %.1476 = phi i32 [ %244, %243 ], [ %67, %72 ]
+  %.1 = phi i32 [ %.8, %243 ], [ -2, %72 ]
   %7 = getelementptr inbounds nuw i8, ptr %.1503, i64 1
   br label %8
 
@@ -152,7 +152,8 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %30 = getelementptr inbounds i8, ptr %22, i64 %15
   %31 = getelementptr inbounds %struct._phpdbg_param, ptr %26, i64 %16
   %32 = getelementptr inbounds i8, ptr %31, i64 -88
-  %.not538 = icmp sgt i64 %spec.store.select, %16
+  %33 = add nsw i64 %spec.store.select, -1
+  %.not538 = icmp sgt i64 %33, %15
   br i1 %.not538, label %.thread589, label %.thread614.thread
 
 .thread589:                                       ; preds = %29, %8
@@ -161,152 +162,152 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.1499 = phi ptr [ %.0498, %8 ], [ %26, %29 ]
   %.2491 = phi ptr [ %.0489, %8 ], [ %32, %29 ]
   %.1482 = phi i64 [ %.0481, %8 ], [ %spec.store.select, %29 ]
-  %33 = icmp eq i32 %.0475, 27
-  br i1 %33, label %.thread614, label %34
+  %34 = icmp eq i32 %.0475, 27
+  br i1 %34, label %.thread614, label %35
 
-34:                                               ; preds = %.thread589
-  %35 = sext i32 %.0475 to i64
-  %36 = getelementptr inbounds i8, ptr @yypact, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !8
-  %38 = sext i8 %37 to i32
-  %39 = shl nuw i64 1, %35
-  %40 = and i64 %39, 60283762986848
-  %.not539 = icmp eq i64 %40, 0
-  br i1 %.not539, label %41, label %73
+35:                                               ; preds = %.thread589
+  %36 = sext i32 %.0475 to i64
+  %37 = getelementptr inbounds i8, ptr @yypact, i64 %36
+  %38 = load i8, ptr %37, align 1, !tbaa !8
+  %39 = sext i8 %38 to i32
+  %40 = shl nuw i64 1, %36
+  %41 = and i64 %40, 60283762986848
+  %.not539 = icmp eq i64 %41, 0
+  br i1 %.not539, label %42, label %74
 
-41:                                               ; preds = %34
-  %42 = icmp eq i32 %.0467, -2
-  br i1 %42, label %43, label %45
+42:                                               ; preds = %35
+  %43 = icmp eq i32 %.0467, -2
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %41
-  %44 = call i32 @phpdbg_lex(ptr noundef nonnull %1) #13
-  br label %45
+44:                                               ; preds = %42
+  %45 = call i32 @phpdbg_lex(ptr noundef nonnull %1) #13
+  br label %46
 
-45:                                               ; preds = %43, %41
-  %.5 = phi i32 [ %44, %43 ], [ %.0467, %41 ]
-  %46 = icmp slt i32 %.5, 1
-  br i1 %46, label %56, label %47
+46:                                               ; preds = %44, %42
+  %.5 = phi i32 [ %45, %44 ], [ %.0467, %42 ]
+  %47 = icmp slt i32 %.5, 1
+  br i1 %47, label %57, label %48
 
-47:                                               ; preds = %45
-  %48 = icmp eq i32 %.5, 256
-  br i1 %48, label %.thread614, label %49
+48:                                               ; preds = %46
+  %49 = icmp eq i32 %.5, 256
+  br i1 %49, label %.thread614, label %50
 
-49:                                               ; preds = %47
-  %50 = icmp samesign ult i32 %.5, 278
-  br i1 %50, label %51, label %56
+50:                                               ; preds = %48
+  %51 = icmp samesign ult i32 %.5, 278
+  br i1 %51, label %52, label %57
 
-51:                                               ; preds = %49
-  %52 = zext nneg i32 %.5 to i64
-  %53 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !8
-  %55 = sext i8 %54 to i32
-  br label %56
+52:                                               ; preds = %50
+  %53 = zext nneg i32 %.5 to i64
+  %54 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %53
+  %55 = load i8, ptr %54, align 1, !tbaa !8
+  %56 = sext i8 %55 to i32
+  br label %57
 
-56:                                               ; preds = %51, %49, %45
-  %.0486 = phi i32 [ 0, %45 ], [ %55, %51 ], [ 2, %49 ]
-  %.6 = phi i32 [ 0, %45 ], [ %.5, %51 ], [ %.5, %49 ]
-  %57 = add nsw i32 %.0486, %38
-  %or.cond3 = icmp ugt i32 %57, 51
-  br i1 %or.cond3, label %73, label %58
+57:                                               ; preds = %52, %50, %46
+  %.0486 = phi i32 [ 0, %46 ], [ %56, %52 ], [ 2, %50 ]
+  %.6 = phi i32 [ 0, %46 ], [ %.5, %52 ], [ %.5, %50 ]
+  %58 = add nsw i32 %.0486, %39
+  %or.cond3 = icmp ugt i32 %58, 51
+  br i1 %or.cond3, label %74, label %59
 
-58:                                               ; preds = %56
-  %59 = zext nneg i32 %57 to i64
-  %60 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %59
-  %61 = load i8, ptr %60, align 1, !tbaa !8
-  %62 = sext i8 %61 to i32
-  %.not540 = icmp eq i32 %.0486, %62
-  br i1 %.not540, label %63, label %73
+59:                                               ; preds = %57
+  %60 = zext nneg i32 %58 to i64
+  %61 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %60
+  %62 = load i8, ptr %61, align 1, !tbaa !8
+  %63 = sext i8 %62 to i32
+  %.not540 = icmp eq i32 %.0486, %63
+  br i1 %.not540, label %64, label %74
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds nuw i8, ptr @yytable, i64 %59
-  %65 = load i8, ptr %64, align 1, !tbaa !8
-  %66 = sext i8 %65 to i32
-  %67 = shl nuw nsw i64 1, %59
-  %68 = and i64 %67, 2040693581152256
-  %.not541 = icmp eq i64 %68, 0
-  br i1 %.not541, label %71, label %69
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds nuw i8, ptr @yytable, i64 %60
+  %66 = load i8, ptr %65, align 1, !tbaa !8
+  %67 = sext i8 %66 to i32
+  %68 = shl nuw nsw i64 1, %60
+  %69 = and i64 %68, 2040693581152256
+  %.not541 = icmp eq i64 %69, 0
+  br i1 %.not541, label %72, label %70
 
-69:                                               ; preds = %63
-  %70 = sub nsw i32 0, %66
-  br label %78
+70:                                               ; preds = %64
+  %71 = sub nsw i32 0, %67
+  br label %79
 
-71:                                               ; preds = %63
-  %72 = getelementptr inbounds nuw i8, ptr %.2491, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %72, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false), !tbaa.struct !9
+72:                                               ; preds = %64
+  %73 = getelementptr inbounds nuw i8, ptr %.2491, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %73, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false), !tbaa.struct !9
   br label %6
 
-73:                                               ; preds = %56, %58, %34
-  %.4 = phi i32 [ %.0467, %34 ], [ %.6, %56 ], [ %.6, %58 ]
-  %74 = getelementptr inbounds i8, ptr @yydefact, i64 %35
-  %75 = load i8, ptr %74, align 1, !tbaa !8
-  %76 = sext i8 %75 to i32
-  %77 = and i64 %39, 9947541151888
-  %.not543 = icmp eq i64 %77, 0
-  br i1 %.not543, label %78, label %244
+74:                                               ; preds = %57, %59, %35
+  %.4 = phi i32 [ %.0467, %35 ], [ %.6, %57 ], [ %.6, %59 ]
+  %75 = getelementptr inbounds i8, ptr @yydefact, i64 %36
+  %76 = load i8, ptr %75, align 1, !tbaa !8
+  %77 = sext i8 %76 to i32
+  %78 = and i64 %40, 9947541151888
+  %.not543 = icmp eq i64 %78, 0
+  br i1 %.not543, label %79, label %245
 
-78:                                               ; preds = %73, %69
-  %.0488 = phi i32 [ %76, %73 ], [ %70, %69 ]
-  %.8 = phi i32 [ %.4, %73 ], [ %.6, %69 ]
-  %79 = sext i32 %.0488 to i64
-  %80 = getelementptr inbounds i8, ptr @yyr2, i64 %79
-  %81 = load i8, ptr %80, align 1, !tbaa !8
-  %82 = sext i8 %81 to i64
-  %83 = sub nsw i64 1, %82
-  %84 = getelementptr inbounds %struct._phpdbg_param, ptr %.2491, i64 %83
-  %.sroa.0.0.copyload = load i32, ptr %84, align 8, !tbaa !10
-  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 4
+79:                                               ; preds = %74, %70
+  %.0488 = phi i32 [ %77, %74 ], [ %71, %70 ]
+  %.8 = phi i32 [ %.4, %74 ], [ %.6, %70 ]
+  %80 = sext i32 %.0488 to i64
+  %81 = getelementptr inbounds i8, ptr @yyr2, i64 %80
+  %82 = load i8, ptr %81, align 1, !tbaa !8
+  %83 = sext i8 %82 to i64
+  %84 = sub nsw i64 1, %83
+  %85 = getelementptr inbounds %struct._phpdbg_param, ptr %.2491, i64 %84
+  %.sroa.0.0.copyload = load i32, ptr %85, align 8, !tbaa !10
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 4
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4
-  %.sroa.2676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %.sroa.2676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 8
   %.sroa.2676.0.copyload = load i64, ptr %.sroa.2676.0..sroa_idx, align 8, !tbaa !4
-  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 16
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !4
-  %.sroa.28121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %.sroa.28121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 24
   %.sroa.28121.0.copyload = load ptr, ptr %.sroa.28121.0..sroa_idx, align 8, !tbaa !12
-  %.sroa.40.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %.sroa.40.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.sroa.40.0.copyload = load i64, ptr %.sroa.40.0..sroa_idx, align 8, !tbaa !4
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 40
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 40
   %.sroa.44.0.copyload = load ptr, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !12
-  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 48
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 48
   %.sroa.46.0.copyload = load ptr, ptr %.sroa.46.0..sroa_idx, align 8, !tbaa !12
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 56
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 56
   %.sroa.48.0.copyload = load ptr, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !12
-  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 64
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 64
   %.sroa.53.0.copyload = load i64, ptr %.sroa.53.0..sroa_idx, align 8, !tbaa !4
-  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 72
+  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 72
   %.sroa.59.0.copyload = load ptr, ptr %.sroa.59.0..sroa_idx, align 8, !tbaa !15
-  %.sroa.59283.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 80
+  %.sroa.59283.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 80
   %.sroa.59283.0.copyload = load ptr, ptr %.sroa.59283.0..sroa_idx, align 8, !tbaa !15
-  switch i32 %.0488, label %218 [
-    i32 2, label %85
-    i32 3, label %86
-    i32 30, label %213
-    i32 5, label %89
-    i32 6, label %93
-    i32 7, label %98
-    i32 8, label %103
-    i32 9, label %108
-    i32 10, label %112
-    i32 11, label %117
-    i32 12, label %122
-    i32 13, label %145
-    i32 14, label %168
-    i32 15, label %173
-    i32 16, label %180
-    i32 17, label %187
-    i32 18, label %192
-    i32 19, label %193
-    i32 20, label %194
-    i32 21, label %195
-    i32 22, label %196
-    i32 23, label %197
-    i32 24, label %198
-    i32 25, label %199
-    i32 27, label %202
-    i32 28, label %207
-    i32 29, label %212
+  switch i32 %.0488, label %219 [
+    i32 2, label %86
+    i32 3, label %87
+    i32 30, label %214
+    i32 5, label %90
+    i32 6, label %94
+    i32 7, label %99
+    i32 8, label %104
+    i32 9, label %109
+    i32 10, label %113
+    i32 11, label %118
+    i32 12, label %123
+    i32 13, label %146
+    i32 14, label %169
+    i32 15, label %174
+    i32 16, label %181
+    i32 17, label %188
+    i32 18, label %193
+    i32 19, label %194
+    i32 20, label %195
+    i32 21, label %196
+    i32 22, label %197
+    i32 23, label %198
+    i32 24, label %199
+    i32 25, label %200
+    i32 27, label %203
+    i32 28, label %208
+    i32 29, label %213
   ]
 
-85:                                               ; preds = %78
+86:                                               ; preds = %79
   %.sroa.0.0.copyload43 = load i32, ptr %.2491, align 8, !tbaa !10
   %.sroa.26.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %.2491, i64 4
   %.sroa.26.0.copyload55 = load i32, ptr %.sroa.26.0..sroa_idx54, align 4
@@ -330,12 +331,12 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.59.0.copyload262 = load ptr, ptr %.sroa.59.0..sroa_idx261, align 8, !tbaa !15
   %.sroa.59283.0..sroa_idx284 = getelementptr inbounds nuw i8, ptr %.2491, i64 80
   %.sroa.59283.0.copyload285 = load ptr, ptr %.sroa.59283.0..sroa_idx284, align 8, !tbaa !15
-  br label %218
+  br label %219
 
-86:                                               ; preds = %78
-  %87 = getelementptr inbounds i8, ptr %.2491, i64 -96
-  %88 = load ptr, ptr %87, align 8, !tbaa !17
-  call void @phpdbg_stack_separate(ptr noundef %88) #13
+87:                                               ; preds = %79
+  %88 = getelementptr inbounds i8, ptr %.2491, i64 -96
+  %89 = load ptr, ptr %88, align 8, !tbaa !17
+  call void @phpdbg_stack_separate(ptr noundef %89) #13
   %.sroa.0.0.copyload44 = load i32, ptr %.2491, align 8, !tbaa !10
   %.sroa.26.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %.2491, i64 4
   %.sroa.26.0.copyload57 = load i32, ptr %.sroa.26.0..sroa_idx56, align 4
@@ -359,41 +360,41 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.59.0.copyload264 = load ptr, ptr %.sroa.59.0..sroa_idx263, align 8, !tbaa !15
   %.sroa.59283.0..sroa_idx286 = getelementptr inbounds nuw i8, ptr %.2491, i64 80
   %.sroa.59283.0.copyload287 = load ptr, ptr %.sroa.59283.0..sroa_idx286, align 8, !tbaa !15
-  br label %218
+  br label %219
 
-89:                                               ; preds = %78
-  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !21
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 80
-  %92 = load ptr, ptr %91, align 8, !tbaa !17
-  br label %218
+90:                                               ; preds = %79
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !21
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 80
+  %93 = load ptr, ptr %92, align 8, !tbaa !17
+  br label %219
 
-93:                                               ; preds = %78
-  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !21
-  call void @phpdbg_stack_push(ptr noundef %94, ptr noundef nonnull %.2491) #13
+94:                                               ; preds = %79
   %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !21
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 80
-  %97 = load ptr, ptr %96, align 8, !tbaa !17
-  br label %218
+  call void @phpdbg_stack_push(ptr noundef %95, ptr noundef nonnull %.2491) #13
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !21
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 80
+  %98 = load ptr, ptr %97, align 8, !tbaa !17
+  br label %219
 
-98:                                               ; preds = %78
-  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !21
-  call void @phpdbg_stack_push(ptr noundef %99, ptr noundef nonnull %.2491) #13
+99:                                               ; preds = %79
   %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !21
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 80
-  %102 = load ptr, ptr %101, align 8, !tbaa !17
-  br label %218
+  call void @phpdbg_stack_push(ptr noundef %100, ptr noundef nonnull %.2491) #13
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !21
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 80
+  %103 = load ptr, ptr %102, align 8, !tbaa !17
+  br label %219
 
-103:                                              ; preds = %78
-  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !21
-  call void @phpdbg_stack_push(ptr noundef %104, ptr noundef nonnull %.2491) #13
+104:                                              ; preds = %79
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !21
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 80
-  %107 = load ptr, ptr %106, align 8, !tbaa !17
-  br label %218
+  call void @phpdbg_stack_push(ptr noundef %105, ptr noundef nonnull %.2491) #13
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !21
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 80
+  %108 = load ptr, ptr %107, align 8, !tbaa !17
+  br label %219
 
-108:                                              ; preds = %78
-  %109 = getelementptr inbounds i8, ptr %.2491, i64 -88
-  %.sroa.0.0.copyload45 = load i32, ptr %109, align 8, !tbaa !10
+109:                                              ; preds = %79
+  %110 = getelementptr inbounds i8, ptr %.2491, i64 -88
+  %.sroa.0.0.copyload45 = load i32, ptr %110, align 8, !tbaa !10
   %.sroa.26.0..sroa_idx58 = getelementptr inbounds i8, ptr %.2491, i64 -84
   %.sroa.26.0.copyload59 = load i32, ptr %.sroa.26.0..sroa_idx58, align 4
   %.sroa.2676.0..sroa_idx81 = getelementptr inbounds i8, ptr %.2491, i64 -80
@@ -416,124 +417,124 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.59.0.copyload266 = load ptr, ptr %.sroa.59.0..sroa_idx265, align 8, !tbaa !15
   %.sroa.59283.0..sroa_idx288 = getelementptr inbounds i8, ptr %.2491, i64 -8
   %.sroa.59283.0.copyload289 = load ptr, ptr %.sroa.59283.0..sroa_idx288, align 8, !tbaa !15
-  %110 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
-  %111 = load i64, ptr %110, align 8, !tbaa !48
-  store i64 %111, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1560), align 8, !tbaa !49
-  br label %218
+  %111 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
+  %112 = load i64, ptr %111, align 8, !tbaa !48
+  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1560), align 8, !tbaa !49
+  br label %219
 
-112:                                              ; preds = %78
-  %113 = getelementptr inbounds i8, ptr %.2491, i64 -32
-  %114 = load ptr, ptr %113, align 8, !tbaa !50
-  %115 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
-  %116 = load i64, ptr %115, align 8, !tbaa !48
-  br label %218
+113:                                              ; preds = %79
+  %114 = getelementptr inbounds i8, ptr %.2491, i64 -32
+  %115 = load ptr, ptr %114, align 8, !tbaa !50
+  %116 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
+  %117 = load i64, ptr %116, align 8, !tbaa !48
+  br label %219
 
-117:                                              ; preds = %78
-  %118 = getelementptr inbounds i8, ptr %.2491, i64 -208
-  %119 = load ptr, ptr %118, align 8, !tbaa !50
-  %120 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
-  %121 = load i64, ptr %120, align 8, !tbaa !48
-  br label %218
+118:                                              ; preds = %79
+  %119 = getelementptr inbounds i8, ptr %.2491, i64 -208
+  %120 = load ptr, ptr %119, align 8, !tbaa !50
+  %121 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
+  %122 = load i64, ptr %121, align 8, !tbaa !48
+  br label %219
 
-122:                                              ; preds = %78
-  %123 = getelementptr inbounds i8, ptr %.2491, i64 -200
-  %124 = load i64, ptr %123, align 8, !tbaa !51
-  %125 = getelementptr inbounds i8, ptr %.2491, i64 -112
-  %126 = load i64, ptr %125, align 8, !tbaa !51
-  %127 = add i64 %124, 1
-  %128 = add i64 %127, %126
-  %129 = call noalias ptr @malloc(i64 noundef %128) #12
-  %.not545 = icmp eq ptr %129, null
-  br i1 %.not545, label %142, label %130
+123:                                              ; preds = %79
+  %124 = getelementptr inbounds i8, ptr %.2491, i64 -200
+  %125 = load i64, ptr %124, align 8, !tbaa !51
+  %126 = getelementptr inbounds i8, ptr %.2491, i64 -112
+  %127 = load i64, ptr %126, align 8, !tbaa !51
+  %128 = add i64 %125, 1
+  %129 = add i64 %128, %127
+  %130 = call noalias ptr @malloc(i64 noundef %129) #12
+  %.not545 = icmp eq ptr %130, null
+  br i1 %.not545, label %143, label %131
 
-130:                                              ; preds = %122
-  %131 = getelementptr inbounds i8, ptr %.2491, i64 -208
-  %132 = load ptr, ptr %131, align 8, !tbaa !50
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr align 1 %132, i64 %124, i1 false)
-  %133 = load i64, ptr %123, align 8, !tbaa !51
-  %134 = getelementptr inbounds nuw i8, ptr %129, i64 %133
-  %135 = getelementptr inbounds i8, ptr %.2491, i64 -120
-  %136 = load ptr, ptr %135, align 8, !tbaa !50
-  %137 = load i64, ptr %125, align 8, !tbaa !51
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %134, ptr align 1 %136, i64 %137, i1 false)
-  %138 = load i64, ptr %123, align 8, !tbaa !51
-  %139 = load i64, ptr %125, align 8, !tbaa !51
-  %140 = getelementptr i8, ptr %129, i64 %138
-  %141 = getelementptr i8, ptr %140, i64 %139
-  store i8 0, ptr %141, align 1, !tbaa !8
-  br label %142
+131:                                              ; preds = %123
+  %132 = getelementptr inbounds i8, ptr %.2491, i64 -208
+  %133 = load ptr, ptr %132, align 8, !tbaa !50
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr align 1 %133, i64 %125, i1 false)
+  %134 = load i64, ptr %124, align 8, !tbaa !51
+  %135 = getelementptr inbounds nuw i8, ptr %130, i64 %134
+  %136 = getelementptr inbounds i8, ptr %.2491, i64 -120
+  %137 = load ptr, ptr %136, align 8, !tbaa !50
+  %138 = load i64, ptr %126, align 8, !tbaa !51
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %135, ptr align 1 %137, i64 %138, i1 false)
+  %139 = load i64, ptr %124, align 8, !tbaa !51
+  %140 = load i64, ptr %126, align 8, !tbaa !51
+  %141 = getelementptr i8, ptr %130, i64 %139
+  %142 = getelementptr i8, ptr %141, i64 %140
+  store i8 0, ptr %142, align 1, !tbaa !8
+  br label %143
 
-142:                                              ; preds = %130, %122
-  %143 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
-  %144 = load i64, ptr %143, align 8, !tbaa !48
-  br label %218
+143:                                              ; preds = %131, %123
+  %144 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
+  %145 = load i64, ptr %144, align 8, !tbaa !48
+  br label %219
 
-145:                                              ; preds = %78
-  %146 = getelementptr inbounds i8, ptr %.2491, i64 -288
-  %147 = load i64, ptr %146, align 8, !tbaa !51
-  %148 = getelementptr inbounds i8, ptr %.2491, i64 -200
-  %149 = load i64, ptr %148, align 8, !tbaa !51
-  %150 = add i64 %147, 1
-  %151 = add i64 %150, %149
-  %152 = call noalias ptr @malloc(i64 noundef %151) #12
-  %.not544 = icmp eq ptr %152, null
-  br i1 %.not544, label %165, label %153
+146:                                              ; preds = %79
+  %147 = getelementptr inbounds i8, ptr %.2491, i64 -288
+  %148 = load i64, ptr %147, align 8, !tbaa !51
+  %149 = getelementptr inbounds i8, ptr %.2491, i64 -200
+  %150 = load i64, ptr %149, align 8, !tbaa !51
+  %151 = add i64 %148, 1
+  %152 = add i64 %151, %150
+  %153 = call noalias ptr @malloc(i64 noundef %152) #12
+  %.not544 = icmp eq ptr %153, null
+  br i1 %.not544, label %166, label %154
 
-153:                                              ; preds = %145
-  %154 = getelementptr inbounds i8, ptr %.2491, i64 -296
-  %155 = load ptr, ptr %154, align 8, !tbaa !50
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %152, ptr align 1 %155, i64 %147, i1 false)
-  %156 = load i64, ptr %146, align 8, !tbaa !51
-  %157 = getelementptr inbounds nuw i8, ptr %152, i64 %156
-  %158 = getelementptr inbounds i8, ptr %.2491, i64 -208
-  %159 = load ptr, ptr %158, align 8, !tbaa !50
-  %160 = load i64, ptr %148, align 8, !tbaa !51
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %157, ptr align 1 %159, i64 %160, i1 false)
-  %161 = load i64, ptr %146, align 8, !tbaa !51
-  %162 = load i64, ptr %148, align 8, !tbaa !51
-  %163 = getelementptr i8, ptr %152, i64 %161
-  %164 = getelementptr i8, ptr %163, i64 %162
-  store i8 0, ptr %164, align 1, !tbaa !8
-  br label %165
+154:                                              ; preds = %146
+  %155 = getelementptr inbounds i8, ptr %.2491, i64 -296
+  %156 = load ptr, ptr %155, align 8, !tbaa !50
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %153, ptr align 1 %156, i64 %148, i1 false)
+  %157 = load i64, ptr %147, align 8, !tbaa !51
+  %158 = getelementptr inbounds nuw i8, ptr %153, i64 %157
+  %159 = getelementptr inbounds i8, ptr %.2491, i64 -208
+  %160 = load ptr, ptr %159, align 8, !tbaa !50
+  %161 = load i64, ptr %149, align 8, !tbaa !51
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %158, ptr align 1 %160, i64 %161, i1 false)
+  %162 = load i64, ptr %147, align 8, !tbaa !51
+  %163 = load i64, ptr %149, align 8, !tbaa !51
+  %164 = getelementptr i8, ptr %153, i64 %162
+  %165 = getelementptr i8, ptr %164, i64 %163
+  store i8 0, ptr %165, align 1, !tbaa !8
+  br label %166
 
-165:                                              ; preds = %153, %145
-  %166 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
-  %167 = load i64, ptr %166, align 8, !tbaa !48
-  br label %218
+166:                                              ; preds = %154, %146
+  %167 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
+  %168 = load i64, ptr %167, align 8, !tbaa !48
+  br label %219
 
-168:                                              ; preds = %78
-  %169 = getelementptr inbounds i8, ptr %.2491, i64 -120
-  %170 = load ptr, ptr %169, align 8, !tbaa !50
-  %171 = getelementptr inbounds nuw i8, ptr %.2491, i64 56
-  %172 = load ptr, ptr %171, align 8, !tbaa !50
-  br label %218
+169:                                              ; preds = %79
+  %170 = getelementptr inbounds i8, ptr %.2491, i64 -120
+  %171 = load ptr, ptr %170, align 8, !tbaa !50
+  %172 = getelementptr inbounds nuw i8, ptr %.2491, i64 56
+  %173 = load ptr, ptr %172, align 8, !tbaa !50
+  br label %219
 
-173:                                              ; preds = %78
-  %174 = getelementptr inbounds i8, ptr %.2491, i64 -296
-  %175 = load ptr, ptr %174, align 8, !tbaa !50
-  %176 = getelementptr inbounds i8, ptr %.2491, i64 -120
-  %177 = load ptr, ptr %176, align 8, !tbaa !50
-  %178 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
-  %179 = load i64, ptr %178, align 8, !tbaa !48
-  br label %218
+174:                                              ; preds = %79
+  %175 = getelementptr inbounds i8, ptr %.2491, i64 -296
+  %176 = load ptr, ptr %175, align 8, !tbaa !50
+  %177 = getelementptr inbounds i8, ptr %.2491, i64 -120
+  %178 = load ptr, ptr %177, align 8, !tbaa !50
+  %179 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
+  %180 = load i64, ptr %179, align 8, !tbaa !48
+  br label %219
 
-180:                                              ; preds = %78
-  %181 = getelementptr inbounds i8, ptr %.2491, i64 -120
-  %182 = load ptr, ptr %181, align 8, !tbaa !50
-  %183 = getelementptr inbounds i8, ptr %.2491, i64 -112
-  %184 = load i64, ptr %183, align 8, !tbaa !51
-  %185 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
-  %186 = load i64, ptr %185, align 8, !tbaa !48
-  br label %218
+181:                                              ; preds = %79
+  %182 = getelementptr inbounds i8, ptr %.2491, i64 -120
+  %183 = load ptr, ptr %182, align 8, !tbaa !50
+  %184 = getelementptr inbounds i8, ptr %.2491, i64 -112
+  %185 = load i64, ptr %184, align 8, !tbaa !51
+  %186 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
+  %187 = load i64, ptr %186, align 8, !tbaa !48
+  br label %219
 
-187:                                              ; preds = %78
-  %188 = getelementptr inbounds nuw i8, ptr %.2491, i64 56
-  %189 = load ptr, ptr %188, align 8, !tbaa !50
-  %190 = getelementptr inbounds nuw i8, ptr %.2491, i64 64
-  %191 = load i64, ptr %190, align 8, !tbaa !51
-  br label %218
+188:                                              ; preds = %79
+  %189 = getelementptr inbounds nuw i8, ptr %.2491, i64 56
+  %190 = load ptr, ptr %189, align 8, !tbaa !50
+  %191 = getelementptr inbounds nuw i8, ptr %.2491, i64 64
+  %192 = load i64, ptr %191, align 8, !tbaa !51
+  br label %219
 
-192:                                              ; preds = %78
+193:                                              ; preds = %79
   %.sroa.0.0.copyload46 = load i32, ptr %.2491, align 8, !tbaa !10
   %.sroa.26.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %.2491, i64 4
   %.sroa.26.0.copyload61 = load i32, ptr %.sroa.26.0..sroa_idx60, align 4
@@ -557,9 +558,9 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.59.0.copyload268 = load ptr, ptr %.sroa.59.0..sroa_idx267, align 8, !tbaa !15
   %.sroa.59283.0..sroa_idx290 = getelementptr inbounds nuw i8, ptr %.2491, i64 80
   %.sroa.59283.0.copyload291 = load ptr, ptr %.sroa.59283.0..sroa_idx290, align 8, !tbaa !15
-  br label %218
+  br label %219
 
-193:                                              ; preds = %78
+194:                                              ; preds = %79
   %.sroa.0.0.copyload47 = load i32, ptr %.2491, align 8, !tbaa !10
   %.sroa.26.0..sroa_idx62 = getelementptr inbounds nuw i8, ptr %.2491, i64 4
   %.sroa.26.0.copyload63 = load i32, ptr %.sroa.26.0..sroa_idx62, align 4
@@ -583,9 +584,9 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.59.0.copyload270 = load ptr, ptr %.sroa.59.0..sroa_idx269, align 8, !tbaa !15
   %.sroa.59283.0..sroa_idx292 = getelementptr inbounds nuw i8, ptr %.2491, i64 80
   %.sroa.59283.0.copyload293 = load ptr, ptr %.sroa.59283.0..sroa_idx292, align 8, !tbaa !15
-  br label %218
+  br label %219
 
-194:                                              ; preds = %78
+195:                                              ; preds = %79
   %.sroa.0.0.copyload48 = load i32, ptr %.2491, align 8, !tbaa !10
   %.sroa.26.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %.2491, i64 4
   %.sroa.26.0.copyload65 = load i32, ptr %.sroa.26.0..sroa_idx64, align 4
@@ -609,9 +610,9 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.59.0.copyload272 = load ptr, ptr %.sroa.59.0..sroa_idx271, align 8, !tbaa !15
   %.sroa.59283.0..sroa_idx294 = getelementptr inbounds nuw i8, ptr %.2491, i64 80
   %.sroa.59283.0.copyload295 = load ptr, ptr %.sroa.59283.0..sroa_idx294, align 8, !tbaa !15
-  br label %218
+  br label %219
 
-195:                                              ; preds = %78
+196:                                              ; preds = %79
   %.sroa.0.0.copyload49 = load i32, ptr %.2491, align 8, !tbaa !10
   %.sroa.26.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %.2491, i64 4
   %.sroa.26.0.copyload67 = load i32, ptr %.sroa.26.0..sroa_idx66, align 4
@@ -635,9 +636,9 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.59.0.copyload274 = load ptr, ptr %.sroa.59.0..sroa_idx273, align 8, !tbaa !15
   %.sroa.59283.0..sroa_idx296 = getelementptr inbounds nuw i8, ptr %.2491, i64 80
   %.sroa.59283.0.copyload297 = load ptr, ptr %.sroa.59283.0..sroa_idx296, align 8, !tbaa !15
-  br label %218
+  br label %219
 
-196:                                              ; preds = %78
+197:                                              ; preds = %79
   %.sroa.0.0.copyload50 = load i32, ptr %.2491, align 8, !tbaa !10
   %.sroa.26.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %.2491, i64 4
   %.sroa.26.0.copyload69 = load i32, ptr %.sroa.26.0..sroa_idx68, align 4
@@ -661,9 +662,9 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.59.0.copyload276 = load ptr, ptr %.sroa.59.0..sroa_idx275, align 8, !tbaa !15
   %.sroa.59283.0..sroa_idx298 = getelementptr inbounds nuw i8, ptr %.2491, i64 80
   %.sroa.59283.0.copyload299 = load ptr, ptr %.sroa.59283.0..sroa_idx298, align 8, !tbaa !15
-  br label %218
+  br label %219
 
-197:                                              ; preds = %78
+198:                                              ; preds = %79
   %.sroa.0.0.copyload51 = load i32, ptr %.2491, align 8, !tbaa !10
   %.sroa.26.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %.2491, i64 4
   %.sroa.26.0.copyload71 = load i32, ptr %.sroa.26.0..sroa_idx70, align 4
@@ -687,9 +688,9 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.59.0.copyload278 = load ptr, ptr %.sroa.59.0..sroa_idx277, align 8, !tbaa !15
   %.sroa.59283.0..sroa_idx300 = getelementptr inbounds nuw i8, ptr %.2491, i64 80
   %.sroa.59283.0.copyload301 = load ptr, ptr %.sroa.59283.0..sroa_idx300, align 8, !tbaa !15
-  br label %218
+  br label %219
 
-198:                                              ; preds = %78
+199:                                              ; preds = %79
   %.sroa.0.0.copyload52 = load i32, ptr %.2491, align 8, !tbaa !10
   %.sroa.26.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %.2491, i64 4
   %.sroa.26.0.copyload73 = load i32, ptr %.sroa.26.0..sroa_idx72, align 4
@@ -713,179 +714,179 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.59.0.copyload280 = load ptr, ptr %.sroa.59.0..sroa_idx279, align 8, !tbaa !15
   %.sroa.59283.0..sroa_idx302 = getelementptr inbounds nuw i8, ptr %.2491, i64 80
   %.sroa.59283.0.copyload303 = load ptr, ptr %.sroa.59283.0..sroa_idx302, align 8, !tbaa !15
-  br label %218
+  br label %219
 
-199:                                              ; preds = %78
-  %200 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
-  %201 = load i64, ptr %200, align 8, !tbaa !48
-  store i64 %201, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1560), align 8, !tbaa !49
-  br label %218
+200:                                              ; preds = %79
+  %201 = getelementptr inbounds nuw i8, ptr %.2491, i64 8
+  %202 = load i64, ptr %201, align 8, !tbaa !48
+  store i64 %202, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1560), align 8, !tbaa !49
+  br label %219
 
-202:                                              ; preds = %78
-  %203 = getelementptr inbounds nuw i8, ptr %.2491, i64 56
-  %204 = load ptr, ptr %203, align 8, !tbaa !50
-  %205 = getelementptr inbounds nuw i8, ptr %.2491, i64 64
-  %206 = load i64, ptr %205, align 8, !tbaa !51
-  br label %218
+203:                                              ; preds = %79
+  %204 = getelementptr inbounds nuw i8, ptr %.2491, i64 56
+  %205 = load ptr, ptr %204, align 8, !tbaa !50
+  %206 = getelementptr inbounds nuw i8, ptr %.2491, i64 64
+  %207 = load i64, ptr %206, align 8, !tbaa !51
+  br label %219
 
-207:                                              ; preds = %78
-  %208 = getelementptr inbounds nuw i8, ptr %.2491, i64 56
-  %209 = load ptr, ptr %208, align 8, !tbaa !50
-  %210 = getelementptr inbounds nuw i8, ptr %.2491, i64 64
-  %211 = load i64, ptr %210, align 8, !tbaa !51
-  br label %218
+208:                                              ; preds = %79
+  %209 = getelementptr inbounds nuw i8, ptr %.2491, i64 56
+  %210 = load ptr, ptr %209, align 8, !tbaa !50
+  %211 = getelementptr inbounds nuw i8, ptr %.2491, i64 64
+  %212 = load i64, ptr %211, align 8, !tbaa !51
+  br label %219
 
-212:                                              ; preds = %78
-  br label %218
+213:                                              ; preds = %79
+  br label %219
 
-213:                                              ; preds = %78
-  %214 = getelementptr inbounds nuw i8, ptr %.2491, i64 56
-  %215 = load ptr, ptr %214, align 8, !tbaa !50
-  %216 = getelementptr inbounds nuw i8, ptr %.2491, i64 64
-  %217 = load i64, ptr %216, align 8, !tbaa !51
-  br label %218
+214:                                              ; preds = %79
+  %215 = getelementptr inbounds nuw i8, ptr %.2491, i64 56
+  %216 = load ptr, ptr %215, align 8, !tbaa !50
+  %217 = getelementptr inbounds nuw i8, ptr %.2491, i64 64
+  %218 = load i64, ptr %217, align 8, !tbaa !51
+  br label %219
 
-218:                                              ; preds = %78, %213, %212, %207, %202, %199, %198, %197, %196, %195, %194, %193, %192, %187, %180, %173, %168, %165, %142, %117, %112, %108, %103, %98, %93, %89, %86, %85
-  %.sroa.59283.0 = phi ptr [ %.sroa.59283.0.copyload, %78 ], [ %.sroa.59283.0.copyload285, %85 ], [ %.sroa.59283.0.copyload287, %86 ], [ %.sroa.59283.0.copyload, %213 ], [ %92, %89 ], [ %97, %93 ], [ %102, %98 ], [ %107, %103 ], [ %.sroa.59283.0.copyload289, %108 ], [ %.sroa.59283.0.copyload, %112 ], [ %.sroa.59283.0.copyload, %117 ], [ %.sroa.59283.0.copyload, %142 ], [ %.sroa.59283.0.copyload, %165 ], [ %.sroa.59283.0.copyload, %168 ], [ %.sroa.59283.0.copyload, %173 ], [ %.sroa.59283.0.copyload, %180 ], [ %.sroa.59283.0.copyload, %187 ], [ %.sroa.59283.0.copyload291, %192 ], [ %.sroa.59283.0.copyload293, %193 ], [ %.sroa.59283.0.copyload295, %194 ], [ %.sroa.59283.0.copyload297, %195 ], [ %.sroa.59283.0.copyload299, %196 ], [ %.sroa.59283.0.copyload301, %197 ], [ %.sroa.59283.0.copyload303, %198 ], [ %.sroa.59283.0.copyload, %199 ], [ %.sroa.59283.0.copyload, %202 ], [ %.sroa.59283.0.copyload, %207 ], [ %.sroa.59283.0.copyload, %212 ]
-  %.sroa.59.0 = phi ptr [ %.sroa.59.0.copyload, %78 ], [ %.sroa.59.0.copyload262, %85 ], [ %.sroa.59.0.copyload264, %86 ], [ %.sroa.59.0.copyload, %213 ], [ %.sroa.59.0.copyload, %89 ], [ %.sroa.59.0.copyload, %93 ], [ %.sroa.59.0.copyload, %98 ], [ %.sroa.59.0.copyload, %103 ], [ %.sroa.59.0.copyload266, %108 ], [ %.sroa.59.0.copyload, %112 ], [ %.sroa.59.0.copyload, %117 ], [ %.sroa.59.0.copyload, %142 ], [ %.sroa.59.0.copyload, %165 ], [ %.sroa.59.0.copyload, %168 ], [ %.sroa.59.0.copyload, %173 ], [ %.sroa.59.0.copyload, %180 ], [ %.sroa.59.0.copyload, %187 ], [ %.sroa.59.0.copyload268, %192 ], [ %.sroa.59.0.copyload270, %193 ], [ %.sroa.59.0.copyload272, %194 ], [ %.sroa.59.0.copyload274, %195 ], [ %.sroa.59.0.copyload276, %196 ], [ %.sroa.59.0.copyload278, %197 ], [ %.sroa.59.0.copyload280, %198 ], [ %.sroa.59.0.copyload, %199 ], [ %.sroa.59.0.copyload, %202 ], [ %.sroa.59.0.copyload, %207 ], [ %.sroa.59.0.copyload, %212 ]
-  %.sroa.53.0 = phi i64 [ %.sroa.53.0.copyload, %78 ], [ %.sroa.53.0.copyload240, %85 ], [ %.sroa.53.0.copyload242, %86 ], [ %217, %213 ], [ %.sroa.53.0.copyload, %89 ], [ %.sroa.53.0.copyload, %93 ], [ %.sroa.53.0.copyload, %98 ], [ %.sroa.53.0.copyload, %103 ], [ %.sroa.53.0.copyload244, %108 ], [ %.sroa.53.0.copyload, %112 ], [ %.sroa.53.0.copyload, %117 ], [ %.sroa.53.0.copyload, %142 ], [ %.sroa.53.0.copyload, %165 ], [ %.sroa.53.0.copyload, %168 ], [ %.sroa.53.0.copyload, %173 ], [ %184, %180 ], [ %191, %187 ], [ %.sroa.53.0.copyload246, %192 ], [ %.sroa.53.0.copyload248, %193 ], [ %.sroa.53.0.copyload250, %194 ], [ %.sroa.53.0.copyload252, %195 ], [ %.sroa.53.0.copyload254, %196 ], [ %.sroa.53.0.copyload256, %197 ], [ %.sroa.53.0.copyload258, %198 ], [ %.sroa.53.0.copyload, %199 ], [ %206, %202 ], [ %211, %207 ], [ 0, %212 ]
-  %.sroa.48.0 = phi ptr [ %.sroa.48.0.copyload, %78 ], [ %.sroa.48.0.copyload218, %85 ], [ %.sroa.48.0.copyload220, %86 ], [ %215, %213 ], [ %.sroa.48.0.copyload, %89 ], [ %.sroa.48.0.copyload, %93 ], [ %.sroa.48.0.copyload, %98 ], [ %.sroa.48.0.copyload, %103 ], [ %.sroa.48.0.copyload222, %108 ], [ %.sroa.48.0.copyload, %112 ], [ %.sroa.48.0.copyload, %117 ], [ %.sroa.48.0.copyload, %142 ], [ %.sroa.48.0.copyload, %165 ], [ %.sroa.48.0.copyload, %168 ], [ %.sroa.48.0.copyload, %173 ], [ %182, %180 ], [ %189, %187 ], [ %.sroa.48.0.copyload224, %192 ], [ %.sroa.48.0.copyload226, %193 ], [ %.sroa.48.0.copyload228, %194 ], [ %.sroa.48.0.copyload230, %195 ], [ %.sroa.48.0.copyload232, %196 ], [ %.sroa.48.0.copyload234, %197 ], [ %.sroa.48.0.copyload236, %198 ], [ %.sroa.48.0.copyload, %199 ], [ %204, %202 ], [ %209, %207 ], [ %.sroa.48.0.copyload, %212 ]
-  %.sroa.46.0 = phi ptr [ %.sroa.46.0.copyload, %78 ], [ %.sroa.46.0.copyload196, %85 ], [ %.sroa.46.0.copyload198, %86 ], [ %.sroa.46.0.copyload, %213 ], [ %.sroa.46.0.copyload, %89 ], [ %.sroa.46.0.copyload, %93 ], [ %.sroa.46.0.copyload, %98 ], [ %.sroa.46.0.copyload, %103 ], [ %.sroa.46.0.copyload200, %108 ], [ %.sroa.46.0.copyload, %112 ], [ %.sroa.46.0.copyload, %117 ], [ %.sroa.46.0.copyload, %142 ], [ %.sroa.46.0.copyload, %165 ], [ %172, %168 ], [ %177, %173 ], [ %.sroa.46.0.copyload, %180 ], [ %.sroa.46.0.copyload, %187 ], [ %.sroa.46.0.copyload202, %192 ], [ %.sroa.46.0.copyload204, %193 ], [ %.sroa.46.0.copyload206, %194 ], [ %.sroa.46.0.copyload208, %195 ], [ %.sroa.46.0.copyload210, %196 ], [ %.sroa.46.0.copyload212, %197 ], [ %.sroa.46.0.copyload214, %198 ], [ %.sroa.46.0.copyload, %199 ], [ %.sroa.46.0.copyload, %202 ], [ %.sroa.46.0.copyload, %207 ], [ %.sroa.46.0.copyload, %212 ]
-  %.sroa.44.0 = phi ptr [ %.sroa.44.0.copyload, %78 ], [ %.sroa.44.0.copyload174, %85 ], [ %.sroa.44.0.copyload176, %86 ], [ %.sroa.44.0.copyload, %213 ], [ %.sroa.44.0.copyload, %89 ], [ %.sroa.44.0.copyload, %93 ], [ %.sroa.44.0.copyload, %98 ], [ %.sroa.44.0.copyload, %103 ], [ %.sroa.44.0.copyload178, %108 ], [ %.sroa.44.0.copyload, %112 ], [ %.sroa.44.0.copyload, %117 ], [ %.sroa.44.0.copyload, %142 ], [ %.sroa.44.0.copyload, %165 ], [ %170, %168 ], [ %175, %173 ], [ %.sroa.44.0.copyload, %180 ], [ %.sroa.44.0.copyload, %187 ], [ %.sroa.44.0.copyload180, %192 ], [ %.sroa.44.0.copyload182, %193 ], [ %.sroa.44.0.copyload184, %194 ], [ %.sroa.44.0.copyload186, %195 ], [ %.sroa.44.0.copyload188, %196 ], [ %.sroa.44.0.copyload190, %197 ], [ %.sroa.44.0.copyload192, %198 ], [ %.sroa.44.0.copyload, %199 ], [ %.sroa.44.0.copyload, %202 ], [ %.sroa.44.0.copyload, %207 ], [ %.sroa.44.0.copyload, %212 ]
-  %.sroa.40.0 = phi i64 [ %.sroa.40.0.copyload, %78 ], [ %.sroa.40.0.copyload152, %85 ], [ %.sroa.40.0.copyload154, %86 ], [ %.sroa.40.0.copyload, %213 ], [ %.sroa.40.0.copyload, %89 ], [ %.sroa.40.0.copyload, %93 ], [ %.sroa.40.0.copyload, %98 ], [ %.sroa.40.0.copyload, %103 ], [ %.sroa.40.0.copyload156, %108 ], [ %116, %112 ], [ %121, %117 ], [ %144, %142 ], [ %167, %165 ], [ %.sroa.40.0.copyload, %168 ], [ %.sroa.40.0.copyload, %173 ], [ %.sroa.40.0.copyload, %180 ], [ %.sroa.40.0.copyload, %187 ], [ %.sroa.40.0.copyload158, %192 ], [ %.sroa.40.0.copyload160, %193 ], [ %.sroa.40.0.copyload162, %194 ], [ %.sroa.40.0.copyload164, %195 ], [ %.sroa.40.0.copyload166, %196 ], [ %.sroa.40.0.copyload168, %197 ], [ %.sroa.40.0.copyload170, %198 ], [ %.sroa.40.0.copyload, %199 ], [ %.sroa.40.0.copyload, %202 ], [ %.sroa.40.0.copyload, %207 ], [ %.sroa.40.0.copyload, %212 ]
-  %.sroa.28121.0 = phi ptr [ %.sroa.28121.0.copyload, %78 ], [ %.sroa.28121.0.copyload123, %85 ], [ %.sroa.28121.0.copyload125, %86 ], [ %.sroa.28121.0.copyload, %213 ], [ %.sroa.28121.0.copyload, %89 ], [ %.sroa.28121.0.copyload, %93 ], [ %.sroa.28121.0.copyload, %98 ], [ %.sroa.28121.0.copyload, %103 ], [ %.sroa.28121.0.copyload127, %108 ], [ %114, %112 ], [ %119, %117 ], [ %129, %142 ], [ %152, %165 ], [ %.sroa.28121.0.copyload, %168 ], [ %.sroa.28121.0.copyload, %173 ], [ %.sroa.28121.0.copyload, %180 ], [ %.sroa.28121.0.copyload, %187 ], [ %.sroa.28121.0.copyload129, %192 ], [ %.sroa.28121.0.copyload131, %193 ], [ %.sroa.28121.0.copyload133, %194 ], [ %.sroa.28121.0.copyload135, %195 ], [ %.sroa.28121.0.copyload137, %196 ], [ %.sroa.28121.0.copyload139, %197 ], [ %.sroa.28121.0.copyload141, %198 ], [ %.sroa.28121.0.copyload, %199 ], [ %.sroa.28121.0.copyload, %202 ], [ %.sroa.28121.0.copyload, %207 ], [ %.sroa.28121.0.copyload, %212 ]
-  %.sroa.28.0 = phi i64 [ %.sroa.28.0.copyload, %78 ], [ %.sroa.28.0.copyload100, %85 ], [ %.sroa.28.0.copyload102, %86 ], [ %.sroa.28.0.copyload, %213 ], [ %.sroa.28.0.copyload, %89 ], [ %.sroa.28.0.copyload, %93 ], [ %.sroa.28.0.copyload, %98 ], [ %.sroa.28.0.copyload, %103 ], [ %.sroa.28.0.copyload104, %108 ], [ %.sroa.28.0.copyload, %112 ], [ %.sroa.28.0.copyload, %117 ], [ %.sroa.28.0.copyload, %142 ], [ %.sroa.28.0.copyload, %165 ], [ %.sroa.28.0.copyload, %168 ], [ %.sroa.28.0.copyload, %173 ], [ %.sroa.28.0.copyload, %180 ], [ %.sroa.28.0.copyload, %187 ], [ %.sroa.28.0.copyload106, %192 ], [ %.sroa.28.0.copyload108, %193 ], [ %.sroa.28.0.copyload110, %194 ], [ %.sroa.28.0.copyload112, %195 ], [ %.sroa.28.0.copyload114, %196 ], [ %.sroa.28.0.copyload116, %197 ], [ %.sroa.28.0.copyload118, %198 ], [ %.sroa.28.0.copyload, %199 ], [ %.sroa.28.0.copyload, %202 ], [ %.sroa.28.0.copyload, %207 ], [ %.sroa.28.0.copyload, %212 ]
-  %.sroa.2676.0 = phi i64 [ %.sroa.2676.0.copyload, %78 ], [ %.sroa.2676.0.copyload78, %85 ], [ %.sroa.2676.0.copyload80, %86 ], [ %.sroa.2676.0.copyload, %213 ], [ %.sroa.2676.0.copyload, %89 ], [ %.sroa.2676.0.copyload, %93 ], [ %.sroa.2676.0.copyload, %98 ], [ %.sroa.2676.0.copyload, %103 ], [ %.sroa.2676.0.copyload82, %108 ], [ %.sroa.2676.0.copyload, %112 ], [ %.sroa.2676.0.copyload, %117 ], [ %.sroa.2676.0.copyload, %142 ], [ %.sroa.2676.0.copyload, %165 ], [ %.sroa.2676.0.copyload, %168 ], [ %179, %173 ], [ %186, %180 ], [ %.sroa.2676.0.copyload, %187 ], [ %.sroa.2676.0.copyload84, %192 ], [ %.sroa.2676.0.copyload86, %193 ], [ %.sroa.2676.0.copyload88, %194 ], [ %.sroa.2676.0.copyload90, %195 ], [ %.sroa.2676.0.copyload92, %196 ], [ %.sroa.2676.0.copyload94, %197 ], [ %.sroa.2676.0.copyload96, %198 ], [ %.sroa.2676.0.copyload, %199 ], [ %.sroa.2676.0.copyload, %202 ], [ %.sroa.2676.0.copyload, %207 ], [ %.sroa.2676.0.copyload, %212 ]
-  %.sroa.26.0 = phi i32 [ %.sroa.26.0.copyload, %78 ], [ %.sroa.26.0.copyload55, %85 ], [ %.sroa.26.0.copyload57, %86 ], [ %.sroa.26.0.copyload, %213 ], [ %.sroa.26.0.copyload, %89 ], [ %.sroa.26.0.copyload, %93 ], [ %.sroa.26.0.copyload, %98 ], [ %.sroa.26.0.copyload, %103 ], [ %.sroa.26.0.copyload59, %108 ], [ %.sroa.26.0.copyload, %112 ], [ %.sroa.26.0.copyload, %117 ], [ %.sroa.26.0.copyload, %142 ], [ %.sroa.26.0.copyload, %165 ], [ %.sroa.26.0.copyload, %168 ], [ %.sroa.26.0.copyload, %173 ], [ %.sroa.26.0.copyload, %180 ], [ %.sroa.26.0.copyload, %187 ], [ %.sroa.26.0.copyload61, %192 ], [ %.sroa.26.0.copyload63, %193 ], [ %.sroa.26.0.copyload65, %194 ], [ %.sroa.26.0.copyload67, %195 ], [ %.sroa.26.0.copyload69, %196 ], [ %.sroa.26.0.copyload71, %197 ], [ %.sroa.26.0.copyload73, %198 ], [ %.sroa.26.0.copyload, %199 ], [ %.sroa.26.0.copyload, %202 ], [ %.sroa.26.0.copyload, %207 ], [ %.sroa.26.0.copyload, %212 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %78 ], [ %.sroa.0.0.copyload43, %85 ], [ %.sroa.0.0.copyload44, %86 ], [ 15, %213 ], [ %.sroa.0.0.copyload, %89 ], [ %.sroa.0.0.copyload, %93 ], [ %.sroa.0.0.copyload, %98 ], [ %.sroa.0.0.copyload, %103 ], [ %.sroa.0.0.copyload45, %108 ], [ 2, %112 ], [ 3, %117 ], [ 2, %142 ], [ 3, %165 ], [ 4, %168 ], [ 8, %173 ], [ 7, %180 ], [ 12, %187 ], [ %.sroa.0.0.copyload46, %192 ], [ %.sroa.0.0.copyload47, %193 ], [ %.sroa.0.0.copyload48, %194 ], [ %.sroa.0.0.copyload49, %195 ], [ %.sroa.0.0.copyload50, %196 ], [ %.sroa.0.0.copyload51, %197 ], [ %.sroa.0.0.copyload52, %198 ], [ %.sroa.0.0.copyload, %199 ], [ 10, %202 ], [ 11, %207 ], [ 15, %212 ]
-  %219 = sub nsw i64 0, %82
-  %220 = getelementptr inbounds %struct._phpdbg_param, ptr %.2491, i64 %219
-  %221 = getelementptr inbounds i8, ptr %.2504, i64 %219
-  %222 = getelementptr inbounds nuw i8, ptr %220, i64 88
-  store i32 %.sroa.0.0, ptr %222, align 8, !tbaa !10
-  %.sroa.26.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %220, i64 92
+219:                                              ; preds = %79, %214, %213, %208, %203, %200, %199, %198, %197, %196, %195, %194, %193, %188, %181, %174, %169, %166, %143, %118, %113, %109, %104, %99, %94, %90, %87, %86
+  %.sroa.59283.0 = phi ptr [ %.sroa.59283.0.copyload, %79 ], [ %.sroa.59283.0.copyload285, %86 ], [ %.sroa.59283.0.copyload287, %87 ], [ %.sroa.59283.0.copyload, %214 ], [ %93, %90 ], [ %98, %94 ], [ %103, %99 ], [ %108, %104 ], [ %.sroa.59283.0.copyload289, %109 ], [ %.sroa.59283.0.copyload, %113 ], [ %.sroa.59283.0.copyload, %118 ], [ %.sroa.59283.0.copyload, %143 ], [ %.sroa.59283.0.copyload, %166 ], [ %.sroa.59283.0.copyload, %169 ], [ %.sroa.59283.0.copyload, %174 ], [ %.sroa.59283.0.copyload, %181 ], [ %.sroa.59283.0.copyload, %188 ], [ %.sroa.59283.0.copyload291, %193 ], [ %.sroa.59283.0.copyload293, %194 ], [ %.sroa.59283.0.copyload295, %195 ], [ %.sroa.59283.0.copyload297, %196 ], [ %.sroa.59283.0.copyload299, %197 ], [ %.sroa.59283.0.copyload301, %198 ], [ %.sroa.59283.0.copyload303, %199 ], [ %.sroa.59283.0.copyload, %200 ], [ %.sroa.59283.0.copyload, %203 ], [ %.sroa.59283.0.copyload, %208 ], [ %.sroa.59283.0.copyload, %213 ]
+  %.sroa.59.0 = phi ptr [ %.sroa.59.0.copyload, %79 ], [ %.sroa.59.0.copyload262, %86 ], [ %.sroa.59.0.copyload264, %87 ], [ %.sroa.59.0.copyload, %214 ], [ %.sroa.59.0.copyload, %90 ], [ %.sroa.59.0.copyload, %94 ], [ %.sroa.59.0.copyload, %99 ], [ %.sroa.59.0.copyload, %104 ], [ %.sroa.59.0.copyload266, %109 ], [ %.sroa.59.0.copyload, %113 ], [ %.sroa.59.0.copyload, %118 ], [ %.sroa.59.0.copyload, %143 ], [ %.sroa.59.0.copyload, %166 ], [ %.sroa.59.0.copyload, %169 ], [ %.sroa.59.0.copyload, %174 ], [ %.sroa.59.0.copyload, %181 ], [ %.sroa.59.0.copyload, %188 ], [ %.sroa.59.0.copyload268, %193 ], [ %.sroa.59.0.copyload270, %194 ], [ %.sroa.59.0.copyload272, %195 ], [ %.sroa.59.0.copyload274, %196 ], [ %.sroa.59.0.copyload276, %197 ], [ %.sroa.59.0.copyload278, %198 ], [ %.sroa.59.0.copyload280, %199 ], [ %.sroa.59.0.copyload, %200 ], [ %.sroa.59.0.copyload, %203 ], [ %.sroa.59.0.copyload, %208 ], [ %.sroa.59.0.copyload, %213 ]
+  %.sroa.53.0 = phi i64 [ %.sroa.53.0.copyload, %79 ], [ %.sroa.53.0.copyload240, %86 ], [ %.sroa.53.0.copyload242, %87 ], [ %218, %214 ], [ %.sroa.53.0.copyload, %90 ], [ %.sroa.53.0.copyload, %94 ], [ %.sroa.53.0.copyload, %99 ], [ %.sroa.53.0.copyload, %104 ], [ %.sroa.53.0.copyload244, %109 ], [ %.sroa.53.0.copyload, %113 ], [ %.sroa.53.0.copyload, %118 ], [ %.sroa.53.0.copyload, %143 ], [ %.sroa.53.0.copyload, %166 ], [ %.sroa.53.0.copyload, %169 ], [ %.sroa.53.0.copyload, %174 ], [ %185, %181 ], [ %192, %188 ], [ %.sroa.53.0.copyload246, %193 ], [ %.sroa.53.0.copyload248, %194 ], [ %.sroa.53.0.copyload250, %195 ], [ %.sroa.53.0.copyload252, %196 ], [ %.sroa.53.0.copyload254, %197 ], [ %.sroa.53.0.copyload256, %198 ], [ %.sroa.53.0.copyload258, %199 ], [ %.sroa.53.0.copyload, %200 ], [ %207, %203 ], [ %212, %208 ], [ 0, %213 ]
+  %.sroa.48.0 = phi ptr [ %.sroa.48.0.copyload, %79 ], [ %.sroa.48.0.copyload218, %86 ], [ %.sroa.48.0.copyload220, %87 ], [ %216, %214 ], [ %.sroa.48.0.copyload, %90 ], [ %.sroa.48.0.copyload, %94 ], [ %.sroa.48.0.copyload, %99 ], [ %.sroa.48.0.copyload, %104 ], [ %.sroa.48.0.copyload222, %109 ], [ %.sroa.48.0.copyload, %113 ], [ %.sroa.48.0.copyload, %118 ], [ %.sroa.48.0.copyload, %143 ], [ %.sroa.48.0.copyload, %166 ], [ %.sroa.48.0.copyload, %169 ], [ %.sroa.48.0.copyload, %174 ], [ %183, %181 ], [ %190, %188 ], [ %.sroa.48.0.copyload224, %193 ], [ %.sroa.48.0.copyload226, %194 ], [ %.sroa.48.0.copyload228, %195 ], [ %.sroa.48.0.copyload230, %196 ], [ %.sroa.48.0.copyload232, %197 ], [ %.sroa.48.0.copyload234, %198 ], [ %.sroa.48.0.copyload236, %199 ], [ %.sroa.48.0.copyload, %200 ], [ %205, %203 ], [ %210, %208 ], [ %.sroa.48.0.copyload, %213 ]
+  %.sroa.46.0 = phi ptr [ %.sroa.46.0.copyload, %79 ], [ %.sroa.46.0.copyload196, %86 ], [ %.sroa.46.0.copyload198, %87 ], [ %.sroa.46.0.copyload, %214 ], [ %.sroa.46.0.copyload, %90 ], [ %.sroa.46.0.copyload, %94 ], [ %.sroa.46.0.copyload, %99 ], [ %.sroa.46.0.copyload, %104 ], [ %.sroa.46.0.copyload200, %109 ], [ %.sroa.46.0.copyload, %113 ], [ %.sroa.46.0.copyload, %118 ], [ %.sroa.46.0.copyload, %143 ], [ %.sroa.46.0.copyload, %166 ], [ %173, %169 ], [ %178, %174 ], [ %.sroa.46.0.copyload, %181 ], [ %.sroa.46.0.copyload, %188 ], [ %.sroa.46.0.copyload202, %193 ], [ %.sroa.46.0.copyload204, %194 ], [ %.sroa.46.0.copyload206, %195 ], [ %.sroa.46.0.copyload208, %196 ], [ %.sroa.46.0.copyload210, %197 ], [ %.sroa.46.0.copyload212, %198 ], [ %.sroa.46.0.copyload214, %199 ], [ %.sroa.46.0.copyload, %200 ], [ %.sroa.46.0.copyload, %203 ], [ %.sroa.46.0.copyload, %208 ], [ %.sroa.46.0.copyload, %213 ]
+  %.sroa.44.0 = phi ptr [ %.sroa.44.0.copyload, %79 ], [ %.sroa.44.0.copyload174, %86 ], [ %.sroa.44.0.copyload176, %87 ], [ %.sroa.44.0.copyload, %214 ], [ %.sroa.44.0.copyload, %90 ], [ %.sroa.44.0.copyload, %94 ], [ %.sroa.44.0.copyload, %99 ], [ %.sroa.44.0.copyload, %104 ], [ %.sroa.44.0.copyload178, %109 ], [ %.sroa.44.0.copyload, %113 ], [ %.sroa.44.0.copyload, %118 ], [ %.sroa.44.0.copyload, %143 ], [ %.sroa.44.0.copyload, %166 ], [ %171, %169 ], [ %176, %174 ], [ %.sroa.44.0.copyload, %181 ], [ %.sroa.44.0.copyload, %188 ], [ %.sroa.44.0.copyload180, %193 ], [ %.sroa.44.0.copyload182, %194 ], [ %.sroa.44.0.copyload184, %195 ], [ %.sroa.44.0.copyload186, %196 ], [ %.sroa.44.0.copyload188, %197 ], [ %.sroa.44.0.copyload190, %198 ], [ %.sroa.44.0.copyload192, %199 ], [ %.sroa.44.0.copyload, %200 ], [ %.sroa.44.0.copyload, %203 ], [ %.sroa.44.0.copyload, %208 ], [ %.sroa.44.0.copyload, %213 ]
+  %.sroa.40.0 = phi i64 [ %.sroa.40.0.copyload, %79 ], [ %.sroa.40.0.copyload152, %86 ], [ %.sroa.40.0.copyload154, %87 ], [ %.sroa.40.0.copyload, %214 ], [ %.sroa.40.0.copyload, %90 ], [ %.sroa.40.0.copyload, %94 ], [ %.sroa.40.0.copyload, %99 ], [ %.sroa.40.0.copyload, %104 ], [ %.sroa.40.0.copyload156, %109 ], [ %117, %113 ], [ %122, %118 ], [ %145, %143 ], [ %168, %166 ], [ %.sroa.40.0.copyload, %169 ], [ %.sroa.40.0.copyload, %174 ], [ %.sroa.40.0.copyload, %181 ], [ %.sroa.40.0.copyload, %188 ], [ %.sroa.40.0.copyload158, %193 ], [ %.sroa.40.0.copyload160, %194 ], [ %.sroa.40.0.copyload162, %195 ], [ %.sroa.40.0.copyload164, %196 ], [ %.sroa.40.0.copyload166, %197 ], [ %.sroa.40.0.copyload168, %198 ], [ %.sroa.40.0.copyload170, %199 ], [ %.sroa.40.0.copyload, %200 ], [ %.sroa.40.0.copyload, %203 ], [ %.sroa.40.0.copyload, %208 ], [ %.sroa.40.0.copyload, %213 ]
+  %.sroa.28121.0 = phi ptr [ %.sroa.28121.0.copyload, %79 ], [ %.sroa.28121.0.copyload123, %86 ], [ %.sroa.28121.0.copyload125, %87 ], [ %.sroa.28121.0.copyload, %214 ], [ %.sroa.28121.0.copyload, %90 ], [ %.sroa.28121.0.copyload, %94 ], [ %.sroa.28121.0.copyload, %99 ], [ %.sroa.28121.0.copyload, %104 ], [ %.sroa.28121.0.copyload127, %109 ], [ %115, %113 ], [ %120, %118 ], [ %130, %143 ], [ %153, %166 ], [ %.sroa.28121.0.copyload, %169 ], [ %.sroa.28121.0.copyload, %174 ], [ %.sroa.28121.0.copyload, %181 ], [ %.sroa.28121.0.copyload, %188 ], [ %.sroa.28121.0.copyload129, %193 ], [ %.sroa.28121.0.copyload131, %194 ], [ %.sroa.28121.0.copyload133, %195 ], [ %.sroa.28121.0.copyload135, %196 ], [ %.sroa.28121.0.copyload137, %197 ], [ %.sroa.28121.0.copyload139, %198 ], [ %.sroa.28121.0.copyload141, %199 ], [ %.sroa.28121.0.copyload, %200 ], [ %.sroa.28121.0.copyload, %203 ], [ %.sroa.28121.0.copyload, %208 ], [ %.sroa.28121.0.copyload, %213 ]
+  %.sroa.28.0 = phi i64 [ %.sroa.28.0.copyload, %79 ], [ %.sroa.28.0.copyload100, %86 ], [ %.sroa.28.0.copyload102, %87 ], [ %.sroa.28.0.copyload, %214 ], [ %.sroa.28.0.copyload, %90 ], [ %.sroa.28.0.copyload, %94 ], [ %.sroa.28.0.copyload, %99 ], [ %.sroa.28.0.copyload, %104 ], [ %.sroa.28.0.copyload104, %109 ], [ %.sroa.28.0.copyload, %113 ], [ %.sroa.28.0.copyload, %118 ], [ %.sroa.28.0.copyload, %143 ], [ %.sroa.28.0.copyload, %166 ], [ %.sroa.28.0.copyload, %169 ], [ %.sroa.28.0.copyload, %174 ], [ %.sroa.28.0.copyload, %181 ], [ %.sroa.28.0.copyload, %188 ], [ %.sroa.28.0.copyload106, %193 ], [ %.sroa.28.0.copyload108, %194 ], [ %.sroa.28.0.copyload110, %195 ], [ %.sroa.28.0.copyload112, %196 ], [ %.sroa.28.0.copyload114, %197 ], [ %.sroa.28.0.copyload116, %198 ], [ %.sroa.28.0.copyload118, %199 ], [ %.sroa.28.0.copyload, %200 ], [ %.sroa.28.0.copyload, %203 ], [ %.sroa.28.0.copyload, %208 ], [ %.sroa.28.0.copyload, %213 ]
+  %.sroa.2676.0 = phi i64 [ %.sroa.2676.0.copyload, %79 ], [ %.sroa.2676.0.copyload78, %86 ], [ %.sroa.2676.0.copyload80, %87 ], [ %.sroa.2676.0.copyload, %214 ], [ %.sroa.2676.0.copyload, %90 ], [ %.sroa.2676.0.copyload, %94 ], [ %.sroa.2676.0.copyload, %99 ], [ %.sroa.2676.0.copyload, %104 ], [ %.sroa.2676.0.copyload82, %109 ], [ %.sroa.2676.0.copyload, %113 ], [ %.sroa.2676.0.copyload, %118 ], [ %.sroa.2676.0.copyload, %143 ], [ %.sroa.2676.0.copyload, %166 ], [ %.sroa.2676.0.copyload, %169 ], [ %180, %174 ], [ %187, %181 ], [ %.sroa.2676.0.copyload, %188 ], [ %.sroa.2676.0.copyload84, %193 ], [ %.sroa.2676.0.copyload86, %194 ], [ %.sroa.2676.0.copyload88, %195 ], [ %.sroa.2676.0.copyload90, %196 ], [ %.sroa.2676.0.copyload92, %197 ], [ %.sroa.2676.0.copyload94, %198 ], [ %.sroa.2676.0.copyload96, %199 ], [ %.sroa.2676.0.copyload, %200 ], [ %.sroa.2676.0.copyload, %203 ], [ %.sroa.2676.0.copyload, %208 ], [ %.sroa.2676.0.copyload, %213 ]
+  %.sroa.26.0 = phi i32 [ %.sroa.26.0.copyload, %79 ], [ %.sroa.26.0.copyload55, %86 ], [ %.sroa.26.0.copyload57, %87 ], [ %.sroa.26.0.copyload, %214 ], [ %.sroa.26.0.copyload, %90 ], [ %.sroa.26.0.copyload, %94 ], [ %.sroa.26.0.copyload, %99 ], [ %.sroa.26.0.copyload, %104 ], [ %.sroa.26.0.copyload59, %109 ], [ %.sroa.26.0.copyload, %113 ], [ %.sroa.26.0.copyload, %118 ], [ %.sroa.26.0.copyload, %143 ], [ %.sroa.26.0.copyload, %166 ], [ %.sroa.26.0.copyload, %169 ], [ %.sroa.26.0.copyload, %174 ], [ %.sroa.26.0.copyload, %181 ], [ %.sroa.26.0.copyload, %188 ], [ %.sroa.26.0.copyload61, %193 ], [ %.sroa.26.0.copyload63, %194 ], [ %.sroa.26.0.copyload65, %195 ], [ %.sroa.26.0.copyload67, %196 ], [ %.sroa.26.0.copyload69, %197 ], [ %.sroa.26.0.copyload71, %198 ], [ %.sroa.26.0.copyload73, %199 ], [ %.sroa.26.0.copyload, %200 ], [ %.sroa.26.0.copyload, %203 ], [ %.sroa.26.0.copyload, %208 ], [ %.sroa.26.0.copyload, %213 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %79 ], [ %.sroa.0.0.copyload43, %86 ], [ %.sroa.0.0.copyload44, %87 ], [ 15, %214 ], [ %.sroa.0.0.copyload, %90 ], [ %.sroa.0.0.copyload, %94 ], [ %.sroa.0.0.copyload, %99 ], [ %.sroa.0.0.copyload, %104 ], [ %.sroa.0.0.copyload45, %109 ], [ 2, %113 ], [ 3, %118 ], [ 2, %143 ], [ 3, %166 ], [ 4, %169 ], [ 8, %174 ], [ 7, %181 ], [ 12, %188 ], [ %.sroa.0.0.copyload46, %193 ], [ %.sroa.0.0.copyload47, %194 ], [ %.sroa.0.0.copyload48, %195 ], [ %.sroa.0.0.copyload49, %196 ], [ %.sroa.0.0.copyload50, %197 ], [ %.sroa.0.0.copyload51, %198 ], [ %.sroa.0.0.copyload52, %199 ], [ %.sroa.0.0.copyload, %200 ], [ 10, %203 ], [ 11, %208 ], [ 15, %213 ]
+  %220 = sub nsw i64 0, %83
+  %221 = getelementptr inbounds %struct._phpdbg_param, ptr %.2491, i64 %220
+  %222 = getelementptr inbounds i8, ptr %.2504, i64 %220
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 88
+  store i32 %.sroa.0.0, ptr %223, align 8, !tbaa !10
+  %.sroa.26.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %221, i64 92
   store i32 %.sroa.26.0, ptr %.sroa.26.0..sroa_idx74, align 4
-  %.sroa.2676.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %220, i64 96
+  %.sroa.2676.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %221, i64 96
   store i64 %.sroa.2676.0, ptr %.sroa.2676.0..sroa_idx97, align 8, !tbaa !4
-  %.sroa.28.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %220, i64 104
+  %.sroa.28.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %221, i64 104
   store i64 %.sroa.28.0, ptr %.sroa.28.0..sroa_idx119, align 8, !tbaa !4
-  %.sroa.28121.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %220, i64 112
+  %.sroa.28121.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %221, i64 112
   store ptr %.sroa.28121.0, ptr %.sroa.28121.0..sroa_idx142, align 8, !tbaa !12
-  %.sroa.40.0..sroa_idx171 = getelementptr inbounds nuw i8, ptr %220, i64 120
+  %.sroa.40.0..sroa_idx171 = getelementptr inbounds nuw i8, ptr %221, i64 120
   store i64 %.sroa.40.0, ptr %.sroa.40.0..sroa_idx171, align 8, !tbaa !4
-  %.sroa.44.0..sroa_idx193 = getelementptr inbounds nuw i8, ptr %220, i64 128
+  %.sroa.44.0..sroa_idx193 = getelementptr inbounds nuw i8, ptr %221, i64 128
   store ptr %.sroa.44.0, ptr %.sroa.44.0..sroa_idx193, align 8, !tbaa !12
-  %.sroa.46.0..sroa_idx215 = getelementptr inbounds nuw i8, ptr %220, i64 136
+  %.sroa.46.0..sroa_idx215 = getelementptr inbounds nuw i8, ptr %221, i64 136
   store ptr %.sroa.46.0, ptr %.sroa.46.0..sroa_idx215, align 8, !tbaa !12
-  %.sroa.48.0..sroa_idx237 = getelementptr inbounds nuw i8, ptr %220, i64 144
+  %.sroa.48.0..sroa_idx237 = getelementptr inbounds nuw i8, ptr %221, i64 144
   store ptr %.sroa.48.0, ptr %.sroa.48.0..sroa_idx237, align 8, !tbaa !12
-  %.sroa.53.0..sroa_idx259 = getelementptr inbounds nuw i8, ptr %220, i64 152
+  %.sroa.53.0..sroa_idx259 = getelementptr inbounds nuw i8, ptr %221, i64 152
   store i64 %.sroa.53.0, ptr %.sroa.53.0..sroa_idx259, align 8, !tbaa !4
-  %.sroa.59.0..sroa_idx281 = getelementptr inbounds nuw i8, ptr %220, i64 160
+  %.sroa.59.0..sroa_idx281 = getelementptr inbounds nuw i8, ptr %221, i64 160
   store ptr %.sroa.59.0, ptr %.sroa.59.0..sroa_idx281, align 8, !tbaa !15
-  %.sroa.59283.0..sroa_idx304 = getelementptr inbounds nuw i8, ptr %220, i64 168
+  %.sroa.59283.0..sroa_idx304 = getelementptr inbounds nuw i8, ptr %221, i64 168
   store ptr %.sroa.59283.0, ptr %.sroa.59283.0..sroa_idx304, align 8, !tbaa !15
-  %223 = getelementptr inbounds i8, ptr @yyr1, i64 %79
-  %224 = load i8, ptr %223, align 1, !tbaa !8
-  %225 = sext i8 %224 to i64
-  %226 = add nsw i64 %225, -23
-  %227 = getelementptr inbounds i8, ptr @yypgoto, i64 %226
-  %228 = load i8, ptr %227, align 1, !tbaa !8
-  %229 = sext i8 %228 to i32
-  %230 = load i8, ptr %221, align 1, !tbaa !8
-  %231 = sext i8 %230 to i32
-  %232 = add nsw i32 %231, %229
-  %or.cond5 = icmp ult i32 %232, 52
-  br i1 %or.cond5, label %233, label %240
+  %224 = getelementptr inbounds i8, ptr @yyr1, i64 %80
+  %225 = load i8, ptr %224, align 1, !tbaa !8
+  %226 = sext i8 %225 to i64
+  %227 = add nsw i64 %226, -23
+  %228 = getelementptr inbounds i8, ptr @yypgoto, i64 %227
+  %229 = load i8, ptr %228, align 1, !tbaa !8
+  %230 = sext i8 %229 to i32
+  %231 = load i8, ptr %222, align 1, !tbaa !8
+  %232 = sext i8 %231 to i32
+  %233 = add nsw i32 %232, %230
+  %or.cond5 = icmp ult i32 %233, 52
+  br i1 %or.cond5, label %234, label %241
 
-233:                                              ; preds = %218
-  %234 = zext nneg i32 %232 to i64
-  %235 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %234
-  %236 = load i8, ptr %235, align 1, !tbaa !8
-  %237 = icmp eq i8 %236, %230
-  br i1 %237, label %238, label %240
+234:                                              ; preds = %219
+  %235 = zext nneg i32 %233 to i64
+  %236 = getelementptr inbounds nuw i8, ptr @yycheck, i64 %235
+  %237 = load i8, ptr %236, align 1, !tbaa !8
+  %238 = icmp eq i8 %237, %231
+  br i1 %238, label %239, label %241
 
-238:                                              ; preds = %233
-  %239 = getelementptr inbounds nuw i8, ptr @yytable, i64 %234
-  br label %242
+239:                                              ; preds = %234
+  %240 = getelementptr inbounds nuw i8, ptr @yytable, i64 %235
+  br label %243
 
-240:                                              ; preds = %233, %218
-  %241 = getelementptr inbounds i8, ptr @yydefgoto, i64 %226
-  br label %242
+241:                                              ; preds = %234, %219
+  %242 = getelementptr inbounds i8, ptr @yydefgoto, i64 %227
+  br label %243
 
-242:                                              ; preds = %240, %238
-  %.in.in = phi ptr [ %239, %238 ], [ %241, %240 ]
+243:                                              ; preds = %241, %239
+  %.in.in = phi ptr [ %240, %239 ], [ %242, %241 ]
   %.in = load i8, ptr %.in.in, align 1, !tbaa !8
-  %243 = sext i8 %.in to i32
+  %244 = sext i8 %.in to i32
   br label %6
 
-244:                                              ; preds = %73
-  %245 = icmp eq i32 %.4, -2
-  br i1 %245, label %252, label %246
+245:                                              ; preds = %74
+  %246 = icmp eq i32 %.4, -2
+  br i1 %246, label %253, label %247
 
-246:                                              ; preds = %244
+247:                                              ; preds = %245
   %or.cond7 = icmp ult i32 %.4, 278
-  br i1 %or.cond7, label %247, label %252
+  br i1 %or.cond7, label %248, label %253
 
-247:                                              ; preds = %246
-  %248 = zext nneg i32 %.4 to i64
-  %249 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %248
-  %250 = load i8, ptr %249, align 1, !tbaa !8
-  %251 = sext i8 %250 to i32
-  br label %252
+248:                                              ; preds = %247
+  %249 = zext nneg i32 %.4 to i64
+  %250 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %249
+  %251 = load i8, ptr %250, align 1, !tbaa !8
+  %252 = sext i8 %251 to i32
+  br label %253
 
-252:                                              ; preds = %244, %246, %247
-  %253 = phi i32 [ -2, %244 ], [ %251, %247 ], [ 2, %246 ]
-  %254 = call fastcc i32 @yysyntax_error(ptr noundef %5, ptr nonnull %4, ptr %.2504, i32 %253)
-  switch i32 %254, label %263 [
-    i32 0, label %255
-    i32 -1, label %256
+253:                                              ; preds = %245, %247, %248
+  %254 = phi i32 [ -2, %245 ], [ %252, %248 ], [ 2, %247 ]
+  %255 = call fastcc i32 @yysyntax_error(ptr noundef %5, ptr nonnull %4, ptr %.2504, i32 %254)
+  switch i32 %255, label %264 [
+    i32 0, label %256
+    i32 -1, label %257
   ]
 
-255:                                              ; preds = %252
-  br label %263
+256:                                              ; preds = %253
+  br label %264
 
-256:                                              ; preds = %252
-  %257 = load i64, ptr %5, align 8, !tbaa !4
-  %258 = call noalias ptr @malloc(i64 noundef %257) #12
-  %.not548 = icmp eq ptr %258, null
-  br i1 %.not548, label %262, label %259
+257:                                              ; preds = %253
+  %258 = load i64, ptr %5, align 8, !tbaa !4
+  %259 = call noalias ptr @malloc(i64 noundef %258) #12
+  %.not548 = icmp eq ptr %259, null
+  br i1 %.not548, label %263, label %260
 
-259:                                              ; preds = %256
-  %260 = call fastcc i32 @yysyntax_error(ptr noundef %5, ptr nonnull %258, ptr %.2504, i32 %253)
-  %261 = icmp eq i32 %260, -2
-  br label %263
+260:                                              ; preds = %257
+  %261 = call fastcc i32 @yysyntax_error(ptr noundef %5, ptr nonnull %259, ptr %.2504, i32 %254)
+  %262 = icmp eq i32 %261, -2
+  br label %264
 
-262:                                              ; preds = %256
+263:                                              ; preds = %257
   store i64 128, ptr %5, align 8, !tbaa !4
-  br label %263
+  br label %264
 
-263:                                              ; preds = %252, %262, %259, %255
-  %.2 = phi ptr [ %4, %252 ], [ %4, %255 ], [ %4, %262 ], [ %258, %259 ]
-  %.0465 = phi ptr [ @.str, %252 ], [ %4, %255 ], [ @.str, %262 ], [ %258, %259 ]
-  %.0 = phi i1 [ true, %252 ], [ false, %255 ], [ true, %262 ], [ %261, %259 ]
-  %264 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !52
-  %265 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %264, ptr noundef nonnull @.str.42, ptr noundef nonnull %.0465) #13
+264:                                              ; preds = %253, %263, %260, %256
+  %.2 = phi ptr [ %4, %253 ], [ %4, %256 ], [ %4, %263 ], [ %259, %260 ]
+  %.0465 = phi ptr [ @.str, %253 ], [ %4, %256 ], [ @.str, %263 ], [ %259, %260 ]
+  %.0 = phi i1 [ true, %253 ], [ false, %256 ], [ true, %263 ], [ %262, %260 ]
+  %265 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !52
+  %266 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %265, ptr noundef nonnull @.str.42, ptr noundef nonnull %.0465) #13
   %.04.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !15
   %.not5.i = icmp eq ptr %.04.i, null
   br i1 %.not5.i, label %yyerror.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %263, %.lr.ph.i
-  %.06.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.04.i, %263 ]
+.lr.ph.i:                                         ; preds = %264, %.lr.ph.i
+  %.06.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.04.i, %264 ]
   call void @phpdbg_param_debug(ptr noundef nonnull %.06.i, ptr noundef nonnull @.str.43) #13
-  %266 = getelementptr inbounds nuw i8, ptr %.06.i, i64 72
-  %.0.i = load ptr, ptr %266, align 8, !tbaa !15
+  %267 = getelementptr inbounds nuw i8, ptr %.06.i, i64 72
+  %.0.i = load ptr, ptr %267, align 8, !tbaa !15
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %yyerror.exit, label %.lr.ph.i
 
-yyerror.exit:                                     ; preds = %.lr.ph.i, %263
+yyerror.exit:                                     ; preds = %.lr.ph.i, %264
   br i1 %.0, label %.thread582, label %.thread614
 
 .thread582:                                       ; preds = %18, %12, %yyerror.exit
   %.0572 = phi ptr [ %.2, %yyerror.exit ], [ %4, %12 ], [ %4, %18 ]
   %.5516 = phi ptr [ %.1512, %yyerror.exit ], [ %.0511, %12 ], [ %.0511, %18 ]
-  %267 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !52
-  %268 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %267, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3) #13
+  %268 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !52
+  %269 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %268, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3) #13
   %.04.i561 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !15
   %.not5.i562 = icmp eq ptr %.04.i561, null
   br i1 %.not5.i562, label %.thread614, label %.lr.ph.i563
@@ -893,36 +894,36 @@ yyerror.exit:                                     ; preds = %.lr.ph.i, %263
 .lr.ph.i563:                                      ; preds = %.thread582, %.lr.ph.i563
   %.06.i564 = phi ptr [ %.0.i565, %.lr.ph.i563 ], [ %.04.i561, %.thread582 ]
   call void @phpdbg_param_debug(ptr noundef nonnull %.06.i564, ptr noundef nonnull @.str.43) #13
-  %269 = getelementptr inbounds nuw i8, ptr %.06.i564, i64 72
-  %.0.i565 = load ptr, ptr %269, align 8, !tbaa !15
+  %270 = getelementptr inbounds nuw i8, ptr %.06.i564, i64 72
+  %.0.i565 = load ptr, ptr %270, align 8, !tbaa !15
   %.not.i566 = icmp eq ptr %.0.i565, null
   br i1 %.not.i566, label %.thread614, label %.lr.ph.i563
 
-.thread614:                                       ; preds = %.thread589, %47, %.lr.ph.i563, %yyerror.exit, %.thread582
-  %.0487612 = phi i32 [ 2, %.thread582 ], [ 1, %yyerror.exit ], [ 2, %.lr.ph.i563 ], [ 0, %.thread589 ], [ 1, %47 ]
-  %.6517606 = phi ptr [ %.5516, %.thread582 ], [ %.1512, %yyerror.exit ], [ %.5516, %.lr.ph.i563 ], [ %.1512, %47 ], [ %.1512, %.thread589 ]
-  %.4575604 = phi ptr [ %.0572, %.thread582 ], [ %.2, %yyerror.exit ], [ %.0572, %.lr.ph.i563 ], [ %4, %47 ], [ %4, %.thread589 ]
+.thread614:                                       ; preds = %.thread589, %48, %.lr.ph.i563, %yyerror.exit, %.thread582
+  %.0487612 = phi i32 [ 2, %.thread582 ], [ 1, %yyerror.exit ], [ 2, %.lr.ph.i563 ], [ 0, %.thread589 ], [ 1, %48 ]
+  %.6517606 = phi ptr [ %.5516, %.thread582 ], [ %.1512, %yyerror.exit ], [ %.5516, %.lr.ph.i563 ], [ %.1512, %48 ], [ %.1512, %.thread589 ]
+  %.4575604 = phi ptr [ %.0572, %.thread582 ], [ %.2, %yyerror.exit ], [ %.0572, %.lr.ph.i563 ], [ %4, %48 ], [ %4, %.thread589 ]
   %.not553 = icmp eq ptr %.6517606, %2
-  br i1 %.not553, label %270, label %.thread614.thread
+  br i1 %.not553, label %271, label %.thread614.thread
 
 .thread614.thread:                                ; preds = %29, %.thread614
   %.4575604678 = phi ptr [ %.4575604, %.thread614 ], [ %4, %29 ]
   %.6517606677 = phi ptr [ %.6517606, %.thread614 ], [ %22, %29 ]
   %.0487612675 = phi i32 [ %.0487612, %.thread614 ], [ 1, %29 ]
   call void @free(ptr noundef %.6517606677) #13
-  br label %270
+  br label %271
 
-270:                                              ; preds = %.thread614.thread, %.thread614
+271:                                              ; preds = %.thread614.thread, %.thread614
   %.4575604679 = phi ptr [ %.4575604678, %.thread614.thread ], [ %.4575604, %.thread614 ]
   %.0487612676 = phi i32 [ %.0487612675, %.thread614.thread ], [ %.0487612, %.thread614 ]
   %.not554 = icmp eq ptr %.4575604679, %4
-  br i1 %.not554, label %272, label %271
+  br i1 %.not554, label %273, label %272
 
-271:                                              ; preds = %270
+272:                                              ; preds = %271
   call void @free(ptr noundef %.4575604679) #13
-  br label %272
+  br label %273
 
-272:                                              ; preds = %270, %271
+273:                                              ; preds = %271, %272
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -4026,11 +4026,11 @@ glob_alloc_n.exit402:                             ; preds = %457
   %473 = icmp ult ptr %472, %7
   br i1 %473, label %.lr.ph547, label %.preheader507, !llvm.loop !170
 
-474:                                              ; preds = %.lr.ph557, %541
-  %.3282556 = phi ptr [ %462, %.lr.ph557 ], [ %542, %541 ]
+474:                                              ; preds = %.lr.ph557, %540
+  %.3282556 = phi ptr [ %462, %.lr.ph557 ], [ %541, %540 ]
   %475 = load ptr, ptr %.3282556, align 8, !tbaa !28
   %.not341 = icmp eq ptr %475, null
-  br i1 %.not341, label %541, label %476
+  br i1 %.not341, label %540, label %476
 
 476:                                              ; preds = %474
   %477 = load ptr, ptr %475, align 8, !tbaa !32
@@ -4060,182 +4060,181 @@ ruby_nonempty_memcpy.exit:                        ; preds = %482, %483
   br i1 %.not, label %484, label %glob_alloc_n.exit413
 
 484:                                              ; preds = %ruby_nonempty_memcpy.exit
-  %485 = getelementptr i8, ptr %481, i64 %479
-  %486 = getelementptr i8, ptr %485, i64 -1
-  br label %487
+  %485 = getelementptr i8, ptr %481, i64 %478
+  br label %486
 
-487:                                              ; preds = %494, %484
-  %.030.i = phi ptr [ %481, %484 ], [ %497, %494 ]
-  %.027.i = phi ptr [ %481, %484 ], [ %.229.i, %494 ]
-  %.0.i407 = phi ptr [ %481, %484 ], [ %.2.i410, %494 ]
-  %488 = load i8, ptr %.030.i, align 1, !tbaa !19
-  switch i8 %488, label %494 [
-    i8 0, label %498
-    i8 92, label %489
+486:                                              ; preds = %493, %484
+  %.030.i = phi ptr [ %481, %484 ], [ %496, %493 ]
+  %.027.i = phi ptr [ %481, %484 ], [ %.229.i, %493 ]
+  %.0.i407 = phi ptr [ %481, %484 ], [ %.2.i410, %493 ]
+  %487 = load i8, ptr %.030.i, align 1, !tbaa !19
+  switch i8 %487, label %493 [
+    i8 0, label %497
+    i8 92, label %488
   ]
 
-489:                                              ; preds = %487
+488:                                              ; preds = %486
   %.not34.i = icmp eq ptr %.027.i, %.0.i407
   %.pre.i408 = ptrtoint ptr %.030.i to i64
   %.pre38.i = ptrtoint ptr %.0.i407 to i64
   %.pre40.i = sub i64 %.pre.i408, %.pre38.i
-  br i1 %.not34.i, label %._crit_edge.i409, label %490
+  br i1 %.not34.i, label %._crit_edge.i409, label %489
 
-490:                                              ; preds = %489
+489:                                              ; preds = %488
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %.027.i, ptr noundef nonnull align 1 %.0.i407, i64 noundef %.pre40.i, i1 noundef false) #22
   br label %._crit_edge.i409
 
-._crit_edge.i409:                                 ; preds = %490, %489
-  %491 = getelementptr i8, ptr %.027.i, i64 %.pre40.i
-  %492 = getelementptr i8, ptr %.030.i, i64 1
-  %493 = load i8, ptr %492, align 1, !tbaa !19
-  %.not35.i = icmp eq i8 %493, 0
-  br i1 %.not35.i, label %498, label %494
+._crit_edge.i409:                                 ; preds = %489, %488
+  %490 = getelementptr i8, ptr %.027.i, i64 %.pre40.i
+  %491 = getelementptr i8, ptr %.030.i, i64 1
+  %492 = load i8, ptr %491, align 1, !tbaa !19
+  %.not35.i = icmp eq i8 %492, 0
+  br i1 %.not35.i, label %497, label %493
 
-494:                                              ; preds = %._crit_edge.i409, %487
-  %.232.i = phi ptr [ %492, %._crit_edge.i409 ], [ %.030.i, %487 ]
-  %.229.i = phi ptr [ %491, %._crit_edge.i409 ], [ %.027.i, %487 ]
-  %.2.i410 = phi ptr [ %492, %._crit_edge.i409 ], [ %.0.i407, %487 ]
-  %495 = call i32 @rb_enc_mbclen(ptr noundef nonnull %.232.i, ptr noundef %486, ptr noundef %11) #22
-  %496 = sext i32 %495 to i64
-  %497 = getelementptr i8, ptr %.232.i, i64 %496
-  br label %487, !llvm.loop !171
+493:                                              ; preds = %._crit_edge.i409, %486
+  %.232.i = phi ptr [ %491, %._crit_edge.i409 ], [ %.030.i, %486 ]
+  %.229.i = phi ptr [ %490, %._crit_edge.i409 ], [ %.027.i, %486 ]
+  %.2.i410 = phi ptr [ %491, %._crit_edge.i409 ], [ %.0.i407, %486 ]
+  %494 = call i32 @rb_enc_mbclen(ptr noundef nonnull %.232.i, ptr noundef %485, ptr noundef %11) #22
+  %495 = sext i32 %494 to i64
+  %496 = getelementptr i8, ptr %.232.i, i64 %495
+  br label %486, !llvm.loop !171
 
-498:                                              ; preds = %._crit_edge.i409, %487
-  %.131.i = phi ptr [ %492, %._crit_edge.i409 ], [ %.030.i, %487 ]
-  %.128.i = phi ptr [ %491, %._crit_edge.i409 ], [ %.027.i, %487 ]
-  %.1.i411 = phi ptr [ %492, %._crit_edge.i409 ], [ %.0.i407, %487 ]
+497:                                              ; preds = %._crit_edge.i409, %486
+  %.131.i = phi ptr [ %491, %._crit_edge.i409 ], [ %.030.i, %486 ]
+  %.128.i = phi ptr [ %490, %._crit_edge.i409 ], [ %.027.i, %486 ]
+  %.1.i411 = phi ptr [ %491, %._crit_edge.i409 ], [ %.0.i407, %486 ]
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %.131.i)
-  %499 = getelementptr i8, ptr %.131.i, i64 %strlen.i
-  %scevgep.i = getelementptr i8, ptr %499, i64 1
+  %498 = getelementptr i8, ptr %.131.i, i64 %strlen.i
+  %scevgep.i = getelementptr i8, ptr %498, i64 1
   %.not37.i = icmp eq ptr %.128.i, %.1.i411
   %.pre587 = ptrtoint ptr %scevgep.i to i64
-  br i1 %.not37.i, label %remove_backslashes.exit, label %500
+  br i1 %.not37.i, label %remove_backslashes.exit, label %499
 
-500:                                              ; preds = %498
-  %501 = ptrtoint ptr %.1.i411 to i64
-  %502 = sub i64 %.pre587, %501
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %.128.i, ptr noundef nonnull align 1 %.1.i411, i64 noundef %502, i1 noundef false) #22
+499:                                              ; preds = %497
+  %500 = ptrtoint ptr %.1.i411 to i64
+  %501 = sub i64 %.pre587, %500
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %.128.i, ptr noundef nonnull align 1 %.1.i411, i64 noundef %501, i1 noundef false) #22
   br label %remove_backslashes.exit
 
-remove_backslashes.exit:                          ; preds = %498, %500
-  %503 = ptrtoint ptr %481 to i64
-  %504 = sub i64 %.pre587, %503
+remove_backslashes.exit:                          ; preds = %497, %499
+  %502 = ptrtoint ptr %481 to i64
+  %503 = sub i64 %.pre587, %502
   br label %glob_alloc_n.exit413
 
 glob_alloc_n.exit413:                             ; preds = %ruby_nonempty_memcpy.exit, %remove_backslashes.exit
-  %.0 = phi i64 [ %504, %remove_backslashes.exit ], [ %479, %ruby_nonempty_memcpy.exit ]
-  %505 = call noalias noundef ptr @malloc(i64 noundef %460) #25
-  %.not343 = icmp eq ptr %505, null
-  br i1 %.not343, label %.thread495.sink.split, label %506
+  %.0 = phi i64 [ %503, %remove_backslashes.exit ], [ %479, %ruby_nonempty_memcpy.exit ]
+  %504 = call noalias noundef ptr @malloc(i64 noundef %460) #25
+  %.not343 = icmp eq ptr %504, null
+  br i1 %.not343, label %.thread495.sink.split, label %505
 
-506:                                              ; preds = %glob_alloc_n.exit413
-  %507 = load ptr, ptr %.3282556, align 8, !tbaa !28
-  %508 = getelementptr inbounds nuw i8, ptr %507, i64 16
-  %509 = load ptr, ptr %508, align 8, !tbaa !30
-  %510 = getelementptr i8, ptr %505, i64 8
-  store ptr %509, ptr %505, align 8, !tbaa !28
+505:                                              ; preds = %glob_alloc_n.exit413
+  %506 = load ptr, ptr %.3282556, align 8, !tbaa !28
+  %507 = getelementptr inbounds nuw i8, ptr %506, i64 16
+  %508 = load ptr, ptr %507, align 8, !tbaa !30
+  %509 = getelementptr i8, ptr %504, i64 8
+  store ptr %508, ptr %504, align 8, !tbaa !28
   %.0277549 = getelementptr i8, ptr %.3282556, i64 8
-  %511 = icmp ult ptr %.0277549, %471
-  br i1 %511, label %.lr.ph553, label %._crit_edge554
+  %510 = icmp ult ptr %.0277549, %471
+  br i1 %510, label %.lr.ph553, label %._crit_edge554
 
-.lr.ph553:                                        ; preds = %506, %522
-  %.0277551 = phi ptr [ %.0277, %522 ], [ %.0277549, %506 ]
-  %.4292550 = phi ptr [ %.5293, %522 ], [ %510, %506 ]
-  %512 = load ptr, ptr %.0277551, align 8, !tbaa !28
-  %.not346 = icmp eq ptr %512, null
-  br i1 %.not346, label %522, label %513
+.lr.ph553:                                        ; preds = %505, %521
+  %.0277551 = phi ptr [ %.0277, %521 ], [ %.0277549, %505 ]
+  %.4292550 = phi ptr [ %.5293, %521 ], [ %509, %505 ]
+  %511 = load ptr, ptr %.0277551, align 8, !tbaa !28
+  %.not346 = icmp eq ptr %511, null
+  br i1 %.not346, label %521, label %512
 
-513:                                              ; preds = %.lr.ph553
-  %514 = load ptr, ptr %512, align 8, !tbaa !32
-  %515 = call fastcc i32 @fnmatch(ptr noundef %514, ptr noundef %11, ptr noundef nonnull %481, i32 noundef %8)
-  %516 = icmp eq i32 %515, 0
-  br i1 %516, label %517, label %522
+512:                                              ; preds = %.lr.ph553
+  %513 = load ptr, ptr %511, align 8, !tbaa !32
+  %514 = call fastcc i32 @fnmatch(ptr noundef %513, ptr noundef %11, ptr noundef nonnull %481, i32 noundef %8)
+  %515 = icmp eq i32 %514, 0
+  br i1 %515, label %516, label %521
 
-517:                                              ; preds = %513
-  %518 = load ptr, ptr %.0277551, align 8, !tbaa !28
-  %519 = getelementptr inbounds nuw i8, ptr %518, i64 16
-  %520 = load ptr, ptr %519, align 8, !tbaa !30
-  %521 = getelementptr i8, ptr %.4292550, i64 8
-  store ptr %520, ptr %.4292550, align 8, !tbaa !28
+516:                                              ; preds = %512
+  %517 = load ptr, ptr %.0277551, align 8, !tbaa !28
+  %518 = getelementptr inbounds nuw i8, ptr %517, i64 16
+  %519 = load ptr, ptr %518, align 8, !tbaa !30
+  %520 = getelementptr i8, ptr %.4292550, i64 8
+  store ptr %519, ptr %.4292550, align 8, !tbaa !28
   store ptr null, ptr %.0277551, align 8, !tbaa !28
-  br label %522
+  br label %521
 
-522:                                              ; preds = %.lr.ph553, %513, %517
-  %.5293 = phi ptr [ %521, %517 ], [ %.4292550, %513 ], [ %.4292550, %.lr.ph553 ]
+521:                                              ; preds = %.lr.ph553, %512, %516
+  %.5293 = phi ptr [ %520, %516 ], [ %.4292550, %512 ], [ %.4292550, %.lr.ph553 ]
   %.0277 = getelementptr i8, ptr %.0277551, i64 8
-  %523 = icmp ult ptr %.0277, %471
-  br i1 %523, label %.lr.ph553, label %._crit_edge554, !llvm.loop !172
+  %522 = icmp ult ptr %.0277, %471
+  br i1 %522, label %.lr.ph553, label %._crit_edge554, !llvm.loop !172
 
-._crit_edge554:                                   ; preds = %522, %506
-  %.4292.lcssa = phi ptr [ %510, %506 ], [ %.5293, %522 ]
-  %524 = add i64 %466, %.0
-  %525 = icmp slt i64 %524, 0
-  br i1 %525, label %rb_mul_size_overflow.exit.i.i.i422, label %glob_alloc_n.exit.i415
+._crit_edge554:                                   ; preds = %521, %505
+  %.4292.lcssa = phi ptr [ %509, %505 ], [ %.5293, %521 ]
+  %523 = add i64 %466, %.0
+  %524 = icmp slt i64 %523, 0
+  br i1 %524, label %rb_mul_size_overflow.exit.i.i.i422, label %glob_alloc_n.exit.i415
 
 rb_mul_size_overflow.exit.i.i.i422:               ; preds = %._crit_edge554
   call void @rb_memerror() #24
   unreachable
 
 glob_alloc_n.exit.i415:                           ; preds = %._crit_edge554
-  %526 = call noalias noundef ptr @malloc(i64 noundef %524) #25
-  %.not20.i416 = icmp eq ptr %526, null
-  br i1 %.not20.i416, label %534, label %527
+  %525 = call noalias noundef ptr @malloc(i64 noundef %523) #25
+  %.not20.i416 = icmp eq ptr %525, null
+  br i1 %.not20.i416, label %533, label %526
 
-527:                                              ; preds = %glob_alloc_n.exit.i415
-  br i1 %.not.i.i417, label %ruby_nonempty_memcpy.exit.i418, label %528
+526:                                              ; preds = %glob_alloc_n.exit.i415
+  br i1 %.not.i.i417, label %ruby_nonempty_memcpy.exit.i418, label %527
 
-528:                                              ; preds = %527
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %526, ptr noundef nonnull readonly align 1 %1, i64 noundef range(i64 1, 0) %27, i1 noundef false) #22
+527:                                              ; preds = %526
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %525, ptr noundef nonnull readonly align 1 %1, i64 noundef range(i64 1, 0) %27, i1 noundef false) #22
   br label %ruby_nonempty_memcpy.exit.i418
 
-ruby_nonempty_memcpy.exit.i418:                   ; preds = %528, %527
-  br i1 %.not.i414, label %529, label %531
+ruby_nonempty_memcpy.exit.i418:                   ; preds = %527, %526
+  br i1 %.not.i414, label %528, label %530
 
-529:                                              ; preds = %ruby_nonempty_memcpy.exit.i418
-  %530 = getelementptr i8, ptr %526, i64 %27
-  store i8 47, ptr %530, align 1, !tbaa !19
-  br label %531
+528:                                              ; preds = %ruby_nonempty_memcpy.exit.i418
+  %529 = getelementptr i8, ptr %525, i64 %27
+  store i8 47, ptr %529, align 1, !tbaa !19
+  br label %530
 
-531:                                              ; preds = %529, %ruby_nonempty_memcpy.exit.i418
-  %.018.i419 = phi i64 [ %465, %529 ], [ %27, %ruby_nonempty_memcpy.exit.i418 ]
-  %532 = getelementptr i8, ptr %526, i64 %.018.i419
+530:                                              ; preds = %528, %ruby_nonempty_memcpy.exit.i418
+  %.018.i419 = phi i64 [ %465, %528 ], [ %27, %ruby_nonempty_memcpy.exit.i418 ]
+  %531 = getelementptr i8, ptr %525, i64 %.018.i419
   %.not.i21.i420 = icmp eq i64 %.0, 0
-  br i1 %.not.i21.i420, label %535, label %533
+  br i1 %.not.i21.i420, label %534, label %532
 
-533:                                              ; preds = %531
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %532, ptr noundef nonnull readonly align 1 %481, i64 noundef range(i64 1, 0) %.0, i1 noundef false) #22
-  br label %535
+532:                                              ; preds = %530
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %531, ptr noundef nonnull readonly align 1 %481, i64 noundef range(i64 1, 0) %.0, i1 noundef false) #22
+  br label %534
 
-534:                                              ; preds = %glob_alloc_n.exit.i415
+533:                                              ; preds = %glob_alloc_n.exit.i415
   call void @free(ptr noundef %481) #22
   br label %.thread495.sink.split
 
-535:                                              ; preds = %533, %531
-  %536 = getelementptr i8, ptr %532, i64 %.0
-  store i8 0, ptr %536, align 1, !tbaa !19
+534:                                              ; preds = %532, %530
+  %535 = getelementptr i8, ptr %531, i64 %.0
+  store i8 0, ptr %535, align 1, !tbaa !19
   call void @free(ptr noundef %481) #22
-  %537 = getelementptr i8, ptr %526, i64 %27
-  %538 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %537) #23
-  %539 = add i64 %538, %3
-  %540 = call fastcc i32 @glob_helper(i32 noundef %0, ptr noundef nonnull %526, i64 noundef %2, i64 noundef %539, i32 noundef 1, i32 noundef -2, ptr noundef %505, ptr noundef %.4292.lcssa, i32 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef %11)
-  call void @free(ptr noundef nonnull %526) #22
-  call void @free(ptr noundef %505) #22
-  %.not345 = icmp eq i32 %540, 0
-  br i1 %.not345, label %541, label %.thread495
+  %536 = getelementptr i8, ptr %525, i64 %27
+  %537 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %536) #23
+  %538 = add i64 %537, %3
+  %539 = call fastcc i32 @glob_helper(i32 noundef %0, ptr noundef nonnull %525, i64 noundef %2, i64 noundef %538, i32 noundef 1, i32 noundef -2, ptr noundef %504, ptr noundef %.4292.lcssa, i32 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef %11)
+  call void @free(ptr noundef nonnull %525) #22
+  call void @free(ptr noundef %504) #22
+  %.not345 = icmp eq i32 %539, 0
+  br i1 %.not345, label %540, label %.thread495
 
-541:                                              ; preds = %535, %474
-  %542 = getelementptr i8, ptr %.3282556, i64 8
-  %543 = icmp ult ptr %542, %471
-  br i1 %543, label %474, label %.thread495, !llvm.loop !173
+540:                                              ; preds = %534, %474
+  %541 = getelementptr i8, ptr %.3282556, i64 8
+  %542 = icmp ult ptr %541, %471
+  br i1 %542, label %474, label %.thread495, !llvm.loop !173
 
-.thread495.sink.split:                            ; preds = %glob_alloc_n.exit413, %534
-  %.lcssa674.sink = phi ptr [ %505, %534 ], [ %481, %glob_alloc_n.exit413 ]
+.thread495.sink.split:                            ; preds = %glob_alloc_n.exit413, %533
+  %.lcssa674.sink = phi ptr [ %504, %533 ], [ %481, %glob_alloc_n.exit413 ]
   call void @free(ptr noundef %.lcssa674.sink) #22
   br label %.thread495
 
-.thread495:                                       ; preds = %541, %535, %glob_alloc_n.exit404, %.thread495.sink.split, %.preheader508, %.preheader507
-  %.12 = phi i32 [ 0, %.preheader507 ], [ 0, %.preheader508 ], [ -1, %.thread495.sink.split ], [ 0, %541 ], [ %540, %535 ], [ -1, %glob_alloc_n.exit404 ]
+.thread495:                                       ; preds = %540, %534, %glob_alloc_n.exit404, %.thread495.sink.split, %.preheader508, %.preheader507
+  %.12 = phi i32 [ 0, %.preheader507 ], [ 0, %.preheader508 ], [ -1, %.thread495.sink.split ], [ 0, %540 ], [ %539, %534 ], [ -1, %glob_alloc_n.exit404 ]
   call void @free(ptr noundef %462) #22
   br label %.thread452
 

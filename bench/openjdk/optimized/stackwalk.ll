@@ -33,6 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.vframeStream = type { %class.vframeStreamCommon }
 %class.vframeStreamCommon = type { %class.frame, ptr, %class.RegisterMap, i32, i32, i32, i32, ptr, i32, ptr, i8, %class.Handle }
 %class.KeepStackGCProcessedMark = type { i8, ptr }
+%class.ImmutableOopMapPair = type { i32, i32 }
 
 $_ZN18vframeStreamCommon4nextEv = comdat any
 
@@ -5316,17 +5317,16 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   br i1 %.not11.i.i, label %_ZNK5frame7oop_mapEv.exit, label %_ZNK5frame7oop_mapEv.exit.thread23
 
 _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %46 = lshr i32 %44, 21
-  %47 = and i32 %46, 2040
-  %.idx.i.i.i.i = zext nneg i32 %47 to i64
-  %48 = getelementptr i8, ptr %45, i64 %.idx.i.i.i.i
-  %49 = getelementptr i8, ptr %48, i64 4
+  %45 = lshr i32 %44, 24
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %47 = zext nneg i32 %45 to i64
+  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 3
-  %54 = getelementptr inbounds i8, ptr %45, i64 %53
+  %54 = getelementptr inbounds i8, ptr %46, i64 %53
   %55 = sext i32 %50 to i64
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
   store ptr %56, ptr %28, align 8

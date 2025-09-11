@@ -4176,9 +4176,7 @@ parse_PAYLOAD_do_rc_send_reassembling.exit:       ; preds = %update_sport.exit, 
   br i1 %or.cond148, label %switch.lookup, label %parse_PAYLOAD_reassemble_tvb.exit
 
 switch.lookup:                                    ; preds = %112
-  %switch.cast = zext nneg i8 %.val132 to i24
-  %switch.downshift = lshr i24 3, %switch.cast
-  %switch.masked = trunc i24 %switch.downshift to i1
+  %switch.masked = icmp ult i8 %.val132, 2
   %114 = call ptr @find_or_create_conversation(ptr noundef %1)
   %115 = load i32, ptr @proto_infiniband, align 4
   %116 = call ptr @conversation_get_proto_data(ptr noundef %114, i32 noundef %115)

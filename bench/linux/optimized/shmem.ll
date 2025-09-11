@@ -3542,7 +3542,8 @@ define internal fastcc noundef range(i32 -12, 1) i32 @shmem_replace_folio(ptr no
   store i64 %8, ptr %40, align 8
   %41 = getelementptr i8, ptr %27, i64 1
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %41, i32 16, ptr elementtype(i8) %41) #18, !srcloc !30
-  %42 = getelementptr %struct.address_space, ptr %12, i64 %38, i32 1
+  %.split = getelementptr %struct.address_space, ptr %12, i64 %38
+  %42 = getelementptr i8, ptr %.split, i64 8
   tail call void @_raw_spin_lock_irq(ptr noundef %42) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16

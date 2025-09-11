@@ -107098,8 +107098,7 @@ common.resume:                                    ; preds = %45, %28
   ret void
 
 39:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h305012a33eb6c0feE.exit"
-  %.idx = mul nuw nsw i64 %36, 88
-  %40 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
+  %40 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 }, i64, i64 }, i64, { ptr, [1 x i64] } }, ptr %12, i64 %36
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load i64, ptr %41, align 8, !noundef !4
   %43 = icmp ult i64 %8, %42
@@ -107274,8 +107273,7 @@ common.resume:                                    ; preds = %44, %27
   ret void
 
 38:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h305012a33eb6c0feE.exit"
-  %.idx = mul nuw nsw i64 %35, 88
-  %39 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
+  %39 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 }, i64, i64 }, i64, { ptr, [1 x i64] } }, ptr %11, i64 %35
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load i64, ptr %40, align 8, !noundef !4
   %42 = icmp ult i64 %8, %41

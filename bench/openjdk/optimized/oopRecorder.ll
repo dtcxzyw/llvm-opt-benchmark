@@ -1489,7 +1489,7 @@ _ZNK12ObjectLookup11ObjectEntry9oop_valueEv.exit: ; preds = %2, %8, %12, %16
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN12ObjectLookup10find_indexEP8_jobjectP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %110, label %5
+  br i1 %4, label %111, label %5
 
 5:                                                ; preds = %3
   %6 = ptrtoint ptr %1 to i64
@@ -1718,17 +1718,18 @@ _ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_
   store ptr %79, ptr %106, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i32 %80, ptr %.sroa.2.0..sroa_idx, align 8
-  br label %110
+  br label %111
 
 .split.us:                                        ; preds = %75, %.lr.ph.i.split.us, %_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i.us
   %.pre-phi = phi i64 [ %37, %_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE.exit.i.us ], [ %37, %.lr.ph.i.split.us ], [ %57, %75 ]
   %107 = load ptr, ptr %33, align 8
-  %108 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %107, i64 %.pre-phi, i32 1
-  %109 = load i32, ptr %108, align 8
-  br label %110
+  %108 = getelementptr inbounds nuw %"class.ObjectLookup::ObjectEntry", ptr %107, i64 %.pre-phi
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %110 = load i32, ptr %109, align 8
+  br label %111
 
-110:                                              ; preds = %3, %.split.us, %_ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
-  %.0 = phi i32 [ %109, %.split.us ], [ %80, %_ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ 0, %3 ]
+111:                                              ; preds = %3, %.split.us, %_ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
+  %.0 = phi i32 [ %110, %.split.us ], [ %80, %_ZN26GrowableArrayWithAllocatorIN12ObjectLookup11ObjectEntryE13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ 0, %3 ]
   ret i32 %.0
 }
 

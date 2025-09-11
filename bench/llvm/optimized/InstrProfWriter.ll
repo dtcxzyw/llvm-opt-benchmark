@@ -13763,34 +13763,35 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
   ret void
 
 15:                                               ; preds = %.lr.ph17, %._crit_edge
-  %.016 = phi i64 [ 0, %.lr.ph17 ], [ %18, %._crit_edge ]
-  %16 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::RecordWriterTrait>::Bucket", ptr %.pre, i64 %.016, i32 2
-  %17 = load ptr, ptr %16, align 8, !tbaa !637
-  %.not14 = icmp eq ptr %17, null
+  %.016 = phi i64 [ 0, %.lr.ph17 ], [ %19, %._crit_edge ]
+  %16 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::RecordWriterTrait>::Bucket", ptr %.pre, i64 %.016
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !637
+  %.not14 = icmp eq ptr %18, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  %18 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %18, %12
+  %19 = add nuw i64 %.016, 1
+  %exitcond.not = icmp eq i64 %19, %12
   br i1 %exitcond.not, label %._crit_edge18, label %15, !llvm.loop !647
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  %.01315 = phi ptr [ %20, %.lr.ph ], [ %17, %15 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.01315, i64 256
-  %20 = load ptr, ptr %19, align 8, !tbaa !639
-  %21 = getelementptr inbounds nuw i8, ptr %.01315, i64 264
-  %22 = load i64, ptr %21, align 8, !tbaa !636
-  %23 = and i64 %22, %13
-  %24 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::RecordWriterTrait>::Bucket", ptr %.0.i, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !637
-  store ptr %26, ptr %19, align 8, !tbaa !639
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !640
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 8, !tbaa !640
-  store ptr %.01315, ptr %25, align 8, !tbaa !637
-  %.not = icmp eq ptr %20, null
+  %.01315 = phi ptr [ %21, %.lr.ph ], [ %18, %15 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.01315, i64 256
+  %21 = load ptr, ptr %20, align 8, !tbaa !639
+  %22 = getelementptr inbounds nuw i8, ptr %.01315, i64 264
+  %23 = load i64, ptr %22, align 8, !tbaa !636
+  %24 = and i64 %23, %13
+  %25 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::RecordWriterTrait>::Bucket", ptr %.0.i, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !637
+  store ptr %27, ptr %20, align 8, !tbaa !639
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !640
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %28, align 8, !tbaa !640
+  store ptr %.01315, ptr %26, align 8, !tbaa !637
+  %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !648
 }
 
@@ -14715,34 +14716,35 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
   ret void
 
 15:                                               ; preds = %.lr.ph17, %._crit_edge
-  %.016 = phi i64 [ 0, %.lr.ph17 ], [ %18, %._crit_edge ]
-  %16 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::FrameWriterTrait>::Bucket", ptr %.pre, i64 %.016, i32 2
-  %17 = load ptr, ptr %16, align 8, !tbaa !656
-  %.not14 = icmp eq ptr %17, null
+  %.016 = phi i64 [ 0, %.lr.ph17 ], [ %19, %._crit_edge ]
+  %16 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::FrameWriterTrait>::Bucket", ptr %.pre, i64 %.016
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !656
+  %.not14 = icmp eq ptr %18, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  %18 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %18, %12
+  %19 = add nuw i64 %.016, 1
+  %exitcond.not = icmp eq i64 %19, %12
   br i1 %exitcond.not, label %._crit_edge18, label %15, !llvm.loop !660
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  %.01315 = phi ptr [ %20, %.lr.ph ], [ %17, %15 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.01315, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !658
-  %21 = getelementptr inbounds nuw i8, ptr %.01315, i64 48
-  %22 = load i64, ptr %21, align 8, !tbaa !655
-  %23 = and i64 %22, %13
-  %24 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::FrameWriterTrait>::Bucket", ptr %.0.i, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !656
-  store ptr %26, ptr %19, align 8, !tbaa !658
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !659
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 8, !tbaa !659
-  store ptr %.01315, ptr %25, align 8, !tbaa !656
-  %.not = icmp eq ptr %20, null
+  %.01315 = phi ptr [ %21, %.lr.ph ], [ %18, %15 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.01315, i64 40
+  %21 = load ptr, ptr %20, align 8, !tbaa !658
+  %22 = getelementptr inbounds nuw i8, ptr %.01315, i64 48
+  %23 = load i64, ptr %22, align 8, !tbaa !655
+  %24 = and i64 %23, %13
+  %25 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::FrameWriterTrait>::Bucket", ptr %.0.i, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !656
+  store ptr %27, ptr %20, align 8, !tbaa !658
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !659
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %28, align 8, !tbaa !659
+  store ptr %.01315, ptr %26, align 8, !tbaa !656
+  %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !661
 }
 
@@ -15335,34 +15337,35 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
   ret void
 
 15:                                               ; preds = %.lr.ph17, %._crit_edge
-  %.016 = phi i64 [ 0, %.lr.ph17 ], [ %18, %._crit_edge ]
-  %16 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::CallStackWriterTrait>::Bucket", ptr %.pre, i64 %.016, i32 2
-  %17 = load ptr, ptr %16, align 8, !tbaa !674
-  %.not14 = icmp eq ptr %17, null
+  %.016 = phi i64 [ 0, %.lr.ph17 ], [ %19, %._crit_edge ]
+  %16 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::CallStackWriterTrait>::Bucket", ptr %.pre, i64 %.016
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !674
+  %.not14 = icmp eq ptr %18, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  %18 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %18, %12
+  %19 = add nuw i64 %.016, 1
+  %exitcond.not = icmp eq i64 %19, %12
   br i1 %exitcond.not, label %._crit_edge18, label %15, !llvm.loop !678
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  %.01315 = phi ptr [ %20, %.lr.ph ], [ %17, %15 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.01315, i64 72
-  %20 = load ptr, ptr %19, align 8, !tbaa !676
-  %21 = getelementptr inbounds nuw i8, ptr %.01315, i64 80
-  %22 = load i64, ptr %21, align 8, !tbaa !673
-  %23 = and i64 %22, %13
-  %24 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::CallStackWriterTrait>::Bucket", ptr %.0.i, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !674
-  store ptr %26, ptr %19, align 8, !tbaa !676
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !677
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 8, !tbaa !677
-  store ptr %.01315, ptr %25, align 8, !tbaa !674
-  %.not = icmp eq ptr %20, null
+  %.01315 = phi ptr [ %21, %.lr.ph ], [ %18, %15 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.01315, i64 72
+  %21 = load ptr, ptr %20, align 8, !tbaa !676
+  %22 = getelementptr inbounds nuw i8, ptr %.01315, i64 80
+  %23 = load i64, ptr %22, align 8, !tbaa !673
+  %24 = and i64 %23, %13
+  %25 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::memprof::CallStackWriterTrait>::Bucket", ptr %.0.i, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !674
+  store ptr %27, ptr %20, align 8, !tbaa !676
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !677
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %28, align 8, !tbaa !677
+  store ptr %.01315, ptr %26, align 8, !tbaa !674
+  %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !679
 }
 
@@ -26540,34 +26543,35 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %2, %7
   ret void
 
 15:                                               ; preds = %.lr.ph17, %._crit_edge
-  %.016 = phi i64 [ 0, %.lr.ph17 ], [ %18, %._crit_edge ]
-  %16 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::InstrProfRecordWriterTrait>::Bucket", ptr %.pre, i64 %.016, i32 2
-  %17 = load ptr, ptr %16, align 8, !tbaa !491
-  %.not14 = icmp eq ptr %17, null
+  %.016 = phi i64 [ 0, %.lr.ph17 ], [ %19, %._crit_edge ]
+  %16 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::InstrProfRecordWriterTrait>::Bucket", ptr %.pre, i64 %.016
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !491
+  %.not14 = icmp eq ptr %18, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  %18 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %18, %12
+  %19 = add nuw i64 %.016, 1
+  %exitcond.not = icmp eq i64 %19, %12
   br i1 %exitcond.not, label %._crit_edge18, label %15, !llvm.loop !873
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  %.01315 = phi ptr [ %20, %.lr.ph ], [ %17, %15 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.01315, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !872
-  %21 = getelementptr inbounds nuw i8, ptr %.01315, i64 32
-  %22 = load i64, ptr %21, align 8, !tbaa !499
-  %23 = and i64 %22, %13
-  %24 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::InstrProfRecordWriterTrait>::Bucket", ptr %.0.i, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !491
-  store ptr %26, ptr %19, align 8, !tbaa !872
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !495
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 8, !tbaa !495
-  store ptr %.01315, ptr %25, align 8, !tbaa !491
-  %.not = icmp eq ptr %20, null
+  %.01315 = phi ptr [ %21, %.lr.ph ], [ %18, %15 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.01315, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !872
+  %22 = getelementptr inbounds nuw i8, ptr %.01315, i64 32
+  %23 = load i64, ptr %22, align 8, !tbaa !499
+  %24 = and i64 %23, %13
+  %25 = getelementptr inbounds nuw %"struct.llvm::OnDiskChainedHashTableGenerator<llvm::InstrProfRecordWriterTrait>::Bucket", ptr %.0.i, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !491
+  store ptr %27, ptr %20, align 8, !tbaa !872
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !495
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %28, align 8, !tbaa !495
+  store ptr %.01315, ptr %26, align 8, !tbaa !491
+  %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !874
 }
 

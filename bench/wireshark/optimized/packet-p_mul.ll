@@ -1038,7 +1038,7 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
 324:                                              ; preds = %320
   %325 = add nsw i32 %289, -10
   %326 = lshr i32 %325, 1
-  %.not790 = icmp ult i32 %325, 2
+  %.not790 = icmp samesign ult i32 %325, 2
   br i1 %.not790, label %.loopexit, label %.lr.ph768
 
 .lr.ph768:                                        ; preds = %324

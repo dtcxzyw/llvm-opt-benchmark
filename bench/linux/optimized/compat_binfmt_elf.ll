@@ -1033,7 +1033,8 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %34 = phi i32 [ 0, %27 ], [ %44, %42 ]
   %35 = load ptr, ptr %28, align 8
   %36 = sext i32 %34 to i64
-  %37 = getelementptr %struct.user_regset, ptr %35, i64 %36, i32 8
+  %.split = getelementptr %struct.user_regset, ptr %35, i64 %36
+  %37 = getelementptr i8, ptr %.split, i64 48
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %42, label %40

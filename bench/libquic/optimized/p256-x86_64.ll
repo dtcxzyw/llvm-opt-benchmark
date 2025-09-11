@@ -570,7 +570,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %178 = add nsw i64 %smax146, -1
   %179 = and i64 %178, -8
   %180 = trunc nuw nsw i64 %179 to i32
-  %181 = add nuw i32 %180, 8
+  %181 = add nuw nsw i32 %180, 8
   %182 = icmp samesign ult i64 %179, 25
   br i1 %182, label %.lr.ph178.preheader.i, label %._crit_edge.i
 

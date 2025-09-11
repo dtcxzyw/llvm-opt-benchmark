@@ -15,35 +15,35 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.val.i = load i16, ptr %0, align 1, !tbaa !4
   %4 = zext i16 %.val.i to i32
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not.i = icmp eq i16 %.val.i, 0
-  %6 = add nsw i32 %4, -1
-  %7 = shl nuw i32 1, %6
-  %8 = sext i32 %7 to i64
-  %9 = select i1 %.not.i, i64 1, i64 %8
-  %10 = getelementptr inbounds i32, ptr %5, i64 %9
-  %11 = getelementptr i8, ptr %0, i64 2
-  %.val = load i16, ptr %11, align 1, !tbaa !4
-  %12 = zext i16 %.val to i32
-  %13 = icmp ugt i32 %2, %12
-  br i1 %13, label %.loopexit, label %.preheader
+  %5 = add nsw i32 %4, -1
+  %6 = shl nuw i32 1, %5
+  %7 = sext i32 %6 to i64
+  %8 = select i1 %.not.i, i64 1, i64 %7
+  %9 = getelementptr i32, ptr %0, i64 %8
+  %10 = getelementptr i8, ptr %0, i64 2
+  %.val = load i16, ptr %10, align 1, !tbaa !4
+  %11 = zext i16 %.val to i32
+  %12 = icmp ugt i32 %2, %11
+  br i1 %12, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %14 = shl nuw i32 1, %4
-  %15 = shl nuw nsw i32 %4, 8
-  %16 = add nuw nsw i32 %15, 256
-  %17 = add nuw nsw i32 %2, 1
-  %wide.trip.count = zext nneg i32 %17 to i64
-  br label %18
+  %13 = shl nuw i32 1, %4
+  %14 = shl nuw nsw i32 %4, 8
+  %15 = add nuw nsw i32 %14, 256
+  %16 = add nuw nsw i32 %2, 1
+  %wide.trip.count = zext nneg i32 %16 to i64
+  br label %17
 
-18:                                               ; preds = %.preheader, %39
+17:                                               ; preds = %.preheader, %39
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %39 ]
   %.01932 = phi i64 [ 0, %.preheader ], [ %.120.ph, %39 ]
-  %19 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %10, i64 %indvars.iv, i32 1
+  %18 = getelementptr %struct.FSE_symbolCompressionTransform, ptr %9, i64 %indvars.iv
+  %19 = getelementptr i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 4, !tbaa !8
   %21 = lshr i32 %20, 16
   %22 = add nuw nsw i32 %21, 1
-  %23 = add i32 %20, %14
+  %23 = add i32 %20, %13
   %24 = shl i32 %22, 24
   %25 = shl i32 %23, 8
   %26 = sub i32 %24, %25
@@ -55,8 +55,8 @@ define dso_local range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr nound
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %39, label %33
 
-33:                                               ; preds = %18
-  %.not26 = icmp ult i32 %29, %16
+33:                                               ; preds = %17
+  %.not26 = icmp ult i32 %29, %15
   br i1 %.not26, label %34, label %.loopexit
 
 34:                                               ; preds = %33
@@ -66,11 +66,11 @@ define dso_local range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr nound
   %38 = add i64 %37, %.01932
   br label %39
 
-39:                                               ; preds = %34, %18
-  %.120.ph = phi i64 [ %.01932, %18 ], [ %38, %34 ]
+39:                                               ; preds = %34, %17
+  %.120.ph = phi i64 [ %.01932, %17 ], [ %38, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %40, label %18, !llvm.loop !12
+  br i1 %exitcond.not, label %40, label %17, !llvm.loop !12
 
 40:                                               ; preds = %39
   %41 = lshr i64 %.120.ph, 8
@@ -208,35 +208,35 @@ ZSTD_crossEntropyCost.exit:                       ; preds = %42
 58:                                               ; preds = %55
   %.val.i.i = load i16, ptr %6, align 1, !tbaa !4
   %59 = zext i16 %.val.i.i to i32
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.not.i.i = icmp eq i16 %.val.i.i, 0
-  %61 = add nsw i32 %59, -1
-  %62 = shl nuw i32 1, %61
-  %63 = sext i32 %62 to i64
-  %64 = select i1 %.not.i.i, i64 1, i64 %63
-  %65 = getelementptr inbounds i32, ptr %60, i64 %64
-  %66 = getelementptr i8, ptr %6, i64 2
-  %.val.i = load i16, ptr %66, align 1, !tbaa !4
-  %67 = zext i16 %.val.i to i32
-  %68 = icmp ugt i32 %2, %67
-  br i1 %68, label %ZSTD_fseBitCost.exit, label %.preheader.i
+  %60 = add nsw i32 %59, -1
+  %61 = shl nuw i32 1, %60
+  %62 = sext i32 %61 to i64
+  %63 = select i1 %.not.i.i, i64 1, i64 %62
+  %64 = getelementptr i32, ptr %6, i64 %63
+  %65 = getelementptr i8, ptr %6, i64 2
+  %.val.i = load i16, ptr %65, align 1, !tbaa !4
+  %66 = zext i16 %.val.i to i32
+  %67 = icmp ugt i32 %2, %66
+  br i1 %67, label %ZSTD_fseBitCost.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %58
-  %69 = shl nuw i32 1, %59
-  %70 = shl nuw nsw i32 %59, 8
-  %71 = add nuw nsw i32 %70, 256
-  %72 = add nuw nsw i32 %2, 1
-  %wide.trip.count.i66 = zext nneg i32 %72 to i64
-  br label %73
+  %68 = shl nuw i32 1, %59
+  %69 = shl nuw nsw i32 %59, 8
+  %70 = add nuw nsw i32 %69, 256
+  %71 = add nuw nsw i32 %2, 1
+  %wide.trip.count.i66 = zext nneg i32 %71 to i64
+  br label %72
 
-73:                                               ; preds = %94, %.preheader.i
+72:                                               ; preds = %94, %.preheader.i
   %indvars.iv.i67 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i68, %94 ]
   %.01932.i = phi i64 [ 0, %.preheader.i ], [ %.120.ph.i, %94 ]
-  %74 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %65, i64 %indvars.iv.i67, i32 1
+  %73 = getelementptr %struct.FSE_symbolCompressionTransform, ptr %64, i64 %indvars.iv.i67
+  %74 = getelementptr i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 4, !tbaa !8
   %76 = lshr i32 %75, 16
   %77 = add nuw nsw i32 %76, 1
-  %78 = add i32 %75, %69
+  %78 = add i32 %75, %68
   %79 = shl i32 %77, 24
   %80 = shl i32 %78, 8
   %81 = sub i32 %79, %80
@@ -248,8 +248,8 @@ ZSTD_crossEntropyCost.exit:                       ; preds = %42
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %94, label %88
 
-88:                                               ; preds = %73
-  %.not26.i = icmp ult i32 %84, %71
+88:                                               ; preds = %72
+  %.not26.i = icmp ult i32 %84, %70
   br i1 %.not26.i, label %89, label %ZSTD_fseBitCost.exit
 
 89:                                               ; preds = %88
@@ -259,11 +259,11 @@ ZSTD_crossEntropyCost.exit:                       ; preds = %42
   %93 = add i64 %92, %.01932.i
   br label %94
 
-94:                                               ; preds = %89, %73
-  %.120.ph.i = phi i64 [ %.01932.i, %73 ], [ %93, %89 ]
+94:                                               ; preds = %89, %72
+  %.120.ph.i = phi i64 [ %.01932.i, %72 ], [ %93, %89 ]
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i68, %wide.trip.count.i66
-  br i1 %exitcond.not.i, label %95, label %73, !llvm.loop !12
+  br i1 %exitcond.not.i, label %95, label %72, !llvm.loop !12
 
 95:                                               ; preds = %94
   %96 = lshr i64 %.120.ph.i, 8
@@ -567,7 +567,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
 
 114:                                              ; preds = %113
   %115 = add nsw i32 %42, -56
-  %116 = zext i32 %115 to i64
+  %116 = zext nneg i32 %115 to i64
   %117 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !11
   %119 = and i32 %118, %.pre158.i
@@ -575,7 +575,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %121 = zext nneg i32 %110 to i64
   %122 = shl i64 %120, %121
   %123 = or i64 %122, %109
-  %124 = add nsw i32 %110, %115
+  %124 = add nuw nsw i32 %110, %115
   %125 = lshr i32 %124, 3
   %126 = zext nneg i32 %125 to i64
   store i64 %123, ptr %0, align 1, !tbaa !21
@@ -811,7 +811,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
 
 284:                                              ; preds = %283
   %285 = add nsw i32 %174, -56
-  %286 = zext i32 %285 to i64
+  %286 = zext nneg i32 %285 to i64
   %287 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %286
   %288 = load i32, ptr %287, align 4, !tbaa !11
   %289 = and i32 %288, %.pre160.i
@@ -819,7 +819,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %291 = zext nneg i32 %.sroa.63.4.i to i64
   %292 = shl i64 %290, %291
   %293 = or i64 %292, %.sroa.058.4.i
-  %294 = add nsw i32 %.sroa.63.4.i, %285
+  %294 = add nuw nsw i32 %.sroa.63.4.i, %285
   %295 = lshr i32 %294, 3
   %296 = zext nneg i32 %295 to i64
   store i64 %293, ptr %.sroa.112.4.i, align 1, !tbaa !21

@@ -438,7 +438,8 @@ define dso_local void @amd_flush_garts() #1 align 16 {
 .preheader5:                                      ; preds = %5, %.preheader5
   %12 = phi i64 [ %21, %.preheader5 ], [ 0, %5 ]
   %13 = load ptr, ptr @amd_northbridges.2, align 8
-  %14 = getelementptr %struct.amd_northbridge, ptr %13, i64 %12, i32 1
+  %.split = getelementptr %struct.amd_northbridge, ptr %13, i64 %12
+  %14 = getelementptr i8, ptr %.split, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @flush_words, align 8
   %17 = getelementptr i32, ptr %16, i64 %12

@@ -3466,7 +3466,7 @@ proto_item_set_generated.exit:                    ; preds = %62, %59, %56, %50, 
   %91 = sub i32 %90, %.1175.i
   %92 = and i32 %91, 1
   %.not169.i = icmp ne i32 %92, 0
-  %93 = icmp sgt i32 %87, %indvars.iv.i
+  %93 = icmp samesign ugt i32 %87, %indvars.iv.i
   %or.cond173.i = select i1 %.not169.i, i1 %93, i1 false
   %94 = zext i1 %or.cond173.i to i32
   %.2.i = add i32 %90, %94
@@ -3795,7 +3795,7 @@ define internal fastcc void @s7comm_decode_ud(ptr noundef %0, ptr noundef %1, pt
   %96 = zext i16 %.080.i to i32
   %97 = and i32 %96, 1
   %.not83.i = icmp eq i32 %97, 0
-  %98 = icmp sle i32 %84, %indvars.iv.i
+  %98 = icmp samesign ule i32 %84, %indvars.iv.i
   %or.cond.not.i = select i1 %.not83.i, i1 true, i1 %98
   %99 = load i32, ptr @hf_s7comm_data_item, align 4
   %100 = add nuw nsw i32 %96, 4
@@ -4750,7 +4750,7 @@ define internal fastcc i32 @s7comm_decode_response_read_data(ptr noundef %0, ptr
   %.2103 = phi i16 [ %26, %22 ], [ %spec.select131, %28 ]
   %32 = and i16 %.2103, 1
   %.not108 = icmp ne i16 %32, 0
-  %33 = icmp sgt i32 %9, %indvars.iv
+  %33 = icmp samesign ugt i32 %9, %indvars.iv
   %or.cond111 = select i1 %.not108, i1 %33, i1 false
   %34 = zext i1 %or.cond111 to i16
   %spec.select = add i16 %.2103, %34
@@ -6194,7 +6194,7 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
   %37 = sub i32 %36, %.185
   %38 = and i32 %37, 1
   %.not = icmp ne i32 %38, 0
-  %39 = icmp sgt i32 %33, %indvars.iv
+  %39 = icmp samesign ugt i32 %33, %indvars.iv
   %or.cond82 = select i1 %.not, i1 %39, i1 false
   %40 = zext i1 %or.cond82 to i32
   %.2 = add i32 %36, %40
@@ -7666,7 +7666,7 @@ tailrecurse:                                      ; preds = %665, %6
   ]
 
 14:                                               ; preds = %8
-  switch i8 %.tr99, label %default.unreachable342 [
+  switch i8 %.tr99, label %default.unreachable341 [
     i8 1, label %15
     i8 2, label %19
     i8 0, label %19
@@ -8120,12 +8120,12 @@ tailrecurse:                                      ; preds = %665, %6
   %357 = tail call fastcc i32 @s7comm_add_timestamp_to_tree(ptr noundef %0, ptr noundef %13, i32 noundef %356, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %s7comm_decode_ud_tis_istack.exit
 
-default.unreachable342:                           ; preds = %461, %358, %14
+default.unreachable341:                           ; preds = %461, %358, %14
   unreachable
 
 358:                                              ; preds = %8
   %359 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.tr102)
-  switch i8 %.tr99, label %default.unreachable342 [
+  switch i8 %.tr99, label %default.unreachable341 [
     i8 1, label %360
     i8 2, label %364
     i8 0, label %364
@@ -8262,7 +8262,7 @@ default.unreachable342:                           ; preds = %461, %358, %14
   br label %s7comm_decode_ud_tis_istack.exit
 
 461:                                              ; preds = %8
-  switch i8 %.tr99, label %default.unreachable342 [
+  switch i8 %.tr99, label %default.unreachable341 [
     i8 1, label %.sink.split.i
     i8 2, label %462
     i8 0, label %462

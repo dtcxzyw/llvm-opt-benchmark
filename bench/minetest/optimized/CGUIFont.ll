@@ -1161,7 +1161,8 @@ _ZN3irr4core5arrayINS_3gui15SGUISpriteFrameEE9push_backERKS3_.exit.us: ; preds =
   %20 = load i32, ptr %lowerRightPositions, align 4, !tbaa !60
   %conv.i109.us = zext i32 %20 to i64
   %21 = load ptr, ptr %call53.us, align 8, !tbaa !50
-  %LowerRightCorner.us = getelementptr inbounds nuw %"class.irr::core::rect", ptr %21, i64 %conv.i109.us, i32 1
+  %LowerRightCorner.us.split = getelementptr inbounds nuw %"class.irr::core::rect", ptr %21, i64 %conv.i109.us
+  %LowerRightCorner.us = getelementptr inbounds nuw i8, ptr %LowerRightCorner.us.split, i64 8
   %pos.sroa.0.0.insert.insert.us = or disjoint i64 %indvars.iv, %pos.sroa.12.0.insert.shift.us
   store i64 %pos.sroa.0.0.insert.insert.us, ptr %LowerRightCorner.us, align 4, !tbaa.struct !75
   %22 = load i32, ptr %lowerRightPositions, align 4, !tbaa !60
@@ -1712,7 +1713,8 @@ _ZNK3irr3gui8CGUIFont20getAreaFromCharacterEw.exit: ; preds = %if.else.i, %if.th
   %retval.0.i = load i32, ptr %retval.0.in.i, align 4, !tbaa !60
   %conv.i = zext i32 %retval.0.i to i64
   %5 = load ptr, ptr %Areas, align 8, !tbaa !46
-  %overhang = getelementptr inbounds nuw %"struct.irr::gui::CGUIFont::SFontArea", ptr %5, i64 %conv.i, i32 1
+  %overhang.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIFont::SFontArea", ptr %5, i64 %conv.i
+  %overhang = getelementptr inbounds nuw i8, ptr %overhang.split, i64 4
   %6 = load i32, ptr %overhang, align 4, !tbaa !127
   %add = add nsw i32 %6, %0
   %tobool3.not = icmp eq ptr %previousLetter, null
@@ -1830,7 +1832,8 @@ _ZNK3irr3gui8CGUIFont20getAreaFromCharacterEw.exit: ; preds = %if.else.i, %if.th
   %retval.0.i = load i32, ptr %retval.0.in.i, align 4, !tbaa !60
   %conv.i = zext i32 %retval.0.i to i64
   %4 = load ptr, ptr %Areas, align 8, !tbaa !46
-  %spriteno = getelementptr inbounds nuw %"struct.irr::gui::CGUIFont::SFontArea", ptr %4, i64 %conv.i, i32 3
+  %spriteno.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIFont::SFontArea", ptr %4, i64 %conv.i
+  %spriteno = getelementptr inbounds nuw i8, ptr %spriteno.split, i64 12
   %5 = load i32, ptr %spriteno, align 4, !tbaa !131
   ret i32 %5
 }

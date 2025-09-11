@@ -351,9 +351,9 @@ if.then36:                                        ; preds = %if.then29
 if.end:                                           ; preds = %if.then36, %if.then29
   %i14.2 = phi i32 [ %inc37, %if.then36 ], [ %inc32, %if.then29 ]
   %e.0 = phi i32 [ %sub40, %if.then36 ], [ %conv31, %if.then29 ]
-  %cmp44.inv = icmp slt i32 %e.0, 10
+  %cmp44.inv = icmp samesign ult i32 %e.0, 10
   %. = select i1 %cmp44.inv, i32 1, i32 10
-  %cmp41.inv = icmp slt i32 %e.0, 100
+  %cmp41.inv = icmp samesign ult i32 %e.0, 100
   %8 = zext nneg i32 %i14.2 to i64
   %spec.select = select i1 %cmp41.inv, i32 %., i32 100
   br label %while.body
@@ -4538,9 +4538,9 @@ if.then36.i:                                      ; preds = %if.then29.i
 if.end.i:                                         ; preds = %if.then36.i, %if.then29.i
   %i14.2.i = phi i32 [ %inc37.i, %if.then36.i ], [ %inc32.i, %if.then29.i ]
   %e.0.i = phi i32 [ %sub40.i, %if.then36.i ], [ %conv277, %if.then29.i ]
-  %cmp44.inv.i = icmp slt i32 %e.0.i, 10
+  %cmp44.inv.i = icmp samesign ult i32 %e.0.i, 10
   %..i = select i1 %cmp44.inv.i, i32 1, i32 10
-  %cmp41.inv.i = icmp slt i32 %e.0.i, 100
+  %cmp41.inv.i = icmp samesign ult i32 %e.0.i, 100
   %61 = zext nneg i32 %i14.2.i to i64
   %spec.select = select i1 %cmp41.inv.i, i32 %..i, i32 100
   br label %while.body.i
@@ -5917,9 +5917,9 @@ if.then36.i:                                      ; preds = %if.then29.i
 if.end.i:                                         ; preds = %if.then36.i, %if.then29.i
   %i14.2.i = phi i32 [ %inc37.i, %if.then36.i ], [ %inc32.i, %if.then29.i ]
   %e.0.i = phi i32 [ %sub40.i, %if.then36.i ], [ %conv277, %if.then29.i ]
-  %cmp44.inv.i = icmp slt i32 %e.0.i, 10
+  %cmp44.inv.i = icmp samesign ult i32 %e.0.i, 10
   %..i = select i1 %cmp44.inv.i, i32 1, i32 10
-  %cmp41.inv.i = icmp slt i32 %e.0.i, 100
+  %cmp41.inv.i = icmp samesign ult i32 %e.0.i, 100
   %50 = zext nneg i32 %i14.2.i to i64
   %spec.select = select i1 %cmp41.inv.i, i32 %..i, i32 100
   br label %while.body.i
@@ -7264,9 +7264,9 @@ if.then36.i:                                      ; preds = %if.then29.i
 if.end.i:                                         ; preds = %if.then36.i, %if.then29.i
   %i14.2.i = phi i32 [ %inc37.i, %if.then36.i ], [ %inc32.i, %if.then29.i ]
   %e.0.i = phi i32 [ %sub40.i, %if.then36.i ], [ %conv262, %if.then29.i ]
-  %cmp44.inv.i = icmp slt i32 %e.0.i, 10
+  %cmp44.inv.i = icmp samesign ult i32 %e.0.i, 10
   %..i = select i1 %cmp44.inv.i, i32 1, i32 10
-  %cmp41.inv.i = icmp slt i32 %e.0.i, 100
+  %cmp41.inv.i = icmp samesign ult i32 %e.0.i, 100
   %45 = zext nneg i32 %i14.2.i to i64
   %spec.select = select i1 %cmp41.inv.i, i32 %..i, i32 100
   br label %while.body.i

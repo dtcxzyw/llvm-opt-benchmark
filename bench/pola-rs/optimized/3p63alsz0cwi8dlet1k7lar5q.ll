@@ -2033,7 +2033,7 @@ define internal fastcc void @_ZN11polars_core13chunked_array3ops9any_value16arr_
 
 27:                                               ; preds = %4
   %28 = load i8, ptr %3, align 16, !range !133, !noundef !3
-  switch i8 %28, label %default.unreachable39 [
+  switch i8 %28, label %default.unreachable38 [
     i8 0, label %30
     i8 1, label %49
     i8 2, label %58
@@ -2068,7 +2068,7 @@ define internal fastcc void @_ZN11polars_core13chunked_array3ops9any_value16arr_
   store i8 0, ptr %0, align 16
   br label %355
 
-default.unreachable39:                            ; preds = %27
+default.unreachable38:                            ; preds = %27
   unreachable
 
 30:                                               ; preds = %27
@@ -2285,14 +2285,13 @@ default.unreachable39:                            ; preds = %27
   %173 = zext i32 %172 to i64
   %174 = icmp ugt i64 %167, %173
   tail call void @llvm.assume(i1 %174)
-  %175 = getelementptr inbounds nuw i8, ptr %163, i64 12
-  %176 = load i32, ptr %175, align 4, !alias.scope !135, !noalias !138, !noundef !3
-  %177 = zext i32 %176 to i64
-  %.idx33 = mul nuw nsw i64 %173, 24
-  %178 = getelementptr inbounds nuw i8, ptr %165, i64 24
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx33
+  %175 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %165, i64 %173
+  %176 = getelementptr inbounds nuw i8, ptr %163, i64 12
+  %177 = load i32, ptr %176, align 4, !alias.scope !135, !noalias !138, !noundef !3
+  %178 = zext i32 %177 to i64
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %180 = load ptr, ptr %179, align 8, !alias.scope !140, !noalias !135, !noundef !3
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %177
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %178
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc10E.exit
 
 182:                                              ; preds = %157
@@ -2333,14 +2332,13 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc1
   %202 = zext i32 %201 to i64
   %203 = icmp ugt i64 %196, %202
   tail call void @llvm.assume(i1 %203)
-  %204 = getelementptr inbounds nuw i8, ptr %192, i64 12
-  %205 = load i32, ptr %204, align 4, !alias.scope !143, !noalias !146, !noundef !3
-  %206 = zext i32 %205 to i64
-  %.idx = mul nuw nsw i64 %202, 24
-  %207 = getelementptr inbounds nuw i8, ptr %194, i64 24
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 %.idx
+  %204 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %194, i64 %202
+  %205 = getelementptr inbounds nuw i8, ptr %192, i64 12
+  %206 = load i32, ptr %205, align 4, !alias.scope !143, !noalias !146, !noundef !3
+  %207 = zext i32 %206 to i64
+  %208 = getelementptr inbounds nuw i8, ptr %204, i64 24
   %209 = load ptr, ptr %208, align 8, !alias.scope !148, !noalias !143, !noundef !3
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 %206
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 %207
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17h15d949af9930bc10E.exit61
 
 211:                                              ; preds = %186
@@ -27704,14 +27702,13 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %70 = zext i32 %69 to i64
   %71 = icmp ugt i64 %64, %70
   call void @llvm.assume(i1 %71)
-  %72 = getelementptr inbounds nuw i8, ptr %62, i64 12
-  %73 = load i32, ptr %72, align 4, !alias.scope !2967, !noalias !2972, !noundef !3
-  %74 = zext i32 %73 to i64
-  %.idx.i.i.i.us.i.i = mul nuw nsw i64 %70, 24
-  %75 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx.i.i.i.us.i.i
+  %72 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %63, i64 %70
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 12
+  %74 = load i32, ptr %73, align 4, !alias.scope !2967, !noalias !2972, !noundef !3
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %77 = load ptr, ptr %76, align 8, !alias.scope !2973, !noalias !2976, !noundef !3
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %74
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %75
   %.not10.us.i.i = icmp eq ptr %77, null
   br i1 %.not10.us.i.i, label %.thread.i.i, label %.thread36.us.i.i
 
@@ -27783,14 +27780,13 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %105 = zext i32 %104 to i64
   %106 = icmp ugt i64 %99, %105
   call void @llvm.assume(i1 %106)
-  %107 = getelementptr inbounds nuw i8, ptr %97, i64 12
-  %108 = load i32, ptr %107, align 4, !alias.scope !2988, !noalias !2993, !noundef !3
-  %109 = zext i32 %108 to i64
-  %.idx.i.i.i.i.i.i = mul nuw nsw i64 %105, 24
-  %110 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx.i.i.i.i.i.i
+  %107 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %98, i64 %105
+  %108 = getelementptr inbounds nuw i8, ptr %97, i64 12
+  %109 = load i32, ptr %108, align 4, !alias.scope !2988, !noalias !2993, !noundef !3
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %112 = load ptr, ptr %111, align 8, !alias.scope !2994, !noalias !2997, !noundef !3
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %109
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %110
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h413ad5fc3f1cecf4E.exit.i.i.i.i"
 
 114:                                              ; preds = %92

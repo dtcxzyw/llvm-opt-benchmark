@@ -1244,7 +1244,8 @@ define dso_local void @free_area_init(ptr noundef readonly captures(none) %0) lo
 
 104:                                              ; preds = %.preheader
   %105 = add nuw nsw i64 %111, 1
-  %106 = getelementptr %struct.zone, ptr %92, i64 %105, i32 14
+  %.split = getelementptr %struct.zone, ptr %92, i64 %105
+  %106 = getelementptr i8, ptr %.split, i64 152
   %107 = load i64, ptr %106, align 8
   %108 = icmp eq i64 %107, 0
   br i1 %108, label %.preheader, label %.loopexit15, !llvm.loop !38

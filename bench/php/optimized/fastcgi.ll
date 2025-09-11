@@ -524,12 +524,12 @@ is_port_number.exit:                              ; preds = %12
 
 82:                                               ; preds = %81
   %83 = call i32 @chmod(ptr noundef nonnull %0, i32 noundef 511) #33
-  br label %126
+  br label %127
 
 84:                                               ; preds = %81
   %85 = call ptr @getenv(ptr noundef nonnull @.str.7) #33
   %.not99 = icmp eq ptr %85, null
-  br i1 %.not99, label %126, label %86
+  br i1 %.not99, label %127, label %86
 
 86:                                               ; preds = %84
   %87 = call noalias ptr @strdup(ptr noundef nonnull %85) #33
@@ -562,9 +562,9 @@ is_port_number.exit:                              ; preds = %12
   %.not101119 = icmp eq ptr %87, null
   br i1 %.not101119, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %94, %121
-  %.2121 = phi i32 [ %.3, %121 ], [ 0, %94 ]
-  %.167120 = phi ptr [ %.065, %121 ], [ %87, %94 ]
+.lr.ph:                                           ; preds = %94, %122
+  %.2121 = phi i32 [ %.3, %122 ], [ 0, %94 ]
+  %.167120 = phi ptr [ %.065, %122 ], [ %87, %94 ]
   %99 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.167120, i32 noundef 44) #36
   %.not103 = icmp eq ptr %99, null
   br i1 %.not103, label %102, label %100
@@ -578,87 +578,88 @@ is_port_number.exit:                              ; preds = %12
   %.065 = phi ptr [ %101, %100 ], [ null, %.lr.ph ]
   %103 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
   %104 = sext i32 %.2121 to i64
-  %105 = getelementptr inbounds %union._sa_t, ptr %103, i64 %104, i32 0, i32 2
-  %106 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.167120, ptr noundef nonnull %105) #33
-  %107 = icmp sgt i32 %106, 0
-  %108 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
-  br i1 %107, label %109, label %112
+  %105 = getelementptr inbounds %union._sa_t, ptr %103, i64 %104
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %107 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.167120, ptr noundef nonnull %106) #33
+  %108 = icmp sgt i32 %107, 0
+  %109 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
+  %110 = getelementptr inbounds %union._sa_t, ptr %109, i64 %104
+  br i1 %108, label %111, label %113
 
-109:                                              ; preds = %102
-  %110 = getelementptr inbounds %union._sa_t, ptr %108, i64 %104
+111:                                              ; preds = %102
   store i16 2, ptr %110, align 4, !tbaa !22
-  %111 = add nsw i32 %.2121, 1
-  br label %121
+  %112 = add nsw i32 %.2121, 1
+  br label %122
 
-112:                                              ; preds = %102
-  %113 = getelementptr inbounds %union._sa_t, ptr %108, i64 %104, i32 0, i32 3
-  %114 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.167120, ptr noundef nonnull %113) #33
-  %115 = icmp sgt i32 %114, 0
-  br i1 %115, label %116, label %120
+113:                                              ; preds = %102
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %115 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.167120, ptr noundef nonnull %114) #33
+  %116 = icmp sgt i32 %115, 0
+  br i1 %116, label %117, label %121
 
-116:                                              ; preds = %112
-  %117 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
-  %118 = getelementptr inbounds %union._sa_t, ptr %117, i64 %104
-  store i16 10, ptr %118, align 4, !tbaa !22
-  %119 = add nsw i32 %.2121, 1
-  br label %121
+117:                                              ; preds = %113
+  %118 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
+  %119 = getelementptr inbounds %union._sa_t, ptr %118, i64 %104
+  store i16 10, ptr %119, align 4, !tbaa !22
+  %120 = add nsw i32 %.2121, 1
+  br label %122
 
-120:                                              ; preds = %112
+121:                                              ; preds = %113
   call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef nonnull @.str.8, ptr noundef nonnull %.167120)
-  br label %121
+  br label %122
 
-121:                                              ; preds = %116, %120, %109
-  %.3 = phi i32 [ %111, %109 ], [ %119, %116 ], [ %.2121, %120 ]
+122:                                              ; preds = %117, %121, %111
+  %.3 = phi i32 [ %112, %111 ], [ %120, %117 ], [ %.2121, %121 ]
   %.not101 = icmp eq ptr %.065, null
   br i1 %.not101, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %121
+._crit_edge.loopexit:                             ; preds = %122
   %.pre122 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %94
-  %122 = phi ptr [ %98, %94 ], [ %.pre122, %._crit_edge.loopexit ]
+  %123 = phi ptr [ %98, %94 ], [ %.pre122, %._crit_edge.loopexit ]
   %.2.lcssa = phi i32 [ 0, %94 ], [ %.3, %._crit_edge.loopexit ]
-  %123 = sext i32 %.2.lcssa to i64
-  %124 = getelementptr inbounds %union._sa_t, ptr %122, i64 %123
-  store i16 0, ptr %124, align 4, !tbaa !22
+  %124 = sext i32 %.2.lcssa to i64
+  %125 = getelementptr inbounds %union._sa_t, ptr %123, i64 %124
+  store i16 0, ptr %125, align 4, !tbaa !22
   call void @free(ptr noundef %87) #33
   %.not102 = icmp eq i32 %.2.lcssa, 0
-  br i1 %.not102, label %125, label %126
+  br i1 %.not102, label %126, label %127
 
-125:                                              ; preds = %._crit_edge
+126:                                              ; preds = %._crit_edge
   call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef nonnull @.str.9)
-  br label %126
+  br label %127
 
-126:                                              ; preds = %84, %125, %._crit_edge, %82
+127:                                              ; preds = %84, %126, %._crit_edge, %82
   %.b = load i1, ptr @is_initialized, align 4
-  br i1 %.b, label %129, label %127
+  br i1 %.b, label %130, label %128
 
-127:                                              ; preds = %126
-  %128 = call i32 @fcgi_init()
-  br label %129
+128:                                              ; preds = %127
+  %129 = call i32 @fcgi_init()
+  br label %130
 
-129:                                              ; preds = %127, %126
+130:                                              ; preds = %128, %127
   store i1 true, ptr @is_fastcgi, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %130 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %131 = call i32 @sigemptyset(ptr noundef nonnull %130) #33
-  %132 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store i32 0, ptr %132, align 8, !tbaa !27
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %132 = call i32 @sigemptyset(ptr noundef nonnull %131) #33
+  %133 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  store i32 0, ptr %133, align 8, !tbaa !27
   store ptr @fcgi_signal_handler, ptr %3, align 8, !tbaa !22
-  %133 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %3, ptr noundef null) #33
-  %134 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %3, ptr noundef null) #33
-  %135 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %4) #33
-  %136 = load ptr, ptr %4, align 8, !tbaa !22
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %138, label %fcgi_setup_signals.exit
+  %134 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %3, ptr noundef null) #33
+  %135 = call i32 @sigaction(i32 noundef 15, ptr noundef nonnull %3, ptr noundef null) #33
+  %136 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %4) #33
+  %137 = load ptr, ptr %4, align 8, !tbaa !22
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %139, label %fcgi_setup_signals.exit
 
-138:                                              ; preds = %129
-  %139 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %3, ptr noundef null) #33
+139:                                              ; preds = %130
+  %140 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %3, ptr noundef null) #33
   br label %fcgi_setup_signals.exit
 
-fcgi_setup_signals.exit:                          ; preds = %129, %138
+fcgi_setup_signals.exit:                          ; preds = %130, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
@@ -726,7 +727,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17
 ; Function Attrs: nounwind uwtable
 define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %45, label %2
+  br i1 %.not, label %46, label %2
 
 2:                                                ; preds = %1
   %3 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #33
@@ -768,9 +769,9 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
   %.not3639 = icmp eq ptr %3, null
   br i1 %.not3639, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %13, %40
-  %.241 = phi i32 [ %.3, %40 ], [ 0, %13 ]
-  %.12840 = phi ptr [ %.026, %40 ], [ %3, %13 ]
+.lr.ph:                                           ; preds = %13, %41
+  %.241 = phi i32 [ %.3, %41 ], [ 0, %13 ]
+  %.12840 = phi ptr [ %.026, %41 ], [ %3, %13 ]
   %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.12840, i32 noundef 44) #36
   %.not38 = icmp eq ptr %18, null
   br i1 %.not38, label %21, label %19
@@ -784,59 +785,60 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
   %.026 = phi ptr [ %20, %19 ], [ null, %.lr.ph ]
   %22 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
   %23 = sext i32 %.241 to i64
-  %24 = getelementptr inbounds %union._sa_t, ptr %22, i64 %23, i32 0, i32 2
-  %25 = tail call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.12840, ptr noundef nonnull %24) #33
-  %26 = icmp sgt i32 %25, 0
-  %27 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
-  br i1 %26, label %28, label %31
+  %24 = getelementptr inbounds %union._sa_t, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %26 = tail call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.12840, ptr noundef nonnull %25) #33
+  %27 = icmp sgt i32 %26, 0
+  %28 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
+  %29 = getelementptr inbounds %union._sa_t, ptr %28, i64 %23
+  br i1 %27, label %30, label %32
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds %union._sa_t, ptr %27, i64 %23
+30:                                               ; preds = %21
   store i16 2, ptr %29, align 4, !tbaa !22
-  %30 = add nsw i32 %.241, 1
-  br label %40
+  %31 = add nsw i32 %.241, 1
+  br label %41
 
-31:                                               ; preds = %21
-  %32 = getelementptr inbounds %union._sa_t, ptr %27, i64 %23, i32 0, i32 3
-  %33 = tail call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.12840, ptr noundef nonnull %32) #33
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %35, label %39
+32:                                               ; preds = %21
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %34 = tail call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.12840, ptr noundef nonnull %33) #33
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %36, label %40
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
-  %37 = getelementptr inbounds %union._sa_t, ptr %36, i64 %23
-  store i16 10, ptr %37, align 4, !tbaa !22
-  %38 = add nsw i32 %.241, 1
-  br label %40
+36:                                               ; preds = %32
+  %37 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
+  %38 = getelementptr inbounds %union._sa_t, ptr %37, i64 %23
+  store i16 10, ptr %38, align 4, !tbaa !22
+  %39 = add nsw i32 %.241, 1
+  br label %41
 
-39:                                               ; preds = %31
+40:                                               ; preds = %32
   tail call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef nonnull @.str.8, ptr noundef nonnull %.12840)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %35, %39, %28
-  %.3 = phi i32 [ %30, %28 ], [ %38, %35 ], [ %.241, %39 ]
+41:                                               ; preds = %36, %40, %30
+  %.3 = phi i32 [ %31, %30 ], [ %39, %36 ], [ %.241, %40 ]
   %.not36 = icmp eq ptr %.026, null
   br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %40
+._crit_edge.loopexit:                             ; preds = %41
   %.pre = load ptr, ptr @allowed_clients, align 8, !tbaa !30
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
-  %41 = phi ptr [ %17, %13 ], [ %.pre, %._crit_edge.loopexit ]
+  %42 = phi ptr [ %17, %13 ], [ %.pre, %._crit_edge.loopexit ]
   %.2.lcssa = phi i32 [ 0, %13 ], [ %.3, %._crit_edge.loopexit ]
-  %42 = sext i32 %.2.lcssa to i64
-  %43 = getelementptr inbounds %union._sa_t, ptr %41, i64 %42
-  store i16 0, ptr %43, align 4, !tbaa !22
+  %43 = sext i32 %.2.lcssa to i64
+  %44 = getelementptr inbounds %union._sa_t, ptr %42, i64 %43
+  store i16 0, ptr %44, align 4, !tbaa !22
   tail call void @free(ptr noundef %3) #33
   %.not37 = icmp eq i32 %.2.lcssa, 0
-  br i1 %.not37, label %44, label %45
+  br i1 %.not37, label %45, label %46
 
-44:                                               ; preds = %._crit_edge
+45:                                               ; preds = %._crit_edge
   tail call void (i32, ptr, ...) @fcgi_log(i32 noundef 4, ptr noundef nonnull @.str.9)
-  br label %45
+  br label %46
 
-45:                                               ; preds = %._crit_edge, %44, %1
+46:                                               ; preds = %._crit_edge, %45, %1
   ret void
 }
 
@@ -1458,7 +1460,7 @@ fcgi_close.exit61:                                ; preds = %fcgi_close.exit61.b
   ]
 
 66:                                               ; preds = %.preheader.split.us.i
-  %67 = getelementptr inbounds nuw %union._sa_t, ptr %52, i64 %indvars.iv38.i, i32 0, i32 2
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %bcmp21.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) getelementptr inbounds nuw (i8, ptr @client_sa, i64 20), ptr noundef nonnull dereferenceable(4) %67, i64 4)
   %.not22.us.i = icmp eq i32 %bcmp21.us.i, 0
   br i1 %.not22.us.i, label %.loopexit84, label %.critedge.us.i

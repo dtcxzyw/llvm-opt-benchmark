@@ -49,8 +49,8 @@ define ptr @OSSL_PARAM_dup(ptr noundef readonly captures(address_is_null) %0) lo
   br i1 %.not3948.i, label %ossl_param_dup.exit, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.i:                          ; preds = %5, %17
-  %.016 = phi i32 [ %26, %17 ], [ 1, %5 ]
-  %.03649.us.i = phi ptr [ %27, %17 ], [ %0, %5 ]
+  %.016 = phi i32 [ %27, %17 ], [ 1, %5 ]
+  %.03649.us.i = phi ptr [ %28, %17 ], [ %0, %5 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03649.us.i, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = tail call i32 @CRYPTO_secure_allocated(ptr noundef %8) #8
@@ -73,123 +73,125 @@ define ptr @OSSL_PARAM_dup(ptr noundef readonly captures(address_is_null) %0) lo
   %20 = add i64 %.034.us.i, %19
   %21 = lshr i64 %20, 3
   %22 = sext i32 %9 to i64
-  %23 = getelementptr inbounds %struct.OSSL_PARAM_BUF, ptr %2, i64 %22, i32 2
-  %24 = load i64, ptr %23, align 16, !tbaa !14
-  %25 = add i64 %21, %24
-  store i64 %25, ptr %23, align 16, !tbaa !14
-  %26 = add nuw nsw i32 %.016, 1
-  %27 = getelementptr inbounds nuw i8, ptr %.03649.us.i, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !3
-  %.not39.us.i = icmp eq ptr %28, null
+  %23 = getelementptr inbounds %struct.OSSL_PARAM_BUF, ptr %2, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load i64, ptr %24, align 16, !tbaa !14
+  %26 = add i64 %21, %25
+  store i64 %26, ptr %24, align 16, !tbaa !14
+  %27 = add nuw nsw i32 %.016, 1
+  %28 = getelementptr inbounds nuw i8, ptr %.03649.us.i, i64 40
+  %29 = load ptr, ptr %28, align 8, !tbaa !3
+  %.not39.us.i = icmp eq ptr %29, null
   br i1 %.not39.us.i, label %ossl_param_dup.exit.loopexit, label %.lr.ph.split.us.split.i, !llvm.loop !16
 
 ossl_param_dup.exit.loopexit:                     ; preds = %17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 16, !tbaa !14
-  %29 = zext nneg i32 %26 to i64
-  %30 = mul nuw nsw i64 %29, 40
-  %31 = shl i64 %.pre, 3
+  %30 = zext nneg i32 %27 to i64
+  %31 = mul nuw nsw i64 %30, 40
+  %32 = shl i64 %.pre, 3
   br label %ossl_param_dup.exit
 
 ossl_param_dup.exit:                              ; preds = %ossl_param_dup.exit.loopexit, %5
-  %32 = phi i64 [ 0, %5 ], [ %31, %ossl_param_dup.exit.loopexit ]
-  %.1 = phi i64 [ 40, %5 ], [ %30, %ossl_param_dup.exit.loopexit ]
-  %33 = add i64 %.1, %32
-  %34 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %33, ptr noundef nonnull @.str, i32 noundef 39) #8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %ossl_param_buf_alloc.exit.thread, label %36
+  %33 = phi i64 [ 0, %5 ], [ %32, %ossl_param_dup.exit.loopexit ]
+  %.1 = phi i64 [ 40, %5 ], [ %31, %ossl_param_dup.exit.loopexit ]
+  %34 = add i64 %.1, %33
+  %35 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %34, ptr noundef nonnull @.str, i32 noundef 39) #8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %ossl_param_buf_alloc.exit.thread, label %37
 
-36:                                               ; preds = %ossl_param_dup.exit
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.1
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %37, ptr %38, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %40 = load i64, ptr %39, align 16, !tbaa !14
-  %.not8 = icmp eq i64 %40, 0
-  br i1 %.not8, label %47, label %41
+37:                                               ; preds = %ossl_param_dup.exit
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.1
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %38, ptr %39, align 8, !tbaa !18
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %41 = load i64, ptr %40, align 16, !tbaa !14
+  %.not8 = icmp eq i64 %41, 0
+  br i1 %.not8, label %48, label %42
 
-41:                                               ; preds = %36
-  %42 = shl i64 %40, 3
-  %43 = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %42, ptr noundef nonnull @.str, i32 noundef 39) #8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %46, label %ossl_param_buf_alloc.exit11
+42:                                               ; preds = %37
+  %43 = shl i64 %41, 3
+  %44 = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %43, ptr noundef nonnull @.str, i32 noundef 39) #8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %47, label %ossl_param_buf_alloc.exit11
 
-ossl_param_buf_alloc.exit11:                      ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %43, ptr %45, align 8, !tbaa !18
-  br label %47
+ossl_param_buf_alloc.exit11:                      ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store ptr %44, ptr %46, align 8, !tbaa !18
+  br label %48
 
-46:                                               ; preds = %41
-  tail call void @CRYPTO_free(ptr noundef nonnull %34, ptr noundef nonnull @.str, i32 noundef 126) #8
+47:                                               ; preds = %42
+  tail call void @CRYPTO_free(ptr noundef nonnull %35, ptr noundef nonnull @.str, i32 noundef 126) #8
   br label %ossl_param_buf_alloc.exit.thread
 
-47:                                               ; preds = %ossl_param_buf_alloc.exit11, %36
-  %48 = phi i64 [ %42, %ossl_param_buf_alloc.exit11 ], [ 0, %36 ]
-  %49 = phi ptr [ %43, %ossl_param_buf_alloc.exit11 ], [ null, %36 ]
-  %50 = load ptr, ptr %0, align 8, !tbaa !3
-  %.not3948.i12 = icmp eq ptr %50, null
+48:                                               ; preds = %ossl_param_buf_alloc.exit11, %37
+  %49 = phi i64 [ %43, %ossl_param_buf_alloc.exit11 ], [ 0, %37 ]
+  %50 = phi ptr [ %44, %ossl_param_buf_alloc.exit11 ], [ null, %37 ]
+  %51 = load ptr, ptr %0, align 8, !tbaa !3
+  %.not3948.i12 = icmp eq ptr %51, null
   br i1 %.not3948.i12, label %ossl_param_dup.exit14, label %.thread.us.i
 
-.thread.us.i:                                     ; preds = %47, %.thread45.us.i
-  %.051.us52.i = phi ptr [ %74, %.thread45.us.i ], [ %34, %47 ]
-  %.03649.us53.i = phi ptr [ %76, %.thread45.us.i ], [ %0, %47 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !12
-  %53 = tail call i32 @CRYPTO_secure_allocated(ptr noundef %52) #8
+.thread.us.i:                                     ; preds = %48, %.thread45.us.i
+  %.051.us52.i = phi ptr [ %76, %.thread45.us.i ], [ %35, %48 ]
+  %.03649.us53.i = phi ptr [ %78, %.thread45.us.i ], [ %0, %48 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !12
+  %54 = tail call i32 @CRYPTO_secure_allocated(ptr noundef %53) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.051.us52.i, ptr noundef nonnull align 8 dereferenceable(40) %.03649.us53.i, i64 40, i1 false), !tbaa.struct !19
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.OSSL_PARAM_BUF, ptr %2, i64 %54, i32 1
-  %56 = load ptr, ptr %55, align 8, !tbaa !18
-  %57 = getelementptr inbounds nuw i8, ptr %.051.us52.i, i64 16
-  store ptr %56, ptr %57, align 8, !tbaa !12
-  %58 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 8
-  %59 = load i32, ptr %58, align 8, !tbaa !13
-  %60 = and i32 %59, -2
-  %switch42.us.i = icmp eq i32 %60, 6
-  br i1 %switch42.us.i, label %70, label %61
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds %struct.OSSL_PARAM_BUF, ptr %2, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !18
+  %59 = getelementptr inbounds nuw i8, ptr %.051.us52.i, i64 16
+  store ptr %58, ptr %59, align 8, !tbaa !12
+  %60 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 8
+  %61 = load i32, ptr %60, align 8, !tbaa !13
+  %62 = and i32 %61, -2
+  %switch42.us.i = icmp eq i32 %62, 6
+  br i1 %switch42.us.i, label %72, label %63
 
-61:                                               ; preds = %.thread.us.i
-  %62 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 24
-  %63 = load i64, ptr %62, align 8, !tbaa !11
-  %64 = load ptr, ptr %51, align 8, !tbaa !12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %64, i64 %63, i1 false)
-  %65 = add i64 %63, 7
-  %.pre62.i = load i32, ptr %58, align 8, !tbaa !13
-  %66 = icmp eq i32 %.pre62.i, 4
-  %67 = zext i1 %66 to i64
-  %68 = add i64 %65, %67
-  %69 = lshr i64 %68, 3
+63:                                               ; preds = %.thread.us.i
+  %64 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 24
+  %65 = load i64, ptr %64, align 8, !tbaa !11
+  %66 = load ptr, ptr %52, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %66, i64 %65, i1 false)
+  %67 = add i64 %65, 7
+  %.pre62.i = load i32, ptr %60, align 8, !tbaa !13
+  %68 = icmp eq i32 %.pre62.i, 4
+  %69 = zext i1 %68 to i64
+  %70 = add i64 %67, %69
+  %71 = lshr i64 %70, 3
   br label %.thread45.us.i
 
-70:                                               ; preds = %.thread.us.i
-  %71 = load ptr, ptr %51, align 8, !tbaa !12
-  %72 = load ptr, ptr %71, align 8, !tbaa !22
-  store ptr %72, ptr %56, align 8, !tbaa !22
+72:                                               ; preds = %.thread.us.i
+  %73 = load ptr, ptr %52, align 8, !tbaa !12
+  %74 = load ptr, ptr %73, align 8, !tbaa !22
+  store ptr %74, ptr %58, align 8, !tbaa !22
   br label %.thread45.us.i
 
-.thread45.us.i:                                   ; preds = %70, %61
-  %73 = phi i64 [ %69, %61 ], [ 1, %70 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.051.us52.i, i64 40
-  %75 = getelementptr inbounds nuw %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %56, i64 %73
-  store ptr %75, ptr %55, align 8, !tbaa !18
-  %76 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 40
-  %77 = load ptr, ptr %76, align 8, !tbaa !3
-  %.not39.us54.i = icmp eq ptr %77, null
+.thread45.us.i:                                   ; preds = %72, %63
+  %75 = phi i64 [ %71, %63 ], [ 1, %72 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.051.us52.i, i64 40
+  %77 = getelementptr inbounds nuw %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %58, i64 %75
+  store ptr %77, ptr %57, align 8, !tbaa !18
+  %78 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 40
+  %79 = load ptr, ptr %78, align 8, !tbaa !3
+  %.not39.us54.i = icmp eq ptr %79, null
   br i1 %.not39.us54.i, label %ossl_param_dup.exit14, label %.thread.us.i, !llvm.loop !16
 
-ossl_param_dup.exit14:                            ; preds = %.thread45.us.i, %47
-  %.0.lcssa.i = phi ptr [ %34, %47 ], [ %74, %.thread45.us.i ]
+ossl_param_dup.exit14:                            ; preds = %.thread45.us.i, %48
+  %.0.lcssa.i = phi ptr [ %35, %48 ], [ %76, %.thread45.us.i ]
   store ptr null, ptr %.0.lcssa.i, align 8, !tbaa !3
-  %78 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 24
-  store i64 %48, ptr %78, align 8, !tbaa !11
-  %79 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
-  store ptr %49, ptr %79, align 8, !tbaa !12
-  %80 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
-  store i32 127, ptr %80, align 8, !tbaa !13
+  %80 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 24
+  store i64 %49, ptr %80, align 8, !tbaa !11
+  %81 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
+  store ptr %50, ptr %81, align 8, !tbaa !12
+  %82 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
+  store i32 127, ptr %82, align 8, !tbaa !13
   br label %ossl_param_buf_alloc.exit.thread
 
-ossl_param_buf_alloc.exit.thread:                 ; preds = %ossl_param_dup.exit, %ossl_param_dup.exit14, %46, %4
-  %.0 = phi ptr [ null, %4 ], [ %34, %ossl_param_dup.exit14 ], [ null, %46 ], [ null, %ossl_param_dup.exit ]
+ossl_param_buf_alloc.exit.thread:                 ; preds = %ossl_param_dup.exit, %ossl_param_dup.exit14, %47, %4
+  %.0 = phi ptr [ null, %4 ], [ %35, %ossl_param_dup.exit14 ], [ null, %47 ], [ null, %ossl_param_dup.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

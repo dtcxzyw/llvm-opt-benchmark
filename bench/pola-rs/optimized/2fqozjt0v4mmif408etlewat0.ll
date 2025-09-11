@@ -24813,14 +24813,13 @@ define internal fastcc void @_ZN11polars_core13chunked_array6binary17fill_bytes_
   %57 = zext i32 %56 to i64
   %58 = icmp ugt i64 %51, %57
   call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  %60 = load i32, ptr %59, align 4, !alias.scope !2102, !noalias !2107, !noundef !6
-  %61 = zext i32 %60 to i64
-  %.idx.i.i.i.i = mul nuw nsw i64 %57, 24
-  %62 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx.i.i.i.i
+  %59 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %50, i64 %57
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 12
+  %61 = load i32, ptr %60, align 4, !alias.scope !2102, !noalias !2107, !noundef !6
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %64 = load ptr, ptr %63, align 8, !alias.scope !2108, !noalias !2111, !noundef !6
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %61
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %62
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h5aa18966bfeb0b4eE.exit.i.i"
 
 66:                                               ; preds = %44
@@ -24918,14 +24917,13 @@ define internal fastcc void @_ZN11polars_core13chunked_array6binary17fill_bytes_
   %105 = zext i32 %104 to i64
   %106 = icmp ugt i64 %96, %105
   call void @llvm.assume(i1 %106)
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 12
-  %108 = load i32, ptr %107, align 4, !alias.scope !2119, !noalias !2124, !noundef !6
-  %109 = zext i32 %108 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %105, 24
-  %110 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx.i.i.i
+  %107 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %94, i64 %105
+  %108 = getelementptr inbounds nuw i8, ptr %92, i64 12
+  %109 = load i32, ptr %108, align 4, !alias.scope !2119, !noalias !2124, !noundef !6
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %112 = load ptr, ptr %111, align 8, !alias.scope !2125, !noalias !2128, !noundef !6
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %109
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %110
   %.sroa.3.0.i.i.i.i = zext i32 %97 to i64
   %.not10 = icmp eq ptr %112, null
   br i1 %.not10, label %.thread, label %.thread40

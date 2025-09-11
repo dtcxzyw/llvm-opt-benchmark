@@ -109,21 +109,22 @@ define weak_odr dso_local void @_ZN3igl13sparse_cachedIdEEvRKSt6vectorIN5Eigen7T
   ret void
 
 29:                                               ; preds = %.lr.ph18, %29
-  %30 = phi i64 [ 0, %.lr.ph18 ], [ %40, %29 ]
-  %.017 = phi i32 [ 0, %.lr.ph18 ], [ %39, %29 ]
-  %31 = getelementptr inbounds nuw %"class.Eigen::Triplet", ptr %12, i64 %30, i32 2
-  %32 = load double, ptr %31, align 8, !tbaa !21
-  %33 = getelementptr inbounds nuw i32, ptr %19, i64 %30
-  %34 = load i32, ptr %33, align 4, !tbaa !19
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds double, ptr %18, i64 %35
-  %37 = load double, ptr %36, align 8, !tbaa !21
-  %38 = fadd double %32, %37
-  store double %38, ptr %36, align 8, !tbaa !21
-  %39 = add i32 %.017, 1
-  %40 = zext i32 %39 to i64
-  %41 = icmp ugt i64 %16, %40
-  br i1 %41, label %29, label %._crit_edge, !llvm.loop !25
+  %30 = phi i64 [ 0, %.lr.ph18 ], [ %41, %29 ]
+  %.017 = phi i32 [ 0, %.lr.ph18 ], [ %40, %29 ]
+  %31 = getelementptr inbounds nuw %"class.Eigen::Triplet", ptr %12, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load double, ptr %32, align 8, !tbaa !21
+  %34 = getelementptr inbounds nuw i32, ptr %19, i64 %30
+  %35 = load i32, ptr %34, align 4, !tbaa !19
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds double, ptr %18, i64 %36
+  %38 = load double, ptr %37, align 8, !tbaa !21
+  %39 = fadd double %33, %38
+  store double %39, ptr %37, align 8, !tbaa !21
+  %40 = add i32 %.017, 1
+  %41 = zext i32 %40 to i64
+  %42 = icmp ugt i64 %16, %41
+  br i1 %42, label %29, label %._crit_edge, !llvm.loop !25
 }
 
 ; Function Attrs: mustprogress uwtable

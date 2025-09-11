@@ -946,7 +946,7 @@ define internal fastcc double @findHorizontal(ptr noundef %0, double noundef %1,
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = fcmp oeq double %1, %2
-  br i1 %9, label %44, label %10
+  br i1 %9, label %45, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -963,60 +963,61 @@ define internal fastcc double @findHorizontal(ptr noundef %0, double noundef %1,
   %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %16 ]
   %.122.i = phi i32 [ %spec.select.i, %10 ], [ %spec.select17.i, %16 ]
   %.01620.i = phi i32 [ %.0.i.i, %10 ], [ %.0.i19.i, %16 ]
-  %17 = getelementptr inbounds nuw %struct.pointf_s, ptr %0, i64 %indvars.iv.i, i32 1
-  %18 = load double, ptr %17, align 8, !tbaa !64
-  %19 = fcmp olt double %18, %3
-  %20 = fcmp ogt double %18, %3
-  %..i18.i = zext i1 %20 to i32
-  %.0.i19.i = select i1 %19, i32 -1, i32 %..i18.i
-  %21 = icmp ne i32 %.0.i19.i, %.01620.i
-  %22 = icmp ne i32 %.01620.i, 0
-  %or.cond.i = and i1 %22, %21
-  %23 = zext i1 %or.cond.i to i32
-  %spec.select17.i = add nuw nsw i32 %.122.i, %23
+  %17 = getelementptr inbounds nuw %struct.pointf_s, ptr %0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load double, ptr %18, align 8, !tbaa !64
+  %20 = fcmp olt double %19, %3
+  %21 = fcmp ogt double %19, %3
+  %..i18.i = zext i1 %21 to i32
+  %.0.i19.i = select i1 %20, i32 -1, i32 %..i18.i
+  %22 = icmp ne i32 %.0.i19.i, %.01620.i
+  %23 = icmp ne i32 %.01620.i, 0
+  %or.cond.i = and i1 %23, %22
+  %24 = zext i1 %or.cond.i to i32
+  %spec.select17.i = add nuw nsw i32 %.122.i, %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %countHorzCross.exit, label %16, !llvm.loop !65
 
 countHorzCross.exit:                              ; preds = %16
-  switch i32 %spec.select17.i, label %36 [
-    i32 0, label %44
-    i32 1, label %24
+  switch i32 %spec.select17.i, label %37 [
+    i32 0, label %45
+    i32 1, label %25
   ]
 
-24:                                               ; preds = %countHorzCross.exit
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = load double, ptr %25, align 8, !tbaa !64
-  %27 = fsub double %26, %3
-  %28 = tail call double @llvm.fabs.f64(double %27)
-  %29 = fcmp ugt double %28, 5.000000e-03
-  br i1 %29, label %36, label %30
+25:                                               ; preds = %countHorzCross.exit
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %27 = load double, ptr %26, align 8, !tbaa !64
+  %28 = fsub double %27, %3
+  %29 = tail call double @llvm.fabs.f64(double %28)
+  %30 = fcmp ugt double %29, 5.000000e-03
+  br i1 %30, label %37, label %31
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = load double, ptr %31, align 8, !tbaa !62
-  %33 = fcmp ugt double %4, %32
-  %34 = fcmp ugt double %32, %5
-  %or.cond = or i1 %33, %34
-  br i1 %or.cond, label %35, label %44
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %33 = load double, ptr %32, align 8, !tbaa !62
+  %34 = fcmp ugt double %4, %33
+  %35 = fcmp ugt double %33, %5
+  %or.cond = or i1 %34, %35
+  br i1 %or.cond, label %36, label %45
 
-35:                                               ; preds = %30
-  br label %44
+36:                                               ; preds = %31
+  br label %45
 
-36:                                               ; preds = %countHorzCross.exit, %24
-  %37 = call { double, double } @Bezier(ptr noundef nonnull %0, double noundef 5.000000e-01, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
-  %38 = fadd double %1, %2
-  %39 = fmul double %38, 5.000000e-01
-  %40 = call fastcc double @findHorizontal(ptr noundef nonnull %7, double noundef %1, double noundef %39, double noundef %3, double noundef %4, double noundef %5)
-  %41 = fcmp ult double %40, 0.000000e+00
-  br i1 %41, label %42, label %44
+37:                                               ; preds = %countHorzCross.exit, %25
+  %38 = call { double, double } @Bezier(ptr noundef nonnull %0, double noundef 5.000000e-01, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
+  %39 = fadd double %1, %2
+  %40 = fmul double %39, 5.000000e-01
+  %41 = call fastcc double @findHorizontal(ptr noundef nonnull %7, double noundef %1, double noundef %40, double noundef %3, double noundef %4, double noundef %5)
+  %42 = fcmp ult double %41, 0.000000e+00
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %36
-  %43 = call fastcc double @findHorizontal(ptr noundef nonnull %8, double noundef %39, double noundef %2, double noundef %3, double noundef %4, double noundef %5)
-  br label %44
+43:                                               ; preds = %37
+  %44 = call fastcc double @findHorizontal(ptr noundef nonnull %8, double noundef %40, double noundef %2, double noundef %3, double noundef %4, double noundef %5)
+  br label %45
 
-44:                                               ; preds = %36, %30, %countHorzCross.exit, %6, %42, %35
-  %.0 = phi double [ -1.000000e+00, %35 ], [ %43, %42 ], [ %1, %6 ], [ -1.000000e+00, %countHorzCross.exit ], [ %2, %30 ], [ %40, %36 ]
+45:                                               ; preds = %37, %31, %countHorzCross.exit, %6, %43, %36
+  %.0 = phi double [ -1.000000e+00, %36 ], [ %44, %43 ], [ %1, %6 ], [ -1.000000e+00, %countHorzCross.exit ], [ %2, %31 ], [ %41, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %.0

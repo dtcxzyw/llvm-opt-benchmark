@@ -11387,7 +11387,8 @@ for.inc:                                          ; preds = %if.then6, %for.body
   %flags.1 = phi i32 [ %or, %if.then6 ], [ %flags.039, %for.body ]
   %mask.1 = phi i32 [ %or13, %if.then6 ], [ %mask.040, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %str = getelementptr inbounds nuw %struct.EnumString, ptr @es_HudBuiltinElement, i64 %indvars.iv.next, i32 1
+  %str.split = getelementptr inbounds nuw %struct.EnumString, ptr @es_HudBuiltinElement, i64 %indvars.iv.next
+  %str = getelementptr inbounds nuw i8, ptr %str.split, i64 8
   %11 = load ptr, ptr %str, align 8, !tbaa !267
   %tobool.not = icmp eq ptr %11, null
   br i1 %tobool.not, label %for.cond.cleanup, label %for.body, !llvm.loop !270
@@ -11453,7 +11454,8 @@ for.body:                                         ; preds = %for.body, %for.body
   %10 = load ptr, ptr %str23, align 8, !tbaa !267
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %str = getelementptr inbounds nuw %struct.EnumString, ptr @es_HudBuiltinElement, i64 %indvars.iv.next, i32 1
+  %str.split = getelementptr inbounds nuw %struct.EnumString, ptr @es_HudBuiltinElement, i64 %indvars.iv.next
+  %str = getelementptr inbounds nuw i8, ptr %str.split, i64 8
   %11 = load ptr, ptr %str, align 8, !tbaa !267
   %tobool.not = icmp eq ptr %11, null
   br i1 %tobool.not, label %cleanup, label %for.body, !llvm.loop !272

@@ -597,7 +597,7 @@ define internal fastcc void @_help_format_msg() unnamed_addr #8 {
 
 .lr.ph:                                           ; preds = %0, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %0 ]
-  %2 = phi ptr [ %8, %5 ], [ getelementptr inbounds nuw (i8, ptr @fields, i64 8), %0 ]
+  %2 = phi ptr [ %9, %5 ], [ getelementptr inbounds nuw (i8, ptr @fields, i64 8), %0 ]
   %3 = and i64 %indvars.iv, 3
   %.not5 = icmp eq i64 %3, 0
   br i1 %.not5, label %4, label %.sink.split
@@ -615,9 +615,10 @@ define internal fastcc void @_help_format_msg() unnamed_addr #8 {
   %6 = load ptr, ptr %2, align 8
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
+  %8 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %5, %0

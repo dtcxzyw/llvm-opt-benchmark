@@ -482,26 +482,27 @@ _ZN19GenericTaskQueueSetI17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN19GenericTaskQueueSetI17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EELS2_5EEC2Ej.exit ]
   %17 = load ptr, ptr @_ZN18PSPromotionManager18_stack_array_depthE, align 8
   %18 = load ptr, ptr @_ZN18PSPromotionManager14_manager_arrayE, align 8
-  %19 = getelementptr inbounds nuw %class.PaddedEnd, ptr %18, i64 %indvars.iv, i32 0, i32 0, i32 4
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
-  store ptr %19, ptr %22, align 8
+  %19 = getelementptr inbounds nuw %class.PaddedEnd, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  store ptr %20, ptr %23, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr @ParallelGCThreads, align 4
-  %24 = zext i32 %23 to i64
-  %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  %24 = load i32, ptr @ParallelGCThreads, align 4
+  %25 = zext i32 %24 to i64
+  %26 = icmp samesign ult i64 %indvars.iv.next, %25
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN19GenericTaskQueueSetI17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EELS2_5EEC2Ej.exit
-  %26 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #12
-  store i8 1, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr null, ptr %28, align 8
-  store ptr %26, ptr @_ZN18PSPromotionManager20_preserved_marks_setE, align 8
-  tail call void @_ZN17PreservedMarksSet4initEj(ptr noundef nonnull align 8 dereferenceable(16) %26, i32 noundef %5) #12
+  %27 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #12
+  store i8 1, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr null, ptr %29, align 8
+  store ptr %27, ptr @_ZN18PSPromotionManager20_preserved_marks_setE, align 8
+  tail call void @_ZN17PreservedMarksSet4initEj(ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef %5) #12
   %.not23 = icmp eq i32 %5, 0
   br i1 %.not23, label %._crit_edge22, label %.lr.ph21.preheader
 
@@ -511,13 +512,14 @@ _ZN19GenericTaskQueueSetI17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE
 
 .lr.ph21:                                         ; preds = %.lr.ph21.preheader, %.lr.ph21
   %indvars.iv25 = phi i64 [ 0, %.lr.ph21.preheader ], [ %indvars.iv.next26, %.lr.ph21 ]
-  %29 = load ptr, ptr @_ZN18PSPromotionManager14_manager_arrayE, align 8
-  %30 = load ptr, ptr @_ZN18PSPromotionManager20_preserved_marks_setE, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw %class.Padded, ptr %32, i64 %indvars.iv25
-  %34 = getelementptr inbounds nuw %class.PaddedEnd, ptr %29, i64 %indvars.iv25, i32 0, i32 0, i32 8
-  store ptr %33, ptr %34, align 8
+  %30 = load ptr, ptr @_ZN18PSPromotionManager14_manager_arrayE, align 8
+  %31 = getelementptr inbounds nuw %class.PaddedEnd, ptr %30, i64 %indvars.iv25
+  %32 = load ptr, ptr @_ZN18PSPromotionManager20_preserved_marks_setE, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw %class.Padded, ptr %34, i64 %indvars.iv25
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 824
+  store ptr %35, ptr %36, align 8
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge22, label %.lr.ph21, !llvm.loop !9

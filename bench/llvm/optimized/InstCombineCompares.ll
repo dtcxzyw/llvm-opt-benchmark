@@ -65455,14 +65455,14 @@ define internal noundef zeroext i1 @_ZZN4llvm16InstCombinerImpl13foldAllocaCmpEP
   %6 = load ptr, ptr %5, align 8, !tbaa !136
   %7 = load i8, ptr %6, align 8, !tbaa !42
   %.not = icmp eq i8 %7, 82
-  br i1 %.not, label %8, label %52
+  br i1 %.not, label %8, label %53
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %10 = load i16, ptr %9, align 2, !tbaa !8
   %11 = and i16 %10, 62
   %12 = icmp eq i16 %11, 32
-  br i1 %12, label %13, label %52
+  br i1 %12, label %13, label %53
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %1, align 8, !tbaa !37
@@ -65470,7 +65470,7 @@ define internal noundef zeroext i1 @_ZZN4llvm16InstCombinerImpl13foldAllocaCmpEP
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !219
   %18 = icmp eq ptr %15, %17
-  br i1 %18, label %19, label %52
+  br i1 %18, label %19, label %53
 
 19:                                               ; preds = %13
   %20 = tail call noundef i32 @_ZNK4llvm3Use12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
@@ -65529,21 +65529,22 @@ _ZN4llvm9MapVectorIPNS_8ICmpInstEjNS_13SmallDenseMapIS2_jLj4ENS_12DenseMapInfoIS
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %47 = zext i32 %45 to i64
   %48 = load ptr, ptr %46, align 8, !tbaa !87
-  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %48, i64 %47, i32 1
+  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %48, i64 %47
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %50 = load i32, ptr %49, align 4, !tbaa !99
-  %51 = or i32 %50, %21
-  store i32 %51, ptr %49, align 4, !tbaa !99
-  br label %54
+  %51 = load i32, ptr %50, align 4, !tbaa !99
+  %52 = or i32 %51, %21
+  store i32 %52, ptr %50, align 4, !tbaa !99
+  br label %55
 
-52:                                               ; preds = %13, %8, %2
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %53, align 8, !tbaa !232
-  br label %54
+53:                                               ; preds = %13, %8, %2
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %54, align 8, !tbaa !232
+  br label %55
 
-54:                                               ; preds = %52, %_ZN4llvm9MapVectorIPNS_8ICmpInstEjNS_13SmallDenseMapIS2_jLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj4EEEEixERKS2_.exit
-  %.0 = phi i1 [ false, %_ZN4llvm9MapVectorIPNS_8ICmpInstEjNS_13SmallDenseMapIS2_jLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj4EEEEixERKS2_.exit ], [ true, %52 ]
+55:                                               ; preds = %53, %_ZN4llvm9MapVectorIPNS_8ICmpInstEjNS_13SmallDenseMapIS2_jLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj4EEEEixERKS2_.exit
+  %.0 = phi i1 [ false, %_ZN4llvm9MapVectorIPNS_8ICmpInstEjNS_13SmallDenseMapIS2_jLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj4EEEEixERKS2_.exit ], [ true, %53 ]
   ret i1 %.0
 }
 

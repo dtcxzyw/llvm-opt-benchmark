@@ -595,63 +595,65 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_cleanup(i64
   %.not23 = icmp eq i64 %0, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %32
-  %.022 = phi i32 [ %.2, %32 ], [ 0, %4 ]
-  %.01721 = phi i64 [ %33, %32 ], [ 0, %4 ]
+.lr.ph:                                           ; preds = %4, %34
+  %.022 = phi i32 [ %.2, %34 ], [ 0, %4 ]
+  %.01721 = phi i64 [ %35, %34 ], [ 0, %4 ]
   %5 = getelementptr inbounds nuw i64, ptr %1, i64 %.01721
   %6 = load i64, ptr %5, align 8, !tbaa !8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %18
+  br i1 %7, label %8, label %19
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %3, i64 %.01721, i32 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !65
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %18, label %11
+  %9 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %3, i64 %.01721
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 184
+  %11 = load ptr, ptr %10, align 8, !tbaa !65
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %19, label %12
 
-11:                                               ; preds = %8
-  %12 = tail call i32 @H5S_close(ptr noundef nonnull %10) #5
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %18
+12:                                               ; preds = %8
+  %13 = tail call i32 @H5S_close(ptr noundef nonnull %11) #5
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %15, label %19
 
-14:                                               ; preds = %11
-  %15 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !8
-  %16 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !8
-  %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_dataset_io_cleanup, i32 noundef 230, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.56) #5
-  br label %18
+15:                                               ; preds = %12
+  %16 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !8
+  %17 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !8
+  %18 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_dataset_io_cleanup, i32 noundef 230, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.56) #5
+  br label %19
 
-18:                                               ; preds = %11, %14, %8, %.lr.ph
-  %.1 = phi i32 [ -1, %14 ], [ %.022, %11 ], [ %.022, %8 ], [ %.022, %.lr.ph ]
-  %19 = getelementptr inbounds nuw i64, ptr %2, i64 %.01721
-  %20 = load i64, ptr %19, align 8, !tbaa !8
-  %21 = icmp eq i64 %20, 2
-  br i1 %21, label %22, label %32
+19:                                               ; preds = %12, %15, %8, %.lr.ph
+  %.1 = phi i32 [ -1, %15 ], [ %.022, %12 ], [ %.022, %8 ], [ %.022, %.lr.ph ]
+  %20 = getelementptr inbounds nuw i64, ptr %2, i64 %.01721
+  %21 = load i64, ptr %20, align 8, !tbaa !8
+  %22 = icmp eq i64 %21, 2
+  br i1 %22, label %23, label %34
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %3, i64 %.01721, i32 7
-  %24 = load ptr, ptr %23, align 8, !tbaa !63
-  %.not20 = icmp eq ptr %24, null
-  br i1 %.not20, label %32, label %25
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %3, i64 %.01721
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 176
+  %26 = load ptr, ptr %25, align 8, !tbaa !63
+  %.not20 = icmp eq ptr %26, null
+  br i1 %.not20, label %34, label %27
 
-25:                                               ; preds = %22
-  %26 = tail call i32 @H5S_select_all(ptr noundef nonnull %24, i1 noundef zeroext true) #5
-  %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %32
+27:                                               ; preds = %23
+  %28 = tail call i32 @H5S_select_all(ptr noundef nonnull %26, i1 noundef zeroext true) #5
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %34
 
-28:                                               ; preds = %25
-  %29 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !8
-  %30 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !8
-  %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_dataset_io_cleanup, i32 noundef 236, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.57) #5
-  br label %32
+30:                                               ; preds = %27
+  %31 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !8
+  %32 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !8
+  %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_dataset_io_cleanup, i32 noundef 236, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.57) #5
+  br label %34
 
-32:                                               ; preds = %18, %22, %28, %25
-  %.2 = phi i32 [ -1, %28 ], [ %.1, %25 ], [ %.1, %22 ], [ %.1, %18 ]
-  %33 = add nuw i64 %.01721, 1
-  %exitcond.not = icmp eq i64 %33, %0
+34:                                               ; preds = %19, %23, %30, %27
+  %.2 = phi i32 [ -1, %30 ], [ %.1, %27 ], [ %.1, %23 ], [ %.1, %19 ]
+  %35 = add nuw i64 %.01721, 1
+  %exitcond.not = icmp eq i64 %35, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
-._crit_edge:                                      ; preds = %32, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %.2, %32 ]
+._crit_edge:                                      ; preds = %34, %4
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %.2, %34 ]
   ret i32 %.0.lcssa
 }
 

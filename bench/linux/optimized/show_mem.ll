@@ -147,7 +147,8 @@ define dso_local void @si_meminfo_node(ptr noundef writeonly captures(none) %0, 
 6:                                                ; preds = %6, %2
   %7 = phi i64 [ 0, %2 ], [ %12, %6 ]
   %8 = phi i64 [ 0, %2 ], [ %11, %6 ]
-  %9 = getelementptr %struct.zone, ptr %5, i64 %7, i32 12
+  %.split = getelementptr %struct.zone, ptr %5, i64 %7
+  %9 = getelementptr i8, ptr %.split, i64 136
   %10 = load volatile i64, ptr %9, align 8
   %11 = add i64 %10, %8
   %12 = add nuw nsw i64 %7, 1
@@ -370,7 +371,8 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 143:                                              ; preds = %.preheader36
   %144 = sext i32 %142 to i64
-  %145 = getelementptr %struct.zone, ptr %122, i64 %144, i32 12
+  %.split = getelementptr %struct.zone, ptr %122, i64 %144
+  %145 = getelementptr i8, ptr %.split, i64 136
   %146 = load volatile i64, ptr %145, align 8
   %147 = icmp eq i64 %146, 0
   br i1 %147, label %.preheader36, label %.loopexit38, !llvm.loop !15
@@ -798,15 +800,15 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %450 = and i32 %0, 1
   %451 = icmp eq i32 %450, 0
   %452 = icmp eq ptr %1, null
-  br i1 %451, label %.split.us, label %.split
+  br i1 %451, label %.split47.us, label %.split47
 
-.split.us:                                        ; preds = %449, %462
+.split47.us:                                      ; preds = %449, %462
   %453 = phi i32 [ %464, %462 ], [ %447, %449 ]
   call void @hugetlb_show_meminfo_node(i32 noundef %453) #8
   %454 = icmp eq i32 %453, 63
   br i1 %454, label %.thread31, label %455, !prof !27
 
-455:                                              ; preds = %.split.us
+455:                                              ; preds = %.split47.us
   %456 = add nuw nsw i32 %453, 1
   %457 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
   %458 = zext nneg i32 %456 to i64
@@ -819,20 +821,20 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %463 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %460) #11, !srcloc !11
   %464 = trunc i64 %463 to i32
   %465 = icmp ult i32 %464, 64
-  br i1 %465, label %.split.us, label %.thread31, !llvm.loop !28
+  br i1 %465, label %.split47.us, label %.thread31, !llvm.loop !28
 
-.split:                                           ; preds = %449, %487
+.split47:                                         ; preds = %449, %487
   %466 = phi i32 [ %489, %487 ], [ %447, %449 ]
   br i1 %452, label %467, label %471
 
-467:                                              ; preds = %.split
+467:                                              ; preds = %.split47
   %468 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !9
   %469 = inttoptr i64 %468 to ptr
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 2248
   br label %471
 
-471:                                              ; preds = %467, %.split
-  %472 = phi ptr [ %1, %.split ], [ %470, %467 ]
+471:                                              ; preds = %467, %.split47
+  %472 = phi ptr [ %1, %.split47 ], [ %470, %467 ]
   %473 = zext nneg i32 %466 to i64
   %474 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %472, i64 %473) #8, !srcloc !10
   %475 = icmp ult i8 %474, 2
@@ -861,9 +863,9 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %488 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %485) #11, !srcloc !11
   %489 = trunc i64 %488 to i32
   %490 = icmp ult i32 %489, 64
-  br i1 %490, label %.split, label %.thread31, !llvm.loop !28
+  br i1 %490, label %.split47, label %.thread31, !llvm.loop !28
 
-.thread31:                                        ; preds = %487, %478, %480, %462, %455, %.split.us, %.loopexit34, %445
+.thread31:                                        ; preds = %487, %478, %480, %462, %455, %.split47.us, %.loopexit34, %445
   %491 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @vm_node_stat, i64 152), align 8
   %492 = call i64 @llvm.smax.i64(i64 %491, i64 0)
   %493 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, i64 noundef %492) #9

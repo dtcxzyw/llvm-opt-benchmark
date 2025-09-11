@@ -647,8 +647,8 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 34
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 511
-  %.not121 = icmp eq i16 %11, 0
-  br i1 %.not121, label %.thread96, label %.lr.ph
+  %.not117 = icmp eq i16 %11, 0
+  br i1 %.not117, label %.thread96, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -696,7 +696,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   br i1 %or.cond, label %36, label %.thread92
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_cmap_t, ptr %13, i64 %indvars.iv, i32 2
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %38 = load i16, ptr %37, align 2, !tbaa !62
   %39 = zext i16 %38 to i32
   %40 = zext i8 %34 to i32

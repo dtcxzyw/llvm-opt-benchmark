@@ -180,19 +180,21 @@ Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i, %3
   %79 = load ptr, ptr %22, align 8, !tbaa !18
   %80 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %79, i64 %81, i32 1
-  store i32 %.017, ptr %82, align 4, !tbaa !19
-  %83 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %79, i64 %84, i32 2
-  store i32 0, ptr %85, align 4, !tbaa !21
-  %86 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %82 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %79, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  store i32 %.017, ptr %83, align 4, !tbaa !19
+  %84 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %79, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  store i32 0, ptr %87, align 4, !tbaa !21
+  %88 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %53, %27, %69
-  %.035.i = phi i32 [ 0, %27 ], [ %86, %69 ], [ %43, %53 ]
-  %87 = icmp sgt i64 %indvars.iv, 1
-  br i1 %87, label %27, label %._crit_edge, !llvm.loop !28
+  %.035.i = phi i32 [ 0, %27 ], [ %88, %69 ], [ %43, %53 ]
+  %89 = icmp sgt i64 %indvars.iv, 1
+  br i1 %89, label %27, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %Abc_ZddUniqueCreate.exit, %Vec_IntSelectSort.exit
   %.0.lcssa = phi i32 [ 1, %Vec_IntSelectSort.exit ], [ %.035.i, %Abc_ZddUniqueCreate.exit ]
@@ -292,17 +294,19 @@ define internal fastcc i32 @Abc_ZddUniqueCreate(ptr noundef captures(none) %0, i
   %63 = load ptr, ptr %55, align 8, !tbaa !18
   %64 = load i32, ptr %.0.lcssa, align 4, !tbaa !3
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %63, i64 %65, i32 1
-  store i32 %2, ptr %66, align 4, !tbaa !19
-  %67 = load i32, ptr %.0.lcssa, align 4, !tbaa !3
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %63, i64 %68, i32 2
-  store i32 %3, ptr %69, align 4, !tbaa !21
-  %70 = load i32, ptr %.0.lcssa, align 4, !tbaa !3
+  %66 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %63, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  store i32 %2, ptr %67, align 4, !tbaa !19
+  %68 = load i32, ptr %.0.lcssa, align 4, !tbaa !3
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %63, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store i32 %3, ptr %71, align 4, !tbaa !21
+  %72 = load i32, ptr %.0.lcssa, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %52, %4
-  %.035 = phi i32 [ %3, %4 ], [ %70, %52 ], [ %24, %34 ]
+  %.035 = phi i32 [ %3, %4 ], [ %72, %52 ], [ %24, %34 ]
   ret i32 %.035
 }
 
@@ -413,9 +417,9 @@ define noalias noundef ptr @Abc_ZddManAlloc(i32 noundef %0, i32 noundef %1) loca
   %63 = and i32 %62, -2147483648
   %64 = or disjoint i32 %63, %.035
   store i32 %64, ptr %61, align 4
-  %65 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %21, i64 %60, i32 1
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 1, ptr %65, align 4, !tbaa !19
-  %66 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %21, i64 %60, i32 2
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 0, ptr %66, align 4, !tbaa !21
   br label %Abc_ZddUniqueCreate.exit
 
@@ -631,15 +635,15 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 ; Function Attrs: nofree nounwind uwtable
 define i32 @Abc_ZddDiff(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
-  br i1 %4, label %149, label %5
+  br i1 %4, label %151, label %5
 
 5:                                                ; preds = %3
   %6 = icmp eq i32 %2, 0
-  br i1 %6, label %149, label %7
+  br i1 %6, label %151, label %7
 
 7:                                                ; preds = %5
   %8 = icmp eq i32 %1, %2
-  br i1 %8, label %149, label %9
+  br i1 %8, label %151, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -677,7 +681,7 @@ Abc_ZddCacheLookup.exit:                          ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !46
   %36 = icmp sgt i32 %35, -1
-  br i1 %36, label %149, label %Abc_ZddCacheLookup.exit.thread
+  br i1 %36, label %151, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit.thread:                   ; preds = %9, %26, %30, %Abc_ZddCacheLookup.exit
   %37 = getelementptr i8, ptr %0, i64 48
@@ -691,7 +695,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %9, %26, %30, %Abc_Z
   %44 = load i32, ptr %41, align 4
   %45 = and i32 %44, 2147483647
   %46 = icmp samesign ult i32 %43, %45
-  br i1 %46, label %47, label %118
+  br i1 %46, label %47, label %120
 
 47:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -789,62 +793,64 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %9, %26, %30, %Abc_Z
   %110 = load ptr, ptr %37, align 8, !tbaa !18
   %111 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %110, i64 %112, i32 1
-  store i32 %54, ptr %113, align 4, !tbaa !19
-  %114 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %110, i64 %115, i32 2
-  store i32 %50, ptr %116, align 4, !tbaa !21
-  %117 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %113 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %110, i64 %112
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
+  store i32 %54, ptr %114, align 4, !tbaa !19
+  %115 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %110, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i32 %50, ptr %118, align 4, !tbaa !21
+  %119 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   br label %Abc_ZddUniqueCreate.exit
 
-118:                                              ; preds = %Abc_ZddCacheLookup.exit.thread
-  %119 = icmp samesign ugt i32 %43, %45
-  br i1 %119, label %120, label %124
+120:                                              ; preds = %Abc_ZddCacheLookup.exit.thread
+  %121 = icmp samesign ugt i32 %43, %45
+  br i1 %121, label %122, label %126
 
-120:                                              ; preds = %118
-  %121 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %122 = load i32, ptr %121, align 4, !tbaa !21
-  %123 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %122)
+122:                                              ; preds = %120
+  %123 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %124 = load i32, ptr %123, align 4, !tbaa !21
+  %125 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %124)
   br label %Abc_ZddUniqueCreate.exit
 
-124:                                              ; preds = %118
-  %125 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %126 = load i32, ptr %125, align 4, !tbaa !21
-  %127 = getelementptr inbounds nuw i8, ptr %41, i64 8
+126:                                              ; preds = %120
+  %127 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %128 = load i32, ptr %127, align 4, !tbaa !21
-  %129 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %126, i32 noundef %128)
-  %130 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %131 = load i32, ptr %130, align 4, !tbaa !19
-  %132 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %130 = load i32, ptr %129, align 4, !tbaa !21
+  %131 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %128, i32 noundef %130)
+  %132 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %133 = load i32, ptr %132, align 4, !tbaa !19
-  %134 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %131, i32 noundef %133)
-  %135 = load i32, ptr %39, align 4
-  %136 = and i32 %135, 2147483647
-  %137 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %136, i32 noundef %134, i32 noundef %129)
+  %134 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %135 = load i32, ptr %134, align 4, !tbaa !19
+  %136 = tail call i32 @Abc_ZddDiff(ptr noundef nonnull %0, i32 noundef %133, i32 noundef %135)
+  %137 = load i32, ptr %39, align 4
+  %138 = and i32 %137, 2147483647
+  %139 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %138, i32 noundef %136, i32 noundef %131)
   br label %Abc_ZddUniqueCreate.exit
 
-Abc_ZddUniqueCreate.exit:                         ; preds = %83, %101, %47, %120, %124
-  %.0 = phi i32 [ %123, %120 ], [ %137, %124 ], [ %50, %47 ], [ %117, %101 ], [ %73, %83 ]
-  %138 = load ptr, ptr %10, align 8, !tbaa !31
-  %139 = load i32, ptr %16, align 4, !tbaa !30
-  %140 = and i32 %139, %15
-  %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %138, i64 %141
-  store i32 %1, ptr %142, align 4, !tbaa !42
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  store i32 %2, ptr %143, align 4, !tbaa !44
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store i32 1, ptr %144, align 4, !tbaa !45
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 12
-  store i32 %.0, ptr %145, align 4, !tbaa !46
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %147 = load i32, ptr %146, align 4, !tbaa !41
-  %148 = add nsw i32 %147, 1
-  store i32 %148, ptr %146, align 4, !tbaa !41
-  br label %149
+Abc_ZddUniqueCreate.exit:                         ; preds = %83, %101, %47, %122, %126
+  %.0 = phi i32 [ %125, %122 ], [ %139, %126 ], [ %50, %47 ], [ %119, %101 ], [ %73, %83 ]
+  %140 = load ptr, ptr %10, align 8, !tbaa !31
+  %141 = load i32, ptr %16, align 4, !tbaa !30
+  %142 = and i32 %141, %15
+  %143 = zext i32 %142 to i64
+  %144 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %140, i64 %143
+  store i32 %1, ptr %144, align 4, !tbaa !42
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
+  store i32 %2, ptr %145, align 4, !tbaa !44
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  store i32 1, ptr %146, align 4, !tbaa !45
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 12
+  store i32 %.0, ptr %147, align 4, !tbaa !46
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %149 = load i32, ptr %148, align 4, !tbaa !41
+  %150 = add nsw i32 %149, 1
+  store i32 %150, ptr %148, align 4, !tbaa !41
+  br label %151
 
-149:                                              ; preds = %Abc_ZddCacheLookup.exit, %7, %5, %3, %Abc_ZddUniqueCreate.exit
+151:                                              ; preds = %Abc_ZddCacheLookup.exit, %7, %5, %3, %Abc_ZddUniqueCreate.exit
   %.041 = phi i32 [ %.0, %Abc_ZddUniqueCreate.exit ], [ 0, %3 ], [ %1, %5 ], [ 0, %7 ], [ %35, %Abc_ZddCacheLookup.exit ]
   ret i32 %.041
 }
@@ -1050,33 +1056,35 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   %134 = load ptr, ptr %38, align 8, !tbaa !18
   %135 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %134, i64 %136, i32 1
-  store i32 %.0, ptr %137, align 4, !tbaa !19
-  %138 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %134, i64 %139, i32 2
-  store i32 %.047, ptr %140, align 4, !tbaa !21
-  %141 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %137 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %134, i64 %136
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
+  store i32 %.0, ptr %138, align 4, !tbaa !19
+  %139 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %134, i64 %140
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  store i32 %.047, ptr %142, align 4, !tbaa !21
+  %143 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %107, %73, %125
-  %.035.i = phi i32 [ %.047, %73 ], [ %141, %125 ], [ %97, %107 ]
-  %142 = load ptr, ptr %11, align 8, !tbaa !31
-  %143 = load i32, ptr %17, align 4, !tbaa !30
-  %144 = and i32 %143, %16
-  %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %142, i64 %145
-  store i32 %.tr55, ptr %146, align 4, !tbaa !42
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
-  store i32 %.tr56, ptr %147, align 4, !tbaa !44
-  %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  store i32 2, ptr %148, align 4, !tbaa !45
-  %149 = getelementptr inbounds nuw i8, ptr %146, i64 12
-  store i32 %.035.i, ptr %149, align 4, !tbaa !46
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %151 = load i32, ptr %150, align 4, !tbaa !41
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %150, align 4, !tbaa !41
+  %.035.i = phi i32 [ %.047, %73 ], [ %143, %125 ], [ %97, %107 ]
+  %144 = load ptr, ptr %11, align 8, !tbaa !31
+  %145 = load i32, ptr %17, align 4, !tbaa !30
+  %146 = and i32 %145, %16
+  %147 = zext i32 %146 to i64
+  %148 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %144, i64 %147
+  store i32 %.tr55, ptr %148, align 4, !tbaa !42
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  store i32 %.tr56, ptr %149, align 4, !tbaa !44
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  store i32 2, ptr %150, align 4, !tbaa !45
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 12
+  store i32 %.035.i, ptr %151, align 4, !tbaa !46
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %153 = load i32, ptr %152, align 4, !tbaa !41
+  %154 = add nsw i32 %153, 1
+  store i32 %154, ptr %152, align 4, !tbaa !41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %tailrecurse, %Abc_ZddCacheLookup.exit, %Abc_ZddUniqueCreate.exit
@@ -1286,33 +1294,35 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   %135 = load ptr, ptr %38, align 8, !tbaa !18
   %136 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %135, i64 %137, i32 1
-  store i32 %74, ptr %138, align 4, !tbaa !19
-  %139 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %135, i64 %140, i32 2
-  store i32 %.050, ptr %141, align 4, !tbaa !21
-  %142 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %138 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %135, i64 %137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
+  store i32 %74, ptr %139, align 4, !tbaa !19
+  %140 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %141 = sext i32 %140 to i64
+  %142 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %135, i64 %141
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  store i32 %.050, ptr %143, align 4, !tbaa !21
+  %144 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %108, %73, %126
-  %.035.i = phi i32 [ %.050, %73 ], [ %142, %126 ], [ %98, %108 ]
-  %143 = load ptr, ptr %11, align 8, !tbaa !31
-  %144 = load i32, ptr %17, align 4, !tbaa !30
-  %145 = and i32 %144, %16
-  %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %143, i64 %146
-  store i32 %.tr58, ptr %147, align 4, !tbaa !42
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
-  store i32 %.tr59, ptr %148, align 4, !tbaa !44
-  %149 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store i32 3, ptr %149, align 4, !tbaa !45
-  %150 = getelementptr inbounds nuw i8, ptr %147, i64 12
-  store i32 %.035.i, ptr %150, align 4, !tbaa !46
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %152 = load i32, ptr %151, align 4, !tbaa !41
-  %153 = add nsw i32 %152, 1
-  store i32 %153, ptr %151, align 4, !tbaa !41
+  %.035.i = phi i32 [ %.050, %73 ], [ %144, %126 ], [ %98, %108 ]
+  %145 = load ptr, ptr %11, align 8, !tbaa !31
+  %146 = load i32, ptr %17, align 4, !tbaa !30
+  %147 = and i32 %146, %16
+  %148 = zext i32 %147 to i64
+  %149 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %145, i64 %148
+  store i32 %.tr58, ptr %149, align 4, !tbaa !42
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
+  store i32 %.tr59, ptr %150, align 4, !tbaa !44
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  store i32 3, ptr %151, align 4, !tbaa !45
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 12
+  store i32 %.035.i, ptr %152, align 4, !tbaa !46
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %154 = load i32, ptr %153, align 4, !tbaa !41
+  %155 = add nsw i32 %154, 1
+  store i32 %155, ptr %153, align 4, !tbaa !41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %tailrecurse, %Abc_ZddCacheLookup.exit, %Abc_ZddUniqueCreate.exit
@@ -1521,33 +1531,35 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %10, %27, %31, %Abc_
   %134 = load ptr, ptr %38, align 8, !tbaa !18
   %135 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %134, i64 %136, i32 1
-  store i32 %.0, ptr %137, align 4, !tbaa !19
-  %138 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %134, i64 %139, i32 2
-  store i32 %.045, ptr %140, align 4, !tbaa !21
-  %141 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %137 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %134, i64 %136
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
+  store i32 %.0, ptr %138, align 4, !tbaa !19
+  %139 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %134, i64 %140
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  store i32 %.045, ptr %142, align 4, !tbaa !21
+  %143 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %107, %73, %125
-  %.035.i = phi i32 [ %.045, %73 ], [ %141, %125 ], [ %97, %107 ]
-  %142 = load ptr, ptr %11, align 8, !tbaa !31
-  %143 = load i32, ptr %17, align 4, !tbaa !30
-  %144 = and i32 %143, %16
-  %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %142, i64 %145
-  store i32 %.tr53, ptr %146, align 4, !tbaa !42
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
-  store i32 %.tr54, ptr %147, align 4, !tbaa !44
-  %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  store i32 4, ptr %148, align 4, !tbaa !45
-  %149 = getelementptr inbounds nuw i8, ptr %146, i64 12
-  store i32 %.035.i, ptr %149, align 4, !tbaa !46
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %151 = load i32, ptr %150, align 4, !tbaa !41
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %150, align 4, !tbaa !41
+  %.035.i = phi i32 [ %.045, %73 ], [ %143, %125 ], [ %97, %107 ]
+  %144 = load ptr, ptr %11, align 8, !tbaa !31
+  %145 = load i32, ptr %17, align 4, !tbaa !30
+  %146 = and i32 %145, %16
+  %147 = zext i32 %146 to i64
+  %148 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %144, i64 %147
+  store i32 %.tr53, ptr %148, align 4, !tbaa !42
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  store i32 %.tr54, ptr %149, align 4, !tbaa !44
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  store i32 4, ptr %150, align 4, !tbaa !45
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 12
+  store i32 %.035.i, ptr %151, align 4, !tbaa !46
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %153 = load i32, ptr %152, align 4, !tbaa !41
+  %154 = add nsw i32 %153, 1
+  store i32 %154, ptr %152, align 4, !tbaa !41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %tailrecurse, %Abc_ZddCacheLookup.exit, %Abc_ZddUniqueCreate.exit
@@ -1558,7 +1570,7 @@ Abc_ZddUniqueCreate.exit:                         ; preds = %107, %73, %125
 ; Function Attrs: nofree nounwind uwtable
 define i32 @Abc_ZddCof0(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 2
-  br i1 %4, label %126, label %5
+  br i1 %4, label %128, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 48
@@ -1568,7 +1580,7 @@ define i32 @Abc_ZddCof0(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 2147483647
   %11 = icmp sgt i32 %10, %2
-  br i1 %11, label %126, label %12
+  br i1 %11, label %128, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1606,7 +1618,7 @@ Abc_ZddCacheLookup.exit:                          ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %38 = load i32, ptr %37, align 4, !tbaa !46
   %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %126, label %Abc_ZddCacheLookup.exit.thread
+  br i1 %39, label %128, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_ZddCacheLookup.exit
   %40 = load i32, ptr %8, align 4
@@ -1711,36 +1723,38 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   %107 = load ptr, ptr %6, align 8, !tbaa !18
   %108 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %107, i64 %109, i32 1
-  store i32 %49, ptr %110, align 4, !tbaa !19
-  %111 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %107, i64 %112, i32 2
-  store i32 %45, ptr %113, align 4, !tbaa !21
-  %114 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %110 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %107, i64 %109
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store i32 %49, ptr %111, align 4, !tbaa !19
+  %112 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %107, i64 %113
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store i32 %45, ptr %115, align 4, !tbaa !21
+  %116 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %80, %Abc_ZddCacheLookup.exit.thread, %98, %46
-  %.0 = phi i32 [ %45, %46 ], [ %114, %98 ], [ %45, %Abc_ZddCacheLookup.exit.thread ], [ %70, %80 ]
-  %115 = load ptr, ptr %13, align 8, !tbaa !31
-  %116 = load i32, ptr %19, align 4, !tbaa !30
-  %117 = and i32 %116, %18
-  %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %115, i64 %118
-  store i32 %1, ptr %119, align 4, !tbaa !42
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  store i32 %2, ptr %120, align 4, !tbaa !44
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store i32 7, ptr %121, align 4, !tbaa !45
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 12
-  store i32 %.0, ptr %122, align 4, !tbaa !46
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %124 = load i32, ptr %123, align 4, !tbaa !41
-  %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %123, align 4, !tbaa !41
-  br label %126
+  %.0 = phi i32 [ %45, %46 ], [ %116, %98 ], [ %45, %Abc_ZddCacheLookup.exit.thread ], [ %70, %80 ]
+  %117 = load ptr, ptr %13, align 8, !tbaa !31
+  %118 = load i32, ptr %19, align 4, !tbaa !30
+  %119 = and i32 %118, %18
+  %120 = zext nneg i32 %119 to i64
+  %121 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %117, i64 %120
+  store i32 %1, ptr %121, align 4, !tbaa !42
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
+  store i32 %2, ptr %122, align 4, !tbaa !44
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  store i32 7, ptr %123, align 4, !tbaa !45
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 12
+  store i32 %.0, ptr %124, align 4, !tbaa !46
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %126 = load i32, ptr %125, align 4, !tbaa !41
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %125, align 4, !tbaa !41
+  br label %128
 
-126:                                              ; preds = %Abc_ZddCacheLookup.exit, %5, %3, %Abc_ZddUniqueCreate.exit
+128:                                              ; preds = %Abc_ZddCacheLookup.exit, %5, %3, %Abc_ZddUniqueCreate.exit
   %.030 = phi i32 [ %.0, %Abc_ZddUniqueCreate.exit ], [ %1, %3 ], [ %1, %5 ], [ %38, %Abc_ZddCacheLookup.exit ]
   ret i32 %.030
 }
@@ -1748,7 +1762,7 @@ Abc_ZddUniqueCreate.exit:                         ; preds = %80, %Abc_ZddCacheLo
 ; Function Attrs: nofree nounwind uwtable
 define i32 @Abc_ZddCof1(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 2
-  br i1 %4, label %127, label %5
+  br i1 %4, label %129, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 48
@@ -1758,7 +1772,7 @@ define i32 @Abc_ZddCof1(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 2147483647
   %11 = icmp sgt i32 %10, %2
-  br i1 %11, label %127, label %12
+  br i1 %11, label %129, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1796,7 +1810,7 @@ Abc_ZddCacheLookup.exit:                          ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %38 = load i32, ptr %37, align 4, !tbaa !46
   %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %127, label %Abc_ZddCacheLookup.exit.thread
+  br i1 %39, label %129, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_ZddCacheLookup.exit
   %40 = load i32, ptr %8, align 4
@@ -1905,36 +1919,38 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   %108 = load ptr, ptr %6, align 8, !tbaa !18
   %109 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %108, i64 %110, i32 1
-  store i32 %50, ptr %111, align 4, !tbaa !19
-  %112 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %108, i64 %113, i32 2
-  store i32 %.030, ptr %114, align 4, !tbaa !21
-  %115 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %111 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %108, i64 %110
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  store i32 %50, ptr %112, align 4, !tbaa !19
+  %113 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %108, i64 %114
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  store i32 %.030, ptr %116, align 4, !tbaa !21
+  %117 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %81, %47, %99
-  %.035.i = phi i32 [ %.030, %47 ], [ %115, %99 ], [ %71, %81 ]
-  %116 = load ptr, ptr %13, align 8, !tbaa !31
-  %117 = load i32, ptr %19, align 4, !tbaa !30
-  %118 = and i32 %117, %18
-  %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %116, i64 %119
-  store i32 %1, ptr %120, align 4, !tbaa !42
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  store i32 %2, ptr %121, align 4, !tbaa !44
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store i32 8, ptr %122, align 4, !tbaa !45
-  %123 = getelementptr inbounds nuw i8, ptr %120, i64 12
-  store i32 %.035.i, ptr %123, align 4, !tbaa !46
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %125 = load i32, ptr %124, align 4, !tbaa !41
-  %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %124, align 4, !tbaa !41
-  br label %127
+  %.035.i = phi i32 [ %.030, %47 ], [ %117, %99 ], [ %71, %81 ]
+  %118 = load ptr, ptr %13, align 8, !tbaa !31
+  %119 = load i32, ptr %19, align 4, !tbaa !30
+  %120 = and i32 %119, %18
+  %121 = zext nneg i32 %120 to i64
+  %122 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %118, i64 %121
+  store i32 %1, ptr %122, align 4, !tbaa !42
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  store i32 %2, ptr %123, align 4, !tbaa !44
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  store i32 8, ptr %124, align 4, !tbaa !45
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 12
+  store i32 %.035.i, ptr %125, align 4, !tbaa !46
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %127 = load i32, ptr %126, align 4, !tbaa !41
+  %128 = add nsw i32 %127, 1
+  store i32 %128, ptr %126, align 4, !tbaa !41
+  br label %129
 
-127:                                              ; preds = %Abc_ZddCacheLookup.exit, %5, %3, %Abc_ZddUniqueCreate.exit
+129:                                              ; preds = %Abc_ZddCacheLookup.exit, %5, %3, %Abc_ZddUniqueCreate.exit
   %.031 = phi i32 [ %.035.i, %Abc_ZddUniqueCreate.exit ], [ %1, %3 ], [ %1, %5 ], [ %38, %Abc_ZddCacheLookup.exit ]
   ret i32 %.031
 }
@@ -2139,11 +2155,11 @@ define i32 @Abc_ZddCountNodesArray(ptr noundef readonly captures(none) %0, ptr n
 ; Function Attrs: nofree nounwind uwtable
 define i32 @Abc_ZddThresh(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %1, 2
-  br i1 %4, label %121, label %5
+  br i1 %4, label %123, label %5
 
 5:                                                ; preds = %3
   %6 = icmp eq i32 %2, 0
-  br i1 %6, label %121, label %7
+  br i1 %6, label %123, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2181,7 +2197,7 @@ Abc_ZddCacheLookup.exit:                          ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !46
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %121, label %Abc_ZddCacheLookup.exit.thread
+  br i1 %34, label %123, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit.thread:                   ; preds = %7, %24, %28, %Abc_ZddCacheLookup.exit
   %35 = getelementptr i8, ptr %0, i64 48
@@ -2285,36 +2301,38 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %7, %24, %28, %Abc_Z
   %102 = load ptr, ptr %35, align 8, !tbaa !18
   %103 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %102, i64 %104, i32 1
-  store i32 %44, ptr %105, align 4, !tbaa !19
-  %106 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %102, i64 %107, i32 2
-  store i32 %40, ptr %108, align 4, !tbaa !21
-  %109 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %105 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %102, i64 %104
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  store i32 %44, ptr %106, align 4, !tbaa !19
+  %107 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %102, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  store i32 %40, ptr %110, align 4, !tbaa !21
+  %111 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %75, %Abc_ZddCacheLookup.exit.thread, %93
-  %.035.i = phi i32 [ %40, %Abc_ZddCacheLookup.exit.thread ], [ %109, %93 ], [ %65, %75 ]
-  %110 = load ptr, ptr %8, align 8, !tbaa !31
-  %111 = load i32, ptr %14, align 4, !tbaa !30
-  %112 = and i32 %111, %13
-  %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %110, i64 %113
-  store i32 %1, ptr %114, align 4, !tbaa !42
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  store i32 %2, ptr %115, align 4, !tbaa !44
-  %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  store i32 9, ptr %116, align 4, !tbaa !45
-  %117 = getelementptr inbounds nuw i8, ptr %114, i64 12
-  store i32 %.035.i, ptr %117, align 4, !tbaa !46
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %119 = load i32, ptr %118, align 4, !tbaa !41
-  %120 = add nsw i32 %119, 1
-  store i32 %120, ptr %118, align 4, !tbaa !41
-  br label %121
+  %.035.i = phi i32 [ %40, %Abc_ZddCacheLookup.exit.thread ], [ %111, %93 ], [ %65, %75 ]
+  %112 = load ptr, ptr %8, align 8, !tbaa !31
+  %113 = load i32, ptr %14, align 4, !tbaa !30
+  %114 = and i32 %113, %13
+  %115 = zext i32 %114 to i64
+  %116 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %112, i64 %115
+  store i32 %1, ptr %116, align 4, !tbaa !42
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
+  store i32 %2, ptr %117, align 4, !tbaa !44
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  store i32 9, ptr %118, align 4, !tbaa !45
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 12
+  store i32 %.035.i, ptr %119, align 4, !tbaa !46
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %121 = load i32, ptr %120, align 4, !tbaa !41
+  %122 = add nsw i32 %121, 1
+  store i32 %122, ptr %120, align 4, !tbaa !41
+  br label %123
 
-121:                                              ; preds = %Abc_ZddCacheLookup.exit, %5, %3, %Abc_ZddUniqueCreate.exit
+123:                                              ; preds = %Abc_ZddCacheLookup.exit, %5, %3, %Abc_ZddUniqueCreate.exit
   %.0 = phi i32 [ %.035.i, %Abc_ZddUniqueCreate.exit ], [ %1, %3 ], [ 0, %5 ], [ %33, %Abc_ZddCacheLookup.exit ]
   ret i32 %.0
 }
@@ -2532,33 +2550,35 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   %144 = load ptr, ptr %40, align 8, !tbaa !18
   %145 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %144, i64 %146, i32 1
-  store i32 %.060, ptr %147, align 4, !tbaa !19
-  %148 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %144, i64 %149, i32 2
-  store i32 %.059, ptr %150, align 4, !tbaa !21
-  %151 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %147 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %144, i64 %146
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
+  store i32 %.060, ptr %148, align 4, !tbaa !19
+  %149 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %144, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  store i32 %.059, ptr %152, align 4, !tbaa !21
+  %153 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %117, %83, %135
-  %.035.i = phi i32 [ %.059, %83 ], [ %151, %135 ], [ %107, %117 ]
-  %152 = load ptr, ptr %13, align 8, !tbaa !31
-  %153 = load i32, ptr %19, align 4, !tbaa !30
-  %154 = and i32 %153, %18
-  %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %152, i64 %155
-  store i32 %.tr67, ptr %156, align 4, !tbaa !42
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
-  store i32 %.tr68, ptr %157, align 4, !tbaa !44
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store i32 10, ptr %158, align 4, !tbaa !45
-  %159 = getelementptr inbounds nuw i8, ptr %156, i64 12
-  store i32 %.035.i, ptr %159, align 4, !tbaa !46
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %161 = load i32, ptr %160, align 4, !tbaa !41
-  %162 = add nsw i32 %161, 1
-  store i32 %162, ptr %160, align 4, !tbaa !41
+  %.035.i = phi i32 [ %.059, %83 ], [ %153, %135 ], [ %107, %117 ]
+  %154 = load ptr, ptr %13, align 8, !tbaa !31
+  %155 = load i32, ptr %19, align 4, !tbaa !30
+  %156 = and i32 %155, %18
+  %157 = zext i32 %156 to i64
+  %158 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %154, i64 %157
+  store i32 %.tr67, ptr %158, align 4, !tbaa !42
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
+  store i32 %.tr68, ptr %159, align 4, !tbaa !44
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
+  store i32 10, ptr %160, align 4, !tbaa !45
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 12
+  store i32 %.035.i, ptr %161, align 4, !tbaa !46
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %163 = load i32, ptr %162, align 4, !tbaa !41
+  %164 = add nsw i32 %163, 1
+  store i32 %164, ptr %162, align 4, !tbaa !41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %6, %tailrecurse, %Abc_ZddCacheLookup.exit, %Abc_ZddUniqueCreate.exit
@@ -2781,33 +2801,35 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_
   %146 = load ptr, ptr %40, align 8, !tbaa !18
   %147 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %146, i64 %148, i32 1
-  store i32 %85, ptr %149, align 4, !tbaa !19
-  %150 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %146, i64 %151, i32 2
-  store i32 %.064, ptr %152, align 4, !tbaa !21
-  %153 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %149 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %146, i64 %148
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
+  store i32 %85, ptr %150, align 4, !tbaa !19
+  %151 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %146, i64 %152
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  store i32 %.064, ptr %154, align 4, !tbaa !21
+  %155 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   br label %Abc_ZddUniqueCreate.exit
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %119, %83, %137
-  %.035.i = phi i32 [ %.064, %83 ], [ %153, %137 ], [ %109, %119 ]
-  %154 = load ptr, ptr %13, align 8, !tbaa !31
-  %155 = load i32, ptr %19, align 4, !tbaa !30
-  %156 = and i32 %155, %18
-  %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %154, i64 %157
-  store i32 %.tr72, ptr %158, align 4, !tbaa !42
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
-  store i32 %.tr73, ptr %159, align 4, !tbaa !44
-  %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  store i32 11, ptr %160, align 4, !tbaa !45
-  %161 = getelementptr inbounds nuw i8, ptr %158, i64 12
-  store i32 %.035.i, ptr %161, align 4, !tbaa !46
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %163 = load i32, ptr %162, align 4, !tbaa !41
-  %164 = add nsw i32 %163, 1
-  store i32 %164, ptr %162, align 4, !tbaa !41
+  %.035.i = phi i32 [ %.064, %83 ], [ %155, %137 ], [ %109, %119 ]
+  %156 = load ptr, ptr %13, align 8, !tbaa !31
+  %157 = load i32, ptr %19, align 4, !tbaa !30
+  %158 = and i32 %157, %18
+  %159 = zext i32 %158 to i64
+  %160 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %156, i64 %159
+  store i32 %.tr72, ptr %160, align 4, !tbaa !42
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
+  store i32 %.tr73, ptr %161, align 4, !tbaa !44
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  store i32 11, ptr %162, align 4, !tbaa !45
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 12
+  store i32 %.035.i, ptr %163, align 4, !tbaa !46
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %165 = load i32, ptr %164, align 4, !tbaa !41
+  %166 = add nsw i32 %165, 1
+  store i32 %166, ptr %164, align 4, !tbaa !41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %6, %tailrecurse, %Abc_ZddCacheLookup.exit, %Abc_ZddUniqueCreate.exit
@@ -2818,13 +2840,13 @@ Abc_ZddUniqueCreate.exit:                         ; preds = %119, %83, %137
 ; Function Attrs: nofree nounwind uwtable
 define i32 @Abc_ZddPerm(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   switch i32 %1, label %6 [
-    i32 0, label %183
+    i32 0, label %185
     i32 1, label %4
   ]
 
 4:                                                ; preds = %3
   %5 = add nsw i32 %2, 2
-  br label %183
+  br label %185
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2862,7 +2884,7 @@ Abc_ZddCacheLookup.exit:                          ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %32 = load i32, ptr %31, align 4, !tbaa !46
   %33 = icmp sgt i32 %32, -1
-  br i1 %33, label %183, label %Abc_ZddCacheLookup.exit.thread
+  br i1 %33, label %185, label %Abc_ZddCacheLookup.exit.thread
 
 Abc_ZddCacheLookup.exit.thread:                   ; preds = %6, %23, %27, %Abc_ZddCacheLookup.exit
   %34 = getelementptr i8, ptr %0, i64 48
@@ -2880,7 +2902,7 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %6, %23, %27, %Abc_Z
   %45 = getelementptr inbounds i32, ptr %38, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !3
   %47 = icmp sgt i32 %43, %46
-  br i1 %47, label %48, label %108
+  br i1 %47, label %48, label %110
 
 48:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2966,131 +2988,133 @@ Abc_ZddCacheLookup.exit.thread:                   ; preds = %6, %23, %27, %Abc_Z
   %100 = load ptr, ptr %34, align 8, !tbaa !18
   %101 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %100, i64 %102, i32 1
-  store i32 %1, ptr %103, align 4, !tbaa !19
-  %104 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %100, i64 %105, i32 2
-  store i32 0, ptr %106, align 4, !tbaa !21
-  %107 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %103 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %100, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
+  store i32 %1, ptr %104, align 4, !tbaa !19
+  %105 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %100, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  store i32 0, ptr %108, align 4, !tbaa !21
+  %109 = load i32, ptr %.0.lcssa.i, align 4, !tbaa !3
   br label %Abc_ZddUniqueCreate.exit
 
-108:                                              ; preds = %Abc_ZddCacheLookup.exit.thread
-  %109 = icmp eq i32 %40, %2
-  br i1 %109, label %110, label %117
+110:                                              ; preds = %Abc_ZddCacheLookup.exit.thread
+  %111 = icmp eq i32 %40, %2
+  br i1 %111, label %112, label %119
 
-110:                                              ; preds = %108
-  %111 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %112 = load i32, ptr %111, align 4, !tbaa !21
-  %113 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %112, i32 noundef %2)
-  %114 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %115 = load i32, ptr %114, align 4, !tbaa !19
-  %116 = tail call i32 @Abc_ZddUnion(ptr noundef nonnull %0, i32 noundef %113, i32 noundef %115)
+112:                                              ; preds = %110
+  %113 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %114 = load i32, ptr %113, align 4, !tbaa !21
+  %115 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %114, i32 noundef %2)
+  %116 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %117 = load i32, ptr %116, align 4, !tbaa !19
+  %118 = tail call i32 @Abc_ZddUnion(ptr noundef nonnull %0, i32 noundef %115, i32 noundef %117)
   br label %Abc_ZddUniqueCreate.exit
 
-117:                                              ; preds = %108
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %119 = load ptr, ptr %118, align 8, !tbaa !36
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %41
-  %121 = load i32, ptr %120, align 4, !tbaa !3
-  %122 = getelementptr inbounds i32, ptr %119, i64 %44
+119:                                              ; preds = %110
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %121 = load ptr, ptr %120, align 8, !tbaa !36
+  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %41
   %123 = load i32, ptr %122, align 4, !tbaa !3
-  %124 = icmp eq i32 %121, %46
-  br i1 %124, label %125, label %133
+  %124 = getelementptr inbounds i32, ptr %121, i64 %44
+  %125 = load i32, ptr %124, align 4, !tbaa !3
+  %126 = icmp eq i32 %123, %46
+  br i1 %126, label %127, label %135
 
-125:                                              ; preds = %117
-  %126 = getelementptr i8, ptr %0, i64 12
-  %.val89 = load i32, ptr %126, align 4, !tbaa !34
-  %127 = getelementptr i8, ptr %0, i64 88
-  %.val90 = load ptr, ptr %127, align 8, !tbaa !37
-  %128 = mul nsw i32 %.val89, %43
-  %129 = add nsw i32 %128, %123
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i32, ptr %.val90, i64 %130
-  %132 = load i32, ptr %131, align 4, !tbaa !3
-  br label %155
+127:                                              ; preds = %119
+  %128 = getelementptr i8, ptr %0, i64 12
+  %.val89 = load i32, ptr %128, align 4, !tbaa !34
+  %129 = getelementptr i8, ptr %0, i64 88
+  %.val90 = load ptr, ptr %129, align 8, !tbaa !37
+  %130 = mul nsw i32 %.val89, %43
+  %131 = add nsw i32 %130, %125
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds i32, ptr %.val90, i64 %132
+  %134 = load i32, ptr %133, align 4, !tbaa !3
+  br label %157
 
-133:                                              ; preds = %117
-  %134 = icmp eq i32 %121, %123
-  br i1 %134, label %135, label %143
+135:                                              ; preds = %119
+  %136 = icmp eq i32 %123, %125
+  br i1 %136, label %137, label %145
 
-135:                                              ; preds = %133
-  %136 = getelementptr i8, ptr %0, i64 12
-  %.val91 = load i32, ptr %136, align 4, !tbaa !34
-  %137 = getelementptr i8, ptr %0, i64 88
-  %.val92 = load ptr, ptr %137, align 8, !tbaa !37
-  %138 = mul nsw i32 %.val91, %43
-  %139 = add nsw i32 %138, %46
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds i32, ptr %.val92, i64 %140
-  %142 = load i32, ptr %141, align 4, !tbaa !3
-  br label %155
+137:                                              ; preds = %135
+  %138 = getelementptr i8, ptr %0, i64 12
+  %.val91 = load i32, ptr %138, align 4, !tbaa !34
+  %139 = getelementptr i8, ptr %0, i64 88
+  %.val92 = load ptr, ptr %139, align 8, !tbaa !37
+  %140 = mul nsw i32 %.val91, %43
+  %141 = add nsw i32 %140, %46
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds i32, ptr %.val92, i64 %142
+  %144 = load i32, ptr %143, align 4, !tbaa !3
+  br label %157
 
-143:                                              ; preds = %133
-  %144 = icmp eq i32 %43, %46
-  br i1 %144, label %145, label %155
+145:                                              ; preds = %135
+  %146 = icmp eq i32 %43, %46
+  br i1 %146, label %147, label %157
 
-145:                                              ; preds = %143
-  %146 = tail call noundef i32 @llvm.smin.i32(i32 %121, i32 %123)
-  %147 = tail call noundef i32 @llvm.smax.i32(i32 %121, i32 %123)
-  %148 = getelementptr i8, ptr %0, i64 12
-  %.val93 = load i32, ptr %148, align 4, !tbaa !34
-  %149 = getelementptr i8, ptr %0, i64 88
-  %.val94 = load ptr, ptr %149, align 8, !tbaa !37
-  %150 = mul nsw i32 %.val93, %146
-  %151 = add nsw i32 %150, %147
-  %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i32, ptr %.val94, i64 %152
-  %154 = load i32, ptr %153, align 4, !tbaa !3
-  br label %155
+147:                                              ; preds = %145
+  %148 = tail call noundef i32 @llvm.smin.i32(i32 %123, i32 %125)
+  %149 = tail call noundef i32 @llvm.smax.i32(i32 %123, i32 %125)
+  %150 = getelementptr i8, ptr %0, i64 12
+  %.val93 = load i32, ptr %150, align 4, !tbaa !34
+  %151 = getelementptr i8, ptr %0, i64 88
+  %.val94 = load ptr, ptr %151, align 8, !tbaa !37
+  %152 = mul nsw i32 %.val93, %148
+  %153 = add nsw i32 %152, %149
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds i32, ptr %.val94, i64 %154
+  %156 = load i32, ptr %155, align 4, !tbaa !3
+  br label %157
 
-155:                                              ; preds = %143, %135, %145, %125
-  %.079 = phi i32 [ %2, %125 ], [ %2, %135 ], [ %154, %145 ], [ %2, %143 ]
-  %.078 = phi i32 [ %132, %125 ], [ %142, %135 ], [ %40, %145 ], [ %40, %143 ]
-  %156 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %157 = load i32, ptr %156, align 4, !tbaa !21
-  %158 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %157, i32 noundef %2)
-  %159 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %160 = load i32, ptr %159, align 4, !tbaa !19
-  %161 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %160, i32 noundef %.079)
+157:                                              ; preds = %145, %137, %147, %127
+  %.079 = phi i32 [ %2, %127 ], [ %2, %137 ], [ %156, %147 ], [ %2, %145 ]
+  %.078 = phi i32 [ %134, %127 ], [ %144, %137 ], [ %40, %147 ], [ %40, %145 ]
+  %158 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %159 = load i32, ptr %158, align 4, !tbaa !21
+  %160 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %159, i32 noundef %2)
+  %161 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %162 = load i32, ptr %161, align 4, !tbaa !19
+  %163 = tail call i32 @Abc_ZddPerm(ptr noundef nonnull %0, i32 noundef %162, i32 noundef %.079)
   %.val95 = load ptr, ptr %34, align 8, !tbaa !18
-  %162 = sext i32 %158 to i64
-  %163 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val95, i64 %162
-  %164 = load i32, ptr %163, align 4
-  %165 = and i32 %164, 2147483647
-  %166 = icmp sgt i32 %165, %.078
-  br i1 %166, label %167, label %169
+  %164 = sext i32 %160 to i64
+  %165 = getelementptr inbounds %struct.Abc_ZddObj_, ptr %.val95, i64 %164
+  %166 = load i32, ptr %165, align 4
+  %167 = and i32 %166, 2147483647
+  %168 = icmp sgt i32 %167, %.078
+  br i1 %168, label %169, label %171
 
-167:                                              ; preds = %155
-  %168 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %.078, i32 noundef %161, i32 noundef %158)
+169:                                              ; preds = %157
+  %170 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %.078, i32 noundef %163, i32 noundef %160)
   br label %Abc_ZddUniqueCreate.exit
 
-169:                                              ; preds = %155
-  %170 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %.078, i32 noundef %161, i32 noundef 0)
-  %171 = tail call i32 @Abc_ZddUnion(ptr noundef nonnull %0, i32 noundef %158, i32 noundef %170)
+171:                                              ; preds = %157
+  %172 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef nonnull %0, i32 noundef %.078, i32 noundef %163, i32 noundef 0)
+  %173 = tail call i32 @Abc_ZddUnion(ptr noundef nonnull %0, i32 noundef %160, i32 noundef %172)
   br label %Abc_ZddUniqueCreate.exit
 
-Abc_ZddUniqueCreate.exit:                         ; preds = %72, %90, %167, %169, %110
-  %.077 = phi i32 [ %116, %110 ], [ %168, %167 ], [ %171, %169 ], [ %107, %90 ], [ %62, %72 ]
-  %172 = load ptr, ptr %7, align 8, !tbaa !31
-  %173 = load i32, ptr %13, align 4, !tbaa !30
-  %174 = and i32 %173, %12
-  %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %172, i64 %175
-  store i32 %1, ptr %176, align 4, !tbaa !42
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
-  store i32 %2, ptr %177, align 4, !tbaa !44
-  %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store i32 5, ptr %178, align 4, !tbaa !45
-  %179 = getelementptr inbounds nuw i8, ptr %176, i64 12
-  store i32 %.077, ptr %179, align 4, !tbaa !46
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %181 = load i32, ptr %180, align 4, !tbaa !41
-  %182 = add nsw i32 %181, 1
-  store i32 %182, ptr %180, align 4, !tbaa !41
-  br label %183
+Abc_ZddUniqueCreate.exit:                         ; preds = %72, %90, %169, %171, %112
+  %.077 = phi i32 [ %118, %112 ], [ %170, %169 ], [ %173, %171 ], [ %109, %90 ], [ %62, %72 ]
+  %174 = load ptr, ptr %7, align 8, !tbaa !31
+  %175 = load i32, ptr %13, align 4, !tbaa !30
+  %176 = and i32 %175, %12
+  %177 = zext i32 %176 to i64
+  %178 = getelementptr inbounds nuw %struct.Abc_ZddEnt_, ptr %174, i64 %177
+  store i32 %1, ptr %178, align 4, !tbaa !42
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
+  store i32 %2, ptr %179, align 4, !tbaa !44
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  store i32 5, ptr %180, align 4, !tbaa !45
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 12
+  store i32 %.077, ptr %181, align 4, !tbaa !46
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %183 = load i32, ptr %182, align 4, !tbaa !41
+  %184 = add nsw i32 %183, 1
+  store i32 %184, ptr %182, align 4, !tbaa !41
+  br label %185
 
-183:                                              ; preds = %Abc_ZddCacheLookup.exit, %3, %Abc_ZddUniqueCreate.exit, %4
+185:                                              ; preds = %Abc_ZddCacheLookup.exit, %3, %Abc_ZddUniqueCreate.exit, %4
   %.0 = phi i32 [ %5, %4 ], [ %.077, %Abc_ZddUniqueCreate.exit ], [ %1, %3 ], [ %32, %Abc_ZddCacheLookup.exit ]
   ret i32 %.0
 }
@@ -3788,226 +3812,229 @@ define void @Abc_ZddGiaTest(ptr noundef %0) local_unnamed_addr #6 {
   %11 = getelementptr inbounds nuw i32, ptr %.val57.val, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = sext i32 %12 to i64
-  %14 = add nsw i32 %12, 2
-  %15 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val56, i64 %13, i32 1
-  store i32 %14, ptr %15, align 4, !tbaa !80
+  %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val56, i64 %13
+  %15 = add nsw i32 %12, 2
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 %15, ptr %16, align 4, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !82
 
 .critedge:                                        ; preds = %10, %.lr.ph, %1
-  %16 = load i32, ptr %2, align 8, !tbaa !60
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %18 = load ptr, ptr %17, align 8, !tbaa !83
-  %19 = getelementptr i8, ptr %18, i64 4
-  %.val.i = load i32, ptr %19, align 4, !tbaa !47
-  %20 = add i32 %.val.i, %.val
-  %21 = xor i32 %20, -1
-  %22 = add i32 %16, %21
-  %23 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %24 = add i32 %22, -1
-  %or.cond.i = icmp ult i32 %24, 15
-  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %22
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i32 0, ptr %25, align 4, !tbaa !47
-  store i32 %spec.store.select.i, ptr %23, align 8, !tbaa !84
+  %17 = load i32, ptr %2, align 8, !tbaa !60
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %19 = load ptr, ptr %18, align 8, !tbaa !83
+  %20 = getelementptr i8, ptr %19, i64 4
+  %.val.i = load i32, ptr %20, align 4, !tbaa !47
+  %21 = add i32 %.val.i, %.val
+  %22 = xor i32 %21, -1
+  %23 = add i32 %17, %22
+  %24 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
+  %25 = add i32 %23, -1
+  %or.cond.i = icmp ult i32 %25, 15
+  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %23
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  store i32 0, ptr %26, align 4, !tbaa !47
+  store i32 %spec.store.select.i, ptr %24, align 8, !tbaa !84
   %.not.i = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not.i, label %Vec_IntAlloc.exit, label %26
+  br i1 %.not.i, label %Vec_IntAlloc.exit, label %27
 
-26:                                               ; preds = %.critedge
-  %27 = sext i32 %spec.store.select.i to i64
-  %28 = shl nsw i64 %27, 2
-  %29 = tail call noalias ptr @malloc(i64 noundef %28) #22
+27:                                               ; preds = %.critedge
+  %28 = sext i32 %spec.store.select.i to i64
+  %29 = shl nsw i64 %28, 2
+  %30 = tail call noalias ptr @malloc(i64 noundef %29) #22
   br label %Vec_IntAlloc.exit
 
-Vec_IntAlloc.exit:                                ; preds = %.critedge, %26
-  %30 = phi ptr [ %29, %26 ], [ null, %.critedge ]
-  %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %30, ptr %31, align 8, !tbaa !49
-  %32 = getelementptr i8, ptr %0, i64 32
-  %33 = icmp sgt i32 %16, 0
-  br i1 %33, label %.lr.ph73, label %.critedge4
+Vec_IntAlloc.exit:                                ; preds = %.critedge, %27
+  %31 = phi ptr [ %30, %27 ], [ null, %.critedge ]
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr %31, ptr %32, align 8, !tbaa !49
+  %33 = getelementptr i8, ptr %0, i64 32
+  %34 = icmp sgt i32 %17, 0
+  br i1 %34, label %.lr.ph73, label %.critedge4
 
-.lr.ph73:                                         ; preds = %Vec_IntAlloc.exit, %76
-  %34 = phi i32 [ %77, %76 ], [ %16, %Vec_IntAlloc.exit ]
-  %35 = phi ptr [ %.pre.i91, %76 ], [ %30, %Vec_IntAlloc.exit ]
-  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %76 ], [ 0, %Vec_IntAlloc.exit ]
-  %.val54 = load ptr, ptr %32, align 8, !tbaa !79
-  %36 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val54, i64 %indvars.iv82
+.lr.ph73:                                         ; preds = %Vec_IntAlloc.exit, %79
+  %35 = phi i32 [ %80, %79 ], [ %17, %Vec_IntAlloc.exit ]
+  %36 = phi ptr [ %.pre.i91, %79 ], [ %31, %Vec_IntAlloc.exit ]
+  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %79 ], [ 0, %Vec_IntAlloc.exit ]
+  %.val54 = load ptr, ptr %33, align 8, !tbaa !79
+  %37 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val54, i64 %indvars.iv82
   %.not49 = icmp eq ptr %.val54, null
-  br i1 %.not49, label %.critedge2, label %37
+  br i1 %.not49, label %.critedge2, label %38
 
-37:                                               ; preds = %.lr.ph73
-  %.val59 = load i64, ptr %36, align 4
-  %38 = and i64 %.val59, 2147483648
-  %.not.i61 = icmp ne i64 %38, 0
-  %39 = and i64 %.val59, 536870911
-  %40 = icmp eq i64 %39, 536870911
-  %narrow.i.not = or i1 %.not.i61, %40
-  br i1 %narrow.i.not, label %76, label %41
+38:                                               ; preds = %.lr.ph73
+  %.val59 = load i64, ptr %37, align 4
+  %39 = and i64 %.val59, 2147483648
+  %.not.i61 = icmp ne i64 %39, 0
+  %40 = and i64 %.val59, 536870911
+  %41 = icmp eq i64 %40, 536870911
+  %narrow.i.not = or i1 %.not.i61, %41
+  br i1 %narrow.i.not, label %79, label %42
 
-41:                                               ; preds = %37
-  %42 = sub nsw i64 0, %39
-  %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %36, i64 %42, i32 1
-  %44 = load i32, ptr %43, align 4, !tbaa !80
-  %45 = lshr i64 %.val59, 32
-  %46 = and i64 %45, 536870911
-  %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %36, i64 %47, i32 1
-  %49 = load i32, ptr %48, align 4, !tbaa !80
-  %50 = tail call i32 @Abc_ZddDotMinProduct6(ptr noundef %3, i32 noundef %44, i32 noundef %49)
-  %51 = trunc i64 %indvars.iv82 to i32
-  %52 = add i32 %51, 2
-  %53 = tail call i32 @Abc_ZddUnion(ptr noundef %3, i32 noundef %50, i32 noundef %52)
-  %54 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i32 %53, ptr %54, align 4, !tbaa !80
-  %55 = load i32, ptr %25, align 4, !tbaa !47
-  %56 = load i32, ptr %23, align 8, !tbaa !84
-  %57 = icmp eq i32 %55, %56
-  br i1 %57, label %58, label %Vec_IntPush.exit
+42:                                               ; preds = %38
+  %43 = sub nsw i64 0, %40
+  %44 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %37, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i32, ptr %45, align 4, !tbaa !80
+  %47 = lshr i64 %.val59, 32
+  %48 = and i64 %47, 536870911
+  %49 = sub nsw i64 0, %48
+  %50 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %37, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %51, align 4, !tbaa !80
+  %53 = tail call i32 @Abc_ZddDotMinProduct6(ptr noundef %3, i32 noundef %46, i32 noundef %52)
+  %54 = trunc i64 %indvars.iv82 to i32
+  %55 = add i32 %54, 2
+  %56 = tail call i32 @Abc_ZddUnion(ptr noundef %3, i32 noundef %53, i32 noundef %55)
+  %57 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i32 %56, ptr %57, align 4, !tbaa !80
+  %58 = load i32, ptr %26, align 4, !tbaa !47
+  %59 = load i32, ptr %24, align 8, !tbaa !84
+  %60 = icmp eq i32 %58, %59
+  br i1 %60, label %61, label %Vec_IntPush.exit
 
-58:                                               ; preds = %41
-  %59 = icmp slt i32 %55, 16
-  br i1 %59, label %60, label %65
+61:                                               ; preds = %42
+  %62 = icmp slt i32 %58, 16
+  br i1 %62, label %63, label %68
 
-60:                                               ; preds = %58
-  %.not9.i.i = icmp eq ptr %35, null
-  br i1 %.not9.i.i, label %63, label %61
+63:                                               ; preds = %61
+  %.not9.i.i = icmp eq ptr %36, null
+  br i1 %.not9.i.i, label %66, label %64
 
-61:                                               ; preds = %60
-  %62 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %35, i64 noundef 64) #24
+64:                                               ; preds = %63
+  %65 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %36, i64 noundef 64) #24
   br label %Vec_IntPush.exit.sink.split
 
-63:                                               ; preds = %60
-  %64 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #22
+66:                                               ; preds = %63
+  %67 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #22
   br label %Vec_IntPush.exit.sink.split
 
-65:                                               ; preds = %58
-  %66 = shl nuw nsw i32 %55, 1
-  %.not9.i9.i = icmp eq ptr %35, null
-  %67 = zext nneg i32 %66 to i64
-  %68 = shl nuw nsw i64 %67, 2
-  br i1 %.not9.i9.i, label %71, label %69
+68:                                               ; preds = %61
+  %69 = shl nuw nsw i32 %58, 1
+  %.not9.i9.i = icmp eq ptr %36, null
+  %70 = zext nneg i32 %69 to i64
+  %71 = shl nuw nsw i64 %70, 2
+  br i1 %.not9.i9.i, label %74, label %72
 
-69:                                               ; preds = %65
-  %70 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %68) #24
+72:                                               ; preds = %68
+  %73 = tail call ptr @realloc(ptr noundef nonnull %36, i64 noundef %71) #24
   br label %Vec_IntPush.exit.sink.split
 
-71:                                               ; preds = %65
-  %72 = tail call noalias ptr @malloc(i64 noundef %68) #22
+74:                                               ; preds = %68
+  %75 = tail call noalias ptr @malloc(i64 noundef %71) #22
   br label %Vec_IntPush.exit.sink.split
 
-Vec_IntPush.exit.sink.split:                      ; preds = %69, %71, %61, %63
-  %.sink106 = phi ptr [ %62, %61 ], [ %64, %63 ], [ %70, %69 ], [ %72, %71 ]
-  %.sink = phi i32 [ 16, %61 ], [ 16, %63 ], [ %66, %69 ], [ %66, %71 ]
-  store ptr %.sink106, ptr %31, align 8, !tbaa !49
-  store i32 %.sink, ptr %23, align 8, !tbaa !84
+Vec_IntPush.exit.sink.split:                      ; preds = %72, %74, %64, %66
+  %.sink106 = phi ptr [ %65, %64 ], [ %67, %66 ], [ %73, %72 ], [ %75, %74 ]
+  %.sink = phi i32 [ 16, %64 ], [ 16, %66 ], [ %69, %72 ], [ %69, %74 ]
+  store ptr %.sink106, ptr %32, align 8, !tbaa !49
+  store i32 %.sink, ptr %24, align 8, !tbaa !84
   br label %Vec_IntPush.exit
 
-Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %41
-  %.pre.i92 = phi ptr [ %35, %41 ], [ %.sink106, %Vec_IntPush.exit.sink.split ]
-  %73 = add nsw i32 %55, 1
-  store i32 %73, ptr %25, align 4, !tbaa !47
-  %74 = sext i32 %55 to i64
-  %75 = getelementptr inbounds i32, ptr %.pre.i92, i64 %74
-  store i32 %53, ptr %75, align 4, !tbaa !3
+Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %42
+  %.pre.i92 = phi ptr [ %36, %42 ], [ %.sink106, %Vec_IntPush.exit.sink.split ]
+  %76 = add nsw i32 %58, 1
+  store i32 %76, ptr %26, align 4, !tbaa !47
+  %77 = sext i32 %58 to i64
+  %78 = getelementptr inbounds i32, ptr %.pre.i92, i64 %77
+  store i32 %56, ptr %78, align 4, !tbaa !3
   %.pre = load i32, ptr %2, align 8, !tbaa !60
-  br label %76
+  br label %79
 
-76:                                               ; preds = %Vec_IntPush.exit, %37
-  %77 = phi i32 [ %.pre, %Vec_IntPush.exit ], [ %34, %37 ]
-  %.pre.i91 = phi ptr [ %.pre.i92, %Vec_IntPush.exit ], [ %35, %37 ]
+79:                                               ; preds = %Vec_IntPush.exit, %38
+  %80 = phi i32 [ %.pre, %Vec_IntPush.exit ], [ %35, %38 ]
+  %.pre.i91 = phi ptr [ %.pre.i92, %Vec_IntPush.exit ], [ %36, %38 ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next83, %78
-  br i1 %79, label %.lr.ph73, label %.critedge2, !llvm.loop !85
+  %81 = sext i32 %80 to i64
+  %82 = icmp slt i64 %indvars.iv.next83, %81
+  br i1 %82, label %.lr.ph73, label %.critedge2, !llvm.loop !85
 
-.critedge2:                                       ; preds = %.lr.ph73, %76
-  %80 = phi ptr [ %.pre.i91, %76 ], [ %35, %.lr.ph73 ]
-  %81 = phi i32 [ %77, %76 ], [ %34, %.lr.ph73 ]
-  %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %.lr.ph77, label %.critedge4
+.critedge2:                                       ; preds = %.lr.ph73, %79
+  %83 = phi ptr [ %.pre.i91, %79 ], [ %36, %.lr.ph73 ]
+  %84 = phi i32 [ %80, %79 ], [ %35, %.lr.ph73 ]
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %.lr.ph77, label %.critedge4
 
-.lr.ph77:                                         ; preds = %.critedge2, %94
-  %83 = phi i32 [ %95, %94 ], [ %81, %.critedge2 ]
-  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %94 ], [ 0, %.critedge2 ]
-  %.076 = phi i32 [ %.1, %94 ], [ 0, %.critedge2 ]
-  %.val55 = load ptr, ptr %32, align 8, !tbaa !79
-  %84 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val55, i64 %indvars.iv85
+.lr.ph77:                                         ; preds = %.critedge2, %97
+  %86 = phi i32 [ %98, %97 ], [ %84, %.critedge2 ]
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %97 ], [ 0, %.critedge2 ]
+  %.076 = phi i32 [ %.1, %97 ], [ 0, %.critedge2 ]
+  %.val55 = load ptr, ptr %33, align 8, !tbaa !79
+  %87 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val55, i64 %indvars.iv85
   %.not50 = icmp eq ptr %.val55, null
-  br i1 %.not50, label %.critedge4, label %85
+  br i1 %.not50, label %.critedge4, label %88
 
-85:                                               ; preds = %.lr.ph77
-  %.val60 = load i64, ptr %84, align 4
-  %86 = and i64 %.val60, 2147483648
-  %.not.i62 = icmp ne i64 %86, 0
-  %87 = and i64 %.val60, 536870911
-  %88 = icmp eq i64 %87, 536870911
-  %narrow.i63.not = or i1 %.not.i62, %88
-  br i1 %narrow.i63.not, label %94, label %89
+88:                                               ; preds = %.lr.ph77
+  %.val60 = load i64, ptr %87, align 4
+  %89 = and i64 %.val60, 2147483648
+  %.not.i62 = icmp ne i64 %89, 0
+  %90 = and i64 %.val60, 536870911
+  %91 = icmp eq i64 %90, 536870911
+  %narrow.i63.not = or i1 %.not.i62, %91
+  br i1 %narrow.i63.not, label %97, label %92
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %91 = load i32, ptr %90, align 4, !tbaa !80
-  %92 = tail call i32 @Abc_ZddCountPaths(ptr noundef %3, i32 noundef %91)
-  %93 = add nsw i32 %92, %.076
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %94 = load i32, ptr %93, align 4, !tbaa !80
+  %95 = tail call i32 @Abc_ZddCountPaths(ptr noundef %3, i32 noundef %94)
+  %96 = add nsw i32 %95, %.076
   %.pre93 = load i32, ptr %2, align 8, !tbaa !60
-  br label %94
+  br label %97
 
-94:                                               ; preds = %89, %85
-  %95 = phi i32 [ %.pre93, %89 ], [ %83, %85 ]
-  %.1 = phi i32 [ %93, %89 ], [ %.076, %85 ]
+97:                                               ; preds = %92, %88
+  %98 = phi i32 [ %.pre93, %92 ], [ %86, %88 ]
+  %.1 = phi i32 [ %96, %92 ], [ %.076, %88 ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %96 = sext i32 %95 to i64
-  %97 = icmp slt i64 %indvars.iv.next86, %96
-  br i1 %97, label %.lr.ph77, label %.critedge4, !llvm.loop !86
+  %99 = sext i32 %98 to i64
+  %100 = icmp slt i64 %indvars.iv.next86, %99
+  br i1 %100, label %.lr.ph77, label %.critedge4, !llvm.loop !86
 
-.critedge4:                                       ; preds = %.lr.ph77, %94, %Vec_IntAlloc.exit, %.critedge2
-  %98 = phi ptr [ %80, %.critedge2 ], [ %30, %Vec_IntAlloc.exit ], [ %80, %94 ], [ %80, %.lr.ph77 ]
-  %.0.lcssa = phi i32 [ 0, %.critedge2 ], [ 0, %Vec_IntAlloc.exit ], [ %.076, %.lr.ph77 ], [ %.1, %94 ]
-  %.val21.i = load i32, ptr %25, align 4, !tbaa !47
-  %99 = icmp sgt i32 %.val21.i, 0
-  br i1 %99, label %.lr.ph.i.preheader, label %Abc_ZddCountNodesArray.exit
+.critedge4:                                       ; preds = %.lr.ph77, %97, %Vec_IntAlloc.exit, %.critedge2
+  %101 = phi ptr [ %83, %.critedge2 ], [ %31, %Vec_IntAlloc.exit ], [ %83, %97 ], [ %83, %.lr.ph77 ]
+  %.0.lcssa = phi i32 [ 0, %.critedge2 ], [ 0, %Vec_IntAlloc.exit ], [ %.076, %.lr.ph77 ], [ %.1, %97 ]
+  %.val21.i = load i32, ptr %26, align 4, !tbaa !47
+  %102 = icmp sgt i32 %.val21.i, 0
+  br i1 %102, label %.lr.ph.i.preheader, label %Abc_ZddCountNodesArray.exit
 
 .lr.ph.i.preheader:                               ; preds = %.critedge4
-  %100 = zext nneg i32 %.val21.i to i64
+  %103 = zext nneg i32 %.val21.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.023.i = phi i32 [ %104, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv.i
-  %102 = load i32, ptr %101, align 4, !tbaa !3
-  %103 = tail call i32 @Abc_ZddCount_rec(ptr noundef readonly %3, i32 noundef %102)
-  %104 = add nsw i32 %103, %.023.i
+  %.023.i = phi i32 [ %107, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %104 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv.i
+  %105 = load i32, ptr %104, align 4, !tbaa !3
+  %106 = tail call i32 @Abc_ZddCount_rec(ptr noundef readonly %3, i32 noundef %105)
+  %107 = add nsw i32 %106, %.023.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next.i, %100
+  %exitcond88.not = icmp eq i64 %indvars.iv.next.i, %103
   br i1 %exitcond88.not, label %.critedge.i, label %.lr.ph.i, !llvm.loop !50
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.critedge.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.critedge.i ], [ 0, %.lr.ph.i ]
-  %105 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv28.i
-  %106 = load i32, ptr %105, align 4, !tbaa !3
-  tail call void @Abc_ZddUnmark_rec(ptr noundef readonly %3, i32 noundef %106)
+  %108 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv28.i
+  %109 = load i32, ptr %108, align 4, !tbaa !3
+  tail call void @Abc_ZddUnmark_rec(ptr noundef readonly %3, i32 noundef %109)
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
-  %exitcond89.not = icmp eq i64 %indvars.iv.next29.i, %100
+  %exitcond89.not = icmp eq i64 %indvars.iv.next29.i, %103
   br i1 %exitcond89.not, label %Abc_ZddCountNodesArray.exit.thread, label %.critedge.i, !llvm.loop !51
 
 Abc_ZddCountNodesArray.exit.thread:               ; preds = %.critedge.i
-  %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.0.lcssa, i32 noundef %104)
-  br label %109
+  %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.0.lcssa, i32 noundef %107)
+  br label %112
 
 Abc_ZddCountNodesArray.exit:                      ; preds = %.critedge4
-  %108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.0.lcssa, i32 noundef 0)
-  %.not.i65 = icmp eq ptr %98, null
-  br i1 %.not.i65, label %Vec_IntFree.exit, label %109
+  %111 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.0.lcssa, i32 noundef 0)
+  %.not.i65 = icmp eq ptr %101, null
+  br i1 %.not.i65, label %Vec_IntFree.exit, label %112
 
-109:                                              ; preds = %Abc_ZddCountNodesArray.exit.thread, %Abc_ZddCountNodesArray.exit
-  tail call void @free(ptr noundef nonnull %98) #23
+112:                                              ; preds = %Abc_ZddCountNodesArray.exit.thread, %Abc_ZddCountNodesArray.exit
+  tail call void @free(ptr noundef nonnull %101) #23
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Abc_ZddCountNodesArray.exit, %109
-  tail call void @free(ptr noundef nonnull %23) #23
+Vec_IntFree.exit:                                 ; preds = %Abc_ZddCountNodesArray.exit, %112
+  tail call void @free(ptr noundef nonnull %24) #23
   tail call void @Abc_ZddManFree(ptr noundef %3)
   ret void
 }

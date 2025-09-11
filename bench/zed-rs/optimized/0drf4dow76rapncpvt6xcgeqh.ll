@@ -13266,20 +13266,19 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h9f30d37168734a5eE.exit: ; preds = %4
   br label %"_ZN4core3ptr44drop_in_place$LT$git..repository..Branch$GT$17hbff6dd4809b6ccb1E.exit.i.i.i"
 
 "_ZN4core3ptr44drop_in_place$LT$git..repository..Branch$GT$17hbff6dd4809b6ccb1E.exit.i.i.i": ; preds = %67, %63
-  %.sroa.0.0.i.i.i = phi i64 [ 0, %63 ], [ %68, %67 ]
+  %.sroa.0.0.i.i.i = phi i64 [ 0, %63 ], [ %69, %67 ]
   %66 = icmp eq i64 %.sroa.0.0.i.i.i, %64
   br i1 %66, label %.thread.i, label %67
 
 67:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$git..repository..Branch$GT$17hbff6dd4809b6ccb1E.exit.i.i.i"
-  %68 = add nuw i64 %.sroa.0.0.i.i.i, 1
-  %.idx.i = mul nsw i64 %.sroa.0.0.i.i.i, 40
-  %69 = getelementptr i8, ptr %65, i64 %.idx.i
-  %70 = getelementptr i8, ptr %69, i64 16
+  %68 = getelementptr inbounds { { i64, [1 x i64] }, { { { { ptr, i64 } }, {} }, {} }, i8, [7 x i8] }, ptr %65, i64 %.sroa.0.0.i.i.i
+  %69 = add nuw i64 %.sroa.0.0.i.i.i, 1
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h16a8f09ed21322a6E.llvm.7484384291333293019"(ptr noalias noundef nonnull align 8 dereferenceable(16) %70)
           to label %"_ZN4core3ptr44drop_in_place$LT$git..repository..Branch$GT$17hbff6dd4809b6ccb1E.exit.i.i.i" unwind label %72, !noalias !2197
 
 "_ZN4core3ptr44drop_in_place$LT$git..repository..Branch$GT$17hbff6dd4809b6ccb1E.exit7.i.i.i": ; preds = %74, %72
-  %.sroa.0.1.i.i.i = phi i64 [ %68, %72 ], [ %75, %74 ]
+  %.sroa.0.1.i.i.i = phi i64 [ %69, %72 ], [ %76, %74 ]
   %71 = icmp eq i64 %.sroa.0.1.i.i.i, %64
   br i1 %71, label %.body.thread.i, label %74
 
@@ -13289,10 +13288,9 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h9f30d37168734a5eE.exit: ; preds = %4
   br label %"_ZN4core3ptr44drop_in_place$LT$git..repository..Branch$GT$17hbff6dd4809b6ccb1E.exit7.i.i.i"
 
 74:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$git..repository..Branch$GT$17hbff6dd4809b6ccb1E.exit7.i.i.i"
-  %75 = add i64 %.sroa.0.1.i.i.i, 1
-  %.idx11.i = mul nsw i64 %.sroa.0.1.i.i.i, 40
-  %76 = getelementptr i8, ptr %65, i64 %.idx11.i
-  %77 = getelementptr i8, ptr %76, i64 16
+  %75 = getelementptr inbounds { { i64, [1 x i64] }, { { { { ptr, i64 } }, {} }, {} }, i8, [7 x i8] }, ptr %65, i64 %.sroa.0.1.i.i.i
+  %76 = add i64 %.sroa.0.1.i.i.i, 1
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h16a8f09ed21322a6E.llvm.7484384291333293019"(ptr noalias noundef nonnull align 8 dereferenceable(16) %77)
           to label %"_ZN4core3ptr44drop_in_place$LT$git..repository..Branch$GT$17hbff6dd4809b6ccb1E.exit7.i.i.i" unwind label %78, !noalias !2197
 

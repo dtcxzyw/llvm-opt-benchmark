@@ -4249,7 +4249,7 @@ if.end.i.i:                                       ; preds = %if.else9.i
 if.end15.i:                                       ; preds = %if.then7.i, %if.then.i
   %ch.0.i = phi i32 [ %sub.i, %if.then.i ], [ %sub8.i, %if.then7.i ]
   %shl.i = shl i32 %cp.014.i, 4
-  %add.i = add i32 %ch.0.i, %shl.i
+  %add.i = add nuw i32 %ch.0.i, %shl.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %incdec.ptr.i, ptr %curCharPtr_, align 8
   %inc.i = add nuw nsw i32 %i.015.i, 1
@@ -5003,7 +5003,7 @@ if.then7.i:                                       ; preds = %if.else.i
 if.end15.i:                                       ; preds = %if.then7.i, %if.then.i114
   %ch.0.i = phi i32 [ %sub.i, %if.then.i114 ], [ %sub8.i, %if.then7.i ]
   %shl.i = shl i32 %cp.014.i, 4
-  %add.i112 = add i32 %ch.0.i, %shl.i
+  %add.i112 = add nuw i32 %ch.0.i, %shl.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %71, i64 1
   store ptr %incdec.ptr.i, ptr %curCharPtr_, align 8
   br i1 %cmp.not.i113, label %cond.end, label %for.body.i, !llvm.loop !57
@@ -7128,7 +7128,7 @@ if.end.i:                                         ; preds = %if.then10
 if.end15:                                         ; preds = %if.then7, %if.then
   %ch.0 = phi i32 [ %sub, %if.then ], [ %sub8, %if.then7 ]
   %shl = shl i32 %cp.014, 4
-  %add = add i32 %ch.0, %shl
+  %add = add nuw i32 %ch.0, %shl
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %0, i64 1
   store ptr %incdec.ptr, ptr %curCharPtr_, align 8
   %inc = add nuw i32 %i.015, 1
@@ -7270,7 +7270,7 @@ if.then7.i:                                       ; preds = %if.else.i
 if.end15.i:                                       ; preds = %if.then7.i, %if.then.i
   %ch.0.i = phi i32 [ %sub.i, %if.then.i ], [ %sub8.i, %if.then7.i ]
   %shl.i = shl i32 %cp.014.i, 4
-  %add.i = add i32 %ch.0.i, %shl.i
+  %add.i = add nuw i32 %ch.0.i, %shl.i
   %incdec.ptr.i11 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %incdec.ptr.i11, ptr %curCharPtr_, align 8
   %inc.i = add nuw nsw i32 %i.015.i, 1
@@ -17433,7 +17433,7 @@ if.end.i.i:                                       ; preds = %if.else9.i
 if.end15.i:                                       ; preds = %if.then7.i, %if.then.i170
   %ch.0.i = phi i32 [ %sub.i, %if.then.i170 ], [ %sub8.i, %if.then7.i ]
   %shl.i166 = shl i32 %cp.014.i, 4
-  %add.i167 = add i32 %ch.0.i, %shl.i166
+  %add.i167 = add nuw i32 %ch.0.i, %shl.i166
   %incdec.ptr.i168 = getelementptr inbounds nuw i8, ptr %86, i64 1
   store ptr %incdec.ptr.i168, ptr %curCharPtr_, align 8
   br i1 %cmp.not.i169, label %cond.end, label %for.body.i, !llvm.loop !57

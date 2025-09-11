@@ -562,14 +562,14 @@ bits_peek_be.exit.i:                              ; preds = %105, %102, %.bits_p
   %134 = load i32, ptr %131, align 1, !tbaa !30
   %135 = tail call i32 @llvm.bswap.i32(i32 %134)
   %136 = zext i32 %135 to i64
-  %137 = sub i32 44, %115
+  %137 = sub nsw i32 44, %115
   %138 = zext nneg i32 %137 to i64
   %139 = shl i64 %136, %138
   %140 = or i64 %139, %126
   store i64 %140, ptr %2, align 8, !tbaa !44
   %141 = getelementptr inbounds nuw i8, ptr %131, i64 4
   store ptr %141, ptr %19, align 8, !tbaa !41
-  %142 = add i32 %115, 20
+  %142 = add nuw nsw i32 %115, 20
   store i32 %142, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -657,14 +657,14 @@ bits_peek_be.exit.i120:                           ; preds = %bits_read_vlc_be.ex
   %195 = load i32, ptr %192, align 1, !tbaa !30
   %196 = tail call i32 @llvm.bswap.i32(i32 %195)
   %197 = zext i32 %196 to i64
-  %198 = sub i32 44, %176
+  %198 = sub nsw i32 44, %176
   %199 = zext nneg i32 %198 to i64
   %200 = shl i64 %197, %199
   %201 = or i64 %200, %187
   store i64 %201, ptr %2, align 8, !tbaa !44
   %202 = getelementptr inbounds nuw i8, ptr %192, i64 4
   store ptr %202, ptr %19, align 8, !tbaa !41
-  %203 = add i32 %176, 20
+  %203 = add nuw nsw i32 %176, 20
   store i32 %203, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i123
 
@@ -751,14 +751,14 @@ bits_peek_be.exit.i131:                           ; preds = %bits_read_vlc_be.ex
   %255 = load i32, ptr %252, align 1, !tbaa !30
   %256 = tail call i32 @llvm.bswap.i32(i32 %255)
   %257 = zext i32 %256 to i64
-  %258 = sub i32 44, %236
+  %258 = sub nsw i32 44, %236
   %259 = zext nneg i32 %258 to i64
   %260 = shl i64 %257, %259
   %261 = or i64 %260, %247
   store i64 %261, ptr %2, align 8, !tbaa !44
   %262 = getelementptr inbounds nuw i8, ptr %252, i64 4
   store ptr %262, ptr %19, align 8, !tbaa !41
-  %263 = add i32 %236, 20
+  %263 = add nuw nsw i32 %236, 20
   store i32 %263, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i134
 
@@ -1111,14 +1111,14 @@ bits_peek_be.exit.i162:                           ; preds = %425, %422, %.bits_p
   %454 = load i32, ptr %451, align 1, !tbaa !30
   %455 = tail call i32 @llvm.bswap.i32(i32 %454)
   %456 = zext i32 %455 to i64
-  %457 = sub i32 44, %435
+  %457 = sub nsw i32 44, %435
   %458 = zext nneg i32 %457 to i64
   %459 = shl i64 %456, %458
   %460 = or i64 %459, %446
   store i64 %460, ptr %2, align 8, !tbaa !44
   %461 = getelementptr inbounds nuw i8, ptr %451, i64 4
   store ptr %461, ptr %305, align 8, !tbaa !41
-  %462 = add i32 %435, 20
+  %462 = add nuw nsw i32 %435, 20
   store i32 %462, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i165
 
@@ -1206,14 +1206,14 @@ bits_peek_be.exit.i173:                           ; preds = %bits_read_vlc_be.ex
   %515 = load i32, ptr %512, align 1, !tbaa !30
   %516 = tail call i32 @llvm.bswap.i32(i32 %515)
   %517 = zext i32 %516 to i64
-  %518 = sub i32 44, %496
+  %518 = sub nsw i32 44, %496
   %519 = zext nneg i32 %518 to i64
   %520 = shl i64 %517, %519
   %521 = or i64 %520, %507
   store i64 %521, ptr %2, align 8, !tbaa !44
   %522 = getelementptr inbounds nuw i8, ptr %512, i64 4
   store ptr %522, ptr %305, align 8, !tbaa !41
-  %523 = add i32 %496, 20
+  %523 = add nuw nsw i32 %496, 20
   store i32 %523, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i176
 
@@ -1300,14 +1300,14 @@ bits_peek_be.exit.i184:                           ; preds = %bits_read_vlc_be.ex
   %575 = load i32, ptr %572, align 1, !tbaa !30
   %576 = tail call i32 @llvm.bswap.i32(i32 %575)
   %577 = zext i32 %576 to i64
-  %578 = sub i32 44, %556
+  %578 = sub nsw i32 44, %556
   %579 = zext nneg i32 %578 to i64
   %580 = shl i64 %577, %579
   %581 = or i64 %580, %567
   store i64 %581, ptr %2, align 8, !tbaa !44
   %582 = getelementptr inbounds nuw i8, ptr %572, i64 4
   store ptr %582, ptr %305, align 8, !tbaa !41
-  %583 = add i32 %556, 20
+  %583 = add nuw nsw i32 %556, 20
   store i32 %583, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i187
 
@@ -1648,14 +1648,14 @@ bits_peek_be.exit.i:                              ; preds = %105, %102, %.bits_p
   %134 = load i32, ptr %131, align 1, !tbaa !30
   %135 = tail call i32 @llvm.bswap.i32(i32 %134)
   %136 = zext i32 %135 to i64
-  %137 = sub i32 44, %115
+  %137 = sub nsw i32 44, %115
   %138 = zext nneg i32 %137 to i64
   %139 = shl i64 %136, %138
   %140 = or i64 %139, %126
   store i64 %140, ptr %2, align 8, !tbaa !44
   %141 = getelementptr inbounds nuw i8, ptr %131, i64 4
   store ptr %141, ptr %19, align 8, !tbaa !41
-  %142 = add i32 %115, 20
+  %142 = add nuw nsw i32 %115, 20
   store i32 %142, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -1743,14 +1743,14 @@ bits_peek_be.exit.i100:                           ; preds = %bits_read_vlc_be.ex
   %195 = load i32, ptr %192, align 1, !tbaa !30
   %196 = tail call i32 @llvm.bswap.i32(i32 %195)
   %197 = zext i32 %196 to i64
-  %198 = sub i32 44, %176
+  %198 = sub nsw i32 44, %176
   %199 = zext nneg i32 %198 to i64
   %200 = shl i64 %197, %199
   %201 = or i64 %200, %187
   store i64 %201, ptr %2, align 8, !tbaa !44
   %202 = getelementptr inbounds nuw i8, ptr %192, i64 4
   store ptr %202, ptr %19, align 8, !tbaa !41
-  %203 = add i32 %176, 20
+  %203 = add nuw nsw i32 %176, 20
   store i32 %203, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i103
 
@@ -1837,14 +1837,14 @@ bits_peek_be.exit.i111:                           ; preds = %bits_read_vlc_be.ex
   %255 = load i32, ptr %252, align 1, !tbaa !30
   %256 = tail call i32 @llvm.bswap.i32(i32 %255)
   %257 = zext i32 %256 to i64
-  %258 = sub i32 44, %236
+  %258 = sub nsw i32 44, %236
   %259 = zext nneg i32 %258 to i64
   %260 = shl i64 %257, %259
   %261 = or i64 %260, %247
   store i64 %261, ptr %2, align 8, !tbaa !44
   %262 = getelementptr inbounds nuw i8, ptr %252, i64 4
   store ptr %262, ptr %19, align 8, !tbaa !41
-  %263 = add i32 %236, 20
+  %263 = add nuw nsw i32 %236, 20
   store i32 %263, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i114
 
@@ -2181,14 +2181,14 @@ bits_peek_be.exit.i142:                           ; preds = %412, %409, %.bits_p
   %441 = load i32, ptr %438, align 1, !tbaa !30
   %442 = tail call i32 @llvm.bswap.i32(i32 %441)
   %443 = zext i32 %442 to i64
-  %444 = sub i32 44, %422
+  %444 = sub nsw i32 44, %422
   %445 = zext nneg i32 %444 to i64
   %446 = shl i64 %443, %445
   %447 = or i64 %446, %433
   store i64 %447, ptr %2, align 8, !tbaa !44
   %448 = getelementptr inbounds nuw i8, ptr %438, i64 4
   store ptr %448, ptr %305, align 8, !tbaa !41
-  %449 = add i32 %422, 20
+  %449 = add nuw nsw i32 %422, 20
   store i32 %449, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i145
 
@@ -2276,14 +2276,14 @@ bits_peek_be.exit.i153:                           ; preds = %bits_read_vlc_be.ex
   %502 = load i32, ptr %499, align 1, !tbaa !30
   %503 = tail call i32 @llvm.bswap.i32(i32 %502)
   %504 = zext i32 %503 to i64
-  %505 = sub i32 44, %483
+  %505 = sub nsw i32 44, %483
   %506 = zext nneg i32 %505 to i64
   %507 = shl i64 %504, %506
   %508 = or i64 %507, %494
   store i64 %508, ptr %2, align 8, !tbaa !44
   %509 = getelementptr inbounds nuw i8, ptr %499, i64 4
   store ptr %509, ptr %305, align 8, !tbaa !41
-  %510 = add i32 %483, 20
+  %510 = add nuw nsw i32 %483, 20
   store i32 %510, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i156
 
@@ -2370,14 +2370,14 @@ bits_peek_be.exit.i164:                           ; preds = %bits_read_vlc_be.ex
   %562 = load i32, ptr %559, align 1, !tbaa !30
   %563 = tail call i32 @llvm.bswap.i32(i32 %562)
   %564 = zext i32 %563 to i64
-  %565 = sub i32 44, %543
+  %565 = sub nsw i32 44, %543
   %566 = zext nneg i32 %565 to i64
   %567 = shl i64 %564, %566
   %568 = or i64 %567, %554
   store i64 %568, ptr %2, align 8, !tbaa !44
   %569 = getelementptr inbounds nuw i8, ptr %559, i64 4
   store ptr %569, ptr %305, align 8, !tbaa !41
-  %570 = add i32 %543, 20
+  %570 = add nuw nsw i32 %543, 20
   store i32 %570, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i167
 
@@ -2723,14 +2723,14 @@ bits_peek_be.exit.i:                              ; preds = %123, %130, %127
   %159 = load i32, ptr %156, align 1, !tbaa !30
   %160 = tail call i32 @llvm.bswap.i32(i32 %159)
   %161 = zext i32 %160 to i64
-  %162 = sub i32 44, %140
+  %162 = sub nsw i32 44, %140
   %163 = zext nneg i32 %162 to i64
   %164 = shl i64 %161, %163
   %165 = or i64 %164, %151
   store i64 %165, ptr %2, align 8, !tbaa !44
   %166 = getelementptr inbounds nuw i8, ptr %156, i64 4
   store ptr %166, ptr %26, align 8, !tbaa !41
-  %167 = add i32 %140, 20
+  %167 = add nuw nsw i32 %140, 20
   store i32 %167, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -2815,14 +2815,14 @@ bits_peek_be.exit.i164:                           ; preds = %bits_read_vlc_be.ex
   %217 = load i32, ptr %214, align 1, !tbaa !30
   %218 = tail call i32 @llvm.bswap.i32(i32 %217)
   %219 = zext i32 %218 to i64
-  %220 = sub i32 44, %198
+  %220 = sub nsw i32 44, %198
   %221 = zext nneg i32 %220 to i64
   %222 = shl i64 %219, %221
   %223 = or i64 %222, %209
   store i64 %223, ptr %2, align 8, !tbaa !44
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 4
   store ptr %224, ptr %26, align 8, !tbaa !41
-  %225 = add i32 %198, 20
+  %225 = add nuw nsw i32 %198, 20
   store i32 %225, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i167
 
@@ -2909,14 +2909,14 @@ bits_peek_be.exit.i175:                           ; preds = %bits_read_vlc_be.ex
   %277 = load i32, ptr %274, align 1, !tbaa !30
   %278 = tail call i32 @llvm.bswap.i32(i32 %277)
   %279 = zext i32 %278 to i64
-  %280 = sub i32 44, %258
+  %280 = sub nsw i32 44, %258
   %281 = zext nneg i32 %280 to i64
   %282 = shl i64 %279, %281
   %283 = or i64 %282, %269
   store i64 %283, ptr %2, align 8, !tbaa !44
   %284 = getelementptr inbounds nuw i8, ptr %274, i64 4
   store ptr %284, ptr %26, align 8, !tbaa !41
-  %285 = add i32 %258, 20
+  %285 = add nuw nsw i32 %258, 20
   store i32 %285, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i178
 
@@ -3003,14 +3003,14 @@ bits_peek_be.exit.i186:                           ; preds = %bits_read_vlc_be.ex
   %337 = load i32, ptr %334, align 1, !tbaa !30
   %338 = tail call i32 @llvm.bswap.i32(i32 %337)
   %339 = zext i32 %338 to i64
-  %340 = sub i32 44, %318
+  %340 = sub nsw i32 44, %318
   %341 = zext nneg i32 %340 to i64
   %342 = shl i64 %339, %341
   %343 = or i64 %342, %329
   store i64 %343, ptr %2, align 8, !tbaa !44
   %344 = getelementptr inbounds nuw i8, ptr %334, i64 4
   store ptr %344, ptr %26, align 8, !tbaa !41
-  %345 = add i32 %318, 20
+  %345 = add nuw nsw i32 %318, 20
   store i32 %345, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i189
 
@@ -3418,14 +3418,14 @@ bits_peek_be.exit.i221:                           ; preds = %533, %569, %566
   %598 = load i32, ptr %595, align 1, !tbaa !30
   %599 = tail call i32 @llvm.bswap.i32(i32 %598)
   %600 = zext i32 %599 to i64
-  %601 = sub i32 44, %579
+  %601 = sub nsw i32 44, %579
   %602 = zext nneg i32 %601 to i64
   %603 = shl i64 %600, %602
   %604 = or i64 %603, %590
   store i64 %604, ptr %2, align 8, !tbaa !44
   %605 = getelementptr inbounds nuw i8, ptr %595, i64 4
   store ptr %605, ptr %406, align 8, !tbaa !41
-  %606 = add i32 %579, 20
+  %606 = add nuw nsw i32 %579, 20
   store i32 %606, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i224
 
@@ -3512,14 +3512,14 @@ bits_peek_be.exit.i232:                           ; preds = %bits_read_vlc_be.ex
   %658 = load i32, ptr %655, align 1, !tbaa !30
   %659 = tail call i32 @llvm.bswap.i32(i32 %658)
   %660 = zext i32 %659 to i64
-  %661 = sub i32 44, %639
+  %661 = sub nsw i32 44, %639
   %662 = zext nneg i32 %661 to i64
   %663 = shl i64 %660, %662
   %664 = or i64 %663, %650
   store i64 %664, ptr %2, align 8, !tbaa !44
   %665 = getelementptr inbounds nuw i8, ptr %655, i64 4
   store ptr %665, ptr %406, align 8, !tbaa !41
-  %666 = add i32 %639, 20
+  %666 = add nuw nsw i32 %639, 20
   store i32 %666, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i235
 
@@ -3606,14 +3606,14 @@ bits_peek_be.exit.i243:                           ; preds = %bits_read_vlc_be.ex
   %718 = load i32, ptr %715, align 1, !tbaa !30
   %719 = tail call i32 @llvm.bswap.i32(i32 %718)
   %720 = zext i32 %719 to i64
-  %721 = sub i32 44, %699
+  %721 = sub nsw i32 44, %699
   %722 = zext nneg i32 %721 to i64
   %723 = shl i64 %720, %722
   %724 = or i64 %723, %710
   store i64 %724, ptr %2, align 8, !tbaa !44
   %725 = getelementptr inbounds nuw i8, ptr %715, i64 4
   store ptr %725, ptr %406, align 8, !tbaa !41
-  %726 = add i32 %699, 20
+  %726 = add nuw nsw i32 %699, 20
   store i32 %726, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i246
 
@@ -3700,14 +3700,14 @@ bits_peek_be.exit.i254:                           ; preds = %bits_read_vlc_be.ex
   %778 = load i32, ptr %775, align 1, !tbaa !30
   %779 = tail call i32 @llvm.bswap.i32(i32 %778)
   %780 = zext i32 %779 to i64
-  %781 = sub i32 44, %759
+  %781 = sub nsw i32 44, %759
   %782 = zext nneg i32 %781 to i64
   %783 = shl i64 %780, %782
   %784 = or i64 %783, %770
   store i64 %784, ptr %2, align 8, !tbaa !44
   %785 = getelementptr inbounds nuw i8, ptr %775, i64 4
   store ptr %785, ptr %406, align 8, !tbaa !41
-  %786 = add i32 %759, 20
+  %786 = add nuw nsw i32 %759, 20
   store i32 %786, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i257
 
@@ -4110,14 +4110,14 @@ bits_peek_be.exit.i:                              ; preds = %126, %133, %130
   %162 = load i32, ptr %159, align 1, !tbaa !30
   %163 = tail call i32 @llvm.bswap.i32(i32 %162)
   %164 = zext i32 %163 to i64
-  %165 = sub i32 44, %143
+  %165 = sub nsw i32 44, %143
   %166 = zext nneg i32 %165 to i64
   %167 = shl i64 %164, %166
   %168 = or i64 %167, %154
   store i64 %168, ptr %2, align 8, !tbaa !44
   %169 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store ptr %169, ptr %17, align 8, !tbaa !41
-  %170 = add i32 %143, 20
+  %170 = add nuw nsw i32 %143, 20
   store i32 %170, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -4202,14 +4202,14 @@ bits_peek_be.exit.i79:                            ; preds = %bits_read_vlc_be.ex
   %220 = load i32, ptr %217, align 1, !tbaa !30
   %221 = tail call i32 @llvm.bswap.i32(i32 %220)
   %222 = zext i32 %221 to i64
-  %223 = sub i32 44, %201
+  %223 = sub nsw i32 44, %201
   %224 = zext nneg i32 %223 to i64
   %225 = shl i64 %222, %224
   %226 = or i64 %225, %212
   store i64 %226, ptr %2, align 8, !tbaa !44
   %227 = getelementptr inbounds nuw i8, ptr %217, i64 4
   store ptr %227, ptr %17, align 8, !tbaa !41
-  %228 = add i32 %201, 20
+  %228 = add nuw nsw i32 %201, 20
   store i32 %228, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i82
 
@@ -4296,14 +4296,14 @@ bits_peek_be.exit.i90:                            ; preds = %bits_read_vlc_be.ex
   %280 = load i32, ptr %277, align 1, !tbaa !30
   %281 = tail call i32 @llvm.bswap.i32(i32 %280)
   %282 = zext i32 %281 to i64
-  %283 = sub i32 44, %261
+  %283 = sub nsw i32 44, %261
   %284 = zext nneg i32 %283 to i64
   %285 = shl i64 %282, %284
   %286 = or i64 %285, %272
   store i64 %286, ptr %2, align 8, !tbaa !44
   %287 = getelementptr inbounds nuw i8, ptr %277, i64 4
   store ptr %287, ptr %17, align 8, !tbaa !41
-  %288 = add i32 %261, 20
+  %288 = add nuw nsw i32 %261, 20
   store i32 %288, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i93
 
@@ -4390,14 +4390,14 @@ bits_peek_be.exit.i101:                           ; preds = %bits_read_vlc_be.ex
   %340 = load i32, ptr %337, align 1, !tbaa !30
   %341 = tail call i32 @llvm.bswap.i32(i32 %340)
   %342 = zext i32 %341 to i64
-  %343 = sub i32 44, %321
+  %343 = sub nsw i32 44, %321
   %344 = zext nneg i32 %343 to i64
   %345 = shl i64 %342, %344
   %346 = or i64 %345, %332
   store i64 %346, ptr %2, align 8, !tbaa !44
   %347 = getelementptr inbounds nuw i8, ptr %337, i64 4
   store ptr %347, ptr %17, align 8, !tbaa !41
-  %348 = add i32 %321, 20
+  %348 = add nuw nsw i32 %321, 20
   store i32 %348, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i104
 
@@ -4723,14 +4723,14 @@ bits_peek_be.exit.i:                              ; preds = %101, %108, %105
   %137 = load i32, ptr %134, align 1, !tbaa !30
   %138 = tail call i32 @llvm.bswap.i32(i32 %137)
   %139 = zext i32 %138 to i64
-  %140 = sub i32 44, %118
+  %140 = sub nsw i32 44, %118
   %141 = zext nneg i32 %140 to i64
   %142 = shl i64 %139, %141
   %143 = or i64 %142, %129
   store i64 %143, ptr %2, align 8, !tbaa !44
   %144 = getelementptr inbounds nuw i8, ptr %134, i64 4
   store ptr %144, ptr %24, align 8, !tbaa !41
-  %145 = add i32 %118, 20
+  %145 = add nuw nsw i32 %118, 20
   store i32 %145, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -4817,14 +4817,14 @@ bits_peek_be.exit.i132:                           ; preds = %bits_read_vlc_be.ex
   %197 = load i32, ptr %194, align 1, !tbaa !30
   %198 = tail call i32 @llvm.bswap.i32(i32 %197)
   %199 = zext i32 %198 to i64
-  %200 = sub i32 44, %178
+  %200 = sub nsw i32 44, %178
   %201 = zext nneg i32 %200 to i64
   %202 = shl i64 %199, %201
   %203 = or i64 %202, %189
   store i64 %203, ptr %2, align 8, !tbaa !44
   %204 = getelementptr inbounds nuw i8, ptr %194, i64 4
   store ptr %204, ptr %24, align 8, !tbaa !41
-  %205 = add i32 %178, 20
+  %205 = add nuw nsw i32 %178, 20
   store i32 %205, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i135
 
@@ -4911,14 +4911,14 @@ bits_peek_be.exit.i143:                           ; preds = %bits_read_vlc_be.ex
   %257 = load i32, ptr %254, align 1, !tbaa !30
   %258 = tail call i32 @llvm.bswap.i32(i32 %257)
   %259 = zext i32 %258 to i64
-  %260 = sub i32 44, %238
+  %260 = sub nsw i32 44, %238
   %261 = zext nneg i32 %260 to i64
   %262 = shl i64 %259, %261
   %263 = or i64 %262, %249
   store i64 %263, ptr %2, align 8, !tbaa !44
   %264 = getelementptr inbounds nuw i8, ptr %254, i64 4
   store ptr %264, ptr %24, align 8, !tbaa !41
-  %265 = add i32 %238, 20
+  %265 = add nuw nsw i32 %238, 20
   store i32 %265, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i146
 
@@ -5268,14 +5268,14 @@ bits_peek_be.exit.i174:                           ; preds = %419, %448, %445
   %477 = load i32, ptr %474, align 1, !tbaa !30
   %478 = tail call i32 @llvm.bswap.i32(i32 %477)
   %479 = zext i32 %478 to i64
-  %480 = sub i32 44, %458
+  %480 = sub nsw i32 44, %458
   %481 = zext nneg i32 %480 to i64
   %482 = shl i64 %479, %481
   %483 = or i64 %482, %469
   store i64 %483, ptr %2, align 8, !tbaa !44
   %484 = getelementptr inbounds nuw i8, ptr %474, i64 4
   store ptr %484, ptr %318, align 8, !tbaa !41
-  %485 = add i32 %458, 20
+  %485 = add nuw nsw i32 %458, 20
   store i32 %485, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i177
 
@@ -5362,14 +5362,14 @@ bits_peek_be.exit.i185:                           ; preds = %bits_read_vlc_be.ex
   %537 = load i32, ptr %534, align 1, !tbaa !30
   %538 = tail call i32 @llvm.bswap.i32(i32 %537)
   %539 = zext i32 %538 to i64
-  %540 = sub i32 44, %518
+  %540 = sub nsw i32 44, %518
   %541 = zext nneg i32 %540 to i64
   %542 = shl i64 %539, %541
   %543 = or i64 %542, %529
   store i64 %543, ptr %2, align 8, !tbaa !44
   %544 = getelementptr inbounds nuw i8, ptr %534, i64 4
   store ptr %544, ptr %318, align 8, !tbaa !41
-  %545 = add i32 %518, 20
+  %545 = add nuw nsw i32 %518, 20
   store i32 %545, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i188
 
@@ -5456,14 +5456,14 @@ bits_peek_be.exit.i196:                           ; preds = %bits_read_vlc_be.ex
   %597 = load i32, ptr %594, align 1, !tbaa !30
   %598 = tail call i32 @llvm.bswap.i32(i32 %597)
   %599 = zext i32 %598 to i64
-  %600 = sub i32 44, %578
+  %600 = sub nsw i32 44, %578
   %601 = zext nneg i32 %600 to i64
   %602 = shl i64 %599, %601
   %603 = or i64 %602, %589
   store i64 %603, ptr %2, align 8, !tbaa !44
   %604 = getelementptr inbounds nuw i8, ptr %594, i64 4
   store ptr %604, ptr %318, align 8, !tbaa !41
-  %605 = add i32 %578, 20
+  %605 = add nuw nsw i32 %578, 20
   store i32 %605, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i199
 
@@ -5814,14 +5814,14 @@ bits_peek_be.exit.i:                              ; preds = %103, %110, %107
   %139 = load i32, ptr %136, align 1, !tbaa !30
   %140 = tail call i32 @llvm.bswap.i32(i32 %139)
   %141 = zext i32 %140 to i64
-  %142 = sub i32 44, %120
+  %142 = sub nsw i32 44, %120
   %143 = zext nneg i32 %142 to i64
   %144 = shl i64 %141, %143
   %145 = or i64 %144, %131
   store i64 %145, ptr %2, align 8, !tbaa !44
   %146 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store ptr %146, ptr %15, align 8, !tbaa !41
-  %147 = add i32 %120, 20
+  %147 = add nuw nsw i32 %120, 20
   store i32 %147, ptr %14, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -5908,14 +5908,14 @@ bits_peek_be.exit.i63:                            ; preds = %bits_read_vlc_be.ex
   %199 = load i32, ptr %196, align 1, !tbaa !30
   %200 = tail call i32 @llvm.bswap.i32(i32 %199)
   %201 = zext i32 %200 to i64
-  %202 = sub i32 44, %180
+  %202 = sub nsw i32 44, %180
   %203 = zext nneg i32 %202 to i64
   %204 = shl i64 %201, %203
   %205 = or i64 %204, %191
   store i64 %205, ptr %2, align 8, !tbaa !44
   %206 = getelementptr inbounds nuw i8, ptr %196, i64 4
   store ptr %206, ptr %15, align 8, !tbaa !41
-  %207 = add i32 %180, 20
+  %207 = add nuw nsw i32 %180, 20
   store i32 %207, ptr %14, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i66
 
@@ -6002,14 +6002,14 @@ bits_peek_be.exit.i74:                            ; preds = %bits_read_vlc_be.ex
   %259 = load i32, ptr %256, align 1, !tbaa !30
   %260 = tail call i32 @llvm.bswap.i32(i32 %259)
   %261 = zext i32 %260 to i64
-  %262 = sub i32 44, %240
+  %262 = sub nsw i32 44, %240
   %263 = zext nneg i32 %262 to i64
   %264 = shl i64 %261, %263
   %265 = or i64 %264, %251
   store i64 %265, ptr %2, align 8, !tbaa !44
   %266 = getelementptr inbounds nuw i8, ptr %256, i64 4
   store ptr %266, ptr %15, align 8, !tbaa !41
-  %267 = add i32 %240, 20
+  %267 = add nuw nsw i32 %240, 20
   store i32 %267, ptr %14, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i77
 
@@ -6381,14 +6381,14 @@ bits_peek_be.exit.i:                              ; preds = %125, %122, %.bits_p
   %154 = load i32, ptr %151, align 1, !tbaa !30
   %155 = tail call i32 @llvm.bswap.i32(i32 %154)
   %156 = zext i32 %155 to i64
-  %157 = sub i32 44, %135
+  %157 = sub nsw i32 44, %135
   %158 = zext nneg i32 %157 to i64
   %159 = shl i64 %156, %158
   %160 = or i64 %159, %146
   store i64 %160, ptr %2, align 8, !tbaa !44
   %161 = getelementptr inbounds nuw i8, ptr %151, i64 4
   store ptr %161, ptr %19, align 8, !tbaa !41
-  %162 = add i32 %135, 20
+  %162 = add nuw nsw i32 %135, 20
   store i32 %162, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -6476,14 +6476,14 @@ bits_peek_be.exit.i146:                           ; preds = %bits_read_vlc_be.ex
   %215 = load i32, ptr %212, align 1, !tbaa !30
   %216 = tail call i32 @llvm.bswap.i32(i32 %215)
   %217 = zext i32 %216 to i64
-  %218 = sub i32 44, %196
+  %218 = sub nsw i32 44, %196
   %219 = zext nneg i32 %218 to i64
   %220 = shl i64 %217, %219
   %221 = or i64 %220, %207
   store i64 %221, ptr %2, align 8, !tbaa !44
   %222 = getelementptr inbounds nuw i8, ptr %212, i64 4
   store ptr %222, ptr %19, align 8, !tbaa !41
-  %223 = add i32 %196, 20
+  %223 = add nuw nsw i32 %196, 20
   store i32 %223, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i149
 
@@ -6570,14 +6570,14 @@ bits_peek_be.exit.i157:                           ; preds = %bits_read_vlc_be.ex
   %275 = load i32, ptr %272, align 1, !tbaa !30
   %276 = tail call i32 @llvm.bswap.i32(i32 %275)
   %277 = zext i32 %276 to i64
-  %278 = sub i32 44, %256
+  %278 = sub nsw i32 44, %256
   %279 = zext nneg i32 %278 to i64
   %280 = shl i64 %277, %279
   %281 = or i64 %280, %267
   store i64 %281, ptr %2, align 8, !tbaa !44
   %282 = getelementptr inbounds nuw i8, ptr %272, i64 4
   store ptr %282, ptr %19, align 8, !tbaa !41
-  %283 = add i32 %256, 20
+  %283 = add nuw nsw i32 %256, 20
   store i32 %283, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i160
 
@@ -6664,14 +6664,14 @@ bits_peek_be.exit.i168:                           ; preds = %bits_read_vlc_be.ex
   %335 = load i32, ptr %332, align 1, !tbaa !30
   %336 = tail call i32 @llvm.bswap.i32(i32 %335)
   %337 = zext i32 %336 to i64
-  %338 = sub i32 44, %316
+  %338 = sub nsw i32 44, %316
   %339 = zext nneg i32 %338 to i64
   %340 = shl i64 %337, %339
   %341 = or i64 %340, %327
   store i64 %341, ptr %2, align 8, !tbaa !44
   %342 = getelementptr inbounds nuw i8, ptr %332, i64 4
   store ptr %342, ptr %19, align 8, !tbaa !41
-  %343 = add i32 %316, 20
+  %343 = add nuw nsw i32 %316, 20
   store i32 %343, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i171
 
@@ -7077,14 +7077,14 @@ bits_peek_be.exit.i203:                           ; preds = %536, %533, %.bits_p
   %565 = load i32, ptr %562, align 1, !tbaa !30
   %566 = tail call i32 @llvm.bswap.i32(i32 %565)
   %567 = zext i32 %566 to i64
-  %568 = sub i32 44, %546
+  %568 = sub nsw i32 44, %546
   %569 = zext nneg i32 %568 to i64
   %570 = shl i64 %567, %569
   %571 = or i64 %570, %557
   store i64 %571, ptr %2, align 8, !tbaa !44
   %572 = getelementptr inbounds nuw i8, ptr %562, i64 4
   store ptr %572, ptr %388, align 8, !tbaa !41
-  %573 = add i32 %546, 20
+  %573 = add nuw nsw i32 %546, 20
   store i32 %573, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i206
 
@@ -7172,14 +7172,14 @@ bits_peek_be.exit.i214:                           ; preds = %bits_read_vlc_be.ex
   %626 = load i32, ptr %623, align 1, !tbaa !30
   %627 = tail call i32 @llvm.bswap.i32(i32 %626)
   %628 = zext i32 %627 to i64
-  %629 = sub i32 44, %607
+  %629 = sub nsw i32 44, %607
   %630 = zext nneg i32 %629 to i64
   %631 = shl i64 %628, %630
   %632 = or i64 %631, %618
   store i64 %632, ptr %2, align 8, !tbaa !44
   %633 = getelementptr inbounds nuw i8, ptr %623, i64 4
   store ptr %633, ptr %388, align 8, !tbaa !41
-  %634 = add i32 %607, 20
+  %634 = add nuw nsw i32 %607, 20
   store i32 %634, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i217
 
@@ -7266,14 +7266,14 @@ bits_peek_be.exit.i225:                           ; preds = %bits_read_vlc_be.ex
   %686 = load i32, ptr %683, align 1, !tbaa !30
   %687 = tail call i32 @llvm.bswap.i32(i32 %686)
   %688 = zext i32 %687 to i64
-  %689 = sub i32 44, %667
+  %689 = sub nsw i32 44, %667
   %690 = zext nneg i32 %689 to i64
   %691 = shl i64 %688, %690
   %692 = or i64 %691, %678
   store i64 %692, ptr %2, align 8, !tbaa !44
   %693 = getelementptr inbounds nuw i8, ptr %683, i64 4
   store ptr %693, ptr %388, align 8, !tbaa !41
-  %694 = add i32 %667, 20
+  %694 = add nuw nsw i32 %667, 20
   store i32 %694, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i228
 
@@ -7360,14 +7360,14 @@ bits_peek_be.exit.i236:                           ; preds = %bits_read_vlc_be.ex
   %746 = load i32, ptr %743, align 1, !tbaa !30
   %747 = tail call i32 @llvm.bswap.i32(i32 %746)
   %748 = zext i32 %747 to i64
-  %749 = sub i32 44, %727
+  %749 = sub nsw i32 44, %727
   %750 = zext nneg i32 %749 to i64
   %751 = shl i64 %748, %750
   %752 = or i64 %751, %738
   store i64 %752, ptr %2, align 8, !tbaa !44
   %753 = getelementptr inbounds nuw i8, ptr %743, i64 4
   store ptr %753, ptr %388, align 8, !tbaa !41
-  %754 = add i32 %727, 20
+  %754 = add nuw nsw i32 %727, 20
   store i32 %754, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i239
 
@@ -7758,14 +7758,14 @@ bits_peek_be.exit.i:                              ; preds = %125, %122, %.bits_p
   %154 = load i32, ptr %151, align 1, !tbaa !30
   %155 = tail call i32 @llvm.bswap.i32(i32 %154)
   %156 = zext i32 %155 to i64
-  %157 = sub i32 44, %135
+  %157 = sub nsw i32 44, %135
   %158 = zext nneg i32 %157 to i64
   %159 = shl i64 %156, %158
   %160 = or i64 %159, %146
   store i64 %160, ptr %2, align 8, !tbaa !44
   %161 = getelementptr inbounds nuw i8, ptr %151, i64 4
   store ptr %161, ptr %19, align 8, !tbaa !41
-  %162 = add i32 %135, 20
+  %162 = add nuw nsw i32 %135, 20
   store i32 %162, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -7853,14 +7853,14 @@ bits_peek_be.exit.i122:                           ; preds = %bits_read_vlc_be.ex
   %215 = load i32, ptr %212, align 1, !tbaa !30
   %216 = tail call i32 @llvm.bswap.i32(i32 %215)
   %217 = zext i32 %216 to i64
-  %218 = sub i32 44, %196
+  %218 = sub nsw i32 44, %196
   %219 = zext nneg i32 %218 to i64
   %220 = shl i64 %217, %219
   %221 = or i64 %220, %207
   store i64 %221, ptr %2, align 8, !tbaa !44
   %222 = getelementptr inbounds nuw i8, ptr %212, i64 4
   store ptr %222, ptr %19, align 8, !tbaa !41
-  %223 = add i32 %196, 20
+  %223 = add nuw nsw i32 %196, 20
   store i32 %223, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i125
 
@@ -7947,14 +7947,14 @@ bits_peek_be.exit.i133:                           ; preds = %bits_read_vlc_be.ex
   %275 = load i32, ptr %272, align 1, !tbaa !30
   %276 = tail call i32 @llvm.bswap.i32(i32 %275)
   %277 = zext i32 %276 to i64
-  %278 = sub i32 44, %256
+  %278 = sub nsw i32 44, %256
   %279 = zext nneg i32 %278 to i64
   %280 = shl i64 %277, %279
   %281 = or i64 %280, %267
   store i64 %281, ptr %2, align 8, !tbaa !44
   %282 = getelementptr inbounds nuw i8, ptr %272, i64 4
   store ptr %282, ptr %19, align 8, !tbaa !41
-  %283 = add i32 %256, 20
+  %283 = add nuw nsw i32 %256, 20
   store i32 %283, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i136
 
@@ -8041,14 +8041,14 @@ bits_peek_be.exit.i144:                           ; preds = %bits_read_vlc_be.ex
   %335 = load i32, ptr %332, align 1, !tbaa !30
   %336 = tail call i32 @llvm.bswap.i32(i32 %335)
   %337 = zext i32 %336 to i64
-  %338 = sub i32 44, %316
+  %338 = sub nsw i32 44, %316
   %339 = zext nneg i32 %338 to i64
   %340 = shl i64 %337, %339
   %341 = or i64 %340, %327
   store i64 %341, ptr %2, align 8, !tbaa !44
   %342 = getelementptr inbounds nuw i8, ptr %332, i64 4
   store ptr %342, ptr %19, align 8, !tbaa !41
-  %343 = add i32 %316, 20
+  %343 = add nuw nsw i32 %316, 20
   store i32 %343, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i147
 
@@ -8434,14 +8434,14 @@ bits_peek_be.exit.i179:                           ; preds = %520, %517, %.bits_p
   %549 = load i32, ptr %546, align 1, !tbaa !30
   %550 = tail call i32 @llvm.bswap.i32(i32 %549)
   %551 = zext i32 %550 to i64
-  %552 = sub i32 44, %530
+  %552 = sub nsw i32 44, %530
   %553 = zext nneg i32 %552 to i64
   %554 = shl i64 %551, %553
   %555 = or i64 %554, %541
   store i64 %555, ptr %2, align 8, !tbaa !44
   %556 = getelementptr inbounds nuw i8, ptr %546, i64 4
   store ptr %556, ptr %388, align 8, !tbaa !41
-  %557 = add i32 %530, 20
+  %557 = add nuw nsw i32 %530, 20
   store i32 %557, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i182
 
@@ -8529,14 +8529,14 @@ bits_peek_be.exit.i190:                           ; preds = %bits_read_vlc_be.ex
   %610 = load i32, ptr %607, align 1, !tbaa !30
   %611 = tail call i32 @llvm.bswap.i32(i32 %610)
   %612 = zext i32 %611 to i64
-  %613 = sub i32 44, %591
+  %613 = sub nsw i32 44, %591
   %614 = zext nneg i32 %613 to i64
   %615 = shl i64 %612, %614
   %616 = or i64 %615, %602
   store i64 %616, ptr %2, align 8, !tbaa !44
   %617 = getelementptr inbounds nuw i8, ptr %607, i64 4
   store ptr %617, ptr %388, align 8, !tbaa !41
-  %618 = add i32 %591, 20
+  %618 = add nuw nsw i32 %591, 20
   store i32 %618, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i193
 
@@ -8623,14 +8623,14 @@ bits_peek_be.exit.i201:                           ; preds = %bits_read_vlc_be.ex
   %670 = load i32, ptr %667, align 1, !tbaa !30
   %671 = tail call i32 @llvm.bswap.i32(i32 %670)
   %672 = zext i32 %671 to i64
-  %673 = sub i32 44, %651
+  %673 = sub nsw i32 44, %651
   %674 = zext nneg i32 %673 to i64
   %675 = shl i64 %672, %674
   %676 = or i64 %675, %662
   store i64 %676, ptr %2, align 8, !tbaa !44
   %677 = getelementptr inbounds nuw i8, ptr %667, i64 4
   store ptr %677, ptr %388, align 8, !tbaa !41
-  %678 = add i32 %651, 20
+  %678 = add nuw nsw i32 %651, 20
   store i32 %678, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i204
 
@@ -8717,14 +8717,14 @@ bits_peek_be.exit.i212:                           ; preds = %bits_read_vlc_be.ex
   %730 = load i32, ptr %727, align 1, !tbaa !30
   %731 = tail call i32 @llvm.bswap.i32(i32 %730)
   %732 = zext i32 %731 to i64
-  %733 = sub i32 44, %711
+  %733 = sub nsw i32 44, %711
   %734 = zext nneg i32 %733 to i64
   %735 = shl i64 %732, %734
   %736 = or i64 %735, %722
   store i64 %736, ptr %2, align 8, !tbaa !44
   %737 = getelementptr inbounds nuw i8, ptr %727, i64 4
   store ptr %737, ptr %388, align 8, !tbaa !41
-  %738 = add i32 %711, 20
+  %738 = add nuw nsw i32 %711, 20
   store i32 %738, ptr %7, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i215
 
@@ -9101,14 +9101,14 @@ bits_peek_be.exit.i:                              ; preds = %132, %129, %.bits_p
   %161 = load i32, ptr %158, align 1, !tbaa !30
   %162 = tail call i32 @llvm.bswap.i32(i32 %161)
   %163 = zext i32 %162 to i64
-  %164 = sub i32 44, %142
+  %164 = sub nsw i32 44, %142
   %165 = zext nneg i32 %164 to i64
   %166 = shl i64 %163, %165
   %167 = or i64 %166, %153
   store i64 %167, ptr %2, align 8, !tbaa !44
   %168 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store ptr %168, ptr %122, align 8, !tbaa !41
-  %169 = add i32 %142, 20
+  %169 = add nuw nsw i32 %142, 20
   store i32 %169, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -9196,14 +9196,14 @@ bits_peek_be.exit.i162:                           ; preds = %bits_read_vlc_be.ex
   %222 = load i32, ptr %219, align 1, !tbaa !30
   %223 = tail call i32 @llvm.bswap.i32(i32 %222)
   %224 = zext i32 %223 to i64
-  %225 = sub i32 44, %203
+  %225 = sub nsw i32 44, %203
   %226 = zext nneg i32 %225 to i64
   %227 = shl i64 %224, %226
   %228 = or i64 %227, %214
   store i64 %228, ptr %2, align 8, !tbaa !44
   %229 = getelementptr inbounds nuw i8, ptr %219, i64 4
   store ptr %229, ptr %122, align 8, !tbaa !41
-  %230 = add i32 %203, 20
+  %230 = add nuw nsw i32 %203, 20
   store i32 %230, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i165
 
@@ -9290,14 +9290,14 @@ bits_peek_be.exit.i173:                           ; preds = %bits_read_vlc_be.ex
   %282 = load i32, ptr %279, align 1, !tbaa !30
   %283 = tail call i32 @llvm.bswap.i32(i32 %282)
   %284 = zext i32 %283 to i64
-  %285 = sub i32 44, %263
+  %285 = sub nsw i32 44, %263
   %286 = zext nneg i32 %285 to i64
   %287 = shl i64 %284, %286
   %288 = or i64 %287, %274
   store i64 %288, ptr %2, align 8, !tbaa !44
   %289 = getelementptr inbounds nuw i8, ptr %279, i64 4
   store ptr %289, ptr %122, align 8, !tbaa !41
-  %290 = add i32 %263, 20
+  %290 = add nuw nsw i32 %263, 20
   store i32 %290, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i176
 
@@ -9384,14 +9384,14 @@ bits_peek_be.exit.i184:                           ; preds = %bits_read_vlc_be.ex
   %342 = load i32, ptr %339, align 1, !tbaa !30
   %343 = tail call i32 @llvm.bswap.i32(i32 %342)
   %344 = zext i32 %343 to i64
-  %345 = sub i32 44, %323
+  %345 = sub nsw i32 44, %323
   %346 = zext nneg i32 %345 to i64
   %347 = shl i64 %344, %346
   %348 = or i64 %347, %334
   store i64 %348, ptr %2, align 8, !tbaa !44
   %349 = getelementptr inbounds nuw i8, ptr %339, i64 4
   store ptr %349, ptr %122, align 8, !tbaa !41
-  %350 = add i32 %323, 20
+  %350 = add nuw nsw i32 %323, 20
   store i32 %350, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i187
 
@@ -9826,14 +9826,14 @@ bits_peek_be.exit.i219:                           ; preds = %566, %563, %.bits_p
   %595 = load i32, ptr %592, align 1, !tbaa !30
   %596 = tail call i32 @llvm.bswap.i32(i32 %595)
   %597 = zext i32 %596 to i64
-  %598 = sub i32 44, %576
+  %598 = sub nsw i32 44, %576
   %599 = zext nneg i32 %598 to i64
   %600 = shl i64 %597, %599
   %601 = or i64 %600, %587
   store i64 %601, ptr %2, align 8, !tbaa !44
   %602 = getelementptr inbounds nuw i8, ptr %592, i64 4
   store ptr %602, ptr %404, align 8, !tbaa !41
-  %603 = add i32 %576, 20
+  %603 = add nuw nsw i32 %576, 20
   store i32 %603, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i222
 
@@ -9921,14 +9921,14 @@ bits_peek_be.exit.i230:                           ; preds = %bits_read_vlc_be.ex
   %656 = load i32, ptr %653, align 1, !tbaa !30
   %657 = tail call i32 @llvm.bswap.i32(i32 %656)
   %658 = zext i32 %657 to i64
-  %659 = sub i32 44, %637
+  %659 = sub nsw i32 44, %637
   %660 = zext nneg i32 %659 to i64
   %661 = shl i64 %658, %660
   %662 = or i64 %661, %648
   store i64 %662, ptr %2, align 8, !tbaa !44
   %663 = getelementptr inbounds nuw i8, ptr %653, i64 4
   store ptr %663, ptr %404, align 8, !tbaa !41
-  %664 = add i32 %637, 20
+  %664 = add nuw nsw i32 %637, 20
   store i32 %664, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i233
 
@@ -10015,14 +10015,14 @@ bits_peek_be.exit.i241:                           ; preds = %bits_read_vlc_be.ex
   %716 = load i32, ptr %713, align 1, !tbaa !30
   %717 = tail call i32 @llvm.bswap.i32(i32 %716)
   %718 = zext i32 %717 to i64
-  %719 = sub i32 44, %697
+  %719 = sub nsw i32 44, %697
   %720 = zext nneg i32 %719 to i64
   %721 = shl i64 %718, %720
   %722 = or i64 %721, %708
   store i64 %722, ptr %2, align 8, !tbaa !44
   %723 = getelementptr inbounds nuw i8, ptr %713, i64 4
   store ptr %723, ptr %404, align 8, !tbaa !41
-  %724 = add i32 %697, 20
+  %724 = add nuw nsw i32 %697, 20
   store i32 %724, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i244
 
@@ -10109,14 +10109,14 @@ bits_peek_be.exit.i252:                           ; preds = %bits_read_vlc_be.ex
   %776 = load i32, ptr %773, align 1, !tbaa !30
   %777 = tail call i32 @llvm.bswap.i32(i32 %776)
   %778 = zext i32 %777 to i64
-  %779 = sub i32 44, %757
+  %779 = sub nsw i32 44, %757
   %780 = zext nneg i32 %779 to i64
   %781 = shl i64 %778, %780
   %782 = or i64 %781, %768
   store i64 %782, ptr %2, align 8, !tbaa !44
   %783 = getelementptr inbounds nuw i8, ptr %773, i64 4
   store ptr %783, ptr %404, align 8, !tbaa !41
-  %784 = add i32 %757, 20
+  %784 = add nuw nsw i32 %757, 20
   store i32 %784, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i255
 
@@ -10523,14 +10523,14 @@ bits_peek_be.exit.i:                              ; preds = %132, %129, %.bits_p
   %161 = load i32, ptr %158, align 1, !tbaa !30
   %162 = tail call i32 @llvm.bswap.i32(i32 %161)
   %163 = zext i32 %162 to i64
-  %164 = sub i32 44, %142
+  %164 = sub nsw i32 44, %142
   %165 = zext nneg i32 %164 to i64
   %166 = shl i64 %163, %165
   %167 = or i64 %166, %153
   store i64 %167, ptr %2, align 8, !tbaa !44
   %168 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store ptr %168, ptr %122, align 8, !tbaa !41
-  %169 = add i32 %142, 20
+  %169 = add nuw nsw i32 %142, 20
   store i32 %169, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -10618,14 +10618,14 @@ bits_peek_be.exit.i138:                           ; preds = %bits_read_vlc_be.ex
   %222 = load i32, ptr %219, align 1, !tbaa !30
   %223 = tail call i32 @llvm.bswap.i32(i32 %222)
   %224 = zext i32 %223 to i64
-  %225 = sub i32 44, %203
+  %225 = sub nsw i32 44, %203
   %226 = zext nneg i32 %225 to i64
   %227 = shl i64 %224, %226
   %228 = or i64 %227, %214
   store i64 %228, ptr %2, align 8, !tbaa !44
   %229 = getelementptr inbounds nuw i8, ptr %219, i64 4
   store ptr %229, ptr %122, align 8, !tbaa !41
-  %230 = add i32 %203, 20
+  %230 = add nuw nsw i32 %203, 20
   store i32 %230, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i141
 
@@ -10712,14 +10712,14 @@ bits_peek_be.exit.i149:                           ; preds = %bits_read_vlc_be.ex
   %282 = load i32, ptr %279, align 1, !tbaa !30
   %283 = tail call i32 @llvm.bswap.i32(i32 %282)
   %284 = zext i32 %283 to i64
-  %285 = sub i32 44, %263
+  %285 = sub nsw i32 44, %263
   %286 = zext nneg i32 %285 to i64
   %287 = shl i64 %284, %286
   %288 = or i64 %287, %274
   store i64 %288, ptr %2, align 8, !tbaa !44
   %289 = getelementptr inbounds nuw i8, ptr %279, i64 4
   store ptr %289, ptr %122, align 8, !tbaa !41
-  %290 = add i32 %263, 20
+  %290 = add nuw nsw i32 %263, 20
   store i32 %290, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i152
 
@@ -10806,14 +10806,14 @@ bits_peek_be.exit.i160:                           ; preds = %bits_read_vlc_be.ex
   %342 = load i32, ptr %339, align 1, !tbaa !30
   %343 = tail call i32 @llvm.bswap.i32(i32 %342)
   %344 = zext i32 %343 to i64
-  %345 = sub i32 44, %323
+  %345 = sub nsw i32 44, %323
   %346 = zext nneg i32 %345 to i64
   %347 = shl i64 %344, %346
   %348 = or i64 %347, %334
   store i64 %348, ptr %2, align 8, !tbaa !44
   %349 = getelementptr inbounds nuw i8, ptr %339, i64 4
   store ptr %349, ptr %122, align 8, !tbaa !41
-  %350 = add i32 %323, 20
+  %350 = add nuw nsw i32 %323, 20
   store i32 %350, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i163
 
@@ -11219,14 +11219,14 @@ bits_peek_be.exit.i195:                           ; preds = %541, %538, %.bits_p
   %570 = load i32, ptr %567, align 1, !tbaa !30
   %571 = tail call i32 @llvm.bswap.i32(i32 %570)
   %572 = zext i32 %571 to i64
-  %573 = sub i32 44, %551
+  %573 = sub nsw i32 44, %551
   %574 = zext nneg i32 %573 to i64
   %575 = shl i64 %572, %574
   %576 = or i64 %575, %562
   store i64 %576, ptr %2, align 8, !tbaa !44
   %577 = getelementptr inbounds nuw i8, ptr %567, i64 4
   store ptr %577, ptr %404, align 8, !tbaa !41
-  %578 = add i32 %551, 20
+  %578 = add nuw nsw i32 %551, 20
   store i32 %578, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i198
 
@@ -11314,14 +11314,14 @@ bits_peek_be.exit.i206:                           ; preds = %bits_read_vlc_be.ex
   %631 = load i32, ptr %628, align 1, !tbaa !30
   %632 = tail call i32 @llvm.bswap.i32(i32 %631)
   %633 = zext i32 %632 to i64
-  %634 = sub i32 44, %612
+  %634 = sub nsw i32 44, %612
   %635 = zext nneg i32 %634 to i64
   %636 = shl i64 %633, %635
   %637 = or i64 %636, %623
   store i64 %637, ptr %2, align 8, !tbaa !44
   %638 = getelementptr inbounds nuw i8, ptr %628, i64 4
   store ptr %638, ptr %404, align 8, !tbaa !41
-  %639 = add i32 %612, 20
+  %639 = add nuw nsw i32 %612, 20
   store i32 %639, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i209
 
@@ -11408,14 +11408,14 @@ bits_peek_be.exit.i217:                           ; preds = %bits_read_vlc_be.ex
   %691 = load i32, ptr %688, align 1, !tbaa !30
   %692 = tail call i32 @llvm.bswap.i32(i32 %691)
   %693 = zext i32 %692 to i64
-  %694 = sub i32 44, %672
+  %694 = sub nsw i32 44, %672
   %695 = zext nneg i32 %694 to i64
   %696 = shl i64 %693, %695
   %697 = or i64 %696, %683
   store i64 %697, ptr %2, align 8, !tbaa !44
   %698 = getelementptr inbounds nuw i8, ptr %688, i64 4
   store ptr %698, ptr %404, align 8, !tbaa !41
-  %699 = add i32 %672, 20
+  %699 = add nuw nsw i32 %672, 20
   store i32 %699, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i220
 
@@ -11502,14 +11502,14 @@ bits_peek_be.exit.i228:                           ; preds = %bits_read_vlc_be.ex
   %751 = load i32, ptr %748, align 1, !tbaa !30
   %752 = tail call i32 @llvm.bswap.i32(i32 %751)
   %753 = zext i32 %752 to i64
-  %754 = sub i32 44, %732
+  %754 = sub nsw i32 44, %732
   %755 = zext nneg i32 %754 to i64
   %756 = shl i64 %753, %755
   %757 = or i64 %756, %743
   store i64 %757, ptr %2, align 8, !tbaa !44
   %758 = getelementptr inbounds nuw i8, ptr %748, i64 4
   store ptr %758, ptr %404, align 8, !tbaa !41
-  %759 = add i32 %732, 20
+  %759 = add nuw nsw i32 %732, 20
   store i32 %759, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i231
 
@@ -11850,14 +11850,14 @@ bits_peek_be.exit.i:                              ; preds = %110, %107, %.bits_p
   %139 = load i32, ptr %136, align 1, !tbaa !30
   %140 = tail call i32 @llvm.bswap.i32(i32 %139)
   %141 = zext i32 %140 to i64
-  %142 = sub i32 44, %120
+  %142 = sub nsw i32 44, %120
   %143 = zext nneg i32 %142 to i64
   %144 = shl i64 %141, %143
   %145 = or i64 %144, %131
   store i64 %145, ptr %2, align 8, !tbaa !44
   %146 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store ptr %146, ptr %100, align 8, !tbaa !41
-  %147 = add i32 %120, 20
+  %147 = add nuw nsw i32 %120, 20
   store i32 %147, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -11945,14 +11945,14 @@ bits_peek_be.exit.i130:                           ; preds = %bits_read_vlc_be.ex
   %200 = load i32, ptr %197, align 1, !tbaa !30
   %201 = tail call i32 @llvm.bswap.i32(i32 %200)
   %202 = zext i32 %201 to i64
-  %203 = sub i32 44, %181
+  %203 = sub nsw i32 44, %181
   %204 = zext nneg i32 %203 to i64
   %205 = shl i64 %202, %204
   %206 = or i64 %205, %192
   store i64 %206, ptr %2, align 8, !tbaa !44
   %207 = getelementptr inbounds nuw i8, ptr %197, i64 4
   store ptr %207, ptr %100, align 8, !tbaa !41
-  %208 = add i32 %181, 20
+  %208 = add nuw nsw i32 %181, 20
   store i32 %208, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i133
 
@@ -12039,14 +12039,14 @@ bits_peek_be.exit.i141:                           ; preds = %bits_read_vlc_be.ex
   %260 = load i32, ptr %257, align 1, !tbaa !30
   %261 = tail call i32 @llvm.bswap.i32(i32 %260)
   %262 = zext i32 %261 to i64
-  %263 = sub i32 44, %241
+  %263 = sub nsw i32 44, %241
   %264 = zext nneg i32 %263 to i64
   %265 = shl i64 %262, %264
   %266 = or i64 %265, %252
   store i64 %266, ptr %2, align 8, !tbaa !44
   %267 = getelementptr inbounds nuw i8, ptr %257, i64 4
   store ptr %267, ptr %100, align 8, !tbaa !41
-  %268 = add i32 %241, 20
+  %268 = add nuw nsw i32 %241, 20
   store i32 %268, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i144
 
@@ -12417,14 +12417,14 @@ bits_peek_be.exit.i172:                           ; preds = %444, %441, %.bits_p
   %473 = load i32, ptr %470, align 1, !tbaa !30
   %474 = tail call i32 @llvm.bswap.i32(i32 %473)
   %475 = zext i32 %474 to i64
-  %476 = sub i32 44, %454
+  %476 = sub nsw i32 44, %454
   %477 = zext nneg i32 %476 to i64
   %478 = shl i64 %475, %477
   %479 = or i64 %478, %465
   store i64 %479, ptr %2, align 8, !tbaa !44
   %480 = getelementptr inbounds nuw i8, ptr %470, i64 4
   store ptr %480, ptr %315, align 8, !tbaa !41
-  %481 = add i32 %454, 20
+  %481 = add nuw nsw i32 %454, 20
   store i32 %481, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i175
 
@@ -12512,14 +12512,14 @@ bits_peek_be.exit.i183:                           ; preds = %bits_read_vlc_be.ex
   %534 = load i32, ptr %531, align 1, !tbaa !30
   %535 = tail call i32 @llvm.bswap.i32(i32 %534)
   %536 = zext i32 %535 to i64
-  %537 = sub i32 44, %515
+  %537 = sub nsw i32 44, %515
   %538 = zext nneg i32 %537 to i64
   %539 = shl i64 %536, %538
   %540 = or i64 %539, %526
   store i64 %540, ptr %2, align 8, !tbaa !44
   %541 = getelementptr inbounds nuw i8, ptr %531, i64 4
   store ptr %541, ptr %315, align 8, !tbaa !41
-  %542 = add i32 %515, 20
+  %542 = add nuw nsw i32 %515, 20
   store i32 %542, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i186
 
@@ -12606,14 +12606,14 @@ bits_peek_be.exit.i194:                           ; preds = %bits_read_vlc_be.ex
   %594 = load i32, ptr %591, align 1, !tbaa !30
   %595 = tail call i32 @llvm.bswap.i32(i32 %594)
   %596 = zext i32 %595 to i64
-  %597 = sub i32 44, %575
+  %597 = sub nsw i32 44, %575
   %598 = zext nneg i32 %597 to i64
   %599 = shl i64 %596, %598
   %600 = or i64 %599, %586
   store i64 %600, ptr %2, align 8, !tbaa !44
   %601 = getelementptr inbounds nuw i8, ptr %591, i64 4
   store ptr %601, ptr %315, align 8, !tbaa !41
-  %602 = add i32 %575, 20
+  %602 = add nuw nsw i32 %575, 20
   store i32 %602, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i197
 
@@ -12965,14 +12965,14 @@ bits_peek_be.exit.i:                              ; preds = %110, %107, %.bits_p
   %139 = load i32, ptr %136, align 1, !tbaa !30
   %140 = tail call i32 @llvm.bswap.i32(i32 %139)
   %141 = zext i32 %140 to i64
-  %142 = sub i32 44, %120
+  %142 = sub nsw i32 44, %120
   %143 = zext nneg i32 %142 to i64
   %144 = shl i64 %141, %143
   %145 = or i64 %144, %131
   store i64 %145, ptr %2, align 8, !tbaa !44
   %146 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store ptr %146, ptr %100, align 8, !tbaa !41
-  %147 = add i32 %120, 20
+  %147 = add nuw nsw i32 %120, 20
   store i32 %147, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -13060,14 +13060,14 @@ bits_peek_be.exit.i110:                           ; preds = %bits_read_vlc_be.ex
   %200 = load i32, ptr %197, align 1, !tbaa !30
   %201 = tail call i32 @llvm.bswap.i32(i32 %200)
   %202 = zext i32 %201 to i64
-  %203 = sub i32 44, %181
+  %203 = sub nsw i32 44, %181
   %204 = zext nneg i32 %203 to i64
   %205 = shl i64 %202, %204
   %206 = or i64 %205, %192
   store i64 %206, ptr %2, align 8, !tbaa !44
   %207 = getelementptr inbounds nuw i8, ptr %197, i64 4
   store ptr %207, ptr %100, align 8, !tbaa !41
-  %208 = add i32 %181, 20
+  %208 = add nuw nsw i32 %181, 20
   store i32 %208, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i113
 
@@ -13154,14 +13154,14 @@ bits_peek_be.exit.i121:                           ; preds = %bits_read_vlc_be.ex
   %260 = load i32, ptr %257, align 1, !tbaa !30
   %261 = tail call i32 @llvm.bswap.i32(i32 %260)
   %262 = zext i32 %261 to i64
-  %263 = sub i32 44, %241
+  %263 = sub nsw i32 44, %241
   %264 = zext nneg i32 %263 to i64
   %265 = shl i64 %262, %264
   %266 = or i64 %265, %252
   store i64 %266, ptr %2, align 8, !tbaa !44
   %267 = getelementptr inbounds nuw i8, ptr %257, i64 4
   store ptr %267, ptr %100, align 8, !tbaa !41
-  %268 = add i32 %241, 20
+  %268 = add nuw nsw i32 %241, 20
   store i32 %268, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i124
 
@@ -13510,14 +13510,14 @@ bits_peek_be.exit.i152:                           ; preds = %425, %422, %.bits_p
   %454 = load i32, ptr %451, align 1, !tbaa !30
   %455 = tail call i32 @llvm.bswap.i32(i32 %454)
   %456 = zext i32 %455 to i64
-  %457 = sub i32 44, %435
+  %457 = sub nsw i32 44, %435
   %458 = zext nneg i32 %457 to i64
   %459 = shl i64 %456, %458
   %460 = or i64 %459, %446
   store i64 %460, ptr %2, align 8, !tbaa !44
   %461 = getelementptr inbounds nuw i8, ptr %451, i64 4
   store ptr %461, ptr %315, align 8, !tbaa !41
-  %462 = add i32 %435, 20
+  %462 = add nuw nsw i32 %435, 20
   store i32 %462, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i155
 
@@ -13605,14 +13605,14 @@ bits_peek_be.exit.i163:                           ; preds = %bits_read_vlc_be.ex
   %515 = load i32, ptr %512, align 1, !tbaa !30
   %516 = tail call i32 @llvm.bswap.i32(i32 %515)
   %517 = zext i32 %516 to i64
-  %518 = sub i32 44, %496
+  %518 = sub nsw i32 44, %496
   %519 = zext nneg i32 %518 to i64
   %520 = shl i64 %517, %519
   %521 = or i64 %520, %507
   store i64 %521, ptr %2, align 8, !tbaa !44
   %522 = getelementptr inbounds nuw i8, ptr %512, i64 4
   store ptr %522, ptr %315, align 8, !tbaa !41
-  %523 = add i32 %496, 20
+  %523 = add nuw nsw i32 %496, 20
   store i32 %523, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i166
 
@@ -13699,14 +13699,14 @@ bits_peek_be.exit.i174:                           ; preds = %bits_read_vlc_be.ex
   %575 = load i32, ptr %572, align 1, !tbaa !30
   %576 = tail call i32 @llvm.bswap.i32(i32 %575)
   %577 = zext i32 %576 to i64
-  %578 = sub i32 44, %556
+  %578 = sub nsw i32 44, %556
   %579 = zext nneg i32 %578 to i64
   %580 = shl i64 %577, %579
   %581 = or i64 %580, %567
   store i64 %581, ptr %2, align 8, !tbaa !44
   %582 = getelementptr inbounds nuw i8, ptr %572, i64 4
   store ptr %582, ptr %315, align 8, !tbaa !41
-  %583 = add i32 %556, 20
+  %583 = add nuw nsw i32 %556, 20
   store i32 %583, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i177
 
@@ -14019,14 +14019,14 @@ bits_peek_be.exit.i:                              ; preds = %101, %108, %105
   %137 = load i32, ptr %134, align 1, !tbaa !30
   %138 = tail call i32 @llvm.bswap.i32(i32 %137)
   %139 = zext i32 %138 to i64
-  %140 = sub i32 44, %118
+  %140 = sub nsw i32 44, %118
   %141 = zext nneg i32 %140 to i64
   %142 = shl i64 %139, %141
   %143 = or i64 %142, %129
   store i64 %143, ptr %2, align 8, !tbaa !44
   %144 = getelementptr inbounds nuw i8, ptr %134, i64 4
   store ptr %144, ptr %24, align 8, !tbaa !41
-  %145 = add i32 %118, 20
+  %145 = add nuw nsw i32 %118, 20
   store i32 %145, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -14111,14 +14111,14 @@ bits_peek_be.exit.i126:                           ; preds = %bits_read_vlc_be.ex
   %195 = load i32, ptr %192, align 1, !tbaa !30
   %196 = tail call i32 @llvm.bswap.i32(i32 %195)
   %197 = zext i32 %196 to i64
-  %198 = sub i32 44, %176
+  %198 = sub nsw i32 44, %176
   %199 = zext nneg i32 %198 to i64
   %200 = shl i64 %197, %199
   %201 = or i64 %200, %187
   store i64 %201, ptr %2, align 8, !tbaa !44
   %202 = getelementptr inbounds nuw i8, ptr %192, i64 4
   store ptr %202, ptr %24, align 8, !tbaa !41
-  %203 = add i32 %176, 20
+  %203 = add nuw nsw i32 %176, 20
   store i32 %203, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i129
 
@@ -14203,14 +14203,14 @@ bits_peek_be.exit.i137:                           ; preds = %bits_read_vlc_be.ex
   %253 = load i32, ptr %250, align 1, !tbaa !30
   %254 = tail call i32 @llvm.bswap.i32(i32 %253)
   %255 = zext i32 %254 to i64
-  %256 = sub i32 44, %234
+  %256 = sub nsw i32 44, %234
   %257 = zext nneg i32 %256 to i64
   %258 = shl i64 %255, %257
   %259 = or i64 %258, %245
   store i64 %259, ptr %2, align 8, !tbaa !44
   %260 = getelementptr inbounds nuw i8, ptr %250, i64 4
   store ptr %260, ptr %24, align 8, !tbaa !41
-  %261 = add i32 %234, 20
+  %261 = add nuw nsw i32 %234, 20
   store i32 %261, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i140
 
@@ -14553,14 +14553,14 @@ bits_peek_be.exit.i168:                           ; preds = %408, %437, %434
   %466 = load i32, ptr %463, align 1, !tbaa !30
   %467 = tail call i32 @llvm.bswap.i32(i32 %466)
   %468 = zext i32 %467 to i64
-  %469 = sub i32 44, %447
+  %469 = sub nsw i32 44, %447
   %470 = zext nneg i32 %469 to i64
   %471 = shl i64 %468, %470
   %472 = or i64 %471, %458
   store i64 %472, ptr %2, align 8, !tbaa !44
   %473 = getelementptr inbounds nuw i8, ptr %463, i64 4
   store ptr %473, ptr %307, align 8, !tbaa !41
-  %474 = add i32 %447, 20
+  %474 = add nuw nsw i32 %447, 20
   store i32 %474, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i171
 
@@ -14647,14 +14647,14 @@ bits_peek_be.exit.i179:                           ; preds = %bits_read_vlc_be.ex
   %526 = load i32, ptr %523, align 1, !tbaa !30
   %527 = tail call i32 @llvm.bswap.i32(i32 %526)
   %528 = zext i32 %527 to i64
-  %529 = sub i32 44, %507
+  %529 = sub nsw i32 44, %507
   %530 = zext nneg i32 %529 to i64
   %531 = shl i64 %528, %530
   %532 = or i64 %531, %518
   store i64 %532, ptr %2, align 8, !tbaa !44
   %533 = getelementptr inbounds nuw i8, ptr %523, i64 4
   store ptr %533, ptr %307, align 8, !tbaa !41
-  %534 = add i32 %507, 20
+  %534 = add nuw nsw i32 %507, 20
   store i32 %534, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i182
 
@@ -14741,14 +14741,14 @@ bits_peek_be.exit.i190:                           ; preds = %bits_read_vlc_be.ex
   %586 = load i32, ptr %583, align 1, !tbaa !30
   %587 = tail call i32 @llvm.bswap.i32(i32 %586)
   %588 = zext i32 %587 to i64
-  %589 = sub i32 44, %567
+  %589 = sub nsw i32 44, %567
   %590 = zext nneg i32 %589 to i64
   %591 = shl i64 %588, %590
   %592 = or i64 %591, %578
   store i64 %592, ptr %2, align 8, !tbaa !44
   %593 = getelementptr inbounds nuw i8, ptr %583, i64 4
   store ptr %593, ptr %307, align 8, !tbaa !41
-  %594 = add i32 %567, 20
+  %594 = add nuw nsw i32 %567, 20
   store i32 %594, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i193
 
@@ -15097,14 +15097,14 @@ bits_peek_be.exit.i:                              ; preds = %103, %110, %107
   %139 = load i32, ptr %136, align 1, !tbaa !30
   %140 = tail call i32 @llvm.bswap.i32(i32 %139)
   %141 = zext i32 %140 to i64
-  %142 = sub i32 44, %120
+  %142 = sub nsw i32 44, %120
   %143 = zext nneg i32 %142 to i64
   %144 = shl i64 %141, %143
   %145 = or i64 %144, %131
   store i64 %145, ptr %2, align 8, !tbaa !44
   %146 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store ptr %146, ptr %15, align 8, !tbaa !41
-  %147 = add i32 %120, 20
+  %147 = add nuw nsw i32 %120, 20
   store i32 %147, ptr %14, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -15189,14 +15189,14 @@ bits_peek_be.exit.i60:                            ; preds = %bits_read_vlc_be.ex
   %197 = load i32, ptr %194, align 1, !tbaa !30
   %198 = tail call i32 @llvm.bswap.i32(i32 %197)
   %199 = zext i32 %198 to i64
-  %200 = sub i32 44, %178
+  %200 = sub nsw i32 44, %178
   %201 = zext nneg i32 %200 to i64
   %202 = shl i64 %199, %201
   %203 = or i64 %202, %189
   store i64 %203, ptr %2, align 8, !tbaa !44
   %204 = getelementptr inbounds nuw i8, ptr %194, i64 4
   store ptr %204, ptr %15, align 8, !tbaa !41
-  %205 = add i32 %178, 20
+  %205 = add nuw nsw i32 %178, 20
   store i32 %205, ptr %14, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i63
 
@@ -15281,14 +15281,14 @@ bits_peek_be.exit.i71:                            ; preds = %bits_read_vlc_be.ex
   %255 = load i32, ptr %252, align 1, !tbaa !30
   %256 = tail call i32 @llvm.bswap.i32(i32 %255)
   %257 = zext i32 %256 to i64
-  %258 = sub i32 44, %236
+  %258 = sub nsw i32 44, %236
   %259 = zext nneg i32 %258 to i64
   %260 = shl i64 %257, %259
   %261 = or i64 %260, %247
   store i64 %261, ptr %2, align 8, !tbaa !44
   %262 = getelementptr inbounds nuw i8, ptr %252, i64 4
   store ptr %262, ptr %15, align 8, !tbaa !41
-  %263 = add i32 %236, 20
+  %263 = add nuw nsw i32 %236, 20
   store i32 %263, ptr %14, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i74
 
@@ -15635,14 +15635,14 @@ bits_peek_be.exit.i:                              ; preds = %123, %130, %127
   %159 = load i32, ptr %156, align 1, !tbaa !30
   %160 = tail call i32 @llvm.bswap.i32(i32 %159)
   %161 = zext i32 %160 to i64
-  %162 = sub i32 44, %140
+  %162 = sub nsw i32 44, %140
   %163 = zext nneg i32 %162 to i64
   %164 = shl i64 %161, %163
   %165 = or i64 %164, %151
   store i64 %165, ptr %2, align 8, !tbaa !44
   %166 = getelementptr inbounds nuw i8, ptr %156, i64 4
   store ptr %166, ptr %26, align 8, !tbaa !41
-  %167 = add i32 %140, 20
+  %167 = add nuw nsw i32 %140, 20
   store i32 %167, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -15727,14 +15727,14 @@ bits_peek_be.exit.i158:                           ; preds = %bits_read_vlc_be.ex
   %217 = load i32, ptr %214, align 1, !tbaa !30
   %218 = tail call i32 @llvm.bswap.i32(i32 %217)
   %219 = zext i32 %218 to i64
-  %220 = sub i32 44, %198
+  %220 = sub nsw i32 44, %198
   %221 = zext nneg i32 %220 to i64
   %222 = shl i64 %219, %221
   %223 = or i64 %222, %209
   store i64 %223, ptr %2, align 8, !tbaa !44
   %224 = getelementptr inbounds nuw i8, ptr %214, i64 4
   store ptr %224, ptr %26, align 8, !tbaa !41
-  %225 = add i32 %198, 20
+  %225 = add nuw nsw i32 %198, 20
   store i32 %225, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i161
 
@@ -15819,14 +15819,14 @@ bits_peek_be.exit.i169:                           ; preds = %bits_read_vlc_be.ex
   %275 = load i32, ptr %272, align 1, !tbaa !30
   %276 = tail call i32 @llvm.bswap.i32(i32 %275)
   %277 = zext i32 %276 to i64
-  %278 = sub i32 44, %256
+  %278 = sub nsw i32 44, %256
   %279 = zext nneg i32 %278 to i64
   %280 = shl i64 %277, %279
   %281 = or i64 %280, %267
   store i64 %281, ptr %2, align 8, !tbaa !44
   %282 = getelementptr inbounds nuw i8, ptr %272, i64 4
   store ptr %282, ptr %26, align 8, !tbaa !41
-  %283 = add i32 %256, 20
+  %283 = add nuw nsw i32 %256, 20
   store i32 %283, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i172
 
@@ -15911,14 +15911,14 @@ bits_peek_be.exit.i180:                           ; preds = %bits_read_vlc_be.ex
   %333 = load i32, ptr %330, align 1, !tbaa !30
   %334 = tail call i32 @llvm.bswap.i32(i32 %333)
   %335 = zext i32 %334 to i64
-  %336 = sub i32 44, %314
+  %336 = sub nsw i32 44, %314
   %337 = zext nneg i32 %336 to i64
   %338 = shl i64 %335, %337
   %339 = or i64 %338, %325
   store i64 %339, ptr %2, align 8, !tbaa !44
   %340 = getelementptr inbounds nuw i8, ptr %330, i64 4
   store ptr %340, ptr %26, align 8, !tbaa !41
-  %341 = add i32 %314, 20
+  %341 = add nuw nsw i32 %314, 20
   store i32 %341, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i183
 
@@ -16319,14 +16319,14 @@ bits_peek_be.exit.i215:                           ; preds = %522, %558, %555
   %587 = load i32, ptr %584, align 1, !tbaa !30
   %588 = tail call i32 @llvm.bswap.i32(i32 %587)
   %589 = zext i32 %588 to i64
-  %590 = sub i32 44, %568
+  %590 = sub nsw i32 44, %568
   %591 = zext nneg i32 %590 to i64
   %592 = shl i64 %589, %591
   %593 = or i64 %592, %579
   store i64 %593, ptr %2, align 8, !tbaa !44
   %594 = getelementptr inbounds nuw i8, ptr %584, i64 4
   store ptr %594, ptr %395, align 8, !tbaa !41
-  %595 = add i32 %568, 20
+  %595 = add nuw nsw i32 %568, 20
   store i32 %595, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i218
 
@@ -16413,14 +16413,14 @@ bits_peek_be.exit.i226:                           ; preds = %bits_read_vlc_be.ex
   %647 = load i32, ptr %644, align 1, !tbaa !30
   %648 = tail call i32 @llvm.bswap.i32(i32 %647)
   %649 = zext i32 %648 to i64
-  %650 = sub i32 44, %628
+  %650 = sub nsw i32 44, %628
   %651 = zext nneg i32 %650 to i64
   %652 = shl i64 %649, %651
   %653 = or i64 %652, %639
   store i64 %653, ptr %2, align 8, !tbaa !44
   %654 = getelementptr inbounds nuw i8, ptr %644, i64 4
   store ptr %654, ptr %395, align 8, !tbaa !41
-  %655 = add i32 %628, 20
+  %655 = add nuw nsw i32 %628, 20
   store i32 %655, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i229
 
@@ -16507,14 +16507,14 @@ bits_peek_be.exit.i237:                           ; preds = %bits_read_vlc_be.ex
   %707 = load i32, ptr %704, align 1, !tbaa !30
   %708 = tail call i32 @llvm.bswap.i32(i32 %707)
   %709 = zext i32 %708 to i64
-  %710 = sub i32 44, %688
+  %710 = sub nsw i32 44, %688
   %711 = zext nneg i32 %710 to i64
   %712 = shl i64 %709, %711
   %713 = or i64 %712, %699
   store i64 %713, ptr %2, align 8, !tbaa !44
   %714 = getelementptr inbounds nuw i8, ptr %704, i64 4
   store ptr %714, ptr %395, align 8, !tbaa !41
-  %715 = add i32 %688, 20
+  %715 = add nuw nsw i32 %688, 20
   store i32 %715, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i240
 
@@ -16601,14 +16601,14 @@ bits_peek_be.exit.i248:                           ; preds = %bits_read_vlc_be.ex
   %767 = load i32, ptr %764, align 1, !tbaa !30
   %768 = tail call i32 @llvm.bswap.i32(i32 %767)
   %769 = zext i32 %768 to i64
-  %770 = sub i32 44, %748
+  %770 = sub nsw i32 44, %748
   %771 = zext nneg i32 %770 to i64
   %772 = shl i64 %769, %771
   %773 = or i64 %772, %759
   store i64 %773, ptr %2, align 8, !tbaa !44
   %774 = getelementptr inbounds nuw i8, ptr %764, i64 4
   store ptr %774, ptr %395, align 8, !tbaa !41
-  %775 = add i32 %748, 20
+  %775 = add nuw nsw i32 %748, 20
   store i32 %775, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i251
 
@@ -17009,14 +17009,14 @@ bits_peek_be.exit.i:                              ; preds = %126, %133, %130
   %162 = load i32, ptr %159, align 1, !tbaa !30
   %163 = tail call i32 @llvm.bswap.i32(i32 %162)
   %164 = zext i32 %163 to i64
-  %165 = sub i32 44, %143
+  %165 = sub nsw i32 44, %143
   %166 = zext nneg i32 %165 to i64
   %167 = shl i64 %164, %166
   %168 = or i64 %167, %154
   store i64 %168, ptr %2, align 8, !tbaa !44
   %169 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store ptr %169, ptr %17, align 8, !tbaa !41
-  %170 = add i32 %143, 20
+  %170 = add nuw nsw i32 %143, 20
   store i32 %170, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -17101,14 +17101,14 @@ bits_peek_be.exit.i76:                            ; preds = %bits_read_vlc_be.ex
   %220 = load i32, ptr %217, align 1, !tbaa !30
   %221 = tail call i32 @llvm.bswap.i32(i32 %220)
   %222 = zext i32 %221 to i64
-  %223 = sub i32 44, %201
+  %223 = sub nsw i32 44, %201
   %224 = zext nneg i32 %223 to i64
   %225 = shl i64 %222, %224
   %226 = or i64 %225, %212
   store i64 %226, ptr %2, align 8, !tbaa !44
   %227 = getelementptr inbounds nuw i8, ptr %217, i64 4
   store ptr %227, ptr %17, align 8, !tbaa !41
-  %228 = add i32 %201, 20
+  %228 = add nuw nsw i32 %201, 20
   store i32 %228, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i79
 
@@ -17193,14 +17193,14 @@ bits_peek_be.exit.i87:                            ; preds = %bits_read_vlc_be.ex
   %278 = load i32, ptr %275, align 1, !tbaa !30
   %279 = tail call i32 @llvm.bswap.i32(i32 %278)
   %280 = zext i32 %279 to i64
-  %281 = sub i32 44, %259
+  %281 = sub nsw i32 44, %259
   %282 = zext nneg i32 %281 to i64
   %283 = shl i64 %280, %282
   %284 = or i64 %283, %270
   store i64 %284, ptr %2, align 8, !tbaa !44
   %285 = getelementptr inbounds nuw i8, ptr %275, i64 4
   store ptr %285, ptr %17, align 8, !tbaa !41
-  %286 = add i32 %259, 20
+  %286 = add nuw nsw i32 %259, 20
   store i32 %286, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i90
 
@@ -17285,14 +17285,14 @@ bits_peek_be.exit.i98:                            ; preds = %bits_read_vlc_be.ex
   %336 = load i32, ptr %333, align 1, !tbaa !30
   %337 = tail call i32 @llvm.bswap.i32(i32 %336)
   %338 = zext i32 %337 to i64
-  %339 = sub i32 44, %317
+  %339 = sub nsw i32 44, %317
   %340 = zext nneg i32 %339 to i64
   %341 = shl i64 %338, %340
   %342 = or i64 %341, %328
   store i64 %342, ptr %2, align 8, !tbaa !44
   %343 = getelementptr inbounds nuw i8, ptr %333, i64 4
   store ptr %343, ptr %17, align 8, !tbaa !41
-  %344 = add i32 %317, 20
+  %344 = add nuw nsw i32 %317, 20
   store i32 %344, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i101
 
@@ -17668,14 +17668,14 @@ bits_peek_be.exit.i:                              ; preds = %129, %126, %.bits_p
   %158 = load i32, ptr %155, align 1, !tbaa !30
   %159 = tail call i32 @llvm.bswap.i32(i32 %158)
   %160 = zext i32 %159 to i64
-  %161 = sub i32 44, %139
+  %161 = sub nsw i32 44, %139
   %162 = zext nneg i32 %161 to i64
   %163 = shl i64 %160, %162
   %164 = or i64 %163, %150
   store i64 %164, ptr %2, align 8, !tbaa !44
   %165 = getelementptr inbounds nuw i8, ptr %155, i64 4
   store ptr %165, ptr %23, align 8, !tbaa !41
-  %166 = add i32 %139, 20
+  %166 = add nuw nsw i32 %139, 20
   store i32 %166, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -17763,14 +17763,14 @@ bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.ex
   %219 = load i32, ptr %216, align 1, !tbaa !30
   %220 = tail call i32 @llvm.bswap.i32(i32 %219)
   %221 = zext i32 %220 to i64
-  %222 = sub i32 44, %200
+  %222 = sub nsw i32 44, %200
   %223 = zext nneg i32 %222 to i64
   %224 = shl i64 %221, %223
   %225 = or i64 %224, %211
   store i64 %225, ptr %2, align 8, !tbaa !44
   %226 = getelementptr inbounds nuw i8, ptr %216, i64 4
   store ptr %226, ptr %23, align 8, !tbaa !41
-  %227 = add i32 %200, 20
+  %227 = add nuw nsw i32 %200, 20
   store i32 %227, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i153
 
@@ -17857,14 +17857,14 @@ bits_peek_be.exit.i161:                           ; preds = %bits_read_vlc_be.ex
   %279 = load i32, ptr %276, align 1, !tbaa !30
   %280 = tail call i32 @llvm.bswap.i32(i32 %279)
   %281 = zext i32 %280 to i64
-  %282 = sub i32 44, %260
+  %282 = sub nsw i32 44, %260
   %283 = zext nneg i32 %282 to i64
   %284 = shl i64 %281, %283
   %285 = or i64 %284, %271
   store i64 %285, ptr %2, align 8, !tbaa !44
   %286 = getelementptr inbounds nuw i8, ptr %276, i64 4
   store ptr %286, ptr %23, align 8, !tbaa !41
-  %287 = add i32 %260, 20
+  %287 = add nuw nsw i32 %260, 20
   store i32 %287, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i164
 
@@ -17951,14 +17951,14 @@ bits_peek_be.exit.i172:                           ; preds = %bits_read_vlc_be.ex
   %339 = load i32, ptr %336, align 1, !tbaa !30
   %340 = tail call i32 @llvm.bswap.i32(i32 %339)
   %341 = zext i32 %340 to i64
-  %342 = sub i32 44, %320
+  %342 = sub nsw i32 44, %320
   %343 = zext nneg i32 %342 to i64
   %344 = shl i64 %341, %343
   %345 = or i64 %344, %331
   store i64 %345, ptr %2, align 8, !tbaa !44
   %346 = getelementptr inbounds nuw i8, ptr %336, i64 4
   store ptr %346, ptr %23, align 8, !tbaa !41
-  %347 = add i32 %320, 20
+  %347 = add nuw nsw i32 %320, 20
   store i32 %347, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i175
 
@@ -18378,14 +18378,14 @@ bits_peek_be.exit.i207:                           ; preds = %552, %549, %.bits_p
   %581 = load i32, ptr %578, align 1, !tbaa !30
   %582 = tail call i32 @llvm.bswap.i32(i32 %581)
   %583 = zext i32 %582 to i64
-  %584 = sub i32 44, %562
+  %584 = sub nsw i32 44, %562
   %585 = zext nneg i32 %584 to i64
   %586 = shl i64 %583, %585
   %587 = or i64 %586, %573
   store i64 %587, ptr %2, align 8, !tbaa !44
   %588 = getelementptr inbounds nuw i8, ptr %578, i64 4
   store ptr %588, ptr %398, align 8, !tbaa !41
-  %589 = add i32 %562, 20
+  %589 = add nuw nsw i32 %562, 20
   store i32 %589, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i210
 
@@ -18473,14 +18473,14 @@ bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.ex
   %642 = load i32, ptr %639, align 1, !tbaa !30
   %643 = tail call i32 @llvm.bswap.i32(i32 %642)
   %644 = zext i32 %643 to i64
-  %645 = sub i32 44, %623
+  %645 = sub nsw i32 44, %623
   %646 = zext nneg i32 %645 to i64
   %647 = shl i64 %644, %646
   %648 = or i64 %647, %634
   store i64 %648, ptr %2, align 8, !tbaa !44
   %649 = getelementptr inbounds nuw i8, ptr %639, i64 4
   store ptr %649, ptr %398, align 8, !tbaa !41
-  %650 = add i32 %623, 20
+  %650 = add nuw nsw i32 %623, 20
   store i32 %650, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i221
 
@@ -18567,14 +18567,14 @@ bits_peek_be.exit.i229:                           ; preds = %bits_read_vlc_be.ex
   %702 = load i32, ptr %699, align 1, !tbaa !30
   %703 = tail call i32 @llvm.bswap.i32(i32 %702)
   %704 = zext i32 %703 to i64
-  %705 = sub i32 44, %683
+  %705 = sub nsw i32 44, %683
   %706 = zext nneg i32 %705 to i64
   %707 = shl i64 %704, %706
   %708 = or i64 %707, %694
   store i64 %708, ptr %2, align 8, !tbaa !44
   %709 = getelementptr inbounds nuw i8, ptr %699, i64 4
   store ptr %709, ptr %398, align 8, !tbaa !41
-  %710 = add i32 %683, 20
+  %710 = add nuw nsw i32 %683, 20
   store i32 %710, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i232
 
@@ -18661,14 +18661,14 @@ bits_peek_be.exit.i240:                           ; preds = %bits_read_vlc_be.ex
   %762 = load i32, ptr %759, align 1, !tbaa !30
   %763 = tail call i32 @llvm.bswap.i32(i32 %762)
   %764 = zext i32 %763 to i64
-  %765 = sub i32 44, %743
+  %765 = sub nsw i32 44, %743
   %766 = zext nneg i32 %765 to i64
   %767 = shl i64 %764, %766
   %768 = or i64 %767, %754
   store i64 %768, ptr %2, align 8, !tbaa !44
   %769 = getelementptr inbounds nuw i8, ptr %759, i64 4
   store ptr %769, ptr %398, align 8, !tbaa !41
-  %770 = add i32 %743, 20
+  %770 = add nuw nsw i32 %743, 20
   store i32 %770, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i243
 
@@ -19062,14 +19062,14 @@ bits_peek_be.exit.i:                              ; preds = %129, %126, %.bits_p
   %158 = load i32, ptr %155, align 1, !tbaa !30
   %159 = tail call i32 @llvm.bswap.i32(i32 %158)
   %160 = zext i32 %159 to i64
-  %161 = sub i32 44, %139
+  %161 = sub nsw i32 44, %139
   %162 = zext nneg i32 %161 to i64
   %163 = shl i64 %160, %162
   %164 = or i64 %163, %150
   store i64 %164, ptr %2, align 8, !tbaa !44
   %165 = getelementptr inbounds nuw i8, ptr %155, i64 4
   store ptr %165, ptr %23, align 8, !tbaa !41
-  %166 = add i32 %139, 20
+  %166 = add nuw nsw i32 %139, 20
   store i32 %166, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -19157,14 +19157,14 @@ bits_peek_be.exit.i128:                           ; preds = %bits_read_vlc_be.ex
   %219 = load i32, ptr %216, align 1, !tbaa !30
   %220 = tail call i32 @llvm.bswap.i32(i32 %219)
   %221 = zext i32 %220 to i64
-  %222 = sub i32 44, %200
+  %222 = sub nsw i32 44, %200
   %223 = zext nneg i32 %222 to i64
   %224 = shl i64 %221, %223
   %225 = or i64 %224, %211
   store i64 %225, ptr %2, align 8, !tbaa !44
   %226 = getelementptr inbounds nuw i8, ptr %216, i64 4
   store ptr %226, ptr %23, align 8, !tbaa !41
-  %227 = add i32 %200, 20
+  %227 = add nuw nsw i32 %200, 20
   store i32 %227, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i131
 
@@ -19251,14 +19251,14 @@ bits_peek_be.exit.i139:                           ; preds = %bits_read_vlc_be.ex
   %279 = load i32, ptr %276, align 1, !tbaa !30
   %280 = tail call i32 @llvm.bswap.i32(i32 %279)
   %281 = zext i32 %280 to i64
-  %282 = sub i32 44, %260
+  %282 = sub nsw i32 44, %260
   %283 = zext nneg i32 %282 to i64
   %284 = shl i64 %281, %283
   %285 = or i64 %284, %271
   store i64 %285, ptr %2, align 8, !tbaa !44
   %286 = getelementptr inbounds nuw i8, ptr %276, i64 4
   store ptr %286, ptr %23, align 8, !tbaa !41
-  %287 = add i32 %260, 20
+  %287 = add nuw nsw i32 %260, 20
   store i32 %287, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i142
 
@@ -19345,14 +19345,14 @@ bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.ex
   %339 = load i32, ptr %336, align 1, !tbaa !30
   %340 = tail call i32 @llvm.bswap.i32(i32 %339)
   %341 = zext i32 %340 to i64
-  %342 = sub i32 44, %320
+  %342 = sub nsw i32 44, %320
   %343 = zext nneg i32 %342 to i64
   %344 = shl i64 %341, %343
   %345 = or i64 %344, %331
   store i64 %345, ptr %2, align 8, !tbaa !44
   %346 = getelementptr inbounds nuw i8, ptr %336, i64 4
   store ptr %346, ptr %23, align 8, !tbaa !41
-  %347 = add i32 %320, 20
+  %347 = add nuw nsw i32 %320, 20
   store i32 %347, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i153
 
@@ -19746,14 +19746,14 @@ bits_peek_be.exit.i185:                           ; preds = %529, %526, %.bits_p
   %558 = load i32, ptr %555, align 1, !tbaa !30
   %559 = tail call i32 @llvm.bswap.i32(i32 %558)
   %560 = zext i32 %559 to i64
-  %561 = sub i32 44, %539
+  %561 = sub nsw i32 44, %539
   %562 = zext nneg i32 %561 to i64
   %563 = shl i64 %560, %562
   %564 = or i64 %563, %550
   store i64 %564, ptr %2, align 8, !tbaa !44
   %565 = getelementptr inbounds nuw i8, ptr %555, i64 4
   store ptr %565, ptr %398, align 8, !tbaa !41
-  %566 = add i32 %539, 20
+  %566 = add nuw nsw i32 %539, 20
   store i32 %566, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i188
 
@@ -19841,14 +19841,14 @@ bits_peek_be.exit.i196:                           ; preds = %bits_read_vlc_be.ex
   %619 = load i32, ptr %616, align 1, !tbaa !30
   %620 = tail call i32 @llvm.bswap.i32(i32 %619)
   %621 = zext i32 %620 to i64
-  %622 = sub i32 44, %600
+  %622 = sub nsw i32 44, %600
   %623 = zext nneg i32 %622 to i64
   %624 = shl i64 %621, %623
   %625 = or i64 %624, %611
   store i64 %625, ptr %2, align 8, !tbaa !44
   %626 = getelementptr inbounds nuw i8, ptr %616, i64 4
   store ptr %626, ptr %398, align 8, !tbaa !41
-  %627 = add i32 %600, 20
+  %627 = add nuw nsw i32 %600, 20
   store i32 %627, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i199
 
@@ -19935,14 +19935,14 @@ bits_peek_be.exit.i207:                           ; preds = %bits_read_vlc_be.ex
   %679 = load i32, ptr %676, align 1, !tbaa !30
   %680 = tail call i32 @llvm.bswap.i32(i32 %679)
   %681 = zext i32 %680 to i64
-  %682 = sub i32 44, %660
+  %682 = sub nsw i32 44, %660
   %683 = zext nneg i32 %682 to i64
   %684 = shl i64 %681, %683
   %685 = or i64 %684, %671
   store i64 %685, ptr %2, align 8, !tbaa !44
   %686 = getelementptr inbounds nuw i8, ptr %676, i64 4
   store ptr %686, ptr %398, align 8, !tbaa !41
-  %687 = add i32 %660, 20
+  %687 = add nuw nsw i32 %660, 20
   store i32 %687, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i210
 
@@ -20029,14 +20029,14 @@ bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.ex
   %739 = load i32, ptr %736, align 1, !tbaa !30
   %740 = tail call i32 @llvm.bswap.i32(i32 %739)
   %741 = zext i32 %740 to i64
-  %742 = sub i32 44, %720
+  %742 = sub nsw i32 44, %720
   %743 = zext nneg i32 %742 to i64
   %744 = shl i64 %741, %743
   %745 = or i64 %744, %731
   store i64 %745, ptr %2, align 8, !tbaa !44
   %746 = getelementptr inbounds nuw i8, ptr %736, i64 4
   store ptr %746, ptr %398, align 8, !tbaa !41
-  %747 = add i32 %720, 20
+  %747 = add nuw nsw i32 %720, 20
   store i32 %747, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i221
 
@@ -20413,14 +20413,14 @@ bits_peek_be.exit.i:                              ; preds = %131, %128, %.bits_p
   %160 = load i32, ptr %157, align 1, !tbaa !30
   %161 = tail call i32 @llvm.bswap.i32(i32 %160)
   %162 = zext i32 %161 to i64
-  %163 = sub i32 44, %141
+  %163 = sub nsw i32 44, %141
   %164 = zext nneg i32 %163 to i64
   %165 = shl i64 %162, %164
   %166 = or i64 %165, %152
   store i64 %166, ptr %2, align 8, !tbaa !44
   %167 = getelementptr inbounds nuw i8, ptr %157, i64 4
   store ptr %167, ptr %23, align 8, !tbaa !41
-  %168 = add i32 %141, 20
+  %168 = add nuw nsw i32 %141, 20
   store i32 %168, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -20508,14 +20508,14 @@ bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.ex
   %221 = load i32, ptr %218, align 1, !tbaa !30
   %222 = tail call i32 @llvm.bswap.i32(i32 %221)
   %223 = zext i32 %222 to i64
-  %224 = sub i32 44, %202
+  %224 = sub nsw i32 44, %202
   %225 = zext nneg i32 %224 to i64
   %226 = shl i64 %223, %225
   %227 = or i64 %226, %213
   store i64 %227, ptr %2, align 8, !tbaa !44
   %228 = getelementptr inbounds nuw i8, ptr %218, i64 4
   store ptr %228, ptr %23, align 8, !tbaa !41
-  %229 = add i32 %202, 20
+  %229 = add nuw nsw i32 %202, 20
   store i32 %229, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i153
 
@@ -20602,14 +20602,14 @@ bits_peek_be.exit.i161:                           ; preds = %bits_read_vlc_be.ex
   %281 = load i32, ptr %278, align 1, !tbaa !30
   %282 = tail call i32 @llvm.bswap.i32(i32 %281)
   %283 = zext i32 %282 to i64
-  %284 = sub i32 44, %262
+  %284 = sub nsw i32 44, %262
   %285 = zext nneg i32 %284 to i64
   %286 = shl i64 %283, %285
   %287 = or i64 %286, %273
   store i64 %287, ptr %2, align 8, !tbaa !44
   %288 = getelementptr inbounds nuw i8, ptr %278, i64 4
   store ptr %288, ptr %23, align 8, !tbaa !41
-  %289 = add i32 %262, 20
+  %289 = add nuw nsw i32 %262, 20
   store i32 %289, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i164
 
@@ -20696,14 +20696,14 @@ bits_peek_be.exit.i172:                           ; preds = %bits_read_vlc_be.ex
   %341 = load i32, ptr %338, align 1, !tbaa !30
   %342 = tail call i32 @llvm.bswap.i32(i32 %341)
   %343 = zext i32 %342 to i64
-  %344 = sub i32 44, %322
+  %344 = sub nsw i32 44, %322
   %345 = zext nneg i32 %344 to i64
   %346 = shl i64 %343, %345
   %347 = or i64 %346, %333
   store i64 %347, ptr %2, align 8, !tbaa !44
   %348 = getelementptr inbounds nuw i8, ptr %338, i64 4
   store ptr %348, ptr %23, align 8, !tbaa !41
-  %349 = add i32 %322, 20
+  %349 = add nuw nsw i32 %322, 20
   store i32 %349, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i175
 
@@ -21125,14 +21125,14 @@ bits_peek_be.exit.i207:                           ; preds = %556, %553, %.bits_p
   %585 = load i32, ptr %582, align 1, !tbaa !30
   %586 = tail call i32 @llvm.bswap.i32(i32 %585)
   %587 = zext i32 %586 to i64
-  %588 = sub i32 44, %566
+  %588 = sub nsw i32 44, %566
   %589 = zext nneg i32 %588 to i64
   %590 = shl i64 %587, %589
   %591 = or i64 %590, %577
   store i64 %591, ptr %2, align 8, !tbaa !44
   %592 = getelementptr inbounds nuw i8, ptr %582, i64 4
   store ptr %592, ptr %400, align 8, !tbaa !41
-  %593 = add i32 %566, 20
+  %593 = add nuw nsw i32 %566, 20
   store i32 %593, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i210
 
@@ -21220,14 +21220,14 @@ bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.ex
   %646 = load i32, ptr %643, align 1, !tbaa !30
   %647 = tail call i32 @llvm.bswap.i32(i32 %646)
   %648 = zext i32 %647 to i64
-  %649 = sub i32 44, %627
+  %649 = sub nsw i32 44, %627
   %650 = zext nneg i32 %649 to i64
   %651 = shl i64 %648, %650
   %652 = or i64 %651, %638
   store i64 %652, ptr %2, align 8, !tbaa !44
   %653 = getelementptr inbounds nuw i8, ptr %643, i64 4
   store ptr %653, ptr %400, align 8, !tbaa !41
-  %654 = add i32 %627, 20
+  %654 = add nuw nsw i32 %627, 20
   store i32 %654, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i221
 
@@ -21314,14 +21314,14 @@ bits_peek_be.exit.i229:                           ; preds = %bits_read_vlc_be.ex
   %706 = load i32, ptr %703, align 1, !tbaa !30
   %707 = tail call i32 @llvm.bswap.i32(i32 %706)
   %708 = zext i32 %707 to i64
-  %709 = sub i32 44, %687
+  %709 = sub nsw i32 44, %687
   %710 = zext nneg i32 %709 to i64
   %711 = shl i64 %708, %710
   %712 = or i64 %711, %698
   store i64 %712, ptr %2, align 8, !tbaa !44
   %713 = getelementptr inbounds nuw i8, ptr %703, i64 4
   store ptr %713, ptr %400, align 8, !tbaa !41
-  %714 = add i32 %687, 20
+  %714 = add nuw nsw i32 %687, 20
   store i32 %714, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i232
 
@@ -21408,14 +21408,14 @@ bits_peek_be.exit.i240:                           ; preds = %bits_read_vlc_be.ex
   %766 = load i32, ptr %763, align 1, !tbaa !30
   %767 = tail call i32 @llvm.bswap.i32(i32 %766)
   %768 = zext i32 %767 to i64
-  %769 = sub i32 44, %747
+  %769 = sub nsw i32 44, %747
   %770 = zext nneg i32 %769 to i64
   %771 = shl i64 %768, %770
   %772 = or i64 %771, %758
   store i64 %772, ptr %2, align 8, !tbaa !44
   %773 = getelementptr inbounds nuw i8, ptr %763, i64 4
   store ptr %773, ptr %400, align 8, !tbaa !41
-  %774 = add i32 %747, 20
+  %774 = add nuw nsw i32 %747, 20
   store i32 %774, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i243
 
@@ -21891,14 +21891,14 @@ bits_peek_be.exit.i:                              ; preds = %172, %169, %.bits_p
   %201 = load i32, ptr %198, align 1, !tbaa !30
   %202 = tail call i32 @llvm.bswap.i32(i32 %201)
   %203 = zext i32 %202 to i64
-  %204 = sub i32 44, %182
+  %204 = sub nsw i32 44, %182
   %205 = zext nneg i32 %204 to i64
   %206 = shl i64 %203, %205
   %207 = or i64 %206, %193
   store i64 %207, ptr %2, align 8, !tbaa !44
   %208 = getelementptr inbounds nuw i8, ptr %198, i64 4
   store ptr %208, ptr %25, align 8, !tbaa !41
-  %209 = add i32 %182, 20
+  %209 = add nuw nsw i32 %182, 20
   store i32 %209, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -21986,14 +21986,14 @@ bits_peek_be.exit.i211:                           ; preds = %bits_read_vlc_be.ex
   %262 = load i32, ptr %259, align 1, !tbaa !30
   %263 = tail call i32 @llvm.bswap.i32(i32 %262)
   %264 = zext i32 %263 to i64
-  %265 = sub i32 44, %243
+  %265 = sub nsw i32 44, %243
   %266 = zext nneg i32 %265 to i64
   %267 = shl i64 %264, %266
   %268 = or i64 %267, %254
   store i64 %268, ptr %2, align 8, !tbaa !44
   %269 = getelementptr inbounds nuw i8, ptr %259, i64 4
   store ptr %269, ptr %25, align 8, !tbaa !41
-  %270 = add i32 %243, 20
+  %270 = add nuw nsw i32 %243, 20
   store i32 %270, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i214
 
@@ -22080,14 +22080,14 @@ bits_peek_be.exit.i222:                           ; preds = %bits_read_vlc_be.ex
   %322 = load i32, ptr %319, align 1, !tbaa !30
   %323 = tail call i32 @llvm.bswap.i32(i32 %322)
   %324 = zext i32 %323 to i64
-  %325 = sub i32 44, %303
+  %325 = sub nsw i32 44, %303
   %326 = zext nneg i32 %325 to i64
   %327 = shl i64 %324, %326
   %328 = or i64 %327, %314
   store i64 %328, ptr %2, align 8, !tbaa !44
   %329 = getelementptr inbounds nuw i8, ptr %319, i64 4
   store ptr %329, ptr %25, align 8, !tbaa !41
-  %330 = add i32 %303, 20
+  %330 = add nuw nsw i32 %303, 20
   store i32 %330, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i225
 
@@ -22174,14 +22174,14 @@ bits_peek_be.exit.i233:                           ; preds = %bits_read_vlc_be.ex
   %382 = load i32, ptr %379, align 1, !tbaa !30
   %383 = tail call i32 @llvm.bswap.i32(i32 %382)
   %384 = zext i32 %383 to i64
-  %385 = sub i32 44, %363
+  %385 = sub nsw i32 44, %363
   %386 = zext nneg i32 %385 to i64
   %387 = shl i64 %384, %386
   %388 = or i64 %387, %374
   store i64 %388, ptr %2, align 8, !tbaa !44
   %389 = getelementptr inbounds nuw i8, ptr %379, i64 4
   store ptr %389, ptr %25, align 8, !tbaa !41
-  %390 = add i32 %363, 20
+  %390 = add nuw nsw i32 %363, 20
   store i32 %390, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i236
 
@@ -22268,14 +22268,14 @@ bits_peek_be.exit.i244:                           ; preds = %bits_read_vlc_be.ex
   %442 = load i32, ptr %439, align 1, !tbaa !30
   %443 = tail call i32 @llvm.bswap.i32(i32 %442)
   %444 = zext i32 %443 to i64
-  %445 = sub i32 44, %423
+  %445 = sub nsw i32 44, %423
   %446 = zext nneg i32 %445 to i64
   %447 = shl i64 %444, %446
   %448 = or i64 %447, %434
   store i64 %448, ptr %2, align 8, !tbaa !44
   %449 = getelementptr inbounds nuw i8, ptr %439, i64 4
   store ptr %449, ptr %25, align 8, !tbaa !41
-  %450 = add i32 %423, 20
+  %450 = add nuw nsw i32 %423, 20
   store i32 %450, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i247
 
@@ -22362,14 +22362,14 @@ bits_peek_be.exit.i255:                           ; preds = %bits_read_vlc_be.ex
   %502 = load i32, ptr %499, align 1, !tbaa !30
   %503 = tail call i32 @llvm.bswap.i32(i32 %502)
   %504 = zext i32 %503 to i64
-  %505 = sub i32 44, %483
+  %505 = sub nsw i32 44, %483
   %506 = zext nneg i32 %505 to i64
   %507 = shl i64 %504, %506
   %508 = or i64 %507, %494
   store i64 %508, ptr %2, align 8, !tbaa !44
   %509 = getelementptr inbounds nuw i8, ptr %499, i64 4
   store ptr %509, ptr %25, align 8, !tbaa !41
-  %510 = add i32 %483, 20
+  %510 = add nuw nsw i32 %483, 20
   store i32 %510, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i258
 
@@ -22901,14 +22901,14 @@ bits_peek_be.exit.i298:                           ; preds = %783, %780, %.bits_p
   %812 = load i32, ptr %809, align 1, !tbaa !30
   %813 = tail call i32 @llvm.bswap.i32(i32 %812)
   %814 = zext i32 %813 to i64
-  %815 = sub i32 44, %793
+  %815 = sub nsw i32 44, %793
   %816 = zext nneg i32 %815 to i64
   %817 = shl i64 %814, %816
   %818 = or i64 %817, %804
   store i64 %818, ptr %2, align 8, !tbaa !44
   %819 = getelementptr inbounds nuw i8, ptr %809, i64 4
   store ptr %819, ptr %572, align 8, !tbaa !41
-  %820 = add i32 %793, 20
+  %820 = add nuw nsw i32 %793, 20
   store i32 %820, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i301
 
@@ -22996,14 +22996,14 @@ bits_peek_be.exit.i309:                           ; preds = %bits_read_vlc_be.ex
   %873 = load i32, ptr %870, align 1, !tbaa !30
   %874 = tail call i32 @llvm.bswap.i32(i32 %873)
   %875 = zext i32 %874 to i64
-  %876 = sub i32 44, %854
+  %876 = sub nsw i32 44, %854
   %877 = zext nneg i32 %876 to i64
   %878 = shl i64 %875, %877
   %879 = or i64 %878, %865
   store i64 %879, ptr %2, align 8, !tbaa !44
   %880 = getelementptr inbounds nuw i8, ptr %870, i64 4
   store ptr %880, ptr %572, align 8, !tbaa !41
-  %881 = add i32 %854, 20
+  %881 = add nuw nsw i32 %854, 20
   store i32 %881, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i312
 
@@ -23090,14 +23090,14 @@ bits_peek_be.exit.i320:                           ; preds = %bits_read_vlc_be.ex
   %933 = load i32, ptr %930, align 1, !tbaa !30
   %934 = tail call i32 @llvm.bswap.i32(i32 %933)
   %935 = zext i32 %934 to i64
-  %936 = sub i32 44, %914
+  %936 = sub nsw i32 44, %914
   %937 = zext nneg i32 %936 to i64
   %938 = shl i64 %935, %937
   %939 = or i64 %938, %925
   store i64 %939, ptr %2, align 8, !tbaa !44
   %940 = getelementptr inbounds nuw i8, ptr %930, i64 4
   store ptr %940, ptr %572, align 8, !tbaa !41
-  %941 = add i32 %914, 20
+  %941 = add nuw nsw i32 %914, 20
   store i32 %941, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i323
 
@@ -23184,14 +23184,14 @@ bits_peek_be.exit.i331:                           ; preds = %bits_read_vlc_be.ex
   %993 = load i32, ptr %990, align 1, !tbaa !30
   %994 = tail call i32 @llvm.bswap.i32(i32 %993)
   %995 = zext i32 %994 to i64
-  %996 = sub i32 44, %974
+  %996 = sub nsw i32 44, %974
   %997 = zext nneg i32 %996 to i64
   %998 = shl i64 %995, %997
   %999 = or i64 %998, %985
   store i64 %999, ptr %2, align 8, !tbaa !44
   %1000 = getelementptr inbounds nuw i8, ptr %990, i64 4
   store ptr %1000, ptr %572, align 8, !tbaa !41
-  %1001 = add i32 %974, 20
+  %1001 = add nuw nsw i32 %974, 20
   store i32 %1001, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i334
 
@@ -23278,14 +23278,14 @@ bits_peek_be.exit.i342:                           ; preds = %bits_read_vlc_be.ex
   %1053 = load i32, ptr %1050, align 1, !tbaa !30
   %1054 = tail call i32 @llvm.bswap.i32(i32 %1053)
   %1055 = zext i32 %1054 to i64
-  %1056 = sub i32 44, %1034
+  %1056 = sub nsw i32 44, %1034
   %1057 = zext nneg i32 %1056 to i64
   %1058 = shl i64 %1055, %1057
   %1059 = or i64 %1058, %1045
   store i64 %1059, ptr %2, align 8, !tbaa !44
   %1060 = getelementptr inbounds nuw i8, ptr %1050, i64 4
   store ptr %1060, ptr %572, align 8, !tbaa !41
-  %1061 = add i32 %1034, 20
+  %1061 = add nuw nsw i32 %1034, 20
   store i32 %1061, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i345
 
@@ -23372,14 +23372,14 @@ bits_peek_be.exit.i353:                           ; preds = %bits_read_vlc_be.ex
   %1113 = load i32, ptr %1110, align 1, !tbaa !30
   %1114 = tail call i32 @llvm.bswap.i32(i32 %1113)
   %1115 = zext i32 %1114 to i64
-  %1116 = sub i32 44, %1094
+  %1116 = sub nsw i32 44, %1094
   %1117 = zext nneg i32 %1116 to i64
   %1118 = shl i64 %1115, %1117
   %1119 = or i64 %1118, %1105
   store i64 %1119, ptr %2, align 8, !tbaa !44
   %1120 = getelementptr inbounds nuw i8, ptr %1110, i64 4
   store ptr %1120, ptr %572, align 8, !tbaa !41
-  %1121 = add i32 %1094, 20
+  %1121 = add nuw nsw i32 %1094, 20
   store i32 %1121, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i356
 
@@ -23890,14 +23890,14 @@ bits_peek_be.exit.i:                              ; preds = %172, %169, %.bits_p
   %201 = load i32, ptr %198, align 1, !tbaa !30
   %202 = tail call i32 @llvm.bswap.i32(i32 %201)
   %203 = zext i32 %202 to i64
-  %204 = sub i32 44, %182
+  %204 = sub nsw i32 44, %182
   %205 = zext nneg i32 %204 to i64
   %206 = shl i64 %203, %205
   %207 = or i64 %206, %193
   store i64 %207, ptr %2, align 8, !tbaa !44
   %208 = getelementptr inbounds nuw i8, ptr %198, i64 4
   store ptr %208, ptr %17, align 8, !tbaa !41
-  %209 = add i32 %182, 20
+  %209 = add nuw nsw i32 %182, 20
   store i32 %209, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -23985,14 +23985,14 @@ bits_peek_be.exit.i102:                           ; preds = %bits_read_vlc_be.ex
   %262 = load i32, ptr %259, align 1, !tbaa !30
   %263 = tail call i32 @llvm.bswap.i32(i32 %262)
   %264 = zext i32 %263 to i64
-  %265 = sub i32 44, %243
+  %265 = sub nsw i32 44, %243
   %266 = zext nneg i32 %265 to i64
   %267 = shl i64 %264, %266
   %268 = or i64 %267, %254
   store i64 %268, ptr %2, align 8, !tbaa !44
   %269 = getelementptr inbounds nuw i8, ptr %259, i64 4
   store ptr %269, ptr %17, align 8, !tbaa !41
-  %270 = add i32 %243, 20
+  %270 = add nuw nsw i32 %243, 20
   store i32 %270, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i105
 
@@ -24079,14 +24079,14 @@ bits_peek_be.exit.i113:                           ; preds = %bits_read_vlc_be.ex
   %322 = load i32, ptr %319, align 1, !tbaa !30
   %323 = tail call i32 @llvm.bswap.i32(i32 %322)
   %324 = zext i32 %323 to i64
-  %325 = sub i32 44, %303
+  %325 = sub nsw i32 44, %303
   %326 = zext nneg i32 %325 to i64
   %327 = shl i64 %324, %326
   %328 = or i64 %327, %314
   store i64 %328, ptr %2, align 8, !tbaa !44
   %329 = getelementptr inbounds nuw i8, ptr %319, i64 4
   store ptr %329, ptr %17, align 8, !tbaa !41
-  %330 = add i32 %303, 20
+  %330 = add nuw nsw i32 %303, 20
   store i32 %330, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i116
 
@@ -24173,14 +24173,14 @@ bits_peek_be.exit.i124:                           ; preds = %bits_read_vlc_be.ex
   %382 = load i32, ptr %379, align 1, !tbaa !30
   %383 = tail call i32 @llvm.bswap.i32(i32 %382)
   %384 = zext i32 %383 to i64
-  %385 = sub i32 44, %363
+  %385 = sub nsw i32 44, %363
   %386 = zext nneg i32 %385 to i64
   %387 = shl i64 %384, %386
   %388 = or i64 %387, %374
   store i64 %388, ptr %2, align 8, !tbaa !44
   %389 = getelementptr inbounds nuw i8, ptr %379, i64 4
   store ptr %389, ptr %17, align 8, !tbaa !41
-  %390 = add i32 %363, 20
+  %390 = add nuw nsw i32 %363, 20
   store i32 %390, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i127
 
@@ -24267,14 +24267,14 @@ bits_peek_be.exit.i135:                           ; preds = %bits_read_vlc_be.ex
   %442 = load i32, ptr %439, align 1, !tbaa !30
   %443 = tail call i32 @llvm.bswap.i32(i32 %442)
   %444 = zext i32 %443 to i64
-  %445 = sub i32 44, %423
+  %445 = sub nsw i32 44, %423
   %446 = zext nneg i32 %445 to i64
   %447 = shl i64 %444, %446
   %448 = or i64 %447, %434
   store i64 %448, ptr %2, align 8, !tbaa !44
   %449 = getelementptr inbounds nuw i8, ptr %439, i64 4
   store ptr %449, ptr %17, align 8, !tbaa !41
-  %450 = add i32 %423, 20
+  %450 = add nuw nsw i32 %423, 20
   store i32 %450, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i138
 
@@ -24361,14 +24361,14 @@ bits_peek_be.exit.i146:                           ; preds = %bits_read_vlc_be.ex
   %502 = load i32, ptr %499, align 1, !tbaa !30
   %503 = tail call i32 @llvm.bswap.i32(i32 %502)
   %504 = zext i32 %503 to i64
-  %505 = sub i32 44, %483
+  %505 = sub nsw i32 44, %483
   %506 = zext nneg i32 %505 to i64
   %507 = shl i64 %504, %506
   %508 = or i64 %507, %494
   store i64 %508, ptr %2, align 8, !tbaa !44
   %509 = getelementptr inbounds nuw i8, ptr %499, i64 4
   store ptr %509, ptr %17, align 8, !tbaa !41
-  %510 = add i32 %483, 20
+  %510 = add nuw nsw i32 %483, 20
   store i32 %510, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i149
 
@@ -24729,14 +24729,14 @@ bits_peek_be.exit.i:                              ; preds = %124, %131, %128
   %160 = load i32, ptr %157, align 1, !tbaa !30
   %161 = tail call i32 @llvm.bswap.i32(i32 %160)
   %162 = zext i32 %161 to i64
-  %163 = sub i32 44, %141
+  %163 = sub nsw i32 44, %141
   %164 = zext nneg i32 %163 to i64
   %165 = shl i64 %162, %164
   %166 = or i64 %165, %152
   store i64 %166, ptr %2, align 8, !tbaa !44
   %167 = getelementptr inbounds nuw i8, ptr %157, i64 4
   store ptr %167, ptr %24, align 8, !tbaa !41
-  %168 = add i32 %141, 20
+  %168 = add nuw nsw i32 %141, 20
   store i32 %168, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -24823,14 +24823,14 @@ bits_peek_be.exit.i150:                           ; preds = %bits_read_vlc_be.ex
   %220 = load i32, ptr %217, align 1, !tbaa !30
   %221 = tail call i32 @llvm.bswap.i32(i32 %220)
   %222 = zext i32 %221 to i64
-  %223 = sub i32 44, %201
+  %223 = sub nsw i32 44, %201
   %224 = zext nneg i32 %223 to i64
   %225 = shl i64 %222, %224
   %226 = or i64 %225, %212
   store i64 %226, ptr %2, align 8, !tbaa !44
   %227 = getelementptr inbounds nuw i8, ptr %217, i64 4
   store ptr %227, ptr %24, align 8, !tbaa !41
-  %228 = add i32 %201, 20
+  %228 = add nuw nsw i32 %201, 20
   store i32 %228, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i153
 
@@ -24915,14 +24915,14 @@ bits_peek_be.exit.i161:                           ; preds = %bits_read_vlc_be.ex
   %278 = load i32, ptr %275, align 1, !tbaa !30
   %279 = tail call i32 @llvm.bswap.i32(i32 %278)
   %280 = zext i32 %279 to i64
-  %281 = sub i32 44, %259
+  %281 = sub nsw i32 44, %259
   %282 = zext nneg i32 %281 to i64
   %283 = shl i64 %280, %282
   %284 = or i64 %283, %270
   store i64 %284, ptr %2, align 8, !tbaa !44
   %285 = getelementptr inbounds nuw i8, ptr %275, i64 4
   store ptr %285, ptr %24, align 8, !tbaa !41
-  %286 = add i32 %259, 20
+  %286 = add nuw nsw i32 %259, 20
   store i32 %286, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i164
 
@@ -25009,14 +25009,14 @@ bits_peek_be.exit.i172:                           ; preds = %bits_read_vlc_be.ex
   %338 = load i32, ptr %335, align 1, !tbaa !30
   %339 = tail call i32 @llvm.bswap.i32(i32 %338)
   %340 = zext i32 %339 to i64
-  %341 = sub i32 44, %319
+  %341 = sub nsw i32 44, %319
   %342 = zext nneg i32 %341 to i64
   %343 = shl i64 %340, %342
   %344 = or i64 %343, %330
   store i64 %344, ptr %2, align 8, !tbaa !44
   %345 = getelementptr inbounds nuw i8, ptr %335, i64 4
   store ptr %345, ptr %24, align 8, !tbaa !41
-  %346 = add i32 %319, 20
+  %346 = add nuw nsw i32 %319, 20
   store i32 %346, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i175
 
@@ -25401,14 +25401,14 @@ bits_peek_be.exit.i207:                           ; preds = %522, %554, %551
   %583 = load i32, ptr %580, align 1, !tbaa !30
   %584 = tail call i32 @llvm.bswap.i32(i32 %583)
   %585 = zext i32 %584 to i64
-  %586 = sub i32 44, %564
+  %586 = sub nsw i32 44, %564
   %587 = zext nneg i32 %586 to i64
   %588 = shl i64 %585, %587
   %589 = or i64 %588, %575
   store i64 %589, ptr %2, align 8, !tbaa !44
   %590 = getelementptr inbounds nuw i8, ptr %580, i64 4
   store ptr %590, ptr %398, align 8, !tbaa !41
-  %591 = add i32 %564, 20
+  %591 = add nuw nsw i32 %564, 20
   store i32 %591, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i210
 
@@ -25495,14 +25495,14 @@ bits_peek_be.exit.i218:                           ; preds = %bits_read_vlc_be.ex
   %643 = load i32, ptr %640, align 1, !tbaa !30
   %644 = tail call i32 @llvm.bswap.i32(i32 %643)
   %645 = zext i32 %644 to i64
-  %646 = sub i32 44, %624
+  %646 = sub nsw i32 44, %624
   %647 = zext nneg i32 %646 to i64
   %648 = shl i64 %645, %647
   %649 = or i64 %648, %635
   store i64 %649, ptr %2, align 8, !tbaa !44
   %650 = getelementptr inbounds nuw i8, ptr %640, i64 4
   store ptr %650, ptr %398, align 8, !tbaa !41
-  %651 = add i32 %624, 20
+  %651 = add nuw nsw i32 %624, 20
   store i32 %651, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i221
 
@@ -25589,14 +25589,14 @@ bits_peek_be.exit.i229:                           ; preds = %bits_read_vlc_be.ex
   %703 = load i32, ptr %700, align 1, !tbaa !30
   %704 = tail call i32 @llvm.bswap.i32(i32 %703)
   %705 = zext i32 %704 to i64
-  %706 = sub i32 44, %684
+  %706 = sub nsw i32 44, %684
   %707 = zext nneg i32 %706 to i64
   %708 = shl i64 %705, %707
   %709 = or i64 %708, %695
   store i64 %709, ptr %2, align 8, !tbaa !44
   %710 = getelementptr inbounds nuw i8, ptr %700, i64 4
   store ptr %710, ptr %398, align 8, !tbaa !41
-  %711 = add i32 %684, 20
+  %711 = add nuw nsw i32 %684, 20
   store i32 %711, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i232
 
@@ -25683,14 +25683,14 @@ bits_peek_be.exit.i240:                           ; preds = %bits_read_vlc_be.ex
   %763 = load i32, ptr %760, align 1, !tbaa !30
   %764 = tail call i32 @llvm.bswap.i32(i32 %763)
   %765 = zext i32 %764 to i64
-  %766 = sub i32 44, %744
+  %766 = sub nsw i32 44, %744
   %767 = zext nneg i32 %766 to i64
   %768 = shl i64 %765, %767
   %769 = or i64 %768, %755
   store i64 %769, ptr %2, align 8, !tbaa !44
   %770 = getelementptr inbounds nuw i8, ptr %760, i64 4
   store ptr %770, ptr %398, align 8, !tbaa !41
-  %771 = add i32 %744, 20
+  %771 = add nuw nsw i32 %744, 20
   store i32 %771, ptr %11, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i243
 
@@ -26078,14 +26078,14 @@ bits_peek_be.exit.i:                              ; preds = %126, %133, %130
   %162 = load i32, ptr %159, align 1, !tbaa !30
   %163 = tail call i32 @llvm.bswap.i32(i32 %162)
   %164 = zext i32 %163 to i64
-  %165 = sub i32 44, %143
+  %165 = sub nsw i32 44, %143
   %166 = zext nneg i32 %165 to i64
   %167 = shl i64 %164, %166
   %168 = or i64 %167, %154
   store i64 %168, ptr %2, align 8, !tbaa !44
   %169 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store ptr %169, ptr %15, align 8, !tbaa !41
-  %170 = add i32 %143, 20
+  %170 = add nuw nsw i32 %143, 20
   store i32 %170, ptr %14, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -26172,14 +26172,14 @@ bits_peek_be.exit.i73:                            ; preds = %bits_read_vlc_be.ex
   %222 = load i32, ptr %219, align 1, !tbaa !30
   %223 = tail call i32 @llvm.bswap.i32(i32 %222)
   %224 = zext i32 %223 to i64
-  %225 = sub i32 44, %203
+  %225 = sub nsw i32 44, %203
   %226 = zext nneg i32 %225 to i64
   %227 = shl i64 %224, %226
   %228 = or i64 %227, %214
   store i64 %228, ptr %2, align 8, !tbaa !44
   %229 = getelementptr inbounds nuw i8, ptr %219, i64 4
   store ptr %229, ptr %15, align 8, !tbaa !41
-  %230 = add i32 %203, 20
+  %230 = add nuw nsw i32 %203, 20
   store i32 %230, ptr %14, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i76
 
@@ -26264,14 +26264,14 @@ bits_peek_be.exit.i84:                            ; preds = %bits_read_vlc_be.ex
   %280 = load i32, ptr %277, align 1, !tbaa !30
   %281 = tail call i32 @llvm.bswap.i32(i32 %280)
   %282 = zext i32 %281 to i64
-  %283 = sub i32 44, %261
+  %283 = sub nsw i32 44, %261
   %284 = zext nneg i32 %283 to i64
   %285 = shl i64 %282, %284
   %286 = or i64 %285, %272
   store i64 %286, ptr %2, align 8, !tbaa !44
   %287 = getelementptr inbounds nuw i8, ptr %277, i64 4
   store ptr %287, ptr %15, align 8, !tbaa !41
-  %288 = add i32 %261, 20
+  %288 = add nuw nsw i32 %261, 20
   store i32 %288, ptr %14, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i87
 
@@ -26358,14 +26358,14 @@ bits_peek_be.exit.i95:                            ; preds = %bits_read_vlc_be.ex
   %340 = load i32, ptr %337, align 1, !tbaa !30
   %341 = tail call i32 @llvm.bswap.i32(i32 %340)
   %342 = zext i32 %341 to i64
-  %343 = sub i32 44, %321
+  %343 = sub nsw i32 44, %321
   %344 = zext nneg i32 %343 to i64
   %345 = shl i64 %342, %344
   %346 = or i64 %345, %332
   store i64 %346, ptr %2, align 8, !tbaa !44
   %347 = getelementptr inbounds nuw i8, ptr %337, i64 4
   store ptr %347, ptr %15, align 8, !tbaa !41
-  %348 = add i32 %321, 20
+  %348 = add nuw nsw i32 %321, 20
   store i32 %348, ptr %14, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i98
 
@@ -26785,14 +26785,14 @@ bits_peek_be.exit.i:                              ; preds = %167, %174, %171
   %203 = load i32, ptr %200, align 1, !tbaa !30
   %204 = tail call i32 @llvm.bswap.i32(i32 %203)
   %205 = zext i32 %204 to i64
-  %206 = sub i32 44, %184
+  %206 = sub nsw i32 44, %184
   %207 = zext nneg i32 %206 to i64
   %208 = shl i64 %205, %207
   %209 = or i64 %208, %195
   store i64 %209, ptr %2, align 8, !tbaa !44
   %210 = getelementptr inbounds nuw i8, ptr %200, i64 4
   store ptr %210, ptr %26, align 8, !tbaa !41
-  %211 = add i32 %184, 20
+  %211 = add nuw nsw i32 %184, 20
   store i32 %211, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -26879,14 +26879,14 @@ bits_peek_be.exit.i211:                           ; preds = %bits_read_vlc_be.ex
   %263 = load i32, ptr %260, align 1, !tbaa !30
   %264 = tail call i32 @llvm.bswap.i32(i32 %263)
   %265 = zext i32 %264 to i64
-  %266 = sub i32 44, %244
+  %266 = sub nsw i32 44, %244
   %267 = zext nneg i32 %266 to i64
   %268 = shl i64 %265, %267
   %269 = or i64 %268, %255
   store i64 %269, ptr %2, align 8, !tbaa !44
   %270 = getelementptr inbounds nuw i8, ptr %260, i64 4
   store ptr %270, ptr %26, align 8, !tbaa !41
-  %271 = add i32 %244, 20
+  %271 = add nuw nsw i32 %244, 20
   store i32 %271, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i214
 
@@ -26973,14 +26973,14 @@ bits_peek_be.exit.i222:                           ; preds = %bits_read_vlc_be.ex
   %323 = load i32, ptr %320, align 1, !tbaa !30
   %324 = tail call i32 @llvm.bswap.i32(i32 %323)
   %325 = zext i32 %324 to i64
-  %326 = sub i32 44, %304
+  %326 = sub nsw i32 44, %304
   %327 = zext nneg i32 %326 to i64
   %328 = shl i64 %325, %327
   %329 = or i64 %328, %315
   store i64 %329, ptr %2, align 8, !tbaa !44
   %330 = getelementptr inbounds nuw i8, ptr %320, i64 4
   store ptr %330, ptr %26, align 8, !tbaa !41
-  %331 = add i32 %304, 20
+  %331 = add nuw nsw i32 %304, 20
   store i32 %331, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i225
 
@@ -27065,14 +27065,14 @@ bits_peek_be.exit.i233:                           ; preds = %bits_read_vlc_be.ex
   %381 = load i32, ptr %378, align 1, !tbaa !30
   %382 = tail call i32 @llvm.bswap.i32(i32 %381)
   %383 = zext i32 %382 to i64
-  %384 = sub i32 44, %362
+  %384 = sub nsw i32 44, %362
   %385 = zext nneg i32 %384 to i64
   %386 = shl i64 %383, %385
   %387 = or i64 %386, %373
   store i64 %387, ptr %2, align 8, !tbaa !44
   %388 = getelementptr inbounds nuw i8, ptr %378, i64 4
   store ptr %388, ptr %26, align 8, !tbaa !41
-  %389 = add i32 %362, 20
+  %389 = add nuw nsw i32 %362, 20
   store i32 %389, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i236
 
@@ -27159,14 +27159,14 @@ bits_peek_be.exit.i244:                           ; preds = %bits_read_vlc_be.ex
   %441 = load i32, ptr %438, align 1, !tbaa !30
   %442 = tail call i32 @llvm.bswap.i32(i32 %441)
   %443 = zext i32 %442 to i64
-  %444 = sub i32 44, %422
+  %444 = sub nsw i32 44, %422
   %445 = zext nneg i32 %444 to i64
   %446 = shl i64 %443, %445
   %447 = or i64 %446, %433
   store i64 %447, ptr %2, align 8, !tbaa !44
   %448 = getelementptr inbounds nuw i8, ptr %438, i64 4
   store ptr %448, ptr %26, align 8, !tbaa !41
-  %449 = add i32 %422, 20
+  %449 = add nuw nsw i32 %422, 20
   store i32 %449, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i247
 
@@ -27253,14 +27253,14 @@ bits_peek_be.exit.i255:                           ; preds = %bits_read_vlc_be.ex
   %501 = load i32, ptr %498, align 1, !tbaa !30
   %502 = tail call i32 @llvm.bswap.i32(i32 %501)
   %503 = zext i32 %502 to i64
-  %504 = sub i32 44, %482
+  %504 = sub nsw i32 44, %482
   %505 = zext nneg i32 %504 to i64
   %506 = shl i64 %503, %505
   %507 = or i64 %506, %493
   store i64 %507, ptr %2, align 8, !tbaa !44
   %508 = getelementptr inbounds nuw i8, ptr %498, i64 4
   store ptr %508, ptr %26, align 8, !tbaa !41
-  %509 = add i32 %482, 20
+  %509 = add nuw nsw i32 %482, 20
   store i32 %509, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i258
 
@@ -27747,14 +27747,14 @@ bits_peek_be.exit.i298:                           ; preds = %746, %788, %785
   %817 = load i32, ptr %814, align 1, !tbaa !30
   %818 = tail call i32 @llvm.bswap.i32(i32 %817)
   %819 = zext i32 %818 to i64
-  %820 = sub i32 44, %798
+  %820 = sub nsw i32 44, %798
   %821 = zext nneg i32 %820 to i64
   %822 = shl i64 %819, %821
   %823 = or i64 %822, %809
   store i64 %823, ptr %2, align 8, !tbaa !44
   %824 = getelementptr inbounds nuw i8, ptr %814, i64 4
   store ptr %824, ptr %575, align 8, !tbaa !41
-  %825 = add i32 %798, 20
+  %825 = add nuw nsw i32 %798, 20
   store i32 %825, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i301
 
@@ -27841,14 +27841,14 @@ bits_peek_be.exit.i309:                           ; preds = %bits_read_vlc_be.ex
   %877 = load i32, ptr %874, align 1, !tbaa !30
   %878 = tail call i32 @llvm.bswap.i32(i32 %877)
   %879 = zext i32 %878 to i64
-  %880 = sub i32 44, %858
+  %880 = sub nsw i32 44, %858
   %881 = zext nneg i32 %880 to i64
   %882 = shl i64 %879, %881
   %883 = or i64 %882, %869
   store i64 %883, ptr %2, align 8, !tbaa !44
   %884 = getelementptr inbounds nuw i8, ptr %874, i64 4
   store ptr %884, ptr %575, align 8, !tbaa !41
-  %885 = add i32 %858, 20
+  %885 = add nuw nsw i32 %858, 20
   store i32 %885, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i312
 
@@ -27935,14 +27935,14 @@ bits_peek_be.exit.i320:                           ; preds = %bits_read_vlc_be.ex
   %937 = load i32, ptr %934, align 1, !tbaa !30
   %938 = tail call i32 @llvm.bswap.i32(i32 %937)
   %939 = zext i32 %938 to i64
-  %940 = sub i32 44, %918
+  %940 = sub nsw i32 44, %918
   %941 = zext nneg i32 %940 to i64
   %942 = shl i64 %939, %941
   %943 = or i64 %942, %929
   store i64 %943, ptr %2, align 8, !tbaa !44
   %944 = getelementptr inbounds nuw i8, ptr %934, i64 4
   store ptr %944, ptr %575, align 8, !tbaa !41
-  %945 = add i32 %918, 20
+  %945 = add nuw nsw i32 %918, 20
   store i32 %945, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i323
 
@@ -28029,14 +28029,14 @@ bits_peek_be.exit.i331:                           ; preds = %bits_read_vlc_be.ex
   %997 = load i32, ptr %994, align 1, !tbaa !30
   %998 = tail call i32 @llvm.bswap.i32(i32 %997)
   %999 = zext i32 %998 to i64
-  %1000 = sub i32 44, %978
+  %1000 = sub nsw i32 44, %978
   %1001 = zext nneg i32 %1000 to i64
   %1002 = shl i64 %999, %1001
   %1003 = or i64 %1002, %989
   store i64 %1003, ptr %2, align 8, !tbaa !44
   %1004 = getelementptr inbounds nuw i8, ptr %994, i64 4
   store ptr %1004, ptr %575, align 8, !tbaa !41
-  %1005 = add i32 %978, 20
+  %1005 = add nuw nsw i32 %978, 20
   store i32 %1005, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i334
 
@@ -28123,14 +28123,14 @@ bits_peek_be.exit.i342:                           ; preds = %bits_read_vlc_be.ex
   %1057 = load i32, ptr %1054, align 1, !tbaa !30
   %1058 = tail call i32 @llvm.bswap.i32(i32 %1057)
   %1059 = zext i32 %1058 to i64
-  %1060 = sub i32 44, %1038
+  %1060 = sub nsw i32 44, %1038
   %1061 = zext nneg i32 %1060 to i64
   %1062 = shl i64 %1059, %1061
   %1063 = or i64 %1062, %1049
   store i64 %1063, ptr %2, align 8, !tbaa !44
   %1064 = getelementptr inbounds nuw i8, ptr %1054, i64 4
   store ptr %1064, ptr %575, align 8, !tbaa !41
-  %1065 = add i32 %1038, 20
+  %1065 = add nuw nsw i32 %1038, 20
   store i32 %1065, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i345
 
@@ -28217,14 +28217,14 @@ bits_peek_be.exit.i353:                           ; preds = %bits_read_vlc_be.ex
   %1117 = load i32, ptr %1114, align 1, !tbaa !30
   %1118 = tail call i32 @llvm.bswap.i32(i32 %1117)
   %1119 = zext i32 %1118 to i64
-  %1120 = sub i32 44, %1098
+  %1120 = sub nsw i32 44, %1098
   %1121 = zext nneg i32 %1120 to i64
   %1122 = shl i64 %1119, %1121
   %1123 = or i64 %1122, %1109
   store i64 %1123, ptr %2, align 8, !tbaa !44
   %1124 = getelementptr inbounds nuw i8, ptr %1114, i64 4
   store ptr %1124, ptr %575, align 8, !tbaa !41
-  %1125 = add i32 %1098, 20
+  %1125 = add nuw nsw i32 %1098, 20
   store i32 %1125, ptr %13, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i356
 
@@ -28709,14 +28709,14 @@ bits_peek_be.exit.i:                              ; preds = %170, %177, %174
   %206 = load i32, ptr %203, align 1, !tbaa !30
   %207 = tail call i32 @llvm.bswap.i32(i32 %206)
   %208 = zext i32 %207 to i64
-  %209 = sub i32 44, %187
+  %209 = sub nsw i32 44, %187
   %210 = zext nneg i32 %209 to i64
   %211 = shl i64 %208, %210
   %212 = or i64 %211, %198
   store i64 %212, ptr %2, align 8, !tbaa !44
   %213 = getelementptr inbounds nuw i8, ptr %203, i64 4
   store ptr %213, ptr %17, align 8, !tbaa !41
-  %214 = add i32 %187, 20
+  %214 = add nuw nsw i32 %187, 20
   store i32 %214, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i
 
@@ -28803,14 +28803,14 @@ bits_peek_be.exit.i102:                           ; preds = %bits_read_vlc_be.ex
   %266 = load i32, ptr %263, align 1, !tbaa !30
   %267 = tail call i32 @llvm.bswap.i32(i32 %266)
   %268 = zext i32 %267 to i64
-  %269 = sub i32 44, %247
+  %269 = sub nsw i32 44, %247
   %270 = zext nneg i32 %269 to i64
   %271 = shl i64 %268, %270
   %272 = or i64 %271, %258
   store i64 %272, ptr %2, align 8, !tbaa !44
   %273 = getelementptr inbounds nuw i8, ptr %263, i64 4
   store ptr %273, ptr %17, align 8, !tbaa !41
-  %274 = add i32 %247, 20
+  %274 = add nuw nsw i32 %247, 20
   store i32 %274, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i105
 
@@ -28897,14 +28897,14 @@ bits_peek_be.exit.i113:                           ; preds = %bits_read_vlc_be.ex
   %326 = load i32, ptr %323, align 1, !tbaa !30
   %327 = tail call i32 @llvm.bswap.i32(i32 %326)
   %328 = zext i32 %327 to i64
-  %329 = sub i32 44, %307
+  %329 = sub nsw i32 44, %307
   %330 = zext nneg i32 %329 to i64
   %331 = shl i64 %328, %330
   %332 = or i64 %331, %318
   store i64 %332, ptr %2, align 8, !tbaa !44
   %333 = getelementptr inbounds nuw i8, ptr %323, i64 4
   store ptr %333, ptr %17, align 8, !tbaa !41
-  %334 = add i32 %307, 20
+  %334 = add nuw nsw i32 %307, 20
   store i32 %334, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i116
 
@@ -28989,14 +28989,14 @@ bits_peek_be.exit.i124:                           ; preds = %bits_read_vlc_be.ex
   %384 = load i32, ptr %381, align 1, !tbaa !30
   %385 = tail call i32 @llvm.bswap.i32(i32 %384)
   %386 = zext i32 %385 to i64
-  %387 = sub i32 44, %365
+  %387 = sub nsw i32 44, %365
   %388 = zext nneg i32 %387 to i64
   %389 = shl i64 %386, %388
   %390 = or i64 %389, %376
   store i64 %390, ptr %2, align 8, !tbaa !44
   %391 = getelementptr inbounds nuw i8, ptr %381, i64 4
   store ptr %391, ptr %17, align 8, !tbaa !41
-  %392 = add i32 %365, 20
+  %392 = add nuw nsw i32 %365, 20
   store i32 %392, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i127
 
@@ -29083,14 +29083,14 @@ bits_peek_be.exit.i135:                           ; preds = %bits_read_vlc_be.ex
   %444 = load i32, ptr %441, align 1, !tbaa !30
   %445 = tail call i32 @llvm.bswap.i32(i32 %444)
   %446 = zext i32 %445 to i64
-  %447 = sub i32 44, %425
+  %447 = sub nsw i32 44, %425
   %448 = zext nneg i32 %447 to i64
   %449 = shl i64 %446, %448
   %450 = or i64 %449, %436
   store i64 %450, ptr %2, align 8, !tbaa !44
   %451 = getelementptr inbounds nuw i8, ptr %441, i64 4
   store ptr %451, ptr %17, align 8, !tbaa !41
-  %452 = add i32 %425, 20
+  %452 = add nuw nsw i32 %425, 20
   store i32 %452, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i138
 
@@ -29177,14 +29177,14 @@ bits_peek_be.exit.i146:                           ; preds = %bits_read_vlc_be.ex
   %504 = load i32, ptr %501, align 1, !tbaa !30
   %505 = tail call i32 @llvm.bswap.i32(i32 %504)
   %506 = zext i32 %505 to i64
-  %507 = sub i32 44, %485
+  %507 = sub nsw i32 44, %485
   %508 = zext nneg i32 %507 to i64
   %509 = shl i64 %506, %508
   %510 = or i64 %509, %496
   store i64 %510, ptr %2, align 8, !tbaa !44
   %511 = getelementptr inbounds nuw i8, ptr %501, i64 4
   store ptr %511, ptr %17, align 8, !tbaa !41
-  %512 = add i32 %485, 20
+  %512 = add nuw nsw i32 %485, 20
   store i32 %512, ptr %16, align 8, !tbaa !43
   br label %bits_priv_set_idx_be.exit.i149
 

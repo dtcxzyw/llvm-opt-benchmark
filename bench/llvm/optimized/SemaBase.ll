@@ -199,14 +199,14 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsER
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNK5clang17PartialDiagnostic4EmitERKNS_17DiagnosticBuilderE(ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(66) %8)
-  br label %31
+  br label %32
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %12 = load i8, ptr %11, align 4, !tbaa !701, !range !685, !noundef !686
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %31
+  br i1 %13, label %14, label %32
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %0, align 8, !tbaa !703
@@ -231,12 +231,13 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit: ; preds = %14, %19
   %26 = load i32, ptr %10, align 8, !tbaa !718
   %27 = zext i32 %26 to i64
   %28 = load ptr, ptr %25, align 8, !tbaa !719
-  %29 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %27, i32 2
-  %30 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang17PartialDiagnosticaSERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull align 8 dereferenceable(20) %1)
+  %29 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang17PartialDiagnosticaSERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %30, ptr noundef nonnull align 8 dereferenceable(20) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %31
+  br label %32
 
-31:                                               ; preds = %9, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit, %7
+32:                                               ; preds = %9, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit, %7
   ret ptr %0
 }
 
@@ -692,14 +693,14 @@ define dso_local void @_ZNK5clang8SemaBase21SemaDiagnosticBuilder12AddFixItHintE
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNK5clang19StreamingDiagnostic12AddFixItHintERKNS_9FixItHintE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(57) %1)
-  br label %30
+  br label %31
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %12 = load i8, ptr %11, align 4, !tbaa !701, !range !685, !noundef !686
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %30
+  br i1 %13, label %14, label %31
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %0, align 8, !tbaa !703
@@ -724,12 +725,13 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit: ; preds = %14, %19
   %26 = load i32, ptr %10, align 8, !tbaa !718
   %27 = zext i32 %26 to i64
   %28 = load ptr, ptr %25, align 8, !tbaa !719
-  %29 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %27, i32 2
-  call void @_ZNK5clang19StreamingDiagnostic12AddFixItHintERKNS_9FixItHintE(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(57) %1)
+  %29 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  call void @_ZNK5clang19StreamingDiagnostic12AddFixItHintERKNS_9FixItHintE(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(57) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %30
+  br label %31
 
-30:                                               ; preds = %9, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit, %7
+31:                                               ; preds = %9, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit, %7
   ret void
 }
 
@@ -1022,34 +1024,35 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %25, %
   %32 = load i32, ptr %16, align 8, !tbaa !718
   %33 = zext i32 %32 to i64
   %34 = load ptr, ptr %31, align 8, !tbaa !719
-  %35 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %33, i32 2
-  %36 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang17PartialDiagnosticaSERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %35, ptr noundef nonnull align 8 dereferenceable(20) %3)
+  %35 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %33
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang17PartialDiagnosticaSERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %36, ptr noundef nonnull align 8 dereferenceable(20) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5clanglsERKNS_8SemaBase21SemaDiagnosticBuilderERKNS_17PartialDiagnosticE.exit
 
 _ZN5clanglsERKNS_8SemaBase21SemaDiagnosticBuilderERKNS_17PartialDiagnosticE.exit: ; preds = %13, %15, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %7, i64 25, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i8 0, ptr %37, align 8, !tbaa !699
-  %38 = load i8, ptr %10, align 8, !tbaa !699, !range !685, !noundef !686
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %_ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i8 0, ptr %38, align 8, !tbaa !699
+  %39 = load i8, ptr %10, align 8, !tbaa !699, !range !685, !noundef !686
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %41, label %_ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit
 
-40:                                               ; preds = %_ZN5clanglsERKNS_8SemaBase21SemaDiagnosticBuilderERKNS_17PartialDiagnosticE.exit
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @_ZN5clang17DiagnosticBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %41, ptr noundef nonnull align 8 dereferenceable(96) %42) #16
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %43, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false)
-  store i8 1, ptr %37, align 8, !tbaa !699
+41:                                               ; preds = %_ZN5clanglsERKNS_8SemaBase21SemaDiagnosticBuilderERKNS_17PartialDiagnosticE.exit
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @_ZN5clang17DiagnosticBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %42, ptr noundef nonnull align 8 dereferenceable(96) %43) #16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %45, i64 12, i1 false)
+  store i8 1, ptr %38, align 8, !tbaa !699
   br label %_ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit
 
-_ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %_ZN5clanglsERKNS_8SemaBase21SemaDiagnosticBuilderERKNS_17PartialDiagnosticE.exit, %40
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %47 = load i64, ptr %46, align 8
-  store i64 %47, ptr %45, align 8
+_ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %_ZN5clanglsERKNS_8SemaBase21SemaDiagnosticBuilderERKNS_17PartialDiagnosticE.exit, %41
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %48 = load i64, ptr %47, align 8
+  store i64 %48, ptr %46, align 8
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

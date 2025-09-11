@@ -1613,7 +1613,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %270, %264, %256, %2
   %367 = add i32 %366, %359
   %368 = zext i32 %367 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %369 = getelementptr inbounds nuw %struct.hfsPlusResourceBlockTable, ptr %.pre827, i64 %364, i32 1
+  %369 = getelementptr inbounds nuw i8, ptr %365, i64 4
   %370 = load i32, ptr %369, align 1, !tbaa !99
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.83, i32 noundef %.0229474, i32 noundef %363, i64 noundef %368, i32 noundef %370) #12
   %371 = call i64 @lseek(i32 noundef %352, i64 noundef %368, i32 noundef 0) #12

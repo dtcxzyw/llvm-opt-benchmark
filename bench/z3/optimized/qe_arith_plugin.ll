@@ -2472,7 +2472,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.lr.ph, %90
   %indvars.iv = phi i64 [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.lr.ph ], [ %indvars.iv.next, %90 ]
-  %69 = phi ptr [ %65, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.lr.ph ], [ %98, %90 ]
+  %69 = phi ptr [ %65, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.lr.ph ], [ %99, %90 ]
   %70 = getelementptr inbounds i8, ptr %69, i64 -4
   %71 = load i32, ptr %70, align 4, !tbaa !141
   %72 = zext i32 %71 to i64
@@ -2510,64 +2510,65 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %.critedge, %_ZN11as
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 752
   invoke void @_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerERS4_I3appS5_E(ptr noundef nonnull align 8 dereferenceable(536) %88, ptr noundef %82, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %89)
-          to label %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit unwind label %105
+          to label %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit unwind label %106
 
 90:                                               ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %91 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8, !tbaa !142
   %93 = load ptr, ptr %67, align 8, !tbaa !183
-  %94 = getelementptr inbounds nuw %class.ref_vector, ptr %93, i64 %68, i32 0, i32 1
-  %95 = load ptr, ptr %94, align 8, !tbaa !45
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv
-  %97 = load ptr, ptr %96, align 8, !tbaa !142
-  tail call void @_ZN17expr_safe_replace6insertEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(136) %63, ptr noundef %92, ptr noundef %97)
+  %94 = getelementptr inbounds nuw %class.ref_vector, ptr %93, i64 %68
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %96 = load ptr, ptr %95, align 8, !tbaa !45
+  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv
+  %98 = load ptr, ptr %97, align 8, !tbaa !142
+  tail call void @_ZN17expr_safe_replace6insertEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(136) %63, ptr noundef %92, ptr noundef %98)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = load ptr, ptr %64, align 8, !tbaa !45
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %.critedge, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, !llvm.loop !186
+  %99 = load ptr, ptr %64, align 8, !tbaa !45
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %.critedge, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, !llvm.loop !186
 
 _ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit: ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit18, label %100
+  br i1 %.not, label %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit18, label %101
 
-100:                                              ; preds = %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit
-  %101 = getelementptr inbounds nuw i8, ptr %.02427, i64 64
-  %102 = load ptr, ptr %101, align 8, !tbaa !45
-  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %.pre-phi
-  %104 = load ptr, ptr %103, align 8, !tbaa !142
-  invoke void @_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerERS4_I3appS5_E(ptr noundef nonnull align 8 dereferenceable(536) %88, ptr noundef %104, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %89)
-          to label %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit18 unwind label %105
+101:                                              ; preds = %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit
+  %102 = getelementptr inbounds nuw i8, ptr %.02427, i64 64
+  %103 = load ptr, ptr %102, align 8, !tbaa !45
+  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %.pre-phi
+  %105 = load ptr, ptr %104, align 8, !tbaa !142
+  invoke void @_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerERS4_I3appS5_E(ptr noundef nonnull align 8 dereferenceable(536) %88, ptr noundef %105, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %89)
+          to label %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit18 unwind label %106
 
-105:                                              ; preds = %100, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %101, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
+  %107 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %106
+  resume { ptr, i32 } %107
 
-_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit18: ; preds = %100, %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit
-  br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %107
+_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit18: ; preds = %101, %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit
+  br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %108
 
-107:                                              ; preds = %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit18
-  %108 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %109 = load i32, ptr %108, align 4, !tbaa !144
-  %110 = add i32 %109, -1
-  store i32 %110, ptr %108, align 4, !tbaa !144
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
+108:                                              ; preds = %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit18
+  %109 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %110 = load i32, ptr %109, align 4, !tbaa !144
+  %111 = add i32 %110, -1
+  store i32 %111, ptr %109, align 4, !tbaa !144
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
 
-112:                                              ; preds = %107
+113:                                              ; preds = %108
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %83, ptr noundef nonnull %82)
-          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit unwind label %113
+          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit unwind label %114
 
-113:                                              ; preds = %112
-  %114 = landingpad { ptr, i32 }
+114:                                              ; preds = %113
+  %115 = landingpad { ptr, i32 }
           catch ptr null
-  %115 = extractvalue { ptr, i32 } %114, 0
-  tail call void @__clang_call_terminate(ptr %115) #23
+  %116 = extractvalue { ptr, i32 } %115, 0
+  tail call void @__clang_call_terminate(ptr %116) #23
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit18, %107, %112
+_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN12rewriter_tplI19factor_rewriter_cfgEclEP4exprR7obj_refIS2_11ast_managerE.exit18, %108, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

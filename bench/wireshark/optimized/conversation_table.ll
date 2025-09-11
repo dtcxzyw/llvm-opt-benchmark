@@ -466,13 +466,13 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @reset_endpoint_table_data(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %29, label %2
+  br i1 %.not, label %30, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not14 = icmp eq ptr %4, null
-  br i1 %.not14, label %25, label %.preheader
+  br i1 %.not14, label %26, label %.preheader
 
 .preheader:                                       ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -482,58 +482,59 @@ define void @reset_endpoint_table_data(ptr noundef captures(address_is_null) %0)
 
 .lr.ph:                                           ; preds = %.preheader, %free_address.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %free_address.exit ], [ 0, %.preheader ]
-  %7 = phi ptr [ %19, %free_address.exit ], [ %4, %.preheader ]
+  %7 = phi ptr [ %20, %free_address.exit ], [ %4, %.preheader ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr %struct._endpoint_item_t, ptr %8, i64 %indvars.iv, i32 1
-  %10 = load i32, ptr %9, align 8
-  %.not.i.i = icmp eq i32 %10, 0
-  br i1 %.not.i.i, label %free_address.exit, label %11
+  %9 = getelementptr %struct._endpoint_item_t, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i32, ptr %10, align 8
+  %.not.i.i = icmp eq i32 %11, 0
+  br i1 %.not.i.i, label %free_address.exit, label %12
 
-11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %free_address.exit
+12:                                               ; preds = %.lr.ph
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %16, label %free_address.exit
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %.not6.i.i = icmp eq ptr %17, null
-  br i1 %.not6.i.i, label %free_address.exit, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %.not6.i.i = icmp eq ptr %18, null
+  br i1 %.not6.i.i, label %free_address.exit, label %19
 
-18:                                               ; preds = %15
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %17)
+19:                                               ; preds = %16
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %18)
   br label %free_address.exit
 
-free_address.exit:                                ; preds = %.lr.ph, %11, %15, %18
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+free_address.exit:                                ; preds = %.lr.ph, %12, %16, %19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load i32, ptr %20, align 8
-  %22 = zext i32 %21 to i64
-  %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = zext i32 %22 to i64
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %free_address.exit, %.preheader
-  %.lcssa = phi ptr [ %4, %.preheader ], [ %19, %free_address.exit ]
-  %24 = tail call ptr @g_array_free(ptr noundef %.lcssa, i32 noundef 1)
-  br label %25
+  %.lcssa = phi ptr [ %4, %.preheader ], [ %20, %free_address.exit ]
+  %25 = tail call ptr @g_array_free(ptr noundef %.lcssa, i32 noundef 1)
+  br label %26
 
-25:                                               ; preds = %._crit_edge, %2
-  %26 = load ptr, ptr %0, align 8
-  %.not15 = icmp eq ptr %26, null
-  br i1 %.not15, label %28, label %27
+26:                                               ; preds = %._crit_edge, %2
+  %27 = load ptr, ptr %0, align 8
+  %.not15 = icmp eq ptr %27, null
+  br i1 %.not15, label %29, label %28
 
-27:                                               ; preds = %25
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %26)
-  br label %28
-
-28:                                               ; preds = %27, %25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+28:                                               ; preds = %26
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %27)
   br label %29
 
-29:                                               ; preds = %1, %28
+29:                                               ; preds = %28, %26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  br label %30
+
+30:                                               ; preds = %1, %29
   ret void
 }
 
@@ -546,7 +547,7 @@ define void @reset_hostlist_table_data(ptr noundef captures(address_is_null) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not14.i = icmp eq ptr %4, null
-  br i1 %.not14.i, label %25, label %.preheader.i
+  br i1 %.not14.i, label %26, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -556,58 +557,59 @@ define void @reset_hostlist_table_data(ptr noundef captures(address_is_null) %0)
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %free_address.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %free_address.exit.i ], [ 0, %.preheader.i ]
-  %7 = phi ptr [ %19, %free_address.exit.i ], [ %4, %.preheader.i ]
+  %7 = phi ptr [ %20, %free_address.exit.i ], [ %4, %.preheader.i ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr %struct._endpoint_item_t, ptr %8, i64 %indvars.iv.i, i32 1
-  %10 = load i32, ptr %9, align 8
-  %.not.i.i.i = icmp eq i32 %10, 0
-  br i1 %.not.i.i.i, label %free_address.exit.i, label %11
+  %9 = getelementptr %struct._endpoint_item_t, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i32, ptr %10, align 8
+  %.not.i.i.i = icmp eq i32 %11, 0
+  br i1 %.not.i.i.i, label %free_address.exit.i, label %12
 
-11:                                               ; preds = %.lr.ph.i
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %free_address.exit.i
+12:                                               ; preds = %.lr.ph.i
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %16, label %free_address.exit.i
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %.not6.i.i.i = icmp eq ptr %17, null
-  br i1 %.not6.i.i.i, label %free_address.exit.i, label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %.not6.i.i.i = icmp eq ptr %18, null
+  br i1 %.not6.i.i.i, label %free_address.exit.i, label %19
 
-18:                                               ; preds = %15
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %17)
+19:                                               ; preds = %16
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %18)
   br label %free_address.exit.i
 
-free_address.exit.i:                              ; preds = %18, %15, %11, %.lr.ph.i
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+free_address.exit.i:                              ; preds = %19, %16, %12, %.lr.ph.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load i32, ptr %20, align 8
-  %22 = zext i32 %21 to i64
-  %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
-  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = zext i32 %22 to i64
+  %24 = icmp samesign ult i64 %indvars.iv.next.i, %23
+  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %free_address.exit.i, %.preheader.i
-  %.lcssa.i = phi ptr [ %4, %.preheader.i ], [ %19, %free_address.exit.i ]
-  %24 = tail call ptr @g_array_free(ptr noundef %.lcssa.i, i32 noundef 1)
-  br label %25
+  %.lcssa.i = phi ptr [ %4, %.preheader.i ], [ %20, %free_address.exit.i ]
+  %25 = tail call ptr @g_array_free(ptr noundef %.lcssa.i, i32 noundef 1)
+  br label %26
 
-25:                                               ; preds = %._crit_edge.i, %2
-  %26 = load ptr, ptr %0, align 8
-  %.not15.i = icmp eq ptr %26, null
-  br i1 %.not15.i, label %28, label %27
+26:                                               ; preds = %._crit_edge.i, %2
+  %27 = load ptr, ptr %0, align 8
+  %.not15.i = icmp eq ptr %27, null
+  br i1 %.not15.i, label %29, label %28
 
-27:                                               ; preds = %25
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %26)
-  br label %28
+28:                                               ; preds = %26
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %27)
+  br label %29
 
-28:                                               ; preds = %27, %25
+29:                                               ; preds = %28, %26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %reset_endpoint_table_data.exit
 
-reset_endpoint_table_data.exit:                   ; preds = %1, %28
+reset_endpoint_table_data.exit:                   ; preds = %1, %29
   ret void
 }
 

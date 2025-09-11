@@ -612,17 +612,17 @@ define internal i32 @dissect_pnrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %86 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %.0534, i32 noundef %.0537, i32 noundef 2, i32 noundef 0)
   %87 = load i32, ptr @hf_pnrp_message_length, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %87, ptr noundef %.0534, i32 noundef %51, i32 noundef 2, i32 noundef 0)
-  %89 = icmp ugt i16 %52, 35
-  br i1 %89, label %.lr.ph.i.preheader, label %dissect_pnrp_ids.exit
+  %89 = add nsw i32 %53, -4
+  %90 = icmp samesign ugt i32 %89, 31
+  br i1 %90, label %.lr.ph.i.preheader, label %dissect_pnrp_ids.exit
 
 .lr.ph.i.preheader:                               ; preds = %82
-  %90 = add nsw i32 %53, -4
   %91 = add nsw i32 %.0537, 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.07.i = phi i32 [ %95, %.lr.ph.i ], [ %91, %.lr.ph.i.preheader ]
-  %.056.i = phi i32 [ %94, %.lr.ph.i ], [ %90, %.lr.ph.i.preheader ]
+  %.056.i = phi i32 [ %94, %.lr.ph.i ], [ %89, %.lr.ph.i.preheader ]
   %92 = load i32, ptr @hf_pnrp_message_pnrpID, align 4
   %93 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %92, ptr noundef %.0534, i32 noundef %.07.i, i32 noundef 32, i32 noundef 0)
   %94 = add nsw i32 %.056.i, -32
@@ -802,17 +802,17 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   %218 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %217, ptr noundef %.0534, i32 noundef %.0537, i32 noundef 2, i32 noundef 0)
   %219 = load i32, ptr @hf_pnrp_message_length, align 4
   %220 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %219, ptr noundef %.0534, i32 noundef %51, i32 noundef 2, i32 noundef 0)
-  %221 = icmp ugt i16 %52, 35
-  br i1 %221, label %.lr.ph.i581.preheader, label %dissect_pnrp_ids.exit584
+  %221 = add nsw i32 %53, -4
+  %222 = icmp samesign ugt i32 %221, 31
+  br i1 %222, label %.lr.ph.i581.preheader, label %dissect_pnrp_ids.exit584
 
 .lr.ph.i581.preheader:                            ; preds = %214
-  %222 = add nsw i32 %53, -4
   %223 = add nsw i32 %.0537, 4
   br label %.lr.ph.i581
 
 .lr.ph.i581:                                      ; preds = %.lr.ph.i581.preheader, %.lr.ph.i581
   %.07.i582 = phi i32 [ %227, %.lr.ph.i581 ], [ %223, %.lr.ph.i581.preheader ]
-  %.056.i583 = phi i32 [ %226, %.lr.ph.i581 ], [ %222, %.lr.ph.i581.preheader ]
+  %.056.i583 = phi i32 [ %226, %.lr.ph.i581 ], [ %221, %.lr.ph.i581.preheader ]
   %224 = load i32, ptr @hf_pnrp_message_pnrpID, align 4
   %225 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %224, ptr noundef %.0534, i32 noundef %.07.i582, i32 noundef 32, i32 noundef 0)
   %226 = add nsw i32 %.056.i583, -32
@@ -930,21 +930,21 @@ dissect_pnrp_ids.exit588:                         ; preds = %.lr.ph.i585, %241, 
   br i1 %exitcond645, label %.critedge.thread, label %.lr.ph624, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph624
-  %.not707 = icmp eq i32 %.0546623, 0
-  br i1 %.not707, label %.critedge._crit_edge, label %.critedge.thread
+  %.not709 = icmp eq i32 %.0546623, 0
+  br i1 %.not709, label %.critedge._crit_edge, label %.critedge.thread
 
 .critedge._crit_edge:                             ; preds = %281, %.critedge
-  %.0549.lcssa664 = phi i32 [ %.0549622, %.critedge ], [ %53, %281 ]
-  %.pre = add i32 %.0549.lcssa664, %.0537
+  %.0549.lcssa666 = phi i32 [ %.0549622, %.critedge ], [ %53, %281 ]
+  %.pre = add i32 %.0549.lcssa666, %.0537
   br label %dissect_encodedCPA_structure.exit
 
 .critedge.thread:                                 ; preds = %288, %.critedge
-  %.0546.lcssa660 = phi i32 [ %.0546623, %.critedge ], [ %290, %288 ]
-  %.0549.lcssa659 = phi i32 [ %.0549622, %.critedge ], [ %289, %288 ]
+  %.0546.lcssa662 = phi i32 [ %.0546623, %.critedge ], [ %290, %288 ]
+  %.0549.lcssa661 = phi i32 [ %.0549622, %.critedge ], [ %289, %288 ]
   %291 = load i32, ptr @hf_pnrp_padding, align 4
-  %292 = add i32 %.0549.lcssa659, %.0537
-  %293 = sub i32 %292, %.0546.lcssa660
-  %294 = call ptr @proto_tree_add_item(ptr noundef %.11, i32 noundef %291, ptr noundef %.0534, i32 noundef %293, i32 noundef %.0546.lcssa660, i32 noundef 0)
+  %292 = add i32 %.0549.lcssa661, %.0537
+  %293 = sub i32 %292, %.0546.lcssa662
+  %294 = call ptr @proto_tree_add_item(ptr noundef %.11, i32 noundef %291, ptr noundef %.0534, i32 noundef %293, i32 noundef %.0546.lcssa662, i32 noundef 0)
   br label %dissect_encodedCPA_structure.exit
 
 295:                                              ; preds = %65
@@ -1004,21 +1004,21 @@ dissect_pnrp_ids.exit588:                         ; preds = %.lr.ph.i585, %241, 
   br i1 %exitcond643, label %.critedge2.thread, label %.lr.ph615, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.lr.ph615
-  %.not706 = icmp eq i32 %.1547614, 0
-  br i1 %.not706, label %.critedge2._crit_edge, label %.critedge2.thread
+  %.not708 = icmp eq i32 %.1547614, 0
+  br i1 %.not708, label %.critedge2._crit_edge, label %.critedge2.thread
 
 .critedge2._crit_edge:                            ; preds = %321, %.critedge2
-  %.1550.lcssa672 = phi i32 [ %.1550613, %.critedge2 ], [ %53, %321 ]
-  %.pre646 = add i32 %.1550.lcssa672, %.0537
+  %.1550.lcssa674 = phi i32 [ %.1550613, %.critedge2 ], [ %53, %321 ]
+  %.pre646 = add i32 %.1550.lcssa674, %.0537
   br label %dissect_encodedCPA_structure.exit
 
 .critedge2.thread:                                ; preds = %328, %.critedge2
-  %.1547.lcssa668 = phi i32 [ %.1547614, %.critedge2 ], [ %330, %328 ]
-  %.1550.lcssa667 = phi i32 [ %.1550613, %.critedge2 ], [ %329, %328 ]
+  %.1547.lcssa670 = phi i32 [ %.1547614, %.critedge2 ], [ %330, %328 ]
+  %.1550.lcssa669 = phi i32 [ %.1550613, %.critedge2 ], [ %329, %328 ]
   %331 = load i32, ptr @hf_pnrp_padding, align 4
-  %332 = add i32 %.1550.lcssa667, %.0537
-  %333 = sub i32 %332, %.1547.lcssa668
-  %334 = call ptr @proto_tree_add_item(ptr noundef %.12, i32 noundef %331, ptr noundef %.0534, i32 noundef %333, i32 noundef %.1547.lcssa668, i32 noundef 0)
+  %332 = add i32 %.1550.lcssa669, %.0537
+  %333 = sub i32 %332, %.1547.lcssa670
+  %334 = call ptr @proto_tree_add_item(ptr noundef %.12, i32 noundef %331, ptr noundef %.0534, i32 noundef %333, i32 noundef %.1547.lcssa670, i32 noundef 0)
   br label %dissect_encodedCPA_structure.exit
 
 335:                                              ; preds = %65
@@ -1201,21 +1201,21 @@ dissect_route_entry.exit:                         ; preds = %.lr.ph.i.i, %405, %
   br i1 %exitcond, label %.critedge4.thread, label %.lr.ph, !llvm.loop !11
 
 .critedge4:                                       ; preds = %.lr.ph
-  %.not705 = icmp eq i32 %.2548607, 0
-  br i1 %.not705, label %.critedge4._crit_edge, label %.critedge4.thread
+  %.not707 = icmp eq i32 %.2548607, 0
+  br i1 %.not707, label %.critedge4._crit_edge, label %.critedge4.thread
 
 .critedge4._crit_edge:                            ; preds = %dissect_route_entry.exit, %.critedge4
-  %.2551.lcssa680 = phi i32 [ %.2551606, %.critedge4 ], [ %53, %dissect_route_entry.exit ]
-  %.pre648 = add i32 %.2551.lcssa680, %.0537
+  %.2551.lcssa682 = phi i32 [ %.2551606, %.critedge4 ], [ %53, %dissect_route_entry.exit ]
+  %.pre648 = add i32 %.2551.lcssa682, %.0537
   br label %dissect_encodedCPA_structure.exit
 
 .critedge4.thread:                                ; preds = %446, %.critedge4
-  %.2548.lcssa676 = phi i32 [ %.2548607, %.critedge4 ], [ %448, %446 ]
-  %.2551.lcssa675 = phi i32 [ %.2551606, %.critedge4 ], [ %447, %446 ]
+  %.2548.lcssa678 = phi i32 [ %.2548607, %.critedge4 ], [ %448, %446 ]
+  %.2551.lcssa677 = phi i32 [ %.2551606, %.critedge4 ], [ %447, %446 ]
   %449 = load i32, ptr @hf_pnrp_padding, align 4
-  %450 = add i32 %.2551.lcssa675, %.0537
-  %451 = sub i32 %450, %.2548.lcssa676
-  %452 = call ptr @proto_tree_add_item(ptr noundef %.16, i32 noundef %449, ptr noundef %.0534, i32 noundef %451, i32 noundef %.2548.lcssa676, i32 noundef 0)
+  %450 = add i32 %.2551.lcssa677, %.0537
+  %451 = sub i32 %450, %.2548.lcssa678
+  %452 = call ptr @proto_tree_add_item(ptr noundef %.16, i32 noundef %449, ptr noundef %.0534, i32 noundef %451, i32 noundef %.2548.lcssa678, i32 noundef 0)
   br label %dissect_encodedCPA_structure.exit
 
 453:                                              ; preds = %65

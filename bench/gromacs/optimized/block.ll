@@ -265,59 +265,60 @@ define void @_Z9pr_blockaP8_IO_FILEiPKcN3gmx8ArrayRefIK10IndexGroupEEb(ptr nound
 
 17:                                               ; preds = %.lr.ph46, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %._crit_edge ]
-  %18 = getelementptr inbounds nuw %struct.IndexGroup, ptr %3, i64 %indvars.iv, i32 1
-  %19 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %12)
-  %20 = load ptr, ptr %18, align 8, !tbaa !12
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !12
-  %23 = icmp eq ptr %20, %22
-  %24 = trunc nuw nsw i64 %indvars.iv to i32
-  %25 = or i1 %23, %5
-  %.sink = select i1 %25, i32 %24, i32 -1
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %2, i32 noundef %.sink) #6
-  %27 = load ptr, ptr %18, align 8, !tbaa !12
-  %28 = load ptr, ptr %21, align 8, !tbaa !12
-  %.not40 = icmp eq ptr %27, %28
+  %18 = getelementptr inbounds nuw %struct.IndexGroup, ptr %3, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %20 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %12)
+  %21 = load ptr, ptr %19, align 8, !tbaa !12
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %23 = load ptr, ptr %22, align 8, !tbaa !12
+  %24 = icmp eq ptr %21, %23
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
+  %26 = or i1 %24, %5
+  %.sink = select i1 %26, i32 %25, i32 -1
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %2, i32 noundef %.sink) #6
+  %28 = load ptr, ptr %19, align 8, !tbaa !12
+  %29 = load ptr, ptr %22, align 8, !tbaa !12
+  %.not40 = icmp eq ptr %28, %29
   br i1 %.not40, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
-  %.032 = add nsw i32 %26, %19
+  %.032 = add nsw i32 %27, %20
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %38, %17
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
+._crit_edge:                                      ; preds = %39, %17
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %smax
   br i1 %exitcond.not, label %._crit_edge47, label %17, !llvm.loop !25
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
-  %.03143 = phi i1 [ false, %38 ], [ true, %.lr.ph.preheader ]
-  %.142 = phi i32 [ %40, %38 ], [ %.032, %.lr.ph.preheader ]
-  %.sroa.035.041 = phi ptr [ %41, %38 ], [ %27, %.lr.ph.preheader ]
-  %30 = load i32, ptr %.sroa.035.041, align 4, !tbaa !13
-  br i1 %.03143, label %34, label %31
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %39
+  %.03143 = phi i1 [ false, %39 ], [ true, %.lr.ph.preheader ]
+  %.142 = phi i32 [ %41, %39 ], [ %.032, %.lr.ph.preheader ]
+  %.sroa.035.041 = phi ptr [ %42, %39 ], [ %28, %.lr.ph.preheader ]
+  %31 = load i32, ptr %.sroa.035.041, align 4, !tbaa !13
+  br i1 %.03143, label %35, label %32
 
-31:                                               ; preds = %.lr.ph
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9) #6
-  %33 = add nsw i32 %32, %.142
-  br label %34
+32:                                               ; preds = %.lr.ph
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9) #6
+  %34 = add nsw i32 %33, %.142
+  br label %35
 
-34:                                               ; preds = %31, %.lr.ph
-  %.2 = phi i32 [ %.142, %.lr.ph ], [ %33, %31 ]
-  %35 = icmp sgt i32 %.2, 70
-  br i1 %35, label %36, label %38
+35:                                               ; preds = %32, %.lr.ph
+  %.2 = phi i32 [ %.142, %.lr.ph ], [ %34, %32 ]
+  %36 = icmp sgt i32 %.2, 70
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %34
+37:                                               ; preds = %35
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
-  %37 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %16)
-  br label %38
+  %38 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %16)
+  br label %39
 
-38:                                               ; preds = %36, %34
-  %.3 = phi i32 [ %37, %36 ], [ %.2, %34 ]
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %30) #6
-  %40 = add nsw i32 %39, %.3
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.035.041, i64 4
-  %.not = icmp eq ptr %41, %28
+39:                                               ; preds = %37, %35
+  %.3 = phi i32 [ %38, %37 ], [ %.2, %35 ]
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %31) #6
+  %41 = add nsw i32 %40, %.3
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.035.041, i64 4
+  %.not = icmp eq ptr %42, %29
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

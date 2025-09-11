@@ -761,7 +761,7 @@ define internal range(i32 0, 3) i32 @V4L2_AcquireFrame(ptr noundef readonly capt
   switch i32 %9, label %.loopexit [
     i32 1, label %14
     i32 2, label %38
-    i32 3, label %81
+    i32 3, label %82
   ]
 
 14:                                               ; preds = %3
@@ -867,73 +867,74 @@ xioctl.exit:                                      ; preds = %41
   %70 = load ptr, ptr %5, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw %struct.buffer, ptr %72, i64 %60, i32 2
-  store i32 1, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %75 = load i64, ptr %74, align 8
-  %76 = mul i64 %75, 1000000000
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %78 = load i64, ptr %77, align 8
-  %79 = mul i64 %78, 1000
-  %80 = add i64 %79, %76
-  store i64 %80, ptr %2, align 8
+  %73 = getelementptr inbounds nuw %struct.buffer, ptr %72, i64 %60
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  store i32 1, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %76 = load i64, ptr %75, align 8
+  %77 = mul i64 %76, 1000000000
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %79 = load i64, ptr %78, align 8
+  %80 = mul i64 %79, 1000
+  %81 = add i64 %80, %77
+  store i64 %81, ptr %2, align 8
   br label %.loopexit
 
-81:                                               ; preds = %3
+82:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
-  %82 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 1, ptr %82, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i32 2, ptr %83, align 4
-  br label %84
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 1, ptr %83, align 4
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  store i32 2, ptr %84, align 4
+  br label %85
 
-84:                                               ; preds = %99, %81
-  %85 = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef -1067952623, ptr noundef nonnull %4) #11
-  %86 = icmp eq i32 %85, -1
-  br i1 %86, label %99, label %xioctl.exit58.preheader
+85:                                               ; preds = %100, %82
+  %86 = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef -1067952623, ptr noundef nonnull %4) #11
+  %87 = icmp eq i32 %86, -1
+  br i1 %87, label %100, label %xioctl.exit58.preheader
 
-xioctl.exit58.preheader:                          ; preds = %84
-  %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load i32, ptr %88, align 8
-  %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %.lr.ph, label %xioctl.exit58._crit_edge
+xioctl.exit58.preheader:                          ; preds = %85
+  %88 = load ptr, ptr %5, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp sgt i32 %90, 0
+  br i1 %91, label %.lr.ph, label %xioctl.exit58._crit_edge
 
 .lr.ph:                                           ; preds = %xioctl.exit58.preheader
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %96 = load i32, ptr %95, align 8
-  %.fr62 = freeze i32 %96
-  %97 = zext i32 %.fr62 to i64
-  %98 = icmp eq i64 %.fr61, %97
-  br i1 %98, label %.lr.ph.split.preheader, label %xioctl.exit58._crit_edge
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %93 = load i64, ptr %92, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %97 = load i32, ptr %96, align 8
+  %.fr62 = freeze i32 %97
+  %98 = zext i32 %.fr62 to i64
+  %99 = icmp eq i64 %.fr61, %98
+  br i1 %99, label %.lr.ph.split.preheader, label %xioctl.exit58._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count = zext nneg i32 %89 to i64
+  %wide.trip.count = zext nneg i32 %90 to i64
   br label %.lr.ph.split
 
-99:                                               ; preds = %84
-  %100 = tail call ptr @__errno_location() #12
-  %101 = load i32, ptr %100, align 4
-  switch i32 %101, label %102 [
-    i32 4, label %84
+100:                                              ; preds = %85
+  %101 = tail call ptr @__errno_location() #12
+  %102 = load i32, ptr %101, align 4
+  switch i32 %102, label %103 [
+    i32 4, label %85
     i32 11, label %.loopexit
   ]
 
-102:                                              ; preds = %99
-  %103 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.23) #11
+103:                                              ; preds = %100
+  %104 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.23) #11
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %xioctl.exit58
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %xioctl.exit58 ]
-  %104 = getelementptr inbounds nuw %struct.buffer, ptr %94, i64 %indvars.iv
-  %105 = load ptr, ptr %104, align 8
-  %106 = ptrtoint ptr %105 to i64
-  %107 = icmp eq i64 %92, %106
-  br i1 %107, label %109, label %xioctl.exit58
+  %105 = getelementptr inbounds nuw %struct.buffer, ptr %95, i64 %indvars.iv
+  %106 = load ptr, ptr %105, align 8
+  %107 = ptrtoint ptr %106 to i64
+  %108 = icmp eq i64 %93, %107
+  br i1 %108, label %110, label %xioctl.exit58
 
 xioctl.exit58:                                    ; preds = %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -941,40 +942,41 @@ xioctl.exit58:                                    ; preds = %.lr.ph.split
   br i1 %exitcond.not, label %xioctl.exit58._crit_edge, label %.lr.ph.split, !llvm.loop !9
 
 xioctl.exit58._crit_edge:                         ; preds = %xioctl.exit58, %.lr.ph, %xioctl.exit58.preheader
-  %108 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.22) #11
+  %109 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.22) #11
   br label %.loopexit
 
-109:                                              ; preds = %.lr.ph.split
-  %110 = inttoptr i64 %92 to ptr
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %110, ptr %111, align 8
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %114 = load i32, ptr %113, align 8
-  %.not51 = icmp eq i32 %114, 0
-  %115 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %116 = load i32, ptr %115, align 8
-  %.sink66 = select i1 %.not51, i32 %116, i32 %114
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %.sink66, ptr %117, align 8
-  %118 = load ptr, ptr %5, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %120 = load ptr, ptr %119, align 8
-  %121 = and i64 %indvars.iv, 4294967295
-  %122 = getelementptr inbounds nuw %struct.buffer, ptr %120, i64 %121, i32 2
-  store i32 1, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %124 = load i64, ptr %123, align 8
-  %125 = mul i64 %124, 1000000000
-  %126 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %127 = load i64, ptr %126, align 8
-  %128 = mul i64 %127, 1000
-  %129 = add i64 %128, %125
-  store i64 %129, ptr %2, align 8
+110:                                              ; preds = %.lr.ph.split
+  %111 = inttoptr i64 %93 to ptr
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %111, ptr %112, align 8
+  %113 = load ptr, ptr %5, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %115 = load i32, ptr %114, align 8
+  %.not51 = icmp eq i32 %115, 0
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %117 = load i32, ptr %116, align 8
+  %.sink66 = select i1 %.not51, i32 %117, i32 %115
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %.sink66, ptr %118, align 8
+  %119 = load ptr, ptr %5, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %121 = load ptr, ptr %120, align 8
+  %122 = and i64 %indvars.iv, 4294967295
+  %123 = getelementptr inbounds nuw %struct.buffer, ptr %121, i64 %122
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  store i32 1, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %126 = load i64, ptr %125, align 8
+  %127 = mul i64 %126, 1000000000
+  %128 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %129 = load i64, ptr %128, align 8
+  %130 = mul i64 %129, 1000
+  %131 = add i64 %130, %127
+  store i64 %131, ptr %2, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %99, %44, %3, %57, %109, %35, %33, %18, %xioctl.exit58._crit_edge, %102, %55, %47, %21
-  %.044 = phi i32 [ 0, %21 ], [ 0, %47 ], [ 0, %55 ], [ 0, %102 ], [ 0, %xioctl.exit58._crit_edge ], [ 1, %18 ], [ 2, %33 ], [ 2, %35 ], [ 2, %109 ], [ 2, %57 ], [ 2, %3 ], [ 1, %44 ], [ 1, %99 ]
+.loopexit:                                        ; preds = %100, %44, %3, %57, %110, %35, %33, %18, %xioctl.exit58._crit_edge, %103, %55, %47, %21
+  %.044 = phi i32 [ 0, %21 ], [ 0, %47 ], [ 0, %55 ], [ 0, %103 ], [ 0, %xioctl.exit58._crit_edge ], [ 1, %18 ], [ 2, %33 ], [ 2, %35 ], [ 2, %110 ], [ 2, %57 ], [ 2, %3 ], [ 1, %44 ], [ 1, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.044
 }
@@ -1046,9 +1048,8 @@ xioctl.exit:                                      ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = and i64 %indvars.iv, 4294967295
-  %38 = getelementptr inbounds nuw %struct.buffer, ptr %36, i64 %37, i32 2
-  store i32 0, ptr %38, align 8
-  br label %xioctl.exit.thread
+  %38 = getelementptr inbounds nuw %struct.buffer, ptr %36, i64 %37
+  br label %xioctl.exit.thread.sink.split
 
 39:                                               ; preds = %21
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1062,33 +1063,39 @@ xioctl.exit:                                      ; preds = %27
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %43, ptr %44, align 8
   %45 = and i64 %indvars.iv, 4294967295
-  %46 = getelementptr inbounds nuw %struct.buffer, ptr %15, i64 %45, i32 1
-  %47 = load i64, ptr %46, align 8
-  %48 = trunc i64 %47 to i32
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store i32 %48, ptr %49, align 8
-  br label %50
+  %46 = getelementptr inbounds nuw %struct.buffer, ptr %15, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load i64, ptr %47, align 8
+  %49 = trunc i64 %48 to i32
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store i32 %49, ptr %50, align 8
+  br label %51
 
-50:                                               ; preds = %53, %39
-  %51 = call i32 (i32, i64, ...) @ioctl(i32 noundef %6, i64 noundef -1067952625, ptr noundef nonnull %3) #11
-  %52 = icmp eq i32 %51, -1
-  br i1 %52, label %53, label %xioctl.exit21
+51:                                               ; preds = %54, %39
+  %52 = call i32 (i32, i64, ...) @ioctl(i32 noundef %6, i64 noundef -1067952625, ptr noundef nonnull %3) #11
+  %53 = icmp eq i32 %52, -1
+  br i1 %53, label %54, label %xioctl.exit21
 
-53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 4
-  br i1 %56, label %50, label %xioctl.exit.thread, !llvm.loop !5
+54:                                               ; preds = %51
+  %55 = tail call ptr @__errno_location() #12
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp eq i32 %56, 4
+  br i1 %57, label %51, label %xioctl.exit.thread, !llvm.loop !5
 
-xioctl.exit21:                                    ; preds = %50
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw %struct.buffer, ptr %59, i64 %45, i32 2
-  store i32 0, ptr %60, align 8
+xioctl.exit21:                                    ; preds = %51
+  %58 = load ptr, ptr %4, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw %struct.buffer, ptr %60, i64 %45
+  br label %xioctl.exit.thread.sink.split
+
+xioctl.exit.thread.sink.split:                    ; preds = %xioctl.exit21, %xioctl.exit
+  %.sink34 = phi ptr [ %38, %xioctl.exit ], [ %61, %xioctl.exit21 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
+  store i32 0, ptr %62, align 8
   br label %xioctl.exit.thread
 
-xioctl.exit.thread:                               ; preds = %20, %30, %53, %2, %21, %xioctl.exit, %xioctl.exit21
+xioctl.exit.thread:                               ; preds = %20, %30, %54, %xioctl.exit.thread.sink.split, %2, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1619,8 +1626,8 @@ define internal fastcc zeroext i1 @AllocBufferMmap(ptr noundef readonly captures
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %14
 
-14:                                               ; preds = %.lr.ph, %45
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
+14:                                               ; preds = %.lr.ph, %46
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %13, i8 0, i64 80, i1 false)
   store i32 1, ptr %9, align 4
@@ -1646,43 +1653,44 @@ xioctl.exit:                                      ; preds = %16
   %25 = load ptr, ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw %struct.buffer, ptr %27, i64 %indvars.iv, i32 1
-  store i64 %24, ptr %28, align 8
-  %29 = load i32, ptr %11, align 8
-  %30 = zext i32 %29 to i64
-  %31 = load i32, ptr %12, align 8
-  %32 = zext i32 %31 to i64
-  %33 = call ptr @mmap(ptr noundef null, i64 noundef %30, i32 noundef 3, i32 noundef 1, i32 noundef %5, i64 noundef %32) #11
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw %struct.buffer, ptr %36, i64 %indvars.iv
-  store ptr %33, ptr %37, align 8
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw %struct.buffer, ptr %40, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, inttoptr (i64 -1 to ptr)
-  br i1 %43, label %.thread, label %45
+  %28 = getelementptr inbounds nuw %struct.buffer, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i64 %24, ptr %29, align 8
+  %30 = load i32, ptr %11, align 8
+  %31 = zext i32 %30 to i64
+  %32 = load i32, ptr %12, align 8
+  %33 = zext i32 %32 to i64
+  %34 = call ptr @mmap(ptr noundef null, i64 noundef %31, i32 noundef 3, i32 noundef 1, i32 noundef %5, i64 noundef %33) #11
+  %35 = load ptr, ptr %3, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw %struct.buffer, ptr %37, i64 %indvars.iv
+  store ptr %34, ptr %38, align 8
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw %struct.buffer, ptr %41, i64 %indvars.iv
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, inttoptr (i64 -1 to ptr)
+  br i1 %44, label %.thread, label %46
 
 .thread:                                          ; preds = %xioctl.exit, %19
   %.str.16.sink = phi ptr [ @.str.16, %19 ], [ @.str.17, %xioctl.exit ]
-  %44 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.16.sink) #11
+  %45 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.16.sink) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-45:                                               ; preds = %xioctl.exit
+46:                                               ; preds = %xioctl.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %47 = load i32, ptr %46, align 8
-  %48 = sext i32 %47 to i64
-  %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %14, label %.loopexit, !llvm.loop !17
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %48 = load i32, ptr %47, align 8
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next, %49
+  br i1 %50, label %14, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %45, %1, %.thread
-  %.2 = phi i1 [ %44, %.thread ], [ true, %1 ], [ true, %45 ]
+.loopexit:                                        ; preds = %46, %1, %.thread
+  %.2 = phi i1 [ %45, %.thread ], [ true, %1 ], [ true, %46 ]
   ret i1 %.2
 }
 
@@ -1702,29 +1710,30 @@ define internal fastcc noundef zeroext i1 @AllocBufferUserPtr(ptr noundef readon
 
 8:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %.not15 = icmp slt i64 %indvars.iv.next, %11
   br i1 %.not15, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
-  %12 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %21, %8 ]
+  %12 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %22, %8 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %13 = getelementptr inbounds nuw %struct.buffer, ptr %12, i64 %indvars.iv, i32 1
-  store i64 %1, ptr %13, align 8
-  %14 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef %1) #13
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw %struct.buffer, ptr %17, i64 %indvars.iv
-  store ptr %14, ptr %18, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw %struct.buffer, ptr %21, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8
-  %.not.not.not = icmp ne ptr %23, null
+  %13 = getelementptr inbounds nuw %struct.buffer, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %1, ptr %14, align 8
+  %15 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef %1) #13
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %struct.buffer, ptr %18, i64 %indvars.iv
+  store ptr %15, ptr %19, align 8
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw %struct.buffer, ptr %22, i64 %indvars.iv
+  %24 = load ptr, ptr %23, align 8
+  %.not.not.not = icmp ne ptr %24, null
   br i1 %.not.not.not, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8, %2
@@ -1770,118 +1779,121 @@ define internal fastcc zeroext i1 @EnqueueBuffers(ptr noundef readonly captures(
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %44
+  br label %45
 
-21:                                               ; preds = %.lr.ph, %37
-  %22 = phi ptr [ %5, %.lr.ph ], [ %38, %37 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+21:                                               ; preds = %.lr.ph, %38
+  %22 = phi ptr [ %5, %.lr.ph ], [ %39, %38 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw %struct.buffer, ptr %24, i64 %indvars.iv, i32 2
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %37
+  %25 = getelementptr inbounds nuw %struct.buffer, ptr %24, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %38
 
-28:                                               ; preds = %21
+29:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %13, i8 0, i64 80, i1 false)
   store i32 1, ptr %11, align 4
   store i32 1, ptr %12, align 4
-  %29 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %29, ptr %2, align 8
-  br label %30
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %30, ptr %2, align 8
+  br label %31
 
-30:                                               ; preds = %33, %28
-  %31 = call i32 (i32, i64, ...) @ioctl(i32 noundef %6, i64 noundef -1067952625, ptr noundef nonnull %2) #11
-  %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %xioctl.exit
+31:                                               ; preds = %34, %29
+  %32 = call i32 (i32, i64, ...) @ioctl(i32 noundef %6, i64 noundef -1067952625, ptr noundef nonnull %2) #11
+  %33 = icmp eq i32 %32, -1
+  br i1 %33, label %34, label %xioctl.exit
 
-33:                                               ; preds = %30
-  %34 = tail call ptr @__errno_location() #12
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, 4
-  br i1 %36, label %30, label %42, !llvm.loop !5
+34:                                               ; preds = %31
+  %35 = tail call ptr @__errno_location() #12
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp eq i32 %36, 4
+  br i1 %37, label %31, label %43, !llvm.loop !5
 
-xioctl.exit:                                      ; preds = %30
+xioctl.exit:                                      ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load ptr, ptr %4, align 8
-  br label %37
+  br label %38
 
-37:                                               ; preds = %xioctl.exit, %21
-  %38 = phi ptr [ %.pre, %xioctl.exit ], [ %22, %21 ]
+38:                                               ; preds = %xioctl.exit, %21
+  %39 = phi ptr [ %.pre, %xioctl.exit ], [ %22, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i32, ptr %39, align 8
-  %41 = sext i32 %40 to i64
-  %.not34 = icmp slt i64 %indvars.iv.next, %41
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i32, ptr %40, align 8
+  %42 = sext i32 %41 to i64
+  %.not34 = icmp slt i64 %indvars.iv.next, %42
   br i1 %.not34, label %21, label %.thread, !llvm.loop !19
 
-42:                                               ; preds = %33
-  %43 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #11
+43:                                               ; preds = %34
+  %44 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
-44:                                               ; preds = %.lr.ph51, %68
-  %45 = phi ptr [ %5, %.lr.ph51 ], [ %69, %68 ]
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next55, %68 ]
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw %struct.buffer, ptr %47, i64 %indvars.iv54, i32 2
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %68
+45:                                               ; preds = %.lr.ph51, %71
+  %46 = phi ptr [ %5, %.lr.ph51 ], [ %72, %71 ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next55, %71 ]
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw %struct.buffer, ptr %48, i64 %indvars.iv54
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load i32, ptr %50, align 8
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %71
 
-51:                                               ; preds = %44
+53:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %20, i8 0, i64 80, i1 false)
   store i32 1, ptr %16, align 4
   store i32 2, ptr %17, align 4
-  %52 = trunc nuw nsw i64 %indvars.iv54 to i32
-  store i32 %52, ptr %3, align 8
-  %53 = load ptr, ptr %46, align 8
-  %54 = getelementptr inbounds nuw %struct.buffer, ptr %53, i64 %indvars.iv54
-  %55 = load ptr, ptr %54, align 8
-  %56 = ptrtoint ptr %55 to i64
-  store i64 %56, ptr %18, align 8
-  %57 = load ptr, ptr %46, align 8
-  %58 = getelementptr inbounds nuw %struct.buffer, ptr %57, i64 %indvars.iv54, i32 1
-  %59 = load i64, ptr %58, align 8
-  %60 = trunc i64 %59 to i32
-  store i32 %60, ptr %19, align 8
-  br label %61
+  %54 = trunc nuw nsw i64 %indvars.iv54 to i32
+  store i32 %54, ptr %3, align 8
+  %55 = load ptr, ptr %47, align 8
+  %56 = getelementptr inbounds nuw %struct.buffer, ptr %55, i64 %indvars.iv54
+  %57 = load ptr, ptr %56, align 8
+  %58 = ptrtoint ptr %57 to i64
+  store i64 %58, ptr %18, align 8
+  %59 = load ptr, ptr %47, align 8
+  %60 = getelementptr inbounds nuw %struct.buffer, ptr %59, i64 %indvars.iv54
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load i64, ptr %61, align 8
+  %63 = trunc i64 %62 to i32
+  store i32 %63, ptr %19, align 8
+  br label %64
 
-61:                                               ; preds = %64, %51
-  %62 = call i32 (i32, i64, ...) @ioctl(i32 noundef %6, i64 noundef -1067952625, ptr noundef nonnull %3) #11
-  %63 = icmp eq i32 %62, -1
-  br i1 %63, label %64, label %xioctl.exit37
+64:                                               ; preds = %67, %53
+  %65 = call i32 (i32, i64, ...) @ioctl(i32 noundef %6, i64 noundef -1067952625, ptr noundef nonnull %3) #11
+  %66 = icmp eq i32 %65, -1
+  br i1 %66, label %67, label %xioctl.exit37
 
-64:                                               ; preds = %61
-  %65 = tail call ptr @__errno_location() #12
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, 4
-  br i1 %67, label %61, label %73, !llvm.loop !5
+67:                                               ; preds = %64
+  %68 = tail call ptr @__errno_location() #12
+  %69 = load i32, ptr %68, align 4
+  %70 = icmp eq i32 %69, 4
+  br i1 %70, label %64, label %76, !llvm.loop !5
 
-xioctl.exit37:                                    ; preds = %61
+xioctl.exit37:                                    ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre57 = load ptr, ptr %4, align 8
-  br label %68
+  br label %71
 
-68:                                               ; preds = %xioctl.exit37, %44
-  %69 = phi ptr [ %.pre57, %xioctl.exit37 ], [ %45, %44 ]
+71:                                               ; preds = %xioctl.exit37, %45
+  %72 = phi ptr [ %.pre57, %xioctl.exit37 ], [ %46, %45 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load i32, ptr %70, align 8
-  %72 = sext i32 %71 to i64
-  %.not36 = icmp slt i64 %indvars.iv.next55, %72
-  br i1 %.not36, label %44, label %.thread, !llvm.loop !20
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load i32, ptr %73, align 8
+  %75 = sext i32 %74 to i64
+  %.not36 = icmp slt i64 %indvars.iv.next55, %75
+  br i1 %.not36, label %45, label %.thread, !llvm.loop !20
 
-73:                                               ; preds = %64
-  %74 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #11
+76:                                               ; preds = %67
+  %77 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
-.thread:                                          ; preds = %37, %68, %.preheader45, %.preheader, %1, %73, %42
-  %.4 = phi i1 [ %74, %73 ], [ %43, %42 ], [ true, %1 ], [ true, %.preheader ], [ true, %.preheader45 ], [ true, %68 ], [ true, %37 ]
+.thread:                                          ; preds = %38, %71, %.preheader45, %.preheader, %1, %76, %43
+  %.4 = phi i1 [ %77, %76 ], [ %44, %43 ], [ true, %1 ], [ true, %.preheader ], [ true, %.preheader45 ], [ true, %71 ], [ true, %38 ]
   ret i1 %.4
 }
 

@@ -14184,14 +14184,14 @@ define hidden void @"_ZN13project_model15cargo_workspace14CargoWorkspace16parent
 "_ZN162_$LT$project_model..cargo_workspace..CargoWorkspace$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$project_model..cargo_workspace..PackageData$GT$$GT$$GT$5index17h8b09320b1d93797aE.exit": ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !3750, !noalias !3751, !nonnull !9, !noundef !9
-  %19 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %18, i64 %12, i32 1
+  %19 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %18, i64 %12
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8, !nonnull !9, !align !133, !noundef !9
   %22 = load ptr, ptr %21, align 8, !nonnull !9, !align !133, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3755)
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %24 = load ptr, ptr %23, align 8, !alias.scope !3755, !noalias !3758, !nonnull !9, !noundef !9
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %26 = load i64, ptr %25, align 8, !alias.scope !3755, !noalias !3758, !noundef !9
   %27 = tail call { ptr, i64 } @"_ZN81_$LT$paths..AbsPathBuf$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h7aa2480c1d3799acE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22), !noalias !3755
   %28 = extractvalue { ptr, i64 } %27, 0
@@ -14254,12 +14254,12 @@ define hidden void @"_ZN13project_model15cargo_workspace14CargoWorkspace16parent
 
 "_ZN162_$LT$project_model..cargo_workspace..CargoWorkspace$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$project_model..cargo_workspace..PackageData$GT$$GT$$GT$5index17h8b09320b1d93797aE.exit.i.i": ; preds = %.lr.ph.i
   %55 = load ptr, ptr %37, align 8, !alias.scope !3783, !noalias !3784, !nonnull !9, !noundef !9
-  %56 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %55, i64 %51, i32 1
+  %56 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %55, i64 %51
   %57 = load ptr, ptr %46, align 8, !noalias !3791, !nonnull !9, !align !133, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !3792)
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %59 = load ptr, ptr %58, align 8, !alias.scope !3792, !noalias !3795, !nonnull !9, !noundef !9
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %61 = load i64, ptr %60, align 8, !alias.scope !3792, !noalias !3795, !noundef !9
   %62 = call { ptr, i64 } @"_ZN81_$LT$paths..AbsPathBuf$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h7aa2480c1d3799acE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %57), !noalias !3797
   %63 = extractvalue { ptr, i64 } %62, 0
@@ -14286,10 +14286,10 @@ define hidden void @"_ZN13project_model15cargo_workspace14CargoWorkspace16parent
 
 "_ZN13project_model15cargo_workspace14CargoWorkspace16parent_manifests28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h86ebd5257cc025d9E.exit.i": ; preds = %67
   %.val.i.i = load ptr, ptr %37, align 8, !noalias !3791, !nonnull !9, !noundef !9
-  %70 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %.val.i.i, i64 %.pre-phi, i32 1
+  %70 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %.val.i.i, i64 %.pre-phi
   call void @llvm.experimental.noalias.scope.decl(metadata !3814)
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %73 = load ptr, ptr %72, align 8, !alias.scope !3814, !noalias !3817, !nonnull !9, !noundef !9
   %74 = load i64, ptr %71, align 8, !alias.scope !3814, !noalias !3817, !noundef !9
   %75 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h874446c1602eb4adE"(i64 noundef %74, i1 noundef zeroext false), !noalias !3819

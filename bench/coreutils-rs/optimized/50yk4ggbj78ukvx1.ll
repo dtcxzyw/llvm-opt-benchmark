@@ -1522,7 +1522,7 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
 .split.us:                                        ; preds = %"_ZN4core3ptr167drop_in_place$LT$core..result..Result$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$C$std..io..error..Error$GT$$GT$17h35f3947b1b6d52a5E.exit97.us", %.lr.ph167.split.us.split.preheader, %.lr.ph167.split
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
-  %75 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %21, i64 %2, i32 1
+  %75 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %76 = load i64, ptr %75, align 8, !range !53, !alias.scope !268, !noundef !4
   %77 = icmp eq i64 %76, -9223372036854775808
   br i1 %77, label %80, label %78
@@ -1748,31 +1748,32 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = icmp ult i64 %2, %6
-  br i1 %7, label %8, label %13, !prof !299
+  br i1 %7, label %8, label %14, !prof !299
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %10, i64 %2, i32 1
-  %12 = load i64, ptr %11, align 8, !range !53, !noundef !4
-  %.not = icmp eq i64 %12, -9223372036854775808
-  br i1 %.not, label %14, label %15
+  %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %10, i64 %2
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %13 = load i64, ptr %12, align 8, !range !53, !noundef !4
+  %.not = icmp eq i64 %13, -9223372036854775808
+  br i1 %.not, label %15, label %16
 
-13:                                               ; preds = %4
+14:                                               ; preds = %4
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %2, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2256c04498b26e1e3096a86dc3b023b3.27.llvm.4692403356194470403) #16
   unreachable
 
-14:                                               ; preds = %8
-  tail call void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$18instantiate_writer17had82eb383717b819E"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %3)
-  br label %17
-
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %11, ptr %16, align 8
-  store ptr null, ptr %0, align 8
-  br label %17
+  tail call void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$18instantiate_writer17had82eb383717b819E"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %3)
+  br label %18
 
-17:                                               ; preds = %15, %14
+16:                                               ; preds = %8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %12, ptr %17, align 8
+  store ptr null, ptr %0, align 8
+  br label %18
+
+18:                                               ; preds = %16, %15
   ret void
 }
 

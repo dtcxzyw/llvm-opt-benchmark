@@ -2835,175 +2835,176 @@ define internal i32 @dissect_snmp_PDUs(i1 zeroext %0, ptr noundef %1, i32 nounde
 
 19:                                               ; preds = %6
   %20 = sext i32 %18 to i64
-  %21 = getelementptr %struct._value_string, ptr @snmp_PDUs_vals, i64 %20, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8
-  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.4, ptr noundef %22)
-  %26 = load i32, ptr %9, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr %struct._value_string, ptr @snmp_PDUs_vals, i64 %27
-  %29 = load i32, ptr %28, align 16
-  store i32 %29, ptr %9, align 4
-  %30 = load ptr, ptr %12, align 8
+  %21 = getelementptr %struct._value_string, ptr @snmp_PDUs_vals, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %12, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.4, ptr noundef %23)
+  %27 = load i32, ptr %9, align 4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr %struct._value_string, ptr @snmp_PDUs_vals, i64 %28
+  %30 = load i32, ptr %29, align 16
+  store i32 %30, ptr %9, align 4
+  %31 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %31, label %32
+  br i1 %.not.i, label %32, label %33
 
-31:                                               ; preds = %19
+32:                                               ; preds = %19
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.402, i32 noundef 480, ptr noundef nonnull @.str.422, ptr noundef nonnull @.str.423) #13
   unreachable
 
-32:                                               ; preds = %19
-  %33 = load i32, ptr @RequestID, align 4
-  %34 = load ptr, ptr %11, align 8
+33:                                               ; preds = %19
+  %34 = load i32, ptr @RequestID, align 4
+  %35 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i32 %33, ptr %7, align 4
-  %35 = call ptr @wmem_map_lookup(ptr noundef %34, ptr noundef nonnull %7)
-  %.not.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i, label %36, label %snmp_get_request_response_pointer.exit.i
+  store i32 %34, ptr %7, align 4
+  %36 = call ptr @wmem_map_lookup(ptr noundef %35, ptr noundef nonnull %7)
+  %.not.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i, label %37, label %snmp_get_request_response_pointer.exit.i
 
-36:                                               ; preds = %32
-  %37 = call ptr @wmem_file_scope()
-  %38 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %37, i64 noundef 32) #11
-  %39 = load i32, ptr %7, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store i32 %39, ptr %40, align 8
-  %41 = call ptr @wmem_map_insert(ptr noundef %34, ptr noundef nonnull %40, ptr noundef %38)
+37:                                               ; preds = %33
+  %38 = call ptr @wmem_file_scope()
+  %39 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %38, i64 noundef 32) #11
+  %40 = load i32, ptr %7, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  store i32 %40, ptr %41, align 8
+  %42 = call ptr @wmem_map_insert(ptr noundef %35, ptr noundef nonnull %41, ptr noundef %39)
   br label %snmp_get_request_response_pointer.exit.i
 
-snmp_get_request_response_pointer.exit.i:         ; preds = %36, %32
-  %.0.i.i = phi ptr [ %35, %32 ], [ %38, %36 ]
+snmp_get_request_response_pointer.exit.i:         ; preds = %37, %33
+  %.0.i.i = phi ptr [ %36, %33 ], [ %39, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %42 = getelementptr inbounds nuw i8, ptr %30, i64 80
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 57
-  %45 = load i16, ptr %44, align 1
-  %46 = and i16 %45, 8
-  %.not36.i = icmp eq i16 %46, 0
-  br i1 %.not36.i, label %47, label %56
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 80
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 57
+  %46 = load i16, ptr %45, align 1
+  %47 = and i16 %46, 8
+  %.not36.i = icmp eq i16 %47, 0
+  br i1 %.not36.i, label %48, label %57
 
-47:                                               ; preds = %snmp_get_request_response_pointer.exit.i
-  switch i32 %29, label %snmp_match_request_response.exit.thread [
-    i32 0, label %48
-    i32 1, label %48
-    i32 3, label %48
-    i32 5, label %48
-    i32 6, label %48
-    i32 2, label %53
+48:                                               ; preds = %snmp_get_request_response_pointer.exit.i
+  switch i32 %30, label %snmp_match_request_response.exit.thread [
+    i32 0, label %49
+    i32 1, label %49
+    i32 3, label %49
+    i32 5, label %49
+    i32 6, label %49
+    i32 2, label %54
   ]
 
-48:                                               ; preds = %47, %47, %47, %47, %47
-  %49 = load i32, ptr %43, align 8
-  store i32 %49, ptr %.0.i.i, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
+49:                                               ; preds = %48, %48, %48, %48, %48
+  %50 = load i32, ptr %44, align 8
+  store i32 %50, ptr %.0.i.i, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  store i32 0, ptr %51, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
   br label %.sink.split.i
 
-53:                                               ; preds = %47
-  %54 = load i32, ptr %43, align 8
+54:                                               ; preds = %48
+  %55 = load i32, ptr %44, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %53, %48
-  %.sink57.i = phi i64 [ 28, %48 ], [ 4, %53 ]
-  %.sink.i = phi i32 [ %29, %48 ], [ %54, %53 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.sink57.i
-  store i32 %.sink.i, ptr %55, align 4
-  br label %56
+.sink.split.i:                                    ; preds = %54, %49
+  %.sink57.i = phi i64 [ 28, %49 ], [ 4, %54 ]
+  %.sink.i = phi i32 [ %30, %49 ], [ %55, %54 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.sink57.i
+  store i32 %.sink.i, ptr %56, align 4
+  br label %57
 
-56:                                               ; preds = %.sink.split.i, %snmp_get_request_response_pointer.exit.i
-  %57 = load i32, ptr %.0.i.i, align 8
-  %.not37.i = icmp eq i32 %57, 0
-  br i1 %.not37.i, label %snmp_match_request_response.exit.thread, label %58
+57:                                               ; preds = %.sink.split.i, %snmp_get_request_response_pointer.exit.i
+  %58 = load i32, ptr %.0.i.i, align 8
+  %.not37.i = icmp eq i32 %58, 0
+  br i1 %.not37.i, label %snmp_match_request_response.exit.thread, label %59
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  %60 = load i32, ptr %59, align 4
-  %.not38.i = icmp eq i32 %60, 0
-  br i1 %.not38.i, label %snmp_match_request_response.exit.thread, label %61
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  %61 = load i32, ptr %60, align 4
+  %.not38.i = icmp eq i32 %61, 0
+  br i1 %.not38.i, label %snmp_match_request_response.exit.thread, label %62
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %42, align 8
-  %63 = load i32, ptr %62, align 8
-  %.not39.i = icmp eq i32 %60, %63
-  br i1 %.not39.i, label %64, label %85
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %43, align 8
+  %64 = load i32, ptr %63, align 8
+  %.not39.i = icmp eq i32 %61, %64
+  br i1 %.not39.i, label %65, label %86
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %65 = load i32, ptr @hf_snmp_response_to, align 4
-  %66 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %65, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %57)
-  %.not.i40.i = icmp eq ptr %66, null
-  br i1 %.not.i40.i, label %proto_item_set_generated.exit.i, label %67
+  %66 = load i32, ptr @hf_snmp_response_to, align 4
+  %67 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %66, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %58)
+  %.not.i40.i = icmp eq ptr %67, null
+  br i1 %.not.i40.i, label %proto_item_set_generated.exit.i, label %68
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %69 = load ptr, ptr %68, align 8
-  %.not5.i.i = icmp eq ptr %69, null
-  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %70
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 40
+  %70 = load ptr, ptr %69, align 8
+  %.not5.i.i = icmp eq ptr %70, null
+  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %71
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 28
-  %72 = load i32, ptr %71, align 4
-  %73 = or i32 %72, 2
-  store i32 %73, ptr %71, align 4
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 28
+  %73 = load i32, ptr %72, align 4
+  %74 = or i32 %73, 2
+  store i32 %74, ptr %72, align 4
   br label %proto_item_set_generated.exit.i
 
-proto_item_set_generated.exit.i:                  ; preds = %70, %67, %64
-  %74 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %74, ptr noundef nonnull %75)
-  %76 = load i32, ptr @hf_snmp_time, align 4
-  %77 = call ptr @proto_tree_add_time(ptr noundef %4, i32 noundef %76, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
-  %.not.i41.i = icmp eq ptr %77, null
-  br i1 %.not.i41.i, label %snmp_match_request_response.exit, label %78
+proto_item_set_generated.exit.i:                  ; preds = %71, %68, %65
+  %75 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %75, ptr noundef nonnull %76)
+  %77 = load i32, ptr @hf_snmp_time, align 4
+  %78 = call ptr @proto_tree_add_time(ptr noundef %4, i32 noundef %77, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8)
+  %.not.i41.i = icmp eq ptr %78, null
+  br i1 %.not.i41.i, label %snmp_match_request_response.exit, label %79
 
-78:                                               ; preds = %proto_item_set_generated.exit.i
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %80 = load ptr, ptr %79, align 8
-  %.not5.i42.i = icmp eq ptr %80, null
-  br i1 %.not5.i42.i, label %snmp_match_request_response.exit, label %81
+79:                                               ; preds = %proto_item_set_generated.exit.i
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 40
+  %81 = load ptr, ptr %80, align 8
+  %.not5.i42.i = icmp eq ptr %81, null
+  br i1 %.not5.i42.i, label %snmp_match_request_response.exit, label %82
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 28
-  %83 = load i32, ptr %82, align 4
-  %84 = or i32 %83, 2
-  store i32 %84, ptr %82, align 4
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 28
+  %84 = load i32, ptr %83, align 4
+  %85 = or i32 %84, 2
+  store i32 %85, ptr %83, align 4
   br label %snmp_match_request_response.exit
 
-85:                                               ; preds = %61
-  %86 = load i32, ptr @hf_snmp_response_in, align 4
-  %87 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %86, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %60)
-  %.not.i44.i = icmp eq ptr %87, null
-  br i1 %.not.i44.i, label %snmp_match_request_response.exit.thread, label %88
+86:                                               ; preds = %62
+  %87 = load i32, ptr @hf_snmp_response_in, align 4
+  %88 = call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %87, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %61)
+  %.not.i44.i = icmp eq ptr %88, null
+  br i1 %.not.i44.i, label %snmp_match_request_response.exit.thread, label %89
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  %90 = load ptr, ptr %89, align 8
-  %.not5.i45.i = icmp eq ptr %90, null
-  br i1 %.not5.i45.i, label %snmp_match_request_response.exit.thread, label %91
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 40
+  %91 = load ptr, ptr %90, align 8
+  %.not5.i45.i = icmp eq ptr %91, null
+  br i1 %.not5.i45.i, label %snmp_match_request_response.exit.thread, label %92
 
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 28
-  %93 = load i32, ptr %92, align 4
-  %94 = or i32 %93, 2
-  store i32 %94, ptr %92, align 4
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 28
+  %94 = load i32, ptr %93, align 4
+  %95 = or i32 %94, 2
+  store i32 %95, ptr %93, align 4
   br label %snmp_match_request_response.exit.thread
 
-snmp_match_request_response.exit:                 ; preds = %proto_item_set_generated.exit.i, %78, %81
+snmp_match_request_response.exit:                 ; preds = %proto_item_set_generated.exit.i, %79, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not18 = icmp eq ptr %.0.i.i, null
-  br i1 %.not18, label %snmp_match_request_response.exit.thread, label %95
+  br i1 %.not18, label %snmp_match_request_response.exit.thread, label %96
 
-95:                                               ; preds = %snmp_match_request_response.exit
-  %96 = load i32, ptr @snmp_tap, align 4
-  %97 = load ptr, ptr %12, align 8
-  call void @tap_queue_packet(i32 noundef %96, ptr noundef %97, ptr noundef nonnull %.0.i.i)
+96:                                               ; preds = %snmp_match_request_response.exit
+  %97 = load i32, ptr @snmp_tap, align 4
+  %98 = load ptr, ptr %12, align 8
+  call void @tap_queue_packet(i32 noundef %97, ptr noundef %98, ptr noundef nonnull %.0.i.i)
   br label %snmp_match_request_response.exit.thread
 
-snmp_match_request_response.exit.thread:          ; preds = %85, %88, %91, %56, %58, %47, %6, %6, %snmp_match_request_response.exit, %95
+snmp_match_request_response.exit.thread:          ; preds = %86, %89, %92, %57, %59, %48, %6, %6, %snmp_match_request_response.exit, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %17
 }

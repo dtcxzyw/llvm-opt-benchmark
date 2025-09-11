@@ -108,7 +108,7 @@ define internal i32 @fic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !44
   %.not184 = icmp eq ptr %27, null
-  br i1 %.not184, label %28, label %193
+  br i1 %.not184, label %28, label %195
 
 28:                                               ; preds = %25
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.9) #9
@@ -287,12 +287,12 @@ define internal i32 @fic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %128 = add nsw i32 %32, -1
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %130 = mul i32 %127, %128
-  %131 = zext i32 %128 to i64
+  %131 = zext nneg i32 %128 to i64
   %wide.trip.count = zext i8 %31 to i64
   br label %132
 
-132:                                              ; preds = %125, %161
-  %indvars.iv = phi i64 [ 0, %125 ], [ %indvars.iv.next, %161 ]
+132:                                              ; preds = %125, %162
+  %indvars.iv = phi i64 [ 0, %125 ], [ %indvars.iv.next, %162 ]
   %133 = shl nsw i64 %indvars.iv, 2
   %134 = getelementptr inbounds nuw i8, ptr %104, i64 %133
   %135 = load i32, ptr %134, align 1, !tbaa !43
@@ -320,113 +320,115 @@ define internal i32 @fic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %148 = icmp ult i32 %.0147, %136
   %149 = icmp ugt i32 %.0147, %110
   %or.cond186 = or i1 %148, %149
-  br i1 %or.cond186, label %161, label %150
+  br i1 %or.cond186, label %162, label %150
 
 150:                                              ; preds = %147
   %151 = sub nuw i32 %.0147, %136
   %152 = zext i32 %136 to i64
   %153 = getelementptr inbounds nuw i8, ptr %107, i64 %152
   %154 = load ptr, ptr %119, align 8, !tbaa !48
-  %155 = getelementptr inbounds nuw %struct.FICThreadContext, ptr %154, i64 %indvars.iv, i32 1
-  store ptr %153, ptr %155, align 16, !tbaa !49
-  %156 = getelementptr inbounds nuw %struct.FICThreadContext, ptr %154, i64 %indvars.iv, i32 3
-  store i32 %151, ptr %156, align 4, !tbaa !51
-  %157 = getelementptr inbounds nuw %struct.FICThreadContext, ptr %154, i64 %indvars.iv, i32 2
-  store i32 %.0, ptr %157, align 8, !tbaa !52
-  %158 = getelementptr inbounds nuw %struct.FICThreadContext, ptr %154, i64 %indvars.iv, i32 4
-  %159 = trunc i64 %indvars.iv to i32
-  %160 = mul i32 %127, %159
-  store i32 %160, ptr %158, align 16, !tbaa !53
-  br label %161
+  %155 = getelementptr inbounds nuw %struct.FICThreadContext, ptr %154, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 128
+  store ptr %153, ptr %156, align 16, !tbaa !49
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 140
+  store i32 %151, ptr %157, align 4, !tbaa !51
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 136
+  store i32 %.0, ptr %158, align 8, !tbaa !52
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 144
+  %160 = trunc i64 %indvars.iv to i32
+  %161 = mul i32 %127, %160
+  store i32 %161, ptr %159, align 16, !tbaa !53
+  br label %162
 
-161:                                              ; preds = %150, %147
+162:                                              ; preds = %150, %147
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %162, label %132, !llvm.loop !54
+  br i1 %exitcond.not, label %163, label %132, !llvm.loop !54
 
-162:                                              ; preds = %161
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %164 = load ptr, ptr %163, align 8, !tbaa !56
-  %165 = load ptr, ptr %119, align 8, !tbaa !48
-  %166 = tail call i32 %164(ptr noundef %0, ptr noundef nonnull @fic_decode_slice, ptr noundef %165, ptr noundef null, i32 noundef %32, i32 noundef 160) #9
-  %167 = icmp slt i32 %166, 0
-  br i1 %167, label %.loopexit198, label %168
+163:                                              ; preds = %162
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %165 = load ptr, ptr %164, align 8, !tbaa !56
+  %166 = load ptr, ptr %119, align 8, !tbaa !48
+  %167 = tail call i32 %165(ptr noundef %0, ptr noundef nonnull @fic_decode_slice, ptr noundef %166, ptr noundef null, i32 noundef %32, i32 noundef 160) #9
+  %168 = icmp slt i32 %167, 0
+  br i1 %168, label %.loopexit198, label %169
 
-168:                                              ; preds = %162
-  %169 = load ptr, ptr %11, align 8, !tbaa !38
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 276
-  %171 = load i32, ptr %170, align 4, !tbaa !57
-  %172 = or i32 %171, 2
-  store i32 %172, ptr %170, align 4, !tbaa !57
-  %173 = getelementptr inbounds nuw i8, ptr %169, i64 120
-  store i32 1, ptr %173, align 8, !tbaa !62
-  %174 = load ptr, ptr %119, align 8, !tbaa !48
-  br label %176
+169:                                              ; preds = %163
+  %170 = load ptr, ptr %11, align 8, !tbaa !38
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 276
+  %172 = load i32, ptr %171, align 4, !tbaa !57
+  %173 = or i32 %172, 2
+  store i32 %173, ptr %171, align 4, !tbaa !57
+  %174 = getelementptr inbounds nuw i8, ptr %170, i64 120
+  store i32 1, ptr %174, align 8, !tbaa !62
+  %175 = load ptr, ptr %119, align 8, !tbaa !48
+  br label %177
 
-175:                                              ; preds = %176
+176:                                              ; preds = %177
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count
-  br i1 %exitcond207.not, label %.loopexit, label %176, !llvm.loop !63
+  br i1 %exitcond207.not, label %.loopexit, label %177, !llvm.loop !63
 
-176:                                              ; preds = %168, %175
-  %indvars.iv203 = phi i64 [ 0, %168 ], [ %indvars.iv.next204, %175 ]
-  %177 = getelementptr inbounds nuw %struct.FICThreadContext, ptr %174, i64 %indvars.iv203, i32 5
-  %178 = load i32, ptr %177, align 4, !tbaa !64
-  %.not181 = icmp eq i32 %178, 0
-  br i1 %.not181, label %175, label %179
+177:                                              ; preds = %169, %176
+  %indvars.iv203 = phi i64 [ 0, %169 ], [ %indvars.iv.next204, %176 ]
+  %178 = getelementptr inbounds nuw %struct.FICThreadContext, ptr %175, i64 %indvars.iv203
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 148
+  %180 = load i32, ptr %179, align 4, !tbaa !64
+  %.not181 = icmp eq i32 %180, 0
+  br i1 %.not181, label %176, label %181
 
-179:                                              ; preds = %176
-  %180 = and i32 %171, -3
-  store i32 %180, ptr %170, align 4, !tbaa !57
-  store i32 2, ptr %173, align 8, !tbaa !62
+181:                                              ; preds = %177
+  %182 = and i32 %172, -3
+  store i32 %182, ptr %171, align 4, !tbaa !57
+  store i32 2, ptr %174, align 8, !tbaa !62
   br label %.loopexit
 
-.loopexit:                                        ; preds = %175, %179
-  %181 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  tail call void @av_frame_free(ptr noundef nonnull %181) #9
-  %182 = load ptr, ptr %11, align 8, !tbaa !38
-  %183 = tail call ptr @av_frame_clone(ptr noundef %182) #9
-  store ptr %183, ptr %181, align 8, !tbaa !44
-  %.not182 = icmp eq ptr %183, null
-  br i1 %.not182, label %184, label %185
+.loopexit:                                        ; preds = %176, %181
+  %183 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  tail call void @av_frame_free(ptr noundef nonnull %183) #9
+  %184 = load ptr, ptr %11, align 8, !tbaa !38
+  %185 = tail call ptr @av_frame_clone(ptr noundef %184) #9
+  store ptr %185, ptr %183, align 8, !tbaa !44
+  %.not182 = icmp eq ptr %185, null
+  br i1 %.not182, label %186, label %187
 
-184:                                              ; preds = %.loopexit
+186:                                              ; preds = %.loopexit
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.17) #9
   br label %.loopexit198
 
-185:                                              ; preds = %.loopexit
-  %186 = tail call i32 @ff_reget_buffer(ptr noundef %0, ptr noundef nonnull %183, i32 noundef 0) #9
-  %187 = icmp slt i32 %186, 0
-  br i1 %187, label %188, label %189
+187:                                              ; preds = %.loopexit
+  %188 = tail call i32 @ff_reget_buffer(ptr noundef %0, ptr noundef nonnull %185, i32 noundef 0) #9
+  %189 = icmp slt i32 %188, 0
+  br i1 %189, label %190, label %191
 
-188:                                              ; preds = %185
+190:                                              ; preds = %187
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.18) #9
   br label %.loopexit198
 
-189:                                              ; preds = %185
-  br i1 %.4, label %190, label %193
+191:                                              ; preds = %187
+  br i1 %.4, label %192, label %195
 
-190:                                              ; preds = %189
-  %191 = getelementptr inbounds nuw i8, ptr %6, i64 76
-  %192 = getelementptr inbounds nuw i8, ptr %8, i64 59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %191, ptr noundef nonnull align 1 dereferenceable(4096) %192, i64 4096, i1 false)
+192:                                              ; preds = %191
+  %193 = getelementptr inbounds nuw i8, ptr %6, i64 76
+  %194 = getelementptr inbounds nuw i8, ptr %8, i64 59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %193, ptr noundef nonnull align 1 dereferenceable(4096) %194, i64 4096, i1 false)
   tail call fastcc void @fic_draw_cursor(ptr noundef %0, i32 noundef %93, i32 noundef %92)
-  br label %193
+  br label %195
 
-193:                                              ; preds = %189, %190, %25
+195:                                              ; preds = %191, %192, %25
   store i32 1, ptr %2, align 4, !tbaa !65
-  %194 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %195 = load ptr, ptr %194, align 8, !tbaa !44
-  %196 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %195) #9
-  %197 = icmp slt i32 %196, 0
-  br i1 %197, label %.loopexit198, label %198
+  %196 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %197 = load ptr, ptr %196, align 8, !tbaa !44
+  %198 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %197) #9
+  %199 = icmp slt i32 %198, 0
+  br i1 %199, label %.loopexit198, label %200
 
-198:                                              ; preds = %193
-  %199 = load i32, ptr %16, align 8, !tbaa !42
+200:                                              ; preds = %195
+  %201 = load i32, ptr %16, align 8, !tbaa !42
   br label %.loopexit198
 
-.loopexit198:                                     ; preds = %142, %193, %162, %4, %198, %188, %184, %124, %117, %55, %33, %28, %19
-  %.0146 = phi i32 [ -1094995529, %19 ], [ %199, %198 ], [ -1094995529, %28 ], [ -1094995529, %55 ], [ -1094995529, %117 ], [ %186, %188 ], [ -12, %184 ], [ -12, %124 ], [ -1094995529, %33 ], [ %13, %4 ], [ %166, %162 ], [ %196, %193 ], [ -1094995529, %142 ]
+.loopexit198:                                     ; preds = %142, %195, %163, %4, %200, %190, %186, %124, %117, %55, %33, %28, %19
+  %.0146 = phi i32 [ -1094995529, %19 ], [ %201, %200 ], [ -1094995529, %28 ], [ -1094995529, %55 ], [ -1094995529, %117 ], [ %188, %190 ], [ -12, %186 ], [ -12, %124 ], [ -1094995529, %33 ], [ %13, %4 ], [ %167, %163 ], [ %198, %195 ], [ -1094995529, %142 ]
   ret i32 %.0146
 }
 

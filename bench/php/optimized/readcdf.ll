@@ -1051,12 +1051,13 @@ define internal fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not20, label %6, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw %struct.nv, ptr %1, i64 %.01727, i32 1
-  %16 = load ptr, ptr %15, align 8, !tbaa !62
+  %15 = getelementptr inbounds nuw %struct.nv, ptr %1, i64 %.01727
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !62
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %2, %14
-  %.1 = phi ptr [ %16, %14 ], [ null, %2 ], [ null, %6 ]
+  %.1 = phi ptr [ %17, %14 ], [ null, %2 ], [ null, %6 ]
   tail call void @_efree(ptr noundef %4) #7
   ret ptr %.1
 }

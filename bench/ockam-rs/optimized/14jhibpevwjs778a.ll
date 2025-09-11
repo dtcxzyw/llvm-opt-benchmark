@@ -1002,73 +1002,74 @@ define internal fastcc void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$8alloca
   %31 = getelementptr i8, ptr %0, i64 8
   %.val4.i = load i64, ptr %31, align 8, !noalias !130
   %32 = icmp eq ptr %.val.i, null
-  br i1 %32, label %49, label %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i"
+  br i1 %32, label %50, label %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i"
 
 "_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i": ; preds = %.noexc, %34
-  %.0.i.i.i.i = phi i64 [ %35, %34 ], [ 0, %.noexc ]
+  %.0.i.i.i.i = phi i64 [ %36, %34 ], [ 0, %.noexc ]
   %33 = icmp eq i64 %.0.i.i.i.i, %.val4.i
   br i1 %33, label %"_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i", label %34
 
 34:                                               ; preds = %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i"
-  %35 = add i64 %.0.i.i.i.i, 1
-  %36 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %.val.i, i64 %.0.i.i.i.i, i32 0, i32 0, i32 0, i32 4, i32 3
-  invoke void @"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cfe619e77ab9df1E.llvm.1799741712541865863"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36)
-          to label %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i" unwind label %39, !noalias !130
+  %35 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %.val.i, i64 %.0.i.i.i.i
+  %36 = add i64 %.0.i.i.i.i, 1
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  invoke void @"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cfe619e77ab9df1E.llvm.1799741712541865863"(ptr noalias noundef nonnull align 8 dereferenceable(32) %37)
+          to label %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i" unwind label %40, !noalias !130
 
-37:                                               ; preds = %41, %39
-  %.1.i.i.i.i = phi i64 [ %35, %39 ], [ %43, %41 ]
-  %38 = icmp eq i64 %.1.i.i.i.i, %.val4.i
-  br i1 %38, label %.body.thread11, label %41
+38:                                               ; preds = %42, %40
+  %.1.i.i.i.i = phi i64 [ %36, %40 ], [ %44, %42 ]
+  %39 = icmp eq i64 %.1.i.i.i.i, %.val4.i
+  br i1 %39, label %.body.thread11, label %42
 
-39:                                               ; preds = %34
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %34
+  %41 = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %38
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %.val.i, i64 %.1.i.i.i.i
-  %43 = add i64 %.1.i.i.i.i, 1
-  invoke void @"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %42) #24
-          to label %37 unwind label %44, !noalias !130
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %.val.i, i64 %.1.i.i.i.i
+  %44 = add i64 %.1.i.i.i.i, 1
+  invoke void @"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %43) #24
+          to label %38 unwind label %45, !noalias !130
 
-44:                                               ; preds = %41
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %42
+  %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #25, !noalias !130
   unreachable
 
-.body.thread11:                                   ; preds = %37
+.body.thread11:                                   ; preds = %38
   call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hffe7364202b87c8cE"(ptr nonnull %.val.i, i64 %.val4.i) #24, !noalias !130
   store ptr %29, ptr %0, align 8, !noalias !130
   store i64 %30, ptr %31, align 8, !noalias !130
-  br label %50
+  br label %51
 
 "_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i": ; preds = %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i"
-  %46 = icmp eq i64 %.val4.i, 0
-  br i1 %46, label %49, label %47
+  %47 = icmp eq i64 %.val4.i, 0
+  br i1 %47, label %50, label %48
 
-47:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i"
-  %48 = mul nsw i64 %.val4.i, 96
-  call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, 0) %48, i64 noundef 8) #26, !noalias !130
-  br label %49
+48:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i"
+  %49 = mul nsw i64 %.val4.i, 96
+  call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, 0) %49, i64 noundef 8) #26, !noalias !130
+  br label %50
 
-49:                                               ; preds = %47, %"_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i", %.noexc
+50:                                               ; preds = %48, %"_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i", %.noexc
   store ptr %29, ptr %0, align 8, !noalias !130
   store i64 %30, ptr %31, align 8, !noalias !130
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-50:                                               ; preds = %.body.thread11, %.body.thread
-  %eh.lpad-body9 = phi { ptr, i32 } [ %eh.lpad-body10, %.body.thread ], [ %40, %.body.thread11 ]
+51:                                               ; preds = %.body.thread11, %.body.thread
+  %eh.lpad-body9 = phi { ptr, i32 } [ %eh.lpad-body10, %.body.thread ], [ %41, %.body.thread11 ]
   resume { ptr, i32 } %eh.lpad-body9
 
 .body.thread:                                     ; preds = %20, %.body.thread14
   %eh.lpad-body10 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread14 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$$GT$17hbf9789f3db3713b8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #24
-          to label %50 unwind label %51
+          to label %51 unwind label %52
 
-51:                                               ; preds = %.body.thread
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %.body.thread
+  %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #25
   unreachable

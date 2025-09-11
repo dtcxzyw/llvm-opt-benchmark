@@ -15549,32 +15549,32 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail7get_argINS0_7contextENS0_
   %12 = getelementptr inbounds i8, ptr %10, i64 %.v.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !84, !noalias !506
-  %.not15.not.i.i.i = icmp eq i64 %14, 0
-  br i1 %.not15.not.i.i.i, label %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread.i.i, label %.lr.ph.i.i.i
+  %.not14.not.i.i.i = icmp eq i64 %14, 0
+  br i1 %.not14.not.i.i.i, label %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %8
   %15 = load ptr, ptr %12, align 8, !tbaa !78, !noalias !506
-  br label %16
+  br label %18
 
-16:                                               ; preds = %23, %.lr.ph.i.i.i
-  %.01116.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %24, %23 ]
-  %17 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %15, i64 %.01116.i.i.i
-  %18 = load ptr, ptr %17, align 8, !tbaa !507, !noalias !506
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #28, !noalias !506
-  %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %3)
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %18, ptr %2, i64 %..i.i.i.i.i), !noalias !506
-  %20 = icmp eq i32 %bcmp.i.i.i.i, 0
-  %21 = icmp eq i64 %19, %3
-  %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i, label %23
+16:                                               ; preds = %18
+  %17 = add nuw i64 %.01115.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %17, %14
+  br i1 %exitcond.not.i.i.i, label %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread.i.i, label %18, !llvm.loop !507
 
-23:                                               ; preds = %16
-  %24 = add nuw i64 %.01116.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %24, %14
-  br i1 %exitcond.not.i.i.i, label %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread.i.i, label %16, !llvm.loop !509
+18:                                               ; preds = %16, %.lr.ph.i.i.i
+  %.01115.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %17, %16 ]
+  %19 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %15, i64 %.01115.i.i.i
+  %20 = load ptr, ptr %19, align 8, !tbaa !508, !noalias !506
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #28, !noalias !506
+  %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %21, i64 %3)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %20, ptr %2, i64 %..i.i.i.i.i), !noalias !506
+  %22 = icmp eq i32 %bcmp.i.i.i.i, 0
+  %23 = icmp eq i64 %21, %3
+  %24 = select i1 %22, i1 %23, i1 false
+  br i1 %24, label %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i, label %16
 
-_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i: ; preds = %16
-  %25 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %15, i64 %.01116.i.i.i, i32 1
+_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i: ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !510, !noalias !506
   %27 = icmp sgt i32 %26, -1
   br i1 %27, label %28, label %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread.i.i
@@ -15609,7 +15609,7 @@ _ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread10: ; preds = %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !438
   br label %49
 
-_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread.i.i: ; preds = %23, %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i, %8, %4
+_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread.i.i: ; preds = %16, %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i, %8, %4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %45, align 16, !tbaa !434, !alias.scope !506
   br label %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread
@@ -19728,165 +19728,167 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.036 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %9 = shl i64 %.036, 1
   %10 = add i64 %9, 2
-  %11 = or disjoint i64 %9, 1
-  %12 = getelementptr %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %10, i32 1
-  %.val.i = load i32, ptr %12, align 8, !tbaa !143
-  %13 = getelementptr %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %11, i32 1
-  %.val1.i = load i32, ptr %13, align 8, !tbaa !143
-  %14 = icmp slt i32 %.val.i, %.val1.i
-  %spec.select = select i1 %14, i64 %11, i64 %10
-  %15 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.036
-  %17 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %16, ptr noundef nonnull align 8 dereferenceable(120) %15) #23
-  %18 = icmp slt i64 %spec.select, %7
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !556
+  %11 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %10
+  %12 = or disjoint i64 %9, 1
+  %13 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %12
+  %14 = getelementptr i8, ptr %11, i64 32
+  %.val.i = load i32, ptr %14, align 8, !tbaa !143
+  %15 = getelementptr i8, ptr %13, i64 32
+  %.val1.i = load i32, ptr %15, align 8, !tbaa !143
+  %16 = icmp slt i32 %.val.i, %.val1.i
+  %spec.select = select i1 %16, i64 %12, i64 %10
+  %17 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %spec.select
+  %18 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.036
+  %19 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %18, ptr noundef nonnull align 8 dereferenceable(120) %17) #23
+  %20 = icmp slt i64 %spec.select, %7
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !556
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %.lr.ph ]
-  %19 = and i64 %2, 1
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %31
+  %21 = and i64 %2, 1
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %33
 
-21:                                               ; preds = %._crit_edge
-  %22 = add nsw i64 %2, -2
-  %23 = ashr exact i64 %22, 1
-  %24 = icmp eq i64 %.0.lcssa, %23
-  br i1 %24, label %25, label %31
+23:                                               ; preds = %._crit_edge
+  %24 = add nsw i64 %2, -2
+  %25 = ashr exact i64 %24, 1
+  %26 = icmp eq i64 %.0.lcssa, %25
+  br i1 %26, label %27, label %33
 
-25:                                               ; preds = %21
-  %26 = shl nsw i64 %.0.lcssa, 1
-  %27 = or disjoint i64 %26, 1
-  %28 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %27
-  %29 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0.lcssa
-  %30 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %29, ptr noundef nonnull align 8 dereferenceable(120) %28) #23
-  br label %31
+27:                                               ; preds = %23
+  %28 = shl nsw i64 %.0.lcssa, 1
+  %29 = or disjoint i64 %28, 1
+  %30 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %29
+  %31 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0.lcssa
+  %32 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %31, ptr noundef nonnull align 8 dereferenceable(120) %30) #23
+  br label %33
 
-31:                                               ; preds = %25, %21, %._crit_edge
-  %.1 = phi i64 [ %27, %25 ], [ %.0.lcssa, %21 ], [ %.0.lcssa, %._crit_edge ]
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %32, ptr %5, align 8, !tbaa !4
-  %33 = load ptr, ptr %3, align 8, !tbaa !12
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %35 = icmp eq ptr %33, %34
-  br i1 %35, label %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+33:                                               ; preds = %27, %23, %._crit_edge
+  %.1 = phi i64 [ %29, %27 ], [ %.0.lcssa, %23 ], [ %.0.lcssa, %._crit_edge ]
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %34, ptr %5, align 8, !tbaa !4
+  %35 = load ptr, ptr %3, align 8, !tbaa !12
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %37 = icmp eq ptr %35, %36
+  br i1 %37, label %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !15
-  %39 = icmp ult i64 %38, 16
-  call void @llvm.assume(i1 %39)
-  %40 = add nuw nsw i64 %38, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %32, ptr noundef nonnull align 8 dereferenceable(1) %34, i64 %40, i1 false)
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %40 = load i64, ptr %39, align 8, !tbaa !15
+  %41 = icmp ult i64 %40, 16
+  call void @llvm.assume(i1 %41)
+  %42 = add nuw nsw i64 %40, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %34, ptr noundef nonnull align 8 dereferenceable(1) %36, i64 %42, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %31
-  store ptr %33, ptr %5, align 8, !tbaa !12
-  %41 = load i64, ptr %34, align 8, !tbaa !14
-  store i64 %41, ptr %32, align 8, !tbaa !14
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %33
+  store ptr %35, ptr %5, align 8, !tbaa !12
+  %43 = load i64, ptr %36, align 8, !tbaa !14
+  store i64 %43, ptr %34, align 8, !tbaa !14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %36
-  %42 = phi i64 [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %38, %36 ]
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %42, ptr %44, align 8, !tbaa !15
-  store ptr %34, ptr %3, align 8, !tbaa !12
-  store i64 0, ptr %43, align 8, !tbaa !15
-  store i8 0, ptr %34, align 8, !tbaa !14
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %47 = load i32, ptr %46, align 8, !tbaa !143
-  store i32 %47, ptr %45, align 8, !tbaa !143
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %50 = load ptr, ptr %49, align 8, !tbaa !261
-  store ptr %50, ptr %48, align 8, !tbaa !261
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %53 = load i64, ptr %52, align 8, !tbaa !262
-  store i64 %53, ptr %51, align 8, !tbaa !262
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %56 = load ptr, ptr %55, align 8, !tbaa !158
-  store ptr %56, ptr %54, align 8, !tbaa !162
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %59 = load i64, ptr %58, align 8, !tbaa !178
-  store i64 %59, ptr %57, align 8, !tbaa !178
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !263
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr null, ptr %62, align 8, !tbaa !265
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %64 = icmp eq ptr %50, %63
-  br i1 %64, label %65, label %67
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %38
+  %44 = phi i64 [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %40, %38 ]
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %44, ptr %46, align 8, !tbaa !15
+  store ptr %36, ptr %3, align 8, !tbaa !12
+  store i64 0, ptr %45, align 8, !tbaa !15
+  store i8 0, ptr %36, align 8, !tbaa !14
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %49 = load i32, ptr %48, align 8, !tbaa !143
+  store i32 %49, ptr %47, align 8, !tbaa !143
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %52 = load ptr, ptr %51, align 8, !tbaa !261
+  store ptr %52, ptr %50, align 8, !tbaa !261
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %55 = load i64, ptr %54, align 8, !tbaa !262
+  store i64 %55, ptr %53, align 8, !tbaa !262
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %58 = load ptr, ptr %57, align 8, !tbaa !158
+  store ptr %58, ptr %56, align 8, !tbaa !162
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %61 = load i64, ptr %60, align 8, !tbaa !178
+  store i64 %61, ptr %59, align 8, !tbaa !178
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !263
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store ptr null, ptr %64, align 8, !tbaa !265
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %66 = icmp eq ptr %52, %65
+  br i1 %66, label %67, label %69
 
-65:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
-  store ptr %62, ptr %48, align 8, !tbaa !261
-  %66 = load ptr, ptr %63, align 8, !tbaa !265
-  store ptr %66, ptr %62, align 8, !tbaa !265
-  br label %67
+67:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
+  store ptr %64, ptr %50, align 8, !tbaa !261
+  %68 = load ptr, ptr %65, align 8, !tbaa !265
+  store ptr %68, ptr %64, align 8, !tbaa !265
+  br label %69
 
-67:                                               ; preds = %65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
-  %68 = phi ptr [ %62, %65 ], [ %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ]
-  %.not.i.i.i.i.i = icmp eq ptr %56, null
-  br i1 %.not.i.i.i.i.i, label %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit, label %69
+69:                                               ; preds = %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
+  %70 = phi ptr [ %64, %67 ], [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ]
+  %.not.i.i.i.i.i = icmp eq ptr %58, null
+  br i1 %.not.i.i.i.i.i, label %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit, label %71
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %71 = load i64, ptr %70, align 8, !tbaa !266
-  %72 = urem i64 %71, %53
-  %73 = getelementptr inbounds nuw ptr, ptr %68, i64 %72
-  store ptr %54, ptr %73, align 8, !tbaa !268
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %73 = load i64, ptr %72, align 8, !tbaa !266
+  %74 = urem i64 %73, %55
+  %75 = getelementptr inbounds nuw ptr, ptr %70, i64 %74
+  store ptr %56, ptr %75, align 8, !tbaa !268
   br label %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit
 
-_ZN5vcpkg17PackageDependInfoC2EOS0_.exit:         ; preds = %67, %69
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i64 0, ptr %74, align 8, !tbaa !269
-  store i64 1, ptr %52, align 8, !tbaa !262
-  store ptr null, ptr %63, align 8, !tbaa !265
-  store ptr %63, ptr %49, align 8, !tbaa !261
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %77 = load ptr, ptr %76, align 8, !tbaa !106
-  store ptr %77, ptr %75, align 8, !tbaa !106
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %80 = load ptr, ptr %79, align 8, !tbaa !104
-  store ptr %80, ptr %78, align 8, !tbaa !104
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %83 = load ptr, ptr %82, align 8, !tbaa !115
-  store ptr %83, ptr %81, align 8, !tbaa !115
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
-  %84 = icmp sgt i64 %.1, %1
-  br i1 %84, label %.lr.ph.i, label %.loopexit
+_ZN5vcpkg17PackageDependInfoC2EOS0_.exit:         ; preds = %69, %71
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i64 0, ptr %76, align 8, !tbaa !269
+  store i64 1, ptr %54, align 8, !tbaa !262
+  store ptr null, ptr %65, align 8, !tbaa !265
+  store ptr %65, ptr %51, align 8, !tbaa !261
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %79 = load ptr, ptr %78, align 8, !tbaa !106
+  store ptr %79, ptr %77, align 8, !tbaa !106
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %82 = load ptr, ptr %81, align 8, !tbaa !104
+  store ptr %82, ptr %80, align 8, !tbaa !104
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %85 = load ptr, ptr %84, align 8, !tbaa !115
+  store ptr %85, ptr %83, align 8, !tbaa !115
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
+  %86 = icmp sgt i64 %.1, %1
+  br i1 %86, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit, %88
-  %.010.i = phi i64 [ %.0911.i, %88 ], [ %.1, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit ]
+.lr.ph.i:                                         ; preds = %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit, %90
+  %.010.i = phi i64 [ %.0911.i, %90 ], [ %.1, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %85 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0911.i
-  %.val.i25 = load i32, ptr %45, align 8, !tbaa !143
-  %86 = getelementptr i8, ptr %85, i64 32
-  %.val.i.i = load i32, ptr %86, align 8, !tbaa !143
-  %87 = icmp slt i32 %.val.i.i, %.val.i25
-  br i1 %87, label %88, label %.loopexit
+  %87 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0911.i
+  %.val.i25 = load i32, ptr %47, align 8, !tbaa !143
+  %88 = getelementptr i8, ptr %87, i64 32
+  %.val.i.i = load i32, ptr %88, align 8, !tbaa !143
+  %89 = icmp slt i32 %.val.i.i, %.val.i25
+  br i1 %89, label %90, label %.loopexit
 
-88:                                               ; preds = %.lr.ph.i
-  %89 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.010.i
-  %90 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %89, ptr noundef nonnull align 8 dereferenceable(120) %85) #23
-  %91 = icmp sgt i64 %.0911.i, %1
-  br i1 %91, label %.lr.ph.i, label %.loopexit, !llvm.loop !557
+90:                                               ; preds = %.lr.ph.i
+  %91 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.010.i
+  %92 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %91, ptr noundef nonnull align 8 dereferenceable(120) %87) #23
+  %93 = icmp sgt i64 %.0911.i, %1
+  br i1 %93, label %.lr.ph.i, label %.loopexit, !llvm.loop !557
 
-.loopexit:                                        ; preds = %88, %.lr.ph.i, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit
-  %.0.lcssa.i = phi i64 [ %.1, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit ], [ %.010.i, %.lr.ph.i ], [ %.0911.i, %88 ]
-  %92 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0.lcssa.i
-  %93 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %92, ptr noundef nonnull align 8 dereferenceable(120) %5) #23
+.loopexit:                                        ; preds = %90, %.lr.ph.i, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit
+  %.0.lcssa.i = phi i64 [ %.1, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit ], [ %.010.i, %.lr.ph.i ], [ %.0911.i, %90 ]
+  %94 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0.lcssa.i
+  %95 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %94, ptr noundef nonnull align 8 dereferenceable(120) %5) #23
   call void @_ZN5vcpkg17PackageDependInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #23
   ret void
 }
@@ -21599,165 +21601,167 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.036 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %9 = shl i64 %.036, 1
   %10 = add i64 %9, 2
-  %11 = or disjoint i64 %9, 1
-  %12 = getelementptr %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %10, i32 1
-  %.val.i = load i32, ptr %12, align 8, !tbaa !143
-  %13 = getelementptr %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %11, i32 1
-  %.val1.i = load i32, ptr %13, align 8, !tbaa !143
-  %14 = icmp sgt i32 %.val.i, %.val1.i
-  %spec.select = select i1 %14, i64 %11, i64 %10
-  %15 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.036
-  %17 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %16, ptr noundef nonnull align 8 dereferenceable(120) %15) #23
-  %18 = icmp slt i64 %spec.select, %7
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !566
+  %11 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %10
+  %12 = or disjoint i64 %9, 1
+  %13 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %12
+  %14 = getelementptr i8, ptr %11, i64 32
+  %.val.i = load i32, ptr %14, align 8, !tbaa !143
+  %15 = getelementptr i8, ptr %13, i64 32
+  %.val1.i = load i32, ptr %15, align 8, !tbaa !143
+  %16 = icmp sgt i32 %.val.i, %.val1.i
+  %spec.select = select i1 %16, i64 %12, i64 %10
+  %17 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %spec.select
+  %18 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.036
+  %19 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %18, ptr noundef nonnull align 8 dereferenceable(120) %17) #23
+  %20 = icmp slt i64 %spec.select, %7
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !566
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %.lr.ph ]
-  %19 = and i64 %2, 1
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %31
+  %21 = and i64 %2, 1
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %33
 
-21:                                               ; preds = %._crit_edge
-  %22 = add nsw i64 %2, -2
-  %23 = ashr exact i64 %22, 1
-  %24 = icmp eq i64 %.0.lcssa, %23
-  br i1 %24, label %25, label %31
+23:                                               ; preds = %._crit_edge
+  %24 = add nsw i64 %2, -2
+  %25 = ashr exact i64 %24, 1
+  %26 = icmp eq i64 %.0.lcssa, %25
+  br i1 %26, label %27, label %33
 
-25:                                               ; preds = %21
-  %26 = shl nsw i64 %.0.lcssa, 1
-  %27 = or disjoint i64 %26, 1
-  %28 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %27
-  %29 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0.lcssa
-  %30 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %29, ptr noundef nonnull align 8 dereferenceable(120) %28) #23
-  br label %31
+27:                                               ; preds = %23
+  %28 = shl nsw i64 %.0.lcssa, 1
+  %29 = or disjoint i64 %28, 1
+  %30 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %29
+  %31 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0.lcssa
+  %32 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %31, ptr noundef nonnull align 8 dereferenceable(120) %30) #23
+  br label %33
 
-31:                                               ; preds = %25, %21, %._crit_edge
-  %.1 = phi i64 [ %27, %25 ], [ %.0.lcssa, %21 ], [ %.0.lcssa, %._crit_edge ]
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %32, ptr %5, align 8, !tbaa !4
-  %33 = load ptr, ptr %3, align 8, !tbaa !12
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %35 = icmp eq ptr %33, %34
-  br i1 %35, label %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+33:                                               ; preds = %27, %23, %._crit_edge
+  %.1 = phi i64 [ %29, %27 ], [ %.0.lcssa, %23 ], [ %.0.lcssa, %._crit_edge ]
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %34, ptr %5, align 8, !tbaa !4
+  %35 = load ptr, ptr %3, align 8, !tbaa !12
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %37 = icmp eq ptr %35, %36
+  br i1 %37, label %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !15
-  %39 = icmp ult i64 %38, 16
-  call void @llvm.assume(i1 %39)
-  %40 = add nuw nsw i64 %38, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %32, ptr noundef nonnull align 8 dereferenceable(1) %34, i64 %40, i1 false)
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %40 = load i64, ptr %39, align 8, !tbaa !15
+  %41 = icmp ult i64 %40, 16
+  call void @llvm.assume(i1 %41)
+  %42 = add nuw nsw i64 %40, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %34, ptr noundef nonnull align 8 dereferenceable(1) %36, i64 %42, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %31
-  store ptr %33, ptr %5, align 8, !tbaa !12
-  %41 = load i64, ptr %34, align 8, !tbaa !14
-  store i64 %41, ptr %32, align 8, !tbaa !14
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %33
+  store ptr %35, ptr %5, align 8, !tbaa !12
+  %43 = load i64, ptr %36, align 8, !tbaa !14
+  store i64 %43, ptr %34, align 8, !tbaa !14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %36
-  %42 = phi i64 [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %38, %36 ]
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %42, ptr %44, align 8, !tbaa !15
-  store ptr %34, ptr %3, align 8, !tbaa !12
-  store i64 0, ptr %43, align 8, !tbaa !15
-  store i8 0, ptr %34, align 8, !tbaa !14
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %47 = load i32, ptr %46, align 8, !tbaa !143
-  store i32 %47, ptr %45, align 8, !tbaa !143
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %50 = load ptr, ptr %49, align 8, !tbaa !261
-  store ptr %50, ptr %48, align 8, !tbaa !261
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %53 = load i64, ptr %52, align 8, !tbaa !262
-  store i64 %53, ptr %51, align 8, !tbaa !262
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %56 = load ptr, ptr %55, align 8, !tbaa !158
-  store ptr %56, ptr %54, align 8, !tbaa !162
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %59 = load i64, ptr %58, align 8, !tbaa !178
-  store i64 %59, ptr %57, align 8, !tbaa !178
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !263
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr null, ptr %62, align 8, !tbaa !265
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %64 = icmp eq ptr %50, %63
-  br i1 %64, label %65, label %67
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %38
+  %44 = phi i64 [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %40, %38 ]
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %44, ptr %46, align 8, !tbaa !15
+  store ptr %36, ptr %3, align 8, !tbaa !12
+  store i64 0, ptr %45, align 8, !tbaa !15
+  store i8 0, ptr %36, align 8, !tbaa !14
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %49 = load i32, ptr %48, align 8, !tbaa !143
+  store i32 %49, ptr %47, align 8, !tbaa !143
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %52 = load ptr, ptr %51, align 8, !tbaa !261
+  store ptr %52, ptr %50, align 8, !tbaa !261
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %55 = load i64, ptr %54, align 8, !tbaa !262
+  store i64 %55, ptr %53, align 8, !tbaa !262
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %58 = load ptr, ptr %57, align 8, !tbaa !158
+  store ptr %58, ptr %56, align 8, !tbaa !162
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %61 = load i64, ptr %60, align 8, !tbaa !178
+  store i64 %61, ptr %59, align 8, !tbaa !178
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !263
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store ptr null, ptr %64, align 8, !tbaa !265
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %66 = icmp eq ptr %52, %65
+  br i1 %66, label %67, label %69
 
-65:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
-  store ptr %62, ptr %48, align 8, !tbaa !261
-  %66 = load ptr, ptr %63, align 8, !tbaa !265
-  store ptr %66, ptr %62, align 8, !tbaa !265
-  br label %67
+67:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
+  store ptr %64, ptr %50, align 8, !tbaa !261
+  %68 = load ptr, ptr %65, align 8, !tbaa !265
+  store ptr %68, ptr %64, align 8, !tbaa !265
+  br label %69
 
-67:                                               ; preds = %65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
-  %68 = phi ptr [ %62, %65 ], [ %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ]
-  %.not.i.i.i.i.i = icmp eq ptr %56, null
-  br i1 %.not.i.i.i.i.i, label %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit, label %69
+69:                                               ; preds = %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
+  %70 = phi ptr [ %64, %67 ], [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i ]
+  %.not.i.i.i.i.i = icmp eq ptr %58, null
+  br i1 %.not.i.i.i.i.i, label %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit, label %71
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %71 = load i64, ptr %70, align 8, !tbaa !266
-  %72 = urem i64 %71, %53
-  %73 = getelementptr inbounds nuw ptr, ptr %68, i64 %72
-  store ptr %54, ptr %73, align 8, !tbaa !268
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %73 = load i64, ptr %72, align 8, !tbaa !266
+  %74 = urem i64 %73, %55
+  %75 = getelementptr inbounds nuw ptr, ptr %70, i64 %74
+  store ptr %56, ptr %75, align 8, !tbaa !268
   br label %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit
 
-_ZN5vcpkg17PackageDependInfoC2EOS0_.exit:         ; preds = %67, %69
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i64 0, ptr %74, align 8, !tbaa !269
-  store i64 1, ptr %52, align 8, !tbaa !262
-  store ptr null, ptr %63, align 8, !tbaa !265
-  store ptr %63, ptr %49, align 8, !tbaa !261
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %77 = load ptr, ptr %76, align 8, !tbaa !106
-  store ptr %77, ptr %75, align 8, !tbaa !106
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %80 = load ptr, ptr %79, align 8, !tbaa !104
-  store ptr %80, ptr %78, align 8, !tbaa !104
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %83 = load ptr, ptr %82, align 8, !tbaa !115
-  store ptr %83, ptr %81, align 8, !tbaa !115
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
-  %84 = icmp sgt i64 %.1, %1
-  br i1 %84, label %.lr.ph.i, label %.loopexit
+_ZN5vcpkg17PackageDependInfoC2EOS0_.exit:         ; preds = %69, %71
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i64 0, ptr %76, align 8, !tbaa !269
+  store i64 1, ptr %54, align 8, !tbaa !262
+  store ptr null, ptr %65, align 8, !tbaa !265
+  store ptr %65, ptr %51, align 8, !tbaa !261
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %79 = load ptr, ptr %78, align 8, !tbaa !106
+  store ptr %79, ptr %77, align 8, !tbaa !106
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %82 = load ptr, ptr %81, align 8, !tbaa !104
+  store ptr %82, ptr %80, align 8, !tbaa !104
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %85 = load ptr, ptr %84, align 8, !tbaa !115
+  store ptr %85, ptr %83, align 8, !tbaa !115
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
+  %86 = icmp sgt i64 %.1, %1
+  br i1 %86, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit, %88
-  %.010.i = phi i64 [ %.0911.i, %88 ], [ %.1, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit ]
+.lr.ph.i:                                         ; preds = %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit, %90
+  %.010.i = phi i64 [ %.0911.i, %90 ], [ %.1, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %85 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0911.i
-  %.val.i25 = load i32, ptr %45, align 8, !tbaa !143
-  %86 = getelementptr i8, ptr %85, i64 32
-  %.val.i.i = load i32, ptr %86, align 8, !tbaa !143
-  %87 = icmp sgt i32 %.val.i.i, %.val.i25
-  br i1 %87, label %88, label %.loopexit
+  %87 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0911.i
+  %.val.i25 = load i32, ptr %47, align 8, !tbaa !143
+  %88 = getelementptr i8, ptr %87, i64 32
+  %.val.i.i = load i32, ptr %88, align 8, !tbaa !143
+  %89 = icmp sgt i32 %.val.i.i, %.val.i25
+  br i1 %89, label %90, label %.loopexit
 
-88:                                               ; preds = %.lr.ph.i
-  %89 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.010.i
-  %90 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %89, ptr noundef nonnull align 8 dereferenceable(120) %85) #23
-  %91 = icmp sgt i64 %.0911.i, %1
-  br i1 %91, label %.lr.ph.i, label %.loopexit, !llvm.loop !567
+90:                                               ; preds = %.lr.ph.i
+  %91 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.010.i
+  %92 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %91, ptr noundef nonnull align 8 dereferenceable(120) %87) #23
+  %93 = icmp sgt i64 %.0911.i, %1
+  br i1 %93, label %.lr.ph.i, label %.loopexit, !llvm.loop !567
 
-.loopexit:                                        ; preds = %88, %.lr.ph.i, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit
-  %.0.lcssa.i = phi i64 [ %.1, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit ], [ %.010.i, %.lr.ph.i ], [ %.0911.i, %88 ]
-  %92 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0.lcssa.i
-  %93 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %92, ptr noundef nonnull align 8 dereferenceable(120) %5) #23
+.loopexit:                                        ; preds = %90, %.lr.ph.i, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit
+  %.0.lcssa.i = phi i64 [ %.1, %_ZN5vcpkg17PackageDependInfoC2EOS0_.exit ], [ %.010.i, %.lr.ph.i ], [ %.0911.i, %90 ]
+  %94 = getelementptr inbounds %"struct.vcpkg::PackageDependInfo", ptr %0, i64 %.0.lcssa.i
+  %95 = call noundef nonnull align 8 dereferenceable(120) ptr @_ZN5vcpkg17PackageDependInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(120) %94, ptr noundef nonnull align 8 dereferenceable(120) %5) #23
   call void @_ZN5vcpkg17PackageDependInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #23
   ret void
 }
@@ -22861,10 +22865,10 @@ attributes #28 = { nounwind willreturn memory(read) }
 !504 = distinct !{!504, !505, !"_ZNK3fmt3v1117basic_format_argsINS0_7contextEE3getIcEENS0_16basic_format_argIS2_EENS0_17basic_string_viewIT_EE: argument 0"}
 !505 = distinct !{!505, !"_ZNK3fmt3v1117basic_format_argsINS0_7contextEE3getIcEENS0_16basic_format_argIS2_EENS0_17basic_string_viewIT_EE"}
 !506 = !{!504, !501}
-!507 = !{!508, !6, i64 0}
-!508 = !{!"_ZTSN3fmt3v116detail14named_arg_infoIcEE", !6, i64 0, !41, i64 8}
-!509 = distinct !{!509, !58}
-!510 = !{!508, !41, i64 8}
+!507 = distinct !{!507, !58}
+!508 = !{!509, !6, i64 0}
+!509 = !{!"_ZTSN3fmt3v116detail14named_arg_infoIcEE", !6, i64 0, !41, i64 8}
+!510 = !{!509, !41, i64 8}
 !511 = !{!512, !504, !501}
 !512 = distinct !{!512, !513, !"_ZNK3fmt3v1117basic_format_argsINS0_7contextEE3getEi: argument 0"}
 !513 = distinct !{!513, !"_ZNK3fmt3v1117basic_format_argsINS0_7contextEE3getEi"}

@@ -495,7 +495,7 @@ skip_prefix.exit.preheader.us.i:                  ; preds = %78
   br i1 %.not29.us49.i, label %skip_prefix.exit.thread.us.i, label %skip_prefix.exit.us.i
 
 .preheader.i14:                                   ; preds = %.preheader.lr.ph.i, %skip_prefix.exit.thread.i
-  %92 = phi ptr [ %112, %skip_prefix.exit.thread.i ], [ %76, %.preheader.lr.ph.i ]
+  %92 = phi ptr [ %113, %skip_prefix.exit.thread.i ], [ %76, %.preheader.lr.ph.i ]
   %scevgep.i15 = getelementptr i8, ptr %92, i64 11
   br label %93
 
@@ -534,36 +534,37 @@ skip_prefix.exit.i18:                             ; preds = %.lr.ph45.i
   br i1 %.not29.i, label %.critedge.i, label %skip_prefix.exit.i18
 
 .critedge.i:                                      ; preds = %.lr.ph45.i
-  %104 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %4, i64 %indvars.iv63.i, i32 1
-  %105 = load i32, ptr %104, align 8, !tbaa !40
-  %106 = load i32, ptr %5, align 4, !tbaa !30
-  %107 = or i32 %106, %105
-  store i32 %107, ptr %5, align 4, !tbaa !30
+  %104 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %4, i64 %indvars.iv63.i
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %106 = load i32, ptr %105, align 8, !tbaa !40
+  %107 = load i32, ptr %5, align 4, !tbaa !30
+  %108 = or i32 %107, %106
+  store i32 %108, ptr %5, align 4, !tbaa !30
   br label %skip_prefix.exit.thread.i
 
 skip_prefix.exit.preheader._crit_edge.i:          ; preds = %skip_prefix.exit.preheader.i, %skip_prefix.exit.i18, %skip_prefix.exit.preheader.us.i, %skip_prefix.exit.us.i
   %.07.i.lcssa.lcssa.i = phi ptr [ %scevgep66.i, %skip_prefix.exit.us.i ], [ %scevgep66.i, %skip_prefix.exit.preheader.us.i ], [ %scevgep.i15, %skip_prefix.exit.i18 ], [ %scevgep.i15, %skip_prefix.exit.preheader.i ]
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !41
-  %110 = load ptr, ptr %109, align 8, !tbaa !42
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, ptr noundef %110, ptr noundef nonnull %.07.i.lcssa.lcssa.i) #13
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %110 = load ptr, ptr %109, align 8, !tbaa !41
+  %111 = load ptr, ptr %110, align 8, !tbaa !42
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, ptr noundef %111, ptr noundef nonnull %.07.i.lcssa.lcssa.i) #13
   unreachable
 
 skip_prefix.exit.thread.i:                        ; preds = %95, %.critedge.i
-  %111 = load i32, ptr %28, align 4, !tbaa !27
-  %112 = tail call ptr @packet_read_line(i32 noundef %111, ptr noundef null) #12
-  %.not27.i = icmp eq ptr %112, null
+  %112 = load i32, ptr %28, align 4, !tbaa !27
+  %113 = tail call ptr @packet_read_line(i32 noundef %112, ptr noundef null) #12
+  %.not27.i = icmp eq ptr %113, null
   br i1 %.not27.i, label %handshake_capabilities.exit, label %.preheader.i14
 
 .loopexit.sink.split.i:                           ; preds = %.lr.ph.i9, %._crit_edge.i13
   %.str.10.sink.i = phi ptr [ @.str.10, %._crit_edge.i13 ], [ @.str.19, %.lr.ph.i9 ]
-  %113 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.10.sink.i) #12
+  %114 = tail call i32 (ptr, ...) @error(ptr noundef nonnull %.str.10.sink.i) #12
   br label %handshake_capabilities.exit
 
 handshake_capabilities.exit:                      ; preds = %skip_prefix.exit.thread.i, %skip_prefix.exit.thread.us.i, %.loopexit.sink.split.i, %.preheader38.i, %handshake_version.exit.thread
-  %114 = phi i32 [ 1, %handshake_version.exit.thread ], [ 0, %.preheader38.i ], [ 1, %.loopexit.sink.split.i ], [ 0, %skip_prefix.exit.thread.us.i ], [ 0, %skip_prefix.exit.thread.i ]
-  %115 = tail call i32 @sigchain_pop(i32 noundef 13) #12
-  ret i32 %114
+  %115 = phi i32 [ 1, %handshake_version.exit.thread ], [ 0, %.preheader38.i ], [ 1, %.loopexit.sink.split.i ], [ 0, %skip_prefix.exit.thread.us.i ], [ 0, %skip_prefix.exit.thread.i ]
+  %116 = tail call i32 @sigchain_pop(i32 noundef 13) #12
+  ret i32 %115
 }
 
 declare i32 @sigchain_push(i32 noundef, ptr noundef) local_unnamed_addr #3

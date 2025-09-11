@@ -185,11 +185,11 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   tail call void asm sideeffect "686: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 686b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 686) #7, !srcloc !17
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 118, i32 2305, i64 12) #7, !srcloc !18
   tail call void asm sideeffect "687: nop\0A\09.pushsection .discard.instr_end\0A\09.long 687b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 687) #7, !srcloc !19
-  br label %.thread19
+  br label %.thread20
 
 19:                                               ; preds = %7
   %20 = icmp eq i64 %14, 0
-  br i1 %20, label %.thread19, label %21
+  br i1 %20, label %.thread20, label %21
 
 21:                                               ; preds = %19
   %22 = and i64 %11, 4294967295
@@ -205,7 +205,8 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %23
-  %31 = getelementptr %struct.bio_vec, ptr %9, i64 %24, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %9, i64 %24
+  %31 = getelementptr i8, ptr %.split, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
   %34 = icmp ult i64 %26, %33
@@ -216,12 +217,12 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   %37 = sub i64 %25, %33
   %38 = add nuw nsw i64 %24, 1
   %39 = icmp eq i64 %37, 0
-  br i1 %39, label %.thread19, label %23, !llvm.loop !20
+  br i1 %39, label %.thread20, label %23, !llvm.loop !20
 
 40:                                               ; preds = %30, %23
   %41 = trunc i64 %24 to i32
   %42 = icmp ult i32 %41, %12
-  br i1 %42, label %43, label %.thread19
+  br i1 %42, label %43, label %.thread20
 
 43:                                               ; preds = %40
   %44 = and i64 %24, 4294967295
@@ -233,7 +234,8 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   %48 = phi i64 [ 0, %43 ], [ %57, %63 ]
   %49 = phi i64 [ %25, %43 ], [ %65, %63 ]
   %50 = phi i64 [ %26, %43 ], [ 0, %63 ]
-  %51 = getelementptr %struct.bio_vec, ptr %9, i64 %46, i32 1
+  %.split19 = getelementptr %struct.bio_vec, ptr %9, i64 %46
+  %51 = getelementptr i8, ptr %.split19, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
   %54 = sub i64 %53, %50
@@ -245,7 +247,7 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   %60 = and i64 %58, 4294967295
   %61 = icmp ult i64 %60, %3
   %62 = select i1 %59, i1 %61, i1 false
-  br i1 %62, label %63, label %.thread19.loopexit
+  br i1 %62, label %63, label %.thread20.loopexit
 
 63:                                               ; preds = %45
   %64 = add nuw nsw i64 %46, 1
@@ -253,11 +255,11 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   %66 = icmp ne i64 %65, 0
   %67 = icmp samesign ult i64 %64, %22
   %68 = select i1 %66, i1 %67, i1 false
-  br i1 %68, label %45, label %.thread19.loopexit, !llvm.loop !21
+  br i1 %68, label %45, label %.thread20.loopexit, !llvm.loop !21
 
-.thread19.loopexit:                               ; preds = %45, %63
+.thread20.loopexit:                               ; preds = %45, %63
   %69 = tail call i64 @llvm.umin.i64(i64 %57, i64 %2)
-  br label %.thread19
+  br label %.thread20
 
 70:                                               ; preds = %4
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -282,9 +284,9 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
   %86 = icmp ult i64 %79, %1
-  br i1 %86, label %.thread20, label %87, !prof !16
+  br i1 %86, label %.thread21, label %87, !prof !16
 
-.thread20:                                        ; preds = %70
+.thread21:                                        ; preds = %70
   tail call void asm sideeffect "696: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 696b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 696) #7, !srcloc !22
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 163, i32 2305, i64 12) #7, !srcloc !23
   tail call void asm sideeffect "697: nop\0A\09.pushsection .discard.instr_end\0A\09.long 697b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 697) #7, !srcloc !24
@@ -300,23 +302,23 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   tail call void @__rcu_read_lock() #7
   %92 = call ptr @xas_find(ptr noundef nonnull %5, i64 noundef -1) #7
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %.thread21, label %.preheader26
+  br i1 %93, label %.thread22, label %.preheader27
 
-.preheader26:                                     ; preds = %89, %.loopexit25
-  %94 = phi ptr [ %179, %.loopexit25 ], [ %92, %89 ]
-  %95 = phi i32 [ %143, %.loopexit25 ], [ 0, %89 ]
-  %96 = phi i64 [ %144, %.loopexit25 ], [ 0, %89 ]
+.preheader27:                                     ; preds = %89, %.loopexit26
+  %94 = phi ptr [ %179, %.loopexit26 ], [ %92, %89 ]
+  %95 = phi i32 [ %143, %.loopexit26 ], [ 0, %89 ]
+  %96 = phi i64 [ %144, %.loopexit26 ], [ 0, %89 ]
   %97 = ptrtoint ptr %94 to i64
   switch i64 %97, label %99 [
-    i64 1030, label %.thread23
+    i64 1030, label %.thread24
     i64 1026, label %98
   ]
 
-98:                                               ; preds = %.preheader26
+98:                                               ; preds = %.preheader27
   store ptr inttoptr (i64 3 to ptr), ptr %84, align 8
-  br label %.thread23
+  br label %.thread24
 
-99:                                               ; preds = %.preheader26
+99:                                               ; preds = %.preheader27
   %100 = and i64 %97, 1
   %101 = icmp eq i64 %100, 0
   br i1 %101, label %103, label %102, !prof !25
@@ -325,7 +327,7 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   call void asm sideeffect "700: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 700b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 700) #7, !srcloc !26
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 173, i32 2305, i64 12) #7, !srcloc !27
   call void asm sideeffect "701: nop\0A\09.pushsection .discard.instr_end\0A\09.long 701b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 701) #7, !srcloc !28
-  br label %.thread21
+  br label %.thread22
 
 103:                                              ; preds = %99
   %104 = load volatile i64, ptr %94, align 8
@@ -344,7 +346,7 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   call void asm sideeffect "702: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 702b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 702) #7, !srcloc !29
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 175, i32 2305, i64 12) #7, !srcloc !30
   call void asm sideeffect "703: nop\0A\09.pushsection .discard.instr_end\0A\09.long 703b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 703) #7, !srcloc !31
-  br label %.thread21
+  br label %.thread22
 
 113:                                              ; preds = %107, %103
   %114 = load volatile i64, ptr %94, align 8
@@ -385,11 +387,11 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   %141 = zext i32 %139 to i64
   %142 = icmp ule i64 %3, %141
   %.not18 = select i1 %140, i1 true, i1 %142
-  br i1 %.not18, label %.thread21, label %.thread23
+  br i1 %.not18, label %.thread22, label %.thread24
 
-.thread23:                                        ; preds = %98, %.preheader26, %131
-  %143 = phi i32 [ %139, %131 ], [ %95, %.preheader26 ], [ %95, %98 ]
-  %144 = phi i64 [ %138, %131 ], [ %96, %.preheader26 ], [ %96, %98 ]
+.thread24:                                        ; preds = %98, %.preheader27, %131
+  %143 = phi i32 [ %139, %131 ], [ %95, %.preheader27 ], [ %95, %98 ]
+  %144 = phi i64 [ %138, %131 ], [ %96, %.preheader27 ], [ %96, %98 ]
   %145 = load ptr, ptr %84, align 8
   %146 = ptrtoint ptr %145 to i64
   %147 = and i64 %146, 3
@@ -398,7 +400,7 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   %150 = or i1 %149, %148
   br i1 %150, label %.loopexit, label %151, !prof !16
 
-151:                                              ; preds = %.thread23
+151:                                              ; preds = %.thread24
   %152 = load i8, ptr %145, align 8
   %153 = icmp eq i8 %152, 0
   br i1 %153, label %154, label %.loopexit, !prof !25
@@ -438,35 +440,35 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   %176 = add nuw i64 %163, 1
   store i64 %176, ptr %82, align 8
   %177 = icmp eq ptr %170, null
-  br i1 %177, label %161, label %.loopexit25, !llvm.loop !33
+  br i1 %177, label %161, label %.loopexit26, !llvm.loop !33
 
-.loopexit:                                        ; preds = %167, %161, %154, %151, %.thread23
+.loopexit:                                        ; preds = %167, %161, %154, %151, %.thread24
   %178 = call ptr @xas_find(ptr noundef nonnull %5, i64 noundef -1) #7
-  br label %.loopexit25
+  br label %.loopexit26
 
-.loopexit25:                                      ; preds = %174, %.loopexit
+.loopexit26:                                      ; preds = %174, %.loopexit
   %179 = phi ptr [ %178, %.loopexit ], [ %170, %174 ]
   %180 = icmp eq ptr %179, null
-  br i1 %180, label %.thread21, label %.preheader26, !llvm.loop !34
+  br i1 %180, label %.thread22, label %.preheader27, !llvm.loop !34
 
-.thread21:                                        ; preds = %.loopexit25, %131, %112, %102, %89
-  %181 = phi i64 [ 0, %89 ], [ %96, %102 ], [ %96, %112 ], [ %144, %.loopexit25 ], [ %138, %131 ]
+.thread22:                                        ; preds = %.loopexit26, %131, %112, %102, %89
+  %181 = phi i64 [ 0, %89 ], [ %96, %102 ], [ %96, %112 ], [ %144, %.loopexit26 ], [ %138, %131 ]
   call void @__rcu_read_unlock() #7
   %182 = call i64 @llvm.umin.i64(i64 %181, i64 %91)
   br label %183
 
-183:                                              ; preds = %.thread20, %.thread21, %87
-  %184 = phi i64 [ %182, %.thread21 ], [ 0, %87 ], [ 0, %.thread20 ]
+183:                                              ; preds = %.thread21, %.thread22, %87
+  %184 = phi i64 [ %182, %.thread22 ], [ 0, %87 ], [ 0, %.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread19
+  br label %.thread20
 
 185:                                              ; preds = %4
   tail call void asm sideeffect "708: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 708b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 708) #7, !srcloc !35
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 198, i32 0, i64 12) #7, !srcloc !36
   unreachable
 
-.thread19:                                        ; preds = %35, %40, %.thread19.loopexit, %.thread, %183, %19
-  %186 = phi i64 [ %184, %183 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %40 ], [ %69, %.thread19.loopexit ], [ 0, %35 ]
+.thread20:                                        ; preds = %35, %40, %.thread20.loopexit, %.thread, %183, %19
+  %186 = phi i64 [ %184, %183 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %40 ], [ %69, %.thread20.loopexit ], [ 0, %35 ]
   ret i64 %186
 }
 

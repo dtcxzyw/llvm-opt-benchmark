@@ -925,7 +925,8 @@ define dso_local zeroext i8 @trace_find_mark(i64 noundef %0) local_unnamed_addr 
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr %struct.trace_mark, ptr @mark, i64 %11, i32 1
+  %.split = getelementptr %struct.trace_mark, ptr @mark, i64 %11
+  %14 = getelementptr i8, ptr %.split, i64 8
   %15 = load i8, ptr %14, align 8
   br label %.thread
 
@@ -1159,7 +1160,8 @@ define dso_local range(i32 0, 2) i32 @trace_print_lat_context(ptr noundef %0) lo
   br i1 %83, label %.thread4, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr %struct.trace_mark, ptr @mark, i64 %82, i32 1
+  %.split = getelementptr %struct.trace_mark, ptr @mark, i64 %82
+  %85 = getelementptr i8, ptr %.split, i64 8
   %86 = load i8, ptr %85, align 8
   %87 = zext i8 %86 to i32
   br label %.thread4

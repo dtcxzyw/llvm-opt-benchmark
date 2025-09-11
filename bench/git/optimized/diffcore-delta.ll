@@ -418,9 +418,8 @@ spanhash_rehash.exit:                             ; preds = %57, %st_mult.exit.i
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa53 = phi i32 [ %12, %.lr.ph.preheader ], [ %68, %.lr.ph ]
   %60 = phi i64 [ %9, %.lr.ph.preheader ], [ %65, %.lr.ph ]
-  %.idx = shl nsw i64 %60, 3
-  %61 = getelementptr i8, ptr %8, i64 %.idx
-  %62 = getelementptr i8, ptr %61, i64 4
+  %61 = getelementptr inbounds %struct.spanhash, ptr %8, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = add i32 %.lcssa53, %2
   store i32 %63, ptr %62, align 4, !tbaa !8
   br label %69

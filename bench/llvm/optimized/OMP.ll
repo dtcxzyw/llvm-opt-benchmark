@@ -10191,13 +10191,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm3omp15isLeafConstructENS0_9Directiv
   %5 = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %7, i64 1
-  %9 = load i32, ptr %8, align 4, !tbaa !7
-  %10 = icmp eq i32 %9, 0
+  %8 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !7
+  %11 = icmp eq i32 %10, 0
   br label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit
 
 _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit: ; preds = %1, %3
-  %.sroa.4.0.i = phi i1 [ %10, %3 ], [ true, %1 ]
+  %.sroa.4.0.i = phi i1 [ %11, %3 ], [ true, %1 ]
   ret i1 %.sroa.4.0.i
 }
 
@@ -10299,22 +10300,22 @@ _ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit: ; preds = %1
   %4 = getelementptr inbounds nuw i32, ptr @_ZL26LeafConstructTableOrdering, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6, i64 1
-  %8 = load i32, ptr %7, align 4, !tbaa !7
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.i
+  %7 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !7
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.i
 
 _ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.i: ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit
-  %10 = getelementptr inbounds [8 x i32], ptr @_ZL18LeafConstructTable, i64 %6
-  %11 = sext i32 %8 to i64
+  %11 = sext i32 %9 to i64
   %.idx.i = shl nsw i64 %11, 2
   %.add.i = add nsw i64 %.idx.i, 8
-  %.ptr15.i = getelementptr i8, ptr %10, i64 %.add.i
+  %.ptr15.i = getelementptr i8, ptr %7, i64 %.add.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %15, %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.i
   %.076.i.i.idx.i = phi i64 [ %.076.i.i.add.i, %15 ], [ 8, %_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.i ]
-  %.076.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 %.076.i.i.idx.i
+  %.076.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 %.076.i.i.idx.i
   %12 = load i32, ptr %.076.i.i.ptr.i, align 4, !tbaa !7
   %13 = tail call noundef i32 @_ZN4llvm3omp23getDirectiveAssociationENS0_9DirectiveE(i32 noundef %12)
   %14 = icmp eq i32 %13, 3
@@ -10333,7 +10334,7 @@ _ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE.exit.i: ; preds = %_ZN4llv
   br i1 %or.cond.i.i, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit.thread, label %.lr.ph.i19.i.preheader.i
 
 .lr.ph.i19.i.preheader.i:                         ; preds = %"_ZZL22getFirstCompositeRangeN4llvm14iterator_rangeIPKNS_3omp9DirectiveEEEENK3$_0clES5_.exit.i.i"
-  %.076.i.i.ptr.i.le = getelementptr inbounds nuw i8, ptr %10, i64 %.076.i.i.idx.i
+  %.076.i.i.ptr.i.le = getelementptr inbounds nuw i8, ptr %7, i64 %.076.i.i.idx.i
   %18 = getelementptr inbounds nuw i8, ptr %.076.i.i.ptr.i.le, i64 4
   br label %.lr.ph.i19.i.i
 

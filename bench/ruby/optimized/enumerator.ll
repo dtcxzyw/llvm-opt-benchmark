@@ -7346,9 +7346,9 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %23
   br i1 %30, label %rbimpl_size_mul_or_raise.exit, label %ruby_nonempty_memcpy.exit
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %28
-  %31 = getelementptr i8, ptr %29, i64 8
-  %32 = shl nuw nsw i64 %13, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %31, ptr noundef nonnull readonly align 1 %3, i64 noundef %32, i1 noundef false) #18
+  %31 = shl nuw nsw i64 %13, 3
+  %32 = getelementptr i8, ptr %29, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %32, ptr noundef nonnull readonly align 1 %3, i64 noundef %31, i1 noundef false) #18
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %28

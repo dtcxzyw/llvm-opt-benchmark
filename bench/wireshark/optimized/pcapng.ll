@@ -1371,24 +1371,25 @@ define internal void @pcapng_close(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.lcssa = phi ptr [ %5, %1 ], [ %14, %.lr.ph ]
+  %.lcssa = phi ptr [ %5, %1 ], [ %15, %.lr.ph ]
   %8 = tail call ptr @g_array_free(ptr noundef %.lcssa, i32 noundef 1)
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %9 = phi ptr [ %14, %.lr.ph ], [ %5, %1 ]
+  %9 = phi ptr [ %15, %.lr.ph ], [ %5, %1 ]
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr %struct.section_info_t, ptr %10, i64 %indvars.iv, i32 3
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @g_array_free(ptr noundef %12, i32 noundef 1)
+  %11 = getelementptr %struct.section_info_t, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call ptr @g_array_free(ptr noundef %13, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load i32, ptr %15, align 8
-  %17 = zext i32 %16 to i64
-  %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i32, ptr %16, align 8
+  %18 = zext i32 %17 to i64
+  %19 = icmp samesign ult i64 %indvars.iv.next, %18
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -7712,8 +7713,8 @@ pcapng_write_uint8_option.exit:                   ; preds = %41
 
 57:                                               ; preds = %51, %46
   %.0.i23 = phi i64 [ %49, %46 ], [ %55, %51 ]
-  %58 = trunc nuw i64 %.0.i23 to i32
-  %59 = add nuw i32 %58, 1
+  %58 = trunc nuw nsw i64 %.0.i23 to i32
+  %59 = add nuw nsw i32 %58, 1
   %60 = and i32 %59, 3
   %.not.i24 = icmp eq i32 %60, 0
   %61 = sub nuw nsw i32 4, %60

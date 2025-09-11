@@ -1209,7 +1209,7 @@ define dso_local void @fork_init() local_unnamed_addr #5 section ".init.text" al
 
 31:                                               ; preds = %31, %0
   %32 = phi i64 [ 0, %0 ], [ %34, %31 ]
-  %33 = getelementptr %struct.user_namespace, ptr @init_user_ns, i64 0, i32 17, i64 %32
+  %33 = getelementptr i64, ptr getelementptr inbounds nuw (i8, ptr @init_user_ns, i64 488), i64 %32
   store i64 %23, ptr %33, align 8
   %34 = add nuw nsw i64 %32, 1
   %35 = icmp eq i64 %34, 10

@@ -622,12 +622,12 @@ gv_calloc.exit:                                   ; preds = %gv_alloc.exit
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.015.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %132, %.lr.ph.i ]
-  %126 = getelementptr inbounds nuw %struct.DigColaLevel, ptr %116, i64 %indvars.iv.i, i32 1
-  %127 = load i32, ptr %126, align 8, !tbaa !71
-  %128 = getelementptr %struct.DigColaLevel, ptr %116, i64 %indvars.iv.i
-  %129 = getelementptr i8, ptr %128, i64 -8
+  %126 = getelementptr inbounds nuw %struct.DigColaLevel, ptr %116, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load i32, ptr %127, align 8, !tbaa !71
+  %129 = getelementptr i8, ptr %126, i64 -8
   %130 = load i32, ptr %129, align 8, !tbaa !71
-  %131 = add i32 %127, %.015.i
+  %131 = add i32 %128, %.015.i
   %132 = add i32 %131, %130
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1296,12 +1296,12 @@ define i32 @get_num_digcola_constraints(ptr noundef readonly captures(none) %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.015 = phi i32 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %4 = getelementptr inbounds nuw %struct.DigColaLevel, ptr %0, i64 %indvars.iv, i32 1
-  %5 = load i32, ptr %4, align 8, !tbaa !71
-  %6 = getelementptr %struct.DigColaLevel, ptr %0, i64 %indvars.iv
-  %7 = getelementptr i8, ptr %6, i64 -8
+  %4 = getelementptr inbounds nuw %struct.DigColaLevel, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load i32, ptr %5, align 8, !tbaa !71
+  %7 = getelementptr i8, ptr %4, i64 -8
   %8 = load i32, ptr %7, align 8, !tbaa !71
-  %9 = add i32 %5, %.015
+  %9 = add i32 %6, %.015
   %10 = add i32 %9, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1514,7 +1514,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %19
   %61 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv
   %62 = load float, ptr %61, align 4, !tbaa !22
   %63 = fpext float %62 to double
-  %64 = getelementptr inbounds nuw %struct.pointf_s, ptr %38, i64 %indvars.iv, i32 1
+  %64 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %65 = load double, ptr %64, align 8, !tbaa !97
   %66 = fmul double %65, %36
   %67 = fmul double %66, 5.000000e-01
@@ -1678,11 +1678,11 @@ gv_calloc.exit353:                                ; preds = %gv_calloc.exit348
   %148 = load ptr, ptr %88, align 8, !tbaa !102
   %149 = getelementptr inbounds nuw %struct.boxf, ptr %148, i64 %indvars.iv455
   store double %.sroa.0.0.lcssa, ptr %149, align 8, !tbaa !94
-  %150 = getelementptr inbounds nuw %struct.boxf, ptr %148, i64 %indvars.iv455, i32 0, i32 1
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store double %.sroa.9.0.lcssa, ptr %150, align 8, !tbaa !98
-  %151 = getelementptr inbounds nuw %struct.boxf, ptr %148, i64 %indvars.iv455, i32 1
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store double %.sroa.16.0.lcssa, ptr %151, align 8, !tbaa !96
-  %152 = getelementptr inbounds nuw %struct.boxf, ptr %148, i64 %indvars.iv455, i32 1, i32 1
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 24
   store double %.sroa.23.0.lcssa, ptr %152, align 8, !tbaa !99
   %.idx = shl i64 %indvars.iv455, 4
   %153 = getelementptr i8, ptr %.pre512, i64 %.idx
@@ -1859,15 +1859,15 @@ gv_calloc.exit363:                                ; preds = %.thread.i362, %gv_c
   %247 = load double, ptr %246, align 8, !tbaa !94
   %248 = getelementptr inbounds %struct.boxf, ptr %209, i64 %indvars.iv463
   store double %247, ptr %248, align 8, !tbaa !94
-  %249 = getelementptr inbounds %struct.boxf, ptr %245, i64 %244, i32 0, i32 1
+  %249 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %250 = load double, ptr %249, align 8, !tbaa !98
   %251 = getelementptr inbounds nuw i8, ptr %248, i64 8
   store double %250, ptr %251, align 8, !tbaa !98
-  %252 = getelementptr inbounds %struct.boxf, ptr %245, i64 %244, i32 1
+  %252 = getelementptr inbounds nuw i8, ptr %246, i64 16
   %253 = load double, ptr %252, align 8, !tbaa !96
   %254 = getelementptr inbounds nuw i8, ptr %248, i64 16
   store double %253, ptr %254, align 8, !tbaa !96
-  %255 = getelementptr inbounds %struct.boxf, ptr %245, i64 %244, i32 1, i32 1
+  %255 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %256 = load double, ptr %255, align 8, !tbaa !99
   %257 = getelementptr inbounds nuw i8, ptr %248, i64 24
   store double %256, ptr %257, align 8, !tbaa !99

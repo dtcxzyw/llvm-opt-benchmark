@@ -810,7 +810,7 @@ growops.exit.i:                                   ; preds = %366, %.loopexit.i
   %373 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %374 = load double, ptr %373, align 8, !tbaa !29
   %375 = add i64 %369, 1
-  %376 = getelementptr inbounds nuw %struct.Pxy_t, ptr %367, i64 %369, i32 1
+  %376 = getelementptr inbounds nuw i8, ptr %372, i64 8
   store double %374, ptr %376, align 8, !tbaa !29
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next80.i, 4
@@ -857,7 +857,7 @@ growops.exit51.i:                                 ; preds = %387, %380
   %394 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %395 = load double, ptr %394, align 8, !tbaa !29
   %396 = add i64 %390, 1
-  %397 = getelementptr inbounds nuw %struct.Pxy_t, ptr %388, i64 %390, i32 1
+  %397 = getelementptr inbounds nuw i8, ptr %393, i64 8
   store double %395, ptr %397, align 8, !tbaa !29
   %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i132, 1
   %exitcond.not.i134 = icmp eq i64 %indvars.iv.next.i133, 4

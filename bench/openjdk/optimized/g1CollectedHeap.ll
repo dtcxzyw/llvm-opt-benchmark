@@ -1441,99 +1441,101 @@ define linkonce_odr hidden noundef ptr @_ZN15G1CollectedHeap18attempt_allocation
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %class.MutatorAllocRegion, ptr %12, i64 %13, i32 2
-  %15 = load volatile ptr, ptr %14, align 8
-  %.not.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i, label %16
+  %14 = getelementptr inbounds nuw %class.MutatorAllocRegion, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %16 = load volatile ptr, ptr %15, align 8
+  %.not.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i, label %17
 
-16:                                               ; preds = %4
-  %17 = load volatile ptr, ptr %14, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br label %20
+17:                                               ; preds = %4
+  %18 = load volatile ptr, ptr %15, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  br label %21
 
-20:                                               ; preds = %28, %16
-  %21 = load volatile ptr, ptr %18, align 8
-  %22 = load ptr, ptr %19, align 8
-  %23 = ptrtoint ptr %22 to i64
-  %24 = ptrtoint ptr %21 to i64
-  %25 = sub i64 %23, %24
-  %26 = lshr i64 %25, 3
-  %27 = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 %2)
-  %.not.i.i.i = icmp ult i64 %27, %1
-  br i1 %.not.i.i.i, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i, label %28
+21:                                               ; preds = %29, %17
+  %22 = load volatile ptr, ptr %19, align 8
+  %23 = load ptr, ptr %20, align 8
+  %24 = ptrtoint ptr %23 to i64
+  %25 = ptrtoint ptr %22 to i64
+  %26 = sub i64 %24, %25
+  %27 = lshr i64 %26, 3
+  %28 = tail call noundef i64 @llvm.umin.i64(i64 %27, i64 %2)
+  %.not.i.i.i = icmp ult i64 %28, %1
+  br i1 %.not.i.i.i, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i, label %29
 
-28:                                               ; preds = %20
-  %29 = getelementptr inbounds nuw ptr, ptr %21, i64 %27
-  %30 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %29, ptr %21, ptr nonnull %18) #23, !srcloc !11
-  %31 = icmp eq ptr %30, %21
-  br i1 %31, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i, label %20, !llvm.loop !12
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw ptr, ptr %22, i64 %28
+  %31 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %30, ptr %22, ptr nonnull %19) #23, !srcloc !11
+  %32 = icmp eq ptr %31, %22
+  br i1 %32, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i, label %21, !llvm.loop !12
 
-_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i: ; preds = %28
-  store i64 %27, ptr %3, align 8
-  %.not.i = icmp eq ptr %21, null
+_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i: ; preds = %29
+  store i64 %28, ptr %3, align 8
+  %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i, label %.thread
 
-_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i: ; preds = %20, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i, %4
-  %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds nuw %class.MutatorAllocRegion, ptr %32, i64 %13, i32 0, i32 1
-  %34 = load volatile ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  br label %37
+_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i: ; preds = %21, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i, %4
+  %33 = load ptr, ptr %11, align 8
+  %34 = getelementptr inbounds nuw %class.MutatorAllocRegion, ptr %33, i64 %13
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load volatile ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  br label %39
 
-37:                                               ; preds = %45, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i
-  %38 = load volatile ptr, ptr %35, align 8
-  %39 = load ptr, ptr %36, align 8
-  %40 = ptrtoint ptr %39 to i64
-  %41 = ptrtoint ptr %38 to i64
-  %42 = sub i64 %40, %41
-  %43 = lshr i64 %42, 3
-  %44 = tail call noundef i64 @llvm.umin.i64(i64 %43, i64 %2)
-  %.not.i.i12.i = icmp ult i64 %44, %1
-  br i1 %.not.i.i12.i, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread, label %45
+39:                                               ; preds = %47, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i
+  %40 = load volatile ptr, ptr %37, align 8
+  %41 = load ptr, ptr %38, align 8
+  %42 = ptrtoint ptr %41 to i64
+  %43 = ptrtoint ptr %40 to i64
+  %44 = sub i64 %42, %43
+  %45 = lshr i64 %44, 3
+  %46 = tail call noundef i64 @llvm.umin.i64(i64 %45, i64 %2)
+  %.not.i.i12.i = icmp ult i64 %46, %1
+  br i1 %.not.i.i12.i, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread, label %47
 
-45:                                               ; preds = %37
-  %46 = getelementptr inbounds nuw ptr, ptr %38, i64 %44
-  %47 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %46, ptr %38, ptr nonnull %35) #23, !srcloc !11
-  %48 = icmp eq ptr %47, %38
-  br i1 %48, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit, label %37, !llvm.loop !12
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds nuw ptr, ptr %40, i64 %46
+  %49 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %48, ptr %40, ptr nonnull %37) #23, !srcloc !11
+  %50 = icmp eq ptr %49, %40
+  br i1 %50, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit, label %39, !llvm.loop !12
 
-_ZN11G1Allocator18attempt_allocationEmmPm.exit:   ; preds = %45
-  store i64 %44, ptr %3, align 8
-  %49 = icmp eq ptr %38, null
-  br i1 %49, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread, label %.thread
+_ZN11G1Allocator18attempt_allocationEmmPm.exit:   ; preds = %47
+  store i64 %46, ptr %3, align 8
+  %51 = icmp eq ptr %40, null
+  br i1 %51, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread, label %.thread
 
-_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread: ; preds = %37, %_ZN11G1Allocator18attempt_allocationEmmPm.exit
+_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread: ; preds = %39, %_ZN11G1Allocator18attempt_allocationEmmPm.exit
   store i64 %2, ptr %3, align 8
-  %50 = tail call noundef ptr @_ZN15G1CollectedHeap23attempt_allocation_slowEm(ptr noundef nonnull align 8 dereferenceable(1488) %0, i64 noundef %2)
-  %.not = icmp eq ptr %50, null
-  br i1 %.not, label %55, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge
+  %52 = tail call noundef ptr @_ZN15G1CollectedHeap23attempt_allocation_slowEm(ptr noundef nonnull align 8 dereferenceable(1488) %0, i64 noundef %2)
+  %.not = icmp eq ptr %52, null
+  br i1 %.not, label %57, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge
 
 _ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge: ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread
   %.pre = load i64, ptr %3, align 8
   br label %.thread
 
 .thread:                                          ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i, %_ZN11G1Allocator18attempt_allocationEmmPm.exit
-  %51 = phi i64 [ %.pre, %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge ], [ %44, %_ZN11G1Allocator18attempt_allocationEmmPm.exit ], [ %27, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i ]
-  %.019 = phi ptr [ %50, %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge ], [ %38, %_ZN11G1Allocator18attempt_allocationEmmPm.exit ], [ %21, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i ]
+  %53 = phi i64 [ %.pre, %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge ], [ %46, %_ZN11G1Allocator18attempt_allocationEmmPm.exit ], [ %28, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i ]
+  %.019 = phi ptr [ %52, %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge ], [ %40, %_ZN11G1Allocator18attempt_allocationEmmPm.exit ], [ %22, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.019, ptr %5, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.idx.i = and i64 %51, 2305843009213693951
-  store i64 %.idx.i, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %54 = load ptr, ptr %53, align 8
-  call void @_ZN11G1CardTable16g1_mark_as_youngERK9MemRegion(ptr noundef nonnull align 8 dereferenceable(104) %54, ptr noundef nonnull align 8 dereferenceable(16) %5) #23
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.idx.i = and i64 %53, 2305843009213693951
+  store i64 %.idx.i, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %56 = load ptr, ptr %55, align 8
+  call void @_ZN11G1CardTable16g1_mark_as_youngERK9MemRegion(ptr noundef nonnull align 8 dereferenceable(104) %56, ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %56
+  br label %58
 
-55:                                               ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread
+57:                                               ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread
   store i64 0, ptr %3, align 8
-  br label %56
+  br label %58
 
-56:                                               ; preds = %55, %.thread
-  %.018 = phi ptr [ null, %55 ], [ %.019, %.thread ]
+58:                                               ; preds = %57, %.thread
+  %.018 = phi ptr [ null, %57 ], [ %.019, %.thread ]
   ret ptr %.018
 }
 
@@ -1778,10 +1780,10 @@ define hidden noundef ptr @_ZN15G1CollectedHeap23attempt_allocation_slowEm(ptr n
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %21
 
-21:                                               ; preds = %131, %2
-  %.020 = phi ptr [ undef, %2 ], [ %.121, %131 ]
-  %.019 = phi i32 [ 1, %2 ], [ %132, %131 ]
-  %.018 = phi i32 [ undef, %2 ], [ %.1, %131 ]
+21:                                               ; preds = %133, %2
+  %.020 = phi ptr [ undef, %2 ], [ %.121, %133 ]
+  %.019 = phi i32 [ 1, %2 ], [ %134, %133 ]
+  %.018 = phi i32 [ undef, %2 ], [ %.1, %133 ]
   %22 = load ptr, ptr @Heap_lock, align 8
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %23
@@ -1899,117 +1901,119 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11G1Allocator25a
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %83 = load ptr, ptr %82, align 8
   %84 = zext i32 %81 to i64
-  %85 = getelementptr inbounds nuw %class.MutatorAllocRegion, ptr %83, i64 %84, i32 2
-  %86 = load volatile ptr, ptr %85, align 8
-  %.not.i.i28 = icmp eq ptr %86, null
-  br i1 %.not.i.i28, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i, label %87
+  %85 = getelementptr inbounds nuw %class.MutatorAllocRegion, ptr %83, i64 %84
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
+  %87 = load volatile ptr, ptr %86, align 8
+  %.not.i.i28 = icmp eq ptr %87, null
+  br i1 %.not.i.i28, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i, label %88
 
-87:                                               ; preds = %77
-  %88 = load volatile ptr, ptr %85, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  br label %91
+88:                                               ; preds = %77
+  %89 = load volatile ptr, ptr %86, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  br label %92
 
-91:                                               ; preds = %98, %87
-  %92 = load volatile ptr, ptr %89, align 8
-  %93 = load ptr, ptr %90, align 8
-  %94 = ptrtoint ptr %93 to i64
-  %95 = ptrtoint ptr %92 to i64
-  %96 = sub i64 %94, %95
-  %97 = lshr i64 %96, 3
-  %.not.i.i.i29 = icmp ult i64 %97, %1
-  br i1 %.not.i.i.i29, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i, label %98
+92:                                               ; preds = %99, %88
+  %93 = load volatile ptr, ptr %90, align 8
+  %94 = load ptr, ptr %91, align 8
+  %95 = ptrtoint ptr %94 to i64
+  %96 = ptrtoint ptr %93 to i64
+  %97 = sub i64 %95, %96
+  %98 = lshr i64 %97, 3
+  %.not.i.i.i29 = icmp ult i64 %98, %1
+  br i1 %.not.i.i.i29, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i, label %99
 
-98:                                               ; preds = %91
-  %99 = getelementptr inbounds nuw ptr, ptr %92, i64 %1
-  %100 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %99, ptr %92, ptr nonnull %89) #23, !srcloc !11
-  %101 = icmp eq ptr %100, %92
-  br i1 %101, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i, label %91, !llvm.loop !12
+99:                                               ; preds = %92
+  %100 = getelementptr inbounds nuw ptr, ptr %93, i64 %1
+  %101 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %100, ptr %93, ptr nonnull %90) #23, !srcloc !11
+  %102 = icmp eq ptr %101, %93
+  br i1 %102, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i, label %92, !llvm.loop !12
 
-_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i: ; preds = %98
-  %.not.i = icmp eq ptr %92, null
+_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i: ; preds = %99
+  %.not.i = icmp eq ptr %93, null
   br i1 %.not.i, label %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread39
 
-_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i: ; preds = %91, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i, %77
-  %102 = load ptr, ptr %82, align 8
-  %103 = getelementptr inbounds nuw %class.MutatorAllocRegion, ptr %102, i64 %84, i32 0, i32 1
-  %104 = load volatile ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  br label %107
+_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i: ; preds = %92, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i, %77
+  %103 = load ptr, ptr %82, align 8
+  %104 = getelementptr inbounds nuw %class.MutatorAllocRegion, ptr %103, i64 %84
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %106 = load volatile ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  br label %109
 
-107:                                              ; preds = %114, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i
-  %108 = load volatile ptr, ptr %105, align 8
-  %109 = load ptr, ptr %106, align 8
-  %110 = ptrtoint ptr %109 to i64
-  %111 = ptrtoint ptr %108 to i64
-  %112 = sub i64 %110, %111
-  %113 = lshr i64 %112, 3
-  %.not.i.i12.i = icmp ult i64 %113, %1
-  br i1 %.not.i.i12.i, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread, label %114
+109:                                              ; preds = %116, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.thread.i
+  %110 = load volatile ptr, ptr %107, align 8
+  %111 = load ptr, ptr %108, align 8
+  %112 = ptrtoint ptr %111 to i64
+  %113 = ptrtoint ptr %110 to i64
+  %114 = sub i64 %112, %113
+  %115 = lshr i64 %114, 3
+  %.not.i.i12.i = icmp ult i64 %115, %1
+  br i1 %.not.i.i12.i, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread, label %116
 
-114:                                              ; preds = %107
-  %115 = getelementptr inbounds nuw ptr, ptr %108, i64 %1
-  %116 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %115, ptr %108, ptr nonnull %105) #23, !srcloc !11
-  %117 = icmp eq ptr %116, %108
-  br i1 %117, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit, label %107, !llvm.loop !12
+116:                                              ; preds = %109
+  %117 = getelementptr inbounds nuw ptr, ptr %110, i64 %1
+  %118 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %117, ptr %110, ptr nonnull %107) #23, !srcloc !11
+  %119 = icmp eq ptr %118, %110
+  br i1 %119, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit, label %109, !llvm.loop !12
 
-_ZN11G1Allocator18attempt_allocationEmmPm.exit:   ; preds = %114
-  %.not25 = icmp eq ptr %108, null
+_ZN11G1Allocator18attempt_allocationEmmPm.exit:   ; preds = %116
+  %.not25 = icmp eq ptr %110, null
   br i1 %.not25, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread39
 
-_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread: ; preds = %107, %_ZN11G1Allocator18attempt_allocationEmmPm.exit
-  %118 = load i64, ptr @QueuedAllocationWarningCount, align 8
-  %.not26 = icmp eq i64 %118, 0
-  br i1 %.not26, label %131, label %119
+_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread: ; preds = %109, %_ZN11G1Allocator18attempt_allocationEmmPm.exit
+  %120 = load i64, ptr @QueuedAllocationWarningCount, align 8
+  %.not26 = icmp eq i64 %120, 0
+  br i1 %.not26, label %133, label %121
 
-119:                                              ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread
-  %120 = zext i32 %.019 to i64
-  %121 = urem i64 %120, %118
-  %122 = icmp eq i64 %121, 0
-  br i1 %122, label %123, label %131
+121:                                              ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread
+  %122 = zext i32 %.019 to i64
+  %123 = urem i64 %122, %120
+  %124 = icmp eq i64 %123, 0
+  br i1 %124, label %125, label %133
 
-123:                                              ; preds = %119
-  %124 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not43 = icmp eq ptr %124, null
-  br i1 %.not43, label %131, label %125
+125:                                              ; preds = %121
+  %126 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not43 = icmp eq ptr %126, null
+  br i1 %.not43, label %133, label %127
 
-125:                                              ; preds = %123
-  %126 = load ptr, ptr %4, align 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 168
+127:                                              ; preds = %125
+  %128 = load ptr, ptr %4, align 8
   %129 = load ptr, ptr %128, align 8
-  %130 = call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(888) %126) #23
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.7, ptr noundef %130, i32 noundef %.019, i64 noundef %1)
-  br label %131
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 168
+  %131 = load ptr, ptr %130, align 8
+  %132 = call noundef ptr %131(ptr noundef nonnull align 8 dereferenceable(888) %128) #23
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.7, ptr noundef %132, i32 noundef %.019, i64 noundef %1)
+  br label %133
 
-131:                                              ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread, %119, %123, %125
-  %132 = add i32 %.019, 1
+133:                                              ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread, %121, %125, %127
+  %134 = add i32 %.019, 1
   br label %21, !llvm.loop !14
 
 _ZN11G1Allocator18attempt_allocationEmmPm.exit.thread39: ; preds = %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i, %_ZN11G1Allocator18attempt_allocationEmmPm.exit, %_ZN11MutexLockerD2Ev.exit, %63, %62
-  %.2 = phi ptr [ %55, %62 ], [ %55, %63 ], [ %92, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i ], [ %108, %_ZN11G1Allocator18attempt_allocationEmmPm.exit ], [ %.121, %_ZN11MutexLockerD2Ev.exit ]
-  %133 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %133, null
-  br i1 %.not.i.i.i.i, label %135, label %134
+  %.2 = phi ptr [ %55, %62 ], [ %55, %63 ], [ %93, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i ], [ %110, %_ZN11G1Allocator18attempt_allocationEmmPm.exit ], [ %.121, %_ZN11MutexLockerD2Ev.exit ]
+  %135 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %135, null
+  br i1 %.not.i.i.i.i, label %137, label %136
 
-134:                                              ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread39
+136:                                              ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread39
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #23
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #23
-  br label %135
+  br label %137
 
-135:                                              ; preds = %134, %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread39
-  %136 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %136, %11
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %137
+137:                                              ; preds = %136, %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread39
+  %138 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %138, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %139
 
-137:                                              ; preds = %135
+139:                                              ; preds = %137
   store ptr %9, ptr %8, align 8
   store ptr %11, ptr %10, align 8
   store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %135, %137
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %137, %139
   ret ptr %.2
 }
 
@@ -9685,7 +9689,7 @@ _ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit: ; preds = %4
 18:                                               ; preds = %16
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load volatile i32, ptr %.sroa.0, align 4
   %19 = icmp eq i32 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., 3
-  br i1 %19, label %20, label %29
+  br i1 %19, label %20, label %30
 
 20:                                               ; preds = %18
   tail call void @_ZN12G1HeapRegion12set_survivorEv(ptr noundef nonnull align 8 dereferenceable(136) %17) #23
@@ -9696,61 +9700,63 @@ _ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit: ; preds = %4
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %27, i64 %25, i32 1
-  store i8 -2, ptr %28, align 1
-  br label %30
+  %28 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %27, i64 %25
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  store i8 -2, ptr %29, align 1
+  br label %31
 
-29:                                               ; preds = %18
+30:                                               ; preds = %18
   tail call void @_ZN12G1HeapRegion7set_oldEv(ptr noundef nonnull align 8 dereferenceable(136) %17) #23
-  br label %30
+  br label %31
 
-30:                                               ; preds = %29, %20
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  tail call void @_ZN22G1RemSetTrackingPolicy18update_at_allocateEP12G1HeapRegion(ptr noundef nonnull align 1 dereferenceable(1) %33, ptr noundef nonnull %17) #23
-  %34 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %35 = load i32, ptr %34, align 8
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp ne i32 %40, 0
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1448
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %43, i64 %36
-  %45 = zext i1 %41 to i8
-  store i8 %45, ptr %44, align 1
-  %46 = load i32, ptr %34, align 8
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  %49 = load volatile i64, ptr %48, align 8
-  %50 = icmp ne i64 %49, 0
-  %51 = load ptr, ptr %42, align 8
-  %52 = zext i1 %50 to i8
-  %53 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %51, i64 %47, i32 2
-  store i8 %52, ptr %53, align 1
-  %54 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i, label %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit, label %55
+31:                                               ; preds = %30, %20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  tail call void @_ZN22G1RemSetTrackingPolicy18update_at_allocateEP12G1HeapRegion(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull %17) #23
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %36 = load i32, ptr %35, align 8
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 80
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp ne i32 %41, 0
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1448
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %44, i64 %37
+  %46 = zext i1 %42 to i8
+  store i8 %46, ptr %45, align 1
+  %47 = load i32, ptr %35, align 8
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %17, i64 128
+  %50 = load volatile i64, ptr %49, align 8
+  %51 = icmp ne i64 %50, 0
+  %52 = load ptr, ptr %43, align 8
+  %53 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %52, i64 %48
+  %54 = zext i1 %51 to i8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 2
+  store i8 %54, ptr %55, align 1
+  %56 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i.i = icmp eq ptr %56, null
+  br i1 %.not.i.i, label %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit, label %57
 
-55:                                               ; preds = %30
-  %56 = getelementptr inbounds nuw i8, ptr %17, i64 52
-  %57 = tail call noundef ptr @_ZNK16G1HeapRegionType7get_strEv(ptr noundef nonnull align 4 dereferenceable(4) %56) #23
-  %58 = load ptr, ptr %17, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %61 = load volatile ptr, ptr %60, align 8
-  %62 = ptrtoint ptr %61 to i64
-  %63 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = ptrtoint ptr %64 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.109, ptr noundef %57, i64 noundef %59, i64 noundef %62, i64 noundef %65)
+57:                                               ; preds = %31
+  %58 = getelementptr inbounds nuw i8, ptr %17, i64 52
+  %59 = tail call noundef ptr @_ZNK16G1HeapRegionType7get_strEv(ptr noundef nonnull align 4 dereferenceable(4) %58) #23
+  %60 = load ptr, ptr %17, align 8
+  %61 = ptrtoint ptr %60 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %63 = load volatile ptr, ptr %62, align 8
+  %64 = ptrtoint ptr %63 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = ptrtoint ptr %66 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_128ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.109, ptr noundef %59, i64 noundef %61, i64 noundef %64, i64 noundef %67)
   br label %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit
 
-_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit: ; preds = %55, %30, %16, %_ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit
-  %.0 = phi ptr [ null, %_ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit ], [ null, %16 ], [ %17, %30 ], [ %17, %55 ]
+_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit: ; preds = %57, %31, %16, %_ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit
+  %.0 = phi ptr [ null, %_ZN15G1CollectedHeap16has_more_regionsE16G1HeapRegionAttr.exit ], [ null, %16 ], [ %17, %31 ], [ %17, %57 ]
   ret ptr %.0
 }
 

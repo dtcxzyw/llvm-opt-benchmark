@@ -283,7 +283,7 @@ _ZL14TestCipherRuleRK10CipherTest.exit.thread.i:  ; preds = %5
 16:                                               ; preds = %32, %18, %8
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %73
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -331,7 +331,7 @@ _ZL14TestCipherRuleRK10CipherTest.exit.thread.i:  ; preds = %5
   br i1 %.not28.not.i.i, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !46
 
 .lr.ph.i.i:                                       ; preds = %37, %.lr.ph.preheader.i.i
-  %44 = phi ptr [ %58, %37 ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
+  %44 = phi ptr [ %59, %37 ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
   %.02037.i.i = phi i64 [ %38, %37 ], [ 0, %.lr.ph.preheader.i.i ]
   %45 = load ptr, ptr %44, align 8, !tbaa !43
   %46 = invoke ptr @sk_value(ptr noundef %45, i64 noundef %.02037.i.i)
@@ -347,56 +347,57 @@ _ZL14TestCipherRuleRK10CipherTest.exit.thread.i:  ; preds = %5
 52:                                               ; preds = %47
   %53 = zext i32 %51 to i64
   %.not26.i.i = icmp eq i64 %50, %53
-  br i1 %.not26.i.i, label %54, label %64
+  br i1 %.not26.i.i, label %54, label %65
 
 54:                                               ; preds = %52
   %55 = load ptr, ptr %24, align 8, !tbaa !6
-  %56 = getelementptr inbounds nuw %struct.ExpectedCipher, ptr %55, i64 %.02037.i.i, i32 1
-  %57 = load i32, ptr %56, align 8, !tbaa !50
-  %58 = load ptr, ptr %19, align 8, !tbaa !22
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !51
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.02037.i.i
-  %62 = load i8, ptr %61, align 1, !tbaa !52
-  %63 = zext i8 %62 to i32
-  %.not27.i.i = icmp eq i32 %57, %63
-  br i1 %.not27.i.i, label %37, label %64
+  %56 = getelementptr inbounds nuw %struct.ExpectedCipher, ptr %55, i64 %.02037.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load i32, ptr %57, align 8, !tbaa !50
+  %59 = load ptr, ptr %19, align 8, !tbaa !22
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !51
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %.02037.i.i
+  %63 = load i8, ptr %62, align 1, !tbaa !52
+  %64 = zext i8 %63 to i32
+  %.not27.i.i = icmp eq i32 %58, %64
+  br i1 %.not27.i.i, label %37, label %65
 
-64:                                               ; preds = %54, %52
-  %65 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %66 = load ptr, ptr %.028.ptr.i, align 16, !tbaa !14
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.25, ptr noundef %66) #26
-  %68 = load ptr, ptr %19, align 8, !tbaa !22
-  invoke fastcc void @_ZL25PrintCipherPreferenceListP29ssl_cipher_preference_list_st(ptr noundef %68)
+65:                                               ; preds = %54, %52
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %67 = load ptr, ptr %.028.ptr.i, align 16, !tbaa !14
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.25, ptr noundef %67) #26
+  %69 = load ptr, ptr %19, align 8, !tbaa !22
+  invoke fastcc void @_ZL25PrintCipherPreferenceListP29ssl_cipher_preference_list_st(ptr noundef %69)
           to label %.critedge.i.i unwind label %.loopexit.split-lp.i.i
 
 .loopexit.i.i:                                    ; preds = %47, %.lr.ph.i.i
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %73
 
-.loopexit.split-lp.i.i:                           ; preds = %64
+.loopexit.split-lp.i.i:                           ; preds = %65
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %73
 
-.critedge.i.i:                                    ; preds = %37, %64, %32, %.preheader.i.i, %12
-  %.0.ph.i.i = phi i1 [ false, %32 ], [ false, %12 ], [ false, %64 ], [ true, %.preheader.i.i ], [ true, %37 ]
+.critedge.i.i:                                    ; preds = %37, %65, %32, %.preheader.i.i, %12
+  %.0.ph.i.i = phi i1 [ false, %32 ], [ false, %12 ], [ false, %65 ], [ true, %.preheader.i.i ], [ true, %37 ]
   invoke void @SSL_CTX_free(ptr noundef nonnull %7)
-          to label %_ZL14TestCipherRuleRK10CipherTest.exit.i unwind label %69
+          to label %_ZL14TestCipherRuleRK10CipherTest.exit.i unwind label %70
 
-69:                                               ; preds = %.critedge.i.i
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %.critedge.i.i
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  tail call void @__clang_call_terminate(ptr %71) #27
+  %72 = extractvalue { ptr, i32 } %71, 0
+  tail call void @__clang_call_terminate(ptr %72) #27
   unreachable
 
-common.resume.i:                                  ; preds = %121, %79, %72
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i, %72 ], [ %80, %79 ], [ %.pn.i47.i, %121 ]
+common.resume.i:                                  ; preds = %122, %80, %73
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i, %73 ], [ %81, %80 ], [ %.pn.i47.i, %122 ]
   resume { ptr, i32 } %common.resume.op.i
 
-72:                                               ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i, %16
+73:                                               ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i, %16
   %.pn.i.i = phi { ptr, i32 } [ %17, %16 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   call void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -409,486 +410,486 @@ _ZL14TestCipherRuleRK10CipherTest.exit.i:         ; preds = %.critedge.i.i
 .preheader62.i:                                   ; preds = %4, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i
   %.036.idx68.i = phi i64 [ %.036.add.i, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i ], [ 0, %4 ]
   %.036.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL9kBadRules, i64 %.036.idx68.i
-  %73 = load ptr, ptr %.036.ptr.i, align 8, !tbaa !53
+  %74 = load ptr, ptr %.036.ptr.i, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %74 = tail call ptr @SSLv23_server_method()
-  %75 = tail call ptr @SSL_CTX_new(ptr noundef %74)
-  store ptr %75, ptr %3, align 8, !tbaa !12
-  %.not61.i = icmp eq ptr %75, null
-  br i1 %.not61.i, label %.thread56.i, label %76
+  %75 = tail call ptr @SSLv23_server_method()
+  %76 = tail call ptr @SSL_CTX_new(ptr noundef %75)
+  store ptr %76, ptr %3, align 8, !tbaa !12
+  %.not61.i = icmp eq ptr %76, null
+  br i1 %.not61.i, label %.thread56.i, label %77
 
-76:                                               ; preds = %.preheader62.i
-  %77 = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef nonnull %75, ptr noundef %73)
-          to label %78 unwind label %79
+77:                                               ; preds = %.preheader62.i
+  %78 = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef nonnull %76, ptr noundef %74)
+          to label %79 unwind label %80
 
-78:                                               ; preds = %76
-  %.not38.i = icmp eq i32 %77, 0
-  br i1 %.not38.i, label %81, label %86
+79:                                               ; preds = %77
+  %.not38.i = icmp eq i32 %78, 0
+  br i1 %.not38.i, label %82, label %87
 
-79:                                               ; preds = %81, %76
-  %80 = landingpad { ptr, i32 }
+80:                                               ; preds = %82, %77
+  %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume.i
 
-81:                                               ; preds = %78
+82:                                               ; preds = %79
   invoke void @ERR_clear_error()
-          to label %82 unwind label %79
-
-82:                                               ; preds = %81
-  invoke void @SSL_CTX_free(ptr noundef nonnull %75)
-          to label %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i unwind label %83
+          to label %83 unwind label %80
 
 83:                                               ; preds = %82
-  %84 = landingpad { ptr, i32 }
+  invoke void @SSL_CTX_free(ptr noundef nonnull %76)
+          to label %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i unwind label %84
+
+84:                                               ; preds = %83
+  %85 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  tail call void @__clang_call_terminate(ptr %85) #27
+  %86 = extractvalue { ptr, i32 } %85, 0
+  tail call void @__clang_call_terminate(ptr %86) #27
   unreachable
 
-_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i: ; preds = %82
+_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i: ; preds = %83
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.036.add.i = add nuw nsw i64 %.036.idx68.i, 8
   %.not37.i = icmp eq i64 %.036.add.i, 104
   br i1 %.not37.i, label %.preheader.i, label %.preheader62.i
 
-86:                                               ; preds = %78
-  %87 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.23, ptr noundef %73) #26
-  invoke void @SSL_CTX_free(ptr noundef nonnull %75)
-          to label %.thread56.i unwind label %89
+87:                                               ; preds = %79
+  %88 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.23, ptr noundef %74) #26
+  invoke void @SSL_CTX_free(ptr noundef nonnull %76)
+          to label %.thread56.i unwind label %90
 
-89:                                               ; preds = %86
-  %90 = landingpad { ptr, i32 }
+90:                                               ; preds = %87
+  %91 = landingpad { ptr, i32 }
           catch ptr null
-  %91 = extractvalue { ptr, i32 } %90, 0
-  tail call void @__clang_call_terminate(ptr %91) #27
+  %92 = extractvalue { ptr, i32 } %91, 0
+  tail call void @__clang_call_terminate(ptr %92) #27
   unreachable
 
-.thread56.i:                                      ; preds = %.preheader62.i, %86
+.thread56.i:                                      ; preds = %.preheader62.i, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL15TestCipherRulesv.exit.thread
 
-92:                                               ; preds = %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i
+93:                                               ; preds = %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i
   %.029.add.i = add nuw nsw i64 %.029.idx69.i, 8
   %.not39.i = icmp eq i64 %.029.add.i, 104
   br i1 %.not39.i, label %_ZL15TestCipherRulesv.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i, %92
-  %.029.idx69.i = phi i64 [ %.029.add.i, %92 ], [ 0, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i ]
+.preheader.i:                                     ; preds = %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i, %93
+  %.029.idx69.i = phi i64 [ %.029.add.i, %93 ], [ 0, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i ]
   %.029.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL19kMustNotIncludeNull, i64 %.029.idx69.i
-  %93 = load ptr, ptr %.029.ptr.i, align 8, !tbaa !53
+  %94 = load ptr, ptr %.029.ptr.i, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %94 = tail call ptr @SSLv23_server_method()
-  %95 = tail call ptr @SSL_CTX_new(ptr noundef %94)
-  store ptr %95, ptr %1, align 8, !tbaa !12
-  %.not19.i.i = icmp eq ptr %95, null
-  br i1 %.not19.i.i, label %_ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i, label %96
+  %95 = tail call ptr @SSLv23_server_method()
+  %96 = tail call ptr @SSL_CTX_new(ptr noundef %95)
+  store ptr %96, ptr %1, align 8, !tbaa !12
+  %.not19.i.i = icmp eq ptr %96, null
+  br i1 %.not19.i.i, label %_ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i, label %97
 
 _ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i: ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %_ZL15TestCipherRulesv.exit.thread
 
-96:                                               ; preds = %.preheader.i
-  %97 = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef nonnull %95, ptr noundef %93)
-          to label %98 unwind label %100
+97:                                               ; preds = %.preheader.i
+  %98 = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef nonnull %96, ptr noundef %94)
+          to label %99 unwind label %101
 
-98:                                               ; preds = %96
-  %.not.i48.i = icmp eq i32 %97, 0
+99:                                               ; preds = %97
+  %.not.i48.i = icmp eq i32 %98, 0
   br i1 %.not.i48.i, label %.loopexit.sink.split.i.i, label %.preheader.preheader.i.i
 
-.preheader.preheader.i.i:                         ; preds = %98
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 72
+.preheader.preheader.i.i:                         ; preds = %99
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 72
   br label %.preheader.i49.i
 
-100:                                              ; preds = %96
-  %101 = landingpad { ptr, i32 }
+101:                                              ; preds = %97
+  %102 = landingpad { ptr, i32 }
           cleanup
-  br label %121
+  br label %122
 
-.preheader.i49.i:                                 ; preds = %114, %.preheader.preheader.i.i
-  %.0.i.i = phi i64 [ %115, %114 ], [ 0, %.preheader.preheader.i.i ]
-  %102 = load ptr, ptr %99, align 8, !tbaa !22
-  %103 = load ptr, ptr %102, align 8, !tbaa !43
-  %104 = invoke i64 @sk_num(ptr noundef %103)
-          to label %105 unwind label %106
+.preheader.i49.i:                                 ; preds = %115, %.preheader.preheader.i.i
+  %.0.i.i = phi i64 [ %116, %115 ], [ 0, %.preheader.preheader.i.i ]
+  %103 = load ptr, ptr %100, align 8, !tbaa !22
+  %104 = load ptr, ptr %103, align 8, !tbaa !43
+  %105 = invoke i64 @sk_num(ptr noundef %104)
+          to label %106 unwind label %107
 
-105:                                              ; preds = %.preheader.i49.i
-  %.not15.not.i.i = icmp ult i64 %.0.i.i, %104
-  br i1 %.not15.not.i.i, label %108, label %.loopexit.i50.i
+106:                                              ; preds = %.preheader.i49.i
+  %.not15.not.i.i = icmp ult i64 %.0.i.i, %105
+  br i1 %.not15.not.i.i, label %109, label %.loopexit.i50.i
 
-106:                                              ; preds = %112, %108, %.preheader.i49.i
-  %107 = landingpad { ptr, i32 }
+107:                                              ; preds = %113, %109, %.preheader.i49.i
+  %108 = landingpad { ptr, i32 }
           cleanup
-  br label %121
+  br label %122
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr %99, align 8, !tbaa !22
-  %110 = load ptr, ptr %109, align 8, !tbaa !43
-  %111 = invoke ptr @sk_value(ptr noundef %110, i64 noundef %.0.i.i)
-          to label %112 unwind label %106
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %100, align 8, !tbaa !22
+  %111 = load ptr, ptr %110, align 8, !tbaa !43
+  %112 = invoke ptr @sk_value(ptr noundef %111, i64 noundef %.0.i.i)
+          to label %113 unwind label %107
 
-112:                                              ; preds = %108
-  %113 = invoke i32 @SSL_CIPHER_is_NULL(ptr noundef %111)
-          to label %114 unwind label %106
+113:                                              ; preds = %109
+  %114 = invoke i32 @SSL_CIPHER_is_NULL(ptr noundef %112)
+          to label %115 unwind label %107
 
-114:                                              ; preds = %112
-  %.not14.i.i = icmp eq i32 %113, 0
-  %115 = add nuw i64 %.0.i.i, 1
+115:                                              ; preds = %113
+  %.not14.i.i = icmp eq i32 %114, 0
+  %116 = add nuw i64 %.0.i.i, 1
   br i1 %.not14.i.i, label %.preheader.i49.i, label %.loopexit.sink.split.i.i, !llvm.loop !54
 
-.loopexit.sink.split.i.i:                         ; preds = %114, %98
-  %.str.57.sink.i.i = phi ptr [ @.str.57, %98 ], [ @.str.58, %114 ]
-  %116 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull %.str.57.sink.i.i, ptr noundef %93) #26
+.loopexit.sink.split.i.i:                         ; preds = %115, %99
+  %.str.57.sink.i.i = phi ptr [ @.str.57, %99 ], [ @.str.58, %115 ]
+  %117 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull %.str.57.sink.i.i, ptr noundef %94) #26
   br label %.loopexit.i50.i
 
-.loopexit.i50.i:                                  ; preds = %105, %.loopexit.sink.split.i.i
-  %.012.ph.i.i = phi i1 [ false, %.loopexit.sink.split.i.i ], [ true, %105 ]
-  invoke void @SSL_CTX_free(ptr noundef nonnull %95)
-          to label %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i unwind label %118
+.loopexit.i50.i:                                  ; preds = %106, %.loopexit.sink.split.i.i
+  %.012.ph.i.i = phi i1 [ false, %.loopexit.sink.split.i.i ], [ true, %106 ]
+  invoke void @SSL_CTX_free(ptr noundef nonnull %96)
+          to label %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i unwind label %119
 
-118:                                              ; preds = %.loopexit.i50.i
-  %119 = landingpad { ptr, i32 }
+119:                                              ; preds = %.loopexit.i50.i
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %120 = extractvalue { ptr, i32 } %119, 0
-  tail call void @__clang_call_terminate(ptr %120) #27
+  %121 = extractvalue { ptr, i32 } %120, 0
+  tail call void @__clang_call_terminate(ptr %121) #27
   unreachable
 
-121:                                              ; preds = %106, %100
-  %.pn.i47.i = phi { ptr, i32 } [ %107, %106 ], [ %101, %100 ]
+122:                                              ; preds = %107, %101
+  %.pn.i47.i = phi { ptr, i32 } [ %108, %107 ], [ %102, %101 ]
   call void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %common.resume.i
 
 _ZL26TestRuleDoesNotIncludeNullPKc.exit.i:        ; preds = %.loopexit.i50.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br i1 %.012.ph.i.i, label %92, label %_ZL15TestCipherRulesv.exit.thread
+  br i1 %.012.ph.i.i, label %93, label %_ZL15TestCipherRulesv.exit.thread
 
-_ZL15TestCipherRulesv.exit:                       ; preds = %92
-  %122 = tail call fastcc noundef zeroext i1 @_ZL23TestSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL15kOpenSSLSession)
-  br i1 %122, label %123, label %_ZL15TestCipherRulesv.exit.thread
+_ZL15TestCipherRulesv.exit:                       ; preds = %93
+  %123 = tail call fastcc noundef zeroext i1 @_ZL23TestSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL15kOpenSSLSession)
+  br i1 %123, label %124, label %_ZL15TestCipherRulesv.exit.thread
 
-123:                                              ; preds = %_ZL15TestCipherRulesv.exit
-  %124 = tail call fastcc noundef zeroext i1 @_ZL23TestSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL14kCustomSession)
-  br i1 %124, label %125, label %_ZL15TestCipherRulesv.exit.thread
+124:                                              ; preds = %_ZL15TestCipherRulesv.exit
+  %125 = tail call fastcc noundef zeroext i1 @_ZL23TestSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL14kCustomSession)
+  br i1 %125, label %126, label %_ZL15TestCipherRulesv.exit.thread
 
-125:                                              ; preds = %123
-  %126 = tail call fastcc noundef zeroext i1 @_ZL23TestSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL17kBoringSSLSession)
-  br i1 %126, label %127, label %_ZL15TestCipherRulesv.exit.thread
+126:                                              ; preds = %124
+  %127 = tail call fastcc noundef zeroext i1 @_ZL23TestSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL17kBoringSSLSession)
+  br i1 %127, label %128, label %_ZL15TestCipherRulesv.exit.thread
 
-127:                                              ; preds = %125
-  %128 = tail call fastcc noundef zeroext i1 @_ZL26TestBadSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL21kBadSessionExtraField)
-  br i1 %128, label %129, label %_ZL15TestCipherRulesv.exit.thread
+128:                                              ; preds = %126
+  %129 = tail call fastcc noundef zeroext i1 @_ZL26TestBadSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL21kBadSessionExtraField)
+  br i1 %129, label %130, label %_ZL15TestCipherRulesv.exit.thread
 
-129:                                              ; preds = %127
-  %130 = tail call fastcc noundef zeroext i1 @_ZL26TestBadSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL18kBadSessionVersion)
-  br i1 %130, label %131, label %_ZL15TestCipherRulesv.exit.thread
+130:                                              ; preds = %128
+  %131 = tail call fastcc noundef zeroext i1 @_ZL26TestBadSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL18kBadSessionVersion)
+  br i1 %131, label %132, label %_ZL15TestCipherRulesv.exit.thread
 
-131:                                              ; preds = %129
-  %132 = tail call fastcc noundef zeroext i1 @_ZL26TestBadSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL23kBadSessionTrailingData)
-  br i1 %132, label %133, label %_ZL15TestCipherRulesv.exit.thread
+132:                                              ; preds = %130
+  %133 = tail call fastcc noundef zeroext i1 @_ZL26TestBadSSL_SESSIONEncodingPKc(ptr noundef nonnull @_ZL23kBadSessionTrailingData)
+  br i1 %133, label %134, label %_ZL15TestCipherRulesv.exit.thread
 
-133:                                              ; preds = %131
-  %134 = tail call noundef ptr @TLS_method()
-  %135 = tail call ptr @SSL_CTX_new(ptr noundef %134)
-  %.not.i1 = icmp eq ptr %135, null
-  br i1 %.not.i1, label %_ZL15TestCipherRulesv.exit.thread, label %136
+134:                                              ; preds = %132
+  %135 = tail call noundef ptr @TLS_method()
+  %136 = tail call ptr @SSL_CTX_new(ptr noundef %135)
+  %.not.i1 = icmp eq ptr %136, null
+  br i1 %.not.i1, label %_ZL15TestCipherRulesv.exit.thread, label %137
 
-136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw i8, ptr %135, i64 66
-  %138 = load i16, ptr %137, align 2, !tbaa !55
-  %139 = icmp eq i16 %138, 0
-  br i1 %139, label %140, label %144
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 66
+  %139 = load i16, ptr %138, align 2, !tbaa !55
+  %140 = icmp eq i16 %139, 0
+  br i1 %140, label %141, label %145
 
-140:                                              ; preds = %136
-  %141 = getelementptr inbounds nuw i8, ptr %135, i64 64
-  %142 = load i16, ptr %141, align 8, !tbaa !56
-  %143 = icmp eq i16 %142, 0
-  br label %144
+141:                                              ; preds = %137
+  %142 = getelementptr inbounds nuw i8, ptr %136, i64 64
+  %143 = load i16, ptr %142, align 8, !tbaa !56
+  %144 = icmp eq i16 %143, 0
+  br label %145
 
-144:                                              ; preds = %140, %136
-  %.0.ph.i = phi i1 [ %143, %140 ], [ false, %136 ]
-  invoke void @SSL_CTX_free(ptr noundef nonnull %135)
-          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit unwind label %145
+145:                                              ; preds = %141, %137
+  %.0.ph.i = phi i1 [ %144, %141 ], [ false, %137 ]
+  invoke void @SSL_CTX_free(ptr noundef nonnull %136)
+          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit unwind label %146
 
-145:                                              ; preds = %144
-  %146 = landingpad { ptr, i32 }
+146:                                              ; preds = %145
+  %147 = landingpad { ptr, i32 }
           catch ptr null
-  %147 = extractvalue { ptr, i32 } %146, 0
-  tail call void @__clang_call_terminate(ptr %147) #27
+  %148 = extractvalue { ptr, i32 } %147, 0
+  tail call void @__clang_call_terminate(ptr %148) #27
   unreachable
 
-_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit: ; preds = %144
-  br i1 %.0.ph.i, label %148, label %_ZL15TestCipherRulesv.exit.thread
+_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit: ; preds = %145
+  br i1 %.0.ph.i, label %149, label %_ZL15TestCipherRulesv.exit.thread
 
-148:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit
-  %149 = tail call noundef ptr @SSLv3_method()
-  %150 = tail call ptr @SSL_CTX_new(ptr noundef %149)
-  %.not.i3 = icmp eq ptr %150, null
-  br i1 %.not.i3, label %_ZL15TestCipherRulesv.exit.thread, label %151
+149:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit
+  %150 = tail call noundef ptr @SSLv3_method()
+  %151 = tail call ptr @SSL_CTX_new(ptr noundef %150)
+  %.not.i3 = icmp eq ptr %151, null
+  br i1 %.not.i3, label %_ZL15TestCipherRulesv.exit.thread, label %152
 
-151:                                              ; preds = %148
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 66
-  %153 = load i16, ptr %152, align 2, !tbaa !55
-  %154 = icmp eq i16 %153, 768
-  br i1 %154, label %155, label %159
+152:                                              ; preds = %149
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 66
+  %154 = load i16, ptr %153, align 2, !tbaa !55
+  %155 = icmp eq i16 %154, 768
+  br i1 %155, label %156, label %160
 
-155:                                              ; preds = %151
-  %156 = getelementptr inbounds nuw i8, ptr %150, i64 64
-  %157 = load i16, ptr %156, align 8, !tbaa !56
-  %158 = icmp eq i16 %157, 768
-  br label %159
+156:                                              ; preds = %152
+  %157 = getelementptr inbounds nuw i8, ptr %151, i64 64
+  %158 = load i16, ptr %157, align 8, !tbaa !56
+  %159 = icmp eq i16 %158, 768
+  br label %160
 
-159:                                              ; preds = %155, %151
-  %.0.ph.i4 = phi i1 [ %158, %155 ], [ false, %151 ]
-  invoke void @SSL_CTX_free(ptr noundef nonnull %150)
-          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7 unwind label %160
+160:                                              ; preds = %156, %152
+  %.0.ph.i4 = phi i1 [ %159, %156 ], [ false, %152 ]
+  invoke void @SSL_CTX_free(ptr noundef nonnull %151)
+          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7 unwind label %161
 
-160:                                              ; preds = %159
-  %161 = landingpad { ptr, i32 }
+161:                                              ; preds = %160
+  %162 = landingpad { ptr, i32 }
           catch ptr null
-  %162 = extractvalue { ptr, i32 } %161, 0
-  tail call void @__clang_call_terminate(ptr %162) #27
+  %163 = extractvalue { ptr, i32 } %162, 0
+  tail call void @__clang_call_terminate(ptr %163) #27
   unreachable
 
-_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7: ; preds = %159
-  br i1 %.0.ph.i4, label %163, label %_ZL15TestCipherRulesv.exit.thread
+_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7: ; preds = %160
+  br i1 %.0.ph.i4, label %164, label %_ZL15TestCipherRulesv.exit.thread
 
-163:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7
-  %164 = tail call noundef ptr @TLSv1_method()
-  %165 = tail call ptr @SSL_CTX_new(ptr noundef %164)
-  %.not.i8 = icmp eq ptr %165, null
-  br i1 %.not.i8, label %_ZL15TestCipherRulesv.exit.thread, label %166
+164:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7
+  %165 = tail call noundef ptr @TLSv1_method()
+  %166 = tail call ptr @SSL_CTX_new(ptr noundef %165)
+  %.not.i8 = icmp eq ptr %166, null
+  br i1 %.not.i8, label %_ZL15TestCipherRulesv.exit.thread, label %167
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw i8, ptr %165, i64 66
-  %168 = load i16, ptr %167, align 2, !tbaa !55
-  %169 = icmp eq i16 %168, 769
-  br i1 %169, label %170, label %174
+167:                                              ; preds = %164
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 66
+  %169 = load i16, ptr %168, align 2, !tbaa !55
+  %170 = icmp eq i16 %169, 769
+  br i1 %170, label %171, label %175
 
-170:                                              ; preds = %166
-  %171 = getelementptr inbounds nuw i8, ptr %165, i64 64
-  %172 = load i16, ptr %171, align 8, !tbaa !56
-  %173 = icmp eq i16 %172, 769
-  br label %174
+171:                                              ; preds = %167
+  %172 = getelementptr inbounds nuw i8, ptr %166, i64 64
+  %173 = load i16, ptr %172, align 8, !tbaa !56
+  %174 = icmp eq i16 %173, 769
+  br label %175
 
-174:                                              ; preds = %170, %166
-  %.0.ph.i9 = phi i1 [ %173, %170 ], [ false, %166 ]
-  invoke void @SSL_CTX_free(ptr noundef nonnull %165)
-          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12 unwind label %175
+175:                                              ; preds = %171, %167
+  %.0.ph.i9 = phi i1 [ %174, %171 ], [ false, %167 ]
+  invoke void @SSL_CTX_free(ptr noundef nonnull %166)
+          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12 unwind label %176
 
-175:                                              ; preds = %174
-  %176 = landingpad { ptr, i32 }
+176:                                              ; preds = %175
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  tail call void @__clang_call_terminate(ptr %177) #27
+  %178 = extractvalue { ptr, i32 } %177, 0
+  tail call void @__clang_call_terminate(ptr %178) #27
   unreachable
 
-_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12: ; preds = %174
-  br i1 %.0.ph.i9, label %178, label %_ZL15TestCipherRulesv.exit.thread
+_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12: ; preds = %175
+  br i1 %.0.ph.i9, label %179, label %_ZL15TestCipherRulesv.exit.thread
 
-178:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12
-  %179 = tail call noundef ptr @TLSv1_1_method()
-  %180 = tail call ptr @SSL_CTX_new(ptr noundef %179)
-  %.not.i13 = icmp eq ptr %180, null
-  br i1 %.not.i13, label %_ZL15TestCipherRulesv.exit.thread, label %181
+179:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12
+  %180 = tail call noundef ptr @TLSv1_1_method()
+  %181 = tail call ptr @SSL_CTX_new(ptr noundef %180)
+  %.not.i13 = icmp eq ptr %181, null
+  br i1 %.not.i13, label %_ZL15TestCipherRulesv.exit.thread, label %182
 
-181:                                              ; preds = %178
-  %182 = getelementptr inbounds nuw i8, ptr %180, i64 66
-  %183 = load i16, ptr %182, align 2, !tbaa !55
-  %184 = icmp eq i16 %183, 770
-  br i1 %184, label %185, label %189
+182:                                              ; preds = %179
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 66
+  %184 = load i16, ptr %183, align 2, !tbaa !55
+  %185 = icmp eq i16 %184, 770
+  br i1 %185, label %186, label %190
 
-185:                                              ; preds = %181
-  %186 = getelementptr inbounds nuw i8, ptr %180, i64 64
-  %187 = load i16, ptr %186, align 8, !tbaa !56
-  %188 = icmp eq i16 %187, 770
-  br label %189
+186:                                              ; preds = %182
+  %187 = getelementptr inbounds nuw i8, ptr %181, i64 64
+  %188 = load i16, ptr %187, align 8, !tbaa !56
+  %189 = icmp eq i16 %188, 770
+  br label %190
 
-189:                                              ; preds = %185, %181
-  %.0.ph.i14 = phi i1 [ %188, %185 ], [ false, %181 ]
-  invoke void @SSL_CTX_free(ptr noundef nonnull %180)
-          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17 unwind label %190
+190:                                              ; preds = %186, %182
+  %.0.ph.i14 = phi i1 [ %189, %186 ], [ false, %182 ]
+  invoke void @SSL_CTX_free(ptr noundef nonnull %181)
+          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17 unwind label %191
 
-190:                                              ; preds = %189
-  %191 = landingpad { ptr, i32 }
+191:                                              ; preds = %190
+  %192 = landingpad { ptr, i32 }
           catch ptr null
-  %192 = extractvalue { ptr, i32 } %191, 0
-  tail call void @__clang_call_terminate(ptr %192) #27
+  %193 = extractvalue { ptr, i32 } %192, 0
+  tail call void @__clang_call_terminate(ptr %193) #27
   unreachable
 
-_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17: ; preds = %189
-  br i1 %.0.ph.i14, label %193, label %_ZL15TestCipherRulesv.exit.thread
+_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17: ; preds = %190
+  br i1 %.0.ph.i14, label %194, label %_ZL15TestCipherRulesv.exit.thread
 
-193:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17
-  %194 = tail call noundef ptr @TLSv1_2_method()
-  %195 = tail call ptr @SSL_CTX_new(ptr noundef %194)
-  %.not.i18 = icmp eq ptr %195, null
-  br i1 %.not.i18, label %_ZL15TestCipherRulesv.exit.thread, label %196
+194:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17
+  %195 = tail call noundef ptr @TLSv1_2_method()
+  %196 = tail call ptr @SSL_CTX_new(ptr noundef %195)
+  %.not.i18 = icmp eq ptr %196, null
+  br i1 %.not.i18, label %_ZL15TestCipherRulesv.exit.thread, label %197
 
-196:                                              ; preds = %193
-  %197 = getelementptr inbounds nuw i8, ptr %195, i64 66
-  %198 = load i16, ptr %197, align 2, !tbaa !55
-  %199 = icmp eq i16 %198, 771
-  br i1 %199, label %200, label %204
+197:                                              ; preds = %194
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 66
+  %199 = load i16, ptr %198, align 2, !tbaa !55
+  %200 = icmp eq i16 %199, 771
+  br i1 %200, label %201, label %205
 
-200:                                              ; preds = %196
-  %201 = getelementptr inbounds nuw i8, ptr %195, i64 64
-  %202 = load i16, ptr %201, align 8, !tbaa !56
-  %203 = icmp eq i16 %202, 771
-  br label %204
+201:                                              ; preds = %197
+  %202 = getelementptr inbounds nuw i8, ptr %196, i64 64
+  %203 = load i16, ptr %202, align 8, !tbaa !56
+  %204 = icmp eq i16 %203, 771
+  br label %205
 
-204:                                              ; preds = %200, %196
-  %.0.ph.i19 = phi i1 [ %203, %200 ], [ false, %196 ]
-  invoke void @SSL_CTX_free(ptr noundef nonnull %195)
-          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22 unwind label %205
+205:                                              ; preds = %201, %197
+  %.0.ph.i19 = phi i1 [ %204, %201 ], [ false, %197 ]
+  invoke void @SSL_CTX_free(ptr noundef nonnull %196)
+          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22 unwind label %206
 
-205:                                              ; preds = %204
-  %206 = landingpad { ptr, i32 }
+206:                                              ; preds = %205
+  %207 = landingpad { ptr, i32 }
           catch ptr null
-  %207 = extractvalue { ptr, i32 } %206, 0
-  tail call void @__clang_call_terminate(ptr %207) #27
+  %208 = extractvalue { ptr, i32 } %207, 0
+  tail call void @__clang_call_terminate(ptr %208) #27
   unreachable
 
-_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22: ; preds = %204
-  br i1 %.0.ph.i19, label %208, label %_ZL15TestCipherRulesv.exit.thread
+_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22: ; preds = %205
+  br i1 %.0.ph.i19, label %209, label %_ZL15TestCipherRulesv.exit.thread
 
-208:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22
-  %209 = tail call noundef ptr @DTLS_method()
-  %210 = tail call ptr @SSL_CTX_new(ptr noundef %209)
-  %.not.i23 = icmp eq ptr %210, null
-  br i1 %.not.i23, label %_ZL15TestCipherRulesv.exit.thread, label %211
+209:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22
+  %210 = tail call noundef ptr @DTLS_method()
+  %211 = tail call ptr @SSL_CTX_new(ptr noundef %210)
+  %.not.i23 = icmp eq ptr %211, null
+  br i1 %.not.i23, label %_ZL15TestCipherRulesv.exit.thread, label %212
 
-211:                                              ; preds = %208
-  %212 = getelementptr inbounds nuw i8, ptr %210, i64 66
-  %213 = load i16, ptr %212, align 2, !tbaa !55
-  %214 = icmp eq i16 %213, 0
-  br i1 %214, label %215, label %219
+212:                                              ; preds = %209
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 66
+  %214 = load i16, ptr %213, align 2, !tbaa !55
+  %215 = icmp eq i16 %214, 0
+  br i1 %215, label %216, label %220
 
-215:                                              ; preds = %211
-  %216 = getelementptr inbounds nuw i8, ptr %210, i64 64
-  %217 = load i16, ptr %216, align 8, !tbaa !56
-  %218 = icmp eq i16 %217, 0
-  br label %219
+216:                                              ; preds = %212
+  %217 = getelementptr inbounds nuw i8, ptr %211, i64 64
+  %218 = load i16, ptr %217, align 8, !tbaa !56
+  %219 = icmp eq i16 %218, 0
+  br label %220
 
-219:                                              ; preds = %215, %211
-  %.0.ph.i24 = phi i1 [ %218, %215 ], [ false, %211 ]
-  invoke void @SSL_CTX_free(ptr noundef nonnull %210)
-          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27 unwind label %220
+220:                                              ; preds = %216, %212
+  %.0.ph.i24 = phi i1 [ %219, %216 ], [ false, %212 ]
+  invoke void @SSL_CTX_free(ptr noundef nonnull %211)
+          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27 unwind label %221
 
-220:                                              ; preds = %219
-  %221 = landingpad { ptr, i32 }
+221:                                              ; preds = %220
+  %222 = landingpad { ptr, i32 }
           catch ptr null
-  %222 = extractvalue { ptr, i32 } %221, 0
-  tail call void @__clang_call_terminate(ptr %222) #27
+  %223 = extractvalue { ptr, i32 } %222, 0
+  tail call void @__clang_call_terminate(ptr %223) #27
   unreachable
 
-_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27: ; preds = %219
-  br i1 %.0.ph.i24, label %223, label %_ZL15TestCipherRulesv.exit.thread
+_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27: ; preds = %220
+  br i1 %.0.ph.i24, label %224, label %_ZL15TestCipherRulesv.exit.thread
 
-223:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27
-  %224 = tail call noundef ptr @DTLSv1_method()
-  %225 = tail call ptr @SSL_CTX_new(ptr noundef %224)
-  %.not.i28 = icmp eq ptr %225, null
-  br i1 %.not.i28, label %_ZL15TestCipherRulesv.exit.thread, label %226
+224:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27
+  %225 = tail call noundef ptr @DTLSv1_method()
+  %226 = tail call ptr @SSL_CTX_new(ptr noundef %225)
+  %.not.i28 = icmp eq ptr %226, null
+  br i1 %.not.i28, label %_ZL15TestCipherRulesv.exit.thread, label %227
 
-226:                                              ; preds = %223
-  %227 = getelementptr inbounds nuw i8, ptr %225, i64 66
-  %228 = load i16, ptr %227, align 2, !tbaa !55
-  %229 = icmp eq i16 %228, -257
-  br i1 %229, label %230, label %234
+227:                                              ; preds = %224
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 66
+  %229 = load i16, ptr %228, align 2, !tbaa !55
+  %230 = icmp eq i16 %229, -257
+  br i1 %230, label %231, label %235
 
-230:                                              ; preds = %226
-  %231 = getelementptr inbounds nuw i8, ptr %225, i64 64
-  %232 = load i16, ptr %231, align 8, !tbaa !56
-  %233 = icmp eq i16 %232, -257
-  br label %234
+231:                                              ; preds = %227
+  %232 = getelementptr inbounds nuw i8, ptr %226, i64 64
+  %233 = load i16, ptr %232, align 8, !tbaa !56
+  %234 = icmp eq i16 %233, -257
+  br label %235
 
-234:                                              ; preds = %230, %226
-  %.0.ph.i29 = phi i1 [ %233, %230 ], [ false, %226 ]
-  invoke void @SSL_CTX_free(ptr noundef nonnull %225)
-          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32 unwind label %235
+235:                                              ; preds = %231, %227
+  %.0.ph.i29 = phi i1 [ %234, %231 ], [ false, %227 ]
+  invoke void @SSL_CTX_free(ptr noundef nonnull %226)
+          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32 unwind label %236
 
-235:                                              ; preds = %234
-  %236 = landingpad { ptr, i32 }
+236:                                              ; preds = %235
+  %237 = landingpad { ptr, i32 }
           catch ptr null
-  %237 = extractvalue { ptr, i32 } %236, 0
-  tail call void @__clang_call_terminate(ptr %237) #27
+  %238 = extractvalue { ptr, i32 } %237, 0
+  tail call void @__clang_call_terminate(ptr %238) #27
   unreachable
 
-_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32: ; preds = %234
-  br i1 %.0.ph.i29, label %238, label %_ZL15TestCipherRulesv.exit.thread
+_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32: ; preds = %235
+  br i1 %.0.ph.i29, label %239, label %_ZL15TestCipherRulesv.exit.thread
 
-238:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32
-  %239 = tail call noundef ptr @DTLSv1_2_method()
-  %240 = tail call ptr @SSL_CTX_new(ptr noundef %239)
-  %.not.i33 = icmp eq ptr %240, null
-  br i1 %.not.i33, label %_ZL15TestCipherRulesv.exit.thread, label %241
+239:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32
+  %240 = tail call noundef ptr @DTLSv1_2_method()
+  %241 = tail call ptr @SSL_CTX_new(ptr noundef %240)
+  %.not.i33 = icmp eq ptr %241, null
+  br i1 %.not.i33, label %_ZL15TestCipherRulesv.exit.thread, label %242
 
-241:                                              ; preds = %238
-  %242 = getelementptr inbounds nuw i8, ptr %240, i64 66
-  %243 = load i16, ptr %242, align 2, !tbaa !55
-  %244 = icmp eq i16 %243, -259
-  br i1 %244, label %245, label %249
+242:                                              ; preds = %239
+  %243 = getelementptr inbounds nuw i8, ptr %241, i64 66
+  %244 = load i16, ptr %243, align 2, !tbaa !55
+  %245 = icmp eq i16 %244, -259
+  br i1 %245, label %246, label %250
 
-245:                                              ; preds = %241
-  %246 = getelementptr inbounds nuw i8, ptr %240, i64 64
-  %247 = load i16, ptr %246, align 8, !tbaa !56
-  %248 = icmp eq i16 %247, -259
-  br label %249
+246:                                              ; preds = %242
+  %247 = getelementptr inbounds nuw i8, ptr %241, i64 64
+  %248 = load i16, ptr %247, align 8, !tbaa !56
+  %249 = icmp eq i16 %248, -259
+  br label %250
 
-249:                                              ; preds = %245, %241
-  %.0.ph.i34 = phi i1 [ %248, %245 ], [ false, %241 ]
-  invoke void @SSL_CTX_free(ptr noundef nonnull %240)
-          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37 unwind label %250
+250:                                              ; preds = %246, %242
+  %.0.ph.i34 = phi i1 [ %249, %246 ], [ false, %242 ]
+  invoke void @SSL_CTX_free(ptr noundef nonnull %241)
+          to label %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37 unwind label %251
 
-250:                                              ; preds = %249
-  %251 = landingpad { ptr, i32 }
+251:                                              ; preds = %250
+  %252 = landingpad { ptr, i32 }
           catch ptr null
-  %252 = extractvalue { ptr, i32 } %251, 0
-  tail call void @__clang_call_terminate(ptr %252) #27
+  %253 = extractvalue { ptr, i32 } %252, 0
+  tail call void @__clang_call_terminate(ptr %253) #27
   unreachable
 
-_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37: ; preds = %249
-  br i1 %.0.ph.i34, label %253, label %_ZL15TestCipherRulesv.exit.thread
+_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37: ; preds = %250
+  br i1 %.0.ph.i34, label %254, label %_ZL15TestCipherRulesv.exit.thread
 
-253:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37
-  %254 = tail call fastcc noundef zeroext i1 @_ZL20TestCipherGetRFCNamev()
-  br i1 %254, label %255, label %_ZL15TestCipherRulesv.exit.thread
+254:                                              ; preds = %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37
+  %255 = tail call fastcc noundef zeroext i1 @_ZL20TestCipherGetRFCNamev()
+  br i1 %255, label %256, label %_ZL15TestCipherRulesv.exit.thread
 
-255:                                              ; preds = %253
-  %256 = tail call fastcc noundef zeroext i1 @_ZL20TestPaddingExtensionv()
-  br i1 %256, label %257, label %_ZL15TestCipherRulesv.exit.thread
+256:                                              ; preds = %254
+  %257 = tail call fastcc noundef zeroext i1 @_ZL20TestPaddingExtensionv()
+  br i1 %257, label %258, label %_ZL15TestCipherRulesv.exit.thread
 
-257:                                              ; preds = %255
-  %258 = tail call fastcc noundef zeroext i1 @_ZL16TestClientCAListv()
-  br i1 %258, label %259, label %_ZL15TestCipherRulesv.exit.thread
+258:                                              ; preds = %256
+  %259 = tail call fastcc noundef zeroext i1 @_ZL16TestClientCAListv()
+  br i1 %259, label %260, label %_ZL15TestCipherRulesv.exit.thread
 
-259:                                              ; preds = %257
-  %260 = tail call fastcc noundef zeroext i1 @_ZL24TestInternalSessionCachev()
-  br i1 %260, label %261, label %_ZL15TestCipherRulesv.exit.thread
+260:                                              ; preds = %258
+  %261 = tail call fastcc noundef zeroext i1 @_ZL24TestInternalSessionCachev()
+  br i1 %261, label %262, label %_ZL15TestCipherRulesv.exit.thread
 
-261:                                              ; preds = %259
-  %262 = tail call fastcc noundef zeroext i1 @_ZL18TestSequenceNumberb(i1 noundef zeroext false)
-  br i1 %262, label %263, label %_ZL15TestCipherRulesv.exit.thread
+262:                                              ; preds = %260
+  %263 = tail call fastcc noundef zeroext i1 @_ZL18TestSequenceNumberb(i1 noundef zeroext false)
+  br i1 %263, label %264, label %_ZL15TestCipherRulesv.exit.thread
 
-263:                                              ; preds = %261
-  %264 = tail call fastcc noundef zeroext i1 @_ZL18TestSequenceNumberb(i1 noundef zeroext true)
-  br i1 %264, label %266, label %_ZL15TestCipherRulesv.exit.thread
+264:                                              ; preds = %262
+  %265 = tail call fastcc noundef zeroext i1 @_ZL18TestSequenceNumberb(i1 noundef zeroext true)
+  br i1 %265, label %267, label %_ZL15TestCipherRulesv.exit.thread
 
-_ZL15TestCipherRulesv.exit.thread:                ; preds = %_ZL14TestCipherRuleRK10CipherTest.exit.i, %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i, %238, %223, %208, %193, %178, %163, %148, %133, %_ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i, %_ZL14TestCipherRuleRK10CipherTest.exit.thread.i, %.thread56.i, %263, %261, %259, %257, %255, %253, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit, %131, %129, %127, %125, %123, %_ZL15TestCipherRulesv.exit
-  %265 = load ptr, ptr @stderr, align 8, !tbaa !20
-  tail call void @ERR_print_errors_fp(ptr noundef %265)
-  br label %267
+_ZL15TestCipherRulesv.exit.thread:                ; preds = %_ZL14TestCipherRuleRK10CipherTest.exit.i, %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i, %239, %224, %209, %194, %179, %164, %149, %134, %_ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i, %_ZL14TestCipherRuleRK10CipherTest.exit.thread.i, %.thread56.i, %264, %262, %260, %258, %256, %254, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit, %132, %130, %128, %126, %124, %_ZL15TestCipherRulesv.exit
+  %266 = load ptr, ptr @stderr, align 8, !tbaa !20
+  tail call void @ERR_print_errors_fp(ptr noundef %266)
+  br label %268
 
-266:                                              ; preds = %263
+267:                                              ; preds = %264
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %267
+  br label %268
 
-267:                                              ; preds = %266, %_ZL15TestCipherRulesv.exit.thread
-  %.0 = phi i32 [ 0, %266 ], [ 1, %_ZL15TestCipherRulesv.exit.thread ]
+268:                                              ; preds = %267, %_ZL15TestCipherRulesv.exit.thread
+  %.0 = phi i32 [ 0, %267 ], [ 1, %_ZL15TestCipherRulesv.exit.thread ]
   ret i32 %.0
 }
 

@@ -80,29 +80,28 @@ define internal fastcc { i64, ptr } @"_ZN100_$LT$core..iter..adapters..take..Tak
   %28 = ptrtoint ptr %26 to i64
   %29 = sub nuw i64 %27, %28
   %.not.i.not.i2 = icmp ult i64 %23, %29
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %23
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %storemerge.i.i3 = select i1 %.not.i.not.i2, ptr %31, ptr %25
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %4
+  %storemerge.i.i3 = select i1 %.not.i.not.i2, ptr %30, ptr %25
   store ptr %storemerge.i.i3, ptr %0, align 8, !alias.scope !10
-  br i1 %.not.i.not.i2, label %32, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h2158177ddfdb1f83E.exit6"
+  br i1 %.not.i.not.i2, label %31, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h2158177ddfdb1f83E.exit6"
 
-32:                                               ; preds = %22
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i64, ptr %33, align 8, !alias.scope !15, !noundef !3
-  %35 = add i64 %34, %4
-  store i64 %35, ptr %33, align 8, !alias.scope !15
+31:                                               ; preds = %22
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = load i64, ptr %32, align 8, !alias.scope !15, !noundef !3
+  %34 = add i64 %33, %4
+  store i64 %34, ptr %32, align 8, !alias.scope !15
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h2158177ddfdb1f83E.exit6"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h2158177ddfdb1f83E.exit6": ; preds = %22, %32
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h2158177ddfdb1f83E.exit6": ; preds = %22, %31
   store i64 0, ptr %3, align 8
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h2158177ddfdb1f83E.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h2158177ddfdb1f83E.exit": ; preds = %17, %7, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h2158177ddfdb1f83E.exit6", %6
   %.sroa.2.0 = phi ptr [ null, %6 ], [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h2158177ddfdb1f83E.exit6" ], [ %15, %17 ], [ null, %7 ]
   %.sroa.0.0 = phi i64 [ undef, %6 ], [ undef, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h2158177ddfdb1f83E.exit6" ], [ %20, %17 ], [ undef, %7 ]
-  %36 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %37 = insertvalue { i64, ptr } %36, ptr %.sroa.2.0, 1
-  ret { i64, ptr } %37
+  %35 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %36 = insertvalue { i64, ptr } %35, ptr %.sroa.2.0, 1
+  ret { i64, ptr } %36
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1956,13 +1955,13 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %58, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8859263a9d62f989d4ee3ebd56492523.18) #23, !noalias !270
   unreachable
 
-_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split: ; preds = %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.us.split.i
-  %.sroa.0.0.ph = phi i64 [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ]
+_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split: ; preds = %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.us.split.i
+  %.sroa.0.0.ph = phi i64 [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   br label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit
 
-_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit: ; preds = %68, %38, %42, %83, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.us.split.i, %.split.us.i, %.split.i
-  %.sroa.0.0 = phi i64 [ 0, %.split.i ], [ 0, %.split.us.i ], [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ %.sroa.0.0.ph, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split ], [ %.lcssa7083, %83 ], [ %.lcssa7083, %42 ], [ %.lcssa7083, %38 ], [ 0, %68 ]
+_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit: ; preds = %68, %38, %42, %83, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.us.split.i, %.split.us.i, %.split.i
+  %.sroa.0.0 = phi i64 [ 0, %.split.i ], [ 0, %.split.us.i ], [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %.sroa.0.0.ph, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17hcb28fddd6bf4c452E.exit.sink.split ], [ %.lcssa7083, %83 ], [ %.lcssa7083, %42 ], [ %.lcssa7083, %38 ], [ 0, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %134 = insertvalue { ptr, i64 } poison, ptr %0, 0
   %135 = insertvalue { ptr, i64 } %134, i64 %.sroa.0.0, 1

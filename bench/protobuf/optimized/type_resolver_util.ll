@@ -1007,7 +1007,8 @@ _ZN6google8protobuf4util12_GLOBAL__N_122ConvertFieldDescriptorESt17basic_string_
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.body11
   %indvars.iv45 = phi i64 [ 0, %for.body11.lr.ph ], [ %indvars.iv.next46, %for.body11 ]
   %119 = load ptr, ptr %oneof_decls_.i, align 8
-  %all_names_.i23 = getelementptr inbounds nuw %"class.google::protobuf::OneofDescriptor", ptr %119, i64 %indvars.iv45, i32 2
+  %add.ptr.i22 = getelementptr inbounds nuw %"class.google::protobuf::OneofDescriptor", ptr %119, i64 %indvars.iv45
+  %all_names_.i23 = getelementptr inbounds nuw i8, ptr %add.ptr.i22, i64 8
   %120 = load ptr, ptr %all_names_.i23, align 8
   %call2.i.i.i24 = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %oneofs_.i.i, ptr noundef nonnull @_ZN6google8protobuf8internal16NewStringElementEPNS0_5ArenaE)
   %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call2.i.i.i24, ptr noundef nonnull align 8 dereferenceable(32) %120)

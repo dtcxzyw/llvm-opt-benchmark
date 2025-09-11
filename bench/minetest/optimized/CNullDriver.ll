@@ -2486,7 +2486,8 @@ for.body.i:                                       ; preds = %for.end45, %for.inc
   %41 = phi ptr [ %46, %for.inc.i ], [ %36, %for.end45 ]
   %42 = phi ptr [ %47, %for.inc.i ], [ %35, %for.end45 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.end45 ]
-  %Renderer.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %41, i64 %indvars.iv.i, i32 1
+  %Renderer.i.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %41, i64 %indvars.iv.i
+  %Renderer.i = getelementptr inbounds nuw i8, ptr %Renderer.i.split, i64 32
   %43 = load ptr, ptr %Renderer.i, align 8, !tbaa !140
   %tobool.not.i94 = icmp eq ptr %43, null
   br i1 %tobool.not.i94, label %for.inc.i, label %if.then.i
@@ -3123,7 +3124,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %6 = phi ptr [ %11, %for.inc ], [ %1, %entry ]
   %7 = phi ptr [ %12, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %Renderer = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %6, i64 %indvars.iv, i32 1
+  %Renderer.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %6, i64 %indvars.iv
+  %Renderer = getelementptr inbounds nuw i8, ptr %Renderer.split, i64 32
   %8 = load ptr, ptr %Renderer, align 8, !tbaa !140
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -7904,7 +7906,8 @@ _ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit:    ; preds = %delete.notnull.i.i,
 if.then32:                                        ; preds = %_ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit
   %conv.i81 = zext i32 %retval.0.i to i64
   %19 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !148
-  %Mesh = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %19, i64 %conv.i81, i32 1
+  %Mesh.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %19, i64 %conv.i81
+  %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 8
   %20 = load ptr, ptr %Mesh, align 8, !tbaa !152
   %cmp35.not = icmp eq ptr %20, %mesh.addr.1
   br i1 %cmp35.not, label %return, label %if.then36
@@ -7930,7 +7933,8 @@ delete.notnull.i:                                 ; preds = %if.then36
 
 _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %if.then36
   %23 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !148
-  %Mesh44 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %23, i64 %conv.i81, i32 1
+  %Mesh44.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %23, i64 %conv.i81
+  %Mesh44 = getelementptr inbounds nuw i8, ptr %Mesh44.split, i64 8
   store ptr %mesh.addr.1, ptr %Mesh44, align 8, !tbaa !152
   %vtable45 = load ptr, ptr %mesh.addr.1, align 8, !tbaa !3
   %vbase.offset.ptr46 = getelementptr i8, ptr %vtable45, i64 -24
@@ -8436,7 +8440,8 @@ _ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit:    ; preds = %delete.notnull.i.i,
 if.end3:                                          ; preds = %_ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit
   %conv.i64 = zext i32 %retval.0.i to i64
   %13 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !148
-  %Run = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %13, i64 %conv.i64, i32 4
+  %Run.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %13, i64 %conv.i64
+  %Run = getelementptr inbounds nuw i8, ptr %Run.split, i64 28
   store i32 0, ptr %Run, align 4, !tbaa !243
   br i1 %visible, label %if.end17, label %if.then7
 
@@ -8558,7 +8563,8 @@ if.end17:                                         ; preds = %_ZN3irr5video9SMate
   %20 = load ptr, ptr %vfn22, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(1164) %this, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(64) %call20) #24
   %21 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !148
-  %Mesh = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %21, i64 %conv.i64, i32 1
+  %Mesh.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %21, i64 %conv.i64
+  %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 8
   %22 = load ptr, ptr %Mesh, align 8, !tbaa !152
   %vtable2583 = load ptr, ptr %22, align 8, !tbaa !3
   %23 = load ptr, ptr %vtable2583, align 8
@@ -9396,9 +9402,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i27 = zext i32 %idx1 to i64
-  %Renderer = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i27, i32 1
+  %Renderer.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i27
+  %Renderer = getelementptr inbounds nuw i8, ptr %Renderer.split, i64 32
   %conv.i28 = zext i32 %idx2 to i64
-  %Renderer9 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i28, i32 1
+  %Renderer9.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i28
+  %Renderer9 = getelementptr inbounds nuw i8, ptr %Renderer9.split, i64 32
   %2 = load ptr, ptr %Renderer, align 8, !tbaa !118
   %3 = load ptr, ptr %Renderer9, align 8, !tbaa !118
   store ptr %3, ptr %Renderer, align 8, !tbaa !118
@@ -9491,7 +9499,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i5 = zext i32 %idx to i64
-  %Renderer = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i5, i32 1
+  %Renderer.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i5
+  %Renderer = getelementptr inbounds nuw i8, ptr %Renderer.split, i64 32
   %2 = load ptr, ptr %Renderer, align 8, !tbaa !140
   br label %return
 
@@ -9877,12 +9886,13 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub = add i32 %conv.i, -1
   %cmp5 = icmp eq i32 %sub, %material
   %conv.i46 = zext i32 %material to i64
+  %Renderer.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i46
+  %Renderer = getelementptr inbounds nuw i8, ptr %Renderer.split, i64 32
+  %2 = load ptr, ptr %Renderer, align 8, !tbaa !140
+  %tobool.not = icmp eq ptr %2, null
   br i1 %cmp5, label %if.then6, label %if.end16
 
 if.then6:                                         ; preds = %if.end
-  %Renderer = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i46, i32 1
-  %2 = load ptr, ptr %Renderer, align 8, !tbaa !140
-  %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end14, label %if.then9
 
 if.then9:                                         ; preds = %if.then6
@@ -9964,20 +9974,16 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i
   br label %cleanup
 
 if.end16:                                         ; preds = %if.end
-  %add.ptr.i.i51 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i46
-  %Renderer19 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i51, i64 32
-  %12 = load ptr, ptr %Renderer19, align 8, !tbaa !140
-  %tobool20.not = icmp eq ptr %12, null
-  br i1 %tobool20.not, label %if.end28, label %if.then21
+  br i1 %tobool.not, label %if.end28, label %if.then21
 
 if.then21:                                        ; preds = %if.end16
-  %vtable23 = load ptr, ptr %12, align 8, !tbaa !3
+  %vtable23 = load ptr, ptr %2, align 8, !tbaa !3
   %vbase.offset.ptr24 = getelementptr i8, ptr %vtable23, i64 -24
   %vbase.offset25 = load i64, ptr %vbase.offset.ptr24, align 8
-  %add.ptr26 = getelementptr inbounds i8, ptr %12, i64 %vbase.offset25
+  %add.ptr26 = getelementptr inbounds i8, ptr %2, i64 %vbase.offset25
   %ReferenceCounter.i52 = getelementptr inbounds nuw i8, ptr %add.ptr26, i64 16
-  %13 = load i32, ptr %ReferenceCounter.i52, align 8, !tbaa !115
-  %dec.i53 = add nsw i32 %13, -1
+  %12 = load i32, ptr %ReferenceCounter.i52, align 8, !tbaa !115
+  %dec.i53 = add nsw i32 %12, -1
   store i32 %dec.i53, ptr %ReferenceCounter.i52, align 8, !tbaa !115
   %tobool.not.i54 = icmp eq i32 %dec.i53, 0
   br i1 %tobool.not.i54, label %delete.notnull.i55, label %if.end28
@@ -9985,39 +9991,39 @@ if.then21:                                        ; preds = %if.end16
 delete.notnull.i55:                               ; preds = %if.then21
   %vtable.i56 = load ptr, ptr %add.ptr26, align 8, !tbaa !3
   %vfn.i57 = getelementptr inbounds nuw i8, ptr %vtable.i56, i64 8
-  %14 = load ptr, ptr %vfn.i57, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr26) #24
+  %13 = load ptr, ptr %vfn.i57, align 8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr26) #24
   br label %if.end28
 
 if.end28:                                         ; preds = %delete.notnull.i55, %if.then21, %if.end16
   %call29 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
-  %15 = getelementptr inbounds nuw i8, ptr %call29, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %call29, i64 8
   %DebugName.i.i = getelementptr inbounds nuw i8, ptr %call29, i64 16
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !129
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call29, i64 24
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !115
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video12_GLOBAL__N_122CDummyMaterialRendererE, i64 24), ptr %call29, align 8, !tbaa !3
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video12_GLOBAL__N_122CDummyMaterialRendererE, i64 112), ptr %15, align 8, !tbaa !3
-  store ptr %call29, ptr %Renderer19, align 8, !tbaa !140
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video12_GLOBAL__N_122CDummyMaterialRendererE, i64 112), ptr %14, align 8, !tbaa !3
+  store ptr %call29, ptr %Renderer, align 8, !tbaa !140
   call void @llvm.lifetime.start.p0(ptr nonnull %empty.i)
-  %16 = getelementptr inbounds nuw i8, ptr %empty.i, i64 16
-  store ptr %16, ptr %empty.i, align 8, !tbaa !187
+  %15 = getelementptr inbounds nuw i8, ptr %empty.i, i64 16
+  store ptr %15, ptr %empty.i, align 8, !tbaa !187
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %empty.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !138
-  store i8 0, ptr %16, align 8, !tbaa !101
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i51, ptr noundef nonnull align 8 dereferenceable(32) %empty.i) #24
-  %17 = load ptr, ptr %empty.i, align 8, !tbaa !135
-  %cmp.i.i.i.i59 = icmp eq ptr %17, %16
+  store i8 0, ptr %15, align 8, !tbaa !101
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %Renderer.split, ptr noundef nonnull align 8 dereferenceable(32) %empty.i) #24
+  %16 = load ptr, ptr %empty.i, align 8, !tbaa !135
+  %cmp.i.i.i.i59 = icmp eq ptr %16, %15
   br i1 %cmp.i.i.i.i59, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i60
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %if.end28
-  %18 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !138
-  %cmp3.i.i.i.i = icmp ult i64 %18, 16
+  %17 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !138
+  %cmp3.i.i.i.i = icmp ult i64 %17, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN3irr4core6stringIcE5clearEb.exit
 
 if.then.i.i.i60:                                  ; preds = %if.end28
-  call void @_ZdlPv(ptr noundef %17) #27
+  call void @_ZdlPv(ptr noundef %16) #27
   br label %_ZN3irr4core6stringIcE5clearEb.exit
 
 _ZN3irr4core6stringIcE5clearEb.exit:              ; preds = %if.then.i.i.i60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i

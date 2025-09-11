@@ -1088,149 +1088,150 @@ _ZN4cvc58internal13DenseMultiset3addEjj.exit:     ; preds = %_ZNK4cvc58internal8
 67:                                               ; preds = %_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.thread.i, %62, %_ZNK4cvc58internal13DenseMultiset5countEj.exit
   %68 = landingpad { ptr, i32 }
           cleanup
-  br label %130
+  br label %131
 
 69:                                               ; preds = %_ZN4cvc58internal13DenseMultiset3addEjj.exit, %48
   %.fca.0.extract17 = phi i64 [ ptrtoint (ptr @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule20minBoundAndColLengthEjj to i64), %_ZN4cvc58internal13DenseMultiset3addEjj.exit ], [ ptrtoint (ptr @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11minVarOrderEjj to i64), %48 ]
   %70 = load ptr, ptr %14, align 8, !tbaa !277
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = load ptr, ptr %71, align 8, !tbaa !278
-  %73 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %72, i64 %33, i32 5
-  %74 = load i32, ptr %73, align 8, !tbaa !281
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %76, label %99
+  %73 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %72, i64 %33
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 88
+  %75 = load i32, ptr %74, align 8, !tbaa !281
+  %76 = icmp slt i32 %75, 0
+  br i1 %76, label %77, label %100
 
-76:                                               ; preds = %69
-  %77 = load ptr, ptr %15, align 8, !tbaa !288
-  %78 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb0EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %77, i32 noundef %29, i64 %.fca.0.extract17, i64 0)
-          to label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackUpperBoundEjMS4_KFjjjE.exit unwind label %86
+77:                                               ; preds = %69
+  %78 = load ptr, ptr %15, align 8, !tbaa !288
+  %79 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb0EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %78, i32 noundef %29, i64 %.fca.0.extract17, i64 0)
+          to label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackUpperBoundEjMS4_KFjjjE.exit unwind label %87
 
-_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackUpperBoundEjMS4_KFjjjE.exit: ; preds = %76
-  %79 = icmp eq i32 %78, %9
-  br i1 %79, label %80, label %92
+_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackUpperBoundEjMS4_KFjjjE.exit: ; preds = %77
+  %80 = icmp eq i32 %79, %9
+  br i1 %80, label %81, label %93
 
-80:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackUpperBoundEjMS4_KFjjjE.exit
+81:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackUpperBoundEjMS4_KFjjjE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal6theory5arith6linear28DualSimplexDecisionProcedure25searchForFeasibleSolutionEj, ptr noundef nonnull @.str.18, i32 noundef 184)
-          to label %81 unwind label %88
+          to label %82 unwind label %89
 
-81:                                               ; preds = %80
-  %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11FatalStream6streamEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %83 unwind label %90
+82:                                               ; preds = %81
+  %83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11FatalStream6streamEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %84 unwind label %91
 
-83:                                               ; preds = %81
-  %84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull @.str.19)
-          to label %85 unwind label %90
+84:                                               ; preds = %82
+  %85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull @.str.19)
+          to label %86 unwind label %91
 
-85:                                               ; preds = %83
+86:                                               ; preds = %84
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
   unreachable
 
-86:                                               ; preds = %103, %76
-  %87 = landingpad { ptr, i32 }
+87:                                               ; preds = %104, %77
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %130
+  br label %131
 
-88:                                               ; preds = %80
-  %89 = landingpad { ptr, i32 }
+89:                                               ; preds = %81
+  %90 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %130
+  br label %131
 
-90:                                               ; preds = %83, %81
-  %91 = landingpad { ptr, i32 }
+91:                                               ; preds = %84, %82
+  %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
   unreachable
 
-92:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackUpperBoundEjMS4_KFjjjE.exit
-  %93 = load ptr, ptr %14, align 8, !tbaa !277
-  %94 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getLowerBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %93, i32 noundef %29)
-          to label %95 unwind label %97
+93:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackUpperBoundEjMS4_KFjjjE.exit
+  %94 = load ptr, ptr %14, align 8, !tbaa !277
+  %95 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getLowerBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %94, i32 noundef %29)
+          to label %96 unwind label %98
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %15, align 8, !tbaa !288
-  invoke void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule14pivotAndUpdateEjjRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(456) %96, i32 noundef %29, i32 noundef %78, ptr noundef nonnull align 8 dereferenceable(64) %94)
-          to label %124 unwind label %97
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %15, align 8, !tbaa !288
+  invoke void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule14pivotAndUpdateEjjRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(456) %97, i32 noundef %29, i32 noundef %79, ptr noundef nonnull align 8 dereferenceable(64) %95)
+          to label %125 unwind label %98
 
-97:                                               ; preds = %95, %92
-  %98 = landingpad { ptr, i32 }
+98:                                               ; preds = %96, %93
+  %99 = landingpad { ptr, i32 }
           cleanup
-  br label %130
+  br label %131
 
-99:                                               ; preds = %69
-  %100 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %72, i64 %33, i32 6
-  %101 = load i32, ptr %100, align 4, !tbaa !289
-  %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %103, label %124
+100:                                              ; preds = %69
+  %101 = getelementptr inbounds nuw i8, ptr %73, i64 92
+  %102 = load i32, ptr %101, align 4, !tbaa !289
+  %103 = icmp sgt i32 %102, 0
+  br i1 %103, label %104, label %125
 
-103:                                              ; preds = %99
-  %104 = load ptr, ptr %15, align 8, !tbaa !288
-  %105 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb1EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %104, i32 noundef %29, i64 %.fca.0.extract17, i64 0)
-          to label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackLowerBoundEjMS4_KFjjjE.exit unwind label %86
+104:                                              ; preds = %100
+  %105 = load ptr, ptr %15, align 8, !tbaa !288
+  %106 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb1EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %105, i32 noundef %29, i64 %.fca.0.extract17, i64 0)
+          to label %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackLowerBoundEjMS4_KFjjjE.exit unwind label %87
 
-_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackLowerBoundEjMS4_KFjjjE.exit: ; preds = %103
-  %106 = icmp eq i32 %105, %9
-  br i1 %106, label %107, label %117
+_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackLowerBoundEjMS4_KFjjjE.exit: ; preds = %104
+  %107 = icmp eq i32 %106, %9
+  br i1 %107, label %108, label %118
 
-107:                                              ; preds = %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackLowerBoundEjMS4_KFjjjE.exit
+108:                                              ; preds = %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackLowerBoundEjMS4_KFjjjE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal6theory5arith6linear28DualSimplexDecisionProcedure25searchForFeasibleSolutionEj, ptr noundef nonnull @.str.18, i32 noundef 199)
-          to label %108 unwind label %113
+          to label %109 unwind label %114
 
-108:                                              ; preds = %107
-  %109 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11FatalStream6streamEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %110 unwind label %115
+109:                                              ; preds = %108
+  %110 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11FatalStream6streamEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %111 unwind label %116
 
-110:                                              ; preds = %108
-  %111 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull @.str.19)
-          to label %112 unwind label %115
+111:                                              ; preds = %109
+  %112 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull @.str.19)
+          to label %113 unwind label %116
 
-112:                                              ; preds = %110
+113:                                              ; preds = %111
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #24
   unreachable
 
-113:                                              ; preds = %107
-  %114 = landingpad { ptr, i32 }
+114:                                              ; preds = %108
+  %115 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %130
+  br label %131
 
-115:                                              ; preds = %110, %108
-  %116 = landingpad { ptr, i32 }
+116:                                              ; preds = %111, %109
+  %117 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #24
   unreachable
 
-117:                                              ; preds = %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackLowerBoundEjMS4_KFjjjE.exit
-  %118 = load ptr, ptr %14, align 8, !tbaa !277
-  %119 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getUpperBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %118, i32 noundef %29)
-          to label %120 unwind label %122
+118:                                              ; preds = %_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackLowerBoundEjMS4_KFjjjE.exit
+  %119 = load ptr, ptr %14, align 8, !tbaa !277
+  %120 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getUpperBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %119, i32 noundef %29)
+          to label %121 unwind label %123
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %15, align 8, !tbaa !288
-  invoke void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule14pivotAndUpdateEjjRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(456) %121, i32 noundef %29, i32 noundef %105, ptr noundef nonnull align 8 dereferenceable(64) %119)
-          to label %124 unwind label %122
+121:                                              ; preds = %118
+  %122 = load ptr, ptr %15, align 8, !tbaa !288
+  invoke void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule14pivotAndUpdateEjjRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(456) %122, i32 noundef %29, i32 noundef %106, ptr noundef nonnull align 8 dereferenceable(64) %120)
+          to label %125 unwind label %123
 
-122:                                              ; preds = %120, %117
-  %123 = landingpad { ptr, i32 }
+123:                                              ; preds = %121, %118
+  %124 = landingpad { ptr, i32 }
           cleanup
-  br label %130
+  br label %131
 
-124:                                              ; preds = %120, %95, %99
-  %125 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure22standardProcessSignalsERNS0_9TimerStatERNS0_7IntStatE(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %.critedge119 unwind label %128
+125:                                              ; preds = %121, %96, %100
+  %126 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure22standardProcessSignalsERNS0_9TimerStatERNS0_7IntStatE(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %.critedge119 unwind label %129
 
-.critedge119:                                     ; preds = %124
-  %126 = load i32, ptr %18, align 8, !tbaa !40
-  %127 = add i32 %126, 1
-  store i32 %127, ptr %18, align 8, !tbaa !40
-  br i1 %125, label %.critedge, label %19, !llvm.loop !290
+.critedge119:                                     ; preds = %125
+  %127 = load i32, ptr %18, align 8, !tbaa !40
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %18, align 8, !tbaa !40
+  br i1 %126, label %.critedge, label %19, !llvm.loop !290
 
-128:                                              ; preds = %124
-  %129 = landingpad { ptr, i32 }
+129:                                              ; preds = %125
+  %130 = landingpad { ptr, i32 }
           cleanup
-  br label %130
+  br label %131
 
 .critedge:                                        ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit153, %20, %19, %.critedge119
   %.3 = phi i1 [ true, %.critedge119 ], [ false, %19 ], [ false, %20 ], [ false, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit153 ]
@@ -1238,8 +1239,8 @@ _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule21selectSlackLowerBo
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.3
 
-130:                                              ; preds = %86, %88, %97, %113, %122, %128, %67
-  %.pn108.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %89, %88 ], [ %98, %97 ], [ %87, %86 ], [ %114, %113 ], [ %123, %122 ], [ %129, %128 ]
+131:                                              ; preds = %87, %89, %98, %114, %123, %129, %67
+  %.pn108.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %90, %89 ], [ %99, %98 ], [ %88, %87 ], [ %115, %114 ], [ %124, %123 ], [ %130, %129 ]
   call void @_ZN4cvc58internal9CodeTimerD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn108.pn.pn

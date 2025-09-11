@@ -499,32 +499,29 @@ define hidden i32 @randpkt_parse_type(ptr noundef %0) local_unnamed_addr #1 {
 4:                                                ; preds = %2, %1
   %5 = tail call i32 @g_random_int_range(i32 noundef 0, i32 noundef 23)
   %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct.randpkt_example, ptr @examples, i64 %6, i32 2
-  br label %16
+  br label %.loopexit
 
-8:                                                ; preds = %.preheader
+7:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
-  br i1 %exitcond.not, label %15, label %.preheader, !llvm.loop !23
+  br i1 %exitcond.not, label %12, label %.preheader, !llvm.loop !23
 
-.preheader:                                       ; preds = %2, %8
-  %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %2 ]
-  %9 = getelementptr %struct.randpkt_example, ptr @examples, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 16
-  %11 = tail call i32 @g_strcmp0(ptr noundef %10, ptr noundef nonnull %0)
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %8
+.preheader:                                       ; preds = %2, %7
+  %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
+  %8 = getelementptr %struct.randpkt_example, ptr @examples, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 16
+  %10 = tail call i32 @g_strcmp0(ptr noundef %9, ptr noundef nonnull %0)
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %.loopexit, label %7
 
-13:                                               ; preds = %.preheader
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  br label %16
-
-15:                                               ; preds = %8
+12:                                               ; preds = %7
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.7, i32 noundef 7, ptr noundef nonnull @.str.8, i64 noundef 720, ptr noundef nonnull @__func__.randpkt_parse_type, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #12
   unreachable
 
-16:                                               ; preds = %13, %4
-  %.010.in = phi ptr [ %14, %13 ], [ %7, %4 ]
+.loopexit:                                        ; preds = %.preheader, %4
+  %13 = phi i64 [ %6, %4 ], [ %indvars.iv, %.preheader ]
+  %14 = getelementptr %struct.randpkt_example, ptr @examples, i64 %13
+  %.010.in = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.010 = load i32, ptr %.010.in, align 16
   ret i32 %.010
 }

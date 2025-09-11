@@ -659,7 +659,8 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
   %113 = phi i64 [ 0, %._crit_edge ], [ %89, %97 ], [ %89, %95 ]
   %114 = lshr i64 %112, 32
   %115 = trunc nuw i64 %114 to i32
-  %116 = getelementptr %struct.p4_event_bind, ptr @p4_event_bind_map, i64 %113, i32 2
+  %.split = getelementptr %struct.p4_event_bind, ptr @p4_event_bind_map, i64 %113
+  %116 = getelementptr i8, ptr %.split, i64 12
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, 33553920
   %119 = xor i32 %118, 33553920

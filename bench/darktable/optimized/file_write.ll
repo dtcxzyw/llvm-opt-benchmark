@@ -232,7 +232,7 @@ define void @_ZN6LibRaw9tiff_headEP8tiff_hdri(ptr noundef nonnull align 8 derefe
 
 ._crit_edge:                                      ; preds = %16
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !tbaa !71
-  br label %141
+  br label %142
 
 69:                                               ; preds = %16
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -305,754 +305,755 @@ _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit:        ; preds = %.preheader48.i, %69
   store i16 258, ptr %102, align 4, !tbaa !79
   %111 = load i32, ptr %96, align 4, !tbaa !98
   %112 = icmp sgt i32 %111, 2
-  br i1 %112, label %113, label %116
+  br i1 %112, label %113, label %117
 
 113:                                              ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit
   %114 = zext i16 %100 to i64
-  %115 = getelementptr %struct.libraw_tiff_tag, ptr %1, i64 %114, i32 3
-  store i32 468, ptr %115, align 4, !tbaa !72
-  br label %116
+  %115 = getelementptr %struct.libraw_tiff_tag, ptr %1, i64 %114
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  store i32 468, ptr %116, align 4, !tbaa !72
+  br label %117
 
-116:                                              ; preds = %113, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit
-  %117 = load i32, ptr %98, align 8, !tbaa !99
-  %118 = trunc i32 %117 to i16
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 468
-  br label %120
+117:                                              ; preds = %113, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit
+  %118 = load i32, ptr %98, align 8, !tbaa !99
+  %119 = trunc i32 %118 to i16
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 468
+  br label %121
 
-120:                                              ; preds = %116, %120
-  %indvars.iv278 = phi i64 [ 0, %116 ], [ %indvars.iv.next279, %120 ]
-  %121 = getelementptr inbounds nuw i16, ptr %119, i64 %indvars.iv278
-  store i16 %118, ptr %121, align 2, !tbaa !71
+121:                                              ; preds = %117, %121
+  %indvars.iv278 = phi i64 [ 0, %117 ], [ %indvars.iv.next279, %121 ]
+  %122 = getelementptr inbounds nuw i16, ptr %120, i64 %indvars.iv278
+  store i16 %119, ptr %122, align 2, !tbaa !71
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next279, 4
-  br i1 %exitcond281.not, label %.preheader48.i163, label %120, !llvm.loop !100
+  br i1 %exitcond281.not, label %.preheader48.i163, label %121, !llvm.loop !100
 
-.preheader48.i163:                                ; preds = %120
-  %122 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !71
-  %123 = add i16 %122, 1
-  %124 = zext i16 %122 to i64
-  %125 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %70, i64 %124
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  store i32 1, ptr %126, align 4, !tbaa !72
-  store i16 1, ptr %126, align 4, !tbaa !72
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 10
-  store i16 0, ptr %127, align 2, !tbaa !72
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 4
-  store i32 1, ptr %128, align 4, !tbaa !76
-  %129 = getelementptr inbounds nuw i8, ptr %125, i64 2
-  store i16 3, ptr %129, align 2, !tbaa !78
-  store i16 259, ptr %125, align 4, !tbaa !79
-  %130 = load i32, ptr %96, align 4, !tbaa !98
-  %131 = icmp sgt i32 %130, 1
-  %132 = select i1 %131, i32 2, i32 1
-  %133 = add i16 %122, 2
-  %134 = zext i16 %123 to i64
-  %135 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %70, i64 %134
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store i32 %132, ptr %136, align 4, !tbaa !72
-  %137 = trunc nuw nsw i32 %132 to i16
-  store i16 %137, ptr %136, align 4, !tbaa !72
-  %138 = getelementptr inbounds nuw i8, ptr %135, i64 10
-  store i16 0, ptr %138, align 2, !tbaa !72
-  %139 = getelementptr inbounds nuw i8, ptr %135, i64 4
-  store i32 1, ptr %139, align 4, !tbaa !76
-  %140 = getelementptr inbounds nuw i8, ptr %135, i64 2
-  store i16 3, ptr %140, align 2, !tbaa !78
-  store i16 262, ptr %135, align 4, !tbaa !79
-  br label %141
+.preheader48.i163:                                ; preds = %121
+  %123 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !71
+  %124 = add i16 %123, 1
+  %125 = zext i16 %123 to i64
+  %126 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %70, i64 %125
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  store i32 1, ptr %127, align 4, !tbaa !72
+  store i16 1, ptr %127, align 4, !tbaa !72
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 10
+  store i16 0, ptr %128, align 2, !tbaa !72
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 4
+  store i32 1, ptr %129, align 4, !tbaa !76
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 2
+  store i16 3, ptr %130, align 2, !tbaa !78
+  store i16 259, ptr %126, align 4, !tbaa !79
+  %131 = load i32, ptr %96, align 4, !tbaa !98
+  %132 = icmp sgt i32 %131, 1
+  %133 = select i1 %132, i32 2, i32 1
+  %134 = add i16 %123, 2
+  %135 = zext i16 %124 to i64
+  %136 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %70, i64 %135
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  store i32 %133, ptr %137, align 4, !tbaa !72
+  %138 = trunc nuw nsw i32 %133 to i16
+  store i16 %138, ptr %137, align 4, !tbaa !72
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 10
+  store i16 0, ptr %139, align 2, !tbaa !72
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 4
+  store i32 1, ptr %140, align 4, !tbaa !76
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 2
+  store i16 3, ptr %141, align 2, !tbaa !78
+  store i16 262, ptr %136, align 4, !tbaa !79
+  br label %142
 
-141:                                              ; preds = %._crit_edge, %.preheader48.i163
-  %142 = phi i16 [ %.pre, %._crit_edge ], [ %133, %.preheader48.i163 ]
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %144 = ptrtoint ptr %1 to i64
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %146 = add i16 %142, 1
-  store i16 %146, ptr %143, align 2, !tbaa !71
-  %147 = zext i16 %142 to i64
-  %148 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %147
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  store i32 620, ptr %149, align 4, !tbaa !72
-  %150 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %39, i64 noundef 511)
-  %151 = trunc i64 %150 to i32
-  %152 = add nsw i32 %151, 1
-  %153 = icmp slt i32 %151, 4
-  br i1 %153, label %.preheader46.i, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit171
+142:                                              ; preds = %._crit_edge, %.preheader48.i163
+  %143 = phi i16 [ %.pre, %._crit_edge ], [ %134, %.preheader48.i163 ]
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %145 = ptrtoint ptr %1 to i64
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %147 = add i16 %143, 1
+  store i16 %147, ptr %144, align 2, !tbaa !71
+  %148 = zext i16 %143 to i64
+  %149 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %148
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  store i32 620, ptr %150, align 4, !tbaa !72
+  %151 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %39, i64 noundef 511)
+  %152 = trunc i64 %151 to i32
+  %153 = add nsw i32 %152, 1
+  %154 = icmp slt i32 %152, 4
+  br i1 %154, label %.preheader46.i, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit171
 
-.preheader46.i:                                   ; preds = %141, %.preheader46.i
-  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.preheader46.i ], [ 0, %141 ]
+.preheader46.i:                                   ; preds = %142, %.preheader46.i
+  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.preheader46.i ], [ 0, %142 ]
   %gep.i = getelementptr i8, ptr %39, i64 %indvars.iv56.i
-  %154 = load i8, ptr %gep.i, align 1, !tbaa !72
-  %155 = getelementptr inbounds nuw i8, ptr %149, i64 %indvars.iv56.i
-  store i8 %154, ptr %155, align 1, !tbaa !72
+  %155 = load i8, ptr %gep.i, align 1, !tbaa !72
+  %156 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv56.i
+  store i8 %155, ptr %156, align 1, !tbaa !72
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next57.i, 4
   br i1 %exitcond.not.i, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit171, label %.preheader46.i, !llvm.loop !75
 
-_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit171:     ; preds = %.preheader46.i, %141
-  %156 = getelementptr inbounds nuw i8, ptr %148, i64 4
-  store i32 %152, ptr %156, align 4, !tbaa !76
-  %157 = getelementptr inbounds nuw i8, ptr %148, i64 2
-  store i16 2, ptr %157, align 2, !tbaa !78
-  store i16 270, ptr %148, align 4, !tbaa !79
-  %158 = load i16, ptr %143, align 2, !tbaa !71
-  %159 = add i16 %158, 1
-  store i16 %159, ptr %143, align 2, !tbaa !71
-  %160 = zext i16 %158 to i64
-  %161 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %160
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  store i32 1132, ptr %162, align 4, !tbaa !72
-  %163 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %42, i64 noundef 63)
-  %164 = trunc i64 %163 to i32
-  %165 = add nsw i32 %164, 1
-  %166 = icmp slt i32 %164, 4
-  br i1 %166, label %.preheader46.i174, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit179
+_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit171:     ; preds = %.preheader46.i, %142
+  %157 = getelementptr inbounds nuw i8, ptr %149, i64 4
+  store i32 %153, ptr %157, align 4, !tbaa !76
+  %158 = getelementptr inbounds nuw i8, ptr %149, i64 2
+  store i16 2, ptr %158, align 2, !tbaa !78
+  store i16 270, ptr %149, align 4, !tbaa !79
+  %159 = load i16, ptr %144, align 2, !tbaa !71
+  %160 = add i16 %159, 1
+  store i16 %160, ptr %144, align 2, !tbaa !71
+  %161 = zext i16 %159 to i64
+  %162 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %161
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  store i32 1132, ptr %163, align 4, !tbaa !72
+  %164 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %42, i64 noundef 63)
+  %165 = trunc i64 %164 to i32
+  %166 = add nsw i32 %165, 1
+  %167 = icmp slt i32 %165, 4
+  br i1 %167, label %.preheader46.i174, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit179
 
 .preheader46.i174:                                ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit171, %.preheader46.i174
   %indvars.iv56.i175 = phi i64 [ %indvars.iv.next57.i177, %.preheader46.i174 ], [ 0, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit171 ]
   %gep.i176 = getelementptr i8, ptr %42, i64 %indvars.iv56.i175
-  %167 = load i8, ptr %gep.i176, align 1, !tbaa !72
-  %168 = getelementptr inbounds nuw i8, ptr %162, i64 %indvars.iv56.i175
-  store i8 %167, ptr %168, align 1, !tbaa !72
+  %168 = load i8, ptr %gep.i176, align 1, !tbaa !72
+  %169 = getelementptr inbounds nuw i8, ptr %163, i64 %indvars.iv56.i175
+  store i8 %168, ptr %169, align 1, !tbaa !72
   %indvars.iv.next57.i177 = add nuw nsw i64 %indvars.iv56.i175, 1
   %exitcond.not.i178 = icmp eq i64 %indvars.iv.next57.i177, 4
   br i1 %exitcond.not.i178, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit179, label %.preheader46.i174, !llvm.loop !75
 
 _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit179:     ; preds = %.preheader46.i174, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit171
-  %169 = getelementptr inbounds nuw i8, ptr %161, i64 4
-  store i32 %165, ptr %169, align 4, !tbaa !76
-  %170 = getelementptr inbounds nuw i8, ptr %161, i64 2
-  store i16 2, ptr %170, align 2, !tbaa !78
-  store i16 271, ptr %161, align 4, !tbaa !79
-  %171 = load i16, ptr %143, align 2, !tbaa !71
-  %172 = add i16 %171, 1
-  store i16 %172, ptr %143, align 2, !tbaa !71
-  %173 = zext i16 %171 to i64
-  %174 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %173
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  store i32 1196, ptr %175, align 4, !tbaa !72
-  %176 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %45, i64 noundef 63)
-  %177 = trunc i64 %176 to i32
-  %178 = add nsw i32 %177, 1
-  %179 = icmp slt i32 %177, 4
-  br i1 %179, label %.preheader46.i182, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit187
+  %170 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  store i32 %166, ptr %170, align 4, !tbaa !76
+  %171 = getelementptr inbounds nuw i8, ptr %162, i64 2
+  store i16 2, ptr %171, align 2, !tbaa !78
+  store i16 271, ptr %162, align 4, !tbaa !79
+  %172 = load i16, ptr %144, align 2, !tbaa !71
+  %173 = add i16 %172, 1
+  store i16 %173, ptr %144, align 2, !tbaa !71
+  %174 = zext i16 %172 to i64
+  %175 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %174
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  store i32 1196, ptr %176, align 4, !tbaa !72
+  %177 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %45, i64 noundef 63)
+  %178 = trunc i64 %177 to i32
+  %179 = add nsw i32 %178, 1
+  %180 = icmp slt i32 %178, 4
+  br i1 %180, label %.preheader46.i182, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit187
 
 .preheader46.i182:                                ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit179, %.preheader46.i182
   %indvars.iv56.i183 = phi i64 [ %indvars.iv.next57.i185, %.preheader46.i182 ], [ 0, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit179 ]
   %gep.i184 = getelementptr i8, ptr %45, i64 %indvars.iv56.i183
-  %180 = load i8, ptr %gep.i184, align 1, !tbaa !72
-  %181 = getelementptr inbounds nuw i8, ptr %175, i64 %indvars.iv56.i183
-  store i8 %180, ptr %181, align 1, !tbaa !72
+  %181 = load i8, ptr %gep.i184, align 1, !tbaa !72
+  %182 = getelementptr inbounds nuw i8, ptr %176, i64 %indvars.iv56.i183
+  store i8 %181, ptr %182, align 1, !tbaa !72
   %indvars.iv.next57.i185 = add nuw nsw i64 %indvars.iv56.i183, 1
   %exitcond.not.i186 = icmp eq i64 %indvars.iv.next57.i185, 4
   br i1 %exitcond.not.i186, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit187, label %.preheader46.i182, !llvm.loop !75
 
 _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit187:     ; preds = %.preheader46.i182, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit179
-  %182 = getelementptr inbounds nuw i8, ptr %174, i64 4
-  store i32 %178, ptr %182, align 4, !tbaa !76
-  %183 = getelementptr inbounds nuw i8, ptr %174, i64 2
-  store i16 2, ptr %183, align 2, !tbaa !78
-  store i16 272, ptr %174, align 4, !tbaa !79
-  br i1 %.not, label %.preheader48.i192, label %184
+  %183 = getelementptr inbounds nuw i8, ptr %175, i64 4
+  store i32 %179, ptr %183, align 4, !tbaa !76
+  %184 = getelementptr inbounds nuw i8, ptr %175, i64 2
+  store i16 2, ptr %184, align 2, !tbaa !78
+  store i16 272, ptr %175, align 4, !tbaa !79
+  br i1 %.not, label %.preheader48.i192, label %185
 
-184:                                              ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit187
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 381504
-  %186 = load ptr, ptr %185, align 8, !tbaa !101
-  %.not160 = icmp eq ptr %186, null
-  br i1 %.not160, label %.preheader48.i188, label %187
+185:                                              ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit187
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 381504
+  %187 = load ptr, ptr %186, align 8, !tbaa !101
+  %.not160 = icmp eq ptr %187, null
+  br i1 %.not160, label %.preheader48.i188, label %188
 
-187:                                              ; preds = %184
-  %188 = load i32, ptr %186, align 4, !tbaa !84
-  %189 = tail call noundef i32 @llvm.bswap.i32(i32 %188)
+188:                                              ; preds = %185
+  %189 = load i32, ptr %187, align 4, !tbaa !84
+  %190 = tail call noundef i32 @llvm.bswap.i32(i32 %189)
   br label %.preheader48.i188
 
-.preheader48.i188:                                ; preds = %187, %184
-  %.0157 = phi i32 [ %189, %187 ], [ 0, %184 ]
-  %190 = add i32 %.0157, 1376
-  %191 = load i16, ptr %143, align 2, !tbaa !71
-  %192 = add i16 %191, 1
-  %193 = zext i16 %191 to i64
-  %194 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %193
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  store i32 %190, ptr %195, align 4, !tbaa !72
-  %196 = getelementptr inbounds nuw i8, ptr %194, i64 4
-  store i32 1, ptr %196, align 4, !tbaa !76
-  %197 = getelementptr inbounds nuw i8, ptr %194, i64 2
-  store i16 4, ptr %197, align 2, !tbaa !78
-  store i16 273, ptr %194, align 4, !tbaa !79
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %199 = load i32, ptr %198, align 4, !tbaa !98
-  %200 = add i16 %191, 2
-  store i16 %200, ptr %143, align 2, !tbaa !71
-  %201 = zext i16 %192 to i64
-  %202 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %201
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  store i32 %199, ptr %203, align 4, !tbaa !72
-  %204 = trunc i32 %199 to i16
-  store i16 %204, ptr %203, align 4, !tbaa !72
-  %205 = lshr i32 %199, 16
-  %206 = trunc nuw i32 %205 to i16
-  %207 = getelementptr inbounds nuw i8, ptr %202, i64 10
-  store i16 %206, ptr %207, align 2, !tbaa !72
-  %208 = getelementptr inbounds nuw i8, ptr %202, i64 4
-  store i32 1, ptr %208, align 4, !tbaa !76
-  %209 = getelementptr inbounds nuw i8, ptr %202, i64 2
-  store i16 3, ptr %209, align 2, !tbaa !78
-  store i16 277, ptr %202, align 4, !tbaa !79
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %211 = load i16, ptr %210, align 4, !tbaa !97
-  %212 = zext i16 %211 to i32
-  %213 = add i16 %191, 3
-  store i16 %213, ptr %143, align 2, !tbaa !71
-  %214 = zext i16 %200 to i64
-  %215 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %214
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  store i32 %212, ptr %216, align 4, !tbaa !72
-  %217 = getelementptr inbounds nuw i8, ptr %215, i64 4
-  store i32 1, ptr %217, align 4, !tbaa !76
-  %218 = getelementptr inbounds nuw i8, ptr %215, i64 2
-  store i16 4, ptr %218, align 2, !tbaa !78
-  store i16 278, ptr %215, align 4, !tbaa !79
-  %219 = load i16, ptr %210, align 4, !tbaa !97
-  %220 = zext i16 %219 to i32
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %222 = load i16, ptr %221, align 2, !tbaa !96
-  %223 = zext i16 %222 to i32
-  %224 = mul nuw nsw i32 %223, %220
-  %225 = load i32, ptr %198, align 4, !tbaa !98
-  %226 = mul nsw i32 %224, %225
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 5344
-  %228 = load i32, ptr %227, align 8, !tbaa !99
-  %229 = mul nsw i32 %226, %228
-  %230 = sdiv i32 %229, 8
-  %231 = add i16 %191, 4
-  %232 = zext i16 %213 to i64
-  %233 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %232
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  store i32 %230, ptr %234, align 4, !tbaa !72
-  %235 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  store i32 1, ptr %235, align 4, !tbaa !76
-  %236 = getelementptr inbounds nuw i8, ptr %233, i64 2
-  store i16 4, ptr %236, align 2, !tbaa !78
-  store i16 279, ptr %233, align 4, !tbaa !79
+.preheader48.i188:                                ; preds = %188, %185
+  %.0157 = phi i32 [ %190, %188 ], [ 0, %185 ]
+  %191 = add i32 %.0157, 1376
+  %192 = load i16, ptr %144, align 2, !tbaa !71
+  %193 = add i16 %192, 1
+  %194 = zext i16 %192 to i64
+  %195 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %194
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  store i32 %191, ptr %196, align 4, !tbaa !72
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  store i32 1, ptr %197, align 4, !tbaa !76
+  %198 = getelementptr inbounds nuw i8, ptr %195, i64 2
+  store i16 4, ptr %198, align 2, !tbaa !78
+  store i16 273, ptr %195, align 4, !tbaa !79
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 540
+  %200 = load i32, ptr %199, align 4, !tbaa !98
+  %201 = add i16 %192, 2
+  store i16 %201, ptr %144, align 2, !tbaa !71
+  %202 = zext i16 %193 to i64
+  %203 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %202
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  store i32 %200, ptr %204, align 4, !tbaa !72
+  %205 = trunc i32 %200 to i16
+  store i16 %205, ptr %204, align 4, !tbaa !72
+  %206 = lshr i32 %200, 16
+  %207 = trunc nuw i32 %206 to i16
+  %208 = getelementptr inbounds nuw i8, ptr %203, i64 10
+  store i16 %207, ptr %208, align 2, !tbaa !72
+  %209 = getelementptr inbounds nuw i8, ptr %203, i64 4
+  store i32 1, ptr %209, align 4, !tbaa !76
+  %210 = getelementptr inbounds nuw i8, ptr %203, i64 2
+  store i16 3, ptr %210, align 2, !tbaa !78
+  store i16 277, ptr %203, align 4, !tbaa !79
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %212 = load i16, ptr %211, align 4, !tbaa !97
+  %213 = zext i16 %212 to i32
+  %214 = add i16 %192, 3
+  store i16 %214, ptr %144, align 2, !tbaa !71
+  %215 = zext i16 %201 to i64
+  %216 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %215
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  store i32 %213, ptr %217, align 4, !tbaa !72
+  %218 = getelementptr inbounds nuw i8, ptr %216, i64 4
+  store i32 1, ptr %218, align 4, !tbaa !76
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 2
+  store i16 4, ptr %219, align 2, !tbaa !78
+  store i16 278, ptr %216, align 4, !tbaa !79
+  %220 = load i16, ptr %211, align 4, !tbaa !97
+  %221 = zext i16 %220 to i32
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  %223 = load i16, ptr %222, align 2, !tbaa !96
+  %224 = zext i16 %223 to i32
+  %225 = mul nuw nsw i32 %224, %221
+  %226 = load i32, ptr %199, align 4, !tbaa !98
+  %227 = mul nsw i32 %225, %226
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 5344
+  %229 = load i32, ptr %228, align 8, !tbaa !99
+  %230 = mul nsw i32 %227, %229
+  %231 = sdiv i32 %230, 8
+  %232 = add i16 %192, 4
+  %233 = zext i16 %214 to i64
+  %234 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %233
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  store i32 %231, ptr %235, align 4, !tbaa !72
+  %236 = getelementptr inbounds nuw i8, ptr %234, i64 4
+  store i32 1, ptr %236, align 4, !tbaa !76
+  %237 = getelementptr inbounds nuw i8, ptr %234, i64 2
+  store i16 4, ptr %237, align 2, !tbaa !78
+  store i16 279, ptr %234, align 4, !tbaa !79
   br label %.preheader48.i196
 
 .preheader48.i192:                                ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit187
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %238 = load i32, ptr %237, align 8, !tbaa !6
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds i8, ptr @.str.2, i64 %239
-  %241 = load i8, ptr %240, align 1, !tbaa !72
-  %242 = sext i8 %241 to i32
-  %243 = add nsw i32 %242, -48
-  %244 = load i16, ptr %143, align 2, !tbaa !71
-  %245 = add i16 %244, 1
-  %246 = zext i16 %244 to i64
-  %247 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %246
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  store i32 %243, ptr %248, align 4, !tbaa !72
-  %249 = trunc nsw i32 %243 to i16
-  store i16 %249, ptr %248, align 4, !tbaa !72
-  %250 = lshr i32 %243, 16
-  %251 = trunc nuw i32 %250 to i16
-  %252 = getelementptr inbounds nuw i8, ptr %247, i64 10
-  store i16 %251, ptr %252, align 2, !tbaa !72
-  %253 = getelementptr inbounds nuw i8, ptr %247, i64 4
-  store i32 1, ptr %253, align 4, !tbaa !76
-  %254 = getelementptr inbounds nuw i8, ptr %247, i64 2
-  store i16 3, ptr %254, align 2, !tbaa !78
-  store i16 274, ptr %247, align 4, !tbaa !79
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %239 = load i32, ptr %238, align 8, !tbaa !6
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds i8, ptr @.str.2, i64 %240
+  %242 = load i8, ptr %241, align 1, !tbaa !72
+  %243 = sext i8 %242 to i32
+  %244 = add nsw i32 %243, -48
+  %245 = load i16, ptr %144, align 2, !tbaa !71
+  %246 = add i16 %245, 1
+  %247 = zext i16 %245 to i64
+  %248 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %247
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  store i32 %244, ptr %249, align 4, !tbaa !72
+  %250 = trunc nsw i32 %244 to i16
+  store i16 %250, ptr %249, align 4, !tbaa !72
+  %251 = lshr i32 %244, 16
+  %252 = trunc nuw i32 %251 to i16
+  %253 = getelementptr inbounds nuw i8, ptr %248, i64 10
+  store i16 %252, ptr %253, align 2, !tbaa !72
+  %254 = getelementptr inbounds nuw i8, ptr %248, i64 4
+  store i32 1, ptr %254, align 4, !tbaa !76
+  %255 = getelementptr inbounds nuw i8, ptr %248, i64 2
+  store i16 3, ptr %255, align 2, !tbaa !78
+  store i16 274, ptr %248, align 4, !tbaa !79
   br label %.preheader48.i196
 
 .preheader48.i196:                                ; preds = %.preheader48.i192, %.preheader48.i188
-  %255 = phi i16 [ %231, %.preheader48.i188 ], [ %245, %.preheader48.i192 ]
+  %256 = phi i16 [ %232, %.preheader48.i188 ], [ %246, %.preheader48.i192 ]
   %.1158 = phi i32 [ %.0157, %.preheader48.i188 ], [ 0, %.preheader48.i192 ]
-  %256 = add i16 %255, 1
-  store i16 %256, ptr %143, align 2, !tbaa !71
-  %257 = zext i16 %255 to i64
-  %258 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %257
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
-  store i32 476, ptr %259, align 4, !tbaa !72
-  %260 = getelementptr inbounds nuw i8, ptr %258, i64 4
-  store i32 1, ptr %260, align 4, !tbaa !76
-  %261 = getelementptr inbounds nuw i8, ptr %258, i64 2
-  store i16 5, ptr %261, align 2, !tbaa !78
-  store i16 282, ptr %258, align 4, !tbaa !79
-  %262 = add i16 %255, 2
-  %263 = zext i16 %256 to i64
-  %264 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %263
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  store i32 484, ptr %265, align 4, !tbaa !72
-  %266 = getelementptr inbounds nuw i8, ptr %264, i64 4
-  store i32 1, ptr %266, align 4, !tbaa !76
-  %267 = getelementptr inbounds nuw i8, ptr %264, i64 2
-  store i16 5, ptr %267, align 2, !tbaa !78
-  store i16 283, ptr %264, align 4, !tbaa !79
-  %268 = add i16 %255, 3
-  %269 = zext i16 %262 to i64
-  %270 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %269
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  store i32 1, ptr %271, align 4, !tbaa !72
-  store i16 1, ptr %271, align 4, !tbaa !72
-  %272 = getelementptr inbounds nuw i8, ptr %270, i64 10
-  store i16 0, ptr %272, align 2, !tbaa !72
-  %273 = getelementptr inbounds nuw i8, ptr %270, i64 4
-  store i32 1, ptr %273, align 4, !tbaa !76
-  %274 = getelementptr inbounds nuw i8, ptr %270, i64 2
-  store i16 3, ptr %274, align 2, !tbaa !78
-  store i16 284, ptr %270, align 4, !tbaa !79
-  %275 = add i16 %255, 4
-  %276 = zext i16 %268 to i64
-  %277 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %276
-  %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  store i32 2, ptr %278, align 4, !tbaa !72
-  store i16 2, ptr %278, align 4, !tbaa !72
-  %279 = getelementptr inbounds nuw i8, ptr %277, i64 10
-  store i16 0, ptr %279, align 2, !tbaa !72
-  %280 = getelementptr inbounds nuw i8, ptr %277, i64 4
-  store i32 1, ptr %280, align 4, !tbaa !76
-  %281 = getelementptr inbounds nuw i8, ptr %277, i64 2
-  store i16 3, ptr %281, align 2, !tbaa !78
-  store i16 296, ptr %277, align 4, !tbaa !79
-  %282 = add i16 %255, 5
-  store i16 %282, ptr %143, align 2, !tbaa !71
-  %283 = zext i16 %275 to i64
-  %284 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %283
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
-  store i32 1260, ptr %285, align 4, !tbaa !72
-  %286 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %48, i64 noundef 31)
-  %287 = trunc i64 %286 to i32
-  %288 = add nsw i32 %287, 1
-  %289 = icmp slt i32 %287, 4
-  br i1 %289, label %.preheader46.i206, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit211
+  %257 = add i16 %256, 1
+  store i16 %257, ptr %144, align 2, !tbaa !71
+  %258 = zext i16 %256 to i64
+  %259 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %258
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
+  store i32 476, ptr %260, align 4, !tbaa !72
+  %261 = getelementptr inbounds nuw i8, ptr %259, i64 4
+  store i32 1, ptr %261, align 4, !tbaa !76
+  %262 = getelementptr inbounds nuw i8, ptr %259, i64 2
+  store i16 5, ptr %262, align 2, !tbaa !78
+  store i16 282, ptr %259, align 4, !tbaa !79
+  %263 = add i16 %256, 2
+  %264 = zext i16 %257 to i64
+  %265 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %264
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
+  store i32 484, ptr %266, align 4, !tbaa !72
+  %267 = getelementptr inbounds nuw i8, ptr %265, i64 4
+  store i32 1, ptr %267, align 4, !tbaa !76
+  %268 = getelementptr inbounds nuw i8, ptr %265, i64 2
+  store i16 5, ptr %268, align 2, !tbaa !78
+  store i16 283, ptr %265, align 4, !tbaa !79
+  %269 = add i16 %256, 3
+  %270 = zext i16 %263 to i64
+  %271 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %270
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
+  store i32 1, ptr %272, align 4, !tbaa !72
+  store i16 1, ptr %272, align 4, !tbaa !72
+  %273 = getelementptr inbounds nuw i8, ptr %271, i64 10
+  store i16 0, ptr %273, align 2, !tbaa !72
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 4
+  store i32 1, ptr %274, align 4, !tbaa !76
+  %275 = getelementptr inbounds nuw i8, ptr %271, i64 2
+  store i16 3, ptr %275, align 2, !tbaa !78
+  store i16 284, ptr %271, align 4, !tbaa !79
+  %276 = add i16 %256, 4
+  %277 = zext i16 %269 to i64
+  %278 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %277
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
+  store i32 2, ptr %279, align 4, !tbaa !72
+  store i16 2, ptr %279, align 4, !tbaa !72
+  %280 = getelementptr inbounds nuw i8, ptr %278, i64 10
+  store i16 0, ptr %280, align 2, !tbaa !72
+  %281 = getelementptr inbounds nuw i8, ptr %278, i64 4
+  store i32 1, ptr %281, align 4, !tbaa !76
+  %282 = getelementptr inbounds nuw i8, ptr %278, i64 2
+  store i16 3, ptr %282, align 2, !tbaa !78
+  store i16 296, ptr %278, align 4, !tbaa !79
+  %283 = add i16 %256, 5
+  store i16 %283, ptr %144, align 2, !tbaa !71
+  %284 = zext i16 %276 to i64
+  %285 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %284
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
+  store i32 1260, ptr %286, align 4, !tbaa !72
+  %287 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %48, i64 noundef 31)
+  %288 = trunc i64 %287 to i32
+  %289 = add nsw i32 %288, 1
+  %290 = icmp slt i32 %288, 4
+  br i1 %290, label %.preheader46.i206, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit211
 
 .preheader46.i206:                                ; preds = %.preheader48.i196, %.preheader46.i206
   %indvars.iv56.i207 = phi i64 [ %indvars.iv.next57.i209, %.preheader46.i206 ], [ 0, %.preheader48.i196 ]
   %gep.i208 = getelementptr i8, ptr %48, i64 %indvars.iv56.i207
-  %290 = load i8, ptr %gep.i208, align 1, !tbaa !72
-  %291 = getelementptr inbounds nuw i8, ptr %285, i64 %indvars.iv56.i207
-  store i8 %290, ptr %291, align 1, !tbaa !72
+  %291 = load i8, ptr %gep.i208, align 1, !tbaa !72
+  %292 = getelementptr inbounds nuw i8, ptr %286, i64 %indvars.iv56.i207
+  store i8 %291, ptr %292, align 1, !tbaa !72
   %indvars.iv.next57.i209 = add nuw nsw i64 %indvars.iv56.i207, 1
   %exitcond.not.i210 = icmp eq i64 %indvars.iv.next57.i209, 4
   br i1 %exitcond.not.i210, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit211, label %.preheader46.i206, !llvm.loop !75
 
 _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit211:     ; preds = %.preheader46.i206, %.preheader48.i196
-  %292 = getelementptr inbounds nuw i8, ptr %284, i64 4
-  store i32 %288, ptr %292, align 4, !tbaa !76
-  %293 = getelementptr inbounds nuw i8, ptr %284, i64 2
-  store i16 2, ptr %293, align 2, !tbaa !78
-  store i16 305, ptr %284, align 4, !tbaa !79
-  %294 = load i16, ptr %143, align 2, !tbaa !71
-  %295 = add i16 %294, 1
-  store i16 %295, ptr %143, align 2, !tbaa !71
-  %296 = zext i16 %294 to i64
-  %297 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %296
-  %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
-  store i32 1292, ptr %298, align 4, !tbaa !72
-  %299 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %51, i64 noundef 19)
-  %300 = trunc i64 %299 to i32
-  %301 = add nsw i32 %300, 1
-  %302 = icmp slt i32 %300, 4
-  br i1 %302, label %.preheader46.i214, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit219
+  %293 = getelementptr inbounds nuw i8, ptr %285, i64 4
+  store i32 %289, ptr %293, align 4, !tbaa !76
+  %294 = getelementptr inbounds nuw i8, ptr %285, i64 2
+  store i16 2, ptr %294, align 2, !tbaa !78
+  store i16 305, ptr %285, align 4, !tbaa !79
+  %295 = load i16, ptr %144, align 2, !tbaa !71
+  %296 = add i16 %295, 1
+  store i16 %296, ptr %144, align 2, !tbaa !71
+  %297 = zext i16 %295 to i64
+  %298 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %297
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
+  store i32 1292, ptr %299, align 4, !tbaa !72
+  %300 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %51, i64 noundef 19)
+  %301 = trunc i64 %300 to i32
+  %302 = add nsw i32 %301, 1
+  %303 = icmp slt i32 %301, 4
+  br i1 %303, label %.preheader46.i214, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit219
 
 .preheader46.i214:                                ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit211, %.preheader46.i214
   %indvars.iv56.i215 = phi i64 [ %indvars.iv.next57.i217, %.preheader46.i214 ], [ 0, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit211 ]
   %gep.i216 = getelementptr i8, ptr %51, i64 %indvars.iv56.i215
-  %303 = load i8, ptr %gep.i216, align 1, !tbaa !72
-  %304 = getelementptr inbounds nuw i8, ptr %298, i64 %indvars.iv56.i215
-  store i8 %303, ptr %304, align 1, !tbaa !72
+  %304 = load i8, ptr %gep.i216, align 1, !tbaa !72
+  %305 = getelementptr inbounds nuw i8, ptr %299, i64 %indvars.iv56.i215
+  store i8 %304, ptr %305, align 1, !tbaa !72
   %indvars.iv.next57.i217 = add nuw nsw i64 %indvars.iv56.i215, 1
   %exitcond.not.i218 = icmp eq i64 %indvars.iv.next57.i217, 4
   br i1 %exitcond.not.i218, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit219, label %.preheader46.i214, !llvm.loop !75
 
 _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit219:     ; preds = %.preheader46.i214, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit211
-  %305 = getelementptr inbounds nuw i8, ptr %297, i64 4
-  store i32 %301, ptr %305, align 4, !tbaa !76
-  %306 = getelementptr inbounds nuw i8, ptr %297, i64 2
-  store i16 2, ptr %306, align 2, !tbaa !78
-  store i16 306, ptr %297, align 4, !tbaa !79
-  %307 = load i16, ptr %143, align 2, !tbaa !71
-  %308 = add i16 %307, 1
-  store i16 %308, ptr %143, align 2, !tbaa !71
-  %309 = zext i16 %307 to i64
-  %310 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %309
-  %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  store i32 1312, ptr %311, align 4, !tbaa !72
-  %312 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %66, i64 noundef 63)
-  %313 = trunc i64 %312 to i32
-  %314 = add nsw i32 %313, 1
-  %315 = icmp slt i32 %313, 4
-  br i1 %315, label %.preheader46.i222, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit227
+  %306 = getelementptr inbounds nuw i8, ptr %298, i64 4
+  store i32 %302, ptr %306, align 4, !tbaa !76
+  %307 = getelementptr inbounds nuw i8, ptr %298, i64 2
+  store i16 2, ptr %307, align 2, !tbaa !78
+  store i16 306, ptr %298, align 4, !tbaa !79
+  %308 = load i16, ptr %144, align 2, !tbaa !71
+  %309 = add i16 %308, 1
+  store i16 %309, ptr %144, align 2, !tbaa !71
+  %310 = zext i16 %308 to i64
+  %311 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %310
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
+  store i32 1312, ptr %312, align 4, !tbaa !72
+  %313 = tail call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %66, i64 noundef 63)
+  %314 = trunc i64 %313 to i32
+  %315 = add nsw i32 %314, 1
+  %316 = icmp slt i32 %314, 4
+  br i1 %316, label %.preheader46.i222, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit227
 
 .preheader46.i222:                                ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit219, %.preheader46.i222
   %indvars.iv56.i223 = phi i64 [ %indvars.iv.next57.i225, %.preheader46.i222 ], [ 0, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit219 ]
   %gep.i224 = getelementptr i8, ptr %66, i64 %indvars.iv56.i223
-  %316 = load i8, ptr %gep.i224, align 1, !tbaa !72
-  %317 = getelementptr inbounds nuw i8, ptr %311, i64 %indvars.iv56.i223
-  store i8 %316, ptr %317, align 1, !tbaa !72
+  %317 = load i8, ptr %gep.i224, align 1, !tbaa !72
+  %318 = getelementptr inbounds nuw i8, ptr %312, i64 %indvars.iv56.i223
+  store i8 %317, ptr %318, align 1, !tbaa !72
   %indvars.iv.next57.i225 = add nuw nsw i64 %indvars.iv56.i223, 1
   %exitcond.not.i226 = icmp eq i64 %indvars.iv.next57.i225, 4
   br i1 %exitcond.not.i226, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit227, label %.preheader46.i222, !llvm.loop !75
 
 _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit227:     ; preds = %.preheader46.i222, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit219
-  %318 = getelementptr inbounds nuw i8, ptr %310, i64 4
-  store i32 %314, ptr %318, align 4, !tbaa !76
-  %319 = getelementptr inbounds nuw i8, ptr %310, i64 2
-  store i16 2, ptr %319, align 2, !tbaa !78
-  store i16 315, ptr %310, align 4, !tbaa !79
-  %320 = getelementptr inbounds nuw i8, ptr %1, i64 294
-  %321 = load i16, ptr %143, align 2, !tbaa !71
-  %322 = add i16 %321, 1
-  store i16 %322, ptr %143, align 2, !tbaa !71
-  %323 = zext i16 %321 to i64
-  %324 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %323
-  %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
-  store i32 294, ptr %325, align 4, !tbaa !72
-  %326 = getelementptr inbounds nuw i8, ptr %324, i64 4
-  store i32 1, ptr %326, align 4, !tbaa !76
-  %327 = getelementptr inbounds nuw i8, ptr %324, i64 2
-  store i16 4, ptr %327, align 2, !tbaa !78
-  store i16 -30871, ptr %324, align 4, !tbaa !79
+  %319 = getelementptr inbounds nuw i8, ptr %311, i64 4
+  store i32 %315, ptr %319, align 4, !tbaa !76
+  %320 = getelementptr inbounds nuw i8, ptr %311, i64 2
+  store i16 2, ptr %320, align 2, !tbaa !78
+  store i16 315, ptr %311, align 4, !tbaa !79
+  %321 = getelementptr inbounds nuw i8, ptr %1, i64 294
+  %322 = load i16, ptr %144, align 2, !tbaa !71
+  %323 = add i16 %322, 1
+  store i16 %323, ptr %144, align 2, !tbaa !71
+  %324 = zext i16 %322 to i64
+  %325 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %324
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
+  store i32 294, ptr %326, align 4, !tbaa !72
+  %327 = getelementptr inbounds nuw i8, ptr %325, i64 4
+  store i32 1, ptr %327, align 4, !tbaa !76
+  %328 = getelementptr inbounds nuw i8, ptr %325, i64 2
+  store i16 4, ptr %328, align 2, !tbaa !78
+  store i16 -30871, ptr %325, align 4, !tbaa !79
   %.not161 = icmp eq i32 %.1158, 0
-  br i1 %.not161, label %.preheader48.i231, label %328
+  br i1 %.not161, label %.preheader48.i231, label %329
 
-328:                                              ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit227
-  %329 = add i16 %321, 2
-  store i16 %329, ptr %143, align 2, !tbaa !71
-  %330 = zext i16 %322 to i64
-  %331 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %330
-  %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
-  store i32 1376, ptr %332, align 4, !tbaa !72
-  %333 = getelementptr inbounds nuw i8, ptr %331, i64 4
-  store i32 %.1158, ptr %333, align 4, !tbaa !76
-  %334 = getelementptr inbounds nuw i8, ptr %331, i64 2
-  store i16 7, ptr %334, align 2, !tbaa !78
-  store i16 -30861, ptr %331, align 4, !tbaa !79
+329:                                              ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit227
+  %330 = add i16 %322, 2
+  store i16 %330, ptr %144, align 2, !tbaa !71
+  %331 = zext i16 %323 to i64
+  %332 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %331
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
+  store i32 1376, ptr %333, align 4, !tbaa !72
+  %334 = getelementptr inbounds nuw i8, ptr %332, i64 4
+  store i32 %.1158, ptr %334, align 4, !tbaa !76
+  %335 = getelementptr inbounds nuw i8, ptr %332, i64 2
+  store i16 7, ptr %335, align 2, !tbaa !78
+  store i16 -30861, ptr %332, align 4, !tbaa !79
   br label %.preheader48.i231
 
-.preheader48.i231:                                ; preds = %328, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit227
-  %335 = phi i16 [ %329, %328 ], [ %322, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit227 ]
-  %336 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %337 = load i16, ptr %320, align 2, !tbaa !71
-  %338 = add i16 %337, 1
-  %339 = zext i16 %337 to i64
-  %340 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %336, i64 %339
-  %341 = getelementptr inbounds nuw i8, ptr %340, i64 8
-  store i32 492, ptr %341, align 4, !tbaa !72
-  %342 = getelementptr inbounds nuw i8, ptr %340, i64 4
-  store i32 1, ptr %342, align 4, !tbaa !76
-  %343 = getelementptr inbounds nuw i8, ptr %340, i64 2
-  store i16 5, ptr %343, align 2, !tbaa !78
-  store i16 -32102, ptr %340, align 4, !tbaa !79
-  %344 = add i16 %337, 2
-  %345 = zext i16 %338 to i64
-  %346 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %336, i64 %345
-  %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
-  store i32 500, ptr %347, align 4, !tbaa !72
-  %348 = getelementptr inbounds nuw i8, ptr %346, i64 4
-  store i32 1, ptr %348, align 4, !tbaa !76
-  %349 = getelementptr inbounds nuw i8, ptr %346, i64 2
-  store i16 5, ptr %349, align 2, !tbaa !78
-  store i16 -32099, ptr %346, align 4, !tbaa !79
-  %350 = load float, ptr %17, align 8, !tbaa !102
-  %351 = fptosi float %350 to i32
-  %352 = add i16 %337, 3
-  %353 = zext i16 %344 to i64
-  %354 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %336, i64 %353
-  %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  store i32 %351, ptr %355, align 4, !tbaa !72
-  %356 = trunc i32 %351 to i16
-  store i16 %356, ptr %355, align 4, !tbaa !72
-  %357 = lshr i32 %351, 16
-  %358 = trunc nuw i32 %357 to i16
-  %359 = getelementptr inbounds nuw i8, ptr %354, i64 10
-  store i16 %358, ptr %359, align 2, !tbaa !72
-  %360 = getelementptr inbounds nuw i8, ptr %354, i64 4
-  store i32 1, ptr %360, align 4, !tbaa !76
-  %361 = getelementptr inbounds nuw i8, ptr %354, i64 2
-  store i16 3, ptr %361, align 2, !tbaa !78
-  store i16 -30681, ptr %354, align 4, !tbaa !79
-  %362 = add i16 %337, 4
-  store i16 %362, ptr %320, align 2, !tbaa !71
-  %363 = zext i16 %352 to i64
-  %364 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %336, i64 %363
-  %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
-  store i32 508, ptr %365, align 4, !tbaa !72
-  %366 = getelementptr inbounds nuw i8, ptr %364, i64 4
-  store i32 1, ptr %366, align 4, !tbaa !76
-  %367 = getelementptr inbounds nuw i8, ptr %364, i64 2
-  store i16 5, ptr %367, align 2, !tbaa !78
-  store i16 -28150, ptr %364, align 4, !tbaa !79
-  %368 = getelementptr inbounds nuw i8, ptr %0, i64 192584
-  %369 = load i32, ptr %368, align 8, !tbaa !84
-  %.not162 = icmp eq i32 %369, 0
-  br i1 %.not162, label %503, label %370
+.preheader48.i231:                                ; preds = %329, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit227
+  %336 = phi i16 [ %330, %329 ], [ %323, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit227 ]
+  %337 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %338 = load i16, ptr %321, align 2, !tbaa !71
+  %339 = add i16 %338, 1
+  %340 = zext i16 %338 to i64
+  %341 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %337, i64 %340
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
+  store i32 492, ptr %342, align 4, !tbaa !72
+  %343 = getelementptr inbounds nuw i8, ptr %341, i64 4
+  store i32 1, ptr %343, align 4, !tbaa !76
+  %344 = getelementptr inbounds nuw i8, ptr %341, i64 2
+  store i16 5, ptr %344, align 2, !tbaa !78
+  store i16 -32102, ptr %341, align 4, !tbaa !79
+  %345 = add i16 %338, 2
+  %346 = zext i16 %339 to i64
+  %347 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %337, i64 %346
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
+  store i32 500, ptr %348, align 4, !tbaa !72
+  %349 = getelementptr inbounds nuw i8, ptr %347, i64 4
+  store i32 1, ptr %349, align 4, !tbaa !76
+  %350 = getelementptr inbounds nuw i8, ptr %347, i64 2
+  store i16 5, ptr %350, align 2, !tbaa !78
+  store i16 -32099, ptr %347, align 4, !tbaa !79
+  %351 = load float, ptr %17, align 8, !tbaa !102
+  %352 = fptosi float %351 to i32
+  %353 = add i16 %338, 3
+  %354 = zext i16 %345 to i64
+  %355 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %337, i64 %354
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
+  store i32 %352, ptr %356, align 4, !tbaa !72
+  %357 = trunc i32 %352 to i16
+  store i16 %357, ptr %356, align 4, !tbaa !72
+  %358 = lshr i32 %352, 16
+  %359 = trunc nuw i32 %358 to i16
+  %360 = getelementptr inbounds nuw i8, ptr %355, i64 10
+  store i16 %359, ptr %360, align 2, !tbaa !72
+  %361 = getelementptr inbounds nuw i8, ptr %355, i64 4
+  store i32 1, ptr %361, align 4, !tbaa !76
+  %362 = getelementptr inbounds nuw i8, ptr %355, i64 2
+  store i16 3, ptr %362, align 2, !tbaa !78
+  store i16 -30681, ptr %355, align 4, !tbaa !79
+  %363 = add i16 %338, 4
+  store i16 %363, ptr %321, align 2, !tbaa !71
+  %364 = zext i16 %353 to i64
+  %365 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %337, i64 %364
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 8
+  store i32 508, ptr %366, align 4, !tbaa !72
+  %367 = getelementptr inbounds nuw i8, ptr %365, i64 4
+  store i32 1, ptr %367, align 4, !tbaa !76
+  %368 = getelementptr inbounds nuw i8, ptr %365, i64 2
+  store i16 5, ptr %368, align 2, !tbaa !78
+  store i16 -28150, ptr %365, align 4, !tbaa !79
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 192584
+  %370 = load i32, ptr %369, align 8, !tbaa !84
+  %.not162 = icmp eq i32 %370, 0
+  br i1 %.not162, label %504, label %371
 
-370:                                              ; preds = %.preheader48.i231
+371:                                              ; preds = %.preheader48.i231
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %371 = getelementptr inbounds nuw i8, ptr %0, i64 192696
-  %372 = load i32, ptr %371, align 8, !tbaa !84
-  %373 = trunc i32 %372 to i8
-  store i8 %373, ptr %4, align 1, !tbaa !72
-  %374 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 0, ptr %374, align 1, !tbaa !72
-  %375 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 192696
+  %373 = load i32, ptr %372, align 8, !tbaa !84
+  %374 = trunc i32 %373 to i8
+  store i8 %374, ptr %4, align 1, !tbaa !72
+  %375 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 0, ptr %375, align 1, !tbaa !72
-  %376 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %376 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 0, ptr %376, align 1, !tbaa !72
+  %377 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  store i8 0, ptr %377, align 1, !tbaa !72
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %377 = getelementptr inbounds nuw i8, ptr %0, i64 192700
-  %378 = load i32, ptr %377, align 4, !tbaa !84
-  %379 = trunc i32 %378 to i8
-  store i8 %379, ptr %5, align 1, !tbaa !72
-  %380 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 0, ptr %380, align 1, !tbaa !72
-  %381 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 192700
+  %379 = load i32, ptr %378, align 4, !tbaa !84
+  %380 = trunc i32 %379 to i8
+  store i8 %380, ptr %5, align 1, !tbaa !72
+  %381 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 0, ptr %381, align 1, !tbaa !72
-  %382 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %382 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 0, ptr %382, align 1, !tbaa !72
-  %383 = getelementptr inbounds nuw i8, ptr %1, i64 346
-  %384 = add i16 %335, 1
-  store i16 %384, ptr %143, align 2, !tbaa !71
-  %385 = zext i16 %335 to i64
-  %386 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %145, i64 %385
-  %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
-  store i32 346, ptr %387, align 4, !tbaa !72
-  %388 = getelementptr inbounds nuw i8, ptr %386, i64 4
-  store i32 1, ptr %388, align 4, !tbaa !76
-  %389 = getelementptr inbounds nuw i8, ptr %386, i64 2
-  store i16 4, ptr %389, align 2, !tbaa !78
-  store i16 -30683, ptr %386, align 4, !tbaa !79
-  %390 = getelementptr inbounds nuw i8, ptr %1, i64 348
-  %391 = load i16, ptr %383, align 2, !tbaa !71
-  %392 = add i16 %391, 1
-  %393 = zext i16 %391 to i64
-  %394 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %390, i64 %393
-  %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
-  store i32 514, ptr %395, align 4, !tbaa !72
+  %383 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  store i8 0, ptr %383, align 1, !tbaa !72
+  %384 = getelementptr inbounds nuw i8, ptr %1, i64 346
+  %385 = add i16 %336, 1
+  store i16 %385, ptr %144, align 2, !tbaa !71
+  %386 = zext i16 %336 to i64
+  %387 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %146, i64 %386
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
+  store i32 346, ptr %388, align 4, !tbaa !72
+  %389 = getelementptr inbounds nuw i8, ptr %387, i64 4
+  store i32 1, ptr %389, align 4, !tbaa !76
+  %390 = getelementptr inbounds nuw i8, ptr %387, i64 2
+  store i16 4, ptr %390, align 2, !tbaa !78
+  store i16 -30683, ptr %387, align 4, !tbaa !79
+  %391 = getelementptr inbounds nuw i8, ptr %1, i64 348
+  %392 = load i16, ptr %384, align 2, !tbaa !71
+  %393 = add i16 %392, 1
+  %394 = zext i16 %392 to i64
+  %395 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %391, i64 %394
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
+  store i32 514, ptr %396, align 4, !tbaa !72
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i, %370
-  %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %.preheader.i ], [ 0, %370 ]
+.preheader.i:                                     ; preds = %.preheader.i, %371
+  %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %.preheader.i ], [ 0, %371 ]
   %indvars.iv59.tr.i = trunc i64 %indvars.iv59.i to i32
-  %396 = shl i32 %indvars.iv59.tr.i, 3
-  %397 = lshr i32 514, %396
-  %398 = trunc i32 %397 to i8
-  %399 = getelementptr inbounds nuw i8, ptr %395, i64 %indvars.iv59.i
-  store i8 %398, ptr %399, align 1, !tbaa !72
+  %397 = shl i32 %indvars.iv59.tr.i, 3
+  %398 = lshr i32 514, %397
+  %399 = trunc i32 %398 to i8
+  %400 = getelementptr inbounds nuw i8, ptr %396, i64 %indvars.iv59.i
+  store i8 %399, ptr %400, align 1, !tbaa !72
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, 4
   br i1 %exitcond62.not.i, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit235, label %.preheader.i, !llvm.loop !73
 
 _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit235:     ; preds = %.preheader.i
-  %400 = getelementptr inbounds nuw i8, ptr %0, i64 192580
-  %401 = getelementptr inbounds nuw i8, ptr %394, i64 4
-  store i32 4, ptr %401, align 4, !tbaa !76
-  %402 = getelementptr inbounds nuw i8, ptr %394, i64 2
-  store i16 1, ptr %402, align 2, !tbaa !78
-  store i16 0, ptr %394, align 4, !tbaa !79
-  %403 = ptrtoint ptr %4 to i64
-  %404 = sub i64 %403, %144
-  %405 = trunc i64 %404 to i32
-  %406 = add i16 %391, 2
-  store i16 %406, ptr %383, align 2, !tbaa !71
-  %407 = zext i16 %392 to i64
-  %408 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %390, i64 %407
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
-  store i32 %405, ptr %409, align 4, !tbaa !72
-  %sext = shl i64 %404, 32
-  %410 = ashr exact i64 %sext, 32
-  %411 = getelementptr inbounds i8, ptr %1, i64 %410
-  %412 = call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef %411, i64 noundef 1)
-  %413 = trunc i64 %412 to i32
-  %414 = add nsw i32 %413, 1
-  %415 = icmp slt i32 %413, 4
-  br i1 %415, label %.preheader46.i238, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit243
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 192580
+  %402 = getelementptr inbounds nuw i8, ptr %395, i64 4
+  store i32 4, ptr %402, align 4, !tbaa !76
+  %403 = getelementptr inbounds nuw i8, ptr %395, i64 2
+  store i16 1, ptr %403, align 2, !tbaa !78
+  store i16 0, ptr %395, align 4, !tbaa !79
+  %404 = ptrtoint ptr %4 to i64
+  %405 = sub i64 %404, %145
+  %406 = trunc i64 %405 to i32
+  %407 = add i16 %392, 2
+  store i16 %407, ptr %384, align 2, !tbaa !71
+  %408 = zext i16 %393 to i64
+  %409 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %391, i64 %408
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
+  store i32 %406, ptr %410, align 4, !tbaa !72
+  %sext = shl i64 %405, 32
+  %411 = ashr exact i64 %sext, 32
+  %412 = getelementptr inbounds i8, ptr %1, i64 %411
+  %413 = call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef %412, i64 noundef 1)
+  %414 = trunc i64 %413 to i32
+  %415 = add nsw i32 %414, 1
+  %416 = icmp slt i32 %414, 4
+  br i1 %416, label %.preheader46.i238, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit243
 
 .preheader46.i238:                                ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit235, %.preheader46.i238
   %indvars.iv56.i239 = phi i64 [ %indvars.iv.next57.i241, %.preheader46.i238 ], [ 0, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit235 ]
-  %gep.i240 = getelementptr i8, ptr %411, i64 %indvars.iv56.i239
-  %416 = load i8, ptr %gep.i240, align 1, !tbaa !72
-  %417 = getelementptr inbounds nuw i8, ptr %409, i64 %indvars.iv56.i239
-  store i8 %416, ptr %417, align 1, !tbaa !72
+  %gep.i240 = getelementptr i8, ptr %412, i64 %indvars.iv56.i239
+  %417 = load i8, ptr %gep.i240, align 1, !tbaa !72
+  %418 = getelementptr inbounds nuw i8, ptr %410, i64 %indvars.iv56.i239
+  store i8 %417, ptr %418, align 1, !tbaa !72
   %indvars.iv.next57.i241 = add nuw nsw i64 %indvars.iv56.i239, 1
   %exitcond.not.i242 = icmp eq i64 %indvars.iv.next57.i241, 4
   br i1 %exitcond.not.i242, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit243, label %.preheader46.i238, !llvm.loop !75
 
 _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit243:     ; preds = %.preheader46.i238, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit235
-  %418 = getelementptr inbounds nuw i8, ptr %408, i64 4
-  store i32 %414, ptr %418, align 4, !tbaa !76
-  %419 = getelementptr inbounds nuw i8, ptr %408, i64 2
-  store i16 2, ptr %419, align 2, !tbaa !78
-  store i16 1, ptr %408, align 4, !tbaa !79
-  %420 = getelementptr inbounds nuw i8, ptr %1, i64 516
-  %421 = load i16, ptr %383, align 2, !tbaa !71
-  %422 = add i16 %421, 1
-  %423 = zext i16 %421 to i64
-  %424 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %390, i64 %423
-  %425 = getelementptr inbounds nuw i8, ptr %424, i64 8
-  store i32 516, ptr %425, align 4, !tbaa !72
-  %426 = getelementptr inbounds nuw i8, ptr %424, i64 4
-  store i32 3, ptr %426, align 4, !tbaa !76
-  %427 = getelementptr inbounds nuw i8, ptr %424, i64 2
-  store i16 5, ptr %427, align 2, !tbaa !78
-  store i16 2, ptr %424, align 4, !tbaa !79
-  %428 = ptrtoint ptr %5 to i64
-  %429 = sub i64 %428, %144
-  %430 = trunc i64 %429 to i32
-  %431 = add i16 %421, 2
-  store i16 %431, ptr %383, align 2, !tbaa !71
-  %432 = zext i16 %422 to i64
-  %433 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %390, i64 %432
-  %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
-  store i32 %430, ptr %434, align 4, !tbaa !72
-  %sext274 = shl i64 %429, 32
-  %435 = ashr exact i64 %sext274, 32
-  %436 = getelementptr inbounds i8, ptr %1, i64 %435
-  %437 = call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef %436, i64 noundef 1)
-  %438 = trunc i64 %437 to i32
-  %439 = add nsw i32 %438, 1
-  %440 = icmp slt i32 %438, 4
-  br i1 %440, label %.preheader46.i246, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit251
+  %419 = getelementptr inbounds nuw i8, ptr %409, i64 4
+  store i32 %415, ptr %419, align 4, !tbaa !76
+  %420 = getelementptr inbounds nuw i8, ptr %409, i64 2
+  store i16 2, ptr %420, align 2, !tbaa !78
+  store i16 1, ptr %409, align 4, !tbaa !79
+  %421 = getelementptr inbounds nuw i8, ptr %1, i64 516
+  %422 = load i16, ptr %384, align 2, !tbaa !71
+  %423 = add i16 %422, 1
+  %424 = zext i16 %422 to i64
+  %425 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %391, i64 %424
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
+  store i32 516, ptr %426, align 4, !tbaa !72
+  %427 = getelementptr inbounds nuw i8, ptr %425, i64 4
+  store i32 3, ptr %427, align 4, !tbaa !76
+  %428 = getelementptr inbounds nuw i8, ptr %425, i64 2
+  store i16 5, ptr %428, align 2, !tbaa !78
+  store i16 2, ptr %425, align 4, !tbaa !79
+  %429 = ptrtoint ptr %5 to i64
+  %430 = sub i64 %429, %145
+  %431 = trunc i64 %430 to i32
+  %432 = add i16 %422, 2
+  store i16 %432, ptr %384, align 2, !tbaa !71
+  %433 = zext i16 %423 to i64
+  %434 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %391, i64 %433
+  %435 = getelementptr inbounds nuw i8, ptr %434, i64 8
+  store i32 %431, ptr %435, align 4, !tbaa !72
+  %sext274 = shl i64 %430, 32
+  %436 = ashr exact i64 %sext274, 32
+  %437 = getelementptr inbounds i8, ptr %1, i64 %436
+  %438 = call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef %437, i64 noundef 1)
+  %439 = trunc i64 %438 to i32
+  %440 = add nsw i32 %439, 1
+  %441 = icmp slt i32 %439, 4
+  br i1 %441, label %.preheader46.i246, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit251
 
 .preheader46.i246:                                ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit243, %.preheader46.i246
   %indvars.iv56.i247 = phi i64 [ %indvars.iv.next57.i249, %.preheader46.i246 ], [ 0, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit243 ]
-  %gep.i248 = getelementptr i8, ptr %436, i64 %indvars.iv56.i247
-  %441 = load i8, ptr %gep.i248, align 1, !tbaa !72
-  %442 = getelementptr inbounds nuw i8, ptr %434, i64 %indvars.iv56.i247
-  store i8 %441, ptr %442, align 1, !tbaa !72
+  %gep.i248 = getelementptr i8, ptr %437, i64 %indvars.iv56.i247
+  %442 = load i8, ptr %gep.i248, align 1, !tbaa !72
+  %443 = getelementptr inbounds nuw i8, ptr %435, i64 %indvars.iv56.i247
+  store i8 %442, ptr %443, align 1, !tbaa !72
   %indvars.iv.next57.i249 = add nuw nsw i64 %indvars.iv56.i247, 1
   %exitcond.not.i250 = icmp eq i64 %indvars.iv.next57.i249, 4
   br i1 %exitcond.not.i250, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit251, label %.preheader46.i246, !llvm.loop !75
 
 _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit251:     ; preds = %.preheader46.i246, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit243
-  %443 = getelementptr inbounds nuw i8, ptr %433, i64 4
-  store i32 %439, ptr %443, align 4, !tbaa !76
-  %444 = getelementptr inbounds nuw i8, ptr %433, i64 2
-  store i16 2, ptr %444, align 2, !tbaa !78
-  store i16 3, ptr %433, align 4, !tbaa !79
-  %445 = load i16, ptr %383, align 2, !tbaa !71
-  %446 = add i16 %445, 1
-  %447 = zext i16 %445 to i64
-  %448 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %390, i64 %447
-  %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
-  store i32 540, ptr %449, align 4, !tbaa !72
-  %450 = getelementptr inbounds nuw i8, ptr %448, i64 4
-  store i32 3, ptr %450, align 4, !tbaa !76
-  %451 = getelementptr inbounds nuw i8, ptr %448, i64 2
-  store i16 5, ptr %451, align 2, !tbaa !78
-  store i16 4, ptr %448, align 4, !tbaa !79
-  %452 = getelementptr inbounds nuw i8, ptr %0, i64 192704
-  %453 = load i32, ptr %452, align 8, !tbaa !84
-  %454 = add i16 %445, 2
-  %455 = zext i16 %446 to i64
-  %456 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %390, i64 %455
-  %457 = getelementptr inbounds nuw i8, ptr %456, i64 8
-  store i32 %453, ptr %457, align 4, !tbaa !72
+  %444 = getelementptr inbounds nuw i8, ptr %434, i64 4
+  store i32 %440, ptr %444, align 4, !tbaa !76
+  %445 = getelementptr inbounds nuw i8, ptr %434, i64 2
+  store i16 2, ptr %445, align 2, !tbaa !78
+  store i16 3, ptr %434, align 4, !tbaa !79
+  %446 = load i16, ptr %384, align 2, !tbaa !71
+  %447 = add i16 %446, 1
+  %448 = zext i16 %446 to i64
+  %449 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %391, i64 %448
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 8
+  store i32 540, ptr %450, align 4, !tbaa !72
+  %451 = getelementptr inbounds nuw i8, ptr %449, i64 4
+  store i32 3, ptr %451, align 4, !tbaa !76
+  %452 = getelementptr inbounds nuw i8, ptr %449, i64 2
+  store i16 5, ptr %452, align 2, !tbaa !78
+  store i16 4, ptr %449, align 4, !tbaa !79
+  %453 = getelementptr inbounds nuw i8, ptr %0, i64 192704
+  %454 = load i32, ptr %453, align 8, !tbaa !84
+  %455 = add i16 %446, 2
+  %456 = zext i16 %447 to i64
+  %457 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %391, i64 %456
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 8
+  store i32 %454, ptr %458, align 4, !tbaa !72
   br label %.preheader.i252
 
 .preheader.i252:                                  ; preds = %.preheader.i252, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit251
   %indvars.iv59.i253 = phi i64 [ %indvars.iv.next60.i255, %.preheader.i252 ], [ 0, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit251 ]
   %indvars.iv59.tr.i254 = trunc i64 %indvars.iv59.i253 to i32
-  %458 = shl i32 %indvars.iv59.tr.i254, 3
-  %459 = ashr i32 %453, %458
-  %460 = trunc i32 %459 to i8
-  %461 = getelementptr inbounds nuw i8, ptr %457, i64 %indvars.iv59.i253
-  store i8 %460, ptr %461, align 1, !tbaa !72
+  %459 = shl i32 %indvars.iv59.tr.i254, 3
+  %460 = ashr i32 %454, %459
+  %461 = trunc i32 %460 to i8
+  %462 = getelementptr inbounds nuw i8, ptr %458, i64 %indvars.iv59.i253
+  store i8 %461, ptr %462, align 1, !tbaa !72
   %indvars.iv.next60.i255 = add nuw nsw i64 %indvars.iv59.i253, 1
   %exitcond62.not.i256 = icmp eq i64 %indvars.iv.next60.i255, 4
   br i1 %exitcond62.not.i256, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit257, label %.preheader.i252, !llvm.loop !73
 
 _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit257:     ; preds = %.preheader.i252
-  %462 = getelementptr inbounds nuw i8, ptr %456, i64 4
-  store i32 1, ptr %462, align 4, !tbaa !76
-  %463 = getelementptr inbounds nuw i8, ptr %456, i64 2
-  store i16 1, ptr %463, align 2, !tbaa !78
-  store i16 5, ptr %456, align 4, !tbaa !79
-  %464 = add i16 %445, 3
-  %465 = zext i16 %454 to i64
-  %466 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %390, i64 %465
-  %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
-  store i32 588, ptr %467, align 4, !tbaa !72
-  %468 = getelementptr inbounds nuw i8, ptr %466, i64 4
-  store i32 1, ptr %468, align 4, !tbaa !76
-  %469 = getelementptr inbounds nuw i8, ptr %466, i64 2
-  store i16 5, ptr %469, align 2, !tbaa !78
-  store i16 6, ptr %466, align 4, !tbaa !79
-  %470 = add i16 %445, 4
-  %471 = zext i16 %464 to i64
-  %472 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %390, i64 %471
-  %473 = getelementptr inbounds nuw i8, ptr %472, i64 8
-  store i32 564, ptr %473, align 4, !tbaa !72
-  %474 = getelementptr inbounds nuw i8, ptr %472, i64 4
-  store i32 3, ptr %474, align 4, !tbaa !76
-  %475 = getelementptr inbounds nuw i8, ptr %472, i64 2
-  store i16 5, ptr %475, align 2, !tbaa !78
-  store i16 7, ptr %472, align 4, !tbaa !79
-  %476 = add i16 %445, 5
-  store i16 %476, ptr %383, align 2, !tbaa !71
-  %477 = zext i16 %470 to i64
-  %478 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %390, i64 %477
-  %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
-  store i32 596, ptr %479, align 4, !tbaa !72
-  %480 = getelementptr inbounds nuw i8, ptr %1, i64 596
-  %481 = call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %480, i64 noundef 11)
-  %482 = trunc i64 %481 to i32
-  %483 = add nsw i32 %482, 1
-  %484 = icmp slt i32 %482, 4
-  br i1 %484, label %.preheader46.i260, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit265
+  %463 = getelementptr inbounds nuw i8, ptr %457, i64 4
+  store i32 1, ptr %463, align 4, !tbaa !76
+  %464 = getelementptr inbounds nuw i8, ptr %457, i64 2
+  store i16 1, ptr %464, align 2, !tbaa !78
+  store i16 5, ptr %457, align 4, !tbaa !79
+  %465 = add i16 %446, 3
+  %466 = zext i16 %455 to i64
+  %467 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %391, i64 %466
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
+  store i32 588, ptr %468, align 4, !tbaa !72
+  %469 = getelementptr inbounds nuw i8, ptr %467, i64 4
+  store i32 1, ptr %469, align 4, !tbaa !76
+  %470 = getelementptr inbounds nuw i8, ptr %467, i64 2
+  store i16 5, ptr %470, align 2, !tbaa !78
+  store i16 6, ptr %467, align 4, !tbaa !79
+  %471 = add i16 %446, 4
+  %472 = zext i16 %465 to i64
+  %473 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %391, i64 %472
+  %474 = getelementptr inbounds nuw i8, ptr %473, i64 8
+  store i32 564, ptr %474, align 4, !tbaa !72
+  %475 = getelementptr inbounds nuw i8, ptr %473, i64 4
+  store i32 3, ptr %475, align 4, !tbaa !76
+  %476 = getelementptr inbounds nuw i8, ptr %473, i64 2
+  store i16 5, ptr %476, align 2, !tbaa !78
+  store i16 7, ptr %473, align 4, !tbaa !79
+  %477 = add i16 %446, 5
+  store i16 %477, ptr %384, align 2, !tbaa !71
+  %478 = zext i16 %471 to i64
+  %479 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %391, i64 %478
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 8
+  store i32 596, ptr %480, align 4, !tbaa !72
+  %481 = getelementptr inbounds nuw i8, ptr %1, i64 596
+  %482 = call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %481, i64 noundef 11)
+  %483 = trunc i64 %482 to i32
+  %484 = add nsw i32 %483, 1
+  %485 = icmp slt i32 %483, 4
+  br i1 %485, label %.preheader46.i260, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit265
 
 .preheader46.i260:                                ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit257, %.preheader46.i260
   %indvars.iv56.i261 = phi i64 [ %indvars.iv.next57.i263, %.preheader46.i260 ], [ 0, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit257 ]
-  %gep.i262 = getelementptr i8, ptr %480, i64 %indvars.iv56.i261
-  %485 = load i8, ptr %gep.i262, align 1, !tbaa !72
-  %486 = getelementptr inbounds nuw i8, ptr %479, i64 %indvars.iv56.i261
-  store i8 %485, ptr %486, align 1, !tbaa !72
+  %gep.i262 = getelementptr i8, ptr %481, i64 %indvars.iv56.i261
+  %486 = load i8, ptr %gep.i262, align 1, !tbaa !72
+  %487 = getelementptr inbounds nuw i8, ptr %480, i64 %indvars.iv56.i261
+  store i8 %486, ptr %487, align 1, !tbaa !72
   %indvars.iv.next57.i263 = add nuw nsw i64 %indvars.iv56.i261, 1
   %exitcond.not.i264 = icmp eq i64 %indvars.iv.next57.i263, 4
   br i1 %exitcond.not.i264, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit265, label %.preheader46.i260, !llvm.loop !75
 
 _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit265:     ; preds = %.preheader46.i260, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit257
-  %487 = getelementptr inbounds nuw i8, ptr %478, i64 4
-  store i32 %483, ptr %487, align 4, !tbaa !76
-  %488 = getelementptr inbounds nuw i8, ptr %478, i64 2
-  store i16 2, ptr %488, align 2, !tbaa !78
-  store i16 18, ptr %478, align 4, !tbaa !79
-  %489 = load i16, ptr %383, align 2, !tbaa !71
-  %490 = add i16 %489, 1
-  store i16 %490, ptr %383, align 2, !tbaa !71
-  %491 = zext i16 %489 to i64
-  %492 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %390, i64 %491
-  %493 = getelementptr inbounds nuw i8, ptr %492, i64 8
-  store i32 608, ptr %493, align 4, !tbaa !72
-  %494 = getelementptr inbounds nuw i8, ptr %1, i64 608
-  %495 = call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %494, i64 noundef 11)
-  %496 = trunc i64 %495 to i32
-  %497 = add nsw i32 %496, 1
-  %498 = icmp slt i32 %496, 4
-  br i1 %498, label %.preheader46.i268, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit273
+  %488 = getelementptr inbounds nuw i8, ptr %479, i64 4
+  store i32 %484, ptr %488, align 4, !tbaa !76
+  %489 = getelementptr inbounds nuw i8, ptr %479, i64 2
+  store i16 2, ptr %489, align 2, !tbaa !78
+  store i16 18, ptr %479, align 4, !tbaa !79
+  %490 = load i16, ptr %384, align 2, !tbaa !71
+  %491 = add i16 %490, 1
+  store i16 %491, ptr %384, align 2, !tbaa !71
+  %492 = zext i16 %490 to i64
+  %493 = getelementptr inbounds nuw %struct.libraw_tiff_tag, ptr %391, i64 %492
+  %494 = getelementptr inbounds nuw i8, ptr %493, i64 8
+  store i32 608, ptr %494, align 4, !tbaa !72
+  %495 = getelementptr inbounds nuw i8, ptr %1, i64 608
+  %496 = call noundef i64 @_ZN6LibRaw7strnlenEPKcm(ptr noundef nonnull %495, i64 noundef 11)
+  %497 = trunc i64 %496 to i32
+  %498 = add nsw i32 %497, 1
+  %499 = icmp slt i32 %497, 4
+  br i1 %499, label %.preheader46.i268, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit273
 
 .preheader46.i268:                                ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit265, %.preheader46.i268
   %indvars.iv56.i269 = phi i64 [ %indvars.iv.next57.i271, %.preheader46.i268 ], [ 0, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit265 ]
-  %gep.i270 = getelementptr i8, ptr %494, i64 %indvars.iv56.i269
-  %499 = load i8, ptr %gep.i270, align 1, !tbaa !72
-  %500 = getelementptr inbounds nuw i8, ptr %493, i64 %indvars.iv56.i269
-  store i8 %499, ptr %500, align 1, !tbaa !72
+  %gep.i270 = getelementptr i8, ptr %495, i64 %indvars.iv56.i269
+  %500 = load i8, ptr %gep.i270, align 1, !tbaa !72
+  %501 = getelementptr inbounds nuw i8, ptr %494, i64 %indvars.iv56.i269
+  store i8 %500, ptr %501, align 1, !tbaa !72
   %indvars.iv.next57.i271 = add nuw nsw i64 %indvars.iv56.i269, 1
   %exitcond.not.i272 = icmp eq i64 %indvars.iv.next57.i271, 4
   br i1 %exitcond.not.i272, label %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit273, label %.preheader46.i268, !llvm.loop !75
 
 _ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit273:     ; preds = %.preheader46.i268, %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit265
-  %501 = getelementptr inbounds nuw i8, ptr %492, i64 4
-  store i32 %497, ptr %501, align 4, !tbaa !76
-  %502 = getelementptr inbounds nuw i8, ptr %492, i64 2
-  store i16 2, ptr %502, align 2, !tbaa !78
-  store i16 29, ptr %492, align 4, !tbaa !79
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %420, ptr noundef nonnull align 4 dereferenceable(104) %400, i64 104, i1 false)
+  %502 = getelementptr inbounds nuw i8, ptr %493, i64 4
+  store i32 %498, ptr %502, align 4, !tbaa !76
+  %503 = getelementptr inbounds nuw i8, ptr %493, i64 2
+  store i16 2, ptr %503, align 2, !tbaa !78
+  store i16 29, ptr %493, align 4, !tbaa !79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %421, ptr noundef nonnull align 4 dereferenceable(104) %401, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %503
+  br label %504
 
-503:                                              ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit273, %.preheader48.i231
+504:                                              ; preds = %_ZN6LibRaw8tiff_setEP8tiff_hdrPtttii.exit273, %.preheader48.i231
   ret void
 }
 

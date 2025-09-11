@@ -2670,7 +2670,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
   %155 = getelementptr inbounds nuw %"class.std::vector.27", ptr %.pr.i, i64 %indvars.iv
   %156 = load ptr, ptr %155, align 8, !tbaa !97
-  %157 = getelementptr inbounds nuw %"class.std::vector.27", ptr %.pr.i, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 1
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %158 = load ptr, ptr %157, align 8, !tbaa !97
   %.not146191 = icmp eq ptr %156, %158
   br i1 %.not146191, label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit, label %._crit_edge.i.i55
@@ -3638,7 +3638,7 @@ _ZNSt6vectorIS_IPN5TCLAP3ArgESaIS2_EESaIS4_EEC2ERKS6_.exit: ; preds = %.noexc60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSolsEPFRSoS_E.exit93 ]
   %123 = getelementptr inbounds nuw %"class.std::vector.27", ptr %.pr.i, i64 %indvars.iv
   %124 = load ptr, ptr %123, align 8, !tbaa !97
-  %125 = getelementptr inbounds nuw %"class.std::vector.27", ptr %.pr.i, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 1
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !97
   %.not196226 = icmp eq ptr %124, %126
   br i1 %.not196226, label %._crit_edge, label %._crit_edge.i.i64

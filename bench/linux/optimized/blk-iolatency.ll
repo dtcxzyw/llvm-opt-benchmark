@@ -107,7 +107,8 @@ define internal noundef ptr @iolatency_pd_alloc(ptr noundef readonly captures(no
 12:                                               ; preds = %8, %3
   %13 = phi i64 [ 0, %3 ], [ %11, %8 ]
   %14 = or i32 %2, 256
-  %15 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13, i64 8
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13
+  %15 = getelementptr i8, ptr %.split, i64 64
   %16 = load ptr, ptr %15, align 16
   %17 = tail call noalias noundef align 8 dereferenceable_or_null(216) ptr @kmalloc_node_trace(ptr noundef %16, i32 noundef %14, i32 noundef %5, i64 noundef 216) #15
   %18 = icmp eq ptr %17, null

@@ -5705,7 +5705,7 @@ _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = 
   %33 = load i64, ptr %32, align 8, !tbaa !46
   %34 = icmp sgt i64 %33, 0
   %.pre49 = load i32, ptr %0, align 4, !tbaa !62
-  br i1 %34, label %35, label %142
+  br i1 %34, label %35, label %143
 
 35:                                               ; preds = %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
   %36 = add nsw i64 %33, -1
@@ -5908,7 +5908,7 @@ _ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12emplace_backIJfRiEEERS2_DpO
   %119 = load ptr, ptr %41, align 8, !tbaa !49
   br label %133
 
-._crit_edge:                                      ; preds = %139, %110
+._crit_edge:                                      ; preds = %140, %110
   %.not.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EED2Ev.exit, label %120
 
@@ -5943,23 +5943,24 @@ _ZNSt14priority_queueIN5faiss4HNSW15NodeDistFartherESt6vectorIS2_SaIS2_EESt4less
   %.not.not = icmp slt i64 %.02645, %132
   br i1 %.not.not, label %46, label %._crit_edge48
 
-133:                                              ; preds = %.lr.ph43, %139
-  %.042 = phi i64 [ %111, %.lr.ph43 ], [ %141, %139 ]
+133:                                              ; preds = %.lr.ph43, %140
+  %.042 = phi i64 [ %111, %.lr.ph43 ], [ %142, %140 ]
   %134 = sub nuw i64 %.042, %111
   %135 = icmp ult i64 %134, %118
-  br i1 %135, label %136, label %139
+  br i1 %135, label %136, label %140
 
 136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw %"struct.faiss::HNSW::NodeDistFarther", ptr %.pre, i64 %134, i32 1
-  %138 = load i32, ptr %137, align 4, !tbaa !213
-  br label %139
+  %137 = getelementptr inbounds nuw %"struct.faiss::HNSW::NodeDistFarther", ptr %.pre, i64 %134
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
+  %139 = load i32, ptr %138, align 4, !tbaa !213
+  br label %140
 
-139:                                              ; preds = %133, %136
-  %.sink = phi i32 [ %138, %136 ], [ -1, %133 ]
-  %140 = getelementptr inbounds nuw i32, ptr %119, i64 %.042
-  store i32 %.sink, ptr %140, align 4, !tbaa !62
-  %141 = add nuw i64 %.042, 1
-  %exitcond.not = icmp eq i64 %141, %112
+140:                                              ; preds = %133, %136
+  %.sink = phi i32 [ %139, %136 ], [ -1, %133 ]
+  %141 = getelementptr inbounds nuw i32, ptr %119, i64 %.042
+  store i32 %.sink, ptr %141, align 4, !tbaa !62
+  %142 = add nuw i64 %.042, 1
+  %exitcond.not = icmp eq i64 %142, %112
   br i1 %exitcond.not, label %._crit_edge, label %133, !llvm.loop !224
 
 ._crit_edge48:                                    ; preds = %_ZNSt14priority_queueIN5faiss4HNSW15NodeDistFartherESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit, %35
@@ -5968,21 +5969,21 @@ _ZNSt14priority_queueIN5faiss4HNSW15NodeDistFartherESt6vectorIS2_SaIS2_EESt4less
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %142
+  br label %143
 
-142:                                              ; preds = %._crit_edge48, %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
+143:                                              ; preds = %._crit_edge48, %_ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit
   call void @__kmpc_barrier(ptr nonnull @4, i32 %.pre49)
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i: ; preds = %142
-  %143 = load ptr, ptr %.0.i, align 8, !tbaa !41
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 40
-  %145 = load ptr, ptr %144, align 8
-  call void %145(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #12
+_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i: ; preds = %143
+  %144 = load ptr, ptr %.0.i, align 8, !tbaa !41
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 40
+  %146 = load ptr, ptr %145, align 8
+  call void %146(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #12
   br label %_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ; preds = %142, %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ; preds = %143, %_ZNKSt14default_deleteIN5faiss16DistanceComputerEEclEPS1_.exit.i
   ret void
 
 .loopexit36:                                      ; preds = %55, %_ZNKSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -6002,8 +6003,8 @@ _ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ;
 
 .body:                                            ; preds = %.loopexit36, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %25
   %eh.lpad-body = phi { ptr, i32 } [ %26, %25 ], [ %lpad.loopexit, %.loopexit36 ], [ %lpad.loopexit37, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp38, %.loopexit.split-lp.loopexit.split-lp ]
-  %146 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %146) #33
+  %147 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %147) #33
   unreachable
 }
 
@@ -6600,7 +6601,7 @@ define internal void @_ZN5faiss9IndexHNSW26init_level_0_from_knngraphEiPKfPKl.om
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !46
   %18 = icmp sgt i64 %17, 0
-  br i1 %18, label %19, label %177
+  br i1 %18, label %19, label %178
 
 19:                                               ; preds = %7
   %20 = add nsw i64 %17, -1
@@ -6907,7 +6908,7 @@ _ZNSt14priority_queueIN5faiss4HNSW15NodeDistFartherESt6vectorIS2_SaIS2_EESt4less
   %150 = load ptr, ptr %31, align 8, !tbaa !49
   br label %168
 
-._crit_edge60:                                    ; preds = %174, %141
+._crit_edge60:                                    ; preds = %175, %141
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not.i.i.i = icmp eq ptr %.pre68, null
@@ -6953,23 +6954,24 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt14priority_que
   %.not.not = icmp slt i64 %.03462, %167
   br i1 %.not.not, label %33, label %._crit_edge65
 
-168:                                              ; preds = %.lr.ph59, %174
-  %.057 = phi i64 [ %142, %.lr.ph59 ], [ %176, %174 ]
+168:                                              ; preds = %.lr.ph59, %175
+  %.057 = phi i64 [ %142, %.lr.ph59 ], [ %177, %175 ]
   %169 = sub nuw i64 %.057, %142
   %170 = icmp ult i64 %169, %149
-  br i1 %170, label %171, label %174
+  br i1 %170, label %171, label %175
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds nuw %"struct.faiss::HNSW::NodeDistFarther", ptr %.pre68, i64 %169, i32 1
-  %173 = load i32, ptr %172, align 4, !tbaa !213
-  br label %174
+  %172 = getelementptr inbounds nuw %"struct.faiss::HNSW::NodeDistFarther", ptr %.pre68, i64 %169
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 4
+  %174 = load i32, ptr %173, align 4, !tbaa !213
+  br label %175
 
-174:                                              ; preds = %168, %171
-  %.sink = phi i32 [ %173, %171 ], [ -1, %168 ]
-  %175 = getelementptr inbounds nuw i32, ptr %150, i64 %.057
-  store i32 %.sink, ptr %175, align 4, !tbaa !62
-  %176 = add nuw i64 %.057, 1
-  %exitcond.not = icmp eq i64 %176, %143
+175:                                              ; preds = %168, %171
+  %.sink = phi i32 [ %174, %171 ], [ -1, %168 ]
+  %176 = getelementptr inbounds nuw i32, ptr %150, i64 %.057
+  store i32 %.sink, ptr %176, align 4, !tbaa !62
+  %177 = add nuw i64 %.057, 1
+  %exitcond.not = icmp eq i64 %177, %143
   br i1 %exitcond.not, label %._crit_edge60, label %168, !llvm.loop !232
 
 ._crit_edge65:                                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %19
@@ -6978,9 +6980,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt14priority_que
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %177
+  br label %178
 
-177:                                              ; preds = %._crit_edge65, %7
+178:                                              ; preds = %._crit_edge65, %7
   ret void
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -7000,8 +7002,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt14priority_que
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %45
   %eh.lpad-body = phi { ptr, i32 } [ %46, %45 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit51, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp.loopexit.split-lp ]
-  %178 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %178) #33
+  %179 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %179) #33
   unreachable
 }
 

@@ -332,7 +332,7 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
 
 .preheader177.us.preheader:                       ; preds = %.preheader177.lr.ph.split.us
   %162 = add nsw i32 %159, -1
-  %163 = zext i32 %162 to i64
+  %163 = zext nneg i32 %162 to i64
   %164 = shl nuw nsw i64 %163, 3
   br label %.preheader177.us
 

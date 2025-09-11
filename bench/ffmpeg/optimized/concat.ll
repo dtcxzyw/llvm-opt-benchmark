@@ -258,7 +258,7 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
   switch i32 %2, label %.loopexit [
     i32 2, label %14
     i32 1, label %.preheader
-    i32 0, label %31
+    i32 0, label %33
   ]
 
 .preheader:                                       ; preds = %11
@@ -275,7 +275,7 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
   br i1 %.not6482, label %.critedge, label %.lr.ph86
 
 17:                                               ; preds = %.lr.ph86
-  %18 = add nsw i64 %20, %.14883
+  %18 = add nsw i64 %21, %.14883
   %.0 = add i64 %.084, -1
   %.not64 = icmp eq i64 %.0, 0
   br i1 %.not64, label %.critedge, label %.lr.ph86, !llvm.loop !34
@@ -283,80 +283,84 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
 .lr.ph86:                                         ; preds = %14, %17
   %.084 = phi i64 [ %.0, %17 ], [ %.081, %14 ]
   %.14883 = phi i64 [ %18, %17 ], [ %1, %14 ]
-  %19 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.084, i32 1
-  %20 = load i64, ptr %19, align 8, !tbaa !28
-  %21 = sub nsw i64 0, %20
-  %22 = icmp slt i64 %.14883, %21
-  br i1 %22, label %17, label %.critedge
+  %19 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.084
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !28
+  %22 = sub nsw i64 0, %21
+  %23 = icmp slt i64 %.14883, %22
+  br i1 %23, label %17, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.269 = phi i64 [ %26, %.lr.ph ], [ 0, %.preheader ]
-  %.35068 = phi i64 [ %25, %.lr.ph ], [ %1, %.preheader ]
-  %23 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.269, i32 1
-  %24 = load i64, ptr %23, align 8, !tbaa !28
-  %25 = add nsw i64 %24, %.35068
-  %26 = add nuw i64 %.269, 1
-  %.not61 = icmp eq i64 %26, %13
+  %.269 = phi i64 [ %28, %.lr.ph ], [ 0, %.preheader ]
+  %.35068 = phi i64 [ %27, %.lr.ph ], [ %1, %.preheader ]
+  %24 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.269
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load i64, ptr %25, align 8, !tbaa !28
+  %27 = add nsw i64 %26, %.35068
+  %28 = add nuw i64 %.269, 1
+  %.not61 = icmp eq i64 %28, %13
   br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.350.lcssa = phi i64 [ %1, %.preheader ], [ %25, %.lr.ph ]
-  %27 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %13
-  %28 = load ptr, ptr %27, align 8, !tbaa !26
-  %29 = tail call i64 @ffurl_seek2(ptr noundef %28, i64 noundef 0, i32 noundef 1) #5
-  %30 = add nsw i64 %29, %.350.lcssa
-  br label %31
+  %.350.lcssa = phi i64 [ %1, %.preheader ], [ %27, %.lr.ph ]
+  %29 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %13
+  %30 = load ptr, ptr %29, align 8, !tbaa !26
+  %31 = tail call i64 @ffurl_seek2(ptr noundef %30, i64 noundef 0, i32 noundef 1) #5
+  %32 = add nsw i64 %31, %.350.lcssa
+  br label %33
 
-31:                                               ; preds = %._crit_edge, %11
-  %.047 = phi i64 [ %30, %._crit_edge ], [ %1, %11 ]
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !30
-  %34 = add i64 %33, -1
-  %.not6271 = icmp eq i64 %34, 0
+33:                                               ; preds = %._crit_edge, %11
+  %.047 = phi i64 [ %32, %._crit_edge ], [ %1, %11 ]
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %35 = load i64, ptr %34, align 8, !tbaa !30
+  %36 = add i64 %35, -1
+  %.not6271 = icmp eq i64 %36, 0
   br i1 %.not6271, label %.critedge, label %.lr.ph75
 
-.lr.ph75:                                         ; preds = %31, %37
-  %.373 = phi i64 [ %39, %37 ], [ 0, %31 ]
-  %.45172 = phi i64 [ %38, %37 ], [ %.047, %31 ]
-  %35 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.373, i32 1
-  %36 = load i64, ptr %35, align 8, !tbaa !28
-  %.not63 = icmp slt i64 %.45172, %36
-  br i1 %.not63, label %.critedge, label %37
+.lr.ph75:                                         ; preds = %33, %40
+  %.373 = phi i64 [ %42, %40 ], [ 0, %33 ]
+  %.45172 = phi i64 [ %41, %40 ], [ %.047, %33 ]
+  %37 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.373
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load i64, ptr %38, align 8, !tbaa !28
+  %.not63 = icmp slt i64 %.45172, %39
+  br i1 %.not63, label %.critedge, label %40
 
-37:                                               ; preds = %.lr.ph75
-  %38 = sub nsw i64 %.45172, %36
-  %39 = add nuw i64 %.373, 1
-  %.not62 = icmp eq i64 %39, %34
+40:                                               ; preds = %.lr.ph75
+  %41 = sub nsw i64 %.45172, %39
+  %42 = add nuw i64 %.373, 1
+  %.not62 = icmp eq i64 %42, %36
   br i1 %.not62, label %.critedge, label %.lr.ph75, !llvm.loop !36
 
-.critedge:                                        ; preds = %37, %.lr.ph75, %17, %.lr.ph86, %31, %14
-  %.155 = phi i32 [ 2, %14 ], [ 0, %31 ], [ 2, %.lr.ph86 ], [ 2, %17 ], [ 0, %.lr.ph75 ], [ 0, %37 ]
-  %.249 = phi i64 [ %1, %14 ], [ %.047, %31 ], [ %18, %17 ], [ %.14883, %.lr.ph86 ], [ %38, %37 ], [ %.45172, %.lr.ph75 ]
-  %.1 = phi i64 [ 0, %14 ], [ 0, %31 ], [ 0, %17 ], [ %.084, %.lr.ph86 ], [ %34, %37 ], [ %.373, %.lr.ph75 ]
-  %40 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.1
-  %41 = load ptr, ptr %40, align 8, !tbaa !26
-  %42 = tail call i64 @ffurl_seek2(ptr noundef %41, i64 noundef %.249, i32 noundef range(i32 0, 3) %.155) #5
-  %43 = icmp sgt i64 %42, -1
-  br i1 %43, label %44, label %.loopexit
+.critedge:                                        ; preds = %40, %.lr.ph75, %17, %.lr.ph86, %33, %14
+  %.155 = phi i32 [ 2, %14 ], [ 0, %33 ], [ 2, %.lr.ph86 ], [ 2, %17 ], [ 0, %.lr.ph75 ], [ 0, %40 ]
+  %.249 = phi i64 [ %1, %14 ], [ %.047, %33 ], [ %18, %17 ], [ %.14883, %.lr.ph86 ], [ %41, %40 ], [ %.45172, %.lr.ph75 ]
+  %.1 = phi i64 [ 0, %14 ], [ 0, %33 ], [ 0, %17 ], [ %.084, %.lr.ph86 ], [ %36, %40 ], [ %.373, %.lr.ph75 ]
+  %43 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.1
+  %44 = load ptr, ptr %43, align 8, !tbaa !26
+  %45 = tail call i64 @ffurl_seek2(ptr noundef %44, i64 noundef %.249, i32 noundef range(i32 0, 3) %.155) #5
+  %46 = icmp sgt i64 %45, -1
+  br i1 %46, label %47, label %.loopexit
 
-44:                                               ; preds = %.critedge
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.1, ptr %45, align 8, !tbaa !32
+47:                                               ; preds = %.critedge
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %.1, ptr %48, align 8, !tbaa !32
   %.not6592 = icmp eq i64 %.1, 0
   br i1 %.not6592, label %.loopexit, label %.lr.ph96
 
-.lr.ph96:                                         ; preds = %44, %.lr.ph96
-  %.494 = phi i64 [ %46, %.lr.ph96 ], [ %.1, %44 ]
-  %.15393 = phi i64 [ %49, %.lr.ph96 ], [ %42, %44 ]
-  %46 = add i64 %.494, -1
-  %47 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %46, i32 1
-  %48 = load i64, ptr %47, align 8, !tbaa !28
-  %49 = add nsw i64 %48, %.15393
-  %.not65 = icmp eq i64 %46, 0
+.lr.ph96:                                         ; preds = %47, %.lr.ph96
+  %.494 = phi i64 [ %49, %.lr.ph96 ], [ %.1, %47 ]
+  %.15393 = phi i64 [ %53, %.lr.ph96 ], [ %45, %47 ]
+  %49 = add i64 %.494, -1
+  %50 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i64, ptr %51, align 8, !tbaa !28
+  %53 = add nsw i64 %52, %.15393
+  %.not65 = icmp eq i64 %49, 0
   br i1 %.not65, label %.loopexit, label %.lr.ph96, !llvm.loop !37
 
-.loopexit:                                        ; preds = %.lr.ph96, %44, %.critedge, %11, %8
-  %.046 = phi i64 [ %10, %8 ], [ -22, %11 ], [ %42, %.critedge ], [ %42, %44 ], [ %49, %.lr.ph96 ]
+.loopexit:                                        ; preds = %.lr.ph96, %47, %.critedge, %11, %8
+  %.046 = phi i64 [ %10, %8 ], [ -22, %11 ], [ %45, %.critedge ], [ %45, %47 ], [ %53, %.lr.ph96 ]
   ret i64 %.046
 }
 
@@ -525,7 +529,7 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %66 = load ptr, ptr %9, align 8, !tbaa !24
   %67 = getelementptr inbounds nuw %struct.concat_nodes, ptr %64, i64 %.04492191
   store ptr %66, ptr %67, align 8, !tbaa !26
-  %68 = getelementptr inbounds nuw %struct.concat_nodes, ptr %64, i64 %.04492191, i32 1
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i64 %59, ptr %68, align 8, !tbaa !28
   %69 = add nuw nsw i64 %59, %.04393190
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

@@ -1095,7 +1095,7 @@ define dso_local void @__do_softirq() #1 section ".softirqentry.text" align 16 {
   %25 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !22
   %26 = and i32 %25, 2147483647
   %27 = and i64 %23, 4294967295
-  %28 = getelementptr %struct.kernel_stat, ptr @kstat, i64 0, i32 1, i64 %27
+  %28 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @kstat, i64 8), i64 %27
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, ptr elementtype(i32) %28) #18, !srcloc !48
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_softirq_entry, i64 8), i32 2) #18
           to label %49 [label %29], !srcloc !49

@@ -261,7 +261,7 @@ define range(i32 12552, 12689) i32 @ff_mpeg4_set_direct_mv(ptr noundef %0, i32 n
   %.sink.i = phi i32 [ %51, %50 ], [ %55, %52 ], [ %62, %61 ], [ %65, %63 ]
   %67 = getelementptr inbounds nuw [2 x i32], ptr %27, i64 %indvars.iv
   store i32 %.sink.i, ptr %67, align 8, !tbaa !40
-  %68 = getelementptr inbounds [2 x i16], ptr %26, i64 %37, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %69 = load i16, ptr %68, align 2, !tbaa !43
   %70 = sext i16 %69 to i32
   %71 = add nsw i32 %70, 32
@@ -274,8 +274,7 @@ define range(i32 12552, 12689) i32 @ff_mpeg4_set_direct_mv(ptr noundef %0, i32 n
   %76 = load i16, ptr %75, align 2, !tbaa !43
   %77 = sext i16 %76 to i32
   %78 = add nsw i32 %2, %77
-  %.idx70.i = shl nuw nsw i64 %indvars.iv, 3
-  %79 = getelementptr i8, ptr %0, i64 %.idx70.i
+  %79 = getelementptr [2 x i32], ptr %0, i64 %indvars.iv
   %80 = getelementptr i8, ptr %79, i64 2980
   store i32 %78, ptr %80, align 4, !tbaa !40
   br i1 %.not69.i, label %83, label %81
@@ -294,8 +293,7 @@ define range(i32 12552, 12689) i32 @ff_mpeg4_set_direct_mv(ptr noundef %0, i32 n
   %88 = mul nsw i32 %70, %28
   %89 = sdiv i32 %88, %29
   %90 = add nsw i32 %89, %2
-  %.idx.i = shl nuw nsw i64 %indvars.iv, 3
-  %91 = getelementptr i8, ptr %0, i64 %.idx.i
+  %91 = getelementptr [2 x i32], ptr %0, i64 %indvars.iv
   %92 = getelementptr i8, ptr %91, i64 2980
   store i32 %90, ptr %92, align 4, !tbaa !40
   br i1 %.not69.i, label %95, label %93
@@ -310,10 +308,10 @@ define range(i32 12552, 12689) i32 @ff_mpeg4_set_direct_mv(ptr noundef %0, i32 n
   br label %ff_mpeg4_set_one_direct_mv.exit
 
 ff_mpeg4_set_one_direct_mv.exit:                  ; preds = %81, %83, %93, %95
-  %.sink75.i = phi i32 [ %82, %81 ], [ %86, %83 ], [ %94, %93 ], [ %97, %95 ]
+  %.sink74.i = phi i32 [ %86, %83 ], [ %82, %81 ], [ %97, %95 ], [ %94, %93 ]
   %98 = getelementptr [2 x i32], ptr %0, i64 %indvars.iv
   %99 = getelementptr i8, ptr %98, i64 3012
-  store i32 %.sink75.i, ptr %99, align 4, !tbaa !40
+  store i32 %.sink74.i, ptr %99, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !48
@@ -379,7 +377,7 @@ ff_mpeg4_set_one_direct_mv.exit:                  ; preds = %81, %83, %93, %95
   %138 = add nsw i32 %137, %1
   %139 = getelementptr inbounds nuw [2 x i32], ptr %111, i64 %indvars.iv128
   store i32 %138, ptr %139, align 8, !tbaa !40
-  %140 = getelementptr inbounds [2 x i16], ptr %130, i64 %14, i64 1
+  %140 = getelementptr inbounds nuw i8, ptr %131, i64 2
   %141 = load i16, ptr %140, align 2, !tbaa !43
   %142 = sext i16 %141 to i32
   %143 = mul nsw i32 %134, %142
@@ -489,7 +487,7 @@ ff_mpeg4_set_one_direct_mv.exit:                  ; preds = %81, %83, %93, %95
   %.sink.i116 = phi i32 [ %191, %190 ], [ %196, %192 ], [ %205, %204 ], [ %209, %206 ]
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 3008
   store i32 %.sink.i116, ptr %212, align 8, !tbaa !40
-  %213 = getelementptr inbounds [2 x i16], ptr %175, i64 %176, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %177, i64 2
   %214 = load i16, ptr %213, align 2, !tbaa !43
   %215 = sext i16 %214 to i32
   %216 = add nsw i32 %215, 32
@@ -505,8 +503,8 @@ ff_mpeg4_set_one_direct_mv.exit:                  ; preds = %81, %83, %93, %95
   %224 = add nsw i32 %2, %223
   %225 = getelementptr i8, ptr %0, i64 2980
   store i32 %224, ptr %225, align 4, !tbaa !40
-  %.not71.i119 = icmp eq i32 %2, 0
-  br i1 %.not71.i119, label %228, label %226
+  %.not70.i119 = icmp eq i32 %2, 0
+  br i1 %.not70.i119, label %228, label %226
 
 226:                                              ; preds = %218
   %227 = sub nsw i32 %224, %215
@@ -541,10 +539,10 @@ ff_mpeg4_set_one_direct_mv.exit:                  ; preds = %81, %83, %93, %95
   br label %ff_mpeg4_set_one_direct_mv.exit121
 
 ff_mpeg4_set_one_direct_mv.exit121:               ; preds = %226, %228, %240, %242
-  %246 = phi i32 [ %224, %226 ], [ %224, %228 ], [ %238, %240 ], [ %238, %242 ]
-  %.sink75.i118 = phi i32 [ %227, %226 ], [ %232, %228 ], [ %241, %240 ], [ %245, %242 ]
+  %246 = phi i32 [ %224, %228 ], [ %224, %226 ], [ %238, %242 ], [ %238, %240 ]
+  %.sink74.i118 = phi i32 [ %232, %228 ], [ %227, %226 ], [ %245, %242 ], [ %241, %240 ]
   %247 = getelementptr i8, ptr %0, i64 3012
-  store i32 %.sink75.i118, ptr %247, align 4, !tbaa !40
+  store i32 %.sink74.i118, ptr %247, align 4, !tbaa !40
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 3000
   store i32 %211, ptr %248, align 8, !tbaa !40
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 2992
@@ -564,11 +562,11 @@ ff_mpeg4_set_one_direct_mv.exit121:               ; preds = %226, %228, %240, %2
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 3016
   store i32 %.sink.i116, ptr %256, align 8, !tbaa !40
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 3036
-  store i32 %.sink75.i118, ptr %257, align 4, !tbaa !40
+  store i32 %.sink74.i118, ptr %257, align 4, !tbaa !40
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 3028
-  store i32 %.sink75.i118, ptr %258, align 4, !tbaa !40
+  store i32 %.sink74.i118, ptr %258, align 4, !tbaa !40
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 3020
-  store i32 %.sink75.i118, ptr %259, align 4, !tbaa !40
+  store i32 %.sink74.i118, ptr %259, align 4, !tbaa !40
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %261 = load ptr, ptr %260, align 8, !tbaa !55
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 512

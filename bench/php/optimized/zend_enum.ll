@@ -591,53 +591,55 @@ zend_string_copy.exit:                            ; preds = %9, %25
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i8 0, ptr %36, align 8, !tbaa !4
   %37 = load ptr, ptr %14, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw %struct._zend_class_name, ptr %37, i64 %29, i32 1
-  store ptr %31, ptr %38, align 8, !tbaa !66
-  %39 = load i32, ptr %5, align 8, !tbaa !28
-  %.not18 = icmp eq i32 %39, 0
-  br i1 %.not18, label %61, label %40
+  %38 = getelementptr inbounds nuw %struct._zend_class_name, ptr %37, i64 %29
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr %31, ptr %39, align 8, !tbaa !66
+  %40 = load i32, ptr %5, align 8, !tbaa !28
+  %.not18 = icmp eq i32 %40, 0
+  br i1 %.not18, label %63, label %41
 
-40:                                               ; preds = %zend_string_copy.exit
-  %41 = load ptr, ptr @zend_ce_backed_enum, align 8, !tbaa !55
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !41
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !4
-  %46 = and i32 %45, 64
-  %.not.i19 = icmp eq i32 %46, 0
-  br i1 %.not.i19, label %47, label %zend_string_copy.exit20
+41:                                               ; preds = %zend_string_copy.exit
+  %42 = load ptr, ptr @zend_ce_backed_enum, align 8, !tbaa !55
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !41
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !4
+  %47 = and i32 %46, 64
+  %.not.i19 = icmp eq i32 %47, 0
+  br i1 %.not.i19, label %48, label %zend_string_copy.exit20
 
-47:                                               ; preds = %40
-  %48 = load i32, ptr %43, align 4, !tbaa !7
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %43, align 4, !tbaa !7
+48:                                               ; preds = %41
+  %49 = load i32, ptr %44, align 4, !tbaa !7
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %44, align 4, !tbaa !7
   br label %zend_string_copy.exit20
 
-zend_string_copy.exit20:                          ; preds = %40, %47
-  %50 = load ptr, ptr %14, align 8, !tbaa !4
-  %51 = zext i32 %4 to i64
-  %52 = getelementptr inbounds nuw %struct._zend_class_name, ptr %50, i64 %51
-  store ptr %43, ptr %52, align 8, !tbaa !63
-  %53 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %53, align 4, !tbaa !7
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i32 22, ptr %54, align 4, !tbaa !4
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 0, ptr %55, align 8, !tbaa !65
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store i64 10, ptr %56, align 8, !tbaa !26
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %57, ptr noundef nonnull align 1 dereferenceable(10) @.str.1, i64 10, i1 false)
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 34
-  store i8 0, ptr %58, align 2, !tbaa !4
-  %59 = load ptr, ptr %14, align 8, !tbaa !4
-  %60 = getelementptr inbounds nuw %struct._zend_class_name, ptr %59, i64 %51, i32 1
-  store ptr %53, ptr %60, align 8, !tbaa !66
-  br label %61
+zend_string_copy.exit20:                          ; preds = %41, %48
+  %51 = load ptr, ptr %14, align 8, !tbaa !4
+  %52 = zext i32 %4 to i64
+  %53 = getelementptr inbounds nuw %struct._zend_class_name, ptr %51, i64 %52
+  store ptr %44, ptr %53, align 8, !tbaa !63
+  %54 = tail call noalias ptr @_emalloc_40() #12
+  store i32 1, ptr %54, align 4, !tbaa !7
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store i32 22, ptr %55, align 4, !tbaa !4
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i64 0, ptr %56, align 8, !tbaa !65
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store i64 10, ptr %57, align 8, !tbaa !26
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %58, ptr noundef nonnull align 1 dereferenceable(10) @.str.1, i64 10, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 34
+  store i8 0, ptr %59, align 2, !tbaa !4
+  %60 = load ptr, ptr %14, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw %struct._zend_class_name, ptr %60, i64 %52
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %54, ptr %62, align 8, !tbaa !66
+  br label %63
 
-61:                                               ; preds = %zend_string_copy.exit20, %zend_string_copy.exit
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store ptr @zend_enum_object_handlers, ptr %62, align 8, !tbaa !57
+63:                                               ; preds = %zend_string_copy.exit20, %zend_string_copy.exit
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store ptr @zend_enum_object_handlers, ptr %64, align 8, !tbaa !57
   ret void
 }
 

@@ -1777,7 +1777,7 @@ PyUnicode_WRITE.exit275:                          ; preds = %.split365.split, %P
   %.us-phi368 = phi i64 [ %.0135, %.split365.split ], [ %.1136.us.lcssa, %.split367.us.loopexit486 ], [ %.1136.us372.lcssa, %.split367.us.loopexit487 ], [ %246, %PyUnicode_WRITE.exit275 ]
   %.us-phi369 = phi i64 [ %.0132, %.split365.split ], [ %.1133.us.lcssa, %.split367.us.loopexit486 ], [ %.1133.us373.lcssa, %.split367.us.loopexit487 ], [ %247, %PyUnicode_WRITE.exit275 ]
   %.us-phi370 = phi i64 [ %219, %.split365.split ], [ %.lcssa513, %.split367.us.loopexit486 ], [ %.lcssa511, %.split367.us.loopexit487 ], [ %249, %PyUnicode_WRITE.exit275 ]
-  %trunc = trunc nuw i32 %.us-phi to i16
+  %trunc = trunc nuw nsw i32 %.us-phi to i16
   switch i16 %trunc, label %277 [
     i16 10, label %255
     i16 13, label %263
@@ -2160,7 +2160,7 @@ PyUnicode_READ.exit:                              ; preds = %.split, %PyUnicode_
   ]
 
 66:                                               ; preds = %65
-  %67 = zext i8 %63 to i32
+  %67 = zext nneg i8 %63 to i32
   br label %PyUnicode_READ.exit124
 
 68:                                               ; preds = %65

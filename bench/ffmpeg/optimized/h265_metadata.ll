@@ -156,26 +156,26 @@ define internal range(i32 -2147483648, 1) i32 @h265_metadata_update_fragment(ptr
   %.064160 = phi i32 [ 0, %.lr.ph ], [ %.165, %53 ]
   %.067159 = phi i32 [ 8, %.lr.ph ], [ %.168, %53 ]
   %.070158 = phi i8 [ 0, %.lr.ph ], [ %.171, %53 ]
-  %35 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %33, i64 %indvars.iv, i32 5
-  %36 = load ptr, ptr %35, align 8, !tbaa !30
-  %.not77 = icmp eq ptr %36, null
-  br i1 %.not77, label %53, label %37
+  %35 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %33, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %37 = load ptr, ptr %36, align 8, !tbaa !30
+  %.not77 = icmp eq ptr %37, null
+  br i1 %.not77, label %53, label %38
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !31
-  %40 = zext i8 %39 to i32
-  %41 = add nsw i32 %40, -1
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.067159, i32 %41)
-  %42 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %33, i64 %indvars.iv
-  %43 = load i32, ptr %42, align 8, !tbaa !21
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 2
+  %40 = load i8, ptr %39, align 1, !tbaa !31
+  %41 = zext i8 %40 to i32
+  %42 = add nsw i32 %41, -1
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.067159, i32 %42)
+  %43 = load i32, ptr %35, align 8, !tbaa !21
   %44 = icmp ult i32 %43, 32
   br i1 %44, label %45, label %53
 
-45:                                               ; preds = %37
-  %46 = getelementptr inbounds nuw i8, ptr %36, i64 1
+45:                                               ; preds = %38
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %47 = load i8, ptr %46, align 1, !tbaa !32
-  %48 = getelementptr inbounds nuw i8, ptr %36, i64 18
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 18
   %49 = load i8, ptr %48, align 2, !tbaa !33
   %50 = icmp eq i8 %49, 0
   %spec.store.select = select i1 %50, i32 2, i32 %.064160
@@ -184,10 +184,10 @@ define internal range(i32 -2147483648, 1) i32 @h265_metadata_update_fragment(ptr
   %spec.store.select4 = select i1 %51, i32 %52, i32 %spec.store.select
   br label %53
 
-53:                                               ; preds = %37, %45, %34
-  %.171 = phi i8 [ %.070158, %34 ], [ %47, %45 ], [ %.070158, %37 ]
-  %.168 = phi i32 [ %.067159, %34 ], [ %spec.select, %45 ], [ %spec.select, %37 ]
-  %.165 = phi i32 [ %.064160, %34 ], [ %spec.store.select4, %45 ], [ %.064160, %37 ]
+53:                                               ; preds = %38, %45, %34
+  %.171 = phi i8 [ %.070158, %34 ], [ %47, %45 ], [ %.070158, %38 ]
+  %.168 = phi i32 [ %.067159, %34 ], [ %spec.select, %45 ], [ %spec.select, %38 ]
+  %.165 = phi i32 [ %.064160, %34 ], [ %spec.store.select4, %45 ], [ %.064160, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %34, !llvm.loop !38

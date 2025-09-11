@@ -1403,7 +1403,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %14, %BTreeTupleIsPo
   br i1 %83, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %94 = zext i32 %93 to i64
+  %94 = zext nneg i32 %93 to i64
   %wide.trip.count118 = zext nneg i16 %47 to i64
   br label %.lr.ph.split
 
@@ -1418,7 +1418,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %14, %BTreeTupleIsPo
   br label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
-  %98 = zext i32 %93 to i64
+  %98 = zext nneg i32 %93 to i64
   %wide.trip.count113 = zext nneg i16 %47 to i64
   br label %.lr.ph.split.us.split
 

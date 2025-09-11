@@ -23483,65 +23483,66 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %27
   br label %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit132
 
 438:                                              ; preds = %5
-  %439 = getelementptr inbounds nuw %"struct.std::pair.357", ptr %25, i64 %22, i32 1
-  %440 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %441 = load ptr, ptr %440, align 8, !tbaa !128
-  %442 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not10.i.i.i.i = icmp eq ptr %441, null
+  %439 = getelementptr inbounds nuw %"struct.std::pair.357", ptr %25, i64 %22
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 32
+  %441 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %442 = load ptr, ptr %441, align 8, !tbaa !128
+  %443 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.not10.i.i.i.i = icmp eq ptr %442, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %438
-  %443 = load ptr, ptr %439, align 8, !tbaa !132
-  %444 = load i64, ptr %443, align 8
-  %445 = and i64 %444, 1099511627775
-  br label %446
+  %444 = load ptr, ptr %440, align 8, !tbaa !132
+  %445 = load i64, ptr %444, align 8
+  %446 = and i64 %445, 1099511627775
+  br label %447
 
-446:                                              ; preds = %446, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %441, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %446 ]
-  %.0811.i.i.i.i = phi ptr [ %442, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %446 ]
-  %447 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %448 = load ptr, ptr %447, align 8, !tbaa !132
-  %449 = load i64, ptr %448, align 8
-  %450 = and i64 %449, 1099511627775
-  %451 = icmp samesign ult i64 %450, %445
-  %.19.i.i.i.i = select i1 %451, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %451, i64 24, i64 16
+447:                                              ; preds = %447, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %442, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %447 ]
+  %.0811.i.i.i.i = phi ptr [ %443, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %447 ]
+  %448 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %449 = load ptr, ptr %448, align 8, !tbaa !132
+  %450 = load i64, ptr %449, align 8
+  %451 = and i64 %450, 1099511627775
+  %452 = icmp samesign ult i64 %451, %446
+  %.19.i.i.i.i = select i1 %452, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %452, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !329
   %.not.i.i.i.i133 = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i133, label %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEE11lower_boundERSJ_.exit.i, label %446, !llvm.loop !472
+  br i1 %.not.i.i.i.i133, label %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEE11lower_boundERSJ_.exit.i, label %447, !llvm.loop !472
 
-_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEE11lower_boundERSJ_.exit.i: ; preds = %446
-  %452 = icmp eq ptr %.19.i.i.i.i, %442
-  br i1 %452, label %.critedge.i, label %453
+_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEE11lower_boundERSJ_.exit.i: ; preds = %447
+  %453 = icmp eq ptr %.19.i.i.i.i, %443
+  br i1 %453, label %.critedge.i, label %454
 
-453:                                              ; preds = %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEE11lower_boundERSJ_.exit.i
-  %454 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %455 = load ptr, ptr %454, align 8, !tbaa !132
-  %456 = load i64, ptr %455, align 8
-  %457 = and i64 %456, 1099511627775
-  %458 = icmp samesign ult i64 %445, %457
-  br i1 %458, label %.critedge.i, label %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEEixERSJ_.exit
+454:                                              ; preds = %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEE11lower_boundERSJ_.exit.i
+  %455 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
+  %456 = load ptr, ptr %455, align 8, !tbaa !132
+  %457 = load i64, ptr %456, align 8
+  %458 = and i64 %457, 1099511627775
+  %459 = icmp samesign ult i64 %446, %458
+  br i1 %459, label %.critedge.i, label %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEEixERSJ_.exit
 
-.critedge.i:                                      ; preds = %453, %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEE11lower_boundERSJ_.exit.i, %438
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %453 ], [ %.19.i.i.i.i, %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEE11lower_boundERSJ_.exit.i ], [ %442, %438 ]
+.critedge.i:                                      ; preds = %454, %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEE11lower_boundERSJ_.exit.i, %438
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %454 ], [ %.19.i.i.i.i, %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEE11lower_boundERSJ_.exit.i ], [ %443, %438 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %439, ptr %6, align 8, !tbaa !294
+  store ptr %440, ptr %6, align 8, !tbaa !294
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %459 = call ptr @_ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_St3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessISB_ESaIS3_IKSB_SD_EEEESt10_Select1stISK_ESE_IS2_ESaISK_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESU_IJEEEEESt17_Rb_tree_iteratorISK_ESt23_Rb_tree_const_iteratorISK_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %460 = call ptr @_ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_St3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessISB_ESaIS3_IKSB_SD_EEEESt10_Select1stISK_ESE_IS2_ESaISK_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESU_IJEEEEESt17_Rb_tree_iteratorISK_ESt23_Rb_tree_const_iteratorISK_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load ptr, ptr %3, align 8, !tbaa !446
   br label %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEEixERSJ_.exit
 
-_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEEixERSJ_.exit: ; preds = %453, %.critedge.i
-  %460 = phi ptr [ %.pre, %.critedge.i ], [ %25, %453 ]
-  %.sroa.06.0.i = phi ptr [ %459, %.critedge.i ], [ %.19.i.i.i.i, %453 ]
-  %461 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
-  %462 = getelementptr inbounds nuw %"struct.std::pair.357", ptr %460, i64 %22
-  %463 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal11NodeManager12RecTypeCacheESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %461, ptr noundef nonnull align 8 dereferenceable(32) %462)
-  %464 = add i32 %4, 1
-  call void @_ZN4cvc58internal11NodeManager12RecTypeCache13getRecordTypeEPS1_RKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TypeNodeEESaISD_EEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::TypeNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %463, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %464)
+_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEEixERSJ_.exit: ; preds = %454, %.critedge.i
+  %461 = phi ptr [ %.pre, %.critedge.i ], [ %25, %454 ]
+  %.sroa.06.0.i = phi ptr [ %460, %.critedge.i ], [ %.19.i.i.i.i, %454 ]
+  %462 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
+  %463 = getelementptr inbounds nuw %"struct.std::pair.357", ptr %461, i64 %22
+  %464 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal11NodeManager12RecTypeCacheESt4lessIS5_ESaISt4pairIKS5_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %462, ptr noundef nonnull align 8 dereferenceable(32) %463)
+  %465 = add i32 %4, 1
+  call void @_ZN4cvc58internal11NodeManager12RecTypeCache13getRecordTypeEPS1_RKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8TypeNodeEESaISD_EEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::TypeNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %464, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %465)
   br label %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit132
 
 _ZN4cvc58internal8TypeNodeC2ERKS1_.exit132:       ; preds = %436, %434, %428, %_ZNSt3mapIN4cvc58internal8TypeNodeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11NodeManager12RecTypeCacheESt4lessIS8_ESaISt4pairIKS8_SA_EEESB_IS2_ESaISD_IKS2_SH_EEEixERSJ_.exit

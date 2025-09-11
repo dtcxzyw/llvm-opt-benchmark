@@ -134,7 +134,8 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
 21:                                               ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %23 = zext i32 %2 to i64
-  %24 = getelementptr %struct.elf64_shdr, ptr %0, i64 %23, i32 3
+  %.split = getelementptr %struct.elf64_shdr, ptr %0, i64 %23
+  %24 = getelementptr i8, ptr %.split, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %26
 
@@ -144,7 +145,8 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
   %29 = phi i32 [ 0, %21 ], [ %71, %69 ]
   %30 = load i32, ptr %22, align 4
   %31 = zext i32 %30 to i64
-  %32 = getelementptr %struct.elf64_shdr, ptr %0, i64 %31, i32 3
+  %.split1 = getelementptr %struct.elf64_shdr, ptr %0, i64 %31
+  %32 = getelementptr i8, ptr %.split1, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr %struct.elf64_rela, ptr %17, i64 %28
@@ -155,7 +157,8 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = lshr i64 %41, 32
-  %43 = getelementptr %struct.elf64_sym, ptr %39, i64 %42, i32 4
+  %.split2 = getelementptr %struct.elf64_sym, ptr %39, i64 %42
+  %43 = getelementptr i8, ptr %.split2, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %46 = load i64, ptr %45, align 8
@@ -190,7 +193,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
   br label %.thread
 
 .sink.split:                                      ; preds = %26, %26, %54
-  %.ph45 = phi i64 [ 8, %54 ], [ 4, %26 ], [ 4, %26 ]
+  %.ph47 = phi i64 [ 8, %54 ], [ 4, %26 ], [ 4, %26 ]
   %58 = ptrtoint ptr %37 to i64
   %59 = sub i64 %47, %58
   store i64 %59, ptr %6, align 8
@@ -198,7 +201,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
 
 60:                                               ; preds = %.sink.split, %51, %49, %26
   %61 = phi i64 [ %47, %26 ], [ %47, %49 ], [ %47, %51 ], [ %59, %.sink.split ]
-  %62 = phi i64 [ 8, %26 ], [ 4, %49 ], [ 4, %51 ], [ %.ph45, %.sink.split ]
+  %62 = phi i64 [ 8, %26 ], [ 4, %49 ], [ 4, %51 ], [ %.ph47, %.sink.split ]
   %63 = call i32 @bcmp(ptr noundef %37, ptr noundef nonnull dereferenceable(1) %7, i64 %62)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %67, label %65
@@ -246,7 +249,8 @@ define dso_local noundef i32 @module_finalize(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64
-  %8 = getelementptr %struct.elf64_shdr, ptr %1, i64 %7, i32 4
+  %.split = getelementptr %struct.elf64_shdr, ptr %1, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 60

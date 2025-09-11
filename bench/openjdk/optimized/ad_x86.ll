@@ -4644,7 +4644,7 @@ _ZL8rc_classi.exit:
   %52 = getelementptr inbounds nuw %class.OptoRegPair, ptr %48, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = sext i16 %53 to i32
-  %55 = getelementptr inbounds nuw %class.OptoRegPair, ptr %48, i64 %51, i32 1
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 2
   %56 = load i16, ptr %55, align 2
   %57 = sext i16 %56 to i32
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4653,7 +4653,7 @@ _ZL8rc_classi.exit:
   %61 = getelementptr inbounds nuw %class.OptoRegPair, ptr %48, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = sext i16 %62 to i32
-  %64 = getelementptr inbounds nuw %class.OptoRegPair, ptr %48, i64 %60, i32 1
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
   %.not.i447 = icmp eq i16 %56, -1
@@ -6892,35 +6892,36 @@ _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %22, %3, %17
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %class.OptoRegPair, ptr %26, i64 %29, i32 1
-  %31 = load i16, ptr %30, align 2
-  %32 = sext i16 %31 to i64
-  %33 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %32
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
+  %30 = getelementptr inbounds nuw %class.OptoRegPair, ptr %26, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 2
+  %32 = load i16, ptr %31, align 2
+  %33 = sext i16 %32 to i64
+  %34 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
   store i32 4, ptr %5, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 -1, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 -1, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 -1, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %24, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 0, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 0, ptr %43, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 -1, ptr %37, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 -1, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 -1, ptr %39, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %24, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i8 0, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i32 0, ptr %44, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %45 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
-  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %35, ptr noundef nonnull %4) #23
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %46 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %45) #23
+  call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %36, ptr noundef nonnull %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -118898,18 +118899,19 @@ define linkonce_odr hidden noundef i32 @_ZNK8MachNode9ideal_regEv(ptr noundef no
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %9 = load ptr, ptr @_ZN7TypeInt2CCE, align 8
   %10 = icmp eq ptr %8, %9
-  br i1 %10, label %17, label %11
+  br i1 %10, label %18, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %14, i32 4
-  %16 = load i32, ptr %15, align 4
-  br label %17
+  %15 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %17 = load i32, ptr %16, align 4
+  br label %18
 
-17:                                               ; preds = %1, %11
-  %.0 = phi i32 [ %16, %11 ], [ 15, %1 ]
+18:                                               ; preds = %1, %11
+  %.0 = phi i32 [ %17, %11 ], [ 15, %1 ]
   ret i32 %.0
 }
 
@@ -119076,9 +119078,10 @@ define linkonce_odr hidden noundef i32 @_ZNK17MachSpillCopyNode9ideal_regEv(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %6, i32 4
-  %8 = load i32, ptr %7, align 4
-  ret i32 %8
+  %7 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %9 = load i32, ptr %8, align 4
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -119242,11 +119245,12 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegIOper3regEP13PhaseRegAllocPK4No
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8, i32 1
-  %10 = load i16, ptr %9, align 2
-  %11 = sext i16 %10 to i32
-  %12 = add nsw i32 %11, -616
-  ret i32 %12
+  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = sext i16 %11 to i32
+  %13 = add nsw i32 %12, -616
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -119261,11 +119265,12 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegIOper3regEP13PhaseRegAllocPK4No
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i32
-  %18 = add nsw i32 %17, -616
-  ret i32 %18
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i32
+  %19 = add nsw i32 %18, -616
+  ret i32 %19
 }
 
 declare noundef i32 @_ZNK8MachOper4hashEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
@@ -119286,11 +119291,12 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegPOper3regEP13PhaseRegAllocPK4No
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8, i32 1
-  %10 = load i16, ptr %9, align 2
-  %11 = sext i16 %10 to i32
-  %12 = add nsw i32 %11, -616
-  ret i32 %12
+  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = sext i16 %11 to i32
+  %13 = add nsw i32 %12, -616
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -119305,11 +119311,12 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegPOper3regEP13PhaseRegAllocPK4No
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i32
-  %18 = add nsw i32 %17, -616
-  ret i32 %18
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i32
+  %19 = add nsw i32 %18, -616
+  ret i32 %19
 }
 
 declare noundef ptr @_ZNK9sRegPOper5cloneEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
@@ -119326,11 +119333,12 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegFOper3regEP13PhaseRegAllocPK4No
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8, i32 1
-  %10 = load i16, ptr %9, align 2
-  %11 = sext i16 %10 to i32
-  %12 = add nsw i32 %11, -616
-  ret i32 %12
+  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = sext i16 %11 to i32
+  %13 = add nsw i32 %12, -616
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -119345,11 +119353,12 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegFOper3regEP13PhaseRegAllocPK4No
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i32
-  %18 = add nsw i32 %17, -616
-  ret i32 %18
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i32
+  %19 = add nsw i32 %18, -616
+  ret i32 %19
 }
 
 declare noundef ptr @_ZNK9sRegFOper5cloneEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
@@ -119366,11 +119375,12 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegDOper3regEP13PhaseRegAllocPK4No
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8, i32 1
-  %10 = load i16, ptr %9, align 2
-  %11 = sext i16 %10 to i32
-  %12 = add nsw i32 %11, -616
-  ret i32 %12
+  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = sext i16 %11 to i32
+  %13 = add nsw i32 %12, -616
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -119385,11 +119395,12 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegDOper3regEP13PhaseRegAllocPK4No
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i32
-  %18 = add nsw i32 %17, -616
-  ret i32 %18
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i32
+  %19 = add nsw i32 %18, -616
+  ret i32 %19
 }
 
 declare noundef ptr @_ZNK9sRegDOper5cloneEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
@@ -119406,11 +119417,12 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegLOper3regEP13PhaseRegAllocPK4No
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8, i32 1
-  %10 = load i16, ptr %9, align 2
-  %11 = sext i16 %10 to i32
-  %12 = add nsw i32 %11, -616
-  ret i32 %12
+  %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = sext i16 %11 to i32
+  %13 = add nsw i32 %12, -616
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -119425,11 +119437,12 @@ define linkonce_odr hidden noundef i32 @_ZNK9sRegLOper3regEP13PhaseRegAllocPK4No
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i32
-  %18 = add nsw i32 %17, -616
-  ret i32 %18
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i32
+  %19 = add nsw i32 %18, -616
+  ret i32 %19
 }
 
 declare noundef ptr @_ZNK9sRegLOper5cloneEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
@@ -119919,13 +119932,14 @@ define linkonce_odr hidden noundef i32 @_ZNK12indirectOper4baseEP13PhaseRegAlloc
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -119978,13 +119992,14 @@ define linkonce_odr hidden noundef i32 @_ZNK14indOffset8Oper4baseEP13PhaseRegAll
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120045,13 +120060,14 @@ define linkonce_odr hidden noundef i32 @_ZNK15indOffset32Oper4baseEP13PhaseRegAl
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120117,13 +120133,14 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexOffsetOper4baseEP13PhaseRe
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120139,13 +120156,14 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexOffsetOper5indexEP13PhaseR
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120211,13 +120229,14 @@ define linkonce_odr hidden noundef i32 @_ZNK12indIndexOper4baseEP13PhaseRegAlloc
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120233,13 +120252,14 @@ define linkonce_odr hidden noundef i32 @_ZNK12indIndexOper5indexEP13PhaseRegAllo
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120291,13 +120311,14 @@ define linkonce_odr hidden noundef i32 @_ZNK17indIndexScaleOper4baseEP13PhaseReg
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120313,13 +120334,14 @@ define linkonce_odr hidden noundef i32 @_ZNK17indIndexScaleOper5indexEP13PhaseRe
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120380,13 +120402,14 @@ define linkonce_odr hidden noundef i32 @_ZNK20indPosIndexScaleOper4baseEP13Phase
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120402,13 +120425,14 @@ define linkonce_odr hidden noundef i32 @_ZNK20indPosIndexScaleOper5indexEP13Phas
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120469,13 +120493,14 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleOffsetOper4baseEP13Ph
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120491,13 +120516,14 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleOffsetOper5indexEP13P
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120564,13 +120590,14 @@ define linkonce_odr hidden noundef i32 @_ZNK21indPosIndexOffsetOper4baseEP13Phas
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120586,13 +120613,14 @@ define linkonce_odr hidden noundef i32 @_ZNK21indPosIndexOffsetOper5indexEP13Pha
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120658,13 +120686,14 @@ define linkonce_odr hidden noundef i32 @_ZNK26indPosIndexScaleOffsetOper4baseEP1
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120680,13 +120709,14 @@ define linkonce_odr hidden noundef i32 @_ZNK26indPosIndexScaleOffsetOper5indexEP
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120753,13 +120783,14 @@ define linkonce_odr hidden noundef i32 @_ZNK26indCompressedOopOffsetOper5indexEP
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120815,13 +120846,14 @@ define linkonce_odr hidden noundef i32 @_ZNK18indirectNarrowOper4baseEP13PhaseRe
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120868,13 +120900,14 @@ define linkonce_odr hidden noundef i32 @_ZNK20indOffset8NarrowOper4baseEP13Phase
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -120935,13 +120968,14 @@ define linkonce_odr hidden noundef i32 @_ZNK21indOffset32NarrowOper4baseEP13Phas
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121007,13 +121041,14 @@ define linkonce_odr hidden noundef i32 @_ZNK24indIndexOffsetNarrowOper4baseEP13P
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121029,13 +121064,14 @@ define linkonce_odr hidden noundef i32 @_ZNK24indIndexOffsetNarrowOper5indexEP13
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121101,13 +121137,14 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexNarrowOper4baseEP13PhaseRe
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121123,13 +121160,14 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexNarrowOper5indexEP13PhaseR
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121181,13 +121219,14 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleNarrowOper4baseEP13Ph
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121203,13 +121242,14 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleNarrowOper5indexEP13P
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121270,13 +121310,14 @@ define linkonce_odr hidden noundef i32 @_ZNK29indIndexScaleOffsetNarrowOper4base
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121292,13 +121333,14 @@ define linkonce_odr hidden noundef i32 @_ZNK29indIndexScaleOffsetNarrowOper5inde
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121365,13 +121407,14 @@ define linkonce_odr hidden noundef i32 @_ZNK27indPosIndexOffsetNarrowOper4baseEP
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121387,13 +121430,14 @@ define linkonce_odr hidden noundef i32 @_ZNK27indPosIndexOffsetNarrowOper5indexE
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121459,13 +121503,14 @@ define linkonce_odr hidden noundef i32 @_ZNK32indPosIndexScaleOffsetNarrowOper4b
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
-  %16 = load i16, ptr %15, align 2
-  %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  ret i32 %20
+  %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i32
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121481,13 +121526,14 @@ define linkonce_odr hidden noundef i32 @_ZNK32indPosIndexScaleOffsetNarrowOper5i
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
-  %17 = load i16, ptr %16, align 2
-  %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  ret i32 %21
+  %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = sext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr @_ZN7Matcher10_regEncodeE, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121566,17 +121612,18 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotPOper4dispEP13PhaseRegAll
   br label %11
 
 11:                                               ; preds = %4, %5
-  %.sink = phi ptr [ %10, %5 ], [ %2, %4 ]
+  %.sink15 = phi ptr [ %10, %5 ], [ %2, %4 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.sink, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16, i32 1
-  %18 = load i16, ptr %17, align 2
-  %19 = sext i16 %18 to i32
-  %20 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %19) #23
-  ret i32 %20
+  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %19 = load i16, ptr %18, align 2
+  %20 = sext i16 %19 to i32
+  %21 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %20) #23
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121626,17 +121673,18 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotIOper4dispEP13PhaseRegAll
   br label %11
 
 11:                                               ; preds = %4, %5
-  %.sink = phi ptr [ %10, %5 ], [ %2, %4 ]
+  %.sink15 = phi ptr [ %10, %5 ], [ %2, %4 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.sink, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16, i32 1
-  %18 = load i16, ptr %17, align 2
-  %19 = sext i16 %18 to i32
-  %20 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %19) #23
-  ret i32 %20
+  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %19 = load i16, ptr %18, align 2
+  %20 = sext i16 %19 to i32
+  %21 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %20) #23
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121686,17 +121734,18 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotFOper4dispEP13PhaseRegAll
   br label %11
 
 11:                                               ; preds = %4, %5
-  %.sink = phi ptr [ %10, %5 ], [ %2, %4 ]
+  %.sink15 = phi ptr [ %10, %5 ], [ %2, %4 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.sink, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16, i32 1
-  %18 = load i16, ptr %17, align 2
-  %19 = sext i16 %18 to i32
-  %20 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %19) #23
-  ret i32 %20
+  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %19 = load i16, ptr %18, align 2
+  %20 = sext i16 %19 to i32
+  %21 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %20) #23
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121746,17 +121795,18 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotDOper4dispEP13PhaseRegAll
   br label %11
 
 11:                                               ; preds = %4, %5
-  %.sink = phi ptr [ %10, %5 ], [ %2, %4 ]
+  %.sink15 = phi ptr [ %10, %5 ], [ %2, %4 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.sink, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16, i32 1
-  %18 = load i16, ptr %17, align 2
-  %19 = sext i16 %18 to i32
-  %20 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %19) #23
-  ret i32 %20
+  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %19 = load i16, ptr %18, align 2
+  %20 = sext i16 %19 to i32
+  %21 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %20) #23
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -121806,17 +121856,18 @@ define linkonce_odr hidden noundef i32 @_ZNK14stackSlotLOper4dispEP13PhaseRegAll
   br label %11
 
 11:                                               ; preds = %4, %5
-  %.sink = phi ptr [ %10, %5 ], [ %2, %4 ]
+  %.sink15 = phi ptr [ %10, %5 ], [ %2, %4 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.sink, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16, i32 1
-  %18 = load i16, ptr %17, align 2
-  %19 = sext i16 %18 to i32
-  %20 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %19) #23
-  ret i32 %20
+  %17 = getelementptr inbounds nuw %class.OptoRegPair, ptr %13, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %19 = load i16, ptr %18, align 2
+  %20 = sext i16 %19 to i32
+  %21 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %20) #23
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

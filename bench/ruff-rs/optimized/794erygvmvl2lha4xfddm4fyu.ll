@@ -241,21 +241,22 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 
 14:                                               ; preds = %14, %9
   %.sroa.07.0.i = phi i64 [ %2, %9 ], [ %.sroa.0.0.i.i.i.i, %14 ]
-  %.sroa.09.0.i = phi i64 [ 0, %9 ], [ %18, %14 ]
-  %15 = getelementptr { { i64, i64 }, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %0, i64 %.sroa.09.0.i, i32 0, i32 1
-  %.val.i = load i64, ptr %15, align 8, !noundef !9
+  %.sroa.09.0.i = phi i64 [ 0, %9 ], [ %19, %14 ]
+  %15 = getelementptr inbounds nuw { { i64, i64 }, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %0, i64 %.sroa.09.0.i
+  %16 = getelementptr i8, ptr %15, i64 8
+  %.val.i = load i64, ptr %16, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !61
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !61
   store i64 %.sroa.07.0.i, ptr %6, align 8, !noalias !66
   store i64 %.val.i, ptr %5, align 8, !noalias !66
-  %16 = call noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc4940ddb52bfdbc4E"(ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-  %17 = icmp slt i8 %16, 0
-  %.sroa.0.0.i.i.i.i = select i1 %17, i64 %.sroa.07.0.i, i64 %.val.i
+  %17 = call noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc4940ddb52bfdbc4E"(ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
+  %18 = icmp slt i8 %17, 0
+  %.sroa.0.0.i.i.i.i = select i1 %18, i64 %.sroa.07.0.i, i64 %.val.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !61
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !61
-  %18 = add nuw i64 %.sroa.09.0.i, 1
-  %19 = icmp eq i64 %18, %13
-  br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9703866aa3daa7e6E.exit", label %14
+  %19 = add nuw i64 %.sroa.09.0.i, 1
+  %20 = icmp eq i64 %19, %13
+  br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9703866aa3daa7e6E.exit", label %14
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9703866aa3daa7e6E.exit": ; preds = %14, %3
   %.sroa.04.0.i = phi i64 [ %2, %3 ], [ %.sroa.0.0.i.i.i.i, %14 ]

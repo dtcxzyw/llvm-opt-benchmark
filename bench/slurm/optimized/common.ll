@@ -215,7 +215,7 @@ define dso_local range(i32 0, 23) i32 @build_nodes_bitmap(ptr noundef %0, ptr no
 
 8:                                                ; preds = %2
   %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #16
-  br label %42
+  br label %43
 
 10:                                               ; preds = %2
   %11 = tail call ptr @hostlist_create(ptr noundef nonnull %0) #16
@@ -229,10 +229,10 @@ define dso_local range(i32 0, 23) i32 @build_nodes_bitmap(ptr noundef %0, ptr no
 
 13:                                               ; preds = %10
   %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #16
-  br label %42
+  br label %43
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
-  %15 = phi ptr [ %41, %.backedge ], [ %12, %.preheader ]
+  %15 = phi ptr [ %42, %.backedge ], [ %12, %.preheader ]
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %21, label %.preheader.i
@@ -253,55 +253,56 @@ define dso_local range(i32 0, 23) i32 @build_nodes_bitmap(ptr noundef %0, ptr no
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.62) #16
   br label %_find_node_inx.exit
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %33
-  %25 = phi ptr [ %34, %33 ], [ %18, %.preheader.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %34
+  %25 = phi ptr [ %35, %34 ], [ %18, %.preheader.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %.preheader.i ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw %struct.node_info, ptr %27, i64 %indvars.iv.i, i32 25
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %33, label %31
+  %28 = getelementptr inbounds nuw %struct.node_info, ptr %27, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 176
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %34, label %32
 
-31:                                               ; preds = %.lr.ph.i
-  %32 = tail call i32 @xstrcmp(ptr noundef nonnull %15, ptr noundef nonnull %29) #16
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %39, label %._crit_edge.i
+32:                                               ; preds = %.lr.ph.i
+  %33 = tail call i32 @xstrcmp(ptr noundef nonnull %15, ptr noundef nonnull %30) #16
+  %.not.i = icmp eq i32 %33, 0
+  br i1 %.not.i, label %40, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %31
+._crit_edge.i:                                    ; preds = %32
   %.pre.i = load ptr, ptr @g_node_info_ptr, align 8
-  br label %33
+  br label %34
 
-33:                                               ; preds = %._crit_edge.i, %.lr.ph.i
-  %34 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %25, %.lr.ph.i ]
+34:                                               ; preds = %._crit_edge.i, %.lr.ph.i
+  %35 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %25, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load i32, ptr %35, align 8
-  %37 = zext i32 %36 to i64
-  %38 = icmp samesign ult i64 %indvars.iv.next.i, %37
-  br i1 %38, label %.lr.ph.i, label %_find_node_inx.exit, !llvm.loop !12
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load i32, ptr %36, align 8
+  %38 = zext i32 %37 to i64
+  %39 = icmp samesign ult i64 %indvars.iv.next.i, %38
+  br i1 %39, label %.lr.ph.i, label %_find_node_inx.exit, !llvm.loop !12
 
-_find_node_inx.exit:                              ; preds = %33, %.preheader.i, %21, %24
+_find_node_inx.exit:                              ; preds = %34, %.preheader.i, %21, %24
   tail call void @free(ptr noundef %15) #16
   br label %.backedge
 
-39:                                               ; preds = %31
+40:                                               ; preds = %32
   tail call void @free(ptr noundef nonnull %15) #16
   %sext = shl nuw i64 %indvars.iv.i, 32
-  %40 = ashr exact i64 %sext, 32
-  tail call void @bit_set(ptr noundef %7, i64 noundef %40) #16
+  %41 = ashr exact i64 %sext, 32
+  tail call void @bit_set(ptr noundef %7, i64 noundef %41) #16
   br label %.backedge
 
-.backedge:                                        ; preds = %39, %_find_node_inx.exit
-  %41 = tail call ptr @hostlist_shift(ptr noundef nonnull %11) #16
-  %.not16 = icmp eq ptr %41, null
+.backedge:                                        ; preds = %40, %_find_node_inx.exit
+  %42 = tail call ptr @hostlist_shift(ptr noundef nonnull %11) #16
+  %.not16 = icmp eq ptr %42, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
   tail call void @hostlist_destroy(ptr noundef nonnull %11) #16
-  br label %42
+  br label %43
 
-42:                                               ; preds = %._crit_edge, %13, %8
+43:                                               ; preds = %._crit_edge, %13, %8
   %.0 = phi i32 [ 0, %._crit_edge ], [ 22, %13 ], [ 22, %8 ]
   ret i32 %.0
 }
@@ -394,47 +395,48 @@ free_switch_nodes_maps.exit:                      ; preds = %free_switch_nodes_m
   %.not21 = icmp eq i32 %24, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph20
 
-.lr.ph20:                                         ; preds = %18, %41
-  %25 = phi ptr [ %42, %41 ], [ %23, %18 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %18 ]
-  %.019 = phi ptr [ %43, %41 ], [ %22, %18 ]
+.lr.ph20:                                         ; preds = %18, %42
+  %25 = phi ptr [ %43, %42 ], [ %23, %18 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %18 ]
+  %.019 = phi ptr [ %44, %42 ], [ %22, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw %struct.topo_info, ptr %27, i64 %indvars.iv, i32 3
-  %29 = load ptr, ptr %28, align 8
-  %.not14 = icmp eq ptr %29, null
-  br i1 %.not14, label %41, label %30
+  %28 = getelementptr inbounds nuw %struct.topo_info, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %.not14 = icmp eq ptr %30, null
+  br i1 %.not14, label %42, label %31
 
-30:                                               ; preds = %.lr.ph20
-  %31 = getelementptr inbounds nuw i8, ptr %.019, i64 8
-  %32 = tail call i32 @build_nodes_bitmap(ptr noundef nonnull %29, ptr noundef nonnull %31)
-  %.not15 = icmp eq i32 %32, 0
+31:                                               ; preds = %.lr.ph20
+  %32 = getelementptr inbounds nuw i8, ptr %.019, i64 8
+  %33 = tail call i32 @build_nodes_bitmap(ptr noundef nonnull %30, ptr noundef nonnull %32)
+  %.not15 = icmp eq i32 %33, 0
   %.pre27 = load ptr, ptr @g_topo_info_msg_ptr, align 8
-  br i1 %.not15, label %41, label %33
+  br i1 %.not15, label %42, label %34
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %.pre27, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw %struct.topo_info, ptr %35, i64 %indvars.iv
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %40 = load ptr, ptr %39, align 8
-  tail call void (ptr, ...) @g_print(ptr noundef nonnull @.str.4, ptr noundef %38, ptr noundef %40) #16
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %.pre27, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw %struct.topo_info, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %41 = load ptr, ptr %40, align 8
+  tail call void (ptr, ...) @g_print(ptr noundef nonnull @.str.4, ptr noundef %39, ptr noundef %41) #16
   %.pre26 = load ptr, ptr @g_topo_info_msg_ptr, align 8
-  br label %41
+  br label %42
 
-41:                                               ; preds = %30, %33, %.lr.ph20
-  %42 = phi ptr [ %.pre27, %30 ], [ %.pre26, %33 ], [ %25, %.lr.ph20 ]
+42:                                               ; preds = %31, %34, %.lr.ph20
+  %43 = phi ptr [ %.pre27, %31 ], [ %.pre26, %34 ], [ %25, %.lr.ph20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = getelementptr inbounds nuw i8, ptr %.019, i64 16
-  %44 = load i32, ptr %42, align 8
-  %45 = zext i32 %44 to i64
-  %46 = icmp samesign ult i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph20, label %.loopexit, !llvm.loop !14
+  %44 = getelementptr inbounds nuw i8, ptr %.019, i64 16
+  %45 = load i32, ptr %43, align 8
+  %46 = zext i32 %45 to i64
+  %47 = icmp samesign ult i64 %indvars.iv.next, %46
+  br i1 %47, label %.lr.ph20, label %.loopexit, !llvm.loop !14
 
-.loopexit:                                        ; preds = %41, %18, %9, %4
-  %.09 = phi i32 [ -1, %9 ], [ -1, %4 ], [ 0, %18 ], [ 0, %41 ]
+.loopexit:                                        ; preds = %42, %18, %9, %4
+  %.09 = phi i32 [ -1, %9 ], [ -1, %4 ], [ 0, %18 ], [ 0, %42 ]
   ret i32 %.09
 }
 
@@ -3259,34 +3261,36 @@ define dso_local ptr @create_pulldown_combo(ptr noundef readonly captures(none) 
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %6 = phi ptr [ %10, %.lr.ph ], [ %4, %1 ]
+  %6 = phi ptr [ %12, %.lr.ph ], [ %4, %1 ]
+  %7 = getelementptr inbounds nuw %struct.display_data, ptr %0, i64 %indvars.iv
   call void @gtk_list_store_append(ptr noundef %3, ptr noundef nonnull %2) #16
-  %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds nuw %struct.display_data, ptr %0, i64 %indvars.iv, i32 2
-  %9 = load ptr, ptr %8, align 8
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %7, i32 noundef 1, ptr noundef %9, i32 noundef -1) #16
+  %8 = load i32, ptr %6, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %10 = load ptr, ptr %9, align 8
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %8, i32 noundef 1, ptr noundef %10, i32 noundef -1) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw %struct.display_data, ptr %0, i64 %indvars.iv.next, i32 1
-  %11 = load i32, ptr %10, align 8
-  %.not = icmp eq i32 %11, -1
+  %11 = getelementptr inbounds nuw %struct.display_data, ptr %0, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load i32, ptr %12, align 8
+  %.not = icmp eq i32 %13, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %12 = tail call i64 @gtk_tree_model_get_type() #17
-  %13 = call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef %12) #16
-  %14 = call ptr @gtk_combo_box_new_with_model(ptr noundef %13) #16
+  %14 = tail call i64 @gtk_tree_model_get_type() #17
+  %15 = call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef %14) #16
+  %16 = call ptr @gtk_combo_box_new_with_model(ptr noundef %15) #16
   call void @g_object_unref(ptr noundef %3) #16
-  %15 = call ptr @gtk_cell_renderer_text_new() #16
-  %16 = tail call i64 @gtk_cell_layout_get_type() #17
-  %17 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %16) #16
-  call void @gtk_cell_layout_pack_start(ptr noundef %17, ptr noundef %15, i32 noundef 1) #16
-  %18 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %16) #16
-  call void @gtk_cell_layout_add_attribute(ptr noundef %18, ptr noundef %15, ptr noundef nonnull @.str.19, i32 noundef 1) #16
-  %19 = tail call i64 @gtk_combo_box_get_type() #17
-  %20 = call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %19) #16
-  call void @gtk_combo_box_set_active(ptr noundef %20, i32 noundef 0) #16
+  %17 = call ptr @gtk_cell_renderer_text_new() #16
+  %18 = tail call i64 @gtk_cell_layout_get_type() #17
+  %19 = call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %18) #16
+  call void @gtk_cell_layout_pack_start(ptr noundef %19, ptr noundef %17, i32 noundef 1) #16
+  %20 = call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %18) #16
+  call void @gtk_cell_layout_add_attribute(ptr noundef %20, ptr noundef %17, ptr noundef nonnull @.str.19, i32 noundef 1) #16
+  %21 = tail call i64 @gtk_combo_box_get_type() #17
+  %22 = call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %21) #16
+  call void @gtk_combo_box_set_active(ptr noundef %22, i32 noundef 0) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %14
+  ret ptr %16
 }
 
 declare ptr @gtk_list_store_new(i32 noundef, ...) local_unnamed_addr #2

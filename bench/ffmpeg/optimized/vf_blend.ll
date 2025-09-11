@@ -1791,7 +1791,7 @@ define internal void @blend_hardlight_8bit(ptr noundef readonly captures(none) %
   %26 = xor i32 %23, 255
   %27 = xor i32 %19, 255
   %28 = mul nuw nsw i32 %26, %27
-  %.lhs.trunc41.us = trunc nuw i32 %28 to i16
+  %.lhs.trunc41.us = trunc nuw nsw i32 %28 to i16
   %29 = udiv i16 %.lhs.trunc41.us, 255
   %30 = shl nuw nsw i16 %29, 1
   %31 = zext nneg i16 %30 to i32
@@ -1800,7 +1800,7 @@ define internal void @blend_hardlight_8bit(ptr noundef readonly captures(none) %
 
 33:                                               ; preds = %16
   %34 = mul nuw nsw i32 %23, %19
-  %.lhs.trunc.us = trunc nuw i32 %34 to i16
+  %.lhs.trunc.us = trunc nuw nsw i32 %34 to i16
   %35 = udiv i16 %.lhs.trunc.us, 255
   %36 = shl nuw nsw i16 %35, 1
   %37 = zext nneg i16 %36 to i32
@@ -2346,7 +2346,7 @@ define internal void @blend_overlay_8bit(ptr noundef readonly captures(none) %0,
   %26 = xor i8 %25, -1
   %27 = zext i8 %26 to i32
   %28 = mul nuw nsw i32 %23, %27
-  %.lhs.trunc41.us = trunc nuw i32 %28 to i16
+  %.lhs.trunc41.us = trunc nuw nsw i32 %28 to i16
   %29 = udiv i16 %.lhs.trunc41.us, 255
   %30 = shl nuw nsw i16 %29, 1
   %31 = zext nneg i16 %30 to i32
@@ -2358,7 +2358,7 @@ define internal void @blend_overlay_8bit(ptr noundef readonly captures(none) %0,
   %35 = load i8, ptr %34, align 1, !tbaa !89
   %36 = zext i8 %35 to i32
   %37 = mul nuw nsw i32 %36, %19
-  %.lhs.trunc.us = trunc nuw i32 %37 to i16
+  %.lhs.trunc.us = trunc nuw nsw i32 %37 to i16
   %38 = udiv i16 %.lhs.trunc.us, 255
   %39 = shl nuw nsw i16 %38, 1
   %40 = zext nneg i16 %39 to i32
@@ -2473,7 +2473,7 @@ define internal void @blend_pinlight_8bit(ptr noundef readonly captures(none) %0
 
 26:                                               ; preds = %16
   %27 = add nsw i32 %25, -256
-  %.53.us = tail call i32 @llvm.smax.i32(i32 %27, i32 %19)
+  %.53.us = tail call i32 @llvm.umax.i32(i32 %27, i32 %19)
   br label %29
 
 28:                                               ; preds = %16
@@ -4854,7 +4854,7 @@ define internal void @blend_pinlight_9bit(ptr noundef readonly captures(none) %0
 
 29:                                               ; preds = %19
   %30 = add nsw i32 %28, -512
-  %.53.us = tail call i32 @llvm.smax.i32(i32 %30, i32 %22)
+  %.53.us = tail call i32 @llvm.umax.i32(i32 %30, i32 %22)
   br label %32
 
 31:                                               ; preds = %19
@@ -7199,7 +7199,7 @@ define internal void @blend_pinlight_10bit(ptr noundef readonly captures(none) %
 
 29:                                               ; preds = %19
   %30 = add nsw i32 %28, -1024
-  %.53.us = tail call i32 @llvm.smax.i32(i32 %30, i32 %22)
+  %.53.us = tail call i32 @llvm.umax.i32(i32 %30, i32 %22)
   br label %32
 
 31:                                               ; preds = %19
@@ -9544,7 +9544,7 @@ define internal void @blend_pinlight_12bit(ptr noundef readonly captures(none) %
 
 29:                                               ; preds = %19
   %30 = add nsw i32 %28, -4096
-  %.53.us = tail call i32 @llvm.smax.i32(i32 %30, i32 %22)
+  %.53.us = tail call i32 @llvm.umax.i32(i32 %30, i32 %22)
   br label %32
 
 31:                                               ; preds = %19
@@ -11889,7 +11889,7 @@ define internal void @blend_pinlight_14bit(ptr noundef readonly captures(none) %
 
 29:                                               ; preds = %19
   %30 = add nsw i32 %28, -16384
-  %.53.us = tail call i32 @llvm.smax.i32(i32 %30, i32 %22)
+  %.53.us = tail call i32 @llvm.umax.i32(i32 %30, i32 %22)
   br label %32
 
 31:                                               ; preds = %19
@@ -14229,7 +14229,7 @@ define internal void @blend_pinlight_16bit(ptr noundef readonly captures(none) %
 
 29:                                               ; preds = %19
   %30 = add nsw i32 %28, -65536
-  %.53.us = tail call i32 @llvm.smax.i32(i32 %30, i32 %22)
+  %.53.us = tail call i32 @llvm.umax.i32(i32 %30, i32 %22)
   br label %32
 
 31:                                               ; preds = %19
@@ -17689,6 +17689,9 @@ declare i16 @llvm.umin.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #11

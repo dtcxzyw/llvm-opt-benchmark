@@ -592,7 +592,7 @@ define internal fastcc noundef zeroext i1 @valid_regdb(ptr noundef %0, i32 nound
   br i1 %110, label %111, label %115, !llvm.loop !11
 
 111:                                              ; preds = %101
-  %112 = getelementptr %struct.fwdb_wmm_ac, ptr %85, i64 %99, i32 1
+  %112 = getelementptr i8, ptr %102, i64 1
   %113 = load i8, ptr %112, align 1
   %114 = icmp eq i8 %113, 0
   br i1 %114, label %115, label %.preheader, !llvm.loop !11
@@ -2995,7 +2995,8 @@ define dso_local noundef range(i32 -12, 1) i32 @regulatory_hint_found_beacon(ptr
 
 55:                                               ; preds = %51, %.critedge
   %56 = phi i64 [ 0, %.critedge ], [ %54, %51 ]
-  %57 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %56, i64 1
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %56
+  %57 = getelementptr i8, ptr %.split, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noalias align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %58, i32 noundef %48, i64 noundef 80) #25
   %60 = icmp eq ptr %59, null
@@ -6097,7 +6098,7 @@ define internal fastcc void @set_wmm_rule(ptr noundef readonly captures(none) %0
   br i1 %36, label %37, label %41, !llvm.loop !11
 
 37:                                               ; preds = %27
-  %38 = getelementptr %struct.fwdb_wmm_ac, ptr %11, i64 %25, i32 1
+  %38 = getelementptr i8, ptr %28, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %.preheader, !llvm.loop !11

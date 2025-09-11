@@ -101,7 +101,7 @@ define void @_Z25dtFreeTileCacheContourSetP16dtTileCacheAllocP21dtTileCacheConto
 
 7:                                                ; preds = %6, %2
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %29, label %.preheader
+  br i1 %.not, label %30, label %.preheader
 
 .preheader:                                       ; preds = %7
   %8 = load i32, ptr %1, align 8
@@ -115,32 +115,33 @@ define void @_Z25dtFreeTileCacheContourSetP16dtTileCacheAllocP21dtTileCacheConto
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds nuw %struct.dtTileCacheContour, ptr %12, i64 %indvars.iv, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %14)
+  %13 = getelementptr inbounds nuw %struct.dtTileCacheContour, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr %1, align 8
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %11, label %._crit_edge, !llvm.loop !4
+  %19 = load i32, ptr %1, align 8
+  %20 = sext i32 %19 to i64
+  %21 = icmp slt i64 %indvars.iv.next, %20
+  br i1 %21, label %11, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %11, %.preheader
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %22)
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
-  br label %29
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %23)
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
+  br label %30
 
-29:                                               ; preds = %7, %._crit_edge
+30:                                               ; preds = %7, %._crit_edge
   ret void
 }
 
@@ -259,7 +260,7 @@ define noundef range(i32 1073741824, -2147483631) i32 @_Z23dtBuildTileCacheRegio
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %27)
-          to label %_ZN12dtFixedArrayI16dtLayerSweepSpanED2Ev.exit266 unwind label %320
+          to label %_ZN12dtFixedArrayI16dtLayerSweepSpanED2Ev.exit266 unwind label %330
 
 33:                                               ; preds = %10
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %27, i8 0, i64 %23, i1 false)
@@ -350,10 +351,10 @@ _Z11isConnectedRK16dtTileCacheLayeriii.exit:      ; preds = %52
 .thread:                                          ; preds = %52, %51, %_Z11isConnectedRK16dtTileCacheLayeriii.exit, %65
   %70 = add i8 %.0211330, 1
   %71 = zext i8 %.0211330 to i64
-  %72 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %71, i32 2
-  store i8 -1, ptr %72, align 1
-  %73 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %71
-  store i16 0, ptr %73, align 2
+  %72 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 3
+  store i8 -1, ptr %73, align 1
+  store i16 0, ptr %72, align 2
   br label %74
 
 74:                                               ; preds = %.thread, %65
@@ -396,7 +397,7 @@ _Z11isConnectedRK16dtTileCacheLayeriii.exit250:   ; preds = %75
   %97 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = icmp eq i16 %98, 0
-  %100 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %96, i32 2
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 3
   br i1 %99, label %.thread485, label %101
 
 .thread485:                                       ; preds = %95
@@ -419,7 +420,7 @@ _Z11isConnectedRK16dtTileCacheLayeriii.exit250:   ; preds = %75
   br label %_Z11isConnectedRK16dtTileCacheLayeriii.exit250.thread
 
 109:                                              ; preds = %101
-  %110 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %96, i32 2
+  %110 = getelementptr inbounds nuw i8, ptr %97, i64 3
   store i8 -1, ptr %110, align 1
   br label %_Z11isConnectedRK16dtTileCacheLayeriii.exit250.thread
 
@@ -443,22 +444,22 @@ _Z11isConnectedRK16dtTileCacheLayeriii.exit250.thread: ; preds = %75, %91, %109,
 .lr.ph333:                                        ; preds = %.lr.ph333.preheader, %129
   %indvars.iv393 = phi i64 [ 0, %.lr.ph333.preheader ], [ %indvars.iv.next394, %129 ]
   %.1207332 = phi i8 [ %.0206338, %.lr.ph333.preheader ], [ %.2, %129 ]
-  %115 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %indvars.iv393, i32 2
-  %116 = load i8, ptr %115, align 1
-  %.not241 = icmp eq i8 %116, -1
-  br i1 %.not241, label %125, label %117
+  %115 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %indvars.iv393
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 3
+  %117 = load i8, ptr %116, align 1
+  %.not241 = icmp eq i8 %117, -1
+  br i1 %.not241, label %125, label %118
 
-117:                                              ; preds = %.lr.ph333
-  %118 = zext i8 %116 to i64
-  %119 = getelementptr inbounds nuw i8, ptr %4, i64 %118
-  %120 = load i8, ptr %119, align 1
-  %121 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %indvars.iv393
-  %122 = load i16, ptr %121, align 2
-  %123 = zext i8 %120 to i16
+118:                                              ; preds = %.lr.ph333
+  %119 = zext i8 %117 to i64
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 %119
+  %121 = load i8, ptr %120, align 1
+  %122 = load i16, ptr %115, align 2
+  %123 = zext i8 %121 to i16
   %124 = icmp eq i16 %122, %123
   br i1 %124, label %129, label %125
 
-125:                                              ; preds = %117, %.lr.ph333
+125:                                              ; preds = %118, %.lr.ph333
   %126 = icmp eq i8 %.1207332, -1
   br i1 %126, label %_ZN12dtFixedArrayI21dtLayerMonotoneRegionED2Ev.exit263, label %127
 
@@ -466,76 +467,77 @@ _Z11isConnectedRK16dtTileCacheLayeriii.exit250.thread: ; preds = %75, %91, %109,
   %128 = add nuw i8 %.1207332, 1
   br label %129
 
-129:                                              ; preds = %117, %127
-  %.sink = phi i8 [ %.1207332, %127 ], [ %116, %117 ]
-  %.2 = phi i8 [ %128, %127 ], [ %.1207332, %117 ]
-  %130 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %indvars.iv393, i32 1
+129:                                              ; preds = %118, %127
+  %.sink = phi i8 [ %.1207332, %127 ], [ %117, %118 ]
+  %.2 = phi i8 [ %128, %127 ], [ %.1207332, %118 ]
+  %130 = getelementptr inbounds nuw i8, ptr %115, i64 2
   store i8 %.sink, ptr %130, align 2
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next394, %wide.trip.count395
   br i1 %exitcond396.not, label %.lr.ph336, label %.lr.ph333, !llvm.loop !7
 
-131:                                              ; preds = %.lr.ph336, %140
-  %indvars.iv397 = phi i64 [ 0, %.lr.ph336 ], [ %indvars.iv.next398, %140 ]
+131:                                              ; preds = %.lr.ph336, %141
+  %indvars.iv397 = phi i64 [ 0, %.lr.ph336 ], [ %indvars.iv.next398, %141 ]
   %132 = load ptr, ptr %18, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 %indvars.iv397
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 %114
   %135 = load i8, ptr %134, align 1
   %.not240 = icmp eq i8 %135, -1
-  br i1 %.not240, label %140, label %136
+  br i1 %.not240, label %141, label %136
 
 136:                                              ; preds = %131
   %137 = zext i8 %135 to i64
-  %138 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %137, i32 1
-  %139 = load i8, ptr %138, align 2
-  store i8 %139, ptr %134, align 1
-  br label %140
+  %138 = getelementptr inbounds nuw %struct.dtLayerSweepSpan, ptr %27, i64 %137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 2
+  %140 = load i8, ptr %139, align 2
+  store i8 %140, ptr %134, align 1
+  br label %141
 
-140:                                              ; preds = %131, %136
+141:                                              ; preds = %131, %136
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
   %exitcond401.not = icmp eq i64 %indvars.iv.next398, %wide.trip.count400
   br i1 %exitcond401.not, label %._crit_edge, label %131, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %140, %40
-  %.1207.lcssa487 = phi i8 [ %.0206338, %40 ], [ %.1207.lcssa, %140 ]
+._crit_edge:                                      ; preds = %141, %40
+  %.1207.lcssa487 = phi i8 [ %.0206338, %40 ], [ %.1207.lcssa, %141 ]
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
   %exitcond405.not = icmp eq i64 %indvars.iv.next403, %wide.trip.count404
   br i1 %exitcond405.not, label %._crit_edge341, label %37, !llvm.loop !9
 
 ._crit_edge341:                                   ; preds = %._crit_edge, %33
   %.0206.lcssa = phi i8 [ 0, %33 ], [ %.1207.lcssa487, %._crit_edge ]
-  %141 = zext i8 %.0206.lcssa to i64
-  %142 = mul nuw nsw i64 %141, 24
-  %143 = load ptr, ptr %0, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  %145 = load ptr, ptr %144, align 8
-  %146 = invoke noundef ptr %145(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %142)
+  %142 = zext i8 %.0206.lcssa to i64
+  %143 = mul nuw nsw i64 %142, 24
+  %144 = load ptr, ptr %0, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  %146 = load ptr, ptr %145, align 8
+  %147 = invoke noundef ptr %146(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %143)
           to label %_ZN12dtFixedArrayI21dtLayerMonotoneRegionEC2EP16dtTileCacheAlloci.exit unwind label %28
 
 _ZN12dtFixedArrayI21dtLayerMonotoneRegionEC2EP16dtTileCacheAlloci.exit: ; preds = %._crit_edge341
-  %.not231 = icmp eq ptr %146, null
-  br i1 %.not231, label %.loopexit, label %147
+  %.not231 = icmp eq ptr %147, null
+  br i1 %.not231, label %.loopexit, label %148
 
-147:                                              ; preds = %_ZN12dtFixedArrayI21dtLayerMonotoneRegionEC2EP16dtTileCacheAlloci.exit
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %146, i8 0, i64 %142, i1 false)
+148:                                              ; preds = %_ZN12dtFixedArrayI21dtLayerMonotoneRegionEC2EP16dtTileCacheAlloci.exit
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %147, i8 0, i64 %143, i1 false)
   %.not382 = icmp eq i8 %.0206.lcssa, 0
   br i1 %.not382, label %.preheader322, label %.lr.ph345.preheader
 
-.lr.ph345.preheader:                              ; preds = %147
+.lr.ph345.preheader:                              ; preds = %148
   %wide.trip.count409 = zext i8 %.0206.lcssa to i64
   br label %.lr.ph345
 
-.preheader322:                                    ; preds = %.lr.ph345, %147
+.preheader322:                                    ; preds = %.lr.ph345, %148
   br i1 %.not378, label %.preheader320, label %.preheader321.lr.ph
 
 .preheader321.lr.ph:                              ; preds = %.preheader322
   %.not384 = icmp eq i8 %13, 0
-  %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not384, label %.preheader320, label %.preheader321.us.preheader
 
 .preheader321.us.preheader:                       ; preds = %.preheader321.lr.ph
-  %150 = zext i8 %13 to i64
+  %151 = zext i8 %13 to i64
   %wide.trip.count424 = zext i8 %16 to i64
   %wide.trip.count414 = zext i8 %13 to i64
   %wide.trip.count419 = zext i8 %13 to i64
@@ -543,115 +545,116 @@ _ZN12dtFixedArrayI21dtLayerMonotoneRegionEC2EP16dtTileCacheAlloci.exit: ; preds 
 
 .preheader321.us:                                 ; preds = %.preheader321.us.preheader, %._crit_edge348.us
   %indvars.iv421 = phi i64 [ 0, %.preheader321.us.preheader ], [ %indvars.iv.next422, %._crit_edge348.us ]
-  %151 = mul nuw nsw i64 %indvars.iv421, %150
+  %152 = mul nuw nsw i64 %indvars.iv421, %151
   %.not236.us = icmp eq i64 %indvars.iv421, 0
-  %152 = add nsw i64 %indvars.iv421, -1
-  %153 = mul nsw i64 %152, %150
+  %153 = add nsw i64 %indvars.iv421, -1
+  %154 = mul nsw i64 %153, %151
   br i1 %.not236.us, label %.lr.ph347.split.us.us, label %.lr.ph347.split.us353
 
 .lr.ph347.split.us353:                            ; preds = %.preheader321.us, %_ZL13addUniqueLastPhRhh.exit259.us351
   %indvars.iv411 = phi i64 [ %indvars.iv.next412, %_ZL13addUniqueLastPhRhh.exit259.us351 ], [ 0, %.preheader321.us ]
-  %154 = add nuw nsw i64 %indvars.iv411, %151
-  %155 = load ptr, ptr %18, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 %154
-  %157 = load i8, ptr %156, align 1
-  %158 = icmp eq i8 %157, -1
-  br i1 %158, label %_ZL13addUniqueLastPhRhh.exit259.us351, label %159
+  %155 = add nuw nsw i64 %indvars.iv411, %152
+  %156 = load ptr, ptr %18, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 %155
+  %158 = load i8, ptr %157, align 1
+  %159 = icmp eq i8 %158, -1
+  br i1 %159, label %_ZL13addUniqueLastPhRhh.exit259.us351, label %160
 
-159:                                              ; preds = %.lr.ph347.split.us353
-  %160 = zext i8 %157 to i64
-  %161 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %160
-  %162 = load i32, ptr %161, align 4
-  %163 = add nsw i32 %162, 1
-  store i32 %163, ptr %161, align 4
-  %164 = load ptr, ptr %148, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 %154
-  %166 = load i8, ptr %165, align 1
-  %167 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %160, i32 4
-  store i8 %166, ptr %167, align 2
-  %168 = add nsw i64 %indvars.iv411, %153
-  %169 = load ptr, ptr %148, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 %154
-  %171 = load i8, ptr %170, align 1
-  %172 = getelementptr inbounds i8, ptr %169, i64 %168
-  %173 = load i8, ptr %172, align 1
-  %.not.i252.us = icmp eq i8 %171, %173
+160:                                              ; preds = %.lr.ph347.split.us353
+  %161 = zext i8 %158 to i64
+  %162 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %161
+  %163 = load i32, ptr %162, align 4
+  %164 = add nsw i32 %163, 1
+  store i32 %164, ptr %162, align 4
+  %165 = load ptr, ptr %149, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 %155
+  %167 = load i8, ptr %166, align 1
+  %168 = getelementptr inbounds nuw i8, ptr %162, i64 22
+  store i8 %167, ptr %168, align 2
+  %169 = add nsw i64 %indvars.iv411, %154
+  %170 = load ptr, ptr %149, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 %155
+  %172 = load i8, ptr %171, align 1
+  %173 = getelementptr inbounds i8, ptr %170, i64 %169
+  %174 = load i8, ptr %173, align 1
+  %.not.i252.us = icmp eq i8 %172, %174
   br i1 %.not.i252.us, label %_Z11isConnectedRK16dtTileCacheLayeriii.exit254.us, label %_ZL13addUniqueLastPhRhh.exit259.us351
 
-_Z11isConnectedRK16dtTileCacheLayeriii.exit254.us: ; preds = %159
-  %174 = load ptr, ptr %149, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 %154
-  %176 = load i8, ptr %175, align 1
-  %177 = zext i8 %176 to i32
-  %178 = getelementptr inbounds i8, ptr %174, i64 %168
-  %179 = load i8, ptr %178, align 1
-  %180 = zext i8 %179 to i32
-  %181 = sub nsw i32 %177, %180
-  %182 = tail call noundef i32 @llvm.abs.i32(i32 %181, i1 true)
-  %.not314.us = icmp sgt i32 %182, %2
-  br i1 %.not314.us, label %_ZL13addUniqueLastPhRhh.exit259.us351, label %183
+_Z11isConnectedRK16dtTileCacheLayeriii.exit254.us: ; preds = %160
+  %175 = load ptr, ptr %150, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 %155
+  %177 = load i8, ptr %176, align 1
+  %178 = zext i8 %177 to i32
+  %179 = getelementptr inbounds i8, ptr %175, i64 %169
+  %180 = load i8, ptr %179, align 1
+  %181 = zext i8 %180 to i32
+  %182 = sub nsw i32 %178, %181
+  %183 = tail call noundef i32 @llvm.abs.i32(i32 %182, i1 true)
+  %.not314.us = icmp sgt i32 %183, %2
+  br i1 %.not314.us, label %_ZL13addUniqueLastPhRhh.exit259.us351, label %184
 
-183:                                              ; preds = %_Z11isConnectedRK16dtTileCacheLayeriii.exit254.us
-  %184 = load ptr, ptr %18, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 %168
-  %186 = load i8, ptr %185, align 1
-  %.not237.us = icmp eq i8 %186, -1
-  %.not238.us = icmp eq i8 %186, %157
+184:                                              ; preds = %_Z11isConnectedRK16dtTileCacheLayeriii.exit254.us
+  %185 = load ptr, ptr %18, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 %169
+  %187 = load i8, ptr %186, align 1
+  %.not237.us = icmp eq i8 %187, -1
+  %.not238.us = icmp eq i8 %187, %158
   %or.cond247.us = or i1 %.not237.us, %.not238.us
-  br i1 %or.cond247.us, label %_ZL13addUniqueLastPhRhh.exit259.us351, label %187
+  br i1 %or.cond247.us, label %_ZL13addUniqueLastPhRhh.exit259.us351, label %188
 
-187:                                              ; preds = %183
-  %188 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %160, i32 1
-  %189 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %160, i32 2
-  %190 = load i8, ptr %189, align 1
-  %.not.i255.us = icmp eq i8 %190, 0
-  br i1 %.not.i255.us, label %._crit_edge.i.us, label %191
+188:                                              ; preds = %184
+  %189 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %162, i64 20
+  %191 = load i8, ptr %190, align 1
+  %.not.i255.us = icmp eq i8 %191, 0
+  br i1 %.not.i255.us, label %._crit_edge.i.us, label %192
 
-191:                                              ; preds = %187
-  %192 = zext i8 %190 to i64
-  %193 = add nuw nsw i64 %192, 4294967295
-  %194 = and i64 %193, 4294967295
-  %195 = getelementptr inbounds nuw i8, ptr %188, i64 %194
-  %196 = load i8, ptr %195, align 1
-  %197 = icmp eq i8 %196, %186
-  br i1 %197, label %_ZL13addUniqueLastPhRhh.exit.us, label %._crit_edge.i.us
+192:                                              ; preds = %188
+  %193 = zext i8 %191 to i64
+  %194 = add nuw nsw i64 %193, 4294967295
+  %195 = and i64 %194, 4294967295
+  %196 = getelementptr inbounds nuw i8, ptr %189, i64 %195
+  %197 = load i8, ptr %196, align 1
+  %198 = icmp eq i8 %197, %187
+  br i1 %198, label %_ZL13addUniqueLastPhRhh.exit.us, label %._crit_edge.i.us
 
-._crit_edge.i.us:                                 ; preds = %191, %187
-  %.pre-phi.i.us = phi i64 [ %192, %191 ], [ 0, %187 ]
-  %198 = getelementptr inbounds nuw i8, ptr %188, i64 %.pre-phi.i.us
-  store i8 %186, ptr %198, align 1
-  %199 = load i8, ptr %189, align 1
-  %200 = add i8 %199, 1
-  store i8 %200, ptr %189, align 1
+._crit_edge.i.us:                                 ; preds = %192, %188
+  %.pre-phi.i.us = phi i64 [ %193, %192 ], [ 0, %188 ]
+  %199 = getelementptr inbounds nuw i8, ptr %189, i64 %.pre-phi.i.us
+  store i8 %187, ptr %199, align 1
+  %200 = load i8, ptr %190, align 1
+  %201 = add i8 %200, 1
+  store i8 %201, ptr %190, align 1
   br label %_ZL13addUniqueLastPhRhh.exit.us
 
-_ZL13addUniqueLastPhRhh.exit.us:                  ; preds = %._crit_edge.i.us, %191
-  %201 = zext i8 %186 to i64
-  %202 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %201, i32 1
-  %203 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %201, i32 2
-  %204 = load i8, ptr %203, align 1
-  %.not.i256.us = icmp eq i8 %204, 0
-  br i1 %.not.i256.us, label %._crit_edge.i257.us, label %205
+_ZL13addUniqueLastPhRhh.exit.us:                  ; preds = %._crit_edge.i.us, %192
+  %202 = zext i8 %187 to i64
+  %203 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %202
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 4
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 20
+  %206 = load i8, ptr %205, align 1
+  %.not.i256.us = icmp eq i8 %206, 0
+  br i1 %.not.i256.us, label %._crit_edge.i257.us, label %207
 
-205:                                              ; preds = %_ZL13addUniqueLastPhRhh.exit.us
-  %206 = zext i8 %204 to i64
-  %207 = add nuw nsw i64 %206, 4294967295
-  %208 = and i64 %207, 4294967295
-  %209 = getelementptr inbounds nuw i8, ptr %202, i64 %208
-  %210 = load i8, ptr %209, align 1
-  %211 = icmp eq i8 %210, %157
-  br i1 %211, label %_ZL13addUniqueLastPhRhh.exit259.us351, label %._crit_edge.i257.us
+207:                                              ; preds = %_ZL13addUniqueLastPhRhh.exit.us
+  %208 = zext i8 %206 to i64
+  %209 = add nuw nsw i64 %208, 4294967295
+  %210 = and i64 %209, 4294967295
+  %211 = getelementptr inbounds nuw i8, ptr %204, i64 %210
+  %212 = load i8, ptr %211, align 1
+  %213 = icmp eq i8 %212, %158
+  br i1 %213, label %_ZL13addUniqueLastPhRhh.exit259.us351, label %._crit_edge.i257.us
 
-._crit_edge.i257.us:                              ; preds = %205, %_ZL13addUniqueLastPhRhh.exit.us
-  %.pre-phi.i258.us = phi i64 [ %206, %205 ], [ 0, %_ZL13addUniqueLastPhRhh.exit.us ]
-  %212 = getelementptr inbounds nuw i8, ptr %202, i64 %.pre-phi.i258.us
-  store i8 %157, ptr %212, align 1
-  %213 = load i8, ptr %203, align 1
-  %214 = add i8 %213, 1
-  store i8 %214, ptr %203, align 1
+._crit_edge.i257.us:                              ; preds = %207, %_ZL13addUniqueLastPhRhh.exit.us
+  %.pre-phi.i258.us = phi i64 [ %208, %207 ], [ 0, %_ZL13addUniqueLastPhRhh.exit.us ]
+  %214 = getelementptr inbounds nuw i8, ptr %204, i64 %.pre-phi.i258.us
+  store i8 %158, ptr %214, align 1
+  %215 = load i8, ptr %205, align 1
+  %216 = add i8 %215, 1
+  store i8 %216, ptr %205, align 1
   br label %_ZL13addUniqueLastPhRhh.exit259.us351
 
-_ZL13addUniqueLastPhRhh.exit259.us351:            ; preds = %._crit_edge.i257.us, %205, %183, %_Z11isConnectedRK16dtTileCacheLayeriii.exit254.us, %159, %.lr.ph347.split.us353
+_ZL13addUniqueLastPhRhh.exit259.us351:            ; preds = %._crit_edge.i257.us, %207, %184, %_Z11isConnectedRK16dtTileCacheLayeriii.exit254.us, %160, %.lr.ph347.split.us353
   %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1
   %exitcond415.not = icmp eq i64 %indvars.iv.next412, %wide.trip.count414
   br i1 %exitcond415.not, label %._crit_edge348.us, label %.lr.ph347.split.us353, !llvm.loop !10
@@ -663,34 +666,35 @@ _ZL13addUniqueLastPhRhh.exit259.us351:            ; preds = %._crit_edge.i257.us
 
 .lr.ph347.split.us.us:                            ; preds = %.preheader321.us, %_ZL13addUniqueLastPhRhh.exit259.us.us
   %indvars.iv416 = phi i64 [ %indvars.iv.next417, %_ZL13addUniqueLastPhRhh.exit259.us.us ], [ 0, %.preheader321.us ]
-  %215 = load ptr, ptr %18, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 %indvars.iv416
-  %217 = load i8, ptr %216, align 1
-  %218 = icmp eq i8 %217, -1
-  br i1 %218, label %_ZL13addUniqueLastPhRhh.exit259.us.us, label %219
+  %217 = load ptr, ptr %18, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 %indvars.iv416
+  %219 = load i8, ptr %218, align 1
+  %220 = icmp eq i8 %219, -1
+  br i1 %220, label %_ZL13addUniqueLastPhRhh.exit259.us.us, label %221
 
-219:                                              ; preds = %.lr.ph347.split.us.us
-  %220 = zext i8 %217 to i64
-  %221 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %220
-  %222 = load i32, ptr %221, align 4
-  %223 = add nsw i32 %222, 1
-  store i32 %223, ptr %221, align 4
-  %224 = load ptr, ptr %148, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 %indvars.iv416
-  %226 = load i8, ptr %225, align 1
-  %227 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %220, i32 4
-  store i8 %226, ptr %227, align 2
+221:                                              ; preds = %.lr.ph347.split.us.us
+  %222 = zext i8 %219 to i64
+  %223 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %222
+  %224 = load i32, ptr %223, align 4
+  %225 = add nsw i32 %224, 1
+  store i32 %225, ptr %223, align 4
+  %226 = load ptr, ptr %149, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 %indvars.iv416
+  %228 = load i8, ptr %227, align 1
+  %229 = getelementptr inbounds nuw i8, ptr %223, i64 22
+  store i8 %228, ptr %229, align 2
   br label %_ZL13addUniqueLastPhRhh.exit259.us.us
 
-_ZL13addUniqueLastPhRhh.exit259.us.us:            ; preds = %219, %.lr.ph347.split.us.us
+_ZL13addUniqueLastPhRhh.exit259.us.us:            ; preds = %221, %.lr.ph347.split.us.us
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond420.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count419
   br i1 %exitcond420.not, label %._crit_edge348.us, label %.lr.ph347.split.us.us, !llvm.loop !10
 
 .lr.ph345:                                        ; preds = %.lr.ph345.preheader, %.lr.ph345
   %indvars.iv406 = phi i64 [ 0, %.lr.ph345.preheader ], [ %indvars.iv.next407, %.lr.ph345 ]
-  %228 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %indvars.iv406, i32 3
-  store i8 -1, ptr %228, align 1
+  %230 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %indvars.iv406
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 21
+  store i8 -1, ptr %231, align 1
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %exitcond410.not = icmp eq i64 %indvars.iv.next407, %wide.trip.count409
   br i1 %exitcond410.not, label %.preheader322, label %.lr.ph345, !llvm.loop !12
@@ -711,145 +715,149 @@ _ZL13addUniqueLastPhRhh.exit259.us.us:            ; preds = %219, %.lr.ph347.spl
 
 .lr.ph365:                                        ; preds = %.lr.ph355
   %wide.trip.count444 = zext i8 %.0206.lcssa to i64
-  br label %231
+  br label %235
 
 .lr.ph355:                                        ; preds = %.lr.ph355.preheader, %.lr.ph355
   %indvars.iv426 = phi i64 [ 0, %.lr.ph355.preheader ], [ %indvars.iv.next427, %.lr.ph355 ]
-  %229 = trunc i64 %indvars.iv426 to i8
-  %230 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %indvars.iv426, i32 3
-  store i8 %229, ptr %230, align 1
+  %232 = trunc i64 %indvars.iv426 to i8
+  %233 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %indvars.iv426
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 21
+  store i8 %232, ptr %234, align 1
   %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 1
   %exitcond430.not = icmp eq i64 %indvars.iv.next427, %wide.trip.count429
   br i1 %exitcond430.not, label %.lr.ph365, label %.lr.ph355, !llvm.loop !13
 
-231:                                              ; preds = %.lr.ph365, %.loopexit318
+235:                                              ; preds = %.lr.ph365, %.loopexit318
   %indvars.iv441 = phi i64 [ 0, %.lr.ph365 ], [ %indvars.iv.next442, %.loopexit318 ]
-  %232 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %indvars.iv441
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 20
-  %234 = load i8, ptr %233, align 4
-  %.not387 = icmp eq i8 %234, 0
+  %236 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %indvars.iv441
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 20
+  %238 = load i8, ptr %237, align 4
+  %.not387 = icmp eq i8 %238, 0
   br i1 %.not387, label %.loopexit318, label %.lr.ph360
 
-.lr.ph360:                                        ; preds = %231
-  %235 = getelementptr inbounds nuw i8, ptr %232, i64 4
-  %236 = getelementptr inbounds nuw i8, ptr %232, i64 21
-  %237 = load i8, ptr %236, align 1
-  %238 = getelementptr inbounds nuw i8, ptr %232, i64 22
-  %wide.trip.count434 = zext i8 %234 to i64
-  br label %239
-
-239:                                              ; preds = %.lr.ph360, %271
-  %indvars.iv431 = phi i64 [ 0, %.lr.ph360 ], [ %indvars.iv.next432, %271 ]
-  %.0202357 = phi i32 [ 0, %.lr.ph360 ], [ %.1203, %271 ]
-  %.0204356 = phi i32 [ -1, %.lr.ph360 ], [ %.1205, %271 ]
-  %240 = getelementptr inbounds nuw i8, ptr %235, i64 %indvars.iv431
+.lr.ph360:                                        ; preds = %235
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 4
+  %240 = getelementptr inbounds nuw i8, ptr %236, i64 21
   %241 = load i8, ptr %240, align 1
-  %242 = zext i8 %241 to i64
-  %243 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %242
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 21
+  %242 = getelementptr inbounds nuw i8, ptr %236, i64 22
+  %wide.trip.count434 = zext i8 %238 to i64
+  br label %243
+
+243:                                              ; preds = %.lr.ph360, %276
+  %indvars.iv431 = phi i64 [ 0, %.lr.ph360 ], [ %indvars.iv.next432, %276 ]
+  %.0202357 = phi i32 [ 0, %.lr.ph360 ], [ %.1203, %276 ]
+  %.0204356 = phi i32 [ -1, %.lr.ph360 ], [ %.1205, %276 ]
+  %244 = getelementptr inbounds nuw i8, ptr %239, i64 %indvars.iv431
   %245 = load i8, ptr %244, align 1
-  %246 = icmp eq i8 %237, %245
-  br i1 %246, label %271, label %247
+  %246 = zext i8 %245 to i64
+  %247 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %246
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 21
+  %249 = load i8, ptr %248, align 1
+  %250 = icmp eq i8 %241, %249
+  br i1 %250, label %276, label %251
 
-247:                                              ; preds = %239
-  %248 = load i8, ptr %238, align 2
-  %249 = getelementptr inbounds nuw i8, ptr %243, i64 22
-  %250 = load i8, ptr %249, align 2
-  %.not235 = icmp eq i8 %248, %250
-  br i1 %.not235, label %251, label %271
+251:                                              ; preds = %243
+  %252 = load i8, ptr %242, align 2
+  %253 = getelementptr inbounds nuw i8, ptr %247, i64 22
+  %254 = load i8, ptr %253, align 2
+  %.not235 = icmp eq i8 %252, %254
+  br i1 %.not235, label %255, label %276
 
-251:                                              ; preds = %247
-  %252 = load i32, ptr %243, align 4
-  %253 = icmp sgt i32 %252, %.0202357
-  br i1 %253, label %.lr.ph22.i, label %271
+255:                                              ; preds = %251
+  %256 = load i32, ptr %247, align 4
+  %257 = icmp sgt i32 %256, %.0202357
+  br i1 %257, label %.lr.ph22.i, label %276
 
-.lr.ph22.i:                                       ; preds = %251, %.loopexit.i
-  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %.loopexit.i ], [ 0, %251 ]
-  %.01621.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %251 ]
-  %254 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %indvars.iv27.i
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 21
-  %256 = load i8, ptr %255, align 1
-  %.not.i260 = icmp eq i8 %256, %237
-  br i1 %.not.i260, label %257, label %.loopexit.i
+.lr.ph22.i:                                       ; preds = %255, %.loopexit.i
+  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %.loopexit.i ], [ 0, %255 ]
+  %.01621.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %255 ]
+  %258 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %indvars.iv27.i
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 21
+  %260 = load i8, ptr %259, align 1
+  %.not.i260 = icmp eq i8 %260, %241
+  br i1 %.not.i260, label %261, label %.loopexit.i
 
-257:                                              ; preds = %.lr.ph22.i
-  %258 = getelementptr inbounds nuw i8, ptr %254, i64 20
-  %259 = load i8, ptr %258, align 4
-  %.not25.i = icmp eq i8 %259, 0
+261:                                              ; preds = %.lr.ph22.i
+  %262 = getelementptr inbounds nuw i8, ptr %258, i64 20
+  %263 = load i8, ptr %262, align 4
+  %.not25.i = icmp eq i8 %263, 0
   br i1 %.not25.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %257
-  %260 = getelementptr inbounds nuw i8, ptr %254, i64 4
-  %wide.trip.count.i = zext i8 %259 to i64
-  br label %261
+.lr.ph.i:                                         ; preds = %261
+  %264 = getelementptr inbounds nuw i8, ptr %258, i64 4
+  %wide.trip.count.i = zext i8 %263 to i64
+  br label %265
 
-261:                                              ; preds = %261, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %261 ]
-  %.218.i = phi i32 [ %.01621.i, %.lr.ph.i ], [ %spec.select.i, %261 ]
-  %262 = getelementptr inbounds nuw i8, ptr %260, i64 %indvars.iv.i
-  %263 = load i8, ptr %262, align 1
-  %264 = zext i8 %263 to i64
-  %265 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %264, i32 3
-  %266 = load i8, ptr %265, align 1
-  %267 = icmp eq i8 %266, %245
-  %268 = zext i1 %267 to i32
-  %spec.select.i = add nsw i32 %.218.i, %268
+265:                                              ; preds = %265, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %265 ]
+  %.218.i = phi i32 [ %.01621.i, %.lr.ph.i ], [ %spec.select.i, %265 ]
+  %266 = getelementptr inbounds nuw i8, ptr %264, i64 %indvars.iv.i
+  %267 = load i8, ptr %266, align 1
+  %268 = zext i8 %267 to i64
+  %269 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %268
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 21
+  %271 = load i8, ptr %270, align 1
+  %272 = icmp eq i8 %271, %249
+  %273 = zext i1 %272 to i32
+  %spec.select.i = add nsw i32 %.218.i, %273
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %261, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.loopexit.i, label %265, !llvm.loop !14
 
-.loopexit.i:                                      ; preds = %261, %257, %.lr.ph22.i
-  %.1.i = phi i32 [ %.01621.i, %.lr.ph22.i ], [ %.01621.i, %257 ], [ %spec.select.i, %261 ]
+.loopexit.i:                                      ; preds = %265, %261, %.lr.ph22.i
+  %.1.i = phi i32 [ %.01621.i, %.lr.ph22.i ], [ %.01621.i, %261 ], [ %spec.select.i, %265 ]
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %141
+  %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %142
   br i1 %exitcond31.not.i, label %_ZL8canMergehhPK21dtLayerMonotoneRegioni.exit, label %.lr.ph22.i, !llvm.loop !15
 
 _ZL8canMergehhPK21dtLayerMonotoneRegioni.exit:    ; preds = %.loopexit.i
-  %269 = icmp eq i32 %.1.i, 1
-  %270 = zext i8 %241 to i32
-  %spec.select = select i1 %269, i32 %270, i32 %.0204356
-  %spec.select313 = select i1 %269, i32 %252, i32 %.0202357
-  br label %271
+  %274 = icmp eq i32 %.1.i, 1
+  %275 = zext i8 %245 to i32
+  %spec.select = select i1 %274, i32 %275, i32 %.0204356
+  %spec.select313 = select i1 %274, i32 %256, i32 %.0202357
+  br label %276
 
-271:                                              ; preds = %_ZL8canMergehhPK21dtLayerMonotoneRegioni.exit, %251, %247, %239
-  %.1205 = phi i32 [ %.0204356, %239 ], [ %.0204356, %247 ], [ %.0204356, %251 ], [ %spec.select, %_ZL8canMergehhPK21dtLayerMonotoneRegioni.exit ]
-  %.1203 = phi i32 [ %.0202357, %239 ], [ %.0202357, %247 ], [ %.0202357, %251 ], [ %spec.select313, %_ZL8canMergehhPK21dtLayerMonotoneRegioni.exit ]
+276:                                              ; preds = %_ZL8canMergehhPK21dtLayerMonotoneRegioni.exit, %255, %251, %243
+  %.1205 = phi i32 [ %.0204356, %243 ], [ %.0204356, %251 ], [ %.0204356, %255 ], [ %spec.select, %_ZL8canMergehhPK21dtLayerMonotoneRegioni.exit ]
+  %.1203 = phi i32 [ %.0202357, %243 ], [ %.0202357, %251 ], [ %.0202357, %255 ], [ %spec.select313, %_ZL8canMergehhPK21dtLayerMonotoneRegioni.exit ]
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond435.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count434
-  br i1 %exitcond435.not, label %._crit_edge361, label %239, !llvm.loop !16
+  br i1 %exitcond435.not, label %._crit_edge361, label %243, !llvm.loop !16
 
-._crit_edge361:                                   ; preds = %271
+._crit_edge361:                                   ; preds = %276
   %.not234 = icmp eq i32 %.1205, -1
-  br i1 %.not234, label %.loopexit318, label %272
+  br i1 %.not234, label %.loopexit318, label %277
 
-272:                                              ; preds = %._crit_edge361
-  %273 = getelementptr inbounds nuw i8, ptr %232, i64 21
-  %274 = load i8, ptr %273, align 1
-  %275 = zext nneg i32 %.1205 to i64
-  %276 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %275, i32 3
-  %277 = load i8, ptr %276, align 1
-  br label %278
+277:                                              ; preds = %._crit_edge361
+  %278 = getelementptr inbounds nuw i8, ptr %236, i64 21
+  %279 = load i8, ptr %278, align 1
+  %280 = zext nneg i32 %.1205 to i64
+  %281 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %280
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 21
+  %283 = load i8, ptr %282, align 1
+  br label %284
 
-278:                                              ; preds = %272, %283
-  %indvars.iv436 = phi i64 [ 0, %272 ], [ %indvars.iv.next437, %283 ]
-  %279 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %indvars.iv436, i32 3
-  %280 = load i8, ptr %279, align 1
-  %281 = icmp eq i8 %280, %274
-  br i1 %281, label %282, label %283
+284:                                              ; preds = %277, %290
+  %indvars.iv436 = phi i64 [ 0, %277 ], [ %indvars.iv.next437, %290 ]
+  %285 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %indvars.iv436
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 21
+  %287 = load i8, ptr %286, align 1
+  %288 = icmp eq i8 %287, %279
+  br i1 %288, label %289, label %290
 
-282:                                              ; preds = %278
-  store i8 %277, ptr %279, align 1
-  br label %283
+289:                                              ; preds = %284
+  store i8 %283, ptr %286, align 1
+  br label %290
 
-283:                                              ; preds = %278, %282
+290:                                              ; preds = %284, %289
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %exitcond440.not = icmp eq i64 %indvars.iv.next437, %wide.trip.count444
-  br i1 %exitcond440.not, label %.loopexit318, label %278, !llvm.loop !17
+  br i1 %exitcond440.not, label %.loopexit318, label %284, !llvm.loop !17
 
-.loopexit318:                                     ; preds = %283, %231, %._crit_edge361
+.loopexit318:                                     ; preds = %290, %235, %._crit_edge361
   %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
   %exitcond445.not = icmp eq i64 %indvars.iv.next442, %wide.trip.count444
-  br i1 %exitcond445.not, label %._crit_edge366, label %231, !llvm.loop !18
+  br i1 %exitcond445.not, label %._crit_edge366, label %235, !llvm.loop !18
 
 ._crit_edge366:                                   ; preds = %.loopexit318
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
@@ -858,122 +866,125 @@ _ZL8canMergehhPK21dtLayerMonotoneRegioni.exit:    ; preds = %.loopexit.i
 
 .lr.ph369:                                        ; preds = %._crit_edge366, %.lr.ph369
   %indvars.iv446 = phi i64 [ 0, %._crit_edge366 ], [ %indvars.iv.next447, %.lr.ph369 ]
-  %284 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %indvars.iv446, i32 3
-  %285 = load i8, ptr %284, align 1
-  %286 = zext i8 %285 to i64
-  %287 = getelementptr inbounds nuw i8, ptr %5, i64 %286
-  store i8 1, ptr %287, align 1
+  %291 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %indvars.iv446
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 21
+  %293 = load i8, ptr %292, align 1
+  %294 = zext i8 %293 to i64
+  %295 = getelementptr inbounds nuw i8, ptr %5, i64 %294
+  store i8 1, ptr %295, align 1
   %indvars.iv.next447 = add nuw nsw i64 %indvars.iv446, 1
   %exitcond450.not = icmp eq i64 %indvars.iv.next447, %wide.trip.count449
   br i1 %exitcond450.not, label %.preheader317.preheader, label %.lr.ph369, !llvm.loop !19
 
-.preheader:                                       ; preds = %292
+.preheader:                                       ; preds = %300
   br i1 %.not382, label %._crit_edge374, label %.lr.ph373.preheader
 
 .lr.ph373.preheader:                              ; preds = %.preheader
   %wide.trip.count457 = zext i8 %.0206.lcssa to i64
   br label %.lr.ph373
 
-.preheader317:                                    ; preds = %.preheader317.preheader, %292
-  %indvars.iv451 = phi i64 [ %indvars.iv.next452, %292 ], [ 0, %.preheader317.preheader ]
-  %.3370 = phi i8 [ %.4, %292 ], [ 0, %.preheader317.preheader ]
-  %288 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv451
-  %289 = load i8, ptr %288, align 1
-  %.not233 = icmp eq i8 %289, 0
-  br i1 %.not233, label %292, label %290
+.preheader317:                                    ; preds = %.preheader317.preheader, %300
+  %indvars.iv451 = phi i64 [ %indvars.iv.next452, %300 ], [ 0, %.preheader317.preheader ]
+  %.3370 = phi i8 [ %.4, %300 ], [ 0, %.preheader317.preheader ]
+  %296 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv451
+  %297 = load i8, ptr %296, align 1
+  %.not233 = icmp eq i8 %297, 0
+  br i1 %.not233, label %300, label %298
 
-290:                                              ; preds = %.preheader317
-  %291 = add i8 %.3370, 1
-  store i8 %.3370, ptr %288, align 1
-  br label %292
+298:                                              ; preds = %.preheader317
+  %299 = add i8 %.3370, 1
+  store i8 %.3370, ptr %296, align 1
+  br label %300
 
-292:                                              ; preds = %.preheader317, %290
-  %.4 = phi i8 [ %291, %290 ], [ %.3370, %.preheader317 ]
+300:                                              ; preds = %.preheader317, %298
+  %.4 = phi i8 [ %299, %298 ], [ %.3370, %.preheader317 ]
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %exitcond453.not = icmp eq i64 %indvars.iv.next452, 256
   br i1 %exitcond453.not, label %.preheader, label %.preheader317, !llvm.loop !20
 
 .lr.ph373:                                        ; preds = %.lr.ph373.preheader, %.lr.ph373
   %indvars.iv454 = phi i64 [ 0, %.lr.ph373.preheader ], [ %indvars.iv.next455, %.lr.ph373 ]
-  %293 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %indvars.iv454, i32 3
-  %294 = load i8, ptr %293, align 1
-  %295 = zext i8 %294 to i64
-  %296 = getelementptr inbounds nuw i8, ptr %5, i64 %295
-  %297 = load i8, ptr %296, align 1
-  store i8 %297, ptr %293, align 1
+  %301 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %indvars.iv454
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 21
+  %303 = load i8, ptr %302, align 1
+  %304 = zext i8 %303 to i64
+  %305 = getelementptr inbounds nuw i8, ptr %5, i64 %304
+  %306 = load i8, ptr %305, align 1
+  store i8 %306, ptr %302, align 1
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %exitcond458.not = icmp eq i64 %indvars.iv.next455, %wide.trip.count457
   br i1 %exitcond458.not, label %._crit_edge374, label %.lr.ph373, !llvm.loop !21
 
 ._crit_edge374:                                   ; preds = %.lr.ph373, %.preheader
-  %298 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 %.4, ptr %298, align 8
-  %299 = mul nuw nsw i32 %17, %14
-  %.not390 = icmp eq i32 %299, 0
+  %307 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 %.4, ptr %307, align 8
+  %308 = mul nuw nsw i32 %17, %14
+  %.not390 = icmp eq i32 %308, 0
   br i1 %.not390, label %.loopexit, label %.lr.ph377.preheader
 
 .lr.ph377.preheader:                              ; preds = %._crit_edge374
-  %wide.trip.count462 = zext nneg i32 %299 to i64
+  %wide.trip.count462 = zext nneg i32 %308 to i64
   br label %.lr.ph377
 
-.lr.ph377:                                        ; preds = %.lr.ph377.preheader, %307
-  %indvars.iv459 = phi i64 [ 0, %.lr.ph377.preheader ], [ %indvars.iv.next460, %307 ]
-  %300 = load ptr, ptr %18, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %300, i64 %indvars.iv459
-  %302 = load i8, ptr %301, align 1
-  %.not232 = icmp eq i8 %302, -1
-  br i1 %.not232, label %307, label %303
+.lr.ph377:                                        ; preds = %.lr.ph377.preheader, %317
+  %indvars.iv459 = phi i64 [ 0, %.lr.ph377.preheader ], [ %indvars.iv.next460, %317 ]
+  %309 = load ptr, ptr %18, align 8
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 %indvars.iv459
+  %311 = load i8, ptr %310, align 1
+  %.not232 = icmp eq i8 %311, -1
+  br i1 %.not232, label %317, label %312
 
-303:                                              ; preds = %.lr.ph377
-  %304 = zext i8 %302 to i64
-  %305 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %146, i64 %304, i32 3
-  %306 = load i8, ptr %305, align 1
-  store i8 %306, ptr %301, align 1
-  br label %307
+312:                                              ; preds = %.lr.ph377
+  %313 = zext i8 %311 to i64
+  %314 = getelementptr inbounds nuw %struct.dtLayerMonotoneRegion, ptr %147, i64 %313
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 21
+  %316 = load i8, ptr %315, align 1
+  store i8 %316, ptr %310, align 1
+  br label %317
 
-307:                                              ; preds = %.lr.ph377, %303
+317:                                              ; preds = %.lr.ph377, %312
   %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, 1
   %exitcond463.not = icmp eq i64 %indvars.iv.next460, %wide.trip.count462
   br i1 %exitcond463.not, label %.loopexit, label %.lr.ph377, !llvm.loop !22
 
-.loopexit:                                        ; preds = %307, %._crit_edge374, %_ZN12dtFixedArrayI21dtLayerMonotoneRegionEC2EP16dtTileCacheAlloci.exit
-  %.1 = phi i32 [ -2147483644, %_ZN12dtFixedArrayI21dtLayerMonotoneRegionEC2EP16dtTileCacheAlloci.exit ], [ 1073741824, %._crit_edge374 ], [ 1073741824, %307 ]
-  %308 = load ptr, ptr %0, align 8
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 32
-  %310 = load ptr, ptr %309, align 8
-  invoke void %310(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %146)
-          to label %_ZN12dtFixedArrayI21dtLayerMonotoneRegionED2Ev.exit263 unwind label %311
+.loopexit:                                        ; preds = %317, %._crit_edge374, %_ZN12dtFixedArrayI21dtLayerMonotoneRegionEC2EP16dtTileCacheAlloci.exit
+  %.1 = phi i32 [ -2147483644, %_ZN12dtFixedArrayI21dtLayerMonotoneRegionEC2EP16dtTileCacheAlloci.exit ], [ 1073741824, %._crit_edge374 ], [ 1073741824, %317 ]
+  %318 = load ptr, ptr %0, align 8
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 32
+  %320 = load ptr, ptr %319, align 8
+  invoke void %320(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %147)
+          to label %_ZN12dtFixedArrayI21dtLayerMonotoneRegionED2Ev.exit263 unwind label %321
 
-311:                                              ; preds = %.loopexit
-  %312 = landingpad { ptr, i32 }
+321:                                              ; preds = %.loopexit
+  %322 = landingpad { ptr, i32 }
           catch ptr null
-  %313 = extractvalue { ptr, i32 } %312, 0
-  tail call void @__clang_call_terminate(ptr %313) #21
+  %323 = extractvalue { ptr, i32 } %322, 0
+  tail call void @__clang_call_terminate(ptr %323) #21
   unreachable
 
 _ZN12dtFixedArrayI21dtLayerMonotoneRegionED2Ev.exit263: ; preds = %125, %10, %.loopexit
   %.0198 = phi i32 [ -2147483644, %10 ], [ %.1, %.loopexit ], [ -2147483632, %125 ]
-  %314 = load ptr, ptr %0, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 32
-  %316 = load ptr, ptr %315, align 8
-  invoke void %316(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %27)
-          to label %_ZN12dtFixedArrayI16dtLayerSweepSpanED2Ev.exit unwind label %317
+  %324 = load ptr, ptr %0, align 8
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 32
+  %326 = load ptr, ptr %325, align 8
+  invoke void %326(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %27)
+          to label %_ZN12dtFixedArrayI16dtLayerSweepSpanED2Ev.exit unwind label %327
 
-317:                                              ; preds = %_ZN12dtFixedArrayI21dtLayerMonotoneRegionED2Ev.exit263
-  %318 = landingpad { ptr, i32 }
+327:                                              ; preds = %_ZN12dtFixedArrayI21dtLayerMonotoneRegionED2Ev.exit263
+  %328 = landingpad { ptr, i32 }
           catch ptr null
-  %319 = extractvalue { ptr, i32 } %318, 0
-  tail call void @__clang_call_terminate(ptr %319) #21
+  %329 = extractvalue { ptr, i32 } %328, 0
+  tail call void @__clang_call_terminate(ptr %329) #21
   unreachable
 
 _ZN12dtFixedArrayI16dtLayerSweepSpanED2Ev.exit:   ; preds = %_ZN12dtFixedArrayI21dtLayerMonotoneRegionED2Ev.exit263
   ret i32 %.0198
 
-320:                                              ; preds = %28
-  %321 = landingpad { ptr, i32 }
+330:                                              ; preds = %28
+  %331 = landingpad { ptr, i32 }
           catch ptr null
-  %322 = extractvalue { ptr, i32 } %321, 0
-  tail call void @__clang_call_terminate(ptr %322) #21
+  %332 = extractvalue { ptr, i32 } %331, 0
+  tail call void @__clang_call_terminate(ptr %332) #21
   unreachable
 
 _ZN12dtFixedArrayI16dtLayerSweepSpanED2Ev.exit266: ; preds = %28

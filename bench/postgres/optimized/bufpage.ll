@@ -648,7 +648,7 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   %28 = lshr i32 %27, 2
   %29 = trunc i32 %28 to i16
   %.0.i = select i1 %26, i16 0, i16 %29
-  %30 = zext i16 %.0.i to i32
+  %30 = zext nneg i16 %.0.i to i32
   %.not93104 = icmp eq i16 %.0.i, 0
   br i1 %.not93104, label %._crit_edge, label %.lr.ph
 
@@ -1779,7 +1779,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
   %83 = add i16 %81, %82
   store i16 %83, ptr %7, align 2
   %84 = icmp ult i16 %.val73, 25
-  %.not6875 = icmp slt i32 %.059, 1
+  %.not6875 = icmp eq i32 %.059, 0
   %or.cond77 = select i1 %84, i1 true, i1 %.not6875
   br i1 %or.cond77, label %.loopexit, label %.lr.ph
 

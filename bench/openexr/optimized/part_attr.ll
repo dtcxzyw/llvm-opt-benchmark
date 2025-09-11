@@ -10246,7 +10246,7 @@ define i32 @exr_attr_get_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %120, label %7
+  br i1 %.not, label %121, label %7
 
 7:                                                ; preds = %5
   %8 = load i8, ptr %0, align 8, !tbaa !3
@@ -10282,7 +10282,7 @@ define i32 @exr_attr_get_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = tail call i32 (ptr, i32, ptr, ...) %26(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef %1) #6
-  br label %120
+  br label %121
 
 28:                                               ; preds = %15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -10312,7 +10312,7 @@ define i32 @exr_attr_get_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load ptr, ptr %44, align 8, !tbaa !38
   %46 = tail call i32 %45(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.93) #6
-  br label %120
+  br label %121
 
 47:                                               ; preds = %34
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -10323,12 +10323,12 @@ define i32 @exr_attr_get_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
 50:                                               ; preds = %47
   %51 = load i8, ptr %0, align 8, !tbaa !3
   %52 = icmp eq i8 %51, 1
-  br i1 %52, label %53, label %120
+  br i1 %52, label %53, label %121
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %55 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %54) #6
-  br label %120
+  br label %121
 
 56:                                               ; preds = %47
   %57 = load ptr, ptr %6, align 8, !tbaa !30
@@ -10355,7 +10355,7 @@ define i32 @exr_attr_get_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !34
   %72 = call i32 (ptr, i32, ptr, ...) %69(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.94, ptr noundef nonnull %2, ptr noundef %71) #6
-  br label %120
+  br label %121
 
 73:                                               ; preds = %56
   %.not64 = icmp eq ptr %3, null
@@ -10375,7 +10375,7 @@ define i32 @exr_attr_get_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %82 = load ptr, ptr %81, align 8, !tbaa !38
   %83 = call i32 %82(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.95) #6
-  br label %120
+  br label %121
 
 84:                                               ; preds = %73
   %.not65 = icmp eq ptr %4, null
@@ -10420,38 +10420,39 @@ define i32 @exr_attr_get_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %102 = load ptr, ptr %101, align 8, !tbaa !23
   %103 = call i32 (ptr, i32, ptr, ...) %102(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.96, ptr noundef nonnull %2, i32 noundef %100, i32 noundef %99) #6
-  br label %120
+  br label %121
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %104 = phi ptr [ %110, %.lr.ph ], [ %88, %.preheader ]
+  %104 = phi ptr [ %111, %.lr.ph ], [ %88, %.preheader ]
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !99
-  %107 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %106, i64 %indvars.iv, i32 2
-  %108 = load ptr, ptr %107, align 8, !tbaa !70
-  %109 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  store ptr %108, ptr %109, align 8, !tbaa !90
+  %107 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %106, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %109 = load ptr, ptr %108, align 8, !tbaa !70
+  %110 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  store ptr %109, ptr %110, align 8, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %110 = load ptr, ptr %87, align 8, !tbaa !35
-  %111 = load i32, ptr %110, align 8, !tbaa !96
-  %112 = sext i32 %111 to i64
-  %113 = icmp slt i64 %indvars.iv.next, %112
-  br i1 %113, label %.lr.ph, label %.loopexit, !llvm.loop !112
+  %111 = load ptr, ptr %87, align 8, !tbaa !35
+  %112 = load i32, ptr %111, align 8, !tbaa !96
+  %113 = sext i32 %112 to i64
+  %114 = icmp slt i64 %indvars.iv.next, %113
+  br i1 %114, label %.lr.ph, label %.loopexit, !llvm.loop !112
 
 .loopexit:                                        ; preds = %.lr.ph, %..loopexit_crit_edge, %.preheader
-  %114 = phi i32 [ %.pre74, %..loopexit_crit_edge ], [ %89, %.preheader ], [ %111, %.lr.ph ]
-  store i32 %114, ptr %3, align 4, !tbaa !28
-  %115 = load i8, ptr %0, align 8, !tbaa !3
-  %116 = icmp eq i8 %115, 1
-  br i1 %116, label %117, label %120
+  %115 = phi i32 [ %.pre74, %..loopexit_crit_edge ], [ %89, %.preheader ], [ %112, %.lr.ph ]
+  store i32 %115, ptr %3, align 4, !tbaa !28
+  %116 = load i8, ptr %0, align 8, !tbaa !3
+  %117 = icmp eq i8 %116, 1
+  br i1 %117, label %118, label %121
 
-117:                                              ; preds = %.loopexit
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %119 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %118) #6
-  br label %120
+118:                                              ; preds = %.loopexit
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %120 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %119) #6
+  br label %121
 
-120:                                              ; preds = %117, %.loopexit, %53, %50, %5, %98, %80, %66, %43, %24
-  %.053 = phi i32 [ %27, %24 ], [ %46, %43 ], [ %72, %66 ], [ %103, %98 ], [ %83, %80 ], [ 2, %5 ], [ %49, %50 ], [ %49, %53 ], [ 0, %.loopexit ], [ 0, %117 ]
+121:                                              ; preds = %118, %.loopexit, %53, %50, %5, %98, %80, %66, %43, %24
+  %.053 = phi i32 [ %27, %24 ], [ %46, %43 ], [ %72, %66 ], [ %103, %98 ], [ %83, %80 ], [ 2, %5 ], [ %49, %50 ], [ %49, %53 ], [ 0, %.loopexit ], [ 0, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.053
 }

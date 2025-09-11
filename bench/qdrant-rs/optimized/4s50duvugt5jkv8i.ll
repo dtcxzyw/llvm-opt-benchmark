@@ -713,7 +713,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
 
 85:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %86 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [30 x i64] }, i64 }, ptr %12, i64 %.val.i.i.i.i, i32 1
+  %86 = getelementptr inbounds nuw i8, ptr %40, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %10, ptr noundef nonnull align 8 dereferenceable(248) %86, i64 248, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %86, ptr noundef nonnull align 8 dereferenceable(248) %4, i64 248, i1 false)
   store i64 %.val.i.i.i.i, ptr %0, align 8

@@ -3860,7 +3860,8 @@ entry:
 define noundef ptr @_ZN8proxygen22http_errno_descriptionENS_10http_errnoE(i32 noundef %err) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i32 %err to i64
-  %description = getelementptr inbounds nuw %struct.anon, ptr @_ZN8proxygenL17http_strerror_tabE, i64 %idxprom, i32 1
+  %arrayidx = getelementptr inbounds nuw %struct.anon, ptr @_ZN8proxygenL17http_strerror_tabE, i64 %idxprom
+  %description = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %description, align 8
   ret ptr %0
 }

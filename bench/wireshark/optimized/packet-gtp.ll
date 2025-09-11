@@ -12000,51 +12000,51 @@ define internal fastcc void @dissect_gtp_tpdu_as_pdcp_lte_info(ptr noundef %0, p
 
 12:                                               ; preds = %addresses_equal.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %addresses_equal.exit.i ]
-  %13 = getelementptr %struct.uat_pdcp_lte_keys_record_t, ptr %7, i64 %indvars.iv.i, i32 1
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp eq i32 %14, %9
-  br i1 %15, label %16, label %addresses_equal.exit.i
+  %13 = getelementptr %struct.uat_pdcp_lte_keys_record_t, ptr %7, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %15, %9
+  br i1 %16, label %17, label %addresses_equal.exit.i
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = load i32, ptr %10, align 4
-  %20 = icmp eq i32 %18, %19
-  br i1 %20, label %21, label %addresses_equal.exit.i
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %19 = load i32, ptr %18, align 4
+  %20 = load i32, ptr %10, align 4
+  %21 = icmp eq i32 %19, %20
+  br i1 %21, label %22, label %addresses_equal.exit.i
 
-21:                                               ; preds = %16
-  %22 = icmp eq i32 %18, 0
-  br i1 %22, label %29, label %23
+22:                                               ; preds = %17
+  %23 = icmp eq i32 %19, 0
+  br i1 %23, label %30, label %24
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %11, align 8
-  %27 = sext i32 %18 to i64
-  %bcmp.i.i = tail call i32 @bcmp(ptr %25, ptr %26, i64 %27)
-  %28 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %28, label %29, label %addresses_equal.exit.i
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = sext i32 %19 to i64
+  %bcmp.i.i = tail call i32 @bcmp(ptr %26, ptr %27, i64 %28)
+  %29 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %29, label %30, label %addresses_equal.exit.i
 
-29:                                               ; preds = %23, %21
-  %30 = getelementptr %struct.uat_pdcp_lte_keys_record_t, ptr %7, i64 %indvars.iv.i
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
+30:                                               ; preds = %24, %22
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %32 = load i8, ptr %31, align 8, !range !12, !noundef !13
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %look_up_pdcp_lte_keys_record.exit, label %34
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 44
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, %5
   br i1 %37, label %look_up_pdcp_lte_keys_record.exit, label %addresses_equal.exit.i
 
-addresses_equal.exit.i:                           ; preds = %34, %23, %16, %12
+addresses_equal.exit.i:                           ; preds = %34, %24, %17, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %look_up_pdcp_lte_keys_record.exit.thread, label %12, !llvm.loop !51
 
-look_up_pdcp_lte_keys_record.exit:                ; preds = %29, %34
-  %.not = icmp eq ptr %30, null
+look_up_pdcp_lte_keys_record.exit:                ; preds = %30, %34
+  %.not = icmp eq ptr %13, null
   br i1 %.not, label %look_up_pdcp_lte_keys_record.exit.thread, label %38
 
 38:                                               ; preds = %look_up_pdcp_lte_keys_record.exit
@@ -12057,38 +12057,38 @@ look_up_pdcp_lte_keys_record.exit:                ; preds = %29, %34
 43:                                               ; preds = %38
   %44 = tail call ptr @wmem_file_scope()
   %45 = tail call noalias dereferenceable_or_null(64) ptr @wmem_alloc0(ptr noundef %44, i64 noundef 64) #15
-  %46 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %47 = load i32, ptr %46, align 8
   %48 = trunc i32 %47 to i8
   store i8 %48, ptr %45, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %30, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %50 = load i32, ptr %49, align 8
   %51 = trunc i32 %50 to i16
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 2
   store i16 %51, ptr %52, align 2
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 1, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %30, i64 76
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 76
   %55 = load i32, ptr %54, align 4
   %56 = trunc i32 %55 to i16
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i16 %56, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %30, i64 52
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 52
   %59 = load i32, ptr %58, align 4
   %60 = icmp ne i32 %59, 1
   %spec.select = zext i1 %60 to i8
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i8 %spec.select, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %63 = load i32, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %45, i64 20
   store i32 %63, ptr %64, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %30, i64 60
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 60
   %66 = load i32, ptr %65, align 4
   %67 = trunc i32 %66 to i8
   %68 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i8 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %30, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %70 = load i32, ptr %69, align 8
   %71 = icmp ne i32 %70, 0
   %72 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -12097,7 +12097,7 @@ look_up_pdcp_lte_keys_record.exit:                ; preds = %29, %34
   %74 = getelementptr inbounds nuw i8, ptr %45, i64 33
   store i8 4, ptr %74, align 1
   %75 = getelementptr inbounds nuw i8, ptr %45, i64 34
-  %76 = getelementptr inbounds nuw i8, ptr %30, i64 68
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 68
   store i64 0, ptr %75, align 2
   %77 = load i32, ptr %76, align 4
   %78 = trunc i32 %77 to i16
@@ -12144,82 +12144,82 @@ define internal fastcc void @dissect_gtp_tpsu_as_pdcp_nr_info(ptr noundef %0, pt
 
 13:                                               ; preds = %addresses_equal.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %addresses_equal.exit.i ]
-  %14 = getelementptr %struct.uat_pdcp_nr_keys_record_t, ptr %8, i64 %indvars.iv.i, i32 1
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, %10
-  br i1 %16, label %17, label %addresses_equal.exit.i
+  %14 = getelementptr %struct.uat_pdcp_nr_keys_record_t, ptr %8, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %16, %10
+  br i1 %17, label %18, label %addresses_equal.exit.i
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = load i32, ptr %11, align 4
-  %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %addresses_equal.exit.i
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %20 = load i32, ptr %19, align 4
+  %21 = load i32, ptr %11, align 4
+  %22 = icmp eq i32 %20, %21
+  br i1 %22, label %23, label %addresses_equal.exit.i
 
-22:                                               ; preds = %17
-  %23 = icmp eq i32 %19, 0
-  br i1 %23, label %30, label %24
+23:                                               ; preds = %18
+  %24 = icmp eq i32 %20, 0
+  br i1 %24, label %31, label %25
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %12, align 8
-  %28 = sext i32 %19 to i64
-  %bcmp.i.i = tail call i32 @bcmp(ptr %26, ptr %27, i64 %28)
-  %29 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %29, label %30, label %addresses_equal.exit.i
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %12, align 8
+  %29 = sext i32 %20 to i64
+  %bcmp.i.i = tail call i32 @bcmp(ptr %27, ptr %28, i64 %29)
+  %30 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %30, label %31, label %addresses_equal.exit.i
 
-30:                                               ; preds = %24, %22
-  %31 = getelementptr %struct.uat_pdcp_nr_keys_record_t, ptr %8, i64 %indvars.iv.i
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
+31:                                               ; preds = %25, %23
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %33 = load i8, ptr %32, align 8, !range !12, !noundef !13
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %look_up_pdcp_nr_keys_record.exit, label %35
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 44
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, %6
   br i1 %38, label %look_up_pdcp_nr_keys_record.exit, label %addresses_equal.exit.i
 
-addresses_equal.exit.i:                           ; preds = %35, %24, %17, %13
+addresses_equal.exit.i:                           ; preds = %35, %25, %18, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %look_up_pdcp_nr_keys_record.exit.thread, label %13, !llvm.loop !52
 
-look_up_pdcp_nr_keys_record.exit:                 ; preds = %30, %35
-  %.not = icmp eq ptr %31, null
+look_up_pdcp_nr_keys_record.exit:                 ; preds = %31, %35
+  %.not = icmp eq ptr %14, null
   br i1 %.not, label %look_up_pdcp_nr_keys_record.exit.thread, label %39
 
 39:                                               ; preds = %look_up_pdcp_nr_keys_record.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %40 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %3)
-  %41 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %42 = load i32, ptr %41, align 8
   %43 = trunc i32 %42 to i8
   store i8 %43, ptr %5, align 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %31, i64 76
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 76
   %46 = load i32, ptr %45, align 4
   %47 = trunc i32 %46 to i16
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %47, ptr %48, align 2
-  %49 = getelementptr inbounds nuw i8, ptr %31, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %50 = load i32, ptr %49, align 8
   %51 = trunc i32 %50 to i8
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %51, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %31, i64 60
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %31, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %57 = load i32, ptr %56, align 8
   %58 = trunc i32 %57 to i8
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 %58, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %31, i64 52
+  %60 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %63, label %68
@@ -12243,13 +12243,13 @@ look_up_pdcp_nr_keys_record.exit:                 ; preds = %30, %35
   br label %70
 
 70:                                               ; preds = %66, %67, %68
-  %71 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %72 = load i32, ptr %71, align 8
   %73 = icmp ne i32 %72, 0
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %75 = zext i1 %73 to i8
   store i8 %75, ptr %74, align 1
-  %76 = getelementptr inbounds nuw i8, ptr %31, i64 68
+  %76 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %77 = load i32, ptr %76, align 4
   %78 = icmp ne i32 %77, 0
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -12258,7 +12258,7 @@ look_up_pdcp_nr_keys_record.exit:                 ; preds = %30, %35
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 4, ptr %81, align 1
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 26
-  %83 = getelementptr inbounds nuw i8, ptr %31, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store i64 0, ptr %82, align 2
   %84 = load i32, ptr %83, align 8
   %85 = trunc i32 %84 to i16

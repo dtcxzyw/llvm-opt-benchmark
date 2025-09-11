@@ -6015,7 +6015,7 @@ Py_DECREF.exit138.i:                              ; preds = %39, %36, %.thread.i
   br i1 %42, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %41, %31
-  %.0111250.i = phi ptr [ %3, %41 ], [ %33, %31 ]
+  %.0111251.i = phi ptr [ %3, %41 ], [ %33, %31 ]
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br label %44
 
@@ -6054,7 +6054,7 @@ Py_DECREF.exit138.i:                              ; preds = %39, %36, %.thread.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %55, %52
-  %57 = getelementptr %struct.Py_buffer, ptr %.0111250.i, i64 %.0112197.i
+  %57 = getelementptr %struct.Py_buffer, ptr %.0111251.i, i64 %.0112197.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %50, ptr %58, align 8, !tbaa !146
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -6066,14 +6066,14 @@ _Py_NewRef.exit.i:                                ; preds = %55, %52
   br label %71
 
 62:                                               ; preds = %49
-  %63 = getelementptr %struct.Py_buffer, ptr %.0111250.i, i64 %.0112197.i
+  %63 = getelementptr %struct.Py_buffer, ptr %.0111251.i, i64 %.0112197.i
   %64 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %50, ptr noundef %63, i32 noundef 0) #16
   %.not132.i = icmp eq i32 %64, 0
   br i1 %.not132.i, label %._crit_edge235.i, label %65
 
 ._crit_edge235.i:                                 ; preds = %62
-  %.phi.trans.insert.i = getelementptr %struct.Py_buffer, ptr %.0111250.i, i64 %.0112197.i, i32 2
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !21
+  %.phi.trans.insert236.i = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %.pre.i = load i64, ptr %.phi.trans.insert236.i, align 8, !tbaa !21
   br label %71
 
 65:                                               ; preds = %62
@@ -6137,7 +6137,7 @@ _Py_NewRef.exit.i:                                ; preds = %55, %52
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %41
-  %.0111252.i = phi ptr [ %3, %41 ], [ %.0111250.i, %._crit_edge.loopexit.i ]
+  %.0111253.i = phi ptr [ %3, %41 ], [ %.0111251.i, %._crit_edge.loopexit.i ]
   %.0116.lcssa.i = phi i64 [ 0, %41 ], [ %15, %._crit_edge.loopexit.i ]
   %.0108.lcssa.i = phi i1 [ false, %41 ], [ %92, %._crit_edge.loopexit.i ]
   %.0103.lcssa.i = phi i64 [ 0, %41 ], [ %.2105.i, %._crit_edge.loopexit.i ]
@@ -6180,7 +6180,7 @@ PyByteArray_AS_STRING.exit161.i:                  ; preds = %97, %95
 .lr.ph207.i:                                      ; preds = %.preheader.i, %.lr.ph207.i
   %.0102206.i = phi ptr [ %109, %.lr.ph207.i ], [ %.0.i160.i, %.preheader.i ]
   %.1113205.i = phi i64 [ %110, %.lr.ph207.i ], [ 0, %.preheader.i ]
-  %105 = getelementptr %struct.Py_buffer, ptr %.0111252.i, i64 %.1113205.i
+  %105 = getelementptr %struct.Py_buffer, ptr %.0111253.i, i64 %.1113205.i
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load i64, ptr %106, align 8, !tbaa !21
   %108 = load ptr, ptr %105, align 8, !tbaa !32
@@ -6203,7 +6203,7 @@ PyByteArray_AS_STRING.exit161.i:                  ; preds = %97, %95
 
 113:                                              ; preds = %111, %.lr.ph204.i
   %.2.i = phi ptr [ %112, %111 ], [ %.1203.i, %.lr.ph204.i ]
-  %114 = getelementptr %struct.Py_buffer, ptr %.0111252.i, i64 %.2114202.i
+  %114 = getelementptr %struct.Py_buffer, ptr %.0111253.i, i64 %.2114202.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load i64, ptr %115, align 8, !tbaa !21
   %117 = load ptr, ptr %114, align 8, !tbaa !32
@@ -6221,7 +6221,7 @@ PyByteArray_AS_STRING.exit161.i:                  ; preds = %97, %95
   br label %.thread162.i
 
 .thread162.i:                                     ; preds = %120, %.loopexit.i, %._crit_edge.i, %89, %83, %76, %65
-  %.0111251.i = phi ptr [ %.0111252.i, %120 ], [ %.0111252.i, %.loopexit.i ], [ %.0111252.i, %._crit_edge.i ], [ %.0111250.i, %65 ], [ %.0111250.i, %89 ], [ %.0111250.i, %83 ], [ %.0111250.i, %76 ]
+  %.0111252.i = phi ptr [ %.0111253.i, %120 ], [ %.0111253.i, %.loopexit.i ], [ %.0111253.i, %._crit_edge.i ], [ %.0111251.i, %65 ], [ %.0111251.i, %89 ], [ %.0111251.i, %83 ], [ %.0111251.i, %76 ]
   %.3119.i = phi i64 [ %.0116.lcssa.i, %120 ], [ %.0116.lcssa.i, %.loopexit.i ], [ %.0116.lcssa.i, %._crit_edge.i ], [ %.0112197.i, %65 ], [ %73, %89 ], [ %73, %83 ], [ %73, %76 ]
   %.0101.i = phi ptr [ %93, %120 ], [ %93, %.loopexit.i ], [ null, %._crit_edge.i ], [ null, %65 ], [ null, %89 ], [ null, %83 ], [ null, %76 ]
   %121 = load i32, ptr %11, align 8, !tbaa !17
@@ -6244,18 +6244,18 @@ Py_DECREF.exit.i:                                 ; preds = %125, %122, %.thread
 
 .lr.ph209.i:                                      ; preds = %Py_DECREF.exit.i, %.lr.ph209.i
   %.3115208.i = phi i64 [ %128, %.lr.ph209.i ], [ 0, %Py_DECREF.exit.i ]
-  %127 = getelementptr %struct.Py_buffer, ptr %.0111251.i, i64 %.3115208.i
+  %127 = getelementptr %struct.Py_buffer, ptr %.0111252.i, i64 %.3115208.i
   call void @PyBuffer_Release(ptr noundef %127) #16
   %128 = add nuw nsw i64 %.3115208.i, 1
   %exitcond234.not.i = icmp eq i64 %128, %.3119.i
   br i1 %exitcond234.not.i, label %._crit_edge210.i, label %.lr.ph209.i, !llvm.loop !150
 
 ._crit_edge210.i:                                 ; preds = %.lr.ph209.i, %Py_DECREF.exit.i
-  %.not136.i = icmp eq ptr %.0111251.i, %3
+  %.not136.i = icmp eq ptr %.0111252.i, %3
   br i1 %.not136.i, label %stringlib_bytes_join.exit, label %129
 
 129:                                              ; preds = %._crit_edge210.i
-  call void @PyMem_Free(ptr noundef nonnull %.0111251.i) #16
+  call void @PyMem_Free(ptr noundef nonnull %.0111252.i) #16
   br label %stringlib_bytes_join.exit
 
 stringlib_bytes_join.exit:                        ; preds = %PyByteArray_AS_STRING.exit.i, %Py_DECREF.exit140.i, %25, %Py_DECREF.exit138.i, %._crit_edge210.i, %129

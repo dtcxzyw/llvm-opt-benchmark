@@ -11445,7 +11445,7 @@ define internal void @ff_tx_dctIII_int32_c(ptr noundef readonly captures(none) %
   %54 = lshr i64 %53, 31
   %55 = trunc i64 %54 to i32
   store i32 %55, ptr %24, align 4, !tbaa !10
-  %56 = icmp sgt i64 %indvars.iv, 5
+  %56 = icmp samesign ugt i64 %indvars.iv, 5
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !154
 
 ._crit_edge77:                                    ; preds = %.lr.ph76, %._crit_edge

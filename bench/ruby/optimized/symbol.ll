@@ -2912,30 +2912,32 @@ define hidden range(i32 0, 2) i32 @rb_id_table_lookup(ptr noundef readonly captu
   %.not19.i = icmp eq i32 %14, %.0.i.i
   br i1 %.not19.i, label %hash_table_index.exit.thread9, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %8, %18
-  %15 = phi i64 [ %21, %18 ], [ %12, %8 ]
-  %.01421.i = phi i32 [ %.014.i, %18 ], [ %.01418.i, %8 ]
-  %.020.i = phi i32 [ %20, %18 ], [ 1, %8 ]
-  %16 = getelementptr %struct.rb_id_item, ptr %11, i64 %15, i32 1
-  %17 = load i32, ptr %16, align 4, !tbaa !90
-  %.not17.i = icmp eq i32 %17, 0
-  br i1 %.not17.i, label %hash_table_index.exit.thread, label %18
+.lr.ph.i:                                         ; preds = %8, %19
+  %15 = phi i64 [ %22, %19 ], [ %12, %8 ]
+  %.01421.i = phi i32 [ %.014.i, %19 ], [ %.01418.i, %8 ]
+  %.020.i = phi i32 [ %21, %19 ], [ 1, %8 ]
+  %16 = getelementptr %struct.rb_id_item, ptr %11, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !90
+  %.not17.i = icmp eq i32 %18, 0
+  br i1 %.not17.i, label %hash_table_index.exit.thread, label %19
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = add i32 %.020.i, %.01421.i
-  %20 = add i32 %.020.i, 1
-  %.014.i = and i32 %19, %9
-  %21 = zext nneg i32 %.014.i to i64
-  %22 = getelementptr %struct.rb_id_item, ptr %11, i64 %21
-  %23 = load i32, ptr %22, align 8, !tbaa !88
-  %.not.i = icmp eq i32 %23, %.0.i.i
+19:                                               ; preds = %.lr.ph.i
+  %20 = add i32 %.020.i, %.01421.i
+  %21 = add i32 %.020.i, 1
+  %.014.i = and i32 %20, %9
+  %22 = zext nneg i32 %.014.i to i64
+  %23 = getelementptr %struct.rb_id_item, ptr %11, i64 %22
+  %24 = load i32, ptr %23, align 8, !tbaa !88
+  %.not.i = icmp eq i32 %24, %.0.i.i
   br i1 %.not.i, label %hash_table_index.exit.thread9, label %.lr.ph.i, !llvm.loop !91
 
-hash_table_index.exit.thread9:                    ; preds = %18, %8
-  %.pre-phi = phi i64 [ %12, %8 ], [ %21, %18 ]
-  %24 = getelementptr %struct.rb_id_item, ptr %11, i64 %.pre-phi, i32 2
-  %25 = load i64, ptr %24, align 8, !tbaa !92
-  store i64 %25, ptr %2, align 8, !tbaa !32
+hash_table_index.exit.thread9:                    ; preds = %19, %8
+  %.pre-phi = phi i64 [ %12, %8 ], [ %22, %19 ]
+  %25 = getelementptr %struct.rb_id_item, ptr %11, i64 %.pre-phi
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !92
+  store i64 %27, ptr %2, align 8, !tbaa !32
   br label %hash_table_index.exit.thread
 
 hash_table_index.exit.thread:                     ; preds = %.lr.ph.i, %3, %hash_table_index.exit.thread9
@@ -2962,213 +2964,214 @@ define hidden noundef i32 @rb_id_table_insert(ptr noundef captures(none) %0, i64
   %13 = getelementptr %struct.rb_id_item, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 8, !tbaa !88
   %.not19.i.i = icmp eq i32 %14, %.0.i.i
-  br i1 %.not19.i.i, label %hash_table_index.exit.thread17.i, label %.lr.ph.i.i
+  br i1 %.not19.i.i, label %hash_table_index.exit.thread16.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %8, %18
-  %15 = phi i64 [ %21, %18 ], [ %12, %8 ]
-  %.01421.i.i = phi i32 [ %.014.i.i, %18 ], [ %.01418.i.i, %8 ]
-  %.020.i.i = phi i32 [ %20, %18 ], [ 1, %8 ]
-  %16 = getelementptr %struct.rb_id_item, ptr %11, i64 %15, i32 1
-  %17 = load i32, ptr %16, align 4, !tbaa !90
-  %.not17.i.i = icmp eq i32 %17, 0
-  br i1 %.not17.i.i, label %hash_table_index.exit.thread.i, label %18
+.lr.ph.i.i:                                       ; preds = %8, %19
+  %15 = phi i64 [ %22, %19 ], [ %12, %8 ]
+  %.01421.i.i = phi i32 [ %.014.i.i, %19 ], [ %.01418.i.i, %8 ]
+  %.020.i.i = phi i32 [ %21, %19 ], [ 1, %8 ]
+  %16 = getelementptr %struct.rb_id_item, ptr %11, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !90
+  %.not17.i.i = icmp eq i32 %18, 0
+  br i1 %.not17.i.i, label %hash_table_index.exit.thread.i, label %19
 
-18:                                               ; preds = %.lr.ph.i.i
-  %19 = add i32 %.020.i.i, %.01421.i.i
-  %20 = add i32 %.020.i.i, 1
-  %.014.i.i = and i32 %19, %9
-  %21 = zext nneg i32 %.014.i.i to i64
-  %22 = getelementptr %struct.rb_id_item, ptr %11, i64 %21
-  %23 = load i32, ptr %22, align 8, !tbaa !88
-  %.not.i.i = icmp eq i32 %23, %.0.i.i
-  br i1 %.not.i.i, label %hash_table_index.exit.thread17.i, label %.lr.ph.i.i, !llvm.loop !91
+19:                                               ; preds = %.lr.ph.i.i
+  %20 = add i32 %.020.i.i, %.01421.i.i
+  %21 = add i32 %.020.i.i, 1
+  %.014.i.i = and i32 %20, %9
+  %22 = zext nneg i32 %.014.i.i to i64
+  %23 = getelementptr %struct.rb_id_item, ptr %11, i64 %22
+  %24 = load i32, ptr %23, align 8, !tbaa !88
+  %.not.i.i = icmp eq i32 %24, %.0.i.i
+  br i1 %.not.i.i, label %hash_table_index.exit.thread16.i, label %.lr.ph.i.i, !llvm.loop !91
 
-hash_table_index.exit.thread17.i:                 ; preds = %18, %8
-  %.pre-phi.i = phi i64 [ %12, %8 ], [ %21, %18 ]
-  %24 = getelementptr %struct.rb_id_item, ptr %11, i64 %.pre-phi.i, i32 2
-  store i64 %2, ptr %24, align 8, !tbaa !92
+hash_table_index.exit.thread16.i:                 ; preds = %19, %8
+  %.pre-phi.i = phi i64 [ %12, %8 ], [ %22, %19 ]
+  %25 = getelementptr %struct.rb_id_item, ptr %11, i64 %.pre-phi.i
   br label %rb_id_table_insert_key.exit
 
 hash_table_index.exit.thread.i:                   ; preds = %.lr.ph.i.i, %3
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !87
-  %27 = ashr i32 %26, 1
-  %28 = add i32 %27, %26
-  %.not.i9.i = icmp slt i32 %28, %6
-  br i1 %.not.i9.i, label %hash_table_extend.exit.i, label %29
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load i32, ptr %26, align 8, !tbaa !87
+  %28 = ashr i32 %27, 1
+  %29 = add i32 %28, %27
+  %.not.i9.i = icmp slt i32 %29, %6
+  br i1 %.not.i9.i, label %hash_table_extend.exit.i, label %30
 
-29:                                               ; preds = %hash_table_index.exit.thread.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !86
-  %32 = ashr i32 %31, 1
-  %33 = add i32 %32, %31
-  %34 = ashr i32 %33, 2
-  %35 = ashr i32 %33, 3
-  %36 = or i32 %34, %35
-  %37 = ashr i32 %36, 2
-  %38 = or i32 %37, %36
-  %39 = ashr i32 %38, 4
-  %40 = or i32 %39, %38
-  %41 = ashr i32 %40, 8
-  %42 = or i32 %41, %40
-  %43 = ashr i32 %42, 16
-  %44 = or i32 %43, %42
-  %45 = shl nsw i32 %44, 2
-  %46 = add i32 %45, 4
-  %47 = icmp slt i32 %46, %6
-  br i1 %47, label %48, label %62
+30:                                               ; preds = %hash_table_index.exit.thread.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %32 = load i32, ptr %31, align 4, !tbaa !86
+  %33 = ashr i32 %32, 1
+  %34 = add i32 %33, %32
+  %35 = ashr i32 %34, 2
+  %36 = ashr i32 %34, 3
+  %37 = or i32 %35, %36
+  %38 = ashr i32 %37, 2
+  %39 = or i32 %38, %37
+  %40 = ashr i32 %39, 4
+  %41 = or i32 %40, %39
+  %42 = ashr i32 %41, 8
+  %43 = or i32 %42, %41
+  %44 = ashr i32 %43, 16
+  %45 = or i32 %44, %43
+  %46 = shl nsw i32 %45, 2
+  %47 = add i32 %46, 4
+  %48 = icmp slt i32 %47, %6
+  br i1 %48, label %49, label %63
 
-48:                                               ; preds = %29
-  %49 = ashr i32 %28, 2
-  %50 = ashr i32 %28, 3
-  %51 = or i32 %49, %50
-  %52 = ashr i32 %51, 2
-  %53 = or i32 %52, %51
-  %54 = ashr i32 %53, 4
-  %55 = or i32 %54, %53
-  %56 = ashr i32 %55, 8
-  %57 = or i32 %56, %55
-  %58 = ashr i32 %57, 16
-  %59 = or i32 %58, %57
-  %60 = shl nsw i32 %59, 2
-  %61 = add i32 %60, 4
-  br label %62
+49:                                               ; preds = %30
+  %50 = ashr i32 %29, 2
+  %51 = ashr i32 %29, 3
+  %52 = or i32 %50, %51
+  %53 = ashr i32 %52, 2
+  %54 = or i32 %53, %52
+  %55 = ashr i32 %54, 4
+  %56 = or i32 %55, %54
+  %57 = ashr i32 %56, 8
+  %58 = or i32 %57, %56
+  %59 = ashr i32 %58, 16
+  %60 = or i32 %59, %58
+  %61 = shl nsw i32 %60, 2
+  %62 = add i32 %61, 4
+  br label %63
 
-62:                                               ; preds = %48, %29
-  %.0.i.i2 = phi i32 [ %61, %48 ], [ %46, %29 ]
-  %63 = sext i32 %.0.i.i2 to i64
-  %64 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %63, i64 noundef 16) #24
-  %65 = load i32, ptr %0, align 8, !tbaa !82
-  %66 = icmp sgt i32 %65, 0
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !85
-  br i1 %66, label %.lr.ph.i10.i, label %._crit_edge.i.i
+63:                                               ; preds = %49, %30
+  %.0.i.i2 = phi i32 [ %62, %49 ], [ %47, %30 ]
+  %64 = sext i32 %.0.i.i2 to i64
+  %65 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %64, i64 noundef 16) #24
+  %66 = load i32, ptr %0, align 8, !tbaa !82
+  %67 = icmp sgt i32 %66, 0
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %69 = load ptr, ptr %68, align 8, !tbaa !85
+  br i1 %67, label %.lr.ph.i10.i, label %._crit_edge.i.i
 
-.lr.ph.i10.i:                                     ; preds = %62
-  %69 = add i32 %.0.i.i2, -1
-  %wide.trip.count.i.i = zext nneg i32 %65 to i64
-  br label %70
+.lr.ph.i10.i:                                     ; preds = %63
+  %70 = add i32 %.0.i.i2, -1
+  %wide.trip.count.i.i = zext nneg i32 %66 to i64
+  br label %71
 
-70:                                               ; preds = %91, %.lr.ph.i10.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i10.i ], [ %indvars.iv.next.i.i, %91 ]
-  %.sroa.8.032.i.i = phi i32 [ 0, %.lr.ph.i10.i ], [ %.sroa.8.1.i.i, %91 ]
-  %.sroa.6.031.i.i = phi i32 [ 0, %.lr.ph.i10.i ], [ %.sroa.6.1.i.i, %91 ]
-  %71 = getelementptr %struct.rb_id_item, ptr %68, i64 %indvars.iv.i.i
-  %72 = load i32, ptr %71, align 8, !tbaa !88
-  %.not25.i.i = icmp eq i32 %72, 0
-  br i1 %.not25.i.i, label %91, label %73
+71:                                               ; preds = %93, %.lr.ph.i10.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i10.i ], [ %indvars.iv.next.i.i, %93 ]
+  %.sroa.8.031.i.i = phi i32 [ 0, %.lr.ph.i10.i ], [ %.sroa.8.1.i.i, %93 ]
+  %.sroa.6.030.i.i = phi i32 [ 0, %.lr.ph.i10.i ], [ %.sroa.6.1.i.i, %93 ]
+  %72 = getelementptr %struct.rb_id_item, ptr %69, i64 %indvars.iv.i.i
+  %73 = load i32, ptr %72, align 8, !tbaa !88
+  %.not25.i.i = icmp eq i32 %73, 0
+  br i1 %.not25.i.i, label %93, label %74
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %75 = load i64, ptr %74, align 8, !tbaa !92
-  %.02024.i.i.i = and i32 %72, %69
-  %76 = sext i32 %.02024.i.i.i to i64
-  %77 = getelementptr %struct.rb_id_item, ptr %64, i64 %76
-  %78 = load i32, ptr %77, align 8, !tbaa !88
-  %.not25.i.i.i = icmp eq i32 %78, 0
-  br i1 %.not25.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %76 = load i64, ptr %75, align 8, !tbaa !92
+  %.02022.i.i.i = and i32 %73, %70
+  %77 = sext i32 %.02022.i.i.i to i64
+  %78 = getelementptr %struct.rb_id_item, ptr %65, i64 %77
+  %79 = load i32, ptr %78, align 8, !tbaa !88
+  %.not23.i.i.i = icmp eq i32 %79, 0
+  br i1 %.not23.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %73, %.lr.ph.i.i.i
-  %79 = phi i64 [ %83, %.lr.ph.i.i.i ], [ %76, %73 ]
-  %.02027.i.i.i = phi i32 [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02024.i.i.i, %73 ]
-  %.026.i.i.i = phi i32 [ %82, %.lr.ph.i.i.i ], [ 1, %73 ]
-  %80 = getelementptr %struct.rb_id_item, ptr %64, i64 %79, i32 1
-  store i32 1, ptr %80, align 4, !tbaa !90
-  %81 = add i32 %.026.i.i.i, %.02027.i.i.i
-  %82 = add i32 %.026.i.i.i, 1
-  %.020.i.i.i = and i32 %81, %69
-  %83 = sext i32 %.020.i.i.i to i64
-  %84 = getelementptr %struct.rb_id_item, ptr %64, i64 %83
-  %85 = load i32, ptr %84, align 8, !tbaa !88
-  %.not.i.i.i = icmp eq i32 %85, 0
+.lr.ph.i.i.i:                                     ; preds = %74, %.lr.ph.i.i.i
+  %80 = phi i64 [ %85, %.lr.ph.i.i.i ], [ %77, %74 ]
+  %.02025.i.i.i = phi i32 [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %74 ]
+  %.024.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i ], [ 1, %74 ]
+  %81 = getelementptr %struct.rb_id_item, ptr %65, i64 %80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  store i32 1, ptr %82, align 4, !tbaa !90
+  %83 = add i32 %.024.i.i.i, %.02025.i.i.i
+  %84 = add i32 %.024.i.i.i, 1
+  %.020.i.i.i = and i32 %83, %70
+  %85 = sext i32 %.020.i.i.i to i64
+  %86 = getelementptr %struct.rb_id_item, ptr %65, i64 %85
+  %87 = load i32, ptr %86, align 8, !tbaa !88
+  %.not.i.i.i = icmp eq i32 %87, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !93
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %73
-  %.lcssa22.i.i.i = phi i64 [ %76, %73 ], [ %83, %.lr.ph.i.i.i ]
-  %.lcssa.i.i.i = phi ptr [ %77, %73 ], [ %84, %.lr.ph.i.i.i ]
-  %86 = add i32 %.sroa.6.031.i.i, 1
-  %87 = getelementptr %struct.rb_id_item, ptr %64, i64 %.lcssa22.i.i.i, i32 1
-  %88 = load i32, ptr %87, align 4, !tbaa !90
-  %.not21.i.i.i = icmp eq i32 %88, 0
-  %89 = zext i1 %.not21.i.i.i to i32
-  %spec.select.i.i = add i32 %.sroa.8.032.i.i, %89
-  store i32 %72, ptr %.lcssa.i.i.i, align 8, !tbaa !88
-  %90 = getelementptr %struct.rb_id_item, ptr %64, i64 %.lcssa22.i.i.i, i32 2
-  store i64 %75, ptr %90, align 8, !tbaa !92
-  br label %91
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %74
+  %.lcssa.i.i.i = phi ptr [ %78, %74 ], [ %86, %.lr.ph.i.i.i ]
+  %88 = add i32 %.sroa.6.030.i.i, 1
+  %89 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i.i, i64 4
+  %90 = load i32, ptr %89, align 4, !tbaa !90
+  %.not21.i.i.i = icmp eq i32 %90, 0
+  %91 = zext i1 %.not21.i.i.i to i32
+  %spec.select.i.i = add i32 %.sroa.8.031.i.i, %91
+  store i32 %73, ptr %.lcssa.i.i.i, align 8, !tbaa !88
+  %92 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i.i, i64 8
+  store i64 %76, ptr %92, align 8, !tbaa !92
+  br label %93
 
-91:                                               ; preds = %._crit_edge.i.i.i, %70
-  %.sroa.6.1.i.i = phi i32 [ %.sroa.6.031.i.i, %70 ], [ %86, %._crit_edge.i.i.i ]
-  %.sroa.8.1.i.i = phi i32 [ %.sroa.8.032.i.i, %70 ], [ %spec.select.i.i, %._crit_edge.i.i.i ]
+93:                                               ; preds = %._crit_edge.i.i.i, %71
+  %.sroa.6.1.i.i = phi i32 [ %.sroa.6.030.i.i, %71 ], [ %88, %._crit_edge.i.i.i ]
+  %.sroa.8.1.i.i = phi i32 [ %.sroa.8.031.i.i, %71 ], [ %spec.select.i.i, %._crit_edge.i.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %70, !llvm.loop !94
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %71, !llvm.loop !94
 
-._crit_edge.i.i:                                  ; preds = %91, %62
-  %.sroa.6.0.lcssa.i.i = phi i32 [ 0, %62 ], [ %.sroa.6.1.i.i, %91 ]
-  %.sroa.8.0.lcssa.i.i = phi i32 [ 0, %62 ], [ %.sroa.8.1.i.i, %91 ]
+._crit_edge.i.i:                                  ; preds = %93, %63
+  %.sroa.6.0.lcssa.i.i = phi i32 [ 0, %63 ], [ %.sroa.6.1.i.i, %93 ]
+  %.sroa.8.0.lcssa.i.i = phi i32 [ 0, %63 ], [ %.sroa.8.1.i.i, %93 ]
   store i32 %.0.i.i2, ptr %0, align 8, !tbaa !44
-  store i32 %.sroa.6.0.lcssa.i.i, ptr %30, align 4, !tbaa !44
-  store i32 %.sroa.8.0.lcssa.i.i, ptr %25, align 8, !tbaa !44
+  store i32 %.sroa.6.0.lcssa.i.i, ptr %31, align 4, !tbaa !44
+  store i32 %.sroa.8.0.lcssa.i.i, ptr %26, align 8, !tbaa !44
   %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %.sroa.10.0..sroa_idx.i.i, align 4
-  store ptr %64, ptr %67, align 8, !tbaa !95
-  tail call void @ruby_xfree(ptr noundef %68) #19
+  store ptr %65, ptr %68, align 8, !tbaa !95
+  tail call void @ruby_xfree(ptr noundef %69) #19
   %.pre.i = load i32, ptr %0, align 8, !tbaa !82
   br label %hash_table_extend.exit.i
 
 hash_table_extend.exit.i:                         ; preds = %._crit_edge.i.i, %hash_table_index.exit.thread.i
-  %92 = phi i32 [ %6, %hash_table_index.exit.thread.i ], [ %.pre.i, %._crit_edge.i.i ]
-  %93 = add i32 %92, -1
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !85
-  %.02024.i.i = and i32 %93, %.0.i.i
-  %96 = sext i32 %.02024.i.i to i64
-  %97 = getelementptr %struct.rb_id_item, ptr %95, i64 %96
-  %98 = load i32, ptr %97, align 8, !tbaa !88
-  %.not25.i11.i = icmp eq i32 %98, 0
-  br i1 %.not25.i11.i, label %._crit_edge.i15.i, label %.lr.ph.i12.i
+  %94 = phi i32 [ %6, %hash_table_index.exit.thread.i ], [ %.pre.i, %._crit_edge.i.i ]
+  %95 = add i32 %94, -1
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %97 = load ptr, ptr %96, align 8, !tbaa !85
+  %.02022.i.i = and i32 %95, %.0.i.i
+  %98 = sext i32 %.02022.i.i to i64
+  %99 = getelementptr %struct.rb_id_item, ptr %97, i64 %98
+  %100 = load i32, ptr %99, align 8, !tbaa !88
+  %.not23.i.i = icmp eq i32 %100, 0
+  br i1 %.not23.i.i, label %._crit_edge.i14.i, label %.lr.ph.i11.i
 
-.lr.ph.i12.i:                                     ; preds = %hash_table_extend.exit.i, %.lr.ph.i12.i
-  %99 = phi i64 [ %103, %.lr.ph.i12.i ], [ %96, %hash_table_extend.exit.i ]
-  %.02027.i.i = phi i32 [ %.020.i13.i, %.lr.ph.i12.i ], [ %.02024.i.i, %hash_table_extend.exit.i ]
-  %.026.i.i = phi i32 [ %102, %.lr.ph.i12.i ], [ 1, %hash_table_extend.exit.i ]
-  %100 = getelementptr %struct.rb_id_item, ptr %95, i64 %99, i32 1
-  store i32 1, ptr %100, align 4, !tbaa !90
-  %101 = add i32 %.026.i.i, %.02027.i.i
-  %102 = add i32 %.026.i.i, 1
-  %.020.i13.i = and i32 %101, %93
-  %103 = sext i32 %.020.i13.i to i64
-  %104 = getelementptr %struct.rb_id_item, ptr %95, i64 %103
-  %105 = load i32, ptr %104, align 8, !tbaa !88
-  %.not.i14.i = icmp eq i32 %105, 0
-  br i1 %.not.i14.i, label %._crit_edge.i15.i, label %.lr.ph.i12.i, !llvm.loop !93
+.lr.ph.i11.i:                                     ; preds = %hash_table_extend.exit.i, %.lr.ph.i11.i
+  %101 = phi i64 [ %106, %.lr.ph.i11.i ], [ %98, %hash_table_extend.exit.i ]
+  %.02025.i.i = phi i32 [ %.020.i12.i, %.lr.ph.i11.i ], [ %.02022.i.i, %hash_table_extend.exit.i ]
+  %.024.i.i = phi i32 [ %105, %.lr.ph.i11.i ], [ 1, %hash_table_extend.exit.i ]
+  %102 = getelementptr %struct.rb_id_item, ptr %97, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  store i32 1, ptr %103, align 4, !tbaa !90
+  %104 = add i32 %.024.i.i, %.02025.i.i
+  %105 = add i32 %.024.i.i, 1
+  %.020.i12.i = and i32 %104, %95
+  %106 = sext i32 %.020.i12.i to i64
+  %107 = getelementptr %struct.rb_id_item, ptr %97, i64 %106
+  %108 = load i32, ptr %107, align 8, !tbaa !88
+  %.not.i13.i = icmp eq i32 %108, 0
+  br i1 %.not.i13.i, label %._crit_edge.i14.i, label %.lr.ph.i11.i, !llvm.loop !93
 
-._crit_edge.i15.i:                                ; preds = %.lr.ph.i12.i, %hash_table_extend.exit.i
-  %.lcssa22.i.i = phi i64 [ %96, %hash_table_extend.exit.i ], [ %103, %.lr.ph.i12.i ]
-  %.lcssa.i.i = phi ptr [ %97, %hash_table_extend.exit.i ], [ %104, %.lr.ph.i12.i ]
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %107 = load i32, ptr %106, align 4, !tbaa !86
-  %108 = add i32 %107, 1
-  store i32 %108, ptr %106, align 4, !tbaa !86
-  %109 = getelementptr %struct.rb_id_item, ptr %95, i64 %.lcssa22.i.i, i32 1
-  %110 = load i32, ptr %109, align 4, !tbaa !90
-  %.not21.i.i = icmp eq i32 %110, 0
-  br i1 %.not21.i.i, label %111, label %hash_table_raw_insert.exit.i
+._crit_edge.i14.i:                                ; preds = %.lr.ph.i11.i, %hash_table_extend.exit.i
+  %.lcssa.i.i = phi ptr [ %99, %hash_table_extend.exit.i ], [ %107, %.lr.ph.i11.i ]
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %110 = load i32, ptr %109, align 4, !tbaa !86
+  %111 = add i32 %110, 1
+  store i32 %111, ptr %109, align 4, !tbaa !86
+  %112 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 4
+  %113 = load i32, ptr %112, align 4, !tbaa !90
+  %.not21.i.i = icmp eq i32 %113, 0
+  br i1 %.not21.i.i, label %114, label %hash_table_raw_insert.exit.i
 
-111:                                              ; preds = %._crit_edge.i15.i
-  %112 = load i32, ptr %25, align 8, !tbaa !87
-  %113 = add i32 %112, 1
-  store i32 %113, ptr %25, align 8, !tbaa !87
+114:                                              ; preds = %._crit_edge.i14.i
+  %115 = load i32, ptr %26, align 8, !tbaa !87
+  %116 = add i32 %115, 1
+  store i32 %116, ptr %26, align 8, !tbaa !87
   br label %hash_table_raw_insert.exit.i
 
-hash_table_raw_insert.exit.i:                     ; preds = %111, %._crit_edge.i15.i
+hash_table_raw_insert.exit.i:                     ; preds = %114, %._crit_edge.i14.i
   store i32 %.0.i.i, ptr %.lcssa.i.i, align 8, !tbaa !88
-  %114 = getelementptr %struct.rb_id_item, ptr %95, i64 %.lcssa22.i.i, i32 2
-  store i64 %2, ptr %114, align 8, !tbaa !92
   br label %rb_id_table_insert_key.exit
 
-rb_id_table_insert_key.exit:                      ; preds = %hash_table_index.exit.thread17.i, %hash_table_raw_insert.exit.i
+rb_id_table_insert_key.exit:                      ; preds = %hash_table_index.exit.thread16.i, %hash_table_raw_insert.exit.i
+  %.lcssa.i.sink.i = phi ptr [ %.lcssa.i.i, %hash_table_raw_insert.exit.i ], [ %25, %hash_table_index.exit.thread16.i ]
+  %117 = getelementptr inbounds nuw i8, ptr %.lcssa.i.sink.i, i64 8
+  store i64 %2, ptr %117, align 8, !tbaa !92
   ret i32 1
 }
 
@@ -3193,52 +3196,53 @@ define hidden range(i32 0, 2) i32 @rb_id_table_delete(ptr noundef captures(none)
   %.not19.i = icmp eq i32 %13, %.0.i.i
   br i1 %.not19.i, label %hash_table_index.exit.thread6, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %7, %17
-  %14 = phi i64 [ %20, %17 ], [ %11, %7 ]
-  %.01421.i = phi i32 [ %.014.i, %17 ], [ %.01418.i, %7 ]
-  %.020.i = phi i32 [ %19, %17 ], [ 1, %7 ]
-  %15 = getelementptr %struct.rb_id_item, ptr %10, i64 %14, i32 1
-  %16 = load i32, ptr %15, align 4, !tbaa !90
-  %.not17.i = icmp eq i32 %16, 0
-  br i1 %.not17.i, label %hash_delete_index.exit, label %17
+.lr.ph.i:                                         ; preds = %7, %18
+  %14 = phi i64 [ %21, %18 ], [ %11, %7 ]
+  %.01421.i = phi i32 [ %.014.i, %18 ], [ %.01418.i, %7 ]
+  %.020.i = phi i32 [ %20, %18 ], [ 1, %7 ]
+  %15 = getelementptr %struct.rb_id_item, ptr %10, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !90
+  %.not17.i = icmp eq i32 %17, 0
+  br i1 %.not17.i, label %hash_delete_index.exit, label %18
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = add i32 %.020.i, %.01421.i
-  %19 = add i32 %.020.i, 1
-  %.014.i = and i32 %18, %8
-  %20 = zext nneg i32 %.014.i to i64
-  %21 = getelementptr %struct.rb_id_item, ptr %10, i64 %20
-  %22 = load i32, ptr %21, align 8, !tbaa !88
-  %.not.i = icmp eq i32 %22, %.0.i.i
+18:                                               ; preds = %.lr.ph.i
+  %19 = add i32 %.020.i, %.01421.i
+  %20 = add i32 %.020.i, 1
+  %.014.i = and i32 %19, %8
+  %21 = zext nneg i32 %.014.i to i64
+  %22 = getelementptr %struct.rb_id_item, ptr %10, i64 %21
+  %23 = load i32, ptr %22, align 8, !tbaa !88
+  %.not.i = icmp eq i32 %23, %.0.i.i
   br i1 %.not.i, label %hash_table_index.exit.thread6, label %.lr.ph.i, !llvm.loop !91
 
-hash_table_index.exit.thread6:                    ; preds = %17, %7
-  %.pre-phi = phi i64 [ %11, %7 ], [ %20, %17 ]
-  %23 = getelementptr %struct.rb_id_item, ptr %10, i64 %.pre-phi, i32 1
-  %24 = load i32, ptr %23, align 4, !tbaa !90
-  %.not.i4 = icmp eq i32 %24, 0
-  br i1 %.not.i4, label %25, label %29
+hash_table_index.exit.thread6:                    ; preds = %18, %7
+  %.pre-phi = phi i64 [ %11, %7 ], [ %21, %18 ]
+  %24 = getelementptr %struct.rb_id_item, ptr %10, i64 %.pre-phi
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !90
+  %.not.i4 = icmp eq i32 %26, 0
+  br i1 %.not.i4, label %27, label %31
 
-25:                                               ; preds = %hash_table_index.exit.thread6
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !87
-  %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 8, !tbaa !87
-  br label %29
+27:                                               ; preds = %hash_table_index.exit.thread6
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !87
+  %30 = add i32 %29, -1
+  store i32 %30, ptr %28, align 8, !tbaa !87
+  br label %31
 
-29:                                               ; preds = %25, %hash_table_index.exit.thread6
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !86
-  %32 = add i32 %31, -1
-  store i32 %32, ptr %30, align 4, !tbaa !86
-  %33 = getelementptr %struct.rb_id_item, ptr %10, i64 %.pre-phi
-  store i32 0, ptr %33, align 8, !tbaa !88
-  %34 = getelementptr %struct.rb_id_item, ptr %10, i64 %.pre-phi, i32 2
-  store i64 0, ptr %34, align 8, !tbaa !92
+31:                                               ; preds = %27, %hash_table_index.exit.thread6
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !86
+  %34 = add i32 %33, -1
+  store i32 %34, ptr %32, align 4, !tbaa !86
+  store i32 0, ptr %24, align 8, !tbaa !88
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 0, ptr %35, align 8, !tbaa !92
   br label %hash_delete_index.exit
 
-hash_delete_index.exit:                           ; preds = %.lr.ph.i, %2, %29
-  %.0.i = phi i32 [ 1, %29 ], [ 0, %2 ], [ 0, %.lr.ph.i ]
+hash_delete_index.exit:                           ; preds = %.lr.ph.i, %2, %31
+  %.0.i = phi i32 [ 1, %31 ], [ 0, %2 ], [ 0, %.lr.ph.i ]
   ret i32 %.0.i
 }
 
@@ -3285,38 +3289,39 @@ define hidden void @rb_id_table_foreach(ptr noundef captures(none) %0, ptr nound
 key2id.exit:                                      ; preds = %13, %18, %20
   %.1.i.i = phi i64 [ %19, %18 ], [ %22, %20 ], [ %14, %13 ]
   %23 = load ptr, ptr %6, align 8, !tbaa !85
-  %24 = getelementptr %struct.rb_id_item, ptr %23, i64 %indvars.iv, i32 2
-  %25 = load i64, ptr %24, align 8, !tbaa !92
-  %26 = tail call i32 %1(i64 noundef %.1.i.i, i64 noundef %25, ptr noundef %2) #19
-  switch i32 %26, label %.critedge [
-    i32 2, label %27
+  %24 = getelementptr %struct.rb_id_item, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load i64, ptr %25, align 8, !tbaa !92
+  %27 = tail call i32 %1(i64 noundef %.1.i.i, i64 noundef %26, ptr noundef %2) #19
+  switch i32 %27, label %.critedge [
+    i32 2, label %28
     i32 1, label %._crit_edge
   ]
 
-27:                                               ; preds = %key2id.exit
-  %28 = load ptr, ptr %6, align 8, !tbaa !85
-  %29 = getelementptr %struct.rb_id_item, ptr %28, i64 %indvars.iv, i32 1
-  %30 = load i32, ptr %29, align 4, !tbaa !90
-  %.not.i = icmp eq i32 %30, 0
-  br i1 %.not.i, label %31, label %34
+28:                                               ; preds = %key2id.exit
+  %29 = load ptr, ptr %6, align 8, !tbaa !85
+  %30 = getelementptr %struct.rb_id_item, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %32 = load i32, ptr %31, align 4, !tbaa !90
+  %.not.i = icmp eq i32 %32, 0
+  br i1 %.not.i, label %33, label %36
 
-31:                                               ; preds = %27
-  %32 = load i32, ptr %7, align 8, !tbaa !87
-  %33 = add i32 %32, -1
-  store i32 %33, ptr %7, align 8, !tbaa !87
-  br label %34
+33:                                               ; preds = %28
+  %34 = load i32, ptr %7, align 8, !tbaa !87
+  %35 = add i32 %34, -1
+  store i32 %35, ptr %7, align 8, !tbaa !87
+  br label %36
 
-34:                                               ; preds = %31, %27
-  %35 = load i32, ptr %8, align 4, !tbaa !86
-  %36 = add i32 %35, -1
-  store i32 %36, ptr %8, align 4, !tbaa !86
-  %37 = getelementptr %struct.rb_id_item, ptr %28, i64 %indvars.iv
-  store i32 0, ptr %37, align 8, !tbaa !88
-  %38 = getelementptr %struct.rb_id_item, ptr %28, i64 %indvars.iv, i32 2
-  store i64 0, ptr %38, align 8, !tbaa !92
+36:                                               ; preds = %33, %28
+  %37 = load i32, ptr %8, align 4, !tbaa !86
+  %38 = add i32 %37, -1
+  store i32 %38, ptr %8, align 4, !tbaa !86
+  store i32 0, ptr %30, align 8, !tbaa !88
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i64 0, ptr %39, align 8, !tbaa !92
   br label %.critedge
 
-.critedge:                                        ; preds = %34, %key2id.exit, %9
+.critedge:                                        ; preds = %36, %key2id.exit, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !96
@@ -3357,28 +3362,28 @@ define hidden void @rb_id_table_foreach_values(ptr noundef captures(none) %0, pt
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %6, align 8, !tbaa !85
-  %19 = getelementptr %struct.rb_id_item, ptr %18, i64 %indvars.iv, i32 1
-  %20 = load i32, ptr %19, align 4, !tbaa !90
-  %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %21, label %24
+  %19 = getelementptr %struct.rb_id_item, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %21 = load i32, ptr %20, align 4, !tbaa !90
+  %.not.i = icmp eq i32 %21, 0
+  br i1 %.not.i, label %22, label %25
 
-21:                                               ; preds = %17
-  %22 = load i32, ptr %7, align 8, !tbaa !87
-  %23 = add i32 %22, -1
-  store i32 %23, ptr %7, align 8, !tbaa !87
-  br label %24
+22:                                               ; preds = %17
+  %23 = load i32, ptr %7, align 8, !tbaa !87
+  %24 = add i32 %23, -1
+  store i32 %24, ptr %7, align 8, !tbaa !87
+  br label %25
 
-24:                                               ; preds = %21, %17
-  %25 = load i32, ptr %8, align 4, !tbaa !86
-  %26 = add i32 %25, -1
-  store i32 %26, ptr %8, align 4, !tbaa !86
-  %27 = getelementptr %struct.rb_id_item, ptr %18, i64 %indvars.iv
-  store i32 0, ptr %27, align 8, !tbaa !88
-  %28 = getelementptr %struct.rb_id_item, ptr %18, i64 %indvars.iv, i32 2
+25:                                               ; preds = %22, %17
+  %26 = load i32, ptr %8, align 4, !tbaa !86
+  %27 = add i32 %26, -1
+  store i32 %27, ptr %8, align 4, !tbaa !86
+  store i32 0, ptr %19, align 8, !tbaa !88
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %28, align 8, !tbaa !92
   br label %.critedge
 
-.critedge:                                        ; preds = %24, %13, %9
+.critedge:                                        ; preds = %25, %13, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !97
@@ -3405,47 +3410,49 @@ define hidden void @rb_id_table_foreach_values_with_replace(ptr noundef readonly
   %11 = getelementptr %struct.rb_id_item, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !88
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %29, label %13
+  br i1 %.not, label %31, label %13
 
 13:                                               ; preds = %.backedge
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !92
   %16 = call i32 %1(i64 noundef %15, ptr noundef %3) #19
   %17 = icmp eq i32 %16, 4
-  br i1 %17, label %18, label %26
+  br i1 %17, label %18, label %28
 
 18:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load ptr, ptr %8, align 8, !tbaa !85
-  %20 = getelementptr %struct.rb_id_item, ptr %19, i64 %10, i32 2
-  %21 = load i64, ptr %20, align 8, !tbaa !92
-  store i64 %21, ptr %5, align 8, !tbaa !32
-  %22 = call i32 %2(ptr noundef nonnull %5, ptr noundef %3, i32 noundef 1) #19
-  %23 = load i64, ptr %5, align 8, !tbaa !32
-  %24 = load ptr, ptr %8, align 8, !tbaa !85
-  %25 = getelementptr %struct.rb_id_item, ptr %24, i64 %10, i32 2
-  store i64 %23, ptr %25, align 8, !tbaa !92
+  %20 = getelementptr %struct.rb_id_item, ptr %19, i64 %10
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !92
+  store i64 %22, ptr %5, align 8, !tbaa !32
+  %23 = call i32 %2(ptr noundef nonnull %5, ptr noundef %3, i32 noundef 1) #19
+  %24 = load i64, ptr %5, align 8, !tbaa !32
+  %25 = load ptr, ptr %8, align 8, !tbaa !85
+  %26 = getelementptr %struct.rb_id_item, ptr %25, i64 %10
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i64 %24, ptr %27, align 8, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
+  br label %28
 
-26:                                               ; preds = %18, %13
-  %.018 = phi i32 [ %22, %18 ], [ %16, %13 ]
+28:                                               ; preds = %18, %13
+  %.018 = phi i32 [ %23, %18 ], [ %16, %13 ]
   %.not21 = icmp ne i32 %.018, 1
-  %27 = add nuw nsw i32 %.01922, 1
-  %28 = icmp slt i32 %27, %6
-  %or.cond = select i1 %.not21, i1 %28, i1 false
+  %29 = add nuw nsw i32 %.01922, 1
+  %30 = icmp slt i32 %29, %6
+  %or.cond = select i1 %.not21, i1 %30, i1 false
   br i1 %or.cond, label %.backedge.backedge, label %._crit_edge
 
-29:                                               ; preds = %.backedge
+31:                                               ; preds = %.backedge
   %.old = add nuw nsw i32 %.01922, 1
   %.old24 = icmp slt i32 %.old, %6
   br i1 %.old24, label %.backedge.backedge, label %._crit_edge
 
-.backedge.backedge:                               ; preds = %29, %26
-  %.01922.be = phi i32 [ %.old, %29 ], [ %27, %26 ]
+.backedge.backedge:                               ; preds = %31, %28
+  %.01922.be = phi i32 [ %.old, %31 ], [ %29, %28 ]
   br label %.backedge, !llvm.loop !98
 
-._crit_edge:                                      ; preds = %26, %29, %4
+._crit_edge:                                      ; preds = %28, %31, %4
   ret void
 }
 

@@ -49,65 +49,66 @@ define internal range(i32 -1, 1) i32 @prte_mca_plm_slurm_component_query(ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #7
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %35, label %6
+  br i1 %.not, label %36, label %6
 
 6:                                                ; preds = %2
   store i32 75, ptr %1, align 4, !tbaa !3
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_plm_base_framework, i64 76), align 4, !tbaa !7
   %or.cond = icmp ult i32 %7, 64
-  br i1 %or.cond, label %8, label %15
+  br i1 %or.cond, label %8, label %16
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9, i32 2
-  %11 = load i32, ptr %10, align 4, !tbaa !19
-  %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %15
+  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = load i32, ptr %11, align 4, !tbaa !19
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %14, label %16
 
-13:                                               ; preds = %8
-  %14 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #7
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %7, ptr noundef nonnull @.str.4, ptr noundef %14) #7
-  br label %15
+14:                                               ; preds = %8
+  %15 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #7
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %7, ptr noundef nonnull @.str.4, ptr noundef %15) #7
+  br label %16
 
-15:                                               ; preds = %13, %8, %6
-  %16 = tail call noalias ptr @popen(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %35, label %18
+16:                                               ; preds = %14, %8, %6
+  %17 = tail call noalias ptr @popen(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %36, label %19
 
-18:                                               ; preds = %15
-  %19 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1024, ptr noundef nonnull %16)
-  %20 = icmp eq ptr %19, null
-  %21 = call i32 @pclose(ptr noundef nonnull %16)
-  br i1 %20, label %35, label %22
+19:                                               ; preds = %16
+  %20 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1024, ptr noundef nonnull %17)
+  %21 = icmp eq ptr %20, null
+  %22 = call i32 @pclose(ptr noundef nonnull %17)
+  br i1 %21, label %36, label %23
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %24 = call i64 @strtol(ptr noundef nonnull %23, ptr noundef nonnull %4, i32 noundef 10) #7
-  %25 = trunc i64 %24 to i32
-  %26 = load ptr, ptr %4, align 8, !tbaa !22
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %28 = call i64 @strtol(ptr noundef nonnull captures(none) %27, ptr noundef null, i32 noundef 10) #7
-  %29 = trunc i64 %28 to i32
-  %30 = icmp slt i32 %25, 23
-  br i1 %30, label %34, label %31
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %25 = call i64 @strtol(ptr noundef nonnull %24, ptr noundef nonnull %4, i32 noundef 10) #7
+  %26 = trunc i64 %25 to i32
+  %27 = load ptr, ptr %4, align 8, !tbaa !22
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %29 = call i64 @strtol(ptr noundef nonnull captures(none) %28, ptr noundef null, i32 noundef 10) #7
+  %30 = trunc i64 %29 to i32
+  %31 = icmp slt i32 %26, 23
+  br i1 %31, label %35, label %32
 
-31:                                               ; preds = %22
-  %.not16 = icmp eq i32 %25, 23
-  br i1 %.not16, label %32, label %34
+32:                                               ; preds = %23
+  %.not16 = icmp eq i32 %26, 23
+  br i1 %.not16, label %33, label %35
 
-32:                                               ; preds = %31
-  %33 = icmp slt i32 %29, 11
-  %. = zext i1 %33 to i8
-  br label %34
-
-34:                                               ; preds = %32, %31, %22
-  %.sink = phi i8 [ 1, %22 ], [ 0, %31 ], [ %., %32 ]
-  store i8 %.sink, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_plm_slurm_component, i64 232), align 8, !tbaa !23
+33:                                               ; preds = %32
+  %34 = icmp slt i32 %30, 11
+  %. = zext i1 %34 to i8
   br label %35
 
-35:                                               ; preds = %2, %18, %15, %34
-  %.sink20 = phi ptr [ @prte_plm_slurm_module, %34 ], [ null, %15 ], [ null, %18 ], [ null, %2 ]
-  %.0 = phi i32 [ 0, %34 ], [ -1, %15 ], [ -1, %18 ], [ -1, %2 ]
+35:                                               ; preds = %33, %32, %23
+  %.sink = phi i8 [ 1, %23 ], [ 0, %32 ], [ %., %33 ]
+  store i8 %.sink, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_plm_slurm_component, i64 232), align 8, !tbaa !23
+  br label %36
+
+36:                                               ; preds = %2, %19, %16, %35
+  %.sink20 = phi ptr [ @prte_plm_slurm_module, %35 ], [ null, %16 ], [ null, %19 ], [ null, %2 ]
+  %.0 = phi i32 [ 0, %35 ], [ -1, %16 ], [ -1, %19 ], [ -1, %2 ]
   store ptr %.sink20, ptr %0, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

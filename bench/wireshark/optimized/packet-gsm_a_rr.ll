@@ -19146,7 +19146,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
   %155 = lshr i32 %.7, 3
   %156 = icmp ule i32 %155, %130
   %157 = and i32 %154, 255
-  %158 = icmp slt i32 %157, %131
+  %158 = icmp samesign ult i32 %157, %131
   %159 = select i1 %156, i1 %158, i1 false
   br i1 %159, label %.lr.ph159, label %._crit_edge, !llvm.loop !89
 

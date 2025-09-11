@@ -1449,7 +1449,7 @@ define noalias noundef ptr @Gia_AigerWriteCellMappingDoc(ptr noundef readonly ca
 
 .preheader133:                                    ; preds = %._crit_edge, %1
   %.0100.lcssa = phi i32 [ 8, %1 ], [ %.1101.lcssa, %._crit_edge ]
-  %6 = phi i32 [ %4, %1 ], [ %30, %._crit_edge ]
+  %6 = phi i32 [ %4, %1 ], [ %31, %._crit_edge ]
   %7 = getelementptr i8, ptr %0, i64 24
   %.val114 = load i32, ptr %7, align 8, !tbaa !14
   %8 = shl i32 %.val114, 1
@@ -1463,118 +1463,119 @@ define noalias noundef ptr @Gia_AigerWriteCellMappingDoc(ptr noundef readonly ca
   %.val118.val = load ptr, ptr %11, align 8, !tbaa !52
   %smax = call i32 @llvm.smax.i32(i32 %8, i32 3)
   %wide.trip.count = zext nneg i32 %smax to i64
-  br label %33
+  br label %34
 
 .lr.ph141:                                        ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %1 ]
   %.0100138 = phi i32 [ %.1101.lcssa, %._crit_edge ], [ 8, %1 ]
-  %12 = getelementptr inbounds nuw %struct.Mio_Cell2_t_, ptr %3, i64 %indvars.iv, i32 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !65
-  %14 = call ptr @Mio_GateReadName(ptr noundef %13) #17
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #18
-  %16 = trunc i64 %15 to i32
-  %17 = call ptr @Mio_GateReadOutName(ptr noundef %13) #17
-  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #18
-  %19 = trunc i64 %18 to i32
-  %20 = add i32 %.0100138, 6
-  %21 = add i32 %20, %16
-  %22 = add i32 %21, %19
-  %23 = call ptr @Mio_GateReadPins(ptr noundef %13) #17
-  %.not113135 = icmp eq ptr %23, null
+  %12 = getelementptr inbounds nuw %struct.Mio_Cell2_t_, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %14 = load ptr, ptr %13, align 8, !tbaa !65
+  %15 = call ptr @Mio_GateReadName(ptr noundef %14) #17
+  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #18
+  %17 = trunc i64 %16 to i32
+  %18 = call ptr @Mio_GateReadOutName(ptr noundef %14) #17
+  %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #18
+  %20 = trunc i64 %19 to i32
+  %21 = add i32 %.0100138, 6
+  %22 = add i32 %21, %17
+  %23 = add i32 %22, %20
+  %24 = call ptr @Mio_GateReadPins(ptr noundef %14) #17
+  %.not113135 = icmp eq ptr %24, null
   br i1 %.not113135, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph141, %.lr.ph
-  %.093137 = phi ptr [ %29, %.lr.ph ], [ %23, %.lr.ph141 ]
-  %.1101136 = phi i32 [ %28, %.lr.ph ], [ %22, %.lr.ph141 ]
-  %24 = call ptr @Mio_PinReadName(ptr noundef nonnull %.093137) #17
-  %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #18
-  %26 = trunc i64 %25 to i32
-  %27 = add i32 %.1101136, 1
-  %28 = add i32 %27, %26
-  %29 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.093137) #17
-  %.not113 = icmp eq ptr %29, null
+  %.093137 = phi ptr [ %30, %.lr.ph ], [ %24, %.lr.ph141 ]
+  %.1101136 = phi i32 [ %29, %.lr.ph ], [ %23, %.lr.ph141 ]
+  %25 = call ptr @Mio_PinReadName(ptr noundef nonnull %.093137) #17
+  %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #18
+  %27 = trunc i64 %26 to i32
+  %28 = add i32 %.1101136, 1
+  %29 = add i32 %28, %27
+  %30 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.093137) #17
+  %.not113 = icmp eq ptr %30, null
   br i1 %.not113, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph141
-  %.1101.lcssa = phi i32 [ %22, %.lr.ph141 ], [ %28, %.lr.ph ]
+  %.1101.lcssa = phi i32 [ %23, %.lr.ph141 ], [ %29, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i32, ptr %2, align 4, !tbaa !37
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph141, label %.preheader133, !llvm.loop !68
+  %31 = load i32, ptr %2, align 4, !tbaa !37
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next, %32
+  br i1 %33, label %.lr.ph141, label %.preheader133, !llvm.loop !68
 
-33:                                               ; preds = %.lr.ph147, %47
-  %indvars.iv176 = phi i64 [ 2, %.lr.ph147 ], [ %indvars.iv.next177, %47 ]
-  %.094145 = phi i32 [ 0, %.lr.ph147 ], [ %.195, %47 ]
-  %.2102144 = phi i32 [ %.0100.lcssa, %.lr.ph147 ], [ %.3103, %47 ]
-  %34 = getelementptr inbounds nuw i32, ptr %.val118.val, i64 %indvars.iv176
-  %35 = load i32, ptr %34, align 4, !tbaa !37
-  %.not131 = icmp eq i32 %35, 0
-  br i1 %.not131, label %47, label %36
+34:                                               ; preds = %.lr.ph147, %48
+  %indvars.iv176 = phi i64 [ 2, %.lr.ph147 ], [ %indvars.iv.next177, %48 ]
+  %.094145 = phi i32 [ 0, %.lr.ph147 ], [ %.195, %48 ]
+  %.2102144 = phi i32 [ %.0100.lcssa, %.lr.ph147 ], [ %.3103, %48 ]
+  %35 = getelementptr inbounds nuw i32, ptr %.val118.val, i64 %indvars.iv176
+  %36 = load i32, ptr %35, align 4, !tbaa !37
+  %.not131 = icmp eq i32 %36, 0
+  br i1 %.not131, label %48, label %37
 
-36:                                               ; preds = %33
-  %37 = add nsw i32 %.094145, 1
-  %.not132 = icmp eq i32 %35, -1
-  br i1 %.not132, label %38, label %40
+37:                                               ; preds = %34
+  %38 = add nsw i32 %.094145, 1
+  %.not132 = icmp eq i32 %36, -1
+  br i1 %.not132, label %39, label %41
 
-38:                                               ; preds = %36
-  %39 = add nsw i32 %.2102144, 12
-  br label %47
+39:                                               ; preds = %37
+  %40 = add nsw i32 %.2102144, 12
+  br label %48
 
-40:                                               ; preds = %36
-  %41 = sext i32 %35 to i64
-  %42 = getelementptr inbounds i32, ptr %.val118.val, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !37
-  %44 = shl nsw i32 %43, 2
-  %45 = add i32 %.2102144, 8
-  %46 = add i32 %45, %44
-  br label %47
+41:                                               ; preds = %37
+  %42 = sext i32 %36 to i64
+  %43 = getelementptr inbounds i32, ptr %.val118.val, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !37
+  %45 = shl nsw i32 %44, 2
+  %46 = add i32 %.2102144, 8
+  %47 = add i32 %46, %45
+  br label %48
 
-47:                                               ; preds = %33, %40, %38
-  %.3103 = phi i32 [ %39, %38 ], [ %46, %40 ], [ %.2102144, %33 ]
-  %.195 = phi i32 [ %37, %38 ], [ %37, %40 ], [ %.094145, %33 ]
+48:                                               ; preds = %34, %41, %39
+  %.3103 = phi i32 [ %40, %39 ], [ %47, %41 ], [ %.2102144, %34 ]
+  %.195 = phi i32 [ %38, %39 ], [ %38, %41 ], [ %.094145, %34 ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge148, label %33, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge148, label %34, !llvm.loop !69
 
-._crit_edge148:                                   ; preds = %47, %.preheader133
-  %.2102.lcssa = phi i32 [ %.0100.lcssa, %.preheader133 ], [ %.3103, %47 ]
-  %.094.lcssa = phi i32 [ 0, %.preheader133 ], [ %.195, %47 ]
-  %48 = sext i32 %.2102.lcssa to i64
-  %49 = call noalias ptr @malloc(i64 noundef %48) #16
-  br label %50
+._crit_edge148:                                   ; preds = %48, %.preheader133
+  %.2102.lcssa = phi i32 [ %.0100.lcssa, %.preheader133 ], [ %.3103, %48 ]
+  %.094.lcssa = phi i32 [ 0, %.preheader133 ], [ %.195, %48 ]
+  %49 = sext i32 %.2102.lcssa to i64
+  %50 = call noalias ptr @malloc(i64 noundef %49) #16
+  br label %51
 
-50:                                               ; preds = %50, %._crit_edge148
-  %.06.i = phi i32 [ 3, %._crit_edge148 ], [ %55, %50 ]
-  %.045.i = phi ptr [ %49, %._crit_edge148 ], [ %54, %50 ]
-  %51 = shl nsw i32 %.06.i, 3
-  %52 = ashr i32 %6, %51
-  %53 = trunc i32 %52 to i8
-  %54 = getelementptr inbounds nuw i8, ptr %.045.i, i64 1
-  store i8 %53, ptr %.045.i, align 1, !tbaa !8
-  %55 = add nsw i32 %.06.i, -1
+51:                                               ; preds = %51, %._crit_edge148
+  %.06.i = phi i32 [ 3, %._crit_edge148 ], [ %56, %51 ]
+  %.045.i = phi ptr [ %50, %._crit_edge148 ], [ %55, %51 ]
+  %52 = shl nsw i32 %.06.i, 3
+  %53 = ashr i32 %6, %52
+  %54 = trunc i32 %53 to i8
+  %55 = getelementptr inbounds nuw i8, ptr %.045.i, i64 1
+  store i8 %54, ptr %.045.i, align 1, !tbaa !8
+  %56 = add nsw i32 %.06.i, -1
   %.not.i = icmp eq i32 %.06.i, 0
-  br i1 %.not.i, label %Gia_AigerWriteInt.exit, label %50, !llvm.loop !44
+  br i1 %.not.i, label %Gia_AigerWriteInt.exit, label %51, !llvm.loop !44
 
-Gia_AigerWriteInt.exit:                           ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  br label %57
+Gia_AigerWriteInt.exit:                           ; preds = %51
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  br label %58
 
-57:                                               ; preds = %57, %Gia_AigerWriteInt.exit
-  %.06.i121 = phi i32 [ 3, %Gia_AigerWriteInt.exit ], [ %62, %57 ]
-  %.045.i122 = phi ptr [ %56, %Gia_AigerWriteInt.exit ], [ %61, %57 ]
-  %58 = shl nsw i32 %.06.i121, 3
-  %59 = ashr i32 %.094.lcssa, %58
-  %60 = trunc i32 %59 to i8
-  %61 = getelementptr inbounds nuw i8, ptr %.045.i122, i64 1
-  store i8 %60, ptr %.045.i122, align 1, !tbaa !8
-  %62 = add nsw i32 %.06.i121, -1
+58:                                               ; preds = %58, %Gia_AigerWriteInt.exit
+  %.06.i121 = phi i32 [ 3, %Gia_AigerWriteInt.exit ], [ %63, %58 ]
+  %.045.i122 = phi ptr [ %57, %Gia_AigerWriteInt.exit ], [ %62, %58 ]
+  %59 = shl nsw i32 %.06.i121, 3
+  %60 = ashr i32 %.094.lcssa, %59
+  %61 = trunc i32 %60 to i8
+  %62 = getelementptr inbounds nuw i8, ptr %.045.i122, i64 1
+  store i8 %61, ptr %.045.i122, align 1, !tbaa !8
+  %63 = add nsw i32 %.06.i121, -1
   %.not.i123 = icmp eq i32 %.06.i121, 0
-  br i1 %.not.i123, label %Gia_AigerWriteInt.exit124.preheader, label %57, !llvm.loop !44
+  br i1 %.not.i123, label %Gia_AigerWriteInt.exit124.preheader, label %58, !llvm.loop !44
 
-Gia_AigerWriteInt.exit124.preheader:              ; preds = %57
-  %63 = icmp sgt i32 %6, 0
-  br i1 %63, label %.lr.ph166, label %.preheader
+Gia_AigerWriteInt.exit124.preheader:              ; preds = %58
+  %64 = icmp sgt i32 %6, 0
+  br i1 %64, label %.lr.ph166, label %.preheader
 
 .preheader.loopexit:                              ; preds = %Gia_AigerWriteInt.exit124
   %.val.pre = load i32, ptr %7, align 8, !tbaa !14
@@ -1585,152 +1586,153 @@ Gia_AigerWriteInt.exit124.preheader:              ; preds = %57
   %.pre-phi = phi i32 [ %.pre, %.preheader.loopexit ], [ %8, %Gia_AigerWriteInt.exit124.preheader ]
   %.val = phi i32 [ %.val.pre, %.preheader.loopexit ], [ %.val114, %Gia_AigerWriteInt.exit124.preheader ]
   %.097.lcssa = phi i32 [ %.198.lcssa, %.preheader.loopexit ], [ 8, %Gia_AigerWriteInt.exit124.preheader ]
-  %64 = icmp sgt i32 %.val, 1
-  br i1 %64, label %.lr.ph170, label %._crit_edge171
+  %65 = icmp sgt i32 %.val, 1
+  br i1 %65, label %.lr.ph170, label %._crit_edge171
 
 .lr.ph170:                                        ; preds = %.preheader
-  %65 = getelementptr i8, ptr %0, i64 288
-  %.val119 = load ptr, ptr %65, align 8, !tbaa !63
-  %66 = getelementptr i8, ptr %.val119, i64 8
-  br label %113
+  %66 = getelementptr i8, ptr %0, i64 288
+  %.val119 = load ptr, ptr %66, align 8, !tbaa !63
+  %67 = getelementptr i8, ptr %.val119, i64 8
+  br label %115
 
 .lr.ph166:                                        ; preds = %Gia_AigerWriteInt.exit124.preheader, %Gia_AigerWriteInt.exit124
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %Gia_AigerWriteInt.exit124 ], [ 0, %Gia_AigerWriteInt.exit124.preheader ]
   %.097164 = phi i32 [ %.198.lcssa, %Gia_AigerWriteInt.exit124 ], [ 8, %Gia_AigerWriteInt.exit124.preheader ]
-  %67 = getelementptr inbounds nuw %struct.Mio_Cell2_t_, ptr %3, i64 %indvars.iv179, i32 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !65
-  %69 = sext i32 %.097164 to i64
-  %70 = getelementptr inbounds i8, ptr %49, i64 %69
-  %71 = call ptr @Mio_GateReadName(ptr noundef %68) #17
-  %72 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %71) #17
-  %73 = call ptr @Mio_GateReadName(ptr noundef %68) #17
-  %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #18
-  %75 = trunc i64 %74 to i32
-  %76 = add i32 %.097164, 1
-  %77 = add i32 %76, %75
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %49, i64 %78
-  %80 = call ptr @Mio_GateReadOutName(ptr noundef %68) #17
-  %81 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(1) %80) #17
-  %82 = call ptr @Mio_GateReadOutName(ptr noundef %68) #17
-  %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #18
-  %84 = trunc i64 %83 to i32
-  %85 = add i32 %77, 1
-  %86 = add i32 %85, %84
-  %87 = call ptr @Mio_GateReadPins(ptr noundef %68) #17
-  %.not109151 = icmp eq ptr %87, null
+  %68 = getelementptr inbounds nuw %struct.Mio_Cell2_t_, ptr %3, i64 %indvars.iv179
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 72
+  %70 = load ptr, ptr %69, align 8, !tbaa !65
+  %71 = sext i32 %.097164 to i64
+  %72 = getelementptr inbounds i8, ptr %50, i64 %71
+  %73 = call ptr @Mio_GateReadName(ptr noundef %70) #17
+  %74 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %73) #17
+  %75 = call ptr @Mio_GateReadName(ptr noundef %70) #17
+  %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #18
+  %77 = trunc i64 %76 to i32
+  %78 = add i32 %.097164, 1
+  %79 = add i32 %78, %77
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds i8, ptr %50, i64 %80
+  %82 = call ptr @Mio_GateReadOutName(ptr noundef %70) #17
+  %83 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %82) #17
+  %84 = call ptr @Mio_GateReadOutName(ptr noundef %70) #17
+  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #18
+  %86 = trunc i64 %85 to i32
+  %87 = add i32 %79, 1
+  %88 = add i32 %87, %86
+  %89 = call ptr @Mio_GateReadPins(ptr noundef %70) #17
+  %.not109151 = icmp eq ptr %89, null
   br i1 %.not109151, label %._crit_edge156, label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %.lr.ph166, %.lr.ph155
-  %.0153 = phi ptr [ %89, %.lr.ph155 ], [ %87, %.lr.ph166 ]
-  %.091152 = phi i32 [ %88, %.lr.ph155 ], [ 0, %.lr.ph166 ]
-  %88 = add nuw nsw i32 %.091152, 1
-  %89 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.0153) #17
-  %.not109 = icmp eq ptr %89, null
+  %.0153 = phi ptr [ %91, %.lr.ph155 ], [ %89, %.lr.ph166 ]
+  %.091152 = phi i32 [ %90, %.lr.ph155 ], [ 0, %.lr.ph166 ]
+  %90 = add nuw nsw i32 %.091152, 1
+  %91 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.0153) #17
+  %.not109 = icmp eq ptr %91, null
   br i1 %.not109, label %._crit_edge156, label %.lr.ph155, !llvm.loop !70
 
 ._crit_edge156:                                   ; preds = %.lr.ph155, %.lr.ph166
-  %.091.lcssa = phi i32 [ 0, %.lr.ph166 ], [ %88, %.lr.ph155 ]
-  %90 = sext i32 %86 to i64
-  %91 = getelementptr inbounds i8, ptr %49, i64 %90
-  br label %92
+  %.091.lcssa = phi i32 [ 0, %.lr.ph166 ], [ %90, %.lr.ph155 ]
+  %92 = sext i32 %88 to i64
+  %93 = getelementptr inbounds i8, ptr %50, i64 %92
+  br label %94
 
-92:                                               ; preds = %92, %._crit_edge156
-  %.06.i125 = phi i32 [ 3, %._crit_edge156 ], [ %97, %92 ]
-  %.045.i126 = phi ptr [ %91, %._crit_edge156 ], [ %96, %92 ]
-  %93 = shl nsw i32 %.06.i125, 3
-  %94 = lshr i32 %.091.lcssa, %93
-  %95 = trunc i32 %94 to i8
-  %96 = getelementptr inbounds nuw i8, ptr %.045.i126, i64 1
-  store i8 %95, ptr %.045.i126, align 1, !tbaa !8
-  %97 = add nsw i32 %.06.i125, -1
+94:                                               ; preds = %94, %._crit_edge156
+  %.06.i125 = phi i32 [ 3, %._crit_edge156 ], [ %99, %94 ]
+  %.045.i126 = phi ptr [ %93, %._crit_edge156 ], [ %98, %94 ]
+  %95 = shl nsw i32 %.06.i125, 3
+  %96 = lshr i32 %.091.lcssa, %95
+  %97 = trunc i32 %96 to i8
+  %98 = getelementptr inbounds nuw i8, ptr %.045.i126, i64 1
+  store i8 %97, ptr %.045.i126, align 1, !tbaa !8
+  %99 = add nsw i32 %.06.i125, -1
   %.not.i127 = icmp eq i32 %.06.i125, 0
-  br i1 %.not.i127, label %Gia_AigerWriteInt.exit128, label %92, !llvm.loop !44
+  br i1 %.not.i127, label %Gia_AigerWriteInt.exit128, label %94, !llvm.loop !44
 
-Gia_AigerWriteInt.exit128:                        ; preds = %92
-  %98 = add nsw i32 %86, 4
-  %99 = call ptr @Mio_GateReadPins(ptr noundef %68) #17
-  %.not110158 = icmp eq ptr %99, null
+Gia_AigerWriteInt.exit128:                        ; preds = %94
+  %100 = add nsw i32 %88, 4
+  %101 = call ptr @Mio_GateReadPins(ptr noundef %70) #17
+  %.not110158 = icmp eq ptr %101, null
   br i1 %.not110158, label %Gia_AigerWriteInt.exit124, label %.lr.ph161
 
 .lr.ph161:                                        ; preds = %Gia_AigerWriteInt.exit128, %.lr.ph161
-  %.1160 = phi ptr [ %109, %.lr.ph161 ], [ %99, %Gia_AigerWriteInt.exit128 ]
-  %.198159 = phi i32 [ %108, %.lr.ph161 ], [ %98, %Gia_AigerWriteInt.exit128 ]
-  %100 = sext i32 %.198159 to i64
-  %101 = getelementptr inbounds i8, ptr %49, i64 %100
-  %102 = call ptr @Mio_PinReadName(ptr noundef nonnull %.1160) #17
-  %103 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %102) #17
+  %.1160 = phi ptr [ %111, %.lr.ph161 ], [ %101, %Gia_AigerWriteInt.exit128 ]
+  %.198159 = phi i32 [ %110, %.lr.ph161 ], [ %100, %Gia_AigerWriteInt.exit128 ]
+  %102 = sext i32 %.198159 to i64
+  %103 = getelementptr inbounds i8, ptr %50, i64 %102
   %104 = call ptr @Mio_PinReadName(ptr noundef nonnull %.1160) #17
-  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #18
-  %106 = trunc i64 %105 to i32
-  %107 = add i32 %.198159, 1
-  %108 = add i32 %107, %106
-  %109 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.1160) #17
-  %.not110 = icmp eq ptr %109, null
+  %105 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(1) %104) #17
+  %106 = call ptr @Mio_PinReadName(ptr noundef nonnull %.1160) #17
+  %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #18
+  %108 = trunc i64 %107 to i32
+  %109 = add i32 %.198159, 1
+  %110 = add i32 %109, %108
+  %111 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.1160) #17
+  %.not110 = icmp eq ptr %111, null
   br i1 %.not110, label %Gia_AigerWriteInt.exit124, label %.lr.ph161, !llvm.loop !71
 
 Gia_AigerWriteInt.exit124:                        ; preds = %.lr.ph161, %Gia_AigerWriteInt.exit128
-  %.198.lcssa = phi i32 [ %98, %Gia_AigerWriteInt.exit128 ], [ %108, %.lr.ph161 ]
+  %.198.lcssa = phi i32 [ %100, %Gia_AigerWriteInt.exit128 ], [ %110, %.lr.ph161 ]
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %110 = load i32, ptr %2, align 4, !tbaa !37
-  %111 = sext i32 %110 to i64
-  %112 = icmp slt i64 %indvars.iv.next180, %111
-  br i1 %112, label %.lr.ph166, label %.preheader.loopexit, !llvm.loop !72
+  %112 = load i32, ptr %2, align 4, !tbaa !37
+  %113 = sext i32 %112 to i64
+  %114 = icmp slt i64 %indvars.iv.next180, %113
+  br i1 %114, label %.lr.ph166, label %.preheader.loopexit, !llvm.loop !72
 
-113:                                              ; preds = %.lr.ph170, %124
-  %.190169 = phi i32 [ 2, %.lr.ph170 ], [ %125, %124 ]
-  %.299168 = phi i32 [ %.097.lcssa, %.lr.ph170 ], [ %.3, %124 ]
-  %.val119.val = load ptr, ptr %66, align 8, !tbaa !52
-  %114 = sext i32 %.190169 to i64
-  %115 = getelementptr inbounds i32, ptr %.val119.val, i64 %114
-  %116 = load i32, ptr %115, align 4, !tbaa !37
-  switch i32 %116, label %117 [
-    i32 0, label %124
-    i32 -2, label %124
+115:                                              ; preds = %.lr.ph170, %126
+  %.190169 = phi i32 [ 2, %.lr.ph170 ], [ %127, %126 ]
+  %.299168 = phi i32 [ %.097.lcssa, %.lr.ph170 ], [ %.3, %126 ]
+  %.val119.val = load ptr, ptr %67, align 8, !tbaa !52
+  %116 = sext i32 %.190169 to i64
+  %117 = getelementptr inbounds i32, ptr %.val119.val, i64 %116
+  %118 = load i32, ptr %117, align 4, !tbaa !37
+  switch i32 %118, label %119 [
+    i32 0, label %126
+    i32 -2, label %126
   ]
 
-117:                                              ; preds = %113
-  %118 = icmp eq i32 %116, -1
-  %119 = and i32 %.190169, 1
-  %.not108 = icmp eq i32 %119, 0
-  %or.cond = and i1 %.not108, %118
-  br i1 %or.cond, label %120, label %.sink.split
+119:                                              ; preds = %115
+  %120 = icmp eq i32 %118, -1
+  %121 = and i32 %.190169, 1
+  %.not108 = icmp eq i32 %121, 0
+  %or.cond = and i1 %.not108, %120
+  br i1 %or.cond, label %122, label %.sink.split
 
-120:                                              ; preds = %117
-  %121 = or disjoint i32 %.190169, 1
-  %122 = call i32 @Gia_AigerWriteCellMappingInstance(ptr noundef nonnull %0, ptr noundef %49, i32 noundef %.299168, i32 noundef %121)
+122:                                              ; preds = %119
+  %123 = or disjoint i32 %.190169, 1
+  %124 = call i32 @Gia_AigerWriteCellMappingInstance(ptr noundef nonnull %0, ptr noundef %50, i32 noundef %.299168, i32 noundef %123)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %117, %120
-  %.299168.sink = phi i32 [ %122, %120 ], [ %.299168, %117 ]
-  %.2.ph = phi i32 [ %121, %120 ], [ %.190169, %117 ]
-  %123 = call i32 @Gia_AigerWriteCellMappingInstance(ptr noundef nonnull %0, ptr noundef %49, i32 noundef %.299168.sink, i32 noundef %.190169)
-  br label %124
+.sink.split:                                      ; preds = %119, %122
+  %.299168.sink = phi i32 [ %124, %122 ], [ %.299168, %119 ]
+  %.2.ph = phi i32 [ %123, %122 ], [ %.190169, %119 ]
+  %125 = call i32 @Gia_AigerWriteCellMappingInstance(ptr noundef nonnull %0, ptr noundef %50, i32 noundef %.299168.sink, i32 noundef %.190169)
+  br label %126
 
-124:                                              ; preds = %.sink.split, %113, %113
-  %.3 = phi i32 [ %.299168, %113 ], [ %.299168, %113 ], [ %123, %.sink.split ]
-  %.2 = phi i32 [ %.190169, %113 ], [ %.190169, %113 ], [ %.2.ph, %.sink.split ]
-  %125 = add nsw i32 %.2, 1
-  %126 = icmp slt i32 %125, %.pre-phi
-  br i1 %126, label %113, label %._crit_edge171, !llvm.loop !73
+126:                                              ; preds = %.sink.split, %115, %115
+  %.3 = phi i32 [ %.299168, %115 ], [ %.299168, %115 ], [ %125, %.sink.split ]
+  %.2 = phi i32 [ %.190169, %115 ], [ %.190169, %115 ], [ %.2.ph, %.sink.split ]
+  %127 = add nsw i32 %.2, 1
+  %128 = icmp slt i32 %127, %.pre-phi
+  br i1 %128, label %115, label %._crit_edge171, !llvm.loop !73
 
-._crit_edge171:                                   ; preds = %124, %.preheader
+._crit_edge171:                                   ; preds = %126, %.preheader
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %128, label %127
+  br i1 %.not, label %130, label %129
 
-127:                                              ; preds = %._crit_edge171
+129:                                              ; preds = %._crit_edge171
   call void @free(ptr noundef nonnull %3) #17
-  br label %128
+  br label %130
 
-128:                                              ; preds = %._crit_edge171, %127
-  %129 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
-  store i32 %.2102.lcssa, ptr %130, align 4, !tbaa !45
-  store i32 %.2102.lcssa, ptr %129, align 8, !tbaa !47
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  store ptr %49, ptr %131, align 8, !tbaa !48
+130:                                              ; preds = %._crit_edge171, %129
+  %131 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
+  store i32 %.2102.lcssa, ptr %132, align 4, !tbaa !45
+  store i32 %.2102.lcssa, ptr %131, align 8, !tbaa !47
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store ptr %50, ptr %133, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %129
+  ret ptr %131
 }
 
 declare ptr @Mio_CollectRootsNewDefault2(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8

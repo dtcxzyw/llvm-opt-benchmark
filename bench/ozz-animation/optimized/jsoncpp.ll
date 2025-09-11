@@ -33573,7 +33573,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 ._crit_edge:                                      ; preds = %61, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
   %.028.in.lcssa = phi i1 [ %24, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ], [ %62, %61 ]
-  br i1 %.028.in.lcssa, label %90, label %65
+  br i1 %.028.in.lcssa, label %91, label %65
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %61
   %.02939 = phi i32 [ %63, %61 ], [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ]
@@ -33641,16 +33641,16 @@ _ZNK4Json5Value4sizeEv.exit33:                    ; preds = %43, %44, %49, %55
 
 ._crit_edge46:                                    ; preds = %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread36, %65
   %.2.lcssa = phi i1 [ false, %65 ], [ %83, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
-  %.027.lcssa = phi i32 [ %69, %65 ], [ %89, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
+  %.027.lcssa = phi i32 [ %69, %65 ], [ %90, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
   store i8 0, ptr %67, align 8, !tbaa !488
   %71 = load i32, ptr %22, align 8
   %72 = icmp sge i32 %.027.lcssa, %71
   %73 = select i1 %.2.lcssa, i1 true, i1 %72
-  br label %90
+  br label %91
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread36
   %indvars.iv = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
-  %.02742 = phi i32 [ %69, %.lr.ph45.preheader ], [ %89, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
+  %.02742 = phi i32 [ %69, %.lr.ph45.preheader ], [ %90, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
   %.241 = phi i1 [ false, %.lr.ph45.preheader ], [ %83, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
   %74 = trunc nuw nsw i64 %indvars.iv to i32
   %75 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEi(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %74)
@@ -33685,15 +33685,16 @@ _ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread36: ; preds =
   %84 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEi(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %74)
   tail call void @_ZN4Json12StyledWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(32) %84)
   %85 = load ptr, ptr %25, align 8, !tbaa !404
-  %86 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %85, i64 %indvars.iv, i32 1
-  %87 = load i64, ptr %86, align 8, !tbaa !14
-  %88 = trunc i64 %87 to i32
-  %89 = add nsw i32 %.02742, %88
+  %86 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %85, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load i64, ptr %87, align 8, !tbaa !14
+  %89 = trunc i64 %88 to i32
+  %90 = add nsw i32 %.02742, %89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45, !llvm.loop !592
 
-90:                                               ; preds = %._crit_edge46, %._crit_edge
+91:                                               ; preds = %._crit_edge46, %._crit_edge
   %.1 = phi i1 [ true, %._crit_edge ], [ %73, %._crit_edge46 ]
   ret i1 %.1
 }
@@ -36358,7 +36359,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 ._crit_edge:                                      ; preds = %60, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
   %.028.in.lcssa = phi i1 [ %24, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ], [ %61, %60 ]
-  br i1 %.028.in.lcssa, label %93, label %64
+  br i1 %.028.in.lcssa, label %94, label %64
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %60
   %.02939 = phi i32 [ %62, %60 ], [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ]
@@ -36433,17 +36434,17 @@ _ZNK4Json5Value4sizeEv.exit33:                    ; preds = %42, %43, %48, %54
 ._crit_edge46:                                    ; preds = %._crit_edge46.loopexit, %64
   %72 = phi i8 [ %68, %64 ], [ %.pre, %._crit_edge46.loopexit ]
   %.2.lcssa = phi i1 [ false, %64 ], [ %86, %._crit_edge46.loopexit ]
-  %.027.lcssa = phi i32 [ %70, %64 ], [ %92, %._crit_edge46.loopexit ]
+  %.027.lcssa = phi i32 [ %70, %64 ], [ %93, %._crit_edge46.loopexit ]
   %73 = and i8 %72, -2
   store i8 %73, ptr %66, align 8
   %74 = load i32, ptr %22, align 8
   %75 = icmp sge i32 %.027.lcssa, %74
   %76 = select i1 %.2.lcssa, i1 true, i1 %75
-  br label %93
+  br label %94
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36
   %indvars.iv = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
-  %.02742 = phi i32 [ %70, %.lr.ph45.preheader ], [ %92, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
+  %.02742 = phi i32 [ %70, %.lr.ph45.preheader ], [ %93, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
   %.241 = phi i1 [ false, %.lr.ph45.preheader ], [ %86, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
   %77 = trunc nuw nsw i64 %indvars.iv to i32
   %78 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEi(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %77)
@@ -36478,15 +36479,16 @@ _ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36: ; p
   %87 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEi(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %77)
   tail call void @_ZN4Json18StyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(32) %87)
   %88 = load ptr, ptr %0, align 8, !tbaa !404
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %indvars.iv, i32 1
-  %90 = load i64, ptr %89, align 8, !tbaa !14
-  %91 = trunc i64 %90 to i32
-  %92 = add nsw i32 %.02742, %91
+  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load i64, ptr %90, align 8, !tbaa !14
+  %92 = trunc i64 %91 to i32
+  %93 = add nsw i32 %.02742, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge46.loopexit, label %.lr.ph45, !llvm.loop !614
 
-93:                                               ; preds = %._crit_edge46, %._crit_edge
+94:                                               ; preds = %._crit_edge46, %._crit_edge
   %.1 = phi i1 [ true, %._crit_edge ], [ %76, %._crit_edge46 ]
   ret i1 %.1
 }
@@ -39352,7 +39354,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 ._crit_edge:                                      ; preds = %61, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
   %.028.in.lcssa = phi i1 [ %24, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ], [ %62, %61 ]
-  br i1 %.028.in.lcssa, label %94, label %65
+  br i1 %.028.in.lcssa, label %95, label %65
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %61
   %.02939 = phi i32 [ %63, %61 ], [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ]
@@ -39427,17 +39429,17 @@ _ZNK4Json5Value4sizeEv.exit33:                    ; preds = %43, %44, %49, %55
 ._crit_edge46:                                    ; preds = %._crit_edge46.loopexit, %65
   %73 = phi i8 [ %69, %65 ], [ %.pre, %._crit_edge46.loopexit ]
   %.2.lcssa = phi i1 [ false, %65 ], [ %87, %._crit_edge46.loopexit ]
-  %.027.lcssa = phi i32 [ %71, %65 ], [ %93, %._crit_edge46.loopexit ]
+  %.027.lcssa = phi i32 [ %71, %65 ], [ %94, %._crit_edge46.loopexit ]
   %74 = and i8 %73, -2
   store i8 %74, ptr %67, align 8
   %75 = load i32, ptr %22, align 8
   %76 = icmp sge i32 %.027.lcssa, %75
   %77 = select i1 %.2.lcssa, i1 true, i1 %76
-  br label %94
+  br label %95
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36
   %indvars.iv = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
-  %.02742 = phi i32 [ %71, %.lr.ph45.preheader ], [ %93, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
+  %.02742 = phi i32 [ %71, %.lr.ph45.preheader ], [ %94, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
   %.241 = phi i1 [ false, %.lr.ph45.preheader ], [ %87, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36 ]
   %78 = trunc nuw nsw i64 %indvars.iv to i32
   %79 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEi(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %78)
@@ -39472,15 +39474,16 @@ _ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread36
   %88 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEi(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %78)
   tail call void @_ZN4Json23BuiltStyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(32) %88)
   %89 = load ptr, ptr %25, align 8, !tbaa !404
-  %90 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %89, i64 %indvars.iv, i32 1
-  %91 = load i64, ptr %90, align 8, !tbaa !14
-  %92 = trunc i64 %91 to i32
-  %93 = add nsw i32 %.02742, %92
+  %90 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %89, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load i64, ptr %91, align 8, !tbaa !14
+  %93 = trunc i64 %92 to i32
+  %94 = add nsw i32 %.02742, %93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge46.loopexit, label %.lr.ph45, !llvm.loop !643
 
-94:                                               ; preds = %._crit_edge46, %._crit_edge
+95:                                               ; preds = %._crit_edge46, %._crit_edge
   %.1 = phi i1 [ true, %._crit_edge ], [ %77, %._crit_edge46 ]
   ret i1 %.1
 }

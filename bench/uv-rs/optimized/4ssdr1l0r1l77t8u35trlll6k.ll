@@ -3482,14 +3482,14 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   br i1 %41, label %42, label %.invoke
 
 42:                                               ; preds = %.lr.ph.i.i
-  %43 = getelementptr inbounds { { i64, [21 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, i64 }, ptr %10, i64 %.val.i.i.i, i32 1
-  %44 = getelementptr i8, ptr %43, i64 16
+  %43 = getelementptr inbounds { { i64, [21 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, i64 }, ptr %10, i64 %.val.i.i.i
+  %44 = getelementptr i8, ptr %43, i64 192
   %.val4.i.i.i.i = load i64, ptr %44, align 8, !noalias !613, !noundef !4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.val2.i.i.i.i, %.val4.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %45, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h093bfeb0073d1635E.exit.backedge.i.i"
 
 45:                                               ; preds = %42
-  %46 = getelementptr i8, ptr %43, i64 8
+  %46 = getelementptr i8, ptr %43, i64 184
   %.val3.i.i.i.i = load ptr, ptr %46, align 8, !noalias !613, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val3.i.i.i.i, i64 %.val2.i.i.i.i), !alias.scope !616, !noalias !613
   %47 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
@@ -10094,7 +10094,7 @@ define noundef nonnull align 8 dereferenceable(720) ptr @_ZN12uv_workspace9works
   %2 = alloca [32 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !734, !noundef !4
   %4 = icmp eq i64 %3, 2
-  br i1 %4, label %19, label %5
+  br i1 %4, label %20, label %5
 
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1495)
@@ -10131,16 +10131,17 @@ _ZN12uv_workspace9workspace16ProjectWorkspace15current_project17he117b75605e72a6
   %.sroa.23.0.copyload.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !noalias !1503
   %17 = icmp ult i64 %.sroa.23.0.copyload.i.i, 11
   tail call void @llvm.assume(i1 %17)
+  %18 = getelementptr inbounds nuw { [107 x i64] }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.23.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1503
-  %18 = getelementptr inbounds nuw { [107 x i64] }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.23.0.copyload.i.i, i32 0, i64 26
-  br label %21
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 208
+  br label %22
 
-19:                                               ; preds = %1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %21
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %22
 
-21:                                               ; preds = %19, %_ZN12uv_workspace9workspace16ProjectWorkspace15current_project17he117b75605e72a69E.exit
-  %.sroa.0.0 = phi ptr [ %20, %19 ], [ %18, %_ZN12uv_workspace9workspace16ProjectWorkspace15current_project17he117b75605e72a69E.exit ]
+22:                                               ; preds = %20, %_ZN12uv_workspace9workspace16ProjectWorkspace15current_project17he117b75605e72a69E.exit
+  %.sroa.0.0 = phi ptr [ %21, %20 ], [ %19, %_ZN12uv_workspace9workspace16ProjectWorkspace15current_project17he117b75605e72a69E.exit ]
   ret ptr %.sroa.0.0
 }
 

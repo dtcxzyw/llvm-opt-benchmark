@@ -89,7 +89,7 @@ define internal range(i32 -1094995529, 1) i32 @hcom_init(ptr noundef %0) #0 {
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i16, ptr %46, align 1, !tbaa !30
   %48 = tail call i16 @llvm.bswap.i16(i16 %47)
-  %49 = getelementptr inbounds nuw %struct.HEntry, ptr %34, i64 %indvars.iv, i32 1
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 2
   store i16 %48, ptr %49, align 2, !tbaa !42
   %50 = icmp sgt i16 %43, -1
   br i1 %50, label %51, label %54
@@ -131,7 +131,7 @@ define internal i32 @hcom_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !47
   %9 = icmp sgt i32 %8, 32767
-  br i1 %9, label %56, label %10
+  br i1 %9, label %55, label %10
 
 10:                                               ; preds = %4
   %11 = shl nsw i32 %8, 3
@@ -139,7 +139,7 @@ define internal i32 @hcom_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   store i32 %11, ptr %12, align 8, !tbaa !49
   %13 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #4
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %56, label %15
+  br i1 %14, label %55, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -151,7 +151,7 @@ define internal i32 @hcom_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %or.cond.i.i = icmp ult i32 %20, 2147483135
   %21 = icmp ne ptr %17, null
   %or.cond3.i.i = and i1 %21, %or.cond.i.i
-  br i1 %or.cond3.i.i, label %.preheader, label %56
+  br i1 %or.cond3.i.i, label %.preheader, label %55
 
 .preheader:                                       ; preds = %15
   %.not47 = icmp eq i32 %20, 0
@@ -164,9 +164,9 @@ define internal i32 @hcom_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 9
   br label %26
 
-26:                                               ; preds = %.lr.ph, %54
-  %.03342 = phi i32 [ 0, %.lr.ph ], [ %.1, %54 ]
-  %.sroa.5.041 = phi i32 [ 0, %.lr.ph ], [ %spec.select.i, %54 ]
+26:                                               ; preds = %.lr.ph, %53
+  %.03342 = phi i32 [ 0, %.lr.ph ], [ %.1, %53 ]
+  %.sroa.5.041 = phi i32 [ 0, %.lr.ph ], [ %spec.select.i, %53 ]
   %27 = lshr i32 %.sroa.5.041, 3
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 %28
@@ -180,56 +180,56 @@ define internal i32 @hcom_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %35 = load ptr, ptr %22, align 8, !tbaa !38
   %36 = load i32, ptr %23, align 8, !tbaa !46
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.HEntry, ptr %35, i64 %37, i32 1
-  %39 = getelementptr inbounds %struct.HEntry, ptr %35, i64 %37
-  %storemerge.in.in = select i1 %.not, ptr %39, ptr %38
+  %38 = getelementptr inbounds %struct.HEntry, ptr %35, i64 %37
+  %storemerge.in.in.idx = select i1 %.not, i64 0, i64 2
+  %storemerge.in.in = getelementptr inbounds nuw i8, ptr %38, i64 %storemerge.in.in.idx
   %storemerge.in = load i16, ptr %storemerge.in.in, align 2, !tbaa !55
   %storemerge = sext i16 %storemerge.in to i32
   store i32 %storemerge, ptr %23, align 8, !tbaa !46
-  %40 = sext i16 %storemerge.in to i64
-  %41 = getelementptr inbounds %struct.HEntry, ptr %35, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !39
-  %43 = icmp slt i16 %42, 0
-  br i1 %43, label %44, label %54
+  %39 = sext i16 %storemerge.in to i64
+  %40 = getelementptr inbounds %struct.HEntry, ptr %35, i64 %39
+  %41 = load i16, ptr %40, align 2, !tbaa !39
+  %42 = icmp slt i16 %41, 0
+  br i1 %42, label %43, label %53
 
-44:                                               ; preds = %26
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  %46 = load i16, ptr %45, align 2, !tbaa !42
-  %47 = load i32, ptr %24, align 4, !tbaa !35
-  %.not37 = icmp eq i32 %47, 0
-  br i1 %.not37, label %48, label %._crit_edge43
+43:                                               ; preds = %26
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  %45 = load i16, ptr %44, align 2, !tbaa !42
+  %46 = load i32, ptr %24, align 4, !tbaa !35
+  %.not37 = icmp eq i32 %46, 0
+  br i1 %.not37, label %47, label %._crit_edge43
 
-._crit_edge43:                                    ; preds = %44
+._crit_edge43:                                    ; preds = %43
   %.pre = load i8, ptr %25, align 1, !tbaa !37
-  br label %48
+  br label %47
 
-48:                                               ; preds = %44, %._crit_edge43
-  %49 = phi i8 [ %.pre, %._crit_edge43 ], [ 0, %44 ]
-  %.tr = trunc i16 %46 to i8
-  %.narrow = add i8 %49, %.tr
+47:                                               ; preds = %43, %._crit_edge43
+  %48 = phi i8 [ %.pre, %._crit_edge43 ], [ 0, %43 ]
+  %.tr = trunc i16 %45 to i8
+  %.narrow = add i8 %48, %.tr
   store i8 %.narrow, ptr %25, align 1, !tbaa !37
-  %50 = load ptr, ptr %1, align 8, !tbaa !56
-  %51 = add nsw i32 %.03342, 1
-  %52 = sext i32 %.03342 to i64
-  %53 = getelementptr inbounds i8, ptr %50, i64 %52
-  store i8 %.narrow, ptr %53, align 1, !tbaa !30
+  %49 = load ptr, ptr %1, align 8, !tbaa !56
+  %50 = add nsw i32 %.03342, 1
+  %51 = sext i32 %.03342 to i64
+  %52 = getelementptr inbounds i8, ptr %49, i64 %51
+  store i8 %.narrow, ptr %52, align 1, !tbaa !30
   store i32 0, ptr %23, align 8, !tbaa !46
-  br label %54
+  br label %53
 
-54:                                               ; preds = %48, %26
-  %.1 = phi i32 [ %51, %48 ], [ %.03342, %26 ]
+53:                                               ; preds = %47, %26
+  %.1 = phi i32 [ %50, %47 ], [ %.03342, %26 ]
   %exitcond.not48 = icmp eq i32 %20, %spec.select.i
   br i1 %exitcond.not48, label %._crit_edge, label %26, !llvm.loop !57
 
-._crit_edge:                                      ; preds = %54, %.preheader
-  %.033.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %54 ]
+._crit_edge:                                      ; preds = %53, %.preheader
+  %.033.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %53 ]
   store i32 %.033.lcssa, ptr %12, align 8, !tbaa !49
   store i32 1, ptr %2, align 4, !tbaa !58
-  %55 = load i32, ptr %7, align 8, !tbaa !47
-  br label %56
+  %54 = load i32, ptr %7, align 8, !tbaa !47
+  br label %55
 
-56:                                               ; preds = %15, %10, %4, %._crit_edge
-  %.0 = phi i32 [ %55, %._crit_edge ], [ -1094995529, %4 ], [ %13, %10 ], [ -1094995529, %15 ]
+55:                                               ; preds = %15, %10, %4, %._crit_edge
+  %.0 = phi i32 [ %54, %._crit_edge ], [ -1094995529, %4 ], [ %13, %10 ], [ -1094995529, %15 ]
   ret i32 %.0
 }
 

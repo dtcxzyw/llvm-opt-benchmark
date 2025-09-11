@@ -412,7 +412,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   %214 = load i32, ptr %16, align 4, !tbaa !25
   %215 = ashr i32 %214, 1
   store i32 %215, ptr %16, align 4, !tbaa !25
-  %216 = icmp sgt i64 %indvars.iv297, 1
+  %216 = icmp samesign ugt i64 %indvars.iv297, 1
   br i1 %216, label %.lr.ph262, label %.preheader, !llvm.loop !41
 
 .lr.ph267:                                        ; preds = %.lr.ph267.preheader, %224
@@ -445,7 +445,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   %231 = load i32, ptr %17, align 4, !tbaa !25
   %232 = ashr i32 %231, 1
   store i32 %232, ptr %17, align 4, !tbaa !25
-  %233 = icmp sgt i64 %indvars.iv300, 1
+  %233 = icmp samesign ugt i64 %indvars.iv300, 1
   br i1 %233, label %.lr.ph267, label %._crit_edge268, !llvm.loop !42
 
 ._crit_edge268:                                   ; preds = %224, %.preheader
@@ -831,7 +831,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
   %152 = load i32, ptr %14, align 4, !tbaa !25
   %153 = ashr i32 %152, 1
   store i32 %153, ptr %14, align 4, !tbaa !25
-  %154 = icmp sgt i64 %indvars.iv225, 1
+  %154 = icmp samesign ugt i64 %indvars.iv225, 1
   br i1 %154, label %.lr.ph194, label %.preheader, !llvm.loop !51
 
 .lr.ph199:                                        ; preds = %.lr.ph199.preheader, %165
@@ -867,7 +867,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
   %172 = load i32, ptr %15, align 4, !tbaa !25
   %173 = ashr i32 %172, 1
   store i32 %173, ptr %15, align 4, !tbaa !25
-  %174 = icmp sgt i64 %indvars.iv228, 1
+  %174 = icmp samesign ugt i64 %indvars.iv228, 1
   br i1 %174, label %.lr.ph199, label %._crit_edge200, !llvm.loop !52
 
 ._crit_edge200:                                   ; preds = %165, %.preheader.._crit_edge200_crit_edge

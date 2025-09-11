@@ -16156,8 +16156,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.06.i = phi i64 [ %8, %.lr.ph.i ], [ %7, %.lr.ph.i.preheader ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.std::pair.547", ptr %6, i64 %8, i32 1
-  tail call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #36
+  %9 = getelementptr inbounds nuw %"struct.std::pair.547", ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  tail call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #36
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit.loopexit, label %.lr.ph.i, !llvm.loop !496
 
@@ -16169,17 +16170,17 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17b
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit.loopexit, %1
   %.pre-phi = phi i64 [ %.pre3, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit.loopexit ], [ %3, %1 ]
   %.not.i2 = icmp eq i64 %.pre-phi, 0
-  br i1 %.not.i2, label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEELm3ESaISB_EE21DeallocateIfAllocatedEv.exit, label %10
+  br i1 %.not.i2, label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEELm3ESaISB_EE21DeallocateIfAllocatedEv.exit, label %11
 
-10:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit
-  %11 = load ptr, ptr %4, align 8, !tbaa !7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !7
-  %14 = mul i64 %13, 48
-  tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %14) #40
+11:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit
+  %12 = load ptr, ptr %4, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load i64, ptr %13, align 8, !tbaa !7
+  %15 = mul i64 %14, 48
+  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %15) #40
   br label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEELm3ESaISB_EE21DeallocateIfAllocatedEv.exit
 
-_ZN4absl12lts_2024072223inlined_vector_internal7StorageISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEELm3ESaISB_EE21DeallocateIfAllocatedEv.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit, %10
+_ZN4absl12lts_2024072223inlined_vector_internal7StorageISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEELm3ESaISB_EE21DeallocateIfAllocatedEv.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEEN17grpc_event_engine12experimental5SliceEEELb0EE15DestroyElementsERSC_PSB_m.exit, %11
   ret void
 }
 

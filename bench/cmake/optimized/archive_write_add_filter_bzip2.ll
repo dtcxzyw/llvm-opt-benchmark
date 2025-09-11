@@ -260,8 +260,9 @@ define internal range(i32 -30, 1) i32 @archive_compressor_bzip2_open(ptr noundef
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %16
-  %18 = urem i64 65536, %14
-  %19 = sub nuw nsw i64 65536, %18
+  %18 = urem i32 65536, %13
+  %narrow = sub nuw nsw i32 65536, %18
+  %19 = zext nneg i32 %narrow to i64
   br label %20
 
 20:                                               ; preds = %12, %17, %16, %7

@@ -423,8 +423,8 @@ if.then58:                                        ; preds = %while.body54
 
 if.end59:                                         ; preds = %if.then58, %while.body54
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %yy_cp.1186, i64 1
-  %idxprom = sext i32 %conv187 to i64
-  %arrayidx51 = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom
+  %idxprom = zext nneg i32 %conv187 to i64
+  %arrayidx51 = getelementptr inbounds nuw [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom
   %32 = load i8, ptr %incdec.ptr, align 1
   %idxprom52 = zext i8 %32 to i64
   %arrayidx53 = getelementptr inbounds nuw i16, ptr %arrayidx51, i64 %idxprom52

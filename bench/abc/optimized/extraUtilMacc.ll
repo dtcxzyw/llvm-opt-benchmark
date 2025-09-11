@@ -797,19 +797,20 @@ Vec_WecPrint.exit:                                ; preds = %.critedge2.i, %._cr
   %277 = zext nneg i32 %275 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %281
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %281 ], [ 0, %.lr.ph.i.i.preheader ]
-  %278 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i179293, i64 %indvars.iv.i.i, i32 2
-  %279 = load ptr, ptr %278, align 8, !tbaa !21
-  %.not15.i.i = icmp eq ptr %279, null
-  br i1 %.not15.i.i, label %281, label %280
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %282
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %282 ], [ 0, %.lr.ph.i.i.preheader ]
+  %278 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i179293, i64 %indvars.iv.i.i
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
+  %280 = load ptr, ptr %279, align 8, !tbaa !21
+  %.not15.i.i = icmp eq ptr %280, null
+  br i1 %.not15.i.i, label %282, label %281
 
-280:                                              ; preds = %.lr.ph.i.i
-  tail call void @free(ptr noundef nonnull %279) #12
-  store ptr null, ptr %278, align 8, !tbaa !21
-  br label %281
+281:                                              ; preds = %.lr.ph.i.i
+  tail call void @free(ptr noundef nonnull %280) #12
+  store ptr null, ptr %279, align 8, !tbaa !21
+  br label %282
 
-281:                                              ; preds = %280, %.lr.ph.i.i
+282:                                              ; preds = %281, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next.i.i, %277
   br i1 %exitcond261.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !32
@@ -818,7 +819,7 @@ Vec_WecPrint.exit:                                ; preds = %.critedge2.i, %._cr
   %.not.i.i180 = icmp eq ptr %.pre.i.i179293, null
   br i1 %.not.i.i180, label %Vec_WecFree.exit, label %._crit_edge.thread.i.i
 
-._crit_edge.thread.i.i:                           ; preds = %281, %._crit_edge.i.i
+._crit_edge.thread.i.i:                           ; preds = %282, %._crit_edge.i.i
   tail call void @free(ptr noundef nonnull %.pre.i.i179293) #12
   br label %Vec_WecFree.exit
 

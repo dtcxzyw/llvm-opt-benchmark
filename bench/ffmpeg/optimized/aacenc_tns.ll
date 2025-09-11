@@ -762,8 +762,9 @@ define void @ff_aac_search_for_tns(ptr noundef %0, ptr noundef %1) local_unnamed
   %indvars.iv = phi i64 [ %smin131, %.lr.ph ], [ %indvars.iv.next, %82 ]
   %83 = phi float [ 0.000000e+00, %.lr.ph ], [ %90, %82 ]
   %84 = phi float [ 0.000000e+00, %.lr.ph ], [ %91, %82 ]
+  %gep = getelementptr %struct.FFPsyBand, ptr %invariant.gep, i64 %indvars.iv
   %85 = icmp sgt i64 %indvars.iv, %63
-  %86 = getelementptr %struct.FFPsyBand, ptr %invariant.gep, i64 %indvars.iv, i32 1
+  %86 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   %87 = load float, ptr %86, align 4, !tbaa !78
   %88 = fadd nsz float %87, %84
   %89 = fadd nsz float %87, %83

@@ -2243,10 +2243,10 @@ _ZN14ExceptionTableC2EPK6Method.exit._ZN14ExceptionTableC2EPK6Method.exit.thread
   %22 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %13, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
-  %25 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %13, i64 %indvars.iv, i32 1
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %13, i64 %indvars.iv, i32 2
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str.48, i32 noundef %24, i32 noundef %27, i32 noundef %30) #20
@@ -8079,9 +8079,9 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14Exceptio
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %171 ]
   %55 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.062.0, i64 %indvars.iv
   %56 = load i16, ptr %55, align 2
-  %57 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.062.0, i64 %indvars.iv, i32 1
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 2
   %58 = load i16, ptr %57, align 2
-  %59 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.062.0, i64 %indvars.iv, i32 2
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %56 to i32
   %.not = icmp ugt i32 %1, %61
@@ -8135,7 +8135,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14Exceptio
   br label %.loopexit
 
 86:                                               ; preds = %80
-  %87 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.062.0, i64 %indvars.iv, i32 3
+  %87 = getelementptr inbounds nuw i8, ptr %55, i64 6
   %88 = load i16, ptr %87, align 2
   %89 = zext i16 %88 to i32
   %.not55 = icmp eq i16 %88, 0
@@ -8780,11 +8780,11 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %_ZN18constantPoolHa
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
   %75 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %45, i64 %indvars.iv
   %76 = load i16, ptr %75, align 2
-  %77 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %45, i64 %indvars.iv, i32 1
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %78 = load i16, ptr %77, align 2
-  %79 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %45, i64 %indvars.iv, i32 2
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %80 = load i16, ptr %79, align 2
-  %81 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %45, i64 %indvars.iv, i32 3
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 6
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
   %84 = zext i16 %76 to i32
@@ -13028,14 +13028,14 @@ define hidden void @_ZN13ClassVerifier13push_handlersEP14ExceptionTableP13Growab
   br i1 %.not, label %_ZNK17GrowableArrayViewIjE8containsERKj.exit, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %13, i64 %indvars.iv, i32 1
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
   %21 = icmp ult i32 %4, %20
   br i1 %21, label %22, label %_ZNK17GrowableArrayViewIjE8containsERKj.exit
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %13, i64 %indvars.iv, i32 2
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
   %26 = load i32, ptr %2, align 8
@@ -14076,7 +14076,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12ResourceMarkD2Ev.exit ]
   %79 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %74, i64 %indvars.iv
   %80 = load i16, ptr %79, align 2
-  %81 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %74, i64 %indvars.iv, i32 1
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 2
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %80 to i32
   %.not85 = icmp sge i32 %22, %83
@@ -14086,7 +14086,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %66
   br i1 %or.cond, label %86, label %_ZN12ResourceMarkD2Ev.exit
 
 86:                                               ; preds = %78
-  %87 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %74, i64 %indvars.iv, i32 2
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %88 = load i16, ptr %87, align 2
   %89 = zext i16 %88 to i32
   %90 = tail call noundef zeroext i1 @_ZN13ClassVerifier14ends_in_athrowEj(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %89)

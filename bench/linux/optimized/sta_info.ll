@@ -6377,7 +6377,8 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
 594:                                              ; preds = %581
   %595 = and i32 %555, 15
   %596 = zext nneg i32 %595 to i64
-  %597 = getelementptr %struct.ieee80211_rate, ptr %591, i64 %596, i32 1
+  %.split = getelementptr %struct.ieee80211_rate, ptr %591, i64 %596
+  %597 = getelementptr i8, ptr %.split, i64 4
   %598 = load i16, ptr %597, align 4
   %599 = icmp eq i8 %562, 2
   %600 = zext i1 %599 to i32

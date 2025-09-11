@@ -1226,7 +1226,7 @@ define internal noundef i32 @dissect_systemd_journal_line_entry(ptr noundef %0, 
   %.neg = xor i32 %23, -1
   %26 = add i32 %25, %.neg
   %27 = load ptr, ptr @jf_to_hf, align 8
-  %28 = getelementptr i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not150 = icmp eq ptr %29, null
   br i1 %.not150, label %._crit_edge.thread, label %.lr.ph
@@ -1235,15 +1235,15 @@ define internal noundef i32 @dissect_systemd_journal_line_entry(ptr noundef %0, 
   %30 = add i32 %.0156, 1
   %31 = icmp sle i32 %24, %30
   %or.cond.not = select i1 %.1139, i1 true, i1 %31
-  br i1 %or.cond.not, label %103, label %91
+  br i1 %or.cond.not, label %104, label %92
 
 ._crit_edge.thread:                               ; preds = %22
   %32 = add i32 %.0156, 1
   %.not170 = icmp sgt i32 %24, %32
-  br i1 %.not170, label %91, label %.preheader
+  br i1 %.not170, label %92, label %.preheader
 
 .lr.ph:                                           ; preds = %22, %85
-  %33 = phi ptr [ %90, %85 ], [ %29, %22 ]
+  %33 = phi ptr [ %91, %85 ], [ %29, %22 ]
   %34 = phi i64 [ %88, %85 ], [ 0, %22 ]
   %.0138152 = phi i1 [ %.1139, %85 ], [ false, %22 ]
   %.0140151 = phi i32 [ %86, %85 ], [ 0, %22 ]
@@ -1346,118 +1346,120 @@ dissect_sjle_time_usecs.exit:                     ; preds = %47, %54
   %86 = add i32 %.0140151, 1
   %87 = load ptr, ptr @jf_to_hf, align 8
   %88 = sext i32 %86 to i64
-  %89 = getelementptr %struct._journal_field_hf_map, ptr %87, i64 %88, i32 1
-  %90 = load ptr, ptr %89, align 8
-  %.not = icmp eq ptr %90, null
+  %89 = getelementptr %struct._journal_field_hf_map, ptr %87, i64 %88
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %.not = icmp eq ptr %91, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-91:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %92 = load i32, ptr @hf_sj_unknown_field, align 4
-  %93 = load ptr, ptr %18, align 8
-  %94 = sub i32 %23, %.0156
-  %95 = call ptr @tvb_get_string_enc(ptr noundef %93, ptr noundef %0, i32 noundef %.0156, i32 noundef %94, i32 noundef 2)
-  %96 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %92, ptr noundef %0, i32 noundef %.0156, i32 noundef %20, ptr noundef nonnull @.str.247, ptr noundef %95)
-  %97 = load i32, ptr @ett_systemd_unknown_field, align 4
-  %98 = call ptr @proto_item_add_subtree(ptr noundef %96, i32 noundef %97)
-  %99 = load i32, ptr @hf_sj_unknown_field_name, align 4
-  %100 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %0, i32 noundef %.0156, i32 noundef %94, i32 noundef 2)
-  %101 = load i32, ptr @hf_sj_unknown_field_value, align 4
-  %102 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %101, ptr noundef %0, i32 noundef %24, i32 noundef %26, i32 noundef 2)
+92:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %93 = load i32, ptr @hf_sj_unknown_field, align 4
+  %94 = load ptr, ptr %18, align 8
+  %95 = sub i32 %23, %.0156
+  %96 = call ptr @tvb_get_string_enc(ptr noundef %94, ptr noundef %0, i32 noundef %.0156, i32 noundef %95, i32 noundef 2)
+  %97 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %93, ptr noundef %0, i32 noundef %.0156, i32 noundef %20, ptr noundef nonnull @.str.247, ptr noundef %96)
+  %98 = load i32, ptr @ett_systemd_unknown_field, align 4
+  %99 = call ptr @proto_item_add_subtree(ptr noundef %97, i32 noundef %98)
+  %100 = load i32, ptr @hf_sj_unknown_field_name, align 4
+  %101 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %0, i32 noundef %.0156, i32 noundef %95, i32 noundef 2)
+  %102 = load i32, ptr @hf_sj_unknown_field_value, align 4
+  %103 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %102, ptr noundef %0, i32 noundef %24, i32 noundef %26, i32 noundef 2)
   br label %.loopexit
 
-103:                                              ; preds = %._crit_edge
+104:                                              ; preds = %._crit_edge
   br i1 %.1139, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge.thread, %103
-  %104 = phi ptr [ %87, %103 ], [ %27, %._crit_edge.thread ]
-  %105 = getelementptr i8, ptr %104, i64 8
-  %106 = load ptr, ptr %105, align 8
-  %.not146153 = icmp eq ptr %106, null
+.preheader:                                       ; preds = %._crit_edge.thread, %104
+  %105 = phi ptr [ %87, %104 ], [ %27, %._crit_edge.thread ]
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %.not146153 = icmp eq ptr %107, null
   br i1 %.not146153, label %.loopexit, label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %.preheader
-  %107 = sub i32 %23, %.0156
-  br label %108
+  %108 = sub i32 %23, %.0156
+  br label %109
 
-108:                                              ; preds = %.lr.ph155, %158
-  %109 = phi ptr [ %106, %.lr.ph155 ], [ %163, %158 ]
-  %110 = phi i64 [ 0, %.lr.ph155 ], [ %161, %158 ]
-  %.0141154 = phi i32 [ 0, %.lr.ph155 ], [ %159, %158 ]
-  %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #8
-  %112 = trunc i64 %111 to i32
-  %113 = add i32 %112, -1
-  %114 = sext i32 %113 to i64
-  %115 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.0156, ptr noundef nonnull %109, i64 noundef %114)
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %158
+109:                                              ; preds = %.lr.ph155, %159
+  %110 = phi ptr [ %107, %.lr.ph155 ], [ %165, %159 ]
+  %111 = phi i64 [ 0, %.lr.ph155 ], [ %162, %159 ]
+  %.0141154 = phi i32 [ 0, %.lr.ph155 ], [ %160, %159 ]
+  %112 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %110) #8
+  %113 = trunc i64 %112 to i32
+  %114 = add i32 %113, -1
+  %115 = sext i32 %114 to i64
+  %116 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.0156, ptr noundef nonnull %110, i64 noundef %115)
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %118, label %159
 
-117:                                              ; preds = %108
-  %118 = add i32 %113, %.0156
-  %119 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %118, ptr noundef nonnull @.str.248, i64 noundef 1)
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %121, label %158
+118:                                              ; preds = %109
+  %119 = add i32 %114, %.0156
+  %120 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %119, ptr noundef nonnull @.str.248, i64 noundef 1)
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %122, label %159
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr @jf_to_hf, align 8
-  %123 = getelementptr %struct._journal_field_hf_map, ptr %122, i64 %110
-  %124 = load i32, ptr %123, align 8
-  %125 = add i32 %.0156, %112
-  %126 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %125)
-  %127 = add i32 %125, 8
-  %128 = trunc i64 %126 to i32
-  %129 = add i32 %125, 9
-  %130 = add i32 %129, %128
-  store i32 %130, ptr %7, align 4
-  %131 = call i32 @proto_registrar_get_ftype(i32 noundef %124)
-  %132 = icmp eq i32 %131, 26
-  br i1 %132, label %133, label %146
+122:                                              ; preds = %118
+  %123 = load ptr, ptr @jf_to_hf, align 8
+  %124 = getelementptr %struct._journal_field_hf_map, ptr %123, i64 %111
+  %125 = load i32, ptr %124, align 8
+  %126 = add i32 %.0156, %113
+  %127 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %126)
+  %128 = add i32 %126, 8
+  %129 = trunc i64 %127 to i32
+  %130 = add i32 %126, 9
+  %131 = add i32 %130, %129
+  store i32 %131, ptr %7, align 4
+  %132 = call i32 @proto_registrar_get_ftype(i32 noundef %125)
+  %133 = icmp eq i32 %132, 26
+  br i1 %133, label %134, label %147
 
-133:                                              ; preds = %121
-  %134 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %124, ptr noundef %0, i32 noundef %127, i32 noundef %128, i32 noundef 0)
-  %135 = load i32, ptr @ett_systemd_binary_data, align 4
-  %136 = call ptr @proto_item_add_subtree(ptr noundef %134, i32 noundef %135)
-  %137 = load i32, ptr @hf_sj_binary_data_len, align 4
-  %138 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %137, ptr noundef %0, i32 noundef %125, i32 noundef 8, i32 noundef -2147483648)
-  %139 = load i32, ptr @hf_sj_message, align 4
-  %140 = icmp eq i32 %124, %139
-  br i1 %140, label %141, label %158
+134:                                              ; preds = %122
+  %135 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %125, ptr noundef %0, i32 noundef %128, i32 noundef %129, i32 noundef 0)
+  %136 = load i32, ptr @ett_systemd_binary_data, align 4
+  %137 = call ptr @proto_item_add_subtree(ptr noundef %135, i32 noundef %136)
+  %138 = load i32, ptr @hf_sj_binary_data_len, align 4
+  %139 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %0, i32 noundef %126, i32 noundef 8, i32 noundef -2147483648)
+  %140 = load i32, ptr @hf_sj_message, align 4
+  %141 = icmp eq i32 %125, %140
+  br i1 %141, label %142, label %159
 
-141:                                              ; preds = %133
-  %142 = load ptr, ptr %8, align 8
-  call void @col_clear(ptr noundef %142, i32 noundef 25)
+142:                                              ; preds = %134
   %143 = load ptr, ptr %8, align 8
-  %144 = load ptr, ptr %18, align 8
-  %145 = call ptr @tvb_format_text(ptr noundef %144, ptr noundef %0, i32 noundef %127, i32 noundef %128)
-  call void @col_add_str(ptr noundef %143, i32 noundef 25, ptr noundef %145)
-  br label %158
+  call void @col_clear(ptr noundef %143, i32 noundef 25)
+  %144 = load ptr, ptr %8, align 8
+  %145 = load ptr, ptr %18, align 8
+  %146 = call ptr @tvb_format_text(ptr noundef %145, ptr noundef %0, i32 noundef %128, i32 noundef %129)
+  call void @col_add_str(ptr noundef %144, i32 noundef 25, ptr noundef %146)
+  br label %159
 
-146:                                              ; preds = %121
-  %147 = load i32, ptr @hf_sj_unknown_field, align 4
-  %148 = load ptr, ptr %18, align 8
-  %149 = call ptr @tvb_format_text(ptr noundef %148, ptr noundef %0, i32 noundef %.0156, i32 noundef %107)
-  %150 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %147, ptr noundef %0, i32 noundef %.0156, i32 noundef %20, ptr noundef nonnull @.str.249, ptr noundef %149)
-  %151 = load i32, ptr @ett_systemd_unknown_field, align 4
-  %152 = call ptr @proto_item_add_subtree(ptr noundef %150, i32 noundef %151)
-  %153 = load i32, ptr @hf_sj_unknown_field_name, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %0, i32 noundef %.0156, i32 noundef %118, i32 noundef 2)
-  %155 = load i32, ptr @hf_sj_unknown_field_data, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %155, ptr noundef %0, i32 noundef %127, i32 noundef %128, i32 noundef 2)
-  %157 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %154, ptr noundef nonnull @ei_nonbinary_field)
-  br label %158
+147:                                              ; preds = %122
+  %148 = load i32, ptr @hf_sj_unknown_field, align 4
+  %149 = load ptr, ptr %18, align 8
+  %150 = call ptr @tvb_format_text(ptr noundef %149, ptr noundef %0, i32 noundef %.0156, i32 noundef %108)
+  %151 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %148, ptr noundef %0, i32 noundef %.0156, i32 noundef %20, ptr noundef nonnull @.str.249, ptr noundef %150)
+  %152 = load i32, ptr @ett_systemd_unknown_field, align 4
+  %153 = call ptr @proto_item_add_subtree(ptr noundef %151, i32 noundef %152)
+  %154 = load i32, ptr @hf_sj_unknown_field_name, align 4
+  %155 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %0, i32 noundef %.0156, i32 noundef %119, i32 noundef 2)
+  %156 = load i32, ptr @hf_sj_unknown_field_data, align 4
+  %157 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %156, ptr noundef %0, i32 noundef %128, i32 noundef %129, i32 noundef 2)
+  %158 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %155, ptr noundef nonnull @ei_nonbinary_field)
+  br label %159
 
-158:                                              ; preds = %146, %141, %133, %117, %108
-  %159 = add i32 %.0141154, 1
-  %160 = load ptr, ptr @jf_to_hf, align 8
-  %161 = sext i32 %159 to i64
-  %162 = getelementptr %struct._journal_field_hf_map, ptr %160, i64 %161, i32 1
-  %163 = load ptr, ptr %162, align 8
-  %.not146 = icmp eq ptr %163, null
-  br i1 %.not146, label %.loopexit, label %108, !llvm.loop !9
+159:                                              ; preds = %147, %142, %134, %118, %109
+  %160 = add i32 %.0141154, 1
+  %161 = load ptr, ptr @jf_to_hf, align 8
+  %162 = sext i32 %160 to i64
+  %163 = getelementptr %struct._journal_field_hf_map, ptr %161, i64 %162
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %165 = load ptr, ptr %164, align 8
+  %.not146 = icmp eq ptr %165, null
+  br i1 %.not146, label %.loopexit, label %109, !llvm.loop !9
 
-.loopexit:                                        ; preds = %158, %.preheader, %91, %103, %19
+.loopexit:                                        ; preds = %159, %.preheader, %92, %104, %19
   %.1 = load i32, ptr %7, align 4
-  %164 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.1)
-  br i1 %164, label %19, label %._crit_edge159
+  %166 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.1)
+  br i1 %166, label %19, label %._crit_edge159
 
 ._crit_edge159:                                   ; preds = %.loopexit, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %.1, %.loopexit ]

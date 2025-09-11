@@ -243,7 +243,7 @@ define hidden range(i32 0, 2) i32 @opj_tls_set(ptr noundef captures(none) %0, i3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !11
   %7 = icmp eq i32 %6, 2147483647
-  br i1 %7, label %35, label %.preheader
+  br i1 %7, label %36, label %.preheader
 
 .preheader:                                       ; preds = %4
   %8 = icmp sgt i32 %6, 0
@@ -281,36 +281,37 @@ define hidden range(i32 0, 2) i32 @opj_tls_set(ptr noundef captures(none) %0, i3
 
 20:                                               ; preds = %17, %14
   %21 = phi ptr [ %.pre45, %17 ], [ %.pre, %14 ]
-  %22 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %21, i64 %indvars.iv, i32 1
-  store ptr %2, ptr %22, align 8, !tbaa !19
-  %23 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %21, i64 %indvars.iv, i32 2
-  store ptr %3, ptr %23, align 8, !tbaa !21
-  br label %35
+  %22 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %21, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr %2, ptr %23, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %3, ptr %24, align 8, !tbaa !21
+  br label %36
 
 ._crit_edge:                                      ; preds = %9, %.preheader
-  %24 = sext i32 %6 to i64
-  %25 = mul nsw i64 %24, 24
-  %26 = add nsw i64 %25, 24
-  %27 = tail call ptr @opj_realloc(ptr noundef %.pre, i64 noundef %26) #8
-  %.not = icmp eq ptr %27, null
-  br i1 %.not, label %35, label %28
+  %25 = sext i32 %6 to i64
+  %26 = mul nsw i64 %25, 24
+  %27 = add nsw i64 %26, 24
+  %28 = tail call ptr @opj_realloc(ptr noundef %.pre, i64 noundef %27) #8
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %36, label %29
 
-28:                                               ; preds = %._crit_edge
-  store ptr %27, ptr %0, align 8, !tbaa !14
-  %29 = load i32, ptr %5, align 8, !tbaa !11
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.opj_tls_key_val_t, ptr %27, i64 %30
-  store i32 %1, ptr %31, align 8, !tbaa !17
-  %32 = getelementptr inbounds %struct.opj_tls_key_val_t, ptr %27, i64 %30, i32 1
-  store ptr %2, ptr %32, align 8, !tbaa !19
-  %33 = getelementptr inbounds %struct.opj_tls_key_val_t, ptr %27, i64 %30, i32 2
-  store ptr %3, ptr %33, align 8, !tbaa !21
-  %34 = add nsw i32 %29, 1
-  store i32 %34, ptr %5, align 8, !tbaa !11
-  br label %35
+29:                                               ; preds = %._crit_edge
+  store ptr %28, ptr %0, align 8, !tbaa !14
+  %30 = load i32, ptr %5, align 8, !tbaa !11
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds %struct.opj_tls_key_val_t, ptr %28, i64 %31
+  store i32 %1, ptr %32, align 8, !tbaa !17
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr %2, ptr %33, align 8, !tbaa !19
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store ptr %3, ptr %34, align 8, !tbaa !21
+  %35 = add nsw i32 %30, 1
+  store i32 %35, ptr %5, align 8, !tbaa !11
+  br label %36
 
-35:                                               ; preds = %._crit_edge, %4, %28, %20
-  %.034 = phi i32 [ 1, %20 ], [ 1, %28 ], [ 0, %4 ], [ 0, %._crit_edge ]
+36:                                               ; preds = %._crit_edge, %4, %29, %20
+  %.034 = phi i32 [ 1, %20 ], [ 1, %29 ], [ 0, %4 ], [ 0, %._crit_edge ]
   ret i32 %.034
 }
 
@@ -321,7 +322,7 @@ define hidden ptr @opj_thread_pool_create(i32 noundef %0) local_unnamed_addr #1 
   %2 = alloca %union.pthread_attr_t, align 8
   %3 = tail call ptr @opj_calloc(i64 noundef 1, i64 noundef 88) #8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %97, label %4
+  br i1 %.not, label %103, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -334,11 +335,11 @@ define hidden ptr @opj_thread_pool_create(i32 noundef %0) local_unnamed_addr #1 
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %8, ptr %9, align 8, !tbaa !29
   %.not19 = icmp eq ptr %8, null
-  br i1 %.not19, label %10, label %97
+  br i1 %.not19, label %10, label %103
 
 10:                                               ; preds = %7
   tail call void @opj_free(ptr noundef nonnull %3) #8
-  br label %97
+  br label %103
 
 11:                                               ; preds = %4
   %12 = tail call ptr @opj_calloc(i64 noundef 1, i64 noundef 40) #8
@@ -358,7 +359,7 @@ define hidden ptr @opj_thread_pool_create(i32 noundef %0) local_unnamed_addr #1 
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %17, align 8, !tbaa !30
   tail call void @opj_free(ptr noundef nonnull %3) #8
-  br label %97
+  br label %103
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -395,162 +396,168 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
   store i32 %0, ptr %31, align 8, !tbaa !33
   br label %32
 
-32:                                               ; preds = %78, %30
-  %33 = phi ptr [ %28, %30 ], [ %79, %78 ]
-  %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %78 ]
+32:                                               ; preds = %83, %30
+  %33 = phi ptr [ %28, %30 ], [ %84, %83 ]
+  %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %83 ]
   %34 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %33, i64 %indvars.iv.i
   store ptr %3, ptr %34, align 8, !tbaa !34
   %35 = call ptr @opj_calloc(i64 noundef 1, i64 noundef 40) #8
   %.not.i51.i = icmp eq ptr %35, null
-  br i1 %.not.i51.i, label %.loopexit65.i, label %36
+  br i1 %.not.i51.i, label %.loopexit67.i, label %36
 
 36:                                               ; preds = %32
   %37 = call i32 @pthread_mutex_init(ptr noundef nonnull %35, ptr noundef null) #8
   %.not5.i.i = icmp eq i32 %37, 0
-  br i1 %.not5.i.i, label %41, label %38
+  br i1 %.not5.i.i, label %42, label %38
 
 38:                                               ; preds = %36
   call void @opj_free(ptr noundef nonnull %35) #8
-  br label %.loopexit65.i
+  br label %.loopexit67.i
 
-.loopexit65.i:                                    ; preds = %32, %38
+.loopexit67.i:                                    ; preds = %32, %38
   %39 = load ptr, ptr %3, align 8, !tbaa !32
-  %40 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %39, i64 %indvars.iv.i, i32 3
-  store ptr null, ptr %40, align 8, !tbaa !38
+  %40 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %39, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  store ptr null, ptr %41, align 8, !tbaa !38
   br label %.loopexit.sink.split.i
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %3, align 8, !tbaa !32
-  %43 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %42, i64 %indvars.iv.i, i32 3
-  store ptr %35, ptr %43, align 8, !tbaa !38
-  %44 = call ptr @opj_malloc(i64 noundef 48) #8
-  %.not.i53.i = icmp eq ptr %44, null
-  br i1 %.not.i53.i, label %.loopexit112.i, label %45
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %3, align 8, !tbaa !32
+  %44 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %43, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store ptr %35, ptr %45, align 8, !tbaa !38
+  %46 = call ptr @opj_malloc(i64 noundef 48) #8
+  %.not.i53.i = icmp eq ptr %46, null
+  br i1 %.not.i53.i, label %.loopexit68.i, label %47
 
-45:                                               ; preds = %41
-  %46 = call i32 @pthread_cond_init(ptr noundef nonnull %44, ptr noundef null) #8
-  %.not6.i54.i = icmp eq i32 %46, 0
-  br i1 %.not6.i54.i, label %54, label %47
+47:                                               ; preds = %42
+  %48 = call i32 @pthread_cond_init(ptr noundef nonnull %46, ptr noundef null) #8
+  %.not6.i54.i = icmp eq i32 %48, 0
+  br i1 %.not6.i54.i, label %57, label %49
 
-47:                                               ; preds = %45
-  call void @opj_free(ptr noundef nonnull %44) #8
-  br label %.loopexit112.i
+49:                                               ; preds = %47
+  call void @opj_free(ptr noundef nonnull %46) #8
+  br label %.loopexit68.i
 
-.loopexit112.i:                                   ; preds = %41, %47
-  %48 = load ptr, ptr %3, align 8, !tbaa !32
-  %49 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %48, i64 %indvars.iv.i, i32 4
-  store ptr null, ptr %49, align 8, !tbaa !39
-  %50 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %48, i64 %indvars.iv.i, i32 3
-  %51 = load ptr, ptr %50, align 8, !tbaa !38
-  %.not.i57.i = icmp eq ptr %51, null
-  br i1 %.not.i57.i, label %.loopexit.sink.split.i, label %52
+.loopexit68.i:                                    ; preds = %42, %49
+  %50 = load ptr, ptr %3, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %50, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  store ptr null, ptr %52, align 8, !tbaa !39
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %54 = load ptr, ptr %53, align 8, !tbaa !38
+  %.not.i57.i = icmp eq ptr %54, null
+  br i1 %.not.i57.i, label %.loopexit.sink.split.i, label %55
 
-52:                                               ; preds = %.loopexit112.i
-  %53 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %51) #8
-  call void @opj_free(ptr noundef nonnull %51) #8
+55:                                               ; preds = %.loopexit68.i
+  %56 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %54) #8
+  call void @opj_free(ptr noundef nonnull %54) #8
   br label %.loopexit.sink.split.i
 
-54:                                               ; preds = %45
-  %55 = load ptr, ptr %3, align 8, !tbaa !32
-  %56 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %55, i64 %indvars.iv.i, i32 4
-  store ptr %44, ptr %56, align 8, !tbaa !39
-  %57 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %55, i64 %indvars.iv.i
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i32 0, ptr %58, align 8, !tbaa !40
+57:                                               ; preds = %47
+  %58 = load ptr, ptr %3, align 8, !tbaa !32
+  %59 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %58, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  store ptr %46, ptr %60, align 8, !tbaa !39
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store i32 0, ptr %61, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %59 = call ptr @opj_malloc(i64 noundef 24) #8
-  %.not.i58.i = icmp eq ptr %59, null
-  br i1 %.not.i58.i, label %.loopexit113.i, label %60
+  %62 = call ptr @opj_malloc(i64 noundef 24) #8
+  %.not.i58.i = icmp eq ptr %62, null
+  br i1 %.not.i58.i, label %.loopexit69.i, label %63
 
-60:                                               ; preds = %54
-  store ptr @opj_worker_thread_function, ptr %59, align 8, !tbaa !3
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store ptr %57, ptr %61, align 8, !tbaa !9
-  %62 = call i32 @pthread_attr_init(ptr noundef nonnull %2) #8
-  %63 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %2, i32 noundef 0) #8
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %65 = call i32 @pthread_create(ptr noundef nonnull %64, ptr noundef nonnull %2, ptr noundef nonnull @opj_thread_callback_adapter, ptr noundef nonnull %59) #8
-  %.not11.i.i = icmp eq i32 %65, 0
-  br i1 %.not11.i.i, label %78, label %66
+63:                                               ; preds = %57
+  store ptr @opj_worker_thread_function, ptr %62, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store ptr %59, ptr %64, align 8, !tbaa !9
+  %65 = call i32 @pthread_attr_init(ptr noundef nonnull %2) #8
+  %66 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %2, i32 noundef 0) #8
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %68 = call i32 @pthread_create(ptr noundef nonnull %67, ptr noundef nonnull %2, ptr noundef nonnull @opj_thread_callback_adapter, ptr noundef nonnull %62) #8
+  %.not11.i.i = icmp eq i32 %68, 0
+  br i1 %.not11.i.i, label %83, label %69
 
-66:                                               ; preds = %60
-  call void @opj_free(ptr noundef nonnull %59) #8
-  br label %.loopexit113.i
+69:                                               ; preds = %63
+  call void @opj_free(ptr noundef nonnull %62) #8
+  br label %.loopexit69.i
 
-.loopexit113.i:                                   ; preds = %54, %66
+.loopexit69.i:                                    ; preds = %57, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %67 = load ptr, ptr %3, align 8, !tbaa !32
-  %68 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %67, i64 %indvars.iv.i, i32 1
-  store ptr null, ptr %68, align 8, !tbaa !41
-  %69 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %67, i64 %indvars.iv.i, i32 3
-  %70 = load ptr, ptr %69, align 8, !tbaa !38
-  %.not.i60.i = icmp eq ptr %70, null
-  br i1 %.not.i60.i, label %opj_mutex_destroy.exit61.i, label %71
+  %70 = load ptr, ptr %3, align 8, !tbaa !32
+  %71 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %70, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store ptr null, ptr %72, align 8, !tbaa !41
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %74 = load ptr, ptr %73, align 8, !tbaa !38
+  %.not.i60.i = icmp eq ptr %74, null
+  br i1 %.not.i60.i, label %opj_mutex_destroy.exit61.i, label %75
 
-71:                                               ; preds = %.loopexit113.i
-  %72 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %70) #8
-  call void @opj_free(ptr noundef nonnull %70) #8
+75:                                               ; preds = %.loopexit69.i
+  %76 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %74) #8
+  call void @opj_free(ptr noundef nonnull %74) #8
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !32
   br label %opj_mutex_destroy.exit61.i
 
-opj_mutex_destroy.exit61.i:                       ; preds = %71, %.loopexit113.i
-  %73 = phi ptr [ %67, %.loopexit113.i ], [ %.pre.i, %71 ]
-  %74 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %73, i64 %indvars.iv.i, i32 4
-  %75 = load ptr, ptr %74, align 8, !tbaa !39
-  %.not.i62.i = icmp eq ptr %75, null
-  br i1 %.not.i62.i, label %.loopexit.sink.split.i, label %76
+opj_mutex_destroy.exit61.i:                       ; preds = %75, %.loopexit69.i
+  %77 = phi ptr [ %70, %.loopexit69.i ], [ %.pre.i, %75 ]
+  %78 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %77, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %80 = load ptr, ptr %79, align 8, !tbaa !39
+  %.not.i62.i = icmp eq ptr %80, null
+  br i1 %.not.i62.i, label %.loopexit.sink.split.i, label %81
 
-76:                                               ; preds = %opj_mutex_destroy.exit61.i
-  %77 = call i32 @pthread_cond_destroy(ptr noundef nonnull %75) #8
-  call void @opj_free(ptr noundef nonnull %75) #8
+81:                                               ; preds = %opj_mutex_destroy.exit61.i
+  %82 = call i32 @pthread_cond_destroy(ptr noundef nonnull %80) #8
+  call void @opj_free(ptr noundef nonnull %80) #8
   br label %.loopexit.sink.split.i
 
-78:                                               ; preds = %60
+83:                                               ; preds = %63
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %79 = load ptr, ptr %3, align 8, !tbaa !32
-  %80 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %79, i64 %indvars.iv.i, i32 1
-  store ptr %59, ptr %80, align 8, !tbaa !41
+  %84 = load ptr, ptr %3, align 8, !tbaa !32
+  %85 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %84, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  store ptr %62, ptr %86, align 8, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %27
   br i1 %exitcond.not.i, label %.loopexit.i, label %32, !llvm.loop !42
 
-.loopexit.sink.split.i:                           ; preds = %76, %opj_mutex_destroy.exit61.i, %52, %.loopexit112.i, %.loopexit65.i
-  %.sink.i = trunc i64 %indvars.iv.i to i32
-  store i32 %.sink.i, ptr %31, align 8, !tbaa !33
+.loopexit.sink.split.i:                           ; preds = %81, %opj_mutex_destroy.exit61.i, %55, %.loopexit68.i, %.loopexit67.i
+  %.04996118.sink.i = trunc i64 %indvars.iv.i to i32
+  store i32 %.04996118.sink.i, ptr %31, align 8, !tbaa !33
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %78, %.loopexit.sink.split.i
-  %.not18 = phi i1 [ true, %.loopexit.sink.split.i ], [ false, %78 ]
-  %81 = load ptr, ptr %19, align 8, !tbaa !30
-  %82 = call i32 @pthread_mutex_lock(ptr noundef %81) #8
-  %83 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %84 = load i32, ptr %83, align 8, !tbaa !43
-  %85 = load i32, ptr %31, align 8, !tbaa !33
-  %86 = icmp slt i32 %84, %85
-  br i1 %86, label %.lr.ph.i, label %._crit_edge.i
-
-.lr.ph.i:                                         ; preds = %.loopexit.i, %.lr.ph.i
-  %87 = load ptr, ptr %26, align 8, !tbaa !31
-  %88 = load ptr, ptr %19, align 8, !tbaa !30
-  %89 = call i32 @pthread_cond_wait(ptr noundef %87, ptr noundef %88) #8
-  %90 = load i32, ptr %83, align 8, !tbaa !43
+.loopexit.i:                                      ; preds = %83, %.loopexit.sink.split.i
+  %.not18 = phi i1 [ true, %.loopexit.sink.split.i ], [ false, %83 ]
+  %87 = load ptr, ptr %19, align 8, !tbaa !30
+  %88 = call i32 @pthread_mutex_lock(ptr noundef %87) #8
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %90 = load i32, ptr %89, align 8, !tbaa !43
   %91 = load i32, ptr %31, align 8, !tbaa !33
   %92 = icmp slt i32 %90, %91
-  br i1 %92, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !44
+  br i1 %92, label %.lr.ph.i, label %._crit_edge.i
+
+.lr.ph.i:                                         ; preds = %.loopexit.i, %.lr.ph.i
+  %93 = load ptr, ptr %26, align 8, !tbaa !31
+  %94 = load ptr, ptr %19, align 8, !tbaa !30
+  %95 = call i32 @pthread_cond_wait(ptr noundef %93, ptr noundef %94) #8
+  %96 = load i32, ptr %89, align 8, !tbaa !43
+  %97 = load i32, ptr %31, align 8, !tbaa !33
+  %98 = icmp slt i32 %96, %97
+  br i1 %98, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.loopexit.i
-  %93 = load ptr, ptr %19, align 8, !tbaa !30
-  %94 = call i32 @pthread_mutex_unlock(ptr noundef %93) #8
-  %95 = load volatile i32, ptr %5, align 8, !tbaa !22
-  %96 = icmp eq i32 %95, 2
-  %or.cond = or i1 %.not18, %96
-  br i1 %or.cond, label %opj_thread_pool_setup.exit.thread, label %97
+  %99 = load ptr, ptr %19, align 8, !tbaa !30
+  %100 = call i32 @pthread_mutex_unlock(ptr noundef %99) #8
+  %101 = load volatile i32, ptr %5, align 8, !tbaa !22
+  %102 = icmp eq i32 %101, 2
+  %or.cond = or i1 %.not18, %102
+  br i1 %or.cond, label %opj_thread_pool_setup.exit.thread, label %103
 
 opj_thread_pool_setup.exit.thread:                ; preds = %._crit_edge.i, %opj_cond_create.exit.thread.i, %25
   call void @opj_thread_pool_destroy(ptr noundef nonnull %3)
-  br label %97
+  br label %103
 
-97:                                               ; preds = %._crit_edge.i, %7, %10, %1, %opj_thread_pool_setup.exit.thread, %16
+103:                                              ; preds = %._crit_edge.i, %7, %10, %1, %opj_thread_pool_setup.exit.thread, %16
   %.014 = phi ptr [ null, %opj_thread_pool_setup.exit.thread ], [ null, %16 ], [ null, %1 ], [ %3, %7 ], [ null, %10 ], [ %3, %._crit_edge.i ]
   ret ptr %.014
 }
@@ -559,7 +566,7 @@ opj_thread_pool_setup.exit.thread:                ; preds = %._crit_edge.i, %opj
 define hidden void @opj_thread_pool_destroy(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %93, label %3
+  br i1 %.not, label %99, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -611,142 +618,148 @@ opj_thread_pool_wait_completion.exit:             ; preds = %6, %._crit_edge.i
 .lr.ph:                                           ; preds = %opj_thread_pool_wait_completion.exit, %opj_mutex_destroy.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %opj_mutex_destroy.exit ], [ 0, %opj_thread_pool_wait_completion.exit ]
   %31 = load ptr, ptr %0, align 8, !tbaa !32
-  %32 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %31, i64 %indvars.iv, i32 3
-  %33 = load ptr, ptr %32, align 8, !tbaa !38
-  %34 = call i32 @pthread_mutex_lock(ptr noundef %33) #8
-  %35 = load ptr, ptr %0, align 8, !tbaa !32
-  %36 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %35, i64 %indvars.iv, i32 4
-  %37 = load ptr, ptr %36, align 8, !tbaa !39
-  %38 = call i32 @pthread_cond_signal(ptr noundef %37) #8
-  %39 = load ptr, ptr %0, align 8, !tbaa !32
-  %40 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %39, i64 %indvars.iv, i32 3
-  %41 = load ptr, ptr %40, align 8, !tbaa !38
-  %42 = call i32 @pthread_mutex_unlock(ptr noundef %41) #8
-  %43 = load ptr, ptr %0, align 8, !tbaa !32
-  %44 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %43, i64 %indvars.iv, i32 1
-  %45 = load ptr, ptr %44, align 8, !tbaa !41
+  %32 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %34 = load ptr, ptr %33, align 8, !tbaa !38
+  %35 = call i32 @pthread_mutex_lock(ptr noundef %34) #8
+  %36 = load ptr, ptr %0, align 8, !tbaa !32
+  %37 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %39 = load ptr, ptr %38, align 8, !tbaa !39
+  %40 = call i32 @pthread_cond_signal(ptr noundef %39) #8
+  %41 = load ptr, ptr %0, align 8, !tbaa !32
+  %42 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %44 = load ptr, ptr %43, align 8, !tbaa !38
+  %45 = call i32 @pthread_mutex_unlock(ptr noundef %44) #8
+  %46 = load ptr, ptr %0, align 8, !tbaa !32
+  %47 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %46, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !10
-  %48 = call i32 @pthread_join(i64 noundef %47, ptr noundef nonnull %2) #8
-  call void @opj_free(ptr noundef %45) #8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load i64, ptr %50, align 8, !tbaa !10
+  %52 = call i32 @pthread_join(i64 noundef %51, ptr noundef nonnull %2) #8
+  call void @opj_free(ptr noundef %49) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %49 = load ptr, ptr %0, align 8, !tbaa !32
-  %50 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %49, i64 %indvars.iv, i32 4
-  %51 = load ptr, ptr %50, align 8, !tbaa !39
-  %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %opj_cond_destroy.exit, label %52
+  %53 = load ptr, ptr %0, align 8, !tbaa !32
+  %54 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %53, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %56 = load ptr, ptr %55, align 8, !tbaa !39
+  %.not.i = icmp eq ptr %56, null
+  br i1 %.not.i, label %opj_cond_destroy.exit, label %57
 
-52:                                               ; preds = %.lr.ph
-  %53 = call i32 @pthread_cond_destroy(ptr noundef nonnull %51) #8
-  call void @opj_free(ptr noundef nonnull %51) #8
+57:                                               ; preds = %.lr.ph
+  %58 = call i32 @pthread_cond_destroy(ptr noundef nonnull %56) #8
+  call void @opj_free(ptr noundef nonnull %56) #8
   %.pre48 = load ptr, ptr %0, align 8, !tbaa !32
   br label %opj_cond_destroy.exit
 
-opj_cond_destroy.exit:                            ; preds = %.lr.ph, %52
-  %54 = phi ptr [ %49, %.lr.ph ], [ %.pre48, %52 ]
-  %55 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %54, i64 %indvars.iv, i32 3
-  %56 = load ptr, ptr %55, align 8, !tbaa !38
-  %.not.i34 = icmp eq ptr %56, null
-  br i1 %.not.i34, label %opj_mutex_destroy.exit, label %57
+opj_cond_destroy.exit:                            ; preds = %.lr.ph, %57
+  %59 = phi ptr [ %53, %.lr.ph ], [ %.pre48, %57 ]
+  %60 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %62 = load ptr, ptr %61, align 8, !tbaa !38
+  %.not.i34 = icmp eq ptr %62, null
+  br i1 %.not.i34, label %opj_mutex_destroy.exit, label %63
 
-57:                                               ; preds = %opj_cond_destroy.exit
-  %58 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %56) #8
-  call void @opj_free(ptr noundef nonnull %56) #8
+63:                                               ; preds = %opj_cond_destroy.exit
+  %64 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %62) #8
+  call void @opj_free(ptr noundef nonnull %62) #8
   br label %opj_mutex_destroy.exit
 
-opj_mutex_destroy.exit:                           ; preds = %opj_cond_destroy.exit, %57
+opj_mutex_destroy.exit:                           ; preds = %opj_cond_destroy.exit, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = load i32, ptr %28, align 8, !tbaa !33
-  %60 = sext i32 %59 to i64
-  %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  %65 = load i32, ptr %28, align 8, !tbaa !33
+  %66 = sext i32 %65 to i64
+  %67 = icmp slt i64 %indvars.iv.next, %66
+  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %opj_mutex_destroy.exit, %opj_thread_pool_wait_completion.exit
-  %62 = load ptr, ptr %0, align 8, !tbaa !32
-  call void @opj_free(ptr noundef %62) #8
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %64 = load ptr, ptr %63, align 8, !tbaa !49
-  %.not3343 = icmp eq ptr %64, null
+  %68 = load ptr, ptr %0, align 8, !tbaa !32
+  call void @opj_free(ptr noundef %68) #8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %70 = load ptr, ptr %69, align 8, !tbaa !49
+  %.not3343 = icmp eq ptr %70, null
   br i1 %.not3343, label %._crit_edge46, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %._crit_edge, %.lr.ph45
-  %65 = phi ptr [ %67, %.lr.ph45 ], [ %64, %._crit_edge ]
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !50
-  call void @opj_free(ptr noundef nonnull %65) #8
-  store ptr %67, ptr %63, align 8, !tbaa !49
-  %.not33 = icmp eq ptr %67, null
+  %71 = phi ptr [ %73, %.lr.ph45 ], [ %70, %._crit_edge ]
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !50
+  call void @opj_free(ptr noundef nonnull %71) #8
+  store ptr %73, ptr %69, align 8, !tbaa !49
+  %.not33 = icmp eq ptr %73, null
   br i1 %.not33, label %._crit_edge46, label %.lr.ph45, !llvm.loop !52
 
 ._crit_edge46:                                    ; preds = %.lr.ph45, %._crit_edge
-  %68 = load ptr, ptr %4, align 8, !tbaa !31
-  %.not.i35 = icmp eq ptr %68, null
-  br i1 %.not.i35, label %opj_cond_destroy.exit36, label %69
+  %74 = load ptr, ptr %4, align 8, !tbaa !31
+  %.not.i35 = icmp eq ptr %74, null
+  br i1 %.not.i35, label %opj_cond_destroy.exit36, label %75
 
-69:                                               ; preds = %._crit_edge46
-  %70 = call i32 @pthread_cond_destroy(ptr noundef nonnull %68) #8
-  call void @opj_free(ptr noundef nonnull %68) #8
+75:                                               ; preds = %._crit_edge46
+  %76 = call i32 @pthread_cond_destroy(ptr noundef nonnull %74) #8
+  call void @opj_free(ptr noundef nonnull %74) #8
   br label %opj_cond_destroy.exit36
 
-opj_cond_destroy.exit36:                          ; preds = %69, %._crit_edge46, %3
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %72 = load ptr, ptr %71, align 8, !tbaa !30
-  %.not.i37 = icmp eq ptr %72, null
-  br i1 %.not.i37, label %opj_mutex_destroy.exit38, label %73
+opj_cond_destroy.exit36:                          ; preds = %75, %._crit_edge46, %3
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %78 = load ptr, ptr %77, align 8, !tbaa !30
+  %.not.i37 = icmp eq ptr %78, null
+  br i1 %.not.i37, label %opj_mutex_destroy.exit38, label %79
 
-73:                                               ; preds = %opj_cond_destroy.exit36
-  %74 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %72) #8
-  call void @opj_free(ptr noundef nonnull %72) #8
+79:                                               ; preds = %opj_cond_destroy.exit36
+  %80 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %78) #8
+  call void @opj_free(ptr noundef nonnull %78) #8
   br label %opj_mutex_destroy.exit38
 
-opj_mutex_destroy.exit38:                         ; preds = %opj_cond_destroy.exit36, %73
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %76 = load ptr, ptr %75, align 8, !tbaa !29
-  %.not.i39 = icmp eq ptr %76, null
+opj_mutex_destroy.exit38:                         ; preds = %opj_cond_destroy.exit36, %79
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %82 = load ptr, ptr %81, align 8, !tbaa !29
+  %.not.i39 = icmp eq ptr %82, null
   br i1 %.not.i39, label %opj_tls_destroy.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %opj_mutex_destroy.exit38
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load i32, ptr %77, align 8, !tbaa !11
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph.i41, label %._crit_edge.i40
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %84 = load i32, ptr %83, align 8, !tbaa !11
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %.lr.ph.i41, label %._crit_edge.i40
 
-.lr.ph.i41:                                       ; preds = %.preheader.i, %88
-  %80 = phi i32 [ %89, %88 ], [ %78, %.preheader.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %88 ], [ 0, %.preheader.i ]
-  %81 = load ptr, ptr %76, align 8, !tbaa !14
-  %82 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %81, i64 %indvars.iv.i
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !21
-  %.not13.i = icmp eq ptr %84, null
-  br i1 %.not13.i, label %88, label %85
+.lr.ph.i41:                                       ; preds = %.preheader.i, %94
+  %86 = phi i32 [ %95, %94 ], [ %84, %.preheader.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %94 ], [ 0, %.preheader.i ]
+  %87 = load ptr, ptr %82, align 8, !tbaa !14
+  %88 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %87, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %90 = load ptr, ptr %89, align 8, !tbaa !21
+  %.not13.i = icmp eq ptr %90, null
+  br i1 %.not13.i, label %94, label %91
 
-85:                                               ; preds = %.lr.ph.i41
-  %86 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !19
-  call void %84(ptr noundef %87) #8
-  %.pre.i = load i32, ptr %77, align 8, !tbaa !11
-  br label %88
+91:                                               ; preds = %.lr.ph.i41
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !19
+  call void %90(ptr noundef %93) #8
+  %.pre.i = load i32, ptr %83, align 8, !tbaa !11
+  br label %94
 
-88:                                               ; preds = %85, %.lr.ph.i41
-  %89 = phi i32 [ %80, %.lr.ph.i41 ], [ %.pre.i, %85 ]
+94:                                               ; preds = %91, %.lr.ph.i41
+  %95 = phi i32 [ %86, %.lr.ph.i41 ], [ %.pre.i, %91 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %90 = sext i32 %89 to i64
-  %91 = icmp slt i64 %indvars.iv.next.i, %90
-  br i1 %91, label %.lr.ph.i41, label %._crit_edge.i40, !llvm.loop !53
+  %96 = sext i32 %95 to i64
+  %97 = icmp slt i64 %indvars.iv.next.i, %96
+  br i1 %97, label %.lr.ph.i41, label %._crit_edge.i40, !llvm.loop !53
 
-._crit_edge.i40:                                  ; preds = %88, %.preheader.i
-  %92 = load ptr, ptr %76, align 8, !tbaa !14
-  call void @opj_free(ptr noundef %92) #8
-  call void @opj_free(ptr noundef nonnull %76) #8
+._crit_edge.i40:                                  ; preds = %94, %.preheader.i
+  %98 = load ptr, ptr %82, align 8, !tbaa !14
+  call void @opj_free(ptr noundef %98) #8
+  call void @opj_free(ptr noundef nonnull %82) #8
   br label %opj_tls_destroy.exit
 
 opj_tls_destroy.exit:                             ; preds = %opj_mutex_destroy.exit38, %._crit_edge.i40
   call void @opj_free(ptr noundef nonnull %0) #8
-  br label %93
+  br label %99
 
-93:                                               ; preds = %1, %opj_tls_destroy.exit
+99:                                               ; preds = %1, %opj_tls_destroy.exit
   ret void
 }
 

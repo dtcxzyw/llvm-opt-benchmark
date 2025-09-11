@@ -284,7 +284,7 @@ define noundef ptr @_Z22_gmx_sel_mempool_allocP17gmx_sel_mempool_tm(ptr noundef 
   %58 = sext i32 %56 to i64
   %59 = getelementptr inbounds %struct.gmx_sel_mempool_block_t, ptr %57, i64 %58
   store ptr %.039, ptr %59, align 8, !tbaa !17
-  %60 = getelementptr inbounds %struct.gmx_sel_mempool_block_t, ptr %57, i64 %58, i32 1
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %7, ptr %60, align 8, !tbaa !29
   %61 = add nsw i32 %56, 1
   store i32 %61, ptr %45, align 8, !tbaa !16
@@ -629,7 +629,7 @@ declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 n
 ; Function Attrs: mustprogress uwtable
 define void @_Z21_gmx_sel_mempool_freeP17gmx_sel_mempool_tPv(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %33, label %4
+  br i1 %3, label %34, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -655,32 +655,33 @@ define void @_Z21_gmx_sel_mempool_freeP17gmx_sel_mempool_tPv(ptr noundef capture
   %18 = add nsw i32 %6, -1
   store i32 %18, ptr %5, align 8, !tbaa !16
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.gmx_sel_mempool_block_t, ptr %10, i64 %19, i32 1
-  %21 = load i64, ptr %20, align 8, !tbaa !29
-  %sext = shl i64 %21, 32
-  %22 = ashr exact i64 %sext, 32
-  %23 = load i64, ptr %0, align 8, !tbaa !27
-  %24 = sub i64 %23, %22
-  store i64 %24, ptr %0, align 8, !tbaa !27
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %.not = icmp eq ptr %26, null
-  br i1 %.not, label %32, label %27
+  %20 = getelementptr inbounds nuw %struct.gmx_sel_mempool_block_t, ptr %10, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !29
+  %sext = shl i64 %22, 32
+  %23 = ashr exact i64 %sext, 32
+  %24 = load i64, ptr %0, align 8, !tbaa !27
+  %25 = sub i64 %24, %23
+  store i64 %25, ptr %0, align 8, !tbaa !27
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !15
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %33, label %28
 
-27:                                               ; preds = %17
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %28, align 8, !tbaa !26
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !21
-  %31 = add i64 %30, %22
-  store i64 %31, ptr %29, align 8, !tbaa !21
-  br label %33
+28:                                               ; preds = %17
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %1, ptr %29, align 8, !tbaa !26
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load i64, ptr %30, align 8, !tbaa !21
+  %32 = add i64 %31, %23
+  store i64 %32, ptr %30, align 8, !tbaa !21
+  br label %34
 
-32:                                               ; preds = %17
+33:                                               ; preds = %17
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull %1)
-  br label %33
+  br label %34
 
-33:                                               ; preds = %27, %32, %2
+34:                                               ; preds = %28, %33, %2
   ret void
 }
 
@@ -779,32 +780,33 @@ define void @_Z27_gmx_sel_mempool_free_groupP17gmx_sel_mempool_tP15gmx_ana_index
   %20 = add nsw i32 %8, -1
   store i32 %20, ptr %7, align 8, !tbaa !16
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.gmx_sel_mempool_block_t, ptr %12, i64 %21, i32 1
-  %23 = load i64, ptr %22, align 8, !tbaa !29
-  %sext.i = shl i64 %23, 32
-  %24 = ashr exact i64 %sext.i, 32
-  %25 = load i64, ptr %0, align 8, !tbaa !27
-  %26 = sub i64 %25, %24
-  store i64 %26, ptr %0, align 8, !tbaa !27
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !15
-  %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %34, label %29
+  %22 = getelementptr inbounds nuw %struct.gmx_sel_mempool_block_t, ptr %12, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load i64, ptr %23, align 8, !tbaa !29
+  %sext.i = shl i64 %24, 32
+  %25 = ashr exact i64 %sext.i, 32
+  %26 = load i64, ptr %0, align 8, !tbaa !27
+  %27 = sub i64 %26, %25
+  store i64 %27, ptr %0, align 8, !tbaa !27
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8, !tbaa !15
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %35, label %30
 
-29:                                               ; preds = %19
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %30, align 8, !tbaa !26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !21
-  %33 = add i64 %32, %24
-  store i64 %33, ptr %31, align 8, !tbaa !21
+30:                                               ; preds = %19
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %31, align 8, !tbaa !26
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !21
+  %34 = add i64 %33, %25
+  store i64 %34, ptr %32, align 8, !tbaa !21
   br label %_Z21_gmx_sel_mempool_freeP17gmx_sel_mempool_tPv.exit
 
-34:                                               ; preds = %19
+35:                                               ; preds = %19
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull %4)
   br label %_Z21_gmx_sel_mempool_freeP17gmx_sel_mempool_tPv.exit
 
-_Z21_gmx_sel_mempool_freeP17gmx_sel_mempool_tPv.exit: ; preds = %2, %29, %34
+_Z21_gmx_sel_mempool_freeP17gmx_sel_mempool_tPv.exit: ; preds = %2, %30, %35
   store ptr null, ptr %3, align 8, !tbaa !61
   ret void
 }

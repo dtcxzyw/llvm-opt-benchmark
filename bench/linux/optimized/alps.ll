@@ -7140,7 +7140,8 @@ define internal fastcc i32 @alps_process_bitmap(ptr noundef captures(none) %0, p
 
 154:                                              ; preds = %154, %152
   %155 = phi i64 [ 0, %152 ], [ %159, %154 ]
-  %156 = getelementptr %struct.input_mt_pos, ptr %7, i64 %155, i32 1
+  %.split = getelementptr %struct.input_mt_pos, ptr %7, i64 %155
+  %156 = getelementptr i8, ptr %.split, i64 2
   %157 = load i16, ptr %156, align 2
   %158 = sub i16 %153, %157
   store i16 %158, ptr %156, align 2

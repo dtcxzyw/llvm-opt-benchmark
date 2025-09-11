@@ -232,7 +232,7 @@ define hidden void @proto_reg_handoff_etch() #0 {
 13:                                               ; preds = %8
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %11) #9
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %95, label %.thread
+  br i1 %.not, label %96, label %.thread
 
 .thread:                                          ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -266,93 +266,94 @@ define hidden void @proto_reg_handoff_etch() #0 {
 
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %20 ]
-  %24 = getelementptr %struct._value_string, ptr %21, i64 %indvars.iv.i.i, i32 1
-  %25 = load ptr, ptr %24, align 8
-  tail call void @g_free(ptr noundef %25)
+  %24 = getelementptr %struct._value_string, ptr %21, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  tail call void @g_free(ptr noundef %26)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %26 = load ptr, ptr @gbl_symbols_array, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = zext i32 %28 to i64
-  %30 = icmp samesign ult i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !6
+  %27 = load ptr, ptr @gbl_symbols_array, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = zext i32 %29 to i64
+  %31 = icmp samesign ult i64 %indvars.iv.next.i.i, %30
+  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %20
-  %.lcssa.i.i = phi ptr [ %19, %20 ], [ %26, %.lr.ph.i.i ]
-  %31 = tail call ptr @g_array_free(ptr noundef %.lcssa.i.i, i32 noundef 1)
+  %.lcssa.i.i = phi ptr [ %19, %20 ], [ %27, %.lr.ph.i.i ]
+  %32 = tail call ptr @g_array_free(ptr noundef %.lcssa.i.i, i32 noundef 1)
   store ptr null, ptr @gbl_symbols_array, align 8
   br label %gbl_symbols_free.exit.i
 
 gbl_symbols_free.exit.i:                          ; preds = %._crit_edge.i.i, %17
-  br i1 %10, label %read_hashed_symbols_from_dir.exit, label %32
+  br i1 %10, label %read_hashed_symbols_from_dir.exit, label %33
 
-32:                                               ; preds = %gbl_symbols_free.exit.i
-  %33 = load i8, ptr %9, align 1
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %read_hashed_symbols_from_dir.exit, label %35
+33:                                               ; preds = %gbl_symbols_free.exit.i
+  %34 = load i8, ptr %9, align 1
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %read_hashed_symbols_from_dir.exit, label %36
 
-35:                                               ; preds = %32
-  %36 = call ptr @g_dir_open(ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %4)
-  %.not15.i = icmp eq ptr %36, null
-  br i1 %.not15.i, label %90, label %37
+36:                                               ; preds = %33
+  %37 = call ptr @g_dir_open(ptr noundef nonnull %9, i32 noundef 0, ptr noundef nonnull %4)
+  %.not15.i = icmp eq ptr %37, null
+  br i1 %.not15.i, label %91, label %38
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr @gbl_symbols_array, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %gbl_symbols_new.exit.i, label %40
+38:                                               ; preds = %36
+  %39 = load ptr, ptr @gbl_symbols_array, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %gbl_symbols_new.exit.i, label %41
 
-40:                                               ; preds = %37
+41:                                               ; preds = %38
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef 163, ptr noundef nonnull @.str.80) #10
   unreachable
 
-gbl_symbols_new.exit.i:                           ; preds = %37
-  %41 = call ptr @g_array_new(i32 noundef 1, i32 noundef 1, i32 noundef 16)
-  store ptr %41, ptr @gbl_symbols_array, align 8
-  %42 = call noalias ptr @g_strdup(ptr noundef nonnull %9)
-  store ptr %42, ptr @gbl_current_keytab_folder, align 8
-  %43 = call ptr @g_dir_read_name(ptr noundef nonnull %36)
-  %.not1622.i = icmp eq ptr %43, null
+gbl_symbols_new.exit.i:                           ; preds = %38
+  %42 = call ptr @g_array_new(i32 noundef 1, i32 noundef 1, i32 noundef 16)
+  store ptr %42, ptr @gbl_symbols_array, align 8
+  %43 = call noalias ptr @g_strdup(ptr noundef nonnull %9)
+  store ptr %43, ptr @gbl_current_keytab_folder, align 8
+  %44 = call ptr @g_dir_read_name(ptr noundef nonnull %37)
+  %.not1622.i = icmp eq ptr %44, null
   br i1 %.not1622.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %gbl_symbols_new.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %46
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %47
 
-46:                                               ; preds = %76, %.lr.ph.i
-  %47 = phi ptr [ %43, %.lr.ph.i ], [ %77, %76 ]
-  %48 = call i32 @g_str_has_suffix(ptr noundef nonnull %47, ptr noundef nonnull @.str.75)
-  %.not17.i = icmp eq i32 %48, 0
-  br i1 %.not17.i, label %76, label %49
+47:                                               ; preds = %77, %.lr.ph.i
+  %48 = phi ptr [ %44, %.lr.ph.i ], [ %78, %77 ]
+  %49 = call i32 @g_str_has_suffix(ptr noundef nonnull %48, ptr noundef nonnull @.str.75)
+  %.not17.i = icmp eq i32 %49, 0
+  br i1 %.not17.i, label %77, label %50
 
-49:                                               ; preds = %46
-  %50 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.76, ptr noundef nonnull %9, ptr noundef nonnull %47)
-  %51 = call noalias ptr @fopen(ptr noundef readonly %50, ptr noundef nonnull @.str.81)
-  %.not.i18.i = icmp eq ptr %51, null
-  br i1 %.not.i18.i, label %add_symbols_of_file.exit.i, label %52
+50:                                               ; preds = %47
+  %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.76, ptr noundef nonnull %9, ptr noundef nonnull %48)
+  %52 = call noalias ptr @fopen(ptr noundef readonly %51, ptr noundef nonnull @.str.81)
+  %.not.i18.i = icmp eq ptr %52, null
+  br i1 %.not.i18.i, label %add_symbols_of_file.exit.i, label %53
 
-52:                                               ; preds = %49
+53:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %53 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef nonnull %51)
-  %.not1829.i.i = icmp eq ptr %53, null
+  %54 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef nonnull %52)
+  %.not1829.i.i = icmp eq ptr %54, null
   br i1 %.not1829.i.i, label %._crit_edge.i20.i, label %.lr.ph30.i.i
 
-.lr.ph30.i.i:                                     ; preds = %52, %73
+.lr.ph30.i.i:                                     ; preds = %53, %74
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
-  %55 = icmp ult i64 %54, 10
-  br i1 %55, label %73, label %.lr.ph.preheader.i.i, !llvm.loop !8
+  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
+  %56 = icmp ult i64 %55, 10
+  br i1 %56, label %74, label %.lr.ph.preheader.i.i, !llvm.loop !8
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph30.i.i
-  %.023.i.i = add i64 %54, -1
+  %.023.i.i = add i64 %55, -1
   br label %.lr.ph.i19.i
 
 .lr.ph.i19.i:                                     ; preds = %.critedge2.i.i, %.lr.ph.preheader.i.i
   %.026.i.i = phi i64 [ %.0.i.i, %.critedge2.i.i ], [ %.023.i.i, %.lr.ph.preheader.i.i ]
-  %.0.in25.i.i = phi i64 [ %.026.i.i, %.critedge2.i.i ], [ %54, %.lr.ph.preheader.i.i ]
-  %56 = getelementptr i8, ptr %2, i64 %.026.i.i
-  %57 = load i8, ptr %56, align 1
-  switch i8 %57, label %.critedge.i.i [
+  %.0.in25.i.i = phi i64 [ %.026.i.i, %.critedge2.i.i ], [ %55, %.lr.ph.preheader.i.i ]
+  %57 = getelementptr i8, ptr %2, i64 %.026.i.i
+  %58 = load i8, ptr %57, align 1
+  switch i8 %58, label %.critedge.i.i [
     i8 13, label %.critedge2.i.i
     i8 10, label %.critedge2.i.i
   ]
@@ -364,109 +365,109 @@ gbl_symbols_new.exit.i:                           ; preds = %37
 
 .critedge.i.i:                                    ; preds = %.critedge2.i.i, %.lr.ph.i19.i
   %.0.in.lcssa.ph.i.i = phi i64 [ 1, %.critedge2.i.i ], [ %.0.in25.i.i, %.lr.ph.i19.i ]
-  %58 = getelementptr i8, ptr %2, i64 %.0.in.lcssa.ph.i.i
-  store i8 0, ptr %58, align 1
-  %59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.82, ptr noundef nonnull %3) #11
-  %.not20.i.i = icmp eq i32 %59, 1
-  br i1 %.not20.i.i, label %60, label %73, !llvm.loop !8
+  %59 = getelementptr i8, ptr %2, i64 %.0.in.lcssa.ph.i.i
+  store i8 0, ptr %59, align 1
+  %60 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.82, ptr noundef nonnull %3) #11
+  %.not20.i.i = icmp eq i32 %60, 1
+  br i1 %.not20.i.i, label %61, label %74, !llvm.loop !8
 
-60:                                               ; preds = %.critedge.i.i
-  %61 = call i64 @strcspn(ptr noundef nonnull %2, ptr noundef nonnull @.str.83) #9
-  %62 = getelementptr i8, ptr %2, i64 %61
-  %63 = load i8, ptr %62, align 1
-  %.not21.i.i = icmp eq i8 %63, 0
-  br i1 %.not21.i.i, label %73, label %64
+61:                                               ; preds = %.critedge.i.i
+  %62 = call i64 @strcspn(ptr noundef nonnull %2, ptr noundef nonnull @.str.83) #9
+  %63 = getelementptr i8, ptr %2, i64 %62
+  %64 = load i8, ptr %63, align 1
+  %.not21.i.i = icmp eq i8 %64, 0
+  br i1 %.not21.i.i, label %74, label %65
 
-64:                                               ; preds = %60
-  %65 = getelementptr i8, ptr %62, i64 1
-  %66 = load i8, ptr %65, align 1
-  %.not22.i.i = icmp eq i8 %66, 0
-  br i1 %.not22.i.i, label %73, label %67
+65:                                               ; preds = %61
+  %66 = getelementptr i8, ptr %63, i64 1
+  %67 = load i8, ptr %66, align 1
+  %.not22.i.i = icmp eq i8 %67, 0
+  br i1 %.not22.i.i, label %74, label %68
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr %3, align 4
-  %69 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.84, ptr noundef %65)
+68:                                               ; preds = %65
+  %69 = load i32, ptr %3, align 4
+  %70 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.84, ptr noundef %66)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  store i32 %68, ptr %1, align 8
-  store i32 0, ptr %44, align 4
-  store ptr %69, ptr %45, align 8
-  %70 = load ptr, ptr @gbl_symbols_array, align 8
-  %.not.i.i.i = icmp eq ptr %70, null
-  br i1 %.not.i.i.i, label %71, label %gbl_symbols_array_append.exit.i.i
+  store i32 %69, ptr %1, align 8
+  store i32 0, ptr %45, align 4
+  store ptr %70, ptr %46, align 8
+  %71 = load ptr, ptr @gbl_symbols_array, align 8
+  %.not.i.i.i = icmp eq ptr %71, null
+  br i1 %.not.i.i.i, label %72, label %gbl_symbols_array_append.exit.i.i
 
-71:                                               ; preds = %67
+72:                                               ; preds = %68
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef 189, ptr noundef nonnull @.str.85) #10
   unreachable
 
-gbl_symbols_array_append.exit.i.i:                ; preds = %67
-  %72 = call ptr @g_array_append_vals(ptr noundef nonnull %70, ptr noundef nonnull %1, i32 noundef 1)
+gbl_symbols_array_append.exit.i.i:                ; preds = %68
+  %73 = call ptr @g_array_append_vals(ptr noundef nonnull %71, ptr noundef nonnull %1, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %73
+  br label %74
 
-73:                                               ; preds = %gbl_symbols_array_append.exit.i.i, %64, %60, %.critedge.i.i, %.lr.ph30.i.i
+74:                                               ; preds = %gbl_symbols_array_append.exit.i.i, %65, %61, %.critedge.i.i, %.lr.ph30.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %74 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef nonnull %51)
-  %.not18.i.i = icmp eq ptr %74, null
+  %75 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef nonnull %52)
+  %.not18.i.i = icmp eq ptr %75, null
   br i1 %.not18.i.i, label %._crit_edge.i20.i, label %.lr.ph30.i.i
 
-._crit_edge.i20.i:                                ; preds = %73, %52
-  %75 = call i32 @fclose(ptr noundef nonnull %51)
+._crit_edge.i20.i:                                ; preds = %74, %53
+  %76 = call i32 @fclose(ptr noundef nonnull %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %add_symbols_of_file.exit.i
 
-add_symbols_of_file.exit.i:                       ; preds = %._crit_edge.i20.i, %49
-  call void @g_free(ptr noundef %50)
-  br label %76
+add_symbols_of_file.exit.i:                       ; preds = %._crit_edge.i20.i, %50
+  call void @g_free(ptr noundef %51)
+  br label %77
 
-76:                                               ; preds = %add_symbols_of_file.exit.i, %46
-  %77 = call ptr @g_dir_read_name(ptr noundef nonnull %36)
-  %.not16.i = icmp eq ptr %77, null
-  br i1 %.not16.i, label %._crit_edge.i, label %46, !llvm.loop !10
+77:                                               ; preds = %add_symbols_of_file.exit.i, %47
+  %78 = call ptr @g_dir_read_name(ptr noundef nonnull %37)
+  %.not16.i = icmp eq ptr %78, null
+  br i1 %.not16.i, label %._crit_edge.i, label %47, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %76, %gbl_symbols_new.exit.i
-  call void @g_dir_close(ptr noundef nonnull %36)
-  %78 = load ptr, ptr @gbl_symbols_vs_ext, align 8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %81, label %80
+._crit_edge.i:                                    ; preds = %77, %gbl_symbols_new.exit.i
+  call void @g_dir_close(ptr noundef nonnull %37)
+  %79 = load ptr, ptr @gbl_symbols_vs_ext, align 8
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %82, label %81
 
-80:                                               ; preds = %._crit_edge.i
+81:                                               ; preds = %._crit_edge.i
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef 210, ptr noundef nonnull @.str.86) #10
   unreachable
 
-81:                                               ; preds = %._crit_edge.i
-  %82 = load ptr, ptr @gbl_symbols_array, align 8
-  %.not.i21.i = icmp eq ptr %82, null
-  br i1 %.not.i21.i, label %83, label %gbl_symbols_vs_ext_new.exit.i
+82:                                               ; preds = %._crit_edge.i
+  %83 = load ptr, ptr @gbl_symbols_array, align 8
+  %.not.i21.i = icmp eq ptr %83, null
+  br i1 %.not.i21.i, label %84, label %gbl_symbols_vs_ext_new.exit.i
 
-83:                                               ; preds = %81
+84:                                               ; preds = %82
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef 211, ptr noundef nonnull @.str.85) #10
   unreachable
 
-gbl_symbols_vs_ext_new.exit.i:                    ; preds = %81
-  call void @g_array_sort(ptr noundef nonnull %82, ptr noundef nonnull @gbl_symbols_compare_vs)
-  %84 = load ptr, ptr @gbl_symbols_array, align 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %87 = load i32, ptr %86, align 8
-  %88 = add i32 %87, 1
-  %89 = call ptr @value_string_ext_new(ptr noundef %85, i32 noundef %88, ptr noundef nonnull @.str.87)
-  store ptr %89, ptr @gbl_symbols_vs_ext, align 8
+gbl_symbols_vs_ext_new.exit.i:                    ; preds = %82
+  call void @g_array_sort(ptr noundef nonnull %83, ptr noundef nonnull @gbl_symbols_compare_vs)
+  %85 = load ptr, ptr @gbl_symbols_array, align 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load i32, ptr %87, align 8
+  %89 = add i32 %88, 1
+  %90 = call ptr @value_string_ext_new(ptr noundef %86, i32 noundef %89, ptr noundef nonnull @.str.87)
+  store ptr %90, ptr @gbl_symbols_vs_ext, align 8
   br label %read_hashed_symbols_from_dir.exit
 
-90:                                               ; preds = %35
-  %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.77, ptr noundef %93)
-  %94 = load ptr, ptr %4, align 8
-  call void @g_error_free(ptr noundef %94)
+91:                                               ; preds = %36
+  %92 = load ptr, ptr %4, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = load ptr, ptr %93, align 8
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.77, ptr noundef %94)
+  %95 = load ptr, ptr %4, align 8
+  call void @g_error_free(ptr noundef %95)
   br label %read_hashed_symbols_from_dir.exit
 
-read_hashed_symbols_from_dir.exit:                ; preds = %gbl_symbols_free.exit.i, %32, %gbl_symbols_vs_ext_new.exit.i, %90
+read_hashed_symbols_from_dir.exit:                ; preds = %gbl_symbols_free.exit.i, %33, %gbl_symbols_vs_ext_new.exit.i, %91
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %95
+  br label %96
 
-95:                                               ; preds = %read_hashed_symbols_from_dir.exit, %13
+96:                                               ; preds = %read_hashed_symbols_from_dir.exit, %13
   ret void
 }
 

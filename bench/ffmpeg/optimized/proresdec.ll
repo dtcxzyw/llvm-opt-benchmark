@@ -399,15 +399,15 @@ decode_frame_header.exit:                         ; preds = %144, %141
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 680
   br label %159
 
-._crit_edge:                                      ; preds = %296, %149
+._crit_edge:                                      ; preds = %297, %149
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13) #10
   br label %decode_picture_header.exit.thread
 
-159:                                              ; preds = %.lr.ph, %296
-  %160 = phi i32 [ %155, %.lr.ph ], [ %299, %296 ]
-  %161 = phi i8 [ %154, %.lr.ph ], [ %298, %296 ]
-  %.04593 = phi ptr [ %152, %.lr.ph ], [ %289, %296 ]
-  %.04692 = phi i32 [ %150, %.lr.ph ], [ %290, %296 ]
+159:                                              ; preds = %.lr.ph, %297
+  %160 = phi i32 [ %155, %.lr.ph ], [ %300, %297 ]
+  %161 = phi i8 [ %154, %.lr.ph ], [ %299, %297 ]
+  %.04593 = phi ptr [ %152, %.lr.ph ], [ %290, %297 ]
+  %.04692 = phi i32 [ %150, %.lr.ph ], [ %291, %297 ]
   %162 = load ptr, ptr %5, align 8, !tbaa !4
   %163 = getelementptr inbounds nuw i8, ptr %.04593, i64 1
   %164 = load i32, ptr %163, align 1, !tbaa !39
@@ -631,69 +631,70 @@ decode_picture_header.exit:                       ; preds = %265
 
 276:                                              ; preds = %276, %.lr.ph.i60
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i60 ], [ %indvars.iv.next.i63, %276 ]
-  %.018.i = phi i32 [ 0, %.lr.ph.i60 ], [ %279, %276 ]
-  %277 = getelementptr inbounds nuw %struct.SliceContext, ptr %275, i64 %indvars.iv.i62, i32 5
-  %278 = load i32, ptr %277, align 8, !tbaa !72
-  %.lobit.i = lshr i32 %278, 31
-  %279 = add nuw nsw i32 %.lobit.i, %.018.i
+  %.018.i = phi i32 [ 0, %.lr.ph.i60 ], [ %280, %276 ]
+  %277 = getelementptr inbounds nuw %struct.SliceContext, ptr %275, i64 %indvars.iv.i62
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 24
+  %279 = load i32, ptr %278, align 8, !tbaa !72
+  %.lobit.i = lshr i32 %279, 31
+  %280 = add nuw nsw i32 %.lobit.i, %.018.i
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, %wide.trip.count.i61
   br i1 %exitcond.not.i64, label %._crit_edge.i65, label %276, !llvm.loop !73
 
 ._crit_edge.i65:                                  ; preds = %276
-  %.not.i66 = icmp eq i32 %279, 0
+  %.not.i66 = icmp eq i32 %280, 0
   br i1 %.not.i66, label %decode_picture.exit.thread, label %._crit_edge.thread.i59
 
 ._crit_edge.thread.i59:                           ; preds = %._crit_edge.i65
-  %280 = getelementptr inbounds nuw i8, ptr %267, i64 112
-  %281 = load ptr, ptr %280, align 8, !tbaa !40
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 320
-  store i32 1, ptr %282, align 8, !tbaa !74
-  %283 = icmp slt i32 %279, %272
-  br i1 %283, label %decode_picture.exit.thread, label %decode_picture.exit
+  %281 = getelementptr inbounds nuw i8, ptr %267, i64 112
+  %282 = load ptr, ptr %281, align 8, !tbaa !40
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 320
+  store i32 1, ptr %283, align 8, !tbaa !74
+  %284 = icmp slt i32 %280, %272
+  br i1 %284, label %decode_picture.exit.thread, label %decode_picture.exit
 
 decode_picture.exit:                              ; preds = %decode_picture_header.exit, %._crit_edge.thread.i59
-  %284 = getelementptr inbounds nuw i8, ptr %275, i64 24
-  %285 = load i32, ptr %284, align 8, !tbaa !72
-  %286 = icmp slt i32 %285, 0
-  br i1 %286, label %287, label %decode_picture.exit.thread
+  %285 = getelementptr inbounds nuw i8, ptr %275, i64 24
+  %286 = load i32, ptr %285, align 8, !tbaa !72
+  %287 = icmp slt i32 %286, 0
+  br i1 %287, label %288, label %decode_picture.exit.thread
 
-287:                                              ; preds = %decode_picture.exit
+288:                                              ; preds = %decode_picture.exit
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7) #10
   br label %decode_frame_header.exit.thread
 
 decode_picture.exit.thread:                       ; preds = %._crit_edge.i65, %._crit_edge.thread.i59, %decode_picture.exit
-  %288 = zext nneg i32 %165 to i64
-  %289 = getelementptr inbounds nuw i8, ptr %.04593, i64 %288
-  %290 = sub nsw i32 %.04692, %165
-  %291 = load i32, ptr %54, align 8, !tbaa !44
-  %292 = icmp ne i32 %291, 0
-  %293 = icmp sgt i32 %290, 0
-  %or.cond = select i1 %292, i1 %293, i1 false
-  br i1 %or.cond, label %294, label %302
+  %289 = zext nneg i32 %165 to i64
+  %290 = getelementptr inbounds nuw i8, ptr %.04593, i64 %289
+  %291 = sub nsw i32 %.04692, %165
+  %292 = load i32, ptr %54, align 8, !tbaa !44
+  %293 = icmp ne i32 %292, 0
+  %294 = icmp sgt i32 %291, 0
+  %or.cond = select i1 %293, i1 %294, i1 false
+  br i1 %or.cond, label %295, label %303
 
-294:                                              ; preds = %decode_picture.exit.thread
-  %295 = load i32, ptr %18, align 8, !tbaa !41
-  %.not54 = icmp eq i32 %295, 0
-  br i1 %.not54, label %302, label %296
+295:                                              ; preds = %decode_picture.exit.thread
+  %296 = load i32, ptr %18, align 8, !tbaa !41
+  %.not54 = icmp eq i32 %296, 0
+  br i1 %.not54, label %303, label %297
 
-296:                                              ; preds = %294
+297:                                              ; preds = %295
   store i32 0, ptr %18, align 8, !tbaa !41
-  %297 = load i8, ptr %289, align 1, !tbaa !39
-  %298 = lshr i8 %297, 3
-  %299 = zext nneg i8 %298 to i32
-  %300 = icmp ult i8 %297, 64
-  %301 = icmp samesign ult i32 %290, %299
-  %or.cond117.i = select i1 %300, i1 true, i1 %301
+  %298 = load i8, ptr %290, align 1, !tbaa !39
+  %299 = lshr i8 %298, 3
+  %300 = zext nneg i8 %299 to i32
+  %301 = icmp ult i8 %298, 64
+  %302 = icmp samesign ult i32 %291, %300
+  %or.cond117.i = select i1 %301, i1 true, i1 %302
   br i1 %or.cond117.i, label %._crit_edge, label %159
 
-302:                                              ; preds = %decode_picture.exit.thread, %294
+303:                                              ; preds = %decode_picture.exit.thread, %295
   store i32 1, ptr %2, align 4, !tbaa !75
-  %303 = load i32, ptr %9, align 8, !tbaa !38
+  %304 = load i32, ptr %9, align 8, !tbaa !38
   br label %decode_frame_header.exit.thread
 
-decode_frame_header.exit.thread:                  ; preds = %._crit_edge.i, %140, %124, %61, %31, %25, %decode_frame_header.exit, %302, %287, %decode_picture_header.exit.thread, %15
-  %.0 = phi i32 [ -1094995529, %15 ], [ %.0.i5769, %decode_picture_header.exit.thread ], [ %285, %287 ], [ %303, %302 ], [ %147, %decode_frame_header.exit ], [ %46, %._crit_edge.i ], [ -1094995529, %140 ], [ -1094995529, %124 ], [ -1094995529, %61 ], [ -1163346256, %31 ], [ -1094995529, %25 ]
+decode_frame_header.exit.thread:                  ; preds = %._crit_edge.i, %140, %124, %61, %31, %25, %decode_frame_header.exit, %303, %288, %decode_picture_header.exit.thread, %15
+  %.0 = phi i32 [ -1094995529, %15 ], [ %.0.i5769, %decode_picture_header.exit.thread ], [ %286, %288 ], [ %304, %303 ], [ %147, %decode_frame_header.exit ], [ %46, %._crit_edge.i ], [ -1094995529, %140 ], [ -1094995529, %124 ], [ -1094995529, %61 ], [ -1163346256, %31 ], [ -1094995529, %25 ]
   ret i32 %.0
 }
 

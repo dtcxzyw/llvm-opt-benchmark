@@ -3331,12 +3331,12 @@ define noundef align 8 ptr @_ZN20ruff_python_semantic7analyze6typing18find_bindi
 9:                                                ; preds = %2
   %10 = tail call noundef align 8 dereferenceable_or_null(120) ptr @_ZN20ruff_python_semantic7binding7Binding9statement17h9317954ba65c6849E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %1)
   %.not13 = icmp eq ptr %10, null
-  br i1 %.not13, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %67
+  br i1 %.not13, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %68
 
 11:                                               ; preds = %2
   %12 = tail call noundef align 8 dereferenceable_or_null(120) ptr @_ZN20ruff_python_semantic7binding7Binding9statement17h9317954ba65c6849E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %1)
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %137
+  br i1 %.not, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %138
 
 13:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3356,7 +3356,7 @@ define noundef align 8 ptr @_ZN20ruff_python_semantic7analyze6typing18find_bindi
   br label %20
 
 20:                                               ; preds = %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h28c220f1383a2f5fE.exit.i.i", %13
-  %21 = phi i32 [ %31, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h28c220f1383a2f5fE.exit.i.i" ], [ %.promoted.i.i, %13 ]
+  %21 = phi i32 [ %32, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h28c220f1383a2f5fE.exit.i.i" ], [ %.promoted.i.i, %13 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %.not.i.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i.i, label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h00b61c8660f1cf2bE.exit.thread", label %22
@@ -3374,275 +3374,276 @@ define noundef align 8 ptr @_ZN20ruff_python_semantic7analyze6typing18find_bindi
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %17, align 8, !noalias !132, !nonnull !3, !noundef !3
-  %30 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %29, i64 %25, i32 1
-  %31 = load i32, ptr %30, align 8, !noalias !132, !noundef !3
-  %32 = load i64, ptr %18, align 8, !noalias !133, !noundef !3
-  %33 = icmp ugt i64 %32, %25
-  br i1 %33, label %"_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i", label %34
+  %30 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %29, i64 %25
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load i32, ptr %31, align 8, !noalias !132, !noundef !3
+  %33 = load i64, ptr %18, align 8, !noalias !133, !noundef !3
+  %34 = icmp ugt i64 %33, %25
+  br i1 %34, label %"_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i", label %35
 
-34:                                               ; preds = %28
-  tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %25, i64 noundef %32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6ed0df229a26352fa4caae952c01bbae.64) #15, !noalias !133
+35:                                               ; preds = %28
+  tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %25, i64 noundef %33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6ed0df229a26352fa4caae952c01bbae.64) #15, !noalias !133
   unreachable
 
 "_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i": ; preds = %28
-  %35 = load ptr, ptr %19, align 8, !noalias !133, !nonnull !3, !noundef !3
-  %36 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %35, i64 %25
-  %37 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %36), !noalias !133
-  %.not.i7.i.i = icmp eq ptr %37, null
+  %36 = load ptr, ptr %19, align 8, !noalias !133, !nonnull !3, !noundef !3
+  %37 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %36, i64 %25
+  %38 = tail call noundef align 8 ptr @_ZN20ruff_python_semantic5nodes7NodeRef13as_expression17h9208f28d7ffeb6d7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37), !noalias !133
+  %.not.i7.i.i = icmp eq ptr %38, null
   br i1 %.not.i7.i.i, label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h00b61c8660f1cf2bE.exit.thread", label %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h28c220f1383a2f5fE.exit.i.i"
 
 "_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h28c220f1383a2f5fE.exit.i.i": ; preds = %"_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i"
-  %38 = load i32, ptr %37, align 8, !range !13, !noalias !133, !noundef !3
-  %.not1.i.i.i = icmp eq i32 %38, 1
-  br i1 %.not1.i.i.i, label %39, label %20
+  %39 = load i32, ptr %38, align 8, !range !13, !noalias !133, !noundef !3
+  %.not1.i.i.i = icmp eq i32 %39, 1
+  br i1 %.not1.i.i.i, label %40, label %20
 
 "_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h00b61c8660f1cf2bE.exit.thread": ; preds = %"_ZN20ruff_python_semantic5model13SemanticModel11expressions28_$u7b$$u7b$closure$u7d$$u7d$17h546a9ff7b494aab6E.exit.i.i.i", %20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit
 
-_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit: ; preds = %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i", %155, %146, %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i", %88, %82, %127, %125, %115, %111, %57, %55, %45, %39, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h00b61c8660f1cf2bE.exit.thread", %11, %137, %9, %67, %108, %6, %2
-  %.sroa.0.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %108 ], [ null, %67 ], [ null, %9 ], [ null, %137 ], [ null, %11 ], [ null, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h00b61c8660f1cf2bE.exit.thread" ], [ %66, %57 ], [ null, %39 ], [ %spec.select.i, %45 ], [ null, %55 ], [ %136, %127 ], [ null, %111 ], [ %spec.select.i22, %115 ], [ null, %125 ], [ %79, %88 ], [ null, %82 ], [ %.sroa.0.0.i.i.i, %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i" ], [ %147, %155 ], [ null, %146 ], [ %.sroa.0.0.i7.i, %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i" ]
+_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit: ; preds = %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i", %156, %147, %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i", %89, %83, %128, %126, %116, %112, %58, %56, %46, %40, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h00b61c8660f1cf2bE.exit.thread", %11, %138, %9, %68, %109, %6, %2
+  %.sroa.0.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %109 ], [ null, %68 ], [ null, %9 ], [ null, %138 ], [ null, %11 ], [ null, %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h00b61c8660f1cf2bE.exit.thread" ], [ %67, %58 ], [ null, %40 ], [ %spec.select.i, %46 ], [ null, %56 ], [ %137, %128 ], [ null, %112 ], [ %spec.select.i22, %116 ], [ null, %126 ], [ %80, %89 ], [ null, %83 ], [ %.sroa.0.0.i.i.i, %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i" ], [ %148, %156 ], [ null, %147 ], [ %.sroa.0.0.i7.i, %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i" ]
   ret ptr %.sroa.0.0
 
-39:                                               ; preds = %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h28c220f1383a2f5fE.exit.i.i"
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+40:                                               ; preds = %"_ZN113_$LT$core..iter..adapters..map_while..MapWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h28c220f1383a2f5fE.exit.i.i"
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %41 = load ptr, ptr %40, align 8, !nonnull !3, !align !5, !noundef !3
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %43 = load ptr, ptr %42, align 8, !nonnull !3, !align !5, !noundef !3
-  %44 = load i32, ptr %41, align 8, !range !13, !noalias !134, !noundef !3
-  switch i32 %44, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit [
-    i32 27, label %45
-    i32 28, label %55
-    i32 29, label %55
+  %42 = load ptr, ptr %41, align 8, !nonnull !3, !align !5, !noundef !3
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %44 = load ptr, ptr %43, align 8, !nonnull !3, !align !5, !noundef !3
+  %45 = load i32, ptr %42, align 8, !range !13, !noalias !134, !noundef !3
+  switch i32 %45, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit [
+    i32 27, label %46
+    i32 28, label %56
+    i32 29, label %56
   ]
 
-45:                                               ; preds = %39
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %47 = tail call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h017ef32e7dabd4efE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %46), !noalias !134
-  %48 = extractvalue { i32, i32 } %47, 0
-  %49 = extractvalue { i32, i32 } %47, 1
-  %50 = tail call { i32, i32 } @"_ZN89_$LT$ruff_python_semantic..binding..Binding$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbf01138b945c6615E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
-  %51 = extractvalue { i32, i32 } %50, 0
-  %52 = extractvalue { i32, i32 } %50, 1
-  %53 = icmp eq i32 %48, %51
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %48 = tail call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h017ef32e7dabd4efE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %47), !noalias !134
+  %49 = extractvalue { i32, i32 } %48, 0
+  %50 = extractvalue { i32, i32 } %48, 1
+  %51 = tail call { i32, i32 } @"_ZN89_$LT$ruff_python_semantic..binding..Binding$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbf01138b945c6615E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
+  %52 = extractvalue { i32, i32 } %51, 0
+  %53 = extractvalue { i32, i32 } %51, 1
   %54 = icmp eq i32 %49, %52
-  %or.cond.i = select i1 %53, i1 %54, i1 false
-  %spec.select.i = select i1 %or.cond.i, ptr %43, ptr null
+  %55 = icmp eq i32 %50, %53
+  %or.cond.i = select i1 %54, i1 %55, i1 false
+  %spec.select.i = select i1 %or.cond.i, ptr %44, ptr null
   br label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit
 
-55:                                               ; preds = %39, %39
-  %56 = load i32, ptr %43, align 8, !range !13, !noalias !134, !noundef !3
-  switch i32 %56, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit [
-    i32 7, label %57
-    i32 28, label %57
-    i32 29, label %57
+56:                                               ; preds = %40, %40
+  %57 = load i32, ptr %44, align 8, !range !13, !noalias !134, !noundef !3
+  switch i32 %57, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit [
+    i32 7, label %58
+    i32 28, label %58
+    i32 29, label %58
   ]
 
-57:                                               ; preds = %55, %55, %55
-  %58 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %59 = load ptr, ptr %58, align 8, !noalias !134, !nonnull !3, !noundef !3
-  %60 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %61 = load i64, ptr %60, align 8, !noalias !134, !noundef !3
-  %62 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %63 = load ptr, ptr %62, align 8, !noalias !134, !nonnull !3, !noundef !3
-  %64 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %65 = load i64, ptr %64, align 8, !noalias !134, !noundef !3
-  %66 = tail call fastcc noundef align 8 ptr @_ZN20ruff_python_semantic7analyze6typing12match_target17hc9acf5eabb14d876E(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %59, i64 noundef %61, ptr noundef nonnull align 8 %63, i64 noundef %65)
+58:                                               ; preds = %56, %56, %56
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %60 = load ptr, ptr %59, align 8, !noalias !134, !nonnull !3, !noundef !3
+  %61 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %62 = load i64, ptr %61, align 8, !noalias !134, !noundef !3
+  %63 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %64 = load ptr, ptr %63, align 8, !noalias !134, !nonnull !3, !noundef !3
+  %65 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %66 = load i64, ptr %65, align 8, !noalias !134, !noundef !3
+  %67 = tail call fastcc noundef align 8 ptr @_ZN20ruff_python_semantic7analyze6typing12match_target17hc9acf5eabb14d876E(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %60, i64 noundef %62, ptr noundef nonnull align 8 %64, i64 noundef %66)
   br label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit
 
-67:                                               ; preds = %9
-  %68 = load i64, ptr %10, align 8, !range !44, !noundef !3
-  %69 = icmp slt i64 %68, -9223372036854775784
-  %70 = add i64 %68, -9223372036854775807
-  %71 = select i1 %69, i64 %70, i64 0
-  switch i64 %71, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit [
-    i64 5, label %72
-    i64 7, label %108
+68:                                               ; preds = %9
+  %69 = load i64, ptr %10, align 8, !range !44, !noundef !3
+  %70 = icmp slt i64 %69, -9223372036854775784
+  %71 = add i64 %69, -9223372036854775807
+  %72 = select i1 %70, i64 %71, i64 0
+  switch i64 %72, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit [
+    i64 5, label %73
+    i64 7, label %109
   ]
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %74 = load ptr, ptr %73, align 8, !nonnull !3, !noundef !3
-  %75 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %76 = load i64, ptr %75, align 8, !noundef !3
-  %77 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %74, i64 %76
-  %78 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %79 = load ptr, ptr %78, align 8, !nonnull !3, !align !5, !noundef !3
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  br label %82
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %75 = load ptr, ptr %74, align 8, !nonnull !3, !noundef !3
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %77 = load i64, ptr %76, align 8, !noundef !3
+  %78 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %75, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %80 = load ptr, ptr %79, align 8, !nonnull !3, !align !5, !noundef !3
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  br label %83
 
-82:                                               ; preds = %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i", %72
-  %83 = phi ptr [ %86, %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i" ], [ %74, %72 ]
-  %84 = icmp eq ptr %83, %77
-  br i1 %84, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %85
+83:                                               ; preds = %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i", %73
+  %84 = phi ptr [ %87, %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i" ], [ %75, %73 ]
+  %85 = icmp eq ptr %84, %78
+  br i1 %85, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %86
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 64
-  %87 = load i32, ptr %83, align 8, !range !13, !noalias !137, !noundef !3
-  switch i32 %87, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i" [
-    i32 27, label %88
-    i32 28, label %98
-    i32 29, label %98
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 64
+  %88 = load i32, ptr %84, align 8, !range !13, !noalias !137, !noundef !3
+  switch i32 %88, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i" [
+    i32 27, label %89
+    i32 28, label %99
+    i32 29, label %99
   ]
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %90 = tail call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h017ef32e7dabd4efE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %89), !noalias !137
-  %91 = extractvalue { i32, i32 } %90, 0
-  %92 = extractvalue { i32, i32 } %90, 1
-  %93 = tail call { i32, i32 } @"_ZN89_$LT$ruff_python_semantic..binding..Binding$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbf01138b945c6615E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0), !noalias !142
-  %94 = extractvalue { i32, i32 } %93, 0
-  %95 = extractvalue { i32, i32 } %93, 1
-  %96 = icmp eq i32 %91, %94
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %91 = tail call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h017ef32e7dabd4efE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %90), !noalias !137
+  %92 = extractvalue { i32, i32 } %91, 0
+  %93 = extractvalue { i32, i32 } %91, 1
+  %94 = tail call { i32, i32 } @"_ZN89_$LT$ruff_python_semantic..binding..Binding$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbf01138b945c6615E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0), !noalias !142
+  %95 = extractvalue { i32, i32 } %94, 0
+  %96 = extractvalue { i32, i32 } %94, 1
   %97 = icmp eq i32 %92, %95
-  %or.cond.i.i.i = select i1 %96, i1 %97, i1 false
+  %98 = icmp eq i32 %93, %96
+  %or.cond.i.i.i = select i1 %97, i1 %98, i1 false
   br i1 %or.cond.i.i.i, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i"
 
-98:                                               ; preds = %85, %85
-  %99 = load i32, ptr %79, align 8, !range !13, !noalias !143, !noundef !3
-  switch i32 %99, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i" [
-    i32 7, label %100
-    i32 28, label %100
-    i32 29, label %100
+99:                                               ; preds = %86, %86
+  %100 = load i32, ptr %80, align 8, !range !13, !noalias !143, !noundef !3
+  switch i32 %100, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i" [
+    i32 7, label %101
+    i32 28, label %101
+    i32 29, label %101
   ]
 
-100:                                              ; preds = %98, %98, %98
-  %101 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %102 = load ptr, ptr %101, align 8, !noalias !137, !nonnull !3, !noundef !3
-  %103 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %104 = load i64, ptr %103, align 8, !noalias !137, !noundef !3
-  %105 = load ptr, ptr %80, align 8, !noalias !143, !nonnull !3, !noundef !3
-  %106 = load i64, ptr %81, align 8, !noalias !143, !noundef !3
-  %107 = tail call fastcc noundef align 8 ptr @_ZN20ruff_python_semantic7analyze6typing12match_target17hc9acf5eabb14d876E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %102, i64 noundef %104, ptr noundef nonnull align 8 %105, i64 noundef %106), !noalias !142
+101:                                              ; preds = %99, %99, %99
+  %102 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %103 = load ptr, ptr %102, align 8, !noalias !137, !nonnull !3, !noundef !3
+  %104 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %105 = load i64, ptr %104, align 8, !noalias !137, !noundef !3
+  %106 = load ptr, ptr %81, align 8, !noalias !143, !nonnull !3, !noundef !3
+  %107 = load i64, ptr %82, align 8, !noalias !143, !noundef !3
+  %108 = tail call fastcc noundef align 8 ptr @_ZN20ruff_python_semantic7analyze6typing12match_target17hc9acf5eabb14d876E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %103, i64 noundef %105, ptr noundef nonnull align 8 %106, i64 noundef %107), !noalias !142
   br label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i"
 
-"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i": ; preds = %100, %98, %88, %85
-  %.sroa.0.0.i.i.i = phi ptr [ %107, %100 ], [ null, %85 ], [ null, %88 ], [ null, %98 ]
+"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h91514994cd1a6579E.exit.i": ; preds = %101, %99, %89, %86
+  %.sroa.0.0.i.i.i = phi ptr [ %108, %101 ], [ null, %86 ], [ null, %89 ], [ null, %99 ]
   %.not6.i = icmp eq ptr %.sroa.0.0.i.i.i, null
-  br i1 %.not6.i, label %82, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit
+  br i1 %.not6.i, label %83, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit
 
-108:                                              ; preds = %67
-  %109 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %110 = load ptr, ptr %109, align 8, !align !5, !noundef !3
-  %.not14 = icmp eq ptr %110, null
-  br i1 %.not14, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %111
+109:                                              ; preds = %68
+  %110 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %111 = load ptr, ptr %110, align 8, !align !5, !noundef !3
+  %.not14 = icmp eq ptr %111, null
+  br i1 %.not14, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %112
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %113 = load ptr, ptr %112, align 8, !nonnull !3, !align !5, !noundef !3
-  %114 = load i32, ptr %113, align 8, !range !13, !noalias !145, !noundef !3
-  switch i32 %114, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit [
-    i32 27, label %115
-    i32 28, label %125
-    i32 29, label %125
+112:                                              ; preds = %109
+  %113 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %114 = load ptr, ptr %113, align 8, !nonnull !3, !align !5, !noundef !3
+  %115 = load i32, ptr %114, align 8, !range !13, !noalias !145, !noundef !3
+  switch i32 %115, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit [
+    i32 27, label %116
+    i32 28, label %126
+    i32 29, label %126
   ]
 
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %117 = tail call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h017ef32e7dabd4efE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %116), !noalias !145
-  %118 = extractvalue { i32, i32 } %117, 0
-  %119 = extractvalue { i32, i32 } %117, 1
-  %120 = tail call { i32, i32 } @"_ZN89_$LT$ruff_python_semantic..binding..Binding$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbf01138b945c6615E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
-  %121 = extractvalue { i32, i32 } %120, 0
-  %122 = extractvalue { i32, i32 } %120, 1
-  %123 = icmp eq i32 %118, %121
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %118 = tail call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h017ef32e7dabd4efE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %117), !noalias !145
+  %119 = extractvalue { i32, i32 } %118, 0
+  %120 = extractvalue { i32, i32 } %118, 1
+  %121 = tail call { i32, i32 } @"_ZN89_$LT$ruff_python_semantic..binding..Binding$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbf01138b945c6615E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
+  %122 = extractvalue { i32, i32 } %121, 0
+  %123 = extractvalue { i32, i32 } %121, 1
   %124 = icmp eq i32 %119, %122
-  %or.cond.i21 = select i1 %123, i1 %124, i1 false
-  %spec.select.i22 = select i1 %or.cond.i21, ptr %110, ptr null
+  %125 = icmp eq i32 %120, %123
+  %or.cond.i21 = select i1 %124, i1 %125, i1 false
+  %spec.select.i22 = select i1 %or.cond.i21, ptr %111, ptr null
   br label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit
 
-125:                                              ; preds = %111, %111
-  %126 = load i32, ptr %110, align 8, !range !13, !noalias !145, !noundef !3
-  switch i32 %126, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit [
-    i32 7, label %127
-    i32 28, label %127
-    i32 29, label %127
+126:                                              ; preds = %112, %112
+  %127 = load i32, ptr %111, align 8, !range !13, !noalias !145, !noundef !3
+  switch i32 %127, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit [
+    i32 7, label %128
+    i32 28, label %128
+    i32 29, label %128
   ]
 
-127:                                              ; preds = %125, %125, %125
-  %128 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %129 = load ptr, ptr %128, align 8, !noalias !145, !nonnull !3, !noundef !3
-  %130 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  %131 = load i64, ptr %130, align 8, !noalias !145, !noundef !3
-  %132 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %133 = load ptr, ptr %132, align 8, !noalias !145, !nonnull !3, !noundef !3
-  %134 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %135 = load i64, ptr %134, align 8, !noalias !145, !noundef !3
-  %136 = tail call fastcc noundef align 8 ptr @_ZN20ruff_python_semantic7analyze6typing12match_target17hc9acf5eabb14d876E(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %129, i64 noundef %131, ptr noundef nonnull align 8 %133, i64 noundef %135)
+128:                                              ; preds = %126, %126, %126
+  %129 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %130 = load ptr, ptr %129, align 8, !noalias !145, !nonnull !3, !noundef !3
+  %131 = getelementptr inbounds nuw i8, ptr %114, i64 24
+  %132 = load i64, ptr %131, align 8, !noalias !145, !noundef !3
+  %133 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %134 = load ptr, ptr %133, align 8, !noalias !145, !nonnull !3, !noundef !3
+  %135 = getelementptr inbounds nuw i8, ptr %111, i64 24
+  %136 = load i64, ptr %135, align 8, !noalias !145, !noundef !3
+  %137 = tail call fastcc noundef align 8 ptr @_ZN20ruff_python_semantic7analyze6typing12match_target17hc9acf5eabb14d876E(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %130, i64 noundef %132, ptr noundef nonnull align 8 %134, i64 noundef %136)
   br label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit
 
-137:                                              ; preds = %11
-  %138 = load i64, ptr %12, align 8, !range !44, !noundef !3
-  %139 = icmp eq i64 %138, -9223372036854775798
-  br i1 %139, label %140, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit
+138:                                              ; preds = %11
+  %139 = load i64, ptr %12, align 8, !range !44, !noundef !3
+  %140 = icmp eq i64 %139, -9223372036854775798
+  br i1 %140, label %141, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %142 = load ptr, ptr %141, align 8, !nonnull !3, !noundef !3
-  %143 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %144 = load i64, ptr %143, align 8, !noundef !3
-  %145 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %142, i64 %144
-  br label %146
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %143 = load ptr, ptr %142, align 8, !nonnull !3, !noundef !3
+  %144 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %145 = load i64, ptr %144, align 8, !noundef !3
+  %146 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %143, i64 %145
+  br label %147
 
-146:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i", %140
-  %147 = phi ptr [ %150, %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i" ], [ %142, %140 ]
-  %148 = icmp eq ptr %147, %145
-  br i1 %148, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %149
+147:                                              ; preds = %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i", %141
+  %148 = phi ptr [ %151, %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i" ], [ %143, %141 ]
+  %149 = icmp eq ptr %148, %146
+  br i1 %149, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %150
 
-149:                                              ; preds = %146
-  %150 = getelementptr inbounds nuw i8, ptr %147, i64 80
-  %151 = getelementptr inbounds nuw i8, ptr %147, i64 72
-  %152 = load ptr, ptr %151, align 8, !noalias !148, !align !5, !noundef !3
-  %.not.i.i = icmp eq ptr %152, null
-  br i1 %.not.i.i, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i", label %153
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 80
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 72
+  %153 = load ptr, ptr %152, align 8, !noalias !148, !align !5, !noundef !3
+  %.not.i.i = icmp eq ptr %153, null
+  br i1 %.not.i.i, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i", label %154
 
-153:                                              ; preds = %149
-  %154 = load i32, ptr %152, align 8, !range !13, !noalias !151, !noundef !3
-  switch i32 %154, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i" [
-    i32 27, label %155
-    i32 28, label %165
-    i32 29, label %165
+154:                                              ; preds = %150
+  %155 = load i32, ptr %153, align 8, !range !13, !noalias !151, !noundef !3
+  switch i32 %155, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i" [
+    i32 27, label %156
+    i32 28, label %166
+    i32 29, label %166
   ]
 
-155:                                              ; preds = %153
-  %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %157 = tail call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h017ef32e7dabd4efE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %156), !noalias !151
-  %158 = extractvalue { i32, i32 } %157, 0
-  %159 = extractvalue { i32, i32 } %157, 1
-  %160 = tail call { i32, i32 } @"_ZN89_$LT$ruff_python_semantic..binding..Binding$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbf01138b945c6615E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0), !noalias !148
-  %161 = extractvalue { i32, i32 } %160, 0
-  %162 = extractvalue { i32, i32 } %160, 1
-  %163 = icmp eq i32 %158, %161
+156:                                              ; preds = %154
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %158 = tail call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..ExprName$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h017ef32e7dabd4efE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %157), !noalias !151
+  %159 = extractvalue { i32, i32 } %158, 0
+  %160 = extractvalue { i32, i32 } %158, 1
+  %161 = tail call { i32, i32 } @"_ZN89_$LT$ruff_python_semantic..binding..Binding$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbf01138b945c6615E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0), !noalias !148
+  %162 = extractvalue { i32, i32 } %161, 0
+  %163 = extractvalue { i32, i32 } %161, 1
   %164 = icmp eq i32 %159, %162
-  %or.cond.i.i.i27 = select i1 %163, i1 %164, i1 false
+  %165 = icmp eq i32 %160, %163
+  %or.cond.i.i.i27 = select i1 %164, i1 %165, i1 false
   br i1 %or.cond.i.i.i27, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i"
 
-165:                                              ; preds = %153, %153
-  %166 = load i32, ptr %147, align 8, !range !13, !noalias !151, !noundef !3
-  switch i32 %166, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i" [
-    i32 7, label %167
-    i32 28, label %167
-    i32 29, label %167
+166:                                              ; preds = %154, %154
+  %167 = load i32, ptr %148, align 8, !range !13, !noalias !151, !noundef !3
+  switch i32 %167, label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i" [
+    i32 7, label %168
+    i32 28, label %168
+    i32 29, label %168
   ]
 
-167:                                              ; preds = %165, %165, %165
-  %168 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %169 = load ptr, ptr %168, align 8, !noalias !151, !nonnull !3, !noundef !3
-  %170 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  %171 = load i64, ptr %170, align 8, !noalias !151, !noundef !3
-  %172 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %173 = load ptr, ptr %172, align 8, !noalias !151, !nonnull !3, !noundef !3
-  %174 = getelementptr inbounds nuw i8, ptr %147, i64 24
-  %175 = load i64, ptr %174, align 8, !noalias !151, !noundef !3
-  %176 = tail call fastcc noundef align 8 ptr @_ZN20ruff_python_semantic7analyze6typing12match_target17hc9acf5eabb14d876E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %169, i64 noundef %171, ptr noundef nonnull align 8 %173, i64 noundef %175), !noalias !148
+168:                                              ; preds = %166, %166, %166
+  %169 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %170 = load ptr, ptr %169, align 8, !noalias !151, !nonnull !3, !noundef !3
+  %171 = getelementptr inbounds nuw i8, ptr %153, i64 24
+  %172 = load i64, ptr %171, align 8, !noalias !151, !noundef !3
+  %173 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %174 = load ptr, ptr %173, align 8, !noalias !151, !nonnull !3, !noundef !3
+  %175 = getelementptr inbounds nuw i8, ptr %148, i64 24
+  %176 = load i64, ptr %175, align 8, !noalias !151, !noundef !3
+  %177 = tail call fastcc noundef align 8 ptr @_ZN20ruff_python_semantic7analyze6typing12match_target17hc9acf5eabb14d876E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %170, i64 noundef %172, ptr noundef nonnull align 8 %174, i64 noundef %176), !noalias !148
   br label %"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i"
 
-"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i": ; preds = %167, %165, %155, %153, %149
-  %.sroa.0.0.i7.i = phi ptr [ null, %149 ], [ %176, %167 ], [ null, %153 ], [ null, %155 ], [ null, %165 ]
+"_ZN20ruff_python_semantic7analyze6typing18find_binding_value28_$u7b$$u7b$closure$u7d$$u7d$17h89d8064676fbdc55E.exit.i": ; preds = %168, %166, %156, %154, %150
+  %.sroa.0.0.i7.i = phi ptr [ null, %150 ], [ %177, %168 ], [ null, %154 ], [ null, %156 ], [ null, %166 ]
   %.not6.i25 = icmp eq ptr %.sroa.0.0.i7.i, null
-  br i1 %.not6.i25, label %146, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit
+  br i1 %.not6.i25, label %147, label %_ZN20ruff_python_semantic7analyze6typing11match_value17ha86d993adaca3064E.exit
 }
 
 ; Function Attrs: nonlazybind uwtable

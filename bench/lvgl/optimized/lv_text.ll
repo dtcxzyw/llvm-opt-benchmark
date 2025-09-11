@@ -155,7 +155,7 @@ define internal i32 @lv_text_utf8_conv_wc(i32 noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -128, 2097152) i32 @lv_text_utf8_next(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) #3 {
+define internal range(i32 0, 2097152) i32 @lv_text_utf8_next(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) #3 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.cont98, label %5
@@ -369,7 +369,7 @@ define internal range(i32 -128, 2097152) i32 @lv_text_utf8_next(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -128, 2097152) i32 @lv_text_utf8_prev(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) #4 {
+define internal range(i32 0, 2097152) i32 @lv_text_utf8_prev(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) #4 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %1, align 4, !tbaa !6
   %5 = add i32 %4, -1
@@ -872,10 +872,10 @@ lv_text_is_break_char.exit.i:                     ; preds = %.preheader.i
   %79 = add nsw i32 %.us-phi164.i, -65281
   %or.cond3.i.i = icmp ult i32 %79, 94
   %or.cond33.i.i = or i1 %or.cond.i88.i, %or.cond3.i.i
-  %80 = and i32 %.us-phi164.i, -64
+  %80 = and i32 %.us-phi164.i, 2097088
   %or.cond5.i.i = icmp eq i32 %80, 12288
   %or.cond34.i.i = or i1 %or.cond5.i.i, %or.cond33.i.i
-  %81 = and i32 %.us-phi164.i, -128
+  %81 = and i32 %.us-phi164.i, 2097024
   %or.cond7.i.i = icmp eq i32 %81, 11904
   %or.cond35.i.i = or i1 %or.cond7.i.i, %or.cond34.i.i
   %82 = add nsw i32 %.us-phi164.i, -12736
@@ -884,7 +884,7 @@ lv_text_is_break_char.exit.i:                     ; preds = %.preheader.i
   %83 = add nsw i32 %.us-phi164.i, -12352
   %or.cond11.i.i = icmp ult i32 %83, 192
   %or.cond37.i.i = or i1 %or.cond11.i.i, %or.cond36.i.i
-  %84 = and i32 %.us-phi164.i, -16
+  %84 = and i32 %.us-phi164.i, 2097136
   %or.cond13.i.i = icmp eq i32 %84, 65040
   %or.cond38.i.i = or i1 %or.cond13.i.i, %or.cond37.i.i
   %85 = add nsw i32 %.us-phi164.i, -65072
@@ -902,10 +902,10 @@ lv_text_is_a_word.exit.thread107.i:               ; preds = %77, %75
   %89 = add nsw i32 %.us-phi167.i, -65281
   %or.cond3.i90.i = icmp ult i32 %89, 94
   %or.cond33.i91.i = or i1 %or.cond.i89.i, %or.cond3.i90.i
-  %90 = and i32 %.us-phi167.i, -64
+  %90 = and i32 %.us-phi167.i, 2097088
   %or.cond5.i92.i = icmp eq i32 %90, 12288
   %or.cond34.i93.i = or i1 %or.cond5.i92.i, %or.cond33.i91.i
-  %91 = and i32 %.us-phi167.i, -128
+  %91 = and i32 %.us-phi167.i, 2097024
   %or.cond7.i94.i = icmp eq i32 %91, 11904
   %or.cond35.i95.i = or i1 %or.cond7.i94.i, %or.cond34.i93.i
   %92 = add nsw i32 %.us-phi167.i, -12736
@@ -914,7 +914,7 @@ lv_text_is_a_word.exit.thread107.i:               ; preds = %77, %75
   %93 = add nsw i32 %.us-phi167.i, -12352
   %or.cond11.i98.i = icmp ult i32 %93, 192
   %or.cond37.i99.i = or i1 %or.cond11.i98.i, %or.cond36.i97.i
-  %94 = and i32 %.us-phi167.i, -16
+  %94 = and i32 %.us-phi167.i, 2097136
   %or.cond13.i100.i = icmp eq i32 %94, 65040
   %or.cond38.i101.i = or i1 %or.cond13.i100.i, %or.cond37.i99.i
   %95 = add nsw i32 %.us-phi167.i, -65072

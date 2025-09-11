@@ -464,7 +464,7 @@ define weak_odr noundef float @_ZN7mitsuba17StratifiedSamplerIfN5drjit6MatrixINS
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %13
-  %.023.i = phi i32 [ %3, %13 ], [ %spec.select.i, %.critedge.i ]
+  %.023.i = phi i32 [ %3, %13 ], [ %59, %.critedge.i ]
   %.017.i = phi i8 [ %14, %13 ], [ 1, %.critedge.i ]
   %32 = xor i32 %.023.i, %9
   %33 = mul i32 %32, -512718531
@@ -589,7 +589,7 @@ define weak_odr <2 x float> @_ZN7mitsuba17StratifiedSamplerIfN5drjit6MatrixINS_8
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %13
-  %.023.i = phi i32 [ %3, %13 ], [ %spec.select.i, %.critedge.i ]
+  %.023.i = phi i32 [ %3, %13 ], [ %59, %.critedge.i ]
   %.017.i = phi i8 [ %14, %13 ], [ 1, %.critedge.i ]
   %32 = xor i32 %.023.i, %9
   %33 = mul i32 %32, -512718531

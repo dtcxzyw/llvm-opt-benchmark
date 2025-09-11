@@ -565,98 +565,99 @@ define i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr nou
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2675
   %7 = load i8, ptr %6, align 1, !tbaa !39
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %51, label %8
+  br i1 %.not, label %52, label %8
 
 8:                                                ; preds = %4
   %.not68 = icmp eq i64 %3, 0
-  br i1 %.not68, label %41, label %.preheader
+  br i1 %.not68, label %42, label %.preheader
 
 .preheader:                                       ; preds = %8, %.preheader
-  %.071 = phi i64 [ %12, %.preheader ], [ 0, %8 ]
-  %.06070 = phi i64 [ %11, %.preheader ], [ 0, %8 ]
-  %9 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.071, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !48
-  %11 = add i64 %10, %.06070
-  %12 = add nuw i64 %.071, 1
-  %exitcond.not = icmp eq i64 %12, %3
-  br i1 %exitcond.not, label %13, label %.preheader, !llvm.loop !50
+  %.071 = phi i64 [ %13, %.preheader ], [ 0, %8 ]
+  %.06070 = phi i64 [ %12, %.preheader ], [ 0, %8 ]
+  %9 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.071
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i64, ptr %10, align 8, !tbaa !48
+  %12 = add i64 %11, %.06070
+  %13 = add nuw i64 %.071, 1
+  %exitcond.not = icmp eq i64 %13, %3
+  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !50
 
-13:                                               ; preds = %.preheader
-  %14 = shl i64 %3, 1
-  %15 = add i64 %11, %14
-  %16 = icmp ugt i64 %15, 16384
-  br i1 %16, label %51, label %17
+14:                                               ; preds = %.preheader
+  %15 = shl i64 %3, 1
+  %16 = add i64 %12, %15
+  %17 = icmp ugt i64 %16, 16384
+  br i1 %17, label %52, label %18
 
-17:                                               ; preds = %13
-  %18 = mul i64 %3, 17
-  %19 = add i64 %18, %11
-  %20 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %5, i64 noundef %19) #8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %51, label %22
+18:                                               ; preds = %14
+  %19 = mul i64 %3, 17
+  %20 = add i64 %19, %12
+  %21 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %5, i64 noundef %20) #8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %52, label %23
 
-22:                                               ; preds = %17
-  %23 = shl i64 %3, 4
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %23
-  br label %25
+23:                                               ; preds = %18
+  %24 = shl i64 %3, 4
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %24
+  br label %26
 
-25:                                               ; preds = %22, %25
-  %.173 = phi i64 [ 0, %22 ], [ %34, %25 ]
-  %.06372 = phi ptr [ %24, %22 ], [ %33, %25 ]
-  %26 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %20, i64 %.173
-  store ptr %.06372, ptr %26, align 8, !tbaa !52
-  %27 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.173
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !48
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %29, ptr %30, align 8, !tbaa !48
-  %31 = load ptr, ptr %27, align 8, !tbaa !52
-  %32 = tail call ptr @nghttp2_cpymem(ptr noundef %.06372, ptr noundef %31, i64 noundef %29) #8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store i8 0, ptr %32, align 1, !tbaa !7
-  %34 = add nuw i64 %.173, 1
-  %exitcond75.not = icmp eq i64 %34, %3
-  br i1 %exitcond75.not, label %35, label %25, !llvm.loop !53
+26:                                               ; preds = %23, %26
+  %.173 = phi i64 [ 0, %23 ], [ %35, %26 ]
+  %.06372 = phi ptr [ %25, %23 ], [ %34, %26 ]
+  %27 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %21, i64 %.173
+  store ptr %.06372, ptr %27, align 8, !tbaa !52
+  %28 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.173
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !48
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i64 %30, ptr %31, align 8, !tbaa !48
+  %32 = load ptr, ptr %28, align 8, !tbaa !52
+  %33 = tail call ptr @nghttp2_cpymem(ptr noundef %.06372, ptr noundef %32, i64 noundef %30) #8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  store i8 0, ptr %33, align 1, !tbaa !7
+  %35 = add nuw i64 %.173, 1
+  %exitcond75.not = icmp eq i64 %35, %3
+  br i1 %exitcond75.not, label %36, label %26, !llvm.loop !53
 
-35:                                               ; preds = %25
-  %36 = ptrtoint ptr %33 to i64
-  %37 = ptrtoint ptr %20 to i64
-  %38 = sub i64 %36, %37
-  %39 = icmp eq i64 %38, %19
-  br i1 %39, label %41, label %40
+36:                                               ; preds = %26
+  %37 = ptrtoint ptr %34 to i64
+  %38 = ptrtoint ptr %21 to i64
+  %39 = sub i64 %37, %38
+  %40 = icmp eq i64 %39, %20
+  br i1 %40, label %42, label %41
 
-40:                                               ; preds = %35
+41:                                               ; preds = %36
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 539, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_submit_origin) #9
   unreachable
 
-41:                                               ; preds = %8, %35
-  %.061 = phi ptr [ %20, %35 ], [ null, %8 ]
-  %42 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %5, i64 noundef 160) #8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %45
+42:                                               ; preds = %8, %36
+  %.061 = phi ptr [ %21, %36 ], [ null, %8 ]
+  %43 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %5, i64 noundef 160) #8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %41
+45:                                               ; preds = %42
   tail call void @free(ptr noundef %.061) #8
-  br label %51
+  br label %52
 
-45:                                               ; preds = %41
-  tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %42) #8
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 96
-  store i8 1, ptr %46, align 8, !tbaa !7
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 64
-  %48 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store ptr %47, ptr %48, align 8, !tbaa !7
-  tail call void @nghttp2_frame_origin_init(ptr noundef nonnull %42, ptr noundef %.061, i64 noundef %3) #8
-  %49 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %42) #8
-  %.not69 = icmp eq i32 %49, 0
-  br i1 %.not69, label %51, label %50
+46:                                               ; preds = %42
+  tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %43) #8
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 96
+  store i8 1, ptr %47, align 8, !tbaa !7
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store ptr %48, ptr %49, align 8, !tbaa !7
+  tail call void @nghttp2_frame_origin_init(ptr noundef nonnull %43, ptr noundef %.061, i64 noundef %3) #8
+  %50 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %43) #8
+  %.not69 = icmp eq i32 %50, 0
+  br i1 %.not69, label %52, label %51
 
-50:                                               ; preds = %45
-  tail call void @nghttp2_frame_origin_free(ptr noundef nonnull %42, ptr noundef nonnull %5) #8
-  tail call void @nghttp2_mem_free(ptr noundef nonnull %5, ptr noundef nonnull %42) #8
-  br label %51
+51:                                               ; preds = %46
+  tail call void @nghttp2_frame_origin_free(ptr noundef nonnull %43, ptr noundef nonnull %5) #8
+  tail call void @nghttp2_mem_free(ptr noundef nonnull %5, ptr noundef nonnull %43) #8
+  br label %52
 
-51:                                               ; preds = %45, %17, %13, %4, %44, %50
-  %.062 = phi i32 [ -901, %44 ], [ %49, %50 ], [ -519, %4 ], [ -501, %13 ], [ -901, %17 ], [ 0, %45 ]
+52:                                               ; preds = %46, %18, %14, %4, %45, %51
+  %.062 = phi i32 [ -901, %45 ], [ %50, %51 ], [ -519, %4 ], [ -501, %14 ], [ -901, %18 ], [ 0, %46 ]
   ret i32 %.062
 }
 

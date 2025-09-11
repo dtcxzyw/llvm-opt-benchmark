@@ -1439,7 +1439,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
   store i32 %183, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 8), align 8
   %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 136), align 8
   %185 = sext i32 %184 to i64
-  %186 = getelementptr %struct.suspend_stats, ptr @suspend_stats, i64 0, i32 18, i64 %185
+  %186 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 168), i64 %185
   store i32 1, ptr %186, align 4
   %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 136), align 8
   %188 = add i32 %187, 1
@@ -1562,7 +1562,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
   store i32 %245, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 4), align 4
   %246 = load i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 124), align 4
   %247 = sext i32 %246 to i64
-  %248 = getelementptr %struct.suspend_stats, ptr @suspend_stats, i64 0, i32 13, i64 %247
+  %248 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 128), i64 %247
   store i32 %243, ptr %248, align 4
   %249 = load i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 124), align 4
   %250 = add i32 %249, 1

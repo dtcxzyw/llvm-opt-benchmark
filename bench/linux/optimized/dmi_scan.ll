@@ -1043,7 +1043,8 @@ define dso_local zeroext i16 @dmi_memdev_handle(i32 noundef %0) #9 align 16 {
 
 9:                                                ; preds = %1
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr %struct.dmi_memdev_info, ptr %2, i64 %10, i32 3
+  %.split = getelementptr %struct.dmi_memdev_info, ptr %2, i64 %10
+  %11 = getelementptr i8, ptr %.split, i64 24
   %12 = load i16, ptr %11, align 8
   br label %13
 
@@ -2171,7 +2172,8 @@ define internal void @save_mem_devices(ptr noundef readonly captures(address) %0
   %17 = load i16, ptr %16, align 1
   %18 = load ptr, ptr @dmi_memdev, align 8
   %19 = sext i32 %10 to i64
-  %20 = getelementptr %struct.dmi_memdev_info, ptr %18, i64 %19, i32 3
+  %.split = getelementptr %struct.dmi_memdev_info, ptr %18, i64 %19
+  %20 = getelementptr i8, ptr %.split, i64 24
   store i16 %17, ptr %20, align 8
   %21 = getelementptr i8, ptr %0, i64 16
   %22 = load i8, ptr %21, align 1
@@ -2187,11 +2189,12 @@ define internal void @save_mem_devices(ptr noundef readonly captures(address) %0
   %31 = load ptr, ptr @dmi_memdev, align 8
   %32 = load i32, ptr @save_mem_devices.nr, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.dmi_memdev_info, ptr %31, i64 %33, i32 1
+  %.split2 = getelementptr %struct.dmi_memdev_info, ptr %31, i64 %33
+  %34 = getelementptr i8, ptr %.split2, i64 8
   store ptr %30, ptr %34, align 8
   %35 = getelementptr i8, ptr %0, i64 18
   %36 = load i8, ptr %35, align 1
-  %37 = getelementptr %struct.dmi_memdev_info, ptr %31, i64 %33, i32 4
+  %37 = getelementptr i8, ptr %.split2, i64 26
   store i8 %36, ptr %37, align 2
   %38 = getelementptr i8, ptr %0, i64 12
   %39 = load i16, ptr %38, align 1
@@ -2236,7 +2239,7 @@ define internal void @save_mem_devices(ptr noundef readonly captures(address) %0
 
 60:                                               ; preds = %55, %52, %43, %40, %15
   %61 = phi i64 [ -1, %40 ], [ %46, %43 ], [ %54, %52 ], [ %59, %55 ], [ 0, %15 ]
-  %62 = getelementptr %struct.dmi_memdev_info, ptr %31, i64 %33, i32 2
+  %62 = getelementptr i8, ptr %.split2, i64 16
   store i64 %61, ptr %62, align 8
   %63 = add i32 %32, 1
   store i32 %63, ptr @save_mem_devices.nr, align 4

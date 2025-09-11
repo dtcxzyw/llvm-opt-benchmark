@@ -7215,65 +7215,67 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$$u5b$$LP$lsp..LanguageServe
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit"
-  %.sroa.0.09 = phi i64 [ %4, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit" ], [ 0, %2 ]
-  %4 = add nuw i64 %.sroa.0.09, 1
+  %.sroa.0.09 = phi i64 [ %5, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit" ], [ 0, %2 ]
+  %4 = getelementptr inbounds { i64, ptr }, ptr %0, i64 %.sroa.0.09
+  %5 = add nuw i64 %.sroa.0.09, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2157)
-  %5 = getelementptr inbounds { i64, ptr }, ptr %0, i64 %.sroa.0.09, i32 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2160)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2163)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2166)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2169)
-  %6 = load ptr, ptr %5, align 8, !alias.scope !2172, !nonnull !4, !noundef !4
-  %7 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !2172
-  %8 = icmp eq i64 %7, 1
-  br i1 %8, label %9, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit"
+  %7 = load ptr, ptr %6, align 8, !alias.scope !2172, !nonnull !4, !noundef !4
+  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !2172
+  %9 = icmp eq i64 %8, 1
+  br i1 %9, label %10, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit"
 
-9:                                                ; preds = %.lr.ph
+10:                                               ; preds = %.lr.ph
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit" unwind label %11
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit" unwind label %12
 
-"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit": ; preds = %9, %.lr.ph
-  %10 = icmp eq i64 %4, %1
-  br i1 %10, label %._crit_edge, label %.lr.ph
+"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit": ; preds = %10, %.lr.ph
+  %11 = icmp eq i64 %5, %1
+  br i1 %11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit", %2
   ret void
 
-11:                                               ; preds = %9
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = icmp eq i64 %4, %1
-  br i1 %13, label %._crit_edge13, label %.lr.ph12
+  %14 = icmp eq i64 %5, %1
+  br i1 %14, label %._crit_edge13, label %.lr.ph12
 
-.lr.ph12:                                         ; preds = %11, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8"
-  %.sroa.0.110 = phi i64 [ %14, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8" ], [ %4, %11 ]
-  %14 = add i64 %.sroa.0.110, 1
+.lr.ph12:                                         ; preds = %12, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8"
+  %.sroa.0.110 = phi i64 [ %16, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8" ], [ %5, %12 ]
+  %15 = getelementptr inbounds { i64, ptr }, ptr %0, i64 %.sroa.0.110
+  %16 = add i64 %.sroa.0.110, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2173)
-  %15 = getelementptr inbounds { i64, ptr }, ptr %0, i64 %.sroa.0.110, i32 1
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2176)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2179)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2182)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2185)
-  %16 = load ptr, ptr %15, align 8, !alias.scope !2188, !nonnull !4, !noundef !4
-  %17 = atomicrmw sub ptr %16, i64 1 release, align 8, !noalias !2188
-  %18 = icmp eq i64 %17, 1
-  br i1 %18, label %19, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8"
+  %18 = load ptr, ptr %17, align 8, !alias.scope !2188, !nonnull !4, !noundef !4
+  %19 = atomicrmw sub ptr %18, i64 1 release, align 8, !noalias !2188
+  %20 = icmp eq i64 %19, 1
+  br i1 %20, label %21, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8"
 
-19:                                               ; preds = %.lr.ph12
+21:                                               ; preds = %.lr.ph12
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
-          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8" unwind label %21
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
+          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8" unwind label %23
 
-"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8": ; preds = %19, %.lr.ph12
-  %20 = icmp eq i64 %14, %1
-  br i1 %20, label %._crit_edge13, label %.lr.ph12
+"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8": ; preds = %21, %.lr.ph12
+  %22 = icmp eq i64 %16, %1
+  br i1 %22, label %._crit_edge13, label %.lr.ph12
 
-._crit_edge13:                                    ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8", %11
-  resume { ptr, i32 } %12
+._crit_edge13:                                    ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8", %12
+  resume { ptr, i32 } %13
 
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %21
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #27
   unreachable
@@ -10324,92 +10326,94 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$$LP$lsp.
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92585363c7805752E.llvm.9180888732656986660.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i.i"
-  %.sroa.0.09.i.i = phi i64 [ %7, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i.i" ], [ 0, %1 ]
-  %7 = add nuw i64 %.sroa.0.09.i.i, 1
+  %.sroa.0.09.i.i = phi i64 [ %8, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds { i64, ptr }, ptr %3, i64 %.sroa.0.09.i.i
+  %8 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3253)
-  %8 = getelementptr inbounds { i64, ptr }, ptr %3, i64 %.sroa.0.09.i.i, i32 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3259)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3262)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3265)
-  %9 = load ptr, ptr %8, align 8, !alias.scope !3268, !noalias !3250, !nonnull !4, !noundef !4
-  %10 = atomicrmw sub ptr %9, i64 1 release, align 8, !noalias !3271
-  %11 = icmp eq i64 %10, 1
-  br i1 %11, label %12, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i.i"
+  %10 = load ptr, ptr %9, align 8, !alias.scope !3268, !noalias !3250, !nonnull !4, !noundef !4
+  %11 = atomicrmw sub ptr %10, i64 1 release, align 8, !noalias !3271
+  %12 = icmp eq i64 %11, 1
+  br i1 %12, label %13, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i.i"
 
-12:                                               ; preds = %.lr.ph.i.i
+13:                                               ; preds = %.lr.ph.i.i
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
-          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i.i" unwind label %14, !noalias !3250
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
+          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i.i" unwind label %15, !noalias !3250
 
-"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i.i": ; preds = %12, %.lr.ph.i.i
-  %13 = icmp eq i64 %7, %5
-  br i1 %13, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92585363c7805752E.llvm.9180888732656986660.exit", label %.lr.ph.i.i
+"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i.i": ; preds = %13, %.lr.ph.i.i
+  %14 = icmp eq i64 %8, %5
+  br i1 %14, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92585363c7805752E.llvm.9180888732656986660.exit", label %.lr.ph.i.i
 
-14:                                               ; preds = %12
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = icmp eq i64 %7, %5
-  br i1 %16, label %.body, label %.lr.ph12.i.i
+  %17 = icmp eq i64 %8, %5
+  br i1 %17, label %.body, label %.lr.ph12.i.i
 
-.lr.ph12.i.i:                                     ; preds = %14, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i"
-  %.sroa.0.110.i.i = phi i64 [ %17, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i" ], [ %7, %14 ]
-  %17 = add i64 %.sroa.0.110.i.i, 1
+.lr.ph12.i.i:                                     ; preds = %15, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i"
+  %.sroa.0.110.i.i = phi i64 [ %19, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i" ], [ %8, %15 ]
+  %18 = getelementptr inbounds { i64, ptr }, ptr %3, i64 %.sroa.0.110.i.i
+  %19 = add i64 %.sroa.0.110.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3272)
-  %18 = getelementptr inbounds { i64, ptr }, ptr %3, i64 %.sroa.0.110.i.i, i32 1
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3275)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3278)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3281)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3284)
-  %19 = load ptr, ptr %18, align 8, !alias.scope !3287, !noalias !3250, !nonnull !4, !noundef !4
-  %20 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !3288
-  %21 = icmp eq i64 %20, 1
-  br i1 %21, label %22, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i"
+  %21 = load ptr, ptr %20, align 8, !alias.scope !3287, !noalias !3250, !nonnull !4, !noundef !4
+  %22 = atomicrmw sub ptr %21, i64 1 release, align 8, !noalias !3288
+  %23 = icmp eq i64 %22, 1
+  br i1 %23, label %24, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i"
 
-22:                                               ; preds = %.lr.ph12.i.i
+24:                                               ; preds = %.lr.ph12.i.i
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18)
-          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i" unwind label %24, !noalias !3250
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20)
+          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i" unwind label %26, !noalias !3250
 
-"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i": ; preds = %22, %.lr.ph12.i.i
-  %23 = icmp eq i64 %17, %5
-  br i1 %23, label %.body, label %.lr.ph12.i.i
+"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i": ; preds = %24, %.lr.ph12.i.i
+  %25 = icmp eq i64 %19, %5
+  br i1 %25, label %.body, label %.lr.ph12.i.i
 
-24:                                               ; preds = %22
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #27, !noalias !3250
   unreachable
 
-.body:                                            ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i", %14
+.body:                                            ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i.i", %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3289)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3292)
-  %26 = load i64, ptr %0, align 8, !alias.scope !3295, !noalias !3298, !noundef !4
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %"_ZN4core3ptr122drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$$GT$17h8ab37fcab24f6a36E.llvm.9180888732656986660.exit", label %28
+  %28 = load i64, ptr %0, align 8, !alias.scope !3295, !noalias !3298, !noundef !4
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %"_ZN4core3ptr122drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$$GT$17h8ab37fcab24f6a36E.llvm.9180888732656986660.exit", label %30
 
-28:                                               ; preds = %.body
-  %29 = shl nuw i64 %26, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %29, i64 noundef 8) #26, !noalias !3300
+30:                                               ; preds = %.body
+  %31 = shl nuw i64 %28, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %31, i64 noundef 8) #26, !noalias !3300
   br label %"_ZN4core3ptr122drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$$GT$17h8ab37fcab24f6a36E.llvm.9180888732656986660.exit"
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92585363c7805752E.llvm.9180888732656986660.exit": ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i.i", %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3301)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3304)
-  %30 = load i64, ptr %0, align 8, !alias.scope !3307, !noalias !3310, !noundef !4
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %"_ZN4core3ptr122drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$$GT$17h8ab37fcab24f6a36E.llvm.9180888732656986660.exit1", label %32
+  %32 = load i64, ptr %0, align 8, !alias.scope !3307, !noalias !3310, !noundef !4
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %"_ZN4core3ptr122drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$$GT$17h8ab37fcab24f6a36E.llvm.9180888732656986660.exit1", label %34
 
-32:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92585363c7805752E.llvm.9180888732656986660.exit"
-  %33 = shl nuw i64 %30, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %33, i64 noundef 8) #26, !noalias !3312
+34:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92585363c7805752E.llvm.9180888732656986660.exit"
+  %35 = shl nuw i64 %32, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %35, i64 noundef 8) #26, !noalias !3312
   br label %"_ZN4core3ptr122drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$$GT$17h8ab37fcab24f6a36E.llvm.9180888732656986660.exit1"
 
-"_ZN4core3ptr122drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$$GT$17h8ab37fcab24f6a36E.llvm.9180888732656986660.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92585363c7805752E.llvm.9180888732656986660.exit", %32
+"_ZN4core3ptr122drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$$GT$17h8ab37fcab24f6a36E.llvm.9180888732656986660.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h92585363c7805752E.llvm.9180888732656986660.exit", %34
   ret void
 
-"_ZN4core3ptr122drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$$GT$17h8ab37fcab24f6a36E.llvm.9180888732656986660.exit": ; preds = %28, %.body
-  resume { ptr, i32 } %15
+"_ZN4core3ptr122drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$$GT$17h8ab37fcab24f6a36E.llvm.9180888732656986660.exit": ; preds = %30, %.body
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -69426,7 +69430,7 @@ define hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops.
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp ugt i64 %5, 2
-  br i1 %6, label %32, label %7
+  br i1 %6, label %34, label %7
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !25679
@@ -69440,81 +69444,83 @@ define hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops.
   br i1 %12, label %"_ZN4core3ptr102drop_in_place$LT$$u5b$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$u5d$$GT$17h0482d1ee5abcc76bE.llvm.9180888732656986660.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i"
-  %.sroa.0.09.i = phi i64 [ %13, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i" ], [ 0, %7 ]
-  %13 = add nuw i64 %.sroa.0.09.i, 1
+  %.sroa.0.09.i = phi i64 [ %14, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i" ], [ 0, %7 ]
+  %13 = getelementptr inbounds { i64, ptr }, ptr %8, i64 %.sroa.0.09.i
+  %14 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25682)
-  %14 = getelementptr inbounds { i64, ptr }, ptr %8, i64 %.sroa.0.09.i, i32 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25685)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25688)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25691)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25694)
-  %15 = load ptr, ptr %14, align 8, !alias.scope !25697, !nonnull !4, !noundef !4
-  %16 = atomicrmw sub ptr %15, i64 1 release, align 8, !noalias !25700
-  %17 = icmp eq i64 %16, 1
-  br i1 %17, label %18, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i"
+  %16 = load ptr, ptr %15, align 8, !alias.scope !25697, !nonnull !4, !noundef !4
+  %17 = atomicrmw sub ptr %16, i64 1 release, align 8, !noalias !25700
+  %18 = icmp eq i64 %17, 1
+  br i1 %18, label %19, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i"
 
-18:                                               ; preds = %.lr.ph.i
+19:                                               ; preds = %.lr.ph.i
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
-          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i" unwind label %20
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
+          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i" unwind label %21
 
-"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i": ; preds = %18, %.lr.ph.i
-  %19 = icmp eq i64 %13, %11
-  br i1 %19, label %"_ZN4core3ptr102drop_in_place$LT$$u5b$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$u5d$$GT$17h0482d1ee5abcc76bE.llvm.9180888732656986660.exit", label %.lr.ph.i
+"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i": ; preds = %19, %.lr.ph.i
+  %20 = icmp eq i64 %14, %11
+  br i1 %20, label %"_ZN4core3ptr102drop_in_place$LT$$u5b$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$u5d$$GT$17h0482d1ee5abcc76bE.llvm.9180888732656986660.exit", label %.lr.ph.i
 
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = icmp eq i64 %13, %11
-  br i1 %22, label %._crit_edge13.i, label %.lr.ph12.i
+  %23 = icmp eq i64 %14, %11
+  br i1 %23, label %._crit_edge13.i, label %.lr.ph12.i
 
-.lr.ph12.i:                                       ; preds = %20, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i"
-  %.sroa.0.110.i = phi i64 [ %23, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i" ], [ %13, %20 ]
-  %23 = add i64 %.sroa.0.110.i, 1
+.lr.ph12.i:                                       ; preds = %21, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i"
+  %.sroa.0.110.i = phi i64 [ %25, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i" ], [ %14, %21 ]
+  %24 = getelementptr inbounds { i64, ptr }, ptr %8, i64 %.sroa.0.110.i
+  %25 = add i64 %.sroa.0.110.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25701)
-  %24 = getelementptr inbounds { i64, ptr }, ptr %8, i64 %.sroa.0.110.i, i32 1
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25704)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25707)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25710)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25713)
-  %25 = load ptr, ptr %24, align 8, !alias.scope !25716, !nonnull !4, !noundef !4
-  %26 = atomicrmw sub ptr %25, i64 1 release, align 8, !noalias !25717
-  %27 = icmp eq i64 %26, 1
-  br i1 %27, label %28, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i"
+  %27 = load ptr, ptr %26, align 8, !alias.scope !25716, !nonnull !4, !noundef !4
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !25717
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i"
 
-28:                                               ; preds = %.lr.ph12.i
+30:                                               ; preds = %.lr.ph12.i
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %24)
-          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i" unwind label %30
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
+          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i" unwind label %32
 
-"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i": ; preds = %28, %.lr.ph12.i
-  %29 = icmp eq i64 %23, %11
-  br i1 %29, label %._crit_edge13.i, label %.lr.ph12.i
+"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i": ; preds = %30, %.lr.ph12.i
+  %31 = icmp eq i64 %25, %11
+  br i1 %31, label %._crit_edge13.i, label %.lr.ph12.i
 
-._crit_edge13.i:                                  ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i", %20
-  resume { ptr, i32 } %21
+._crit_edge13.i:                                  ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i", %21
+  resume { ptr, i32 } %22
 
-30:                                               ; preds = %28
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %30
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #27
   unreachable
 
-32:                                               ; preds = %1
-  %33 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load i64, ptr %34, align 8, !noundef !4
+34:                                               ; preds = %1
+  %35 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load i64, ptr %36, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %5, ptr %3, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %33, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %35, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %35, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %37, ptr %39, align 8
   call void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$$GT$17hec035a050a85a0e4E.llvm.9180888732656986660"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZN4core3ptr102drop_in_place$LT$$u5b$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$u5d$$GT$17h0482d1ee5abcc76bE.llvm.9180888732656986660.exit"
 
-"_ZN4core3ptr102drop_in_place$LT$$u5b$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$u5d$$GT$17h0482d1ee5abcc76bE.llvm.9180888732656986660.exit": ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i", %7, %32
+"_ZN4core3ptr102drop_in_place$LT$$u5b$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$u5d$$GT$17h0482d1ee5abcc76bE.llvm.9180888732656986660.exit": ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i", %7, %34
   ret void
 }
 
@@ -70624,62 +70630,64 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %6, label %"_ZN4core3ptr102drop_in_place$LT$$u5b$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$u5d$$GT$17h0482d1ee5abcc76bE.llvm.9180888732656986660.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i"
-  %.sroa.0.09.i = phi i64 [ %7, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i" ], [ 0, %1 ]
-  %7 = add nuw i64 %.sroa.0.09.i, 1
+  %.sroa.0.09.i = phi i64 [ %8, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds { i64, ptr }, ptr %3, i64 %.sroa.0.09.i
+  %8 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26046)
-  %8 = getelementptr inbounds { i64, ptr }, ptr %3, i64 %.sroa.0.09.i, i32 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26049)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26052)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26055)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26058)
-  %9 = load ptr, ptr %8, align 8, !alias.scope !26061, !nonnull !4, !noundef !4
-  %10 = atomicrmw sub ptr %9, i64 1 release, align 8, !noalias !26064
-  %11 = icmp eq i64 %10, 1
-  br i1 %11, label %12, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i"
+  %10 = load ptr, ptr %9, align 8, !alias.scope !26061, !nonnull !4, !noundef !4
+  %11 = atomicrmw sub ptr %10, i64 1 release, align 8, !noalias !26064
+  %12 = icmp eq i64 %11, 1
+  br i1 %12, label %13, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i"
 
-12:                                               ; preds = %.lr.ph.i
+13:                                               ; preds = %.lr.ph.i
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
-          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i" unwind label %14
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
+          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i" unwind label %15
 
-"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i": ; preds = %12, %.lr.ph.i
-  %13 = icmp eq i64 %7, %5
-  br i1 %13, label %"_ZN4core3ptr102drop_in_place$LT$$u5b$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$u5d$$GT$17h0482d1ee5abcc76bE.llvm.9180888732656986660.exit", label %.lr.ph.i
+"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit.i": ; preds = %13, %.lr.ph.i
+  %14 = icmp eq i64 %8, %5
+  br i1 %14, label %"_ZN4core3ptr102drop_in_place$LT$$u5b$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$u5d$$GT$17h0482d1ee5abcc76bE.llvm.9180888732656986660.exit", label %.lr.ph.i
 
-14:                                               ; preds = %12
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %16 = icmp eq i64 %7, %5
-  br i1 %16, label %._crit_edge13.i, label %.lr.ph12.i
+  %17 = icmp eq i64 %8, %5
+  br i1 %17, label %._crit_edge13.i, label %.lr.ph12.i
 
-.lr.ph12.i:                                       ; preds = %14, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i"
-  %.sroa.0.110.i = phi i64 [ %17, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i" ], [ %7, %14 ]
-  %17 = add i64 %.sroa.0.110.i, 1
+.lr.ph12.i:                                       ; preds = %15, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i"
+  %.sroa.0.110.i = phi i64 [ %19, %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i" ], [ %8, %15 ]
+  %18 = getelementptr inbounds { i64, ptr }, ptr %3, i64 %.sroa.0.110.i
+  %19 = add i64 %.sroa.0.110.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26065)
-  %18 = getelementptr inbounds { i64, ptr }, ptr %3, i64 %.sroa.0.110.i, i32 1
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26068)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26071)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26074)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26077)
-  %19 = load ptr, ptr %18, align 8, !alias.scope !26080, !nonnull !4, !noundef !4
-  %20 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !26081
-  %21 = icmp eq i64 %20, 1
-  br i1 %21, label %22, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i"
+  %21 = load ptr, ptr %20, align 8, !alias.scope !26080, !nonnull !4, !noundef !4
+  %22 = atomicrmw sub ptr %21, i64 1 release, align 8, !noalias !26081
+  %23 = icmp eq i64 %22, 1
+  br i1 %23, label %24, label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i"
 
-22:                                               ; preds = %.lr.ph12.i
+24:                                               ; preds = %.lr.ph12.i
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18)
-          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i" unwind label %24
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h47840ceeb748de7bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20)
+          to label %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i" unwind label %26
 
-"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i": ; preds = %22, %.lr.ph12.i
-  %23 = icmp eq i64 %17, %5
-  br i1 %23, label %._crit_edge13.i, label %.lr.ph12.i
+"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i": ; preds = %24, %.lr.ph12.i
+  %25 = icmp eq i64 %19, %5
+  br i1 %25, label %._crit_edge13.i, label %.lr.ph12.i
 
-._crit_edge13.i:                                  ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i", %14
-  resume { ptr, i32 } %15
+._crit_edge13.i:                                  ; preds = %"_ZN4core3ptr92drop_in_place$LT$$LP$lsp..LanguageServerId$C$language..diagnostic_set..DiagnosticSet$RP$$GT$17h7dde43d76c6e2352E.exit8.i", %15
+  resume { ptr, i32 } %16
 
-24:                                               ; preds = %22
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #27
   unreachable

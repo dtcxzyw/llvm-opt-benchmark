@@ -47,7 +47,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 11:                                               ; preds = %.critedge
   %puts97 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  br label %159
+  br label %160
 
 12:                                               ; preds = %.critedge
   %13 = load i32, ptr %3, align 4, !tbaa !4
@@ -56,7 +56,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 15:                                               ; preds = %12
   %16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %13)
-  br label %159
+  br label %160
 
 .thread:                                          ; preds = %12
   %17 = add nsw i32 %0, -1
@@ -91,7 +91,7 @@ sub_0120.thread:                                  ; preds = %.tail
 
 30:                                               ; preds = %.tail
   %puts96 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %159
+  br label %160
 
 sub_1121:                                         ; preds = %sub_1, %sub_0120.thread
   %31 = phi i32 [ %29, %sub_0120.thread ], [ 0, %sub_1 ]
@@ -184,7 +184,7 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
 
 .split136.us:                                     ; preds = %53, %isTestSkipped.exit.thread
   %puts94 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %159
+  br label %160
 
 .thread114:                                       ; preds = %sub_0, %sub_1121, %.thread, %.tail119
   %.071174 = phi i32 [ %0, %.tail119 ], [ %17, %.thread ], [ %0, %sub_1121 ], [ %0, %sub_0 ]
@@ -317,26 +317,27 @@ lowercase.exit102:                                ; preds = %120, %108, %116
 
 147:                                              ; preds = %._crit_edge.thread
   %148 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %145)
-  br label %159
+  br label %160
 
 149:                                              ; preds = %._crit_edge.thread
   %150 = zext nneg i32 %.181.lcssa194 to i64
-  %151 = getelementptr inbounds nuw %struct.functionMapEntry, ptr @cmakeGeneratedFunctionMapEntries, i64 %150, i32 1
-  %152 = load ptr, ptr %151, align 8, !tbaa !18
-  %153 = call i32 %152(i32 noundef %.172.lcssa196, ptr noundef %.174.lcssa195) #12
-  br label %159
+  %151 = getelementptr inbounds nuw %struct.functionMapEntry, ptr @cmakeGeneratedFunctionMapEntries, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %153 = load ptr, ptr %152, align 8, !tbaa !18
+  %154 = call i32 %153(i32 noundef %.172.lcssa196, ptr noundef %.174.lcssa195) #12
+  br label %160
 
 .critedge201:                                     ; preds = %._crit_edge
   %puts91 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef 0, ptr noundef nonnull @.str.18)
-  %155 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef 1, ptr noundef nonnull @.str.19)
-  %156 = getelementptr inbounds nuw i8, ptr %.275, i64 8
-  %157 = load ptr, ptr %156, align 8, !tbaa !11
-  %158 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %157)
-  br label %159
+  %155 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef 0, ptr noundef nonnull @.str.18)
+  %156 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef 1, ptr noundef nonnull @.str.19)
+  %157 = getelementptr inbounds nuw i8, ptr %.275, i64 8
+  %158 = load ptr, ptr %157, align 8, !tbaa !11
+  %159 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %158)
+  br label %160
 
-159:                                              ; preds = %147, %149, %.critedge201, %.split136.us, %30, %15, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %15 ], [ -1, %30 ], [ 0, %.split136.us ], [ -1, %.critedge201 ], [ -1, %147 ], [ %153, %149 ]
+160:                                              ; preds = %147, %149, %.critedge201, %.split136.us, %30, %15, %11
+  %.0 = phi i32 [ -1, %11 ], [ -1, %15 ], [ -1, %30 ], [ 0, %.split136.us ], [ -1, %.critedge201 ], [ -1, %147 ], [ %154, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

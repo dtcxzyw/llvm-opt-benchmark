@@ -401,16 +401,19 @@ define internal noundef i32 @ahci_qc_prep(ptr noundef %0) #0 align 16 {
   %86 = getelementptr %struct.ahci_cmd_hdr, ptr %84, i64 %85
   store i32 %76, ptr %86, align 4
   %87 = load ptr, ptr %83, align 8
-  %88 = getelementptr %struct.ahci_cmd_hdr, ptr %87, i64 %85, i32 1
+  %.split = getelementptr %struct.ahci_cmd_hdr, ptr %87, i64 %85
+  %88 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %88, align 4
   %89 = trunc i64 %82 to i32
   %90 = load ptr, ptr %83, align 8
-  %91 = getelementptr %struct.ahci_cmd_hdr, ptr %90, i64 %85, i32 2
+  %.split1 = getelementptr %struct.ahci_cmd_hdr, ptr %90, i64 %85
+  %91 = getelementptr i8, ptr %.split1, i64 8
   store i32 %89, ptr %91, align 4
   %92 = lshr i64 %82, 32
   %93 = trunc nuw i64 %92 to i32
   %94 = load ptr, ptr %83, align 8
-  %95 = getelementptr %struct.ahci_cmd_hdr, ptr %94, i64 %85, i32 3
+  %.split2 = getelementptr %struct.ahci_cmd_hdr, ptr %94, i64 %85
+  %95 = getelementptr i8, ptr %.split2, i64 12
   store i32 %93, ptr %95, align 4
   ret i32 0
 }
@@ -3548,16 +3551,19 @@ define dso_local void @ahci_fill_cmd_slot(ptr noundef readonly captures(none) %0
   %12 = getelementptr %struct.ahci_cmd_hdr, ptr %10, i64 %11
   store i32 %2, ptr %12, align 4
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr %struct.ahci_cmd_hdr, ptr %13, i64 %11, i32 1
+  %.split = getelementptr %struct.ahci_cmd_hdr, ptr %13, i64 %11
+  %14 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %14, align 4
   %15 = trunc i64 %8 to i32
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr %struct.ahci_cmd_hdr, ptr %16, i64 %11, i32 2
+  %.split1 = getelementptr %struct.ahci_cmd_hdr, ptr %16, i64 %11
+  %17 = getelementptr i8, ptr %.split1, i64 8
   store i32 %15, ptr %17, align 4
   %18 = lshr i64 %8, 32
   %19 = trunc nuw i64 %18 to i32
   %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr %struct.ahci_cmd_hdr, ptr %20, i64 %11, i32 3
+  %.split2 = getelementptr %struct.ahci_cmd_hdr, ptr %20, i64 %11
+  %21 = getelementptr i8, ptr %.split2, i64 12
   store i32 %19, ptr %21, align 4
   ret void
 }

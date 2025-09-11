@@ -5230,10 +5230,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv15BriskScaleSpace7isMax2DEi
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = sext i32 %1 to i64
   %24 = load ptr, ptr %22, align 8, !tbaa !148
-  %25 = getelementptr inbounds nuw %"class.cv::BriskLayer", ptr %24, i64 %23, i32 1
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  %25 = getelementptr inbounds nuw %"class.cv::BriskLayer", ptr %24, i64 %23
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 108
   %27 = load i32, ptr %26, align 4, !tbaa !114
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %29 = load ptr, ptr %28, align 8, !tbaa !122
   %30 = mul nsw i32 %27, %3
   %31 = sext i32 %30 to i64

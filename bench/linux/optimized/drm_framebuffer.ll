@@ -2058,7 +2058,8 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 144
   %111 = load i32, ptr %110, align 8
   %112 = zext i32 %111 to i64
-  %113 = getelementptr %struct.__drm_crtcs_state, ptr %109, i64 %112, i32 1
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %109, i64 %112
+  %113 = getelementptr i8, ptr %.split, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = call i32 @drm_atomic_add_affected_connectors(ptr noundef nonnull %51, ptr noundef %108) #6
   %116 = icmp eq i32 %115, 0
@@ -2187,9 +2188,9 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   %173 = icmp eq ptr %168, null
   %174 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %173, label %.split.us, label %.split
+  br i1 %173, label %.split40.us, label %.split40
 
-.split.us:                                        ; preds = %172, %192
+.split40.us:                                      ; preds = %172, %192
   %176 = phi ptr [ %193, %192 ], [ %170, %172 ]
   %177 = getelementptr i8, ptr %176, i64 -16
   %178 = getelementptr i8, ptr %176, i64 112
@@ -2199,7 +2200,7 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   %182 = icmp eq ptr %181, %0
   br i1 %182, label %183, label %192
 
-183:                                              ; preds = %.split.us
+183:                                              ; preds = %.split40.us
   %184 = getelementptr i8, ptr %176, i64 80
   %185 = load i32, ptr %184, align 8
   %186 = getelementptr i8, ptr %176, i64 16
@@ -2214,12 +2215,12 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.42, ptr noundef %177) #6
   br label %192
 
-192:                                              ; preds = %191, %183, %.split.us
+192:                                              ; preds = %191, %183, %.split40.us
   %193 = load ptr, ptr %176, align 8
   %194 = icmp eq ptr %193, %169
-  br i1 %194, label %.loopexit30, label %.split.us, !llvm.loop !55
+  br i1 %194, label %.loopexit30, label %.split40.us, !llvm.loop !55
 
-.split:                                           ; preds = %172, %212
+.split40:                                         ; preds = %172, %212
   %195 = phi ptr [ %213, %212 ], [ %170, %172 ]
   %196 = getelementptr i8, ptr %195, i64 -16
   %197 = getelementptr i8, ptr %195, i64 112
@@ -2229,7 +2230,7 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   %201 = icmp eq ptr %200, %0
   br i1 %201, label %202, label %212
 
-202:                                              ; preds = %.split
+202:                                              ; preds = %.split40
   %203 = load ptr, ptr %174, align 8
   %204 = getelementptr i8, ptr %195, i64 80
   %205 = load i32, ptr %204, align 8
@@ -2245,10 +2246,10 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.42, ptr noundef %196) #6
   br label %212
 
-212:                                              ; preds = %211, %202, %.split
+212:                                              ; preds = %211, %202, %.split40
   %213 = load ptr, ptr %195, align 8
   %214 = icmp eq ptr %213, %169
-  br i1 %214, label %.loopexit30, label %.split, !llvm.loop !55
+  br i1 %214, label %.loopexit30, label %.split40, !llvm.loop !55
 
 .loopexit30:                                      ; preds = %212, %192, %167
   %215 = getelementptr inbounds nuw i8, ptr %168, i64 712
@@ -2260,16 +2261,16 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   %219 = icmp eq ptr %168, null
   %220 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %219, label %.split40.us, label %.split40
+  br i1 %219, label %.split41.us, label %.split41
 
-.split40.us:                                      ; preds = %218, %233
+.split41.us:                                      ; preds = %218, %233
   %222 = phi ptr [ %234, %233 ], [ %216, %218 ]
   %223 = getelementptr i8, ptr %222, i64 160
   %224 = load ptr, ptr %223, align 8
   %225 = icmp eq ptr %224, %0
   br i1 %225, label %226, label %233
 
-226:                                              ; preds = %.split40.us
+226:                                              ; preds = %.split41.us
   %227 = getelementptr i8, ptr %222, i64 -8
   %228 = getelementptr i8, ptr %222, i64 80
   %229 = load i32, ptr %228, align 8
@@ -2280,19 +2281,19 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   tail call void @drm_plane_force_disable(ptr noundef %227) #6
   br label %233
 
-233:                                              ; preds = %226, %.split40.us
+233:                                              ; preds = %226, %.split41.us
   %234 = load ptr, ptr %222, align 8
   %235 = icmp eq ptr %234, %215
-  br i1 %235, label %.loopexit, label %.split40.us, !llvm.loop !56
+  br i1 %235, label %.loopexit, label %.split41.us, !llvm.loop !56
 
-.split40:                                         ; preds = %218, %248
+.split41:                                         ; preds = %218, %248
   %236 = phi ptr [ %249, %248 ], [ %216, %218 ]
   %237 = getelementptr i8, ptr %236, i64 160
   %238 = load ptr, ptr %237, align 8
   %239 = icmp eq ptr %238, %0
   br i1 %239, label %240, label %248
 
-240:                                              ; preds = %.split40
+240:                                              ; preds = %.split41
   %241 = getelementptr i8, ptr %236, i64 -8
   %242 = load ptr, ptr %220, align 8
   %243 = getelementptr i8, ptr %236, i64 80
@@ -2304,10 +2305,10 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   tail call void @drm_plane_force_disable(ptr noundef %241) #6
   br label %248
 
-248:                                              ; preds = %240, %.split40
+248:                                              ; preds = %240, %.split41
   %249 = load ptr, ptr %236, align 8
   %250 = icmp eq ptr %249, %215
-  br i1 %250, label %.loopexit, label %.split40, !llvm.loop !56
+  br i1 %250, label %.loopexit, label %.split41, !llvm.loop !56
 
 .loopexit:                                        ; preds = %248, %233, %.loopexit30
   tail call void @drm_modeset_unlock_all(ptr noundef %168) #6

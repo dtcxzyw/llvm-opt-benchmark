@@ -476,7 +476,7 @@ define void @_Z21get_commbuffer_countsP16AtomDistributionPN3gmx8ArrayRefIKiEES5_
   %wide.trip.count = and i64 %12, 2147483647
   br label %19
 
-._crit_edge:                                      ; preds = %31, %3
+._crit_edge:                                      ; preds = %32, %3
   %18 = getelementptr inbounds i32, ptr %15, i64 %14
   store ptr %7, ptr %1, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -486,28 +486,29 @@ define void @_Z21get_commbuffer_countsP16AtomDistributionPN3gmx8ArrayRefIKiEES5_
   store ptr %18, ptr %.sroa.4.0..sroa_idx, align 8
   ret void
 
-19:                                               ; preds = %.lr.ph, %31
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %20 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %17, i64 %indvars.iv, i32 1
-  %21 = load i32, ptr %20, align 8, !tbaa !33
-  %22 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
-  store i32 %21, ptr %22, align 4, !tbaa !4
-  %23 = icmp eq i64 %indvars.iv, 0
-  br i1 %23, label %31, label %24
+19:                                               ; preds = %.lr.ph, %32
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
+  %20 = getelementptr inbounds nuw %"struct.AtomDistribution::DomainAtomGroups", ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load i32, ptr %21, align 8, !tbaa !33
+  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  store i32 %22, ptr %23, align 4, !tbaa !4
+  %24 = icmp eq i64 %indvars.iv, 0
+  br i1 %24, label %32, label %25
 
-24:                                               ; preds = %19
-  %25 = add nsw i64 %indvars.iv, -1
-  %26 = getelementptr inbounds i32, ptr %15, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !4
-  %28 = getelementptr inbounds i32, ptr %7, i64 %25
-  %29 = load i32, ptr %28, align 4, !tbaa !4
-  %30 = add nsw i32 %29, %27
-  br label %31
+25:                                               ; preds = %19
+  %26 = add nsw i64 %indvars.iv, -1
+  %27 = getelementptr inbounds i32, ptr %15, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !4
+  %29 = getelementptr inbounds i32, ptr %7, i64 %26
+  %30 = load i32, ptr %29, align 4, !tbaa !4
+  %31 = add nsw i32 %30, %28
+  br label %32
 
-31:                                               ; preds = %19, %24
-  %32 = phi i32 [ %30, %24 ], [ 0, %19 ]
-  %33 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  store i32 %32, ptr %33, align 4, !tbaa !4
+32:                                               ; preds = %19, %25
+  %33 = phi i32 [ %31, %25 ], [ 0, %19 ]
+  %34 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  store i32 %33, ptr %34, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !37

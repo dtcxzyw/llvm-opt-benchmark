@@ -1908,45 +1908,46 @@ define hidden noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull 
 
 48:                                               ; preds = %2
   %49 = zext i32 %4 to i64
-  %50 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %49, i32 1
-  %51 = load i8, ptr %50, align 4
-  %52 = icmp eq i8 %51, 14
-  %53 = icmp ugt i8 %51, 18
-  %or.cond.i12 = or i1 %52, %53
+  %50 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %52 = load i8, ptr %51, align 4
+  %53 = icmp eq i8 %52, 14
+  %54 = icmp ugt i8 %52, 18
+  %or.cond.i12 = or i1 %53, %54
   br i1 %or.cond.i12, label %_ZNK4Type12is_zero_typeEv.exit.thread, label %_ZNK4Type12is_zero_typeEv.exit
 
 _ZNK4Type12is_zero_typeEv.exit:                   ; preds = %48
-  %54 = zext nneg i8 %51 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr @_ZN4Type10_zero_typeE, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %1, %56
-  br i1 %57, label %58, label %_ZNK4Type12is_zero_typeEv.exit.thread
+  %55 = zext nneg i8 %52 to i64
+  %56 = getelementptr inbounds nuw ptr, ptr @_ZN4Type10_zero_typeE, i64 %55
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %1, %57
+  br i1 %58, label %59, label %_ZNK4Type12is_zero_typeEv.exit.thread
 
-58:                                               ; preds = %_ZNK4Type12is_zero_typeEv.exit
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 2240
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %54
-  %61 = load ptr, ptr %60, align 8
-  %.not.i14 = icmp eq ptr %61, null
-  br i1 %.not.i14, label %66, label %62
+59:                                               ; preds = %_ZNK4Type12is_zero_typeEv.exit
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 2240
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %55
+  %62 = load ptr, ptr %61, align 8
+  %.not.i14 = icmp eq ptr %62, null
+  br i1 %.not.i14, label %67, label %63
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %64 = load ptr, ptr %63, align 8
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load ptr, ptr %64, align 8
-  %.not10.i = icmp eq ptr %65, null
-  br i1 %.not10.i, label %66, label %_ZN11PhaseValues6intconEi.exit
+  %66 = load ptr, ptr %65, align 8
+  %.not10.i = icmp eq ptr %66, null
+  br i1 %.not10.i, label %67, label %_ZN11PhaseValues6intconEi.exit
 
-66:                                               ; preds = %62, %58
-  %67 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %56)
-  store ptr %67, ptr %60, align 8
+67:                                               ; preds = %63, %59
+  %68 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %57)
+  store ptr %68, ptr %61, align 8
   br label %_ZN11PhaseValues6intconEi.exit
 
 _ZNK4Type12is_zero_typeEv.exit.thread:            ; preds = %48, %_ZNK4Type12is_zero_typeEv.exit
-  %68 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef nonnull %1)
+  %69 = tail call noundef ptr @_ZN11PhaseValues16uncached_makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef nonnull %1)
   br label %_ZN11PhaseValues6intconEi.exit
 
-_ZN11PhaseValues6intconEi.exit:                   ; preds = %66, %62, %45, %42, %38, %26, %23, %19, %_ZNK4Type12is_zero_typeEv.exit.thread, %5
-  %.0 = phi ptr [ %68, %_ZNK4Type12is_zero_typeEv.exit.thread ], [ %9, %5 ], [ %18, %19 ], [ %25, %26 ], [ %25, %23 ], [ %37, %38 ], [ %44, %45 ], [ %44, %42 ], [ %67, %66 ], [ %61, %62 ]
+_ZN11PhaseValues6intconEi.exit:                   ; preds = %67, %63, %45, %42, %38, %26, %23, %19, %_ZNK4Type12is_zero_typeEv.exit.thread, %5
+  %.0 = phi ptr [ %69, %_ZNK4Type12is_zero_typeEv.exit.thread ], [ %9, %5 ], [ %18, %19 ], [ %25, %26 ], [ %25, %23 ], [ %37, %38 ], [ %44, %45 ], [ %44, %42 ], [ %68, %67 ], [ %62, %63 ]
   ret ptr %.0
 }
 

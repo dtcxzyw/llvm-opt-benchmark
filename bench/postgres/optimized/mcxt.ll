@@ -617,10 +617,11 @@ define dso_local ptr @GetMemoryChunkContext(ptr noundef %0) local_unnamed_addr #
   %2 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %2, align 8
   %3 = and i64 %.val, 15
-  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3, i32 5
-  %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(ptr noundef %0) #16
-  ret ptr %6
+  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call ptr %6(ptr noundef %0) #16
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -628,10 +629,11 @@ define dso_local i64 @GetMemoryChunkSpace(ptr noundef %0) local_unnamed_addr #0 
   %2 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %2, align 8
   %3 = and i64 %.val, 15
-  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3, i32 6
-  %5 = load ptr, ptr %4, align 8
-  %6 = tail call i64 %5(ptr noundef %0) #16
-  ret i64 %6
+  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call i64 %6(ptr noundef %0) #16
+  ret i64 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1408,9 +1410,10 @@ define dso_local void @pfree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %2, align 8
   %3 = and i64 %.val, 15
-  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3, i32 1
-  %5 = load ptr, ptr %4, align 8
-  tail call void %5(ptr noundef %0) #16
+  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8
+  tail call void %6(ptr noundef %0) #16
   ret void
 }
 
@@ -1419,10 +1422,11 @@ define dso_local ptr @repalloc(ptr noundef %0, i64 noundef %1) local_unnamed_add
   %3 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %3, align 8
   %4 = and i64 %.val, 15
-  %5 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %4, i32 2
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr %6(ptr noundef %0, i64 noundef %1, i32 noundef 0) #16
-  ret ptr %7
+  %5 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1, i32 noundef 0) #16
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1430,10 +1434,11 @@ define dso_local ptr @repalloc_extended(ptr noundef %0, i64 noundef %1, i32 noun
   %4 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %4, align 8
   %5 = and i64 %.val, 15
-  %6 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %5, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1, i32 noundef %2) #16
-  ret ptr %8
+  %6 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call ptr %8(ptr noundef %0, i64 noundef %1, i32 noundef %2) #16
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1452,13 +1457,14 @@ define dso_local ptr @repalloc0(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   %9 = getelementptr i8, ptr %0, i64 -8
   %.val.i = load i64, ptr %9, align 8
   %10 = and i64 %.val.i, 15
-  %11 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %10, i32 2
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr %12(ptr noundef %0, i64 noundef %2, i32 noundef 0) #16
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %1
-  %15 = sub nuw i64 %2, %1
-  tail call void @llvm.memset.p0.i64(ptr align 1 %14, i8 0, i64 %15, i1 false)
-  ret ptr %13
+  %11 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call ptr %13(ptr noundef %0, i64 noundef %2, i32 noundef 0) #16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %1
+  %16 = sub nuw i64 %2, %1
+  tail call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %16, i1 false)
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1477,10 +1483,11 @@ define dso_local ptr @repalloc_huge(ptr noundef %0, i64 noundef %1) local_unname
   %3 = getelementptr i8, ptr %0, i64 -8
   %.val.i = load i64, ptr %3, align 8
   %4 = and i64 %.val.i, 15
-  %5 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %4, i32 2
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr %6(ptr noundef %0, i64 noundef %1, i32 noundef 1) #16
-  ret ptr %7
+  %5 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1, i32 noundef 1) #16
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable

@@ -94,7 +94,8 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %12, %7 ]
-  %9 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %8, i32 2
+  %.split = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr %struct.anon, ptr %6, i64 %8
   store i32 %10, ptr %11, align 4
@@ -127,7 +128,8 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
   br i1 %27, label %29, label %32
 
 29:                                               ; preds = %22
-  %30 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %23, i32 1
+  %.split10 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %23
+  %30 = getelementptr i8, ptr %.split10, i64 4
   %31 = load i32, ptr %30, align 4
   br label %32
 
@@ -155,15 +157,16 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
 44:                                               ; preds = %41, %38
   %45 = phi ptr [ %43, %41 ], [ null, %38 ]
   %46 = load i32, ptr %21, align 8
-  %47 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %23, i32 3
+  %.split11 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %23
+  %47 = getelementptr i8, ptr %.split11, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %45, ptr noundef nonnull @.str.20, i32 noundef %46, ptr noundef %48, i32 noundef %25, i32 noundef %.sink) #11
   %.pre = load i32, ptr %24, align 4
-  %.pre10 = load i32, ptr %28, align 4
+  %.pre13 = load i32, ptr %28, align 4
   br label %49
 
 49:                                               ; preds = %44, %32
-  %50 = phi i32 [ %.pre10, %44 ], [ %.sink, %32 ]
+  %50 = phi i32 [ %.pre13, %44 ], [ %.sink, %32 ]
   %51 = phi i32 [ %.pre, %44 ], [ %25, %32 ]
   %52 = sdiv i32 %51, %50
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -184,10 +187,11 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
 61:                                               ; preds = %58, %55
   %62 = phi ptr [ %60, %58 ], [ null, %55 ]
   %63 = load i32, ptr %21, align 8
-  %64 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %23, i32 3
+  %.split12 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %23
+  %64 = getelementptr i8, ptr %.split12, i64 16
   %65 = load ptr, ptr %64, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %62, ptr noundef nonnull @.str.21, i32 noundef %63, ptr noundef %65) #11
-  %.pre11 = load i32, ptr %53, align 4
+  %.pre14 = load i32, ptr %53, align 4
   br label %68
 
 66:                                               ; preds = %49
@@ -196,7 +200,7 @@ define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) u
   br label %68
 
 68:                                               ; preds = %66, %61
-  %69 = phi i32 [ %67, %66 ], [ %.pre11, %61 ]
+  %69 = phi i32 [ %67, %66 ], [ %.pre14, %61 ]
   %70 = getelementptr %struct.guc_log_section, ptr @_guc_log_init_sizes.sections, i64 %23
   %71 = load i32, ptr %70, align 8
   %72 = icmp ugt i32 %69, %71

@@ -331,11 +331,11 @@ define dso_local void @_ZN3igl6embree17EmbreeIntersector4initERKSt6vectorIPKN5Ei
   store float %78, ptr %79, align 4, !tbaa !59
   %80 = getelementptr float, ptr %77, i64 %58
   %81 = load float, ptr %80, align 4, !tbaa !57
-  %82 = getelementptr inbounds nuw %"struct.igl::embree::EmbreeIntersector::Vertex", ptr %53, i64 %indvars.iv, i32 1
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store float %81, ptr %82, align 4, !tbaa !61
   %83 = getelementptr i8, ptr %77, i64 %.idx56
   %84 = load float, ptr %83, align 4, !tbaa !57
-  %85 = getelementptr inbounds nuw %"struct.igl::embree::EmbreeIntersector::Vertex", ptr %53, i64 %indvars.iv, i32 2
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store float %84, ptr %85, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -366,11 +366,11 @@ define dso_local void @_ZN3igl6embree17EmbreeIntersector4initERKSt6vectorIPKN5Ei
   store i32 %98, ptr %99, align 4, !tbaa !66
   %100 = getelementptr i32, ptr %97, i64 %72
   %101 = load i32, ptr %100, align 4, !tbaa !37
-  %102 = getelementptr inbounds nuw %"struct.igl::embree::EmbreeIntersector::Triangle", ptr %67, i64 %indvars.iv67, i32 1
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i32 %101, ptr %102, align 4, !tbaa !68
   %103 = getelementptr i8, ptr %97, i64 %.idx
   %104 = load i32, ptr %103, align 4, !tbaa !37
-  %105 = getelementptr inbounds nuw %"struct.igl::embree::EmbreeIntersector::Triangle", ptr %67, i64 %indvars.iv67, i32 2
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i32 %104, ptr %105, align 4, !tbaa !69
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70

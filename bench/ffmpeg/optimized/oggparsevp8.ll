@@ -239,7 +239,7 @@ define internal noundef i32 @vp8_packet(ptr noundef readonly captures(none) %0, 
   br i1 %.not12.i, label %52, label %vp8_gptopts.exit
 
 52:                                               ; preds = %._crit_edge
-  %53 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6, i32 5
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %54 = load i32, ptr %53, align 8, !tbaa !72
   %55 = or i32 %54, 1
   store i32 %55, ptr %53, align 8, !tbaa !72
@@ -303,28 +303,29 @@ define internal range(i64 -1, 4294967296) i64 @vp8_gptopts(ptr noundef readonly 
   %7 = add nsw i64 %6, %.neg
   %8 = and i64 %2, 1073741816
   %.not12 = icmp eq i64 %8, 0
-  br i1 %.not12, label %9, label %17
+  br i1 %.not12, label %9, label %18
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds %struct.ogg_stream, ptr %12, i64 %13, i32 5
-  %15 = load i32, ptr %14, align 8, !tbaa !72
-  %16 = or i32 %15, 1
-  store i32 %16, ptr %14, align 8, !tbaa !72
-  br label %17
+  %14 = getelementptr inbounds %struct.ogg_stream, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load i32, ptr %15, align 8, !tbaa !72
+  %17 = or i32 %16, 1
+  store i32 %17, ptr %15, align 8, !tbaa !72
+  br label %18
 
-17:                                               ; preds = %9, %4
+18:                                               ; preds = %9, %4
   %.not13 = icmp eq ptr %3, null
-  br i1 %.not13, label %19, label %18
+  br i1 %.not13, label %20, label %19
 
-18:                                               ; preds = %17
+19:                                               ; preds = %18
   store i64 %7, ptr %3, align 8, !tbaa !77
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %17
+20:                                               ; preds = %19, %18
   ret i64 %7
 }
 

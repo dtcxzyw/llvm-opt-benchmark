@@ -315,55 +315,56 @@ define internal range(i32 -1, 1) i32 @_cjk_exec(ptr noundef %0) #0 {
 
 18:                                               ; preds = %18, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %18 ]
-  %19 = getelementptr %struct._multibyte_codec, ptr %17, i64 %indvars.iv.i.i, i32 9
-  store ptr %3, ptr %19, align 8, !tbaa !43
+  %19 = getelementptr %struct._multibyte_codec, ptr %17, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  store ptr %3, ptr %20, align 8, !tbaa !43
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %add_codecs.exit.i, label %18, !llvm.loop !44
 
 add_codecs.exit.i:                                ; preds = %18, %14
-  %20 = load i32, ptr %3, align 8, !tbaa !38
-  %.not22.i = icmp sgt i32 %20, 0
+  %21 = load i32, ptr %3, align 8, !tbaa !38
+  %.not22.i = icmp sgt i32 %21, 0
   br i1 %.not22.i, label %.lr.ph.i, label %register_maps.exit
 
 .lr.ph.i:                                         ; preds = %add_codecs.exit.i
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  br label %30
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 5
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  br label %31
 
-27:                                               ; preds = %30
+28:                                               ; preds = %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = load i32, ptr %3, align 8, !tbaa !38
-  %29 = sext i32 %28 to i64
-  %.not.i = icmp slt i64 %indvars.iv.next.i, %29
-  br i1 %.not.i, label %30, label %register_maps.exit, !llvm.loop !45
+  %29 = load i32, ptr %3, align 8, !tbaa !38
+  %30 = sext i32 %29 to i64
+  %.not.i = icmp slt i64 %indvars.iv.next.i, %30
+  br i1 %.not.i, label %31, label %register_maps.exit, !llvm.loop !45
 
-30:                                               ; preds = %27, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
-  %31 = load ptr, ptr %5, align 8, !tbaa !3
-  %32 = getelementptr %struct.dbcs_map, ptr %31, i64 %indvars.iv.i
+31:                                               ; preds = %28, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
+  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  %33 = getelementptr %struct.dbcs_map, ptr %32, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   store i8 95, ptr %2, align 16
-  store i8 95, ptr %21, align 1
-  store i8 109, ptr %22, align 2
-  store i8 97, ptr %23, align 1
-  store i8 112, ptr %24, align 4
-  store i8 95, ptr %25, align 1
-  %33 = load ptr, ptr %32, align 8, !tbaa !46
-  %34 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %33) #7
-  %35 = call ptr @PyCapsule_New(ptr noundef nonnull %32, ptr noundef nonnull @.str.10, ptr noundef null) #7
-  %36 = call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %35) #7
-  %37 = icmp sgt i32 %36, -1
+  store i8 95, ptr %22, align 1
+  store i8 109, ptr %23, align 2
+  store i8 97, ptr %24, align 1
+  store i8 112, ptr %25, align 4
+  store i8 95, ptr %26, align 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !46
+  %35 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %34) #7
+  %36 = call ptr @PyCapsule_New(ptr noundef nonnull %33, ptr noundef nonnull @.str.10, ptr noundef null) #7
+  %37 = call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %36) #7
+  %38 = icmp sgt i32 %37, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %37, label %27, label %register_maps.exit
+  br i1 %38, label %28, label %register_maps.exit
 
-register_maps.exit:                               ; preds = %27, %30, %1, %7, %add_codecs.exit.i
-  %.0.i = phi i32 [ -1, %1 ], [ -1, %7 ], [ 0, %add_codecs.exit.i ], [ -1, %30 ], [ 0, %27 ]
+register_maps.exit:                               ; preds = %28, %31, %1, %7, %add_codecs.exit.i
+  %.0.i = phi i32 [ -1, %1 ], [ -1, %7 ], [ 0, %add_codecs.exit.i ], [ -1, %31 ], [ 0, %28 ]
   ret i32 %.0.i
 }
 

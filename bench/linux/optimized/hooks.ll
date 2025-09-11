@@ -12801,7 +12801,8 @@ define internal noundef range(i32 -12, 1) i32 @selinux_sk_alloc_security(ptr nou
 
 11:                                               ; preds = %7, %3
   %12 = phi i64 [ 0, %3 ], [ %10, %7 ]
-  %13 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %12, i64 5
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %4, i64 noundef 32) #28
   %16 = icmp eq ptr %15, null

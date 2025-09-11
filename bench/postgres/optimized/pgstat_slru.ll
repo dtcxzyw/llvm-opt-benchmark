@@ -106,10 +106,11 @@ define dso_local void @pgstat_count_slru_page_zeroed(i32 noundef %0) local_unnam
 define dso_local void @pgstat_count_slru_page_hit(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2, i32 1
-  %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, 1
-  store i64 %5, ptr %3, align 8
+  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = add i64 %5, 1
+  store i64 %6, ptr %4, align 8
   ret void
 }
 
@@ -117,10 +118,11 @@ define dso_local void @pgstat_count_slru_page_hit(i32 noundef %0) local_unnamed_
 define dso_local void @pgstat_count_slru_page_exists(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2, i32 4
-  %4 = load i64, ptr %3, align 16
-  %5 = add i64 %4, 1
-  store i64 %5, ptr %3, align 16
+  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %5 = load i64, ptr %4, align 16
+  %6 = add i64 %5, 1
+  store i64 %6, ptr %4, align 16
   ret void
 }
 
@@ -128,10 +130,11 @@ define dso_local void @pgstat_count_slru_page_exists(i32 noundef %0) local_unnam
 define dso_local void @pgstat_count_slru_page_read(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2, i32 2
-  %4 = load i64, ptr %3, align 16
-  %5 = add i64 %4, 1
-  store i64 %5, ptr %3, align 16
+  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load i64, ptr %4, align 16
+  %6 = add i64 %5, 1
+  store i64 %6, ptr %4, align 16
   ret void
 }
 
@@ -139,10 +142,11 @@ define dso_local void @pgstat_count_slru_page_read(i32 noundef %0) local_unnamed
 define dso_local void @pgstat_count_slru_page_written(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2, i32 3
-  %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, 1
-  store i64 %5, ptr %3, align 8
+  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %5 = load i64, ptr %4, align 8
+  %6 = add i64 %5, 1
+  store i64 %6, ptr %4, align 8
   ret void
 }
 
@@ -150,10 +154,11 @@ define dso_local void @pgstat_count_slru_page_written(i32 noundef %0) local_unna
 define dso_local void @pgstat_count_slru_flush(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2, i32 5
-  %4 = load i64, ptr %3, align 8
-  %5 = add i64 %4, 1
-  store i64 %5, ptr %3, align 8
+  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %5 = load i64, ptr %4, align 8
+  %6 = add i64 %5, 1
+  store i64 %6, ptr %4, align 8
   ret void
 }
 
@@ -161,10 +166,11 @@ define dso_local void @pgstat_count_slru_flush(i32 noundef %0) local_unnamed_add
 define dso_local void @pgstat_count_slru_truncate(i32 noundef %0) local_unnamed_addr #3 {
   store i1 true, ptr @have_slrustats, align 1
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2, i32 6
-  %4 = load i64, ptr %3, align 16
-  %5 = add i64 %4, 1
-  store i64 %5, ptr %3, align 16
+  %3 = getelementptr inbounds %struct.PgStat_SLRUStats, ptr @pending_SLRUStats, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %5 = load i64, ptr %4, align 16
+  %6 = add i64 %5, 1
+  store i64 %6, ptr %4, align 16
   ret void
 }
 

@@ -4178,7 +4178,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit.thread: ; preds = %133
 
 142:                                              ; preds = %133
   invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr %134, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit unwind label %326
+          to label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit unwind label %327
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit: ; preds = %142
   %.pr = load ptr, ptr %2, align 8
@@ -4200,7 +4200,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSa
   br label %.lr.ph83.preheader
 
 .loopexit.loopexit:                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34
-  %150 = icmp eq i32 %322, 0
+  %150 = icmp eq i32 %323, 0
   br i1 %150, label %.lr.ph83.preheader, label %.split, !llvm.loop !90
 
 .lr.ph83.preheader:                               ; preds = %.loopexit.loopexit, %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -4209,8 +4209,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSa
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34
   %151 = phi ptr [ %317, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34 ], [ %.pre89, %.lr.ph83.preheader ]
-  %.082 = phi i32 [ %323, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34 ], [ 0, %.lr.ph83.preheader ]
-  %.181 = phi i32 [ %322, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34 ], [ 0, %.lr.ph83.preheader ]
+  %.082 = phi i32 [ %324, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34 ], [ 0, %.lr.ph83.preheader ]
+  %.181 = phi i32 [ %323, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit34 ], [ 0, %.lr.ph83.preheader ]
   %152 = getelementptr inbounds nuw %"class.std::vector.9", ptr %151, i64 %indvars.iv
   %153 = load ptr, ptr %28, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 328
@@ -4484,40 +4484,41 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit34:         ; preds = %294, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i33
   %317 = load ptr, ptr %23, align 8
-  %318 = getelementptr inbounds nuw %"class.std::vector.9", ptr %317, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 1
-  %319 = load ptr, ptr %318, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 -4
-  %321 = load i32, ptr %320, align 4
-  %322 = add nsw i32 %321, %.181
-  %323 = add nuw nsw i32 %.082, 1
-  %324 = load i32, ptr %7, align 4
-  %325 = icmp slt i32 %323, %324
-  br i1 %325, label %.lr.ph83, label %.loopexit.loopexit, !llvm.loop !92
+  %318 = getelementptr inbounds nuw %"class.std::vector.9", ptr %317, i64 %indvars.iv
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 8
+  %320 = load ptr, ptr %319, align 8
+  %321 = getelementptr inbounds i8, ptr %320, i64 -4
+  %322 = load i32, ptr %321, align 4
+  %323 = add nsw i32 %322, %.181
+  %324 = add nuw nsw i32 %.082, 1
+  %325 = load i32, ptr %7, align 4
+  %326 = icmp slt i32 %324, %325
+  br i1 %326, label %.lr.ph83, label %.loopexit.loopexit, !llvm.loop !92
 
-326:                                              ; preds = %142
-  %327 = landingpad { ptr, i32 }
+327:                                              ; preds = %142
+  %328 = landingpad { ptr, i32 }
           cleanup
-  %328 = load ptr, ptr %2, align 8
-  %.not.i.i.i35 = icmp eq ptr %328, null
-  br i1 %.not.i.i.i35, label %_ZNSt6vectorIiSaIiEED2Ev.exit36, label %329
+  %329 = load ptr, ptr %2, align 8
+  %.not.i.i.i35 = icmp eq ptr %329, null
+  br i1 %.not.i.i.i35, label %_ZNSt6vectorIiSaIiEED2Ev.exit36, label %330
 
-329:                                              ; preds = %326
-  %330 = load ptr, ptr %27, align 8
-  %331 = ptrtoint ptr %330 to i64
-  %332 = ptrtoint ptr %328 to i64
-  %333 = sub i64 %331, %332
-  call void @_ZdlPvm(ptr noundef nonnull %328, i64 noundef %333) #35
+330:                                              ; preds = %327
+  %331 = load ptr, ptr %27, align 8
+  %332 = ptrtoint ptr %331 to i64
+  %333 = ptrtoint ptr %329 to i64
+  %334 = sub i64 %332, %333
+  call void @_ZdlPvm(ptr noundef nonnull %329, i64 noundef %334) #35
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit36
 
-_ZNSt6vectorIiSaIiEED2Ev.exit36:                  ; preds = %326, %329
-  resume { ptr, i32 } %327
+_ZNSt6vectorIiSaIiEED2Ev.exit36:                  ; preds = %327, %330
+  resume { ptr, i32 } %328
 
 .split:                                           ; preds = %.loopexit.loopexit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %334 = load i32, ptr %20, align 4
-  %335 = sext i32 %334 to i64
-  %336 = icmp slt i64 %indvars.iv.next, %335
-  br i1 %336, label %133, label %._crit_edge, !llvm.loop !93
+  %335 = load i32, ptr %20, align 4
+  %336 = sext i32 %335 to i64
+  %337 = icmp slt i64 %indvars.iv.next, %336
+  br i1 %337, label %133, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.split, %.preheader72
   ret void

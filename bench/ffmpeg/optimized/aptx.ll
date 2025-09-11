@@ -367,27 +367,28 @@ define range(i32 -1094995529, 1) i32 @ff_aptx_init(ptr noundef readonly captures
   store i32 %13, ptr %14, align 4, !tbaa !62
   br label %15
 
-15:                                               ; preds = %6, %21
-  %16 = phi i1 [ true, %6 ], [ false, %21 ]
-  %indvars.iv21 = phi i64 [ 0, %6 ], [ 1, %21 ]
-  %17 = getelementptr inbounds nuw %struct.Channel, ptr %3, i64 %indvars.iv21, i32 6, i64 0, i32 1, i64 1
-  br label %18
+15:                                               ; preds = %6, %22
+  %16 = phi i1 [ true, %6 ], [ false, %22 ]
+  %indvars.iv21 = phi i64 [ 0, %6 ], [ 1, %22 ]
+  %17 = getelementptr inbounds nuw %struct.Channel, ptr %3, i64 %indvars.iv21
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 924
+  br label %19
 
-18:                                               ; preds = %15, %18
-  %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw %struct.Prediction, ptr %17, i64 %indvars.iv
-  store i32 1, ptr %19, align 4, !tbaa !12
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
+19:                                               ; preds = %15, %19
+  %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %19 ]
+  %20 = getelementptr inbounds nuw %struct.Prediction, ptr %18, i64 %indvars.iv
   store i32 1, ptr %20, align 4, !tbaa !12
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store i32 1, ptr %21, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %21, label %18, !llvm.loop !63
+  br i1 %exitcond.not, label %22, label %19, !llvm.loop !63
 
-21:                                               ; preds = %18
+22:                                               ; preds = %19
   br i1 %16, label %15, label %.loopexit, !llvm.loop !64
 
-.loopexit:                                        ; preds = %21, %1
-  %.0 = phi i32 [ -1094995529, %1 ], [ 0, %21 ]
+.loopexit:                                        ; preds = %22, %1
+  %.0 = phi i32 [ -1094995529, %1 ], [ 0, %22 ]
   ret i32 %.0
 }
 

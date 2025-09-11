@@ -4615,9 +4615,9 @@ _PyBytesWriter_Alloc.exit.thread100:              ; preds = %4, %_PyBytesWriter_
   %73 = zext nneg i8 %70 to i32
   %74 = shl nuw nsw i32 %67, 3
   %75 = getelementptr i8, ptr %.074121, i64 4
-  %76 = add nuw nsw i32 %74, %73
-  %77 = add nsw i32 %76, -48
-  %78 = icmp samesign ugt i32 %76, 303
+  %76 = add nsw i32 %74, -48
+  %77 = add nsw i32 %76, %73
+  %78 = icmp samesign ugt i32 %77, 255
   br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %72
@@ -5490,7 +5490,7 @@ Py_DECREF.exit149:                                ; preds = %.thread173, %45, %4
   br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %40, %23, %.thread
-  %.0119264 = phi ptr [ %3, %.thread ], [ %3, %23 ], [ %42, %40 ]
+  %.0119265 = phi ptr [ %3, %.thread ], [ %3, %23 ], [ %42, %40 ]
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %52
 
@@ -5529,7 +5529,7 @@ Py_DECREF.exit149:                                ; preds = %.thread173, %45, %4
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %60, %63
-  %65 = getelementptr %struct.Py_buffer, ptr %.0119264, i64 %.0120210
+  %65 = getelementptr %struct.Py_buffer, ptr %.0119265, i64 %.0120210
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %58, ptr %66, align 8, !tbaa !70
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 32
@@ -5541,14 +5541,14 @@ _Py_NewRef.exit:                                  ; preds = %60, %63
   br label %79
 
 70:                                               ; preds = %57
-  %71 = getelementptr %struct.Py_buffer, ptr %.0119264, i64 %.0120210
+  %71 = getelementptr %struct.Py_buffer, ptr %.0119265, i64 %.0120210
   %72 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %58, ptr noundef %71, i32 noundef 0) #20
   %.not143 = icmp eq i32 %72, 0
   br i1 %.not143, label %._crit_edge248, label %73
 
 ._crit_edge248:                                   ; preds = %70
-  %.phi.trans.insert = getelementptr %struct.Py_buffer, ptr %.0119264, i64 %.0120210, i32 2
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !74
+  %.phi.trans.insert249 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %.pre = load i64, ptr %.phi.trans.insert249, align 8, !tbaa !74
   br label %79
 
 73:                                               ; preds = %70
@@ -5612,7 +5612,7 @@ _Py_NewRef.exit:                                  ; preds = %60, %63
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread
-  %.0119266 = phi ptr [ %3, %.thread ], [ %.0119264, %._crit_edge.loopexit ]
+  %.0119267 = phi ptr [ %3, %.thread ], [ %.0119265, %._crit_edge.loopexit ]
   %.0124.lcssa = phi i64 [ 0, %.thread ], [ %10, %._crit_edge.loopexit ]
   %.0116.lcssa = phi i1 [ false, %.thread ], [ %100, %._crit_edge.loopexit ]
   %.0111.lcssa = phi i64 [ 0, %.thread ], [ %.2113, %._crit_edge.loopexit ]
@@ -5645,7 +5645,7 @@ _Py_NewRef.exit:                                  ; preds = %60, %63
 .lr.ph220:                                        ; preds = %.preheader, %.lr.ph220
   %.0110219 = phi ptr [ %114, %.lr.ph220 ], [ %104, %.preheader ]
   %.1121218 = phi i64 [ %115, %.lr.ph220 ], [ 0, %.preheader ]
-  %110 = getelementptr %struct.Py_buffer, ptr %.0119266, i64 %.1121218
+  %110 = getelementptr %struct.Py_buffer, ptr %.0119267, i64 %.1121218
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load i64, ptr %111, align 8, !tbaa !74
   %113 = load ptr, ptr %110, align 8, !tbaa !73
@@ -5668,7 +5668,7 @@ _Py_NewRef.exit:                                  ; preds = %60, %63
 
 118:                                              ; preds = %116, %.lr.ph217
   %.2 = phi ptr [ %117, %116 ], [ %.1216, %.lr.ph217 ]
-  %119 = getelementptr %struct.Py_buffer, ptr %.0119266, i64 %.2122215
+  %119 = getelementptr %struct.Py_buffer, ptr %.0119267, i64 %.2122215
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i64, ptr %120, align 8, !tbaa !74
   %122 = load ptr, ptr %119, align 8, !tbaa !73
@@ -5686,7 +5686,7 @@ _Py_NewRef.exit:                                  ; preds = %60, %63
   br label %.thread174
 
 .thread174:                                       ; preds = %73, %97, %91, %84, %._crit_edge, %.loopexit, %125
-  %.0119265 = phi ptr [ %.0119266, %125 ], [ %.0119266, %.loopexit ], [ %.0119266, %._crit_edge ], [ %.0119264, %73 ], [ %.0119264, %97 ], [ %.0119264, %91 ], [ %.0119264, %84 ]
+  %.0119266 = phi ptr [ %.0119267, %125 ], [ %.0119267, %.loopexit ], [ %.0119267, %._crit_edge ], [ %.0119265, %73 ], [ %.0119265, %97 ], [ %.0119265, %91 ], [ %.0119265, %84 ]
   %.3127 = phi i64 [ %.0124.lcssa, %125 ], [ %.0124.lcssa, %.loopexit ], [ %.0124.lcssa, %._crit_edge ], [ %.0120210, %73 ], [ %81, %97 ], [ %81, %91 ], [ %81, %84 ]
   %.0109 = phi ptr [ %101, %125 ], [ %101, %.loopexit ], [ null, %._crit_edge ], [ null, %73 ], [ null, %97 ], [ null, %91 ], [ null, %84 ]
   %126 = load i32, ptr %6, align 8, !tbaa !9
@@ -5709,18 +5709,18 @@ Py_DECREF.exit:                                   ; preds = %.thread174, %127, %
 
 .lr.ph222:                                        ; preds = %Py_DECREF.exit, %.lr.ph222
   %.3123221 = phi i64 [ %133, %.lr.ph222 ], [ 0, %Py_DECREF.exit ]
-  %132 = getelementptr %struct.Py_buffer, ptr %.0119265, i64 %.3123221
+  %132 = getelementptr %struct.Py_buffer, ptr %.0119266, i64 %.3123221
   call void @PyBuffer_Release(ptr noundef %132) #20
   %133 = add nuw nsw i64 %.3123221, 1
   %exitcond247.not = icmp eq i64 %133, %.3127
   br i1 %exitcond247.not, label %._crit_edge223, label %.lr.ph222, !llvm.loop !78
 
 ._crit_edge223:                                   ; preds = %.lr.ph222, %Py_DECREF.exit
-  %.not147 = icmp eq ptr %.0119265, %3
+  %.not147 = icmp eq ptr %.0119266, %3
   br i1 %.not147, label %Py_DECREF.exit153, label %134
 
 134:                                              ; preds = %._crit_edge223
-  call void @PyMem_Free(ptr noundef nonnull %.0119265) #20
+  call void @PyMem_Free(ptr noundef nonnull %.0119266) #20
   br label %Py_DECREF.exit153
 
 Py_DECREF.exit153:                                ; preds = %35, %32, %Py_INCREF.exit, %16, %13, %11, %._crit_edge223, %134, %2, %Py_DECREF.exit149

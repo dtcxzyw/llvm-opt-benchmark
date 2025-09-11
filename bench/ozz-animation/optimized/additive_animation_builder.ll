@@ -870,7 +870,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline24AdditiveAnimati
   %6 = alloca %"struct.ozz::animation::offline::RawAnimation::TranslationKey", align 4
   %7 = alloca %"struct.ozz::animation::offline::RawAnimation", align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %200, label %8
+  br i1 %.not, label %206, label %8
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -951,7 +951,7 @@ _ZSt8_DestroyIPN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAlloca
 _ZN3ozz9animation7offline12RawAnimationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.i.i, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %39 = call noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8ValidateEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  br i1 %39, label %40, label %200
+  br i1 %39, label %40, label %206
 
 40:                                               ; preds = %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -966,7 +966,7 @@ _ZN3ozz9animation7offline12RawAnimationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3oz
   %50 = load i64, ptr %49, align 8, !tbaa !72
   %51 = trunc i64 %50 to i32
   %52 = icmp sgt i32 %48, %51
-  br i1 %52, label %200, label %53
+  br i1 %52, label %206, label %53
 
 53:                                               ; preds = %40
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1032,11 +1032,11 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocato
 
 ._crit_edge:                                      ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit, %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
   %84 = call noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8ValidateEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  br label %200
+  br label %206
 
 85:                                               ; preds = %.lr.ph, %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit
-  %86 = phi ptr [ %81, %.lr.ph ], [ %194, %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit ]
-  %.046 = phi i64 [ 0, %.lr.ph ], [ %192, %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit ]
+  %86 = phi ptr [ %81, %.lr.ph ], [ %200, %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit ]
+  %.046 = phi i64 [ 0, %.lr.ph ], [ %198, %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit ]
   %87 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %86, i64 %.046
   %88 = load ptr, ptr %2, align 8, !tbaa !75
   %89 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %88, i64 %.046
@@ -1115,101 +1115,107 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllo
 
 _ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit: ; preds = %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i, %85
   %136 = load ptr, ptr %1, align 8, !tbaa !15
-  %137 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %136, i64 %.046, i32 1
-  %138 = load ptr, ptr %2, align 8, !tbaa !75
-  %139 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %138, i64 %.046, i32 1
-  %140 = load ptr, ptr %3, align 8, !tbaa !15
-  %141 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %140, i64 %.046, i32 1
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEENS_4math10QuaternionEFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 4 dereferenceable(16) %139, ptr noundef %141)
-  %142 = load ptr, ptr %1, align 8, !tbaa !15
-  %143 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %142, i64 %.046, i32 2
-  %144 = load ptr, ptr %2, align 8, !tbaa !75
-  %145 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %144, i64 %.046, i32 2
-  %146 = load ptr, ptr %3, align 8, !tbaa !15
-  %147 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %146, i64 %.046, i32 2
-  %148 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %149 = load ptr, ptr %148, align 8, !tbaa !37
-  %150 = load ptr, ptr %143, align 8, !tbaa !40
-  %151 = ptrtoint ptr %149 to i64
-  %152 = ptrtoint ptr %150 to i64
-  %153 = sub i64 %151, %152
-  %154 = ashr exact i64 %153, 4
-  call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %147, i64 noundef %154)
-  %155 = load ptr, ptr %143, align 8, !tbaa !51
-  %156 = load ptr, ptr %148, align 8, !tbaa !51
-  %157 = icmp eq ptr %155, %156
-  br i1 %157, label %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit, label %.lr.ph.i40
+  %137 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %136, i64 %.046
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
+  %139 = load ptr, ptr %2, align 8, !tbaa !75
+  %140 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %139, i64 %.046
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 12
+  %142 = load ptr, ptr %3, align 8, !tbaa !15
+  %143 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %142, i64 %.046
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEENS_4math10QuaternionEFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 4 dereferenceable(16) %141, ptr noundef %144)
+  %145 = load ptr, ptr %1, align 8, !tbaa !15
+  %146 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %145, i64 %.046
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 48
+  %148 = load ptr, ptr %2, align 8, !tbaa !75
+  %149 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %148, i64 %.046
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 28
+  %151 = load ptr, ptr %3, align 8, !tbaa !15
+  %152 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %151, i64 %.046
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 48
+  %154 = getelementptr inbounds nuw i8, ptr %146, i64 56
+  %155 = load ptr, ptr %154, align 8, !tbaa !37
+  %156 = load ptr, ptr %147, align 8, !tbaa !40
+  %157 = ptrtoint ptr %155 to i64
+  %158 = ptrtoint ptr %156 to i64
+  %159 = sub i64 %157, %158
+  %160 = ashr exact i64 %159, 4
+  call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %153, i64 noundef %160)
+  %161 = load ptr, ptr %147, align 8, !tbaa !51
+  %162 = load ptr, ptr %154, align 8, !tbaa !51
+  %163 = icmp eq ptr %161, %162
+  br i1 %163, label %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit
-  %158 = getelementptr inbounds nuw i8, ptr %145, i64 4
-  %159 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %160 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %161 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  br label %162
+  %164 = getelementptr inbounds nuw i8, ptr %149, i64 32
+  %165 = getelementptr inbounds nuw i8, ptr %149, i64 36
+  %166 = getelementptr inbounds nuw i8, ptr %152, i64 56
+  %167 = getelementptr inbounds nuw i8, ptr %152, i64 64
+  br label %168
 
-162:                                              ; preds = %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i, %.lr.ph.i40
-  %163 = phi ptr [ %155, %.lr.ph.i40 ], [ %186, %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i ]
-  %.01.i42 = phi i64 [ 0, %.lr.ph.i40 ], [ %184, %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i ]
+168:                                              ; preds = %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i, %.lr.ph.i40
+  %169 = phi ptr [ %161, %.lr.ph.i40 ], [ %192, %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i ]
+  %.01.i42 = phi i64 [ 0, %.lr.ph.i40 ], [ %190, %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %164 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %163, i64 %.01.i42
-  %165 = load float, ptr %164, align 4, !tbaa !52
-  store float %165, ptr %5, align 4, !tbaa !52
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 4
-  %167 = load float, ptr %166, align 4, !tbaa !45
-  %168 = load float, ptr %145, align 4, !tbaa !45
-  %169 = fdiv float %167, %168
-  %170 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %171 = load float, ptr %170, align 4, !tbaa !46
-  %172 = load float, ptr %158, align 4, !tbaa !46
-  %173 = fdiv float %171, %172
-  %174 = getelementptr inbounds nuw i8, ptr %164, i64 12
-  %175 = load float, ptr %174, align 4, !tbaa !47
-  %176 = load float, ptr %159, align 4, !tbaa !47
-  %177 = fdiv float %175, %176
-  %.sroa.0.0.vec.insert.i.i43 = insertelement <2 x float> poison, float %169, i64 0
-  %.sroa.0.4.vec.insert.i.i44 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i43, float %173, i64 1
+  %170 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %169, i64 %.01.i42
+  %171 = load float, ptr %170, align 4, !tbaa !52
+  store float %171, ptr %5, align 4, !tbaa !52
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 4
+  %173 = load float, ptr %172, align 4, !tbaa !45
+  %174 = load float, ptr %150, align 4, !tbaa !45
+  %175 = fdiv float %173, %174
+  %176 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %177 = load float, ptr %176, align 4, !tbaa !46
+  %178 = load float, ptr %164, align 4, !tbaa !46
+  %179 = fdiv float %177, %178
+  %180 = getelementptr inbounds nuw i8, ptr %170, i64 12
+  %181 = load float, ptr %180, align 4, !tbaa !47
+  %182 = load float, ptr %165, align 4, !tbaa !47
+  %183 = fdiv float %181, %182
+  %.sroa.0.0.vec.insert.i.i43 = insertelement <2 x float> poison, float %175, i64 0
+  %.sroa.0.4.vec.insert.i.i44 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i43, float %179, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i44, ptr %83, align 4
-  store float %177, ptr %.sroa.2.0..sroa_idx.i41, align 4
-  %178 = load ptr, ptr %160, align 8, !tbaa !37
-  %179 = load ptr, ptr %161, align 8, !tbaa !54
-  %.not.i.i45 = icmp eq ptr %178, %179
-  br i1 %.not.i.i45, label %183, label %180
+  store float %183, ptr %.sroa.2.0..sroa_idx.i41, align 4
+  %184 = load ptr, ptr %166, align 8, !tbaa !37
+  %185 = load ptr, ptr %167, align 8, !tbaa !54
+  %.not.i.i45 = icmp eq ptr %184, %185
+  br i1 %.not.i.i45, label %189, label %186
 
-180:                                              ; preds = %162
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %178, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !36
-  %181 = load ptr, ptr %160, align 8, !tbaa !37
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  store ptr %182, ptr %160, align 8, !tbaa !37
+186:                                              ; preds = %168
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %184, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !36
+  %187 = load ptr, ptr %166, align 8, !tbaa !37
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  store ptr %188, ptr %166, align 8, !tbaa !37
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i
 
-183:                                              ; preds = %162
-  call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %147, ptr %178, ptr noundef nonnull align 4 dereferenceable(16) %5)
+189:                                              ; preds = %168
+  call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %153, ptr %184, ptr noundef nonnull align 4 dereferenceable(16) %5)
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i
 
-_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i: ; preds = %183, %180
+_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i: ; preds = %189, %186
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %184 = add nuw i64 %.01.i42, 1
-  %185 = load ptr, ptr %148, align 8, !tbaa !37
-  %186 = load ptr, ptr %143, align 8, !tbaa !40
-  %187 = ptrtoint ptr %185 to i64
-  %188 = ptrtoint ptr %186 to i64
-  %189 = sub i64 %187, %188
-  %190 = ashr exact i64 %189, 4
-  %191 = icmp ult i64 %184, %190
-  br i1 %191, label %162, label %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit, !llvm.loop !56
+  %190 = add nuw i64 %.01.i42, 1
+  %191 = load ptr, ptr %154, align 8, !tbaa !37
+  %192 = load ptr, ptr %147, align 8, !tbaa !40
+  %193 = ptrtoint ptr %191 to i64
+  %194 = ptrtoint ptr %192 to i64
+  %195 = sub i64 %193, %194
+  %196 = ashr exact i64 %195, 4
+  %197 = icmp ult i64 %190, %196
+  br i1 %197, label %168, label %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit, !llvm.loop !56
 
 _ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit: ; preds = %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i, %_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit
-  %192 = add nuw i64 %.046, 1
-  %193 = load ptr, ptr %41, align 8, !tbaa !18
-  %194 = load ptr, ptr %1, align 8, !tbaa !15
-  %195 = ptrtoint ptr %193 to i64
-  %196 = ptrtoint ptr %194 to i64
-  %197 = sub i64 %195, %196
-  %198 = sdiv exact i64 %197, 72
-  %199 = icmp ult i64 %192, %198
-  br i1 %199, label %85, label %._crit_edge, !llvm.loop !76
+  %198 = add nuw i64 %.046, 1
+  %199 = load ptr, ptr %41, align 8, !tbaa !18
+  %200 = load ptr, ptr %1, align 8, !tbaa !15
+  %201 = ptrtoint ptr %199 to i64
+  %202 = ptrtoint ptr %200 to i64
+  %203 = sub i64 %201, %202
+  %204 = sdiv exact i64 %203, 72
+  %205 = icmp ult i64 %198, %204
+  br i1 %205, label %85, label %._crit_edge, !llvm.loop !76
 
-200:                                              ; preds = %40, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit, %4, %._crit_edge
+206:                                              ; preds = %40, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit, %4, %._crit_edge
   %.033 = phi i1 [ %84, %._crit_edge ], [ false, %4 ], [ false, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit ], [ false, %40 ]
   ret i1 %.033
 }

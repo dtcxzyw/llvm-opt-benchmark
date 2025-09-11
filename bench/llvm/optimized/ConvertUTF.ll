@@ -245,64 +245,66 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %6 = load ptr, ptr %0, align 8, !tbaa !8
   %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = icmp ult ptr %6, %1
-  br i1 %8, label %.lr.ph, label %.thread95
+  br i1 %8, label %.lr.ph, label %.thread107
 
 .lr.ph:                                           ; preds = %5
   %9 = icmp eq i32 %4, 0
   br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %53
-  %.062104.us = phi ptr [ %.5.us, %53 ], [ %6, %.lr.ph ]
-  %.067103.us = phi ptr [ %59, %53 ], [ %7, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i8, ptr %.062104.us, i64 2
-  %11 = load i16, ptr %.062104.us, align 2, !tbaa !12
+  %.062117.us = phi ptr [ %.5100.us, %53 ], [ %6, %.lr.ph ]
+  %.067115.us = phi ptr [ %59, %53 ], [ %7, %.lr.ph ]
+  %10 = getelementptr inbounds nuw i8, ptr %.062117.us, i64 2
+  %11 = load i16, ptr %.062117.us, align 2, !tbaa !12
   %12 = zext i16 %11 to i32
   %13 = and i16 %11, -1024
   %or.cond.us = icmp eq i16 %13, -10240
-  br i1 %or.cond.us, label %14, label %.thread.us
+  br i1 %or.cond.us, label %18, label %14
 
 14:                                               ; preds = %.lr.ph.split.us.split
-  %15 = icmp ult ptr %10, %1
-  br i1 %15, label %16, label %.thread95
+  %15 = icmp ult i16 %11, 128
+  br i1 %15, label %30, label %16
 
 16:                                               ; preds = %14
-  %17 = load i16, ptr %10, align 2, !tbaa !12
-  %18 = and i16 %17, -1024
-  %or.cond3.us = icmp eq i16 %18, -9216
-  br i1 %or.cond3.us, label %19, label %.thread.us
+  %17 = icmp ult i16 %11, 2048
+  br i1 %17, label %30, label %.thread101.us
 
-19:                                               ; preds = %16
-  %20 = zext i16 %17 to i32
-  %21 = shl nuw nsw i32 %12, 10
-  %22 = add nsw i32 %21, -56613888
-  %23 = add nuw nsw i32 %22, %20
-  %24 = getelementptr inbounds nuw i8, ptr %.062104.us, i64 4
-  br label %.thread.us
+18:                                               ; preds = %.lr.ph.split.us.split
+  %19 = icmp ult ptr %10, %1
+  br i1 %19, label %20, label %.thread107
 
-.thread.us:                                       ; preds = %16, %.lr.ph.split.us.split, %19
-  %.275.us = phi i32 [ %23, %19 ], [ %12, %.lr.ph.split.us.split ], [ %12, %16 ]
-  %.5.us = phi ptr [ %24, %19 ], [ %10, %.lr.ph.split.us.split ], [ %10, %16 ]
-  %25 = icmp ult i32 %.275.us, 128
-  br i1 %25, label %30, label %26
+20:                                               ; preds = %18
+  %21 = load i16, ptr %10, align 2, !tbaa !12
+  %22 = and i16 %21, -1024
+  %or.cond3.us = icmp eq i16 %22, -9216
+  br i1 %or.cond3.us, label %23, label %.thread101.us
 
-26:                                               ; preds = %.thread.us
-  %27 = icmp ult i32 %.275.us, 2048
-  br i1 %27, label %30, label %28
+23:                                               ; preds = %20
+  %24 = zext i16 %21 to i32
+  %25 = shl nuw nsw i32 %12, 10
+  %26 = add nsw i32 %25, -56613888
+  %27 = add nuw nsw i32 %26, %24
+  %28 = getelementptr inbounds nuw i8, ptr %.062117.us, i64 4
+  br label %.thread101.us
 
-28:                                               ; preds = %26
-  %29 = icmp ult i32 %.275.us, 65536
+.thread101.us:                                    ; preds = %20, %23, %16
+  %.27597105.us = phi i32 [ %12, %16 ], [ %27, %23 ], [ %12, %20 ]
+  %.599104.us = phi ptr [ %10, %16 ], [ %28, %23 ], [ %10, %20 ]
+  %29 = icmp samesign ult i32 %.27597105.us, 65536
   %spec.select.us = select i1 %29, i16 3, i16 4
   br label %30
 
-30:                                               ; preds = %28, %26, %.thread.us
-  %.080.us = phi i16 [ 1, %.thread.us ], [ 2, %26 ], [ %spec.select.us, %28 ]
+30:                                               ; preds = %.thread101.us, %16, %14
+  %.5100.us = phi ptr [ %10, %14 ], [ %10, %16 ], [ %.599104.us, %.thread101.us ]
+  %.27598.us = phi i32 [ %12, %14 ], [ %12, %16 ], [ %.27597105.us, %.thread101.us ]
+  %.080.us = phi i16 [ 1, %14 ], [ 2, %16 ], [ %spec.select.us, %.thread101.us ]
   %31 = zext nneg i16 %.080.us to i64
-  %32 = getelementptr inbounds nuw i8, ptr %.067103.us, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %.067115.us, i64 %31
   %33 = icmp ugt ptr %32, %3
-  br i1 %33, label %.thread95, label %34
+  br i1 %33, label %.thread107, label %34
 
 34:                                               ; preds = %30
-  switch i16 %.080.us, label %default.unreachable216 [
+  switch i16 %.080.us, label %default.unreachable234 [
     i16 4, label %35
     i16 3, label %41
     i16 2, label %47
@@ -310,16 +312,16 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   ]
 
 35:                                               ; preds = %34
-  %36 = trunc i32 %.275.us to i8
+  %36 = trunc i32 %.27598.us to i8
   %37 = and i8 %36, 63
   %38 = or disjoint i8 %37, -128
   %39 = getelementptr inbounds i8, ptr %32, i64 -1
   store i8 %38, ptr %39, align 1, !tbaa !16
-  %40 = lshr i32 %.275.us, 6
+  %40 = lshr i32 %.27598.us, 6
   br label %41
 
 41:                                               ; preds = %35, %34
-  %.477.us = phi i32 [ %40, %35 ], [ %.275.us, %34 ]
+  %.477.us = phi i32 [ %40, %35 ], [ %.27598.us, %34 ]
   %.471.us = phi ptr [ %39, %35 ], [ %32, %34 ]
   %42 = trunc i32 %.477.us to i8
   %43 = and i8 %42, 63
@@ -330,7 +332,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br label %47
 
 47:                                               ; preds = %41, %34
-  %.578.us = phi i32 [ %46, %41 ], [ %.275.us, %34 ]
+  %.578.us = phi i32 [ %46, %41 ], [ %.27598.us, %34 ]
   %.572.us = phi ptr [ %45, %41 ], [ %32, %34 ]
   %48 = trunc i32 %.578.us to i8
   %49 = and i8 %48, 63
@@ -341,7 +343,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br label %53
 
 53:                                               ; preds = %47, %34
-  %.679.us = phi i32 [ %52, %47 ], [ %.275.us, %34 ]
+  %.679.us = phi i32 [ %52, %47 ], [ %.27598.us, %34 ]
   %.6.us = phi ptr [ %51, %47 ], [ %32, %34 ]
   %54 = getelementptr inbounds nuw i8, ptr @_ZN4llvmL13firstByteMarkE, i64 %31
   %55 = load i8, ptr %54, align 1, !tbaa !16
@@ -350,63 +352,65 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %58 = getelementptr inbounds i8, ptr %.6.us, i64 -1
   store i8 %57, ptr %58, align 1, !tbaa !16
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %31
-  %60 = icmp ult ptr %.5.us, %1
-  br i1 %60, label %.lr.ph.split.us.split, label %.thread95
+  %60 = icmp ult ptr %.5100.us, %1
+  br i1 %60, label %.lr.ph.split.us.split, label %.thread107
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %104
-  %.062104.us134 = phi ptr [ %.5.us140, %104 ], [ %6, %.lr.ph ]
-  %.067103.us135 = phi ptr [ %110, %104 ], [ %7, %.lr.ph ]
-  %61 = getelementptr inbounds nuw i8, ptr %.062104.us134, i64 2
-  %62 = load i16, ptr %.062104.us134, align 2, !tbaa !12
+  %.062117.us148 = phi ptr [ %.5100.us156, %104 ], [ %6, %.lr.ph ]
+  %.067115.us149 = phi ptr [ %110, %104 ], [ %7, %.lr.ph ]
+  %61 = getelementptr inbounds nuw i8, ptr %.062117.us148, i64 2
+  %62 = load i16, ptr %.062117.us148, align 2, !tbaa !12
   %63 = zext i16 %62 to i32
   %64 = and i16 %62, -1024
-  switch i16 %64, label %.thread.us138 [
-    i16 -10240, label %65
-    i16 -9216, label %.thread95
+  switch i16 %64, label %65 [
+    i16 -10240, label %69
+    i16 -9216, label %.thread107
   ]
 
 65:                                               ; preds = %.lr.ph.split.split.us
-  %66 = icmp ult ptr %61, %1
-  br i1 %66, label %67, label %.thread95
+  %66 = icmp ult i16 %62, 128
+  br i1 %66, label %81, label %67
 
 67:                                               ; preds = %65
-  %68 = load i16, ptr %61, align 2, !tbaa !12
-  %69 = and i16 %68, -1024
-  %or.cond3.us137 = icmp eq i16 %69, -9216
-  br i1 %or.cond3.us137, label %70, label %.thread95
+  %68 = icmp ult i16 %62, 2048
+  br i1 %68, label %81, label %.thread101.us152
 
-70:                                               ; preds = %67
-  %71 = zext i16 %68 to i32
-  %72 = shl nuw nsw i32 %63, 10
-  %73 = add nsw i32 %72, -56613888
-  %74 = add nsw i32 %73, %71
-  %75 = getelementptr inbounds nuw i8, ptr %.062104.us134, i64 4
-  br label %.thread.us138
+69:                                               ; preds = %.lr.ph.split.split.us
+  %70 = icmp ult ptr %61, %1
+  br i1 %70, label %71, label %.thread107
 
-.thread.us138:                                    ; preds = %.lr.ph.split.split.us, %70
-  %.275.us139 = phi i32 [ %74, %70 ], [ %63, %.lr.ph.split.split.us ]
-  %.5.us140 = phi ptr [ %75, %70 ], [ %61, %.lr.ph.split.split.us ]
-  %76 = icmp ult i32 %.275.us139, 128
-  br i1 %76, label %81, label %77
+71:                                               ; preds = %69
+  %72 = load i16, ptr %61, align 2, !tbaa !12
+  %73 = and i16 %72, -1024
+  %or.cond3.us151 = icmp eq i16 %73, -9216
+  br i1 %or.cond3.us151, label %74, label %.thread107
 
-77:                                               ; preds = %.thread.us138
-  %78 = icmp ult i32 %.275.us139, 2048
-  br i1 %78, label %81, label %79
+74:                                               ; preds = %71
+  %75 = zext i16 %72 to i32
+  %76 = shl nuw nsw i32 %63, 10
+  %77 = add nsw i32 %76, -56613888
+  %78 = add nsw i32 %77, %75
+  %79 = getelementptr inbounds nuw i8, ptr %.062117.us148, i64 4
+  br label %.thread101.us152
 
-79:                                               ; preds = %77
-  %80 = icmp ult i32 %.275.us139, 65536
-  %spec.select.us141 = select i1 %80, i16 3, i16 4
+.thread101.us152:                                 ; preds = %74, %67
+  %.27597105.us153 = phi i32 [ %63, %67 ], [ %78, %74 ]
+  %.599104.us154 = phi ptr [ %61, %67 ], [ %79, %74 ]
+  %80 = icmp samesign ult i32 %.27597105.us153, 65536
+  %spec.select.us155 = select i1 %80, i16 3, i16 4
   br label %81
 
-81:                                               ; preds = %79, %77, %.thread.us138
-  %.080.us142 = phi i16 [ 1, %.thread.us138 ], [ 2, %77 ], [ %spec.select.us141, %79 ]
-  %82 = zext nneg i16 %.080.us142 to i64
-  %83 = getelementptr inbounds nuw i8, ptr %.067103.us135, i64 %82
+81:                                               ; preds = %.thread101.us152, %67, %65
+  %.5100.us156 = phi ptr [ %61, %65 ], [ %61, %67 ], [ %.599104.us154, %.thread101.us152 ]
+  %.27598.us157 = phi i32 [ %63, %65 ], [ %63, %67 ], [ %.27597105.us153, %.thread101.us152 ]
+  %.080.us158 = phi i16 [ 1, %65 ], [ 2, %67 ], [ %spec.select.us155, %.thread101.us152 ]
+  %82 = zext nneg i16 %.080.us158 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %.067115.us149, i64 %82
   %84 = icmp ugt ptr %83, %3
-  br i1 %84, label %.thread95, label %85
+  br i1 %84, label %.thread107, label %85
 
 85:                                               ; preds = %81
-  switch i16 %.080.us142, label %default.unreachable216 [
+  switch i16 %.080.us158, label %default.unreachable234 [
     i16 4, label %86
     i16 3, label %92
     i16 2, label %98
@@ -414,56 +418,56 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   ]
 
 86:                                               ; preds = %85
-  %87 = trunc i32 %.275.us139 to i8
+  %87 = trunc i32 %.27598.us157 to i8
   %88 = and i8 %87, 63
   %89 = or disjoint i8 %88, -128
   %90 = getelementptr inbounds i8, ptr %83, i64 -1
   store i8 %89, ptr %90, align 1, !tbaa !16
-  %91 = lshr i32 %.275.us139, 6
+  %91 = lshr i32 %.27598.us157, 6
   br label %92
 
 92:                                               ; preds = %86, %85
-  %.477.us143 = phi i32 [ %91, %86 ], [ %.275.us139, %85 ]
-  %.471.us144 = phi ptr [ %90, %86 ], [ %83, %85 ]
-  %93 = trunc i32 %.477.us143 to i8
+  %.477.us159 = phi i32 [ %91, %86 ], [ %.27598.us157, %85 ]
+  %.471.us160 = phi ptr [ %90, %86 ], [ %83, %85 ]
+  %93 = trunc i32 %.477.us159 to i8
   %94 = and i8 %93, 63
   %95 = or disjoint i8 %94, -128
-  %96 = getelementptr inbounds i8, ptr %.471.us144, i64 -1
+  %96 = getelementptr inbounds i8, ptr %.471.us160, i64 -1
   store i8 %95, ptr %96, align 1, !tbaa !16
-  %97 = lshr i32 %.477.us143, 6
+  %97 = lshr i32 %.477.us159, 6
   br label %98
 
 98:                                               ; preds = %92, %85
-  %.578.us145 = phi i32 [ %97, %92 ], [ %.275.us139, %85 ]
-  %.572.us146 = phi ptr [ %96, %92 ], [ %83, %85 ]
-  %99 = trunc i32 %.578.us145 to i8
+  %.578.us161 = phi i32 [ %97, %92 ], [ %.27598.us157, %85 ]
+  %.572.us162 = phi ptr [ %96, %92 ], [ %83, %85 ]
+  %99 = trunc i32 %.578.us161 to i8
   %100 = and i8 %99, 63
   %101 = or disjoint i8 %100, -128
-  %102 = getelementptr inbounds i8, ptr %.572.us146, i64 -1
+  %102 = getelementptr inbounds i8, ptr %.572.us162, i64 -1
   store i8 %101, ptr %102, align 1, !tbaa !16
-  %103 = lshr i32 %.578.us145, 6
+  %103 = lshr i32 %.578.us161, 6
   br label %104
 
 104:                                              ; preds = %98, %85
-  %.679.us147 = phi i32 [ %103, %98 ], [ %.275.us139, %85 ]
-  %.6.us148 = phi ptr [ %102, %98 ], [ %83, %85 ]
+  %.679.us163 = phi i32 [ %103, %98 ], [ %.27598.us157, %85 ]
+  %.6.us164 = phi ptr [ %102, %98 ], [ %83, %85 ]
   %105 = getelementptr inbounds nuw i8, ptr @_ZN4llvmL13firstByteMarkE, i64 %82
   %106 = load i8, ptr %105, align 1, !tbaa !16
-  %107 = trunc i32 %.679.us147 to i8
+  %107 = trunc i32 %.679.us163 to i8
   %108 = or i8 %106, %107
-  %109 = getelementptr inbounds i8, ptr %.6.us148, i64 -1
+  %109 = getelementptr inbounds i8, ptr %.6.us164, i64 -1
   store i8 %108, ptr %109, align 1, !tbaa !16
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 %82
-  %111 = icmp ult ptr %.5.us140, %1
-  br i1 %111, label %.lr.ph.split.split.us, label %.thread95
+  %111 = icmp ult ptr %.5100.us156, %1
+  br i1 %111, label %.lr.ph.split.split.us, label %.thread107
 
-default.unreachable216:                           ; preds = %34, %85
+default.unreachable234:                           ; preds = %34, %85
   unreachable
 
-.thread95:                                        ; preds = %53, %14, %30, %104, %65, %.lr.ph.split.split.us, %81, %67, %5
-  %.067.lcssa = phi ptr [ %7, %5 ], [ %.067103.us135, %67 ], [ %.067103.us135, %81 ], [ %.067103.us135, %.lr.ph.split.split.us ], [ %.067103.us135, %65 ], [ %110, %104 ], [ %.067103.us, %30 ], [ %.067103.us, %14 ], [ %59, %53 ]
-  %.062.lcssa = phi ptr [ %6, %5 ], [ %.062104.us134, %67 ], [ %.062104.us134, %81 ], [ %.062104.us134, %.lr.ph.split.split.us ], [ %.062104.us134, %65 ], [ %.5.us140, %104 ], [ %.062104.us, %30 ], [ %.062104.us, %14 ], [ %.5.us, %53 ]
-  %.161 = phi i32 [ 0, %5 ], [ 3, %67 ], [ 2, %81 ], [ 3, %.lr.ph.split.split.us ], [ 1, %65 ], [ 0, %104 ], [ 2, %30 ], [ 1, %14 ], [ 0, %53 ]
+.thread107:                                       ; preds = %53, %18, %30, %104, %69, %.lr.ph.split.split.us, %81, %71, %5
+  %.067.lcssa = phi ptr [ %7, %5 ], [ %.067115.us149, %71 ], [ %.067115.us149, %81 ], [ %.067115.us149, %.lr.ph.split.split.us ], [ %.067115.us149, %69 ], [ %110, %104 ], [ %.067115.us, %30 ], [ %.067115.us, %18 ], [ %59, %53 ]
+  %.062.lcssa = phi ptr [ %6, %5 ], [ %.062117.us148, %71 ], [ %.062117.us148, %81 ], [ %.062117.us148, %.lr.ph.split.split.us ], [ %.062117.us148, %69 ], [ %.5100.us156, %104 ], [ %.062117.us, %30 ], [ %.062117.us, %18 ], [ %.5100.us, %53 ]
+  %.161 = phi i32 [ 0, %5 ], [ 3, %71 ], [ 2, %81 ], [ 3, %.lr.ph.split.split.us ], [ 1, %69 ], [ 0, %104 ], [ 2, %30 ], [ 1, %18 ], [ 0, %53 ]
   store ptr %.062.lcssa, ptr %0, align 8, !tbaa !8
   store ptr %.067.lcssa, ptr %2, align 8, !tbaa !14
   ret i32 %.161

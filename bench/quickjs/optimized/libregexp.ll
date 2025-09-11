@@ -844,7 +844,7 @@ define dso_local i32 @lre_exec(ptr noundef captures(none) %0, ptr noundef %1, pt
 .lr.ph.preheader:                                 ; preds = %7
   %40 = shl nuw nsw i32 %19, 1
   %41 = add nsw i32 %40, -2
-  %42 = zext i32 %41 to i64
+  %42 = zext nneg i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 3
   %44 = add nuw nsw i64 %43, 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, i8 0, i64 %44, i1 false), !tbaa !7

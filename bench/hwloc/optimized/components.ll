@@ -680,7 +680,7 @@ hwloc_disc_component_find.exit.thread52:          ; preds = %.lr.ph.i, %hwloc_di
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds nuw %struct.hwloc_topology_forced_component_s, ptr %52, i64 %56
   store ptr %.02956, ptr %57, align 8, !tbaa !63
-  %58 = getelementptr inbounds nuw %struct.hwloc_topology_forced_component_s, ptr %52, i64 %56, i32 1
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 %.02857, ptr %58, align 8, !tbaa !65
   store ptr %52, ptr %54, align 8, !tbaa !55
   %59 = add i32 %55, 1

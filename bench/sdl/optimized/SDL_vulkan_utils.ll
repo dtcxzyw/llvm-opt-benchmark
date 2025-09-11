@@ -347,7 +347,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 26:                                               ; preds = %4
   %27 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.51) #7
-  br label %224
+  br label %226
 
 28:                                               ; preds = %4
   %29 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.52) #7
@@ -366,7 +366,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 34:                                               ; preds = %32
   %35 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.53) #7
-  br label %224
+  br label %226
 
 36:                                               ; preds = %32
   %37 = load i32, ptr %6, align 4
@@ -375,14 +375,14 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 39:                                               ; preds = %36
   %40 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.54) #7
-  br label %224
+  br label %226
 
 41:                                               ; preds = %36
   %42 = zext i32 %37 to i64
   %43 = shl nuw nsw i64 %42, 3
   %44 = call noalias ptr @SDL_malloc_REAL(i64 noundef %43) #7
   %.not226 = icmp eq ptr %44, null
-  br i1 %.not226, label %224, label %45
+  br i1 %.not226, label %226, label %45
 
 45:                                               ; preds = %41
   %46 = call i32 %12(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %44) #7
@@ -396,11 +396,11 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 48:                                               ; preds = %45
   %49 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.55) #7
-  br label %224
+  br label %226
 
-.lr.ph:                                           ; preds = %.preheader262, %207
-  %indvars.iv = phi i64 [ %indvars.iv.next, %207 ], [ 0, %.preheader262 ]
-  %.1201281 = phi i32 [ %.2202.ph, %207 ], [ %.0200, %.preheader262 ]
+.lr.ph:                                           ; preds = %.preheader262, %209
+  %indvars.iv = phi i64 [ %indvars.iv.next, %209 ], [ 0, %.preheader262 ]
+  %.1201281 = phi i32 [ %.2202.ph, %209 ], [ %.0200, %.preheader262 ]
   %50 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -416,7 +416,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   %54 = load i32, ptr %7, align 4
   %55 = icmp eq i32 %54, 0
   %or.cond13 = select i1 %53, i1 true, i1 %55
-  br i1 %or.cond13, label %207, label %56
+  br i1 %or.cond13, label %209, label %56
 
 56:                                               ; preds = %.lr.ph
   %57 = trunc nuw i64 %indvars.iv to i32
@@ -429,7 +429,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 60:                                               ; preds = %56
   %61 = sub i32 %.1201281, %59
-  br label %207
+  br label %209
 
 62:                                               ; preds = %56
   %63 = zext i32 %59 to i64
@@ -500,259 +500,261 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   call void @SDL_free_REAL(ptr noundef nonnull %90) #7
   br label %.thread252
 
-.preheader261:                                    ; preds = %.preheader261.preheader, %110
-  %indvars.iv315 = phi i64 [ 0, %.preheader261.preheader ], [ %indvars.iv.next316, %110 ]
-  %.0195285 = phi i32 [ 0, %.preheader261.preheader ], [ %.1196, %110 ]
-  %.0197284 = phi i32 [ -1, %.preheader261.preheader ], [ %.1198, %110 ]
-  %98 = getelementptr inbounds nuw %struct.VkDisplayModePropertiesKHR, ptr %90, i64 %indvars.iv315, i32 1
-  %99 = load i32, ptr %98, align 8
-  %100 = icmp eq i32 %99, %.sroa.0.0.copyload
-  br i1 %100, label %101, label %110
+.preheader261:                                    ; preds = %.preheader261.preheader, %111
+  %indvars.iv315 = phi i64 [ 0, %.preheader261.preheader ], [ %indvars.iv.next316, %111 ]
+  %.0195285 = phi i32 [ 0, %.preheader261.preheader ], [ %.1196, %111 ]
+  %.0197284 = phi i32 [ -1, %.preheader261.preheader ], [ %.1198, %111 ]
+  %98 = getelementptr inbounds nuw %struct.VkDisplayModePropertiesKHR, ptr %90, i64 %indvars.iv315
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %100 = load i32, ptr %99, align 8
+  %101 = icmp eq i32 %100, %.sroa.0.0.copyload
+  br i1 %101, label %102, label %111
 
-101:                                              ; preds = %.preheader261
-  %102 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %103, %.sroa.8.0.copyload
-  br i1 %104, label %105, label %110
+102:                                              ; preds = %.preheader261
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 12
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp eq i32 %104, %.sroa.8.0.copyload
+  br i1 %105, label %106, label %111
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %107 = load i32, ptr %106, align 8
-  %108 = icmp ugt i32 %107, %.0195285
-  %109 = trunc nuw i64 %indvars.iv315 to i32
-  %spec.select = select i1 %108, i32 %109, i32 %.0197284
-  %spec.select241 = call i32 @llvm.umax.i32(i32 %107, i32 %.0195285)
-  br label %110
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %108 = load i32, ptr %107, align 8
+  %109 = icmp ugt i32 %108, %.0195285
+  %110 = trunc nuw i64 %indvars.iv315 to i32
+  %spec.select = select i1 %109, i32 %110, i32 %.0197284
+  %spec.select241 = call i32 @llvm.umax.i32(i32 %108, i32 %.0195285)
+  br label %111
 
-110:                                              ; preds = %105, %.preheader261, %101
-  %.1198 = phi i32 [ %.0197284, %101 ], [ %.0197284, %.preheader261 ], [ %spec.select, %105 ]
-  %.1196 = phi i32 [ %.0195285, %101 ], [ %.0195285, %.preheader261 ], [ %spec.select241, %105 ]
+111:                                              ; preds = %106, %.preheader261, %102
+  %.1198 = phi i32 [ %.0197284, %102 ], [ %.0197284, %.preheader261 ], [ %spec.select, %106 ]
+  %.1196 = phi i32 [ %.0195285, %102 ], [ %.0195285, %.preheader261 ], [ %spec.select241, %106 ]
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next316, %wide.trip.count
-  br i1 %exitcond.not, label %111, label %.preheader261, !llvm.loop !3
+  br i1 %exitcond.not, label %112, label %.preheader261, !llvm.loop !3
 
-111:                                              ; preds = %110
-  %112 = icmp slt i32 %.1198, 0
-  br i1 %112, label %113, label %115
+112:                                              ; preds = %111
+  %113 = icmp slt i32 %.1198, 0
+  br i1 %113, label %114, label %116
 
-113:                                              ; preds = %111
-  %114 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.61) #7
+114:                                              ; preds = %112
+  %115 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.61) #7
   call void @SDL_free_REAL(ptr noundef nonnull %90) #7
   br label %.thread252
 
-115:                                              ; preds = %111
+116:                                              ; preds = %112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  %116 = zext nneg i32 %.1198 to i64
-  %117 = getelementptr inbounds nuw %struct.VkDisplayModePropertiesKHR, ptr %90, i64 %116
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %118, ptr %119, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %117, i64 12
-  %123 = load i32, ptr %122, align 4
-  call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.62, i32 noundef %121, i32 noundef %123, i32 noundef %.1196) #7
+  %117 = zext nneg i32 %.1198 to i64
+  %118 = getelementptr inbounds nuw %struct.VkDisplayModePropertiesKHR, ptr %90, i64 %117
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %119, ptr %120, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %122 = load i32, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 12
+  %124 = load i32, ptr %123, align 4
+  call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.62, i32 noundef %122, i32 noundef %124, i32 noundef %.1196) #7
   call void @SDL_free_REAL(ptr noundef nonnull %90) #7
-  %124 = call i32 %15(ptr noundef %51, ptr noundef nonnull %9, ptr noundef null) #7
-  %125 = icmp ne i32 %124, 0
-  %126 = load i32, ptr %9, align 4
-  %127 = icmp eq i32 %126, 0
-  %or.cond21 = select i1 %125, i1 true, i1 %127
-  br i1 %or.cond21, label %128, label %130
+  %125 = call i32 %15(ptr noundef %51, ptr noundef nonnull %9, ptr noundef null) #7
+  %126 = icmp ne i32 %125, 0
+  %127 = load i32, ptr %9, align 4
+  %128 = icmp eq i32 %127, 0
+  %or.cond21 = select i1 %126, i1 true, i1 %128
+  br i1 %or.cond21, label %129, label %131
 
-128:                                              ; preds = %115
-  %129 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63) #7
+129:                                              ; preds = %116
+  %130 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63) #7
   br label %.thread252
 
-130:                                              ; preds = %115
-  call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.64, i32 noundef %126) #7
-  %131 = load i32, ptr %9, align 4
-  %132 = zext i32 %131 to i64
-  %133 = shl nuw nsw i64 %132, 4
-  %134 = call noalias ptr @SDL_malloc_REAL(i64 noundef %133) #7
-  %.not231 = icmp eq ptr %134, null
-  br i1 %.not231, label %.thread252, label %135
+131:                                              ; preds = %116
+  call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.64, i32 noundef %127) #7
+  %132 = load i32, ptr %9, align 4
+  %133 = zext i32 %132 to i64
+  %134 = shl nuw nsw i64 %133, 4
+  %135 = call noalias ptr @SDL_malloc_REAL(i64 noundef %134) #7
+  %.not231 = icmp eq ptr %135, null
+  br i1 %.not231, label %.thread252, label %136
 
-135:                                              ; preds = %130
-  %136 = call i32 %15(ptr noundef %51, ptr noundef nonnull %9, ptr noundef nonnull %134) #7
-  %137 = icmp ne i32 %136, 0
-  %138 = load i32, ptr %9, align 4
-  %139 = icmp eq i32 %138, 0
-  %or.cond23 = select i1 %137, i1 true, i1 %139
-  br i1 %or.cond23, label %144, label %.lr.ph289
+136:                                              ; preds = %131
+  %137 = call i32 %15(ptr noundef %51, ptr noundef nonnull %9, ptr noundef nonnull %135) #7
+  %138 = icmp ne i32 %137, 0
+  %139 = load i32, ptr %9, align 4
+  %140 = icmp eq i32 %139, 0
+  %or.cond23 = select i1 %138, i1 true, i1 %140
+  br i1 %or.cond23, label %145, label %.lr.ph289
 
-.lr.ph289:                                        ; preds = %135
-  %140 = getelementptr inbounds nuw i8, ptr %10, i64 52
-  %141 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %142 = getelementptr inbounds nuw i8, ptr %10, i64 60
-  %143 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  br label %146
+.lr.ph289:                                        ; preds = %136
+  %141 = getelementptr inbounds nuw i8, ptr %10, i64 52
+  %142 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %143 = getelementptr inbounds nuw i8, ptr %10, i64 60
+  %144 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  br label %147
 
-144:                                              ; preds = %135
-  %145 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.65) #7
-  call void @SDL_free_REAL(ptr noundef nonnull %134) #7
+145:                                              ; preds = %136
+  %146 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.65) #7
+  call void @SDL_free_REAL(ptr noundef nonnull %135) #7
   br label %.thread252
 
-146:                                              ; preds = %.lr.ph289, %185
-  %indvars.iv323 = phi i64 [ 0, %.lr.ph289 ], [ %indvars.iv.next324, %185 ]
+147:                                              ; preds = %.lr.ph289, %186
+  %indvars.iv323 = phi i64 [ 0, %.lr.ph289 ], [ %indvars.iv.next324, %186 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %147 = getelementptr inbounds nuw %struct.VkDisplayPlanePropertiesKHR, ptr %134, i64 %indvars.iv323
-  %148 = load ptr, ptr %147, align 8
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %185, label %150
+  %148 = getelementptr inbounds nuw %struct.VkDisplayPlanePropertiesKHR, ptr %135, i64 %indvars.iv323
+  %149 = load ptr, ptr %148, align 8
+  %150 = icmp eq ptr %149, null
+  br i1 %150, label %186, label %151
 
-150:                                              ; preds = %146
-  %151 = trunc nuw i64 %indvars.iv323 to i32
-  %152 = call i32 %17(ptr noundef %51, i32 noundef %151, ptr noundef nonnull %11, ptr noundef null) #7
-  %153 = icmp ne i32 %152, 0
-  %154 = load i32, ptr %11, align 4
-  %155 = icmp eq i32 %154, 0
-  %or.cond25 = select i1 %153, i1 true, i1 %155
-  br i1 %or.cond25, label %185, label %156
+151:                                              ; preds = %147
+  %152 = trunc nuw i64 %indvars.iv323 to i32
+  %153 = call i32 %17(ptr noundef %51, i32 noundef %152, ptr noundef nonnull %11, ptr noundef null) #7
+  %154 = icmp ne i32 %153, 0
+  %155 = load i32, ptr %11, align 4
+  %156 = icmp eq i32 %155, 0
+  %or.cond25 = select i1 %154, i1 true, i1 %156
+  br i1 %or.cond25, label %186, label %157
 
-156:                                              ; preds = %150
-  call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.66, i32 noundef %151, i32 noundef %154) #7
-  %157 = load i32, ptr %11, align 4
-  %158 = zext i32 %157 to i64
-  %159 = shl nuw nsw i64 %158, 3
-  %160 = call noalias ptr @SDL_malloc_REAL(i64 noundef %159) #7
-  %.not232 = icmp eq ptr %160, null
-  br i1 %.not232, label %.thread246, label %161
+157:                                              ; preds = %151
+  call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.66, i32 noundef %152, i32 noundef %155) #7
+  %158 = load i32, ptr %11, align 4
+  %159 = zext i32 %158 to i64
+  %160 = shl nuw nsw i64 %159, 3
+  %161 = call noalias ptr @SDL_malloc_REAL(i64 noundef %160) #7
+  %.not232 = icmp eq ptr %161, null
+  br i1 %.not232, label %.thread246, label %162
 
-161:                                              ; preds = %156
-  %162 = call i32 %17(ptr noundef %51, i32 noundef %151, ptr noundef nonnull %11, ptr noundef nonnull %160) #7
-  %163 = icmp ne i32 %162, 0
-  %164 = load i32, ptr %11, align 4
-  %165 = icmp eq i32 %164, 0
-  %or.cond27 = select i1 %163, i1 true, i1 %165
-  br i1 %or.cond27, label %166, label %.preheader.preheader
+162:                                              ; preds = %157
+  %163 = call i32 %17(ptr noundef %51, i32 noundef %152, ptr noundef nonnull %11, ptr noundef nonnull %161) #7
+  %164 = icmp ne i32 %163, 0
+  %165 = load i32, ptr %11, align 4
+  %166 = icmp eq i32 %165, 0
+  %or.cond27 = select i1 %164, i1 true, i1 %166
+  br i1 %or.cond27, label %167, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %161
-  %wide.trip.count321 = zext i32 %164 to i64
+.preheader.preheader:                             ; preds = %162
+  %wide.trip.count321 = zext i32 %165 to i64
   br label %.preheader
 
-166:                                              ; preds = %161
-  %167 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.67) #7
-  call void @SDL_free_REAL(ptr noundef nonnull %160) #7
+167:                                              ; preds = %162
+  %168 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.67) #7
+  call void @SDL_free_REAL(ptr noundef nonnull %161) #7
   br label %.thread246
 
-.preheader:                                       ; preds = %.preheader.preheader, %170
-  %indvars.iv318 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next319, %170 ]
-  %168 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv318
-  %169 = load ptr, ptr %168, align 8
-  %.not233 = icmp eq ptr %169, %76
-  br i1 %.not233, label %.critedge.split.loop.exit373, label %170
+.preheader:                                       ; preds = %.preheader.preheader, %171
+  %indvars.iv318 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next319, %171 ]
+  %169 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv318
+  %170 = load ptr, ptr %169, align 8
+  %.not233 = icmp eq ptr %170, %76
+  br i1 %.not233, label %.critedge.split.loop.exit373, label %171
 
-170:                                              ; preds = %.preheader
+171:                                              ; preds = %.preheader
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count321
   br i1 %exitcond322.not, label %.critedge, label %.preheader, !llvm.loop !5
 
 .critedge.split.loop.exit373:                     ; preds = %.preheader
-  %171 = trunc nuw i64 %indvars.iv318 to i32
+  %172 = trunc nuw i64 %indvars.iv318 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %170, %.critedge.split.loop.exit373
-  %.0.lcssa = phi i32 [ %171, %.critedge.split.loop.exit373 ], [ %164, %170 ]
-  call void @SDL_free_REAL(ptr noundef nonnull %160) #7
-  %172 = load i32, ptr %11, align 4
-  %173 = icmp eq i32 %.0.lcssa, %172
-  br i1 %173, label %185, label %174
+.critedge:                                        ; preds = %171, %.critedge.split.loop.exit373
+  %.0.lcssa = phi i32 [ %172, %.critedge.split.loop.exit373 ], [ %165, %171 ]
+  call void @SDL_free_REAL(ptr noundef nonnull %161) #7
+  %173 = load i32, ptr %11, align 4
+  %174 = icmp eq i32 %.0.lcssa, %173
+  br i1 %174, label %186, label %175
 
-174:                                              ; preds = %.critedge
-  %175 = call i32 %16(ptr noundef %51, ptr noundef %118, i32 noundef %151, ptr noundef nonnull %10) #7
-  %.not234 = icmp eq i32 %175, 0
-  br i1 %.not234, label %178, label %176
+175:                                              ; preds = %.critedge
+  %176 = call i32 %16(ptr noundef %51, ptr noundef %119, i32 noundef %152, ptr noundef nonnull %10) #7
+  %.not234 = icmp eq i32 %176, 0
+  br i1 %.not234, label %179, label %177
 
-176:                                              ; preds = %174
-  %177 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.68) #7
+177:                                              ; preds = %175
+  %178 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.68) #7
   br label %.thread246
 
-178:                                              ; preds = %174
-  %179 = load i32, ptr %140, align 4
-  %.not235 = icmp ult i32 %.sroa.0.0.copyload, %179
-  br i1 %.not235, label %185, label %180
+179:                                              ; preds = %175
+  %180 = load i32, ptr %141, align 4
+  %.not235 = icmp ult i32 %.sroa.0.0.copyload, %180
+  br i1 %.not235, label %186, label %181
 
-180:                                              ; preds = %178
-  %181 = load i32, ptr %141, align 4
-  %.not236 = icmp ult i32 %.sroa.8.0.copyload, %181
-  br i1 %.not236, label %185, label %182
+181:                                              ; preds = %179
+  %182 = load i32, ptr %142, align 4
+  %.not236 = icmp ult i32 %.sroa.8.0.copyload, %182
+  br i1 %.not236, label %186, label %183
 
-182:                                              ; preds = %180
-  %183 = load i32, ptr %142, align 4
-  %.not237 = icmp ugt i32 %.sroa.0.0.copyload, %183
+183:                                              ; preds = %181
   %184 = load i32, ptr %143, align 4
-  %.not238 = icmp ugt i32 %.sroa.8.0.copyload, %184
+  %.not237 = icmp ugt i32 %.sroa.0.0.copyload, %184
+  %185 = load i32, ptr %144, align 4
+  %.not238 = icmp ugt i32 %.sroa.8.0.copyload, %185
   %or.cond292 = select i1 %.not237, i1 true, i1 %.not238
-  br i1 %or.cond292, label %185, label %189
+  br i1 %or.cond292, label %186, label %190
 
-.thread246:                                       ; preds = %156, %166, %176
-  call void @SDL_free_REAL(ptr noundef nonnull %134) #7
+.thread246:                                       ; preds = %157, %167, %177
+  call void @SDL_free_REAL(ptr noundef nonnull %135) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread252
 
-185:                                              ; preds = %146, %150, %.critedge, %182, %180, %178
+186:                                              ; preds = %147, %151, %.critedge, %183, %181, %179
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
-  %186 = load i32, ptr %9, align 4
-  %187 = zext i32 %186 to i64
-  %188 = icmp samesign ult i64 %indvars.iv.next324, %187
-  br i1 %188, label %146, label %.thread249, !llvm.loop !6
+  %187 = load i32, ptr %9, align 4
+  %188 = zext i32 %187 to i64
+  %189 = icmp samesign ult i64 %indvars.iv.next324, %188
+  br i1 %189, label %147, label %.thread249, !llvm.loop !6
 
-189:                                              ; preds = %182
-  call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.69, i32 noundef %151, i32 noundef %179, i32 noundef %181, i32 noundef %183, i32 noundef %184) #7
+190:                                              ; preds = %183
+  call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.69, i32 noundef %152, i32 noundef %180, i32 noundef %182, i32 noundef %184, i32 noundef %185) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %190 = icmp slt i32 %151, 0
-  br i1 %190, label %.thread249, label %192
+  %191 = icmp slt i32 %152, 0
+  br i1 %191, label %.thread249, label %193
 
-.thread249:                                       ; preds = %185, %189
-  %191 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.70) #7
-  call void @SDL_free_REAL(ptr noundef nonnull %134) #7
+.thread249:                                       ; preds = %186, %190
+  %192 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.70) #7
+  call void @SDL_free_REAL(ptr noundef nonnull %135) #7
   br label %.thread252
 
-192:                                              ; preds = %189
-  %193 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %151, ptr %193, align 8
-  %194 = getelementptr inbounds nuw %struct.VkDisplayPlanePropertiesKHR, ptr %134, i64 %indvars.iv323, i32 1
-  %195 = load i32, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 %195, ptr %196, align 4
-  call void @SDL_free_REAL(ptr noundef nonnull %134) #7
-  %197 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 1, ptr %197, align 8
-  %198 = load i32, ptr %10, align 4
-  br label %200
+193:                                              ; preds = %190
+  %194 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i32 %152, ptr %194, align 8
+  %195 = getelementptr inbounds nuw %struct.VkDisplayPlanePropertiesKHR, ptr %135, i64 %indvars.iv323
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %197 = load i32, ptr %196, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i32 %197, ptr %198, align 4
+  call void @SDL_free_REAL(ptr noundef nonnull %135) #7
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 1, ptr %199, align 8
+  %200 = load i32, ptr %10, align 4
+  br label %202
 
-199:                                              ; preds = %200
+201:                                              ; preds = %202
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond329.not = icmp eq i64 %indvars.iv.next327, 4
-  br i1 %exitcond329.not, label %.loopexit, label %200, !llvm.loop !7
+  br i1 %exitcond329.not, label %.loopexit, label %202, !llvm.loop !7
 
-200:                                              ; preds = %192, %199
-  %indvars.iv326 = phi i64 [ 0, %192 ], [ %indvars.iv.next327, %199 ]
-  %201 = getelementptr inbounds nuw i32, ptr @alphaModes, i64 %indvars.iv326
-  %202 = load i32, ptr %201, align 4
-  %203 = and i32 %202, %198
-  %.not239 = icmp eq i32 %203, 0
-  br i1 %.not239, label %199, label %204
+202:                                              ; preds = %193, %201
+  %indvars.iv326 = phi i64 [ 0, %193 ], [ %indvars.iv.next327, %201 ]
+  %203 = getelementptr inbounds nuw i32, ptr @alphaModes, i64 %indvars.iv326
+  %204 = load i32, ptr %203, align 4
+  %205 = and i32 %204, %200
+  %.not239 = icmp eq i32 %205, 0
+  br i1 %.not239, label %201, label %206
 
-204:                                              ; preds = %200
-  store i32 %202, ptr %197, align 8
+206:                                              ; preds = %202
+  store i32 %204, ptr %199, align 8
   br label %.loopexit
 
-.thread252:                                       ; preds = %71, %84, %96, %113, %128, %144, %.thread249, %62, %86, %130, %.thread246
+.thread252:                                       ; preds = %71, %84, %96, %114, %129, %145, %.thread249, %62, %86, %131, %.thread246
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %224
+  br label %226
 
-.loopexit:                                        ; preds = %199, %204
-  %205 = phi i32 [ %202, %204 ], [ 1, %199 ]
-  call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.71, i32 noundef %205) #7
-  %206 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store i32 %.sroa.0.0.copyload, ptr %206, align 4
+.loopexit:                                        ; preds = %201, %206
+  %207 = phi i32 [ %204, %206 ], [ 1, %201 ]
+  call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.71, i32 noundef %207) #7
+  %208 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  store i32 %.sroa.0.0.copyload, ptr %208, align 4
   %.sroa.8.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx41, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -761,59 +763,59 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit263
 
-207:                                              ; preds = %60, %.lr.ph
+209:                                              ; preds = %60, %.lr.ph
   %.2202.ph = phi i32 [ %.1201281, %.lr.ph ], [ %61, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %208 = load i32, ptr %6, align 4
-  %209 = zext i32 %208 to i64
-  %210 = icmp samesign ult i64 %indvars.iv.next, %209
-  br i1 %210, label %.lr.ph, label %.loopexit263.loopexit, !llvm.loop !8
+  %210 = load i32, ptr %6, align 4
+  %211 = zext i32 %210 to i64
+  %212 = icmp samesign ult i64 %indvars.iv.next, %211
+  br i1 %212, label %.lr.ph, label %.loopexit263.loopexit, !llvm.loop !8
 
-.loopexit263.loopexit:                            ; preds = %207
-  %211 = trunc nuw i64 %indvars.iv.next to i32
+.loopexit263.loopexit:                            ; preds = %209
+  %213 = trunc nuw i64 %indvars.iv.next to i32
   br label %.loopexit263
 
 .loopexit263:                                     ; preds = %.loopexit263.loopexit, %.preheader262, %.loopexit
-  %.0199277 = phi i32 [ %57, %.loopexit ], [ 0, %.preheader262 ], [ %211, %.loopexit263.loopexit ]
+  %.0199277 = phi i32 [ %57, %.loopexit ], [ 0, %.preheader262 ], [ %213, %.loopexit263.loopexit ]
   call void @SDL_free_REAL(ptr noundef nonnull %44) #7
-  %212 = load i32, ptr %6, align 4
-  %213 = icmp eq i32 %.0199277, %212
-  br i1 %213, label %214, label %216
-
-214:                                              ; preds = %.loopexit263
-  %215 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.72) #7
-  br label %224
+  %214 = load i32, ptr %6, align 4
+  %215 = icmp eq i32 %.0199277, %214
+  br i1 %215, label %216, label %218
 
 216:                                              ; preds = %.loopexit263
+  %217 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.72) #7
+  br label %226
+
+218:                                              ; preds = %.loopexit263
   store i32 1000002001, ptr %5, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 1, ptr %217, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store float 1.000000e+00, ptr %218, align 4
-  %219 = call i32 %18(ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %3) #7
-  %.not240 = icmp eq i32 %219, 0
-  br i1 %.not240, label %223, label %220
+  %219 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i32 1, ptr %219, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  store float 1.000000e+00, ptr %220, align 4
+  %221 = call i32 %18(ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %3) #7
+  %.not240 = icmp eq i32 %221, 0
+  br i1 %.not240, label %225, label %222
 
-220:                                              ; preds = %216
-  %221 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %219)
-  %222 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.73, ptr noundef nonnull %221) #7
-  br label %224
+222:                                              ; preds = %218
+  %223 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %221)
+  %224 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.73, ptr noundef nonnull %223) #7
+  br label %226
 
-223:                                              ; preds = %216
+225:                                              ; preds = %218
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 5, ptr noundef nonnull @.str.74) #7
-  br label %225
+  br label %227
 
-224:                                              ; preds = %.thread252, %41, %220, %214, %48, %39, %34, %26
-  %.0189 = phi ptr [ null, %34 ], [ null, %39 ], [ %44, %48 ], [ null, %214 ], [ null, %220 ], [ null, %41 ], [ null, %26 ], [ %44, %.thread252 ]
+226:                                              ; preds = %.thread252, %41, %222, %216, %48, %39, %34, %26
+  %.0189 = phi ptr [ null, %34 ], [ null, %39 ], [ %44, %48 ], [ null, %216 ], [ null, %222 ], [ null, %41 ], [ null, %26 ], [ %44, %.thread252 ]
   call void @SDL_free_REAL(ptr noundef %.0189) #7
-  br label %225
+  br label %227
 
-225:                                              ; preds = %224, %223
-  %.0188 = phi i1 [ false, %224 ], [ true, %223 ]
+227:                                              ; preds = %226, %225
+  %.0188 = phi i1 [ false, %226 ], [ true, %225 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0188

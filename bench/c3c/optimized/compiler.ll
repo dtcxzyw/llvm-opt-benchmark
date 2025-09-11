@@ -564,7 +564,7 @@ define dso_local void @compiler_compile() local_unnamed_addr #0 {
 
 16:                                               ; preds = %13
   tail call fastcc void @free_arenas()
-  br label %403
+  br label %404
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 136), align 8
@@ -1112,365 +1112,366 @@ exe_name.exit:                                    ; preds = %.sink.split.i251, %
 .preheader358:                                    ; preds = %248, %.thread296
   br label %250
 
-250:                                              ; preds = %.preheader358, %258
-  %indvars.iv321 = phi i64 [ %indvars.iv.next322, %258 ], [ 0, %.preheader358 ]
-  %251 = getelementptr inbounds nuw %struct.CompileData_, ptr %183, i64 %indvars.iv321, i32 1
-  %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv321
-  store ptr %252, ptr %253, align 8
-  %254 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 168), align 8
-  %255 = trunc i8 %254 to i1
-  br i1 %255, label %256, label %258
+250:                                              ; preds = %.preheader358, %259
+  %indvars.iv321 = phi i64 [ %indvars.iv.next322, %259 ], [ 0, %.preheader358 ]
+  %251 = getelementptr inbounds nuw %struct.CompileData_, ptr %183, i64 %indvars.iv321
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %253 = load ptr, ptr %252, align 8
+  %254 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv321
+  store ptr %253, ptr %254, align 8
+  %255 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 168), align 8
+  %256 = trunc i8 %255 to i1
+  br i1 %256, label %257, label %259
 
-256:                                              ; preds = %250
-  %257 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) %252)
-  br label %258
+257:                                              ; preds = %250
+  %258 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) %253)
+  br label %259
 
-258:                                              ; preds = %250, %256
+259:                                              ; preds = %250, %257
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond326.not = icmp eq i64 %indvars.iv.next322, %182
-  br i1 %exitcond326.not, label %259, label %250, !llvm.loop !14
+  br i1 %exitcond326.not, label %260, label %250, !llvm.loop !14
 
-259:                                              ; preds = %258
-  %260 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 168), align 8
-  %261 = trunc i8 %260 to i1
-  br i1 %261, label %262, label %264
+260:                                              ; preds = %259
+  %261 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 168), align 8
+  %262 = trunc i8 %261 to i1
+  br i1 %262, label %263, label %265
 
-262:                                              ; preds = %259
-  %263 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.24)
-  br label %264
+263:                                              ; preds = %260
+  %264 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.24)
+  br label %265
 
-264:                                              ; preds = %262, %259
+265:                                              ; preds = %263, %260
   tail call void @free(ptr noundef nonnull %183) #20
-  %265 = tail call double @bench_mark() #20
-  store double %265, ptr @compiler_codegen_time, align 8
+  %266 = tail call double @bench_mark() #20
+  store double %266, ptr @compiler_codegen_time, align 8
   %.not219 = icmp eq ptr %.0190, null
-  br i1 %.not219, label %365, label %266
+  br i1 %.not219, label %366, label %267
 
-266:                                              ; preds = %264
-  %267 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 120), align 8
-  %.not224 = icmp eq ptr %267, null
-  br i1 %.not224, label %270, label %268
+267:                                              ; preds = %265
+  %268 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 120), align 8
+  %.not224 = icmp eq ptr %268, null
+  br i1 %.not224, label %271, label %269
 
-268:                                              ; preds = %266
-  %269 = tail call ptr @file_append_path(ptr noundef nonnull %267, ptr noundef nonnull %.0190) #20
-  br label %270
+269:                                              ; preds = %267
+  %270 = tail call ptr @file_append_path(ptr noundef nonnull %268, ptr noundef nonnull %.0190) #20
+  br label %271
 
-270:                                              ; preds = %268, %266
-  %.1191 = phi ptr [ %269, %268 ], [ %.0190, %266 ]
-  %271 = tail call zeroext i1 @file_is_dir(ptr noundef %.1191) #20
-  br i1 %271, label %272, label %273
+271:                                              ; preds = %269, %267
+  %.1191 = phi ptr [ %270, %269 ], [ %.0190, %267 ]
+  %272 = tail call zeroext i1 @file_is_dir(ptr noundef %.1191) #20
+  br i1 %272, label %273, label %274
 
-272:                                              ; preds = %270
+273:                                              ; preds = %271
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.25, ptr noundef %.1191) #21
   unreachable
 
-273:                                              ; preds = %270
-  %274 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 208), align 8
-  %275 = icmp ne i32 %274, 0
-  %276 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
-  %277 = icmp ne i32 %276, 15
-  %278 = select i1 %275, i1 %277, i1 false
-  %279 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 224), align 8
-  %280 = load i32, ptr @default_target, align 4
-  %281 = icmp eq i32 %279, %280
-  %282 = select i1 %278, i1 %281, i1 false
-  %283 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 232), align 8
-  switch i32 %283, label %286 [
-    i32 1, label %284
+274:                                              ; preds = %271
+  %275 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 208), align 8
+  %276 = icmp ne i32 %275, 0
+  %277 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
+  %278 = icmp ne i32 %277, 15
+  %279 = select i1 %276, i1 %278, i1 false
+  %280 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 224), align 8
+  %281 = load i32, ptr @default_target, align 4
+  %282 = icmp eq i32 %280, %281
+  %283 = select i1 %279, i1 %282, i1 false
+  %284 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 232), align 8
+  switch i32 %284, label %287 [
+    i32 1, label %285
     i32 0, label %.thread298
   ]
 
-284:                                              ; preds = %273
-  br i1 %278, label %.thread298, label %285
+285:                                              ; preds = %274
+  br i1 %279, label %.thread298, label %286
 
-285:                                              ; preds = %284
+286:                                              ; preds = %285
   tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.26) #20
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 232), align 8
-  br label %286
+  br label %287
 
-286:                                              ; preds = %273, %285
-  %287 = phi i32 [ %283, %273 ], [ %.pre, %285 ]
-  %.0184.shrunk = phi i1 [ %282, %273 ], [ false, %285 ]
-  %288 = icmp eq i32 %287, 0
-  %or.cond23 = select i1 %.0184.shrunk, i1 true, i1 %288
-  br i1 %or.cond23, label %.thread298, label %294
+287:                                              ; preds = %274, %286
+  %288 = phi i32 [ %284, %274 ], [ %.pre, %286 ]
+  %.0184.shrunk = phi i1 [ %283, %274 ], [ false, %286 ]
+  %289 = icmp eq i32 %288, 0
+  %or.cond23 = select i1 %.0184.shrunk, i1 true, i1 %289
+  br i1 %or.cond23, label %.thread298, label %295
 
-.thread298:                                       ; preds = %273, %284, %286
+.thread298:                                       ; preds = %274, %285, %287
   tail call void @platform_linker(ptr noundef %.1191, ptr noundef nonnull %186, i32 noundef %176) #20
-  %289 = tail call double @bench_mark() #20
-  store double %289, ptr @compiler_link_time, align 8
+  %290 = tail call double @bench_mark() #20
+  store double %290, ptr @compiler_link_time, align 8
   tail call fastcc void @compiler_print_bench()
   %.not.i271 = icmp eq i32 %176, 0
   br i1 %.not.i271, label %delete_object_files.exit, label %.lr.ph.i272
 
 .lr.ph.i272:                                      ; preds = %.thread298, %.lr.ph.i272
-  %.04.i = phi i64 [ %293, %.lr.ph.i272 ], [ 0, %.thread298 ]
-  %290 = getelementptr inbounds nuw ptr, ptr %186, i64 %.04.i
-  %291 = load ptr, ptr %290, align 8
-  %292 = tail call zeroext i1 @file_delete_file(ptr noundef %291) #20
-  %293 = add nuw nsw i64 %.04.i, 1
-  %exitcond.not.i = icmp eq i64 %293, %184
+  %.04.i = phi i64 [ %294, %.lr.ph.i272 ], [ 0, %.thread298 ]
+  %291 = getelementptr inbounds nuw ptr, ptr %186, i64 %.04.i
+  %292 = load ptr, ptr %291, align 8
+  %293 = tail call zeroext i1 @file_delete_file(ptr noundef %292) #20
+  %294 = add nuw nsw i64 %.04.i, 1
+  %exitcond.not.i = icmp eq i64 %294, %184
   br i1 %exitcond.not.i, label %delete_object_files.exit, label %.lr.ph.i272, !llvm.loop !9
 
-294:                                              ; preds = %286
+295:                                              ; preds = %287
   tail call fastcc void @compiler_print_bench()
-  %295 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
-  %296 = tail call zeroext i1 @obj_format_linking_supported(i32 noundef %295) #20
-  br i1 %296, label %297, label %299
+  %296 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 48), align 8
+  %297 = tail call zeroext i1 @obj_format_linking_supported(i32 noundef %296) #20
+  br i1 %297, label %298, label %300
 
-297:                                              ; preds = %294
-  %298 = tail call zeroext i1 @linker(ptr noundef %.1191, ptr noundef nonnull %186, i32 noundef %176) #20
-  br i1 %298, label %300, label %299
+298:                                              ; preds = %295
+  %299 = tail call zeroext i1 @linker(ptr noundef %.1191, ptr noundef nonnull %186, i32 noundef %176) #20
+  br i1 %299, label %301, label %300
 
-299:                                              ; preds = %297, %294
+300:                                              ; preds = %298, %295
   tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.27) #20
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 152), align 8
   br label %delete_object_files.exit
 
-300:                                              ; preds = %297
+301:                                              ; preds = %298
   %.not.i274 = icmp eq i32 %176, 0
   br i1 %.not.i274, label %delete_object_files.exit, label %.lr.ph.i275
 
-.lr.ph.i275:                                      ; preds = %300, %.lr.ph.i275
-  %.04.i276 = phi i64 [ %304, %.lr.ph.i275 ], [ 0, %300 ]
-  %301 = getelementptr inbounds nuw ptr, ptr %186, i64 %.04.i276
-  %302 = load ptr, ptr %301, align 8
-  %303 = tail call zeroext i1 @file_delete_file(ptr noundef %302) #20
-  %304 = add nuw nsw i64 %.04.i276, 1
-  %exitcond.not.i277 = icmp eq i64 %304, %184
+.lr.ph.i275:                                      ; preds = %301, %.lr.ph.i275
+  %.04.i276 = phi i64 [ %305, %.lr.ph.i275 ], [ 0, %301 ]
+  %302 = getelementptr inbounds nuw ptr, ptr %186, i64 %.04.i276
+  %303 = load ptr, ptr %302, align 8
+  %304 = tail call zeroext i1 @file_delete_file(ptr noundef %303) #20
+  %305 = add nuw nsw i64 %.04.i276, 1
+  %exitcond.not.i277 = icmp eq i64 %305, %184
   br i1 %exitcond.not.i277, label %delete_object_files.exit, label %.lr.ph.i275, !llvm.loop !9
 
-delete_object_files.exit:                         ; preds = %.lr.ph.i275, %.lr.ph.i272, %300, %.thread298, %299
-  %305 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 152), align 8
-  %306 = trunc i8 %305 to i1
-  br i1 %306, label %.preheader, label %402
+delete_object_files.exit:                         ; preds = %.lr.ph.i275, %.lr.ph.i272, %301, %.thread298, %300
+  %306 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 152), align 8
+  %307 = trunc i8 %306 to i1
+  br i1 %307, label %.preheader, label %403
 
 .preheader:                                       ; preds = %delete_object_files.exit
-  %307 = load i8, ptr %.1191, align 1
-  %308 = icmp eq i8 %307, 46
-  br i1 %308, label %.lr.ph, label %.critedge
+  %308 = load i8, ptr %.1191, align 1
+  %309 = icmp eq i8 %308, 46
+  br i1 %309, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.preheader, %312
-  %.0183308 = phi ptr [ %313, %312 ], [ %.1191, %.preheader ]
-  %309 = getelementptr inbounds nuw i8, ptr %.0183308, i64 1
-  %310 = load i8, ptr %309, align 1
-  %311 = icmp eq i8 %310, 47
-  br i1 %311, label %312, label %.critedge
+.lr.ph:                                           ; preds = %.preheader, %313
+  %.0183308 = phi ptr [ %314, %313 ], [ %.1191, %.preheader ]
+  %310 = getelementptr inbounds nuw i8, ptr %.0183308, i64 1
+  %311 = load i8, ptr %310, align 1
+  %312 = icmp eq i8 %311, 47
+  br i1 %312, label %313, label %.critedge
 
-312:                                              ; preds = %.lr.ph
-  %313 = getelementptr inbounds nuw i8, ptr %.0183308, i64 2
-  %314 = load i8, ptr %313, align 1
-  %315 = icmp eq i8 %314, 46
-  br i1 %315, label %.lr.ph, label %.critedge, !llvm.loop !15
+313:                                              ; preds = %.lr.ph
+  %314 = getelementptr inbounds nuw i8, ptr %.0183308, i64 2
+  %315 = load i8, ptr %314, align 1
+  %316 = icmp eq i8 %315, 46
+  br i1 %316, label %.lr.ph, label %.critedge, !llvm.loop !15
 
-.critedge:                                        ; preds = %.lr.ph, %312, %.preheader
-  %.0183.lcssa = phi ptr [ %.1191, %.preheader ], [ %313, %312 ], [ %.0183308, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %313, %.preheader
+  %.0183.lcssa = phi ptr [ %.1191, %.preheader ], [ %314, %313 ], [ %.0183308, %.lr.ph ]
   tail call void @scratch_buffer_clear() #20
-  %316 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
-  %317 = icmp eq i32 %316, 15
-  br i1 %317, label %318, label %340
+  %317 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
+  %318 = icmp eq i32 %317, 15
+  br i1 %318, label %319, label %341
 
-318:                                              ; preds = %.critedge
-  %319 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0183.lcssa) #22
-  %.not313 = icmp eq i64 %319, 0
+319:                                              ; preds = %.critedge
+  %320 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0183.lcssa) #22
+  %.not313 = icmp eq i64 %320, 0
   br i1 %.not313, label %.loopexit, label %.lr.ph312
 
-.lr.ph312:                                        ; preds = %318, %336
-  %320 = phi i64 [ %338, %336 ], [ 0, %318 ]
-  %.0181311 = phi i32 [ %337, %336 ], [ 0, %318 ]
-  %321 = getelementptr inbounds nuw i8, ptr %.0183.lcssa, i64 %320
-  %322 = load i8, ptr %321, align 1
-  %323 = icmp eq i8 %322, 47
-  br i1 %323, label %324, label %.sink.split
+.lr.ph312:                                        ; preds = %319, %337
+  %321 = phi i64 [ %339, %337 ], [ 0, %319 ]
+  %.0181311 = phi i32 [ %338, %337 ], [ 0, %319 ]
+  %322 = getelementptr inbounds nuw i8, ptr %.0183.lcssa, i64 %321
+  %323 = load i8, ptr %322, align 1
+  %324 = icmp eq i8 %323, 47
+  br i1 %324, label %325, label %.sink.split
 
-324:                                              ; preds = %.lr.ph312
-  %325 = add i32 %.0181311, 1
-  %326 = zext i32 %325 to i64
-  %327 = getelementptr inbounds nuw i8, ptr %.0183.lcssa, i64 %326
-  %328 = load i8, ptr %327, align 1
-  %329 = icmp eq i8 %328, 46
-  br i1 %329, label %330, label %.sink.split
+325:                                              ; preds = %.lr.ph312
+  %326 = add i32 %.0181311, 1
+  %327 = zext i32 %326 to i64
+  %328 = getelementptr inbounds nuw i8, ptr %.0183.lcssa, i64 %327
+  %329 = load i8, ptr %328, align 1
+  %330 = icmp eq i8 %329, 46
+  br i1 %330, label %331, label %.sink.split
 
-330:                                              ; preds = %324
-  %331 = add i32 %.0181311, 2
-  %332 = zext i32 %331 to i64
-  %333 = getelementptr inbounds nuw i8, ptr %.0183.lcssa, i64 %332
-  %334 = load i8, ptr %333, align 1
-  %335 = icmp eq i8 %334, 47
-  br i1 %335, label %336, label %.sink.split
+331:                                              ; preds = %325
+  %332 = add i32 %.0181311, 2
+  %333 = zext i32 %332 to i64
+  %334 = getelementptr inbounds nuw i8, ptr %.0183.lcssa, i64 %333
+  %335 = load i8, ptr %334, align 1
+  %336 = icmp eq i8 %335, 47
+  br i1 %336, label %337, label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph312, %324, %330
-  %.sink = phi i8 [ 92, %330 ], [ 92, %324 ], [ %322, %.lr.ph312 ]
+.sink.split:                                      ; preds = %.lr.ph312, %325, %331
+  %.sink = phi i8 [ 92, %331 ], [ 92, %325 ], [ %323, %.lr.ph312 ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #20
-  br label %336
+  br label %337
 
-336:                                              ; preds = %.sink.split, %330
-  %.1 = phi i32 [ %325, %330 ], [ %.0181311, %.sink.split ]
-  %337 = add i32 %.1, 1
-  %338 = zext i32 %337 to i64
-  %339 = icmp ugt i64 %319, %338
-  br i1 %339, label %.lr.ph312, label %.loopexit, !llvm.loop !16
+337:                                              ; preds = %.sink.split, %331
+  %.1 = phi i32 [ %326, %331 ], [ %.0181311, %.sink.split ]
+  %338 = add i32 %.1, 1
+  %339 = zext i32 %338 to i64
+  %340 = icmp ugt i64 %320, %339
+  br i1 %340, label %.lr.ph312, label %.loopexit, !llvm.loop !16
 
-340:                                              ; preds = %.critedge
+341:                                              ; preds = %.critedge
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.28) #20
   tail call void @scratch_buffer_append(ptr noundef nonnull %.0183.lcssa) #20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %336, %318, %340
-  %341 = tail call ptr @scratch_buffer_to_string() #20
-  %342 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %341)
-  %343 = tail call i32 @system(ptr noundef %341) #20
-  %344 = and i32 %343, 127
-  %345 = icmp eq i32 %344, 0
-  br i1 %345, label %346, label %351
+.loopexit:                                        ; preds = %337, %319, %341
+  %342 = tail call ptr @scratch_buffer_to_string() #20
+  %343 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %342)
+  %344 = tail call i32 @system(ptr noundef %342) #20
+  %345 = and i32 %344, 127
+  %346 = icmp eq i32 %345, 0
+  br i1 %346, label %347, label %352
 
-346:                                              ; preds = %.loopexit
-  %347 = lshr i32 %343, 8
-  %348 = and i32 %347, 255
-  %349 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %348)
-  %.not225 = icmp eq i32 %348, 0
-  br i1 %.not225, label %402, label %350
+347:                                              ; preds = %.loopexit
+  %348 = lshr i32 %344, 8
+  %349 = and i32 %348, 255
+  %350 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %349)
+  %.not225 = icmp eq i32 %349, 0
+  br i1 %.not225, label %403, label %351
 
-350:                                              ; preds = %346
-  tail call void @exit(i32 noundef %348) #21
+351:                                              ; preds = %347
+  tail call void @exit(i32 noundef %349) #21
   unreachable
 
-351:                                              ; preds = %.loopexit
-  %352 = shl nuw nsw i32 %344, 24
-  %sext = add nuw i32 %352, 16777216
-  %353 = icmp sgt i32 %sext, 33554431
-  br i1 %353, label %354, label %356
+352:                                              ; preds = %.loopexit
+  %353 = shl nuw nsw i32 %345, 24
+  %sext = add nuw i32 %353, 16777216
+  %354 = icmp sgt i32 %sext, 33554431
+  br i1 %354, label %355, label %357
 
-354:                                              ; preds = %351
-  %355 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %344)
+355:                                              ; preds = %352
+  %356 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %345)
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-356:                                              ; preds = %351
-  %357 = and i32 %343, 255
-  %358 = icmp eq i32 %357, 127
-  br i1 %358, label %359, label %363
+357:                                              ; preds = %352
+  %358 = and i32 %344, 255
+  %359 = icmp eq i32 %358, 127
+  br i1 %359, label %360, label %364
 
-359:                                              ; preds = %356
-  %360 = lshr i32 %343, 8
-  %361 = and i32 %360, 255
-  %362 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %361)
-  br label %402
+360:                                              ; preds = %357
+  %361 = lshr i32 %344, 8
+  %362 = and i32 %361, 255
+  %363 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %362)
+  br label %403
 
-363:                                              ; preds = %356
-  %364 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %343)
-  br label %402
+364:                                              ; preds = %357
+  %365 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef %344)
+  br label %403
 
-365:                                              ; preds = %264
+366:                                              ; preds = %265
   %.not220 = icmp eq ptr %.0194, null
-  br i1 %.not220, label %383, label %366
+  br i1 %.not220, label %384, label %367
 
-366:                                              ; preds = %365
-  %367 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 120), align 8
-  %.not223 = icmp eq ptr %367, null
-  br i1 %.not223, label %370, label %368
+367:                                              ; preds = %366
+  %368 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 120), align 8
+  %.not223 = icmp eq ptr %368, null
+  br i1 %.not223, label %371, label %369
 
-368:                                              ; preds = %366
-  %369 = tail call ptr @file_append_path(ptr noundef nonnull %367, ptr noundef nonnull %.0194) #20
-  br label %370
+369:                                              ; preds = %367
+  %370 = tail call ptr @file_append_path(ptr noundef nonnull %368, ptr noundef nonnull %.0194) #20
+  br label %371
 
-370:                                              ; preds = %368, %366
-  %.1195 = phi ptr [ %369, %368 ], [ %.0194, %366 ]
-  %371 = tail call zeroext i1 @file_is_dir(ptr noundef %.1195) #20
-  br i1 %371, label %372, label %373
+371:                                              ; preds = %369, %367
+  %.1195 = phi ptr [ %370, %369 ], [ %.0194, %367 ]
+  %372 = tail call zeroext i1 @file_is_dir(ptr noundef %.1195) #20
+  br i1 %372, label %373, label %374
 
-372:                                              ; preds = %370
+373:                                              ; preds = %371
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.34, ptr noundef null) #21
   unreachable
 
-373:                                              ; preds = %370
-  %374 = tail call zeroext i1 @static_lib_linker(ptr noundef %.1195, ptr noundef nonnull %186, i32 noundef %176) #20
-  br i1 %374, label %376, label %375
+374:                                              ; preds = %371
+  %375 = tail call zeroext i1 @static_lib_linker(ptr noundef %.1195, ptr noundef nonnull %186, i32 noundef %176) #20
+  br i1 %375, label %377, label %376
 
-375:                                              ; preds = %373
+376:                                              ; preds = %374
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.35, ptr noundef %.1195) #21
   unreachable
 
-376:                                              ; preds = %373
+377:                                              ; preds = %374
   %.not.i280 = icmp eq i32 %176, 0
   br i1 %.not.i280, label %delete_object_files.exit285, label %.lr.ph.i281
 
-.lr.ph.i281:                                      ; preds = %376, %.lr.ph.i281
-  %.04.i282 = phi i64 [ %380, %.lr.ph.i281 ], [ 0, %376 ]
-  %377 = getelementptr inbounds nuw ptr, ptr %186, i64 %.04.i282
-  %378 = load ptr, ptr %377, align 8
-  %379 = tail call zeroext i1 @file_delete_file(ptr noundef %378) #20
-  %380 = add nuw nsw i64 %.04.i282, 1
-  %exitcond.not.i283 = icmp eq i64 %380, %184
+.lr.ph.i281:                                      ; preds = %377, %.lr.ph.i281
+  %.04.i282 = phi i64 [ %381, %.lr.ph.i281 ], [ 0, %377 ]
+  %378 = getelementptr inbounds nuw ptr, ptr %186, i64 %.04.i282
+  %379 = load ptr, ptr %378, align 8
+  %380 = tail call zeroext i1 @file_delete_file(ptr noundef %379) #20
+  %381 = add nuw nsw i64 %.04.i282, 1
+  %exitcond.not.i283 = icmp eq i64 %381, %184
   br i1 %exitcond.not.i283, label %delete_object_files.exit285, label %.lr.ph.i281, !llvm.loop !9
 
-delete_object_files.exit285:                      ; preds = %.lr.ph.i281, %376
-  %381 = tail call double @bench_mark() #20
-  store double %381, ptr @compiler_link_time, align 8
+delete_object_files.exit285:                      ; preds = %.lr.ph.i281, %377
+  %382 = tail call double @bench_mark() #20
+  store double %382, ptr @compiler_link_time, align 8
   tail call fastcc void @compiler_print_bench()
-  %382 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef %.1195)
-  br label %402
+  %383 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef %.1195)
+  br label %403
 
-383:                                              ; preds = %365
+384:                                              ; preds = %366
   %.not221 = icmp eq ptr %.0196, null
-  br i1 %.not221, label %401, label %384
+  br i1 %.not221, label %402, label %385
 
-384:                                              ; preds = %383
-  %385 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 120), align 8
-  %.not222 = icmp eq ptr %385, null
-  br i1 %.not222, label %388, label %386
+385:                                              ; preds = %384
+  %386 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 120), align 8
+  %.not222 = icmp eq ptr %386, null
+  br i1 %.not222, label %389, label %387
 
-386:                                              ; preds = %384
-  %387 = tail call ptr @file_append_path(ptr noundef nonnull %385, ptr noundef nonnull %.0196) #20
-  br label %388
+387:                                              ; preds = %385
+  %388 = tail call ptr @file_append_path(ptr noundef nonnull %386, ptr noundef nonnull %.0196) #20
+  br label %389
 
-388:                                              ; preds = %386, %384
-  %.1197 = phi ptr [ %387, %386 ], [ %.0196, %384 ]
-  %389 = tail call zeroext i1 @file_is_dir(ptr noundef %.1197) #20
-  br i1 %389, label %390, label %391
+389:                                              ; preds = %387, %385
+  %.1197 = phi ptr [ %388, %387 ], [ %.0196, %385 ]
+  %390 = tail call zeroext i1 @file_is_dir(ptr noundef %.1197) #20
+  br i1 %390, label %391, label %392
 
-390:                                              ; preds = %388
+391:                                              ; preds = %389
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.37, ptr noundef null) #21
   unreachable
 
-391:                                              ; preds = %388
-  %392 = tail call zeroext i1 @dynamic_lib_linker(ptr noundef %.1197, ptr noundef nonnull %186, i32 noundef %176) #20
-  br i1 %392, label %394, label %393
+392:                                              ; preds = %389
+  %393 = tail call zeroext i1 @dynamic_lib_linker(ptr noundef %.1197, ptr noundef nonnull %186, i32 noundef %176) #20
+  br i1 %393, label %395, label %394
 
-393:                                              ; preds = %391
+394:                                              ; preds = %392
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.38, ptr noundef %.1197) #21
   unreachable
 
-394:                                              ; preds = %391
+395:                                              ; preds = %392
   %.not.i286 = icmp eq i32 %176, 0
   br i1 %.not.i286, label %delete_object_files.exit291, label %.lr.ph.i287
 
-.lr.ph.i287:                                      ; preds = %394, %.lr.ph.i287
-  %.04.i288 = phi i64 [ %398, %.lr.ph.i287 ], [ 0, %394 ]
-  %395 = getelementptr inbounds nuw ptr, ptr %186, i64 %.04.i288
-  %396 = load ptr, ptr %395, align 8
-  %397 = tail call zeroext i1 @file_delete_file(ptr noundef %396) #20
-  %398 = add nuw nsw i64 %.04.i288, 1
-  %exitcond.not.i289 = icmp eq i64 %398, %184
+.lr.ph.i287:                                      ; preds = %395, %.lr.ph.i287
+  %.04.i288 = phi i64 [ %399, %.lr.ph.i287 ], [ 0, %395 ]
+  %396 = getelementptr inbounds nuw ptr, ptr %186, i64 %.04.i288
+  %397 = load ptr, ptr %396, align 8
+  %398 = tail call zeroext i1 @file_delete_file(ptr noundef %397) #20
+  %399 = add nuw nsw i64 %.04.i288, 1
+  %exitcond.not.i289 = icmp eq i64 %399, %184
   br i1 %exitcond.not.i289, label %delete_object_files.exit291, label %.lr.ph.i287, !llvm.loop !9
 
-delete_object_files.exit291:                      ; preds = %.lr.ph.i287, %394
-  %399 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %.1197)
-  %400 = tail call double @bench_mark() #20
-  store double %400, ptr @compiler_link_time, align 8
+delete_object_files.exit291:                      ; preds = %.lr.ph.i287, %395
+  %400 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %.1197)
+  %401 = tail call double @bench_mark() #20
+  store double %401, ptr @compiler_link_time, align 8
   tail call fastcc void @compiler_print_bench()
-  br label %402
-
-401:                                              ; preds = %383
-  tail call fastcc void @compiler_print_bench()
-  br label %402
-
-402:                                              ; preds = %delete_object_files.exit285, %401, %delete_object_files.exit291, %delete_object_files.exit, %363, %359, %346
-  tail call void @free(ptr noundef %186) #20
   br label %403
 
-403:                                              ; preds = %402, %16
+402:                                              ; preds = %384
+  tail call fastcc void @compiler_print_bench()
+  br label %403
+
+403:                                              ; preds = %delete_object_files.exit285, %402, %delete_object_files.exit291, %delete_object_files.exit, %364, %360, %347
+  tail call void @free(ptr noundef %186) #20
+  br label %404
+
+404:                                              ; preds = %403, %16
   ret void
 }
 

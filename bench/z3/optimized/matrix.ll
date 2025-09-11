@@ -313,53 +313,56 @@ _ZN2lp12print_blanksEiRSo.exit:                   ; preds = %_ZN2lp12print_blank
   %61 = load i32, ptr %60, align 4, !tbaa !9
   %62 = getelementptr inbounds nuw %class.vector.0, ptr %58, i64 %indvars.iv38
   %63 = load ptr, ptr %62, align 8, !tbaa !11
-  %64 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %63, i64 %indvars.iv, i32 1
-  %65 = load i64, ptr %64, align 8, !tbaa !20
-  %66 = trunc i64 %65 to i32
-  %67 = sub i32 %61, %66
-  %.not1.i24 = icmp eq i32 %67, 0
+  %64 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %63, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load i64, ptr %65, align 8, !tbaa !20
+  %67 = trunc i64 %66 to i32
+  %68 = sub i32 %61, %67
+  %.not1.i24 = icmp eq i32 %68, 0
   br i1 %.not1.i24, label %_ZN2lp12print_blanksEiRSo.exit30, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %_ZN2lp12print_blanksEiRSo.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i28
-  %.02.i26 = phi i32 [ %68, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i28 ], [ %67, %_ZN2lp12print_blanksEiRSo.exit ]
-  %68 = add nsw i32 %.02.i26, -1
+  %.02.i26 = phi i32 [ %69, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i28 ], [ %68, %_ZN2lp12print_blanksEiRSo.exit ]
+  %69 = add nsw i32 %.02.i26, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 32, ptr %5, align 1, !tbaa !22
-  %69 = load ptr, ptr %2, align 8, !tbaa !25
-  %70 = getelementptr i8, ptr %69, i64 -24
-  %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 %71
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load i64, ptr %73, align 8, !tbaa !50
-  %.not.i.i27 = icmp eq i64 %74, 0
-  br i1 %.not.i.i27, label %77, label %75
+  %70 = load ptr, ptr %2, align 8, !tbaa !25
+  %71 = getelementptr i8, ptr %70, i64 -24
+  %72 = load i64, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %2, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load i64, ptr %74, align 8, !tbaa !50
+  %.not.i.i27 = icmp eq i64 %75, 0
+  br i1 %.not.i.i27, label %78, label %76
 
-75:                                               ; preds = %.lr.ph.i25
-  %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %5, i64 noundef 1)
+76:                                               ; preds = %.lr.ph.i25
+  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %5, i64 noundef 1)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i28
 
-77:                                               ; preds = %.lr.ph.i25
-  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef signext 32)
+78:                                               ; preds = %.lr.ph.i25
+  %79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef signext 32)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i28
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i28: ; preds = %77, %75
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i28: ; preds = %78, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not.i29 = icmp eq i32 %68, 0
+  %.not.i29 = icmp eq i32 %69, 0
   br i1 %.not.i29, label %_ZN2lp12print_blanksEiRSo.exit30.loopexit, label %.lr.ph.i25, !llvm.loop !51
 
 _ZN2lp12print_blanksEiRSo.exit30.loopexit:        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i28
   %.pre41 = load ptr, ptr %0, align 8, !tbaa !3
   %.phi.trans.insert = getelementptr inbounds nuw %class.vector.0, ptr %.pre41, i64 %indvars.iv38
   %.pre42 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !11
+  %.phi.trans.insert43 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre42, i64 %indvars.iv
+  %.phi.trans.insert44 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert43, i64 8
+  %.pre45 = load i64, ptr %.phi.trans.insert44, align 8, !tbaa !20
   br label %_ZN2lp12print_blanksEiRSo.exit30
 
 _ZN2lp12print_blanksEiRSo.exit30:                 ; preds = %_ZN2lp12print_blanksEiRSo.exit30.loopexit, %_ZN2lp12print_blanksEiRSo.exit
-  %79 = phi ptr [ %.pre42, %_ZN2lp12print_blanksEiRSo.exit30.loopexit ], [ %63, %_ZN2lp12print_blanksEiRSo.exit ]
-  %80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %79, i64 %indvars.iv
-  %81 = load ptr, ptr %80, align 8, !tbaa !17
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %83 = load i64, ptr %82, align 8, !tbaa !20
-  %84 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %81, i64 noundef %83)
+  %80 = phi i64 [ %.pre45, %_ZN2lp12print_blanksEiRSo.exit30.loopexit ], [ %66, %_ZN2lp12print_blanksEiRSo.exit ]
+  %81 = phi ptr [ %.pre42, %_ZN2lp12print_blanksEiRSo.exit30.loopexit ], [ %63, %_ZN2lp12print_blanksEiRSo.exit ]
+  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %81, i64 %indvars.iv
+  %83 = load ptr, ptr %82, align 8, !tbaa !17
+  %84 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %83, i64 noundef %80)
   %85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull @.str, i64 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = load ptr, ptr %0, align 8, !tbaa !3

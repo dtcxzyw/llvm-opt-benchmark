@@ -202,7 +202,7 @@ define void @Ssw_SignalCorrespondenceArray(ptr noundef readonly captures(none) %
 
 Ssw_SignalCorrespondenceArray1.exit:              ; preds = %38, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %98
+  br label %99
 
 41:                                               ; preds = %14
   %42 = add i32 %9, -1
@@ -333,16 +333,17 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge55, %83
   br label %.lr.ph59
 
 .lr.ph57:                                         ; preds = %Vec_PtrFree.exit, %.lr.ph57
-  %.256 = phi i32 [ %90, %.lr.ph57 ], [ 0, %Vec_PtrFree.exit ]
+  %.256 = phi i32 [ %91, %.lr.ph57 ], [ 0, %Vec_PtrFree.exit ]
   %84 = sext i32 %.256 to i64
-  %85 = getelementptr inbounds %struct.Par_ScorrThData_t_, ptr %4, i64 %84, i32 5
-  %86 = load atomic i8, ptr %85 acquire, align 8
-  %87 = trunc i8 %86 to i1
-  %88 = call i32 @nanosleep(ptr noundef nonnull %7, ptr noundef null) #15
-  %89 = add nsw i32 %.256, 1
-  %90 = select i1 %87, i32 0, i32 %89
-  %91 = icmp slt i32 %90, %42
-  br i1 %91, label %.lr.ph57, label %.lr.ph59.preheader, !llvm.loop !58
+  %85 = getelementptr inbounds %struct.Par_ScorrThData_t_, ptr %4, i64 %84
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 120
+  %87 = load atomic i8, ptr %86 acquire, align 8
+  %88 = trunc i8 %87 to i1
+  %89 = call i32 @nanosleep(ptr noundef nonnull %7, ptr noundef null) #15
+  %90 = add nsw i32 %.256, 1
+  %91 = select i1 %88, i32 0, i32 %90
+  %92 = icmp slt i32 %91, %42
+  br i1 %92, label %.lr.ph57, label %.lr.ph59.preheader, !llvm.loop !58
 
 .lr.ph61.preheader:                               ; preds = %.lr.ph59
   %wide.trip.count78 = zext nneg i32 %42 to i64
@@ -350,29 +351,29 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge55, %83
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv70 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next71, %.lr.ph59 ]
-  %92 = getelementptr inbounds nuw %struct.Par_ScorrThData_t_, ptr %4, i64 %indvars.iv70
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 96
-  store ptr null, ptr %93, align 16, !tbaa !47
-  %94 = getelementptr inbounds nuw i8, ptr %92, i64 120
-  store atomic i8 1, ptr %94 release, align 8
+  %93 = getelementptr inbounds nuw %struct.Par_ScorrThData_t_, ptr %4, i64 %indvars.iv70
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 96
+  store ptr null, ptr %94, align 16, !tbaa !47
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 120
+  store atomic i8 1, ptr %95 release, align 8
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %.lr.ph61.preheader, label %.lr.ph59, !llvm.loop !59
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %.lr.ph61
   %indvars.iv75 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next76, %.lr.ph61 ]
-  %95 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv75
-  %96 = load i64, ptr %95, align 8, !tbaa !60
-  %97 = call i32 @pthread_join(i64 noundef %96, ptr noundef null) #15
+  %96 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv75
+  %97 = load i64, ptr %96, align 8, !tbaa !60
+  %98 = call i32 @pthread_join(i64 noundef %97, ptr noundef null) #15
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !61
 
 ._crit_edge62:                                    ; preds = %.lr.ph61, %Vec_PtrFree.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %98
+  br label %99
 
-98:                                               ; preds = %._crit_edge62, %Ssw_SignalCorrespondenceArray1.exit
+99:                                               ; preds = %._crit_edge62, %Ssw_SignalCorrespondenceArray1.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

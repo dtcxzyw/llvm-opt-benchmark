@@ -770,7 +770,8 @@ if.then.i.i35:                                    ; preds = %_ZNK5boost10shared_
   unreachable
 
 _ZNSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE2atEm.exit37: ; preds = %_ZNK5boost10shared_ptrISt6vectorISt4pairIN8QuantLib4DateEdESaIS5_EEEptEv.exit28
-  %second = getelementptr inbounds nuw %"struct.std::pair", ptr %18, i64 %conv44, i32 1
+  %add.ptr.i.i36 = getelementptr inbounds nuw %"struct.std::pair", ptr %18, i64 %conv44
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr.i.i36, i64 8
   %19 = load double, ptr %second, align 8, !tbaa !28
   %20 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !22
   %21 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !30

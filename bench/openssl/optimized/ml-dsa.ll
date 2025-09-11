@@ -67,7 +67,7 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef %0, i64 no
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !4
   %9 = icmp ult i64 %1, 32
-  br i1 %9, label %28, label %10
+  br i1 %9, label %29, label %10
 
 10:                                               ; preds = %2
   %11 = load i8, ptr %0, align 1, !tbaa !8
@@ -77,35 +77,36 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef %0, i64 no
   store ptr %13, ptr %4, align 8, !tbaa !11
   %14 = urem i8 %11, 6
   %15 = zext nneg i8 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.op_table_entry, ptr @ops, i64 %15, i32 2
-  %17 = load ptr, ptr %16, align 8, !tbaa !13
-  call void %17(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
+  %16 = getelementptr inbounds nuw %struct.op_table_entry, ptr @ops, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  call void %18(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   %.not = icmp samesign ult i8 %14, 2
-  br i1 %.not, label %23, label %18
+  br i1 %.not, label %24, label %19
 
-18:                                               ; preds = %10
-  %19 = getelementptr inbounds nuw %struct.op_table_entry, ptr @ops, i64 %15, i32 3
-  %20 = load ptr, ptr %19, align 8, !tbaa !15
-  %21 = load ptr, ptr %5, align 8, !tbaa !4
-  %22 = load ptr, ptr %6, align 8, !tbaa !4
-  call void %20(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %21, ptr noundef %22, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !15
+  %22 = load ptr, ptr %5, align 8, !tbaa !4
+  %23 = load ptr, ptr %6, align 8, !tbaa !4
+  call void %21(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %22, ptr noundef %23, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %.pre = load ptr, ptr %7, align 8, !tbaa !4
   %.pre8 = load ptr, ptr %8, align 8, !tbaa !4
-  br label %23
+  br label %24
 
-23:                                               ; preds = %10, %18
-  %24 = phi ptr [ null, %10 ], [ %.pre8, %18 ]
-  %25 = phi ptr [ null, %10 ], [ %.pre, %18 ]
-  %26 = load ptr, ptr %5, align 8, !tbaa !4
-  %27 = load ptr, ptr %6, align 8, !tbaa !4
-  call void @EVP_PKEY_free(ptr noundef %26) #6
+24:                                               ; preds = %10, %19
+  %25 = phi ptr [ null, %10 ], [ %.pre8, %19 ]
+  %26 = phi ptr [ null, %10 ], [ %.pre, %19 ]
+  %27 = load ptr, ptr %5, align 8, !tbaa !4
+  %28 = load ptr, ptr %6, align 8, !tbaa !4
   call void @EVP_PKEY_free(ptr noundef %27) #6
+  call void @EVP_PKEY_free(ptr noundef %28) #6
+  call void @EVP_PKEY_free(ptr noundef %26) #6
   call void @EVP_PKEY_free(ptr noundef %25) #6
-  call void @EVP_PKEY_free(ptr noundef %24) #6
-  br label %28
+  br label %29
 
-28:                                               ; preds = %2, %23
-  %.0 = phi i32 [ 0, %23 ], [ -1, %2 ]
+29:                                               ; preds = %2, %24
+  %.0 = phi i32 [ 0, %24 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

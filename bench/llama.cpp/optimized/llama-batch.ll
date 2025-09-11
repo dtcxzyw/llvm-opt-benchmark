@@ -53,206 +53,207 @@ define void @_ZN12llama_sbatch14reserve_ubatchEmb(ptr dead_on_unwind noalias wri
   %12 = ashr exact i64 %11, 5
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %.in = phi i64 [ %14, %18 ], [ %12, %.lr.ph.preheader ]
-  %13 = phi ptr [ %19, %18 ], [ %7, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %.in = phi i64 [ %14, %19 ], [ %12, %.lr.ph.preheader ]
+  %13 = phi ptr [ %20, %19 ], [ %7, %.lr.ph.preheader ]
   %14 = add i64 %.in, -1
-  %15 = getelementptr inbounds nuw %struct.llama_sbatch_seq, ptr %8, i64 %14, i32 3
-  %16 = load i64, ptr %15, align 8, !tbaa !10
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %._crit_edge
+  %15 = getelementptr inbounds nuw %struct.llama_sbatch_seq, ptr %8, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = load i64, ptr %16, align 8, !tbaa !10
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %._crit_edge
 
-18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %13, i64 -32
-  store ptr %19, ptr %6, align 8, !tbaa !3
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr inbounds i8, ptr %13, i64 -32
+  store ptr %20, ptr %6, align 8, !tbaa !3
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %18, %.lr.ph, %4
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %21 = select i1 %3, i64 0, i64 %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %23 = load ptr, ptr %22, align 8, !tbaa !17
-  %24 = load ptr, ptr %20, align 8, !tbaa !19
-  %25 = ptrtoint ptr %23 to i64
+._crit_edge:                                      ; preds = %19, %.lr.ph, %4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %22 = select i1 %3, i64 0, i64 %2
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %24 = load ptr, ptr %23, align 8, !tbaa !17
+  %25 = load ptr, ptr %21, align 8, !tbaa !19
   %26 = ptrtoint ptr %24 to i64
-  %27 = sub i64 %25, %26
-  %28 = ashr exact i64 %27, 2
-  %29 = icmp ugt i64 %21, %28
-  br i1 %29, label %30, label %32
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  %29 = ashr exact i64 %28, 2
+  %30 = icmp ugt i64 %22, %29
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %._crit_edge
-  %31 = sub nuw i64 %21, %28
-  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %31)
+31:                                               ; preds = %._crit_edge
+  %32 = sub nuw i64 %22, %29
+  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef %32)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
-32:                                               ; preds = %._crit_edge
-  %33 = icmp ult i64 %21, %28
-  br i1 %33, label %34, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
+33:                                               ; preds = %._crit_edge
+  %34 = icmp ult i64 %22, %29
+  br i1 %34, label %35, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i32, ptr %24, i64 %21
-  %.not.i.i = icmp eq ptr %23, %35
-  br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %36
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i32, ptr %25, i64 %22
+  %.not.i.i = icmp eq ptr %24, %36
+  br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %37
 
-36:                                               ; preds = %34
-  store ptr %35, ptr %22, align 8, !tbaa !17
+37:                                               ; preds = %35
+  store ptr %36, ptr %23, align 8, !tbaa !17
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
-_ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %30, %32, %34, %36
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %39 = load i64, ptr %38, align 8
-  %40 = mul i64 %39, %2
-  %41 = select i1 %3, i64 %40, i64 0
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %43 = load ptr, ptr %42, align 8, !tbaa !20
-  %44 = load ptr, ptr %37, align 8, !tbaa !23
-  %45 = ptrtoint ptr %43 to i64
+_ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %31, %33, %35, %37
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %40 = load i64, ptr %39, align 8
+  %41 = mul i64 %40, %2
+  %42 = select i1 %3, i64 %41, i64 0
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %44 = load ptr, ptr %43, align 8, !tbaa !20
+  %45 = load ptr, ptr %38, align 8, !tbaa !23
   %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %48 = ashr exact i64 %47, 2
-  %49 = icmp ugt i64 %41, %48
-  br i1 %49, label %50, label %52
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  %49 = ashr exact i64 %48, 2
+  %50 = icmp ugt i64 %42, %49
+  br i1 %50, label %51, label %53
 
-50:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %51 = sub nuw i64 %41, %48
-  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %37, i64 noundef %51)
+51:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
+  %52 = sub nuw i64 %42, %49
+  tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %38, i64 noundef %52)
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
-52:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %53 = icmp ult i64 %41, %48
-  br i1 %53, label %54, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+53:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
+  %54 = icmp ult i64 %42, %49
+  br i1 %54, label %55, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw float, ptr %44, i64 %41
-  %.not.i.i12 = icmp eq ptr %43, %55
-  br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %56
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds nuw float, ptr %45, i64 %42
+  %.not.i.i12 = icmp eq ptr %44, %56
+  br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %57
 
-56:                                               ; preds = %54
-  store ptr %55, ptr %42, align 8, !tbaa !20
+57:                                               ; preds = %55
+  store ptr %56, ptr %43, align 8, !tbaa !20
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
-_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %50, %52, %54, %56
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %59 = load ptr, ptr %58, align 8, !tbaa !17
-  %60 = load ptr, ptr %57, align 8, !tbaa !19
-  %61 = ptrtoint ptr %59 to i64
+_ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %51, %53, %55, %57
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %60 = load ptr, ptr %59, align 8, !tbaa !17
+  %61 = load ptr, ptr %58, align 8, !tbaa !19
   %62 = ptrtoint ptr %60 to i64
-  %63 = sub i64 %61, %62
-  %64 = ashr exact i64 %63, 2
-  %65 = icmp ugt i64 %2, %64
-  br i1 %65, label %66, label %68
+  %63 = ptrtoint ptr %61 to i64
+  %64 = sub i64 %62, %63
+  %65 = ashr exact i64 %64, 2
+  %66 = icmp ugt i64 %2, %65
+  br i1 %66, label %67, label %69
 
-66:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %67 = sub nuw i64 %2, %64
-  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %57, i64 noundef %67)
+67:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %68 = sub nuw i64 %2, %65
+  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %58, i64 noundef %68)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
 
-68:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %69 = icmp ult i64 %2, %64
-  br i1 %69, label %70, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
+69:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %70 = icmp ult i64 %2, %65
+  br i1 %70, label %71, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw i32, ptr %60, i64 %2
-  %.not.i.i13 = icmp eq ptr %59, %71
-  br i1 %.not.i.i13, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit14, label %72
+71:                                               ; preds = %69
+  %72 = getelementptr inbounds nuw i32, ptr %61, i64 %2
+  %.not.i.i13 = icmp eq ptr %60, %72
+  br i1 %.not.i.i13, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit14, label %73
 
-72:                                               ; preds = %70
-  store ptr %71, ptr %58, align 8, !tbaa !17
+73:                                               ; preds = %71
+  store ptr %72, ptr %59, align 8, !tbaa !17
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
 
-_ZNSt6vectorIiSaIiEE6resizeEm.exit14:             ; preds = %66, %68, %70, %72
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %75 = load ptr, ptr %74, align 8, !tbaa !17
-  %76 = load ptr, ptr %73, align 8, !tbaa !19
-  %77 = ptrtoint ptr %75 to i64
+_ZNSt6vectorIiSaIiEE6resizeEm.exit14:             ; preds = %67, %69, %71, %73
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %76 = load ptr, ptr %75, align 8, !tbaa !17
+  %77 = load ptr, ptr %74, align 8, !tbaa !19
   %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %80 = ashr exact i64 %79, 2
-  %81 = icmp ugt i64 %2, %80
-  br i1 %81, label %82, label %84
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %78, %79
+  %81 = ashr exact i64 %80, 2
+  %82 = icmp ugt i64 %2, %81
+  br i1 %82, label %83, label %85
 
-82:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
-  %83 = sub nuw i64 %2, %80
-  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %73, i64 noundef %83)
+83:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
+  %84 = sub nuw i64 %2, %81
+  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %74, i64 noundef %84)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit16
 
-84:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
-  %85 = icmp ult i64 %2, %80
-  br i1 %85, label %86, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit16
+85:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
+  %86 = icmp ult i64 %2, %81
+  br i1 %86, label %87, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit16
 
-86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw i32, ptr %76, i64 %2
-  %.not.i.i15 = icmp eq ptr %75, %87
-  br i1 %.not.i.i15, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit16, label %88
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds nuw i32, ptr %77, i64 %2
+  %.not.i.i15 = icmp eq ptr %76, %88
+  br i1 %.not.i.i15, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit16, label %89
 
-88:                                               ; preds = %86
-  store ptr %87, ptr %74, align 8, !tbaa !17
+89:                                               ; preds = %87
+  store ptr %88, ptr %75, align 8, !tbaa !17
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit16
 
-_ZNSt6vectorIiSaIiEE6resizeEm.exit16:             ; preds = %82, %84, %86, %88
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %91 = load ptr, ptr %90, align 8, !tbaa !24
-  %92 = load ptr, ptr %89, align 8, !tbaa !28
-  %93 = ptrtoint ptr %91 to i64
+_ZNSt6vectorIiSaIiEE6resizeEm.exit16:             ; preds = %83, %85, %87, %89
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %92 = load ptr, ptr %91, align 8, !tbaa !24
+  %93 = load ptr, ptr %90, align 8, !tbaa !28
   %94 = ptrtoint ptr %92 to i64
-  %95 = sub i64 %93, %94
-  %96 = ashr exact i64 %95, 3
-  %97 = icmp ugt i64 %2, %96
-  br i1 %97, label %98, label %100
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = ashr exact i64 %96, 3
+  %98 = icmp ugt i64 %2, %97
+  br i1 %98, label %99, label %101
 
-98:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit16
-  %99 = sub nuw i64 %2, %96
-  tail call void @_ZNSt6vectorIPiSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %89, i64 noundef %99)
+99:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit16
+  %100 = sub nuw i64 %2, %97
+  tail call void @_ZNSt6vectorIPiSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %90, i64 noundef %100)
   br label %_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit
 
-100:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit16
-  %101 = icmp ult i64 %2, %96
-  br i1 %101, label %102, label %_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit
+101:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit16
+  %102 = icmp ult i64 %2, %97
+  br i1 %102, label %103, label %_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit
 
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds nuw ptr, ptr %92, i64 %2
-  %.not.i.i17 = icmp eq ptr %91, %103
-  br i1 %.not.i.i17, label %_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit, label %104
+103:                                              ; preds = %101
+  %104 = getelementptr inbounds nuw ptr, ptr %93, i64 %2
+  %.not.i.i17 = icmp eq ptr %92, %104
+  br i1 %.not.i.i17, label %_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit, label %105
 
-104:                                              ; preds = %102
-  store ptr %103, ptr %90, align 8, !tbaa !24
+105:                                              ; preds = %103
+  store ptr %104, ptr %91, align 8, !tbaa !24
   br label %_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit
 
-_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit:            ; preds = %98, %100, %102, %104
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  tail call void @_ZNSt6vectorIaSaIaEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %105, i64 noundef %2)
+_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit:            ; preds = %99, %101, %103, %105
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  tail call void @_ZNSt6vectorIaSaIaEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %106, i64 noundef %2)
   store i8 1, ptr %0, align 8, !tbaa !29
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %106, align 4, !tbaa !33
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %107, align 8, !tbaa !34
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %108, align 4, !tbaa !35
-  %109 = load ptr, ptr %37, align 8
-  %110 = load ptr, ptr %20, align 8
-  %.sink = select i1 %3, ptr null, ptr %110
-  %111 = select i1 %3, ptr %109, ptr null
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink, ptr %112, align 8, !tbaa !36
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %111, ptr %113, align 8, !tbaa !37
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %115 = load ptr, ptr %57, align 8, !tbaa !19
-  store ptr %115, ptr %114, align 8, !tbaa !38
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %117 = load ptr, ptr %73, align 8, !tbaa !19
-  store ptr %117, ptr %116, align 8, !tbaa !39
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %119 = load ptr, ptr %89, align 8, !tbaa !28
-  store ptr %119, ptr %118, align 8, !tbaa !40
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %121 = load ptr, ptr %105, align 8, !tbaa !41
-  store ptr %121, ptr %120, align 8, !tbaa !43
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %107, align 4, !tbaa !33
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %108, align 8, !tbaa !34
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %109, align 4, !tbaa !35
+  %110 = load ptr, ptr %38, align 8
+  %111 = load ptr, ptr %21, align 8
+  %.sink = select i1 %3, ptr null, ptr %111
+  %112 = select i1 %3, ptr %110, ptr null
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sink, ptr %113, align 8, !tbaa !36
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %112, ptr %114, align 8, !tbaa !37
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %116 = load ptr, ptr %58, align 8, !tbaa !19
+  store ptr %116, ptr %115, align 8, !tbaa !38
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %118 = load ptr, ptr %74, align 8, !tbaa !19
+  store ptr %118, ptr %117, align 8, !tbaa !39
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %120 = load ptr, ptr %90, align 8, !tbaa !28
+  store ptr %120, ptr %119, align 8, !tbaa !40
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %122 = load ptr, ptr %106, align 8, !tbaa !41
+  store ptr %122, ptr %121, align 8, !tbaa !43
   ret void
 }
 

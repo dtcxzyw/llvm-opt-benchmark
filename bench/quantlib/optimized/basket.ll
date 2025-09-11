@@ -5595,7 +5595,8 @@ invoke.cont82:                                    ; preds = %.noexc78, %invoke.c
 
 invoke.cont84:                                    ; preds = %invoke.cont82
   %55 = load ptr, ptr %ref.tmp79, align 8, !tbaa !91
-  %seniority_.i = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %55, i64 %i.0, i32 2
+  %add.ptr.i80 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %55, i64 %i.0
+  %seniority_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i80, i64 40
   %56 = load i32, ptr %seniority_.i, align 8, !tbaa !136
   %call90 = invoke noundef double @_ZNK8QuantLib12DefaultEvent17DefaultSettlement12recoveryRateENS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(64) %defSettlement_.i74, i32 noundef %56)
           to label %invoke.cont89 unwind label %lpad86
@@ -6489,7 +6490,8 @@ invoke.cont82:                                    ; preds = %.noexc78, %invoke.c
 
 invoke.cont84:                                    ; preds = %invoke.cont82
   %55 = load ptr, ptr %ref.tmp79, align 8, !tbaa !91
-  %seniority_.i = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %55, i64 %i.0, i32 2
+  %add.ptr.i80 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %55, i64 %i.0
+  %seniority_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i80, i64 40
   %56 = load i32, ptr %seniority_.i, align 8, !tbaa !136
   %call90 = invoke noundef double @_ZNK8QuantLib12DefaultEvent17DefaultSettlement12recoveryRateENS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(64) %defSettlement_.i74, i32 noundef %56)
           to label %invoke.cont89 unwind label %lpad86

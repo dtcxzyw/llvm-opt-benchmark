@@ -11163,9 +11163,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(224) ptr @_ZN5boost1
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
-  %9 = phi ptr [ %4, %.lr.ph ], [ %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
-  %10 = phi ptr [ %3, %.lr.ph ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
-  %.018 = phi i64 [ 0, %.lr.ph ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
+  %9 = phi ptr [ %4, %.lr.ph ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
+  %10 = phi ptr [ %3, %.lr.ph ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
+  %.018 = phi i64 [ 0, %.lr.ph ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %7, align 8
   %13 = load ptr, ptr %5, align 8
@@ -11197,82 +11197,83 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(224) ptr @_ZN5boost1
   br i1 %.not16, label %.critedge, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 .critedge:                                        ; preds = %21, %8, %25
-  %33 = getelementptr inbounds %"struct.boost::io::detail::format_item", ptr %9, i64 %.018, i32 2
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %33 = getelementptr inbounds %"struct.boost::io::detail::format_item", ptr %9, i64 %.018
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i64, ptr %34, align 8
   %.not17 = icmp eq i64 %35, 0
   br i1 %.not17, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %.critedge
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 0, ptr %34, align 8
-  %36 = load ptr, ptr %33, align 8
-  store i8 0, ptr %36, align 1
+  %37 = load ptr, ptr %36, align 8
+  store i8 0, ptr %37, align 1
   %.pre = load ptr, ptr %2, align 8
   %.pre23 = load ptr, ptr %0, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %.sink.split.i.i, %.critedge, %25
-  %37 = phi ptr [ %.pre23, %.sink.split.i.i ], [ %9, %.critedge ], [ %9, %25 ]
-  %38 = phi ptr [ %.pre, %.sink.split.i.i ], [ %10, %.critedge ], [ %10, %25 ]
-  %39 = add nuw i64 %.018, 1
-  %40 = ptrtoint ptr %38 to i64
-  %41 = ptrtoint ptr %37 to i64
-  %42 = sub i64 %40, %41
-  %43 = sdiv exact i64 %42, 136
-  %44 = icmp ult i64 %39, %43
-  br i1 %44, label %8, label %._crit_edge, !llvm.loop !63
+  %38 = phi ptr [ %.pre23, %.sink.split.i.i ], [ %9, %.critedge ], [ %9, %25 ]
+  %39 = phi ptr [ %.pre, %.sink.split.i.i ], [ %10, %.critedge ], [ %10, %25 ]
+  %40 = add nuw i64 %.018, 1
+  %41 = ptrtoint ptr %39 to i64
+  %42 = ptrtoint ptr %38 to i64
+  %43 = sub i64 %41, %42
+  %44 = sdiv exact i64 %43, 136
+  %45 = icmp ult i64 %40, %44
+  br i1 %45, label %8, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %1
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 0, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i8 0, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %51 = load i32, ptr %50, align 8
-  %52 = load ptr, ptr %47, align 8
-  %53 = ptrtoint ptr %49 to i64
-  %54 = ptrtoint ptr %52 to i64
-  %55 = sub i64 %53, %54
-  %56 = shl nsw i64 %55, 3
-  %57 = zext i32 %51 to i64
-  %58 = sub nsw i64 0, %57
-  %.not = icmp eq i64 %56, %58
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 0, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i8 0, ptr %47, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load i32, ptr %51, align 8
+  %53 = load ptr, ptr %48, align 8
+  %54 = ptrtoint ptr %50 to i64
+  %55 = ptrtoint ptr %53 to i64
+  %56 = sub i64 %54, %55
+  %57 = shl nsw i64 %56, 3
+  %58 = zext i32 %52 to i64
+  %59 = sub nsw i64 0, %58
+  %.not = icmp eq i64 %57, %59
   br i1 %.not, label %.critedge2, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph19.preheader, label %.critedge2
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp sgt i32 %61, 0
+  br i1 %62, label %.lr.ph19.preheader, label %.critedge2
 
 .lr.ph19.preheader:                               ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %60 to i64
+  %wide.trip.count = zext nneg i32 %61 to i64
   br label %.lr.ph19
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next, %69 ]
-  %62 = trunc nsw i64 %indvars.iv to i32
-  %63 = sdiv i32 %62, 64
-  %.sext = sext i32 %63 to i64
-  %64 = getelementptr inbounds i64, ptr %52, i64 %.sext
-  %65 = and i64 %indvars.iv, 63
-  %66 = shl nuw i64 1, %65
-  %67 = load i64, ptr %64, align 8
-  %68 = and i64 %67, %66
-  %.not15 = icmp eq i64 %68, 0
-  br i1 %.not15, label %.critedge2, label %69
+.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %70
+  %indvars.iv = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next, %70 ]
+  %63 = trunc nsw i64 %indvars.iv to i32
+  %64 = sdiv i32 %63, 64
+  %.sext = sext i32 %64 to i64
+  %65 = getelementptr inbounds i64, ptr %53, i64 %.sext
+  %66 = and i64 %indvars.iv, 63
+  %67 = shl nuw i64 1, %66
+  %68 = load i64, ptr %65, align 8
+  %69 = and i64 %68, %67
+  %.not15 = icmp eq i64 %69, 0
+  br i1 %.not15, label %.critedge2, label %70
 
-69:                                               ; preds = %.lr.ph19
+70:                                               ; preds = %.lr.ph19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %70, ptr %45, align 4
+  %71 = trunc nsw i64 %indvars.iv.next to i32
+  store i32 %71, ptr %46, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph19, !llvm.loop !64
 
-.critedge2:                                       ; preds = %69, %.lr.ph19, %.preheader, %._crit_edge
+.critedge2:                                       ; preds = %70, %.lr.ph19, %.preheader, %._crit_edge
   ret ptr %0
 }
 

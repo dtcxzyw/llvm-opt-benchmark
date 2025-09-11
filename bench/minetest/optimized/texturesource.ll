@@ -4706,7 +4706,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   br i1 %cmp.not, label %if.end, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 if.end:                                           ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %texture = getelementptr inbounds nuw %struct.TextureInfo, ptr %1, i64 %conv, i32 1
+  %texture.split = getelementptr inbounds nuw %struct.TextureInfo, ptr %1, i64 %conv
+  %texture = getelementptr inbounds nuw i8, ptr %texture.split, i64 32
   %2 = load ptr, ptr %texture, align 8, !tbaa !105
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 

@@ -596,7 +596,7 @@ define hidden noundef zeroext i1 @_ZN15ZPhysicalMemory14commit_segmentEim(ptr no
 
 14:                                               ; preds = %3
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %25, label %15
+  br i1 %.not, label %26, label %15
 
 15:                                               ; preds = %14
   %16 = add nsw i32 %1, 1
@@ -619,11 +619,12 @@ define hidden noundef zeroext i1 @_ZN15ZPhysicalMemory14commit_segmentEim(ptr no
 
 .sink.split:                                      ; preds = %3, %15
   %24 = phi ptr [ %20, %15 ], [ %6, %3 ]
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %24, i64 %7, i32 2
+  %25 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %24, i64 %7
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 1, ptr %.sroa.3.0..sroa_idx.i, align 8
-  br label %25
+  br label %26
 
-25:                                               ; preds = %.sink.split, %14
+26:                                               ; preds = %.sink.split, %14
   ret i1 %13
 }
 
@@ -643,7 +644,7 @@ define hidden noundef zeroext i1 @_ZN15ZPhysicalMemory16uncommit_segmentEim(ptr 
 
 14:                                               ; preds = %3
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %25, label %15
+  br i1 %.not, label %26, label %15
 
 15:                                               ; preds = %14
   %16 = add nsw i32 %1, 1
@@ -666,11 +667,12 @@ define hidden noundef zeroext i1 @_ZN15ZPhysicalMemory16uncommit_segmentEim(ptr 
 
 .sink.split:                                      ; preds = %3, %15
   %24 = phi ptr [ %20, %15 ], [ %6, %3 ]
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %24, i64 %7, i32 2
+  %25 = getelementptr inbounds %class.ZPhysicalMemorySegment, ptr %24, i64 %7
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 0, ptr %.sroa.3.0..sroa_idx.i, align 8
-  br label %25
+  br label %26
 
-25:                                               ; preds = %.sink.split, %14
+26:                                               ; preds = %.sink.split, %14
   ret i1 %13
 }
 
@@ -1018,15 +1020,15 @@ define hidden noundef zeroext i1 @_ZN22ZPhysicalMemoryManager6commitER15ZPhysica
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %7
 
-7:                                                ; preds = %.lr.ph, %44
-  %8 = phi i32 [ %4, %.lr.ph ], [ %45, %44 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
+7:                                                ; preds = %.lr.ph, %45
+  %8 = phi i32 [ %4, %.lr.ph ], [ %46, %45 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %44, label %14
+  br i1 %13, label %45, label %14
 
 14:                                               ; preds = %7
   %15 = load i64, ptr %10, align 8
@@ -1060,43 +1062,44 @@ define hidden noundef zeroext i1 @_ZN22ZPhysicalMemoryManager6commitER15ZPhysica
 
 _ZN15ZPhysicalMemory14commit_segmentEim.exit.thread19: ; preds = %20, %.thread
   %.ph18 = phi ptr [ %28, %.thread ], [ %21, %20 ]
-  %.sroa.3.0..sroa_idx.i.i20 = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %.ph18, i64 %indvars.iv, i32 2
+  %35 = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %.ph18, i64 %indvars.iv
+  %.sroa.3.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i8 1, ptr %.sroa.3.0..sroa_idx.i.i20, align 8
   %.pre = load i32, ptr %1, align 8
-  br label %44
+  br label %45
 
 _ZN15ZPhysicalMemory14commit_segmentEim.exit:     ; preds = %.thread
-  %35 = trunc nuw nsw i64 %indvars.iv to i32
-  %36 = add nuw nsw i32 %35, 1
-  %37 = add i64 %32, %19
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
+  %37 = add nuw nsw i32 %36, 1
+  %38 = add i64 %32, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %37, ptr %3, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %31, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 0, ptr %39, align 8
-  call void @_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(17) %3)
+  store i64 %38, ptr %3, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %31, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i8 0, ptr %40, align 8
+  call void @_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %37, ptr noundef nonnull align 8 dereferenceable(17) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %40, i64 %indvars.iv
-  %42 = load i64, ptr %41, align 8
-  %43 = add i64 %42, %19
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 %43, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %40, i64 %indvars.iv, i32 2
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %41, i64 %indvars.iv
+  %43 = load i64, ptr %42, align 8
+  %44 = add i64 %43, %19
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store i64 %44, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i8 1, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   br label %_ZN15ZPhysicalMemory14commit_segmentEim.exit.thread
 
-44:                                               ; preds = %_ZN15ZPhysicalMemory14commit_segmentEim.exit.thread19, %7
-  %45 = phi i32 [ %.pre, %_ZN15ZPhysicalMemory14commit_segmentEim.exit.thread19 ], [ %8, %7 ]
+45:                                               ; preds = %_ZN15ZPhysicalMemory14commit_segmentEim.exit.thread19, %7
+  %46 = phi i32 [ %.pre, %_ZN15ZPhysicalMemory14commit_segmentEim.exit.thread19 ], [ %8, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = sext i32 %45 to i64
-  %.not32 = icmp slt i64 %indvars.iv.next, %46
+  %47 = sext i32 %46 to i64
+  %.not32 = icmp slt i64 %indvars.iv.next, %47
   br i1 %.not32, label %7, label %_ZN15ZPhysicalMemory14commit_segmentEim.exit.thread, !llvm.loop !16
 
-_ZN15ZPhysicalMemory14commit_segmentEim.exit.thread: ; preds = %44, %20, %2, %_ZN15ZPhysicalMemory14commit_segmentEim.exit
-  %47 = phi i1 [ false, %_ZN15ZPhysicalMemory14commit_segmentEim.exit ], [ true, %2 ], [ true, %44 ], [ false, %20 ]
-  ret i1 %47
+_ZN15ZPhysicalMemory14commit_segmentEim.exit.thread: ; preds = %45, %20, %2, %_ZN15ZPhysicalMemory14commit_segmentEim.exit
+  %48 = phi i1 [ false, %_ZN15ZPhysicalMemory14commit_segmentEim.exit ], [ true, %2 ], [ true, %45 ], [ false, %20 ]
+  ret i1 %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1110,15 +1113,15 @@ define hidden noundef zeroext i1 @_ZN22ZPhysicalMemoryManager8uncommitER15ZPhysi
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %7
 
-7:                                                ; preds = %.lr.ph, %44
-  %8 = phi i32 [ %4, %.lr.ph ], [ %45, %44 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
+7:                                                ; preds = %.lr.ph, %45
+  %8 = phi i32 [ %4, %.lr.ph ], [ %46, %45 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %44
+  br i1 %13, label %14, label %45
 
 14:                                               ; preds = %7
   %15 = load i64, ptr %10, align 8
@@ -1152,43 +1155,44 @@ define hidden noundef zeroext i1 @_ZN22ZPhysicalMemoryManager8uncommitER15ZPhysi
 
 _ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread19: ; preds = %20, %.thread
   %.ph18 = phi ptr [ %28, %.thread ], [ %21, %20 ]
-  %.sroa.3.0..sroa_idx.i.i20 = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %.ph18, i64 %indvars.iv, i32 2
+  %35 = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %.ph18, i64 %indvars.iv
+  %.sroa.3.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i8 0, ptr %.sroa.3.0..sroa_idx.i.i20, align 8
   %.pre = load i32, ptr %1, align 8
-  br label %44
+  br label %45
 
 _ZN15ZPhysicalMemory16uncommit_segmentEim.exit:   ; preds = %.thread
-  %35 = trunc nuw nsw i64 %indvars.iv to i32
-  %36 = add nuw nsw i32 %35, 1
-  %37 = add i64 %32, %19
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
+  %37 = add nuw nsw i32 %36, 1
+  %38 = add i64 %32, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %37, ptr %3, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %31, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 1, ptr %39, align 8
-  call void @_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(17) %3)
+  store i64 %38, ptr %3, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %31, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i8 1, ptr %40, align 8
+  call void @_ZN26GrowableArrayWithAllocatorI22ZPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %37, ptr noundef nonnull align 8 dereferenceable(17) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %40, i64 %indvars.iv
-  %42 = load i64, ptr %41, align 8
-  %43 = add i64 %42, %19
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 %43, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %40, i64 %indvars.iv, i32 2
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds nuw %class.ZPhysicalMemorySegment, ptr %41, i64 %indvars.iv
+  %43 = load i64, ptr %42, align 8
+  %44 = add i64 %43, %19
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store i64 %44, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i8 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   br label %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread
 
-44:                                               ; preds = %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread19, %7
-  %45 = phi i32 [ %.pre, %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread19 ], [ %8, %7 ]
+45:                                               ; preds = %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread19, %7
+  %46 = phi i32 [ %.pre, %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread19 ], [ %8, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = sext i32 %45 to i64
-  %.not32 = icmp slt i64 %indvars.iv.next, %46
+  %47 = sext i32 %46 to i64
+  %.not32 = icmp slt i64 %indvars.iv.next, %47
   br i1 %.not32, label %7, label %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread, !llvm.loop !17
 
-_ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread: ; preds = %44, %20, %2, %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit
-  %47 = phi i1 [ false, %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit ], [ true, %2 ], [ true, %44 ], [ false, %20 ]
-  ret i1 %47
+_ZN15ZPhysicalMemory16uncommit_segmentEim.exit.thread: ; preds = %45, %20, %2, %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit
+  %48 = phi i1 [ false, %_ZN15ZPhysicalMemory16uncommit_segmentEim.exit ], [ true, %2 ], [ true, %45 ], [ false, %20 ]
+  ret i1 %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -858,7 +858,8 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
   %73 = getelementptr i32, ptr %4, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr %struct.tcf_ematch, ptr %67, i64 %75, i32 4
+  %.split = getelementptr %struct.tcf_ematch, ptr %67, i64 %75
+  %76 = getelementptr i8, ptr %.split, i64 22
   %77 = load i16, ptr %76, align 2
   %78 = and i16 %77, 4
   %79 = icmp eq i16 %78, 0

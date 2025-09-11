@@ -377,24 +377,24 @@ define void @_ZN3gmx26AnalysisDataLifetimeModule11pointsAddedERKNS_23AnalysisDat
   %18 = phi ptr [ %6, %.lr.ph ], [ %114, %113 ]
   %.ptr = phi ptr [ %.sroa.0.0.copyload.i.i.i18, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i, %113 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
-  %19 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.ptr, i64 %indvars.iv, i32 2
-  %20 = load i64, ptr %19, align 8, !tbaa !77
-  %21 = and i64 %20, 4
-  %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %..critedge_crit_edge, label %22
+  %19 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.ptr, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !77
+  %22 = and i64 %21, 4
+  %.not = icmp eq i64 %22, 0
+  br i1 %.not, label %..critedge_crit_edge, label %23
 
 ..critedge_crit_edge:                             ; preds = %17
   %.pre = load ptr, ptr %15, align 8, !tbaa !33
   br label %.critedge
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.ptr, i64 %indvars.iv
-  %24 = load float, ptr %23, align 8, !tbaa !80
+23:                                               ; preds = %17
+  %24 = load float, ptr %19, align 8, !tbaa !80
   %25 = fcmp ogt float %24, 0.000000e+00
   %.pre21 = load ptr, ptr %15, align 8, !tbaa !33
   br i1 %25, label %26, label %.critedge
 
-26:                                               ; preds = %22
+26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %.pre21, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !38
   %29 = getelementptr inbounds nuw %"class.std::vector.34", ptr %28, i64 %16
@@ -405,8 +405,8 @@ define void @_ZN3gmx26AnalysisDataLifetimeModule11pointsAddedERKNS_23AnalysisDat
   store i32 %33, ptr %31, align 4, !tbaa !57
   br label %113
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %22
-  %34 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %.pre21, %22 ]
+.critedge:                                        ; preds = %..critedge_crit_edge, %23
+  %34 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %.pre21, %23 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !38
   %37 = getelementptr inbounds nuw %"class.std::vector.34", ptr %36, i64 %16

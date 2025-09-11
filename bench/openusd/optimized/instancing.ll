@@ -326,7 +326,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %56, %60, 
   br label %thread-pre-split, !llvm.loop !6
 
 thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %115
-  %.pr = phi i32 [ %142, %.thread-pre-split_crit_edge ], [ %91, %115 ]
+  %.pr = phi i32 [ %143, %.thread-pre-split_crit_edge ], [ %91, %115 ]
   %82 = icmp eq i32 %.pr, 0
   br i1 %82, label %.loopexit78.loopexit, label %83
 
@@ -433,7 +433,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 .loopexit79:                                      ; preds = %83, %94
   %lpad.loopexit81 = landingpad { ptr, i32 }
           cleanup
-  br label %150
+  br label %152
 
 .thread106:                                       ; preds = %71
   %lpad.loopexit.split-lp82 = landingpad { ptr, i32 }
@@ -458,7 +458,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit84, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp85, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #18
-  br label %150
+  br label %152
 
 ._crit_edge:                                      ; preds = %103, %99
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #18
@@ -470,133 +470,135 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 16
   %117 = load ptr, ptr %116, align 8, !noalias !8
   %118 = load ptr, ptr %117, align 8, !noalias !8
-  %119 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %118, i64 %.sroa.2.0.copyload.i, i32 3, i32 3
-  %.sroa.5.0.in89 = load i16, ptr %119, align 2
+  %119 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %118, i64 %.sroa.2.0.copyload.i
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 30
+  %.sroa.5.0.in89 = load i16, ptr %120, align 2
   %.not7791 = icmp eq i16 %.sroa.5.0.in89, -1
   br i1 %.not7791, label %thread-pre-split, label %.lr.ph94, !llvm.loop !6
 
 .lr.ph94:                                         ; preds = %115
-  br label %120, !llvm.loop !6
+  br label %121, !llvm.loop !6
 
-120:                                              ; preds = %.lr.ph94, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb1EEppEv.exit
-  %121 = phi i32 [ %91, %.lr.ph94 ], [ %142, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb1EEppEv.exit ]
+121:                                              ; preds = %.lr.ph94, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb1EEppEv.exit
+  %122 = phi i32 [ %91, %.lr.ph94 ], [ %143, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb1EEppEv.exit ]
   %.sroa.5.092.in = phi i16 [ %.sroa.5.0.in89, %.lr.ph94 ], [ %.sroa.5.0.in, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb1EEppEv.exit ]
   %.sroa.5.092 = zext i16 %.sroa.5.092.in to i64
-  %122 = load i32, ptr %73, align 4
-  %123 = icmp eq i32 %121, %122
+  %123 = load i32, ptr %73, align 4
+  %124 = icmp eq i32 %122, %123
   %.pre.i.i32 = load ptr, ptr %9, align 8
-  %124 = zext i32 %121 to i64
-  br i1 %123, label %125, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb1EEppEv.exit
+  %125 = zext i32 %122 to i64
+  br i1 %124, label %126, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb1EEppEv.exit
 
-125:                                              ; preds = %120
-  %126 = lshr i64 %124, 1
-  %127 = add nuw nsw i64 %124, 1
-  %128 = add nuw nsw i64 %127, %126
-  %129 = shl nuw nsw i64 %128, 4
-  %130 = call noalias noundef ptr @malloc(i64 noundef %129) #20
-  %131 = icmp ult i32 %121, 65
-  %spec.select.i.i.i.i.i34 = select i1 %131, ptr %9, ptr %.pre.i.i32
-  %.idx.i.i.i35 = shl nuw nsw i64 %124, 4
-  %132 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i34, i64 %.idx.i.i.i35
-  %.not11.i.i.i.i.i.i.i36 = icmp eq i32 %121, 0
+126:                                              ; preds = %121
+  %127 = lshr i64 %125, 1
+  %128 = add nuw nsw i64 %125, 1
+  %129 = add nuw nsw i64 %128, %127
+  %130 = shl nuw nsw i64 %129, 4
+  %131 = call noalias noundef ptr @malloc(i64 noundef %130) #20
+  %132 = icmp ult i32 %122, 65
+  %spec.select.i.i.i.i.i34 = select i1 %132, ptr %9, ptr %.pre.i.i32
+  %.idx.i.i.i35 = shl nuw nsw i64 %125, 4
+  %133 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i34, i64 %.idx.i.i.i35
+  %.not11.i.i.i.i.i.i.i36 = icmp eq i32 %122, 0
   br i1 %.not11.i.i.i.i.i.i.i36, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43, label %.lr.ph.i.i.i.i.i.i.i37
 
-.lr.ph.i.i.i.i.i.i.i37:                           ; preds = %125, %.lr.ph.i.i.i.i.i.i.i37
-  %.013.i.i.i.i.i.i.i38 = phi ptr [ %134, %.lr.ph.i.i.i.i.i.i.i37 ], [ %130, %125 ]
-  %.sroa.08.012.i.i.i.i.i.i.i39 = phi ptr [ %133, %.lr.ph.i.i.i.i.i.i.i37 ], [ %spec.select.i.i.i.i.i34, %125 ]
+.lr.ph.i.i.i.i.i.i.i37:                           ; preds = %126, %.lr.ph.i.i.i.i.i.i.i37
+  %.013.i.i.i.i.i.i.i38 = phi ptr [ %135, %.lr.ph.i.i.i.i.i.i.i37 ], [ %131, %126 ]
+  %.sroa.08.012.i.i.i.i.i.i.i39 = phi ptr [ %134, %.lr.ph.i.i.i.i.i.i.i37 ], [ %spec.select.i.i.i.i.i34, %126 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.013.i.i.i.i.i.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i.i.i39, i64 16, i1 false)
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i.i.i39, i64 16
-  %134 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i38, i64 16
-  %.not.i.i.i.i.i.i.i40 = icmp eq ptr %133, %132
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i.i.i39, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i38, i64 16
+  %.not.i.i.i.i.i.i.i40 = icmp eq ptr %134, %133
   br i1 %.not.i.i.i.i.i.i.i40, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_10PcpNodeRefEEET_S4_S4_S4_.exit.i.i.i41, label %.lr.ph.i.i.i.i.i.i.i37, !llvm.loop !13
 
 _ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_10PcpNodeRefEEET_S4_S4_S4_.exit.i.i.i41: ; preds = %.lr.ph.i.i.i.i.i.i.i37
-  br i1 %131, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43, label %135
+  br i1 %132, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43, label %136
 
-135:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_10PcpNodeRefEEET_S4_S4_S4_.exit.i.i.i41
+136:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_10PcpNodeRefEEET_S4_S4_S4_.exit.i.i.i41
   call void @free(ptr noundef %.pre.i.i32) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43
 
-_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43: ; preds = %135, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_10PcpNodeRefEEET_S4_S4_S4_.exit.i.i.i41, %125
-  store ptr %130, ptr %9, align 8
-  %136 = trunc i64 %128 to i32
-  store i32 %136, ptr %73, align 4
+_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43: ; preds = %136, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_10PcpNodeRefEEET_S4_S4_S4_.exit.i.i.i41, %126
+  store ptr %131, ptr %9, align 8
+  %137 = trunc i64 %129 to i32
+  store i32 %137, ptr %73, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb1EEppEv.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb1EEppEv.exit: ; preds = %120, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43
-  %137 = phi ptr [ %130, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43 ], [ %.pre.i.i32, %120 ]
-  %138 = phi i32 [ %136, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43 ], [ %122, %120 ]
-  %139 = icmp ult i32 %138, 65
-  %spec.select.i.i.i.i33 = select i1 %139, ptr %9, ptr %137
-  %140 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::PcpNodeRef", ptr %spec.select.i.i.i.i33, i64 %124
-  store ptr %.sroa.0.0.copyload.i, ptr %140, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
+_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb1EEppEv.exit: ; preds = %121, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43
+  %138 = phi ptr [ %131, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43 ], [ %.pre.i.i32, %121 ]
+  %139 = phi i32 [ %137, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43 ], [ %123, %121 ]
+  %140 = icmp ult i32 %139, 65
+  %spec.select.i.i.i.i33 = select i1 %140, ptr %9, ptr %138
+  %141 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::PcpNodeRef", ptr %spec.select.i.i.i.i33, i64 %125
+  store ptr %.sroa.0.0.copyload.i, ptr %141, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %141, i64 8
   store i64 %.sroa.5.092, ptr %.sroa.5.0..sroa_idx, align 8
-  %141 = load i32, ptr %72, align 8
-  %142 = add i32 %141, 1
-  store i32 %142, ptr %72, align 8
-  %143 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %118, i64 %.sroa.5.092, i32 3, i32 4
-  %.sroa.5.0.in = load i16, ptr %143, align 2
+  %142 = load i32, ptr %72, align 8
+  %143 = add i32 %142, 1
+  store i32 %143, ptr %72, align 8
+  %144 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %118, i64 %.sroa.5.092
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
+  %.sroa.5.0.in = load i16, ptr %145, align 2
   %.not77 = icmp eq i16 %.sroa.5.0.in, -1
-  br i1 %.not77, label %.thread-pre-split_crit_edge, label %120, !llvm.loop !6
+  br i1 %.not77, label %.thread-pre-split_crit_edge, label %121, !llvm.loop !6
 
 .loopexit78.loopexit:                             ; preds = %thread-pre-split
   %.pre = load i32, ptr %73, align 4
   br label %.loopexit78
 
 .loopexit78:                                      ; preds = %.loopexit78.loopexit, %.thread
-  %144 = phi i32 [ %.pre, %.loopexit78.loopexit ], [ %85, %.thread ]
-  %145 = load i8, ptr %8, align 1
-  %146 = trunc i8 %145 to i1
-  %147 = icmp ult i32 %144, 65
-  br i1 %147, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit, label %148
+  %146 = phi i32 [ %.pre, %.loopexit78.loopexit ], [ %85, %.thread ]
+  %147 = load i8, ptr %8, align 1
+  %148 = trunc i8 %147 to i1
+  %149 = icmp ult i32 %146, 65
+  br i1 %149, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit, label %150
 
-148:                                              ; preds = %.loopexit78
-  %149 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %149) #18
+150:                                              ; preds = %.loopexit78
+  %151 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %151) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit
 
-150:                                              ; preds = %.loopexit79, %.loopexit.split-lp
+152:                                              ; preds = %.loopexit79, %.loopexit.split-lp
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.loopexit81, %.loopexit79 ]
-  %151 = icmp ult i32 %85, 65
-  br i1 %151, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit46, label %152
+  %153 = icmp ult i32 %85, 65
+  br i1 %153, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit46, label %154
 
-152:                                              ; preds = %150
-  %153 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %153) #18
+154:                                              ; preds = %152
+  %155 = load ptr, ptr %9, align 8
+  call void @free(ptr noundef %155) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit46
 
-_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit: ; preds = %148, %.loopexit78, %46, %33, %38
-  %.0 = phi i1 [ false, %38 ], [ false, %33 ], [ false, %46 ], [ %146, %.loopexit78 ], [ %146, %148 ]
+_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit: ; preds = %150, %.loopexit78, %46, %33, %38
+  %.0 = phi i1 [ false, %38 ], [ false, %33 ], [ false, %46 ], [ %148, %.loopexit78 ], [ %148, %150 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %13, label %154, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
+  br i1 %13, label %156, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
-154:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit
+156:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit
   fence syncscope("singlethread") seq_cst
-  %155 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
+  %157 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27Pcp_PrimIndexIsInstanceableERKNS_12PcpPrimIndexEE15TraceKeyData_49, ptr %3, align 8
   %.sroa.7.12.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.7.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %155) #18
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %157) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit, %154
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 
-_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit46: ; preds = %.thread106, %152, %150, %113, %43, %41
-  %.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %44, %43 ], [ %42, %41 ], [ %.pn, %150 ], [ %.pn, %152 ], [ %lpad.loopexit.split-lp82, %.thread106 ]
+_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit46: ; preds = %.thread106, %154, %152, %113, %43, %41
+  %.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %44, %43 ], [ %42, %41 ], [ %.pn, %152 ], [ %.pn, %154 ], [ %lpad.loopexit.split-lp82, %.thread106 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  br i1 %13, label %156, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit47
+  br i1 %13, label %158, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit47
 
-156:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit46
+158:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit46
   fence syncscope("singlethread") seq_cst
-  %157 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
+  %159 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27Pcp_PrimIndexIsInstanceableERKNS_12PcpPrimIndexEE15TraceKeyData_49, ptr %2, align 8
   %.sroa.7.12.insert.insert69 = or disjoint i64 %.sroa.11.0, %.sroa.7.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %.sroa.7.12.insert.insert69, i64 noundef %157) #18
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %.sroa.7.12.insert.insert69, i64 noundef %159) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit47
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit47: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit46, %156
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit47: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EED2Ev.exit46, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn
 }
@@ -638,18 +640,19 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__36Pcp_TraverseIns
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8, !noalias !18
   %17 = load ptr, ptr %16, align 8, !noalias !18
-  %18 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %17, i64 %9, i32 3, i32 2
-  %19 = load i16, ptr %18, align 4, !noalias !18
-  %20 = zext i16 %19 to i64
+  %18 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %17, i64 %9
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 28
+  %20 = load i16, ptr %19, align 4, !noalias !18
+  %21 = zext i16 %20 to i64
   store ptr %10, ptr %5, align 8, !alias.scope !15
-  store i64 %20, ptr %11, align 8, !alias.scope !15
+  store i64 %21, ptr %11, align 8, !alias.scope !15
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %17, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !15
   store ptr %10, ptr %12, align 8, !alias.scope !15
   store i64 65535, ptr %13, align 8, !alias.scope !15
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %17, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !15
-  %.not = icmp eq i16 %19, -1
+  %.not = icmp eq i16 %20, -1
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
@@ -657,53 +660,53 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__36Pcp_TraverseIns
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  br label %26
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br label %27
 
-26:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit
-  %27 = phi ptr [ %10, %.lr.ph ], [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
-  %28 = phi ptr [ %10, %.lr.ph ], [ %49, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
-  %29 = phi i64 [ 65535, %.lr.ph ], [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
-  %30 = phi i64 [ %20, %.lr.ph ], [ %51, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
+27:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit
+  %28 = phi ptr [ %10, %.lr.ph ], [ %50, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
+  %29 = phi ptr [ %10, %.lr.ph ], [ %51, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
+  %30 = phi i64 [ 65535, %.lr.ph ], [ %52, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
+  %31 = phi i64 [ %21, %.lr.ph ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %31 = icmp eq i64 %30, %29
-  %32 = icmp eq ptr %28, %27
-  %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %34, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
+  %32 = icmp eq i64 %31, %30
+  %33 = icmp eq ptr %29, %28
+  %34 = select i1 %32, i1 %33, i1 false
+  br i1 %34, label %35, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
 
-34:                                               ; preds = %26
+35:                                               ; preds = %27
   store ptr @.str.11, ptr %4, align 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv, ptr %.sroa.2.0..sroa_idx.i6, align 8
   store i64 254, ptr %.sroa.3.0..sroa_idx.i, align 8
   store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv, ptr %.sroa.4.0..sroa_idx.i, align 8
   store i8 0, ptr %.sroa.5.0..sroa_idx.i, align 8
-  store i32 4, ptr %21, align 8
+  store i32 4, ptr %22, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.12)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit: ; preds = %26, %34
+_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit: ; preds = %27, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__42Pcp_TraverseInstanceableStrongToWeakHelperINS_31Pcp_FindInstanceableDataVisitorEEEvRKNS_10PcpNodeRefEPT_b(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %1, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %35 = load i64, ptr %11, align 8
-  %36 = load i64, ptr %13, align 8
-  %37 = icmp eq i64 %35, %36
-  %38 = load ptr, ptr %5, align 8
-  %39 = load ptr, ptr %12, align 8
-  %40 = icmp eq ptr %38, %39
-  %41 = select i1 %37, i1 %40, i1 false
-  br i1 %41, label %42, label %43
+  %36 = load i64, ptr %11, align 8
+  %37 = load i64, ptr %13, align 8
+  %38 = icmp eq i64 %36, %37
+  %39 = load ptr, ptr %5, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = icmp eq ptr %39, %40
+  %42 = select i1 %38, i1 %41, i1 false
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
+43:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
   store ptr @.str.11, ptr %3, align 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv, ptr %22, align 8
-  store i64 233, ptr %23, align 8
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv, ptr %24, align 8
-  store i8 0, ptr %25, align 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv, ptr %23, align 8
+  store i64 233, ptr %24, align 8
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv, ptr %25, align 8
+  store i8 0, ptr %26, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef 1, ptr noundef nonnull @.str.12)
   %.pre = load i64, ptr %11, align 8
   %.pre10 = load i64, ptr %13, align 8
@@ -711,24 +714,25 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildre
   %.pre12 = load ptr, ptr %12, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit
 
-43:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
-  %44 = load ptr, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %45 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %44, i64 %35, i32 3, i32 5
-  %46 = load i16, ptr %45, align 2
-  %47 = zext i16 %46 to i64
-  store i64 %47, ptr %11, align 8
+44:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
+  %45 = load ptr, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
+  %46 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %45, i64 %36
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 34
+  %48 = load i16, ptr %47, align 2
+  %49 = zext i16 %48 to i64
+  store i64 %49, ptr %11, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit: ; preds = %42, %43
-  %48 = phi ptr [ %.pre12, %42 ], [ %39, %43 ]
-  %49 = phi ptr [ %.pre11, %42 ], [ %38, %43 ]
-  %50 = phi i64 [ %.pre10, %42 ], [ %36, %43 ]
-  %51 = phi i64 [ %.pre, %42 ], [ %47, %43 ]
+_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit: ; preds = %43, %44
+  %50 = phi ptr [ %.pre12, %43 ], [ %40, %44 ]
+  %51 = phi ptr [ %.pre11, %43 ], [ %39, %44 ]
+  %52 = phi i64 [ %.pre10, %43 ], [ %37, %44 ]
+  %53 = phi i64 [ %.pre, %43 ], [ %49, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %52 = icmp ne i64 %51, %50
-  %53 = icmp ne ptr %49, %48
-  %.not2.i = select i1 %52, i1 true, i1 %53
-  br i1 %.not2.i, label %26, label %.loopexit, !llvm.loop !21
+  %54 = icmp ne i64 %53, %52
+  %55 = icmp ne ptr %51, %50
+  %.not2.i = select i1 %54, i1 true, i1 %55
+  br i1 %.not2.i, label %27, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit, %8, %2
   ret void
@@ -1123,18 +1127,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Pcp_FindInstanceableDataVisitor5VisitENS_
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 16
   %19 = load ptr, ptr %18, align 8, !noalias !25
   %20 = load ptr, ptr %19, align 8, !noalias !25
-  %21 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %20, i64 %.sroa.2.0.copyload.i, i32 3, i32 2
-  %22 = load i16, ptr %21, align 4, !noalias !25
-  %23 = zext i16 %22 to i64
+  %21 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %20, i64 %.sroa.2.0.copyload.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
+  %23 = load i16, ptr %22, align 4, !noalias !25
+  %24 = zext i16 %23 to i64
   store ptr %.sroa.0.0.copyload.i, ptr %6, align 8, !alias.scope !22
-  store i64 %23, ptr %14, align 8, !alias.scope !22
+  store i64 %24, ptr %14, align 8, !alias.scope !22
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %20, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !22
   store ptr %.sroa.0.0.copyload.i, ptr %15, align 8, !alias.scope !22
   store i64 65535, ptr %16, align 8, !alias.scope !22
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %20, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !22
-  %.not = icmp eq i16 %22, -1
+  %.not = icmp eq i16 %23, -1
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
@@ -1142,53 +1147,53 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Pcp_FindInstanceableDataVisitor5VisitENS_
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  br label %29
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  br label %30
 
-29:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit
-  %30 = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %51, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
-  %31 = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %52, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
-  %32 = phi i64 [ 65535, %.lr.ph ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
-  %33 = phi i64 [ %23, %.lr.ph ], [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
+30:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit
+  %31 = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
+  %32 = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
+  %33 = phi i64 [ 65535, %.lr.ph ], [ %55, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
+  %34 = phi i64 [ %24, %.lr.ph ], [ %56, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %34 = icmp eq i64 %33, %32
-  %35 = icmp eq ptr %31, %30
-  %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
+  %35 = icmp eq i64 %34, %33
+  %36 = icmp eq ptr %32, %31
+  %37 = select i1 %35, i1 %36, i1 false
+  br i1 %37, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
 
-37:                                               ; preds = %29
+38:                                               ; preds = %30
   store ptr @.str.11, ptr %5, align 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv, ptr %.sroa.2.0..sroa_idx.i7, align 8
   store i64 254, ptr %.sroa.3.0..sroa_idx.i, align 8
   store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv, ptr %.sroa.4.0..sroa_idx.i, align 8
   store i8 0, ptr %.sroa.5.0..sroa_idx.i, align 8
-  store i32 4, ptr %24, align 8
+  store i32 4, ptr %25, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.12)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit: ; preds = %29, %37
+_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit: ; preds = %30, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__42Pcp_TraverseInstanceableStrongToWeakHelperINS_31Pcp_FindInstanceableDataVisitorEEEvRKNS_10PcpNodeRefEPT_b(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %1, i1 noundef zeroext %.115)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %38 = load i64, ptr %14, align 8
-  %39 = load i64, ptr %16, align 8
-  %40 = icmp eq i64 %38, %39
-  %41 = load ptr, ptr %6, align 8
-  %42 = load ptr, ptr %15, align 8
-  %43 = icmp eq ptr %41, %42
-  %44 = select i1 %40, i1 %43, i1 false
-  br i1 %44, label %45, label %46
+  %39 = load i64, ptr %14, align 8
+  %40 = load i64, ptr %16, align 8
+  %41 = icmp eq i64 %39, %40
+  %42 = load ptr, ptr %6, align 8
+  %43 = load ptr, ptr %15, align 8
+  %44 = icmp eq ptr %42, %43
+  %45 = select i1 %41, i1 %44, i1 false
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
+46:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
   store ptr @.str.11, ptr %4, align 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv, ptr %25, align 8
-  store i64 233, ptr %26, align 8
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv, ptr %27, align 8
-  store i8 0, ptr %28, align 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv, ptr %26, align 8
+  store i64 233, ptr %27, align 8
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv, ptr %28, align 8
+  store i8 0, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %4, i32 noundef 1, ptr noundef nonnull @.str.12)
   %.pre = load i64, ptr %14, align 8
   %.pre21 = load i64, ptr %16, align 8
@@ -1196,24 +1201,25 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildre
   %.pre23 = load ptr, ptr %15, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit
 
-46:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
-  %47 = load ptr, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %48 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %47, i64 %38, i32 3, i32 5
-  %49 = load i16, ptr %48, align 2
-  %50 = zext i16 %49 to i64
-  store i64 %50, ptr %14, align 8
+47:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
+  %48 = load ptr, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
+  %49 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %48, i64 %39
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 34
+  %51 = load i16, ptr %50, align 2
+  %52 = zext i16 %51 to i64
+  store i64 %52, ptr %14, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit: ; preds = %45, %46
-  %51 = phi ptr [ %.pre23, %45 ], [ %42, %46 ]
-  %52 = phi ptr [ %.pre22, %45 ], [ %41, %46 ]
-  %53 = phi i64 [ %.pre21, %45 ], [ %39, %46 ]
-  %54 = phi i64 [ %.pre, %45 ], [ %50, %46 ]
+_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit: ; preds = %46, %47
+  %53 = phi ptr [ %.pre23, %46 ], [ %43, %47 ]
+  %54 = phi ptr [ %.pre22, %46 ], [ %42, %47 ]
+  %55 = phi i64 [ %.pre21, %46 ], [ %40, %47 ]
+  %56 = phi i64 [ %.pre, %46 ], [ %52, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %55 = icmp ne i64 %54, %53
-  %56 = icmp ne ptr %52, %51
-  %.not2.i = select i1 %55, i1 true, i1 %56
-  br i1 %.not2.i, label %29, label %.loopexit, !llvm.loop !28
+  %57 = icmp ne i64 %56, %55
+  %58 = icmp ne ptr %54, %53
+  %.not2.i = select i1 %57, i1 true, i1 %58
+  br i1 %.not2.i, label %30, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit, %13, %_ZN32pxrInternal_v0_24__pxrReserved__31Pcp_FindInstanceableDataVisitor5VisitENS_10PcpNodeRefEb.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__31Pcp_FindInstanceableDataVisitor5VisitENS_10PcpNodeRefEb.exit, %3
   ret void

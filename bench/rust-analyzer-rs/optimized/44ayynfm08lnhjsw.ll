@@ -39454,8 +39454,8 @@ define hidden void @"_ZN11ide_assists8handlers16extract_function12FunctionBody7a
   %9 = alloca { i32, [5 x i32] }, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq ptr %1, null
-  %.sink38.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %.sink38.sroa.gep39 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink36.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %.sink36.sroa.gep37 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %2
@@ -39527,8 +39527,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr60drop
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %32, %29
-  %.sink38.sroa.phi = phi ptr [ %.sink38.sroa.gep, %29 ], [ %.sink38.sroa.gep39, %32 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %.sink38.sroa.phi, i64 12, i1 false)
+  %.sink36.sroa.phi = phi ptr [ %.sink36.sroa.gep, %29 ], [ %.sink36.sroa.gep37, %32 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %.sink36.sroa.phi, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = load ptr, ptr %12, align 8, !nonnull !11, !align !219, !noundef !11
@@ -39573,9 +39573,9 @@ common.resume:                                    ; preds = %"_ZN4core3ptr60drop
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !9799
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false), !noalias !9800
   %55 = invoke { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17hb4fb0fe50d000ae8E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %47, i64 noundef %54, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %4)
-          to label %.thread36 unwind label %69
+          to label %.thread34 unwind label %69
 
-.thread36:                                        ; preds = %.noexc
+.thread34:                                        ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !9799
   br label %78
 
@@ -39627,7 +39627,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr60drop
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #61
   unreachable
 
-78:                                               ; preds = %.thread36, %68
+78:                                               ; preds = %.thread34, %68
   %79 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %79)
   %80 = getelementptr inbounds nuw i8, ptr %42, i64 48

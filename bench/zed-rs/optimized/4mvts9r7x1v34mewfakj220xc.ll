@@ -16097,9 +16097,7 @@ define internal fastcc { i64, i64 } @_ZN3vim6motion22start_of_next_sentence17h34
   ]
 
 switch.lookup:                                    ; preds = %33
-  %switch.cast = zext nneg i32 %switch.tableidx to i62
-  %switch.downshift = lshr i62 1, %switch.cast
-  %switch.masked = trunc nuw i62 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 0
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %switch.lookup, %35, %44, %67

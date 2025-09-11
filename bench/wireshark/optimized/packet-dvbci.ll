@@ -1686,13 +1686,13 @@ define hidden void @proto_reg_handoff_dvbci() #1 {
   br i1 %.not, label %pref_key_string_to_bin.exit, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #16
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #15
   %20 = and i64 %19, 4294967295
   %.not.i = icmp eq i64 %20, 32
   br i1 %.not.i, label %21, label %pref_key_string_to_bin.exit
 
 21:                                               ; preds = %18
-  %22 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #17
+  %22 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #16
   store ptr %22, ptr @dvbci_sek_bin, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 0, ptr %23, align 1
@@ -1708,7 +1708,7 @@ define hidden void @proto_reg_handoff_dvbci() #1 {
   %28 = getelementptr i8, ptr %26, i64 1
   %29 = load i8, ptr %28, align 1
   store i8 %29, ptr %24, align 1
-  %30 = call i64 @strtoul(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #18
+  %30 = call i64 @strtoul(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #17
   %31 = trunc i64 %30 to i8
   %32 = load ptr, ptr @dvbci_sek_bin, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1726,13 +1726,13 @@ pref_key_string_to_bin.exit:                      ; preds = %25, %14, %18
   br i1 %.not10, label %pref_key_string_to_bin.exit9, label %35
 
 35:                                               ; preds = %pref_key_string_to_bin.exit
-  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #16
+  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #15
   %37 = and i64 %36, 4294967295
   %.not.i3 = icmp eq i64 %37, 32
   br i1 %.not.i3, label %38, label %pref_key_string_to_bin.exit9
 
 38:                                               ; preds = %35
-  %39 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #17
+  %39 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #16
   store ptr %39, ptr @dvbci_siv_bin, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 0, ptr %40, align 1
@@ -1748,7 +1748,7 @@ pref_key_string_to_bin.exit:                      ; preds = %25, %14, %18
   %45 = getelementptr i8, ptr %43, i64 1
   %46 = load i8, ptr %45, align 1
   store i8 %46, ptr %41, align 1
-  %47 = call i64 @strtoul(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 16) #18
+  %47 = call i64 @strtoul(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 16) #17
   %48 = trunc i64 %47 to i8
   %49 = load ptr, ptr @dvbci_siv_bin, align 8
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
@@ -3876,7 +3876,7 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
   %64 = add i32 %63, %56
   %65 = icmp ne i32 %63, 0
   %66 = and i32 %64, 65535
-  %67 = icmp slt i32 %66, %54
+  %67 = icmp samesign ult i32 %66, %54
   %68 = select i1 %65, i1 %67, i1 false
   br i1 %68, label %55, label %dissect_opp_cap_loop.exit199, !llvm.loop !22
 
@@ -3962,7 +3962,6 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
 
 .lr.ph.preheader.i:                               ; preds = %129, %.thread.i
   %.0236.i = phi ptr [ %128, %.thread.i ], [ null, %129 ]
-  %umax = tail call i32 @llvm.umax.i32(i32 %125, i32 1)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -3970,7 +3969,7 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
   %130 = add i32 %.01.i, %122
   %131 = tail call ptr @proto_tree_add_item(ptr noundef %.0236.i, i32 noundef %123, ptr noundef %2, i32 noundef %130, i32 noundef 1, i32 noundef 0)
   %132 = add nuw nsw i32 %.01.i, 1
-  %exitcond.not = icmp eq i32 %132, %umax
+  %exitcond.not = icmp eq i32 %132, %125
   br i1 %exitcond.not, label %dissect_opp_cap_loop.exit, label %.lr.ph.i, !llvm.loop !23
 
 dissect_opp_cap_loop.exit:                        ; preds = %.lr.ph.i, %129
@@ -3996,7 +3995,6 @@ dissect_opp_cap_loop.exit:                        ; preds = %.lr.ph.i, %129
 
 .lr.ph.preheader.i184:                            ; preds = %143, %.thread.i189
   %.0236.i185 = phi ptr [ %142, %.thread.i189 ], [ null, %143 ]
-  %umax216 = tail call i32 @llvm.umax.i32(i32 %139, i32 1)
   br label %.lr.ph.i186
 
 .lr.ph.i186:                                      ; preds = %.lr.ph.i186, %.lr.ph.preheader.i184
@@ -4004,7 +4002,7 @@ dissect_opp_cap_loop.exit:                        ; preds = %.lr.ph.i, %129
   %144 = add i32 %.01.i187, %137
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %.0236.i185, i32 noundef %138, ptr noundef %2, i32 noundef %144, i32 noundef 1, i32 noundef 0)
   %146 = add nuw nsw i32 %.01.i187, 1
-  %exitcond217.not = icmp eq i32 %146, %umax216
+  %exitcond217.not = icmp eq i32 %146, %139
   br i1 %exitcond217.not, label %dissect_opp_cap_loop.exit190, label %.lr.ph.i186, !llvm.loop !23
 
 dissect_opp_cap_loop.exit190:                     ; preds = %.lr.ph.i186, %143
@@ -4942,7 +4940,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %62 = load ptr, ptr %61, align 8
   %63 = sext i32 %40 to i64
-  %64 = call noalias ptr @wmem_alloc(ptr noundef %62, i64 noundef %63) #19
+  %64 = call noalias ptr @wmem_alloc(ptr noundef %62, i64 noundef %63) #18
   %65 = load ptr, ptr %7, align 8
   %66 = load ptr, ptr %61, align 8
   %67 = call ptr @tvb_memdup(ptr noundef %66, ptr noundef %1, i32 noundef %35, i64 noundef %63)
@@ -6573,9 +6571,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #15
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6591,11 +6586,10 @@ attributes #11 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" 
 attributes #12 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { allocsize(0) }
-attributes #18 = { nounwind }
-attributes #19 = { allocsize(1) }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { allocsize(0) }
+attributes #17 = { nounwind }
+attributes #18 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -128,7 +128,7 @@ define internal i32 @mp_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   %13 = load ptr, ptr %12, align 8, !tbaa !44
   %14 = tail call i32 @ff_reget_buffer(ptr noundef %0, ptr noundef %13, i32 noundef 0) #11
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %708, label %16
+  br i1 %15, label %709, label %16
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 136
@@ -137,7 +137,7 @@ define internal i32 @mp_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @av_fast_padded_malloc(ptr noundef nonnull %17, ptr noundef nonnull %18, i64 noundef %19) #11
   %20 = load ptr, ptr %17, align 8, !tbaa !48
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %708, label %21
+  br i1 %.not, label %709, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -703,8 +703,8 @@ mp_get_vlc.exit35.i:                              ; preds = %345, %325
 
 .preheader.i:                                     ; preds = %._crit_edge.i71, %.preheader49.i
   %.lcssa8284.lcssa88 = phi i32 [ %.promoted86, %.preheader49.i ], [ %.lcssa8284.lcssa87, %._crit_edge.i71 ]
-  %414 = phi ptr [ %216, %.preheader49.i ], [ %701, %._crit_edge.i71 ]
-  %415 = phi ptr [ %216, %.preheader49.i ], [ %702, %._crit_edge.i71 ]
+  %414 = phi ptr [ %216, %.preheader49.i ], [ %702, %._crit_edge.i71 ]
+  %415 = phi ptr [ %216, %.preheader49.i ], [ %703, %._crit_edge.i71 ]
   %exitcond.not.i70 = phi i1 [ false, %.preheader49.i ], [ true, %._crit_edge.i71 ]
   %indvars.iv57.i = phi i64 [ 0, %.preheader49.i ], [ 1, %._crit_edge.i71 ]
   %indvars62.i = trunc nuw nsw i64 %indvars.iv57.i to i32
@@ -715,9 +715,9 @@ mp_get_vlc.exit35.i:                              ; preds = %345, %325
 
 .lr.ph55.i:                                       ; preds = %.preheader.i, %mp_decode_line.exit.i
   %.lcssa8285 = phi i32 [ %.lcssa8284, %mp_decode_line.exit.i ], [ %.lcssa8284.lcssa88, %.preheader.i ]
-  %419 = phi ptr [ %696, %mp_decode_line.exit.i ], [ %414, %.preheader.i ]
+  %419 = phi ptr [ %697, %mp_decode_line.exit.i ], [ %414, %.preheader.i ]
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %mp_decode_line.exit.i ], [ %indvars.iv57.i, %.preheader.i ]
-  %420 = phi ptr [ %696, %mp_decode_line.exit.i ], [ %415, %.preheader.i ]
+  %420 = phi ptr [ %697, %mp_decode_line.exit.i ], [ %415, %.preheader.i ]
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 112
   %422 = load i32, ptr %421, align 8, !tbaa !29
   %423 = trunc nuw nsw i64 %indvars.iv59.i to i32
@@ -753,14 +753,14 @@ mp_get_vlc.exit35.i:                              ; preds = %345, %325
   %438 = lshr i32 %423, 2
   br label %439
 
-439:                                              ; preds = %690, %.lr.ph107.i.i
-  %440 = phi i32 [ %.lcssa8285, %.lr.ph107.i.i ], [ %691, %690 ]
-  %441 = phi i32 [ %434, %.lr.ph107.i.i ], [ %694, %690 ]
-  %442 = phi ptr [ %421, %.lr.ph107.i.i ], [ %693, %690 ]
-  %.1106.i.i = phi i32 [ %.076.i.i, %.lr.ph107.i.i ], [ %.2.i.i, %690 ]
-  %.sroa.0.0105.i.i = phi i8 [ %.sroa.0.0.copyload.i44.i, %.lr.ph107.i.i ], [ %.sroa.0.1.i.i, %690 ]
-  %.sroa.8.0104.i.i = phi i8 [ %.sroa.8.0.copyload.i.i, %.lr.ph107.i.i ], [ %.sroa.8.1.i.i, %690 ]
-  %.sroa.12.0103.i.i = phi i8 [ %.sroa.12.0.copyload.i.i, %.lr.ph107.i.i ], [ %.sroa.12.1.i.i, %690 ]
+439:                                              ; preds = %691, %.lr.ph107.i.i
+  %440 = phi i32 [ %.lcssa8285, %.lr.ph107.i.i ], [ %692, %691 ]
+  %441 = phi i32 [ %434, %.lr.ph107.i.i ], [ %695, %691 ]
+  %442 = phi ptr [ %421, %.lr.ph107.i.i ], [ %694, %691 ]
+  %.1106.i.i = phi i32 [ %.076.i.i, %.lr.ph107.i.i ], [ %.2.i.i, %691 ]
+  %.sroa.0.0105.i.i = phi i8 [ %.sroa.0.0.copyload.i44.i, %.lr.ph107.i.i ], [ %.sroa.0.1.i.i, %691 ]
+  %.sroa.8.0104.i.i = phi i8 [ %.sroa.8.0.copyload.i.i, %.lr.ph107.i.i ], [ %.sroa.8.1.i.i, %691 ]
+  %.sroa.12.0103.i.i = phi i8 [ %.sroa.12.0.copyload.i.i, %.lr.ph107.i.i ], [ %.sroa.12.1.i.i, %691 ]
   %443 = load ptr, ptr %45, align 8, !tbaa !38
   %444 = add nsw i32 %.1106.i.i, %424
   %445 = sext i32 %444 to i64
@@ -859,7 +859,7 @@ mp_get_vlc.exit35.i:                              ; preds = %345, %325
   %.sroa.8.0.extract.trunc.i.i = trunc i24 %.sroa.8.0.extract.shift.i.i to i8
   %.sroa.12.0.extract.shift.i.i = lshr i24 %.sroa.0.0.copyload.i93.i.i, 16
   %.sroa.12.0.extract.trunc.i.i = trunc nuw i24 %.sroa.12.0.extract.shift.i.i to i8
-  br label %690
+  br label %691
 
 508:                                              ; preds = %439
   %509 = load ptr, ptr %220, align 8, !tbaa !69
@@ -910,7 +910,7 @@ mp_get_vlc.exit82.i.i:                            ; preds = %530, %510
   %545 = tail call i8 @llvm.umin.i8(i8 %544, i8 31)
   %546 = and i32 %.1106.i.i, 3
   %547 = icmp eq i32 %546, 0
-  br i1 %547, label %548, label %646
+  br i1 %547, label %548, label %647
 
 548:                                              ; preds = %mp_get_vlc.exit82.i.i
   br i1 %437, label %549, label %635
@@ -1024,7 +1024,7 @@ mp_get_vlc.exit.i.i:                              ; preds = %609, %589
   store i8 %588, ptr %.sroa.8.0..sroa_idx96.i.i, align 1, !tbaa !39
   %.sroa.12.0..sroa_idx99.i.i = getelementptr inbounds nuw i8, ptr %634, i64 2
   store i8 %627, ptr %.sroa.12.0..sroa_idx99.i.i, align 1, !tbaa !39
-  br label %646
+  br label %647
 
 635:                                              ; preds = %548
   %636 = load ptr, ptr %219, align 8, !tbaa !42
@@ -1033,111 +1033,112 @@ mp_get_vlc.exit.i.i:                              ; preds = %609, %589
   %639 = add nsw i32 %638, %.1106.i.i
   %640 = sdiv i32 %639, 4
   %641 = sext i32 %640 to i64
-  %642 = getelementptr inbounds %struct.YuvPixel, ptr %636, i64 %641, i32 1
-  %643 = load i8, ptr %642, align 1, !tbaa !72
-  %644 = getelementptr inbounds %struct.YuvPixel, ptr %636, i64 %641, i32 2
-  %645 = load i8, ptr %644, align 1, !tbaa !74
-  br label %646
+  %642 = getelementptr inbounds %struct.YuvPixel, ptr %636, i64 %641
+  %643 = getelementptr inbounds nuw i8, ptr %642, i64 1
+  %644 = load i8, ptr %643, align 1, !tbaa !72
+  %645 = getelementptr inbounds nuw i8, ptr %642, i64 2
+  %646 = load i8, ptr %645, align 1, !tbaa !74
+  br label %647
 
-646:                                              ; preds = %635, %mp_get_vlc.exit.i.i, %mp_get_vlc.exit82.i.i
-  %647 = phi i32 [ %612, %mp_get_vlc.exit.i.i ], [ %533, %635 ], [ %533, %mp_get_vlc.exit82.i.i ]
-  %.sroa.12.2.i.i = phi i8 [ %627, %mp_get_vlc.exit.i.i ], [ %645, %635 ], [ %.sroa.12.0103.i.i, %mp_get_vlc.exit82.i.i ]
-  %.sroa.8.2.i.i = phi i8 [ %588, %mp_get_vlc.exit.i.i ], [ %643, %635 ], [ %.sroa.8.0104.i.i, %mp_get_vlc.exit82.i.i ]
+647:                                              ; preds = %635, %mp_get_vlc.exit.i.i, %mp_get_vlc.exit82.i.i
+  %648 = phi i32 [ %612, %mp_get_vlc.exit.i.i ], [ %533, %635 ], [ %533, %mp_get_vlc.exit82.i.i ]
+  %.sroa.12.2.i.i = phi i8 [ %627, %mp_get_vlc.exit.i.i ], [ %646, %635 ], [ %.sroa.12.0103.i.i, %mp_get_vlc.exit82.i.i ]
+  %.sroa.8.2.i.i = phi i8 [ %588, %mp_get_vlc.exit.i.i ], [ %644, %635 ], [ %.sroa.8.0104.i.i, %mp_get_vlc.exit82.i.i ]
   %.val91.i.i = load ptr, ptr %12, align 8, !tbaa !44
   %.val91.val.i.i = load ptr, ptr %.val91.i.i, align 8, !tbaa !60
-  %648 = getelementptr i8, ptr %.val91.i.i, i64 64
-  %.val91.val92.i.i = load i32, ptr %648, align 8, !tbaa !68
-  %649 = zext nneg i8 %545 to i32
-  %650 = sext i8 %.sroa.8.2.i.i to i32
-  %651 = sext i8 %.sroa.12.2.i.i to i32
-  %652 = mul nuw nsw i32 %649, 1000
-  %653 = mul nsw i32 %650, 701
-  %654 = add nsw i32 %653, %652
-  %655 = sdiv i32 %654, 1000
-  %.neg.i.i.i.i = mul nsw i32 %650, -357
-  %.neg26.i.i.i.i = mul nsw i32 %651, -172
-  %656 = add nsw i32 %.neg26.i.i.i.i, %652
-  %657 = add nsw i32 %656, %.neg.i.i.i.i
-  %658 = sdiv i32 %657, 1000
-  %659 = mul nsw i32 %651, 886
-  %660 = add nsw i32 %659, %652
-  %661 = sdiv i32 %660, 1000
-  %662 = shl nsw i32 %655, 3
-  %663 = sext i32 %662 to i64
-  %664 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %663
-  %665 = load i8, ptr %664, align 8, !tbaa !39
-  %666 = and i8 %665, -8
-  %667 = zext i8 %666 to i16
-  %668 = shl nuw nsw i16 %667, 7
-  %669 = shl nsw i32 %658, 3
-  %670 = sext i32 %669 to i64
-  %671 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %670
-  %672 = load i8, ptr %671, align 8, !tbaa !39
-  %673 = and i8 %672, -8
-  %674 = zext i8 %673 to i16
-  %675 = shl nuw nsw i16 %674, 2
-  %676 = or disjoint i16 %675, %668
-  %677 = shl nsw i32 %661, 3
-  %678 = sext i32 %677 to i64
-  %679 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %678
-  %680 = load i8, ptr %679, align 8, !tbaa !39
-  %681 = lshr i8 %680, 3
-  %682 = zext nneg i8 %681 to i16
-  %683 = or disjoint i16 %676, %682
-  %684 = mul nsw i32 %.val91.val92.i.i, %423
-  %685 = shl nsw i32 %.1106.i.i, 1
-  %686 = add nsw i32 %684, %685
-  %687 = sext i32 %686 to i64
-  %688 = getelementptr inbounds i8, ptr %.val91.val.i.i, i64 %687
-  store i16 %683, ptr %688, align 2, !tbaa !61
-  %689 = add nsw i32 %.1106.i.i, 1
-  br label %690
+  %649 = getelementptr i8, ptr %.val91.i.i, i64 64
+  %.val91.val92.i.i = load i32, ptr %649, align 8, !tbaa !68
+  %650 = zext nneg i8 %545 to i32
+  %651 = sext i8 %.sroa.8.2.i.i to i32
+  %652 = sext i8 %.sroa.12.2.i.i to i32
+  %653 = mul nuw nsw i32 %650, 1000
+  %654 = mul nsw i32 %651, 701
+  %655 = add nsw i32 %654, %653
+  %656 = sdiv i32 %655, 1000
+  %.neg.i.i.i.i = mul nsw i32 %651, -357
+  %.neg26.i.i.i.i = mul nsw i32 %652, -172
+  %657 = add nsw i32 %.neg26.i.i.i.i, %653
+  %658 = add nsw i32 %657, %.neg.i.i.i.i
+  %659 = sdiv i32 %658, 1000
+  %660 = mul nsw i32 %652, 886
+  %661 = add nsw i32 %660, %653
+  %662 = sdiv i32 %661, 1000
+  %663 = shl nsw i32 %656, 3
+  %664 = sext i32 %663 to i64
+  %665 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %664
+  %666 = load i8, ptr %665, align 8, !tbaa !39
+  %667 = and i8 %666, -8
+  %668 = zext i8 %667 to i16
+  %669 = shl nuw nsw i16 %668, 7
+  %670 = shl nsw i32 %659, 3
+  %671 = sext i32 %670 to i64
+  %672 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %671
+  %673 = load i8, ptr %672, align 8, !tbaa !39
+  %674 = and i8 %673, -8
+  %675 = zext i8 %674 to i16
+  %676 = shl nuw nsw i16 %675, 2
+  %677 = or disjoint i16 %676, %669
+  %678 = shl nsw i32 %662, 3
+  %679 = sext i32 %678 to i64
+  %680 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %679
+  %681 = load i8, ptr %680, align 8, !tbaa !39
+  %682 = lshr i8 %681, 3
+  %683 = zext nneg i8 %682 to i16
+  %684 = or disjoint i16 %677, %683
+  %685 = mul nsw i32 %.val91.val92.i.i, %423
+  %686 = shl nsw i32 %.1106.i.i, 1
+  %687 = add nsw i32 %685, %686
+  %688 = sext i32 %687 to i64
+  %689 = getelementptr inbounds i8, ptr %.val91.val.i.i, i64 %688
+  store i16 %684, ptr %689, align 2, !tbaa !61
+  %690 = add nsw i32 %.1106.i.i, 1
+  br label %691
 
-690:                                              ; preds = %646, %.loopexit.i.i
-  %691 = phi i32 [ %647, %646 ], [ %440, %.loopexit.i.i ]
-  %.sroa.12.1.i.i = phi i8 [ %.sroa.12.2.i.i, %646 ], [ %.sroa.12.0.extract.trunc.i.i, %.loopexit.i.i ]
-  %.sroa.8.1.i.i = phi i8 [ %.sroa.8.2.i.i, %646 ], [ %.sroa.8.0.extract.trunc.i.i, %.loopexit.i.i ]
-  %.sroa.0.1.i.i = phi i8 [ %545, %646 ], [ %.sroa.0.0.extract.trunc.i.i, %.loopexit.i.i ]
-  %.2.i.i = phi i32 [ %689, %646 ], [ %496, %.loopexit.i.i ]
-  %692 = load ptr, ptr %11, align 8, !tbaa !30
-  %693 = getelementptr inbounds nuw i8, ptr %692, i64 112
-  %694 = load i32, ptr %693, align 8, !tbaa !29
-  %695 = icmp slt i32 %.2.i.i, %694
-  br i1 %695, label %439, label %mp_decode_line.exit.i, !llvm.loop !75
+691:                                              ; preds = %647, %.loopexit.i.i
+  %692 = phi i32 [ %648, %647 ], [ %440, %.loopexit.i.i ]
+  %.sroa.12.1.i.i = phi i8 [ %.sroa.12.2.i.i, %647 ], [ %.sroa.12.0.extract.trunc.i.i, %.loopexit.i.i ]
+  %.sroa.8.1.i.i = phi i8 [ %.sroa.8.2.i.i, %647 ], [ %.sroa.8.0.extract.trunc.i.i, %.loopexit.i.i ]
+  %.sroa.0.1.i.i = phi i8 [ %545, %647 ], [ %.sroa.0.0.extract.trunc.i.i, %.loopexit.i.i ]
+  %.2.i.i = phi i32 [ %690, %647 ], [ %496, %.loopexit.i.i ]
+  %693 = load ptr, ptr %11, align 8, !tbaa !30
+  %694 = getelementptr inbounds nuw i8, ptr %693, i64 112
+  %695 = load i32, ptr %694, align 8, !tbaa !29
+  %696 = icmp slt i32 %.2.i.i, %695
+  br i1 %696, label %439, label %mp_decode_line.exit.i, !llvm.loop !75
 
-mp_decode_line.exit.i:                            ; preds = %690, %433
-  %.lcssa8284 = phi i32 [ %.lcssa8285, %433 ], [ %691, %690 ]
-  %696 = phi ptr [ %419, %433 ], [ %692, %690 ]
+mp_decode_line.exit.i:                            ; preds = %691, %433
+  %.lcssa8284 = phi i32 [ %.lcssa8285, %433 ], [ %692, %691 ]
+  %697 = phi ptr [ %419, %433 ], [ %693, %691 ]
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 2
-  %697 = getelementptr inbounds nuw i8, ptr %696, i64 116
-  %698 = load i32, ptr %697, align 4, !tbaa !28
-  %699 = sext i32 %698 to i64
-  %700 = icmp slt i64 %indvars.iv.next60.i, %699
-  br i1 %700, label %.lr.ph55.i, label %._crit_edge.i71, !llvm.loop !76
+  %698 = getelementptr inbounds nuw i8, ptr %697, i64 116
+  %699 = load i32, ptr %698, align 4, !tbaa !28
+  %700 = sext i32 %699 to i64
+  %701 = icmp slt i64 %indvars.iv.next60.i, %700
+  br i1 %701, label %.lr.ph55.i, label %._crit_edge.i71, !llvm.loop !76
 
 ._crit_edge.i71:                                  ; preds = %mp_decode_line.exit.i, %.preheader.i
   %.lcssa8284.lcssa87 = phi i32 [ %.lcssa8284.lcssa88, %.preheader.i ], [ %.lcssa8284, %mp_decode_line.exit.i ]
-  %701 = phi ptr [ %414, %.preheader.i ], [ %696, %mp_decode_line.exit.i ]
-  %702 = phi ptr [ %415, %.preheader.i ], [ %696, %mp_decode_line.exit.i ]
+  %702 = phi ptr [ %414, %.preheader.i ], [ %697, %mp_decode_line.exit.i ]
+  %703 = phi ptr [ %415, %.preheader.i ], [ %697, %mp_decode_line.exit.i ]
   br i1 %exitcond.not.i70, label %mp_decode_frame_helper.exit, label %.preheader.i, !llvm.loop !77
 
 mp_decode_frame_helper.exit:                      ; preds = %._crit_edge.i71
-  %703 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  tail call void @ff_vlc_free(ptr noundef nonnull %703) #11
+  %704 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  tail call void @ff_vlc_free(ptr noundef nonnull %704) #11
   br label %mp_read_codes_table.exit.thread
 
 mp_read_codes_table.exit.thread:                  ; preds = %160, %._crit_edge.i, %194, %190, %84, %mp_decode_frame_helper.exit
-  %704 = load ptr, ptr %12, align 8, !tbaa !44
-  %705 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %704) #11
-  %706 = icmp slt i32 %705, 0
-  br i1 %706, label %708, label %707
+  %705 = load ptr, ptr %12, align 8, !tbaa !44
+  %706 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %705) #11
+  %707 = icmp slt i32 %706, 0
+  br i1 %707, label %709, label %708
 
-707:                                              ; preds = %mp_read_codes_table.exit.thread
+708:                                              ; preds = %mp_read_codes_table.exit.thread
   store i32 1, ptr %2, align 4, !tbaa !68
-  br label %708
+  br label %709
 
-708:                                              ; preds = %mp_read_codes_table.exit.thread, %16, %4, %707
-  %.060 = phi i32 [ %9, %707 ], [ %14, %4 ], [ -12, %16 ], [ %705, %mp_read_codes_table.exit.thread ]
+709:                                              ; preds = %mp_read_codes_table.exit.thread, %16, %4, %708
+  %.060 = phi i32 [ %9, %708 ], [ %14, %4 ], [ -12, %16 ], [ %706, %mp_read_codes_table.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.060
 }

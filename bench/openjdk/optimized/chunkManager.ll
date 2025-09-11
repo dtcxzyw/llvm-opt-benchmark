@@ -944,8 +944,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
 
 7:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %7
   %indvars.iv = phi i64 [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %indvars.iv.next, %7 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 24
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %8 = getelementptr inbounds nuw %"class.metaspace::FreeChunkList", ptr %5, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv

@@ -358,7 +358,7 @@ define dso_local void @i915_oa_init_reg_state(ptr noundef readonly captures(none
   br label %38
 
 38:                                               ; preds = %.loopexit, %17
-  %39 = phi i64 [ 0, %17 ], [ %69, %.loopexit ]
+  %39 = phi i64 [ 0, %17 ], [ %70, %.loopexit ]
   %40 = load ptr, ptr %36, align 8
   %41 = getelementptr %struct.i915_reg_t, ptr @gen8_is_valid_flex_addr.flex_eu_regs, i64 %39
   %42 = load i32, ptr %41, align 4
@@ -390,21 +390,22 @@ define dso_local void @i915_oa_init_reg_state(ptr noundef readonly captures(none
   br i1 %59, label %60, label %51
 
 60:                                               ; preds = %54
-  %61 = getelementptr %struct.i915_oa_reg, ptr %50, i64 %56, i32 1
-  %62 = load i32, ptr %61, align 4
+  %61 = getelementptr %struct.i915_oa_reg, ptr %50, i64 %56
+  %62 = getelementptr i8, ptr %61, i64 4
+  %63 = load i32, ptr %62, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %60, %44, %38
-  %63 = phi i32 [ %62, %60 ], [ 0, %38 ], [ 0, %44 ], [ 0, %51 ]
-  %64 = trunc i64 %39 to i32
-  %65 = shl i32 %64, 1
-  %66 = add i32 %37, %65
-  %67 = zext i32 %66 to i64
-  %68 = getelementptr i32, ptr %23, i64 %67
-  store i32 %63, ptr %68, align 4
-  %69 = add nuw nsw i64 %39, 1
-  %70 = icmp eq i64 %69, 7
-  br i1 %70, label %.loopexit5, label %38, !llvm.loop !15
+  %64 = phi i32 [ %63, %60 ], [ 0, %38 ], [ 0, %44 ], [ 0, %51 ]
+  %65 = trunc i64 %39 to i32
+  %66 = shl i32 %65, 1
+  %67 = add i32 %37, %66
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr i32, ptr %23, i64 %68
+  store i32 %64, ptr %69, align 4
+  %70 = add nuw nsw i64 %39, 1
+  %71 = icmp eq i64 %70, 7
+  br i1 %71, label %.loopexit5, label %38, !llvm.loop !15
 
 .loopexit5:                                       ; preds = %.loopexit, %11, %6, %2
   ret void
@@ -971,7 +972,8 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   %334 = load ptr, ptr %333, align 8
   %335 = zext i32 %332 to i64
   %336 = load ptr, ptr %234, align 8
-  %337 = getelementptr %struct.i915_oa_format, ptr %334, i64 %335, i32 2
+  %.split = getelementptr %struct.i915_oa_format, ptr %334, i64 %335
+  %337 = getelementptr i8, ptr %.split, i64 8
   %338 = load i32, ptr %337, align 4
   %339 = getelementptr inbounds nuw i8, ptr %336, i64 5488
   %340 = load ptr, ptr %339, align 8
@@ -8994,68 +8996,71 @@ define internal fastcc i32 @lrc_configure_all_contexts(ptr noundef readonly capt
   br i1 %53, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3, %.split.us
-  %55 = phi i64 [ %57, %.split.us ], [ 2, %3 ]
-  %56 = getelementptr %struct.flex, ptr %4, i64 %55, i32 2
-  store i32 0, ptr %56, align 4
-  %57 = add nuw nsw i64 %55, 1
-  %58 = icmp eq i64 %57, 9
-  br i1 %58, label %.split5.us, label %.split.us, !llvm.loop !156
+  %55 = phi i64 [ %58, %.split.us ], [ 2, %3 ]
+  %56 = getelementptr %struct.flex, ptr %4, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store i32 0, ptr %57, align 4
+  %58 = add nuw nsw i64 %55, 1
+  %59 = icmp eq i64 %58, 9
+  br i1 %59, label %.split6.us, label %.split.us, !llvm.loop !156
 
 .split:                                           ; preds = %3
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.split.split.us, label %.split.split
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
-  %62 = phi i64 [ %64, %.split.split.us ], [ 2, %.split ]
-  %63 = getelementptr %struct.flex, ptr %4, i64 %62, i32 2
-  store i32 0, ptr %63, align 4
-  %64 = add nuw nsw i64 %62, 1
-  %65 = icmp eq i64 %64, 9
-  br i1 %65, label %.split5.us, label %.split.split.us, !llvm.loop !156
+  %63 = phi i64 [ %66, %.split.split.us ], [ 2, %.split ]
+  %64 = getelementptr %struct.flex, ptr %4, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store i32 0, ptr %65, align 4
+  %66 = add nuw nsw i64 %63, 1
+  %67 = icmp eq i64 %66, 9
+  br i1 %67, label %.split6.us, label %.split.split.us, !llvm.loop !156
 
 .split.split:                                     ; preds = %.split
-  %66 = load ptr, ptr %54, align 8
-  br label %67
+  %68 = load ptr, ptr %54, align 8
+  br label %69
 
-67:                                               ; preds = %.loopexit, %.split.split
-  %68 = phi i64 [ 2, %.split.split ], [ %85, %.loopexit ]
-  %69 = getelementptr %struct.flex, ptr %4, i64 %68
-  %70 = load i32, ptr %69, align 4
-  br label %74
+69:                                               ; preds = %.loopexit, %.split.split
+  %70 = phi i64 [ 2, %.split.split ], [ %88, %.loopexit ]
+  %71 = getelementptr %struct.flex, ptr %4, i64 %70
+  %72 = load i32, ptr %71, align 4
+  br label %76
 
-71:                                               ; preds = %74
-  %72 = add nuw i32 %75, 1
-  %73 = icmp eq i32 %72, %60
-  br i1 %73, label %.loopexit, label %74, !llvm.loop !14
+73:                                               ; preds = %76
+  %74 = add nuw i32 %77, 1
+  %75 = icmp eq i32 %74, %61
+  br i1 %75, label %.loopexit, label %76, !llvm.loop !14
 
-74:                                               ; preds = %71, %67
-  %75 = phi i32 [ 0, %67 ], [ %72, %71 ]
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr %struct.i915_oa_reg, ptr %66, i64 %76
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, %70
-  br i1 %79, label %80, label %71
+76:                                               ; preds = %73, %69
+  %77 = phi i32 [ 0, %69 ], [ %74, %73 ]
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr %struct.i915_oa_reg, ptr %68, i64 %78
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp eq i32 %80, %72
+  br i1 %81, label %82, label %73
 
-80:                                               ; preds = %74
-  %81 = getelementptr %struct.i915_oa_reg, ptr %66, i64 %76, i32 1
-  %82 = load i32, ptr %81, align 4
+82:                                               ; preds = %76
+  %83 = getelementptr %struct.i915_oa_reg, ptr %68, i64 %78
+  %84 = getelementptr i8, ptr %83, i64 4
+  %85 = load i32, ptr %84, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %71, %80
-  %83 = phi i32 [ %82, %80 ], [ 0, %71 ]
-  %84 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store i32 %83, ptr %84, align 4
-  %85 = add nuw nsw i64 %68, 1
-  %86 = icmp eq i64 %85, 9
-  br i1 %86, label %.split5.us, label %67, !llvm.loop !156
+.loopexit:                                        ; preds = %73, %82
+  %86 = phi i32 [ %85, %82 ], [ 0, %73 ]
+  %87 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store i32 %86, ptr %87, align 4
+  %88 = add nuw nsw i64 %70, 1
+  %89 = icmp eq i64 %88, 9
+  br i1 %89, label %.split6.us, label %69, !llvm.loop !156
 
-.split5.us:                                       ; preds = %.loopexit, %.split.split.us, %.split.us
+.split6.us:                                       ; preds = %.loopexit, %.split.split.us, %.split.us
   %.val.val = load ptr, ptr %5, align 8
-  %87 = call fastcc i32 @oa_configure_all_contexts(ptr %.val.val, ptr noundef nonnull %4, i64 noundef 9, ptr noundef %2)
+  %90 = call fastcc i32 @oa_configure_all_contexts(ptr %.val.val, ptr noundef nonnull %4, i64 noundef 9, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %87
+  ret i32 %90
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

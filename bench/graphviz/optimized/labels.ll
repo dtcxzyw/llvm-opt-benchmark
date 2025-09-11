@@ -1521,7 +1521,7 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %16 = load i64, ptr %15, align 8, !tbaa !13
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %76, label %18
+  br i1 %17, label %77, label %18
 
 18:                                               ; preds = %14
   tail call void @gvrender_begin_label(ptr noundef nonnull %0, i32 noundef 0) #16
@@ -1582,52 +1582,53 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   %.pre = load ptr, ptr %11, align 8, !tbaa !13
   br label %54
 
-._crit_edge:                                      ; preds = %67, %43
+._crit_edge:                                      ; preds = %68, %43
   tail call void @gvrender_end_label(ptr noundef nonnull %0) #16
   br label %.sink.split
 
-54:                                               ; preds = %.lr.ph, %67
-  %55 = phi ptr [ %.pre, %.lr.ph ], [ %69, %67 ]
-  %.047 = phi i64 [ 0, %.lr.ph ], [ %73, %67 ]
-  %.sroa.6.246 = phi double [ %.sroa.6.1, %.lr.ph ], [ %72, %67 ]
-  %56 = getelementptr inbounds nuw %struct.textspan_t, ptr %55, i64 %.047, i32 7
-  %57 = load i8, ptr %56, align 8, !tbaa !23
-  %58 = load double, ptr %52, align 8, !tbaa !127
-  switch i8 %57, label %67 [
-    i8 108, label %59
-    i8 114, label %63
+54:                                               ; preds = %.lr.ph, %68
+  %55 = phi ptr [ %.pre, %.lr.ph ], [ %69, %68 ]
+  %.047 = phi i64 [ 0, %.lr.ph ], [ %74, %68 ]
+  %.sroa.6.246 = phi double [ %.sroa.6.1, %.lr.ph ], [ %73, %68 ]
+  %56 = getelementptr inbounds nuw %struct.textspan_t, ptr %55, i64 %.047
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
+  %58 = load i8, ptr %57, align 8, !tbaa !23
+  %59 = load double, ptr %52, align 8, !tbaa !127
+  switch i8 %58, label %68 [
+    i8 108, label %60
+    i8 114, label %64
   ]
 
-59:                                               ; preds = %54
-  %60 = load double, ptr %53, align 8, !tbaa !128
-  %61 = fmul double %60, 5.000000e-01
-  %62 = fsub double %58, %61
-  br label %67
+60:                                               ; preds = %54
+  %61 = load double, ptr %53, align 8, !tbaa !128
+  %62 = fmul double %61, 5.000000e-01
+  %63 = fsub double %59, %62
+  br label %68
 
-63:                                               ; preds = %54
-  %64 = load double, ptr %53, align 8, !tbaa !128
-  %65 = fmul double %64, 5.000000e-01
-  %66 = fadd double %58, %65
-  br label %67
+64:                                               ; preds = %54
+  %65 = load double, ptr %53, align 8, !tbaa !128
+  %66 = fmul double %65, 5.000000e-01
+  %67 = fadd double %59, %66
+  br label %68
 
-67:                                               ; preds = %54, %63, %59
-  %.sroa.0.0 = phi double [ %62, %59 ], [ %66, %63 ], [ %58, %54 ]
-  %68 = getelementptr inbounds nuw %struct.textspan_t, ptr %55, i64 %.047
-  tail call void @gvrender_textspan(ptr noundef nonnull %0, double %.sroa.0.0, double %.sroa.6.246, ptr noundef %68) #16
+68:                                               ; preds = %54, %64, %60
+  %.sroa.0.0 = phi double [ %63, %60 ], [ %67, %64 ], [ %59, %54 ]
+  tail call void @gvrender_textspan(ptr noundef nonnull %0, double %.sroa.0.0, double %.sroa.6.246, ptr noundef nonnull %56) #16
   %69 = load ptr, ptr %11, align 8, !tbaa !13
-  %70 = getelementptr inbounds nuw %struct.textspan_t, ptr %69, i64 %.047, i32 6, i32 1
-  %71 = load double, ptr %70, align 8, !tbaa !54
-  %72 = fsub double %.sroa.6.246, %71
-  %73 = add nuw i64 %.047, 1
-  %74 = load i64, ptr %15, align 8, !tbaa !13
-  %75 = icmp ult i64 %73, %74
-  br i1 %75, label %54, label %._crit_edge, !llvm.loop !129
+  %70 = getelementptr inbounds nuw %struct.textspan_t, ptr %69, i64 %.047
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 56
+  %72 = load double, ptr %71, align 8, !tbaa !54
+  %73 = fsub double %.sroa.6.246, %72
+  %74 = add nuw i64 %.047, 1
+  %75 = load i64, ptr %15, align 8, !tbaa !13
+  %76 = icmp ult i64 %74, %75
+  br i1 %76, label %54, label %._crit_edge, !llvm.loop !129
 
 .sink.split:                                      ; preds = %12, %._crit_edge
   store i32 %7, ptr %6, align 8, !tbaa !121
-  br label %76
+  br label %77
 
-76:                                               ; preds = %.sink.split, %14
+77:                                               ; preds = %.sink.split, %14
   ret void
 }
 

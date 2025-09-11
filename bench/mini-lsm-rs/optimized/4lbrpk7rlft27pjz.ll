@@ -5488,57 +5488,59 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.48072493414
   %29 = atomicrmw or ptr %13, i64 2 acq_rel, align 8
   %30 = and i64 %29, 4
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit", label %42
+  br i1 %31, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit", label %43
 
-.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h0002864730aead49E.exit", %41
-  %.sroa.01.010.i = phi i64 [ %32, %41 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h0002864730aead49E.exit" ]
+.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h0002864730aead49E.exit", %42
+  %.sroa.01.010.i = phi i64 [ %32, %42 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h0002864730aead49E.exit" ]
   %32 = add nuw nsw i64 %.sroa.01.010.i, 1
-  %33 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.010.i, i32 1
-  %34 = load atomic i64, ptr %33 acquire, align 8
-  %35 = and i64 %34, 2
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %41
+  %33 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.010.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = load atomic i64, ptr %34 acquire, align 8
+  %36 = and i64 %35, 2
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %42
 
-37:                                               ; preds = %.lr.ph.i4
-  %38 = atomicrmw or ptr %33, i64 4 acq_rel, align 8
-  %39 = and i64 %38, 2
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit", label %41
+38:                                               ; preds = %.lr.ph.i4
+  %39 = atomicrmw or ptr %34, i64 4 acq_rel, align 8
+  %40 = and i64 %39, 2
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit", label %42
 
-41:                                               ; preds = %37, %.lr.ph.i4
+42:                                               ; preds = %38, %.lr.ph.i4
   %exitcond.not.i = icmp eq i64 %32, 30
   br i1 %exitcond.not.i, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit.sink.split", label %.lr.ph.i4
 
-42:                                               ; preds = %28
-  %43 = icmp samesign ult i64 %10, 29
-  br i1 %43, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit.sink.split"
+43:                                               ; preds = %28
+  %44 = icmp samesign ult i64 %10, 29
+  br i1 %44, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit.sink.split"
 
-.lr.ph.i6:                                        ; preds = %42, %53
-  %.sroa.01.010.i7 = phi i64 [ %44, %53 ], [ %25, %42 ]
-  %44 = add nuw nsw i64 %.sroa.01.010.i7, 1
-  %45 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.010.i7, i32 1
-  %46 = load atomic i64, ptr %45 acquire, align 8
-  %47 = and i64 %46, 2
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %53
+.lr.ph.i6:                                        ; preds = %43, %55
+  %.sroa.01.010.i7 = phi i64 [ %45, %55 ], [ %25, %43 ]
+  %45 = add nuw nsw i64 %.sroa.01.010.i7, 1
+  %46 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.010.i7
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = load atomic i64, ptr %47 acquire, align 8
+  %49 = and i64 %48, 2
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %51, label %55
 
-49:                                               ; preds = %.lr.ph.i6
-  %50 = atomicrmw or ptr %45, i64 4 acq_rel, align 8
-  %51 = and i64 %50, 2
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit", label %53
+51:                                               ; preds = %.lr.ph.i6
+  %52 = atomicrmw or ptr %47, i64 4 acq_rel, align 8
+  %53 = and i64 %52, 2
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit", label %55
 
-53:                                               ; preds = %49, %.lr.ph.i6
-  %exitcond.not.i8 = icmp eq i64 %44, 30
+55:                                               ; preds = %51, %.lr.ph.i6
+  %exitcond.not.i8 = icmp eq i64 %45, 30
   br i1 %exitcond.not.i8, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit.sink.split", label %.lr.ph.i6
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit.sink.split": ; preds = %53, %41, %42
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit.sink.split": ; preds = %55, %42, %43
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 1000, i64 noundef 8) #9
   br label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit"
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit": ; preds = %49, %37, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit.sink.split", %28
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit": ; preds = %51, %38, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h89e9ebeb37350b8cE.exit.sink.split", %28
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %27
 }
 

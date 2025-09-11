@@ -1195,7 +1195,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
   br label %73
 
 73:                                               ; preds = %.lr.ph367, %.loopexit339
-  %.0272365 = phi ptr [ %1, %.lr.ph367 ], [ %814, %.loopexit339 ]
+  %.0272365 = phi ptr [ %1, %.lr.ph367 ], [ %815, %.loopexit339 ]
   %74 = load i32, ptr %.0272365, align 8
   switch i32 %74, label %.loopexit339 [
     i32 3, label %75
@@ -2404,7 +2404,7 @@ SW_RenderCopyEx.exit:                             ; preds = %436, %459, %473, %4
   %729 = load i32, ptr %728, align 4
   call fastcc void @SetDrawState(ptr noundef %39, ptr noundef %19)
   %.not299 = icmp eq ptr %727, null
-  br i1 %.not299, label %783, label %730
+  br i1 %.not299, label %784, label %730
 
 730:                                              ; preds = %719
   %731 = getelementptr inbounds nuw i8, ptr %727, i64 280
@@ -2441,7 +2441,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   %745 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %.0272.val326.val, i32 noundef %.0272.val325) #8
   %746 = load ptr, ptr %19, align 8
   %.not303 = icmp eq ptr %746, null
-  br i1 %.not303, label %761, label %747
+  br i1 %.not303, label %762, label %747
 
 747:                                              ; preds = %PrepTextureForCopy.exit335
   %748 = load i32, ptr %746, align 4
@@ -2450,7 +2450,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   %750 = load i32, ptr %749, align 4
   %.not305 = icmp eq i32 %750, 0
   %or.cond438 = select i1 %.not304, i1 %.not305, i1 false
-  br i1 %or.cond438, label %761, label %._crit_edge396
+  br i1 %or.cond438, label %762, label %._crit_edge396
 
 ._crit_edge396:                                   ; preds = %747
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -2468,124 +2468,125 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
 
 754:                                              ; preds = %.lr.ph, %754
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %754 ]
-  %755 = getelementptr inbounds nuw %struct.GeometryCopyData, ptr %722, i64 %indvars.iv, i32 1
-  %756 = load i32, ptr %755, align 4
-  %757 = add nsw i32 %756, %752
-  store i32 %757, ptr %755, align 4
-  %758 = getelementptr inbounds nuw i8, ptr %755, i64 4
-  %759 = load i32, ptr %758, align 4
-  %760 = add nsw i32 %759, %753
-  store i32 %760, ptr %758, align 4
+  %755 = getelementptr inbounds nuw %struct.GeometryCopyData, ptr %722, i64 %indvars.iv
+  %756 = getelementptr inbounds nuw i8, ptr %755, i64 8
+  %757 = load i32, ptr %756, align 4
+  %758 = add nsw i32 %757, %752
+  store i32 %758, ptr %756, align 4
+  %759 = getelementptr inbounds nuw i8, ptr %755, i64 12
+  %760 = load i32, ptr %759, align 4
+  %761 = add nsw i32 %760, %753
+  store i32 %761, ptr %759, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %754, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %754, %._crit_edge396
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %761
+  br label %762
 
-761:                                              ; preds = %747, %._crit_edge, %PrepTextureForCopy.exit335
-  %762 = icmp sgt i32 %725, 0
-  br i1 %762, label %.lr.ph346, label %.loopexit339
+762:                                              ; preds = %747, %._crit_edge, %PrepTextureForCopy.exit335
+  %763 = icmp sgt i32 %725, 0
+  br i1 %763, label %.lr.ph346, label %.loopexit339
 
-.lr.ph346:                                        ; preds = %761
-  %763 = getelementptr inbounds nuw i8, ptr %.0272365, i64 60
-  %764 = getelementptr inbounds nuw i8, ptr %.0272365, i64 64
-  br label %765
+.lr.ph346:                                        ; preds = %762
+  %764 = getelementptr inbounds nuw i8, ptr %.0272365, i64 60
+  %765 = getelementptr inbounds nuw i8, ptr %.0272365, i64 64
+  br label %766
 
-765:                                              ; preds = %.lr.ph346, %765
-  %.0270344 = phi ptr [ %722, %.lr.ph346 ], [ %781, %765 ]
-  %.1343 = phi i32 [ 0, %.lr.ph346 ], [ %780, %765 ]
-  %766 = getelementptr inbounds nuw i8, ptr %.0270344, i64 20
-  %767 = getelementptr inbounds nuw i8, ptr %.0270344, i64 40
-  %768 = getelementptr inbounds nuw i8, ptr %.0270344, i64 8
-  %769 = getelementptr inbounds nuw i8, ptr %.0270344, i64 28
-  %770 = getelementptr inbounds nuw i8, ptr %.0270344, i64 48
-  %771 = getelementptr inbounds nuw i8, ptr %.0270344, i64 16
-  %772 = getelementptr inbounds nuw i8, ptr %.0270344, i64 36
-  %773 = getelementptr inbounds nuw i8, ptr %.0270344, i64 56
-  %774 = load i32, ptr %763, align 4
-  %775 = load i32, ptr %764, align 8
-  %776 = load i32, ptr %771, align 4
+766:                                              ; preds = %.lr.ph346, %766
+  %.0270344 = phi ptr [ %722, %.lr.ph346 ], [ %782, %766 ]
+  %.1343 = phi i32 [ 0, %.lr.ph346 ], [ %781, %766 ]
+  %767 = getelementptr inbounds nuw i8, ptr %.0270344, i64 20
+  %768 = getelementptr inbounds nuw i8, ptr %.0270344, i64 40
+  %769 = getelementptr inbounds nuw i8, ptr %.0270344, i64 8
+  %770 = getelementptr inbounds nuw i8, ptr %.0270344, i64 28
+  %771 = getelementptr inbounds nuw i8, ptr %.0270344, i64 48
+  %772 = getelementptr inbounds nuw i8, ptr %.0270344, i64 16
+  %773 = getelementptr inbounds nuw i8, ptr %.0270344, i64 36
+  %774 = getelementptr inbounds nuw i8, ptr %.0270344, i64 56
+  %775 = load i32, ptr %764, align 4
+  %776 = load i32, ptr %765, align 8
   %777 = load i32, ptr %772, align 4
   %778 = load i32, ptr %773, align 4
-  %779 = call zeroext i1 @SDL_SW_BlitTriangle(ptr noundef %732, ptr noundef %.0270344, ptr noundef nonnull %766, ptr noundef nonnull %767, ptr noundef %39, ptr noundef nonnull %768, ptr noundef nonnull %769, ptr noundef nonnull %770, i32 %776, i32 %777, i32 %778, i32 noundef %774, i32 noundef %775) #8
-  %780 = add nuw nsw i32 %.1343, 3
-  %781 = getelementptr inbounds nuw i8, ptr %.0270344, i64 60
-  %782 = icmp slt i32 %780, %725
-  br i1 %782, label %765, label %.loopexit339, !llvm.loop !15
+  %779 = load i32, ptr %774, align 4
+  %780 = call zeroext i1 @SDL_SW_BlitTriangle(ptr noundef %732, ptr noundef %.0270344, ptr noundef nonnull %767, ptr noundef nonnull %768, ptr noundef %39, ptr noundef nonnull %769, ptr noundef nonnull %770, ptr noundef nonnull %771, i32 %777, i32 %778, i32 %779, i32 noundef %775, i32 noundef %776) #8
+  %781 = add nuw nsw i32 %.1343, 3
+  %782 = getelementptr inbounds nuw i8, ptr %.0270344, i64 60
+  %783 = icmp slt i32 %781, %725
+  br i1 %783, label %766, label %.loopexit339, !llvm.loop !15
 
-783:                                              ; preds = %719
-  %784 = load ptr, ptr %19, align 8
-  %.not300 = icmp eq ptr %784, null
-  br i1 %.not300, label %799, label %785
+784:                                              ; preds = %719
+  %785 = load ptr, ptr %19, align 8
+  %.not300 = icmp eq ptr %785, null
+  br i1 %.not300, label %800, label %786
 
-785:                                              ; preds = %783
-  %786 = load i32, ptr %784, align 4
-  %.not301 = icmp eq i32 %786, 0
-  %787 = getelementptr inbounds nuw i8, ptr %784, i64 4
-  %788 = load i32, ptr %787, align 4
-  %.not302 = icmp eq i32 %788, 0
+786:                                              ; preds = %784
+  %787 = load i32, ptr %785, align 4
+  %.not301 = icmp eq i32 %787, 0
+  %788 = getelementptr inbounds nuw i8, ptr %785, i64 4
+  %789 = load i32, ptr %788, align 4
+  %.not302 = icmp eq i32 %789, 0
   %or.cond439 = select i1 %.not301, i1 %.not302, i1 false
-  br i1 %or.cond439, label %799, label %._crit_edge397
+  br i1 %or.cond439, label %800, label %._crit_edge397
 
-._crit_edge397:                                   ; preds = %785
+._crit_edge397:                                   ; preds = %786
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  store i32 %786, ptr %27, align 4
-  store i32 %788, ptr %49, align 4
+  store i32 %787, ptr %27, align 4
+  store i32 %789, ptr %49, align 4
   call void @trianglepoint_2_fixedpoint(ptr noundef nonnull %27) #8
-  %789 = icmp sgt i32 %725, 0
-  br i1 %789, label %.lr.ph349, label %._crit_edge350
+  %790 = icmp sgt i32 %725, 0
+  br i1 %790, label %.lr.ph349, label %._crit_edge350
 
 .lr.ph349:                                        ; preds = %._crit_edge397
-  %790 = load i32, ptr %27, align 4
-  %791 = load i32, ptr %49, align 4
+  %791 = load i32, ptr %27, align 4
+  %792 = load i32, ptr %49, align 4
   %wide.trip.count377 = and i64 %724, 2147483647
-  br label %792
+  br label %793
 
-792:                                              ; preds = %.lr.ph349, %792
-  %indvars.iv374 = phi i64 [ 0, %.lr.ph349 ], [ %indvars.iv.next375, %792 ]
-  %793 = getelementptr inbounds nuw %struct.GeometryFillData, ptr %722, i64 %indvars.iv374
-  %794 = load i32, ptr %793, align 4
-  %795 = add nsw i32 %794, %790
-  store i32 %795, ptr %793, align 4
-  %796 = getelementptr inbounds nuw i8, ptr %793, i64 4
-  %797 = load i32, ptr %796, align 4
-  %798 = add nsw i32 %797, %791
-  store i32 %798, ptr %796, align 4
+793:                                              ; preds = %.lr.ph349, %793
+  %indvars.iv374 = phi i64 [ 0, %.lr.ph349 ], [ %indvars.iv.next375, %793 ]
+  %794 = getelementptr inbounds nuw %struct.GeometryFillData, ptr %722, i64 %indvars.iv374
+  %795 = load i32, ptr %794, align 4
+  %796 = add nsw i32 %795, %791
+  store i32 %796, ptr %794, align 4
+  %797 = getelementptr inbounds nuw i8, ptr %794, i64 4
+  %798 = load i32, ptr %797, align 4
+  %799 = add nsw i32 %798, %792
+  store i32 %799, ptr %797, align 4
   %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
   %exitcond378.not = icmp eq i64 %indvars.iv.next375, %wide.trip.count377
-  br i1 %exitcond378.not, label %._crit_edge350, label %792, !llvm.loop !16
+  br i1 %exitcond378.not, label %._crit_edge350, label %793, !llvm.loop !16
 
-._crit_edge350:                                   ; preds = %792, %._crit_edge397
+._crit_edge350:                                   ; preds = %793, %._crit_edge397
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %799
+  br label %800
 
-799:                                              ; preds = %785, %._crit_edge350, %783
-  %800 = icmp sgt i32 %725, 0
-  br i1 %800, label %.lr.ph354, label %.loopexit339
+800:                                              ; preds = %786, %._crit_edge350, %784
+  %801 = icmp sgt i32 %725, 0
+  br i1 %801, label %.lr.ph354, label %.loopexit339
 
-.lr.ph354:                                        ; preds = %799, %.lr.ph354
-  %.0352 = phi ptr [ %811, %.lr.ph354 ], [ %722, %799 ]
-  %.3351 = phi i32 [ %810, %.lr.ph354 ], [ 0, %799 ]
-  %801 = getelementptr inbounds nuw i8, ptr %.0352, i64 12
-  %802 = getelementptr inbounds nuw i8, ptr %.0352, i64 24
-  %803 = getelementptr inbounds nuw i8, ptr %.0352, i64 8
-  %804 = getelementptr inbounds nuw i8, ptr %.0352, i64 20
-  %805 = getelementptr inbounds nuw i8, ptr %.0352, i64 32
-  %806 = load i32, ptr %803, align 4
+.lr.ph354:                                        ; preds = %800, %.lr.ph354
+  %.0352 = phi ptr [ %812, %.lr.ph354 ], [ %722, %800 ]
+  %.3351 = phi i32 [ %811, %.lr.ph354 ], [ 0, %800 ]
+  %802 = getelementptr inbounds nuw i8, ptr %.0352, i64 12
+  %803 = getelementptr inbounds nuw i8, ptr %.0352, i64 24
+  %804 = getelementptr inbounds nuw i8, ptr %.0352, i64 8
+  %805 = getelementptr inbounds nuw i8, ptr %.0352, i64 20
+  %806 = getelementptr inbounds nuw i8, ptr %.0352, i64 32
   %807 = load i32, ptr %804, align 4
   %808 = load i32, ptr %805, align 4
-  %809 = call zeroext i1 @SDL_SW_FillTriangle(ptr noundef %39, ptr noundef %.0352, ptr noundef nonnull %801, ptr noundef nonnull %802, i32 noundef %729, i32 %806, i32 %807, i32 %808) #8
-  %810 = add nuw nsw i32 %.3351, 3
-  %811 = getelementptr inbounds nuw i8, ptr %.0352, i64 36
-  %812 = icmp slt i32 %810, %725
-  br i1 %812, label %.lr.ph354, label %.loopexit339, !llvm.loop !17
+  %809 = load i32, ptr %806, align 4
+  %810 = call zeroext i1 @SDL_SW_FillTriangle(ptr noundef %39, ptr noundef %.0352, ptr noundef nonnull %802, ptr noundef nonnull %803, i32 noundef %729, i32 %807, i32 %808, i32 %809) #8
+  %811 = add nuw nsw i32 %.3351, 3
+  %812 = getelementptr inbounds nuw i8, ptr %.0352, i64 36
+  %813 = icmp slt i32 %811, %725
+  br i1 %813, label %.lr.ph354, label %.loopexit339, !llvm.loop !17
 
-.loopexit339:                                     ; preds = %765, %.lr.ph354, %761, %799, %350, %398, %377, %370, %296, %299, %259, %262, %222, %225, %SW_RenderCopyEx.exit, %183, %129, %127, %123, %73
-  %813 = getelementptr inbounds nuw i8, ptr %.0272365, i64 80
-  %814 = load ptr, ptr %813, align 8
-  %.not = icmp eq ptr %814, null
+.loopexit339:                                     ; preds = %766, %.lr.ph354, %762, %800, %350, %398, %377, %370, %296, %299, %259, %262, %222, %225, %SW_RenderCopyEx.exit, %183, %129, %127, %123, %73
+  %814 = getelementptr inbounds nuw i8, ptr %.0272365, i64 80
+  %815 = load ptr, ptr %814, align 8
+  %.not = icmp eq ptr %815, null
   br i1 %.not, label %.loopexit341, label %73, !llvm.loop !18
 
 .loopexit341:                                     ; preds = %.loopexit339, %41, %SW_ActivateRenderer.exit

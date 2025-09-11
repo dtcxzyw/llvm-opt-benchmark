@@ -4422,58 +4422,59 @@ define internal void @colorchart_fill_picture(ptr noundef readonly captures(none
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 108
   %8 = load i32, ptr %7, align 4, !tbaa !133
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !57
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %13 = load i32, ptr %12, align 4, !tbaa !58
-  %14 = getelementptr inbounds %struct.ColorChartPreset, ptr @colorchart_presets, i64 %9, i32 2
-  %15 = load ptr, ptr %14, align 8, !tbaa !138
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %10 = getelementptr inbounds %struct.ColorChartPreset, ptr @colorchart_presets, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = load i32, ptr %11, align 8, !tbaa !57
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %14 = load i32, ptr %13, align 4, !tbaa !58
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !138
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %.preheader
 
-.preheader:                                       ; preds = %2, %24
-  %indvars.iv39 = phi i64 [ 0, %2 ], [ %indvars.iv.next40, %24 ]
+.preheader:                                       ; preds = %2, %25
+  %indvars.iv39 = phi i64 [ 0, %2 ], [ %indvars.iv.next40, %25 ]
   %.idx = mul nuw nsw i64 %indvars.iv39, 18
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
-  %21 = trunc i64 %indvars.iv39 to i32
-  %22 = mul i32 %13, %21
-  br label %25
-
-23:                                               ; preds = %24
-  ret void
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
+  %22 = trunc i64 %indvars.iv39 to i32
+  %23 = mul i32 %14, %22
+  br label %26
 
 24:                                               ; preds = %25
+  ret void
+
+25:                                               ; preds = %26
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 4
-  br i1 %exitcond42.not, label %23, label %.preheader, !llvm.loop !140
+  br i1 %exitcond42.not, label %24, label %.preheader, !llvm.loop !140
 
-25:                                               ; preds = %.preheader, %25
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
+26:                                               ; preds = %.preheader, %26
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %26 ]
   %gep = getelementptr inbounds nuw [3 x i8], ptr %invariant.gep, i64 %indvars.iv
-  %26 = load i8, ptr %gep, align 1, !tbaa !76
-  %27 = getelementptr inbounds nuw i8, ptr %gep, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !76
-  %29 = getelementptr inbounds nuw i8, ptr %gep, i64 2
-  %30 = load i8, ptr %29, align 1, !tbaa !76
+  %27 = load i8, ptr %gep, align 1, !tbaa !76
+  %28 = getelementptr inbounds nuw i8, ptr %gep, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !76
+  %30 = getelementptr inbounds nuw i8, ptr %gep, i64 2
+  %31 = load i8, ptr %30, align 1, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i8 %26, ptr %3, align 1, !tbaa !76
-  store i8 %28, ptr %16, align 1, !tbaa !76
-  store i8 %30, ptr %17, align 1, !tbaa !76
-  store i8 0, ptr %18, align 1, !tbaa !76
-  call void @ff_draw_color(ptr noundef nonnull %19, ptr noundef nonnull %4, ptr noundef nonnull %3) #20
+  store i8 %27, ptr %3, align 1, !tbaa !76
+  store i8 %29, ptr %17, align 1, !tbaa !76
+  store i8 %31, ptr %18, align 1, !tbaa !76
+  store i8 0, ptr %19, align 1, !tbaa !76
+  call void @ff_draw_color(ptr noundef nonnull %20, ptr noundef nonnull %4, ptr noundef nonnull %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %31 = trunc i64 %indvars.iv to i32
-  %32 = mul i32 %11, %31
-  call void @ff_fill_rectangle(ptr noundef nonnull %19, ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %20, i32 noundef %32, i32 noundef %22, i32 noundef %11, i32 noundef %13) #20
+  %32 = trunc i64 %indvars.iv to i32
+  %33 = mul i32 %12, %32
+  call void @ff_fill_rectangle(ptr noundef nonnull %20, ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %21, i32 noundef %33, i32 noundef %23, i32 noundef %12, i32 noundef %14) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %24, label %25, !llvm.loop !141
+  br i1 %exitcond.not, label %25, label %26, !llvm.loop !141
 }
 
 ; Function Attrs: nounwind uwtable

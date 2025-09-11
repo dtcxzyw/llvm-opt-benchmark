@@ -245,12 +245,12 @@ define ptr @H5O__chunk_protect(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %34 = load ptr, ptr %33, align 8, !tbaa !33
   %35 = zext i32 %2 to i64
-  %36 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %34, i64 %35, i32 1
-  %37 = load i64, ptr %36, align 8, !tbaa !43
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %37, ptr %38, align 8, !tbaa !44
-  %39 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %34, i64 %35
-  %40 = load i64, ptr %39, align 8, !tbaa !34
+  %36 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %34, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load i64, ptr %37, align 8, !tbaa !43
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %38, ptr %39, align 8, !tbaa !44
+  %40 = load i64, ptr %36, align 8, !tbaa !34
   %41 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_OHDR_CHK, i64 noundef %40, ptr noundef nonnull %5, i32 noundef 0) #4
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %47
@@ -436,7 +436,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_resize(ptr noundef %0, ptr noundef %1) l
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %29, !prof !25
+  br i1 %8, label %9, label %30, !prof !25
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -451,24 +451,25 @@ define range(i32 -1, 1) i32 @H5O__chunk_resize(ptr noundef %0, ptr noundef %1) l
   %17 = load i64, ptr %16, align 8, !tbaa !43
   %18 = tail call i32 @H5AC_resize_entry(ptr noundef %0, i64 noundef %17) #4
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %.sink.split, label %29
+  br i1 %19, label %.sink.split, label %30
 
 20:                                               ; preds = %9
   %21 = zext i32 %11 to i64
-  %22 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %14, i64 %21, i32 1
-  %23 = load i64, ptr %22, align 8, !tbaa !43
-  %24 = tail call i32 @H5AC_resize_entry(ptr noundef nonnull %1, i64 noundef %23) #4
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %.sink.split, label %29
+  %22 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %14, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load i64, ptr %23, align 8, !tbaa !43
+  %25 = tail call i32 @H5AC_resize_entry(ptr noundef nonnull %1, i64 noundef %24) #4
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %.sink.split, label %30
 
 .sink.split:                                      ; preds = %20, %15
   %.sink = phi i32 [ 273, %15 ], [ 278, %20 ]
-  %26 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !3
-  %27 = load i64, ptr @H5E_CANTRESIZE_g, align 8, !tbaa !3
-  %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__chunk_resize, i32 noundef %.sink, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.11) #4
-  br label %29
+  %27 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !3
+  %28 = load i64, ptr @H5E_CANTRESIZE_g, align 8, !tbaa !3
+  %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__chunk_resize, i32 noundef %.sink, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.11) #4
+  br label %30
 
-29:                                               ; preds = %.sink.split, %20, %15, %2
+30:                                               ; preds = %.sink.split, %20, %15, %2
   %.0 = phi i32 [ 0, %15 ], [ 0, %20 ], [ 0, %2 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
@@ -502,12 +503,12 @@ define range(i32 -1, 1) i32 @H5O__chunk_update_idx(ptr noundef %0, ptr noundef %
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %18, i64 %19, i32 1
-  %21 = load i64, ptr %20, align 8, !tbaa !43
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %21, ptr %22, align 8, !tbaa !44
-  %23 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %18, i64 %19
-  %24 = load i64, ptr %23, align 8, !tbaa !34
+  %20 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !43
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %22, ptr %23, align 8, !tbaa !44
+  %24 = load i64, ptr %20, align 8, !tbaa !34
   %25 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_OHDR_CHK, i64 noundef %24, ptr noundef nonnull %4, i32 noundef 0) #4
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %31

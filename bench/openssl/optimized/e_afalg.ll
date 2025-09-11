@@ -330,17 +330,18 @@ ERR_unload_AFALG_strings.exit.i.i.preheader:      ; preds = %107, %106
 
 ERR_unload_AFALG_strings.exit.i.i:                ; preds = %ERR_unload_AFALG_strings.exit.i.i.preheader, %ERR_unload_AFALG_strings.exit.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %ERR_unload_AFALG_strings.exit.i.i ], [ 0, %ERR_unload_AFALG_strings.exit.i.i.preheader ]
-  %110 = getelementptr inbounds nuw %struct.cbc_cipher_handles, ptr @cbc_handle, i64 %indvars.iv.i.i.i, i32 1
-  %111 = load ptr, ptr %110, align 8, !tbaa !19
-  call void @EVP_CIPHER_meth_free(ptr noundef %111) #13
-  store ptr null, ptr %110, align 8, !tbaa !19
+  %110 = getelementptr inbounds nuw %struct.cbc_cipher_handles, ptr @cbc_handle, i64 %indvars.iv.i.i.i
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8, !tbaa !19
+  call void @EVP_CIPHER_meth_free(ptr noundef %112) #13
+  store ptr null, ptr %111, align 8, !tbaa !19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
   br i1 %exitcond.not.i.i.i, label %bind_helper.exit, label %ERR_unload_AFALG_strings.exit.i.i, !llvm.loop !22
 
 bind_helper.exit:                                 ; preds = %ERR_unload_AFALG_strings.exit.i.i, %afalg_chk_platform.exit.thread.i, %19, %103
-  %112 = phi i32 [ 1, %103 ], [ 0, %19 ], [ 0, %afalg_chk_platform.exit.thread.i ], [ 0, %ERR_unload_AFALG_strings.exit.i.i ]
-  ret i32 %112
+  %113 = phi i32 [ 1, %103 ], [ 0, %19 ], [ 0, %afalg_chk_platform.exit.thread.i ], [ 0, %ERR_unload_AFALG_strings.exit.i.i ]
+  ret i32 %113
 }
 
 declare ptr @ENGINE_get_static_state() local_unnamed_addr #2
@@ -368,10 +369,11 @@ ERR_unload_AFALG_strings.exit.preheader:          ; preds = %1, %2
 
 ERR_unload_AFALG_strings.exit:                    ; preds = %ERR_unload_AFALG_strings.exit.preheader, %ERR_unload_AFALG_strings.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ERR_unload_AFALG_strings.exit ], [ 0, %ERR_unload_AFALG_strings.exit.preheader ]
-  %5 = getelementptr inbounds nuw %struct.cbc_cipher_handles, ptr @cbc_handle, i64 %indvars.iv.i, i32 1
-  %6 = load ptr, ptr %5, align 8, !tbaa !19
-  tail call void @EVP_CIPHER_meth_free(ptr noundef %6) #13
-  store ptr null, ptr %5, align 8, !tbaa !19
+  %5 = getelementptr inbounds nuw %struct.cbc_cipher_handles, ptr @cbc_handle, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
+  tail call void @EVP_CIPHER_meth_free(ptr noundef %7) #13
+  store ptr null, ptr %6, align 8, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %free_cbc.exit, label %ERR_unload_AFALG_strings.exit, !llvm.loop !22

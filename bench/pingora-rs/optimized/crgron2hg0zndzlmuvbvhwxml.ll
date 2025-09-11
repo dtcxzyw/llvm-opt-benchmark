@@ -2711,10 +2711,11 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   ret void
 
 91:                                               ; preds = %48
-  %92 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, i64 }, ptr %10, i64 %50, i32 1
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %92, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  %92 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, i64 }, ptr %10, i64 %50
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 %50, ptr %0, align 8
   tail call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5d17c4a107d2fad0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   br label %90
@@ -2722,25 +2723,25 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
 .loopexit:                                        ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha373de69937a3fbcE.exit.i.i"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %95
 
 .loopexit.split-lp:                               ; preds = %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %95
 
-94:                                               ; preds = %.loopexit.split-lp, %.loopexit
+95:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %95 = load i64, ptr %4, align 8, !range !3, !alias.scope !385, !noundef !4
-  %96 = icmp eq i64 %95, -9223372036854775808
-  br i1 %96, label %.noexc8, label %97
+  %96 = load i64, ptr %4, align 8, !range !3, !alias.scope !385, !noundef !4
+  %97 = icmp eq i64 %96, -9223372036854775808
+  br i1 %97, label %.noexc8, label %98
 
-97:                                               ; preds = %94
+98:                                               ; preds = %95
   invoke void @"_ZN4core3ptr65drop_in_place$LT$pingora_cache..cache_control..DirectiveValue$GT$17hbca3457e10108e15E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %.noexc8 unwind label %98
+          to label %.noexc8 unwind label %99
 
-98:                                               ; preds = %97, %.noexc8
-  %99 = landingpad { ptr, i32 }
+99:                                               ; preds = %98, %.noexc8
+  %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18
   unreachable
@@ -2749,9 +2750,9 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   %eh.lpad-body12 = phi { ptr, i32 } [ %lpad.phi, %.noexc8 ], [ %79, %.noexc.i ], [ %75, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
-.noexc8:                                          ; preds = %97, %94
+.noexc8:                                          ; preds = %98, %95
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5d17c4a107d2fad0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #17
-          to label %.critedge unwind label %98
+          to label %.critedge unwind label %99
 }
 
 ; Function Attrs: nonlazybind uwtable

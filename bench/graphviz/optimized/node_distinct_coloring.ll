@@ -467,18 +467,18 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   br label %77
 
 ._crit_edge:                                      ; preds = %64
-  %73 = sext i32 %67 to i64
   %mul.ov.i = icmp slt i32 %67, 0
-  br i1 %mul.ov.i, label %74, label %77
+  br i1 %mul.ov.i, label %73, label %77
 
-74:                                               ; preds = %._crit_edge
+73:                                               ; preds = %._crit_edge
+  %74 = sext i32 %67 to i64
   %75 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.7, i64 noundef range(i64 -2147483648, 2147483648) %73, i64 noundef 8) #18
+  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.7, i64 noundef range(i64 -2147483648, 2147483648) %74, i64 noundef 8) #18
   call fastcc void @graphviz_exit() #19
   unreachable
 
 77:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %78 = phi i64 [ %72, %._crit_edge.thread ], [ %73, %._crit_edge ]
+  %78 = phi i64 [ %72, %._crit_edge.thread ], [ 0, %._crit_edge ]
   %79 = icmp ne i32 %34, 0
   %80 = call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %78, i64 noundef 8) #20
   %81 = icmp eq ptr %80, null

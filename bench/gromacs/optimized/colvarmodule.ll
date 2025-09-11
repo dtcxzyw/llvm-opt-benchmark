@@ -24466,16 +24466,17 @@ define noundef i64 @_ZNK12colvarmodule21num_variables_featureEi(ptr noundef nonn
 
 8:                                                ; preds = %.lr.ph, %8
   %.08 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %8 ]
-  %.sroa.03.07 = phi ptr [ %4, %.lr.ph ], [ %15, %8 ]
+  %.sroa.03.07 = phi ptr [ %4, %.lr.ph ], [ %16, %8 ]
   %9 = load ptr, ptr %.sroa.03.07, align 8, !tbaa !269
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 368
   %11 = load ptr, ptr %10, align 8, !tbaa !447
-  %12 = getelementptr inbounds nuw %"struct.colvardeps::feature_state", ptr %11, i64 %7, i32 1
-  %13 = load i8, ptr %12, align 1, !tbaa !450, !range !266, !noundef !267
-  %14 = zext nneg i8 %13 to i64
-  %spec.select = add i64 %.08, %14
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 8
-  %.not = icmp eq ptr %15, %6
+  %12 = getelementptr inbounds nuw %"struct.colvardeps::feature_state", ptr %11, i64 %7
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %14 = load i8, ptr %13, align 1, !tbaa !450, !range !266, !noundef !267
+  %15 = zext nneg i8 %14 to i64
+  %spec.select = add i64 %.08, %15
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 8
+  %.not = icmp eq ptr %16, %6
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !464
 }
 
@@ -24498,7 +24499,7 @@ define noundef i64 @_ZNK12colvarmodule18num_biases_featureEi(ptr noundef nonnull
 
 8:                                                ; preds = %.lr.ph, %8
   %.08 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %8 ]
-  %.sroa.03.07 = phi ptr [ %4, %.lr.ph ], [ %19, %8 ]
+  %.sroa.03.07 = phi ptr [ %4, %.lr.ph ], [ %20, %8 ]
   %9 = load ptr, ptr %.sroa.03.07, align 8, !tbaa !332
   %10 = load ptr, ptr %9, align 8, !tbaa !100
   %11 = getelementptr i8, ptr %10, i64 -32
@@ -24506,12 +24507,13 @@ define noundef i64 @_ZNK12colvarmodule18num_biases_featureEi(ptr noundef nonnull
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !447
-  %16 = getelementptr inbounds nuw %"struct.colvardeps::feature_state", ptr %15, i64 %7, i32 1
-  %17 = load i8, ptr %16, align 1, !tbaa !450, !range !266, !noundef !267
-  %18 = zext nneg i8 %17 to i64
-  %spec.select = add i64 %.08, %18
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 8
-  %.not = icmp eq ptr %19, %6
+  %16 = getelementptr inbounds nuw %"struct.colvardeps::feature_state", ptr %15, i64 %7
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  %18 = load i8, ptr %17, align 1, !tbaa !450, !range !266, !noundef !267
+  %19 = zext nneg i8 %18 to i64
+  %spec.select = add i64 %.08, %19
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 8
+  %.not = icmp eq ptr %20, %6
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !465
 }
 

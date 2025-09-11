@@ -6688,35 +6688,35 @@ define void @_ZN3gmx34VelocityScalingTemperatureCoupling9setLambdaEl(ptr noundef
   %56 = load i32, ptr %52, align 8, !tbaa !105
   %57 = icmp eq i32 %56, 0
   %58 = load ptr, ptr %53, align 8, !tbaa !279
-  br i1 %57, label %59, label %69
+  %59 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %58, i64 %indvars.iv
+  br i1 %57, label %60, label %70
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %58, i64 %indvars.iv, i32 4
-  %61 = load float, ptr %60, align 4, !tbaa !144
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %63 = load float, ptr %62, align 4, !tbaa !144
-  %64 = fadd float %61, %63
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %66 = load float, ptr %65, align 4, !tbaa !144
-  %67 = fadd float %64, %66
-  %68 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %58, i64 %indvars.iv, i32 1
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 80
+  %62 = load float, ptr %61, align 4, !tbaa !144
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 96
+  %64 = load float, ptr %63, align 4, !tbaa !144
+  %65 = fadd float %62, %64
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 112
+  %67 = load float, ptr %66, align 4, !tbaa !144
+  %68 = fadd float %65, %67
+  %69 = getelementptr inbounds nuw i8, ptr %59, i64 4
   br label %79
 
-69:                                               ; preds = %55
-  %70 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %58, i64 %indvars.iv, i32 2
-  %71 = load float, ptr %70, align 4, !tbaa !144
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %73 = load float, ptr %72, align 4, !tbaa !144
-  %74 = fadd float %71, %73
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %76 = load float, ptr %75, align 4, !tbaa !144
-  %77 = fadd float %74, %76
-  %78 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %58, i64 %indvars.iv
+70:                                               ; preds = %55
+  %71 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %72 = load float, ptr %71, align 4, !tbaa !144
+  %73 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %74 = load float, ptr %73, align 4, !tbaa !144
+  %75 = fadd float %72, %74
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %77 = load float, ptr %76, align 4, !tbaa !144
+  %78 = fadd float %75, %77
   br label %79
 
-79:                                               ; preds = %69, %59
-  %80 = phi float [ %67, %59 ], [ %77, %69 ]
-  %.in = phi ptr [ %68, %59 ], [ %78, %69 ]
+79:                                               ; preds = %70, %60
+  %80 = phi float [ %68, %60 ], [ %78, %70 ]
+  %.in = phi ptr [ %69, %60 ], [ %59, %70 ]
   %81 = load float, ptr %.in, align 4, !tbaa !144
   %82 = load ptr, ptr %54, align 8, !tbaa !57
   %83 = load ptr, ptr %82, align 8, !tbaa !52

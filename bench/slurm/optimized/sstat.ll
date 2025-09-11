@@ -439,7 +439,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 10:                                               ; preds = %8, %2
   %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58) #5
-  br label %91
+  br label %93
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr @print_fields_list, align 8
@@ -456,7 +456,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %19
 
 19:                                               ; preds = %.lr.ph37, %.loopexit
-  %20 = phi ptr [ %16, %.lr.ph37 ], [ %81, %.loopexit ]
+  %20 = phi ptr [ %16, %.lr.ph37 ], [ %83, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -495,113 +495,115 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.61, ptr noundef nonnull %21) #5
   br label %.loopexit, !llvm.loop !14
 
-.lr.ph:                                           ; preds = %29, %75
-  %42 = phi ptr [ %76, %75 ], [ %30, %29 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %29 ]
+.lr.ph:                                           ; preds = %29, %77
+  %42 = phi ptr [ %78, %77 ], [ %30, %29 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %77 ], [ 0, %29 ]
   %43 = load i32, ptr %18, align 8
   %44 = icmp eq i32 %43, -2
-  %.pre43 = load i32, ptr @params, align 8
-  br i1 %44, label %45, label %51
+  %.pre44 = load i32, ptr @params, align 8
+  br i1 %44, label %45, label %52
 
 45:                                               ; preds = %.lr.ph
-  %.not33 = icmp eq i32 %.pre43, 0
+  %.not33 = icmp eq i32 %.pre44, 0
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %47, i64 %indvars.iv, i32 24, i32 3
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp ugt i32 %49, -16
-  %or.cond = select i1 %.not33, i1 %50, i1 false
-  br i1 %or.cond, label %75, label %._crit_edge40
+  %48 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %47, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 176
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp ugt i32 %50, -16
+  %or.cond = select i1 %.not33, i1 %51, i1 false
+  br i1 %or.cond, label %77, label %._crit_edge40
 
 ._crit_edge40:                                    ; preds = %45
-  store i32 %49, ptr %18, align 8
-  br label %51
+  store i32 %50, ptr %18, align 8
+  br label %52
 
-51:                                               ; preds = %._crit_edge40, %.lr.ph
-  %.not34 = icmp eq i32 %.pre43, 0
-  br i1 %.not34, label %52, label %._crit_edge44
+52:                                               ; preds = %._crit_edge40, %.lr.ph
+  %.not34 = icmp eq i32 %.pre44, 0
+  br i1 %.not34, label %53, label %._crit_edge45
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %54, i64 %indvars.iv, i32 24
-  %56 = call zeroext i1 @verify_step_id(ptr noundef nonnull %55, ptr noundef nonnull %3) #5
+53:                                               ; preds = %52
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %55, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 160
+  %58 = call zeroext i1 @verify_step_id(ptr noundef nonnull %57, ptr noundef nonnull %3) #5
+  %.pre48 = load ptr, ptr %4, align 8
+  br i1 %58, label %._crit_edge45, label %77
+
+._crit_edge45:                                    ; preds = %53, %52
+  %59 = phi ptr [ %42, %52 ], [ %.pre48, %53 ]
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %61, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 160
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 80
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 32
+  %67 = load i32, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 36
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  %71 = load i32, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %62, i64 152
+  %73 = load i16, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 208
+  %75 = load ptr, ptr %74, align 8
+  %76 = call i32 @_do_stat(ptr noundef nonnull %63, ptr noundef %65, i32 noundef %67, i32 noundef %69, i32 noundef %71, i16 noundef zeroext %73, ptr noundef %75)
   %.pre47 = load ptr, ptr %4, align 8
-  br i1 %56, label %._crit_edge44, label %75
+  br label %77
 
-._crit_edge44:                                    ; preds = %52, %51
-  %57 = phi ptr [ %42, %51 ], [ %.pre47, %52 ]
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %59, i64 %indvars.iv
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 160
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 80
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %65 = load i32, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %60, i64 36
-  %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %60, i64 152
-  %71 = load i16, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %60, i64 208
-  %73 = load ptr, ptr %72, align 8
-  %74 = call i32 @_do_stat(ptr noundef nonnull %61, ptr noundef %63, i32 noundef %65, i32 noundef %67, i32 noundef %69, i16 noundef zeroext %71, ptr noundef %73)
-  %.pre46 = load ptr, ptr %4, align 8
-  br label %75
-
-75:                                               ; preds = %45, %52, %._crit_edge44
-  %76 = phi ptr [ %.pre47, %52 ], [ %.pre46, %._crit_edge44 ], [ %42, %45 ]
+77:                                               ; preds = %45, %53, %._crit_edge45
+  %78 = phi ptr [ %.pre48, %53 ], [ %.pre47, %._crit_edge45 ], [ %42, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load i32, ptr %77, align 8
-  %79 = zext i32 %78 to i64
-  %80 = icmp samesign ult i64 %indvars.iv.next, %79
-  br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = load i32, ptr %79, align 8
+  %81 = zext i32 %80 to i64
+  %82 = icmp samesign ult i64 %indvars.iv.next, %81
+  br i1 %82, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %75, %36, %40, %25
+.loopexit:                                        ; preds = %77, %36, %40, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %81 = call ptr @list_next(ptr noundef %15) #5
-  %.not27 = icmp eq ptr %81, null
+  %83 = call ptr @list_next(ptr noundef %15) #5
+  %.not27 = icmp eq ptr %83, null
   br i1 %.not27, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %.loopexit, %12
   call void @list_iterator_destroy(ptr noundef %15) #5
   call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 8)) #5
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
-  %.not28 = icmp eq ptr %82, null
-  br i1 %.not28, label %84, label %83
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
+  %.not28 = icmp eq ptr %84, null
+  br i1 %.not28, label %86, label %85
 
-83:                                               ; preds = %._crit_edge
-  call void @list_destroy(ptr noundef nonnull %82) #5
-  br label %84
+85:                                               ; preds = %._crit_edge
+  call void @list_destroy(ptr noundef nonnull %84) #5
+  br label %86
 
-84:                                               ; preds = %83, %._crit_edge
+86:                                               ; preds = %85, %._crit_edge
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @params, i64 24), align 8
-  %85 = load ptr, ptr @print_fields_itr, align 8
-  %.not29 = icmp eq ptr %85, null
-  br i1 %.not29, label %87, label %86
+  %87 = load ptr, ptr @print_fields_itr, align 8
+  %.not29 = icmp eq ptr %87, null
+  br i1 %.not29, label %89, label %88
 
-86:                                               ; preds = %84
-  call void @list_iterator_destroy(ptr noundef nonnull %85) #5
-  br label %87
+88:                                               ; preds = %86
+  call void @list_iterator_destroy(ptr noundef nonnull %87) #5
+  br label %89
 
-87:                                               ; preds = %84, %86
-  %88 = load ptr, ptr @print_fields_list, align 8
-  %.not30 = icmp eq ptr %88, null
-  br i1 %.not30, label %90, label %89
+89:                                               ; preds = %86, %88
+  %90 = load ptr, ptr @print_fields_list, align 8
+  %.not30 = icmp eq ptr %90, null
+  br i1 %.not30, label %92, label %91
 
-89:                                               ; preds = %87
-  call void @list_destroy(ptr noundef nonnull %88) #5
-  br label %90
+91:                                               ; preds = %89
+  call void @list_destroy(ptr noundef nonnull %90) #5
+  br label %92
 
-90:                                               ; preds = %89, %87
+92:                                               ; preds = %91, %89
   store ptr null, ptr @print_fields_list, align 8
-  br label %91
+  br label %93
 
-91:                                               ; preds = %90, %10
-  %.020 = phi i32 [ 0, %90 ], [ 1, %10 ]
+93:                                               ; preds = %92, %10
+  %.020 = phi i32 [ 0, %92 ], [ 1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.020
 }

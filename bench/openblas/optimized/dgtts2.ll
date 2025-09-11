@@ -156,7 +156,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %108 = fdiv double %105, %107
   store double %108, ptr %gep503, align 8, !tbaa !7
   %indvars.iv.next439 = add nsw i64 %indvars.iv438, -1
-  %109 = icmp sgt i64 %indvars.iv438, 1
+  %109 = icmp samesign ugt i64 %indvars.iv438, 1
   br i1 %109, label %87, label %.loopexit, !llvm.loop !11
 
 .preheader354:                                    ; preds = %.preheader355, %._crit_edge384
@@ -272,7 +272,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %175 = fdiv double %172, %174
   store double %175, ptr %gep489, align 8, !tbaa !7
   %indvars.iv.next426 = add nsw i64 %indvars.iv425, -1
-  %176 = icmp sgt i64 %indvars.iv425, 1
+  %176 = icmp samesign ugt i64 %indvars.iv425, 1
   br i1 %176, label %155, label %._crit_edge384, !llvm.loop !13
 
 ._crit_edge384:                                   ; preds = %155, %._crit_edge380.thread, %._crit_edge380
@@ -380,7 +380,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %229 = load double, ptr %gep483, align 8, !tbaa !7
   store double %229, ptr %gep479, align 8, !tbaa !7
   store double %227, ptr %gep483, align 8, !tbaa !7
-  %230 = icmp sgt i64 %indvars.iv412, 2
+  %230 = icmp samesign ugt i64 %indvars.iv412, 2
   br i1 %230, label %.lr.ph375, label %.loopexit, !llvm.loop !16
 
 231:                                              ; preds = %.preheader361, %._crit_edge
@@ -481,7 +481,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %280
 
 280:                                              ; preds = %266, %273
-  %281 = icmp sgt i64 %indvars.iv399, 2
+  %281 = icmp samesign ugt i64 %indvars.iv399, 2
   br i1 %281, label %.lr.ph368, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %280, %231

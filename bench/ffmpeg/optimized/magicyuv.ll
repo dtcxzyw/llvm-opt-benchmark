@@ -309,7 +309,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 143:                                              ; preds = %.lr.ph
   %144 = sub nuw i32 %142, %.0182247
-  %145 = getelementptr inbounds nuw %struct.Slice, ptr %130, i64 %indvars.iv, i32 1
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 4
   store i32 %144, ptr %145, align 4, !tbaa !60
   %146 = icmp ult i32 %144, 2
   br i1 %146, label %.loopexit, label %147
@@ -332,7 +332,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %150 = getelementptr inbounds nuw %struct.Slice, ptr %130, i64 %.0183.lcssa
   store i32 %149, ptr %150, align 4, !tbaa !58
   %151 = sub i32 %133, %149
-  %152 = getelementptr inbounds nuw %struct.Slice, ptr %130, i64 %.0183.lcssa, i32 1
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store i32 %151, ptr %152, align 4, !tbaa !60
   %153 = icmp ult i32 %151, 2
   br i1 %153, label %.loopexit, label %120
@@ -560,7 +560,7 @@ define internal range(i32 -1094995529, 1) i32 @magy_decode_slice(ptr noundef %0,
   %77 = getelementptr inbounds i8, ptr %72, i64 %76
   %78 = and i8 %67, 1
   %.not298 = icmp eq i8 %78, 0
-  %79 = getelementptr inbounds %struct.Slice, ptr %55, i64 %24, i32 1
+  %79 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !60
   %81 = add i32 %80, -2
   br i1 %.not298, label %91, label %82
@@ -721,12 +721,12 @@ bits_peek_be.exit.i:                              ; preds = %bits_peek_nz_be.exi
   %155 = load i32, ptr %.sroa.34.9, align 1, !tbaa !30
   %156 = call i32 @llvm.bswap.i32(i32 %155)
   %157 = zext i32 %156 to i64
-  %158 = sub i32 32, %151
+  %158 = sub nsw i32 32, %151
   %159 = zext nneg i32 %158 to i64
   %160 = shl i64 %157, %159
   %161 = or i64 %160, %150
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.34.9, i64 4
-  %163 = add i32 %151, 32
+  %163 = add nuw nsw i32 %151, 32
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %154, %149
@@ -896,12 +896,12 @@ bits_peek_be.exit.i312:                           ; preds = %221, %bits_peek_nz_
   %249 = load i32, ptr %.sroa.34.15, align 1, !tbaa !30
   %250 = call i32 @llvm.bswap.i32(i32 %249)
   %251 = zext i32 %250 to i64
-  %252 = sub i32 32, %245
+  %252 = sub nsw i32 32, %245
   %253 = zext nneg i32 %252 to i64
   %254 = shl i64 %251, %253
   %255 = or i64 %254, %244
   %256 = getelementptr inbounds nuw i8, ptr %.sroa.34.15, i64 4
-  %257 = add i32 %245, 32
+  %257 = add nuw nsw i32 %245, 32
   br label %bits_priv_set_idx_be.exit.i316
 
 bits_priv_set_idx_be.exit.i316:                   ; preds = %248, %243
@@ -1555,12 +1555,12 @@ bits_peek_be.exit.i:                              ; preds = %bits_peek_nz_be.exi
   %182 = load i32, ptr %.sroa.50.13, align 1, !tbaa !30
   %183 = tail call i32 @llvm.bswap.i32(i32 %182)
   %184 = zext i32 %183 to i64
-  %185 = sub i32 32, %178
+  %185 = sub nsw i32 32, %178
   %186 = zext nneg i32 %185 to i64
   %187 = shl i64 %184, %186
   %188 = or i64 %187, %177
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.50.13, i64 4
-  %190 = add i32 %178, 32
+  %190 = add nuw nsw i32 %178, 32
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %181, %176
@@ -1729,12 +1729,12 @@ bits_peek_be.exit.i333:                           ; preds = %247, %bits_peek_nz_
   %275 = load i32, ptr %.sroa.50.19, align 1, !tbaa !30
   %276 = tail call i32 @llvm.bswap.i32(i32 %275)
   %277 = zext i32 %276 to i64
-  %278 = sub i32 32, %271
+  %278 = sub nsw i32 32, %271
   %279 = zext nneg i32 %278 to i64
   %280 = shl i64 %277, %279
   %281 = or i64 %280, %270
   %282 = getelementptr inbounds nuw i8, ptr %.sroa.50.19, i64 4
-  %283 = add i32 %271, 32
+  %283 = add nuw nsw i32 %271, 32
   br label %bits_priv_set_idx_be.exit.i337
 
 bits_priv_set_idx_be.exit.i337:                   ; preds = %274, %269

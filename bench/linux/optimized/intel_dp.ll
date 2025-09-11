@@ -11427,7 +11427,8 @@ define internal fastcc void @intel_dp_check_device_service_irq(ptr noundef %0) u
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 126
   %216 = load i8, ptr %215, align 1
   %217 = zext i8 %216 to i64
-  %218 = getelementptr %struct.edid, ptr %214, i64 %217, i32 27
+  %.split = getelementptr %struct.edid, ptr %214, i64 %217
+  %218 = getelementptr i8, ptr %.split, i64 127
   %219 = load i8, ptr %218, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %219, ptr %3, align 1
@@ -13215,7 +13216,8 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %6 to i64
-  %14 = getelementptr %struct.__drm_connnectors_state, ptr %12, i64 %13, i32 3
+  %.split = getelementptr %struct.__drm_connnectors_state, ptr %12, i64 %13
+  %14 = getelementptr i8, ptr %.split, i64 24
   %15 = load ptr, ptr %14, align 8
   br label %16
 
@@ -13245,7 +13247,7 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   %27 = phi ptr [ %24, %22 ], [ %19, %16 ], [ %19, %16 ], [ %19, %16 ], [ %19, %16 ], [ null, %25 ]
   %28 = tail call i32 @intel_digital_connector_atomic_check(ptr noundef %0, ptr noundef %1) #14
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %.thread18
+  br i1 %29, label %30, label %.thread21
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 392
@@ -13256,17 +13258,17 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 2152
   %35 = tail call i32 @drm_dp_mst_root_conn_atomic_check(ptr noundef %17, ptr noundef nonnull %34) #14
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %.thread18
+  br i1 %36, label %37, label %.thread21
 
 37:                                               ; preds = %33, %30
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 2632
   %39 = load i16, ptr %38, align 8
   %40 = icmp ult i16 %39, 9
-  br i1 %40, label %.thread18, label %41
+  br i1 %40, label %.thread21, label %41
 
 41:                                               ; preds = %37
   %42 = tail call zeroext i1 @intel_connector_needs_modeset(ptr noundef %1, ptr noundef %0) #14
-  br i1 %42, label %43, label %.thread18
+  br i1 %42, label %43, label %.thread21
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -13320,7 +13322,8 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 144
   %77 = load i32, ptr %76, align 8
   %78 = zext i32 %77 to i64
-  %79 = getelementptr %struct.__drm_crtcs_state, ptr %75, i64 %78, i32 3
+  %.split17 = getelementptr %struct.__drm_crtcs_state, ptr %75, i64 %78
+  %79 = getelementptr i8, ptr %.split17, i64 24
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 10
   %82 = load i8, ptr %81, align 2
@@ -13328,17 +13331,17 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   store i8 %83, ptr %81, align 2
   %84 = call i32 @drm_atomic_add_affected_planes(ptr noundef %1, ptr noundef nonnull %72) #14
   %.not = icmp eq i32 %84, 0
-  br i1 %.not, label %.backedge, label %.thread17
+  br i1 %.not, label %.backedge, label %.thread20
 
 .backedge:                                        ; preds = %.lr.ph, %61, %70, %74
   %85 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #14
   %86 = icmp eq ptr %85, null
   br i1 %86, label %.loopexit.thread, label %.lr.ph
 
-.thread17:                                        ; preds = %74
+.thread20:                                        ; preds = %74
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread18
+  br label %.thread21
 
 .loopexit.thread:                                 ; preds = %.backedge, %47
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #14
@@ -13351,7 +13354,7 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %.thread18
+  br i1 %89, label %90, label %.thread21
 
 90:                                               ; preds = %.loopexit.thread, %.loopexit, %43
   %91 = load i32, ptr %5, align 8
@@ -13363,7 +13366,8 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %96 = load ptr, ptr %95, align 8
   %97 = sext i32 %91 to i64
-  %98 = getelementptr %struct.__drm_connnectors_state, ptr %96, i64 %97, i32 2
+  %.split18 = getelementptr %struct.__drm_connnectors_state, ptr %96, i64 %97
+  %98 = getelementptr i8, ptr %.split18, i64 16
   %99 = load ptr, ptr %98, align 8
   br label %100
 
@@ -13372,7 +13376,7 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %.thread18, label %105
+  br i1 %104, label %.thread21, label %105
 
 105:                                              ; preds = %100
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -13380,12 +13384,13 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   %108 = getelementptr inbounds nuw i8, ptr %103, i64 144
   %109 = load i32, ptr %108, align 8
   %110 = zext i32 %109 to i64
-  %111 = getelementptr %struct.__drm_crtcs_state, ptr %107, i64 %110, i32 2
+  %.split19 = getelementptr %struct.__drm_crtcs_state, ptr %107, i64 %110
+  %111 = getelementptr i8, ptr %.split19, i64 16
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 336
   %114 = load i8, ptr %113, align 8, !range !10, !noundef !11
   %115 = icmp eq i8 %114, 0
-  br i1 %115, label %.thread18, label %116
+  br i1 %115, label %.thread21, label %116
 
 116:                                              ; preds = %105
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 4912
@@ -13401,7 +13406,7 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq i8 %126, 0
-  br i1 %129, label %.thread18, label %130
+  br i1 %129, label %.thread21, label %130
 
 130:                                              ; preds = %116
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 736
@@ -13420,7 +13425,7 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
 139:                                              ; preds = %.preheader
   %140 = ptrtoint ptr %137 to i64
   %141 = trunc i64 %140 to i32
-  br label %.thread18
+  br label %.thread21
 
 142:                                              ; preds = %.preheader
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 337
@@ -13445,12 +13450,12 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   store i8 %157, ptr %155, align 2
   %158 = call i32 @drm_atomic_add_affected_connectors(ptr noundef %1, ptr noundef %136) #14
   %159 = icmp eq i32 %158, 0
-  br i1 %159, label %160, label %.thread18
+  br i1 %159, label %160, label %.thread21
 
 160:                                              ; preds = %154
   %161 = call i32 @drm_atomic_add_affected_planes(ptr noundef %1, ptr noundef %136) #14
   %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %.thread18
+  br i1 %162, label %163, label %.thread21
 
 163:                                              ; preds = %160
   %164 = load i32, ptr %148, align 8
@@ -13469,7 +13474,7 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
 
 174:                                              ; preds = %170
   %175 = icmp eq i8 %171, 0
-  br i1 %175, label %.thread18, label %176, !prof !54
+  br i1 %175, label %.thread21, label %176, !prof !54
 
 176:                                              ; preds = %174, %130
   call void asm sideeffect "1119: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1119b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1119) #14, !srcloc !231
@@ -13493,10 +13498,10 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 5971, i32 2313, i64 12) #14, !srcloc !233
   call void asm sideeffect "1121: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1121b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1121) #14, !srcloc !234
   call void asm sideeffect "1122: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1122b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1122) #14, !srcloc !235
-  br label %.thread18
+  br label %.thread21
 
-.thread18:                                        ; preds = %160, %154, %139, %.thread17, %186, %174, %116, %105, %100, %.loopexit, %41, %37, %33, %26
-  %188 = phi i32 [ %28, %26 ], [ %35, %33 ], [ 0, %37 ], [ 0, %41 ], [ %88, %.loopexit ], [ 0, %100 ], [ 0, %105 ], [ 0, %116 ], [ 0, %186 ], [ 0, %174 ], [ %84, %.thread17 ], [ %141, %139 ], [ %158, %154 ], [ %161, %160 ]
+.thread21:                                        ; preds = %160, %154, %139, %.thread20, %186, %174, %116, %105, %100, %.loopexit, %41, %37, %33, %26
+  %188 = phi i32 [ %28, %26 ], [ %35, %33 ], [ 0, %37 ], [ 0, %41 ], [ %88, %.loopexit ], [ 0, %100 ], [ 0, %105 ], [ 0, %116 ], [ 0, %186 ], [ 0, %174 ], [ %84, %.thread20 ], [ %141, %139 ], [ %158, %154 ], [ %161, %160 ]
   ret i32 %188
 }
 

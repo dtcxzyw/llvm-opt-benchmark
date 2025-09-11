@@ -4435,8 +4435,8 @@ define internal i32 @T1_Get_MM_Var(ptr noundef readonly captures(none) %0, ptr n
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %48
 
-48:                                               ; preds = %.lr.ph, %78
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
+48:                                               ; preds = %.lr.ph, %77
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %49 = getelementptr inbounds nuw %struct.FT_MM_Axis_, ptr %47, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !398
   %51 = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %44, i64 %indvars.iv
@@ -4444,19 +4444,19 @@ define internal i32 @T1_Get_MM_Var(ptr noundef readonly captures(none) %0, ptr n
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !401
   %54 = shl nsw i64 %53, 16
-  %55 = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %44, i64 %indvars.iv, i32 1
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %54, ptr %55, align 8, !tbaa !420
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !402
   %58 = shl nsw i64 %57, 16
-  %59 = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %44, i64 %indvars.iv, i32 3
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i64 %58, ptr %59, align 8, !tbaa !421
-  %60 = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %44, i64 %indvars.iv, i32 5
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 40
   store i32 -1, ptr %60, align 8, !tbaa !422
-  %61 = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %44, i64 %indvars.iv, i32 4
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i64 4294967295, ptr %61, align 8, !tbaa !423
   %.not67 = icmp eq ptr %50, null
-  br i1 %.not67, label %78, label %62
+  br i1 %.not67, label %77, label %62
 
 62:                                               ; preds = %48
   %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(7) @.str.9) #17
@@ -4481,100 +4481,100 @@ define internal i32 @T1_Get_MM_Var(ptr noundef readonly captures(none) %0, ptr n
 74:                                               ; preds = %71
   %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(7) @.str.13) #17
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %.sink.split, label %78
+  br i1 %76, label %.sink.split, label %77
 
 .sink.split:                                      ; preds = %74, %71, %68, %65, %62
   %.sink = phi i64 [ 2003265652, %62 ], [ 2003072104, %65 ], [ 1869640570, %68 ], [ 1936486004, %71 ], [ 1769234796, %74 ]
-  %77 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  store i64 %.sink, ptr %77, align 8, !tbaa !423
-  br label %78
+  store i64 %.sink, ptr %61, align 8, !tbaa !423
+  br label %77
 
-78:                                               ; preds = %.sink.split, %74, %48
+77:                                               ; preds = %.sink.split, %74, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !424
 
-._crit_edge:                                      ; preds = %78
-  %79 = getelementptr inbounds nuw i8, ptr %9, i64 272
-  %80 = load ptr, ptr %79, align 8, !tbaa !425
-  %81 = load i32, ptr %11, align 4, !tbaa !110
-  call fastcc void @mm_weights_unmap(ptr noundef %80, ptr noundef %5, i32 noundef %81)
-  %82 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  br label %83
+._crit_edge:                                      ; preds = %77
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 272
+  %79 = load ptr, ptr %78, align 8, !tbaa !425
+  %80 = load i32, ptr %11, align 4, !tbaa !110
+  call fastcc void @mm_weights_unmap(ptr noundef %79, ptr noundef %5, i32 noundef %80)
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 168
+  br label %82
 
-83:                                               ; preds = %._crit_edge, %mm_axis_unmap.exit
-  %84 = phi ptr [ %44, %._crit_edge ], [ %121, %mm_axis_unmap.exit ]
+82:                                               ; preds = %._crit_edge, %mm_axis_unmap.exit
+  %83 = phi ptr [ %44, %._crit_edge ], [ %120, %mm_axis_unmap.exit ]
   %indvars.iv87 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next88, %mm_axis_unmap.exit ]
-  %85 = getelementptr inbounds nuw %struct.PS_DesignMap_, ptr %82, i64 %indvars.iv87
-  %86 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv87
-  %87 = load i64, ptr %86, align 8, !tbaa !104
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !404
-  %90 = load i64, ptr %89, align 8, !tbaa !104
-  %.not.i68 = icmp sgt i64 %87, %90
-  br i1 %.not.i68, label %.preheader.i, label %93
+  %84 = getelementptr inbounds nuw %struct.PS_DesignMap_, ptr %81, i64 %indvars.iv87
+  %85 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv87
+  %86 = load i64, ptr %85, align 8, !tbaa !104
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !404
+  %89 = load i64, ptr %88, align 8, !tbaa !104
+  %.not.i68 = icmp sgt i64 %86, %89
+  br i1 %.not.i68, label %.preheader.i, label %92
 
-.preheader.i:                                     ; preds = %83
-  %91 = load i8, ptr %85, align 8, !tbaa !115
-  %92 = icmp ugt i8 %91, 1
-  %wide.trip.count.i69 = zext i8 %91 to i64
-  br i1 %92, label %.lr.ph.i70, label %._crit_edge.i
+.preheader.i:                                     ; preds = %82
+  %90 = load i8, ptr %84, align 8, !tbaa !115
+  %91 = icmp ugt i8 %90, 1
+  %wide.trip.count.i69 = zext i8 %90 to i64
+  br i1 %91, label %.lr.ph.i70, label %._crit_edge.i
 
-93:                                               ; preds = %83
-  %94 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !400
-  %96 = load i64, ptr %95, align 8, !tbaa !104
+92:                                               ; preds = %82
+  %93 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %94 = load ptr, ptr %93, align 8, !tbaa !400
+  %95 = load i64, ptr %94, align 8, !tbaa !104
   br label %mm_axis_unmap.exit
 
-.lr.ph.i70:                                       ; preds = %.preheader.i, %115
-  %indvars.iv.i71 = phi i64 [ %indvars.iv.next.i72, %115 ], [ 1, %.preheader.i ]
-  %97 = getelementptr inbounds nuw i64, ptr %89, i64 %indvars.iv.i71
-  %98 = load i64, ptr %97, align 8, !tbaa !104
-  %.not28.i = icmp sgt i64 %87, %98
-  br i1 %.not28.i, label %115, label %99
+.lr.ph.i70:                                       ; preds = %.preheader.i, %114
+  %indvars.iv.i71 = phi i64 [ %indvars.iv.next.i72, %114 ], [ 1, %.preheader.i ]
+  %96 = getelementptr inbounds nuw i64, ptr %88, i64 %indvars.iv.i71
+  %97 = load i64, ptr %96, align 8, !tbaa !104
+  %.not28.i = icmp sgt i64 %86, %97
+  br i1 %.not28.i, label %114, label %98
 
-99:                                               ; preds = %.lr.ph.i70
-  %100 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %101 = load ptr, ptr %100, align 8, !tbaa !400
-  %102 = shl i64 %indvars.iv.i71, 32
-  %sext.i = add i64 %102, -4294967296
-  %103 = ashr exact i64 %sext.i, 32
-  %104 = getelementptr inbounds i64, ptr %101, i64 %103
-  %105 = load i64, ptr %104, align 8, !tbaa !104
-  %106 = getelementptr inbounds i64, ptr %89, i64 %103
-  %107 = load i64, ptr %106, align 8, !tbaa !104
-  %108 = sub nsw i64 %87, %107
-  %109 = getelementptr inbounds nuw i64, ptr %101, i64 %indvars.iv.i71
-  %110 = load i64, ptr %109, align 8, !tbaa !104
-  %111 = sub nsw i64 %110, %105
-  %112 = sub nsw i64 %98, %107
-  %113 = call i64 @FT_MulDiv(i64 noundef %108, i64 noundef %111, i64 noundef %112) #16
-  %114 = add nsw i64 %113, %105
+98:                                               ; preds = %.lr.ph.i70
+  %99 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %100 = load ptr, ptr %99, align 8, !tbaa !400
+  %101 = shl i64 %indvars.iv.i71, 32
+  %sext.i = add i64 %101, -4294967296
+  %102 = ashr exact i64 %sext.i, 32
+  %103 = getelementptr inbounds i64, ptr %100, i64 %102
+  %104 = load i64, ptr %103, align 8, !tbaa !104
+  %105 = getelementptr inbounds i64, ptr %88, i64 %102
+  %106 = load i64, ptr %105, align 8, !tbaa !104
+  %107 = sub nsw i64 %86, %106
+  %108 = getelementptr inbounds nuw i64, ptr %100, i64 %indvars.iv.i71
+  %109 = load i64, ptr %108, align 8, !tbaa !104
+  %110 = sub nsw i64 %109, %104
+  %111 = sub nsw i64 %97, %106
+  %112 = call i64 @FT_MulDiv(i64 noundef %107, i64 noundef %110, i64 noundef %111) #16
+  %113 = add nsw i64 %112, %104
   %.pre = load ptr, ptr %45, align 8, !tbaa !416
   br label %mm_axis_unmap.exit
 
-115:                                              ; preds = %.lr.ph.i70
+114:                                              ; preds = %.lr.ph.i70
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i69
   br i1 %exitcond.not.i73, label %._crit_edge.i, label %.lr.ph.i70, !llvm.loop !426
 
-._crit_edge.i:                                    ; preds = %115, %.preheader.i
-  %116 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %117 = load ptr, ptr %116, align 8, !tbaa !400
-  %118 = getelementptr i64, ptr %117, i64 %wide.trip.count.i69
-  %119 = getelementptr i8, ptr %118, i64 -8
-  %120 = load i64, ptr %119, align 8, !tbaa !104
+._crit_edge.i:                                    ; preds = %114, %.preheader.i
+  %115 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %116 = load ptr, ptr %115, align 8, !tbaa !400
+  %117 = getelementptr i64, ptr %116, i64 %wide.trip.count.i69
+  %118 = getelementptr i8, ptr %117, i64 -8
+  %119 = load i64, ptr %118, align 8, !tbaa !104
   br label %mm_axis_unmap.exit
 
-mm_axis_unmap.exit:                               ; preds = %93, %99, %._crit_edge.i
-  %121 = phi ptr [ %84, %93 ], [ %.pre, %99 ], [ %84, %._crit_edge.i ]
-  %.024.in.i = phi i64 [ %96, %93 ], [ %114, %99 ], [ %120, %._crit_edge.i ]
+mm_axis_unmap.exit:                               ; preds = %92, %98, %._crit_edge.i
+  %120 = phi ptr [ %83, %92 ], [ %.pre, %98 ], [ %83, %._crit_edge.i ]
+  %.024.in.i = phi i64 [ %95, %92 ], [ %113, %98 ], [ %119, %._crit_edge.i ]
   %.024.i = shl nsw i64 %.024.in.i, 16
-  %122 = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %121, i64 %indvars.iv87, i32 2
+  %121 = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %120, i64 %indvars.iv87
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 %.024.i, ptr %122, align 8, !tbaa !427
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %.pre-phi
-  br i1 %exitcond91.not, label %._crit_edge82, label %83, !llvm.loop !428
+  br i1 %exitcond91.not, label %._crit_edge82, label %82, !llvm.loop !428
 
 ._crit_edge82:                                    ; preds = %mm_axis_unmap.exit, %40
   store ptr %38, ptr %1, align 8, !tbaa !429

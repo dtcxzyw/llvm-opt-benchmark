@@ -782,7 +782,7 @@ compute_lpc_coefs.exit:                           ; preds = %.loopexit.i, %37
   %102 = load float, ptr %101, align 4, !tbaa !65
   store float %102, ptr %100, align 4, !tbaa !65
   %indvars.iv.next157 = add nsw i64 %indvars.iv156, -1
-  %103 = icmp sgt i64 %indvars.iv156, 1
+  %103 = icmp samesign ugt i64 %indvars.iv156, 1
   br i1 %103, label %.lr.ph125, label %._crit_edge126, !llvm.loop !92
 
 ._crit_edge126:                                   ; preds = %.lr.ph125, %.preheader

@@ -150,16 +150,17 @@ define hidden noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %.056 = phi i64 [ 0, %1 ], [ %5, %2 ]
-  %3 = getelementptr inbounds nuw %class.MallocMemory, ptr %0, i64 %indvars.iv, i32 1, i32 1
-  %4 = load volatile i64, ptr %3, align 8
-  %5 = add i64 %4, %.056
+  %.056 = phi i64 [ 0, %1 ], [ %6, %2 ]
+  %3 = getelementptr inbounds nuw %class.MallocMemory, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %5 = load volatile i64, ptr %4, align 8
+  %6 = add i64 %5, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !10
+  br i1 %exitcond.not, label %7, label %2, !llvm.loop !10
 
-6:                                                ; preds = %2
-  ret i64 %5
+7:                                                ; preds = %2
+  ret i64 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -168,36 +169,37 @@ define hidden void @_ZN20MallocMemorySnapshot15make_adjustmentEv(ptr noundef non
 
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
-  %.056.i = phi i64 [ 0, %1 ], [ %5, %2 ]
-  %3 = getelementptr inbounds nuw %class.MallocMemory, ptr %0, i64 %indvars.iv.i, i32 1, i32 1
-  %4 = load volatile i64, ptr %3, align 8
-  %5 = add i64 %4, %.056.i
+  %.056.i = phi i64 [ 0, %1 ], [ %6, %2 ]
+  %3 = getelementptr inbounds nuw %class.MallocMemory, ptr %0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %5 = load volatile i64, ptr %4, align 8
+  %6 = add i64 %5, %.056.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28
   br i1 %exitcond.not.i, label %_ZNK20MallocMemorySnapshot11total_arenaEv.exit, label %2, !llvm.loop !10
 
 _ZNK20MallocMemorySnapshot11total_arenaEv.exit:   ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %7 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(64) %6) #10, !srcloc !11
-  %.not.i.i = icmp eq i64 %5, 0
-  br i1 %.not.i.i, label %_ZN12MallocMemory11record_freeEm.exit.thread, label %10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(64) %7) #10, !srcloc !11
+  %.not.i.i = icmp eq i64 %6, 0
+  br i1 %.not.i.i, label %_ZN12MallocMemory11record_freeEm.exit.thread, label %11
 
 _ZN12MallocMemory11record_freeEm.exit.thread:     ; preds = %_ZNK20MallocMemorySnapshot11total_arenaEv.exit
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %9 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(32) %8) #10, !srcloc !11
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1792
+  %10 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(32) %9) #10, !srcloc !11
   br label %_ZN13MemoryCounter10deallocateEm.exit
 
-10:                                               ; preds = %_ZNK20MallocMemorySnapshot11total_arenaEv.exit
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %12 = sub i64 0, %5
-  %13 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull %11) #10, !srcloc !11
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(32) %14) #10, !srcloc !11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1800
-  %17 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull %16) #10, !srcloc !11
+11:                                               ; preds = %_ZNK20MallocMemorySnapshot11total_arenaEv.exit
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %13 = sub i64 0, %6
+  %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %13, ptr nonnull %12) #10, !srcloc !11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1792
+  %16 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(32) %15) #10, !srcloc !11
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %18 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %13, ptr nonnull %17) #10, !srcloc !11
   br label %_ZN13MemoryCounter10deallocateEm.exit
 
-_ZN13MemoryCounter10deallocateEm.exit:            ; preds = %_ZN12MallocMemory11record_freeEm.exit.thread, %10
+_ZN13MemoryCounter10deallocateEm.exit:            ; preds = %_ZN12MallocMemory11record_freeEm.exit.thread, %11
   ret void
 }
 

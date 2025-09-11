@@ -246,7 +246,7 @@ define range(i32 -2147483648, 1) i32 @ofilter_bind_enc(ptr noundef %0, i32 nound
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %37, ptr %38, align 8, !tbaa !44
   %.not118 = icmp eq ptr %37, null
-  br i1 %.not118, label %187, label %39
+  br i1 %.not118, label %188, label %39
 
 39:                                               ; preds = %19
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -254,7 +254,7 @@ define range(i32 -2147483648, 1) i32 @ofilter_bind_enc(ptr noundef %0, i32 nound
   %42 = load ptr, ptr %41, align 8, !tbaa !45
   %43 = tail call i32 @av_dict_copy(ptr noundef nonnull %40, ptr noundef %42, i32 noundef 0) #17
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %187, label %45
+  br i1 %44, label %188, label %45
 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -262,7 +262,7 @@ define range(i32 -2147483648, 1) i32 @ofilter_bind_enc(ptr noundef %0, i32 nound
   %48 = load ptr, ptr %47, align 8, !tbaa !46
   %49 = tail call i32 @av_dict_copy(ptr noundef nonnull %46, ptr noundef %48, i32 noundef 0) #17
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %187, label %51
+  br i1 %50, label %188, label %51
 
 51:                                               ; preds = %45
   %52 = load i32, ptr %21, align 8, !tbaa !29
@@ -375,7 +375,7 @@ define range(i32 -2147483648, 1) i32 @ofilter_bind_enc(ptr noundef %0, i32 nound
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %110, ptr %111, align 8, !tbaa !72
   %.not127 = icmp eq ptr %110, null
-  br i1 %.not127, label %187, label %112
+  br i1 %.not127, label %188, label %112
 
 112:                                              ; preds = %104
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -454,7 +454,7 @@ define range(i32 -2147483648, 1) i32 @ofilter_bind_enc(ptr noundef %0, i32 nound
   %153 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %154 = load i32, ptr %153, align 4, !tbaa !84
   %.not123 = icmp eq i32 %154, 0
-  br i1 %.not123, label %176, label %155
+  br i1 %.not123, label %177, label %155
 
 155:                                              ; preds = %152
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 120
@@ -481,59 +481,60 @@ define range(i32 -2147483648, 1) i32 @ofilter_bind_enc(ptr noundef %0, i32 nound
 
 165:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %166 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %158, i64 %indvars.iv.next.i, i32 1
-  %167 = load i32, ptr %166, align 4, !tbaa !87
-  %.not29.i = icmp eq i32 %167, 0
+  %166 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %158, i64 %indvars.iv.next.i
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
+  %168 = load i32, ptr %167, align 4, !tbaa !87
+  %.not29.i = icmp eq i32 %168, 0
   br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !88
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %165
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %165 ], [ 0, %.preheader.i ]
-  %168 = phi i32 [ %167, %165 ], [ %162, %.preheader.i ]
-  %169 = icmp eq i32 %168, %154
-  br i1 %169, label %170, label %165
+  %169 = phi i32 [ %168, %165 ], [ %162, %.preheader.i ]
+  %170 = icmp eq i32 %169, %154
+  br i1 %170, label %171, label %165
 
-170:                                              ; preds = %.lr.ph.i
-  %171 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %158, i64 %indvars.iv.i
+171:                                              ; preds = %.lr.ph.i
+  %172 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %158, i64 %indvars.iv.i
   br label %set_channel_layout.exit
 
 ._crit_edge.i:                                    ; preds = %165, %.preheader.i
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  tail call void @av_channel_layout_default(ptr noundef nonnull %172, i32 noundef %154) #17
-  br label %set_channel_layout.exit.thread
-
-set_channel_layout.exit:                          ; preds = %155, %170
-  %.sink147 = phi ptr [ %171, %170 ], [ %156, %155 ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %174 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %173, ptr noundef nonnull %.sink147) #17
-  %..i = tail call i32 @llvm.smin.i32(i32 %174, i32 0)
-  %175 = icmp sgt i32 %174, -1
-  br i1 %175, label %set_channel_layout.exit.thread, label %187
-
-176:                                              ; preds = %152
-  %177 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  %178 = load ptr, ptr %177, align 8, !tbaa !85
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %178, ptr %179, align 8, !tbaa !90
+  tail call void @av_channel_layout_default(ptr noundef nonnull %173, i32 noundef %154) #17
   br label %set_channel_layout.exit.thread
 
-set_channel_layout.exit.thread:                   ; preds = %163, %._crit_edge.i, %176, %set_channel_layout.exit, %132, %68
-  %180 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %181 = load ptr, ptr %180, align 8, !tbaa !91
-  %182 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  %183 = load i32, ptr %182, align 8, !tbaa !92
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %185 = load i32, ptr %184, align 8, !tbaa !93
-  %.sroa.26.0.insert.ext = zext i32 %183 to i64
+set_channel_layout.exit:                          ; preds = %155, %171
+  %.sink147 = phi ptr [ %172, %171 ], [ %156, %155 ]
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %175 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %174, ptr noundef nonnull %.sink147) #17
+  %..i = tail call i32 @llvm.smin.i32(i32 %175, i32 0)
+  %176 = icmp sgt i32 %175, -1
+  br i1 %176, label %set_channel_layout.exit.thread, label %188
+
+177:                                              ; preds = %152
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %179 = load ptr, ptr %178, align 8, !tbaa !85
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store ptr %179, ptr %180, align 8, !tbaa !90
+  br label %set_channel_layout.exit.thread
+
+set_channel_layout.exit.thread:                   ; preds = %163, %._crit_edge.i, %177, %set_channel_layout.exit, %132, %68
+  %181 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %182 = load ptr, ptr %181, align 8, !tbaa !91
+  %183 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %184 = load i32, ptr %183, align 8, !tbaa !92
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %186 = load i32, ptr %185, align 8, !tbaa !93
+  %.sroa.26.0.insert.ext = zext i32 %184 to i64
   %.sroa.26.0.insert.shift = shl nuw i64 %.sroa.26.0.insert.ext, 32
   %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.26.0.insert.shift, 6
   %.sroa.24.0.insert.ext = zext i32 %1 to i64
   %.sroa.24.0.insert.shift = shl nuw i64 %.sroa.24.0.insert.ext, 32
   %.sroa.03.0.insert.insert = or disjoint i64 %.sroa.24.0.insert.shift, 4
-  %186 = tail call i32 @sch_connect(ptr noundef %181, i64 %.sroa.05.0.insert.insert, i32 %185, i64 %.sroa.03.0.insert.insert, i32 0) #17
-  %. = tail call i32 @llvm.smin.i32(i32 %186, i32 0)
-  br label %187
+  %187 = tail call i32 @sch_connect(ptr noundef %182, i64 %.sroa.05.0.insert.insert, i32 %186, i64 %.sroa.03.0.insert.insert, i32 0) #17
+  %. = tail call i32 @llvm.smin.i32(i32 %187, i32 0)
+  br label %188
 
-187:                                              ; preds = %set_channel_layout.exit.thread, %104, %45, %39, %19, %set_channel_layout.exit
+188:                                              ; preds = %set_channel_layout.exit.thread, %104, %45, %39, %19, %set_channel_layout.exit
   %.0 = phi i32 [ %..i, %set_channel_layout.exit ], [ -22, %19 ], [ %43, %39 ], [ %49, %45 ], [ -12, %104 ], [ %., %set_channel_layout.exit.thread ]
   ret i32 %.0
 }

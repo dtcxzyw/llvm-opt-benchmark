@@ -229,8 +229,7 @@ memcheck.exit:                                    ; preds = %18
   br label %91
 
 91:                                               ; preds = %89, %84
-  %.idx = mul nuw nsw i64 %indvars.iv, 24
-  %92 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
+  %92 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %13, i64 %indvars.iv
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load i32, ptr %93, align 8, !tbaa !49
   %95 = zext i32 %94 to i64

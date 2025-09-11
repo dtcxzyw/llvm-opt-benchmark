@@ -6420,7 +6420,7 @@ calc_sum.exit.i:                                  ; preds = %746, %736
 
 .lr.ph140.preheader.i:                            ; preds = %calc_sum.exit.i
   %754 = add nsw i32 %740, -1
-  %wide.trip.count168.i = zext i32 %754 to i64
+  %wide.trip.count168.i = zext nneg i32 %754 to i64
   %wide.trip.count163.i = zext i16 %738 to i64
   br label %.lr.ph138.i
 

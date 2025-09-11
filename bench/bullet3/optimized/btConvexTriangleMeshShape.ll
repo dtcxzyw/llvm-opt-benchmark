@@ -206,65 +206,66 @@ define dso_local void @_ZNK25btConvexTriangleMeshShape49batchedUnitVectorGetSupp
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %wide.trip.count28 = zext nneg i32 %3 to i64
-  br label %18
+  br label %19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv, i32 0, i64 3
-  store float 0xC3ABC16D60000000, ptr %17, align 4, !tbaa !27
+  %17 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  store float 0xC3ABC16D60000000, ptr %18, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph23, label %.lr.ph, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %24, %4
+._crit_edge:                                      ; preds = %25, %4
   ret void
 
-18:                                               ; preds = %.lr.ph23, %24
-  %indvars.iv25 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next26, %24 ]
-  %19 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv25
+19:                                               ; preds = %.lr.ph23, %25
+  %indvars.iv25 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next26, %25 ]
+  %20 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV26LocalSupportVertexCallback, i64 16), ptr %5, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store float 0xC3ABC16D60000000, ptr %10, align 8, !tbaa !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0x43ABC16D60000000, ptr %6, align 4, !tbaa !27
   store float 0x43ABC16D60000000, ptr %12, align 4, !tbaa !27
   store float 0x43ABC16D60000000, ptr %13, align 4, !tbaa !27
   store float 0.000000e+00, ptr %14, align 4, !tbaa !27
-  %20 = load ptr, ptr %15, align 8, !tbaa !7
+  %21 = load ptr, ptr %15, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x float> splat (float 0xC3ABC16D60000000), ptr %7, align 8
   store <2 x float> <float 0xC3ABC16D60000000, float 0.000000e+00>, ptr %16, align 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !4
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %6)
-          to label %24 unwind label %26
+  %22 = load ptr, ptr %21, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %6)
+          to label %25 unwind label %27
 
-24:                                               ; preds = %18
+25:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %9, align 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !23
-  %25 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv25
-  store <2 x float> %.sroa.0.0.copyload.i, ptr %25, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv25
+  store <2 x float> %.sroa.0.0.copyload.i, ptr %26, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   store <2 x float> %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
-  br i1 %exitcond29.not, label %._crit_edge, label %18, !llvm.loop !31
+  br i1 %exitcond29.not, label %._crit_edge, label %19, !llvm.loop !31
 
-26:                                               ; preds = %18
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %19
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN31btInternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %27
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable

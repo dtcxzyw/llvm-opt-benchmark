@@ -7060,7 +7060,7 @@ _ZN6vectorISt4pairIN2dt6solver8stack_opEPN3euf5enodeEELb0EjE4backEv.exit10: ; pr
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %44
   %46 = load i32, ptr %45, align 8, !tbaa !569
-  %47 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %44, i32 1
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !572
   store i32 %43, ptr %40, align 4, !tbaa !387
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 64

@@ -423,19 +423,20 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %4, label %.lr.ph.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb6863f84bfe0d32dE.exit
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %5 = phi i64 [ %7, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
+  %5 = phi i64 [ %8, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %.sroa.0.010.i = phi i64 [ %6, %.lr.ph.i ], [ %0, %3 ]
   %6 = add nuw i64 %.sroa.0.010.i, 1
-  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %.sroa.7.0.copyload, i64 %5, i32 1
+  %7 = getelementptr inbounds nuw { { { [4 x i64] } }, { i8 }, [7 x i8] }, ptr %.sroa.7.0.copyload, i64 %5
+  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !75
-  %7 = add i64 %5, 1
+  %8 = add i64 %5, 1
   %exitcond.not.i = icmp eq i64 %6, %1
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb6863f84bfe0d32dE.exit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hb6863f84bfe0d32dE.exit: ; preds = %.lr.ph.i, %3
-  %.val4.i = phi i64 [ %.sroa.4.0.copyload, %3 ], [ %7, %.lr.ph.i ]
-  %8 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %8)
+  %.val4.i = phi i64 [ %.sroa.4.0.copyload, %3 ], [ %8, %.lr.ph.i ]
+  %9 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %9)
   store i64 %.val4.i, ptr %.sroa.0.0.copyload, align 8, !noalias !84
   ret void
 }
@@ -451,19 +452,20 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %4, label %.lr.ph.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h8671b33b0aefac05E.exit
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %5 = phi i64 [ %7, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
+  %5 = phi i64 [ %8, %.lr.ph.i ], [ %.sroa.4.0.copyload, %3 ]
   %.sroa.0.010.i = phi i64 [ %6, %.lr.ph.i ], [ %0, %3 ]
   %6 = add nuw i64 %.sroa.0.010.i, 1
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds { { { [4 x i64] } }, { i64 } }, ptr %.sroa.7.0.copyload, i64 %5, i32 1
+  %7 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %.sroa.7.0.copyload, i64 %5
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %.sroa.0.010.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !85
-  %7 = add i64 %5, 1
+  %8 = add i64 %5, 1
   %exitcond.not.i = icmp eq i64 %6, %1
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h8671b33b0aefac05E.exit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h8671b33b0aefac05E.exit: ; preds = %.lr.ph.i, %3
-  %.val4.i = phi i64 [ %.sroa.4.0.copyload, %3 ], [ %7, %.lr.ph.i ]
-  %8 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %8)
+  %.val4.i = phi i64 [ %.sroa.4.0.copyload, %3 ], [ %8, %.lr.ph.i ]
+  %9 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %9)
   store i64 %.val4.i, ptr %.sroa.0.0.copyload, align 8, !noalias !94
   ret void
 }
@@ -5432,7 +5434,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17hec36ab7795d75b38E.exit.
   %207 = load ptr, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !574, !noalias !523, !nonnull !15, !align !18, !noundef !15
   %.sroa.0.0.in.i.i.i = getelementptr inbounds nuw { ptr, i64 }, ptr %207, i64 %.sroa.022.0.i.i
   %.sroa.0.0.i30.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !noalias !571, !nonnull !15, !align !178, !noundef !15
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw { ptr, i64 }, ptr %207, i64 %.sroa.022.0.i.i, i32 1
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i.i.i, i64 8
   %.sroa.3.0.i31.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !571, !noundef !15
   %208 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h1006af51af461533E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %203, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i30.i.i, i64 noundef %.sroa.3.0.i31.i.i)
   br i1 %208, label %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread267.i", label %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread264.i"
@@ -6614,7 +6616,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17hb7b5834208b0d965E.exit:
   %55 = load ptr, ptr %.in.i, align 8, !alias.scope !677, !nonnull !15, !align !18, !noundef !15
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %55, i64 %switch.offset
   %.sroa.0.0.i28 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !677, !nonnull !15, !align !178, !noundef !15
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %55, i64 %switch.offset, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i29 = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !677, !noundef !15
   %56 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h1006af51af461533E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %23, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i28, i64 noundef %.sroa.3.0.i29)
   br i1 %56, label %57, label %63
@@ -6859,7 +6861,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17hec36ab7795d75b38E.exit:
   %107 = load ptr, ptr %.in.i, align 8, !alias.scope !701, !nonnull !15, !align !18, !noundef !15
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %107, i64 %93
   %.sroa.0.0.i30 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !701, !nonnull !15, !align !178, !noundef !15
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %107, i64 %93, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i31 = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !701, !noundef !15
   %108 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h1006af51af461533E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %92, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i30, i64 noundef %.sroa.3.0.i31)
   br i1 %108, label %109, label %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34"
@@ -7102,7 +7104,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17hec36ab7795d75b38E.exit:
   %108 = load ptr, ptr %.in.i, align 8, !alias.scope !725, !nonnull !15, !align !18, !noundef !15
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %108, i64 %94
   %.sroa.0.0.i30 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !725, !nonnull !15, !align !178, !noundef !15
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %108, i64 %94, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i31 = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !725, !noundef !15
   %109 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h1006af51af461533E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %93, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i30, i64 noundef %.sroa.3.0.i31)
   br i1 %109, label %110, label %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34"

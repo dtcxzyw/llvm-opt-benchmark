@@ -995,7 +995,8 @@ if.end:                                           ; preds = %_ZN6hermes2vm7Hades
   %sub.i = sub nuw nsw i32 276, %2
   %retval.0.i = select i1 %cmp.i7, i32 %shr.i, i32 %sub.i
   %conv4 = zext nneg i32 %retval.0.i to i64
-  %head = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %segBuckets, i64 %conv4, i32 2
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %segBuckets, i64 %conv4
+  %head = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %head, align 8
   %next_ = getelementptr inbounds nuw i8, ptr %freeRangeStart, i64 4
   store i32 %agg.tmp.sroa.0.0.copyload, ptr %next_, align 4
@@ -1238,8 +1239,8 @@ _ZNSt5dequeISt5arrayIN6hermes2vm7HadesGC6OldGen13SegmentBucketELm267EESaIS6_EEix
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt5dequeISt5arrayIN6hermes2vm7HadesGC6OldGen13SegmentBucketELm267EESaIS6_EEixEm.exit, %for.inc
-  %bucket.0149 = phi i64 [ 0, %_ZNSt5dequeISt5arrayIN6hermes2vm7HadesGC6OldGen13SegmentBucketELm267EESaIS6_EEixEm.exit ], [ %inc, %for.inc ]
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %storemerge.i.i.i.i, i64 %bucket.0149
+  %bucket.0151 = phi i64 [ 0, %_ZNSt5dequeISt5arrayIN6hermes2vm7HadesGC6OldGen13SegmentBucketELm267EESaIS6_EEixEm.exit ], [ %inc, %for.inc ]
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %storemerge.i.i.i.i, i64 %bucket.0151
   %head = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %8 = load i32, ptr %head, align 4
   %cmp.i.i.not = icmp eq i32 %8, 0
@@ -1265,7 +1266,7 @@ _ZNK6hermes2vm7HadesGC6OldGen13SegmentBucket18removeFromFreelistEv.exit: ; preds
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZNK6hermes2vm7HadesGC6OldGen13SegmentBucket18removeFromFreelistEv.exit
-  %inc = add nuw nsw i64 %bucket.0149, 1
+  %inc = add nuw nsw i64 %bucket.0151, 1
   %exitcond.not = icmp eq i64 %inc, 267
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
@@ -1316,8 +1317,8 @@ _ZNSt5dequeIN6hermes2vm7HadesGC11HeapSegmentESaIS3_EEixEm.exit: ; preds = %if.th
   %allocRegion_.i.i = getelementptr inbounds nuw i8, ptr %16, i64 86016
   %level_.i.i = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i63, i64 16
   %17 = load ptr, ptr %level_.i.i, align 8
-  %cmp.i.i68.not150 = icmp eq ptr %allocRegion_.i.i, %17
-  br i1 %cmp.i.i68.not150, label %if.end69, label %for.body24.lr.ph
+  %cmp.i.i68.not152 = icmp eq ptr %allocRegion_.i.i, %17
+  br i1 %cmp.i.i68.not152, label %if.end69, label %for.body24.lr.ph
 
 for.body24.lr.ph:                                 ; preds = %_ZNSt5dequeIN6hermes2vm7HadesGC11HeapSegmentESaIS3_EEixEm.exit
   %18 = getelementptr inbounds nuw i8, ptr %boundary.i, i64 8
@@ -1325,12 +1326,12 @@ for.body24.lr.ph:                                 ; preds = %_ZNSt5dequeIN6herme
   br label %for.body24
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.inc63
-  %freeRangeStart.0155 = phi ptr [ null, %for.body24.lr.ph ], [ %freeRangeStart.1, %for.inc63 ]
-  %freeRangeEnd.0154 = phi ptr [ null, %for.body24.lr.ph ], [ %freeRangeEnd.1, %for.inc63 ]
-  %mergedCells.0153 = phi i64 [ 0, %for.body24.lr.ph ], [ %mergedCells.1, %for.inc63 ]
-  %segmentSweptBytes.0152 = phi i32 [ 0, %for.body24.lr.ph ], [ %segmentSweptBytes.1, %for.inc63 ]
-  %__begin2.sroa.0.0151 = phi ptr [ %allocRegion_.i.i, %for.body24.lr.ph ], [ %add.ptr.i.i97, %for.inc63 ]
-  %20 = ptrtoint ptr %__begin2.sroa.0.0151 to i64
+  %freeRangeStart.0157 = phi ptr [ null, %for.body24.lr.ph ], [ %freeRangeStart.1, %for.inc63 ]
+  %freeRangeEnd.0156 = phi ptr [ null, %for.body24.lr.ph ], [ %freeRangeEnd.1, %for.inc63 ]
+  %mergedCells.0155 = phi i64 [ 0, %for.body24.lr.ph ], [ %mergedCells.1, %for.inc63 ]
+  %segmentSweptBytes.0154 = phi i32 [ 0, %for.body24.lr.ph ], [ %segmentSweptBytes.1, %for.inc63 ]
+  %__begin2.sroa.0.0153 = phi ptr [ %allocRegion_.i.i, %for.body24.lr.ph ], [ %add.ptr.i.i97, %for.inc63 ]
+  %20 = ptrtoint ptr %__begin2.sroa.0.0153 to i64
   %and.i.i.i = and i64 %20, -4194304
   %21 = inttoptr i64 %and.i.i.i to ptr
   %markBitArray_.i.i = getelementptr inbounds nuw i8, ptr %21, i64 16384
@@ -1350,7 +1351,7 @@ if.then27:                                        ; preds = %for.body24
   br i1 %backgroundThread, label %for.inc63, label %if.end30
 
 if.end30:                                         ; preds = %if.then27
-  %bf.load.i.i = load i32, ptr %__begin2.sroa.0.0151, align 4
+  %bf.load.i.i = load i32, ptr %__begin2.sroa.0.0153, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 16777215
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 24
   %conv.i.i = zext nneg i32 %bf.lshr.i.i to i64
@@ -1362,7 +1363,7 @@ if.end30:                                         ; preds = %if.then27
   br i1 %tobool.not.i70, label %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end30
-  %call.i = call noundef i32 %24(ptr noundef nonnull %__begin2.sroa.0.0151) #34
+  %call.i = call noundef i32 %24(ptr noundef nonnull %__begin2.sroa.0.0153) #34
   %sub.i.i.i = add i32 %call.i, 7
   %div1.i.i.i = and i32 %sub.i.i.i, -8
   br label %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit
@@ -1374,13 +1375,13 @@ _ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit: ; preds = %if.end30, 
   br i1 %cmp35.not, label %for.inc63, label %if.then37
 
 if.then37:                                        ; preds = %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit
-  %bf.load.i.i.i = load i32, ptr %__begin2.sroa.0.0151, align 4
+  %bf.load.i.i.i = load i32, ptr %__begin2.sroa.0.0153, align 4
   %bf.lshr.i.i.i = and i32 %bf.load.i.i.i, -16777216
   %bf.value.i.i = and i32 %cond.i, 16777215
   %bf.set7.i.i = or disjoint i32 %bf.lshr.i.i.i, %bf.value.i.i
-  store i32 %bf.set7.i.i, ptr %__begin2.sroa.0.0151, align 4
+  store i32 %bf.set7.i.i, ptr %__begin2.sroa.0.0153, align 4
   %idx.ext.i = zext nneg i32 %bf.value.i.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0151, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0153, i64 %idx.ext.i
   %bf.value.i.i72 = and i32 %sub, 16777215
   %bf.set7.i.i73 = or disjoint i32 %bf.value.i.i72, 16777216
   store i32 %bf.set7.i.i73, ptr %add.ptr.i, align 4
@@ -1411,19 +1412,19 @@ _ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit: ; preds = 
   br label %for.inc63
 
 if.end42:                                         ; preds = %for.body24
-  %bf.load.i.i78 = load i32, ptr %__begin2.sroa.0.0151, align 4
+  %bf.load.i.i78 = load i32, ptr %__begin2.sroa.0.0153, align 4
   %bf.clear.i.i79 = and i32 %bf.load.i.i78, 16777215
-  %cmp44.not = icmp eq ptr %freeRangeEnd.0154, %__begin2.sroa.0.0151
+  %cmp44.not = icmp eq ptr %freeRangeEnd.0156, %__begin2.sroa.0.0153
   br i1 %cmp44.not, label %if.end51, label %if.then45
 
 if.then45:                                        ; preds = %if.end42
-  %tobool46.not = icmp eq ptr %freeRangeStart.0155, null
+  %tobool46.not = icmp eq ptr %freeRangeStart.0157, null
   br i1 %tobool46.not, label %if.end51, label %if.then48
 
 if.then48:                                        ; preds = %if.then45
-  %cmp49 = icmp ugt i64 %mergedCells.0153, 1
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %freeRangeEnd.0154 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %freeRangeStart.0155 to i64
+  %cmp49 = icmp ugt i64 %mergedCells.0155, 1
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %freeRangeEnd.0156 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %freeRangeStart.0157 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   br i1 %cmp49, label %if.then.i81, label %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit
 
@@ -1431,7 +1432,7 @@ if.then.i81:                                      ; preds = %if.then48
   call void @llvm.lifetime.start.p0(ptr nonnull %boundary.i.i)
   %and.i.i.i.i = and i64 %sub.ptr.rhs.cast.i, -4194304
   %27 = inttoptr i64 %and.i.i.i.i to ptr
-  %add.ptr.i.i.i82 = getelementptr inbounds i8, ptr %freeRangeStart.0155, i64 -1
+  %add.ptr.i.i.i82 = getelementptr inbounds i8, ptr %freeRangeStart.0157, i64 -1
   %sub.ptr.lhs.cast.i.i.i.i83 = ptrtoint ptr %add.ptr.i.i.i82 to i64
   %sub.ptr.sub.i.i.i.i84 = sub i64 %sub.ptr.lhs.cast.i.i.i.i83, %and.i.i.i.i
   %shr.i.i.i.i = ashr i64 %sub.ptr.sub.i.i.i.i84, 9
@@ -1440,12 +1441,12 @@ if.then.i81:                                      ; preds = %if.then48
   %add.ptr.i.i.i.i85 = getelementptr inbounds i8, ptr %27, i64 %shl.i.i.i.i
   store i64 %add.i.i.i, ptr %boundary.i.i, align 8
   store ptr %add.ptr.i.i.i.i85, ptr %19, align 8
-  %cmp.i.i86 = icmp ult ptr %add.ptr.i.i.i.i85, %freeRangeEnd.0154
+  %cmp.i.i86 = icmp ult ptr %add.ptr.i.i.i.i85, %freeRangeEnd.0156
   br i1 %cmp.i.i86, label %if.then.i.i, label %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i81
-  %add.ptr.i.i87 = getelementptr inbounds i8, ptr %freeRangeStart.0155, i64 %sub.ptr.sub.i
-  call void @_ZN6hermes2vm9CardTable16updateBoundariesEPNS1_8BoundaryEPKcS5_(ptr noundef nonnull align 1 dereferenceable(16384) %27, ptr noundef nonnull %boundary.i.i, ptr noundef nonnull %freeRangeStart.0155, ptr noundef nonnull %add.ptr.i.i87) #34
+  %add.ptr.i.i87 = getelementptr inbounds i8, ptr %freeRangeStart.0157, i64 %sub.ptr.sub.i
+  call void @_ZN6hermes2vm9CardTable16updateBoundariesEPNS1_8BoundaryEPKcS5_(ptr noundef nonnull align 1 dereferenceable(16384) %27, ptr noundef nonnull %boundary.i.i, ptr noundef nonnull %freeRangeStart.0157, ptr noundef nonnull %add.ptr.i.i87) #34
   br label %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i
 
 _ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i: ; preds = %if.then.i.i, %if.then.i81
@@ -1454,19 +1455,20 @@ _ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i: ; preds 
 
 _ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit: ; preds = %if.then48, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  store i64 0, ptr %freeRangeStart.0155, align 4
+  store i64 0, ptr %freeRangeStart.0157, align 4
   %bf.value.i.i.i = and i32 %conv.i, 16777215
   %bf.set7.i.i.i = or disjoint i32 %bf.value.i.i.i, 33554432
-  store i32 %bf.set7.i.i.i, ptr %freeRangeStart.0155, align 4
+  store i32 %bf.set7.i.i.i, ptr %freeRangeStart.0157, align 4
   %cmp.i7.i = icmp ult i32 %conv.i, 2048
   %shr.i.i80 = lshr i32 %conv.i, 3
   %28 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %conv.i, i1 true)
   %sub.i.i = sub nuw nsw i32 276, %28
   %retval.0.i.i = select i1 %cmp.i7.i, i32 %shr.i.i80, i32 %sub.i.i
   %conv4.i = zext nneg i32 %retval.0.i.i to i64
-  %head.i = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %storemerge.i.i.i.i, i64 %conv4.i, i32 2
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %storemerge.i.i.i.i, i64 %conv4.i
+  %head.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %head.i, align 8
-  %next_.i = getelementptr inbounds nuw i8, ptr %freeRangeStart.0155, i64 4
+  %next_.i = getelementptr inbounds nuw i8, ptr %freeRangeStart.0157, i64 4
   store i32 %agg.tmp.sroa.0.0.copyload.i, ptr %next_.i, align 4
   %29 = load ptr, ptr %this, align 8
   %pointerBase_.i.i = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -1475,14 +1477,14 @@ _ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13Se
   %sub.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i, %31
   %conv.i.i.i.i = trunc i64 %sub.i.i.i.i to i32
   store i32 %conv.i.i.i.i, ptr %head.i, align 8
-  %bf.load.i.i.i.i.i.i.i.i.i.pre = load i32, ptr %__begin2.sroa.0.0151, align 4
+  %bf.load.i.i.i.i.i.i.i.i.i.pre = load i32, ptr %__begin2.sroa.0.0153, align 4
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then45, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit, %if.end42
   %bf.load.i.i.i.i.i.i.i.i.i = phi i32 [ %bf.load.i.i78, %if.end42 ], [ %bf.load.i.i.i.i.i.i.i.i.i.pre, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit ], [ %bf.load.i.i78, %if.then45 ]
-  %mergedCells.2 = phi i64 [ %mergedCells.0153, %if.end42 ], [ 0, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit ], [ 0, %if.then45 ]
-  %freeRangeEnd.2 = phi ptr [ %freeRangeEnd.0154, %if.end42 ], [ %__begin2.sroa.0.0151, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit ], [ %__begin2.sroa.0.0151, %if.then45 ]
-  %freeRangeStart.2 = phi ptr [ %freeRangeStart.0155, %if.end42 ], [ %__begin2.sroa.0.0151, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit ], [ %__begin2.sroa.0.0151, %if.then45 ]
+  %mergedCells.2 = phi i64 [ %mergedCells.0155, %if.end42 ], [ 0, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit ], [ 0, %if.then45 ]
+  %freeRangeEnd.2 = phi ptr [ %freeRangeEnd.0156, %if.end42 ], [ %__begin2.sroa.0.0153, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit ], [ %__begin2.sroa.0.0153, %if.then45 ]
+  %freeRangeStart.2 = phi ptr [ %freeRangeStart.0157, %if.end42 ], [ %__begin2.sroa.0.0153, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit ], [ %__begin2.sroa.0.0153, %if.then45 ]
   %idx.ext = zext nneg i32 %bf.clear.i.i79 to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %freeRangeEnd.2, i64 %idx.ext
   %inc52 = add i64 %mergedCells.2, 1
@@ -1491,7 +1493,7 @@ if.end51:                                         ; preds = %if.then45, %_ZN6her
   br i1 %cmp.i.i.i.i.i.i.i, label %for.inc63, label %if.end55
 
 if.end55:                                         ; preds = %if.end51
-  %add = add i32 %bf.clear.i.i79, %segmentSweptBytes.0152
+  %add = add i32 %bf.clear.i.i79, %segmentSweptBytes.0154
   %bf.lshr.i.i89 = lshr i32 %bf.load.i.i.i.i.i.i.i.i.i, 24
   %conv.i.i90 = zext nneg i32 %bf.lshr.i.i89 to i64
   %arrayidx.i.i.i.i91 = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i90
@@ -1503,32 +1505,32 @@ if.end55:                                         ; preds = %if.end51
 
 if.then.i93:                                      ; preds = %if.end55
   %34 = load ptr, ptr %this, align 8
-  call void %33(ptr noundef nonnull %__begin2.sroa.0.0151, ptr noundef nonnull align 8 dereferenceable(8152) %34) #34
+  call void %33(ptr noundef nonnull %__begin2.sroa.0.0153, ptr noundef nonnull align 8 dereferenceable(8152) %34) #34
   br label %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit
 
 _ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit: ; preds = %if.end55, %if.then.i93
   br i1 %call2.i, label %land.lhs.true, label %for.inc63
 
 land.lhs.true:                                    ; preds = %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit
-  %bf.load.i.i.i.i.i.i.i.i.i94 = load i32, ptr %__begin2.sroa.0.0151, align 4
+  %bf.load.i.i.i.i.i.i.i.i.i94 = load i32, ptr %__begin2.sroa.0.0153, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i95 = and i32 %bf.load.i.i.i.i.i.i.i.i.i94, -16777216
   %cmp.i.i.i.i.i.i.i96 = icmp eq i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i95, 16777216
   br i1 %cmp.i.i.i.i.i.i.i96, label %for.inc63, label %if.then60
 
 if.then60:                                        ; preds = %land.lhs.true
   %35 = load ptr, ptr %this, align 8
-  call void @_ZN6hermes2vm6GCBase13untrackObjectEPKNS0_6GCCellEj(ptr noundef nonnull align 8 dereferenceable(741) %35, ptr noundef nonnull %__begin2.sroa.0.0151, i32 noundef %bf.clear.i.i79) #34
+  call void @_ZN6hermes2vm6GCBase13untrackObjectEPKNS0_6GCCellEj(ptr noundef nonnull align 8 dereferenceable(741) %35, ptr noundef nonnull %__begin2.sroa.0.0153, i32 noundef %bf.clear.i.i79) #34
   br label %for.inc63
 
 for.inc63:                                        ; preds = %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit, %land.lhs.true, %if.then60, %if.end51, %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit, %if.then27
-  %segmentSweptBytes.1 = phi i32 [ %segmentSweptBytes.0152, %if.then27 ], [ %segmentSweptBytes.0152, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit ], [ %segmentSweptBytes.0152, %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit ], [ %segmentSweptBytes.0152, %if.end51 ], [ %add, %land.lhs.true ], [ %add, %if.then60 ], [ %add, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit ]
-  %mergedCells.1 = phi i64 [ %mergedCells.0153, %if.then27 ], [ %mergedCells.0153, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit ], [ %mergedCells.0153, %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit ], [ %inc52, %if.end51 ], [ %inc52, %land.lhs.true ], [ %inc52, %if.then60 ], [ %inc52, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit ]
-  %freeRangeEnd.1 = phi ptr [ %freeRangeEnd.0154, %if.then27 ], [ %freeRangeEnd.0154, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit ], [ %freeRangeEnd.0154, %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit ], [ %add.ptr, %if.end51 ], [ %add.ptr, %land.lhs.true ], [ %add.ptr, %if.then60 ], [ %add.ptr, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit ]
-  %freeRangeStart.1 = phi ptr [ %freeRangeStart.0155, %if.then27 ], [ %freeRangeStart.0155, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit ], [ %freeRangeStart.0155, %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit ], [ %freeRangeStart.2, %if.end51 ], [ %freeRangeStart.2, %land.lhs.true ], [ %freeRangeStart.2, %if.then60 ], [ %freeRangeStart.2, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit ]
-  %bf.load.i.i.i.i = load i32, ptr %__begin2.sroa.0.0151, align 4
+  %segmentSweptBytes.1 = phi i32 [ %segmentSweptBytes.0154, %if.then27 ], [ %segmentSweptBytes.0154, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit ], [ %segmentSweptBytes.0154, %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit ], [ %segmentSweptBytes.0154, %if.end51 ], [ %add, %land.lhs.true ], [ %add, %if.then60 ], [ %add, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit ]
+  %mergedCells.1 = phi i64 [ %mergedCells.0155, %if.then27 ], [ %mergedCells.0155, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit ], [ %mergedCells.0155, %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit ], [ %inc52, %if.end51 ], [ %inc52, %land.lhs.true ], [ %inc52, %if.then60 ], [ %inc52, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit ]
+  %freeRangeEnd.1 = phi ptr [ %freeRangeEnd.0156, %if.then27 ], [ %freeRangeEnd.0156, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit ], [ %freeRangeEnd.0156, %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit ], [ %add.ptr, %if.end51 ], [ %add.ptr, %land.lhs.true ], [ %add.ptr, %if.then60 ], [ %add.ptr, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit ]
+  %freeRangeStart.1 = phi ptr [ %freeRangeStart.0157, %if.then27 ], [ %freeRangeStart.0157, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit ], [ %freeRangeStart.0157, %_ZNK6hermes2vm6VTable14getTrimmedSizeEPNS0_6GCCellEm.exit ], [ %freeRangeStart.2, %if.end51 ], [ %freeRangeStart.2, %land.lhs.true ], [ %freeRangeStart.2, %if.then60 ], [ %freeRangeStart.2, %_ZNK6hermes2vm6VTable16finalizeIfExistsEPNS0_6GCCellERNS0_7HadesGCE.exit ]
+  %bf.load.i.i.i.i = load i32, ptr %__begin2.sroa.0.0153, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 16777215
   %idx.ext.i.i = zext nneg i32 %bf.clear.i.i.i.i to i64
-  %add.ptr.i.i97 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0151, i64 %idx.ext.i.i
+  %add.ptr.i.i97 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0153, i64 %idx.ext.i.i
   %cmp.i.i68.not = icmp eq ptr %add.ptr.i.i97, %17
   br i1 %cmp.i.i68.not, label %for.end65, label %for.body24
 
@@ -1541,35 +1543,35 @@ if.then67:                                        ; preds = %for.end65
   %sub.ptr.lhs.cast.i99 = ptrtoint ptr %freeRangeEnd.1 to i64
   %sub.ptr.rhs.cast.i100 = ptrtoint ptr %freeRangeStart.1 to i64
   %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
-  br i1 %36, label %if.then.i116, label %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit129
+  br i1 %36, label %if.then.i117, label %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit130
 
-if.then.i116:                                     ; preds = %if.then67
+if.then.i117:                                     ; preds = %if.then67
   call void @llvm.lifetime.start.p0(ptr nonnull %boundary.i.i98)
-  %and.i.i.i.i117 = and i64 %sub.ptr.rhs.cast.i100, -4194304
-  %37 = inttoptr i64 %and.i.i.i.i117 to ptr
-  %add.ptr.i.i.i118 = getelementptr inbounds i8, ptr %freeRangeStart.1, i64 -1
-  %sub.ptr.lhs.cast.i.i.i.i119 = ptrtoint ptr %add.ptr.i.i.i118 to i64
-  %sub.ptr.sub.i.i.i.i120 = sub i64 %sub.ptr.lhs.cast.i.i.i.i119, %and.i.i.i.i117
-  %shr.i.i.i.i121 = ashr i64 %sub.ptr.sub.i.i.i.i120, 9
-  %add.i.i.i122 = add nsw i64 %shr.i.i.i.i121, 1
-  %shl.i.i.i.i123 = shl i64 %add.i.i.i122, 9
-  %add.ptr.i.i.i.i124 = getelementptr inbounds i8, ptr %37, i64 %shl.i.i.i.i123
-  store i64 %add.i.i.i122, ptr %boundary.i.i98, align 8
+  %and.i.i.i.i118 = and i64 %sub.ptr.rhs.cast.i100, -4194304
+  %37 = inttoptr i64 %and.i.i.i.i118 to ptr
+  %add.ptr.i.i.i119 = getelementptr inbounds i8, ptr %freeRangeStart.1, i64 -1
+  %sub.ptr.lhs.cast.i.i.i.i120 = ptrtoint ptr %add.ptr.i.i.i119 to i64
+  %sub.ptr.sub.i.i.i.i121 = sub i64 %sub.ptr.lhs.cast.i.i.i.i120, %and.i.i.i.i118
+  %shr.i.i.i.i122 = ashr i64 %sub.ptr.sub.i.i.i.i121, 9
+  %add.i.i.i123 = add nsw i64 %shr.i.i.i.i122, 1
+  %shl.i.i.i.i124 = shl i64 %add.i.i.i123, 9
+  %add.ptr.i.i.i.i125 = getelementptr inbounds i8, ptr %37, i64 %shl.i.i.i.i124
+  store i64 %add.i.i.i123, ptr %boundary.i.i98, align 8
   %38 = getelementptr inbounds nuw i8, ptr %boundary.i.i98, i64 8
-  store ptr %add.ptr.i.i.i.i124, ptr %38, align 8
-  %cmp.i.i125 = icmp ult ptr %add.ptr.i.i.i.i124, %freeRangeEnd.1
-  br i1 %cmp.i.i125, label %if.then.i.i127, label %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i126
+  store ptr %add.ptr.i.i.i.i125, ptr %38, align 8
+  %cmp.i.i126 = icmp ult ptr %add.ptr.i.i.i.i125, %freeRangeEnd.1
+  br i1 %cmp.i.i126, label %if.then.i.i128, label %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i127
 
-if.then.i.i127:                                   ; preds = %if.then.i116
-  %add.ptr.i.i128 = getelementptr inbounds i8, ptr %freeRangeStart.1, i64 %sub.ptr.sub.i101
-  call void @_ZN6hermes2vm9CardTable16updateBoundariesEPNS1_8BoundaryEPKcS5_(ptr noundef nonnull align 1 dereferenceable(16384) %37, ptr noundef nonnull %boundary.i.i98, ptr noundef nonnull %freeRangeStart.1, ptr noundef nonnull %add.ptr.i.i128) #34
-  br label %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i126
+if.then.i.i128:                                   ; preds = %if.then.i117
+  %add.ptr.i.i129 = getelementptr inbounds i8, ptr %freeRangeStart.1, i64 %sub.ptr.sub.i101
+  call void @_ZN6hermes2vm9CardTable16updateBoundariesEPNS1_8BoundaryEPKcS5_(ptr noundef nonnull align 1 dereferenceable(16384) %37, ptr noundef nonnull %boundary.i.i98, ptr noundef nonnull %freeRangeStart.1, ptr noundef nonnull %add.ptr.i.i129) #34
+  br label %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i127
 
-_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i126: ; preds = %if.then.i.i127, %if.then.i116
+_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i127: ; preds = %if.then.i.i128, %if.then.i117
   call void @llvm.lifetime.end.p0(ptr nonnull %boundary.i.i98)
-  br label %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit129
+  br label %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit130
 
-_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit129: ; preds = %if.then67, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i126
+_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit130: ; preds = %if.then67, %_ZN6hermes2vm7HadesGC11HeapSegment11setCellHeadEPKNS0_6GCCellEm.exit.i127
   %conv.i102 = trunc i64 %sub.ptr.sub.i101 to i32
   store i64 0, ptr %freeRangeStart.1, align 4
   %bf.value.i.i.i103 = and i32 %conv.i102, 16777215
@@ -1581,67 +1583,68 @@ _ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13Se
   %sub.i.i107 = sub nuw nsw i32 276, %39
   %retval.0.i.i108 = select i1 %cmp.i7.i105, i32 %shr.i.i106, i32 %sub.i.i107
   %conv4.i109 = zext nneg i32 %retval.0.i.i108 to i64
-  %head.i110 = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %storemerge.i.i.i.i, i64 %conv4.i109, i32 2
-  %agg.tmp.sroa.0.0.copyload.i111 = load i32, ptr %head.i110, align 8
-  %next_.i112 = getelementptr inbounds nuw i8, ptr %freeRangeStart.1, i64 4
-  store i32 %agg.tmp.sroa.0.0.copyload.i111, ptr %next_.i112, align 4
+  %arrayidx.i.i.i110 = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %storemerge.i.i.i.i, i64 %conv4.i109
+  %head.i111 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i110, i64 16
+  %agg.tmp.sroa.0.0.copyload.i112 = load i32, ptr %head.i111, align 8
+  %next_.i113 = getelementptr inbounds nuw i8, ptr %freeRangeStart.1, i64 4
+  store i32 %agg.tmp.sroa.0.0.copyload.i112, ptr %next_.i113, align 4
   %40 = load ptr, ptr %this, align 8
-  %pointerBase_.i.i113 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %41 = load ptr, ptr %pointerBase_.i.i113, align 8
+  %pointerBase_.i.i114 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %41 = load ptr, ptr %pointerBase_.i.i114, align 8
   %42 = ptrtoint ptr %41 to i64
-  %sub.i.i.i.i114 = sub i64 %sub.ptr.rhs.cast.i100, %42
-  %conv.i.i.i.i115 = trunc i64 %sub.i.i.i.i114 to i32
-  store i32 %conv.i.i.i.i115, ptr %head.i110, align 8
+  %sub.i.i.i.i115 = sub i64 %sub.ptr.rhs.cast.i100, %42
+  %conv.i.i.i.i116 = trunc i64 %sub.i.i.i.i115 to i32
+  store i32 %conv.i.i.i.i116, ptr %head.i111, align 8
   br label %if.end69
 
-if.end69:                                         ; preds = %_ZNSt5dequeIN6hermes2vm7HadesGC11HeapSegmentESaIS3_EEixEm.exit, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit129, %for.end65
-  %segmentSweptBytes.0.lcssa173 = phi i32 [ %segmentSweptBytes.1, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit129 ], [ %segmentSweptBytes.1, %for.end65 ], [ 0, %_ZNSt5dequeIN6hermes2vm7HadesGC11HeapSegmentESaIS3_EEixEm.exit ]
+if.end69:                                         ; preds = %_ZNSt5dequeIN6hermes2vm7HadesGC11HeapSegmentESaIS3_EEixEm.exit, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit130, %for.end65
+  %segmentSweptBytes.0.lcssa175 = phi i32 [ %segmentSweptBytes.1, %_ZN6hermes2vm7HadesGC6OldGen26addCellToFreelistFromSweepEPcS3_RSt5arrayINS2_13SegmentBucketELm267EEb.exit130 ], [ %segmentSweptBytes.1, %for.end65 ], [ 0, %_ZNSt5dequeIN6hermes2vm7HadesGC11HeapSegmentESaIS3_EEixEm.exit ]
   %freelistBucketBitArray_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %buckets_81 = getelementptr inbounds nuw i8, ptr %this, i64 240
   br label %for.body73
 
 for.body73:                                       ; preds = %if.end69, %_ZN6hermes8BitArrayILm267ELm8EE3setEmb.exit
-  %bucket70.0160 = phi i64 [ 0, %if.end69 ], [ %inc85, %_ZN6hermes8BitArrayILm267ELm8EE3setEmb.exit ]
-  %arrayidx.i.i130 = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %storemerge.i.i.i.i, i64 %bucket70.0160
-  %head76 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i130, i64 16
+  %bucket70.0162 = phi i64 [ 0, %if.end69 ], [ %inc85, %_ZN6hermes8BitArrayILm267ELm8EE3setEmb.exit ]
+  %arrayidx.i.i131 = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %storemerge.i.i.i.i, i64 %bucket70.0162
+  %head76 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i131, i64 16
   %43 = load i32, ptr %head76, align 4
-  %cmp.i.i131.not = icmp eq i32 %43, 0
-  %arrayidx.i.i135.phi.trans.insert = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %buckets_81, i64 %bucket70.0160
-  %.pre = load ptr, ptr %arrayidx.i.i135.phi.trans.insert, align 8
+  %cmp.i.i132.not = icmp eq i32 %43, 0
+  %arrayidx.i.i136.phi.trans.insert = getelementptr inbounds nuw %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket", ptr %buckets_81, i64 %bucket70.0162
+  %.pre = load ptr, ptr %arrayidx.i.i136.phi.trans.insert, align 8
   %44 = icmp eq ptr %.pre, null
-  br i1 %cmp.i.i131.not, label %if.end80, label %if.then78
+  br i1 %cmp.i.i132.not, label %if.end80, label %if.then78
 
 if.then78:                                        ; preds = %for.body73
-  br i1 %44, label %if.end80.thread, label %if.then.i134
+  br i1 %44, label %if.end80.thread, label %if.then.i135
 
-if.then.i134:                                     ; preds = %if.then78
+if.then.i135:                                     ; preds = %if.then78
   %prev.i = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  store ptr %arrayidx.i.i130, ptr %prev.i, align 8
+  store ptr %arrayidx.i.i131, ptr %prev.i, align 8
   br label %if.end80.thread
 
-if.end80.thread:                                  ; preds = %if.then.i134, %if.then78
-  %prev2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i130, i64 8
-  store ptr %arrayidx.i.i135.phi.trans.insert, ptr %prev2.i, align 8
-  store ptr %.pre, ptr %arrayidx.i.i130, align 8
-  store ptr %arrayidx.i.i130, ptr %arrayidx.i.i135.phi.trans.insert, align 8
-  %rem.i175 = and i64 %bucket70.0160, 63
-  %shl.i176 = shl nuw i64 1, %rem.i175
-  %div4.i177 = lshr i64 %bucket70.0160, 6
-  br label %if.then.i136
+if.end80.thread:                                  ; preds = %if.then.i135, %if.then78
+  %prev2.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i131, i64 8
+  store ptr %arrayidx.i.i136.phi.trans.insert, ptr %prev2.i, align 8
+  store ptr %.pre, ptr %arrayidx.i.i131, align 8
+  store ptr %arrayidx.i.i131, ptr %arrayidx.i.i136.phi.trans.insert, align 8
+  %rem.i177 = and i64 %bucket70.0162, 63
+  %shl.i178 = shl nuw i64 1, %rem.i177
+  %div4.i179 = lshr i64 %bucket70.0162, 6
+  br label %if.then.i137
 
 if.end80:                                         ; preds = %for.body73
-  %rem.i = and i64 %bucket70.0160, 63
+  %rem.i = and i64 %bucket70.0162, 63
   %shl.i = shl nuw i64 1, %rem.i
-  %div4.i = lshr i64 %bucket70.0160, 6
-  br i1 %44, label %if.else.i, label %if.then.i136
+  %div4.i = lshr i64 %bucket70.0162, 6
+  br i1 %44, label %if.else.i, label %if.then.i137
 
-if.then.i136:                                     ; preds = %if.end80.thread, %if.end80
-  %div4.i179 = phi i64 [ %div4.i177, %if.end80.thread ], [ %div4.i, %if.end80 ]
-  %shl.i178 = phi i64 [ %shl.i176, %if.end80.thread ], [ %shl.i, %if.end80 ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %freelistBucketBitArray_, i64 %div4.i179
-  %45 = load i64, ptr %arrayidx.i.i.i, align 8
-  %or.i = or i64 %45, %shl.i178
-  store i64 %or.i, ptr %arrayidx.i.i.i, align 8
+if.then.i137:                                     ; preds = %if.end80.thread, %if.end80
+  %div4.i181 = phi i64 [ %div4.i179, %if.end80.thread ], [ %div4.i, %if.end80 ]
+  %shl.i180 = phi i64 [ %shl.i178, %if.end80.thread ], [ %shl.i, %if.end80 ]
+  %arrayidx.i.i.i138 = getelementptr inbounds nuw i64, ptr %freelistBucketBitArray_, i64 %div4.i181
+  %45 = load i64, ptr %arrayidx.i.i.i138, align 8
+  %or.i = or i64 %45, %shl.i180
+  store i64 %or.i, ptr %arrayidx.i.i.i138, align 8
   br label %_ZN6hermes8BitArrayILm267ELm8EE3setEmb.exit
 
 if.else.i:                                        ; preds = %if.end80
@@ -1652,19 +1655,19 @@ if.else.i:                                        ; preds = %if.end80
   store i64 %and.i, ptr %arrayidx.i.i5.i, align 8
   br label %_ZN6hermes8BitArrayILm267ELm8EE3setEmb.exit
 
-_ZN6hermes8BitArrayILm267ELm8EE3setEmb.exit:      ; preds = %if.then.i136, %if.else.i
-  %inc85 = add nuw nsw i64 %bucket70.0160, 1
-  %exitcond161.not = icmp eq i64 %inc85, 267
-  br i1 %exitcond161.not, label %for.end86, label %for.body73, !llvm.loop !12
+_ZN6hermes8BitArrayILm267ELm8EE3setEmb.exit:      ; preds = %if.then.i137, %if.else.i
+  %inc85 = add nuw nsw i64 %bucket70.0162, 1
+  %exitcond163.not = icmp eq i64 %inc85, 267
+  br i1 %exitcond163.not, label %for.end86, label %for.body73, !llvm.loop !12
 
 for.end86:                                        ; preds = %_ZN6hermes8BitArrayILm267ELm8EE3setEmb.exit
-  %sub87 = sub nsw i32 0, %segmentSweptBytes.0.lcssa173
-  %conv.i137 = sext i32 %sub87 to i64
+  %sub87 = sub nsw i32 0, %segmentSweptBytes.0.lcssa175
+  %conv.i139 = sext i32 %sub87 to i64
   %allocatedBytes_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %47 = load i64, ptr %allocatedBytes_.i, align 8
-  %add.i = add i64 %47, %conv.i137
+  %add.i = add i64 %47, %conv.i139
   store i64 %add.i, ptr %allocatedBytes_.i, align 8
-  %conv88 = sext i32 %segmentSweptBytes.0.lcssa173 to i64
+  %conv88 = sext i32 %segmentSweptBytes.0.lcssa175 to i64
   %sweptBytes = getelementptr inbounds nuw i8, ptr %this, i64 6656
   %48 = load i64, ptr %sweptBytes, align 8
   %add90 = add i64 %48, %conv88
@@ -1710,9 +1713,9 @@ if.end99:                                         ; preds = %for.end86
   %avg_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %61 = load double, ptr %avg_.i, align 8
   %62 = load double, ptr %targetSizeBytes_, align 8
-  %sub.i144 = fsub double 1.000000e+00, %62
+  %sub.i146 = fsub double 1.000000e+00, %62
   %mul3.i = fmul double %62, %conv119
-  %63 = call double @llvm.fmuladd.f64(double %61, double %sub.i144, double %mul3.i)
+  %63 = call double @llvm.fmuladd.f64(double %61, double %sub.i146, double %mul3.i)
   store double %63, ptr %avg_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sweepIterator_, i8 0, i64 24, i1 false)
   br label %return

@@ -4074,7 +4074,7 @@ define { i64, i64 } @ROCKSDB_XXH3_128bits(ptr noundef readonly captures(none) %0
   %99 = xor i32 %96, -2027464037
   %100 = zext i32 %99 to i64
   %101 = xor i32 %98, 808198283
-  %102 = zext i32 %101 to i64
+  %102 = zext nneg i32 %101 to i64
   %103 = mul i64 %100, -4417276706812531889
   %104 = lshr i64 %103, 29
   %105 = xor i64 %104, %103

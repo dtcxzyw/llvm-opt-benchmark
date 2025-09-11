@@ -81,7 +81,7 @@ define hidden void @FLAC__ogg_decoder_aspect_finish(ptr noundef %0) local_unname
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %17, label %.preheader
+  br i1 %.not, label %18, label %.preheader
 
 .preheader:                                       ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -92,25 +92,26 @@ define hidden void @FLAC__ogg_decoder_aspect_finish(ptr noundef %0) local_unname
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %10 = load ptr, ptr %6, align 8, !tbaa !27
-  %11 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %10, i64 %indvars.iv, i32 5
-  %12 = load ptr, ptr %11, align 8, !tbaa !29
-  tail call void @free(ptr noundef %12) #15
+  %11 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  tail call void @free(ptr noundef %13) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load i32, ptr %8, align 8, !tbaa !28
-  %14 = zext i32 %13 to i64
-  %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !31
+  %14 = load i32, ptr %8, align 8, !tbaa !28
+  %15 = zext i32 %14 to i64
+  %16 = icmp samesign ult i64 %indvars.iv.next, %15
+  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %6, align 8, !tbaa !27
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %16 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %.preheader ]
-  tail call void @free(ptr noundef %16) #15
-  br label %17
+  %17 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %.preheader ]
+  tail call void @free(ptr noundef %17) #15
+  br label %18
 
-17:                                               ; preds = %._crit_edge, %1
+18:                                               ; preds = %._crit_edge, %1
   store ptr null, ptr %6, align 8, !tbaa !27
   ret void
 }
@@ -240,11 +241,11 @@ define hidden noundef ptr @FLAC__ogg_decoder_aspect_get_target_link(ptr noundef 
 
 7:                                                ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %.035 = phi i64 [ 0, %.lr.ph ], [ %11, %28 ]
+  %.034 = phi i64 [ 0, %.lr.ph ], [ %11, %28 ]
   %8 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %6, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !38
-  %11 = add i64 %10, %.035
+  %11 = add i64 %10, %.034
   %12 = and i64 %11, 4294967295
   %13 = icmp ult i64 %1, %12
   br i1 %13, label %14, label %28
@@ -254,14 +255,14 @@ define hidden noundef ptr @FLAC__ogg_decoder_aspect_get_target_link(ptr noundef 
   %16 = load i64, ptr %8, align 8, !tbaa !39
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store i64 %16, ptr %17, align 8, !tbaa !40
-  %18 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %6, i64 %indvars.iv, i32 1
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store i64 %19, ptr %20, align 8, !tbaa !42
   %21 = sub i64 %12, %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 616
   store i64 %21, ptr %22, align 8, !tbaa !43
-  %23 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %6, i64 %indvars.iv, i32 2
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !44
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store i64 %24, ptr %25, align 8, !tbaa !45
@@ -378,14 +379,14 @@ define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrappe
 44:                                               ; preds = %43
   %45 = load i32, ptr %14, align 8, !tbaa !53
   %.not139 = icmp eq i32 %45, 0
-  br i1 %.not139, label %112, label %46
+  br i1 %.not139, label %114, label %46
 
 46:                                               ; preds = %44
   %47 = sub i64 %10, %37
   %48 = load i64, ptr %16, align 8, !tbaa !54
   %.not142 = icmp ugt i64 %48, %47
   %49 = load ptr, ptr %15, align 8, !tbaa !55
-  br i1 %.not142, label %104, label %50
+  br i1 %.not142, label %106, label %50
 
 50:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.0113172, ptr noundef nonnull align 1 %49, i64 noundef %48, i1 noundef false) #15
@@ -443,204 +444,207 @@ define hidden range(i32 0, 9) i32 @FLAC__ogg_decoder_aspect_read_callback_wrappe
   %75 = phi i32 [ %59, %58 ], [ %.pre180, %.thread.i ]
   %76 = load i32, ptr %23, align 4, !tbaa !37
   %.not146 = icmp ult i32 %75, %76
-  br i1 %.not146, label %100, label %77
+  br i1 %.not146, label %102, label %77
 
 77:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %78 = load i64, ptr %24, align 8, !tbaa !57
   %79 = load ptr, ptr %22, align 8, !tbaa !27
   %80 = zext i32 %75 to i64
-  %81 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %79, i64 %80, i32 3
-  store i64 %78, ptr %81, align 8, !tbaa !38
-  br i1 %.not147, label %97, label %82
+  %81 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %79, i64 %80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store i64 %78, ptr %82, align 8, !tbaa !38
+  br i1 %.not147, label %99, label %83
 
-82:                                               ; preds = %77
-  %83 = call i32 %4(ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6) #15
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %97
+83:                                               ; preds = %77
+  %84 = call i32 %4(ptr noundef %5, ptr noundef nonnull %9, ptr noundef %6) #15
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %99
 
-85:                                               ; preds = %82
-  %86 = load i64, ptr %9, align 8, !tbaa !52
-  %87 = load i32, ptr %25, align 4, !tbaa !58
-  %88 = sext i32 %87 to i64
-  %89 = sub i64 %86, %88
-  %90 = load i32, ptr %26, align 8, !tbaa !59
-  %91 = sext i32 %90 to i64
-  %92 = add i64 %89, %91
-  %93 = load ptr, ptr %22, align 8, !tbaa !27
-  %94 = load i32, ptr %19, align 4, !tbaa !33
-  %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %93, i64 %95, i32 2
-  store i64 %92, ptr %96, align 8, !tbaa !44
-  br label %97
+86:                                               ; preds = %83
+  %87 = load i64, ptr %9, align 8, !tbaa !52
+  %88 = load i32, ptr %25, align 4, !tbaa !58
+  %89 = sext i32 %88 to i64
+  %90 = sub i64 %87, %89
+  %91 = load i32, ptr %26, align 8, !tbaa !59
+  %92 = sext i32 %91 to i64
+  %93 = add i64 %90, %92
+  %94 = load ptr, ptr %22, align 8, !tbaa !27
+  %95 = load i32, ptr %19, align 4, !tbaa !33
+  %96 = zext i32 %95 to i64
+  %97 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %94, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  store i64 %93, ptr %98, align 8, !tbaa !44
+  br label %99
 
-97:                                               ; preds = %82, %85, %77
-  %98 = load i32, ptr %23, align 4, !tbaa !37
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %23, align 4, !tbaa !37
+99:                                               ; preds = %83, %86, %77
+  %100 = load i32, ptr %23, align 4, !tbaa !37
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %23, align 4, !tbaa !37
   store i32 1, ptr %27, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %100
+  br label %102
 
-100:                                              ; preds = %97, %74
-  %101 = load i32, ptr %28, align 4, !tbaa !51
-  %.not148 = icmp eq i32 %101, 0
-  br i1 %.not148, label %102, label %103
+102:                                              ; preds = %99, %74
+  %103 = load i32, ptr %28, align 4, !tbaa !51
+  %.not148 = icmp eq i32 %103, 0
+  br i1 %.not148, label %104, label %105
 
-102:                                              ; preds = %100
+104:                                              ; preds = %102
   store i32 1, ptr %27, align 8, !tbaa !23
-  br label %103
+  br label %105
 
-103:                                              ; preds = %102, %100
+105:                                              ; preds = %104, %102
   store i32 0, ptr %13, align 8, !tbaa !25
   br label %check_size_of_link_allocation_.exit.thread155
 
-104:                                              ; preds = %46
+106:                                              ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.0113172, ptr noundef nonnull align 1 %49, i64 noundef %47, i1 noundef false) #15
-  %105 = load i64, ptr %2, align 8, !tbaa !52
-  %106 = add i64 %105, %47
-  store i64 %106, ptr %2, align 8, !tbaa !52
-  %107 = getelementptr inbounds nuw i8, ptr %.0113172, i64 %47
-  %108 = load ptr, ptr %15, align 8, !tbaa !55
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %47
-  store ptr %109, ptr %15, align 8, !tbaa !55
-  %110 = load i64, ptr %16, align 8, !tbaa !54
-  %111 = sub i64 %110, %47
-  store i64 %111, ptr %16, align 8, !tbaa !54
+  %107 = load i64, ptr %2, align 8, !tbaa !52
+  %108 = add i64 %107, %47
+  store i64 %108, ptr %2, align 8, !tbaa !52
+  %109 = getelementptr inbounds nuw i8, ptr %.0113172, i64 %47
+  %110 = load ptr, ptr %15, align 8, !tbaa !55
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %47
+  store ptr %111, ptr %15, align 8, !tbaa !55
+  %112 = load i64, ptr %16, align 8, !tbaa !54
+  %113 = sub i64 %112, %47
+  store i64 %113, ptr %16, align 8, !tbaa !54
   br label %check_size_of_link_allocation_.exit.thread155
 
-112:                                              ; preds = %44
-  %113 = call i32 @ogg_stream_packetout(ptr noundef nonnull %29, ptr noundef nonnull %15) #15
-  %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %115, label %136
+114:                                              ; preds = %44
+  %115 = call i32 @ogg_stream_packetout(ptr noundef nonnull %29, ptr noundef nonnull %15) #15
+  %116 = icmp sgt i32 %115, 0
+  br i1 %116, label %117, label %138
 
-115:                                              ; preds = %112
+117:                                              ; preds = %114
   store i32 1, ptr %14, align 8, !tbaa !53
-  %116 = load i64, ptr %16, align 8, !tbaa !54
-  %117 = icmp sgt i64 %116, 0
-  br i1 %117, label %118, label %check_size_of_link_allocation_.exit.thread155
+  %118 = load i64, ptr %16, align 8, !tbaa !54
+  %119 = icmp sgt i64 %118, 0
+  br i1 %119, label %120, label %check_size_of_link_allocation_.exit.thread155
 
-118:                                              ; preds = %115
-  %119 = load ptr, ptr %15, align 8, !tbaa !55
-  %120 = load i8, ptr %119, align 1, !tbaa !60
-  %121 = icmp eq i8 %120, %30
-  br i1 %121, label %122, label %check_size_of_link_allocation_.exit.thread155
+120:                                              ; preds = %117
+  %121 = load ptr, ptr %15, align 8, !tbaa !55
+  %122 = load i8, ptr %121, align 1, !tbaa !60
+  %123 = icmp eq i8 %122, %30
+  br i1 %123, label %124, label %check_size_of_link_allocation_.exit.thread155
 
-122:                                              ; preds = %118
-  %123 = icmp samesign ult i64 %116, 9
-  br i1 %123, label %check_size_of_link_allocation_.exit, label %124
-
-124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw i8, ptr %119, i64 1
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %125, ptr noundef nonnull dereferenceable(4) %31, i64 4)
-  %.not140 = icmp eq i32 %bcmp, 0
-  br i1 %.not140, label %126, label %check_size_of_link_allocation_.exit
+124:                                              ; preds = %120
+  %125 = icmp samesign ult i64 %118, 9
+  br i1 %125, label %check_size_of_link_allocation_.exit, label %126
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw i8, ptr %119, i64 5
-  %128 = load i8, ptr %127, align 1, !tbaa !60
-  %129 = zext i8 %128 to i32
-  store i32 %129, ptr %32, align 8, !tbaa !19
-  %130 = getelementptr inbounds nuw i8, ptr %119, i64 6
-  %131 = load i8, ptr %130, align 1, !tbaa !60
-  %132 = zext i8 %131 to i32
-  store i32 %132, ptr %33, align 4, !tbaa !20
-  %.not141 = icmp eq i8 %128, 1
-  br i1 %.not141, label %133, label %check_size_of_link_allocation_.exit
+  %127 = getelementptr inbounds nuw i8, ptr %121, i64 1
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %127, ptr noundef nonnull dereferenceable(4) %31, i64 4)
+  %.not140 = icmp eq i32 %bcmp, 0
+  br i1 %.not140, label %128, label %check_size_of_link_allocation_.exit
 
-133:                                              ; preds = %126
-  %134 = getelementptr inbounds nuw i8, ptr %119, i64 9
-  store ptr %134, ptr %15, align 8, !tbaa !55
-  %135 = add nsw i64 %116, -9
-  store i64 %135, ptr %16, align 8, !tbaa !54
+128:                                              ; preds = %126
+  %129 = getelementptr inbounds nuw i8, ptr %121, i64 5
+  %130 = load i8, ptr %129, align 1, !tbaa !60
+  %131 = zext i8 %130 to i32
+  store i32 %131, ptr %32, align 8, !tbaa !19
+  %132 = getelementptr inbounds nuw i8, ptr %121, i64 6
+  %133 = load i8, ptr %132, align 1, !tbaa !60
+  %134 = zext i8 %133 to i32
+  store i32 %134, ptr %33, align 4, !tbaa !20
+  %.not141 = icmp eq i8 %130, 1
+  br i1 %.not141, label %135, label %check_size_of_link_allocation_.exit
+
+135:                                              ; preds = %128
+  %136 = getelementptr inbounds nuw i8, ptr %121, i64 9
+  store ptr %136, ptr %15, align 8, !tbaa !55
+  %137 = add nsw i64 %118, -9
+  store i64 %137, ptr %16, align 8, !tbaa !54
   br label %check_size_of_link_allocation_.exit.thread155
 
-136:                                              ; preds = %112
-  %137 = icmp eq i32 %113, 0
-  br i1 %137, label %138, label %check_size_of_link_allocation_.exit
+138:                                              ; preds = %114
+  %139 = icmp eq i32 %115, 0
+  br i1 %139, label %140, label %check_size_of_link_allocation_.exit
 
-138:                                              ; preds = %136
+140:                                              ; preds = %138
   store i32 0, ptr %13, align 8, !tbaa !25
   br label %check_size_of_link_allocation_.exit.thread155
 
 .thread:                                          ; preds = %41, %43
-  %139 = call i32 @ogg_sync_pageout(ptr noundef nonnull %34, ptr noundef nonnull %35) #15
-  %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %141, label %143
-
-141:                                              ; preds = %.thread
-  %142 = call fastcc i32 @process_page_(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %.not138 = icmp eq i32 %142, 0
-  br i1 %.not138, label %check_size_of_link_allocation_.exit.thread155, label %check_size_of_link_allocation_.exit
+  %141 = call i32 @ogg_sync_pageout(ptr noundef nonnull %34, ptr noundef nonnull %35) #15
+  %142 = icmp sgt i32 %141, 0
+  br i1 %142, label %143, label %145
 
 143:                                              ; preds = %.thread
-  %144 = icmp eq i32 %139, 0
-  br i1 %144, label %145, label %check_size_of_link_allocation_.exit
+  %144 = call fastcc i32 @process_page_(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %.not138 = icmp eq i32 %144, 0
+  br i1 %.not138, label %check_size_of_link_allocation_.exit.thread155, label %check_size_of_link_allocation_.exit
 
-145:                                              ; preds = %143
-  %146 = load i64, ptr %2, align 8, !tbaa !52
-  %147 = sub i64 %10, %146
-  %148 = call i64 @llvm.umax.i64(i64 %147, i64 8192)
-  %149 = call ptr @ogg_sync_buffer(ptr noundef nonnull %34, i64 noundef %148) #15
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %check_size_of_link_allocation_.exit, label %151
+145:                                              ; preds = %.thread
+  %146 = icmp eq i32 %141, 0
+  br i1 %146, label %147, label %check_size_of_link_allocation_.exit
 
-151:                                              ; preds = %145
+147:                                              ; preds = %145
+  %148 = load i64, ptr %2, align 8, !tbaa !52
+  %149 = sub i64 %10, %148
+  %150 = call i64 @llvm.umax.i64(i64 %149, i64 8192)
+  %151 = call ptr @ogg_sync_buffer(ptr noundef nonnull %34, i64 noundef %150) #15
+  %152 = icmp eq ptr %151, null
+  br i1 %152, label %check_size_of_link_allocation_.exit, label %153
+
+153:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i64 %148, ptr %8, align 8, !tbaa !52
-  %152 = call i32 %3(ptr noundef %5, ptr noundef nonnull %149, ptr noundef nonnull %8, ptr noundef %6) #15
-  switch i32 %152, label %154 [
+  store i64 %150, ptr %8, align 8, !tbaa !52
+  %154 = call i32 %3(ptr noundef %5, ptr noundef nonnull %151, ptr noundef nonnull %8, ptr noundef %6) #15
+  switch i32 %154, label %156 [
     i32 6, label %.thread.i151
-    i32 1, label %153
+    i32 1, label %155
   ]
 
-.thread.i151:                                     ; preds = %151
+.thread.i151:                                     ; preds = %153
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %check_size_of_link_allocation_.exit
 
-153:                                              ; preds = %151
+155:                                              ; preds = %153
   store i32 1, ptr %11, align 4, !tbaa !24
-  br label %154
+  br label %156
 
-154:                                              ; preds = %153, %151
-  %155 = load i64, ptr %8, align 8, !tbaa !52
-  %156 = call i32 @ogg_sync_wrote(ptr noundef nonnull %34, i64 noundef %155) #15
-  %.fr.i = freeze i32 %156
+156:                                              ; preds = %155, %153
+  %157 = load i64, ptr %8, align 8, !tbaa !52
+  %158 = call i32 @ogg_sync_wrote(ptr noundef nonnull %34, i64 noundef %157) #15
+  %.fr.i = freeze i32 %158
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.inv.i = icmp slt i32 %.fr.i, 0
   br i1 %.inv.i, label %check_size_of_link_allocation_.exit, label %check_size_of_link_allocation_.exit.thread155
 
-check_size_of_link_allocation_.exit.thread155:    ; preds = %154, %141, %133, %138, %118, %115, %104, %57, %103, %50
-  %.3116 = phi ptr [ %107, %104 ], [ %53, %50 ], [ %53, %57 ], [ %53, %103 ], [ %.0113172, %115 ], [ %.0113172, %118 ], [ %.0113172, %138 ], [ %.0113172, %133 ], [ %.0113172, %141 ], [ %.0113172, %154 ]
+check_size_of_link_allocation_.exit.thread155:    ; preds = %156, %143, %135, %140, %120, %117, %106, %57, %105, %50
+  %.3116 = phi ptr [ %109, %106 ], [ %53, %50 ], [ %53, %57 ], [ %53, %105 ], [ %.0113172, %117 ], [ %.0113172, %120 ], [ %.0113172, %140 ], [ %.0113172, %135 ], [ %.0113172, %143 ], [ %.0113172, %156 ]
   %.pr = load i64, ptr %2, align 8, !tbaa !52
-  %157 = icmp ult i64 %.pr, %10
-  br i1 %157, label %36, label %.critedge.loopexit, !llvm.loop !61
+  %159 = icmp ult i64 %.pr, %10
+  br i1 %159, label %36, label %.critedge.loopexit, !llvm.loop !61
 
 .critedge.loopexit:                               ; preds = %check_size_of_link_allocation_.exit.thread155, %36
   %.lcssa.ph = phi i64 [ %37, %36 ], [ %.pr, %check_size_of_link_allocation_.exit.thread155 ]
-  %158 = icmp eq i64 %.lcssa.ph, 0
+  %160 = icmp eq i64 %.lcssa.ph, 0
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %7
-  %.lcssa = phi i1 [ true, %7 ], [ %158, %.critedge.loopexit ]
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 476
-  %160 = load i32, ptr %159, align 4, !tbaa !24
-  %.not133 = icmp ne i32 %160, 0
+  %.lcssa = phi i1 [ true, %7 ], [ %160, %.critedge.loopexit ]
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 476
+  %162 = load i32, ptr %161, align 4, !tbaa !24
+  %.not133 = icmp ne i32 %162, 0
   %or.cond168 = and i1 %.lcssa, %.not133
-  br i1 %or.cond168, label %161, label %check_size_of_link_allocation_.exit
+  br i1 %or.cond168, label %163, label %check_size_of_link_allocation_.exit
 
-161:                                              ; preds = %.critedge
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %163 = load ptr, ptr %162, align 8, !tbaa !27
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %165 = load i32, ptr %164, align 4, !tbaa !33
-  %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %163, i64 %166, i32 6
-  store i32 1, ptr %167, align 8, !tbaa !62
+163:                                              ; preds = %.critedge
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %165 = load ptr, ptr %164, align 8, !tbaa !27
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 652
+  %167 = load i32, ptr %166, align 4, !tbaa !33
+  %168 = zext i32 %167 to i64
+  %169 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %165, i64 %168
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 48
+  store i32 1, ptr %170, align 8, !tbaa !62
   br label %check_size_of_link_allocation_.exit
 
-check_size_of_link_allocation_.exit:              ; preds = %154, %145, %143, %141, %136, %126, %124, %122, %62, %.thread.i151, %.critedge, %42, %161
-  %.1 = phi i32 [ 1, %161 ], [ %., %42 ], [ 0, %.critedge ], [ 6, %.thread.i151 ], [ 7, %154 ], [ 8, %145 ], [ %142, %141 ], [ 3, %143 ], [ 5, %126 ], [ 4, %124 ], [ 4, %122 ], [ 3, %136 ], [ 8, %62 ]
+check_size_of_link_allocation_.exit:              ; preds = %156, %147, %145, %143, %138, %128, %126, %124, %62, %.thread.i151, %.critedge, %42, %163
+  %.1 = phi i32 [ 1, %163 ], [ %., %42 ], [ 0, %.critedge ], [ 6, %.thread.i151 ], [ 7, %156 ], [ 8, %147 ], [ %144, %143 ], [ 3, %145 ], [ 5, %128 ], [ 4, %126 ], [ 4, %124 ], [ 3, %138 ], [ 8, %62 ]
   ret i32 %.1
 }
 
@@ -695,14 +699,14 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %7 = load i32, ptr %6, align 8, !tbaa !23
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %62, label %8
+  br i1 %.not, label %63, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %11 = load i64, ptr %10, align 8, !tbaa !63
   %12 = icmp sgt i64 %11, 5
-  br i1 %12, label %13, label %62
+  br i1 %12, label %13, label %63
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -710,13 +714,13 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
   %16 = load i8, ptr %15, align 1, !tbaa !60
   %17 = load i8, ptr @FLAC__OGG_MAPPING_FIRST_HEADER_PACKET_TYPE, align 1, !tbaa !60
   %18 = icmp eq i8 %16, %17
-  br i1 %18, label %19, label %62
+  br i1 %18, label %19, label %63
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr @FLAC__OGG_MAPPING_MAGIC, align 8, !tbaa !65
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %10, ptr noundef nonnull dereferenceable(4) %20, i64 4)
   %.not58 = icmp eq i32 %bcmp, 0
-  br i1 %.not58, label %62, label %21
+  br i1 %.not58, label %63, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -733,7 +737,7 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %31 = load i32, ptr %30, align 8, !tbaa !66
   %.not59 = icmp ult i32 %29, %31
-  br i1 %.not59, label %62, label %32
+  br i1 %.not59, label %63, label %32
 
 32:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -746,12 +750,12 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
   %38 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %36, i64 %37
   store i64 %34, ptr %38, align 8, !tbaa !39
   %.not60 = icmp eq ptr %1, null
-  br i1 %.not60, label %61, label %39
+  br i1 %.not60, label %62, label %39
 
 39:                                               ; preds = %32
   %40 = call i32 %1(ptr noundef %2, ptr noundef nonnull %5, ptr noundef %3) #15
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %61
+  br i1 %41, label %42, label %62
 
 42:                                               ; preds = %39
   %43 = load i64, ptr %5, align 8, !tbaa !52
@@ -771,110 +775,111 @@ define internal fastcc range(i32 0, 9) i32 @process_page_(ptr noundef %0, ptr no
   %57 = load ptr, ptr %35, align 8, !tbaa !27
   %58 = load i32, ptr %28, align 8, !tbaa !34
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %57, i64 %59, i32 1
-  store i64 %56, ptr %60, align 8, !tbaa !41
-  br label %61
-
-61:                                               ; preds = %39, %42, %32
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %60 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %57, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store i64 %56, ptr %61, align 8, !tbaa !41
   br label %62
 
-62:                                               ; preds = %8, %13, %19, %61, %21, %4
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 468
-  %64 = load i32, ptr %63, align 4, !tbaa !35
-  %.not61 = icmp eq i32 %64, 0
-  br i1 %.not61, label %72, label %65
+62:                                               ; preds = %39, %42, %32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %63
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %67 = load i32, ptr %66, align 8, !tbaa !36
-  %.not62 = icmp eq i32 %67, 0
-  br i1 %.not62, label %72, label %68
+63:                                               ; preds = %8, %13, %19, %62, %21, %4
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 468
+  %65 = load i32, ptr %64, align 4, !tbaa !35
+  %.not61 = icmp eq i32 %65, 0
+  br i1 %.not61, label %73, label %66
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %70 = call i32 @ogg_page_bos(ptr noundef nonnull %69) #15
-  %.not63 = icmp eq i32 %70, 0
-  br i1 %.not63, label %71, label %72
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %68 = load i32, ptr %67, align 8, !tbaa !36
+  %.not62 = icmp eq i32 %68, 0
+  br i1 %.not62, label %73, label %69
 
-71:                                               ; preds = %68
-  store i32 0, ptr %63, align 4, !tbaa !35
-  br label %72
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %71 = call i32 @ogg_page_bos(ptr noundef nonnull %70) #15
+  %.not63 = icmp eq i32 %71, 0
+  br i1 %.not63, label %72, label %73
 
-72:                                               ; preds = %65, %68, %71, %62
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %75 = call i32 @ogg_stream_pagein(ptr noundef nonnull %73, ptr noundef nonnull %74) #15
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %80
+72:                                               ; preds = %69
+  store i32 0, ptr %64, align 4, !tbaa !35
+  br label %73
 
-77:                                               ; preds = %72
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store i32 1, ptr %78, align 8, !tbaa !25
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i32 0, ptr %79, align 8, !tbaa !53
+73:                                               ; preds = %66, %69, %72, %63
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %76 = call i32 @ogg_stream_pagein(ptr noundef nonnull %74, ptr noundef nonnull %75) #15
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %81
+
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  store i32 1, ptr %79, align 8, !tbaa !25
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store i32 0, ptr %80, align 8, !tbaa !53
   br label %.critedge
 
-80:                                               ; preds = %72
-  %81 = load i32, ptr %63, align 4, !tbaa !35
-  %.not64 = icmp eq i32 %81, 0
-  br i1 %.not64, label %.critedge, label %82
+81:                                               ; preds = %73
+  %82 = load i32, ptr %64, align 4, !tbaa !35
+  %.not64 = icmp eq i32 %82, 0
+  br i1 %.not64, label %.critedge, label %83
 
-82:                                               ; preds = %80
-  %83 = call i32 @ogg_page_bos(ptr noundef nonnull %74) #15
-  %.not65 = icmp eq i32 %83, 0
-  br i1 %.not65, label %.critedge, label %84
+83:                                               ; preds = %81
+  %84 = call i32 @ogg_page_bos(ptr noundef nonnull %75) #15
+  %.not65 = icmp eq i32 %84, 0
+  br i1 %.not65, label %.critedge, label %85
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store i32 1, ptr %85, align 8, !tbaa !36
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %87 = load i32, ptr %86, align 8, !tbaa !34
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 644
-  %89 = load i32, ptr %88, align 4, !tbaa !37
-  %.not66 = icmp ult i32 %87, %89
-  br i1 %.not66, label %.critedge, label %90
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  store i32 1, ptr %86, align 8, !tbaa !36
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %88 = load i32, ptr %87, align 8, !tbaa !34
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 644
+  %90 = load i32, ptr %89, align 4, !tbaa !37
+  %.not66 = icmp ult i32 %88, %90
+  br i1 %.not66, label %.critedge, label %91
 
-90:                                               ; preds = %84
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %92 = load ptr, ptr %91, align 8, !tbaa !27
-  %93 = zext i32 %87 to i64
-  %94 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %92, i64 %93
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  %96 = load i32, ptr %95, align 8, !tbaa !68
-  %97 = and i32 %96, 3
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %.critedge.thread
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %93 = load ptr, ptr %92, align 8, !tbaa !27
+  %94 = zext i32 %88 to i64
+  %95 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %93, i64 %94
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  %97 = load i32, ptr %96, align 8, !tbaa !68
+  %98 = and i32 %97, 3
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %.critedge.thread
 
-99:                                               ; preds = %90
-  %100 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  %101 = load ptr, ptr %100, align 8, !tbaa !29
-  %102 = add i32 %96, 4
-  %103 = zext i32 %102 to i64
-  %104 = shl nuw nsw i64 %103, 3
-  %105 = call noalias noundef ptr @realloc(ptr noundef %101, i64 noundef %104) #16
-  %.not67 = icmp eq ptr %105, null
-  br i1 %.not67, label %.critedge, label %106
+100:                                              ; preds = %91
+  %101 = getelementptr inbounds nuw i8, ptr %95, i64 40
+  %102 = load ptr, ptr %101, align 8, !tbaa !29
+  %103 = add i32 %97, 4
+  %104 = zext i32 %103 to i64
+  %105 = shl nuw nsw i64 %104, 3
+  %106 = call noalias noundef ptr @realloc(ptr noundef %102, i64 noundef %105) #16
+  %.not67 = icmp eq ptr %106, null
+  br i1 %.not67, label %.critedge, label %107
 
-106:                                              ; preds = %99
-  store ptr %105, ptr %100, align 8, !tbaa !29
+107:                                              ; preds = %100
+  store ptr %106, ptr %101, align 8, !tbaa !29
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %90, %106
-  %107 = call i32 @ogg_page_serialno(ptr noundef nonnull %74) #15
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  %110 = load ptr, ptr %109, align 8, !tbaa !29
-  %111 = load i32, ptr %95, align 8, !tbaa !68
-  %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw i64, ptr %110, i64 %112
-  store i64 %108, ptr %113, align 8, !tbaa !52
-  %114 = add i32 %111, 1
-  store i32 %114, ptr %95, align 8, !tbaa !68
+.critedge.thread:                                 ; preds = %91, %107
+  %108 = call i32 @ogg_page_serialno(ptr noundef nonnull %75) #15
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 40
+  %111 = load ptr, ptr %110, align 8, !tbaa !29
+  %112 = load i32, ptr %96, align 8, !tbaa !68
+  %113 = zext i32 %112 to i64
+  %114 = getelementptr inbounds nuw i64, ptr %111, i64 %113
+  store i64 %109, ptr %114, align 8, !tbaa !52
+  %115 = add i32 %112, 1
+  store i32 %115, ptr %96, align 8, !tbaa !68
   br label %.critedge
 
-.critedge:                                        ; preds = %77, %82, %84, %80, %.critedge.thread, %99
-  %.3 = phi i32 [ 8, %99 ], [ 0, %.critedge.thread ], [ 0, %80 ], [ 0, %84 ], [ 0, %82 ], [ 0, %77 ]
+.critedge:                                        ; preds = %78, %83, %85, %81, %.critedge.thread, %100
+  %.3 = phi i32 [ 8, %100 ], [ 0, %.critedge.thread ], [ 0, %81 ], [ 0, %85 ], [ 0, %83 ], [ 0, %78 ]
   ret i32 %.3
 }
 
@@ -1188,12 +1193,12 @@ read_more_data_.exit:                             ; preds = %145, %135
   %155 = add i64 %154, %153
   store i64 %155, ptr %11, align 8, !tbaa !52
   %156 = icmp sgt i32 %.lcssa, 0
-  br i1 %156, label %157, label %249
+  br i1 %156, label %157, label %252
 
 157:                                              ; preds = %.critedge
   %158 = load i32, ptr %90, align 4, !tbaa !35
   %.not236 = icmp eq i32 %158, 0
-  br i1 %.not236, label %159, label %230
+  br i1 %.not236, label %159, label %232
 
 159:                                              ; preds = %157
   %160 = call i32 @ogg_page_serialno(ptr noundef nonnull %92) #15
@@ -1237,60 +1242,62 @@ read_more_data_.exit:                             ; preds = %145, %135
   %181 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %178, i64 %180
   %182 = load i64, ptr %181, align 8, !tbaa !39
   %183 = icmp eq i64 %182, %177
-  br i1 %183, label %184, label %213
+  br i1 %183, label %184, label %215
 
 184:                                              ; preds = %._crit_edge
   %185 = call i32 @ogg_page_eos(ptr noundef nonnull %92) #15
   %.not237 = icmp eq i32 %185, 0
-  br i1 %.not237, label %213, label %186
+  br i1 %.not237, label %215, label %186
 
 186:                                              ; preds = %184
   %187 = load i64, ptr %11, align 8, !tbaa !52
   %188 = load ptr, ptr %97, align 8, !tbaa !27
   %189 = load i32, ptr %16, align 4, !tbaa !33
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %188, i64 %190, i32 2
-  store i64 %187, ptr %191, align 8, !tbaa !44
-  %192 = call i64 @ogg_page_granulepos(ptr noundef nonnull %92) #15
-  %193 = load ptr, ptr %97, align 8, !tbaa !27
-  %194 = load i32, ptr %16, align 4, !tbaa !33
-  %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %193, i64 %195, i32 3
-  store i64 %192, ptr %196, align 8, !tbaa !38
-  %197 = load i32, ptr %38, align 4, !tbaa !37
-  %198 = add i32 %197, 1
-  store i32 %198, ptr %38, align 4, !tbaa !37
-  %199 = add i32 %194, 1
-  store i32 %199, ptr %98, align 8, !tbaa !34
-  %200 = load i32, ptr %18, align 8, !tbaa !28
-  %.not.i260 = icmp ult i32 %194, %200
-  %.not16.i263 = icmp ult i32 %199, %200
+  %191 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %188, i64 %190
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
+  store i64 %187, ptr %192, align 8, !tbaa !44
+  %193 = call i64 @ogg_page_granulepos(ptr noundef nonnull %92) #15
+  %194 = load ptr, ptr %97, align 8, !tbaa !27
+  %195 = load i32, ptr %16, align 4, !tbaa !33
+  %196 = zext i32 %195 to i64
+  %197 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %194, i64 %196
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
+  store i64 %193, ptr %198, align 8, !tbaa !38
+  %199 = load i32, ptr %38, align 4, !tbaa !37
+  %200 = add i32 %199, 1
+  store i32 %200, ptr %38, align 4, !tbaa !37
+  %201 = add i32 %195, 1
+  store i32 %201, ptr %98, align 8, !tbaa !34
+  %202 = load i32, ptr %18, align 8, !tbaa !28
+  %.not.i260 = icmp ult i32 %195, %202
+  %.not16.i263 = icmp ult i32 %201, %202
   %or.cond300 = and i1 %.not.i260, %.not16.i263
-  br i1 %or.cond300, label %212, label %201
+  br i1 %or.cond300, label %214, label %203
 
-201:                                              ; preds = %186
-  %202 = shl i32 %200, 1
-  %203 = zext i32 %202 to i64
-  %204 = mul nuw nsw i64 %203, 56
-  %205 = call noalias noundef ptr @realloc(ptr noundef nonnull %193, i64 noundef %204) #16
-  %206 = icmp eq ptr %205, null
-  br i1 %206, label %.thread, label %.thread.i261
+203:                                              ; preds = %186
+  %204 = shl i32 %202, 1
+  %205 = zext i32 %204 to i64
+  %206 = mul nuw nsw i64 %205, 56
+  %207 = call noalias noundef ptr @realloc(ptr noundef nonnull %194, i64 noundef %206) #16
+  %208 = icmp eq ptr %207, null
+  br i1 %208, label %.thread, label %.thread.i261
 
-.thread.i261:                                     ; preds = %201
-  store ptr %205, ptr %97, align 8, !tbaa !27
-  %207 = load i32, ptr %18, align 8, !tbaa !28
-  %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %205, i64 %208
-  %210 = mul nuw nsw i64 %208, 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %209, i8 noundef 0, i64 noundef range(i64 0, 240518168521) %210, i1 noundef false) #15
-  %211 = shl i32 %207, 1
-  store i32 %211, ptr %18, align 8, !tbaa !28
+.thread.i261:                                     ; preds = %203
+  store ptr %207, ptr %97, align 8, !tbaa !27
+  %209 = load i32, ptr %18, align 8, !tbaa !28
+  %210 = zext i32 %209 to i64
+  %211 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %207, i64 %210
+  %212 = mul nuw nsw i64 %210, 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %211, i8 noundef 0, i64 noundef range(i64 0, 240518168521) %212, i1 noundef false) #15
+  %213 = shl i32 %209, 1
+  store i32 %213, ptr %18, align 8, !tbaa !28
   %.pre346 = load i32, ptr %16, align 4, !tbaa !33
   %.pre347 = add i32 %.pre346, 1
-  br label %212
+  br label %214
 
-212:                                              ; preds = %186, %.thread.i261
-  %.pre-phi = phi i32 [ %199, %186 ], [ %.pre347, %.thread.i261 ]
+214:                                              ; preds = %186, %.thread.i261
+  %.pre-phi = phi i32 [ %201, %186 ], [ %.pre347, %.thread.i261 ]
   store i32 1, ptr %71, align 8, !tbaa !23
   store i32 0, ptr %99, align 8, !tbaa !26
   store i32 %.pre-phi, ptr %16, align 4, !tbaa !33
@@ -1298,130 +1305,132 @@ read_more_data_.exit:                             ; preds = %145, %135
   store i32 0, ptr %96, align 8, !tbaa !36
   br label %check_size_of_link_allocation_.exit264
 
-213:                                              ; preds = %184, %._crit_edge
+215:                                              ; preds = %184, %._crit_edge
   %.not238 = icmp eq i32 %.1171.lcssa, 0
-  br i1 %.not238, label %225, label %214
+  br i1 %.not238, label %227, label %216
 
-214:                                              ; preds = %213
-  %215 = call i32 @ogg_page_serialno(ptr noundef nonnull %92) #15
-  %216 = sext i32 %215 to i64
-  %217 = load ptr, ptr %97, align 8, !tbaa !27
-  %218 = load i32, ptr %16, align 4, !tbaa !33
-  %219 = zext i32 %218 to i64
-  %220 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %217, i64 %219
-  %221 = load i64, ptr %220, align 8, !tbaa !39
-  %222 = icmp eq i64 %221, %216
-  br i1 %222, label %223, label %check_size_of_link_allocation_.exit264
+216:                                              ; preds = %215
+  %217 = call i32 @ogg_page_serialno(ptr noundef nonnull %92) #15
+  %218 = sext i32 %217 to i64
+  %219 = load ptr, ptr %97, align 8, !tbaa !27
+  %220 = load i32, ptr %16, align 4, !tbaa !33
+  %221 = zext i32 %220 to i64
+  %222 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %219, i64 %221
+  %223 = load i64, ptr %222, align 8, !tbaa !39
+  %224 = icmp eq i64 %223, %218
+  br i1 %224, label %225, label %check_size_of_link_allocation_.exit264
 
-223:                                              ; preds = %214
-  %224 = load i64, ptr %11, align 8, !tbaa !52
+225:                                              ; preds = %216
+  %226 = load i64, ptr %11, align 8, !tbaa !52
   br label %check_size_of_link_allocation_.exit264
 
-225:                                              ; preds = %213
+227:                                              ; preds = %215
   %.not239 = icmp eq i32 %.2192, 0
-  br i1 %.not239, label %228, label %226
+  br i1 %.not239, label %230, label %228
 
-226:                                              ; preds = %225
-  %227 = load i64, ptr %11, align 8, !tbaa !52
+228:                                              ; preds = %227
+  %229 = load i64, ptr %11, align 8, !tbaa !52
   br label %check_size_of_link_allocation_.exit264
 
-228:                                              ; preds = %225
-  br i1 %.not235, label %.thread, label %229
+230:                                              ; preds = %227
+  br i1 %.not235, label %.thread, label %231
 
-229:                                              ; preds = %228
+231:                                              ; preds = %230
   %.not241 = icmp ugt i64 %.0180323, %151
   %.2199. = select i1 %.not241, i32 %.2199, i32 1
   %..0180 = call i64 @llvm.umin.i64(i64 %.0180323, i64 %151)
   br label %check_size_of_link_allocation_.exit264
 
-230:                                              ; preds = %157
-  %231 = load i32, ptr %93, align 4, !tbaa !24
-  %.not243 = icmp eq i32 %231, 0
-  br i1 %.not243, label %240, label %232
+232:                                              ; preds = %157
+  %233 = load i32, ptr %93, align 4, !tbaa !24
+  %.not243 = icmp eq i32 %233, 0
+  br i1 %.not243, label %243, label %234
 
-232:                                              ; preds = %230
-  %233 = load i32, ptr %16, align 4, !tbaa !33
-  %234 = icmp eq i32 %233, 0
-  br i1 %234, label %.thread, label %235
+234:                                              ; preds = %232
+  %235 = load i32, ptr %16, align 4, !tbaa !33
+  %236 = icmp eq i32 %235, 0
+  br i1 %236, label %.thread, label %237
 
-235:                                              ; preds = %232
-  %236 = add i32 %233, -1
-  store i32 %236, ptr %16, align 4, !tbaa !33
-  %237 = load ptr, ptr %97, align 8, !tbaa !27
-  %238 = zext i32 %236 to i64
-  %239 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %237, i64 %238, i32 6
-  store i32 1, ptr %239, align 8, !tbaa !62
+237:                                              ; preds = %234
+  %238 = add i32 %235, -1
+  store i32 %238, ptr %16, align 4, !tbaa !33
+  %239 = load ptr, ptr %97, align 8, !tbaa !27
+  %240 = zext i32 %238 to i64
+  %241 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %239, i64 %240
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 48
+  store i32 1, ptr %242, align 8, !tbaa !62
   br label %.thread
 
-240:                                              ; preds = %230
-  %241 = load i32, ptr %71, align 8, !tbaa !23
-  %242 = call fastcc i32 @process_page_(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %5, ptr noundef %6)
-  %.not245 = icmp eq i32 %242, 0
-  br i1 %.not245, label %243, label %.thread
+243:                                              ; preds = %232
+  %244 = load i32, ptr %71, align 8, !tbaa !23
+  %245 = call fastcc i32 @process_page_(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %5, ptr noundef %6)
+  %.not245 = icmp eq i32 %245, 0
+  br i1 %.not245, label %246, label %.thread
 
-243:                                              ; preds = %240
-  %244 = icmp eq i32 %241, 0
+246:                                              ; preds = %243
+  %247 = icmp eq i32 %244, 0
   %.not244 = icmp ne i32 %.0185322, 0
-  %245 = load i32, ptr %71, align 8, !tbaa !23
-  %.not246 = icmp ne i32 %245, 0
-  %246 = select i1 %.not246, i1 true, i1 %244
-  %brmerge = select i1 %246, i1 true, i1 %.not244
-  br i1 %brmerge, label %247, label %.thread
+  %248 = load i32, ptr %71, align 8, !tbaa !23
+  %.not246 = icmp ne i32 %248, 0
+  %249 = select i1 %.not246, i1 true, i1 %247
+  %brmerge = select i1 %249, i1 true, i1 %.not244
+  br i1 %brmerge, label %250, label %.thread
 
-247:                                              ; preds = %243
+250:                                              ; preds = %246
   %.0185.mux = select i1 %.not246, i32 %.0185322, i32 0
-  %248 = load i32, ptr %90, align 4, !tbaa !35
-  %.not247 = icmp eq i32 %248, 0
+  %251 = load i32, ptr %90, align 4, !tbaa !35
+  %.not247 = icmp eq i32 %251, 0
   %spec.select255 = select i1 %.not247, i64 %151, i64 %.0173324
   br label %check_size_of_link_allocation_.exit264
 
-249:                                              ; preds = %.critedge
-  %250 = load i32, ptr %93, align 4, !tbaa !24
-  %.not232 = icmp eq i32 %250, 0
-  br i1 %.not232, label %264, label %251
+252:                                              ; preds = %.critedge
+  %253 = load i32, ptr %93, align 4, !tbaa !24
+  %.not232 = icmp eq i32 %253, 0
+  br i1 %.not232, label %268, label %254
 
-251:                                              ; preds = %249
-  %252 = load i32, ptr %90, align 4, !tbaa !35
-  %.not233 = icmp eq i32 %252, 0
-  br i1 %.not233, label %263, label %253
+254:                                              ; preds = %252
+  %255 = load i32, ptr %90, align 4, !tbaa !35
+  %.not233 = icmp eq i32 %255, 0
+  br i1 %.not233, label %267, label %256
 
-253:                                              ; preds = %251
-  %254 = load i32, ptr %96, align 8, !tbaa !36
-  %.not234 = icmp eq i32 %254, 0
-  br i1 %.not234, label %255, label %263
+256:                                              ; preds = %254
+  %257 = load i32, ptr %96, align 8, !tbaa !36
+  %.not234 = icmp eq i32 %257, 0
+  br i1 %.not234, label %258, label %267
 
-255:                                              ; preds = %253
-  %256 = load i32, ptr %16, align 4, !tbaa !33
-  %257 = icmp eq i32 %256, 0
-  br i1 %257, label %.thread, label %258
+258:                                              ; preds = %256
+  %259 = load i32, ptr %16, align 4, !tbaa !33
+  %260 = icmp eq i32 %259, 0
+  br i1 %260, label %.thread, label %261
 
-258:                                              ; preds = %255
-  %259 = add i32 %256, -1
-  store i32 %259, ptr %16, align 4, !tbaa !33
-  %260 = load ptr, ptr %97, align 8, !tbaa !27
-  %261 = zext i32 %259 to i64
-  %262 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %260, i64 %261, i32 6
-  store i32 1, ptr %262, align 8, !tbaa !62
+261:                                              ; preds = %258
+  %262 = add i32 %259, -1
+  store i32 %262, ptr %16, align 4, !tbaa !33
+  %263 = load ptr, ptr %97, align 8, !tbaa !27
+  %264 = zext i32 %262 to i64
+  %265 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %263, i64 %264
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 48
+  store i32 1, ptr %266, align 8, !tbaa !62
   br label %.thread
 
-263:                                              ; preds = %253, %251
+267:                                              ; preds = %256, %254
   br i1 %.not235, label %.thread, label %check_size_of_link_allocation_.exit264
 
-264:                                              ; preds = %249
-  %265 = icmp eq i32 %.lcssa, 0
-  br i1 %265, label %.thread, label %check_size_of_link_allocation_.exit264
+268:                                              ; preds = %252
+  %269 = icmp eq i32 %.lcssa, 0
+  br i1 %269, label %.thread, label %check_size_of_link_allocation_.exit264
 
-check_size_of_link_allocation_.exit264:           ; preds = %264, %263, %247, %229, %214, %226, %223, %212
-  %.1198 = phi i32 [ %.2199, %212 ], [ %.2199, %247 ], [ %.2199, %264 ], [ %.2199, %263 ], [ %.2199., %229 ], [ 1, %214 ], [ %.2199, %226 ], [ %.2199, %223 ]
-  %.1191 = phi i32 [ %.2192, %212 ], [ %.2192, %247 ], [ %.2192, %264 ], [ %.2192, %263 ], [ 0, %229 ], [ %.2192, %214 ], [ 1, %226 ], [ 0, %223 ]
-  %.1186 = phi i32 [ %.0185322, %212 ], [ %.0185.mux, %247 ], [ %.0185322, %264 ], [ %.0185322, %263 ], [ %.0185322, %229 ], [ %.0185322, %214 ], [ %.0185322, %226 ], [ %.0185322, %223 ]
-  %.1181 = phi i64 [ %.0180323, %212 ], [ %.0180323, %247 ], [ %.0180323, %264 ], [ %.0168, %263 ], [ %..0180, %229 ], [ %.0180323, %214 ], [ %.0180323, %226 ], [ %.0180323, %223 ]
-  %.1174 = phi i64 [ %.0173324, %212 ], [ %spec.select255, %247 ], [ %.0173324, %264 ], [ %.0173324, %263 ], [ %.0173324, %229 ], [ %.0173324, %214 ], [ %227, %226 ], [ %224, %223 ]
+check_size_of_link_allocation_.exit264:           ; preds = %268, %267, %250, %231, %216, %228, %225, %214
+  %.1198 = phi i32 [ %.2199, %214 ], [ %.2199, %250 ], [ %.2199, %268 ], [ %.2199, %267 ], [ %.2199., %231 ], [ 1, %216 ], [ %.2199, %228 ], [ %.2199, %225 ]
+  %.1191 = phi i32 [ %.2192, %214 ], [ %.2192, %250 ], [ %.2192, %268 ], [ %.2192, %267 ], [ 0, %231 ], [ %.2192, %216 ], [ 1, %228 ], [ 0, %225 ]
+  %.1186 = phi i32 [ %.0185322, %214 ], [ %.0185.mux, %250 ], [ %.0185322, %268 ], [ %.0185322, %267 ], [ %.0185322, %231 ], [ %.0185322, %216 ], [ %.0185322, %228 ], [ %.0185322, %225 ]
+  %.1181 = phi i64 [ %.0180323, %214 ], [ %.0180323, %250 ], [ %.0180323, %268 ], [ %.0168, %267 ], [ %..0180, %231 ], [ %.0180323, %216 ], [ %.0180323, %228 ], [ %.0180323, %225 ]
+  %.1174 = phi i64 [ %.0173324, %214 ], [ %spec.select255, %250 ], [ %.0173324, %268 ], [ %.0173324, %267 ], [ %.0173324, %231 ], [ %.0173324, %216 ], [ %229, %228 ], [ %226, %225 ]
   %.not226 = icmp ugt i64 %.1181, %.1174
   br i1 %.not226, label %100, label %.thread
 
-.thread:                                          ; preds = %100, %check_size_of_link_allocation_.exit264, %120, %263, %264, %228, %201, %240, %243, %145, %139, %78, %.thread.i259, %255, %232, %258, %235, %75, %70, %77, %74
-  %.4 = phi i32 [ 9, %75 ], [ 9, %70 ], [ 7, %77 ], [ 7, %74 ], [ 3, %255 ], [ 3, %232 ], [ 1, %258 ], [ 1, %235 ], [ 6, %.thread.i259 ], [ 7, %78 ], [ 7, %145 ], [ 8, %139 ], [ 7, %100 ], [ 7, %check_size_of_link_allocation_.exit264 ], [ 0, %120 ], [ 7, %263 ], [ 3, %264 ], [ 7, %228 ], [ 8, %201 ], [ %242, %240 ], [ 0, %243 ]
+.thread:                                          ; preds = %100, %check_size_of_link_allocation_.exit264, %120, %267, %268, %230, %203, %243, %246, %145, %139, %78, %.thread.i259, %258, %234, %261, %237, %75, %70, %77, %74
+  %.4 = phi i32 [ 9, %75 ], [ 9, %70 ], [ 7, %77 ], [ 7, %74 ], [ 3, %258 ], [ 3, %234 ], [ 1, %261 ], [ 1, %237 ], [ 6, %.thread.i259 ], [ 7, %78 ], [ 7, %145 ], [ 8, %139 ], [ 7, %100 ], [ 7, %check_size_of_link_allocation_.exit264 ], [ 0, %120 ], [ 7, %267 ], [ 3, %268 ], [ 7, %230 ], [ 8, %203 ], [ %245, %243 ], [ 0, %246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %check_size_of_link_allocation_.exit

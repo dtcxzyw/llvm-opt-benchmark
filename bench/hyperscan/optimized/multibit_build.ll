@@ -1038,10 +1038,10 @@ _ZNSt5dequeIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE16_M_push_back_auxIJS4_EEEvDp
   %indvars.iv.i = phi i64 [ %381, %.lr.ph158.preheader.i ], [ %indvars.iv.next.i, %.lr.ph158.i ]
   %.043156.i = phi i32 [ 0, %.lr.ph158.preheader.i ], [ %389, %.lr.ph158.i ]
   %383 = add i32 %.043156.i, %379
-  %384 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %.pre, i64 %indvars.iv.i, i32 1
-  store i32 %383, ptr %384, align 8
-  %385 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %.pre, i64 %indvars.iv.i
-  %386 = load i64, ptr %385, align 8
+  %384 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %.pre, i64 %indvars.iv.i
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
+  store i32 %383, ptr %385, align 8
+  %386 = load i64, ptr %384, align 8
   %387 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %386)
   %388 = trunc nuw nsw i64 %387 to i32
   %389 = add i32 %.043156.i, %388
@@ -1073,10 +1073,10 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %._crit_edge168.i, %
 .lr.ph167.i:                                      ; preds = %._crit_edge162.i, %.lr.ph167.i
   %.0165.i = phi i64 [ %402, %.lr.ph167.i ], [ %.046.lcssa.i, %._crit_edge162.i ]
   %.041164.i = phi i32 [ %401, %.lr.ph167.i ], [ 0, %._crit_edge162.i ]
-  %396 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %.pre, i64 %.0165.i, i32 1
-  store i32 %.041164.i, ptr %396, align 8
-  %397 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %.pre, i64 %.0165.i
-  %398 = load i64, ptr %397, align 8
+  %396 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %.pre, i64 %.0165.i
+  %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
+  store i32 %.041164.i, ptr %397, align 8
+  %398 = load i64, ptr %396, align 8
   %399 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %398)
   %400 = trunc nuw nsw i64 %399 to i32
   %401 = add i32 %.041164.i, %400

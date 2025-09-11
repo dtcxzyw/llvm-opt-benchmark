@@ -36,12 +36,12 @@ define range(i32 -4, 1) i32 @lzwInit(ptr noundef writeonly captures(none) %0) lo
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %4 ]
   %10 = getelementptr inbounds nuw %struct.code_ent, ptr %6, i64 %indvars.iv
   store ptr null, ptr %10, align 8, !tbaa !12
-  %11 = getelementptr inbounds nuw %struct.code_ent, ptr %6, i64 %indvars.iv, i32 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i16 1, ptr %11, align 8, !tbaa !14
   %12 = trunc i64 %indvars.iv to i8
-  %13 = getelementptr inbounds nuw %struct.code_ent, ptr %6, i64 %indvars.iv, i32 2
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i8 %12, ptr %13, align 2, !tbaa !15
-  %14 = getelementptr inbounds nuw %struct.code_ent, ptr %6, i64 %indvars.iv, i32 3
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 11
   store i8 %12, ptr %14, align 1, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

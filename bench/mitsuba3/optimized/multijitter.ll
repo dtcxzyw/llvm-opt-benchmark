@@ -472,7 +472,7 @@ define weak_odr noundef float @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixIN
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %14
-  %.023.i = phi i32 [ %3, %14 ], [ %spec.select.i, %.critedge.i ]
+  %.023.i = phi i32 [ %3, %14 ], [ %60, %.critedge.i ]
   %.017.i = phi i8 [ %15, %14 ], [ 1, %.critedge.i ]
   %33 = xor i32 %.023.i, %12
   %34 = mul i32 %33, -512718531
@@ -598,7 +598,7 @@ define weak_odr <2 x float> @_ZN7mitsuba18MultijitterSamplerIfN5drjit6MatrixINS_
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %15
-  %.023.i = phi i32 [ %4, %15 ], [ %spec.select.i, %.critedge.i ]
+  %.023.i = phi i32 [ %4, %15 ], [ %60, %.critedge.i ]
   %.017.i = phi i8 [ %3, %15 ], [ 1, %.critedge.i ]
   %33 = xor i32 %.023.i, %13
   %34 = mul i32 %33, -512718531
@@ -695,7 +695,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ;
   br label %.critedge.i125
 
 .critedge.i125:                                   ; preds = %.critedge.i125, %92
-  %.023.i126 = phi i32 [ %89, %92 ], [ %spec.select.i128, %.critedge.i125 ]
+  %.023.i126 = phi i32 [ %89, %92 ], [ %137, %.critedge.i125 ]
   %.017.i127 = phi i8 [ %3, %92 ], [ 1, %.critedge.i125 ]
   %110 = xor i32 %.023.i126, %90
   %111 = mul i32 %110, -512718531
@@ -767,7 +767,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit131
   br label %.critedge.i132
 
 .critedge.i132:                                   ; preds = %.critedge.i132, %149
-  %.023.i133 = phi i32 [ %.0104, %149 ], [ %spec.select.i135, %.critedge.i132 ]
+  %.023.i133 = phi i32 [ %.0104, %149 ], [ %194, %.critedge.i132 ]
   %.017.i134 = phi i8 [ %3, %149 ], [ 1, %.critedge.i132 ]
   %167 = xor i32 %.023.i133, %147
   %168 = mul i32 %167, -512718531

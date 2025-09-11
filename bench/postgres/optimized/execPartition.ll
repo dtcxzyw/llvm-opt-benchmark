@@ -2930,8 +2930,7 @@ InitPartitionPruneContext.exit.i:                 ; preds = %..loopexit_crit_edg
 
 196:                                              ; preds = %191
   %197 = zext nneg i32 %194 to i64
-  %.idx.i = mul nuw nsw i64 %197, 224
-  %198 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i
+  %198 = getelementptr inbounds nuw %struct.PartitionedRelPruningData, ptr %72, i64 %197
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 40
   %200 = load ptr, ptr %199, align 8
   %201 = icmp eq ptr %200, null

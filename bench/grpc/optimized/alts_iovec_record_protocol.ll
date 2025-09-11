@@ -179,57 +179,58 @@ _ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
   br i1 %.not.i41, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit, %.lr.ph.i
-  %.08.i = phi i64 [ %50, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
-  %.067.i = phi i64 [ %49, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
-  %47 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i, i32 1
-  %48 = load i64, ptr %47, align 8, !tbaa !20
-  %49 = add i64 %48, %.067.i
-  %50 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %50, %2
+  %.08.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
+  %.067.i = phi i64 [ %50, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
+  %47 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !20
+  %50 = add i64 %49, %.067.i
+  %51 = add nuw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %51, %2
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph.i, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
-  %.06.lcssa.i = phi i64 [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ], [ %49, %.lr.ph.i ]
-  %51 = add i64 %.sroa.2.0.copyload, %.06.lcssa.i
-  %52 = trunc i64 %51 to i32
-  %53 = add i32 %52, 4
-  store i32 %53, ptr %3, align 1
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 6, ptr %54, align 1
+  %.06.lcssa.i = phi i64 [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ], [ %50, %.lr.ph.i ]
+  %52 = add i64 %.sroa.2.0.copyload, %.06.lcssa.i
+  %53 = trunc i64 %52 to i32
+  %54 = add i32 %53, 4
+  store i32 %54, ptr %3, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 6, ptr %55, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !19
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !24
-  %57 = load ptr, ptr %0, align 8, !tbaa !25
-  %58 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %57)
-  %59 = load ptr, ptr %0, align 8, !tbaa !25
-  %60 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %59)
-  %61 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %56, ptr noundef %58, i64 noundef %60, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef nonnull byval(%struct.iovec) align 8 %5, ptr noundef nonnull %8, ptr noundef %6)
-  %.not37 = icmp eq i32 %61, 0
-  br i1 %.not37, label %62, label %69
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !24
+  %58 = load ptr, ptr %0, align 8, !tbaa !25
+  %59 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %58)
+  %60 = load ptr, ptr %0, align 8, !tbaa !25
+  %61 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %60)
+  %62 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %57, ptr noundef %59, i64 noundef %61, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef nonnull byval(%struct.iovec) align 8 %5, ptr noundef nonnull %8, ptr noundef %6)
+  %.not37 = icmp eq i32 %62, 0
+  br i1 %.not37, label %63, label %70
 
-62:                                               ; preds = %.loopexit
-  %63 = load i64, ptr %8, align 8, !tbaa !19
-  %64 = load i64, ptr %42, align 8, !tbaa !3
-  %.not38 = icmp eq i64 %63, %64
-  br i1 %.not38, label %66, label %65
+63:                                               ; preds = %.loopexit
+  %64 = load i64, ptr %8, align 8, !tbaa !19
+  %65 = load i64, ptr %42, align 8, !tbaa !3
+  %.not38 = icmp eq i64 %64, %65
+  br i1 %.not38, label %67, label %66
 
-65:                                               ; preds = %62
+66:                                               ; preds = %63
   call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.3, ptr noundef %6)
-  br label %69
+  br label %70
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %0, align 8, !tbaa !25
-  %68 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %67, ptr noundef %6)
-  br label %69
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %0, align 8, !tbaa !25
+  %69 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %68, ptr noundef %6)
+  br label %70
 
-69:                                               ; preds = %.loopexit, %66, %65
-  %.3 = phi i32 [ 13, %65 ], [ %68, %66 ], [ %61, %.loopexit ]
+70:                                               ; preds = %.loopexit, %67, %66
+  %.3 = phi i32 [ 13, %66 ], [ %69, %67 ], [ %62, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %45, %44, %39, %38, %34, %33, %30, %29, %25, %24, %18, %17, %11, %10, %69
-  %.0 = phi i32 [ %.3, %69 ], [ 3, %10 ], [ 3, %11 ], [ 9, %17 ], [ 9, %18 ], [ 9, %24 ], [ 9, %25 ], [ 3, %29 ], [ 3, %30 ], [ 3, %33 ], [ 3, %34 ], [ 3, %38 ], [ 3, %39 ], [ 3, %44 ], [ 3, %45 ]
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %45, %44, %39, %38, %34, %33, %30, %29, %25, %24, %18, %17, %11, %10, %70
+  %.0 = phi i32 [ %.3, %70 ], [ 3, %10 ], [ 3, %11 ], [ 9, %17 ], [ 9, %18 ], [ 9, %24 ], [ 9, %25 ], [ 3, %29 ], [ 3, %30 ], [ 3, %33 ], [ 3, %34 ], [ 3, %38 ], [ 3, %39 ], [ 3, %44 ], [ 3, %45 ]
   ret i32 %.0
 }
 
@@ -416,86 +417,87 @@ _ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
   br i1 %.not.i37, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit, %.lr.ph.i
-  %.08.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
-  %.067.i = phi i64 [ %50, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
-  %48 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i, i32 1
-  %49 = load i64, ptr %48, align 8, !tbaa !20
-  %50 = add i64 %49, %.067.i
-  %51 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %51, %2
+  %.08.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
+  %.067.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
+  %48 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load i64, ptr %49, align 8, !tbaa !20
+  %51 = add i64 %50, %.067.i
+  %52 = add nuw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %52, %2
   br i1 %exitcond.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !22
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i
-  %52 = add i64 %50, 4
+  %53 = add i64 %51, 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
-  %.06.lcssa.i = phi i64 [ 4, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ], [ %52, %.loopexit.loopexit ]
-  %53 = load i32, ptr %3, align 1
-  %54 = zext i32 %53 to i64
-  %55 = add i64 %.06.lcssa.i, %.sroa.2.0.copyload
-  %.not.i38 = icmp eq i64 %55, %54
-  br i1 %.not.i38, label %59, label %56
+  %.06.lcssa.i = phi i64 [ 4, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ], [ %53, %.loopexit.loopexit ]
+  %54 = load i32, ptr %3, align 1
+  %55 = zext i32 %54 to i64
+  %56 = add i64 %.06.lcssa.i, %.sroa.2.0.copyload
+  %.not.i38 = icmp eq i64 %56, %55
+  br i1 %.not.i38, label %60, label %57
 
-56:                                               ; preds = %.loopexit
+57:                                               ; preds = %.loopexit
   %.not13.i39 = icmp eq ptr %6, null
-  br i1 %.not13.i39, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %57
+  br i1 %.not13.i39, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %58
 
-57:                                               ; preds = %56
-  %58 = tail call ptr @gpr_malloc(i64 noundef 18)
-  store ptr %58, ptr %6, align 8, !tbaa !12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %58, ptr noundef nonnull align 1 dereferenceable(18) @.str.20, i64 18, i1 false)
+58:                                               ; preds = %57
+  %59 = tail call ptr @gpr_malloc(i64 noundef 18)
+  store ptr %59, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %59, ptr noundef nonnull align 1 dereferenceable(18) @.str.20, i64 18, i1 false)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-59:                                               ; preds = %.loopexit
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %61 = load i32, ptr %60, align 1
-  %.not10.i = icmp eq i32 %61, 6
-  br i1 %.not10.i, label %_ZL19verify_frame_headermPhPPc.exit, label %62
+60:                                               ; preds = %.loopexit
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %62 = load i32, ptr %61, align 1
+  %.not10.i = icmp eq i32 %62, 6
+  br i1 %.not10.i, label %_ZL19verify_frame_headermPhPPc.exit, label %63
 
-62:                                               ; preds = %59
+63:                                               ; preds = %60
   %.not14.i41 = icmp eq ptr %6, null
-  br i1 %.not14.i41, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %63
+  br i1 %.not14.i41, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %64
 
-63:                                               ; preds = %62
-  %64 = tail call ptr @gpr_malloc(i64 noundef 26)
-  store ptr %64, ptr %6, align 8, !tbaa !12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %64, ptr noundef nonnull align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
+64:                                               ; preds = %63
+  %65 = tail call ptr @gpr_malloc(i64 noundef 26)
+  store ptr %65, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %65, ptr noundef nonnull align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-_ZL19verify_frame_headermPhPPc.exit:              ; preds = %59
+_ZL19verify_frame_headermPhPPc.exit:              ; preds = %60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !19
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = load ptr, ptr %0, align 8, !tbaa !25
-  %68 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %67)
-  %69 = load ptr, ptr %0, align 8, !tbaa !25
-  %70 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %69)
-  %71 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %66, ptr noundef %68, i64 noundef %70, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull byval(%struct.iovec) align 8 %9, ptr noundef nonnull %8, ptr noundef %6)
-  %72 = icmp ne i32 %71, 0
-  %73 = load i64, ptr %8, align 8
-  %74 = icmp ne i64 %73, 0
-  %or.cond = select i1 %72, i1 true, i1 %74
-  br i1 %or.cond, label %75, label %76
-
-75:                                               ; preds = %_ZL19verify_frame_headermPhPPc.exit
-  call fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef nonnull @.str.5, ptr noundef %6)
-  br label %79
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = load ptr, ptr %0, align 8, !tbaa !25
+  %69 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %68)
+  %70 = load ptr, ptr %0, align 8, !tbaa !25
+  %71 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %70)
+  %72 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %67, ptr noundef %69, i64 noundef %71, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull byval(%struct.iovec) align 8 %9, ptr noundef nonnull %8, ptr noundef %6)
+  %73 = icmp ne i32 %72, 0
+  %74 = load i64, ptr %8, align 8
+  %75 = icmp ne i64 %74, 0
+  %or.cond = select i1 %73, i1 true, i1 %75
+  br i1 %or.cond, label %76, label %77
 
 76:                                               ; preds = %_ZL19verify_frame_headermPhPPc.exit
-  %77 = load ptr, ptr %0, align 8, !tbaa !25
-  %78 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %77, ptr noundef %6)
-  br label %79
+  call fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef nonnull @.str.5, ptr noundef %6)
+  br label %80
 
-79:                                               ; preds = %76, %75
-  %.3 = phi i32 [ 13, %75 ], [ %78, %76 ]
+77:                                               ; preds = %_ZL19verify_frame_headermPhPPc.exit
+  %78 = load ptr, ptr %0, align 8, !tbaa !25
+  %79 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %78, ptr noundef %6)
+  br label %80
+
+80:                                               ; preds = %77, %76
+  %.3 = phi i32 [ 13, %76 ], [ %79, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %63, %62, %57, %56, %46, %45, %40, %39, %35, %34, %31, %30, %26, %25, %19, %18, %12, %11, %79
-  %.0 = phi i32 [ %.3, %79 ], [ 3, %11 ], [ 3, %12 ], [ 9, %18 ], [ 9, %19 ], [ 9, %25 ], [ 9, %26 ], [ 3, %30 ], [ 3, %31 ], [ 3, %34 ], [ 3, %35 ], [ 3, %39 ], [ 3, %40 ], [ 3, %45 ], [ 3, %46 ], [ 13, %56 ], [ 13, %57 ], [ 13, %62 ], [ 13, %63 ]
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %64, %63, %58, %57, %46, %45, %40, %39, %35, %34, %31, %30, %26, %25, %19, %18, %12, %11, %80
+  %.0 = phi i32 [ %.3, %80 ], [ 3, %11 ], [ 3, %12 ], [ 9, %18 ], [ 9, %19 ], [ 9, %25 ], [ 9, %26 ], [ 3, %30 ], [ 3, %31 ], [ 3, %34 ], [ 3, %35 ], [ 3, %39 ], [ 3, %40 ], [ 3, %45 ], [ 3, %46 ], [ 13, %57 ], [ 13, %58 ], [ 13, %63 ], [ 13, %64 ]
   ret i32 %.0
 }
 
@@ -638,96 +640,97 @@ define noundef i32 @_Z52alts_iovec_record_protocol_privacy_integrity_protectP26a
   br i1 %.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
-  %.08.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %27 ]
-  %.067.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %27 ]
-  %28 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i, i32 1
-  %29 = load i64, ptr %28, align 8, !tbaa !20
-  %30 = add i64 %29, %.067.i
-  %31 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %31, %2
+  %.08.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %27 ]
+  %.067.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %27 ]
+  %28 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !20
+  %31 = add i64 %30, %.067.i
+  %32 = add nuw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %32, %2
   br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
-  %.06.lcssa.i = phi i64 [ 0, %27 ], [ %30, %.lr.ph.i ]
-  %32 = icmp eq ptr %3, null
-  br i1 %32, label %33, label %36
+  %.06.lcssa.i = phi i64 [ 0, %27 ], [ %31, %.lr.ph.i ]
+  %33 = icmp eq ptr %3, null
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
+34:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
   %.not51 = icmp eq ptr %5, null
-  br i1 %.not51, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %34
+  br i1 %.not51, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %35
 
-34:                                               ; preds = %33
-  %35 = tail call ptr @gpr_malloc(i64 noundef 28)
-  store ptr %35, ptr %5, align 8, !tbaa !12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %35, ptr noundef nonnull align 1 dereferenceable(28) @.str.7, i64 28, i1 false)
+35:                                               ; preds = %34
+  %36 = tail call ptr @gpr_malloc(i64 noundef 28)
+  store ptr %36, ptr %5, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %36, ptr noundef nonnull align 1 dereferenceable(28) @.str.7, i64 28, i1 false)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-36:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
-  %37 = add i64 %.06.lcssa.i, 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !3
-  %40 = add i64 %37, %39
-  %.not = icmp eq i64 %4, %40
-  br i1 %.not, label %44, label %41
+37:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
+  %38 = add i64 %.06.lcssa.i, 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %40 = load i64, ptr %39, align 8, !tbaa !3
+  %41 = add i64 %38, %40
+  %.not = icmp eq i64 %4, %41
+  br i1 %.not, label %45, label %42
 
-41:                                               ; preds = %36
+42:                                               ; preds = %37
   %.not50 = icmp eq ptr %5, null
-  br i1 %.not50, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %42
+  br i1 %.not50, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %43
 
-42:                                               ; preds = %41
-  %43 = tail call ptr @gpr_malloc(i64 noundef 35)
-  store ptr %43, ptr %5, align 8, !tbaa !12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %43, ptr noundef nonnull align 1 dereferenceable(35) @.str.8, i64 35, i1 false)
+43:                                               ; preds = %42
+  %44 = tail call ptr @gpr_malloc(i64 noundef 35)
+  store ptr %44, ptr %5, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %44, ptr noundef nonnull align 1 dereferenceable(35) @.str.8, i64 35, i1 false)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-44:                                               ; preds = %36
-  %45 = add i64 %39, %.06.lcssa.i
-  %46 = trunc i64 %45 to i32
-  %47 = add i32 %46, 4
-  store i32 %47, ptr %3, align 1
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 6, ptr %48, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %50 = load i64, ptr %38, align 8, !tbaa !3
-  %51 = add i64 %50, %.06.lcssa.i
+45:                                               ; preds = %37
+  %46 = add i64 %40, %.06.lcssa.i
+  %47 = trunc i64 %46 to i32
+  %48 = add i32 %47, 4
+  store i32 %48, ptr %3, align 1
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 6, ptr %49, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %51 = load i64, ptr %39, align 8, !tbaa !3
+  %52 = add i64 %51, %.06.lcssa.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !19
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = load ptr, ptr %0, align 8, !tbaa !25
-  %55 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %54)
-  %56 = load ptr, ptr %0, align 8, !tbaa !25
-  %57 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %56)
-  store ptr %49, ptr %8, align 8, !tbaa !18
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %55 = load ptr, ptr %0, align 8, !tbaa !25
+  %56 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %55)
+  %57 = load ptr, ptr %0, align 8, !tbaa !25
+  %58 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %57)
+  store ptr %50, ptr %8, align 8, !tbaa !18
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %51, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !19
-  %58 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %53, ptr noundef %55, i64 noundef %57, ptr noundef null, i64 noundef 0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull byval(%struct.iovec) align 8 %8, ptr noundef nonnull %7, ptr noundef %5)
-  %.not42 = icmp eq i32 %58, 0
-  br i1 %.not42, label %59, label %67
+  store i64 %52, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !19
+  %59 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %54, ptr noundef %56, i64 noundef %58, ptr noundef null, i64 noundef 0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull byval(%struct.iovec) align 8 %8, ptr noundef nonnull %7, ptr noundef %5)
+  %.not42 = icmp eq i32 %59, 0
+  br i1 %.not42, label %60, label %68
 
-59:                                               ; preds = %44
-  %60 = load i64, ptr %7, align 8, !tbaa !19
-  %61 = load i64, ptr %38, align 8, !tbaa !3
-  %62 = add i64 %61, %.06.lcssa.i
-  %.not43 = icmp eq i64 %60, %62
-  br i1 %.not43, label %64, label %63
+60:                                               ; preds = %45
+  %61 = load i64, ptr %7, align 8, !tbaa !19
+  %62 = load i64, ptr %39, align 8, !tbaa !3
+  %63 = add i64 %62, %.06.lcssa.i
+  %.not43 = icmp eq i64 %61, %63
+  br i1 %.not43, label %65, label %64
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.9, ptr noundef %5)
-  br label %67
+  br label %68
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %0, align 8, !tbaa !25
-  %66 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %65, ptr noundef %5)
-  br label %67
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %0, align 8, !tbaa !25
+  %67 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %66, ptr noundef %5)
+  br label %68
 
-67:                                               ; preds = %44, %64, %63
-  %.3 = phi i32 [ 13, %63 ], [ %66, %64 ], [ %58, %44 ]
+68:                                               ; preds = %45, %65, %64
+  %.3 = phi i32 [ 13, %64 ], [ %67, %65 ], [ %59, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %42, %41, %34, %33, %25, %24, %18, %17, %11, %10, %67
-  %.0 = phi i32 [ %.3, %67 ], [ 3, %10 ], [ 3, %11 ], [ 9, %17 ], [ 9, %18 ], [ 9, %24 ], [ 9, %25 ], [ 3, %33 ], [ 3, %34 ], [ 3, %41 ], [ 3, %42 ]
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %43, %42, %35, %34, %25, %24, %18, %17, %11, %10, %68
+  %.0 = phi i32 [ %.3, %68 ], [ 3, %10 ], [ 3, %11 ], [ 9, %17 ], [ 9, %18 ], [ 9, %24 ], [ 9, %25 ], [ 3, %34 ], [ 3, %35 ], [ 3, %42 ], [ 3, %43 ]
   ret i32 %.0
 }
 
@@ -784,116 +787,117 @@ define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP2
   br i1 %.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
-  %.08.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %27 ]
-  %.067.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %27 ]
-  %28 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %.08.i, i32 1
-  %29 = load i64, ptr %28, align 8, !tbaa !20
-  %30 = add i64 %29, %.067.i
-  %31 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %31, %4
+  %.08.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %27 ]
+  %.067.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %27 ]
+  %28 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %.08.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !20
+  %31 = add i64 %30, %.067.i
+  %32 = add nuw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %32, %4
   br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
-  %.06.lcssa.i = phi i64 [ 0, %27 ], [ %30, %.lr.ph.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !3
-  %34 = icmp ult i64 %.06.lcssa.i, %33
-  br i1 %34, label %35, label %38
+  %.06.lcssa.i = phi i64 [ 0, %27 ], [ %31, %.lr.ph.i ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load i64, ptr %33, align 8, !tbaa !3
+  %35 = icmp ult i64 %.06.lcssa.i, %34
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
+36:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
   %.not49 = icmp eq ptr %6, null
-  br i1 %.not49, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %36
+  br i1 %.not49, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %37
 
-36:                                               ; preds = %35
-  %37 = tail call ptr @gpr_malloc(i64 noundef 58)
-  store ptr %37, ptr %6, align 8, !tbaa !12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %37, ptr noundef nonnull align 1 dereferenceable(58) @.str.10, i64 58, i1 false)
+37:                                               ; preds = %36
+  %38 = tail call ptr @gpr_malloc(i64 noundef 58)
+  store ptr %38, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %38, ptr noundef nonnull align 1 dereferenceable(58) @.str.10, i64 58, i1 false)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-38:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
-  %39 = icmp eq ptr %1, null
-  br i1 %39, label %40, label %43
+39:                                               ; preds = %_ZL16get_total_lengthPK5iovecm.exit
+  %40 = icmp eq ptr %1, null
+  br i1 %40, label %41, label %44
 
-40:                                               ; preds = %38
+41:                                               ; preds = %39
   %.not48 = icmp eq ptr %6, null
-  br i1 %.not48, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %41
+  br i1 %.not48, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %42
 
-41:                                               ; preds = %40
-  %42 = tail call ptr @gpr_malloc(i64 noundef 19)
-  store ptr %42, ptr %6, align 8, !tbaa !12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %42, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
+42:                                               ; preds = %41
+  %43 = tail call ptr @gpr_malloc(i64 noundef 19)
+  store ptr %43, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %43, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, i64 19, i1 false)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-43:                                               ; preds = %38
+44:                                               ; preds = %39
   %.not = icmp eq i64 %2, 8
-  br i1 %.not, label %47, label %44
-
-44:                                               ; preds = %43
-  %.not47 = icmp eq ptr %6, null
-  br i1 %.not47, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %45
+  br i1 %.not, label %48, label %45
 
 45:                                               ; preds = %44
-  %46 = tail call ptr @gpr_malloc(i64 noundef 28)
-  store ptr %46, ptr %6, align 8, !tbaa !12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %46, ptr noundef nonnull align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
+  %.not47 = icmp eq ptr %6, null
+  br i1 %.not47, label %_ZL20maybe_copy_error_msgPKcPPc.exit, label %46
+
+46:                                               ; preds = %45
+  %47 = tail call ptr @gpr_malloc(i64 noundef 28)
+  store ptr %47, ptr %6, align 8, !tbaa !12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %47, ptr noundef nonnull align 1 dereferenceable(28) @.str.12, i64 28, i1 false)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !20
-  %50 = sub i64 %.06.lcssa.i, %33
-  %.not38 = icmp eq i64 %49, %50
-  br i1 %.not38, label %52, label %51
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %50 = load i64, ptr %49, align 8, !tbaa !20
+  %51 = sub i64 %.06.lcssa.i, %34
+  %.not38 = icmp eq i64 %50, %51
+  br i1 %.not38, label %53, label %52
 
-51:                                               ; preds = %47
+52:                                               ; preds = %48
   tail call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.13, ptr noundef %6)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-52:                                               ; preds = %47
-  %53 = tail call fastcc noundef i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %.06.lcssa.i, ptr noundef nonnull %1, ptr noundef %6)
-  %.not39 = icmp eq i32 %53, 0
-  br i1 %.not39, label %54, label %_ZL20maybe_copy_error_msgPKcPPc.exit
+53:                                               ; preds = %48
+  %54 = tail call fastcc noundef i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %.06.lcssa.i, ptr noundef nonnull %1, ptr noundef %6)
+  %.not39 = icmp eq i32 %54, 0
+  br i1 %.not39, label %55, label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-54:                                               ; preds = %52
+55:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !19
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !24
-  %57 = load ptr, ptr %0, align 8, !tbaa !25
-  %58 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %57)
-  %59 = load ptr, ptr %0, align 8, !tbaa !25
-  %60 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %59)
-  %61 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %56, ptr noundef %58, i64 noundef %60, ptr noundef null, i64 noundef 0, ptr noundef %3, i64 noundef %4, ptr noundef nonnull byval(%struct.iovec) align 8 %5, ptr noundef nonnull %8, ptr noundef %6)
-  %.not40 = icmp eq i32 %61, 0
-  br i1 %.not40, label %63, label %62
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !24
+  %58 = load ptr, ptr %0, align 8, !tbaa !25
+  %59 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %58)
+  %60 = load ptr, ptr %0, align 8, !tbaa !25
+  %61 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %60)
+  %62 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %57, ptr noundef %59, i64 noundef %61, ptr noundef null, i64 noundef 0, ptr noundef %3, i64 noundef %4, ptr noundef nonnull byval(%struct.iovec) align 8 %5, ptr noundef nonnull %8, ptr noundef %6)
+  %.not40 = icmp eq i32 %62, 0
+  br i1 %.not40, label %64, label %63
 
-62:                                               ; preds = %54
+63:                                               ; preds = %55
   call fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef nonnull @.str.14, ptr noundef %6)
-  br label %71
+  br label %72
 
-63:                                               ; preds = %54
-  %64 = load i64, ptr %8, align 8, !tbaa !19
-  %65 = load i64, ptr %32, align 8, !tbaa !3
-  %66 = sub i64 %.06.lcssa.i, %65
-  %.not41 = icmp eq i64 %64, %66
-  br i1 %.not41, label %68, label %67
+64:                                               ; preds = %55
+  %65 = load i64, ptr %8, align 8, !tbaa !19
+  %66 = load i64, ptr %33, align 8, !tbaa !3
+  %67 = sub i64 %.06.lcssa.i, %66
+  %.not41 = icmp eq i64 %65, %67
+  br i1 %.not41, label %69, label %68
 
-67:                                               ; preds = %63
+68:                                               ; preds = %64
   call fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef nonnull @.str.15, ptr noundef %6)
-  br label %71
+  br label %72
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %0, align 8, !tbaa !25
-  %70 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %69, ptr noundef %6)
-  br label %71
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %0, align 8, !tbaa !25
+  %71 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %70, ptr noundef %6)
+  br label %72
 
-71:                                               ; preds = %68, %67, %62
-  %.3 = phi i32 [ 13, %62 ], [ 13, %67 ], [ %70, %68 ]
+72:                                               ; preds = %69, %68, %63
+  %.3 = phi i32 [ 13, %63 ], [ 13, %68 ], [ %71, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
-_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %45, %44, %41, %40, %36, %35, %25, %24, %18, %17, %11, %10, %51, %52, %71
-  %.0 = phi i32 [ 3, %51 ], [ %.3, %71 ], [ %53, %52 ], [ 3, %10 ], [ 3, %11 ], [ 9, %17 ], [ 9, %18 ], [ 9, %24 ], [ 9, %25 ], [ 3, %35 ], [ 3, %36 ], [ 3, %40 ], [ 3, %41 ], [ 3, %44 ], [ 3, %45 ]
+_ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %46, %45, %42, %41, %37, %36, %25, %24, %18, %17, %11, %10, %52, %53, %72
+  %.0 = phi i32 [ 3, %52 ], [ %.3, %72 ], [ %54, %53 ], [ 3, %10 ], [ 3, %11 ], [ 9, %17 ], [ 9, %18 ], [ 9, %24 ], [ 9, %25 ], [ 3, %36 ], [ 3, %37 ], [ 3, %41 ], [ 3, %42 ], [ 3, %45 ], [ 3, %46 ]
   ret i32 %.0
 }
 

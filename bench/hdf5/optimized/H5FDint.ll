@@ -4661,7 +4661,7 @@ define range(i32 -1, 1) i32 @H5FD_sort_vector_io_req(ptr noundef captures(none) 
   %.pre-phi = phi i1 [ %.pre117, %._crit_edge ], [ %14, %10 ]
   %26 = xor i1 %.pre-phi119, true
   %27 = select i1 %.pre-phi, i1 true, i1 %26
-  br i1 %27, label %28, label %116, !prof !9
+  br i1 %27, label %28, label %117, !prof !9
 
 28:                                               ; preds = %25
   %29 = call fastcc i32 @H5FD__sort_io_req_real(i64 noundef %12, ptr noundef %3, ptr noundef %0, ptr noundef %11)
@@ -4771,95 +4771,96 @@ define range(i32 -1, 1) i32 @H5FD_sort_vector_io_req(ptr noundef captures(none) 
   br label %76
 
 76:                                               ; preds = %.lr.ph113, %76
-  %.190112 = phi i64 [ 0, %.lr.ph113 ], [ %97, %76 ]
-  %77 = getelementptr inbounds nuw %struct.H5FD_srt_tmp_t, ptr %75, i64 %.190112, i32 1
-  %78 = load i64, ptr %77, align 8, !tbaa !75
-  %79 = tail call i64 @llvm.umin.i64(i64 %78, i64 %.085.lcssa)
-  %80 = getelementptr inbounds nuw i32, ptr %2, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !29
-  %82 = load ptr, ptr %6, align 8, !tbaa !36
-  %83 = getelementptr inbounds nuw i32, ptr %82, i64 %.190112
-  store i32 %81, ptr %83, align 4, !tbaa !29
-  %84 = getelementptr inbounds nuw i64, ptr %3, i64 %78
-  %85 = load i64, ptr %84, align 8, !tbaa !10
-  %86 = load ptr, ptr %7, align 8, !tbaa !72
-  %87 = getelementptr inbounds nuw i64, ptr %86, i64 %.190112
-  store i64 %85, ptr %87, align 8, !tbaa !10
-  %88 = tail call i64 @llvm.umin.i64(i64 %78, i64 %.086.lcssa)
-  %89 = getelementptr inbounds nuw i64, ptr %4, i64 %88
-  %90 = load i64, ptr %89, align 8, !tbaa !10
-  %91 = load ptr, ptr %8, align 8, !tbaa !72
-  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %.190112
-  store i64 %90, ptr %92, align 8, !tbaa !10
-  %93 = load ptr, ptr %9, align 8, !tbaa !36
-  %94 = getelementptr inbounds nuw %union.H5_flexible_const_ptr_t, ptr %93, i64 %.190112
-  %95 = getelementptr inbounds nuw %union.H5_flexible_const_ptr_t, ptr %5, i64 %78
-  %96 = load i64, ptr %95, align 8, !tbaa !77
-  store i64 %96, ptr %94, align 8, !tbaa !77
-  %97 = add nuw nsw i64 %.190112, 1
-  %exitcond115.not = icmp eq i64 %97, %12
+  %.190112 = phi i64 [ 0, %.lr.ph113 ], [ %98, %76 ]
+  %77 = getelementptr inbounds nuw %struct.H5FD_srt_tmp_t, ptr %75, i64 %.190112
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load i64, ptr %78, align 8, !tbaa !75
+  %80 = tail call i64 @llvm.umin.i64(i64 %79, i64 %.085.lcssa)
+  %81 = getelementptr inbounds nuw i32, ptr %2, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !29
+  %83 = load ptr, ptr %6, align 8, !tbaa !36
+  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %.190112
+  store i32 %82, ptr %84, align 4, !tbaa !29
+  %85 = getelementptr inbounds nuw i64, ptr %3, i64 %79
+  %86 = load i64, ptr %85, align 8, !tbaa !10
+  %87 = load ptr, ptr %7, align 8, !tbaa !72
+  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %.190112
+  store i64 %86, ptr %88, align 8, !tbaa !10
+  %89 = tail call i64 @llvm.umin.i64(i64 %79, i64 %.086.lcssa)
+  %90 = getelementptr inbounds nuw i64, ptr %4, i64 %89
+  %91 = load i64, ptr %90, align 8, !tbaa !10
+  %92 = load ptr, ptr %8, align 8, !tbaa !72
+  %93 = getelementptr inbounds nuw i64, ptr %92, i64 %.190112
+  store i64 %91, ptr %93, align 8, !tbaa !10
+  %94 = load ptr, ptr %9, align 8, !tbaa !36
+  %95 = getelementptr inbounds nuw %union.H5_flexible_const_ptr_t, ptr %94, i64 %.190112
+  %96 = getelementptr inbounds nuw %union.H5_flexible_const_ptr_t, ptr %5, i64 %79
+  %97 = load i64, ptr %96, align 8, !tbaa !77
+  store i64 %97, ptr %95, align 8, !tbaa !77
+  %98 = add nuw nsw i64 %.190112, 1
+  %exitcond115.not = icmp eq i64 %98, %12
   br i1 %exitcond115.not, label %.loopexit, label %76, !llvm.loop !78
 
 .loopexit:                                        ; preds = %76, %.critedge, %54, %38, %31, %21
   %.not99 = phi i1 [ false, %21 ], [ false, %31 ], [ true, %38 ], [ false, %54 ], [ true, %.critedge ], [ true, %76 ]
-  %98 = load ptr, ptr %11, align 8, !tbaa !70
-  %.not = icmp eq ptr %98, null
-  br i1 %.not, label %100, label %99
+  %99 = load ptr, ptr %11, align 8, !tbaa !70
+  %.not = icmp eq ptr %99, null
+  br i1 %.not, label %101, label %100
 
-99:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %98) #12
-  br label %100
+100:                                              ; preds = %.loopexit
+  tail call void @free(ptr noundef nonnull %99) #12
+  br label %101
 
-100:                                              ; preds = %99, %.loopexit
-  br i1 %.not99, label %116, label %101
+101:                                              ; preds = %100, %.loopexit
+  br i1 %.not99, label %117, label %102
 
-101:                                              ; preds = %100
-  %102 = load i8, ptr %0, align 1, !tbaa !3, !range !7, !noundef !8
-  %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %116, label %104
+102:                                              ; preds = %101
+  %103 = load i8, ptr %0, align 1, !tbaa !3, !range !7, !noundef !8
+  %104 = trunc nuw i8 %103 to i1
+  br i1 %104, label %117, label %105
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr %6, align 8, !tbaa !36
-  %.not100 = icmp eq ptr %105, null
-  br i1 %.not100, label %107, label %106
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %6, align 8, !tbaa !36
+  %.not100 = icmp eq ptr %106, null
+  br i1 %.not100, label %108, label %107
 
-106:                                              ; preds = %104
-  tail call void @free(ptr noundef nonnull %105) #12
+107:                                              ; preds = %105
+  tail call void @free(ptr noundef nonnull %106) #12
   store ptr null, ptr %6, align 8, !tbaa !36
-  br label %107
+  br label %108
 
-107:                                              ; preds = %106, %104
-  %108 = load ptr, ptr %7, align 8, !tbaa !72
-  %.not101 = icmp eq ptr %108, null
-  br i1 %.not101, label %110, label %109
+108:                                              ; preds = %107, %105
+  %109 = load ptr, ptr %7, align 8, !tbaa !72
+  %.not101 = icmp eq ptr %109, null
+  br i1 %.not101, label %111, label %110
 
-109:                                              ; preds = %107
-  tail call void @free(ptr noundef nonnull %108) #12
+110:                                              ; preds = %108
+  tail call void @free(ptr noundef nonnull %109) #12
   store ptr null, ptr %7, align 8, !tbaa !72
-  br label %110
+  br label %111
 
-110:                                              ; preds = %109, %107
-  %111 = load ptr, ptr %8, align 8, !tbaa !72
-  %.not102 = icmp eq ptr %111, null
-  br i1 %.not102, label %113, label %112
+111:                                              ; preds = %110, %108
+  %112 = load ptr, ptr %8, align 8, !tbaa !72
+  %.not102 = icmp eq ptr %112, null
+  br i1 %.not102, label %114, label %113
 
-112:                                              ; preds = %110
-  tail call void @free(ptr noundef nonnull %111) #12
+113:                                              ; preds = %111
+  tail call void @free(ptr noundef nonnull %112) #12
   store ptr null, ptr %8, align 8, !tbaa !72
-  br label %113
+  br label %114
 
-113:                                              ; preds = %112, %110
-  %114 = load ptr, ptr %9, align 8, !tbaa !36
-  %.not103 = icmp eq ptr %114, null
-  br i1 %.not103, label %116, label %115
+114:                                              ; preds = %113, %111
+  %115 = load ptr, ptr %9, align 8, !tbaa !36
+  %.not103 = icmp eq ptr %115, null
+  br i1 %.not103, label %117, label %116
 
-115:                                              ; preds = %113
-  tail call void @free(ptr noundef nonnull %114) #12
+116:                                              ; preds = %114
+  tail call void @free(ptr noundef nonnull %115) #12
   store ptr null, ptr %9, align 8, !tbaa !36
-  br label %116
+  br label %117
 
-116:                                              ; preds = %25, %113, %115, %101, %100
-  %.088 = phi i32 [ -1, %101 ], [ -1, %115 ], [ -1, %113 ], [ 0, %100 ], [ 0, %25 ]
+117:                                              ; preds = %25, %114, %116, %102, %101
+  %.088 = phi i32 [ -1, %102 ], [ -1, %116 ], [ -1, %114 ], [ 0, %101 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.088
 }
@@ -4930,7 +4931,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__sort_io_req_real(i64 noundef 
   %34 = load i64, ptr %33, align 8, !tbaa !10
   %35 = getelementptr inbounds nuw %struct.H5FD_srt_tmp_t, ptr %27, i64 %.15468
   store i64 %34, ptr %35, align 8, !tbaa !80
-  %36 = getelementptr inbounds nuw %struct.H5FD_srt_tmp_t, ptr %27, i64 %.15468, i32 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %.15468, ptr %36, align 8, !tbaa !75
   %37 = add nuw i64 %.15468, 1
   %exitcond71.not = icmp eq i64 %37, %0
@@ -5012,7 +5013,7 @@ define range(i32 -1, 1) i32 @H5FD_sort_selection_io_req(ptr noundef captures(non
   %.pre-phi = phi i1 [ %.pre129, %._crit_edge ], [ %15, %12 ]
   %27 = xor i1 %.pre-phi131, true
   %28 = select i1 %.pre-phi, i1 true, i1 %27
-  br i1 %28, label %29, label %126, !prof !9
+  br i1 %28, label %29, label %127, !prof !9
 
 29:                                               ; preds = %26
   %30 = call fastcc i32 @H5FD__sort_io_req_real(i64 noundef %1, ptr noundef %4, ptr noundef %0, ptr noundef %13)
@@ -5130,110 +5131,111 @@ define range(i32 -1, 1) i32 @H5FD_sort_selection_io_req(ptr noundef captures(non
   br label %79
 
 79:                                               ; preds = %.lr.ph125, %79
-  %.1102124 = phi i64 [ 0, %.lr.ph125 ], [ %104, %79 ]
-  %80 = getelementptr inbounds nuw %struct.H5FD_srt_tmp_t, ptr %78, i64 %.1102124, i32 1
-  %81 = load i64, ptr %80, align 8, !tbaa !75
-  %82 = getelementptr inbounds nuw i64, ptr %2, i64 %81
-  %83 = load i64, ptr %82, align 8, !tbaa !10
-  %84 = load ptr, ptr %7, align 8, !tbaa !72
-  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %.1102124
-  store i64 %83, ptr %85, align 8, !tbaa !10
-  %86 = getelementptr inbounds nuw i64, ptr %3, i64 %81
-  %87 = load i64, ptr %86, align 8, !tbaa !10
-  %88 = load ptr, ptr %8, align 8, !tbaa !72
-  %89 = getelementptr inbounds nuw i64, ptr %88, i64 %.1102124
-  store i64 %87, ptr %89, align 8, !tbaa !10
-  %90 = getelementptr inbounds nuw i64, ptr %4, i64 %81
-  %91 = load i64, ptr %90, align 8, !tbaa !10
-  %92 = load ptr, ptr %9, align 8, !tbaa !72
-  %93 = getelementptr inbounds nuw i64, ptr %92, i64 %.1102124
-  store i64 %91, ptr %93, align 8, !tbaa !10
-  %94 = tail call i64 @llvm.umin.i64(i64 %81, i64 %.096.lcssa143)
-  %95 = getelementptr inbounds nuw i64, ptr %5, i64 %94
-  %96 = load i64, ptr %95, align 8, !tbaa !10
-  %97 = load ptr, ptr %10, align 8, !tbaa !72
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %.1102124
-  store i64 %96, ptr %98, align 8, !tbaa !10
-  %99 = load ptr, ptr %11, align 8, !tbaa !36
-  %100 = getelementptr inbounds nuw %union.H5_flexible_const_ptr_t, ptr %99, i64 %.1102124
-  %101 = tail call i64 @llvm.umin.i64(i64 %81, i64 %.095.lcssa144)
-  %102 = getelementptr inbounds nuw %union.H5_flexible_const_ptr_t, ptr %6, i64 %101
-  %103 = load i64, ptr %102, align 8, !tbaa !77
-  store i64 %103, ptr %100, align 8, !tbaa !77
-  %104 = add nuw i64 %.1102124, 1
-  %exitcond127.not = icmp eq i64 %104, %1
+  %.1102124 = phi i64 [ 0, %.lr.ph125 ], [ %105, %79 ]
+  %80 = getelementptr inbounds nuw %struct.H5FD_srt_tmp_t, ptr %78, i64 %.1102124
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %82 = load i64, ptr %81, align 8, !tbaa !75
+  %83 = getelementptr inbounds nuw i64, ptr %2, i64 %82
+  %84 = load i64, ptr %83, align 8, !tbaa !10
+  %85 = load ptr, ptr %7, align 8, !tbaa !72
+  %86 = getelementptr inbounds nuw i64, ptr %85, i64 %.1102124
+  store i64 %84, ptr %86, align 8, !tbaa !10
+  %87 = getelementptr inbounds nuw i64, ptr %3, i64 %82
+  %88 = load i64, ptr %87, align 8, !tbaa !10
+  %89 = load ptr, ptr %8, align 8, !tbaa !72
+  %90 = getelementptr inbounds nuw i64, ptr %89, i64 %.1102124
+  store i64 %88, ptr %90, align 8, !tbaa !10
+  %91 = getelementptr inbounds nuw i64, ptr %4, i64 %82
+  %92 = load i64, ptr %91, align 8, !tbaa !10
+  %93 = load ptr, ptr %9, align 8, !tbaa !72
+  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %.1102124
+  store i64 %92, ptr %94, align 8, !tbaa !10
+  %95 = tail call i64 @llvm.umin.i64(i64 %82, i64 %.096.lcssa143)
+  %96 = getelementptr inbounds nuw i64, ptr %5, i64 %95
+  %97 = load i64, ptr %96, align 8, !tbaa !10
+  %98 = load ptr, ptr %10, align 8, !tbaa !72
+  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %.1102124
+  store i64 %97, ptr %99, align 8, !tbaa !10
+  %100 = load ptr, ptr %11, align 8, !tbaa !36
+  %101 = getelementptr inbounds nuw %union.H5_flexible_const_ptr_t, ptr %100, i64 %.1102124
+  %102 = tail call i64 @llvm.umin.i64(i64 %82, i64 %.095.lcssa144)
+  %103 = getelementptr inbounds nuw %union.H5_flexible_const_ptr_t, ptr %6, i64 %102
+  %104 = load i64, ptr %103, align 8, !tbaa !77
+  store i64 %104, ptr %101, align 8, !tbaa !77
+  %105 = add nuw i64 %.1102124, 1
+  %exitcond127.not = icmp eq i64 %105, %1
   br i1 %exitcond127.not, label %.loopexit, label %79, !llvm.loop !84
 
 .loopexit:                                        ; preds = %79, %.critedge, %57, %39, %32, %22
   %.not110 = phi i1 [ false, %22 ], [ false, %32 ], [ true, %39 ], [ false, %57 ], [ true, %.critedge ], [ true, %79 ]
-  %105 = load ptr, ptr %13, align 8, !tbaa !70
-  %.not = icmp eq ptr %105, null
-  br i1 %.not, label %107, label %106
+  %106 = load ptr, ptr %13, align 8, !tbaa !70
+  %.not = icmp eq ptr %106, null
+  br i1 %.not, label %108, label %107
 
-106:                                              ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %105) #12
-  br label %107
+107:                                              ; preds = %.loopexit
+  tail call void @free(ptr noundef nonnull %106) #12
+  br label %108
 
-107:                                              ; preds = %106, %.loopexit
-  br i1 %.not110, label %126, label %108
+108:                                              ; preds = %107, %.loopexit
+  br i1 %.not110, label %127, label %109
 
-108:                                              ; preds = %107
-  %109 = load i8, ptr %0, align 1, !tbaa !3, !range !7, !noundef !8
-  %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %126, label %111
+109:                                              ; preds = %108
+  %110 = load i8, ptr %0, align 1, !tbaa !3, !range !7, !noundef !8
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %127, label %112
 
-111:                                              ; preds = %108
-  %112 = load ptr, ptr %7, align 8, !tbaa !72
-  %.not111 = icmp eq ptr %112, null
-  br i1 %.not111, label %114, label %113
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %7, align 8, !tbaa !72
+  %.not111 = icmp eq ptr %113, null
+  br i1 %.not111, label %115, label %114
 
-113:                                              ; preds = %111
-  tail call void @free(ptr noundef nonnull %112) #12
+114:                                              ; preds = %112
+  tail call void @free(ptr noundef nonnull %113) #12
   store ptr null, ptr %7, align 8, !tbaa !72
-  br label %114
+  br label %115
 
-114:                                              ; preds = %113, %111
-  %115 = load ptr, ptr %8, align 8, !tbaa !72
-  %.not112 = icmp eq ptr %115, null
-  br i1 %.not112, label %117, label %116
+115:                                              ; preds = %114, %112
+  %116 = load ptr, ptr %8, align 8, !tbaa !72
+  %.not112 = icmp eq ptr %116, null
+  br i1 %.not112, label %118, label %117
 
-116:                                              ; preds = %114
-  tail call void @free(ptr noundef nonnull %115) #12
+117:                                              ; preds = %115
+  tail call void @free(ptr noundef nonnull %116) #12
   store ptr null, ptr %8, align 8, !tbaa !72
-  br label %117
+  br label %118
 
-117:                                              ; preds = %116, %114
-  %118 = load ptr, ptr %9, align 8, !tbaa !72
-  %.not113 = icmp eq ptr %118, null
-  br i1 %.not113, label %120, label %119
+118:                                              ; preds = %117, %115
+  %119 = load ptr, ptr %9, align 8, !tbaa !72
+  %.not113 = icmp eq ptr %119, null
+  br i1 %.not113, label %121, label %120
 
-119:                                              ; preds = %117
-  tail call void @free(ptr noundef nonnull %118) #12
+120:                                              ; preds = %118
+  tail call void @free(ptr noundef nonnull %119) #12
   store ptr null, ptr %9, align 8, !tbaa !72
-  br label %120
+  br label %121
 
-120:                                              ; preds = %119, %117
-  %121 = load ptr, ptr %10, align 8, !tbaa !72
-  %.not114 = icmp eq ptr %121, null
-  br i1 %.not114, label %123, label %122
+121:                                              ; preds = %120, %118
+  %122 = load ptr, ptr %10, align 8, !tbaa !72
+  %.not114 = icmp eq ptr %122, null
+  br i1 %.not114, label %124, label %123
 
-122:                                              ; preds = %120
-  tail call void @free(ptr noundef nonnull %121) #12
+123:                                              ; preds = %121
+  tail call void @free(ptr noundef nonnull %122) #12
   store ptr null, ptr %10, align 8, !tbaa !72
-  br label %123
+  br label %124
 
-123:                                              ; preds = %122, %120
-  %124 = load ptr, ptr %11, align 8, !tbaa !36
-  %.not115 = icmp eq ptr %124, null
-  br i1 %.not115, label %126, label %125
+124:                                              ; preds = %123, %121
+  %125 = load ptr, ptr %11, align 8, !tbaa !36
+  %.not115 = icmp eq ptr %125, null
+  br i1 %.not115, label %127, label %126
 
-125:                                              ; preds = %123
-  tail call void @free(ptr noundef nonnull %124) #12
+126:                                              ; preds = %124
+  tail call void @free(ptr noundef nonnull %125) #12
   store ptr null, ptr %11, align 8, !tbaa !36
-  br label %126
+  br label %127
 
-126:                                              ; preds = %26, %123, %125, %108, %107
-  %.098 = phi i32 [ -1, %108 ], [ -1, %125 ], [ -1, %123 ], [ 0, %107 ], [ 0, %26 ]
+127:                                              ; preds = %26, %124, %126, %109, %108
+  %.098 = phi i32 [ -1, %109 ], [ -1, %126 ], [ -1, %124 ], [ 0, %108 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.098
 }

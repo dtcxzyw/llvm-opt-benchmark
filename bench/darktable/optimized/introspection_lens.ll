@@ -8214,7 +8214,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %8, label %.preheader
+  br i1 %or.cond, label %9, label %.preheader
 
 6:                                                ; preds = %.preheader
   store ptr @_ZZ18introspection_initE2f0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 72), align 8, !tbaa !226
@@ -8223,17 +8223,18 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   store ptr @_ZZ18introspection_initE2f8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 776), align 8, !tbaa !226
   store ptr @_ZZ18introspection_initE3f21, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1920), align 16, !tbaa !226
   store ptr @_ZZ18introspection_initE3f29, ptr getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2624), align 16, !tbaa !226
-  br label %8
+  br label %9
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @_ZL20introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
-  store ptr %0, ptr %7, align 8, !tbaa !226
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @_ZL20introspection_linear, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %0, ptr %8, align 8, !tbaa !226
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 31
   br i1 %exitcond.not, label %6, label %.preheader, !llvm.loop !530
 
-8:                                                ; preds = %2, %6
+9:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
   ret i32 %.06
 }

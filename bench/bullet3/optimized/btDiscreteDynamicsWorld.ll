@@ -3368,7 +3368,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld26calculateSimulationIslandsE
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = getelementptr inbounds nuw i8, ptr %.pre68.pre69, i64 24
   %wide.trip.count66 = zext nneg i32 %17 to i64
-  br label %79
+  br label %80
 
 22:                                               ; preds = %._crit_edge58, %1
   %23 = landingpad { ptr, i32 }
@@ -3462,10 +3462,11 @@ _ZN11btUnionFind4findEi.exit13.i:                 ; preds = %.lr.ph.i10.i, %_ZN1
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !194
   %75 = sext i32 %.0.lcssa.i12.i to i64
-  %76 = getelementptr inbounds %struct.btElement, ptr %46, i64 %75, i32 1
-  %77 = load i32, ptr %76, align 4, !tbaa !194
-  %78 = add nsw i32 %77, %74
-  store i32 %78, ptr %76, align 4, !tbaa !194
+  %76 = getelementptr inbounds %struct.btElement, ptr %46, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %78 = load i32, ptr %77, align 4, !tbaa !194
+  %79 = add nsw i32 %78, %74
+  store i32 %79, ptr %77, align 4, !tbaa !194
   br label %_ZN11btUnionFind5uniteEii.exit
 
 _ZN11btUnionFind5uniteEii.exit:                   ; preds = %70, %_ZN11btUnionFind4findEi.exit13.i, %37, %31, %24
@@ -3473,110 +3474,111 @@ _ZN11btUnionFind5uniteEii.exit:                   ; preds = %70, %_ZN11btUnionFi
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !195
 
-79:                                               ; preds = %.lr.ph57, %_ZN11btUnionFind5uniteEii.exit48
+80:                                               ; preds = %.lr.ph57, %_ZN11btUnionFind5uniteEii.exit48
   %indvars.iv63 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next64, %_ZN11btUnionFind5uniteEii.exit48 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv63
-  %81 = load ptr, ptr %80, align 8, !tbaa !168
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 28
-  %83 = load i8, ptr %82, align 4, !tbaa !196, !range !114, !noundef !115
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %_ZN11btUnionFind5uniteEii.exit48
+  %81 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv63
+  %82 = load ptr, ptr %81, align 8, !tbaa !168
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 28
+  %84 = load i8, ptr %83, align 4, !tbaa !196, !range !114, !noundef !115
+  %85 = trunc nuw i8 %84 to i1
+  br i1 %85, label %86, label %_ZN11btUnionFind5uniteEii.exit48
 
-85:                                               ; preds = %79
-  %86 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %87 = load ptr, ptr %86, align 8, !tbaa !171
-  %88 = getelementptr inbounds nuw i8, ptr %81, i64 48
-  %89 = load ptr, ptr %88, align 8, !tbaa !175
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 224
-  %91 = load i32, ptr %90, align 8, !tbaa !127
-  %92 = and i32 %91, 3
-  %.not = icmp eq i32 %92, 0
-  br i1 %.not, label %93, label %_ZN11btUnionFind5uniteEii.exit48
+86:                                               ; preds = %80
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 40
+  %88 = load ptr, ptr %87, align 8, !tbaa !171
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 48
+  %90 = load ptr, ptr %89, align 8, !tbaa !175
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 224
+  %92 = load i32, ptr %91, align 8, !tbaa !127
+  %93 = and i32 %92, 3
+  %.not = icmp eq i32 %93, 0
+  br i1 %.not, label %94, label %_ZN11btUnionFind5uniteEii.exit48
 
-93:                                               ; preds = %85
-  %94 = getelementptr inbounds nuw i8, ptr %89, i64 224
-  %95 = load i32, ptr %94, align 8, !tbaa !127
-  %96 = and i32 %95, 3
-  %.not49 = icmp eq i32 %96, 0
-  br i1 %.not49, label %97, label %_ZN11btUnionFind5uniteEii.exit48
+94:                                               ; preds = %86
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 224
+  %96 = load i32, ptr %95, align 8, !tbaa !127
+  %97 = and i32 %96, 3
+  %.not49 = icmp eq i32 %97, 0
+  br i1 %.not49, label %98, label %_ZN11btUnionFind5uniteEii.exit48
 
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %87, i64 228
-  %99 = load i32, ptr %98, align 4, !tbaa !186
-  %100 = getelementptr inbounds nuw i8, ptr %89, i64 228
-  %101 = load i32, ptr %100, align 4, !tbaa !186
-  %102 = load ptr, ptr %21, align 8, !tbaa !187
-  %103 = sext i32 %99 to i64
-  %104 = getelementptr inbounds %struct.btElement, ptr %102, i64 %103
-  %105 = load i32, ptr %104, align 4, !tbaa !191
-  %.not7.i.i38 = icmp eq i32 %99, %105
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds nuw i8, ptr %88, i64 228
+  %100 = load i32, ptr %99, align 4, !tbaa !186
+  %101 = getelementptr inbounds nuw i8, ptr %90, i64 228
+  %102 = load i32, ptr %101, align 4, !tbaa !186
+  %103 = load ptr, ptr %21, align 8, !tbaa !187
+  %104 = sext i32 %100 to i64
+  %105 = getelementptr inbounds %struct.btElement, ptr %103, i64 %104
+  %106 = load i32, ptr %105, align 4, !tbaa !191
+  %.not7.i.i38 = icmp eq i32 %100, %106
   br i1 %.not7.i.i38, label %_ZN11btUnionFind4findEi.exit.i41, label %.lr.ph.i.i39
 
-.lr.ph.i.i39:                                     ; preds = %97, %.lr.ph.i.i39
-  %106 = phi i32 [ %113, %.lr.ph.i.i39 ], [ %105, %97 ]
-  %107 = phi ptr [ %112, %.lr.ph.i.i39 ], [ %104, %97 ]
-  %108 = sext i32 %106 to i64
-  %109 = getelementptr inbounds %struct.btElement, ptr %102, i64 %108
-  %110 = load i32, ptr %109, align 4, !tbaa !191
-  store i32 %110, ptr %107, align 4, !tbaa !191
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds %struct.btElement, ptr %102, i64 %111
-  %113 = load i32, ptr %112, align 4, !tbaa !191
-  %.not.i.i40 = icmp eq i32 %110, %113
+.lr.ph.i.i39:                                     ; preds = %98, %.lr.ph.i.i39
+  %107 = phi i32 [ %114, %.lr.ph.i.i39 ], [ %106, %98 ]
+  %108 = phi ptr [ %113, %.lr.ph.i.i39 ], [ %105, %98 ]
+  %109 = sext i32 %107 to i64
+  %110 = getelementptr inbounds %struct.btElement, ptr %103, i64 %109
+  %111 = load i32, ptr %110, align 4, !tbaa !191
+  store i32 %111, ptr %108, align 4, !tbaa !191
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds %struct.btElement, ptr %103, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !191
+  %.not.i.i40 = icmp eq i32 %111, %114
   br i1 %.not.i.i40, label %_ZN11btUnionFind4findEi.exit.i41, label %.lr.ph.i.i39, !llvm.loop !193
 
-_ZN11btUnionFind4findEi.exit.i41:                 ; preds = %.lr.ph.i.i39, %97
-  %.0.lcssa.i.i42 = phi i32 [ %99, %97 ], [ %110, %.lr.ph.i.i39 ]
-  %114 = sext i32 %101 to i64
-  %115 = getelementptr inbounds %struct.btElement, ptr %102, i64 %114
-  %116 = load i32, ptr %115, align 4, !tbaa !191
-  %.not7.i9.i43 = icmp eq i32 %101, %116
+_ZN11btUnionFind4findEi.exit.i41:                 ; preds = %.lr.ph.i.i39, %98
+  %.0.lcssa.i.i42 = phi i32 [ %100, %98 ], [ %111, %.lr.ph.i.i39 ]
+  %115 = sext i32 %102 to i64
+  %116 = getelementptr inbounds %struct.btElement, ptr %103, i64 %115
+  %117 = load i32, ptr %116, align 4, !tbaa !191
+  %.not7.i9.i43 = icmp eq i32 %102, %117
   br i1 %.not7.i9.i43, label %_ZN11btUnionFind4findEi.exit13.i46, label %.lr.ph.i10.i44
 
 .lr.ph.i10.i44:                                   ; preds = %_ZN11btUnionFind4findEi.exit.i41, %.lr.ph.i10.i44
-  %117 = phi i32 [ %124, %.lr.ph.i10.i44 ], [ %116, %_ZN11btUnionFind4findEi.exit.i41 ]
-  %118 = phi ptr [ %123, %.lr.ph.i10.i44 ], [ %115, %_ZN11btUnionFind4findEi.exit.i41 ]
-  %119 = sext i32 %117 to i64
-  %120 = getelementptr inbounds %struct.btElement, ptr %102, i64 %119
-  %121 = load i32, ptr %120, align 4, !tbaa !191
-  store i32 %121, ptr %118, align 4, !tbaa !191
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds %struct.btElement, ptr %102, i64 %122
-  %124 = load i32, ptr %123, align 4, !tbaa !191
-  %.not.i11.i45 = icmp eq i32 %121, %124
+  %118 = phi i32 [ %125, %.lr.ph.i10.i44 ], [ %117, %_ZN11btUnionFind4findEi.exit.i41 ]
+  %119 = phi ptr [ %124, %.lr.ph.i10.i44 ], [ %116, %_ZN11btUnionFind4findEi.exit.i41 ]
+  %120 = sext i32 %118 to i64
+  %121 = getelementptr inbounds %struct.btElement, ptr %103, i64 %120
+  %122 = load i32, ptr %121, align 4, !tbaa !191
+  store i32 %122, ptr %119, align 4, !tbaa !191
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds %struct.btElement, ptr %103, i64 %123
+  %125 = load i32, ptr %124, align 4, !tbaa !191
+  %.not.i11.i45 = icmp eq i32 %122, %125
   br i1 %.not.i11.i45, label %_ZN11btUnionFind4findEi.exit13.i46, label %.lr.ph.i10.i44, !llvm.loop !193
 
 _ZN11btUnionFind4findEi.exit13.i46:               ; preds = %.lr.ph.i10.i44, %_ZN11btUnionFind4findEi.exit.i41
-  %.0.lcssa.i12.i47 = phi i32 [ %101, %_ZN11btUnionFind4findEi.exit.i41 ], [ %121, %.lr.ph.i10.i44 ]
-  %125 = icmp eq i32 %.0.lcssa.i.i42, %.0.lcssa.i12.i47
-  br i1 %125, label %_ZN11btUnionFind5uniteEii.exit48, label %126
+  %.0.lcssa.i12.i47 = phi i32 [ %102, %_ZN11btUnionFind4findEi.exit.i41 ], [ %122, %.lr.ph.i10.i44 ]
+  %126 = icmp eq i32 %.0.lcssa.i.i42, %.0.lcssa.i12.i47
+  br i1 %126, label %_ZN11btUnionFind5uniteEii.exit48, label %127
 
-126:                                              ; preds = %_ZN11btUnionFind4findEi.exit13.i46
-  %127 = sext i32 %.0.lcssa.i.i42 to i64
-  %128 = getelementptr inbounds %struct.btElement, ptr %102, i64 %127
-  store i32 %.0.lcssa.i12.i47, ptr %128, align 4, !tbaa !191
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  %130 = load i32, ptr %129, align 4, !tbaa !194
-  %131 = sext i32 %.0.lcssa.i12.i47 to i64
-  %132 = getelementptr inbounds %struct.btElement, ptr %102, i64 %131, i32 1
-  %133 = load i32, ptr %132, align 4, !tbaa !194
-  %134 = add nsw i32 %133, %130
-  store i32 %134, ptr %132, align 4, !tbaa !194
+127:                                              ; preds = %_ZN11btUnionFind4findEi.exit13.i46
+  %128 = sext i32 %.0.lcssa.i.i42 to i64
+  %129 = getelementptr inbounds %struct.btElement, ptr %103, i64 %128
+  store i32 %.0.lcssa.i12.i47, ptr %129, align 4, !tbaa !191
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
+  %131 = load i32, ptr %130, align 4, !tbaa !194
+  %132 = sext i32 %.0.lcssa.i12.i47 to i64
+  %133 = getelementptr inbounds %struct.btElement, ptr %103, i64 %132
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
+  %135 = load i32, ptr %134, align 4, !tbaa !194
+  %136 = add nsw i32 %135, %131
+  store i32 %136, ptr %134, align 4, !tbaa !194
   br label %_ZN11btUnionFind5uniteEii.exit48
 
-_ZN11btUnionFind5uniteEii.exit48:                 ; preds = %126, %_ZN11btUnionFind4findEi.exit13.i46, %85, %93, %79
+_ZN11btUnionFind5uniteEii.exit48:                 ; preds = %127, %_ZN11btUnionFind4findEi.exit13.i46, %86, %94, %80
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %._crit_edge58, label %79, !llvm.loop !197
+  br i1 %exitcond67.not, label %._crit_edge58, label %80, !llvm.loop !197
 
 ._crit_edge58:                                    ; preds = %_ZN11btUnionFind5uniteEii.exit48, %._crit_edge
-  %135 = load ptr, ptr %.pre68.pre69, align 8, !tbaa !43
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
-  %137 = load ptr, ptr %136, align 8
-  invoke void %137(ptr noundef nonnull align 8 dereferenceable(105) %.pre68.pre69, ptr noundef nonnull %0)
-          to label %138 unwind label %22
+  %137 = load ptr, ptr %.pre68.pre69, align 8, !tbaa !43
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
+  %139 = load ptr, ptr %138, align 8
+  invoke void %139(ptr noundef nonnull align 8 dereferenceable(105) %.pre68.pre69, ptr noundef nonnull %0)
+          to label %140 unwind label %22
 
-138:                                              ; preds = %._crit_edge58
+140:                                              ; preds = %._crit_edge58
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

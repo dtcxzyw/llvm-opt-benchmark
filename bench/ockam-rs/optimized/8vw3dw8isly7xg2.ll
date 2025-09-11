@@ -1427,43 +1427,45 @@ define hidden noundef i64 @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter
   br label %12
 
 12:                                               ; preds = %12, %7
-  %.017.i = phi i64 [ %1, %7 ], [ %15, %12 ]
-  %.016.i = phi i64 [ 0, %7 ], [ %16, %12 ]
-  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %3, i64 %.016.i, i32 2
-  %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = add i64 %14, %.017.i
-  %16 = add nuw i64 %.016.i, 1
-  %17 = icmp eq i64 %16, %11
-  br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit", label %12
+  %.017.i = phi i64 [ %1, %7 ], [ %16, %12 ]
+  %.016.i = phi i64 [ 0, %7 ], [ %17, %12 ]
+  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %3, i64 %.016.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !4
+  %16 = add i64 %15, %.017.i
+  %17 = add nuw i64 %.016.i, 1
+  %18 = icmp eq i64 %17, %11
+  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit", label %12
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit": ; preds = %12, %2
-  %.0.i = phi i64 [ %1, %2 ], [ %15, %12 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  %22 = icmp eq ptr %19, %21
-  br i1 %22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit4", label %23
+  %.0.i = phi i64 [ %1, %2 ], [ %16, %12 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
+  %23 = icmp eq ptr %20, %22
+  br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit4", label %24
 
-23:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit"
-  %24 = ptrtoint ptr %21 to i64
-  %25 = ptrtoint ptr %19 to i64
-  %26 = sub nuw i64 %24, %25
-  %27 = lshr exact i64 %26, 5
-  br label %28
+24:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit"
+  %25 = ptrtoint ptr %22 to i64
+  %26 = ptrtoint ptr %20 to i64
+  %27 = sub nuw i64 %25, %26
+  %28 = lshr exact i64 %27, 5
+  br label %29
 
-28:                                               ; preds = %28, %23
-  %.017.i1 = phi i64 [ %.0.i, %23 ], [ %31, %28 ]
-  %.016.i2 = phi i64 [ 0, %23 ], [ %32, %28 ]
-  %29 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %19, i64 %.016.i2, i32 2
-  %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = add i64 %30, %.017.i1
-  %32 = add nuw i64 %.016.i2, 1
-  %33 = icmp eq i64 %32, %27
-  br i1 %33, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit4", label %28
+29:                                               ; preds = %29, %24
+  %.017.i1 = phi i64 [ %.0.i, %24 ], [ %33, %29 ]
+  %.016.i2 = phi i64 [ 0, %24 ], [ %34, %29 ]
+  %30 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %20, i64 %.016.i2
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = add i64 %32, %.017.i1
+  %34 = add nuw i64 %.016.i2, 1
+  %35 = icmp eq i64 %34, %28
+  br i1 %35, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit4", label %29
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit4": ; preds = %28, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit"
-  %.0.i3 = phi i64 [ %.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit" ], [ %31, %28 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit4": ; preds = %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit"
+  %.0.i3 = phi i64 [ %.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h11a4d63c3d570839E.llvm.4791013001715523264.exit" ], [ %33, %29 ]
   ret i64 %.0.i3
 }
 
@@ -73512,58 +73514,59 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7ed5a10df9338e
   br label %"_ZN4core3ptr153drop_in_place$LT$tokio..loom..std..parking_lot..RwLock$LT$tokio..sync..broadcast..Slot$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$$GT$17h7c8b52b300f76681E.exit.i.i.i"
 
 "_ZN4core3ptr153drop_in_place$LT$tokio..loom..std..parking_lot..RwLock$LT$tokio..sync..broadcast..Slot$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$$GT$17h7c8b52b300f76681E.exit.i.i.i": ; preds = %9, %1
-  %.0.i.i.i = phi i64 [ 0, %1 ], [ %10, %9 ]
+  %.0.i.i.i = phi i64 [ 0, %1 ], [ %11, %9 ]
   %8 = icmp eq i64 %.0.i.i.i, %7
   br i1 %8, label %"_ZN4core3ptr110drop_in_place$LT$tokio..sync..broadcast..Shared$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$17h2d6532019cbb5927E.exit", label %9
 
 9:                                                ; preds = %"_ZN4core3ptr153drop_in_place$LT$tokio..loom..std..parking_lot..RwLock$LT$tokio..sync..broadcast..Slot$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$$GT$17h7c8b52b300f76681E.exit.i.i.i"
-  %10 = add i64 %.0.i.i.i, 1
-  %11 = getelementptr inbounds { { { { i64 } }, { { { { { i64, [3 x i64] } } }, { { { i64 } } }, i64 } } }, {} }, ptr %5, i64 %.0.i.i.i, i32 0, i32 1
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$17hfe8df2f7ad40ccdfE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11)
-          to label %"_ZN4core3ptr153drop_in_place$LT$tokio..loom..std..parking_lot..RwLock$LT$tokio..sync..broadcast..Slot$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$$GT$17h7c8b52b300f76681E.exit.i.i.i" unwind label %14, !noalias !10120
+  %10 = getelementptr inbounds { { { { i64 } }, { { { { { i64, [3 x i64] } } }, { { { i64 } } }, i64 } } }, {} }, ptr %5, i64 %.0.i.i.i
+  %11 = add i64 %.0.i.i.i, 1
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$17hfe8df2f7ad40ccdfE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12)
+          to label %"_ZN4core3ptr153drop_in_place$LT$tokio..loom..std..parking_lot..RwLock$LT$tokio..sync..broadcast..Slot$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$$GT$17h7c8b52b300f76681E.exit.i.i.i" unwind label %15, !noalias !10120
 
-12:                                               ; preds = %16, %14
-  %.1.i.i.i = phi i64 [ %10, %14 ], [ %18, %16 ]
-  %13 = icmp eq i64 %.1.i.i.i, %7
-  br i1 %13, label %.body.i.i, label %16
+13:                                               ; preds = %17, %15
+  %.1.i.i.i = phi i64 [ %11, %15 ], [ %19, %17 ]
+  %14 = icmp eq i64 %.1.i.i.i, %7
+  br i1 %14, label %.body.i.i, label %17
 
-14:                                               ; preds = %9
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %9
+  %16 = landingpad { ptr, i32 }
           cleanup
-  br label %12
+  br label %13
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds { { { { i64 } }, { { { { { i64, [3 x i64] } } }, { { { i64 } } }, i64 } } }, {} }, ptr %5, i64 %.1.i.i.i
-  %18 = add i64 %.1.i.i.i, 1
-  invoke void @"_ZN4core3ptr153drop_in_place$LT$tokio..loom..std..parking_lot..RwLock$LT$tokio..sync..broadcast..Slot$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$$GT$17h7c8b52b300f76681E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17) #43
-          to label %12 unwind label %19, !noalias !10120
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds { { { { i64 } }, { { { { { i64, [3 x i64] } } }, { { { i64 } } }, i64 } } }, {} }, ptr %5, i64 %.1.i.i.i
+  %19 = add i64 %.1.i.i.i, 1
+  invoke void @"_ZN4core3ptr153drop_in_place$LT$tokio..loom..std..parking_lot..RwLock$LT$tokio..sync..broadcast..Slot$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$$GT$17h7c8b52b300f76681E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %18) #43
+          to label %13 unwind label %20, !noalias !10120
 
-19:                                               ; preds = %16
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %17
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44, !noalias !10120
   unreachable
 
-.body.i.i:                                        ; preds = %12
+.body.i.i:                                        ; preds = %13
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h48bbdc98716665d3E.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(80) %4) #43
-          to label %23 unwind label %21
+          to label %24 unwind label %22
 
-21:                                               ; preds = %.body.i.i
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %.body.i.i
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #44
   unreachable
 
-23:                                               ; preds = %.body.i.i
-  resume { ptr, i32 } %15
+24:                                               ; preds = %.body.i.i
+  resume { ptr, i32 } %16
 
 "_ZN4core3ptr110drop_in_place$LT$tokio..sync..broadcast..Shared$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$17h2d6532019cbb5927E.exit": ; preds = %"_ZN4core3ptr153drop_in_place$LT$tokio..loom..std..parking_lot..RwLock$LT$tokio..sync..broadcast..Slot$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$$GT$17h7c8b52b300f76681E.exit.i.i.i"
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h48bbdc98716665d3E.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(80) %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %2, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %24, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %25, ptr %26, align 8
   call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb68d9ae897889e72E.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -85687,17 +85690,18 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   br label %12
 
 12:                                               ; preds = %12, %7
-  %.017 = phi i64 [ %2, %7 ], [ %15, %12 ]
-  %.016 = phi i64 [ 0, %7 ], [ %16, %12 ]
-  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %0, i64 %.016, i32 2
-  %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = add i64 %14, %.017
-  %16 = add nuw i64 %.016, 1
-  %17 = icmp eq i64 %16, %11
-  br i1 %17, label %.loopexit, label %12
+  %.017 = phi i64 [ %2, %7 ], [ %16, %12 ]
+  %.016 = phi i64 [ 0, %7 ], [ %17, %12 ]
+  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %0, i64 %.016
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !4
+  %16 = add i64 %15, %.017
+  %17 = add nuw i64 %.016, 1
+  %18 = icmp eq i64 %17, %11
+  br i1 %18, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %12, %4
-  %.0 = phi i64 [ %2, %4 ], [ %15, %12 ]
+  %.0 = phi i64 [ %2, %4 ], [ %16, %12 ]
   ret i64 %.0
 }
 

@@ -52174,92 +52174,94 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_19InliningAdvi
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
-  %.01527.i.us = phi i64 [ %20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us ], [ 0, %.lr.ph.i ]
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %18, i64 %.01527.i.us, i32 0, i32 0, i32 1
+  %.01527.i.us = phi i64 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us ], [ 0, %.lr.ph.i ]
+  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %18, i64 %.01527.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !9
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us:  ; preds = %.lr.ph.i.split.us
-  %20 = add nuw nsw i64 %.01527.i.us, 1
-  %.not.i.us = icmp eq i64 %20, %16
+  %21 = add nuw nsw i64 %.01527.i.us, 1
+  %.not.i.us = icmp eq i64 %21, %16
   br i1 %.not.i.us, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i.split.us, !llvm.loop !2431
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
-  %.01527.i = phi i64 [ %26, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i ], [ 0, %.lr.ph.i ]
-  %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %18, i64 %.01527.i
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.01527.i = phi i64 [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i ], [ 0, %.lr.ph.i ]
+  %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %18, i64 %.01527.i
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !9
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !61
+  %.sroa.01.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !61
   %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i)
-  %22 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %22, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
+  %23 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %23, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
 _ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
-  %23 = phi i64 [ %.01527.i.us, %.lr.ph.i.split.us ], [ %.01527.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %24 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %18, i64 %23, i32 1, i32 0, i32 0, i32 1
-  %25 = load i32, ptr %24, align 4, !tbaa !56
-  store i32 %25, ptr %9, align 4, !tbaa !56
-  br label %36
+  %24 = phi i64 [ %.01527.i.us, %.lr.ph.i.split.us ], [ %.01527.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %25 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %18, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %27 = load i32, ptr %26, align 4, !tbaa !56
+  store i32 %27, ptr %9, align 4, !tbaa !56
+  br label %38
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread22.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
-  %26 = add nuw nsw i64 %.01527.i, 1
-  %.not.i = icmp eq i64 %26, %16
+  %28 = add nuw nsw i64 %.01527.i, 1
+  %.not.i = icmp eq i64 %28, %16
   br i1 %.not.i, label %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i.split, !llvm.loop !2431
 
 _ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 3, ptr %27, align 8, !tbaa !2432, !alias.scope !2435
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 5, ptr %28, align 1, !tbaa !2438, !alias.scope !2435
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 3, ptr %29, align 8, !tbaa !2432, !alias.scope !2435
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 5, ptr %30, align 1, !tbaa !2438, !alias.scope !2435
   store ptr @.str.115, ptr %8, align 8, !tbaa !13, !alias.scope !2435
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %spec.select.i, ptr %29, align 8, !tbaa !13, !alias.scope !2435
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select24.i, ptr %30, align 8, !tbaa !13, !alias.scope !2435
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %spec.select.i, ptr %31, align 8, !tbaa !13, !alias.scope !2435
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 %spec.select24.i, ptr %32, align 8, !tbaa !13, !alias.scope !2435
   store ptr %8, ptr %7, align 8, !alias.scope !2439
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @.str.116, ptr %31, align 8, !alias.scope !2439
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 2, ptr %32, align 8, !tbaa !2432, !alias.scope !2439
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 3, ptr %33, align 1, !tbaa !2438, !alias.scope !2439
-  %34 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
-  %35 = call noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %34) #20
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @.str.116, ptr %33, align 8, !alias.scope !2439
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 2, ptr %34, align 8, !tbaa !2432, !alias.scope !2439
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 3, ptr %35, align 1, !tbaa !2438, !alias.scope !2439
+  %36 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
+  %37 = call noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %36) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %35, label %47, label %36
+  br i1 %37, label %49, label %38
 
-36:                                               ; preds = %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit
-  %37 = phi i32 [ %25, %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread ], [ 0, %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %37, ptr %38, align 8, !tbaa !41
-  %39 = trunc i32 %1 to i16
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %39, ptr %40, align 4, !tbaa !2444
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %42 = load ptr, ptr %41, align 8, !tbaa !53
-  %.not.i.i8 = icmp eq ptr %42, null
-  br i1 %.not.i.i8, label %43, label %_ZNKSt8functionIFvRKN4llvm19InliningAdvisorModeEEEclES3_.exit
+38:                                               ; preds = %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit
+  %39 = phi i32 [ %27, %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread ], [ 0, %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 %39, ptr %40, align 8, !tbaa !41
+  %41 = trunc i32 %1 to i16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i16 %41, ptr %42, align 4, !tbaa !2444
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %44 = load ptr, ptr %43, align 8, !tbaa !53
+  %.not.i.i8 = icmp eq ptr %44, null
+  br i1 %.not.i.i8, label %45, label %_ZNKSt8functionIFvRKN4llvm19InliningAdvisorModeEEEclES3_.exit
 
-43:                                               ; preds = %36
+45:                                               ; preds = %38
   call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
-_ZNKSt8functionIFvRKN4llvm19InliningAdvisorModeEEEclES3_.exit: ; preds = %36
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %46 = load ptr, ptr %45, align 8, !tbaa !50
-  call void %46(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 4 dereferenceable(4) %9) #20
-  br label %47
+_ZNKSt8functionIFvRKN4llvm19InliningAdvisorModeEEEclES3_.exit: ; preds = %38
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %48 = load ptr, ptr %47, align 8, !tbaa !50
+  call void %48(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 4 dereferenceable(4) %9) #20
+  br label %49
 
-47:                                               ; preds = %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, %_ZNKSt8functionIFvRKN4llvm19InliningAdvisorModeEEEclES3_.exit
+49:                                               ; preds = %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, %_ZNKSt8functionIFvRKN4llvm19InliningAdvisorModeEEEclES3_.exit
   %.1.i11 = phi i1 [ true, %_ZN4llvm2cl6parserINS_19InliningAdvisorModeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit ], [ false, %_ZNKSt8functionIFvRKN4llvm19InliningAdvisorModeEEEclES3_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.1.i11
@@ -52520,8 +52522,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !32
-  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %5, i64 %4, i32 1
-  ret ptr %6
+  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::InliningAdvisorMode>::OptionInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  ret ptr %7
 }
 
 declare void @_ZNK4llvm2cl19generic_parser_base15printOptionInfoERKNS0_6OptionEm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(120), i64 noundef) unnamed_addr #6
@@ -52608,92 +52611,94 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_19AttributorRu
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
-  %.01527.i.us = phi i64 [ %20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us ], [ 0, %.lr.ph.i ]
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %18, i64 %.01527.i.us, i32 0, i32 0, i32 1
+  %.01527.i.us = phi i64 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us ], [ 0, %.lr.ph.i ]
+  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %18, i64 %.01527.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !9
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us:  ; preds = %.lr.ph.i.split.us
-  %20 = add nuw nsw i64 %.01527.i.us, 1
-  %.not.i.us = icmp eq i64 %20, %16
+  %21 = add nuw nsw i64 %.01527.i.us, 1
+  %.not.i.us = icmp eq i64 %21, %16
   br i1 %.not.i.us, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i.split.us, !llvm.loop !2446
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
-  %.01527.i = phi i64 [ %26, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i ], [ 0, %.lr.ph.i ]
-  %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %18, i64 %.01527.i
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.01527.i = phi i64 [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i ], [ 0, %.lr.ph.i ]
+  %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %18, i64 %.01527.i
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !9
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !61
+  %.sroa.01.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !61
   %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i)
-  %22 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %22, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
+  %23 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %23, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
 _ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
-  %23 = phi i64 [ %.01527.i.us, %.lr.ph.i.split.us ], [ %.01527.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %24 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %18, i64 %23, i32 1, i32 0, i32 0, i32 1
-  %25 = load i32, ptr %24, align 4, !tbaa !100
-  store i32 %25, ptr %9, align 4, !tbaa !100
-  br label %36
+  %24 = phi i64 [ %.01527.i.us, %.lr.ph.i.split.us ], [ %.01527.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %25 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %18, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %27 = load i32, ptr %26, align 4, !tbaa !100
+  store i32 %27, ptr %9, align 4, !tbaa !100
+  br label %38
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread22.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
-  %26 = add nuw nsw i64 %.01527.i, 1
-  %.not.i = icmp eq i64 %26, %16
+  %28 = add nuw nsw i64 %.01527.i, 1
+  %.not.i = icmp eq i64 %28, %16
   br i1 %.not.i, label %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, label %.lr.ph.i.split, !llvm.loop !2446
 
 _ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 3, ptr %27, align 8, !tbaa !2432, !alias.scope !2447
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 5, ptr %28, align 1, !tbaa !2438, !alias.scope !2447
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 3, ptr %29, align 8, !tbaa !2432, !alias.scope !2447
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 5, ptr %30, align 1, !tbaa !2438, !alias.scope !2447
   store ptr @.str.115, ptr %8, align 8, !tbaa !13, !alias.scope !2447
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %spec.select.i, ptr %29, align 8, !tbaa !13, !alias.scope !2447
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select24.i, ptr %30, align 8, !tbaa !13, !alias.scope !2447
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %spec.select.i, ptr %31, align 8, !tbaa !13, !alias.scope !2447
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 %spec.select24.i, ptr %32, align 8, !tbaa !13, !alias.scope !2447
   store ptr %8, ptr %7, align 8, !alias.scope !2450
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @.str.116, ptr %31, align 8, !alias.scope !2450
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 2, ptr %32, align 8, !tbaa !2432, !alias.scope !2450
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 3, ptr %33, align 1, !tbaa !2438, !alias.scope !2450
-  %34 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
-  %35 = call noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %34) #20
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @.str.116, ptr %33, align 8, !alias.scope !2450
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 2, ptr %34, align 8, !tbaa !2432, !alias.scope !2450
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 3, ptr %35, align 1, !tbaa !2438, !alias.scope !2450
+  %36 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
+  %37 = call noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %36) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %35, label %47, label %36
+  br i1 %37, label %49, label %38
 
-36:                                               ; preds = %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit
-  %37 = phi i32 [ %25, %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread ], [ 0, %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %37, ptr %38, align 8, !tbaa !90
-  %39 = trunc i32 %1 to i16
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %39, ptr %40, align 4, !tbaa !2444
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %42 = load ptr, ptr %41, align 8, !tbaa !53
-  %.not.i.i8 = icmp eq ptr %42, null
-  br i1 %.not.i.i8, label %43, label %_ZNKSt8functionIFvRKN4llvm19AttributorRunOptionEEEclES3_.exit
+38:                                               ; preds = %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit
+  %39 = phi i32 [ %27, %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread ], [ 0, %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 %39, ptr %40, align 8, !tbaa !90
+  %41 = trunc i32 %1 to i16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i16 %41, ptr %42, align 4, !tbaa !2444
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %44 = load ptr, ptr %43, align 8, !tbaa !53
+  %.not.i.i8 = icmp eq ptr %44, null
+  br i1 %.not.i.i8, label %45, label %_ZNKSt8functionIFvRKN4llvm19AttributorRunOptionEEEclES3_.exit
 
-43:                                               ; preds = %36
+45:                                               ; preds = %38
   call void @_ZSt25__throw_bad_function_callv() #21
   unreachable
 
-_ZNKSt8functionIFvRKN4llvm19AttributorRunOptionEEEclES3_.exit: ; preds = %36
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %46 = load ptr, ptr %45, align 8, !tbaa !96
-  call void %46(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 4 dereferenceable(4) %9) #20
-  br label %47
+_ZNKSt8functionIFvRKN4llvm19AttributorRunOptionEEEclES3_.exit: ; preds = %38
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %48 = load ptr, ptr %47, align 8, !tbaa !96
+  call void %48(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 4 dereferenceable(4) %9) #20
+  br label %49
 
-47:                                               ; preds = %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, %_ZNKSt8functionIFvRKN4llvm19AttributorRunOptionEEEclES3_.exit
+49:                                               ; preds = %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit, %_ZNKSt8functionIFvRKN4llvm19AttributorRunOptionEEEclES3_.exit
   %.1.i11 = phi i1 [ true, %_ZN4llvm2cl6parserINS_19AttributorRunOptionEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit ], [ false, %_ZNKSt8functionIFvRKN4llvm19AttributorRunOptionEEEclES3_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.1.i11
@@ -52948,8 +52953,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !32
-  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %5, i64 %4, i32 1
-  ret ptr %6
+  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AttributorRunOption>::OptionInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

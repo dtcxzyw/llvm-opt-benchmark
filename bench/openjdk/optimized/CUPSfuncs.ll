@@ -804,7 +804,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #5
-  br label %106
+  br label %107
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr @j2d_cupsGetPPD, align 8
@@ -814,7 +814,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %7) #5
   %19 = icmp eq ptr %15, null
-  br i1 %19, label %106, label %20
+  br i1 %19, label %107, label %20
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr @j2d_ppdOpenFile, align 8
@@ -824,19 +824,19 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
 
 24:                                               ; preds = %20
   %25 = tail call i32 @unlink(ptr noundef nonnull %15) #5
-  br label %106
+  br label %107
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr @j2d_ppdFindOption, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %22, ptr noundef nonnull @.str.16) #5
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %103, label %29
+  br i1 %.not, label %104, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 176
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %103
+  br i1 %32, label %33, label %104
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %0, align 8
@@ -857,7 +857,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #5
-  br label %106
+  br label %107
 
 47:                                               ; preds = %33
   %48 = load ptr, ptr %0, align 8
@@ -886,83 +886,84 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %62 = load ptr, ptr %61, align 8
   tail call void %62(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #5
-  br label %106
+  br label %107
 
-63:                                               ; preds = %.lr.ph, %96
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %64 = phi i32 [ %53, %.lr.ph ], [ %97, %96 ]
+63:                                               ; preds = %.lr.ph, %97
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
+  %64 = phi i32 [ %53, %.lr.ph ], [ %98, %97 ]
   %65 = load ptr, ptr %55, align 8
-  %66 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %65, i64 %indvars.iv, i32 1
-  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %56) #6
-  %.not85 = icmp eq i32 %67, 0
-  br i1 %.not85, label %68, label %74
+  %66 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %65, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
+  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %56) #6
+  %.not85 = icmp eq i32 %68, 0
+  br i1 %.not85, label %69, label %75
 
-68:                                               ; preds = %63
-  %69 = trunc nuw nsw i64 %indvars.iv to i32
-  %70 = uitofp nneg i32 %69 to float
-  %71 = mul nsw i32 %64, 6
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds float, ptr %51, i64 %72
-  store float %70, ptr %73, align 4
-  br label %74
+69:                                               ; preds = %63
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
+  %71 = uitofp nneg i32 %70 to float
+  %72 = mul nsw i32 %64, 6
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds float, ptr %51, i64 %73
+  store float %71, ptr %74, align 4
+  br label %75
 
-74:                                               ; preds = %68, %63
-  %75 = load ptr, ptr @j2d_ppdPageSize, align 8
-  %76 = tail call ptr %75(ptr noundef nonnull %22, ptr noundef nonnull %66) #5
-  %.not86 = icmp eq ptr %76, null
-  br i1 %.not86, label %96, label %77
+75:                                               ; preds = %69, %63
+  %76 = load ptr, ptr @j2d_ppdPageSize, align 8
+  %77 = tail call ptr %76(ptr noundef nonnull %22, ptr noundef nonnull %67) #5
+  %.not86 = icmp eq ptr %77, null
+  br i1 %.not86, label %97, label %78
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 48
-  %79 = load float, ptr %78, align 4
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  %80 = load float, ptr %79, align 4
   %.idx = mul nuw nsw i64 %indvars.iv, 24
-  %80 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx
-  store float %79, ptr %80, align 4
-  %81 = getelementptr inbounds nuw i8, ptr %76, i64 52
-  %82 = load float, ptr %81, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  store float %82, ptr %83, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %76, i64 56
-  %85 = load float, ptr %84, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store float %85, ptr %86, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %76, i64 68
-  %88 = load float, ptr %87, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %80, i64 12
-  store float %88, ptr %89, align 4
-  %90 = getelementptr inbounds nuw i8, ptr %76, i64 64
-  %91 = load float, ptr %90, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store float %91, ptr %92, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %76, i64 60
-  %94 = load float, ptr %93, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %80, i64 20
-  store float %94, ptr %95, align 4
-  br label %96
+  %81 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx
+  store float %80, ptr %81, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 52
+  %83 = load float, ptr %82, align 4
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  store float %83, ptr %84, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 56
+  %86 = load float, ptr %85, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store float %86, ptr %87, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %77, i64 68
+  %89 = load float, ptr %88, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 12
+  store float %89, ptr %90, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %77, i64 64
+  %92 = load float, ptr %91, align 4
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store float %92, ptr %93, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %77, i64 60
+  %95 = load float, ptr %94, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %81, i64 20
+  store float %95, ptr %96, align 4
+  br label %97
 
-96:                                               ; preds = %74, %77
+97:                                               ; preds = %75, %78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %97 = load i32, ptr %30, align 8
-  %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %63, label %._crit_edge, !llvm.loop !12
+  %98 = load i32, ptr %30, align 8
+  %99 = sext i32 %98 to i64
+  %100 = icmp slt i64 %indvars.iv.next, %99
+  br i1 %100, label %63, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %96, %.preheader
-  %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1576
-  %102 = load ptr, ptr %101, align 8
-  tail call void %102(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef nonnull %51, i32 noundef 0) #5
-  br label %103
+._crit_edge:                                      ; preds = %97, %.preheader
+  %101 = load ptr, ptr %0, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1576
+  %103 = load ptr, ptr %102, align 8
+  tail call void %103(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef nonnull %51, i32 noundef 0) #5
+  br label %104
 
-103:                                              ; preds = %._crit_edge, %29, %26
+104:                                              ; preds = %._crit_edge, %29, %26
   %.074 = phi ptr [ %39, %._crit_edge ], [ null, %29 ], [ null, %26 ]
-  %104 = load ptr, ptr @j2d_ppdClose, align 8
-  tail call void %104(ptr noundef nonnull %22) #5
-  %105 = tail call i32 @unlink(ptr noundef nonnull %15) #5
-  br label %106
+  %105 = load ptr, ptr @j2d_ppdClose, align 8
+  tail call void %105(ptr noundef nonnull %22) #5
+  %106 = tail call i32 @unlink(ptr noundef nonnull %15) #5
+  br label %107
 
-106:                                              ; preds = %13, %103, %57, %41, %24, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %24 ], [ null, %41 ], [ null, %57 ], [ %.074, %103 ], [ null, %13 ]
+107:                                              ; preds = %13, %104, %57, %41, %24, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %24 ], [ null, %41 ], [ null, %57 ], [ %.074, %104 ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -1135,100 +1136,101 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nound
 104:                                              ; preds = %.lr.ph, %.thread113
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread113 ]
   %105 = load ptr, ptr %103, align 8
-  %106 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %105, i64 %indvars.iv, i32 1
-  %107 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %106, ptr noundef nonnull @.str.27, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
-  %108 = icmp eq i32 %107, 2
-  br i1 %108, label %109, label %115
+  %106 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %105, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1
+  %108 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %107, ptr noundef nonnull @.str.27, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
+  %109 = icmp eq i32 %108, 2
+  br i1 %109, label %110, label %116
 
-109:                                              ; preds = %104
-  %110 = load i32, ptr %7, align 4
-  %111 = icmp slt i32 %110, 1
-  %112 = load i32, ptr %8, align 4
-  %113 = icmp slt i32 %112, 1
-  %or.cond3 = select i1 %111, i1 true, i1 %113
-  br i1 %or.cond3, label %114, label %.thread111
+110:                                              ; preds = %104
+  %111 = load i32, ptr %7, align 4
+  %112 = icmp slt i32 %111, 1
+  %113 = load i32, ptr %8, align 4
+  %114 = icmp slt i32 %113, 1
+  %or.cond3 = select i1 %112, i1 true, i1 %114
+  br i1 %or.cond3, label %115, label %.thread111
 
-114:                                              ; preds = %109
+115:                                              ; preds = %110
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   br label %.thread113
 
-115:                                              ; preds = %104
-  %116 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %106, ptr noundef nonnull @.str.28, ptr noundef nonnull %7) #5
-  %117 = icmp eq i32 %116, 1
-  %118 = load i32, ptr %7, align 4
-  br i1 %117, label %119, label %123
+116:                                              ; preds = %104
+  %117 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %107, ptr noundef nonnull @.str.28, ptr noundef nonnull %7) #5
+  %118 = icmp eq i32 %117, 1
+  %119 = load i32, ptr %7, align 4
+  br i1 %118, label %120, label %124
 
-119:                                              ; preds = %115
-  %120 = icmp slt i32 %118, 1
-  br i1 %120, label %121, label %122
+120:                                              ; preds = %116
+  %121 = icmp slt i32 %119, 1
+  br i1 %121, label %122, label %123
 
-121:                                              ; preds = %119
+122:                                              ; preds = %120
   store i32 0, ptr %7, align 4
   br label %.thread113
 
-122:                                              ; preds = %119
-  store i32 %118, ptr %8, align 4
+123:                                              ; preds = %120
+  store i32 %119, ptr %8, align 4
   br label %.thread111
 
-123:                                              ; preds = %115
-  %124 = icmp sgt i32 %118, 0
-  br i1 %124, label %.thread111, label %.thread113
+124:                                              ; preds = %116
+  %125 = icmp sgt i32 %119, 0
+  br i1 %125, label %.thread111, label %.thread113
 
-.thread111:                                       ; preds = %109, %122, %123
-  %125 = phi i32 [ %118, %123 ], [ %110, %109 ], [ %118, %122 ]
-  %126 = load i32, ptr %5, align 4
-  %.not103 = icmp eq i32 %125, %126
-  br i1 %.not103, label %127, label %130
+.thread111:                                       ; preds = %110, %123, %124
+  %126 = phi i32 [ %119, %124 ], [ %111, %110 ], [ %119, %123 ]
+  %127 = load i32, ptr %5, align 4
+  %.not103 = icmp eq i32 %126, %127
+  br i1 %.not103, label %128, label %131
 
-127:                                              ; preds = %.thread111
-  %128 = load i32, ptr %8, align 4
-  %129 = load i32, ptr %6, align 4
-  %.not104 = icmp eq i32 %128, %129
-  br i1 %.not104, label %.thread113, label %130
+128:                                              ; preds = %.thread111
+  %129 = load i32, ptr %8, align 4
+  %130 = load i32, ptr %6, align 4
+  %.not104 = icmp eq i32 %129, %130
+  br i1 %.not104, label %.thread113, label %131
 
-130:                                              ; preds = %127, %.thread111
-  %131 = load ptr, ptr %0, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 224
-  %133 = load ptr, ptr %132, align 8
-  %134 = call ptr (ptr, ptr, ptr, ...) %133(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef %125) #5
-  %135 = icmp eq ptr %134, null
-  br i1 %135, label %.loopexit114, label %136
+131:                                              ; preds = %128, %.thread111
+  %132 = load ptr, ptr %0, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 224
+  %134 = load ptr, ptr %133, align 8
+  %135 = call ptr (ptr, ptr, ptr, ...) %134(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef %126) #5
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %.loopexit114, label %137
 
-136:                                              ; preds = %130
-  %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 224
-  %139 = load ptr, ptr %138, align 8
-  %140 = load i32, ptr %8, align 4
-  %141 = call ptr (ptr, ptr, ptr, ...) %139(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef %140) #5
-  %142 = icmp eq ptr %141, null
-  br i1 %142, label %.loopexit114, label %143
+137:                                              ; preds = %131
+  %138 = load ptr, ptr %0, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 224
+  %140 = load ptr, ptr %139, align 8
+  %141 = load i32, ptr %8, align 4
+  %142 = call ptr (ptr, ptr, ptr, ...) %140(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef %141) #5
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %.loopexit114, label %144
 
-143:                                              ; preds = %136
-  %144 = load ptr, ptr %0, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 296
-  %146 = load ptr, ptr %145, align 8
-  %147 = call zeroext i8 (ptr, ptr, ptr, ...) %146(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %30, ptr noundef nonnull %134) #5
-  %148 = load ptr, ptr %0, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 296
-  %150 = load ptr, ptr %149, align 8
-  %151 = call zeroext i8 (ptr, ptr, ptr, ...) %150(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %30, ptr noundef nonnull %141) #5
+144:                                              ; preds = %137
+  %145 = load ptr, ptr %0, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 296
+  %147 = load ptr, ptr %146, align 8
+  %148 = call zeroext i8 (ptr, ptr, ptr, ...) %147(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %30, ptr noundef nonnull %135) #5
+  %149 = load ptr, ptr %0, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 296
+  %151 = load ptr, ptr %150, align 8
+  %152 = call zeroext i8 (ptr, ptr, ptr, ...) %151(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %30, ptr noundef nonnull %142) #5
   br label %.thread113
 
-.thread113:                                       ; preds = %114, %121, %123, %127, %143
+.thread113:                                       ; preds = %115, %122, %124, %128, %144
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %152 = load i32, ptr %100, align 8
-  %153 = sext i32 %152 to i64
-  %154 = icmp slt i64 %indvars.iv.next, %153
-  br i1 %154, label %104, label %.loopexit, !llvm.loop !13
+  %153 = load i32, ptr %100, align 8
+  %154 = sext i32 %153 to i64
+  %155 = icmp slt i64 %indvars.iv.next, %154
+  br i1 %155, label %104, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.thread113, %.thread106, %55
-  %155 = load ptr, ptr @j2d_ppdClose, align 8
-  call void %155(ptr noundef %51) #5
-  %156 = call i32 @unlink(ptr noundef nonnull %44) #5
+  %156 = load ptr, ptr @j2d_ppdClose, align 8
+  call void %156(ptr noundef %51) #5
+  %157 = call i32 @unlink(ptr noundef nonnull %44) #5
   br label %.loopexit114
 
-.loopexit114:                                     ; preds = %136, %130, %84, %.thread, %42, %26, %20, %14, %4, %.loopexit, %38
+.loopexit114:                                     ; preds = %137, %131, %84, %.thread, %42, %26, %20, %14, %4, %.loopexit, %38
   ret void
 }
 

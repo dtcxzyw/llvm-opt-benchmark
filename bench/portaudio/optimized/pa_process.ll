@@ -574,7 +574,7 @@ define void @PaUtil_SetInputChannel(ptr noundef readonly captures(none) %0, i32 
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !49
-  %9 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7, i32 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %3, ptr %9, align 8, !tbaa !51
   ret void
 }
@@ -609,7 +609,7 @@ define void @PaUtil_SetInterleavedInputChannels(ptr noundef readonly captures(no
   %18 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17
   store ptr %.020, ptr %18, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %.020, i64 %13
-  %20 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17, i32 1
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %.01624, ptr %20, align 8, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -626,7 +626,7 @@ define void @PaUtil_SetNonInterleavedInputChannel(ptr noundef readonly captures(
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
   store ptr %2, ptr %7, align 8, !tbaa !49
-  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6, i32 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %8, align 8, !tbaa !51
   ret void
 }
@@ -645,7 +645,7 @@ define void @PaUtil_Set2ndInputChannel(ptr noundef readonly captures(none) %0, i
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !49
-  %9 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7, i32 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %3, ptr %9, align 8, !tbaa !51
   ret void
 }
@@ -680,7 +680,7 @@ define void @PaUtil_Set2ndInterleavedInputChannels(ptr noundef readonly captures
   %18 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17
   store ptr %.020, ptr %18, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %.020, i64 %13
-  %20 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17, i32 1
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %.01624, ptr %20, align 8, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -697,7 +697,7 @@ define void @PaUtil_Set2ndNonInterleavedInputChannel(ptr noundef readonly captur
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
   store ptr %2, ptr %7, align 8, !tbaa !49
-  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6, i32 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %8, align 8, !tbaa !51
   ret void
 }
@@ -734,7 +734,7 @@ define void @PaUtil_SetOutputChannel(ptr noundef readonly captures(none) %0, i32
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !49
-  %9 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7, i32 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %3, ptr %9, align 8, !tbaa !51
   ret void
 }
@@ -768,7 +768,7 @@ define void @PaUtil_SetInterleavedOutputChannels(ptr noundef readonly captures(n
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17
   store ptr %.017, ptr %18, align 8, !tbaa !49
-  %19 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17, i32 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %.01321, ptr %19, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %.017, i64 %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -786,7 +786,7 @@ define void @PaUtil_SetNonInterleavedOutputChannel(ptr noundef readonly captures
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
   store ptr %2, ptr %7, align 8, !tbaa !49
-  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6, i32 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %8, align 8, !tbaa !51
   ret void
 }
@@ -805,7 +805,7 @@ define void @PaUtil_Set2ndOutputChannel(ptr noundef readonly captures(none) %0, 
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !49
-  %9 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7, i32 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %3, ptr %9, align 8, !tbaa !51
   ret void
 }
@@ -839,7 +839,7 @@ define void @PaUtil_Set2ndInterleavedOutputChannels(ptr noundef readonly capture
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17
   store ptr %.017, ptr %18, align 8, !tbaa !49
-  %19 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %10, i64 %17, i32 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %.01321, ptr %19, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %.017, i64 %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -857,7 +857,7 @@ define void @PaUtil_Set2ndNonInterleavedOutputChannel(ptr noundef readonly captu
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
   store ptr %2, ptr %7, align 8, !tbaa !49
-  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6, i32 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %8, align 8, !tbaa !51
   ret void
 }

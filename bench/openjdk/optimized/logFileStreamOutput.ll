@@ -487,7 +487,7 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput5writeEN16LogMessageBuffer8It
 
 4:                                                ; preds = %2
   tail call void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMessageBuffer8IteratorE(ptr noundef nonnull align 8 dereferenceable(1184) %3, ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull byval(%"class.LogMessageBuffer::Iterator") align 8 %1) #10
-  br label %45
+  br label %46
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -506,9 +506,9 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput5writeEN16LogMessageBuffer8It
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
-  %16 = phi ptr [ %10, %.lr.ph ], [ %39, %15 ]
-  %17 = phi i64 [ %9, %.lr.ph ], [ %38, %15 ]
-  %.07 = phi i32 [ 0, %.lr.ph ], [ %35, %15 ]
+  %16 = phi ptr [ %10, %.lr.ph ], [ %40, %15 ]
+  %17 = phi i64 [ %9, %.lr.ph ], [ %39, %15 ]
+  %.07 = phi i32 [ 0, %.lr.ph ], [ %36, %15 ]
   %18 = load ptr, ptr %14, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %20 = load ptr, ptr %19, align 8
@@ -523,31 +523,32 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput5writeEN16LogMessageBuffer8It
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %29, i64 %30, i32 1
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 %32
-  %34 = call noundef i32 @_ZN19LogFileStreamOutput14write_internalERK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %33)
-  %35 = add nsw i32 %34, %.07
-  %36 = load i64, ptr %8, align 8
-  %37 = add i64 %36, 1
-  store i64 %37, ptr %8, align 8
+  %31 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %29, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %27, i64 %33
+  %35 = call noundef i32 @_ZN19LogFileStreamOutput14write_internalERK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %34)
+  %36 = add nsw i32 %35, %.07
+  %37 = load i64, ptr %8, align 8
+  %38 = add i64 %37, 1
+  store i64 %38, ptr %8, align 8
   call void @_ZN16LogMessageBuffer8Iterator30skip_messages_with_finer_levelEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #10
-  %38 = load i64, ptr %8, align 8
-  %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %41 = load i64, ptr %40, align 8
-  %42 = icmp eq i64 %38, %41
-  br i1 %42, label %._crit_edge, label %15, !llvm.loop !9
+  %39 = load i64, ptr %8, align 8
+  %40 = load ptr, ptr %1, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %42 = load i64, ptr %41, align 8
+  %43 = icmp eq i64 %39, %42
+  br i1 %43, label %._crit_edge, label %15, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %15, %5
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %35, %15 ]
-  %43 = call noundef zeroext i1 @_ZN19LogFileStreamOutput5flushEv(ptr noundef nonnull align 8 dereferenceable(264) %0)
-  %44 = select i1 %43, i32 %.0.lcssa, i32 -1
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %36, %15 ]
+  %44 = call noundef zeroext i1 @_ZN19LogFileStreamOutput5flushEv(ptr noundef nonnull align 8 dereferenceable(264) %0)
+  %45 = select i1 %44, i32 %.0.lcssa, i32 -1
   call void @_ZN2os11funlockfileEP8_IO_FILE(ptr noundef %7) #10
-  br label %45
+  br label %46
 
-45:                                               ; preds = %._crit_edge, %4
-  %.05 = phi i32 [ 0, %4 ], [ %44, %._crit_edge ]
+46:                                               ; preds = %._crit_edge, %4
+  %.05 = phi i32 [ 0, %4 ], [ %45, %._crit_edge ]
   ret i32 %.05
 }
 

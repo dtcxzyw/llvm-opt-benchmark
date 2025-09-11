@@ -58,14 +58,14 @@ define hidden noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8G
   %.098 = phi ptr [ %1, %6 ], [ %.10, %.critedge3 ]
   %28 = ptrtoint ptr %.098 to i64
   %29 = and i64 %28, 7
-  %.not152 = icmp ne i64 %29, 0
+  %.not153 = icmp ne i64 %29, 0
   %30 = icmp ult ptr %.098, %10
-  %or.cond153 = select i1 %.not152, i1 %30, i1 false
-  br i1 %or.cond153, label %.lr.ph, label %.critedge
+  %or.cond154 = select i1 %.not153, i1 %30, i1 false
+  br i1 %or.cond154, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %27, %36
-  %.199154 = phi ptr [ %37, %36 ], [ %.098, %27 ]
-  %31 = load i8, ptr %.199154, align 1, !tbaa !17
+  %.199155 = phi ptr [ %37, %36 ], [ %.098, %27 ]
+  %31 = load i8, ptr %.199155, align 1, !tbaa !17
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !17
@@ -73,7 +73,7 @@ define hidden noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8G
   br i1 %35, label %36, label %.critedge.thread
 
 36:                                               ; preds = %.lr.ph
-  %37 = getelementptr inbounds nuw i8, ptr %.199154, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.199155, i64 1
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 7
   %.not = icmp ne i64 %39, 0
@@ -83,18 +83,18 @@ define hidden noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8G
 
 .critedge:                                        ; preds = %36, %27
   %.199.lcssa = phi ptr [ %.098, %27 ], [ %37, %36 ]
-  %.lcssa144 = phi i64 [ %29, %27 ], [ %39, %36 ]
-  %41 = icmp eq i64 %.lcssa144, 0
+  %.lcssa145 = phi i64 [ %29, %27 ], [ %39, %36 ]
+  %41 = icmp eq i64 %.lcssa145, 0
   %42 = icmp ult ptr %.199.lcssa, %13
-  %or.cond230 = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond230, label %.lr.ph228, label %.critedge.thread
+  %or.cond231 = select i1 %41, i1 %42, i1 false
+  br i1 %or.cond231, label %.lr.ph229, label %.critedge.thread
 
-.lr.ph228:                                        ; preds = %.critedge, %.preheader141.backedge
-  %.3227 = phi ptr [ %46, %.preheader141.backedge ], [ %.199.lcssa, %.critedge ]
-  %43 = load i32, ptr %.3227, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %.3227, i64 4
+.lr.ph229:                                        ; preds = %.critedge, %.preheader142.backedge
+  %.3228 = phi ptr [ %46, %.preheader142.backedge ], [ %.199.lcssa, %.critedge ]
+  %43 = load i32, ptr %.3228, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %.3228, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %.3227, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.3228, i64 8
   %47 = sub i32 %43, %22
   %48 = add i32 %43, %24
   %49 = or i32 %47, %48
@@ -108,9 +108,9 @@ define hidden noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8G
   %56 = lshr i32 %45, 16
   %57 = lshr i32 %45, 24
   %58 = zext nneg i32 %57 to i64
-  br i1 %.not111, label %.preheader141.backedge, label %59
+  br i1 %.not111, label %.preheader142.backedge, label %59
 
-59:                                               ; preds = %.lr.ph228
+59:                                               ; preds = %.lr.ph229
   %60 = lshr i32 %43, 24
   %61 = zext nneg i32 %60 to i64
   %62 = lshr i32 %43, 16
@@ -145,73 +145,73 @@ define hidden noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8G
   %88 = getelementptr inbounds nuw i8, ptr %20, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !17
   %.fr = freeze i8 %85
-  %.fr137 = freeze i8 %89
+  %.fr138 = freeze i8 %89
   %90 = and i32 %56, 255
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr inbounds nuw i8, ptr %20, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !17
   %94 = getelementptr inbounds nuw i8, ptr %20, i64 %58
   %95 = load i8, ptr %94, align 1, !tbaa !17
-  %.fr138 = freeze i8 %93
-  %.fr139 = freeze i8 %95
-  %96 = or i8 %.fr137, %.fr
-  %97 = or i8 %96, %.fr138
-  %98 = or i8 %97, %.fr139
+  %.fr139 = freeze i8 %93
+  %.fr140 = freeze i8 %95
+  %96 = or i8 %.fr138, %.fr
+  %97 = or i8 %96, %.fr139
+  %98 = or i8 %97, %.fr140
   %.not113 = icmp eq i8 %98, 0
-  br i1 %.not113, label %.preheader141.backedge, label %.critedge.thread.loopexit.split.loop.exit
+  br i1 %.not113, label %.preheader142.backedge, label %.critedge.thread.loopexit.split.loop.exit
 
-.preheader141.backedge:                           ; preds = %.lr.ph228, %81
+.preheader142.backedge:                           ; preds = %.lr.ph229, %81
   %99 = icmp ult ptr %46, %13
-  br i1 %99, label %.lr.ph228, label %.critedge.thread
+  br i1 %99, label %.lr.ph229, label %.critedge.thread
 
 .critedge.thread.loopexit.split.loop.exit:        ; preds = %81
-  %100 = getelementptr inbounds nuw i8, ptr %.3227, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.3228, i64 4
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph, %59, %.preheader141.backedge, %.critedge.thread.loopexit.split.loop.exit, %.critedge
-  %.2100 = phi ptr [ %.199.lcssa, %.critedge ], [ %100, %.critedge.thread.loopexit.split.loop.exit ], [ %46, %.preheader141.backedge ], [ %.3227, %59 ], [ %.199154, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %59, %.preheader142.backedge, %.critedge.thread.loopexit.split.loop.exit, %.critedge
+  %.2100 = phi ptr [ %.199.lcssa, %.critedge ], [ %100, %.critedge.thread.loopexit.split.loop.exit ], [ %46, %.preheader142.backedge ], [ %.3228, %59 ], [ %.199155, %.lr.ph ]
   %101 = icmp ult ptr %.2100, %10
-  br i1 %101, label %.lr.ph158, label %.thread125
+  br i1 %101, label %.lr.ph159, label %.critedge.thread._crit_edge
 
-.lr.ph158:                                        ; preds = %.critedge.thread, %108
-  %.0157 = phi ptr [ %112, %108 ], [ %18, %.critedge.thread ]
-  %.7156 = phi ptr [ %109, %108 ], [ %.2100, %.critedge.thread ]
-  %102 = load i8, ptr %.7156, align 1, !tbaa !17
+.lr.ph159:                                        ; preds = %.critedge.thread, %108
+  %.0158 = phi ptr [ %112, %108 ], [ %18, %.critedge.thread ]
+  %.7157 = phi ptr [ %109, %108 ], [ %.2100, %.critedge.thread ]
+  %102 = load i8, ptr %.7157, align 1, !tbaa !17
   %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds nuw i8, ptr %.0157, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %.0158, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !17
   %106 = zext i8 %105 to i32
   %107 = icmp ugt i8 %105, -17
   br i1 %107, label %114, label %108
 
-108:                                              ; preds = %.lr.ph158
-  %109 = getelementptr inbounds nuw i8, ptr %.7156, i64 1
+108:                                              ; preds = %.lr.ph159
+  %109 = getelementptr inbounds nuw i8, ptr %.7157, i64 1
   %110 = shl i32 %106, %8
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i8, ptr %18, i64 %111
   %113 = icmp ult ptr %109, %10
-  br i1 %113, label %.lr.ph158, label %.thread125, !llvm.loop !20
+  br i1 %113, label %.lr.ph159, label %.critedge.thread._crit_edge, !llvm.loop !20
 
-114:                                              ; preds = %.lr.ph158
-  %115 = ptrtoint ptr %.0157 to i64
+114:                                              ; preds = %.lr.ph159
+  %115 = ptrtoint ptr %.0158 to i64
   %116 = sub i64 %115, %26
   %117 = trunc i64 %116 to i32
   %118 = load i32, ptr %25, align 4, !tbaa !21
   %119 = icmp ugt i32 %118, %117
-  br i1 %119, label %.critedge3, label %.preheader140
+  br i1 %119, label %.critedge3, label %.preheader141
 
-.preheader140:                                    ; preds = %114, %122
-  %.9 = phi ptr [ %120, %122 ], [ %.7156, %114 ]
+.preheader141:                                    ; preds = %114, %122
+  %.9 = phi ptr [ %120, %122 ], [ %.7157, %114 ]
   %120 = getelementptr inbounds i8, ptr %.9, i64 -1
   %121 = icmp ugt ptr %120, %1
   br i1 %121, label %122, label %.critedge3
 
-122:                                              ; preds = %.preheader140
+122:                                              ; preds = %.preheader141
   %123 = load i8, ptr %120, align 1, !tbaa !17
   %124 = icmp slt i8 %123, -64
-  br i1 %124, label %.preheader140, label %.critedge3, !llvm.loop !22
+  br i1 %124, label %.preheader141, label %.critedge3, !llvm.loop !22
 
-.thread125:                                       ; preds = %.critedge.thread, %108
+.critedge.thread._crit_edge:                      ; preds = %.critedge.thread, %108
   %.7.lcssa = phi ptr [ %109, %108 ], [ %.2100, %.critedge.thread ]
   %.0.lcssa = phi ptr [ %112, %108 ], [ %18, %.critedge.thread ]
   %125 = ptrtoint ptr %.0.lcssa to i64
@@ -220,36 +220,36 @@ define hidden noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8G
   %128 = trunc i64 %127 to i32
   %129 = load i32, ptr %25, align 4, !tbaa !21
   %130 = icmp ugt i32 %129, %128
-  br i1 %130, label %.thread134, label %.preheader
+  br i1 %130, label %.thread135, label %.preheader
 
-.preheader:                                       ; preds = %.thread125, %133
-  %.11 = phi ptr [ %131, %133 ], [ %.7.lcssa, %.thread125 ]
+.preheader:                                       ; preds = %.critedge.thread._crit_edge, %133
+  %.11 = phi ptr [ %131, %133 ], [ %.7.lcssa, %.critedge.thread._crit_edge ]
   %131 = getelementptr inbounds i8, ptr %.11, i64 -1
   %132 = icmp ugt ptr %131, %1
-  br i1 %132, label %133, label %.thread134
+  br i1 %132, label %133, label %.thread135
 
 133:                                              ; preds = %.preheader
   %134 = load i8, ptr %131, align 1, !tbaa !17
   %135 = icmp slt i8 %134, -64
-  br i1 %135, label %.preheader, label %.thread134, !llvm.loop !23
+  br i1 %135, label %.preheader, label %.thread135, !llvm.loop !23
 
-.critedge3:                                       ; preds = %.preheader140, %122, %114
-  %.10 = phi ptr [ %.7156, %114 ], [ %120, %122 ], [ %120, %.preheader140 ]
+.critedge3:                                       ; preds = %.preheader141, %122, %114
+  %.10 = phi ptr [ %.7157, %114 ], [ %120, %122 ], [ %120, %.preheader141 ]
   %136 = icmp eq i8 %105, -3
-  br i1 %136, label %27, label %.thread134
+  br i1 %136, label %27, label %.thread135
 
-.thread134:                                       ; preds = %.critedge3, %133, %.preheader, %.thread125
-  %.10132 = phi ptr [ %.7.lcssa, %.thread125 ], [ %131, %.preheader ], [ %131, %133 ], [ %.10, %.critedge3 ]
-  %.2103131 = phi i32 [ 241, %.thread125 ], [ 240, %.preheader ], [ 240, %133 ], [ %106, %.critedge3 ]
-  %137 = ptrtoint ptr %.10132 to i64
+.thread135:                                       ; preds = %.critedge3, %133, %.preheader, %.critedge.thread._crit_edge
+  %.10133 = phi ptr [ %.7.lcssa, %.critedge.thread._crit_edge ], [ %131, %.preheader ], [ %131, %133 ], [ %.10, %.critedge3 ]
+  %.2103132 = phi i32 [ 241, %.critedge.thread._crit_edge ], [ 240, %.preheader ], [ 240, %133 ], [ %106, %.critedge3 ]
+  %137 = ptrtoint ptr %.10133 to i64
   %138 = ptrtoint ptr %1 to i64
   %139 = sub i64 %137, %138
   %140 = trunc i64 %139 to i32
   store i32 %140, ptr %3, align 4, !tbaa !3
   br label %141
 
-141:                                              ; preds = %.thread134, %4
-  %.095 = phi i32 [ 241, %4 ], [ %.2103131, %.thread134 ]
+141:                                              ; preds = %.thread135, %4
+  %.095 = phi i32 [ 241, %4 ], [ %.2103132, %.thread135 ]
   ret i32 %.095
 }
 

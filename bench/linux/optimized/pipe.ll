@@ -1980,7 +1980,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @pipe_ioctl(ptr noundef r
   %21 = phi i32 [ %11, %16 ], [ %27, %19 ]
   %22 = and i32 %21, %14
   %23 = zext i32 %22 to i64
-  %24 = getelementptr %struct.pipe_buffer, ptr %18, i64 %23, i32 2
+  %.split = getelementptr %struct.pipe_buffer, ptr %18, i64 %23
+  %24 = getelementptr i8, ptr %.split, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, %20
   %27 = add i32 %21, 1
@@ -3178,7 +3179,7 @@ define internal noundef range(i32 -22, 1) i32 @do_proc_dopipe_max_size_conv(ptr 
   %15 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %14, i32 -1) #19, !srcloc !44
   %16 = add i32 %15, 1
   %17 = zext nneg i32 %16 to i64
-  %18 = shl nuw i64 1, %17
+  %18 = shl nuw nsw i64 1, %17
   %19 = trunc i64 %18 to i32
   %20 = icmp ugt i32 %16, 31
   br i1 %20, label %.thread, label %.thread2

@@ -286,7 +286,7 @@ define hidden void @b2OverlapSensors(ptr noundef %0) local_unnamed_addr #0 {
   br label %53
 
 53:                                               ; preds = %.lr.ph241, %._crit_edge237
-  %.0192239 = phi i64 [ %50, %.lr.ph241 ], [ %240, %._crit_edge237 ]
+  %.0192239 = phi i64 [ %50, %.lr.ph241 ], [ %241, %._crit_edge237 ]
   %54 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0192239, i1 true)
   %55 = trunc nuw nsw i64 %54 to i32
   %56 = or disjoint i32 %52, %55
@@ -297,368 +297,369 @@ define hidden void @b2OverlapSensors(ptr noundef %0) local_unnamed_addr #0 {
   %60 = load i32, ptr %59, align 8, !tbaa !79
   %.val206 = load ptr, ptr %36, align 8, !tbaa !81
   %61 = sext i32 %60 to i64
-  %62 = add nsw i32 %60, 1
-  %63 = load i16, ptr %37, align 4, !tbaa !82
-  %64 = getelementptr inbounds %struct.b2Shape, ptr %.val206, i64 %61, i32 20
-  %65 = load i16, ptr %64, align 4, !tbaa !83
-  %66 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !87
-  %68 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %69 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %70 = load i32, ptr %69, align 8, !tbaa !88
-  %71 = load ptr, ptr %58, align 8, !tbaa !89
-  %72 = load ptr, ptr %68, align 8, !tbaa !90
-  %73 = icmp sgt i32 %67, 0
-  %74 = icmp sgt i32 %70, 0
-  %75 = select i1 %73, i1 %74, i1 false
-  br i1 %75, label %.lr.ph231, label %.preheader221
+  %62 = getelementptr inbounds %struct.b2Shape, ptr %.val206, i64 %61
+  %63 = add nsw i32 %60, 1
+  %64 = load i16, ptr %37, align 4, !tbaa !82
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 276
+  %66 = load i16, ptr %65, align 4, !tbaa !83
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %68 = load i32, ptr %67, align 8, !tbaa !87
+  %69 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %71 = load i32, ptr %70, align 8, !tbaa !88
+  %72 = load ptr, ptr %58, align 8, !tbaa !89
+  %73 = load ptr, ptr %69, align 8, !tbaa !90
+  %74 = icmp sgt i32 %68, 0
+  %75 = icmp sgt i32 %71, 0
+  %76 = select i1 %74, i1 %75, i1 false
+  br i1 %76, label %.lr.ph231, label %.preheader221
 
 .lr.ph231:                                        ; preds = %53
-  %.sroa.10.0.insert.ext110 = zext i16 %65 to i64
+  %.sroa.10.0.insert.ext110 = zext i16 %66 to i64
   %.sroa.10.0.insert.shift111 = shl nuw i64 %.sroa.10.0.insert.ext110, 48
-  %.sroa.9.0.insert.ext90 = zext i16 %63 to i64
+  %.sroa.9.0.insert.ext90 = zext i16 %64 to i64
   %.sroa.9.0.insert.shift91 = shl nuw nsw i64 %.sroa.9.0.insert.ext90, 32
-  %.sroa.070.0.insert.ext74 = zext i32 %62 to i64
+  %.sroa.070.0.insert.ext74 = zext i32 %63 to i64
   %.sroa.9.0.insert.insert93 = or disjoint i64 %.sroa.9.0.insert.shift91, %.sroa.070.0.insert.ext74
   %.sroa.070.0.insert.insert76 = or disjoint i64 %.sroa.9.0.insert.insert93, %.sroa.10.0.insert.shift111
-  br label %78
+  br label %79
 
-.preheader221:                                    ; preds = %186, %53
-  %.0194.lcssa = phi i32 [ 0, %53 ], [ %.1195, %186 ]
-  %.0193.lcssa = phi i32 [ 0, %53 ], [ %.1, %186 ]
-  %76 = icmp slt i32 %.0193.lcssa, %67
-  br i1 %76, label %.lr.ph234, label %.preheader
+.preheader221:                                    ; preds = %187, %53
+  %.0194.lcssa = phi i32 [ 0, %53 ], [ %.1195, %187 ]
+  %.0193.lcssa = phi i32 [ 0, %53 ], [ %.1, %187 ]
+  %77 = icmp slt i32 %.0193.lcssa, %68
+  br i1 %77, label %.lr.ph234, label %.preheader
 
 .lr.ph234:                                        ; preds = %.preheader221
-  %.sroa.10.0.insert.ext106 = zext i16 %65 to i64
+  %.sroa.10.0.insert.ext106 = zext i16 %66 to i64
   %.sroa.10.0.insert.shift107 = shl nuw i64 %.sroa.10.0.insert.ext106, 48
-  %.sroa.9.0.insert.ext86 = zext i16 %63 to i64
+  %.sroa.9.0.insert.ext86 = zext i16 %64 to i64
   %.sroa.9.0.insert.shift87 = shl nuw nsw i64 %.sroa.9.0.insert.ext86, 32
-  %.sroa.070.0.insert.ext71 = zext i32 %62 to i64
+  %.sroa.070.0.insert.ext71 = zext i32 %63 to i64
   %.sroa.9.0.insert.insert89 = or disjoint i64 %.sroa.9.0.insert.shift87, %.sroa.070.0.insert.ext71
   %.sroa.070.0.insert.insert73 = or disjoint i64 %.sroa.9.0.insert.insert89, %.sroa.10.0.insert.shift107
-  %77 = sext i32 %.0193.lcssa to i64
-  br label %192
+  %78 = sext i32 %.0193.lcssa to i64
+  br label %193
 
-78:                                               ; preds = %.lr.ph231, %186
-  %.0193229 = phi i32 [ 0, %.lr.ph231 ], [ %.1, %186 ]
-  %.0194228 = phi i32 [ 0, %.lr.ph231 ], [ %.1195, %186 ]
-  %79 = sext i32 %.0193229 to i64
-  %80 = getelementptr inbounds %struct.b2ShapeRef, ptr %71, i64 %79
-  %81 = sext i32 %.0194228 to i64
-  %82 = getelementptr inbounds %struct.b2ShapeRef, ptr %72, i64 %81
-  %83 = load i32, ptr %80, align 4, !tbaa !91
-  %84 = load i32, ptr %82, align 4, !tbaa !91
-  %85 = icmp eq i32 %83, %84
-  br i1 %85, label %86, label %138
+79:                                               ; preds = %.lr.ph231, %187
+  %.0193229 = phi i32 [ 0, %.lr.ph231 ], [ %.1, %187 ]
+  %.0194228 = phi i32 [ 0, %.lr.ph231 ], [ %.1195, %187 ]
+  %80 = sext i32 %.0193229 to i64
+  %81 = getelementptr inbounds %struct.b2ShapeRef, ptr %72, i64 %80
+  %82 = sext i32 %.0194228 to i64
+  %83 = getelementptr inbounds %struct.b2ShapeRef, ptr %73, i64 %82
+  %84 = load i32, ptr %81, align 4, !tbaa !91
+  %85 = load i32, ptr %83, align 4, !tbaa !91
+  %86 = icmp eq i32 %84, %85
+  br i1 %86, label %87, label %139
 
-86:                                               ; preds = %78
-  %87 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %88 = load i16, ptr %87, align 4, !tbaa !93
-  %89 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %90 = load i16, ptr %89, align 4, !tbaa !93
-  %91 = icmp ult i16 %88, %90
-  br i1 %91, label %92, label %115
+87:                                               ; preds = %79
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %89 = load i16, ptr %88, align 4, !tbaa !93
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %91 = load i16, ptr %90, align 4, !tbaa !93
+  %92 = icmp ult i16 %89, %91
+  br i1 %92, label %93, label %116
 
-92:                                               ; preds = %86
-  %93 = add nsw i32 %83, 1
-  %94 = load i16, ptr %37, align 4, !tbaa !82
-  %.sroa.530.0.insert.ext = zext i16 %88 to i64
+93:                                               ; preds = %87
+  %94 = add nsw i32 %84, 1
+  %95 = load i16, ptr %37, align 4, !tbaa !82
+  %.sroa.530.0.insert.ext = zext i16 %89 to i64
   %.sroa.530.0.insert.shift = shl nuw i64 %.sroa.530.0.insert.ext, 48
-  %.sroa.429.0.insert.ext = zext i16 %94 to i64
+  %.sroa.429.0.insert.ext = zext i16 %95 to i64
   %.sroa.429.0.insert.shift = shl nuw nsw i64 %.sroa.429.0.insert.ext, 32
-  %.sroa.028.0.insert.ext = zext i32 %93 to i64
+  %.sroa.028.0.insert.ext = zext i32 %94 to i64
   %.sroa.429.0.insert.insert = or disjoint i64 %.sroa.530.0.insert.shift, %.sroa.028.0.insert.ext
   %.sroa.028.0.insert.insert = or disjoint i64 %.sroa.429.0.insert.insert, %.sroa.429.0.insert.shift
-  %95 = load i32, ptr %42, align 8, !tbaa !94
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %41, i64 %96
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !95
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 12
-  %101 = load i32, ptr %100, align 4, !tbaa !98
-  %102 = icmp eq i32 %99, %101
-  br i1 %102, label %103, label %b2SensorEndTouchEventArray_Push.exit
+  %96 = load i32, ptr %42, align 8, !tbaa !94
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %41, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %100 = load i32, ptr %99, align 8, !tbaa !95
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 12
+  %102 = load i32, ptr %101, align 4, !tbaa !98
+  %103 = icmp eq i32 %100, %102
+  br i1 %103, label %104, label %b2SensorEndTouchEventArray_Push.exit
 
-103:                                              ; preds = %92
-  %104 = icmp slt i32 %99, 2
-  %105 = lshr i32 %99, 1
-  %106 = add nuw nsw i32 %105, %99
-  %107 = select i1 %104, i32 2, i32 %106
-  tail call void @b2SensorEndTouchEventArray_Reserve(ptr noundef nonnull %97, i32 noundef %107) #9
-  %.pre.i = load i32, ptr %98, align 8, !tbaa !95
+104:                                              ; preds = %93
+  %105 = icmp slt i32 %100, 2
+  %106 = lshr i32 %100, 1
+  %107 = add nuw nsw i32 %106, %100
+  %108 = select i1 %105, i32 2, i32 %107
+  tail call void @b2SensorEndTouchEventArray_Reserve(ptr noundef nonnull %98, i32 noundef %108) #9
+  %.pre.i = load i32, ptr %99, align 8, !tbaa !95
   br label %b2SensorEndTouchEventArray_Push.exit
 
-b2SensorEndTouchEventArray_Push.exit:             ; preds = %92, %103
-  %108 = phi i32 [ %.pre.i, %103 ], [ %99, %92 ]
-  %109 = load ptr, ptr %97, align 8, !tbaa !99
-  %110 = sext i32 %108 to i64
-  %111 = getelementptr inbounds %struct.b2SensorEndTouchEvent, ptr %109, i64 %110
-  store i64 %.sroa.070.0.insert.insert76, ptr %111, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %111, i64 8
+b2SensorEndTouchEventArray_Push.exit:             ; preds = %93, %104
+  %109 = phi i32 [ %.pre.i, %104 ], [ %100, %93 ]
+  %110 = load ptr, ptr %98, align 8, !tbaa !99
+  %111 = sext i32 %109 to i64
+  %112 = getelementptr inbounds %struct.b2SensorEndTouchEvent, ptr %110, i64 %111
+  store i64 %.sroa.070.0.insert.insert76, ptr %112, align 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i64 %.sroa.028.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i, align 4
-  %112 = load i32, ptr %98, align 8, !tbaa !95
-  %113 = add nsw i32 %112, 1
-  store i32 %113, ptr %98, align 8, !tbaa !95
-  %114 = add nsw i32 %.0193229, 1
-  br label %186
+  %113 = load i32, ptr %99, align 8, !tbaa !95
+  %114 = add nsw i32 %113, 1
+  store i32 %114, ptr %99, align 8, !tbaa !95
+  %115 = add nsw i32 %.0193229, 1
+  br label %187
 
-115:                                              ; preds = %86
-  %116 = icmp ugt i16 %88, %90
-  br i1 %116, label %117, label %135
+116:                                              ; preds = %87
+  %117 = icmp ugt i16 %89, %91
+  br i1 %117, label %118, label %136
 
-117:                                              ; preds = %115
-  %118 = add nsw i32 %83, 1
-  %119 = load i16, ptr %37, align 4, !tbaa !82
-  %.sroa.525.0.insert.ext = zext i16 %90 to i64
+118:                                              ; preds = %116
+  %119 = add nsw i32 %84, 1
+  %120 = load i16, ptr %37, align 4, !tbaa !82
+  %.sroa.525.0.insert.ext = zext i16 %91 to i64
   %.sroa.525.0.insert.shift = shl nuw i64 %.sroa.525.0.insert.ext, 48
-  %.sroa.424.0.insert.ext = zext i16 %119 to i64
+  %.sroa.424.0.insert.ext = zext i16 %120 to i64
   %.sroa.424.0.insert.shift = shl nuw nsw i64 %.sroa.424.0.insert.ext, 32
-  %.sroa.023.0.insert.ext = zext i32 %118 to i64
+  %.sroa.023.0.insert.ext = zext i32 %119 to i64
   %.sroa.424.0.insert.insert = or disjoint i64 %.sroa.525.0.insert.shift, %.sroa.023.0.insert.ext
   %.sroa.023.0.insert.insert = or disjoint i64 %.sroa.424.0.insert.insert, %.sroa.424.0.insert.shift
-  %120 = load i32, ptr %39, align 8, !tbaa !100
-  %121 = load i32, ptr %40, align 4, !tbaa !101
-  %122 = icmp eq i32 %120, %121
-  br i1 %122, label %123, label %b2SensorBeginTouchEventArray_Push.exit
+  %121 = load i32, ptr %39, align 8, !tbaa !100
+  %122 = load i32, ptr %40, align 4, !tbaa !101
+  %123 = icmp eq i32 %121, %122
+  br i1 %123, label %124, label %b2SensorBeginTouchEventArray_Push.exit
 
-123:                                              ; preds = %117
-  %124 = icmp slt i32 %120, 2
-  %125 = lshr i32 %120, 1
-  %126 = add nuw nsw i32 %125, %120
-  %127 = select i1 %124, i32 2, i32 %126
-  tail call void @b2SensorBeginTouchEventArray_Reserve(ptr noundef nonnull %38, i32 noundef %127) #9
+124:                                              ; preds = %118
+  %125 = icmp slt i32 %121, 2
+  %126 = lshr i32 %121, 1
+  %127 = add nuw nsw i32 %126, %121
+  %128 = select i1 %125, i32 2, i32 %127
+  tail call void @b2SensorBeginTouchEventArray_Reserve(ptr noundef nonnull %38, i32 noundef %128) #9
   %.pre.i208 = load i32, ptr %39, align 8, !tbaa !100
   br label %b2SensorBeginTouchEventArray_Push.exit
 
-b2SensorBeginTouchEventArray_Push.exit:           ; preds = %117, %123
-  %128 = phi i32 [ %.pre.i208, %123 ], [ %120, %117 ]
-  %129 = load ptr, ptr %38, align 8, !tbaa !102
-  %130 = sext i32 %128 to i64
-  %131 = getelementptr inbounds %struct.b2SensorBeginTouchEvent, ptr %129, i64 %130
-  store i64 %.sroa.070.0.insert.insert76, ptr %131, align 4
-  %.sroa.2.0..sroa_idx.i207 = getelementptr inbounds nuw i8, ptr %131, i64 8
+b2SensorBeginTouchEventArray_Push.exit:           ; preds = %118, %124
+  %129 = phi i32 [ %.pre.i208, %124 ], [ %121, %118 ]
+  %130 = load ptr, ptr %38, align 8, !tbaa !102
+  %131 = sext i32 %129 to i64
+  %132 = getelementptr inbounds %struct.b2SensorBeginTouchEvent, ptr %130, i64 %131
+  store i64 %.sroa.070.0.insert.insert76, ptr %132, align 4
+  %.sroa.2.0..sroa_idx.i207 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i64 %.sroa.023.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i207, align 4
-  %132 = load i32, ptr %39, align 8, !tbaa !100
-  %133 = add nsw i32 %132, 1
-  store i32 %133, ptr %39, align 8, !tbaa !100
-  %134 = add nsw i32 %.0194228, 1
-  br label %186
+  %133 = load i32, ptr %39, align 8, !tbaa !100
+  %134 = add nsw i32 %133, 1
+  store i32 %134, ptr %39, align 8, !tbaa !100
+  %135 = add nsw i32 %.0194228, 1
+  br label %187
 
-135:                                              ; preds = %115
-  %136 = add nsw i32 %.0193229, 1
-  %137 = add nsw i32 %.0194228, 1
-  br label %186
+136:                                              ; preds = %116
+  %137 = add nsw i32 %.0193229, 1
+  %138 = add nsw i32 %.0194228, 1
+  br label %187
 
-138:                                              ; preds = %78
-  %139 = icmp slt i32 %83, %84
-  %140 = load i16, ptr %37, align 4, !tbaa !82
-  %.sroa.419.0.insert.ext = zext i16 %140 to i64
+139:                                              ; preds = %79
+  %140 = icmp slt i32 %84, %85
+  %141 = load i16, ptr %37, align 4, !tbaa !82
+  %.sroa.419.0.insert.ext = zext i16 %141 to i64
   %.sroa.419.0.insert.shift = shl nuw nsw i64 %.sroa.419.0.insert.ext, 32
-  br i1 %139, label %141, label %166
+  br i1 %140, label %142, label %167
 
-141:                                              ; preds = %138
-  %142 = add nsw i32 %83, 1
-  %143 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %144 = load i16, ptr %143, align 4, !tbaa !93
-  %.sroa.520.0.insert.ext = zext i16 %144 to i64
+142:                                              ; preds = %139
+  %143 = add nsw i32 %84, 1
+  %144 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %145 = load i16, ptr %144, align 4, !tbaa !93
+  %.sroa.520.0.insert.ext = zext i16 %145 to i64
   %.sroa.520.0.insert.shift = shl nuw i64 %.sroa.520.0.insert.ext, 48
-  %.sroa.018.0.insert.ext = zext i32 %142 to i64
-  %145 = or disjoint i64 %.sroa.520.0.insert.shift, %.sroa.018.0.insert.ext
-  %.sroa.018.0.insert.insert = or disjoint i64 %145, %.sroa.419.0.insert.shift
-  %146 = load i32, ptr %42, align 8, !tbaa !94
-  %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %41, i64 %147
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = load i32, ptr %149, align 8, !tbaa !95
-  %151 = getelementptr inbounds nuw i8, ptr %148, i64 12
-  %152 = load i32, ptr %151, align 4, !tbaa !98
-  %153 = icmp eq i32 %150, %152
-  br i1 %153, label %154, label %b2SensorEndTouchEventArray_Push.exit211
+  %.sroa.018.0.insert.ext = zext i32 %143 to i64
+  %146 = or disjoint i64 %.sroa.520.0.insert.shift, %.sroa.018.0.insert.ext
+  %.sroa.018.0.insert.insert = or disjoint i64 %146, %.sroa.419.0.insert.shift
+  %147 = load i32, ptr %42, align 8, !tbaa !94
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %41, i64 %148
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %151 = load i32, ptr %150, align 8, !tbaa !95
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 12
+  %153 = load i32, ptr %152, align 4, !tbaa !98
+  %154 = icmp eq i32 %151, %153
+  br i1 %154, label %155, label %b2SensorEndTouchEventArray_Push.exit211
 
-154:                                              ; preds = %141
-  %155 = icmp slt i32 %150, 2
-  %156 = lshr i32 %150, 1
-  %157 = add nuw nsw i32 %156, %150
-  %158 = select i1 %155, i32 2, i32 %157
-  tail call void @b2SensorEndTouchEventArray_Reserve(ptr noundef nonnull %148, i32 noundef %158) #9
-  %.pre.i210 = load i32, ptr %149, align 8, !tbaa !95
+155:                                              ; preds = %142
+  %156 = icmp slt i32 %151, 2
+  %157 = lshr i32 %151, 1
+  %158 = add nuw nsw i32 %157, %151
+  %159 = select i1 %156, i32 2, i32 %158
+  tail call void @b2SensorEndTouchEventArray_Reserve(ptr noundef nonnull %149, i32 noundef %159) #9
+  %.pre.i210 = load i32, ptr %150, align 8, !tbaa !95
   br label %b2SensorEndTouchEventArray_Push.exit211
 
-b2SensorEndTouchEventArray_Push.exit211:          ; preds = %141, %154
-  %159 = phi i32 [ %.pre.i210, %154 ], [ %150, %141 ]
-  %160 = load ptr, ptr %148, align 8, !tbaa !99
-  %161 = sext i32 %159 to i64
-  %162 = getelementptr inbounds %struct.b2SensorEndTouchEvent, ptr %160, i64 %161
-  store i64 %.sroa.070.0.insert.insert76, ptr %162, align 4
-  %.sroa.2.0..sroa_idx.i209 = getelementptr inbounds nuw i8, ptr %162, i64 8
+b2SensorEndTouchEventArray_Push.exit211:          ; preds = %142, %155
+  %160 = phi i32 [ %.pre.i210, %155 ], [ %151, %142 ]
+  %161 = load ptr, ptr %149, align 8, !tbaa !99
+  %162 = sext i32 %160 to i64
+  %163 = getelementptr inbounds %struct.b2SensorEndTouchEvent, ptr %161, i64 %162
+  store i64 %.sroa.070.0.insert.insert76, ptr %163, align 4
+  %.sroa.2.0..sroa_idx.i209 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i64 %.sroa.018.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i209, align 4
-  %163 = load i32, ptr %149, align 8, !tbaa !95
-  %164 = add nsw i32 %163, 1
-  store i32 %164, ptr %149, align 8, !tbaa !95
-  %165 = add nsw i32 %.0193229, 1
-  br label %186
+  %164 = load i32, ptr %150, align 8, !tbaa !95
+  %165 = add nsw i32 %164, 1
+  store i32 %165, ptr %150, align 8, !tbaa !95
+  %166 = add nsw i32 %.0193229, 1
+  br label %187
 
-166:                                              ; preds = %138
-  %167 = add nsw i32 %84, 1
-  %168 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %169 = load i16, ptr %168, align 4, !tbaa !93
-  %.sroa.515.0.insert.ext = zext i16 %169 to i64
+167:                                              ; preds = %139
+  %168 = add nsw i32 %85, 1
+  %169 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %170 = load i16, ptr %169, align 4, !tbaa !93
+  %.sroa.515.0.insert.ext = zext i16 %170 to i64
   %.sroa.515.0.insert.shift = shl nuw i64 %.sroa.515.0.insert.ext, 48
-  %.sroa.013.0.insert.ext = zext i32 %167 to i64
-  %170 = or disjoint i64 %.sroa.515.0.insert.shift, %.sroa.013.0.insert.ext
-  %.sroa.013.0.insert.insert = or disjoint i64 %170, %.sroa.419.0.insert.shift
-  %171 = load i32, ptr %39, align 8, !tbaa !100
-  %172 = load i32, ptr %40, align 4, !tbaa !101
-  %173 = icmp eq i32 %171, %172
-  br i1 %173, label %174, label %b2SensorBeginTouchEventArray_Push.exit214
+  %.sroa.013.0.insert.ext = zext i32 %168 to i64
+  %171 = or disjoint i64 %.sroa.515.0.insert.shift, %.sroa.013.0.insert.ext
+  %.sroa.013.0.insert.insert = or disjoint i64 %171, %.sroa.419.0.insert.shift
+  %172 = load i32, ptr %39, align 8, !tbaa !100
+  %173 = load i32, ptr %40, align 4, !tbaa !101
+  %174 = icmp eq i32 %172, %173
+  br i1 %174, label %175, label %b2SensorBeginTouchEventArray_Push.exit214
 
-174:                                              ; preds = %166
-  %175 = icmp slt i32 %171, 2
-  %176 = lshr i32 %171, 1
-  %177 = add nuw nsw i32 %176, %171
-  %178 = select i1 %175, i32 2, i32 %177
-  tail call void @b2SensorBeginTouchEventArray_Reserve(ptr noundef nonnull %38, i32 noundef %178) #9
+175:                                              ; preds = %167
+  %176 = icmp slt i32 %172, 2
+  %177 = lshr i32 %172, 1
+  %178 = add nuw nsw i32 %177, %172
+  %179 = select i1 %176, i32 2, i32 %178
+  tail call void @b2SensorBeginTouchEventArray_Reserve(ptr noundef nonnull %38, i32 noundef %179) #9
   %.pre.i213 = load i32, ptr %39, align 8, !tbaa !100
   br label %b2SensorBeginTouchEventArray_Push.exit214
 
-b2SensorBeginTouchEventArray_Push.exit214:        ; preds = %166, %174
-  %179 = phi i32 [ %.pre.i213, %174 ], [ %171, %166 ]
-  %180 = load ptr, ptr %38, align 8, !tbaa !102
-  %181 = sext i32 %179 to i64
-  %182 = getelementptr inbounds %struct.b2SensorBeginTouchEvent, ptr %180, i64 %181
-  store i64 %.sroa.070.0.insert.insert76, ptr %182, align 4
-  %.sroa.2.0..sroa_idx.i212 = getelementptr inbounds nuw i8, ptr %182, i64 8
+b2SensorBeginTouchEventArray_Push.exit214:        ; preds = %167, %175
+  %180 = phi i32 [ %.pre.i213, %175 ], [ %172, %167 ]
+  %181 = load ptr, ptr %38, align 8, !tbaa !102
+  %182 = sext i32 %180 to i64
+  %183 = getelementptr inbounds %struct.b2SensorBeginTouchEvent, ptr %181, i64 %182
+  store i64 %.sroa.070.0.insert.insert76, ptr %183, align 4
+  %.sroa.2.0..sroa_idx.i212 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i64 %.sroa.013.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i212, align 4
-  %183 = load i32, ptr %39, align 8, !tbaa !100
-  %184 = add nsw i32 %183, 1
-  store i32 %184, ptr %39, align 8, !tbaa !100
-  %185 = add nsw i32 %.0194228, 1
-  br label %186
+  %184 = load i32, ptr %39, align 8, !tbaa !100
+  %185 = add nsw i32 %184, 1
+  store i32 %185, ptr %39, align 8, !tbaa !100
+  %186 = add nsw i32 %.0194228, 1
+  br label %187
 
-186:                                              ; preds = %b2SensorEndTouchEventArray_Push.exit211, %b2SensorBeginTouchEventArray_Push.exit214, %b2SensorEndTouchEventArray_Push.exit, %135, %b2SensorBeginTouchEventArray_Push.exit
-  %.1195 = phi i32 [ %.0194228, %b2SensorEndTouchEventArray_Push.exit ], [ %134, %b2SensorBeginTouchEventArray_Push.exit ], [ %137, %135 ], [ %.0194228, %b2SensorEndTouchEventArray_Push.exit211 ], [ %185, %b2SensorBeginTouchEventArray_Push.exit214 ]
-  %.1 = phi i32 [ %114, %b2SensorEndTouchEventArray_Push.exit ], [ %.0193229, %b2SensorBeginTouchEventArray_Push.exit ], [ %136, %135 ], [ %165, %b2SensorEndTouchEventArray_Push.exit211 ], [ %.0193229, %b2SensorBeginTouchEventArray_Push.exit214 ]
-  %187 = icmp slt i32 %.1, %67
-  %188 = icmp slt i32 %.1195, %70
-  %189 = select i1 %187, i1 %188, i1 false
-  br i1 %189, label %78, label %.preheader221, !llvm.loop !103
+187:                                              ; preds = %b2SensorEndTouchEventArray_Push.exit211, %b2SensorBeginTouchEventArray_Push.exit214, %b2SensorEndTouchEventArray_Push.exit, %136, %b2SensorBeginTouchEventArray_Push.exit
+  %.1195 = phi i32 [ %.0194228, %b2SensorEndTouchEventArray_Push.exit ], [ %135, %b2SensorBeginTouchEventArray_Push.exit ], [ %138, %136 ], [ %.0194228, %b2SensorEndTouchEventArray_Push.exit211 ], [ %186, %b2SensorBeginTouchEventArray_Push.exit214 ]
+  %.1 = phi i32 [ %115, %b2SensorEndTouchEventArray_Push.exit ], [ %.0193229, %b2SensorBeginTouchEventArray_Push.exit ], [ %137, %136 ], [ %166, %b2SensorEndTouchEventArray_Push.exit211 ], [ %.0193229, %b2SensorBeginTouchEventArray_Push.exit214 ]
+  %188 = icmp slt i32 %.1, %68
+  %189 = icmp slt i32 %.1195, %71
+  %190 = select i1 %188, i1 %189, i1 false
+  br i1 %190, label %79, label %.preheader221, !llvm.loop !103
 
 .preheader:                                       ; preds = %b2SensorEndTouchEventArray_Push.exit217, %.preheader221
-  %190 = icmp slt i32 %.0194.lcssa, %70
-  br i1 %190, label %.lr.ph236, label %._crit_edge237
+  %191 = icmp slt i32 %.0194.lcssa, %71
+  br i1 %191, label %.lr.ph236, label %._crit_edge237
 
 .lr.ph236:                                        ; preds = %.preheader
-  %.sroa.10.0.insert.ext = zext i16 %65 to i64
+  %.sroa.10.0.insert.ext = zext i16 %66 to i64
   %.sroa.10.0.insert.shift = shl nuw i64 %.sroa.10.0.insert.ext, 48
-  %.sroa.9.0.insert.ext = zext i16 %63 to i64
+  %.sroa.9.0.insert.ext = zext i16 %64 to i64
   %.sroa.9.0.insert.shift = shl nuw nsw i64 %.sroa.9.0.insert.ext, 32
-  %.sroa.070.0.insert.ext = zext i32 %62 to i64
+  %.sroa.070.0.insert.ext = zext i32 %63 to i64
   %.sroa.9.0.insert.insert = or disjoint i64 %.sroa.9.0.insert.shift, %.sroa.070.0.insert.ext
   %.sroa.070.0.insert.insert = or disjoint i64 %.sroa.9.0.insert.insert, %.sroa.10.0.insert.shift
-  %191 = sext i32 %.0194.lcssa to i64
+  %192 = sext i32 %.0194.lcssa to i64
   %.pre = load i32, ptr %39, align 8, !tbaa !100
-  br label %218
+  br label %219
 
-192:                                              ; preds = %.lr.ph234, %b2SensorEndTouchEventArray_Push.exit217
-  %indvars.iv251 = phi i64 [ %77, %.lr.ph234 ], [ %indvars.iv.next252, %b2SensorEndTouchEventArray_Push.exit217 ]
-  %193 = getelementptr inbounds %struct.b2ShapeRef, ptr %71, i64 %indvars.iv251
-  %194 = load i32, ptr %193, align 4, !tbaa !91
-  %195 = add nsw i32 %194, 1
-  %196 = load i16, ptr %37, align 4, !tbaa !82
-  %197 = getelementptr inbounds nuw i8, ptr %193, i64 4
-  %198 = load i16, ptr %197, align 4, !tbaa !93
-  %.sroa.58.0.insert.ext = zext i16 %198 to i64
+193:                                              ; preds = %.lr.ph234, %b2SensorEndTouchEventArray_Push.exit217
+  %indvars.iv251 = phi i64 [ %78, %.lr.ph234 ], [ %indvars.iv.next252, %b2SensorEndTouchEventArray_Push.exit217 ]
+  %194 = getelementptr inbounds %struct.b2ShapeRef, ptr %72, i64 %indvars.iv251
+  %195 = load i32, ptr %194, align 4, !tbaa !91
+  %196 = add nsw i32 %195, 1
+  %197 = load i16, ptr %37, align 4, !tbaa !82
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 4
+  %199 = load i16, ptr %198, align 4, !tbaa !93
+  %.sroa.58.0.insert.ext = zext i16 %199 to i64
   %.sroa.58.0.insert.shift = shl nuw i64 %.sroa.58.0.insert.ext, 48
-  %.sroa.47.0.insert.ext = zext i16 %196 to i64
+  %.sroa.47.0.insert.ext = zext i16 %197 to i64
   %.sroa.47.0.insert.shift = shl nuw nsw i64 %.sroa.47.0.insert.ext, 32
-  %.sroa.06.0.insert.ext = zext i32 %195 to i64
+  %.sroa.06.0.insert.ext = zext i32 %196 to i64
   %.sroa.47.0.insert.insert = or disjoint i64 %.sroa.47.0.insert.shift, %.sroa.06.0.insert.ext
   %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.47.0.insert.insert, %.sroa.58.0.insert.shift
-  %199 = load i32, ptr %42, align 8, !tbaa !94
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %41, i64 %200
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %203 = load i32, ptr %202, align 8, !tbaa !95
-  %204 = getelementptr inbounds nuw i8, ptr %201, i64 12
-  %205 = load i32, ptr %204, align 4, !tbaa !98
-  %206 = icmp eq i32 %203, %205
-  br i1 %206, label %207, label %b2SensorEndTouchEventArray_Push.exit217
+  %200 = load i32, ptr %42, align 8, !tbaa !94
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds %struct.b2SensorEndTouchEventArray, ptr %41, i64 %201
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load i32, ptr %203, align 8, !tbaa !95
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 12
+  %206 = load i32, ptr %205, align 4, !tbaa !98
+  %207 = icmp eq i32 %204, %206
+  br i1 %207, label %208, label %b2SensorEndTouchEventArray_Push.exit217
 
-207:                                              ; preds = %192
-  %208 = icmp slt i32 %203, 2
-  %209 = lshr i32 %203, 1
-  %210 = add nuw nsw i32 %209, %203
-  %211 = select i1 %208, i32 2, i32 %210
-  tail call void @b2SensorEndTouchEventArray_Reserve(ptr noundef nonnull %201, i32 noundef %211) #9
-  %.pre.i216 = load i32, ptr %202, align 8, !tbaa !95
+208:                                              ; preds = %193
+  %209 = icmp slt i32 %204, 2
+  %210 = lshr i32 %204, 1
+  %211 = add nuw nsw i32 %210, %204
+  %212 = select i1 %209, i32 2, i32 %211
+  tail call void @b2SensorEndTouchEventArray_Reserve(ptr noundef nonnull %202, i32 noundef %212) #9
+  %.pre.i216 = load i32, ptr %203, align 8, !tbaa !95
   br label %b2SensorEndTouchEventArray_Push.exit217
 
-b2SensorEndTouchEventArray_Push.exit217:          ; preds = %192, %207
-  %212 = phi i32 [ %.pre.i216, %207 ], [ %203, %192 ]
-  %213 = load ptr, ptr %201, align 8, !tbaa !99
-  %214 = sext i32 %212 to i64
-  %215 = getelementptr inbounds %struct.b2SensorEndTouchEvent, ptr %213, i64 %214
-  store i64 %.sroa.070.0.insert.insert73, ptr %215, align 4
-  %.sroa.2.0..sroa_idx.i215 = getelementptr inbounds nuw i8, ptr %215, i64 8
+b2SensorEndTouchEventArray_Push.exit217:          ; preds = %193, %208
+  %213 = phi i32 [ %.pre.i216, %208 ], [ %204, %193 ]
+  %214 = load ptr, ptr %202, align 8, !tbaa !99
+  %215 = sext i32 %213 to i64
+  %216 = getelementptr inbounds %struct.b2SensorEndTouchEvent, ptr %214, i64 %215
+  store i64 %.sroa.070.0.insert.insert73, ptr %216, align 4
+  %.sroa.2.0..sroa_idx.i215 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store i64 %.sroa.06.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i215, align 4
-  %216 = load i32, ptr %202, align 8, !tbaa !95
-  %217 = add nsw i32 %216, 1
-  store i32 %217, ptr %202, align 8, !tbaa !95
+  %217 = load i32, ptr %203, align 8, !tbaa !95
+  %218 = add nsw i32 %217, 1
+  store i32 %218, ptr %203, align 8, !tbaa !95
   %indvars.iv.next252 = add nsw i64 %indvars.iv251, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next252 to i32
-  %exitcond.not = icmp eq i32 %67, %lftr.wideiv
-  br i1 %exitcond.not, label %.preheader, label %192, !llvm.loop !104
+  %exitcond.not = icmp eq i32 %68, %lftr.wideiv
+  br i1 %exitcond.not, label %.preheader, label %193, !llvm.loop !104
 
-218:                                              ; preds = %.lr.ph236, %b2SensorBeginTouchEventArray_Push.exit220
-  %219 = phi i32 [ %.pre, %.lr.ph236 ], [ %238, %b2SensorBeginTouchEventArray_Push.exit220 ]
-  %indvars.iv254 = phi i64 [ %191, %.lr.ph236 ], [ %indvars.iv.next255, %b2SensorBeginTouchEventArray_Push.exit220 ]
-  %220 = getelementptr inbounds %struct.b2ShapeRef, ptr %72, i64 %indvars.iv254
-  %221 = load i32, ptr %220, align 4, !tbaa !91
-  %222 = add nsw i32 %221, 1
-  %223 = load i16, ptr %37, align 4, !tbaa !82
-  %224 = getelementptr inbounds nuw i8, ptr %220, i64 4
-  %225 = load i16, ptr %224, align 4, !tbaa !93
-  %.sroa.5.0.insert.ext = zext i16 %225 to i64
+219:                                              ; preds = %.lr.ph236, %b2SensorBeginTouchEventArray_Push.exit220
+  %220 = phi i32 [ %.pre, %.lr.ph236 ], [ %239, %b2SensorBeginTouchEventArray_Push.exit220 ]
+  %indvars.iv254 = phi i64 [ %192, %.lr.ph236 ], [ %indvars.iv.next255, %b2SensorBeginTouchEventArray_Push.exit220 ]
+  %221 = getelementptr inbounds %struct.b2ShapeRef, ptr %73, i64 %indvars.iv254
+  %222 = load i32, ptr %221, align 4, !tbaa !91
+  %223 = add nsw i32 %222, 1
+  %224 = load i16, ptr %37, align 4, !tbaa !82
+  %225 = getelementptr inbounds nuw i8, ptr %221, i64 4
+  %226 = load i16, ptr %225, align 4, !tbaa !93
+  %.sroa.5.0.insert.ext = zext i16 %226 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 48
-  %.sroa.42.0.insert.ext = zext i16 %223 to i64
+  %.sroa.42.0.insert.ext = zext i16 %224 to i64
   %.sroa.42.0.insert.shift = shl nuw nsw i64 %.sroa.42.0.insert.ext, 32
-  %.sroa.01.0.insert.ext = zext i32 %222 to i64
+  %.sroa.01.0.insert.ext = zext i32 %223 to i64
   %.sroa.42.0.insert.insert = or disjoint i64 %.sroa.42.0.insert.shift, %.sroa.01.0.insert.ext
   %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.42.0.insert.insert, %.sroa.5.0.insert.shift
-  %226 = load i32, ptr %40, align 4, !tbaa !101
-  %227 = icmp eq i32 %219, %226
-  br i1 %227, label %228, label %b2SensorBeginTouchEventArray_Push.exit220
+  %227 = load i32, ptr %40, align 4, !tbaa !101
+  %228 = icmp eq i32 %220, %227
+  br i1 %228, label %229, label %b2SensorBeginTouchEventArray_Push.exit220
 
-228:                                              ; preds = %218
-  %229 = icmp slt i32 %219, 2
-  %230 = lshr i32 %219, 1
-  %231 = add nuw nsw i32 %230, %219
-  %232 = select i1 %229, i32 2, i32 %231
-  tail call void @b2SensorBeginTouchEventArray_Reserve(ptr noundef nonnull %38, i32 noundef %232) #9
+229:                                              ; preds = %219
+  %230 = icmp slt i32 %220, 2
+  %231 = lshr i32 %220, 1
+  %232 = add nuw nsw i32 %231, %220
+  %233 = select i1 %230, i32 2, i32 %232
+  tail call void @b2SensorBeginTouchEventArray_Reserve(ptr noundef nonnull %38, i32 noundef %233) #9
   %.pre.i219 = load i32, ptr %39, align 8, !tbaa !100
   br label %b2SensorBeginTouchEventArray_Push.exit220
 
-b2SensorBeginTouchEventArray_Push.exit220:        ; preds = %218, %228
-  %233 = phi i32 [ %.pre.i219, %228 ], [ %219, %218 ]
-  %234 = load ptr, ptr %38, align 8, !tbaa !102
-  %235 = sext i32 %233 to i64
-  %236 = getelementptr inbounds %struct.b2SensorBeginTouchEvent, ptr %234, i64 %235
-  store i64 %.sroa.070.0.insert.insert, ptr %236, align 4
-  %.sroa.2.0..sroa_idx.i218 = getelementptr inbounds nuw i8, ptr %236, i64 8
+b2SensorBeginTouchEventArray_Push.exit220:        ; preds = %219, %229
+  %234 = phi i32 [ %.pre.i219, %229 ], [ %220, %219 ]
+  %235 = load ptr, ptr %38, align 8, !tbaa !102
+  %236 = sext i32 %234 to i64
+  %237 = getelementptr inbounds %struct.b2SensorBeginTouchEvent, ptr %235, i64 %236
+  store i64 %.sroa.070.0.insert.insert, ptr %237, align 4
+  %.sroa.2.0..sroa_idx.i218 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i64 %.sroa.01.0.insert.insert, ptr %.sroa.2.0..sroa_idx.i218, align 4
-  %237 = load i32, ptr %39, align 8, !tbaa !100
-  %238 = add nsw i32 %237, 1
-  store i32 %238, ptr %39, align 8, !tbaa !100
+  %238 = load i32, ptr %39, align 8, !tbaa !100
+  %239 = add nsw i32 %238, 1
+  store i32 %239, ptr %39, align 8, !tbaa !100
   %indvars.iv.next255 = add nsw i64 %indvars.iv254, 1
   %lftr.wideiv257 = trunc i64 %indvars.iv.next255 to i32
-  %exitcond258.not = icmp eq i32 %70, %lftr.wideiv257
-  br i1 %exitcond258.not, label %._crit_edge237, label %218, !llvm.loop !105
+  %exitcond258.not = icmp eq i32 %71, %lftr.wideiv257
+  br i1 %exitcond258.not, label %._crit_edge237, label %219, !llvm.loop !105
 
 ._crit_edge237:                                   ; preds = %b2SensorBeginTouchEventArray_Push.exit220, %.preheader
-  %239 = add i64 %.0192239, -1
-  %240 = and i64 %239, %.0192239
-  %.not205 = icmp eq i64 %240, 0
+  %240 = add i64 %.0192239, -1
+  %241 = and i64 %240, %.0192239
+  %.not205 = icmp eq i64 %241, 0
   br i1 %.not205, label %._crit_edge242, label %53, !llvm.loop !106
 
 ._crit_edge242:                                   ; preds = %._crit_edge237, %48
@@ -850,7 +851,7 @@ define hidden void @b2DestroySensor(ptr noundef %0, ptr noundef readonly capture
 
 b2SensorArray_RemoveSwap.exit.thread:             ; preds = %._crit_edge
   store i32 %24, ptr %25, align 8, !tbaa !125
-  br label %76
+  br label %78
 
 b2SensorArray_RemoveSwap.exit:                    ; preds = %._crit_edge
   %28 = load ptr, ptr %3, align 8, !tbaa !14
@@ -863,7 +864,7 @@ b2SensorArray_RemoveSwap.exit:                    ; preds = %._crit_edge
   %.pre10.i = add nsw i32 %.pre.i, -1
   store i32 %.pre10.i, ptr %25, align 8, !tbaa !125
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %76, label %68
+  br i1 %.not, label %78, label %68
 
 33:                                               ; preds = %.lr.ph, %b2SensorEndTouchEventArray_Push.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %b2SensorEndTouchEventArray_Push.exit ]
@@ -929,16 +930,18 @@ b2SensorEndTouchEventArray_Push.exit:             ; preds = %33, %54
   %69 = load i32, ptr %4, align 8, !tbaa !124
   %.val = load ptr, ptr %3, align 8, !tbaa !14
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1256
-  %72 = getelementptr inbounds %struct.b2Sensor, ptr %.val, i64 %70, i32 2
-  %73 = load i32, ptr %72, align 8, !tbaa !79
-  %.val26 = load ptr, ptr %71, align 8, !tbaa !81
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.b2Shape, ptr %.val26, i64 %74, i32 4
-  store i32 %69, ptr %75, align 8, !tbaa !124
-  br label %76
+  %71 = getelementptr inbounds %struct.b2Sensor, ptr %.val, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1256
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %74 = load i32, ptr %73, align 8, !tbaa !79
+  %.val26 = load ptr, ptr %72, align 8, !tbaa !81
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds %struct.b2Shape, ptr %.val26, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  store i32 %69, ptr %77, align 8, !tbaa !124
+  br label %78
 
-76:                                               ; preds = %b2SensorArray_RemoveSwap.exit.thread, %68, %b2SensorArray_RemoveSwap.exit
+78:                                               ; preds = %b2SensorArray_RemoveSwap.exit.thread, %68, %b2SensorArray_RemoveSwap.exit
   ret void
 }
 

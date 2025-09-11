@@ -43,7 +43,7 @@ define range(i32 0, 2) i32 @clean_cache_init(ptr noundef captures(address_is_nul
 
 2:                                                ; preds = %1
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str) #9
-  br label %60
+  br label %61
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -54,7 +54,7 @@ define range(i32 0, 2) i32 @clean_cache_init(ptr noundef captures(address_is_nul
 
 7:                                                ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #9
-  br label %60
+  br label %61
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -75,7 +75,7 @@ define range(i32 0, 2) i32 @clean_cache_init(ptr noundef captures(address_is_nul
 
 20:                                               ; preds = %8
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str) #9
-  br label %60
+  br label %61
 
 21:                                               ; preds = %8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -93,7 +93,7 @@ define range(i32 0, 2) i32 @clean_cache_init(ptr noundef captures(address_is_nul
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %25, ptr noundef null) #9
   %.not59 = icmp eq i32 %26, 0
-  br i1 %.not59, label %34, label %27
+  br i1 %.not59, label %35, label %27
 
 27:                                               ; preds = %.lr.ph
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.3) #9
@@ -121,29 +121,30 @@ define range(i32 0, 2) i32 @clean_cache_init(ptr noundef captures(address_is_nul
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.lr.ph73
   %indvars.iv95 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next96, %.lr.ph73 ]
-  %31 = getelementptr inbounds nuw %struct.CACHE, ptr %19, i64 %indvars.iv95, i32 3
-  %32 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %31) #9
+  %31 = getelementptr inbounds nuw %struct.CACHE, ptr %19, i64 %indvars.iv95
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %33 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %32) #9
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count101
   br i1 %exitcond102.not, label %._crit_edge74, label %.lr.ph73
 
 ._crit_edge74:                                    ; preds = %.lr.ph73, %27
-  %33 = load ptr, ptr %15, align 8, !tbaa !31
-  tail call void @mpool_free(ptr noundef %33, ptr noundef nonnull %19) #9
-  br label %60
+  %34 = load ptr, ptr %15, align 8, !tbaa !31
+  tail call void @mpool_free(ptr noundef %34, ptr noundef nonnull %19) #9
+  br label %61
 
-34:                                               ; preds = %.lr.ph
-  %35 = load ptr, ptr %15, align 8, !tbaa !31
-  %36 = load i32, ptr %23, align 4, !tbaa !36
-  %37 = zext i32 %36 to i64
-  %38 = tail call ptr @mpool_calloc(ptr noundef %35, i64 noundef %37, i64 noundef 64) #9
-  store ptr %38, ptr %24, align 8, !tbaa !37
-  %39 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr null, ptr %39, align 8, !tbaa !38
-  %.not.i = icmp eq ptr %38, null
+35:                                               ; preds = %.lr.ph
+  %36 = load ptr, ptr %15, align 8, !tbaa !31
+  %37 = load i32, ptr %23, align 4, !tbaa !36
+  %38 = zext i32 %37 to i64
+  %39 = tail call ptr @mpool_calloc(ptr noundef %36, i64 noundef %38, i64 noundef 64) #9
+  store ptr %39, ptr %24, align 8, !tbaa !37
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr null, ptr %40, align 8, !tbaa !38
+  %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %cacheset_init.exit.preheader, label %.preheader.i
 
-cacheset_init.exit.preheader:                     ; preds = %34
+cacheset_init.exit.preheader:                     ; preds = %35
   %.not81 = icmp eq i64 %indvars.iv, 0
   br i1 %.not81, label %.preheader, label %cacheset_init.exit.preheader82
 
@@ -151,21 +152,20 @@ cacheset_init.exit.preheader82:                   ; preds = %cacheset_init.exit.
   %wide.trip.count109 = zext i32 %indvars.iv89 to i64
   br label %cacheset_init.exit
 
-.preheader.i:                                     ; preds = %34
-  %40 = icmp ugt i32 %36, 1
-  br i1 %40, label %.lr.ph.i, label %.loopexit
+.preheader.i:                                     ; preds = %35
+  %41 = icmp ugt i32 %37, 1
+  br i1 %41, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %.preheader.i ]
-  %41 = getelementptr inbounds nuw %struct.node, ptr %38, i64 %indvars.iv.i
-  %42 = add nsw i64 %indvars.iv.i, -1
-  %43 = getelementptr inbounds nuw %struct.node, ptr %38, i64 %42, i32 4
-  store ptr %41, ptr %43, align 8, !tbaa !39
-  %44 = getelementptr inbounds nuw %struct.node, ptr %38, i64 %42
-  %45 = getelementptr inbounds nuw %struct.node, ptr %38, i64 %indvars.iv.i, i32 5
-  store ptr %44, ptr %45, align 8, !tbaa !41
+  %42 = getelementptr inbounds nuw %struct.node, ptr %39, i64 %indvars.iv.i
+  %43 = getelementptr i8, ptr %42, i64 -64
+  %44 = getelementptr i8, ptr %42, i64 -24
+  store ptr %42, ptr %44, align 8, !tbaa !39
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  store ptr %43, ptr %45, align 8, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %37
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %38
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
 .preheader:                                       ; preds = %cacheset_init.exit, %cacheset_init.exit.preheader
@@ -185,25 +185,26 @@ cacheset_init.exit:                               ; preds = %cacheset_init.exit.
 
 49:                                               ; preds = %.preheader, %49
   %indvars.iv111 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next112, %49 ]
-  %50 = getelementptr inbounds nuw %struct.CACHE, ptr %19, i64 %indvars.iv111, i32 3
-  %51 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %50) #9
+  %50 = getelementptr inbounds nuw %struct.CACHE, ptr %19, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %52 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %51) #9
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond119 = icmp eq i64 %indvars.iv.next112, %wide.trip.count118
-  br i1 %exitcond119, label %52, label %49
+  br i1 %exitcond119, label %53, label %49
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %15, align 8, !tbaa !31
-  tail call void @mpool_free(ptr noundef %53, ptr noundef nonnull %19) #9
-  br label %60
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %15, align 8, !tbaa !31
+  tail call void @mpool_free(ptr noundef %54, ptr noundef nonnull %19) #9
+  br label %61
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.preheader.i
-  %54 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %38, ptr %54, align 8, !tbaa !42
-  %55 = add i32 %36, -1
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %struct.node, ptr %38, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr %57, ptr %58, align 8, !tbaa !43
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store ptr %39, ptr %55, align 8, !tbaa !42
+  %56 = add i32 %37, -1
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw %struct.node, ptr %39, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store ptr %58, ptr %59, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
   %indvars.iv.next90 = add nuw i32 %indvars.iv89, 1
@@ -211,12 +212,12 @@ cacheset_init.exit:                               ; preds = %cacheset_init.exit.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.loopexit, %21
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr %19, ptr %59, align 8, !tbaa !44
-  br label %60
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store ptr %19, ptr %60, align 8, !tbaa !44
+  br label %61
 
-60:                                               ; preds = %20, %._crit_edge74, %52, %._crit_edge, %7, %2
-  %.0 = phi i32 [ 0, %7 ], [ 1, %2 ], [ 1, %._crit_edge74 ], [ 1, %52 ], [ 0, %._crit_edge ], [ 1, %20 ]
+61:                                               ; preds = %20, %._crit_edge74, %53, %._crit_edge, %7, %2
+  %.0 = phi i32 [ 0, %7 ], [ 1, %2 ], [ 1, %._crit_edge74 ], [ 1, %53 ], [ 0, %._crit_edge ], [ 1, %20 ]
   ret i32 %.0
 }
 

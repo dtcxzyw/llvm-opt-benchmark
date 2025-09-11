@@ -963,7 +963,7 @@ define ptr @stbds_hmget_key_ts(ptr noundef readonly captures(address_is_null, re
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %11, i8 0, i64 %1, i1 false)
   store i64 -1, ptr %4, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %1
-  br label %33
+  br label %34
 
 15:                                               ; preds = %6
   %16 = sub i64 0, %1
@@ -971,30 +971,31 @@ define ptr @stbds_hmget_key_ts(ptr noundef readonly captures(address_is_null, re
   %18 = getelementptr inbounds i8, ptr %17, i64 -16
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %32, label %21
+  br i1 %20, label %33, label %21
 
 21:                                               ; preds = %15
   %22 = tail call i64 @stbds_hm_find_slot(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %5)
   %23 = icmp slt i64 %22, 0
-  br i1 %23, label %32, label %24
+  br i1 %23, label %33, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %26 = load ptr, ptr %25, align 8, !tbaa !13
   %27 = lshr i64 %22, 3
-  %28 = getelementptr inbounds nuw %struct.stbds_hash_bucket, ptr %26, i64 %27, i32 1
-  %29 = and i64 %22, 7
-  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
-  %31 = load i64, ptr %30, align 8, !tbaa !10
-  br label %32
-
-32:                                               ; preds = %24, %21, %15
-  %storemerge30 = phi i64 [ -1, %15 ], [ %31, %24 ], [ -1, %21 ]
-  store i64 %storemerge30, ptr %4, align 8, !tbaa !10
+  %28 = getelementptr inbounds nuw %struct.stbds_hash_bucket, ptr %26, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %30 = and i64 %22, 7
+  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %30
+  %32 = load i64, ptr %31, align 8, !tbaa !10
   br label %33
 
-33:                                               ; preds = %32, %8
-  %.0 = phi ptr [ %14, %8 ], [ %0, %32 ]
+33:                                               ; preds = %24, %21, %15
+  %storemerge30 = phi i64 [ -1, %15 ], [ %32, %24 ], [ -1, %21 ]
+  store i64 %storemerge30, ptr %4, align 8, !tbaa !10
+  br label %34
+
+34:                                               ; preds = %33, %8
+  %.0 = phi ptr [ %14, %8 ], [ %0, %33 ]
   ret ptr %.0
 }
 
@@ -1035,19 +1036,20 @@ define ptr @stbds_hmget_key(ptr noundef captures(address_is_null, ret: address, 
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %25 = load ptr, ptr %24, align 8, !tbaa !13
   %26 = lshr i64 %21, 3
-  %27 = getelementptr inbounds nuw %struct.stbds_hash_bucket, ptr %25, i64 %26, i32 1
-  %28 = and i64 %21, 7
-  %29 = getelementptr inbounds nuw i64, ptr %27, i64 %28
-  %30 = load i64, ptr %29, align 8, !tbaa !10
+  %27 = getelementptr inbounds nuw %struct.stbds_hash_bucket, ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %29 = and i64 %21, 7
+  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %31 = load i64, ptr %30, align 8, !tbaa !10
   br label %stbds_hmget_key_ts.exit
 
 stbds_hmget_key_ts.exit:                          ; preds = %14, %20, %23, %7
   %.pre-phi = phi i64 [ %15, %14 ], [ %15, %20 ], [ %15, %23 ], [ %.pre, %7 ]
-  %.0 = phi i64 [ -1, %14 ], [ -1, %20 ], [ %30, %23 ], [ -1, %7 ]
+  %.0 = phi i64 [ -1, %14 ], [ -1, %20 ], [ %31, %23 ], [ -1, %7 ]
   %.0.i = phi ptr [ %0, %14 ], [ %0, %20 ], [ %0, %23 ], [ %13, %7 ]
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 %.pre-phi
-  %32 = getelementptr inbounds i8, ptr %31, i64 -8
-  store i64 %.0, ptr %32, align 8, !tbaa !46
+  %32 = getelementptr inbounds i8, ptr %.0.i, i64 %.pre-phi
+  %33 = getelementptr inbounds i8, ptr %32, i64 -8
+  store i64 %.0, ptr %33, align 8, !tbaa !46
   ret ptr %.0.i
 }
 
@@ -1869,7 +1871,7 @@ stbds_log2.exit.i:
 ; Function Attrs: nounwind uwtable
 define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #13 {
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %89, label %8
+  br i1 %7, label %90, label %8
 
 8:                                                ; preds = %6
   %9 = sub i64 0, %1
@@ -1880,12 +1882,12 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   %14 = getelementptr inbounds i8, ptr %10, i64 -8
   store i64 0, ptr %14, align 8, !tbaa !46
   %15 = icmp eq ptr %13, null
-  br i1 %15, label %89, label %16
+  br i1 %15, label %90, label %16
 
 16:                                               ; preds = %8
   %17 = tail call i64 @stbds_hm_find_slot(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5)
   %18 = icmp slt i64 %17, 0
-  br i1 %18, label %89, label %19
+  br i1 %18, label %90, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -1928,11 +1930,11 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
 
 46:                                               ; preds = %42, %38
   %.not = icmp eq i64 %27, %29
-  br i1 %.not, label %67, label %53
+  br i1 %.not, label %68, label %53
 
 .thread:                                          ; preds = %19
   %.not91 = icmp eq i64 %27, %29
-  br i1 %.not91, label %67, label %.thread92
+  br i1 %.not91, label %68, label %.thread92
 
 .thread92:                                        ; preds = %.thread
   %47 = mul i64 %27, %1
@@ -1959,52 +1961,53 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   %.083 = phi i64 [ %60, %53 ], [ %52, %.thread92 ]
   %62 = load ptr, ptr %20, align 8, !tbaa !13
   %63 = ashr i64 %.083, 3
-  %64 = and i64 %.083, 7
-  %65 = getelementptr inbounds %struct.stbds_hash_bucket, ptr %62, i64 %63, i32 1
-  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %64
-  store i64 %27, ptr %66, align 8, !tbaa !10
-  br label %67
+  %64 = getelementptr inbounds %struct.stbds_hash_bucket, ptr %62, i64 %63
+  %65 = and i64 %.083, 7
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 64
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %65
+  store i64 %27, ptr %67, align 8, !tbaa !10
+  br label %68
 
-67:                                               ; preds = %.thread, %61, %46
-  %68 = load i64, ptr %11, align 8, !tbaa !3
-  %69 = add i64 %68, -1
-  store i64 %69, ptr %11, align 8, !tbaa !3
-  %70 = load i64, ptr %30, align 8, !tbaa !21
-  %71 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %72 = load i64, ptr %71, align 8, !tbaa !24
-  %73 = icmp ult i64 %70, %72
-  br i1 %73, label %74, label %80
+68:                                               ; preds = %.thread, %61, %46
+  %69 = load i64, ptr %11, align 8, !tbaa !3
+  %70 = add i64 %69, -1
+  store i64 %70, ptr %11, align 8, !tbaa !3
+  %71 = load i64, ptr %30, align 8, !tbaa !21
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %73 = load i64, ptr %72, align 8, !tbaa !24
+  %74 = icmp ult i64 %71, %73
+  br i1 %74, label %75, label %81
 
-74:                                               ; preds = %67
-  %75 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %76 = load i64, ptr %75, align 8, !tbaa !18
-  %77 = icmp ugt i64 %76, 8
-  br i1 %77, label %78, label %80
+75:                                               ; preds = %68
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %77 = load i64, ptr %76, align 8, !tbaa !18
+  %78 = icmp ugt i64 %77, 8
+  br i1 %78, label %79, label %81
 
-78:                                               ; preds = %74
-  %79 = lshr i64 %76, 1
+79:                                               ; preds = %75
+  %80 = lshr i64 %77, 1
   br label %.sink.split
 
-80:                                               ; preds = %74, %67
-  %81 = load i64, ptr %33, align 8, !tbaa !20
-  %82 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %83 = load i64, ptr %82, align 8, !tbaa !23
-  %84 = icmp ugt i64 %81, %83
-  br i1 %84, label %85, label %89
+81:                                               ; preds = %75, %68
+  %82 = load i64, ptr %33, align 8, !tbaa !20
+  %83 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %84 = load i64, ptr %83, align 8, !tbaa !23
+  %85 = icmp ugt i64 %82, %84
+  br i1 %85, label %86, label %90
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %87 = load i64, ptr %86, align 8, !tbaa !18
+86:                                               ; preds = %81
+  %87 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %88 = load i64, ptr %87, align 8, !tbaa !18
   br label %.sink.split
 
-.sink.split:                                      ; preds = %85, %78
-  %.sink100 = phi i64 [ %79, %78 ], [ %87, %85 ]
-  %88 = tail call ptr @stbds_make_hash_index(i64 noundef %.sink100, ptr noundef nonnull %13)
-  store ptr %88, ptr %12, align 8, !tbaa !37
+.sink.split:                                      ; preds = %86, %79
+  %.sink100 = phi i64 [ %80, %79 ], [ %88, %86 ]
+  %89 = tail call ptr @stbds_make_hash_index(i64 noundef %.sink100, ptr noundef nonnull %13)
+  store ptr %89, ptr %12, align 8, !tbaa !37
   tail call void @free(ptr noundef nonnull %13) #21
-  br label %89
+  br label %90
 
-89:                                               ; preds = %.sink.split, %8, %80, %16, %6
+90:                                               ; preds = %.sink.split, %8, %81, %16, %6
   ret ptr %0
 }
 

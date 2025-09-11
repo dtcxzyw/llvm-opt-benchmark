@@ -2768,300 +2768,301 @@ define internal fastcc ptr @find_objects(ptr noundef %0, ptr noundef %1, ptr nou
   br label %11
 
 11:                                               ; preds = %11, %.lr.ph.i
-  %12 = phi i64 [ 0, %.lr.ph.i ], [ %18, %11 ]
-  %.05.i = phi i32 [ 0, %.lr.ph.i ], [ %17, %11 ]
+  %12 = phi i64 [ 0, %.lr.ph.i ], [ %19, %11 ]
+  %.05.i = phi i32 [ 0, %.lr.ph.i ], [ %18, %11 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !203
-  %14 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %13, i64 %12, i32 4
-  %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, -2
-  store i8 %16, ptr %14, align 8
-  %17 = add i32 %.05.i, 1
-  %18 = zext i32 %17 to i64
-  %19 = load i64, ptr %8, align 8, !tbaa !109
-  %20 = icmp ugt i64 %19, %18
-  br i1 %20, label %11, label %unsatisfy_all_pseudo_merges.exit, !llvm.loop !204
+  %14 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %13, i64 %12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = load i8, ptr %15, align 8
+  %17 = and i8 %16, -2
+  store i8 %17, ptr %15, align 8
+  %18 = add i32 %.05.i, 1
+  %19 = zext i32 %18 to i64
+  %20 = load i64, ptr %8, align 8, !tbaa !109
+  %21 = icmp ugt i64 %20, %19
+  br i1 %21, label %11, label %unsatisfy_all_pseudo_merges.exit, !llvm.loop !204
 
 unsatisfy_all_pseudo_merges.exit:                 ; preds = %11
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %unsatisfy_all_pseudo_merges.exit.thread, label %21
+  %.not = icmp eq i64 %20, 0
+  br i1 %.not, label %unsatisfy_all_pseudo_merges.exit.thread, label %22
 
-21:                                               ; preds = %unsatisfy_all_pseudo_merges.exit
-  %22 = tail call ptr @bitmap_new() #21
+22:                                               ; preds = %unsatisfy_all_pseudo_merges.exit
+  %23 = tail call ptr @bitmap_new() #21
   %.not5885 = icmp eq ptr %2, null
   br i1 %.not5885, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %21, %29
-  %.05286 = phi ptr [ %31, %29 ], [ %2, %21 ]
-  %23 = load ptr, ptr %.05286, align 8, !tbaa !170
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %25 = tail call fastcc i32 @bitmap_position(ptr noundef %0, ptr noundef nonnull %24)
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %29, label %27
+.lr.ph:                                           ; preds = %22, %30
+  %.05286 = phi ptr [ %32, %30 ], [ %2, %22 ]
+  %24 = load ptr, ptr %.05286, align 8, !tbaa !170
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %26 = tail call fastcc i32 @bitmap_position(ptr noundef %0, ptr noundef nonnull %25)
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %30, label %28
 
-27:                                               ; preds = %.lr.ph
-  %28 = zext nneg i32 %25 to i64
-  tail call void @bitmap_set(ptr noundef %22, i64 noundef %28) #21
-  br label %29
+28:                                               ; preds = %.lr.ph
+  %29 = zext nneg i32 %26 to i64
+  tail call void @bitmap_set(ptr noundef %23, i64 noundef %29) #21
+  br label %30
 
-29:                                               ; preds = %.lr.ph, %27
-  %30 = getelementptr inbounds nuw i8, ptr %.05286, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !172
-  %.not58 = icmp eq ptr %31, null
+30:                                               ; preds = %.lr.ph, %28
+  %31 = getelementptr inbounds nuw i8, ptr %.05286, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !172
+  %.not58 = icmp eq ptr %32, null
   br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !205
 
-._crit_edge:                                      ; preds = %29, %21
-  %32 = tail call ptr @bitmap_new() #21
-  %33 = tail call i32 @cascade_pseudo_merges(ptr noundef nonnull %10, ptr noundef %32, ptr noundef %22) #21
-  %.not.i68 = icmp eq i32 %33, 0
-  br i1 %.not.i68, label %cascade_pseudo_merges_1.exit, label %34
+._crit_edge:                                      ; preds = %30, %22
+  %33 = tail call ptr @bitmap_new() #21
+  %34 = tail call i32 @cascade_pseudo_merges(ptr noundef nonnull %10, ptr noundef %33, ptr noundef %23) #21
+  %.not.i68 = icmp eq i32 %34, 0
+  br i1 %.not.i68, label %cascade_pseudo_merges_1.exit, label %35
 
-34:                                               ; preds = %._crit_edge
-  %35 = load i32, ptr @pseudo_merges_cascades_nr, align 4, !tbaa !8
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr @pseudo_merges_cascades_nr, align 4, !tbaa !8
-  %37 = load i32, ptr @pseudo_merges_satisfied_nr, align 4, !tbaa !8
-  %38 = add nsw i32 %37, %33
-  store i32 %38, ptr @pseudo_merges_satisfied_nr, align 4, !tbaa !8
+35:                                               ; preds = %._crit_edge
+  %36 = load i32, ptr @pseudo_merges_cascades_nr, align 4, !tbaa !8
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr @pseudo_merges_cascades_nr, align 4, !tbaa !8
+  %38 = load i32, ptr @pseudo_merges_satisfied_nr, align 4, !tbaa !8
+  %39 = add nsw i32 %38, %34
+  store i32 %39, ptr @pseudo_merges_satisfied_nr, align 4, !tbaa !8
   br label %cascade_pseudo_merges_1.exit
 
-cascade_pseudo_merges_1.exit:                     ; preds = %._crit_edge, %34
-  tail call void @bitmap_free(ptr noundef %22) #21
+cascade_pseudo_merges_1.exit:                     ; preds = %._crit_edge, %35
+  tail call void @bitmap_free(ptr noundef %23) #21
   br label %unsatisfy_all_pseudo_merges.exit.thread
 
 unsatisfy_all_pseudo_merges.exit.thread:          ; preds = %4, %cascade_pseudo_merges_1.exit, %unsatisfy_all_pseudo_merges.exit
-  %.0 = phi ptr [ null, %unsatisfy_all_pseudo_merges.exit ], [ %32, %cascade_pseudo_merges_1.exit ], [ null, %4 ]
+  %.0 = phi ptr [ null, %unsatisfy_all_pseudo_merges.exit ], [ %33, %cascade_pseudo_merges_1.exit ], [ null, %4 ]
   %.not5987 = icmp eq ptr %2, null
   br i1 %.not5987, label %._crit_edge92.thread, label %.lr.ph91
 
-.lr.ph91:                                         ; preds = %unsatisfy_all_pseudo_merges.exit.thread, %71
-  %.04690 = phi ptr [ %41, %71 ], [ %2, %unsatisfy_all_pseudo_merges.exit.thread ]
-  %.04989 = phi i32 [ %.150, %71 ], [ 0, %unsatisfy_all_pseudo_merges.exit.thread ]
-  %.17988 = phi ptr [ %.2, %71 ], [ %.0, %unsatisfy_all_pseudo_merges.exit.thread ]
-  %39 = load ptr, ptr %.04690, align 8, !tbaa !170
-  %40 = getelementptr inbounds nuw i8, ptr %.04690, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !172
+.lr.ph91:                                         ; preds = %unsatisfy_all_pseudo_merges.exit.thread, %72
+  %.04690 = phi ptr [ %42, %72 ], [ %2, %unsatisfy_all_pseudo_merges.exit.thread ]
+  %.04989 = phi i32 [ %.150, %72 ], [ 0, %unsatisfy_all_pseudo_merges.exit.thread ]
+  %.17988 = phi ptr [ %.2, %72 ], [ %.0, %unsatisfy_all_pseudo_merges.exit.thread ]
+  %40 = load ptr, ptr %.04690, align 8, !tbaa !170
+  %41 = getelementptr inbounds nuw i8, ptr %.04690, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !172
   %.not65 = icmp eq ptr %.17988, null
-  br i1 %.not65, label %51, label %42
+  br i1 %.not65, label %52, label %43
 
-42:                                               ; preds = %.lr.ph91
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %44 = call fastcc i32 @bitmap_position(ptr noundef %0, ptr noundef nonnull %43)
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %46, label %51
+43:                                               ; preds = %.lr.ph91
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %45 = call fastcc i32 @bitmap_position(ptr noundef %0, ptr noundef nonnull %44)
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %47, label %52
 
-46:                                               ; preds = %42
-  %47 = zext nneg i32 %44 to i64
-  %48 = call i32 @bitmap_get(ptr noundef nonnull %.17988, i64 noundef %47) #21
-  %.not66 = icmp eq i32 %48, 0
-  br i1 %.not66, label %51, label %.critedge
+47:                                               ; preds = %43
+  %48 = zext nneg i32 %45 to i64
+  %49 = call i32 @bitmap_get(ptr noundef nonnull %.17988, i64 noundef %48) #21
+  %.not66 = icmp eq i32 %49, 0
+  br i1 %.not66, label %52, label %.critedge
 
-.critedge:                                        ; preds = %46
-  %49 = load i32, ptr %39, align 4
-  %50 = or i32 %49, 16
-  store i32 %50, ptr %39, align 4
-  br label %71
+.critedge:                                        ; preds = %47
+  %50 = load i32, ptr %40, align 4
+  %51 = or i32 %50, 16
+  store i32 %51, ptr %40, align 4
+  br label %72
 
-51:                                               ; preds = %46, %42, %.lr.ph91
-  %52 = load i32, ptr %39, align 4
-  %53 = and i32 %52, 14
-  %54 = icmp eq i32 %53, 2
-  br i1 %54, label %55, label %69
+52:                                               ; preds = %47, %43, %.lr.ph91
+  %53 = load i32, ptr %40, align 4
+  %54 = and i32 %53, 14
+  %55 = icmp eq i32 %54, 2
+  br i1 %55, label %56, label %70
 
-55:                                               ; preds = %51
-  %56 = call ptr @bitmap_for_commit(ptr noundef %0, ptr noundef nonnull %39)
-  %.not.i69 = icmp eq ptr %56, null
-  br i1 %.not.i69, label %add_commit_to_bitmap.exit, label %57
+56:                                               ; preds = %52
+  %57 = call ptr @bitmap_for_commit(ptr noundef %0, ptr noundef nonnull %40)
+  %.not.i69 = icmp eq ptr %57, null
+  br i1 %.not.i69, label %add_commit_to_bitmap.exit, label %58
 
-57:                                               ; preds = %55
-  %58 = load i32, ptr @existing_bitmaps_hits_nr, align 4, !tbaa !8
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr @existing_bitmaps_hits_nr, align 4, !tbaa !8
-  br i1 %.not65, label %60, label %62
+58:                                               ; preds = %56
+  %59 = load i32, ptr @existing_bitmaps_hits_nr, align 4, !tbaa !8
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr @existing_bitmaps_hits_nr, align 4, !tbaa !8
+  br i1 %.not65, label %61, label %63
 
-60:                                               ; preds = %57
-  %61 = call ptr @ewah_to_bitmap(ptr noundef nonnull %56) #21
-  br label %65
+61:                                               ; preds = %58
+  %62 = call ptr @ewah_to_bitmap(ptr noundef nonnull %57) #21
+  br label %66
 
-62:                                               ; preds = %57
-  call void @bitmap_or_ewah(ptr noundef nonnull %.17988, ptr noundef nonnull %56) #21
-  br label %65
+63:                                               ; preds = %58
+  call void @bitmap_or_ewah(ptr noundef nonnull %.17988, ptr noundef nonnull %57) #21
+  br label %66
 
-add_commit_to_bitmap.exit:                        ; preds = %55
-  %63 = load i32, ptr @existing_bitmaps_misses_nr, align 4, !tbaa !8
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr @existing_bitmaps_misses_nr, align 4, !tbaa !8
-  br label %69
+add_commit_to_bitmap.exit:                        ; preds = %56
+  %64 = load i32, ptr @existing_bitmaps_misses_nr, align 4, !tbaa !8
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr @existing_bitmaps_misses_nr, align 4, !tbaa !8
+  br label %70
 
-65:                                               ; preds = %62, %60
-  %.6.ph = phi ptr [ %.17988, %62 ], [ %61, %60 ]
-  %66 = load i32, ptr %39, align 4
-  %67 = or i32 %66, 16
-  store i32 %67, ptr %39, align 4
-  %68 = freeze ptr %.6.ph
-  br label %71, !llvm.loop !206
+66:                                               ; preds = %63, %61
+  %.6.ph = phi ptr [ %.17988, %63 ], [ %62, %61 ]
+  %67 = load i32, ptr %40, align 4
+  %68 = or i32 %67, 16
+  store i32 %68, ptr %40, align 4
+  %69 = freeze ptr %.6.ph
+  br label %72, !llvm.loop !206
 
-69:                                               ; preds = %add_commit_to_bitmap.exit, %51
-  %70 = call ptr @object_list_insert(ptr noundef nonnull %39, ptr noundef nonnull %7) #21
-  br label %71
+70:                                               ; preds = %add_commit_to_bitmap.exit, %52
+  %71 = call ptr @object_list_insert(ptr noundef nonnull %40, ptr noundef nonnull %7) #21
+  br label %72
 
-71:                                               ; preds = %.critedge, %69, %65
-  %.2 = phi ptr [ %.17988, %69 ], [ %68, %65 ], [ %.17988, %.critedge ]
-  %.150 = phi i32 [ %.04989, %69 ], [ 1, %65 ], [ %.04989, %.critedge ]
-  %.not59 = icmp eq ptr %41, null
+72:                                               ; preds = %.critedge, %70, %66
+  %.2 = phi ptr [ %.17988, %70 ], [ %69, %66 ], [ %.17988, %.critedge ]
+  %.150 = phi i32 [ %.04989, %70 ], [ 1, %66 ], [ %.04989, %.critedge ]
+  %.not59 = icmp eq ptr %42, null
   br i1 %.not59, label %._crit_edge92, label %.lr.ph91
 
-._crit_edge92:                                    ; preds = %71
-  %72 = load ptr, ptr %7, align 8, !tbaa !118
-  %.not60 = icmp eq ptr %72, null
-  br i1 %.not60, label %127, label %74
+._crit_edge92:                                    ; preds = %72
+  %73 = load ptr, ptr %7, align 8, !tbaa !118
+  %.not60 = icmp eq ptr %73, null
+  br i1 %.not60, label %128, label %75
 
 ._crit_edge92.thread:                             ; preds = %unsatisfy_all_pseudo_merges.exit.thread
-  %73 = load ptr, ptr %7, align 8, !tbaa !118
-  %.not60111 = icmp eq ptr %73, null
-  br i1 %.not60111, label %127, label %cascade_pseudo_merges_1.exit71
+  %74 = load ptr, ptr %7, align 8, !tbaa !118
+  %.not60111 = icmp eq ptr %74, null
+  br i1 %.not60111, label %128, label %cascade_pseudo_merges_1.exit71
 
-74:                                               ; preds = %._crit_edge92
-  %75 = icmp eq i32 %.150, 0
-  br i1 %75, label %cascade_pseudo_merges_1.exit71, label %76
+75:                                               ; preds = %._crit_edge92
+  %76 = icmp eq i32 %.150, 0
+  br i1 %76, label %cascade_pseudo_merges_1.exit71, label %77
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %78 = call i32 @cascade_pseudo_merges(ptr noundef nonnull %77, ptr noundef %.2, ptr noundef null) #21
-  %.not.i70 = icmp eq i32 %78, 0
-  br i1 %.not.i70, label %cascade_pseudo_merges_1.exit71, label %79
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %79 = call i32 @cascade_pseudo_merges(ptr noundef nonnull %78, ptr noundef %.2, ptr noundef null) #21
+  %.not.i70 = icmp eq i32 %79, 0
+  br i1 %.not.i70, label %cascade_pseudo_merges_1.exit71, label %80
 
-79:                                               ; preds = %76
-  %80 = load i32, ptr @pseudo_merges_cascades_nr, align 4, !tbaa !8
-  %81 = add nsw i32 %80, 1
-  store i32 %81, ptr @pseudo_merges_cascades_nr, align 4, !tbaa !8
-  %82 = load i32, ptr @pseudo_merges_satisfied_nr, align 4, !tbaa !8
-  %83 = add nsw i32 %82, %78
-  store i32 %83, ptr @pseudo_merges_satisfied_nr, align 4, !tbaa !8
+80:                                               ; preds = %77
+  %81 = load i32, ptr @pseudo_merges_cascades_nr, align 4, !tbaa !8
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr @pseudo_merges_cascades_nr, align 4, !tbaa !8
+  %83 = load i32, ptr @pseudo_merges_satisfied_nr, align 4, !tbaa !8
+  %84 = add nsw i32 %83, %79
+  store i32 %84, ptr @pseudo_merges_satisfied_nr, align 4, !tbaa !8
   br label %cascade_pseudo_merges_1.exit71
 
-cascade_pseudo_merges_1.exit71:                   ; preds = %._crit_edge92.thread, %79, %76, %74
-  %.179.lcssa112116 = phi ptr [ %.2, %79 ], [ %.2, %76 ], [ %.2, %74 ], [ %.0, %._crit_edge92.thread ]
-  %84 = phi ptr [ %72, %79 ], [ %72, %76 ], [ %72, %74 ], [ %73, %._crit_edge92.thread ]
-  %85 = icmp eq ptr %.179.lcssa112116, null
-  br i1 %85, label %cascade_pseudo_merges_1.exit71.split.us, label %cascade_pseudo_merges_1.exit71.split.outer
+cascade_pseudo_merges_1.exit71:                   ; preds = %._crit_edge92.thread, %80, %77, %75
+  %.179.lcssa112116 = phi ptr [ %.2, %80 ], [ %.2, %77 ], [ %.2, %75 ], [ %.0, %._crit_edge92.thread ]
+  %85 = phi ptr [ %73, %80 ], [ %73, %77 ], [ %73, %75 ], [ %74, %._crit_edge92.thread ]
+  %86 = icmp eq ptr %.179.lcssa112116, null
+  br i1 %86, label %cascade_pseudo_merges_1.exit71.split.us, label %cascade_pseudo_merges_1.exit71.split.outer
 
 cascade_pseudo_merges_1.exit71.split.outer:       ; preds = %cascade_pseudo_merges_1.exit71, %.thread118
-  %.195.ph = phi ptr [ %99, %.thread118 ], [ %84, %cascade_pseudo_merges_1.exit71 ]
-  %86 = phi i1 [ false, %.thread118 ], [ true, %cascade_pseudo_merges_1.exit71 ]
+  %.195.ph = phi ptr [ %100, %.thread118 ], [ %85, %cascade_pseudo_merges_1.exit71 ]
+  %87 = phi i1 [ false, %.thread118 ], [ true, %cascade_pseudo_merges_1.exit71 ]
   br label %cascade_pseudo_merges_1.exit71.split
 
 cascade_pseudo_merges_1.exit71.split.us:          ; preds = %cascade_pseudo_merges_1.exit71, %cascade_pseudo_merges_1.exit71.split.us
-  %.195.us = phi ptr [ %89, %cascade_pseudo_merges_1.exit71.split.us ], [ %84, %cascade_pseudo_merges_1.exit71 ]
-  %87 = load ptr, ptr %.195.us, align 8, !tbaa !170
-  %88 = getelementptr inbounds nuw i8, ptr %.195.us, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !172
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %91 = call fastcc i32 @bitmap_position(ptr noundef %0, ptr noundef nonnull %90)
-  %92 = load i32, ptr %87, align 4
-  %93 = and i32 %92, -33
-  store i32 %93, ptr %87, align 4
-  call void @add_pending_object(ptr noundef %1, ptr noundef nonnull %87, ptr noundef nonnull @.str.22) #21
-  %94 = load i32, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
-  %95 = add nsw i32 %94, 1
-  store i32 %95, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
-  %.not62.us = icmp eq ptr %89, null
+  %.195.us = phi ptr [ %90, %cascade_pseudo_merges_1.exit71.split.us ], [ %85, %cascade_pseudo_merges_1.exit71 ]
+  %88 = load ptr, ptr %.195.us, align 8, !tbaa !170
+  %89 = getelementptr inbounds nuw i8, ptr %.195.us, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !172
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %92 = call fastcc i32 @bitmap_position(ptr noundef %0, ptr noundef nonnull %91)
+  %93 = load i32, ptr %88, align 4
+  %94 = and i32 %93, -33
+  store i32 %94, ptr %88, align 4
+  call void @add_pending_object(ptr noundef %1, ptr noundef nonnull %88, ptr noundef nonnull @.str.22) #21
+  %95 = load i32, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
+  %96 = add nsw i32 %95, 1
+  store i32 %96, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
+  %.not62.us = icmp eq ptr %90, null
   br i1 %.not62.us, label %.thread124, label %cascade_pseudo_merges_1.exit71.split.us, !llvm.loop !207
 
 .thread124:                                       ; preds = %cascade_pseudo_merges_1.exit71.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %96 = call ptr @bitmap_new() #21
-  br label %116
+  %97 = call ptr @bitmap_new() #21
+  br label %117
 
-cascade_pseudo_merges_1.exit71.split:             ; preds = %cascade_pseudo_merges_1.exit71.split.outer, %106
-  %.195 = phi ptr [ %99, %106 ], [ %.195.ph, %cascade_pseudo_merges_1.exit71.split.outer ]
-  %97 = load ptr, ptr %.195, align 8, !tbaa !170
-  %98 = getelementptr inbounds nuw i8, ptr %.195, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !172
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %101 = call fastcc i32 @bitmap_position(ptr noundef %0, ptr noundef nonnull %100)
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %.thread118, label %103
+cascade_pseudo_merges_1.exit71.split:             ; preds = %cascade_pseudo_merges_1.exit71.split.outer, %107
+  %.195 = phi ptr [ %100, %107 ], [ %.195.ph, %cascade_pseudo_merges_1.exit71.split.outer ]
+  %98 = load ptr, ptr %.195, align 8, !tbaa !170
+  %99 = getelementptr inbounds nuw i8, ptr %.195, i64 8
+  %100 = load ptr, ptr %99, align 8, !tbaa !172
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  %102 = call fastcc i32 @bitmap_position(ptr noundef %0, ptr noundef nonnull %101)
+  %103 = icmp slt i32 %102, 0
+  br i1 %103, label %.thread118, label %104
 
-103:                                              ; preds = %cascade_pseudo_merges_1.exit71.split
-  %104 = zext nneg i32 %101 to i64
-  %105 = call i32 @bitmap_get(ptr noundef nonnull %.179.lcssa112116, i64 noundef %104) #21
-  %.not64 = icmp eq i32 %105, 0
-  br i1 %.not64, label %.thread118, label %106
+104:                                              ; preds = %cascade_pseudo_merges_1.exit71.split
+  %105 = zext nneg i32 %102 to i64
+  %106 = call i32 @bitmap_get(ptr noundef nonnull %.179.lcssa112116, i64 noundef %105) #21
+  %.not64 = icmp eq i32 %106, 0
+  br i1 %.not64, label %.thread118, label %107
 
-106:                                              ; preds = %103
-  %107 = load i32, ptr %97, align 4
-  %108 = or i32 %107, 16
-  store i32 %108, ptr %97, align 4
-  %109 = load i32, ptr @roots_with_bitmaps_nr, align 4, !tbaa !8
-  %110 = add nsw i32 %109, 1
-  store i32 %110, ptr @roots_with_bitmaps_nr, align 4, !tbaa !8
-  %.not62 = icmp eq ptr %99, null
+107:                                              ; preds = %104
+  %108 = load i32, ptr %98, align 4
+  %109 = or i32 %108, 16
+  store i32 %109, ptr %98, align 4
+  %110 = load i32, ptr @roots_with_bitmaps_nr, align 4, !tbaa !8
+  %111 = add nsw i32 %110, 1
+  store i32 %111, ptr @roots_with_bitmaps_nr, align 4, !tbaa !8
+  %.not62 = icmp eq ptr %100, null
   br i1 %.not62, label %.split.us, label %cascade_pseudo_merges_1.exit71.split, !llvm.loop !207
 
-.thread118:                                       ; preds = %cascade_pseudo_merges_1.exit71.split, %103
-  %111 = load i32, ptr %97, align 4
-  %112 = and i32 %111, -33
-  store i32 %112, ptr %97, align 4
-  call void @add_pending_object(ptr noundef %1, ptr noundef nonnull %97, ptr noundef nonnull @.str.22) #21
-  %113 = load i32, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
-  %114 = add nsw i32 %113, 1
-  store i32 %114, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
-  %.not62120 = icmp eq ptr %99, null
-  br i1 %.not62120, label %115, label %cascade_pseudo_merges_1.exit71.split.outer, !llvm.loop !207
+.thread118:                                       ; preds = %cascade_pseudo_merges_1.exit71.split, %104
+  %112 = load i32, ptr %98, align 4
+  %113 = and i32 %112, -33
+  store i32 %113, ptr %98, align 4
+  call void @add_pending_object(ptr noundef %1, ptr noundef nonnull %98, ptr noundef nonnull @.str.22) #21
+  %114 = load i32, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
+  %115 = add nsw i32 %114, 1
+  store i32 %115, ptr @roots_without_bitmaps_nr, align 4, !tbaa !8
+  %.not62120 = icmp eq ptr %100, null
+  br i1 %.not62120, label %116, label %cascade_pseudo_merges_1.exit71.split.outer, !llvm.loop !207
 
-.split.us:                                        ; preds = %106
-  br i1 %86, label %126, label %.thread125
+.split.us:                                        ; preds = %107
+  br i1 %87, label %127, label %.thread125
 
 .thread125:                                       ; preds = %.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br label %116
+  br label %117
 
-115:                                              ; preds = %.thread118
+116:                                              ; preds = %.thread118
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br label %116
+  br label %117
 
-116:                                              ; preds = %115, %.thread125, %.thread124
-  %.0.i73 = phi ptr [ %.179.lcssa112116, %115 ], [ %96, %.thread124 ], [ %.179.lcssa112116, %.thread125 ]
+117:                                              ; preds = %116, %.thread125, %.thread124
+  %.0.i73 = phi ptr [ %.179.lcssa112116, %116 ], [ %97, %.thread124 ], [ %.179.lcssa112116, %.thread125 ]
   store ptr %0, ptr %5, align 8, !tbaa !183
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.0.i73, ptr %117, align 8, !tbaa !185
-  %118 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %118, align 8, !tbaa !186
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 1448
-  store ptr @should_include, ptr %119, align 8, !tbaa !187
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 1456
-  store ptr @should_include_obj, ptr %120, align 8, !tbaa !188
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 1464
-  store ptr %5, ptr %121, align 8, !tbaa !189
-  %122 = call i32 @prepare_revision_walk(ptr noundef %1) #21
-  %.not16.i = icmp eq i32 %122, 0
-  br i1 %.not16.i, label %fill_in_bitmap.exit, label %123
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %.0.i73, ptr %118, align 8, !tbaa !185
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %119, align 8, !tbaa !186
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 1448
+  store ptr @should_include, ptr %120, align 8, !tbaa !187
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 1456
+  store ptr @should_include_obj, ptr %121, align 8, !tbaa !188
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 1464
+  store ptr %5, ptr %122, align 8, !tbaa !189
+  %123 = call i32 @prepare_revision_walk(ptr noundef %1) #21
+  %.not16.i = icmp eq i32 %123, 0
+  br i1 %.not16.i, label %fill_in_bitmap.exit, label %124
 
-123:                                              ; preds = %116
-  %124 = call fastcc ptr @_(ptr noundef nonnull @.str.26)
-  call void (ptr, ...) @die(ptr noundef %124) #23
+124:                                              ; preds = %117
+  %125 = call fastcc ptr @_(ptr noundef nonnull @.str.26)
+  call void (ptr, ...) @die(ptr noundef %125) #23
   unreachable
 
-fill_in_bitmap.exit:                              ; preds = %116
+fill_in_bitmap.exit:                              ; preds = %117
   store ptr %0, ptr %6, align 8, !tbaa !190
-  %125 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %.0.i73, ptr %125, align 8, !tbaa !192
+  %126 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %.0.i73, ptr %126, align 8, !tbaa !192
   call void @traverse_commit_list_filtered(ptr noundef nonnull %1, ptr noundef nonnull @show_commit, ptr noundef nonnull @show_object, ptr noundef nonnull %6, ptr noundef null) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %126
-
-126:                                              ; preds = %fill_in_bitmap.exit, %.split.us
-  %.5 = phi ptr [ %.179.lcssa112116, %.split.us ], [ %.0.i73, %fill_in_bitmap.exit ]
-  call void @object_list_free(ptr noundef nonnull %7) #21
   br label %127
 
-127:                                              ; preds = %._crit_edge92.thread, %._crit_edge92, %126
-  %.4 = phi ptr [ %.2, %._crit_edge92 ], [ %.5, %126 ], [ %.0, %._crit_edge92.thread ]
+127:                                              ; preds = %fill_in_bitmap.exit, %.split.us
+  %.5 = phi ptr [ %.179.lcssa112116, %.split.us ], [ %.0.i73, %fill_in_bitmap.exit ]
+  call void @object_list_free(ptr noundef nonnull %7) #21
+  br label %128
+
+128:                                              ; preds = %._crit_edge92.thread, %._crit_edge92, %127
+  %.4 = phi ptr [ %.2, %._crit_edge92 ], [ %.5, %127 ], [ %.0, %._crit_edge92.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.4
 }
@@ -6428,9 +6429,9 @@ st_mult.exit142:                                  ; preds = %116
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %178 = phi i64 [ %219, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.088159 = phi i32 [ %218, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.093158 = phi ptr [ %217, %.lr.ph ], [ %177, %.lr.ph.preheader ]
+  %178 = phi i64 [ %220, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.088159 = phi i32 [ %219, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.093158 = phi ptr [ %218, %.lr.ph ], [ %177, %.lr.ph.preheader ]
   %179 = load i8, ptr %.093158, align 1, !tbaa !10
   %180 = zext i8 %179 to i64
   %181 = shl nuw nsw i64 %180, 24
@@ -6468,27 +6469,28 @@ st_mult.exit142:                                  ; preds = %116
   %213 = or disjoint i64 %205, %196
   %214 = or disjoint i64 %213, %209
   %215 = or disjoint i64 %214, %212
-  %216 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %175, i64 %178, i32 2
-  store i64 %215, ptr %216, align 8, !tbaa !262
-  %217 = getelementptr inbounds nuw i8, ptr %.093158, i64 8
-  %218 = add i32 %.088159, 1
-  %219 = zext i32 %218 to i64
-  %220 = icmp ugt i64 %176, %219
-  br i1 %220, label %.lr.ph, label %.critedge, !llvm.loop !298
+  %216 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %175, i64 %178
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
+  store i64 %215, ptr %217, align 8, !tbaa !262
+  %218 = getelementptr inbounds nuw i8, ptr %.093158, i64 8
+  %219 = add i32 %.088159, 1
+  %220 = zext i32 %219 to i64
+  %221 = icmp ugt i64 %176, %220
+  br i1 %221, label %.lr.ph, label %.critedge, !llvm.loop !298
 
 .critedge:                                        ; preds = %.lr.ph, %94, %116, %173
-  %221 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %222 = load i32, ptr %221, align 4, !tbaa !292
-  %223 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %222) #25, !srcloc !293
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %223, ptr %224, align 8, !tbaa !100
-  %225 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %225, ptr %226, align 8, !tbaa !91
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %228 = load i64, ptr %227, align 8, !tbaa !55
-  %229 = add i64 %228, %15
-  store i64 %229, ptr %227, align 8, !tbaa !55
+  %222 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %223 = load i32, ptr %222, align 4, !tbaa !292
+  %224 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %223) #25, !srcloc !293
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %224, ptr %225, align 8, !tbaa !100
+  %226 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %226, ptr %227, align 8, !tbaa !91
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %229 = load i64, ptr %228, align 8, !tbaa !55
+  %230 = add i64 %229, %15
+  store i64 %230, ptr %228, align 8, !tbaa !55
   br label %.critedge109
 
 .critedge109:                                     ; preds = %.thread149, %.thread, %_.exit124, %_.exit138, %_.exit135, %.critedge, %_.exit117, %_.exit114, %_.exit

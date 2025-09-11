@@ -2472,7 +2472,8 @@ define internal void @serial8250_remove(ptr noundef readnone captures(address) %
   %7 = phi i32 [ %2, %4 ], [ %15, %14 ]
   %8 = phi i32 [ 0, %4 ], [ %16, %14 ]
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %9, i32 0, i32 47
+  %.split = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 344
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %5
   br i1 %12, label %13, label %14

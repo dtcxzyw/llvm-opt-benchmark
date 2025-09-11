@@ -775,7 +775,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   unreachable
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hae22e548bd000db2E.exit.i.i"
-  %84 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { { i64, [2 x i64] }, i8, [7 x i8] } }, ptr %39, i64 %43, i32 2
+  %84 = getelementptr inbounds nuw i8, ptr %45, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
   %85 = load i64, ptr %84, align 8, !range !72, !alias.scope !148, !noundef !9

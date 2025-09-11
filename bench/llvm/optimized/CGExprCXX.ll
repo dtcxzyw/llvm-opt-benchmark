@@ -6119,7 +6119,7 @@ define linkonce_odr hidden void @_ZN5clang7CodeGen15CodeGenFunction24CleanupDeac
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %.pre-phi = phi i64 [ %.pre14, %._crit_edge.loopexit ], [ %6, %1 ]
-  %.lcssa = phi i64 [ %37, %._crit_edge.loopexit ], [ %8, %1 ]
+  %.lcssa = phi i64 [ %38, %._crit_edge.loopexit ], [ %8, %1 ]
   %10 = icmp eq i64 %.lcssa, %.pre-phi
   br i1 %10, label %_ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCleanupEE6resizeEm.exit, label %11
 
@@ -6182,12 +6182,13 @@ _ZN4llvm15SmallVectorImplIN5clang7CodeGen15CodeGenFunction25DeferredDeactivateCl
   %32 = load ptr, ptr %31, align 8, !tbaa !951
   tail call void @_ZN5clang7CodeGen15CodeGenFunction22DeactivateCleanupBlockENS0_12EHScopeStack15stable_iteratorEPN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(6496) %27, i64 %.sroa.01.0.copyload, ptr noundef %32) #16
   %33 = load ptr, ptr %3, align 8, !tbaa !13
-  %34 = getelementptr inbounds nuw %"struct.clang::CodeGen::CodeGenFunction::DeferredDeactivateCleanup", ptr %33, i64 %28, i32 1
-  %35 = load ptr, ptr %34, align 8, !tbaa !951
-  %36 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %35) #16
-  %37 = load i64, ptr %7, align 8, !tbaa !803
-  %38 = icmp ugt i64 %28, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !953
+  %34 = getelementptr inbounds nuw %"struct.clang::CodeGen::CodeGenFunction::DeferredDeactivateCleanup", ptr %33, i64 %28
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !951
+  %37 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %36) #16
+  %38 = load i64, ptr %7, align 8, !tbaa !803
+  %39 = icmp ugt i64 %28, %38
+  br i1 %39, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !953
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

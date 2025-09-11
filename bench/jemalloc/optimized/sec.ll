@@ -798,10 +798,10 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %10
 
 malloc_mutex_lock.exit:                           ; preds = %17, %23
   %27 = load ptr, ptr %7, align 8, !tbaa !11
-  %28 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %27, i64 %.015, i32 1
-  store i8 0, ptr %28, align 8, !tbaa !18
-  %29 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %27, i64 %.015
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 128
+  %28 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %27, i64 %.015
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 112
+  store i8 0, ptr %29, align 8, !tbaa !18
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 128
   store i64 0, ptr %30, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !57
@@ -810,7 +810,7 @@ malloc_mutex_lock.exit:                           ; preds = %17, %23
   br i1 %.not.i14, label %sec_flush_all_locked.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %malloc_mutex_lock.exit
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 120
   br label %33
 
 33:                                               ; preds = %edata_list_active_concat.exit.i, %.lr.ph.i

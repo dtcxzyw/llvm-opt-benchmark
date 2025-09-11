@@ -678,113 +678,114 @@ define internal noundef zeroext i1 @X11_VideoInit(ptr noundef %0) #0 {
   %213 = getelementptr inbounds nuw i8, ptr %203, i64 224
   %214 = load i32, ptr %213, align 8
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds %struct.Screen, ptr %212, i64 %215, i32 2
-  %217 = load i64, ptr %216, align 8
-  %218 = call i32 %210(ptr noundef %203, i64 noundef %217, i64 noundef %209, i64 noundef 0, i64 noundef 1, i32 noundef 0, i64 noundef 33, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
-  %219 = icmp eq i32 %218, 0
-  br i1 %219, label %220, label %.thread4.i
+  %216 = getelementptr inbounds %struct.Screen, ptr %212, i64 %215
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
+  %218 = load i64, ptr %217, align 8
+  %219 = call i32 %210(ptr noundef %203, i64 noundef %218, i64 noundef %209, i64 noundef 0, i64 noundef 1, i32 noundef 0, i64 noundef 33, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
+  %220 = icmp eq i32 %219, 0
+  br i1 %220, label %221, label %.thread4.i
 
-220:                                              ; preds = %1
-  %221 = load i64, ptr %4, align 8
-  %.not.i = icmp eq i64 %221, 0
+221:                                              ; preds = %1
+  %222 = load i64, ptr %4, align 8
+  %.not.i = icmp eq i64 %222, 0
   %.pr.i = load ptr, ptr %6, align 8
-  br i1 %.not.i, label %223, label %.thread.i
+  br i1 %.not.i, label %224, label %.thread.i
 
-.thread.i:                                        ; preds = %220
-  %222 = load i64, ptr %.pr.i, align 8
-  br label %224
+.thread.i:                                        ; preds = %221
+  %223 = load i64, ptr %.pr.i, align 8
+  br label %225
 
-223:                                              ; preds = %220
+224:                                              ; preds = %221
   %.not23.i = icmp eq ptr %.pr.i, null
-  br i1 %.not23.i, label %.thread4.i, label %224
+  br i1 %.not23.i, label %.thread4.i, label %225
 
-224:                                              ; preds = %223, %.thread.i
-  %.13.i = phi i64 [ %222, %.thread.i ], [ 0, %223 ]
-  %225 = load ptr, ptr @X11_XFree, align 8
-  %226 = call i32 %225(ptr noundef nonnull %.pr.i) #5
+225:                                              ; preds = %224, %.thread.i
+  %.13.i = phi i64 [ %223, %.thread.i ], [ 0, %224 ]
+  %226 = load ptr, ptr @X11_XFree, align 8
+  %227 = call i32 %226(ptr noundef nonnull %.pr.i) #5
   store ptr null, ptr %6, align 8
   %.not24.i = icmp eq i64 %.13.i, 0
-  br i1 %.not24.i, label %.thread4.i, label %227
+  br i1 %.not24.i, label %.thread4.i, label %228
 
-227:                                              ; preds = %224
-  %228 = load ptr, ptr @X11_XGetWindowProperty, align 8
-  %229 = call i32 %228(ptr noundef nonnull %203, i64 noundef %.13.i, i64 noundef %209, i64 noundef 0, i64 noundef 1, i32 noundef 0, i64 noundef 33, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
-  %230 = icmp eq i32 %229, 0
-  %231 = load i64, ptr %4, align 8
-  %232 = icmp ne i64 %231, 0
-  %or.cond.i = select i1 %230, i1 %232, i1 false
+228:                                              ; preds = %225
+  %229 = load ptr, ptr @X11_XGetWindowProperty, align 8
+  %230 = call i32 %229(ptr noundef nonnull %203, i64 noundef %.13.i, i64 noundef %209, i64 noundef 0, i64 noundef 1, i32 noundef 0, i64 noundef 33, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
+  %231 = icmp eq i32 %230, 0
+  %232 = load i64, ptr %4, align 8
+  %233 = icmp ne i64 %232, 0
+  %or.cond.i = select i1 %231, i1 %233, i1 false
   %.pre.pre.i = load ptr, ptr %6, align 8
-  br i1 %or.cond.i, label %233, label %235
+  br i1 %or.cond.i, label %234, label %236
 
-233:                                              ; preds = %227
-  %234 = load i64, ptr %.pre.pre.i, align 8
-  %.not25.i = icmp eq i64 %.13.i, %234
-  br i1 %.not25.i, label %236, label %235
+234:                                              ; preds = %228
+  %235 = load i64, ptr %.pre.pre.i, align 8
+  %.not25.i = icmp eq i64 %.13.i, %235
+  br i1 %.not25.i, label %237, label %236
 
-235:                                              ; preds = %233, %227
-  br label %236
+236:                                              ; preds = %234, %228
+  br label %237
 
-236:                                              ; preds = %235, %233
-  %.3.i = phi i64 [ 0, %235 ], [ %.13.i, %233 ]
-  %237 = icmp ne ptr %.pre.pre.i, null
-  %or.cond3.i = select i1 %230, i1 %237, i1 false
-  br i1 %or.cond3.i, label %238, label %.thread4.i
+237:                                              ; preds = %236, %234
+  %.3.i = phi i64 [ 0, %236 ], [ %.13.i, %234 ]
+  %238 = icmp ne ptr %.pre.pre.i, null
+  %or.cond3.i = select i1 %231, i1 %238, i1 false
+  br i1 %or.cond3.i, label %239, label %.thread4.i
 
-238:                                              ; preds = %236
-  %239 = load ptr, ptr @X11_XFree, align 8
-  %240 = call i32 %239(ptr noundef nonnull %.pre.pre.i) #5
+239:                                              ; preds = %237
+  %240 = load ptr, ptr @X11_XFree, align 8
+  %241 = call i32 %240(ptr noundef nonnull %.pre.pre.i) #5
   store ptr null, ptr %6, align 8
   br label %.thread4.i
 
-.thread4.i:                                       ; preds = %238, %236, %224, %223, %1
-  %.2.i = phi i64 [ %.3.i, %238 ], [ %.3.i, %236 ], [ 0, %224 ], [ 0, %223 ], [ 0, %1 ]
-  %241 = load ptr, ptr @X11_XSync, align 8
-  %242 = call i32 %241(ptr noundef nonnull %203, i32 noundef 0) #5
-  %243 = load ptr, ptr @X11_XSetErrorHandler, align 8
-  %244 = load ptr, ptr @handler, align 8
-  %245 = call ptr %243(ptr noundef %244) #5
+.thread4.i:                                       ; preds = %239, %237, %225, %224, %1
+  %.2.i = phi i64 [ %.3.i, %239 ], [ %.3.i, %237 ], [ 0, %225 ], [ 0, %224 ], [ 0, %1 ]
+  %242 = load ptr, ptr @X11_XSync, align 8
+  %243 = call i32 %242(ptr noundef nonnull %203, i32 noundef 0) #5
+  %244 = load ptr, ptr @X11_XSetErrorHandler, align 8
+  %245 = load ptr, ptr @handler, align 8
+  %246 = call ptr %244(ptr noundef %245) #5
   %.not26.i = icmp eq i64 %.2.i, 0
-  br i1 %.not26.i, label %X11_CheckWindowManager.exit, label %246
+  br i1 %.not26.i, label %X11_CheckWindowManager.exit, label %247
 
-246:                                              ; preds = %.thread4.i
-  %247 = getelementptr inbounds nuw i8, ptr %.val, i64 184
-  store i8 1, ptr %247, align 8
+247:                                              ; preds = %.thread4.i
+  %248 = getelementptr inbounds nuw i8, ptr %.val, i64 184
+  store i8 1, ptr %248, align 8
   br label %X11_CheckWindowManager.exit
 
-X11_CheckWindowManager.exit:                      ; preds = %.thread4.i, %246
+X11_CheckWindowManager.exit:                      ; preds = %.thread4.i, %247
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %248 = call zeroext i1 @X11_InitModes(ptr noundef nonnull %0) #5
-  br i1 %248, label %249, label %255
+  %249 = call zeroext i1 @X11_InitModes(ptr noundef nonnull %0) #5
+  br i1 %249, label %250, label %256
 
-249:                                              ; preds = %X11_CheckWindowManager.exit
-  %250 = call zeroext i1 @X11_InitXinput2(ptr noundef nonnull %0) #5
-  br i1 %250, label %252, label %251
+250:                                              ; preds = %X11_CheckWindowManager.exit
+  %251 = call zeroext i1 @X11_InitXinput2(ptr noundef nonnull %0) #5
+  br i1 %251, label %253, label %252
 
-251:                                              ; preds = %249
+252:                                              ; preds = %250
   call void @SDL_AddKeyboard(i32 noundef 1, ptr noundef null, i1 noundef zeroext false) #5
   call void @SDL_AddMouse(i32 noundef 1, ptr noundef null, i1 noundef zeroext false) #5
-  br label %252
+  br label %253
 
-252:                                              ; preds = %251, %249
+253:                                              ; preds = %252, %250
   call void @X11_InitXfixes(ptr noundef nonnull %0) #5
   call void @X11_InitXsettings(ptr noundef nonnull %0) #5
   call void @X11_InitXsync(ptr noundef nonnull %0) #5
   call void @X11_InitXTest(ptr noundef nonnull %0) #5
-  %253 = call zeroext i1 @X11_InitKeyboard(ptr noundef nonnull %0) #5
-  br i1 %253, label %254, label %255
+  %254 = call zeroext i1 @X11_InitKeyboard(ptr noundef nonnull %0) #5
+  br i1 %254, label %255, label %256
 
-254:                                              ; preds = %252
+255:                                              ; preds = %253
   call void @X11_InitMouse(ptr noundef nonnull %0) #5
   call void @X11_InitTouch(ptr noundef nonnull %0) #5
   call void @X11_InitPen(ptr noundef nonnull %0) #5
-  br label %255
+  br label %256
 
-255:                                              ; preds = %252, %X11_CheckWindowManager.exit, %254
-  %.0 = phi i1 [ true, %254 ], [ false, %X11_CheckWindowManager.exit ], [ false, %252 ]
+256:                                              ; preds = %253, %X11_CheckWindowManager.exit, %255
+  %.0 = phi i1 [ true, %255 ], [ false, %X11_CheckWindowManager.exit ], [ false, %253 ]
   ret i1 %.0
 }
 

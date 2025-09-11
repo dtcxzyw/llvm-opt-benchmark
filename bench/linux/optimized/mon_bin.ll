@@ -202,7 +202,8 @@ define internal i64 @mon_bin_read(ptr noundef readonly captures(none) %0, ptr no
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %14 to i64
   %18 = lshr i64 %17, 12
-  %19 = getelementptr %struct.mon_pgmap, ptr %16, i64 %18, i32 1
+  %.split = getelementptr %struct.mon_pgmap, ptr %16, i64 %18
+  %19 = getelementptr i8, ptr %.split, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = and i64 %17, 4095
   %22 = getelementptr i8, ptr %20, i64 %21
@@ -281,7 +282,8 @@ define internal i64 @mon_bin_read(ptr noundef readonly captures(none) %0, ptr no
   %74 = load ptr, ptr %15, align 8
   %75 = zext i32 %69 to i64
   %76 = lshr i64 %75, 12
-  %77 = getelementptr %struct.mon_pgmap, ptr %74, i64 %76, i32 1
+  %.split8 = getelementptr %struct.mon_pgmap, ptr %74, i64 %76
+  %77 = getelementptr i8, ptr %.split8, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = and i64 %75, 4095
   %80 = getelementptr i8, ptr %78, i64 %79
@@ -304,11 +306,11 @@ define internal i64 @mon_bin_read(ptr noundef readonly captures(none) %0, ptr no
   br label %119
 
 .loopexit.loopexit:                               ; preds = %83
-  %.pre8 = load i32, ptr %23, align 4
+  %.pre9 = load i32, ptr %23, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.thread
-  %92 = phi i32 [ %.pre8, %.loopexit.loopexit ], [ %47, %.thread ]
+  %92 = phi i32 [ %.pre9, %.loopexit.loopexit ], [ %47, %.thread ]
   %93 = add i32 %92, %56
   store i32 %93, ptr %23, align 4
   %94 = add i64 %54, %46
@@ -424,7 +426,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
   %19 = lshr i64 %18, 12
-  %20 = getelementptr %struct.mon_pgmap, ptr %17, i64 %19, i32 1
+  %.split13 = getelementptr %struct.mon_pgmap, ptr %17, i64 %19
+  %20 = getelementptr i8, ptr %.split13, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = and i64 %18, 4095
   %23 = getelementptr i8, ptr %21, i64 %22
@@ -435,7 +438,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
 26:                                               ; preds = %13, %8
   %27 = phi i32 [ 0, %8 ], [ %25, %13 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %9) #12
-  br label %.thread13
+  br label %.thread18
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -443,7 +446,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %31 = load i32, ptr %30, align 4
   tail call void @mutex_unlock(ptr noundef nonnull %29) #12
-  br label %.thread13
+  br label %.thread18
 
 32:                                               ; preds = %3
   %33 = add i64 %2, -1228801
@@ -459,15 +462,15 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   %41 = shl nuw nsw i64 %40, 4
   %42 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %41, i32 noundef 3520) #13
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.thread13, label %.preheader22
+  br i1 %43, label %.thread18, label %.preheader27
 
-.preheader22:                                     ; preds = %35, %56
+.preheader27:                                     ; preds = %35, %56
   %44 = phi i64 [ %71, %56 ], [ 0, %35 ]
   %45 = tail call i64 @get_zeroed_page(i32 noundef 3264) #12
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %47, label %56
 
-47:                                               ; preds = %.preheader22
+47:                                               ; preds = %.preheader27
   %48 = and i64 %44, 4294967295
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %.loopexit, label %.preheader
@@ -475,14 +478,15 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
 .preheader:                                       ; preds = %47, %.preheader
   %50 = phi i64 [ %51, %.preheader ], [ %44, %47 ]
   %51 = add nsw i64 %50, -1
-  %52 = getelementptr %struct.mon_pgmap, ptr %42, i64 %51, i32 1
+  %.split10 = getelementptr %struct.mon_pgmap, ptr %42, i64 %51
+  %52 = getelementptr i8, ptr %.split10, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
   tail call void @free_pages(i64 noundef %54, i32 noundef 0) #12
   %55 = icmp eq i64 %51, 0
   br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !10
 
-56:                                               ; preds = %.preheader22
+56:                                               ; preds = %.preheader27
   %57 = inttoptr i64 %45 to ptr
   %58 = getelementptr %struct.mon_pgmap, ptr %42, i64 %44
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -501,11 +505,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   store ptr %70, ptr %58, align 8
   %71 = add nuw nsw i64 %44, 1
   %72 = icmp eq i64 %71, %40
-  br i1 %72, label %73, label %.preheader22, !llvm.loop !11
+  br i1 %72, label %73, label %.preheader27, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %47
   tail call void @kfree(ptr noundef nonnull %42) #12
-  br label %.thread13
+  br label %.thread18
 
 73:                                               ; preds = %56
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -514,19 +518,20 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %77 = load i32, ptr %76, align 8
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %86, label %.preheader21
+  br i1 %78, label %86, label %.preheader26
 
-.preheader21:                                     ; preds = %73, %.preheader21
-  %79 = phi i64 [ %83, %.preheader21 ], [ 0, %73 ]
-  %80 = getelementptr %struct.mon_pgmap, ptr %42, i64 %79, i32 1
+.preheader26:                                     ; preds = %73, %.preheader26
+  %79 = phi i64 [ %83, %.preheader26 ], [ 0, %73 ]
+  %.split11 = getelementptr %struct.mon_pgmap, ptr %42, i64 %79
+  %80 = getelementptr i8, ptr %.split11, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = ptrtoint ptr %81 to i64
   tail call void @free_pages(i64 noundef %82, i32 noundef 0) #12
   %83 = add nuw nsw i64 %79, 1
   %84 = icmp eq i64 %83, %40
-  br i1 %84, label %85, label %.preheader21, !llvm.loop !12
+  br i1 %84, label %85, label %.preheader26, !llvm.loop !12
 
-85:                                               ; preds = %.preheader21
+85:                                               ; preds = %.preheader26
   tail call void @kfree(ptr noundef nonnull %42) #12
   br label %105
 
@@ -536,7 +541,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = icmp ult i32 %90, 4096
-  br i1 %91, label %.loopexit20, label %92
+  br i1 %91, label %.loopexit25, label %92
 
 92:                                               ; preds = %86
   %93 = lshr i32 %90, 12
@@ -545,20 +550,21 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
 
 95:                                               ; preds = %95, %92
   %96 = phi i64 [ 0, %92 ], [ %100, %95 ]
-  %97 = getelementptr %struct.mon_pgmap, ptr %88, i64 %96, i32 1
+  %.split12 = getelementptr %struct.mon_pgmap, ptr %88, i64 %96
+  %97 = getelementptr i8, ptr %.split12, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = ptrtoint ptr %98 to i64
   tail call void @free_pages(i64 noundef %99, i32 noundef 0) #12
   %100 = add nuw nsw i64 %96, 1
   %101 = icmp eq i64 %100, %94
-  br i1 %101, label %.loopexit20.loopexit, label %95, !llvm.loop !12
+  br i1 %101, label %.loopexit25.loopexit, label %95, !llvm.loop !12
 
-.loopexit20.loopexit:                             ; preds = %95
+.loopexit25.loopexit:                             ; preds = %95
   %.pre = load ptr, ptr %87, align 8
-  br label %.loopexit20
+  br label %.loopexit25
 
-.loopexit20:                                      ; preds = %.loopexit20.loopexit, %86
-  %102 = phi ptr [ %.pre, %.loopexit20.loopexit ], [ %88, %86 ]
+.loopexit25:                                      ; preds = %.loopexit25.loopexit, %86
+  %102 = phi ptr [ %.pre, %.loopexit25.loopexit ], [ %88, %86 ]
   tail call void @kfree(ptr noundef %102) #12
   store ptr %42, ptr %87, align 8
   store i32 %38, ptr %89, align 4
@@ -568,11 +574,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
   br label %105
 
-105:                                              ; preds = %.loopexit20, %85
-  %106 = phi i32 [ -16, %85 ], [ 0, %.loopexit20 ]
+105:                                              ; preds = %.loopexit25, %85
+  %106 = phi i32 [ -16, %85 ], [ 0, %.loopexit25 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %75) #12
   tail call void @mutex_unlock(ptr noundef nonnull %74) #12
-  br label %.thread13
+  br label %.thread18
 
 107:                                              ; preds = %3
   %108 = trunc i64 %2 to i32
@@ -601,7 +607,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   %124 = load ptr, ptr %115, align 8
   %125 = zext i32 %123 to i64
   %126 = lshr i64 %125, 12
-  %127 = getelementptr %struct.mon_pgmap, ptr %124, i64 %126, i32 1
+  %.split.i = getelementptr %struct.mon_pgmap, ptr %124, i64 %126
+  %127 = getelementptr i8, ptr %.split.i, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = and i64 %125, 4095
   %130 = getelementptr i8, ptr %128, i64 %129
@@ -633,7 +640,7 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %145, align 4
   tail call void @mutex_unlock(ptr noundef nonnull %109) #12
-  br label %.thread13
+  br label %.thread18
 
 146:                                              ; preds = %3, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -641,15 +648,15 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
   %147 = inttoptr i64 %2 to ptr
   %148 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %147, i64 noundef 24) #12
   %149 = icmp eq i64 %148, 0
-  br i1 %149, label %150, label %.thread15
+  br i1 %149, label %150, label %.thread20
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %152 = load i64, ptr %151, align 8
   %153 = icmp ugt i64 %152, 268435456
-  br i1 %153, label %.thread15, label %154
+  br i1 %153, label %.thread20, label %154
 
-.thread15:                                        ; preds = %146, %150
+.thread20:                                        ; preds = %146, %150
   %.ph = phi i64 [ -22, %150 ], [ -14, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %292
@@ -663,7 +670,7 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
   %160 = trunc nuw nsw i64 %152 to i32
   %161 = call fastcc i32 @mon_bin_get_event(ptr noundef %0, ptr noundef %7, ptr noundef %155, i32 noundef %157, ptr noundef %159, i32 noundef %160), !range !15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread13
+  br label %.thread18
 
 162:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -671,7 +678,7 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
   %163 = inttoptr i64 %2 to ptr
   %164 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %163, i64 noundef 16) #12
   %165 = icmp eq i64 %164, 0
-  br i1 %165, label %166, label %.thread19
+  br i1 %165, label %166, label %.thread24
 
 166:                                              ; preds = %162
   %167 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -694,14 +701,15 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
   %179 = phi i32 [ %177, %170 ], [ %195, %201 ]
   %180 = phi i32 [ 0, %170 ], [ %202, %201 ]
   %181 = icmp eq i32 %179, 0
-  br i1 %181, label %mon_bin_flush.exit10, label %182
+  br i1 %181, label %mon_bin_flush.exit15, label %182
 
 182:                                              ; preds = %178
   %183 = load i32, ptr %174, align 8
   %184 = load ptr, ptr %175, align 8
   %185 = zext i32 %183 to i64
   %186 = lshr i64 %185, 12
-  %187 = getelementptr %struct.mon_pgmap, ptr %184, i64 %186, i32 1
+  %.split.i14 = getelementptr %struct.mon_pgmap, ptr %184, i64 %186
+  %187 = getelementptr i8, ptr %.split.i14, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = and i64 %185, 4095
   %190 = getelementptr i8, ptr %188, i64 %189
@@ -725,9 +733,9 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
 201:                                              ; preds = %199, %182
   %202 = add nuw i32 %180, 1
   %203 = icmp eq i32 %202, %168
-  br i1 %203, label %mon_bin_flush.exit10, label %178, !llvm.loop !13
+  br i1 %203, label %mon_bin_flush.exit15, label %178, !llvm.loop !13
 
-mon_bin_flush.exit10:                             ; preds = %178, %201
+mon_bin_flush.exit15:                             ; preds = %178, %201
   %204 = phi i32 [ %180, %178 ], [ %168, %201 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %172) #12
   %205 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -736,11 +744,11 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
   %206 = icmp slt i32 %204, 0
   br i1 %206, label %207, label %209
 
-207:                                              ; preds = %mon_bin_flush.exit10
+207:                                              ; preds = %mon_bin_flush.exit15
   %208 = sext i32 %204 to i64
-  br label %.thread19
+  br label %.thread24
 
-209:                                              ; preds = %mon_bin_flush.exit10
+209:                                              ; preds = %mon_bin_flush.exit15
   %210 = getelementptr inbounds nuw i8, ptr %163, i64 12
   %211 = call i64 @llvm.read_register.i64(metadata !0)
   %212 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %210, i32 %204, i64 4, i64 %211) #12, !srcloc !16
@@ -750,7 +758,7 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
   call void @llvm.write_register.i64(metadata !0, i64 %214)
   %216 = and i64 %215, 4294967295
   %217 = icmp eq i64 %216, 0
-  br i1 %217, label %218, label %.thread19
+  br i1 %217, label %218, label %.thread24
 
 218:                                              ; preds = %209, %166
   %219 = load ptr, ptr %5, align 8
@@ -762,10 +770,10 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
 
 224:                                              ; preds = %218
   %225 = sext i32 %222 to i64
-  br label %.thread19
+  br label %.thread24
 
-.thread19:                                        ; preds = %207, %224, %162, %209
-  %.ph18 = phi i64 [ -14, %209 ], [ -14, %162 ], [ %225, %224 ], [ %208, %207 ]
+.thread24:                                        ; preds = %207, %224, %162, %209
+  %.ph23 = phi i64 [ -14, %209 ], [ -14, %162 ], [ %225, %224 ], [ %208, %207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %292
 
@@ -780,7 +788,7 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
   %233 = and i64 %232, 4294967295
   %234 = icmp eq i64 %233, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %234, label %.thread13, label %292
+  br i1 %234, label %.thread18, label %292
 
 235:                                              ; preds = %3
   %236 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #12
@@ -795,7 +803,7 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
   %242 = load i32, ptr %241, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %240) #12
   %243 = icmp eq i32 %242, 0
-  br i1 %243, label %.loopexit24, label %244
+  br i1 %243, label %.loopexit29, label %244
 
 244:                                              ; preds = %235
   %245 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -812,7 +820,8 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
   %254 = phi i32 [ 0, %244 ], [ %261, %251 ]
   %255 = zext i32 %252 to i64
   %256 = lshr i64 %255, 12
-  %257 = getelementptr %struct.mon_pgmap, ptr %248, i64 %256, i32 1
+  %.split = getelementptr %struct.mon_pgmap, ptr %248, i64 %256
+  %257 = getelementptr i8, ptr %.split, i64 8
   %258 = load ptr, ptr %257, align 8
   %259 = and i64 %255, 4095
   %260 = getelementptr i8, ptr %258, i64 %259
@@ -827,9 +836,9 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
   %269 = sub i32 %266, %268
   %270 = add i32 %265, %253
   %271 = icmp ult i32 %270, %242
-  br i1 %271, label %251, label %.loopexit24, !llvm.loop !18
+  br i1 %271, label %251, label %.loopexit29, !llvm.loop !18
 
-.loopexit24:                                      ; preds = %251, %235
+.loopexit29:                                      ; preds = %251, %235
   %272 = phi i32 [ 0, %235 ], [ %261, %251 ]
   tail call void @mutex_unlock(ptr noundef nonnull %239) #12
   %273 = inttoptr i64 %2 to ptr
@@ -844,7 +853,7 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
   %281 = icmp eq i64 %280, 0
   br i1 %281, label %282, label %292
 
-282:                                              ; preds = %.loopexit24
+282:                                              ; preds = %.loopexit29
   %283 = tail call i64 @llvm.read_register.i64(metadata !0)
   %284 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %273, i32 %272, i64 4, i64 %283) #12, !srcloc !20
   %285 = extractvalue { ptr, i64 } %284, 0
@@ -853,15 +862,15 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
   tail call void @llvm.write_register.i64(metadata !0, i64 %286)
   %288 = and i64 %287, 4294967295
   %289 = icmp eq i64 %288, 0
-  br i1 %289, label %.thread13, label %292
+  br i1 %289, label %.thread18, label %292
 
-.thread13:                                        ; preds = %35, %105, %.loopexit, %154, %282, %226, %mon_bin_flush.exit, %28, %26
+.thread18:                                        ; preds = %35, %105, %.loopexit, %154, %282, %226, %mon_bin_flush.exit, %28, %26
   %290 = phi i32 [ 0, %282 ], [ 0, %226 ], [ %161, %154 ], [ %144, %mon_bin_flush.exit ], [ %31, %28 ], [ %27, %26 ], [ -12, %35 ], [ %106, %105 ], [ -12, %.loopexit ]
   %291 = sext i32 %290 to i64
   br label %292
 
-292:                                              ; preds = %.thread19, %.thread15, %32, %.thread13, %282, %.loopexit24, %226, %3
-  %293 = phi i64 [ %291, %.thread13 ], [ -14, %282 ], [ -14, %226 ], [ -25, %3 ], [ -14, %.loopexit24 ], [ -22, %32 ], [ %.ph, %.thread15 ], [ %.ph18, %.thread19 ]
+292:                                              ; preds = %.thread24, %.thread20, %32, %.thread18, %282, %.loopexit29, %226, %3
+  %293 = phi i64 [ %291, %.thread18 ], [ -14, %282 ], [ -14, %226 ], [ -25, %3 ], [ -14, %.loopexit29 ], [ -22, %32 ], [ %.ph, %.thread20 ], [ %.ph23, %.thread24 ]
   ret i64 %293
 }
 
@@ -948,7 +957,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_compat_ioctl(ptr
   %51 = load ptr, ptr %42, align 8
   %52 = zext i32 %50 to i64
   %53 = lshr i64 %52, 12
-  %54 = getelementptr %struct.mon_pgmap, ptr %51, i64 %53, i32 1
+  %.split.i = getelementptr %struct.mon_pgmap, ptr %51, i64 %53
+  %54 = getelementptr i8, ptr %.split.i, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = and i64 %52, 4095
   %57 = getelementptr i8, ptr %55, i64 %56
@@ -1166,7 +1176,8 @@ define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr noundef readonly
 .preheader:                                       ; preds = %38, %.preheader
   %41 = phi i64 [ %42, %.preheader ], [ %35, %38 ]
   %42 = add nsw i64 %41, -1
-  %43 = getelementptr %struct.mon_pgmap, ptr %25, i64 %42, i32 1
+  %.split = getelementptr %struct.mon_pgmap, ptr %25, i64 %42
+  %43 = getelementptr i8, ptr %.split, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   tail call void @free_pages(i64 noundef %45, i32 noundef 0) #12
@@ -1259,7 +1270,8 @@ define internal noundef i32 @mon_bin_release(ptr readnone captures(none) %0, ptr
 
 22:                                               ; preds = %22, %19
   %23 = phi i64 [ 0, %19 ], [ %27, %22 ]
-  %24 = getelementptr %struct.mon_pgmap, ptr %15, i64 %23, i32 1
+  %.split = getelementptr %struct.mon_pgmap, ptr %15, i64 %23
+  %24 = getelementptr i8, ptr %.split, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   tail call void @free_pages(i64 noundef %26, i32 noundef 0) #12
@@ -1402,7 +1414,8 @@ define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr noun
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
   %16 = lshr i64 %15, 12
-  %17 = getelementptr %struct.mon_pgmap, ptr %14, i64 %16, i32 1
+  %.split = getelementptr %struct.mon_pgmap, ptr %14, i64 %16
+  %17 = getelementptr i8, ptr %.split, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = and i64 %15, 4095
   %20 = getelementptr i8, ptr %18, i64 %19
@@ -1417,7 +1430,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr noun
   %27 = tail call i32 @llvm.umin.i32(i32 %26, i32 %5)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %29 = icmp eq i32 %27, 0
-  br i1 %29, label %.loopexit5, label %30
+  br i1 %29, label %.loopexit6, label %30
 
 30:                                               ; preds = %24
   %31 = load i32, ptr %11, align 8
@@ -1438,7 +1451,8 @@ define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr noun
   %44 = load ptr, ptr %13, align 8
   %45 = zext i32 %39 to i64
   %46 = lshr i64 %45, 12
-  %47 = getelementptr %struct.mon_pgmap, ptr %44, i64 %46, i32 1
+  %.split5 = getelementptr %struct.mon_pgmap, ptr %44, i64 %46
+  %47 = getelementptr i8, ptr %.split5, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = and i64 %45, 4095
   %50 = getelementptr i8, ptr %48, i64 %49
@@ -1454,9 +1468,9 @@ define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr noun
   %58 = getelementptr i8, ptr %38, i64 %43
   %59 = sub i32 %37, %42
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.loopexit5, label %36, !llvm.loop !7
+  br i1 %60, label %.loopexit6, label %36, !llvm.loop !7
 
-.loopexit5:                                       ; preds = %53, %24
+.loopexit6:                                       ; preds = %53, %24
   %61 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #12
   %62 = load i32, ptr %25, align 4
   %63 = add i32 %62, 127
@@ -1472,12 +1486,12 @@ define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr noun
   %71 = icmp ult i32 %69, %70
   br i1 %71, label %74, label %72
 
-72:                                               ; preds = %.loopexit5
+72:                                               ; preds = %.loopexit6
   %73 = sub nuw i32 %69, %70
   store i32 %73, ptr %11, align 8
   br label %74
 
-74:                                               ; preds = %72, %.loopexit5
+74:                                               ; preds = %72, %.loopexit6
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %1, i64 noundef %61) #12
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 0, ptr %75, align 4
@@ -1528,7 +1542,8 @@ define internal fastcc i32 @mon_bin_fetch(ptr noundef readonly captures(none) %0
   %25 = load ptr, ptr %18, align 8
   %26 = zext i32 %23 to i64
   %27 = lshr i64 %26, 12
-  %28 = getelementptr %struct.mon_pgmap, ptr %25, i64 %27, i32 1
+  %.split = getelementptr %struct.mon_pgmap, ptr %25, i64 %27
+  %28 = getelementptr i8, ptr %.split, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i32, ptr %2, i64 %22
   %31 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -1748,7 +1763,8 @@ define internal void @mon_bin_error(ptr noundef %0, ptr noundef %1, i32 noundef 
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %14 to i64
   %23 = lshr i64 %22, 12
-  %24 = getelementptr %struct.mon_pgmap, ptr %21, i64 %23, i32 1
+  %.split = getelementptr %struct.mon_pgmap, ptr %21, i64 %23
+  %24 = getelementptr i8, ptr %.split, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = and i64 %22, 4095
   %27 = getelementptr i8, ptr %25, i64 %26
@@ -1846,7 +1862,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 3
   %17 = icmp eq i8 %16, 1
-  br i1 %17, label %18, label %.loopexit20
+  br i1 %17, label %18, label %.loopexit24
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 156
@@ -1854,18 +1870,18 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %21 = call i32 @llvm.smax.i32(i32 %20, i32 0)
   %22 = call i32 @llvm.umin.i32(i32 %21, i32 128)
   %23 = icmp eq i8 %2, 67
-  br i1 %23, label %24, label %.loopexit20
+  br i1 %23, label %24, label %.loopexit24
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 512
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.loopexit20, label %29
+  br i1 %28, label %.loopexit24, label %29
 
 29:                                               ; preds = %24
   %30 = icmp slt i32 %20, 1
-  br i1 %30, label %.loopexit20, label %31
+  br i1 %30, label %.loopexit24, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -1891,9 +1907,9 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %46 = phi i32 [ %35, %33 ], [ %44, %41 ]
   %47 = getelementptr i8, ptr %36, i64 16
   %48 = icmp eq i32 %37, 0
-  br i1 %48, label %.loopexit20, label %33, !llvm.loop !34
+  br i1 %48, label %.loopexit24, label %33, !llvm.loop !34
 
-.loopexit20:                                      ; preds = %45, %29, %24, %18, %4
+.loopexit24:                                      ; preds = %45, %29, %24, %18, %4
   %49 = phi i32 [ %13, %24 ], [ %13, %18 ], [ %13, %4 ], [ 0, %29 ], [ %46, %45 ]
   %50 = phi i32 [ %22, %24 ], [ %22, %18 ], [ 0, %4 ], [ %22, %29 ], [ %22, %45 ]
   %51 = shl nuw nsw i32 %50, 4
@@ -1909,12 +1925,12 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %65, label %62
 
-62:                                               ; preds = %.loopexit20
+62:                                               ; preds = %.loopexit24
   %63 = select i1 %9, i32 0, i32 %57
   %64 = select i1 %9, i8 60, i8 0
   br label %69
 
-65:                                               ; preds = %.loopexit20
+65:                                               ; preds = %.loopexit24
   %66 = icmp eq i8 %2, 67
   %67 = select i1 %66, i32 0, i32 %57
   %68 = select i1 %66, i8 62, i8 0
@@ -1950,14 +1966,15 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %90 = sub i32 %55, %86
   %91 = add i32 %90, %81
   %92 = icmp ugt i32 %91, %55
-  br i1 %92, label %.thread, label %.thread16
+  br i1 %92, label %.thread, label %.thread20
 
-.thread16:                                        ; preds = %89
+.thread20:                                        ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %94 = load ptr, ptr %93, align 8
   %95 = zext i32 %86 to i64
   %96 = lshr i64 %95, 12
-  %97 = getelementptr %struct.mon_pgmap, ptr %94, i64 %96, i32 1
+  %.split = getelementptr %struct.mon_pgmap, ptr %94, i64 %96
+  %97 = getelementptr i8, ptr %.split, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = and i64 %95, 4095
   %100 = getelementptr i8, ptr %98, i64 %99
@@ -2019,14 +2036,15 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %8) #12
   br label %365
 
-125:                                              ; preds = %.thread16, %119
-  %126 = phi i32 [ %.pre, %.thread16 ], [ %55, %119 ]
-  %127 = phi i32 [ 0, %.thread16 ], [ %120, %119 ]
+125:                                              ; preds = %.thread20, %119
+  %126 = phi i32 [ %.pre, %.thread20 ], [ %55, %119 ]
+  %127 = phi i32 [ 0, %.thread20 ], [ %120, %119 ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %129 = load ptr, ptr %128, align 8
   %130 = zext i32 %127 to i64
   %131 = lshr i64 %130, 12
-  %132 = getelementptr %struct.mon_pgmap, ptr %129, i64 %131, i32 1
+  %.split16 = getelementptr %struct.mon_pgmap, ptr %129, i64 %131
+  %132 = getelementptr i8, ptr %.split16, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = and i64 %130, 4095
   %135 = getelementptr i8, ptr %133, i64 %134
@@ -2158,7 +2176,8 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %221 = load ptr, ptr %128, align 8
   %222 = zext i32 %219 to i64
   %223 = lshr i64 %222, 12
-  %224 = getelementptr %struct.mon_pgmap, ptr %221, i64 %223, i32 1
+  %.split17 = getelementptr %struct.mon_pgmap, ptr %221, i64 %223
+  %224 = getelementptr i8, ptr %.split17, i64 8
   %225 = load ptr, ptr %224, align 8
   %226 = and i64 %222, 4095
   %227 = getelementptr i8, ptr %225, i64 %226
@@ -2206,7 +2225,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %257 = load ptr, ptr %256, align 8
   %258 = icmp eq ptr %257, null
-  br i1 %258, label %.loopexit19.thread, label %.preheader
+  br i1 %258, label %.loopexit23.thread, label %.preheader
 
 .preheader:                                       ; preds = %255, %.preheader
   %259 = phi i32 [ %278, %.preheader ], [ %70, %255 ]
@@ -2218,7 +2237,8 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %265 = call i32 @llvm.umin.i32(i32 %264, i32 %259)
   %266 = load ptr, ptr %128, align 8
   %267 = lshr i64 %262, 12
-  %268 = getelementptr %struct.mon_pgmap, ptr %266, i64 %267, i32 1
+  %.split19 = getelementptr %struct.mon_pgmap, ptr %266, i64 %267
+  %268 = getelementptr i8, ptr %.split19, i64 8
   %269 = load ptr, ptr %268, align 8
   %270 = and i64 %262, 4095
   %271 = getelementptr i8, ptr %269, i64 %270
@@ -2231,7 +2251,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %277 = getelementptr i8, ptr %260, i64 %272
   %278 = sub i32 %259, %265
   %279 = icmp eq i32 %278, 0
-  br i1 %279, label %.thread18, label %.preheader, !llvm.loop !36
+  br i1 %279, label %.thread22, label %.preheader, !llvm.loop !36
 
 280:                                              ; preds = %251
   %281 = load i32, ptr %58, align 4
@@ -2239,7 +2259,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %283 = icmp ne i32 %282, 0
   %284 = icmp slt i32 %253, 1
   %or.cond = or i1 %284, %283
-  br i1 %or.cond, label %.loopexit19.thread, label %285
+  br i1 %or.cond, label %.loopexit23.thread, label %285
 
 285:                                              ; preds = %280
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -2282,7 +2302,8 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %317 = call i32 @llvm.umin.i32(i32 %316, i32 %311)
   %318 = load ptr, ptr %128, align 8
   %319 = lshr i64 %314, 12
-  %320 = getelementptr %struct.mon_pgmap, ptr %318, i64 %319, i32 1
+  %.split18 = getelementptr %struct.mon_pgmap, ptr %318, i64 %319
+  %320 = getelementptr i8, ptr %.split18, i64 8
   %321 = load ptr, ptr %320, align 8
   %322 = and i64 %314, 4095
   %323 = getelementptr i8, ptr %321, i64 %322
@@ -2306,19 +2327,19 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %337 = icmp sge i32 %334, %336
   %338 = icmp eq i32 %333, 0
   %339 = select i1 %337, i1 true, i1 %338
-  br i1 %339, label %.loopexit19, label %288, !llvm.loop !37
+  br i1 %339, label %.loopexit23, label %288, !llvm.loop !37
 
-.loopexit19.thread:                               ; preds = %255, %280
+.loopexit23.thread:                               ; preds = %255, %280
   %340 = phi i8 [ 90, %255 ], [ 68, %280 ]
   store i8 %340, ptr %250, align 1
   br label %342
 
-.loopexit19:                                      ; preds = %.loopexit
+.loopexit23:                                      ; preds = %.loopexit
   %341 = icmp eq i32 %333, 0
-  br i1 %341, label %.thread18, label %342
+  br i1 %341, label %.thread22, label %342
 
-342:                                              ; preds = %.loopexit19.thread, %.loopexit19
-  %343 = phi i32 [ %70, %.loopexit19.thread ], [ %333, %.loopexit19 ]
+342:                                              ; preds = %.loopexit23.thread, %.loopexit23
+  %343 = phi i32 [ %70, %.loopexit23.thread ], [ %333, %.loopexit23 ]
   %344 = load i32, ptr %174, align 4
   %345 = add i32 %344, 63
   %346 = and i32 %345, -64
@@ -2344,19 +2365,19 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %360 = phi i32 [ %358, %356 ], [ %354, %342 ]
   %361 = sub i32 %360, %350
   store i32 %361, ptr %353, align 4
-  br label %.thread18
+  br label %.thread22
 
 362:                                              ; preds = %247
   store i8 %72, ptr %250, align 1
-  br label %.thread18
+  br label %.thread22
 
-.thread18:                                        ; preds = %.preheader, %362, %359, %.loopexit19
+.thread22:                                        ; preds = %.preheader, %362, %359, %.loopexit23
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %8) #12
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %364 = call i32 @__wake_up(ptr noundef nonnull %363, i32 noundef 3, i32 noundef 1, ptr noundef null) #12
   br label %365
 
-365:                                              ; preds = %.thread18, %.thread
+365:                                              ; preds = %.thread22, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

@@ -12263,16 +12263,17 @@ for.inc541:                                       ; preds = %if.else.i.i.i1323, 
 for.body551:                                      ; preds = %for.cond547.preheader, %for.inc559
   %i546.02400 = phi i16 [ %inc560, %for.inc559 ], [ 0, %for.cond547.preheader ]
   %idxprom553 = zext i16 %i546.02400 to i64
-  %p555 = getelementptr inbounds nuw %struct.NodeNeighbor, ptr %flows, i64 %idxprom553, i32 2
+  %p555.split = getelementptr inbounds nuw %struct.NodeNeighbor, ptr %flows, i64 %idxprom553
+  %p555 = getelementptr inbounds nuw i8, ptr %p555.split, i64 6
   %__x.057.i.i1684 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !152
   %cmp.not58.i.i1685 = icmp eq ptr %__x.057.i.i1684, null
   br i1 %cmp.not58.i.i1685, label %if.then.i.i1755, label %while.body.lr.ph.i.i1686
 
 while.body.lr.ph.i.i1686:                         ; preds = %for.body551
   %252 = load i16, ptr %p555, align 2, !tbaa !184
-  %Y.i.i.i.i1687 = getelementptr inbounds nuw i8, ptr %p555, i64 2
+  %Y.i.i.i.i1687 = getelementptr inbounds nuw i8, ptr %p555.split, i64 8
   %253 = load i16, ptr %Y.i.i.i.i1687, align 4
-  %Z.i.i.i.i1688 = getelementptr inbounds nuw i8, ptr %p555, i64 4
+  %Z.i.i.i.i1688 = getelementptr inbounds nuw i8, ptr %p555.split, i64 10
   %254 = load i16, ptr %Z.i.i.i.i1688, align 2
   br label %while.body.i.i1689
 
@@ -12347,7 +12348,7 @@ lor.lhs.false.i.i28.i.i1705:                      ; preds = %if.end12.i.i1701
 land.lhs.true.i.i30.i.i1711:                      ; preds = %lor.lhs.false.i.i28.i.i1705
   %Y.i.i31.i.i1712 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i.i1703, i64 34
   %261 = load i16, ptr %Y.i.i31.i.i1712, align 2, !tbaa !186
-  %Y10.i.i32.i.i1713 = getelementptr inbounds nuw i8, ptr %p555, i64 2
+  %Y10.i.i32.i.i1713 = getelementptr inbounds nuw i8, ptr %p555.split, i64 8
   %262 = load i16, ptr %Y10.i.i32.i.i1713, align 4, !tbaa !186
   %cmp12.i.i33.i.i1714 = icmp slt i16 %261, %262
   br i1 %cmp12.i.i33.i.i1714, label %if.then.i1721, label %land.lhs.true18.i.i34.i.i1715
@@ -12359,7 +12360,7 @@ land.lhs.true18.i.i34.i.i1715:                    ; preds = %land.lhs.true.i.i30
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit40.i.i1717: ; preds = %land.lhs.true18.i.i34.i.i1715
   %Z.i.i37.i.i1718 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i.i1703, i64 36
   %263 = load i16, ptr %Z.i.i37.i.i1718, align 2, !tbaa !187
-  %Z25.i.i38.i.i1719 = getelementptr inbounds nuw i8, ptr %p555, i64 4
+  %Z25.i.i38.i.i1719 = getelementptr inbounds nuw i8, ptr %p555.split, i64 10
   %264 = load i16, ptr %Z25.i.i38.i.i1719, align 2, !tbaa !187
   %cmp27.i.i39.i.i1720 = icmp slt i16 %263, %264
   br i1 %cmp27.i.i39.i.i1720, label %if.then.i1721, label %for.inc559
@@ -12381,7 +12382,7 @@ lor.lhs.false.i.i.i17.i1727:                      ; preds = %lor.rhs.i.i1724
   br i1 %cmp8.i.i.i18.i1728, label %land.lhs.true.i.i.i19.i1733, label %_ZNSt8_Rb_treeIN3irr4core8vector3dIsEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i1729
 
 land.lhs.true.i.i.i19.i1733:                      ; preds = %lor.lhs.false.i.i.i17.i1727
-  %Y.i.i.i20.i1734 = getelementptr inbounds nuw i8, ptr %p555, i64 2
+  %Y.i.i.i20.i1734 = getelementptr inbounds nuw i8, ptr %p555.split, i64 8
   %267 = load i16, ptr %Y.i.i.i20.i1734, align 4, !tbaa !186
   %Y10.i.i.i21.i1735 = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i.ph.i1722, i64 34
   %268 = load i16, ptr %Y10.i.i.i21.i1735, align 2, !tbaa !186
@@ -12393,7 +12394,7 @@ land.lhs.true18.i.i.i23.i1737:                    ; preds = %land.lhs.true.i.i.i
   br i1 %cmp23.i.i.i24.i1738, label %land.rhs.i.i.i.i1739, label %_ZNSt8_Rb_treeIN3irr4core8vector3dIsEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i1729
 
 land.rhs.i.i.i.i1739:                             ; preds = %land.lhs.true18.i.i.i23.i1737
-  %Z.i.i.i25.i1740 = getelementptr inbounds nuw i8, ptr %p555, i64 4
+  %Z.i.i.i25.i1740 = getelementptr inbounds nuw i8, ptr %p555.split, i64 10
   %269 = load i16, ptr %Z.i.i.i25.i1740, align 2, !tbaa !187
   %Z25.i.i.i26.i1741 = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i.ph.i1722, i64 36
   %270 = load i16, ptr %Z25.i.i.i26.i1741, align 2, !tbaa !187

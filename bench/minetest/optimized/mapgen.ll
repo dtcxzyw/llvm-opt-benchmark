@@ -3422,38 +3422,35 @@ for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.spli
   %15 = and i32 %reass.sub, 3
   %lcmp.mod.not = icmp eq i32 %15, 3
   %16 = icmp ult i32 %14, 3
-  br i1 %16, label %for.body.lr.ph.split.split.split.us, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %for.body.lr.ph.split.split
-  %17 = add nsw i32 %conv16.i, %xtraiter
-  br label %for.body
+  br i1 %16, label %for.body.lr.ph.split.split.split.us, label %for.body.lr.ph.split.split.split
 
 for.body.lr.ph.split.split.split.us:              ; preds = %for.body.lr.ph.split.split
   br i1 %lcmp.mod.not, label %for.cond.cleanup, label %for.body.us
 
-for.body.us:                                      ; preds = %for.body.lr.ph.split.split.split.us, %for.cond14.for.cond.cleanup19_crit_edge.split.split.us.split.us6
-  %z.087.us = phi i32 [ %inc44.us, %for.cond14.for.cond.cleanup19_crit_edge.split.split.us.split.us6 ], [ %conv, %for.body.lr.ph.split.split.split.us ]
+for.body.us:                                      ; preds = %for.body.lr.ph.split.split.split.us, %for.cond14.for.cond.cleanup19_crit_edge.split.split.us.split.us18
+  %z.087.us = phi i32 [ %inc44.us, %for.cond14.for.cond.cleanup19_crit_edge.split.split.us.split.us18 ], [ %conv, %for.body.lr.ph.split.split.split.us ]
   %sext.us = shl i32 %z.087.us, 16
   %conv.i.us = ashr exact i32 %sext.us, 16
   %sub.i.us = sub nsw i32 %conv.i.us, %conv2.i
   %mul.i.us = mul nsw i32 %sub.i.us, %conv3.i
   %sub11.i.us = sub i32 %mul.i.us, %conv10.i
-  br label %for.body20.us.us2
+  br label %for.body20.us.us14
 
-for.body20.us.us2:                                ; preds = %for.body.us, %for.body35.prol.loopexit.loopexit.us.us
-  %y.085.us.us3 = phi i32 [ %conv13, %for.body.us ], [ %inc40.us.us4, %for.body35.prol.loopexit.loopexit.us.us ]
-  %sext78.us.us = shl i32 %y.085.us.us3, 16
+for.body20.us.us14:                               ; preds = %for.body.us, %for.body35.prol.loopexit.loopexit.us.us
+  %y.085.us.us15 = phi i32 [ %conv13, %for.body.us ], [ %inc40.us.us16, %for.body35.prol.loopexit.loopexit.us.us ]
+  %sext78.us.us = shl i32 %y.085.us.us15, 16
   %conv7.i.us.us = ashr exact i32 %sext78.us.us, 16
   %mul622.i.us.us = add i32 %sub11.i.us, %conv7.i.us.us
   %add.i.us.us = mul i32 %mul622.i.us.us, %conv5.i
   %add21.i.us.us = add nsw i32 %add.i.us.us, %sub20.i
   br label %for.body35.prol.us.us
 
-for.body35.prol.us.us:                            ; preds = %for.body35.prol.us.us, %for.body20.us.us2
-  %i.082.prol.us.us = phi i32 [ %inc37.prol.us.us, %for.body35.prol.us.us ], [ %add21.i.us.us, %for.body20.us.us2 ]
-  %prol.iter.us.us = phi i32 [ %prol.iter.next.us.us, %for.body35.prol.us.us ], [ 0, %for.body20.us.us2 ]
+for.body35.prol.us.us:                            ; preds = %for.body35.prol.us.us, %for.body20.us.us14
+  %i.082.prol.us.us = phi i32 [ %inc37.prol.us.us, %for.body35.prol.us.us ], [ %add21.i.us.us, %for.body20.us.us14 ]
+  %prol.iter.us.us = phi i32 [ %prol.iter.next.us.us, %for.body35.prol.us.us ], [ 0, %for.body20.us.us14 ]
   %idxprom.prol.us.us = zext i32 %i.082.prol.us.us to i64
-  %param1.prol.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.prol.us.us, i32 1
+  %param1.prol.split.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.prol.us.us
+  %param1.prol.us.us = getelementptr inbounds nuw i8, ptr %param1.prol.split.us.us, i64 2
   store i8 %light, ptr %param1.prol.us.us, align 2, !tbaa !170
   %inc37.prol.us.us = add i32 %i.082.prol.us.us, 1
   %prol.iter.next.us.us = add i32 %prol.iter.us.us, 1
@@ -3461,16 +3458,79 @@ for.body35.prol.us.us:                            ; preds = %for.body35.prol.us.
   br i1 %prol.iter.cmp.not.us.us, label %for.body35.prol.loopexit.loopexit.us.us, label %for.body35.prol.us.us, !llvm.loop !171
 
 for.body35.prol.loopexit.loopexit.us.us:          ; preds = %for.body35.prol.us.us
-  %inc40.us.us4 = add nsw i32 %y.085.us.us3, 1
-  %exitcond95.not.us.us5 = icmp eq i32 %y.085.us.us3, %conv17
-  br i1 %exitcond95.not.us.us5, label %for.cond14.for.cond.cleanup19_crit_edge.split.split.us.split.us6, label %for.body20.us.us2, !llvm.loop !173
+  %inc40.us.us16 = add nsw i32 %y.085.us.us15, 1
+  %exitcond95.not.us.us17 = icmp eq i32 %y.085.us.us15, %conv17
+  br i1 %exitcond95.not.us.us17, label %for.cond14.for.cond.cleanup19_crit_edge.split.split.us.split.us18, label %for.body20.us.us14, !llvm.loop !173
 
-for.cond14.for.cond.cleanup19_crit_edge.split.split.us.split.us6: ; preds = %for.body35.prol.loopexit.loopexit.us.us
+for.cond14.for.cond.cleanup19_crit_edge.split.split.us.split.us18: ; preds = %for.body35.prol.loopexit.loopexit.us.us
   %inc44.us = add nsw i32 %z.087.us, 1
   %exitcond97.not.us = icmp eq i32 %z.087.us, %conv11
   br i1 %exitcond97.not.us, label %for.cond.cleanup, label %for.body.us, !llvm.loop !174
 
-for.cond.cleanup:                                 ; preds = %for.cond14.for.cond.cleanup19_crit_edge.split.split, %for.cond14.for.cond.cleanup19_crit_edge.split.split.us.split.us6, %for.body.lr.ph.split.split.split.us, %for.body.lr.ph.split, %for.body.lr.ph, %invoke.cont9
+for.body.lr.ph.split.split.split:                 ; preds = %for.body.lr.ph.split.split
+  br i1 %lcmp.mod.not, label %for.body.us20, label %for.body.preheader
+
+for.body.preheader:                               ; preds = %for.body.lr.ph.split.split.split
+  %17 = add nsw i32 %conv16.i, %xtraiter
+  br label %for.body
+
+for.body.us20:                                    ; preds = %for.body.lr.ph.split.split.split, %for.cond14.for.cond.cleanup19_crit_edge.split.split.split.us.us
+  %z.087.us21 = phi i32 [ %inc44.us27, %for.cond14.for.cond.cleanup19_crit_edge.split.split.split.us.us ], [ %conv, %for.body.lr.ph.split.split.split ]
+  %sext.us22 = shl i32 %z.087.us21, 16
+  %conv.i.us23 = ashr exact i32 %sext.us22, 16
+  %sub.i.us24 = sub nsw i32 %conv.i.us23, %conv2.i
+  %mul.i.us25 = mul nsw i32 %sub.i.us24, %conv3.i
+  %sub11.i.us26 = sub i32 %mul.i.us25, %conv10.i
+  br label %for.body20.us2.us
+
+for.body20.us2.us:                                ; preds = %for.cond29.for.cond.cleanup34_crit_edge.loopexit.us.us, %for.body.us20
+  %y.085.us3.us = phi i32 [ %conv13, %for.body.us20 ], [ %inc40.us12.us, %for.cond29.for.cond.cleanup34_crit_edge.loopexit.us.us ]
+  %sext78.us4.us = shl i32 %y.085.us3.us, 16
+  %conv7.i.us5.us = ashr exact i32 %sext78.us4.us, 16
+  %mul622.i.us6.us = add i32 %sub11.i.us26, %conv7.i.us5.us
+  %add.i.us7.us = mul i32 %mul622.i.us6.us, %conv5.i
+  %add21.i.us8.us = add nsw i32 %add.i.us7.us, %sub20.i
+  br label %for.body35.us.us
+
+for.body35.us.us:                                 ; preds = %for.body35.us.us, %for.body20.us2.us
+  %x.083.us.us = phi i32 [ %inc.3.us.us, %for.body35.us.us ], [ %conv16.i, %for.body20.us2.us ]
+  %i.082.us.us = phi i32 [ %inc37.3.us.us, %for.body35.us.us ], [ %add21.i.us8.us, %for.body20.us2.us ]
+  %idxprom.us.us = zext i32 %i.082.us.us to i64
+  %param1.split.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.us.us
+  %param1.us.us = getelementptr inbounds nuw i8, ptr %param1.split.us.us, i64 2
+  store i8 %light, ptr %param1.us.us, align 2, !tbaa !170
+  %inc37.us.us = add i32 %i.082.us.us, 1
+  %idxprom.1.us.us = zext i32 %inc37.us.us to i64
+  %param1.1.split.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.1.us.us
+  %param1.1.us.us = getelementptr inbounds nuw i8, ptr %param1.1.split.us.us, i64 2
+  store i8 %light, ptr %param1.1.us.us, align 2, !tbaa !170
+  %inc37.1.us.us = add i32 %i.082.us.us, 2
+  %idxprom.2.us.us = zext i32 %inc37.1.us.us to i64
+  %param1.2.split.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.2.us.us
+  %param1.2.us.us = getelementptr inbounds nuw i8, ptr %param1.2.split.us.us, i64 2
+  store i8 %light, ptr %param1.2.us.us, align 2, !tbaa !170
+  %inc.2.us.us = add nsw i32 %x.083.us.us, 3
+  %inc37.2.us.us = add i32 %i.082.us.us, 3
+  %idxprom.3.us.us = zext i32 %inc37.2.us.us to i64
+  %param1.3.split.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.3.us.us
+  %param1.3.us.us = getelementptr inbounds nuw i8, ptr %param1.3.split.us.us, i64 2
+  store i8 %light, ptr %param1.3.us.us, align 2, !tbaa !170
+  %inc.3.us.us = add nsw i32 %x.083.us.us, 4
+  %inc37.3.us.us = add i32 %i.082.us.us, 4
+  %exitcond.not.3.us.us = icmp eq i32 %inc.2.us.us, %conv32
+  br i1 %exitcond.not.3.us.us, label %for.cond29.for.cond.cleanup34_crit_edge.loopexit.us.us, label %for.body35.us.us, !llvm.loop !175
+
+for.cond29.for.cond.cleanup34_crit_edge.loopexit.us.us: ; preds = %for.body35.us.us
+  %inc40.us12.us = add nsw i32 %y.085.us3.us, 1
+  %exitcond95.not.us13.us = icmp eq i32 %y.085.us3.us, %conv17
+  br i1 %exitcond95.not.us13.us, label %for.cond14.for.cond.cleanup19_crit_edge.split.split.split.us.us, label %for.body20.us2.us, !llvm.loop !173
+
+for.cond14.for.cond.cleanup19_crit_edge.split.split.split.us.us: ; preds = %for.cond29.for.cond.cleanup34_crit_edge.loopexit.us.us
+  %inc44.us27 = add nsw i32 %z.087.us21, 1
+  %exitcond97.not.us28 = icmp eq i32 %z.087.us21, %conv11
+  br i1 %exitcond97.not.us28, label %for.cond.cleanup, label %for.body.us20, !llvm.loop !174
+
+for.cond.cleanup:                                 ; preds = %for.cond14.for.cond.cleanup19_crit_edge.split.split.split, %for.cond14.for.cond.cleanup19_crit_edge.split.split.split.us.us, %for.cond14.for.cond.cleanup19_crit_edge.split.split.us.split.us18, %for.body.lr.ph.split.split.split.us, %for.body.lr.ph.split, %for.body.lr.ph, %invoke.cont9
   call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %sp) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %sp)
   ret void
@@ -3497,8 +3557,8 @@ ehcleanup:                                        ; preds = %if.then.i.i63, %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %sp)
   resume { ptr, i32 } %18
 
-for.body:                                         ; preds = %for.body.preheader, %for.cond14.for.cond.cleanup19_crit_edge.split.split
-  %z.087 = phi i32 [ %inc44, %for.cond14.for.cond.cleanup19_crit_edge.split.split ], [ %conv, %for.body.preheader ]
+for.body:                                         ; preds = %for.body.preheader, %for.cond14.for.cond.cleanup19_crit_edge.split.split.split
+  %z.087 = phi i32 [ %inc44, %for.cond14.for.cond.cleanup19_crit_edge.split.split.split ], [ %conv, %for.body.preheader ]
   %sext = shl i32 %z.087, 16
   %conv.i = ashr exact i32 %sext, 16
   %sub.i = sub nsw i32 %conv.i, %conv2.i
@@ -3506,7 +3566,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub11.i = sub i32 %mul.i, %conv10.i
   br label %for.body20
 
-for.cond14.for.cond.cleanup19_crit_edge.split.split: ; preds = %for.cond29.for.cond.cleanup34_crit_edge.loopexit
+for.cond14.for.cond.cleanup19_crit_edge.split.split.split: ; preds = %for.cond29.for.cond.cleanup34_crit_edge.loopexit
   %inc44 = add nsw i32 %z.087, 1
   %exitcond97.not = icmp eq i32 %z.087, %conv11
   br i1 %exitcond97.not, label %for.cond.cleanup, label %for.body, !llvm.loop !174
@@ -3518,47 +3578,47 @@ for.body20:                                       ; preds = %for.cond29.for.cond
   %mul622.i = add i32 %sub11.i, %conv7.i
   %add.i = mul i32 %mul622.i, %conv5.i
   %add21.i = add nsw i32 %add.i, %sub20.i
-  br i1 %lcmp.mod.not, label %for.body35.preheader, label %for.body35.prol
-
-for.body35.preheader:                             ; preds = %for.body35.prol, %for.body20
-  %x.083.ph = phi i32 [ %conv16.i, %for.body20 ], [ %17, %for.body35.prol ]
-  %i.082.ph = phi i32 [ %add21.i, %for.body20 ], [ %inc37.prol, %for.body35.prol ]
-  br label %for.body35
+  br label %for.body35.prol
 
 for.body35.prol:                                  ; preds = %for.body20, %for.body35.prol
   %i.082.prol = phi i32 [ %inc37.prol, %for.body35.prol ], [ %add21.i, %for.body20 ]
   %prol.iter = phi i32 [ %prol.iter.next, %for.body35.prol ], [ 0, %for.body20 ]
   %idxprom.prol = zext i32 %i.082.prol to i64
-  %param1.prol = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.prol, i32 1
+  %param1.prol.split = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.prol
+  %param1.prol = getelementptr inbounds nuw i8, ptr %param1.prol.split, i64 2
   store i8 %light, ptr %param1.prol, align 2, !tbaa !170
   %inc37.prol = add i32 %i.082.prol, 1
   %prol.iter.next = add i32 %prol.iter, 1
   %prol.iter.cmp.not = icmp eq i32 %prol.iter.next, %xtraiter
-  br i1 %prol.iter.cmp.not, label %for.body35.preheader, label %for.body35.prol, !llvm.loop !171
+  br i1 %prol.iter.cmp.not, label %for.body35, label %for.body35.prol, !llvm.loop !171
 
 for.cond29.for.cond.cleanup34_crit_edge.loopexit: ; preds = %for.body35
   %inc40 = add nsw i32 %y.085, 1
   %exitcond95.not = icmp eq i32 %y.085, %conv17
-  br i1 %exitcond95.not, label %for.cond14.for.cond.cleanup19_crit_edge.split.split, label %for.body20, !llvm.loop !173
+  br i1 %exitcond95.not, label %for.cond14.for.cond.cleanup19_crit_edge.split.split.split, label %for.body20, !llvm.loop !173
 
-for.body35:                                       ; preds = %for.body35.preheader, %for.body35
-  %x.083 = phi i32 [ %inc.3, %for.body35 ], [ %x.083.ph, %for.body35.preheader ]
-  %i.082 = phi i32 [ %inc37.3, %for.body35 ], [ %i.082.ph, %for.body35.preheader ]
+for.body35:                                       ; preds = %for.body35.prol, %for.body35
+  %x.083 = phi i32 [ %inc.3, %for.body35 ], [ %17, %for.body35.prol ]
+  %i.082 = phi i32 [ %inc37.3, %for.body35 ], [ %inc37.prol, %for.body35.prol ]
   %idxprom = zext i32 %i.082 to i64
-  %param1 = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom, i32 1
+  %param1.split = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom
+  %param1 = getelementptr inbounds nuw i8, ptr %param1.split, i64 2
   store i8 %light, ptr %param1, align 2, !tbaa !170
   %inc37 = add i32 %i.082, 1
   %idxprom.1 = zext i32 %inc37 to i64
-  %param1.1 = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.1, i32 1
+  %param1.1.split = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.1
+  %param1.1 = getelementptr inbounds nuw i8, ptr %param1.1.split, i64 2
   store i8 %light, ptr %param1.1, align 2, !tbaa !170
   %inc37.1 = add i32 %i.082, 2
   %idxprom.2 = zext i32 %inc37.1 to i64
-  %param1.2 = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.2, i32 1
+  %param1.2.split = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.2
+  %param1.2 = getelementptr inbounds nuw i8, ptr %param1.2.split, i64 2
   store i8 %light, ptr %param1.2, align 2, !tbaa !170
   %inc.2 = add nsw i32 %x.083, 3
   %inc37.2 = add i32 %i.082, 3
   %idxprom.3 = zext i32 %inc37.2 to i64
-  %param1.3 = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.3, i32 1
+  %param1.3.split = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %idxprom.3
+  %param1.3 = getelementptr inbounds nuw i8, ptr %param1.3.split, i64 2
   store i8 %light, ptr %param1.3, align 2, !tbaa !170
   %inc.3 = add nsw i32 %x.083, 4
   %inc37.3 = add i32 %i.082, 4
@@ -3903,7 +3963,7 @@ for.body16.us1.us.us:                             ; preds = %cleanup60.us26.us.u
   br i1 %cmp29.us9.us.us, label %for.body50.us12.us.us.preheader, label %if.else.us10.us.us
 
 if.else.us10.us.us:                               ; preds = %for.body16.us1.us.us
-  %param1.us.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %7, i64 %idxprom.us7.us.us, i32 1
+  %param1.us.us.us = getelementptr inbounds nuw i8, ptr %arrayidx.us8.us.us, i64 2
   %11 = load i8, ptr %param1.us.us.us, align 2, !tbaa !170
   %12 = and i8 %11, 15
   %cmp36.not.us.us.us.not = icmp eq i8 %12, 15
@@ -3968,7 +4028,7 @@ for.body16.us1:                                   ; preds = %for.body.us, %clean
   br i1 %cmp29.us9, label %cleanup60.us26, label %if.else.us10
 
 if.else.us10:                                     ; preds = %for.body16.us1
-  %param1.us = getelementptr inbounds nuw %struct.MapNode, ptr %7, i64 %idxprom.us7, i32 1
+  %param1.us = getelementptr inbounds nuw i8, ptr %arrayidx.us8, i64 2
   %17 = load i8, ptr %param1.us, align 2, !tbaa !170
   %18 = and i8 %17, 15
   %cmp36.not.us.not = icmp eq i8 %18, 15

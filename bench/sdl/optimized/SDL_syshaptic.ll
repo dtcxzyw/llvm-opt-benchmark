@@ -1474,48 +1474,49 @@ define hidden noundef zeroext i1 @SDL_SYS_HapticStopAll(ptr noundef readonly cap
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %11
 
-11:                                               ; preds = %.lr.ph, %28
-  %12 = phi i32 [ %4, %.lr.ph ], [ %29, %28 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
+11:                                               ; preds = %.lr.ph, %29
+  %12 = phi i32 [ %4, %.lr.ph ], [ %30, %29 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw %struct.haptic_effect, ptr %13, i64 %indvars.iv, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %28, label %16
+  %14 = getelementptr inbounds nuw %struct.haptic_effect, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  %16 = load ptr, ptr %15, align 8
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %29, label %17
 
-16:                                               ; preds = %11
+17:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 21, ptr %7, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  %18 = load i16, ptr %17, align 2
-  store i16 %18, ptr %8, align 2
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %19 = load i16, ptr %18, align 2
+  store i16 %19, ptr %8, align 2
   store i32 0, ptr %9, align 4
-  %19 = load ptr, ptr %10, align 8
-  %20 = load i32, ptr %19, align 8
-  %21 = call i64 @write(i32 noundef %20, ptr noundef nonnull %2, i64 noundef 24) #13
-  %22 = icmp slt i64 %21, 0
-  br i1 %22, label %23, label %SDL_SYS_HapticStopEffect.exit
+  %20 = load ptr, ptr %10, align 8
+  %21 = load i32, ptr %20, align 8
+  %22 = call i64 @write(i32 noundef %21, ptr noundef nonnull %2, i64 noundef 24) #13
+  %23 = icmp slt i64 %22, 0
+  br i1 %23, label %24, label %SDL_SYS_HapticStopEffect.exit
 
-23:                                               ; preds = %16
-  %24 = tail call ptr @__errno_location() #15
-  %25 = load i32, ptr %24, align 4
-  %26 = tail call ptr @strerror(i32 noundef %25) #13
-  %27 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6, ptr noundef %26) #13
+24:                                               ; preds = %17
+  %25 = tail call ptr @__errno_location() #15
+  %26 = load i32, ptr %25, align 4
+  %27 = tail call ptr @strerror(i32 noundef %26) #13
+  %28 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6, ptr noundef %27) #13
   br label %SDL_SYS_HapticStopEffect.exit
 
-SDL_SYS_HapticStopEffect.exit:                    ; preds = %16, %23
+SDL_SYS_HapticStopEffect.exit:                    ; preds = %17, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr %3, align 8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %SDL_SYS_HapticStopEffect.exit, %11
-  %29 = phi i32 [ %.pre, %SDL_SYS_HapticStopEffect.exit ], [ %12, %11 ]
+29:                                               ; preds = %SDL_SYS_HapticStopEffect.exit, %11
+  %30 = phi i32 [ %.pre, %SDL_SYS_HapticStopEffect.exit ], [ %12, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %11, label %._crit_edge, !llvm.loop !12
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %32, label %11, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %28, %1
+._crit_edge:                                      ; preds = %29, %1
   ret i1 true
 }
 

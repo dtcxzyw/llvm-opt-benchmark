@@ -1615,7 +1615,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_CB_transport(ptr noundef 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 256) i32 @usb_stor_Bulk_max_lun(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 16) i32 @usb_stor_Bulk_max_lun(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   store i8 0, ptr %3, align 1

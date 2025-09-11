@@ -2482,7 +2482,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_number(ptr noundef %0, p
 define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !38
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %108, label %5
+  br i1 %4, label %112, label %5
 
 5:                                                ; preds = %2
   %6 = tail call ptr @local_strdup(ptr noundef nonnull %0) #18
@@ -2520,9 +2520,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
 .preheader:                                       ; preds = %17, %._crit_edge
   br label %18
 
-18:                                               ; preds = %.preheader, %107
-  %.06989 = phi i32 [ %.1, %107 ], [ 0, %.preheader ]
-  %.07388 = phi ptr [ %.171, %107 ], [ %6, %.preheader ]
+18:                                               ; preds = %.preheader, %111
+  %.06989 = phi i32 [ %.1, %111 ], [ 0, %.preheader ]
+  %.07388 = phi ptr [ %.171, %111 ], [ %6, %.preheader ]
   %19 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.07388, i32 noundef 44) #19
   %.not80 = icmp eq ptr %19, null
   br i1 %.not80, label %22, label %20
@@ -2556,7 +2556,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   %32 = zext i32 %.06989 to i64
   %33 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %31, i64 %32
   store i32 0, ptr %33, align 4, !tbaa !72
-  br label %107
+  br label %111
 
 34:                                               ; preds = %27
   %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(8) @.str.100) #19
@@ -2568,12 +2568,12 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   %39 = zext i32 %.06989 to i64
   %40 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %38, i64 %39
   store i32 1, ptr %40, align 4, !tbaa !72
-  br label %107
+  br label %111
 
 41:                                               ; preds = %34
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(12) @.str.98) #19
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %79
+  br i1 %43, label %44, label %83
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr %15, align 8, !tbaa !71
@@ -2581,9 +2581,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   %47 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %45, i64 %46
   store i32 2, ptr %47, align 4, !tbaa !72
   %48 = zext i1 %.not81 to i32
-  %49 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %45, i64 %46, i32 2
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 %48, ptr %49, align 4, !tbaa !74
-  br i1 %.not81, label %50, label %107
+  br i1 %.not81, label %50, label %111
 
 50:                                               ; preds = %44
   %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.07284) #19
@@ -2593,10 +2593,10 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   ]
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %45, i64 %46, i32 1
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %54 = load i32, ptr %.07284, align 1
   store i32 %54, ptr %53, align 1
-  br label %107
+  br label %111
 
 55:                                               ; preds = %50
   %56 = tail call i32 @strncasecmp(ptr noundef nonnull %.07284, ptr noundef nonnull @.str.101, i64 noundef 2) #19
@@ -2613,84 +2613,88 @@ define internal fastcc range(i32 0, 2) i32 @parse_block_type(ptr noundef %0, ptr
   %63 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %59, ptr noundef null, i32 noundef 16) #18
   %64 = trunc i64 %63 to i8
   %65 = load ptr, ptr %15, align 8, !tbaa !71
-  %66 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %65, i64 %46, i32 1, i64 3
-  store i8 %64, ptr %66, align 1, !tbaa !38
-  %67 = lshr i64 %63, 8
-  %68 = trunc i64 %67 to i8
-  %69 = load ptr, ptr %15, align 8, !tbaa !71
-  %70 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %69, i64 %46, i32 1, i64 2
-  store i8 %68, ptr %70, align 2, !tbaa !38
-  %71 = lshr i64 %63, 16
-  %72 = trunc i64 %71 to i8
-  %73 = load ptr, ptr %15, align 8, !tbaa !71
-  %74 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %73, i64 %46, i32 1, i64 1
-  store i8 %72, ptr %74, align 1, !tbaa !38
-  %75 = lshr i64 %63, 24
-  %76 = trunc i64 %75 to i8
-  %77 = load ptr, ptr %15, align 8, !tbaa !71
-  %78 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %77, i64 %46, i32 1
-  store i8 %76, ptr %78, align 4, !tbaa !38
-  br label %107
+  %66 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %65, i64 %46
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 7
+  store i8 %64, ptr %67, align 1, !tbaa !38
+  %68 = lshr i64 %63, 8
+  %69 = trunc i64 %68 to i8
+  %70 = load ptr, ptr %15, align 8, !tbaa !71
+  %71 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %70, i64 %46
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 6
+  store i8 %69, ptr %72, align 2, !tbaa !38
+  %73 = lshr i64 %63, 16
+  %74 = trunc i64 %73 to i8
+  %75 = load ptr, ptr %15, align 8, !tbaa !71
+  %76 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %75, i64 %46
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 5
+  store i8 %74, ptr %77, align 1, !tbaa !38
+  %78 = lshr i64 %63, 24
+  %79 = trunc i64 %78 to i8
+  %80 = load ptr, ptr %15, align 8, !tbaa !71
+  %81 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %80, i64 %46
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  store i8 %79, ptr %82, align 4, !tbaa !38
+  br label %111
 
-79:                                               ; preds = %41
-  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(10) @.str.103) #19
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %86
+83:                                               ; preds = %41
+  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(10) @.str.103) #19
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %90
 
-82:                                               ; preds = %79
-  %83 = load ptr, ptr %15, align 8, !tbaa !71
-  %84 = zext i32 %.06989 to i64
-  %85 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %83, i64 %84
-  store i32 3, ptr %85, align 4, !tbaa !72
-  br label %107
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %15, align 8, !tbaa !71
+  %88 = zext i32 %.06989 to i64
+  %89 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %87, i64 %88
+  store i32 3, ptr %89, align 4, !tbaa !72
+  br label %111
 
-86:                                               ; preds = %79
-  %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(15) @.str.104) #19
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %93
+90:                                               ; preds = %83
+  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(15) @.str.104) #19
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %97
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %15, align 8, !tbaa !71
-  %91 = zext i32 %.06989 to i64
-  %92 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %90, i64 %91
-  store i32 4, ptr %92, align 4, !tbaa !72
-  br label %107
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %15, align 8, !tbaa !71
+  %95 = zext i32 %.06989 to i64
+  %96 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %94, i64 %95
+  store i32 4, ptr %96, align 4, !tbaa !72
+  br label %111
 
-93:                                               ; preds = %86
-  %94 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(9) @.str.105) #19
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %100
+97:                                               ; preds = %90
+  %98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(9) @.str.105) #19
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %104
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %15, align 8, !tbaa !71
-  %98 = zext i32 %.06989 to i64
-  %99 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %97, i64 %98
-  store i32 5, ptr %99, align 4, !tbaa !72
-  br label %107
+100:                                              ; preds = %97
+  %101 = load ptr, ptr %15, align 8, !tbaa !71
+  %102 = zext i32 %.06989 to i64
+  %103 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %101, i64 %102
+  store i32 5, ptr %103, align 4, !tbaa !72
+  br label %111
 
-100:                                              ; preds = %93
-  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(8) @.str.106) #19
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %.sink.split
+104:                                              ; preds = %97
+  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07388, ptr noundef nonnull dereferenceable(8) @.str.106) #19
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %.sink.split
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %15, align 8, !tbaa !71
-  %105 = zext i32 %.06989 to i64
-  %106 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %104, i64 %105
-  store i32 6, ptr %106, align 4, !tbaa !72
-  br label %107
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %15, align 8, !tbaa !71
+  %109 = zext i32 %.06989 to i64
+  %110 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %108, i64 %109
+  store i32 6, ptr %110, align 4, !tbaa !72
+  br label %111
 
-107:                                              ; preds = %44, %62, %52, %37, %82, %96, %103, %89, %30
+111:                                              ; preds = %44, %62, %52, %37, %86, %100, %107, %93, %30
   %.1 = add i32 %.06989, 1
   %.not79 = icmp eq ptr %.171, null
   br i1 %.not79, label %.sink.split, label %18, !llvm.loop !75
 
-.sink.split:                                      ; preds = %107, %100, %55, %58, %50, %24
-  %.0.ph = phi i32 [ 0, %24 ], [ 0, %50 ], [ 0, %58 ], [ 0, %55 ], [ 0, %100 ], [ 1, %107 ]
+.sink.split:                                      ; preds = %111, %104, %55, %58, %50, %24
+  %.0.ph = phi i32 [ 0, %24 ], [ 0, %50 ], [ 0, %58 ], [ 0, %55 ], [ 0, %104 ], [ 1, %111 ]
   tail call void @free(ptr noundef %6) #18
-  br label %108
+  br label %112
 
-108:                                              ; preds = %.sink.split, %2
+112:                                              ; preds = %.sink.split, %2
   %.0 = phi i32 [ 0, %2 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

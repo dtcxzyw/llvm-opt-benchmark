@@ -23,53 +23,54 @@ define range(i32 -2147483648, 1) i32 @ff_mov_init_hinting(ptr noundef %0, i32 no
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds %struct.MOVTrack, ptr %7, i64 %8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !30
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
-  %14 = load ptr, ptr %13, align 8, !tbaa !31
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  store i32 544240754, ptr %15, align 8, !tbaa !33
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 220
-  store i32 %2, ptr %16, align 4, !tbaa !52
-  %17 = tail call ptr @avcodec_parameters_alloc() #5
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  store ptr %17, ptr %18, align 8, !tbaa !53
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %34, label %19
+  %11 = getelementptr inbounds %struct.MOVTrack, ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %14 = getelementptr inbounds ptr, ptr %13, i64 %10
+  %15 = load ptr, ptr %14, align 8, !tbaa !31
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  store i32 544240754, ptr %16, align 8, !tbaa !33
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 220
+  store i32 %2, ptr %17, align 4, !tbaa !52
+  %18 = tail call ptr @avcodec_parameters_alloc() #5
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  store ptr %18, ptr %19, align 8, !tbaa !53
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %35, label %20
 
-19:                                               ; preds = %3
-  store i32 2, ptr %17, align 8, !tbaa !54
-  %20 = load i32, ptr %15, align 8, !tbaa !33
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 %20, ptr %21, align 8, !tbaa !59
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 224
-  %23 = tail call i32 @ff_rtp_chain_mux_open(ptr noundef nonnull %22, ptr noundef nonnull %0, ptr noundef %14, ptr noundef null, i32 noundef 1450, i32 noundef %2) #5
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %34, label %25
+20:                                               ; preds = %3
+  store i32 2, ptr %18, align 8, !tbaa !54
+  %21 = load i32, ptr %16, align 8, !tbaa !33
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !59
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 224
+  %24 = tail call i32 @ff_rtp_chain_mux_open(ptr noundef nonnull %23, ptr noundef nonnull %0, ptr noundef %15, ptr noundef null, i32 noundef 1450, i32 noundef %2) #5
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %35, label %26
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %22, align 8, !tbaa !60
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !30
-  %29 = load ptr, ptr %28, align 8, !tbaa !31
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
-  %31 = load i32, ptr %30, align 4, !tbaa !61
-  %32 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %31, ptr %32, align 4, !tbaa !64
-  %33 = getelementptr inbounds %struct.MOVTrack, ptr %7, i64 %10, i32 35
-  store i32 %1, ptr %33, align 8, !tbaa !65
-  br label %36
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %23, align 8, !tbaa !60
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = load ptr, ptr %28, align 8, !tbaa !30
+  %30 = load ptr, ptr %29, align 8, !tbaa !31
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 36
+  %32 = load i32, ptr %31, align 4, !tbaa !61
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 %32, ptr %33, align 4, !tbaa !64
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 216
+  store i32 %1, ptr %34, align 8, !tbaa !65
+  br label %37
 
-34:                                               ; preds = %19, %3
-  %.0 = phi i32 [ %23, %19 ], [ -12, %3 ]
+35:                                               ; preds = %20, %3
+  %.0 = phi i32 [ %24, %20 ], [ -12, %3 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str, i32 noundef %2) #5
-  tail call void @avcodec_parameters_free(ptr noundef nonnull %18) #5
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 90000, ptr %35, align 4, !tbaa !64
-  br label %36
+  tail call void @avcodec_parameters_free(ptr noundef nonnull %19) #5
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 90000, ptr %36, align 4, !tbaa !64
+  br label %37
 
-36:                                               ; preds = %34, %25
-  %.029 = phi i32 [ %.0, %34 ], [ 0, %25 ]
+37:                                               ; preds = %35, %26
+  %.029 = phi i32 [ %.0, %35 ], [ 0, %26 ]
   ret i32 %.029
 }
 
@@ -180,31 +181,31 @@ define i32 @ff_mov_add_hinted_packet(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %sample_queue_push.exit.sink.split.sink.split
 
 sample_queue_push.exit.sink.split.sink.split:     ; preds = %.thread.i, %.thread.i53
-  %.sink202.ph = phi ptr [ %53, %.thread.i53 ], [ %35, %.thread.i ]
-  %.sink200.ph = phi ptr [ %40, %.thread.i53 ], [ %4, %.thread.i ]
+  %.sink198.ph = phi ptr [ %53, %.thread.i53 ], [ %35, %.thread.i ]
+  %.sink196.ph = phi ptr [ %40, %.thread.i53 ], [ %4, %.thread.i ]
   %.sink.ph = phi i32 [ %42, %.thread.i53 ], [ %5, %.thread.i ]
   %.phi.trans.insert.i54 = getelementptr inbounds nuw i8, ptr %14, i64 276
   %.pre29.i55 = load i32, ptr %.phi.trans.insert.i54, align 4, !tbaa !72
   br label %sample_queue_push.exit.sink.split
 
 sample_queue_push.exit.sink.split:                ; preds = %sample_queue_push.exit.sink.split.sink.split, %47, %29
-  %.sink204 = phi i32 [ %31, %29 ], [ %49, %47 ], [ %.pre29.i55, %sample_queue_push.exit.sink.split.sink.split ]
-  %.sink202 = phi ptr [ %28, %29 ], [ %46, %47 ], [ %.sink202.ph, %sample_queue_push.exit.sink.split.sink.split ]
-  %.sink200 = phi ptr [ %4, %29 ], [ %40, %47 ], [ %.sink200.ph, %sample_queue_push.exit.sink.split.sink.split ]
+  %.sink200 = phi i32 [ %31, %29 ], [ %49, %47 ], [ %.pre29.i55, %sample_queue_push.exit.sink.split.sink.split ]
+  %.sink198 = phi ptr [ %28, %29 ], [ %46, %47 ], [ %.sink198.ph, %sample_queue_push.exit.sink.split.sink.split ]
+  %.sink196 = phi ptr [ %4, %29 ], [ %40, %47 ], [ %.sink196.ph, %sample_queue_push.exit.sink.split.sink.split ]
   %.sink = phi i32 [ %5, %29 ], [ %42, %47 ], [ %.sink.ph, %sample_queue_push.exit.sink.split.sink.split ]
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 276
-  %57 = sext i32 %.sink204 to i64
-  %58 = getelementptr inbounds %struct.HintSample, ptr %.sink202, i64 %57
-  store ptr %.sink200, ptr %58, align 8, !tbaa !75
-  %59 = getelementptr inbounds %struct.HintSample, ptr %.sink202, i64 %57, i32 1
+  %57 = sext i32 %.sink200 to i64
+  %58 = getelementptr inbounds %struct.HintSample, ptr %.sink198, i64 %57
+  store ptr %.sink196, ptr %58, align 8, !tbaa !75
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 %.sink, ptr %59, align 8, !tbaa !77
-  %60 = getelementptr inbounds %struct.HintSample, ptr %.sink202, i64 %57, i32 2
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store i32 %3, ptr %60, align 4, !tbaa !78
-  %61 = getelementptr inbounds %struct.HintSample, ptr %.sink202, i64 %57, i32 3
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i32 0, ptr %61, align 8, !tbaa !79
-  %62 = getelementptr inbounds %struct.HintSample, ptr %.sink202, i64 %57, i32 4
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 20
   store i32 0, ptr %62, align 4, !tbaa !80
-  %63 = add nsw i32 %.sink204, 1
+  %63 = add nsw i32 %.sink200, 1
   store i32 %63, ptr %56, align 4, !tbaa !72
   br label %sample_queue_push.exit
 

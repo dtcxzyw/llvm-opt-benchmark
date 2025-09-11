@@ -15074,7 +15074,7 @@ define hidden void @"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewA
   %9 = add i64 %8, %6
   store i64 %9, ptr %7, align 8
   %10 = icmp ult i32 %5, 13
-  br i1 %10, label %25, label %11
+  br i1 %10, label %26, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -15086,29 +15086,30 @@ define hidden void @"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewA
   %17 = zext i32 %16 to i64
   %18 = icmp ugt i64 %3, %17
   tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %20 = load i32, ptr %19, align 4, !noundef !7
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %2, i64 %17, i32 1
-  %23 = load ptr, ptr %22, align 8, !noundef !7
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
-  tail call fastcc void @"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h5f2a24a899f4961eE"(ptr noalias noundef align 8 dereferenceable(160) %0, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef %6)
-  br label %33
+  %19 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %2, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %21 = load i32, ptr %20, align 4, !noundef !7
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %24 = load ptr, ptr %23, align 8, !noundef !7
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
+  tail call fastcc void @"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h5f2a24a899f4961eE"(ptr noalias noundef align 8 dereferenceable(160) %0, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %6)
+  br label %34
 
-25:                                               ; preds = %4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8, !nonnull !7, !noundef !7
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load i64, ptr %28, align 8, !noundef !7
-  %30 = icmp ult i64 %29, 576460752303423488
-  tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %27, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %32 = add nuw nsw i64 %29, 1
-  store i64 %32, ptr %28, align 8
-  br label %33
+26:                                               ; preds = %4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8, !nonnull !7, !noundef !7
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load i64, ptr %29, align 8, !noundef !7
+  %31 = icmp ult i64 %30, 576460752303423488
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %28, i64 %30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  %33 = add nuw nsw i64 %30, 1
+  store i64 %33, ptr %29, align 8
+  br label %34
 
-33:                                               ; preds = %25, %11
+34:                                               ; preds = %26, %11
   ret void
 }
 
@@ -15121,7 +15122,7 @@ define hidden void @"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewA
   %9 = add i64 %8, %6
   store i64 %9, ptr %7, align 8
   %10 = icmp ult i32 %5, 13
-  br i1 %10, label %25, label %11
+  br i1 %10, label %26, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -15133,29 +15134,30 @@ define hidden void @"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewA
   %17 = zext i32 %16 to i64
   %18 = icmp ugt i64 %3, %17
   tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %20 = load i32, ptr %19, align 4, !noundef !7
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %2, i64 %17, i32 1
-  %23 = load ptr, ptr %22, align 8, !noundef !7
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
-  tail call fastcc void @"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17hc9bcb6dc12e23c50E"(ptr noalias noundef align 8 dereferenceable(160) %0, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef %6)
-  br label %33
+  %19 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %2, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %21 = load i32, ptr %20, align 4, !noundef !7
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %24 = load ptr, ptr %23, align 8, !noundef !7
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
+  tail call fastcc void @"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17hc9bcb6dc12e23c50E"(ptr noalias noundef align 8 dereferenceable(160) %0, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %6)
+  br label %34
 
-25:                                               ; preds = %4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8, !nonnull !7, !noundef !7
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load i64, ptr %28, align 8, !noundef !7
-  %30 = icmp ult i64 %29, 576460752303423488
-  tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %27, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %32 = add nuw nsw i64 %29, 1
-  store i64 %32, ptr %28, align 8
-  br label %33
+26:                                               ; preds = %4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8, !nonnull !7, !noundef !7
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load i64, ptr %29, align 8, !noundef !7
+  %31 = icmp ult i64 %30, 576460752303423488
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %28, i64 %30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
+  %33 = add nuw nsw i64 %30, 1
+  store i64 %33, ptr %29, align 8
+  br label %34
 
-33:                                               ; preds = %25, %11
+34:                                               ; preds = %26, %11
   ret void
 }
 

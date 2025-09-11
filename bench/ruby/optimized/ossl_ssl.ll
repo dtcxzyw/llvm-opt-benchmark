@@ -3711,7 +3711,7 @@ define internal fastcc i32 @parse_proto_version(i64 noundef %0) unnamed_addr #0 
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8, !tbaa !10
   %3 = icmp eq i64 %0, 4
-  br i1 %3, label %47, label %4
+  br i1 %3, label %48, label %4
 
 4:                                                ; preds = %1
   %5 = and i64 %0, 1
@@ -3743,7 +3743,7 @@ rb_integer_type_p.exit:                           ; preds = %6
 rb_num2int_inline.exit:                           ; preds = %15, %17
   %.0.i7 = phi i64 [ %16, %15 ], [ %18, %17 ]
   %19 = trunc i64 %.0.i7 to i32
-  br label %47
+  br label %48
 
 rb_integer_type_p.exit.thread9:                   ; preds = %6
   %20 = and i64 %0, 254
@@ -3806,17 +3806,18 @@ RSTRING_PTR.exit:                                 ; preds = %RB_SYMBOL_P.exit.th
 
 .split14.us:                                      ; preds = %RSTRING_PTR.exit, %RSTRING_PTR.exit.us
   %43 = phi i64 [ %indvars.iv21, %RSTRING_PTR.exit.us ], [ %indvars.iv, %RSTRING_PTR.exit ]
-  %44 = getelementptr inbounds nuw %struct.anon.0, ptr @parse_proto_version.map, i64 %43, i32 1
-  %45 = load i32, ptr %44, align 8, !tbaa !62
-  br label %47
+  %44 = getelementptr inbounds nuw %struct.anon.0, ptr @parse_proto_version.map, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i32, ptr %45, align 8, !tbaa !62
+  br label %48
 
 .split.us:                                        ; preds = %39, %38
-  %46 = load i64, ptr @rb_eArgError, align 8, !tbaa !10
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %46, ptr noundef nonnull @.str.194, i64 noundef %28) #10
+  %47 = load i64, ptr @rb_eArgError, align 8, !tbaa !10
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %47, ptr noundef nonnull @.str.194, i64 noundef %28) #10
   unreachable
 
-47:                                               ; preds = %1, %.split14.us, %rb_num2int_inline.exit
-  %.05 = phi i32 [ %19, %rb_num2int_inline.exit ], [ %45, %.split14.us ], [ 0, %1 ]
+48:                                               ; preds = %1, %.split14.us, %rb_num2int_inline.exit
+  %.05 = phi i32 [ %19, %rb_num2int_inline.exit ], [ %46, %.split14.us ], [ 0, %1 ]
   ret i32 %.05
 }
 

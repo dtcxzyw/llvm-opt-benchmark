@@ -877,7 +877,7 @@ define dso_local noundef i64 @_ZNK4llvm28DWARFAbbreviationDeclaration27getAttrib
   %13 = zext i32 %1 to i64
   br label %15
 
-._crit_edge.loopexit:                             ; preds = %41
+._crit_edge.loopexit:                             ; preds = %42
   %.pre = load i64, ptr %6, align 8, !tbaa !16
   br label %._crit_edge
 
@@ -887,8 +887,8 @@ define dso_local noundef i64 @_ZNK4llvm28DWARFAbbreviationDeclaration27getAttrib
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %14
 
-15:                                               ; preds = %.lr.ph, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
+15:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %16 = load ptr, ptr %11, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
@@ -925,17 +925,18 @@ _ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
   %34 = load i64, ptr %6, align 8, !tbaa !16
   %35 = add i64 %34, %.sroa.02.0.i.ph
   store i64 %35, ptr %6, align 8, !tbaa !16
-  br label %41
+  br label %42
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %11, align 8, !tbaa !14
-  %38 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %37, i64 %indvars.iv, i32 1
-  %39 = load i16, ptr %38, align 2, !tbaa !119
+  %38 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %37, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 2
+  %40 = load i16, ptr %39, align 2, !tbaa !119
   %.sroa.0.0.copyload = load i48, ptr %12, align 8
-  %40 = call noundef zeroext i1 @_ZN4llvm14DWARFFormValue9skipValueENS_5dwarf4FormENS_13DataExtractorEPmNS1_10FormParamsE(i16 noundef zeroext %39, ptr noundef nonnull byval(%"class.llvm::DataExtractor") align 8 %5, ptr noundef nonnull %6, i48 %.sroa.0.0.copyload) #14
-  br label %41
+  %41 = call noundef zeroext i1 @_ZN4llvm14DWARFFormValue9skipValueENS_5dwarf4FormENS_13DataExtractorEPmNS1_10FormParamsE(i16 noundef zeroext %40, ptr noundef nonnull byval(%"class.llvm::DataExtractor") align 8 %5, ptr noundef nonnull %6, i48 %.sroa.0.0.copyload) #14
+  br label %42
 
-41:                                               ; preds = %36, %33
+42:                                               ; preds = %36, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %.not, label %._crit_edge.loopexit, label %15, !llvm.loop !126
@@ -1075,7 +1076,7 @@ define dso_local void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValu
 _ZNK4llvm28DWARFAbbreviationDeclaration18findAttributeIndexENS_5dwarf9AttributeE.exit.thread: ; preds = %20, %5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %21, align 8, !tbaa !127
-  br label %75
+  br label %76
 
 22:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1094,12 +1095,12 @@ _ZNK4llvm28DWARFAbbreviationDeclaration18findAttributeIndexENS_5dwarf9AttributeE
   %28 = and i64 %indvars.iv, 4294967295
   br label %29
 
-._crit_edge.loopexit.i7:                          ; preds = %55
+._crit_edge.loopexit.i7:                          ; preds = %56
   %.pre.i = load i64, ptr %10, align 8, !tbaa !16
   br label %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeOffsetFromIndexEjmRKNS_9DWARFUnitE.exit
 
-29:                                               ; preds = %55, %.lr.ph.i5
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i5 ], [ %indvars.iv.next.i, %55 ]
+29:                                               ; preds = %56, %.lr.ph.i5
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i5 ], [ %indvars.iv.next.i, %56 ]
   %30 = load ptr, ptr %13, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %30, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2
@@ -1136,77 +1137,78 @@ _ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
   %48 = load i64, ptr %10, align 8, !tbaa !16
   %49 = add i64 %48, %.sroa.02.0.i.ph.i
   store i64 %49, ptr %10, align 8, !tbaa !16
-  br label %55
+  br label %56
 
 50:                                               ; preds = %43
   %51 = load ptr, ptr %13, align 8, !tbaa !14
-  %52 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %51, i64 %indvars.iv.i, i32 1
-  %53 = load i16, ptr %52, align 2, !tbaa !119
+  %52 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %51, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 2
+  %54 = load i16, ptr %53, align 2, !tbaa !119
   %.sroa.0.0.copyload.i = load i48, ptr %27, align 8
-  %54 = call noundef zeroext i1 @_ZN4llvm14DWARFFormValue9skipValueENS_5dwarf4FormENS_13DataExtractorEPmNS1_10FormParamsE(i16 noundef zeroext %53, ptr noundef nonnull byval(%"class.llvm::DataExtractor") align 8 %9, ptr noundef nonnull %10, i48 %.sroa.0.0.copyload.i) #14
-  br label %55
+  %55 = call noundef zeroext i1 @_ZN4llvm14DWARFFormValue9skipValueENS_5dwarf4FormENS_13DataExtractorEPmNS1_10FormParamsE(i16 noundef zeroext %54, ptr noundef nonnull byval(%"class.llvm::DataExtractor") align 8 %9, ptr noundef nonnull %10, i48 %.sroa.0.0.copyload.i) #14
+  br label %56
 
-55:                                               ; preds = %50, %47
+56:                                               ; preds = %50, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i6 = icmp eq i64 %indvars.iv.next.i, %28
   br i1 %.not.i6, label %._crit_edge.loopexit.i7, label %29, !llvm.loop !126
 
 _ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeOffsetFromIndexEjmRKNS_9DWARFUnitE.exit: ; preds = %22, %._crit_edge.loopexit.i7
   %.pre-phi = phi i64 [ %28, %._crit_edge.loopexit.i7 ], [ 0, %22 ]
-  %56 = phi i64 [ %.pre.i, %._crit_edge.loopexit.i7 ], [ %26, %22 ]
+  %57 = phi i64 [ %.pre.i, %._crit_edge.loopexit.i7 ], [ %26, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !141)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %56, ptr %6, align 8, !tbaa !16, !noalias !141
-  %57 = load ptr, ptr %13, align 8, !tbaa !14, !noalias !141
-  %58 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %57, i64 %.pre-phi
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  %60 = load i16, ptr %59, align 2, !tbaa !119, !noalias !141
-  %61 = icmp eq i16 %60, 33
-  br i1 %61, label %62, label %66
+  store i64 %57, ptr %6, align 8, !tbaa !16, !noalias !141
+  %58 = load ptr, ptr %13, align 8, !tbaa !14, !noalias !141
+  %59 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %58, i64 %.pre-phi
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 2
+  %61 = load i16, ptr %60, align 2, !tbaa !119, !noalias !141
+  %62 = icmp eq i16 %61, 33
+  br i1 %62, label %63, label %67
 
-62:                                               ; preds = %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeOffsetFromIndexEjmRKNS_9DWARFUnitE.exit
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %64 = load i64, ptr %63, align 8, !tbaa !51, !noalias !141
-  call void @_ZN4llvm14DWARFFormValue16createFromSValueENS_5dwarf4FormEl(ptr dead_on_unwind nonnull writable sret(%"class.llvm::DWARFFormValue") align 8 %0, i16 noundef zeroext 33, i64 noundef %64) #14
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 1, ptr %65, align 8, !tbaa !127, !alias.scope !141
+63:                                               ; preds = %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeOffsetFromIndexEjmRKNS_9DWARFUnitE.exit
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %65 = load i64, ptr %64, align 8, !tbaa !51, !noalias !141
+  call void @_ZN4llvm14DWARFFormValue16createFromSValueENS_5dwarf4FormEl(ptr dead_on_unwind nonnull writable sret(%"class.llvm::DWARFFormValue") align 8 %0, i16 noundef zeroext 33, i64 noundef %65) #14
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 1, ptr %66, align 8, !tbaa !127, !alias.scope !141
   br label %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValueFromOffsetEjmRKNS_9DWARFUnitE.exit
 
-66:                                               ; preds = %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeOffsetFromIndexEjmRKNS_9DWARFUnitE.exit
+67:                                               ; preds = %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeOffsetFromIndexEjmRKNS_9DWARFUnitE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !141
-  store i16 %60, ptr %7, align 8, !tbaa !129, !noalias !141
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 0, ptr %67, align 2, !tbaa !135, !noalias !141
-  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 16, i1 false), !noalias !141
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false), !noalias !141
+  store i16 %61, ptr %7, align 8, !tbaa !129, !noalias !141
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i8 0, ptr %68, align 2, !tbaa !135, !noalias !141
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 16, i1 false), !noalias !141
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false), !noalias !141
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !141
   call void @_ZNK4llvm9DWARFUnit21getDebugInfoExtractorEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::DWARFDataExtractor") align 8 %8, ptr noundef nonnull align 8 dereferenceable(448) %4) #14, !noalias !141
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sroa.0.0.copyload.i8 = load i48, ptr %70, align 8, !noalias !141
-  %71 = call noundef zeroext i1 @_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPmNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull %6, i48 %.sroa.0.0.copyload.i8, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(448) %4) #14, !noalias !141
-  br i1 %71, label %72, label %73
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sroa.0.0.copyload.i8 = load i48, ptr %71, align 8, !noalias !141
+  %72 = call noundef zeroext i1 @_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPmNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull %6, i48 %.sroa.0.0.copyload.i8, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(448) %4) #14, !noalias !141
+  br i1 %72, label %73, label %74
 
-72:                                               ; preds = %66
+73:                                               ; preds = %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !tbaa.struct !136
-  br label %73
+  br label %74
 
-73:                                               ; preds = %72, %66
-  %.sink.i = phi i8 [ 1, %72 ], [ 0, %66 ]
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %.sink.i, ptr %74, align 8, !tbaa !127, !alias.scope !141
+74:                                               ; preds = %73, %67
+  %.sink.i = phi i8 [ 1, %73 ], [ 0, %67 ]
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 %.sink.i, ptr %75, align 8, !tbaa !127, !alias.scope !141
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !141
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !141
   br label %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValueFromOffsetEjmRKNS_9DWARFUnitE.exit
 
-_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValueFromOffsetEjmRKNS_9DWARFUnitE.exit: ; preds = %62, %73
+_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValueFromOffsetEjmRKNS_9DWARFUnitE.exit: ; preds = %63, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %75
+  br label %76
 
-75:                                               ; preds = %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValueFromOffsetEjmRKNS_9DWARFUnitE.exit, %_ZNK4llvm28DWARFAbbreviationDeclaration18findAttributeIndexENS_5dwarf9AttributeE.exit.thread
+76:                                               ; preds = %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValueFromOffsetEjmRKNS_9DWARFUnitE.exit, %_ZNK4llvm28DWARFAbbreviationDeclaration18findAttributeIndexENS_5dwarf9AttributeE.exit.thread
   ret void
 }
 

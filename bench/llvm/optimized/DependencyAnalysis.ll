@@ -609,9 +609,7 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit31.thread: ; preds = %92,
   unreachable
 
 switch.lookup:                                    ; preds = %13
-  %switch.cast = trunc nuw i32 %switch.tableidx to i20
-  %switch.downshift = lshr i20 8, %switch.cast
-  %switch.masked = trunc i20 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 3
   br label %_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit
 
 _ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit: ; preds = %.critedge.i, %40, %switch.lookup, %29, %27, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit.i, %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit38, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit31.thread, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit, %9, %7, %7, %7, %4, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread, %_ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit, %11

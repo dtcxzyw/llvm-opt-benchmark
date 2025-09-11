@@ -146,25 +146,25 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %9 = alloca [8 x i32], align 16
   %10 = xor i1 %6, true
   %11 = or i1 %2, %10
-  br i1 %11, label %81, label %.preheader35
+  br i1 %11, label %81, label %.preheader39
 
-.preheader35:                                     ; preds = %7, %16
+.preheader39:                                     ; preds = %7, %16
   %12 = phi i64 [ %17, %16 ], [ 0, %7 ]
   %13 = getelementptr %struct.hdac_cea_channel_speaker_allocation, ptr @channel_allocations, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, %3
   br i1 %15, label %19, label %16
 
-16:                                               ; preds = %.preheader35
+16:                                               ; preds = %.preheader39
   %17 = add nuw nsw i64 %12, 1
   %18 = icmp eq i64 %17, 50
-  br i1 %18, label %.loopexit36, label %.preheader35, !llvm.loop !11
+  br i1 %18, label %.loopexit40, label %.preheader39, !llvm.loop !11
 
-19:                                               ; preds = %.preheader35
+19:                                               ; preds = %.preheader39
   %20 = trunc i64 %12 to i32
-  br label %.loopexit36
+  br label %.loopexit40
 
-.loopexit36:                                      ; preds = %16, %19
+.loopexit40:                                      ; preds = %16, %19
   %21 = phi i32 [ %20, %19 ], [ 50, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 15, ptr %9, align 16
@@ -183,22 +183,23 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 15, ptr %28, align 4
   %29 = icmp sgt i32 %4, 0
-  br i1 %29, label %30, label %.loopexit34
+  br i1 %29, label %30, label %.loopexit38
 
-30:                                               ; preds = %.loopexit36
+30:                                               ; preds = %.loopexit40
   %31 = sext i32 %21 to i64
   %32 = icmp ugt i32 %21, 49
   %33 = zext nneg i32 %4 to i64
-  %.split = getelementptr %struct.hdac_cea_channel_speaker_allocation, ptr @channel_allocations, i64 %31, i32 1
+  %.split = getelementptr %struct.hdac_cea_channel_speaker_allocation, ptr @channel_allocations, i64 %31
+  %.split20 = getelementptr i8, ptr %.split, i64 4
   br label %36
 
-.loopexit34:                                      ; preds = %.thread25, %.loopexit36
+.loopexit38:                                      ; preds = %.thread29, %.loopexit40
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %68
 
-36:                                               ; preds = %.thread25, %30
-  %37 = phi i64 [ 0, %30 ], [ %66, %.thread25 ]
+36:                                               ; preds = %.thread29, %30
+  %37 = phi i64 [ 0, %30 ], [ %66, %.thread29 ]
   %38 = getelementptr i8, ptr %5, i64 %37
   %39 = load i8, ptr %38, align 1
   br label %40
@@ -213,43 +214,43 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %45 = getelementptr i8, ptr %42, i64 8
   %46 = load i8, ptr %45, align 4
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %.thread25, label %40, !llvm.loop !9
+  br i1 %47, label %.thread29, label %40, !llvm.loop !9
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 0
   %52 = select i1 %32, i1 true, i1 %51
-  br i1 %52, label %.thread25, label %.preheader32
+  br i1 %52, label %.thread29, label %.preheader36
 
-.preheader32:                                     ; preds = %48, %59
+.preheader36:                                     ; preds = %48, %59
   %53 = phi i32 [ %60, %59 ], [ 0, %48 ]
   %54 = xor i32 %53, 7
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr i32, ptr %.split, i64 %55
+  %56 = getelementptr i32, ptr %.split20, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, %50
   br i1 %58, label %62, label %59
 
-59:                                               ; preds = %.preheader32
+59:                                               ; preds = %.preheader36
   %60 = add nuw nsw i32 %53, 1
   %61 = icmp eq i32 %60, 8
-  br i1 %61, label %.thread25, label %.preheader32, !llvm.loop !12
+  br i1 %61, label %.thread29, label %.preheader36, !llvm.loop !12
 
-62:                                               ; preds = %.preheader32
+62:                                               ; preds = %.preheader36
   %63 = zext nneg i32 %53 to i64
   %64 = getelementptr i32, ptr %9, i64 %63
   %65 = trunc i64 %37 to i32
   store i32 %65, ptr %64, align 4
-  br label %.thread25
+  br label %.thread29
 
-.thread25:                                        ; preds = %44, %59, %48, %62
+.thread29:                                        ; preds = %44, %59, %48, %62
   %66 = add nuw nsw i64 %37, 1
   %67 = icmp eq i64 %66, %33
-  br i1 %67, label %.loopexit34, label %36, !llvm.loop !13
+  br i1 %67, label %.loopexit38, label %36, !llvm.loop !13
 
-68:                                               ; preds = %68, %.loopexit34
-  %69 = phi i64 [ 0, %.loopexit34 ], [ %77, %68 ]
+68:                                               ; preds = %68, %.loopexit38
+  %69 = phi i64 [ 0, %.loopexit38 ], [ %77, %68 ]
   %70 = load ptr, ptr %34, align 8
   %71 = load ptr, ptr %35, align 8
   %72 = getelementptr i32, ptr %9, i64 %69
@@ -264,7 +265,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 
 80:                                               ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.loopexit27
+  br label %.loopexit31
 
 81:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -289,10 +290,11 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %93 = ashr exact i64 %92, 32
   %94 = getelementptr %struct.hdac_cea_channel_speaker_allocation, ptr @channel_allocations, i64 %93
   %95 = sext i32 %3 to i64
-  %96 = getelementptr [8 x i32], ptr @hdmi_channel_mapping, i64 %95, i64 1
+  %.split21 = getelementptr [8 x i32], ptr @hdmi_channel_mapping, i64 %95
+  %96 = getelementptr i8, ptr %.split21, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %.loopexit30
+  br i1 %98, label %99, label %.loopexit34
 
 99:                                               ; preds = %90
   %100 = getelementptr inbounds nuw i8, ptr %94, i64 36
@@ -302,7 +304,6 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %.split20 = getelementptr [8 x i32], ptr @hdmi_channel_mapping, i64 %95
   br label %105
 
 105:                                              ; preds = %131, %103
@@ -310,7 +311,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %107 = phi i64 [ 0, %103 ], [ %139, %131 ]
   %108 = phi i32 [ 0, %103 ], [ %136, %131 ]
   %109 = icmp sgt i32 %108, 7
-  br i1 %109, label %.loopexit31, label %110, !prof !16
+  br i1 %109, label %.loopexit35, label %110, !prof !16
 
 110:                                              ; preds = %105
   %111 = sext i32 %108 to i64
@@ -323,10 +324,9 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 114:                                              ; preds = %112, %99
   %115 = phi i32 [ 0, %99 ], [ %113, %112 ]
   %116 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %.split21 = getelementptr [8 x i32], ptr @hdmi_channel_mapping, i64 %95
   br label %142
 
-.loopexit31:                                      ; preds = %126, %105
+.loopexit35:                                      ; preds = %126, %105
   %117 = phi i32 [ %108, %105 ], [ 8, %126 ]
   tail call void asm sideeffect "360: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 360b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 360) #13, !srcloc !17
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.12, i32 357, i32 2305, i64 12) #13, !srcloc !18
@@ -347,20 +347,20 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 126:                                              ; preds = %118
   %127 = add nsw i64 %119, 1
   %128 = icmp eq i64 %127, 8
-  br i1 %128, label %.loopexit31, label %118, !prof !20, !llvm.loop !21
+  br i1 %128, label %.loopexit35, label %118, !prof !20, !llvm.loop !21
 
 129:                                              ; preds = %118
   %130 = trunc i64 %119 to i32
   br label %131
 
-131:                                              ; preds = %129, %.loopexit31
-  %132 = phi i32 [ %.pre, %.loopexit31 ], [ %106, %129 ]
-  %133 = phi i32 [ %117, %.loopexit31 ], [ %130, %129 ]
+131:                                              ; preds = %129, %.loopexit35
+  %132 = phi i32 [ %.pre, %.loopexit35 ], [ %106, %129 ]
+  %133 = phi i32 [ %117, %.loopexit35 ], [ %130, %129 ]
   %134 = trunc i64 %107 to i32
   %135 = shl i32 %134, 4
   %136 = add i32 %133, 1
   %137 = or i32 %133, %135
-  %138 = getelementptr i32, ptr %.split20, i64 %107
+  %138 = getelementptr i32, ptr %.split21, i64 %107
   store i32 %137, ptr %138, align 4
   %139 = add nuw nsw i64 %107, 1
   %140 = sext i32 %132 to i64
@@ -389,16 +389,16 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %156 = phi i32 [ %143, %142 ], [ %152, %150 ]
   %157 = add nuw nsw i32 %144, 1
   %158 = icmp eq i32 %157, 8
-  br i1 %158, label %.loopexit30, label %142, !llvm.loop !23
+  br i1 %158, label %.loopexit34, label %142, !llvm.loop !23
 
-.loopexit30:                                      ; preds = %155, %90
-  br i1 %2, label %159, label %.loopexit29
+.loopexit34:                                      ; preds = %155, %90
+  br i1 %2, label %159, label %.loopexit33
 
-159:                                              ; preds = %.loopexit30
+159:                                              ; preds = %.loopexit34
   %160 = getelementptr inbounds nuw i8, ptr %94, i64 36
   %161 = load i32, ptr %160, align 4
   %162 = icmp sgt i32 %161, 0
-  br i1 %162, label %163, label %.thread26.preheader
+  br i1 %162, label %163, label %.thread30.preheader
 
 163:                                              ; preds = %159
   %164 = zext nneg i32 %161 to i64
@@ -406,11 +406,11 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 
 165:                                              ; preds = %167
   %166 = icmp samesign ult i64 %168, 7
-  br i1 %166, label %.thread26.preheader, label %.loopexit29
+  br i1 %166, label %.thread30.preheader, label %.loopexit33
 
-.thread26.preheader:                              ; preds = %159, %165
-  %.ph110 = phi i64 [ 0, %159 ], [ %164, %165 ]
-  br label %.thread26
+.thread30.preheader:                              ; preds = %159, %165
+  %.ph115 = phi i64 [ 0, %159 ], [ %164, %165 ]
+  br label %.thread30
 
 167:                                              ; preds = %167, %163
   %168 = phi i64 [ 0, %163 ], [ %173, %167 ]
@@ -423,25 +423,24 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %174 = icmp eq i64 %173, %164
   br i1 %174, label %165, label %167, !llvm.loop !24
 
-.thread26:                                        ; preds = %.thread26.preheader, %.thread26
-  %175 = phi i64 [ %179, %.thread26 ], [ %.ph110, %.thread26.preheader ]
+.thread30:                                        ; preds = %.thread30.preheader, %.thread30
+  %175 = phi i64 [ %179, %.thread30 ], [ %.ph115, %.thread30.preheader ]
   %176 = trunc i64 %175 to i32
   %177 = or i32 %176, 240
   %178 = getelementptr i32, ptr %8, i64 %175
   store i32 %177, ptr %178, align 4
   %179 = add nuw nsw i64 %175, 1
   %180 = icmp eq i64 %179, 8
-  br i1 %180, label %.loopexit29, label %.thread26, !llvm.loop !25
+  br i1 %180, label %.loopexit33, label %.thread30, !llvm.loop !25
 
-.loopexit29:                                      ; preds = %.thread26, %165, %.loopexit30
+.loopexit33:                                      ; preds = %.thread30, %165, %.loopexit34
+  %.v = phi ptr [ %8, %165 ], [ %.split21, %.loopexit34 ], [ %8, %.thread30 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.split22 = getelementptr [8 x i32], ptr @hdmi_channel_mapping, i64 %95
-  %.v = select i1 %2, ptr %8, ptr %.split22
   br label %183
 
-183:                                              ; preds = %183, %.loopexit29
-  %184 = phi i64 [ 0, %.loopexit29 ], [ %194, %183 ]
+183:                                              ; preds = %183, %.loopexit33
+  %184 = phi i64 [ 0, %.loopexit33 ], [ %194, %183 ]
   %185 = getelementptr i32, ptr %.v, i64 %184
   %186 = load i32, ptr %185, align 4
   %187 = and i32 %186, 15
@@ -465,34 +464,35 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %200 = getelementptr %struct.hdac_cea_channel_speaker_allocation, ptr @channel_allocations, i64 %199
   %201 = load i32, ptr %200, align 4
   %202 = icmp eq i32 %201, %3
-  br i1 %202, label %.loopexit28, label %203
+  br i1 %202, label %.loopexit32, label %203
 
 203:                                              ; preds = %198
   %204 = add nuw nsw i64 %199, 1
   %205 = icmp eq i64 %204, 50
-  br i1 %205, label %.split49.preheader, label %198, !llvm.loop !11
+  br i1 %205, label %.split53.preheader, label %198, !llvm.loop !11
 
-.loopexit28:                                      ; preds = %198
+.loopexit32:                                      ; preds = %198
   %206 = trunc i64 %199 to i32
   %207 = icmp ult i32 %206, 50
   %208 = and i64 %199, 4294967295
-  %209 = getelementptr %struct.hdac_cea_channel_speaker_allocation, ptr @channel_allocations, i64 %208, i32 2
-  %.split24 = getelementptr %struct.hdac_cea_channel_speaker_allocation, ptr @channel_allocations, i64 %208, i32 1
-  br i1 %207, label %.split49.us, label %.split49.preheader
+  %.split25 = getelementptr %struct.hdac_cea_channel_speaker_allocation, ptr @channel_allocations, i64 %208
+  %209 = getelementptr i8, ptr %.split25, i64 36
+  %.split28 = getelementptr i8, ptr %.split25, i64 4
+  br i1 %207, label %.split53.us, label %.split53.preheader
 
-.split49.preheader:                               ; preds = %203, %.loopexit28
+.split53.preheader:                               ; preds = %203, %.loopexit32
   store i64 0, ptr %5, align 1
-  br label %.loopexit27
+  br label %.loopexit31
 
-.split49.us:                                      ; preds = %.loopexit28, %.loopexit.us
-  %210 = phi i64 [ %236, %.loopexit.us ], [ 0, %.loopexit28 ]
+.split53.us:                                      ; preds = %.loopexit32, %.loopexit.us
+  %210 = phi i64 [ %236, %.loopexit.us ], [ 0, %.loopexit32 ]
   %211 = load i32, ptr %209, align 4
   %212 = sext i32 %211 to i64
   %213 = icmp slt i64 %210, %212
   br i1 %213, label %214, label %.loopexit.us
 
-214:                                              ; preds = %.split49.us
-  %215 = getelementptr i32, ptr %.split22, i64 %210
+214:                                              ; preds = %.split53.us
+  %215 = getelementptr i32, ptr %.split21, i64 %210
   %216 = load i32, ptr %215, align 4
   %217 = trunc i32 %216 to i8
   %218 = and i8 %217, 15
@@ -502,7 +502,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
 220:                                              ; preds = %214
   %221 = xor i8 %218, 7
   %222 = zext nneg i8 %221 to i64
-  %223 = getelementptr i32, ptr %.split24, i64 %222
+  %223 = getelementptr i32, ptr %.split28, i64 %222
   %224 = load i32, ptr %223, align 4
   %225 = icmp eq i32 %224, 1
   br i1 %225, label %.loopexit.us, label %.preheader.us
@@ -520,15 +520,15 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   %233 = icmp eq i32 %232, %224
   br i1 %233, label %.loopexit.us, label %.preheader.us, !llvm.loop !10
 
-.loopexit.us:                                     ; preds = %.preheader.us, %230, %220, %214, %.split49.us
-  %234 = phi i8 [ 0, %214 ], [ 3, %220 ], [ 0, %.split49.us ], [ %228, %230 ], [ 0, %.preheader.us ]
+.loopexit.us:                                     ; preds = %.preheader.us, %230, %220, %214, %.split53.us
+  %234 = phi i8 [ 0, %214 ], [ 3, %220 ], [ 0, %.split53.us ], [ %228, %230 ], [ 0, %.preheader.us ]
   %235 = getelementptr i8, ptr %5, i64 %210
   store i8 %234, ptr %235, align 1
   %236 = add nuw nsw i64 %210, 1
   %237 = icmp eq i64 %236, 8
-  br i1 %237, label %.loopexit27, label %.split49.us, !llvm.loop !27
+  br i1 %237, label %.loopexit31, label %.split53.us, !llvm.loop !27
 
-.loopexit27:                                      ; preds = %.loopexit.us, %.split49.preheader, %80
+.loopexit31:                                      ; preds = %.loopexit.us, %.split53.preheader, %80
   ret void
 }
 
@@ -559,7 +559,8 @@ define dso_local i32 @snd_hdac_get_active_channels(i32 noundef %0) #3 align 16 {
 13:                                               ; preds = %10, %.thread
   %14 = phi i64 [ 0, %.thread ], [ %3, %10 ]
   %15 = and i64 %14, 4294967295
-  %16 = getelementptr %struct.hdac_cea_channel_speaker_allocation, ptr @channel_allocations, i64 %15, i32 2
+  %.split = getelementptr %struct.hdac_cea_channel_speaker_allocation, ptr @channel_allocations, i64 %15
+  %16 = getelementptr i8, ptr %.split, i64 36
   %17 = load i32, ptr %16, align 4
   ret i32 %17
 }

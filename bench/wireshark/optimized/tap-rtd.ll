@@ -166,7 +166,7 @@ define internal void @rtd_draw(ptr noundef readonly captures(none) %0) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 1
-  br i1 %13, label %14, label %80
+  br i1 %13, label %14, label %81
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -196,16 +196,16 @@ define internal void @rtd_draw(ptr noundef readonly captures(none) %0) #0 {
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %36
 
-36:                                               ; preds = %.lr.ph104, %75
-  %37 = phi i32 [ %34, %.lr.ph104 ], [ %76, %75 ]
-  %38 = phi ptr [ %33, %.lr.ph104 ], [ %77, %75 ]
-  %indvars.iv113 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next114, %75 ]
+36:                                               ; preds = %.lr.ph104, %76
+  %37 = phi i32 [ %34, %.lr.ph104 ], [ %77, %76 ]
+  %38 = phi ptr [ %33, %.lr.ph104 ], [ %78, %76 ]
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next114, %76 ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr %struct._timestat_t, ptr %40, i64 %indvars.iv113
   %42 = load i32, ptr %41, align 8
   %.not98 = icmp eq i32 %42, 0
-  br i1 %.not98, label %75, label %43
+  br i1 %.not98, label %76, label %43
 
 43:                                               ; preds = %36
   %44 = load ptr, ptr %35, align 8
@@ -221,153 +221,159 @@ define internal void @rtd_draw(ptr noundef readonly captures(none) %0) #0 {
   %54 = load ptr, ptr %15, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr %struct._timestat_t, ptr %56, i64 %indvars.iv113, i32 4
-  %58 = tail call double @nstime_to_msec(ptr noundef %57)
-  %59 = load ptr, ptr %15, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr %struct._timestat_t, ptr %61, i64 %indvars.iv113
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %64 = load i32, ptr %62, align 8
-  %65 = tail call double @get_average(ptr noundef nonnull %63, i32 noundef %64)
-  %66 = load ptr, ptr %15, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr %struct._timestat_t, ptr %68, i64 %indvars.iv113
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %73 = load i32, ptr %72, align 8
-  %74 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %46, i32 noundef %51, double noundef %53, double noundef %58, double noundef %65, i32 noundef %71, i32 noundef %73)
+  %57 = getelementptr %struct._timestat_t, ptr %56, i64 %indvars.iv113
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %59 = tail call double @nstime_to_msec(ptr noundef nonnull %58)
+  %60 = load ptr, ptr %15, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr %struct._timestat_t, ptr %62, i64 %indvars.iv113
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  %65 = load i32, ptr %63, align 8
+  %66 = tail call double @get_average(ptr noundef nonnull %64, i32 noundef %65)
+  %67 = load ptr, ptr %15, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr %struct._timestat_t, ptr %69, i64 %indvars.iv113
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %72 = load i32, ptr %71, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %74 = load i32, ptr %73, align 8
+  %75 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %46, i32 noundef %51, double noundef %53, double noundef %59, double noundef %66, i32 noundef %72, i32 noundef %74)
   tail call void @wmem_free(ptr noundef null, ptr noundef %46)
   %.pre118 = load ptr, ptr %15, align 8
   %.pre119 = load i32, ptr %.pre118, align 8
-  br label %75
+  br label %76
 
-75:                                               ; preds = %36, %43
-  %76 = phi i32 [ %37, %36 ], [ %.pre119, %43 ]
-  %77 = phi ptr [ %38, %36 ], [ %.pre118, %43 ]
+76:                                               ; preds = %36, %43
+  %77 = phi i32 [ %37, %36 ], [ %.pre119, %43 ]
+  %78 = phi ptr [ %38, %36 ], [ %.pre118, %43 ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %78 = zext i32 %76 to i64
-  %79 = icmp samesign ult i64 %indvars.iv.next114, %78
-  br i1 %79, label %36, label %.loopexit, !llvm.loop !7
+  %79 = zext i32 %77 to i64
+  %80 = icmp samesign ult i64 %indvars.iv.next114, %79
+  br i1 %80, label %36, label %.loopexit, !llvm.loop !7
 
-80:                                               ; preds = %1
-  %81 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.14)
-  %82 = load i32, ptr %11, align 8
-  %.not105 = icmp eq i32 %82, 0
+81:                                               ; preds = %1
+  %82 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.14)
+  %83 = load i32, ptr %11, align 8
+  %.not105 = icmp eq i32 %83, 0
   br i1 %.not105, label %.loopexit, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %84 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.pre = load ptr, ptr %83, align 8
+.preheader.lr.ph:                                 ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.pre = load ptr, ptr %84, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %85 = phi i32 [ %82, %.preheader.lr.ph ], [ %153, %._crit_edge ]
-  %86 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %154, %._crit_edge ]
-  %87 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %155, %._crit_edge ]
+  %86 = phi i32 [ %83, %.preheader.lr.ph ], [ %159, %._crit_edge ]
+  %87 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %160, %._crit_edge ]
+  %88 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %161, %._crit_edge ]
   %indvars.iv110 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next111, %._crit_edge ]
-  %88 = getelementptr %struct._rtd_timestat, ptr %87, i64 %indvars.iv110
-  %89 = load i32, ptr %88, align 8
-  %.not106 = icmp eq i32 %89, 0
+  %89 = getelementptr %struct._rtd_timestat, ptr %88, i64 %indvars.iv110
+  %90 = load i32, ptr %89, align 8
+  %.not106 = icmp eq i32 %90, 0
   br i1 %.not106, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %90 = trunc nuw i64 %indvars.iv110 to i32
+  %91 = trunc nuw i64 %indvars.iv110 to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %147
-  %91 = phi ptr [ %86, %.lr.ph.preheader ], [ %148, %147 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %147 ]
-  %92 = phi ptr [ %87, %.lr.ph.preheader ], [ %148, %147 ]
-  %93 = getelementptr %struct._rtd_timestat, ptr %92, i64 %indvars.iv110, i32 1
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr %struct._timestat_t, ptr %94, i64 %indvars.iv
-  %96 = load i32, ptr %95, align 8
-  %.not95 = icmp eq i32 %96, 0
-  br i1 %.not95, label %147, label %97
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %153
+  %92 = phi ptr [ %87, %.lr.ph.preheader ], [ %154, %153 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %153 ]
+  %93 = phi ptr [ %88, %.lr.ph.preheader ], [ %154, %153 ]
+  %94 = getelementptr %struct._rtd_timestat, ptr %93, i64 %indvars.iv110
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr %struct._timestat_t, ptr %96, i64 %indvars.iv
+  %98 = load i32, ptr %97, align 8
+  %.not95 = icmp eq i32 %98, 0
+  br i1 %.not95, label %153, label %99
 
-97:                                               ; preds = %.lr.ph
-  %98 = load ptr, ptr %84, align 8
-  %99 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %90, ptr noundef %98, ptr noundef nonnull @.str.12)
-  %100 = load ptr, ptr %83, align 8
-  %101 = getelementptr %struct._rtd_timestat, ptr %100, i64 %indvars.iv110, i32 1
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr %struct._timestat_t, ptr %102, i64 %indvars.iv
-  %104 = load i32, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %106 = tail call double @nstime_to_msec(ptr noundef nonnull %105)
-  %107 = load ptr, ptr %83, align 8
-  %108 = getelementptr %struct._rtd_timestat, ptr %107, i64 %indvars.iv110, i32 1
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr %struct._timestat_t, ptr %109, i64 %indvars.iv, i32 4
-  %111 = tail call double @nstime_to_msec(ptr noundef %110)
-  %112 = load ptr, ptr %83, align 8
-  %113 = getelementptr %struct._rtd_timestat, ptr %112, i64 %indvars.iv110, i32 1
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr %struct._timestat_t, ptr %114, i64 %indvars.iv
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 48
-  %117 = load i32, ptr %115, align 8
-  %118 = tail call double @get_average(ptr noundef nonnull %116, i32 noundef %117)
-  %119 = load ptr, ptr %83, align 8
-  %120 = getelementptr %struct._rtd_timestat, ptr %119, i64 %indvars.iv110
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr %struct._timestat_t, ptr %122, i64 %indvars.iv
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
-  %125 = load i32, ptr %124, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %127 = load i32, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %129 = load i32, ptr %128, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %120, i64 20
+99:                                               ; preds = %.lr.ph
+  %100 = load ptr, ptr %85, align 8
+  %101 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %91, ptr noundef %100, ptr noundef nonnull @.str.12)
+  %102 = load ptr, ptr %84, align 8
+  %103 = getelementptr %struct._rtd_timestat, ptr %102, i64 %indvars.iv110
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr %struct._timestat_t, ptr %105, i64 %indvars.iv
+  %107 = load i32, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %109 = tail call double @nstime_to_msec(ptr noundef nonnull %108)
+  %110 = load ptr, ptr %84, align 8
+  %111 = getelementptr %struct._rtd_timestat, ptr %110, i64 %indvars.iv110
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr %struct._timestat_t, ptr %113, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
+  %116 = tail call double @nstime_to_msec(ptr noundef nonnull %115)
+  %117 = load ptr, ptr %84, align 8
+  %118 = getelementptr %struct._rtd_timestat, ptr %117, i64 %indvars.iv110
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr %struct._timestat_t, ptr %120, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 48
+  %123 = load i32, ptr %121, align 8
+  %124 = tail call double @get_average(ptr noundef nonnull %122, i32 noundef %123)
+  %125 = load ptr, ptr %84, align 8
+  %126 = getelementptr %struct._rtd_timestat, ptr %125, i64 %indvars.iv110
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr %struct._timestat_t, ptr %128, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %133 = load i32, ptr %132, align 8
-  %134 = load i32, ptr %123, align 8
-  %.not96 = icmp eq i32 %134, 0
-  %135 = uitofp i32 %133 to double
-  %136 = fmul double %135, 1.000000e+02
-  %137 = uitofp i32 %134 to double
-  %138 = fdiv double %136, %137
-  %139 = select i1 %.not96, double 0.000000e+00, double %138
-  %140 = getelementptr inbounds nuw i8, ptr %120, i64 28
-  %141 = load i32, ptr %140, align 4
-  %142 = uitofp i32 %141 to double
-  %143 = fmul double %142, 1.000000e+02
-  %144 = fdiv double %143, %137
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  %135 = load i32, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %126, i64 20
+  %137 = load i32, ptr %136, align 4
+  %138 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %139 = load i32, ptr %138, align 8
+  %140 = load i32, ptr %129, align 8
+  %.not96 = icmp eq i32 %140, 0
+  %141 = uitofp i32 %139 to double
+  %142 = fmul double %141, 1.000000e+02
+  %143 = uitofp i32 %140 to double
+  %144 = fdiv double %142, %143
   %145 = select i1 %.not96, double 0.000000e+00, double %144
-  %146 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef %99, i32 noundef %104, double noundef %106, double noundef %111, double noundef %118, i32 noundef %125, i32 noundef %127, i32 noundef %129, i32 noundef %131, i32 noundef %133, double noundef %139, i32 noundef %141, double noundef %145)
-  tail call void @wmem_free(ptr noundef null, ptr noundef %99)
-  %.pre116 = load ptr, ptr %83, align 8
-  br label %147
+  %146 = getelementptr inbounds nuw i8, ptr %126, i64 28
+  %147 = load i32, ptr %146, align 4
+  %148 = uitofp i32 %147 to double
+  %149 = fmul double %148, 1.000000e+02
+  %150 = fdiv double %149, %143
+  %151 = select i1 %.not96, double 0.000000e+00, double %150
+  %152 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef %101, i32 noundef %107, double noundef %109, double noundef %116, double noundef %124, i32 noundef %131, i32 noundef %133, i32 noundef %135, i32 noundef %137, i32 noundef %139, double noundef %145, i32 noundef %147, double noundef %151)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %101)
+  %.pre116 = load ptr, ptr %84, align 8
+  br label %153
 
-147:                                              ; preds = %.lr.ph, %97
-  %148 = phi ptr [ %91, %.lr.ph ], [ %.pre116, %97 ]
+153:                                              ; preds = %.lr.ph, %99
+  %154 = phi ptr [ %92, %.lr.ph ], [ %.pre116, %99 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %149 = getelementptr %struct._rtd_timestat, ptr %148, i64 %indvars.iv110
-  %150 = load i32, ptr %149, align 8
-  %151 = zext i32 %150 to i64
-  %152 = icmp samesign ult i64 %indvars.iv.next, %151
-  br i1 %152, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  %155 = getelementptr %struct._rtd_timestat, ptr %154, i64 %indvars.iv110
+  %156 = load i32, ptr %155, align 8
+  %157 = zext i32 %156 to i64
+  %158 = icmp samesign ult i64 %indvars.iv.next, %157
+  br i1 %158, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %147
+._crit_edge.loopexit:                             ; preds = %153
   %.pre117 = load i32, ptr %11, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %153 = phi i32 [ %.pre117, %._crit_edge.loopexit ], [ %85, %.preheader ]
-  %154 = phi ptr [ %148, %._crit_edge.loopexit ], [ %86, %.preheader ]
-  %155 = phi ptr [ %148, %._crit_edge.loopexit ], [ %87, %.preheader ]
+  %159 = phi i32 [ %.pre117, %._crit_edge.loopexit ], [ %86, %.preheader ]
+  %160 = phi ptr [ %154, %._crit_edge.loopexit ], [ %87, %.preheader ]
+  %161 = phi ptr [ %154, %._crit_edge.loopexit ], [ %88, %.preheader ]
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %156 = zext i32 %153 to i64
-  %157 = icmp samesign ult i64 %indvars.iv.next111, %156
-  br i1 %157, label %.preheader, label %.loopexit, !llvm.loop !10
+  %162 = zext i32 %159 to i64
+  %163 = icmp samesign ult i64 %indvars.iv.next111, %162
+  br i1 %163, label %.preheader, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %._crit_edge, %75, %80, %14
-  %158 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.3)
+.loopexit:                                        ; preds = %._crit_edge, %76, %81, %14
+  %164 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.3)
   ret void
 }
 

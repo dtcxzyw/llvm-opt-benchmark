@@ -4179,7 +4179,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !59
-  %Normal = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 1
+  %Normal.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %Normal = getelementptr inbounds nuw i8, ptr %Normal.split, i64 12
   ret ptr %Normal
 }
 
@@ -4189,7 +4190,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !59
-  %Normal = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 1
+  %Normal.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %Normal = getelementptr inbounds nuw i8, ptr %Normal.split, i64 12
   ret ptr %Normal
 }
 
@@ -4199,7 +4201,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !59
-  %TCoords = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 3
+  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %TCoords = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 28
   ret ptr %TCoords
 }
 
@@ -4209,7 +4212,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !59
-  %TCoords = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 3
+  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %TCoords = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 28
   ret ptr %TCoords
 }
 

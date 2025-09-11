@@ -694,15 +694,16 @@ define dso_local void @cleanup_tests() local_unnamed_addr #1 {
   br label %1
 
 1:                                                ; preds = %0, %1
-  %.03 = phi i64 [ 0, %0 ], [ %4, %1 ]
-  %2 = getelementptr inbounds nuw %struct.key_st, ptr @keys, i64 %.03, i32 3
-  %3 = load ptr, ptr %2, align 8, !tbaa !13
-  tail call void @EVP_PKEY_free(ptr noundef %3) #5
-  %4 = add nuw nsw i64 %.03, 1
-  %exitcond.not = icmp eq i64 %4, 5
-  br i1 %exitcond.not, label %5, label %1, !llvm.loop !50
+  %.03 = phi i64 [ 0, %0 ], [ %5, %1 ]
+  %2 = getelementptr inbounds nuw %struct.key_st, ptr @keys, i64 %.03
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %4 = load ptr, ptr %3, align 8, !tbaa !13
+  tail call void @EVP_PKEY_free(ptr noundef %4) #5
+  %5 = add nuw nsw i64 %.03, 1
+  %exitcond.not = icmp eq i64 %5, 5
+  br i1 %exitcond.not, label %6, label %1, !llvm.loop !50
 
-5:                                                ; preds = %1
+6:                                                ; preds = %1
   ret void
 }
 

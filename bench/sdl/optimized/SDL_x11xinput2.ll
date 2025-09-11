@@ -43,14 +43,14 @@ define hidden noundef zeroext i1 @X11_InitXinput2(ptr noundef readonly captures(
   %11 = load i32, ptr @SDL_X11_HAVE_XINPUT2, align 4
   %.not = icmp ne i32 %11, 0
   %or.cond.not = select i1 %10, i1 %.not, i1 false
-  br i1 %or.cond.not, label %12, label %54
+  br i1 %or.cond.not, label %12, label %56
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr @X11_XQueryExtension, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = call i32 %13(ptr noundef %14, ptr noundef nonnull @.str.1, ptr noundef nonnull @xinput2_opcode, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %.not12 = icmp eq i32 %15, 0
-  br i1 %.not12, label %54, label %16
+  br i1 %.not12, label %56, label %16
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %9, align 8
@@ -67,7 +67,7 @@ define hidden noundef zeroext i1 @X11_InitXinput2(ptr noundef readonly captures(
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = icmp sgt i32 %23, 1999
-  br i1 %24, label %25, label %54
+  br i1 %24, label %25, label %56
 
 25:                                               ; preds = %16
   store i1 true, ptr @xinput2_initialized, align 1
@@ -97,27 +97,29 @@ define hidden noundef zeroext i1 @X11_InitXinput2(ptr noundef readonly captures(
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 224
   %39 = load i32, ptr %38, align 8
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.Screen, ptr %37, i64 %40, i32 2
-  %42 = load i64, ptr %41, align 8
-  %43 = call i32 %34(ptr noundef %35, i64 noundef %42, ptr noundef nonnull %4, i32 noundef 1) #8
+  %41 = getelementptr inbounds %struct.Screen, ptr %37, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i64, ptr %42, align 8
+  %44 = call i32 %34(ptr noundef %35, i64 noundef %43, ptr noundef nonnull %4, i32 noundef 1) #8
   store i32 2048, ptr %5, align 4
   store i32 0, ptr %4, align 8
   store i32 4, ptr %28, align 4
   store ptr %5, ptr %29, align 8
-  %44 = load ptr, ptr @X11_XISelectEvents, align 8
-  %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 232
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 224
-  %49 = load i32, ptr %48, align 8
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds %struct.Screen, ptr %47, i64 %50, i32 2
-  %52 = load i64, ptr %51, align 8
-  %53 = call i32 %44(ptr noundef %45, i64 noundef %52, ptr noundef nonnull %4, i32 noundef 1) #8
+  %45 = load ptr, ptr @X11_XISelectEvents, align 8
+  %46 = load ptr, ptr %9, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 232
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 224
+  %50 = load i32, ptr %49, align 8
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds %struct.Screen, ptr %48, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load i64, ptr %53, align 8
+  %55 = call i32 %45(ptr noundef %46, i64 noundef %54, ptr noundef nonnull %4, i32 noundef 1) #8
   call void @X11_Xinput2UpdateDevices(ptr noundef nonnull %0, i1 noundef zeroext true)
-  br label %54
+  br label %56
 
-54:                                               ; preds = %16, %12, %1, %33
+56:                                               ; preds = %16, %12, %1, %33
   %.0 = phi i1 [ true, %33 ], [ false, %1 ], [ false, %12 ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

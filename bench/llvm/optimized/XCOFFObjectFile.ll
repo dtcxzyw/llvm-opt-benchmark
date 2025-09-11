@@ -3986,7 +3986,7 @@ define dso_local void @_ZNK4llvm6object15XCOFFObjectFile15getSectionByNumEs(ptr 
   %.0.copyload.i.i.i.i = load i16, ptr %17, align 1
   %rev.i.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i)
   %18 = zext i16 %rev.i.i.i.i.i.i.i.i to i32
-  %19 = icmp sgt i32 %8, %18
+  %19 = icmp samesign ugt i32 %8, %18
   br i1 %19, label %_ZN4llvmplERKNS_5TwineES2_.exit18, label %40
 
 _ZN4llvmplERKNS_5TwineES2_.exit18:                ; preds = %3, %10

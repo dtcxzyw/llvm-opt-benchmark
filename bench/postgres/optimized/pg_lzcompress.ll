@@ -397,7 +397,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   store i32 %182, ptr %212, align 16
   %213 = getelementptr inbounds nuw i8, ptr %186, i64 24
   store ptr %.1152238, ptr %213, align 8
-  %214 = getelementptr inbounds %struct.PGLZ_HistEntry, ptr @hist_entries, i64 %209, i32 1
+  %214 = getelementptr inbounds nuw i8, ptr %210, i64 8
   store ptr %186, ptr %214, align 8
   %215 = trunc i32 %.1142240 to i16
   store i16 %215, ptr %184, align 2
@@ -501,7 +501,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   store i32 %244, ptr %274, align 16
   %275 = getelementptr inbounds nuw i8, ptr %248, i64 24
   store ptr %.0151245, ptr %275, align 8
-  %276 = getelementptr inbounds %struct.PGLZ_HistEntry, ptr @hist_entries, i64 %271, i32 1
+  %276 = getelementptr inbounds nuw i8, ptr %272, i64 8
   store ptr %248, ptr %276, align 8
   %277 = trunc i32 %.0141247 to i16
   store i16 %277, ptr %246, align 2

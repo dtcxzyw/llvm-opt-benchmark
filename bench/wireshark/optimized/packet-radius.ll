@@ -4038,23 +4038,23 @@ switch.lookup:                                    ; preds = %5
 
 10:                                               ; preds = %switch.lookup, %5
   %.030 = phi i64 [ 10, %5 ], [ %switch.load, %switch.lookup ]
-  switch i32 %7, label %77 [
+  switch i32 %7, label %83 [
     i32 1, label %11
     i32 4, label %11
     i32 7, label %11
     i32 33, label %11
     i32 40, label %11
     i32 43, label %11
-    i32 2, label %33
-    i32 3, label %33
-    i32 5, label %33
-    i32 8, label %33
-    i32 9, label %33
-    i32 34, label %33
-    i32 41, label %33
-    i32 42, label %33
-    i32 44, label %33
-    i32 45, label %33
+    i32 2, label %35
+    i32 3, label %35
+    i32 5, label %35
+    i32 8, label %35
+    i32 9, label %35
+    i32 34, label %35
+    i32 41, label %35
+    i32 42, label %35
+    i32 44, label %35
+    i32 45, label %35
   ]
 
 11:                                               ; preds = %10, %10, %10, %10, %10, %10
@@ -4063,7 +4063,7 @@ switch.lookup:                                    ; preds = %5
   %14 = trunc nuw i8 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  br i1 %14, label %17, label %25
+  br i1 %14, label %17, label %26
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -4071,89 +4071,95 @@ switch.lookup:                                    ; preds = %5
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 8
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr %struct._rtd_timestat, ptr %21, i64 %.030, i32 4
-  %23 = load i32, ptr %22, align 8
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %22, align 8
-  br label %77
+  %22 = getelementptr %struct._rtd_timestat, ptr %21, i64 %.030
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %24 = load i32, ptr %23, align 8
+  %25 = add i32 %24, 1
+  store i32 %25, ptr %23, align 8
+  br label %83
 
-25:                                               ; preds = %11
-  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %27 = load i32, ptr %26, align 8
-  %28 = add i32 %27, 1
-  store i32 %28, ptr %26, align 8
-  %29 = load ptr, ptr %15, align 8
-  %30 = getelementptr %struct._rtd_timestat, ptr %29, i64 %.030, i32 2
-  %31 = load i32, ptr %30, align 8
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %30, align 8
-  br label %77
+26:                                               ; preds = %11
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %28 = load i32, ptr %27, align 8
+  %29 = add i32 %28, 1
+  store i32 %29, ptr %27, align 8
+  %30 = load ptr, ptr %15, align 8
+  %31 = getelementptr %struct._rtd_timestat, ptr %30, i64 %.030
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load i32, ptr %32, align 8
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %32, align 8
+  br label %83
 
-33:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %35 = load i8, ptr %34, align 8, !range !6, !noundef !7
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %47
+35:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %37 = load i8, ptr %36, align 8, !range !6, !noundef !7
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %39, label %50
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 28
-  %41 = load i32, ptr %40, align 4
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %40, align 4
-  %43 = load ptr, ptr %38, align 8
-  %44 = getelementptr %struct._rtd_timestat, ptr %43, i64 %.030, i32 5
-  %45 = load i32, ptr %44, align 4
-  %46 = add i32 %45, 1
-  store i32 %46, ptr %44, align 4
-  br label %77
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 28
+  %43 = load i32, ptr %42, align 4
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %42, align 4
+  %45 = load ptr, ptr %40, align 8
+  %46 = getelementptr %struct._rtd_timestat, ptr %45, i64 %.030
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
+  %48 = load i32, ptr %47, align 4
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %47, align 4
+  br label %83
 
-47:                                               ; preds = %33
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 25
-  %49 = load i8, ptr %48, align 1, !range !6, !noundef !7
-  %50 = trunc nuw i8 %49 to i1
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = load ptr, ptr %51, align 8
-  br i1 %50, label %61, label %53
+50:                                               ; preds = %35
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 25
+  %52 = load i8, ptr %51, align 1, !range !6, !noundef !7
+  %53 = trunc nuw i8 %52 to i1
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %55 = load ptr, ptr %54, align 8
+  br i1 %53, label %65, label %56
 
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 20
-  %55 = load i32, ptr %54, align 4
-  %56 = add i32 %55, 1
-  store i32 %56, ptr %54, align 4
-  %57 = load ptr, ptr %51, align 8
-  %58 = getelementptr %struct._rtd_timestat, ptr %57, i64 %.030, i32 3
-  %59 = load i32, ptr %58, align 4
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %58, align 4
-  br label %77
+56:                                               ; preds = %50
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 20
+  %58 = load i32, ptr %57, align 4
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 4
+  %60 = load ptr, ptr %54, align 8
+  %61 = getelementptr %struct._rtd_timestat, ptr %60, i64 %.030
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 20
+  %63 = load i32, ptr %62, align 4
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %62, align 4
+  br label %83
 
-61:                                               ; preds = %47
-  %62 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %63 = load i32, ptr %62, align 8
-  %64 = add i32 %63, -1
-  store i32 %64, ptr %62, align 8
-  %65 = load ptr, ptr %51, align 8
-  %66 = getelementptr %struct._rtd_timestat, ptr %65, i64 %.030, i32 2
+65:                                               ; preds = %50
+  %66 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %67 = load i32, ptr %66, align 8
   %68 = add i32 %67, -1
   store i32 %68, ptr %66, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %69, ptr noundef nonnull %70)
-  %71 = load ptr, ptr %51, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8
-  call void @time_stat_update(ptr noundef %73, ptr noundef nonnull %6, ptr noundef %1)
-  %74 = load ptr, ptr %51, align 8
-  %75 = getelementptr %struct._rtd_timestat, ptr %74, i64 %.030, i32 1
-  %76 = load ptr, ptr %75, align 8
-  call void @time_stat_update(ptr noundef %76, ptr noundef nonnull %6, ptr noundef %1)
-  br label %77
+  %69 = load ptr, ptr %54, align 8
+  %70 = getelementptr %struct._rtd_timestat, ptr %69, i64 %.030
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %72 = load i32, ptr %71, align 8
+  %73 = add i32 %72, -1
+  store i32 %73, ptr %71, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %74, ptr noundef nonnull %75)
+  %76 = load ptr, ptr %54, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %78 = load ptr, ptr %77, align 8
+  call void @time_stat_update(ptr noundef %78, ptr noundef nonnull %6, ptr noundef %1)
+  %79 = load ptr, ptr %54, align 8
+  %80 = getelementptr %struct._rtd_timestat, ptr %79, i64 %.030
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %82 = load ptr, ptr %81, align 8
+  call void @time_stat_update(ptr noundef %82, ptr noundef nonnull %6, ptr noundef %1)
+  br label %83
 
-77:                                               ; preds = %10, %37, %61, %53, %17, %25
-  %.0 = phi i32 [ 0, %10 ], [ 0, %17 ], [ 0, %25 ], [ 0, %37 ], [ 1, %61 ], [ 0, %53 ]
+83:                                               ; preds = %10, %39, %65, %56, %17, %26
+  %.0 = phi i32 [ 0, %10 ], [ 0, %17 ], [ 0, %26 ], [ 0, %39 ], [ 1, %65 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

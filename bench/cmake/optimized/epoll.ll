@@ -83,34 +83,35 @@ define dso_local void @uv__platform_invalidate_fd(ptr noundef readonly captures(
   %or.cond = select i1 %.not, i1 %16, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %2, %21
-  %.016 = phi i64 [ %22, %21 ], [ 0, %2 ]
-  %17 = getelementptr inbounds nuw %struct.epoll_event, ptr %10, i64 %.016, i32 1
-  %18 = load i32, ptr %17, align 1, !tbaa !25
-  %19 = icmp eq i32 %18, %1
-  br i1 %19, label %20, label %21
+.lr.ph:                                           ; preds = %2, %22
+  %.016 = phi i64 [ %23, %22 ], [ 0, %2 ]
+  %17 = getelementptr inbounds nuw %struct.epoll_event, ptr %10, i64 %.016
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %19 = load i32, ptr %18, align 1, !tbaa !25
+  %20 = icmp eq i32 %19, %1
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %.lr.ph
-  store i32 -1, ptr %17, align 1, !tbaa !25
-  br label %21
+21:                                               ; preds = %.lr.ph
+  store i32 -1, ptr %18, align 1, !tbaa !25
+  br label %22
 
-21:                                               ; preds = %.lr.ph, %20
-  %22 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %22, %15
+22:                                               ; preds = %.lr.ph, %21
+  %23 = add nuw i64 %.016, 1
+  %exitcond.not = icmp eq i64 %23, %15
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
-.loopexit:                                        ; preds = %21, %2
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load i32, ptr %23, align 8, !tbaa !8
-  %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %26, label %28
+.loopexit:                                        ; preds = %22, %2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %25 = load i32, ptr %24, align 8, !tbaa !8
+  %26 = icmp sgt i32 %25, -1
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %.loopexit
+27:                                               ; preds = %.loopexit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %3, i8 0, i64 12, i1 false)
-  %27 = call i32 @epoll_ctl(i32 noundef %24, i32 noundef 2, i32 noundef %1, ptr noundef nonnull %3) #7
-  br label %28
+  %28 = call i32 @epoll_ctl(i32 noundef %25, i32 noundef 2, i32 noundef %1, ptr noundef nonnull %3) #7
+  br label %29
 
-28:                                               ; preds = %26, %.loopexit
+29:                                               ; preds = %27, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

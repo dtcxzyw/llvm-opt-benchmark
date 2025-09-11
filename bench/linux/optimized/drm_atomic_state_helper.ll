@@ -1128,9 +1128,10 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_connector_tv_c
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %4 to i64
-  %12 = getelementptr %struct.__drm_connnectors_state, ptr %10, i64 %11, i32 2
+  %.split = getelementptr %struct.__drm_connnectors_state, ptr %10, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr %struct.__drm_connnectors_state, ptr %10, i64 %11, i32 3
+  %14 = getelementptr i8, ptr %.split, i64 24
   %15 = load ptr, ptr %14, align 8
   br label %16
 
@@ -1148,7 +1149,8 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_connector_tv_c
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
-  %28 = getelementptr %struct.__drm_crtcs_state, ptr %24, i64 %27, i32 3
+  %.split4 = getelementptr %struct.__drm_crtcs_state, ptr %24, i64 %27
+  %28 = getelementptr i8, ptr %.split4, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %109, label %31

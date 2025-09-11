@@ -1722,7 +1722,7 @@ set_metadata_frame2.exit:                         ; preds = %315, %ng_read_bytes
   %.089 = phi i16 [ %.val112, %set_pseudo_header_frame4.exit ], [ %40, %89 ], [ %40, %93 ], [ %40, %94 ], [ %40, %97 ], [ %40, %109 ], [ %40, %110 ], [ %40, %111 ], [ %40, %112 ], [ %290, %ng_read_bytes.exit129 ], [ %290, %315 ]
   %.088 = phi i32 [ %143, %set_pseudo_header_frame4.exit ], [ %63, %89 ], [ %63, %93 ], [ %63, %94 ], [ %63, %97 ], [ %63, %109 ], [ %63, %110 ], [ %63, %111 ], [ %63, %112 ], [ %313, %ng_read_bytes.exit129 ], [ %313, %315 ]
   %318 = zext i16 %.092 to i32
-  %319 = icmp ult i32 %.088, %318
+  %319 = icmp samesign ult i32 %.088, %318
   br i1 %319, label %320, label %322
 
 320:                                              ; preds = %set_metadata_frame2.exit

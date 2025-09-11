@@ -317,139 +317,137 @@ read_extradata.exit:                              ; preds = %55, %64
   unreachable
 
 141:                                              ; preds = %127
-  %.idx = mul nuw nsw i64 %130, 48
-  %142 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  %144 = load i32, ptr %143, align 4, !tbaa !42
-  %145 = icmp eq i32 %144, 24
-  br i1 %145, label %147, label %146
+  %142 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  %143 = load i32, ptr %142, align 4, !tbaa !42
+  %144 = icmp eq i32 %143, 24
+  br i1 %144, label %146, label %145
 
-146:                                              ; preds = %141
+145:                                              ; preds = %141
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, i32 noundef 276) #7
   call void @abort() #8
   unreachable
 
-147:                                              ; preds = %141
-  %148 = load ptr, ptr %3, align 8, !tbaa !12
-  %149 = call i64 @avio_seek(ptr noundef %148, i64 noundef 0, i32 noundef 1) #7
-  %150 = icmp slt i64 %149, 0
-  br i1 %150, label %151, label %153
+146:                                              ; preds = %141
+  %147 = load ptr, ptr %3, align 8, !tbaa !12
+  %148 = call i64 @avio_seek(ptr noundef %147, i64 noundef 0, i32 noundef 1) #7
+  %149 = icmp slt i64 %148, 0
+  br i1 %149, label %150, label %152
 
-151:                                              ; preds = %147
-  %152 = trunc i64 %149 to i32
+150:                                              ; preds = %146
+  %151 = trunc i64 %148 to i32
   br label %.thread180
 
-153:                                              ; preds = %147
+152:                                              ; preds = %146
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.9, i32 noundef 10) #7
-  br label %154
+  br label %153
 
-154:                                              ; preds = %153, %170
-  %.0199 = phi i32 [ 0, %153 ], [ %171, %170 ]
-  %155 = call i32 @ffio_read_size(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 12) #7
-  %156 = icmp slt i32 %155, 0
-  br i1 %156, label %.thread180, label %157
+153:                                              ; preds = %152, %169
+  %.0199 = phi i32 [ 0, %152 ], [ %170, %169 ]
+  %154 = call i32 @ffio_read_size(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 12) #7
+  %155 = icmp slt i32 %154, 0
+  br i1 %155, label %.thread180, label %156
 
-157:                                              ; preds = %154
-  %158 = load i32, ptr %2, align 16, !tbaa !11
-  %159 = load i32, ptr %11, align 4, !tbaa !11
-  %160 = load i32, ptr %14, align 8, !tbaa !11
-  %161 = load i32, ptr %21, align 4, !tbaa !36
-  %162 = icmp eq i32 %158, %161
-  %163 = icmp eq i32 %158, -1
-  %or.cond = or i1 %163, %162
-  br i1 %or.cond, label %172, label %164
+156:                                              ; preds = %153
+  %157 = load i32, ptr %2, align 16, !tbaa !11
+  %158 = load i32, ptr %11, align 4, !tbaa !11
+  %159 = load i32, ptr %14, align 8, !tbaa !11
+  %160 = load i32, ptr %21, align 4, !tbaa !36
+  %161 = icmp eq i32 %157, %160
+  %162 = icmp eq i32 %157, -1
+  %or.cond = or i1 %162, %161
+  br i1 %or.cond, label %171, label %163
 
-164:                                              ; preds = %157
-  %165 = zext i32 %160 to i64
-  %166 = call i64 @avio_skip(ptr noundef %4, i64 noundef %165) #7
-  %167 = icmp slt i64 %166, 0
-  br i1 %167, label %168, label %170
+163:                                              ; preds = %156
+  %164 = zext i32 %159 to i64
+  %165 = call i64 @avio_skip(ptr noundef %4, i64 noundef %164) #7
+  %166 = icmp slt i64 %165, 0
+  br i1 %166, label %167, label %169
 
-168:                                              ; preds = %164
-  %169 = trunc i64 %166 to i32
+167:                                              ; preds = %163
+  %168 = trunc i64 %165 to i32
   br label %.thread180
 
-170:                                              ; preds = %164
-  %171 = add nuw nsw i32 %.0199, 1
-  %exitcond.not = icmp eq i32 %171, 10
-  br i1 %exitcond.not, label %.thread228, label %154, !llvm.loop !74
+169:                                              ; preds = %163
+  %170 = add nuw nsw i32 %.0199, 1
+  %exitcond.not = icmp eq i32 %170, 10
+  br i1 %exitcond.not, label %.thread228, label %153, !llvm.loop !74
 
-172:                                              ; preds = %157
-  %173 = icmp eq i32 %.0199, 10
-  %or.cond7 = or i1 %173, %163
-  br i1 %or.cond7, label %.thread228, label %174
+171:                                              ; preds = %156
+  %172 = icmp eq i32 %.0199, 10
+  %or.cond7 = or i1 %172, %162
+  br i1 %or.cond7, label %.thread228, label %173
 
-.thread228:                                       ; preds = %170, %172
+.thread228:                                       ; preds = %169, %171
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.10) #7
-  br label %207
+  br label %206
 
-174:                                              ; preds = %172
+173:                                              ; preds = %171
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.11, i32 noundef %.0199) #7
-  %175 = icmp ult i32 %160, 20
-  br i1 %175, label %.thread180, label %176
+  %174 = icmp ult i32 %159, 20
+  br i1 %174, label %.thread180, label %175
 
-176:                                              ; preds = %174
-  %177 = call i32 @ffio_read_size(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 12) #7
-  %178 = icmp slt i32 %177, 0
-  br i1 %178, label %.thread180, label %179
+175:                                              ; preds = %173
+  %176 = call i32 @ffio_read_size(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 12) #7
+  %177 = icmp slt i32 %176, 0
+  br i1 %177, label %.thread180, label %178
 
-179:                                              ; preds = %176
-  %180 = getelementptr inbounds nuw i8, ptr %6, i64 1552
-  call void @ff_argo_asf_parse_chunk_header(ptr noundef nonnull %180, ptr noundef nonnull %2) #7
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds nuw i8, ptr %6, i64 1552
+  call void @ff_argo_asf_parse_chunk_header(ptr noundef nonnull %179, ptr noundef nonnull %2) #7
   %.not161 = icmp eq i32 %.0199, 0
-  br i1 %.not161, label %190, label %181
+  br i1 %.not161, label %189, label %180
 
-181:                                              ; preds = %179
-  %182 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %183 = load i16, ptr %182, align 4, !tbaa !11
-  %184 = icmp eq i16 %183, 1
-  br i1 %184, label %185, label %190
+180:                                              ; preds = %178
+  %181 = getelementptr inbounds nuw i8, ptr %134, i64 24
+  %182 = load i16, ptr %181, align 4, !tbaa !11
+  %183 = icmp eq i16 %182, 1
+  br i1 %183, label %184, label %189
 
-185:                                              ; preds = %181
-  %186 = getelementptr inbounds nuw i8, ptr %134, i64 26
-  %187 = load i16, ptr %186, align 2, !tbaa !11
-  %188 = icmp eq i16 %187, 1
-  br i1 %188, label %189, label %190
+184:                                              ; preds = %180
+  %185 = getelementptr inbounds nuw i8, ptr %134, i64 26
+  %186 = load i16, ptr %185, align 2, !tbaa !11
+  %187 = icmp eq i16 %186, 1
+  br i1 %187, label %188, label %189
 
-189:                                              ; preds = %185
-  store i16 2, ptr %186, align 2, !tbaa !11
-  br label %190
+188:                                              ; preds = %184
+  store i16 2, ptr %185, align 2, !tbaa !11
+  br label %189
 
-190:                                              ; preds = %189, %185, %181, %179
-  %191 = getelementptr inbounds nuw i8, ptr %134, i64 20
-  %192 = call i32 @ff_argo_asf_fill_stream(ptr noundef nonnull %0, ptr noundef %132, ptr noundef nonnull %191, ptr noundef nonnull %180) #7
-  %193 = icmp slt i32 %192, 0
-  br i1 %193, label %.thread180, label %194
+189:                                              ; preds = %188, %184, %180, %178
+  %190 = getelementptr inbounds nuw i8, ptr %134, i64 20
+  %191 = call i32 @ff_argo_asf_fill_stream(ptr noundef nonnull %0, ptr noundef %132, ptr noundef nonnull %190, ptr noundef nonnull %179) #7
+  %192 = icmp slt i32 %191, 0
+  br i1 %192, label %.thread180, label %193
 
-194:                                              ; preds = %190
-  %195 = zext i32 %159 to i64
-  %196 = load ptr, ptr %135, align 8, !tbaa !50
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 152
-  %198 = load i32, ptr %197, align 8, !tbaa !75
-  %199 = sext i32 %198 to i64
-  %200 = call i64 @av_rescale_rnd(i64 noundef %195, i64 noundef %199, i64 noundef 1000, i32 noundef 3) #9
-  %201 = getelementptr inbounds nuw i8, ptr %132, i64 40
-  store i64 %200, ptr %201, align 8, !tbaa !76
-  %202 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %203 = load i32, ptr %202, align 4, !tbaa !40
-  %204 = zext i32 %203 to i64
-  %205 = call i64 @av_rescale_rnd(i64 noundef %204, i64 noundef %199, i64 noundef 1000, i32 noundef 3) #9
-  %206 = getelementptr inbounds nuw i8, ptr %132, i64 48
-  store i64 %205, ptr %206, align 8, !tbaa !43
-  br label %207
+193:                                              ; preds = %189
+  %194 = zext i32 %158 to i64
+  %195 = load ptr, ptr %135, align 8, !tbaa !50
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 152
+  %197 = load i32, ptr %196, align 8, !tbaa !75
+  %198 = sext i32 %197 to i64
+  %199 = call i64 @av_rescale_rnd(i64 noundef %194, i64 noundef %198, i64 noundef 1000, i32 noundef 3) #9
+  %200 = getelementptr inbounds nuw i8, ptr %132, i64 40
+  store i64 %199, ptr %200, align 8, !tbaa !76
+  %201 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %202 = load i32, ptr %201, align 4, !tbaa !40
+  %203 = zext i32 %202 to i64
+  %204 = call i64 @av_rescale_rnd(i64 noundef %203, i64 noundef %198, i64 noundef 1000, i32 noundef 3) #9
+  %205 = getelementptr inbounds nuw i8, ptr %132, i64 48
+  store i64 %204, ptr %205, align 8, !tbaa !43
+  br label %206
 
-207:                                              ; preds = %.thread228, %194
-  %208 = load ptr, ptr %3, align 8, !tbaa !12
-  %209 = call i64 @avio_seek(ptr noundef %208, i64 noundef %149, i32 noundef 0) #7
-  %210 = icmp sgt i64 %209, -1
-  %211 = trunc i64 %209 to i32
-  br i1 %210, label %._crit_edge.thread, label %.thread180
+206:                                              ; preds = %.thread228, %193
+  %207 = load ptr, ptr %3, align 8, !tbaa !12
+  %208 = call i64 @avio_seek(ptr noundef %207, i64 noundef %148, i32 noundef 0) #7
+  %209 = icmp sgt i64 %208, -1
+  %210 = trunc i64 %208 to i32
+  br i1 %209, label %._crit_edge.thread, label %.thread180
 
-._crit_edge.thread:                               ; preds = %20, %207, %._crit_edge
+._crit_edge.thread:                               ; preds = %20, %206, %._crit_edge
   br label %.thread180
 
-.thread180:                                       ; preds = %25, %28, %31, %read_extradata.exit, %100, %72, %85, %154, %190, %176, %174, %168, %151, %99, %read_extradata.exit.thread, %9, %1, %207, %._crit_edge.thread, %19
-  %.0139 = phi i32 [ -1163346256, %19 ], [ 0, %._crit_edge.thread ], [ %211, %207 ], [ %7, %1 ], [ -1094995529, %9 ], [ -1094995529, %read_extradata.exit.thread ], [ -1163346256, %99 ], [ %192, %190 ], [ %177, %176 ], [ -1094995529, %174 ], [ %169, %168 ], [ %152, %151 ], [ %155, %154 ], [ -1094995529, %85 ], [ -1094995529, %72 ], [ -12, %25 ], [ %29, %28 ], [ -1094995529, %31 ], [ %.022.i, %read_extradata.exit ], [ %105, %100 ]
+.thread180:                                       ; preds = %25, %28, %31, %read_extradata.exit, %100, %72, %85, %153, %189, %175, %173, %167, %150, %99, %read_extradata.exit.thread, %9, %1, %206, %._crit_edge.thread, %19
+  %.0139 = phi i32 [ -1163346256, %19 ], [ 0, %._crit_edge.thread ], [ %210, %206 ], [ %7, %1 ], [ -1094995529, %9 ], [ -1094995529, %read_extradata.exit.thread ], [ -1163346256, %99 ], [ %191, %189 ], [ %176, %175 ], [ -1094995529, %173 ], [ %168, %167 ], [ %151, %150 ], [ %154, %153 ], [ -1094995529, %85 ], [ -1094995529, %72 ], [ -12, %25 ], [ %29, %28 ], [ -1094995529, %31 ], [ %.022.i, %read_extradata.exit ], [ %105, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0139
 }

@@ -68,9 +68,10 @@ define dso_local noundef i32 @_ZNSt3__123__libcpp_atomic_monitorEPVKv(ptr nounde
   %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 255
-  %5 = getelementptr inbounds nuw %"struct.std::__1::__libcpp_contention_table_entry", ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 %4, i32 1
-  %6 = load atomic i32, ptr %5 acquire, align 4
-  ret i32 %6
+  %5 = getelementptr inbounds nuw %"struct.std::__1::__libcpp_contention_table_entry", ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %7 = load atomic i32, ptr %6 acquire, align 4
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

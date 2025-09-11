@@ -82133,9 +82133,10 @@ while.cond85:                                     ; preds = %while.cond85, %whil
 
 if.then.i95:                                      ; preds = %while.cond85
   %33 = load ptr, ptr %this, align 8
+  %add.ptr94 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.628", ptr %33, i64 %i.0
   %conv96 = zext nneg i8 %32 to i64
   %sub97 = add nsw i64 %conv96, -1
-  %rawItems_.i.i.i85 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.628", ptr %33, i64 %i.0, i32 3
+  %rawItems_.i.i.i85 = getelementptr inbounds nuw i8, ptr %add.ptr94, i64 16
   %arrayidx.i.i.i.i.i86 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i85, i64 %sub97
   %shr.i.i90 = lshr i64 %sub97, 1
   %cmp.i.i91 = icmp ult i8 %32, 17

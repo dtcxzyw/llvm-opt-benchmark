@@ -2407,10 +2407,11 @@ _ZN4llvm9SetVectorIPNS_8MetadataENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = zext i32 %50 to i64
   %53 = load ptr, ptr %51, align 8, !tbaa !133
-  %54 = getelementptr inbounds nuw %"struct.std::pair.104", ptr %53, i64 %52, i32 1
+  %54 = getelementptr inbounds nuw %"struct.std::pair.104", ptr %53, i64 %52
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %54
+  ret ptr %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

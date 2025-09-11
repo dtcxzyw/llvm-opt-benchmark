@@ -28,7 +28,7 @@ define hidden zeroext i1 @SDL_CalculateBlit(ptr noundef %0, ptr noundef %1) loca
 .critedge:                                        ; preds = %2
   tail call void @SDL_InvalidateMap(ptr noundef nonnull %3) #2
   %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #2
-  br label %147
+  br label %148
 
 13:                                               ; preds = %2
   %14 = load i32, ptr %0, align 8
@@ -71,7 +71,7 @@ define hidden zeroext i1 @SDL_CalculateBlit(ptr noundef %0, ptr noundef %1) loca
 
 36:                                               ; preds = %17
   %37 = tail call zeroext i1 @SDL_RLESurface(ptr noundef nonnull %0) #2
-  br i1 %37, label %147, label %38
+  br i1 %37, label %148, label %38
 
 38:                                               ; preds = %17, %36
   %.not133 = icmp eq i32 %5, %7
@@ -237,7 +237,7 @@ define hidden zeroext i1 @SDL_CalculateBlit(ptr noundef %0, ptr noundef %1) loca
 
 107:                                              ; preds = %122, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %122 ]
-  %108 = phi ptr [ %105, %.lr.ph.i ], [ %124, %122 ]
+  %108 = phi ptr [ %105, %.lr.ph.i ], [ %125, %122 ]
   %109 = getelementptr inbounds nuw %struct.SDL_BlitFuncEntry, ptr @SDL_GeneratedBlitFuncTable, i64 %indvars.iv.i
   %110 = load i32, ptr %109, align 8
   %.not22.i = icmp eq i32 %78, %110
@@ -265,85 +265,86 @@ define hidden zeroext i1 @SDL_CalculateBlit(ptr noundef %0, ptr noundef %1) loca
 
 122:                                              ; preds = %118, %114, %111, %107
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %123 = getelementptr inbounds nuw %struct.SDL_BlitFuncEntry, ptr @SDL_GeneratedBlitFuncTable, i64 %indvars.iv.next.i, i32 4
-  %124 = load ptr, ptr %123, align 8
-  %.not.i = icmp eq ptr %124, null
+  %123 = getelementptr inbounds nuw %struct.SDL_BlitFuncEntry, ptr @SDL_GeneratedBlitFuncTable, i64 %indvars.iv.next.i
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %125 = load ptr, ptr %124, align 8
+  %.not.i = icmp eq ptr %125, null
   br i1 %.not.i, label %SDL_ChooseBlitFunc.exit, label %107, !llvm.loop !3
 
 SDL_ChooseBlitFunc.exit:                          ; preds = %122, %104
-  %125 = load i32, ptr %40, align 4
-  %126 = load i32, ptr %8, align 4
-  %.not164 = icmp eq i32 %125, 0
-  %.mask166 = and i32 %125, -268435456
+  %126 = load i32, ptr %40, align 4
+  %127 = load i32, ptr %8, align 4
+  %.not164 = icmp eq i32 %126, 0
+  %.mask166 = and i32 %126, -268435456
   %.not165 = icmp eq i32 %.mask166, 268435456
   %or.cond195 = or i1 %.not164, %.not165
-  br i1 %or.cond195, label %127, label %144
+  br i1 %or.cond195, label %128, label %145
 
-127:                                              ; preds = %SDL_ChooseBlitFunc.exit
-  %128 = lshr i32 %125, 24
-  %129 = and i32 %128, 15
-  switch i32 %129, label %134 [
-    i32 1, label %130
-    i32 12, label %130
-    i32 2, label %130
-    i32 3, label %130
+128:                                              ; preds = %SDL_ChooseBlitFunc.exit
+  %129 = lshr i32 %126, 24
+  %130 = and i32 %129, 15
+  switch i32 %130, label %135 [
+    i32 1, label %131
+    i32 12, label %131
+    i32 2, label %131
+    i32 3, label %131
   ]
 
-130:                                              ; preds = %127, %127, %127, %127
-  %131 = icmp eq i32 %125, 318769153
-  br i1 %131, label %132, label %144
+131:                                              ; preds = %128, %128, %128, %128
+  %132 = icmp eq i32 %126, 318769153
+  br i1 %132, label %133, label %145
 
-132:                                              ; preds = %130
-  %133 = load ptr, ptr %23, align 8
-  %.not167 = icmp eq ptr %133, null
-  br i1 %.not167, label %144, label %134
+133:                                              ; preds = %131
+  %134 = load ptr, ptr %23, align 8
+  %.not167 = icmp eq ptr %134, null
+  br i1 %.not167, label %145, label %135
 
-134:                                              ; preds = %127, %132
-  %.not170 = icmp eq i32 %126, 0
-  %.mask172 = and i32 %126, -268435456
+135:                                              ; preds = %128, %133
+  %.not170 = icmp eq i32 %127, 0
+  %.mask172 = and i32 %127, -268435456
   %.not171 = icmp eq i32 %.mask172, 268435456
   %or.cond197 = or i1 %.not170, %.not171
-  br i1 %or.cond197, label %135, label %144
+  br i1 %or.cond197, label %136, label %145
 
-135:                                              ; preds = %134
-  %136 = lshr i32 %126, 24
-  %137 = and i32 %136, 15
-  switch i32 %137, label %.thread217 [
-    i32 1, label %138
-    i32 12, label %138
-    i32 2, label %138
-    i32 3, label %138
+136:                                              ; preds = %135
+  %137 = lshr i32 %127, 24
+  %138 = and i32 %137, 15
+  switch i32 %138, label %.thread217 [
+    i32 1, label %139
+    i32 12, label %139
+    i32 2, label %139
+    i32 3, label %139
   ]
 
-138:                                              ; preds = %135, %135, %135, %135
-  %139 = icmp eq i32 %126, 318769153
-  br i1 %139, label %140, label %144
+139:                                              ; preds = %136, %136, %136, %136
+  %140 = icmp eq i32 %127, 318769153
+  br i1 %140, label %141, label %145
 
-140:                                              ; preds = %138
-  %141 = load ptr, ptr %30, align 8
-  %.not173 = icmp eq ptr %141, null
-  br i1 %.not173, label %144, label %.thread217
+141:                                              ; preds = %139
+  %142 = load ptr, ptr %30, align 8
+  %.not173 = icmp eq ptr %142, null
+  br i1 %.not173, label %145, label %.thread217
 
-.thread217:                                       ; preds = %140, %135
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @SDL_Blit_Slow, ptr %142, align 8
-  br label %147
+.thread217:                                       ; preds = %141, %136
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr @SDL_Blit_Slow, ptr %143, align 8
+  br label %148
 
 .critedge182.thread205:                           ; preds = %118, %52, %.critedge179, %39, %38, %49, %.critedge182
   %.2.ph = phi ptr [ %.1, %.critedge182 ], [ @SDL_Blit_Slow_Float, %38 ], [ @SDL_BlitCopy, %49 ], [ @SDL_Blit_Slow_Float, %39 ], [ @SDL_Blit_Slow_Float, %.critedge179 ], [ @SDL_Blit_Slow, %52 ], [ %108, %118 ]
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %.2.ph, ptr %143, align 8
-  br label %147
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %.2.ph, ptr %144, align 8
+  br label %148
 
-144:                                              ; preds = %134, %140, %138, %132, %130, %SDL_ChooseBlitFunc.exit
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr null, ptr %145, align 8
+145:                                              ; preds = %135, %141, %139, %133, %131, %SDL_ChooseBlitFunc.exit
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr null, ptr %146, align 8
   tail call void @SDL_InvalidateMap(ptr noundef nonnull %3) #2
-  %146 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #2
-  br label %147
+  %147 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #2
+  br label %148
 
-147:                                              ; preds = %.critedge182.thread205, %.thread217, %36, %144, %.critedge
-  %.0 = phi i1 [ %12, %.critedge ], [ %146, %144 ], [ true, %36 ], [ true, %.critedge182.thread205 ], [ true, %.thread217 ]
+148:                                              ; preds = %.critedge182.thread205, %.thread217, %36, %145, %.critedge
+  %.0 = phi i1 [ %12, %.critedge ], [ %147, %145 ], [ true, %36 ], [ true, %.critedge182.thread205 ], [ true, %.thread217 ]
   ret i1 %.0
 }
 

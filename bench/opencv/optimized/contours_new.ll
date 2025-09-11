@@ -1729,7 +1729,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
 17:                                               ; preds = %13
   %18 = icmp ult i32 %1, 1073741824
   %or.cond68 = select i1 %18, i1 %16, i1 false
-  br i1 %or.cond68, label %.thread92, label %133
+  br i1 %or.cond68, label %.thread92, label %136
 
 19:                                               ; preds = %6
   %20 = icmp ne i32 %1, 0
@@ -1742,7 +1742,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
   %24 = icmp ne i32 %21, 0
   %25 = icmp slt i32 %1, 1
   %or.cond3 = or i1 %25, %24
-  br i1 %or.cond3, label %133, label %26
+  br i1 %or.cond3, label %136, label %26
 
 26:                                               ; preds = %23
   %.not = icmp samesign ult i32 %1, 2
@@ -1755,7 +1755,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
 
 29:                                               ; preds = %26, %27
   switch i32 %11, label %43 [
-    i32 0, label %133
+    i32 0, label %136
     i32 1, label %.thread90
   ]
 
@@ -1782,7 +1782,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
   %40 = getelementptr inbounds i8, ptr %38, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !69
   %42 = icmp sgt i8 %41, 0
-  br i1 %42, label %133, label %.thread90
+  br i1 %42, label %136, label %.thread90
 
 43:                                               ; preds = %.thread73, %29
   %44 = load i32, ptr %3, align 4, !tbaa !71
@@ -1847,107 +1847,110 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
   %. = select i1 %.not63, i32 0, i32 %89
   %.1 = select i1 %87, i32 %., i32 %79
   %90 = sext i32 %.1 to i64
-  %91 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %82, i64 %90, i32 6, i32 4
-  %92 = load i8, ptr %91, align 8, !tbaa !61, !range !78, !noundef !79
-  %.not64 = icmp eq i8 %92, %86
-  br i1 %.not64, label %93, label %.thread90
+  %91 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %82, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 96
+  %93 = load i8, ptr %92, align 8, !tbaa !61, !range !78, !noundef !79
+  %.not64 = icmp eq i8 %93, %86
+  br i1 %.not64, label %94, label %.thread90
 
-93:                                               ; preds = %78
+94:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %8)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN15ContourScanner_11contourScanEiRiRN2cv6Point_IiEEii, ptr noundef nonnull @.str.2, i32 noundef 490) #21
-          to label %94 unwind label %95
+          to label %95 unwind label %96
 
-94:                                               ; preds = %93
+95:                                               ; preds = %94
   unreachable
 
-95:                                               ; preds = %93
-  %96 = landingpad { ptr, i32 }
+96:                                               ; preds = %94
+  %97 = landingpad { ptr, i32 }
           cleanup
-  %97 = load ptr, ptr %7, align 8, !tbaa !18
-  %98 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %99 = icmp eq ptr %97, %98
-  br i1 %99, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %98 = load ptr, ptr %7, align 8, !tbaa !18
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %100 = icmp eq ptr %98, %99
+  br i1 %100, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %95
-  %100 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !22
-  %102 = icmp ult i64 %101, 16
-  call void @llvm.assume(i1 %102)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %96
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %102 = load i64, ptr %101, align 8, !tbaa !22
+  %103 = icmp ult i64 %102, 16
+  call void @llvm.assume(i1 %103)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #22
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %96
+  call void @_ZdlPv(ptr noundef %98) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  resume { ptr, i32 } %96
+  resume { ptr, i32 } %97
 
 .thread90:                                        ; preds = %.thread73, %.thread73, %.thread73, %29, %30, %13, %.thread92, %78, %43
   %.0567283 = phi i1 [ %or.cond70.not, %43 ], [ %.0567287899497, %78 ], [ true, %.thread92 ], [ false, %13 ], [ false, %30 ], [ true, %29 ], [ false, %.thread73 ], [ false, %.thread73 ], [ false, %.thread73 ]
   %.058 = phi i32 [ 0, %43 ], [ %.1, %78 ], [ 0, %.thread92 ], [ 0, %13 ], [ 0, %30 ], [ 0, %29 ], [ 0, %.thread73 ], [ 0, %.thread73 ], [ 0, %.thread73 ]
   %.neg105 = sext i1 %.0567283 to i32
-  %103 = add i32 %4, %.neg105
-  store i32 %103, ptr %3, align 4, !tbaa !71
+  %104 = add i32 %4, %.neg105
+  store i32 %104, ptr %3, align 4, !tbaa !71
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %105 = load i8, ptr %104, align 8, !tbaa !46
-  store i8 %105, ptr %9, align 1, !tbaa !69
-  %106 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN15ContourScanner_11makeContourERabii(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef nonnull align 1 dereferenceable(1) %9, i1 noundef zeroext %.0567283, i32 noundef %4, i32 noundef %5)
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  %108 = load i32, ptr %107, align 4, !tbaa !117
-  %109 = icmp eq i32 %108, -1
-  br i1 %109, label %110, label %125
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %106 = load i8, ptr %105, align 8, !tbaa !46
+  store i8 %106, ptr %9, align 1, !tbaa !69
+  %107 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN15ContourScanner_11makeContourERabii(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef nonnull align 1 dereferenceable(1) %9, i1 noundef zeroext %.0567283, i32 noundef %4, i32 noundef %5)
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
+  %109 = load i32, ptr %108, align 4, !tbaa !117
+  %110 = icmp eq i32 %109, -1
+  br i1 %110, label %111, label %128
 
-110:                                              ; preds = %.thread90
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %112 = load i32, ptr %106, align 8, !tbaa !47
-  %113 = sext i32 %.058 to i64
-  %114 = load ptr, ptr %111, align 8, !tbaa !65
-  %115 = sext i32 %112 to i64
-  %116 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %114, i64 %115
-  %117 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %114, i64 %113, i32 2
-  %118 = load i32, ptr %117, align 8, !tbaa !118
-  %.not.i = icmp eq i32 %118, -1
-  br i1 %.not.i, label %_ZN2cv4TreeINS_7ContourEE8addChildEii.exit, label %119
+111:                                              ; preds = %.thread90
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %113 = load i32, ptr %107, align 8, !tbaa !47
+  %114 = sext i32 %.058 to i64
+  %115 = load ptr, ptr %112, align 8, !tbaa !65
+  %116 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %115, i64 %114
+  %117 = sext i32 %113 to i64
+  %118 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %115, i64 %117
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %120 = load i32, ptr %119, align 8, !tbaa !118
+  %.not.i = icmp eq i32 %120, -1
+  br i1 %.not.i, label %_ZN2cv4TreeINS_7ContourEE8addChildEii.exit, label %121
 
-119:                                              ; preds = %110
-  %120 = sext i32 %118 to i64
-  %121 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %114, i64 %120, i32 3
-  store i32 %112, ptr %121, align 4, !tbaa !119
-  %122 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i32 %118, ptr %122, align 8, !tbaa !120
+121:                                              ; preds = %111
+  %122 = sext i32 %120 to i64
+  %123 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %115, i64 %122
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 12
+  store i32 %113, ptr %124, align 4, !tbaa !119
+  %125 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  store i32 %120, ptr %125, align 8, !tbaa !120
   br label %_ZN2cv4TreeINS_7ContourEE8addChildEii.exit
 
-_ZN2cv4TreeINS_7ContourEE8addChildEii.exit:       ; preds = %110, %119
-  store i32 %112, ptr %117, align 8, !tbaa !118
-  %123 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  store i32 %.058, ptr %123, align 4, !tbaa !117
-  %124 = getelementptr inbounds nuw i8, ptr %116, i64 12
-  store i32 -1, ptr %124, align 4, !tbaa !119
-  br label %125
+_ZN2cv4TreeINS_7ContourEE8addChildEii.exit:       ; preds = %111, %121
+  store i32 %113, ptr %119, align 8, !tbaa !118
+  %126 = getelementptr inbounds nuw i8, ptr %118, i64 4
+  store i32 %.058, ptr %126, align 4, !tbaa !117
+  %127 = getelementptr inbounds nuw i8, ptr %118, i64 12
+  store i32 -1, ptr %127, align 4, !tbaa !119
+  br label %128
 
-125:                                              ; preds = %_ZN2cv4TreeINS_7ContourEE8addChildEii.exit, %.thread90
-  %126 = load i32, ptr %10, align 4, !tbaa !36
-  %127 = icmp eq i32 %126, 4
-  %128 = add nsw i32 %4, 1
-  %narrow = and i1 %127, %.0567283
+128:                                              ; preds = %_ZN2cv4TreeINS_7ContourEE8addChildEii.exit, %.thread90
+  %129 = load i32, ptr %10, align 4, !tbaa !36
+  %130 = icmp eq i32 %129, 4
+  %131 = add nsw i32 %4, 1
+  %narrow = and i1 %130, %.0567283
   %.neg104 = sext i1 %narrow to i32
-  %129 = add nsw i32 %128, %.neg104
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %129, ptr %130, align 8, !tbaa !121
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %5, ptr %131, align 4, !tbaa !122
-  %132 = load i8, ptr %9, align 1, !tbaa !69
-  store i8 %132, ptr %104, align 8, !tbaa !46
+  %132 = add nsw i32 %131, %.neg104
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %132, ptr %133, align 8, !tbaa !121
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %5, ptr %134, align 4, !tbaa !122
+  %135 = load i8, ptr %9, align 1, !tbaa !69
+  store i8 %135, ptr %105, align 8, !tbaa !46
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %133
+  br label %136
 
-133:                                              ; preds = %29, %30, %23, %17, %125
-  %.0 = phi i1 [ true, %125 ], [ false, %17 ], [ false, %23 ], [ false, %30 ], [ false, %29 ]
+136:                                              ; preds = %29, %30, %23, %17, %128
+  %.0 = phi i1 [ true, %128 ], [ false, %17 ], [ false, %23 ], [ false, %30 ], [ false, %29 ]
   ret i1 %.0
 }
 

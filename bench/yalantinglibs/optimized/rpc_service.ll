@@ -11678,12 +11678,14 @@ if.else:                                          ; preds = %if.then
   %add.ptr.i9.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %4, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i, ptr noundef nonnull align 8 dereferenceable(16) %tmp.i, i64 16, i1 false)
   %5 = load ptr, ptr %heap_, align 8
-  %timer_.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %5, i64 %0, i32 1
+  %add.ptr.i10.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %5, i64 %0
+  %timer_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i10.i, i64 8
   %6 = load ptr, ptr %timer_.i, align 8
   %heap_index_.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %0, ptr %heap_index_.i, align 8
   %7 = load ptr, ptr %heap_, align 8
-  %timer_12.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %7, i64 %sub, i32 1
+  %add.ptr.i11.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %7, i64 %sub
+  %timer_12.i = getelementptr inbounds nuw i8, ptr %add.ptr.i11.i, i64 8
   %8 = load ptr, ptr %timer_12.i, align 8
   %heap_index_13.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %sub, ptr %heap_index_13.i, align 8
@@ -11726,12 +11728,14 @@ if.end.i:                                         ; preds = %while.body.i
   %add.ptr.i9.i.i = getelementptr inbounds nuw %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %11, i64 %div6.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i.i, ptr noundef nonnull align 8 dereferenceable(16) %tmp.i.i, i64 16, i1 false)
   %12 = load ptr, ptr %heap_, align 8
-  %timer_.i.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %12, i64 %index.addr.09.i, i32 1
+  %add.ptr.i10.i.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %12, i64 %index.addr.09.i
+  %timer_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i10.i.i, i64 8
   %13 = load ptr, ptr %timer_.i.i, align 8
   %heap_index_.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %index.addr.09.i, ptr %heap_index_.i.i, align 8
   %14 = load ptr, ptr %heap_, align 8
-  %timer_12.i.i = getelementptr inbounds nuw %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %14, i64 %div6.i, i32 1
+  %add.ptr.i11.i.i = getelementptr inbounds nuw %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %14, i64 %div6.i
+  %timer_12.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i11.i.i, i64 8
   %15 = load ptr, ptr %timer_12.i.i, align 8
   %heap_index_13.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %div6.i, ptr %heap_index_13.i.i, align 8
@@ -11785,15 +11789,17 @@ if.end.i49:                                       ; preds = %cond.end.i
   %add.ptr.i9.i.i50 = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %17, i64 %cond.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i.i50, ptr noundef nonnull align 8 dereferenceable(16) %tmp.i.i41, i64 16, i1 false)
   %18 = load ptr, ptr %heap_, align 8
-  %timer_.i.i51 = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %18, i64 %index.addr.029.i, i32 1
-  %19 = load ptr, ptr %timer_.i.i51, align 8
-  %heap_index_.i.i52 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i64 %index.addr.029.i, ptr %heap_index_.i.i52, align 8
+  %add.ptr.i10.i.i51 = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %18, i64 %index.addr.029.i
+  %timer_.i.i52 = getelementptr inbounds nuw i8, ptr %add.ptr.i10.i.i51, i64 8
+  %19 = load ptr, ptr %timer_.i.i52, align 8
+  %heap_index_.i.i53 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i64 %index.addr.029.i, ptr %heap_index_.i.i53, align 8
   %20 = load ptr, ptr %heap_, align 8
-  %timer_12.i.i53 = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %20, i64 %cond.i, i32 1
-  %21 = load ptr, ptr %timer_12.i.i53, align 8
-  %heap_index_13.i.i54 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i64 %cond.i, ptr %heap_index_13.i.i54, align 8
+  %add.ptr.i11.i.i54 = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %20, i64 %cond.i
+  %timer_12.i.i55 = getelementptr inbounds nuw i8, ptr %add.ptr.i11.i.i54, i64 8
+  %21 = load ptr, ptr %timer_12.i.i55, align 8
+  %heap_index_13.i.i56 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i64 %cond.i, ptr %heap_index_13.i.i56, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i41)
   %child.0.in.i = shl i64 %cond.i, 1
   %child.0.i = or disjoint i64 %child.0.in.i, 1
@@ -11823,21 +11829,21 @@ if.end33:                                         ; preds = %if.then31, %if.end2
   %26 = load ptr, ptr %prev_, align 8
   %tobool.not = icmp eq ptr %26, null
   %next_39.phi.trans.insert = getelementptr inbounds nuw i8, ptr %timer, i64 24
-  %.pre57 = load ptr, ptr %next_39.phi.trans.insert, align 8
+  %.pre59 = load ptr, ptr %next_39.phi.trans.insert, align 8
   br i1 %tobool.not, label %if.end38, label %if.then34
 
 if.then34:                                        ; preds = %if.end33
   %next_37 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr %.pre57, ptr %next_37, align 8
+  store ptr %.pre59, ptr %next_37, align 8
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end33, %if.then34
-  %tobool40.not = icmp eq ptr %.pre57, null
+  %tobool40.not = icmp eq ptr %.pre59, null
   br i1 %tobool40.not, label %if.end45, label %if.then41
 
 if.then41:                                        ; preds = %if.end38
   %27 = load ptr, ptr %prev_, align 8
-  %prev_44 = getelementptr inbounds nuw i8, ptr %.pre57, i64 32
+  %prev_44 = getelementptr inbounds nuw i8, ptr %.pre59, i64 32
   store ptr %27, ptr %prev_44, align 8
   br label %if.end45
 
@@ -17583,12 +17589,14 @@ if.end.i:                                         ; preds = %while.body.i
   %add.ptr.i9.i.i = getelementptr inbounds nuw %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %13, i64 %div6.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i.i, ptr noundef nonnull align 8 dereferenceable(16) %tmp.i.i, i64 16, i1 false)
   %14 = load ptr, ptr %heap_, align 8
-  %timer_.i.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %14, i64 %index.addr.09.i, i32 1
+  %add.ptr.i10.i.i = getelementptr inbounds %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %14, i64 %index.addr.09.i
+  %timer_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i10.i.i, i64 8
   %15 = load ptr, ptr %timer_.i.i, align 8
   %heap_index_.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %index.addr.09.i, ptr %heap_index_.i.i, align 8
   %16 = load ptr, ptr %heap_, align 8
-  %timer_12.i.i = getelementptr inbounds nuw %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %16, i64 %div6.i, i32 1
+  %add.ptr.i11.i.i = getelementptr inbounds nuw %"struct.asio::detail::timer_queue<asio::detail::chrono_time_traits<std::chrono::_V2::steady_clock, asio::wait_traits<std::chrono::_V2::steady_clock>>>::heap_entry", ptr %16, i64 %div6.i
+  %timer_12.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i11.i.i, i64 8
   %17 = load ptr, ptr %timer_12.i.i, align 8
   %heap_index_13.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %div6.i, ptr %heap_index_13.i.i, align 8
@@ -34427,7 +34435,8 @@ for.body.preheader.i.i:                           ; preds = %for.body.i.i.i
 for.body.i4.i:                                    ; preds = %for.body.i4.i, %for.body.preheader.i.i
   %i.08.i.i = phi i64 [ %inc.i5.i, %for.body.i4.i ], [ 0, %for.body.preheader.i.i ]
   %3 = load ptr, ptr %initialBlockPool3.i.i, align 8
-  %dynamicallyAllocated.i.i = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::Block", ptr %3, i64 %i.08.i.i, i32 7
+  %arrayidx.i.i = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::Block", ptr %3, i64 %i.08.i.i
+  %dynamicallyAllocated.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 2624
   store i8 0, ptr %dynamicallyAllocated.i.i, align 8
   %inc.i5.i = add nuw i64 %i.08.i.i, 1
   %4 = load i64, ptr %initialBlockPoolSize.i.i, align 8
@@ -34741,8 +34750,8 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %stop_ = getelementptr inbounds nuw i8, ptr %0, i64 1360
   %1 = load atomic i8, ptr %stop_ seq_cst, align 1
-  %tobool.i.i239 = trunc i8 %1 to i1
-  br i1 %tobool.i.i239, label %while.end54, label %while.body.lr.ph
+  %tobool.i.i240 = trunc i8 %1 to i1
+  br i1 %tobool.i.i240, label %while.end54, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %max_files_ = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -34818,17 +34827,17 @@ cond.false:                                       ; preds = %if.then7
           to label %if.end10 unwind label %lpad.loopexit.split-lp.loopexit
 
 lpad.loopexit:                                    ; preds = %if.then42, %cond.true47, %cond.false49
-  %lpad.loopexit229 = landingpad { ptr, i32 }
+  %lpad.loopexit230 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %cond.false, %cond.true, %if.end
-  %lpad.loopexit231 = landingpad { ptr, i32 }
+  %lpad.loopexit232 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i.i.i
-  %lpad.loopexit.split-lp232 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp233 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -34991,8 +35000,8 @@ invoke.cont24:                                    ; preds = %for.body.i18
 
 while.cond28.preheader:                           ; preds = %invoke.cont24
   %32 = load atomic i64, ptr %queue_ acquire, align 8
-  %cmp226.not.i238 = icmp eq i64 %32, 0
-  br i1 %cmp226.not.i238, label %if.end53, label %for.body.preheader.i32
+  %cmp226.not.i239 = icmp eq i64 %32, 0
+  br i1 %cmp226.not.i239, label %if.end53, label %for.body.preheader.i32
 
 for.body.preheader.i32:                           ; preds = %while.cond28.preheader, %cond.end51
   %33 = phi i64 [ %147, %cond.end51 ], [ %32, %while.cond28.preheader ]
@@ -35079,53 +35088,54 @@ acqrel.i40.i164:                                  ; preds = %acquire.i.i160
   %55 = load i64, ptr %atomic-temp.i.0.i.i167, align 8
   %sub18.i175 = add i64 %55, -1
   %and19.i176 = and i64 %add.i174, %sub18.i175
-  %block21.i177 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %53, i64 %and19.i176, i32 1
-  %56 = load ptr, ptr %block21.i177, align 8
-  %and.i.i178 = and i64 %50, 31
-  %add.ptr.i.i179 = getelementptr inbounds nuw %"class.easylog::record_t", ptr %56, i64 %and.i.i178
-  %call23.i180 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN7easylog8record_taSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %record, ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i.i179) #33
-  %ss_.i.i181 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i179, i64 48
-  %57 = load ptr, ptr %ss_.i.i181, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i179, i64 64
-  %cmp.i.i.i.i.i182 = icmp eq ptr %57, %58
-  br i1 %cmp.i.i.i.i.i182, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i195, label %if.then.i.i.i.i183
+  %arrayidx20.i177 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %53, i64 %and19.i176
+  %block21.i178 = getelementptr inbounds nuw i8, ptr %arrayidx20.i177, i64 8
+  %56 = load ptr, ptr %block21.i178, align 8
+  %and.i.i179 = and i64 %50, 31
+  %add.ptr.i.i180 = getelementptr inbounds nuw %"class.easylog::record_t", ptr %56, i64 %and.i.i179
+  %call23.i181 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN7easylog8record_taSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %record, ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i.i180) #33
+  %ss_.i.i182 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i180, i64 48
+  %57 = load ptr, ptr %ss_.i.i182, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i180, i64 64
+  %cmp.i.i.i.i.i183 = icmp eq ptr %57, %58
+  br i1 %cmp.i.i.i.i.i183, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i196, label %if.then.i.i.i.i184
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i195: ; preds = %acqrel.i40.i164
-  %_M_string_length.i.i.i.i.i196 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i179, i64 56
-  %59 = load i64, ptr %_M_string_length.i.i.i.i.i196, align 8
-  %cmp3.i.i.i.i.i197 = icmp ult i64 %59, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i197)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i184
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i196: ; preds = %acqrel.i40.i164
+  %_M_string_length.i.i.i.i.i197 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i180, i64 56
+  %59 = load i64, ptr %_M_string_length.i.i.i.i.i197, align 8
+  %cmp3.i.i.i.i.i198 = icmp ult i64 %59, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i198)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i185
 
-if.then.i.i.i.i183:                               ; preds = %acqrel.i40.i164
+if.then.i.i.i.i184:                               ; preds = %acqrel.i40.i164
   call void @_ZdlPv(ptr noundef %57) #36
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i184
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i185
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i184: ; preds = %if.then.i.i.i.i183, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i195
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ss_.i.i181) #33
-  %file_str_.i.i185 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i179, i64 16
-  %60 = load ptr, ptr %file_str_.i.i185, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i179, i64 32
-  %cmp.i.i.i1.i.i186 = icmp eq ptr %60, %61
-  br i1 %cmp.i.i.i1.i.i186, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i192, label %if.then.i.i2.i.i187
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i185: ; preds = %if.then.i.i.i.i184, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i196
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ss_.i.i182) #33
+  %file_str_.i.i186 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i180, i64 16
+  %60 = load ptr, ptr %file_str_.i.i186, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i180, i64 32
+  %cmp.i.i.i1.i.i187 = icmp eq ptr %60, %61
+  br i1 %cmp.i.i.i1.i.i187, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i193, label %if.then.i.i2.i.i188
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i192: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i184
-  %_M_string_length.i.i.i4.i.i193 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i179, i64 24
-  %62 = load i64, ptr %_M_string_length.i.i.i4.i.i193, align 8
-  %cmp3.i.i.i5.i.i194 = icmp ult i64 %62, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i5.i.i194)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i193: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i185
+  %_M_string_length.i.i.i4.i.i194 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i180, i64 24
+  %62 = load i64, ptr %_M_string_length.i.i.i4.i.i194, align 8
+  %cmp3.i.i.i5.i.i195 = icmp ult i64 %62, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i5.i.i195)
   br label %call.i.i.noexc
 
-if.then.i.i2.i.i187:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i184
+if.then.i.i2.i.i188:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i185
   call void @_ZdlPv(ptr noundef %60) #36
   br label %call.i.i.noexc
 
-call.i.i.noexc:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i192, %if.then.i.i2.i.i187
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_str_.i.i185) #33
-  %emptyFlags.i.i189 = getelementptr inbounds nuw i8, ptr %56, i64 2576
-  %sub.i31.i190 = xor i64 %and.i.i178, 31
-  %arrayidx.i.i191 = getelementptr inbounds nuw %"struct.std::atomic", ptr %emptyFlags.i.i189, i64 %sub.i31.i190
-  store atomic i8 1, ptr %arrayidx.i.i191 release, align 1
+call.i.i.noexc:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i193, %if.then.i.i2.i.i188
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_str_.i.i186) #33
+  %emptyFlags.i.i190 = getelementptr inbounds nuw i8, ptr %56, i64 2576
+  %sub.i31.i191 = xor i64 %and.i.i179, 31
+  %arrayidx.i.i192 = getelementptr inbounds nuw %"struct.std::atomic", ptr %emptyFlags.i.i190, i64 %sub.i31.i191
+  store atomic i8 1, ptr %arrayidx.i.i192 release, align 1
   br label %while.body32
 
 _ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueIS2_EEbRT_.exit.i: ; preds = %if.then10.i
@@ -35314,7 +35324,8 @@ acqrel.i40.i:                                     ; preds = %acquire.i.i72
   %105 = load i64, ptr %atomic-temp.i.0.i.i74, align 8
   %sub18.i = add i64 %105, -1
   %and19.i = and i64 %add.i75, %sub18.i
-  %block21.i = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %103, i64 %and19.i, i32 1
+  %arrayidx20.i = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %103, i64 %and19.i
+  %block21.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 8
   %106 = load ptr, ptr %block21.i, align 8
   %and.i.i76 = and i64 %100, 31
   %add.ptr.i.i77 = getelementptr inbounds nuw %"class.easylog::record_t", ptr %106, i64 %and.i.i76
@@ -35569,7 +35580,7 @@ _ZN7easylog8record_tD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.i.i, label %while.end54, label %while.body, !llvm.loop !455
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %if.then3.i.i11, %if.else.i.i9, %lpad17
-  %.pn = phi { ptr, i32 } [ %23, %lpad17 ], [ %23, %if.else.i.i9 ], [ %23, %if.then3.i.i11 ], [ %lpad.loopexit229, %lpad.loopexit ], [ %lpad.loopexit231, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp232, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %lpad17 ], [ %23, %if.else.i.i9 ], [ %23, %if.then3.i.i11 ], [ %lpad.loopexit230, %lpad.loopexit ], [ %lpad.loopexit232, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp233, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN7easylog8record_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %record) #33
   resume { ptr, i32 } %.pn
 
@@ -38185,7 +38196,8 @@ acqrel.i40:                                       ; preds = %acquire.i
   %12 = load i64, ptr %atomic-temp.i.0.i, align 8
   %sub18 = add i64 %12, -1
   %and19 = and i64 %add, %sub18
-  %block21 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %10, i64 %and19, i32 1
+  %arrayidx20 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ExplicitProducer::BlockIndexEntry", ptr %10, i64 %and19
+  %block21 = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 8
   %13 = load ptr, ptr %block21, align 8
   %and.i = and i64 %7, 31
   %add.ptr.i = getelementptr inbounds nuw %"class.easylog::record_t", ptr %13, i64 %and.i
@@ -39314,26 +39326,35 @@ entry:
   %implicitProducerHash = getelementptr inbounds nuw i8, ptr %this, i64 48
   %2 = load atomic i64, ptr %implicitProducerHash acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %2 to ptr
-  %cmp.not150 = icmp eq i64 %2, 0
-  br i1 %cmp.not150, label %for.end, label %while.body.preheader
+  %cmp.not147 = icmp eq i64 %2, 0
+  br i1 %cmp.not147, label %for.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry, %for.inc
-  %hash.0151 = phi ptr [ %14, %for.inc ], [ %atomic-temp.i.0.i, %entry ]
-  %3 = load i64, ptr %hash.0151, align 8
+  %hash.0148 = phi ptr [ %16, %for.inc ], [ %atomic-temp.i.0.i, %entry ]
+  %3 = load i64, ptr %hash.0148, align 8
   %sub = add i64 %3, -1
-  %entries = getelementptr inbounds nuw i8, ptr %hash.0151, i64 8
+  %entries = getelementptr inbounds nuw i8, ptr %hash.0148, i64 8
   %4 = load ptr, ptr %entries, align 8
-  %and141 = and i64 %sub, %xor5.i.i
-  %arrayidx142 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %4, i64 %and141
-  %5 = load atomic i64, ptr %arrayidx142 monotonic, align 8
-  %cmp5143 = icmp eq i64 %5, %1
-  br i1 %cmp5143, label %if.then, label %if.end25
+  %and140 = and i64 %sub, %xor5.i.i
+  %arrayidx141 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %4, i64 %and140
+  %5 = load atomic i64, ptr %arrayidx141 monotonic, align 8
+  %cmp5142 = icmp eq i64 %5, %1
+  br i1 %cmp5142, label %if.then, label %if.end25
 
-if.then:                                          ; preds = %while.body.preheader, %if.end28
-  %and.lcssa = phi i64 [ %and, %if.end28 ], [ %and141, %while.body.preheader ]
-  %value8 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %4, i64 %and.lcssa, i32 1
-  %6 = load ptr, ptr %value8, align 8
-  %cmp9.not = icmp eq ptr %hash.0151, %atomic-temp.i.0.i
+while.body:                                       ; preds = %if.end25
+  %inc29 = add i64 %and143, 1
+  %and = and i64 %sub, %inc29
+  %arrayidx = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %4, i64 %and
+  %6 = load atomic i64, ptr %arrayidx monotonic, align 8
+  %cmp5 = icmp eq i64 %6, %1
+  br i1 %cmp5, label %if.then, label %if.end25, !llvm.loop !488
+
+if.then:                                          ; preds = %while.body.preheader, %while.body
+  %7 = phi i64 [ %and, %while.body ], [ %and140, %while.body.preheader ]
+  %8 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %4, i64 %7
+  %value8 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %value8, align 8
+  %cmp9.not = icmp eq ptr %hash.0148, %atomic-temp.i.0.i
   br i1 %cmp9.not, label %return, label %while.body12.preheader
 
 while.body12.preheader:                           ; preds = %if.then
@@ -39342,71 +39363,64 @@ while.body12.preheader:                           ; preds = %if.then
 
 while.body12:                                     ; preds = %while.body12, %while.body12.preheader
   %index.1 = phi i64 [ %inc, %while.body12 ], [ %xor5.i.i, %while.body12.preheader ]
-  %7 = load i64, ptr %atomic-temp.i.0.i, align 8
-  %sub14 = add i64 %7, -1
+  %10 = load i64, ptr %atomic-temp.i.0.i, align 8
+  %sub14 = add i64 %10, -1
   %and15 = and i64 %sub14, %index.1
-  %8 = load ptr, ptr %entries16, align 8
-  %arrayidx17 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %8, i64 %and15
-  %9 = cmpxchg ptr %arrayidx17, i64 0, i64 %1 seq_cst monotonic, align 8
-  %10 = extractvalue { i64, i1 } %9, 1
+  %11 = load ptr, ptr %entries16, align 8
+  %arrayidx17 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %11, i64 %and15
+  %12 = cmpxchg ptr %arrayidx17, i64 0, i64 %1 seq_cst monotonic, align 8
+  %13 = extractvalue { i64, i1 } %12, 1
   %inc = add i64 %and15, 1
-  br i1 %10, label %if.then20, label %while.body12, !llvm.loop !488
+  br i1 %13, label %if.then20, label %while.body12, !llvm.loop !489
 
 if.then20:                                        ; preds = %while.body12
-  %11 = load ptr, ptr %entries16, align 8
-  %value23 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %11, i64 %and15, i32 1
-  store ptr %6, ptr %value23, align 8
+  %14 = load ptr, ptr %entries16, align 8
+  %arrayidx22 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %14, i64 %and15
+  %value23 = getelementptr inbounds nuw i8, ptr %arrayidx22, i64 8
+  store ptr %9, ptr %value23, align 8
   br label %return
 
-if.end25:                                         ; preds = %while.body.preheader, %if.end28
-  %12 = phi i64 [ %13, %if.end28 ], [ %5, %while.body.preheader ]
-  %and144 = phi i64 [ %and, %if.end28 ], [ %and141, %while.body.preheader ]
-  %cmp26 = icmp eq i64 %12, 0
-  br i1 %cmp26, label %for.inc, label %if.end28
-
-if.end28:                                         ; preds = %if.end25
-  %inc29 = add i64 %and144, 1
-  %and = and i64 %sub, %inc29
-  %arrayidx = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %4, i64 %and
-  %13 = load atomic i64, ptr %arrayidx monotonic, align 8
-  %cmp5 = icmp eq i64 %13, %1
-  br i1 %cmp5, label %if.then, label %if.end25, !llvm.loop !489
+if.end25:                                         ; preds = %while.body.preheader, %while.body
+  %15 = phi i64 [ %6, %while.body ], [ %5, %while.body.preheader ]
+  %and143 = phi i64 [ %and, %while.body ], [ %and140, %while.body.preheader ]
+  %cmp26 = icmp eq i64 %15, 0
+  br i1 %cmp26, label %for.inc, label %while.body
 
 for.inc:                                          ; preds = %if.end25
-  %prev = getelementptr inbounds nuw i8, ptr %hash.0151, i64 16
-  %14 = load ptr, ptr %prev, align 8
-  %cmp.not = icmp eq ptr %14, null
+  %prev = getelementptr inbounds nuw i8, ptr %hash.0148, i64 16
+  %16 = load ptr, ptr %prev, align 8
+  %cmp.not = icmp eq ptr %16, null
   br i1 %cmp.not, label %for.end, label %while.body.preheader, !llvm.loop !490
 
 for.end:                                          ; preds = %for.inc, %entry
   %implicitProducerHashCount = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %15 = atomicrmw add ptr %implicitProducerHashCount, i64 1 monotonic, align 8
-  %add = add i64 %15, 1
+  %17 = atomicrmw add ptr %implicitProducerHashCount, i64 1 monotonic, align 8
+  %add = add i64 %17, 1
   %implicitProducerHashResizeInProgress = getelementptr inbounds nuw i8, ptr %this, i64 600
   br label %while.body32
 
 while.body32:                                     ; preds = %if.end109, %for.end
   %mainHash.0 = phi ptr [ %atomic-temp.i.0.i, %for.end ], [ %atomic-temp.i.0.i133, %if.end109 ]
-  %16 = load i64, ptr %mainHash.0, align 8
-  %shr = lshr i64 %16, 1
+  %18 = load i64, ptr %mainHash.0, align 8
+  %shr = lshr i64 %18, 1
   %cmp34.not = icmp ult i64 %add, %shr
   br i1 %cmp34.not, label %if.end77, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body32
-  %17 = atomicrmw xchg ptr %implicitProducerHashResizeInProgress, i8 1 acquire, align 1
-  %tobool.i270.not = icmp eq i8 %17, 0
+  %19 = atomicrmw xchg ptr %implicitProducerHashResizeInProgress, i8 1 acquire, align 1
+  %tobool.i270.not = icmp eq i8 %19, 0
   br i1 %tobool.i270.not, label %if.then36, label %if.end77
 
 if.then36:                                        ; preds = %land.lhs.true
-  %18 = load atomic i64, ptr %implicitProducerHash acquire, align 8
-  %atomic-temp.i.0.i131 = inttoptr i64 %18 to ptr
-  %19 = load i64, ptr %atomic-temp.i.0.i131, align 8
-  %shr40 = lshr i64 %19, 1
+  %20 = load atomic i64, ptr %implicitProducerHash acquire, align 8
+  %atomic-temp.i.0.i131 = inttoptr i64 %20 to ptr
+  %21 = load i64, ptr %atomic-temp.i.0.i131, align 8
+  %shr40 = lshr i64 %21, 1
   %cmp41.not = icmp ult i64 %add, %shr40
   br i1 %cmp41.not, label %if.end77.sink.split, label %while.cond44
 
 while.cond44:                                     ; preds = %if.then36, %while.cond44
-  %newCapacity.0.in = phi i64 [ %newCapacity.0, %while.cond44 ], [ %19, %if.then36 ]
+  %newCapacity.0.in = phi i64 [ %newCapacity.0, %while.cond44 ], [ %21, %if.then36 ]
   %newCapacity.0 = shl i64 %newCapacity.0.in, 1
   %shr45 = and i64 %newCapacity.0.in, 9223372036854775807
   %cmp46.not = icmp ult i64 %add, %shr45
@@ -39420,39 +39434,39 @@ while.end49:                                      ; preds = %while.cond44
   br i1 %cmp52, label %monotonic.i133, label %if.end57
 
 monotonic.i133:                                   ; preds = %while.end49
-  %20 = atomicrmw sub ptr %implicitProducerHashCount, i64 1 monotonic, align 8
+  %22 = atomicrmw sub ptr %implicitProducerHashCount, i64 1 monotonic, align 8
   store atomic i8 0, ptr %implicitProducerHashResizeInProgress monotonic, align 8
   br label %return
 
 if.end57:                                         ; preds = %while.end49
   store i64 %newCapacity.0, ptr %call.i132, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %call.i132, i64 24
-  %21 = ptrtoint ptr %add.ptr to i64
-  %sub.i = sub i64 0, %21
+  %23 = ptrtoint ptr %add.ptr to i64
+  %sub.i = sub i64 0, %23
   %rem1.i = and i64 %sub.i, 7
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %rem1.i
   %entries60 = getelementptr inbounds nuw i8, ptr %call.i132, i64 8
   store ptr %add.ptr.i, ptr %entries60, align 8
-  %cmp62.not152 = icmp eq i64 %newCapacity.0, 0
-  br i1 %cmp62.not152, label %for.end71, label %for.body63
+  %cmp62.not149 = icmp eq i64 %newCapacity.0, 0
+  br i1 %cmp62.not149, label %for.end71, label %for.body63
 
 for.body63:                                       ; preds = %if.end57, %for.body63
-  %i.0153 = phi i64 [ %inc70, %for.body63 ], [ 0, %if.end57 ]
-  %22 = load ptr, ptr %entries60, align 8
-  %add.ptr65 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %22, i64 %i.0153
+  %i.0150 = phi i64 [ %inc70, %for.body63 ], [ 0, %if.end57 ]
+  %24 = load ptr, ptr %entries60, align 8
+  %add.ptr65 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %24, i64 %i.0150
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr65, i8 0, i64 16, i1 false)
-  %23 = load ptr, ptr %entries60, align 8
-  %arrayidx67 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %23, i64 %i.0153
+  %25 = load ptr, ptr %entries60, align 8
+  %arrayidx67 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %25, i64 %i.0150
   store atomic i64 0, ptr %arrayidx67 monotonic, align 8
-  %inc70 = add nuw i64 %i.0153, 1
+  %inc70 = add nuw i64 %i.0150, 1
   %cmp62.not = icmp eq i64 %inc70, %newCapacity.0
   br i1 %cmp62.not, label %for.end71, label %for.body63, !llvm.loop !492
 
 for.end71:                                        ; preds = %for.body63, %if.end57
   %prev72 = getelementptr inbounds nuw i8, ptr %call.i132, i64 16
   store ptr %atomic-temp.i.0.i131, ptr %prev72, align 8
-  %24 = ptrtoint ptr %call.i132 to i64
-  store atomic i64 %24, ptr %implicitProducerHash release, align 8
+  %26 = ptrtoint ptr %call.i132 to i64
+  store atomic i64 %26, ptr %implicitProducerHash release, align 8
   br label %if.end77.sink.split
 
 if.end77.sink.split:                              ; preds = %if.then36, %for.end71
@@ -39462,46 +39476,46 @@ if.end77.sink.split:                              ; preds = %if.then36, %for.end
 
 if.end77:                                         ; preds = %if.end77.sink.split, %land.lhs.true, %while.body32
   %mainHash.1 = phi ptr [ %mainHash.0, %land.lhs.true ], [ %mainHash.0, %while.body32 ], [ %mainHash.1.ph, %if.end77.sink.split ]
-  %25 = load i64, ptr %mainHash.1, align 8
-  %shr79 = lshr i64 %25, 1
-  %shr81 = lshr i64 %25, 2
+  %27 = load i64, ptr %mainHash.1, align 8
+  %shr79 = lshr i64 %27, 1
+  %shr81 = lshr i64 %27, 2
   %add82 = add nuw i64 %shr79, %shr81
   %cmp83 = icmp ult i64 %add, %add82
   br i1 %cmp83, label %if.then84, label %if.end109
 
 if.then84:                                        ; preds = %if.end77
-  %26 = load atomic i64, ptr %this acquire, align 8
-  %cmp.not19.i = icmp eq i64 %26, 0
+  %28 = load atomic i64, ptr %this acquire, align 8
+  %cmp.not19.i = icmp eq i64 %28, 0
   br i1 %cmp.not19.i, label %for.end.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then84
-  %atomic-temp.i.0.i.i = inttoptr i64 %26 to ptr
+  %atomic-temp.i.0.i.i = inttoptr i64 %28 to ptr
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %ptr.020.i = phi ptr [ %sub.ptr.i.i, %for.inc.i ], [ %atomic-temp.i.0.i.i, %for.body.preheader.i ]
   %inactive.i = getelementptr inbounds nuw i8, ptr %ptr.020.i, i64 16
-  %27 = load atomic i8, ptr %inactive.i monotonic, align 1
-  %tobool.i.i.i = trunc i8 %27 to i1
+  %29 = load atomic i8, ptr %inactive.i monotonic, align 1
+  %tobool.i.i.i = trunc i8 %29 to i1
   br i1 %tobool.i.i.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %isExplicit3.i = getelementptr inbounds nuw i8, ptr %ptr.020.i, i64 72
-  %28 = load i8, ptr %isExplicit3.i, align 8
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %for.inc.i, label %if.then.i
+  %30 = load i8, ptr %isExplicit3.i, align 8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %30 = cmpxchg ptr %inactive.i, i8 1, i8 0 acquire monotonic, align 1
-  %31 = extractvalue { i8, i1 } %30, 1
-  br i1 %31, label %_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE26recycle_or_create_producerEb.exit, label %for.inc.i
+  %32 = cmpxchg ptr %inactive.i, i8 1, i8 0 acquire monotonic, align 1
+  %33 = extractvalue { i8, i1 } %32, 1
+  br i1 %33, label %_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE26recycle_or_create_producerEb.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.lhs.true.i, %for.body.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ptr.020.i, i64 8
-  %32 = load ptr, ptr %add.ptr.i.i, align 8
-  %33 = icmp eq ptr %32, null
-  %sub.ptr.i.i = getelementptr inbounds i8, ptr %32, i64 -8
-  br i1 %33, label %for.end.i, label %for.body.i
+  %34 = load ptr, ptr %add.ptr.i.i, align 8
+  %35 = icmp eq ptr %34, null
+  %sub.ptr.i.i = getelementptr inbounds i8, ptr %34, i64 -8
+  br i1 %35, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then84
   %call.i.i.i.i = tail call noalias noundef dereferenceable_or_null(104) ptr @malloc(i64 noundef 104) #42
@@ -39511,30 +39525,30 @@ for.end.i:                                        ; preds = %for.inc.i, %if.then
 cond.end.thread13.i:                              ; preds = %for.end.i
   tail call void @_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerC2EPS4_(ptr noundef nonnull align 8 dereferenceable(104) %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(612) %this)
   %producerCount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %34 = atomicrmw add ptr %producerCount.i.i, i32 1 monotonic, align 4
-  %35 = load atomic i64, ptr %this monotonic, align 8
+  %36 = atomicrmw add ptr %producerCount.i.i, i32 1 monotonic, align 4
+  %37 = load atomic i64, ptr %this monotonic, align 8
   %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
-  %36 = ptrtoint ptr %call.i.i.i.i to i64
-  %prevTail.010.i.i = inttoptr i64 %35 to ptr
-  %37 = icmp eq i64 %35, 0
+  %38 = ptrtoint ptr %call.i.i.i.i to i64
+  %prevTail.010.i.i = inttoptr i64 %37 to ptr
+  %39 = icmp eq i64 %37, 0
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %prevTail.010.i.i, i64 8
-  %spec.select12.i.i = select i1 %37, ptr null, ptr %add.ptr11.i.i
+  %spec.select12.i.i = select i1 %39, ptr null, ptr %add.ptr11.i.i
   store ptr %spec.select12.i.i, ptr %add.ptr3.i.i, align 8
-  %38 = cmpxchg weak ptr %this, i64 %35, i64 %36 release monotonic, align 8
-  %39 = extractvalue { i64, i1 } %38, 1
-  br i1 %39, label %_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE26recycle_or_create_producerEb.exit, label %_ZNSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i.i
+  %40 = cmpxchg weak ptr %this, i64 %37, i64 %38 release monotonic, align 8
+  %41 = extractvalue { i64, i1 } %40, 1
+  br i1 %41, label %_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE26recycle_or_create_producerEb.exit, label %_ZNSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i.i
 
 _ZNSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i.i: ; preds = %cond.end.thread13.i, %_ZNSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i.i
-  %40 = phi { i64, i1 } [ %43, %_ZNSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i.i ], [ %38, %cond.end.thread13.i ]
-  %41 = extractvalue { i64, i1 } %40, 0
-  %prevTail.0.i.i = inttoptr i64 %41 to ptr
-  %42 = icmp eq i64 %41, 0
+  %42 = phi { i64, i1 } [ %45, %_ZNSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i.i ], [ %40, %cond.end.thread13.i ]
+  %43 = extractvalue { i64, i1 } %42, 0
+  %prevTail.0.i.i = inttoptr i64 %43 to ptr
+  %44 = icmp eq i64 %43, 0
   %add.ptr.i8.i = getelementptr inbounds nuw i8, ptr %prevTail.0.i.i, i64 8
-  %spec.select.i.i = select i1 %42, ptr null, ptr %add.ptr.i8.i
+  %spec.select.i.i = select i1 %44, ptr null, ptr %add.ptr.i8.i
   store ptr %spec.select.i.i, ptr %add.ptr3.i.i, align 8
-  %43 = cmpxchg weak ptr %this, i64 %41, i64 %36 release monotonic, align 8
-  %44 = extractvalue { i64, i1 } %43, 1
-  br i1 %44, label %_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE26recycle_or_create_producerEb.exit, label %_ZNSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i.i, !llvm.loop !493
+  %45 = cmpxchg weak ptr %this, i64 %43, i64 %38 release monotonic, align 8
+  %46 = extractvalue { i64, i1 } %45, 1
+  br i1 %46, label %_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE26recycle_or_create_producerEb.exit, label %_ZNSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i.i, !llvm.loop !493
 
 _ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE26recycle_or_create_producerEb.exit: ; preds = %if.then.i, %_ZNSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i.i, %cond.end.thread13.i
   %retval.0.i = phi ptr [ %call.i.i.i.i, %cond.end.thread13.i ], [ %call.i.i.i.i, %_ZNSt6atomicIPN10moodycamel15ConcurrentQueueIN7easylog8record_tENS0_28ConcurrentQueueDefaultTraitsEE12ProducerBaseEE21compare_exchange_weakERS7_S7_St12memory_orderSA_.exit.i.i ], [ %ptr.020.i, %if.then.i ]
@@ -39542,34 +39556,35 @@ _ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultT
   br label %while.body93
 
 monotonic.i122:                                   ; preds = %for.end.i
-  %45 = atomicrmw sub ptr %implicitProducerHashCount, i64 1 monotonic, align 8
+  %47 = atomicrmw sub ptr %implicitProducerHashCount, i64 1 monotonic, align 8
   br label %return
 
 while.body93:                                     ; preds = %while.body93, %_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE26recycle_or_create_producerEb.exit
   %index91.0 = phi i64 [ %inc107, %while.body93 ], [ %xor5.i.i, %_ZN10moodycamel15ConcurrentQueueIN7easylog8record_tENS_28ConcurrentQueueDefaultTraitsEE26recycle_or_create_producerEb.exit ]
-  %46 = load i64, ptr %mainHash.1, align 8
-  %sub95 = add i64 %46, -1
+  %48 = load i64, ptr %mainHash.1, align 8
+  %sub95 = add i64 %48, -1
   %and96 = and i64 %sub95, %index91.0
-  %47 = load ptr, ptr %entries98, align 8
-  %arrayidx99 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %47, i64 %and96
-  %48 = cmpxchg ptr %arrayidx99, i64 0, i64 %1 seq_cst monotonic, align 8
-  %49 = extractvalue { i64, i1 } %48, 1
+  %49 = load ptr, ptr %entries98, align 8
+  %arrayidx99 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %49, i64 %and96
+  %50 = cmpxchg ptr %arrayidx99, i64 0, i64 %1 seq_cst monotonic, align 8
+  %51 = extractvalue { i64, i1 } %50, 1
   %inc107 = add i64 %and96, 1
-  br i1 %49, label %if.then102, label %while.body93, !llvm.loop !494
+  br i1 %51, label %if.then102, label %while.body93, !llvm.loop !494
 
 if.then102:                                       ; preds = %while.body93
-  %50 = load ptr, ptr %entries98, align 8
-  %value105 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %50, i64 %and96, i32 1
+  %52 = load ptr, ptr %entries98, align 8
+  %arrayidx104 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<easylog::record_t>::ImplicitProducerKVP", ptr %52, i64 %and96
+  %value105 = getelementptr inbounds nuw i8, ptr %arrayidx104, i64 8
   store ptr %retval.0.i, ptr %value105, align 8
   br label %return
 
 if.end109:                                        ; preds = %if.end77
-  %51 = load atomic i64, ptr %implicitProducerHash acquire, align 8
-  %atomic-temp.i.0.i133 = inttoptr i64 %51 to ptr
+  %53 = load atomic i64, ptr %implicitProducerHash acquire, align 8
+  %atomic-temp.i.0.i133 = inttoptr i64 %53 to ptr
   br label %while.body32, !llvm.loop !495
 
 return:                                           ; preds = %if.then, %if.then20, %if.then102, %monotonic.i122, %monotonic.i133
-  %retval.0 = phi ptr [ null, %monotonic.i122 ], [ %retval.0.i, %if.then102 ], [ null, %monotonic.i133 ], [ %6, %if.then20 ], [ %6, %if.then ]
+  %retval.0 = phi ptr [ null, %monotonic.i122 ], [ %retval.0.i, %if.then102 ], [ null, %monotonic.i133 ], [ %9, %if.then20 ], [ %9, %if.then ]
   ret ptr %retval.0
 }
 
@@ -46822,7 +46837,8 @@ while.body.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i.
   %ref.tmp7.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i.i.i, i64 8
   store i64 %spec.select.i6.i.i.i.i.i.i.i.i, ptr %ref.tmp7.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i, align 8, !alias.scope !567
   %8 = load i64, ptr %count.i.i.i.i.i.i.i.i, align 8, !alias.scope !567
-  %size_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.asio::const_buffer", ptr %ref.tmp.i.i.i.i.i.i.i, i64 %8, i32 1
+  %arrayidx12.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.asio::const_buffer", ptr %ref.tmp.i.i.i.i.i.i.i, i64 %8
+  %size_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx12.i.i.i.i.i.i.i.i, i64 8
   %9 = load i64, ptr %size_.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !567
   %sub.i.i.i.i.i.i.i.i = sub i64 %max_size.addr.020.i.i.i.i.i.i.i.i, %9
   %cmp18.not.i.i.i.i.i.i.i.i = icmp eq i64 %9, 0
@@ -46917,7 +46933,8 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %ref.tmp7.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i64 %spec.select.i6.i, ptr %ref.tmp7.sroa.2.0.arrayidx.sroa_idx.i, align 8, !alias.scope !571
   %4 = load i64, ptr %count.i, align 8, !alias.scope !571
-  %size_.i.i = getelementptr inbounds %"class.asio::const_buffer", ptr %ref.tmp, i64 %4, i32 1
+  %arrayidx12.i = getelementptr inbounds %"class.asio::const_buffer", ptr %ref.tmp, i64 %4
+  %size_.i.i = getelementptr inbounds nuw i8, ptr %arrayidx12.i, i64 8
   %5 = load i64, ptr %size_.i.i, align 8, !alias.scope !571
   %sub.i = sub i64 %max_size.addr.020.i, %5
   %cmp18.not.i = icmp eq i64 %5, 0

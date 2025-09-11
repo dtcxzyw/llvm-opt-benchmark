@@ -3999,8 +3999,8 @@ define internal fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %0, ptr noundef %1
   %53 = add i32 %.116, %50
   br label %.backedge
 
-.backedge:                                        ; preds = %197, %201, %decode_ipv4_list_struct.exit, %43, %84
-  %.1.be = phi i32 [ %53, %43 ], [ %85, %84 ], [ %192, %decode_ipv4_list_struct.exit ], [ %200, %197 ], [ %205, %201 ]
+.backedge:                                        ; preds = %198, %202, %decode_ipv4_list_struct.exit, %43, %85
+  %.1.be = phi i32 [ %53, %43 ], [ %86, %85 ], [ %193, %decode_ipv4_list_struct.exit ], [ %201, %198 ], [ %206, %202 ]
   %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.1.be)
   %55 = icmp ugt i32 %54, 3
   br i1 %55, label %33, label %.critedge, !llvm.loop !16
@@ -4011,324 +4011,325 @@ define internal fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %0, ptr noundef %1
 57:                                               ; preds = %56
   %58 = load ptr, ptr %25, align 8
   %59 = zext i16 %38 to i64
-  %60 = getelementptr %struct.TLV_PARSER_ENTRY, ptr %58, i64 %59, i32 1
-  %61 = load ptr, ptr %60, align 8
+  %60 = getelementptr %struct.TLV_PARSER_ENTRY, ptr %58, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
   br label %wassp_match_strval.exit
 
 wassp_match_strval.exit:                          ; preds = %56, %57
-  %.0.i = phi ptr [ %61, %57 ], [ null, %56 ]
-  %62 = icmp eq ptr %.0.i, null
-  %63 = select i1 %62, ptr @.str.957, ptr %.0.i
-  %64 = zext i16 %40 to i32
-  %65 = icmp ult i32 %34, %64
-  br i1 %65, label %66, label %69
+  %.0.i = phi ptr [ %62, %57 ], [ null, %56 ]
+  %63 = icmp eq ptr %.0.i, null
+  %64 = select i1 %63, ptr @.str.957, ptr %.0.i
+  %65 = zext i16 %40 to i32
+  %66 = icmp ult i32 %34, %65
+  br i1 %66, label %67, label %70
 
-66:                                               ; preds = %wassp_match_strval.exit
-  %67 = load i32, ptr @hf_wassp_tlv_invalid, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %67, ptr noundef %1, i32 noundef %.116, i32 noundef 4, i32 noundef 0)
-  br label %93
+67:                                               ; preds = %wassp_match_strval.exit
+  %68 = load i32, ptr @hf_wassp_tlv_invalid, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %68, ptr noundef %1, i32 noundef %.116, i32 noundef 4, i32 noundef 0)
+  br label %94
 
-69:                                               ; preds = %wassp_match_strval.exit
-  %70 = icmp ult i16 %40, 4
-  br i1 %70, label %71, label %74
+70:                                               ; preds = %wassp_match_strval.exit
+  %71 = icmp ult i16 %40, 4
+  br i1 %71, label %72, label %75
 
-71:                                               ; preds = %69
-  %72 = load i32, ptr @hf_wassp_tlv_invalid, align 4
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %72, ptr noundef %1, i32 noundef %.116, i32 noundef 4, i32 noundef 0)
-  br label %93
+72:                                               ; preds = %70
+  %73 = load i32, ptr @hf_wassp_tlv_invalid, align 4
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %73, ptr noundef %1, i32 noundef %.116, i32 noundef 4, i32 noundef 0)
+  br label %94
 
-74:                                               ; preds = %69
-  %75 = icmp eq i16 %40, 4
-  %76 = icmp eq i16 %38, 272
-  %or.cond = select i1 %26, i1 %76, i1 false
-  br i1 %75, label %77, label %86
+75:                                               ; preds = %70
+  %76 = icmp eq i16 %40, 4
+  %77 = icmp eq i16 %38, 272
+  %or.cond = select i1 %26, i1 %77, i1 false
+  br i1 %76, label %78, label %87
 
-77:                                               ; preds = %74
-  br i1 %or.cond, label %78, label %81
+78:                                               ; preds = %75
+  br i1 %or.cond, label %79, label %82
 
-78:                                               ; preds = %77
-  %79 = load i32, ptr @hf_wassp_tlv_value_octext, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %79, ptr noundef %1, i32 noundef %.116, i32 noundef 4, i32 noundef 0)
-  br label %84
+79:                                               ; preds = %78
+  %80 = load i32, ptr @hf_wassp_tlv_value_octext, align 4
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %80, ptr noundef %1, i32 noundef %.116, i32 noundef 4, i32 noundef 0)
+  br label %85
 
-81:                                               ; preds = %77
-  %82 = load i32, ptr @hf_wassp_tlv_value, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %82, ptr noundef %1, i32 noundef %.116, i32 noundef 4, i32 noundef 0)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %83, ptr noundef nonnull @.str.958, ptr noundef nonnull %63, i32 noundef %41)
-  br label %84
+82:                                               ; preds = %78
+  %83 = load i32, ptr @hf_wassp_tlv_value, align 4
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %83, ptr noundef %1, i32 noundef %.116, i32 noundef 4, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %84, ptr noundef nonnull @.str.958, ptr noundef nonnull %64, i32 noundef %41)
+  br label %85
 
-84:                                               ; preds = %81, %78
-  %85 = add i32 %.116, 4
+85:                                               ; preds = %82, %79
+  %86 = add i32 %.116, 4
   br label %.backedge
 
-86:                                               ; preds = %74
-  br i1 %or.cond, label %87, label %90
+87:                                               ; preds = %75
+  br i1 %or.cond, label %88, label %91
 
-87:                                               ; preds = %86
-  %88 = load i32, ptr @hf_wassp_tlv_value_octext, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %88, ptr noundef %1, i32 noundef %.116, i32 noundef %64, i32 noundef 0)
-  br label %93
+88:                                               ; preds = %87
+  %89 = load i32, ptr @hf_wassp_tlv_value_octext, align 4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %89, ptr noundef %1, i32 noundef %.116, i32 noundef %65, i32 noundef 0)
+  br label %94
 
-90:                                               ; preds = %86
-  %91 = load i32, ptr @hf_wassp_tlv_value, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %91, ptr noundef %1, i32 noundef %.116, i32 noundef %64, i32 noundef 0)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %92, ptr noundef nonnull @.str.958, ptr noundef nonnull %63, i32 noundef %41)
-  br label %93
+91:                                               ; preds = %87
+  %92 = load i32, ptr @hf_wassp_tlv_value, align 4
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %92, ptr noundef %1, i32 noundef %.116, i32 noundef %65, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %93, ptr noundef nonnull @.str.958, ptr noundef nonnull %64, i32 noundef %41)
+  br label %94
 
-93:                                               ; preds = %71, %87, %90, %66
-  %.0231 = phi i16 [ 408, %66 ], [ 408, %71 ], [ 272, %87 ], [ %38, %90 ]
-  %94 = load i32, ptr @hf_wassp_tlv_type_sub, align 4
-  %95 = zext i16 %.0231 to i32
-  %96 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %94, ptr noundef %1, i32 noundef %.116, i32 noundef 2, i32 noundef %95, ptr noundef nonnull @.str.964, ptr noundef nonnull %63, i32 noundef %95)
-  %97 = load i32, ptr @hf_wassp_tlv_length, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %97, ptr noundef %1, i32 noundef %39, i32 noundef 2, i32 noundef 0)
-  %99 = icmp eq i16 %.0231, 408
-  br i1 %99, label %100, label %104
+94:                                               ; preds = %72, %88, %91, %67
+  %.0231 = phi i16 [ 408, %67 ], [ 408, %72 ], [ 272, %88 ], [ %38, %91 ]
+  %95 = load i32, ptr @hf_wassp_tlv_type_sub, align 4
+  %96 = zext i16 %.0231 to i32
+  %97 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %95, ptr noundef %1, i32 noundef %.116, i32 noundef 2, i32 noundef %96, ptr noundef nonnull @.str.964, ptr noundef nonnull %64, i32 noundef %96)
+  %98 = load i32, ptr @hf_wassp_tlv_length, align 4
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %98, ptr noundef %1, i32 noundef %39, i32 noundef 2, i32 noundef 0)
+  %100 = icmp eq i16 %.0231, 408
+  br i1 %100, label %101, label %105
 
-100:                                              ; preds = %93
-  %101 = load i32, ptr @hf_wassp_tlv_invalid, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %101, ptr noundef %1, i32 noundef %.116, i32 noundef %34, i32 noundef 0)
-  %103 = add i32 %.116, %64
+101:                                              ; preds = %94
+  %102 = load i32, ptr @hf_wassp_tlv_invalid, align 4
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %102, ptr noundef %1, i32 noundef %.116, i32 noundef %34, i32 noundef 0)
+  %104 = add i32 %.116, %65
   br label %.critedge
 
-104:                                              ; preds = %93
-  %105 = load ptr, ptr %25, align 8
-  %106 = zext i16 %.0231 to i64
-  %107 = getelementptr %struct.TLV_PARSER_ENTRY, ptr %105, i64 %106
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %109 = load i16, ptr %108, align 8
-  switch i16 %109, label %wassp_type_converter.exit [
-    i16 7, label %193
-    i16 1, label %110
-    i16 2, label %111
-    i16 3, label %111
-    i16 4, label %111
-    i16 6, label %112
-    i16 8, label %111
-    i16 9, label %113
+105:                                              ; preds = %94
+  %106 = load ptr, ptr %25, align 8
+  %107 = zext i16 %.0231 to i64
+  %108 = getelementptr %struct.TLV_PARSER_ENTRY, ptr %106, i64 %107
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %110 = load i16, ptr %109, align 8
+  switch i16 %110, label %wassp_type_converter.exit [
+    i16 7, label %194
+    i16 1, label %111
+    i16 2, label %112
+    i16 3, label %112
+    i16 4, label %112
+    i16 6, label %113
+    i16 8, label %112
+    i16 9, label %114
   ]
 
-110:                                              ; preds = %104
+111:                                              ; preds = %105
   br label %wassp_type_converter.exit
 
-111:                                              ; preds = %104, %104, %104, %104
+112:                                              ; preds = %105, %105, %105, %105
   br label %wassp_type_converter.exit
 
-112:                                              ; preds = %104
+113:                                              ; preds = %105
   br label %wassp_type_converter.exit
 
-113:                                              ; preds = %104
+114:                                              ; preds = %105
   br label %wassp_type_converter.exit
 
-wassp_type_converter.exit:                        ; preds = %104, %110, %111, %112, %113
-  %.0.in.i = phi ptr [ @hf_wassp_tlv_value_string, %110 ], [ @hf_wassp_tlv_value_int, %111 ], [ @hf_wassp_mu_mac, %112 ], [ @hf_wassp_tlv_value_ip, %113 ], [ @hf_wassp_tlv_value_octext, %104 ]
+wassp_type_converter.exit:                        ; preds = %105, %111, %112, %113, %114
+  %.0.in.i = phi ptr [ @hf_wassp_tlv_value_string, %111 ], [ @hf_wassp_tlv_value_int, %112 ], [ @hf_wassp_mu_mac, %113 ], [ @hf_wassp_tlv_value_ip, %114 ], [ @hf_wassp_tlv_value_octext, %105 ]
   %.0.i242 = load i32, ptr %.0.in.i, align 4
-  %114 = add i32 %.116, 4
-  %115 = add nsw i32 %64, -4
-  %116 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %.0.i242, ptr noundef %1, i32 noundef %114, i32 noundef %115, i32 noundef 0)
-  %117 = icmp eq i16 %.0231, 80
-  %or.cond8 = and i1 %28, %117
+  %115 = add i32 %.116, 4
+  %116 = add nsw i32 %65, -4
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %.0.i242, ptr noundef %1, i32 noundef %115, i32 noundef %116, i32 noundef 0)
+  %118 = icmp eq i16 %.0231, 80
+  %or.cond8 = and i1 %28, %118
   br i1 %or.cond8, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %wassp_type_converter.exit
-  %118 = lshr i32 %64, 2
-  %119 = add nsw i32 %118, -1
-  %.not24 = icmp eq i32 %119, 0
+  %119 = lshr i32 %65, 2
+  %120 = add nsw i32 %119, -1
+  %.not24 = icmp eq i32 %120, 0
   br i1 %.not24, label %decode_ipv4_list_struct.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.015 = phi i32 [ %125, %.lr.ph ], [ %114, %.preheader ]
-  %.022914 = phi i32 [ %126, %.lr.ph ], [ 0, %.preheader ]
-  %120 = load i32, ptr @hf_wassp_topologykey, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %120, ptr noundef %1, i32 noundef %.015, i32 noundef 2, i32 noundef 0)
-  %122 = add i32 %.015, 2
-  %123 = load i32, ptr @hf_wassp_topology_mode, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %123, ptr noundef %1, i32 noundef %122, i32 noundef 2, i32 noundef 0)
-  %125 = add i32 %.015, 4
-  %126 = add nuw i32 %.022914, 1
-  %exitcond.not = icmp eq i32 %126, %119
+  %.015 = phi i32 [ %126, %.lr.ph ], [ %115, %.preheader ]
+  %.022914 = phi i32 [ %127, %.lr.ph ], [ 0, %.preheader ]
+  %121 = load i32, ptr @hf_wassp_topologykey, align 4
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %121, ptr noundef %1, i32 noundef %.015, i32 noundef 2, i32 noundef 0)
+  %123 = add i32 %.015, 2
+  %124 = load i32, ptr @hf_wassp_topology_mode, align 4
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %124, ptr noundef %1, i32 noundef %123, i32 noundef 2, i32 noundef 0)
+  %126 = add i32 %.015, 4
+  %127 = add nuw i32 %.022914, 1
+  %exitcond.not = icmp eq i32 %127, %120
   br i1 %exitcond.not, label %decode_ipv4_list_struct.exit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %wassp_type_converter.exit
-  br i1 %29, label %127, label %decode_rate_limit_struct.exit
+  br i1 %29, label %128, label %decode_rate_limit_struct.exit
 
-127:                                              ; preds = %.loopexit
+128:                                              ; preds = %.loopexit
   switch i16 %.0231, label %decode_ipv4_list_struct.exit [
-    i16 67, label %128
-    i16 68, label %140
+    i16 67, label %129
+    i16 68, label %141
   ]
 
-128:                                              ; preds = %127
-  %129 = load i32, ptr @hf_wassp_flag_1b, align 4
-  %130 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %129, ptr noundef %1, i32 noundef %114, i32 noundef 1, i32 noundef 0)
-  %131 = add i32 %.116, 5
-  %132 = load i32, ptr @hf_wassp_tos, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %132, ptr noundef %1, i32 noundef %131, i32 noundef 1, i32 noundef 0)
-  %134 = add i32 %.116, 6
-  %135 = load i32, ptr @hf_wassp_tos_mask, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %135, ptr noundef %1, i32 noundef %134, i32 noundef 1, i32 noundef 0)
-  %137 = add i32 %.116, 7
-  %138 = load i32, ptr @hf_wassp_priority, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %138, ptr noundef %1, i32 noundef %137, i32 noundef 1, i32 noundef 0)
+129:                                              ; preds = %128
+  %130 = load i32, ptr @hf_wassp_flag_1b, align 4
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %130, ptr noundef %1, i32 noundef %115, i32 noundef 1, i32 noundef 0)
+  %132 = add i32 %.116, 5
+  %133 = load i32, ptr @hf_wassp_tos, align 4
+  %134 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %133, ptr noundef %1, i32 noundef %132, i32 noundef 1, i32 noundef 0)
+  %135 = add i32 %.116, 6
+  %136 = load i32, ptr @hf_wassp_tos_mask, align 4
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %136, ptr noundef %1, i32 noundef %135, i32 noundef 1, i32 noundef 0)
+  %138 = add i32 %.116, 7
+  %139 = load i32, ptr @hf_wassp_priority, align 4
+  %140 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %139, ptr noundef %1, i32 noundef %138, i32 noundef 1, i32 noundef 0)
   br label %decode_ipv4_list_struct.exit.sink.split
 
-140:                                              ; preds = %127
-  %141 = sdiv i32 %115, 4
-  %142 = icmp ugt i16 %40, 7
-  br i1 %142, label %.lr.ph.i, label %decode_ipv4_list_struct.exit
+141:                                              ; preds = %128
+  %142 = sdiv i32 %116, 4
+  %143 = icmp ugt i16 %40, 7
+  br i1 %143, label %.lr.ph.i, label %decode_ipv4_list_struct.exit
 
-.lr.ph.i:                                         ; preds = %140, %.lr.ph.i
-  %.014.i = phi i32 [ %149, %.lr.ph.i ], [ 0, %140 ]
-  %.01213.i = phi i32 [ %148, %.lr.ph.i ], [ %114, %140 ]
-  %143 = load i32, ptr @hf_wassp_in_cir, align 4
-  %144 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %143, ptr noundef %1, i32 noundef %.01213.i, i32 noundef 2, i32 noundef 0)
-  %145 = add i32 %.01213.i, 2
-  %146 = load i32, ptr @hf_wassp_out_cir, align 4
-  %147 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %146, ptr noundef %1, i32 noundef %145, i32 noundef 2, i32 noundef 0)
-  %148 = add i32 %.01213.i, 4
-  %149 = add nuw nsw i32 %.014.i, 1
-  %exitcond.not.i = icmp eq i32 %149, %141
+.lr.ph.i:                                         ; preds = %141, %.lr.ph.i
+  %.014.i = phi i32 [ %150, %.lr.ph.i ], [ 0, %141 ]
+  %.01213.i = phi i32 [ %149, %.lr.ph.i ], [ %115, %141 ]
+  %144 = load i32, ptr @hf_wassp_in_cir, align 4
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %144, ptr noundef %1, i32 noundef %.01213.i, i32 noundef 2, i32 noundef 0)
+  %146 = add i32 %.01213.i, 2
+  %147 = load i32, ptr @hf_wassp_out_cir, align 4
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %147, ptr noundef %1, i32 noundef %146, i32 noundef 2, i32 noundef 0)
+  %149 = add i32 %.01213.i, 4
+  %150 = add nuw nsw i32 %.014.i, 1
+  %exitcond.not.i = icmp eq i32 %150, %142
   br i1 %exitcond.not.i, label %decode_ipv4_list_struct.exit, label %.lr.ph.i, !llvm.loop !11
 
 decode_rate_limit_struct.exit:                    ; preds = %.loopexit
-  br i1 %or.cond10, label %150, label %154
+  br i1 %or.cond10, label %151, label %155
 
-150:                                              ; preds = %decode_rate_limit_struct.exit
-  switch i16 %.0231, label %154 [
-    i16 97, label %151
-    i16 5, label %151
-    i16 2, label %151
+151:                                              ; preds = %decode_rate_limit_struct.exit
+  switch i16 %.0231, label %155 [
+    i16 97, label %152
+    i16 5, label %152
+    i16 2, label %152
   ]
 
-151:                                              ; preds = %150, %150, %150
-  %152 = icmp ult i16 %40, 20
-  br i1 %152, label %.critedge, label %153
+152:                                              ; preds = %151, %151, %151
+  %153 = icmp ult i16 %40, 20
+  br i1 %153, label %.critedge, label %154
 
-153:                                              ; preds = %151
-  tail call fastcc void @decode_filter_rule_octext_string(ptr noundef %19, ptr noundef %1, i32 noundef %114, i32 noundef %64)
+154:                                              ; preds = %152
+  tail call fastcc void @decode_filter_rule_octext_string(ptr noundef %19, ptr noundef %1, i32 noundef %115, i32 noundef %65)
   br label %decode_Channel_list.exit
 
-154:                                              ; preds = %150, %decode_rate_limit_struct.exit
-  %155 = icmp eq i16 %.0231, 211
-  %or.cond24 = and i1 %31, %155
-  br i1 %or.cond24, label %156, label %decode_Channel_list.exit
+155:                                              ; preds = %151, %decode_rate_limit_struct.exit
+  %156 = icmp eq i16 %.0231, 211
+  %or.cond24 = and i1 %31, %156
+  br i1 %or.cond24, label %157, label %decode_Channel_list.exit
 
-156:                                              ; preds = %154
-  %157 = sdiv i32 %115, 2
-  %158 = icmp ugt i16 %40, 5
-  br i1 %158, label %.lr.ph.i243, label %decode_ipv4_list_struct.exit
+157:                                              ; preds = %155
+  %158 = sdiv i32 %116, 2
+  %159 = icmp ugt i16 %40, 5
+  br i1 %159, label %.lr.ph.i243, label %decode_ipv4_list_struct.exit
 
-.lr.ph.i243:                                      ; preds = %156, %.lr.ph.i243
-  %.010.i = phi i32 [ %162, %.lr.ph.i243 ], [ 0, %156 ]
-  %.089.i = phi i32 [ %161, %.lr.ph.i243 ], [ %114, %156 ]
-  %159 = load i32, ptr @hf_wassp_freq, align 4
-  %160 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %159, ptr noundef %1, i32 noundef %.089.i, i32 noundef 2, i32 noundef 0)
-  %161 = add i32 %.089.i, 2
-  %162 = add nuw nsw i32 %.010.i, 1
-  %exitcond.not.i244 = icmp eq i32 %162, %157
+.lr.ph.i243:                                      ; preds = %157, %.lr.ph.i243
+  %.010.i = phi i32 [ %163, %.lr.ph.i243 ], [ 0, %157 ]
+  %.089.i = phi i32 [ %162, %.lr.ph.i243 ], [ %115, %157 ]
+  %160 = load i32, ptr @hf_wassp_freq, align 4
+  %161 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %160, ptr noundef %1, i32 noundef %.089.i, i32 noundef 2, i32 noundef 0)
+  %162 = add i32 %.089.i, 2
+  %163 = add nuw nsw i32 %.010.i, 1
+  %exitcond.not.i244 = icmp eq i32 %163, %158
   br i1 %exitcond.not.i244, label %decode_ipv4_list_struct.exit, label %.lr.ph.i243, !llvm.loop !12
 
-decode_Channel_list.exit:                         ; preds = %153, %154
+decode_Channel_list.exit:                         ; preds = %154, %155
   switch i32 %4, label %decode_mac_list_struct.exit [
-    i32 42, label %163
-    i32 0, label %173
+    i32 42, label %164
+    i32 0, label %174
   ]
 
-163:                                              ; preds = %decode_Channel_list.exit
+164:                                              ; preds = %decode_Channel_list.exit
   switch i16 %.0231, label %decode_ipv4_list_struct.exit [
-    i16 236, label %164
-    i16 235, label %167
+    i16 236, label %165
+    i16 235, label %168
   ]
 
-164:                                              ; preds = %163
-  %165 = load i32, ptr @hf_wassp_rss, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %165, ptr noundef %1, i32 noundef %114, i32 noundef 2, i32 noundef 0)
+165:                                              ; preds = %164
+  %166 = load i32, ptr @hf_wassp_rss, align 4
+  %167 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %166, ptr noundef %1, i32 noundef %115, i32 noundef 2, i32 noundef 0)
   br label %decode_ipv4_list_struct.exit.sink.split
 
-167:                                              ; preds = %163
-  %168 = load i32, ptr @hf_wassp_threatstate, align 4
-  %169 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %168, ptr noundef %1, i32 noundef %114, i32 noundef 1, i32 noundef 0)
-  %170 = add i32 %.116, 5
-  %171 = load i32, ptr @hf_wassp_radioparams, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %171, ptr noundef %1, i32 noundef %170, i32 noundef 1, i32 noundef 0)
+168:                                              ; preds = %164
+  %169 = load i32, ptr @hf_wassp_threatstate, align 4
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %169, ptr noundef %1, i32 noundef %115, i32 noundef 1, i32 noundef 0)
+  %171 = add i32 %.116, 5
+  %172 = load i32, ptr @hf_wassp_radioparams, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %172, ptr noundef %1, i32 noundef %171, i32 noundef 1, i32 noundef 0)
   br label %decode_ipv4_list_struct.exit.sink.split
 
-173:                                              ; preds = %decode_Channel_list.exit
+174:                                              ; preds = %decode_Channel_list.exit
   switch i16 %.0231, label %decode_ipv4_list_struct.exit [
-    i16 108, label %174
-    i16 25, label %174
+    i16 108, label %175
+    i16 25, label %175
   ]
 
-174:                                              ; preds = %173, %173
-  %175 = sdiv i32 %115, 6
-  %176 = icmp ugt i16 %40, 9
-  br i1 %176, label %.lr.ph.i245, label %decode_ipv4_list_struct.exit
+175:                                              ; preds = %174, %174
+  %176 = sdiv i32 %116, 6
+  %177 = icmp ugt i16 %40, 9
+  br i1 %177, label %.lr.ph.i245, label %decode_ipv4_list_struct.exit
 
-.lr.ph.i245:                                      ; preds = %174, %.lr.ph.i245
-  %.010.i246 = phi i32 [ %180, %.lr.ph.i245 ], [ 0, %174 ]
-  %.089.i247 = phi i32 [ %179, %.lr.ph.i245 ], [ %114, %174 ]
-  %177 = load i32, ptr @hf_wassp_macaddr, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %177, ptr noundef %1, i32 noundef %.089.i247, i32 noundef 6, i32 noundef 0)
-  %179 = add i32 %.089.i247, 6
-  %180 = add nuw nsw i32 %.010.i246, 1
-  %exitcond.not.i248 = icmp eq i32 %180, %175
+.lr.ph.i245:                                      ; preds = %175, %.lr.ph.i245
+  %.010.i246 = phi i32 [ %181, %.lr.ph.i245 ], [ 0, %175 ]
+  %.089.i247 = phi i32 [ %180, %.lr.ph.i245 ], [ %115, %175 ]
+  %178 = load i32, ptr @hf_wassp_macaddr, align 4
+  %179 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %178, ptr noundef %1, i32 noundef %.089.i247, i32 noundef 6, i32 noundef 0)
+  %180 = add i32 %.089.i247, 6
+  %181 = add nuw nsw i32 %.010.i246, 1
+  %exitcond.not.i248 = icmp eq i32 %181, %176
   br i1 %exitcond.not.i248, label %decode_ipv4_list_struct.exit, label %.lr.ph.i245, !llvm.loop !10
 
 decode_mac_list_struct.exit:                      ; preds = %decode_Channel_list.exit
-  %181 = icmp eq i16 %.0231, 333
-  %or.cond27 = and i1 %32, %181
-  br i1 %or.cond27, label %182, label %decode_ipv4_list_struct.exit
+  %182 = icmp eq i16 %.0231, 333
+  %or.cond27 = and i1 %32, %182
+  br i1 %or.cond27, label %183, label %decode_ipv4_list_struct.exit
 
-182:                                              ; preds = %decode_mac_list_struct.exit
-  %183 = sdiv i32 %115, 4
-  %184 = icmp ugt i16 %40, 7
-  br i1 %184, label %.lr.ph.i249, label %decode_ipv4_list_struct.exit
+183:                                              ; preds = %decode_mac_list_struct.exit
+  %184 = sdiv i32 %116, 4
+  %185 = icmp ugt i16 %40, 7
+  br i1 %185, label %.lr.ph.i249, label %decode_ipv4_list_struct.exit
 
-.lr.ph.i249:                                      ; preds = %182, %.lr.ph.i249
-  %.010.i250 = phi i32 [ %188, %.lr.ph.i249 ], [ 0, %182 ]
-  %.089.i251 = phi i32 [ %187, %.lr.ph.i249 ], [ %114, %182 ]
-  %185 = load i32, ptr @hf_wassp_ipaddress, align 4
-  %186 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %185, ptr noundef %1, i32 noundef %.089.i251, i32 noundef 4, i32 noundef 0)
-  %187 = add i32 %.089.i251, 4
-  %188 = add nuw nsw i32 %.010.i250, 1
-  %exitcond.not.i252 = icmp eq i32 %188, %183
+.lr.ph.i249:                                      ; preds = %183, %.lr.ph.i249
+  %.010.i250 = phi i32 [ %189, %.lr.ph.i249 ], [ 0, %183 ]
+  %.089.i251 = phi i32 [ %188, %.lr.ph.i249 ], [ %115, %183 ]
+  %186 = load i32, ptr @hf_wassp_ipaddress, align 4
+  %187 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %186, ptr noundef %1, i32 noundef %.089.i251, i32 noundef 4, i32 noundef 0)
+  %188 = add i32 %.089.i251, 4
+  %189 = add nuw nsw i32 %.010.i250, 1
+  %exitcond.not.i252 = icmp eq i32 %189, %184
   br i1 %exitcond.not.i252, label %decode_ipv4_list_struct.exit, label %.lr.ph.i249, !llvm.loop !13
 
-decode_ipv4_list_struct.exit.sink.split:          ; preds = %167, %164, %128
-  %.sink = phi i32 [ 8, %128 ], [ 6, %164 ], [ 6, %167 ]
-  %hf_cos_rateid.sink = phi ptr [ @hf_cos_rateid, %128 ], [ @hf_wassp_rssi, %164 ], [ @hf_wassp_channelfreq, %167 ]
-  %.sink47 = phi i32 [ 1, %128 ], [ 2, %164 ], [ 2, %167 ]
-  %189 = add i32 %.116, %.sink
-  %190 = load i32, ptr %hf_cos_rateid.sink, align 4
-  %191 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %190, ptr noundef %1, i32 noundef %189, i32 noundef %.sink47, i32 noundef 0)
+decode_ipv4_list_struct.exit.sink.split:          ; preds = %168, %165, %129
+  %.sink = phi i32 [ 8, %129 ], [ 6, %165 ], [ 6, %168 ]
+  %hf_cos_rateid.sink = phi ptr [ @hf_cos_rateid, %129 ], [ @hf_wassp_rssi, %165 ], [ @hf_wassp_channelfreq, %168 ]
+  %.sink47 = phi i32 [ 1, %129 ], [ 2, %165 ], [ 2, %168 ]
+  %190 = add i32 %.116, %.sink
+  %191 = load i32, ptr %hf_cos_rateid.sink, align 4
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %191, ptr noundef %1, i32 noundef %190, i32 noundef %.sink47, i32 noundef 0)
   br label %decode_ipv4_list_struct.exit
 
-decode_ipv4_list_struct.exit:                     ; preds = %.lr.ph.i245, %.lr.ph.i249, %.lr.ph.i243, %.lr.ph.i, %.lr.ph, %decode_ipv4_list_struct.exit.sink.split, %.preheader, %127, %140, %156, %173, %163, %174, %182, %decode_mac_list_struct.exit
-  %192 = add i32 %.116, %64
+decode_ipv4_list_struct.exit:                     ; preds = %.lr.ph.i245, %.lr.ph.i249, %.lr.ph.i243, %.lr.ph.i, %.lr.ph, %decode_ipv4_list_struct.exit.sink.split, %.preheader, %128, %141, %157, %174, %164, %175, %183, %decode_mac_list_struct.exit
+  %193 = add i32 %.116, %65
   br label %.backedge
 
-193:                                              ; preds = %104
-  %194 = getelementptr inbounds nuw i8, ptr %107, i64 18
-  %195 = load i16, ptr %194, align 2
-  %196 = icmp eq i16 %195, 3
-  %or.cond21 = and i1 %27, %196
-  br i1 %or.cond21, label %197, label %201
+194:                                              ; preds = %105
+  %195 = getelementptr inbounds nuw i8, ptr %108, i64 18
+  %196 = load i16, ptr %195, align 2
+  %197 = icmp eq i16 %196, 3
+  %or.cond21 = and i1 %27, %197
+  br i1 %or.cond21, label %198, label %202
 
-197:                                              ; preds = %193
-  %198 = add i32 %.116, 4
-  %199 = add nsw i32 %64, -4
-  %200 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %19, ptr noundef %1, i32 noundef %198, i32 noundef %199, i32 noundef 70, i32 noundef 10)
+198:                                              ; preds = %194
+  %199 = add i32 %.116, 4
+  %200 = add nsw i32 %65, -4
+  %201 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %19, ptr noundef %1, i32 noundef %199, i32 noundef %200, i32 noundef 70, i32 noundef 10)
   br label %.backedge
 
-201:                                              ; preds = %193
-  %202 = zext i16 %195 to i32
-  %203 = add i32 %.116, 4
-  %204 = add nsw i32 %64, -4
-  %205 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %19, ptr noundef %1, i32 noundef %203, i32 noundef %204, i32 noundef %202, i32 noundef %5)
+202:                                              ; preds = %194
+  %203 = zext i16 %196 to i32
+  %204 = add i32 %.116, 4
+  %205 = add nsw i32 %65, -4
+  %206 = tail call fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %19, ptr noundef %1, i32 noundef %204, i32 noundef %205, i32 noundef %203, i32 noundef %5)
   br label %.backedge
 
-.critedge:                                        ; preds = %33, %151, %.backedge, %13, %8, %100, %6
-  %.0228 = phi i32 [ %2, %6 ], [ %103, %100 ], [ %2, %8 ], [ %2, %13 ], [ %.116, %33 ], [ %.116, %151 ], [ %.1.be, %.backedge ]
+.critedge:                                        ; preds = %33, %152, %.backedge, %13, %8, %101, %6
+  %.0228 = phi i32 [ %2, %6 ], [ %104, %101 ], [ %2, %8 ], [ %2, %13 ], [ %.116, %33 ], [ %.116, %152 ], [ %.1.be, %.backedge ]
   ret i32 %.0228
 }
 

@@ -573,25 +573,26 @@ define internal i32 @dissect_gmr1_bcch(ptr noundef %0, ptr noundef %1, ptr nound
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %. = select i1 %.not, i64 22, i64 62
-  %.34 = select i1 %.not, i64 3, i64 37
-  %.35 = select i1 %.not, i8 6, i8 24
+  %.35 = select i1 %.not, i64 3, i64 37
+  %.36 = select i1 %.not, i8 6, i8 24
   %CSNDESCR_SystemInformation2_t.CSNDESCR_SystemInformation1_t = select i1 %.not, ptr @CSNDESCR_SystemInformation2_t, ptr @CSNDESCR_SystemInformation1_t
   %SI2_SegmentChoice.SI1_SegmentChoice = select i1 %.not, ptr @SI2_SegmentChoice, ptr @SI1_SegmentChoice
   %.str.237..str.236 = select i1 %.not, ptr @.str.237, ptr @.str.236
   %19 = call noalias dereferenceable_or_null(22) ptr @wmem_alloc(ptr noundef %18, i64 noundef %.) #7
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.34
-  store i8 %.35, ptr %20, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.35
+  store i8 %.36, ptr %20, align 1
   %21 = load i32, ptr @ett_gmr1_bcch, align 4
   %22 = call signext i16 @csnStreamDissector(ptr noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %CSNDESCR_SystemInformation2_t.CSNDESCR_SystemInformation1_t, ptr noundef %0, ptr noundef %19, i32 noundef %21)
   %23 = load ptr, ptr %6, align 8
   %24 = load i8, ptr %20, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr %struct.CSN_ChoiceElement_t, ptr %SI2_SegmentChoice.SI1_SegmentChoice, i64 %25, i32 3, i32 5
-  %27 = load ptr, ptr %26, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull %.str.237..str.236, ptr noundef %27)
-  %28 = call i32 @tvb_captured_length(ptr noundef %0)
+  %26 = getelementptr %struct.CSN_ChoiceElement_t, ptr %SI2_SegmentChoice.SI1_SegmentChoice, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %28 = load ptr, ptr %27, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull %.str.237..str.236, ptr noundef %28)
+  %29 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %28
+  ret i32 %29
 }
 
 ; Function Attrs: nofree null_pointer_is_valid

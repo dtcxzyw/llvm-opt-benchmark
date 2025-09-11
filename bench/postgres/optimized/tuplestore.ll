@@ -562,10 +562,11 @@ define dso_local zeroext i1 @tuplestore_ateof(ptr noundef readonly captures(none
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.TSReadPointer, ptr %3, i64 %6, i32 1
-  %8 = load i8, ptr %7, align 4, !range !4, !noundef !5
-  %9 = trunc nuw i8 %8 to i1
-  ret i1 %9
+  %7 = getelementptr inbounds %struct.TSReadPointer, ptr %3, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %9 = load i8, ptr %8, align 4, !range !4, !noundef !5
+  %10 = trunc nuw i8 %9 to i1
+  ret i1 %10
 }
 
 ; Function Attrs: nounwind uwtable

@@ -697,82 +697,83 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20CachedNMTInformation18do_all
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %25, label %11
+  br i1 %.not.i, label %26, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = add i64 %10, -1
-  %15 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %13, i64 %14, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %3, %16
-  br i1 %17, label %18, label %25
+  %15 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %3, %17
+  br i1 %18, label %19, label %26
 
-18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 %14
-  %22 = load i8, ptr %21, align 1
-  %23 = icmp eq i8 %8, %22
-  br i1 %23, label %24, label %25
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 %14
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %8, %23
+  br i1 %24, label %25, label %26
 
-24:                                               ; preds = %18
-  store ptr %6, ptr %15, align 8
+25:                                               ; preds = %19
+  store ptr %6, ptr %16, align 8
   br label %_ZN20CachedNMTInformation3addEPKvS1_8MEMFLAGS.exit
 
-25:                                               ; preds = %18, %11, %2
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp eq i64 %10, %27
-  br i1 %28, label %29, label %._crit_edge.i
+26:                                               ; preds = %19, %11, %2
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp eq i64 %10, %28
+  br i1 %29, label %30, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %25
+._crit_edge.i:                                    ; preds = %26
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %43
+  br label %44
 
-29:                                               ; preds = %25
-  %30 = shl i64 %10, 1
-  %31 = tail call noundef i64 @llvm.umax.i64(i64 %30, i64 4096)
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = shl i64 %31, 4
-  %35 = tail call ptr @realloc(ptr noundef %33, i64 noundef %34) #15
-  store ptr %35, ptr %32, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr @realloc(ptr noundef %37, i64 noundef %31) #15
-  store ptr %38, ptr %36, align 8
-  %39 = load ptr, ptr %32, align 8
-  %40 = icmp eq ptr %39, null
-  %41 = icmp eq ptr %38, null
-  %or.cond.i = or i1 %41, %40
-  br i1 %or.cond.i, label %_ZN20CachedNMTInformation3addEPKvS1_8MEMFLAGS.exit, label %42
+30:                                               ; preds = %26
+  %31 = shl i64 %10, 1
+  %32 = tail call noundef i64 @llvm.umax.i64(i64 %31, i64 4096)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = shl i64 %32, 4
+  %36 = tail call ptr @realloc(ptr noundef %34, i64 noundef %35) #15
+  store ptr %36, ptr %33, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call ptr @realloc(ptr noundef %38, i64 noundef %32) #15
+  store ptr %39, ptr %37, align 8
+  %40 = load ptr, ptr %33, align 8
+  %41 = icmp eq ptr %40, null
+  %42 = icmp eq ptr %39, null
+  %or.cond.i = or i1 %42, %41
+  br i1 %or.cond.i, label %_ZN20CachedNMTInformation3addEPKvS1_8MEMFLAGS.exit, label %43
 
-42:                                               ; preds = %29
-  store i64 %31, ptr %26, align 8
+43:                                               ; preds = %30
+  store i64 %32, ptr %27, align 8
   %.pre12.i = load i64, ptr %9, align 8
-  br label %43
+  br label %44
 
-43:                                               ; preds = %42, %._crit_edge.i
-  %44 = phi i64 [ %10, %._crit_edge.i ], [ %.pre12.i, %42 ]
-  %45 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %39, %42 ]
-  %46 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %45, i64 %44
-  store ptr %3, ptr %46, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
+44:                                               ; preds = %43, %._crit_edge.i
+  %45 = phi i64 [ %10, %._crit_edge.i ], [ %.pre12.i, %43 ]
+  %46 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %40, %43 ]
+  %47 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %46, i64 %45
+  store ptr %3, ptr %47, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %6, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i64, ptr %9, align 8
-  %50 = getelementptr inbounds i8, ptr %48, i64 %49
-  store i8 %8, ptr %50, align 1
-  %51 = load i64, ptr %9, align 8
-  %52 = add i64 %51, 1
-  store i64 %52, ptr %9, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = load i64, ptr %9, align 8
+  %51 = getelementptr inbounds i8, ptr %49, i64 %50
+  store i8 %8, ptr %51, align 1
+  %52 = load i64, ptr %9, align 8
+  %53 = add i64 %52, 1
+  store i64 %53, ptr %9, align 8
   br label %_ZN20CachedNMTInformation3addEPKvS1_8MEMFLAGS.exit
 
-_ZN20CachedNMTInformation3addEPKvS1_8MEMFLAGS.exit: ; preds = %24, %29, %43
-  %.0.i = phi i1 [ true, %24 ], [ true, %43 ], [ false, %29 ]
+_ZN20CachedNMTInformation3addEPKvS1_8MEMFLAGS.exit: ; preds = %25, %30, %44
+  %.0.i = phi i1 [ true, %25 ], [ true, %44 ], [ false, %30 ]
   ret i1 %.0.i
 }
 

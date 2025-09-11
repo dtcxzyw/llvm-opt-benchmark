@@ -118,8 +118,9 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN8indexmap3map
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hc19996dc9490530eE.llvm.16079354848027093366.exit": ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !14, !noalias !17, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %12, i64 %5, i32 1
-  ret ptr %13
+  %13 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %12, i64 %5
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  ret ptr %14
 }
 
 ; Function Attrs: nonlazybind uwtable

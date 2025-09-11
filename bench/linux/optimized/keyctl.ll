@@ -2149,7 +2149,7 @@ define dso_local i64 @keyctl_get_security(i32 noundef %0, ptr noundef %1, i64 no
 7:                                                ; preds = %3
   %8 = ptrtoint ptr %5 to i64
   %9 = icmp eq ptr %5, inttoptr (i64 -13 to ptr)
-  br i1 %9, label %10, label %56
+  br i1 %9, label %10, label %53
 
 10:                                               ; preds = %7
   %11 = tail call ptr @key_get_instantiation_authkey(i32 noundef %0) #11
@@ -2158,7 +2158,7 @@ define dso_local i64 @keyctl_get_security(i32 noundef %0, ptr noundef %1, i64 no
 
 13:                                               ; preds = %10
   %14 = ptrtoint ptr %11 to i64
-  br label %56
+  br label %53
 
 15:                                               ; preds = %10
   tail call void @key_put(ptr noundef %11) #11
@@ -2168,7 +2168,7 @@ define dso_local i64 @keyctl_get_security(i32 noundef %0, ptr noundef %1, i64 no
 
 18:                                               ; preds = %15
   %19 = ptrtoint ptr %16 to i64
-  br label %56
+  br label %53
 
 20:                                               ; preds = %15, %3
   %21 = phi ptr [ %16, %15 ], [ %5, %3 ]
@@ -2185,57 +2185,47 @@ define dso_local i64 @keyctl_get_security(i32 noundef %0, ptr noundef %1, i64 no
   %29 = icmp ne ptr %1, null
   %30 = icmp ne i64 %2, 0
   %31 = and i1 %29, %30
-  br i1 %31, label %32, label %54
+  br i1 %31, label %32, label %51
 
 32:                                               ; preds = %28
   %33 = call i64 @_copy_to_user(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, i64 noundef 1) #11
   %34 = icmp eq i64 %33, 0
   %35 = select i1 %34, i64 1, i64 -14
-  br label %54
+  br label %51
 
 36:                                               ; preds = %20
   %37 = icmp sgt i32 %25, 0
-  br i1 %37, label %38, label %54
+  br i1 %37, label %38, label %51
 
 38:                                               ; preds = %36
   %39 = icmp ne ptr %1, null
   %40 = icmp ne i64 %2, 0
   %41 = and i1 %39, %40
-  br i1 %41, label %42, label %51
+  br i1 %41, label %42, label %48
 
 42:                                               ; preds = %38
   %43 = call i64 @llvm.umin.i64(i64 %26, i64 %2)
-  %44 = icmp ugt i64 %43, 2147483647
-  br i1 %44, label %45, label %46, !prof !7
+  %44 = load ptr, ptr %4, align 8
+  %45 = call i64 @_copy_to_user(ptr noundef nonnull %1, ptr noundef %44, i64 noundef %43) #11
+  %46 = icmp eq i64 %45, 0
+  %47 = select i1 %46, i64 %26, i64 -14
+  br label %48
 
-45:                                               ; preds = %42
-  call void asm sideeffect "12: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 12b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 12) #11, !srcloc !8
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 249, i32 2307, i64 12) #11, !srcloc !9
-  call void asm sideeffect "13: nop\0A\09.pushsection .discard.instr_end\0A\09.long 13b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 13) #11, !srcloc !10
+48:                                               ; preds = %42, %38
+  %49 = phi i64 [ %26, %38 ], [ %47, %42 ]
+  %50 = load ptr, ptr %4, align 8
+  call void @kfree(ptr noundef %50) #11
   br label %51
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %4, align 8
-  %48 = call i64 @_copy_to_user(ptr noundef nonnull %1, ptr noundef %47, i64 noundef %43) #11
-  %49 = icmp eq i64 %48, 0
-  %50 = select i1 %49, i64 %26, i64 -14
-  br label %51
-
-51:                                               ; preds = %46, %45, %38
-  %52 = phi i64 [ %26, %38 ], [ %50, %46 ], [ -14, %45 ]
-  %53 = load ptr, ptr %4, align 8
-  call void @kfree(ptr noundef %53) #11
-  br label %54
-
-54:                                               ; preds = %51, %36, %32, %28
-  %55 = phi i64 [ 1, %28 ], [ %52, %51 ], [ %26, %36 ], [ %35, %32 ]
+51:                                               ; preds = %48, %36, %32, %28
+  %52 = phi i64 [ 1, %28 ], [ %49, %48 ], [ %26, %36 ], [ %35, %32 ]
   call void @key_put(ptr noundef %24) #11
-  br label %56
+  br label %53
 
-56:                                               ; preds = %54, %18, %13, %7
-  %57 = phi i64 [ %14, %13 ], [ %19, %18 ], [ %55, %54 ], [ %8, %7 ]
+53:                                               ; preds = %51, %18, %13, %7
+  %54 = phi i64 [ %14, %13 ], [ %19, %18 ], [ %52, %51 ], [ %8, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %57
+  ret i64 %54
 }
 
 ; Function Attrs: null_pointer_is_valid

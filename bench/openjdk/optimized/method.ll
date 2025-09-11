@@ -1256,11 +1256,11 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %43, %41, %4
   %54 = zext i16 %53 to i32
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre190 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre187 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN14ExceptionTableC2EPK6Method.exit
 
 _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %_ZN12ResourceMarkD2Ev.exit, %50
-  %55 = phi ptr [ %.pre190, %50 ], [ %46, %_ZN12ResourceMarkD2Ev.exit ]
+  %55 = phi ptr [ %.pre187, %50 ], [ %46, %_ZN12ResourceMarkD2Ev.exit ]
   %.sink.i = phi i32 [ %54, %50 ], [ 0, %_ZN12ResourceMarkD2Ev.exit ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
@@ -1305,8 +1305,8 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
 _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14ExceptionTableC2EPK6Method.exit, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
-  %.not174 = icmp eq i32 %.sink.i, 0
-  br i1 %.not174, label %._crit_edge, label %.lr.ph
+  %.not173 = icmp eq i32 %.sink.i, 0
+  br i1 %.not173, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %80 = icmp eq ptr %1, null
@@ -1314,11 +1314,11 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14Exceptio
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 816
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %wide.trip.count188 = zext nneg i32 %.sink.i to i64
+  %wide.trip.count185 = zext nneg i32 %.sink.i to i64
   br i1 %80, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread140.us
-  %indvars.iv185 = phi i64 [ %indvars.iv.next186, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread140.us ], [ 0, %.lr.ph ]
+  %indvars.iv182 = phi i64 [ %indvars.iv.next183, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread140.us ], [ 0, %.lr.ph ]
   %85 = load ptr, ptr %0, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
@@ -1330,10 +1330,10 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14Exceptio
   %91 = tail call noundef ptr @_ZNK11ConstMethod21exception_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %87) #24
   %92 = load ptr, ptr %86, align 8
   %93 = tail call noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %92) #24
-  %94 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %91, i64 %indvars.iv185
+  %94 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %91, i64 %indvars.iv182
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %95 to i32
-  %97 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %91, i64 %indvars.iv185, i32 1
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 2
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i32
   %100 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE42ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -1360,17 +1360,17 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14Exceptio
   br label %107
 
 107:                                              ; preds = %106, %104
-  %108 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %91, i64 %indvars.iv185, i32 2
+  %108 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %109 = load i16, ptr %108, align 2
-  %110 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %91, i64 %indvars.iv185, i32 3
+  %110 = getelementptr inbounds nuw i8, ptr %94, i64 6
   %111 = load i16, ptr %110, align 2
   %112 = icmp eq i16 %111, 0
   br i1 %112, label %.split.us, label %.split170.us
 
 _ZNK5Klass13is_subtype_ofEPS_.exit.thread140.us:  ; preds = %102
-  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
-  %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
-  br i1 %exitcond189.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
+  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
+  br i1 %exitcond186.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread140
   %113 = phi ptr [ %335, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread140 ], [ %57, %.lr.ph ]
@@ -1395,7 +1395,7 @@ _ZN14ExceptionTableC2EPK6Method.exit60:           ; preds = %.lr.ph.split, %120
   %124 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0124.0, i64 %indvars.iv
   %125 = load i16, ptr %124, align 2
   %126 = zext i16 %125 to i32
-  %127 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0124.0, i64 %indvars.iv, i32 1
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 2
   %128 = load i16, ptr %127, align 2
   %129 = zext i16 %128 to i32
   %130 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE42ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -1422,9 +1422,9 @@ _ZN14ExceptionTableC2EPK6Method.exit60:           ; preds = %.lr.ph.split, %120
   br label %137
 
 137:                                              ; preds = %134, %136
-  %138 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0124.0, i64 %indvars.iv, i32 2
+  %138 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %139 = load i16, ptr %138, align 2
-  %140 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0124.0, i64 %indvars.iv, i32 3
+  %140 = getelementptr inbounds nuw i8, ptr %124, i64 6
   %141 = load i16, ptr %140, align 2
   %142 = zext i16 %141 to i32
   %143 = icmp eq i16 %141, 0
@@ -1788,7 +1788,7 @@ _ZNK5Klass13is_subtype_ofEPS_.exit.thread:        ; preds = %293, %_ZNK5Klass13i
 _ZNK5Klass13is_subtype_ofEPS_.exit.thread140:     ; preds = %300, %132, %_ZNK5Klass13is_subtype_ofEPS_.exit
   %335 = phi ptr [ %234, %300 ], [ %113, %132 ], [ %234, %_ZNK5Klass13is_subtype_ofEPS_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count188
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count185
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZNK5Klass13is_subtype_ofEPS_.exit.thread140, %_ZNK5Klass13is_subtype_ofEPS_.exit.thread140.us, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
@@ -3959,7 +3959,7 @@ define linkonce_odr hidden noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %.not24 = icmp slt i32 %3, %6
-  br i1 %.not24, label %7, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  br i1 %.not24, label %7, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3984,7 +3984,7 @@ _ZN9Bytecodes7code_atEPK6MethodPh.exit:           ; preds = %7, %17
   %21 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, 239
-  br i1 %23, label %_ZN9Bytecodes10length_forENS_4CodeE.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  br i1 %23, label %_ZN9Bytecodes10length_forENS_4CodeE.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit
   %24 = zext nneg i32 %22 to i64
@@ -3993,7 +3993,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %_ZN9Bytecodes7code_
   %27 = and i8 %26, 15
   %28 = zext nneg i8 %27 to i32
   %29 = icmp eq i8 %27, 0
-  br i1 %29, label %30, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21
+  br i1 %29, label %30, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
 
 30:                                               ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit
   %31 = load i8, ptr %14, align 1
@@ -4009,7 +4009,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %_ZN9Bytecodes7code_
 _ZN9Bytecodes7code_atEPK6MethodPh.exit.i:         ; preds = %33, %30
   %36 = phi i32 [ %35, %33 ], [ %32, %30 ]
   %37 = icmp ult i32 %36, 239
-  br i1 %37, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i
+  br i1 %37, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i:     ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i
   %38 = zext nneg i32 %36 to i64
@@ -4018,49 +4018,45 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i:     ; preds = %_ZN9Bytecodes7code_
   %41 = and i8 %40, 15
   %42 = zext nneg i8 %41 to i32
   %.not.i3.i = icmp eq i8 %41, 0
-  br i1 %.not.i3.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit
+  br i1 %.not.i3.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
 
-_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i: ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i
+_ZN9Bytecodes9length_atEP6MethodPh.exit:          ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i
   %43 = tail call noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 noundef %36, ptr noundef nonnull %14, ptr noundef null) #24
-  br label %_ZN9Bytecodes9length_atEP6MethodPh.exit
+  %44 = icmp slt i32 %43, 1
+  br i1 %44, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
 
-_ZN9Bytecodes9length_atEP6MethodPh.exit:          ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i
-  %.0 = phi i32 [ %43, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i ], [ %42, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i ]
-  %44 = icmp slt i32 %.0, 1
-  br i1 %44, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21
-
-_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21: ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit
-  %.023 = phi i32 [ %.0, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %28, %_ZN9Bytecodes10length_forENS_4CodeE.exit ]
+_ZN9Bytecodes9length_atEP6MethodPh.exit.thread:   ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit
+  %.021 = phi i32 [ %43, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %42, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i ], [ %28, %_ZN9Bytecodes10length_forENS_4CodeE.exit ]
   %45 = load i32, ptr %4, align 8
   %46 = load i32, ptr %5, align 8
-  %47 = sub nsw i32 %46, %.023
+  %47 = sub nsw i32 %46, %.021
   %48 = icmp sgt i32 %45, %47
-  br i1 %48, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread, label %49
+  br i1 %48, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22, label %49
 
-49:                                               ; preds = %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21
-  %50 = sub nsw i32 %45, %.023
+49:                                               ; preds = %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  %50 = sub nsw i32 %45, %.021
   %51 = load i32, ptr %2, align 4
   %.not = icmp slt i32 %50, %51
-  br i1 %.not, label %52, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  br i1 %.not, label %52, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 52:                                               ; preds = %49
-  %53 = add nsw i32 %51, %.023
+  %53 = add nsw i32 %51, %.021
   store i32 %53, ptr %2, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %54, align 8
   %55 = icmp eq i32 %22, 196
-  br i1 %55, label %56, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  br i1 %55, label %56, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   store i8 1, ptr %54, align 8
-  br label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  br label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
-_ZN9Bytecodes9length_atEP6MethodPh.exit.thread:   ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21, %49, %1, %56, %52
-  %.015 = phi i32 [ %59, %56 ], [ %22, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
-  %.014 = phi i32 [ %59, %56 ], [ %19, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22: ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread, %49, %1, %56, %52
+  %.015 = phi i32 [ %59, %56 ], [ %22, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.014 = phi i32 [ %59, %56 ], [ %19, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.014, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 44

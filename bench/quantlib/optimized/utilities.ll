@@ -431,7 +431,8 @@ for.body71.lr.ph:                                 ; preds = %_ZNSt8valarrayIbE6r
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %cmp6.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
   %53 = load ptr, ptr %isPresent, align 8, !tbaa !20
-  %_M_data.i71 = getelementptr inbounds nuw %"class.std::valarray", ptr %53, i64 %i.092, i32 1
+  %add.ptr.i70 = getelementptr inbounds nuw %"class.std::valarray", ptr %53, i64 %i.092
+  %_M_data.i71 = getelementptr inbounds nuw i8, ptr %add.ptr.i70, i64 8
   %54 = load ptr, ptr %_M_data.i71, align 8, !tbaa !21
   br label %for.body71
 

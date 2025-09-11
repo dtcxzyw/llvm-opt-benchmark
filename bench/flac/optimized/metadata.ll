@@ -2482,11 +2482,12 @@ define void @_ZN4FLAC8Metadata8CueSheet9set_indexEjjRK35FLAC__StreamMetadata_Cue
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %8, i64 %9, i32 5
-  %11 = load ptr, ptr %10, align 8, !tbaa !41
-  %12 = zext i32 %2 to i64
-  %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %11, i64 %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !43
+  %10 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
+  %13 = zext i32 %2 to i64
+  %14 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %12, i64 %13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !43
   ret void
 }
 

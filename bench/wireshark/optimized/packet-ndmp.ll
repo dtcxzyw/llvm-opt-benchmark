@@ -1304,7 +1304,7 @@ define internal i32 @dissect_ndmp_message(ptr noundef %0, ptr noundef %1, ptr no
   %10 = load i8, ptr @ndmp_desegment, align 1, !range !6
   %11 = trunc nuw i8 %10 to i1
   %or.cond3 = select i1 %or.cond, i1 %11, i1 false
-  br i1 %or.cond3, label %377, label %12
+  br i1 %or.cond3, label %378, label %12
 
 12:                                               ; preds = %4
   store ptr %2, ptr @top_tree, align 8
@@ -1536,7 +1536,7 @@ cmp_address.exit.thread:                          ; preds = %cmp_address.exit
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %.0175, i32 noundef %144, ptr noundef %0, i32 noundef 4, i32 noundef -1, i32 noundef 0)
   store i8 %41, ptr %40, align 8
   %146 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %377
+  br label %378
 
 .sink.split286:                                   ; preds = %38, %92
   %147 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
@@ -1551,7 +1551,7 @@ cmp_address.exit.thread:                          ; preds = %cmp_address.exit
 151:                                              ; preds = %148
   store i8 %41, ptr %40, align 8
   %152 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %377
+  br label %378
 
 153:                                              ; preds = %148
   %154 = tail call i32 @tvb_captured_length(ptr noundef %.2)
@@ -1583,7 +1583,7 @@ check_ndmp_hdr.exit:                              ; preds = %162
 check_ndmp_hdr.exit.thread:                       ; preds = %162, %159, %156, %153, %check_ndmp_hdr.exit
   store i8 %41, ptr %40, align 8
   %167 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %377
+  br label %378
 
 168:                                              ; preds = %check_ndmp_hdr.exit
   %169 = tail call i32 @tvb_get_ntohl(ptr noundef %.2, i32 noundef 0)
@@ -1909,55 +1909,56 @@ dissect_ndmp_header.exit.i:                       ; preds = %335, %proto_item_se
   %351 = icmp sgt i32 %350, 0
   %352 = icmp ne ptr %.1176, null
   %or.cond.i217 = and i1 %352, %351
-  br i1 %or.cond.i217, label %353, label %358
+  br i1 %or.cond.i217, label %353, label %359
 
 353:                                              ; preds = %349
   %354 = load i32, ptr @ett_ndmp, align 4
-  %355 = getelementptr %struct._value_string, ptr @msg_vals, i64 %indvars.iv.i, i32 1
-  %356 = load ptr, ptr %355, align 8
-  %357 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.1176, ptr noundef %.2, i32 noundef 24, i32 noundef -1, i32 noundef %354, ptr noundef null, ptr noundef %356)
-  br label %358
+  %355 = getelementptr %struct._value_string, ptr @msg_vals, i64 %indvars.iv.i
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
+  %357 = load ptr, ptr %356, align 8
+  %358 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.1176, ptr noundef %.2, i32 noundef 24, i32 noundef -1, i32 noundef %354, ptr noundef null, ptr noundef %357)
+  br label %359
 
-358:                                              ; preds = %353, %349
-  %.0.i218 = phi ptr [ %357, %353 ], [ null, %349 ]
-  %359 = icmp eq i32 %171, 0
-  %360 = and i64 %indvars.iv.i, 2305843009213693951
-  %361 = shl nuw i64 1, %360
-  br i1 %359, label %362, label %368
+359:                                              ; preds = %353, %349
+  %.0.i218 = phi ptr [ %358, %353 ], [ null, %349 ]
+  %360 = icmp eq i32 %171, 0
+  %361 = and i64 %indvars.iv.i, 2305843009213693951
+  %362 = shl nuw i64 1, %361
+  br i1 %360, label %363, label %369
 
-362:                                              ; preds = %358
-  %363 = and i64 %361, 83123080017009147
-  %.not47.not.i = icmp eq i64 %363, 0
-  br i1 %.not47.not.i, label %364, label %dissect_ndmp_cmd.exit
+363:                                              ; preds = %359
+  %364 = and i64 %362, 83123080017009147
+  %.not47.not.i = icmp eq i64 %364, 0
+  br i1 %.not47.not.i, label %365, label %dissect_ndmp_cmd.exit
 
-364:                                              ; preds = %362
-  %365 = getelementptr inbounds nuw i8, ptr %343, i64 8
-  %366 = load ptr, ptr %365, align 8
-  %367 = call i32 %366(ptr noundef %.2, i32 noundef 24, ptr noundef %1, ptr noundef %.0.i218, i32 noundef %169)
+365:                                              ; preds = %363
+  %366 = getelementptr inbounds nuw i8, ptr %343, i64 8
+  %367 = load ptr, ptr %366, align 8
+  %368 = call i32 %367(ptr noundef %.2, i32 noundef 24, ptr noundef %1, ptr noundef %.0.i218, i32 noundef %169)
   br label %dissect_ndmp_cmd.exit
 
-368:                                              ; preds = %358
-  %369 = and i64 %361, 72079579975516160
-  %.not46.not.i = icmp eq i64 %369, 0
-  br i1 %.not46.not.i, label %370, label %dissect_ndmp_cmd.exit
+369:                                              ; preds = %359
+  %370 = and i64 %362, 72079579975516160
+  %.not46.not.i = icmp eq i64 %370, 0
+  br i1 %.not46.not.i, label %371, label %dissect_ndmp_cmd.exit
 
-370:                                              ; preds = %368
-  %371 = getelementptr inbounds nuw i8, ptr %343, i64 16
-  %372 = load ptr, ptr %371, align 8
-  %373 = call i32 %372(ptr noundef %.2, i32 noundef 24, ptr noundef %1, ptr noundef %.0.i218, i32 noundef %173)
+371:                                              ; preds = %369
+  %372 = getelementptr inbounds nuw i8, ptr %343, i64 16
+  %373 = load ptr, ptr %372, align 8
+  %374 = call i32 %373(ptr noundef %.2, i32 noundef 24, ptr noundef %1, ptr noundef %.0.i218, i32 noundef %173)
   br label %dissect_ndmp_cmd.exit
 
-dissect_ndmp_cmd.exit:                            ; preds = %346, %362, %364, %368, %370
+dissect_ndmp_cmd.exit:                            ; preds = %346, %363, %365, %369, %371
   store i8 %41, ptr %40, align 8
-  %374 = load ptr, ptr %175, align 8
-  call void @col_set_writable(ptr noundef %374, i32 noundef 25, i1 noundef zeroext %177)
   %375 = load ptr, ptr %175, align 8
-  call void @col_set_writable(ptr noundef %375, i32 noundef 35, i1 noundef zeroext %179)
-  %376 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %377
+  call void @col_set_writable(ptr noundef %375, i32 noundef 25, i1 noundef zeroext %177)
+  %376 = load ptr, ptr %175, align 8
+  call void @col_set_writable(ptr noundef %376, i32 noundef 35, i1 noundef zeroext %179)
+  %377 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %378
 
-377:                                              ; preds = %4, %dissect_ndmp_cmd.exit, %check_ndmp_hdr.exit.thread, %151, %134
-  %.0 = phi i32 [ %152, %151 ], [ %376, %dissect_ndmp_cmd.exit ], [ %167, %check_ndmp_hdr.exit.thread ], [ %146, %134 ], [ 0, %4 ]
+378:                                              ; preds = %4, %dissect_ndmp_cmd.exit, %check_ndmp_hdr.exit.thread, %151, %134
+  %.0 = phi i32 [ %152, %151 ], [ %377, %dissect_ndmp_cmd.exit ], [ %167, %check_ndmp_hdr.exit.thread ], [ %146, %134 ], [ 0, %4 ]
   ret i32 %.0
 }
 

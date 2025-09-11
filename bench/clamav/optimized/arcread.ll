@@ -857,7 +857,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i261: ; preds = %94
 
 113:                                              ; preds = %.thread, %108, %110
   %114 = add nsw i32 %89, -7
-  %115 = zext i32 %114 to i64
+  %115 = zext nneg i32 %114 to i64
   br label %.invoke
 
 .invoke:                                          ; preds = %110, %108, %113

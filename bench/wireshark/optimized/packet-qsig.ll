@@ -3881,13 +3881,14 @@ get_service.exit:                                 ; preds = %get_op.exit.thread8
   br label %70
 
 70:                                               ; preds = %65, %69
-  %71 = getelementptr %struct._qsig_op_t, ptr @qsig_op_tab, i64 %42, i32 1
-  %72 = load ptr, ptr %71, align 8
-  %73 = call i32 %72(ptr noundef %0, ptr noundef %1, ptr noundef %51, ptr noundef null)
+  %71 = getelementptr %struct._qsig_op_t, ptr @qsig_op_tab, i64 %42
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = call i32 %73(ptr noundef %0, ptr noundef %1, ptr noundef %51, ptr noundef null)
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %35, %19, %26, %30, %get_op.exit78, %70, %get_op.exit, %13, %10, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %13 ], [ 0, %get_op.exit ], [ %73, %70 ], [ 0, %get_op.exit78 ], [ 0, %30 ], [ 0, %26 ], [ 0, %19 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %13 ], [ 0, %get_op.exit ], [ %74, %70 ], [ 0, %get_op.exit78 ], [ 0, %30 ], [ 0, %26 ], [ 0, %19 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

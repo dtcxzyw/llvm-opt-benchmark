@@ -736,7 +736,7 @@ define dso_local range(i32 -2147483648, 1) i32 @traverse_trees(ptr noundef %0, i
 
 13:                                               ; preds = %4
   %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6) #15
-  br label %300
+  br label %302
 
 15:                                               ; preds = %4
   %16 = load i32, ptr @traverse_trees_count, align 4, !tbaa !42
@@ -1376,29 +1376,30 @@ prune_traversal.exit:                             ; preds = %248, %267
 
 282:                                              ; preds = %.lr.ph228
   %283 = getelementptr inbounds nuw %struct.tree_desc_x, ptr %27, i64 %indvars.iv271
-  %284 = getelementptr inbounds nuw i8, ptr %283, i64 56
-  %285 = load ptr, ptr %284, align 8, !tbaa !88
-  %286 = getelementptr inbounds nuw %struct.name_entry, ptr %25, i64 %indvars.iv271, i32 1
-  %287 = load ptr, ptr %286, align 8, !tbaa !71
-  %288 = icmp eq ptr %285, %287
-  br i1 %288, label %289, label %290
+  %284 = getelementptr inbounds nuw %struct.name_entry, ptr %25, i64 %indvars.iv271
+  %285 = getelementptr inbounds nuw i8, ptr %283, i64 56
+  %286 = load ptr, ptr %285, align 8, !tbaa !88
+  %287 = getelementptr inbounds nuw i8, ptr %284, i64 40
+  %288 = load ptr, ptr %287, align 8, !tbaa !71
+  %289 = icmp eq ptr %286, %288
+  br i1 %289, label %290, label %291
 
-289:                                              ; preds = %282
+290:                                              ; preds = %282
   call void @update_tree_entry(ptr noundef nonnull %283)
   br label %update_extended_entry.exit
 
-290:                                              ; preds = %282
-  %291 = call ptr @xmalloc(i64 noundef 16) #15
-  %292 = load ptr, ptr %286, align 8, !tbaa !71
-  %293 = getelementptr inbounds nuw i8, ptr %291, i64 8
-  store ptr %292, ptr %293, align 8, !tbaa !72
-  %294 = getelementptr inbounds nuw i8, ptr %283, i64 80
-  %295 = load ptr, ptr %294, align 8, !tbaa !62
-  store ptr %295, ptr %291, align 8, !tbaa !89
-  store ptr %291, ptr %294, align 8, !tbaa !62
+291:                                              ; preds = %282
+  %292 = call ptr @xmalloc(i64 noundef 16) #15
+  %293 = load ptr, ptr %287, align 8, !tbaa !71
+  %294 = getelementptr inbounds nuw i8, ptr %292, i64 8
+  store ptr %293, ptr %294, align 8, !tbaa !72
+  %295 = getelementptr inbounds nuw i8, ptr %283, i64 80
+  %296 = load ptr, ptr %295, align 8, !tbaa !62
+  store ptr %296, ptr %292, align 8, !tbaa !89
+  store ptr %292, ptr %295, align 8, !tbaa !62
   br label %update_extended_entry.exit
 
-update_extended_entry.exit:                       ; preds = %290, %289, %.lr.ph228
+update_extended_entry.exit:                       ; preds = %291, %290, %.lr.ph228
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count275
   br i1 %exitcond276.not, label %.lr.ph204.preheader.loopexit, label %.lr.ph228, !llvm.loop !68
@@ -1410,16 +1411,17 @@ update_extended_entry.exit:                       ; preds = %290, %289, %.lr.ph2
 
 .lr.ph230:                                        ; preds = %.lr.ph230.preheader, %free_extended_entry.exit
   %indvars.iv277 = phi i64 [ 0, %.lr.ph230.preheader ], [ %indvars.iv.next278, %free_extended_entry.exit ]
-  %296 = getelementptr %struct.tree_desc_x, ptr %27, i64 %indvars.iv277, i32 1
-  %.val156 = load ptr, ptr %296, align 8, !tbaa !62
+  %297 = getelementptr inbounds nuw %struct.tree_desc_x, ptr %27, i64 %indvars.iv277
+  %298 = getelementptr i8, ptr %297, i64 80
+  %.val156 = load ptr, ptr %298, align 8, !tbaa !62
   %.not1.i = icmp eq ptr %.val156, null
   br i1 %.not1.i, label %free_extended_entry.exit, label %.lr.ph.i171
 
 .lr.ph.i171:                                      ; preds = %.lr.ph230, %.lr.ph.i171
-  %.02.i = phi ptr [ %297, %.lr.ph.i171 ], [ %.val156, %.lr.ph230 ]
-  %297 = load ptr, ptr %.02.i, align 8, !tbaa !89
+  %.02.i = phi ptr [ %299, %.lr.ph.i171 ], [ %.val156, %.lr.ph230 ]
+  %299 = load ptr, ptr %.02.i, align 8, !tbaa !89
   call void @free(ptr noundef nonnull %.02.i) #15
-  %.not.i172 = icmp eq ptr %297, null
+  %.not.i172 = icmp eq ptr %299, null
   br i1 %.not.i172, label %free_extended_entry.exit, label %.lr.ph.i171, !llvm.loop !90
 
 free_extended_entry.exit:                         ; preds = %.lr.ph.i171, %.lr.ph230
@@ -1434,12 +1436,12 @@ free_extended_entry.exit:                         ; preds = %.lr.ph.i171, %.lr.p
   call void @free(ptr noundef %.0124) #15
   store ptr null, ptr %3, align 8, !tbaa !67
   call void @strbuf_release(ptr noundef nonnull %9) #15
-  %298 = load i32, ptr @traverse_trees_cur_depth, align 4, !tbaa !42
-  %299 = add nsw i32 %298, -1
-  store i32 %299, ptr @traverse_trees_cur_depth, align 4, !tbaa !42
-  br label %300
+  %300 = load i32, ptr @traverse_trees_cur_depth, align 4, !tbaa !42
+  %301 = add nsw i32 %300, -1
+  store i32 %301, ptr @traverse_trees_cur_depth, align 4, !tbaa !42
+  br label %302
 
-300:                                              ; preds = %._crit_edge231, %13
+302:                                              ; preds = %._crit_edge231, %13
   %.0122 = phi i32 [ -1, %13 ], [ %.1128.ph317, %._crit_edge231 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0122

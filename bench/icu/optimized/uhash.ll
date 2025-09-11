@@ -900,9 +900,10 @@ define ptr @uhash_get_77(ptr noundef readonly captures(none) %0, ptr noundef %1)
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %18, %.thread46.i
   %41 = phi i64 [ %40, %.thread46.i ], [ %14, %18 ]
-  %42 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %41, i32 1
-  %43 = load ptr, ptr %42, align 8, !tbaa !34
-  ret ptr %43
+  %42 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !34
+  ret ptr %44
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -992,9 +993,10 @@ define ptr @uhash_iget_77(ptr noundef readonly captures(none) %0, i32 noundef %1
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %19, %.thread46.i
   %42 = phi i64 [ %41, %.thread46.i ], [ %15, %19 ]
-  %43 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %42, i32 1
-  %44 = load ptr, ptr %43, align 8, !tbaa !34
-  ret ptr %44
+  %43 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !34
+  ret ptr %45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1082,9 +1084,10 @@ define i32 @uhash_geti_77(ptr noundef readonly captures(none) %0, ptr noundef %1
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %18, %.thread46.i
   %41 = phi i64 [ %40, %.thread46.i ], [ %14, %18 ]
-  %42 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %41, i32 1
-  %43 = load i32, ptr %42, align 8, !tbaa !34
-  ret i32 %43
+  %42 = getelementptr inbounds nuw %struct.UHashElement, ptr %6, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load i32, ptr %43, align 8, !tbaa !34
+  ret i32 %44
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1174,9 +1177,10 @@ define i32 @uhash_igeti_77(ptr noundef readonly captures(none) %0, i32 noundef %
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %19, %.thread46.i
   %42 = phi i64 [ %41, %.thread46.i ], [ %15, %19 ]
-  %43 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %42, i32 1
-  %44 = load i32, ptr %43, align 8, !tbaa !34
-  ret i32 %44
+  %43 = getelementptr inbounds nuw %struct.UHashElement, ptr %7, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load i32, ptr %44, align 8, !tbaa !34
+  ret i32 %45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2464,11 +2468,12 @@ uhash_nextElement_77.exit:                        ; preds = %34
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %53, %.thread46.i
   %76 = phi i64 [ %75, %.thread46.i ], [ %49, %53 ]
-  %77 = getelementptr inbounds nuw %struct.UHashElement, ptr %43, i64 %76, i32 1
-  %.sroa.03.0.copyload = load ptr, ptr %77, align 8, !tbaa !34
-  %78 = load ptr, ptr %13, align 8, !tbaa !14
-  %79 = tail call noundef signext i8 %78(ptr %.sroa.06.0.copyload, ptr %.sroa.03.0.copyload)
-  %.not39 = icmp eq i8 %79, 0
+  %77 = getelementptr inbounds nuw %struct.UHashElement, ptr %43, i64 %76
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %.sroa.03.0.copyload = load ptr, ptr %78, align 8, !tbaa !34
+  %79 = load ptr, ptr %13, align 8, !tbaa !14
+  %80 = tail call noundef signext i8 %79(ptr %.sroa.06.0.copyload, ptr %.sroa.03.0.copyload)
+  %.not39 = icmp eq i8 %80, 0
   br i1 %.not39, label %.loopexit, label %27
 
 .loopexit:                                        ; preds = %_ZL11_uhash_findPK10UHashtable8UElementi.exit, %27, %.preheader, %18, %4, %7, %12, %2

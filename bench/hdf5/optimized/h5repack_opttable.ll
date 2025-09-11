@@ -212,53 +212,53 @@ thread-pre-split:                                 ; preds = %9
 12:                                               ; preds = %thread-pre-split, %4
   %13 = phi i32 [ %.pr, %thread-pre-split ], [ %6, %4 ]
   %.not76 = icmp eq i32 %13, 0
-  %.not128 = icmp eq i32 %1, 0
+  %.not126 = icmp eq i32 %1, 0
   br i1 %.not76, label %.preheader, label %.preheader104
 
 .preheader104:                                    ; preds = %12
-  br i1 %.not128, label %.loopexit, label %.preheader103.lr.ph
+  br i1 %.not126, label %.loopexit, label %.preheader103.lr.ph
 
 .preheader103.lr.ph:                              ; preds = %.preheader104
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 836
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 840
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 1096
-  %wide.trip.count141 = zext i32 %1 to i64
+  %wide.trip.count137 = zext i32 %1 to i64
   %.pre.pre.pre = load ptr, ptr %14, align 8, !tbaa !27
   br label %.preheader103
 
 .preheader:                                       ; preds = %12
-  br i1 %.not128, label %.loopexit, label %.lr.ph124
+  br i1 %.not126, label %.loopexit, label %.lr.ph122
 
-.lr.ph124:                                        ; preds = %.preheader
+.lr.ph122:                                        ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 836
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 840
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 1096
-  %wide.trip.count148 = zext i32 %1 to i64
-  %.pre150 = load ptr, ptr %18, align 8, !tbaa !27
-  br label %120
+  %wide.trip.count144 = zext i32 %1 to i64
+  %.pre146 = load ptr, ptr %18, align 8, !tbaa !27
+  br label %119
 
 .preheader103:                                    ; preds = %.preheader103.lr.ph, %aux_tblinsert_layout.exit86
-  %.pre.pre = phi ptr [ %.pre.pre.pre, %.preheader103.lr.ph ], [ %.pre.pre151, %aux_tblinsert_layout.exit86 ]
-  %indvars.iv139 = phi i64 [ 0, %.preheader103.lr.ph ], [ %indvars.iv.next140, %aux_tblinsert_layout.exit86 ]
-  %.068120 = phi i1 [ false, %.preheader103.lr.ph ], [ %.1100, %aux_tblinsert_layout.exit86 ]
-  %.069119 = phi i32 [ 0, %.preheader103.lr.ph ], [ %.170, %aux_tblinsert_layout.exit86 ]
+  %.pre.pre = phi ptr [ %.pre.pre.pre, %.preheader103.lr.ph ], [ %.pre.pre147, %aux_tblinsert_layout.exit86 ]
+  %indvars.iv135 = phi i64 [ 0, %.preheader103.lr.ph ], [ %indvars.iv.next136, %aux_tblinsert_layout.exit86 ]
+  %.068118 = phi i1 [ false, %.preheader103.lr.ph ], [ %.1100, %aux_tblinsert_layout.exit86 ]
+  %.069117 = phi i32 [ 0, %.preheader103.lr.ph ], [ %.170, %aux_tblinsert_layout.exit86 ]
   %22 = load i32, ptr %5, align 4, !tbaa !26
-  %.not127 = icmp eq i32 %22, 0
-  br i1 %.not127, label %aux_tblinsert_layout.exit, label %.lr.ph
+  %.not125 = icmp eq i32 %22, 0
+  br i1 %.not125, label %aux_tblinsert_layout.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader103
-  %23 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv139
+  %23 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv135
   %wide.trip.count = zext i32 %22 to i64
   br label %24
 
-24:                                               ; preds = %.lr.ph, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
+24:                                               ; preds = %.lr.ph, %66
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
   %25 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %indvars.iv
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %25) #19
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %68
+  br i1 %27, label %28, label %66
 
 28:                                               ; preds = %24
   %29 = trunc nuw i64 %indvars.iv to i32
@@ -299,7 +299,7 @@ thread-pre-split:                                 ; preds = %9
 
 50:                                               ; preds = %28
   %51 = load i32, ptr %15, align 4, !tbaa !18
-  %52 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %indvars.iv, i32 3
+  %52 = getelementptr inbounds nuw i8, ptr %25, i64 836
   store i32 %51, ptr %52, align 4, !tbaa !18
   %53 = icmp eq i32 %51, 2
   br i1 %53, label %54, label %aux_tblinsert_layout.exit.thread
@@ -307,192 +307,198 @@ thread-pre-split:                                 ; preds = %9
 54:                                               ; preds = %50
   %55 = load i32, ptr %17, align 8, !tbaa !14
   %56 = icmp eq i32 %55, -2
-  br i1 %56, label %57, label %59
+  br i1 %56, label %57, label %58
 
 57:                                               ; preds = %54
   store i32 1, ptr %52, align 4, !tbaa !18
-  %58 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %indvars.iv, i32 4, i32 1
-  store i32 -2, ptr %58, align 8, !tbaa !14
+  store i32 -2, ptr %30, align 8, !tbaa !14
   br label %aux_tblinsert_layout.exit.thread
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %indvars.iv, i32 4, i32 1
-  store i32 %55, ptr %60, align 8, !tbaa !14
-  %61 = load i32, ptr %17, align 8, !tbaa !14
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph.i, label %aux_tblinsert_layout.exit.thread
+58:                                               ; preds = %54
+  store i32 %55, ptr %30, align 8, !tbaa !14
+  %59 = load i32, ptr %17, align 8, !tbaa !14
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %.lr.ph.i, label %aux_tblinsert_layout.exit.thread
 
-.lr.ph.i:                                         ; preds = %59
-  %63 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %indvars.iv, i32 4
-  %wide.trip.count.i = zext nneg i32 %61 to i64
-  br label %64
+.lr.ph.i:                                         ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %25, i64 840
+  %wide.trip.count.i = zext nneg i32 %59 to i64
+  br label %62
 
-64:                                               ; preds = %64, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %64 ]
-  %65 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i
-  %66 = load i64, ptr %65, align 8, !tbaa !20
-  %67 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv.i
-  store i64 %66, ptr %67, align 8, !tbaa !20
+62:                                               ; preds = %62, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %62 ]
+  %63 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i
+  %64 = load i64, ptr %63, align 8, !tbaa !20
+  %65 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv.i
+  store i64 %64, ptr %65, align 8, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %aux_tblinsert_layout.exit.thread, label %64, !llvm.loop !30
+  br i1 %exitcond.not.i, label %aux_tblinsert_layout.exit.thread, label %62, !llvm.loop !30
 
-68:                                               ; preds = %24
+66:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %aux_tblinsert_layout.exit, label %24, !llvm.loop !31
 
-aux_tblinsert_layout.exit:                        ; preds = %68, %.preheader103
-  br i1 %.068120, label %aux_tblinsert_layout.exit.thread, label %69
+aux_tblinsert_layout.exit:                        ; preds = %66, %.preheader103
+  br i1 %.068118, label %aux_tblinsert_layout.exit.thread, label %67
 
-69:                                               ; preds = %aux_tblinsert_layout.exit
-  %70 = add i32 %22, %.069119
-  %71 = add i32 %.069119, 1
-  %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %72
-  %74 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv139
-  %75 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) %74) #17
+67:                                               ; preds = %aux_tblinsert_layout.exit
+  %68 = add i32 %22, %.069117
+  %69 = add i32 %.069117, 1
+  %70 = zext i32 %68 to i64
+  %71 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %70
+  %72 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv135
+  %73 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(1) %72) #17
   %.val78 = load ptr, ptr %14, align 8, !tbaa !27
-  %76 = load i32, ptr %15, align 4, !tbaa !18
-  %77 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val78, i64 %72, i32 3
-  store i32 %76, ptr %77, align 4, !tbaa !18
-  %78 = icmp eq i32 %76, 2
-  br i1 %78, label %79, label %aux_tblinsert_layout.exit86
+  %74 = load i32, ptr %15, align 4, !tbaa !18
+  %75 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val78, i64 %70
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 836
+  store i32 %74, ptr %76, align 4, !tbaa !18
+  %77 = icmp eq i32 %74, 2
+  br i1 %77, label %78, label %aux_tblinsert_layout.exit86
 
-79:                                               ; preds = %69
-  %80 = load i32, ptr %17, align 8, !tbaa !14
-  %81 = icmp eq i32 %80, -2
-  br i1 %81, label %82, label %84
+78:                                               ; preds = %67
+  %79 = load i32, ptr %17, align 8, !tbaa !14
+  %80 = icmp eq i32 %79, -2
+  br i1 %80, label %81, label %82
 
-82:                                               ; preds = %79
-  store i32 1, ptr %77, align 4, !tbaa !18
-  %83 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val78, i64 %72, i32 4, i32 1
-  store i32 -2, ptr %83, align 8, !tbaa !14
-  br label %aux_tblinsert_layout.exit86
+81:                                               ; preds = %78
+  store i32 1, ptr %76, align 4, !tbaa !18
+  br label %aux_tblinsert_layout.exit86.sink.split
 
-84:                                               ; preds = %79
-  %85 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val78, i64 %72, i32 4, i32 1
-  store i32 %80, ptr %85, align 8, !tbaa !14
-  %86 = load i32, ptr %17, align 8, !tbaa !14
-  %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %.lr.ph.i81, label %aux_tblinsert_layout.exit86
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 1096
+  store i32 %79, ptr %83, align 8, !tbaa !14
+  %84 = load i32, ptr %17, align 8, !tbaa !14
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %.lr.ph.i81, label %aux_tblinsert_layout.exit86
 
-.lr.ph.i81:                                       ; preds = %84
-  %88 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val78, i64 %72, i32 4
-  %wide.trip.count.i82 = zext nneg i32 %86 to i64
-  br label %89
+.lr.ph.i81:                                       ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %75, i64 840
+  %wide.trip.count.i82 = zext nneg i32 %84 to i64
+  br label %87
 
-89:                                               ; preds = %89, %.lr.ph.i81
-  %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.i81 ], [ %indvars.iv.next.i84, %89 ]
-  %90 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i83
-  %91 = load i64, ptr %90, align 8, !tbaa !20
-  %92 = getelementptr inbounds nuw i64, ptr %88, i64 %indvars.iv.i83
-  store i64 %91, ptr %92, align 8, !tbaa !20
+87:                                               ; preds = %87, %.lr.ph.i81
+  %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.i81 ], [ %indvars.iv.next.i84, %87 ]
+  %88 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i83
+  %89 = load i64, ptr %88, align 8, !tbaa !20
+  %90 = getelementptr inbounds nuw i64, ptr %86, i64 %indvars.iv.i83
+  store i64 %89, ptr %90, align 8, !tbaa !20
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %wide.trip.count.i82
-  br i1 %exitcond.not.i85, label %aux_tblinsert_layout.exit86, label %89, !llvm.loop !30
+  br i1 %exitcond.not.i85, label %aux_tblinsert_layout.exit86, label %87, !llvm.loop !30
 
-aux_tblinsert_layout.exit.thread:                 ; preds = %64, %59, %57, %50, %aux_tblinsert_layout.exit
-  %.073108 = phi i32 [ %29, %59 ], [ %29, %57 ], [ %29, %50 ], [ %22, %aux_tblinsert_layout.exit ], [ %29, %64 ]
-  %93 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv139
-  %94 = zext i32 %.073108 to i64
-  %95 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %94
-  %96 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) %95) #19
-  %.not77 = icmp eq i32 %96, 0
-  br i1 %.not77, label %aux_tblinsert_layout.exit86, label %97
+aux_tblinsert_layout.exit.thread:                 ; preds = %62, %58, %57, %50, %aux_tblinsert_layout.exit
+  %.073108 = phi i32 [ %29, %58 ], [ %29, %57 ], [ %29, %50 ], [ %22, %aux_tblinsert_layout.exit ], [ %29, %62 ]
+  %91 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv135
+  %92 = zext i32 %.073108 to i64
+  %93 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %92
+  %94 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %93) #19
+  %.not77 = icmp eq i32 %94, 0
+  br i1 %.not77, label %aux_tblinsert_layout.exit86, label %95
 
-97:                                               ; preds = %aux_tblinsert_layout.exit.thread
-  %98 = add i32 %22, %.069119
-  %99 = add i32 %.069119, 1
-  %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %100
-  %102 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %93) #17
+95:                                               ; preds = %aux_tblinsert_layout.exit.thread
+  %96 = add i32 %22, %.069117
+  %97 = add i32 %.069117, 1
+  %98 = zext i32 %96 to i64
+  %99 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre.pre, i64 %98
+  %100 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %91) #17
   %.val79 = load ptr, ptr %14, align 8, !tbaa !27
-  %103 = load i32, ptr %15, align 4, !tbaa !18
-  %104 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val79, i64 %100, i32 3
-  store i32 %103, ptr %104, align 4, !tbaa !18
-  %105 = icmp eq i32 %103, 2
-  br i1 %105, label %106, label %aux_tblinsert_layout.exit86
+  %101 = load i32, ptr %15, align 4, !tbaa !18
+  %102 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val79, i64 %98
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 836
+  store i32 %101, ptr %103, align 4, !tbaa !18
+  %104 = icmp eq i32 %101, 2
+  br i1 %104, label %105, label %aux_tblinsert_layout.exit86
 
-106:                                              ; preds = %97
-  %107 = load i32, ptr %17, align 8, !tbaa !14
-  %108 = icmp eq i32 %107, -2
-  br i1 %108, label %109, label %111
+105:                                              ; preds = %95
+  %106 = load i32, ptr %17, align 8, !tbaa !14
+  %107 = icmp eq i32 %106, -2
+  br i1 %107, label %108, label %109
 
-109:                                              ; preds = %106
-  store i32 1, ptr %104, align 4, !tbaa !18
-  %110 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val79, i64 %100, i32 4, i32 1
-  store i32 -2, ptr %110, align 8, !tbaa !14
-  br label %aux_tblinsert_layout.exit86
+108:                                              ; preds = %105
+  store i32 1, ptr %103, align 4, !tbaa !18
+  br label %aux_tblinsert_layout.exit86.sink.split
 
-111:                                              ; preds = %106
-  %112 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val79, i64 %100, i32 4, i32 1
-  store i32 %107, ptr %112, align 8, !tbaa !14
-  %113 = load i32, ptr %17, align 8, !tbaa !14
-  %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %.lr.ph.i87, label %aux_tblinsert_layout.exit86
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %102, i64 1096
+  store i32 %106, ptr %110, align 8, !tbaa !14
+  %111 = load i32, ptr %17, align 8, !tbaa !14
+  %112 = icmp sgt i32 %111, 0
+  br i1 %112, label %.lr.ph.i87, label %aux_tblinsert_layout.exit86
 
-.lr.ph.i87:                                       ; preds = %111
-  %115 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val79, i64 %100, i32 4
-  %wide.trip.count.i88 = zext nneg i32 %113 to i64
-  br label %116
+.lr.ph.i87:                                       ; preds = %109
+  %113 = getelementptr inbounds nuw i8, ptr %102, i64 840
+  %wide.trip.count.i88 = zext nneg i32 %111 to i64
+  br label %114
 
-116:                                              ; preds = %116, %.lr.ph.i87
-  %indvars.iv.i89 = phi i64 [ 0, %.lr.ph.i87 ], [ %indvars.iv.next.i90, %116 ]
-  %117 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i89
-  %118 = load i64, ptr %117, align 8, !tbaa !20
-  %119 = getelementptr inbounds nuw i64, ptr %115, i64 %indvars.iv.i89
-  store i64 %118, ptr %119, align 8, !tbaa !20
+114:                                              ; preds = %114, %.lr.ph.i87
+  %indvars.iv.i89 = phi i64 [ 0, %.lr.ph.i87 ], [ %indvars.iv.next.i90, %114 ]
+  %115 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i89
+  %116 = load i64, ptr %115, align 8, !tbaa !20
+  %117 = getelementptr inbounds nuw i64, ptr %113, i64 %indvars.iv.i89
+  store i64 %116, ptr %117, align 8, !tbaa !20
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, %wide.trip.count.i88
-  br i1 %exitcond.not.i91, label %aux_tblinsert_layout.exit86, label %116, !llvm.loop !30
+  br i1 %exitcond.not.i91, label %aux_tblinsert_layout.exit86, label %114, !llvm.loop !30
 
-aux_tblinsert_layout.exit86:                      ; preds = %89, %116, %111, %109, %97, %84, %82, %69, %aux_tblinsert_layout.exit.thread
-  %.pre.pre151 = phi ptr [ %.pre.pre, %aux_tblinsert_layout.exit.thread ], [ %.val78, %69 ], [ %.val78, %82 ], [ %.val78, %84 ], [ %.val79, %97 ], [ %.val79, %109 ], [ %.val79, %111 ], [ %.val79, %116 ], [ %.val78, %89 ]
-  %.1100 = phi i1 [ true, %aux_tblinsert_layout.exit.thread ], [ false, %69 ], [ false, %82 ], [ false, %84 ], [ true, %97 ], [ true, %109 ], [ true, %111 ], [ true, %116 ], [ false, %89 ]
-  %.170 = phi i32 [ %.069119, %aux_tblinsert_layout.exit.thread ], [ %71, %69 ], [ %71, %82 ], [ %71, %84 ], [ %99, %97 ], [ %99, %109 ], [ %99, %111 ], [ %99, %116 ], [ %71, %89 ]
+aux_tblinsert_layout.exit86.sink.split:           ; preds = %81, %108
+  %.sink166 = phi ptr [ %102, %108 ], [ %75, %81 ]
+  %.pre.pre147.ph = phi ptr [ %.val79, %108 ], [ %.val78, %81 ]
+  %.1100.ph = phi i1 [ true, %108 ], [ false, %81 ]
+  %.170.ph = phi i32 [ %97, %108 ], [ %69, %81 ]
+  %118 = getelementptr inbounds nuw i8, ptr %.sink166, i64 1096
+  store i32 -2, ptr %118, align 8, !tbaa !14
+  br label %aux_tblinsert_layout.exit86
+
+aux_tblinsert_layout.exit86:                      ; preds = %87, %114, %aux_tblinsert_layout.exit86.sink.split, %109, %95, %82, %67, %aux_tblinsert_layout.exit.thread
+  %.pre.pre147 = phi ptr [ %.pre.pre, %aux_tblinsert_layout.exit.thread ], [ %.val78, %67 ], [ %.val78, %82 ], [ %.val79, %95 ], [ %.val79, %109 ], [ %.pre.pre147.ph, %aux_tblinsert_layout.exit86.sink.split ], [ %.val79, %114 ], [ %.val78, %87 ]
+  %.1100 = phi i1 [ true, %aux_tblinsert_layout.exit.thread ], [ false, %67 ], [ false, %82 ], [ true, %95 ], [ true, %109 ], [ %.1100.ph, %aux_tblinsert_layout.exit86.sink.split ], [ true, %114 ], [ false, %87 ]
+  %.170 = phi i32 [ %.069117, %aux_tblinsert_layout.exit.thread ], [ %69, %67 ], [ %69, %82 ], [ %97, %95 ], [ %97, %109 ], [ %.170.ph, %aux_tblinsert_layout.exit86.sink.split ], [ %97, %114 ], [ %69, %87 ]
+  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
+  %exitcond138.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count137
+  br i1 %exitcond138.not, label %.loopexit, label %.preheader103, !llvm.loop !32
+
+119:                                              ; preds = %.lr.ph122, %aux_tblinsert_layout.exit98
+  %120 = phi ptr [ %.pre146, %.lr.ph122 ], [ %.val80, %aux_tblinsert_layout.exit98 ]
+  %indvars.iv139 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next140, %aux_tblinsert_layout.exit98 ]
+  %indvars141 = trunc i64 %indvars.iv139 to i32
+  %121 = load i32, ptr %5, align 4, !tbaa !26
+  %122 = add i32 %121, %indvars141
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond142.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count141
-  br i1 %exitcond142.not, label %.loopexit, label %.preheader103, !llvm.loop !32
-
-120:                                              ; preds = %.lr.ph124, %aux_tblinsert_layout.exit98
-  %121 = phi ptr [ %.pre150, %.lr.ph124 ], [ %.val80, %aux_tblinsert_layout.exit98 ]
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next144, %aux_tblinsert_layout.exit98 ]
-  %indvars145 = trunc i64 %indvars.iv143 to i32
-  %122 = load i32, ptr %5, align 4, !tbaa !26
-  %123 = add i32 %122, %indvars145
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw %struct.pack_info_t, ptr %121, i64 %124
-  %126 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv143
-  %127 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %125, ptr noundef nonnull dereferenceable(1) %126) #17
+  %123 = zext i32 %122 to i64
+  %124 = getelementptr inbounds nuw %struct.pack_info_t, ptr %120, i64 %123
+  %125 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv139
+  %126 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(1) %125) #17
   %.val80 = load ptr, ptr %18, align 8, !tbaa !27
-  %128 = load i32, ptr %19, align 4, !tbaa !18
-  %129 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val80, i64 %124, i32 3
-  store i32 %128, ptr %129, align 4, !tbaa !18
-  %130 = icmp eq i32 %128, 2
+  %127 = load i32, ptr %19, align 4, !tbaa !18
+  %128 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val80, i64 %123
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 836
+  store i32 %127, ptr %129, align 4, !tbaa !18
+  %130 = icmp eq i32 %127, 2
   br i1 %130, label %131, label %aux_tblinsert_layout.exit98
 
-131:                                              ; preds = %120
+131:                                              ; preds = %119
   %132 = load i32, ptr %21, align 8, !tbaa !14
   %133 = icmp eq i32 %132, -2
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %131
   store i32 1, ptr %129, align 4, !tbaa !18
-  %135 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val80, i64 %124, i32 4, i32 1
+  %135 = getelementptr inbounds nuw i8, ptr %128, i64 1096
   store i32 -2, ptr %135, align 8, !tbaa !14
   br label %aux_tblinsert_layout.exit98
 
 136:                                              ; preds = %131
-  %137 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val80, i64 %124, i32 4, i32 1
+  %137 = getelementptr inbounds nuw i8, ptr %128, i64 1096
   store i32 %132, ptr %137, align 8, !tbaa !14
   %138 = load i32, ptr %21, align 8, !tbaa !14
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %.lr.ph.i93, label %aux_tblinsert_layout.exit98
 
 .lr.ph.i93:                                       ; preds = %136
-  %140 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val80, i64 %124, i32 4
+  %140 = getelementptr inbounds nuw i8, ptr %128, i64 840
   %wide.trip.count.i94 = zext nneg i32 %138 to i64
   br label %141
 
@@ -506,9 +512,9 @@ aux_tblinsert_layout.exit86:                      ; preds = %89, %116, %111, %10
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i94
   br i1 %exitcond.not.i97, label %aux_tblinsert_layout.exit98, label %141, !llvm.loop !30
 
-aux_tblinsert_layout.exit98:                      ; preds = %141, %120, %134, %136
-  %exitcond149.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit, label %120, !llvm.loop !33
+aux_tblinsert_layout.exit98:                      ; preds = %141, %119, %134, %136
+  %exitcond145.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count144
+  br i1 %exitcond145.not, label %.loopexit, label %119, !llvm.loop !33
 
 .loopexit:                                        ; preds = %aux_tblinsert_layout.exit86, %aux_tblinsert_layout.exit98, %.preheader104, %.preheader
   %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader104 ], [ %1, %aux_tblinsert_layout.exit98 ], [ %.170, %aux_tblinsert_layout.exit86 ]

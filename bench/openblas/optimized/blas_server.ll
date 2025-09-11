@@ -589,136 +589,137 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef %1) local_unnamed_addr
   %8 = icmp slt i64 %0, 1
   %9 = icmp eq ptr %1, null
   %or.cond = or i1 %8, %9
-  br i1 %or.cond, label %69, label %10
+  br i1 %or.cond, label %70, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @openblas_threads_callback_, align 8, !tbaa !9
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %14, label %.lr.ph
+  br i1 %.not, label %15, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %10 ]
-  %12 = getelementptr inbounds nuw %struct.blas_queue, ptr %1, i64 %indvars.iv, i32 1
-  store i64 %indvars.iv, ptr %12, align 8, !tbaa !34
+  %12 = getelementptr inbounds nuw %struct.blas_queue, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %indvars.iv, ptr %13, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %13 = trunc nuw nsw i64 %0 to i32
-  tail call void %11(i32 noundef 1, ptr noundef nonnull @exec_threads, i32 noundef %13, i64 noundef 168, ptr noundef nonnull %1, i32 noundef 0) #10
-  br label %69
+  %14 = trunc nuw nsw i64 %0 to i32
+  tail call void %11(i32 noundef 1, ptr noundef nonnull @exec_threads, i32 noundef %14, i64 noundef 168, ptr noundef nonnull %1, i32 noundef 0) #10
+  br label %70
 
-14:                                               ; preds = %10
-  %15 = icmp ne ptr @omp_in_parallel, null
-  %16 = icmp samesign ugt i64 %0, 1
-  %or.cond3 = and i1 %15, %16
-  br i1 %or.cond3, label %17, label %23
+15:                                               ; preds = %10
+  %16 = icmp ne ptr @omp_in_parallel, null
+  %17 = icmp samesign ugt i64 %0, 1
+  %or.cond3 = and i1 %16, %17
+  br i1 %or.cond3, label %18, label %24
 
-17:                                               ; preds = %14
-  %18 = tail call i32 @omp_in_parallel() #10
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %20, label %.thread
+18:                                               ; preds = %15
+  %19 = tail call i32 @omp_in_parallel() #10
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %21, label %.thread
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 122, i64 1, ptr %21) #13
+21:                                               ; preds = %18
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 122, i64 1, ptr %22) #13
   br label %.thread
 
-23:                                               ; preds = %14
-  br i1 %16, label %.thread, label %28
+24:                                               ; preds = %15
+  br i1 %17, label %.thread, label %29
 
-.thread:                                          ; preds = %20, %17, %23
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %25 = load ptr, ptr %24, align 8, !tbaa !39
-  %.not43 = icmp eq ptr %25, null
-  br i1 %.not43, label %28, label %26
+.thread:                                          ; preds = %21, %18, %24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %26 = load ptr, ptr %25, align 8, !tbaa !39
+  %.not43 = icmp eq ptr %26, null
+  br i1 %.not43, label %29, label %27
 
-26:                                               ; preds = %.thread
-  %27 = tail call i32 @exec_blas_async(i64 noundef 1, ptr noundef nonnull %25)
-  br label %28
+27:                                               ; preds = %.thread
+  %28 = tail call i32 @exec_blas_async(i64 noundef 1, ptr noundef nonnull %26)
+  br label %29
 
-28:                                               ; preds = %26, %.thread, %23
-  %29 = load ptr, ptr %1, align 8, !tbaa !47
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %31 = load i32, ptr %30, align 8, !tbaa !48
-  %32 = and i32 %31, 32768
-  %.not44 = icmp eq i32 %32, 0
-  br i1 %.not44, label %38, label %33
+29:                                               ; preds = %27, %.thread, %24
+  %30 = load ptr, ptr %1, align 8, !tbaa !47
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %32 = load i32, ptr %31, align 8, !tbaa !48
+  %33 = and i32 %32, 32768
+  %.not44 = icmp eq i32 %33, 0
+  br i1 %.not44, label %39, label %34
 
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !49
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %37 = load ptr, ptr %36, align 8, !tbaa !50
-  tail call fastcc void @legacy_exec(ptr noundef %29, i32 noundef %31, ptr noundef %35, ptr noundef %37)
-  br label %53
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %36 = load ptr, ptr %35, align 8, !tbaa !49
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %38 = load ptr, ptr %37, align 8, !tbaa !50
+  tail call fastcc void @legacy_exec(ptr noundef %30, i32 noundef %32, ptr noundef %36, ptr noundef %38)
+  br label %54
 
-38:                                               ; preds = %28
-  %39 = and i32 %31, 16384
-  %.not45 = icmp eq i32 %39, 0
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !49
-  br i1 %.not45, label %43, label %42
+39:                                               ; preds = %29
+  %40 = and i32 %32, 16384
+  %.not45 = icmp eq i32 %40, 0
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !49
+  br i1 %.not45, label %44, label %43
 
-42:                                               ; preds = %38
-  tail call void %29(ptr noundef %41) #10
-  br label %53
+43:                                               ; preds = %39
+  tail call void %30(ptr noundef %42) #10
+  br label %54
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !51
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %47 = load ptr, ptr %46, align 8, !tbaa !52
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %49 = load ptr, ptr %48, align 8, !tbaa !53
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %51 = load ptr, ptr %50, align 8, !tbaa !50
-  %52 = tail call i32 %29(ptr noundef %41, ptr noundef %45, ptr noundef %47, ptr noundef %49, ptr noundef %51, i64 noundef 0) #10
-  br label %53
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %46 = load ptr, ptr %45, align 8, !tbaa !51
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %48 = load ptr, ptr %47, align 8, !tbaa !52
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %50 = load ptr, ptr %49, align 8, !tbaa !53
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %52 = load ptr, ptr %51, align 8, !tbaa !50
+  %53 = tail call i32 %30(ptr noundef %42, ptr noundef %46, ptr noundef %48, ptr noundef %50, ptr noundef %52, i64 noundef 0) #10
+  br label %54
 
-53:                                               ; preds = %42, %43, %33
-  br i1 %16, label %54, label %69
+54:                                               ; preds = %43, %44, %34
+  br i1 %17, label %55, label %70
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %56 = load ptr, ptr %55, align 8, !tbaa !39
-  %.not46 = icmp eq ptr %56, null
-  br i1 %.not46, label %69, label %.lr.ph14.i
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %57 = load ptr, ptr %56, align 8, !tbaa !39
+  %.not46 = icmp eq ptr %57, null
+  br i1 %.not46, label %70, label %.lr.ph14.i
 
-.lr.ph14.i:                                       ; preds = %54, %._crit_edge.i
-  %.012.i.in = phi i64 [ %.012.i, %._crit_edge.i ], [ %0, %54 ]
-  %.0811.i = phi ptr [ %65, %._crit_edge.i ], [ %56, %54 ]
+.lr.ph14.i:                                       ; preds = %55, %._crit_edge.i
+  %.012.i.in = phi i64 [ %.012.i, %._crit_edge.i ], [ %0, %55 ]
+  %.0811.i = phi ptr [ %66, %._crit_edge.i ], [ %57, %55 ]
   %.012.i = add nsw i64 %.012.i.in, -1
-  %57 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 16
-  %58 = load i64, ptr %57, align 8, !tbaa !37
-  %59 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %58
-  %60 = load atomic volatile i64, ptr %59 monotonic, align 128
-  %.not10.i = icmp eq i64 %60, 0
+  %58 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 16
+  %59 = load i64, ptr %58, align 8, !tbaa !37
+  %60 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %59
+  %61 = load atomic volatile i64, ptr %60 monotonic, align 128
+  %.not10.i = icmp eq i64 %61, 0
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph14.i, %.lr.ph.i
   tail call void asm sideeffect "nop;nop;nop;nop;nop;nop;nop;nop;\0A", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !42
-  %61 = load i64, ptr %57, align 8, !tbaa !37
-  %62 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %61
-  %63 = load atomic volatile i64, ptr %62 monotonic, align 128
-  %.not.i = icmp eq i64 %63, 0
+  %62 = load i64, ptr %58, align 8, !tbaa !37
+  %63 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %62
+  %64 = load atomic volatile i64, ptr %63 monotonic, align 128
+  %.not.i = icmp eq i64 %64, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph14.i
-  %64 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 64
-  %65 = load ptr, ptr %64, align 8, !tbaa !39
-  %66 = icmp samesign ugt i64 %.012.i.in, 2
-  %67 = icmp ne ptr %65, null
-  %68 = select i1 %66, i1 %67, i1 false
-  br i1 %68, label %.lr.ph14.i, label %exec_blas_async_wait.exit, !llvm.loop !44
+  %65 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 64
+  %66 = load ptr, ptr %65, align 8, !tbaa !39
+  %67 = icmp samesign ugt i64 %.012.i.in, 2
+  %68 = icmp ne ptr %66, null
+  %69 = select i1 %67, i1 %68, i1 false
+  br i1 %69, label %.lr.ph14.i, label %exec_blas_async_wait.exit, !llvm.loop !44
 
 exec_blas_async_wait.exit:                        ; preds = %._crit_edge.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !45
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !54
-  br label %69
+  br label %70
 
-69:                                               ; preds = %53, %54, %exec_blas_async_wait.exit, %7, %._crit_edge
+70:                                               ; preds = %54, %55, %exec_blas_async_wait.exit, %7, %._crit_edge
   ret i32 0
 }
 

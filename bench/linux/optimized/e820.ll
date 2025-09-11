@@ -711,7 +711,8 @@ define dso_local noundef range(i32 -1, 1) i32 @e820__update_table(ptr noundef %0
 113:                                              ; preds = %110, %110, %111
   %114 = sub i64 %68, %63
   %115 = zext i32 %62 to i64
-  %116 = getelementptr %struct.e820_entry, ptr @new_entries, i64 %115, i32 1
+  %.split = getelementptr %struct.e820_entry, ptr @new_entries, i64 %115
+  %116 = getelementptr i8, ptr %.split, i64 8
   store i64 %114, ptr %116, align 4
   %117 = icmp eq i64 %68, %63
   br i1 %117, label %121, label %118

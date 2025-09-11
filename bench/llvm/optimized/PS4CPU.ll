@@ -3881,7 +3881,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit161: ; preds = %_ZN
   %380 = load ptr, ptr %54, align 8, !tbaa !16, !noalias !334
   %381 = getelementptr inbounds nuw ptr, ptr %380, i64 %.sroa.4.0.extract.shift.i.i.i
   %382 = and i64 %379, 4294967295
-  %383 = getelementptr inbounds nuw ptr, ptr %380, i64 %382
+  %383 = getelementptr ptr, ptr %380, i64 %382
   %.not2428.i.i.i.i.i = icmp samesign eq i64 %.sroa.4.0.extract.shift.i.i.i, %382
   br i1 %.not2428.i.i.i.i.i, label %_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i.i, label %.lr.ph.i.i.i.i.i
 

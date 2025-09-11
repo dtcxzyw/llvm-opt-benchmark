@@ -3332,19 +3332,20 @@ define internal fastcc void @epic_free_pixel_cache(ptr noundef %0) unnamed_addr 
   br label %8
 
 8:                                                ; preds = %.lr.ph26, %._crit_edge
-  %9 = phi i32 [ %5, %.lr.ph26 ], [ %14, %._crit_edge ]
+  %9 = phi i32 [ %5, %.lr.ph26 ], [ %15, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next, %._crit_edge ]
   %10 = load ptr, ptr %7, align 8, !tbaa !122
-  %11 = getelementptr inbounds nuw %struct.ePICPixHashElem, ptr %10, i64 %indvars.iv, i32 1
-  %12 = load ptr, ptr %11, align 8, !tbaa !128
-  %.not21 = icmp eq ptr %12, null
+  %11 = getelementptr inbounds nuw %struct.ePICPixHashElem, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !128
+  %.not21 = icmp eq ptr %13, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %.01822 = phi ptr [ %13, %.lr.ph ], [ %12, %8 ]
-  %13 = load ptr, ptr %.01822, align 8, !tbaa !136
+  %.01822 = phi ptr [ %14, %.lr.ph ], [ %13, %8 ]
+  %14 = load ptr, ptr %.01822, align 8, !tbaa !136
   tail call void @av_free(ptr noundef nonnull %.01822) #12
-  %.not = icmp eq ptr %13, null
+  %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !141
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -3352,23 +3353,23 @@ define internal fastcc void @epic_free_pixel_cache(ptr noundef %0) unnamed_addr 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
-  %14 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %9, %8 ]
+  %15 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %9, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = sext i32 %14 to i64
-  %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %8, label %._crit_edge27, !llvm.loop !142
+  %16 = sext i32 %15 to i64
+  %17 = icmp slt i64 %indvars.iv.next, %16
+  br i1 %17, label %8, label %._crit_edge27, !llvm.loop !142
 
 ._crit_edge27:                                    ; preds = %._crit_edge, %.preheader
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv32
-  tail call void @av_freep(ptr noundef %17) #12
+  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv32
+  tail call void @av_freep(ptr noundef %18) #12
   store i32 0, ptr %4, align 4, !tbaa !98
-  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv32
-  store i32 0, ptr %18, align 4, !tbaa !98
+  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv32
+  store i32 0, ptr %19, align 4, !tbaa !98
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next33, 256
-  br i1 %exitcond.not, label %19, label %.preheader, !llvm.loop !143
+  br i1 %exitcond.not, label %20, label %.preheader, !llvm.loop !143
 
-19:                                               ; preds = %._crit_edge27
+20:                                               ; preds = %._crit_edge27
   ret void
 }
 

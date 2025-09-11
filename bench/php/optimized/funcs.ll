@@ -1215,19 +1215,20 @@ define hidden range(i32 -1, 1) i32 @file_check_mem(ptr noundef captures(none) %0
   %21 = tail call ptr @__errno_location() #19
   %22 = load i32, ptr %21, align 4, !tbaa !26
   tail call void (ptr, i32, ptr, ...) @file_error(ptr noundef nonnull %0, i32 noundef %22, ptr noundef nonnull @.str.8, i64 noundef %9)
-  br label %28
+  br label %29
 
 23:                                               ; preds = %._crit_edge, %17
   %24 = phi ptr [ %.pre, %._crit_edge ], [ %18, %17 ]
-  %25 = getelementptr inbounds nuw %struct.level_info, ptr %24, i64 %3, i32 1
-  store i32 0, ptr %25, align 4, !tbaa !40
-  %26 = getelementptr inbounds nuw %struct.level_info, ptr %24, i64 %3, i32 2
-  store i32 0, ptr %26, align 4, !tbaa !42
-  %27 = getelementptr inbounds nuw %struct.level_info, ptr %24, i64 %3, i32 3
-  store i32 0, ptr %27, align 4, !tbaa !43
-  br label %28
+  %25 = getelementptr inbounds nuw %struct.level_info, ptr %24, i64 %3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store i32 0, ptr %26, align 4, !tbaa !40
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i32 0, ptr %27, align 4, !tbaa !42
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  store i32 0, ptr %28, align 4, !tbaa !43
+  br label %29
 
-28:                                               ; preds = %23, %20
+29:                                               ; preds = %23, %20
   %.0 = phi i32 [ -1, %20 ], [ 0, %23 ]
   ret i32 %.0
 }

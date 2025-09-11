@@ -544,13 +544,13 @@ define i32 @str_to_val(ptr noundef readonly captures(none) %0, ptr noundef reado
   br i1 %.not.i, label %str_to_val_idx.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
-  %4 = getelementptr i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not1011.i = icmp eq ptr %5, null
   br i1 %.not1011.i, label %str_to_val_idx.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %9
-  %6 = phi ptr [ %13, %9 ], [ %5, %.preheader.i ]
+  %6 = phi ptr [ %14, %9 ], [ %5, %.preheader.i ]
   %.012.i = phi i32 [ %10, %9 ], [ 0, %.preheader.i ]
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef readonly %0) #15
   %8 = icmp eq i32 %7, 0
@@ -559,23 +559,24 @@ define i32 @str_to_val(ptr noundef readonly captures(none) %0, ptr noundef reado
 9:                                                ; preds = %.lr.ph.i
   %10 = add i32 %.012.i, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr %struct._value_string, ptr %1, i64 %11, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %.not10.i = icmp eq ptr %13, null
+  %12 = getelementptr %struct._value_string, ptr %1, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %.not10.i = icmp eq ptr %14, null
   br i1 %.not10.i, label %str_to_val_idx.exit.thread, label %.lr.ph.i, !llvm.loop !9
 
 str_to_val_idx.exit:                              ; preds = %.lr.ph.i
-  %14 = icmp sgt i32 %.012.i, -1
-  br i1 %14, label %15, label %str_to_val_idx.exit.thread
+  %15 = icmp sgt i32 %.012.i, -1
+  br i1 %15, label %16, label %str_to_val_idx.exit.thread
 
-15:                                               ; preds = %str_to_val_idx.exit
-  %16 = zext nneg i32 %.012.i to i64
-  %17 = getelementptr %struct._value_string, ptr %1, i64 %16
-  %18 = load i32, ptr %17, align 8
+16:                                               ; preds = %str_to_val_idx.exit
+  %17 = zext nneg i32 %.012.i to i64
+  %18 = getelementptr %struct._value_string, ptr %1, i64 %17
+  %19 = load i32, ptr %18, align 8
   br label %str_to_val_idx.exit.thread
 
-str_to_val_idx.exit.thread:                       ; preds = %9, %.preheader.i, %3, %str_to_val_idx.exit, %15
-  %.0 = phi i32 [ %18, %15 ], [ %2, %str_to_val_idx.exit ], [ %2, %3 ], [ %2, %.preheader.i ], [ %2, %9 ]
+str_to_val_idx.exit.thread:                       ; preds = %9, %.preheader.i, %3, %str_to_val_idx.exit, %16
+  %.0 = phi i32 [ %19, %16 ], [ %2, %str_to_val_idx.exit ], [ %2, %3 ], [ %2, %.preheader.i ], [ %2, %9 ]
   ret i32 %.0
 }
 
@@ -585,13 +586,13 @@ define i32 @str_to_val_idx(ptr noundef readonly captures(none) %0, ptr noundef r
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %3 = getelementptr i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not1011 = icmp eq ptr %4, null
   br i1 %.not1011, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %8
-  %5 = phi ptr [ %12, %8 ], [ %4, %.preheader ]
+  %5 = phi ptr [ %13, %8 ], [ %4, %.preheader ]
   %.012 = phi i32 [ %9, %8 ], [ 0, %.preheader ]
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef %0) #15
   %7 = icmp eq i32 %6, 0
@@ -600,9 +601,10 @@ define i32 @str_to_val_idx(ptr noundef readonly captures(none) %0, ptr noundef r
 8:                                                ; preds = %.lr.ph
   %9 = add i32 %.012, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct._value_string, ptr %1, i64 %10, i32 1
-  %12 = load ptr, ptr %11, align 8
-  %.not10 = icmp eq ptr %12, null
+  %11 = getelementptr %struct._value_string, ptr %1, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %.not10 = icmp eq ptr %13, null
   br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %.preheader, %2
@@ -633,28 +635,29 @@ define noalias noundef ptr @value_string_ext_new(ptr noundef %0, i32 noundef %1,
 7:                                                ; preds = %5
   %8 = add i32 %1, -1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct._value_string, ptr %0, i64 %9, i32 1
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %14, label %13
+  %10 = getelementptr %struct._value_string, ptr %0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %7
+14:                                               ; preds = %7
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @.str.9) #14
   unreachable
 
-14:                                               ; preds = %7
-  %15 = tail call ptr @wmem_epan_scope()
-  %16 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %15, i64 noundef 32) #16
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %0, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 %8, ptr %18, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 0, ptr %19, align 8
-  store ptr @_try_val_to_str_ext_init, ptr %16, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %2, ptr %20, align 8
-  ret ptr %16
+15:                                               ; preds = %7
+  %16 = tail call ptr @wmem_epan_scope()
+  %17 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %16, i64 noundef 32) #16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr %0, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  store i32 %8, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i32 0, ptr %20, align 8
+  store ptr @_try_val_to_str_ext_init, ptr %17, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr %2, ptr %21, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
@@ -1044,28 +1047,29 @@ define noalias noundef ptr @val64_string_ext_new(ptr noundef %0, i32 noundef %1,
 7:                                                ; preds = %5
   %8 = add i32 %1, -1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct._val64_string, ptr %0, i64 %9, i32 1
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %14, label %13
+  %10 = getelementptr %struct._val64_string, ptr %0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %7
+14:                                               ; preds = %7
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 569, ptr noundef nonnull @.str.9) #14
   unreachable
 
-14:                                               ; preds = %7
-  %15 = tail call ptr @wmem_epan_scope()
-  %16 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %15, i64 noundef 40) #16
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %0, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 %8, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 0, ptr %19, align 8
-  store ptr @_try_val64_to_str_ext_init, ptr %16, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr %2, ptr %20, align 8
-  ret ptr %16
+15:                                               ; preds = %7
+  %16 = tail call ptr @wmem_epan_scope()
+  %17 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %16, i64 noundef 40) #16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr %0, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i32 %8, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 0, ptr %20, align 8
+  store ptr @_try_val64_to_str_ext_init, ptr %17, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store ptr %2, ptr %21, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

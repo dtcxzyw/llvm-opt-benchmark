@@ -2332,10 +2332,11 @@ do.body441:                                       ; preds = %do.end413
 do.end446:                                        ; preds = %do.end413
   %111 = load ptr, ptr %buf_.i105, align 8
   %call448 = call noalias ptr @strdup(ptr noundef %111) #22
-  %real_path452 = getelementptr inbounds nuw %struct.uvwasi_preopen_s, ptr %109, i64 %indvars.iv139, i32 1
+  %real_path452 = getelementptr inbounds nuw i8, ptr %arrayidx433, i64 8
   store ptr %call448, ptr %real_path452, align 8
   %112 = load ptr, ptr %preopens348, align 8
-  %real_path457 = getelementptr inbounds nuw %struct.uvwasi_preopen_s, ptr %112, i64 %indvars.iv139, i32 1
+  %arrayidx456 = getelementptr inbounds nuw %struct.uvwasi_preopen_s, ptr %112, i64 %indvars.iv139
+  %real_path457 = getelementptr inbounds nuw i8, ptr %arrayidx456, i64 8
   %113 = load ptr, ptr %real_path457, align 8
   %cmp458.not = icmp eq ptr %113, null
   br i1 %cmp458.not, label %do.body464, label %do.end469
@@ -2447,7 +2448,8 @@ for.body521:                                      ; preds = %for.cond518.prehead
   %131 = load ptr, ptr %arrayidx524, align 8
   call void @free(ptr noundef %131) #22
   %132 = load ptr, ptr %preopens348, align 8
-  %real_path529 = getelementptr inbounds nuw %struct.uvwasi_preopen_s, ptr %132, i64 %indvars.iv147, i32 1
+  %arrayidx528 = getelementptr inbounds nuw %struct.uvwasi_preopen_s, ptr %132, i64 %indvars.iv147
+  %real_path529 = getelementptr inbounds nuw i8, ptr %arrayidx528, i64 8
   %133 = load ptr, ptr %real_path529, align 8
   call void @free(ptr noundef %133) #22
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1

@@ -54,22 +54,22 @@ define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTracking18beforeInstLowe
     i8 19, label %86
     i8 69, label %125
     i8 71, label %166
-    i8 72, label %218
-    i8 74, label %269
-    i8 75, label %269
-    i8 76, label %269
-    i8 78, label %269
-    i8 79, label %308
-    i8 80, label %360
-    i8 102, label %399
-    i8 104, label %440
-    i8 105, label %440
-    i8 108, label %482
-    i8 110, label %482
-    i8 112, label %521
-    i8 114, label %563
-    i8 116, label %615
-    i8 117, label %654
+    i8 72, label %219
+    i8 74, label %271
+    i8 75, label %271
+    i8 76, label %271
+    i8 78, label %271
+    i8 79, label %310
+    i8 80, label %363
+    i8 102, label %402
+    i8 104, label %443
+    i8 105, label %443
+    i8 108, label %485
+    i8 110, label %485
+    i8 112, label %524
+    i8 114, label %566
+    i8 116, label %619
+    i8 117, label %658
   ]
 
 4:                                                ; preds = %2
@@ -367,949 +367,953 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.
   %172 = lshr i32 %.sroa.015.0.copyload, 4
   %173 = zext nneg i32 %172 to i64
   %174 = load ptr, ptr %171, align 8, !tbaa !41
-  %175 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %174, i64 %173, i32 1
-  %176 = load i32, ptr %175, align 8, !tbaa !27
-  %177 = icmp eq i32 %176, -1
-  %178 = add nsw i32 %176, %168
-  %179 = select i1 %177, i32 255, i32 %178
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %181 = load i32, ptr %180, align 8, !tbaa !9
-  %spec.select.i55 = tail call i32 @llvm.smin.i32(i32 %179, i32 %181)
+  %175 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %174, i64 %173
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %177 = load i32, ptr %176, align 8, !tbaa !27
+  %178 = icmp eq i32 %177, -1
+  %179 = add nsw i32 %177, %168
+  %180 = select i1 %178, i32 255, i32 %179
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %182 = load i32, ptr %181, align 8, !tbaa !9
+  %spec.select.i55 = tail call i32 @llvm.smin.i32(i32 %180, i32 %182)
   %.not12.i56 = icmp sgt i32 %168, %spec.select.i55
   br i1 %.not12.i56, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i57
 
 .lr.ph.i57:                                       ; preds = %166
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  br label %185
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  br label %186
 
-185:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65, %.lr.ph.i57
-  %.013.i58 = phi i32 [ %168, %.lr.ph.i57 ], [ %217, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65 ]
-  %186 = and i32 %.013.i58, 255
-  %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr inbounds nuw i32, ptr %182, i64 %187
-  %189 = load i32, ptr %188, align 4, !tbaa !13
-  %.not.i.i59 = icmp eq i32 %189, -1
-  br i1 %.not.i.i59, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65, label %190
+186:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65, %.lr.ph.i57
+  %.013.i58 = phi i32 [ %168, %.lr.ph.i57 ], [ %218, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65 ]
+  %187 = and i32 %.013.i58, 255
+  %188 = zext nneg i32 %187 to i64
+  %189 = getelementptr inbounds nuw i32, ptr %183, i64 %188
+  %190 = load i32, ptr %189, align 4, !tbaa !13
+  %.not.i.i59 = icmp eq i32 %190, -1
+  br i1 %.not.i.i59, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65, label %191
 
-190:                                              ; preds = %185
-  %191 = load ptr, ptr %0, align 8, !tbaa !28
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %193 = zext i32 %189 to i64
-  %194 = load ptr, ptr %192, align 8, !tbaa !29
-  %195 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %194, i64 %193
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 42
-  %197 = load i8, ptr %196, align 2, !tbaa !32, !range !33, !noundef !34
-  %198 = trunc nuw i8 %197 to i1
-  br i1 %198, label %199, label %.critedge.i.i60
+191:                                              ; preds = %186
+  %192 = load ptr, ptr %0, align 8, !tbaa !28
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
+  %194 = zext i32 %190 to i64
+  %195 = load ptr, ptr %193, align 8, !tbaa !29
+  %196 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %195, i64 %194
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 42
+  %198 = load i8, ptr %197, align 2, !tbaa !32, !range !33, !noundef !34
+  %199 = trunc nuw i8 %198 to i1
+  br i1 %199, label %200, label %.critedge.i.i60
 
-199:                                              ; preds = %190
-  %200 = load ptr, ptr %183, align 8, !tbaa !15
-  %201 = load ptr, ptr %184, align 8, !tbaa !14
-  tail call void %200(ptr noundef %201, ptr noundef nonnull align 4 dereferenceable(43) %195)
+200:                                              ; preds = %191
+  %201 = load ptr, ptr %184, align 8, !tbaa !15
+  %202 = load ptr, ptr %185, align 8, !tbaa !14
+  tail call void %201(ptr noundef %202, ptr noundef nonnull align 4 dereferenceable(43) %196)
   %.pre.i67 = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre14.i68 = load i32, ptr %188, align 4, !tbaa !13
+  %.pre14.i68 = load i32, ptr %189, align 4, !tbaa !13
   %.pre15.i69 = zext i32 %.pre14.i68 to i64
   br label %.critedge.i.i60
 
-.critedge.i.i60:                                  ; preds = %199, %190
-  %.pre-phi.i61 = phi i64 [ %.pre15.i69, %199 ], [ %193, %190 ]
-  %202 = phi i32 [ %.pre14.i68, %199 ], [ %189, %190 ]
-  %203 = phi ptr [ %.pre.i67, %199 ], [ %191, %190 ]
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 152
-  %205 = getelementptr inbounds nuw i8, ptr %203, i64 160
-  %206 = load ptr, ptr %205, align 8, !tbaa !35
-  %207 = load ptr, ptr %204, align 8, !tbaa !38
-  %208 = ptrtoint ptr %206 to i64
+.critedge.i.i60:                                  ; preds = %200, %191
+  %.pre-phi.i61 = phi i64 [ %.pre15.i69, %200 ], [ %194, %191 ]
+  %203 = phi i32 [ %.pre14.i68, %200 ], [ %190, %191 ]
+  %204 = phi ptr [ %.pre.i67, %200 ], [ %192, %191 ]
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 152
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 160
+  %207 = load ptr, ptr %206, align 8, !tbaa !35
+  %208 = load ptr, ptr %205, align 8, !tbaa !38
   %209 = ptrtoint ptr %207 to i64
-  %210 = sub i64 %208, %209
-  %211 = ashr exact i64 %210, 2
-  %.not.i.i.i62 = icmp ugt i64 %211, %.pre-phi.i61
-  br i1 %.not.i.i.i62, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i64, label %212
+  %210 = ptrtoint ptr %208 to i64
+  %211 = sub i64 %209, %210
+  %212 = ashr exact i64 %211, 2
+  %.not.i.i.i62 = icmp ugt i64 %212, %.pre-phi.i61
+  br i1 %.not.i.i.i62, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i64, label %213
 
-212:                                              ; preds = %.critedge.i.i60
-  %213 = add i32 %202, 1
-  %214 = zext i32 %213 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %204, i64 noundef %214)
-  %.pre.i.i.i63 = load ptr, ptr %204, align 8, !tbaa !38
+213:                                              ; preds = %.critedge.i.i60
+  %214 = add i32 %203, 1
+  %215 = zext i32 %214 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %205, i64 noundef %215)
+  %.pre.i.i.i63 = load ptr, ptr %205, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i64
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i64: ; preds = %212, %.critedge.i.i60
-  %215 = phi ptr [ %.pre.i.i.i63, %212 ], [ %207, %.critedge.i.i60 ]
-  %216 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %215, i64 %.pre-phi.i61
-  store i32 0, ptr %216, align 4, !tbaa !27
-  store i32 -1, ptr %188, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i64: ; preds = %213, %.critedge.i.i60
+  %216 = phi ptr [ %.pre.i.i.i63, %213 ], [ %208, %.critedge.i.i60 ]
+  %217 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %216, i64 %.pre-phi.i61
+  store i32 0, ptr %217, align 4, !tbaa !27
+  store i32 -1, ptr %189, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65
 
-_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i64, %185
-  %217 = add i32 %.013.i58, 1
+_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i64, %186
+  %218 = add i32 %.013.i58, 1
   %exitcond.not.i66 = icmp eq i32 %.013.i58, %spec.select.i55
-  br i1 %exitcond.not.i66, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %185, !llvm.loop !39
+  br i1 %exitcond.not.i66, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %186, !llvm.loop !39
 
-218:                                              ; preds = %2
-  %219 = load ptr, ptr %0, align 8, !tbaa !28
-  %220 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.sroa.013.0.copyload = load i32, ptr %220, align 4, !tbaa !27
-  %221 = getelementptr inbounds nuw i8, ptr %219, i64 48
-  %222 = lshr i32 %.sroa.013.0.copyload, 4
-  %223 = zext nneg i32 %222 to i64
-  %224 = load ptr, ptr %221, align 8, !tbaa !41
-  %225 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %224, i64 %223, i32 1
-  %226 = load i32, ptr %225, align 8, !tbaa !27
-  %.not = icmp eq i32 %226, -1
-  br i1 %.not, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %227
+219:                                              ; preds = %2
+  %220 = load ptr, ptr %0, align 8, !tbaa !28
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.sroa.013.0.copyload = load i32, ptr %221, align 4, !tbaa !27
+  %222 = getelementptr inbounds nuw i8, ptr %220, i64 48
+  %223 = lshr i32 %.sroa.013.0.copyload, 4
+  %224 = zext nneg i32 %223 to i64
+  %225 = load ptr, ptr %222, align 8, !tbaa !41
+  %226 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %225, i64 %224
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %228 = load i32, ptr %227, align 8, !tbaa !27
+  %.not = icmp eq i32 %228, -1
+  br i1 %.not, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %229
 
-227:                                              ; preds = %218
-  %228 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.012.0.copyload = load i32, ptr %228, align 4, !tbaa !27
-  %229 = lshr i32 %.sroa.012.0.copyload, 4
-  %230 = add nsw i32 %229, %226
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %232 = load i32, ptr %231, align 8, !tbaa !9
-  %spec.select.i71 = tail call i32 @llvm.smin.i32(i32 %230, i32 %232)
-  %.not12.i72 = icmp sgt i32 %229, %spec.select.i71
+229:                                              ; preds = %219
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.012.0.copyload = load i32, ptr %230, align 4, !tbaa !27
+  %231 = lshr i32 %.sroa.012.0.copyload, 4
+  %232 = add nsw i32 %231, %228
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %234 = load i32, ptr %233, align 8, !tbaa !9
+  %spec.select.i71 = tail call i32 @llvm.smin.i32(i32 %232, i32 %234)
+  %.not12.i72 = icmp sgt i32 %231, %spec.select.i71
   br i1 %.not12.i72, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i73
 
-.lr.ph.i73:                                       ; preds = %227
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  br label %236
+.lr.ph.i73:                                       ; preds = %229
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  br label %238
 
-236:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81, %.lr.ph.i73
-  %.013.i74 = phi i32 [ %229, %.lr.ph.i73 ], [ %268, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81 ]
-  %237 = and i32 %.013.i74, 255
-  %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr inbounds nuw i32, ptr %233, i64 %238
-  %240 = load i32, ptr %239, align 4, !tbaa !13
-  %.not.i.i75 = icmp eq i32 %240, -1
-  br i1 %.not.i.i75, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81, label %241
+238:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81, %.lr.ph.i73
+  %.013.i74 = phi i32 [ %231, %.lr.ph.i73 ], [ %270, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81 ]
+  %239 = and i32 %.013.i74, 255
+  %240 = zext nneg i32 %239 to i64
+  %241 = getelementptr inbounds nuw i32, ptr %235, i64 %240
+  %242 = load i32, ptr %241, align 4, !tbaa !13
+  %.not.i.i75 = icmp eq i32 %242, -1
+  br i1 %.not.i.i75, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81, label %243
 
-241:                                              ; preds = %236
-  %242 = load ptr, ptr %0, align 8, !tbaa !28
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 24
-  %244 = zext i32 %240 to i64
-  %245 = load ptr, ptr %243, align 8, !tbaa !29
-  %246 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %245, i64 %244
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 42
-  %248 = load i8, ptr %247, align 2, !tbaa !32, !range !33, !noundef !34
-  %249 = trunc nuw i8 %248 to i1
-  br i1 %249, label %250, label %.critedge.i.i76
+243:                                              ; preds = %238
+  %244 = load ptr, ptr %0, align 8, !tbaa !28
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 24
+  %246 = zext i32 %242 to i64
+  %247 = load ptr, ptr %245, align 8, !tbaa !29
+  %248 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %247, i64 %246
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 42
+  %250 = load i8, ptr %249, align 2, !tbaa !32, !range !33, !noundef !34
+  %251 = trunc nuw i8 %250 to i1
+  br i1 %251, label %252, label %.critedge.i.i76
 
-250:                                              ; preds = %241
-  %251 = load ptr, ptr %234, align 8, !tbaa !15
-  %252 = load ptr, ptr %235, align 8, !tbaa !14
-  tail call void %251(ptr noundef %252, ptr noundef nonnull align 4 dereferenceable(43) %246)
+252:                                              ; preds = %243
+  %253 = load ptr, ptr %236, align 8, !tbaa !15
+  %254 = load ptr, ptr %237, align 8, !tbaa !14
+  tail call void %253(ptr noundef %254, ptr noundef nonnull align 4 dereferenceable(43) %248)
   %.pre.i83 = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre14.i84 = load i32, ptr %239, align 4, !tbaa !13
+  %.pre14.i84 = load i32, ptr %241, align 4, !tbaa !13
   %.pre15.i85 = zext i32 %.pre14.i84 to i64
   br label %.critedge.i.i76
 
-.critedge.i.i76:                                  ; preds = %250, %241
-  %.pre-phi.i77 = phi i64 [ %.pre15.i85, %250 ], [ %244, %241 ]
-  %253 = phi i32 [ %.pre14.i84, %250 ], [ %240, %241 ]
-  %254 = phi ptr [ %.pre.i83, %250 ], [ %242, %241 ]
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 152
-  %256 = getelementptr inbounds nuw i8, ptr %254, i64 160
-  %257 = load ptr, ptr %256, align 8, !tbaa !35
-  %258 = load ptr, ptr %255, align 8, !tbaa !38
-  %259 = ptrtoint ptr %257 to i64
-  %260 = ptrtoint ptr %258 to i64
-  %261 = sub i64 %259, %260
-  %262 = ashr exact i64 %261, 2
-  %.not.i.i.i78 = icmp ugt i64 %262, %.pre-phi.i77
-  br i1 %.not.i.i.i78, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i80, label %263
+.critedge.i.i76:                                  ; preds = %252, %243
+  %.pre-phi.i77 = phi i64 [ %.pre15.i85, %252 ], [ %246, %243 ]
+  %255 = phi i32 [ %.pre14.i84, %252 ], [ %242, %243 ]
+  %256 = phi ptr [ %.pre.i83, %252 ], [ %244, %243 ]
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 152
+  %258 = getelementptr inbounds nuw i8, ptr %256, i64 160
+  %259 = load ptr, ptr %258, align 8, !tbaa !35
+  %260 = load ptr, ptr %257, align 8, !tbaa !38
+  %261 = ptrtoint ptr %259 to i64
+  %262 = ptrtoint ptr %260 to i64
+  %263 = sub i64 %261, %262
+  %264 = ashr exact i64 %263, 2
+  %.not.i.i.i78 = icmp ugt i64 %264, %.pre-phi.i77
+  br i1 %.not.i.i.i78, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i80, label %265
 
-263:                                              ; preds = %.critedge.i.i76
-  %264 = add i32 %253, 1
-  %265 = zext i32 %264 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %255, i64 noundef %265)
-  %.pre.i.i.i79 = load ptr, ptr %255, align 8, !tbaa !38
+265:                                              ; preds = %.critedge.i.i76
+  %266 = add i32 %255, 1
+  %267 = zext i32 %266 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %257, i64 noundef %267)
+  %.pre.i.i.i79 = load ptr, ptr %257, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i80
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i80: ; preds = %263, %.critedge.i.i76
-  %266 = phi ptr [ %.pre.i.i.i79, %263 ], [ %258, %.critedge.i.i76 ]
-  %267 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %266, i64 %.pre-phi.i77
-  store i32 0, ptr %267, align 4, !tbaa !27
-  store i32 -1, ptr %239, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i80: ; preds = %265, %.critedge.i.i76
+  %268 = phi ptr [ %.pre.i.i.i79, %265 ], [ %260, %.critedge.i.i76 ]
+  %269 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %268, i64 %.pre-phi.i77
+  store i32 0, ptr %269, align 4, !tbaa !27
+  store i32 -1, ptr %241, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81
 
-_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i80, %236
-  %268 = add i32 %.013.i74, 1
+_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i80, %238
+  %270 = add i32 %.013.i74, 1
   %exitcond.not.i82 = icmp eq i32 %.013.i74, %spec.select.i71
-  br i1 %exitcond.not.i82, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %236, !llvm.loop !39
+  br i1 %exitcond.not.i82, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %238, !llvm.loop !39
 
-269:                                              ; preds = %2, %2, %2, %2
-  %270 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.011.0.copyload = load i32, ptr %270, align 4, !tbaa !27
-  %271 = and i32 %.sroa.011.0.copyload, 15
-  %272 = icmp eq i32 %271, 6
-  br i1 %272, label %273, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
+271:                                              ; preds = %2, %2, %2, %2
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.011.0.copyload = load i32, ptr %272, align 4, !tbaa !27
+  %273 = and i32 %.sroa.011.0.copyload, 15
+  %274 = icmp eq i32 %273, 6
+  br i1 %274, label %275, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
-273:                                              ; preds = %269
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %275 = lshr i32 %.sroa.011.0.copyload, 4
-  %276 = zext nneg i32 %275 to i64
-  %277 = getelementptr inbounds nuw i32, ptr %274, i64 %276
-  %278 = load i32, ptr %277, align 4, !tbaa !13
-  %.not.i87 = icmp eq i32 %278, -1
-  br i1 %.not.i87, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %279
+275:                                              ; preds = %271
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %277 = lshr i32 %.sroa.011.0.copyload, 4
+  %278 = zext nneg i32 %277 to i64
+  %279 = getelementptr inbounds nuw i32, ptr %276, i64 %278
+  %280 = load i32, ptr %279, align 4, !tbaa !13
+  %.not.i87 = icmp eq i32 %280, -1
+  br i1 %.not.i87, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %281
 
-279:                                              ; preds = %273
-  %280 = load ptr, ptr %0, align 8, !tbaa !28
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 24
-  %282 = zext i32 %278 to i64
-  %283 = load ptr, ptr %281, align 8, !tbaa !29
-  %284 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %283, i64 %282
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 42
-  %286 = load i8, ptr %285, align 2, !tbaa !32, !range !33, !noundef !34
-  %287 = trunc nuw i8 %286 to i1
-  br i1 %287, label %288, label %.critedge.i88
+281:                                              ; preds = %275
+  %282 = load ptr, ptr %0, align 8, !tbaa !28
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 24
+  %284 = zext i32 %280 to i64
+  %285 = load ptr, ptr %283, align 8, !tbaa !29
+  %286 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %285, i64 %284
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 42
+  %288 = load i8, ptr %287, align 2, !tbaa !32, !range !33, !noundef !34
+  %289 = trunc nuw i8 %288 to i1
+  br i1 %289, label %290, label %.critedge.i88
 
-288:                                              ; preds = %279
-  %289 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %290 = load ptr, ptr %289, align 8, !tbaa !15
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %292 = load ptr, ptr %291, align 8, !tbaa !14
-  tail call void %290(ptr noundef %292, ptr noundef nonnull align 4 dereferenceable(43) %284)
+290:                                              ; preds = %281
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %292 = load ptr, ptr %291, align 8, !tbaa !15
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  %294 = load ptr, ptr %293, align 8, !tbaa !14
+  tail call void %292(ptr noundef %294, ptr noundef nonnull align 4 dereferenceable(43) %286)
   %.pre228 = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre229 = load i32, ptr %277, align 4, !tbaa !13
+  %.pre229 = load i32, ptr %279, align 4, !tbaa !13
   %.pre237 = zext i32 %.pre229 to i64
   br label %.critedge.i88
 
-.critedge.i88:                                    ; preds = %288, %279
-  %.pre-phi238 = phi i64 [ %.pre237, %288 ], [ %282, %279 ]
-  %293 = phi i32 [ %.pre229, %288 ], [ %278, %279 ]
-  %294 = phi ptr [ %.pre228, %288 ], [ %280, %279 ]
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 152
-  %296 = getelementptr inbounds nuw i8, ptr %294, i64 160
-  %297 = load ptr, ptr %296, align 8, !tbaa !35
-  %298 = load ptr, ptr %295, align 8, !tbaa !38
-  %299 = ptrtoint ptr %297 to i64
-  %300 = ptrtoint ptr %298 to i64
-  %301 = sub i64 %299, %300
-  %302 = ashr exact i64 %301, 2
-  %.not.i.i89 = icmp ugt i64 %302, %.pre-phi238
-  br i1 %.not.i.i89, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91, label %303
+.critedge.i88:                                    ; preds = %290, %281
+  %.pre-phi238 = phi i64 [ %.pre237, %290 ], [ %284, %281 ]
+  %295 = phi i32 [ %.pre229, %290 ], [ %280, %281 ]
+  %296 = phi ptr [ %.pre228, %290 ], [ %282, %281 ]
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 152
+  %298 = getelementptr inbounds nuw i8, ptr %296, i64 160
+  %299 = load ptr, ptr %298, align 8, !tbaa !35
+  %300 = load ptr, ptr %297, align 8, !tbaa !38
+  %301 = ptrtoint ptr %299 to i64
+  %302 = ptrtoint ptr %300 to i64
+  %303 = sub i64 %301, %302
+  %304 = ashr exact i64 %303, 2
+  %.not.i.i89 = icmp ugt i64 %304, %.pre-phi238
+  br i1 %.not.i.i89, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91, label %305
 
-303:                                              ; preds = %.critedge.i88
-  %304 = add i32 %293, 1
-  %305 = zext i32 %304 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %295, i64 noundef %305)
-  %.pre.i.i90 = load ptr, ptr %295, align 8, !tbaa !38
+305:                                              ; preds = %.critedge.i88
+  %306 = add i32 %295, 1
+  %307 = zext i32 %306 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %297, i64 noundef %307)
+  %.pre.i.i90 = load ptr, ptr %297, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91: ; preds = %303, %.critedge.i88
-  %306 = phi ptr [ %.pre.i.i90, %303 ], [ %298, %.critedge.i88 ]
-  %307 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %306, i64 %.pre-phi238
-  store i32 0, ptr %307, align 4, !tbaa !27
-  store i32 -1, ptr %277, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91: ; preds = %305, %.critedge.i88
+  %308 = phi ptr [ %.pre.i.i90, %305 ], [ %300, %.critedge.i88 ]
+  %309 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %308, i64 %.pre-phi238
+  store i32 0, ptr %309, align 4, !tbaa !27
+  store i32 -1, ptr %279, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
-308:                                              ; preds = %2
-  %309 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.010.0.copyload = load i32, ptr %309, align 4, !tbaa !27
-  %310 = lshr i32 %.sroa.010.0.copyload, 4
-  %311 = load ptr, ptr %0, align 8, !tbaa !28
-  %312 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.09.0.copyload = load i32, ptr %312, align 4, !tbaa !27
-  %313 = getelementptr inbounds nuw i8, ptr %311, i64 48
-  %314 = lshr i32 %.sroa.09.0.copyload, 4
-  %315 = zext nneg i32 %314 to i64
-  %316 = load ptr, ptr %313, align 8, !tbaa !41
-  %317 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %316, i64 %315, i32 1
-  %318 = load i32, ptr %317, align 8, !tbaa !27
-  %319 = icmp eq i32 %318, -1
-  %320 = add nsw i32 %318, %310
-  %321 = select i1 %319, i32 255, i32 %320
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %323 = load i32, ptr %322, align 8, !tbaa !9
-  %spec.select.i93 = tail call i32 @llvm.smin.i32(i32 %321, i32 %323)
-  %.not12.i94 = icmp sgt i32 %310, %spec.select.i93
+310:                                              ; preds = %2
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.010.0.copyload = load i32, ptr %311, align 4, !tbaa !27
+  %312 = lshr i32 %.sroa.010.0.copyload, 4
+  %313 = load ptr, ptr %0, align 8, !tbaa !28
+  %314 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.09.0.copyload = load i32, ptr %314, align 4, !tbaa !27
+  %315 = getelementptr inbounds nuw i8, ptr %313, i64 48
+  %316 = lshr i32 %.sroa.09.0.copyload, 4
+  %317 = zext nneg i32 %316 to i64
+  %318 = load ptr, ptr %315, align 8, !tbaa !41
+  %319 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %318, i64 %317
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
+  %321 = load i32, ptr %320, align 8, !tbaa !27
+  %322 = icmp eq i32 %321, -1
+  %323 = add nsw i32 %321, %312
+  %324 = select i1 %322, i32 255, i32 %323
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %326 = load i32, ptr %325, align 8, !tbaa !9
+  %spec.select.i93 = tail call i32 @llvm.smin.i32(i32 %324, i32 %326)
+  %.not12.i94 = icmp sgt i32 %312, %spec.select.i93
   br i1 %.not12.i94, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i95
 
-.lr.ph.i95:                                       ; preds = %308
-  %324 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  br label %327
+.lr.ph.i95:                                       ; preds = %310
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  br label %330
 
-327:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103, %.lr.ph.i95
-  %.013.i96 = phi i32 [ %310, %.lr.ph.i95 ], [ %359, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103 ]
-  %328 = and i32 %.013.i96, 255
-  %329 = zext nneg i32 %328 to i64
-  %330 = getelementptr inbounds nuw i32, ptr %324, i64 %329
-  %331 = load i32, ptr %330, align 4, !tbaa !13
-  %.not.i.i97 = icmp eq i32 %331, -1
-  br i1 %.not.i.i97, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103, label %332
+330:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103, %.lr.ph.i95
+  %.013.i96 = phi i32 [ %312, %.lr.ph.i95 ], [ %362, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103 ]
+  %331 = and i32 %.013.i96, 255
+  %332 = zext nneg i32 %331 to i64
+  %333 = getelementptr inbounds nuw i32, ptr %327, i64 %332
+  %334 = load i32, ptr %333, align 4, !tbaa !13
+  %.not.i.i97 = icmp eq i32 %334, -1
+  br i1 %.not.i.i97, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103, label %335
 
-332:                                              ; preds = %327
-  %333 = load ptr, ptr %0, align 8, !tbaa !28
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 24
-  %335 = zext i32 %331 to i64
-  %336 = load ptr, ptr %334, align 8, !tbaa !29
-  %337 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %336, i64 %335
-  %338 = getelementptr inbounds nuw i8, ptr %337, i64 42
-  %339 = load i8, ptr %338, align 2, !tbaa !32, !range !33, !noundef !34
-  %340 = trunc nuw i8 %339 to i1
-  br i1 %340, label %341, label %.critedge.i.i98
+335:                                              ; preds = %330
+  %336 = load ptr, ptr %0, align 8, !tbaa !28
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 24
+  %338 = zext i32 %334 to i64
+  %339 = load ptr, ptr %337, align 8, !tbaa !29
+  %340 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %339, i64 %338
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 42
+  %342 = load i8, ptr %341, align 2, !tbaa !32, !range !33, !noundef !34
+  %343 = trunc nuw i8 %342 to i1
+  br i1 %343, label %344, label %.critedge.i.i98
 
-341:                                              ; preds = %332
-  %342 = load ptr, ptr %325, align 8, !tbaa !15
-  %343 = load ptr, ptr %326, align 8, !tbaa !14
-  tail call void %342(ptr noundef %343, ptr noundef nonnull align 4 dereferenceable(43) %337)
+344:                                              ; preds = %335
+  %345 = load ptr, ptr %328, align 8, !tbaa !15
+  %346 = load ptr, ptr %329, align 8, !tbaa !14
+  tail call void %345(ptr noundef %346, ptr noundef nonnull align 4 dereferenceable(43) %340)
   %.pre.i105 = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre14.i106 = load i32, ptr %330, align 4, !tbaa !13
+  %.pre14.i106 = load i32, ptr %333, align 4, !tbaa !13
   %.pre15.i107 = zext i32 %.pre14.i106 to i64
   br label %.critedge.i.i98
 
-.critedge.i.i98:                                  ; preds = %341, %332
-  %.pre-phi.i99 = phi i64 [ %.pre15.i107, %341 ], [ %335, %332 ]
-  %344 = phi i32 [ %.pre14.i106, %341 ], [ %331, %332 ]
-  %345 = phi ptr [ %.pre.i105, %341 ], [ %333, %332 ]
-  %346 = getelementptr inbounds nuw i8, ptr %345, i64 152
-  %347 = getelementptr inbounds nuw i8, ptr %345, i64 160
-  %348 = load ptr, ptr %347, align 8, !tbaa !35
-  %349 = load ptr, ptr %346, align 8, !tbaa !38
-  %350 = ptrtoint ptr %348 to i64
-  %351 = ptrtoint ptr %349 to i64
-  %352 = sub i64 %350, %351
-  %353 = ashr exact i64 %352, 2
-  %.not.i.i.i100 = icmp ugt i64 %353, %.pre-phi.i99
-  br i1 %.not.i.i.i100, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i102, label %354
+.critedge.i.i98:                                  ; preds = %344, %335
+  %.pre-phi.i99 = phi i64 [ %.pre15.i107, %344 ], [ %338, %335 ]
+  %347 = phi i32 [ %.pre14.i106, %344 ], [ %334, %335 ]
+  %348 = phi ptr [ %.pre.i105, %344 ], [ %336, %335 ]
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 152
+  %350 = getelementptr inbounds nuw i8, ptr %348, i64 160
+  %351 = load ptr, ptr %350, align 8, !tbaa !35
+  %352 = load ptr, ptr %349, align 8, !tbaa !38
+  %353 = ptrtoint ptr %351 to i64
+  %354 = ptrtoint ptr %352 to i64
+  %355 = sub i64 %353, %354
+  %356 = ashr exact i64 %355, 2
+  %.not.i.i.i100 = icmp ugt i64 %356, %.pre-phi.i99
+  br i1 %.not.i.i.i100, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i102, label %357
 
-354:                                              ; preds = %.critedge.i.i98
-  %355 = add i32 %344, 1
-  %356 = zext i32 %355 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %346, i64 noundef %356)
-  %.pre.i.i.i101 = load ptr, ptr %346, align 8, !tbaa !38
+357:                                              ; preds = %.critedge.i.i98
+  %358 = add i32 %347, 1
+  %359 = zext i32 %358 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %349, i64 noundef %359)
+  %.pre.i.i.i101 = load ptr, ptr %349, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i102
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i102: ; preds = %354, %.critedge.i.i98
-  %357 = phi ptr [ %.pre.i.i.i101, %354 ], [ %349, %.critedge.i.i98 ]
-  %358 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %357, i64 %.pre-phi.i99
-  store i32 0, ptr %358, align 4, !tbaa !27
-  store i32 -1, ptr %330, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i102: ; preds = %357, %.critedge.i.i98
+  %360 = phi ptr [ %.pre.i.i.i101, %357 ], [ %352, %.critedge.i.i98 ]
+  %361 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %360, i64 %.pre-phi.i99
+  store i32 0, ptr %361, align 4, !tbaa !27
+  store i32 -1, ptr %333, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103
 
-_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i102, %327
-  %359 = add i32 %.013.i96, 1
+_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i102, %330
+  %362 = add i32 %.013.i96, 1
   %exitcond.not.i104 = icmp eq i32 %.013.i96, %spec.select.i93
-  br i1 %exitcond.not.i104, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %327, !llvm.loop !39
+  br i1 %exitcond.not.i104, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %330, !llvm.loop !39
 
-360:                                              ; preds = %2
-  %361 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.08.0.copyload = load i32, ptr %361, align 4, !tbaa !27
-  %362 = and i32 %.sroa.08.0.copyload, 15
-  %363 = icmp eq i32 %362, 6
-  br i1 %363, label %364, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
+363:                                              ; preds = %2
+  %364 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.08.0.copyload = load i32, ptr %364, align 4, !tbaa !27
+  %365 = and i32 %.sroa.08.0.copyload, 15
+  %366 = icmp eq i32 %365, 6
+  br i1 %366, label %367, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
-364:                                              ; preds = %360
-  %365 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %366 = lshr i32 %.sroa.08.0.copyload, 4
-  %367 = zext nneg i32 %366 to i64
-  %368 = getelementptr inbounds nuw i32, ptr %365, i64 %367
-  %369 = load i32, ptr %368, align 4, !tbaa !13
-  %.not.i109 = icmp eq i32 %369, -1
-  br i1 %.not.i109, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %370
+367:                                              ; preds = %363
+  %368 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %369 = lshr i32 %.sroa.08.0.copyload, 4
+  %370 = zext nneg i32 %369 to i64
+  %371 = getelementptr inbounds nuw i32, ptr %368, i64 %370
+  %372 = load i32, ptr %371, align 4, !tbaa !13
+  %.not.i109 = icmp eq i32 %372, -1
+  br i1 %.not.i109, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %373
 
-370:                                              ; preds = %364
-  %371 = load ptr, ptr %0, align 8, !tbaa !28
-  %372 = getelementptr inbounds nuw i8, ptr %371, i64 24
-  %373 = zext i32 %369 to i64
-  %374 = load ptr, ptr %372, align 8, !tbaa !29
-  %375 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %374, i64 %373
-  %376 = getelementptr inbounds nuw i8, ptr %375, i64 42
-  %377 = load i8, ptr %376, align 2, !tbaa !32, !range !33, !noundef !34
-  %378 = trunc nuw i8 %377 to i1
-  br i1 %378, label %379, label %.critedge.i110
+373:                                              ; preds = %367
+  %374 = load ptr, ptr %0, align 8, !tbaa !28
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 24
+  %376 = zext i32 %372 to i64
+  %377 = load ptr, ptr %375, align 8, !tbaa !29
+  %378 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %377, i64 %376
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 42
+  %380 = load i8, ptr %379, align 2, !tbaa !32, !range !33, !noundef !34
+  %381 = trunc nuw i8 %380 to i1
+  br i1 %381, label %382, label %.critedge.i110
 
-379:                                              ; preds = %370
-  %380 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %381 = load ptr, ptr %380, align 8, !tbaa !15
-  %382 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %383 = load ptr, ptr %382, align 8, !tbaa !14
-  tail call void %381(ptr noundef %383, ptr noundef nonnull align 4 dereferenceable(43) %375)
+382:                                              ; preds = %373
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %384 = load ptr, ptr %383, align 8, !tbaa !15
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  %386 = load ptr, ptr %385, align 8, !tbaa !14
+  tail call void %384(ptr noundef %386, ptr noundef nonnull align 4 dereferenceable(43) %378)
   %.pre226 = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre227 = load i32, ptr %368, align 4, !tbaa !13
+  %.pre227 = load i32, ptr %371, align 4, !tbaa !13
   %.pre239 = zext i32 %.pre227 to i64
   br label %.critedge.i110
 
-.critedge.i110:                                   ; preds = %379, %370
-  %.pre-phi240 = phi i64 [ %.pre239, %379 ], [ %373, %370 ]
-  %384 = phi i32 [ %.pre227, %379 ], [ %369, %370 ]
-  %385 = phi ptr [ %.pre226, %379 ], [ %371, %370 ]
-  %386 = getelementptr inbounds nuw i8, ptr %385, i64 152
-  %387 = getelementptr inbounds nuw i8, ptr %385, i64 160
-  %388 = load ptr, ptr %387, align 8, !tbaa !35
-  %389 = load ptr, ptr %386, align 8, !tbaa !38
-  %390 = ptrtoint ptr %388 to i64
-  %391 = ptrtoint ptr %389 to i64
-  %392 = sub i64 %390, %391
-  %393 = ashr exact i64 %392, 2
-  %.not.i.i111 = icmp ugt i64 %393, %.pre-phi240
-  br i1 %.not.i.i111, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i113, label %394
+.critedge.i110:                                   ; preds = %382, %373
+  %.pre-phi240 = phi i64 [ %.pre239, %382 ], [ %376, %373 ]
+  %387 = phi i32 [ %.pre227, %382 ], [ %372, %373 ]
+  %388 = phi ptr [ %.pre226, %382 ], [ %374, %373 ]
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 152
+  %390 = getelementptr inbounds nuw i8, ptr %388, i64 160
+  %391 = load ptr, ptr %390, align 8, !tbaa !35
+  %392 = load ptr, ptr %389, align 8, !tbaa !38
+  %393 = ptrtoint ptr %391 to i64
+  %394 = ptrtoint ptr %392 to i64
+  %395 = sub i64 %393, %394
+  %396 = ashr exact i64 %395, 2
+  %.not.i.i111 = icmp ugt i64 %396, %.pre-phi240
+  br i1 %.not.i.i111, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i113, label %397
 
-394:                                              ; preds = %.critedge.i110
-  %395 = add i32 %384, 1
-  %396 = zext i32 %395 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %386, i64 noundef %396)
-  %.pre.i.i112 = load ptr, ptr %386, align 8, !tbaa !38
+397:                                              ; preds = %.critedge.i110
+  %398 = add i32 %387, 1
+  %399 = zext i32 %398 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %389, i64 noundef %399)
+  %.pre.i.i112 = load ptr, ptr %389, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i113
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i113: ; preds = %394, %.critedge.i110
-  %397 = phi ptr [ %.pre.i.i112, %394 ], [ %389, %.critedge.i110 ]
-  %398 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %397, i64 %.pre-phi240
-  store i32 0, ptr %398, align 4, !tbaa !27
-  store i32 -1, ptr %368, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i113: ; preds = %397, %.critedge.i110
+  %400 = phi ptr [ %.pre.i.i112, %397 ], [ %392, %.critedge.i110 ]
+  %401 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %400, i64 %.pre-phi240
+  store i32 0, ptr %401, align 4, !tbaa !27
+  store i32 -1, ptr %371, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
-399:                                              ; preds = %2
-  %400 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.07.0.copyload = load i32, ptr %400, align 4, !tbaa !27
-  %401 = lshr i32 %.sroa.07.0.copyload, 4
-  %402 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %403 = load i32, ptr %402, align 8, !tbaa !9
-  %spec.select.i115 = tail call i32 @llvm.smin.i32(i32 %403, i32 255)
-  %.not12.i116 = icmp sgt i32 %401, %spec.select.i115
+402:                                              ; preds = %2
+  %403 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.07.0.copyload = load i32, ptr %403, align 4, !tbaa !27
+  %404 = lshr i32 %.sroa.07.0.copyload, 4
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %406 = load i32, ptr %405, align 8, !tbaa !9
+  %spec.select.i115 = tail call i32 @llvm.smin.i32(i32 %406, i32 255)
+  %.not12.i116 = icmp sgt i32 %404, %spec.select.i115
   br i1 %.not12.i116, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i117
 
-.lr.ph.i117:                                      ; preds = %399
-  %404 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %405 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %406 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  br label %407
+.lr.ph.i117:                                      ; preds = %402
+  %407 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %409 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  br label %410
 
-407:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125, %.lr.ph.i117
-  %.013.i118 = phi i32 [ %401, %.lr.ph.i117 ], [ %439, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125 ]
-  %408 = and i32 %.013.i118, 255
-  %409 = zext nneg i32 %408 to i64
-  %410 = getelementptr inbounds nuw i32, ptr %404, i64 %409
-  %411 = load i32, ptr %410, align 4, !tbaa !13
-  %.not.i.i119 = icmp eq i32 %411, -1
-  br i1 %.not.i.i119, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125, label %412
+410:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125, %.lr.ph.i117
+  %.013.i118 = phi i32 [ %404, %.lr.ph.i117 ], [ %442, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125 ]
+  %411 = and i32 %.013.i118, 255
+  %412 = zext nneg i32 %411 to i64
+  %413 = getelementptr inbounds nuw i32, ptr %407, i64 %412
+  %414 = load i32, ptr %413, align 4, !tbaa !13
+  %.not.i.i119 = icmp eq i32 %414, -1
+  br i1 %.not.i.i119, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125, label %415
 
-412:                                              ; preds = %407
-  %413 = load ptr, ptr %0, align 8, !tbaa !28
-  %414 = getelementptr inbounds nuw i8, ptr %413, i64 24
-  %415 = zext i32 %411 to i64
-  %416 = load ptr, ptr %414, align 8, !tbaa !29
-  %417 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %416, i64 %415
-  %418 = getelementptr inbounds nuw i8, ptr %417, i64 42
-  %419 = load i8, ptr %418, align 2, !tbaa !32, !range !33, !noundef !34
-  %420 = trunc nuw i8 %419 to i1
-  br i1 %420, label %421, label %.critedge.i.i120
+415:                                              ; preds = %410
+  %416 = load ptr, ptr %0, align 8, !tbaa !28
+  %417 = getelementptr inbounds nuw i8, ptr %416, i64 24
+  %418 = zext i32 %414 to i64
+  %419 = load ptr, ptr %417, align 8, !tbaa !29
+  %420 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %419, i64 %418
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 42
+  %422 = load i8, ptr %421, align 2, !tbaa !32, !range !33, !noundef !34
+  %423 = trunc nuw i8 %422 to i1
+  br i1 %423, label %424, label %.critedge.i.i120
 
-421:                                              ; preds = %412
-  %422 = load ptr, ptr %405, align 8, !tbaa !15
-  %423 = load ptr, ptr %406, align 8, !tbaa !14
-  tail call void %422(ptr noundef %423, ptr noundef nonnull align 4 dereferenceable(43) %417)
+424:                                              ; preds = %415
+  %425 = load ptr, ptr %408, align 8, !tbaa !15
+  %426 = load ptr, ptr %409, align 8, !tbaa !14
+  tail call void %425(ptr noundef %426, ptr noundef nonnull align 4 dereferenceable(43) %420)
   %.pre.i127 = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre14.i128 = load i32, ptr %410, align 4, !tbaa !13
+  %.pre14.i128 = load i32, ptr %413, align 4, !tbaa !13
   %.pre15.i129 = zext i32 %.pre14.i128 to i64
   br label %.critedge.i.i120
 
-.critedge.i.i120:                                 ; preds = %421, %412
-  %.pre-phi.i121 = phi i64 [ %.pre15.i129, %421 ], [ %415, %412 ]
-  %424 = phi i32 [ %.pre14.i128, %421 ], [ %411, %412 ]
-  %425 = phi ptr [ %.pre.i127, %421 ], [ %413, %412 ]
-  %426 = getelementptr inbounds nuw i8, ptr %425, i64 152
-  %427 = getelementptr inbounds nuw i8, ptr %425, i64 160
-  %428 = load ptr, ptr %427, align 8, !tbaa !35
-  %429 = load ptr, ptr %426, align 8, !tbaa !38
-  %430 = ptrtoint ptr %428 to i64
-  %431 = ptrtoint ptr %429 to i64
-  %432 = sub i64 %430, %431
-  %433 = ashr exact i64 %432, 2
-  %.not.i.i.i122 = icmp ugt i64 %433, %.pre-phi.i121
-  br i1 %.not.i.i.i122, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i124, label %434
+.critedge.i.i120:                                 ; preds = %424, %415
+  %.pre-phi.i121 = phi i64 [ %.pre15.i129, %424 ], [ %418, %415 ]
+  %427 = phi i32 [ %.pre14.i128, %424 ], [ %414, %415 ]
+  %428 = phi ptr [ %.pre.i127, %424 ], [ %416, %415 ]
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 152
+  %430 = getelementptr inbounds nuw i8, ptr %428, i64 160
+  %431 = load ptr, ptr %430, align 8, !tbaa !35
+  %432 = load ptr, ptr %429, align 8, !tbaa !38
+  %433 = ptrtoint ptr %431 to i64
+  %434 = ptrtoint ptr %432 to i64
+  %435 = sub i64 %433, %434
+  %436 = ashr exact i64 %435, 2
+  %.not.i.i.i122 = icmp ugt i64 %436, %.pre-phi.i121
+  br i1 %.not.i.i.i122, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i124, label %437
 
-434:                                              ; preds = %.critedge.i.i120
-  %435 = add i32 %424, 1
-  %436 = zext i32 %435 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %426, i64 noundef %436)
-  %.pre.i.i.i123 = load ptr, ptr %426, align 8, !tbaa !38
+437:                                              ; preds = %.critedge.i.i120
+  %438 = add i32 %427, 1
+  %439 = zext i32 %438 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %429, i64 noundef %439)
+  %.pre.i.i.i123 = load ptr, ptr %429, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i124
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i124: ; preds = %434, %.critedge.i.i120
-  %437 = phi ptr [ %.pre.i.i.i123, %434 ], [ %429, %.critedge.i.i120 ]
-  %438 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %437, i64 %.pre-phi.i121
-  store i32 0, ptr %438, align 4, !tbaa !27
-  store i32 -1, ptr %410, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i124: ; preds = %437, %.critedge.i.i120
+  %440 = phi ptr [ %.pre.i.i.i123, %437 ], [ %432, %.critedge.i.i120 ]
+  %441 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %440, i64 %.pre-phi.i121
+  store i32 0, ptr %441, align 4, !tbaa !27
+  store i32 -1, ptr %413, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125
 
-_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i124, %407
-  %439 = add i32 %.013.i118, 1
+_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i124, %410
+  %442 = add i32 %.013.i118, 1
   %exitcond.not.i126 = icmp eq i32 %.013.i118, %spec.select.i115
-  br i1 %exitcond.not.i126, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %407, !llvm.loop !39
+  br i1 %exitcond.not.i126, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %410, !llvm.loop !39
 
-440:                                              ; preds = %2, %2
-  %441 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.06.0.copyload = load i32, ptr %441, align 4, !tbaa !27
-  %442 = lshr i32 %.sroa.06.0.copyload, 4
-  %443 = add nuw nsw i32 %442, 2
-  %444 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %445 = load i32, ptr %444, align 8, !tbaa !9
-  %spec.select.i131 = tail call i32 @llvm.smin.i32(i32 %445, i32 255)
-  %.not12.i132 = icmp sgt i32 %443, %spec.select.i131
+443:                                              ; preds = %2, %2
+  %444 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.06.0.copyload = load i32, ptr %444, align 4, !tbaa !27
+  %445 = lshr i32 %.sroa.06.0.copyload, 4
+  %446 = add nuw nsw i32 %445, 2
+  %447 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %448 = load i32, ptr %447, align 8, !tbaa !9
+  %spec.select.i131 = tail call i32 @llvm.smin.i32(i32 %448, i32 255)
+  %.not12.i132 = icmp sgt i32 %446, %spec.select.i131
   br i1 %.not12.i132, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i133
 
-.lr.ph.i133:                                      ; preds = %440
-  %446 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %447 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %448 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  br label %449
+.lr.ph.i133:                                      ; preds = %443
+  %449 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %451 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  br label %452
 
-449:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141, %.lr.ph.i133
-  %.013.i134 = phi i32 [ %443, %.lr.ph.i133 ], [ %481, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141 ]
-  %450 = and i32 %.013.i134, 255
-  %451 = zext nneg i32 %450 to i64
-  %452 = getelementptr inbounds nuw i32, ptr %446, i64 %451
-  %453 = load i32, ptr %452, align 4, !tbaa !13
-  %.not.i.i135 = icmp eq i32 %453, -1
-  br i1 %.not.i.i135, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141, label %454
+452:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141, %.lr.ph.i133
+  %.013.i134 = phi i32 [ %446, %.lr.ph.i133 ], [ %484, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141 ]
+  %453 = and i32 %.013.i134, 255
+  %454 = zext nneg i32 %453 to i64
+  %455 = getelementptr inbounds nuw i32, ptr %449, i64 %454
+  %456 = load i32, ptr %455, align 4, !tbaa !13
+  %.not.i.i135 = icmp eq i32 %456, -1
+  br i1 %.not.i.i135, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141, label %457
 
-454:                                              ; preds = %449
-  %455 = load ptr, ptr %0, align 8, !tbaa !28
-  %456 = getelementptr inbounds nuw i8, ptr %455, i64 24
-  %457 = zext i32 %453 to i64
-  %458 = load ptr, ptr %456, align 8, !tbaa !29
-  %459 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %458, i64 %457
-  %460 = getelementptr inbounds nuw i8, ptr %459, i64 42
-  %461 = load i8, ptr %460, align 2, !tbaa !32, !range !33, !noundef !34
-  %462 = trunc nuw i8 %461 to i1
-  br i1 %462, label %463, label %.critedge.i.i136
+457:                                              ; preds = %452
+  %458 = load ptr, ptr %0, align 8, !tbaa !28
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 24
+  %460 = zext i32 %456 to i64
+  %461 = load ptr, ptr %459, align 8, !tbaa !29
+  %462 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %461, i64 %460
+  %463 = getelementptr inbounds nuw i8, ptr %462, i64 42
+  %464 = load i8, ptr %463, align 2, !tbaa !32, !range !33, !noundef !34
+  %465 = trunc nuw i8 %464 to i1
+  br i1 %465, label %466, label %.critedge.i.i136
 
-463:                                              ; preds = %454
-  %464 = load ptr, ptr %447, align 8, !tbaa !15
-  %465 = load ptr, ptr %448, align 8, !tbaa !14
-  tail call void %464(ptr noundef %465, ptr noundef nonnull align 4 dereferenceable(43) %459)
+466:                                              ; preds = %457
+  %467 = load ptr, ptr %450, align 8, !tbaa !15
+  %468 = load ptr, ptr %451, align 8, !tbaa !14
+  tail call void %467(ptr noundef %468, ptr noundef nonnull align 4 dereferenceable(43) %462)
   %.pre.i143 = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre14.i144 = load i32, ptr %452, align 4, !tbaa !13
+  %.pre14.i144 = load i32, ptr %455, align 4, !tbaa !13
   %.pre15.i145 = zext i32 %.pre14.i144 to i64
   br label %.critedge.i.i136
 
-.critedge.i.i136:                                 ; preds = %463, %454
-  %.pre-phi.i137 = phi i64 [ %.pre15.i145, %463 ], [ %457, %454 ]
-  %466 = phi i32 [ %.pre14.i144, %463 ], [ %453, %454 ]
-  %467 = phi ptr [ %.pre.i143, %463 ], [ %455, %454 ]
-  %468 = getelementptr inbounds nuw i8, ptr %467, i64 152
-  %469 = getelementptr inbounds nuw i8, ptr %467, i64 160
-  %470 = load ptr, ptr %469, align 8, !tbaa !35
-  %471 = load ptr, ptr %468, align 8, !tbaa !38
-  %472 = ptrtoint ptr %470 to i64
-  %473 = ptrtoint ptr %471 to i64
-  %474 = sub i64 %472, %473
-  %475 = ashr exact i64 %474, 2
-  %.not.i.i.i138 = icmp ugt i64 %475, %.pre-phi.i137
-  br i1 %.not.i.i.i138, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i140, label %476
+.critedge.i.i136:                                 ; preds = %466, %457
+  %.pre-phi.i137 = phi i64 [ %.pre15.i145, %466 ], [ %460, %457 ]
+  %469 = phi i32 [ %.pre14.i144, %466 ], [ %456, %457 ]
+  %470 = phi ptr [ %.pre.i143, %466 ], [ %458, %457 ]
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 152
+  %472 = getelementptr inbounds nuw i8, ptr %470, i64 160
+  %473 = load ptr, ptr %472, align 8, !tbaa !35
+  %474 = load ptr, ptr %471, align 8, !tbaa !38
+  %475 = ptrtoint ptr %473 to i64
+  %476 = ptrtoint ptr %474 to i64
+  %477 = sub i64 %475, %476
+  %478 = ashr exact i64 %477, 2
+  %.not.i.i.i138 = icmp ugt i64 %478, %.pre-phi.i137
+  br i1 %.not.i.i.i138, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i140, label %479
 
-476:                                              ; preds = %.critedge.i.i136
-  %477 = add i32 %466, 1
-  %478 = zext i32 %477 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %468, i64 noundef %478)
-  %.pre.i.i.i139 = load ptr, ptr %468, align 8, !tbaa !38
+479:                                              ; preds = %.critedge.i.i136
+  %480 = add i32 %469, 1
+  %481 = zext i32 %480 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %471, i64 noundef %481)
+  %.pre.i.i.i139 = load ptr, ptr %471, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i140
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i140: ; preds = %476, %.critedge.i.i136
-  %479 = phi ptr [ %.pre.i.i.i139, %476 ], [ %471, %.critedge.i.i136 ]
-  %480 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %479, i64 %.pre-phi.i137
-  store i32 0, ptr %480, align 4, !tbaa !27
-  store i32 -1, ptr %452, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i140: ; preds = %479, %.critedge.i.i136
+  %482 = phi ptr [ %.pre.i.i.i139, %479 ], [ %474, %.critedge.i.i136 ]
+  %483 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %482, i64 %.pre-phi.i137
+  store i32 0, ptr %483, align 4, !tbaa !27
+  store i32 -1, ptr %455, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141
 
-_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i140, %449
-  %481 = add i32 %.013.i134, 1
+_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i140, %452
+  %484 = add i32 %.013.i134, 1
   %exitcond.not.i142 = icmp eq i32 %.013.i134, %spec.select.i131
-  br i1 %exitcond.not.i142, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %449, !llvm.loop !39
+  br i1 %exitcond.not.i142, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %452, !llvm.loop !39
 
-482:                                              ; preds = %2, %2
-  %483 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.05.0.copyload = load i32, ptr %483, align 4, !tbaa !27
-  %484 = and i32 %.sroa.05.0.copyload, 15
-  %485 = icmp eq i32 %484, 6
-  br i1 %485, label %486, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
+485:                                              ; preds = %2, %2
+  %486 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.05.0.copyload = load i32, ptr %486, align 4, !tbaa !27
+  %487 = and i32 %.sroa.05.0.copyload, 15
+  %488 = icmp eq i32 %487, 6
+  br i1 %488, label %489, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
-486:                                              ; preds = %482
-  %487 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %488 = lshr i32 %.sroa.05.0.copyload, 4
-  %489 = zext nneg i32 %488 to i64
-  %490 = getelementptr inbounds nuw i32, ptr %487, i64 %489
-  %491 = load i32, ptr %490, align 4, !tbaa !13
-  %.not.i147 = icmp eq i32 %491, -1
-  br i1 %.not.i147, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %492
+489:                                              ; preds = %485
+  %490 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %491 = lshr i32 %.sroa.05.0.copyload, 4
+  %492 = zext nneg i32 %491 to i64
+  %493 = getelementptr inbounds nuw i32, ptr %490, i64 %492
+  %494 = load i32, ptr %493, align 4, !tbaa !13
+  %.not.i147 = icmp eq i32 %494, -1
+  br i1 %.not.i147, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %495
 
-492:                                              ; preds = %486
-  %493 = load ptr, ptr %0, align 8, !tbaa !28
-  %494 = getelementptr inbounds nuw i8, ptr %493, i64 24
-  %495 = zext i32 %491 to i64
-  %496 = load ptr, ptr %494, align 8, !tbaa !29
-  %497 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %496, i64 %495
-  %498 = getelementptr inbounds nuw i8, ptr %497, i64 42
-  %499 = load i8, ptr %498, align 2, !tbaa !32, !range !33, !noundef !34
-  %500 = trunc nuw i8 %499 to i1
-  br i1 %500, label %501, label %.critedge.i148
+495:                                              ; preds = %489
+  %496 = load ptr, ptr %0, align 8, !tbaa !28
+  %497 = getelementptr inbounds nuw i8, ptr %496, i64 24
+  %498 = zext i32 %494 to i64
+  %499 = load ptr, ptr %497, align 8, !tbaa !29
+  %500 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %499, i64 %498
+  %501 = getelementptr inbounds nuw i8, ptr %500, i64 42
+  %502 = load i8, ptr %501, align 2, !tbaa !32, !range !33, !noundef !34
+  %503 = trunc nuw i8 %502 to i1
+  br i1 %503, label %504, label %.critedge.i148
 
-501:                                              ; preds = %492
-  %502 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %503 = load ptr, ptr %502, align 8, !tbaa !15
-  %504 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %505 = load ptr, ptr %504, align 8, !tbaa !14
-  tail call void %503(ptr noundef %505, ptr noundef nonnull align 4 dereferenceable(43) %497)
+504:                                              ; preds = %495
+  %505 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %506 = load ptr, ptr %505, align 8, !tbaa !15
+  %507 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  %508 = load ptr, ptr %507, align 8, !tbaa !14
+  tail call void %506(ptr noundef %508, ptr noundef nonnull align 4 dereferenceable(43) %500)
   %.pre224 = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre225 = load i32, ptr %490, align 4, !tbaa !13
+  %.pre225 = load i32, ptr %493, align 4, !tbaa !13
   %.pre241 = zext i32 %.pre225 to i64
   br label %.critedge.i148
 
-.critedge.i148:                                   ; preds = %501, %492
-  %.pre-phi242 = phi i64 [ %.pre241, %501 ], [ %495, %492 ]
-  %506 = phi i32 [ %.pre225, %501 ], [ %491, %492 ]
-  %507 = phi ptr [ %.pre224, %501 ], [ %493, %492 ]
-  %508 = getelementptr inbounds nuw i8, ptr %507, i64 152
-  %509 = getelementptr inbounds nuw i8, ptr %507, i64 160
-  %510 = load ptr, ptr %509, align 8, !tbaa !35
-  %511 = load ptr, ptr %508, align 8, !tbaa !38
-  %512 = ptrtoint ptr %510 to i64
-  %513 = ptrtoint ptr %511 to i64
-  %514 = sub i64 %512, %513
-  %515 = ashr exact i64 %514, 2
-  %.not.i.i149 = icmp ugt i64 %515, %.pre-phi242
-  br i1 %.not.i.i149, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i151, label %516
+.critedge.i148:                                   ; preds = %504, %495
+  %.pre-phi242 = phi i64 [ %.pre241, %504 ], [ %498, %495 ]
+  %509 = phi i32 [ %.pre225, %504 ], [ %494, %495 ]
+  %510 = phi ptr [ %.pre224, %504 ], [ %496, %495 ]
+  %511 = getelementptr inbounds nuw i8, ptr %510, i64 152
+  %512 = getelementptr inbounds nuw i8, ptr %510, i64 160
+  %513 = load ptr, ptr %512, align 8, !tbaa !35
+  %514 = load ptr, ptr %511, align 8, !tbaa !38
+  %515 = ptrtoint ptr %513 to i64
+  %516 = ptrtoint ptr %514 to i64
+  %517 = sub i64 %515, %516
+  %518 = ashr exact i64 %517, 2
+  %.not.i.i149 = icmp ugt i64 %518, %.pre-phi242
+  br i1 %.not.i.i149, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i151, label %519
 
-516:                                              ; preds = %.critedge.i148
-  %517 = add i32 %506, 1
-  %518 = zext i32 %517 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %508, i64 noundef %518)
-  %.pre.i.i150 = load ptr, ptr %508, align 8, !tbaa !38
+519:                                              ; preds = %.critedge.i148
+  %520 = add i32 %509, 1
+  %521 = zext i32 %520 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %511, i64 noundef %521)
+  %.pre.i.i150 = load ptr, ptr %511, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i151
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i151: ; preds = %516, %.critedge.i148
-  %519 = phi ptr [ %.pre.i.i150, %516 ], [ %511, %.critedge.i148 ]
-  %520 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %519, i64 %.pre-phi242
-  store i32 0, ptr %520, align 4, !tbaa !27
-  store i32 -1, ptr %490, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i151: ; preds = %519, %.critedge.i148
+  %522 = phi ptr [ %.pre.i.i150, %519 ], [ %514, %.critedge.i148 ]
+  %523 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %522, i64 %.pre-phi242
+  store i32 0, ptr %523, align 4, !tbaa !27
+  store i32 -1, ptr %493, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
-521:                                              ; preds = %2
-  %522 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.04.0.copyload = load i32, ptr %522, align 4, !tbaa !27
-  %523 = lshr i32 %.sroa.04.0.copyload, 4
-  %524 = add nuw nsw i32 %523, 2
-  %525 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %526 = load i32, ptr %525, align 8, !tbaa !9
-  %spec.select.i153 = tail call i32 @llvm.smin.i32(i32 %524, i32 %526)
-  %.not12.i154 = icmp slt i32 %526, %523
+524:                                              ; preds = %2
+  %525 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.04.0.copyload = load i32, ptr %525, align 4, !tbaa !27
+  %526 = lshr i32 %.sroa.04.0.copyload, 4
+  %527 = add nuw nsw i32 %526, 2
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %529 = load i32, ptr %528, align 8, !tbaa !9
+  %spec.select.i153 = tail call i32 @llvm.smin.i32(i32 %527, i32 %529)
+  %.not12.i154 = icmp slt i32 %529, %526
   br i1 %.not12.i154, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i155
 
-.lr.ph.i155:                                      ; preds = %521
-  %527 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %528 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %529 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  br label %530
+.lr.ph.i155:                                      ; preds = %524
+  %530 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %531 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %532 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  br label %533
 
-530:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163, %.lr.ph.i155
-  %.013.i156 = phi i32 [ %523, %.lr.ph.i155 ], [ %562, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163 ]
-  %531 = and i32 %.013.i156, 255
-  %532 = zext nneg i32 %531 to i64
-  %533 = getelementptr inbounds nuw i32, ptr %527, i64 %532
-  %534 = load i32, ptr %533, align 4, !tbaa !13
-  %.not.i.i157 = icmp eq i32 %534, -1
-  br i1 %.not.i.i157, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163, label %535
+533:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163, %.lr.ph.i155
+  %.013.i156 = phi i32 [ %526, %.lr.ph.i155 ], [ %565, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163 ]
+  %534 = and i32 %.013.i156, 255
+  %535 = zext nneg i32 %534 to i64
+  %536 = getelementptr inbounds nuw i32, ptr %530, i64 %535
+  %537 = load i32, ptr %536, align 4, !tbaa !13
+  %.not.i.i157 = icmp eq i32 %537, -1
+  br i1 %.not.i.i157, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163, label %538
 
-535:                                              ; preds = %530
-  %536 = load ptr, ptr %0, align 8, !tbaa !28
-  %537 = getelementptr inbounds nuw i8, ptr %536, i64 24
-  %538 = zext i32 %534 to i64
-  %539 = load ptr, ptr %537, align 8, !tbaa !29
-  %540 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %539, i64 %538
-  %541 = getelementptr inbounds nuw i8, ptr %540, i64 42
-  %542 = load i8, ptr %541, align 2, !tbaa !32, !range !33, !noundef !34
-  %543 = trunc nuw i8 %542 to i1
-  br i1 %543, label %544, label %.critedge.i.i158
+538:                                              ; preds = %533
+  %539 = load ptr, ptr %0, align 8, !tbaa !28
+  %540 = getelementptr inbounds nuw i8, ptr %539, i64 24
+  %541 = zext i32 %537 to i64
+  %542 = load ptr, ptr %540, align 8, !tbaa !29
+  %543 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %542, i64 %541
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 42
+  %545 = load i8, ptr %544, align 2, !tbaa !32, !range !33, !noundef !34
+  %546 = trunc nuw i8 %545 to i1
+  br i1 %546, label %547, label %.critedge.i.i158
 
-544:                                              ; preds = %535
-  %545 = load ptr, ptr %528, align 8, !tbaa !15
-  %546 = load ptr, ptr %529, align 8, !tbaa !14
-  tail call void %545(ptr noundef %546, ptr noundef nonnull align 4 dereferenceable(43) %540)
+547:                                              ; preds = %538
+  %548 = load ptr, ptr %531, align 8, !tbaa !15
+  %549 = load ptr, ptr %532, align 8, !tbaa !14
+  tail call void %548(ptr noundef %549, ptr noundef nonnull align 4 dereferenceable(43) %543)
   %.pre.i165 = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre14.i166 = load i32, ptr %533, align 4, !tbaa !13
+  %.pre14.i166 = load i32, ptr %536, align 4, !tbaa !13
   %.pre15.i167 = zext i32 %.pre14.i166 to i64
   br label %.critedge.i.i158
 
-.critedge.i.i158:                                 ; preds = %544, %535
-  %.pre-phi.i159 = phi i64 [ %.pre15.i167, %544 ], [ %538, %535 ]
-  %547 = phi i32 [ %.pre14.i166, %544 ], [ %534, %535 ]
-  %548 = phi ptr [ %.pre.i165, %544 ], [ %536, %535 ]
-  %549 = getelementptr inbounds nuw i8, ptr %548, i64 152
-  %550 = getelementptr inbounds nuw i8, ptr %548, i64 160
-  %551 = load ptr, ptr %550, align 8, !tbaa !35
-  %552 = load ptr, ptr %549, align 8, !tbaa !38
-  %553 = ptrtoint ptr %551 to i64
-  %554 = ptrtoint ptr %552 to i64
-  %555 = sub i64 %553, %554
-  %556 = ashr exact i64 %555, 2
-  %.not.i.i.i160 = icmp ugt i64 %556, %.pre-phi.i159
-  br i1 %.not.i.i.i160, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i162, label %557
+.critedge.i.i158:                                 ; preds = %547, %538
+  %.pre-phi.i159 = phi i64 [ %.pre15.i167, %547 ], [ %541, %538 ]
+  %550 = phi i32 [ %.pre14.i166, %547 ], [ %537, %538 ]
+  %551 = phi ptr [ %.pre.i165, %547 ], [ %539, %538 ]
+  %552 = getelementptr inbounds nuw i8, ptr %551, i64 152
+  %553 = getelementptr inbounds nuw i8, ptr %551, i64 160
+  %554 = load ptr, ptr %553, align 8, !tbaa !35
+  %555 = load ptr, ptr %552, align 8, !tbaa !38
+  %556 = ptrtoint ptr %554 to i64
+  %557 = ptrtoint ptr %555 to i64
+  %558 = sub i64 %556, %557
+  %559 = ashr exact i64 %558, 2
+  %.not.i.i.i160 = icmp ugt i64 %559, %.pre-phi.i159
+  br i1 %.not.i.i.i160, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i162, label %560
 
-557:                                              ; preds = %.critedge.i.i158
-  %558 = add i32 %547, 1
-  %559 = zext i32 %558 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %549, i64 noundef %559)
-  %.pre.i.i.i161 = load ptr, ptr %549, align 8, !tbaa !38
+560:                                              ; preds = %.critedge.i.i158
+  %561 = add i32 %550, 1
+  %562 = zext i32 %561 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %552, i64 noundef %562)
+  %.pre.i.i.i161 = load ptr, ptr %552, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i162
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i162: ; preds = %557, %.critedge.i.i158
-  %560 = phi ptr [ %.pre.i.i.i161, %557 ], [ %552, %.critedge.i.i158 ]
-  %561 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %560, i64 %.pre-phi.i159
-  store i32 0, ptr %561, align 4, !tbaa !27
-  store i32 -1, ptr %533, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i162: ; preds = %560, %.critedge.i.i158
+  %563 = phi ptr [ %.pre.i.i.i161, %560 ], [ %555, %.critedge.i.i158 ]
+  %564 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %563, i64 %.pre-phi.i159
+  store i32 0, ptr %564, align 4, !tbaa !27
+  store i32 -1, ptr %536, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163
 
-_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i162, %530
-  %562 = add i32 %.013.i156, 1
+_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i162, %533
+  %565 = add i32 %.013.i156, 1
   %exitcond.not.i164 = icmp eq i32 %.013.i156, %spec.select.i153
-  br i1 %exitcond.not.i164, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %530, !llvm.loop !39
+  br i1 %exitcond.not.i164, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %533, !llvm.loop !39
 
-563:                                              ; preds = %2
-  %564 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.03.0.copyload = load i32, ptr %564, align 4, !tbaa !27
-  %565 = lshr i32 %.sroa.03.0.copyload, 4
-  %566 = load ptr, ptr %0, align 8, !tbaa !28
-  %567 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.02.0.copyload = load i32, ptr %567, align 4, !tbaa !27
-  %568 = getelementptr inbounds nuw i8, ptr %566, i64 48
-  %569 = lshr i32 %.sroa.02.0.copyload, 4
-  %570 = zext nneg i32 %569 to i64
-  %571 = load ptr, ptr %568, align 8, !tbaa !41
-  %572 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %571, i64 %570, i32 1
-  %573 = load i32, ptr %572, align 8, !tbaa !27
-  %574 = icmp eq i32 %573, -1
-  %575 = add nsw i32 %573, %565
-  %576 = select i1 %574, i32 255, i32 %575
-  %577 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %578 = load i32, ptr %577, align 8, !tbaa !9
-  %spec.select.i169 = tail call i32 @llvm.smin.i32(i32 %576, i32 %578)
-  %.not12.i170 = icmp sgt i32 %565, %spec.select.i169
+566:                                              ; preds = %2
+  %567 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.03.0.copyload = load i32, ptr %567, align 4, !tbaa !27
+  %568 = lshr i32 %.sroa.03.0.copyload, 4
+  %569 = load ptr, ptr %0, align 8, !tbaa !28
+  %570 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.02.0.copyload = load i32, ptr %570, align 4, !tbaa !27
+  %571 = getelementptr inbounds nuw i8, ptr %569, i64 48
+  %572 = lshr i32 %.sroa.02.0.copyload, 4
+  %573 = zext nneg i32 %572 to i64
+  %574 = load ptr, ptr %571, align 8, !tbaa !41
+  %575 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %574, i64 %573
+  %576 = getelementptr inbounds nuw i8, ptr %575, i64 8
+  %577 = load i32, ptr %576, align 8, !tbaa !27
+  %578 = icmp eq i32 %577, -1
+  %579 = add nsw i32 %577, %568
+  %580 = select i1 %578, i32 255, i32 %579
+  %581 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %582 = load i32, ptr %581, align 8, !tbaa !9
+  %spec.select.i169 = tail call i32 @llvm.smin.i32(i32 %580, i32 %582)
+  %.not12.i170 = icmp sgt i32 %568, %spec.select.i169
   br i1 %.not12.i170, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i171
 
-.lr.ph.i171:                                      ; preds = %563
-  %579 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %580 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %581 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  br label %582
+.lr.ph.i171:                                      ; preds = %566
+  %583 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %584 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %585 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  br label %586
 
-582:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179, %.lr.ph.i171
-  %.013.i172 = phi i32 [ %565, %.lr.ph.i171 ], [ %614, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179 ]
-  %583 = and i32 %.013.i172, 255
-  %584 = zext nneg i32 %583 to i64
-  %585 = getelementptr inbounds nuw i32, ptr %579, i64 %584
-  %586 = load i32, ptr %585, align 4, !tbaa !13
-  %.not.i.i173 = icmp eq i32 %586, -1
-  br i1 %.not.i.i173, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179, label %587
+586:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179, %.lr.ph.i171
+  %.013.i172 = phi i32 [ %568, %.lr.ph.i171 ], [ %618, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179 ]
+  %587 = and i32 %.013.i172, 255
+  %588 = zext nneg i32 %587 to i64
+  %589 = getelementptr inbounds nuw i32, ptr %583, i64 %588
+  %590 = load i32, ptr %589, align 4, !tbaa !13
+  %.not.i.i173 = icmp eq i32 %590, -1
+  br i1 %.not.i.i173, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179, label %591
 
-587:                                              ; preds = %582
-  %588 = load ptr, ptr %0, align 8, !tbaa !28
-  %589 = getelementptr inbounds nuw i8, ptr %588, i64 24
-  %590 = zext i32 %586 to i64
-  %591 = load ptr, ptr %589, align 8, !tbaa !29
-  %592 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %591, i64 %590
-  %593 = getelementptr inbounds nuw i8, ptr %592, i64 42
-  %594 = load i8, ptr %593, align 2, !tbaa !32, !range !33, !noundef !34
-  %595 = trunc nuw i8 %594 to i1
-  br i1 %595, label %596, label %.critedge.i.i174
+591:                                              ; preds = %586
+  %592 = load ptr, ptr %0, align 8, !tbaa !28
+  %593 = getelementptr inbounds nuw i8, ptr %592, i64 24
+  %594 = zext i32 %590 to i64
+  %595 = load ptr, ptr %593, align 8, !tbaa !29
+  %596 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %595, i64 %594
+  %597 = getelementptr inbounds nuw i8, ptr %596, i64 42
+  %598 = load i8, ptr %597, align 2, !tbaa !32, !range !33, !noundef !34
+  %599 = trunc nuw i8 %598 to i1
+  br i1 %599, label %600, label %.critedge.i.i174
 
-596:                                              ; preds = %587
-  %597 = load ptr, ptr %580, align 8, !tbaa !15
-  %598 = load ptr, ptr %581, align 8, !tbaa !14
-  tail call void %597(ptr noundef %598, ptr noundef nonnull align 4 dereferenceable(43) %592)
+600:                                              ; preds = %591
+  %601 = load ptr, ptr %584, align 8, !tbaa !15
+  %602 = load ptr, ptr %585, align 8, !tbaa !14
+  tail call void %601(ptr noundef %602, ptr noundef nonnull align 4 dereferenceable(43) %596)
   %.pre.i181 = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre14.i182 = load i32, ptr %585, align 4, !tbaa !13
+  %.pre14.i182 = load i32, ptr %589, align 4, !tbaa !13
   %.pre15.i183 = zext i32 %.pre14.i182 to i64
   br label %.critedge.i.i174
 
-.critedge.i.i174:                                 ; preds = %596, %587
-  %.pre-phi.i175 = phi i64 [ %.pre15.i183, %596 ], [ %590, %587 ]
-  %599 = phi i32 [ %.pre14.i182, %596 ], [ %586, %587 ]
-  %600 = phi ptr [ %.pre.i181, %596 ], [ %588, %587 ]
-  %601 = getelementptr inbounds nuw i8, ptr %600, i64 152
-  %602 = getelementptr inbounds nuw i8, ptr %600, i64 160
-  %603 = load ptr, ptr %602, align 8, !tbaa !35
-  %604 = load ptr, ptr %601, align 8, !tbaa !38
-  %605 = ptrtoint ptr %603 to i64
-  %606 = ptrtoint ptr %604 to i64
-  %607 = sub i64 %605, %606
-  %608 = ashr exact i64 %607, 2
-  %.not.i.i.i176 = icmp ugt i64 %608, %.pre-phi.i175
-  br i1 %.not.i.i.i176, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i178, label %609
+.critedge.i.i174:                                 ; preds = %600, %591
+  %.pre-phi.i175 = phi i64 [ %.pre15.i183, %600 ], [ %594, %591 ]
+  %603 = phi i32 [ %.pre14.i182, %600 ], [ %590, %591 ]
+  %604 = phi ptr [ %.pre.i181, %600 ], [ %592, %591 ]
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 152
+  %606 = getelementptr inbounds nuw i8, ptr %604, i64 160
+  %607 = load ptr, ptr %606, align 8, !tbaa !35
+  %608 = load ptr, ptr %605, align 8, !tbaa !38
+  %609 = ptrtoint ptr %607 to i64
+  %610 = ptrtoint ptr %608 to i64
+  %611 = sub i64 %609, %610
+  %612 = ashr exact i64 %611, 2
+  %.not.i.i.i176 = icmp ugt i64 %612, %.pre-phi.i175
+  br i1 %.not.i.i.i176, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i178, label %613
 
-609:                                              ; preds = %.critedge.i.i174
-  %610 = add i32 %599, 1
-  %611 = zext i32 %610 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %601, i64 noundef %611)
-  %.pre.i.i.i177 = load ptr, ptr %601, align 8, !tbaa !38
+613:                                              ; preds = %.critedge.i.i174
+  %614 = add i32 %603, 1
+  %615 = zext i32 %614 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %605, i64 noundef %615)
+  %.pre.i.i.i177 = load ptr, ptr %605, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i178
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i178: ; preds = %609, %.critedge.i.i174
-  %612 = phi ptr [ %.pre.i.i.i177, %609 ], [ %604, %.critedge.i.i174 ]
-  %613 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %612, i64 %.pre-phi.i175
-  store i32 0, ptr %613, align 4, !tbaa !27
-  store i32 -1, ptr %585, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i178: ; preds = %613, %.critedge.i.i174
+  %616 = phi ptr [ %.pre.i.i.i177, %613 ], [ %608, %.critedge.i.i174 ]
+  %617 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %616, i64 %.pre-phi.i175
+  store i32 0, ptr %617, align 4, !tbaa !27
+  store i32 -1, ptr %589, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179
 
-_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i178, %582
-  %614 = add i32 %.013.i172, 1
+_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i178, %586
+  %618 = add i32 %.013.i172, 1
   %exitcond.not.i180 = icmp eq i32 %.013.i172, %spec.select.i169
-  br i1 %exitcond.not.i180, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %582, !llvm.loop !39
+  br i1 %exitcond.not.i180, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %586, !llvm.loop !39
 
-615:                                              ; preds = %2
-  %616 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01.0.copyload = load i32, ptr %616, align 4, !tbaa !27
-  %617 = and i32 %.sroa.01.0.copyload, 15
-  %618 = icmp eq i32 %617, 6
-  br i1 %618, label %619, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
+619:                                              ; preds = %2
+  %620 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01.0.copyload = load i32, ptr %620, align 4, !tbaa !27
+  %621 = and i32 %.sroa.01.0.copyload, 15
+  %622 = icmp eq i32 %621, 6
+  br i1 %622, label %623, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
-619:                                              ; preds = %615
-  %620 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %621 = lshr i32 %.sroa.01.0.copyload, 4
-  %622 = zext nneg i32 %621 to i64
-  %623 = getelementptr inbounds nuw i32, ptr %620, i64 %622
-  %624 = load i32, ptr %623, align 4, !tbaa !13
-  %.not.i185 = icmp eq i32 %624, -1
-  br i1 %.not.i185, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %625
+623:                                              ; preds = %619
+  %624 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %625 = lshr i32 %.sroa.01.0.copyload, 4
+  %626 = zext nneg i32 %625 to i64
+  %627 = getelementptr inbounds nuw i32, ptr %624, i64 %626
+  %628 = load i32, ptr %627, align 4, !tbaa !13
+  %.not.i185 = icmp eq i32 %628, -1
+  br i1 %.not.i185, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %629
 
-625:                                              ; preds = %619
-  %626 = load ptr, ptr %0, align 8, !tbaa !28
-  %627 = getelementptr inbounds nuw i8, ptr %626, i64 24
-  %628 = zext i32 %624 to i64
-  %629 = load ptr, ptr %627, align 8, !tbaa !29
-  %630 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %629, i64 %628
-  %631 = getelementptr inbounds nuw i8, ptr %630, i64 42
-  %632 = load i8, ptr %631, align 2, !tbaa !32, !range !33, !noundef !34
-  %633 = trunc nuw i8 %632 to i1
-  br i1 %633, label %634, label %.critedge.i186
+629:                                              ; preds = %623
+  %630 = load ptr, ptr %0, align 8, !tbaa !28
+  %631 = getelementptr inbounds nuw i8, ptr %630, i64 24
+  %632 = zext i32 %628 to i64
+  %633 = load ptr, ptr %631, align 8, !tbaa !29
+  %634 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %633, i64 %632
+  %635 = getelementptr inbounds nuw i8, ptr %634, i64 42
+  %636 = load i8, ptr %635, align 2, !tbaa !32, !range !33, !noundef !34
+  %637 = trunc nuw i8 %636 to i1
+  br i1 %637, label %638, label %.critedge.i186
 
-634:                                              ; preds = %625
-  %635 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %636 = load ptr, ptr %635, align 8, !tbaa !15
-  %637 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %638 = load ptr, ptr %637, align 8, !tbaa !14
-  tail call void %636(ptr noundef %638, ptr noundef nonnull align 4 dereferenceable(43) %630)
+638:                                              ; preds = %629
+  %639 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %640 = load ptr, ptr %639, align 8, !tbaa !15
+  %641 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  %642 = load ptr, ptr %641, align 8, !tbaa !14
+  tail call void %640(ptr noundef %642, ptr noundef nonnull align 4 dereferenceable(43) %634)
   %.pre = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre223 = load i32, ptr %623, align 4, !tbaa !13
+  %.pre223 = load i32, ptr %627, align 4, !tbaa !13
   %.pre243 = zext i32 %.pre223 to i64
   br label %.critedge.i186
 
-.critedge.i186:                                   ; preds = %634, %625
-  %.pre-phi244 = phi i64 [ %.pre243, %634 ], [ %628, %625 ]
-  %639 = phi i32 [ %.pre223, %634 ], [ %624, %625 ]
-  %640 = phi ptr [ %.pre, %634 ], [ %626, %625 ]
-  %641 = getelementptr inbounds nuw i8, ptr %640, i64 152
-  %642 = getelementptr inbounds nuw i8, ptr %640, i64 160
-  %643 = load ptr, ptr %642, align 8, !tbaa !35
-  %644 = load ptr, ptr %641, align 8, !tbaa !38
-  %645 = ptrtoint ptr %643 to i64
-  %646 = ptrtoint ptr %644 to i64
-  %647 = sub i64 %645, %646
-  %648 = ashr exact i64 %647, 2
-  %.not.i.i187 = icmp ugt i64 %648, %.pre-phi244
-  br i1 %.not.i.i187, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i189, label %649
+.critedge.i186:                                   ; preds = %638, %629
+  %.pre-phi244 = phi i64 [ %.pre243, %638 ], [ %632, %629 ]
+  %643 = phi i32 [ %.pre223, %638 ], [ %628, %629 ]
+  %644 = phi ptr [ %.pre, %638 ], [ %630, %629 ]
+  %645 = getelementptr inbounds nuw i8, ptr %644, i64 152
+  %646 = getelementptr inbounds nuw i8, ptr %644, i64 160
+  %647 = load ptr, ptr %646, align 8, !tbaa !35
+  %648 = load ptr, ptr %645, align 8, !tbaa !38
+  %649 = ptrtoint ptr %647 to i64
+  %650 = ptrtoint ptr %648 to i64
+  %651 = sub i64 %649, %650
+  %652 = ashr exact i64 %651, 2
+  %.not.i.i187 = icmp ugt i64 %652, %.pre-phi244
+  br i1 %.not.i.i187, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i189, label %653
 
-649:                                              ; preds = %.critedge.i186
-  %650 = add i32 %639, 1
-  %651 = zext i32 %650 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %641, i64 noundef %651)
-  %.pre.i.i188 = load ptr, ptr %641, align 8, !tbaa !38
+653:                                              ; preds = %.critedge.i186
+  %654 = add i32 %643, 1
+  %655 = zext i32 %654 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %645, i64 noundef %655)
+  %.pre.i.i188 = load ptr, ptr %645, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i189
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i189: ; preds = %649, %.critedge.i186
-  %652 = phi ptr [ %.pre.i.i188, %649 ], [ %644, %.critedge.i186 ]
-  %653 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %652, i64 %.pre-phi244
-  store i32 0, ptr %653, align 4, !tbaa !27
-  store i32 -1, ptr %623, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i189: ; preds = %653, %.critedge.i186
+  %656 = phi ptr [ %.pre.i.i188, %653 ], [ %648, %.critedge.i186 ]
+  %657 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %656, i64 %.pre-phi244
+  store i32 0, ptr %657, align 4, !tbaa !27
+  store i32 -1, ptr %627, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
 
-654:                                              ; preds = %2
-  %655 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload = load i32, ptr %655, align 4, !tbaa !27
-  %656 = lshr i32 %.sroa.0.0.copyload, 4
-  %657 = add nuw nsw i32 %656, 3
-  %658 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %659 = load i32, ptr %658, align 8, !tbaa !9
-  %spec.select.i191 = tail call i32 @llvm.smin.i32(i32 %657, i32 %659)
-  %.not12.i192 = icmp slt i32 %659, %656
+658:                                              ; preds = %2
+  %659 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload = load i32, ptr %659, align 4, !tbaa !27
+  %660 = lshr i32 %.sroa.0.0.copyload, 4
+  %661 = add nuw nsw i32 %660, 3
+  %662 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %663 = load i32, ptr %662, align 8, !tbaa !9
+  %spec.select.i191 = tail call i32 @llvm.smin.i32(i32 %661, i32 %663)
+  %.not12.i192 = icmp slt i32 %663, %660
   br i1 %.not12.i192, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %.lr.ph.i193
 
-.lr.ph.i193:                                      ; preds = %654
-  %660 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %661 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %662 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  br label %663
+.lr.ph.i193:                                      ; preds = %658
+  %664 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %665 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %666 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  br label %667
 
-663:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201, %.lr.ph.i193
-  %.013.i194 = phi i32 [ %656, %.lr.ph.i193 ], [ %695, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201 ]
-  %664 = and i32 %.013.i194, 255
-  %665 = zext nneg i32 %664 to i64
-  %666 = getelementptr inbounds nuw i32, ptr %660, i64 %665
-  %667 = load i32, ptr %666, align 4, !tbaa !13
-  %.not.i.i195 = icmp eq i32 %667, -1
-  br i1 %.not.i.i195, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201, label %668
+667:                                              ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201, %.lr.ph.i193
+  %.013.i194 = phi i32 [ %660, %.lr.ph.i193 ], [ %699, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201 ]
+  %668 = and i32 %.013.i194, 255
+  %669 = zext nneg i32 %668 to i64
+  %670 = getelementptr inbounds nuw i32, ptr %664, i64 %669
+  %671 = load i32, ptr %670, align 4, !tbaa !13
+  %.not.i.i195 = icmp eq i32 %671, -1
+  br i1 %.not.i.i195, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201, label %672
 
-668:                                              ; preds = %663
-  %669 = load ptr, ptr %0, align 8, !tbaa !28
-  %670 = getelementptr inbounds nuw i8, ptr %669, i64 24
-  %671 = zext i32 %667 to i64
-  %672 = load ptr, ptr %670, align 8, !tbaa !29
-  %673 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %672, i64 %671
-  %674 = getelementptr inbounds nuw i8, ptr %673, i64 42
-  %675 = load i8, ptr %674, align 2, !tbaa !32, !range !33, !noundef !34
-  %676 = trunc nuw i8 %675 to i1
-  br i1 %676, label %677, label %.critedge.i.i196
+672:                                              ; preds = %667
+  %673 = load ptr, ptr %0, align 8, !tbaa !28
+  %674 = getelementptr inbounds nuw i8, ptr %673, i64 24
+  %675 = zext i32 %671 to i64
+  %676 = load ptr, ptr %674, align 8, !tbaa !29
+  %677 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %676, i64 %675
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 42
+  %679 = load i8, ptr %678, align 2, !tbaa !32, !range !33, !noundef !34
+  %680 = trunc nuw i8 %679 to i1
+  br i1 %680, label %681, label %.critedge.i.i196
 
-677:                                              ; preds = %668
-  %678 = load ptr, ptr %661, align 8, !tbaa !15
-  %679 = load ptr, ptr %662, align 8, !tbaa !14
-  tail call void %678(ptr noundef %679, ptr noundef nonnull align 4 dereferenceable(43) %673)
+681:                                              ; preds = %672
+  %682 = load ptr, ptr %665, align 8, !tbaa !15
+  %683 = load ptr, ptr %666, align 8, !tbaa !14
+  tail call void %682(ptr noundef %683, ptr noundef nonnull align 4 dereferenceable(43) %677)
   %.pre.i203 = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre14.i204 = load i32, ptr %666, align 4, !tbaa !13
+  %.pre14.i204 = load i32, ptr %670, align 4, !tbaa !13
   %.pre15.i205 = zext i32 %.pre14.i204 to i64
   br label %.critedge.i.i196
 
-.critedge.i.i196:                                 ; preds = %677, %668
-  %.pre-phi.i197 = phi i64 [ %.pre15.i205, %677 ], [ %671, %668 ]
-  %680 = phi i32 [ %.pre14.i204, %677 ], [ %667, %668 ]
-  %681 = phi ptr [ %.pre.i203, %677 ], [ %669, %668 ]
-  %682 = getelementptr inbounds nuw i8, ptr %681, i64 152
-  %683 = getelementptr inbounds nuw i8, ptr %681, i64 160
-  %684 = load ptr, ptr %683, align 8, !tbaa !35
-  %685 = load ptr, ptr %682, align 8, !tbaa !38
-  %686 = ptrtoint ptr %684 to i64
-  %687 = ptrtoint ptr %685 to i64
-  %688 = sub i64 %686, %687
-  %689 = ashr exact i64 %688, 2
-  %.not.i.i.i198 = icmp ugt i64 %689, %.pre-phi.i197
-  br i1 %.not.i.i.i198, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i200, label %690
+.critedge.i.i196:                                 ; preds = %681, %672
+  %.pre-phi.i197 = phi i64 [ %.pre15.i205, %681 ], [ %675, %672 ]
+  %684 = phi i32 [ %.pre14.i204, %681 ], [ %671, %672 ]
+  %685 = phi ptr [ %.pre.i203, %681 ], [ %673, %672 ]
+  %686 = getelementptr inbounds nuw i8, ptr %685, i64 152
+  %687 = getelementptr inbounds nuw i8, ptr %685, i64 160
+  %688 = load ptr, ptr %687, align 8, !tbaa !35
+  %689 = load ptr, ptr %686, align 8, !tbaa !38
+  %690 = ptrtoint ptr %688 to i64
+  %691 = ptrtoint ptr %689 to i64
+  %692 = sub i64 %690, %691
+  %693 = ashr exact i64 %692, 2
+  %.not.i.i.i198 = icmp ugt i64 %693, %.pre-phi.i197
+  br i1 %.not.i.i.i198, label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i200, label %694
 
-690:                                              ; preds = %.critedge.i.i196
-  %691 = add i32 %680, 1
-  %692 = zext i32 %691 to i64
-  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %682, i64 noundef %692)
-  %.pre.i.i.i199 = load ptr, ptr %682, align 8, !tbaa !38
+694:                                              ; preds = %.critedge.i.i196
+  %695 = add i32 %684, 1
+  %696 = zext i32 %695 to i64
+  tail call void @_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %686, i64 noundef %696)
+  %.pre.i.i.i199 = load ptr, ptr %686, align 8, !tbaa !38
   br label %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i200
 
-_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i200: ; preds = %690, %.critedge.i.i196
-  %693 = phi ptr [ %.pre.i.i.i199, %690 ], [ %685, %.critedge.i.i196 ]
-  %694 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %693, i64 %.pre-phi.i197
-  store i32 0, ptr %694, align 4, !tbaa !27
-  store i32 -1, ptr %666, align 4, !tbaa !13
+_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i200: ; preds = %694, %.critedge.i.i196
+  %697 = phi ptr [ %.pre.i.i.i199, %694 ], [ %689, %.critedge.i.i196 ]
+  %698 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %697, i64 %.pre-phi.i197
+  store i32 0, ptr %698, align 4, !tbaa !27
+  store i32 -1, ptr %670, align 4, !tbaa !13
   br label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201
 
-_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i200, %663
-  %695 = add i32 %.013.i194, 1
+_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i.i200, %667
+  %699 = add i32 %.013.i194, 1
   %exitcond.not.i202 = icmp eq i32 %.013.i194, %spec.select.i191
-  br i1 %exitcond.not.i202, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %663, !llvm.loop !39
+  br i1 %exitcond.not.i202, label %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit, label %667, !llvm.loop !39
 
-_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit: ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i, %654, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i189, %619, %615, %563, %521, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i151, %486, %482, %440, %399, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i113, %364, %360, %308, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91, %273, %269, %227, %166, %125, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i52, %90, %86, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i46, %51, %47, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i, %14, %8, %4, %218, %2
+_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit: ; preds = %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i201, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i179, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i163, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i141, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i125, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i103, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i81, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i65, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit.i, %658, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i189, %623, %619, %566, %524, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i151, %489, %485, %443, %402, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i113, %367, %363, %310, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i91, %275, %271, %229, %166, %125, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i52, %90, %86, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i46, %51, %47, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i, %14, %8, %4, %219, %2
   ret void
 }
 
@@ -1477,7 +1481,7 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTracking17afterInstLoweringERNS0_6IrInstEj(ptr noundef nonnull align 8 captures(none) dereferenceable(1056) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(43) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load i8, ptr %1, align 4, !tbaa !16
-  switch i8 %4, label %60 [
+  switch i8 %4, label %61 [
     i8 1, label %5
     i8 2, label %5
     i8 3, label %5
@@ -1560,14 +1564,14 @@ _ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i: ; preds = %40,
 _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit: ; preds = %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i, %10, %5
   %.sroa.02.0.copyload = phi i32 [ %.sroa.02.0.copyload.pre, %_ZN4Luau7CodeGen10IrFunction15recordRestoreOpEjNS0_4IrOpE.exit.i ], [ %7, %10 ], [ %7, %5 ]
   tail call void @_ZN4Luau7CodeGen23IrValueLocationTracking15recordRestoreOpEjNS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1056) %0, i32 noundef %2, i32 %.sroa.02.0.copyload)
-  br label %60
+  br label %61
 
 45:                                               ; preds = %3, %3, %3, %3
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 15
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %50, label %60
+  br i1 %49, label %50, label %61
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %0, align 8, !tbaa !28
@@ -1575,18 +1579,19 @@ _ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit:
   %53 = lshr i32 %47, 4
   %54 = zext nneg i32 %53 to i64
   %55 = load ptr, ptr %52, align 8, !tbaa !29
-  %56 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %55, i64 %54, i32 9
-  %57 = load i32, ptr %56, align 4, !tbaa !44
-  %.not = icmp eq i32 %57, %2
-  br i1 %.not, label %60, label %58
+  %56 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %55, i64 %54
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %58 = load i32, ptr %57, align 4, !tbaa !44
+  %.not = icmp eq i32 %58, %2
+  br i1 %.not, label %61, label %59
 
-58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0.0.copyload = load i32, ptr %59, align 4, !tbaa !27
+59:                                               ; preds = %50
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0.0.copyload = load i32, ptr %60, align 4, !tbaa !27
   tail call void @_ZN4Luau7CodeGen23IrValueLocationTracking15recordRestoreOpEjNS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1056) %0, i32 noundef %53, i32 %.sroa.0.0.copyload)
-  br label %60
+  br label %61
 
-60:                                               ; preds = %3, %45, %50, %58, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
+61:                                               ; preds = %3, %45, %50, %59, %_ZN4Luau7CodeGen23IrValueLocationTracking19invalidateRestoreOpENS0_4IrOpEb.exit
   ret void
 }
 

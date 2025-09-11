@@ -2057,7 +2057,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %73
+  br label %74
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2118,7 +2118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   %.pn31 = phi { ptr, i32 } [ %40, %39 ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i36 ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %73
+  br label %74
 
 49:                                               ; preds = %23
   %50 = load i32, ptr %33, align 4, !tbaa !128
@@ -2163,33 +2163,34 @@ _ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScop
   br i1 %exitcond51.not, label %.loopexit, label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us, !llvm.loop !130
 
 _ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us43: ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47
-  %.02741.us44 = phi i64 [ %72, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47 ], [ 0, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph ]
-  %64 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::CrossReference", ptr %27, i64 %.02741.us44, i32 3
-  %65 = load ptr, ptr %64, align 8, !tbaa !129
-  %66 = load ptr, ptr %65, align 8, !tbaa !74
-  %.not34.us45 = icmp eq ptr %66, null
-  br i1 %.not34.us45, label %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47, label %67
+  %.02741.us44 = phi i64 [ %73, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47 ], [ 0, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph ]
+  %64 = getelementptr inbounds nuw %"struct.cv::utils::logging::LogTagManager::CrossReference", ptr %27, i64 %.02741.us44
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %66 = load ptr, ptr %65, align 8, !tbaa !129
+  %67 = load ptr, ptr %66, align 8, !tbaa !74
+  %.not34.us45 = icmp eq ptr %67, null
+  br i1 %.not34.us45, label %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47, label %68
 
-67:                                               ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us43
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  %69 = load i32, ptr %68, align 4, !tbaa !106
-  %70 = icmp eq i32 %69, 1
-  br i1 %70, label %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47, label %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread.us46
+68:                                               ; preds = %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us43
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 12
+  %70 = load i32, ptr %69, align 4, !tbaa !106
+  %71 = icmp eq i32 %70, 1
+  br i1 %71, label %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47, label %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread.us46
 
-_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread.us46: ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i32 %50, ptr %71, align 8, !tbaa !17
+_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread.us46: ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store i32 %50, ptr %72, align 8, !tbaa !17
   br label %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47
 
-_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47: ; preds = %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread.us46, %67, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us43
-  %72 = add nuw i64 %.02741.us44, 1
-  %exitcond.not = icmp eq i64 %72, %31
+_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47: ; preds = %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread.us46, %68, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us43
+  %73 = add nuw i64 %.02741.us44, 1
+  %exitcond.not = icmp eq i64 %73, %31
   br i1 %exitcond.not, label %.loopexit, label %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.us43, !llvm.loop !130
 
 .loopexit:                                        ; preds = %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us47, %_ZN2cv5utils7logging13LogTagManager24internal_isNamePartMatchENS2_13MatchingScopeEm.exit.thread39.us, %_ZNKSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EE2atEm.exit.lr.ph, %49, %23
   ret void
 
-73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn31.pn = phi { ptr, i32 } [ %.pn31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.pn31.pn
 }

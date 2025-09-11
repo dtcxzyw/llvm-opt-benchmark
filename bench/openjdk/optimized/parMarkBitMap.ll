@@ -973,7 +973,7 @@ define linkonce_odr hidden void @_ZN20ParCompactionManager17MarkingStatsCache4pu
   %16 = lshr i64 %15, 3
   %17 = lshr i64 %16, %10
   %18 = icmp eq i64 %11, %17
-  br i1 %18, label %19, label %35
+  br i1 %18, label %19, label %36
 
 19:                                               ; preds = %3
   %20 = and i64 %11, 1023
@@ -990,93 +990,99 @@ define linkonce_odr hidden void @_ZN20ParCompactionManager17MarkingStatsCache4pu
 
 28:                                               ; preds = %19
   %.not.i = icmp eq i64 %25, 0
-  br i1 %.not.i, label %34, label %29
+  br i1 %.not.i, label %35, label %29
 
 29:                                               ; preds = %28
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
-  %31 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %30, i64 %22, i32 4
-  %32 = trunc i64 %25 to i32
-  %33 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %32, ptr nonnull %31) #10, !srcloc !14
-  br label %34
+  %31 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %30, i64 %22
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 28
+  %33 = trunc i64 %25 to i32
+  %34 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %33, ptr nonnull %32) #10, !srcloc !14
+  br label %35
 
-34:                                               ; preds = %29, %28
+35:                                               ; preds = %29, %28
   store i64 %11, ptr %21, align 8
   br label %_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit
 
-_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit: ; preds = %26, %34
-  %.sink.i = phi i64 [ %2, %34 ], [ %27, %26 ]
+_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit: ; preds = %26, %35
+  %.sink.i = phi i64 [ %2, %35 ], [ %27, %26 ]
   store i64 %.sink.i, ptr %24, align 8
-  br label %70
+  br label %76
 
-35:                                               ; preds = %3
-  %36 = load i64, ptr @_ZN19ParallelCompactData20RegionAddrOffsetMaskE, align 8
-  %37 = and i64 %36, %6
-  %38 = lshr i64 %37, 3
-  %39 = sub i64 %4, %38
-  %40 = and i64 %11, 1023
-  %41 = getelementptr inbounds nuw %"struct.ParCompactionManager::MarkingStatsCache::CacheEntry", ptr %0, i64 %40
-  %42 = load i64, ptr %41, align 8
-  %43 = icmp eq i64 %42, %11
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %45 = load i64, ptr %44, align 8
-  br i1 %43, label %46, label %48
+36:                                               ; preds = %3
+  %37 = load i64, ptr @_ZN19ParallelCompactData20RegionAddrOffsetMaskE, align 8
+  %38 = and i64 %37, %6
+  %39 = lshr i64 %38, 3
+  %40 = sub i64 %4, %39
+  %41 = and i64 %11, 1023
+  %42 = getelementptr inbounds nuw %"struct.ParCompactionManager::MarkingStatsCache::CacheEntry", ptr %0, i64 %41
+  %43 = load i64, ptr %42, align 8
+  %44 = icmp eq i64 %43, %11
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %46 = load i64, ptr %45, align 8
+  br i1 %44, label %47, label %49
 
-46:                                               ; preds = %35
-  %47 = add i64 %39, %45
+47:                                               ; preds = %36
+  %48 = add i64 %40, %46
   br label %_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit37
 
-48:                                               ; preds = %35
-  %.not.i35 = icmp eq i64 %45, 0
-  br i1 %.not.i35, label %54, label %49
+49:                                               ; preds = %36
+  %.not.i35 = icmp eq i64 %46, 0
+  br i1 %.not.i35, label %56, label %50
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
-  %51 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %50, i64 %42, i32 4
-  %52 = trunc i64 %45 to i32
-  %53 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr nonnull %51) #10, !srcloc !14
-  br label %54
+50:                                               ; preds = %49
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
+  %52 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %51, i64 %43
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 28
+  %54 = trunc i64 %46 to i32
+  %55 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %54, ptr nonnull %53) #10, !srcloc !14
+  br label %56
 
-54:                                               ; preds = %49, %48
-  store i64 %11, ptr %41, align 8
+56:                                               ; preds = %50, %49
+  store i64 %11, ptr %42, align 8
   br label %_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit37
 
-_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit37: ; preds = %46, %54
-  %.sink.i36 = phi i64 [ %39, %54 ], [ %47, %46 ]
-  store i64 %.sink.i36, ptr %44, align 8
+_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit37: ; preds = %47, %56
+  %.sink.i36 = phi i64 [ %40, %56 ], [ %48, %47 ]
+  store i64 %.sink.i36, ptr %45, align 8
   %.038 = add nuw nsw i64 %11, 1
-  %55 = icmp samesign ult i64 %.038, %17
-  br i1 %55, label %.lr.ph, label %._crit_edge
+  %57 = icmp samesign ult i64 %.038, %17
+  br i1 %57, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit37
-  %56 = trunc i64 %4 to i32
-  br label %57
+  %58 = trunc i64 %4 to i32
+  br label %59
 
-57:                                               ; preds = %.lr.ph, %57
-  %.039 = phi i64 [ %.038, %.lr.ph ], [ %.0, %57 ]
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
-  %59 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %58, i64 %.039, i32 3
-  store i32 %56, ptr %59, align 8
+59:                                               ; preds = %.lr.ph, %59
+  %.039 = phi i64 [ %.038, %.lr.ph ], [ %.0, %59 ]
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
-  %61 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %60, i64 %.039, i32 2
-  store ptr %1, ptr %61, align 8
+  %61 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %60, i64 %.039
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  store i32 %58, ptr %62, align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
+  %64 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %63, i64 %.039
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store ptr %1, ptr %65, align 8
   %.0 = add nuw nsw i64 %.039, 1
   %exitcond.not = icmp eq i64 %.0, %17
-  br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %57, %_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit37
-  %62 = and i64 %36, %14
-  %63 = lshr i64 %62, 3
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
-  %65 = trunc i64 %63 to i32
-  %66 = add i32 %65, 1
-  %67 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %64, i64 %17, i32 3
-  store i32 %66, ptr %67, align 8
+._crit_edge:                                      ; preds = %59, %_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit37
+  %66 = and i64 %37, %14
+  %67 = lshr i64 %66, 3
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
-  %69 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %68, i64 %17, i32 2
-  store ptr %1, ptr %69, align 8
-  br label %70
+  %69 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %68, i64 %17
+  %70 = trunc i64 %67 to i32
+  %71 = add i32 %70, 1
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  store i32 %71, ptr %72, align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
+  %74 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %73, i64 %17
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  store ptr %1, ptr %75, align 8
+  br label %76
 
-70:                                               ; preds = %._crit_edge, %_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit
+76:                                               ; preds = %._crit_edge, %_ZN20ParCompactionManager17MarkingStatsCache4pushEmm.exit
   ret void
 }
 

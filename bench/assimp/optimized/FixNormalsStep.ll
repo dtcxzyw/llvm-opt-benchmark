@@ -149,11 +149,11 @@ define hidden noundef zeroext i1 @_ZN6Assimp25FixInfacingNormalsProcess11Process
   %24 = load float, ptr %23, align 4
   %25 = fcmp olt float %24, %.sroa.0115.0143
   %.sroa.speculated128 = select i1 %25, float %24, float %.sroa.0115.0143
-  %26 = getelementptr inbounds nuw %class.aiVector3t, ptr %12, i64 %indvars.iv, i32 1
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = load float, ptr %26, align 4
   %28 = fcmp olt float %27, %.sroa.7117.0144
   %.sroa.speculated125 = select i1 %28, float %27, float %.sroa.7117.0144
-  %29 = getelementptr inbounds nuw %class.aiVector3t, ptr %12, i64 %indvars.iv, i32 2
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %30 = load float, ptr %29, align 4
   %31 = fcmp olt float %30, %.sroa.12119.0145
   %.sroa.speculated122 = select i1 %31, float %30, float %.sroa.12119.0145

@@ -164,8 +164,8 @@ declare void @ff_vlc_init_table_sparse(ptr noundef, i32 noundef, i32 noundef, i3
 define internal fastcc void @init_cavlc_level_tab() unnamed_addr #3 {
   br label %.preheader
 
-.preheader:                                       ; preds = %0, %43
-  %indvars.iv47 = phi i64 [ 0, %0 ], [ %indvars.iv.next48, %43 ]
+.preheader:                                       ; preds = %0, %44
+  %indvars.iv47 = phi i64 [ 0, %0 ], [ %indvars.iv.next48, %44 ]
   %1 = getelementptr inbounds nuw [256 x [2 x i8]], ptr @cavlc_level_tab, i64 %indvars.iv47
   %2 = trunc nuw nsw i64 %indvars.iv47 to i32
   br label %3
@@ -229,18 +229,19 @@ define internal fastcc void @init_cavlc_level_tab() unnamed_addr #3 {
 
 41:                                               ; preds = %34, %39, %15
   %.sink = phi i8 [ %38, %34 ], [ 8, %39 ], [ %32, %15 ]
-  %42 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv, i64 1
-  store i8 %.sink, ptr %42, align 1, !tbaa !12
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  store i8 %.sink, ptr %43, align 1, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %43, label %3, !llvm.loop !17
+  br i1 %exitcond.not, label %44, label %3, !llvm.loop !17
 
-43:                                               ; preds = %41
+44:                                               ; preds = %41
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 7
-  br i1 %exitcond50.not, label %44, label %.preheader, !llvm.loop !18
+  br i1 %exitcond50.not, label %45, label %.preheader, !llvm.loop !18
 
-44:                                               ; preds = %43
+45:                                               ; preds = %44
   ret void
 }
 
@@ -1674,13 +1675,13 @@ align_get_bits.exit:                              ; preds = %702, %712
 
 905:                                              ; preds = %.preheader1212
   %906 = zext nneg i8 %895 to i64
-  %907 = getelementptr inbounds nuw %struct.PMbInfo, ptr @ff_h264_b_sub_mb_type_info, i64 %906, i32 1
-  %908 = load i8, ptr %907, align 2, !tbaa !125
-  %909 = zext i8 %908 to i32
-  %910 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1418
-  store i32 %909, ptr %910, align 4, !tbaa !97
-  %911 = getelementptr inbounds nuw %struct.PMbInfo, ptr @ff_h264_b_sub_mb_type_info, i64 %906
-  %912 = load i16, ptr %911, align 4, !tbaa !141
+  %907 = getelementptr inbounds nuw %struct.PMbInfo, ptr @ff_h264_b_sub_mb_type_info, i64 %906
+  %908 = getelementptr inbounds nuw i8, ptr %907, i64 2
+  %909 = load i8, ptr %908, align 2, !tbaa !125
+  %910 = zext i8 %909 to i32
+  %911 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1418
+  store i32 %910, ptr %911, align 4, !tbaa !97
+  %912 = load i16, ptr %907, align 4, !tbaa !141
   store i16 %912, ptr %897, align 2, !tbaa !111
   %indvars.iv.next1419 = add nuw nsw i64 %indvars.iv1418, 1
   %exitcond1421.not = icmp eq i64 %indvars.iv.next1419, 4
@@ -1749,13 +1750,13 @@ align_get_bits.exit:                              ; preds = %702, %712
 
 955:                                              ; preds = %.preheader1213
   %956 = zext nneg i8 %945 to i64
-  %957 = getelementptr inbounds nuw %struct.PMbInfo, ptr @ff_h264_p_sub_mb_type_info, i64 %956, i32 1
-  %958 = load i8, ptr %957, align 2, !tbaa !125
-  %959 = zext i8 %958 to i32
-  %960 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1414
-  store i32 %959, ptr %960, align 4, !tbaa !97
-  %961 = getelementptr inbounds nuw %struct.PMbInfo, ptr @ff_h264_p_sub_mb_type_info, i64 %956
-  %962 = load i16, ptr %961, align 4, !tbaa !141
+  %957 = getelementptr inbounds nuw %struct.PMbInfo, ptr @ff_h264_p_sub_mb_type_info, i64 %956
+  %958 = getelementptr inbounds nuw i8, ptr %957, i64 2
+  %959 = load i8, ptr %958, align 2, !tbaa !125
+  %960 = zext i8 %959 to i32
+  %961 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1414
+  store i32 %960, ptr %961, align 4, !tbaa !97
+  %962 = load i16, ptr %957, align 4, !tbaa !141
   store i16 %962, ptr %947, align 2, !tbaa !111
   %indvars.iv.next1415 = add nuw nsw i64 %indvars.iv1414, 1
   %exitcond1417.not = icmp eq i64 %indvars.iv.next1415, 4

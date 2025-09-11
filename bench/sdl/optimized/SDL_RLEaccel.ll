@@ -3268,7 +3268,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.1844 = phi ptr [ %1448, %1434 ], [ %1412, %1432 ]
   %.1841 = phi ptr [ %1435, %1434 ], [ %1408, %1432 ]
   %.1831 = phi i32 [ %1449, %1434 ], [ %1407, %1432 ]
-  %1451 = icmp ugt i32 %.1831, 1
+  %1451 = icmp samesign ugt i32 %.1831, 1
   br i1 %1451, label %.lr.ph1348, label %._crit_edge1349
 
 .lr.ph1348:                                       ; preds = %1450, %.lr.ph1348
@@ -3518,7 +3518,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.1880 = phi ptr [ %1594, %1580 ], [ %1558, %1578 ]
   %.1877 = phi ptr [ %1581, %1580 ], [ %1554, %1578 ]
   %.1874 = phi i32 [ %1595, %1580 ], [ %1553, %1578 ]
-  %1597 = icmp ugt i32 %.1874, 1
+  %1597 = icmp samesign ugt i32 %.1874, 1
   br i1 %1597, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1596, %.lr.ph

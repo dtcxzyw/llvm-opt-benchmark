@@ -10466,7 +10466,8 @@ _ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %if.then90
   %72 = load ptr, ptr %m_base91, align 8
   %sub.ptr.rhs.cast.i.i76 = ptrtoint ptr %72 to i64
   %sub.ptr.sub.i.i77 = sub i64 %sub.ptr.lhs.cast.i.i75, %sub.ptr.rhs.cast.i.i76
-  %second = getelementptr inbounds nuw %"struct.std::pair.108", ptr %71, i64 %conv97, i32 1
+  %add.ptr.i.i81 = getelementptr inbounds nuw %"struct.std::pair.108", ptr %71, i64 %conv97
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr.i.i81, i64 8
   store i64 %sub.ptr.sub.i.i77, ptr %second, align 8
   %.pre = load ptr, ptr %m_position, align 8
   %.pre123 = load ptr, ptr %this, align 8
@@ -18062,7 +18063,8 @@ _ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %if.then1511
   %sub.ptr.lhs.cast.i.i766 = ptrtoint ptr %522 to i64
   %523 = xor i64 %sub.ptr.rhs.cast.i.i767, -1
   %sub1515 = add i64 %sub.ptr.lhs.cast.i.i766, %523
-  %second = getelementptr inbounds nuw %"struct.std::pair.108", ptr %520, i64 %sub1519, i32 1
+  %add.ptr.i.i772 = getelementptr inbounds nuw %"struct.std::pair.108", ptr %520, i64 %sub1519
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr.i.i772, i64 8
   store i64 %sub1515, ptr %second, align 8
   br label %if.end1521
 
@@ -31273,13 +31275,15 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %n.019.i = phi i64 [ %inc.i, %for.body.i ], [ 3, %entry ]
   %second14.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %second14.i, align 8
-  %second17.i = getelementptr inbounds %"struct.boost::sub_match", ptr %11, i64 %n.019.i, i32 0, i32 1
+  %add.ptr.i11.i = getelementptr inbounds %"struct.boost::sub_match", ptr %11, i64 %n.019.i
+  %second17.i = getelementptr inbounds nuw i8, ptr %add.ptr.i11.i, i64 8
   store ptr %12, ptr %second17.i, align 8
   %13 = load ptr, ptr %3, align 8
   %add.ptr.i12.i = getelementptr inbounds %"struct.boost::sub_match", ptr %13, i64 %n.019.i
   store ptr %12, ptr %add.ptr.i12.i, align 8
   %14 = load ptr, ptr %3, align 8
-  %matched23.i = getelementptr inbounds %"struct.boost::sub_match", ptr %14, i64 %n.019.i, i32 1
+  %add.ptr.i13.i = getelementptr inbounds %"struct.boost::sub_match", ptr %14, i64 %n.019.i
+  %matched23.i = getelementptr inbounds nuw i8, ptr %add.ptr.i13.i, i64 16
   store i8 0, ptr %matched23.i, align 8
   %inc.i = add nuw i64 %n.019.i, 1
   %15 = load ptr, ptr %_M_finish.i.i, align 8
@@ -31320,8 +31324,8 @@ if.then:                                          ; preds = %land.lhs.true7
   %second.i1 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store ptr %22, ptr %second.i1, align 8
   %24 = load ptr, ptr %21, align 8
-  %matched.i2 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  store i8 0, ptr %matched.i2, align 8
+  %matched.i3 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  store i8 0, ptr %matched.i3, align 8
   %25 = load ptr, ptr %21, align 8
   store ptr %22, ptr %25, align 8
   %26 = load ptr, ptr %21, align 8
@@ -31343,8 +31347,8 @@ if.then:                                          ; preds = %land.lhs.true7
   %29 = load ptr, ptr %last, align 8
   store ptr %29, ptr %position, align 8
   %30 = load i32, ptr %m_match_flags, align 8
-  %and.i3 = and i32 %30, 131072
-  %cmp.not = icmp eq i32 %and.i3, 0
+  %and.i4 = and i32 %30, 131072
+  %cmp.not = icmp eq i32 %and.i4, 0
   br i1 %cmp.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %if.then
@@ -33164,10 +33168,12 @@ _ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE10set_secondES2_mbb.exit: ; 
   %narrow = add nuw i32 %1, 2
   %add.i = zext i32 %narrow to i64
   %6 = load ptr, ptr %4, align 8
-  %second.i = getelementptr inbounds nuw %"struct.boost::sub_match", ptr %6, i64 %add.i, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.boost::sub_match", ptr %6, i64 %add.i
+  %second.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store ptr %5, ptr %second.i, align 8
   %7 = load ptr, ptr %4, align 8
-  %matched.i = getelementptr inbounds nuw %"struct.boost::sub_match", ptr %7, i64 %add.i, i32 1
+  %add.ptr.i9.i = getelementptr inbounds nuw %"struct.boost::sub_match", ptr %7, i64 %add.i
+  %matched.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i, i64 16
   store i8 1, ptr %matched.i, align 8
   br label %if.end
 
@@ -33180,8 +33186,8 @@ if.end:                                           ; preds = %_ZN5boost13match_re
   br i1 %cmp.i.i, label %if.end38, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 -112
-  %10 = load i32, ptr %add.ptr.i.i, align 8
+  %add.ptr.i.i7 = getelementptr inbounds i8, ptr %9, i64 -112
+  %10 = load i32, ptr %add.ptr.i.i7, align 8
   %cmp11 = icmp eq i32 %1, %10
   br i1 %cmp11, label %if.then12, label %if.end38
 
@@ -33248,26 +33254,26 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i5.i.i, %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEC2ERKS3_.exit.i.i
-  %m_last_closed_paren.i11 = getelementptr inbounds i8, ptr %9, i64 -24
-  %23 = load i32, ptr %m_last_closed_paren.i11, align 8
+  %m_last_closed_paren.i12 = getelementptr inbounds i8, ptr %9, i64 -24
+  %23 = load i32, ptr %m_last_closed_paren.i12, align 8
   %m_last_closed_paren5.i = getelementptr inbounds nuw i8, ptr %12, i64 72
   store i32 %23, ptr %m_last_closed_paren5.i, align 8
-  %m_is_singular.i12 = getelementptr inbounds i8, ptr %9, i64 -20
-  %24 = load i8, ptr %m_is_singular.i12, align 4
+  %m_is_singular.i13 = getelementptr inbounds i8, ptr %9, i64 -20
+  %24 = load i8, ptr %m_is_singular.i13, align 4
   %tobool.i = trunc i8 %24 to i1
   %m_is_singular6.i = getelementptr inbounds nuw i8, ptr %12, i64 76
   %frombool.i = and i8 %24, 1
   store i8 %frombool.i, ptr %m_is_singular6.i, align 4
-  br i1 %tobool.i, label %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEEaSERKS6_.exit, label %if.then.i13
+  br i1 %tobool.i, label %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEEaSERKS6_.exit, label %if.then.i14
 
-if.then.i13:                                      ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i
+if.then.i14:                                      ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i
   %m_base.i = getelementptr inbounds i8, ptr %9, i64 -72
   %25 = load ptr, ptr %m_base.i, align 8
   %m_base9.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %25, ptr %m_base9.i, align 8
-  %m_null.i14 = getelementptr inbounds i8, ptr %9, i64 -64
+  %m_null.i15 = getelementptr inbounds i8, ptr %9, i64 -64
   %m_null10.i = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %26 = load ptr, ptr %m_null.i14, align 8
+  %26 = load ptr, ptr %m_null.i15, align 8
   store ptr %26, ptr %m_null10.i, align 8
   %second.i.i = getelementptr inbounds i8, ptr %9, i64 -56
   %27 = load ptr, ptr %second.i.i, align 8
@@ -33280,10 +33286,10 @@ if.then.i13:                                      ; preds = %_ZN5boost10shared_p
   store i8 %frombool.i.i, ptr %matched4.i.i, align 8
   br label %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEEaSERKS6_.exit
 
-_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEEaSERKS6_.exit: ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i, %if.then.i13
+_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEEaSERKS6_.exit: ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740020named_subexpressionsEEaSERKS3_.exit.i, %if.then.i14
   %29 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %29, i64 -112
-  %30 = load i32, ptr %add.ptr.i.i17, align 8
+  %add.ptr.i.i18 = getelementptr inbounds i8, ptr %29, i64 -112
+  %30 = load i32, ptr %add.ptr.i.i18, align 8
   %preturn_address25 = getelementptr inbounds i8, ptr %29, i64 -104
   %31 = load ptr, ptr %preturn_address25, align 8
   %32 = load ptr, ptr %m_presult18, align 8
@@ -40190,11 +40196,13 @@ if.then.i9:                                       ; preds = %_ZN5boost13match_re
 if.end.i:                                         ; preds = %if.then.i9, %_ZN5boost13match_resultsIPKcSaINS_9sub_matchIS2_EEEE9set_firstES2_mb.exit
   %add.i = add nsw i64 %conv8, 2
   %14 = load ptr, ptr %10, align 8
-  %second.i10 = getelementptr inbounds %"struct.boost::sub_match", ptr %14, i64 %add.i, i32 0, i32 1
-  store ptr %11, ptr %second.i10, align 8
+  %add.ptr.i.i10 = getelementptr inbounds %"struct.boost::sub_match", ptr %14, i64 %add.i
+  %second.i11 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i10, i64 8
+  store ptr %11, ptr %second.i11, align 8
   %15 = load ptr, ptr %10, align 8
-  %matched.i11 = getelementptr inbounds %"struct.boost::sub_match", ptr %15, i64 %add.i, i32 1
-  store i8 %frombool.i, ptr %matched.i11, align 8
+  %add.ptr.i9.i = getelementptr inbounds %"struct.boost::sub_match", ptr %15, i64 %add.i
+  %matched.i12 = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i, i64 16
+  store i8 %frombool.i, ptr %matched.i12, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %entry

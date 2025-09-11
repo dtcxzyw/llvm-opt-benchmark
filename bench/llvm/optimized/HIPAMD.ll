@@ -2034,7 +2034,7 @@ _ZN4llvm15SmallVectorImplIPKcE6appendESt16initializer_listIS2_E.exit36: ; preds 
   %47 = load ptr, ptr %46, align 8, !tbaa !3, !noalias !350
   %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.sroa.4.0.extract.shift.i.i.i
   %49 = and i64 %45, 4294967295
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
+  %50 = getelementptr ptr, ptr %47, i64 %49
   %.not2428.i.i.i.i.i = icmp samesign eq i64 %.sroa.4.0.extract.shift.i.i.i, %49
   br i1 %.not2428.i.i.i.i.i, label %_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i.i, label %.lr.ph.i.i.i.i.i
 

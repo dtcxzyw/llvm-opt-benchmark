@@ -3513,7 +3513,7 @@ define dso_local void @synchronize_rcu_expedited() #1 align 16 {
   call void @init_wait_entry(ptr noundef nonnull %6, i32 noundef 0) #29
   %397 = lshr i64 %71, 2
   %398 = and i64 %397, 3
-  %399 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 0, i64 0, i32 35, i64 %398
+  %399 = getelementptr %struct.wait_queue_head, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 400), i64 %398
   %400 = call i64 @prepare_to_wait_event(ptr noundef %399, ptr noundef nonnull %6, i32 noundef 2) #29
   %401 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3512), align 8
   %402 = sub i64 %401, %72
@@ -6001,7 +6001,7 @@ define internal fastcc void @rcu_init_one() unnamed_addr #8 section ".init.text"
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %.preheader8.preheader, %.loopexit7.loopexit, %15
-  %.pre-phi = phi i64 [ %17, %.preheader8.preheader ], [ %.pre, %.loopexit7.loopexit ], [ %17, %15 ]
+  %.pre-phi = phi i64 [ 2, %.preheader8.preheader ], [ %.pre, %.loopexit7.loopexit ], [ 1, %15 ]
   %34 = add nsw i32 %2, -1
   %35 = zext nneg i32 %34 to i64
   br label %39
@@ -6025,13 +6025,13 @@ define internal fastcc void @rcu_init_one() unnamed_addr #8 section ".init.text"
   br i1 %48, label %49, label %.loopexit
 
 49:                                               ; preds = %39
-  %50 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %41
+  %50 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %41
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq i64 %41, 0
   %53 = add nsw i64 %40, 4294967294
   %54 = and i64 %53, 4294967295
   %55 = getelementptr i32, ptr %1, i64 %54
-  %56 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %54
+  %56 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %54
   %57 = trunc i64 %41 to i8
   br label %58
 
@@ -6142,7 +6142,7 @@ define internal fastcc void @rcu_init_one() unnamed_addr #8 section ".init.text"
   %118 = load i32, ptr @rcu_num_lvls, align 4
   %119 = add i32 %118, -1
   %120 = sext i32 %119 to i64
-  %121 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %120
+  %121 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %120
   %122 = load ptr, ptr %121, align 8
   br label %123
 
@@ -6498,7 +6498,7 @@ define dso_local zeroext i1 @rcu_check_boost_fail(i64 %0, ptr noundef writeonly 
   %3 = load i32, ptr @rcu_num_lvls, align 4
   %4 = add i32 %3, -1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %5
+  %6 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @rcu_num_nodes, align 4
   %9 = sext i32 %8 to i64
@@ -7095,7 +7095,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %33 = load i32, ptr @rcu_num_lvls, align 4
   %34 = add i32 %33, -1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %35
+  %36 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %.pre to i64
   %39 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %38
@@ -7230,7 +7230,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %109 = load i32, ptr @rcu_num_lvls, align 4
   %110 = add i32 %109, -1
   %111 = sext i32 %110 to i64
-  %112 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %111
+  %112 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = load i32, ptr @rcu_num_nodes, align 4
   %115 = sext i32 %114 to i64
@@ -7307,7 +7307,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %.pre-phi85 = phi i64 [ %154, %.loopexit65.loopexit ], [ %115, %108 ]
   %.pre-phi84 = phi i64 [ %.pre83, %.loopexit65.loopexit ], [ %111, %108 ]
   %157 = phi i32 [ %153, %.loopexit65.loopexit ], [ %114, %108 ]
-  %158 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %.pre-phi84
+  %158 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %.pre-phi84
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr %struct.rcu_node, ptr @rcu_state, i64 %.pre-phi85
   %161 = icmp ult ptr %159, %160
@@ -7592,7 +7592,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %319 = load i32, ptr @rcu_num_lvls, align 4
   %320 = add i32 %319, -1
   %321 = sext i32 %320 to i64
-  %322 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %321
+  %322 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %321
   %323 = load ptr, ptr %322, align 8
   %324 = load i32, ptr @rcu_num_nodes, align 4
   %325 = sext i32 %324 to i64
@@ -7858,7 +7858,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   %514 = load i32, ptr @rcu_num_lvls, align 4
   %515 = add i32 %514, -1
   %516 = sext i32 %515 to i64
-  %517 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %516
+  %517 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %516
   %518 = load ptr, ptr %517, align 8
   %519 = load i32, ptr @rcu_num_nodes, align 4
   %520 = sext i32 %519 to i64
@@ -11225,7 +11225,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
   %41 = load i32, ptr @rcu_num_lvls, align 4
   %42 = add i32 %41, -1
   %43 = sext i32 %42 to i64
-  %44 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %43
+  %44 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr @rcu_num_nodes, align 4
   %47 = sext i32 %46 to i64
@@ -11552,7 +11552,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
   %254 = load i32, ptr @rcu_num_lvls, align 4
   %255 = add i32 %254, -1
   %256 = sext i32 %255 to i64
-  %257 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %256
+  %257 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %256
   %258 = load ptr, ptr %257, align 8
   %259 = load i32, ptr @rcu_num_nodes, align 4
   %260 = sext i32 %259 to i64
@@ -12059,7 +12059,7 @@ define internal fastcc void @rcu_dump_cpu_stacks() unnamed_addr #1 align 16 {
   %1 = load i32, ptr @rcu_num_lvls, align 4
   %2 = add i32 %1, -1
   %3 = sext i32 %2 to i64
-  %4 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %3
+  %4 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @rcu_num_nodes, align 4
   %7 = sext i32 %6 to i64
@@ -12684,7 +12684,7 @@ define internal noundef i32 @rcu_gp_kthread(ptr readnone captures(none) %0) #21 
   %114 = load i32, ptr @rcu_num_lvls, align 4
   %115 = add i32 %114, -1
   %116 = sext i32 %115 to i64
-  %117 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %116
+  %117 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %116
   %118 = load ptr, ptr %117, align 8
   %119 = load i32, ptr @rcu_num_nodes, align 4
   %120 = sext i32 %119 to i64
@@ -13608,7 +13608,7 @@ rcu_cleanup_dead_rnp.exit:                        ; preds = %234, %231, %218, %2
   %625 = load i32, ptr @rcu_num_lvls, align 4
   %626 = add i32 %625, -1
   %627 = sext i32 %626 to i64
-  %628 = getelementptr %struct.rcu_state, ptr @rcu_state, i64 0, i32 1, i64 %627
+  %628 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_state, i64 3200), i64 %627
   %629 = load ptr, ptr %628, align 8
   %630 = load i32, ptr @rcu_num_nodes, align 4
   %631 = sext i32 %630 to i64

@@ -1685,14 +1685,14 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   br label %38
 
 37:                                               ; preds = %38
-  store i8 %48, ptr %28, align 4, !tbaa !38
+  store i8 %47, ptr %28, align 4, !tbaa !38
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 3
   br i1 %exitcond44.not, label %9, label %22
 
 38:                                               ; preds = %22, %38
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %38 ]
-  %39 = phi i8 [ 0, %22 ], [ %48, %38 ]
+  %39 = phi i8 [ 0, %22 ], [ %47, %38 ]
   %40 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !33
   %42 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
@@ -1700,30 +1700,28 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   %44 = zext i8 %39 to i64
   %45 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %36, i64 %44
   store float %41, ptr %45, align 8, !tbaa !44
-  %.idx.i = shl nuw nsw i64 %44, 3
-  %46 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store float %43, ptr %47, align 4, !tbaa !46
-  %48 = add i8 %39, 1
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store float %43, ptr %46, align 4, !tbaa !46
+  %47 = add i8 %39, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %37, label %38
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %49 = tail call i32 @llvm.umin.i32(i32 %51, i32 6)
+  %48 = tail call i32 @llvm.umin.i32(i32 %50, i32 6)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
-  %.030.lcssa = phi i32 [ 0, %9 ], [ %49, %._crit_edge.loopexit ]
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %.030.lcssa, ptr %50, align 8, !tbaa !34
+  %.030.lcssa = phi i32 [ 0, %9 ], [ %48, %._crit_edge.loopexit ]
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 %.030.lcssa, ptr %49, align 8, !tbaa !34
   ret void
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
-  %.039 = phi i32 [ %52, %.lr.ph ], [ %21, %9 ]
-  %.03038 = phi i32 [ %51, %.lr.ph ], [ 0, %9 ]
-  %51 = add nuw nsw i32 %.03038, 1
-  %52 = ashr i32 %.039, 1
+  %.039 = phi i32 [ %51, %.lr.ph ], [ %21, %9 ]
+  %.03038 = phi i32 [ %50, %.lr.ph ], [ 0, %9 ]
+  %50 = add nuw nsw i32 %.03038, 1
+  %51 = ashr i32 %.039, 1
   %.not = icmp ult i32 %.039, 2
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
@@ -1849,21 +1847,22 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %8, label %.preheader
+  br i1 %or.cond, label %9, label %.preheader
 
 6:                                                ; preds = %.preheader
   store ptr @introspection_init.f6, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 600), align 8, !tbaa !91
-  br label %8
+  br label %9
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
-  store ptr %0, ptr %7, align 8, !tbaa !91
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %0, ptr %8, align 8, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %6, label %.preheader
 
-8:                                                ; preds = %2, %6
+9:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
   ret i32 %.06
 }

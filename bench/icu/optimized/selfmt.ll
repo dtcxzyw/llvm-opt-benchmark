@@ -644,7 +644,7 @@ declare noundef i32 @_ZNK6icu_7711Formattable7getTypeEv(ptr noundef nonnull alig
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7712SelectFormat6formatERKNS_13UnicodeStringERS1_RNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull readnone align 8 captures(none) %3, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #1 align 2 {
   %6 = load i32, ptr %4, align 4, !tbaa !13
   %7 = icmp slt i32 %6, 1
-  br i1 %7, label %8, label %58
+  br i1 %7, label %8, label %59
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -692,14 +692,14 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %14, %16
 
 32:                                               ; preds = %27
   store i32 27, ptr %4, align 4, !tbaa !13
-  br label %58
+  br label %59
 
 33:                                               ; preds = %27
   %34 = tail call noundef i32 @_ZN6icu_7712SelectFormat14findSubMessageERKNS_14MessagePatternEiRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %28, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load i32, ptr %35, align 8, !tbaa !28
   %.not = icmp eq i32 %36, 1
-  br i1 %.not, label %56, label %37
+  br i1 %.not, label %57, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -712,23 +712,24 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %14, %16
   %45 = load i16, ptr %44, align 4, !tbaa !34
   %46 = zext i16 %45 to i32
   %47 = add nsw i32 %43, %46
-  %48 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %39, i64 %40, i32 4
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %49 = load i32, ptr %48, align 4, !tbaa !35
   %..i = tail call noundef i32 @llvm.smax.i32(i32 %49, i32 %34)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = sext i32 %..i to i64
-  %52 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %39, i64 %51, i32 1
-  %53 = load i32, ptr %52, align 4, !tbaa !30
-  %54 = sub nsw i32 %53, %47
-  %55 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %50, i32 noundef %47, i32 noundef %54)
-  br label %58
+  %52 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %39, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %54 = load i32, ptr %53, align 4, !tbaa !30
+  %55 = sub nsw i32 %54, %47
+  %56 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %50, i32 noundef %47, i32 noundef %55)
+  br label %59
 
-56:                                               ; preds = %33
-  %57 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711MessageImpl33appendSubMessageWithoutSkipSyntaxERKNS_14MessagePatternEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(127) %28, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(64) %2)
-  br label %58
+57:                                               ; preds = %33
+  %58 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711MessageImpl33appendSubMessageWithoutSkipSyntaxERKNS_14MessagePatternEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(127) %28, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(64) %2)
+  br label %59
 
-58:                                               ; preds = %37, %56, %5, %32
-  %.0 = phi ptr [ %2, %32 ], [ %2, %5 ], [ %57, %56 ], [ %2, %37 ]
+59:                                               ; preds = %37, %57, %5, %32
+  %.0 = phi ptr [ %2, %32 ], [ %2, %5 ], [ %58, %57 ], [ %2, %37 ]
   ret ptr %.0
 }
 
@@ -742,7 +743,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %7 = load i32, ptr %3, align 4, !tbaa !13
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %93
+  br i1 %8, label %9, label %94
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -772,7 +773,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
 25:                                               ; preds = %85, %10
   %26 = phi ptr [ %.pre, %10 ], [ %86, %85 ]
   %.025 = phi i32 [ 0, %10 ], [ %.227, %85 ]
-  %.023 = phi i32 [ %1, %10 ], [ %90, %85 ]
+  %.023 = phi i32 [ %1, %10 ], [ %91, %85 ]
   %27 = add nsw i32 %.023, 1
   %28 = sext i32 %.023 to i64
   %29 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %26, i64 %28
@@ -785,13 +786,13 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
           cleanup
   %34 = load ptr, ptr %6, align 8, !tbaa !36
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #14, !srcloc !39
-  br label %92
+  br label %93
 
 35:                                               ; preds = %.sink.split.i.i.i.i36, %.sink.split.i.i.i.i
   %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #14
-  br label %92
+  br label %93
 
 37:                                               ; preds = %25
   %38 = load i16, ptr %15, align 8, !tbaa !17
@@ -878,25 +879,26 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
   %.227 = phi i32 [ %.025, %60 ], [ %spec.select, %84 ]
   %86 = load ptr, ptr %14, align 8, !tbaa !29
   %87 = sext i32 %27 to i64
-  %88 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %86, i64 %87, i32 4
-  %89 = load i32, ptr %88, align 4, !tbaa !35
-  %..i = call noundef i32 @llvm.smax.i32(i32 %89, i32 %27)
-  %90 = add nsw i32 %..i, 1
-  %91 = icmp slt i32 %90, %13
-  br i1 %91, label %25, label %.thread, !llvm.loop !41
+  %88 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %86, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 12
+  %90 = load i32, ptr %89, align 4, !tbaa !35
+  %..i = call noundef i32 @llvm.smax.i32(i32 %90, i32 %27)
+  %91 = add nsw i32 %..i, 1
+  %92 = icmp slt i32 %91, %13
+  br i1 %92, label %25, label %.thread, !llvm.loop !41
 
 .thread:                                          ; preds = %59, %85, %25
   %.3 = phi i32 [ %.227, %85 ], [ %.025, %25 ], [ %27, %59 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %93
+  br label %94
 
-92:                                               ; preds = %35, %32
+93:                                               ; preds = %35, %32
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
-93:                                               ; preds = %4, %.thread
+94:                                               ; preds = %4, %.thread
   %.022 = phi i32 [ %.3, %.thread ], [ 0, %4 ]
   ret i32 %.022
 }

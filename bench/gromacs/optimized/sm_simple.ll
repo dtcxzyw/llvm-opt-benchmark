@@ -246,7 +246,7 @@ define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_an
   ret void
 
 26:                                               ; preds = %.lr.ph, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
-  %27 = phi i32 [ %5, %.lr.ph ], [ %80, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
+  %27 = phi i32 [ %5, %.lr.ph ], [ %83, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
   %.0912 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
   %28 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
@@ -298,7 +298,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %37
   %55 = load i32, ptr %54, align 8, !tbaa !46
   %56 = load i32, ptr %25, align 8, !tbaa !55
   %57 = icmp sgt i32 %55, %56
-  br i1 %57, label %58, label %69
+  br i1 %57, label %58, label %71
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 56
@@ -306,38 +306,41 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %37
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !102
   %63 = sext i32 %.recomposed to i64
-  %64 = getelementptr inbounds %struct.t_atom, ptr %62, i64 %63, i32 7
-  %65 = load i32, ptr %64, align 4, !tbaa !103
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds %struct.t_resinfo, ptr %60, i64 %66, i32 1
-  %68 = load i32, ptr %67, align 8, !tbaa !107
+  %64 = getelementptr inbounds %struct.t_atom, ptr %62, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %66 = load i32, ptr %65, align 4, !tbaa !103
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds %struct.t_resinfo, ptr %60, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load i32, ptr %69, align 8, !tbaa !107
   br label %.sink.split.i
 
-69:                                               ; preds = %53
-  %70 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %71 = load i32, ptr %70, align 4, !tbaa !109
-  %72 = mul nsw i32 %55, %47
-  %73 = add nsw i32 %71, %72
-  %74 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !102
-  %76 = sext i32 %.recomposed to i64
-  %77 = getelementptr inbounds %struct.t_atom, ptr %75, i64 %76, i32 7
-  %78 = load i32, ptr %77, align 4, !tbaa !103
-  %79 = add nsw i32 %73, %78
+71:                                               ; preds = %53
+  %72 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %73 = load i32, ptr %72, align 4, !tbaa !109
+  %74 = mul nsw i32 %55, %47
+  %75 = add nsw i32 %73, %74
+  %76 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %77 = load ptr, ptr %76, align 8, !tbaa !102
+  %78 = sext i32 %.recomposed to i64
+  %79 = getelementptr inbounds %struct.t_atom, ptr %77, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %81 = load i32, ptr %80, align 4, !tbaa !103
+  %82 = add nsw i32 %75, %81
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %69, %58
-  %.sink.i = phi i32 [ %79, %69 ], [ %68, %58 ]
+.sink.split.i:                                    ; preds = %71, %58
+  %.sink.i = phi i32 [ %82, %71 ], [ %70, %58 ]
   store i32 %.sink.i, ptr %44, align 4, !tbaa !16
   %.pre = load i32, ptr %1, align 8, !tbaa !7
   br label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
 
 _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, %.sink.split.i
-  %80 = phi i32 [ %27, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i ], [ %.pre, %.sink.split.i ]
+  %83 = phi i32 [ %27, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i ], [ %.pre, %.sink.split.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %26, label %._crit_edge, !llvm.loop !110
+  %84 = sext i32 %83 to i64
+  %85 = icmp slt i64 %indvars.iv.next, %84
+  br i1 %85, label %26, label %._crit_edge, !llvm.loop !110
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -421,19 +424,20 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %34
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !102
   %56 = sext i32 %.recomposed to i64
-  %57 = getelementptr inbounds %struct.t_atom, ptr %55, i64 %56, i32 7
-  %58 = load i32, ptr %57, align 4, !tbaa !103
-  %59 = add i32 %50, 1
-  %60 = add i32 %59, %53
-  %61 = add i32 %60, %58
-  %62 = load ptr, ptr %24, align 8, !tbaa !4
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
-  store i32 %61, ptr %63, align 4, !tbaa !16
+  %57 = getelementptr inbounds %struct.t_atom, ptr %55, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %59 = load i32, ptr %58, align 4, !tbaa !103
+  %60 = add i32 %50, 1
+  %61 = add i32 %60, %53
+  %62 = add i32 %61, %59
+  %63 = load ptr, ptr %24, align 8, !tbaa !4
+  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
+  store i32 %62, ptr %64, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = load i32, ptr %1, align 8, !tbaa !7
-  %65 = sext i32 %64 to i64
-  %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %25, label %._crit_edge, !llvm.loop !112
+  %65 = load i32, ptr %1, align 8, !tbaa !7
+  %66 = sext i32 %65 to i64
+  %67 = icmp slt i64 %indvars.iv.next, %66
+  br i1 %67, label %25, label %._crit_edge, !llvm.loop !112
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -551,13 +555,13 @@ define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx
 
 23:                                               ; preds = %.lr.ph, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit ]
-  %.0912 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit ]
+  %.0911 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit ]
   %24 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !16
   br label %26
 
 26:                                               ; preds = %35, %23
-  %.1 = phi i32 [ %.0912, %23 ], [ %38, %35 ]
+  %.1 = phi i32 [ %.0911, %23 ], [ %38, %35 ]
   %.026.i.i = phi i32 [ %19, %23 ], [ %.127.i.i, %35 ]
   %.0.i.i = phi i32 [ -1, %23 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
@@ -585,7 +589,7 @@ _ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit:  ; preds = %32
   %39 = sub nsw i32 %25, %30
   %40 = load i32, ptr %28, align 4, !tbaa !38
   %41 = sdiv i32 %39, %40
-  %42 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %27, i32 5
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %43 = load i32, ptr %42, align 4, !tbaa !120
   %44 = add i32 %41, 1
   %45 = add i32 %44, %43
@@ -996,15 +1000,16 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %34
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
   %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 2
-  %48 = load ptr, ptr %47, align 8, !tbaa !153
-  %49 = sext i32 %43 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !154
-  %52 = load ptr, ptr %51, align 8, !tbaa !118
-  %53 = load ptr, ptr %24, align 8, !tbaa !4
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
-  store ptr %52, ptr %54, align 8, !tbaa !118
+  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load ptr, ptr %48, align 8, !tbaa !153
+  %50 = sext i32 %43 to i64
+  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !154
+  %53 = load ptr, ptr %52, align 8, !tbaa !118
+  %54 = load ptr, ptr %24, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  store ptr %53, ptr %55, align 8, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !155
@@ -1117,12 +1122,12 @@ define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %25
 
-._crit_edge:                                      ; preds = %56, %4
+._crit_edge:                                      ; preds = %58, %4
   ret void
 
-25:                                               ; preds = %.lr.ph, %56
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %.01315 = phi i32 [ 0, %.lr.ph ], [ %.1, %56 ]
+25:                                               ; preds = %.lr.ph, %58
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
+  %.01315 = phi i32 [ 0, %.lr.ph ], [ %.1, %58 ]
   %26 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !16
   br label %28
@@ -1160,25 +1165,27 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
   %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 7
-  %48 = load ptr, ptr %47, align 8, !tbaa !156
-  %49 = sext i32 %43 to i64
-  %50 = getelementptr inbounds %struct.t_pdbinfo, ptr %48, i64 %49, i32 3
-  br label %51
+  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %49 = load ptr, ptr %48, align 8, !tbaa !156
+  %50 = sext i32 %43 to i64
+  %51 = getelementptr inbounds %struct.t_pdbinfo, ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 9
+  br label %53
 
-51:                                               ; preds = %51, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit
-  %.0 = phi ptr [ %50, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit ], [ %55, %51 ]
-  %52 = load i8, ptr %.0, align 1, !tbaa !4
-  %53 = sext i8 %52 to i32
-  %54 = tail call i32 @isspace(i32 noundef %53) #24
-  %.not = icmp eq i32 %54, 0
-  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br i1 %.not, label %56, label %51, !llvm.loop !160
+53:                                               ; preds = %53, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit
+  %.0 = phi ptr [ %52, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit ], [ %57, %53 ]
+  %54 = load i8, ptr %.0, align 1, !tbaa !4
+  %55 = sext i8 %54 to i32
+  %56 = tail call i32 @isspace(i32 noundef %55) #24
+  %.not = icmp eq i32 %56, 0
+  %57 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  br i1 %.not, label %58, label %53, !llvm.loop !160
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %24, align 8, !tbaa !4
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
-  store ptr %.0, ptr %58, align 8, !tbaa !118
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %24, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  store ptr %.0, ptr %60, align 8, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !161
@@ -1340,15 +1347,16 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit: ; preds = %34
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
   %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 3
-  %48 = load ptr, ptr %47, align 8, !tbaa !162
-  %49 = sext i32 %43 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !154
-  %52 = load ptr, ptr %51, align 8, !tbaa !118
-  %53 = load ptr, ptr %24, align 8, !tbaa !4
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
-  store ptr %52, ptr %54, align 8, !tbaa !118
+  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %49 = load ptr, ptr %48, align 8, !tbaa !162
+  %50 = sext i32 %43 to i64
+  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !154
+  %53 = load ptr, ptr %52, align 8, !tbaa !118
+  %54 = load ptr, ptr %24, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  store ptr %53, ptr %55, align 8, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !163
@@ -1432,17 +1440,18 @@ _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !164
   %50 = sext i32 %43 to i64
-  %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50, i32 7
-  %52 = load i32, ptr %51, align 4, !tbaa !103
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !165
-  %55 = sext i32 %52 to i64
-  %56 = getelementptr inbounds %struct.t_resinfo, ptr %54, i64 %55
-  %57 = load ptr, ptr %56, align 8, !tbaa !166
-  %58 = load ptr, ptr %57, align 8, !tbaa !118
-  %59 = load ptr, ptr %24, align 8, !tbaa !4
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
-  store ptr %58, ptr %60, align 8, !tbaa !118
+  %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %53 = load i32, ptr %52, align 4, !tbaa !103
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %55 = load ptr, ptr %54, align 8, !tbaa !165
+  %56 = sext i32 %53 to i64
+  %57 = getelementptr inbounds %struct.t_resinfo, ptr %55, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !166
+  %59 = load ptr, ptr %58, align 8, !tbaa !118
+  %60 = load ptr, ptr %24, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
+  store ptr %59, ptr %61, align 8, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !167
@@ -1523,22 +1532,24 @@ _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !164
   %50 = sext i32 %41 to i64
-  %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50, i32 7
-  %52 = load i32, ptr %51, align 4, !tbaa !103
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !165
-  %55 = sext i32 %52 to i64
-  %56 = getelementptr inbounds %struct.t_resinfo, ptr %54, i64 %55, i32 2
-  %57 = load i8, ptr %56, align 4, !tbaa !168
-  %58 = load ptr, ptr %9, align 8, !tbaa !4
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
-  %60 = load ptr, ptr %59, align 8, !tbaa !118
-  store i8 %57, ptr %60, align 1, !tbaa !4
+  %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %53 = load i32, ptr %52, align 4, !tbaa !103
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %55 = load ptr, ptr %54, align 8, !tbaa !165
+  %56 = sext i32 %53 to i64
+  %57 = getelementptr inbounds %struct.t_resinfo, ptr %55, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  %59 = load i8, ptr %58, align 4, !tbaa !168
+  %60 = load ptr, ptr %9, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
+  %62 = load ptr, ptr %61, align 8, !tbaa !118
+  store i8 %59, ptr %62, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = load i32, ptr %1, align 8, !tbaa !7
-  %62 = sext i32 %61 to i64
-  %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %10, label %._crit_edge, !llvm.loop !169
+  %63 = load i32, ptr %1, align 8, !tbaa !7
+  %64 = sext i32 %63 to i64
+  %65 = icmp slt i64 %indvars.iv.next, %64
+  br i1 %65, label %10, label %._crit_edge, !llvm.loop !169
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1616,22 +1627,24 @@ _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !164
   %50 = sext i32 %41 to i64
-  %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50, i32 7
-  %52 = load i32, ptr %51, align 4, !tbaa !103
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !165
-  %55 = sext i32 %52 to i64
-  %56 = getelementptr inbounds %struct.t_resinfo, ptr %54, i64 %55, i32 4
-  %57 = load i8, ptr %56, align 4, !tbaa !170
-  %58 = load ptr, ptr %9, align 8, !tbaa !4
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
-  %60 = load ptr, ptr %59, align 8, !tbaa !118
-  store i8 %57, ptr %60, align 1, !tbaa !4
+  %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %53 = load i32, ptr %52, align 4, !tbaa !103
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %55 = load ptr, ptr %54, align 8, !tbaa !165
+  %56 = sext i32 %53 to i64
+  %57 = getelementptr inbounds %struct.t_resinfo, ptr %55, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 20
+  %59 = load i8, ptr %58, align 4, !tbaa !170
+  %60 = load ptr, ptr %9, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
+  %62 = load ptr, ptr %61, align 8, !tbaa !118
+  store i8 %59, ptr %62, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = load i32, ptr %1, align 8, !tbaa !7
-  %62 = sext i32 %61 to i64
-  %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %10, label %._crit_edge, !llvm.loop !171
+  %63 = load i32, ptr %1, align 8, !tbaa !7
+  %64 = sext i32 %63 to i64
+  %65 = icmp slt i64 %indvars.iv.next, %64
+  br i1 %65, label %10, label %._crit_edge, !llvm.loop !171
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1715,14 +1728,15 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %38
   %48 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %18, i64 %33
   %49 = load i32, ptr %48, align 8, !tbaa !39
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %27, i64 %50, i32 1, i32 1
-  %52 = load ptr, ptr %51, align 8, !tbaa !164
-  %53 = sext i32 %47 to i64
-  %54 = getelementptr inbounds %struct.t_atom, ptr %52, i64 %53
-  %55 = load float, ptr %54, align 4, !tbaa !172
-  %56 = load ptr, ptr %28, align 8, !tbaa !4
-  %57 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
-  store float %55, ptr %57, align 4, !tbaa !173
+  %51 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %27, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !164
+  %54 = sext i32 %47 to i64
+  %55 = getelementptr inbounds %struct.t_atom, ptr %53, i64 %54
+  %56 = load float, ptr %55, align 4, !tbaa !172
+  %57 = load ptr, ptr %28, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
+  store float %56, ptr %58, align 4, !tbaa !173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !174
@@ -1883,14 +1897,16 @@ _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit: ; preds = %34
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
   %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 1
-  %48 = load ptr, ptr %47, align 8, !tbaa !164
-  %49 = sext i32 %43 to i64
-  %50 = getelementptr inbounds %struct.t_atom, ptr %48, i64 %49, i32 1
-  %51 = load float, ptr %50, align 4, !tbaa !175
-  %52 = load ptr, ptr %24, align 8, !tbaa !4
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
-  store float %51, ptr %53, align 4, !tbaa !173
+  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8, !tbaa !164
+  %50 = sext i32 %43 to i64
+  %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %53 = load float, ptr %52, align 4, !tbaa !175
+  %54 = load ptr, ptr %24, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  store float %53, ptr %55, align 4, !tbaa !173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !176
@@ -1969,20 +1985,22 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %44 = load i32, ptr %43, align 8, !tbaa !39
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %42, align 8, !tbaa !31
-  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %46, i64 %45, i32 1, i32 7
-  %48 = load ptr, ptr %47, align 8, !tbaa !156
-  %49 = sext i32 %41 to i64
-  %50 = getelementptr inbounds %struct.t_pdbinfo, ptr %48, i64 %49, i32 2
-  %51 = load i8, ptr %50, align 4, !tbaa !177
-  %52 = load ptr, ptr %9, align 8, !tbaa !4
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
-  %54 = load ptr, ptr %53, align 8, !tbaa !118
-  store i8 %51, ptr %54, align 1, !tbaa !4
+  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %46, i64 %45
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %49 = load ptr, ptr %48, align 8, !tbaa !156
+  %50 = sext i32 %41 to i64
+  %51 = getelementptr inbounds %struct.t_pdbinfo, ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %53 = load i8, ptr %52, align 4, !tbaa !177
+  %54 = load ptr, ptr %9, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %56 = load ptr, ptr %55, align 8, !tbaa !118
+  store i8 %53, ptr %56, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = load i32, ptr %1, align 8, !tbaa !7
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %10, label %._crit_edge, !llvm.loop !180
+  %57 = load i32, ptr %1, align 8, !tbaa !7
+  %58 = sext i32 %57 to i64
+  %59 = icmp slt i64 %indvars.iv.next, %58
+  br i1 %59, label %10, label %._crit_edge, !llvm.loop !180
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2057,14 +2075,16 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
   %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 7
-  %48 = load ptr, ptr %47, align 8, !tbaa !156
-  %49 = sext i32 %43 to i64
-  %50 = getelementptr inbounds %struct.t_pdbinfo, ptr %48, i64 %49, i32 4
-  %51 = load float, ptr %50, align 4, !tbaa !181
-  %52 = load ptr, ptr %24, align 8, !tbaa !4
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
-  store float %51, ptr %53, align 4, !tbaa !173
+  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %49 = load ptr, ptr %48, align 8, !tbaa !156
+  %50 = sext i32 %43 to i64
+  %51 = getelementptr inbounds %struct.t_pdbinfo, ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %53 = load float, ptr %52, align 4, !tbaa !181
+  %54 = load ptr, ptr %24, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  store float %53, ptr %55, align 4, !tbaa !173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !182
@@ -2142,14 +2162,16 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %34
   %44 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %29
   %45 = load i32, ptr %44, align 8, !tbaa !39
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46, i32 1, i32 7
-  %48 = load ptr, ptr %47, align 8, !tbaa !156
-  %49 = sext i32 %43 to i64
-  %50 = getelementptr inbounds %struct.t_pdbinfo, ptr %48, i64 %49, i32 5
-  %51 = load float, ptr %50, align 4, !tbaa !183
-  %52 = load ptr, ptr %24, align 8, !tbaa !4
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
-  store float %51, ptr %53, align 4, !tbaa !173
+  %47 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %49 = load ptr, ptr %48, align 8, !tbaa !156
+  %50 = sext i32 %43 to i64
+  %51 = getelementptr inbounds %struct.t_pdbinfo, ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 20
+  %53 = load float, ptr %52, align 4, !tbaa !183
+  %54 = load ptr, ptr %24, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  store float %53, ptr %55, align 4, !tbaa !173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !184

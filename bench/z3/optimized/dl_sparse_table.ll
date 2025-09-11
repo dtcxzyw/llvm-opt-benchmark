@@ -1479,20 +1479,21 @@ _ZNK6vectorIN7datalog12sparse_table11column_infoELb0EjE4sizeEv.exit31.thread: ; 
   store i32 %159, ptr %160, align 8, !tbaa !65
   %161 = load i32, ptr %3, align 8, !tbaa !55
   %.not = icmp eq i32 %161, 0
-  br i1 %.not, label %168, label %162
+  br i1 %.not, label %169, label %162
 
 162:                                              ; preds = %.loopexit
   %163 = zext i32 %16 to i64
-  %164 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %15, i64 %163, i32 4
-  %165 = load i32, ptr %164, align 8, !tbaa !60
-  %166 = lshr i32 %165, 3
-  %167 = sub nsw i32 %159, %166
-  br label %168
+  %164 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %15, i64 %163
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
+  %166 = load i32, ptr %165, align 8, !tbaa !60
+  %167 = lshr i32 %166, 3
+  %168 = sub nsw i32 %159, %167
+  br label %169
 
-168:                                              ; preds = %.loopexit, %162
-  %.sink = phi i32 [ %167, %162 ], [ 0, %.loopexit ]
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink, ptr %169, align 4, !tbaa !66
+169:                                              ; preds = %.loopexit, %162
+  %.sink = phi i32 [ %168, %162 ], [ 0, %.loopexit ]
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.sink, ptr %170, align 4, !tbaa !66
   ret void
 }
 

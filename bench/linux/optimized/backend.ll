@@ -203,7 +203,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   %35 = load i32, ptr %32, align 8
   %36 = sext i32 %35 to i64
   %37 = sub nsw i64 %20, %36
-  %38 = getelementptr %struct.anon.3, ptr @maxes_table, i64 %22, i32 1
+  %38 = getelementptr i8, ptr %31, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = sub i32 %39, %34
   %41 = sext i32 %40 to i64
@@ -362,11 +362,11 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %143 = load i64, ptr %142, align 8
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %137, ptr noundef nonnull @.str.3, i32 noundef %141, i64 noundef %143) #11
-  %.pre7 = load ptr, ptr @agp_bridges, align 8
+  %.pre6 = load ptr, ptr @agp_bridges, align 8
   br label %144
 
 144:                                              ; preds = %135, %129
-  %145 = phi ptr [ %.pre7, %135 ], [ %133, %129 ]
+  %145 = phi ptr [ %.pre6, %135 ], [ %133, %129 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store ptr %146, ptr %147, align 8

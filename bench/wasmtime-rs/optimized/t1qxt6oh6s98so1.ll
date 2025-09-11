@@ -7056,49 +7056,52 @@ define hidden void @"_ZN16wasmtime_environ9component9artifacts20AllCallFunc$LT$T
 "_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit": ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !3757, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds { i64, { i32, i32 } }, ptr %10, i64 %4, i32 1
-  %12 = load i32, ptr %11, align 8, !noalias !3757, !noundef !4
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %14 = load i32, ptr %13, align 4, !noalias !3757, !noundef !4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = icmp ult i64 %16, %6
-  br i1 %17, label %"_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit4", label %18, !prof !44
+  %11 = getelementptr inbounds { i64, { i32, i32 } }, ptr %10, i64 %4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load i32, ptr %12, align 8, !noalias !3757, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %15 = load i32, ptr %14, align 4, !noalias !3757, !noundef !4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = load i64, ptr %16, align 8, !noundef !4
+  %18 = icmp ult i64 %17, %6
+  br i1 %18, label %"_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit4", label %19, !prof !44
 
-18:                                               ; preds = %"_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %16, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.483.llvm.15361297093319246575) #50, !noalias !3760
+19:                                               ; preds = %"_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit"
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %17, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.483.llvm.15361297093319246575) #50, !noalias !3760
   unreachable
 
 "_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit4": ; preds = %"_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit"
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load i64, ptr %19, align 8, !noundef !4
-  %21 = icmp ult i64 %20, %6
-  br i1 %21, label %"_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit5", label %22, !prof !44
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = load i64, ptr %20, align 8, !noundef !4
+  %22 = icmp ult i64 %21, %6
+  br i1 %22, label %"_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit5", label %23, !prof !44
 
-22:                                               ; preds = %"_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit4"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %20, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.483.llvm.15361297093319246575) #50, !noalias !3763
+23:                                               ; preds = %"_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit4"
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.483.llvm.15361297093319246575) #50, !noalias !3763
   unreachable
 
 "_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit5": ; preds = %"_ZN8wasmtime7compile15FunctionIndices20link_and_append_code28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha1095d94bf1ea73eE.llvm.15361297093319246575.exit4"
-  %23 = getelementptr inbounds { i64, { i32, i32 } }, ptr %10, i64 %16, i32 1
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !3760, !noundef !4
-  %26 = load i32, ptr %23, align 8, !noalias !3760, !noundef !4
-  %27 = getelementptr inbounds { i64, { i32, i32 } }, ptr %10, i64 %20, i32 1
-  %28 = load i32, ptr %27, align 8, !noalias !3763, !noundef !4
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %30 = load i32, ptr %29, align 4, !noalias !3763, !noundef !4
-  store i32 %12, ptr %0, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %14, ptr %31, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %26, ptr %32, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %25, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %28, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %30, ptr %35, align 4
+  %24 = getelementptr inbounds { i64, { i32, i32 } }, ptr %10, i64 %17
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %26 = load i32, ptr %25, align 4, !noalias !3760, !noundef !4
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %28 = load i32, ptr %27, align 8, !noalias !3760, !noundef !4
+  %29 = getelementptr inbounds { i64, { i32, i32 } }, ptr %10, i64 %21
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i32, ptr %30, align 8, !noalias !3763, !noundef !4
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  %33 = load i32, ptr %32, align 4, !noalias !3763, !noundef !4
+  store i32 %13, ptr %0, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %15, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %28, ptr %35, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %26, ptr %36, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %31, ptr %37, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %33, ptr %38, align 4
   ret void
 }
 
@@ -18749,20 +18752,21 @@ define hidden noundef align 4 dereferenceable_or_null(8) ptr @"_ZN8indexmap3map2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = icmp ult i64 %10, %14
-  br i1 %15, label %16, label %20, !prof !44
+  br i1 %15, label %16, label %21, !prof !44
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %18, i64 %10, i32 1
+  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %18, i64 %10
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h4ee5d0b636be187aE.llvm.15361297093319246575.exit.thread"
 
-20:                                               ; preds = %12
+21:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %10, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.323.llvm.15361297093319246575) #50
   unreachable
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h4ee5d0b636be187aE.llvm.15361297093319246575.exit.thread": ; preds = %3, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h4ee5d0b636be187aE.llvm.15361297093319246575.exit", %16
-  %.0 = phi ptr [ %19, %16 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h4ee5d0b636be187aE.llvm.15361297093319246575.exit" ], [ null, %3 ]
+  %.0 = phi ptr [ %20, %16 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h4ee5d0b636be187aE.llvm.15361297093319246575.exit" ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -18785,20 +18789,21 @@ define hidden noundef align 4 dereferenceable_or_null(8) ptr @"_ZN8indexmap3map2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = icmp ult i64 %10, %14
-  br i1 %15, label %16, label %20, !prof !44
+  br i1 %15, label %16, label %21, !prof !44
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %18, i64 %10, i32 1
+  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %18, i64 %10
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h853f5ef0972a9c52E.llvm.15361297093319246575.exit.thread"
 
-20:                                               ; preds = %12
+21:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %10, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.323.llvm.15361297093319246575) #50
   unreachable
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h853f5ef0972a9c52E.llvm.15361297093319246575.exit.thread": ; preds = %3, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h853f5ef0972a9c52E.llvm.15361297093319246575.exit", %16
-  %.0 = phi ptr [ %19, %16 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h853f5ef0972a9c52E.llvm.15361297093319246575.exit" ], [ null, %3 ]
+  %.0 = phi ptr [ %20, %16 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h853f5ef0972a9c52E.llvm.15361297093319246575.exit" ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -18821,20 +18826,21 @@ define hidden noundef align 4 dereferenceable_or_null(8) ptr @"_ZN8indexmap3map2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = icmp ult i64 %9, %13
-  br i1 %14, label %15, label %19, !prof !44
+  br i1 %14, label %15, label %20, !prof !44
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %17, i64 %9, i32 1
+  %18 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %17, i64 %9
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hd86dfc76b310497fE.llvm.15361297093319246575.exit.thread"
 
-19:                                               ; preds = %11
+20:                                               ; preds = %11
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %9, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.323.llvm.15361297093319246575) #50
   unreachable
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hd86dfc76b310497fE.llvm.15361297093319246575.exit.thread": ; preds = %2, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hd86dfc76b310497fE.llvm.15361297093319246575.exit", %15
-  %.0 = phi ptr [ %18, %15 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hd86dfc76b310497fE.llvm.15361297093319246575.exit" ], [ null, %2 ]
+  %.0 = phi ptr [ %19, %15 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hd86dfc76b310497fE.llvm.15361297093319246575.exit" ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -18857,20 +18863,21 @@ define hidden noundef align 8 dereferenceable_or_null(80) ptr @"_ZN8indexmap3map
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = icmp ult i64 %10, %14
-  br i1 %15, label %16, label %20, !prof !44
+  br i1 %15, label %16, label %21, !prof !44
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [9 x i64] }, i64 }, ptr %18, i64 %10, i32 1
+  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [9 x i64] }, i64 }, ptr %18, i64 %10
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h787b711bf577d26cE.llvm.15361297093319246575.exit.thread"
 
-20:                                               ; preds = %12
+21:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %10, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.323.llvm.15361297093319246575) #50
   unreachable
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h787b711bf577d26cE.llvm.15361297093319246575.exit.thread": ; preds = %3, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h787b711bf577d26cE.llvm.15361297093319246575.exit", %16
-  %.0 = phi ptr [ %19, %16 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h787b711bf577d26cE.llvm.15361297093319246575.exit" ], [ null, %3 ]
+  %.0 = phi ptr [ %20, %16 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h787b711bf577d26cE.llvm.15361297093319246575.exit" ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -21690,8 +21697,9 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN97_$LT$indexma
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !6305, !noalias !6306, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %20, i64 %10, i32 1
-  ret ptr %21
+  %21 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %20, i64 %10
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -23540,9 +23548,9 @@ define { ptr, i64 } @_ZN8wasmtime7runtime11instantiate14CompiledModule25wasm_to_
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h32c68f16b5815fddE.exit": ; preds = %.lr.ph.i.i
-  %20 = getelementptr inbounds { i32, { i32, i32 } }, ptr %5, i64 %9, i32 1
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %21 = load i32, ptr %20, align 4, !noundef !4
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %23 = load i32, ptr %22, align 4, !noundef !4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %25 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
@@ -23735,8 +23743,9 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8wasmtime7runtime11in
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !6764, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds nuw { { i32, i32 }, { { { { { ptr, i64 } }, {} }, {} }, i32, [1 x i32] }, { i32, [2 x i32] }, { i32, [2 x i32] } }, ptr %9, i64 %5, i32 1
-  ret ptr %10
+  %10 = getelementptr inbounds nuw { { i32, i32 }, { { { { { ptr, i64 } }, {} }, {} }, i32, [1 x i32] }, { i32, [2 x i32] }, { i32, [2 x i32] } }, ptr %9, i64 %5
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  ret ptr %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24255,9 +24264,9 @@ _ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.llvm.15361297093319246
 
 _ZN8wasmtime7runtime11code_memory10CodeMemory5dwarf17h6705786778f2be31E.exit.i.i: ; preds = %43
   %47 = sub nuw i64 %41, %39
-  %48 = getelementptr inbounds { i8, [7 x i8], { i64, i64 } }, ptr %6, i64 %11, i32 2
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %49 = load i64, ptr %48, align 8, !noalias !6843, !noundef !4
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %51 = load i64, ptr %50, align 8, !noalias !6843, !noundef !4
   %52 = icmp ugt i64 %49, %51
   br i1 %52, label %55, label %53
@@ -32636,20 +32645,21 @@ define hidden { i32, i32 } @"_ZN8wasmtime7compile15FunctionIndices20link_and_app
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp ult i64 %1, %5
-  br i1 %6, label %7, label %16, !prof !44
+  br i1 %6, label %7, label %17, !prof !44
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds { i64, { i32, i32 } }, ptr %9, i64 %1, i32 1
-  %11 = load i32, ptr %10, align 8, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %13 = load i32, ptr %12, align 4, !noundef !4
-  %14 = insertvalue { i32, i32 } poison, i32 %11, 0
-  %15 = insertvalue { i32, i32 } %14, i32 %13, 1
-  ret { i32, i32 } %15
+  %10 = getelementptr inbounds { i64, { i32, i32 } }, ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i32, ptr %11, align 8, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %14 = load i32, ptr %13, align 4, !noundef !4
+  %15 = insertvalue { i32, i32 } poison, i32 %12, 0
+  %16 = insertvalue { i32, i32 } %15, i32 %14, 1
+  ret { i32, i32 } %16
 
-16:                                               ; preds = %2
+17:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.483.llvm.15361297093319246575) #50
   unreachable
 }

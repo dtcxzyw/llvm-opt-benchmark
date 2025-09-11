@@ -754,56 +754,57 @@ define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef writeonly c
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %12
 
-12:                                               ; preds = %.lr.ph, %35
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %.01321 = phi i32 [ 0, %.lr.ph ], [ %.2.ph, %35 ]
+12:                                               ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %.01321 = phi i32 [ 0, %.lr.ph ], [ %.2.ph, %36 ]
   %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %16 = load i8, ptr %15, align 4, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %35
+  br i1 %17, label %18, label %36
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %11, align 8
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.PGPROC, ptr %19, i64 %22, i32 9
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, %.sroa.011.0.extract.trunc
-  br i1 %25, label %26, label %35
+  %23 = getelementptr inbounds %struct.PGPROC, ptr %19, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 68
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp eq i32 %25, %.sroa.011.0.extract.trunc
+  br i1 %26, label %27, label %36
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %28, %.sroa.2.0.extract.trunc
-  br i1 %29, label %30, label %35
+27:                                               ; preds = %18
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 72
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp eq i32 %29, %.sroa.2.0.extract.trunc
+  br i1 %30, label %31, label %36
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   %.not = icmp eq i32 %.01321, 0
-  br i1 %.not, label %31, label %34
+  br i1 %.not, label %32, label %35
 
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %33 = load i32, ptr %32, align 8
-  br label %35
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %34 = load i32, ptr %33, align 8
+  br label %36
 
-34:                                               ; preds = %30
+35:                                               ; preds = %31
   store i8 1, ptr %1, align 1
   br label %.loopexit
 
-35:                                               ; preds = %12, %31, %26, %18
-  %.2.ph = phi i32 [ %.01321, %18 ], [ %.01321, %26 ], [ %33, %31 ], [ %.01321, %12 ]
+36:                                               ; preds = %12, %32, %27, %18
+  %.2.ph = phi i32 [ %.01321, %18 ], [ %.01321, %27 ], [ %34, %32 ], [ %.01321, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !13
 
-.loopexit:                                        ; preds = %35, %2, %34
-  %.01320 = phi i32 [ %.01321, %34 ], [ 0, %2 ], [ %.2.ph, %35 ]
-  %36 = load ptr, ptr @MainLWLockArray, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %37) #14
+.loopexit:                                        ; preds = %36, %2, %35
+  %.01320 = phi i32 [ %.01321, %35 ], [ 0, %2 ], [ %.2.ph, %36 ]
+  %37 = load ptr, ptr @MainLWLockArray, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 2304
+  tail call void @LWLockRelease(ptr noundef nonnull %38) #14
   ret i32 %.01320
 }
 
@@ -917,8 +918,9 @@ define dso_local void @StartPrepare(ptr noundef readonly captures(none) %0) loca
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load i32, ptr %14, align 8
+  %14 = getelementptr inbounds %struct.PGPROC, ptr %10, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = load i32, ptr %15, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -928,563 +930,563 @@ define dso_local void @StartPrepare(ptr noundef readonly captures(none) %0) loca
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %16 = tail call ptr @palloc0(i64 noundef 24) #14
-  store ptr %16, ptr @records.0, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr null, ptr %18, align 8
+  %17 = tail call ptr @palloc0(i64 noundef 24) #14
+  store ptr %17, ptr @records.0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i32 0, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr null, ptr %19, align 8
   store i32 512, ptr @records.3, align 4
-  %19 = tail call ptr @palloc(i64 noundef 512) #14
-  %20 = load ptr, ptr @records.0, align 8
-  store ptr %19, ptr %20, align 8
-  store ptr %20, ptr @records.1, align 8
+  %20 = tail call ptr @palloc(i64 noundef 512) #14
+  %21 = load ptr, ptr @records.0, align 8
+  store ptr %20, ptr %21, align 8
+  store ptr %21, ptr @records.1, align 8
   store i32 1, ptr @records.2, align 8
   store i32 0, ptr @records.4, align 8
   store i32 1475953972, ptr %2, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %15, ptr %22, align 8
-  %23 = getelementptr inbounds %struct.PGPROC, ptr %10, i64 %13, i32 10
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %27, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %30, ptr %31, align 8
-  %32 = call i32 @xactGetCommittedChildren(ptr noundef nonnull %3) #14
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 %32, ptr %33, align 4
-  %34 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext true, ptr noundef nonnull %4) #14
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %34, ptr %35, align 8
-  %36 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext false, ptr noundef nonnull %5) #14
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 %36, ptr %37, align 4
-  %38 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext true, ptr noundef nonnull %7) #14
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %38, ptr %39, align 8
-  %40 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext false, ptr noundef nonnull %6) #14
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store i32 %40, ptr %41, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %43 = call i32 @xactGetCommittedInvalidationMessages(ptr noundef nonnull %8, ptr noundef nonnull %42) #14
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i32 %43, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 55
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #16
-  %47 = trunc i64 %46 to i16
-  %48 = add i16 %47, 1
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 54
-  store i16 %48, ptr %49, align 2
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
-  %51 = load i32, ptr @records.3, align 4
-  %52 = icmp ult i32 %51, 72
-  br i1 %52, label %53, label %._crit_edge.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 0, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %16, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 76
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 %25, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %28, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %31 = load i32, ptr %30, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 %31, ptr %32, align 8
+  %33 = call i32 @xactGetCommittedChildren(ptr noundef nonnull %3) #14
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store i32 %33, ptr %34, align 4
+  %35 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext true, ptr noundef nonnull %4) #14
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 %35, ptr %36, align 8
+  %37 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext false, ptr noundef nonnull %5) #14
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  store i32 %37, ptr %38, align 4
+  %39 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext true, ptr noundef nonnull %7) #14
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 %39, ptr %40, align 8
+  %41 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext false, ptr noundef nonnull %6) #14
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  store i32 %41, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %44 = call i32 @xactGetCommittedInvalidationMessages(ptr noundef nonnull %8, ptr noundef nonnull %43) #14
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store i32 %44, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 55
+  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #16
+  %48 = trunc i64 %47 to i16
+  %49 = add i16 %48, 1
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 54
+  store i16 %49, ptr %50, align 2
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
+  %52 = load i32, ptr @records.3, align 4
+  %53 = icmp ult i32 %52, 72
+  br i1 %53, label %54, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %1
   %.pre.i = load ptr, ptr @records.1, align 8
   %.pre8.i = load ptr, ptr %.pre.i, align 8
   br label %save_state_data.exit
 
-53:                                               ; preds = %1
-  %54 = call ptr @palloc0(i64 noundef 24) #14
-  %55 = load ptr, ptr @records.1, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store ptr %54, ptr %56, align 8
-  store ptr %54, ptr @records.1, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i32 0, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store ptr null, ptr %58, align 8
-  %59 = load i32, ptr @records.2, align 8
-  %60 = add i32 %59, 1
-  store i32 %60, ptr @records.2, align 8
+54:                                               ; preds = %1
+  %55 = call ptr @palloc0(i64 noundef 24) #14
+  %56 = load ptr, ptr @records.1, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  store ptr %55, ptr %57, align 8
+  store ptr %55, ptr @records.1, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i32 0, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  store ptr null, ptr %59, align 8
+  %60 = load i32, ptr @records.2, align 8
+  %61 = add i32 %60, 1
+  store i32 %61, ptr @records.2, align 8
   store i32 512, ptr @records.3, align 4
-  %61 = call ptr @palloc(i64 noundef 512) #14
-  %62 = load ptr, ptr @records.1, align 8
-  store ptr %61, ptr %62, align 8
+  %62 = call ptr @palloc(i64 noundef 512) #14
+  %63 = load ptr, ptr @records.1, align 8
+  store ptr %62, ptr %63, align 8
   %.pre9.i = load i32, ptr @records.3, align 4
   br label %save_state_data.exit
 
-save_state_data.exit:                             ; preds = %._crit_edge.i, %53
-  %63 = phi i32 [ %51, %._crit_edge.i ], [ %.pre9.i, %53 ]
-  %64 = phi ptr [ %.pre8.i, %._crit_edge.i ], [ %61, %53 ]
-  %.pre.i14 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %62, %53 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.pre.i14, i64 8
-  %66 = load i32, ptr %65, align 8
-  %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %68, ptr noundef nonnull readonly align 8 dereferenceable(72) %2, i64 72, i1 false)
-  %69 = load i32, ptr %65, align 8
-  %70 = add i32 %69, 72
-  store i32 %70, ptr %65, align 8
-  %71 = add i32 %63, -72
-  store i32 %71, ptr @records.3, align 4
-  %72 = load i32, ptr @records.4, align 8
-  %73 = add i32 %72, 72
-  store i32 %73, ptr @records.4, align 8
-  %74 = load i16, ptr %49, align 2
-  %75 = zext i16 %74 to i32
-  %76 = add nuw nsw i32 %75, 7
-  %77 = and i32 %76, 131064
-  %78 = icmp ugt i32 %77, %71
-  br i1 %78, label %79, label %._crit_edge.i13
+save_state_data.exit:                             ; preds = %._crit_edge.i, %54
+  %64 = phi i32 [ %52, %._crit_edge.i ], [ %.pre9.i, %54 ]
+  %65 = phi ptr [ %.pre8.i, %._crit_edge.i ], [ %62, %54 ]
+  %.pre.i14 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %63, %54 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.pre.i14, i64 8
+  %67 = load i32, ptr %66, align 8
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %69, ptr noundef nonnull readonly align 8 dereferenceable(72) %2, i64 72, i1 false)
+  %70 = load i32, ptr %66, align 8
+  %71 = add i32 %70, 72
+  store i32 %71, ptr %66, align 8
+  %72 = add i32 %64, -72
+  store i32 %72, ptr @records.3, align 4
+  %73 = load i32, ptr @records.4, align 8
+  %74 = add i32 %73, 72
+  store i32 %74, ptr @records.4, align 8
+  %75 = load i16, ptr %50, align 2
+  %76 = zext i16 %75 to i32
+  %77 = add nuw nsw i32 %76, 7
+  %78 = and i32 %77, 131064
+  %79 = icmp ugt i32 %78, %72
+  br i1 %79, label %80, label %._crit_edge.i13
 
 ._crit_edge.i13:                                  ; preds = %save_state_data.exit
   %.pre8.i15 = load ptr, ptr %.pre.i14, align 8
   br label %save_state_data.exit17
 
-79:                                               ; preds = %save_state_data.exit
-  %80 = call ptr @palloc0(i64 noundef 24) #14
-  %81 = load ptr, ptr @records.1, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store ptr %80, ptr %82, align 8
-  store ptr %80, ptr @records.1, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i32 0, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store ptr null, ptr %84, align 8
-  %85 = load i32, ptr @records.2, align 8
-  %86 = add i32 %85, 1
-  store i32 %86, ptr @records.2, align 8
-  %87 = call i32 @llvm.umax.i32(i32 %77, i32 512)
-  store i32 %87, ptr @records.3, align 4
-  %88 = zext nneg i32 %87 to i64
-  %89 = call ptr @palloc(i64 noundef %88) #14
-  %90 = load ptr, ptr @records.1, align 8
-  store ptr %89, ptr %90, align 8
+80:                                               ; preds = %save_state_data.exit
+  %81 = call ptr @palloc0(i64 noundef 24) #14
+  %82 = load ptr, ptr @records.1, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  store ptr %81, ptr %83, align 8
+  store ptr %81, ptr @records.1, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i32 0, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store ptr null, ptr %85, align 8
+  %86 = load i32, ptr @records.2, align 8
+  %87 = add i32 %86, 1
+  store i32 %87, ptr @records.2, align 8
+  %88 = call i32 @llvm.umax.i32(i32 %78, i32 512)
+  store i32 %88, ptr @records.3, align 4
+  %89 = zext nneg i32 %88 to i64
+  %90 = call ptr @palloc(i64 noundef %89) #14
+  %91 = load ptr, ptr @records.1, align 8
+  store ptr %90, ptr %91, align 8
   %.pre9.i16 = load i32, ptr @records.3, align 4
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.pre48 = load i32, ptr @records.4, align 8
   br label %save_state_data.exit17
 
-save_state_data.exit17:                           ; preds = %._crit_edge.i13, %79
-  %91 = phi i32 [ %73, %._crit_edge.i13 ], [ %.pre48, %79 ]
-  %92 = phi i32 [ %70, %._crit_edge.i13 ], [ %.pre, %79 ]
-  %93 = phi i32 [ %71, %._crit_edge.i13 ], [ %.pre9.i16, %79 ]
-  %94 = phi ptr [ %.pre8.i15, %._crit_edge.i13 ], [ %89, %79 ]
-  %.pre.i19 = phi ptr [ %.pre.i14, %._crit_edge.i13 ], [ %90, %79 ]
-  %95 = zext i16 %74 to i64
-  %96 = getelementptr inbounds nuw i8, ptr %.pre.i19, i64 8
-  %97 = zext i32 %92 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 %97
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr nonnull readonly align 1 %45, i64 %95, i1 false)
-  %99 = load i32, ptr %96, align 8
-  %100 = add i32 %99, %77
-  store i32 %100, ptr %96, align 8
-  %101 = sub i32 %93, %77
-  store i32 %101, ptr @records.3, align 4
-  %102 = add i32 %91, %77
-  store i32 %102, ptr @records.4, align 8
-  %103 = load i32, ptr %33, align 4
-  %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %105, label %GXactLoadSubxactData.exit
+save_state_data.exit17:                           ; preds = %._crit_edge.i13, %80
+  %92 = phi i32 [ %74, %._crit_edge.i13 ], [ %.pre48, %80 ]
+  %93 = phi i32 [ %71, %._crit_edge.i13 ], [ %.pre, %80 ]
+  %94 = phi i32 [ %72, %._crit_edge.i13 ], [ %.pre9.i16, %80 ]
+  %95 = phi ptr [ %.pre8.i15, %._crit_edge.i13 ], [ %90, %80 ]
+  %.pre.i19 = phi ptr [ %.pre.i14, %._crit_edge.i13 ], [ %91, %80 ]
+  %96 = zext i16 %75 to i64
+  %97 = getelementptr inbounds nuw i8, ptr %.pre.i19, i64 8
+  %98 = zext i32 %93 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 %98
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr nonnull readonly align 1 %46, i64 %96, i1 false)
+  %100 = load i32, ptr %97, align 8
+  %101 = add i32 %100, %78
+  store i32 %101, ptr %97, align 8
+  %102 = sub i32 %94, %78
+  store i32 %102, ptr @records.3, align 4
+  %103 = add i32 %92, %78
+  store i32 %103, ptr @records.4, align 8
+  %104 = load i32, ptr %34, align 4
+  %105 = icmp sgt i32 %104, 0
+  br i1 %105, label %106, label %GXactLoadSubxactData.exit
 
-105:                                              ; preds = %save_state_data.exit17
-  %106 = load ptr, ptr %3, align 8
-  %107 = shl i32 %103, 2
-  %108 = add i32 %107, 7
-  %109 = and i32 %108, -8
-  %110 = icmp ugt i32 %109, %101
-  br i1 %110, label %111, label %._crit_edge.i18
+106:                                              ; preds = %save_state_data.exit17
+  %107 = load ptr, ptr %3, align 8
+  %108 = shl i32 %104, 2
+  %109 = add i32 %108, 7
+  %110 = and i32 %109, -8
+  %111 = icmp ugt i32 %110, %102
+  br i1 %111, label %112, label %._crit_edge.i18
 
-._crit_edge.i18:                                  ; preds = %105
+._crit_edge.i18:                                  ; preds = %106
   %.pre8.i20 = load ptr, ptr %.pre.i19, align 8
   br label %save_state_data.exit22
 
-111:                                              ; preds = %105
-  %112 = call ptr @palloc0(i64 noundef 24) #14
-  %113 = load ptr, ptr @records.1, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  store ptr %112, ptr %114, align 8
-  store ptr %112, ptr @records.1, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  store i32 0, ptr %115, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  store ptr null, ptr %116, align 8
-  %117 = load i32, ptr @records.2, align 8
-  %118 = add i32 %117, 1
-  store i32 %118, ptr @records.2, align 8
-  %119 = call i32 @llvm.umax.i32(i32 %109, i32 512)
-  store i32 %119, ptr @records.3, align 4
-  %120 = zext i32 %119 to i64
-  %121 = call ptr @palloc(i64 noundef %120) #14
-  %122 = load ptr, ptr @records.1, align 8
-  store ptr %121, ptr %122, align 8
+112:                                              ; preds = %106
+  %113 = call ptr @palloc0(i64 noundef 24) #14
+  %114 = load ptr, ptr @records.1, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  store ptr %113, ptr %115, align 8
+  store ptr %113, ptr @records.1, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  store i32 0, ptr %116, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  store ptr null, ptr %117, align 8
+  %118 = load i32, ptr @records.2, align 8
+  %119 = add i32 %118, 1
+  store i32 %119, ptr @records.2, align 8
+  %120 = call i32 @llvm.umax.i32(i32 %110, i32 512)
+  store i32 %120, ptr @records.3, align 4
+  %121 = zext i32 %120 to i64
+  %122 = call ptr @palloc(i64 noundef %121) #14
+  %123 = load ptr, ptr @records.1, align 8
+  store ptr %122, ptr %123, align 8
   %.pre9.i21 = load i32, ptr @records.3, align 4
-  %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %.pre50 = load i32, ptr %.phi.trans.insert49, align 8
   br label %save_state_data.exit22
 
-save_state_data.exit22:                           ; preds = %._crit_edge.i18, %111
-  %123 = phi i32 [ %100, %._crit_edge.i18 ], [ %.pre50, %111 ]
-  %124 = phi i32 [ %101, %._crit_edge.i18 ], [ %.pre9.i21, %111 ]
-  %125 = phi ptr [ %.pre8.i20, %._crit_edge.i18 ], [ %121, %111 ]
-  %126 = phi ptr [ %.pre.i19, %._crit_edge.i18 ], [ %122, %111 ]
-  %127 = zext i32 %107 to i64
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %129 = zext i32 %123 to i64
-  %130 = getelementptr inbounds nuw i8, ptr %125, i64 %129
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %130, ptr readonly align 1 %106, i64 %127, i1 false)
-  %131 = load i32, ptr %128, align 8
-  %132 = add i32 %131, %109
-  store i32 %132, ptr %128, align 8
-  %133 = sub i32 %124, %109
-  store i32 %133, ptr @records.3, align 4
-  %134 = load i32, ptr @records.4, align 8
-  %135 = add i32 %134, %109
-  store i32 %135, ptr @records.4, align 8
-  %136 = load i32, ptr %33, align 4
-  %137 = load ptr, ptr %3, align 8
+save_state_data.exit22:                           ; preds = %._crit_edge.i18, %112
+  %124 = phi i32 [ %101, %._crit_edge.i18 ], [ %.pre50, %112 ]
+  %125 = phi i32 [ %102, %._crit_edge.i18 ], [ %.pre9.i21, %112 ]
+  %126 = phi ptr [ %.pre8.i20, %._crit_edge.i18 ], [ %122, %112 ]
+  %127 = phi ptr [ %.pre.i19, %._crit_edge.i18 ], [ %123, %112 ]
+  %128 = zext i32 %108 to i64
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %130 = zext i32 %124 to i64
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 %130
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr readonly align 1 %107, i64 %128, i1 false)
+  %132 = load i32, ptr %129, align 8
+  %133 = add i32 %132, %110
+  store i32 %133, ptr %129, align 8
+  %134 = sub i32 %125, %110
+  store i32 %134, ptr @records.3, align 4
+  %135 = load i32, ptr @records.4, align 8
+  %136 = add i32 %135, %110
+  store i32 %136, ptr @records.4, align 8
+  %137 = load i32, ptr %34, align 4
+  %138 = load ptr, ptr %3, align 8
   %.val = load i32, ptr %11, align 8
-  %138 = load ptr, ptr @ProcGlobal, align 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = sext i32 %.val to i64
-  %141 = getelementptr inbounds %struct.PGPROC, ptr %139, i64 %140
-  %142 = icmp sgt i32 %136, 64
-  br i1 %142, label %.thread.i, label %144
+  %139 = load ptr, ptr @ProcGlobal, align 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = sext i32 %.val to i64
+  %142 = getelementptr inbounds %struct.PGPROC, ptr %140, i64 %141
+  %143 = icmp sgt i32 %137, 64
+  br i1 %143, label %.thread.i, label %145
 
 .thread.i:                                        ; preds = %save_state_data.exit22
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 441
-  store i8 1, ptr %143, align 1
-  br label %146
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 441
+  store i8 1, ptr %144, align 1
+  br label %147
 
-144:                                              ; preds = %save_state_data.exit22
-  %145 = icmp sgt i32 %136, 0
-  br i1 %145, label %146, label %GXactLoadSubxactData.exit
+145:                                              ; preds = %save_state_data.exit22
+  %146 = icmp sgt i32 %137, 0
+  br i1 %146, label %147, label %GXactLoadSubxactData.exit
 
-146:                                              ; preds = %144, %.thread.i
-  %.02.i = phi i32 [ 64, %.thread.i ], [ %136, %144 ]
-  %147 = getelementptr inbounds nuw i8, ptr %141, i64 444
-  %148 = zext nneg i32 %.02.i to i64
-  %149 = shl nuw nsw i64 %148, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %147, ptr noundef nonnull readonly align 4 dereferenceable(1) %137, i64 %149, i1 false)
-  %150 = trunc nuw nsw i32 %.02.i to i8
-  %151 = getelementptr inbounds nuw i8, ptr %141, i64 440
-  store i8 %150, ptr %151, align 8
+147:                                              ; preds = %145, %.thread.i
+  %.02.i = phi i32 [ 64, %.thread.i ], [ %137, %145 ]
+  %148 = getelementptr inbounds nuw i8, ptr %142, i64 444
+  %149 = zext nneg i32 %.02.i to i64
+  %150 = shl nuw nsw i64 %149, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %148, ptr noundef nonnull readonly align 4 dereferenceable(1) %138, i64 %150, i1 false)
+  %151 = trunc nuw nsw i32 %.02.i to i8
+  %152 = getelementptr inbounds nuw i8, ptr %142, i64 440
+  store i8 %151, ptr %152, align 8
   br label %GXactLoadSubxactData.exit
 
-GXactLoadSubxactData.exit:                        ; preds = %146, %144, %save_state_data.exit17
-  %152 = phi i32 [ %135, %146 ], [ %135, %144 ], [ %102, %save_state_data.exit17 ]
-  %153 = phi i32 [ %133, %146 ], [ %133, %144 ], [ %101, %save_state_data.exit17 ]
-  %154 = load i32, ptr %35, align 8
-  %155 = icmp sgt i32 %154, 0
-  br i1 %155, label %156, label %188
+GXactLoadSubxactData.exit:                        ; preds = %147, %145, %save_state_data.exit17
+  %153 = phi i32 [ %136, %147 ], [ %136, %145 ], [ %103, %save_state_data.exit17 ]
+  %154 = phi i32 [ %134, %147 ], [ %134, %145 ], [ %102, %save_state_data.exit17 ]
+  %155 = load i32, ptr %36, align 8
+  %156 = icmp sgt i32 %155, 0
+  br i1 %156, label %157, label %189
 
-156:                                              ; preds = %GXactLoadSubxactData.exit
-  %157 = load ptr, ptr %4, align 8
-  %158 = mul i32 %154, 12
-  %159 = add i32 %158, 7
-  %160 = and i32 %159, -8
-  %161 = icmp ugt i32 %160, %153
-  br i1 %161, label %162, label %._crit_edge.i23
+157:                                              ; preds = %GXactLoadSubxactData.exit
+  %158 = load ptr, ptr %4, align 8
+  %159 = mul i32 %155, 12
+  %160 = add i32 %159, 7
+  %161 = and i32 %160, -8
+  %162 = icmp ugt i32 %161, %154
+  br i1 %162, label %163, label %._crit_edge.i23
 
-._crit_edge.i23:                                  ; preds = %156
+._crit_edge.i23:                                  ; preds = %157
   %.pre.i24 = load ptr, ptr @records.1, align 8
   %.pre8.i25 = load ptr, ptr %.pre.i24, align 8
   br label %save_state_data.exit27
 
-162:                                              ; preds = %156
-  %163 = call ptr @palloc0(i64 noundef 24) #14
-  %164 = load ptr, ptr @records.1, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  store ptr %163, ptr %165, align 8
-  store ptr %163, ptr @records.1, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store i32 0, ptr %166, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  store ptr null, ptr %167, align 8
-  %168 = load i32, ptr @records.2, align 8
-  %169 = add i32 %168, 1
-  store i32 %169, ptr @records.2, align 8
-  %170 = call i32 @llvm.umax.i32(i32 %160, i32 512)
-  store i32 %170, ptr @records.3, align 4
-  %171 = zext i32 %170 to i64
-  %172 = call ptr @palloc(i64 noundef %171) #14
-  %173 = load ptr, ptr @records.1, align 8
-  store ptr %172, ptr %173, align 8
+163:                                              ; preds = %157
+  %164 = call ptr @palloc0(i64 noundef 24) #14
+  %165 = load ptr, ptr @records.1, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
+  store ptr %164, ptr %166, align 8
+  store ptr %164, ptr @records.1, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  store i32 0, ptr %167, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  store ptr null, ptr %168, align 8
+  %169 = load i32, ptr @records.2, align 8
+  %170 = add i32 %169, 1
+  store i32 %170, ptr @records.2, align 8
+  %171 = call i32 @llvm.umax.i32(i32 %161, i32 512)
+  store i32 %171, ptr @records.3, align 4
+  %172 = zext i32 %171 to i64
+  %173 = call ptr @palloc(i64 noundef %172) #14
+  %174 = load ptr, ptr @records.1, align 8
+  store ptr %173, ptr %174, align 8
   %.pre9.i26 = load i32, ptr @records.3, align 4
   %.pre51 = load i32, ptr @records.4, align 8
   br label %save_state_data.exit27
 
-save_state_data.exit27:                           ; preds = %._crit_edge.i23, %162
-  %174 = phi i32 [ %152, %._crit_edge.i23 ], [ %.pre51, %162 ]
-  %175 = phi i32 [ %153, %._crit_edge.i23 ], [ %.pre9.i26, %162 ]
-  %176 = phi ptr [ %.pre8.i25, %._crit_edge.i23 ], [ %172, %162 ]
-  %177 = phi ptr [ %.pre.i24, %._crit_edge.i23 ], [ %173, %162 ]
-  %178 = zext i32 %158 to i64
-  %179 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %180 = load i32, ptr %179, align 8
-  %181 = zext i32 %180 to i64
-  %182 = getelementptr inbounds nuw i8, ptr %176, i64 %181
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %182, ptr readonly align 1 %157, i64 %178, i1 false)
-  %183 = load i32, ptr %179, align 8
-  %184 = add i32 %183, %160
-  store i32 %184, ptr %179, align 8
-  %185 = sub i32 %175, %160
-  store i32 %185, ptr @records.3, align 4
-  %186 = add i32 %174, %160
-  store i32 %186, ptr @records.4, align 8
-  %187 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %187) #14
-  br label %188
+save_state_data.exit27:                           ; preds = %._crit_edge.i23, %163
+  %175 = phi i32 [ %153, %._crit_edge.i23 ], [ %.pre51, %163 ]
+  %176 = phi i32 [ %154, %._crit_edge.i23 ], [ %.pre9.i26, %163 ]
+  %177 = phi ptr [ %.pre8.i25, %._crit_edge.i23 ], [ %173, %163 ]
+  %178 = phi ptr [ %.pre.i24, %._crit_edge.i23 ], [ %174, %163 ]
+  %179 = zext i32 %159 to i64
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  %181 = load i32, ptr %180, align 8
+  %182 = zext i32 %181 to i64
+  %183 = getelementptr inbounds nuw i8, ptr %177, i64 %182
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %183, ptr readonly align 1 %158, i64 %179, i1 false)
+  %184 = load i32, ptr %180, align 8
+  %185 = add i32 %184, %161
+  store i32 %185, ptr %180, align 8
+  %186 = sub i32 %176, %161
+  store i32 %186, ptr @records.3, align 4
+  %187 = add i32 %175, %161
+  store i32 %187, ptr @records.4, align 8
+  %188 = load ptr, ptr %4, align 8
+  call void @pfree(ptr noundef %188) #14
+  br label %189
 
-188:                                              ; preds = %save_state_data.exit27, %GXactLoadSubxactData.exit
-  %189 = load i32, ptr %37, align 4
-  %190 = icmp sgt i32 %189, 0
-  br i1 %190, label %191, label %224
+189:                                              ; preds = %save_state_data.exit27, %GXactLoadSubxactData.exit
+  %190 = load i32, ptr %38, align 4
+  %191 = icmp sgt i32 %190, 0
+  br i1 %191, label %192, label %225
 
-191:                                              ; preds = %188
-  %192 = load ptr, ptr %5, align 8
-  %193 = mul i32 %189, 12
-  %194 = add i32 %193, 7
-  %195 = and i32 %194, -8
-  %196 = load i32, ptr @records.3, align 4
-  %197 = icmp ugt i32 %195, %196
-  br i1 %197, label %198, label %._crit_edge.i28
+192:                                              ; preds = %189
+  %193 = load ptr, ptr %5, align 8
+  %194 = mul i32 %190, 12
+  %195 = add i32 %194, 7
+  %196 = and i32 %195, -8
+  %197 = load i32, ptr @records.3, align 4
+  %198 = icmp ugt i32 %196, %197
+  br i1 %198, label %199, label %._crit_edge.i28
 
-._crit_edge.i28:                                  ; preds = %191
+._crit_edge.i28:                                  ; preds = %192
   %.pre.i29 = load ptr, ptr @records.1, align 8
   %.pre8.i30 = load ptr, ptr %.pre.i29, align 8
   br label %save_state_data.exit32
 
-198:                                              ; preds = %191
-  %199 = call ptr @palloc0(i64 noundef 24) #14
-  %200 = load ptr, ptr @records.1, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  store ptr %199, ptr %201, align 8
-  store ptr %199, ptr @records.1, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store i32 0, ptr %202, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  store ptr null, ptr %203, align 8
-  %204 = load i32, ptr @records.2, align 8
-  %205 = add i32 %204, 1
-  store i32 %205, ptr @records.2, align 8
-  %206 = call i32 @llvm.umax.i32(i32 %195, i32 512)
-  store i32 %206, ptr @records.3, align 4
-  %207 = zext i32 %206 to i64
-  %208 = call ptr @palloc(i64 noundef %207) #14
-  %209 = load ptr, ptr @records.1, align 8
-  store ptr %208, ptr %209, align 8
+199:                                              ; preds = %192
+  %200 = call ptr @palloc0(i64 noundef 24) #14
+  %201 = load ptr, ptr @records.1, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
+  store ptr %200, ptr %202, align 8
+  store ptr %200, ptr @records.1, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  store i32 0, ptr %203, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %200, i64 16
+  store ptr null, ptr %204, align 8
+  %205 = load i32, ptr @records.2, align 8
+  %206 = add i32 %205, 1
+  store i32 %206, ptr @records.2, align 8
+  %207 = call i32 @llvm.umax.i32(i32 %196, i32 512)
+  store i32 %207, ptr @records.3, align 4
+  %208 = zext i32 %207 to i64
+  %209 = call ptr @palloc(i64 noundef %208) #14
+  %210 = load ptr, ptr @records.1, align 8
+  store ptr %209, ptr %210, align 8
   %.pre9.i31 = load i32, ptr @records.3, align 4
   br label %save_state_data.exit32
 
-save_state_data.exit32:                           ; preds = %._crit_edge.i28, %198
-  %210 = phi i32 [ %196, %._crit_edge.i28 ], [ %.pre9.i31, %198 ]
-  %211 = phi ptr [ %.pre8.i30, %._crit_edge.i28 ], [ %208, %198 ]
-  %212 = phi ptr [ %.pre.i29, %._crit_edge.i28 ], [ %209, %198 ]
-  %213 = zext i32 %193 to i64
-  %214 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  %215 = load i32, ptr %214, align 8
-  %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds nuw i8, ptr %211, i64 %216
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %217, ptr readonly align 1 %192, i64 %213, i1 false)
-  %218 = load i32, ptr %214, align 8
-  %219 = add i32 %218, %195
-  store i32 %219, ptr %214, align 8
-  %220 = sub i32 %210, %195
-  store i32 %220, ptr @records.3, align 4
-  %221 = load i32, ptr @records.4, align 8
-  %222 = add i32 %221, %195
-  store i32 %222, ptr @records.4, align 8
-  %223 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %223) #14
-  br label %224
+save_state_data.exit32:                           ; preds = %._crit_edge.i28, %199
+  %211 = phi i32 [ %197, %._crit_edge.i28 ], [ %.pre9.i31, %199 ]
+  %212 = phi ptr [ %.pre8.i30, %._crit_edge.i28 ], [ %209, %199 ]
+  %213 = phi ptr [ %.pre.i29, %._crit_edge.i28 ], [ %210, %199 ]
+  %214 = zext i32 %194 to i64
+  %215 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  %216 = load i32, ptr %215, align 8
+  %217 = zext i32 %216 to i64
+  %218 = getelementptr inbounds nuw i8, ptr %212, i64 %217
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %218, ptr readonly align 1 %193, i64 %214, i1 false)
+  %219 = load i32, ptr %215, align 8
+  %220 = add i32 %219, %196
+  store i32 %220, ptr %215, align 8
+  %221 = sub i32 %211, %196
+  store i32 %221, ptr @records.3, align 4
+  %222 = load i32, ptr @records.4, align 8
+  %223 = add i32 %222, %196
+  store i32 %223, ptr @records.4, align 8
+  %224 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %224) #14
+  br label %225
 
-224:                                              ; preds = %save_state_data.exit32, %188
-  %225 = load i32, ptr %39, align 8
-  %226 = icmp sgt i32 %225, 0
-  br i1 %226, label %227, label %258
+225:                                              ; preds = %save_state_data.exit32, %189
+  %226 = load i32, ptr %40, align 8
+  %227 = icmp sgt i32 %226, 0
+  br i1 %227, label %228, label %259
 
-227:                                              ; preds = %224
-  %228 = load ptr, ptr %7, align 8
-  %229 = shl i32 %225, 4
-  %230 = load i32, ptr @records.3, align 4
-  %231 = icmp ugt i32 %229, %230
-  br i1 %231, label %232, label %._crit_edge.i33
+228:                                              ; preds = %225
+  %229 = load ptr, ptr %7, align 8
+  %230 = shl i32 %226, 4
+  %231 = load i32, ptr @records.3, align 4
+  %232 = icmp ugt i32 %230, %231
+  br i1 %232, label %233, label %._crit_edge.i33
 
-._crit_edge.i33:                                  ; preds = %227
+._crit_edge.i33:                                  ; preds = %228
   %.pre.i34 = load ptr, ptr @records.1, align 8
   %.pre8.i35 = load ptr, ptr %.pre.i34, align 8
   br label %save_state_data.exit37
 
-232:                                              ; preds = %227
-  %233 = call ptr @palloc0(i64 noundef 24) #14
-  %234 = load ptr, ptr @records.1, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
-  store ptr %233, ptr %235, align 8
-  store ptr %233, ptr @records.1, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  store i32 0, ptr %236, align 8
-  %237 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  store ptr null, ptr %237, align 8
-  %238 = load i32, ptr @records.2, align 8
-  %239 = add i32 %238, 1
-  store i32 %239, ptr @records.2, align 8
-  %240 = call i32 @llvm.umax.i32(i32 %229, i32 512)
-  store i32 %240, ptr @records.3, align 4
-  %241 = zext i32 %240 to i64
-  %242 = call ptr @palloc(i64 noundef %241) #14
-  %243 = load ptr, ptr @records.1, align 8
-  store ptr %242, ptr %243, align 8
+233:                                              ; preds = %228
+  %234 = call ptr @palloc0(i64 noundef 24) #14
+  %235 = load ptr, ptr @records.1, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
+  store ptr %234, ptr %236, align 8
+  store ptr %234, ptr @records.1, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  store i32 0, ptr %237, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %234, i64 16
+  store ptr null, ptr %238, align 8
+  %239 = load i32, ptr @records.2, align 8
+  %240 = add i32 %239, 1
+  store i32 %240, ptr @records.2, align 8
+  %241 = call i32 @llvm.umax.i32(i32 %230, i32 512)
+  store i32 %241, ptr @records.3, align 4
+  %242 = zext i32 %241 to i64
+  %243 = call ptr @palloc(i64 noundef %242) #14
+  %244 = load ptr, ptr @records.1, align 8
+  store ptr %243, ptr %244, align 8
   %.pre9.i36 = load i32, ptr @records.3, align 4
   br label %save_state_data.exit37
 
-save_state_data.exit37:                           ; preds = %._crit_edge.i33, %232
-  %244 = phi i32 [ %230, %._crit_edge.i33 ], [ %.pre9.i36, %232 ]
-  %245 = phi ptr [ %.pre8.i35, %._crit_edge.i33 ], [ %242, %232 ]
-  %246 = phi ptr [ %.pre.i34, %._crit_edge.i33 ], [ %243, %232 ]
-  %247 = zext i32 %229 to i64
-  %248 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  %249 = load i32, ptr %248, align 8
-  %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds nuw i8, ptr %245, i64 %250
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %251, ptr readonly align 1 %228, i64 %247, i1 false)
-  %252 = load i32, ptr %248, align 8
-  %253 = add i32 %252, %229
-  store i32 %253, ptr %248, align 8
-  %254 = sub i32 %244, %229
-  store i32 %254, ptr @records.3, align 4
-  %255 = load i32, ptr @records.4, align 8
-  %256 = add i32 %255, %229
-  store i32 %256, ptr @records.4, align 8
-  %257 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %257) #14
-  br label %258
+save_state_data.exit37:                           ; preds = %._crit_edge.i33, %233
+  %245 = phi i32 [ %231, %._crit_edge.i33 ], [ %.pre9.i36, %233 ]
+  %246 = phi ptr [ %.pre8.i35, %._crit_edge.i33 ], [ %243, %233 ]
+  %247 = phi ptr [ %.pre.i34, %._crit_edge.i33 ], [ %244, %233 ]
+  %248 = zext i32 %230 to i64
+  %249 = getelementptr inbounds nuw i8, ptr %247, i64 8
+  %250 = load i32, ptr %249, align 8
+  %251 = zext i32 %250 to i64
+  %252 = getelementptr inbounds nuw i8, ptr %246, i64 %251
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %252, ptr readonly align 1 %229, i64 %248, i1 false)
+  %253 = load i32, ptr %249, align 8
+  %254 = add i32 %253, %230
+  store i32 %254, ptr %249, align 8
+  %255 = sub i32 %245, %230
+  store i32 %255, ptr @records.3, align 4
+  %256 = load i32, ptr @records.4, align 8
+  %257 = add i32 %256, %230
+  store i32 %257, ptr @records.4, align 8
+  %258 = load ptr, ptr %7, align 8
+  call void @pfree(ptr noundef %258) #14
+  br label %259
 
-258:                                              ; preds = %save_state_data.exit37, %224
-  %259 = load i32, ptr %41, align 4
-  %260 = icmp sgt i32 %259, 0
-  br i1 %260, label %261, label %292
+259:                                              ; preds = %save_state_data.exit37, %225
+  %260 = load i32, ptr %42, align 4
+  %261 = icmp sgt i32 %260, 0
+  br i1 %261, label %262, label %293
 
-261:                                              ; preds = %258
-  %262 = load ptr, ptr %6, align 8
-  %263 = shl i32 %259, 4
-  %264 = load i32, ptr @records.3, align 4
-  %265 = icmp ugt i32 %263, %264
-  br i1 %265, label %266, label %._crit_edge.i38
+262:                                              ; preds = %259
+  %263 = load ptr, ptr %6, align 8
+  %264 = shl i32 %260, 4
+  %265 = load i32, ptr @records.3, align 4
+  %266 = icmp ugt i32 %264, %265
+  br i1 %266, label %267, label %._crit_edge.i38
 
-._crit_edge.i38:                                  ; preds = %261
+._crit_edge.i38:                                  ; preds = %262
   %.pre.i39 = load ptr, ptr @records.1, align 8
   %.pre8.i40 = load ptr, ptr %.pre.i39, align 8
   br label %save_state_data.exit42
 
-266:                                              ; preds = %261
-  %267 = call ptr @palloc0(i64 noundef 24) #14
-  %268 = load ptr, ptr @records.1, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
-  store ptr %267, ptr %269, align 8
-  store ptr %267, ptr @records.1, align 8
-  %270 = getelementptr inbounds nuw i8, ptr %267, i64 8
-  store i32 0, ptr %270, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %267, i64 16
-  store ptr null, ptr %271, align 8
-  %272 = load i32, ptr @records.2, align 8
-  %273 = add i32 %272, 1
-  store i32 %273, ptr @records.2, align 8
-  %274 = call i32 @llvm.umax.i32(i32 %263, i32 512)
-  store i32 %274, ptr @records.3, align 4
-  %275 = zext i32 %274 to i64
-  %276 = call ptr @palloc(i64 noundef %275) #14
-  %277 = load ptr, ptr @records.1, align 8
-  store ptr %276, ptr %277, align 8
+267:                                              ; preds = %262
+  %268 = call ptr @palloc0(i64 noundef 24) #14
+  %269 = load ptr, ptr @records.1, align 8
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 16
+  store ptr %268, ptr %270, align 8
+  store ptr %268, ptr @records.1, align 8
+  %271 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  store i32 0, ptr %271, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %268, i64 16
+  store ptr null, ptr %272, align 8
+  %273 = load i32, ptr @records.2, align 8
+  %274 = add i32 %273, 1
+  store i32 %274, ptr @records.2, align 8
+  %275 = call i32 @llvm.umax.i32(i32 %264, i32 512)
+  store i32 %275, ptr @records.3, align 4
+  %276 = zext i32 %275 to i64
+  %277 = call ptr @palloc(i64 noundef %276) #14
+  %278 = load ptr, ptr @records.1, align 8
+  store ptr %277, ptr %278, align 8
   %.pre9.i41 = load i32, ptr @records.3, align 4
   br label %save_state_data.exit42
 
-save_state_data.exit42:                           ; preds = %._crit_edge.i38, %266
-  %278 = phi i32 [ %264, %._crit_edge.i38 ], [ %.pre9.i41, %266 ]
-  %279 = phi ptr [ %.pre8.i40, %._crit_edge.i38 ], [ %276, %266 ]
-  %280 = phi ptr [ %.pre.i39, %._crit_edge.i38 ], [ %277, %266 ]
-  %281 = zext i32 %263 to i64
-  %282 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  %283 = load i32, ptr %282, align 8
-  %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds nuw i8, ptr %279, i64 %284
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %285, ptr readonly align 1 %262, i64 %281, i1 false)
-  %286 = load i32, ptr %282, align 8
-  %287 = add i32 %286, %263
-  store i32 %287, ptr %282, align 8
-  %288 = sub i32 %278, %263
-  store i32 %288, ptr @records.3, align 4
-  %289 = load i32, ptr @records.4, align 8
-  %290 = add i32 %289, %263
-  store i32 %290, ptr @records.4, align 8
-  %291 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %291) #14
-  br label %292
+save_state_data.exit42:                           ; preds = %._crit_edge.i38, %267
+  %279 = phi i32 [ %265, %._crit_edge.i38 ], [ %.pre9.i41, %267 ]
+  %280 = phi ptr [ %.pre8.i40, %._crit_edge.i38 ], [ %277, %267 ]
+  %281 = phi ptr [ %.pre.i39, %._crit_edge.i38 ], [ %278, %267 ]
+  %282 = zext i32 %264 to i64
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 8
+  %284 = load i32, ptr %283, align 8
+  %285 = zext i32 %284 to i64
+  %286 = getelementptr inbounds nuw i8, ptr %280, i64 %285
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %286, ptr readonly align 1 %263, i64 %282, i1 false)
+  %287 = load i32, ptr %283, align 8
+  %288 = add i32 %287, %264
+  store i32 %288, ptr %283, align 8
+  %289 = sub i32 %279, %264
+  store i32 %289, ptr @records.3, align 4
+  %290 = load i32, ptr @records.4, align 8
+  %291 = add i32 %290, %264
+  store i32 %291, ptr @records.4, align 8
+  %292 = load ptr, ptr %6, align 8
+  call void @pfree(ptr noundef %292) #14
+  br label %293
 
-292:                                              ; preds = %save_state_data.exit42, %258
-  %293 = load i32, ptr %44, align 8
-  %294 = icmp sgt i32 %293, 0
-  br i1 %294, label %295, label %326
+293:                                              ; preds = %save_state_data.exit42, %259
+  %294 = load i32, ptr %45, align 8
+  %295 = icmp sgt i32 %294, 0
+  br i1 %295, label %296, label %327
 
-295:                                              ; preds = %292
-  %296 = load ptr, ptr %8, align 8
-  %297 = shl i32 %293, 4
-  %298 = load i32, ptr @records.3, align 4
-  %299 = icmp ugt i32 %297, %298
-  br i1 %299, label %300, label %._crit_edge.i43
+296:                                              ; preds = %293
+  %297 = load ptr, ptr %8, align 8
+  %298 = shl i32 %294, 4
+  %299 = load i32, ptr @records.3, align 4
+  %300 = icmp ugt i32 %298, %299
+  br i1 %300, label %301, label %._crit_edge.i43
 
-._crit_edge.i43:                                  ; preds = %295
+._crit_edge.i43:                                  ; preds = %296
   %.pre.i44 = load ptr, ptr @records.1, align 8
   %.pre8.i45 = load ptr, ptr %.pre.i44, align 8
   br label %save_state_data.exit47
 
-300:                                              ; preds = %295
-  %301 = call ptr @palloc0(i64 noundef 24) #14
-  %302 = load ptr, ptr @records.1, align 8
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
-  store ptr %301, ptr %303, align 8
-  store ptr %301, ptr @records.1, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %301, i64 8
-  store i32 0, ptr %304, align 8
-  %305 = getelementptr inbounds nuw i8, ptr %301, i64 16
-  store ptr null, ptr %305, align 8
-  %306 = load i32, ptr @records.2, align 8
-  %307 = add i32 %306, 1
-  store i32 %307, ptr @records.2, align 8
-  %308 = call i32 @llvm.umax.i32(i32 %297, i32 512)
-  store i32 %308, ptr @records.3, align 4
-  %309 = zext i32 %308 to i64
-  %310 = call ptr @palloc(i64 noundef %309) #14
-  %311 = load ptr, ptr @records.1, align 8
-  store ptr %310, ptr %311, align 8
+301:                                              ; preds = %296
+  %302 = call ptr @palloc0(i64 noundef 24) #14
+  %303 = load ptr, ptr @records.1, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 16
+  store ptr %302, ptr %304, align 8
+  store ptr %302, ptr @records.1, align 8
+  %305 = getelementptr inbounds nuw i8, ptr %302, i64 8
+  store i32 0, ptr %305, align 8
+  %306 = getelementptr inbounds nuw i8, ptr %302, i64 16
+  store ptr null, ptr %306, align 8
+  %307 = load i32, ptr @records.2, align 8
+  %308 = add i32 %307, 1
+  store i32 %308, ptr @records.2, align 8
+  %309 = call i32 @llvm.umax.i32(i32 %298, i32 512)
+  store i32 %309, ptr @records.3, align 4
+  %310 = zext i32 %309 to i64
+  %311 = call ptr @palloc(i64 noundef %310) #14
+  %312 = load ptr, ptr @records.1, align 8
+  store ptr %311, ptr %312, align 8
   %.pre9.i46 = load i32, ptr @records.3, align 4
   br label %save_state_data.exit47
 
-save_state_data.exit47:                           ; preds = %._crit_edge.i43, %300
-  %312 = phi i32 [ %298, %._crit_edge.i43 ], [ %.pre9.i46, %300 ]
-  %313 = phi ptr [ %.pre8.i45, %._crit_edge.i43 ], [ %310, %300 ]
-  %314 = phi ptr [ %.pre.i44, %._crit_edge.i43 ], [ %311, %300 ]
-  %315 = zext i32 %297 to i64
-  %316 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  %317 = load i32, ptr %316, align 8
-  %318 = zext i32 %317 to i64
-  %319 = getelementptr inbounds nuw i8, ptr %313, i64 %318
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %319, ptr readonly align 1 %296, i64 %315, i1 false)
-  %320 = load i32, ptr %316, align 8
-  %321 = add i32 %320, %297
-  store i32 %321, ptr %316, align 8
-  %322 = sub i32 %312, %297
-  store i32 %322, ptr @records.3, align 4
-  %323 = load i32, ptr @records.4, align 8
-  %324 = add i32 %323, %297
-  store i32 %324, ptr @records.4, align 8
-  %325 = load ptr, ptr %8, align 8
-  call void @pfree(ptr noundef %325) #14
-  br label %326
+save_state_data.exit47:                           ; preds = %._crit_edge.i43, %301
+  %313 = phi i32 [ %299, %._crit_edge.i43 ], [ %.pre9.i46, %301 ]
+  %314 = phi ptr [ %.pre8.i45, %._crit_edge.i43 ], [ %311, %301 ]
+  %315 = phi ptr [ %.pre.i44, %._crit_edge.i43 ], [ %312, %301 ]
+  %316 = zext i32 %298 to i64
+  %317 = getelementptr inbounds nuw i8, ptr %315, i64 8
+  %318 = load i32, ptr %317, align 8
+  %319 = zext i32 %318 to i64
+  %320 = getelementptr inbounds nuw i8, ptr %314, i64 %319
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %320, ptr readonly align 1 %297, i64 %316, i1 false)
+  %321 = load i32, ptr %317, align 8
+  %322 = add i32 %321, %298
+  store i32 %322, ptr %317, align 8
+  %323 = sub i32 %313, %298
+  store i32 %323, ptr @records.3, align 4
+  %324 = load i32, ptr @records.4, align 8
+  %325 = add i32 %324, %298
+  store i32 %325, ptr @records.4, align 8
+  %326 = load ptr, ptr %8, align 8
+  call void @pfree(ptr noundef %326) #14
+  br label %327
 
-326:                                              ; preds = %save_state_data.exit47, %292
+327:                                              ; preds = %save_state_data.exit47, %293
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2047,20 +2049,20 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
   %wide.trip.count.i = zext nneg i32 %12 to i64
   br label %15
 
-15:                                               ; preds = %56, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
+15:                                               ; preds = %57, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
   %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 52
   %19 = load i8, ptr %18, align 4, !range !4, !noundef !5
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %56
+  br i1 %20, label %21, label %57
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 55
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %0) #16
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %24, label %56
+  br i1 %.not.i, label %24, label %57
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 52
@@ -2069,416 +2071,417 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %32 = load i32, ptr %31, align 8
-  %.not22.i = icmp eq i32 %32, -1
-  br i1 %.not22.i, label %37, label %33
+  %31 = getelementptr inbounds %struct.PGPROC, ptr %27, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %33 = load i32, ptr %32, align 8
+  %.not22.i = icmp eq i32 %33, -1
+  br i1 %.not22.i, label %38, label %34
 
-33:                                               ; preds = %24
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call i32 @errcode(i32 noundef 325) #14
-  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef nonnull %0) #14
+34:                                               ; preds = %24
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %35)
+  %36 = tail call i32 @errcode(i32 noundef 325) #14
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef nonnull %0) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 581, ptr noundef nonnull @__func__.LockGXact) #14
   unreachable
 
-37:                                               ; preds = %24
-  %38 = getelementptr inbounds nuw i8, ptr %17, i64 44
-  %39 = load i32, ptr %38, align 4
-  %.not23.i = icmp eq i32 %4, %39
-  br i1 %.not23.i, label %47, label %40
+38:                                               ; preds = %24
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 44
+  %40 = load i32, ptr %39, align 4
+  %.not23.i = icmp eq i32 %4, %40
+  br i1 %.not23.i, label %48, label %41
 
-40:                                               ; preds = %37
-  %41 = tail call zeroext i1 @superuser_arg(i32 noundef %4) #14
-  br i1 %41, label %47, label %42
+41:                                               ; preds = %38
+  %42 = tail call zeroext i1 @superuser_arg(i32 noundef %4) #14
+  br i1 %42, label %48, label %43
 
-42:                                               ; preds = %40
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 @errcode(i32 noundef 16797828) #14
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40) #14
-  %46 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.41) #14
+43:                                               ; preds = %41
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %44)
+  %45 = tail call i32 @errcode(i32 noundef 16797828) #14
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40) #14
+  %47 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.41) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 587, ptr noundef nonnull @__func__.LockGXact) #14
   unreachable
 
-47:                                               ; preds = %40, %37
-  %48 = load i32, ptr @MyDatabaseId, align 4
-  %49 = getelementptr inbounds %struct.PGPROC, ptr %27, i64 %30, i32 10
-  %50 = load i32, ptr %49, align 4
-  %.not24.i = icmp eq i32 %48, %50
-  br i1 %.not24.i, label %LockGXact.exit, label %51
+48:                                               ; preds = %41, %38
+  %49 = load i32, ptr @MyDatabaseId, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %31, i64 76
+  %51 = load i32, ptr %50, align 4
+  %.not24.i = icmp eq i32 %49, %51
+  br i1 %.not24.i, label %LockGXact.exit, label %52
 
-51:                                               ; preds = %47
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %52)
-  %53 = tail call i32 @errcode(i32 noundef 1088) #14
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42) #14
-  %55 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #14
+52:                                               ; preds = %48
+  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %53)
+  %54 = tail call i32 @errcode(i32 noundef 1088) #14
+  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42) #14
+  %56 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 599, ptr noundef nonnull @__func__.LockGXact) #14
   unreachable
 
-56:                                               ; preds = %21, %15
+57:                                               ; preds = %21, %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !17
 
-._crit_edge.i:                                    ; preds = %56, %6
-  %57 = load ptr, ptr @MainLWLockArray, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %58) #14
-  %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %59)
-  %60 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %61 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef %0) #14
+._crit_edge.i:                                    ; preds = %57, %6
+  %58 = load ptr, ptr @MainLWLockArray, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 2304
+  tail call void @LWLockRelease(ptr noundef nonnull %59) #14
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %60)
+  %61 = tail call i32 @errcode(i32 noundef 67137668) #14
+  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef %0) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 615, ptr noundef nonnull @__func__.LockGXact) #14
   unreachable
 
-LockGXact.exit:                                   ; preds = %47
-  %62 = load i32, ptr @MyProcNumber, align 4
-  store i32 %62, ptr %31, align 8
+LockGXact.exit:                                   ; preds = %48
+  %63 = load i32, ptr @MyProcNumber, align 4
+  store i32 %63, ptr %32, align 8
   store ptr %17, ptr @MyLockedGxact, align 8
-  %63 = load ptr, ptr @MainLWLockArray, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %64) #14
-  %65 = load ptr, ptr @ProcGlobal, align 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i32, ptr %28, align 8
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.PGPROC, ptr %66, i64 %68
-  %70 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %17, i64 53
-  %73 = load i8, ptr %72, align 1, !range !4, !noundef !5
-  %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %75, label %77
+  %64 = load ptr, ptr @MainLWLockArray, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 2304
+  tail call void @LWLockRelease(ptr noundef nonnull %65) #14
+  %66 = load ptr, ptr @ProcGlobal, align 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = load i32, ptr %28, align 8
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds %struct.PGPROC, ptr %67, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %72 = load i32, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %17, i64 53
+  %74 = load i8, ptr %73, align 1, !range !4, !noundef !5
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %78
 
-75:                                               ; preds = %LockGXact.exit
-  %76 = tail call fastcc ptr @ReadTwoPhaseFile(i32 noundef %71, i1 noundef zeroext false)
-  store ptr %76, ptr %3, align 8
-  br label %80
+76:                                               ; preds = %LockGXact.exit
+  %77 = tail call fastcc ptr @ReadTwoPhaseFile(i32 noundef %72, i1 noundef zeroext false)
+  store ptr %77, ptr %3, align 8
+  br label %81
 
-77:                                               ; preds = %LockGXact.exit
-  %78 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %79 = load i64, ptr %78, align 8
-  call fastcc void @XlogReadTwoPhaseData(i64 noundef %79, ptr noundef %3, ptr noundef null)
+78:                                               ; preds = %LockGXact.exit
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %80 = load i64, ptr %79, align 8
+  call fastcc void @XlogReadTwoPhaseData(i64 noundef %80, ptr noundef %3, ptr noundef null)
   %.pre = load ptr, ptr %3, align 8
-  br label %80
+  br label %81
 
-80:                                               ; preds = %77, %75
-  %81 = phi ptr [ %.pre, %77 ], [ %76, %75 ]
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 72
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 54
-  %84 = load i16, ptr %83, align 2
-  %85 = zext i16 %84 to i64
-  %86 = add nuw nsw i64 %85, 7
-  %87 = and i64 %86, 131064
-  %88 = getelementptr inbounds nuw i8, ptr %82, i64 %87
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 28
-  %90 = load i32, ptr %89, align 4
-  %91 = sext i32 %90 to i64
-  %92 = shl nsw i64 %91, 2
-  %93 = add nsw i64 %92, 7
-  %94 = and i64 %93, -8
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %97 = load i32, ptr %96, align 8
-  %98 = sext i32 %97 to i64
-  %99 = mul nsw i64 %98, 12
-  %100 = add nsw i64 %99, 7
-  %101 = and i64 %100, -8
-  %102 = getelementptr inbounds nuw i8, ptr %95, i64 %101
-  %103 = getelementptr inbounds nuw i8, ptr %81, i64 36
-  %104 = load i32, ptr %103, align 4
-  %105 = sext i32 %104 to i64
-  %106 = mul nsw i64 %105, 12
-  %107 = add nsw i64 %106, 7
-  %108 = and i64 %107, -8
-  %109 = getelementptr inbounds nuw i8, ptr %102, i64 %108
-  %110 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %111 = load i32, ptr %110, align 8
-  %112 = sext i32 %111 to i64
-  %113 = shl nsw i64 %112, 4
-  %114 = getelementptr inbounds nuw i8, ptr %109, i64 %113
-  %115 = getelementptr inbounds nuw i8, ptr %81, i64 44
-  %116 = load i32, ptr %115, align 4
-  %117 = sext i32 %116 to i64
-  %118 = shl nsw i64 %117, 4
-  %119 = getelementptr inbounds nuw i8, ptr %114, i64 %118
-  %120 = getelementptr inbounds nuw i8, ptr %81, i64 48
-  %121 = load i32, ptr %120, align 8
-  %122 = sext i32 %121 to i64
-  %123 = shl nsw i64 %122, 4
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 %123
-  %125 = tail call i32 @TransactionIdLatest(i32 noundef %71, i32 noundef %90, ptr noundef nonnull %88) #14
-  %126 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %127 = add i32 %126, 1
-  store volatile i32 %127, ptr @InterruptHoldoffCount, align 4
-  %128 = load i32, ptr %89, align 4
-  br i1 %1, label %129, label %162
+81:                                               ; preds = %78, %76
+  %82 = phi ptr [ %.pre, %78 ], [ %77, %76 ]
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 54
+  %85 = load i16, ptr %84, align 2
+  %86 = zext i16 %85 to i64
+  %87 = add nuw nsw i64 %86, 7
+  %88 = and i64 %87, 131064
+  %89 = getelementptr inbounds nuw i8, ptr %83, i64 %88
+  %90 = getelementptr inbounds nuw i8, ptr %82, i64 28
+  %91 = load i32, ptr %90, align 4
+  %92 = sext i32 %91 to i64
+  %93 = shl nsw i64 %92, 2
+  %94 = add nsw i64 %93, 7
+  %95 = and i64 %94, -8
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  %98 = load i32, ptr %97, align 8
+  %99 = sext i32 %98 to i64
+  %100 = mul nsw i64 %99, 12
+  %101 = add nsw i64 %100, 7
+  %102 = and i64 %101, -8
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %82, i64 36
+  %105 = load i32, ptr %104, align 4
+  %106 = sext i32 %105 to i64
+  %107 = mul nsw i64 %106, 12
+  %108 = add nsw i64 %107, 7
+  %109 = and i64 %108, -8
+  %110 = getelementptr inbounds nuw i8, ptr %103, i64 %109
+  %111 = getelementptr inbounds nuw i8, ptr %82, i64 40
+  %112 = load i32, ptr %111, align 8
+  %113 = sext i32 %112 to i64
+  %114 = shl nsw i64 %113, 4
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 %114
+  %116 = getelementptr inbounds nuw i8, ptr %82, i64 44
+  %117 = load i32, ptr %116, align 4
+  %118 = sext i32 %117 to i64
+  %119 = shl nsw i64 %118, 4
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 %119
+  %121 = getelementptr inbounds nuw i8, ptr %82, i64 48
+  %122 = load i32, ptr %121, align 8
+  %123 = sext i32 %122 to i64
+  %124 = shl nsw i64 %123, 4
+  %125 = getelementptr inbounds nuw i8, ptr %120, i64 %124
+  %126 = tail call i32 @TransactionIdLatest(i32 noundef %72, i32 noundef %91, ptr noundef nonnull %89) #14
+  %127 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %128 = add i32 %127, 1
+  store volatile i32 %128, ptr @InterruptHoldoffCount, align 4
+  %129 = load i32, ptr %90, align 4
+  br i1 %1, label %130, label %163
 
-129:                                              ; preds = %80
-  %130 = load i32, ptr %96, align 8
-  %131 = load i32, ptr %110, align 8
-  %132 = load i32, ptr %120, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %81, i64 52
-  %134 = load i8, ptr %133, align 4, !range !4, !noundef !5
-  %135 = trunc nuw i8 %134 to i1
-  %136 = tail call i64 @GetCurrentTimestamp() #14
-  %137 = load i16, ptr @replorigin_session_origin, align 2
-  %138 = add i16 %137, 1
-  %139 = icmp ult i16 %138, 2
-  %140 = load volatile i32, ptr @CritSectionCount, align 4
-  %141 = add i32 %140, 1
-  store volatile i32 %141, ptr @CritSectionCount, align 4
-  %142 = load ptr, ptr @MyProc, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 144
-  %144 = load i32, ptr %143, align 8
-  %145 = or i32 %144, 1
-  store i32 %145, ptr %143, align 8
-  %146 = load i32, ptr @MyXactFlags, align 4
-  %147 = or i32 %146, 2
-  %148 = tail call i64 @XactLogCommitRecord(i64 noundef %136, i32 noundef %128, ptr noundef nonnull %88, i32 noundef %130, ptr noundef nonnull %95, i32 noundef %131, ptr noundef nonnull %109, i32 noundef %132, ptr noundef nonnull %119, i1 noundef zeroext %135, i32 noundef %147, i32 noundef %71, ptr noundef nonnull %0) #14
-  br i1 %139, label %.thread.i, label %149
+130:                                              ; preds = %81
+  %131 = load i32, ptr %97, align 8
+  %132 = load i32, ptr %111, align 8
+  %133 = load i32, ptr %121, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %82, i64 52
+  %135 = load i8, ptr %134, align 4, !range !4, !noundef !5
+  %136 = trunc nuw i8 %135 to i1
+  %137 = tail call i64 @GetCurrentTimestamp() #14
+  %138 = load i16, ptr @replorigin_session_origin, align 2
+  %139 = add i16 %138, 1
+  %140 = icmp ult i16 %139, 2
+  %141 = load volatile i32, ptr @CritSectionCount, align 4
+  %142 = add i32 %141, 1
+  store volatile i32 %142, ptr @CritSectionCount, align 4
+  %143 = load ptr, ptr @MyProc, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 144
+  %145 = load i32, ptr %144, align 8
+  %146 = or i32 %145, 1
+  store i32 %146, ptr %144, align 8
+  %147 = load i32, ptr @MyXactFlags, align 4
+  %148 = or i32 %147, 2
+  %149 = tail call i64 @XactLogCommitRecord(i64 noundef %137, i32 noundef %129, ptr noundef nonnull %89, i32 noundef %131, ptr noundef nonnull %96, i32 noundef %132, ptr noundef nonnull %110, i32 noundef %133, ptr noundef nonnull %120, i1 noundef zeroext %136, i32 noundef %148, i32 noundef %72, ptr noundef nonnull %0) #14
+  br i1 %140, label %.thread.i, label %150
 
-149:                                              ; preds = %129
-  %150 = load i64, ptr @replorigin_session_origin_lsn, align 8
-  %151 = load i64, ptr @XactLastRecEnd, align 8
-  tail call void @replorigin_session_advance(i64 noundef %150, i64 noundef %151) #14
-  %152 = load i64, ptr @replorigin_session_origin_timestamp, align 8
-  %153 = icmp eq i64 %152, 0
-  br i1 %153, label %.thread.i, label %RecordTransactionCommitPrepared.exit
+150:                                              ; preds = %130
+  %151 = load i64, ptr @replorigin_session_origin_lsn, align 8
+  %152 = load i64, ptr @XactLastRecEnd, align 8
+  tail call void @replorigin_session_advance(i64 noundef %151, i64 noundef %152) #14
+  %153 = load i64, ptr @replorigin_session_origin_timestamp, align 8
+  %154 = icmp eq i64 %153, 0
+  br i1 %154, label %.thread.i, label %RecordTransactionCommitPrepared.exit
 
-.thread.i:                                        ; preds = %149, %129
-  store i64 %136, ptr @replorigin_session_origin_timestamp, align 8
+.thread.i:                                        ; preds = %150, %130
+  store i64 %137, ptr @replorigin_session_origin_timestamp, align 8
   br label %RecordTransactionCommitPrepared.exit
 
-RecordTransactionCommitPrepared.exit:             ; preds = %149, %.thread.i
-  %154 = phi i64 [ %152, %149 ], [ %136, %.thread.i ]
-  %155 = load i16, ptr @replorigin_session_origin, align 2
-  tail call void @TransactionTreeSetCommitTsData(i32 noundef %71, i32 noundef %128, ptr noundef nonnull %88, i64 noundef %154, i16 noundef zeroext %155) #14
-  tail call void @XLogFlush(i64 noundef %148) #14
-  tail call void @TransactionIdCommitTree(i32 noundef %71, i32 noundef %128, ptr noundef nonnull %88) #14
-  %156 = load ptr, ptr @MyProc, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 144
-  %158 = load i32, ptr %157, align 8
-  %159 = and i32 %158, -2
-  store i32 %159, ptr %157, align 8
-  %160 = load volatile i32, ptr @CritSectionCount, align 4
-  %161 = add i32 %160, -1
-  store volatile i32 %161, ptr @CritSectionCount, align 4
-  tail call void @SyncRepWaitForLSN(i64 noundef %148, i1 noundef zeroext true) #14
-  br label %184
+RecordTransactionCommitPrepared.exit:             ; preds = %150, %.thread.i
+  %155 = phi i64 [ %153, %150 ], [ %137, %.thread.i ]
+  %156 = load i16, ptr @replorigin_session_origin, align 2
+  tail call void @TransactionTreeSetCommitTsData(i32 noundef %72, i32 noundef %129, ptr noundef nonnull %89, i64 noundef %155, i16 noundef zeroext %156) #14
+  tail call void @XLogFlush(i64 noundef %149) #14
+  tail call void @TransactionIdCommitTree(i32 noundef %72, i32 noundef %129, ptr noundef nonnull %89) #14
+  %157 = load ptr, ptr @MyProc, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 144
+  %159 = load i32, ptr %158, align 8
+  %160 = and i32 %159, -2
+  store i32 %160, ptr %158, align 8
+  %161 = load volatile i32, ptr @CritSectionCount, align 4
+  %162 = add i32 %161, -1
+  store volatile i32 %162, ptr @CritSectionCount, align 4
+  tail call void @SyncRepWaitForLSN(i64 noundef %149, i1 noundef zeroext true) #14
+  br label %185
 
-162:                                              ; preds = %80
-  %163 = load i32, ptr %103, align 4
-  %164 = load i32, ptr %115, align 4
-  %165 = load i16, ptr @replorigin_session_origin, align 2
-  %166 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %71) #14
-  br i1 %166, label %167, label %170
+163:                                              ; preds = %81
+  %164 = load i32, ptr %104, align 4
+  %165 = load i32, ptr %116, align 4
+  %166 = load i16, ptr @replorigin_session_origin, align 2
+  %167 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %72) #14
+  br i1 %167, label %168, label %171
 
-167:                                              ; preds = %162
-  %168 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %168)
-  %169 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60, i32 noundef %71) #14
+168:                                              ; preds = %163
+  %169 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %169)
+  %170 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60, i32 noundef %72) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2419, ptr noundef nonnull @__func__.RecordTransactionAbortPrepared) #14
   unreachable
 
-170:                                              ; preds = %162
-  %171 = add i16 %165, -1
-  %172 = icmp ult i16 %171, -2
-  %173 = load volatile i32, ptr @CritSectionCount, align 4
-  %174 = add i32 %173, 1
-  store volatile i32 %174, ptr @CritSectionCount, align 4
-  %175 = tail call i64 @GetCurrentTimestamp() #14
-  %176 = load i32, ptr @MyXactFlags, align 4
-  %177 = or i32 %176, 2
-  %178 = tail call i64 @XactLogAbortRecord(i64 noundef %175, i32 noundef %128, ptr noundef nonnull %88, i32 noundef %163, ptr noundef nonnull %102, i32 noundef %164, ptr noundef nonnull %114, i32 noundef %177, i32 noundef %71, ptr noundef nonnull %0) #14
-  br i1 %172, label %179, label %RecordTransactionAbortPrepared.exit
+171:                                              ; preds = %163
+  %172 = add i16 %166, -1
+  %173 = icmp ult i16 %172, -2
+  %174 = load volatile i32, ptr @CritSectionCount, align 4
+  %175 = add i32 %174, 1
+  store volatile i32 %175, ptr @CritSectionCount, align 4
+  %176 = tail call i64 @GetCurrentTimestamp() #14
+  %177 = load i32, ptr @MyXactFlags, align 4
+  %178 = or i32 %177, 2
+  %179 = tail call i64 @XactLogAbortRecord(i64 noundef %176, i32 noundef %129, ptr noundef nonnull %89, i32 noundef %164, ptr noundef nonnull %103, i32 noundef %165, ptr noundef nonnull %115, i32 noundef %178, i32 noundef %72, ptr noundef nonnull %0) #14
+  br i1 %173, label %180, label %RecordTransactionAbortPrepared.exit
 
-179:                                              ; preds = %170
-  %180 = load i64, ptr @replorigin_session_origin_lsn, align 8
-  %181 = load i64, ptr @XactLastRecEnd, align 8
-  tail call void @replorigin_session_advance(i64 noundef %180, i64 noundef %181) #14
+180:                                              ; preds = %171
+  %181 = load i64, ptr @replorigin_session_origin_lsn, align 8
+  %182 = load i64, ptr @XactLastRecEnd, align 8
+  tail call void @replorigin_session_advance(i64 noundef %181, i64 noundef %182) #14
   br label %RecordTransactionAbortPrepared.exit
 
-RecordTransactionAbortPrepared.exit:              ; preds = %170, %179
-  tail call void @XLogFlush(i64 noundef %178) #14
-  tail call void @TransactionIdAbortTree(i32 noundef %71, i32 noundef %128, ptr noundef nonnull %88) #14
-  %182 = load volatile i32, ptr @CritSectionCount, align 4
-  %183 = add i32 %182, -1
-  store volatile i32 %183, ptr @CritSectionCount, align 4
-  tail call void @SyncRepWaitForLSN(i64 noundef %178, i1 noundef zeroext false) #14
-  br label %184
+RecordTransactionAbortPrepared.exit:              ; preds = %171, %180
+  tail call void @XLogFlush(i64 noundef %179) #14
+  tail call void @TransactionIdAbortTree(i32 noundef %72, i32 noundef %129, ptr noundef nonnull %89) #14
+  %183 = load volatile i32, ptr @CritSectionCount, align 4
+  %184 = add i32 %183, -1
+  store volatile i32 %184, ptr @CritSectionCount, align 4
+  tail call void @SyncRepWaitForLSN(i64 noundef %179, i1 noundef zeroext false) #14
+  br label %185
 
-184:                                              ; preds = %RecordTransactionAbortPrepared.exit, %RecordTransactionCommitPrepared.exit
-  %.81 = phi ptr [ %102, %RecordTransactionAbortPrepared.exit ], [ %95, %RecordTransactionCommitPrepared.exit ]
-  %. = phi ptr [ %103, %RecordTransactionAbortPrepared.exit ], [ %96, %RecordTransactionCommitPrepared.exit ]
-  tail call void @ProcArrayRemove(ptr noundef %69, i32 noundef %125) #14
+185:                                              ; preds = %RecordTransactionAbortPrepared.exit, %RecordTransactionCommitPrepared.exit
+  %.81 = phi ptr [ %103, %RecordTransactionAbortPrepared.exit ], [ %96, %RecordTransactionCommitPrepared.exit ]
+  %. = phi ptr [ %104, %RecordTransactionAbortPrepared.exit ], [ %97, %RecordTransactionCommitPrepared.exit ]
+  tail call void @ProcArrayRemove(ptr noundef %70, i32 noundef %126) #14
   store i8 0, ptr %25, align 4
   %.080 = load i32, ptr %., align 4
   tail call void @DropRelationFiles(ptr noundef nonnull %.81, i32 noundef %.080, i1 noundef zeroext false) #14
-  br i1 %1, label %185, label %221
+  br i1 %1, label %186, label %222
 
-185:                                              ; preds = %184
-  %186 = load i32, ptr %110, align 8
-  tail call void @pgstat_execute_transactional_drops(i32 noundef %186, ptr noundef nonnull %109, i1 noundef zeroext false) #14
-  %187 = getelementptr inbounds nuw i8, ptr %81, i64 52
-  %188 = load i8, ptr %187, align 4, !range !4, !noundef !5
-  %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %190, label %191
+186:                                              ; preds = %185
+  %187 = load i32, ptr %111, align 8
+  tail call void @pgstat_execute_transactional_drops(i32 noundef %187, ptr noundef nonnull %110, i1 noundef zeroext false) #14
+  %188 = getelementptr inbounds nuw i8, ptr %82, i64 52
+  %189 = load i8, ptr %188, align 4, !range !4, !noundef !5
+  %190 = trunc nuw i8 %189 to i1
+  br i1 %190, label %191, label %192
 
-190:                                              ; preds = %185
+191:                                              ; preds = %186
   tail call void @RelationCacheInitFilePreInvalidate() #14
-  br label %191
+  br label %192
 
-191:                                              ; preds = %190, %185
-  %192 = load i32, ptr %120, align 8
-  tail call void @SendSharedInvalidMessages(ptr noundef nonnull %119, i32 noundef %192) #14
-  %193 = load i8, ptr %187, align 4, !range !4, !noundef !5
-  %194 = trunc nuw i8 %193 to i1
-  br i1 %194, label %195, label %196
+192:                                              ; preds = %191, %186
+  %193 = load i32, ptr %121, align 8
+  tail call void @SendSharedInvalidMessages(ptr noundef nonnull %120, i32 noundef %193) #14
+  %194 = load i8, ptr %188, align 4, !range !4, !noundef !5
+  %195 = trunc nuw i8 %194 to i1
+  br i1 %195, label %196, label %197
 
-195:                                              ; preds = %191
+196:                                              ; preds = %192
   tail call void @RelationCacheInitFilePostInvalidate() #14
-  br label %196
+  br label %197
 
-196:                                              ; preds = %195, %191
-  %197 = load ptr, ptr @MainLWLockArray, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 2304
-  %199 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %198, i32 noundef 0) #14
-  %200 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  %201 = load i8, ptr %200, align 4
-  %202 = icmp eq i8 %201, 0
-  br i1 %202, label %ProcessRecords.exit, label %.lr.ph.i82
+197:                                              ; preds = %196, %192
+  %198 = load ptr, ptr @MainLWLockArray, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 2304
+  %200 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %199, i32 noundef 0) #14
+  %201 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %202 = load i8, ptr %201, align 4
+  %203 = icmp eq i8 %202, 0
+  br i1 %203, label %ProcessRecords.exit, label %.lr.ph.i82
 
-.lr.ph.i82:                                       ; preds = %196, %212
-  %203 = phi i8 [ %219, %212 ], [ %201, %196 ]
-  %.01318.i = phi ptr [ %217, %212 ], [ %124, %196 ]
-  %204 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
-  %205 = zext i8 %203 to i64
-  %206 = getelementptr inbounds nuw ptr, ptr @twophase_postcommit_callbacks, i64 %205
-  %207 = load ptr, ptr %206, align 8
-  %.not.i83 = icmp eq ptr %207, null
-  br i1 %.not.i83, label %212, label %208
+.lr.ph.i82:                                       ; preds = %197, %213
+  %204 = phi i8 [ %220, %213 ], [ %202, %197 ]
+  %.01318.i = phi ptr [ %218, %213 ], [ %125, %197 ]
+  %205 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
+  %206 = zext i8 %204 to i64
+  %207 = getelementptr inbounds nuw ptr, ptr @twophase_postcommit_callbacks, i64 %206
+  %208 = load ptr, ptr %207, align 8
+  %.not.i83 = icmp eq ptr %208, null
+  br i1 %.not.i83, label %213, label %209
 
-208:                                              ; preds = %.lr.ph.i82
-  %209 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 6
-  %210 = load i16, ptr %209, align 2
-  %211 = load i32, ptr %.01318.i, align 4
-  tail call void %207(i32 noundef %71, i16 noundef zeroext %210, ptr noundef nonnull %204, i32 noundef %211) #14
-  br label %212
+209:                                              ; preds = %.lr.ph.i82
+  %210 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 6
+  %211 = load i16, ptr %210, align 2
+  %212 = load i32, ptr %.01318.i, align 4
+  tail call void %208(i32 noundef %72, i16 noundef zeroext %211, ptr noundef nonnull %205, i32 noundef %212) #14
+  br label %213
 
-212:                                              ; preds = %208, %.lr.ph.i82
-  %213 = load i32, ptr %.01318.i, align 4
-  %214 = zext i32 %213 to i64
-  %215 = add nuw nsw i64 %214, 7
-  %216 = and i64 %215, 8589934584
-  %217 = getelementptr inbounds nuw i8, ptr %204, i64 %216
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 4
-  %219 = load i8, ptr %218, align 4
-  %220 = icmp eq i8 %219, 0
-  br i1 %220, label %ProcessRecords.exit, label %.lr.ph.i82
+213:                                              ; preds = %209, %.lr.ph.i82
+  %214 = load i32, ptr %.01318.i, align 4
+  %215 = zext i32 %214 to i64
+  %216 = add nuw nsw i64 %215, 7
+  %217 = and i64 %216, 8589934584
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 %217
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 4
+  %220 = load i8, ptr %219, align 4
+  %221 = icmp eq i8 %220, 0
+  br i1 %221, label %ProcessRecords.exit, label %.lr.ph.i82
 
-221:                                              ; preds = %184
-  %222 = load i32, ptr %115, align 4
-  tail call void @pgstat_execute_transactional_drops(i32 noundef %222, ptr noundef nonnull %114, i1 noundef zeroext false) #14
-  %223 = load ptr, ptr @MainLWLockArray, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 2304
-  %225 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %224, i32 noundef 0) #14
-  %226 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  %227 = load i8, ptr %226, align 4
-  %228 = icmp eq i8 %227, 0
-  br i1 %228, label %ProcessRecords.exit, label %.lr.ph.i85
+222:                                              ; preds = %185
+  %223 = load i32, ptr %116, align 4
+  tail call void @pgstat_execute_transactional_drops(i32 noundef %223, ptr noundef nonnull %115, i1 noundef zeroext false) #14
+  %224 = load ptr, ptr @MainLWLockArray, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 2304
+  %226 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %225, i32 noundef 0) #14
+  %227 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %228 = load i8, ptr %227, align 4
+  %229 = icmp eq i8 %228, 0
+  br i1 %229, label %ProcessRecords.exit, label %.lr.ph.i85
 
-.lr.ph.i85:                                       ; preds = %221, %238
-  %229 = phi i8 [ %245, %238 ], [ %227, %221 ]
-  %.01318.i86 = phi ptr [ %243, %238 ], [ %124, %221 ]
-  %230 = getelementptr inbounds nuw i8, ptr %.01318.i86, i64 8
-  %231 = zext i8 %229 to i64
-  %232 = getelementptr inbounds nuw ptr, ptr @twophase_postabort_callbacks, i64 %231
-  %233 = load ptr, ptr %232, align 8
-  %.not.i87 = icmp eq ptr %233, null
-  br i1 %.not.i87, label %238, label %234
+.lr.ph.i85:                                       ; preds = %222, %239
+  %230 = phi i8 [ %246, %239 ], [ %228, %222 ]
+  %.01318.i86 = phi ptr [ %244, %239 ], [ %125, %222 ]
+  %231 = getelementptr inbounds nuw i8, ptr %.01318.i86, i64 8
+  %232 = zext i8 %230 to i64
+  %233 = getelementptr inbounds nuw ptr, ptr @twophase_postabort_callbacks, i64 %232
+  %234 = load ptr, ptr %233, align 8
+  %.not.i87 = icmp eq ptr %234, null
+  br i1 %.not.i87, label %239, label %235
 
-234:                                              ; preds = %.lr.ph.i85
-  %235 = getelementptr inbounds nuw i8, ptr %.01318.i86, i64 6
-  %236 = load i16, ptr %235, align 2
-  %237 = load i32, ptr %.01318.i86, align 4
-  tail call void %233(i32 noundef %71, i16 noundef zeroext %236, ptr noundef nonnull %230, i32 noundef %237) #14
-  br label %238
+235:                                              ; preds = %.lr.ph.i85
+  %236 = getelementptr inbounds nuw i8, ptr %.01318.i86, i64 6
+  %237 = load i16, ptr %236, align 2
+  %238 = load i32, ptr %.01318.i86, align 4
+  tail call void %234(i32 noundef %72, i16 noundef zeroext %237, ptr noundef nonnull %231, i32 noundef %238) #14
+  br label %239
 
-238:                                              ; preds = %234, %.lr.ph.i85
-  %239 = load i32, ptr %.01318.i86, align 4
-  %240 = zext i32 %239 to i64
-  %241 = add nuw nsw i64 %240, 7
-  %242 = and i64 %241, 8589934584
-  %243 = getelementptr inbounds nuw i8, ptr %230, i64 %242
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
-  %245 = load i8, ptr %244, align 4
-  %246 = icmp eq i8 %245, 0
-  br i1 %246, label %ProcessRecords.exit, label %.lr.ph.i85
+239:                                              ; preds = %235, %.lr.ph.i85
+  %240 = load i32, ptr %.01318.i86, align 4
+  %241 = zext i32 %240 to i64
+  %242 = add nuw nsw i64 %241, 7
+  %243 = and i64 %242, 8589934584
+  %244 = getelementptr inbounds nuw i8, ptr %231, i64 %243
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 4
+  %246 = load i8, ptr %245, align 4
+  %247 = icmp eq i8 %246, 0
+  br i1 %247, label %ProcessRecords.exit, label %.lr.ph.i85
 
-ProcessRecords.exit:                              ; preds = %238, %212, %221, %196
-  tail call void @PredicateLockTwoPhaseFinish(i32 noundef %71, i1 noundef zeroext %1) #14
-  %247 = load i8, ptr %72, align 1, !range !4, !noundef !5
-  %248 = trunc nuw i8 %247 to i1
-  %249 = load ptr, ptr @TwoPhaseState, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  %251 = load i32, ptr %250, align 8
-  %252 = icmp sgt i32 %251, 0
-  br i1 %252, label %.lr.ph.i91, label %._crit_edge.i90
+ProcessRecords.exit:                              ; preds = %239, %213, %222, %197
+  tail call void @PredicateLockTwoPhaseFinish(i32 noundef %72, i1 noundef zeroext %1) #14
+  %248 = load i8, ptr %73, align 1, !range !4, !noundef !5
+  %249 = trunc nuw i8 %248 to i1
+  %250 = load ptr, ptr @TwoPhaseState, align 8
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
+  %252 = load i32, ptr %251, align 8
+  %253 = icmp sgt i32 %252, 0
+  br i1 %253, label %.lr.ph.i91, label %._crit_edge.i90
 
 .lr.ph.i91:                                       ; preds = %ProcessRecords.exit
-  %253 = getelementptr inbounds nuw i8, ptr %249, i64 16
-  %wide.trip.count.i92 = zext nneg i32 %251 to i64
-  br label %255
+  %254 = getelementptr inbounds nuw i8, ptr %250, i64 16
+  %wide.trip.count.i92 = zext nneg i32 %252 to i64
+  br label %256
 
-254:                                              ; preds = %255
+255:                                              ; preds = %256
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond.not.i95 = icmp eq i64 %indvars.iv.next.i94, %wide.trip.count.i92
-  br i1 %exitcond.not.i95, label %._crit_edge.i90, label %255, !llvm.loop !8
+  br i1 %exitcond.not.i95, label %._crit_edge.i90, label %256, !llvm.loop !8
 
-255:                                              ; preds = %254, %.lr.ph.i91
-  %indvars.iv.i93 = phi i64 [ 0, %.lr.ph.i91 ], [ %indvars.iv.next.i94, %254 ]
-  %256 = getelementptr inbounds nuw ptr, ptr %253, i64 %indvars.iv.i93
-  %257 = load ptr, ptr %256, align 8
-  %258 = icmp eq ptr %17, %257
-  br i1 %258, label %RemoveGXact.exit, label %254
+256:                                              ; preds = %255, %.lr.ph.i91
+  %indvars.iv.i93 = phi i64 [ 0, %.lr.ph.i91 ], [ %indvars.iv.next.i94, %255 ]
+  %257 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv.i93
+  %258 = load ptr, ptr %257, align 8
+  %259 = icmp eq ptr %17, %258
+  br i1 %259, label %RemoveGXact.exit, label %255
 
-._crit_edge.i90:                                  ; preds = %254, %ProcessRecords.exit
-  %259 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %259)
-  %260 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, ptr noundef %17) #14
+._crit_edge.i90:                                  ; preds = %255, %ProcessRecords.exit
+  %260 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %260)
+  %261 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, ptr noundef %17) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 650, ptr noundef nonnull @__func__.RemoveGXact) #14
   unreachable
 
-RemoveGXact.exit:                                 ; preds = %255
-  %261 = getelementptr inbounds nuw ptr, ptr %253, i64 %indvars.iv.i93
-  %262 = add nsw i32 %251, -1
-  store i32 %262, ptr %250, align 8
-  %263 = zext nneg i32 %262 to i64
-  %264 = getelementptr inbounds nuw ptr, ptr %253, i64 %263
-  %265 = load ptr, ptr %264, align 8
-  store ptr %265, ptr %261, align 8
-  %266 = load ptr, ptr %249, align 8
-  store ptr %266, ptr %17, align 8
-  store ptr %17, ptr %249, align 8
-  %267 = load ptr, ptr @MainLWLockArray, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %268) #14
+RemoveGXact.exit:                                 ; preds = %256
+  %262 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv.i93
+  %263 = add nsw i32 %252, -1
+  store i32 %263, ptr %251, align 8
+  %264 = zext nneg i32 %263 to i64
+  %265 = getelementptr inbounds nuw ptr, ptr %254, i64 %264
+  %266 = load ptr, ptr %265, align 8
+  store ptr %266, ptr %262, align 8
+  %267 = load ptr, ptr %250, align 8
+  store ptr %267, ptr %17, align 8
+  store ptr %17, ptr %250, align 8
+  %268 = load ptr, ptr @MainLWLockArray, align 8
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 2304
+  tail call void @LWLockRelease(ptr noundef nonnull %269) #14
   tail call void @AtEOXact_PgStat(i1 noundef zeroext %1, i1 noundef zeroext false) #14
-  br i1 %248, label %269, label %270
+  br i1 %249, label %270, label %271
 
-269:                                              ; preds = %RemoveGXact.exit
-  tail call fastcc void @RemoveTwoPhaseFile(i32 noundef %71, i1 noundef zeroext true)
-  br label %270
+270:                                              ; preds = %RemoveGXact.exit
+  tail call fastcc void @RemoveTwoPhaseFile(i32 noundef %72, i1 noundef zeroext true)
+  br label %271
 
-270:                                              ; preds = %269, %RemoveGXact.exit
+271:                                              ; preds = %270, %RemoveGXact.exit
   store ptr null, ptr @MyLockedGxact, align 8
-  %271 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %272 = add i32 %271, -1
-  store volatile i32 %272, ptr @InterruptHoldoffCount, align 4
-  tail call void @pfree(ptr noundef %81) #14
+  %272 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %273 = add i32 %272, -1
+  store volatile i32 %273, ptr @InterruptHoldoffCount, align 4
+  tail call void @pfree(ptr noundef %82) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

@@ -204,9 +204,9 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %90 ]
   %91 = getelementptr inbounds nuw %struct.cell, ptr %88, i64 %indvars.iv
   store i32 32, ptr %91, align 8, !tbaa !51
-  %92 = getelementptr inbounds nuw %struct.cell, ptr %88, i64 %indvars.iv, i32 1
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %87, ptr %92, align 8, !tbaa !54
-  %93 = getelementptr inbounds nuw %struct.cell, ptr %88, i64 %indvars.iv, i32 2
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %87, ptr %93, align 8, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -746,7 +746,7 @@ put.exit.us.us.us:                                ; preds = %36, %34, %33
   %50 = sext i32 %.16370.us75 to i64
   %51 = getelementptr inbounds %struct.cell, ptr %49, i64 %50
   store i32 32, ptr %51, align 8, !tbaa !51
-  %52 = getelementptr inbounds %struct.cell, ptr %49, i64 %50, i32 2
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %1, ptr %52, align 8, !tbaa !55
   br label %put.exit.us78
 
@@ -905,7 +905,7 @@ put.exit.us:                                      ; preds = %30, %28, %.lr.ph.sp
   %46 = sext i32 %.01619 to i64
   %47 = getelementptr inbounds %struct.cell, ptr %45, i64 %46
   store i32 %38, ptr %47, align 8, !tbaa !51
-  %48 = getelementptr inbounds %struct.cell, ptr %45, i64 %46, i32 1
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %1, ptr %48, align 8, !tbaa !54
   br label %put.exit
 
@@ -1054,7 +1054,7 @@ from_directions.exit:                             ; preds = %38, %39, %40, %41, 
   br i1 %.not22.i, label %put.exit, label %47
 
 47:                                               ; preds = %from_directions.exit
-  %48 = getelementptr inbounds %struct.cell, ptr %17, i64 %18, i32 2
+  %48 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %5, ptr %48, align 8, !tbaa !55
   br label %put.exit
 

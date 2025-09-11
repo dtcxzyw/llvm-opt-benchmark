@@ -8631,8 +8631,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %491, label %492, label %702, !prof !22
 
 492:                                              ; preds = %484
-  %493 = mul i64 %486, 10
-  %494 = add i64 %490, %493
+  %493 = mul nuw nsw i64 %486, 10
+  %494 = add nuw nsw i64 %490, %493
   %495 = getelementptr inbounds nuw i8, ptr %247, i64 18
   %496 = load i8, ptr %495, align 1, !tbaa !75
   %497 = zext i8 %496 to i64
@@ -8641,8 +8641,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %499, label %500, label %713, !prof !22
 
 500:                                              ; preds = %492
-  %501 = mul i64 %494, 10
-  %502 = add i64 %498, %501
+  %501 = mul nuw i64 %494, 10
+  %502 = add nuw i64 %498, %501
   %503 = getelementptr inbounds nuw i8, ptr %247, i64 19
   %504 = load i8, ptr %503, align 1, !tbaa !75
   %505 = zext i8 %504 to i64
@@ -9043,7 +9043,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
 717:                                              ; preds = %713
   %718 = select i1 %245, i64 12, i64 4
   store i64 %718, ptr %.7499.i, align 8, !tbaa !73
-  %719 = sub i64 0, %494
+  %719 = sub nsw i64 0, %494
   %720 = select i1 %245, i64 %719, i64 %494
   %721 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store i64 %720, ptr %721, align 8, !tbaa !75
@@ -9065,8 +9065,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %729, label %730, label %976, !prof !22
 
 730:                                              ; preds = %724
-  %731 = mul nsw i64 %.0574.i362, 10
-  %732 = add nsw i64 %728, %731
+  %731 = mul nuw nsw i64 %.0574.i362, 10
+  %732 = add nuw nsw i64 %728, %731
   br label %733
 
 733:                                              ; preds = %730, %546
@@ -9081,8 +9081,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %738, label %739, label %976, !prof !22
 
 739:                                              ; preds = %733
-  %740 = mul nsw i64 %.2576.i416, 10
-  %741 = add nsw i64 %737, %740
+  %740 = mul nuw nsw i64 %.2576.i416, 10
+  %741 = add nuw nsw i64 %737, %740
   br label %742
 
 742:                                              ; preds = %739, %557
@@ -9097,8 +9097,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %747, label %748, label %976, !prof !22
 
 748:                                              ; preds = %742
-  %749 = mul nsw i64 %.3577.i418, 10
-  %750 = add nsw i64 %746, %749
+  %749 = mul nuw nsw i64 %.3577.i418, 10
+  %750 = add nuw nsw i64 %746, %749
   br label %751
 
 751:                                              ; preds = %748, %568
@@ -9113,8 +9113,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %756, label %757, label %976, !prof !22
 
 757:                                              ; preds = %751
-  %758 = mul nsw i64 %.4578.i420, 10
-  %759 = add nsw i64 %755, %758
+  %758 = mul nuw nsw i64 %.4578.i420, 10
+  %759 = add nuw nsw i64 %755, %758
   br label %760
 
 760:                                              ; preds = %757, %579
@@ -9129,8 +9129,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %765, label %766, label %976, !prof !22
 
 766:                                              ; preds = %760
-  %767 = mul nsw i64 %.5579.i422, 10
-  %768 = add nsw i64 %764, %767
+  %767 = mul nuw nsw i64 %.5579.i422, 10
+  %768 = add nuw nsw i64 %764, %767
   br label %769
 
 769:                                              ; preds = %766, %590
@@ -9145,8 +9145,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %774, label %775, label %976, !prof !22
 
 775:                                              ; preds = %769
-  %776 = mul nsw i64 %.6580.i424, 10
-  %777 = add nsw i64 %773, %776
+  %776 = mul nuw nsw i64 %.6580.i424, 10
+  %777 = add nuw nsw i64 %773, %776
   br label %778
 
 778:                                              ; preds = %775, %601
@@ -9161,8 +9161,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %783, label %784, label %976, !prof !22
 
 784:                                              ; preds = %778
-  %785 = mul nsw i64 %.7581.i426, 10
-  %786 = add nsw i64 %782, %785
+  %785 = mul nuw nsw i64 %.7581.i426, 10
+  %786 = add nuw nsw i64 %782, %785
   br label %787
 
 787:                                              ; preds = %784, %612
@@ -9177,8 +9177,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %792, label %793, label %976, !prof !22
 
 793:                                              ; preds = %787
-  %794 = mul nsw i64 %.8582.i428, 10
-  %795 = add nsw i64 %791, %794
+  %794 = mul nuw nsw i64 %.8582.i428, 10
+  %795 = add nuw nsw i64 %791, %794
   br label %796
 
 796:                                              ; preds = %793, %623
@@ -9193,8 +9193,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %801, label %802, label %976, !prof !22
 
 802:                                              ; preds = %796
-  %803 = mul nsw i64 %.9583.i430, 10
-  %804 = add nsw i64 %800, %803
+  %803 = mul nuw nsw i64 %.9583.i430, 10
+  %804 = add nuw nsw i64 %800, %803
   br label %805
 
 805:                                              ; preds = %802, %634
@@ -9209,8 +9209,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %810, label %811, label %976, !prof !22
 
 811:                                              ; preds = %805
-  %812 = mul nsw i64 %.10584.i432, 10
-  %813 = add nsw i64 %809, %812
+  %812 = mul nuw nsw i64 %.10584.i432, 10
+  %813 = add nuw nsw i64 %809, %812
   br label %814
 
 814:                                              ; preds = %811, %645
@@ -9225,8 +9225,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %819, label %820, label %976, !prof !22
 
 820:                                              ; preds = %814
-  %821 = mul nsw i64 %.11585.i434, 10
-  %822 = add nsw i64 %818, %821
+  %821 = mul nuw nsw i64 %.11585.i434, 10
+  %822 = add nuw nsw i64 %818, %821
   br label %823
 
 823:                                              ; preds = %820, %656
@@ -9241,8 +9241,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %828, label %829, label %976, !prof !22
 
 829:                                              ; preds = %823
-  %830 = mul nsw i64 %.12586.i436, 10
-  %831 = add nsw i64 %827, %830
+  %830 = mul nuw nsw i64 %.12586.i436, 10
+  %831 = add nuw nsw i64 %827, %830
   br label %832
 
 832:                                              ; preds = %829, %667
@@ -9257,8 +9257,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %837, label %838, label %976, !prof !22
 
 838:                                              ; preds = %832
-  %839 = mul nsw i64 %.13587.i438, 10
-  %840 = add nsw i64 %836, %839
+  %839 = mul nuw nsw i64 %.13587.i438, 10
+  %840 = add nuw nsw i64 %836, %839
   br label %841
 
 841:                                              ; preds = %838, %678
@@ -9273,8 +9273,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %846, label %847, label %976, !prof !22
 
 847:                                              ; preds = %841
-  %848 = mul nsw i64 %.14588.i440, 10
-  %849 = add nsw i64 %845, %848
+  %848 = mul nuw nsw i64 %.14588.i440, 10
+  %849 = add nuw nsw i64 %845, %848
   br label %850
 
 850:                                              ; preds = %847, %689
@@ -9289,8 +9289,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %855, label %856, label %976, !prof !22
 
 856:                                              ; preds = %850
-  %857 = mul nsw i64 %.15589.i442, 10
-  %858 = add nsw i64 %854, %857
+  %857 = mul nuw nsw i64 %.15589.i442, 10
+  %858 = add nuw nsw i64 %854, %857
   br label %859
 
 859:                                              ; preds = %856, %700
@@ -9305,8 +9305,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %864, label %865, label %976, !prof !22
 
 865:                                              ; preds = %859
-  %866 = mul nsw i64 %.16590.i444, 10
-  %867 = add nsw i64 %863, %866
+  %866 = mul nuw nsw i64 %.16590.i444, 10
+  %867 = add nuw nsw i64 %863, %866
   br label %868
 
 868:                                              ; preds = %865, %711
@@ -9321,8 +9321,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %873, label %874, label %976, !prof !22
 
 874:                                              ; preds = %868
-  %875 = mul i64 %.17591.i446, 10
-  %876 = add i64 %872, %875
+  %875 = mul nuw nsw i64 %.17591.i446, 10
+  %876 = add nuw nsw i64 %872, %875
   br label %877
 
 877:                                              ; preds = %874, %722
@@ -9337,8 +9337,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   br i1 %882, label %883, label %976, !prof !22
 
 883:                                              ; preds = %877
-  %884 = mul i64 %.18592.i448, 10
-  %885 = add i64 %881, %884
+  %884 = mul nuw i64 %.18592.i448, 10
+  %885 = add nuw i64 %881, %884
   %886 = getelementptr inbounds nuw i8, ptr %.283171, i64 20
   %887 = load i8, ptr %886, align 1, !tbaa !75
   %888 = add i8 %887, -58
@@ -9367,13 +9367,13 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
 
 901:                                              ; preds = %898
   %902 = icmp eq i64 %502, 1844674407370955161
-  %903 = icmp ult i64 %899, 6
+  %903 = icmp samesign ult i64 %899, 6
   %or.cond5.i462 = select i1 %902, i1 %903, i1 false
   br i1 %or.cond5.i462, label %904, label %919
 
 904:                                              ; preds = %901, %898
   %905 = mul nuw i64 %502, 10
-  %906 = add i64 %899, %905
+  %906 = add nsw i64 %899, %905
   br i1 %245, label %907, label %917
 
 907:                                              ; preds = %904
@@ -9448,7 +9448,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
 934:                                              ; preds = %930
   %935 = icmp ugt i8 %929, 52
   %936 = zext i1 %935 to i64
-  %937 = add i64 %.20594.i450, %936
+  %937 = add nuw i64 %.20594.i450, %936
   %.not674.i452 = icmp eq ptr %.20.i451, null
   br i1 %.not674.i452, label %938, label %.loopexit4164
 
@@ -15401,8 +15401,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %3833, label %3834, label %4044, !prof !22
 
 3834:                                             ; preds = %3826
-  %3835 = mul i64 %3828, 10
-  %3836 = add i64 %3832, %3835
+  %3835 = mul nuw nsw i64 %3828, 10
+  %3836 = add nuw nsw i64 %3832, %3835
   %3837 = getelementptr inbounds nuw i8, ptr %3589, i64 18
   %3838 = load i8, ptr %3837, align 1, !tbaa !75
   %3839 = zext i8 %3838 to i64
@@ -15411,8 +15411,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %3841, label %3842, label %4055, !prof !22
 
 3842:                                             ; preds = %3834
-  %3843 = mul i64 %3836, 10
-  %3844 = add i64 %3840, %3843
+  %3843 = mul nuw i64 %3836, 10
+  %3844 = add nuw i64 %3840, %3843
   %3845 = getelementptr inbounds nuw i8, ptr %3589, i64 19
   %3846 = load i8, ptr %3845, align 1, !tbaa !75
   %3847 = zext i8 %3846 to i64
@@ -15813,7 +15813,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 4059:                                             ; preds = %4055
   %4060 = select i1 %3587, i64 12, i64 4
   store i64 %4060, ptr %3582, align 8, !tbaa !73
-  %4061 = sub i64 0, %3836
+  %4061 = sub nsw i64 0, %3836
   %4062 = select i1 %3587, i64 %4061, i64 %3836
   %4063 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store i64 %4062, ptr %4063, align 8, !tbaa !75
@@ -15835,8 +15835,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4071, label %4072, label %4318, !prof !22
 
 4072:                                             ; preds = %4066
-  %4073 = mul nsw i64 %.0574.i469, 10
-  %4074 = add nsw i64 %4070, %4073
+  %4073 = mul nuw nsw i64 %.0574.i469, 10
+  %4074 = add nuw nsw i64 %4070, %4073
   br label %4075
 
 4075:                                             ; preds = %4072, %3888
@@ -15851,8 +15851,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4080, label %4081, label %4318, !prof !22
 
 4081:                                             ; preds = %4075
-  %4082 = mul nsw i64 %.2576.i523, 10
-  %4083 = add nsw i64 %4079, %4082
+  %4082 = mul nuw nsw i64 %.2576.i523, 10
+  %4083 = add nuw nsw i64 %4079, %4082
   br label %4084
 
 4084:                                             ; preds = %4081, %3899
@@ -15867,8 +15867,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4089, label %4090, label %4318, !prof !22
 
 4090:                                             ; preds = %4084
-  %4091 = mul nsw i64 %.3577.i525, 10
-  %4092 = add nsw i64 %4088, %4091
+  %4091 = mul nuw nsw i64 %.3577.i525, 10
+  %4092 = add nuw nsw i64 %4088, %4091
   br label %4093
 
 4093:                                             ; preds = %4090, %3910
@@ -15883,8 +15883,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4098, label %4099, label %4318, !prof !22
 
 4099:                                             ; preds = %4093
-  %4100 = mul nsw i64 %.4578.i527, 10
-  %4101 = add nsw i64 %4097, %4100
+  %4100 = mul nuw nsw i64 %.4578.i527, 10
+  %4101 = add nuw nsw i64 %4097, %4100
   br label %4102
 
 4102:                                             ; preds = %4099, %3921
@@ -15899,8 +15899,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4107, label %4108, label %4318, !prof !22
 
 4108:                                             ; preds = %4102
-  %4109 = mul nsw i64 %.5579.i529, 10
-  %4110 = add nsw i64 %4106, %4109
+  %4109 = mul nuw nsw i64 %.5579.i529, 10
+  %4110 = add nuw nsw i64 %4106, %4109
   br label %4111
 
 4111:                                             ; preds = %4108, %3932
@@ -15915,8 +15915,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4116, label %4117, label %4318, !prof !22
 
 4117:                                             ; preds = %4111
-  %4118 = mul nsw i64 %.6580.i531, 10
-  %4119 = add nsw i64 %4115, %4118
+  %4118 = mul nuw nsw i64 %.6580.i531, 10
+  %4119 = add nuw nsw i64 %4115, %4118
   br label %4120
 
 4120:                                             ; preds = %4117, %3943
@@ -15931,8 +15931,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4125, label %4126, label %4318, !prof !22
 
 4126:                                             ; preds = %4120
-  %4127 = mul nsw i64 %.7581.i533, 10
-  %4128 = add nsw i64 %4124, %4127
+  %4127 = mul nuw nsw i64 %.7581.i533, 10
+  %4128 = add nuw nsw i64 %4124, %4127
   br label %4129
 
 4129:                                             ; preds = %4126, %3954
@@ -15947,8 +15947,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4134, label %4135, label %4318, !prof !22
 
 4135:                                             ; preds = %4129
-  %4136 = mul nsw i64 %.8582.i535, 10
-  %4137 = add nsw i64 %4133, %4136
+  %4136 = mul nuw nsw i64 %.8582.i535, 10
+  %4137 = add nuw nsw i64 %4133, %4136
   br label %4138
 
 4138:                                             ; preds = %4135, %3965
@@ -15963,8 +15963,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4143, label %4144, label %4318, !prof !22
 
 4144:                                             ; preds = %4138
-  %4145 = mul nsw i64 %.9583.i537, 10
-  %4146 = add nsw i64 %4142, %4145
+  %4145 = mul nuw nsw i64 %.9583.i537, 10
+  %4146 = add nuw nsw i64 %4142, %4145
   br label %4147
 
 4147:                                             ; preds = %4144, %3976
@@ -15979,8 +15979,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4152, label %4153, label %4318, !prof !22
 
 4153:                                             ; preds = %4147
-  %4154 = mul nsw i64 %.10584.i539, 10
-  %4155 = add nsw i64 %4151, %4154
+  %4154 = mul nuw nsw i64 %.10584.i539, 10
+  %4155 = add nuw nsw i64 %4151, %4154
   br label %4156
 
 4156:                                             ; preds = %4153, %3987
@@ -15995,8 +15995,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4161, label %4162, label %4318, !prof !22
 
 4162:                                             ; preds = %4156
-  %4163 = mul nsw i64 %.11585.i541, 10
-  %4164 = add nsw i64 %4160, %4163
+  %4163 = mul nuw nsw i64 %.11585.i541, 10
+  %4164 = add nuw nsw i64 %4160, %4163
   br label %4165
 
 4165:                                             ; preds = %4162, %3998
@@ -16011,8 +16011,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4170, label %4171, label %4318, !prof !22
 
 4171:                                             ; preds = %4165
-  %4172 = mul nsw i64 %.12586.i543, 10
-  %4173 = add nsw i64 %4169, %4172
+  %4172 = mul nuw nsw i64 %.12586.i543, 10
+  %4173 = add nuw nsw i64 %4169, %4172
   br label %4174
 
 4174:                                             ; preds = %4171, %4009
@@ -16027,8 +16027,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4179, label %4180, label %4318, !prof !22
 
 4180:                                             ; preds = %4174
-  %4181 = mul nsw i64 %.13587.i545, 10
-  %4182 = add nsw i64 %4178, %4181
+  %4181 = mul nuw nsw i64 %.13587.i545, 10
+  %4182 = add nuw nsw i64 %4178, %4181
   br label %4183
 
 4183:                                             ; preds = %4180, %4020
@@ -16043,8 +16043,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4188, label %4189, label %4318, !prof !22
 
 4189:                                             ; preds = %4183
-  %4190 = mul nsw i64 %.14588.i547, 10
-  %4191 = add nsw i64 %4187, %4190
+  %4190 = mul nuw nsw i64 %.14588.i547, 10
+  %4191 = add nuw nsw i64 %4187, %4190
   br label %4192
 
 4192:                                             ; preds = %4189, %4031
@@ -16059,8 +16059,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4197, label %4198, label %4318, !prof !22
 
 4198:                                             ; preds = %4192
-  %4199 = mul nsw i64 %.15589.i549, 10
-  %4200 = add nsw i64 %4196, %4199
+  %4199 = mul nuw nsw i64 %.15589.i549, 10
+  %4200 = add nuw nsw i64 %4196, %4199
   br label %4201
 
 4201:                                             ; preds = %4198, %4042
@@ -16075,8 +16075,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4206, label %4207, label %4318, !prof !22
 
 4207:                                             ; preds = %4201
-  %4208 = mul nsw i64 %.16590.i551, 10
-  %4209 = add nsw i64 %4205, %4208
+  %4208 = mul nuw nsw i64 %.16590.i551, 10
+  %4209 = add nuw nsw i64 %4205, %4208
   br label %4210
 
 4210:                                             ; preds = %4207, %4053
@@ -16091,8 +16091,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4215, label %4216, label %4318, !prof !22
 
 4216:                                             ; preds = %4210
-  %4217 = mul i64 %.17591.i553, 10
-  %4218 = add i64 %4214, %4217
+  %4217 = mul nuw nsw i64 %.17591.i553, 10
+  %4218 = add nuw nsw i64 %4214, %4217
   br label %4219
 
 4219:                                             ; preds = %4216, %4064
@@ -16107,8 +16107,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %4224, label %4225, label %4318, !prof !22
 
 4225:                                             ; preds = %4219
-  %4226 = mul i64 %.18592.i555, 10
-  %4227 = add i64 %4223, %4226
+  %4226 = mul nuw i64 %.18592.i555, 10
+  %4227 = add nuw i64 %4223, %4226
   %4228 = getelementptr inbounds nuw i8, ptr %.28, i64 20
   %4229 = load i8, ptr %4228, align 1, !tbaa !75
   %4230 = add i8 %4229, -58
@@ -16137,13 +16137,13 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 
 4243:                                             ; preds = %4240
   %4244 = icmp eq i64 %3844, 1844674407370955161
-  %4245 = icmp ult i64 %4241, 6
+  %4245 = icmp samesign ult i64 %4241, 6
   %or.cond5.i569 = select i1 %4244, i1 %4245, i1 false
   br i1 %or.cond5.i569, label %4246, label %4261
 
 4246:                                             ; preds = %4243, %4240
   %4247 = mul nuw i64 %3844, 10
-  %4248 = add i64 %4241, %4247
+  %4248 = add nsw i64 %4241, %4247
   br i1 %3587, label %4249, label %4259
 
 4249:                                             ; preds = %4246
@@ -16218,7 +16218,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 4276:                                             ; preds = %4272
   %4277 = icmp ugt i8 %4271, 52
   %4278 = zext i1 %4277 to i64
-  %4279 = add i64 %.20594.i557, %4278
+  %4279 = add nuw i64 %.20594.i557, %4278
   %.not674.i559 = icmp eq ptr %.20.i558, null
   br i1 %.not674.i559, label %4280, label %.loopexit4204
 
@@ -18804,8 +18804,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5417, label %5418, label %5628, !prof !22
 
 5418:                                             ; preds = %5410
-  %5419 = mul i64 %5412, 10
-  %5420 = add i64 %5416, %5419
+  %5419 = mul nuw nsw i64 %5412, 10
+  %5420 = add nuw nsw i64 %5416, %5419
   %5421 = getelementptr inbounds nuw i8, ptr %5173, i64 18
   %5422 = load i8, ptr %5421, align 1, !tbaa !75
   %5423 = zext i8 %5422 to i64
@@ -18814,8 +18814,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5425, label %5426, label %5639, !prof !22
 
 5426:                                             ; preds = %5418
-  %5427 = mul i64 %5420, 10
-  %5428 = add i64 %5424, %5427
+  %5427 = mul nuw i64 %5420, 10
+  %5428 = add nuw i64 %5424, %5427
   %5429 = getelementptr inbounds nuw i8, ptr %5173, i64 19
   %5430 = load i8, ptr %5429, align 1, !tbaa !75
   %5431 = zext i8 %5430 to i64
@@ -19216,7 +19216,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
 5643:                                             ; preds = %5639
   %5644 = select i1 %5171, i64 12, i64 4
   store i64 %5644, ptr %.7498.i, align 8, !tbaa !73
-  %5645 = sub i64 0, %5420
+  %5645 = sub nsw i64 0, %5420
   %5646 = select i1 %5171, i64 %5645, i64 %5420
   %5647 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store i64 %5646, ptr %5647, align 8, !tbaa !75
@@ -19238,8 +19238,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5655, label %5656, label %5902, !prof !22
 
 5656:                                             ; preds = %5650
-  %5657 = mul nsw i64 %.0574.i, 10
-  %5658 = add nsw i64 %5654, %5657
+  %5657 = mul nuw nsw i64 %.0574.i, 10
+  %5658 = add nuw nsw i64 %5654, %5657
   br label %5659
 
 5659:                                             ; preds = %5656, %5472
@@ -19254,8 +19254,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5664, label %5665, label %5902, !prof !22
 
 5665:                                             ; preds = %5659
-  %5666 = mul nsw i64 %.2576.i, 10
-  %5667 = add nsw i64 %5663, %5666
+  %5666 = mul nuw nsw i64 %.2576.i, 10
+  %5667 = add nuw nsw i64 %5663, %5666
   br label %5668
 
 5668:                                             ; preds = %5665, %5483
@@ -19270,8 +19270,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5673, label %5674, label %5902, !prof !22
 
 5674:                                             ; preds = %5668
-  %5675 = mul nsw i64 %.3577.i, 10
-  %5676 = add nsw i64 %5672, %5675
+  %5675 = mul nuw nsw i64 %.3577.i, 10
+  %5676 = add nuw nsw i64 %5672, %5675
   br label %5677
 
 5677:                                             ; preds = %5674, %5494
@@ -19286,8 +19286,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5682, label %5683, label %5902, !prof !22
 
 5683:                                             ; preds = %5677
-  %5684 = mul nsw i64 %.4578.i, 10
-  %5685 = add nsw i64 %5681, %5684
+  %5684 = mul nuw nsw i64 %.4578.i, 10
+  %5685 = add nuw nsw i64 %5681, %5684
   br label %5686
 
 5686:                                             ; preds = %5683, %5505
@@ -19302,8 +19302,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5691, label %5692, label %5902, !prof !22
 
 5692:                                             ; preds = %5686
-  %5693 = mul nsw i64 %.5579.i, 10
-  %5694 = add nsw i64 %5690, %5693
+  %5693 = mul nuw nsw i64 %.5579.i, 10
+  %5694 = add nuw nsw i64 %5690, %5693
   br label %5695
 
 5695:                                             ; preds = %5692, %5516
@@ -19318,8 +19318,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5700, label %5701, label %5902, !prof !22
 
 5701:                                             ; preds = %5695
-  %5702 = mul nsw i64 %.6580.i, 10
-  %5703 = add nsw i64 %5699, %5702
+  %5702 = mul nuw nsw i64 %.6580.i, 10
+  %5703 = add nuw nsw i64 %5699, %5702
   br label %5704
 
 5704:                                             ; preds = %5701, %5527
@@ -19334,8 +19334,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5709, label %5710, label %5902, !prof !22
 
 5710:                                             ; preds = %5704
-  %5711 = mul nsw i64 %.7581.i, 10
-  %5712 = add nsw i64 %5708, %5711
+  %5711 = mul nuw nsw i64 %.7581.i, 10
+  %5712 = add nuw nsw i64 %5708, %5711
   br label %5713
 
 5713:                                             ; preds = %5710, %5538
@@ -19350,8 +19350,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5718, label %5719, label %5902, !prof !22
 
 5719:                                             ; preds = %5713
-  %5720 = mul nsw i64 %.8582.i, 10
-  %5721 = add nsw i64 %5717, %5720
+  %5720 = mul nuw nsw i64 %.8582.i, 10
+  %5721 = add nuw nsw i64 %5717, %5720
   br label %5722
 
 5722:                                             ; preds = %5719, %5549
@@ -19366,8 +19366,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5727, label %5728, label %5902, !prof !22
 
 5728:                                             ; preds = %5722
-  %5729 = mul nsw i64 %.9583.i, 10
-  %5730 = add nsw i64 %5726, %5729
+  %5729 = mul nuw nsw i64 %.9583.i, 10
+  %5730 = add nuw nsw i64 %5726, %5729
   br label %5731
 
 5731:                                             ; preds = %5728, %5560
@@ -19382,8 +19382,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5736, label %5737, label %5902, !prof !22
 
 5737:                                             ; preds = %5731
-  %5738 = mul nsw i64 %.10584.i, 10
-  %5739 = add nsw i64 %5735, %5738
+  %5738 = mul nuw nsw i64 %.10584.i, 10
+  %5739 = add nuw nsw i64 %5735, %5738
   br label %5740
 
 5740:                                             ; preds = %5737, %5571
@@ -19398,8 +19398,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5745, label %5746, label %5902, !prof !22
 
 5746:                                             ; preds = %5740
-  %5747 = mul nsw i64 %.11585.i, 10
-  %5748 = add nsw i64 %5744, %5747
+  %5747 = mul nuw nsw i64 %.11585.i, 10
+  %5748 = add nuw nsw i64 %5744, %5747
   br label %5749
 
 5749:                                             ; preds = %5746, %5582
@@ -19414,8 +19414,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5754, label %5755, label %5902, !prof !22
 
 5755:                                             ; preds = %5749
-  %5756 = mul nsw i64 %.12586.i, 10
-  %5757 = add nsw i64 %5753, %5756
+  %5756 = mul nuw nsw i64 %.12586.i, 10
+  %5757 = add nuw nsw i64 %5753, %5756
   br label %5758
 
 5758:                                             ; preds = %5755, %5593
@@ -19430,8 +19430,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5763, label %5764, label %5902, !prof !22
 
 5764:                                             ; preds = %5758
-  %5765 = mul nsw i64 %.13587.i, 10
-  %5766 = add nsw i64 %5762, %5765
+  %5765 = mul nuw nsw i64 %.13587.i, 10
+  %5766 = add nuw nsw i64 %5762, %5765
   br label %5767
 
 5767:                                             ; preds = %5764, %5604
@@ -19446,8 +19446,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5772, label %5773, label %5902, !prof !22
 
 5773:                                             ; preds = %5767
-  %5774 = mul nsw i64 %.14588.i, 10
-  %5775 = add nsw i64 %5771, %5774
+  %5774 = mul nuw nsw i64 %.14588.i, 10
+  %5775 = add nuw nsw i64 %5771, %5774
   br label %5776
 
 5776:                                             ; preds = %5773, %5615
@@ -19462,8 +19462,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5781, label %5782, label %5902, !prof !22
 
 5782:                                             ; preds = %5776
-  %5783 = mul nsw i64 %.15589.i, 10
-  %5784 = add nsw i64 %5780, %5783
+  %5783 = mul nuw nsw i64 %.15589.i, 10
+  %5784 = add nuw nsw i64 %5780, %5783
   br label %5785
 
 5785:                                             ; preds = %5782, %5626
@@ -19478,8 +19478,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5790, label %5791, label %5902, !prof !22
 
 5791:                                             ; preds = %5785
-  %5792 = mul nsw i64 %.16590.i, 10
-  %5793 = add nsw i64 %5789, %5792
+  %5792 = mul nuw nsw i64 %.16590.i, 10
+  %5793 = add nuw nsw i64 %5789, %5792
   br label %5794
 
 5794:                                             ; preds = %5791, %5637
@@ -19494,8 +19494,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5799, label %5800, label %5902, !prof !22
 
 5800:                                             ; preds = %5794
-  %5801 = mul i64 %.17591.i, 10
-  %5802 = add i64 %5798, %5801
+  %5801 = mul nuw nsw i64 %.17591.i, 10
+  %5802 = add nuw nsw i64 %5798, %5801
   br label %5803
 
 5803:                                             ; preds = %5800, %5648
@@ -19510,8 +19510,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   br i1 %5808, label %5809, label %5902, !prof !22
 
 5809:                                             ; preds = %5803
-  %5810 = mul i64 %.18592.i, 10
-  %5811 = add i64 %5807, %5810
+  %5810 = mul nuw i64 %.18592.i, 10
+  %5811 = add nuw i64 %5807, %5810
   %5812 = getelementptr inbounds nuw i8, ptr %.283209, i64 20
   %5813 = load i8, ptr %5812, align 1, !tbaa !75
   %5814 = add i8 %5813, -58
@@ -19540,13 +19540,13 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
 
 5827:                                             ; preds = %5824
   %5828 = icmp eq i64 %5428, 1844674407370955161
-  %5829 = icmp ult i64 %5825, 6
+  %5829 = icmp samesign ult i64 %5825, 6
   %or.cond5.i = select i1 %5828, i1 %5829, i1 false
   br i1 %or.cond5.i, label %5830, label %5845
 
 5830:                                             ; preds = %5827, %5824
   %5831 = mul nuw i64 %5428, 10
-  %5832 = add i64 %5825, %5831
+  %5832 = add nsw i64 %5825, %5831
   br i1 %5171, label %5833, label %5843
 
 5833:                                             ; preds = %5830
@@ -19621,7 +19621,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
 5860:                                             ; preds = %5856
   %5861 = icmp ugt i8 %5855, 52
   %5862 = zext i1 %5861 to i64
-  %5863 = add i64 %.20594.i, %5862
+  %5863 = add nuw i64 %.20594.i, %5862
   %.not674.i = icmp eq ptr %.20.i249, null
   br i1 %.not674.i, label %5864, label %.loopexit4069
 
@@ -25336,8 +25336,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %8682, label %8683, label %8893, !prof !22
 
 8683:                                             ; preds = %8675
-  %8684 = mul i64 %8677, 10
-  %8685 = add i64 %8681, %8684
+  %8684 = mul nuw nsw i64 %8677, 10
+  %8685 = add nuw nsw i64 %8681, %8684
   %8686 = getelementptr inbounds nuw i8, ptr %8438, i64 18
   %8687 = load i8, ptr %8686, align 1, !tbaa !75
   %8688 = zext i8 %8687 to i64
@@ -25346,8 +25346,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %8690, label %8691, label %8904, !prof !22
 
 8691:                                             ; preds = %8683
-  %8692 = mul i64 %8685, 10
-  %8693 = add i64 %8689, %8692
+  %8692 = mul nuw i64 %8685, 10
+  %8693 = add nuw i64 %8689, %8692
   %8694 = getelementptr inbounds nuw i8, ptr %8438, i64 19
   %8695 = load i8, ptr %8694, align 1, !tbaa !75
   %8696 = zext i8 %8695 to i64
@@ -25748,7 +25748,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
 8908:                                             ; preds = %8904
   %8909 = select i1 %8436, i64 12, i64 4
   store i64 %8909, ptr %8431, align 8, !tbaa !73
-  %8910 = sub i64 0, %8685
+  %8910 = sub nsw i64 0, %8685
   %8911 = select i1 %8436, i64 %8910, i64 %8685
   %8912 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store i64 %8911, ptr %8912, align 8, !tbaa !75
@@ -25770,8 +25770,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %8920, label %8921, label %9167, !prof !22
 
 8921:                                             ; preds = %8915
-  %8922 = mul nsw i64 %.0574.i255, 10
-  %8923 = add nsw i64 %8919, %8922
+  %8922 = mul nuw nsw i64 %.0574.i255, 10
+  %8923 = add nuw nsw i64 %8919, %8922
   br label %8924
 
 8924:                                             ; preds = %8921, %8737
@@ -25786,8 +25786,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %8929, label %8930, label %9167, !prof !22
 
 8930:                                             ; preds = %8924
-  %8931 = mul nsw i64 %.2576.i309, 10
-  %8932 = add nsw i64 %8928, %8931
+  %8931 = mul nuw nsw i64 %.2576.i309, 10
+  %8932 = add nuw nsw i64 %8928, %8931
   br label %8933
 
 8933:                                             ; preds = %8930, %8748
@@ -25802,8 +25802,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %8938, label %8939, label %9167, !prof !22
 
 8939:                                             ; preds = %8933
-  %8940 = mul nsw i64 %.3577.i311, 10
-  %8941 = add nsw i64 %8937, %8940
+  %8940 = mul nuw nsw i64 %.3577.i311, 10
+  %8941 = add nuw nsw i64 %8937, %8940
   br label %8942
 
 8942:                                             ; preds = %8939, %8759
@@ -25818,8 +25818,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %8947, label %8948, label %9167, !prof !22
 
 8948:                                             ; preds = %8942
-  %8949 = mul nsw i64 %.4578.i313, 10
-  %8950 = add nsw i64 %8946, %8949
+  %8949 = mul nuw nsw i64 %.4578.i313, 10
+  %8950 = add nuw nsw i64 %8946, %8949
   br label %8951
 
 8951:                                             ; preds = %8948, %8770
@@ -25834,8 +25834,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %8956, label %8957, label %9167, !prof !22
 
 8957:                                             ; preds = %8951
-  %8958 = mul nsw i64 %.5579.i315, 10
-  %8959 = add nsw i64 %8955, %8958
+  %8958 = mul nuw nsw i64 %.5579.i315, 10
+  %8959 = add nuw nsw i64 %8955, %8958
   br label %8960
 
 8960:                                             ; preds = %8957, %8781
@@ -25850,8 +25850,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %8965, label %8966, label %9167, !prof !22
 
 8966:                                             ; preds = %8960
-  %8967 = mul nsw i64 %.6580.i317, 10
-  %8968 = add nsw i64 %8964, %8967
+  %8967 = mul nuw nsw i64 %.6580.i317, 10
+  %8968 = add nuw nsw i64 %8964, %8967
   br label %8969
 
 8969:                                             ; preds = %8966, %8792
@@ -25866,8 +25866,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %8974, label %8975, label %9167, !prof !22
 
 8975:                                             ; preds = %8969
-  %8976 = mul nsw i64 %.7581.i319, 10
-  %8977 = add nsw i64 %8973, %8976
+  %8976 = mul nuw nsw i64 %.7581.i319, 10
+  %8977 = add nuw nsw i64 %8973, %8976
   br label %8978
 
 8978:                                             ; preds = %8975, %8803
@@ -25882,8 +25882,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %8983, label %8984, label %9167, !prof !22
 
 8984:                                             ; preds = %8978
-  %8985 = mul nsw i64 %.8582.i321, 10
-  %8986 = add nsw i64 %8982, %8985
+  %8985 = mul nuw nsw i64 %.8582.i321, 10
+  %8986 = add nuw nsw i64 %8982, %8985
   br label %8987
 
 8987:                                             ; preds = %8984, %8814
@@ -25898,8 +25898,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %8992, label %8993, label %9167, !prof !22
 
 8993:                                             ; preds = %8987
-  %8994 = mul nsw i64 %.9583.i323, 10
-  %8995 = add nsw i64 %8991, %8994
+  %8994 = mul nuw nsw i64 %.9583.i323, 10
+  %8995 = add nuw nsw i64 %8991, %8994
   br label %8996
 
 8996:                                             ; preds = %8993, %8825
@@ -25914,8 +25914,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %9001, label %9002, label %9167, !prof !22
 
 9002:                                             ; preds = %8996
-  %9003 = mul nsw i64 %.10584.i325, 10
-  %9004 = add nsw i64 %9000, %9003
+  %9003 = mul nuw nsw i64 %.10584.i325, 10
+  %9004 = add nuw nsw i64 %9000, %9003
   br label %9005
 
 9005:                                             ; preds = %9002, %8836
@@ -25930,8 +25930,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %9010, label %9011, label %9167, !prof !22
 
 9011:                                             ; preds = %9005
-  %9012 = mul nsw i64 %.11585.i327, 10
-  %9013 = add nsw i64 %9009, %9012
+  %9012 = mul nuw nsw i64 %.11585.i327, 10
+  %9013 = add nuw nsw i64 %9009, %9012
   br label %9014
 
 9014:                                             ; preds = %9011, %8847
@@ -25946,8 +25946,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %9019, label %9020, label %9167, !prof !22
 
 9020:                                             ; preds = %9014
-  %9021 = mul nsw i64 %.12586.i329, 10
-  %9022 = add nsw i64 %9018, %9021
+  %9021 = mul nuw nsw i64 %.12586.i329, 10
+  %9022 = add nuw nsw i64 %9018, %9021
   br label %9023
 
 9023:                                             ; preds = %9020, %8858
@@ -25962,8 +25962,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %9028, label %9029, label %9167, !prof !22
 
 9029:                                             ; preds = %9023
-  %9030 = mul nsw i64 %.13587.i331, 10
-  %9031 = add nsw i64 %9027, %9030
+  %9030 = mul nuw nsw i64 %.13587.i331, 10
+  %9031 = add nuw nsw i64 %9027, %9030
   br label %9032
 
 9032:                                             ; preds = %9029, %8869
@@ -25978,8 +25978,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %9037, label %9038, label %9167, !prof !22
 
 9038:                                             ; preds = %9032
-  %9039 = mul nsw i64 %.14588.i333, 10
-  %9040 = add nsw i64 %9036, %9039
+  %9039 = mul nuw nsw i64 %.14588.i333, 10
+  %9040 = add nuw nsw i64 %9036, %9039
   br label %9041
 
 9041:                                             ; preds = %9038, %8880
@@ -25994,8 +25994,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %9046, label %9047, label %9167, !prof !22
 
 9047:                                             ; preds = %9041
-  %9048 = mul nsw i64 %.15589.i335, 10
-  %9049 = add nsw i64 %9045, %9048
+  %9048 = mul nuw nsw i64 %.15589.i335, 10
+  %9049 = add nuw nsw i64 %9045, %9048
   br label %9050
 
 9050:                                             ; preds = %9047, %8891
@@ -26010,8 +26010,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %9055, label %9056, label %9167, !prof !22
 
 9056:                                             ; preds = %9050
-  %9057 = mul nsw i64 %.16590.i337, 10
-  %9058 = add nsw i64 %9054, %9057
+  %9057 = mul nuw nsw i64 %.16590.i337, 10
+  %9058 = add nuw nsw i64 %9054, %9057
   br label %9059
 
 9059:                                             ; preds = %9056, %8902
@@ -26026,8 +26026,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %9064, label %9065, label %9167, !prof !22
 
 9065:                                             ; preds = %9059
-  %9066 = mul i64 %.17591.i339, 10
-  %9067 = add i64 %9063, %9066
+  %9066 = mul nuw nsw i64 %.17591.i339, 10
+  %9067 = add nuw nsw i64 %9063, %9066
   br label %9068
 
 9068:                                             ; preds = %9065, %8913
@@ -26042,8 +26042,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   br i1 %9073, label %9074, label %9167, !prof !22
 
 9074:                                             ; preds = %9068
-  %9075 = mul i64 %.18592.i341, 10
-  %9076 = add i64 %9072, %9075
+  %9075 = mul nuw i64 %.18592.i341, 10
+  %9076 = add nuw i64 %9072, %9075
   %9077 = getelementptr inbounds nuw i8, ptr %.283247, i64 20
   %9078 = load i8, ptr %9077, align 1, !tbaa !75
   %9079 = add i8 %9078, -58
@@ -26072,13 +26072,13 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
 
 9092:                                             ; preds = %9089
   %9093 = icmp eq i64 %8693, 1844674407370955161
-  %9094 = icmp ult i64 %9090, 6
+  %9094 = icmp samesign ult i64 %9090, 6
   %or.cond5.i355 = select i1 %9093, i1 %9094, i1 false
   br i1 %or.cond5.i355, label %9095, label %9110
 
 9095:                                             ; preds = %9092, %9089
   %9096 = mul nuw i64 %8693, 10
-  %9097 = add i64 %9090, %9096
+  %9097 = add nsw i64 %9090, %9096
   br i1 %8436, label %9098, label %9108
 
 9098:                                             ; preds = %9095
@@ -26153,7 +26153,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
 9125:                                             ; preds = %9121
   %9126 = icmp ugt i8 %9120, 52
   %9127 = zext i1 %9126 to i64
-  %9128 = add i64 %.20594.i343, %9127
+  %9128 = add nuw i64 %.20594.i343, %9127
   %.not674.i345 = icmp eq ptr %.20.i344, null
   br i1 %.not674.i345, label %9129, label %.loopexit4109
 
@@ -28816,8 +28816,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %276, label %277, label %487, !prof !22
 
 277:                                              ; preds = %269
-  %278 = mul i64 %271, 10
-  %279 = add i64 %275, %278
+  %278 = mul nuw nsw i64 %271, 10
+  %279 = add nuw nsw i64 %275, %278
   %280 = getelementptr inbounds nuw i8, ptr %32, i64 18
   %281 = load i8, ptr %280, align 1, !tbaa !75
   %282 = zext i8 %281 to i64
@@ -28826,8 +28826,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %284, label %285, label %498, !prof !22
 
 285:                                              ; preds = %277
-  %286 = mul i64 %279, 10
-  %287 = add i64 %283, %286
+  %286 = mul nuw i64 %279, 10
+  %287 = add nuw i64 %283, %286
   %288 = getelementptr inbounds nuw i8, ptr %32, i64 19
   %289 = load i8, ptr %288, align 1, !tbaa !75
   %290 = zext i8 %289 to i64
@@ -29228,7 +29228,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 502:                                              ; preds = %498
   %503 = select i1 %30, i64 12, i64 4
   store i64 %503, ptr %17, align 8, !tbaa !73
-  %504 = sub i64 0, %279
+  %504 = sub nsw i64 0, %279
   %505 = select i1 %30, i64 %504, i64 %279
   %506 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store i64 %505, ptr %506, align 8, !tbaa !75
@@ -29250,8 +29250,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %514, label %515, label %761, !prof !22
 
 515:                                              ; preds = %509
-  %516 = mul nsw i64 %.0574.i, 10
-  %517 = add nsw i64 %513, %516
+  %516 = mul nuw nsw i64 %.0574.i, 10
+  %517 = add nuw nsw i64 %513, %516
   br label %518
 
 518:                                              ; preds = %515, %331
@@ -29266,8 +29266,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %523, label %524, label %761, !prof !22
 
 524:                                              ; preds = %518
-  %525 = mul nsw i64 %.2576.i, 10
-  %526 = add nsw i64 %522, %525
+  %525 = mul nuw nsw i64 %.2576.i, 10
+  %526 = add nuw nsw i64 %522, %525
   br label %527
 
 527:                                              ; preds = %524, %342
@@ -29282,8 +29282,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %532, label %533, label %761, !prof !22
 
 533:                                              ; preds = %527
-  %534 = mul nsw i64 %.3577.i, 10
-  %535 = add nsw i64 %531, %534
+  %534 = mul nuw nsw i64 %.3577.i, 10
+  %535 = add nuw nsw i64 %531, %534
   br label %536
 
 536:                                              ; preds = %533, %353
@@ -29298,8 +29298,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %541, label %542, label %761, !prof !22
 
 542:                                              ; preds = %536
-  %543 = mul nsw i64 %.4578.i, 10
-  %544 = add nsw i64 %540, %543
+  %543 = mul nuw nsw i64 %.4578.i, 10
+  %544 = add nuw nsw i64 %540, %543
   br label %545
 
 545:                                              ; preds = %542, %364
@@ -29314,8 +29314,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %550, label %551, label %761, !prof !22
 
 551:                                              ; preds = %545
-  %552 = mul nsw i64 %.5579.i, 10
-  %553 = add nsw i64 %549, %552
+  %552 = mul nuw nsw i64 %.5579.i, 10
+  %553 = add nuw nsw i64 %549, %552
   br label %554
 
 554:                                              ; preds = %551, %375
@@ -29330,8 +29330,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %559, label %560, label %761, !prof !22
 
 560:                                              ; preds = %554
-  %561 = mul nsw i64 %.6580.i, 10
-  %562 = add nsw i64 %558, %561
+  %561 = mul nuw nsw i64 %.6580.i, 10
+  %562 = add nuw nsw i64 %558, %561
   br label %563
 
 563:                                              ; preds = %560, %386
@@ -29346,8 +29346,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %568, label %569, label %761, !prof !22
 
 569:                                              ; preds = %563
-  %570 = mul nsw i64 %.7581.i, 10
-  %571 = add nsw i64 %567, %570
+  %570 = mul nuw nsw i64 %.7581.i, 10
+  %571 = add nuw nsw i64 %567, %570
   br label %572
 
 572:                                              ; preds = %569, %397
@@ -29362,8 +29362,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %577, label %578, label %761, !prof !22
 
 578:                                              ; preds = %572
-  %579 = mul nsw i64 %.8582.i, 10
-  %580 = add nsw i64 %576, %579
+  %579 = mul nuw nsw i64 %.8582.i, 10
+  %580 = add nuw nsw i64 %576, %579
   br label %581
 
 581:                                              ; preds = %578, %408
@@ -29378,8 +29378,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %586, label %587, label %761, !prof !22
 
 587:                                              ; preds = %581
-  %588 = mul nsw i64 %.9583.i, 10
-  %589 = add nsw i64 %585, %588
+  %588 = mul nuw nsw i64 %.9583.i, 10
+  %589 = add nuw nsw i64 %585, %588
   br label %590
 
 590:                                              ; preds = %587, %419
@@ -29394,8 +29394,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %595, label %596, label %761, !prof !22
 
 596:                                              ; preds = %590
-  %597 = mul nsw i64 %.10584.i, 10
-  %598 = add nsw i64 %594, %597
+  %597 = mul nuw nsw i64 %.10584.i, 10
+  %598 = add nuw nsw i64 %594, %597
   br label %599
 
 599:                                              ; preds = %596, %430
@@ -29410,8 +29410,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %604, label %605, label %761, !prof !22
 
 605:                                              ; preds = %599
-  %606 = mul nsw i64 %.11585.i, 10
-  %607 = add nsw i64 %603, %606
+  %606 = mul nuw nsw i64 %.11585.i, 10
+  %607 = add nuw nsw i64 %603, %606
   br label %608
 
 608:                                              ; preds = %605, %441
@@ -29426,8 +29426,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %613, label %614, label %761, !prof !22
 
 614:                                              ; preds = %608
-  %615 = mul nsw i64 %.12586.i, 10
-  %616 = add nsw i64 %612, %615
+  %615 = mul nuw nsw i64 %.12586.i, 10
+  %616 = add nuw nsw i64 %612, %615
   br label %617
 
 617:                                              ; preds = %614, %452
@@ -29442,8 +29442,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %622, label %623, label %761, !prof !22
 
 623:                                              ; preds = %617
-  %624 = mul nsw i64 %.13587.i, 10
-  %625 = add nsw i64 %621, %624
+  %624 = mul nuw nsw i64 %.13587.i, 10
+  %625 = add nuw nsw i64 %621, %624
   br label %626
 
 626:                                              ; preds = %623, %463
@@ -29458,8 +29458,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %631, label %632, label %761, !prof !22
 
 632:                                              ; preds = %626
-  %633 = mul nsw i64 %.14588.i, 10
-  %634 = add nsw i64 %630, %633
+  %633 = mul nuw nsw i64 %.14588.i, 10
+  %634 = add nuw nsw i64 %630, %633
   br label %635
 
 635:                                              ; preds = %632, %474
@@ -29474,8 +29474,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %640, label %641, label %761, !prof !22
 
 641:                                              ; preds = %635
-  %642 = mul nsw i64 %.15589.i, 10
-  %643 = add nsw i64 %639, %642
+  %642 = mul nuw nsw i64 %.15589.i, 10
+  %643 = add nuw nsw i64 %639, %642
   br label %644
 
 644:                                              ; preds = %641, %485
@@ -29490,8 +29490,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %649, label %650, label %761, !prof !22
 
 650:                                              ; preds = %644
-  %651 = mul nsw i64 %.16590.i, 10
-  %652 = add nsw i64 %648, %651
+  %651 = mul nuw nsw i64 %.16590.i, 10
+  %652 = add nuw nsw i64 %648, %651
   br label %653
 
 653:                                              ; preds = %650, %496
@@ -29506,8 +29506,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %658, label %659, label %761, !prof !22
 
 659:                                              ; preds = %653
-  %660 = mul i64 %.17591.i, 10
-  %661 = add i64 %657, %660
+  %660 = mul nuw nsw i64 %.17591.i, 10
+  %661 = add nuw nsw i64 %657, %660
   br label %662
 
 662:                                              ; preds = %659, %507
@@ -29522,8 +29522,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   br i1 %667, label %668, label %761, !prof !22
 
 668:                                              ; preds = %662
-  %669 = mul i64 %.18592.i, 10
-  %670 = add i64 %666, %669
+  %669 = mul nuw i64 %.18592.i, 10
+  %670 = add nuw i64 %666, %669
   %671 = getelementptr inbounds nuw i8, ptr %.28, i64 20
   %672 = load i8, ptr %671, align 1, !tbaa !75
   %673 = add i8 %672, -58
@@ -29552,13 +29552,13 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 
 686:                                              ; preds = %683
   %687 = icmp eq i64 %287, 1844674407370955161
-  %688 = icmp ult i64 %684, 6
+  %688 = icmp samesign ult i64 %684, 6
   %or.cond5.i = select i1 %687, i1 %688, i1 false
   br i1 %or.cond5.i, label %689, label %704
 
 689:                                              ; preds = %686, %683
   %690 = mul nuw i64 %287, 10
-  %691 = add i64 %684, %690
+  %691 = add nsw i64 %684, %690
   br i1 %30, label %692, label %702
 
 692:                                              ; preds = %689
@@ -29633,7 +29633,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 719:                                              ; preds = %715
   %720 = icmp ugt i8 %714, 52
   %721 = zext i1 %720 to i64
-  %722 = add i64 %.20594.i, %721
+  %722 = add nuw i64 %.20594.i, %721
   %.not674.i = icmp eq ptr %.20.i, null
   br i1 %.not674.i, label %723, label %.loopexit708
 
@@ -33150,8 +33150,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %258, label %259, label %466, !prof !22
 
 259:                                              ; preds = %251
-  %260 = mul i64 %253, 10
-  %261 = add i64 %257, %260
+  %260 = mul nuw nsw i64 %253, 10
+  %261 = add nuw nsw i64 %257, %260
   %262 = getelementptr inbounds nuw i8, ptr %24, i64 18
   %263 = load i8, ptr %262, align 1, !tbaa !75
   %264 = zext i8 %263 to i64
@@ -33160,8 +33160,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %266, label %267, label %477, !prof !22
 
 267:                                              ; preds = %259
-  %268 = mul i64 %261, 10
-  %269 = add i64 %265, %268
+  %268 = mul nuw i64 %261, 10
+  %269 = add nuw i64 %265, %268
   %270 = getelementptr inbounds nuw i8, ptr %24, i64 19
   %271 = load i8, ptr %270, align 1, !tbaa !75
   %272 = zext i8 %271 to i64
@@ -33552,7 +33552,7 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
 481:                                              ; preds = %477
   %482 = select i1 %22, i64 12, i64 4
   store i64 %482, ptr %1, align 8, !tbaa !73
-  %483 = sub i64 0, %261
+  %483 = sub nsw i64 0, %261
   %484 = select i1 %22, i64 %483, i64 %261
   %485 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %484, ptr %485, align 8, !tbaa !75
@@ -33574,8 +33574,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %493, label %494, label %731, !prof !22
 
 494:                                              ; preds = %488
-  %495 = mul nsw i64 %.0574.i, 10
-  %496 = add nsw i64 %492, %495
+  %495 = mul nuw nsw i64 %.0574.i, 10
+  %496 = add nuw nsw i64 %492, %495
   br label %497
 
 497:                                              ; preds = %494, %310
@@ -33590,8 +33590,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %502, label %503, label %731, !prof !22
 
 503:                                              ; preds = %497
-  %504 = mul nsw i64 %.2576.i, 10
-  %505 = add nsw i64 %501, %504
+  %504 = mul nuw nsw i64 %.2576.i, 10
+  %505 = add nuw nsw i64 %501, %504
   br label %506
 
 506:                                              ; preds = %503, %321
@@ -33606,8 +33606,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %511, label %512, label %731, !prof !22
 
 512:                                              ; preds = %506
-  %513 = mul nsw i64 %.3577.i, 10
-  %514 = add nsw i64 %510, %513
+  %513 = mul nuw nsw i64 %.3577.i, 10
+  %514 = add nuw nsw i64 %510, %513
   br label %515
 
 515:                                              ; preds = %512, %332
@@ -33622,8 +33622,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %520, label %521, label %731, !prof !22
 
 521:                                              ; preds = %515
-  %522 = mul nsw i64 %.4578.i, 10
-  %523 = add nsw i64 %519, %522
+  %522 = mul nuw nsw i64 %.4578.i, 10
+  %523 = add nuw nsw i64 %519, %522
   br label %524
 
 524:                                              ; preds = %521, %343
@@ -33638,8 +33638,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %529, label %530, label %731, !prof !22
 
 530:                                              ; preds = %524
-  %531 = mul nsw i64 %.5579.i, 10
-  %532 = add nsw i64 %528, %531
+  %531 = mul nuw nsw i64 %.5579.i, 10
+  %532 = add nuw nsw i64 %528, %531
   br label %533
 
 533:                                              ; preds = %530, %354
@@ -33654,8 +33654,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %538, label %539, label %731, !prof !22
 
 539:                                              ; preds = %533
-  %540 = mul nsw i64 %.6580.i, 10
-  %541 = add nsw i64 %537, %540
+  %540 = mul nuw nsw i64 %.6580.i, 10
+  %541 = add nuw nsw i64 %537, %540
   br label %542
 
 542:                                              ; preds = %539, %365
@@ -33670,8 +33670,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %547, label %548, label %731, !prof !22
 
 548:                                              ; preds = %542
-  %549 = mul nsw i64 %.7581.i, 10
-  %550 = add nsw i64 %546, %549
+  %549 = mul nuw nsw i64 %.7581.i, 10
+  %550 = add nuw nsw i64 %546, %549
   br label %551
 
 551:                                              ; preds = %548, %376
@@ -33686,8 +33686,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %556, label %557, label %731, !prof !22
 
 557:                                              ; preds = %551
-  %558 = mul nsw i64 %.8582.i, 10
-  %559 = add nsw i64 %555, %558
+  %558 = mul nuw nsw i64 %.8582.i, 10
+  %559 = add nuw nsw i64 %555, %558
   br label %560
 
 560:                                              ; preds = %557, %387
@@ -33702,8 +33702,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %565, label %566, label %731, !prof !22
 
 566:                                              ; preds = %560
-  %567 = mul nsw i64 %.9583.i, 10
-  %568 = add nsw i64 %564, %567
+  %567 = mul nuw nsw i64 %.9583.i, 10
+  %568 = add nuw nsw i64 %564, %567
   br label %569
 
 569:                                              ; preds = %566, %398
@@ -33718,8 +33718,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %574, label %575, label %731, !prof !22
 
 575:                                              ; preds = %569
-  %576 = mul nsw i64 %.10584.i, 10
-  %577 = add nsw i64 %573, %576
+  %576 = mul nuw nsw i64 %.10584.i, 10
+  %577 = add nuw nsw i64 %573, %576
   br label %578
 
 578:                                              ; preds = %575, %409
@@ -33734,8 +33734,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %583, label %584, label %731, !prof !22
 
 584:                                              ; preds = %578
-  %585 = mul nsw i64 %.11585.i, 10
-  %586 = add nsw i64 %582, %585
+  %585 = mul nuw nsw i64 %.11585.i, 10
+  %586 = add nuw nsw i64 %582, %585
   br label %587
 
 587:                                              ; preds = %584, %420
@@ -33750,8 +33750,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %592, label %593, label %731, !prof !22
 
 593:                                              ; preds = %587
-  %594 = mul nsw i64 %.12586.i, 10
-  %595 = add nsw i64 %591, %594
+  %594 = mul nuw nsw i64 %.12586.i, 10
+  %595 = add nuw nsw i64 %591, %594
   br label %596
 
 596:                                              ; preds = %593, %431
@@ -33766,8 +33766,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %601, label %602, label %731, !prof !22
 
 602:                                              ; preds = %596
-  %603 = mul nsw i64 %.13587.i, 10
-  %604 = add nsw i64 %600, %603
+  %603 = mul nuw nsw i64 %.13587.i, 10
+  %604 = add nuw nsw i64 %600, %603
   br label %605
 
 605:                                              ; preds = %602, %442
@@ -33782,8 +33782,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %610, label %611, label %731, !prof !22
 
 611:                                              ; preds = %605
-  %612 = mul nsw i64 %.14588.i, 10
-  %613 = add nsw i64 %609, %612
+  %612 = mul nuw nsw i64 %.14588.i, 10
+  %613 = add nuw nsw i64 %609, %612
   br label %614
 
 614:                                              ; preds = %611, %453
@@ -33798,8 +33798,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %619, label %620, label %731, !prof !22
 
 620:                                              ; preds = %614
-  %621 = mul nsw i64 %.15589.i, 10
-  %622 = add nsw i64 %618, %621
+  %621 = mul nuw nsw i64 %.15589.i, 10
+  %622 = add nuw nsw i64 %618, %621
   br label %623
 
 623:                                              ; preds = %620, %464
@@ -33814,8 +33814,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %628, label %629, label %731, !prof !22
 
 629:                                              ; preds = %623
-  %630 = mul nsw i64 %.16590.i, 10
-  %631 = add nsw i64 %627, %630
+  %630 = mul nuw nsw i64 %.16590.i, 10
+  %631 = add nuw nsw i64 %627, %630
   br label %632
 
 632:                                              ; preds = %629, %475
@@ -33830,8 +33830,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %637, label %638, label %731, !prof !22
 
 638:                                              ; preds = %632
-  %639 = mul i64 %.17591.i, 10
-  %640 = add i64 %636, %639
+  %639 = mul nuw nsw i64 %.17591.i, 10
+  %640 = add nuw nsw i64 %636, %639
   br label %641
 
 641:                                              ; preds = %638, %486
@@ -33846,8 +33846,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   br i1 %646, label %647, label %731, !prof !22
 
 647:                                              ; preds = %641
-  %648 = mul i64 %.18592.i, 10
-  %649 = add i64 %645, %648
+  %648 = mul nuw i64 %.18592.i, 10
+  %649 = add nuw i64 %645, %648
   %650 = getelementptr inbounds nuw i8, ptr %.28, i64 20
   %651 = load i8, ptr %650, align 1, !tbaa !75
   %652 = add i8 %651, -58
@@ -33876,13 +33876,13 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
 
 665:                                              ; preds = %662
   %666 = icmp eq i64 %269, 1844674407370955161
-  %667 = icmp ult i64 %663, 6
+  %667 = icmp samesign ult i64 %663, 6
   %or.cond5.i = select i1 %666, i1 %667, i1 false
   br i1 %or.cond5.i, label %668, label %680
 
 668:                                              ; preds = %665, %662
   %669 = mul nuw i64 %269, 10
-  %670 = add i64 %663, %669
+  %670 = add nsw i64 %663, %669
   br i1 %22, label %671, label %678
 
 671:                                              ; preds = %668
@@ -33942,7 +33942,7 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
 694:                                              ; preds = %690
   %695 = icmp ugt i8 %689, 52
   %696 = zext i1 %695 to i64
-  %697 = add i64 %.20594.i, %696
+  %697 = add nuw i64 %.20594.i, %696
   %.not674.i = icmp eq ptr %.20.i, null
   br i1 %.not674.i, label %698, label %.loopexit370
 

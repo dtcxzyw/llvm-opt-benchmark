@@ -1811,15 +1811,16 @@ define dso_local void @usb_disable_interface(ptr noundef %0, ptr noundef readonl
   %11 = icmp eq ptr %0, null
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  br i1 %11, label %.loopexit, label %.split
+  br i1 %11, label %.loopexit, label %.split3
 
-.split:                                           ; preds = %9
-  br i1 %2, label %.split.split.us, label %.split.split
+.split3:                                          ; preds = %9
+  br i1 %2, label %.split3.split.us, label %.split3.split
 
-.split.split.us:                                  ; preds = %.split, %35
-  %14 = phi i64 [ %36, %35 ], [ 0, %.split ]
+.split3.split.us:                                 ; preds = %.split3, %35
+  %14 = phi i64 [ %36, %35 ], [ 0, %.split3 ]
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr %struct.usb_host_endpoint, ptr %15, i64 %14, i32 0, i32 2
+  %.split.us = getelementptr %struct.usb_host_endpoint, ptr %15, i64 %14
+  %16 = getelementptr i8, ptr %.split.us, i64 2
   %17 = load i8, ptr %16, align 2
   %18 = and i8 %17, 15
   %19 = icmp sgt i8 %17, -1
@@ -1827,12 +1828,12 @@ define dso_local void @usb_disable_interface(ptr noundef %0, ptr noundef readonl
   %.not = icmp eq i8 %18, 0
   br i1 %19, label %24, label %21
 
-21:                                               ; preds = %.split.split.us
+21:                                               ; preds = %.split3.split.us
   %22 = getelementptr ptr, ptr %12, i64 %20
   %23 = load ptr, ptr %22, align 8
   br i1 %.not, label %30, label %27
 
-24:                                               ; preds = %.split.split.us
+24:                                               ; preds = %.split3.split.us
   %25 = getelementptr ptr, ptr %13, i64 %20
   %26 = load ptr, ptr %25, align 8
   br i1 %.not, label %30, label %27
@@ -1860,13 +1861,14 @@ define dso_local void @usb_disable_interface(ptr noundef %0, ptr noundef readonl
   %37 = load i8, ptr %6, align 4
   %38 = zext i8 %37 to i64
   %39 = icmp samesign ult i64 %36, %38
-  br i1 %39, label %.split.split.us, label %.loopexit, !llvm.loop !18
+  br i1 %39, label %.split3.split.us, label %.loopexit, !llvm.loop !18
 
-.split.split:                                     ; preds = %.split, %53
-  %40 = phi i8 [ %54, %53 ], [ %7, %.split ]
-  %41 = phi i64 [ %55, %53 ], [ 0, %.split ]
+.split3.split:                                    ; preds = %.split3, %53
+  %40 = phi i8 [ %54, %53 ], [ %7, %.split3 ]
+  %41 = phi i64 [ %55, %53 ], [ 0, %.split3 ]
   %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr %struct.usb_host_endpoint, ptr %42, i64 %41, i32 0, i32 2
+  %.split = getelementptr %struct.usb_host_endpoint, ptr %42, i64 %41
+  %43 = getelementptr i8, ptr %.split, i64 2
   %44 = load i8, ptr %43, align 2
   %45 = and i8 %44, 15
   %46 = icmp sgt i8 %44, -1
@@ -1878,19 +1880,19 @@ define dso_local void @usb_disable_interface(ptr noundef %0, ptr noundef readonl
   %50 = icmp eq ptr %49, null
   br i1 %50, label %53, label %51
 
-51:                                               ; preds = %.split.split
+51:                                               ; preds = %.split3.split
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 68
   store i32 0, ptr %52, align 4
   tail call void @usb_hcd_flush_endpoint(ptr noundef nonnull %0, ptr noundef nonnull %49) #12
   %.pre = load i8, ptr %6, align 4
   br label %53
 
-53:                                               ; preds = %51, %.split.split
-  %54 = phi i8 [ %.pre, %51 ], [ %40, %.split.split ]
+53:                                               ; preds = %51, %.split3.split
+  %54 = phi i8 [ %.pre, %51 ], [ %40, %.split3.split ]
   %55 = add nuw nsw i64 %41, 1
   %56 = zext i8 %54 to i64
   %57 = icmp samesign ult i64 %55, %56
-  br i1 %57, label %.split.split, label %.loopexit, !llvm.loop !18
+  br i1 %57, label %.split3.split, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %53, %35, %9, %3
   ret void
@@ -2389,18 +2391,19 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i8, ptr %25, align 4
   %27 = icmp eq i8 %26, 0
-  br i1 %27, label %.loopexit20, label %28
+  br i1 %27, label %.loopexit23, label %28
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %30 = icmp eq ptr %0, null
-  br i1 %30, label %.loopexit20, label %.split
+  br i1 %30, label %.loopexit23, label %.split24
 
-.split:                                           ; preds = %28, %44
+.split24:                                         ; preds = %28, %44
   %31 = phi i8 [ %45, %44 ], [ %26, %28 ]
   %32 = phi i64 [ %46, %44 ], [ 0, %28 ]
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr %struct.usb_host_endpoint, ptr %33, i64 %32, i32 0, i32 2
+  %.split = getelementptr %struct.usb_host_endpoint, ptr %33, i64 %32
+  %34 = getelementptr i8, ptr %.split, i64 2
   %35 = load i8, ptr %34, align 2
   %36 = and i8 %35, 15
   %37 = zext nneg i8 %36 to i64
@@ -2412,21 +2415,21 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %41 = icmp eq ptr %40, null
   br i1 %41, label %44, label %42
 
-42:                                               ; preds = %.split
+42:                                               ; preds = %.split24
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 68
   store i32 0, ptr %43, align 4
   tail call void @usb_hcd_flush_endpoint(ptr noundef nonnull %0, ptr noundef nonnull %40) #12
   %.pre = load i8, ptr %25, align 4
   br label %44
 
-44:                                               ; preds = %42, %.split
-  %45 = phi i8 [ %.pre, %42 ], [ %31, %.split ]
+44:                                               ; preds = %42, %.split24
+  %45 = phi i8 [ %.pre, %42 ], [ %31, %.split24 ]
   %46 = add nuw nsw i64 %32, 1
   %47 = zext i8 %45 to i64
   %48 = icmp samesign ult i64 %46, %47
-  br i1 %48, label %.split, label %.loopexit20, !llvm.loop !18
+  br i1 %48, label %.split24, label %.loopexit23, !llvm.loop !18
 
-.loopexit20:                                      ; preds = %44, %28, %22
+.loopexit23:                                      ; preds = %44, %28, %22
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 536
   %50 = load ptr, ptr %49, align 8
   tail call void @mutex_lock(ptr noundef %50) #12
@@ -2434,14 +2437,14 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %58
 
-53:                                               ; preds = %.loopexit20
+53:                                               ; preds = %.loopexit23
   %54 = load ptr, ptr %23, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i8, ptr %55, align 4
   %57 = icmp eq i8 %56, 0
-  br i1 %57, label %.loopexit19, label %.preheader
+  br i1 %57, label %.loopexit22, label %.preheader
 
-58:                                               ; preds = %.loopexit20
+58:                                               ; preds = %.loopexit23
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 80
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %59, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.usb_set_interface) #15
   %60 = load ptr, ptr %49, align 8
@@ -2453,7 +2456,8 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %62 = phi ptr [ %67, %.preheader ], [ %54, %53 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr %struct.usb_host_endpoint, ptr %64, i64 %61, i32 10
+  %.split13 = getelementptr %struct.usb_host_endpoint, ptr %64, i64 %61
+  %65 = getelementptr i8, ptr %.split13, i64 72
   store i32 0, ptr %65, align 8
   %66 = add nuw nsw i64 %61, 1
   %67 = load ptr, ptr %23, align 8
@@ -2461,15 +2465,15 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %69 = load i8, ptr %68, align 4
   %70 = zext i8 %69 to i64
   %71 = icmp samesign ult i64 %66, %70
-  br i1 %71, label %.preheader, label %.loopexit19, !llvm.loop !26
+  br i1 %71, label %.preheader, label %.loopexit22, !llvm.loop !26
 
-.loopexit19:                                      ; preds = %.preheader, %53
+.loopexit22:                                      ; preds = %.preheader, %53
   %72 = phi ptr [ %54, %53 ], [ %67, %.preheader ]
   %73 = tail call i32 @usb_hcd_alloc_bandwidth(ptr noundef %0, ptr noundef null, ptr noundef %72, ptr noundef nonnull %18) #12
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %75, label %78
 
-75:                                               ; preds = %.loopexit19
+75:                                               ; preds = %.loopexit22
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %76, ptr noundef nonnull @.str.3, i32 noundef %2) #15
   tail call void @usb_enable_lpm(ptr noundef %0) #12
@@ -2477,7 +2481,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   tail call void @mutex_unlock(ptr noundef %77) #12
   br label %261
 
-78:                                               ; preds = %.loopexit19
+78:                                               ; preds = %.loopexit22
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 1268
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, 4
@@ -2531,7 +2535,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %109 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %110 = load i8, ptr %109, align 4
   %111 = icmp eq i8 %110, 0
-  br i1 %111, label %.loopexit18, label %112
+  br i1 %111, label %.loopexit21, label %112
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %102, i64 24
@@ -2546,41 +2550,42 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %119 = load i8, ptr %109, align 4
   %120 = zext i8 %119 to i64
   %121 = icmp samesign ult i64 %118, %120
-  br i1 %121, label %114, label %.loopexit18.loopexit, !llvm.loop !20
+  br i1 %121, label %114, label %.loopexit21.loopexit, !llvm.loop !20
 
-.loopexit18.loopexit:                             ; preds = %114
-  %.pre24 = load i8, ptr %13, align 8
-  br label %.loopexit18
+.loopexit21.loopexit:                             ; preds = %114
+  %.pre28 = load i8, ptr %13, align 8
+  br label %.loopexit21
 
-.loopexit18:                                      ; preds = %.loopexit18.loopexit, %108
-  %122 = phi i8 [ %.pre24, %.loopexit18.loopexit ], [ %105, %108 ]
+.loopexit21:                                      ; preds = %.loopexit21.loopexit, %108
+  %122 = phi i8 [ %.pre28, %.loopexit21.loopexit ], [ %105, %108 ]
   %123 = and i8 %122, -3
   store i8 %123, ptr %13, align 8
   br label %124
 
-124:                                              ; preds = %.loopexit18, %104
+124:                                              ; preds = %.loopexit21, %104
   tail call void @usb_remove_sysfs_intf_files(ptr noundef nonnull %10) #12
-  %.pre25 = load ptr, ptr %23, align 8
+  %.pre29 = load ptr, ptr %23, align 8
   br label %125
 
 125:                                              ; preds = %124, %99
-  %126 = phi ptr [ %.pre25, %124 ], [ %102, %99 ]
+  %126 = phi ptr [ %.pre29, %124 ], [ %102, %99 ]
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %128 = load i8, ptr %127, align 4
   %129 = icmp eq i8 %128, 0
-  br i1 %129, label %.loopexit17, label %130
+  br i1 %129, label %.loopexit20, label %130
 
 130:                                              ; preds = %125
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %132 = icmp eq ptr %0, null
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  br i1 %132, label %.loopexit17, label %.split21
+  br i1 %132, label %.loopexit20, label %.split25
 
-.split21:                                         ; preds = %130, %157
+.split25:                                         ; preds = %130, %157
   %135 = phi i64 [ %158, %157 ], [ 0, %130 ]
   %136 = load ptr, ptr %131, align 8
-  %137 = getelementptr %struct.usb_host_endpoint, ptr %136, i64 %135, i32 0, i32 2
+  %.split14 = getelementptr %struct.usb_host_endpoint, ptr %136, i64 %135
+  %137 = getelementptr i8, ptr %.split14, i64 2
   %138 = load i8, ptr %137, align 2
   %139 = and i8 %138, 15
   %140 = icmp sgt i8 %138, -1
@@ -2588,12 +2593,12 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %142 = icmp eq i8 %139, 0
   br i1 %140, label %143, label %146
 
-143:                                              ; preds = %.split21
+143:                                              ; preds = %.split25
   %144 = getelementptr ptr, ptr %134, i64 %141
   %145 = load ptr, ptr %144, align 8
   br i1 %142, label %152, label %149
 
-146:                                              ; preds = %.split21
+146:                                              ; preds = %.split25
   %147 = getelementptr ptr, ptr %133, i64 %141
   %148 = load ptr, ptr %147, align 8
   br i1 %142, label %152, label %149
@@ -2621,18 +2626,18 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %159 = load i8, ptr %127, align 4
   %160 = zext i8 %159 to i64
   %161 = icmp samesign ult i64 %158, %160
-  br i1 %161, label %.split21, label %.loopexit17, !llvm.loop !18
+  br i1 %161, label %.split25, label %.loopexit20, !llvm.loop !18
 
-.loopexit17:                                      ; preds = %157, %130, %125
+.loopexit20:                                      ; preds = %157, %130, %125
   store ptr %18, ptr %23, align 8
   tail call void @usb_unlocked_enable_lpm(ptr noundef %0) #12
-  br i1 %100, label %.loopexit16, label %162
+  br i1 %100, label %.loopexit19, label %162
 
-162:                                              ; preds = %.loopexit17
+162:                                              ; preds = %.loopexit20
   %163 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %164 = load i8, ptr %163, align 4
   %165 = icmp eq i8 %164, 0
-  br i1 %165, label %.loopexit16, label %166
+  br i1 %165, label %.loopexit19, label %166
 
 166:                                              ; preds = %162
   %167 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -2641,7 +2646,8 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
 168:                                              ; preds = %193, %166
   %169 = phi i64 [ 0, %166 ], [ %194, %193 ]
   %170 = load ptr, ptr %167, align 8
-  %171 = getelementptr %struct.usb_host_endpoint, ptr %170, i64 %169, i32 0, i32 2
+  %.split15 = getelementptr %struct.usb_host_endpoint, ptr %170, i64 %169
+  %171 = getelementptr i8, ptr %.split15, i64 2
   %172 = load i8, ptr %171, align 2
   %173 = zext i8 %172 to i32
   %174 = load i32, ptr %0, align 8
@@ -2662,9 +2668,9 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
 186:                                              ; preds = %168
   %187 = icmp eq i8 %179, 0
   %188 = zext nneg i32 %178 to i64
-  %.v13.v = select i1 %187, i64 1072, i64 944
-  %.v13 = getelementptr inbounds nuw i8, ptr %0, i64 %.v13.v
-  %189 = getelementptr ptr, ptr %.v13, i64 %188
+  %.v16.v = select i1 %187, i64 1072, i64 944
+  %.v16 = getelementptr inbounds nuw i8, ptr %0, i64 %.v16.v
+  %189 = getelementptr ptr, ptr %.v16, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = icmp eq ptr %190, null
   br i1 %191, label %193, label %192
@@ -2678,16 +2684,16 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %195 = load i8, ptr %163, align 4
   %196 = zext i8 %195 to i64
   %197 = icmp samesign ult i64 %194, %196
-  br i1 %197, label %168, label %.loopexit16, !llvm.loop !27
+  br i1 %197, label %168, label %.loopexit19, !llvm.loop !27
 
-.loopexit16:                                      ; preds = %193, %162, %.loopexit17
+.loopexit19:                                      ; preds = %193, %162, %.loopexit20
   %198 = load ptr, ptr %23, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
   %200 = load i8, ptr %199, align 4
   %201 = icmp eq i8 %200, 0
-  br i1 %201, label %.loopexit15, label %202
+  br i1 %201, label %.loopexit18, label %202
 
-202:                                              ; preds = %.loopexit16
+202:                                              ; preds = %.loopexit19
   %203 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 944
@@ -2708,30 +2714,30 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   tail call void @usb_hcd_reset_endpoint(ptr noundef %0, ptr noundef %209) #12
   %218 = select i1 %213, i1 true, i1 %217
   %219 = zext nneg i8 %212 to i64
-  br i1 %218, label %220, label %.thread14
+  br i1 %218, label %220, label %.thread17
 
 220:                                              ; preds = %206
   %221 = getelementptr ptr, ptr %204, i64 %219
   store ptr %209, ptr %221, align 8
   %222 = xor i1 %213, true
   %223 = select i1 %222, i1 true, i1 %217
-  br i1 %223, label %.thread14, label %225
+  br i1 %223, label %.thread17, label %225
 
-.thread14:                                        ; preds = %206, %220
+.thread17:                                        ; preds = %206, %220
   %224 = getelementptr ptr, ptr %205, i64 %219
   store ptr %209, ptr %224, align 8
   br label %225
 
-225:                                              ; preds = %.thread14, %220
+225:                                              ; preds = %.thread17, %220
   %226 = getelementptr inbounds nuw i8, ptr %209, i64 68
   store i32 1, ptr %226, align 4
   %227 = add nuw nsw i64 %207, 1
   %228 = load i8, ptr %199, align 4
   %229 = zext i8 %228 to i64
   %230 = icmp samesign ult i64 %227, %229
-  br i1 %230, label %206, label %.loopexit15, !llvm.loop !25
+  br i1 %230, label %206, label %.loopexit18, !llvm.loop !25
 
-.loopexit15:                                      ; preds = %225, %.loopexit16
+.loopexit18:                                      ; preds = %225, %.loopexit19
   %231 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %232 = getelementptr inbounds nuw i8, ptr %10, i64 140
   %233 = load i8, ptr %232, align 4
@@ -2739,7 +2745,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %235 = icmp eq i8 %234, 0
   br i1 %235, label %261, label %236
 
-236:                                              ; preds = %.loopexit15
+236:                                              ; preds = %.loopexit18
   tail call void @usb_create_sysfs_intf_files(ptr noundef nonnull %10) #12
   %237 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %238 = load ptr, ptr %237, align 8
@@ -2772,17 +2778,17 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   br i1 %258, label %250, label %.loopexit.loopexit, !llvm.loop !28
 
 .loopexit.loopexit:                               ; preds = %250
-  %.pre26 = load i8, ptr %13, align 8
+  %.pre30 = load i8, ptr %13, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %244
-  %259 = phi i8 [ %.pre26, %.loopexit.loopexit ], [ %241, %244 ]
+  %259 = phi i8 [ %.pre30, %.loopexit.loopexit ], [ %241, %244 ]
   %260 = or i8 %259, 2
   store i8 %260, ptr %13, align 8
   br label %261
 
-261:                                              ; preds = %.loopexit, %236, %.loopexit15, %94, %75, %58, %20, %12, %9, %3
-  %262 = phi i32 [ -12, %58 ], [ %73, %75 ], [ %95, %94 ], [ -22, %20 ], [ -113, %3 ], [ -22, %9 ], [ -19, %12 ], [ 0, %.loopexit15 ], [ 0, %236 ], [ 0, %.loopexit ]
+261:                                              ; preds = %.loopexit, %236, %.loopexit18, %94, %75, %58, %20, %12, %9, %3
+  %262 = phi i32 [ -12, %58 ], [ %73, %75 ], [ %95, %94 ], [ -22, %20 ], [ -113, %3 ], [ -22, %9 ], [ -19, %12 ], [ 0, %.loopexit18 ], [ 0, %236 ], [ 0, %.loopexit ]
   ret i32 %262
 }
 
@@ -3709,10 +3715,10 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %298 = zext i8 %95 to i64
-  br i1 %295, label %.split47.us, label %.split47
+  br i1 %295, label %.split48.us, label %.split48
 
-.split47.us:                                      ; preds = %293, %.split47.us
-  %299 = phi i64 [ %303, %.split47.us ], [ 0, %293 ]
+.split48.us:                                      ; preds = %293, %.split48.us
+  %299 = phi i64 [ %303, %.split48.us ], [ 0, %293 ]
   %300 = getelementptr ptr, ptr %294, i64 %299
   %301 = load ptr, ptr %300, align 8
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 80
@@ -3720,9 +3726,9 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   store ptr null, ptr %300, align 8
   %303 = add nuw nsw i64 %299, 1
   %304 = icmp eq i64 %303, %298
-  br i1 %304, label %.loopexit39, label %.split47.us, !llvm.loop !40
+  br i1 %304, label %.loopexit39, label %.split48.us, !llvm.loop !40
 
-.split47:                                         ; preds = %293, %.loopexit38.split
+.split48:                                         ; preds = %293, %.loopexit38.split
   %305 = phi i64 [ %344, %.loopexit38.split ], [ 0, %293 ]
   %306 = getelementptr ptr, ptr %294, i64 %305
   %307 = load ptr, ptr %306, align 8
@@ -3731,16 +3737,17 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 4
   %311 = load i8, ptr %310, align 4
   %312 = icmp eq i8 %311, 0
-  br i1 %312, label %.loopexit38.split, label %.split
+  br i1 %312, label %.loopexit38.split, label %.split47
 
-.split:                                           ; preds = %.split47
+.split47:                                         ; preds = %.split48
   %313 = getelementptr inbounds nuw i8, ptr %309, i64 24
   br label %314
 
-314:                                              ; preds = %337, %.split
-  %315 = phi i64 [ 0, %.split ], [ %338, %337 ]
+314:                                              ; preds = %337, %.split47
+  %315 = phi i64 [ 0, %.split47 ], [ %338, %337 ]
   %316 = load ptr, ptr %313, align 8
-  %317 = getelementptr %struct.usb_host_endpoint, ptr %316, i64 %315, i32 0, i32 2
+  %.split = getelementptr %struct.usb_host_endpoint, ptr %316, i64 %315
+  %317 = getelementptr i8, ptr %.split, i64 2
   %318 = load i8, ptr %317, align 2
   %319 = and i8 %318, 15
   %320 = icmp sgt i8 %318, -1
@@ -3787,17 +3794,17 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   %.pre = load ptr, ptr %306, align 8
   br label %.loopexit38.split
 
-.loopexit38.split:                                ; preds = %.loopexit38.split.loopexit, %.split47
-  %342 = phi ptr [ %.pre, %.loopexit38.split.loopexit ], [ %307, %.split47 ]
+.loopexit38.split:                                ; preds = %.loopexit38.split.loopexit, %.split48
+  %342 = phi ptr [ %.pre, %.loopexit38.split.loopexit ], [ %307, %.split48 ]
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 80
   tail call void @put_device(ptr noundef nonnull %343) #12
   store ptr null, ptr %306, align 8
   %344 = add nuw nsw i64 %305, 1
   %345 = icmp eq i64 %344, %298
-  br i1 %345, label %.loopexit39, label %.split47, !llvm.loop !40
+  br i1 %345, label %.loopexit39, label %.split48, !llvm.loop !40
 
-.loopexit39:                                      ; preds = %.loopexit38.split, %.split47.us, %291, %.loopexit41
-  %346 = phi ptr [ %93, %.loopexit41 ], [ null, %291 ], [ null, %.split47.us ], [ null, %.loopexit38.split ]
+.loopexit39:                                      ; preds = %.loopexit38.split, %.split48.us, %291, %.loopexit41
+  %346 = phi ptr [ %93, %.loopexit41 ], [ null, %291 ], [ null, %.split48.us ], [ null, %.loopexit38.split ]
   store ptr %346, ptr %119, align 8
   %347 = load ptr, ptr %117, align 8
   tail call void @mutex_unlock(ptr noundef %347) #12
@@ -3927,11 +3934,11 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   br i1 %425, label %417, label %.loopexit36.loopexit, !llvm.loop !28
 
 .loopexit36.loopexit:                             ; preds = %417
-  %.pre51 = load i8, ptr %407, align 8
+  %.pre52 = load i8, ptr %407, align 8
   br label %.loopexit36
 
 .loopexit36:                                      ; preds = %.loopexit36.loopexit, %411
-  %426 = phi i8 [ %.pre51, %.loopexit36.loopexit ], [ %408, %411 ]
+  %426 = phi i8 [ %.pre52, %.loopexit36.loopexit ], [ %408, %411 ]
   %427 = or i8 %426, 2
   store i8 %427, ptr %407, align 8
   br label %428

@@ -677,7 +677,7 @@ define internal i32 @hpet_late_init() #4 section ".init.text" align 16 {
 3:                                                ; preds = %0
   %4 = load i64, ptr @force_hpet_address, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %38, label %6
+  br i1 %5, label %39, label %6
 
 6:                                                ; preds = %3
   store i64 %4, ptr @hpet_address, align 8
@@ -687,7 +687,7 @@ define internal i32 @hpet_late_init() #4 section ".init.text" align 16 {
 8:                                                ; preds = %6, %0
   %9 = load ptr, ptr @hpet_virt_address, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %38, label %11
+  br i1 %10, label %39, label %11
 
 11:                                               ; preds = %8
   %12 = load i32, ptr @hpet_base.0, align 8
@@ -706,47 +706,49 @@ define internal i32 @hpet_late_init() #4 section ".init.text" align 16 {
 19:                                               ; preds = %16, %14
   %20 = phi i32 [ 0, %14 ], [ %17, %16 ]
   %21 = sext i32 %20 to i64
-  %22 = getelementptr %struct.hpet_channel, ptr %15, i64 %21, i32 5
+  %.split = getelementptr %struct.hpet_channel, ptr %15, i64 %21
+  %22 = getelementptr i8, ptr %.split, i64 272
   %23 = load i32, ptr %22, align 16
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %16
 
 25:                                               ; preds = %19
-  store i32 3, ptr %22, align 16
+  %26 = getelementptr i8, ptr %.split, i64 272
+  store i32 3, ptr %26, align 16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %25, %11
   tail call fastcc void @hpet_select_clockevents() #20
   tail call fastcc void @hpet_reserve_platform_timers() #20
-  %26 = load i1, ptr @hpet_verbose, align 1
-  br i1 %26, label %27, label %28
+  %27 = load i1, ptr @hpet_verbose, align 1
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %.loopexit
+28:                                               ; preds = %.loopexit
   tail call fastcc void @_hpet_print_config(ptr noundef nonnull @__func__.hpet_late_init, i32 noundef 1148)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %27, %.loopexit
-  %29 = load i32, ptr @hpet_base.1, align 8
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %38, label %31
+29:                                               ; preds = %28, %.loopexit
+  %30 = load i32, ptr @hpet_base.1, align 8
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %39, label %32
 
-31:                                               ; preds = %28
-  %32 = tail call i32 @__cpuhp_setup_state(i32 noundef 230, ptr noundef nonnull @.str.21, i1 noundef zeroext true, ptr noundef nonnull @hpet_cpuhp_online, ptr noundef null, i1 noundef zeroext false) #19
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %38
+32:                                               ; preds = %29
+  %33 = tail call i32 @__cpuhp_setup_state(i32 noundef 230, ptr noundef nonnull @.str.21, i1 noundef zeroext true, ptr noundef nonnull @hpet_cpuhp_online, ptr noundef null, i1 noundef zeroext false) #19
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %31
-  %35 = tail call i32 @__cpuhp_setup_state(i32 noundef 7, ptr noundef nonnull @.str.22, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull @hpet_cpuhp_dead, i1 noundef zeroext false) #19
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %38, label %37
+35:                                               ; preds = %32
+  %36 = tail call i32 @__cpuhp_setup_state(i32 noundef 7, ptr noundef nonnull @.str.22, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull @hpet_cpuhp_dead, i1 noundef zeroext false) #19
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %39, label %38
 
-37:                                               ; preds = %34
+38:                                               ; preds = %35
   tail call void @__cpuhp_remove_state(i32 noundef 230, i1 noundef zeroext true) #19
-  br label %38
+  br label %39
 
-38:                                               ; preds = %37, %34, %31, %28, %8, %3
-  %39 = phi i32 [ %35, %37 ], [ -19, %3 ], [ -19, %8 ], [ 0, %28 ], [ %32, %31 ], [ 0, %34 ]
-  ret i32 %39
+39:                                               ; preds = %38, %35, %32, %29, %8, %3
+  %40 = phi i32 [ %36, %38 ], [ -19, %3 ], [ -19, %8 ], [ 0, %29 ], [ %33, %32 ], [ 0, %35 ]
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -773,7 +775,8 @@ define dso_local void @hpet_disable() local_unnamed_addr #8 align 16 {
 .preheader:                                       ; preds = %9, %.preheader
   %15 = phi i64 [ %24, %.preheader ], [ 0, %9 ]
   %16 = load ptr, ptr @hpet_base.3, align 8
-  %17 = getelementptr %struct.hpet_channel, ptr %16, i64 %15, i32 6
+  %.split = getelementptr %struct.hpet_channel, ptr %16, i64 %15
+  %17 = getelementptr i8, ptr %.split, i64 276
   %18 = load i32, ptr %17, align 4
   %19 = shl nuw nsw i64 %15, 5
   %20 = add nuw nsw i64 %19, 256

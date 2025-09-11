@@ -4656,14 +4656,15 @@ define internal fastcc void @add_pathspecs(ptr noundef nonnull %0, ptr noundef n
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !201
-  %8 = getelementptr inbounds nuw %struct.pathspec_item, ptr %7, i64 %indvars.iv, i32 1
-  %9 = load ptr, ptr %8, align 8, !tbaa !202
-  %10 = tail call ptr @strvec_push(ptr noundef nonnull %0, ptr noundef %9) #15
+  %8 = getelementptr inbounds nuw %struct.pathspec_item, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !202
+  %11 = tail call ptr @strvec_push(ptr noundef nonnull %0, ptr noundef %10) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i32, ptr %1, align 8, !tbaa !129
-  %12 = sext i32 %11 to i64
-  %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %6, label %._crit_edge, !llvm.loop !206
+  %12 = load i32, ptr %1, align 8, !tbaa !129
+  %13 = sext i32 %12 to i64
+  %14 = icmp slt i64 %indvars.iv.next, %13
+  br i1 %14, label %6, label %._crit_edge, !llvm.loop !206
 
 ._crit_edge:                                      ; preds = %6, %2
   ret void

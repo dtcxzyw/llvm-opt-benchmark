@@ -7397,7 +7397,8 @@ define internal void @pcpu_balance_workfn(ptr readnone captures(none) %0) #1 ali
 36:                                               ; preds = %33
   %37 = load ptr, ptr %22, align 16
   %38 = zext nneg i32 %27 to i64
-  %39 = getelementptr %struct.pcpu_block_md, ptr %37, i64 %38, i32 2
+  %.split = getelementptr %struct.pcpu_block_md, ptr %37, i64 %38
+  %39 = getelementptr i8, ptr %.split, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 1024
   br i1 %41, label %42, label %50

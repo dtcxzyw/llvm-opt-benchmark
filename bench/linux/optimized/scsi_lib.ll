@@ -254,7 +254,8 @@ define internal fastcc void @__scsi_queue_insert(ptr noundef %0, i32 noundef %1)
   %39 = load ptr, ptr %38, align 8
   %40 = lshr i32 %31, %33
   %41 = zext i32 %40 to i64
-  %42 = getelementptr %struct.sbitmap_word, ptr %39, i64 %41, i32 2
+  %.split = getelementptr %struct.sbitmap_word, ptr %39, i64 %41
+  %42 = getelementptr i8, ptr %.split, i64 64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %42, i64 %37) #16, !srcloc !7
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %44 = load ptr, ptr %43, align 8
@@ -524,7 +525,8 @@ define dso_local void @scsi_device_unbusy(ptr noundef readonly captures(none) %0
   %22 = load ptr, ptr %21, align 8
   %23 = lshr i32 %14, %16
   %24 = zext i32 %23 to i64
-  %25 = getelementptr %struct.sbitmap_word, ptr %22, i64 %24, i32 2
+  %.split = getelementptr %struct.sbitmap_word, ptr %22, i64 %24
+  %25 = getelementptr i8, ptr %.split, i64 64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %25, i64 %20) #16, !srcloc !7
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load ptr, ptr %26, align 8
@@ -3183,7 +3185,8 @@ define dso_local void @sdev_evt_send_simple(ptr noundef %0, i32 noundef %1, i32 
 10:                                               ; preds = %6, %3
   %11 = phi i64 [ 0, %3 ], [ %9, %6 ]
   %12 = or i32 %2, 256
-  %13 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %11, i64 5
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %11
+  %13 = getelementptr i8, ptr %.split, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %12, i64 noundef 24) #19
   %16 = icmp eq ptr %15, null
@@ -3256,7 +3259,8 @@ define dso_local noundef ptr @sdev_evt_alloc(i32 noundef %0, i32 noundef %1) #0 
 9:                                                ; preds = %5, %2
   %10 = phi i64 [ 0, %2 ], [ %8, %5 ]
   %11 = or i32 %1, 256
-  %12 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10, i64 5
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10
+  %12 = getelementptr i8, ptr %.split, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %13, i32 noundef %11, i64 noundef 24) #19
   %15 = icmp eq ptr %14, null
@@ -5169,7 +5173,8 @@ define internal zeroext i8 @scsi_queue_rq(ptr readnone captures(none) %0, ptr no
   %411 = load ptr, ptr %410, align 8
   %412 = lshr i32 %401, %405
   %413 = zext i32 %412 to i64
-  %414 = getelementptr %struct.sbitmap_word, ptr %411, i64 %413, i32 2
+  %.split = getelementptr %struct.sbitmap_word, ptr %411, i64 %413
+  %414 = getelementptr i8, ptr %.split, i64 64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %414, i64 %409) #16, !srcloc !7
   %415 = getelementptr inbounds nuw i8, ptr %402, i64 72
   %416 = load ptr, ptr %415, align 8
@@ -5440,7 +5445,8 @@ define internal range(i32 -1, -2147483648) i32 @scsi_mq_get_budget(ptr noundef r
   %25 = load ptr, ptr %24, align 8
   %26 = lshr i32 %4, %19
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr %struct.sbitmap_word, ptr %25, i64 %27, i32 2
+  %.split = getelementptr %struct.sbitmap_word, ptr %25, i64 %27
+  %28 = getelementptr i8, ptr %.split, i64 64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %28, i64 %23) #16, !srcloc !7
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %30 = load ptr, ptr %29, align 8
@@ -5503,7 +5509,8 @@ define internal void @scsi_mq_put_budget(ptr noundef readonly captures(none) %0,
   %12 = load ptr, ptr %11, align 8
   %13 = lshr i32 %1, %6
   %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct.sbitmap_word, ptr %12, i64 %14, i32 2
+  %.split = getelementptr %struct.sbitmap_word, ptr %12, i64 %14
+  %15 = getelementptr i8, ptr %.split, i64 64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, i64 %10) #16, !srcloc !7
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %17 = load ptr, ptr %16, align 8

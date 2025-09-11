@@ -4823,21 +4823,22 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %8, label %.preheader
+  br i1 %or.cond, label %9, label %.preheader
 
 6:                                                ; preds = %.preheader
   store ptr @introspection_init.f5, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 512), align 16, !tbaa !63
-  br label %8
+  br label %9
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
-  store ptr %0, ptr %7, align 8, !tbaa !63
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %0, ptr %8, align 8, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %6, label %.preheader
 
-8:                                                ; preds = %2, %6
+9:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
   ret i32 %.06
 }
@@ -4929,7 +4930,7 @@ define internal fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias nonn
   %5 = fcmp reassoc nsz arcp contract afn ogt double %.0, 2.500000e+04
   %.1 = select nsz i1 %5, double 2.500000e+04, double %.0
   %6 = fcmp reassoc nsz arcp contract afn olt double %.1, 4.000000e+03
-  br i1 %6, label %7, label %46
+  br i1 %6, label %7, label %47
 
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
@@ -4937,10 +4938,10 @@ define internal fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias nonn
   br label %9
 
 9:                                                ; preds = %9, %7
-  %10 = phi double [ 0.000000e+00, %7 ], [ %37, %9 ]
-  %11 = phi double [ 0.000000e+00, %7 ], [ %33, %9 ]
-  %12 = phi double [ 0.000000e+00, %7 ], [ %29, %9 ]
-  %.014.i = phi i64 [ 0, %7 ], [ %38, %9 ]
+  %10 = phi double [ 0.000000e+00, %7 ], [ %38, %9 ]
+  %11 = phi double [ 0.000000e+00, %7 ], [ %34, %9 ]
+  %12 = phi double [ 0.000000e+00, %7 ], [ %30, %9 ]
+  %.014.i = phi i64 [ 0, %7 ], [ %39, %9 ]
   %13 = mul nuw nsw i64 %.014.i, 5
   %14 = add nuw nsw i64 %13, 380
   %15 = uitofp nneg i64 %14 to double
@@ -4954,106 +4955,108 @@ define internal fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias nonn
   %23 = fmul reassoc nsz arcp contract afn x86_fp80 %22, %18
   %24 = fdiv reassoc nsz arcp contract afn x86_fp80 0xK3FCBD7B2CD25CFECF502, %23
   %25 = fptrunc reassoc nsz arcp contract afn x86_fp80 %24 to double
-  %26 = getelementptr inbounds nuw %struct._cie_colorimetric_observers, ptr @cie_1931_std_colorimetric_observer, i64 %.014.i, i32 1
-  %27 = load double, ptr %26, align 8, !tbaa !224, !noalias !221
-  %28 = fmul reassoc nsz arcp contract afn double %27, %25
-  %29 = fadd reassoc nsz arcp contract afn double %28, %12
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %31 = load double, ptr %30, align 16, !tbaa !226, !noalias !221
-  %32 = fmul reassoc nsz arcp contract afn double %31, %25
-  %33 = fadd reassoc nsz arcp contract afn double %32, %11
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %35 = load double, ptr %34, align 8, !tbaa !227, !noalias !221
-  %36 = fmul reassoc nsz arcp contract afn double %35, %25
-  %37 = fadd reassoc nsz arcp contract afn double %36, %10
-  %38 = add nuw nsw i64 %.014.i, 1
-  %exitcond.not.i = icmp eq i64 %38, 81
+  %26 = getelementptr inbounds nuw %struct._cie_colorimetric_observers, ptr @cie_1931_std_colorimetric_observer, i64 %.014.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load double, ptr %27, align 8, !tbaa !224, !noalias !221
+  %29 = fmul reassoc nsz arcp contract afn double %28, %25
+  %30 = fadd reassoc nsz arcp contract afn double %29, %12
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %32 = load double, ptr %31, align 16, !tbaa !226, !noalias !221
+  %33 = fmul reassoc nsz arcp contract afn double %32, %25
+  %34 = fadd reassoc nsz arcp contract afn double %33, %11
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %36 = load double, ptr %35, align 8, !tbaa !227, !noalias !221
+  %37 = fmul reassoc nsz arcp contract afn double %36, %25
+  %38 = fadd reassoc nsz arcp contract afn double %37, %10
+  %39 = add nuw nsw i64 %.014.i, 1
+  %exitcond.not.i = icmp eq i64 %39, 81
   br i1 %exitcond.not.i, label %_spectrum_to_XYZ.exit, label %9
 
 _spectrum_to_XYZ.exit:                            ; preds = %9
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %29, double %33)
-  %42 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %41, double %37)
-  %43 = fdiv reassoc nsz arcp contract afn double %29, %42
-  store double %43, ptr %0, align 8, !tbaa !188, !alias.scope !221
-  %44 = fdiv reassoc nsz arcp contract afn double %33, %42
-  store double %44, ptr %40, align 8, !tbaa !180, !alias.scope !221
-  %45 = fdiv reassoc nsz arcp contract afn double %37, %42
-  store double %45, ptr %39, align 8, !tbaa !189, !alias.scope !221
-  br label %97
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %30, double %34)
+  %43 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %42, double %38)
+  %44 = fdiv reassoc nsz arcp contract afn double %30, %43
+  store double %44, ptr %0, align 8, !tbaa !188, !alias.scope !221
+  %45 = fdiv reassoc nsz arcp contract afn double %34, %43
+  store double %45, ptr %41, align 8, !tbaa !180, !alias.scope !221
+  %46 = fdiv reassoc nsz arcp contract afn double %38, %43
+  store double %46, ptr %40, align 8, !tbaa !189, !alias.scope !221
+  br label %99
 
-46:                                               ; preds = %2
+47:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %48
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %49
 
-48:                                               ; preds = %48, %46
-  %49 = phi double [ 0.000000e+00, %46 ], [ %88, %48 ]
-  %50 = phi double [ 0.000000e+00, %46 ], [ %84, %48 ]
-  %51 = phi double [ 0.000000e+00, %46 ], [ %80, %48 ]
-  %.014.i6 = phi i64 [ 0, %46 ], [ %89, %48 ]
+49:                                               ; preds = %49, %47
+  %50 = phi double [ 0.000000e+00, %47 ], [ %90, %49 ]
+  %51 = phi double [ 0.000000e+00, %47 ], [ %86, %49 ]
+  %52 = phi double [ 0.000000e+00, %47 ], [ %82, %49 ]
+  %.014.i6 = phi i64 [ 0, %47 ], [ %91, %49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !228
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const._spd_daylight.WhitePoint, i64 24, i1 false), !noalias !228
-  %52 = call i32 @cmsWhitePointFromTemp(ptr noundef nonnull %3, double noundef %.1) #24, !noalias !228
-  %53 = load double, ptr %3, align 8, !tbaa !188, !noalias !228
-  %54 = fmul reassoc nsz arcp contract afn double %53, 2.562000e-01
-  %55 = fadd reassoc nsz arcp contract afn double %54, 2.410000e-02
-  %56 = load double, ptr %47, align 8, !tbaa !180, !noalias !228
-  %.neg.i = fmul reassoc nsz arcp contract afn double %56, 0xBFE77DBF487FCB92
-  %57 = fadd reassoc nsz arcp contract afn double %55, %.neg.i
-  %.neg8.i = fmul reassoc nsz arcp contract afn double %53, -1.770300e+00
-  %58 = fadd reassoc nsz arcp contract afn double %.neg8.i, -1.351500e+00
-  %59 = fmul reassoc nsz arcp contract afn double %56, 5.911400e+00
-  %60 = fadd reassoc nsz arcp contract afn double %58, %59
-  %.neg9.i = fmul reassoc nsz arcp contract afn double %53, -3.144240e+01
-  %61 = fadd reassoc nsz arcp contract afn double %.neg9.i, 3.000000e-02
-  %62 = fmul reassoc nsz arcp contract afn double %56, 3.007170e+01
-  %63 = fadd reassoc nsz arcp contract afn double %61, %62
-  %64 = add nuw nsw i64 %.014.i6, 16
-  %65 = getelementptr inbounds nuw %struct._cie_std_daylight_component, ptr @cie_daylight_components, i64 %64, i32 1
-  %66 = load double, ptr %65, align 8, !tbaa !78, !noalias !228
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %68 = load double, ptr %67, align 16, !tbaa !78, !noalias !228
-  %69 = fmul reassoc nsz arcp contract afn double %60, %68
-  %70 = fdiv reassoc nsz arcp contract afn double %69, %57
-  %71 = fadd reassoc nsz arcp contract afn double %70, %66
-  %72 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %73 = load double, ptr %72, align 8, !tbaa !78, !noalias !228
-  %74 = fmul reassoc nsz arcp contract afn double %73, %63
-  %75 = fdiv reassoc nsz arcp contract afn double %74, %57
-  %76 = fadd reassoc nsz arcp contract afn double %71, %75
+  %53 = call i32 @cmsWhitePointFromTemp(ptr noundef nonnull %3, double noundef %.1) #24, !noalias !228
+  %54 = load double, ptr %3, align 8, !tbaa !188, !noalias !228
+  %55 = fmul reassoc nsz arcp contract afn double %54, 2.562000e-01
+  %56 = fadd reassoc nsz arcp contract afn double %55, 2.410000e-02
+  %57 = load double, ptr %48, align 8, !tbaa !180, !noalias !228
+  %.neg.i = fmul reassoc nsz arcp contract afn double %57, 0xBFE77DBF487FCB92
+  %58 = fadd reassoc nsz arcp contract afn double %56, %.neg.i
+  %.neg8.i = fmul reassoc nsz arcp contract afn double %54, -1.770300e+00
+  %59 = fadd reassoc nsz arcp contract afn double %.neg8.i, -1.351500e+00
+  %60 = fmul reassoc nsz arcp contract afn double %57, 5.911400e+00
+  %61 = fadd reassoc nsz arcp contract afn double %59, %60
+  %.neg9.i = fmul reassoc nsz arcp contract afn double %54, -3.144240e+01
+  %62 = fadd reassoc nsz arcp contract afn double %.neg9.i, 3.000000e-02
+  %63 = fmul reassoc nsz arcp contract afn double %57, 3.007170e+01
+  %64 = fadd reassoc nsz arcp contract afn double %62, %63
+  %65 = getelementptr inbounds nuw %struct._cie_std_daylight_component, ptr @cie_daylight_components, i64 %.014.i6
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 520
+  %67 = load double, ptr %66, align 8, !tbaa !78, !noalias !228
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 528
+  %69 = load double, ptr %68, align 16, !tbaa !78, !noalias !228
+  %70 = fmul reassoc nsz arcp contract afn double %61, %69
+  %71 = fdiv reassoc nsz arcp contract afn double %70, %58
+  %72 = fadd reassoc nsz arcp contract afn double %71, %67
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 536
+  %74 = load double, ptr %73, align 8, !tbaa !78, !noalias !228
+  %75 = fmul reassoc nsz arcp contract afn double %74, %64
+  %76 = fdiv reassoc nsz arcp contract afn double %75, %58
+  %77 = fadd reassoc nsz arcp contract afn double %72, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !228
-  %77 = getelementptr inbounds nuw %struct._cie_colorimetric_observers, ptr @cie_1931_std_colorimetric_observer, i64 %.014.i6, i32 1
-  %78 = load double, ptr %77, align 8, !tbaa !224, !noalias !228
-  %79 = fmul reassoc nsz arcp contract afn double %76, %78
-  %80 = fadd reassoc nsz arcp contract afn double %79, %51
-  %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %82 = load double, ptr %81, align 16, !tbaa !226, !noalias !228
-  %83 = fmul reassoc nsz arcp contract afn double %82, %76
-  %84 = fadd reassoc nsz arcp contract afn double %83, %50
-  %85 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %86 = load double, ptr %85, align 8, !tbaa !227, !noalias !228
-  %87 = fmul reassoc nsz arcp contract afn double %86, %76
-  %88 = fadd reassoc nsz arcp contract afn double %87, %49
-  %89 = add nuw nsw i64 %.014.i6, 1
-  %exitcond.not.i7 = icmp eq i64 %89, 81
-  br i1 %exitcond.not.i7, label %_spectrum_to_XYZ.exit8, label %48
+  %78 = getelementptr inbounds nuw %struct._cie_colorimetric_observers, ptr @cie_1931_std_colorimetric_observer, i64 %.014.i6
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = load double, ptr %79, align 8, !tbaa !224, !noalias !228
+  %81 = fmul reassoc nsz arcp contract afn double %77, %80
+  %82 = fadd reassoc nsz arcp contract afn double %81, %52
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %84 = load double, ptr %83, align 16, !tbaa !226, !noalias !228
+  %85 = fmul reassoc nsz arcp contract afn double %84, %77
+  %86 = fadd reassoc nsz arcp contract afn double %85, %51
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %88 = load double, ptr %87, align 8, !tbaa !227, !noalias !228
+  %89 = fmul reassoc nsz arcp contract afn double %88, %77
+  %90 = fadd reassoc nsz arcp contract afn double %89, %50
+  %91 = add nuw nsw i64 %.014.i6, 1
+  %exitcond.not.i7 = icmp eq i64 %91, 81
+  br i1 %exitcond.not.i7, label %_spectrum_to_XYZ.exit8, label %49
 
-_spectrum_to_XYZ.exit8:                           ; preds = %48
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %92 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %80, double %84)
-  %93 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %92, double %88)
-  %94 = fdiv reassoc nsz arcp contract afn double %80, %93
-  store double %94, ptr %0, align 8, !tbaa !188, !alias.scope !228
-  %95 = fdiv reassoc nsz arcp contract afn double %84, %93
-  store double %95, ptr %91, align 8, !tbaa !180, !alias.scope !228
-  %96 = fdiv reassoc nsz arcp contract afn double %88, %93
-  store double %96, ptr %90, align 8, !tbaa !189, !alias.scope !228
-  br label %97
+_spectrum_to_XYZ.exit8:                           ; preds = %49
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %94 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %82, double %86)
+  %95 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %94, double %90)
+  %96 = fdiv reassoc nsz arcp contract afn double %82, %95
+  store double %96, ptr %0, align 8, !tbaa !188, !alias.scope !228
+  %97 = fdiv reassoc nsz arcp contract afn double %86, %95
+  store double %97, ptr %93, align 8, !tbaa !180, !alias.scope !228
+  %98 = fdiv reassoc nsz arcp contract afn double %90, %95
+  store double %98, ptr %92, align 8, !tbaa !189, !alias.scope !228
+  br label %99
 
-97:                                               ; preds = %_spectrum_to_XYZ.exit8, %_spectrum_to_XYZ.exit
+99:                                               ; preds = %_spectrum_to_XYZ.exit8, %_spectrum_to_XYZ.exit
   ret void
 }
 

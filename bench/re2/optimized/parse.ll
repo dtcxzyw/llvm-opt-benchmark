@@ -723,9 +723,10 @@ lor.lhs.false:                                    ; preds = %land.lhs.true.i, %w
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %delta.i = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i, i64 %4, i32 2
-  %5 = load i32, ptr %delta.i, align 4
-  switch i32 %5, label %sw.default.i [
+  %5 = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i, i64 %4
+  %delta.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %6 = load i32, ptr %delta.i, align 4
+  switch i32 %6, label %sw.default.i [
     i32 1073741824, label %sw.bb.i
     i32 1, label %sw.bb2.i
     i32 1073741825, label %sw.bb8.i
@@ -733,18 +734,18 @@ if.end:                                           ; preds = %lor.lhs.false
   ]
 
 sw.default.i:                                     ; preds = %if.end
-  %add.i9 = add nsw i32 %5, %r
+  %add.i9 = add nsw i32 %6, %r
   br label %return
 
 sw.bb.i:                                          ; preds = %if.end
   %sub.i8 = sub nsw i32 %r, %3
-  %6 = and i32 %sub.i8, 1
-  %tobool.not.i = icmp eq i32 %6, 0
+  %7 = and i32 %sub.i8, 1
+  %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %sw.bb2.i, label %return
 
 sw.bb2.i:                                         ; preds = %sw.bb.i, %if.end
-  %7 = and i32 %r, 1
-  %cmp.i7 = icmp eq i32 %7, 0
+  %8 = and i32 %r, 1
+  %cmp.i7 = icmp eq i32 %8, 0
   br i1 %cmp.i7, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %sw.bb2.i
@@ -757,13 +758,13 @@ if.end6.i:                                        ; preds = %sw.bb2.i
 
 sw.bb8.i:                                         ; preds = %if.end
   %sub10.i = sub nsw i32 %r, %3
-  %8 = and i32 %sub10.i, 1
-  %tobool12.not.i = icmp eq i32 %8, 0
+  %9 = and i32 %sub10.i, 1
+  %tobool12.not.i = icmp eq i32 %9, 0
   br i1 %tobool12.not.i, label %sw.bb15.i, label %return
 
 sw.bb15.i:                                        ; preds = %sw.bb8.i, %if.end
-  %9 = and i32 %r, -2147483647
-  %cmp17.i = icmp eq i32 %9, 1
+  %10 = and i32 %r, -2147483647
+  %cmp17.i = icmp eq i32 %10, 1
   br i1 %cmp17.i, label %if.then18.i, label %if.end20.i
 
 if.then18.i:                                      ; preds = %sw.bb15.i
@@ -2855,7 +2856,8 @@ _ZNSt6vectorIN3re25FrameESaIS1_EE8pop_backEv.exit: ; preds = %if.else96, %if.the
   %57 = load i32, ptr %spliceidx101, align 8
   %conv102 = sext i32 %57 to i64
   %58 = load ptr, ptr %splices99, align 8
-  %nsuffix104 = getelementptr inbounds %"struct.re2::Splice", ptr %58, i64 %conv102, i32 3
+  %add.ptr.i96 = getelementptr inbounds %"struct.re2::Splice", ptr %58, i64 %conv102
+  %nsuffix104 = getelementptr inbounds nuw i8, ptr %add.ptr.i96, i64 20
   store i32 %52, ptr %nsuffix104, align 4
   %59 = load ptr, ptr %_M_finish.i, align 8
   %spliceidx106 = getelementptr inbounds i8, ptr %59, i64 -8
@@ -5112,7 +5114,8 @@ if.then43:                                        ; preds = %for.body36
 if.end49:                                         ; preds = %if.then43, %for.body36
   %33 = phi i32 [ %.pre87, %if.then43 ], [ %30, %for.body36 ]
   %34 = phi ptr [ %.pre86, %if.then43 ], [ %31, %for.body36 ]
-  %hi53 = getelementptr inbounds nuw %"struct.re2::URange16", ptr %34, i64 %indvars.iv74, i32 1
+  %arrayidx52 = getelementptr inbounds nuw %"struct.re2::URange16", ptr %34, i64 %indvars.iv74
+  %hi53 = getelementptr inbounds nuw i8, ptr %arrayidx52, i64 2
   %35 = load i16, ptr %hi53, align 2
   %conv54 = zext i16 %35 to i32
   %add = add nuw nsw i32 %conv54, 1
@@ -5141,7 +5144,8 @@ if.then68:                                        ; preds = %for.body62
 if.end74:                                         ; preds = %if.then68, %for.body62
   %40 = phi i32 [ %.pre90, %if.then68 ], [ %37, %for.body62 ]
   %41 = phi ptr [ %.pre89, %if.then68 ], [ %38, %for.body62 ]
-  %hi78 = getelementptr inbounds nuw %"struct.re2::URange32", ptr %41, i64 %indvars.iv77, i32 1
+  %arrayidx77 = getelementptr inbounds nuw %"struct.re2::URange32", ptr %41, i64 %indvars.iv77
+  %hi78 = getelementptr inbounds nuw i8, ptr %arrayidx77, i64 4
   %42 = load i32, ptr %hi78, align 4
   %add79 = add nsw i32 %42, 1
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -5411,7 +5415,7 @@ _ZNK4absl7debian211string_viewixEm.exit93:        ; preds = %_ZN4absl7debian211s
 
 _ZN4absl7debian211string_view13remove_prefixEm.exit99: ; preds = %_ZNK4absl7debian211string_viewixEm.exit93
   %conv41 = zext nneg i8 %14 to i32
-  %mul46 = shl nsw i32 %sub37, 3
+  %mul46 = shl nuw nsw i32 %sub37, 3
   %add47 = add nsw i32 %mul46, -48
   %sub48 = add nsw i32 %add47, %conv41
   %add.ptr.i96 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 2

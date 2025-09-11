@@ -352,9 +352,9 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   %.1 = select i1 %2, ptr @sndcp_xid_dcomp_algo_str, ptr @sndcp_xid_pcomp_algo_str
   br label %7
 
-7:                                                ; preds = %.preheader168, %127
-  %8 = phi i32 [ 0, %.preheader168 ], [ %128, %127 ]
-  %.0149184 = phi i32 [ 0, %.preheader168 ], [ %.1150, %127 ]
+7:                                                ; preds = %.preheader168, %128
+  %8 = phi i32 [ 0, %.preheader168 ], [ %129, %128 ]
+  %.0149184 = phi i32 [ 0, %.preheader168 ], [ %.1150, %128 ]
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %8)
   %.not = icmp sgt i8 %9, -1
   %10 = and i8 %9, 31
@@ -474,7 +474,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   %.lcssa169 = phi i32 [ %.lcssa, %.preheader ], [ %81, %74 ], [ %70, %69 ]
   %83 = zext i16 %44 to i32
   %84 = add nuw nsw i32 %.lcssa169, %83
-  br label %127
+  br label %128
 
 85:                                               ; preds = %7
   %86 = zext nneg i8 %10 to i64
@@ -513,43 +513,44 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
 
 .lr.ph180:                                        ; preds = %108
   %109 = zext nneg i8 %.0155 to i64
-  %110 = getelementptr %struct.algo_parameters_t, ptr %.1154, i64 %109, i32 1
-  %111 = load ptr, ptr %110, align 8
-  br label %112
+  %110 = getelementptr %struct.algo_parameters_t, ptr %.1154, i64 %109
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  br label %113
 
-112:                                              ; preds = %.lr.ph180, %117
-  %113 = phi i32 [ 0, %.lr.ph180 ], [ %124, %117 ]
-  %.1148179 = phi i32 [ 0, %.lr.ph180 ], [ %122, %117 ]
-  %.1152178 = phi i8 [ 0, %.lr.ph180 ], [ %123, %117 ]
-  %114 = zext i8 %.1152178 to i64
-  %115 = getelementptr ptr, ptr %111, i64 %114
-  %116 = load ptr, ptr %115, align 8
-  %.not166 = icmp eq ptr %116, null
-  br i1 %.not166, label %.critedge2, label %117
+113:                                              ; preds = %.lr.ph180, %118
+  %114 = phi i32 [ 0, %.lr.ph180 ], [ %125, %118 ]
+  %.1148179 = phi i32 [ 0, %.lr.ph180 ], [ %123, %118 ]
+  %.1152178 = phi i8 [ 0, %.lr.ph180 ], [ %124, %118 ]
+  %115 = zext i8 %.1152178 to i64
+  %116 = getelementptr ptr, ptr %112, i64 %115
+  %117 = load ptr, ptr %116, align 8
+  %.not166 = icmp eq ptr %117, null
+  br i1 %.not166, label %.critedge2, label %118
 
-117:                                              ; preds = %112
-  %118 = add nuw nsw i32 %.1148179, %102
-  %119 = trunc i32 %118 to i16
-  %120 = tail call zeroext i16 %116(ptr noundef %0, ptr noundef %94, i16 noundef zeroext %119)
-  %121 = zext i16 %120 to i32
-  %122 = add nuw nsw i32 %113, %121
-  %123 = add i8 %.1152178, 1
-  %124 = and i32 %122, 65535
-  %125 = icmp samesign ult i32 %124, %87
-  br i1 %125, label %112, label %.critedge2, !llvm.loop !10
+118:                                              ; preds = %113
+  %119 = add nuw nsw i32 %.1148179, %102
+  %120 = trunc i32 %119 to i16
+  %121 = tail call zeroext i16 %117(ptr noundef %0, ptr noundef %94, i16 noundef zeroext %120)
+  %122 = zext i16 %121 to i32
+  %123 = add nuw nsw i32 %114, %122
+  %124 = add i8 %.1152178, 1
+  %125 = and i32 %123, 65535
+  %126 = icmp samesign ult i32 %125, %87
+  br i1 %126, label %113, label %.critedge2, !llvm.loop !10
 
-.critedge2:                                       ; preds = %112, %117, %108
-  %.lcssa170 = phi i32 [ 0, %108 ], [ %124, %117 ], [ %113, %112 ]
-  %126 = add nsw i32 %.lcssa170, %102
-  br label %127
+.critedge2:                                       ; preds = %113, %118, %108
+  %.lcssa170 = phi i32 [ 0, %108 ], [ %125, %118 ], [ %114, %113 ]
+  %127 = add nsw i32 %.lcssa170, %102
+  br label %128
 
-127:                                              ; preds = %.critedge2, %.critedge
-  %.1150 = phi i32 [ %84, %.critedge ], [ %126, %.critedge2 ]
-  %128 = and i32 %.1150, 65535
-  %129 = icmp samesign ult i32 %128, %5
-  br i1 %129, label %7, label %.loopexit, !llvm.loop !11
+128:                                              ; preds = %.critedge2, %.critedge
+  %.1150 = phi i32 [ %84, %.critedge ], [ %127, %.critedge2 ]
+  %129 = and i32 %.1150, 65535
+  %130 = icmp samesign ult i32 %129, %5
+  br i1 %130, label %7, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %127, %106, %104, %17, %15, %3
+.loopexit:                                        ; preds = %128, %106, %104, %17, %15, %3
   ret void
 }
 

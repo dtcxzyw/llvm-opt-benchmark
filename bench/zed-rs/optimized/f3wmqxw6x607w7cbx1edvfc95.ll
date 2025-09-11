@@ -25141,8 +25141,7 @@ common.resume.i:                                  ; preds = %"_ZN4core3ptr72drop
   %40 = load i64, ptr %39, align 8, !alias.scope !4207, !noundef !4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i64, ptr %41, align 8, !alias.scope !4207, !noundef !4
-  %.idx.i = mul nuw nsw i64 %34, 88
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
+  %43 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 }, i64, i64 }, i64, { ptr, [1 x i64] } }, ptr %10, i64 %34
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %45 = load i64, ptr %44, align 8, !noalias !4207, !noundef !4
   %.not.i = icmp eq i64 %45, %42
@@ -25213,8 +25212,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.1965446746118303901.exit.
   br label %81
 
 68:                                               ; preds = %62
-  %.idx20.i = mul nuw nsw i64 %34, 88
-  %69 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx20.i
+  %69 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 }, i64, i64 }, i64, { ptr, [1 x i64] } }, ptr %10, i64 %34
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %72 = load i64, ptr %71, align 8, !noalias !4207, !noundef !4
@@ -25256,8 +25254,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.1965446746118303901.exit.
 88:                                               ; preds = %81
   %89 = extractvalue { ptr, ptr } %87, 0
   %90 = extractvalue { ptr, ptr } %87, 1
-  %.idx23.i = mul nuw nsw i64 %34, 88
-  %91 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx23.i
+  %91 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 }, i64, i64 }, i64, { ptr, [1 x i64] } }, ptr %10, i64 %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4219)
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %93 = load i64, ptr %92, align 8, !alias.scope !4219, !noalias !4222, !noundef !4

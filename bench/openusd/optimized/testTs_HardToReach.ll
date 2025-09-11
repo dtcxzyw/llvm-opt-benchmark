@@ -50029,9 +50029,9 @@ define internal fastcc void @_ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrR
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %19
 
-19:                                               ; preds = %.lr.ph, %84
-  %20 = phi ptr [ %16, %.lr.ph ], [ %85, %84 ]
-  %.039113 = phi i64 [ 0, %.lr.ph ], [ %86, %84 ]
+19:                                               ; preds = %.lr.ph, %85
+  %20 = phi ptr [ %16, %.lr.ph ], [ %86, %85 ]
+  %.039113 = phi i64 [ 0, %.lr.ph ], [ %87, %85 ]
   %21 = getelementptr %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %20, i64 %.039113
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
@@ -50173,37 +50173,39 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %48, %53
   store ptr null, ptr %17, align 8
   %.pre = load ptr, ptr %1, align 8
-  %.phi.trans.insert118 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %.pre, i64 %.039113, i32 2
+  %.phi.trans.insert = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %.pre, i64 %.039113
+  %.phi.trans.insert118 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 16
   %.pre119 = load double, ptr %.phi.trans.insert118, align 8
   br label %61
 
 .loopexit:                                        ; preds = %41
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %107
 
 .loopexit.split-lp:                               ; preds = %46
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %107
 
 61:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, %.split
   %62 = phi ptr [ %.pre, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit ], [ %20, %.split ]
   %63 = phi double [ %.pre119, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit ], [ %29, %.split ]
   %64 = fcmp ugt double %63, %3
-  br i1 %64, label %84, label %65
+  br i1 %64, label %85, label %65
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %62, i64 %.039113, i32 4
+  %66 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %62, i64 %.039113
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline4EvalEdNS_6TsSideE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %63, i32 noundef 0)
-  %67 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIfEbRKN32pxrInternal_v0_24__pxrReserved__7VtValueES3_T_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %13)
-          to label %68 unwind label %.loopexit89
+  %68 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIfEbRKN32pxrInternal_v0_24__pxrReserved__7VtValueES3_T_(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %69 unwind label %.loopexit89
 
-68:                                               ; preds = %65
+69:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %67, label %71, label %69
+  br i1 %68, label %72, label %70
 
-69:                                               ; preds = %68
+70:                                               ; preds = %69
   store ptr @.str, ptr %7, align 8
   %.sroa.260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__._ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_, ptr %.sroa.260.0..sroa_idx, align 8
@@ -50213,79 +50215,79 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %48, %53
   store ptr @__PRETTY_FUNCTION__._ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_, ptr %.sroa.462.0..sroa_idx, align 8
   %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.563.0..sroa_idx, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 4, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store i32 4, ptr %71, align 8
   invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull @.str.295, ptr noundef nonnull @.str.332) #24
           to label %.noexc46 unwind label %.loopexit.split-lp90
 
-.noexc46:                                         ; preds = %69
+.noexc46:                                         ; preds = %70
   unreachable
 
-71:                                               ; preds = %68
+72:                                               ; preds = %69
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %72 = load ptr, ptr %18, align 8
-  %73 = ptrtoint ptr %72 to i64
-  %.not.i.i48 = icmp eq ptr %72, null
-  %74 = and i64 %73, 3
-  %75 = icmp eq i64 %74, 3
-  %or.cond.i.i49 = or i1 %.not.i.i48, %75
-  br i1 %or.cond.i.i49, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit50, label %76
+  %73 = load ptr, ptr %18, align 8
+  %74 = ptrtoint ptr %73 to i64
+  %.not.i.i48 = icmp eq ptr %73, null
+  %75 = and i64 %74, 3
+  %76 = icmp eq i64 %75, 3
+  %or.cond.i.i49 = or i1 %.not.i.i48, %76
+  br i1 %or.cond.i.i49, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit50, label %77
 
-76:                                               ; preds = %71
-  %77 = and i64 %73, -8
-  %78 = inttoptr i64 %77 to ptr
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  %80 = load ptr, ptr %79, align 8
-  invoke void %80(ptr noundef nonnull align 8 dereferenceable(16) %13)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit50 unwind label %81
+77:                                               ; preds = %72
+  %78 = and i64 %74, -8
+  %79 = inttoptr i64 %78 to ptr
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load ptr, ptr %80, align 8
+  invoke void %81(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit50 unwind label %82
 
-81:                                               ; preds = %76
-  %82 = landingpad { ptr, i32 }
+82:                                               ; preds = %77
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #25
+  %84 = extractvalue { ptr, i32 } %83, 0
+  call void @__clang_call_terminate(ptr %84) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit50: ; preds = %71, %76
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit50: ; preds = %72, %77
   store ptr null, ptr %18, align 8
   %.pre120 = load ptr, ptr %1, align 8
-  br label %84
+  br label %85
 
 .loopexit89:                                      ; preds = %65
   %lpad.loopexit91 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %107
 
-.loopexit.split-lp90:                             ; preds = %69
+.loopexit.split-lp90:                             ; preds = %70
   %lpad.loopexit.split-lp92 = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %107
 
-84:                                               ; preds = %61, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit50
-  %85 = phi ptr [ %62, %61 ], [ %.pre120, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit50 ]
-  %86 = add nuw i64 %.039113, 1
-  %87 = load ptr, ptr %14, align 8
-  %88 = ptrtoint ptr %87 to i64
-  %89 = ptrtoint ptr %85 to i64
-  %90 = sub i64 %88, %89
-  %91 = sdiv exact i64 %90, 56
-  %92 = icmp ult i64 %86, %91
-  br i1 %92, label %19, label %._crit_edge, !llvm.loop !93
+85:                                               ; preds = %61, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit50
+  %86 = phi ptr [ %62, %61 ], [ %.pre120, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit50 ]
+  %87 = add nuw i64 %.039113, 1
+  %88 = load ptr, ptr %14, align 8
+  %89 = ptrtoint ptr %88 to i64
+  %90 = ptrtoint ptr %86 to i64
+  %91 = sub i64 %89, %90
+  %92 = sdiv exact i64 %91, 56
+  %93 = icmp ult i64 %87, %92
+  br i1 %93, label %19, label %._crit_edge, !llvm.loop !93
 
-._crit_edge:                                      ; preds = %84, %4
-  %.lcssa103 = phi ptr [ %15, %4 ], [ %87, %84 ]
-  %.lcssa = phi ptr [ %16, %4 ], [ %85, %84 ]
-  %93 = icmp eq ptr %.lcssa, %.lcssa103
-  br i1 %93, label %105, label %94
+._crit_edge:                                      ; preds = %85, %4
+  %.lcssa103 = phi ptr [ %15, %4 ], [ %88, %85 ]
+  %.lcssa = phi ptr [ %16, %4 ], [ %86, %85 ]
+  %94 = icmp eq ptr %.lcssa, %.lcssa103
+  br i1 %94, label %106, label %95
 
-94:                                               ; preds = %._crit_edge
-  %95 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %96 = load double, ptr %95, align 8
-  %97 = fcmp ugt double %96, %2
+95:                                               ; preds = %._crit_edge
+  %96 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
+  %97 = load double, ptr %96, align 8
+  %98 = fcmp ugt double %97, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %97, label %98, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51
+  br i1 %98, label %99, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51
 
-98:                                               ; preds = %94
+99:                                               ; preds = %95
   store ptr @.str, ptr %6, align 8
   %.sroa.254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__._ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_, ptr %.sroa.254.0..sroa_idx, align 8
@@ -50295,20 +50297,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit50: ; preds = %71, %76
   store ptr @__PRETTY_FUNCTION__._ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_, ptr %.sroa.456.0..sroa_idx, align 8
   %.sroa.557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %.sroa.557.0..sroa_idx, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 4, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i32 4, ptr %100, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.295, ptr noundef nonnull @.str.333) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51: ; preds = %94
+_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51: ; preds = %95
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %100 = getelementptr inbounds i8, ptr %.lcssa103, i64 -40
-  %101 = load double, ptr %100, align 8
-  %102 = fcmp ult double %101, %3
+  %101 = getelementptr inbounds i8, ptr %.lcssa103, i64 -40
+  %102 = load double, ptr %101, align 8
+  %103 = fcmp ult double %102, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %102, label %103, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit52
+  br i1 %103, label %104, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit52
 
-103:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51
+104:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51
   store ptr @.str, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__func__._ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_, ptr %.sroa.2.0..sroa_idx, align 8
@@ -50318,19 +50320,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   store ptr @__PRETTY_FUNCTION__._ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKSt6vectorINS0_13TsValueSampleESaIS5_EEddT_, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 4, ptr %104, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i32 4, ptr %105, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.295, ptr noundef nonnull @.str.334) #24
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit52: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %105
+  br label %106
 
-105:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit52, %._crit_edge
+106:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit52, %._crit_edge
   ret void
 
-106:                                              ; preds = %.loopexit89, %.loopexit.split-lp90, %.loopexit, %.loopexit.split-lp
+107:                                              ; preds = %.loopexit89, %.loopexit.split-lp90, %.loopexit, %.loopexit.split-lp
   %.sink = phi ptr [ %12, %.loopexit.split-lp ], [ %12, %.loopexit ], [ %13, %.loopexit.split-lp90 ], [ %13, %.loopexit89 ]
   %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp92, %.loopexit.split-lp90 ], [ %lpad.loopexit91, %.loopexit89 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #23

@@ -221,7 +221,7 @@ define i32 @BIO_nwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unn
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_write(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #1 {
+define internal range(i32 -1, -2147483648) i32 @bio_write(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #1 {
   %4 = sext i32 %2 to i64
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -294,7 +294,7 @@ define internal i32 @bio_write(ptr noundef %0, ptr noundef readonly captures(add
   br i1 %.not60, label %42, label %28, !llvm.loop !28
 
 42:                                               ; preds = %28
-  %43 = trunc nuw i64 %spec.select to i32
+  %43 = trunc nuw nsw i64 %spec.select to i32
   br label %44
 
 44:                                               ; preds = %3, %42, %23, %16
@@ -399,7 +399,7 @@ define internal i32 @bio_read(ptr noundef %0, ptr noundef writeonly captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_puts(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 {
+define internal range(i32 -1, -2147483648) i32 @bio_puts(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @bio_write(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)

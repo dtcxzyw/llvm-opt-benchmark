@@ -28281,51 +28281,51 @@ define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWith
 
 .lr.ph:                                           ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.promoted7 = load i32, ptr %13, align 8, !tbaa !3493
+  %.promoted5 = load i32, ptr %13, align 8, !tbaa !3493
   br label %14
 
 14:                                               ; preds = %.lr.ph, %.loopexit
-  %15 = phi i32 [ %.promoted7, %.lr.ph ], [ 0, %.loopexit ]
+  %15 = phi i32 [ %.promoted5, %.lr.ph ], [ 0, %.loopexit ]
   %16 = phi i64 [ %11, %.lr.ph ], [ %51, %.loopexit ]
   %17 = phi i32 [ %.promoted, %.lr.ph ], [ %50, %.loopexit ]
-  %18 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %6, i64 %16, i32 3
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !3629
-  %21 = load ptr, ptr %18, align 8, !tbaa !3502
-  %22 = ptrtoint ptr %20 to i64
+  %18 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %6, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %21 = load ptr, ptr %20, align 8, !tbaa !3629
+  %22 = load ptr, ptr %19, align 8, !tbaa !3502
   %23 = ptrtoint ptr %21 to i64
-  %24 = sub i64 %22, %23
-  %25 = ashr exact i64 %24, 1
-  %26 = zext i32 %15 to i64
-  %27 = icmp ugt i64 %25, %26
-  br i1 %27, label %.lr.ph.i, label %.loopexit
+  %24 = ptrtoint ptr %22 to i64
+  %25 = sub i64 %23, %24
+  %26 = ashr exact i64 %25, 1
+  %27 = zext i32 %15 to i64
+  %28 = icmp ugt i64 %26, %27
+  br i1 %28, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %14, %32
-  %28 = phi i64 [ %34, %32 ], [ %26, %14 ]
-  %29 = phi i32 [ %33, %32 ], [ %15, %14 ]
-  %30 = getelementptr inbounds nuw i16, ptr %21, i64 %28
-  %31 = load i16, ptr %30, align 2, !tbaa !3735
-  %.not.i = icmp eq i16 %31, -1
-  br i1 %.not.i, label %32, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit"
+.lr.ph.i:                                         ; preds = %14, %33
+  %29 = phi i64 [ %35, %33 ], [ %27, %14 ]
+  %30 = phi i32 [ %34, %33 ], [ %15, %14 ]
+  %31 = getelementptr inbounds nuw i16, ptr %22, i64 %29
+  %32 = load i16, ptr %31, align 2, !tbaa !3735
+  %.not.i = icmp eq i16 %32, -1
+  br i1 %.not.i, label %33, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit"
 
-32:                                               ; preds = %.lr.ph.i
-  %33 = add i32 %29, 1
-  store i32 %33, ptr %13, align 8, !tbaa !3493
-  %34 = zext i32 %33 to i64
-  %35 = icmp ugt i64 %25, %34
-  br i1 %35, label %.lr.ph.i, label %.loopexit, !llvm.loop !3776
+33:                                               ; preds = %.lr.ph.i
+  %34 = add i32 %30, 1
+  store i32 %34, ptr %13, align 8, !tbaa !3493
+  %35 = zext i32 %34 to i64
+  %36 = icmp ugt i64 %26, %35
+  br i1 %36, label %.lr.ph.i, label %.loopexit, !llvm.loop !3776
 
 "_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit": ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %6, i64 %16
-  %37 = zext i32 %29 to i64
-  %38 = getelementptr inbounds nuw i16, ptr %21, i64 %37
+  %37 = zext i32 %30 to i64
+  %38 = getelementptr inbounds nuw i16, ptr %22, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !3735
   %40 = zext i16 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 %40, ptr %41, align 4, !tbaa !3494
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !3444
-  %44 = load i32, ptr %36, align 8, !tbaa !3777
+  %44 = load i32, ptr %18, align 8, !tbaa !3777
   %45 = zext i32 %44 to i64
   %46 = tail call { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile18getSegmentContentsEm(ptr noundef nonnull align 8 dereferenceable(360) %43, i64 noundef %45)
   %47 = extractvalue { ptr, i64 } %46, 0
@@ -28336,7 +28336,7 @@ define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWith
   store i64 %48, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !188
   br label %.loopexit2
 
-.loopexit:                                        ; preds = %32, %14
+.loopexit:                                        ; preds = %33, %14
   %50 = add i32 %17, 1
   store i32 %50, ptr %2, align 4, !tbaa !3480
   store i32 0, ptr %13, align 8, !tbaa !3493
@@ -28383,43 +28383,43 @@ define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry11moveToFirstEv(pt
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.loopexit.i
   %18 = phi i64 [ %51, %.loopexit.i ], [ 0, %.lr.ph.i.preheader ]
   %19 = phi i32 [ %50, %.loopexit.i ], [ 0, %.lr.ph.i.preheader ]
-  %20 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %7, i64 %18, i32 3
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !3629
-  %23 = load ptr, ptr %20, align 8, !tbaa !3502
-  %24 = ptrtoint ptr %22 to i64
+  %20 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %7, i64 %18
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %23 = load ptr, ptr %22, align 8, !tbaa !3629
+  %24 = load ptr, ptr %21, align 8, !tbaa !3502
   %25 = ptrtoint ptr %23 to i64
-  %26 = sub i64 %24, %25
-  %27 = ashr exact i64 %26, 1
-  %.not1 = icmp eq ptr %22, %23
+  %26 = ptrtoint ptr %24 to i64
+  %27 = sub i64 %25, %26
+  %28 = ashr exact i64 %27, 1
+  %.not1 = icmp eq ptr %23, %24
   br i1 %.not1, label %.loopexit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %32
-  %28 = phi i64 [ %34, %32 ], [ 0, %.lr.ph.i ]
-  %29 = phi i32 [ %33, %32 ], [ 0, %.lr.ph.i ]
-  %30 = getelementptr inbounds nuw i16, ptr %23, i64 %28
-  %31 = load i16, ptr %30, align 2, !tbaa !3735
-  %.not.i.i = icmp eq i16 %31, -1
-  br i1 %.not.i.i, label %32, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i"
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %33
+  %29 = phi i64 [ %35, %33 ], [ 0, %.lr.ph.i ]
+  %30 = phi i32 [ %34, %33 ], [ 0, %.lr.ph.i ]
+  %31 = getelementptr inbounds nuw i16, ptr %24, i64 %29
+  %32 = load i16, ptr %31, align 2, !tbaa !3735
+  %.not.i.i = icmp eq i16 %32, -1
+  br i1 %.not.i.i, label %33, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i"
 
-32:                                               ; preds = %.lr.ph.i.i
-  %33 = add i32 %29, 1
-  store i32 %33, ptr %13, align 8, !tbaa !3493
-  %34 = zext i32 %33 to i64
-  %35 = icmp ugt i64 %27, %34
-  br i1 %35, label %.lr.ph.i.i, label %.loopexit.i, !llvm.loop !3776
+33:                                               ; preds = %.lr.ph.i.i
+  %34 = add i32 %30, 1
+  store i32 %34, ptr %13, align 8, !tbaa !3493
+  %35 = zext i32 %34 to i64
+  %36 = icmp ugt i64 %28, %35
+  br i1 %36, label %.lr.ph.i.i, label %.loopexit.i, !llvm.loop !3776
 
 "_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i": ; preds = %.lr.ph.i.i
-  %36 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %7, i64 %18
-  %37 = zext i32 %29 to i64
-  %38 = getelementptr inbounds nuw i16, ptr %23, i64 %37
+  %37 = zext i32 %30 to i64
+  %38 = getelementptr inbounds nuw i16, ptr %24, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !3735
   %40 = zext i16 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 %40, ptr %41, align 4, !tbaa !3494
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !3444
-  %44 = load i32, ptr %36, align 8, !tbaa !3777
+  %44 = load i32, ptr %20, align 8, !tbaa !3777
   %45 = zext i32 %44 to i64
   %46 = tail call { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile18getSegmentContentsEm(ptr noundef nonnull align 8 dereferenceable(360) %43, i64 noundef %45)
   %47 = extractvalue { ptr, i64 } %46, 0
@@ -28430,7 +28430,7 @@ define dso_local void @_ZN4llvm6object22MachOChainedFixupEntry11moveToFirstEv(pt
   store i64 %48, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !188
   br label %_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit
 
-.loopexit.i:                                      ; preds = %32, %.lr.ph.i
+.loopexit.i:                                      ; preds = %33, %.lr.ph.i
   %50 = add i32 %19, 1
   store i32 %50, ptr %12, align 4, !tbaa !3480
   store i32 0, ptr %13, align 8, !tbaa !3493
@@ -28816,41 +28816,41 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %98, %_ZNK4llvm
   %180 = phi i32 [ 0, %.loopexit.i ], [ %178, %177 ]
   %181 = phi i64 [ %212, %.loopexit.i ], [ %20, %177 ]
   %182 = phi i32 [ %211, %.loopexit.i ], [ %19, %177 ]
-  %183 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %24, i64 %181, i32 3
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = load ptr, ptr %184, align 8, !tbaa !3629
-  %186 = load ptr, ptr %183, align 8, !tbaa !3502
-  %187 = ptrtoint ptr %185 to i64
+  %183 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %24, i64 %181
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 40
+  %186 = load ptr, ptr %185, align 8, !tbaa !3629
+  %187 = load ptr, ptr %184, align 8, !tbaa !3502
   %188 = ptrtoint ptr %186 to i64
-  %189 = sub i64 %187, %188
-  %190 = ashr exact i64 %189, 1
-  %191 = zext i32 %180 to i64
-  %192 = icmp ugt i64 %190, %191
-  br i1 %192, label %.lr.ph.i.i, label %.loopexit.i
+  %189 = ptrtoint ptr %187 to i64
+  %190 = sub i64 %188, %189
+  %191 = ashr exact i64 %190, 1
+  %192 = zext i32 %180 to i64
+  %193 = icmp ugt i64 %191, %192
+  br i1 %193, label %.lr.ph.i.i, label %.loopexit.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %197
-  %193 = phi i64 [ %199, %197 ], [ %191, %.lr.ph.i ]
-  %194 = phi i32 [ %198, %197 ], [ %180, %.lr.ph.i ]
-  %195 = getelementptr inbounds nuw i16, ptr %186, i64 %193
-  %196 = load i16, ptr %195, align 2, !tbaa !3735
-  %.not.i.i = icmp eq i16 %196, -1
-  br i1 %.not.i.i, label %197, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i"
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %198
+  %194 = phi i64 [ %200, %198 ], [ %192, %.lr.ph.i ]
+  %195 = phi i32 [ %199, %198 ], [ %180, %.lr.ph.i ]
+  %196 = getelementptr inbounds nuw i16, ptr %187, i64 %194
+  %197 = load i16, ptr %196, align 2, !tbaa !3735
+  %.not.i.i = icmp eq i16 %197, -1
+  br i1 %.not.i.i, label %198, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i"
 
-197:                                              ; preds = %.lr.ph.i.i
-  %198 = add i32 %194, 1
-  store i32 %198, ptr %39, align 8, !tbaa !3493
-  %199 = zext i32 %198 to i64
-  %200 = icmp ugt i64 %190, %199
-  br i1 %200, label %.lr.ph.i.i, label %.loopexit.i, !llvm.loop !3776
+198:                                              ; preds = %.lr.ph.i.i
+  %199 = add i32 %195, 1
+  store i32 %199, ptr %39, align 8, !tbaa !3493
+  %200 = zext i32 %199 to i64
+  %201 = icmp ugt i64 %191, %200
+  br i1 %201, label %.lr.ph.i.i, label %.loopexit.i, !llvm.loop !3776
 
 "_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i": ; preds = %.lr.ph.i.i
-  %201 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %24, i64 %181
-  %202 = zext i32 %194 to i64
-  %203 = getelementptr inbounds nuw i16, ptr %186, i64 %202
+  %202 = zext i32 %195 to i64
+  %203 = getelementptr inbounds nuw i16, ptr %187, i64 %202
   %204 = load i16, ptr %203, align 2, !tbaa !3735
   %205 = zext i16 %204 to i32
   store i32 %205, ptr %42, align 4, !tbaa !3494
-  %206 = load i32, ptr %201, align 8, !tbaa !3777
+  %206 = load i32, ptr %183, align 8, !tbaa !3777
   %207 = zext i32 %206 to i64
   %208 = tail call { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile18getSegmentContentsEm(ptr noundef nonnull align 8 dereferenceable(360) %104, i64 noundef %207)
   %209 = extractvalue { ptr, i64 } %208, 0
@@ -28859,7 +28859,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.thread: ; preds = %98, %_ZNK4llvm
   store i64 %210, ptr %73, align 8, !tbaa !188
   br label %_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit
 
-.loopexit.i:                                      ; preds = %197, %.lr.ph.i
+.loopexit.i:                                      ; preds = %198, %.lr.ph.i
   %211 = add i32 %182, 1
   store i32 %211, ptr %18, align 4, !tbaa !3480
   store i32 0, ptr %39, align 8, !tbaa !3493
@@ -35528,43 +35528,43 @@ _ZNSt10unique_ptrIN4llvm6object17BindRebaseSegInfoESt14default_deleteIS2_EED2Ev.
 .lr.ph.i.i:                                       ; preds = %.loopexit.i.i, %.lr.ph.i.preheader.i
   %32 = phi i64 [ %65, %.loopexit.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %33 = phi i32 [ %64, %.loopexit.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %34 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %21, i64 %32, i32 3
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !3629
-  %37 = load ptr, ptr %34, align 8, !tbaa !3502
-  %38 = ptrtoint ptr %36 to i64
+  %34 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %21, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %37 = load ptr, ptr %36, align 8, !tbaa !3629
+  %38 = load ptr, ptr %35, align 8, !tbaa !3502
   %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %38, %39
-  %41 = ashr exact i64 %40, 1
-  %.not1.i = icmp eq ptr %36, %37
+  %40 = ptrtoint ptr %38 to i64
+  %41 = sub i64 %39, %40
+  %42 = ashr exact i64 %41, 1
+  %.not1.i = icmp eq ptr %37, %38
   br i1 %.not1.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i, %46
-  %42 = phi i64 [ %48, %46 ], [ 0, %.lr.ph.i.i ]
-  %43 = phi i32 [ %47, %46 ], [ 0, %.lr.ph.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %37, i64 %42
-  %45 = load i16, ptr %44, align 2, !tbaa !3735
-  %.not.i.i.i = icmp eq i16 %45, -1
-  br i1 %.not.i.i.i, label %46, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i.i"
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i, %47
+  %43 = phi i64 [ %49, %47 ], [ 0, %.lr.ph.i.i ]
+  %44 = phi i32 [ %48, %47 ], [ 0, %.lr.ph.i.i ]
+  %45 = getelementptr inbounds nuw i16, ptr %38, i64 %43
+  %46 = load i16, ptr %45, align 2, !tbaa !3735
+  %.not.i.i.i = icmp eq i16 %46, -1
+  br i1 %.not.i.i.i, label %47, label %"_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i.i"
 
-46:                                               ; preds = %.lr.ph.i.i.i
-  %47 = add i32 %43, 1
-  store i32 %47, ptr %27, align 8, !tbaa !3493
-  %48 = zext i32 %47 to i64
-  %49 = icmp ugt i64 %41, %48
-  br i1 %49, label %.lr.ph.i.i.i, label %.loopexit.i.i, !llvm.loop !3776
+47:                                               ; preds = %.lr.ph.i.i.i
+  %48 = add i32 %44, 1
+  store i32 %48, ptr %27, align 8, !tbaa !3493
+  %49 = zext i32 %48 to i64
+  %50 = icmp ugt i64 %42, %49
+  br i1 %50, label %.lr.ph.i.i.i, label %.loopexit.i.i, !llvm.loop !3776
 
 "_ZZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEvENK3$_0clEv.exit.i.i": ; preds = %.lr.ph.i.i.i
-  %50 = getelementptr inbounds nuw %"struct.llvm::object::ChainedFixupsSegment", ptr %21, i64 %32
-  %51 = zext i32 %43 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %37, i64 %51
+  %51 = zext i32 %44 to i64
+  %52 = getelementptr inbounds nuw i16, ptr %38, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !3735
   %54 = zext i16 %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 172
   store i32 %54, ptr %55, align 4, !tbaa !3494
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !3444
-  %58 = load i32, ptr %50, align 8, !tbaa !3777
+  %58 = load i32, ptr %34, align 8, !tbaa !3777
   %59 = zext i32 %58 to i64
   %60 = call { ptr, i64 } @_ZNK4llvm6object15MachOObjectFile18getSegmentContentsEm(ptr noundef nonnull align 8 dereferenceable(360) %57, i64 noundef %59)
   %61 = extractvalue { ptr, i64 } %60, 0
@@ -35575,7 +35575,7 @@ _ZNSt10unique_ptrIN4llvm6object17BindRebaseSegInfoESt14default_deleteIS2_EED2Ev.
   store i64 %62, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !188
   br label %_ZN4llvm6object22MachOChainedFixupEntry22findNextPageWithFixupsEv.exit.i
 
-.loopexit.i.i:                                    ; preds = %46, %.lr.ph.i.i
+.loopexit.i.i:                                    ; preds = %47, %.lr.ph.i.i
   %64 = add i32 %33, 1
   store i32 %64, ptr %26, align 4, !tbaa !3480
   store i32 0, ptr %27, align 8, !tbaa !3493

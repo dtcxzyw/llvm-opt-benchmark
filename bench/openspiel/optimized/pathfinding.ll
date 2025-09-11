@@ -13282,8 +13282,9 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiSt4p
   unreachable
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt4pairIiiEEENS0_13hash_internal4HashIiEESt8equal_toIiESaIS4_IKiS5_EEE8iteratordeEv.exit: ; preds = %54
-  %58 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %52, i64 %.sroa.026.0.i14.i.i, i32 0, i32 1
-  ret ptr %58
+  %58 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %52, i64 %.sroa.026.0.i14.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  ret ptr %59
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

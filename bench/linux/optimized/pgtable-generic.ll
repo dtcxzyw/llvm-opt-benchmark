@@ -7,14 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [88 x i8] }
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.pte_t = type { i64 }
-%struct.page = type { i64, %union.anon.10, %union.anon.18, %struct.atomic_t, [8 x i8] }
-%union.anon.10 = type { %struct.anon.11 }
-%struct.anon.11 = type { %union.anon.12, ptr, %union.anon.14, i64 }
-%union.anon.12 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.14 = type { i64 }
-%union.anon.18 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 
 @.str = private unnamed_addr constant [29 x i8] c"\013%s:%d: bad pgd %p(%016lx)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"mm/pgtable-generic.c\00", align 1
@@ -246,8 +238,9 @@ define dso_local ptr @pte_offset_map_nolock(ptr noundef readnone captures(none) 
 26:                                               ; preds = %16
   %27 = load i64, ptr @vmemmap_base, align 8
   %28 = inttoptr i64 %27 to ptr
-  %29 = lshr exact i64 %18, 12
-  %30 = getelementptr %struct.page, ptr %28, i64 %29, i32 1, i32 0, i32 3
+  %29 = lshr exact i64 %18, 6
+  %.split = getelementptr i8, ptr %28, i64 %29
+  %30 = getelementptr i8, ptr %.split, i64 40
   store ptr %30, ptr %3, align 8
   br label %31
 
@@ -301,8 +294,9 @@ define dso_local ptr @__pte_offset_map_lock(ptr noundef readnone captures(none) 
 27:                                               ; preds = %19
   %28 = load i64, ptr @vmemmap_base, align 8
   %29 = inttoptr i64 %28 to ptr
-  %30 = lshr exact i64 %21, 12
-  %31 = getelementptr %struct.page, ptr %29, i64 %30, i32 1, i32 0, i32 3
+  %30 = lshr exact i64 %21, 6
+  %.split = getelementptr i8, ptr %29, i64 %30
+  %31 = getelementptr i8, ptr %.split, i64 40
   tail call void @_raw_spin_lock(ptr noundef %31) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %32 = load volatile i64, ptr %1, align 8

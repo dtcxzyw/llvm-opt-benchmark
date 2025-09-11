@@ -740,7 +740,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   unreachable
 
 87:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hf20babe0d00904f8E.exit.i.i"
-  %88 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, i8, [7 x i8] }, ptr %35, i64 %39, i32 2
+  %88 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i8 %33, ptr %88, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
@@ -5105,27 +5105,28 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   br label %5
 
 5:                                                ; preds = %5, %.lr.ph.i
-  %.sroa.01.019.i = phi i64 [ %1, %.lr.ph.i ], [ %11, %5 ]
+  %.sroa.01.019.i = phi i64 [ %1, %.lr.ph.i ], [ %12, %5 ]
   %.sroa.03.018.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.013.0.i, %5 ]
   %.sroa.09.017.i = phi i64 [ %1, %.lr.ph.i ], [ %.sroa.014.0.i, %5 ]
   %6 = lshr i64 %.sroa.01.019.i, 1
   %7 = add i64 %6, %.sroa.03.018.i
   %8 = icmp ult i64 %7, %1
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %0, i64 %7, i32 2
-  %.val16.i = load i64, ptr %9, align 8, !alias.scope !1091, !noalias !1096, !noundef !4
+  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %0, i64 %7
+  %10 = getelementptr i8, ptr %9, i64 48
+  %.val16.i = load i64, ptr %10, align 8, !alias.scope !1091, !noalias !1096, !noundef !4
   %.not.i.not.i = icmp ugt i64 %.val16.i, %4
-  %10 = add nuw i64 %7, 1
-  %.sroa.013.0.i = select i1 %.not.i.not.i, i64 %.sroa.03.018.i, i64 %10
+  %11 = add nuw i64 %7, 1
+  %.sroa.013.0.i = select i1 %.not.i.not.i, i64 %.sroa.03.018.i, i64 %11
   %.sroa.014.0.i = select i1 %.not.i.not.i, i64 %7, i64 %.sroa.09.017.i
-  %11 = sub i64 %.sroa.014.0.i, %.sroa.013.0.i
-  %12 = icmp ult i64 %.sroa.013.0.i, %.sroa.014.0.i
-  br i1 %12, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb4b6339f1aadb3f1E.llvm.12324841863366181129.exit"
+  %12 = sub i64 %.sroa.014.0.i, %.sroa.013.0.i
+  %13 = icmp ult i64 %.sroa.013.0.i, %.sroa.014.0.i
+  br i1 %13, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb4b6339f1aadb3f1E.llvm.12324841863366181129.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb4b6339f1aadb3f1E.llvm.12324841863366181129.exit": ; preds = %5, %3
   %.sroa.03.0.lcssa.i = phi i64 [ 0, %3 ], [ %.sroa.013.0.i, %5 ]
-  %13 = icmp ule i64 %.sroa.03.0.lcssa.i, %1
-  tail call void @llvm.assume(i1 %13)
+  %14 = icmp ule i64 %.sroa.03.0.lcssa.i, %1
+  tail call void @llvm.assume(i1 %14)
   ret i64 %.sroa.03.0.lcssa.i
 }
 
@@ -5147,22 +5148,23 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   ret { i64, i64 } %6
 
 7:                                                ; preds = %.lr.ph, %7
-  %.sroa.01.019 = phi i64 [ %1, %.lr.ph ], [ %13, %7 ]
+  %.sroa.01.019 = phi i64 [ %1, %.lr.ph ], [ %14, %7 ]
   %.sroa.03.018 = phi i64 [ 0, %.lr.ph ], [ %.sroa.013.0, %7 ]
   %.sroa.09.017 = phi i64 [ %1, %.lr.ph ], [ %.sroa.014.0, %7 ]
   %8 = lshr i64 %.sroa.01.019, 1
   %9 = add i64 %8, %.sroa.03.018
   %10 = icmp ult i64 %9, %1
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %0, i64 %9, i32 2
-  %.val16 = load i64, ptr %11, align 8, !noundef !4
+  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %0, i64 %9
+  %12 = getelementptr i8, ptr %11, i64 48
+  %.val16 = load i64, ptr %12, align 8, !noundef !4
   %.not.i.not = icmp ugt i64 %.val16, %4
-  %12 = add nuw i64 %9, 1
-  %.sroa.013.0 = select i1 %.not.i.not, i64 %.sroa.03.018, i64 %12
+  %13 = add nuw i64 %9, 1
+  %.sroa.013.0 = select i1 %.not.i.not, i64 %.sroa.03.018, i64 %13
   %.sroa.014.0 = select i1 %.not.i.not, i64 %9, i64 %.sroa.09.017
-  %13 = sub i64 %.sroa.014.0, %.sroa.013.0
-  %14 = icmp ult i64 %.sroa.013.0, %.sroa.014.0
-  br i1 %14, label %7, label %._crit_edge
+  %14 = sub i64 %.sroa.014.0, %.sroa.013.0
+  %15 = icmp ult i64 %.sroa.013.0, %.sroa.014.0
+  br i1 %15, label %7, label %._crit_edge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

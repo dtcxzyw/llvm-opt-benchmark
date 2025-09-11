@@ -1848,131 +1848,133 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(1544) ptr @_ZN6icu_7
 .preheader:                                       ; preds = %5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 576
-  br label %13
+  br label %15
 
 5:                                                ; preds = %2, %5
-  %.01113 = phi i64 [ 0, %2 ], [ %8, %5 ]
-  %6 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixMatcher", ptr %0, i64 %.01113, i32 1
-  %7 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixMatcher", ptr %1, i64 %.01113, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %7, i64 20, i1 false)
-  %8 = add nuw nsw i64 %.01113, 1
-  %.not = icmp eq i64 %8, 18
+  %.01113 = phi i64 [ 0, %2 ], [ %10, %5 ]
+  %6 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixMatcher", ptr %0, i64 %.01113
+  %7 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixMatcher", ptr %1, i64 %.01113
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 20, i1 false)
+  %10 = add nuw nsw i64 %.01113, 1
+  %.not = icmp eq i64 %10, 18
   br i1 %.not, label %.preheader, label %5, !llvm.loop !126
 
-9:                                                ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1536
-  %11 = load ptr, ptr %10, align 8, !tbaa !127
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1536
-  store ptr %11, ptr %12, align 8, !tbaa !127
+11:                                               ; preds = %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1536
+  %13 = load ptr, ptr %12, align 8, !tbaa !127
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1536
+  store ptr %13, ptr %14, align 8, !tbaa !127
   ret ptr %0
 
-13:                                               ; preds = %.preheader, %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit
-  %.014 = phi i64 [ 0, %.preheader ], [ %63, %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit ]
-  %14 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixPatternMatcher", ptr %3, i64 %.014
-  %15 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixPatternMatcher", ptr %4, i64 %.014
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  %19 = load i8, ptr %18, align 4, !tbaa !47
-  %.not.i.i.i.i = icmp eq i8 %19, 0
-  br i1 %.not.i.i.i.i, label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i, label %20
+15:                                               ; preds = %.preheader, %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit
+  %.014 = phi i64 [ 0, %.preheader ], [ %65, %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit ]
+  %16 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixPatternMatcher", ptr %3, i64 %.014
+  %17 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixPatternMatcher", ptr %4, i64 %.014
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  %21 = load i8, ptr %20, align 4, !tbaa !47
+  %.not.i.i.i.i = icmp eq i8 %21, 0
+  br i1 %.not.i.i.i.i, label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i, label %22
 
-20:                                               ; preds = %13
-  %21 = load ptr, ptr %16, align 8, !tbaa !51
-  invoke void @uprv_free_77(ptr noundef %21)
-          to label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i unwind label %35
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %18, align 8, !tbaa !51
+  invoke void @uprv_free_77(ptr noundef %23)
+          to label %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i unwind label %37
 
-_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i: ; preds = %20, %13
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !128
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 %23, ptr %24, align 8, !tbaa !128
-  %25 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  %26 = load i8, ptr %25, align 4, !tbaa !47
-  store i8 %26, ptr %18, align 4, !tbaa !47
-  %27 = load ptr, ptr %17, align 8, !tbaa !51
-  %28 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %30, label %34
+_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i: ; preds = %22, %15
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %25 = load i32, ptr %24, align 8, !tbaa !128
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 %25, ptr %26, align 8, !tbaa !128
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %28 = load i8, ptr %27, align 4, !tbaa !47
+  store i8 %28, ptr %20, align 4, !tbaa !47
+  %29 = load ptr, ptr %19, align 8, !tbaa !51
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %32, label %36
 
-30:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %31, ptr %16, align 8, !tbaa !51
-  %32 = sext i32 %23 to i64
-  %33 = shl nsw i64 %32, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %28, i64 %33, i1 false)
+32:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store ptr %33, ptr %18, align 8, !tbaa !51
+  %34 = sext i32 %25 to i64
+  %35 = shl nsw i64 %34, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 8 %30, i64 %35, i1 false)
   br label %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
 
-34:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i
-  store ptr %27, ptr %16, align 8, !tbaa !51
-  store ptr %28, ptr %17, align 8, !tbaa !51
-  store i32 3, ptr %22, align 8, !tbaa !128
-  store i8 0, ptr %25, align 4, !tbaa !47
+36:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i.i.i
+  store ptr %29, ptr %18, align 8, !tbaa !51
+  store ptr %30, ptr %19, align 8, !tbaa !51
+  store i32 3, ptr %24, align 8, !tbaa !128
+  store i8 0, ptr %27, align 4, !tbaa !47
   br label %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
 
-35:                                               ; preds = %20
-  %36 = landingpad { ptr, i32 }
+37:                                               ; preds = %22
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #21
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #21
   unreachable
 
-_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i: ; preds = %34, %30
-  %38 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %39 = load i32, ptr %38, align 8, !tbaa !129
-  %40 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i32 %39, ptr %40, align 8, !tbaa !129
-  %41 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %42 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %43 = getelementptr inbounds nuw i8, ptr %14, i64 68
-  %44 = load i8, ptr %43, align 4, !tbaa !44
-  %.not.i.i.i3.i = icmp eq i8 %44, 0
-  br i1 %.not.i.i.i3.i, label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i, label %45
+_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i: ; preds = %36, %32
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %41 = load i32, ptr %40, align 8, !tbaa !129
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store i32 %41, ptr %42, align 8, !tbaa !129
+  %43 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 68
+  %46 = load i8, ptr %45, align 4, !tbaa !44
+  %.not.i.i.i3.i = icmp eq i8 %46, 0
+  br i1 %.not.i.i.i3.i, label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i, label %47
 
-45:                                               ; preds = %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
-  %46 = load ptr, ptr %41, align 8, !tbaa !46
-  invoke void @uprv_free_77(ptr noundef %46)
-          to label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i unwind label %60
+47:                                               ; preds = %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
+  %48 = load ptr, ptr %43, align 8, !tbaa !46
+  invoke void @uprv_free_77(ptr noundef %48)
+          to label %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i unwind label %62
 
-_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i: ; preds = %45, %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
-  %47 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %48 = load i32, ptr %47, align 8, !tbaa !133
-  %49 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store i32 %48, ptr %49, align 8, !tbaa !133
-  %50 = getelementptr inbounds nuw i8, ptr %15, i64 68
-  %51 = load i8, ptr %50, align 4, !tbaa !44
-  store i8 %51, ptr %43, align 4, !tbaa !44
-  %52 = load ptr, ptr %42, align 8, !tbaa !46
-  %53 = getelementptr inbounds nuw i8, ptr %15, i64 70
-  %54 = icmp eq ptr %52, %53
-  br i1 %54, label %55, label %59
+_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i: ; preds = %47, %_ZN6icu_778numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
+  %49 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  %50 = load i32, ptr %49, align 8, !tbaa !133
+  %51 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  store i32 %50, ptr %51, align 8, !tbaa !133
+  %52 = getelementptr inbounds nuw i8, ptr %17, i64 68
+  %53 = load i8, ptr %52, align 4, !tbaa !44
+  store i8 %53, ptr %45, align 4, !tbaa !44
+  %54 = load ptr, ptr %44, align 8, !tbaa !46
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 70
+  %56 = icmp eq ptr %54, %55
+  br i1 %56, label %57, label %61
 
-55:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %14, i64 70
-  store ptr %56, ptr %41, align 8, !tbaa !46
-  %57 = sext i32 %48 to i64
-  %58 = shl nsw i64 %57, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %56, ptr nonnull align 2 %53, i64 %58, i1 false)
+57:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 70
+  store ptr %58, ptr %43, align 8, !tbaa !46
+  %59 = sext i32 %50 to i64
+  %60 = shl nsw i64 %59, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %58, ptr nonnull align 2 %55, i64 %60, i1 false)
   br label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit
 
-59:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i
-  store ptr %52, ptr %41, align 8, !tbaa !46
-  store ptr %53, ptr %42, align 8, !tbaa !46
-  store i32 4, ptr %47, align 8, !tbaa !133
-  store i8 0, ptr %50, align 4, !tbaa !44
+61:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIDsLi4EE12releaseArrayEv.exit.i.i.i
+  store ptr %54, ptr %43, align 8, !tbaa !46
+  store ptr %55, ptr %44, align 8, !tbaa !46
+  store i32 4, ptr %49, align 8, !tbaa !133
+  store i8 0, ptr %52, align 4, !tbaa !44
   br label %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit
 
-60:                                               ; preds = %45
-  %61 = landingpad { ptr, i32 }
+62:                                               ; preds = %47
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  tail call void @__clang_call_terminate(ptr %62) #21
+  %64 = extractvalue { ptr, i32 } %63, 0
+  tail call void @__clang_call_terminate(ptr %64) #21
   unreachable
 
-_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit: ; preds = %55, %59
-  %63 = add nuw nsw i64 %.014, 1
-  %.not12 = icmp eq i64 %63, 12
-  br i1 %.not12, label %9, label %13, !llvm.loop !134
+_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit: ; preds = %57, %61
+  %65 = add nuw nsw i64 %.014, 1
+  %.not12 = icmp eq i64 %65, 12
+  br i1 %.not12, label %11, label %15, !llvm.loop !134
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

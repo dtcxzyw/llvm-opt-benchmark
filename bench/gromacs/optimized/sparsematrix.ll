@@ -113,7 +113,7 @@ define void @_Z22gmx_sparsematrix_printP8_IO_FILEP16gmx_sparsematrix(ptr noundef
   br label %8
 
 8:                                                ; preds = %.lr.ph45, %.loopexit
-  %9 = phi i32 [ %4, %.lr.ph45 ], [ %51, %.loopexit ]
+  %9 = phi i32 [ %4, %.lr.ph45 ], [ %52, %.loopexit ]
   %indvars.iv50 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next51, %.loopexit ]
   %10 = load ptr, ptr %6, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv50
@@ -174,33 +174,34 @@ define void @_Z22gmx_sparsematrix_printP8_IO_FILEP16gmx_sparsematrix(ptr noundef
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa33 = phi ptr [ %25, %.preheader ], [ %34, %.lr.ph ]
   %.lcssa32 = phi i32 [ %22, %.preheader ], [ %31, %.lr.ph ]
-  %38 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %.lcssa33, i64 %indvars.iv, i32 1
-  %39 = load float, ptr %38, align 4, !tbaa !29
-  %40 = fpext float %39 to double
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef %40) #13
+  %38 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %.lcssa33, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %40 = load float, ptr %39, align 4, !tbaa !29
+  %41 = fpext float %40 to double
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef %41) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = load ptr, ptr %6, align 8, !tbaa !15
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv50
-  %44 = load i32, ptr %43, align 4, !tbaa !17
-  %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %.preheader, label %.preheader29.loopexit, !llvm.loop !30
+  %43 = load ptr, ptr %6, align 8, !tbaa !15
+  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv50
+  %45 = load i32, ptr %44, align 4, !tbaa !17
+  %46 = sext i32 %45 to i64
+  %47 = icmp slt i64 %indvars.iv.next, %46
+  br i1 %47, label %.preheader, label %.preheader29.loopexit, !llvm.loop !30
 
 .lr.ph40:                                         ; preds = %.preheader29, %.lr.ph40
-  %.239 = phi i32 [ %47, %.lr.ph40 ], [ %.0.lcssa, %.preheader29 ]
-  %47 = add nsw i32 %.239, 1
-  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef 0.000000e+00) #13
-  %49 = load i32, ptr %3, align 4, !tbaa !3
-  %50 = icmp slt i32 %47, %49
-  br i1 %50, label %.lr.ph40, label %.loopexit, !llvm.loop !31
+  %.239 = phi i32 [ %48, %.lr.ph40 ], [ %.0.lcssa, %.preheader29 ]
+  %48 = add nsw i32 %.239, 1
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef 0.000000e+00) #13
+  %50 = load i32, ptr %3, align 4, !tbaa !3
+  %51 = icmp slt i32 %48, %50
+  br i1 %51, label %.lr.ph40, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph40, %.lr.ph42, %.preheader29, %.preheader28
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %51 = load i32, ptr %3, align 4, !tbaa !3
-  %52 = sext i32 %51 to i64
-  %53 = icmp slt i64 %indvars.iv.next51, %52
-  br i1 %53, label %8, label %._crit_edge46, !llvm.loop !32
+  %52 = load i32, ptr %3, align 4, !tbaa !3
+  %53 = sext i32 %52 to i64
+  %54 = icmp slt i64 %indvars.iv.next51, %53
+  br i1 %54, label %8, label %._crit_edge46, !llvm.loop !32
 
 ._crit_edge46:                                    ; preds = %.loopexit, %2
   ret void
@@ -227,25 +228,26 @@ define noundef float @_Z22gmx_sparsematrix_valueP16gmx_sparsematrixii(ptr nounde
   %14 = zext nneg i32 %8 to i64
   br label %15
 
-15:                                               ; preds = %.lr.ph, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+15:                                               ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %16 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !25
   %.not = icmp eq i32 %17, %2
-  br i1 %.not, label %.thread, label %20
+  br i1 %.not, label %.thread, label %21
 
 .thread:                                          ; preds = %15
-  %18 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %13, i64 %indvars.iv, i32 1
-  %19 = load float, ptr %18, align 4, !tbaa !29
+  %18 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %20 = load float, ptr %19, align 4, !tbaa !29
   br label %._crit_edge
 
-20:                                               ; preds = %15
+21:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %21, label %15, label %._crit_edge, !llvm.loop !33
+  %22 = icmp samesign ult i64 %indvars.iv.next, %14
+  br i1 %22, label %15, label %._crit_edge, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %20, %.thread, %3
-  %.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %19, %.thread ], [ 0.000000e+00, %20 ]
+._crit_edge:                                      ; preds = %21, %.thread, %3
+  %.0.lcssa = phi float [ 0.000000e+00, %3 ], [ %20, %.thread ], [ 0.000000e+00, %21 ]
   ret float %.0.lcssa
 }
 
@@ -280,64 +282,66 @@ define void @_Z32gmx_sparsematrix_increment_valueP16gmx_sparsematrixiif(ptr noun
   br i1 %.not, label %16, label %.loopexit, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %16
-  %21 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %14, i64 %indvars.iv, i32 1
-  %22 = load float, ptr %21, align 4, !tbaa !29
-  %23 = fadd float %3, %22
-  store float %23, ptr %21, align 4, !tbaa !29
-  br label %55
+  %21 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %14, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load float, ptr %22, align 4, !tbaa !29
+  %24 = fadd float %3, %23
+  store float %24, ptr %22, align 4, !tbaa !29
+  br label %57
 
 .loopexit:                                        ; preds = %20, %4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !16
-  %26 = getelementptr inbounds i32, ptr %25, i64 %7
-  %27 = load i32, ptr %26, align 4, !tbaa !17
-  %28 = icmp eq i32 %9, %27
-  br i1 %28, label %29, label %41
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !16
+  %27 = getelementptr inbounds i32, ptr %26, i64 %7
+  %28 = load i32, ptr %27, align 4, !tbaa !17
+  %29 = icmp eq i32 %9, %28
+  br i1 %29, label %30, label %42
 
-29:                                               ; preds = %.loopexit
-  %30 = add nsw i32 %9, 100
-  store i32 %30, ptr %26, align 4, !tbaa !17
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !22
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %7
-  %34 = load ptr, ptr %33, align 8, !tbaa !18
-  %35 = icmp eq ptr %34, null
-  %36 = sext i32 %30 to i64
-  br i1 %35, label %37, label %39
+30:                                               ; preds = %.loopexit
+  %31 = add nsw i32 %9, 100
+  store i32 %31, ptr %27, align 4, !tbaa !17
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %33 = load ptr, ptr %32, align 8, !tbaa !22
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %7
+  %35 = load ptr, ptr %34, align 8, !tbaa !18
+  %36 = icmp eq ptr %35, null
+  %37 = sext i32 %31 to i64
+  br i1 %36, label %38, label %40
 
-37:                                               ; preds = %29
-  %38 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 174, i64 noundef range(i64 -2147483648, 2147483648) %36, i64 noundef 8)
+38:                                               ; preds = %30
+  %39 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 174, i64 noundef range(i64 -2147483648, 2147483648) %37, i64 noundef 8)
   br label %.sink.split
 
-39:                                               ; preds = %29
-  %40 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull %34, i64 noundef range(i64 -2147483648, 2147483648) %36, i64 noundef 8)
+40:                                               ; preds = %30
+  %41 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull %35, i64 noundef range(i64 -2147483648, 2147483648) %37, i64 noundef 8)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %39, %37
-  %.sink = phi ptr [ %38, %37 ], [ %40, %39 ]
-  store ptr %.sink, ptr %33, align 8, !tbaa !18
-  br label %41
+.sink.split:                                      ; preds = %40, %38
+  %.sink = phi ptr [ %39, %38 ], [ %41, %40 ]
+  store ptr %.sink, ptr %34, align 8, !tbaa !18
+  br label %42
 
-41:                                               ; preds = %.sink.split, %.loopexit
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !22
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %7
-  %45 = load ptr, ptr %44, align 8, !tbaa !18
-  %46 = load ptr, ptr %5, align 8, !tbaa !15
-  %47 = getelementptr inbounds i32, ptr %46, i64 %7
-  %48 = load i32, ptr %47, align 4, !tbaa !17
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %45, i64 %49
-  store i32 %2, ptr %50, align 4, !tbaa !25
-  %51 = load i32, ptr %47, align 4, !tbaa !17
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %45, i64 %52, i32 1
-  store float %3, ptr %53, align 4, !tbaa !29
-  %54 = add nsw i32 %51, 1
-  store i32 %54, ptr %47, align 4, !tbaa !17
-  br label %55
+42:                                               ; preds = %.sink.split, %.loopexit
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %44 = load ptr, ptr %43, align 8, !tbaa !22
+  %45 = getelementptr inbounds ptr, ptr %44, i64 %7
+  %46 = load ptr, ptr %45, align 8, !tbaa !18
+  %47 = load ptr, ptr %5, align 8, !tbaa !15
+  %48 = getelementptr inbounds i32, ptr %47, i64 %7
+  %49 = load i32, ptr %48, align 4, !tbaa !17
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %46, i64 %50
+  store i32 %2, ptr %51, align 4, !tbaa !25
+  %52 = load i32, ptr %48, align 4, !tbaa !17
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %46, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store float %3, ptr %55, align 4, !tbaa !29
+  %56 = add nsw i32 %52, 1
+  store i32 %56, ptr %48, align 4, !tbaa !17
+  br label %57
 
-55:                                               ; preds = %._crit_edge, %41
+57:                                               ; preds = %._crit_edge, %42
   ret void
 }
 
@@ -370,86 +374,86 @@ define void @_Z25gmx_sparsematrix_compressP16gmx_sparsematrix(ptr noundef readon
   %14 = getelementptr i8, ptr %13, i64 -4
   %15 = load float, ptr %14, align 4, !tbaa !29
   %16 = fcmp oeq float %15, 0.000000e+00
-  br i1 %16, label %.lr.ph61, label %.critedge
+  br i1 %16, label %.lr.ph65, label %.critedge
 
-17:                                               ; preds = %.lr.ph61
+17:                                               ; preds = %.lr.ph65
   %18 = getelementptr %struct.gmx_sparsematrix_entry, ptr %11, i64 %indvars.iv.next
   %19 = getelementptr i8, ptr %18, i64 -4
   %20 = load float, ptr %19, align 4, !tbaa !29
   %21 = fcmp oeq float %20, 0.000000e+00
-  br i1 %21, label %.lr.ph61, label %.critedge.loopexit, !llvm.loop !35
+  br i1 %21, label %.lr.ph65, label %.critedge.loopexit, !llvm.loop !35
 
-.lr.ph61:                                         ; preds = %.lr.ph, %17
-  %indvars.iv60 = phi i64 [ %indvars.iv.next, %17 ], [ %12, %.lr.ph ]
-  %indvars.iv.next = add nsw i64 %indvars.iv60, -1
+.lr.ph65:                                         ; preds = %.lr.ph, %17
+  %indvars.iv64 = phi i64 [ %indvars.iv.next, %17 ], [ %12, %.lr.ph ]
+  %indvars.iv.next = add nsw i64 %indvars.iv64, -1
   %22 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %23 = icmp sgt i64 %indvars.iv60, 1
-  br i1 %23, label %17, label %..critedge_crit_edge62, !llvm.loop !35
-
-..critedge_crit_edge62:                           ; preds = %.lr.ph61
-  store i32 %22, ptr %8, align 4, !tbaa !17
-  br label %.critedge, !llvm.loop !35
+  %23 = icmp sgt i64 %indvars.iv64, 1
+  br i1 %23, label %17, label %.critedge.._crit_edge_crit_edge.loopexit, !llvm.loop !35
 
 .critedge.loopexit:                               ; preds = %17
   store i32 %22, ptr %8, align 4, !tbaa !17
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %..critedge_crit_edge62, %.lr.ph
-  %24 = phi i32 [ %22, %..critedge_crit_edge62 ], [ %.promoted, %.lr.ph ], [ %22, %.critedge.loopexit ]
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph47, label %.critedge.._crit_edge_crit_edge
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph
+  %.lcssa = phi i32 [ %.promoted, %.lr.ph ], [ %22, %.critedge.loopexit ]
+  %24 = icmp sgt i32 %.lcssa, 0
+  br i1 %24, label %.lr.ph47, label %.critedge.._crit_edge_crit_edge
 
-.critedge.._crit_edge_crit_edge:                  ; preds = %.preheader, %.critedge
-  %26 = phi i32 [ %24, %.critedge ], [ %.promoted, %.preheader ]
+.critedge.._crit_edge_crit_edge.loopexit:         ; preds = %.lr.ph65
+  store i32 %22, ptr %8, align 4, !tbaa !17
+  br label %.critedge.._crit_edge_crit_edge
+
+.critedge.._crit_edge_crit_edge:                  ; preds = %.critedge.._crit_edge_crit_edge.loopexit, %.preheader, %.critedge
+  %25 = phi i32 [ %.lcssa, %.critedge ], [ %.promoted, %.preheader ], [ 0, %.critedge.._crit_edge_crit_edge.loopexit ]
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv55
   %.pre58 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !18
-  %.pre = sext i32 %26 to i64
+  %.pre = sext i32 %25 to i64
   br label %._crit_edge
 
 .lr.ph47:                                         ; preds = %.critedge
-  %27 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv55
-  %28 = load ptr, ptr %27, align 8, !tbaa !18
-  br label %29
+  %26 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv55
+  %27 = load ptr, ptr %26, align 8, !tbaa !18
+  br label %28
 
-29:                                               ; preds = %.lr.ph47, %44
-  %30 = phi i32 [ %24, %.lr.ph47 ], [ %45, %44 ]
-  %indvars.iv52 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next53, %44 ]
-  %31 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %28, i64 %indvars.iv52, i32 1
+28:                                               ; preds = %.lr.ph47, %43
+  %29 = phi i32 [ %.lcssa, %.lr.ph47 ], [ %44, %43 ]
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next53, %43 ]
+  %30 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %27, i64 %indvars.iv52
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load float, ptr %31, align 4, !tbaa !29
   %33 = fcmp oeq float %32, 0.000000e+00
-  br i1 %33, label %34, label %44
+  br i1 %33, label %34, label %43
 
-34:                                               ; preds = %29
-  %35 = sext i32 %30 to i64
-  %36 = getelementptr %struct.gmx_sparsematrix_entry, ptr %28, i64 %35
+34:                                               ; preds = %28
+  %35 = sext i32 %29 to i64
+  %36 = getelementptr %struct.gmx_sparsematrix_entry, ptr %27, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -4
   %38 = load float, ptr %37, align 4, !tbaa !29
   store float %38, ptr %31, align 4, !tbaa !29
   %39 = getelementptr i8, ptr %36, i64 -8
   %40 = load i32, ptr %39, align 4, !tbaa !25
-  %41 = getelementptr inbounds nuw %struct.gmx_sparsematrix_entry, ptr %28, i64 %indvars.iv52
-  store i32 %40, ptr %41, align 4, !tbaa !25
-  %42 = load i32, ptr %8, align 4, !tbaa !17
-  %43 = add nsw i32 %42, -1
-  store i32 %43, ptr %8, align 4, !tbaa !17
-  br label %44
+  store i32 %40, ptr %30, align 4, !tbaa !25
+  %41 = load i32, ptr %8, align 4, !tbaa !17
+  %42 = add nsw i32 %41, -1
+  store i32 %42, ptr %8, align 4, !tbaa !17
+  br label %43
 
-44:                                               ; preds = %29, %34
-  %45 = phi i32 [ %30, %29 ], [ %43, %34 ]
+43:                                               ; preds = %28, %34
+  %44 = phi i32 [ %29, %28 ], [ %42, %34 ]
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next53, %46
-  br i1 %47, label %29, label %._crit_edge, !llvm.loop !36
+  %45 = sext i32 %44 to i64
+  %46 = icmp slt i64 %indvars.iv.next53, %45
+  br i1 %46, label %28, label %._crit_edge, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %44, %.critedge.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.critedge.._crit_edge_crit_edge ], [ %46, %44 ]
-  %48 = phi ptr [ %.pre58, %.critedge.._crit_edge_crit_edge ], [ %28, %44 ]
-  tail call void @qsort(ptr noundef %48, i64 noundef %.pre-phi, i64 noundef 8, ptr noundef nonnull @_ZL15compare_columnsPKvS0_)
+._crit_edge:                                      ; preds = %43, %.critedge.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %.critedge.._crit_edge_crit_edge ], [ %45, %43 ]
+  %47 = phi ptr [ %.pre58, %.critedge.._crit_edge_crit_edge ], [ %27, %43 ]
+  tail call void @qsort(ptr noundef %47, i64 noundef %.pre-phi, i64 noundef 8, ptr noundef nonnull @_ZL15compare_columnsPKvS0_)
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %49 = load i32, ptr %2, align 4, !tbaa !3
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next56, %50
-  br i1 %51, label %.preheader, label %._crit_edge50, !llvm.loop !37
+  %48 = load i32, ptr %2, align 4, !tbaa !3
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next56, %49
+  br i1 %50, label %.preheader, label %._crit_edge50, !llvm.loop !37
 
 ._crit_edge50:                                    ; preds = %._crit_edge, %1
   ret void

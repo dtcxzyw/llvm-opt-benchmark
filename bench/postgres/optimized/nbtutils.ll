@@ -724,49 +724,51 @@ define dso_local void @_bt_start_array_keys(ptr noundef readonly captures(none) 
   %13 = load ptr, ptr %9, align 8
   %14 = load i32, ptr %12, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %17 = load i32, ptr %16, align 8
-  %18 = add i32 %17, -1
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = sext i32 %18 to i64
-  %23 = getelementptr inbounds i64, ptr %21, i64 %22
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.ScanKeyData, ptr %13, i64 %15, i32 6
-  store i64 %24, ptr %25, align 8
+  %16 = getelementptr inbounds %struct.ScanKeyData, ptr %13, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %18 = load i32, ptr %17, align 8
+  %19 = add i32 %18, -1
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 %19, ptr %20, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = sext i32 %19 to i64
+  %24 = getelementptr inbounds i64, ptr %22, i64 %23
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  store i64 %25, ptr %26, align 8
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %26 = load i32, ptr %5, align 8
-  %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %indvars.iv.next20, %27
-  br i1 %28, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
+  %27 = load i32, ptr %5, align 8
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next20, %28
+  br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %29, i64 %indvars.iv
-  %31 = load ptr, ptr %9, align 8
-  %32 = load i32, ptr %30, align 8
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds %struct.ScanKeyData, ptr %31, i64 %33, i32 6
-  store i64 %37, ptr %38, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %30, i64 %indvars.iv
+  %32 = load ptr, ptr %9, align 8
+  %33 = load i32, ptr %31, align 8
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds %struct.ScanKeyData, ptr %32, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i32 0, ptr %36, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 64
+  store i64 %39, ptr %40, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = load i32, ptr %5, align 8
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
+  %41 = load i32, ptr %5, align 8
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next, %42
+  br i1 %43, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %2
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 22
-  store i8 0, ptr %42, align 2
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 21
-  store i8 0, ptr %43, align 1
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 22
+  store i8 0, ptr %44, align 2
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 21
+  store i8 0, ptr %45, align 1
   ret void
 }
 
@@ -1552,12 +1554,12 @@ define internal fastcc noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0
 
 39:                                               ; preds = %.lr.ph, %170
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %170 ]
-  %.0172297 = phi i32 [ 0, %.lr.ph ], [ %.1173, %170 ]
-  %.0179296 = phi i8 [ 0, %.lr.ph ], [ %.2.ph, %170 ]
-  %.0182295 = phi i1 [ false, %.lr.ph ], [ %.2184, %170 ]
-  %.0188292 = phi i1 [ true, %.lr.ph ], [ %.2190.ph, %170 ]
-  %.0192291 = phi i8 [ 1, %.lr.ph ], [ %.2194.ph, %170 ]
-  %.0196290 = phi i1 [ false, %.lr.ph ], [ %.2198.ph, %170 ]
+  %.0172296 = phi i32 [ 0, %.lr.ph ], [ %.1173, %170 ]
+  %.0179295 = phi i8 [ 0, %.lr.ph ], [ %.2.ph, %170 ]
+  %.0182294 = phi i1 [ false, %.lr.ph ], [ %.2184, %170 ]
+  %.0188291 = phi i1 [ true, %.lr.ph ], [ %.2190.ph, %170 ]
+  %.0192290 = phi i8 [ 1, %.lr.ph ], [ %.2194.ph, %170 ]
+  %.0196289 = phi i1 [ false, %.lr.ph ], [ %.2198.ph, %170 ]
   %40 = load ptr, ptr %30, align 8
   %41 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %40, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1575,8 +1577,8 @@ define internal fastcc noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %31, align 8
-  %50 = add i32 %.0172297, 1
-  %51 = sext i32 %.0172297 to i64
+  %50 = add i32 %.0172296, 1
+  %51 = sext i32 %.0172296 to i64
   %52 = getelementptr inbounds %struct.BTArrayKeyInfo, ptr %49, i64 %51
   br label %61
 
@@ -1602,10 +1604,10 @@ define internal fastcc noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0
   br label %61
 
 61:                                               ; preds = %54, %53, %57, %60, %45, %48
-  %.2184 = phi i1 [ %.0182295, %48 ], [ %.0182295, %45 ], [ true, %60 ], [ %.0182295, %57 ], [ %.0182295, %53 ], [ %.0182295, %54 ]
+  %.2184 = phi i1 [ %.0182294, %48 ], [ %.0182294, %45 ], [ true, %60 ], [ %.0182294, %57 ], [ %.0182294, %53 ], [ %.0182294, %54 ]
   %.0181 = phi ptr [ %52, %48 ], [ null, %45 ], [ null, %60 ], [ null, %57 ], [ null, %53 ], [ null, %54 ]
   %.0177 = phi i1 [ false, %48 ], [ false, %45 ], [ true, %60 ], [ false, %57 ], [ false, %53 ], [ false, %54 ]
-  %.1173 = phi i32 [ %50, %48 ], [ %.0172297, %45 ], [ %.0172297, %60 ], [ %.0172297, %57 ], [ %.0172297, %53 ], [ %.0172297, %54 ]
+  %.1173 = phi i32 [ %50, %48 ], [ %.0172296, %45 ], [ %.0172296, %60 ], [ %.0172296, %57 ], [ %.0172296, %53 ], [ %.0172296, %54 ]
   %62 = icmp slt i64 %indvars.iv, %38
   br i1 %62, label %170, label %63
 
@@ -1646,7 +1648,7 @@ define internal fastcc noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0
   br i1 %or.cond220, label %79, label %170
 
 79:                                               ; preds = %77
-  %80 = trunc nuw i8 %.0179296 to i1
+  %80 = trunc nuw i8 %.0179295 to i1
   br i1 %80, label %81, label %96
 
 81:                                               ; preds = %79
@@ -1681,7 +1683,7 @@ define internal fastcc noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0
   br label %170
 
 96:                                               ; preds = %79
-  %97 = trunc nuw i8 %.0192291 to i1
+  %97 = trunc nuw i8 %.0192290 to i1
   br i1 %97, label %98, label %103
 
 98:                                               ; preds = %96
@@ -1793,10 +1795,10 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
   %or.cond9 = select i1 %33, i1 %155, i1 false
   %156 = icmp slt i32 %154, 0
   %or.cond11 = select i1 %34, i1 %156, i1 false
-  %or.cond302 = select i1 %or.cond9, i1 true, i1 %or.cond11
-  %.3.ph = zext i1 %or.cond302 to i8
+  %or.cond301 = select i1 %or.cond9, i1 true, i1 %or.cond11
+  %.3.ph = zext i1 %or.cond301 to i8
   %.not210240 = icmp eq i32 %154, 0
-  %.0188.mux243 = select i1 %.not210240, i1 %.0188292, i1 false
+  %.0188.mux243 = select i1 %.not210240, i1 %.0188291, i1 false
   %157 = zext i1 %.not210240 to i8
   br label %159
 
@@ -1805,7 +1807,7 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
   br i1 %.not210, label %159, label %.thread258
 
 159:                                              ; preds = %.thread238, %158
-  %.0188.mux246 = phi i1 [ %.0188.mux243, %.thread238 ], [ %.0188292, %158 ]
+  %.0188.mux246 = phi i1 [ %.0188.mux243, %.thread238 ], [ %.0188291, %158 ]
   %.0192.mux245.in = phi i8 [ %157, %.thread238 ], [ 1, %158 ]
   %.3244 = phi i8 [ %.3.ph, %.thread238 ], [ 0, %158 ]
   br i1 %74, label %160, label %170
@@ -1833,10 +1835,10 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
   br label %_bt_advance_array_keys_increment.exit.thread
 
 170:                                              ; preds = %61, %76, %75, %77, %89, %86, %85, %111, %108, %107, %163, %160, %159
-  %.2198.ph = phi i1 [ %.0196290, %159 ], [ %.0196290, %160 ], [ %.0196290, %163 ], [ %.0196290, %107 ], [ %.0196290, %108 ], [ %.0196290, %111 ], [ %.0196290, %85 ], [ %.0196290, %86 ], [ %.0196290, %89 ], [ %.0196290, %77 ], [ %.0196290, %75 ], [ true, %76 ], [ %.0196290, %61 ]
-  %.2194.ph = phi i8 [ %.0192.mux245.in, %159 ], [ %.0192.mux245.in, %160 ], [ %.0192.mux245.in, %163 ], [ %.0192291, %107 ], [ %.0192291, %108 ], [ %.0192291, %111 ], [ %.0192291, %85 ], [ %.0192291, %86 ], [ %.0192291, %89 ], [ %.0192291, %77 ], [ 0, %75 ], [ 0, %76 ], [ %.0192291, %61 ]
-  %.2190.ph = phi i1 [ %.0188.mux246, %159 ], [ %.0188.mux246, %160 ], [ %.0188.mux246, %163 ], [ %.0188292, %107 ], [ %.0188292, %108 ], [ %.0188292, %111 ], [ %.0188292, %85 ], [ %.0188292, %86 ], [ %.0188292, %89 ], [ %.0188292, %77 ], [ false, %75 ], [ false, %76 ], [ %.0188292, %61 ]
-  %.2.ph = phi i8 [ %.3244, %159 ], [ %.3244, %160 ], [ %.3244, %163 ], [ 0, %107 ], [ 0, %108 ], [ 0, %111 ], [ 1, %85 ], [ 1, %86 ], [ 1, %89 ], [ %.0179296, %77 ], [ 1, %75 ], [ 1, %76 ], [ %.0179296, %61 ]
+  %.2198.ph = phi i1 [ %.0196289, %159 ], [ %.0196289, %160 ], [ %.0196289, %163 ], [ %.0196289, %107 ], [ %.0196289, %108 ], [ %.0196289, %111 ], [ %.0196289, %85 ], [ %.0196289, %86 ], [ %.0196289, %89 ], [ %.0196289, %77 ], [ %.0196289, %75 ], [ true, %76 ], [ %.0196289, %61 ]
+  %.2194.ph = phi i8 [ %.0192.mux245.in, %159 ], [ %.0192.mux245.in, %160 ], [ %.0192.mux245.in, %163 ], [ %.0192290, %107 ], [ %.0192290, %108 ], [ %.0192290, %111 ], [ %.0192290, %85 ], [ %.0192290, %86 ], [ %.0192290, %89 ], [ %.0192290, %77 ], [ 0, %75 ], [ 0, %76 ], [ %.0192290, %61 ]
+  %.2190.ph = phi i1 [ %.0188.mux246, %159 ], [ %.0188.mux246, %160 ], [ %.0188.mux246, %163 ], [ %.0188291, %107 ], [ %.0188291, %108 ], [ %.0188291, %111 ], [ %.0188291, %85 ], [ %.0188291, %86 ], [ %.0188291, %89 ], [ %.0188291, %77 ], [ false, %75 ], [ false, %76 ], [ %.0188291, %61 ]
+  %.2.ph = phi i8 [ %.3244, %159 ], [ %.3244, %160 ], [ %.3244, %163 ], [ 0, %107 ], [ 0, %108 ], [ 0, %111 ], [ 1, %85 ], [ 1, %86 ], [ 1, %89 ], [ %.0179295, %77 ], [ 1, %75 ], [ 1, %76 ], [ %.0179295, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1853,8 +1855,8 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
   %176 = load ptr, ptr %14, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %178 = load i32, ptr %177, align 8
-  %.03053.i = add i32 %178, -1
-  %179 = icmp sgt i32 %.03053.i, -1
+  %.03051.i = add i32 %178, -1
+  %179 = icmp sgt i32 %.03051.i, -1
   br i1 %179, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %175
@@ -1862,401 +1864,406 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 8
   switch i32 %19, label %.lr.ph.split.i [
     i32 1, label %.lr.ph.split.us.i
-    i32 -1, label %.lr.ph.split.us61.i
+    i32 -1, label %.lr.ph.split.us58.i
   ]
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   %182 = load ptr, ptr %180, align 8
-  %183 = zext nneg i32 %.03053.i to i64
+  %183 = zext nneg i32 %.03051.i to i64
   %184 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %182, i64 %183
   %185 = load ptr, ptr %181, align 8
   %186 = load i32, ptr %184, align 8
   %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds nuw i8, ptr %184, i64 4
-  %189 = load i32, ptr %188, align 4
-  %190 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %191 = load i32, ptr %190, align 8
-  %192 = add i32 %189, 1
-  %.not.us80.i = icmp slt i32 %192, %191
-  br i1 %.not.us80.i, label %.critedge37.i, label %.critedge39.us.i
+  %188 = getelementptr inbounds %struct.ScanKeyData, ptr %185, i64 %187
+  %189 = getelementptr inbounds nuw i8, ptr %184, i64 4
+  %190 = load i32, ptr %189, align 4
+  %191 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %192 = load i32, ptr %191, align 8
+  %193 = add i32 %190, 1
+  %.not.us75.i = icmp slt i32 %193, %192
+  br i1 %.not.us75.i, label %.critedge37.i, label %.critedge39.us.i
 
-193:                                              ; preds = %.critedge39.us.i
+194:                                              ; preds = %.critedge39.us.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %194 = load ptr, ptr %180, align 8
-  %195 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %194, i64 %indvars.iv.next.i
-  %196 = load ptr, ptr %181, align 8
-  %197 = load i32, ptr %195, align 8
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds nuw i8, ptr %195, i64 4
-  %200 = load i32, ptr %199, align 4
-  %201 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  %202 = load i32, ptr %201, align 8
-  %203 = add i32 %200, 1
-  %.not.us.i = icmp slt i32 %203, %202
+  %195 = load ptr, ptr %180, align 8
+  %196 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %195, i64 %indvars.iv.next.i
+  %197 = load ptr, ptr %181, align 8
+  %198 = load i32, ptr %196, align 8
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds %struct.ScanKeyData, ptr %197, i64 %199
+  %201 = getelementptr inbounds nuw i8, ptr %196, i64 4
+  %202 = load i32, ptr %201, align 4
+  %203 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  %204 = load i32, ptr %203, align 8
+  %205 = add i32 %202, 1
+  %.not.us.i = icmp slt i32 %205, %204
   br i1 %.not.us.i, label %.critedge37.i, label %.critedge39.us.i, !llvm.loop !15
 
-.critedge39.us.i:                                 ; preds = %.lr.ph.split.us.i, %193
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %193 ], [ %183, %.lr.ph.split.us.i ]
-  %204 = phi ptr [ %199, %193 ], [ %188, %.lr.ph.split.us.i ]
-  %205 = phi i64 [ %198, %193 ], [ %187, %.lr.ph.split.us.i ]
-  %206 = phi ptr [ %196, %193 ], [ %185, %.lr.ph.split.us.i ]
-  %207 = phi ptr [ %195, %193 ], [ %184, %.lr.ph.split.us.i ]
-  store i32 0, ptr %204, align 4
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  %209 = load ptr, ptr %208, align 8
-  %210 = load i64, ptr %209, align 8
-  %211 = getelementptr inbounds %struct.ScanKeyData, ptr %206, i64 %205, i32 6
-  store i64 %210, ptr %211, align 8
-  %212 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %212, label %193, label %.critedge.i, !llvm.loop !15
+.critedge39.us.i:                                 ; preds = %.lr.ph.split.us.i, %194
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %194 ], [ %183, %.lr.ph.split.us.i ]
+  %206 = phi ptr [ %201, %194 ], [ %189, %.lr.ph.split.us.i ]
+  %207 = phi ptr [ %200, %194 ], [ %188, %.lr.ph.split.us.i ]
+  %208 = phi ptr [ %196, %194 ], [ %184, %.lr.ph.split.us.i ]
+  store i32 0, ptr %206, align 4
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
+  %210 = load ptr, ptr %209, align 8
+  %211 = load i64, ptr %210, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %207, i64 64
+  store i64 %211, ptr %212, align 8
+  %213 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %213, label %194, label %.critedge.i, !llvm.loop !15
 
-.lr.ph.split.us61.i:                              ; preds = %.lr.ph.i, %.backedge.us63.i
-  %.03054.us62.i = phi i32 [ %.030.us64.i, %.backedge.us63.i ], [ %.03053.i, %.lr.ph.i ]
-  %213 = load ptr, ptr %180, align 8
-  %214 = zext nneg i32 %.03054.us62.i to i64
-  %215 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %213, i64 %214
-  %216 = load ptr, ptr %181, align 8
-  %217 = load i32, ptr %215, align 8
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds nuw i8, ptr %215, i64 4
-  %220 = load i32, ptr %219, align 4
-  %221 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %222 = load i32, ptr %221, align 8
-  %223 = add i32 %220, -1
-  %224 = icmp slt i32 %223, 0
+.lr.ph.split.us58.i:                              ; preds = %.lr.ph.i, %.backedge.us60.i
+  %.03052.us59.i = phi i32 [ %.030.us61.i, %.backedge.us60.i ], [ %.03051.i, %.lr.ph.i ]
+  %214 = load ptr, ptr %180, align 8
+  %215 = zext nneg i32 %.03052.us59.i to i64
+  %216 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %214, i64 %215
+  %217 = load ptr, ptr %181, align 8
+  %218 = load i32, ptr %216, align 8
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds %struct.ScanKeyData, ptr %217, i64 %219
+  %221 = getelementptr inbounds nuw i8, ptr %216, i64 4
+  %222 = load i32, ptr %221, align 4
+  %223 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %224 = load i32, ptr %223, align 8
   %225 = add i32 %222, -1
-  %spec.select.us.i = select i1 %224, i32 %225, i32 %223
-  store i32 %spec.select.us.i, ptr %219, align 4
-  %226 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  %227 = load ptr, ptr %226, align 8
-  %228 = sext i32 %spec.select.us.i to i64
-  %229 = getelementptr inbounds i64, ptr %227, i64 %228
-  %230 = load i64, ptr %229, align 8
-  %231 = getelementptr inbounds %struct.ScanKeyData, ptr %216, i64 %218, i32 6
-  store i64 %230, ptr %231, align 8
-  br i1 %224, label %.backedge.us63.i, label %_bt_advance_array_keys_increment.exit.thread
+  %226 = icmp slt i32 %225, 0
+  %227 = add i32 %224, -1
+  %spec.select.us.i = select i1 %226, i32 %227, i32 %225
+  store i32 %spec.select.us.i, ptr %221, align 4
+  %228 = getelementptr inbounds nuw i8, ptr %216, i64 16
+  %229 = load ptr, ptr %228, align 8
+  %230 = sext i32 %spec.select.us.i to i64
+  %231 = getelementptr inbounds i64, ptr %229, i64 %230
+  %232 = load i64, ptr %231, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %220, i64 64
+  store i64 %232, ptr %233, align 8
+  br i1 %226, label %.backedge.us60.i, label %_bt_advance_array_keys_increment.exit.thread
 
-.backedge.us63.i:                                 ; preds = %.lr.ph.split.us61.i
-  %.030.us64.i = add nsw i32 %.03054.us62.i, -1
-  %232 = icmp sgt i32 %.03054.us62.i, 0
-  br i1 %232, label %.lr.ph.split.us61.i, label %.critedge.i, !llvm.loop !15
+.backedge.us60.i:                                 ; preds = %.lr.ph.split.us58.i
+  %.030.us61.i = add nsw i32 %.03052.us59.i, -1
+  %234 = icmp sgt i32 %.03052.us59.i, 0
+  br i1 %234, label %.lr.ph.split.us58.i, label %.critedge.i, !llvm.loop !15
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  %233 = load ptr, ptr %180, align 8
-  %234 = zext nneg i32 %.03053.i to i64
-  %235 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %233, i64 %234
-  %236 = load ptr, ptr %181, align 8
-  %237 = load i32, ptr %235, align 8
-  %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds nuw i8, ptr %235, i64 4
-  %240 = load i32, ptr %239, align 4
+  %235 = load ptr, ptr %180, align 8
+  %236 = zext nneg i32 %.03051.i to i64
+  %237 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %235, i64 %236
+  %238 = load ptr, ptr %181, align 8
+  %239 = load i32, ptr %237, align 8
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds %struct.ScanKeyData, ptr %238, i64 %240
+  %242 = getelementptr inbounds nuw i8, ptr %237, i64 4
+  %243 = load i32, ptr %242, align 4
   br label %.critedge37.i
 
-.critedge37.i:                                    ; preds = %193, %.lr.ph.split.i, %.lr.ph.split.us.i
-  %.us-phi.i = phi ptr [ %235, %.lr.ph.split.i ], [ %184, %.lr.ph.split.us.i ], [ %195, %193 ]
-  %.us-phi55.i = phi ptr [ %236, %.lr.ph.split.i ], [ %185, %.lr.ph.split.us.i ], [ %196, %193 ]
-  %.us-phi56.i = phi i64 [ %238, %.lr.ph.split.i ], [ %187, %.lr.ph.split.us.i ], [ %198, %193 ]
-  %.us-phi57.i = phi ptr [ %239, %.lr.ph.split.i ], [ %188, %.lr.ph.split.us.i ], [ %199, %193 ]
-  %.us-phi59.i = phi i32 [ %240, %.lr.ph.split.i ], [ %192, %.lr.ph.split.us.i ], [ %203, %193 ]
-  store i32 %.us-phi59.i, ptr %.us-phi57.i, align 4
-  %241 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 16
-  %242 = load ptr, ptr %241, align 8
-  %243 = sext i32 %.us-phi59.i to i64
-  %244 = getelementptr inbounds i64, ptr %242, i64 %243
-  %245 = load i64, ptr %244, align 8
-  %246 = getelementptr inbounds %struct.ScanKeyData, ptr %.us-phi55.i, i64 %.us-phi56.i, i32 6
-  store i64 %245, ptr %246, align 8
+.critedge37.i:                                    ; preds = %194, %.lr.ph.split.i, %.lr.ph.split.us.i
+  %.us-phi.i = phi ptr [ %237, %.lr.ph.split.i ], [ %184, %.lr.ph.split.us.i ], [ %196, %194 ]
+  %.us-phi53.i = phi ptr [ %241, %.lr.ph.split.i ], [ %188, %.lr.ph.split.us.i ], [ %200, %194 ]
+  %.us-phi54.i = phi ptr [ %242, %.lr.ph.split.i ], [ %189, %.lr.ph.split.us.i ], [ %201, %194 ]
+  %.us-phi56.i = phi i32 [ %243, %.lr.ph.split.i ], [ %193, %.lr.ph.split.us.i ], [ %205, %194 ]
+  store i32 %.us-phi56.i, ptr %.us-phi54.i, align 4
+  %244 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 16
+  %245 = load ptr, ptr %244, align 8
+  %246 = sext i32 %.us-phi56.i to i64
+  %247 = getelementptr inbounds i64, ptr %245, i64 %246
+  %248 = load i64, ptr %247, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %.us-phi53.i, i64 64
+  store i64 %248, ptr %249, align 8
   br label %_bt_advance_array_keys_increment.exit.thread
 
-.critedge.i:                                      ; preds = %.backedge.us63.i, %.critedge39.us.i, %175
-  %247 = load ptr, ptr %14, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
-  %249 = load i32, ptr %248, align 8
-  %250 = icmp sgt i32 %249, 0
-  br i1 %250, label %.lr.ph.i.i, label %.loopexit
+.critedge.i:                                      ; preds = %.backedge.us60.i, %.critedge39.us.i, %175
+  %250 = load ptr, ptr %14, align 8
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
+  %252 = load i32, ptr %251, align 8
+  %253 = icmp sgt i32 %252, 0
+  br i1 %253, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %.critedge.i
-  %251 = getelementptr inbounds nuw i8, ptr %247, i64 24
-  %252 = getelementptr inbounds nuw i8, ptr %247, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %250, i64 24
+  %255 = getelementptr inbounds nuw i8, ptr %250, i64 8
   br i1 %33, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %.lr.ph.split.us.i.i
   %indvars.iv19.i.i = phi i64 [ %indvars.iv.next20.i.i, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %253 = load ptr, ptr %251, align 8
-  %254 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %253, i64 %indvars.iv19.i.i
-  %255 = load ptr, ptr %252, align 8
-  %256 = load i32, ptr %254, align 8
-  %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  %259 = load i32, ptr %258, align 8
-  %260 = add i32 %259, -1
-  %261 = getelementptr inbounds nuw i8, ptr %254, i64 4
-  store i32 %260, ptr %261, align 4
-  %262 = getelementptr inbounds nuw i8, ptr %254, i64 16
-  %263 = load ptr, ptr %262, align 8
-  %264 = sext i32 %260 to i64
-  %265 = getelementptr inbounds i64, ptr %263, i64 %264
-  %266 = load i64, ptr %265, align 8
-  %267 = getelementptr inbounds %struct.ScanKeyData, ptr %255, i64 %257, i32 6
-  store i64 %266, ptr %267, align 8
+  %256 = load ptr, ptr %254, align 8
+  %257 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %256, i64 %indvars.iv19.i.i
+  %258 = load ptr, ptr %255, align 8
+  %259 = load i32, ptr %257, align 8
+  %260 = sext i32 %259 to i64
+  %261 = getelementptr inbounds %struct.ScanKeyData, ptr %258, i64 %260
+  %262 = getelementptr inbounds nuw i8, ptr %257, i64 8
+  %263 = load i32, ptr %262, align 8
+  %264 = add i32 %263, -1
+  %265 = getelementptr inbounds nuw i8, ptr %257, i64 4
+  store i32 %264, ptr %265, align 4
+  %266 = getelementptr inbounds nuw i8, ptr %257, i64 16
+  %267 = load ptr, ptr %266, align 8
+  %268 = sext i32 %264 to i64
+  %269 = getelementptr inbounds i64, ptr %267, i64 %268
+  %270 = load i64, ptr %269, align 8
+  %271 = getelementptr inbounds nuw i8, ptr %261, i64 64
+  store i64 %270, ptr %271, align 8
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
-  %268 = load i32, ptr %248, align 8
-  %269 = sext i32 %268 to i64
-  %270 = icmp slt i64 %indvars.iv.next20.i.i, %269
-  br i1 %270, label %.lr.ph.split.us.i.i, label %.loopexit, !llvm.loop !10
+  %272 = load i32, ptr %251, align 8
+  %273 = sext i32 %272 to i64
+  %274 = icmp slt i64 %indvars.iv.next20.i.i, %273
+  br i1 %274, label %.lr.ph.split.us.i.i, label %.loopexit, !llvm.loop !10
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
-  %271 = load ptr, ptr %251, align 8
-  %272 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %271, i64 %indvars.iv.i.i
-  %273 = load ptr, ptr %252, align 8
-  %274 = load i32, ptr %272, align 8
-  %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds nuw i8, ptr %272, i64 4
-  store i32 0, ptr %276, align 4
-  %277 = getelementptr inbounds nuw i8, ptr %272, i64 16
-  %278 = load ptr, ptr %277, align 8
-  %279 = load i64, ptr %278, align 8
-  %280 = getelementptr inbounds %struct.ScanKeyData, ptr %273, i64 %275, i32 6
-  store i64 %279, ptr %280, align 8
+  %275 = load ptr, ptr %254, align 8
+  %276 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %275, i64 %indvars.iv.i.i
+  %277 = load ptr, ptr %255, align 8
+  %278 = load i32, ptr %276, align 8
+  %279 = sext i32 %278 to i64
+  %280 = getelementptr inbounds %struct.ScanKeyData, ptr %277, i64 %279
+  %281 = getelementptr inbounds nuw i8, ptr %276, i64 4
+  store i32 0, ptr %281, align 4
+  %282 = getelementptr inbounds nuw i8, ptr %276, i64 16
+  %283 = load ptr, ptr %282, align 8
+  %284 = load i64, ptr %283, align 8
+  %285 = getelementptr inbounds nuw i8, ptr %280, i64 64
+  store i64 %284, ptr %285, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %281 = load i32, ptr %248, align 8
-  %282 = sext i32 %281 to i64
-  %283 = icmp slt i64 %indvars.iv.next.i.i, %282
-  br i1 %283, label %.lr.ph.split.i.i, label %.loopexit, !llvm.loop !10
+  %286 = load i32, ptr %251, align 8
+  %287 = sext i32 %286 to i64
+  %288 = icmp slt i64 %indvars.iv.next.i.i, %287
+  br i1 %288, label %.lr.ph.split.i.i, label %.loopexit, !llvm.loop !10
 
-_bt_advance_array_keys_increment.exit.thread:     ; preds = %.lr.ph.split.us61.i, %26, %.critedge37.i, %.thread258, %._crit_edge
-  %.0196289 = phi i1 [ %.0196290, %.thread258 ], [ %.2198.ph, %._crit_edge ], [ %.2198.ph, %.critedge37.i ], [ false, %26 ], [ %.2198.ph, %.lr.ph.split.us61.i ]
-  %.1183267 = phi i1 [ %.2184, %.thread258 ], [ %.2184, %._crit_edge ], [ %.2184, %.critedge37.i ], [ false, %26 ], [ %.2184, %.lr.ph.split.us61.i ]
-  %.1189266 = phi i1 [ false, %.thread258 ], [ %.2190.ph, %._crit_edge ], [ %.2190.ph, %.critedge37.i ], [ true, %26 ], [ %.2190.ph, %.lr.ph.split.us61.i ]
-  %.1193265 = phi i8 [ 1, %.thread258 ], [ %.2194.ph, %._crit_edge ], [ %.2194.ph, %.critedge37.i ], [ 1, %26 ], [ %.2194.ph, %.lr.ph.split.us61.i ]
-  %284 = trunc nuw i8 %.1193265 to i1
-  %or.cond218 = select i1 %6, i1 %284, i1 %.1189266
-  br i1 %or.cond218, label %285, label %301
+_bt_advance_array_keys_increment.exit.thread:     ; preds = %.lr.ph.split.us58.i, %26, %.critedge37.i, %.thread258, %._crit_edge
+  %.0196288 = phi i1 [ %.0196289, %.thread258 ], [ %.2198.ph, %._crit_edge ], [ %.2198.ph, %.critedge37.i ], [ false, %26 ], [ %.2198.ph, %.lr.ph.split.us58.i ]
+  %.1183267 = phi i1 [ %.2184, %.thread258 ], [ %.2184, %._crit_edge ], [ %.2184, %.critedge37.i ], [ false, %26 ], [ %.2184, %.lr.ph.split.us58.i ]
+  %.1189266 = phi i1 [ false, %.thread258 ], [ %.2190.ph, %._crit_edge ], [ %.2190.ph, %.critedge37.i ], [ true, %26 ], [ %.2190.ph, %.lr.ph.split.us58.i ]
+  %.1193265 = phi i8 [ 1, %.thread258 ], [ %.2194.ph, %._crit_edge ], [ %.2194.ph, %.critedge37.i ], [ 1, %26 ], [ %.2194.ph, %.lr.ph.split.us58.i ]
+  %289 = trunc nuw i8 %.1193265 to i1
+  %or.cond218 = select i1 %6, i1 %289, i1 %.1189266
+  br i1 %or.cond218, label %290, label %306
 
-285:                                              ; preds = %_bt_advance_array_keys_increment.exit.thread
+290:                                              ; preds = %_bt_advance_array_keys_increment.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %286 = add i32 %5, 1
-  store i32 %286, ptr %12, align 4
+  %291 = add i32 %5, 1
+  store i32 %291, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %287 = call fastcc zeroext i1 @_bt_check_compare(ptr noundef %0, i32 noundef %19, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %13, ptr noundef %12)
-  br i1 %287, label %288, label %294
+  %292 = call fastcc zeroext i1 @_bt_check_compare(ptr noundef %0, i32 noundef %19, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %13, ptr noundef %12)
+  br i1 %292, label %293, label %299
 
-288:                                              ; preds = %285
-  %289 = load i8, ptr %21, align 1, !range !4, !noundef !7
-  %290 = trunc nuw i8 %289 to i1
-  br i1 %290, label %294, label %291
+293:                                              ; preds = %290
+  %294 = load i8, ptr %21, align 1, !range !4, !noundef !7
+  %295 = trunc nuw i8 %294 to i1
+  br i1 %295, label %299, label %296
 
-291:                                              ; preds = %288
+296:                                              ; preds = %293
   %.not214 = icmp eq ptr %1, null
-  br i1 %.not214, label %.thread269, label %292
+  br i1 %.not214, label %.thread269, label %297
 
-292:                                              ; preds = %291
-  %293 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i8 1, ptr %293, align 4
+297:                                              ; preds = %296
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i8 1, ptr %298, align 4
   br label %.thread269
 
-294:                                              ; preds = %288, %285
-  %295 = load i8, ptr %13, align 1, !range !4, !noundef !7
-  %296 = trunc nuw i8 %295 to i1
-  br i1 %296, label %300, label %297, !prof !16
+299:                                              ; preds = %293, %290
+  %300 = load i8, ptr %13, align 1, !range !4, !noundef !7
+  %301 = trunc nuw i8 %300 to i1
+  br i1 %301, label %305, label %302, !prof !16
 
-297:                                              ; preds = %294
-  %298 = load i32, ptr %12, align 4
-  %299 = tail call fastcc zeroext i1 @_bt_advance_array_keys(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %298, i1 noundef zeroext true)
+302:                                              ; preds = %299
+  %303 = load i32, ptr %12, align 4
+  %304 = tail call fastcc zeroext i1 @_bt_advance_array_keys(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %303, i1 noundef zeroext true)
   br label %.thread269
 
-.thread269:                                       ; preds = %297, %292, %291
-  %.0.ph = phi i1 [ true, %291 ], [ true, %292 ], [ false, %297 ]
+.thread269:                                       ; preds = %302, %297, %296
+  %.0.ph = phi i1 [ true, %296 ], [ true, %297 ], [ false, %302 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %388
+  br label %394
 
-300:                                              ; preds = %294
+305:                                              ; preds = %299
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %6, label %302, label %388
+  br i1 %6, label %307, label %394
 
-301:                                              ; preds = %_bt_advance_array_keys_increment.exit.thread
-  br i1 %6, label %302, label %388
+306:                                              ; preds = %_bt_advance_array_keys_increment.exit.thread
+  br i1 %6, label %307, label %394
 
-302:                                              ; preds = %300, %301
-  br i1 %284, label %.critedge, label %303
-
-303:                                              ; preds = %302
-  %304 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %305 = load ptr, ptr %304, align 8
-  %306 = icmp eq ptr %305, %2
-  br i1 %306, label %376, label %307
-
-307:                                              ; preds = %303
-  %.not215 = icmp eq ptr %305, null
-  br i1 %.not215, label %.critedge, label %308
+307:                                              ; preds = %305, %306
+  br i1 %289, label %.critedge, label %308
 
 308:                                              ; preds = %307
-  %309 = getelementptr inbounds nuw i8, ptr %305, i64 6
-  %310 = load i16, ptr %309, align 2
-  %311 = and i16 %310, 8192
-  %312 = icmp eq i16 %311, 0
-  br i1 %312, label %BTreeTupleIsPivot.exit.thread, label %BTreeTupleIsPivot.exit
+  %309 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %310 = load ptr, ptr %309, align 8
+  %311 = icmp eq ptr %310, %2
+  br i1 %311, label %382, label %312
 
-BTreeTupleIsPivot.exit:                           ; preds = %308
-  %313 = getelementptr i8, ptr %305, i64 4
-  %.val.i = load i16, ptr %313, align 2
-  %314 = and i16 %.val.i, 8192
-  %.not.i = icmp eq i16 %314, 0
-  br i1 %.not.i, label %315, label %BTreeTupleIsPivot.exit.thread
+312:                                              ; preds = %308
+  %.not215 = icmp eq ptr %310, null
+  br i1 %.not215, label %.critedge, label %313
 
-315:                                              ; preds = %BTreeTupleIsPivot.exit
-  %316 = and i16 %.val.i, 4095
-  %317 = zext nneg i16 %316 to i32
-  br label %323
+313:                                              ; preds = %312
+  %314 = getelementptr inbounds nuw i8, ptr %310, i64 6
+  %315 = load i16, ptr %314, align 2
+  %316 = and i16 %315, 8192
+  %317 = icmp eq i16 %316, 0
+  br i1 %317, label %BTreeTupleIsPivot.exit.thread, label %BTreeTupleIsPivot.exit
 
-BTreeTupleIsPivot.exit.thread:                    ; preds = %308, %BTreeTupleIsPivot.exit
-  %318 = getelementptr inbounds nuw i8, ptr %17, i64 328
-  %319 = load ptr, ptr %318, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
-  %321 = load i16, ptr %320, align 4
-  %322 = sext i16 %321 to i32
-  br label %323
+BTreeTupleIsPivot.exit:                           ; preds = %313
+  %318 = getelementptr i8, ptr %310, i64 4
+  %.val.i = load i16, ptr %318, align 2
+  %319 = and i16 %.val.i, 8192
+  %.not.i = icmp eq i16 %319, 0
+  br i1 %.not.i, label %320, label %BTreeTupleIsPivot.exit.thread
 
-323:                                              ; preds = %BTreeTupleIsPivot.exit.thread, %315
-  %324 = phi i32 [ %317, %315 ], [ %322, %BTreeTupleIsPivot.exit.thread ]
+320:                                              ; preds = %BTreeTupleIsPivot.exit
+  %321 = and i16 %.val.i, 4095
+  %322 = zext nneg i16 %321 to i32
+  br label %328
+
+BTreeTupleIsPivot.exit.thread:                    ; preds = %313, %BTreeTupleIsPivot.exit
+  %323 = getelementptr inbounds nuw i8, ptr %17, i64 328
+  %324 = load ptr, ptr %323, align 8
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
+  %326 = load i16, ptr %325, align 4
+  %327 = sext i16 %326 to i32
+  br label %328
+
+328:                                              ; preds = %BTreeTupleIsPivot.exit.thread, %320
+  %329 = phi i32 [ %322, %320 ], [ %327, %BTreeTupleIsPivot.exit.thread ]
   %.val223 = load ptr, ptr %14, align 8
-  %325 = tail call fastcc zeroext i1 @_bt_tuple_before_array_skeys(ptr %.val223, i32 noundef %19, ptr noundef nonnull %305, ptr noundef %4, i32 noundef %324, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %21)
-  br i1 %325, label %376, label %.critedge
+  %330 = tail call fastcc zeroext i1 @_bt_tuple_before_array_skeys(ptr %.val223, i32 noundef %19, ptr noundef nonnull %310, ptr noundef %4, i32 noundef %329, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %21)
+  br i1 %330, label %382, label %.critedge
 
-.critedge:                                        ; preds = %302, %323, %307
-  %326 = load i8, ptr %21, align 1, !range !4, !noundef !7
-  %327 = trunc nuw i8 %326 to i1
-  %or.cond17 = select i1 %327, i1 %.1183267, i1 false
-  br i1 %or.cond17, label %328, label %329
+.critedge:                                        ; preds = %307, %328, %312
+  %331 = load i8, ptr %21, align 1, !range !4, !noundef !7
+  %332 = trunc nuw i8 %331 to i1
+  %or.cond17 = select i1 %332, i1 %.1183267, i1 false
+  br i1 %or.cond17, label %333, label %334
 
-328:                                              ; preds = %.critedge
+333:                                              ; preds = %.critedge
   store i8 1, ptr %20, align 2
-  br label %366
+  br label %372
 
-329:                                              ; preds = %.critedge
-  br i1 %.1183267, label %330, label %366
+334:                                              ; preds = %.critedge
+  br i1 %.1183267, label %335, label %372
 
-330:                                              ; preds = %329
-  %331 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %332 = load ptr, ptr %331, align 8
-  %.not216 = icmp ne ptr %332, null
-  %or.cond19 = select i1 %284, i1 true, i1 %.0196289
+335:                                              ; preds = %334
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %337 = load ptr, ptr %336, align 8
+  %.not216 = icmp ne ptr %337, null
+  %or.cond19 = select i1 %289, i1 true, i1 %.0196288
   %or.cond219 = select i1 %.not216, i1 %or.cond19, i1 false
-  br i1 %or.cond219, label %333, label %366
+  br i1 %or.cond219, label %338, label %372
 
-333:                                              ; preds = %330
-  %334 = load ptr, ptr %16, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %334, i64 64
-  %336 = load ptr, ptr %335, align 8
-  %337 = load ptr, ptr %14, align 8
-  %338 = getelementptr inbounds nuw i8, ptr %332, i64 6
-  %339 = load i16, ptr %338, align 2
-  %340 = and i16 %339, 8192
-  %341 = icmp eq i16 %340, 0
-  br i1 %341, label %BTreeTupleIsPivot.exit232.thread, label %BTreeTupleIsPivot.exit232
+338:                                              ; preds = %335
+  %339 = load ptr, ptr %16, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 64
+  %341 = load ptr, ptr %340, align 8
+  %342 = load ptr, ptr %14, align 8
+  %343 = getelementptr inbounds nuw i8, ptr %337, i64 6
+  %344 = load i16, ptr %343, align 2
+  %345 = and i16 %344, 8192
+  %346 = icmp eq i16 %345, 0
+  br i1 %346, label %BTreeTupleIsPivot.exit232.thread, label %BTreeTupleIsPivot.exit232
 
-BTreeTupleIsPivot.exit232:                        ; preds = %333
-  %342 = getelementptr i8, ptr %332, i64 4
-  %.val.i229 = load i16, ptr %342, align 2
-  %343 = and i16 %.val.i229, 8192
-  %.not.i230 = icmp eq i16 %343, 0
-  br i1 %.not.i230, label %344, label %BTreeTupleIsPivot.exit232.thread
+BTreeTupleIsPivot.exit232:                        ; preds = %338
+  %347 = getelementptr i8, ptr %337, i64 4
+  %.val.i229 = load i16, ptr %347, align 2
+  %348 = and i16 %.val.i229, 8192
+  %.not.i230 = icmp eq i16 %348, 0
+  br i1 %.not.i230, label %349, label %BTreeTupleIsPivot.exit232.thread
 
-344:                                              ; preds = %BTreeTupleIsPivot.exit232
-  %345 = and i16 %.val.i229, 4095
-  %346 = zext nneg i16 %345 to i32
-  br label %352
+349:                                              ; preds = %BTreeTupleIsPivot.exit232
+  %350 = and i16 %.val.i229, 4095
+  %351 = zext nneg i16 %350 to i32
+  br label %357
 
-BTreeTupleIsPivot.exit232.thread:                 ; preds = %333, %BTreeTupleIsPivot.exit232
-  %347 = getelementptr inbounds nuw i8, ptr %334, i64 328
-  %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
-  %350 = load i16, ptr %349, align 4
-  %351 = sext i16 %350 to i32
-  br label %352
+BTreeTupleIsPivot.exit232.thread:                 ; preds = %338, %BTreeTupleIsPivot.exit232
+  %352 = getelementptr inbounds nuw i8, ptr %339, i64 328
+  %353 = load ptr, ptr %352, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 8
+  %355 = load i16, ptr %354, align 4
+  %356 = sext i16 %355 to i32
+  br label %357
 
-352:                                              ; preds = %BTreeTupleIsPivot.exit232.thread, %344
-  %353 = phi i32 [ %346, %344 ], [ %351, %BTreeTupleIsPivot.exit232.thread ]
+357:                                              ; preds = %BTreeTupleIsPivot.exit232.thread, %349
+  %358 = phi i32 [ %351, %349 ], [ %356, %BTreeTupleIsPivot.exit232.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %354 = sub i32 0, %19
+  %359 = sub i32 0, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %355 = call fastcc zeroext i1 @_bt_check_compare(ptr noundef nonnull %0, i32 noundef %354, ptr noundef nonnull %332, i32 noundef %353, ptr noundef %336, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8, ptr noundef %9)
-  %356 = load i8, ptr %8, align 1, !range !4, !noundef !7
-  %357 = trunc nuw i8 %356 to i1
-  br i1 %357, label %_bt_oppodir_checkkeys.exit.thread, label %358
+  %360 = call fastcc zeroext i1 @_bt_check_compare(ptr noundef nonnull %0, i32 noundef %359, ptr noundef nonnull %337, i32 noundef %358, ptr noundef %341, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8, ptr noundef %9)
+  %361 = load i8, ptr %8, align 1, !range !4, !noundef !7
+  %362 = trunc nuw i8 %361 to i1
+  br i1 %362, label %_bt_oppodir_checkkeys.exit.thread, label %363
 
-358:                                              ; preds = %352
-  %359 = getelementptr inbounds nuw i8, ptr %337, i64 8
-  %360 = load ptr, ptr %359, align 8
-  %361 = load i32, ptr %9, align 4
-  %362 = sext i32 %361 to i64
-  %363 = getelementptr inbounds %struct.ScanKeyData, ptr %360, i64 %362, i32 2
-  %364 = load i16, ptr %363, align 2
-  %.not.i226 = icmp eq i16 %364, 3
-  br i1 %.not.i226, label %_bt_oppodir_checkkeys.exit.thread, label %365
+363:                                              ; preds = %357
+  %364 = getelementptr inbounds nuw i8, ptr %342, i64 8
+  %365 = load ptr, ptr %364, align 8
+  %366 = load i32, ptr %9, align 4
+  %367 = sext i32 %366 to i64
+  %368 = getelementptr inbounds %struct.ScanKeyData, ptr %365, i64 %367
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 6
+  %370 = load i16, ptr %369, align 2
+  %.not.i226 = icmp eq i16 %370, 3
+  br i1 %.not.i226, label %_bt_oppodir_checkkeys.exit.thread, label %371
 
-_bt_oppodir_checkkeys.exit.thread:                ; preds = %352, %358
+_bt_oppodir_checkkeys.exit.thread:                ; preds = %357, %363
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %366
+  br label %372
 
-365:                                              ; preds = %358
+371:                                              ; preds = %363
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.val224 = load ptr, ptr %14, align 8
   tail call fastcc void @_bt_rewind_nonrequired_arrays(ptr %.val224, i32 noundef %19)
-  br label %376
+  br label %382
 
-366:                                              ; preds = %_bt_oppodir_checkkeys.exit.thread, %329, %330, %328
-  %367 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i8 1, ptr %367, align 4
-  %368 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  store i8 0, ptr %368, align 4
-  %369 = load i8, ptr %21, align 1, !range !4, !noundef !7
-  %370 = trunc nuw i8 %369 to i1
-  br i1 %370, label %371, label %388
+372:                                              ; preds = %_bt_oppodir_checkkeys.exit.thread, %334, %335, %333
+  %373 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i8 1, ptr %373, align 4
+  %374 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  store i8 0, ptr %374, align 4
+  %375 = load i8, ptr %21, align 1, !range !4, !noundef !7
+  %376 = trunc nuw i8 %375 to i1
+  br i1 %376, label %377, label %394
 
-371:                                              ; preds = %366
-  %372 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %373 = load i16, ptr %372, align 2
-  %374 = add i16 %373, 1
-  %375 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  store i16 %374, ptr %375, align 2
-  br label %388
+377:                                              ; preds = %372
+  %378 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %379 = load i16, ptr %378, align 2
+  %380 = add i16 %379, 1
+  %381 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  store i16 %380, ptr %381, align 2
+  br label %394
 
-376:                                              ; preds = %323, %303, %365
-  %377 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i8 0, ptr %377, align 4
-  %378 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  store i8 1, ptr %378, align 4
-  %379 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %380 = load ptr, ptr %379, align 8
-  %.not217 = icmp eq ptr %380, null
-  br i1 %.not217, label %388, label %381
+382:                                              ; preds = %328, %308, %371
+  %383 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i8 0, ptr %383, align 4
+  %384 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  store i8 1, ptr %384, align 4
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %386 = load ptr, ptr %385, align 8
+  %.not217 = icmp eq ptr %386, null
+  br i1 %.not217, label %394, label %387
 
-381:                                              ; preds = %376
-  %382 = getelementptr inbounds nuw i8, ptr %15, i64 92
-  %383 = load i32, ptr %382, align 4
-  tail call void @_bt_parallel_primscan_schedule(ptr noundef nonnull %0, i32 noundef %383) #14
-  br label %388
+387:                                              ; preds = %382
+  %388 = getelementptr inbounds nuw i8, ptr %15, i64 92
+  %389 = load i32, ptr %388, align 4
+  tail call void @_bt_parallel_primscan_schedule(ptr noundef nonnull %0, i32 noundef %389) #14
+  br label %394
 
 .loopexit:                                        ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %.critedge.i
-  %384 = getelementptr inbounds nuw i8, ptr %247, i64 22
-  store i8 0, ptr %384, align 2
-  %385 = getelementptr inbounds nuw i8, ptr %247, i64 21
-  store i8 0, ptr %385, align 1
-  %386 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i8 0, ptr %386, align 4
-  %387 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  store i8 0, ptr %387, align 4
-  br label %388
+  %390 = getelementptr inbounds nuw i8, ptr %250, i64 22
+  store i8 0, ptr %390, align 2
+  %391 = getelementptr inbounds nuw i8, ptr %250, i64 21
+  store i8 0, ptr %391, align 1
+  %392 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i8 0, ptr %392, align 4
+  %393 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  store i8 0, ptr %393, align 4
+  br label %394
 
-388:                                              ; preds = %.thread269, %300, %376, %381, %366, %371, %301, %.loopexit
-  %.1 = phi i1 [ false, %300 ], [ false, %.loopexit ], [ false, %301 ], [ false, %371 ], [ false, %366 ], [ false, %381 ], [ false, %376 ], [ %.0.ph, %.thread269 ]
+394:                                              ; preds = %.thread269, %305, %382, %387, %372, %377, %306, %.loopexit
+  %.1 = phi i1 [ false, %305 ], [ false, %.loopexit ], [ false, %306 ], [ false, %377 ], [ false, %372 ], [ false, %387 ], [ false, %382 ], [ %.0.ph, %.thread269 ]
   ret i1 %.1
 }
 
@@ -2305,23 +2312,24 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %3, %BTreeTupleIsPiv
   %29 = call fastcc zeroext i1 @_bt_check_compare(ptr noundef nonnull %0, i32 noundef %28, ptr noundef nonnull %2, i32 noundef %27, ptr noundef %9, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %5)
   %30 = load i8, ptr %4, align 1, !range !4, !noundef !7
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %39, label %32
+  br i1 %31, label %40, label %32
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %5, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct.ScanKeyData, ptr %34, i64 %36, i32 2
-  %38 = load i16, ptr %37, align 2
-  %.not = icmp eq i16 %38, 3
-  br i1 %.not, label %39, label %40
+  %37 = getelementptr inbounds %struct.ScanKeyData, ptr %34, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
+  %39 = load i16, ptr %38, align 2
+  %.not = icmp eq i16 %39, 3
+  br i1 %.not, label %40, label %41
 
-39:                                               ; preds = %32, %26
-  br label %40
+40:                                               ; preds = %32, %26
+  br label %41
 
-40:                                               ; preds = %32, %39
-  %.0 = phi i1 [ true, %39 ], [ false, %32 ]
+41:                                               ; preds = %32, %40
+  %.0 = phi i1 [ true, %40 ], [ false, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -3168,7 +3176,7 @@ define dso_local i32 @_bt_keep_natts_fast(ptr noundef readonly captures(none) %0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef %indvars30, ptr noundef %7, ptr noundef %4)
   %14 = call fastcc i64 @index_getattr(ptr noundef %2, i32 noundef %indvars30, ptr noundef %7, ptr noundef %5)
-  %15 = getelementptr %struct.CompactAttribute, ptr %7, i64 %indvars.iv, i32 4
+  %15 = getelementptr %struct.CompactAttribute, ptr %7, i64 %indvars.iv
   %16 = load i8, ptr %4, align 1, !range !4, !noundef !7
   %17 = load i8, ptr %5, align 1, !range !4, !noundef !7
   %.not21 = icmp eq i8 %16, %17
@@ -3179,10 +3187,10 @@ define dso_local i32 @_bt_keep_natts_fast(ptr noundef readonly captures(none) %0
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 6
+  %21 = getelementptr i8, ptr %15, i64 14
   %22 = load i8, ptr %21, align 2, !range !4, !noundef !7
   %23 = trunc nuw i8 %22 to i1
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %24 = getelementptr i8, ptr %15, i64 12
   %25 = load i16, ptr %24, align 4
   %26 = sext i16 %25 to i32
   %27 = tail call zeroext i1 @datum_image_eq(i64 noundef %13, i64 noundef %14, i1 noundef zeroext %23, i32 noundef %26) #14

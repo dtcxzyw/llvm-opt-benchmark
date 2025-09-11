@@ -331,11 +331,11 @@ define range(i32 -1, 1) i32 @H5EA__hdr_init(ptr noundef captures(none) %0, ptr n
   %55 = shl nuw i32 1, %54
   %56 = sext i32 %55 to i64
   %57 = mul nsw i64 %41, %56
-  %58 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %36, i64 %.04856, i32 1
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %57, ptr %58, align 8, !tbaa !59
-  %59 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %36, i64 %.04856, i32 2
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i64 %.05054, ptr %59, align 8, !tbaa !60
-  %60 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %36, i64 %.04856, i32 3
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i64 %.04955, ptr %60, align 8, !tbaa !61
   %61 = mul i64 %57, %50
   %62 = add i64 %61, %.05054

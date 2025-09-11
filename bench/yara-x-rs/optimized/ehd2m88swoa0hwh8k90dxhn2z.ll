@@ -62792,8 +62792,8 @@ define internal fastcc noundef i32 @"_ZN6yara_x8compiler5atoms7quality23BestAtom
   %.sroa.12.sroa.0.0.ph = phi ptr [ %.sroa.12.sroa.0.1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h31d8f5a4ff5cdf65E.exit" ], [ %.sroa.12.sroa.0.0.copyload, %"_ZN6bitvec5slice3api54_$LT$impl$u20$bitvec..slice..BitSlice$LT$T$C$O$GT$$GT$4fill17h87d424193e943bc9E.exit" ]
   br label %29
 
-28:                                               ; preds = %1, %67, %82, %80
-  %.sroa.0.0 = phi i32 [ %81, %80 ], [ %83, %82 ], [ %69, %67 ], [ -2147483648, %1 ]
+28:                                               ; preds = %1, %67, %83, %81
+  %.sroa.0.0 = phi i32 [ %82, %81 ], [ %84, %83 ], [ %69, %67 ], [ -2147483648, %1 ]
   ret i32 %.sroa.0.0
 
 29:                                               ; preds = %.backedge, %.outer
@@ -62875,7 +62875,7 @@ define internal fastcc noundef i32 @"_ZN6yara_x8compiler5atoms7quality23BestAtom
 65:                                               ; preds = %41
   %66 = load i64, ptr %7, align 8, !alias.scope !8532, !noundef !4
   %.not = icmp eq i64 %66, 0
-  br i1 %.not, label %79, label %70
+  br i1 %.not, label %80, label %70
 
 67:                                               ; preds = %41
   %68 = shl i32 %.sroa.016.0.ph, 1
@@ -62891,26 +62891,27 @@ define internal fastcc noundef i32 @"_ZN6yara_x8compiler5atoms7quality23BestAtom
   %.sroa.01.0.i = sub nuw i64 %72, %74
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %76 = load ptr, ptr %75, align 8, !alias.scope !8532, !nonnull !4, !noundef !4
-  %77 = getelementptr inbounds nuw { i64, i8, i8, [2 x i8], i32 }, ptr %76, i64 %.sroa.01.0.i, i32 1
-  %78 = load i8, ptr %77, align 8, !noundef !4
-  switch i8 %78, label %80 [
-    i8 0, label %82
-    i8 32, label %82
-    i8 -112, label %82
-    i8 -52, label %82
-    i8 -1, label %82
+  %77 = getelementptr inbounds nuw { i64, i8, i8, [2 x i8], i32 }, ptr %76, i64 %.sroa.01.0.i
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load i8, ptr %78, align 8, !noundef !4
+  switch i8 %79, label %81 [
+    i8 0, label %83
+    i8 32, label %83
+    i8 -112, label %83
+    i8 -52, label %83
+    i8 -1, label %83
   ]
 
-79:                                               ; preds = %65
+80:                                               ; preds = %65
   call void @_ZN4core6option13unwrap_failed17hec54eb4737b382caE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.22911ec2d3551975e67fbe84588bafe7.518) #33
   unreachable
 
-80:                                               ; preds = %70
-  %81 = add i32 %43, 2
+81:                                               ; preds = %70
+  %82 = add i32 %43, 2
   br label %28
 
-82:                                               ; preds = %70, %70, %70, %70, %70
-  %83 = add i32 %43, -5
+83:                                               ; preds = %70, %70, %70, %70, %70
+  %84 = add i32 %43, -5
   br label %28
 }
 
@@ -63005,8 +63006,8 @@ define internal fastcc noundef i32 @"_ZN6yara_x8compiler5atoms7quality23BestAtom
   %.sroa.12.sroa.0.0.ph = phi ptr [ %.sroa.12.sroa.0.1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h31d8f5a4ff5cdf65E.exit" ], [ %.sroa.12.sroa.0.0.copyload, %"_ZN6bitvec5slice3api54_$LT$impl$u20$bitvec..slice..BitSlice$LT$T$C$O$GT$$GT$4fill17h87d424193e943bc9E.exit" ]
   br label %29
 
-28:                                               ; preds = %1, %67, %82, %80
-  %.sroa.0.0 = phi i32 [ %81, %80 ], [ %83, %82 ], [ %69, %67 ], [ -2147483648, %1 ]
+28:                                               ; preds = %1, %67, %83, %81
+  %.sroa.0.0 = phi i32 [ %82, %81 ], [ %84, %83 ], [ %69, %67 ], [ -2147483648, %1 ]
   ret i32 %.sroa.0.0
 
 29:                                               ; preds = %.backedge, %.outer
@@ -63088,7 +63089,7 @@ define internal fastcc noundef i32 @"_ZN6yara_x8compiler5atoms7quality23BestAtom
 65:                                               ; preds = %41
   %66 = load i64, ptr %7, align 8, !alias.scope !8552, !noundef !4
   %.not = icmp eq i64 %66, 0
-  br i1 %.not, label %79, label %70
+  br i1 %.not, label %80, label %70
 
 67:                                               ; preds = %41
   %68 = shl i32 %.sroa.016.0.ph, 1
@@ -63104,26 +63105,27 @@ define internal fastcc noundef i32 @"_ZN6yara_x8compiler5atoms7quality23BestAtom
   %.sroa.01.0.i = sub nuw i64 %72, %74
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %76 = load ptr, ptr %75, align 8, !alias.scope !8552, !nonnull !4, !noundef !4
-  %77 = getelementptr inbounds nuw { i64, i8, i8, [2 x i8], i32 }, ptr %76, i64 %.sroa.01.0.i, i32 1
-  %78 = load i8, ptr %77, align 8, !noundef !4
-  switch i8 %78, label %80 [
-    i8 0, label %82
-    i8 32, label %82
-    i8 -112, label %82
-    i8 -52, label %82
-    i8 -1, label %82
+  %77 = getelementptr inbounds nuw { i64, i8, i8, [2 x i8], i32 }, ptr %76, i64 %.sroa.01.0.i
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load i8, ptr %78, align 8, !noundef !4
+  switch i8 %79, label %81 [
+    i8 0, label %83
+    i8 32, label %83
+    i8 -112, label %83
+    i8 -52, label %83
+    i8 -1, label %83
   ]
 
-79:                                               ; preds = %65
+80:                                               ; preds = %65
   call void @_ZN4core6option13unwrap_failed17hec54eb4737b382caE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.22911ec2d3551975e67fbe84588bafe7.518) #33
   unreachable
 
-80:                                               ; preds = %70
-  %81 = add i32 %43, 2
+81:                                               ; preds = %70
+  %82 = add i32 %43, 2
   br label %28
 
-82:                                               ; preds = %70, %70, %70, %70, %70
-  %83 = add i32 %43, -5
+83:                                               ; preds = %70, %70, %70, %70, %70
+  %84 = add i32 %43, -5
   br label %28
 }
 

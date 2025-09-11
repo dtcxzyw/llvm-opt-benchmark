@@ -5792,7 +5792,7 @@ switch.early.test:                                ; preds = %8
   %30 = or disjoint i32 %29, %28
   %31 = zext i8 %24 to i32
   %32 = or disjoint i32 %30, %31
-  %33 = icmp ult i32 %32, -2127527632
+  %33 = icmp samesign ult i32 %32, -2127527632
   br i1 %33, label %.critedge195, label %34
 
 34:                                               ; preds = %20

@@ -261,43 +261,44 @@ define dso_local void @pg_reg_getcharacters(ptr noundef readonly captures(none) 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw %struct.colordesc, ptr %16, i64 %9, i32 5
-  %18 = load i32, ptr %17, align 4
-  %19 = and i32 %18, 2
-  %.not = icmp eq i32 %19, 0
+  %17 = getelementptr inbounds nuw %struct.colordesc, ptr %16, i64 %9
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 28
+  %19 = load i32, ptr %18, align 4
+  %20 = and i32 %19, 2
+  %.not = icmp eq i32 %20, 0
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  br label %21
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 152
+  br label %22
 
-21:                                               ; preds = %.preheader, %32
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]
-  %.01523 = phi ptr [ %2, %.preheader ], [ %.1, %32 ]
-  %.01622 = phi i32 [ %3, %.preheader ], [ %.117, %32 ]
-  %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
-  %24 = load i16, ptr %23, align 2
-  %25 = sext i16 %24 to i32
-  %26 = icmp eq i32 %1, %25
-  br i1 %26, label %27, label %32
+22:                                               ; preds = %.preheader, %33
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %33 ]
+  %.01523 = phi ptr [ %2, %.preheader ], [ %.1, %33 ]
+  %.01622 = phi i32 [ %3, %.preheader ], [ %.117, %33 ]
+  %23 = load ptr, ptr %21, align 8
+  %24 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %25 = load i16, ptr %24, align 2
+  %26 = sext i16 %25 to i32
+  %27 = icmp eq i32 %1, %26
+  br i1 %27, label %28, label %33
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds nuw i8, ptr %.01523, i64 4
-  %29 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %29, ptr %.01523, align 4
-  %30 = add nsw i32 %.01622, -1
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.loopexit, label %32
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %.01523, i64 4
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %30, ptr %.01523, align 4
+  %31 = add nsw i32 %.01622, -1
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %.loopexit, label %33
 
-32:                                               ; preds = %21, %27
-  %.117 = phi i32 [ %30, %27 ], [ %.01622, %21 ]
-  %.1 = phi ptr [ %28, %27 ], [ %.01523, %21 ]
+33:                                               ; preds = %22, %28
+  %.117 = phi i32 [ %31, %28 ], [ %.01622, %22 ]
+  %.1 = phi ptr [ %29, %28 ], [ %.01523, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2048
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !6
 
-.loopexit:                                        ; preds = %32, %27, %14, %4, %8
+.loopexit:                                        ; preds = %33, %28, %14, %4, %8
   ret void
 }
 

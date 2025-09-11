@@ -967,17 +967,18 @@ define { ptr, i64 } @_ZN12polars_utils7idx_map13bytes_idx_map3Key3get17h5b861b85
   %6 = zext i32 %5 to i64
   %7 = icmp ugt i64 %2, %6
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %1, i64 %6, i32 0, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !noundef !8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %13 = load i32, ptr %12, align 4, !noundef !8
-  %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %11
-  %16 = insertvalue { ptr, i64 } poison, ptr %15, 0
-  %17 = insertvalue { ptr, i64 } %16, i64 %14, 1
-  ret { ptr, i64 } %17
+  %8 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %1, i64 %6
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !8, !noundef !8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i64, ptr %11, align 8, !noundef !8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %14 = load i32, ptr %13, align 4, !noundef !8
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 %12
+  %17 = insertvalue { ptr, i64 } poison, ptr %16, 0
+  %18 = insertvalue { ptr, i64 } %17, i64 %15, 1
+  ret { ptr, i64 } %18
 }
 
 ; Function Attrs: nonlazybind uwtable

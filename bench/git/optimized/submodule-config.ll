@@ -1287,24 +1287,26 @@ define dso_local void @submodule_entry_list_release(ptr noundef readonly capture
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.09 = phi i64 [ %14, %.lr.ph ], [ 0, %1 ]
+  %.09 = phi i64 [ %16, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !90
   %6 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %5, i64 %.09
   %7 = load ptr, ptr %6, align 8, !tbaa !98
   tail call void @free(ptr noundef %7) #16
   %8 = load ptr, ptr %0, align 8, !tbaa !90
-  %9 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %8, i64 %.09, i32 1
-  %10 = load ptr, ptr %9, align 8, !tbaa !104
-  tail call void @repo_clear(ptr noundef %10) #16
-  %11 = load ptr, ptr %0, align 8, !tbaa !90
-  %12 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %11, i64 %.09, i32 1
-  %13 = load ptr, ptr %12, align 8, !tbaa !104
-  tail call void @free(ptr noundef %13) #16
-  %14 = add nuw i64 %.09, 1
-  %15 = load i32, ptr %2, align 8, !tbaa !93
-  %16 = sext i32 %15 to i64
-  %17 = icmp ult i64 %14, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !106
+  %9 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %8, i64 %.09
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !104
+  tail call void @repo_clear(ptr noundef %11) #16
+  %12 = load ptr, ptr %0, align 8, !tbaa !90
+  %13 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %12, i64 %.09
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !104
+  tail call void @free(ptr noundef %15) #16
+  %16 = add nuw i64 %.09, 1
+  %17 = load i32, ptr %2, align 8, !tbaa !93
+  %18 = sext i32 %17 to i64
+  %19 = icmp ult i64 %16, %18
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !106
 }
 
 declare void @repo_clear(ptr noundef) local_unnamed_addr #3

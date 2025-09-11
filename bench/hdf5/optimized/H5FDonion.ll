@@ -1754,19 +1754,19 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %7 = trunc nuw i8 %6 to i1
   %8 = xor i1 %7, true
   %9 = select i1 %5, i1 true, i1 %8
-  br i1 %9, label %10, label %278, !prof !9
+  br i1 %9, label %10, label %279, !prof !9
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %12 = load i32, ptr %11, align 4, !tbaa !78
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %216
+  br i1 %13, label %14, label %217
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %16 = load i8, ptr %15, align 8, !tbaa !56, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %220
+  br i1 %17, label %18, label %221
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1946,7 +1946,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %128 = add i64 %127, 24
   %129 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %128) #19
   %130 = icmp eq ptr %129, null
-  br i1 %130, label %158, label %131
+  br i1 %130, label %159, label %131
 
 131:                                              ; preds = %126
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 480
@@ -1957,7 +1957,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %135 = load i64, ptr %95, align 8, !tbaa !63
   %136 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %129, i64 %135
   store i64 %63, ptr %136, align 8, !tbaa !83
-  %137 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %129, i64 %135, i32 1
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i64 %55, ptr %137, align 8, !tbaa !85
   br label %138
 
@@ -1993,216 +1993,217 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %150 = call i32 @H5_checksum_fletcher32(ptr noundef nonnull %48, i64 noundef 16) #18
   %151 = load ptr, ptr %132, align 8, !tbaa !82
   %152 = load i64, ptr %95, align 8, !tbaa !63
-  %153 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %151, i64 %152, i32 2
-  store i32 %150, ptr %153, align 8, !tbaa !89
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %155 = load i64, ptr %154, align 8, !tbaa !39
-  %156 = add i64 %155, 20
-  store i64 %156, ptr %154, align 8, !tbaa !39
-  %157 = add i64 %152, 1
-  store i64 %157, ptr %95, align 8, !tbaa !63
+  %153 = getelementptr inbounds nuw %struct.H5FD_onion_record_loc_t, ptr %151, i64 %152
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  store i32 %150, ptr %154, align 8, !tbaa !89
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %156 = load i64, ptr %155, align 8, !tbaa !39
+  %157 = add i64 %156, 20
+  store i64 %157, ptr %155, align 8, !tbaa !39
+  %158 = add i64 %152, 1
+  store i64 %158, ptr %95, align 8, !tbaa !63
   br label %H5FD__onion_commit_new_revision_record.exit
 
-158:                                              ; preds = %126
-  %159 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %160 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
-  %161 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_commit_new_revision_record, i32 noundef 507, i64 noundef %159, i64 noundef %160, ptr noundef nonnull @.str.114) #18
+159:                                              ; preds = %126
+  %160 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %161 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
+  %162 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_commit_new_revision_record, i32 noundef 507, i64 noundef %160, i64 noundef %161, ptr noundef nonnull @.str.114) #18
   br label %.critedge
 
 H5FD__onion_commit_new_revision_record.exit:      ; preds = %.thread157.i, %.thread.i
-  %162 = load i64, ptr %62, align 8, !tbaa !38
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store i64 %162, ptr %163, align 8, !tbaa !66
-  %164 = call ptr @H5MM_xfree(ptr noundef nonnull %48) #18
-  %165 = call ptr @H5MM_xfree(ptr noundef null) #18
+  %163 = load i64, ptr %62, align 8, !tbaa !38
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  store i64 %163, ptr %164, align 8, !tbaa !66
+  %165 = call ptr @H5MM_xfree(ptr noundef nonnull %48) #18
+  %166 = call ptr @H5MM_xfree(ptr noundef null) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %166 = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7, !noundef !8
-  %167 = trunc nuw i8 %166 to i1
-  %168 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %169 = trunc nuw i8 %168 to i1
-  %170 = xor i1 %169, true
-  %171 = select i1 %167, i1 true, i1 %170
-  br i1 %171, label %177, label %H5FD__onion_write_final_history.exit, !prof !9
+  %167 = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %168 = trunc nuw i8 %167 to i1
+  %169 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %170 = trunc nuw i8 %169 to i1
+  %171 = xor i1 %170, true
+  %172 = select i1 %168, i1 true, i1 %171
+  br i1 %172, label %178, label %H5FD__onion_write_final_history.exit, !prof !9
 
-.critedge:                                        ; preds = %158, %122, %77, %69, %57, %50, %35
-  %.0147.i.ph = phi ptr [ %48, %158 ], [ %48, %122 ], [ %48, %77 ], [ %48, %69 ], [ %48, %57 ], [ null, %50 ], [ null, %35 ]
-  %172 = call ptr @H5MM_xfree(ptr noundef %.0147.i.ph) #18
-  %173 = call ptr @H5MM_xfree(ptr noundef null) #18
+.critedge:                                        ; preds = %159, %122, %77, %69, %57, %50, %35
+  %.0147.i.ph = phi ptr [ %48, %159 ], [ %48, %122 ], [ %48, %77 ], [ %48, %69 ], [ %48, %57 ], [ null, %50 ], [ null, %35 ]
+  %173 = call ptr @H5MM_xfree(ptr noundef %.0147.i.ph) #18
+  %174 = call ptr @H5MM_xfree(ptr noundef null) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %174 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %175 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !10
-  %176 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 559, i64 noundef %174, i64 noundef %175, ptr noundef nonnull @.str.99) #18
-  br label %220
+  %175 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %176 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !10
+  %177 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 559, i64 noundef %175, i64 noundef %176, ptr noundef nonnull @.str.99) #18
+  br label %221
 
-177:                                              ; preds = %H5FD__onion_commit_new_revision_record.exit
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %179 = load ptr, ptr %64, align 8, !tbaa !26
-  %180 = load i64, ptr %62, align 8, !tbaa !38
-  %181 = call i64 @H5FD__onion_write_history(ptr noundef nonnull %178, ptr noundef %179, i64 noundef %180, i64 noundef %180) #18
-  %182 = icmp eq i64 %181, 0
-  br i1 %182, label %183, label %187
+178:                                              ; preds = %H5FD__onion_commit_new_revision_record.exit
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %180 = load ptr, ptr %64, align 8, !tbaa !26
+  %181 = load i64, ptr %62, align 8, !tbaa !38
+  %182 = call i64 @H5FD__onion_write_history(ptr noundef nonnull %179, ptr noundef %180, i64 noundef %181, i64 noundef %181) #18
+  %183 = icmp eq i64 %182, 0
+  br i1 %183, label %184, label %188
 
-183:                                              ; preds = %177
-  %184 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %185 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !10
-  %186 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_write_final_history, i32 noundef 1709, i64 noundef %184, i64 noundef %185, ptr noundef nonnull @.str.24) #18
-  br label %197
+184:                                              ; preds = %178
+  %185 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %186 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !10
+  %187 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_write_final_history, i32 noundef 1709, i64 noundef %185, i64 noundef %186, ptr noundef nonnull @.str.24) #18
+  br label %198
 
-187:                                              ; preds = %177
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %189 = load i64, ptr %188, align 8, !tbaa !39
-  %.not.i = icmp eq i64 %181, %189
-  br i1 %.not.i, label %194, label %190
+188:                                              ; preds = %178
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %190 = load i64, ptr %189, align 8, !tbaa !39
+  %.not.i = icmp eq i64 %182, %190
+  br i1 %.not.i, label %195, label %191
 
-190:                                              ; preds = %187
-  %191 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %192 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !10
-  %193 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_write_final_history, i32 noundef 1712, i64 noundef %191, i64 noundef %192, ptr noundef nonnull @.str.25) #18
-  br label %197
+191:                                              ; preds = %188
+  %192 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %193 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !10
+  %194 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_write_final_history, i32 noundef 1712, i64 noundef %192, i64 noundef %193, ptr noundef nonnull @.str.25) #18
+  br label %198
 
-194:                                              ; preds = %187
-  %195 = load i64, ptr %62, align 8, !tbaa !38
-  %196 = add i64 %195, %181
-  store i64 %196, ptr %62, align 8, !tbaa !38
+195:                                              ; preds = %188
+  %196 = load i64, ptr %62, align 8, !tbaa !38
+  %197 = add i64 %196, %182
+  store i64 %197, ptr %62, align 8, !tbaa !38
   br label %H5FD__onion_write_final_history.exit
 
-197:                                              ; preds = %183, %190
-  %198 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %199 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !10
-  %200 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 562, i64 noundef %198, i64 noundef %199, ptr noundef nonnull @.str.100) #18
-  br label %220
+198:                                              ; preds = %184, %191
+  %199 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %200 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !10
+  %201 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 562, i64 noundef %199, i64 noundef %200, ptr noundef nonnull @.str.100) #18
+  br label %221
 
-H5FD__onion_write_final_history.exit:             ; preds = %194, %H5FD__onion_commit_new_revision_record.exit
-  %201 = load i8, ptr %15, align 8, !tbaa !56, !range !7, !noundef !8
-  %202 = trunc nuw i8 %201 to i1
-  br i1 %202, label %203, label %207
+H5FD__onion_write_final_history.exit:             ; preds = %195, %H5FD__onion_commit_new_revision_record.exit
+  %202 = load i8, ptr %15, align 8, !tbaa !56, !range !7, !noundef !8
+  %203 = trunc nuw i8 %202 to i1
+  br i1 %203, label %204, label %208
 
-203:                                              ; preds = %H5FD__onion_write_final_history.exit
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  %205 = load i32, ptr %204, align 4, !tbaa !54
-  %206 = and i32 %205, -2
-  store i32 %206, ptr %204, align 4, !tbaa !54
-  br label %207
+204:                                              ; preds = %H5FD__onion_write_final_history.exit
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  %206 = load i32, ptr %205, align 4, !tbaa !54
+  %207 = and i32 %206, -2
+  store i32 %207, ptr %205, align 4, !tbaa !54
+  br label %208
 
-207:                                              ; preds = %203, %H5FD__onion_write_final_history.exit
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %209 = load ptr, ptr %64, align 8, !tbaa !26
-  %210 = call i32 @H5FD__onion_write_header(ptr noundef nonnull %208, ptr noundef %209) #18
-  %211 = icmp slt i32 %210, 0
-  br i1 %211, label %212, label %220
+208:                                              ; preds = %204, %H5FD__onion_write_final_history.exit
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %210 = load ptr, ptr %64, align 8, !tbaa !26
+  %211 = call i32 @H5FD__onion_write_header(ptr noundef nonnull %209, ptr noundef %210) #18
+  %212 = icmp slt i32 %211, 0
+  br i1 %212, label %213, label %221
 
-212:                                              ; preds = %207
-  %213 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %214 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !10
-  %215 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 568, i64 noundef %213, i64 noundef %214, ptr noundef nonnull @.str.101) #18
-  br label %220
+213:                                              ; preds = %208
+  %214 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %215 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !10
+  %216 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 568, i64 noundef %214, i64 noundef %215, ptr noundef nonnull @.str.101) #18
+  br label %221
 
-216:                                              ; preds = %10
-  %217 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %218 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %219 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 572, i64 noundef %217, i64 noundef %218, ptr noundef nonnull @.str.102) #18
-  br label %220
+217:                                              ; preds = %10
+  %218 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %219 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
+  %220 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 572, i64 noundef %218, i64 noundef %219, ptr noundef nonnull @.str.102) #18
+  br label %221
 
-220:                                              ; preds = %207, %14, %216, %212, %197, %.critedge
-  %.1 = phi i32 [ -1, %.critedge ], [ -1, %197 ], [ -1, %212 ], [ 0, %207 ], [ 0, %14 ], [ -1, %216 ]
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %222 = load ptr, ptr %221, align 8, !tbaa !40
-  %.not = icmp eq ptr %222, null
-  br i1 %.not, label %230, label %223
+221:                                              ; preds = %208, %14, %217, %213, %198, %.critedge
+  %.1 = phi i32 [ -1, %.critedge ], [ -1, %198 ], [ -1, %213 ], [ 0, %208 ], [ 0, %14 ], [ -1, %217 ]
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %223 = load ptr, ptr %222, align 8, !tbaa !40
+  %.not = icmp eq ptr %223, null
+  br i1 %.not, label %231, label %224
 
-223:                                              ; preds = %220
-  %224 = call i32 @H5FD_close(ptr noundef nonnull %222) #18
-  %225 = icmp slt i32 %224, 0
-  br i1 %225, label %226, label %230
+224:                                              ; preds = %221
+  %225 = call i32 @H5FD_close(ptr noundef nonnull %223) #18
+  %226 = icmp slt i32 %225, 0
+  br i1 %226, label %227, label %231
 
-226:                                              ; preds = %223
-  %227 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %228 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
-  %229 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 579, i64 noundef %227, i64 noundef %228, ptr noundef nonnull @.str.103) #18
-  br label %230
+227:                                              ; preds = %224
+  %228 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %229 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
+  %230 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 579, i64 noundef %228, i64 noundef %229, ptr noundef nonnull @.str.103) #18
+  br label %231
 
-230:                                              ; preds = %223, %226, %220
-  %.2 = phi i32 [ -1, %226 ], [ %.1, %223 ], [ %.1, %220 ]
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %232 = load ptr, ptr %231, align 8, !tbaa !26
-  %.not35 = icmp eq ptr %232, null
-  br i1 %.not35, label %240, label %233
+231:                                              ; preds = %224, %227, %221
+  %.2 = phi i32 [ -1, %227 ], [ %.1, %224 ], [ %.1, %221 ]
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %233 = load ptr, ptr %232, align 8, !tbaa !26
+  %.not35 = icmp eq ptr %233, null
+  br i1 %.not35, label %241, label %234
 
-233:                                              ; preds = %230
-  %234 = call i32 @H5FD_close(ptr noundef nonnull %232) #18
-  %235 = icmp slt i32 %234, 0
-  br i1 %235, label %236, label %240
+234:                                              ; preds = %231
+  %235 = call i32 @H5FD_close(ptr noundef nonnull %233) #18
+  %236 = icmp slt i32 %235, 0
+  br i1 %236, label %237, label %241
 
-236:                                              ; preds = %233
-  %237 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %238 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
-  %239 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 582, i64 noundef %237, i64 noundef %238, ptr noundef nonnull @.str.104) #18
-  br label %240
+237:                                              ; preds = %234
+  %238 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %239 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
+  %240 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 582, i64 noundef %238, i64 noundef %239, ptr noundef nonnull @.str.104) #18
+  br label %241
 
-240:                                              ; preds = %233, %236, %230
-  %.3 = phi i32 [ -1, %236 ], [ %.2, %233 ], [ %.2, %230 ]
-  %241 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %242 = load ptr, ptr %241, align 8, !tbaa !75
-  %.not36 = icmp eq ptr %242, null
-  br i1 %.not36, label %254, label %243
+241:                                              ; preds = %234, %237, %231
+  %.3 = phi i32 [ -1, %237 ], [ %.2, %234 ], [ %.2, %231 ]
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %243 = load ptr, ptr %242, align 8, !tbaa !75
+  %.not36 = icmp eq ptr %243, null
+  br i1 %.not36, label %255, label %244
 
-243:                                              ; preds = %240
-  %244 = call i32 @H5FD_close(ptr noundef nonnull %242) #18
-  %245 = icmp slt i32 %244, 0
-  br i1 %245, label %246, label %250
+244:                                              ; preds = %241
+  %245 = call i32 @H5FD_close(ptr noundef nonnull %243) #18
+  %246 = icmp slt i32 %245, 0
+  br i1 %246, label %247, label %251
 
-246:                                              ; preds = %243
-  %247 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %248 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
-  %249 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 585, i64 noundef %247, i64 noundef %248, ptr noundef nonnull @.str.105) #18
-  br label %250
+247:                                              ; preds = %244
+  %248 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %249 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
+  %250 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 585, i64 noundef %248, i64 noundef %249, ptr noundef nonnull @.str.105) #18
+  br label %251
 
-250:                                              ; preds = %246, %243
-  %.5 = phi i32 [ -1, %246 ], [ %.3, %243 ]
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %252 = load ptr, ptr %251, align 8, !tbaa !43
-  %253 = call i32 @remove(ptr noundef %252) #18
-  br label %254
+251:                                              ; preds = %247, %244
+  %.5 = phi i32 [ -1, %247 ], [ %.3, %244 ]
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %253 = load ptr, ptr %252, align 8, !tbaa !43
+  %254 = call i32 @remove(ptr noundef %253) #18
+  br label %255
 
-254:                                              ; preds = %250, %240
-  %.4 = phi i32 [ %.5, %250 ], [ %.3, %240 ]
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %256 = load ptr, ptr %255, align 8, !tbaa !76
-  %.not37 = icmp eq ptr %256, null
-  br i1 %.not37, label %264, label %257
+255:                                              ; preds = %251, %241
+  %.4 = phi i32 [ %.5, %251 ], [ %.3, %241 ]
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %257 = load ptr, ptr %256, align 8, !tbaa !76
+  %.not37 = icmp eq ptr %257, null
+  br i1 %.not37, label %265, label %258
 
-257:                                              ; preds = %254
-  %258 = call i32 @H5FD__onion_revision_index_destroy(ptr noundef nonnull %256) #18
-  %259 = icmp slt i32 %258, 0
-  br i1 %259, label %260, label %264
+258:                                              ; preds = %255
+  %259 = call i32 @H5FD__onion_revision_index_destroy(ptr noundef nonnull %257) #18
+  %260 = icmp slt i32 %259, 0
+  br i1 %260, label %261, label %265
 
-260:                                              ; preds = %257
-  %261 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %262 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
-  %263 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 593, i64 noundef %261, i64 noundef %262, ptr noundef nonnull @.str.106) #18
-  br label %264
+261:                                              ; preds = %258
+  %262 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %263 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
+  %264 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_close, i32 noundef 593, i64 noundef %262, i64 noundef %263, ptr noundef nonnull @.str.106) #18
+  br label %265
 
-264:                                              ; preds = %257, %260, %254
-  %.6 = phi i32 [ -1, %260 ], [ %.4, %257 ], [ %.4, %254 ]
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %266 = load ptr, ptr %265, align 8, !tbaa !43
-  %267 = call ptr @H5MM_xfree(ptr noundef %266) #18
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %269 = load ptr, ptr %268, align 8, !tbaa !77
-  %270 = call ptr @H5MM_xfree(ptr noundef %269) #18
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %272 = load ptr, ptr %271, align 8, !tbaa !70
-  %273 = call ptr @H5MM_xfree(ptr noundef %272) #18
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %275 = load ptr, ptr %274, align 8, !tbaa !92
-  %276 = call ptr @H5MM_xfree(ptr noundef %275) #18
-  %277 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FD_onion_t_reg_free_list, ptr noundef nonnull %0) #18
-  br label %278
+265:                                              ; preds = %258, %261, %255
+  %.6 = phi i32 [ -1, %261 ], [ %.4, %258 ], [ %.4, %255 ]
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %267 = load ptr, ptr %266, align 8, !tbaa !43
+  %268 = call ptr @H5MM_xfree(ptr noundef %267) #18
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %270 = load ptr, ptr %269, align 8, !tbaa !77
+  %271 = call ptr @H5MM_xfree(ptr noundef %270) #18
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %273 = load ptr, ptr %272, align 8, !tbaa !70
+  %274 = call ptr @H5MM_xfree(ptr noundef %273) #18
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %276 = load ptr, ptr %275, align 8, !tbaa !92
+  %277 = call ptr @H5MM_xfree(ptr noundef %276) #18
+  %278 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FD_onion_t_reg_free_list, ptr noundef nonnull %0) #18
+  br label %279
 
-278:                                              ; preds = %264, %1
-  %.0 = phi i32 [ %.6, %264 ], [ 0, %1 ]
+279:                                              ; preds = %265, %1
+  %.0 = phi i32 [ %.6, %265 ], [ 0, %1 ]
   ret i32 %.0
 }
 

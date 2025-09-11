@@ -7470,7 +7470,8 @@ if.then.i.i1159:                                  ; preds = %invoke.cont540
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1163: ; preds = %if.then.i.i1159, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1160
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp535)
   %322 = load ptr, ptr %data383, align 8, !tbaa !52
-  %param1.i1164 = getelementptr inbounds nuw %struct.MapNode, ptr %322, i64 %indvars.iv1427, i32 1
+  %param1.i1164.split = getelementptr inbounds nuw %struct.MapNode, ptr %322, i64 %indvars.iv1427
+  %param1.i1164 = getelementptr inbounds nuw i8, ptr %param1.i1164.split, i64 2
   store i8 0, ptr %param1.i1164, align 2, !tbaa !221
   br label %if.end595
 
@@ -7621,7 +7622,8 @@ if.then.i.i1217:                                  ; preds = %invoke.cont585
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1221: ; preds = %if.then.i.i1217, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1218
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp580)
   %342 = load ptr, ptr %data383, align 8, !tbaa !52
-  %param1.i1222 = getelementptr inbounds nuw %struct.MapNode, ptr %342, i64 %indvars.iv1427, i32 1
+  %param1.i1222.split = getelementptr inbounds nuw %struct.MapNode, ptr %342, i64 %indvars.iv1427
+  %param1.i1222 = getelementptr inbounds nuw i8, ptr %param1.i1222.split, i64 2
   store i8 0, ptr %param1.i1222, align 2, !tbaa !221
   br label %if.end595
 
@@ -7716,7 +7718,8 @@ if.end608:                                        ; preds = %if.then597, %if.end
 
 if.then610:                                       ; preds = %if.end608
   %356 = load ptr, ptr %data383, align 8, !tbaa !52
-  %param2.i1243 = getelementptr inbounds nuw %struct.MapNode, ptr %356, i64 %indvars.iv1427, i32 2
+  %param2.i1243.split = getelementptr inbounds nuw %struct.MapNode, ptr %356, i64 %indvars.iv1427
+  %param2.i1243 = getelementptr inbounds nuw i8, ptr %param2.i1243.split, i64 3
   %357 = load i8, ptr %param2.i1243, align 1, !tbaa !249
   %and624786 = and i8 %357, 4
   %cmp625.not = icmp eq i8 %and624786, 0

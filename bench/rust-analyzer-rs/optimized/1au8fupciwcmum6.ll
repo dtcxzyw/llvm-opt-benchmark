@@ -5098,31 +5098,32 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
   %3 = icmp ult i64 %1, 30
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %14, %2
+._crit_edge:                                      ; preds = %15, %2
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 6456, i64 noundef 8) #33
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %2, %14
-  %.sroa.01.09 = phi i64 [ %5, %14 ], [ %1, %2 ]
+.lr.ph:                                           ; preds = %2, %15
+  %.sroa.01.09 = phi i64 [ %5, %15 ], [ %1, %2 ]
   %5 = add nuw nsw i64 %.sroa.01.09, 1
-  %6 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.09, i32 1
-  %7 = load atomic i64, ptr %6 acquire, align 8
-  %8 = and i64 %7, 2
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %14
+  %6 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.09
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %8 = load atomic i64, ptr %7 acquire, align 8
+  %9 = and i64 %8, 2
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %15
 
-.loopexit:                                        ; preds = %10, %._crit_edge
+.loopexit:                                        ; preds = %11, %._crit_edge
   ret void
 
-10:                                               ; preds = %.lr.ph
-  %11 = atomicrmw or ptr %6, i64 4 acq_rel, align 8
-  %12 = and i64 %11, 2
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.loopexit, label %14
+11:                                               ; preds = %.lr.ph
+  %12 = atomicrmw or ptr %7, i64 4 acq_rel, align 8
+  %13 = and i64 %12, 2
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %.loopexit, label %15
 
-14:                                               ; preds = %10, %.lr.ph
+15:                                               ; preds = %11, %.lr.ph
   %exitcond.not = icmp eq i64 %5, 30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
@@ -5132,31 +5133,32 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
   %3 = icmp ult i64 %1, 30
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %14, %2
+._crit_edge:                                      ; preds = %15, %2
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 6456, i64 noundef 8) #33
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %2, %14
-  %.sroa.01.09 = phi i64 [ %5, %14 ], [ %1, %2 ]
+.lr.ph:                                           ; preds = %2, %15
+  %.sroa.01.09 = phi i64 [ %5, %15 ], [ %1, %2 ]
   %5 = add nuw nsw i64 %.sroa.01.09, 1
-  %6 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.09, i32 1
-  %7 = load atomic i64, ptr %6 acquire, align 8
-  %8 = and i64 %7, 2
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %14
+  %6 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.09
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %8 = load atomic i64, ptr %7 acquire, align 8
+  %9 = and i64 %8, 2
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %15
 
-.loopexit:                                        ; preds = %10, %._crit_edge
+.loopexit:                                        ; preds = %11, %._crit_edge
   ret void
 
-10:                                               ; preds = %.lr.ph
-  %11 = atomicrmw or ptr %6, i64 4 acq_rel, align 8
-  %12 = and i64 %11, 2
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.loopexit, label %14
+11:                                               ; preds = %.lr.ph
+  %12 = atomicrmw or ptr %7, i64 4 acq_rel, align 8
+  %13 = and i64 %12, 2
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %.loopexit, label %15
 
-14:                                               ; preds = %10, %.lr.ph
+15:                                               ; preds = %11, %.lr.ph
   %exitcond.not = icmp eq i64 %5, 30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
@@ -5166,31 +5168,32 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
   %3 = icmp ult i64 %1, 30
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %14, %2
+._crit_edge:                                      ; preds = %15, %2
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 1992, i64 noundef 8) #33
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %2, %14
-  %.sroa.01.09 = phi i64 [ %5, %14 ], [ %1, %2 ]
+.lr.ph:                                           ; preds = %2, %15
+  %.sroa.01.09 = phi i64 [ %5, %15 ], [ %1, %2 ]
   %5 = add nuw nsw i64 %.sroa.01.09, 1
-  %6 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.09, i32 1
-  %7 = load atomic i64, ptr %6 acquire, align 8
-  %8 = and i64 %7, 2
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %14
+  %6 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.09
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %8 = load atomic i64, ptr %7 acquire, align 8
+  %9 = and i64 %8, 2
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %15
 
-.loopexit:                                        ; preds = %10, %._crit_edge
+.loopexit:                                        ; preds = %11, %._crit_edge
   ret void
 
-10:                                               ; preds = %.lr.ph
-  %11 = atomicrmw or ptr %6, i64 4 acq_rel, align 8
-  %12 = and i64 %11, 2
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.loopexit, label %14
+11:                                               ; preds = %.lr.ph
+  %12 = atomicrmw or ptr %7, i64 4 acq_rel, align 8
+  %13 = and i64 %12, 2
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %.loopexit, label %15
 
-14:                                               ; preds = %10, %.lr.ph
+15:                                               ; preds = %11, %.lr.ph
   %exitcond.not = icmp eq i64 %5, 30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
@@ -5200,31 +5203,32 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
   %3 = icmp ult i64 %1, 30
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %14, %2
+._crit_edge:                                      ; preds = %15, %2
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 2984, i64 noundef 8) #33
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %2, %14
-  %.sroa.01.09 = phi i64 [ %5, %14 ], [ %1, %2 ]
+.lr.ph:                                           ; preds = %2, %15
+  %.sroa.01.09 = phi i64 [ %5, %15 ], [ %1, %2 ]
   %5 = add nuw nsw i64 %.sroa.01.09, 1
-  %6 = getelementptr inbounds nuw { { { [11 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.09, i32 1
-  %7 = load atomic i64, ptr %6 acquire, align 8
-  %8 = and i64 %7, 2
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %14
+  %6 = getelementptr inbounds nuw { { { [11 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.09
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %8 = load atomic i64, ptr %7 acquire, align 8
+  %9 = and i64 %8, 2
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %15
 
-.loopexit:                                        ; preds = %10, %._crit_edge
+.loopexit:                                        ; preds = %11, %._crit_edge
   ret void
 
-10:                                               ; preds = %.lr.ph
-  %11 = atomicrmw or ptr %6, i64 4 acq_rel, align 8
-  %12 = and i64 %11, 2
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.loopexit, label %14
+11:                                               ; preds = %.lr.ph
+  %12 = atomicrmw or ptr %7, i64 4 acq_rel, align 8
+  %13 = and i64 %12, 2
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %.loopexit, label %15
 
-14:                                               ; preds = %10, %.lr.ph
+15:                                               ; preds = %11, %.lr.ph
   %exitcond.not = icmp eq i64 %5, 30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
@@ -5234,31 +5238,32 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
   %3 = icmp ult i64 %1, 30
   br i1 %3, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %14, %2
+._crit_edge:                                      ; preds = %15, %2
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 5960, i64 noundef 8) #33
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %2, %14
-  %.sroa.01.09 = phi i64 [ %5, %14 ], [ %1, %2 ]
+.lr.ph:                                           ; preds = %2, %15
+  %.sroa.01.09 = phi i64 [ %5, %15 ], [ %1, %2 ]
   %5 = add nuw nsw i64 %.sroa.01.09, 1
-  %6 = getelementptr inbounds nuw { { { [23 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.09, i32 1
-  %7 = load atomic i64, ptr %6 acquire, align 8
-  %8 = and i64 %7, 2
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %14
+  %6 = getelementptr inbounds nuw { { { [23 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.09
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 184
+  %8 = load atomic i64, ptr %7 acquire, align 8
+  %9 = and i64 %8, 2
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %11, label %15
 
-.loopexit:                                        ; preds = %10, %._crit_edge
+.loopexit:                                        ; preds = %11, %._crit_edge
   ret void
 
-10:                                               ; preds = %.lr.ph
-  %11 = atomicrmw or ptr %6, i64 4 acq_rel, align 8
-  %12 = and i64 %11, 2
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.loopexit, label %14
+11:                                               ; preds = %.lr.ph
+  %12 = atomicrmw or ptr %7, i64 4 acq_rel, align 8
+  %13 = and i64 %12, 2
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %.loopexit, label %15
 
-14:                                               ; preds = %10, %.lr.ph
+15:                                               ; preds = %11, %.lr.ph
   %exitcond.not = icmp eq i64 %5, 30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
@@ -8537,55 +8542,57 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.34665907223
   %30 = atomicrmw or ptr %14, i64 2 acq_rel, align 8
   %31 = and i64 %30, 4
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit", label %43
+  br i1 %32, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit", label %44
 
-.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17he33ffac52478c8eaE.llvm.3466590722360702098.exit", %42
-  %.sroa.01.09.i = phi i64 [ %33, %42 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17he33ffac52478c8eaE.llvm.3466590722360702098.exit" ]
+.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17he33ffac52478c8eaE.llvm.3466590722360702098.exit", %43
+  %.sroa.01.09.i = phi i64 [ %33, %43 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17he33ffac52478c8eaE.llvm.3466590722360702098.exit" ]
   %33 = add nuw nsw i64 %.sroa.01.09.i, 1
-  %34 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i, i32 1
-  %35 = load atomic i64, ptr %34 acquire, align 8
-  %36 = and i64 %35, 2
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %42
+  %34 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 200
+  %36 = load atomic i64, ptr %35 acquire, align 8
+  %37 = and i64 %36, 2
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %39, label %43
 
-38:                                               ; preds = %.lr.ph.i4
-  %39 = atomicrmw or ptr %34, i64 4 acq_rel, align 8
-  %40 = and i64 %39, 2
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit", label %42
+39:                                               ; preds = %.lr.ph.i4
+  %40 = atomicrmw or ptr %35, i64 4 acq_rel, align 8
+  %41 = and i64 %40, 2
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit", label %43
 
-42:                                               ; preds = %38, %.lr.ph.i4
+43:                                               ; preds = %39, %.lr.ph.i4
   %exitcond.not.i = icmp eq i64 %33, 30
   br i1 %exitcond.not.i, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit.sink.split", label %.lr.ph.i4
 
-43:                                               ; preds = %29
-  %44 = icmp samesign ult i64 %11, 29
-  br i1 %44, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit.sink.split"
+44:                                               ; preds = %29
+  %45 = icmp samesign ult i64 %11, 29
+  br i1 %45, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit.sink.split"
 
-.lr.ph.i6:                                        ; preds = %43, %54
-  %.sroa.01.09.i7 = phi i64 [ %45, %54 ], [ %26, %43 ]
-  %45 = add nuw nsw i64 %.sroa.01.09.i7, 1
-  %46 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i7, i32 1
-  %47 = load atomic i64, ptr %46 acquire, align 8
-  %48 = and i64 %47, 2
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %54
+.lr.ph.i6:                                        ; preds = %44, %56
+  %.sroa.01.09.i7 = phi i64 [ %46, %56 ], [ %26, %44 ]
+  %46 = add nuw nsw i64 %.sroa.01.09.i7, 1
+  %47 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i7
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 200
+  %49 = load atomic i64, ptr %48 acquire, align 8
+  %50 = and i64 %49, 2
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %52, label %56
 
-50:                                               ; preds = %.lr.ph.i6
-  %51 = atomicrmw or ptr %46, i64 4 acq_rel, align 8
-  %52 = and i64 %51, 2
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit", label %54
+52:                                               ; preds = %.lr.ph.i6
+  %53 = atomicrmw or ptr %48, i64 4 acq_rel, align 8
+  %54 = and i64 %53, 2
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit", label %56
 
-54:                                               ; preds = %50, %.lr.ph.i6
-  %exitcond.not.i8 = icmp eq i64 %45, 30
+56:                                               ; preds = %52, %.lr.ph.i6
+  %exitcond.not.i8 = icmp eq i64 %46, 30
   br i1 %exitcond.not.i8, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit.sink.split", label %.lr.ph.i6
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit.sink.split": ; preds = %54, %42, %43
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit.sink.split": ; preds = %56, %43, %44
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 6456, i64 noundef 8) #33
   br label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit"
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit": ; preds = %50, %38, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit.sink.split", %29
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit": ; preds = %52, %39, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h423cf52d509f859cE.llvm.3466590722360702098.exit.sink.split", %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %4, i64 200, i1 false)
   br label %28
 }
@@ -8778,55 +8785,57 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.34665907223
   %30 = atomicrmw or ptr %14, i64 2 acq_rel, align 8
   %31 = and i64 %30, 4
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit", label %43
+  br i1 %32, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit", label %44
 
-.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h2b038b7ef3678a89E.llvm.3466590722360702098.exit", %42
-  %.sroa.01.09.i = phi i64 [ %33, %42 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h2b038b7ef3678a89E.llvm.3466590722360702098.exit" ]
+.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h2b038b7ef3678a89E.llvm.3466590722360702098.exit", %43
+  %.sroa.01.09.i = phi i64 [ %33, %43 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h2b038b7ef3678a89E.llvm.3466590722360702098.exit" ]
   %33 = add nuw nsw i64 %.sroa.01.09.i, 1
-  %34 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i, i32 1
-  %35 = load atomic i64, ptr %34 acquire, align 8
-  %36 = and i64 %35, 2
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %42
+  %34 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 200
+  %36 = load atomic i64, ptr %35 acquire, align 8
+  %37 = and i64 %36, 2
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %39, label %43
 
-38:                                               ; preds = %.lr.ph.i4
-  %39 = atomicrmw or ptr %34, i64 4 acq_rel, align 8
-  %40 = and i64 %39, 2
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit", label %42
+39:                                               ; preds = %.lr.ph.i4
+  %40 = atomicrmw or ptr %35, i64 4 acq_rel, align 8
+  %41 = and i64 %40, 2
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit", label %43
 
-42:                                               ; preds = %38, %.lr.ph.i4
+43:                                               ; preds = %39, %.lr.ph.i4
   %exitcond.not.i = icmp eq i64 %33, 30
   br i1 %exitcond.not.i, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit.sink.split", label %.lr.ph.i4
 
-43:                                               ; preds = %29
-  %44 = icmp samesign ult i64 %11, 29
-  br i1 %44, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit.sink.split"
+44:                                               ; preds = %29
+  %45 = icmp samesign ult i64 %11, 29
+  br i1 %45, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit.sink.split"
 
-.lr.ph.i6:                                        ; preds = %43, %54
-  %.sroa.01.09.i7 = phi i64 [ %45, %54 ], [ %26, %43 ]
-  %45 = add nuw nsw i64 %.sroa.01.09.i7, 1
-  %46 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i7, i32 1
-  %47 = load atomic i64, ptr %46 acquire, align 8
-  %48 = and i64 %47, 2
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %54
+.lr.ph.i6:                                        ; preds = %44, %56
+  %.sroa.01.09.i7 = phi i64 [ %46, %56 ], [ %26, %44 ]
+  %46 = add nuw nsw i64 %.sroa.01.09.i7, 1
+  %47 = getelementptr inbounds nuw { { { [25 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i7
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 200
+  %49 = load atomic i64, ptr %48 acquire, align 8
+  %50 = and i64 %49, 2
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %52, label %56
 
-50:                                               ; preds = %.lr.ph.i6
-  %51 = atomicrmw or ptr %46, i64 4 acq_rel, align 8
-  %52 = and i64 %51, 2
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit", label %54
+52:                                               ; preds = %.lr.ph.i6
+  %53 = atomicrmw or ptr %48, i64 4 acq_rel, align 8
+  %54 = and i64 %53, 2
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit", label %56
 
-54:                                               ; preds = %50, %.lr.ph.i6
-  %exitcond.not.i8 = icmp eq i64 %45, 30
+56:                                               ; preds = %52, %.lr.ph.i6
+  %exitcond.not.i8 = icmp eq i64 %46, 30
   br i1 %exitcond.not.i8, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit.sink.split", label %.lr.ph.i6
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit.sink.split": ; preds = %54, %42, %43
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit.sink.split": ; preds = %56, %43, %44
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 6456, i64 noundef 8) #33
   br label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit"
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit": ; preds = %50, %38, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit.sink.split", %29
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit": ; preds = %52, %39, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h49d981c177697c4bE.llvm.3466590722360702098.exit.sink.split", %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %4, i64 200, i1 false)
   br label %28
 }
@@ -8898,55 +8907,57 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.34665907223
   %31 = atomicrmw or ptr %15, i64 2 acq_rel, align 8
   %32 = and i64 %31, 4
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit", label %44
+  br i1 %33, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit", label %45
 
-.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h60bc18696685e296E.llvm.3466590722360702098.exit", %43
-  %.sroa.01.09.i = phi i64 [ %34, %43 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h60bc18696685e296E.llvm.3466590722360702098.exit" ]
+.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h60bc18696685e296E.llvm.3466590722360702098.exit", %44
+  %.sroa.01.09.i = phi i64 [ %34, %44 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h60bc18696685e296E.llvm.3466590722360702098.exit" ]
   %34 = add nuw nsw i64 %.sroa.01.09.i, 1
-  %35 = getelementptr inbounds nuw { { { [23 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i, i32 1
-  %36 = load atomic i64, ptr %35 acquire, align 8
-  %37 = and i64 %36, 2
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %43
+  %35 = getelementptr inbounds nuw { { { [23 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 184
+  %37 = load atomic i64, ptr %36 acquire, align 8
+  %38 = and i64 %37, 2
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %40, label %44
 
-39:                                               ; preds = %.lr.ph.i4
-  %40 = atomicrmw or ptr %35, i64 4 acq_rel, align 8
-  %41 = and i64 %40, 2
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit", label %43
+40:                                               ; preds = %.lr.ph.i4
+  %41 = atomicrmw or ptr %36, i64 4 acq_rel, align 8
+  %42 = and i64 %41, 2
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit", label %44
 
-43:                                               ; preds = %39, %.lr.ph.i4
+44:                                               ; preds = %40, %.lr.ph.i4
   %exitcond.not.i = icmp eq i64 %34, 30
   br i1 %exitcond.not.i, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit.sink.split", label %.lr.ph.i4
 
-44:                                               ; preds = %30
-  %45 = icmp samesign ult i64 %12, 29
-  br i1 %45, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit.sink.split"
+45:                                               ; preds = %30
+  %46 = icmp samesign ult i64 %12, 29
+  br i1 %46, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit.sink.split"
 
-.lr.ph.i6:                                        ; preds = %44, %55
-  %.sroa.01.09.i7 = phi i64 [ %46, %55 ], [ %27, %44 ]
-  %46 = add nuw nsw i64 %.sroa.01.09.i7, 1
-  %47 = getelementptr inbounds nuw { { { [23 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i7, i32 1
-  %48 = load atomic i64, ptr %47 acquire, align 8
-  %49 = and i64 %48, 2
-  %50 = icmp eq i64 %49, 0
-  br i1 %50, label %51, label %55
+.lr.ph.i6:                                        ; preds = %45, %57
+  %.sroa.01.09.i7 = phi i64 [ %47, %57 ], [ %27, %45 ]
+  %47 = add nuw nsw i64 %.sroa.01.09.i7, 1
+  %48 = getelementptr inbounds nuw { { { [23 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i7
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
+  %50 = load atomic i64, ptr %49 acquire, align 8
+  %51 = and i64 %50, 2
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %53, label %57
 
-51:                                               ; preds = %.lr.ph.i6
-  %52 = atomicrmw or ptr %47, i64 4 acq_rel, align 8
-  %53 = and i64 %52, 2
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit", label %55
+53:                                               ; preds = %.lr.ph.i6
+  %54 = atomicrmw or ptr %49, i64 4 acq_rel, align 8
+  %55 = and i64 %54, 2
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit", label %57
 
-55:                                               ; preds = %51, %.lr.ph.i6
-  %exitcond.not.i8 = icmp eq i64 %46, 30
+57:                                               ; preds = %53, %.lr.ph.i6
+  %exitcond.not.i8 = icmp eq i64 %47, 30
   br i1 %exitcond.not.i8, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit.sink.split", label %.lr.ph.i6
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit.sink.split": ; preds = %55, %43, %44
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit.sink.split": ; preds = %57, %44, %45
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 5960, i64 noundef 8) #33
   br label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit"
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit": ; preds = %51, %39, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit.sink.split", %30
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit": ; preds = %53, %40, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17had56755774d9e06cE.llvm.3466590722360702098.exit.sink.split", %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(184) %4, i64 184, i1 false)
   br label %29
 }
@@ -9017,55 +9028,57 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.34665907223
   %30 = atomicrmw or ptr %14, i64 2 acq_rel, align 8
   %31 = and i64 %30, 4
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit", label %43
+  br i1 %32, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit", label %44
 
-.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17hd14ec94b8938605dE.llvm.3466590722360702098.exit", %42
-  %.sroa.01.09.i = phi i64 [ %33, %42 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17hd14ec94b8938605dE.llvm.3466590722360702098.exit" ]
+.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17hd14ec94b8938605dE.llvm.3466590722360702098.exit", %43
+  %.sroa.01.09.i = phi i64 [ %33, %43 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17hd14ec94b8938605dE.llvm.3466590722360702098.exit" ]
   %33 = add nuw nsw i64 %.sroa.01.09.i, 1
-  %34 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i, i32 1
-  %35 = load atomic i64, ptr %34 acquire, align 8
-  %36 = and i64 %35, 2
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %42
+  %34 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
+  %36 = load atomic i64, ptr %35 acquire, align 8
+  %37 = and i64 %36, 2
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %39, label %43
 
-38:                                               ; preds = %.lr.ph.i4
-  %39 = atomicrmw or ptr %34, i64 4 acq_rel, align 8
-  %40 = and i64 %39, 2
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit", label %42
+39:                                               ; preds = %.lr.ph.i4
+  %40 = atomicrmw or ptr %35, i64 4 acq_rel, align 8
+  %41 = and i64 %40, 2
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit", label %43
 
-42:                                               ; preds = %38, %.lr.ph.i4
+43:                                               ; preds = %39, %.lr.ph.i4
   %exitcond.not.i = icmp eq i64 %33, 30
   br i1 %exitcond.not.i, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit.sink.split", label %.lr.ph.i4
 
-43:                                               ; preds = %29
-  %44 = icmp samesign ult i64 %11, 29
-  br i1 %44, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit.sink.split"
+44:                                               ; preds = %29
+  %45 = icmp samesign ult i64 %11, 29
+  br i1 %45, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit.sink.split"
 
-.lr.ph.i6:                                        ; preds = %43, %54
-  %.sroa.01.09.i7 = phi i64 [ %45, %54 ], [ %26, %43 ]
-  %45 = add nuw nsw i64 %.sroa.01.09.i7, 1
-  %46 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i7, i32 1
-  %47 = load atomic i64, ptr %46 acquire, align 8
-  %48 = and i64 %47, 2
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %54
+.lr.ph.i6:                                        ; preds = %44, %56
+  %.sroa.01.09.i7 = phi i64 [ %46, %56 ], [ %26, %44 ]
+  %46 = add nuw nsw i64 %.sroa.01.09.i7, 1
+  %47 = getelementptr inbounds nuw { { { [7 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i7
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %49 = load atomic i64, ptr %48 acquire, align 8
+  %50 = and i64 %49, 2
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %52, label %56
 
-50:                                               ; preds = %.lr.ph.i6
-  %51 = atomicrmw or ptr %46, i64 4 acq_rel, align 8
-  %52 = and i64 %51, 2
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit", label %54
+52:                                               ; preds = %.lr.ph.i6
+  %53 = atomicrmw or ptr %48, i64 4 acq_rel, align 8
+  %54 = and i64 %53, 2
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit", label %56
 
-54:                                               ; preds = %50, %.lr.ph.i6
-  %exitcond.not.i8 = icmp eq i64 %45, 30
+56:                                               ; preds = %52, %.lr.ph.i6
+  %exitcond.not.i8 = icmp eq i64 %46, 30
   br i1 %exitcond.not.i8, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit.sink.split", label %.lr.ph.i6
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit.sink.split": ; preds = %54, %42, %43
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit.sink.split": ; preds = %56, %43, %44
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 1992, i64 noundef 8) #33
   br label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit"
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit": ; preds = %50, %38, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit.sink.split", %29
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit": ; preds = %52, %39, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17h4b069784a996a476E.llvm.3466590722360702098.exit.sink.split", %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   br label %28
 }
@@ -9136,55 +9149,57 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.34665907223
   %30 = atomicrmw or ptr %14, i64 2 acq_rel, align 8
   %31 = and i64 %30, 4
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit", label %43
+  br i1 %32, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit", label %44
 
-.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17hc90d9191958e66f6E.llvm.3466590722360702098.exit", %42
-  %.sroa.01.09.i = phi i64 [ %33, %42 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17hc90d9191958e66f6E.llvm.3466590722360702098.exit" ]
+.lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17hc90d9191958e66f6E.llvm.3466590722360702098.exit", %43
+  %.sroa.01.09.i = phi i64 [ %33, %43 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17hc90d9191958e66f6E.llvm.3466590722360702098.exit" ]
   %33 = add nuw nsw i64 %.sroa.01.09.i, 1
-  %34 = getelementptr inbounds nuw { { { [11 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i, i32 1
-  %35 = load atomic i64, ptr %34 acquire, align 8
-  %36 = and i64 %35, 2
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %42
+  %34 = getelementptr inbounds nuw { { { [11 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 88
+  %36 = load atomic i64, ptr %35 acquire, align 8
+  %37 = and i64 %36, 2
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %39, label %43
 
-38:                                               ; preds = %.lr.ph.i4
-  %39 = atomicrmw or ptr %34, i64 4 acq_rel, align 8
-  %40 = and i64 %39, 2
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit", label %42
+39:                                               ; preds = %.lr.ph.i4
+  %40 = atomicrmw or ptr %35, i64 4 acq_rel, align 8
+  %41 = and i64 %40, 2
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit", label %43
 
-42:                                               ; preds = %38, %.lr.ph.i4
+43:                                               ; preds = %39, %.lr.ph.i4
   %exitcond.not.i = icmp eq i64 %33, 30
   br i1 %exitcond.not.i, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit.sink.split", label %.lr.ph.i4
 
-43:                                               ; preds = %29
-  %44 = icmp samesign ult i64 %11, 29
-  br i1 %44, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit.sink.split"
+44:                                               ; preds = %29
+  %45 = icmp samesign ult i64 %11, 29
+  br i1 %45, label %.lr.ph.i6, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit.sink.split"
 
-.lr.ph.i6:                                        ; preds = %43, %54
-  %.sroa.01.09.i7 = phi i64 [ %45, %54 ], [ %26, %43 ]
-  %45 = add nuw nsw i64 %.sroa.01.09.i7, 1
-  %46 = getelementptr inbounds nuw { { { [11 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i7, i32 1
-  %47 = load atomic i64, ptr %46 acquire, align 8
-  %48 = and i64 %47, 2
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %54
+.lr.ph.i6:                                        ; preds = %44, %56
+  %.sroa.01.09.i7 = phi i64 [ %46, %56 ], [ %26, %44 ]
+  %46 = add nuw nsw i64 %.sroa.01.09.i7, 1
+  %47 = getelementptr inbounds nuw { { { [11 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.09.i7
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
+  %49 = load atomic i64, ptr %48 acquire, align 8
+  %50 = and i64 %49, 2
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %52, label %56
 
-50:                                               ; preds = %.lr.ph.i6
-  %51 = atomicrmw or ptr %46, i64 4 acq_rel, align 8
-  %52 = and i64 %51, 2
-  %53 = icmp eq i64 %52, 0
-  br i1 %53, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit", label %54
+52:                                               ; preds = %.lr.ph.i6
+  %53 = atomicrmw or ptr %48, i64 4 acq_rel, align 8
+  %54 = and i64 %53, 2
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit", label %56
 
-54:                                               ; preds = %50, %.lr.ph.i6
-  %exitcond.not.i8 = icmp eq i64 %45, 30
+56:                                               ; preds = %52, %.lr.ph.i6
+  %exitcond.not.i8 = icmp eq i64 %46, 30
   br i1 %exitcond.not.i8, label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit.sink.split", label %.lr.ph.i6
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit.sink.split": ; preds = %54, %42, %43
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit.sink.split": ; preds = %56, %43, %44
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 2984, i64 noundef 8) #33
   br label %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit"
 
-"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit": ; preds = %50, %38, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit.sink.split", %29
+"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit": ; preds = %52, %39, %"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy17ha8e950be86fd98daE.llvm.3466590722360702098.exit.sink.split", %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
   br label %28
 }
@@ -64909,7 +64924,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 8
   %88 = load i64, ptr %87, align 8, !alias.scope !8492
   %89 = icmp ne i64 %83, 0
-  %90 = icmp eq i64 %.sroa.3.0.i, %88
+  %90 = icmp eq i64 %75, %88
   %or.cond = select i1 %89, i1 %90, i1 false
   br i1 %or.cond, label %93, label %91
 

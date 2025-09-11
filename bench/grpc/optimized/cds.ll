@@ -6016,74 +6016,75 @@ _ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionE
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5, %.lr.ph29
-  %.1.i.lcssa = phi i64 [ %.026.i25, %.lr.ph29 ], [ %58, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ]
+  %.1.i.lcssa = phi i64 [ %.026.i25, %.lr.ph29 ], [ %59, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ]
   %31 = getelementptr inbounds nuw i8, ptr %.025.i26, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 384
   %.not.i = icmp eq i64 %.1.i.lcssa, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core17WeakRefCountedPtrINS8_20XdsDependencyManager19ClusterSubscriptionEEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS7_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit, label %.lr.ph29, !llvm.loop !230
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5
-  %.1.i23 = phi i64 [ %58, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ], [ %.026.i25, %.lr.ph.preheader ]
-  %.sroa.06.022 = phi i16 [ %60, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ], [ %30, %.lr.ph.preheader ]
+  %.1.i23 = phi i64 [ %59, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ], [ %.026.i25, %.lr.ph.preheader ]
+  %.sroa.06.022 = phi i16 [ %61, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5 ], [ %30, %.lr.ph.preheader ]
   %33 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.022, i1 true)
   %34 = zext nneg i16 %33 to i64
-  %35 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.218", ptr %.0.i27, i64 %34, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8, !tbaa !228
-  %.not.i3 = icmp eq ptr %36, null
-  br i1 %.not.i3, label %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5, label %37
+  %35 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.218", ptr %.0.i27, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8, !tbaa !228
+  %.not.i3 = icmp eq ptr %37, null
+  br i1 %.not.i3, label %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5, label %38
 
-37:                                               ; preds = %.lr.ph
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = atomicrmw sub ptr %38, i64 1 acq_rel, align 8
-  %40 = icmp eq i64 %39, 1
-  br i1 %40, label %41, label %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5, !prof !40
+38:                                               ; preds = %.lr.ph
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %40 = atomicrmw sub ptr %39, i64 1 acq_rel, align 8
+  %41 = icmp eq i64 %40, 1
+  br i1 %41, label %42, label %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5, !prof !40
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !213
-  %.not.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i, label %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i, label %44
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  %44 = load ptr, ptr %43, align 8, !tbaa !213
+  %.not.i.i = icmp eq ptr %44, null
+  br i1 %.not.i.i, label %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i, label %45
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %46 = atomicrmw sub ptr %45, i64 1 acq_rel, align 8
-  %47 = icmp eq i64 %46, 1
-  br i1 %47, label %48, label %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i, !prof !40
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %47 = atomicrmw sub ptr %46, i64 1 acq_rel, align 8
+  %48 = icmp eq i64 %47, 1
+  br i1 %48, label %49, label %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i, !prof !40
 
-48:                                               ; preds = %44
-  tail call void @_ZN9grpc_core20XdsDependencyManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %43) #39
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef 448) #41
+49:                                               ; preds = %45
+  tail call void @_ZN9grpc_core20XdsDependencyManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %44) #39
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef 448) #41
   br label %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i
 
-_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i: ; preds = %44, %48, %41
-  %49 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !43
-  %51 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %52 = icmp eq ptr %50, %51
-  br i1 %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i: ; preds = %45, %49, %42
+  %50 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !43
+  %52 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %53 = icmp eq ptr %51, %52
+  br i1 %53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i
-  %53 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %54 = load i64, ptr %53, align 8, !tbaa !36
-  %55 = icmp ult i64 %54, 16
-  tail call void @llvm.assume(i1 %55)
+  %54 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %55 = load i64, ptr %54, align 8, !tbaa !36
+  %56 = icmp ult i64 %55, 16
+  tail call void @llvm.assume(i1 %56)
   br label %_ZN9grpc_core20XdsDependencyManager19ClusterSubscriptionD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN9grpc_core13RefCountedPtrINS_20XdsDependencyManagerEED2Ev.exit.i
-  %56 = load i64, ptr %51, align 8, !tbaa !24
-  %57 = add i64 %56, 1
-  tail call void @_ZdlPvm(ptr noundef %50, i64 noundef %57) #41
+  %57 = load i64, ptr %52, align 8, !tbaa !24
+  %58 = add i64 %57, 1
+  tail call void @_ZdlPvm(ptr noundef %51, i64 noundef %58) #41
   br label %_ZN9grpc_core20XdsDependencyManager19ClusterSubscriptionD2Ev.exit
 
 _ZN9grpc_core20XdsDependencyManager19ClusterSubscriptionD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 noundef 56) #41
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef 56) #41
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5
 
-_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5: ; preds = %37, %_ZN9grpc_core20XdsDependencyManager19ClusterSubscriptionD2Ev.exit, %.lr.ph
-  %58 = add i64 %.1.i23, -1
-  %59 = add i16 %.sroa.06.022, -1
-  %60 = and i16 %59, %.sroa.06.022
-  %.not = icmp eq i16 %60, 0
+_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit5: ; preds = %38, %_ZN9grpc_core20XdsDependencyManager19ClusterSubscriptionD2Ev.exit, %.lr.ph
+  %59 = add i64 %.1.i23, -1
+  %60 = add i16 %.sroa.06.022, -1
+  %61 = and i16 %60, %.sroa.06.022
+  %.not = icmp eq i16 %61, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 _ZN4absl12lts_2024072218container_internal20IterateOverFullSlotsINS1_13map_slot_typeISt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core17WeakRefCountedPtrINS8_20XdsDependencyManager19ClusterSubscriptionEEEEEZNS1_12raw_hash_setINS1_17FlatHashMapPolicyIS7_SC_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SC_EEE13destroy_slotsEvEUlPKNS1_6ctrl_tEPSD_E_EEvRKNS1_12CommonFieldsEPT_T0_.exit: ; preds = %._crit_edge, %_ZN9grpc_core17WeakRefCountedPtrINS_20XdsDependencyManager19ClusterSubscriptionEED2Ev.exit, %23, %7

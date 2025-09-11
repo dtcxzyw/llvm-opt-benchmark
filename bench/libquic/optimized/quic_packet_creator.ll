@@ -2043,101 +2043,102 @@ define void @_ZN3net17QuicPacketCreator12CopyToBufferENS_12QuicIOVectorEmmPc(ptr
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %10
 
-10:                                               ; preds = %.lr.ph, %13
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %.03468 = phi i64 [ %1, %.lr.ph ], [ %14, %13 ]
-  %11 = getelementptr inbounds nuw %struct.iovec, ptr %9, i64 %indvars.iv, i32 1
-  %12 = load i64, ptr %11, align 8, !tbaa !118
-  %.not = icmp ult i64 %.03468, %12
-  br i1 %.not, label %.critedge.loopexit, label %13
+10:                                               ; preds = %.lr.ph, %14
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
+  %.03468 = phi i64 [ %1, %.lr.ph ], [ %15, %14 ]
+  %11 = getelementptr inbounds nuw %struct.iovec, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load i64, ptr %12, align 8, !tbaa !118
+  %.not = icmp ult i64 %.03468, %13
+  br i1 %.not, label %.critedge.loopexit, label %14
 
-13:                                               ; preds = %10
-  %14 = sub nuw i64 %.03468, %12
+14:                                               ; preds = %10
+  %15 = sub nuw i64 %.03468, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge43, label %10, !llvm.loop !150
 
 .critedge.loopexit:                               ; preds = %10
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %4
-  %.036.lcssa = phi i32 [ 0, %4 ], [ %15, %.critedge.loopexit ]
+  %.036.lcssa = phi i32 [ 0, %4 ], [ %16, %.critedge.loopexit ]
   %.034.lcssa = phi i64 [ %1, %4 ], [ %.03468, %.critedge.loopexit ]
-  %16 = icmp sge i32 %.036.lcssa, %7
-  %17 = icmp eq i64 %2, 0
-  %or.cond = or i1 %17, %16
-  br i1 %or.cond, label %.critedge43, label %18
+  %17 = icmp sge i32 %.036.lcssa, %7
+  %18 = icmp eq i64 %2, 0
+  %or.cond = or i1 %18, %17
+  br i1 %or.cond, label %.critedge43, label %19
 
-18:                                               ; preds = %.critedge
-  %19 = load ptr, ptr %0, align 8, !tbaa !115
-  %20 = zext i32 %.036.lcssa to i64
-  %21 = getelementptr inbounds nuw %struct.iovec, ptr %19, i64 %20, i32 1
-  %22 = load i64, ptr %21, align 8, !tbaa !118
-  %23 = sub i64 %22, %.034.lcssa
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %23, i64 %2)
-  %24 = getelementptr inbounds nuw %struct.iovec, ptr %19, i64 %20
-  %25 = load ptr, ptr %24, align 8, !tbaa !151
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.034.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %26, i64 %.sroa.speculated, i1 false)
-  %.not77 = icmp ugt i64 %2, %23
+19:                                               ; preds = %.critedge
+  %20 = load ptr, ptr %0, align 8, !tbaa !115
+  %21 = zext i32 %.036.lcssa to i64
+  %22 = getelementptr inbounds nuw %struct.iovec, ptr %20, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load i64, ptr %23, align 8, !tbaa !118
+  %25 = sub i64 %24, %.034.lcssa
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %25, i64 %2)
+  %26 = load ptr, ptr %22, align 8, !tbaa !151
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.034.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %27, i64 %.sroa.speculated, i1 false)
+  %.not77 = icmp ugt i64 %2, %25
   br i1 %.not77, label %.lr.ph76.preheader, label %.thread
 
-.lr.ph76.preheader:                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.speculated
-  %28 = sub i64 %2, %.sroa.speculated
+.lr.ph76.preheader:                               ; preds = %19
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.speculated
+  %29 = sub i64 %2, %.sroa.speculated
   br label %.lr.ph76
 
-.thread:                                          ; preds = %33, %18
-  %29 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+.thread:                                          ; preds = %34, %19
+  %30 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br label %.critedge43
 
-.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %33
-  %indvars.iv80 = phi i64 [ %20, %.lr.ph76.preheader ], [ %indvars.iv.next81, %33 ]
-  %30 = phi ptr [ %27, %.lr.ph76.preheader ], [ %39, %33 ]
-  %31 = phi i64 [ %28, %.lr.ph76.preheader ], [ %38, %33 ]
+.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %34
+  %indvars.iv80 = phi i64 [ %21, %.lr.ph76.preheader ], [ %indvars.iv.next81, %34 ]
+  %31 = phi ptr [ %28, %.lr.ph76.preheader ], [ %40, %34 ]
+  %32 = phi i64 [ %29, %.lr.ph76.preheader ], [ %39, %34 ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %32 = trunc nuw i64 %indvars.iv.next81 to i32
-  %.not40 = icmp sgt i32 %7, %32
-  br i1 %.not40, label %33, label %40
+  %33 = trunc nuw i64 %indvars.iv.next81 to i32
+  %.not40 = icmp sgt i32 %7, %33
+  br i1 %.not40, label %34, label %41
 
-33:                                               ; preds = %.lr.ph76
-  %34 = getelementptr inbounds nuw %struct.iovec, ptr %19, i64 %indvars.iv.next81
-  %35 = load ptr, ptr %34, align 8, !tbaa !151
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !102
-  %.sroa.speculated58 = tail call i64 @llvm.umin.i64(i64 %37, i64 %31)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %35, i64 %.sroa.speculated58, i1 false)
-  %38 = sub i64 %31, %.sroa.speculated58
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %.sroa.speculated58
-  %.not78 = icmp ugt i64 %31, %37
+34:                                               ; preds = %.lr.ph76
+  %35 = getelementptr inbounds nuw %struct.iovec, ptr %20, i64 %indvars.iv.next81
+  %36 = load ptr, ptr %35, align 8, !tbaa !151
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %38 = load i64, ptr %37, align 8, !tbaa !102
+  %.sroa.speculated58 = tail call i64 @llvm.umin.i64(i64 %38, i64 %32)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %36, i64 %.sroa.speculated58, i1 false)
+  %39 = sub i64 %32, %.sroa.speculated58
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 %.sroa.speculated58
+  %.not78 = icmp ugt i64 %32, %38
   br i1 %.not78, label %.lr.ph76, label %.thread, !llvm.loop !152
 
-40:                                               ; preds = %.lr.ph76
-  %41 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %41, label %42, label %.critedge43
+41:                                               ; preds = %.lr.ph76
+  %42 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  br i1 %42, label %43, label %.critedge43
 
-42:                                               ; preds = %40
+43:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %5, ptr noundef nonnull @.str, i32 noundef 290, i32 noundef 2)
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.10, i64 noundef 39)
-          to label %.critedge42 unwind label %45
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.10, i64 noundef 39)
+          to label %.critedge42 unwind label %46
 
-.critedge42:                                      ; preds = %42
+.critedge42:                                      ; preds = %43
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge43
 
-.critedge43:                                      ; preds = %13, %.critedge42, %40, %.thread, %.critedge
+.critedge43:                                      ; preds = %14, %.critedge42, %41, %.thread, %.critedge
   ret void
 
-45:                                               ; preds = %42
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %43
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %5) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %46
+  resume { ptr, i32 } %47
 }
 
 declare void @_ZN3net15QuicStreamFrameC1EjbmtSt10unique_ptrIA_cNS_19StreamBufferDeleterEE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i1 noundef zeroext, i64 noundef, i16 noundef zeroext, ptr noundef) unnamed_addr #1

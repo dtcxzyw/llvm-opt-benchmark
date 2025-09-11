@@ -238,39 +238,40 @@ define dso_local void @print_bundle_list(ptr noundef captures(none) %0, ptr noun
 
 17:                                               ; preds = %.preheader
   %18 = zext i32 %11 to i64
-  %19 = getelementptr inbounds nuw %struct.anon, ptr @heuristics, i64 %18, i32 1
-  %20 = load ptr, ptr %19, align 8, !tbaa !28
-  %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %20)
+  %19 = getelementptr inbounds nuw %struct.anon, ptr @heuristics, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
+  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %21)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %17, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @hashmap_iter_init(ptr noundef nonnull %22, ptr noundef nonnull %3) #16
-  %23 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #16
-  %.not12.i = icmp eq ptr %23, null
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @hashmap_iter_init(ptr noundef nonnull %23, ptr noundef nonnull %3) #16
+  %24 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #16
+  %.not12.i = icmp eq ptr %24, null
   br i1 %.not12.i, label %for_all_bundles_in_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.loopexit, %summarize_bundle.exit
-  %.0913.i = phi ptr [ %34, %summarize_bundle.exit ], [ %23, %.loopexit ]
-  %24 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !14
-  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef %25) #16
-  %27 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !19
-  %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %28) #16
-  %30 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 48
-  %31 = load i64, ptr %30, align 8, !tbaa !29
-  %.not.i17 = icmp eq i64 %31, 0
-  br i1 %.not.i17, label %summarize_bundle.exit, label %32
+  %.0913.i = phi ptr [ %35, %summarize_bundle.exit ], [ %24, %.loopexit ]
+  %25 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef %26) #16
+  %28 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !19
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %29) #16
+  %31 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 48
+  %32 = load i64, ptr %31, align 8, !tbaa !29
+  %.not.i17 = icmp eq i64 %32, 0
+  br i1 %.not.i17, label %summarize_bundle.exit, label %33
 
-32:                                               ; preds = %.lr.ph.i
-  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, i64 noundef %31) #16
+33:                                               ; preds = %.lr.ph.i
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, i64 noundef %32) #16
   br label %summarize_bundle.exit
 
-summarize_bundle.exit:                            ; preds = %32, %.lr.ph.i
-  %34 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #16
-  %.not.i = icmp eq ptr %34, null
+summarize_bundle.exit:                            ; preds = %33, %.lr.ph.i
+  %35 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #16
+  %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %for_all_bundles_in_list.exit, label %.lr.ph.i, !llvm.loop !21
 
 for_all_bundles_in_list.exit:                     ; preds = %summarize_bundle.exit, %.loopexit

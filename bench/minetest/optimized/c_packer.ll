@@ -1192,7 +1192,8 @@ _ZL7emplaceR11PackedValues.exit326:               ; preds = %if.else.i.i324, %if
   %call4 = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef %idx)
   %tobool = icmp ne i32 %call4, 0
   %retval.val304.val = load ptr, ptr %pv, align 8, !tbaa !58
-  %12 = getelementptr inbounds %struct.PackedInstr, ptr %retval.val304.val, i64 %sub.i.i320, i32 4
+  %.split29 = getelementptr inbounds %struct.PackedInstr, ptr %retval.val304.val, i64 %sub.i.i320
+  %12 = getelementptr inbounds nuw i8, ptr %.split29, i64 8
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %12, align 8, !tbaa !24
   br label %return
@@ -1235,7 +1236,8 @@ _ZL7emplaceR11PackedValues.exit344:               ; preds = %if.else.i.i342, %if
   store i16 3, ptr %add.ptr.i.i.i339, align 8, !tbaa !59
   %call8 = tail call nsz double @lua_tonumber(ptr noundef %L, i32 noundef %idx)
   %retval.val302.val = load ptr, ptr %pv, align 8, !tbaa !58
-  %19 = getelementptr inbounds %struct.PackedInstr, ptr %retval.val302.val, i64 %sub.i.i338, i32 4
+  %.split28 = getelementptr inbounds %struct.PackedInstr, ptr %retval.val302.val, i64 %sub.i.i338
+  %19 = getelementptr inbounds nuw i8, ptr %.split28, i64 8
   store double %call8, ptr %19, align 8, !tbaa !24
   br label %return
 
@@ -1278,9 +1280,10 @@ _ZL7emplaceR11PackedValues.exit363:               ; preds = %if.else.i.i361, %if
   call void @llvm.lifetime.start.p0(ptr nonnull %len)
   %call12 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef %idx, ptr noundef nonnull %len)
   %retval.val300.val = load ptr, ptr %pv, align 8, !tbaa !58
-  %sdata = getelementptr inbounds %struct.PackedInstr, ptr %retval.val300.val, i64 %sub.i.i357, i32 5
+  %sdata.split = getelementptr inbounds %struct.PackedInstr, ptr %retval.val300.val, i64 %sub.i.i357
+  %sdata = getelementptr inbounds nuw i8, ptr %sdata.split, i64 16
   %26 = load i64, ptr %len, align 8, !tbaa !23
-  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %sdata, i64 8
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %sdata.split, i64 24
   %27 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !17
   %call2.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %sdata, i64 noundef 0, i64 noundef %27, ptr noundef %call12, i64 noundef %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %len)
@@ -1340,9 +1343,10 @@ _ZL7emplaceR11PackedValues.exit383:               ; preds = %if.else.i.i381, %if
   call void @llvm.lifetime.start.p0(ptr nonnull %len24)
   %call26 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef nonnull %len24)
   %retval.val298.val = load ptr, ptr %pv, align 8, !tbaa !58
-  %sdata28 = getelementptr inbounds %struct.PackedInstr, ptr %retval.val298.val, i64 %sub.i.i377, i32 5
+  %sdata28.split = getelementptr inbounds %struct.PackedInstr, ptr %retval.val298.val, i64 %sub.i.i377
+  %sdata28 = getelementptr inbounds nuw i8, ptr %sdata28.split, i64 16
   %38 = load i64, ptr %len24, align 8, !tbaa !23
-  %_M_string_length.i.i385 = getelementptr inbounds nuw i8, ptr %sdata28, i64 8
+  %_M_string_length.i.i385 = getelementptr inbounds nuw i8, ptr %sdata28.split, i64 24
   %39 = load i64, ptr %_M_string_length.i.i385, align 8, !tbaa !17
   %call2.i386 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %sdata28, i64 noundef 0, i64 noundef %39, ptr noundef %call26, i64 noundef %38)
   call void @lua_settop(ptr noundef %L, i32 noundef -2)
@@ -1517,7 +1521,8 @@ invoke.cont49:                                    ; preds = %.noexc414, %if.then
   %55 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i409, i64 8
   store ptr null, ptr %55, align 8, !tbaa !24
   %retval.val271.val = load ptr, ptr %pv, align 8, !tbaa !58
-  %sdata54 = getelementptr inbounds %struct.PackedInstr, ptr %retval.val271.val, i64 %sub.i.i408, i32 5
+  %sdata54.split = getelementptr inbounds %struct.PackedInstr, ptr %retval.val271.val, i64 %sub.i.i408
+  %sdata54 = getelementptr inbounds nuw i8, ptr %sdata54.split, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %sdata54, ptr noundef nonnull align 8 dereferenceable(32) %ser)
           to label %invoke.cont55 unwind label %lpad
 
@@ -1528,7 +1533,8 @@ invoke.cont55:                                    ; preds = %invoke.cont49
 
 invoke.cont57:                                    ; preds = %invoke.cont55
   %retval.val.val = load ptr, ptr %pv, align 8, !tbaa !58
-  %57 = getelementptr inbounds %struct.PackedInstr, ptr %retval.val.val, i64 %sub.i.i408, i32 4
+  %.split = getelementptr inbounds %struct.PackedInstr, ptr %retval.val.val, i64 %sub.i.i408
+  %57 = getelementptr inbounds nuw i8, ptr %.split, i64 8
   store ptr %call58, ptr %57, align 8, !tbaa !24
   %58 = load ptr, ptr %ser, align 8, !tbaa !14
   %cmp.i.i.i.i = icmp eq ptr %58, %42
@@ -1700,10 +1706,11 @@ while.body:                                       ; preds = %if.end145, %while.b
   %call85 = call i32 @lua_type(ptr noundef %L, i32 noundef -1)
   %cmp86 = icmp eq i32 %call84, 3
   %retval.val296.val = load ptr, ptr %pv, align 8, !tbaa !58
+  %.split25 = getelementptr inbounds %struct.PackedInstr, ptr %retval.val296.val, i64 %sub.i.i443
   br i1 %cmp86, label %if.then87, label %if.else
 
 if.then87:                                        ; preds = %while.body
-  %76 = getelementptr inbounds %struct.PackedInstr, ptr %retval.val296.val, i64 %sub.i.i443, i32 4
+  %76 = getelementptr inbounds nuw i8, ptr %.split25, i64 8
   %77 = load i16, ptr %76, align 8, !tbaa !24
   %inc89 = add i16 %77, 1
   store i16 %inc89, ptr %76, align 8, !tbaa !24
@@ -1714,8 +1721,7 @@ if.then87:                                        ; preds = %while.body
   ]
 
 if.else:                                          ; preds = %while.body
-  %add.ptr.i.i452 = getelementptr inbounds %struct.PackedInstr, ptr %retval.val296.val, i64 %sub.i.i443
-  %uidata2 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i452, i64 10
+  %uidata2 = getelementptr inbounds nuw i8, ptr %.split25, i64 10
   %78 = load i16, ptr %uidata2, align 2, !tbaa !24
   %inc91 = add i16 %78, 1
   store i16 %inc91, ptr %uidata2, align 2, !tbaa !24
@@ -1773,8 +1779,9 @@ if.then95:                                        ; preds = %_ZL12suitable_keyP9
 if.then106:                                       ; preds = %if.then95
   %call107 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef -2, ptr noundef null)
   %rval.val286.val = load ptr, ptr %81, align 8, !tbaa !58
-  %sdata109 = getelementptr inbounds %struct.PackedInstr, ptr %rval.val286.val, i64 %82, i32 5
-  %_M_string_length.i.i.i464 = getelementptr inbounds nuw i8, ptr %sdata109, i64 8
+  %sdata109.split = getelementptr inbounds %struct.PackedInstr, ptr %rval.val286.val, i64 %82
+  %sdata109 = getelementptr inbounds nuw i8, ptr %sdata109.split, i64 16
+  %_M_string_length.i.i.i464 = getelementptr inbounds nuw i8, ptr %sdata109.split, i64 24
   %84 = load i64, ptr %_M_string_length.i.i.i464, align 8, !tbaa !17
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call107) #24
   %call3.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %sdata109, i64 noundef 0, i64 noundef %84, ptr noundef nonnull %call107, i64 noundef %call.i.i.i)
@@ -1784,13 +1791,15 @@ if.else111:                                       ; preds = %if.then95
   %call112 = call i64 @lua_tointeger(ptr noundef %L, i32 noundef -2)
   %conv113 = trunc i64 %call112 to i32
   %rval.val284.val = load ptr, ptr %81, align 8, !tbaa !58
-  %85 = getelementptr inbounds %struct.PackedInstr, ptr %rval.val284.val, i64 %82, i32 4
+  %.split26 = getelementptr inbounds %struct.PackedInstr, ptr %rval.val284.val, i64 %82
+  %85 = getelementptr inbounds nuw i8, ptr %.split26, i64 8
   store i32 %conv113, ptr %85, align 8, !tbaa !24
   br label %if.end115
 
 if.end115:                                        ; preds = %if.else111, %if.then106
   %rval.val.val = load ptr, ptr %81, align 8, !tbaa !58
-  %pop117 = getelementptr inbounds %struct.PackedInstr, ptr %rval.val.val, i64 %82, i32 3
+  %pop117.split = getelementptr inbounds %struct.PackedInstr, ptr %rval.val.val, i64 %82
+  %pop117 = getelementptr inbounds nuw i8, ptr %pop117.split, i64 5
   %86 = load i8, ptr %pop117, align 1, !tbaa !64, !range !53, !noundef !54
   %tobool118.not = icmp eq i8 %86, 0
   br i1 %tobool118.not, label %if.then119, label %if.end145
@@ -1832,7 +1841,8 @@ _ZL7emplaceR11PackedValues.exit484:               ; preds = %if.else.i.i482, %if
   %sidata2.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i479, i64 12
   store i32 0, ptr %sidata2.i, align 4, !tbaa !24
   %ri1.val.val = load ptr, ptr %pv, align 8, !tbaa !58
-  %93 = getelementptr inbounds %struct.PackedInstr, ptr %ri1.val.val, i64 %sub.i.i478, i32 4
+  %.split27 = getelementptr inbounds %struct.PackedInstr, ptr %ri1.val.val, i64 %sub.i.i478
+  %93 = getelementptr inbounds nuw i8, ptr %.split27, i64 8
   store i32 %inc, ptr %93, align 8, !tbaa !24
   br label %if.end145
 
@@ -1884,7 +1894,8 @@ _ZL7emplaceR11PackedValues.exit505:               ; preds = %if.else.i.i503, %if
   %sidata2 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i508, i64 12
   store i32 %inc127, ptr %sidata2, align 4, !tbaa !24
   %ri1132.val.val = load ptr, ptr %pv, align 8, !tbaa !58
-  %pop143 = getelementptr inbounds %struct.PackedInstr, ptr %ri1132.val.val, i64 %sub.i.i499, i32 3
+  %pop143.split = getelementptr inbounds %struct.PackedInstr, ptr %ri1132.val.val, i64 %sub.i.i499
+  %pop143 = getelementptr inbounds nuw i8, ptr %pop143.split, i64 5
   store i8 1, ptr %pop143, align 1, !tbaa !64
   br label %if.end145
 
@@ -1936,7 +1947,8 @@ if.then153:                                       ; preds = %if.then150
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp157)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp155, ptr noundef %call156, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp157)
   %r.val.val = load ptr, ptr %101, align 8, !tbaa !58
-  %sdata163 = getelementptr inbounds %struct.PackedInstr, ptr %r.val.val, i64 %102, i32 5
+  %sdata163.split = getelementptr inbounds %struct.PackedInstr, ptr %r.val.val, i64 %102
+  %sdata163 = getelementptr inbounds nuw i8, ptr %sdata163.split, i64 16
   %call164 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %sdata163, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp155) #24
   %103 = load ptr, ptr %ref.tmp155, align 8, !tbaa !14
   %104 = getelementptr inbounds nuw i8, ptr %ref.tmp155, i64 16
@@ -1959,7 +1971,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit524: ; preds = %if
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp155)
   %conv169 = trunc i32 %vidx to i16
   %r.val273.val = load ptr, ptr %101, align 8, !tbaa !58
-  %set_into171 = getelementptr inbounds %struct.PackedInstr, ptr %r.val273.val, i64 %102, i32 1
+  %set_into171.split = getelementptr inbounds %struct.PackedInstr, ptr %r.val273.val, i64 %102
+  %set_into171 = getelementptr inbounds nuw i8, ptr %set_into171.split, i64 2
   store i16 %conv169, ptr %set_into171, align 2, !tbaa !65
   br label %if.end173
 
@@ -3105,7 +3118,8 @@ _ZL7emplaceR11PackedValues.exit:                  ; preds = %if.else.i.i, %if.th
   store i32 %23, ptr %30, align 8, !tbaa !24
   %conv13 = sext i32 %23 to i64
   %31 = load ptr, ptr %pv, align 8, !tbaa !58
-  %keep_ref = getelementptr inbounds %struct.PackedInstr, ptr %31, i64 %conv13, i32 2
+  %keep_ref.split = getelementptr inbounds %struct.PackedInstr, ptr %31, i64 %conv13
+  %keep_ref = getelementptr inbounds nuw i8, ptr %keep_ref.split, i64 4
   store i8 1, ptr %keep_ref, align 4, !tbaa !68
   br label %cleanup
 

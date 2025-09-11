@@ -866,7 +866,7 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier0ELb0EE11do_oo
 29:                                               ; preds = %5
   switch i8 %.sroa.2.0.extract.trunc, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit [
     i8 -3, label %30
-    i8 -4, label %48
+    i8 -4, label %49
   ]
 
 30:                                               ; preds = %29
@@ -883,134 +883,135 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier0ELb0EE11do_oo
   %41 = and i64 %40, 4294967295
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 1448
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %43, i64 %41, i32 1
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp eq i8 %45, -3
-  br i1 %46, label %47, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %44 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %43, i64 %41
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, -3
+  br i1 %47, label %48, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-47:                                               ; preds = %30
-  store i8 -1, ptr %44, align 1
+48:                                               ; preds = %30
+  store i8 -1, ptr %45, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-48:                                               ; preds = %29
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 520
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 528
-  %56 = load i32, ptr %55, align 8
-  %57 = zext nneg i32 %56 to i64
-  %58 = shl i64 %54, %57
-  %59 = sub i64 %8, %58
-  %60 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %61 = zext nneg i32 %60 to i64
-  %62 = lshr i64 %59, %61
-  %63 = and i64 %62, 4294967295
-  %64 = getelementptr inbounds nuw i8, ptr %52, i64 496
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
-  %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %50, i64 544
-  %71 = load ptr, ptr %70, align 8
-  %72 = zext i32 %69 to i64
-  %73 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %71, i64 %72
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %81
+49:                                               ; preds = %29
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 520
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 528
+  %57 = load i32, ptr %56, align 8
+  %58 = zext nneg i32 %57 to i64
+  %59 = shl i64 %55, %58
+  %60 = sub i64 %8, %59
+  %61 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %62 = zext nneg i32 %61 to i64
+  %63 = lshr i64 %60, %62
+  %64 = and i64 %63, 4294967295
+  %65 = getelementptr inbounds nuw i8, ptr %53, i64 496
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %64
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
+  %70 = load i32, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %51, i64 544
+  %72 = load ptr, ptr %71, align 8
+  %73 = zext i32 %70 to i64
+  %74 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %72, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %78, label %82
 
-77:                                               ; preds = %48
-  %78 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 512
-  store ptr %78, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
+78:                                               ; preds = %49
+  %79 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 512
+  store ptr %79, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i
 
-81:                                               ; preds = %48
-  %82 = getelementptr inbounds nuw i8, ptr %75, i64 512
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp eq ptr %83, %82
-  br i1 %84, label %85, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
+82:                                               ; preds = %49
+  %83 = getelementptr inbounds nuw i8, ptr %76, i64 512
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, %83
+  br i1 %85, label %86, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
 
-85:                                               ; preds = %81
-  %86 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 512
-  store ptr %86, ptr %87, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 520
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 528
-  store i64 0, ptr %89, align 8
-  store ptr %75, ptr %88, align 8
+86:                                               ; preds = %82
+  %87 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 512
+  store ptr %87, ptr %88, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 520
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 528
+  store i64 0, ptr %90, align 8
+  store ptr %76, ptr %89, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %85, %77
-  %.sink.i.i.i = phi ptr [ %86, %85 ], [ %78, %77 ]
-  store ptr %.sink.i.i.i, ptr %74, align 8
-  %90 = load i64, ptr %73, align 8
-  %91 = add i64 %90, 536
-  store i64 %91, ptr %73, align 8
+.sink.split.i.i.i:                                ; preds = %86, %78
+  %.sink.i.i.i = phi ptr [ %87, %86 ], [ %79, %78 ]
+  store ptr %.sink.i.i.i, ptr %75, align 8
+  %91 = load i64, ptr %74, align 8
+  %92 = add i64 %91, 536
+  store i64 %92, ptr %74, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 512
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
 
-_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit: ; preds = %81, %.sink.split.i.i.i
-  %92 = phi ptr [ %83, %81 ], [ %.pre.i.i, %.sink.split.i.i.i ]
-  %93 = phi ptr [ %75, %81 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 512
-  store ptr %1, ptr %92, align 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr %96, ptr %94, align 8
+_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit: ; preds = %82, %.sink.split.i.i.i
+  %93 = phi ptr [ %84, %82 ], [ %.pre.i.i, %.sink.split.i.i.i ]
+  %94 = phi ptr [ %76, %82 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 512
+  store ptr %1, ptr %93, align 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  store ptr %97, ptr %95, align 8
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %29, %47, %30, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit, %28
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 696
-  %102 = load ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %29, %48, %30, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit, %28
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 696
+  %103 = load ptr, ptr %102, align 8
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 128
-  %105 = load volatile i32, ptr %104, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %100, i64 256
-  %107 = load volatile i32, ptr %106, align 4
-  %108 = sub i32 %105, %107
-  %109 = and i32 %108, 131071
-  %110 = icmp ne i32 %109, 131071
-  %111 = getelementptr inbounds nuw i8, ptr %98, i64 440
-  %112 = load i32, ptr %111, align 8
-  %113 = icmp ugt i32 %109, %112
-  %114 = select i1 %110, i1 %113, i1 false
-  br i1 %114, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 128
+  %106 = load volatile i32, ptr %105, align 4
+  %107 = getelementptr inbounds nuw i8, ptr %101, i64 256
+  %108 = load volatile i32, ptr %107, align 4
+  %109 = sub i32 %106, %108
+  %110 = and i32 %109, 131071
+  %111 = icmp ne i32 %110, 131071
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 440
+  %113 = load i32, ptr %112, align 8
+  %114 = icmp ugt i32 %110, %113
+  %115 = select i1 %111, i1 %114, i1 false
+  br i1 %115, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
-  %115 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %116 = extractvalue { i64, i64 } %115, 0
-  %117 = extractvalue { i64, i64 } %115, 1
-  %118 = getelementptr inbounds nuw i8, ptr %98, i64 444
-  %119 = load i32, ptr %118, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %98, i32 noundef %119) #8
-  %120 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %121 = extractvalue { i64, i64 } %120, 0
-  %122 = extractvalue { i64, i64 } %120, 1
-  %123 = sub i64 %121, %116
+  %116 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %117 = extractvalue { i64, i64 } %116, 0
+  %118 = extractvalue { i64, i64 } %116, 1
+  %119 = getelementptr inbounds nuw i8, ptr %99, i64 444
+  %120 = load i32, ptr %119, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %99, i32 noundef %120) #8
+  %121 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %122 = extractvalue { i64, i64 } %121, 0
+  %123 = extractvalue { i64, i64 } %121, 1
   %124 = sub i64 %122, %117
-  %125 = getelementptr inbounds nuw i8, ptr %98, i64 448
-  %126 = load i64, ptr %125, align 8
-  %127 = add nsw i64 %123, %126
-  store i64 %127, ptr %125, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %98, i64 456
-  %129 = load i64, ptr %128, align 8
-  %130 = add nsw i64 %124, %129
-  store i64 %130, ptr %128, align 8
+  %125 = sub i64 %123, %118
+  %126 = getelementptr inbounds nuw i8, ptr %99, i64 448
+  %127 = load i64, ptr %126, align 8
+  %128 = add nsw i64 %124, %127
+  store i64 %128, ptr %126, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %99, i64 456
+  %130 = load i64, ptr %129, align 8
+  %131 = add nsw i64 %125, %130
+  store i64 %131, ptr %129, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2
@@ -1088,7 +1089,7 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier0ELb0EE11do_oo
 39:                                               ; preds = %5
   switch i8 %.sroa.2.0.extract.trunc, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit [
     i8 -3, label %40
-    i8 -4, label %58
+    i8 -4, label %59
   ]
 
 40:                                               ; preds = %39
@@ -1105,134 +1106,135 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier0ELb0EE11do_oo
   %51 = and i64 %50, 4294967295
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 1448
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %53, i64 %51, i32 1
-  %55 = load i8, ptr %54, align 1
-  %56 = icmp eq i8 %55, -3
-  br i1 %56, label %57, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %54 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %53, i64 %51
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
+  %56 = load i8, ptr %55, align 1
+  %57 = icmp eq i8 %56, -3
+  br i1 %57, label %58, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-57:                                               ; preds = %40
-  store i8 -1, ptr %54, align 1
+58:                                               ; preds = %40
+  store i8 -1, ptr %55, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-58:                                               ; preds = %39
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 520
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 528
-  %66 = load i32, ptr %65, align 8
-  %67 = zext nneg i32 %66 to i64
-  %68 = shl i64 %64, %67
-  %69 = sub i64 %12, %68
-  %70 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %71 = zext nneg i32 %70 to i64
-  %72 = lshr i64 %69, %71
-  %73 = and i64 %72, 4294967295
-  %74 = getelementptr inbounds nuw i8, ptr %62, i64 496
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %73
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  %79 = load i32, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %60, i64 544
-  %81 = load ptr, ptr %80, align 8
-  %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %81, i64 %82
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %91
+59:                                               ; preds = %39
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 520
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 528
+  %67 = load i32, ptr %66, align 8
+  %68 = zext nneg i32 %67 to i64
+  %69 = shl i64 %65, %68
+  %70 = sub i64 %12, %69
+  %71 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %72 = zext nneg i32 %71 to i64
+  %73 = lshr i64 %70, %72
+  %74 = and i64 %73, 4294967295
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 496
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %74
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %61, i64 544
+  %82 = load ptr, ptr %81, align 8
+  %83 = zext i32 %80 to i64
+  %84 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %82, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %88, label %92
 
-87:                                               ; preds = %58
-  %88 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 512
-  store ptr %88, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
+88:                                               ; preds = %59
+  %89 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 512
+  store ptr %89, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i
 
-91:                                               ; preds = %58
-  %92 = getelementptr inbounds nuw i8, ptr %85, i64 512
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, %92
-  br i1 %94, label %95, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
+92:                                               ; preds = %59
+  %93 = getelementptr inbounds nuw i8, ptr %86, i64 512
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, %93
+  br i1 %95, label %96, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
 
-95:                                               ; preds = %91
-  %96 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 512
-  store ptr %96, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 520
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 528
-  store i64 0, ptr %99, align 8
-  store ptr %85, ptr %98, align 8
+96:                                               ; preds = %92
+  %97 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 512
+  store ptr %97, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 520
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 528
+  store i64 0, ptr %100, align 8
+  store ptr %86, ptr %99, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %95, %87
-  %.sink.i.i.i = phi ptr [ %96, %95 ], [ %88, %87 ]
-  store ptr %.sink.i.i.i, ptr %84, align 8
-  %100 = load i64, ptr %83, align 8
-  %101 = add i64 %100, 536
-  store i64 %101, ptr %83, align 8
+.sink.split.i.i.i:                                ; preds = %96, %88
+  %.sink.i.i.i = phi ptr [ %97, %96 ], [ %89, %88 ]
+  store ptr %.sink.i.i.i, ptr %85, align 8
+  %101 = load i64, ptr %84, align 8
+  %102 = add i64 %101, 536
+  store i64 %102, ptr %84, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 512
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
 
-_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit: ; preds = %91, %.sink.split.i.i.i
-  %102 = phi ptr [ %93, %91 ], [ %.pre.i.i, %.sink.split.i.i.i ]
-  %103 = phi ptr [ %85, %91 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 512
-  store ptr %1, ptr %102, align 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store ptr %106, ptr %104, align 8
+_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit: ; preds = %92, %.sink.split.i.i.i
+  %103 = phi ptr [ %94, %92 ], [ %.pre.i.i, %.sink.split.i.i.i ]
+  %104 = phi ptr [ %86, %92 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 512
+  store ptr %1, ptr %103, align 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  store ptr %107, ptr %105, align 8
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %39, %57, %40, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit, %35
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 696
-  %112 = load ptr, ptr %111, align 8
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %39, %58, %40, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit, %35
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 696
+  %113 = load ptr, ptr %112, align 8
+  %114 = icmp eq ptr %113, null
+  br i1 %114, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
-  %114 = getelementptr inbounds nuw i8, ptr %110, i64 128
-  %115 = load volatile i32, ptr %114, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %110, i64 256
-  %117 = load volatile i32, ptr %116, align 4
-  %118 = sub i32 %115, %117
-  %119 = and i32 %118, 131071
-  %120 = icmp ne i32 %119, 131071
-  %121 = getelementptr inbounds nuw i8, ptr %108, i64 440
-  %122 = load i32, ptr %121, align 8
-  %123 = icmp ugt i32 %119, %122
-  %124 = select i1 %120, i1 %123, i1 false
-  br i1 %124, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 128
+  %116 = load volatile i32, ptr %115, align 4
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 256
+  %118 = load volatile i32, ptr %117, align 4
+  %119 = sub i32 %116, %118
+  %120 = and i32 %119, 131071
+  %121 = icmp ne i32 %120, 131071
+  %122 = getelementptr inbounds nuw i8, ptr %109, i64 440
+  %123 = load i32, ptr %122, align 8
+  %124 = icmp ugt i32 %120, %123
+  %125 = select i1 %121, i1 %124, i1 false
+  br i1 %125, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
-  %125 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %126 = extractvalue { i64, i64 } %125, 0
-  %127 = extractvalue { i64, i64 } %125, 1
-  %128 = getelementptr inbounds nuw i8, ptr %108, i64 444
-  %129 = load i32, ptr %128, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %108, i32 noundef %129) #8
-  %130 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %131 = extractvalue { i64, i64 } %130, 0
-  %132 = extractvalue { i64, i64 } %130, 1
-  %133 = sub i64 %131, %126
+  %126 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %127 = extractvalue { i64, i64 } %126, 0
+  %128 = extractvalue { i64, i64 } %126, 1
+  %129 = getelementptr inbounds nuw i8, ptr %109, i64 444
+  %130 = load i32, ptr %129, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %109, i32 noundef %130) #8
+  %131 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %132 = extractvalue { i64, i64 } %131, 0
+  %133 = extractvalue { i64, i64 } %131, 1
   %134 = sub i64 %132, %127
-  %135 = getelementptr inbounds nuw i8, ptr %108, i64 448
-  %136 = load i64, ptr %135, align 8
-  %137 = add nsw i64 %133, %136
-  store i64 %137, ptr %135, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %108, i64 456
-  %139 = load i64, ptr %138, align 8
-  %140 = add nsw i64 %134, %139
-  store i64 %140, ptr %138, align 8
+  %135 = sub i64 %133, %128
+  %136 = getelementptr inbounds nuw i8, ptr %109, i64 448
+  %137 = load i64, ptr %136, align 8
+  %138 = add nsw i64 %134, %137
+  store i64 %138, ptr %136, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %109, i64 456
+  %140 = load i64, ptr %139, align 8
+  %141 = add nsw i64 %135, %140
+  store i64 %141, ptr %139, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2
@@ -1328,7 +1330,7 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier1ELb0EE11do_oo
 53:                                               ; preds = %5
   switch i8 %.sroa.2.0.extract.trunc, label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit [
     i8 -3, label %54
-    i8 -4, label %72
+    i8 -4, label %73
   ]
 
 54:                                               ; preds = %53
@@ -1345,134 +1347,135 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier1ELb0EE11do_oo
   %65 = and i64 %64, 4294967295
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 1448
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %67, i64 %65, i32 1
-  %69 = load i8, ptr %68, align 1
-  %70 = icmp eq i8 %69, -3
-  br i1 %70, label %71, label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
+  %68 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %67, i64 %65
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
+  %70 = load i8, ptr %69, align 1
+  %71 = icmp eq i8 %70, -3
+  br i1 %71, label %72, label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
 
-71:                                               ; preds = %54
-  store i8 -1, ptr %68, align 1
+72:                                               ; preds = %54
+  store i8 -1, ptr %69, align 1
   br label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
 
-72:                                               ; preds = %53
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 520
-  %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 528
-  %80 = load i32, ptr %79, align 8
-  %81 = zext nneg i32 %80 to i64
-  %82 = shl i64 %78, %81
-  %83 = sub i64 %8, %82
-  %84 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %85 = zext nneg i32 %84 to i64
-  %86 = lshr i64 %83, %85
-  %87 = and i64 %86, 4294967295
-  %88 = getelementptr inbounds nuw i8, ptr %76, i64 496
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %87
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
-  %93 = load i32, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %74, i64 544
-  %95 = load ptr, ptr %94, align 8
-  %96 = zext i32 %93 to i64
-  %97 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %95, i64 %96
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %101, label %105
+73:                                               ; preds = %53
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 520
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 528
+  %81 = load i32, ptr %80, align 8
+  %82 = zext nneg i32 %81 to i64
+  %83 = shl i64 %79, %82
+  %84 = sub i64 %8, %83
+  %85 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %86 = zext nneg i32 %85 to i64
+  %87 = lshr i64 %84, %86
+  %88 = and i64 %87, 4294967295
+  %89 = getelementptr inbounds nuw i8, ptr %77, i64 496
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %88
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 64
+  %94 = load i32, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %75, i64 544
+  %96 = load ptr, ptr %95, align 8
+  %97 = zext i32 %94 to i64
+  %98 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %96, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %106
 
-101:                                              ; preds = %72
-  %102 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 512
-  store ptr %102, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
+102:                                              ; preds = %73
+  %103 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 512
+  store ptr %103, ptr %104, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i
 
-105:                                              ; preds = %72
-  %106 = getelementptr inbounds nuw i8, ptr %99, i64 512
-  %107 = load ptr, ptr %106, align 8
-  %108 = icmp eq ptr %107, %106
-  br i1 %108, label %109, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
+106:                                              ; preds = %73
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 512
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp eq ptr %108, %107
+  br i1 %109, label %110, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
 
-109:                                              ; preds = %105
-  %110 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 512
-  store ptr %110, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 520
-  %113 = getelementptr inbounds nuw i8, ptr %110, i64 528
-  store i64 0, ptr %113, align 8
-  store ptr %99, ptr %112, align 8
+110:                                              ; preds = %106
+  %111 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 512
+  store ptr %111, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 520
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 528
+  store i64 0, ptr %114, align 8
+  store ptr %100, ptr %113, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %109, %101
-  %.sink.i.i.i = phi ptr [ %110, %109 ], [ %102, %101 ]
-  store ptr %.sink.i.i.i, ptr %98, align 8
-  %114 = load i64, ptr %97, align 8
-  %115 = add i64 %114, 536
-  store i64 %115, ptr %97, align 8
+.sink.split.i.i.i:                                ; preds = %110, %102
+  %.sink.i.i.i = phi ptr [ %111, %110 ], [ %103, %102 ]
+  store ptr %.sink.i.i.i, ptr %99, align 8
+  %115 = load i64, ptr %98, align 8
+  %116 = add i64 %115, 536
+  store i64 %116, ptr %98, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 512
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
 
-_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit: ; preds = %105, %.sink.split.i.i.i
-  %116 = phi ptr [ %107, %105 ], [ %.pre.i.i, %.sink.split.i.i.i ]
-  %117 = phi ptr [ %99, %105 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 512
-  store ptr %1, ptr %116, align 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store ptr %120, ptr %118, align 8
+_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit: ; preds = %106, %.sink.split.i.i.i
+  %117 = phi ptr [ %108, %106 ], [ %.pre.i.i, %.sink.split.i.i.i ]
+  %118 = phi ptr [ %100, %106 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 512
+  store ptr %1, ptr %117, align 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  store ptr %121, ptr %119, align 8
   br label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
 
-_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit: ; preds = %53, %71, %54, %49, %28, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 696
-  %126 = load ptr, ptr %125, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit: ; preds = %53, %72, %54, %49, %28, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 696
+  %127 = load ptr, ptr %126, align 8
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 128
-  %129 = load volatile i32, ptr %128, align 4
-  %130 = getelementptr inbounds nuw i8, ptr %124, i64 256
-  %131 = load volatile i32, ptr %130, align 4
-  %132 = sub i32 %129, %131
-  %133 = and i32 %132, 131071
-  %134 = icmp ne i32 %133, 131071
-  %135 = getelementptr inbounds nuw i8, ptr %122, i64 440
-  %136 = load i32, ptr %135, align 8
-  %137 = icmp ugt i32 %133, %136
-  %138 = select i1 %134, i1 %137, i1 false
-  br i1 %138, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 128
+  %130 = load volatile i32, ptr %129, align 4
+  %131 = getelementptr inbounds nuw i8, ptr %125, i64 256
+  %132 = load volatile i32, ptr %131, align 4
+  %133 = sub i32 %130, %132
+  %134 = and i32 %133, 131071
+  %135 = icmp ne i32 %134, 131071
+  %136 = getelementptr inbounds nuw i8, ptr %123, i64 440
+  %137 = load i32, ptr %136, align 8
+  %138 = icmp ugt i32 %134, %137
+  %139 = select i1 %135, i1 %138, i1 false
+  br i1 %139, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
-  %139 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %140 = extractvalue { i64, i64 } %139, 0
-  %141 = extractvalue { i64, i64 } %139, 1
-  %142 = getelementptr inbounds nuw i8, ptr %122, i64 444
-  %143 = load i32, ptr %142, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %122, i32 noundef %143) #8
-  %144 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %145 = extractvalue { i64, i64 } %144, 0
-  %146 = extractvalue { i64, i64 } %144, 1
-  %147 = sub i64 %145, %140
+  %140 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %141 = extractvalue { i64, i64 } %140, 0
+  %142 = extractvalue { i64, i64 } %140, 1
+  %143 = getelementptr inbounds nuw i8, ptr %123, i64 444
+  %144 = load i32, ptr %143, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %123, i32 noundef %144) #8
+  %145 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %146 = extractvalue { i64, i64 } %145, 0
+  %147 = extractvalue { i64, i64 } %145, 1
   %148 = sub i64 %146, %141
-  %149 = getelementptr inbounds nuw i8, ptr %122, i64 448
-  %150 = load i64, ptr %149, align 8
-  %151 = add nsw i64 %147, %150
-  store i64 %151, ptr %149, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %122, i64 456
-  %153 = load i64, ptr %152, align 8
-  %154 = add nsw i64 %148, %153
-  store i64 %154, ptr %152, align 8
+  %149 = sub i64 %147, %142
+  %150 = getelementptr inbounds nuw i8, ptr %123, i64 448
+  %151 = load i64, ptr %150, align 8
+  %152 = add nsw i64 %148, %151
+  store i64 %152, ptr %150, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %123, i64 456
+  %154 = load i64, ptr %153, align 8
+  %155 = add nsw i64 %149, %154
+  store i64 %155, ptr %153, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2
@@ -1571,7 +1574,7 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier1ELb0EE11do_oo
 62:                                               ; preds = %5
   switch i8 %.sroa.2.0.extract.trunc, label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit [
     i8 -3, label %63
-    i8 -4, label %81
+    i8 -4, label %82
   ]
 
 63:                                               ; preds = %62
@@ -1588,134 +1591,135 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier1ELb0EE11do_oo
   %74 = and i64 %73, 4294967295
   %75 = getelementptr inbounds nuw i8, ptr %15, i64 1448
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %76, i64 %74, i32 1
-  %78 = load i8, ptr %77, align 1
-  %79 = icmp eq i8 %78, -3
-  br i1 %79, label %80, label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
+  %77 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %76, i64 %74
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  %79 = load i8, ptr %78, align 1
+  %80 = icmp eq i8 %79, -3
+  br i1 %80, label %81, label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
 
-80:                                               ; preds = %63
-  store i8 -1, ptr %77, align 1
+81:                                               ; preds = %63
+  store i8 -1, ptr %78, align 1
   br label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
 
-81:                                               ; preds = %62
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 520
-  %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 528
-  %89 = load i32, ptr %88, align 8
-  %90 = zext nneg i32 %89 to i64
-  %91 = shl i64 %87, %90
-  %92 = sub i64 %12, %91
-  %93 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %94 = zext nneg i32 %93 to i64
-  %95 = lshr i64 %92, %94
-  %96 = and i64 %95, 4294967295
-  %97 = getelementptr inbounds nuw i8, ptr %85, i64 496
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
-  %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %83, i64 544
-  %104 = load ptr, ptr %103, align 8
-  %105 = zext i32 %102 to i64
-  %106 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %104, i64 %105
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %110, label %114
+82:                                               ; preds = %62
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 520
+  %88 = load i64, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 528
+  %90 = load i32, ptr %89, align 8
+  %91 = zext nneg i32 %90 to i64
+  %92 = shl i64 %88, %91
+  %93 = sub i64 %12, %92
+  %94 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %95 = zext nneg i32 %94 to i64
+  %96 = lshr i64 %93, %95
+  %97 = and i64 %96, 4294967295
+  %98 = getelementptr inbounds nuw i8, ptr %86, i64 496
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %97
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 64
+  %103 = load i32, ptr %102, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %84, i64 544
+  %105 = load ptr, ptr %104, align 8
+  %106 = zext i32 %103 to i64
+  %107 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %105, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %109 = load ptr, ptr %108, align 8
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %111, label %115
 
-110:                                              ; preds = %81
-  %111 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 512
-  store ptr %111, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false)
+111:                                              ; preds = %82
+  %112 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 512
+  store ptr %112, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i
 
-114:                                              ; preds = %81
-  %115 = getelementptr inbounds nuw i8, ptr %108, i64 512
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp eq ptr %116, %115
-  br i1 %117, label %118, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
+115:                                              ; preds = %82
+  %116 = getelementptr inbounds nuw i8, ptr %109, i64 512
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp eq ptr %117, %116
+  br i1 %118, label %119, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
 
-118:                                              ; preds = %114
-  %119 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 512
-  store ptr %119, ptr %120, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 520
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 528
-  store i64 0, ptr %122, align 8
-  store ptr %108, ptr %121, align 8
+119:                                              ; preds = %115
+  %120 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 512
+  store ptr %120, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 520
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 528
+  store i64 0, ptr %123, align 8
+  store ptr %109, ptr %122, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %118, %110
-  %.sink.i.i.i = phi ptr [ %119, %118 ], [ %111, %110 ]
-  store ptr %.sink.i.i.i, ptr %107, align 8
-  %123 = load i64, ptr %106, align 8
-  %124 = add i64 %123, 536
-  store i64 %124, ptr %106, align 8
+.sink.split.i.i.i:                                ; preds = %119, %111
+  %.sink.i.i.i = phi ptr [ %120, %119 ], [ %112, %111 ]
+  store ptr %.sink.i.i.i, ptr %108, align 8
+  %124 = load i64, ptr %107, align 8
+  %125 = add i64 %124, 536
+  store i64 %125, ptr %107, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 512
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
 
-_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit: ; preds = %114, %.sink.split.i.i.i
-  %125 = phi ptr [ %116, %114 ], [ %.pre.i.i, %.sink.split.i.i.i ]
-  %126 = phi ptr [ %108, %114 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 512
-  store ptr %1, ptr %125, align 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  store ptr %129, ptr %127, align 8
+_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit: ; preds = %115, %.sink.split.i.i.i
+  %126 = phi ptr [ %117, %115 ], [ %.pre.i.i, %.sink.split.i.i.i ]
+  %127 = phi ptr [ %109, %115 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 512
+  store ptr %1, ptr %126, align 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  store ptr %130, ptr %128, align 8
   br label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
 
-_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit: ; preds = %62, %80, %63, %58, %35, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 696
-  %135 = load ptr, ptr %134, align 8
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit: ; preds = %62, %81, %63, %58, %35, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 696
+  %136 = load ptr, ptr %135, align 8
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
-  %137 = getelementptr inbounds nuw i8, ptr %133, i64 128
-  %138 = load volatile i32, ptr %137, align 4
-  %139 = getelementptr inbounds nuw i8, ptr %133, i64 256
-  %140 = load volatile i32, ptr %139, align 4
-  %141 = sub i32 %138, %140
-  %142 = and i32 %141, 131071
-  %143 = icmp ne i32 %142, 131071
-  %144 = getelementptr inbounds nuw i8, ptr %131, i64 440
-  %145 = load i32, ptr %144, align 8
-  %146 = icmp ugt i32 %142, %145
-  %147 = select i1 %143, i1 %146, i1 false
-  br i1 %147, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 128
+  %139 = load volatile i32, ptr %138, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %134, i64 256
+  %141 = load volatile i32, ptr %140, align 4
+  %142 = sub i32 %139, %141
+  %143 = and i32 %142, 131071
+  %144 = icmp ne i32 %143, 131071
+  %145 = getelementptr inbounds nuw i8, ptr %132, i64 440
+  %146 = load i32, ptr %145, align 8
+  %147 = icmp ugt i32 %143, %146
+  %148 = select i1 %144, i1 %147, i1 false
+  br i1 %148, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
-  %148 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %149 = extractvalue { i64, i64 } %148, 0
-  %150 = extractvalue { i64, i64 } %148, 1
-  %151 = getelementptr inbounds nuw i8, ptr %131, i64 444
-  %152 = load i32, ptr %151, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %131, i32 noundef %152) #8
-  %153 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %154 = extractvalue { i64, i64 } %153, 0
-  %155 = extractvalue { i64, i64 } %153, 1
-  %156 = sub i64 %154, %149
+  %149 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %150 = extractvalue { i64, i64 } %149, 0
+  %151 = extractvalue { i64, i64 } %149, 1
+  %152 = getelementptr inbounds nuw i8, ptr %132, i64 444
+  %153 = load i32, ptr %152, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %132, i32 noundef %153) #8
+  %154 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %155 = extractvalue { i64, i64 } %154, 0
+  %156 = extractvalue { i64, i64 } %154, 1
   %157 = sub i64 %155, %150
-  %158 = getelementptr inbounds nuw i8, ptr %131, i64 448
-  %159 = load i64, ptr %158, align 8
-  %160 = add nsw i64 %156, %159
-  store i64 %160, ptr %158, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %131, i64 456
-  %162 = load i64, ptr %161, align 8
-  %163 = add nsw i64 %157, %162
-  store i64 %163, ptr %161, align 8
+  %158 = sub i64 %156, %151
+  %159 = getelementptr inbounds nuw i8, ptr %132, i64 448
+  %160 = load i64, ptr %159, align 8
+  %161 = add nsw i64 %157, %160
+  store i64 %161, ptr %159, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %132, i64 456
+  %163 = load i64, ptr %162, align 8
+  %164 = add nsw i64 %158, %163
+  store i64 %164, ptr %162, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2
@@ -1798,59 +1802,60 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier2ELb0EE11do_oo
   %42 = and i64 %41, 4294967295
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 1448
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %44, i64 %42, i32 1
-  %46 = load i8, ptr %45, align 1
-  %47 = icmp eq i8 %46, -3
-  br i1 %47, label %48, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %45 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %44, i64 %42
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp eq i8 %47, -3
+  br i1 %48, label %49, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-48:                                               ; preds = %31
-  store i8 -1, ptr %45, align 1
+49:                                               ; preds = %31
+  store i8 -1, ptr %46, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %48, %31, %29, %28
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 696
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %49, %31, %29, %28
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 696
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 128
-  %57 = load volatile i32, ptr %56, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %52, i64 256
-  %59 = load volatile i32, ptr %58, align 4
-  %60 = sub i32 %57, %59
-  %61 = and i32 %60, 131071
-  %62 = icmp ne i32 %61, 131071
-  %63 = getelementptr inbounds nuw i8, ptr %50, i64 440
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp ugt i32 %61, %64
-  %66 = select i1 %62, i1 %65, i1 false
-  br i1 %66, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 128
+  %58 = load volatile i32, ptr %57, align 4
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 256
+  %60 = load volatile i32, ptr %59, align 4
+  %61 = sub i32 %58, %60
+  %62 = and i32 %61, 131071
+  %63 = icmp ne i32 %62, 131071
+  %64 = getelementptr inbounds nuw i8, ptr %51, i64 440
+  %65 = load i32, ptr %64, align 8
+  %66 = icmp ugt i32 %62, %65
+  %67 = select i1 %63, i1 %66, i1 false
+  br i1 %67, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
-  %67 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %68 = extractvalue { i64, i64 } %67, 0
-  %69 = extractvalue { i64, i64 } %67, 1
-  %70 = getelementptr inbounds nuw i8, ptr %50, i64 444
-  %71 = load i32, ptr %70, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %50, i32 noundef %71) #8
-  %72 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %73 = extractvalue { i64, i64 } %72, 0
-  %74 = extractvalue { i64, i64 } %72, 1
-  %75 = sub i64 %73, %68
+  %68 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %69 = extractvalue { i64, i64 } %68, 0
+  %70 = extractvalue { i64, i64 } %68, 1
+  %71 = getelementptr inbounds nuw i8, ptr %51, i64 444
+  %72 = load i32, ptr %71, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %51, i32 noundef %72) #8
+  %73 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %74 = extractvalue { i64, i64 } %73, 0
+  %75 = extractvalue { i64, i64 } %73, 1
   %76 = sub i64 %74, %69
-  %77 = getelementptr inbounds nuw i8, ptr %50, i64 448
-  %78 = load i64, ptr %77, align 8
-  %79 = add nsw i64 %75, %78
-  store i64 %79, ptr %77, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %50, i64 456
-  %81 = load i64, ptr %80, align 8
-  %82 = add nsw i64 %76, %81
-  store i64 %82, ptr %80, align 8
+  %77 = sub i64 %75, %70
+  %78 = getelementptr inbounds nuw i8, ptr %51, i64 448
+  %79 = load i64, ptr %78, align 8
+  %80 = add nsw i64 %76, %79
+  store i64 %80, ptr %78, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %51, i64 456
+  %82 = load i64, ptr %81, align 8
+  %83 = add nsw i64 %77, %82
+  store i64 %83, ptr %81, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2
@@ -1937,59 +1942,60 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier2ELb0EE11do_oo
   %52 = and i64 %51, 4294967295
   %53 = getelementptr inbounds nuw i8, ptr %15, i64 1448
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %54, i64 %52, i32 1
-  %56 = load i8, ptr %55, align 1
-  %57 = icmp eq i8 %56, -3
-  br i1 %57, label %58, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %55 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %54, i64 %52
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
+  %57 = load i8, ptr %56, align 1
+  %58 = icmp eq i8 %57, -3
+  br i1 %58, label %59, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-58:                                               ; preds = %41
-  store i8 -1, ptr %55, align 1
+59:                                               ; preds = %41
+  store i8 -1, ptr %56, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %58, %41, %39, %35
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 696
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %59, %41, %39, %35
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 696
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 128
-  %67 = load volatile i32, ptr %66, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %62, i64 256
-  %69 = load volatile i32, ptr %68, align 4
-  %70 = sub i32 %67, %69
-  %71 = and i32 %70, 131071
-  %72 = icmp ne i32 %71, 131071
-  %73 = getelementptr inbounds nuw i8, ptr %60, i64 440
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp ugt i32 %71, %74
-  %76 = select i1 %72, i1 %75, i1 false
-  br i1 %76, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 128
+  %68 = load volatile i32, ptr %67, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 256
+  %70 = load volatile i32, ptr %69, align 4
+  %71 = sub i32 %68, %70
+  %72 = and i32 %71, 131071
+  %73 = icmp ne i32 %72, 131071
+  %74 = getelementptr inbounds nuw i8, ptr %61, i64 440
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp ugt i32 %72, %75
+  %77 = select i1 %73, i1 %76, i1 false
+  br i1 %77, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
-  %77 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %78 = extractvalue { i64, i64 } %77, 0
-  %79 = extractvalue { i64, i64 } %77, 1
-  %80 = getelementptr inbounds nuw i8, ptr %60, i64 444
-  %81 = load i32, ptr %80, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %60, i32 noundef %81) #8
-  %82 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %83 = extractvalue { i64, i64 } %82, 0
-  %84 = extractvalue { i64, i64 } %82, 1
-  %85 = sub i64 %83, %78
+  %78 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %79 = extractvalue { i64, i64 } %78, 0
+  %80 = extractvalue { i64, i64 } %78, 1
+  %81 = getelementptr inbounds nuw i8, ptr %61, i64 444
+  %82 = load i32, ptr %81, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %61, i32 noundef %82) #8
+  %83 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %84 = extractvalue { i64, i64 } %83, 0
+  %85 = extractvalue { i64, i64 } %83, 1
   %86 = sub i64 %84, %79
-  %87 = getelementptr inbounds nuw i8, ptr %60, i64 448
-  %88 = load i64, ptr %87, align 8
-  %89 = add nsw i64 %85, %88
-  store i64 %89, ptr %87, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %60, i64 456
-  %91 = load i64, ptr %90, align 8
-  %92 = add nsw i64 %86, %91
-  store i64 %92, ptr %90, align 8
+  %87 = sub i64 %85, %80
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 448
+  %89 = load i64, ptr %88, align 8
+  %90 = add nsw i64 %86, %89
+  store i64 %90, ptr %88, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %61, i64 456
+  %92 = load i64, ptr %91, align 8
+  %93 = add nsw i64 %87, %92
+  store i64 %93, ptr %91, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2
@@ -12905,12 +12911,12 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier0ELb1EE11do_oo
 28:                                               ; preds = %24, %21
   %.0 = phi ptr [ %23, %21 ], [ %27, %24 ]
   store ptr %.0, ptr %1, align 8
-  br label %102
+  br label %103
 
 29:                                               ; preds = %5
   switch i8 %.sroa.2.0.extract.trunc, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit [
     i8 -3, label %30
-    i8 -4, label %48
+    i8 -4, label %49
   ]
 
 30:                                               ; preds = %29
@@ -12927,142 +12933,143 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier0ELb1EE11do_oo
   %41 = and i64 %40, 4294967295
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 1448
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %43, i64 %41, i32 1
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp eq i8 %45, -3
-  br i1 %46, label %47, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %44 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %43, i64 %41
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, -3
+  br i1 %47, label %48, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-47:                                               ; preds = %30
-  store i8 -1, ptr %44, align 1
+48:                                               ; preds = %30
+  store i8 -1, ptr %45, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-48:                                               ; preds = %29
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 520
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 528
-  %56 = load i32, ptr %55, align 8
-  %57 = zext nneg i32 %56 to i64
-  %58 = shl i64 %54, %57
-  %59 = sub i64 %8, %58
-  %60 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %61 = zext nneg i32 %60 to i64
-  %62 = lshr i64 %59, %61
-  %63 = and i64 %62, 4294967295
-  %64 = getelementptr inbounds nuw i8, ptr %52, i64 496
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
-  %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %50, i64 544
-  %71 = load ptr, ptr %70, align 8
-  %72 = zext i32 %69 to i64
-  %73 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %71, i64 %72
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %81
+49:                                               ; preds = %29
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 520
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 528
+  %57 = load i32, ptr %56, align 8
+  %58 = zext nneg i32 %57 to i64
+  %59 = shl i64 %55, %58
+  %60 = sub i64 %8, %59
+  %61 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %62 = zext nneg i32 %61 to i64
+  %63 = lshr i64 %60, %62
+  %64 = and i64 %63, 4294967295
+  %65 = getelementptr inbounds nuw i8, ptr %53, i64 496
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %64
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
+  %70 = load i32, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %51, i64 544
+  %72 = load ptr, ptr %71, align 8
+  %73 = zext i32 %70 to i64
+  %74 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %72, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %78, label %82
 
-77:                                               ; preds = %48
-  %78 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 512
-  store ptr %78, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
+78:                                               ; preds = %49
+  %79 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 512
+  store ptr %79, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i
 
-81:                                               ; preds = %48
-  %82 = getelementptr inbounds nuw i8, ptr %75, i64 512
-  %83 = load ptr, ptr %82, align 8
-  %84 = icmp eq ptr %83, %82
-  br i1 %84, label %85, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
+82:                                               ; preds = %49
+  %83 = getelementptr inbounds nuw i8, ptr %76, i64 512
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, %83
+  br i1 %85, label %86, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
 
-85:                                               ; preds = %81
-  %86 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 512
-  store ptr %86, ptr %87, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 520
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 528
-  store i64 0, ptr %89, align 8
-  store ptr %75, ptr %88, align 8
+86:                                               ; preds = %82
+  %87 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 512
+  store ptr %87, ptr %88, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 520
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 528
+  store i64 0, ptr %90, align 8
+  store ptr %76, ptr %89, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %85, %77
-  %.sink.i.i.i = phi ptr [ %86, %85 ], [ %78, %77 ]
-  store ptr %.sink.i.i.i, ptr %74, align 8
-  %90 = load i64, ptr %73, align 8
-  %91 = add i64 %90, 536
-  store i64 %91, ptr %73, align 8
+.sink.split.i.i.i:                                ; preds = %86, %78
+  %.sink.i.i.i = phi ptr [ %87, %86 ], [ %79, %78 ]
+  store ptr %.sink.i.i.i, ptr %75, align 8
+  %91 = load i64, ptr %74, align 8
+  %92 = add i64 %91, 536
+  store i64 %92, ptr %74, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 512
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
 
-_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit: ; preds = %81, %.sink.split.i.i.i
-  %92 = phi ptr [ %83, %81 ], [ %.pre.i.i, %.sink.split.i.i.i ]
-  %93 = phi ptr [ %75, %81 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 512
-  store ptr %1, ptr %92, align 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr %96, ptr %94, align 8
+_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit: ; preds = %82, %.sink.split.i.i.i
+  %93 = phi ptr [ %84, %82 ], [ %.pre.i.i, %.sink.split.i.i.i ]
+  %94 = phi ptr [ %76, %82 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 512
+  store ptr %1, ptr %93, align 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  store ptr %97, ptr %95, align 8
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %29, %47, %30, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %100 = load i32, ptr %99, align 8
-  %101 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %98, i32 noundef %100, ptr noundef nonnull %3)
-  br label %102
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %29, %48, %30, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %101 = load i32, ptr %100, align 8
+  %102 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %99, i32 noundef %101, ptr noundef nonnull %3)
+  br label %103
 
-102:                                              ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit, %28
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 696
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+103:                                              ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit, %28
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 696
+  %109 = load ptr, ptr %108, align 8
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
-_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %102
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 128
-  %111 = load volatile i32, ptr %110, align 4
-  %112 = getelementptr inbounds nuw i8, ptr %106, i64 256
-  %113 = load volatile i32, ptr %112, align 4
-  %114 = sub i32 %111, %113
-  %115 = and i32 %114, 131071
-  %116 = icmp ne i32 %115, 131071
-  %117 = getelementptr inbounds nuw i8, ptr %104, i64 440
-  %118 = load i32, ptr %117, align 8
-  %119 = icmp ugt i32 %115, %118
-  %120 = select i1 %116, i1 %119, i1 false
-  br i1 %120, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %103
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 128
+  %112 = load volatile i32, ptr %111, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %107, i64 256
+  %114 = load volatile i32, ptr %113, align 4
+  %115 = sub i32 %112, %114
+  %116 = and i32 %115, 131071
+  %117 = icmp ne i32 %116, 131071
+  %118 = getelementptr inbounds nuw i8, ptr %105, i64 440
+  %119 = load i32, ptr %118, align 8
+  %120 = icmp ugt i32 %116, %119
+  %121 = select i1 %117, i1 %120, i1 false
+  br i1 %121, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
-_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %102
-  %121 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %122 = extractvalue { i64, i64 } %121, 0
-  %123 = extractvalue { i64, i64 } %121, 1
-  %124 = getelementptr inbounds nuw i8, ptr %104, i64 444
-  %125 = load i32, ptr %124, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %104, i32 noundef %125) #8
-  %126 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %127 = extractvalue { i64, i64 } %126, 0
-  %128 = extractvalue { i64, i64 } %126, 1
-  %129 = sub i64 %127, %122
+_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %103
+  %122 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %123 = extractvalue { i64, i64 } %122, 0
+  %124 = extractvalue { i64, i64 } %122, 1
+  %125 = getelementptr inbounds nuw i8, ptr %105, i64 444
+  %126 = load i32, ptr %125, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %105, i32 noundef %126) #8
+  %127 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %128 = extractvalue { i64, i64 } %127, 0
+  %129 = extractvalue { i64, i64 } %127, 1
   %130 = sub i64 %128, %123
-  %131 = getelementptr inbounds nuw i8, ptr %104, i64 448
-  %132 = load i64, ptr %131, align 8
-  %133 = add nsw i64 %129, %132
-  store i64 %133, ptr %131, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %104, i64 456
-  %135 = load i64, ptr %134, align 8
-  %136 = add nsw i64 %130, %135
-  store i64 %136, ptr %134, align 8
+  %131 = sub i64 %129, %124
+  %132 = getelementptr inbounds nuw i8, ptr %105, i64 448
+  %133 = load i64, ptr %132, align 8
+  %134 = add nsw i64 %130, %133
+  store i64 %134, ptr %132, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %105, i64 456
+  %136 = load i64, ptr %135, align 8
+  %137 = add nsw i64 %131, %136
+  store i64 %137, ptr %135, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2
@@ -13129,12 +13136,12 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier0ELb1EE11do_oo
   %37 = lshr i64 %36, %.pre-phi23
   %38 = trunc i64 %37 to i32
   store i32 %38, ptr %1, align 4
-  br label %112
+  br label %113
 
 39:                                               ; preds = %5
   switch i8 %.sroa.2.0.extract.trunc, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit [
     i8 -3, label %40
-    i8 -4, label %58
+    i8 -4, label %59
   ]
 
 40:                                               ; preds = %39
@@ -13151,142 +13158,143 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier0ELb1EE11do_oo
   %51 = and i64 %50, 4294967295
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 1448
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %53, i64 %51, i32 1
-  %55 = load i8, ptr %54, align 1
-  %56 = icmp eq i8 %55, -3
-  br i1 %56, label %57, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %54 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %53, i64 %51
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
+  %56 = load i8, ptr %55, align 1
+  %57 = icmp eq i8 %56, -3
+  br i1 %57, label %58, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-57:                                               ; preds = %40
-  store i8 -1, ptr %54, align 1
+58:                                               ; preds = %40
+  store i8 -1, ptr %55, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-58:                                               ; preds = %39
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 520
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 528
-  %66 = load i32, ptr %65, align 8
-  %67 = zext nneg i32 %66 to i64
-  %68 = shl i64 %64, %67
-  %69 = sub i64 %12, %68
-  %70 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %71 = zext nneg i32 %70 to i64
-  %72 = lshr i64 %69, %71
-  %73 = and i64 %72, 4294967295
-  %74 = getelementptr inbounds nuw i8, ptr %62, i64 496
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %73
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  %79 = load i32, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %60, i64 544
-  %81 = load ptr, ptr %80, align 8
-  %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %81, i64 %82
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %91
+59:                                               ; preds = %39
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 520
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 528
+  %67 = load i32, ptr %66, align 8
+  %68 = zext nneg i32 %67 to i64
+  %69 = shl i64 %65, %68
+  %70 = sub i64 %12, %69
+  %71 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %72 = zext nneg i32 %71 to i64
+  %73 = lshr i64 %70, %72
+  %74 = and i64 %73, 4294967295
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 496
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %74
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %61, i64 544
+  %82 = load ptr, ptr %81, align 8
+  %83 = zext i32 %80 to i64
+  %84 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %82, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %88, label %92
 
-87:                                               ; preds = %58
-  %88 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 512
-  store ptr %88, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
+88:                                               ; preds = %59
+  %89 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 512
+  store ptr %89, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i
 
-91:                                               ; preds = %58
-  %92 = getelementptr inbounds nuw i8, ptr %85, i64 512
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, %92
-  br i1 %94, label %95, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
+92:                                               ; preds = %59
+  %93 = getelementptr inbounds nuw i8, ptr %86, i64 512
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, %93
+  br i1 %95, label %96, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
 
-95:                                               ; preds = %91
-  %96 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 512
-  store ptr %96, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 520
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 528
-  store i64 0, ptr %99, align 8
-  store ptr %85, ptr %98, align 8
+96:                                               ; preds = %92
+  %97 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 512
+  store ptr %97, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 520
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 528
+  store i64 0, ptr %100, align 8
+  store ptr %86, ptr %99, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %95, %87
-  %.sink.i.i.i = phi ptr [ %96, %95 ], [ %88, %87 ]
-  store ptr %.sink.i.i.i, ptr %84, align 8
-  %100 = load i64, ptr %83, align 8
-  %101 = add i64 %100, 536
-  store i64 %101, ptr %83, align 8
+.sink.split.i.i.i:                                ; preds = %96, %88
+  %.sink.i.i.i = phi ptr [ %97, %96 ], [ %89, %88 ]
+  store ptr %.sink.i.i.i, ptr %85, align 8
+  %101 = load i64, ptr %84, align 8
+  %102 = add i64 %101, 536
+  store i64 %102, ptr %84, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 512
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
 
-_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit: ; preds = %91, %.sink.split.i.i.i
-  %102 = phi ptr [ %93, %91 ], [ %.pre.i.i, %.sink.split.i.i.i ]
-  %103 = phi ptr [ %85, %91 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 512
-  store ptr %1, ptr %102, align 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store ptr %106, ptr %104, align 8
+_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit: ; preds = %92, %.sink.split.i.i.i
+  %103 = phi ptr [ %94, %92 ], [ %.pre.i.i, %.sink.split.i.i.i ]
+  %104 = phi ptr [ %86, %92 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 512
+  store ptr %1, ptr %103, align 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  store ptr %107, ptr %105, align 8
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %39, %57, %40, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %110 = load i32, ptr %109, align 8
-  %111 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %108, i32 noundef %110, ptr noundef %13)
-  br label %112
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %39, %58, %40, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %111 = load i32, ptr %110, align 8
+  %112 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %109, i32 noundef %111, ptr noundef %13)
+  br label %113
 
-112:                                              ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit, %35
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 696
-  %118 = load ptr, ptr %117, align 8
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+113:                                              ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit, %35
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 696
+  %119 = load ptr, ptr %118, align 8
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
-_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %112
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 128
-  %121 = load volatile i32, ptr %120, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %116, i64 256
-  %123 = load volatile i32, ptr %122, align 4
-  %124 = sub i32 %121, %123
-  %125 = and i32 %124, 131071
-  %126 = icmp ne i32 %125, 131071
-  %127 = getelementptr inbounds nuw i8, ptr %114, i64 440
-  %128 = load i32, ptr %127, align 8
-  %129 = icmp ugt i32 %125, %128
-  %130 = select i1 %126, i1 %129, i1 false
-  br i1 %130, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %113
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 128
+  %122 = load volatile i32, ptr %121, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %117, i64 256
+  %124 = load volatile i32, ptr %123, align 4
+  %125 = sub i32 %122, %124
+  %126 = and i32 %125, 131071
+  %127 = icmp ne i32 %126, 131071
+  %128 = getelementptr inbounds nuw i8, ptr %115, i64 440
+  %129 = load i32, ptr %128, align 8
+  %130 = icmp ugt i32 %126, %129
+  %131 = select i1 %127, i1 %130, i1 false
+  br i1 %131, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
-_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %112
-  %131 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %132 = extractvalue { i64, i64 } %131, 0
-  %133 = extractvalue { i64, i64 } %131, 1
-  %134 = getelementptr inbounds nuw i8, ptr %114, i64 444
-  %135 = load i32, ptr %134, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %114, i32 noundef %135) #8
-  %136 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %137 = extractvalue { i64, i64 } %136, 0
-  %138 = extractvalue { i64, i64 } %136, 1
-  %139 = sub i64 %137, %132
+_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %113
+  %132 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %133 = extractvalue { i64, i64 } %132, 0
+  %134 = extractvalue { i64, i64 } %132, 1
+  %135 = getelementptr inbounds nuw i8, ptr %115, i64 444
+  %136 = load i32, ptr %135, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %115, i32 noundef %136) #8
+  %137 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %138 = extractvalue { i64, i64 } %137, 0
+  %139 = extractvalue { i64, i64 } %137, 1
   %140 = sub i64 %138, %133
-  %141 = getelementptr inbounds nuw i8, ptr %114, i64 448
-  %142 = load i64, ptr %141, align 8
-  %143 = add nsw i64 %139, %142
-  store i64 %143, ptr %141, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %114, i64 456
-  %145 = load i64, ptr %144, align 8
-  %146 = add nsw i64 %140, %145
-  store i64 %146, ptr %144, align 8
+  %141 = sub i64 %139, %134
+  %142 = getelementptr inbounds nuw i8, ptr %115, i64 448
+  %143 = load i64, ptr %142, align 8
+  %144 = add nsw i64 %140, %143
+  store i64 %144, ptr %142, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %115, i64 456
+  %146 = load i64, ptr %145, align 8
+  %147 = add nsw i64 %141, %146
+  store i64 %147, ptr %145, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2
@@ -13382,7 +13390,7 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier1ELb1EE11do_oo
 53:                                               ; preds = %5
   switch i8 %.sroa.2.0.extract.trunc, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit [
     i8 -3, label %54
-    i8 -4, label %72
+    i8 -4, label %73
   ]
 
 54:                                               ; preds = %53
@@ -13399,142 +13407,143 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier1ELb1EE11do_oo
   %65 = and i64 %64, 4294967295
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 1448
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %67, i64 %65, i32 1
-  %69 = load i8, ptr %68, align 1
-  %70 = icmp eq i8 %69, -3
-  br i1 %70, label %71, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %68 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %67, i64 %65
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
+  %70 = load i8, ptr %69, align 1
+  %71 = icmp eq i8 %70, -3
+  br i1 %71, label %72, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-71:                                               ; preds = %54
-  store i8 -1, ptr %68, align 1
+72:                                               ; preds = %54
+  store i8 -1, ptr %69, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-72:                                               ; preds = %53
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 520
-  %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 528
-  %80 = load i32, ptr %79, align 8
-  %81 = zext nneg i32 %80 to i64
-  %82 = shl i64 %78, %81
-  %83 = sub i64 %8, %82
-  %84 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %85 = zext nneg i32 %84 to i64
-  %86 = lshr i64 %83, %85
-  %87 = and i64 %86, 4294967295
-  %88 = getelementptr inbounds nuw i8, ptr %76, i64 496
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %87
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
-  %93 = load i32, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %74, i64 544
-  %95 = load ptr, ptr %94, align 8
-  %96 = zext i32 %93 to i64
-  %97 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %95, i64 %96
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %101, label %105
+73:                                               ; preds = %53
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 520
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 528
+  %81 = load i32, ptr %80, align 8
+  %82 = zext nneg i32 %81 to i64
+  %83 = shl i64 %79, %82
+  %84 = sub i64 %8, %83
+  %85 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %86 = zext nneg i32 %85 to i64
+  %87 = lshr i64 %84, %86
+  %88 = and i64 %87, 4294967295
+  %89 = getelementptr inbounds nuw i8, ptr %77, i64 496
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %88
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 64
+  %94 = load i32, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %75, i64 544
+  %96 = load ptr, ptr %95, align 8
+  %97 = zext i32 %94 to i64
+  %98 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %96, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %106
 
-101:                                              ; preds = %72
-  %102 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 512
-  store ptr %102, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
+102:                                              ; preds = %73
+  %103 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 512
+  store ptr %103, ptr %104, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i
 
-105:                                              ; preds = %72
-  %106 = getelementptr inbounds nuw i8, ptr %99, i64 512
-  %107 = load ptr, ptr %106, align 8
-  %108 = icmp eq ptr %107, %106
-  br i1 %108, label %109, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
+106:                                              ; preds = %73
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 512
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp eq ptr %108, %107
+  br i1 %109, label %110, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
 
-109:                                              ; preds = %105
-  %110 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 512
-  store ptr %110, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 520
-  %113 = getelementptr inbounds nuw i8, ptr %110, i64 528
-  store i64 0, ptr %113, align 8
-  store ptr %99, ptr %112, align 8
+110:                                              ; preds = %106
+  %111 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 512
+  store ptr %111, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 520
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 528
+  store i64 0, ptr %114, align 8
+  store ptr %100, ptr %113, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %109, %101
-  %.sink.i.i.i = phi ptr [ %110, %109 ], [ %102, %101 ]
-  store ptr %.sink.i.i.i, ptr %98, align 8
-  %114 = load i64, ptr %97, align 8
-  %115 = add i64 %114, 536
-  store i64 %115, ptr %97, align 8
+.sink.split.i.i.i:                                ; preds = %110, %102
+  %.sink.i.i.i = phi ptr [ %111, %110 ], [ %103, %102 ]
+  store ptr %.sink.i.i.i, ptr %99, align 8
+  %115 = load i64, ptr %98, align 8
+  %116 = add i64 %115, 536
+  store i64 %116, ptr %98, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 512
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
 
-_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit: ; preds = %105, %.sink.split.i.i.i
-  %116 = phi ptr [ %107, %105 ], [ %.pre.i.i, %.sink.split.i.i.i ]
-  %117 = phi ptr [ %99, %105 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 512
-  store ptr %1, ptr %116, align 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store ptr %120, ptr %118, align 8
+_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit: ; preds = %106, %.sink.split.i.i.i
+  %117 = phi ptr [ %108, %106 ], [ %.pre.i.i, %.sink.split.i.i.i ]
+  %118 = phi ptr [ %100, %106 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 512
+  store ptr %1, ptr %117, align 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  store ptr %121, ptr %119, align 8
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %53, %71, %54, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %124 = load i32, ptr %123, align 8
-  %125 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %122, i32 noundef %124, ptr noundef nonnull %3)
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %53, %72, %54, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionIP7oopDescEEvPT_.exit
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %125 = load i32, ptr %124, align 8
+  %126 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %123, i32 noundef %125, ptr noundef nonnull %3)
   br label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
 
 _ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit: ; preds = %49, %28, %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 696
-  %131 = load ptr, ptr %130, align 8
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 696
+  %132 = load ptr, ptr %131, align 8
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
-  %133 = getelementptr inbounds nuw i8, ptr %129, i64 128
-  %134 = load volatile i32, ptr %133, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %129, i64 256
-  %136 = load volatile i32, ptr %135, align 4
-  %137 = sub i32 %134, %136
-  %138 = and i32 %137, 131071
-  %139 = icmp ne i32 %138, 131071
-  %140 = getelementptr inbounds nuw i8, ptr %127, i64 440
-  %141 = load i32, ptr %140, align 8
-  %142 = icmp ugt i32 %138, %141
-  %143 = select i1 %139, i1 %142, i1 false
-  br i1 %143, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 128
+  %135 = load volatile i32, ptr %134, align 4
+  %136 = getelementptr inbounds nuw i8, ptr %130, i64 256
+  %137 = load volatile i32, ptr %136, align 4
+  %138 = sub i32 %135, %137
+  %139 = and i32 %138, 131071
+  %140 = icmp ne i32 %139, 131071
+  %141 = getelementptr inbounds nuw i8, ptr %128, i64 440
+  %142 = load i32, ptr %141, align 8
+  %143 = icmp ugt i32 %139, %142
+  %144 = select i1 %140, i1 %143, i1 false
+  br i1 %144, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
-  %144 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %145 = extractvalue { i64, i64 } %144, 0
-  %146 = extractvalue { i64, i64 } %144, 1
-  %147 = getelementptr inbounds nuw i8, ptr %127, i64 444
-  %148 = load i32, ptr %147, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %127, i32 noundef %148) #8
-  %149 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %150 = extractvalue { i64, i64 } %149, 0
-  %151 = extractvalue { i64, i64 } %149, 1
-  %152 = sub i64 %150, %145
+  %145 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %146 = extractvalue { i64, i64 } %145, 0
+  %147 = extractvalue { i64, i64 } %145, 1
+  %148 = getelementptr inbounds nuw i8, ptr %128, i64 444
+  %149 = load i32, ptr %148, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %128, i32 noundef %149) #8
+  %150 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %151 = extractvalue { i64, i64 } %150, 0
+  %152 = extractvalue { i64, i64 } %150, 1
   %153 = sub i64 %151, %146
-  %154 = getelementptr inbounds nuw i8, ptr %127, i64 448
-  %155 = load i64, ptr %154, align 8
-  %156 = add nsw i64 %152, %155
-  store i64 %156, ptr %154, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %127, i64 456
-  %158 = load i64, ptr %157, align 8
-  %159 = add nsw i64 %153, %158
-  store i64 %159, ptr %157, align 8
+  %154 = sub i64 %152, %147
+  %155 = getelementptr inbounds nuw i8, ptr %128, i64 448
+  %156 = load i64, ptr %155, align 8
+  %157 = add nsw i64 %153, %156
+  store i64 %157, ptr %155, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %128, i64 456
+  %159 = load i64, ptr %158, align 8
+  %160 = add nsw i64 %154, %159
+  store i64 %160, ptr %158, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2
@@ -13633,7 +13642,7 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier1ELb1EE11do_oo
 62:                                               ; preds = %5
   switch i8 %.sroa.2.0.extract.trunc, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit [
     i8 -3, label %63
-    i8 -4, label %81
+    i8 -4, label %82
   ]
 
 63:                                               ; preds = %62
@@ -13650,142 +13659,143 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier1ELb1EE11do_oo
   %74 = and i64 %73, 4294967295
   %75 = getelementptr inbounds nuw i8, ptr %15, i64 1448
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %76, i64 %74, i32 1
-  %78 = load i8, ptr %77, align 1
-  %79 = icmp eq i8 %78, -3
-  br i1 %79, label %80, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %77 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %76, i64 %74
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  %79 = load i8, ptr %78, align 1
+  %80 = icmp eq i8 %79, -3
+  br i1 %80, label %81, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-80:                                               ; preds = %63
-  store i8 -1, ptr %77, align 1
+81:                                               ; preds = %63
+  store i8 -1, ptr %78, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-81:                                               ; preds = %62
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 520
-  %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 528
-  %89 = load i32, ptr %88, align 8
-  %90 = zext nneg i32 %89 to i64
-  %91 = shl i64 %87, %90
-  %92 = sub i64 %12, %91
-  %93 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
-  %94 = zext nneg i32 %93 to i64
-  %95 = lshr i64 %92, %94
-  %96 = and i64 %95, 4294967295
-  %97 = getelementptr inbounds nuw i8, ptr %85, i64 496
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
-  %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %83, i64 544
-  %104 = load ptr, ptr %103, align 8
-  %105 = zext i32 %102 to i64
-  %106 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %104, i64 %105
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %108 = load ptr, ptr %107, align 8
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %110, label %114
+82:                                               ; preds = %62
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 520
+  %88 = load i64, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 528
+  %90 = load i32, ptr %89, align 8
+  %91 = zext nneg i32 %90 to i64
+  %92 = shl i64 %88, %91
+  %93 = sub i64 %12, %92
+  %94 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
+  %95 = zext nneg i32 %94 to i64
+  %96 = lshr i64 %93, %95
+  %97 = and i64 %96, 4294967295
+  %98 = getelementptr inbounds nuw i8, ptr %86, i64 496
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %97
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 64
+  %103 = load i32, ptr %102, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %84, i64 544
+  %105 = load ptr, ptr %104, align 8
+  %106 = zext i32 %103 to i64
+  %107 = getelementptr inbounds nuw %class.G1OopStarChunkedList, ptr %105, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %109 = load ptr, ptr %108, align 8
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %111, label %115
 
-110:                                              ; preds = %81
-  %111 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 512
-  store ptr %111, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 520
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false)
+111:                                              ; preds = %82
+  %112 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 512
+  store ptr %112, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 520
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false)
   br label %.sink.split.i.i.i
 
-114:                                              ; preds = %81
-  %115 = getelementptr inbounds nuw i8, ptr %108, i64 512
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp eq ptr %116, %115
-  br i1 %117, label %118, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
+115:                                              ; preds = %82
+  %116 = getelementptr inbounds nuw i8, ptr %109, i64 512
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp eq ptr %117, %116
+  br i1 %118, label %119, label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
 
-118:                                              ; preds = %114
-  %119 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 512
-  store ptr %119, ptr %120, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 520
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 528
-  store i64 0, ptr %122, align 8
-  store ptr %108, ptr %121, align 8
+119:                                              ; preds = %115
+  %120 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 5, i32 noundef 0) #8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 512
+  store ptr %120, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 520
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 528
+  store i64 0, ptr %123, align 8
+  store ptr %109, ptr %122, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %118, %110
-  %.sink.i.i.i = phi ptr [ %119, %118 ], [ %111, %110 ]
-  store ptr %.sink.i.i.i, ptr %107, align 8
-  %123 = load i64, ptr %106, align 8
-  %124 = add i64 %123, 536
-  store i64 %124, ptr %106, align 8
+.sink.split.i.i.i:                                ; preds = %119, %111
+  %.sink.i.i.i = phi ptr [ %120, %119 ], [ %112, %111 ]
+  store ptr %.sink.i.i.i, ptr %108, align 8
+  %124 = load i64, ptr %107, align 8
+  %125 = add i64 %124, 536
+  store i64 %125, ptr %107, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 512
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
 
-_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit: ; preds = %114, %.sink.split.i.i.i
-  %125 = phi ptr [ %116, %114 ], [ %.pre.i.i, %.sink.split.i.i.i ]
-  %126 = phi ptr [ %108, %114 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 512
-  store ptr %1, ptr %125, align 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  store ptr %129, ptr %127, align 8
+_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit: ; preds = %115, %.sink.split.i.i.i
+  %126 = phi ptr [ %117, %115 ], [ %.pre.i.i, %.sink.split.i.i.i ]
+  %127 = phi ptr [ %109, %115 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 512
+  store ptr %1, ptr %126, align 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  store ptr %130, ptr %128, align 8
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %62, %80, %63, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %133 = load i32, ptr %132, align 8
-  %134 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %131, i32 noundef %133, ptr noundef %13)
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %62, %81, %63, %_ZN20G1ParScanThreadState34remember_root_into_optional_regionI9narrowOopEEvPT_.exit
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %134 = load i32, ptr %133, align 8
+  %135 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %132, i32 noundef %134, ptr noundef %13)
   br label %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
 
 _ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit: ; preds = %58, %35, %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 696
-  %140 = load ptr, ptr %139, align 8
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 696
+  %141 = load ptr, ptr %140, align 8
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
-  %142 = getelementptr inbounds nuw i8, ptr %138, i64 128
-  %143 = load volatile i32, ptr %142, align 4
-  %144 = getelementptr inbounds nuw i8, ptr %138, i64 256
-  %145 = load volatile i32, ptr %144, align 4
-  %146 = sub i32 %143, %145
-  %147 = and i32 %146, 131071
-  %148 = icmp ne i32 %147, 131071
-  %149 = getelementptr inbounds nuw i8, ptr %136, i64 440
-  %150 = load i32, ptr %149, align 8
-  %151 = icmp ugt i32 %147, %150
-  %152 = select i1 %148, i1 %151, i1 false
-  br i1 %152, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+  %143 = getelementptr inbounds nuw i8, ptr %139, i64 128
+  %144 = load volatile i32, ptr %143, align 4
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 256
+  %146 = load volatile i32, ptr %145, align 4
+  %147 = sub i32 %144, %146
+  %148 = and i32 %147, 131071
+  %149 = icmp ne i32 %148, 131071
+  %150 = getelementptr inbounds nuw i8, ptr %137, i64 440
+  %151 = load i32, ptr %150, align 8
+  %152 = icmp ugt i32 %148, %151
+  %153 = select i1 %149, i1 %152, i1 false
+  br i1 %153, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %_ZN15G1ParCopyHelper14do_cld_barrierEP7oopDesc.exit
-  %153 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %154 = extractvalue { i64, i64 } %153, 0
-  %155 = extractvalue { i64, i64 } %153, 1
-  %156 = getelementptr inbounds nuw i8, ptr %136, i64 444
-  %157 = load i32, ptr %156, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %136, i32 noundef %157) #8
-  %158 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %159 = extractvalue { i64, i64 } %158, 0
-  %160 = extractvalue { i64, i64 } %158, 1
-  %161 = sub i64 %159, %154
+  %154 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %155 = extractvalue { i64, i64 } %154, 0
+  %156 = extractvalue { i64, i64 } %154, 1
+  %157 = getelementptr inbounds nuw i8, ptr %137, i64 444
+  %158 = load i32, ptr %157, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %137, i32 noundef %158) #8
+  %159 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %160 = extractvalue { i64, i64 } %159, 0
+  %161 = extractvalue { i64, i64 } %159, 1
   %162 = sub i64 %160, %155
-  %163 = getelementptr inbounds nuw i8, ptr %136, i64 448
-  %164 = load i64, ptr %163, align 8
-  %165 = add nsw i64 %161, %164
-  store i64 %165, ptr %163, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %136, i64 456
-  %167 = load i64, ptr %166, align 8
-  %168 = add nsw i64 %162, %167
-  store i64 %168, ptr %166, align 8
+  %163 = sub i64 %161, %156
+  %164 = getelementptr inbounds nuw i8, ptr %137, i64 448
+  %165 = load i64, ptr %164, align 8
+  %166 = add nsw i64 %162, %165
+  store i64 %166, ptr %164, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %137, i64 456
+  %168 = load i64, ptr %167, align 8
+  %169 = add nsw i64 %163, %168
+  store i64 %169, ptr %167, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2
@@ -13848,7 +13858,7 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier2ELb1EE11do_oo
 28:                                               ; preds = %24, %21
   %.0 = phi ptr [ %23, %21 ], [ %27, %24 ]
   store ptr %.0, ptr %1, align 8
-  br label %54
+  br label %55
 
 29:                                               ; preds = %5
   %30 = icmp eq i8 %.sroa.2.0.extract.trunc, -3
@@ -13868,67 +13878,68 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier2ELb1EE11do_oo
   %42 = and i64 %41, 4294967295
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 1448
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %44, i64 %42, i32 1
-  %46 = load i8, ptr %45, align 1
-  %47 = icmp eq i8 %46, -3
-  br i1 %47, label %48, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %45 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %44, i64 %42
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp eq i8 %47, -3
+  br i1 %48, label %49, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-48:                                               ; preds = %31
-  store i8 -1, ptr %45, align 1
+49:                                               ; preds = %31
+  store i8 -1, ptr %46, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %48, %31, %29
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %52 = load i32, ptr %51, align 8
-  %53 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %50, i32 noundef %52, ptr noundef nonnull %3)
-  br label %54
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %49, %31, %29
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %53 = load i32, ptr %52, align 8
+  %54 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %51, i32 noundef %53, ptr noundef nonnull %3)
+  br label %55
 
-54:                                               ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit, %28
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 696
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+55:                                               ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit, %28
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 696
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
-_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %54
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 128
-  %63 = load volatile i32, ptr %62, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %58, i64 256
-  %65 = load volatile i32, ptr %64, align 4
-  %66 = sub i32 %63, %65
-  %67 = and i32 %66, 131071
-  %68 = icmp ne i32 %67, 131071
-  %69 = getelementptr inbounds nuw i8, ptr %56, i64 440
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp ugt i32 %67, %70
-  %72 = select i1 %68, i1 %71, i1 false
-  br i1 %72, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %55
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 128
+  %64 = load volatile i32, ptr %63, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 256
+  %66 = load volatile i32, ptr %65, align 4
+  %67 = sub i32 %64, %66
+  %68 = and i32 %67, 131071
+  %69 = icmp ne i32 %68, 131071
+  %70 = getelementptr inbounds nuw i8, ptr %57, i64 440
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp ugt i32 %68, %71
+  %73 = select i1 %69, i1 %72, i1 false
+  br i1 %73, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
-_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %54
-  %73 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %74 = extractvalue { i64, i64 } %73, 0
-  %75 = extractvalue { i64, i64 } %73, 1
-  %76 = getelementptr inbounds nuw i8, ptr %56, i64 444
-  %77 = load i32, ptr %76, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %56, i32 noundef %77) #8
-  %78 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %79 = extractvalue { i64, i64 } %78, 0
-  %80 = extractvalue { i64, i64 } %78, 1
-  %81 = sub i64 %79, %74
+_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %55
+  %74 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %75 = extractvalue { i64, i64 } %74, 0
+  %76 = extractvalue { i64, i64 } %74, 1
+  %77 = getelementptr inbounds nuw i8, ptr %57, i64 444
+  %78 = load i32, ptr %77, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %57, i32 noundef %78) #8
+  %79 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %80 = extractvalue { i64, i64 } %79, 0
+  %81 = extractvalue { i64, i64 } %79, 1
   %82 = sub i64 %80, %75
-  %83 = getelementptr inbounds nuw i8, ptr %56, i64 448
-  %84 = load i64, ptr %83, align 8
-  %85 = add nsw i64 %81, %84
-  store i64 %85, ptr %83, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %56, i64 456
-  %87 = load i64, ptr %86, align 8
-  %88 = add nsw i64 %82, %87
-  store i64 %88, ptr %86, align 8
+  %83 = sub i64 %81, %76
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 448
+  %85 = load i64, ptr %84, align 8
+  %86 = add nsw i64 %82, %85
+  store i64 %86, ptr %84, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %57, i64 456
+  %88 = load i64, ptr %87, align 8
+  %89 = add nsw i64 %83, %88
+  store i64 %89, ptr %87, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2
@@ -13995,7 +14006,7 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier2ELb1EE11do_oo
   %37 = lshr i64 %36, %.pre-phi21
   %38 = trunc i64 %37 to i32
   store i32 %38, ptr %1, align 4
-  br label %64
+  br label %65
 
 39:                                               ; preds = %5
   %40 = icmp eq i8 %.sroa.2.0.extract.trunc, -3
@@ -14015,67 +14026,68 @@ define linkonce_odr hidden void @_ZN16G1ParCopyClosureIL9G1Barrier2ELb1EE11do_oo
   %52 = and i64 %51, 4294967295
   %53 = getelementptr inbounds nuw i8, ptr %15, i64 1448
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %54, i64 %52, i32 1
-  %56 = load i8, ptr %55, align 1
-  %57 = icmp eq i8 %56, -3
-  br i1 %57, label %58, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
+  %55 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %54, i64 %52
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
+  %57 = load i8, ptr %56, align 1
+  %58 = icmp eq i8 %57, -3
+  br i1 %58, label %59, label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-58:                                               ; preds = %41
-  store i8 -1, ptr %55, align 1
+59:                                               ; preds = %41
+  store i8 -1, ptr %56, align 1
   br label %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit
 
-_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %58, %41, %39
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = load i32, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %60, i32 noundef %62, ptr noundef %13)
-  br label %64
+_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit: ; preds = %59, %41, %39
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %63 = load i32, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %61, i32 noundef %63, ptr noundef %13)
+  br label %65
 
-64:                                               ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit, %35
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 696
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
+65:                                               ; preds = %_ZN15G1CollectedHeap21set_humongous_is_liveEP7oopDesc.exit, %35
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 696
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i
 
-_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %64
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 128
-  %73 = load volatile i32, ptr %72, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %68, i64 256
-  %75 = load volatile i32, ptr %74, align 4
-  %76 = sub i32 %73, %75
-  %77 = and i32 %76, 131071
-  %78 = icmp ne i32 %77, 131071
-  %79 = getelementptr inbounds nuw i8, ptr %66, i64 440
-  %80 = load i32, ptr %79, align 8
-  %81 = icmp ugt i32 %77, %80
-  %82 = select i1 %78, i1 %81, i1 false
-  br i1 %82, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
+_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i: ; preds = %65
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 128
+  %74 = load volatile i32, ptr %73, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 256
+  %76 = load volatile i32, ptr %75, align 4
+  %77 = sub i32 %74, %76
+  %78 = and i32 %77, 131071
+  %79 = icmp ne i32 %78, 131071
+  %80 = getelementptr inbounds nuw i8, ptr %67, i64 440
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp ugt i32 %78, %81
+  %83 = select i1 %79, i1 %82, i1 false
+  br i1 %83, label %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
-_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %64
-  %83 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %84 = extractvalue { i64, i64 } %83, 0
-  %85 = extractvalue { i64, i64 } %83, 1
-  %86 = getelementptr inbounds nuw i8, ptr %66, i64 444
-  %87 = load i32, ptr %86, align 4
-  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %66, i32 noundef %87) #8
-  %88 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
-  %89 = extractvalue { i64, i64 } %88, 0
-  %90 = extractvalue { i64, i64 } %88, 1
-  %91 = sub i64 %89, %84
+_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %65
+  %84 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %85 = extractvalue { i64, i64 } %84, 0
+  %86 = extractvalue { i64, i64 } %84, 1
+  %87 = getelementptr inbounds nuw i8, ptr %67, i64 444
+  %88 = load i32, ptr %87, align 4
+  tail call void @_ZN20G1ParScanThreadState23trim_queue_to_thresholdEj(ptr noundef nonnull align 8 dereferenceable(632) %67, i32 noundef %88) #8
+  %89 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #8
+  %90 = extractvalue { i64, i64 } %89, 0
+  %91 = extractvalue { i64, i64 } %89, 1
   %92 = sub i64 %90, %85
-  %93 = getelementptr inbounds nuw i8, ptr %66, i64 448
-  %94 = load i64, ptr %93, align 8
-  %95 = add nsw i64 %91, %94
-  store i64 %95, ptr %93, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %66, i64 456
-  %97 = load i64, ptr %96, align 8
-  %98 = add nsw i64 %92, %97
-  store i64 %98, ptr %96, align 8
+  %93 = sub i64 %91, %86
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 448
+  %95 = load i64, ptr %94, align 8
+  %96 = add nsw i64 %92, %95
+  store i64 %96, ptr %94, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 456
+  %98 = load i64, ptr %97, align 8
+  %99 = add nsw i64 %93, %98
+  store i64 %99, ptr %97, align 8
   br label %_ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit
 
 _ZN15G1ParCopyHelper20trim_queue_partiallyEv.exit: ; preds = %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.thread.i.i, %_ZNK20G1ParScanThreadState22needs_partial_trimmingEv.exit.i.i, %2

@@ -252,36 +252,37 @@ define dso_local ptr @lua_newthread(ptr noundef %0) local_unnamed_addr #1 {
 44:                                               ; preds = %44, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %44 ]
   %45 = load ptr, ptr %16, align 8, !tbaa !30
-  %46 = getelementptr inbounds nuw %union.StackValue, ptr %45, i64 %indvars.iv.i, i32 0, i32 1
-  store i8 0, ptr %46, align 8, !tbaa !30
+  %46 = getelementptr inbounds nuw %union.StackValue, ptr %45, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store i8 0, ptr %47, align 8, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 45
   br i1 %exitcond.not.i, label %stack_init.exit, label %44
 
 stack_init.exit:                                  ; preds = %44
-  %47 = load ptr, ptr %16, align 8, !tbaa !30
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %47, ptr %48, align 8, !tbaa !30
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 640
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr %49, ptr %50, align 8, !tbaa !30
-  %51 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %52 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  %53 = getelementptr inbounds nuw i8, ptr %9, i64 156
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
-  store i32 32768, ptr %53, align 4, !tbaa !48
-  store ptr %47, ptr %51, align 8, !tbaa !30
-  %54 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  store ptr null, ptr %54, align 8, !tbaa !30
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i8 0, ptr %55, align 8, !tbaa !30
-  %56 = load ptr, ptr %48, align 8, !tbaa !30
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store ptr %57, ptr %48, align 8, !tbaa !30
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 336
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  store ptr %58, ptr %59, align 8, !tbaa !30
-  store ptr %51, ptr %17, align 8, !tbaa !19
+  %48 = load ptr, ptr %16, align 8, !tbaa !30
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %48, ptr %49, align 8, !tbaa !30
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 640
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store ptr %50, ptr %51, align 8, !tbaa !30
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 156
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
+  store i32 32768, ptr %54, align 4, !tbaa !48
+  store ptr %48, ptr %52, align 8, !tbaa !30
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  store ptr null, ptr %55, align 8, !tbaa !30
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i8 0, ptr %56, align 8, !tbaa !30
+  %57 = load ptr, ptr %49, align 8, !tbaa !30
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  store ptr %58, ptr %49, align 8, !tbaa !30
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 336
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  store ptr %59, ptr %60, align 8, !tbaa !30
+  store ptr %52, ptr %17, align 8, !tbaa !19
   ret ptr %9
 }
 
@@ -607,62 +608,63 @@ define internal void @f_luaopen(ptr noundef %0, ptr readnone captures(none) %1) 
 9:                                                ; preds = %9, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %9 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !30
-  %11 = getelementptr inbounds nuw %union.StackValue, ptr %10, i64 %indvars.iv.i, i32 0, i32 1
-  store i8 0, ptr %11, align 8, !tbaa !30
+  %11 = getelementptr inbounds nuw %union.StackValue, ptr %10, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i8 0, ptr %12, align 8, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 45
   br i1 %exitcond.not.i, label %stack_init.exit, label %9
 
 stack_init.exit:                                  ; preds = %9
-  %12 = load ptr, ptr %7, align 8, !tbaa !30
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %12, ptr %13, align 8, !tbaa !30
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 640
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %14, ptr %15, align 8, !tbaa !30
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store i32 32768, ptr %18, align 4, !tbaa !48
-  store ptr %12, ptr %16, align 8, !tbaa !30
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr null, ptr %19, align 8, !tbaa !30
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i8 0, ptr %20, align 8, !tbaa !30
-  %21 = load ptr, ptr %13, align 8, !tbaa !30
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %22, ptr %13, align 8, !tbaa !30
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 336
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %23, ptr %24, align 8, !tbaa !30
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %16, ptr %25, align 8, !tbaa !19
+  %13 = load ptr, ptr %7, align 8, !tbaa !30
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %14, align 8, !tbaa !30
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 640
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %15, ptr %16, align 8, !tbaa !30
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  store i32 32768, ptr %19, align 4, !tbaa !48
+  store ptr %13, ptr %17, align 8, !tbaa !30
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr null, ptr %20, align 8, !tbaa !30
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i8 0, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %14, align 8, !tbaa !30
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %23, ptr %14, align 8, !tbaa !30
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %24, ptr %25, align 8, !tbaa !30
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %17, ptr %26, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %26 = tail call ptr @luaH_new(ptr noundef nonnull %0) #8
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %26, ptr %27, align 8, !tbaa !30
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i8 69, ptr %28, align 8, !tbaa !35
-  tail call void @luaH_resize(ptr noundef nonnull %0, ptr noundef %26, i32 noundef 3, i32 noundef 0) #8
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i8 1, ptr %29, align 8, !tbaa !35
-  call void @luaH_setint(ptr noundef nonnull %0, ptr noundef %26, i64 noundef 1, ptr noundef nonnull %3) #8
-  store ptr %0, ptr %3, align 8, !tbaa !30
-  store i8 72, ptr %29, align 8, !tbaa !35
-  call void @luaH_setint(ptr noundef nonnull %0, ptr noundef %26, i64 noundef 3, ptr noundef nonnull %3) #8
-  %30 = call ptr @luaH_new(ptr noundef nonnull %0) #8
-  store ptr %30, ptr %3, align 8, !tbaa !30
+  %27 = tail call ptr @luaH_new(ptr noundef nonnull %0) #8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %27, ptr %28, align 8, !tbaa !30
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i8 69, ptr %29, align 8, !tbaa !35
-  call void @luaH_setint(ptr noundef nonnull %0, ptr noundef %26, i64 noundef 2, ptr noundef nonnull %3) #8
+  tail call void @luaH_resize(ptr noundef nonnull %0, ptr noundef %27, i32 noundef 3, i32 noundef 0) #8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 1, ptr %30, align 8, !tbaa !35
+  call void @luaH_setint(ptr noundef nonnull %0, ptr noundef %27, i64 noundef 1, ptr noundef nonnull %3) #8
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  store i8 72, ptr %30, align 8, !tbaa !35
+  call void @luaH_setint(ptr noundef nonnull %0, ptr noundef %27, i64 noundef 3, ptr noundef nonnull %3) #8
+  %31 = call ptr @luaH_new(ptr noundef nonnull %0) #8
+  store ptr %31, ptr %3, align 8, !tbaa !30
+  store i8 69, ptr %30, align 8, !tbaa !35
+  call void @luaH_setint(ptr noundef nonnull %0, ptr noundef %27, i64 noundef 2, ptr noundef nonnull %3) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @luaS_init(ptr noundef nonnull %0) #8
   call void @luaT_init(ptr noundef nonnull %0) #8
   call void @luaX_init(ptr noundef nonnull %0) #8
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 110
-  store i8 0, ptr %31, align 2, !tbaa !57
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i8 0, ptr %32, align 8, !tbaa !66
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 110
+  store i8 0, ptr %32, align 2, !tbaa !57
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store i8 0, ptr %33, align 8, !tbaa !66
   ret void
 }
 

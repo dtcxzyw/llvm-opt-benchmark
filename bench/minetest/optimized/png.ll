@@ -139,7 +139,7 @@ vector.ph:                                        ; preds = %vector.main.loop.it
   %n.mod.vf = and i64 %wide.trip.count.i, 15
   %10 = icmp eq i64 %n.mod.vf, 0
   %11 = select i1 %10, i64 16, i64 %n.mod.vf
-  %n.vec = sub nsw i64 %wide.trip.count.i, %11
+  %n.vec = sub nuw nsw i64 %wide.trip.count.i, %11
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -164,7 +164,7 @@ vec.epilog.ph:                                    ; preds = %vec.epilog.iter.che
   %n.mod.vf255 = and i64 %wide.trip.count.i, 7
   %17 = icmp eq i64 %n.mod.vf255, 0
   %18 = select i1 %17, i64 8, i64 %n.mod.vf255
-  %n.vec256 = sub nsw i64 %wide.trip.count.i, %18
+  %n.vec256 = sub nuw nsw i64 %wide.trip.count.i, %18
   br label %vec.epilog.vector.body
 
 vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.body, %vec.epilog.ph

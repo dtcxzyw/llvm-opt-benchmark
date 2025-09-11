@@ -74,96 +74,97 @@ signal_lock.exit:                                 ; preds = %.preheader.i, %3, %
   %14 = icmp ne i32 %13, 0
   %.b24 = load i1, ptr @jvm_signal_installed, align 1
   %or.cond = select i1 %.b24, i1 %14, i1 false
-  br i1 %or.cond, label %15, label %26
+  br i1 %or.cond, label %15, label %27
 
 15:                                               ; preds = %signal_lock.exit
   %16 = zext nneg i32 %0 to i64
   br i1 %2, label %17, label %._crit_edge
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %16, i32 1
-  %19 = tail call i32 @sigismember(ptr noundef nonnull %18, i32 noundef %0) #9
+  %18 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = tail call i32 @sigismember(ptr noundef nonnull %19, i32 noundef %0) #9
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %17
-  %20 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %16
-  %21 = load ptr, ptr %20, align 8
+  %21 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %16
+  %22 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %1, ptr %20, align 8
-  %22 = call i32 @sigemptyset(ptr noundef nonnull %5) #9
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %23, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 128, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 136
-  store i32 0, ptr %24, align 8
+  store ptr %1, ptr %21, align 8
+  %23 = call i32 @sigemptyset(ptr noundef nonnull %5) #9
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 128, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 136
+  store i32 0, ptr %25, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %25 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #9
-  br label %53
+  %26 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #9
+  br label %54
 
-26:                                               ; preds = %signal_lock.exit
+27:                                               ; preds = %signal_lock.exit
   %.b2325 = load i1, ptr @jvm_signal_installing, align 1
-  %27 = load ptr, ptr @os_signal, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %.b2325, label %29, label %44
+  %28 = load ptr, ptr @os_signal, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %.b2325, label %30, label %45
 
-29:                                               ; preds = %26
-  br i1 %28, label %30, label %call_os_signal.exit
+30:                                               ; preds = %27
+  br i1 %29, label %31, label %call_os_signal.exit
 
-30:                                               ; preds = %29
+31:                                               ; preds = %30
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %.str.2..str.1.i = select i1 %2, ptr @.str.2, ptr @.str.1
-  %31 = tail call ptr @dlsym(ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %.str.2..str.1.i) #9
-  store ptr %31, ptr @os_signal, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %call_os_signal.exit
+  %32 = tail call ptr @dlsym(ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %.str.2..str.1.i) #9
+  store ptr %32, ptr @os_signal, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %call_os_signal.exit
 
-33:                                               ; preds = %30
-  %34 = tail call ptr @dlerror() #9
-  %puts3.i = tail call i32 @puts(ptr nonnull dereferenceable(1) %34)
+34:                                               ; preds = %31
+  %35 = tail call ptr @dlerror() #9
+  %puts3.i = tail call i32 @puts(ptr nonnull dereferenceable(1) %35)
   tail call void @exit(i32 noundef 0) #10
   unreachable
 
-call_os_signal.exit:                              ; preds = %29, %30
-  %35 = phi ptr [ %31, %30 ], [ %27, %29 ]
-  %36 = tail call ptr %35(i32 noundef range(i32 0, 65) %0, ptr noundef %1) #9
+call_os_signal.exit:                              ; preds = %30, %31
+  %36 = phi ptr [ %32, %31 ], [ %28, %30 ]
+  %37 = tail call ptr %36(i32 noundef range(i32 0, 65) %0, ptr noundef %1) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %37 = zext nneg i32 %0 to i64
-  %38 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %37
-  store ptr %36, ptr %38, align 8
-  %39 = call i32 @sigemptyset(ptr noundef nonnull %4) #9
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %40, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 136
-  store i32 0, ptr %41, align 8
+  %38 = zext nneg i32 %0 to i64
+  %39 = getelementptr inbounds nuw %struct.sigaction, ptr @sact, i64 %38
+  store ptr %37, ptr %39, align 8
+  %40 = call i32 @sigemptyset(ptr noundef nonnull %4) #9
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %41, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 136
+  store i32 0, ptr %42, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %42 = call i32 @sigaddset(ptr noundef nonnull @jvmsigs, i32 noundef %0) #9
-  %43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #9
-  br label %53
+  %43 = call i32 @sigaddset(ptr noundef nonnull @jvmsigs, i32 noundef %0) #9
+  %44 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #9
+  br label %54
 
-44:                                               ; preds = %26
-  br i1 %28, label %45, label %call_os_signal.exit29
+45:                                               ; preds = %27
+  br i1 %29, label %46, label %call_os_signal.exit29
 
-45:                                               ; preds = %44
+46:                                               ; preds = %45
   %puts.i26 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %.str.2..str.1.i27 = select i1 %2, ptr @.str.2, ptr @.str.1
-  %46 = tail call ptr @dlsym(ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %.str.2..str.1.i27) #9
-  store ptr %46, ptr @os_signal, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %call_os_signal.exit29
+  %47 = tail call ptr @dlsym(ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %.str.2..str.1.i27) #9
+  store ptr %47, ptr @os_signal, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %call_os_signal.exit29
 
-48:                                               ; preds = %45
-  %49 = tail call ptr @dlerror() #9
-  %puts3.i28 = tail call i32 @puts(ptr nonnull dereferenceable(1) %49)
+49:                                               ; preds = %46
+  %50 = tail call ptr @dlerror() #9
+  %puts3.i28 = tail call i32 @puts(ptr nonnull dereferenceable(1) %50)
   tail call void @exit(i32 noundef 0) #10
   unreachable
 
-call_os_signal.exit29:                            ; preds = %44, %45
-  %50 = phi ptr [ %46, %45 ], [ %27, %44 ]
-  %51 = tail call ptr %50(i32 noundef range(i32 0, 65) %0, ptr noundef %1) #9
-  %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #9
-  br label %53
+call_os_signal.exit29:                            ; preds = %45, %46
+  %51 = phi ptr [ %47, %46 ], [ %28, %45 ]
+  %52 = tail call ptr %51(i32 noundef range(i32 0, 65) %0, ptr noundef %1) #9
+  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #9
+  br label %54
 
-53:                                               ; preds = %call_os_signal.exit29, %call_os_signal.exit, %._crit_edge
-  %.0 = phi ptr [ %21, %._crit_edge ], [ %36, %call_os_signal.exit ], [ %51, %call_os_signal.exit29 ]
+54:                                               ; preds = %call_os_signal.exit29, %call_os_signal.exit, %._crit_edge
+  %.0 = phi ptr [ %22, %._crit_edge ], [ %37, %call_os_signal.exit ], [ %52, %call_os_signal.exit29 ]
   ret ptr %.0
 }
 

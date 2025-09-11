@@ -8260,7 +8260,7 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
 10:                                               ; preds = %7
   %11 = zext i8 %4 to i32
   %.not44 = icmp eq i8 %4, -1
-  br i1 %.not44, label %53, label %12
+  br i1 %.not44, label %52, label %12
 
 12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -8316,25 +8316,25 @@ define internal fastcc void @dissect_smb_command(ptr noundef %0, ptr noundef %1,
   %42 = trunc nuw i8 %41 to i1
   %43 = zext i8 %4 to i64
   %44 = getelementptr %struct._smb_function, ptr @smb_dissector, i64 %43
-  %45 = getelementptr %struct._smb_function, ptr @smb_dissector, i64 %43, i32 1
-  %.in = select i1 %42, ptr %44, ptr %45
-  %46 = load ptr, ptr %.in, align 8
-  %47 = call i32 %46(ptr noundef %0, ptr noundef %1, ptr noundef %29, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6)
-  %48 = add i32 %47, -1
-  %49 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %48)
-  br i1 %49, label %51, label %50
+  %.in.idx = select i1 %42, i64 0, i64 8
+  %.in = getelementptr inbounds nuw i8, ptr %44, i64 %.in.idx
+  %45 = load ptr, ptr %.in, align 8
+  %46 = call i32 %45(ptr noundef %0, ptr noundef %1, ptr noundef %29, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6)
+  %47 = add i32 %46, -1
+  %48 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %47)
+  br i1 %48, label %50, label %49
 
-50:                                               ; preds = %.thread
+49:                                               ; preds = %.thread
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
   unreachable
 
-51:                                               ; preds = %.thread
-  %52 = load ptr, ptr %8, align 8
-  call void @proto_item_set_end(ptr noundef %52, ptr noundef %0, i32 noundef %47)
+50:                                               ; preds = %.thread
+  %51 = load ptr, ptr %8, align 8
+  call void @proto_item_set_end(ptr noundef %51, ptr noundef %0, i32 noundef %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %53
+  br label %52
 
-53:                                               ; preds = %51, %10
+52:                                               ; preds = %50, %10
   ret void
 }
 
@@ -22684,151 +22684,154 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
 
 16:                                               ; preds = %12
   %17 = and i64 %indvars.iv, 4294967295
-  %18 = getelementptr %struct.dst_table, ptr %8, i64 %17, i32 2
-  %19 = load i32, ptr %18, align 8
+  %18 = getelementptr %struct.dst_table, ptr %8, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load i32, ptr %19, align 8
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %15, %5
   %.049.lcssa = phi i32 [ 0, %5 ], [ %6, %15 ]
-  %20 = tail call fastcc i32 @TimeZone(i64 noundef %.050)
-  %21 = load ptr, ptr @TimeZoneFaster.dst_table, align 8
-  %22 = icmp eq ptr %21, null
-  %23 = add nuw i32 %.049.lcssa, 1
-  %24 = sext i32 %23 to i64
-  %25 = mul nsw i64 %24, 24
-  br i1 %22, label %26, label %28
+  %21 = tail call fastcc i32 @TimeZone(i64 noundef %.050)
+  %22 = load ptr, ptr @TimeZoneFaster.dst_table, align 8
+  %23 = icmp eq ptr %22, null
+  %24 = add nuw i32 %.049.lcssa, 1
+  %25 = sext i32 %24 to i64
+  %26 = mul nsw i64 %25, 24
+  br i1 %23, label %27, label %29
 
-26:                                               ; preds = %._crit_edge
-  %27 = tail call noalias ptr @g_malloc(i64 noundef %25) #20
-  br label %30
+27:                                               ; preds = %._crit_edge
+  %28 = tail call noalias ptr @g_malloc(i64 noundef %26) #20
+  br label %31
 
-28:                                               ; preds = %._crit_edge
-  %29 = tail call ptr @g_realloc(ptr noundef nonnull %21, i64 noundef %25)
-  br label %30
+29:                                               ; preds = %._crit_edge
+  %30 = tail call ptr @g_realloc(ptr noundef nonnull %22, i64 noundef %26)
+  br label %31
 
-30:                                               ; preds = %28, %26
-  %storemerge = phi ptr [ %29, %28 ], [ %27, %26 ]
+31:                                               ; preds = %29, %27
+  %storemerge = phi ptr [ %30, %29 ], [ %28, %27 ]
   store ptr %storemerge, ptr @TimeZoneFaster.tdt, align 8
-  %31 = icmp eq ptr %storemerge, null
-  br i1 %31, label %32, label %34
+  %32 = icmp eq ptr %storemerge, null
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr @TimeZoneFaster.dst_table, align 8
-  tail call void @g_free(ptr noundef %33)
+33:                                               ; preds = %31
+  %34 = load ptr, ptr @TimeZoneFaster.dst_table, align 8
+  tail call void @g_free(ptr noundef %34)
   store i32 0, ptr @TimeZoneFaster.table_size, align 4
   br label %.loopexit
 
-34:                                               ; preds = %30
+35:                                               ; preds = %31
   store ptr %storemerge, ptr @TimeZoneFaster.dst_table, align 8
-  %35 = load i32, ptr @TimeZoneFaster.table_size, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr @TimeZoneFaster.table_size, align 4
-  %37 = zext nneg i32 %.049.lcssa to i64
-  %38 = getelementptr %struct.dst_table, ptr %storemerge, i64 %37, i32 2
-  store i32 %20, ptr %38, align 8
-  %39 = getelementptr %struct.dst_table, ptr %storemerge, i64 %37, i32 1
+  %36 = load i32, ptr @TimeZoneFaster.table_size, align 4
+  %37 = add i32 %36, 1
+  store i32 %37, ptr @TimeZoneFaster.table_size, align 4
+  %38 = zext nneg i32 %.049.lcssa to i64
+  %39 = getelementptr %struct.dst_table, ptr %storemerge, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store i32 %21, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i64 %.050, ptr %41, align 8
   store i64 %.050, ptr %39, align 8
-  %40 = getelementptr %struct.dst_table, ptr %storemerge, i64 %37
-  store i64 %.050, ptr %40, align 8
-  %41 = add i64 %.050, 15768000
-  %42 = icmp sgt i64 %.050, -9223372036839011409
-  br i1 %42, label %.lr.ph64.preheader, label %.preheader
+  %42 = add i64 %.050, 15768000
+  %43 = icmp sgt i64 %.050, -9223372036839011409
+  br i1 %43, label %.lr.ph64.preheader, label %.preheader
 
-.lr.ph64.preheader:                               ; preds = %34
-  %43 = add i64 %.050, -15768000
+.lr.ph64.preheader:                               ; preds = %35
+  %44 = add i64 %.050, -15768000
   br label %.lr.ph64
 
-.preheader.loopexit:                              ; preds = %60
-  %.phi.trans.insert71 = getelementptr %struct.dst_table, ptr %.pre, i64 %37, i32 1
+.preheader.loopexit:                              ; preds = %62
+  %45 = getelementptr %struct.dst_table, ptr %.pre, i64 %38
+  %.phi.trans.insert71 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %.pre72 = load i64, ptr %.phi.trans.insert71, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit, %34
-  %44 = phi i64 [ %.pre72, %.preheader.loopexit ], [ %.050, %34 ]
-  %45 = add i64 %.050, 15764400
-  %46 = icmp sgt i64 %45, %44
-  br i1 %46, label %.lr.ph66, label %.loopexit
+.preheader:                                       ; preds = %.preheader.loopexit, %35
+  %46 = phi i64 [ %.pre72, %.preheader.loopexit ], [ %.050, %35 ]
+  %47 = add i64 %.050, 15764400
+  %48 = icmp sgt i64 %47, %46
+  br i1 %48, label %.lr.ph66, label %.loopexit
 
-.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %60
-  %47 = phi i64 [ %61, %60 ], [ %.050, %.lr.ph64.preheader ]
-  %.04662 = phi i64 [ %.147, %60 ], [ %43, %.lr.ph64.preheader ]
-  %48 = sub i64 %47, %.04662
-  %49 = icmp sgt i64 %48, 1209600
-  br i1 %49, label %50, label %52
-
-50:                                               ; preds = %.lr.ph64
-  %51 = add i64 %47, -604800
-  br label %55
+.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %62
+  %49 = phi i64 [ %63, %62 ], [ %.050, %.lr.ph64.preheader ]
+  %.04662 = phi i64 [ %.147, %62 ], [ %44, %.lr.ph64.preheader ]
+  %50 = sub i64 %49, %.04662
+  %51 = icmp sgt i64 %50, 1209600
+  br i1 %51, label %52, label %54
 
 52:                                               ; preds = %.lr.ph64
-  %53 = sdiv i64 %48, 2
-  %54 = add i64 %53, %.04662
-  br label %55
+  %53 = add i64 %49, -604800
+  br label %57
 
-55:                                               ; preds = %52, %50
-  %.151 = phi i64 [ %51, %50 ], [ %54, %52 ]
-  %56 = tail call fastcc i32 @TimeZone(i64 noundef %.151)
-  %57 = icmp eq i32 %56, %20
+54:                                               ; preds = %.lr.ph64
+  %55 = sdiv i64 %50, 2
+  %56 = add i64 %55, %.04662
+  br label %57
+
+57:                                               ; preds = %54, %52
+  %.151 = phi i64 [ %53, %52 ], [ %56, %54 ]
+  %58 = tail call fastcc i32 @TimeZone(i64 noundef %.151)
+  %59 = icmp eq i32 %58, %21
   %.pre = load ptr, ptr @TimeZoneFaster.dst_table, align 8
-  %58 = getelementptr %struct.dst_table, ptr %.pre, i64 %37
-  br i1 %57, label %59, label %._crit_edge69
+  %60 = getelementptr %struct.dst_table, ptr %.pre, i64 %38
+  br i1 %59, label %61, label %._crit_edge69
 
-._crit_edge69:                                    ; preds = %55
-  %.pre70 = load i64, ptr %58, align 8
-  br label %60
+._crit_edge69:                                    ; preds = %57
+  %.pre70 = load i64, ptr %60, align 8
+  br label %62
 
-59:                                               ; preds = %55
-  store i64 %.151, ptr %58, align 8
-  br label %60
+61:                                               ; preds = %57
+  store i64 %.151, ptr %60, align 8
+  br label %62
 
-60:                                               ; preds = %._crit_edge69, %59
-  %61 = phi i64 [ %.151, %59 ], [ %.pre70, %._crit_edge69 ]
-  %.147 = phi i64 [ %.04662, %59 ], [ %.151, %._crit_edge69 ]
-  %62 = add i64 %.147, 3600
-  %63 = icmp slt i64 %62, %61
-  br i1 %63, label %.lr.ph64, label %.preheader.loopexit, !llvm.loop !28
+62:                                               ; preds = %._crit_edge69, %61
+  %63 = phi i64 [ %.151, %61 ], [ %.pre70, %._crit_edge69 ]
+  %.147 = phi i64 [ %.04662, %61 ], [ %.151, %._crit_edge69 ]
+  %64 = add i64 %.147, 3600
+  %65 = icmp slt i64 %64, %63
+  br i1 %65, label %.lr.ph64, label %.preheader.loopexit, !llvm.loop !28
 
-.lr.ph66:                                         ; preds = %.preheader, %76
-  %64 = phi i64 [ %77, %76 ], [ %44, %.preheader ]
-  %.065 = phi i64 [ %.1, %76 ], [ %41, %.preheader ]
-  %65 = sub i64 %.065, %64
-  %66 = icmp sgt i64 %65, 1209600
-  br i1 %66, label %67, label %69
-
-67:                                               ; preds = %.lr.ph66
-  %68 = add i64 %64, 604800
-  br label %71
+.lr.ph66:                                         ; preds = %.preheader, %79
+  %66 = phi i64 [ %80, %79 ], [ %46, %.preheader ]
+  %.065 = phi i64 [ %.1, %79 ], [ %42, %.preheader ]
+  %67 = sub i64 %.065, %66
+  %68 = icmp sgt i64 %67, 1209600
+  br i1 %68, label %69, label %71
 
 69:                                               ; preds = %.lr.ph66
-  %.neg = sdiv i64 %65, -2
-  %70 = add i64 %.neg, %.065
-  br label %71
+  %70 = add i64 %66, 604800
+  br label %73
 
-71:                                               ; preds = %69, %67
-  %.2 = phi i64 [ %68, %67 ], [ %70, %69 ]
-  %72 = tail call fastcc i32 @TimeZone(i64 noundef %.2)
-  %73 = icmp eq i32 %72, %20
+71:                                               ; preds = %.lr.ph66
+  %.neg = sdiv i64 %67, -2
+  %72 = add i64 %.neg, %.065
+  br label %73
+
+73:                                               ; preds = %71, %69
+  %.2 = phi i64 [ %70, %69 ], [ %72, %71 ]
+  %74 = tail call fastcc i32 @TimeZone(i64 noundef %.2)
+  %75 = icmp eq i32 %74, %21
   %.pre73 = load ptr, ptr @TimeZoneFaster.dst_table, align 8
-  %74 = getelementptr %struct.dst_table, ptr %.pre73, i64 %37, i32 1
-  br i1 %73, label %75, label %._crit_edge74
+  %76 = getelementptr %struct.dst_table, ptr %.pre73, i64 %38
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  br i1 %75, label %78, label %._crit_edge74
 
-._crit_edge74:                                    ; preds = %71
-  %.pre76 = load i64, ptr %74, align 8
-  br label %76
+._crit_edge74:                                    ; preds = %73
+  %.pre77 = load i64, ptr %77, align 8
+  br label %79
 
-75:                                               ; preds = %71
-  store i64 %.2, ptr %74, align 8
-  br label %76
+78:                                               ; preds = %73
+  store i64 %.2, ptr %77, align 8
+  br label %79
 
-76:                                               ; preds = %._crit_edge74, %75
-  %77 = phi i64 [ %.2, %75 ], [ %.pre76, %._crit_edge74 ]
-  %.1 = phi i64 [ %.065, %75 ], [ %.2, %._crit_edge74 ]
-  %78 = add i64 %.1, -3600
-  %79 = icmp sgt i64 %78, %77
-  br i1 %79, label %.lr.ph66, label %.loopexit, !llvm.loop !29
+79:                                               ; preds = %._crit_edge74, %78
+  %80 = phi i64 [ %.2, %78 ], [ %.pre77, %._crit_edge74 ]
+  %.1 = phi i64 [ %.065, %78 ], [ %.2, %._crit_edge74 ]
+  %81 = add i64 %.1, -3600
+  %82 = icmp sgt i64 %81, %80
+  br i1 %82, label %.lr.ph66, label %.loopexit, !llvm.loop !29
 
-.loopexit:                                        ; preds = %76, %.preheader, %32, %16
-  %.048 = phi i32 [ %19, %16 ], [ %20, %32 ], [ %20, %.preheader ], [ %20, %76 ]
+.loopexit:                                        ; preds = %79, %.preheader, %33, %16
+  %.048 = phi i32 [ %20, %16 ], [ %21, %33 ], [ %21, %.preheader ], [ %21, %79 ]
   ret i32 %.048
 }
 

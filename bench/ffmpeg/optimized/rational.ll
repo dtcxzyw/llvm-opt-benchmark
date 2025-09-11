@@ -400,9 +400,10 @@ av_nearer_q.exit:                                 ; preds = %19, %26, %29, %32
   %46 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %45, i32 %46, i32 %.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = getelementptr inbounds nuw %struct.AVRational, ptr %1, i64 %indvars.iv.next, i32 1
-  %48 = load i32, ptr %47, align 4, !tbaa !8
-  %.not = icmp eq i32 %48, 0
+  %47 = getelementptr inbounds nuw %struct.AVRational, ptr %1, i64 %indvars.iv.next
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %49 = load i32, ptr %48, align 4, !tbaa !8
+  %.not = icmp eq i32 %49, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %av_nearer_q.exit, %2

@@ -1097,7 +1097,7 @@ _ZNK2cv3Mat2atINS_6Point_IfEEEERKT_i.exit41:      ; preds = %86, %91, %95
 112:                                              ; preds = %_ZNK2cv3Mat2atINS_6Point_IfEEEERKT_i.exit41
   %113 = load i32, ptr %45, align 4, !tbaa !36
   %114 = icmp eq i32 %113, 1
-  br i1 %114, label %164, label %115
+  br i1 %114, label %165, label %115
 
 115:                                              ; preds = %112
   %116 = load i32, ptr %46, align 4, !tbaa !36
@@ -1159,7 +1159,7 @@ _ZNK2cv3Mat2atINS_6Point_IfEEEERKT_i.exit41:      ; preds = %86, %91, %95
   %154 = fpext float %153 to double
   %155 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store double %154, ptr %155, align 8, !tbaa !32
-  br label %176
+  br label %178
 
 _ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit46:     ; preds = %_ZNK2cv3Mat2atINS_6Point_IfEEEERKT_i.exit41
   %156 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
@@ -1167,74 +1167,76 @@ _ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit46:     ; preds = %_ZNK2cv3Mat2atINS_6
   %158 = fpext float %157 to double
   %159 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store double %158, ptr %159, align 8, !tbaa !32
-  %160 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv, i32 1
-  %161 = load float, ptr %160, align 4, !tbaa !58
-  %162 = fpext float %161 to double
-  %163 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  store double %162, ptr %163, align 8, !tbaa !32
-  br label %174
+  %160 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
+  %162 = load float, ptr %161, align 4, !tbaa !58
+  %163 = fpext float %162 to double
+  %164 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  store double %163, ptr %164, align 8, !tbaa !32
+  br label %176
 
-164:                                              ; preds = %112
-  %165 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
-  %166 = load float, ptr %165, align 4, !tbaa !56
-  %167 = fpext float %166 to double
-  %168 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  store double %167, ptr %168, align 8, !tbaa !32
-  %169 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv, i32 1
-  %170 = load float, ptr %169, align 4, !tbaa !58
-  %171 = fpext float %170 to double
-  %172 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  store double %171, ptr %172, align 8, !tbaa !32
+165:                                              ; preds = %112
+  %166 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
+  %167 = load float, ptr %166, align 4, !tbaa !56
+  %168 = fpext float %167 to double
+  %169 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  store double %168, ptr %169, align 8, !tbaa !32
+  %170 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 4
+  %172 = load float, ptr %171, align 4, !tbaa !58
+  %173 = fpext float %172 to double
+  %174 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  store double %173, ptr %174, align 8, !tbaa !32
   %.pre = load i32, ptr %45, align 4, !tbaa !36
-  %173 = icmp eq i32 %.pre, 1
-  br i1 %173, label %174, label %176
+  %175 = icmp eq i32 %.pre, 1
+  br i1 %175, label %176, label %178
 
-174:                                              ; preds = %_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit46, %164
-  %175 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
+176:                                              ; preds = %_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit46, %165
+  %177 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
   br label %_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit49
 
-176:                                              ; preds = %.thread68, %164
-  %177 = load i32, ptr %46, align 4, !tbaa !36
-  %178 = icmp eq i32 %177, 1
-  br i1 %178, label %179, label %183
+178:                                              ; preds = %.thread68, %165
+  %179 = load i32, ptr %46, align 4, !tbaa !36
+  %180 = icmp eq i32 %179, 1
+  br i1 %180, label %181, label %185
 
-179:                                              ; preds = %176
-  %180 = load i64, ptr %50, align 8, !tbaa !30
-  %181 = mul i64 %180, %indvars.iv
-  %182 = getelementptr inbounds nuw i8, ptr %43, i64 %181
+181:                                              ; preds = %178
+  %182 = load i64, ptr %50, align 8, !tbaa !30
+  %183 = mul i64 %182, %indvars.iv
+  %184 = getelementptr inbounds nuw i8, ptr %43, i64 %183
   br label %_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit49
 
-183:                                              ; preds = %176
-  %184 = trunc nuw nsw i64 %indvars.iv to i32
-  %185 = sdiv i32 %184, %48
-  %186 = mul nsw i32 %185, %48
-  %.recomposed72 = srem i32 %184, %48
-  %187 = load i64, ptr %50, align 8, !tbaa !30
-  %188 = sext i32 %185 to i64
-  %189 = mul i64 %187, %188
-  %190 = getelementptr inbounds nuw i8, ptr %43, i64 %189
-  %191 = sext i32 %.recomposed72 to i64
-  %192 = getelementptr inbounds %"class.cv::Point3_", ptr %190, i64 %191
+185:                                              ; preds = %178
+  %186 = trunc nuw nsw i64 %indvars.iv to i32
+  %187 = sdiv i32 %186, %48
+  %188 = mul nsw i32 %187, %48
+  %.recomposed72 = srem i32 %186, %48
+  %189 = load i64, ptr %50, align 8, !tbaa !30
+  %190 = sext i32 %187 to i64
+  %191 = mul i64 %189, %190
+  %192 = getelementptr inbounds nuw i8, ptr %43, i64 %191
+  %193 = sext i32 %.recomposed72 to i64
+  %194 = getelementptr inbounds %"class.cv::Point3_", ptr %192, i64 %193
   br label %_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit49
 
-_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit49:     ; preds = %174, %179, %183
-  %.0.i48 = phi ptr [ %175, %174 ], [ %182, %179 ], [ %192, %183 ]
-  %193 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 8
-  %194 = load float, ptr %193, align 4, !tbaa !59
-  %195 = fpext float %194 to double
-  %196 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  store double %195, ptr %196, align 8, !tbaa !32
+_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit49:     ; preds = %176, %181, %185
+  %.0.i48 = phi ptr [ %177, %176 ], [ %184, %181 ], [ %194, %185 ]
+  %195 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 8
+  %196 = load float, ptr %195, align 4, !tbaa !59
+  %197 = fpext float %196 to double
+  %198 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  store double %197, ptr %198, align 8, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader55, label %54, !llvm.loop !60
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvar = phi i32 [ 0, %.preheader.lr.ph ], [ %indvar.next, %.preheader ]
-  %197 = add i32 %.sroa.speculated, %indvar
-  %198 = mul i32 %197, 5
-  %199 = sext i32 %198 to i64
-  %200 = shl nsw i64 %199, 3
-  %scevgep = getelementptr nuw i8, ptr %52, i64 %200
+  %199 = add i32 %.sroa.speculated, %indvar
+  %200 = mul i32 %199, 5
+  %201 = sext i32 %200 to i64
+  %202 = shl nsw i64 %201, 3
+  %scevgep = getelementptr nuw i8, ptr %52, i64 %202
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %scevgep, i8 0, i64 40, i1 false), !tbaa !32
   %indvar.next = add nuw i32 %indvar, 1
   %exitcond63.not = icmp eq i32 %indvar.next, %53
@@ -1466,7 +1468,7 @@ _ZNK2cv3Mat2atINS_6Point_IdEEEERKT_i.exit41:      ; preds = %85, %90, %94
   %136 = load i64, ptr %50, align 8, !tbaa !30
   %137 = mul i64 %136, %indvars.iv
   %138 = getelementptr inbounds nuw i8, ptr %43, i64 %137
-  br label %156
+  br label %157
 
 139:                                              ; preds = %130
   %140 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1479,66 +1481,67 @@ _ZNK2cv3Mat2atINS_6Point_IdEEEERKT_i.exit41:      ; preds = %85, %90, %94
   %146 = getelementptr inbounds nuw i8, ptr %43, i64 %145
   %147 = sext i32 %.recomposed75 to i64
   %148 = getelementptr inbounds %"class.cv::Point3_.6", ptr %146, i64 %147
-  br label %156
+  br label %157
 
 .thread68:                                        ; preds = %_ZNK2cv3Mat2atINS_6Point_IdEEEERKT_i.exit41, %110
   %149 = getelementptr inbounds nuw %"class.cv::Point3_.6", ptr %43, i64 %indvars.iv
   %150 = load double, ptr %149, align 8, !tbaa !65
   %151 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store double %150, ptr %151, align 8, !tbaa !32
-  %152 = getelementptr inbounds nuw %"class.cv::Point3_.6", ptr %43, i64 %indvars.iv, i32 1
-  %153 = load double, ptr %152, align 8, !tbaa !67
-  %154 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store double %153, ptr %154, align 8, !tbaa !32
-  %155 = getelementptr inbounds nuw %"class.cv::Point3_.6", ptr %43, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw %"class.cv::Point3_.6", ptr %43, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %154 = load double, ptr %153, align 8, !tbaa !67
+  %155 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store double %154, ptr %155, align 8, !tbaa !32
+  %156 = getelementptr inbounds nuw %"class.cv::Point3_.6", ptr %43, i64 %indvars.iv
   br label %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit49
 
-156:                                              ; preds = %135, %139
+157:                                              ; preds = %135, %139
   %.0.i45.ph = phi ptr [ %148, %139 ], [ %138, %135 ]
-  %157 = getelementptr inbounds nuw i8, ptr %.0.i45.ph, i64 8
-  %158 = load double, ptr %157, align 8, !tbaa !67
-  %159 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store double %158, ptr %159, align 8, !tbaa !32
-  %160 = load i32, ptr %46, align 4, !tbaa !36
-  %161 = icmp eq i32 %160, 1
-  br i1 %161, label %162, label %166
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i45.ph, i64 8
+  %159 = load double, ptr %158, align 8, !tbaa !67
+  %160 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store double %159, ptr %160, align 8, !tbaa !32
+  %161 = load i32, ptr %46, align 4, !tbaa !36
+  %162 = icmp eq i32 %161, 1
+  br i1 %162, label %163, label %167
 
-162:                                              ; preds = %156
-  %163 = load i64, ptr %50, align 8, !tbaa !30
-  %164 = mul i64 %163, %indvars.iv
-  %165 = getelementptr inbounds nuw i8, ptr %43, i64 %164
+163:                                              ; preds = %157
+  %164 = load i64, ptr %50, align 8, !tbaa !30
+  %165 = mul i64 %164, %indvars.iv
+  %166 = getelementptr inbounds nuw i8, ptr %43, i64 %165
   br label %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit49
 
-166:                                              ; preds = %156
-  %167 = trunc nuw nsw i64 %indvars.iv to i32
-  %168 = sdiv i32 %167, %48
-  %169 = mul nsw i32 %168, %48
-  %.recomposed76 = srem i32 %167, %48
-  %170 = load i64, ptr %50, align 8, !tbaa !30
-  %171 = sext i32 %168 to i64
-  %172 = mul i64 %170, %171
-  %173 = getelementptr inbounds nuw i8, ptr %43, i64 %172
-  %174 = sext i32 %.recomposed76 to i64
-  %175 = getelementptr inbounds %"class.cv::Point3_.6", ptr %173, i64 %174
+167:                                              ; preds = %157
+  %168 = trunc nuw nsw i64 %indvars.iv to i32
+  %169 = sdiv i32 %168, %48
+  %170 = mul nsw i32 %169, %48
+  %.recomposed76 = srem i32 %168, %48
+  %171 = load i64, ptr %50, align 8, !tbaa !30
+  %172 = sext i32 %169 to i64
+  %173 = mul i64 %171, %172
+  %174 = getelementptr inbounds nuw i8, ptr %43, i64 %173
+  %175 = sext i32 %.recomposed76 to i64
+  %176 = getelementptr inbounds %"class.cv::Point3_.6", ptr %174, i64 %175
   br label %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit49
 
-_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit49:     ; preds = %.thread68, %162, %166
-  %.0.i48 = phi ptr [ %155, %.thread68 ], [ %165, %162 ], [ %175, %166 ]
-  %176 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 16
-  %177 = load double, ptr %176, align 8, !tbaa !68
-  %178 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  store double %177, ptr %178, align 8, !tbaa !32
+_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit49:     ; preds = %.thread68, %163, %167
+  %.0.i48 = phi ptr [ %156, %.thread68 ], [ %166, %163 ], [ %176, %167 ]
+  %177 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 16
+  %178 = load double, ptr %177, align 8, !tbaa !68
+  %179 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  store double %178, ptr %179, align 8, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader57, label %54, !llvm.loop !69
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvar = phi i32 [ 0, %.preheader.lr.ph ], [ %indvar.next, %.preheader ]
-  %179 = add i32 %.sroa.speculated, %indvar
-  %180 = mul i32 %179, 5
-  %181 = sext i32 %180 to i64
-  %182 = shl nsw i64 %181, 3
-  %scevgep = getelementptr nuw i8, ptr %52, i64 %182
+  %180 = add i32 %.sroa.speculated, %indvar
+  %181 = mul i32 %180, 5
+  %182 = sext i32 %181 to i64
+  %183 = shl nsw i64 %182, 3
+  %scevgep = getelementptr nuw i8, ptr %52, i64 %183
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %scevgep, i8 0, i64 40, i1 false), !tbaa !32
   %indvar.next = add nuw i32 %indvar, 1
   %exitcond65.not = icmp eq i32 %indvar.next, %53
@@ -1731,7 +1734,7 @@ _ZNK2cv3Mat2atINS_6Point_IdEEEERKT_i.exit41:      ; preds = %85, %90, %94
 110:                                              ; preds = %_ZNK2cv3Mat2atINS_6Point_IdEEEERKT_i.exit41
   %111 = load i32, ptr %45, align 4, !tbaa !36
   %112 = icmp eq i32 %111, 1
-  br i1 %112, label %162, label %113
+  br i1 %112, label %163, label %113
 
 113:                                              ; preds = %110
   %114 = load i32, ptr %46, align 4, !tbaa !36
@@ -1793,7 +1796,7 @@ _ZNK2cv3Mat2atINS_6Point_IdEEEERKT_i.exit41:      ; preds = %85, %90, %94
   %152 = fpext float %151 to double
   %153 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store double %152, ptr %153, align 8, !tbaa !32
-  br label %174
+  br label %176
 
 _ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit46:     ; preds = %_ZNK2cv3Mat2atINS_6Point_IdEEEERKT_i.exit41
   %154 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
@@ -1801,74 +1804,76 @@ _ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit46:     ; preds = %_ZNK2cv3Mat2atINS_6
   %156 = fpext float %155 to double
   %157 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store double %156, ptr %157, align 8, !tbaa !32
-  %158 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv, i32 1
-  %159 = load float, ptr %158, align 4, !tbaa !58
-  %160 = fpext float %159 to double
-  %161 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store double %160, ptr %161, align 8, !tbaa !32
-  br label %172
+  %158 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
+  %160 = load float, ptr %159, align 4, !tbaa !58
+  %161 = fpext float %160 to double
+  %162 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store double %161, ptr %162, align 8, !tbaa !32
+  br label %174
 
-162:                                              ; preds = %110
-  %163 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
-  %164 = load float, ptr %163, align 4, !tbaa !56
-  %165 = fpext float %164 to double
-  %166 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store double %165, ptr %166, align 8, !tbaa !32
-  %167 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv, i32 1
-  %168 = load float, ptr %167, align 4, !tbaa !58
-  %169 = fpext float %168 to double
-  %170 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store double %169, ptr %170, align 8, !tbaa !32
+163:                                              ; preds = %110
+  %164 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
+  %165 = load float, ptr %164, align 4, !tbaa !56
+  %166 = fpext float %165 to double
+  %167 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store double %166, ptr %167, align 8, !tbaa !32
+  %168 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
+  %170 = load float, ptr %169, align 4, !tbaa !58
+  %171 = fpext float %170 to double
+  %172 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store double %171, ptr %172, align 8, !tbaa !32
   %.pre = load i32, ptr %45, align 4, !tbaa !36
-  %171 = icmp eq i32 %.pre, 1
-  br i1 %171, label %172, label %174
+  %173 = icmp eq i32 %.pre, 1
+  br i1 %173, label %174, label %176
 
-172:                                              ; preds = %_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit46, %162
-  %173 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
+174:                                              ; preds = %_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit46, %163
+  %175 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %indvars.iv
   br label %_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit49
 
-174:                                              ; preds = %.thread68, %162
-  %175 = load i32, ptr %46, align 4, !tbaa !36
-  %176 = icmp eq i32 %175, 1
-  br i1 %176, label %177, label %181
+176:                                              ; preds = %.thread68, %163
+  %177 = load i32, ptr %46, align 4, !tbaa !36
+  %178 = icmp eq i32 %177, 1
+  br i1 %178, label %179, label %183
 
-177:                                              ; preds = %174
-  %178 = load i64, ptr %50, align 8, !tbaa !30
-  %179 = mul i64 %178, %indvars.iv
-  %180 = getelementptr inbounds nuw i8, ptr %43, i64 %179
+179:                                              ; preds = %176
+  %180 = load i64, ptr %50, align 8, !tbaa !30
+  %181 = mul i64 %180, %indvars.iv
+  %182 = getelementptr inbounds nuw i8, ptr %43, i64 %181
   br label %_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit49
 
-181:                                              ; preds = %174
-  %182 = trunc nuw nsw i64 %indvars.iv to i32
-  %183 = sdiv i32 %182, %48
-  %184 = mul nsw i32 %183, %48
-  %.recomposed72 = srem i32 %182, %48
-  %185 = load i64, ptr %50, align 8, !tbaa !30
-  %186 = sext i32 %183 to i64
-  %187 = mul i64 %185, %186
-  %188 = getelementptr inbounds nuw i8, ptr %43, i64 %187
-  %189 = sext i32 %.recomposed72 to i64
-  %190 = getelementptr inbounds %"class.cv::Point3_", ptr %188, i64 %189
+183:                                              ; preds = %176
+  %184 = trunc nuw nsw i64 %indvars.iv to i32
+  %185 = sdiv i32 %184, %48
+  %186 = mul nsw i32 %185, %48
+  %.recomposed72 = srem i32 %184, %48
+  %187 = load i64, ptr %50, align 8, !tbaa !30
+  %188 = sext i32 %185 to i64
+  %189 = mul i64 %187, %188
+  %190 = getelementptr inbounds nuw i8, ptr %43, i64 %189
+  %191 = sext i32 %.recomposed72 to i64
+  %192 = getelementptr inbounds %"class.cv::Point3_", ptr %190, i64 %191
   br label %_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit49
 
-_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit49:     ; preds = %172, %177, %181
-  %.0.i48 = phi ptr [ %173, %172 ], [ %180, %177 ], [ %190, %181 ]
-  %191 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 8
-  %192 = load float, ptr %191, align 4, !tbaa !59
-  %193 = fpext float %192 to double
-  %194 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  store double %193, ptr %194, align 8, !tbaa !32
+_ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit49:     ; preds = %174, %179, %183
+  %.0.i48 = phi ptr [ %175, %174 ], [ %182, %179 ], [ %192, %183 ]
+  %193 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 8
+  %194 = load float, ptr %193, align 4, !tbaa !59
+  %195 = fpext float %194 to double
+  %196 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  store double %195, ptr %196, align 8, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader55, label %54, !llvm.loop !71
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvar = phi i32 [ 0, %.preheader.lr.ph ], [ %indvar.next, %.preheader ]
-  %195 = add i32 %.sroa.speculated, %indvar
-  %196 = mul i32 %195, 5
-  %197 = sext i32 %196 to i64
-  %198 = shl nsw i64 %197, 3
-  %scevgep = getelementptr nuw i8, ptr %52, i64 %198
+  %197 = add i32 %.sroa.speculated, %indvar
+  %198 = mul i32 %197, 5
+  %199 = sext i32 %198 to i64
+  %200 = shl nsw i64 %199, 3
+  %scevgep = getelementptr nuw i8, ptr %52, i64 %200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %scevgep, i8 0, i64 40, i1 false), !tbaa !32
   %indvar.next = add nuw i32 %indvar, 1
   %exitcond63.not = icmp eq i32 %indvar.next, %53
@@ -2102,7 +2107,7 @@ _ZNK2cv3Mat2atINS_6Point_IfEEEERKT_i.exit41:      ; preds = %86, %91, %95
   %138 = load i64, ptr %50, align 8, !tbaa !30
   %139 = mul i64 %138, %indvars.iv
   %140 = getelementptr inbounds nuw i8, ptr %43, i64 %139
-  br label %158
+  br label %159
 
 141:                                              ; preds = %132
   %142 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2115,66 +2120,67 @@ _ZNK2cv3Mat2atINS_6Point_IfEEEERKT_i.exit41:      ; preds = %86, %91, %95
   %148 = getelementptr inbounds nuw i8, ptr %43, i64 %147
   %149 = sext i32 %.recomposed75 to i64
   %150 = getelementptr inbounds %"class.cv::Point3_.6", ptr %148, i64 %149
-  br label %158
+  br label %159
 
 .thread68:                                        ; preds = %_ZNK2cv3Mat2atINS_6Point_IfEEEERKT_i.exit41, %112
   %151 = getelementptr inbounds nuw %"class.cv::Point3_.6", ptr %43, i64 %indvars.iv
   %152 = load double, ptr %151, align 8, !tbaa !65
   %153 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store double %152, ptr %153, align 8, !tbaa !32
-  %154 = getelementptr inbounds nuw %"class.cv::Point3_.6", ptr %43, i64 %indvars.iv, i32 1
-  %155 = load double, ptr %154, align 8, !tbaa !67
-  %156 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  store double %155, ptr %156, align 8, !tbaa !32
-  %157 = getelementptr inbounds nuw %"class.cv::Point3_.6", ptr %43, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw %"class.cv::Point3_.6", ptr %43, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %156 = load double, ptr %155, align 8, !tbaa !67
+  %157 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  store double %156, ptr %157, align 8, !tbaa !32
+  %158 = getelementptr inbounds nuw %"class.cv::Point3_.6", ptr %43, i64 %indvars.iv
   br label %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit49
 
-158:                                              ; preds = %137, %141
+159:                                              ; preds = %137, %141
   %.0.i45.ph = phi ptr [ %150, %141 ], [ %140, %137 ]
-  %159 = getelementptr inbounds nuw i8, ptr %.0.i45.ph, i64 8
-  %160 = load double, ptr %159, align 8, !tbaa !67
-  %161 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  store double %160, ptr %161, align 8, !tbaa !32
-  %162 = load i32, ptr %46, align 4, !tbaa !36
-  %163 = icmp eq i32 %162, 1
-  br i1 %163, label %164, label %168
+  %160 = getelementptr inbounds nuw i8, ptr %.0.i45.ph, i64 8
+  %161 = load double, ptr %160, align 8, !tbaa !67
+  %162 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  store double %161, ptr %162, align 8, !tbaa !32
+  %163 = load i32, ptr %46, align 4, !tbaa !36
+  %164 = icmp eq i32 %163, 1
+  br i1 %164, label %165, label %169
 
-164:                                              ; preds = %158
-  %165 = load i64, ptr %50, align 8, !tbaa !30
-  %166 = mul i64 %165, %indvars.iv
-  %167 = getelementptr inbounds nuw i8, ptr %43, i64 %166
+165:                                              ; preds = %159
+  %166 = load i64, ptr %50, align 8, !tbaa !30
+  %167 = mul i64 %166, %indvars.iv
+  %168 = getelementptr inbounds nuw i8, ptr %43, i64 %167
   br label %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit49
 
-168:                                              ; preds = %158
-  %169 = trunc nuw nsw i64 %indvars.iv to i32
-  %170 = sdiv i32 %169, %48
-  %171 = mul nsw i32 %170, %48
-  %.recomposed76 = srem i32 %169, %48
-  %172 = load i64, ptr %50, align 8, !tbaa !30
-  %173 = sext i32 %170 to i64
-  %174 = mul i64 %172, %173
-  %175 = getelementptr inbounds nuw i8, ptr %43, i64 %174
-  %176 = sext i32 %.recomposed76 to i64
-  %177 = getelementptr inbounds %"class.cv::Point3_.6", ptr %175, i64 %176
+169:                                              ; preds = %159
+  %170 = trunc nuw nsw i64 %indvars.iv to i32
+  %171 = sdiv i32 %170, %48
+  %172 = mul nsw i32 %171, %48
+  %.recomposed76 = srem i32 %170, %48
+  %173 = load i64, ptr %50, align 8, !tbaa !30
+  %174 = sext i32 %171 to i64
+  %175 = mul i64 %173, %174
+  %176 = getelementptr inbounds nuw i8, ptr %43, i64 %175
+  %177 = sext i32 %.recomposed76 to i64
+  %178 = getelementptr inbounds %"class.cv::Point3_.6", ptr %176, i64 %177
   br label %_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit49
 
-_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit49:     ; preds = %.thread68, %164, %168
-  %.0.i48 = phi ptr [ %157, %.thread68 ], [ %167, %164 ], [ %177, %168 ]
-  %178 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 16
-  %179 = load double, ptr %178, align 8, !tbaa !68
-  %180 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  store double %179, ptr %180, align 8, !tbaa !32
+_ZNK2cv3Mat2atINS_7Point3_IdEEEERKT_i.exit49:     ; preds = %.thread68, %165, %169
+  %.0.i48 = phi ptr [ %158, %.thread68 ], [ %168, %165 ], [ %178, %169 ]
+  %179 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 16
+  %180 = load double, ptr %179, align 8, !tbaa !68
+  %181 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  store double %180, ptr %181, align 8, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader57, label %54, !llvm.loop !73
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvar = phi i32 [ 0, %.preheader.lr.ph ], [ %indvar.next, %.preheader ]
-  %181 = add i32 %.sroa.speculated, %indvar
-  %182 = mul i32 %181, 5
-  %183 = sext i32 %182 to i64
-  %184 = shl nsw i64 %183, 3
-  %scevgep = getelementptr nuw i8, ptr %52, i64 %184
+  %182 = add i32 %.sroa.speculated, %indvar
+  %183 = mul i32 %182, 5
+  %184 = sext i32 %183 to i64
+  %185 = shl nsw i64 %184, 3
+  %scevgep = getelementptr nuw i8, ptr %52, i64 %185
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %scevgep, i8 0, i64 40, i1 false), !tbaa !32
   %indvar.next = add nuw i32 %indvar, 1
   %exitcond65.not = icmp eq i32 %indvar.next, %53

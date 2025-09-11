@@ -1619,73 +1619,74 @@ define hidden { ptr, i64 } @_ZNK29VTransformReductionVectorNode5applyERK13VLoopA
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %18, i32 1
-  %20 = load i8, ptr %19, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i32, ptr %34, align 8
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %28, i64 %36
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef ptr @_ZN13ReductionNode4makeEiP4NodeS1_S1_9BasicTypeb(i32 noundef %11, ptr noundef null, ptr noundef %31, ptr noundef %38, i8 noundef zeroext %20, i1 noundef zeroext true) #9
-  %40 = load ptr, ptr %1, align 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = load ptr, ptr %42, align 8
-  tail call void @_ZNK14VTransformNode36register_new_node_from_vectorizationERK13VLoopAnalyzerP4NodeS4_(ptr nonnull readonly align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(392) %1, ptr noundef %39, ptr noundef %43)
-  %44 = load i32, ptr %4, align 8
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph.i, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit
+  %19 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %21 = load i8, ptr %20, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load i32, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = sext i32 %27 to i64
+  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load i32, ptr %35, align 8
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds ptr, ptr %29, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef ptr @_ZN13ReductionNode4makeEiP4NodeS1_S1_9BasicTypeb(i32 noundef %11, ptr noundef null, ptr noundef %32, ptr noundef %39, i8 noundef zeroext %21, i1 noundef zeroext true) #9
+  %41 = load ptr, ptr %1, align 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %43, align 8
+  tail call void @_ZNK14VTransformNode36register_new_node_from_vectorizationERK13VLoopAnalyzerP4NodeS4_(ptr nonnull readonly align 8 poison, ptr noundef nonnull readonly align 8 dereferenceable(392) %1, ptr noundef %40, ptr noundef %44)
+  %45 = load i32, ptr %4, align 8
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %.lr.ph.i, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit
 
 .lr.ph.i:                                         ; preds = %3
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  br label %47
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 56
+  br label %48
 
-47:                                               ; preds = %47, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %46, align 8
-  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %51, ptr noundef %50) #9
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef %50) #9
-  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %51, ptr noundef %50, ptr noundef %39) #9
+48:                                               ; preds = %48, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %48 ]
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %47, align 8
+  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %52, ptr noundef %51) #9
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef %51) #9
+  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %52, ptr noundef %51, ptr noundef %40) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %55 = load i32, ptr %4, align 8
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next.i, %56
-  br i1 %57, label %47, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !14
+  %56 = load i32, ptr %4, align 8
+  %57 = sext i32 %56 to i64
+  %58 = icmp slt i64 %indvars.iv.next.i, %57
+  br i1 %58, label %48, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !14
 
-_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit: ; preds = %47, %3
-  %58 = load ptr, ptr %39, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 192
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call noundef ptr %60(ptr noundef nonnull align 8 dereferenceable(72) %39) #9
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %65) #9
-  %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %67
-  %69 = load i32, ptr %68, align 4
-  %70 = mul i32 %69, %63
-  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %39, 0
-  %.sroa.4.8.insert.ext.i = zext i32 %70 to i64
+_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit: ; preds = %48, %3
+  %59 = load ptr, ptr %40, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 192
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(72) %40) #9
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
+  %64 = load i32, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %66) #9
+  %68 = zext i8 %67 to i64
+  %69 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %68
+  %70 = load i32, ptr %69, align 4
+  %71 = mul i32 %70, %64
+  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %40, 0
+  %.sroa.4.8.insert.ext.i = zext i32 %71 to i64
   %.sroa.4.8.insert.shift.i = shl nuw i64 %.sroa.4.8.insert.ext.i, 32
   %.sroa.2.8.insert.ext.i = zext i32 %8 to i64
   %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %.sroa.2.8.insert.ext.i

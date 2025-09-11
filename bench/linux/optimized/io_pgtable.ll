@@ -104,10 +104,11 @@ define internal void @v1_free_pgtable(ptr noundef %0) #1 align 16 {
   %23 = select i1 %19, i64 %20, i64 %22
   %24 = add i64 %18, %23
   %25 = lshr i64 %24, 12
-  %26 = getelementptr %struct.page, ptr %16, i64 %25, i32 1
+  %.split = getelementptr %struct.page, ptr %16, i64 %25
+  %26 = getelementptr i8, ptr %.split, i64 8
   store ptr %26, ptr %3, align 8
   store ptr %2, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %27 = getelementptr i8, ptr %.split, i64 16
   store ptr %2, ptr %27, align 8
   store volatile ptr %26, ptr %2, align 8
   br label %29
@@ -186,9 +187,9 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %43 = zext nneg i32 %25 to i64
   %44 = shl nuw nsw i64 %43, 61
   %45 = icmp eq ptr %7, null
-  br i1 %31, label %.split.us, label %.split, !prof !13
+  br i1 %31, label %.split47.us, label %.split47, !prof !13
 
-.split.us:                                        ; preds = %29, %306
+.split47.us:                                      ; preds = %29, %306
   %46 = phi i64 [ %300, %306 ], [ %1, %29 ]
   %47 = phi i64 [ %301, %306 ], [ %2, %29 ]
   %48 = phi i64 [ %302, %306 ], [ %4, %29 ]
@@ -207,7 +208,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %61 = select i1 %55, i1 %60, i1 false
   br i1 %61, label %.preheader33.us, label %.loopexit35.us
 
-.preheader33.us:                                  ; preds = %.split.us, %120
+.preheader33.us:                                  ; preds = %.split47.us, %120
   %62 = load i32, ptr %33, align 4
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %64, label %66
@@ -310,8 +311,8 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %129 = select i1 %123, i1 %128, i1 false
   br i1 %129, label %.preheader33.us, label %.loopexit35.us, !llvm.loop !17
 
-.loopexit35.us:                                   ; preds = %120, %.split.us
-  %130 = phi i32 [ %54, %.split.us ], [ %122, %120 ]
+.loopexit35.us:                                   ; preds = %120, %.split47.us
+  %130 = phi i32 [ %54, %.split47.us ], [ %122, %120 ]
   %131 = add i32 %130, -1
   %132 = load ptr, ptr %38, align 8
   %133 = mul i32 %131, 9
@@ -535,11 +536,12 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %275 = select i1 %272, i64 %273, i64 %274
   %276 = add i64 %271, %275
   %277 = lshr i64 %276, 12
-  %278 = getelementptr %struct.page, ptr %270, i64 %277, i32 1
+  %.split.us = getelementptr %struct.page, ptr %270, i64 %277
+  %278 = getelementptr i8, ptr %.split.us, i64 8
   %279 = load ptr, ptr %13, align 8
   store ptr %278, ptr %13, align 8
   store ptr %11, ptr %278, align 8
-  %280 = getelementptr inbounds nuw i8, ptr %278, i64 8
+  %280 = getelementptr i8, ptr %.split.us, i64 16
   store ptr %279, ptr %280, align 8
   store volatile ptr %278, ptr %279, align 8
   br label %281
@@ -584,12 +586,12 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
 
 306:                                              ; preds = %303, %297
   %307 = icmp eq i64 %302, 0
-  br i1 %307, label %.thread25, label %.split.us, !llvm.loop !31
+  br i1 %307, label %.thread25, label %.split47.us, !llvm.loop !31
 
 default.unreachable:                              ; preds = %259
   unreachable
 
-.split:                                           ; preds = %29
+.split47:                                         ; preds = %29
   call void asm sideeffect "359: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 359b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 359) #11, !srcloc !32
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 205, i32 0, i64 12) #11, !srcloc !33
   unreachable
@@ -1104,9 +1106,9 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   %4 = icmp sgt i32 %2, 2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = add nsw i32 %2, -1
-  br i1 %4, label %.split.us, label %.split
+  br i1 %4, label %.split2.us, label %.split2
 
-.split.us:                                        ; preds = %3, %20
+.split2.us:                                       ; preds = %3, %20
   %7 = phi i64 [ %21, %20 ], [ 0, %3 ]
   %8 = getelementptr i64, ptr %0, i64 %7
   %9 = load i64, ptr %8, align 8
@@ -1114,7 +1116,7 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %20, label %12
 
-12:                                               ; preds = %.split.us
+12:                                               ; preds = %.split2.us
   %13 = lshr i64 %9, 9
   %14 = and i64 %13, 7
   switch i64 %14, label %15 [
@@ -1130,12 +1132,12 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   tail call fastcc void @free_pt_lvl(ptr noundef %19, ptr noundef %1, i32 noundef %6)
   br label %20
 
-20:                                               ; preds = %15, %12, %12, %.split.us
+20:                                               ; preds = %15, %12, %12, %.split2.us
   %21 = add nuw nsw i64 %7, 1
   %22 = icmp eq i64 %21, 512
-  br i1 %22, label %.split2.us, label %.split.us, !llvm.loop !43
+  br i1 %22, label %.split4.us, label %.split2.us, !llvm.loop !43
 
-.split:                                           ; preds = %3, %47
+.split2:                                          ; preds = %3, %47
   %23 = phi i64 [ %48, %47 ], [ 0, %3 ]
   %24 = getelementptr i64, ptr %0, i64 %23
   %25 = load i64, ptr %24, align 8
@@ -1143,7 +1145,7 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %47, label %28
 
-28:                                               ; preds = %.split
+28:                                               ; preds = %.split2
   %29 = lshr i64 %25, 9
   %30 = and i64 %29, 7
   switch i64 %30, label %31 [
@@ -1164,21 +1166,22 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   %41 = select i1 %38, i64 %39, i64 %40
   %42 = add i64 %37, %41
   %43 = lshr i64 %42, 12
-  %44 = getelementptr %struct.page, ptr %36, i64 %43, i32 1
+  %.split = getelementptr %struct.page, ptr %36, i64 %43
+  %44 = getelementptr i8, ptr %.split, i64 8
   %45 = load ptr, ptr %5, align 8
   store ptr %44, ptr %5, align 8
   store ptr %1, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = getelementptr i8, ptr %.split, i64 16
   store ptr %45, ptr %46, align 8
   store volatile ptr %44, ptr %45, align 8
   br label %47
 
-47:                                               ; preds = %31, %28, %28, %.split
+47:                                               ; preds = %31, %28, %28, %.split2
   %48 = add nuw nsw i64 %23, 1
   %49 = icmp eq i64 %48, 512
-  br i1 %49, label %.split2.us, label %.split, !llvm.loop !43
+  br i1 %49, label %.split4.us, label %.split2, !llvm.loop !43
 
-.split2.us:                                       ; preds = %47, %20
+.split4.us:                                       ; preds = %47, %20
   %50 = load i64, ptr @vmemmap_base, align 8
   %51 = inttoptr i64 %50 to ptr
   %52 = ptrtoint ptr %0 to i64
@@ -1190,11 +1193,12 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   %58 = select i1 %54, i64 %55, i64 %57
   %59 = add i64 %53, %58
   %60 = lshr i64 %59, 12
-  %61 = getelementptr %struct.page, ptr %51, i64 %60, i32 1
+  %.split1 = getelementptr %struct.page, ptr %51, i64 %60
+  %61 = getelementptr i8, ptr %.split1, i64 8
   %62 = load ptr, ptr %5, align 8
   store ptr %61, ptr %5, align 8
   store ptr %1, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = getelementptr i8, ptr %.split1, i64 16
   store ptr %62, ptr %63, align 8
   store volatile ptr %61, ptr %62, align 8
   ret void

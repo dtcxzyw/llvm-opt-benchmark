@@ -3259,7 +3259,6 @@ declare void @_ZN8facebook5velox6memory20ContiguousAllocation3setEPvmm(ptr nound
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox6memory13MmapAllocator14freeContiguousERNS1_20ContiguousAllocationE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(32) %allocation) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %size_.i = getelementptr inbounds nuw i8, ptr %allocation, i64 16
   %0 = load i64, ptr %size_.i, align 8
   %1 = load i8, ptr @_ZN3fLB28FLAGS_velox_time_allocationsE, align 1
@@ -3286,14 +3285,13 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i
   %4 = trunc nuw nsw i64 %3 to i32
   %5 = sub nuw nsw i32 63, %4
   %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 19)
-  %narrow = mul nuw nsw i32 %6, 40
-  %narrow2 = add nuw nsw i32 %narrow, 16
-  %7 = zext nneg i32 %narrow2 to i64
+  %7 = zext nneg i32 %6 to i64
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i: ; preds = %if.end.i.i.i, %if.end.i.i, %if.then.i
-  %retval.0.i.i = phi i64 [ 16, %if.then.i ], [ -24, %if.end.i.i ], [ %7, %if.end.i.i.i ]
-  %freeClocks.i = getelementptr inbounds i8, ptr %stats_, i64 %retval.0.i.i
+  %retval.0.i.i = phi i64 [ 0, %if.then.i ], [ -1, %if.end.i.i ], [ %7, %if.end.i.i.i ]
+  %arrayidx.i.i.i = getelementptr %"struct.facebook::velox::memory::SizeClassStats", ptr %this, i64 %retval.0.i.i
+  %freeClocks.i = getelementptr i8, ptr %arrayidx.i.i.i, i64 88
   %8 = tail call noundef i64 @llvm.x86.rdtsc()
   invoke void @_ZN8facebook5velox6memory13MmapAllocator18freeContiguousImplERNS1_20ContiguousAllocationE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(32) %allocation)
           to label %_ZN8facebook5velox10ClockTimerD2Ev.exit.i unwind label %_ZN8facebook5velox10ClockTimerD2Ev.exit15.i

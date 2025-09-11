@@ -634,10 +634,12 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %__holeIndex.addr.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
   %add.i.i.i.i = shl i64 %__holeIndex.addr.030.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %mul.i.i.i.i
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %2 = getelementptr %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %mul.i.i.i.i, i32 2
+  %add.ptr.i17.i.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %sub3.i.i.i.i
+  %2 = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 16
   %call.val.i.i.i.i.i = load i64, ptr %2, align 8
-  %3 = getelementptr %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %sub3.i.i.i.i, i32 2
+  %3 = getelementptr i8, ptr %add.ptr.i17.i.i.i.i, i64 16
   %call3.val.i.i.i.i.i = load i64, ptr %3, align 8
   %cmp.i.i.i.i.i.i = icmp ugt i64 %call.val.i.i.i.i.i, %call3.val.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
@@ -710,24 +712,26 @@ while.body.i.i:                                   ; preds = %"_ZSt13__heap_selec
   br i1 %cmp29.i.i.i9.i, label %while.body.i.i.i38.i, label %while.end.i.i.i10.i
 
 while.body.i.i.i38.i:                             ; preds = %while.body.i.i, %while.body.i.i.i38.i
-  %__holeIndex.addr.030.i.i.i39.i = phi i64 [ %spec.select.i.i.i46.i, %while.body.i.i.i38.i ], [ 0, %while.body.i.i ]
+  %__holeIndex.addr.030.i.i.i39.i = phi i64 [ %spec.select.i.i.i48.i, %while.body.i.i.i38.i ], [ 0, %while.body.i.i ]
   %add.i.i.i40.i = shl i64 %__holeIndex.addr.030.i.i.i39.i, 1
   %mul.i.i.i41.i = add i64 %add.i.i.i40.i, 2
-  %sub3.i.i.i42.i = or disjoint i64 %add.i.i.i40.i, 1
-  %5 = getelementptr %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %mul.i.i.i41.i, i32 2
-  %call.val.i.i.i.i43.i = load i64, ptr %5, align 8
-  %6 = getelementptr %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %sub3.i.i.i42.i, i32 2
-  %call3.val.i.i.i.i44.i = load i64, ptr %6, align 8
-  %cmp.i.i.i.i.i45.i = icmp ugt i64 %call.val.i.i.i.i43.i, %call3.val.i.i.i.i44.i
-  %spec.select.i.i.i46.i = select i1 %cmp.i.i.i.i.i45.i, i64 %sub3.i.i.i42.i, i64 %mul.i.i.i41.i
-  %add.ptr.i18.i.i.i47.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %spec.select.i.i.i46.i
-  %add.ptr.i19.i.i.i48.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__holeIndex.addr.030.i.i.i39.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i19.i.i.i48.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i18.i.i.i47.i, i64 24, i1 false)
-  %cmp.i.i.i49.i = icmp slt i64 %spec.select.i.i.i46.i, %div.i.i.i8.i
-  br i1 %cmp.i.i.i49.i, label %while.body.i.i.i38.i, label %while.end.i.i.i10.i, !llvm.loop !14
+  %add.ptr.i.i.i.i42.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %mul.i.i.i41.i
+  %sub3.i.i.i43.i = or disjoint i64 %add.i.i.i40.i, 1
+  %add.ptr.i17.i.i.i44.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %sub3.i.i.i43.i
+  %5 = getelementptr i8, ptr %add.ptr.i.i.i.i42.i, i64 16
+  %call.val.i.i.i.i45.i = load i64, ptr %5, align 8
+  %6 = getelementptr i8, ptr %add.ptr.i17.i.i.i44.i, i64 16
+  %call3.val.i.i.i.i46.i = load i64, ptr %6, align 8
+  %cmp.i.i.i.i.i47.i = icmp ugt i64 %call.val.i.i.i.i45.i, %call3.val.i.i.i.i46.i
+  %spec.select.i.i.i48.i = select i1 %cmp.i.i.i.i.i47.i, i64 %sub3.i.i.i43.i, i64 %mul.i.i.i41.i
+  %add.ptr.i18.i.i.i49.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %spec.select.i.i.i48.i
+  %add.ptr.i19.i.i.i50.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %__first.coerce.fr.i, i64 %__holeIndex.addr.030.i.i.i39.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i19.i.i.i50.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i18.i.i.i49.i, i64 24, i1 false)
+  %cmp.i.i.i51.i = icmp slt i64 %spec.select.i.i.i48.i, %div.i.i.i8.i
+  br i1 %cmp.i.i.i51.i, label %while.body.i.i.i38.i, label %while.end.i.i.i10.i, !llvm.loop !14
 
 while.end.i.i.i10.i:                              ; preds = %while.body.i.i.i38.i, %while.body.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i11.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i46.i, %while.body.i.i.i38.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i11.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i48.i, %while.body.i.i.i38.i ]
   %and.i.i.i12.i = and i64 %sub.ptr.div.i.i.i6.i, 1
   %cmp16.i.i.i13.i = icmp eq i64 %and.i.i.i12.i, 0
   br i1 %cmp16.i.i.i13.i, label %land.lhs.true.i.i.i.i, label %if.end33.i.i.i14.i

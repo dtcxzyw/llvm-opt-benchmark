@@ -114,13 +114,14 @@ define dso_local i64 @rb_shape_depth(ptr noundef readonly captures(none) %0) loc
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
-  %7 = phi i32 [ %3, %.lr.ph ], [ %11, %6 ]
+  %7 = phi i32 [ %3, %.lr.ph ], [ %12, %6 ]
   %.05 = phi i64 [ 1, %.lr.ph ], [ %8, %6 ]
   %8 = add i64 %.05, 1
   %9 = zext i32 %7 to i64
-  %10 = getelementptr %struct.rb_shape, ptr %5, i64 %9, i32 6
-  %11 = load i32, ptr %10, align 4, !tbaa !20
-  %.not = icmp eq i32 %11, -1
+  %10 = getelementptr %struct.rb_shape, ptr %5, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %12 = load i32, ptr %11, align 4, !tbaa !20
+  %.not = icmp eq i32 %12, -1
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %6, %1
@@ -1826,7 +1827,7 @@ redblack_left.exit.i:                             ; preds = %80
   br i1 %.not.i.i118.i, label %113, label %redblack_red_p.exit119.i
 
 redblack_red_p.exit119.i:                         ; preds = %redblack_left.exit.i
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %89 = getelementptr i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !61
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, 1
@@ -1845,14 +1846,14 @@ redblack_left.exit126.i:                          ; preds = %redblack_red_p.exit
   %99 = load i64, ptr %88, align 8, !tbaa !56
   %100 = and i64 %91, -2
   %101 = inttoptr i64 %100 to ptr
-  %102 = getelementptr %struct.redblack_node, ptr %85, i64 %87, i32 2
+  %102 = getelementptr i8, ptr %88, i64 16
   %.val89.i = load i32, ptr %102, align 8, !tbaa !58
   %103 = icmp eq i32 %.val89.i, 0
   %104 = add i32 %.val89.i, -1
   %105 = zext i32 %104 to i64
   %106 = getelementptr %struct.redblack_node, ptr %85, i64 %105
   %.0.i127.i = select i1 %103, ptr null, ptr %106
-  %107 = getelementptr %struct.redblack_node, ptr %85, i64 %87, i32 3
+  %107 = getelementptr i8, ptr %88, i64 20
   %.val108.i = load i32, ptr %107, align 4, !tbaa !60
   %108 = icmp eq i32 %.val108.i, 0
   br i1 %108, label %redblack_right.exit132.i, label %109
@@ -1880,7 +1881,7 @@ redblack_right.exit136.i:                         ; preds = %113
   br i1 %.not.i.i137.i, label %redblack_red_p.exit134.thread.i, label %redblack_red_p.exit138.i
 
 redblack_red_p.exit138.i:                         ; preds = %redblack_right.exit136.i
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %122 = getelementptr i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !61
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %124, 1
@@ -1896,14 +1897,14 @@ redblack_right.exit146.i:                         ; preds = %redblack_red_p.exit
   %131 = getelementptr %struct.redblack_node, ptr %118, i64 %130
   %.0.i139.i = select i1 %82, ptr null, ptr %131
   %132 = load i64, ptr %121, align 8, !tbaa !56
-  %133 = getelementptr %struct.redblack_node, ptr %118, i64 %120, i32 2
+  %133 = getelementptr i8, ptr %121, i64 16
   %.val86.i = load i32, ptr %133, align 8, !tbaa !58
   %134 = icmp eq i32 %.val86.i, 0
   %135 = add i32 %.val86.i, -1
   %136 = zext i32 %135 to i64
   %137 = getelementptr %struct.redblack_node, ptr %118, i64 %136
   %.0.i147.i = select i1 %134, ptr null, ptr %137
-  %138 = getelementptr %struct.redblack_node, ptr %118, i64 %120, i32 3
+  %138 = getelementptr i8, ptr %121, i64 20
   %.val102.i = load i32, ptr %138, align 4, !tbaa !60
   %139 = icmp eq i32 %.val102.i, 0
   br i1 %139, label %redblack_right.exit132.i, label %140
@@ -1943,7 +1944,7 @@ redblack_left.exit156.i:                          ; preds = %148
   br i1 %.not.i.i157.i, label %181, label %redblack_red_p.exit158.i
 
 redblack_red_p.exit158.i:                         ; preds = %redblack_left.exit156.i
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %157 = getelementptr i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8, !tbaa !61
   %159 = ptrtoint ptr %158 to i64
   %160 = and i64 %159, 1
@@ -1962,14 +1963,14 @@ redblack_left.exit166.i:                          ; preds = %redblack_red_p.exit
   %168 = getelementptr %struct.redblack_node, ptr %153, i64 %167
   %.0.i159.i = select i1 %165, ptr null, ptr %168
   %169 = load i64, ptr %156, align 8, !tbaa !56
-  %170 = getelementptr %struct.redblack_node, ptr %153, i64 %155, i32 2
+  %170 = getelementptr i8, ptr %156, i64 16
   %.val81.i = load i32, ptr %170, align 8, !tbaa !58
   %171 = icmp eq i32 %.val81.i, 0
   %172 = add i32 %.val81.i, -1
   %173 = zext i32 %172 to i64
   %174 = getelementptr %struct.redblack_node, ptr %153, i64 %173
   %.0.i167.i = select i1 %171, ptr null, ptr %174
-  %175 = getelementptr %struct.redblack_node, ptr %153, i64 %155, i32 3
+  %175 = getelementptr i8, ptr %156, i64 20
   %.val100.i = load i32, ptr %175, align 4, !tbaa !60
   %176 = icmp eq i32 %.val100.i, 0
   br i1 %176, label %redblack_right.exit132.i, label %177
@@ -1997,7 +1998,7 @@ redblack_right.exit176.i:                         ; preds = %181
   br i1 %.not.i.i177.i, label %redblack_red_p.exit174.thread.i, label %redblack_red_p.exit178.i
 
 redblack_red_p.exit178.i:                         ; preds = %redblack_right.exit176.i
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %190 = getelementptr i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8, !tbaa !61
   %192 = ptrtoint ptr %191 to i64
   %193 = and i64 %192, 1
@@ -2013,14 +2014,14 @@ redblack_right.exit186.i:                         ; preds = %redblack_red_p.exit
   %198 = load i64, ptr %189, align 8, !tbaa !56
   %199 = and i64 %192, -2
   %200 = inttoptr i64 %199 to ptr
-  %201 = getelementptr %struct.redblack_node, ptr %186, i64 %188, i32 2
+  %201 = getelementptr i8, ptr %189, i64 16
   %.val.i = load i32, ptr %201, align 8, !tbaa !58
   %202 = icmp eq i32 %.val.i, 0
   %203 = add i32 %.val.i, -1
   %204 = zext i32 %203 to i64
   %205 = getelementptr %struct.redblack_node, ptr %186, i64 %204
   %.0.i187.i = select i1 %202, ptr null, ptr %205
-  %206 = getelementptr %struct.redblack_node, ptr %186, i64 %188, i32 3
+  %206 = getelementptr i8, ptr %189, i64 20
   %.val94.i = load i32, ptr %206, align 4, !tbaa !60
   %207 = icmp eq i32 %.val94.i, 0
   br i1 %207, label %redblack_right.exit132.i, label %208

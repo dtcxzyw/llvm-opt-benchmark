@@ -1279,7 +1279,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %.lr.ph.i.i,
 .preheader.i.i:                                   ; preds = %80
   %84 = zext i8 %9 to i64
   %85 = add nsw i32 %10, -1
-  %86 = zext i32 %85 to i64
+  %86 = zext nneg i32 %85 to i64
   br label %87
 
 87:                                               ; preds = %_ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE0EEENS1_8OpResultEbPNS0_7CordRepEm.exit.i.i, %.preheader.i.i
@@ -1817,7 +1817,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %.lr.ph.i.i,
 .preheader.i.i:                                   ; preds = %79
   %83 = zext i8 %9 to i64
   %84 = add nsw i32 %10, -1
-  %85 = zext i32 %84 to i64
+  %85 = zext nneg i32 %84 to i64
   br label %86
 
 86:                                               ; preds = %_ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE1EEENS1_8OpResultEbPNS0_7CordRepEm.exit.i.i, %.preheader.i.i

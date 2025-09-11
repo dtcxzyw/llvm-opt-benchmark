@@ -2296,7 +2296,8 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
 589:                                              ; preds = %588, %585
   %590 = phi i32 [ 16, %588 ], [ %586, %585 ]
   %591 = sext i32 %590 to i64
-  %592 = getelementptr %struct.event_constraint, ptr @intel_v5_gen_event_constraints, i64 %591, i32 3
+  %.split = getelementptr %struct.event_constraint, ptr @intel_v5_gen_event_constraints, i64 %591
+  %592 = getelementptr i8, ptr %.split, i64 24
   store i32 -1, ptr %592, align 8
   store ptr @intel_v5_gen_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240), align 8
   br label %593
@@ -4888,7 +4889,8 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
   %65 = load ptr, ptr %64, align 8
   %66 = load i32, ptr %39, align 8
   %67 = sext i32 %66 to i64
-  %68 = getelementptr %struct.er_account, ptr %65, i64 %67, i32 3
+  %.split = getelementptr %struct.er_account, ptr %65, i64 %67
+  %68 = getelementptr i8, ptr %.split, i64 24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %68, ptr elementtype(i32) %68) #22, !srcloc !77
   store i32 0, ptr %56, align 4
   br label %.thread12
@@ -5058,14 +5060,14 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
   %169 = getelementptr %struct.intel_excl_states, ptr %166, i64 %168
   %170 = and i32 %164, 32
   %.not = icmp eq i32 %170, 0
-  br i1 %.not, label %.split.us.preheader, label %171
+  br i1 %.not, label %.split17.us.preheader, label %171
 
 171:                                              ; preds = %163
   %172 = getelementptr inbounds nuw i8, ptr %2, i64 404
   %173 = load i32, ptr %172, align 4
   %174 = and i32 %173, 256
   %175 = icmp eq i32 %174, 0
-  br i1 %175, label %176, label %.split.preheader
+  br i1 %175, label %176, label %.split17.preheader
 
 176:                                              ; preds = %171
   %177 = or disjoint i32 %173, 256
@@ -5075,35 +5077,35 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
   %180 = add i32 %179, 1
   store i32 %180, ptr %178, align 8
   %181 = icmp eq i32 %179, 0
-  br i1 %181, label %182, label %.split.preheader
+  br i1 %181, label %182, label %.split17.preheader
 
 182:                                              ; preds = %176
   %183 = getelementptr inbounds nuw i8, ptr %135, i64 524
   %184 = sext i32 %139 to i64
   %185 = getelementptr i16, ptr %183, i64 %184
   store volatile i16 1, ptr %185, align 2
-  br label %.split.preheader
+  br label %.split17.preheader
 
-.split.preheader:                                 ; preds = %182, %176, %171
+.split17.preheader:                               ; preds = %182, %176, %171
   %186 = getelementptr inbounds nuw i8, ptr %165, i64 24
   %187 = load i32, ptr %186, align 8
-  br label %.split
+  br label %.split17
 
-.split.us.preheader:                              ; preds = %163
+.split17.us.preheader:                            ; preds = %163
   %188 = getelementptr inbounds nuw i8, ptr %165, i64 24
   %189 = load i32, ptr %188, align 8
-  br label %.split.us
+  br label %.split17.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %208
-  %190 = phi i64 [ %211, %208 ], [ 0, %.split.us.preheader ]
-  %191 = phi i32 [ %209, %208 ], [ %189, %.split.us.preheader ]
+.split17.us:                                      ; preds = %.split17.us.preheader, %208
+  %190 = phi i64 [ %211, %208 ], [ 0, %.split17.us.preheader ]
+  %191 = phi i32 [ %209, %208 ], [ %189, %.split17.us.preheader ]
   %192 = load i64, ptr %165, align 8
   %193 = shl nsw i64 -1, %190
   %194 = and i64 %192, %193
   %195 = icmp eq i64 %194, 0
   br i1 %195, label %.thread14, label %196
 
-196:                                              ; preds = %.split.us
+196:                                              ; preds = %.split17.us
   %197 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %194) #24, !srcloc !14
   %198 = trunc i64 %197 to i32
   %199 = icmp slt i32 %198, 64
@@ -5127,18 +5129,18 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
   %210 = add i64 %201, 4294967296
   %211 = ashr exact i64 %210, 32
   %212 = icmp ult i64 %211, 64
-  br i1 %212, label %.split.us, label %.thread14, !prof !15, !llvm.loop !82
+  br i1 %212, label %.split17.us, label %.thread14, !prof !15, !llvm.loop !82
 
-.split:                                           ; preds = %.split.preheader, %232
-  %213 = phi i64 [ %235, %232 ], [ 0, %.split.preheader ]
-  %214 = phi i32 [ %233, %232 ], [ %187, %.split.preheader ]
+.split17:                                         ; preds = %.split17.preheader, %232
+  %213 = phi i64 [ %235, %232 ], [ 0, %.split17.preheader ]
+  %214 = phi i32 [ %233, %232 ], [ %187, %.split17.preheader ]
   %215 = load i64, ptr %165, align 8
   %216 = shl nsw i64 -1, %213
   %217 = and i64 %215, %216
   %218 = icmp eq i64 %217, 0
   br i1 %218, label %.thread14, label %219
 
-219:                                              ; preds = %.split
+219:                                              ; preds = %.split17
   %220 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %217) #24, !srcloc !14
   %221 = trunc i64 %220 to i32
   %222 = icmp slt i32 %221, 64
@@ -5169,10 +5171,10 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
   %234 = add i64 %224, 4294967296
   %235 = ashr exact i64 %234, 32
   %236 = icmp ult i64 %235, 64
-  br i1 %236, label %.split, label %.thread14, !prof !15, !llvm.loop !82
+  br i1 %236, label %.split17, label %.thread14, !prof !15, !llvm.loop !82
 
-.thread14:                                        ; preds = %219, %232, %.split, %.split.us, %196, %208
-  %.us-phi = phi i32 [ %191, %.split.us ], [ %209, %208 ], [ %191, %196 ], [ %214, %.split ], [ %233, %232 ], [ %214, %219 ]
+.thread14:                                        ; preds = %219, %232, %.split17, %.split17.us, %196, %208
+  %.us-phi = phi i32 [ %191, %.split17.us ], [ %209, %208 ], [ %191, %196 ], [ %214, %.split17 ], [ %233, %232 ], [ %214, %219 ]
   %237 = icmp eq i32 %.us-phi, 0
   %238 = select i1 %237, ptr @emptyconstraint, ptr %165
   br label %270
@@ -5261,7 +5263,8 @@ define internal void @intel_put_event_constraints(ptr noundef captures(none) %0,
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %4 to i64
-  %18 = getelementptr %struct.er_account, ptr %16, i64 %17, i32 3
+  %.split = getelementptr %struct.er_account, ptr %16, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18, ptr elementtype(i32) %18) #22, !srcloc !77
   store i32 0, ptr %7, align 4
   br label %19
@@ -5288,7 +5291,8 @@ define internal void @intel_put_event_constraints(ptr noundef captures(none) %0,
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %21 to i64
-  %35 = getelementptr %struct.er_account, ptr %33, i64 %34, i32 3
+  %.split3 = getelementptr %struct.er_account, ptr %33, i64 %34
+  %35 = getelementptr i8, ptr %.split3, i64 24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, ptr elementtype(i32) %35) #22, !srcloc !77
   store i32 0, ptr %24, align 4
   br label %36
@@ -6408,7 +6412,8 @@ define internal fastcc noundef ptr @__intel_shared_reg_get_constraints(ptr nound
   %89 = icmp eq i32 %27, 1
   %90 = select i1 %89, i32 0, i32 %88
   %91 = sext i32 %90 to i64
-  %92 = getelementptr %struct.extra_reg, ptr %87, i64 %91, i32 3
+  %.split = getelementptr %struct.extra_reg, ptr %87, i64 %91
+  %92 = getelementptr i8, ptr %.split, i64 16
   %93 = load i64, ptr %92, align 8
   %94 = xor i64 %93, -1
   %95 = and i64 %30, %94

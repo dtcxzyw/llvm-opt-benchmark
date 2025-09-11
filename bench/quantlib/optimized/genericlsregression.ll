@@ -675,7 +675,8 @@ _ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES2_dET1_
   %cmp133 = fcmp ole double %__init.addr.0.lcssa.i, %67
   %cond = select i1 %cmp133, double %67, double %68
   %75 = load ptr, ptr %add.ptr.i180, align 8, !tbaa !30
-  %cumulatedCashFlows137 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %75, i64 %j.1443, i32 1
+  %add.ptr.i181 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %75, i64 %j.1443
+  %cumulatedCashFlows137 = getelementptr inbounds nuw i8, ptr %add.ptr.i181, i64 8
   %76 = load double, ptr %cumulatedCashFlows137, align 8, !tbaa !38
   %add138 = fadd double %cond, %76
   store double %add138, ptr %cumulatedCashFlows137, align 8, !tbaa !38

@@ -5411,8 +5411,9 @@ define hidden noundef align 4 dereferenceable_or_null(20) ptr @"_ZN8indexmap3set
   %.not = icmp ult i64 %1, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !9
-  %7 = getelementptr inbounds { i64, { i32, { i32, i32 }, { i32, i32 } }, {}, [4 x i8] }, ptr %6, i64 %1, i32 1
-  %.0 = select i1 %.not, ptr %7, ptr null
+  %7 = getelementptr inbounds { i64, { i32, { i32, i32 }, { i32, i32 } }, {}, [4 x i8] }, ptr %6, i64 %1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.0 = select i1 %.not, ptr %8, ptr null
   ret ptr %.0
 }
 
@@ -5719,8 +5720,9 @@ define hidden noundef nonnull align 4 dereferenceable(20) ptr @"_ZN93_$LT$indexm
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !2262, !nonnull !9
-  %10 = getelementptr inbounds { i64, { i32, { i32, i32 }, { i32, i32 } }, {}, [4 x i8] }, ptr %9, i64 %1, i32 1
-  ret ptr %10
+  %10 = getelementptr inbounds { i64, { i32, { i32, i32 }, { i32, i32 } }, {}, [4 x i8] }, ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  ret ptr %11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

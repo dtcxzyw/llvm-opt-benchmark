@@ -2349,40 +2349,41 @@ define void @_ZN10open_spiel5twixt5Board12UpdateResultEi8Position(ptr noundef no
   %7 = getelementptr inbounds %"class.std::vector.24", ptr %6, i64 %5
   %8 = ashr i64 %2, 32
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %9, i64 %8, i32 4
-  %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [2 x i8], ptr %10, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %15 = load i8, ptr %14, align 1
-  %16 = and i8 %13, 1
-  %17 = and i8 %16, %15
-  %or.cond.not = icmp eq i8 %17, 0
-  br i1 %or.cond.not, label %21, label %18
+  %10 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %9, i64 %8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 76
+  %12 = sext i32 %1 to i64
+  %13 = getelementptr inbounds [2 x i8], ptr %11, i64 %12
+  %14 = load i8, ptr %13, align 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = and i8 %14, 1
+  %18 = and i8 %17, %16
+  %or.cond.not = icmp eq i8 %18, 0
+  br i1 %or.cond.not, label %22, label %19
 
-18:                                               ; preds = %3
-  %19 = icmp eq i32 %1, 0
-  %20 = select i1 %19, i32 1, i32 2
+19:                                               ; preds = %3
+  %20 = icmp eq i32 %1, 0
+  %21 = select i1 %20, i32 1, i32 2
   br label %.sink.split
 
-21:                                               ; preds = %3
-  %22 = sub nsw i32 1, %1
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds %"class.std::vector.19", ptr %23, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %25, align 8
-  %.not = icmp eq ptr %27, %28
-  br i1 %.not, label %.sink.split, label %30
+22:                                               ; preds = %3
+  %23 = sub nsw i32 1, %1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = sext i32 %23 to i64
+  %26 = getelementptr inbounds %"class.std::vector.19", ptr %24, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %26, align 8
+  %.not = icmp eq ptr %28, %29
+  br i1 %.not, label %.sink.split, label %31
 
-.sink.split:                                      ; preds = %21, %18
-  %.sink = phi i32 [ %20, %18 ], [ 3, %21 ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink, ptr %29, align 8
-  br label %30
+.sink.split:                                      ; preds = %22, %19
+  %.sink = phi i32 [ %21, %19 ], [ 3, %22 ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink, ptr %30, align 8
+  br label %31
 
-30:                                               ; preds = %.sink.split, %21
+31:                                               ; preds = %.sink.split, %22
   ret void
 }
 
@@ -5421,40 +5422,41 @@ _ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102: ; preds = %_Z
   %277 = getelementptr inbounds %"class.std::vector.24", ptr %276, i64 %275
   %278 = sext i32 %.sroa.9.0 to i64
   %279 = load ptr, ptr %277, align 8
-  %280 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %279, i64 %278, i32 4
-  %281 = sext i32 %1 to i64
-  %282 = getelementptr inbounds [2 x i8], ptr %280, i64 %281
-  %283 = load i8, ptr %282, align 1
-  %284 = getelementptr inbounds nuw i8, ptr %282, i64 1
-  %285 = load i8, ptr %284, align 1
-  %286 = and i8 %283, 1
-  %287 = and i8 %286, %285
-  %or.cond.not.i = icmp eq i8 %287, 0
-  br i1 %or.cond.not.i, label %291, label %288
+  %280 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %279, i64 %278
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 76
+  %282 = sext i32 %1 to i64
+  %283 = getelementptr inbounds [2 x i8], ptr %281, i64 %282
+  %284 = load i8, ptr %283, align 1
+  %285 = getelementptr inbounds nuw i8, ptr %283, i64 1
+  %286 = load i8, ptr %285, align 1
+  %287 = and i8 %284, 1
+  %288 = and i8 %287, %286
+  %or.cond.not.i = icmp eq i8 %288, 0
+  br i1 %or.cond.not.i, label %292, label %289
 
-288:                                              ; preds = %_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102
-  %289 = icmp eq i32 %1, 0
-  %290 = select i1 %289, i32 1, i32 2
+289:                                              ; preds = %_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102
+  %290 = icmp eq i32 %1, 0
+  %291 = select i1 %290, i32 1, i32 2
   br label %.sink.split.i
 
-291:                                              ; preds = %_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102
-  %292 = sub nsw i32 1, %1
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %294 = sext i32 %292 to i64
-  %295 = getelementptr inbounds %"class.std::vector.19", ptr %293, i64 %294
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
-  %297 = load ptr, ptr %296, align 8
-  %298 = load ptr, ptr %295, align 8
-  %.not.i104 = icmp eq ptr %297, %298
+292:                                              ; preds = %_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit102
+  %293 = sub nsw i32 1, %1
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %295 = sext i32 %293 to i64
+  %296 = getelementptr inbounds %"class.std::vector.19", ptr %294, i64 %295
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
+  %298 = load ptr, ptr %297, align 8
+  %299 = load ptr, ptr %296, align 8
+  %.not.i104 = icmp eq ptr %298, %299
   br i1 %.not.i104, label %.sink.split.i, label %_ZN10open_spiel5twixt5Board12UpdateResultEi8Position.exit
 
-.sink.split.i:                                    ; preds = %291, %288
-  %.sink.i = phi i32 [ %290, %288 ], [ 3, %291 ]
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink.i, ptr %299, align 8
+.sink.split.i:                                    ; preds = %292, %289
+  %.sink.i = phi i32 [ %291, %289 ], [ 3, %292 ]
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink.i, ptr %300, align 8
   br label %_ZN10open_spiel5twixt5Board12UpdateResultEi8Position.exit
 
-_ZN10open_spiel5twixt5Board12UpdateResultEi8Position.exit: ; preds = %291, %.sink.split.i
+_ZN10open_spiel5twixt5Board12UpdateResultEi8Position.exit: ; preds = %292, %.sink.split.i
   ret void
 }
 
@@ -5709,8 +5711,8 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78: ; pred
   %55 = load ptr, ptr %9, align 8
   br label %56
 
-56:                                               ; preds = %.lr.ph, %70
-  %.sroa.074.082 = phi ptr [ %53, %.lr.ph ], [ %71, %70 ]
+56:                                               ; preds = %.lr.ph, %71
+  %.sroa.074.082 = phi ptr [ %53, %.lr.ph ], [ %72, %71 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.074.082, i64 32
   %.sroa.0.0.copyload = load i64, ptr %57, align 4
   %sext.i62 = shl i64 %.sroa.0.0.copyload, 32
@@ -5718,236 +5720,237 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78: ; pred
   %59 = getelementptr inbounds %"class.std::vector.24", ptr %55, i64 %58
   %60 = ashr i64 %.sroa.0.0.copyload, 32
   %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.074.082, i64 40
-  %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %61, i64 %60, i32 1
-  %65 = load i32, ptr %64, align 4
-  %66 = sext i32 %65 to i64
-  %67 = zext nneg i32 %63 to i64
-  %68 = shl nuw i64 1, %67
-  %69 = and i64 %68, %66
-  %.not80 = icmp eq i64 %69, 0
-  br i1 %.not80, label %70, label %93
+  %62 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %61, i64 %60
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.074.082, i64 40
+  %64 = load i32, ptr %63, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %66 = load i32, ptr %65, align 4
+  %67 = sext i32 %66 to i64
+  %68 = zext nneg i32 %64 to i64
+  %69 = shl nuw i64 1, %68
+  %70 = and i64 %69, %67
+  %.not80 = icmp eq i64 %70, 0
+  br i1 %.not80, label %71, label %94
 
-70:                                               ; preds = %56
-  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.074.082) #25
-  %.not79 = icmp eq ptr %71, %54
+71:                                               ; preds = %56
+  %72 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.074.082) #25
+  %.not79 = icmp eq ptr %72, %54
   br i1 %.not79, label %.critedge, label %56
 
-.critedge:                                        ; preds = %70, %49
-  %72 = shl nuw nsw i64 1, %indvars.iv
-  %73 = load i32, ptr %18, align 4
-  %74 = trunc nuw nsw i64 %72 to i32
-  %75 = or i32 %73, %74
-  store i32 %75, ptr %18, align 4
-  %76 = and i64 %indvars.iv, 4294967295
-  %77 = xor i64 %76, 4
-  %78 = shl nuw nsw i64 1, %77
-  %79 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %80 = load i32, ptr %79, align 4
-  %81 = trunc nuw nsw i64 %78 to i32
-  %82 = or i32 %80, %81
-  store i32 %82, ptr %79, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %45, i64 76
-  %84 = getelementptr inbounds [2 x i8], ptr %83, i64 %19
-  %85 = load i8, ptr %84, align 1
-  %86 = trunc i8 %85 to i1
-  br i1 %86, label %87, label %88
+.critedge:                                        ; preds = %71, %49
+  %73 = shl nuw nsw i64 1, %indvars.iv
+  %74 = load i32, ptr %18, align 4
+  %75 = trunc nuw nsw i64 %73 to i32
+  %76 = or i32 %74, %75
+  store i32 %76, ptr %18, align 4
+  %77 = and i64 %indvars.iv, 4294967295
+  %78 = xor i64 %77, 4
+  %79 = shl nuw nsw i64 1, %78
+  %80 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %81 = load i32, ptr %80, align 4
+  %82 = trunc nuw nsw i64 %79 to i32
+  %83 = or i32 %81, %82
+  store i32 %83, ptr %80, align 4
+  %84 = getelementptr inbounds nuw i8, ptr %45, i64 76
+  %85 = getelementptr inbounds [2 x i8], ptr %84, i64 %19
+  %86 = load i8, ptr %85, align 1
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %89
 
-87:                                               ; preds = %.critedge
+88:                                               ; preds = %.critedge
   store i8 1, ptr %23, align 1
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
 
-88:                                               ; preds = %.critedge
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 1
-  %90 = load i8, ptr %89, align 1
-  %91 = trunc i8 %90 to i1
-  br i1 %91, label %92, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
+89:                                               ; preds = %.critedge
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 1
+  %91 = load i8, ptr %90, align 1
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
 
-92:                                               ; preds = %88
+93:                                               ; preds = %89
   store i8 1, ptr %21, align 1
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
 
-93:                                               ; preds = %56
-  %94 = shl nuw nsw i64 1, %indvars.iv
-  %95 = load i32, ptr %17, align 4
-  %96 = trunc nuw nsw i64 %94 to i32
-  %97 = or i32 %95, %96
-  store i32 %97, ptr %17, align 4
-  %98 = and i64 %indvars.iv, 4294967295
-  %99 = xor i64 %98, 4
-  %100 = shl nuw nsw i64 1, %99
-  %101 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %102 = load i32, ptr %101, align 4
-  %103 = trunc nuw nsw i64 %100 to i32
-  %104 = or i32 %102, %103
-  store i32 %104, ptr %101, align 4
+94:                                               ; preds = %56
+  %95 = shl nuw nsw i64 1, %indvars.iv
+  %96 = load i32, ptr %17, align 4
+  %97 = trunc nuw nsw i64 %95 to i32
+  %98 = or i32 %96, %97
+  store i32 %98, ptr %17, align 4
+  %99 = and i64 %indvars.iv, 4294967295
+  %100 = xor i64 %99, 4
+  %101 = shl nuw nsw i64 1, %100
+  %102 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %103 = load i32, ptr %102, align 4
+  %104 = trunc nuw nsw i64 %101 to i32
+  %105 = or i32 %103, %104
+  store i32 %105, ptr %102, align 4
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
 
-_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread: ; preds = %24, %32, %88, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit, %93, %92, %87, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78
-  %.159 = phi i1 [ %.05883, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit ], [ %.05883, %93 ], [ true, %87 ], [ true, %92 ], [ %.05883, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78 ], [ true, %88 ], [ %.05883, %32 ], [ %.05883, %24 ]
-  %.1 = phi i1 [ %.05585, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit ], [ %.05585, %93 ], [ %.05585, %87 ], [ %.05585, %92 ], [ %.05585, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78 ], [ true, %88 ], [ %.05585, %32 ], [ %.05585, %24 ]
+_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread: ; preds = %24, %32, %89, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit, %94, %93, %88, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78
+  %.159 = phi i1 [ %.05883, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit ], [ %.05883, %94 ], [ true, %88 ], [ true, %93 ], [ %.05883, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78 ], [ true, %89 ], [ %.05883, %32 ], [ %.05883, %24 ]
+  %.1 = phi i1 [ %.05585, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit ], [ %.05585, %94 ], [ %.05585, %88 ], [ %.05585, %93 ], [ %.05585, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78 ], [ true, %89 ], [ %.05585, %32 ], [ %.05585, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %105, label %24, !llvm.loop !26
+  br i1 %exitcond.not, label %106, label %24, !llvm.loop !26
 
-105:                                              ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
-  br i1 %.159, label %106, label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit73
+106:                                              ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
+  br i1 %.159, label %107, label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit73
 
-106:                                              ; preds = %105
-  %107 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %108 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %109 = getelementptr inbounds nuw i8, ptr %6, i64 24
+107:                                              ; preds = %106
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  store ptr %107, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %107, ptr %110, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 0, ptr %111, align 8
-  %112 = load i8, ptr %23, align 1
-  %113 = trunc i8 %112 to i1
-  %or.cond = select i1 %113, i1 %.1, i1 false
-  br i1 %or.cond, label %114, label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit
+  store ptr %108, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr %108, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i64 0, ptr %112, align 8
+  %113 = load i8, ptr %23, align 1
+  %114 = trunc i8 %113 to i1
+  %or.cond = select i1 %114, i1 %.1, i1 false
+  br i1 %or.cond, label %115, label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit
 
-114:                                              ; preds = %106
-  %115 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 0, ptr %115, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr null, ptr %116, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %115, ptr %117, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %115, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i64 0, ptr %119, align 8
+115:                                              ; preds = %107
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 0, ptr %116, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr null, ptr %117, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %116, ptr %118, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr %116, ptr %119, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store i64 0, ptr %120, align 8
   invoke void @_ZN10open_spiel5twixt5Board17ExploreLocalGraphEiRNS0_4CellENS0_6BorderESt3setIPS2_St4lessIS6_ESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(80) %15, i32 noundef 0, ptr noundef nonnull %7)
-          to label %120 unwind label %127
+          to label %121 unwind label %128
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr %116, align 8
-  invoke void @_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %121)
-          to label %._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit_crit_edge unwind label %122
+121:                                              ; preds = %115
+  %122 = load ptr, ptr %117, align 8
+  invoke void @_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %122)
+          to label %._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit_crit_edge unwind label %123
 
-._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit_crit_edge: ; preds = %120
-  %.pre86.pre = load ptr, ptr %108, align 8
+._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit_crit_edge: ; preds = %121
+  %.pre86.pre = load ptr, ptr %109, align 8
   br label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit
 
-122:                                              ; preds = %120
-  %123 = landingpad { ptr, i32 }
+123:                                              ; preds = %121
+  %124 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #21
+  %125 = extractvalue { ptr, i32 } %124, 0
+  call void @__clang_call_terminate(ptr %125) #21
   unreachable
 
-125:                                              ; preds = %138
-  %126 = landingpad { ptr, i32 }
+126:                                              ; preds = %139
+  %127 = landingpad { ptr, i32 }
           cleanup
-  br label %158
+  br label %159
 
-127:                                              ; preds = %114
-  %128 = landingpad { ptr, i32 }
+128:                                              ; preds = %115
+  %129 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #22
-  br label %158
+  br label %159
 
-_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit_crit_edge, %106
-  %.pre86 = phi ptr [ %.pre86.pre, %._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit_crit_edge ], [ null, %106 ]
-  %129 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  %130 = load i8, ptr %129, align 1
-  %131 = trunc i8 %130 to i1
-  %or.cond3 = select i1 %131, i1 %.1, i1 false
-  br i1 %or.cond3, label %132, label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72
+_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit_crit_edge, %107
+  %.pre86 = phi ptr [ %.pre86.pre, %._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit_crit_edge ], [ null, %107 ]
+  %130 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  %131 = load i8, ptr %130, align 1
+  %132 = trunc i8 %131 to i1
+  %or.cond3 = select i1 %132, i1 %.1, i1 false
+  br i1 %or.cond3, label %133, label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72
 
-132:                                              ; preds = %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit
-  %133 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 0, ptr %133, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr null, ptr %134, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %133, ptr %135, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %133, ptr %136, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i64 0, ptr %137, align 8
+133:                                              ; preds = %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 0, ptr %134, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr null, ptr %135, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %134, ptr %136, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr %134, ptr %137, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i64 0, ptr %138, align 8
   %.not.i.i63 = icmp eq ptr %.pre86, null
-  br i1 %.not.i.i63, label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit71, label %138
+  br i1 %.not.i.i63, label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit71, label %139
 
-138:                                              ; preds = %132
+139:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %8, ptr %4, align 8
-  %139 = invoke noundef ptr @_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %.pre86, ptr noundef nonnull %133, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %.noexc.i.i64 unwind label %125
+  %140 = invoke noundef ptr @_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %.pre86, ptr noundef nonnull %134, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %.noexc.i.i64 unwind label %126
 
-.noexc.i.i64:                                     ; preds = %138, %.noexc.i.i64
-  %.0.i.i.i.i.i.i65 = phi ptr [ %141, %.noexc.i.i64 ], [ %139, %138 ]
-  %140 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i65, i64 16
-  %141 = load ptr, ptr %140, align 8
-  %.not.i.i.i.i.i.i66 = icmp eq ptr %141, null
+.noexc.i.i64:                                     ; preds = %139, %.noexc.i.i64
+  %.0.i.i.i.i.i.i65 = phi ptr [ %142, %.noexc.i.i64 ], [ %140, %139 ]
+  %141 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i65, i64 16
+  %142 = load ptr, ptr %141, align 8
+  %.not.i.i.i.i.i.i66 = icmp eq ptr %142, null
   br i1 %.not.i.i.i.i.i.i66, label %_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i67, label %.noexc.i.i64, !llvm.loop !27
 
 _ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i67: ; preds = %.noexc.i.i64
-  store ptr %.0.i.i.i.i.i.i65, ptr %135, align 8
-  br label %142
+  store ptr %.0.i.i.i.i.i.i65, ptr %136, align 8
+  br label %143
 
-142:                                              ; preds = %142, %_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i67
-  %.0.i.i7.i.i.i.i68 = phi ptr [ %139, %_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i67 ], [ %144, %142 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i68, i64 24
-  %144 = load ptr, ptr %143, align 8
-  %.not.i.i8.i.i.i.i69 = icmp eq ptr %144, null
-  br i1 %.not.i.i8.i.i.i.i69, label %145, label %142, !llvm.loop !28
+143:                                              ; preds = %143, %_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i67
+  %.0.i.i7.i.i.i.i68 = phi ptr [ %140, %_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i67 ], [ %145, %143 ]
+  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i68, i64 24
+  %145 = load ptr, ptr %144, align 8
+  %.not.i.i8.i.i.i.i69 = icmp eq ptr %145, null
+  br i1 %.not.i.i8.i.i.i.i69, label %146, label %143, !llvm.loop !28
 
-145:                                              ; preds = %142
-  store ptr %.0.i.i7.i.i.i.i68, ptr %136, align 8
-  %146 = load i64, ptr %111, align 8
-  store i64 %146, ptr %137, align 8
+146:                                              ; preds = %143
+  store ptr %.0.i.i7.i.i.i.i68, ptr %137, align 8
+  %147 = load i64, ptr %112, align 8
+  store i64 %147, ptr %138, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store ptr %139, ptr %134, align 8
+  store ptr %140, ptr %135, align 8
   br label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit71
 
-_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit71: ; preds = %145, %132
+_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit71: ; preds = %146, %133
   invoke void @_ZN10open_spiel5twixt5Board17ExploreLocalGraphEiRNS0_4CellENS0_6BorderESt3setIPS2_St4lessIS6_ESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(80) %15, i32 noundef 1, ptr noundef nonnull %8)
-          to label %147 unwind label %152
+          to label %148 unwind label %153
 
-147:                                              ; preds = %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit71
-  %148 = load ptr, ptr %134, align 8
-  invoke void @_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %148)
-          to label %._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72_crit_edge unwind label %149
+148:                                              ; preds = %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit71
+  %149 = load ptr, ptr %135, align 8
+  invoke void @_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %149)
+          to label %._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72_crit_edge unwind label %150
 
-._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72_crit_edge: ; preds = %147
-  %.pre = load ptr, ptr %108, align 8
+._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72_crit_edge: ; preds = %148
+  %.pre = load ptr, ptr %109, align 8
   br label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72
 
-149:                                              ; preds = %147
-  %150 = landingpad { ptr, i32 }
+150:                                              ; preds = %148
+  %151 = landingpad { ptr, i32 }
           catch ptr null
-  %151 = extractvalue { ptr, i32 } %150, 0
-  call void @__clang_call_terminate(ptr %151) #21
+  %152 = extractvalue { ptr, i32 } %151, 0
+  call void @__clang_call_terminate(ptr %152) #21
   unreachable
 
-152:                                              ; preds = %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit71
-  %153 = landingpad { ptr, i32 }
+153:                                              ; preds = %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit71
+  %154 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #22
-  br label %158
+  br label %159
 
 _ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72: ; preds = %._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72_crit_edge, %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit
-  %154 = phi ptr [ %.pre, %._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72_crit_edge ], [ %.pre86, %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit ]
-  invoke void @_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %154)
-          to label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit73 unwind label %155
+  %155 = phi ptr [ %.pre, %._ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72_crit_edge ], [ %.pre86, %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit ]
+  invoke void @_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %155)
+          to label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit73 unwind label %156
 
-155:                                              ; preds = %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72
-  %156 = landingpad { ptr, i32 }
+156:                                              ; preds = %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72
+  %157 = landingpad { ptr, i32 }
           catch ptr null
-  %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #21
+  %158 = extractvalue { ptr, i32 } %157, 0
+  call void @__clang_call_terminate(ptr %158) #21
   unreachable
 
-158:                                              ; preds = %152, %127, %125
-  %.pn = phi { ptr, i32 } [ %153, %152 ], [ %126, %125 ], [ %128, %127 ]
+159:                                              ; preds = %153, %128, %126
+  %.pn = phi { ptr, i32 } [ %154, %153 ], [ %127, %126 ], [ %129, %128 ]
   call void @_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #22
   resume { ptr, i32 } %.pn
 
-_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit73: ; preds = %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72, %105
+_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit73: ; preds = %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit72, %106
   ret void
 }
 

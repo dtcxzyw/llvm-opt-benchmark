@@ -679,7 +679,7 @@ _ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi.exit24: ; preds = %52, %61, %66, %74,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 -63447168, 4460608) i32 @_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
+define noundef range(i32 -532608, 2363456) i32 @_ZN6duckdb8Utf8Proc15UTF8ToCodepointEPKcRi(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i8, ptr %0, align 1, !tbaa !3
   %4 = zext i8 %3 to i32
   %5 = icmp sgt i8 %3, -1

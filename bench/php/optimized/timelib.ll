@@ -281,39 +281,41 @@ define hidden void @timelib_error_container_dtor(ptr noundef %0) local_unnamed_a
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !29
-  %8 = getelementptr inbounds nuw %struct._timelib_error_message, ptr %7, i64 %indvars.iv, i32 3
-  %9 = load ptr, ptr %8, align 8, !tbaa !30
-  tail call void @_efree(ptr noundef %9) #18
+  %8 = getelementptr inbounds nuw %struct._timelib_error_message, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  tail call void @_efree(ptr noundef %10) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load i32, ptr %2, align 4, !tbaa !26
-  %11 = sext i32 %10 to i64
-  %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %6, label %._crit_edge
+  %11 = load i32, ptr %2, align 4, !tbaa !26
+  %12 = sext i32 %11 to i64
+  %13 = icmp slt i64 %indvars.iv.next, %12
+  br i1 %13, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6, %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !29
-  tail call void @_efree(ptr noundef %14) #18
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !32
-  %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph15, label %._crit_edge16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !29
+  tail call void @_efree(ptr noundef %15) #18
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load i32, ptr %16, align 8, !tbaa !32
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %.lr.ph15, label %._crit_edge16
 
 .lr.ph15:                                         ; preds = %._crit_edge, %.lr.ph15
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.lr.ph15 ], [ 0, %._crit_edge ]
-  %18 = load ptr, ptr %0, align 8, !tbaa !33
-  %19 = getelementptr inbounds nuw %struct._timelib_error_message, ptr %18, i64 %indvars.iv18, i32 3
-  %20 = load ptr, ptr %19, align 8, !tbaa !30
-  tail call void @_efree(ptr noundef %20) #18
+  %19 = load ptr, ptr %0, align 8, !tbaa !33
+  %20 = getelementptr inbounds nuw %struct._timelib_error_message, ptr %19, i64 %indvars.iv18
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  tail call void @_efree(ptr noundef %22) #18
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %21 = load i32, ptr %15, align 8, !tbaa !32
-  %22 = sext i32 %21 to i64
-  %23 = icmp slt i64 %indvars.iv.next19, %22
-  br i1 %23, label %.lr.ph15, label %._crit_edge16
+  %23 = load i32, ptr %16, align 8, !tbaa !32
+  %24 = sext i32 %23 to i64
+  %25 = icmp slt i64 %indvars.iv.next19, %24
+  br i1 %25, label %.lr.ph15, label %._crit_edge16
 
 ._crit_edge16:                                    ; preds = %.lr.ph15, %._crit_edge
-  %24 = load ptr, ptr %0, align 8, !tbaa !33
-  tail call void @_efree(ptr noundef %24) #18
+  %26 = load ptr, ptr %0, align 8, !tbaa !33
+  tail call void @_efree(ptr noundef %26) #18
   tail call void @_efree(ptr noundef nonnull %0) #18
   ret void
 }

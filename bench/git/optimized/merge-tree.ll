@@ -1504,259 +1504,260 @@ define internal fastcc void @unresolved(ptr noundef %0, ptr noundef %1) unnamed_
   %.02963 = phi i32 [ 0, %2 ], [ %.1, %9 ]
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = shl nuw nsw i32 1, %10
-  %12 = getelementptr inbounds nuw %struct.name_entry, ptr %1, i64 %indvars.iv, i32 3
-  %13 = load i32, ptr %12, align 4, !tbaa !109
-  %.not39 = icmp eq i32 %13, 0
-  %14 = and i32 %13, 61440
-  %15 = icmp eq i32 %14, 16384
-  %or.cond = or i1 %.not39, %15
-  %16 = select i1 %or.cond, i32 %11, i32 0
-  %.1 = or i32 %16, %.02963
+  %12 = getelementptr inbounds nuw %struct.name_entry, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 52
+  %14 = load i32, ptr %13, align 4, !tbaa !109
+  %.not39 = icmp eq i32 %14, 0
+  %15 = and i32 %14, 61440
+  %16 = icmp eq i32 %15, 16384
+  %or.cond = or i1 %.not39, %16
+  %17 = select i1 %or.cond, i32 %11, i32 0
+  %.1 = or i32 %17, %.02963
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %17, label %9, !llvm.loop !115
+  br i1 %exitcond.not, label %18, label %9, !llvm.loop !115
 
-17:                                               ; preds = %9
-  %18 = load ptr, ptr @the_repository, align 8, !tbaa !21
+18:                                               ; preds = %9
+  %19 = load ptr, ptr @the_repository, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br label %21
+  br label %22
 
-19:                                               ; preds = %21
+20:                                               ; preds = %22
   %.0.add.i = add nuw nsw i64 %.0.idx44.i, 56
-  %20 = icmp samesign ult i64 %.0.idx44.i, 112
-  br i1 %20, label %21, label %unresolved_directory.exit, !llvm.loop !116
+  %21 = icmp samesign ult i64 %.0.idx44.i, 112
+  br i1 %21, label %22, label %unresolved_directory.exit, !llvm.loop !116
 
-21:                                               ; preds = %19, %17
-  %.0.idx44.i = phi i64 [ 0, %17 ], [ %.0.add.i, %19 ]
+22:                                               ; preds = %20, %18
+  %.0.idx44.i = phi i64 [ 0, %18 ], [ %.0.add.i, %20 ]
   %.0.ptr45.i = getelementptr inbounds nuw i8, ptr %1, i64 %.0.idx44.i
-  %22 = getelementptr inbounds nuw i8, ptr %.0.ptr45.i, i64 52
-  %23 = load i32, ptr %22, align 4, !tbaa !109
-  %24 = and i32 %23, 61440
-  %25 = icmp eq i32 %24, 16384
-  br i1 %25, label %26, label %19
+  %23 = getelementptr inbounds nuw i8, ptr %.0.ptr45.i, i64 52
+  %24 = load i32, ptr %23, align 4, !tbaa !109
+  %25 = and i32 %24, 61440
+  %26 = icmp eq i32 %25, 16384
+  br i1 %26, label %27, label %20
 
-26:                                               ; preds = %21
-  %27 = getelementptr i8, ptr %.0.ptr45.i, i64 40
-  %.0.ptr.val.i = load ptr, ptr %27, align 8, !tbaa !111
-  %28 = getelementptr i8, ptr %.0.ptr45.i, i64 48
-  %.0.ptr.val42.i = load i32, ptr %28, align 8, !tbaa !112
+27:                                               ; preds = %22
+  %28 = getelementptr i8, ptr %.0.ptr45.i, i64 40
+  %.0.ptr.val.i = load ptr, ptr %28, align 8, !tbaa !111
+  %29 = getelementptr i8, ptr %.0.ptr45.i, i64 48
+  %.0.ptr.val42.i = load i32, ptr %29, align 8, !tbaa !112
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.traverse_path.buf, i64 24, i1 false)
-  %29 = sext i32 %.0.ptr.val42.i to i64
-  call void @strbuf_make_traverse_path(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %.0.ptr.val.i, i64 noundef %29) #15
-  %30 = call ptr @strbuf_detach(ptr noundef nonnull %7, ptr noundef null) #15
+  %30 = sext i32 %.0.ptr.val42.i to i64
+  call void @strbuf_make_traverse_path(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %.0.ptr.val.i, i64 noundef %30) #15
+  %31 = call ptr @strbuf_detach(ptr noundef nonnull %7, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %32 = load i32, ptr %31, align 4, !tbaa !109
-  %33 = and i32 %32, 61440
-  %34 = icmp eq i32 %33, 16384
-  %35 = select i1 %34, ptr %1, ptr null
-  %36 = call ptr @fill_tree_descriptor(ptr noundef %18, ptr noundef nonnull %8, ptr noundef %35) #15
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %40 = load i32, ptr %39, align 4, !tbaa !109
-  %41 = and i32 %40, 61440
-  %42 = icmp eq i32 %41, 16384
-  %43 = select i1 %42, ptr %38, ptr null
-  %44 = call ptr @fill_tree_descriptor(ptr noundef %18, ptr noundef nonnull %37, ptr noundef %43) #15
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 164
-  %48 = load i32, ptr %47, align 4, !tbaa !109
-  %49 = and i32 %48, 61440
-  %50 = icmp eq i32 %49, 16384
-  %51 = select i1 %50, ptr %46, ptr null
-  %52 = call ptr @fill_tree_descriptor(ptr noundef %18, ptr noundef nonnull %45, ptr noundef %51) #15
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %33 = load i32, ptr %32, align 4, !tbaa !109
+  %34 = and i32 %33, 61440
+  %35 = icmp eq i32 %34, 16384
+  %36 = select i1 %35, ptr %1, ptr null
+  %37 = call ptr @fill_tree_descriptor(ptr noundef %19, ptr noundef nonnull %8, ptr noundef %36) #15
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %41 = load i32, ptr %40, align 4, !tbaa !109
+  %42 = and i32 %41, 61440
+  %43 = icmp eq i32 %42, 16384
+  %44 = select i1 %43, ptr %39, ptr null
+  %45 = call ptr @fill_tree_descriptor(ptr noundef %19, ptr noundef nonnull %38, ptr noundef %44) #15
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 160
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 164
+  %49 = load i32, ptr %48, align 4, !tbaa !109
+  %50 = and i32 %49, 61440
+  %51 = icmp eq i32 %50, 16384
+  %52 = select i1 %51, ptr %47, ptr null
+  %53 = call ptr @fill_tree_descriptor(ptr noundef %19, ptr noundef nonnull %46, ptr noundef %52) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @setup_traverse_info(ptr noundef nonnull %6, ptr noundef %30) #15
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr @threeway_callback, ptr %53, align 8, !tbaa !43
-  %54 = load ptr, ptr @the_repository, align 8, !tbaa !21
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 384
-  %56 = load ptr, ptr %55, align 8, !tbaa !47
-  %57 = call i32 @traverse_trees(ptr noundef %56, i32 noundef 3, ptr noundef nonnull %8, ptr noundef nonnull %6) #15
+  call void @setup_traverse_info(ptr noundef nonnull %6, ptr noundef %31) #15
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store ptr @threeway_callback, ptr %54, align 8, !tbaa !43
+  %55 = load ptr, ptr @the_repository, align 8, !tbaa !21
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 384
+  %57 = load ptr, ptr %56, align 8, !tbaa !47
+  %58 = call i32 @traverse_trees(ptr noundef %57, i32 noundef 3, ptr noundef nonnull %8, ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @free(ptr noundef %36) #15
-  call void @free(ptr noundef %44) #15
-  call void @free(ptr noundef %52) #15
-  call void @free(ptr noundef %30) #15
+  call void @free(ptr noundef %37) #15
+  call void @free(ptr noundef %45) #15
+  call void @free(ptr noundef %53) #15
+  call void @free(ptr noundef %31) #15
   br label %unresolved_directory.exit
 
-unresolved_directory.exit:                        ; preds = %19, %26
+unresolved_directory.exit:                        ; preds = %20, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %58 = icmp eq i32 %.1, 7
-  br i1 %58, label %140, label %59
+  %59 = icmp eq i32 %.1, 7
+  br i1 %59, label %141, label %60
 
-59:                                               ; preds = %unresolved_directory.exit
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 164
-  %61 = load i32, ptr %60, align 4, !tbaa !109
-  %.not = icmp eq i32 %61, 0
-  %62 = and i32 %61, 61440
-  %63 = icmp eq i32 %62, 16384
-  %or.cond42 = or i1 %.not, %63
+60:                                               ; preds = %unresolved_directory.exit
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 164
+  %62 = load i32, ptr %61, align 4, !tbaa !109
+  %.not = icmp eq i32 %62, 0
+  %63 = and i32 %62, 61440
+  %64 = icmp eq i32 %63, 16384
+  %or.cond42 = or i1 %.not, %64
   br i1 %or.cond42, label %link_entry.exit.thread, label %link_entry.exit
 
-link_entry.exit:                                  ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %65 = getelementptr i8, ptr %1, i64 152
-  %.val.i = load ptr, ptr %65, align 8, !tbaa !111
-  %66 = getelementptr i8, ptr %1, i64 160
-  %.val16.i = load i32, ptr %66, align 8, !tbaa !112
+link_entry.exit:                                  ; preds = %60
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %66 = getelementptr i8, ptr %1, i64 152
+  %.val.i = load ptr, ptr %66, align 8, !tbaa !111
+  %67 = getelementptr i8, ptr %1, i64 160
+  %.val16.i = load i32, ptr %67, align 8, !tbaa !112
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.traverse_path.buf, i64 24, i1 false)
-  %67 = sext i32 %.val16.i to i64
-  call void @strbuf_make_traverse_path(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %.val.i, i64 noundef %67) #15
-  %68 = call ptr @strbuf_detach(ptr noundef nonnull %5, ptr noundef null) #15
+  %68 = sext i32 %.val16.i to i64
+  call void @strbuf_make_traverse_path(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %.val.i, i64 noundef %68) #15
+  %69 = call ptr @strbuf_detach(ptr noundef nonnull %5, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre.i = load i32, ptr %60, align 4, !tbaa !109
-  %69 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load i8, ptr %70, align 8
-  %72 = or i8 %71, 3
-  store i8 %72, ptr %70, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store ptr %68, ptr %73, align 8, !tbaa !72
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 20
-  store i32 %.pre.i, ptr %74, align 4, !tbaa !70
-  %75 = load ptr, ptr @the_repository, align 8, !tbaa !21
-  %76 = call ptr @lookup_blob(ptr noundef %75, ptr noundef nonnull %64) #15
-  %77 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  store ptr %76, ptr %77, align 8, !tbaa !71
-  %78 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store ptr null, ptr %78, align 8, !tbaa !67
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %80 = load i32, ptr %79, align 4, !tbaa !109
-  %.not37 = icmp eq i32 %80, 0
-  %81 = and i32 %80, 61440
-  %82 = icmp eq i32 %81, 16384
-  %or.cond44 = or i1 %.not37, %82
-  br i1 %or.cond44, label %link_entry.exit52, label %87
+  %.pre.i = load i32, ptr %61, align 4, !tbaa !109
+  %70 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %72 = load i8, ptr %71, align 8
+  %73 = or i8 %72, 3
+  store i8 %73, ptr %71, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  store ptr %69, ptr %74, align 8, !tbaa !72
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 20
+  store i32 %.pre.i, ptr %75, align 4, !tbaa !70
+  %76 = load ptr, ptr @the_repository, align 8, !tbaa !21
+  %77 = call ptr @lookup_blob(ptr noundef %76, ptr noundef nonnull %65) #15
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 32
+  store ptr %77, ptr %78, align 8, !tbaa !71
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store ptr null, ptr %79, align 8, !tbaa !67
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %81 = load i32, ptr %80, align 4, !tbaa !109
+  %.not37 = icmp eq i32 %81, 0
+  %82 = and i32 %81, 61440
+  %83 = icmp eq i32 %82, 16384
+  %or.cond44 = or i1 %.not37, %83
+  br i1 %or.cond44, label %link_entry.exit52, label %88
 
-link_entry.exit.thread:                           ; preds = %59
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %84 = load i32, ptr %83, align 4, !tbaa !109
-  %.not3769 = icmp eq i32 %84, 0
-  %85 = and i32 %84, 61440
-  %86 = icmp eq i32 %85, 16384
-  %or.cond4470 = or i1 %.not3769, %86
-  br i1 %or.cond4470, label %link_entry.exit52.thread, label %90
+link_entry.exit.thread:                           ; preds = %60
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %85 = load i32, ptr %84, align 4, !tbaa !109
+  %.not3769 = icmp eq i32 %85, 0
+  %86 = and i32 %85, 61440
+  %87 = icmp eq i32 %86, 16384
+  %or.cond4470 = or i1 %.not3769, %87
+  br i1 %or.cond4470, label %link_entry.exit52.thread, label %91
 
-87:                                               ; preds = %link_entry.exit
-  %88 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %89 = load ptr, ptr %88, align 8, !tbaa !72
-  br label %95
+88:                                               ; preds = %link_entry.exit
+  %89 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %90 = load ptr, ptr %89, align 8, !tbaa !72
+  br label %96
 
-90:                                               ; preds = %link_entry.exit.thread
-  %91 = getelementptr i8, ptr %1, i64 96
-  %.val.i49 = load ptr, ptr %91, align 8, !tbaa !111
-  %92 = getelementptr i8, ptr %1, i64 104
-  %.val16.i50 = load i32, ptr %92, align 8, !tbaa !112
+91:                                               ; preds = %link_entry.exit.thread
+  %92 = getelementptr i8, ptr %1, i64 96
+  %.val.i49 = load ptr, ptr %92, align 8, !tbaa !111
+  %93 = getelementptr i8, ptr %1, i64 104
+  %.val16.i50 = load i32, ptr %93, align 8, !tbaa !112
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.traverse_path.buf, i64 24, i1 false)
-  %93 = sext i32 %.val16.i50 to i64
-  call void @strbuf_make_traverse_path(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %.val.i49, i64 noundef %93) #15
-  %94 = call ptr @strbuf_detach(ptr noundef nonnull %4, ptr noundef null) #15
+  %94 = sext i32 %.val16.i50 to i64
+  call void @strbuf_make_traverse_path(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %.val.i49, i64 noundef %94) #15
+  %95 = call ptr @strbuf_detach(ptr noundef nonnull %4, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre.i51 = load i32, ptr %83, align 4, !tbaa !109
-  br label %95
+  %.pre.i51 = load i32, ptr %84, align 4, !tbaa !109
+  br label %96
 
-95:                                               ; preds = %90, %87
-  %.0317174 = phi ptr [ %69, %87 ], [ null, %90 ]
-  %96 = phi i32 [ %80, %87 ], [ %.pre.i51, %90 ]
-  %.013.i = phi ptr [ %89, %87 ], [ %94, %90 ]
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %98 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %100 = load i8, ptr %99, align 8
-  %101 = and i8 %100, -4
-  %102 = or disjoint i8 %101, 2
-  store i8 %102, ptr %99, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  store ptr %.013.i, ptr %103, align 8, !tbaa !72
-  %104 = getelementptr inbounds nuw i8, ptr %98, i64 20
-  store i32 %96, ptr %104, align 4, !tbaa !70
-  %105 = load ptr, ptr @the_repository, align 8, !tbaa !21
-  %106 = call ptr @lookup_blob(ptr noundef %105, ptr noundef nonnull %97) #15
-  %107 = getelementptr inbounds nuw i8, ptr %98, i64 32
-  store ptr %106, ptr %107, align 8, !tbaa !71
-  %108 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store ptr %.0317174, ptr %108, align 8, !tbaa !67
+96:                                               ; preds = %91, %88
+  %.0317174 = phi ptr [ %70, %88 ], [ null, %91 ]
+  %97 = phi i32 [ %81, %88 ], [ %.pre.i51, %91 ]
+  %.013.i = phi ptr [ %90, %88 ], [ %95, %91 ]
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %99 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %101 = load i8, ptr %100, align 8
+  %102 = and i8 %101, -4
+  %103 = or disjoint i8 %102, 2
+  store i8 %103, ptr %100, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  store ptr %.013.i, ptr %104, align 8, !tbaa !72
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 20
+  store i32 %97, ptr %105, align 4, !tbaa !70
+  %106 = load ptr, ptr @the_repository, align 8, !tbaa !21
+  %107 = call ptr @lookup_blob(ptr noundef %106, ptr noundef nonnull %98) #15
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  store ptr %107, ptr %108, align 8, !tbaa !71
+  %109 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store ptr %.0317174, ptr %109, align 8, !tbaa !67
   br label %link_entry.exit52
 
-link_entry.exit52:                                ; preds = %95, %link_entry.exit
-  %.132 = phi ptr [ %69, %link_entry.exit ], [ %98, %95 ]
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %110 = load i32, ptr %109, align 4, !tbaa !109
-  %.not38 = icmp eq i32 %110, 0
-  %111 = and i32 %110, 61440
-  %112 = icmp eq i32 %111, 16384
-  %or.cond46 = or i1 %.not38, %112
-  br i1 %or.cond46, label %138, label %117
+link_entry.exit52:                                ; preds = %96, %link_entry.exit
+  %.132 = phi ptr [ %70, %link_entry.exit ], [ %99, %96 ]
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %111 = load i32, ptr %110, align 4, !tbaa !109
+  %.not38 = icmp eq i32 %111, 0
+  %112 = and i32 %111, 61440
+  %113 = icmp eq i32 %112, 16384
+  %or.cond46 = or i1 %.not38, %113
+  br i1 %or.cond46, label %139, label %118
 
 link_entry.exit52.thread:                         ; preds = %link_entry.exit.thread
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %114 = load i32, ptr %113, align 4, !tbaa !109
-  %.not3877 = icmp eq i32 %114, 0
-  %115 = and i32 %114, 61440
-  %116 = icmp eq i32 %115, 16384
-  %or.cond4678 = or i1 %.not3877, %116
-  br i1 %or.cond4678, label %138, label %.thread80
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %115 = load i32, ptr %114, align 4, !tbaa !109
+  %.not3877 = icmp eq i32 %115, 0
+  %116 = and i32 %115, 61440
+  %117 = icmp eq i32 %116, 16384
+  %or.cond4678 = or i1 %.not3877, %117
+  br i1 %or.cond4678, label %139, label %.thread80
 
-117:                                              ; preds = %link_entry.exit52
+118:                                              ; preds = %link_entry.exit52
   %.not15.i54 = icmp eq ptr %.132, null
-  br i1 %.not15.i54, label %.thread80, label %118
+  br i1 %.not15.i54, label %.thread80, label %119
 
-118:                                              ; preds = %117
-  %119 = getelementptr inbounds nuw i8, ptr %.132, i64 24
-  %120 = load ptr, ptr %119, align 8, !tbaa !72
+119:                                              ; preds = %118
+  %120 = getelementptr inbounds nuw i8, ptr %.132, i64 24
+  %121 = load ptr, ptr %120, align 8, !tbaa !72
   br label %link_entry.exit60
 
-.thread80:                                        ; preds = %link_entry.exit52.thread, %117
-  %121 = phi ptr [ %109, %117 ], [ %113, %link_entry.exit52.thread ]
-  %122 = getelementptr i8, ptr %1, i64 40
-  %.val.i57 = load ptr, ptr %122, align 8, !tbaa !111
-  %123 = getelementptr i8, ptr %1, i64 48
-  %.val16.i58 = load i32, ptr %123, align 8, !tbaa !112
+.thread80:                                        ; preds = %link_entry.exit52.thread, %118
+  %122 = phi ptr [ %110, %118 ], [ %114, %link_entry.exit52.thread ]
+  %123 = getelementptr i8, ptr %1, i64 40
+  %.val.i57 = load ptr, ptr %123, align 8, !tbaa !111
+  %124 = getelementptr i8, ptr %1, i64 48
+  %.val16.i58 = load i32, ptr %124, align 8, !tbaa !112
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.traverse_path.buf, i64 24, i1 false)
-  %124 = sext i32 %.val16.i58 to i64
-  call void @strbuf_make_traverse_path(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %.val.i57, i64 noundef %124) #15
-  %125 = call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #15
+  %125 = sext i32 %.val16.i58 to i64
+  call void @strbuf_make_traverse_path(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %.val.i57, i64 noundef %125) #15
+  %126 = call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre.i59 = load i32, ptr %121, align 4, !tbaa !109
+  %.pre.i59 = load i32, ptr %122, align 4, !tbaa !109
   br label %link_entry.exit60
 
-link_entry.exit60:                                ; preds = %118, %.thread80
-  %.1327983 = phi ptr [ %.132, %118 ], [ null, %.thread80 ]
-  %126 = phi i32 [ %110, %118 ], [ %.pre.i59, %.thread80 ]
-  %.013.i55 = phi ptr [ %120, %118 ], [ %125, %.thread80 ]
-  %127 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %129 = load i8, ptr %128, align 8
-  %130 = and i8 %129, -4
-  %131 = or disjoint i8 %130, 1
-  store i8 %131, ptr %128, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  store ptr %.013.i55, ptr %132, align 8, !tbaa !72
-  %133 = getelementptr inbounds nuw i8, ptr %127, i64 20
-  store i32 %126, ptr %133, align 4, !tbaa !70
-  %134 = load ptr, ptr @the_repository, align 8, !tbaa !21
-  %135 = call ptr @lookup_blob(ptr noundef %134, ptr noundef nonnull %1) #15
-  %136 = getelementptr inbounds nuw i8, ptr %127, i64 32
-  store ptr %135, ptr %136, align 8, !tbaa !71
-  %137 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  store ptr %.1327983, ptr %137, align 8, !tbaa !67
-  br label %138
+link_entry.exit60:                                ; preds = %119, %.thread80
+  %.1327983 = phi ptr [ %.132, %119 ], [ null, %.thread80 ]
+  %127 = phi i32 [ %111, %119 ], [ %.pre.i59, %.thread80 ]
+  %.013.i55 = phi ptr [ %121, %119 ], [ %126, %.thread80 ]
+  %128 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #15
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  %130 = load i8, ptr %129, align 8
+  %131 = and i8 %130, -4
+  %132 = or disjoint i8 %131, 1
+  store i8 %132, ptr %129, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 24
+  store ptr %.013.i55, ptr %133, align 8, !tbaa !72
+  %134 = getelementptr inbounds nuw i8, ptr %128, i64 20
+  store i32 %127, ptr %134, align 4, !tbaa !70
+  %135 = load ptr, ptr @the_repository, align 8, !tbaa !21
+  %136 = call ptr @lookup_blob(ptr noundef %135, ptr noundef nonnull %1) #15
+  %137 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  store ptr %136, ptr %137, align 8, !tbaa !71
+  %138 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store ptr %.1327983, ptr %138, align 8, !tbaa !67
+  br label %139
 
-138:                                              ; preds = %link_entry.exit52.thread, %link_entry.exit60, %link_entry.exit52
-  %.2 = phi ptr [ %127, %link_entry.exit60 ], [ %.132, %link_entry.exit52 ], [ null, %link_entry.exit52.thread ]
-  %139 = load ptr, ptr @merge_result_end, align 8, !tbaa !113
-  store ptr %.2, ptr %139, align 8, !tbaa !65
+139:                                              ; preds = %link_entry.exit52.thread, %link_entry.exit60, %link_entry.exit52
+  %.2 = phi ptr [ %128, %link_entry.exit60 ], [ %.132, %link_entry.exit52 ], [ null, %link_entry.exit52.thread ]
+  %140 = load ptr, ptr @merge_result_end, align 8, !tbaa !113
+  store ptr %.2, ptr %140, align 8, !tbaa !65
   store ptr %.2, ptr @merge_result_end, align 8, !tbaa !113
-  br label %140
+  br label %141
 
-140:                                              ; preds = %unresolved_directory.exit, %138
+141:                                              ; preds = %unresolved_directory.exit, %139
   ret void
 }
 

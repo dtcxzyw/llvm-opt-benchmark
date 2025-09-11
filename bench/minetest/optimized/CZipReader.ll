@@ -2607,7 +2607,8 @@ entry:
   %Files = getelementptr inbounds nuw i8, ptr %add.ptr, i64 48
   %conv.i = zext i32 %index to i64
   %0 = load ptr, ptr %Files, align 8, !tbaa !65
-  %ID = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %0, i64 %conv.i, i32 3
+  %ID.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %0, i64 %conv.i
+  %ID = getelementptr inbounds nuw i8, ptr %ID.split, i64 68
   %1 = load i32, ptr %ID, align 4, !tbaa !91
   %conv.i169 = zext i32 %1 to i64
   %2 = load ptr, ptr %FileInfo, align 8, !tbaa !60
@@ -2626,7 +2627,7 @@ entry:
   ]
 
 if.else:                                          ; preds = %entry
-  %FullName = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %0, i64 %conv.i, i32 1
+  %FullName = getelementptr inbounds nuw i8, ptr %ID.split, i64 32
   %File = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load ptr, ptr %File, align 8, !tbaa !32
   %6 = load i32, ptr %add.ptr.i.i170, align 4, !tbaa !46
@@ -2681,7 +2682,8 @@ if.then68:                                        ; preds = %sw.bb13
   %add.ptr108 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset107
   %Files109 = getelementptr inbounds nuw i8, ptr %add.ptr108, i64 48
   %14 = load ptr, ptr %Files109, align 8, !tbaa !65
-  %FullName111 = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %14, i64 %conv.i, i32 1
+  %FullName111.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %14, i64 %conv.i
+  %FullName111 = getelementptr inbounds nuw i8, ptr %FullName111.split, i64 32
   %vtable112 = load ptr, ptr %13, align 8, !tbaa !3
   %vfn113 = getelementptr inbounds nuw i8, ptr %vtable112, i64 8
   %15 = load ptr, ptr %vfn113, align 8
@@ -2696,7 +2698,8 @@ if.then89.critedge:                               ; preds = %sw.bb13
   %add.ptr94 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset93
   %Files95 = getelementptr inbounds nuw i8, ptr %add.ptr94, i64 48
   %16 = load ptr, ptr %Files95, align 8, !tbaa !65
-  %FullName97 = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %16, i64 %conv.i, i32 1
+  %FullName97.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %16, i64 %conv.i
+  %FullName97 = getelementptr inbounds nuw i8, ptr %FullName97.split, i64 32
   %17 = load ptr, ptr %FullName97, align 8, !tbaa !21
   %call99 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.7, ptr noundef %17) #23
   call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull %buf, i32 noundef 3) #23
@@ -2721,7 +2724,7 @@ sw.bb121:                                         ; preds = %entry
   br label %cleanup133
 
 sw.default:                                       ; preds = %entry
-  %FullName129 = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %0, i64 %conv.i, i32 1
+  %FullName129 = getelementptr inbounds nuw i8, ptr %ID.split, i64 32
   %18 = load ptr, ptr %FullName129, align 8, !tbaa !21
   %call131 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.11, ptr noundef %18) #23
   call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull %buf, i32 noundef 3) #23

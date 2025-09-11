@@ -4007,8 +4007,7 @@ define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetE
   unreachable
 
 10:                                               ; preds = %.lr.ph
-  %.idx = shl nuw nsw i64 %indvars.iv, 3
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %11 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %3, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = shl nuw nsw i64 %wide.trip.count, 3
@@ -4579,7 +4578,7 @@ define hidden void @_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti(ptr 
 
 30:                                               ; preds = %9, %9
   %31 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %4, i64 %indvars.iv
-  %32 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %11, i64 %indvars.iv, i32 1
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %14, align 8
   store i32 %34, ptr %31, align 4
@@ -4654,7 +4653,7 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder13generate_intoEPh(ptr nou
 
 34:                                               ; preds = %13, %13
   %35 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %9, i64 %indvars.iv.i
-  %36 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %15, i64 %indvars.iv.i, i32 1
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %18, align 8
   store i32 %38, ptr %35, align 4
@@ -4738,7 +4737,7 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr noundef nonnu
 
 36:                                               ; preds = %15, %15
   %37 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %11, i64 %indvars.iv.i.i
-  %38 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %17, i64 %indvars.iv.i.i, i32 1
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %20, align 8
   store i32 %40, ptr %37, align 4

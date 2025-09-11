@@ -726,7 +726,8 @@ define dso_local i32 @drm_crtc_helper_atomic_check(ptr noundef readonly captures
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i8, ptr %10, align 8, !range !34, !noundef !35

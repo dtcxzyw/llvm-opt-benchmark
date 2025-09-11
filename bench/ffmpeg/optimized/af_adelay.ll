@@ -47,13 +47,14 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %9 = load ptr, ptr %4, align 8, !tbaa !20
-  %10 = getelementptr inbounds nuw %struct.ChanDelay, ptr %9, i64 %indvars.iv, i32 4
-  tail call void @av_freep(ptr noundef nonnull %10) #10
+  %10 = getelementptr inbounds nuw %struct.ChanDelay, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  tail call void @av_freep(ptr noundef nonnull %11) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i32, ptr %6, align 8, !tbaa !25
-  %12 = sext i32 %11 to i64
-  %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  %12 = load i32, ptr %6, align 8, !tbaa !25
+  %13 = sext i32 %12 to i64
+  %14 = icmp slt i64 %indvars.iv.next, %13
+  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   tail call void @av_freep(ptr noundef nonnull %4) #10

@@ -1391,35 +1391,37 @@ define internal i32 @cmd_run(i32 noundef %0, ptr noundef %1) #2 {
 
 31:                                               ; preds = %.critedge
   %32 = icmp sgt i32 %.1, 0
-  br i1 %32, label %33, label %38
+  br i1 %32, label %33, label %39
 
 33:                                               ; preds = %31
   %34 = zext nneg i32 %.1 to i64
-  %35 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %34, i32 1
-  %36 = load ptr, ptr %35, align 8, !tbaa !43
-  %37 = call i32 (ptr, ...) @run_git(ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.161, ptr noundef %36, ptr noundef null)
+  %35 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !43
+  %38 = call i32 (ptr, ...) @run_git(ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.161, ptr noundef %37, ptr noundef null)
   br label %.loopexit
 
-38:                                               ; preds = %31
-  %39 = call fastcc i32 @register_dir()
-  %.not34 = icmp eq i32 %39, 0
+39:                                               ; preds = %31
+  %40 = call fastcc i32 @register_dir()
+  %.not34 = icmp eq i32 %40, 0
   br i1 %.not34, label %.preheader, label %.loopexit
 
-40:                                               ; preds = %.preheader
+41:                                               ; preds = %.preheader
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %.not35 = icmp eq i64 %indvars.iv.next49, 5
   br i1 %.not35, label %.loopexit, label %.preheader, !llvm.loop !44
 
-.preheader:                                       ; preds = %38, %40
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %40 ], [ 1, %38 ]
-  %41 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %indvars.iv48, i32 1
-  %42 = load ptr, ptr %41, align 8, !tbaa !43
-  %43 = call i32 (ptr, ...) @run_git(ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.161, ptr noundef %42, ptr noundef null)
-  %.not36 = icmp eq i32 %43, 0
-  br i1 %.not36, label %40, label %.loopexit
+.preheader:                                       ; preds = %39, %41
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %41 ], [ 1, %39 ]
+  %42 = getelementptr inbounds nuw %struct.anon.0, ptr @__const.cmd_run.tasks, i64 %indvars.iv48
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !43
+  %45 = call i32 (ptr, ...) @run_git(ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.161, ptr noundef %44, ptr noundef null)
+  %.not36 = icmp eq i32 %45, 0
+  br i1 %.not36, label %41, label %.loopexit
 
-.loopexit:                                        ; preds = %40, %.preheader, %38, %33, %29
-  %.024 = phi i32 [ %30, %29 ], [ %37, %33 ], [ -1, %38 ], [ 0, %40 ], [ -1, %.preheader ]
+.loopexit:                                        ; preds = %41, %.preheader, %39, %33, %29
+  %.024 = phi i32 [ %30, %29 ], [ %38, %33 ], [ -1, %39 ], [ 0, %41 ], [ -1, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

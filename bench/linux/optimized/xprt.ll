@@ -3644,7 +3644,8 @@ define dso_local void @xprt_alloc_slot(ptr noundef %0, ptr noundef %1) #0 align 
 
 29:                                               ; preds = %25, %19
   %30 = phi i64 [ 0, %19 ], [ %28, %25 ]
-  %31 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %30, i64 9
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %30
+  %31 = getelementptr i8, ptr %.split, i64 72
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noalias align 8 dereferenceable_or_null(440) ptr @kmalloc_trace(ptr noundef %32, i32 noundef %22, i64 noundef 440) #20
   tail call void @_raw_spin_lock(ptr noundef nonnull %3) #17

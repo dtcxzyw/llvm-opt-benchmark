@@ -3706,7 +3706,7 @@ define internal i64 @sysfs_blk_trace_attr_show(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @sysfs_blk_trace_attr_store(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr i8, ptr %0, i64 -200
@@ -3731,7 +3731,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   call void @mutex_lock(ptr noundef nonnull %16) #21
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 600
   %18 = load ptr, ptr %17, align 8
-  br label %99
+  br label %98
 
 19:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3794,7 +3794,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %47 = sext i32 %25 to i64
   %48 = icmp slt i32 %25, 0
-  br i1 %48, label %152, label %49
+  br i1 %48, label %.thread16, label %49
 
 49:                                               ; preds = %46
   store i64 %47, ptr %6, align 8
@@ -3809,17 +3809,17 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 600
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %1, @dev_attr_enable
-  br i1 %55, label %56, label %99
+  br i1 %55, label %56, label %98
 
 56:                                               ; preds = %51
   %57 = load i64, ptr %6, align 8
   %58 = icmp ne i64 %57, 0
   %59 = icmp eq ptr %54, null
   %60 = xor i1 %59, %58
-  br i1 %60, label %.thread14, label %61
+  br i1 %60, label %150, label %61
 
 61:                                               ; preds = %56
-  br i1 %58, label %62, label %86
+  br i1 %58, label %62, label %85
 
 62:                                               ; preds = %61
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
@@ -3832,7 +3832,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store ptr %67, ptr %68, align 8
   %69 = icmp eq ptr %67, null
-  br i1 %69, label %85, label %70
+  br i1 %69, label %.thread14.sink.split, label %70
 
 70:                                               ; preds = %66
   %71 = getelementptr i8, ptr %0, i64 -148
@@ -3861,158 +3861,154 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !82
   store volatile ptr %64, ptr %53, align 8
   call fastcc void @get_probe_ref()
-  br label %.thread14
+  br label %150
 
-85:                                               ; preds = %66
-  call fastcc void @blk_trace_free(ptr noundef %9, ptr noundef nonnull %64)
-  br label %.thread14
-
-86:                                               ; preds = %61
+85:                                               ; preds = %61
   store volatile ptr null, ptr %53, align 8
-  br i1 %59, label %.thread14, label %87
+  br i1 %59, label %.thread14, label %86
 
-87:                                               ; preds = %86
-  %88 = load i32, ptr %54, align 8
-  %89 = icmp eq i32 %88, 2
-  br i1 %89, label %90, label %98
+86:                                               ; preds = %85
+  %87 = load i32, ptr %54, align 8
+  %88 = icmp eq i32 %87, 2
+  br i1 %88, label %89, label %97
 
-90:                                               ; preds = %87
+89:                                               ; preds = %86
   store i32 3, ptr %54, align 8
   call void @_raw_spin_lock_irq(ptr noundef nonnull @running_trace_lock) #21
-  %91 = getelementptr inbounds nuw i8, ptr %54, i64 72
-  %92 = getelementptr inbounds nuw i8, ptr %54, i64 80
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %91, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store ptr %93, ptr %95, align 8
-  store volatile ptr %94, ptr %93, align 8
-  store volatile ptr %91, ptr %91, align 8
-  store volatile ptr %91, ptr %92, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %54, i64 80
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %90, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  store ptr %92, ptr %94, align 8
+  store volatile ptr %93, ptr %92, align 8
+  store volatile ptr %90, ptr %90, align 8
+  store volatile ptr %90, ptr %91, align 8
   call void @_raw_spin_unlock_irq(ptr noundef nonnull @running_trace_lock) #21
-  %96 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %97 = load ptr, ptr %96, align 8
-  call void @relay_flush(ptr noundef %97) #21
-  br label %98
+  %95 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %96 = load ptr, ptr %95, align 8
+  call void @relay_flush(ptr noundef %96) #21
+  br label %97
 
-98:                                               ; preds = %90, %87
+97:                                               ; preds = %89, %86
   call fastcc void @put_probe_ref()
   call void @synchronize_rcu() #21
   call fastcc void @blk_trace_free(ptr noundef %9, ptr noundef nonnull %54)
-  br label %.thread14
+  br label %150
 
-99:                                               ; preds = %.thread11, %51
-  %100 = phi ptr [ %18, %.thread11 ], [ %54, %51 ]
-  %101 = phi ptr [ %17, %.thread11 ], [ %53, %51 ]
-  %102 = phi ptr [ %16, %.thread11 ], [ %52, %51 ]
-  %103 = icmp eq ptr %100, null
-  br i1 %103, label %104, label %.thread12
+98:                                               ; preds = %.thread11, %51
+  %99 = phi ptr [ %18, %.thread11 ], [ %54, %51 ]
+  %100 = phi ptr [ %17, %.thread11 ], [ %53, %51 ]
+  %101 = phi ptr [ %16, %.thread11 ], [ %52, %51 ]
+  %102 = icmp eq ptr %99, null
+  br i1 %102, label %103, label %.thread12
 
-104:                                              ; preds = %99
-  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
-  %106 = call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %105, i32 noundef 3520, i64 noundef 96) #25
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %.thread14, label %108
+103:                                              ; preds = %98
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
+  %105 = call noalias noundef align 8 dereferenceable_or_null(96) ptr @kmalloc_trace(ptr noundef %104, i32 noundef 3520, i64 noundef 96) #25
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %.thread14, label %107
 
-108:                                              ; preds = %104
-  %109 = call noalias dereferenceable_or_null(128) ptr @__alloc_percpu(i64 noundef 128, i64 noundef 1) #26
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  store ptr %109, ptr %110, align 8
-  %111 = icmp eq ptr %109, null
-  br i1 %111, label %123, label %112
+107:                                              ; preds = %103
+  %108 = call noalias dereferenceable_or_null(128) ptr @__alloc_percpu(i64 noundef 128, i64 noundef 1) #26
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  store ptr %108, ptr %109, align 8
+  %110 = icmp eq ptr %108, null
+  br i1 %110, label %.thread14.sink.split, label %111
 
-112:                                              ; preds = %108
-  %113 = getelementptr i8, ptr %0, i64 -148
-  %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds nuw i8, ptr %106, i64 60
-  store i32 %114, ptr %115, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  store i16 -1, ptr %116, align 8
-  %117 = icmp eq ptr %7, null
-  br i1 %117, label %124, label %118
+111:                                              ; preds = %107
+  %112 = getelementptr i8, ptr %0, i64 -148
+  %113 = load i32, ptr %112, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %105, i64 60
+  store i32 %113, ptr %114, align 4
+  %115 = getelementptr inbounds nuw i8, ptr %105, i64 32
+  store i16 -1, ptr %115, align 8
+  %116 = icmp eq ptr %7, null
+  br i1 %116, label %122, label %117
 
-118:                                              ; preds = %112
-  %119 = load i64, ptr %7, align 8
-  %120 = getelementptr i8, ptr %0, i64 -192
-  %121 = load i64, ptr %120, align 8
-  %122 = add i64 %121, %119
-  br label %124
+117:                                              ; preds = %111
+  %118 = load i64, ptr %7, align 8
+  %119 = getelementptr i8, ptr %0, i64 -192
+  %120 = load i64, ptr %119, align 8
+  %121 = add i64 %120, %118
+  br label %122
 
-123:                                              ; preds = %108
-  call fastcc void @blk_trace_free(ptr noundef %9, ptr noundef nonnull %106)
-  br label %.thread14
-
-124:                                              ; preds = %112, %118
-  %.sink34 = phi i64 [ %119, %118 ], [ 0, %112 ]
-  %125 = phi i64 [ %122, %118 ], [ -1, %112 ]
-  %126 = getelementptr inbounds nuw i8, ptr %106, i64 40
-  store i64 %.sink34, ptr %126, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %106, i64 48
-  store i64 %125, ptr %127, align 8
+122:                                              ; preds = %111, %117
+  %.sink38 = phi i64 [ %118, %117 ], [ 0, %111 ]
+  %123 = phi i64 [ %121, %117 ], [ -1, %111 ]
+  %124 = getelementptr inbounds nuw i8, ptr %105, i64 40
+  store i64 %.sink38, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %105, i64 48
+  store i64 %123, ptr %125, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !82
-  store volatile ptr %106, ptr %101, align 8
+  store volatile ptr %105, ptr %100, align 8
   call fastcc void @get_probe_ref()
-  %128 = load ptr, ptr %101, align 8
+  %126 = load ptr, ptr %100, align 8
   br label %.thread12
 
-.thread12:                                        ; preds = %99, %124
-  %129 = phi ptr [ %128, %124 ], [ %100, %99 ]
-  br i1 %12, label %130, label %134
+.thread12:                                        ; preds = %98, %122
+  %127 = phi ptr [ %126, %122 ], [ %99, %98 ]
+  br i1 %12, label %128, label %132
 
-130:                                              ; preds = %.thread12
-  %131 = load i64, ptr %6, align 8
-  %132 = trunc i64 %131 to i16
-  %133 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  store i16 %132, ptr %133, align 8
+128:                                              ; preds = %.thread12
+  %129 = load i64, ptr %6, align 8
+  %130 = trunc i64 %129 to i16
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 32
+  store i16 %130, ptr %131, align 8
+  br label %150
+
+132:                                              ; preds = %.thread12
+  %133 = icmp eq ptr %1, @dev_attr_pid
+  br i1 %133, label %134, label %138
+
+134:                                              ; preds = %132
+  %135 = load i64, ptr %6, align 8
+  %136 = trunc i64 %135 to i32
+  %137 = getelementptr inbounds nuw i8, ptr %127, i64 56
+  store i32 %136, ptr %137, align 8
+  br label %150
+
+138:                                              ; preds = %132
+  %139 = icmp eq ptr %1, @dev_attr_start_lba
+  br i1 %139, label %140, label %143
+
+140:                                              ; preds = %138
+  %141 = load i64, ptr %6, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %127, i64 40
+  store i64 %141, ptr %142, align 8
+  br label %150
+
+143:                                              ; preds = %138
+  %144 = icmp eq ptr %1, @dev_attr_end_lba
+  br i1 %144, label %145, label %150
+
+145:                                              ; preds = %143
+  %146 = load i64, ptr %6, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %127, i64 48
+  store i64 %146, ptr %147, align 8
+  br label %150
+
+.thread14.sink.split:                             ; preds = %107, %66
+  %.sink56 = phi ptr [ %64, %66 ], [ %105, %107 ]
+  %.ph = phi ptr [ %52, %66 ], [ %101, %107 ]
+  call fastcc void @blk_trace_free(ptr noundef %9, ptr noundef nonnull %.sink56)
   br label %.thread14
 
-134:                                              ; preds = %.thread12
-  %135 = icmp eq ptr %1, @dev_attr_pid
-  br i1 %135, label %136, label %140
-
-136:                                              ; preds = %134
-  %137 = load i64, ptr %6, align 8
-  %138 = trunc i64 %137 to i32
-  %139 = getelementptr inbounds nuw i8, ptr %129, i64 56
-  store i32 %138, ptr %139, align 8
-  br label %.thread14
-
-140:                                              ; preds = %134
-  %141 = icmp eq ptr %1, @dev_attr_start_lba
-  br i1 %141, label %142, label %145
-
-142:                                              ; preds = %140
-  %143 = load i64, ptr %6, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %129, i64 40
-  store i64 %143, ptr %144, align 8
-  br label %.thread14
-
-145:                                              ; preds = %140
-  %146 = icmp eq ptr %1, @dev_attr_end_lba
-  br i1 %146, label %147, label %.thread14
-
-147:                                              ; preds = %145
-  %148 = load i64, ptr %6, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %129, i64 48
-  store i64 %148, ptr %149, align 8
-  br label %.thread14
-
-.thread14:                                        ; preds = %104, %123, %147, %145, %142, %136, %130, %98, %86, %85, %81, %62, %56
-  %150 = phi ptr [ %102, %130 ], [ %102, %136 ], [ %102, %142 ], [ %102, %147 ], [ %102, %145 ], [ %52, %56 ], [ %52, %81 ], [ %52, %85 ], [ %52, %62 ], [ %52, %98 ], [ %52, %86 ], [ %102, %123 ], [ %102, %104 ]
-  %151 = phi i64 [ 0, %130 ], [ 0, %136 ], [ 0, %142 ], [ 0, %147 ], [ 0, %145 ], [ 0, %56 ], [ 0, %81 ], [ -12, %85 ], [ -12, %62 ], [ 0, %98 ], [ -22, %86 ], [ -12, %123 ], [ -12, %104 ]
-  call void @mutex_unlock(ptr noundef nonnull %150) #21
-  br label %152
-
-152:                                              ; preds = %.thread14, %46
-  %153 = phi i64 [ %47, %46 ], [ %151, %.thread14 ]
-  %.fr = freeze i64 %153
-  %154 = icmp eq i64 %.fr, 0
-  %spec.select = select i1 %154, i64 %3, i64 %.fr
+.thread14:                                        ; preds = %.thread14.sink.split, %103, %62, %85
+  %148 = phi ptr [ %52, %62 ], [ %52, %85 ], [ %101, %103 ], [ %.ph, %.thread14.sink.split ]
+  %149 = phi i64 [ -12, %62 ], [ -22, %85 ], [ -12, %103 ], [ -12, %.thread14.sink.split ]
+  call void @mutex_unlock(ptr noundef nonnull %148) #21
   br label %.thread16
 
-.thread16:                                        ; preds = %152, %.thread10, %.thread, %50, %4
-  %155 = phi i64 [ -22, %.thread10 ], [ -12, %.thread ], [ -22, %50 ], [ -22, %4 ], [ %spec.select, %152 ]
+150:                                              ; preds = %128, %134, %140, %145, %143, %56, %81, %97
+  %.ph19 = phi ptr [ %52, %97 ], [ %52, %81 ], [ %52, %56 ], [ %101, %143 ], [ %101, %145 ], [ %101, %140 ], [ %101, %134 ], [ %101, %128 ]
+  call void @mutex_unlock(ptr noundef nonnull %.ph19) #21
+  br label %.thread16
+
+.thread16:                                        ; preds = %.thread10, %.thread, %50, %46, %4, %.thread14, %150
+  %151 = phi i64 [ %3, %150 ], [ %149, %.thread14 ], [ -22, %.thread10 ], [ -12, %.thread ], [ -22, %50 ], [ %47, %46 ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i64 %155
+  ret i64 %151
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

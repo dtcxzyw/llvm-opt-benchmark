@@ -54,16 +54,16 @@ mi_bin.exit:                                      ; preds = %5, %9, %11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i64 @_mi_bin_size(i64 noundef %0) local_unnamed_addr #0 {
-  %.idx = mul nuw nsw i64 %0, 24
-  %2 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 %.idx
-  %3 = load i64, ptr %2, align 8, !tbaa !5
-  ret i64 %3
+  %2 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 %0
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %4 = load i64, ptr %3, align 8, !tbaa !5
+  ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @mi_good_size(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i64 %0, 1048577
-  br i1 %2, label %3, label %23
+  br i1 %2, label %3, label %24
 
 3:                                                ; preds = %1
   %4 = add nuw nsw i64 %0, 7
@@ -92,31 +92,31 @@ define hidden i64 @mi_good_size(i64 noundef %0) local_unnamed_addr #1 {
 
 mi_bin.exit:                                      ; preds = %7, %11
   %.0.i = phi i64 [ %10, %7 ], [ %20, %11 ]
-  %.idx.i = mul nuw nsw i64 %.0.i, 24
-  %21 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1280), i64 %.idx.i
-  %22 = load i64, ptr %21, align 8, !tbaa !5
+  %21 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1264), i64 %.0.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load i64, ptr %22, align 8, !tbaa !5
   br label %_mi_align_up.exit
 
-23:                                               ; preds = %1
-  %24 = tail call i64 @_mi_os_page_size() #13
-  %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
-  %26 = icmp samesign ult i64 %25, 2
-  %27 = add i64 %0, -1
-  %28 = add i64 %27, %24
-  br i1 %26, label %29, label %32
+24:                                               ; preds = %1
+  %25 = tail call i64 @_mi_os_page_size() #13
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %25)
+  %27 = icmp samesign ult i64 %26, 2
+  %28 = add i64 %0, -1
+  %29 = add i64 %28, %25
+  br i1 %27, label %30, label %33
 
-29:                                               ; preds = %23
-  %30 = sub i64 0, %24
-  %31 = and i64 %28, %30
+30:                                               ; preds = %24
+  %31 = sub i64 0, %25
+  %32 = and i64 %29, %31
   br label %_mi_align_up.exit
 
-32:                                               ; preds = %23
-  %33 = urem i64 %28, %24
-  %34 = sub nuw i64 %28, %33
+33:                                               ; preds = %24
+  %34 = urem i64 %29, %25
+  %35 = sub nuw i64 %29, %34
   br label %_mi_align_up.exit
 
-_mi_align_up.exit:                                ; preds = %32, %29, %mi_bin.exit
-  %.0 = phi i64 [ %22, %mi_bin.exit ], [ %31, %29 ], [ %34, %32 ]
+_mi_align_up.exit:                                ; preds = %33, %30, %mi_bin.exit
+  %.0 = phi i64 [ %23, %mi_bin.exit ], [ %32, %30 ], [ %35, %33 ]
   ret i64 %.0
 }
 

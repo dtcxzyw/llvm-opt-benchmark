@@ -19187,30 +19187,30 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %67, 112
   %69 = icmp eq i64 %68, 0
-  br i1 %69, label %.loopexit37, label %.preheader36
+  br i1 %69, label %.loopexit38, label %.preheader37
 
-.preheader36:                                     ; preds = %58, %.preheader36.backedge
-  %70 = phi i64 [ %.be196, %.preheader36.backedge ], [ 0, %58 ]
-  %71 = phi i32 [ %.be197, %.preheader36.backedge ], [ 0, %58 ]
+.preheader37:                                     ; preds = %58, %.preheader37.backedge
+  %70 = phi i64 [ %.be198, %.preheader37.backedge ], [ 0, %58 ]
+  %71 = phi i32 [ %.be199, %.preheader37.backedge ], [ 0, %58 ]
   %72 = getelementptr %struct.ma_state, ptr %3, i64 %70
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, 3
   br i1 %75, label %mas_adopt_children.exit, label %76
 
-76:                                               ; preds = %.preheader36
+76:                                               ; preds = %.preheader37
   %77 = icmp slt i32 %71, 3
-  br i1 %77, label %78, label %..loopexit35_crit_edge
+  br i1 %77, label %78, label %..loopexit36_crit_edge
 
-..loopexit35_crit_edge:                           ; preds = %76
+..loopexit36_crit_edge:                           ; preds = %76
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %.pre77 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre81 = ptrtoint ptr %.pre77 to i64
-  %.pre82 = trunc i64 %.pre81 to i32
-  %.pre84 = lshr i32 %.pre82, 3
-  %.pre86 = and i64 %.pre81, -256
-  %.pre88 = inttoptr i64 %.pre86 to ptr
-  br label %.loopexit35
+  %.pre79 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre83 = ptrtoint ptr %.pre79 to i64
+  %.pre84 = trunc i64 %.pre83 to i32
+  %.pre86 = lshr i32 %.pre84, 3
+  %.pre88 = and i64 %.pre83, -256
+  %.pre90 = inttoptr i64 %.pre88 to ptr
+  br label %.loopexit36
 
 78:                                               ; preds = %76
   %79 = zext nneg i32 %71 to i64
@@ -19276,7 +19276,7 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   %115 = phi ptr [ %95, %.thread9.i ], [ %90, %109 ], [ %90, %111 ], [ %89, %.thread.i ], [ null, %97 ]
   %116 = phi i8 [ %101, %.thread9.i ], [ %110, %109 ], [ %114, %111 ], [ 0, %.thread.i ], [ 0, %97 ]
   %.not.i = icmp ugt i8 %98, %116
-  br i1 %.not.i, label %.loopexit32, label %117
+  br i1 %.not.i, label %.loopexit33, label %117
 
 117:                                              ; preds = %.thread10.i
   %118 = zext i8 %98 to i64
@@ -19376,7 +19376,7 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   %174 = phi i8 [ %175, %128 ], [ %98, %117 ]
   %175 = add i8 %174, 1
   %.not8.i = icmp ugt i8 %175, %116
-  br i1 %.not8.i, label %.loopexit32, label %128, !llvm.loop !157
+  br i1 %.not8.i, label %.loopexit33, label %128, !llvm.loop !157
 
 176:                                              ; preds = %167, %163
   %177 = zext nneg i32 %150 to i64
@@ -19394,19 +19394,19 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   store i8 0, ptr %142, align 1
   %187 = add nuw nsw i64 %99, 1
   %188 = icmp eq i64 %187, 3
-  br i1 %188, label %.loopexit35, label %97, !llvm.loop !158
+  br i1 %188, label %.loopexit36, label %97, !llvm.loop !158
 
-.loopexit32:                                      ; preds = %.thread10.i, %.preheader.i
+.loopexit33:                                      ; preds = %.thread10.i, %.preheader.i
   %189 = trunc nuw nsw i64 %99 to i32
-  br label %.loopexit35
+  br label %.loopexit36
 
-.loopexit35:                                      ; preds = %176, %..loopexit35_crit_edge, %.loopexit32
-  %.pre-phi89 = phi ptr [ %.pre88, %..loopexit35_crit_edge ], [ %88, %.loopexit32 ], [ %88, %176 ]
-  %.pre-phi87 = phi i64 [ %.pre86, %..loopexit35_crit_edge ], [ %87, %.loopexit32 ], [ %87, %176 ]
-  %.pre-phi85 = phi i32 [ %.pre84, %..loopexit35_crit_edge ], [ %85, %.loopexit32 ], [ %85, %176 ]
-  %.pre-phi83 = phi i32 [ %.pre82, %..loopexit35_crit_edge ], [ %84, %.loopexit32 ], [ %84, %176 ]
-  %190 = phi i32 [ 3, %..loopexit35_crit_edge ], [ %189, %.loopexit32 ], [ 3, %176 ]
-  %191 = and i32 %.pre-phi85, 15
+.loopexit36:                                      ; preds = %176, %..loopexit36_crit_edge, %.loopexit33
+  %.pre-phi91 = phi ptr [ %.pre90, %..loopexit36_crit_edge ], [ %88, %.loopexit33 ], [ %88, %176 ]
+  %.pre-phi89 = phi i64 [ %.pre88, %..loopexit36_crit_edge ], [ %87, %.loopexit33 ], [ %87, %176 ]
+  %.pre-phi87 = phi i32 [ %.pre86, %..loopexit36_crit_edge ], [ %85, %.loopexit33 ], [ %85, %176 ]
+  %.pre-phi85 = phi i32 [ %.pre84, %..loopexit36_crit_edge ], [ %84, %.loopexit33 ], [ %84, %176 ]
+  %190 = phi i32 [ 3, %..loopexit36_crit_edge ], [ %189, %.loopexit33 ], [ 3, %176 ]
+  %191 = and i32 %.pre-phi87, 15
   switch i32 %191, label %.thread4.thread9.i [
     i32 3, label %.thread3.i
     i32 2, label %195
@@ -19414,15 +19414,15 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
     i32 0, label %.thread4.thread.i
   ]
 
-.thread3.i:                                       ; preds = %.loopexit35
-  %192 = getelementptr inbounds nuw i8, ptr %.pre-phi89, i64 80
-  %193 = getelementptr inbounds nuw i8, ptr %.pre-phi89, i64 240
+.thread3.i:                                       ; preds = %.loopexit36
+  %192 = getelementptr inbounds nuw i8, ptr %.pre-phi91, i64 80
+  %193 = getelementptr inbounds nuw i8, ptr %.pre-phi91, i64 240
   %194 = load i8, ptr %193, align 16
   br label %.thread4.thread9.i
 
-195:                                              ; preds = %.loopexit35, %.loopexit35
-  %196 = getelementptr inbounds nuw i8, ptr %.pre-phi89, i64 128
-  %197 = getelementptr inbounds nuw i8, ptr %.pre-phi89, i64 8
+195:                                              ; preds = %.loopexit36, %.loopexit36
+  %196 = getelementptr inbounds nuw i8, ptr %.pre-phi91, i64 128
+  %197 = getelementptr inbounds nuw i8, ptr %.pre-phi91, i64 8
   %198 = zext nneg i32 %191 to i64
   %199 = getelementptr i8, ptr @mt_pivots, i64 %198
   %200 = load i8, ptr %199, align 1
@@ -19434,7 +19434,7 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   br i1 %205, label %206, label %209, !prof !11
 
 206:                                              ; preds = %195
-  %207 = getelementptr inbounds nuw i8, ptr %.pre-phi89, i64 248
+  %207 = getelementptr inbounds nuw i8, ptr %.pre-phi91, i64 248
   %208 = load i8, ptr %207, align 8
   br label %.thread4.i
 
@@ -19450,15 +19450,15 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   %cond.i = icmp eq i32 %191, 1
   br i1 %cond.i, label %235, label %.thread4.thread9.i, !prof !67
 
-.thread4.thread9.i:                               ; preds = %.thread4.i, %.thread3.i, %.loopexit35
-  %215 = phi i8 [ %194, %.thread3.i ], [ %214, %.thread4.i ], [ 0, %.loopexit35 ]
-  %216 = phi ptr [ %192, %.thread3.i ], [ %196, %.thread4.i ], [ null, %.loopexit35 ]
+.thread4.thread9.i:                               ; preds = %.thread4.i, %.thread3.i, %.loopexit36
+  %215 = phi i8 [ %194, %.thread3.i ], [ %214, %.thread4.i ], [ 0, %.loopexit36 ]
+  %216 = phi ptr [ %192, %.thread3.i ], [ %196, %.thread4.i ], [ null, %.loopexit36 ]
   %217 = zext i8 %215 to i64
-  %218 = and i32 %.pre-phi83, 112
+  %218 = and i32 %.pre-phi85, 112
   %219 = icmp eq i32 %218, 16
   %220 = select i1 %219, i32 3, i32 0, !prof !68
   %221 = select i1 %219, i64 6, i64 0, !prof !68
-  %invariant.op = or disjoint i64 %221, %.pre-phi87
+  %invariant.op = or disjoint i64 %221, %.pre-phi89
   br label %222
 
 222:                                              ; preds = %222, %.thread4.thread9.i
@@ -19478,7 +19478,7 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   %234 = icmp eq i64 %223, 0
   br i1 %234, label %mas_adopt_children.exit, label %222, !llvm.loop !69
 
-.thread4.thread.i:                                ; preds = %.loopexit35
+.thread4.thread.i:                                ; preds = %.loopexit36
   tail call void asm sideeffect "441: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 441b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 441) #18, !srcloc !70
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 493, i32 0, i64 12) #18, !srcloc !71
   unreachable
@@ -19488,11 +19488,11 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 494, i32 0, i64 12) #18, !srcloc !73
   unreachable
 
-mas_adopt_children.exit:                          ; preds = %222, %.preheader36
-  %236 = phi i32 [ %71, %.preheader36 ], [ %190, %222 ]
+mas_adopt_children.exit:                          ; preds = %222, %.preheader37
+  %236 = phi i32 [ %71, %.preheader37 ], [ %190, %222 ]
   %237 = add nuw nsw i64 %70, 1
   %238 = icmp eq i64 %237, 3
-  br i1 %238, label %239, label %.preheader36.backedge
+  br i1 %238, label %239, label %.preheader37.backedge
 
 239:                                              ; preds = %mas_adopt_children.exit
   %240 = icmp eq i32 %236, 0
@@ -19500,7 +19500,7 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
 
 241:                                              ; preds = %239
   %242 = icmp slt i32 %236, 3
-  br i1 %242, label %243, label %.loopexit33
+  br i1 %242, label %243, label %.loopexit34
 
 243:                                              ; preds = %241
   %244 = zext nneg i32 %236 to i64
@@ -19510,35 +19510,36 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   tail call void asm sideeffect "465: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 465b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 465) #18, !srcloc !159
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2579, i32 2305, i64 12) #18, !srcloc !160
   tail call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_end\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #18, !srcloc !161
-  br label %.loopexit37
+  br label %.loopexit38
 
-.loopexit33:                                      ; preds = %250, %241
+.loopexit34:                                      ; preds = %250, %241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %3, ptr noundef nonnull align 16 dereferenceable(192) %4, i64 192, i1 false)
   %246 = load ptr, ptr %65, align 8
   %247 = ptrtoint ptr %246 to i64
   %248 = and i64 %247, 112
   %249 = icmp eq i64 %248, 0
-  br i1 %249, label %.loopexit37, label %.preheader36.backedge
+  br i1 %249, label %.loopexit38, label %.preheader37.backedge
 
-.preheader36.backedge:                            ; preds = %.loopexit33, %mas_adopt_children.exit
-  %.be196 = phi i64 [ %237, %mas_adopt_children.exit ], [ 0, %.loopexit33 ]
-  %.be197 = phi i32 [ %236, %mas_adopt_children.exit ], [ 0, %.loopexit33 ]
-  br label %.preheader36, !llvm.loop !162
+.preheader37.backedge:                            ; preds = %.loopexit34, %mas_adopt_children.exit
+  %.be198 = phi i64 [ %237, %mas_adopt_children.exit ], [ 0, %.loopexit34 ]
+  %.be199 = phi i32 [ %236, %mas_adopt_children.exit ], [ 0, %.loopexit34 ]
+  br label %.preheader37, !llvm.loop !162
 
 250:                                              ; preds = %250, %243
   %251 = phi i64 [ %244, %243 ], [ %252, %250 ]
   %252 = add nuw nsw i64 %251, 1
-  %253 = getelementptr %struct.ma_state, ptr %4, i64 %251, i32 7
+  %.split = getelementptr %struct.ma_state, ptr %4, i64 %251
+  %253 = getelementptr i8, ptr %.split, i64 56
   store i32 3, ptr %253, align 8
   %254 = icmp eq i64 %252, 3
-  br i1 %254, label %.loopexit33, label %250, !llvm.loop !163
+  br i1 %254, label %.loopexit34, label %250, !llvm.loop !163
 
-.loopexit37:                                      ; preds = %.loopexit33, %245, %58
+.loopexit38:                                      ; preds = %.loopexit34, %245, %58
   %255 = and i64 %59, 112
   %256 = icmp eq i64 %255, 0
   br i1 %256, label %257, label %325
 
-257:                                              ; preds = %.loopexit37
+257:                                              ; preds = %.loopexit38
   %258 = load ptr, ptr %0, align 8
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
   %260 = load i32, ptr %259, align 4
@@ -19660,7 +19661,7 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   store i32 %311, ptr %324, align 4
   br label %mas_free.exit
 
-325:                                              ; preds = %.loopexit37
+325:                                              ; preds = %.loopexit38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef align 8 dereferenceable(64) %0, i64 64, i1 false)
   store i8 0, ptr %62, align 1
   store ptr %1, ptr %65, align 8
@@ -19669,8 +19670,8 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   %326 = load ptr, ptr %0, align 8
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 4
   %328 = load i32, ptr %327, align 4
-  %.fr55 = freeze i32 %328
-  %329 = and i32 %.fr55, 2
+  %.fr57 = freeze i32 %328
+  %329 = and i32 %.fr57, 2
   %.not = icmp eq i32 %329, 0
   %330 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %331 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -19679,7 +19680,7 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
 
 333:                                              ; preds = %.backedge, %325
   %334 = phi i64 [ 0, %325 ], [ %.be, %.backedge ]
-  %335 = phi i32 [ 0, %325 ], [ %.be184, %.backedge ]
+  %335 = phi i32 [ 0, %325 ], [ %.be186, %.backedge ]
   %336 = phi ptr [ null, %325 ], [ %481, %.backedge ]
   %337 = phi ptr [ null, %325 ], [ %480, %.backedge ]
   %338 = getelementptr %struct.ma_state, ptr %3, i64 %334
@@ -19688,15 +19689,15 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   %341 = icmp eq i32 %340, 3
   %342 = icmp sgt i32 %335, 2
   %343 = select i1 %341, i1 true, i1 %342
-  br i1 %343, label %mas_find_child.exit21.thread, label %.preheader27
+  br i1 %343, label %mas_find_child.exit22.thread, label %.preheader28
 
-.preheader27:                                     ; preds = %333
+.preheader28:                                     ; preds = %333
   %344 = getelementptr inbounds nuw i8, ptr %338, i64 24
   %345 = getelementptr inbounds nuw i8, ptr %338, i64 61
-  %.promoted52 = load i8, ptr %345, align 1
+  %.promoted53 = load i8, ptr %345, align 1
   %346 = getelementptr inbounds nuw i8, ptr %338, i64 40
-  %.pre78 = load ptr, ptr %344, align 8
-  %347 = ptrtoint ptr %.pre78 to i64
+  %.pre80 = load ptr, ptr %344, align 8
+  %347 = ptrtoint ptr %.pre80 to i64
   %348 = trunc i64 %347 to i32
   %349 = lshr i32 %348, 3
   %350 = and i32 %349, 15
@@ -19712,26 +19713,26 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   %360 = getelementptr inbounds nuw i8, ptr %352, i64 240
   br label %361
 
-361:                                              ; preds = %.preheader27, %475
-  %362 = phi i8 [ %408, %475 ], [ %.promoted52, %.preheader27 ]
-  %363 = phi ptr [ %476, %475 ], [ %337, %.preheader27 ]
-  %364 = phi ptr [ %477, %475 ], [ %336, %.preheader27 ]
-  %365 = phi i32 [ %478, %475 ], [ %335, %.preheader27 ]
+361:                                              ; preds = %.preheader28, %475
+  %362 = phi i8 [ %408, %475 ], [ %.promoted53, %.preheader28 ]
+  %363 = phi ptr [ %476, %475 ], [ %337, %.preheader28 ]
+  %364 = phi ptr [ %477, %475 ], [ %336, %.preheader28 ]
+  %365 = phi i32 [ %478, %475 ], [ %335, %.preheader28 ]
   %366 = sext i32 %365 to i64
   %367 = getelementptr %struct.ma_state, ptr %4, i64 %366
-  switch i32 %350, label %.thread10.i14 [
-    i32 3, label %.thread9.i20
+  switch i32 %350, label %.thread10.i15 [
+    i32 3, label %.thread9.i21
     i32 2, label %369
     i32 1, label %369
-    i32 0, label %.thread.i13
+    i32 0, label %.thread.i14
   ]
 
-.thread9.i20:                                     ; preds = %361
+.thread9.i21:                                     ; preds = %361
   %368 = load i8, ptr %360, align 16
-  br label %.thread10.i14
+  br label %.thread10.i15
 
-.thread.i13:                                      ; preds = %361
-  br label %.thread10.i14
+.thread.i14:                                      ; preds = %361
+  br label %.thread10.i15
 
 369:                                              ; preds = %361, %361
   %370 = load i8, ptr %357, align 1
@@ -19744,21 +19745,21 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
 
 376:                                              ; preds = %369
   %377 = load i8, ptr %358, align 8
-  br label %.thread10.i14
+  br label %.thread10.i15
 
 378:                                              ; preds = %369
   %379 = load i64, ptr %346, align 8
   %380 = icmp eq i64 %374, %379
   %381 = select i1 %380, i8 %371, i8 %370, !prof !11
-  br label %.thread10.i14
+  br label %.thread10.i15
 
-.thread10.i14:                                    ; preds = %378, %376, %.thread.i13, %.thread9.i20, %361
-  %382 = phi ptr [ %359, %.thread9.i20 ], [ %354, %376 ], [ %354, %378 ], [ %353, %.thread.i13 ], [ null, %361 ]
-  %383 = phi i8 [ %368, %.thread9.i20 ], [ %377, %376 ], [ %381, %378 ], [ 0, %.thread.i13 ], [ 0, %361 ]
-  %.not.i15 = icmp ugt i8 %362, %383
-  br i1 %.not.i15, label %mas_find_child.exit21.thread, label %384
+.thread10.i15:                                    ; preds = %378, %376, %.thread.i14, %.thread9.i21, %361
+  %382 = phi ptr [ %359, %.thread9.i21 ], [ %354, %376 ], [ %354, %378 ], [ %353, %.thread.i14 ], [ null, %361 ]
+  %383 = phi i8 [ %368, %.thread9.i21 ], [ %377, %376 ], [ %381, %378 ], [ 0, %.thread.i14 ], [ 0, %361 ]
+  %.not.i16 = icmp ugt i8 %362, %383
+  br i1 %.not.i16, label %mas_find_child.exit22.thread, label %384
 
-384:                                              ; preds = %.thread10.i14
+384:                                              ; preds = %.thread10.i15
   %385 = zext i8 %362 to i64
   %386 = getelementptr ptr, ptr %382, i64 %385
   %387 = load ptr, ptr %386, align 8
@@ -19769,9 +19770,9 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   %392 = ptrtoint ptr %391 to i64
   %393 = and i64 %392, -256
   %394 = icmp eq i64 %393, %351
-  br i1 %394, label %.loopexit13.i18, label %.preheader.i16
+  br i1 %394, label %.loopexit13.i19, label %.preheader.i17
 
-395:                                              ; preds = %.preheader.i16
+395:                                              ; preds = %.preheader.i17
   %396 = zext i8 %442 to i64
   %397 = getelementptr ptr, ptr %382, i64 %396
   %398 = load ptr, ptr %397, align 8
@@ -19782,9 +19783,9 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   %403 = ptrtoint ptr %402 to i64
   %404 = and i64 %403, -256
   %405 = icmp eq i64 %404, %351
-  br i1 %405, label %.loopexit13.i18, label %.preheader.i16, !llvm.loop !157
+  br i1 %405, label %.loopexit13.i19, label %.preheader.i17, !llvm.loop !157
 
-.loopexit13.i18:                                  ; preds = %395, %384
+.loopexit13.i19:                                  ; preds = %395, %384
   %406 = phi i8 [ %362, %384 ], [ %442, %395 ]
   %407 = phi i64 [ %385, %384 ], [ %396, %395 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 16 dereferenceable(64) %367, ptr noundef align 16 dereferenceable(64) %338, i64 64, i1 false)
@@ -19801,21 +19802,21 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   %416 = lshr i32 %415, 3
   %417 = and i32 %416, 15
   switch i32 %417, label %421 [
-    i32 3, label %.thread12.i19
+    i32 3, label %.thread12.i20
     i32 2, label %419
     i32 1, label %419
   ]
 
-.thread12.i19:                                    ; preds = %.loopexit13.i18
+.thread12.i20:                                    ; preds = %.loopexit13.i19
   %418 = getelementptr inbounds nuw i8, ptr %414, i64 8
   br label %423
 
-419:                                              ; preds = %.loopexit13.i18, %.loopexit13.i18
+419:                                              ; preds = %.loopexit13.i19, %.loopexit13.i19
   %420 = getelementptr inbounds nuw i8, ptr %414, i64 8
   br label %421
 
-421:                                              ; preds = %419, %.loopexit13.i18
-  %422 = phi ptr [ %420, %419 ], [ null, %.loopexit13.i18 ]
+421:                                              ; preds = %419, %.loopexit13.i19
+  %422 = phi ptr [ %420, %419 ], [ null, %.loopexit13.i19 ]
   switch i32 %417, label %430 [
     i32 3, label %423
     i32 2, label %426
@@ -19823,8 +19824,8 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
     i32 0, label %428
   ]
 
-423:                                              ; preds = %421, %.thread12.i19
-  %424 = phi ptr [ %418, %.thread12.i19 ], [ %422, %421 ]
+423:                                              ; preds = %421, %.thread12.i20
+  %424 = phi ptr [ %418, %.thread12.i20 ], [ %422, %421 ]
   %425 = getelementptr inbounds nuw i8, ptr %414, i64 80
   br label %430
 
@@ -19843,8 +19844,8 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   br i1 %433, label %._crit_edge, label %434
 
 ._crit_edge:                                      ; preds = %430
-  %.phi.trans.insert79 = getelementptr inbounds nuw i8, ptr %367, i64 32
-  %.pre80 = load i64, ptr %.phi.trans.insert79, align 16
+  %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %367, i64 32
+  %.pre82 = load i64, ptr %.phi.trans.insert81, align 16
   br label %443
 
 434:                                              ; preds = %430
@@ -19857,14 +19858,14 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   store i64 %439, ptr %440, align 16
   br label %443
 
-.preheader.i16:                                   ; preds = %384, %395
+.preheader.i17:                                   ; preds = %384, %395
   %441 = phi i8 [ %442, %395 ], [ %362, %384 ]
   %442 = add i8 %441, 1
-  %.not8.i17 = icmp ugt i8 %442, %383
-  br i1 %.not8.i17, label %mas_find_child.exit21.thread, label %395, !llvm.loop !157
+  %.not8.i18 = icmp ugt i8 %442, %383
+  br i1 %.not8.i18, label %mas_find_child.exit22.thread, label %395, !llvm.loop !157
 
 443:                                              ; preds = %._crit_edge, %434
-  %444 = phi i64 [ %.pre80, %._crit_edge ], [ %439, %434 ]
+  %444 = phi i64 [ %.pre82, %._crit_edge ], [ %439, %434 ]
   %445 = zext nneg i32 %417 to i64
   %446 = getelementptr i8, ptr @mt_pivots, i64 %445
   %447 = load i8, ptr %446, align 1
@@ -19919,17 +19920,17 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   %477 = phi ptr [ %364, %473 ], [ %454, %470 ]
   %478 = phi i32 [ %474, %473 ], [ %365, %470 ]
   %479 = icmp slt i32 %478, 3
-  br i1 %479, label %361, label %mas_find_child.exit21.thread
+  br i1 %479, label %361, label %mas_find_child.exit22.thread
 
-mas_find_child.exit21.thread:                     ; preds = %.thread10.i14, %475, %.preheader.i16, %333
-  %480 = phi ptr [ %337, %333 ], [ %363, %.preheader.i16 ], [ %363, %.thread10.i14 ], [ %476, %475 ]
-  %481 = phi ptr [ %336, %333 ], [ %364, %.preheader.i16 ], [ %364, %.thread10.i14 ], [ %477, %475 ]
-  %482 = phi i32 [ %335, %333 ], [ %365, %.preheader.i16 ], [ %365, %.thread10.i14 ], [ %478, %475 ]
+mas_find_child.exit22.thread:                     ; preds = %.thread10.i15, %475, %.preheader.i17, %333
+  %480 = phi ptr [ %337, %333 ], [ %363, %.preheader.i17 ], [ %363, %.thread10.i15 ], [ %476, %475 ]
+  %481 = phi ptr [ %336, %333 ], [ %364, %.preheader.i17 ], [ %364, %.thread10.i15 ], [ %477, %475 ]
+  %482 = phi i32 [ %335, %333 ], [ %365, %.preheader.i17 ], [ %365, %.thread10.i15 ], [ %478, %475 ]
   %483 = add nuw nsw i64 %334, 1
   %484 = icmp eq i64 %483, 3
   br i1 %484, label %485, label %.backedge
 
-485:                                              ; preds = %mas_find_child.exit21.thread
+485:                                              ; preds = %mas_find_child.exit22.thread
   %486 = icmp eq i32 %482, 0
   br i1 %486, label %491, label %487, !prof !12
 
@@ -19945,12 +19946,13 @@ mas_find_child.exit21.thread:                     ; preds = %.thread10.i14, %475
   tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #18, !srcloc !164
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2619, i32 2305, i64 12) #18, !srcloc !165
   tail call void asm sideeffect "468: nop\0A\09.pushsection .discard.instr_end\0A\09.long 468b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 468) #18, !srcloc !166
-  br label %.loopexit31
+  br label %.loopexit32
 
 492:                                              ; preds = %492, %489
   %493 = phi i64 [ %490, %489 ], [ %494, %492 ]
   %494 = add nsw i64 %493, 1
-  %495 = getelementptr %struct.ma_state, ptr %4, i64 %493, i32 7
+  %.split13 = getelementptr %struct.ma_state, ptr %4, i64 %493
+  %495 = getelementptr i8, ptr %.split13, i64 56
   store i32 3, ptr %495, align 8
   %496 = icmp eq i64 %494, 3
   br i1 %496, label %.loopexit.preheader, label %492, !llvm.loop !167
@@ -20038,7 +20040,7 @@ mas_find_child.exit21.thread:                     ; preds = %.thread10.i14, %475
   br label %551
 
 542:                                              ; preds = %522, %519
-  %.ph.i22 = phi i32 [ 0, %522 ], [ %521, %519 ]
+  %.ph.i23 = phi i32 [ 0, %522 ], [ %521, %519 ]
   %543 = getelementptr inbounds nuw i8, ptr %507, i64 12
   store i32 0, ptr %543, align 4
   %544 = getelementptr inbounds nuw i8, ptr %507, i64 8
@@ -20055,9 +20057,9 @@ mas_find_child.exit21.thread:                     ; preds = %.thread10.i14, %475
   br label %549
 
 549:                                              ; preds = %545, %542
-  %storemerge.i23 = phi i64 [ %548, %545 ], [ 1, %542 ]
-  %550 = phi i32 [ %526, %545 ], [ %.ph.i22, %542 ]
-  store i64 %storemerge.i23, ptr %507, align 256
+  %storemerge.i24 = phi i64 [ %548, %545 ], [ 1, %542 ]
+  %550 = phi i32 [ %526, %545 ], [ %.ph.i23, %542 ]
+  store i64 %storemerge.i24, ptr %507, align 256
   store ptr %507, ptr %332, align 8
   br label %551
 
@@ -20101,25 +20103,25 @@ mas_topiary_node.exit:                            ; preds = %.loopexit, %512, %5
   %574 = ptrtoint ptr %573 to i64
   %575 = and i64 %574, 112
   %576 = icmp eq i64 %575, 0
-  br i1 %576, label %.loopexit31, label %.backedge
+  br i1 %576, label %.loopexit32, label %.backedge
 
-.backedge:                                        ; preds = %572, %mas_find_child.exit21.thread
-  %.be = phi i64 [ %483, %mas_find_child.exit21.thread ], [ 0, %572 ]
-  %.be184 = phi i32 [ %482, %mas_find_child.exit21.thread ], [ 0, %572 ]
+.backedge:                                        ; preds = %572, %mas_find_child.exit22.thread
+  %.be = phi i64 [ %483, %mas_find_child.exit22.thread ], [ 0, %572 ]
+  %.be186 = phi i32 [ %482, %mas_find_child.exit22.thread ], [ 0, %572 ]
   br label %333, !llvm.loop !169
 
-.loopexit31:                                      ; preds = %572, %491
-  br i1 %.not, label %.split.us, label %.split
+.loopexit32:                                      ; preds = %572, %491
+  br i1 %.not, label %.split54.us, label %.split54
 
-.split.us:                                        ; preds = %.loopexit31, %mas_topiary_node.exit26.us
-  %577 = phi i64 [ %642, %mas_topiary_node.exit26.us ], [ 0, %.loopexit31 ]
+.split54.us:                                      ; preds = %.loopexit32, %mas_topiary_node.exit27.us
+  %577 = phi i64 [ %642, %mas_topiary_node.exit27.us ], [ 0, %.loopexit32 ]
   %578 = getelementptr %struct.ma_state, ptr %3, i64 %577
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 56
   %580 = load i32, ptr %579, align 8
   %581 = icmp eq i32 %580, 3
-  br i1 %581, label %mas_topiary_node.exit26.us, label %582
+  br i1 %581, label %mas_topiary_node.exit27.us, label %582
 
-582:                                              ; preds = %.split.us
+582:                                              ; preds = %.split54.us
   %583 = getelementptr inbounds nuw i8, ptr %578, i64 24
   %584 = load ptr, ptr %583, align 8
   %585 = ptrtoint ptr %584 to i64
@@ -20181,7 +20183,7 @@ mas_topiary_node.exit:                            ; preds = %.loopexit, %512, %5
   br label %622
 
 619:                                              ; preds = %595, %592
-  %.ph.i24.us = phi i32 [ 0, %595 ], [ %594, %592 ]
+  %.ph.i25.us = phi i32 [ 0, %595 ], [ %594, %592 ]
   %620 = getelementptr inbounds nuw i8, ptr %587, i64 12
   store i32 0, ptr %620, align 4
   %621 = getelementptr inbounds nuw i8, ptr %587, i64 8
@@ -20189,16 +20191,16 @@ mas_topiary_node.exit:                            ; preds = %.loopexit, %512, %5
   br label %622
 
 622:                                              ; preds = %619, %615
-  %storemerge.i25.us = phi i64 [ %618, %615 ], [ 1, %619 ]
-  %623 = phi i32 [ %599, %615 ], [ %.ph.i24.us, %619 ]
-  store i64 %storemerge.i25.us, ptr %587, align 256
+  %storemerge.i26.us = phi i64 [ %618, %615 ], [ 1, %619 ]
+  %623 = phi i32 [ %599, %615 ], [ %.ph.i25.us, %619 ]
+  store i64 %storemerge.i26.us, ptr %587, align 256
   store ptr %587, ptr %332, align 8
   br label %624
 
 624:                                              ; preds = %622, %608
   %625 = phi i32 [ %623, %622 ], [ %599, %608 ]
   %626 = icmp ugt i32 %625, 1
-  br i1 %626, label %627, label %mas_topiary_node.exit26.us
+  br i1 %626, label %627, label %mas_topiary_node.exit27.us
 
 627:                                              ; preds = %624
   %628 = add i32 %625, -1
@@ -20216,27 +20218,27 @@ mas_topiary_node.exit:                            ; preds = %.loopexit, %512, %5
   %638 = or disjoint i64 %637, 1
   %639 = inttoptr i64 %638 to ptr
   store ptr %639, ptr %332, align 8
-  br label %mas_topiary_node.exit26.us
+  br label %mas_topiary_node.exit27.us
 
 640:                                              ; preds = %627
   %641 = getelementptr inbounds nuw i8, ptr %629, i64 12
   store i32 %628, ptr %641, align 4
-  br label %mas_topiary_node.exit26.us
+  br label %mas_topiary_node.exit27.us
 
-mas_topiary_node.exit26.us:                       ; preds = %640, %635, %624, %.split.us
+mas_topiary_node.exit27.us:                       ; preds = %640, %635, %624, %.split54.us
   %642 = add nuw nsw i64 %577, 1
   %643 = icmp eq i64 %642, 3
-  br i1 %643, label %.split54.us, label %.split.us, !llvm.loop !170
+  br i1 %643, label %.split56.us, label %.split54.us, !llvm.loop !170
 
-.split:                                           ; preds = %.loopexit31, %mas_topiary_node.exit26
-  %644 = phi i64 [ %660, %mas_topiary_node.exit26 ], [ 0, %.loopexit31 ]
+.split54:                                         ; preds = %.loopexit32, %mas_topiary_node.exit27
+  %644 = phi i64 [ %660, %mas_topiary_node.exit27 ], [ 0, %.loopexit32 ]
   %645 = getelementptr %struct.ma_state, ptr %3, i64 %644
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 56
   %647 = load i32, ptr %646, align 8
   %648 = icmp eq i32 %647, 3
-  br i1 %648, label %mas_topiary_node.exit26, label %649
+  br i1 %648, label %mas_topiary_node.exit27, label %649
 
-649:                                              ; preds = %.split
+649:                                              ; preds = %.split54
   %650 = getelementptr inbounds nuw i8, ptr %645, i64 24
   %651 = load ptr, ptr %650, align 8
   %652 = ptrtoint ptr %651 to i64
@@ -20257,23 +20259,23 @@ mas_topiary_node.exit26.us:                       ; preds = %640, %635, %624, %.
 658:                                              ; preds = %657, %649
   %659 = getelementptr inbounds nuw i8, ptr %654, i64 8
   tail call void @call_rcu(ptr noundef nonnull %659, ptr noundef nonnull @mt_free_rcu) #18
-  br label %mas_topiary_node.exit26
+  br label %mas_topiary_node.exit27
 
-mas_topiary_node.exit26:                          ; preds = %.split, %658
+mas_topiary_node.exit27:                          ; preds = %.split54, %658
   %660 = add nuw nsw i64 %644, 1
   %661 = icmp eq i64 %660, 3
-  br i1 %661, label %.split54.us, label %.split, !llvm.loop !170
+  br i1 %661, label %.split56.us, label %.split54, !llvm.loop !170
 
-.split54.us:                                      ; preds = %mas_topiary_node.exit26, %mas_topiary_node.exit26.us
+.split56.us:                                      ; preds = %mas_topiary_node.exit27, %mas_topiary_node.exit27.us
   %662 = icmp eq ptr %480, null
   br i1 %662, label %mas_free.exit, label %.preheader
 
-.preheader:                                       ; preds = %.split54.us
+.preheader:                                       ; preds = %.split56.us
   %663 = load ptr, ptr %0, align 8
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 4
   %665 = load i32, ptr %664, align 4
-  %.fr56 = freeze i32 %665
-  %666 = and i32 %.fr56, 2
+  %.fr58 = freeze i32 %665
+  %666 = and i32 %.fr58, 2
   %667 = icmp eq i32 %666, 0
   br i1 %667, label %.preheader.split.us, label %.preheader.split
 
@@ -20300,7 +20302,7 @@ mas_topiary_node.exit26:                          ; preds = %.split, %658
   %681 = icmp eq ptr %680, null
   br i1 %681, label %mas_free.exit, label %.preheader.split, !llvm.loop !171
 
-mas_free.exit:                                    ; preds = %.preheader.split, %.preheader.split.us, %323, %318, %307, %267, %.split54.us
+mas_free.exit:                                    ; preds = %.preheader.split, %.preheader.split.us, %323, %318, %307, %267, %.split56.us
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %682 = load ptr, ptr %6, align 8

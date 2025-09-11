@@ -5689,34 +5689,35 @@ define hidden void @"_ZN4core3ptr168drop_in_place$LT$alloc..collections..btree..
   br label %5
 
 5:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i", %.lr.ph.i
-  %6 = phi ptr [ %3, %.lr.ph.i ], [ %10, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i" ]
+  %6 = phi ptr [ %3, %.lr.ph.i ], [ %11, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i" ]
   %.sroa.23.0.copyload.i = load i64, ptr %.sroa.23.0..sroa_idx.i, align 8, !noalias !1580
-  %7 = getelementptr inbounds { [6 x i64] }, ptr %6, i64 %.sroa.23.0.copyload.i, i32 0, i64 1
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_pep508..origin..RequirementOrigin$GT$17hd546f7eac9f5d69aE.llvm.5630824319709123728"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %7)
-          to label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i" unwind label %8
+  %7 = getelementptr inbounds { [6 x i64] }, ptr %6, i64 %.sroa.23.0.copyload.i
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_pep508..origin..RequirementOrigin$GT$17hd546f7eac9f5d69aE.llvm.5630824319709123728"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8)
+          to label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i" unwind label %9
 
-8:                                                ; preds = %5
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %5
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr266drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$uv_distribution_types..annotation..SourceAnnotation$C$alloc..collections..btree..set_val..SetValZST$C$alloc..alloc..Global$GT$$GT$17hd541e4f1e043f817E"(ptr align 8 dereferenceable(72) %0) #42
-          to label %14 unwind label %12
+          to label %15 unwind label %13
 
 "_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i": ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1580
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1580
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h5f0e9ba55befe653E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
-  %10 = load ptr, ptr %2, align 8, !noalias !1580, !noundef !3
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4c18c90e4ed9c7edE.llvm.5630824319709123728.exit", label %5
+  %11 = load ptr, ptr %2, align 8, !noalias !1580, !noundef !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4c18c90e4ed9c7edE.llvm.5630824319709123728.exit", label %5
 
-12:                                               ; preds = %8
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %9
+  %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #43
   unreachable
 
-14:                                               ; preds = %8
-  resume { ptr, i32 } %9
+15:                                               ; preds = %9
+  resume { ptr, i32 } %10
 
 "_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4c18c90e4ed9c7edE.llvm.5630824319709123728.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i", %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1580
@@ -7654,16 +7655,17 @@ define internal fastcc void @"_ZN4core3ptr266drop_in_place$LT$$LT$alloc..collect
   br label %4
 
 4:                                                ; preds = %4, %.lr.ph.i
-  %5 = phi ptr [ %2, %.lr.ph.i ], [ %7, %4 ]
+  %5 = phi ptr [ %2, %.lr.ph.i ], [ %8, %4 ]
   %.sroa.21.0.copyload.i = load i64, ptr %.sroa.21.0..sroa_idx.i, align 8
-  %6 = getelementptr inbounds { [6 x i64] }, ptr %5, i64 %.sroa.21.0.copyload.i, i32 0, i64 1
-  tail call void @"_ZN4core3ptr57drop_in_place$LT$uv_pep508..origin..RequirementOrigin$GT$17hd546f7eac9f5d69aE.llvm.5630824319709123728"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %6)
+  %6 = getelementptr inbounds { [6 x i64] }, ptr %5, i64 %.sroa.21.0.copyload.i
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  tail call void @"_ZN4core3ptr57drop_in_place$LT$uv_pep508..origin..RequirementOrigin$GT$17hd546f7eac9f5d69aE.llvm.5630824319709123728"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h5f0e9ba55befe653E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val)
-  %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he707e2b2dfe6813cE.exit", label %4
+  %8 = load ptr, ptr %1, align 8, !noundef !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he707e2b2dfe6813cE.exit", label %4
 
 "_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he707e2b2dfe6813cE.exit": ; preds = %4, %0
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -30315,28 +30317,29 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$14edg
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = zext i32 %2 to i64
   %12 = icmp ugt i64 %10, %11
-  br i1 %12, label %13, label %17
+  br i1 %12, label %13, label %18
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  %16 = getelementptr inbounds nuw { { i64, [6 x i64] }, [2 x i32] }, ptr %15, i64 %11, i32 1
-  %.sroa.0.0.copyload = load i32, ptr %16, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %16 = getelementptr inbounds nuw { { i64, [6 x i64] }, [2 x i32] }, ptr %15, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %.sroa.0.0.copyload = load i32, ptr %17, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 60
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  br label %17
+  br label %18
 
-17:                                               ; preds = %4, %13
+18:                                               ; preds = %4, %13
   %.sroa.5.0 = phi i32 [ %.sroa.5.0.copyload, %13 ], [ -1, %4 ]
   %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %13 ], [ -1, %4 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %2, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %8, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.0.0, ptr %21, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %2, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %8, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %.sroa.0.0, ptr %22, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx2, align 4
   store i64 %3, ptr %0, align 8
@@ -30816,34 +30819,35 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   br label %10
 
 10:                                               ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i.i", %.lr.ph.i.i
-  %11 = phi ptr [ %8, %.lr.ph.i.i ], [ %15, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i.i" ]
+  %11 = phi ptr [ %8, %.lr.ph.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i.i" ]
   %.sroa.23.0.copyload.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !noalias !9705
-  %12 = getelementptr inbounds { [6 x i64] }, ptr %11, i64 %.sroa.23.0.copyload.i.i, i32 0, i64 1
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_pep508..origin..RequirementOrigin$GT$17hd546f7eac9f5d69aE.llvm.5630824319709123728"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %12)
-          to label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i.i" unwind label %13
+  %12 = getelementptr inbounds { [6 x i64] }, ptr %11, i64 %.sroa.23.0.copyload.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_pep508..origin..RequirementOrigin$GT$17hd546f7eac9f5d69aE.llvm.5630824319709123728"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %13)
+          to label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i.i" unwind label %14
 
-13:                                               ; preds = %10
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %10
+  %15 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr266drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$uv_distribution_types..annotation..SourceAnnotation$C$alloc..collections..btree..set_val..SetValZST$C$alloc..alloc..Global$GT$$GT$17hd541e4f1e043f817E"(ptr align 8 dereferenceable(72) %3) #42
-          to label %19 unwind label %17
+          to label %20 unwind label %18
 
 "_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i.i": ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !9705
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !9705
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h5f0e9ba55befe653E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %3)
-  %15 = load ptr, ptr %2, align 8, !noalias !9705, !noundef !3
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %"_ZN4core3ptr168drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$uv_distribution_types..annotation..SourceAnnotation$C$alloc..collections..btree..set_val..SetValZST$GT$$GT$17hd0ac9043c92f538eE.llvm.5630824319709123728.exit", label %10
+  %16 = load ptr, ptr %2, align 8, !noalias !9705, !noundef !3
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %"_ZN4core3ptr168drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$uv_distribution_types..annotation..SourceAnnotation$C$alloc..collections..btree..set_val..SetValZST$GT$$GT$17hd0ac9043c92f538eE.llvm.5630824319709123728.exit", label %10
 
-17:                                               ; preds = %13
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %14
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #43
   unreachable
 
-19:                                               ; preds = %13
-  resume { ptr, i32 } %14
+20:                                               ; preds = %14
+  resume { ptr, i32 } %15
 
 "_ZN4core3ptr168drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$uv_distribution_types..annotation..SourceAnnotation$C$alloc..collections..btree..set_val..SetValZST$GT$$GT$17hd0ac9043c92f538eE.llvm.5630824319709123728.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit.i.i", %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7a043e50213bef3cE.llvm.5630824319709123728.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !9705
@@ -31023,38 +31027,39 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   br label %5
 
 5:                                                ; preds = %.lr.ph, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit"
-  %6 = phi ptr [ %3, %.lr.ph ], [ %10, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit" ]
+  %6 = phi ptr [ %3, %.lr.ph ], [ %11, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit" ]
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
-  %7 = getelementptr inbounds { [6 x i64] }, ptr %6, i64 %.sroa.23.0.copyload, i32 0, i64 1
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_pep508..origin..RequirementOrigin$GT$17hd546f7eac9f5d69aE.llvm.5630824319709123728"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %7)
-          to label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit" unwind label %8
+  %7 = getelementptr inbounds { [6 x i64] }, ptr %6, i64 %.sroa.23.0.copyload
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_pep508..origin..RequirementOrigin$GT$17hd546f7eac9f5d69aE.llvm.5630824319709123728"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8)
+          to label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit" unwind label %9
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit", %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-8:                                                ; preds = %5
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %5
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr266drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$uv_distribution_types..annotation..SourceAnnotation$C$alloc..collections..btree..set_val..SetValZST$C$alloc..alloc..Global$GT$$GT$17hd541e4f1e043f817E"(ptr %0) #42
-          to label %14 unwind label %12
+          to label %15 unwind label %13
 
 "_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h4f7f4329f4c9e864E.exit": ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h5f0e9ba55befe653E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
-  %10 = load ptr, ptr %2, align 8, !noundef !3
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %._crit_edge, label %5
+  %11 = load ptr, ptr %2, align 8, !noundef !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %._crit_edge, label %5
 
-12:                                               ; preds = %8
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %9
+  %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #43
   unreachable
 
-14:                                               ; preds = %8
-  resume { ptr, i32 } %9
+15:                                               ; preds = %9
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: nonlazybind uwtable

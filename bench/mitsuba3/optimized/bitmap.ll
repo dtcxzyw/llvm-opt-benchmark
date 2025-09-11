@@ -15172,7 +15172,7 @@ _ZN7mitsuba12_GLOBAL__N_116rgbe_read_pixelsEPNS_6StreamEPfm.exit206: ; preds = %
   %329 = add nsw i32 %.0123268, -1
   %330 = getelementptr inbounds nuw i8, ptr %.2128267, i64 1
   store i8 %.pre297, ptr %.2128267, align 1
-  %331 = icmp sgt i32 %.0123268, 1
+  %331 = icmp samesign ugt i32 %.0123268, 1
   br i1 %331, label %.lr.ph, label %.loopexit238, !llvm.loop !213
 
 332:                                              ; preds = %313

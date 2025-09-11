@@ -1591,7 +1591,7 @@ define noundef zeroext i1 @_ZN6plic_t4loadEmmPh(ptr noundef nonnull align 8 dere
 
 52:                                               ; preds = %29
   %53 = icmp ult i64 %1, 2097152
-  br i1 %53, label %54, label %78
+  br i1 %53, label %54, label %79
 
 54:                                               ; preds = %52
   %55 = add nuw nsw i64 %1, 549755805696
@@ -1618,66 +1618,67 @@ define noundef zeroext i1 @_ZN6plic_t4loadEmmPh(ptr noundef nonnull align 8 dere
   br i1 %73, label %74, label %_ZN6plic_t13priority_readEmPj.exit
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds nuw %struct.plic_context_t, ptr %62, i64 %58, i32 4
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %69
-  %77 = load i32, ptr %76, align 4, !tbaa !53
+  %75 = getelementptr inbounds nuw %struct.plic_context_t, ptr %62, i64 %58
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 12
+  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %69
+  %78 = load i32, ptr %77, align 4, !tbaa !53
   br label %_ZN6plic_t13priority_readEmPj.exit
 
-78:                                               ; preds = %52
-  %79 = icmp ult i64 %1, 16777216
-  br i1 %79, label %80, label %_ZN6plic_t13priority_readEmPj.exit
+79:                                               ; preds = %52
+  %80 = icmp ult i64 %1, 16777216
+  br i1 %80, label %81, label %_ZN6plic_t13priority_readEmPj.exit
 
-80:                                               ; preds = %78
-  %81 = add nuw nsw i64 %1, 17592183947264
-  %82 = lshr i64 %81, 12
-  %83 = and i64 %1, 4095
-  %84 = and i64 %82, 4294967295
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %87 = load ptr, ptr %86, align 8, !tbaa !28
-  %88 = load ptr, ptr %85, align 8, !tbaa !34
-  %89 = ptrtoint ptr %87 to i64
+81:                                               ; preds = %79
+  %82 = add nuw nsw i64 %1, 17592183947264
+  %83 = lshr i64 %82, 12
+  %84 = and i64 %1, 4095
+  %85 = and i64 %83, 4294967295
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %88 = load ptr, ptr %87, align 8, !tbaa !28
+  %89 = load ptr, ptr %86, align 8, !tbaa !34
   %90 = ptrtoint ptr %88 to i64
-  %91 = sub i64 %89, %90
-  %92 = sdiv exact i64 %91, 1424
-  %93 = icmp ult i64 %84, %92
-  br i1 %93, label %94, label %_ZN6plic_t13priority_readEmPj.exit
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  %93 = sdiv exact i64 %92, 1424
+  %94 = icmp ult i64 %85, %93
+  br i1 %94, label %95, label %_ZN6plic_t13priority_readEmPj.exit
 
-94:                                               ; preds = %80
-  %95 = getelementptr inbounds nuw %struct.plic_context_t, ptr %88, i64 %84
-  switch i64 %83, label %_ZN6plic_t13priority_readEmPj.exit [
-    i64 0, label %96
-    i64 4, label %100
+95:                                               ; preds = %81
+  %96 = getelementptr inbounds nuw %struct.plic_context_t, ptr %89, i64 %85
+  switch i64 %84, label %_ZN6plic_t13priority_readEmPj.exit [
+    i64 0, label %97
+    i64 4, label %101
   ]
 
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 9
-  %98 = load i8, ptr %97, align 1, !tbaa !51
-  %99 = zext i8 %98 to i32
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 9
+  %99 = load i8, ptr %98, align 1, !tbaa !51
+  %100 = zext i8 %99 to i32
   br label %_ZN6plic_t13priority_readEmPj.exit
 
-100:                                              ; preds = %94
-  %101 = tail call noundef i32 @_ZN6plic_t13context_claimEP14plic_context_t(ptr noundef nonnull readonly align 8 dereferenceable(1204) %0, ptr noundef nonnull %95)
+101:                                              ; preds = %95
+  %102 = tail call noundef i32 @_ZN6plic_t13context_claimEP14plic_context_t(ptr noundef nonnull readonly align 8 dereferenceable(1204) %0, ptr noundef nonnull %96)
   br label %_ZN6plic_t13priority_readEmPj.exit
 
-_ZN6plic_t13priority_readEmPj.exit:               ; preds = %46, %94, %100, %96, %74, %68, %38, %31, %24, %18, %80, %54, %78
-  %.048 = phi i32 [ 0, %54 ], [ 0, %80 ], [ 0, %78 ], [ %28, %24 ], [ 0, %18 ], [ 0, %38 ], [ 0, %31 ], [ %77, %74 ], [ 0, %68 ], [ 0, %94 ], [ %101, %100 ], [ %99, %96 ], [ %49, %46 ]
-  %.040 = phi i1 [ false, %54 ], [ false, %80 ], [ false, %78 ], [ true, %24 ], [ true, %18 ], [ true, %38 ], [ true, %31 ], [ true, %74 ], [ true, %68 ], [ true, %94 ], [ true, %100 ], [ true, %96 ], [ true, %46 ]
-  %.039 = phi i64 [ %57, %54 ], [ %83, %80 ], [ %1, %78 ], [ %1, %24 ], [ %1, %18 ], [ %1, %38 ], [ %1, %31 ], [ %57, %74 ], [ %57, %68 ], [ %83, %94 ], [ 4, %100 ], [ 0, %96 ], [ %1, %46 ]
+_ZN6plic_t13priority_readEmPj.exit:               ; preds = %46, %95, %101, %97, %74, %68, %38, %31, %24, %18, %81, %54, %79
+  %.048 = phi i32 [ 0, %54 ], [ 0, %81 ], [ 0, %79 ], [ %28, %24 ], [ 0, %18 ], [ 0, %38 ], [ 0, %31 ], [ %78, %74 ], [ 0, %68 ], [ 0, %95 ], [ %102, %101 ], [ %100, %97 ], [ %49, %46 ]
+  %.040 = phi i1 [ false, %54 ], [ false, %81 ], [ false, %79 ], [ true, %24 ], [ true, %18 ], [ true, %38 ], [ true, %31 ], [ true, %74 ], [ true, %68 ], [ true, %95 ], [ true, %101 ], [ true, %97 ], [ true, %46 ]
+  %.039 = phi i64 [ %57, %54 ], [ %84, %81 ], [ %1, %79 ], [ %1, %24 ], [ %1, %18 ], [ %1, %38 ], [ %1, %31 ], [ %57, %74 ], [ %57, %68 ], [ %84, %95 ], [ 4, %101 ], [ 0, %97 ], [ %1, %46 ]
   br label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %.lr.ph.i47, %_ZN6plic_t13priority_readEmPj.exit
-  %.08.i = phi i64 [ %108, %.lr.ph.i47 ], [ 0, %_ZN6plic_t13priority_readEmPj.exit ]
-  %102 = add i64 %.08.i, %.039
-  %.tr.i = trunc i64 %102 to i32
-  %103 = shl i32 %.tr.i, 3
-  %104 = and i32 %103, 24
-  %105 = lshr i32 %.048, %104
-  %106 = trunc i32 %105 to i8
-  %107 = getelementptr inbounds nuw i8, ptr %3, i64 %.08.i
-  store i8 %106, ptr %107, align 1, !tbaa !32
-  %108 = add nuw nsw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %108, 4
+  %.08.i = phi i64 [ %109, %.lr.ph.i47 ], [ 0, %_ZN6plic_t13priority_readEmPj.exit ]
+  %103 = add i64 %.08.i, %.039
+  %.tr.i = trunc i64 %103 to i32
+  %104 = shl i32 %.tr.i, 3
+  %105 = and i32 %104, 24
+  %106 = lshr i32 %.048, %105
+  %107 = trunc i32 %106 to i8
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 %.08.i
+  store i8 %107, ptr %108, align 1, !tbaa !32
+  %109 = add nuw nsw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %109, 4
   br i1 %exitcond.not.i, label %_Z22read_little_endian_regIjEvT_mmPh.exit, label %.lr.ph.i47, !llvm.loop !66
 
 _Z22read_little_endian_regIjEvT_mmPh.exit:        ; preds = %.lr.ph.i47, %4, %6, %10

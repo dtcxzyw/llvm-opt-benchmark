@@ -239,17 +239,18 @@ define hidden noundef range(i64 1, -1) i64 @"_ZN14pulldown_cmark4tree13Tree$LT$T
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !19
   %19 = icmp ult i64 %3, %18
-  br i1 %19, label %20, label %25
+  br i1 %19, label %20, label %26
 
 20:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hefb8cdc6402d1763E.llvm.17556209754408568622.exit"
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !19, !noundef !19
-  %23 = getelementptr inbounds { { { i8, [15 x i8] }, i64, i64 }, i64, i64 }, ptr %22, i64 %3, i32 1
-  %24 = load i64, ptr %23, align 8, !noundef !19
-  store i64 %24, ptr %2, align 8
+  %23 = getelementptr inbounds { { { i8, [15 x i8] }, i64, i64 }, i64, i64 }, ptr %22, i64 %3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %25 = load i64, ptr %24, align 8, !noundef !19
+  store i64 %25, ptr %2, align 8
   ret i64 %3
 
-25:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hefb8cdc6402d1763E.llvm.17556209754408568622.exit"
+26:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hefb8cdc6402d1763E.llvm.17556209754408568622.exit"
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %3, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfa024dcd7e9701fda0076549d0a65bc.3.llvm.17556209754408568622) #31
   unreachable
 }

@@ -829,7 +829,7 @@ proto_item_set_hidden.exit:                       ; preds = %lmp_msg_to_filter_n
 52:                                               ; preds = %switch.early.test
   %53 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %30, ptr noundef nonnull @ei_lmp_invalid_msg_type, ptr noundef nonnull @.str.507, i32 noundef %12)
   %54 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %921
+  br label %919
 
 55:                                               ; preds = %proto_item_set_hidden.exit
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -874,8 +874,8 @@ proto_item_set_hidden.exit:                       ; preds = %lmp_msg_to_filter_n
   br label %79
 
 79:                                               ; preds = %.lr.ph1187, %.thread1137
-  %.010431185 = phi i32 [ 8, %.lr.ph1187 ], [ %917, %.thread1137 ]
-  %.010531184 = phi i32 [ 8, %.lr.ph1187 ], [ %918, %.thread1137 ]
+  %.010431185 = phi i32 [ 8, %.lr.ph1187 ], [ %915, %.thread1137 ]
+  %.010531184 = phi i32 [ 8, %.lr.ph1187 ], [ %916, %.thread1137 ]
   %80 = add i32 %.010431185, 2
   %81 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %80)
   %82 = zext i16 %81 to i32
@@ -1012,7 +1012,7 @@ lmp_class_to_subtree.exit:                        ; preds = %lmp_valid_class.exi
   %132 = call ptr @proto_tree_add_uint(ptr noundef %124, i32 noundef %131, ptr noundef %0, i32 noundef %.010431185, i32 noundef 1, i32 noundef %122)
   %133 = add i32 %.010431185, 4
   %134 = add nsw i32 %82, -4
-  switch i8 %87, label %914 [
+  switch i8 %87, label %912 [
     i8 0, label %.thread1137
     i8 1, label %153
     i8 2, label %165
@@ -1077,7 +1077,7 @@ lmp_class_to_subtree.exit:                        ; preds = %lmp_valid_class.exi
 .thread1141:                                      ; preds = %lmp_valid_class.exit, %proto_item_set_generated.exit
   %151 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %92, ptr noundef nonnull @ei_lmp_invalid_class, ptr noundef nonnull @.str.508, i32 noundef %91)
   %152 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %921
+  br label %919
 
 153:                                              ; preds = %lmp_class_to_subtree.exit
   switch i8 %89, label %162 [
@@ -2105,7 +2105,7 @@ switch.lookup:                                    ; preds = %485
 
 794:                                              ; preds = %lmp_class_to_subtree.exit
   %cond = icmp eq i8 %89, 1
-  br i1 %cond, label %795, label %911
+  br i1 %cond, label %795, label %909
 
 795:                                              ; preds = %794
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %113, ptr noundef nonnull @.str.591)
@@ -2129,8 +2129,8 @@ switch.lookup:                                    ; preds = %485
   %813 = icmp ugt i16 %81, 28
   br i1 %813, label %.lr.ph1167, label %.thread1137
 
-.lr.ph1167:                                       ; preds = %795, %906
-  %.71166 = phi i32 [ %909, %906 ], [ 24, %795 ]
+.lr.ph1167:                                       ; preds = %795, %904
+  %.71166 = phi i32 [ %907, %904 ], [ 24, %795 ]
   %814 = add i32 %.71166, %133
   %815 = add i32 %814, 1
   %816 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %815)
@@ -2156,7 +2156,7 @@ switch.lookup:                                    ; preds = %485
 830:                                              ; preds = %.lr.ph1167
   %831 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %827, ptr noundef %0, i32 noundef %815, i32 noundef 1, i32 noundef 0)
   %832 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %814)
-  switch i8 %832, label %899 [
+  switch i8 %832, label %897 [
     i8 -6, label %833
     i8 -5, label %850
     i8 -4, label %867
@@ -2221,72 +2221,70 @@ switch.lookup:                                    ; preds = %485
   br i1 %881, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %867
-  %882 = zext i8 %816 to i16
-  %.lhs.trunc = add nsw i16 %882, -8
-  %883 = sdiv i16 %.lhs.trunc, 4
-  %884 = add i32 %814, 8
-  %885 = add i32 %814, 9
-  %886 = call i16 @llvm.smax.i16(i16 %883, i16 1)
-  %smax = zext nneg i16 %886 to i32
-  br label %887
+  %.lhs.trunc = add i8 %816, -8
+  %882 = lshr i8 %.lhs.trunc, 2
+  %.zext = zext nneg i8 %882 to i32
+  %883 = add i32 %814, 8
+  %884 = add i32 %814, 9
+  br label %885
 
-887:                                              ; preds = %.lr.ph, %887
-  %.110481165 = phi i32 [ 0, %.lr.ph ], [ %898, %887 ]
-  %888 = load i32, ptr @hf_lmp_free_timeslots, align 4
-  %889 = shl i32 %.110481165, 2
-  %890 = add i32 %884, %889
-  %891 = add i32 %885, %889
-  %892 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %891)
-  %893 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %890)
-  %894 = zext i8 %893 to i32
-  %895 = call ptr @val_to_str_ext(i32 noundef %894, ptr noundef nonnull @gmpls_sonet_signal_type_str_ext, ptr noundef nonnull @.str.597)
-  %896 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %891)
-  %897 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %821, i32 noundef %888, ptr noundef %0, i32 noundef %890, i32 noundef 4, i32 noundef %892, ptr noundef nonnull @.str.596, ptr noundef %895, i32 noundef %896)
-  %898 = add nuw nsw i32 %.110481165, 1
-  %exitcond.not = icmp eq i32 %898, %smax
-  br i1 %exitcond.not, label %.loopexit, label %887, !llvm.loop !12
+885:                                              ; preds = %.lr.ph, %885
+  %.110481165 = phi i32 [ 0, %.lr.ph ], [ %896, %885 ]
+  %886 = load i32, ptr @hf_lmp_free_timeslots, align 4
+  %887 = shl i32 %.110481165, 2
+  %888 = add i32 %883, %887
+  %889 = add i32 %884, %887
+  %890 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %889)
+  %891 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %888)
+  %892 = zext i8 %891 to i32
+  %893 = call ptr @val_to_str_ext(i32 noundef %892, ptr noundef nonnull @gmpls_sonet_signal_type_str_ext, ptr noundef nonnull @.str.597)
+  %894 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %889)
+  %895 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %821, i32 noundef %886, ptr noundef %0, i32 noundef %888, i32 noundef 4, i32 noundef %890, ptr noundef nonnull @.str.596, ptr noundef %893, i32 noundef %894)
+  %896 = add nuw nsw i32 %.110481165, 1
+  %exitcond.not = icmp eq i32 %896, %.zext
+  br i1 %exitcond.not, label %.loopexit, label %885, !llvm.loop !12
 
-899:                                              ; preds = %830
-  %900 = load i32, ptr @hf_lmp_data, align 4
-  %901 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %815)
-  %902 = zext i8 %901 to i32
-  %903 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %900, ptr noundef %0, i32 noundef %814, i32 noundef %902, i32 noundef 0)
+897:                                              ; preds = %830
+  %898 = load i32, ptr @hf_lmp_data, align 4
+  %899 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %815)
+  %900 = zext i8 %899 to i32
+  %901 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %898, ptr noundef %0, i32 noundef %814, i32 noundef %900, i32 noundef 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %887, %867, %899, %850, %833
-  %904 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %815)
-  %905 = icmp eq i8 %904, 0
-  br i1 %905, label %.thread1137, label %906
+.loopexit:                                        ; preds = %885, %867, %897, %850, %833
+  %902 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %815)
+  %903 = icmp eq i8 %902, 0
+  br i1 %903, label %.thread1137, label %904
 
-906:                                              ; preds = %.loopexit
-  %907 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %815)
-  %908 = zext i8 %907 to i32
-  %909 = add nuw nsw i32 %.71166, %908
-  %910 = icmp slt i32 %909, %134
-  br i1 %910, label %.lr.ph1167, label %.thread1137, !llvm.loop !13
+904:                                              ; preds = %.loopexit
+  %905 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %815)
+  %906 = zext i8 %905 to i32
+  %907 = add nuw nsw i32 %.71166, %906
+  %908 = icmp slt i32 %907, %134
+  br i1 %908, label %.lr.ph1167, label %.thread1137, !llvm.loop !13
 
-911:                                              ; preds = %794
-  %912 = load i32, ptr @hf_lmp_data, align 4
-  %913 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %912, ptr noundef %0, i32 noundef %133, i32 noundef %134, i32 noundef 0)
+909:                                              ; preds = %794
+  %910 = load i32, ptr @hf_lmp_data, align 4
+  %911 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %910, ptr noundef %0, i32 noundef %133, i32 noundef %134, i32 noundef 0)
   br label %.thread1137
 
-914:                                              ; preds = %lmp_class_to_subtree.exit
-  %915 = load i32, ptr @hf_lmp_data, align 4
-  %916 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %915, ptr noundef %0, i32 noundef %133, i32 noundef %134, i32 noundef 0)
+912:                                              ; preds = %lmp_class_to_subtree.exit
+  %913 = load i32, ptr @hf_lmp_data, align 4
+  %914 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %913, ptr noundef %0, i32 noundef %133, i32 noundef %134, i32 noundef 0)
   br label %.thread1137
 
-.thread1137:                                      ; preds = %.loopexit, %906, %.lr.ph1170.split.us1174, %.lr.ph1170.split.us1171, %.lr.ph1170.split.us, %557, %529, %480, %477, %485, %795, %.preheader, %.lr.ph1170.split, %switch.lookup, %414, %lmp_class_to_subtree.exit, %914, %162, %158, %154, %176, %171, %166, %203, %196, %188, %180, %230, %223, %215, %207, %242, %238, %234, %256, %246, %268, %260, %298, %272, %312, %302, %320, %316, %365, %356, %345, %334, %616, %602, %592, %576, %564, %632, %640, %660, %642, %670, %664, %777, %763, %745, %702, %674, %791, %786, %781, %828, %911
-  %917 = add i32 %.010431185, %82
-  %918 = add nuw nsw i32 %.010531184, %82
-  %919 = icmp samesign ult i32 %918, %16
-  br i1 %919, label %79, label %.loopexit1159
+.thread1137:                                      ; preds = %.loopexit, %904, %.lr.ph1170.split.us1174, %.lr.ph1170.split.us1171, %.lr.ph1170.split.us, %557, %529, %480, %477, %485, %795, %.preheader, %.lr.ph1170.split, %switch.lookup, %414, %lmp_class_to_subtree.exit, %912, %162, %158, %154, %176, %171, %166, %203, %196, %188, %180, %230, %223, %215, %207, %242, %238, %234, %256, %246, %268, %260, %298, %272, %312, %302, %320, %316, %365, %356, %345, %334, %616, %602, %592, %576, %564, %632, %640, %660, %642, %670, %664, %777, %763, %745, %702, %674, %791, %786, %781, %828, %909
+  %915 = add i32 %.010431185, %82
+  %916 = add nuw nsw i32 %.010531184, %82
+  %917 = icmp samesign ult i32 %916, %16
+  br i1 %917, label %79, label %.loopexit1159
 
 .loopexit1159:                                    ; preds = %.thread1137, %76, %.thread1146, %4
-  %920 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %921
+  %918 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %919
 
-921:                                              ; preds = %.thread1141, %.loopexit1159, %52
-  %.0 = phi i32 [ %920, %.loopexit1159 ], [ %54, %52 ], [ %152, %.thread1141 ]
+919:                                              ; preds = %.thread1141, %.loopexit1159, %52
+  %.0 = phi i32 [ %918, %.loopexit1159 ], [ %54, %52 ], [ %152, %.thread1141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2416,13 +2414,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #3
-
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

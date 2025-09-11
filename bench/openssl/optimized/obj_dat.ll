@@ -2313,76 +2313,77 @@ define ptr @OBJ_nid2obj(i32 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %or.cond = icmp ult i32 %0, 1487
-  br i1 %or.cond, label %6, label %11
+  br i1 %or.cond, label %6, label %12
 
 6:                                                ; preds = %5
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %7, i32 2
-  %9 = load i32, ptr %8, align 8, !tbaa !13
-  %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %11, label %._crit_edge
+  %8 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load i32, ptr %9, align 8, !tbaa !13
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %6
   %.pre-phi = phi i64 [ %7, %6 ], [ 0, %1 ]
-  %10 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %.pre-phi
-  br label %31
+  %11 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %.pre-phi
+  br label %32
 
-11:                                               ; preds = %6, %5
+12:                                               ; preds = %6, %5
   store i32 3, ptr %2, align 8, !tbaa !17
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %3, ptr %12, align 8, !tbaa !9
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %0, ptr %13, align 8, !tbaa !13
-  %14 = call i32 @OPENSSL_init_crypto(i64 noundef 64, ptr noundef null) #10
-  %15 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @ossl_obj_lock_init, ptr noundef nonnull @obj_lock_initialise_ossl_) #10
-  %.not.i.i = icmp eq i32 %15, 0
-  %16 = load i32, ptr @obj_lock_initialise_ossl_ret_, align 4
-  %.not23.i = icmp eq i32 %16, 0
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %3, ptr %13, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %0, ptr %14, align 8, !tbaa !13
+  %15 = call i32 @OPENSSL_init_crypto(i64 noundef 64, ptr noundef null) #10
+  %16 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @ossl_obj_lock_init, ptr noundef nonnull @obj_lock_initialise_ossl_) #10
+  %.not.i.i = icmp eq i32 %16, 0
+  %17 = load i32, ptr @obj_lock_initialise_ossl_ret_, align 4
+  %.not23.i = icmp eq i32 %17, 0
   %.not2.i = select i1 %.not.i.i, i1 true, i1 %.not23.i
   br i1 %.not2.i, label %ossl_obj_read_lock.exit.thread, label %ossl_obj_read_lock.exit
 
-ossl_obj_read_lock.exit:                          ; preds = %11
-  %17 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
-  %18 = call i32 @CRYPTO_THREAD_read_lock(ptr noundef %17) #10
-  %.not12 = icmp eq i32 %18, 0
-  br i1 %.not12, label %ossl_obj_read_lock.exit.thread, label %19
+ossl_obj_read_lock.exit:                          ; preds = %12
+  %18 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
+  %19 = call i32 @CRYPTO_THREAD_read_lock(ptr noundef %18) #10
+  %.not12 = icmp eq i32 %19, 0
+  br i1 %.not12, label %ossl_obj_read_lock.exit.thread, label %20
 
-ossl_obj_read_lock.exit.thread:                   ; preds = %11, %ossl_obj_read_lock.exit
+ossl_obj_read_lock.exit.thread:                   ; preds = %12, %ossl_obj_read_lock.exit
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 343, ptr noundef nonnull @__func__.OBJ_nid2obj) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 8, i32 noundef 786703, ptr noundef null) #10
+  br label %32
+
+20:                                               ; preds = %ossl_obj_read_lock.exit
+  %21 = load ptr, ptr @added, align 8, !tbaa !3
+  %.not13 = icmp eq ptr %21, null
+  br i1 %.not13, label %.thread, label %24
+
+.thread:                                          ; preds = %20
+  %22 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
+  %23 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %22) #10
   br label %31
 
-19:                                               ; preds = %ossl_obj_read_lock.exit
-  %20 = load ptr, ptr @added, align 8, !tbaa !3
-  %.not13 = icmp eq ptr %20, null
-  br i1 %.not13, label %.thread, label %23
+24:                                               ; preds = %20
+  %25 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %21, ptr noundef nonnull %2) #10
+  %26 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
+  %27 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %26) #10
+  %.not14 = icmp eq ptr %25, null
+  br i1 %.not14, label %31, label %28
 
-.thread:                                          ; preds = %19
-  %21 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
-  %22 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %21) #10
-  br label %30
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !9
+  br label %32
 
-23:                                               ; preds = %19
-  %24 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %20, ptr noundef nonnull %2) #10
-  %25 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
-  %26 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %25) #10
-  %.not14 = icmp eq ptr %24, null
-  br i1 %.not14, label %30, label %27
-
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !9
-  br label %31
-
-30:                                               ; preds = %.thread, %23
+31:                                               ; preds = %.thread, %24
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 352, ptr noundef nonnull @__func__.OBJ_nid2obj) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 8, i32 noundef 101, ptr noundef null) #10
-  br label %31
+  br label %32
 
-31:                                               ; preds = %30, %27, %ossl_obj_read_lock.exit.thread, %._crit_edge
-  %.09 = phi ptr [ %10, %._crit_edge ], [ %29, %27 ], [ null, %30 ], [ null, %ossl_obj_read_lock.exit.thread ]
+32:                                               ; preds = %31, %28, %ossl_obj_read_lock.exit.thread, %._crit_edge
+  %.09 = phi ptr [ %11, %._crit_edge ], [ %30, %28 ], [ null, %31 ], [ null, %ossl_obj_read_lock.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.09
@@ -2507,89 +2508,13 @@ define i32 @OBJ_sn2nid(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %0, ptr %2, align 8, !tbaa !18
   %5 = call ptr @ossl_bsearch(ptr noundef nonnull %3, ptr noundef nonnull @sn_objs, i32 noundef 1478, i32 noundef 4, ptr noundef nonnull @sn_cmp_BSEARCH_CMP_FN, i32 noundef 0) #10
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %11, label %6
+  br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %5, align 4, !tbaa !23
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %8, i32 2
-  %10 = load i32, ptr %9, align 8, !tbaa !13
-  br label %30
-
-11:                                               ; preds = %1
-  %12 = call i32 @OPENSSL_init_crypto(i64 noundef 64, ptr noundef null) #10
-  %13 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @ossl_obj_lock_init, ptr noundef nonnull @obj_lock_initialise_ossl_) #10
-  %.not.i.i = icmp eq i32 %13, 0
-  %14 = load i32, ptr @obj_lock_initialise_ossl_ret_, align 4
-  %.not23.i = icmp eq i32 %14, 0
-  %.not2.i = select i1 %.not.i.i, i1 true, i1 %.not23.i
-  br i1 %.not2.i, label %ossl_obj_read_lock.exit.thread, label %ossl_obj_read_lock.exit
-
-ossl_obj_read_lock.exit:                          ; preds = %11
-  %15 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
-  %16 = call i32 @CRYPTO_THREAD_read_lock(ptr noundef %15) #10
-  %.not9 = icmp eq i32 %16, 0
-  br i1 %.not9, label %ossl_obj_read_lock.exit.thread, label %17
-
-ossl_obj_read_lock.exit.thread:                   ; preds = %11, %ossl_obj_read_lock.exit
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 676, ptr noundef nonnull @__func__.OBJ_sn2nid) #10
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 8, i32 noundef 786703, ptr noundef null) #10
-  br label %30
-
-17:                                               ; preds = %ossl_obj_read_lock.exit
-  %18 = load ptr, ptr @added, align 8, !tbaa !3
-  %.not10 = icmp eq ptr %18, null
-  br i1 %.not10, label %27, label %19
-
-19:                                               ; preds = %17
-  store i32 1, ptr %4, align 8, !tbaa !17
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %20, align 8, !tbaa !9
-  %21 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %18, ptr noundef nonnull %4) #10
-  %.not11 = icmp eq ptr %21, null
-  br i1 %.not11, label %27, label %22
-
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !9
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !13
-  br label %27
-
-27:                                               ; preds = %19, %22, %17
-  %.0 = phi i32 [ %26, %22 ], [ 0, %19 ], [ 0, %17 ]
-  %28 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
-  %29 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %28) #10
-  br label %30
-
-30:                                               ; preds = %27, %ossl_obj_read_lock.exit.thread, %6
-  %.06 = phi i32 [ %10, %6 ], [ %.0, %27 ], [ 0, %ossl_obj_read_lock.exit.thread ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.06
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @OBJ_ln2nid(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = alloca %struct.asn1_object_st, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca %struct.added_obj_st, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %2, ptr %3, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %0, ptr %5, align 8, !tbaa !19
-  %6 = call ptr @ossl_bsearch(ptr noundef nonnull %3, ptr noundef nonnull @ln_objs, i32 noundef 1478, i32 noundef 4, ptr noundef nonnull @ln_cmp_BSEARCH_CMP_FN, i32 noundef 0) #10
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %12, label %7
-
-7:                                                ; preds = %1
-  %8 = load i32, ptr %6, align 4, !tbaa !23
-  %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %9, i32 2
+  %9 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !13
   br label %31
 
@@ -2610,7 +2535,7 @@ ossl_obj_read_lock.exit:                          ; preds = %12
 
 ossl_obj_read_lock.exit.thread:                   ; preds = %12, %ossl_obj_read_lock.exit
   call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 649, ptr noundef nonnull @__func__.OBJ_ln2nid) #10
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 676, ptr noundef nonnull @__func__.OBJ_sn2nid) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 8, i32 noundef 786703, ptr noundef null) #10
   br label %31
 
@@ -2620,7 +2545,7 @@ ossl_obj_read_lock.exit.thread:                   ; preds = %12, %ossl_obj_read_
   br i1 %.not10, label %28, label %20
 
 20:                                               ; preds = %18
-  store i32 2, ptr %4, align 8, !tbaa !17
+  store i32 1, ptr %4, align 8, !tbaa !17
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %21, align 8, !tbaa !9
   %22 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %19, ptr noundef nonnull %4) #10
@@ -2640,8 +2565,86 @@ ossl_obj_read_lock.exit.thread:                   ; preds = %12, %ossl_obj_read_
   %30 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %29) #10
   br label %31
 
-31:                                               ; preds = %28, %ossl_obj_read_lock.exit.thread, %7
-  %.06 = phi i32 [ %11, %7 ], [ %.0, %28 ], [ 0, %ossl_obj_read_lock.exit.thread ]
+31:                                               ; preds = %28, %ossl_obj_read_lock.exit.thread, %6
+  %.06 = phi i32 [ %11, %6 ], [ %.0, %28 ], [ 0, %ossl_obj_read_lock.exit.thread ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  ret i32 %.06
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @OBJ_ln2nid(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.asn1_object_st, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.added_obj_st, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  store ptr %2, ptr %3, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %0, ptr %5, align 8, !tbaa !19
+  %6 = call ptr @ossl_bsearch(ptr noundef nonnull %3, ptr noundef nonnull @ln_objs, i32 noundef 1478, i32 noundef 4, ptr noundef nonnull @ln_cmp_BSEARCH_CMP_FN, i32 noundef 0) #10
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %13, label %7
+
+7:                                                ; preds = %1
+  %8 = load i32, ptr %6, align 4, !tbaa !23
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load i32, ptr %11, align 8, !tbaa !13
+  br label %32
+
+13:                                               ; preds = %1
+  %14 = call i32 @OPENSSL_init_crypto(i64 noundef 64, ptr noundef null) #10
+  %15 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @ossl_obj_lock_init, ptr noundef nonnull @obj_lock_initialise_ossl_) #10
+  %.not.i.i = icmp eq i32 %15, 0
+  %16 = load i32, ptr @obj_lock_initialise_ossl_ret_, align 4
+  %.not23.i = icmp eq i32 %16, 0
+  %.not2.i = select i1 %.not.i.i, i1 true, i1 %.not23.i
+  br i1 %.not2.i, label %ossl_obj_read_lock.exit.thread, label %ossl_obj_read_lock.exit
+
+ossl_obj_read_lock.exit:                          ; preds = %13
+  %17 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
+  %18 = call i32 @CRYPTO_THREAD_read_lock(ptr noundef %17) #10
+  %.not9 = icmp eq i32 %18, 0
+  br i1 %.not9, label %ossl_obj_read_lock.exit.thread, label %19
+
+ossl_obj_read_lock.exit.thread:                   ; preds = %13, %ossl_obj_read_lock.exit
+  call void @ERR_new() #10
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 649, ptr noundef nonnull @__func__.OBJ_ln2nid) #10
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 8, i32 noundef 786703, ptr noundef null) #10
+  br label %32
+
+19:                                               ; preds = %ossl_obj_read_lock.exit
+  %20 = load ptr, ptr @added, align 8, !tbaa !3
+  %.not10 = icmp eq ptr %20, null
+  br i1 %.not10, label %29, label %21
+
+21:                                               ; preds = %19
+  store i32 2, ptr %4, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %2, ptr %22, align 8, !tbaa !9
+  %23 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %20, ptr noundef nonnull %4) #10
+  %.not11 = icmp eq ptr %23, null
+  br i1 %.not11, label %29, label %24
+
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !9
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load i32, ptr %27, align 8, !tbaa !13
+  br label %29
+
+29:                                               ; preds = %21, %24, %19
+  %.0 = phi i32 [ %28, %24 ], [ 0, %21 ], [ 0, %19 ]
+  %30 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
+  %31 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %30) #10
+  br label %32
+
+32:                                               ; preds = %29, %ossl_obj_read_lock.exit.thread, %7
+  %.06 = phi i32 [ %12, %7 ], [ %.0, %29 ], [ 0, %ossl_obj_read_lock.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3188,7 +3191,7 @@ define i32 @OBJ_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unn
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 786, ptr noundef nonnull @__func__.OBJ_create) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 8, i32 noundef 524550, ptr noundef null) #10
-  br label %66
+  br label %65
 
 10:                                               ; preds = %3
   br i1 %7, label %13, label %11
@@ -3210,7 +3213,7 @@ define i32 @OBJ_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unn
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 793, ptr noundef nonnull @__func__.OBJ_create) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 8, i32 noundef 102, ptr noundef null) #10
-  br label %66
+  br label %65
 
 17:                                               ; preds = %14, %13
   br i1 %6, label %21, label %18
@@ -3218,7 +3221,7 @@ define i32 @OBJ_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unn
 18:                                               ; preds = %17
   %19 = tail call ptr @OBJ_txt2obj(ptr noundef nonnull %0, i32 noundef 1)
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %66, label %25
+  br i1 %20, label %65, label %25
 
 21:                                               ; preds = %17
   %22 = tail call ptr @ASN1_OBJECT_new() #10
@@ -3229,7 +3232,7 @@ define i32 @OBJ_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unn
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 806, ptr noundef nonnull @__func__.OBJ_create) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 8, i32 noundef 524301, ptr noundef null) #10
-  br label %66
+  br label %65
 
 25:                                               ; preds = %21, %18
   %.028 = phi ptr [ %19, %18 ], [ %22, %21 ]
@@ -3252,10 +3255,10 @@ ossl_obj_write_lock.exit.thread:                  ; preds = %25, %ossl_obj_write
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 812, ptr noundef nonnull @__func__.OBJ_create) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 8, i32 noundef 786704, ptr noundef null) #10
   tail call void @ASN1_OBJECT_free(ptr noundef nonnull %.028) #10
-  br label %66
+  br label %65
 
 31:                                               ; preds = %ossl_obj_write_lock.exit
-  br i1 %6, label %56, label %32
+  br i1 %6, label %55, label %32
 
 32:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3269,7 +3272,7 @@ ossl_obj_write_lock.exit.thread:                  ; preds = %25, %ossl_obj_write
 ossl_obj_obj2nid.exit.thread46:                   ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %55
+  br label %54
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %.028, i64 20
@@ -3285,7 +3288,7 @@ ossl_obj_obj2nid.exit.thread46:                   ; preds = %32
 41:                                               ; preds = %39
   %42 = load i32, ptr %40, align 4, !tbaa !23
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %43, i32 2
+  %44 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %43
   br label %ossl_obj_obj2nid.exit
 
 45:                                               ; preds = %39
@@ -3305,52 +3308,52 @@ ossl_obj_obj2nid.exit.thread46:                   ; preds = %32
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !9
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   br label %ossl_obj_obj2nid.exit
 
 ossl_obj_obj2nid.exit.thread:                     ; preds = %35, %47, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %56
+  br label %55
 
 ossl_obj_obj2nid.exit:                            ; preds = %51, %41
-  %.0.i41.in = phi ptr [ %44, %41 ], [ %54, %51 ]
+  %.pn = phi ptr [ %44, %41 ], [ %53, %51 ]
+  %.0.i41.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   %.0.i41 = load i32, ptr %.0.i41.in, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not40 = icmp eq i32 %.0.i41, 0
-  br i1 %.not40, label %56, label %55
+  br i1 %.not40, label %55, label %54
 
-55:                                               ; preds = %ossl_obj_obj2nid.exit.thread46, %ossl_obj_obj2nid.exit
+54:                                               ; preds = %ossl_obj_obj2nid.exit.thread46, %ossl_obj_obj2nid.exit
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 820, ptr noundef nonnull @__func__.OBJ_create) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 8, i32 noundef 102, ptr noundef null) #10
-  br label %63
+  br label %62
 
-56:                                               ; preds = %ossl_obj_obj2nid.exit.thread, %ossl_obj_obj2nid.exit, %31
-  %57 = atomicrmw add ptr @obj_new_nid_unlocked.new_nid, i32 1 monotonic, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %.028, i64 16
-  store i32 %57, ptr %58, align 8, !tbaa !13
-  %59 = icmp eq i32 %57, 0
-  br i1 %59, label %63, label %60
+55:                                               ; preds = %ossl_obj_obj2nid.exit.thread, %ossl_obj_obj2nid.exit, %31
+  %56 = atomicrmw add ptr @obj_new_nid_unlocked.new_nid, i32 1 monotonic, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %.028, i64 16
+  store i32 %56, ptr %57, align 8, !tbaa !13
+  %58 = icmp eq i32 %56, 0
+  br i1 %58, label %62, label %59
 
-60:                                               ; preds = %56
+59:                                               ; preds = %55
   store ptr %1, ptr %.028, align 8, !tbaa !18
-  %61 = getelementptr inbounds nuw i8, ptr %.028, i64 8
-  store ptr %2, ptr %61, align 8, !tbaa !19
-  %62 = call fastcc i32 @ossl_obj_add_object(ptr noundef nonnull %.028, i32 noundef 0)
+  %60 = getelementptr inbounds nuw i8, ptr %.028, i64 8
+  store ptr %2, ptr %60, align 8, !tbaa !19
+  %61 = call fastcc i32 @ossl_obj_add_object(ptr noundef nonnull %.028, i32 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.028, i8 0, i64 16, i1 false)
-  br label %63
+  br label %62
 
-63:                                               ; preds = %56, %60, %55
-  %.0 = phi i32 [ 0, %55 ], [ 0, %56 ], [ %62, %60 ]
-  %64 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
-  %65 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %64) #10
+62:                                               ; preds = %55, %59, %54
+  %.0 = phi i32 [ 0, %54 ], [ 0, %55 ], [ %61, %59 ]
+  %63 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
+  %64 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %63) #10
   call void @ASN1_OBJECT_free(ptr noundef nonnull %.028) #10
-  br label %66
+  br label %65
 
-66:                                               ; preds = %18, %63, %ossl_obj_write_lock.exit.thread, %24, %16, %9
-  %.029 = phi i32 [ 0, %9 ], [ 0, %16 ], [ %.0, %63 ], [ 0, %ossl_obj_write_lock.exit.thread ], [ 0, %24 ], [ 0, %18 ]
+65:                                               ; preds = %18, %62, %ossl_obj_write_lock.exit.thread, %24, %16, %9
+  %.029 = phi i32 [ 0, %9 ], [ 0, %16 ], [ %.0, %62 ], [ 0, %ossl_obj_write_lock.exit.thread ], [ 0, %24 ], [ 0, %18 ]
   ret i32 %.029
 }
 
@@ -3380,72 +3383,73 @@ define internal fastcc i32 @ossl_obj_obj2nid(ptr noundef %0, i32 noundef range(i
 13:                                               ; preds = %9
   %14 = call ptr @ossl_bsearch(ptr noundef nonnull %3, ptr noundef nonnull @obj_objs, i32 noundef 1344, i32 noundef 4, ptr noundef nonnull @obj_cmp_BSEARCH_CMP_FN, i32 noundef 0) #10
   %.not12 = icmp eq ptr %14, null
-  br i1 %.not12, label %20, label %15
+  br i1 %.not12, label %21, label %15
 
 15:                                               ; preds = %13
   %16 = load i32, ptr %14, align 4, !tbaa !23
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %17, i32 2
-  %19 = load i32, ptr %18, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load i32, ptr %19, align 8, !tbaa !13
   br label %ossl_obj_unlock.exit
 
-20:                                               ; preds = %13
+21:                                               ; preds = %13
   %.not.i = icmp eq i32 %1, 0
-  br i1 %.not.i, label %ossl_obj_read_lock.exit.thread19, label %21
+  br i1 %.not.i, label %ossl_obj_read_lock.exit.thread19, label %22
 
-21:                                               ; preds = %20
-  %22 = call i32 @OPENSSL_init_crypto(i64 noundef 64, ptr noundef null) #10
-  %23 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @ossl_obj_lock_init, ptr noundef nonnull @obj_lock_initialise_ossl_) #10
-  %.not.i.i = icmp eq i32 %23, 0
-  %24 = load i32, ptr @obj_lock_initialise_ossl_ret_, align 4
-  %.not23.i = icmp eq i32 %24, 0
+22:                                               ; preds = %21
+  %23 = call i32 @OPENSSL_init_crypto(i64 noundef 64, ptr noundef null) #10
+  %24 = call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @ossl_obj_lock_init, ptr noundef nonnull @obj_lock_initialise_ossl_) #10
+  %.not.i.i = icmp eq i32 %24, 0
+  %25 = load i32, ptr @obj_lock_initialise_ossl_ret_, align 4
+  %.not23.i = icmp eq i32 %25, 0
   %.not2.i = select i1 %.not.i.i, i1 true, i1 %.not23.i
   br i1 %.not2.i, label %ossl_obj_read_lock.exit.thread, label %ossl_obj_read_lock.exit
 
-ossl_obj_read_lock.exit:                          ; preds = %21
-  %25 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
-  %26 = call i32 @CRYPTO_THREAD_read_lock(ptr noundef %25) #10
-  %.not13 = icmp eq i32 %26, 0
+ossl_obj_read_lock.exit:                          ; preds = %22
+  %26 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
+  %27 = call i32 @CRYPTO_THREAD_read_lock(ptr noundef %26) #10
+  %.not13 = icmp eq i32 %27, 0
   br i1 %.not13, label %ossl_obj_read_lock.exit.thread, label %ossl_obj_read_lock.exit.thread19
 
-ossl_obj_read_lock.exit.thread:                   ; preds = %21, %ossl_obj_read_lock.exit
+ossl_obj_read_lock.exit.thread:                   ; preds = %22, %ossl_obj_read_lock.exit
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 403, ptr noundef nonnull @__func__.ossl_obj_obj2nid) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 8, i32 noundef 786703, ptr noundef null) #10
   br label %ossl_obj_unlock.exit
 
-ossl_obj_read_lock.exit.thread19:                 ; preds = %20, %ossl_obj_read_lock.exit
-  %27 = load ptr, ptr @added, align 8, !tbaa !3
-  %.not14 = icmp eq ptr %27, null
-  br i1 %.not14, label %37, label %28
+ossl_obj_read_lock.exit.thread19:                 ; preds = %21, %ossl_obj_read_lock.exit
+  %28 = load ptr, ptr @added, align 8, !tbaa !3
+  %.not14 = icmp eq ptr %28, null
+  br i1 %.not14, label %38, label %29
 
-28:                                               ; preds = %ossl_obj_read_lock.exit.thread19
+29:                                               ; preds = %ossl_obj_read_lock.exit.thread19
   store i32 0, ptr %4, align 8, !tbaa !17
-  %29 = load ptr, ptr %3, align 8, !tbaa !22
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %29, ptr %30, align 8, !tbaa !9
-  %31 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %27, ptr noundef nonnull %4) #10
-  %.not15 = icmp eq ptr %31, null
-  br i1 %.not15, label %37, label %32
+  %30 = load ptr, ptr %3, align 8, !tbaa !22
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %30, ptr %31, align 8, !tbaa !9
+  %32 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %28, ptr noundef nonnull %4) #10
+  %.not15 = icmp eq ptr %32, null
+  br i1 %.not15, label %38, label %33
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !9
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !13
-  br label %37
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load i32, ptr %36, align 8, !tbaa !13
+  br label %38
 
-37:                                               ; preds = %28, %32, %ossl_obj_read_lock.exit.thread19
-  %.07 = phi i32 [ %36, %32 ], [ 0, %28 ], [ 0, %ossl_obj_read_lock.exit.thread19 ]
-  br i1 %.not.i, label %ossl_obj_unlock.exit, label %38
+38:                                               ; preds = %29, %33, %ossl_obj_read_lock.exit.thread19
+  %.07 = phi i32 [ %37, %33 ], [ 0, %29 ], [ 0, %ossl_obj_read_lock.exit.thread19 ]
+  br i1 %.not.i, label %ossl_obj_unlock.exit, label %39
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
-  %40 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %39) #10
+39:                                               ; preds = %38
+  %40 = load ptr, ptr @ossl_obj_lock, align 8, !tbaa !8
+  %41 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %40) #10
   br label %ossl_obj_unlock.exit
 
-ossl_obj_unlock.exit:                             ; preds = %38, %37, %9, %6, %2, %ossl_obj_read_lock.exit.thread, %15
-  %.0 = phi i32 [ %19, %15 ], [ 0, %ossl_obj_read_lock.exit.thread ], [ 0, %2 ], [ %8, %6 ], [ 0, %9 ], [ %.07, %37 ], [ %.07, %38 ]
+ossl_obj_unlock.exit:                             ; preds = %39, %38, %9, %6, %2, %ossl_obj_read_lock.exit.thread, %15
+  %.0 = phi i32 [ %20, %15 ], [ 0, %ossl_obj_read_lock.exit.thread ], [ 0, %2 ], [ %8, %6 ], [ 0, %9 ], [ %.07, %38 ], [ %.07, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -3745,10 +3749,11 @@ define internal i32 @ln_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) %
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8, !tbaa !19
   %4 = zext i32 %.val4 to i64
-  %5 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %4, i32 1
-  %6 = load ptr, ptr %5, align 8, !tbaa !19
-  %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val.val, ptr noundef nonnull dereferenceable(1) %6) #11
-  ret i32 %7
+  %5 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @nid_objs, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !19
+  %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val.val, ptr noundef nonnull dereferenceable(1) %7) #11
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

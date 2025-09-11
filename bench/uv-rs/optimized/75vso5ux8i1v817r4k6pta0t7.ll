@@ -2348,10 +2348,10 @@ _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186
   %.pre = load i64, ptr %26, align 8, !alias.scope !420, !noalias !423
   br label %31
 
-.loopexit.split-lp:                               ; preds = %.loopexit88, %.loopexit.split-lp89, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %158
-  %.pn = phi { ptr, i32 } [ %159, %158 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit80, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit90, %.loopexit88 ], [ %lpad.loopexit.split-lp91, %.loopexit.split-lp89 ]
+.loopexit.split-lp:                               ; preds = %.loopexit88, %.loopexit.split-lp89, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %159
+  %.pn = phi { ptr, i32 } [ %160, %159 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit80, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit90, %.loopexit88 ], [ %lpad.loopexit.split-lp91, %.loopexit.split-lp89 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$petgraph..graph_impl..NodeIndex$GT$$GT$17h373c631a7ad4fd81E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #21
-          to label %187 unwind label %191
+          to label %188 unwind label %192
 
 .loopexit:                                        ; preds = %89
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2401,7 +2401,7 @@ _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %51
 
-.loopexit88:                                      ; preds = %.lr.ph, %146, %153
+.loopexit88:                                      ; preds = %.lr.ph, %147, %154
   %lpad.loopexit90 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -2533,7 +2533,7 @@ _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186
   store i64 1, ptr %33, align 8, !alias.scope !459, !noalias !462
   br label %89
 
-88:                                               ; preds = %190, %._crit_edge104
+88:                                               ; preds = %191, %._crit_edge104
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @"_ZN66_$LT$fixedbitset..FixedBitSet$u20$as$u20$core..ops..drop..Drop$GT$4drop17h001094858dc9b155E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2563,20 +2563,20 @@ _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !464
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h7b486be6461c93caE.llvm.10994760768874000284"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i64 noundef 4, i64 noundef 4)
-          to label %.noexc29 unwind label %188
+          to label %.noexc29 unwind label %189
 
 .noexc29:                                         ; preds = %.loopexit139
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %98 = load i64, ptr %97, align 8, !range !17, !noalias !464, !noundef !3
   %99 = icmp eq i64 %98, 0
-  br i1 %99, label %190, label %100
+  br i1 %99, label %191, label %100
 
 100:                                              ; preds = %.noexc29
   %101 = load ptr, ptr %4, align 8, !noalias !464, !nonnull !3, !noundef !3
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %103 = load i64, ptr %102, align 8, !noalias !464, !noundef !3
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.10994760768874000284"(ptr noalias noundef nonnull readonly align 1 %36, ptr noundef nonnull %101, i64 noundef %98, i64 noundef %103)
-          to label %190 unwind label %188
+          to label %191 unwind label %189
 
 "_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit": ; preds = %51
   %104 = lshr i64 %54, 6
@@ -2639,7 +2639,7 @@ _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186
 129:                                              ; preds = %128
   %130 = load i64, ptr %33, align 8, !noundef !3
   %131 = icmp eq i64 %130, 0
-  br i1 %131, label %146, label %141
+  br i1 %131, label %147, label %142
 
 132:                                              ; preds = %128
   call void @llvm.experimental.noalias.scope.decl(metadata !479)
@@ -2653,131 +2653,132 @@ _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186
 
 137:                                              ; preds = %132
   %138 = load ptr, ptr %41, align 8, !alias.scope !488, !noalias !489, !nonnull !3, !noundef !3
-  %139 = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i32] }, ptr %138, i64 %126, i32 1
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %139, align 8, !noalias !493
-  %140 = zext i32 %.sroa.0.0.copyload.i.i.i to i64
+  %139 = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i32] }, ptr %138, i64 %126
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %140, align 8, !noalias !493
+  %141 = zext i32 %.sroa.0.0.copyload.i.i.i to i64
   br label %"_ZN105_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..IntoNeighbors$GT$9neighbors17h9202c701f9251d6cE.exit"
 
-141:                                              ; preds = %129
-  %142 = add nsw i64 %130, -1
-  store i64 %142, ptr %33, align 8
-  %143 = load i64, ptr %2, align 8, !range !225, !noundef !3
-  %144 = icmp samesign ult i64 %142, %143
-  call void @llvm.assume(i1 %144)
-  %145 = icmp ult i64 %130, 2305843009213693953
+142:                                              ; preds = %129
+  %143 = add nsw i64 %130, -1
+  store i64 %143, ptr %33, align 8
+  %144 = load i64, ptr %2, align 8, !range !225, !noundef !3
+  %145 = icmp samesign ult i64 %143, %144
   call void @llvm.assume(i1 %145)
-  br label %146
+  %146 = icmp ult i64 %130, 2305843009213693953
+  call void @llvm.assume(i1 %146)
+  br label %147
 
-146:                                              ; preds = %129, %141
-  %147 = invoke noundef zeroext i1 @_ZN11fixedbitset11FixedBitSet3put17h4b710b83c058843cE.llvm.7989422476702131114(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %126)
-          to label %148 unwind label %.loopexit88
+147:                                              ; preds = %129, %142
+  %148 = invoke noundef zeroext i1 @_ZN11fixedbitset11FixedBitSet3put17h4b710b83c058843cE.llvm.7989422476702131114(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %126)
+          to label %149 unwind label %.loopexit88
 
-148:                                              ; preds = %146
-  br i1 %147, label %.loopexit85, label %149
+149:                                              ; preds = %147
+  br i1 %148, label %.loopexit85, label %150
 
-149:                                              ; preds = %148
-  %150 = load i64, ptr %36, align 8, !alias.scope !494, !noalias !497, !noundef !3
-  %151 = load i64, ptr %7, align 8, !range !225, !alias.scope !494, !noalias !497, !noundef !3
-  %152 = icmp eq i64 %150, %151
-  br i1 %152, label %153, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit37"
+150:                                              ; preds = %149
+  %151 = load i64, ptr %36, align 8, !alias.scope !494, !noalias !497, !noundef !3
+  %152 = load i64, ptr %7, align 8, !range !225, !alias.scope !494, !noalias !497, !noundef !3
+  %153 = icmp eq i64 %151, %152
+  br i1 %153, label %154, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit37"
 
-153:                                              ; preds = %149
+154:                                              ; preds = %150
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h0cf8bb20f199a713E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8caa88188bf8273f5af4c091cfe8f65.92)
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit37" unwind label %.loopexit88
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit37": ; preds = %153, %149
-  %154 = load ptr, ptr %35, align 8, !alias.scope !494, !noalias !497, !nonnull !3, !noundef !3
-  %155 = getelementptr inbounds i32, ptr %154, i64 %150
-  store i32 %125, ptr %155, align 4
-  %156 = add i64 %150, 1
-  store i64 %156, ptr %36, align 8, !alias.scope !494, !noalias !497
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit37": ; preds = %154, %150
+  %155 = load ptr, ptr %35, align 8, !alias.scope !494, !noalias !497, !nonnull !3, !noundef !3
+  %156 = getelementptr inbounds i32, ptr %155, i64 %151
+  store i32 %125, ptr %156, align 4
+  %157 = add i64 %151, 1
+  store i64 %157, ptr %36, align 8, !alias.scope !494, !noalias !497
   br label %.loopexit85
 
-.loopexit85:                                      ; preds = %184, %"_ZN105_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..IntoNeighbors$GT$9neighbors17h9202c701f9251d6cE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit37", %148
+.loopexit85:                                      ; preds = %185, %"_ZN105_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..IntoNeighbors$GT$9neighbors17h9202c701f9251d6cE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit37", %149
   %.pr = load i64, ptr %33, align 8
   %.not = icmp eq i64 %.pr, 0
   br i1 %.not, label %.backedge, label %.lr.ph
 
 "_ZN105_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..IntoNeighbors$GT$9neighbors17h9202c701f9251d6cE.exit": ; preds = %137, %132
-  %.sroa.0.0.i.i.i = phi i64 [ %140, %137 ], [ 4294967295, %132 ]
-  %157 = icmp ugt i64 %134, %.sroa.0.0.i.i.i
-  br i1 %157, label %.loopexit86, label %.loopexit85
+  %.sroa.0.0.i.i.i = phi i64 [ %141, %137 ], [ 4294967295, %132 ]
+  %158 = icmp ugt i64 %134, %.sroa.0.0.i.i.i
+  br i1 %158, label %.loopexit86, label %.loopexit85
 
-158:                                              ; preds = %180
-  %159 = landingpad { ptr, i32 }
+159:                                              ; preds = %181
+  %160 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit86:                                      ; preds = %"_ZN105_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..IntoNeighbors$GT$9neighbors17h9202c701f9251d6cE.exit", %184
-  %160 = phi i64 [ %185, %184 ], [ %.sroa.0.0.i.i.i, %"_ZN105_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..IntoNeighbors$GT$9neighbors17h9202c701f9251d6cE.exit" ]
-  %161 = getelementptr inbounds nuw { [2 x i32], [2 x i32], {} }, ptr %133, i64 %160
-  %162 = load i32, ptr %161, align 4, !noalias !499, !noundef !3
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 12
-  %164 = load i32, ptr %163, align 4, !noalias !499, !noundef !3
-  %165 = icmp eq i32 %164, %125
-  br i1 %165, label %.loopexit139, label %166
+.loopexit86:                                      ; preds = %"_ZN105_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..IntoNeighbors$GT$9neighbors17h9202c701f9251d6cE.exit", %185
+  %161 = phi i64 [ %186, %185 ], [ %.sroa.0.0.i.i.i, %"_ZN105_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..IntoNeighbors$GT$9neighbors17h9202c701f9251d6cE.exit" ]
+  %162 = getelementptr inbounds nuw { [2 x i32], [2 x i32], {} }, ptr %133, i64 %161
+  %163 = load i32, ptr %162, align 4, !noalias !499, !noundef !3
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 12
+  %165 = load i32, ptr %164, align 4, !noalias !499, !noundef !3
+  %166 = icmp eq i32 %165, %125
+  br i1 %166, label %.loopexit139, label %167
 
-166:                                              ; preds = %.loopexit86
+167:                                              ; preds = %.loopexit86
   call void @llvm.experimental.noalias.scope.decl(metadata !502)
-  %167 = zext i32 %164 to i64
-  %168 = load i64, ptr %12, align 8, !alias.scope !502, !noalias !505, !noundef !3
-  %169 = icmp ugt i64 %168, %167
-  br i1 %169, label %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40", label %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40.thread"
+  %168 = zext i32 %165 to i64
+  %169 = load i64, ptr %12, align 8, !alias.scope !502, !noalias !505, !noundef !3
+  %170 = icmp ugt i64 %169, %168
+  br i1 %170, label %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40", label %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40.thread"
 
-"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40": ; preds = %166
-  %170 = lshr i64 %167, 6
-  %171 = and i64 %167, 63
-  %172 = load ptr, ptr %10, align 8, !alias.scope !502, !noalias !505, !nonnull !3, !noundef !3
-  %173 = getelementptr inbounds nuw i64, ptr %172, i64 %170
-  %174 = load i64, ptr %173, align 8, !noalias !507, !noundef !3
-  %175 = lshr i64 %174, %171
-  %176 = trunc i64 %175 to i1
-  br i1 %176, label %184, label %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40.thread"
+"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40": ; preds = %167
+  %171 = lshr i64 %168, 6
+  %172 = and i64 %168, 63
+  %173 = load ptr, ptr %10, align 8, !alias.scope !502, !noalias !505, !nonnull !3, !noundef !3
+  %174 = getelementptr inbounds nuw i64, ptr %173, i64 %171
+  %175 = load i64, ptr %174, align 8, !noalias !507, !noundef !3
+  %176 = lshr i64 %175, %172
+  %177 = trunc i64 %176 to i1
+  br i1 %177, label %185, label %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40.thread"
 
-"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40.thread": ; preds = %166, %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40"
-  %177 = load i64, ptr %33, align 8, !alias.scope !508, !noalias !511, !noundef !3
-  %178 = load i64, ptr %2, align 8, !range !225, !alias.scope !508, !noalias !511, !noundef !3
-  %179 = icmp eq i64 %177, %178
-  br i1 %179, label %180, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit42"
+"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40.thread": ; preds = %167, %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40"
+  %178 = load i64, ptr %33, align 8, !alias.scope !508, !noalias !511, !noundef !3
+  %179 = load i64, ptr %2, align 8, !range !225, !alias.scope !508, !noalias !511, !noundef !3
+  %180 = icmp eq i64 %178, %179
+  br i1 %180, label %181, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit42"
 
-180:                                              ; preds = %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40.thread"
+181:                                              ; preds = %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40.thread"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h0cf8bb20f199a713E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e8caa88188bf8273f5af4c091cfe8f65.93)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit42" unwind label %158
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit42" unwind label %159
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit42": ; preds = %180, %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40.thread"
-  %181 = load ptr, ptr %38, align 8, !alias.scope !508, !noalias !511, !nonnull !3, !noundef !3
-  %182 = getelementptr inbounds i32, ptr %181, i64 %177
-  store i32 %164, ptr %182, align 4
-  %183 = add i64 %177, 1
-  store i64 %183, ptr %33, align 8, !alias.scope !508, !noalias !511
-  br label %184
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit42": ; preds = %181, %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40.thread"
+  %182 = load ptr, ptr %38, align 8, !alias.scope !508, !noalias !511, !nonnull !3, !noundef !3
+  %183 = getelementptr inbounds i32, ptr %182, i64 %178
+  store i32 %165, ptr %183, align 4
+  %184 = add i64 %178, 1
+  store i64 %184, ptr %33, align 8, !alias.scope !508, !noalias !511
+  br label %185
 
-184:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit42", %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40"
-  %185 = zext i32 %162 to i64
-  %186 = icmp ugt i64 %134, %185
-  br i1 %186, label %.loopexit86, label %.loopexit85
+185:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5ce2597f5539d55eE.exit42", %"_ZN80_$LT$fixedbitset..FixedBitSet$u20$as$u20$petgraph..visit..VisitMap$LT$Ix$GT$$GT$10is_visited17hce9fea93147310e3E.exit40"
+  %186 = zext i32 %163 to i64
+  %187 = icmp ugt i64 %134, %186
+  br i1 %187, label %.loopexit86, label %.loopexit85
 
-187:                                              ; preds = %188, %.loopexit.split-lp
-  %.pn13 = phi { ptr, i32 } [ %189, %188 ], [ %.pn, %.loopexit.split-lp ]
+188:                                              ; preds = %189, %.loopexit.split-lp
+  %.pn13 = phi { ptr, i32 } [ %190, %189 ], [ %.pn, %.loopexit.split-lp ]
   invoke void @"_ZN66_$LT$fixedbitset..FixedBitSet$u20$as$u20$core..ops..drop..Drop$GT$4drop17h001094858dc9b155E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-          to label %"_ZN4core3ptr45drop_in_place$LT$fixedbitset..FixedBitSet$GT$17h4e35c68f29c19c2dE.exit" unwind label %191
+          to label %"_ZN4core3ptr45drop_in_place$LT$fixedbitset..FixedBitSet$GT$17h4e35c68f29c19c2dE.exit" unwind label %192
 
-188:                                              ; preds = %100, %.loopexit139
-  %189 = landingpad { ptr, i32 }
+189:                                              ; preds = %100, %.loopexit139
+  %190 = landingpad { ptr, i32 }
           cleanup
-  br label %187
+  br label %188
 
-190:                                              ; preds = %.noexc29, %100
+191:                                              ; preds = %.noexc29, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !464
   br label %88
 
-191:                                              ; preds = %187, %.loopexit.split-lp
-  %192 = landingpad { ptr, i32 }
+192:                                              ; preds = %188, %.loopexit.split-lp
+  %193 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #23
   unreachable
 
-"_ZN4core3ptr45drop_in_place$LT$fixedbitset..FixedBitSet$GT$17h4e35c68f29c19c2dE.exit": ; preds = %187
+"_ZN4core3ptr45drop_in_place$LT$fixedbitset..FixedBitSet$GT$17h4e35c68f29c19c2dE.exit": ; preds = %188
   resume { ptr, i32 } %.pn13
 }
 

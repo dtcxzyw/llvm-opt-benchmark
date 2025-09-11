@@ -1131,12 +1131,12 @@ tree_close.exit:                                  ; preds = %71, %67, %7, %1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @_archive_read_free(ptr noundef %0) #0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %49, label %3
+  br i1 %2, label %50, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i32 @__archive_check_magic(ptr noundef nonnull %0, i32 noundef 195932357, i32 noundef 65535, ptr noundef nonnull @.str.19) #17
   %.not = icmp eq i32 %4, -30
-  br i1 %.not, label %49, label %5
+  br i1 %.not, label %50, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1173,67 +1173,68 @@ define internal range(i32 -30, 1) i32 @_archive_read_free(ptr noundef %0) #0 {
 22:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %23 = load ptr, ptr %21, align 8, !tbaa !107
-  %24 = getelementptr inbounds nuw %struct.filesystem, ptr %23, i64 %indvars.iv.i, i32 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !108
-  tail call void @free(ptr noundef %25) #17
+  %24 = getelementptr inbounds nuw %struct.filesystem, ptr %23, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %26 = load ptr, ptr %25, align 8, !tbaa !108
+  tail call void @free(ptr noundef %26) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %26 = load i32, ptr %18, align 8, !tbaa !106
-  %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %indvars.iv.next.i, %27
-  br i1 %28, label %22, label %._crit_edge.i, !llvm.loop !109
+  %27 = load i32, ptr %18, align 8, !tbaa !106
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next.i, %28
+  br i1 %29, label %22, label %._crit_edge.i, !llvm.loop !109
 
 ._crit_edge.i:                                    ; preds = %22, %14
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 496
-  %30 = load ptr, ptr %29, align 8, !tbaa !107
-  tail call void @free(ptr noundef %30) #17
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 496
+  %31 = load ptr, ptr %30, align 8, !tbaa !107
+  tail call void @free(ptr noundef %31) #17
   tail call void @free(ptr noundef nonnull %12) #17
   br label %tree_free.exit
 
 tree_free.exit:                                   ; preds = %10, %._crit_edge.i
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %32 = load ptr, ptr %31, align 8, !tbaa !22
-  %.not30 = icmp eq ptr %32, null
-  br i1 %.not30, label %37, label %33
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %33 = load ptr, ptr %32, align 8, !tbaa !22
+  %.not30 = icmp eq ptr %33, null
+  br i1 %.not30, label %38, label %34
 
-33:                                               ; preds = %tree_free.exit
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %35 = load ptr, ptr %34, align 8, !tbaa !19
-  %.not31 = icmp eq ptr %35, null
-  br i1 %.not31, label %37, label %36
+34:                                               ; preds = %tree_free.exit
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %36 = load ptr, ptr %35, align 8, !tbaa !19
+  %.not31 = icmp eq ptr %36, null
+  br i1 %.not31, label %38, label %37
 
-36:                                               ; preds = %33
-  tail call void %32(ptr noundef nonnull %35) #17
-  br label %37
+37:                                               ; preds = %34
+  tail call void %33(ptr noundef nonnull %36) #17
+  br label %38
 
-37:                                               ; preds = %36, %33, %tree_free.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %39 = load ptr, ptr %38, align 8, !tbaa !23
-  %.not32 = icmp eq ptr %39, null
-  br i1 %.not32, label %44, label %40
+38:                                               ; preds = %37, %34, %tree_free.exit
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %40 = load ptr, ptr %39, align 8, !tbaa !23
+  %.not32 = icmp eq ptr %40, null
+  br i1 %.not32, label %45, label %41
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %42 = load ptr, ptr %41, align 8, !tbaa !21
-  %.not33 = icmp eq ptr %42, null
-  br i1 %.not33, label %44, label %43
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %43 = load ptr, ptr %42, align 8, !tbaa !21
+  %.not33 = icmp eq ptr %43, null
+  br i1 %.not33, label %45, label %44
 
-43:                                               ; preds = %40
-  tail call void %39(ptr noundef nonnull %42) #17
-  br label %44
+44:                                               ; preds = %41
+  tail call void %40(ptr noundef nonnull %43) #17
+  br label %45
 
-44:                                               ; preds = %43, %40, %37
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @archive_string_free(ptr noundef nonnull %45) #17
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %47 = load ptr, ptr %46, align 8, !tbaa !27
-  tail call void @archive_entry_free(ptr noundef %47) #17
+45:                                               ; preds = %44, %41, %38
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @archive_string_free(ptr noundef nonnull %46) #17
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %48 = load ptr, ptr %47, align 8, !tbaa !27
+  tail call void @archive_entry_free(ptr noundef %48) #17
   store i32 0, ptr %0, align 8, !tbaa !24
-  %48 = tail call i32 @__archive_clean(ptr noundef nonnull %0) #17
+  %49 = tail call i32 @__archive_clean(ptr noundef nonnull %0) #17
   tail call void @free(ptr noundef nonnull %0) #17
-  br label %49
+  br label %50
 
-49:                                               ; preds = %1, %3, %44
-  %.0 = phi i32 [ %.023, %44 ], [ -30, %3 ], [ 0, %1 ]
+50:                                               ; preds = %1, %3, %45
+  %.0 = phi i32 [ %.023, %45 ], [ -30, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -2749,11 +2750,11 @@ tree_enter_initial_dir.exit:                      ; preds = %683, %687, %691
   %726 = call i32 @archive_entry_sparse_next(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3) #17
   %727 = load i64, ptr %4, align 8, !tbaa !153
   %728 = load ptr, ptr %725, align 8, !tbaa !105
-  %729 = getelementptr inbounds nuw %struct.entry_sparse, ptr %728, i64 %indvars.iv.i, i32 1
-  store i64 %727, ptr %729, align 8, !tbaa !154
-  %730 = load i64, ptr %3, align 8, !tbaa !153
-  %731 = getelementptr inbounds nuw %struct.entry_sparse, ptr %728, i64 %indvars.iv.i
-  store i64 %730, ptr %731, align 8, !tbaa !156
+  %729 = getelementptr inbounds nuw %struct.entry_sparse, ptr %728, i64 %indvars.iv.i
+  %730 = getelementptr inbounds nuw i8, ptr %729, i64 8
+  store i64 %727, ptr %730, align 8, !tbaa !154
+  %731 = load i64, ptr %3, align 8, !tbaa !153
+  store i64 %731, ptr %729, align 8, !tbaa !156
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %732 = load i32, ptr %710, align 8, !tbaa !151
   %733 = sext i32 %732 to i64
@@ -2764,10 +2765,10 @@ tree_enter_initial_dir.exit:                      ; preds = %683, %687, %691
   %735 = call i64 @archive_entry_size(ptr noundef %1) #17
   %736 = load ptr, ptr %725, align 8, !tbaa !105
   %737 = and i64 %indvars.iv.next.i, 4294967295
-  %738 = getelementptr inbounds nuw %struct.entry_sparse, ptr %736, i64 %737, i32 1
-  store i64 %735, ptr %738, align 8, !tbaa !154
-  %739 = getelementptr inbounds nuw %struct.entry_sparse, ptr %736, i64 %737
-  store i64 0, ptr %739, align 8, !tbaa !156
+  %738 = getelementptr inbounds nuw %struct.entry_sparse, ptr %736, i64 %737
+  %739 = getelementptr inbounds nuw i8, ptr %738, i64 8
+  store i64 %735, ptr %739, align 8, !tbaa !154
+  store i64 0, ptr %738, align 8, !tbaa !156
   br label %setup_sparse.exit.thread
 
 ._crit_edge.thread.i:                             ; preds = %722

@@ -353,28 +353,29 @@ define dso_local void @node_features_g_step_config(i1 noundef zeroext %0, ptr no
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv, i32 14
-  %15 = load ptr, ptr %14, align 8
-  tail call void %15(i1 noundef zeroext %0, ptr noundef %1) #9
+  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 112
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(i1 noundef zeroext %0, ptr noundef %1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr @g_context_cnt, align 4
-  %17 = sext i32 %16 to i64
-  %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  %17 = load i32, ptr @g_context_cnt, align 4
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next, %18
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not10 = icmp eq i32 %19, 0
-  br i1 %.not10, label %22, label %20
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not10 = icmp eq i32 %20, 0
+  br i1 %.not10, label %23, label %21
 
-20:                                               ; preds = %._crit_edge
-  %21 = tail call ptr @__errno_location() #10
-  store i32 %19, ptr %21, align 4
+21:                                               ; preds = %._crit_edge
+  %22 = tail call ptr @__errno_location() #10
+  store i32 %20, ptr %22, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_step_config) #11
   unreachable
 
-22:                                               ; preds = %._crit_edge
-  %23 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
+23:                                               ; preds = %._crit_edge
+  %24 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_step_config, i64 noundef 0, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -421,30 +422,31 @@ define dso_local zeroext i1 @node_features_g_changeable_feature(ptr noundef %0) 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call zeroext i1 %14(ptr noundef %0) #9
+  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call zeroext i1 %15(ptr noundef %0) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr @g_context_cnt, align 4
-  %17 = sext i32 %16 to i64
-  %18 = icmp sge i64 %indvars.iv.next, %17
-  %.not13 = select i1 %18, i1 true, i1 %15
+  %17 = load i32, ptr @g_context_cnt, align 4
+  %18 = sext i32 %17 to i64
+  %19 = icmp sge i64 %indvars.iv.next, %18
+  %.not13 = select i1 %19, i1 true, i1 %16
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.09.lcssa = phi i1 [ false, %.preheader ], [ %15, %.lr.ph ]
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not14 = icmp eq i32 %19, 0
-  br i1 %.not14, label %22, label %20
+  %.09.lcssa = phi i1 [ false, %.preheader ], [ %16, %.lr.ph ]
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not14 = icmp eq i32 %20, 0
+  br i1 %.not14, label %23, label %21
 
-20:                                               ; preds = %._crit_edge
-  %21 = tail call ptr @__errno_location() #10
-  store i32 %19, ptr %21, align 4
+21:                                               ; preds = %._crit_edge
+  %22 = tail call ptr @__errno_location() #10
+  store i32 %20, ptr %22, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_changeable_feature) #11
   unreachable
 
-22:                                               ; preds = %._crit_edge
-  %23 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
+23:                                               ; preds = %._crit_edge
+  %24 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_changeable_feature, i64 noundef 0, ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -483,31 +485,32 @@ define dso_local i32 @node_features_g_get_node(ptr noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv, i32 2
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0) #9
+  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 %15(ptr noundef %0) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr @g_context_cnt, align 4
-  %17 = sext i32 %16 to i64
-  %18 = icmp slt i64 %indvars.iv.next, %17
-  %19 = icmp eq i32 %15, 0
-  %20 = select i1 %18, i1 %19, i1 false
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %17 = load i32, ptr @g_context_cnt, align 4
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next, %18
+  %20 = icmp eq i32 %16, 0
+  %21 = select i1 %19, i1 %20, i1 false
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.09.lcssa = phi i32 [ 0, %.preheader ], [ %15, %.lr.ph ]
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not12 = icmp eq i32 %21, 0
-  br i1 %.not12, label %24, label %22
+  %.09.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not12 = icmp eq i32 %22, 0
+  br i1 %.not12, label %25, label %23
 
-22:                                               ; preds = %._crit_edge
-  %23 = tail call ptr @__errno_location() #10
-  store i32 %21, ptr %23, align 4
+23:                                               ; preds = %._crit_edge
+  %24 = tail call ptr @__errno_location() #10
+  store i32 %22, ptr %24, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_get_node) #11
   unreachable
 
-24:                                               ; preds = %._crit_edge
-  %25 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
+25:                                               ; preds = %._crit_edge
+  %26 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_get_node, i64 noundef 0, ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -546,31 +549,32 @@ define dso_local i32 @node_features_g_job_valid(ptr noundef %0, ptr noundef %1) 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv, i32 3
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #9
+  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr @g_context_cnt, align 4
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  %20 = icmp eq i32 %16, 0
-  %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  %18 = load i32, ptr @g_context_cnt, align 4
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  %21 = icmp eq i32 %17, 0
+  %22 = select i1 %20, i1 %21, i1 false
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not13 = icmp eq i32 %22, 0
-  br i1 %.not13, label %25, label %23
+  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ]
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not13 = icmp eq i32 %23, 0
+  br i1 %.not13, label %26, label %24
 
-23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @__errno_location() #10
-  store i32 %22, ptr %24, align 4
+24:                                               ; preds = %._crit_edge
+  %25 = tail call ptr @__errno_location() #10
+  store i32 %23, ptr %25, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_job_valid) #11
   unreachable
 
-25:                                               ; preds = %._crit_edge
-  %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
+26:                                               ; preds = %._crit_edge
+  %27 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_job_valid, i64 noundef 0, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -611,59 +615,60 @@ define dso_local ptr @node_features_g_job_xlate(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.node_features_g_job_xlate) #11
   unreachable
 
-.lr.ph:                                           ; preds = %.preheader, %24
-  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %25
+  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader ]
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds nuw %struct.node_features_ops, ptr %16, i64 %indvars.iv, i32 4
-  %18 = load ptr, ptr %17, align 8
-  %19 = call ptr %18(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
-  store ptr %19, ptr %9, align 8
-  %.not13 = icmp eq ptr %19, null
-  br i1 %.not13, label %24, label %20
+  %17 = getelementptr inbounds nuw %struct.node_features_ops, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8
+  %20 = call ptr %19(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
+  store ptr %20, ptr %9, align 8
+  %.not13 = icmp eq ptr %20, null
+  br i1 %.not13, label %25, label %21
 
-20:                                               ; preds = %.lr.ph
-  %21 = load ptr, ptr %8, align 8
-  %.not14 = icmp eq ptr %21, null
-  br i1 %.not14, label %23, label %22
+21:                                               ; preds = %.lr.ph
+  %22 = load ptr, ptr %8, align 8
+  %.not14 = icmp eq ptr %22, null
+  br i1 %.not14, label %24, label %23
 
-22:                                               ; preds = %20
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.8, ptr noundef nonnull %19) #9
+23:                                               ; preds = %21
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.8, ptr noundef nonnull %20) #9
   call void @slurm_xfree(ptr noundef nonnull %9) #9
-  br label %24
+  br label %25
 
-23:                                               ; preds = %20
-  store ptr %19, ptr %8, align 8
-  br label %24
+24:                                               ; preds = %21
+  store ptr %20, ptr %8, align 8
+  br label %25
 
-24:                                               ; preds = %.lr.ph, %23, %22
+25:                                               ; preds = %.lr.ph, %24, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load i32, ptr @g_context_cnt, align 4
-  %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  %26 = load i32, ptr @g_context_cnt, align 4
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next, %27
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %24, %.preheader
-  %28 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not12 = icmp eq i32 %28, 0
-  br i1 %.not12, label %31, label %29
+._crit_edge:                                      ; preds = %25, %.preheader
+  %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not12 = icmp eq i32 %29, 0
+  br i1 %.not12, label %32, label %30
 
-29:                                               ; preds = %._crit_edge
-  %30 = tail call ptr @__errno_location() #10
-  store i32 %28, ptr %30, align 4
+30:                                               ; preds = %._crit_edge
+  %31 = tail call ptr @__errno_location() #10
+  store i32 %29, ptr %31, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_job_xlate) #11
   unreachable
 
-31:                                               ; preds = %._crit_edge
-  %32 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #9
+32:                                               ; preds = %._crit_edge
+  %33 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_job_xlate, i64 noundef 0, ptr noundef nonnull %7) #9
-  %33 = load ptr, ptr %8, align 8
+  %34 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %33
+  ret ptr %34
 }
 
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -705,26 +710,27 @@ define dso_local ptr @node_features_g_get_node_bitmap() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader ]
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.node_features_ops, ptr %15, i64 %indvars.iv, i32 5
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr %17() #9
-  %.not13 = icmp eq ptr %18, null
+  %16 = getelementptr inbounds nuw %struct.node_features_ops, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call ptr %18() #9
+  %.not13 = icmp eq ptr %19, null
   br i1 %.not13, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %.preheader
-  %.1 = phi ptr [ null, %.preheader ], [ null, %11 ], [ %18, %.lr.ph ]
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not14 = icmp eq i32 %19, 0
-  br i1 %.not14, label %22, label %20
+  %.1 = phi ptr [ null, %.preheader ], [ null, %11 ], [ %19, %.lr.ph ]
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not14 = icmp eq i32 %20, 0
+  br i1 %.not14, label %23, label %21
 
-20:                                               ; preds = %._crit_edge
-  %21 = tail call ptr @__errno_location() #10
-  store i32 %19, ptr %21, align 4
+21:                                               ; preds = %._crit_edge
+  %22 = tail call ptr @__errno_location() #10
+  store i32 %20, ptr %22, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_get_node_bitmap) #11
   unreachable
 
-22:                                               ; preds = %._crit_edge
-  %23 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #9
+23:                                               ; preds = %._crit_edge
+  %24 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_get_node_bitmap, i64 noundef 0, ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -762,32 +768,33 @@ define dso_local i32 @node_features_g_overlap(ptr noundef %0) local_unnamed_addr
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.014 = phi i32 [ %16, %.lr.ph ], [ 0, %.preheader ]
+  %.014 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv, i32 6
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0) #9
-  %16 = add nsw i32 %15, %.014
+  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 %15(ptr noundef %0) #9
+  %17 = add nsw i32 %16, %.014
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr @g_context_cnt, align 4
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  %18 = load i32, ptr @g_context_cnt, align 4
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not12 = icmp eq i32 %20, 0
-  br i1 %.not12, label %23, label %21
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ]
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not12 = icmp eq i32 %21, 0
+  br i1 %.not12, label %24, label %22
 
-21:                                               ; preds = %._crit_edge
-  %22 = tail call ptr @__errno_location() #10
-  store i32 %20, ptr %22, align 4
+22:                                               ; preds = %._crit_edge
+  %23 = tail call ptr @__errno_location() #10
+  store i32 %21, ptr %23, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_overlap) #11
   unreachable
 
-23:                                               ; preds = %._crit_edge
-  %24 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
+24:                                               ; preds = %._crit_edge
+  %25 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_overlap, i64 noundef 0, ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -833,25 +840,26 @@ define dso_local noundef zeroext i1 @node_features_g_node_power() local_unnamed_
 .lr.ph:                                           ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader ]
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.node_features_ops, ptr %15, i64 %indvars.iv, i32 7
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call zeroext i1 %17() #9
-  br i1 %18, label %._crit_edge, label %11
+  %16 = getelementptr inbounds nuw %struct.node_features_ops, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call zeroext i1 %18() #9
+  br i1 %19, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %.preheader
-  %.lcssa = phi i1 [ false, %.preheader ], [ %18, %11 ], [ %18, %.lr.ph ]
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not12 = icmp eq i32 %19, 0
-  br i1 %.not12, label %22, label %20
+  %.lcssa = phi i1 [ false, %.preheader ], [ %19, %11 ], [ %19, %.lr.ph ]
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not12 = icmp eq i32 %20, 0
+  br i1 %.not12, label %23, label %21
 
-20:                                               ; preds = %._crit_edge
-  %21 = tail call ptr @__errno_location() #10
-  store i32 %19, ptr %21, align 4
+21:                                               ; preds = %._crit_edge
+  %22 = tail call ptr @__errno_location() #10
+  store i32 %20, ptr %22, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_node_power) #11
   unreachable
 
-22:                                               ; preds = %._crit_edge
-  %23 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #9
+23:                                               ; preds = %._crit_edge
+  %24 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_node_power, i64 noundef 0, ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -890,31 +898,32 @@ define dso_local i32 @node_features_g_node_set(ptr noundef %0, ptr noundef %1) l
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv, i32 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #9
+  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr @g_context_cnt, align 4
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  %20 = icmp eq i32 %16, 0
-  %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  %18 = load i32, ptr @g_context_cnt, align 4
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  %21 = icmp eq i32 %17, 0
+  %22 = select i1 %20, i1 %21, i1 false
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not13 = icmp eq i32 %22, 0
-  br i1 %.not13, label %25, label %23
+  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ]
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not13 = icmp eq i32 %23, 0
+  br i1 %.not13, label %26, label %24
 
-23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @__errno_location() #10
-  store i32 %22, ptr %24, align 4
+24:                                               ; preds = %._crit_edge
+  %25 = tail call ptr @__errno_location() #10
+  store i32 %23, ptr %25, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_node_set) #11
   unreachable
 
-25:                                               ; preds = %._crit_edge
-  %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
+26:                                               ; preds = %._crit_edge
+  %27 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_node_set, i64 noundef 0, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -953,28 +962,29 @@ define dso_local void @node_features_g_node_state(ptr noundef %0, ptr noundef %1
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv, i32 9
-  %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef %0, ptr noundef %1) #9
+  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(ptr noundef %0, ptr noundef %1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr @g_context_cnt, align 4
-  %17 = sext i32 %16 to i64
-  %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  %17 = load i32, ptr @g_context_cnt, align 4
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next, %18
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not10 = icmp eq i32 %19, 0
-  br i1 %.not10, label %22, label %20
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not10 = icmp eq i32 %20, 0
+  br i1 %.not10, label %23, label %21
 
-20:                                               ; preds = %._crit_edge
-  %21 = tail call ptr @__errno_location() #10
-  store i32 %19, ptr %21, align 4
+21:                                               ; preds = %._crit_edge
+  %22 = tail call ptr @__errno_location() #10
+  store i32 %20, ptr %22, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_node_state) #11
   unreachable
 
-22:                                               ; preds = %._crit_edge
-  %23 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
+23:                                               ; preds = %._crit_edge
+  %24 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_node_state, i64 noundef 0, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1013,31 +1023,32 @@ define dso_local i32 @node_features_g_node_update(ptr noundef %0, ptr noundef %1
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv, i32 10
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #9
+  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr @g_context_cnt, align 4
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  %20 = icmp eq i32 %16, 0
-  %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  %18 = load i32, ptr @g_context_cnt, align 4
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  %21 = icmp eq i32 %17, 0
+  %22 = select i1 %20, i1 %21, i1 false
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not13 = icmp eq i32 %22, 0
-  br i1 %.not13, label %25, label %23
+  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ]
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not13 = icmp eq i32 %23, 0
+  br i1 %.not13, label %26, label %24
 
-23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @__errno_location() #10
-  store i32 %22, ptr %24, align 4
+24:                                               ; preds = %._crit_edge
+  %25 = tail call ptr @__errno_location() #10
+  store i32 %23, ptr %25, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_node_update) #11
   unreachable
 
-25:                                               ; preds = %._crit_edge
-  %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
+26:                                               ; preds = %._crit_edge
+  %27 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_node_update, i64 noundef 0, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1083,25 +1094,26 @@ define dso_local noundef zeroext i1 @node_features_g_node_update_valid(ptr nound
 .lr.ph:                                           ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds nuw %struct.node_features_ops, ptr %16, i64 %indvars.iv, i32 11
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call zeroext i1 %18(ptr noundef %0, ptr noundef %1) #9
-  br i1 %19, label %13, label %._crit_edge
+  %17 = getelementptr inbounds nuw %struct.node_features_ops, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call zeroext i1 %19(ptr noundef %0, ptr noundef %1) #9
+  br i1 %20, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13, %.preheader
-  %.lcssa = phi i1 [ true, %.preheader ], [ %19, %13 ], [ %19, %.lr.ph ]
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not13 = icmp eq i32 %20, 0
-  br i1 %.not13, label %23, label %21
+  %.lcssa = phi i1 [ true, %.preheader ], [ %20, %13 ], [ %20, %.lr.ph ]
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not13 = icmp eq i32 %21, 0
+  br i1 %.not13, label %24, label %22
 
-21:                                               ; preds = %._crit_edge
-  %22 = tail call ptr @__errno_location() #10
-  store i32 %20, ptr %22, align 4
+22:                                               ; preds = %._crit_edge
+  %23 = tail call ptr @__errno_location() #10
+  store i32 %21, ptr %23, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_node_update_valid) #11
   unreachable
 
-23:                                               ; preds = %._crit_edge
-  %24 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
+24:                                               ; preds = %._crit_edge
+  %25 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_node_update_valid, i64 noundef 0, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1156,57 +1168,59 @@ define dso_local ptr @node_features_g_node_xlate(ptr noundef %0, ptr noundef %1,
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.124.us = phi ptr [ %24, %.lr.ph.split.us ], [ %.0, %.lr.ph ]
+  %.124.us = phi ptr [ %25, %.lr.ph.split.us ], [ %.0, %.lr.ph ]
   store ptr %.124.us, ptr %9, align 8
   %21 = load ptr, ptr @ops, align 8
-  %22 = getelementptr inbounds nuw %struct.node_features_ops, ptr %21, i64 %indvars.iv29, i32 12
-  %23 = load ptr, ptr %22, align 8
-  %24 = call ptr %23(ptr noundef %0, ptr noundef %.124.us, ptr noundef %2, i32 noundef %3) #9
+  %22 = getelementptr inbounds nuw %struct.node_features_ops, ptr %21, i64 %indvars.iv29
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
+  %24 = load ptr, ptr %23, align 8
+  %25 = call ptr %24(ptr noundef %0, ptr noundef %.124.us, ptr noundef %2, i32 noundef %3) #9
   call void @slurm_xfree(ptr noundef nonnull %9) #9
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %25 = load i32, ptr @g_context_cnt, align 4
-  %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %indvars.iv.next30, %26
-  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !24
+  %26 = load i32, ptr @g_context_cnt, align 4
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next30, %27
+  br i1 %28, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !24
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.lr.ph ]
-  %.124 = phi ptr [ %34, %30 ], [ %.0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %31
+  %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
+  %.124 = phi ptr [ %36, %31 ], [ %.0, %.lr.ph ]
   %.not21 = icmp eq ptr %.124, null
-  br i1 %.not21, label %28, label %30
+  br i1 %.not21, label %29, label %31
 
-28:                                               ; preds = %.lr.ph.split
-  %29 = call ptr @xstrdup(ptr noundef nonnull %1) #9
-  br label %30
+29:                                               ; preds = %.lr.ph.split
+  %30 = call ptr @xstrdup(ptr noundef nonnull %1) #9
+  br label %31
 
-30:                                               ; preds = %.lr.ph.split, %28
-  %storemerge = phi ptr [ %29, %28 ], [ %.124, %.lr.ph.split ]
+31:                                               ; preds = %.lr.ph.split, %29
+  %storemerge = phi ptr [ %30, %29 ], [ %.124, %.lr.ph.split ]
   store ptr %storemerge, ptr %9, align 8
-  %31 = load ptr, ptr @ops, align 8
-  %32 = getelementptr inbounds nuw %struct.node_features_ops, ptr %31, i64 %indvars.iv, i32 12
-  %33 = load ptr, ptr %32, align 8
-  %34 = call ptr %33(ptr noundef %0, ptr noundef %storemerge, ptr noundef %2, i32 noundef %3) #9
+  %32 = load ptr, ptr @ops, align 8
+  %33 = getelementptr inbounds nuw %struct.node_features_ops, ptr %32, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
+  %35 = load ptr, ptr %34, align 8
+  %36 = call ptr %35(ptr noundef %0, ptr noundef %storemerge, ptr noundef %2, i32 noundef %3) #9
   call void @slurm_xfree(ptr noundef nonnull %9) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load i32, ptr @g_context_cnt, align 4
-  %36 = sext i32 %35 to i64
-  %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
+  %37 = load i32, ptr @g_context_cnt, align 4
+  %38 = sext i32 %37 to i64
+  %39 = icmp slt i64 %indvars.iv.next, %38
+  br i1 %39, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %30, %.lr.ph.split.us, %18
-  %.1.lcssa = phi ptr [ %.0, %18 ], [ %24, %.lr.ph.split.us ], [ %34, %30 ]
-  %38 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not20 = icmp eq i32 %38, 0
-  br i1 %.not20, label %41, label %39
+._crit_edge:                                      ; preds = %31, %.lr.ph.split.us, %18
+  %.1.lcssa = phi ptr [ %.0, %18 ], [ %25, %.lr.ph.split.us ], [ %36, %31 ]
+  %40 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not20 = icmp eq i32 %40, 0
+  br i1 %.not20, label %43, label %41
 
-39:                                               ; preds = %._crit_edge
-  %40 = tail call ptr @__errno_location() #10
-  store i32 %38, ptr %40, align 4
+41:                                               ; preds = %._crit_edge
+  %42 = tail call ptr @__errno_location() #10
+  store i32 %40, ptr %42, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_node_xlate) #11
   unreachable
 
-41:                                               ; preds = %._crit_edge
-  %42 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #9
+43:                                               ; preds = %._crit_edge
+  %44 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_node_xlate, i64 noundef 0, ptr noundef nonnull %8) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1258,36 +1272,37 @@ define dso_local ptr @node_features_g_node_xlate2(ptr noundef %0) local_unnamed_
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %15 ]
-  %.118 = phi ptr [ %22, %.lr.ph ], [ %.0, %15 ]
+  %.118 = phi ptr [ %23, %.lr.ph ], [ %.0, %15 ]
   %.not16 = icmp eq ptr %.118, null
   %..118 = select i1 %.not16, ptr %0, ptr %.118
   %18 = call ptr @xstrdup(ptr noundef %..118) #9
   store ptr %18, ptr %6, align 8
   %19 = load ptr, ptr @ops, align 8
-  %20 = getelementptr inbounds nuw %struct.node_features_ops, ptr %19, i64 %indvars.iv, i32 13
-  %21 = load ptr, ptr %20, align 8
-  %22 = call ptr %21(ptr noundef %18) #9
+  %20 = getelementptr inbounds nuw %struct.node_features_ops, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
+  %22 = load ptr, ptr %21, align 8
+  %23 = call ptr %22(ptr noundef %18) #9
   call void @slurm_xfree(ptr noundef nonnull %6) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr @g_context_cnt, align 4
-  %24 = sext i32 %23 to i64
-  %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  %24 = load i32, ptr @g_context_cnt, align 4
+  %25 = sext i32 %24 to i64
+  %26 = icmp slt i64 %indvars.iv.next, %25
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  %.1.lcssa = phi ptr [ %.0, %15 ], [ %22, %.lr.ph ]
-  %26 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not15 = icmp eq i32 %26, 0
-  br i1 %.not15, label %29, label %27
+  %.1.lcssa = phi ptr [ %.0, %15 ], [ %23, %.lr.ph ]
+  %27 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not15 = icmp eq i32 %27, 0
+  br i1 %.not15, label %30, label %28
 
-27:                                               ; preds = %._crit_edge
-  %28 = tail call ptr @__errno_location() #10
-  store i32 %26, ptr %28, align 4
+28:                                               ; preds = %._crit_edge
+  %29 = tail call ptr @__errno_location() #10
+  store i32 %27, ptr %29, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_node_xlate2) #11
   unreachable
 
-29:                                               ; preds = %._crit_edge
-  %30 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
+30:                                               ; preds = %._crit_edge
+  %31 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_node_xlate2, i64 noundef 0, ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1327,30 +1342,31 @@ define dso_local zeroext i1 @node_features_g_user_update(i32 noundef %0) local_u
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv, i32 15
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call zeroext i1 %14(i32 noundef %0) #9
+  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call zeroext i1 %15(i32 noundef %0) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr @g_context_cnt, align 4
-  %17 = sext i32 %16 to i64
-  %18 = icmp slt i64 %indvars.iv.next, %17
-  %19 = select i1 %18, i1 %15, i1 false
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  %17 = load i32, ptr @g_context_cnt, align 4
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next, %18
+  %20 = select i1 %19, i1 %16, i1 false
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i1 [ true, %.preheader ], [ %15, %.lr.ph ]
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not13 = icmp eq i32 %20, 0
-  br i1 %.not13, label %23, label %21
+  %.0.lcssa = phi i1 [ true, %.preheader ], [ %16, %.lr.ph ]
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not13 = icmp eq i32 %21, 0
+  br i1 %.not13, label %24, label %22
 
-21:                                               ; preds = %._crit_edge
-  %22 = tail call ptr @__errno_location() #10
-  store i32 %20, ptr %22, align 4
+22:                                               ; preds = %._crit_edge
+  %23 = tail call ptr @__errno_location() #10
+  store i32 %21, ptr %23, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_user_update) #11
   unreachable
 
-23:                                               ; preds = %._crit_edge
-  %24 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
+24:                                               ; preds = %._crit_edge
+  %25 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_user_update, i64 noundef 0, ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1470,48 +1486,49 @@ define dso_local ptr @node_features_g_get_config() local_unnamed_addr #0 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.node_features_g_get_config) #11
   unreachable
 
-.lr.ph:                                           ; preds = %.preheader, %25
-  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %26
+  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader ]
   %16 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 580, ptr noundef nonnull @__func__.node_features_g_get_config) #9
   %17 = tail call ptr @list_create(ptr noundef nonnull @destroy_config_key_pair) #9
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %17, ptr %18, align 8
   %19 = load ptr, ptr @ops, align 8
-  %20 = getelementptr inbounds nuw %struct.node_features_ops, ptr %19, i64 %indvars.iv, i32 16
-  %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef %16) #9
-  %22 = load ptr, ptr %16, align 8
-  %.not18 = icmp eq ptr %22, null
-  br i1 %.not18, label %23, label %24
-
-23:                                               ; preds = %.lr.ph
-  tail call void @destroy_config_plugin_params(ptr noundef nonnull %16) #9
-  br label %25
+  %20 = getelementptr inbounds nuw %struct.node_features_ops, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
+  %22 = load ptr, ptr %21, align 8
+  tail call void %22(ptr noundef %16) #9
+  %23 = load ptr, ptr %16, align 8
+  %.not18 = icmp eq ptr %23, null
+  br i1 %.not18, label %24, label %25
 
 24:                                               ; preds = %.lr.ph
+  tail call void @destroy_config_plugin_params(ptr noundef nonnull %16) #9
+  br label %26
+
+25:                                               ; preds = %.lr.ph
   tail call void @list_append(ptr noundef %.014, ptr noundef nonnull %16) #9
-  br label %25
+  br label %26
 
-25:                                               ; preds = %23, %24
+26:                                               ; preds = %24, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = load i32, ptr @g_context_cnt, align 4
-  %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  %27 = load i32, ptr @g_context_cnt, align 4
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next, %28
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %25, %.preheader
-  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not17 = icmp eq i32 %29, 0
-  br i1 %.not17, label %32, label %30
+._crit_edge:                                      ; preds = %26, %.preheader
+  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not17 = icmp eq i32 %30, 0
+  br i1 %.not17, label %33, label %31
 
-30:                                               ; preds = %._crit_edge
-  %31 = tail call ptr @__errno_location() #10
-  store i32 %29, ptr %31, align 4
+31:                                               ; preds = %._crit_edge
+  %32 = tail call ptr @__errno_location() #10
+  store i32 %30, ptr %32, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.node_features_g_get_config) #11
   unreachable
 
-32:                                               ; preds = %._crit_edge
-  %33 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #9
+33:                                               ; preds = %._crit_edge
+  %34 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 20, ptr noundef nonnull @__func__.node_features_g_get_config, i64 noundef 0, ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

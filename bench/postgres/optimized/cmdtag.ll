@@ -231,28 +231,31 @@ define dso_local ptr @GetCommandTagNameAndLen(i32 noundef %0, ptr noundef writeo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local zeroext i1 @command_tag_display_rowcount(i32 noundef %0) local_unnamed_addr #1 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %2, i32 4
-  %4 = load i8, ptr %3, align 1, !range !4, !noundef !5
-  %5 = trunc nuw i8 %4 to i1
-  ret i1 %5
+  %3 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  %5 = load i8, ptr %4, align 1, !range !4, !noundef !5
+  %6 = trunc nuw i8 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local zeroext i1 @command_tag_event_trigger_ok(i32 noundef %0) local_unnamed_addr #1 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %2, i32 2
-  %4 = load i8, ptr %3, align 1, !range !4, !noundef !5
-  %5 = trunc nuw i8 %4 to i1
-  ret i1 %5
+  %3 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %5 = load i8, ptr %4, align 1, !range !4, !noundef !5
+  %6 = trunc nuw i8 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local zeroext i1 @command_tag_table_rewrite_ok(i32 noundef %0) local_unnamed_addr #1 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %2, i32 3
-  %4 = load i8, ptr %3, align 2, !range !4, !noundef !5
-  %5 = trunc nuw i8 %4 to i1
-  ret i1 %5
+  %3 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %5 = load i8, ptr %4, align 2, !range !4, !noundef !5
+  %6 = trunc nuw i8 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -312,7 +315,7 @@ define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr nou
   %10 = load ptr, ptr %6, align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %10, i64 %9, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %9
-  %12 = getelementptr inbounds nuw %struct.CommandTagBehavior, ptr @tag_behavior, i64 %5, i32 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 11
   %13 = load i8, ptr %12, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
   %.not = xor i1 %14, true

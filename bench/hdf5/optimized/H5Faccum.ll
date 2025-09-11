@@ -1261,7 +1261,7 @@ H5VM_log2_gen.exit:                               ; preds = %23, %29, %35
   %.0.i = phi i32 [ %27, %23 ], [ %34, %29 ], [ %38, %35 ]
   %39 = add nuw nsw i32 %.0.i, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = shl nuw i64 1, %40
+  %41 = shl nuw nsw i64 1, %40
   %42 = icmp samesign ugt i32 %.0.i, 19
   br i1 %42, label %H5VM_log2_gen.exit.thread, label %.thread133
 

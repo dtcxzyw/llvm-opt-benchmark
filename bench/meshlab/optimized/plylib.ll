@@ -2468,7 +2468,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK3vcg3ply7PlyFile10ElemNumberEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp slt i32 %1, 0
-  br i1 %3, label %17, label %4
+  br i1 %3, label %18, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2480,16 +2480,17 @@ define noundef i32 @_ZNK3vcg3ply7PlyFile10ElemNumberEi(ptr noundef nonnull reado
   %11 = lshr exact i64 %10, 6
   %12 = trunc i64 %11 to i32
   %.not = icmp slt i32 %1, %12
-  br i1 %.not, label %13, label %17
+  br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %4
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw %"class.vcg::ply::PlyElement", ptr %7, i64 %14, i32 1
-  %16 = load i32, ptr %15, align 8
-  br label %17
+  %15 = getelementptr inbounds nuw %"class.vcg::ply::PlyElement", ptr %7, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %17 = load i32, ptr %16, align 8
+  br label %18
 
-17:                                               ; preds = %2, %4, %13
-  %.0 = phi i32 [ %16, %13 ], [ 0, %4 ], [ 0, %2 ]
+18:                                               ; preds = %2, %4, %13
+  %.0 = phi i32 [ %17, %13 ], [ 0, %4 ], [ 0, %2 ]
   ret i32 %.0
 }
 

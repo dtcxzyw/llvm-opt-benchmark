@@ -2020,7 +2020,7 @@ define dso_local void @RM_KeyAtPosWithFlags(ptr noundef readonly captures(none) 
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %35
   %36 = trunc i64 %.1.i to i32
-  %37 = getelementptr inbounds %struct.keyReference, ptr %23, i64 %24, i32 1
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %36, ptr %37, align 4, !tbaa !153
   %38 = add nsw i32 %21, 1
   store i32 %38, ptr %9, align 8, !tbaa !146
@@ -2117,7 +2117,7 @@ moduleConvertKeySpecsFlags.exit:                  ; preds = %10
 
 moduleConvertKeySpecsFlags.exit.i:                ; preds = %42
   %43 = trunc i64 %.1.i.i to i32
-  %44 = getelementptr inbounds %struct.keyReference, ptr %30, i64 %31, i32 1
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %43, ptr %44, align 4, !tbaa !153
   %45 = add nsw i32 %28, 1
   store i32 %45, ptr %16, align 8, !tbaa !146
@@ -2181,7 +2181,7 @@ define dso_local void @RM_ChannelAtPosWithFlags(ptr noundef readonly captures(no
   %29 = sext i32 %21 to i64
   %30 = getelementptr inbounds %struct.keyReference, ptr %28, i64 %29
   store i32 %1, ptr %30, align 4, !tbaa !150
-  %31 = getelementptr inbounds %struct.keyReference, ptr %28, i64 %29, i32 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %.3, ptr %31, align 4, !tbaa !153
   %32 = add nsw i32 %21, 1
   store i32 %32, ptr %9, align 8, !tbaa !146
@@ -3270,7 +3270,7 @@ moduleValidateCommandInfo.exit:                   ; preds = %73, %.critedge.i, %
 moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, %61, %58, %52, %49, %45, %isPowerOfTwo.exit.thread.i, %37, %34, %17, %20, %8, %5, %moduleValidateCommandInfo.exit
   %82 = tail call ptr @__errno_location() #40
   store i32 22, ptr %82, align 4, !tbaa !22
-  br label %313
+  br label %326
 
 83:                                               ; preds = %moduleValidateCommandInfo.exit
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3335,7 +3335,7 @@ moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, 
 116:                                              ; preds = %103, %112, %106, %100, %97, %94, %91, %88, %83
   %117 = tail call ptr @__errno_location() #40
   store i32 17, ptr %117, align 4, !tbaa !22
-  br label %313
+  br label %326
 
 118:                                              ; preds = %103, %112
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3374,7 +3374,7 @@ moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, 
   %134 = load ptr, ptr %1, align 8, !tbaa !184
   %135 = load ptr, ptr %10, align 8, !tbaa !187
   %.not168 = icmp eq ptr %135, null
-  br i1 %.not168, label %168, label %.preheader186
+  br i1 %.not168, label %169, label %.preheader186
 
 .preheader186:                                    ; preds = %133
   %136 = getelementptr i8, ptr %134, i64 8
@@ -3416,10 +3416,10 @@ moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, 
   %153 = getelementptr inbounds nuw i8, ptr %85, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %152, i8 0, i64 16, i1 false)
   store i32 %144, ptr %153, align 8, !tbaa !209
-  br label %168
+  br label %169
 
 .lr.ph:                                           ; preds = %147, %.lr.ph
-  %.0149208 = phi i64 [ %167, %.lr.ph ], [ 0, %147 ]
+  %.0149208 = phi i64 [ %168, %.lr.ph ], [ 0, %147 ]
   %154 = load ptr, ptr %10, align 8, !tbaa !187
   %.val177 = load i64, ptr %136, align 8, !tbaa !188
   %sext183 = shl i64 %.0149208, 32
@@ -3435,314 +3435,327 @@ moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, 
   %163 = load ptr, ptr %162, align 8, !tbaa !192
   %164 = tail call noalias ptr @zstrdup(ptr noundef %163) #35
   %165 = load ptr, ptr %95, align 8, !tbaa !202
-  %166 = getelementptr inbounds nuw %struct.commandHistory, ptr %165, i64 %.0149208, i32 1
-  store ptr %164, ptr %166, align 8, !tbaa !192
-  %167 = add nuw i64 %.0149208, 1
-  %exitcond.not = icmp eq i64 %167, %.0148
+  %166 = getelementptr inbounds nuw %struct.commandHistory, ptr %165, i64 %.0149208
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  store ptr %164, ptr %167, align 8, !tbaa !192
+  %168 = add nuw i64 %.0149208, 1
+  %exitcond.not = icmp eq i64 %168, %.0148
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !210
 
-168:                                              ; preds = %._crit_edge, %133
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %170 = load ptr, ptr %169, align 8, !tbaa !211
-  %.not170 = icmp eq ptr %170, null
-  br i1 %.not170, label %194, label %171
+169:                                              ; preds = %._crit_edge, %133
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %171 = load ptr, ptr %170, align 8, !tbaa !211
+  %.not170 = icmp eq ptr %171, null
+  br i1 %.not170, label %195, label %172
 
-171:                                              ; preds = %168
+172:                                              ; preds = %169
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %172 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %170) #39
-  %173 = call ptr @sdssplitlen(ptr noundef nonnull %170, i64 noundef %172, ptr noundef nonnull @.str.4, i32 noundef 1, ptr noundef nonnull %3) #35
-  %.not171 = icmp eq ptr %173, null
-  br i1 %.not171, label %193, label %174
+  %173 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %171) #39
+  %174 = call ptr @sdssplitlen(ptr noundef nonnull %171, i64 noundef %173, ptr noundef nonnull @.str.4, i32 noundef 1, ptr noundef nonnull %3) #35
+  %.not171 = icmp eq ptr %174, null
+  br i1 %.not171, label %194, label %175
 
-174:                                              ; preds = %171
-  %175 = load i32, ptr %3, align 4, !tbaa !22
-  %176 = add nsw i32 %175, 1
-  %177 = sext i32 %176 to i64
-  %178 = shl nsw i64 %177, 3
-  %179 = call noalias ptr @zmalloc(i64 noundef %178) #36
-  store ptr %179, ptr %98, align 8, !tbaa !203
-  %180 = load i32, ptr %3, align 4, !tbaa !22
-  %181 = icmp sgt i32 %180, 0
-  br i1 %181, label %.lr.ph211, label %.._crit_edge212_crit_edge
+175:                                              ; preds = %172
+  %176 = load i32, ptr %3, align 4, !tbaa !22
+  %177 = add nsw i32 %176, 1
+  %178 = sext i32 %177 to i64
+  %179 = shl nsw i64 %178, 3
+  %180 = call noalias ptr @zmalloc(i64 noundef %179) #36
+  store ptr %180, ptr %98, align 8, !tbaa !203
+  %181 = load i32, ptr %3, align 4, !tbaa !22
+  %182 = icmp sgt i32 %181, 0
+  br i1 %182, label %.lr.ph211, label %.._crit_edge212_crit_edge
 
-.._crit_edge212_crit_edge:                        ; preds = %174
-  %.pre = sext i32 %180 to i64
+.._crit_edge212_crit_edge:                        ; preds = %175
+  %.pre = sext i32 %181 to i64
   br label %._crit_edge212
 
 ._crit_edge212:                                   ; preds = %.lr.ph211, %.._crit_edge212_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.._crit_edge212_crit_edge ], [ %191, %.lr.ph211 ]
-  %182 = phi ptr [ %179, %.._crit_edge212_crit_edge ], [ %188, %.lr.ph211 ]
-  %.lcssa188 = phi i32 [ %180, %.._crit_edge212_crit_edge ], [ %190, %.lr.ph211 ]
-  %183 = getelementptr inbounds ptr, ptr %182, i64 %.pre-phi
-  store ptr null, ptr %183, align 8, !tbaa !154
-  %184 = getelementptr inbounds nuw i8, ptr %85, i64 88
-  store i32 %.lcssa188, ptr %184, align 8, !tbaa !212
-  call void @sdsfreesplitres(ptr noundef nonnull %173, i32 noundef %.lcssa188) #35
-  br label %193
-
-.lr.ph211:                                        ; preds = %174, %.lr.ph211
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph211 ], [ 0, %174 ]
-  %185 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv
-  %186 = load ptr, ptr %185, align 8, !tbaa !154
-  %187 = call noalias ptr @zstrdup(ptr noundef %186) #35
-  %188 = load ptr, ptr %98, align 8, !tbaa !203
-  %189 = getelementptr inbounds nuw ptr, ptr %188, i64 %indvars.iv
-  store ptr %187, ptr %189, align 8, !tbaa !154
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %190 = load i32, ptr %3, align 4, !tbaa !22
-  %191 = sext i32 %190 to i64
-  %192 = icmp slt i64 %indvars.iv.next, %191
-  br i1 %192, label %.lr.ph211, label %._crit_edge212, !llvm.loop !213
-
-193:                                              ; preds = %._crit_edge212, %171
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %.pre-phi = phi i64 [ %.pre, %.._crit_edge212_crit_edge ], [ %192, %.lr.ph211 ]
+  %183 = phi ptr [ %180, %.._crit_edge212_crit_edge ], [ %189, %.lr.ph211 ]
+  %.lcssa188 = phi i32 [ %181, %.._crit_edge212_crit_edge ], [ %191, %.lr.ph211 ]
+  %184 = getelementptr inbounds ptr, ptr %183, i64 %.pre-phi
+  store ptr null, ptr %184, align 8, !tbaa !154
+  %185 = getelementptr inbounds nuw i8, ptr %85, i64 88
+  store i32 %.lcssa188, ptr %185, align 8, !tbaa !212
+  call void @sdsfreesplitres(ptr noundef nonnull %174, i32 noundef %.lcssa188) #35
   br label %194
 
-194:                                              ; preds = %193, %168
-  %195 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %196 = load i32, ptr %195, align 8, !tbaa !214
-  %.not172 = icmp eq i32 %196, 0
-  br i1 %.not172, label %199, label %197
+.lr.ph211:                                        ; preds = %175, %.lr.ph211
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph211 ], [ 0, %175 ]
+  %186 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv
+  %187 = load ptr, ptr %186, align 8, !tbaa !154
+  %188 = call noalias ptr @zstrdup(ptr noundef %187) #35
+  %189 = load ptr, ptr %98, align 8, !tbaa !203
+  %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv
+  store ptr %188, ptr %190, align 8, !tbaa !154
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %191 = load i32, ptr %3, align 4, !tbaa !22
+  %192 = sext i32 %191 to i64
+  %193 = icmp slt i64 %indvars.iv.next, %192
+  br i1 %193, label %.lr.ph211, label %._crit_edge212, !llvm.loop !213
 
-197:                                              ; preds = %194
-  %198 = getelementptr inbounds nuw i8, ptr %85, i64 104
-  store i32 %196, ptr %198, align 8, !tbaa !167
-  br label %199
+194:                                              ; preds = %._crit_edge212, %172
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %195
 
-199:                                              ; preds = %197, %194
-  %200 = load ptr, ptr %27, align 8, !tbaa !194
-  %.not173 = icmp eq ptr %200, null
-  br i1 %.not173, label %307, label %.preheader
+195:                                              ; preds = %194, %169
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %197 = load i32, ptr %196, align 8, !tbaa !214
+  %.not172 = icmp eq i32 %197, 0
+  br i1 %.not172, label %200, label %198
 
-.preheader:                                       ; preds = %199
-  %201 = getelementptr i8, ptr %134, i64 16
-  %.val178 = load i64, ptr %201, align 8, !tbaa !195
-  br label %202
+198:                                              ; preds = %195
+  %199 = getelementptr inbounds nuw i8, ptr %85, i64 104
+  store i32 %197, ptr %199, align 8, !tbaa !167
+  br label %200
 
-202:                                              ; preds = %202, %.preheader
-  %.0146 = phi i64 [ %208, %202 ], [ 0, %.preheader ]
+200:                                              ; preds = %198, %195
+  %201 = load ptr, ptr %27, align 8, !tbaa !194
+  %.not173 = icmp eq ptr %201, null
+  br i1 %.not173, label %320, label %.preheader
+
+.preheader:                                       ; preds = %200
+  %202 = getelementptr i8, ptr %134, i64 16
+  %.val178 = load i64, ptr %202, align 8, !tbaa !195
+  br label %203
+
+203:                                              ; preds = %203, %.preheader
+  %.0146 = phi i64 [ %209, %203 ], [ 0, %.preheader ]
   %sext184 = shl i64 %.0146, 32
-  %203 = ashr exact i64 %sext184, 32
-  %204 = mul i64 %203, %.val178
-  %205 = getelementptr inbounds i8, ptr %200, i64 %204
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  %207 = load i32, ptr %206, align 8, !tbaa !165
-  %.not174 = icmp eq i32 %207, 0
-  %208 = add i64 %.0146, 1
-  br i1 %.not174, label %209, label %202, !llvm.loop !215
+  %204 = ashr exact i64 %sext184, 32
+  %205 = mul i64 %204, %.val178
+  %206 = getelementptr inbounds i8, ptr %201, i64 %205
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
+  %208 = load i32, ptr %207, align 8, !tbaa !165
+  %.not174 = icmp eq i32 %208, 0
+  %209 = add i64 %.0146, 1
+  br i1 %.not174, label %210, label %203, !llvm.loop !215
 
-209:                                              ; preds = %202
-  %210 = icmp ult i64 %.0146, 2147483647
-  br i1 %210, label %212, label %211, !prof !169
+210:                                              ; preds = %203
+  %211 = icmp ult i64 %.0146, 2147483647
+  br i1 %211, label %213, label %212, !prof !169
 
-211:                                              ; preds = %209
+212:                                              ; preds = %210
   call void @_serverAssert(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.2, i32 noundef 1923) #35
   call void @abort() #38
   unreachable
 
-212:                                              ; preds = %209
-  %213 = trunc nuw nsw i64 %.0146 to i32
-  %214 = getelementptr inbounds nuw i8, ptr %85, i64 128
-  %215 = load ptr, ptr %214, align 8, !tbaa !164
-  call void @zfree(ptr noundef %215) #35
-  %216 = mul nuw nsw i64 %.0146, 56
-  %217 = call noalias ptr @zmalloc(i64 noundef %216) #36
-  store ptr %217, ptr %214, align 8, !tbaa !164
-  store i32 %213, ptr %104, align 8, !tbaa !163
+213:                                              ; preds = %210
+  %214 = trunc nuw nsw i64 %.0146 to i32
+  %215 = getelementptr inbounds nuw i8, ptr %85, i64 128
+  %216 = load ptr, ptr %215, align 8, !tbaa !164
+  call void @zfree(ptr noundef %216) #35
+  %217 = mul nuw nsw i64 %.0146, 56
+  %218 = call noalias ptr @zmalloc(i64 noundef %217) #36
+  store ptr %218, ptr %215, align 8, !tbaa !164
+  store i32 %214, ptr %104, align 8, !tbaa !163
   %.not219 = icmp eq i64 %.0146, 0
   br i1 %.not219, label %._crit_edge217, label %.lr.ph216
 
-._crit_edge217:                                   ; preds = %305, %212
+._crit_edge217:                                   ; preds = %318, %213
   call void @populateCommandLegacyRangeSpec(ptr noundef nonnull %85) #35
-  br label %307
+  br label %320
 
-.lr.ph216:                                        ; preds = %212, %305
-  %.0145214 = phi i64 [ %306, %305 ], [ 0, %212 ]
-  %218 = load ptr, ptr %27, align 8, !tbaa !194
-  %.val179 = load i64, ptr %201, align 8, !tbaa !195
+.lr.ph216:                                        ; preds = %213, %318
+  %.0145214 = phi i64 [ %319, %318 ], [ 0, %213 ]
+  %219 = load ptr, ptr %27, align 8, !tbaa !194
+  %.val179 = load i64, ptr %202, align 8, !tbaa !195
   %sext185 = shl i64 %.0145214, 32
-  %219 = ashr exact i64 %sext185, 32
-  %220 = mul i64 %.val179, %219
-  %221 = getelementptr inbounds i8, ptr %218, i64 %220
-  %222 = load ptr, ptr %221, align 8, !tbaa !216
-  %.not176 = icmp eq ptr %222, null
-  br i1 %.not176, label %225, label %223
+  %220 = ashr exact i64 %sext185, 32
+  %221 = mul i64 %.val179, %220
+  %222 = getelementptr inbounds i8, ptr %219, i64 %221
+  %223 = load ptr, ptr %222, align 8, !tbaa !216
+  %.not176 = icmp eq ptr %223, null
+  br i1 %.not176, label %226, label %224
 
-223:                                              ; preds = %.lr.ph216
-  %224 = call noalias ptr @zstrdup(ptr noundef nonnull %222) #35
-  br label %225
+224:                                              ; preds = %.lr.ph216
+  %225 = call noalias ptr @zstrdup(ptr noundef nonnull %223) #35
+  br label %226
 
-225:                                              ; preds = %.lr.ph216, %223
-  %226 = phi ptr [ %224, %223 ], [ null, %.lr.ph216 ]
-  %227 = load ptr, ptr %214, align 8, !tbaa !164
-  %228 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214
-  store ptr %226, ptr %228, align 8, !tbaa !216
-  %229 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  %230 = load i64, ptr %229, align 8, !tbaa !196
-  br label %231
+226:                                              ; preds = %.lr.ph216, %224
+  %227 = phi ptr [ %225, %224 ], [ null, %.lr.ph216 ]
+  %228 = load ptr, ptr %215, align 8, !tbaa !164
+  %229 = getelementptr inbounds nuw %struct.keySpec, ptr %228, i64 %.0145214
+  store ptr %227, ptr %229, align 8, !tbaa !216
+  %230 = getelementptr inbounds nuw i8, ptr %222, i64 8
+  %231 = load i64, ptr %230, align 8, !tbaa !196
+  br label %232
 
-231:                                              ; preds = %239, %225
-  %indvars.iv.i = phi i64 [ 0, %225 ], [ %indvars.iv.next.i, %239 ]
-  %.01113.i = phi i64 [ 0, %225 ], [ %.1.i, %239 ]
-  %232 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i
-  %233 = load i64, ptr %232, align 16, !tbaa !24
-  %234 = and i64 %233, %230
-  %.not12.i = icmp eq i64 %234, 0
-  br i1 %.not12.i, label %239, label %235
+232:                                              ; preds = %240, %226
+  %indvars.iv.i = phi i64 [ 0, %226 ], [ %indvars.iv.next.i, %240 ]
+  %.01113.i = phi i64 [ 0, %226 ], [ %.1.i, %240 ]
+  %233 = getelementptr inbounds nuw [2 x i64], ptr @__const.moduleConvertKeySpecsFlags.map, i64 %indvars.iv.i
+  %234 = load i64, ptr %233, align 16, !tbaa !24
+  %235 = and i64 %234, %231
+  %.not12.i = icmp eq i64 %235, 0
+  br i1 %.not12.i, label %240, label %236
 
-235:                                              ; preds = %231
-  %236 = getelementptr inbounds nuw i8, ptr %232, i64 8
-  %237 = load i64, ptr %236, align 8, !tbaa !24
-  %238 = or i64 %237, %.01113.i
-  br label %239
+236:                                              ; preds = %232
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 8
+  %238 = load i64, ptr %237, align 8, !tbaa !24
+  %239 = or i64 %238, %.01113.i
+  br label %240
 
-239:                                              ; preds = %235, %231
-  %.1.i = phi i64 [ %238, %235 ], [ %.01113.i, %231 ]
+240:                                              ; preds = %236, %232
+  %.1.i = phi i64 [ %239, %236 ], [ %.01113.i, %232 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i180 = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %.not.i180, label %moduleConvertKeySpecsFlags.exit, label %231, !llvm.loop !152
+  br i1 %.not.i180, label %moduleConvertKeySpecsFlags.exit, label %232, !llvm.loop !152
 
-moduleConvertKeySpecsFlags.exit:                  ; preds = %239
-  %240 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 1
-  store i64 %.1.i, ptr %240, align 8, !tbaa !196
-  %241 = getelementptr inbounds nuw i8, ptr %221, i64 16
-  %242 = load i32, ptr %241, align 8, !tbaa !165
-  switch i32 %242, label %261 [
-    i32 1, label %243
-    i32 2, label %245
-    i32 3, label %250
+moduleConvertKeySpecsFlags.exit:                  ; preds = %240
+  %241 = getelementptr inbounds nuw i8, ptr %229, i64 8
+  store i64 %.1.i, ptr %241, align 8, !tbaa !196
+  %242 = getelementptr inbounds nuw i8, ptr %222, i64 16
+  %243 = load i32, ptr %242, align 8, !tbaa !165
+  switch i32 %243, label %264 [
+    i32 1, label %244
+    i32 2, label %246
+    i32 3, label %251
   ]
 
-243:                                              ; preds = %moduleConvertKeySpecsFlags.exit
-  %244 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 2
-  store i32 1, ptr %244, align 8, !tbaa !165
-  br label %262
+244:                                              ; preds = %moduleConvertKeySpecsFlags.exit
+  %245 = getelementptr inbounds nuw i8, ptr %229, i64 16
+  store i32 1, ptr %245, align 8, !tbaa !165
+  br label %265
 
-245:                                              ; preds = %moduleConvertKeySpecsFlags.exit
-  %246 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 2
-  store i32 2, ptr %246, align 8, !tbaa !165
-  %247 = getelementptr inbounds nuw i8, ptr %221, i64 24
-  %248 = load i32, ptr %247, align 8, !tbaa !60
-  %249 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 3
-  store i32 %248, ptr %249, align 8, !tbaa !60
-  br label %262
+246:                                              ; preds = %moduleConvertKeySpecsFlags.exit
+  %247 = getelementptr inbounds nuw i8, ptr %229, i64 16
+  store i32 2, ptr %247, align 8, !tbaa !165
+  %248 = getelementptr inbounds nuw i8, ptr %222, i64 24
+  %249 = load i32, ptr %248, align 8, !tbaa !60
+  %250 = getelementptr inbounds nuw i8, ptr %229, i64 24
+  store i32 %249, ptr %250, align 8, !tbaa !60
+  br label %265
 
-250:                                              ; preds = %moduleConvertKeySpecsFlags.exit
-  %251 = getelementptr inbounds nuw %struct.keySpec, ptr %227, i64 %.0145214, i32 2
-  store i32 3, ptr %251, align 8, !tbaa !165
-  %252 = getelementptr inbounds nuw i8, ptr %221, i64 24
-  %253 = load ptr, ptr %252, align 8, !tbaa !60
-  %254 = call noalias ptr @zstrdup(ptr noundef %253) #35
-  %255 = load ptr, ptr %214, align 8, !tbaa !164
-  %256 = getelementptr inbounds nuw %struct.keySpec, ptr %255, i64 %.0145214, i32 3
-  store ptr %254, ptr %256, align 8, !tbaa !60
-  %257 = getelementptr inbounds nuw i8, ptr %221, i64 32
-  %258 = load i32, ptr %257, align 8, !tbaa !60
-  %259 = load ptr, ptr %214, align 8, !tbaa !164
-  %260 = getelementptr inbounds nuw %struct.keySpec, ptr %259, i64 %.0145214, i32 3, i32 0, i32 1
-  store i32 %258, ptr %260, align 8, !tbaa !60
-  br label %262
+251:                                              ; preds = %moduleConvertKeySpecsFlags.exit
+  %252 = getelementptr inbounds nuw i8, ptr %229, i64 16
+  store i32 3, ptr %252, align 8, !tbaa !165
+  %253 = getelementptr inbounds nuw i8, ptr %222, i64 24
+  %254 = load ptr, ptr %253, align 8, !tbaa !60
+  %255 = call noalias ptr @zstrdup(ptr noundef %254) #35
+  %256 = load ptr, ptr %215, align 8, !tbaa !164
+  %257 = getelementptr inbounds nuw %struct.keySpec, ptr %256, i64 %.0145214
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 24
+  store ptr %255, ptr %258, align 8, !tbaa !60
+  %259 = getelementptr inbounds nuw i8, ptr %222, i64 32
+  %260 = load i32, ptr %259, align 8, !tbaa !60
+  %261 = load ptr, ptr %215, align 8, !tbaa !164
+  %262 = getelementptr inbounds nuw %struct.keySpec, ptr %261, i64 %.0145214
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 32
+  store i32 %260, ptr %263, align 8, !tbaa !60
+  br label %265
 
-261:                                              ; preds = %moduleConvertKeySpecsFlags.exit
+264:                                              ; preds = %moduleConvertKeySpecsFlags.exit
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1949, ptr noundef nonnull @.str.31) #35
   call void @abort() #38
   unreachable
 
-262:                                              ; preds = %250, %245, %243
-  %263 = getelementptr inbounds nuw i8, ptr %221, i64 40
-  %264 = load i32, ptr %263, align 8, !tbaa !166
-  switch i32 %264, label %304 [
-    i32 0, label %265
-    i32 1, label %273
-    i32 2, label %276
-    i32 3, label %290
+265:                                              ; preds = %251, %246, %244
+  %266 = getelementptr inbounds nuw i8, ptr %222, i64 40
+  %267 = load i32, ptr %266, align 8, !tbaa !166
+  switch i32 %267, label %317 [
+    i32 0, label %268
+    i32 1, label %279
+    i32 2, label %283
+    i32 3, label %300
   ]
 
-265:                                              ; preds = %262
-  %266 = load ptr, ptr %214, align 8, !tbaa !164
-  %267 = getelementptr inbounds nuw %struct.keySpec, ptr %266, i64 %.0145214, i32 4
-  store i32 2, ptr %267, align 8, !tbaa !166
-  %268 = getelementptr inbounds nuw %struct.keySpec, ptr %266, i64 %.0145214, i32 5
-  store i32 0, ptr %268, align 4, !tbaa !60
-  %269 = load ptr, ptr %214, align 8, !tbaa !164
-  %270 = getelementptr inbounds nuw %struct.keySpec, ptr %269, i64 %.0145214, i32 5, i32 0, i32 1
-  store i32 1, ptr %270, align 4, !tbaa !60
-  %271 = load ptr, ptr %214, align 8, !tbaa !164
-  %272 = getelementptr inbounds nuw %struct.keySpec, ptr %271, i64 %.0145214, i32 5, i32 0, i32 2
+268:                                              ; preds = %265
+  %269 = load ptr, ptr %215, align 8, !tbaa !164
+  %270 = getelementptr inbounds nuw %struct.keySpec, ptr %269, i64 %.0145214
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 40
+  store i32 2, ptr %271, align 8, !tbaa !166
+  %272 = getelementptr inbounds nuw i8, ptr %270, i64 44
   store i32 0, ptr %272, align 4, !tbaa !60
-  br label %305
+  %273 = load ptr, ptr %215, align 8, !tbaa !164
+  %274 = getelementptr inbounds nuw %struct.keySpec, ptr %273, i64 %.0145214
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 48
+  store i32 1, ptr %275, align 4, !tbaa !60
+  %276 = load ptr, ptr %215, align 8, !tbaa !164
+  %277 = getelementptr inbounds nuw %struct.keySpec, ptr %276, i64 %.0145214
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 52
+  store i32 0, ptr %278, align 4, !tbaa !60
+  br label %318
 
-273:                                              ; preds = %262
-  %274 = load ptr, ptr %214, align 8, !tbaa !164
-  %275 = getelementptr inbounds nuw %struct.keySpec, ptr %274, i64 %.0145214, i32 4
-  store i32 1, ptr %275, align 8, !tbaa !166
-  br label %305
+279:                                              ; preds = %265
+  %280 = load ptr, ptr %215, align 8, !tbaa !164
+  %281 = getelementptr inbounds nuw %struct.keySpec, ptr %280, i64 %.0145214
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 40
+  store i32 1, ptr %282, align 8, !tbaa !166
+  br label %318
 
-276:                                              ; preds = %262
-  %277 = load ptr, ptr %214, align 8, !tbaa !164
-  %278 = getelementptr inbounds nuw %struct.keySpec, ptr %277, i64 %.0145214, i32 4
-  store i32 2, ptr %278, align 8, !tbaa !166
-  %279 = getelementptr inbounds nuw i8, ptr %221, i64 44
-  %280 = load i32, ptr %279, align 4, !tbaa !60
-  %281 = getelementptr inbounds nuw %struct.keySpec, ptr %277, i64 %.0145214, i32 5
-  store i32 %280, ptr %281, align 4, !tbaa !60
-  %282 = getelementptr inbounds nuw i8, ptr %221, i64 48
-  %283 = load i32, ptr %282, align 4, !tbaa !60
-  %284 = load ptr, ptr %214, align 8, !tbaa !164
-  %285 = getelementptr inbounds nuw %struct.keySpec, ptr %284, i64 %.0145214, i32 5, i32 0, i32 1
-  store i32 %283, ptr %285, align 4, !tbaa !60
-  %286 = getelementptr inbounds nuw i8, ptr %221, i64 52
-  %287 = load i32, ptr %286, align 4, !tbaa !60
-  %288 = load ptr, ptr %214, align 8, !tbaa !164
-  %289 = getelementptr inbounds nuw %struct.keySpec, ptr %288, i64 %.0145214, i32 5, i32 0, i32 2
-  store i32 %287, ptr %289, align 4, !tbaa !60
-  br label %305
+283:                                              ; preds = %265
+  %284 = load ptr, ptr %215, align 8, !tbaa !164
+  %285 = getelementptr inbounds nuw %struct.keySpec, ptr %284, i64 %.0145214
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 40
+  store i32 2, ptr %286, align 8, !tbaa !166
+  %287 = getelementptr inbounds nuw i8, ptr %222, i64 44
+  %288 = load i32, ptr %287, align 4, !tbaa !60
+  %289 = getelementptr inbounds nuw i8, ptr %285, i64 44
+  store i32 %288, ptr %289, align 4, !tbaa !60
+  %290 = getelementptr inbounds nuw i8, ptr %222, i64 48
+  %291 = load i32, ptr %290, align 4, !tbaa !60
+  %292 = load ptr, ptr %215, align 8, !tbaa !164
+  %293 = getelementptr inbounds nuw %struct.keySpec, ptr %292, i64 %.0145214
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 48
+  store i32 %291, ptr %294, align 4, !tbaa !60
+  %295 = getelementptr inbounds nuw i8, ptr %222, i64 52
+  %296 = load i32, ptr %295, align 4, !tbaa !60
+  %297 = load ptr, ptr %215, align 8, !tbaa !164
+  %298 = getelementptr inbounds nuw %struct.keySpec, ptr %297, i64 %.0145214
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 52
+  store i32 %296, ptr %299, align 4, !tbaa !60
+  br label %318
 
-290:                                              ; preds = %262
-  %291 = load ptr, ptr %214, align 8, !tbaa !164
-  %292 = getelementptr inbounds nuw %struct.keySpec, ptr %291, i64 %.0145214, i32 4
-  store i32 3, ptr %292, align 8, !tbaa !166
-  %293 = getelementptr inbounds nuw i8, ptr %221, i64 44
-  %294 = load i32, ptr %293, align 4, !tbaa !60
-  %295 = getelementptr inbounds nuw %struct.keySpec, ptr %291, i64 %.0145214, i32 5
-  store i32 %294, ptr %295, align 4, !tbaa !60
-  %296 = getelementptr inbounds nuw i8, ptr %221, i64 48
-  %297 = load i32, ptr %296, align 4, !tbaa !60
-  %298 = load ptr, ptr %214, align 8, !tbaa !164
-  %299 = getelementptr inbounds nuw %struct.keySpec, ptr %298, i64 %.0145214, i32 5, i32 0, i32 1
-  store i32 %297, ptr %299, align 4, !tbaa !60
-  %300 = getelementptr inbounds nuw i8, ptr %221, i64 52
-  %301 = load i32, ptr %300, align 4, !tbaa !60
-  %302 = load ptr, ptr %214, align 8, !tbaa !164
-  %303 = getelementptr inbounds nuw %struct.keySpec, ptr %302, i64 %.0145214, i32 5, i32 0, i32 2
-  store i32 %301, ptr %303, align 4, !tbaa !60
-  br label %305
+300:                                              ; preds = %265
+  %301 = load ptr, ptr %215, align 8, !tbaa !164
+  %302 = getelementptr inbounds nuw %struct.keySpec, ptr %301, i64 %.0145214
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 40
+  store i32 3, ptr %303, align 8, !tbaa !166
+  %304 = getelementptr inbounds nuw i8, ptr %222, i64 44
+  %305 = load i32, ptr %304, align 4, !tbaa !60
+  %306 = getelementptr inbounds nuw i8, ptr %302, i64 44
+  store i32 %305, ptr %306, align 4, !tbaa !60
+  %307 = getelementptr inbounds nuw i8, ptr %222, i64 48
+  %308 = load i32, ptr %307, align 4, !tbaa !60
+  %309 = load ptr, ptr %215, align 8, !tbaa !164
+  %310 = getelementptr inbounds nuw %struct.keySpec, ptr %309, i64 %.0145214
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 48
+  store i32 %308, ptr %311, align 4, !tbaa !60
+  %312 = getelementptr inbounds nuw i8, ptr %222, i64 52
+  %313 = load i32, ptr %312, align 4, !tbaa !60
+  %314 = load ptr, ptr %215, align 8, !tbaa !164
+  %315 = getelementptr inbounds nuw %struct.keySpec, ptr %314, i64 %.0145214
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 52
+  store i32 %313, ptr %316, align 4, !tbaa !60
+  br label %318
 
-304:                                              ; preds = %262
+317:                                              ; preds = %265
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1977, ptr noundef nonnull @.str.32) #35
   call void @abort() #38
   unreachable
 
-305:                                              ; preds = %290, %276, %273, %265
-  %306 = add nuw i64 %.0145214, 1
-  %exitcond239.not = icmp eq i64 %306, %.0146
+318:                                              ; preds = %300, %283, %279, %268
+  %319 = add nuw i64 %.0145214, 1
+  %exitcond239.not = icmp eq i64 %319, %.0146
   br i1 %exitcond239.not, label %._crit_edge217, label %.lr.ph216, !llvm.loop !217
 
-307:                                              ; preds = %._crit_edge217, %199
-  %308 = load ptr, ptr %79, align 8, !tbaa !198
-  %.not175 = icmp eq ptr %308, null
-  br i1 %.not175, label %313, label %309
+320:                                              ; preds = %._crit_edge217, %200
+  %321 = load ptr, ptr %79, align 8, !tbaa !198
+  %.not175 = icmp eq ptr %321, null
+  br i1 %.not175, label %326, label %322
 
-309:                                              ; preds = %307
-  %310 = call fastcc ptr @moduleCopyCommandArgs(ptr noundef %308, ptr noundef %134)
-  store ptr %310, ptr %101, align 8, !tbaa !204
-  %311 = call i32 @populateArgsStructure(ptr noundef %310)
-  %312 = getelementptr inbounds nuw i8, ptr %85, i64 152
-  store i32 %311, ptr %312, align 8, !tbaa !218
-  br label %313
+322:                                              ; preds = %320
+  %323 = call fastcc ptr @moduleCopyCommandArgs(ptr noundef %321, ptr noundef %134)
+  store ptr %323, ptr %101, align 8, !tbaa !204
+  %324 = call i32 @populateArgsStructure(ptr noundef %323)
+  %325 = getelementptr inbounds nuw i8, ptr %85, i64 152
+  store i32 %324, ptr %325, align 8, !tbaa !218
+  br label %326
 
-313:                                              ; preds = %116, %309, %307, %moduleValidateCommandInfo.exit.thread
-  %.0 = phi i32 [ 1, %moduleValidateCommandInfo.exit.thread ], [ 1, %116 ], [ 0, %309 ], [ 0, %307 ]
+326:                                              ; preds = %116, %322, %320, %moduleValidateCommandInfo.exit.thread
+  %.0 = phi i32 [ 1, %moduleValidateCommandInfo.exit.thread ], [ 1, %116 ], [ 0, %322 ], [ 0, %320 ]
   ret i32 %.0
 }
 
@@ -4298,10 +4311,10 @@ define dso_local void @autoMemoryAdd(ptr noundef captures(none) %0, i32 noundef 
   %21 = phi i32 [ %9, %._crit_edge ], [ %.pre15, %13 ]
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %19, %13 ]
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.AutoMemEntry, ptr %22, i64 %23, i32 1
-  store i32 %1, ptr %24, align 8, !tbaa !100
-  %25 = getelementptr inbounds %struct.AutoMemEntry, ptr %22, i64 %23
-  store ptr %2, ptr %25, align 8, !tbaa !98
+  %24 = getelementptr inbounds %struct.AutoMemEntry, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i32 %1, ptr %25, align 8, !tbaa !100
+  store ptr %2, ptr %24, align 8, !tbaa !98
   %26 = add nsw i32 %21, 1
   store i32 %26, ptr %8, align 4, !tbaa !96
   br label %27
@@ -4789,10 +4802,10 @@ define dso_local ptr @RM_CreateString(ptr noundef captures(address_is_null) %0, 
   %23 = phi i32 [ %11, %._crit_edge.i ], [ %.pre15.i, %15 ]
   %24 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %21, %15 ]
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.AutoMemEntry, ptr %24, i64 %25, i32 1
-  store i32 1, ptr %26, align 8, !tbaa !100
-  %27 = getelementptr inbounds %struct.AutoMemEntry, ptr %24, i64 %25
-  store ptr %4, ptr %27, align 8, !tbaa !98
+  %26 = getelementptr inbounds %struct.AutoMemEntry, ptr %24, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i32 1, ptr %27, align 8, !tbaa !100
+  store ptr %4, ptr %26, align 8, !tbaa !98
   %28 = add nsw i32 %23, 1
   store i32 %28, ptr %10, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -4852,10 +4865,10 @@ define dso_local ptr @RM_CreateStringPrintf(ptr noundef captures(address_is_null
   %25 = phi i32 [ %13, %._crit_edge.i ], [ %.pre15.i, %17 ]
   %26 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %23, %17 ]
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27, i32 1
-  store i32 1, ptr %28, align 8, !tbaa !100
-  %29 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27
-  store ptr %6, ptr %29, align 8, !tbaa !98
+  %28 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i32 1, ptr %29, align 8, !tbaa !100
+  store ptr %6, ptr %28, align 8, !tbaa !98
   %30 = add nsw i32 %25, 1
   store i32 %30, ptr %12, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -4924,10 +4937,10 @@ define dso_local ptr @RM_CreateStringFromLongLong(ptr noundef captures(address_i
   %25 = phi i32 [ %13, %._crit_edge.i.i ], [ %.pre15.i.i, %17 ]
   %26 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %23, %17 ]
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27, i32 1
-  store i32 1, ptr %28, align 8, !tbaa !100
-  %29 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27
-  store ptr %6, ptr %29, align 8, !tbaa !98
+  %28 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i32 1, ptr %29, align 8, !tbaa !100
+  store ptr %6, ptr %28, align 8, !tbaa !98
   %30 = add nsw i32 %25, 1
   store i32 %30, ptr %12, align 4, !tbaa !96
   br label %RM_CreateString.exit
@@ -4986,10 +4999,10 @@ define dso_local ptr @RM_CreateStringFromULongLong(ptr noundef captures(address_
   %25 = phi i32 [ %13, %._crit_edge.i.i ], [ %.pre15.i.i, %17 ]
   %26 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %23, %17 ]
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27, i32 1
-  store i32 1, ptr %28, align 8, !tbaa !100
-  %29 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27
-  store ptr %6, ptr %29, align 8, !tbaa !98
+  %28 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i32 1, ptr %29, align 8, !tbaa !100
+  store ptr %6, ptr %28, align 8, !tbaa !98
   %30 = add nsw i32 %25, 1
   store i32 %30, ptr %12, align 4, !tbaa !96
   br label %RM_CreateString.exit
@@ -5048,10 +5061,10 @@ define dso_local ptr @RM_CreateStringFromDouble(ptr noundef captures(address_is_
   %25 = phi i32 [ %13, %._crit_edge.i.i ], [ %.pre15.i.i, %17 ]
   %26 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %23, %17 ]
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27, i32 1
-  store i32 1, ptr %28, align 8, !tbaa !100
-  %29 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27
-  store ptr %6, ptr %29, align 8, !tbaa !98
+  %28 = getelementptr inbounds %struct.AutoMemEntry, ptr %26, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i32 1, ptr %29, align 8, !tbaa !100
+  store ptr %6, ptr %28, align 8, !tbaa !98
   %30 = add nsw i32 %25, 1
   store i32 %30, ptr %12, align 4, !tbaa !96
   br label %RM_CreateString.exit
@@ -5112,10 +5125,10 @@ define dso_local ptr @RM_CreateStringFromLongDouble(ptr noundef captures(address
   %27 = phi i32 [ %15, %._crit_edge.i.i ], [ %.pre15.i.i, %19 ]
   %28 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %25, %19 ]
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29, i32 1
-  store i32 1, ptr %30, align 8, !tbaa !100
-  %31 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29
-  store ptr %8, ptr %31, align 8, !tbaa !98
+  %30 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i32 1, ptr %31, align 8, !tbaa !100
+  store ptr %8, ptr %30, align 8, !tbaa !98
   %32 = add nsw i32 %27, 1
   store i32 %32, ptr %14, align 4, !tbaa !96
   br label %RM_CreateString.exit
@@ -5170,10 +5183,10 @@ define dso_local ptr @RM_CreateStringFromString(ptr noundef captures(address_is_
   %22 = phi i32 [ %10, %._crit_edge.i ], [ %.pre15.i, %14 ]
   %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %20, %14 ]
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds %struct.AutoMemEntry, ptr %23, i64 %24, i32 1
-  store i32 1, ptr %25, align 8, !tbaa !100
-  %26 = getelementptr inbounds %struct.AutoMemEntry, ptr %23, i64 %24
-  store ptr %3, ptr %26, align 8, !tbaa !98
+  %25 = getelementptr inbounds %struct.AutoMemEntry, ptr %23, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i32 1, ptr %26, align 8, !tbaa !100
+  store ptr %3, ptr %25, align 8, !tbaa !98
   %27 = add nsw i32 %22, 1
   store i32 %27, ptr %9, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -5235,10 +5248,10 @@ define dso_local ptr @RM_CreateStringFromStreamID(ptr noundef captures(address_i
   %27 = phi i32 [ %15, %._crit_edge.i ], [ %.pre15.i, %19 ]
   %28 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %25, %19 ]
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29, i32 1
-  store i32 1, ptr %30, align 8, !tbaa !100
-  %31 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29
-  store ptr %8, ptr %31, align 8, !tbaa !98
+  %30 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i32 1, ptr %31, align 8, !tbaa !100
+  store ptr %8, ptr %30, align 8, !tbaa !98
   %32 = add nsw i32 %27, 1
   store i32 %32, ptr %14, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -5462,10 +5475,10 @@ define dso_local ptr @RM_HoldString(ptr noundef captures(address_is_null) %0, pt
   %26 = phi i32 [ %14, %._crit_edge.i.i ], [ %.pre15.i.i, %18 ]
   %27 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %24, %18 ]
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds %struct.AutoMemEntry, ptr %27, i64 %28, i32 1
-  store i32 1, ptr %29, align 8, !tbaa !100
-  %30 = getelementptr inbounds %struct.AutoMemEntry, ptr %27, i64 %28
-  store ptr %7, ptr %30, align 8, !tbaa !98
+  %29 = getelementptr inbounds %struct.AutoMemEntry, ptr %27, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i32 1, ptr %30, align 8, !tbaa !100
+  store ptr %7, ptr %29, align 8, !tbaa !98
   %31 = add nsw i32 %26, 1
   store i32 %31, ptr %13, align 4, !tbaa !96
   br label %RM_CreateStringFromString.exit
@@ -5511,10 +5524,10 @@ define dso_local ptr @RM_HoldString(ptr noundef captures(address_is_null) %0, pt
   %51 = phi i32 [ %39, %._crit_edge.i ], [ %.pre15.i, %43 ]
   %52 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %49, %43 ]
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds %struct.AutoMemEntry, ptr %52, i64 %53, i32 1
-  store i32 1, ptr %54, align 8, !tbaa !100
-  %55 = getelementptr inbounds %struct.AutoMemEntry, ptr %52, i64 %53
-  store ptr %1, ptr %55, align 8, !tbaa !98
+  %54 = getelementptr inbounds %struct.AutoMemEntry, ptr %52, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i32 1, ptr %55, align 8, !tbaa !100
+  store ptr %1, ptr %54, align 8, !tbaa !98
   %56 = add nsw i32 %51, 1
   store i32 %56, ptr %38, align 4, !tbaa !96
   br label %RM_CreateStringFromString.exit
@@ -8010,10 +8023,10 @@ define dso_local ptr @RM_GetClientUserNameById(ptr noundef captures(none) %0, i6
   %34 = phi i32 [ %22, %._crit_edge.i ], [ %.pre15.i, %26 ]
   %35 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %32, %26 ]
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.AutoMemEntry, ptr %35, i64 %36, i32 1
-  store i32 1, ptr %37, align 8, !tbaa !100
-  %38 = getelementptr inbounds %struct.AutoMemEntry, ptr %35, i64 %36
-  store ptr %16, ptr %38, align 8, !tbaa !98
+  %37 = getelementptr inbounds %struct.AutoMemEntry, ptr %35, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i32 1, ptr %38, align 8, !tbaa !100
+  store ptr %16, ptr %37, align 8, !tbaa !98
   %39 = add nsw i32 %34, 1
   store i32 %39, ptr %21, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -8261,10 +8274,10 @@ define dso_local ptr @RM_GetClientNameById(ptr noundef captures(none) %0, i64 no
   %27 = phi i32 [ %15, %._crit_edge.i ], [ %.pre15.i, %19 ]
   %28 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %25, %19 ]
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29, i32 1
-  store i32 1, ptr %30, align 8, !tbaa !100
-  %31 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29
-  store ptr %7, ptr %31, align 8, !tbaa !98
+  %30 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i32 1, ptr %31, align 8, !tbaa !100
+  store ptr %7, ptr %30, align 8, !tbaa !98
   %32 = add nsw i32 %27, 1
   store i32 %32, ptr %14, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -8662,10 +8675,10 @@ moduleInitKey.exit:                               ; preds = %22, %33, %.sink.spl
   %57 = phi i32 [ %45, %._crit_edge.i ], [ %.pre15.i, %49 ]
   %58 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %55, %49 ]
   %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds %struct.AutoMemEntry, ptr %58, i64 %59, i32 1
-  store i32 0, ptr %60, align 8, !tbaa !100
-  %61 = getelementptr inbounds %struct.AutoMemEntry, ptr %58, i64 %59
-  store ptr %23, ptr %61, align 8, !tbaa !98
+  %60 = getelementptr inbounds %struct.AutoMemEntry, ptr %58, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store i32 0, ptr %61, align 8, !tbaa !100
+  store ptr %23, ptr %60, align 8, !tbaa !98
   %62 = add nsw i32 %57, 1
   store i32 %62, ptr %44, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -9139,10 +9152,10 @@ define dso_local ptr @RM_RandomKey(ptr noundef captures(none) %0) #0 {
   %24 = phi i32 [ %12, %._crit_edge.i ], [ %.pre15.i, %16 ]
   %25 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %22, %16 ]
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds %struct.AutoMemEntry, ptr %25, i64 %26, i32 1
-  store i32 1, ptr %27, align 8, !tbaa !100
-  %28 = getelementptr inbounds %struct.AutoMemEntry, ptr %25, i64 %26
-  store ptr %6, ptr %28, align 8, !tbaa !98
+  %27 = getelementptr inbounds %struct.AutoMemEntry, ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i32 1, ptr %28, align 8, !tbaa !100
+  store ptr %6, ptr %27, align 8, !tbaa !98
   %29 = add nsw i32 %24, 1
   store i32 %29, ptr %11, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -9901,10 +9914,10 @@ define dso_local ptr @RM_ListPop(ptr noundef %0, i32 noundef %1) #0 {
   %52 = phi i32 [ %40, %._crit_edge.i ], [ %.pre15.i, %44 ]
   %53 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %50, %44 ]
   %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds %struct.AutoMemEntry, ptr %53, i64 %54, i32 1
-  store i32 1, ptr %55, align 8, !tbaa !100
-  %56 = getelementptr inbounds %struct.AutoMemEntry, ptr %53, i64 %54
-  store ptr %29, ptr %56, align 8, !tbaa !98
+  %55 = getelementptr inbounds %struct.AutoMemEntry, ptr %53, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i32 1, ptr %56, align 8, !tbaa !100
+  store ptr %29, ptr %55, align 8, !tbaa !98
   %57 = add nsw i32 %52, 1
   store i32 %57, ptr %39, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -9968,10 +9981,10 @@ define dso_local ptr @RM_ListGet(ptr noundef %0, i64 noundef %1) #0 {
   %26 = phi i32 [ %14, %._crit_edge.i ], [ %.pre15.i, %18 ]
   %27 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %24, %18 ]
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds %struct.AutoMemEntry, ptr %27, i64 %28, i32 1
-  store i32 1, ptr %29, align 8, !tbaa !100
-  %30 = getelementptr inbounds %struct.AutoMemEntry, ptr %27, i64 %28
-  store ptr %7, ptr %30, align 8, !tbaa !98
+  %29 = getelementptr inbounds %struct.AutoMemEntry, ptr %27, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i32 1, ptr %30, align 8, !tbaa !100
+  store ptr %7, ptr %29, align 8, !tbaa !98
   %31 = add nsw i32 %26, 1
   store i32 %31, ptr %13, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -10934,10 +10947,10 @@ sdslen.exit:                                      ; preds = %29, %35, %38, %42, 
   %74 = phi i32 [ %62, %._crit_edge.i ], [ %.pre15.i, %66 ]
   %75 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %72, %66 ]
   %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds %struct.AutoMemEntry, ptr %75, i64 %76, i32 1
-  store i32 1, ptr %77, align 8, !tbaa !100
-  %78 = getelementptr inbounds %struct.AutoMemEntry, ptr %75, i64 %76
-  store ptr %.023, ptr %78, align 8, !tbaa !98
+  %77 = getelementptr inbounds %struct.AutoMemEntry, ptr %75, i64 %76
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store i32 1, ptr %78, align 8, !tbaa !100
+  store ptr %.023, ptr %77, align 8, !tbaa !98
   %79 = add nsw i32 %74, 1
   store i32 %79, ptr %61, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -11719,10 +11732,10 @@ define dso_local range(i32 0, 2) i32 @RM_HashGet(ptr noundef readonly captures(n
   %96 = phi i32 [ %84, %._crit_edge.i.us.us ], [ %.pre15.i.us.us, %88 ]
   %97 = phi ptr [ %.pre.i.us.us, %._crit_edge.i.us.us ], [ %94, %88 ]
   %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds %struct.AutoMemEntry, ptr %97, i64 %98, i32 1
-  store i32 1, ptr %99, align 8, !tbaa !100
-  %100 = getelementptr inbounds %struct.AutoMemEntry, ptr %97, i64 %98
-  store ptr %75, ptr %100, align 8, !tbaa !98
+  %99 = getelementptr inbounds %struct.AutoMemEntry, ptr %97, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store i32 1, ptr %100, align 8, !tbaa !100
+  store ptr %75, ptr %99, align 8, !tbaa !98
   %101 = add nsw i32 %96, 1
   store i32 %101, ptr %83, align 4, !tbaa !96
   br label %autoMemoryAdd.exit.us.us
@@ -12632,10 +12645,10 @@ define dso_local range(i32 0, 2) i32 @RM_StreamIteratorNextField(ptr noundef cap
   %52 = phi i32 [ %40, %._crit_edge.i ], [ %.pre15.i, %44 ]
   %53 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %50, %44 ]
   %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds %struct.AutoMemEntry, ptr %53, i64 %54, i32 1
-  store i32 1, ptr %55, align 8, !tbaa !100
-  %56 = getelementptr inbounds %struct.AutoMemEntry, ptr %53, i64 %54
-  store ptr %33, ptr %56, align 8, !tbaa !98
+  %55 = getelementptr inbounds %struct.AutoMemEntry, ptr %53, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i32 1, ptr %56, align 8, !tbaa !100
+  store ptr %33, ptr %55, align 8, !tbaa !98
   %57 = add nsw i32 %52, 1
   store i32 %57, ptr %39, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -12686,10 +12699,10 @@ autoMemoryAdd.exit:                               ; preds = %51, %30, %29
   %80 = phi i32 [ %68, %._crit_edge.i27 ], [ %.pre15.i31, %72 ]
   %81 = phi ptr [ %.pre.i29, %._crit_edge.i27 ], [ %78, %72 ]
   %82 = sext i32 %80 to i64
-  %83 = getelementptr inbounds %struct.AutoMemEntry, ptr %81, i64 %82, i32 1
-  store i32 1, ptr %83, align 8, !tbaa !100
-  %84 = getelementptr inbounds %struct.AutoMemEntry, ptr %81, i64 %82
-  store ptr %61, ptr %84, align 8, !tbaa !98
+  %83 = getelementptr inbounds %struct.AutoMemEntry, ptr %81, i64 %82
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store i32 1, ptr %84, align 8, !tbaa !100
+  store ptr %61, ptr %83, align 8, !tbaa !98
   %85 = add nsw i32 %80, 1
   store i32 %85, ptr %67, align 4, !tbaa !96
   br label %autoMemoryAdd.exit32
@@ -13132,10 +13145,10 @@ define dso_local ptr @RM_CreateStringFromCallReply(ptr noundef %0) #0 {
   %28 = phi i32 [ %16, %._crit_edge.i.i ], [ %.pre15.i.i, %20 ]
   %29 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %26, %20 ]
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds %struct.AutoMemEntry, ptr %29, i64 %30, i32 1
-  store i32 1, ptr %31, align 8, !tbaa !100
-  %32 = getelementptr inbounds %struct.AutoMemEntry, ptr %29, i64 %30
-  store ptr %9, ptr %32, align 8, !tbaa !98
+  %31 = getelementptr inbounds %struct.AutoMemEntry, ptr %29, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i32 1, ptr %32, align 8, !tbaa !100
+  store ptr %9, ptr %31, align 8, !tbaa !98
   %33 = add nsw i32 %28, 1
   store i32 %33, ptr %15, align 4, !tbaa !96
   br label %RM_CreateString.exit
@@ -13186,10 +13199,10 @@ define dso_local ptr @RM_CreateStringFromCallReply(ptr noundef %0) #0 {
   %57 = phi i32 [ %45, %._crit_edge.i.i10 ], [ %.pre15.i.i14, %49 ]
   %58 = phi ptr [ %.pre.i.i12, %._crit_edge.i.i10 ], [ %55, %49 ]
   %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds %struct.AutoMemEntry, ptr %58, i64 %59, i32 1
-  store i32 1, ptr %60, align 8, !tbaa !100
-  %61 = getelementptr inbounds %struct.AutoMemEntry, ptr %58, i64 %59
-  store ptr %38, ptr %61, align 8, !tbaa !98
+  %60 = getelementptr inbounds %struct.AutoMemEntry, ptr %58, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store i32 1, ptr %61, align 8, !tbaa !100
+  store ptr %38, ptr %60, align 8, !tbaa !98
   %62 = add nsw i32 %57, 1
   store i32 %62, ptr %44, align 4, !tbaa !96
   br label %RM_CreateString.exit15
@@ -13943,10 +13956,10 @@ moduleAllocTempClient.exit:                       ; preds = %15, %22, %23
   %366 = phi i32 [ %354, %._crit_edge.i ], [ %.pre15.i, %358 ]
   %367 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %364, %358 ]
   %368 = sext i32 %366 to i64
-  %369 = getelementptr inbounds %struct.AutoMemEntry, ptr %367, i64 %368, i32 1
-  store i32 2, ptr %369, align 8, !tbaa !100
-  %370 = getelementptr inbounds %struct.AutoMemEntry, ptr %367, i64 %368
-  store ptr %.0171, ptr %370, align 8, !tbaa !98
+  %369 = getelementptr inbounds %struct.AutoMemEntry, ptr %367, i64 %368
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
+  store i32 2, ptr %370, align 8, !tbaa !100
+  store ptr %.0171, ptr %369, align 8, !tbaa !98
   %371 = add nsw i32 %366, 1
   store i32 %371, ptr %353, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -16155,10 +16168,10 @@ define dso_local ptr @RM_SaveDataTypeToString(ptr noundef captures(address_is_nu
   %43 = phi i32 [ %31, %._crit_edge.i ], [ %.pre15.i, %35 ]
   %44 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %41, %35 ]
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds %struct.AutoMemEntry, ptr %44, i64 %45, i32 1
-  store i32 1, ptr %46, align 8, !tbaa !100
-  %47 = getelementptr inbounds %struct.AutoMemEntry, ptr %44, i64 %45
-  store ptr %24, ptr %47, align 8, !tbaa !98
+  %46 = getelementptr inbounds %struct.AutoMemEntry, ptr %44, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store i32 1, ptr %47, align 8, !tbaa !100
+  store ptr %24, ptr %46, align 8, !tbaa !98
   %48 = add nsw i32 %43, 1
   store i32 %48, ptr %30, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -20096,10 +20109,10 @@ define dso_local range(i32 0, 2) i32 @RM_SetModuleUserACLString(ptr noundef capt
   %34 = phi i32 [ %22, %._crit_edge.i ], [ %.pre15.i, %26 ]
   %35 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %32, %26 ]
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.AutoMemEntry, ptr %35, i64 %36, i32 1
-  store i32 1, ptr %37, align 8, !tbaa !100
-  %38 = getelementptr inbounds %struct.AutoMemEntry, ptr %35, i64 %36
-  store ptr %15, ptr %38, align 8, !tbaa !98
+  %37 = getelementptr inbounds %struct.AutoMemEntry, ptr %35, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i32 1, ptr %38, align 8, !tbaa !100
+  store ptr %15, ptr %37, align 8, !tbaa !98
   %39 = add nsw i32 %34, 1
   store i32 %39, ptr %21, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -20234,10 +20247,10 @@ define dso_local ptr @RM_GetCurrentUserName(ptr noundef captures(none) %0) #0 {
   %54 = phi i32 [ %42, %._crit_edge.i.i ], [ %.pre15.i.i, %46 ]
   %55 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %52, %46 ]
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds %struct.AutoMemEntry, ptr %55, i64 %56, i32 1
-  store i32 1, ptr %57, align 8, !tbaa !100
-  %58 = getelementptr inbounds %struct.AutoMemEntry, ptr %55, i64 %56
-  store ptr %36, ptr %58, align 8, !tbaa !98
+  %57 = getelementptr inbounds %struct.AutoMemEntry, ptr %55, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store i32 1, ptr %58, align 8, !tbaa !100
+  store ptr %36, ptr %57, align 8, !tbaa !98
   %59 = add nsw i32 %54, 1
   store i32 %59, ptr %41, align 4, !tbaa !96
   br label %RM_CreateString.exit
@@ -20916,10 +20929,10 @@ connGetPeerCert.exit:                             ; preds = %5
   %32 = phi i32 [ %20, %._crit_edge.i ], [ %.pre15.i, %24 ]
   %33 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %30, %24 ]
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.AutoMemEntry, ptr %33, i64 %34, i32 1
-  store i32 1, ptr %35, align 8, !tbaa !100
-  %36 = getelementptr inbounds %struct.AutoMemEntry, ptr %33, i64 %34
-  store ptr %13, ptr %36, align 8, !tbaa !98
+  %35 = getelementptr inbounds %struct.AutoMemEntry, ptr %33, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i32 1, ptr %36, align 8, !tbaa !100
+  store ptr %13, ptr %35, align 8, !tbaa !98
   %37 = add nsw i32 %32, 1
   store i32 %37, ptr %19, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -20974,10 +20987,10 @@ define dso_local noundef ptr @RM_CreateDict(ptr noundef captures(address_is_null
   %22 = phi i32 [ %10, %._crit_edge.i ], [ %.pre15.i, %14 ]
   %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %20, %14 ]
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds %struct.AutoMemEntry, ptr %23, i64 %24, i32 1
-  store i32 4, ptr %25, align 8, !tbaa !100
-  %26 = getelementptr inbounds %struct.AutoMemEntry, ptr %23, i64 %24
-  store ptr %2, ptr %26, align 8, !tbaa !98
+  %25 = getelementptr inbounds %struct.AutoMemEntry, ptr %23, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i32 4, ptr %26, align 8, !tbaa !100
+  store ptr %2, ptr %25, align 8, !tbaa !98
   %27 = add nsw i32 %22, 1
   store i32 %27, ptr %9, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -21548,10 +21561,10 @@ RM_DictNextC.exit:                                ; preds = %6, %9
   %35 = phi i32 [ %23, %._crit_edge.i.i ], [ %.pre15.i.i, %27 ]
   %36 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %33, %27 ]
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds %struct.AutoMemEntry, ptr %36, i64 %37, i32 1
-  store i32 1, ptr %38, align 8, !tbaa !100
-  %39 = getelementptr inbounds %struct.AutoMemEntry, ptr %36, i64 %37
-  store ptr %16, ptr %39, align 8, !tbaa !98
+  %38 = getelementptr inbounds %struct.AutoMemEntry, ptr %36, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i32 1, ptr %39, align 8, !tbaa !100
+  store ptr %16, ptr %38, align 8, !tbaa !98
   %40 = add nsw i32 %35, 1
   store i32 %40, ptr %22, align 4, !tbaa !96
   br label %RM_CreateString.exit
@@ -21628,10 +21641,10 @@ RM_DictPrevC.exit:                                ; preds = %6, %9
   %35 = phi i32 [ %23, %._crit_edge.i.i ], [ %.pre15.i.i, %27 ]
   %36 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %33, %27 ]
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds %struct.AutoMemEntry, ptr %36, i64 %37, i32 1
-  store i32 1, ptr %38, align 8, !tbaa !100
-  %39 = getelementptr inbounds %struct.AutoMemEntry, ptr %36, i64 %37
-  store ptr %16, ptr %39, align 8, !tbaa !98
+  %38 = getelementptr inbounds %struct.AutoMemEntry, ptr %36, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i32 1, ptr %39, align 8, !tbaa !100
+  store ptr %16, ptr %38, align 8, !tbaa !98
   %40 = add nsw i32 %35, 1
   store i32 %40, ptr %22, align 4, !tbaa !96
   br label %RM_CreateString.exit
@@ -22443,10 +22456,10 @@ define dso_local noundef ptr @RM_GetServerInfo(ptr noundef captures(address_is_n
   %27 = phi i32 [ %15, %._crit_edge.i ], [ %.pre15.i, %19 ]
   %28 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %25, %19 ]
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29, i32 1
-  store i32 5, ptr %30, align 8, !tbaa !100
-  %31 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29
-  store ptr %7, ptr %31, align 8, !tbaa !98
+  %30 = getelementptr inbounds %struct.AutoMemEntry, ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i32 5, ptr %31, align 8, !tbaa !100
+  store ptr %7, ptr %30, align 8, !tbaa !98
   %32 = add nsw i32 %27, 1
   store i32 %32, ptr %14, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -22726,10 +22739,10 @@ sdslen.exit:                                      ; preds = %8, %14, %17, %21, %
   %51 = phi i32 [ %39, %._crit_edge.i ], [ %.pre15.i, %43 ]
   %52 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %49, %43 ]
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds %struct.AutoMemEntry, ptr %52, i64 %53, i32 1
-  store i32 1, ptr %54, align 8, !tbaa !100
-  %55 = getelementptr inbounds %struct.AutoMemEntry, ptr %52, i64 %53
-  store ptr %32, ptr %55, align 8, !tbaa !98
+  %54 = getelementptr inbounds %struct.AutoMemEntry, ptr %52, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i32 1, ptr %55, align 8, !tbaa !100
+  store ptr %32, ptr %54, align 8, !tbaa !98
   %56 = add nsw i32 %51, 1
   store i32 %56, ptr %38, align 4, !tbaa !96
   br label %autoMemoryAdd.exit
@@ -26662,14 +26675,14 @@ define dso_local range(i32 -1, 1) i32 @moduleFreeCommand(ptr noundef readnone ca
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !161
   %.not = icmp eq ptr %4, @RedisModuleCommandDispatcher
-  br i1 %.not, label %5, label %87
+  br i1 %.not, label %5, label %88
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %7 = load ptr, ptr %6, align 8, !tbaa !130
   %8 = load ptr, ptr %7, align 8, !tbaa !136
   %.not69 = icmp eq ptr %8, %0
-  br i1 %.not69, label %.preheader, label %87
+  br i1 %.not69, label %.preheader, label %88
 
 .preheader:                                       ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -26749,7 +26762,7 @@ define dso_local range(i32 -1, 1) i32 @moduleFreeCommand(ptr noundef readnone ca
 
 .lr.ph89:                                         ; preds = %.critedge, %55
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %55 ], [ 0, %.critedge ]
-  %42 = phi ptr [ %59, %55 ], [ %39, %.critedge ]
+  %42 = phi ptr [ %60, %55 ], [ %39, %.critedge ]
   %43 = getelementptr inbounds nuw %struct.commandHistory, ptr %42, i64 %indvars.iv101
   %44 = load ptr, ptr %43, align 8, !tbaa !190
   %.not73 = icmp eq ptr %44, null
@@ -26773,83 +26786,84 @@ define dso_local range(i32 -1, 1) i32 @moduleFreeCommand(ptr noundef readnone ca
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %54 = load ptr, ptr %53, align 8, !tbaa !646
   %.not74 = icmp eq ptr %54, null
-  br i1 %.not74, label %61, label %60
+  br i1 %.not74, label %62, label %61
 
 55:                                               ; preds = %.lr.ph89
   tail call void @zfree(ptr noundef nonnull %44) #35
   %56 = load ptr, ptr %38, align 8, !tbaa !202
-  %57 = getelementptr inbounds nuw %struct.commandHistory, ptr %56, i64 %indvars.iv101, i32 1
-  %58 = load ptr, ptr %57, align 8, !tbaa !192
-  tail call void @zfree(ptr noundef %58) #35
+  %57 = getelementptr inbounds nuw %struct.commandHistory, ptr %56, i64 %indvars.iv101
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !192
+  tail call void @zfree(ptr noundef %59) #35
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %59 = load ptr, ptr %38, align 8, !tbaa !202
-  %.not72 = icmp eq ptr %59, null
+  %60 = load ptr, ptr %38, align 8, !tbaa !202
+  %.not72 = icmp eq ptr %60, null
   br i1 %.not72, label %.critedge2, label %.lr.ph89, !llvm.loop !647
 
-60:                                               ; preds = %.critedge2
+61:                                               ; preds = %.critedge2
   tail call void @hdr_close(ptr noundef nonnull %54) #35
   store ptr null, ptr %53, align 8, !tbaa !646
-  br label %61
+  br label %62
 
-61:                                               ; preds = %60, %.critedge2
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %63 = load ptr, ptr %62, align 8, !tbaa !204
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %65 = load i32, ptr %64, align 8, !tbaa !218
-  tail call void @moduleFreeArgs(ptr noundef %63, i32 noundef %65)
+62:                                               ; preds = %61, %.critedge2
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %64 = load ptr, ptr %63, align 8, !tbaa !204
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %66 = load i32, ptr %65, align 8, !tbaa !218
+  tail call void @moduleFreeArgs(ptr noundef %64, i32 noundef %66)
   tail call void @zfree(ptr noundef nonnull %7) #35
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %67 = load ptr, ptr %66, align 8, !tbaa !173
-  %.not75 = icmp eq ptr %67, null
-  br i1 %.not75, label %87, label %68
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %68 = load ptr, ptr %67, align 8, !tbaa !173
+  %.not75 = icmp eq ptr %68, null
+  br i1 %.not75, label %88, label %69
 
-68:                                               ; preds = %61
-  %69 = tail call ptr @dictGetSafeIterator(ptr noundef nonnull %67) #35
-  %70 = tail call ptr @dictNext(ptr noundef %69) #35
-  %.not7693 = icmp eq ptr %70, null
+69:                                               ; preds = %62
+  %70 = tail call ptr @dictGetSafeIterator(ptr noundef nonnull %68) #35
+  %71 = tail call ptr @dictNext(ptr noundef %70) #35
+  %.not7693 = icmp eq ptr %71, null
   br i1 %.not7693, label %._crit_edge96, label %.lr.ph95
 
-.lr.ph95:                                         ; preds = %68, %84
-  %71 = phi ptr [ %85, %84 ], [ %70, %68 ]
-  %72 = tail call ptr @dictGetVal(ptr noundef nonnull %71) #35
-  %73 = tail call i32 @moduleFreeCommand(ptr noundef %0, ptr noundef %72)
-  %.not77 = icmp eq i32 %73, 0
-  br i1 %.not77, label %74, label %84, !llvm.loop !648
+.lr.ph95:                                         ; preds = %69, %85
+  %72 = phi ptr [ %86, %85 ], [ %71, %69 ]
+  %73 = tail call ptr @dictGetVal(ptr noundef nonnull %72) #35
+  %74 = tail call i32 @moduleFreeCommand(ptr noundef %0, ptr noundef %73)
+  %.not77 = icmp eq i32 %74, 0
+  br i1 %.not77, label %75, label %85, !llvm.loop !648
 
-74:                                               ; preds = %.lr.ph95
-  %75 = load ptr, ptr %66, align 8, !tbaa !173
-  %76 = load ptr, ptr %72, align 8, !tbaa !158
-  %77 = tail call i32 @dictDelete(ptr noundef %75, ptr noundef %76) #35
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %80, label %79, !prof !169
+75:                                               ; preds = %.lr.ph95
+  %76 = load ptr, ptr %67, align 8, !tbaa !173
+  %77 = load ptr, ptr %73, align 8, !tbaa !158
+  %78 = tail call i32 @dictDelete(ptr noundef %76, ptr noundef %77) #35
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %81, label %80, !prof !169
 
-79:                                               ; preds = %74
+80:                                               ; preds = %75
   tail call void @_serverAssert(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.2, i32 noundef 12352) #35
   tail call void @abort() #38
   unreachable
 
-80:                                               ; preds = %74
-  %81 = load ptr, ptr %72, align 8, !tbaa !158
-  tail call void @sdsfree(ptr noundef %81) #35
-  %82 = getelementptr inbounds nuw i8, ptr %72, i64 216
-  %83 = load ptr, ptr %82, align 8, !tbaa !159
-  tail call void @sdsfree(ptr noundef %83) #35
-  tail call void @zfree(ptr noundef nonnull %72) #35
-  br label %84
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %73, align 8, !tbaa !158
+  tail call void @sdsfree(ptr noundef %82) #35
+  %83 = getelementptr inbounds nuw i8, ptr %73, i64 216
+  %84 = load ptr, ptr %83, align 8, !tbaa !159
+  tail call void @sdsfree(ptr noundef %84) #35
+  tail call void @zfree(ptr noundef nonnull %73) #35
+  br label %85
 
-84:                                               ; preds = %.lr.ph95, %80
-  %85 = tail call ptr @dictNext(ptr noundef %69) #35
-  %.not76 = icmp eq ptr %85, null
+85:                                               ; preds = %.lr.ph95, %81
+  %86 = tail call ptr @dictNext(ptr noundef %70) #35
+  %.not76 = icmp eq ptr %86, null
   br i1 %.not76, label %._crit_edge96, label %.lr.ph95
 
-._crit_edge96:                                    ; preds = %84, %68
-  tail call void @dictReleaseIterator(ptr noundef %69) #35
-  %86 = load ptr, ptr %66, align 8, !tbaa !173
-  tail call void @dictRelease(ptr noundef %86) #35
-  br label %87
+._crit_edge96:                                    ; preds = %85, %69
+  tail call void @dictReleaseIterator(ptr noundef %70) #35
+  %87 = load ptr, ptr %67, align 8, !tbaa !173
+  tail call void @dictRelease(ptr noundef %87) #35
+  br label %88
 
-87:                                               ; preds = %5, %._crit_edge96, %61, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %5 ], [ 0, %._crit_edge96 ], [ 0, %61 ]
+88:                                               ; preds = %5, %._crit_edge96, %62, %2
+  %.0 = phi i32 [ -1, %2 ], [ -1, %5 ], [ 0, %._crit_edge96 ], [ 0, %62 ]
   ret i32 %.0
 }
 
@@ -29873,7 +29887,7 @@ define dso_local noalias ptr @RM_GetCommandKeysWithFlags(ptr readnone captures(n
   %50 = load i32, ptr %49, align 4, !tbaa !150
   %51 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   store i32 %50, ptr %51, align 4, !tbaa !22
-  %52 = getelementptr inbounds nuw %struct.keyReference, ptr %46, i64 %indvars.iv, i32 1
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !153
   %54 = sext i32 %53 to i64
   br label %55

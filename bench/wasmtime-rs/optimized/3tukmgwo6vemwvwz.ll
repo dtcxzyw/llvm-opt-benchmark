@@ -4127,9 +4127,9 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN16wasmtime_environ9co
 define noundef nonnull align 4 dereferenceable(20) ptr @_ZN16wasmtime_environ9component5types14ComponentTypes13canonical_abi17h063e1c6a01d42f23E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(360) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4, !range !342, !noundef !4
   switch i32 %3, label %default.unreachable21 [
-    i32 0, label %85
-    i32 1, label %85
-    i32 2, label %85
+    i32 0, label %92
+    i32 1, label %92
+    i32 2, label %92
     i32 3, label %4
     i32 4, label %4
     i32 5, label %5
@@ -4141,13 +4141,13 @@ define noundef nonnull align 4 dereferenceable(20) ptr @_ZN16wasmtime_environ9co
     i32 11, label %5
     i32 12, label %7
     i32 13, label %8
-    i32 14, label %19
+    i32 14, label %20
     i32 15, label %7
-    i32 16, label %30
-    i32 17, label %41
-    i32 18, label %52
-    i32 19, label %63
-    i32 20, label %74
+    i32 16, label %32
+    i32 17, label %44
+    i32 18, label %56
+    i32 19, label %68
+    i32 20, label %80
     i32 21, label %5
     i32 22, label %5
   ]
@@ -4156,16 +4156,16 @@ default.unreachable21:                            ; preds = %2
   unreachable
 
 4:                                                ; preds = %2, %2
-  br label %85
+  br label %92
 
 5:                                                ; preds = %2, %2, %2, %2, %2, %2
-  br label %85
+  br label %92
 
 6:                                                ; preds = %2, %2, %2
-  br label %85
+  br label %92
 
 7:                                                ; preds = %2, %2
-  br label %85
+  br label %92
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4184,131 +4184,138 @@ default.unreachable21:                            ; preds = %2
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hb597f315640840f9E.exit": ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %17 = load ptr, ptr %16, align 8, !alias.scope !343, !noalias !346, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, [1 x i32] }, ptr %17, i64 %11, i32 1
-  br label %85
+  %18 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, [1 x i32] }, ptr %17, i64 %11
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  br label %92
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !noundef !4
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %22 = load i32, ptr %21, align 4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %24 = load i64, ptr %23, align 8, !alias.scope !348, !noalias !351, !noundef !4
-  %25 = icmp ugt i64 %24, %22
-  br i1 %25, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2bd12d6ef42a8ec3E.exit", label %26, !prof !263
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %25 = load i64, ptr %24, align 8, !alias.scope !348, !noalias !351, !noundef !4
+  %26 = icmp ugt i64 %25, %23
+  br i1 %26, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2bd12d6ef42a8ec3E.exit", label %27, !prof !263
 
-26:                                               ; preds = %19
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %22, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.95.llvm.13863633964030799667) #23, !noalias !348
+27:                                               ; preds = %20
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %23, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.95.llvm.13863633964030799667) #23, !noalias !348
   unreachable
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2bd12d6ef42a8ec3E.exit": ; preds = %19
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %28 = load ptr, ptr %27, align 8, !alias.scope !348, !noalias !351, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %28, i64 %22, i32 1
-  br label %85
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2bd12d6ef42a8ec3E.exit": ; preds = %20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %29 = load ptr, ptr %28, align 8, !alias.scope !348, !noalias !351, !nonnull !4, !noundef !4
+  %30 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %29, i64 %23
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
+  br label %92
 
-30:                                               ; preds = %2
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %32 = load i32, ptr %31, align 4, !noundef !4
+32:                                               ; preds = %2
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %34 = load i32, ptr %33, align 4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !353)
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %35 = load i64, ptr %34, align 8, !alias.scope !353, !noalias !356, !noundef !4
-  %36 = icmp ugt i64 %35, %33
-  br i1 %36, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h4e5b7fbead0afbccE.exit", label %37, !prof !263
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %37 = load i64, ptr %36, align 8, !alias.scope !353, !noalias !356, !noundef !4
+  %38 = icmp ugt i64 %37, %35
+  br i1 %38, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h4e5b7fbead0afbccE.exit", label %39, !prof !263
 
-37:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %33, i64 noundef %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.97.llvm.13863633964030799667) #23, !noalias !353
+39:                                               ; preds = %32
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %35, i64 noundef %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.97.llvm.13863633964030799667) #23, !noalias !353
   unreachable
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h4e5b7fbead0afbccE.exit": ; preds = %30
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %39 = load ptr, ptr %38, align 8, !alias.scope !353, !noalias !356, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, [1 x i32] }, ptr %39, i64 %33, i32 1
-  br label %85
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h4e5b7fbead0afbccE.exit": ; preds = %32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %41 = load ptr, ptr %40, align 8, !alias.scope !353, !noalias !356, !nonnull !4, !noundef !4
+  %42 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, [1 x i32] }, ptr %41, i64 %35
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  br label %92
 
-41:                                               ; preds = %2
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %43 = load i32, ptr %42, align 4, !noundef !4
+44:                                               ; preds = %2
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %46 = load i32, ptr %45, align 4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !358)
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %46 = load i64, ptr %45, align 8, !alias.scope !358, !noalias !361, !noundef !4
-  %47 = icmp ugt i64 %46, %44
-  br i1 %47, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hd56b341f8076845bE.exit", label %48, !prof !263
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %49 = load i64, ptr %48, align 8, !alias.scope !358, !noalias !361, !noundef !4
+  %50 = icmp ugt i64 %49, %47
+  br i1 %50, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hd56b341f8076845bE.exit", label %51, !prof !263
 
-48:                                               ; preds = %41
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %44, i64 noundef %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.98.llvm.13863633964030799667) #23, !noalias !358
+51:                                               ; preds = %44
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %47, i64 noundef %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.98.llvm.13863633964030799667) #23, !noalias !358
   unreachable
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hd56b341f8076845bE.exit": ; preds = %41
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %50 = load ptr, ptr %49, align 8, !alias.scope !358, !noalias !361, !nonnull !4, !noundef !4
-  %51 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } } }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, [1 x i32] }, ptr %50, i64 %44, i32 1
-  br label %85
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hd56b341f8076845bE.exit": ; preds = %44
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %53 = load ptr, ptr %52, align 8, !alias.scope !358, !noalias !361, !nonnull !4, !noundef !4
+  %54 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } } }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, [1 x i32] }, ptr %53, i64 %47
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  br label %92
 
-52:                                               ; preds = %2
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %54 = load i32, ptr %53, align 4, !noundef !4
+56:                                               ; preds = %2
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %58 = load i32, ptr %57, align 4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !363)
-  %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %57 = load i64, ptr %56, align 8, !alias.scope !363, !noalias !366, !noundef !4
-  %58 = icmp ugt i64 %57, %55
-  br i1 %58, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h32eae88a23e97de3E.exit", label %59, !prof !263
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %61 = load i64, ptr %60, align 8, !alias.scope !363, !noalias !366, !noundef !4
+  %62 = icmp ugt i64 %61, %59
+  br i1 %62, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h32eae88a23e97de3E.exit", label %63, !prof !263
 
-59:                                               ; preds = %52
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %55, i64 noundef %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.99.llvm.13863633964030799667) #23, !noalias !363
+63:                                               ; preds = %56
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %59, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.99.llvm.13863633964030799667) #23, !noalias !363
   unreachable
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h32eae88a23e97de3E.exit": ; preds = %52
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %61 = load ptr, ptr %60, align 8, !alias.scope !363, !noalias !366, !nonnull !4, !noundef !4
-  %62 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } } }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %61, i64 %55, i32 1
-  br label %85
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h32eae88a23e97de3E.exit": ; preds = %56
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %65 = load ptr, ptr %64, align 8, !alias.scope !363, !noalias !366, !nonnull !4, !noundef !4
+  %66 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } } }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %65, i64 %59
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 72
+  br label %92
 
-63:                                               ; preds = %2
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %65 = load i32, ptr %64, align 4, !noundef !4
+68:                                               ; preds = %2
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %70 = load i32, ptr %69, align 4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %68 = load i64, ptr %67, align 8, !alias.scope !368, !noalias !371, !noundef !4
-  %69 = icmp ugt i64 %68, %66
-  br i1 %69, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h8732d9a0e123099aE.exit", label %70, !prof !263
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %73 = load i64, ptr %72, align 8, !alias.scope !368, !noalias !371, !noundef !4
+  %74 = icmp ugt i64 %73, %71
+  br i1 %74, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h8732d9a0e123099aE.exit", label %75, !prof !263
 
-70:                                               ; preds = %63
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %66, i64 noundef %68, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.100.llvm.13863633964030799667) #23, !noalias !368
+75:                                               ; preds = %68
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %71, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.100.llvm.13863633964030799667) #23, !noalias !368
   unreachable
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h8732d9a0e123099aE.exit": ; preds = %63
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %72 = load ptr, ptr %71, align 8, !alias.scope !368, !noalias !371, !nonnull !4, !noundef !4
-  %73 = getelementptr inbounds nuw { { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %72, i64 %66, i32 1
-  br label %85
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h8732d9a0e123099aE.exit": ; preds = %68
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %77 = load ptr, ptr %76, align 8, !alias.scope !368, !noalias !371, !nonnull !4, !noundef !4
+  %78 = getelementptr inbounds nuw { { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %77, i64 %71
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  br label %92
 
-74:                                               ; preds = %2
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %76 = load i32, ptr %75, align 4, !noundef !4
+80:                                               ; preds = %2
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %82 = load i32, ptr %81, align 4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !373)
-  %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %79 = load i64, ptr %78, align 8, !alias.scope !373, !noalias !376, !noundef !4
-  %80 = icmp ugt i64 %79, %77
-  br i1 %80, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17ha68e11316b2a3d95E.exit", label %81, !prof !263
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %85 = load i64, ptr %84, align 8, !alias.scope !373, !noalias !376, !noundef !4
+  %86 = icmp ugt i64 %85, %83
+  br i1 %86, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17ha68e11316b2a3d95E.exit", label %87, !prof !263
 
-81:                                               ; preds = %74
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %77, i64 noundef %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.101.llvm.13863633964030799667) #23, !noalias !373
+87:                                               ; preds = %80
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %83, i64 noundef %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.101.llvm.13863633964030799667) #23, !noalias !373
   unreachable
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17ha68e11316b2a3d95E.exit": ; preds = %74
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %83 = load ptr, ptr %82, align 8, !alias.scope !373, !noalias !376, !nonnull !4, !noundef !4
-  %84 = getelementptr inbounds nuw { { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %83, i64 %77, i32 2
-  br label %85
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17ha68e11316b2a3d95E.exit": ; preds = %80
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %89 = load ptr, ptr %88, align 8, !alias.scope !373, !noalias !376, !nonnull !4, !noundef !4
+  %90 = getelementptr inbounds nuw { { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %89, i64 %83
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  br label %92
 
-85:                                               ; preds = %2, %2, %2, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17ha68e11316b2a3d95E.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h8732d9a0e123099aE.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h32eae88a23e97de3E.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hd56b341f8076845bE.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h4e5b7fbead0afbccE.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2bd12d6ef42a8ec3E.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hb597f315640840f9E.exit", %7, %6, %5, %4
-  %.0 = phi ptr [ @anon.232e22e09a4c41574f60338730f76634.92.llvm.13863633964030799667, %4 ], [ @anon.232e22e09a4c41574f60338730f76634.93.llvm.13863633964030799667, %6 ], [ %18, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hb597f315640840f9E.exit" ], [ %29, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2bd12d6ef42a8ec3E.exit" ], [ @anon.232e22e09a4c41574f60338730f76634.96.llvm.13863633964030799667, %7 ], [ %40, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h4e5b7fbead0afbccE.exit" ], [ %51, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hd56b341f8076845bE.exit" ], [ %62, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h32eae88a23e97de3E.exit" ], [ %73, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h8732d9a0e123099aE.exit" ], [ %84, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17ha68e11316b2a3d95E.exit" ], [ @anon.232e22e09a4c41574f60338730f76634.102.llvm.13863633964030799667, %5 ], [ @anon.232e22e09a4c41574f60338730f76634.91.llvm.13863633964030799667, %2 ], [ @anon.232e22e09a4c41574f60338730f76634.91.llvm.13863633964030799667, %2 ], [ @anon.232e22e09a4c41574f60338730f76634.91.llvm.13863633964030799667, %2 ]
+92:                                               ; preds = %2, %2, %2, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17ha68e11316b2a3d95E.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h8732d9a0e123099aE.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h32eae88a23e97de3E.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hd56b341f8076845bE.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h4e5b7fbead0afbccE.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2bd12d6ef42a8ec3E.exit", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hb597f315640840f9E.exit", %7, %6, %5, %4
+  %.0 = phi ptr [ @anon.232e22e09a4c41574f60338730f76634.92.llvm.13863633964030799667, %4 ], [ @anon.232e22e09a4c41574f60338730f76634.93.llvm.13863633964030799667, %6 ], [ %19, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hb597f315640840f9E.exit" ], [ %31, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2bd12d6ef42a8ec3E.exit" ], [ @anon.232e22e09a4c41574f60338730f76634.96.llvm.13863633964030799667, %7 ], [ %43, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h4e5b7fbead0afbccE.exit" ], [ %55, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hd56b341f8076845bE.exit" ], [ %67, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h32eae88a23e97de3E.exit" ], [ %79, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h8732d9a0e123099aE.exit" ], [ %91, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17ha68e11316b2a3d95E.exit" ], [ @anon.232e22e09a4c41574f60338730f76634.102.llvm.13863633964030799667, %5 ], [ @anon.232e22e09a4c41574f60338730f76634.91.llvm.13863633964030799667, %2 ], [ @anon.232e22e09a4c41574f60338730f76634.91.llvm.13863633964030799667, %2 ], [ @anon.232e22e09a4c41574f60338730f76634.91.llvm.13863633964030799667, %2 ]
   ret ptr %.0
 }
 

@@ -124,19 +124,19 @@ define void @_ZN6LibRaw7exp_befEff(ptr noundef nonnull align 8 dereferenceable(7
   %72 = getelementptr inbounds nuw i16, ptr %6, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !6
   store i16 %73, ptr %69, align 2, !tbaa !6
-  %74 = getelementptr inbounds nuw [4 x i16], ptr %64, i64 %indvars.iv107, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %75 = load i16, ptr %74, align 2, !tbaa !6
   %76 = zext i16 %75 to i64
   %77 = getelementptr inbounds nuw i16, ptr %6, i64 %76
   %78 = load i16, ptr %77, align 2, !tbaa !6
   store i16 %78, ptr %74, align 2, !tbaa !6
-  %79 = getelementptr inbounds nuw [4 x i16], ptr %64, i64 %indvars.iv107, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %80 = load i16, ptr %79, align 2, !tbaa !6
   %81 = zext i16 %80 to i64
   %82 = getelementptr inbounds nuw i16, ptr %6, i64 %81
   %83 = load i16, ptr %82, align 2, !tbaa !6
   store i16 %83, ptr %79, align 2, !tbaa !6
-  %84 = getelementptr inbounds nuw [4 x i16], ptr %64, i64 %indvars.iv107, i64 3
+  %84 = getelementptr inbounds nuw i8, ptr %69, i64 6
   %85 = load i16, ptr %84, align 2, !tbaa !6
   %86 = zext i16 %85 to i64
   %87 = getelementptr inbounds nuw i16, ptr %6, i64 %86
@@ -219,7 +219,7 @@ define void @_ZN6LibRaw19convert_to_rgb_loopEPA4_f(ptr noundef nonnull readonly 
 
 .preheader113.us.preheader:                       ; preds = %.preheader113.lr.ph.split.us
   %19 = add nsw i32 %15, -1
-  %20 = zext i32 %19 to i64
+  %20 = zext nneg i32 %19 to i64
   %21 = shl nuw nsw i64 %20, 3
   br label %.preheader113.us
 

@@ -990,7 +990,8 @@ if.end8:                                          ; preds = %if.end
   %7 = load ptr, ptr %Sprites.i, align 8, !tbaa !37
   %add.ptr.i.i38 = getelementptr inbounds nuw %"struct.irr::gui::SGUISprite", ptr %7, i64 %conv.i26.i
   %8 = load ptr, ptr %add.ptr.i.i38, align 8, !tbaa !39
-  %rectNumber = getelementptr inbounds nuw %"struct.irr::gui::SGUISpriteFrame", ptr %8, i64 %conv.i35, i32 1
+  %rectNumber.split = getelementptr inbounds nuw %"struct.irr::gui::SGUISpriteFrame", ptr %8, i64 %conv.i35
+  %rectNumber = getelementptr inbounds nuw i8, ptr %rectNumber.split, i64 4
   %9 = load i32, ptr %rectNumber, align 4, !tbaa !73
   %Rectangles = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1117,7 +1118,8 @@ if.end7:                                          ; preds = %if.end
   %7 = load ptr, ptr %Sprites.i, align 8, !tbaa !37
   %add.ptr.i.i28 = getelementptr inbounds nuw %"struct.irr::gui::SGUISprite", ptr %7, i64 %conv.i26.i
   %8 = load ptr, ptr %add.ptr.i.i28, align 8, !tbaa !39
-  %rectNumber = getelementptr inbounds nuw %"struct.irr::gui::SGUISpriteFrame", ptr %8, i64 %conv.i25, i32 1
+  %rectNumber.split = getelementptr inbounds nuw %"struct.irr::gui::SGUISpriteFrame", ptr %8, i64 %conv.i25
+  %rectNumber = getelementptr inbounds nuw i8, ptr %rectNumber.split, i64 4
   %9 = load i32, ptr %rectNumber, align 4, !tbaa !73
   %Rectangles = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1490,8 +1492,9 @@ _ZNSt12_Vector_baseIN3irr4core8vector2dIiEESaIS3_EE13_M_deallocateEPS3_m.exit.i.
 
 _ZN3irr4core5arrayINS0_8vector2dIiEEE10reallocateEjb.exit: ; preds = %_ZNSt12_Vector_baseIN3irr4core8vector2dIiEESaIS3_EE13_M_deallocateEPS3_m.exit.i.i, %if.else.i, %if.then.i
   %49 = load ptr, ptr %drawBatches, align 8, !tbaa !110
-  %sourceRects = getelementptr inbounds nuw %"struct.irr::gui::CGUISpriteBank::SDrawBatch", ptr %49, i64 %indvars.iv, i32 1
-  %_M_end_of_storage.i.i153 = getelementptr inbounds nuw i8, ptr %sourceRects, i64 16
+  %sourceRects.split = getelementptr inbounds nuw %"struct.irr::gui::CGUISpriteBank::SDrawBatch", ptr %49, i64 %indvars.iv
+  %sourceRects = getelementptr inbounds nuw i8, ptr %sourceRects.split, i64 32
+  %_M_end_of_storage.i.i153 = getelementptr inbounds nuw i8, ptr %sourceRects.split, i64 48
   %50 = load ptr, ptr %_M_end_of_storage.i.i153, align 8, !tbaa !51
   %51 = load ptr, ptr %sourceRects, align 8, !tbaa !36
   %sub.ptr.lhs.cast.i.i154 = ptrtoint ptr %50 to i64
@@ -1510,7 +1513,7 @@ if.else.i160:                                     ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp3.i.i161, label %_ZNSt12_Vector_baseIN3irr4core4rectIiEESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayINS0_4rectIiEEE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIN3irr4core4rectIiEESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i160
-  %_M_finish.i.i.i162 = getelementptr inbounds nuw i8, ptr %sourceRects, i64 8
+  %_M_finish.i.i.i162 = getelementptr inbounds nuw i8, ptr %sourceRects.split, i64 40
   %52 = load ptr, ptr %_M_finish.i.i.i162, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i30.i.i163 = ptrtoint ptr %52 to i64
   %sub.ptr.sub.i32.i.i164 = sub i64 %sub.ptr.lhs.cast.i30.i.i163, %sub.ptr.rhs.cast.i.i155

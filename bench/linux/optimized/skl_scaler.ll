@@ -620,7 +620,8 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr noundef rea
   %78 = getelementptr inbounds nuw i8, ptr %59, i64 1228
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
-  %81 = getelementptr %struct.__drm_planes_state, ptr %77, i64 %80, i32 3
+  %.split = getelementptr %struct.__drm_planes_state, ptr %77, i64 %80
+  %81 = getelementptr i8, ptr %.split, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 392
   br label %84

@@ -23204,40 +23204,42 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$$u5b$$LP$usize$C$std..thread
   br label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit"
 
 "_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit": ; preds = %4, %2
-  %.0 = phi i64 [ 0, %2 ], [ %5, %4 ]
+  %.0 = phi i64 [ 0, %2 ], [ %6, %4 ]
   %3 = icmp eq i64 %.0, %1
-  br i1 %3, label %7, label %4
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit"
-  %5 = add i64 %.0, 1
-  %6 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %0, i64 %.0, i32 1
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit" unwind label %9
+  %5 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %0, i64 %.0
+  %6 = add i64 %.0, 1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit" unwind label %10
 
-7:                                                ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit"
+8:                                                ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit"
   ret void
 
-"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7": ; preds = %11, %9
-  %.1 = phi i64 [ %5, %9 ], [ %12, %11 ]
-  %8 = icmp eq i64 %.1, %1
-  br i1 %8, label %14, label %11
+"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7": ; preds = %12, %10
+  %.1 = phi i64 [ %6, %10 ], [ %14, %12 ]
+  %9 = icmp eq i64 %.1, %1
+  br i1 %9, label %16, label %12
 
-9:                                                ; preds = %4
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %4
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7"
 
-11:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7"
-  %12 = add i64 %.1, 1
-  %13 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %0, i64 %.1, i32 1
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
-          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7" unwind label %15
+12:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7"
+  %13 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %0, i64 %.1
+  %14 = add i64 %.1, 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
+          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7" unwind label %17
 
-14:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7"
-  resume { ptr, i32 } %10
+16:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7"
+  resume { ptr, i32 } %11
 
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %12
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
@@ -25114,34 +25116,36 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize
   br label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i.i"
 
 "_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i.i": ; preds = %7, %1
-  %.0.i.i = phi i64 [ 0, %1 ], [ %8, %7 ]
+  %.0.i.i = phi i64 [ 0, %1 ], [ %9, %7 ]
   %6 = icmp eq i64 %.0.i.i, %5
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9b1700a7f6d3cceaE.llvm.700930863383756518.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i.i"
-  %8 = add i64 %.0.i.i, 1
-  %9 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.0.i.i, i32 1
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i.i" unwind label %11, !noalias !10849
+  %8 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.0.i.i
+  %9 = add i64 %.0.i.i, 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i.i" unwind label %12, !noalias !10849
 
-"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i.i": ; preds = %13, %11
-  %.1.i.i = phi i64 [ %8, %11 ], [ %14, %13 ]
-  %10 = icmp eq i64 %.1.i.i, %5
-  br i1 %10, label %.body, label %13
+"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i.i": ; preds = %14, %12
+  %.1.i.i = phi i64 [ %9, %12 ], [ %16, %14 ]
+  %11 = icmp eq i64 %.1.i.i, %5
+  br i1 %11, label %.body, label %14
 
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i.i"
 
-13:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i.i"
-  %14 = add i64 %.1.i.i, 1
-  %15 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.1.i.i, i32 1
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
-          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i.i" unwind label %16, !noalias !10849
+14:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i.i"
+  %15 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.1.i.i
+  %16 = add i64 %.1.i.i, 1
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i.i" unwind label %18, !noalias !10849
 
-16:                                               ; preds = %13
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %14
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33, !noalias !10849
   unreachable
@@ -25149,32 +25153,32 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize
 .body:                                            ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10852)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10855)
-  %18 = load i64, ptr %0, align 8, !alias.scope !10858, !noalias !10861, !noundef !4
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h94844272279b6b64E.llvm.700930863383756518.exit", label %20
+  %20 = load i64, ptr %0, align 8, !alias.scope !10858, !noalias !10861, !noundef !4
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h94844272279b6b64E.llvm.700930863383756518.exit", label %22
 
-20:                                               ; preds = %.body
-  %21 = shl nuw i64 %18, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %21, i64 noundef 8) #30, !noalias !10863
+22:                                               ; preds = %.body
+  %23 = shl nuw i64 %20, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %23, i64 noundef 8) #30, !noalias !10863
   br label %"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h94844272279b6b64E.llvm.700930863383756518.exit"
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9b1700a7f6d3cceaE.llvm.700930863383756518.exit": ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10864)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10867)
-  %22 = load i64, ptr %0, align 8, !alias.scope !10870, !noalias !10873, !noundef !4
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h94844272279b6b64E.llvm.700930863383756518.exit1", label %24
+  %24 = load i64, ptr %0, align 8, !alias.scope !10870, !noalias !10873, !noundef !4
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h94844272279b6b64E.llvm.700930863383756518.exit1", label %26
 
-24:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9b1700a7f6d3cceaE.llvm.700930863383756518.exit"
-  %25 = shl nuw i64 %22, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %25, i64 noundef 8) #30, !noalias !10875
+26:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9b1700a7f6d3cceaE.llvm.700930863383756518.exit"
+  %27 = shl nuw i64 %24, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %27, i64 noundef 8) #30, !noalias !10875
   br label %"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h94844272279b6b64E.llvm.700930863383756518.exit1"
 
-"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h94844272279b6b64E.llvm.700930863383756518.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9b1700a7f6d3cceaE.llvm.700930863383756518.exit", %24
+"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h94844272279b6b64E.llvm.700930863383756518.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9b1700a7f6d3cceaE.llvm.700930863383756518.exit", %26
   ret void
 
-"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h94844272279b6b64E.llvm.700930863383756518.exit": ; preds = %20, %.body
-  resume { ptr, i32 } %12
+"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h94844272279b6b64E.llvm.700930863383756518.exit": ; preds = %22, %.body
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26703,37 +26707,39 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i"
 
 "_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i": ; preds = %7, %1
-  %.0.i = phi i64 [ 0, %1 ], [ %8, %7 ]
+  %.0.i = phi i64 [ 0, %1 ], [ %9, %7 ]
   %6 = icmp eq i64 %.0.i, %5
   br i1 %6, label %"_ZN4core3ptr86drop_in_place$LT$$u5b$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$u5d$$GT$17h6751919edd6d4dd3E.llvm.700930863383756518.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i"
-  %8 = add i64 %.0.i, 1
-  %9 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.0.i, i32 1
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i" unwind label %11
+  %8 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.0.i
+  %9 = add i64 %.0.i, 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i" unwind label %12
 
-"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i": ; preds = %13, %11
-  %.1.i = phi i64 [ %8, %11 ], [ %14, %13 ]
-  %10 = icmp eq i64 %.1.i, %5
-  br i1 %10, label %16, label %13
+"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i": ; preds = %14, %12
+  %.1.i = phi i64 [ %9, %12 ], [ %16, %14 ]
+  %11 = icmp eq i64 %.1.i, %5
+  br i1 %11, label %18, label %14
 
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i"
 
-13:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i"
-  %14 = add i64 %.1.i, 1
-  %15 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.1.i, i32 1
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
-          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i" unwind label %17
+14:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i"
+  %15 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.1.i
+  %16 = add i64 %.1.i, 1
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
+          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i" unwind label %19
 
-16:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i"
-  resume { ptr, i32 } %12
+18:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i"
+  resume { ptr, i32 } %13
 
-17:                                               ; preds = %13
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
@@ -29367,55 +29373,57 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br label %"_ZN4core3ptr209drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$C$alloc..alloc..Global$GT$$GT$17h86d6eb88a8b096b9E.llvm.700930863383756518.exit"
 
 "_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i": ; preds = %17, %1
-  %.0.i = phi i64 [ 0, %1 ], [ %18, %17 ]
+  %.0.i = phi i64 [ 0, %1 ], [ %19, %17 ]
   %16 = icmp eq i64 %.0.i, %9
   br i1 %16, label %"_ZN4core3ptr86drop_in_place$LT$$u5b$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$u5d$$GT$17h6751919edd6d4dd3E.llvm.700930863383756518.exit", label %17
 
 17:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i"
-  %18 = add nuw nsw i64 %.0.i, 1
-  %19 = getelementptr inbounds nuw { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.0.i, i32 1
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i" unwind label %21
+  %18 = getelementptr inbounds nuw { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.0.i
+  %19 = add nuw nsw i64 %.0.i, 1
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
+          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i" unwind label %22
 
-"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i": ; preds = %23, %21
-  %.1.i = phi i64 [ %18, %21 ], [ %24, %23 ]
-  %20 = icmp eq i64 %.1.i, %9
-  br i1 %20, label %.body, label %23
+"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i": ; preds = %24, %22
+  %.1.i = phi i64 [ %19, %22 ], [ %26, %24 ]
+  %21 = icmp eq i64 %.1.i, %9
+  br i1 %21, label %.body, label %24
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i"
 
-23:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i"
-  %24 = add i64 %.1.i, 1
-  %25 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.1.i, i32 1
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25)
-          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i" unwind label %26
+24:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i"
+  %25 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %3, i64 %.1.i
+  %26 = add i64 %.1.i, 1
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17hb1e423b4ede2e2faE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
+          to label %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit7.i" unwind label %28
 
-26:                                               ; preds = %23
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %24
+  %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
 
 "_ZN4core3ptr86drop_in_place$LT$$u5b$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$u5d$$GT$17h6751919edd6d4dd3E.llvm.700930863383756518.exit": ; preds = %"_ZN4core3ptr76drop_in_place$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$GT$17hbb0b54a97b5af02aE.llvm.700930863383756518.exit.i"
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !noalias !11129, !noundef !4
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %"_ZN4core3ptr209drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$C$alloc..alloc..Global$GT$$GT$17h86d6eb88a8b096b9E.llvm.700930863383756518.exit1", label %31
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load i64, ptr %30, align 8, !noalias !11129, !noundef !4
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %"_ZN4core3ptr209drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$C$alloc..alloc..Global$GT$$GT$17h86d6eb88a8b096b9E.llvm.700930863383756518.exit1", label %33
 
-31:                                               ; preds = %"_ZN4core3ptr86drop_in_place$LT$$u5b$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$u5d$$GT$17h6751919edd6d4dd3E.llvm.700930863383756518.exit"
-  %32 = load ptr, ptr %0, align 8, !noalias !11129, !nonnull !4, !noundef !4
-  %33 = shl nuw i64 %29, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %33, i64 noundef 8) #30, !noalias !11134
+33:                                               ; preds = %"_ZN4core3ptr86drop_in_place$LT$$u5b$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$u5d$$GT$17h6751919edd6d4dd3E.llvm.700930863383756518.exit"
+  %34 = load ptr, ptr %0, align 8, !noalias !11129, !nonnull !4, !noundef !4
+  %35 = shl nuw i64 %31, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef %35, i64 noundef 8) #30, !noalias !11134
   br label %"_ZN4core3ptr209drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$C$alloc..alloc..Global$GT$$GT$17h86d6eb88a8b096b9E.llvm.700930863383756518.exit1"
 
-"_ZN4core3ptr209drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$C$alloc..alloc..Global$GT$$GT$17h86d6eb88a8b096b9E.llvm.700930863383756518.exit1": ; preds = %"_ZN4core3ptr86drop_in_place$LT$$u5b$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$u5d$$GT$17h6751919edd6d4dd3E.llvm.700930863383756518.exit", %31
+"_ZN4core3ptr209drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$C$alloc..alloc..Global$GT$$GT$17h86d6eb88a8b096b9E.llvm.700930863383756518.exit1": ; preds = %"_ZN4core3ptr86drop_in_place$LT$$u5b$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$u5d$$GT$17h6751919edd6d4dd3E.llvm.700930863383756518.exit", %33
   ret void
 
 "_ZN4core3ptr209drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$usize$C$std..thread..JoinHandle$LT$$LP$$RP$$GT$$RP$$C$alloc..alloc..Global$GT$$GT$17h86d6eb88a8b096b9E.llvm.700930863383756518.exit": ; preds = %13, %.body
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

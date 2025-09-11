@@ -1716,19 +1716,20 @@ Vec_WrdErase.exit21.i:                            ; preds = %23, %Vec_WrdErase.e
   %29 = zext nneg i32 %26 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %33
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %33 ], [ 0, %.lr.ph.i.i.preheader ]
-  %30 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i, i64 %indvars.iv.i.i, i32 2
-  %31 = load ptr, ptr %30, align 8, !tbaa !20
-  %.not15.i.i = icmp eq ptr %31, null
-  br i1 %.not15.i.i, label %33, label %32
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %34
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %34 ], [ 0, %.lr.ph.i.i.preheader ]
+  %30 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !20
+  %.not15.i.i = icmp eq ptr %32, null
+  br i1 %.not15.i.i, label %34, label %33
 
-32:                                               ; preds = %.lr.ph.i.i
-  call void @free(ptr noundef nonnull %31) #16
-  store ptr null, ptr %30, align 8, !tbaa !20
-  br label %33
+33:                                               ; preds = %.lr.ph.i.i
+  call void @free(ptr noundef nonnull %32) #16
+  store ptr null, ptr %31, align 8, !tbaa !20
+  br label %34
 
-33:                                               ; preds = %32, %.lr.ph.i.i
+34:                                               ; preds = %33, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %29
   br i1 %exitcond.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !58
@@ -1737,80 +1738,81 @@ Vec_WrdErase.exit21.i:                            ; preds = %23, %Vec_WrdErase.e
   %.not.i22.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i22.i, label %Vec_WecErase.exit.i, label %._crit_edge.thread.i.i
 
-._crit_edge.thread.i.i:                           ; preds = %33, %._crit_edge.i.i
+._crit_edge.thread.i.i:                           ; preds = %34, %._crit_edge.i.i
   call void @free(ptr noundef nonnull %.pre.i.i) #16
   store ptr null, ptr %28, align 8, !tbaa !17
   br label %Vec_WecErase.exit.i
 
 Vec_WecErase.exit.i:                              ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 108
-  store i32 0, ptr %34, align 4, !tbaa !16
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %36 = load i32, ptr %35, align 8, !tbaa !55
-  %37 = icmp sgt i32 %36, 0
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %.pre.i23.i = load ptr, ptr %38, align 8, !tbaa !17
-  br i1 %37, label %.lr.ph.i27.i.preheader, label %._crit_edge.i24.i
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 108
+  store i32 0, ptr %35, align 4, !tbaa !16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %37 = load i32, ptr %36, align 8, !tbaa !55
+  %38 = icmp sgt i32 %37, 0
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %.pre.i23.i = load ptr, ptr %39, align 8, !tbaa !17
+  br i1 %38, label %.lr.ph.i27.i.preheader, label %._crit_edge.i24.i
 
 .lr.ph.i27.i.preheader:                           ; preds = %Vec_WecErase.exit.i
-  %39 = zext nneg i32 %36 to i64
+  %40 = zext nneg i32 %37 to i64
   br label %.lr.ph.i27.i
 
-.lr.ph.i27.i:                                     ; preds = %.lr.ph.i27.i.preheader, %43
-  %indvars.iv.i28.i = phi i64 [ %indvars.iv.next.i31.i, %43 ], [ 0, %.lr.ph.i27.i.preheader ]
-  %40 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i23.i, i64 %indvars.iv.i28.i, i32 2
-  %41 = load ptr, ptr %40, align 8, !tbaa !20
-  %.not15.i29.i = icmp eq ptr %41, null
-  br i1 %.not15.i29.i, label %43, label %42
+.lr.ph.i27.i:                                     ; preds = %.lr.ph.i27.i.preheader, %45
+  %indvars.iv.i28.i = phi i64 [ %indvars.iv.next.i31.i, %45 ], [ 0, %.lr.ph.i27.i.preheader ]
+  %41 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i23.i, i64 %indvars.iv.i28.i
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !20
+  %.not15.i29.i = icmp eq ptr %43, null
+  br i1 %.not15.i29.i, label %45, label %44
 
-42:                                               ; preds = %.lr.ph.i27.i
-  call void @free(ptr noundef nonnull %41) #16
-  store ptr null, ptr %40, align 8, !tbaa !20
-  br label %43
+44:                                               ; preds = %.lr.ph.i27.i
+  call void @free(ptr noundef nonnull %43) #16
+  store ptr null, ptr %42, align 8, !tbaa !20
+  br label %45
 
-43:                                               ; preds = %42, %.lr.ph.i27.i
+45:                                               ; preds = %44, %.lr.ph.i27.i
   %indvars.iv.next.i31.i = add nuw nsw i64 %indvars.iv.i28.i, 1
-  %exitcond3.not = icmp eq i64 %indvars.iv.next.i31.i, %39
+  %exitcond3.not = icmp eq i64 %indvars.iv.next.i31.i, %40
   br i1 %exitcond3.not, label %._crit_edge.thread.i26.i, label %.lr.ph.i27.i, !llvm.loop !58
 
 ._crit_edge.i24.i:                                ; preds = %Vec_WecErase.exit.i
   %.not.i25.i = icmp eq ptr %.pre.i23.i, null
   br i1 %.not.i25.i, label %Vec_WecErase.exit32.i, label %._crit_edge.thread.i26.i
 
-._crit_edge.thread.i26.i:                         ; preds = %43, %._crit_edge.i24.i
+._crit_edge.thread.i26.i:                         ; preds = %45, %._crit_edge.i24.i
   call void @free(ptr noundef nonnull %.pre.i23.i) #16
   br label %Vec_WecErase.exit32.i
 
 Vec_WecErase.exit32.i:                            ; preds = %._crit_edge.thread.i26.i, %._crit_edge.i24.i
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %45 = load ptr, ptr %44, align 8, !tbaa !20
-  %.not.i33.i = icmp eq ptr %45, null
-  br i1 %.not.i33.i, label %Vec_IntErase.exit34.i, label %46
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %47 = load ptr, ptr %46, align 8, !tbaa !20
+  %.not.i33.i = icmp eq ptr %47, null
+  br i1 %.not.i33.i, label %Vec_IntErase.exit34.i, label %48
 
-46:                                               ; preds = %Vec_WecErase.exit32.i
-  call void @free(ptr noundef nonnull %45) #16
+48:                                               ; preds = %Vec_WecErase.exit32.i
+  call void @free(ptr noundef nonnull %47) #16
   br label %Vec_IntErase.exit34.i
 
-Vec_IntErase.exit34.i:                            ; preds = %46, %Vec_WecErase.exit32.i
-  %47 = load ptr, ptr %3, align 8, !tbaa !26
-  %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %49, label %48
+Vec_IntErase.exit34.i:                            ; preds = %48, %Vec_WecErase.exit32.i
+  %49 = load ptr, ptr %3, align 8, !tbaa !26
+  %.not.i = icmp eq ptr %49, null
+  br i1 %.not.i, label %51, label %50
 
-48:                                               ; preds = %Vec_IntErase.exit34.i
-  call void @free(ptr noundef nonnull %47) #16
-  br label %49
+50:                                               ; preds = %Vec_IntErase.exit34.i
+  call void @free(ptr noundef nonnull %49) #16
+  br label %51
 
-49:                                               ; preds = %48, %Vec_IntErase.exit34.i
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !50
-  %.not16.i = icmp eq ptr %51, null
-  br i1 %.not16.i, label %Pla_ManFree.exit, label %52
+51:                                               ; preds = %50, %Vec_IntErase.exit34.i
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !50
+  %.not16.i = icmp eq ptr %53, null
+  br i1 %.not16.i, label %Pla_ManFree.exit, label %54
 
-52:                                               ; preds = %49
-  call void @free(ptr noundef nonnull %51) #16
+54:                                               ; preds = %51
+  call void @free(ptr noundef nonnull %53) #16
   br label %Pla_ManFree.exit
 
-Pla_ManFree.exit:                                 ; preds = %49, %52
+Pla_ManFree.exit:                                 ; preds = %51, %54
   call void @free(ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1

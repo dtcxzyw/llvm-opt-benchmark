@@ -59,8 +59,9 @@ define i32 @ff_codec_guid_get_id(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph19
-  %7 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr %0, i64 %indvars.iv.next, i32 1
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull dereferenceable(16) %1, i64 16)
+  %7 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr %0, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %8, ptr noundef nonnull dereferenceable(16) %1, i64 16)
   %.not9 = icmp eq i32 %bcmp, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph19, !llvm.loop !9
 
@@ -361,7 +362,7 @@ ff_wav_codec_get_id.exit.i:                       ; preds = %117, %107
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
-  %125 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr @ff_codec_wav_guids, i64 %indvars.iv.next.i.i, i32 1
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %125, ptr noundef nonnull readonly dereferenceable(16) %6, i64 16)
   %.not9.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not9.i.i, label %ff_codec_guid_get_id.exit.i, label %.lr.ph.i, !llvm.loop !9

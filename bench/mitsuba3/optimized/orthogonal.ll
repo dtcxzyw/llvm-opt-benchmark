@@ -575,7 +575,7 @@ _ZN5drjit3powIjjEENS_6detail14replace_scalarINS1_7deepestIJT_T0_EE4typeENS1_4exp
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %36
-  %.023.i = phi i32 [ %1, %36 ], [ %spec.select.i68, %.critedge.i ]
+  %.023.i = phi i32 [ %1, %36 ], [ %81, %.critedge.i ]
   %.017.i67 = phi i8 [ %6, %36 ], [ 1, %.critedge.i ]
   %54 = xor i32 %.023.i, %3
   %55 = mul i32 %54, -512718531
@@ -718,7 +718,7 @@ _ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE9eval_
   br label %.critedge.i74
 
 .critedge.i74:                                    ; preds = %.critedge.i74, %124
-  %.023.i75 = phi i32 [ %125, %124 ], [ %spec.select.i77, %.critedge.i74 ]
+  %.023.i75 = phi i32 [ %125, %124 ], [ %170, %.critedge.i74 ]
   %.017.i76 = phi i8 [ %6, %124 ], [ 1, %.critedge.i74 ]
   %143 = xor i32 %.023.i75, %122
   %144 = mul i32 %143, -512718531
@@ -790,7 +790,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit80:
   br label %.critedge.i81
 
 .critedge.i81:                                    ; preds = %.critedge.i81, %180
-  %.023.i82 = phi i32 [ %182, %180 ], [ %spec.select.i84, %.critedge.i81 ]
+  %.023.i82 = phi i32 [ %182, %180 ], [ %227, %.critedge.i81 ]
   %.017.i83 = phi i8 [ %6, %180 ], [ 1, %.critedge.i81 ]
   %200 = xor i32 %.023.i82, %178
   %201 = mul i32 %200, -512718531
@@ -918,7 +918,7 @@ define weak_odr noundef float @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %10
-  %.023.i = phi i32 [ %11, %10 ], [ %spec.select.i, %.critedge.i ]
+  %.023.i = phi i32 [ %11, %10 ], [ %56, %.critedge.i ]
   %.017.i = phi i8 [ %6, %10 ], [ 1, %.critedge.i ]
   %29 = xor i32 %.023.i, %3
   %30 = mul i32 %29, -512718531
@@ -1034,7 +1034,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ;
   br label %.critedge.i102
 
 .critedge.i102:                                   ; preds = %.critedge.i102, %98
-  %.023.i103 = phi i32 [ %.1142, %98 ], [ %spec.select.i105, %.critedge.i102 ]
+  %.023.i103 = phi i32 [ %.1142, %98 ], [ %147, %.critedge.i102 ]
   %.017.i104 = phi i8 [ %6, %98 ], [ 1, %.critedge.i102 ]
   %120 = xor i32 %.023.i103, %96
   %121 = mul i32 %120, -512718531
@@ -1082,7 +1082,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ;
   br label %.critedge.i109
 
 .critedge.i109:                                   ; preds = %.critedge.i109, %151
-  %.023.i110 = phi i32 [ %.1136, %151 ], [ %spec.select.i112, %.critedge.i109 ]
+  %.023.i110 = phi i32 [ %.1136, %151 ], [ %186, %.critedge.i109 ]
   %.017.i111 = phi i8 [ %6, %151 ], [ 1, %.critedge.i109 ]
   %159 = xor i32 %.023.i110, %152
   %160 = mul i32 %159, -512718531

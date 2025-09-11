@@ -1658,22 +1658,22 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
           to label %475 unwind label %.loopexit.split-lp.i.loopexit.split-lp.loopexit.split-lp.i, !noalias !13
 
 475:                                              ; preds = %473
-  %476 = getelementptr inbounds nuw %class.QImage, ptr %464, i64 %indvars.iv.i.i, i32 1
-  %477 = load ptr, ptr %476, align 8, !noalias !13
-  %478 = load ptr, ptr %40, align 8, !noalias !13
-  store ptr %478, ptr %476, align 8, !noalias !13
-  store ptr %477, ptr %40, align 8, !noalias !13
+  %476 = getelementptr inbounds nuw %class.QImage, ptr %464, i64 %indvars.iv.i.i
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 24
+  %478 = load ptr, ptr %477, align 8, !noalias !13
+  %479 = load ptr, ptr %40, align 8, !noalias !13
+  store ptr %479, ptr %477, align 8, !noalias !13
+  store ptr %478, ptr %40, align 8, !noalias !13
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28, !noalias !13
-  %479 = getelementptr inbounds nuw %class.QImage, ptr %464, i64 %indvars.iv.i.i
-  invoke void @_ZN6QImage4fillEj(ptr noundef nonnull align 8 dereferenceable(32) %479, i32 noundef -2147418368)
+  invoke void @_ZN6QImage4fillEj(ptr noundef nonnull align 8 dereferenceable(32) %476, i32 noundef -2147418368)
           to label %.invoke.i.i unwind label %.loopexit.split-lp.i.loopexit.split-lp.loopexit.split-lp.i, !noalias !13
 
 .invoke.i.i:                                      ; preds = %475
   %480 = shl nsw i32 %.031.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
-  %481 = getelementptr i8, ptr %479, i64 -32
+  %481 = getelementptr i8, ptr %476, i64 -32
   %482 = select i1 %.not.i.i, ptr %346, ptr %481
-  %483 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %479)
+  %483 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %476)
           to label %.noexc106.i unwind label %.loopexit.split-lp.i.loopexit.split-lp.loopexit.split-lp.i, !noalias !13
 
 .noexc106.i:                                      ; preds = %.invoke.i.i
@@ -1682,7 +1682,7 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
 
 .preheader.i.i:                                   ; preds = %.noexc106.i, %.noexc118.i
   %.054.i.i = phi i32 [ %578, %.noexc118.i ], [ 0, %.noexc106.i ]
-  %485 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %479)
+  %485 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %476)
           to label %.noexc107.i unwind label %.loopexit.split-lp.i.loopexit.split-lp.loopexit.i, !noalias !13
 
 .noexc107.i:                                      ; preds = %.preheader.i.i
@@ -1811,11 +1811,11 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
   %571 = or disjoint i32 %568, %570
   %572 = and i32 %552, 255
   %573 = or disjoint i32 %571, %572
-  invoke void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %479, i32 noundef %.04453.i.i, i32 noundef %.054.i.i, i32 noundef %573)
+  invoke void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %476, i32 noundef %.04453.i.i, i32 noundef %.054.i.i, i32 noundef %573)
           to label %.noexc116.i unwind label %.loopexit.split-lp.i.loopexit.i, !noalias !13
 
 .noexc116.i:                                      ; preds = %.noexc115.i, %.noexc111.i
-  %574 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %479)
+  %574 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %476)
           to label %.noexc117.i unwind label %.loopexit.split-lp.i.loopexit.i, !noalias !13
 
 .noexc117.i:                                      ; preds = %.noexc116.i
@@ -1824,7 +1824,7 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
   br i1 %576, label %489, label %._crit_edge.i103.i, !llvm.loop !28
 
 ._crit_edge.i103.i:                               ; preds = %.noexc117.i, %.noexc107.i
-  %577 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %479)
+  %577 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %476)
           to label %.noexc118.i unwind label %.loopexit.split-lp.i.loopexit.split-lp.loopexit.i, !noalias !13
 
 .noexc118.i:                                      ; preds = %._crit_edge.i103.i
@@ -1875,7 +1875,7 @@ _ZNSt6vectorI6QImageSaIS0_EED2Ev.exit:            ; preds = %.lr.ph.i.i.i.i53
   br label %.body99.i
 
 _ZN3vcgL11PullPushMipER6QImageS1_j.exit.i:        ; preds = %.noexc118.i, %.noexc106.i
-  %583 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %479)
+  %583 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %476)
           to label %584 unwind label %.loopexit.split-lp.i.loopexit.split-lp.loopexit.split-lp.i, !noalias !13
 
 584:                                              ; preds = %_ZN3vcgL11PullPushMipER6QImageS1_j.exit.i
@@ -1883,7 +1883,7 @@ _ZN3vcgL11PullPushMipER6QImageS1_j.exit.i:        ; preds = %.noexc118.i, %.noex
   br i1 %585, label %.lr.ph.preheader.i.i, label %586
 
 586:                                              ; preds = %584
-  %587 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %479)
+  %587 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %476)
           to label %588 unwind label %.loopexit.split-lp.i.loopexit.split-lp.loopexit.split-lp.i, !noalias !13
 
 588:                                              ; preds = %586

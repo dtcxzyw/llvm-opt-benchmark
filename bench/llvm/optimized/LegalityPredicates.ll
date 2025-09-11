@@ -4111,15 +4111,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val3 = load ptr, ptr %4, align 8, !tbaa !71
   %5 = zext i32 %.val to i64
-  %6 = getelementptr inbounds nuw %"struct.llvm::LegalityQuery::MemDesc", ptr %.val3, i64 %5, i32 2
-  %7 = load i32, ptr %6, align 8, !tbaa !131
-  %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %8
-  %10 = zext i32 %.val2 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !132, !range !134, !noundef !135
-  %13 = trunc nuw i8 %12 to i1
-  ret i1 %13
+  %6 = getelementptr inbounds nuw %"struct.llvm::LegalityQuery::MemDesc", ptr %.val3, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load i32, ptr %7, align 8, !tbaa !131
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 %9
+  %11 = zext i32 %.val2 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
+  %13 = load i8, ptr %12, align 1, !tbaa !132, !range !134, !noundef !135
+  %14 = trunc nuw i8 %13 to i1
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

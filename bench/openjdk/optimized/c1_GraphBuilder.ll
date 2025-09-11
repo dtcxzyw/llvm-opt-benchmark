@@ -3231,83 +3231,84 @@ _ZN16BlockListBuilder16make_loop_headerEP10BlockBegin.exit: ; preds = %29, %25, 
   %83 = load i32, ptr %74, align 4
   %84 = load ptr, ptr %76, align 8
   %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds %class.BlockList, ptr %84, i64 %85, i32 0, i32 0, i32 0, i32 1
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv.next
-  %89 = load ptr, ptr %88, align 8
-  %90 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN16BlockListBuilder10mark_loopsEP10BlockBeginb(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %89, i1 noundef zeroext %spec.select)
-  call void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %90) #19
-  %91 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  %86 = getelementptr inbounds %class.BlockList, ptr %84, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv.next
+  %90 = load ptr, ptr %89, align 8
+  %91 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN16BlockListBuilder10mark_loopsEP10BlockBeginb(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %90, i1 noundef zeroext %spec.select)
+  call void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %91) #19
+  %92 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %48
-  %92 = xor i64 %17, -1
-  %93 = load ptr, ptr %54, align 8
-  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %13
-  %95 = load i64, ptr %94, align 8
-  %96 = and i64 %95, %92
-  store i64 %96, ptr %94, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i32 %98, ptr %99, align 8
-  %100 = add nsw i32 %98, -1
-  store i32 %100, ptr %97, align 4
-  %101 = call noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
-  %.not = xor i1 %101, true
+  %93 = xor i64 %17, -1
+  %94 = load ptr, ptr %54, align 8
+  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %13
+  %96 = load i64, ptr %95, align 8
+  %97 = and i64 %96, %93
+  store i64 %97, ptr %95, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %99 = load i32, ptr %98, align 4
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i32 %99, ptr %100, align 8
+  %101 = add nsw i32 %99, -1
+  store i32 %101, ptr %98, align 4
+  %102 = call noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
+  %.not = xor i1 %102, true
   %or.cond = or i1 %spec.select, %.not
-  br i1 %or.cond, label %102, label %107
+  br i1 %or.cond, label %103, label %108
 
-102:                                              ; preds = %._crit_edge
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 80
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  call void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(16) %106) #19
-  br label %107
+103:                                              ; preds = %._crit_edge
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  call void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %107) #19
+  br label %108
 
-107:                                              ; preds = %._crit_edge, %102
-  %108 = load i32, ptr %49, align 4
-  %109 = and i32 %108, 128
-  %.not33 = icmp eq i32 %109, 0
-  br i1 %.not33, label %114, label %110
+108:                                              ; preds = %._crit_edge, %103
+  %109 = load i32, ptr %49, align 4
+  %110 = and i32 %109, 128
+  %.not33 = icmp eq i32 %110, 0
+  br i1 %.not33, label %115, label %111
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds %class.ResourceBitMap, ptr %112, i64 %11
-  call void @_ZN6BitMap14set_differenceERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %113) #19
-  br label %114
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds %class.ResourceBitMap, ptr %113, i64 %11
+  call void @_ZN6BitMap14set_differenceERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %114) #19
+  br label %115
 
-114:                                              ; preds = %110, %107
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds %class.ResourceBitMap, ptr %116, i64 %11
-  call void @_ZN6BitMap8set_fromERKS_(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
-  %118 = load ptr, ptr %115, align 8
-  %119 = getelementptr inbounds %class.ResourceBitMap, ptr %118, i64 %11
-  %120 = load ptr, ptr %64, align 8
-  %.not.i.i.i.i = icmp eq ptr %120, null
-  br i1 %.not.i.i.i.i, label %122, label %121
+115:                                              ; preds = %111, %108
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds %class.ResourceBitMap, ptr %117, i64 %11
+  call void @_ZN6BitMap8set_fromERKS_(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
+  %119 = load ptr, ptr %116, align 8
+  %120 = getelementptr inbounds %class.ResourceBitMap, ptr %119, i64 %11
+  %121 = load ptr, ptr %64, align 8
+  %.not.i.i.i.i = icmp eq ptr %121, null
+  br i1 %.not.i.i.i.i, label %123, label %122
 
-121:                                              ; preds = %114
+122:                                              ; preds = %115
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %62, i64 noundef %70) #19
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %64) #19
-  br label %122
+  br label %123
 
-122:                                              ; preds = %121, %114
-  %123 = load ptr, ptr %65, align 8
-  %.not8.i.i.i.i = icmp eq ptr %123, %66
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %124
+123:                                              ; preds = %122, %115
+  %124 = load ptr, ptr %65, align 8
+  %.not8.i.i.i.i = icmp eq ptr %124, %66
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %125
 
-124:                                              ; preds = %122
+125:                                              ; preds = %123
   store ptr %64, ptr %63, align 8
   store ptr %66, ptr %65, align 8
   store ptr %68, ptr %67, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %124, %122, %_ZN16BlockListBuilder16make_loop_headerEP10BlockBegin.exit
-  %.0 = phi ptr [ %47, %_ZN16BlockListBuilder16make_loop_headerEP10BlockBegin.exit ], [ %119, %122 ], [ %119, %124 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %125, %123, %_ZN16BlockListBuilder16make_loop_headerEP10BlockBegin.exit
+  %.0 = phi ptr [ %47, %_ZN16BlockListBuilder16make_loop_headerEP10BlockBegin.exit ], [ %120, %123 ], [ %120, %125 ]
   ret ptr %.0
 }
 

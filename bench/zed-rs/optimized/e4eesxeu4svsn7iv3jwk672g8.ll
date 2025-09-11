@@ -2570,7 +2570,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   unreachable
 
 82:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h84cae1ccc5366c5aE.exit.i.i"
-  %83 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { { i64, [2 x i64] } } }, ptr %34, i64 %38, i32 2
+  %83 = getelementptr inbounds nuw i8, ptr %40, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !312)
   %84 = load i64, ptr %83, align 8, !range !84, !alias.scope !315, !noundef !11
@@ -2586,16 +2586,16 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   br i1 %87, label %"_ZN4core3ptr42drop_in_place$LT$client..ProxySettings$GT$17h966da811cdafcbc9E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i": ; preds = %86
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %89 = load ptr, ptr %88, align 8, !alias.scope !328, !noalias !331, !nonnull !11, !noundef !11
   tail call void @__rust_dealloc(ptr noundef nonnull %89, i64 noundef %84, i64 noundef 1) #39, !noalias !333
   br label %"_ZN4core3ptr42drop_in_place$LT$client..ProxySettings$GT$17h966da811cdafcbc9E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$client..ProxySettings$GT$17h966da811cdafcbc9E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i", %86, %82
   store i64 %.sroa.0.0.copyload, ptr %83, align 8
-  %.sroa.6.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %.sroa.6.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr %.sroa.7.0.copyload, ptr %.sroa.6.0..sroa_idx45, align 8
-  %.sroa.847.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %.sroa.847.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i64 %.sroa.8.0.copyload, ptr %.sroa.847.0..sroa_idx48, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
@@ -2861,9 +2861,9 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   unreachable
 
 91:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h04b0903c5d67ca48E.exit.i.i"
-  %92 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { i8, i8 }, [6 x i8] }, ptr %38, i64 %42, i32 2
+  %92 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i8 %34, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %44, i64 25
   store i8 %36, ptr %93, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !413)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
@@ -3108,7 +3108,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   unreachable
 
 83:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h6768f06647d91dd9E.exit.i.i"
-  %84 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { { { { i64, ptr, {} }, i64 } } } }, ptr %35, i64 %39, i32 2
+  %84 = getelementptr inbounds nuw i8, ptr %41, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !472)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
@@ -3119,16 +3119,16 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   br i1 %86, label %"_ZN4core3ptr43drop_in_place$LT$client..ClientSettings$GT$17h36a6892d43a3a089E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i": ; preds = %83
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %88 = load ptr, ptr %87, align 8, !alias.scope !487, !noalias !490, !nonnull !11, !noundef !11
   tail call void @__rust_dealloc(ptr noundef nonnull %88, i64 noundef %85, i64 noundef 1) #39, !noalias !492
   br label %"_ZN4core3ptr43drop_in_place$LT$client..ClientSettings$GT$17h36a6892d43a3a089E.exit"
 
 "_ZN4core3ptr43drop_in_place$LT$client..ClientSettings$GT$17h36a6892d43a3a089E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i", %83
   store i64 %.sroa.0.0.copyload, ptr %84, align 8
-  %.sroa.6.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %.sroa.6.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %.sroa.7.0.copyload, ptr %.sroa.6.0..sroa_idx45, align 8
-  %.sroa.847.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %.sroa.847.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store i64 %.sroa.8.0.copyload, ptr %.sroa.847.0..sroa_idx48, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !493)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !496)

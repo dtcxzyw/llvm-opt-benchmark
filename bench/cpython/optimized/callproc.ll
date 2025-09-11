@@ -1769,30 +1769,31 @@ GetResult.exit:                                   ; preds = %185, %183, %Py_DECR
   br label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %Py_XDECREF.exit
-  %.2134 = phi i64 [ %199, %Py_XDECREF.exit ], [ 0, %.lr.ph135.preheader ]
-  %191 = getelementptr %struct.argument, ptr %18, i64 %.2134, i32 1
-  %192 = load ptr, ptr %191, align 8, !tbaa !48
-  %.not.i117 = icmp eq ptr %192, null
-  br i1 %.not.i117, label %Py_XDECREF.exit, label %193
+  %.2134 = phi i64 [ %200, %Py_XDECREF.exit ], [ 0, %.lr.ph135.preheader ]
+  %191 = getelementptr %struct.argument, ptr %18, i64 %.2134
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  %193 = load ptr, ptr %192, align 8, !tbaa !48
+  %.not.i117 = icmp eq ptr %193, null
+  br i1 %.not.i117, label %Py_XDECREF.exit, label %194
 
-193:                                              ; preds = %.lr.ph135
-  %194 = load i32, ptr %192, align 8, !tbaa !11
-  %.not.i.i118 = icmp sgt i32 %194, -1
-  br i1 %.not.i.i118, label %195, label %Py_XDECREF.exit
+194:                                              ; preds = %.lr.ph135
+  %195 = load i32, ptr %193, align 8, !tbaa !11
+  %.not.i.i118 = icmp sgt i32 %195, -1
+  br i1 %.not.i.i118, label %196, label %Py_XDECREF.exit
 
-195:                                              ; preds = %193
-  %196 = add nsw i32 %194, -1
-  store i32 %196, ptr %192, align 8, !tbaa !11
-  %197 = icmp eq i32 %196, 0
-  br i1 %197, label %198, label %Py_XDECREF.exit
+196:                                              ; preds = %194
+  %197 = add nsw i32 %195, -1
+  store i32 %197, ptr %193, align 8, !tbaa !11
+  %198 = icmp eq i32 %197, 0
+  br i1 %198, label %199, label %Py_XDECREF.exit
 
-198:                                              ; preds = %195
-  call void @_Py_Dealloc(ptr noundef nonnull %192) #10
+199:                                              ; preds = %196
+  call void @_Py_Dealloc(ptr noundef nonnull %193) #10
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %.lr.ph135, %193, %195, %198
-  %199 = add nuw nsw i64 %.2134, 1
-  %exitcond146.not = icmp eq i64 %199, %.val
+Py_XDECREF.exit:                                  ; preds = %.lr.ph135, %194, %196, %199
+  %200 = add nuw nsw i64 %.2134, 1
+  %exitcond146.not = icmp eq i64 %200, %.val
   br i1 %exitcond146.not, label %.loopexit, label %.lr.ph135, !llvm.loop !49
 
 .loopexit:                                        ; preds = %Py_XDECREF.exit, %188, %152, %139, %_call_function_pointer.exit.thread, %GetResult.exit, %12

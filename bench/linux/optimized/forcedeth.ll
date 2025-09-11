@@ -6180,23 +6180,27 @@ define internal fastcc void @nv_drain_rxtx(ptr noundef captures(none) %0) unname
   br i1 %14, label %20, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr %struct.ring_desc, ptr %15, i64 %11, i32 1
+  %.split = getelementptr %struct.ring_desc, ptr %15, i64 %11
+  %17 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr %struct.ring_desc, ptr %18, i64 %11
   br label %28
 
 20:                                               ; preds = %10
-  %21 = getelementptr %struct.ring_desc_ex, ptr %15, i64 %11, i32 3
+  %.split2 = getelementptr %struct.ring_desc_ex, ptr %15, i64 %11
+  %21 = getelementptr i8, ptr %.split2, i64 12
   store i32 0, ptr %21, align 4
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr %struct.ring_desc_ex, ptr %22, i64 %11, i32 2
+  %.split3 = getelementptr %struct.ring_desc_ex, ptr %22, i64 %11
+  %23 = getelementptr i8, ptr %.split3, i64 8
   store i32 0, ptr %23, align 4
   %24 = load ptr, ptr %7, align 8
   %25 = getelementptr %struct.ring_desc_ex, ptr %24, i64 %11
   store i32 0, ptr %25, align 4
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr %struct.ring_desc_ex, ptr %26, i64 %11, i32 1
+  %.split4 = getelementptr %struct.ring_desc_ex, ptr %26, i64 %11
+  %27 = getelementptr i8, ptr %.split4, i64 4
   br label %28
 
 28:                                               ; preds = %20, %16
@@ -6290,23 +6294,27 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_init_ring(ptr noundef ini
   br i1 %29, label %35, label %31
 
 31:                                               ; preds = %.preheader
-  %32 = getelementptr %struct.ring_desc, ptr %30, i64 %26, i32 1
+  %.split = getelementptr %struct.ring_desc, ptr %30, i64 %26
+  %32 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %32, align 4
   %33 = load ptr, ptr %3, align 8
   %34 = getelementptr %struct.ring_desc, ptr %33, i64 %26
   br label %43
 
 35:                                               ; preds = %.preheader
-  %36 = getelementptr %struct.ring_desc_ex, ptr %30, i64 %26, i32 3
+  %.split1 = getelementptr %struct.ring_desc_ex, ptr %30, i64 %26
+  %36 = getelementptr i8, ptr %.split1, i64 12
   store i32 0, ptr %36, align 4
   %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr %struct.ring_desc_ex, ptr %37, i64 %26, i32 2
+  %.split2 = getelementptr %struct.ring_desc_ex, ptr %37, i64 %26
+  %38 = getelementptr i8, ptr %.split2, i64 8
   store i32 0, ptr %38, align 4
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr %struct.ring_desc_ex, ptr %39, i64 %26
   store i32 0, ptr %40, align 4
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr %struct.ring_desc_ex, ptr %41, i64 %26, i32 1
+  %.split3 = getelementptr %struct.ring_desc_ex, ptr %41, i64 %26
+  %42 = getelementptr i8, ptr %.split3, i64 4
   br label %43
 
 43:                                               ; preds = %35, %31
@@ -6316,7 +6324,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_init_ring(ptr noundef ini
   %46 = getelementptr %struct.nv_skb_map, ptr %45, i64 %26
   store ptr null, ptr %46, align 8
   %47 = load ptr, ptr %19, align 8
-  %48 = getelementptr %struct.nv_skb_map, ptr %47, i64 %26, i32 1
+  %.split4 = getelementptr %struct.nv_skb_map, ptr %47, i64 %26
+  %48 = getelementptr i8, ptr %.split4, i64 8
   store i64 0, ptr %48, align 8
   %49 = add nuw nsw i64 %26, 1
   %50 = load i32, ptr %11, align 4
@@ -6326,11 +6335,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_init_ring(ptr noundef ini
 
 .loopexit.loopexit:                               ; preds = %43
   %.pre = load i32, ptr %6, align 8
-  %.pre1 = add i32 %.pre, -3
+  %.pre5 = add i32 %.pre, -3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %1
-  %.pre-phi = phi i32 [ %.pre1, %.loopexit.loopexit ], [ %8, %1 ]
+  %.pre-phi = phi i32 [ %.pre5, %.loopexit.loopexit ], [ %8, %1 ]
   %53 = icmp ult i32 %.pre-phi, -2
   br i1 %53, label %56, label %54
 
@@ -6984,23 +6993,27 @@ define internal fastcc void @nv_drain_tx(ptr noundef captures(none) %0) unnamed_
   br i1 %15, label %21, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr %struct.ring_desc, ptr %16, i64 %12, i32 1
+  %.split = getelementptr %struct.ring_desc, ptr %16, i64 %12
+  %18 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %18, align 4
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr %struct.ring_desc, ptr %19, i64 %12
   br label %29
 
 21:                                               ; preds = %11
-  %22 = getelementptr %struct.ring_desc_ex, ptr %16, i64 %12, i32 3
+  %.split3 = getelementptr %struct.ring_desc_ex, ptr %16, i64 %12
+  %22 = getelementptr i8, ptr %.split3, i64 12
   store i32 0, ptr %22, align 4
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr %struct.ring_desc_ex, ptr %23, i64 %12, i32 2
+  %.split4 = getelementptr %struct.ring_desc_ex, ptr %23, i64 %12
+  %24 = getelementptr i8, ptr %.split4, i64 8
   store i32 0, ptr %24, align 4
   %25 = load ptr, ptr %7, align 8
   %26 = getelementptr %struct.ring_desc_ex, ptr %25, i64 %12
   store i32 0, ptr %26, align 4
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr %struct.ring_desc_ex, ptr %27, i64 %12, i32 1
+  %.split5 = getelementptr %struct.ring_desc_ex, ptr %27, i64 %12
+  %28 = getelementptr i8, ptr %.split5, i64 4
   br label %29
 
 29:                                               ; preds = %21, %17
@@ -7039,23 +7052,28 @@ define internal fastcc void @nv_drain_tx(ptr noundef captures(none) %0) unnamed_
 
 49:                                               ; preds = %46, %43
   %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr %struct.nv_skb_map, ptr %50, i64 %12, i32 1
+  %.split6 = getelementptr %struct.nv_skb_map, ptr %50, i64 %12
+  %51 = getelementptr i8, ptr %.split6, i64 8
   store i64 0, ptr %51, align 8
   %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr %struct.nv_skb_map, ptr %52, i64 %12, i32 2
+  %.split7 = getelementptr %struct.nv_skb_map, ptr %52, i64 %12
+  %53 = getelementptr i8, ptr %.split7, i64 16
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, -2147483648
   store i32 %55, ptr %53, align 8
   %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr %struct.nv_skb_map, ptr %56, i64 %12, i32 2
+  %.split8 = getelementptr %struct.nv_skb_map, ptr %56, i64 %12
+  %57 = getelementptr i8, ptr %.split8, i64 16
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 2147483647
   store i32 %59, ptr %57, align 8
   %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr %struct.nv_skb_map, ptr %60, i64 %12, i32 3
+  %.split9 = getelementptr %struct.nv_skb_map, ptr %60, i64 %12
+  %61 = getelementptr i8, ptr %.split9, i64 24
   store ptr null, ptr %61, align 8
   %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr %struct.nv_skb_map, ptr %62, i64 %12, i32 4
+  %.split10 = getelementptr %struct.nv_skb_map, ptr %62, i64 %12
+  %63 = getelementptr i8, ptr %.split10, i64 32
   store ptr null, ptr %63, align 8
   %64 = add nuw nsw i64 %12, 1
   %65 = load i32, ptr %2, align 4
@@ -7132,23 +7150,27 @@ define internal fastcc void @nv_init_tx(ptr noundef captures(none) initializes((
   br i1 %37, label %43, label %39
 
 39:                                               ; preds = %.preheader
-  %40 = getelementptr %struct.ring_desc, ptr %38, i64 %34, i32 1
+  %.split = getelementptr %struct.ring_desc, ptr %38, i64 %34
+  %40 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %40, align 4
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr %struct.ring_desc, ptr %41, i64 %34
   br label %51
 
 43:                                               ; preds = %.preheader
-  %44 = getelementptr %struct.ring_desc_ex, ptr %38, i64 %34, i32 3
+  %.split1 = getelementptr %struct.ring_desc_ex, ptr %38, i64 %34
+  %44 = getelementptr i8, ptr %.split1, i64 12
   store i32 0, ptr %44, align 4
   %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr %struct.ring_desc_ex, ptr %45, i64 %34, i32 2
+  %.split2 = getelementptr %struct.ring_desc_ex, ptr %45, i64 %34
+  %46 = getelementptr i8, ptr %.split2, i64 8
   store i32 0, ptr %46, align 4
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr %struct.ring_desc_ex, ptr %47, i64 %34
   store i32 0, ptr %48, align 4
   %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr %struct.ring_desc_ex, ptr %49, i64 %34, i32 1
+  %.split3 = getelementptr %struct.ring_desc_ex, ptr %49, i64 %34
+  %50 = getelementptr i8, ptr %.split3, i64 4
   br label %51
 
 51:                                               ; preds = %43, %39
@@ -7158,23 +7180,28 @@ define internal fastcc void @nv_init_tx(ptr noundef captures(none) initializes((
   %54 = getelementptr %struct.nv_skb_map, ptr %53, i64 %34
   store ptr null, ptr %54, align 8
   %55 = load ptr, ptr %19, align 8
-  %56 = getelementptr %struct.nv_skb_map, ptr %55, i64 %34, i32 1
+  %.split4 = getelementptr %struct.nv_skb_map, ptr %55, i64 %34
+  %56 = getelementptr i8, ptr %.split4, i64 8
   store i64 0, ptr %56, align 8
   %57 = load ptr, ptr %19, align 8
-  %58 = getelementptr %struct.nv_skb_map, ptr %57, i64 %34, i32 2
+  %.split5 = getelementptr %struct.nv_skb_map, ptr %57, i64 %34
+  %58 = getelementptr i8, ptr %.split5, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, -2147483648
   store i32 %60, ptr %58, align 8
   %61 = load ptr, ptr %19, align 8
-  %62 = getelementptr %struct.nv_skb_map, ptr %61, i64 %34, i32 2
+  %.split6 = getelementptr %struct.nv_skb_map, ptr %61, i64 %34
+  %62 = getelementptr i8, ptr %.split6, i64 16
   %63 = load i32, ptr %62, align 8
   %64 = and i32 %63, 2147483647
   store i32 %64, ptr %62, align 8
   %65 = load ptr, ptr %19, align 8
-  %66 = getelementptr %struct.nv_skb_map, ptr %65, i64 %34, i32 3
+  %.split7 = getelementptr %struct.nv_skb_map, ptr %65, i64 %34
+  %66 = getelementptr i8, ptr %.split7, i64 24
   store ptr null, ptr %66, align 8
   %67 = load ptr, ptr %19, align 8
-  %68 = getelementptr %struct.nv_skb_map, ptr %67, i64 %34, i32 4
+  %.split8 = getelementptr %struct.nv_skb_map, ptr %67, i64 %34
+  %68 = getelementptr i8, ptr %.split8, i64 32
   store ptr null, ptr %68, align 8
   %69 = add nuw nsw i64 %34, 1
   %70 = load i32, ptr %11, align 4

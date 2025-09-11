@@ -4114,7 +4114,7 @@ define dso_local void @transformReturningClause(ptr noundef %0, ptr noundef capt
 list_length.exit:                                 ; preds = %4, %7
   %10 = phi i32 [ %9, %7 ], [ 0, %4 ]
   %11 = icmp eq ptr %2, null
-  br i1 %11, label %149, label %.preheader
+  br i1 %11, label %150, label %.preheader
 
 .preheader:                                       ; preds = %list_length.exit
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4128,7 +4128,7 @@ list_length.exit:                                 ; preds = %4, %7
 .split.us:                                        ; preds = %addNSItemForReturning.exit, %.lr.ph, %.preheader
   %18 = load ptr, ptr %14, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %112, label %116
+  br i1 %19, label %113, label %117
 
 .lr.ph:                                           ; preds = %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -4258,113 +4258,114 @@ list_length.exit.i:                               ; preds = %81, %69
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %92 = getelementptr inbounds nuw %struct.ParseNamespaceColumn, ptr %87, i64 %indvars.iv.i, i32 5
-  store i32 %73, ptr %92, align 4
+  %92 = getelementptr inbounds nuw %struct.ParseNamespaceColumn, ptr %87, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 20
+  store i32 %73, ptr %93, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %addNSItemForReturning.exit, label %.lr.ph.i, !llvm.loop !20
 
 addNSItemForReturning.exit:                       ; preds = %.lr.ph.i, %list_length.exit.i
-  %93 = tail call ptr @palloc(i64 noundef 48) #11
-  %94 = tail call ptr @makeAlias(ptr noundef %70, ptr noundef %80) #11
-  store ptr %94, ptr %93, align 8
-  %95 = load ptr, ptr %15, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store ptr %97, ptr %98, align 8
-  %99 = load ptr, ptr %15, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %101 = load i32, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store i32 %101, ptr %102, align 8
-  %103 = load ptr, ptr %15, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  store ptr %105, ptr %106, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  store ptr %87, ptr %107, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %93, i64 44
-  store i32 %73, ptr %108, align 4
-  tail call void @addNSItemToQuery(ptr noundef nonnull %0, ptr noundef nonnull %93, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %94 = tail call ptr @palloc(i64 noundef 48) #11
+  %95 = tail call ptr @makeAlias(ptr noundef %70, ptr noundef %80) #11
+  store ptr %95, ptr %94, align 8
+  %96 = load ptr, ptr %15, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store ptr %98, ptr %99, align 8
+  %100 = load ptr, ptr %15, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %102 = load i32, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  store i32 %102, ptr %103, align 8
+  %104 = load ptr, ptr %15, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  store ptr %106, ptr %107, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  store ptr %87, ptr %108, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %94, i64 44
+  store i32 %73, ptr %109, align 4
+  tail call void @addNSItemToQuery(ptr noundef nonnull %0, ptr noundef nonnull %94, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv101, 1
-  %109 = load i32, ptr %20, align 4
-  %110 = sext i32 %109 to i64
-  %111 = icmp slt i64 %indvars.iv.next, %110
-  br i1 %111, label %.lr.ph102, label %.split.us
+  %110 = load i32, ptr %20, align 4
+  %111 = sext i32 %110 to i64
+  %112 = icmp slt i64 %indvars.iv.next, %111
+  br i1 %112, label %.lr.ph102, label %.split.us
 
-112:                                              ; preds = %.split.us
-  %113 = tail call ptr @refnameNamespaceItem(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef -1, ptr noundef null) #11
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %115, label %116
+113:                                              ; preds = %.split.us
+  %114 = tail call ptr @refnameNamespaceItem(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef -1, ptr noundef null) #11
+  %115 = icmp eq ptr %114, null
+  br i1 %115, label %116, label %117
 
-115:                                              ; preds = %112
+116:                                              ; preds = %113
   store ptr @.str.12, ptr %14, align 8
   tail call fastcc void @addNSItemForReturning(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, i32 noundef 1)
-  br label %116
+  br label %117
 
-116:                                              ; preds = %115, %112, %.split.us
-  %117 = load ptr, ptr %13, align 8
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %119, label %123
+117:                                              ; preds = %116, %113, %.split.us
+  %118 = load ptr, ptr %13, align 8
+  %119 = icmp eq ptr %118, null
+  br i1 %119, label %120, label %124
 
-119:                                              ; preds = %116
-  %120 = tail call ptr @refnameNamespaceItem(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef -1, ptr noundef null) #11
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %122, label %123
+120:                                              ; preds = %117
+  %121 = tail call ptr @refnameNamespaceItem(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef -1, ptr noundef null) #11
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %123, label %124
 
-122:                                              ; preds = %119
+123:                                              ; preds = %120
   store ptr @.str.13, ptr %13, align 8
   tail call fastcc void @addNSItemForReturning(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i32 noundef 2)
-  br label %123
+  br label %124
 
-123:                                              ; preds = %122, %119, %116
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %125 = load i32, ptr %124, align 4
-  store i32 1, ptr %124, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %127 = load ptr, ptr %126, align 8
-  %128 = tail call ptr @transformTargetList(ptr noundef nonnull %0, ptr noundef %127, i32 noundef %3) #11
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store ptr %128, ptr %129, align 8
-  %130 = icmp eq ptr %128, null
-  br i1 %130, label %131, label %140
+124:                                              ; preds = %123, %120, %117
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %126 = load i32, ptr %125, align 4
+  store i32 1, ptr %125, align 4
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %128 = load ptr, ptr %127, align 8
+  %129 = tail call ptr @transformTargetList(ptr noundef nonnull %0, ptr noundef %128, i32 noundef %3) #11
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  store ptr %129, ptr %130, align 8
+  %131 = icmp eq ptr %129, null
+  br i1 %131, label %132, label %141
 
-131:                                              ; preds = %123
-  %132 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %132)
-  %133 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %134 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #11
-  %135 = load ptr, ptr %126, align 8
-  %136 = getelementptr i8, ptr %135, i64 16
-  %.val = load ptr, ptr %136, align 8
-  %137 = load ptr, ptr %.val, align 8
-  %138 = tail call i32 @exprLocation(ptr noundef %137) #11
-  %139 = tail call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %138) #11
+132:                                              ; preds = %124
+  %133 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %133)
+  %134 = tail call i32 @errcode(i32 noundef 16801924) #11
+  %135 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #11
+  %136 = load ptr, ptr %127, align 8
+  %137 = getelementptr i8, ptr %136, i64 16
+  %.val = load ptr, ptr %137, align 8
+  %138 = load ptr, ptr %.val, align 8
+  %139 = tail call i32 @exprLocation(ptr noundef %138) #11
+  %140 = tail call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %139) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2786, ptr noundef nonnull @__func__.transformReturningClause) #11
   unreachable
 
-140:                                              ; preds = %123
-  tail call void @markTargetListOrigins(ptr noundef nonnull %0, ptr noundef nonnull %128) #11
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 169
-  %142 = load i8, ptr %141, align 1, !range !5, !noundef !4
-  %143 = trunc nuw i8 %142 to i1
-  br i1 %143, label %144, label %146
+141:                                              ; preds = %124
+  tail call void @markTargetListOrigins(ptr noundef nonnull %0, ptr noundef nonnull %129) #11
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 169
+  %143 = load i8, ptr %142, align 1, !range !5, !noundef !4
+  %144 = trunc nuw i8 %143 to i1
+  br i1 %144, label %145, label %147
 
-144:                                              ; preds = %140
-  %145 = load ptr, ptr %129, align 8
-  tail call void @resolveTargetListUnknowns(ptr noundef nonnull %0, ptr noundef %145) #11
-  br label %146
+145:                                              ; preds = %141
+  %146 = load ptr, ptr %130, align 8
+  tail call void @resolveTargetListUnknowns(ptr noundef nonnull %0, ptr noundef %146) #11
+  br label %147
 
-146:                                              ; preds = %144, %140
-  %147 = load ptr, ptr %5, align 8
-  %148 = tail call ptr @list_truncate(ptr noundef %147, i32 noundef %10) #11
-  store ptr %148, ptr %5, align 8
-  store i32 %125, ptr %124, align 4
-  br label %149
+147:                                              ; preds = %145, %141
+  %148 = load ptr, ptr %5, align 8
+  %149 = tail call ptr @list_truncate(ptr noundef %148, i32 noundef %10) #11
+  store ptr %149, ptr %5, align 8
+  store i32 %126, ptr %125, align 4
+  br label %150
 
-149:                                              ; preds = %list_length.exit, %146
+150:                                              ; preds = %list_length.exit, %147
   ret void
 }
 
@@ -4432,8 +4433,9 @@ list_length.exit:                                 ; preds = %3, %12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %39 = getelementptr inbounds nuw %struct.ParseNamespaceColumn, ptr %18, i64 %indvars.iv, i32 5
-  store i32 %2, ptr %39, align 4
+  %39 = getelementptr inbounds nuw %struct.ParseNamespaceColumn, ptr %18, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 20
+  store i32 %2, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20

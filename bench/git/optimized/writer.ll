@@ -180,7 +180,7 @@ define dso_local void @reftable_writer_free(ptr noundef %0) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @writer_release(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %19, label %2
+  br i1 %.not, label %20, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -198,31 +198,32 @@ define internal fastcc void @writer_release(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not11.i, label %writer_clear_index.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %13
-  %10 = phi ptr [ %16, %13 ], [ %9, %2 ]
-  %.012.i = phi i64 [ %15, %13 ], [ 0, %2 ]
+  %10 = phi ptr [ %17, %13 ], [ %9, %2 ]
+  %.012.i = phi i64 [ %16, %13 ], [ 0, %2 ]
   %11 = load i64, ptr %7, align 8, !tbaa !43
   %12 = icmp ult i64 %.012.i, %11
   br i1 %12, label %13, label %writer_clear_index.exit
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw %struct.reftable_index_record, ptr %10, i64 %.012.i, i32 1
-  tail call void @reftable_buf_release(ptr noundef nonnull %14) #12
-  %15 = add nuw i64 %.012.i, 1
-  %16 = load ptr, ptr %8, align 8, !tbaa !42
-  %.not.i = icmp eq ptr %16, null
+  %14 = getelementptr inbounds nuw %struct.reftable_index_record, ptr %10, i64 %.012.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  tail call void @reftable_buf_release(ptr noundef nonnull %15) #12
+  %16 = add nuw i64 %.012.i, 1
+  %17 = load ptr, ptr %8, align 8, !tbaa !42
+  %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %writer_clear_index.exit, label %.lr.ph.i, !llvm.loop !44
 
 writer_clear_index.exit:                          ; preds = %.lr.ph.i, %13, %2
   %.lcssa.i = phi ptr [ null, %2 ], [ %10, %.lr.ph.i ], [ null, %13 ]
   tail call void @reftable_free(ptr noundef %.lcssa.i) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @reftable_buf_release(ptr noundef nonnull %17) #12
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @reftable_buf_release(ptr noundef nonnull %18) #12
-  br label %19
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @reftable_buf_release(ptr noundef nonnull %19) #12
+  br label %20
 
-19:                                               ; preds = %writer_clear_index.exit, %1
+20:                                               ; preds = %writer_clear_index.exit, %1
   ret void
 }
 
@@ -1814,79 +1815,81 @@ define internal fastcc range(i32 -2147483648, 1) i32 @writer_finish_section(ptr 
   br i1 %57, label %.thread, label %._crit_edge75
 
 .lr.ph74:                                         ; preds = %._crit_edge, %.lr.ph74
-  %.15073 = phi i64 [ %59, %.lr.ph74 ], [ 0, %._crit_edge ]
-  %58 = getelementptr inbounds nuw %struct.reftable_index_record, ptr %47, i64 %.15073, i32 1
-  call void @reftable_buf_release(ptr noundef nonnull %58) #12
-  %59 = add nuw i64 %.15073, 1
-  %exitcond91.not = icmp eq i64 %59, %48
+  %.15073 = phi i64 [ %60, %.lr.ph74 ], [ 0, %._crit_edge ]
+  %58 = getelementptr inbounds nuw %struct.reftable_index_record, ptr %47, i64 %.15073
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  call void @reftable_buf_release(ptr noundef nonnull %59) #12
+  %60 = add nuw i64 %.15073, 1
+  %exitcond91.not = icmp eq i64 %60, %48
   br i1 %exitcond91.not, label %._crit_edge75, label %.lr.ph74, !llvm.loop !103
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %._crit_edge.thread
   call void @reftable_free(ptr noundef %47) #12
-  %60 = load i64, ptr %14, align 8, !tbaa !43
-  %61 = icmp ugt i64 %60, %9
-  br i1 %61, label %27, label %._crit_edge78, !llvm.loop !104
+  %61 = load i64, ptr %14, align 8, !tbaa !43
+  %62 = icmp ugt i64 %61, %9
+  br i1 %62, label %27, label %._crit_edge78, !llvm.loop !104
 
 ._crit_edge78:                                    ; preds = %._crit_edge75, %.preheader63
   %.054.lcssa = phi i32 [ 0, %.preheader63 ], [ %28, %._crit_edge75 ]
   %.053.lcssa = phi i64 [ 0, %.preheader63 ], [ %29, %._crit_edge75 ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %63 = load ptr, ptr %62, align 8, !tbaa !42
-  %.not11.i = icmp eq ptr %63, null
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %64 = load ptr, ptr %63, align 8, !tbaa !42
+  %.not11.i = icmp eq ptr %64, null
   br i1 %.not11.i, label %writer_clear_index.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge78, %67
-  %64 = phi ptr [ %70, %67 ], [ %63, %._crit_edge78 ]
-  %.012.i = phi i64 [ %69, %67 ], [ 0, %._crit_edge78 ]
-  %65 = load i64, ptr %14, align 8, !tbaa !43
-  %66 = icmp ult i64 %.012.i, %65
-  br i1 %66, label %67, label %writer_clear_index.exit
+.lr.ph.i:                                         ; preds = %._crit_edge78, %68
+  %65 = phi ptr [ %72, %68 ], [ %64, %._crit_edge78 ]
+  %.012.i = phi i64 [ %71, %68 ], [ 0, %._crit_edge78 ]
+  %66 = load i64, ptr %14, align 8, !tbaa !43
+  %67 = icmp ult i64 %.012.i, %66
+  br i1 %67, label %68, label %writer_clear_index.exit
 
-67:                                               ; preds = %.lr.ph.i
-  %68 = getelementptr inbounds nuw %struct.reftable_index_record, ptr %64, i64 %.012.i, i32 1
-  call void @reftable_buf_release(ptr noundef nonnull %68) #12
-  %69 = add nuw i64 %.012.i, 1
-  %70 = load ptr, ptr %62, align 8, !tbaa !42
-  %.not.i = icmp eq ptr %70, null
+68:                                               ; preds = %.lr.ph.i
+  %69 = getelementptr inbounds nuw %struct.reftable_index_record, ptr %65, i64 %.012.i
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  call void @reftable_buf_release(ptr noundef nonnull %70) #12
+  %71 = add nuw i64 %.012.i, 1
+  %72 = load ptr, ptr %63, align 8, !tbaa !42
+  %.not.i = icmp eq ptr %72, null
   br i1 %.not.i, label %writer_clear_index.exit, label %.lr.ph.i, !llvm.loop !44
 
-writer_clear_index.exit:                          ; preds = %.lr.ph.i, %67, %._crit_edge78
-  %.lcssa.i = phi ptr [ null, %._crit_edge78 ], [ %64, %.lr.ph.i ], [ null, %67 ]
+writer_clear_index.exit:                          ; preds = %.lr.ph.i, %68, %._crit_edge78
+  %.lcssa.i = phi ptr [ null, %._crit_edge78 ], [ %65, %.lr.ph.i ], [ null, %68 ]
   call void @reftable_free(ptr noundef %.lcssa.i) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
-  switch i8 %5, label %74 [
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
+  switch i8 %5, label %76 [
     i8 114, label %writer_reftable_block_stats.exit
-    i8 111, label %71
-    i8 105, label %72
-    i8 103, label %73
+    i8 111, label %73
+    i8 105, label %74
+    i8 103, label %75
   ]
-
-71:                                               ; preds = %writer_clear_index.exit
-  br label %writer_reftable_block_stats.exit
-
-72:                                               ; preds = %writer_clear_index.exit
-  br label %writer_reftable_block_stats.exit
 
 73:                                               ; preds = %writer_clear_index.exit
   br label %writer_reftable_block_stats.exit
 
 74:                                               ; preds = %writer_clear_index.exit
+  br label %writer_reftable_block_stats.exit
+
+75:                                               ; preds = %writer_clear_index.exit
+  br label %writer_reftable_block_stats.exit
+
+76:                                               ; preds = %writer_clear_index.exit
   call void @abort() #13
   unreachable
 
-writer_reftable_block_stats.exit:                 ; preds = %writer_clear_index.exit, %71, %72, %73
-  %.sink.i = phi i64 [ 464, %73 ], [ 424, %72 ], [ 384, %71 ], [ 344, %writer_clear_index.exit ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
-  %76 = load i32, ptr %10, align 8, !tbaa !101
-  %77 = sub nsw i32 %76, %11
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 12
-  store i32 %77, ptr %78, align 4, !tbaa !105
-  %79 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  store i64 %.053.lcssa, ptr %79, align 8, !tbaa !106
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store i32 %.054.lcssa, ptr %80, align 8, !tbaa !107
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @reftable_buf_reset(ptr noundef nonnull %81) #12
+writer_reftable_block_stats.exit:                 ; preds = %writer_clear_index.exit, %73, %74, %75
+  %.sink.i = phi i64 [ 464, %75 ], [ 424, %74 ], [ 384, %73 ], [ 344, %writer_clear_index.exit ]
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
+  %78 = load i32, ptr %10, align 8, !tbaa !101
+  %79 = sub nsw i32 %78, %11
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 12
+  store i32 %79, ptr %80, align 4, !tbaa !105
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  store i64 %.053.lcssa, ptr %81, align 8, !tbaa !106
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  store i32 %.054.lcssa, ptr %82, align 8, !tbaa !107
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @reftable_buf_reset(ptr noundef nonnull %83) #12
   br label %.thread
 
 .thread:                                          ; preds = %38, %._crit_edge, %._crit_edge.thread, %.lr.ph, %1, %writer_reftable_block_stats.exit

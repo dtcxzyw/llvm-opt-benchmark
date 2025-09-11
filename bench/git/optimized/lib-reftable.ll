@@ -93,150 +93,152 @@ define dso_local void @t_reftable_write_to_buf(ptr noundef %0, ptr noundef %1, i
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.05377 = phi i64 [ %.1, %.lr.ph ], [ 4294967295, %10 ]
   %.05576 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %10 ]
-  %.05975 = phi i64 [ %13, %.lr.ph ], [ 0, %10 ]
-  %11 = getelementptr inbounds nuw %struct.reftable_ref_record, ptr %1, i64 %.05975, i32 2
-  %12 = load i64, ptr %11, align 8, !tbaa !18
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %12, i64 %.05576)
-  %.1 = tail call i64 @llvm.umin.i64(i64 %12, i64 %.05377)
-  %13 = add nuw i64 %.05975, 1
-  %exitcond.not = icmp eq i64 %13, %2
+  %.05975 = phi i64 [ %14, %.lr.ph ], [ 0, %10 ]
+  %11 = getelementptr inbounds nuw %struct.reftable_ref_record, ptr %1, i64 %.05975
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load i64, ptr %12, align 8, !tbaa !18
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %13, i64 %.05576)
+  %.1 = tail call i64 @llvm.umin.i64(i64 %13, i64 %.05377)
+  %14 = add nuw i64 %.05975, 1
+  %exitcond.not = icmp eq i64 %14, %2
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph82, %.preheader
   %.257.lcssa = phi i64 [ %.055.lcssa, %.preheader ], [ %spec.select73, %.lr.ph82 ]
   %.2.lcssa = phi i64 [ %.053.lcssa, %.preheader ], [ %.3, %.lr.ph82 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %14 = call i32 @reftable_writer_new(ptr noundef nonnull %7, ptr noundef nonnull @strbuf_writer_write, ptr noundef nonnull @strbuf_writer_flush, ptr noundef %0, ptr noundef nonnull %8) #7
-  %.not.i = icmp eq i32 %14, 0
-  %15 = zext i1 %.not.i to i32
-  %16 = call i32 @check_bool_loc(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %15) #7
-  %17 = load ptr, ptr %7, align 8, !tbaa !4
+  %15 = call i32 @reftable_writer_new(ptr noundef nonnull %7, ptr noundef nonnull @strbuf_writer_write, ptr noundef nonnull @strbuf_writer_flush, ptr noundef %0, ptr noundef nonnull %8) #7
+  %.not.i = icmp eq i32 %15, 0
+  %16 = zext i1 %.not.i to i32
+  %17 = call i32 @check_bool_loc(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %16) #7
+  %18 = load ptr, ptr %7, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @reftable_writer_set_limits(ptr noundef %17, i64 noundef %.2.lcssa, i64 noundef %.257.lcssa) #7
-  br i1 %.not91, label %28, label %21
+  call void @reftable_writer_set_limits(ptr noundef %18, i64 noundef %.2.lcssa, i64 noundef %.257.lcssa) #7
+  br i1 %.not91, label %30, label %23
 
 .lr.ph82:                                         ; preds = %.preheader, %.lr.ph82
   %.281 = phi i64 [ %.3, %.lr.ph82 ], [ %.053.lcssa, %.preheader ]
-  %.05480 = phi i64 [ %20, %.lr.ph82 ], [ 0, %.preheader ]
+  %.05480 = phi i64 [ %22, %.lr.ph82 ], [ 0, %.preheader ]
   %.25779 = phi i64 [ %spec.select73, %.lr.ph82 ], [ %.055.lcssa, %.preheader ]
-  %18 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %3, i64 %.05480, i32 2
-  %19 = load i64, ptr %18, align 8, !tbaa !23
-  %spec.select73 = tail call i64 @llvm.umax.i64(i64 %19, i64 %.25779)
-  %.3 = tail call i64 @llvm.umin.i64(i64 %19, i64 %.281)
-  %20 = add nuw i64 %.05480, 1
-  %exitcond96.not = icmp eq i64 %20, %4
+  %19 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %3, i64 %.05480
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load i64, ptr %20, align 8, !tbaa !23
+  %spec.select73 = tail call i64 @llvm.umax.i64(i64 %21, i64 %.25779)
+  %.3 = tail call i64 @llvm.umin.i64(i64 %21, i64 %.281)
+  %22 = add nuw i64 %.05480, 1
+  %exitcond96.not = icmp eq i64 %22, %4
   br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !25
 
-21:                                               ; preds = %._crit_edge
-  %22 = trunc i64 %2 to i32
-  %23 = call i32 @reftable_writer_add_refs(ptr noundef %17, ptr noundef %1, i32 noundef %22) #7
-  %24 = sext i32 %23 to i64
-  store i64 %24, ptr @test__tmp, align 16, !tbaa !10
+23:                                               ; preds = %._crit_edge
+  %24 = trunc i64 %2 to i32
+  %25 = call i32 @reftable_writer_add_refs(ptr noundef %18, ptr noundef %1, i32 noundef %24) #7
+  %26 = sext i32 %25 to i64
+  store i64 %26, ptr @test__tmp, align 16, !tbaa !10
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @test__tmp, i64 8), align 8, !tbaa !10
-  %25 = icmp eq i32 %23, 0
-  %26 = zext i1 %25 to i32
-  %27 = call i32 @check_int_loc(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef %26, i64 noundef %24, i64 noundef 0) #7
-  br label %28
+  %27 = icmp eq i32 %25, 0
+  %28 = zext i1 %27 to i32
+  %29 = call i32 @check_int_loc(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef %28, i64 noundef %26, i64 noundef 0) #7
+  br label %30
 
-28:                                               ; preds = %21, %._crit_edge
-  br i1 %.not92, label %36, label %29
+30:                                               ; preds = %23, %._crit_edge
+  br i1 %.not92, label %38, label %31
 
-29:                                               ; preds = %28
-  %30 = trunc i64 %4 to i32
-  %31 = call i32 @reftable_writer_add_logs(ptr noundef %17, ptr noundef %3, i32 noundef %30) #7
-  %32 = sext i32 %31 to i64
-  store i64 %32, ptr @test__tmp, align 16, !tbaa !10
+31:                                               ; preds = %30
+  %32 = trunc i64 %4 to i32
+  %33 = call i32 @reftable_writer_add_logs(ptr noundef %18, ptr noundef %3, i32 noundef %32) #7
+  %34 = sext i32 %33 to i64
+  store i64 %34, ptr @test__tmp, align 16, !tbaa !10
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @test__tmp, i64 8), align 8, !tbaa !10
-  %33 = icmp eq i32 %31, 0
-  %34 = zext i1 %33 to i32
-  %35 = call i32 @check_int_loc(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef %34, i64 noundef %32, i64 noundef 0) #7
-  br label %36
+  %35 = icmp eq i32 %33, 0
+  %36 = zext i1 %35 to i32
+  %37 = call i32 @check_int_loc(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef %36, i64 noundef %34, i64 noundef 0) #7
+  br label %38
 
-36:                                               ; preds = %29, %28
-  %37 = call i32 @reftable_writer_close(ptr noundef %17) #7
-  %38 = sext i32 %37 to i64
-  store i64 %38, ptr @test__tmp, align 16, !tbaa !10
+38:                                               ; preds = %31, %30
+  %39 = call i32 @reftable_writer_close(ptr noundef %18) #7
+  %40 = sext i32 %39 to i64
+  store i64 %40, ptr @test__tmp, align 16, !tbaa !10
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @test__tmp, i64 8), align 8, !tbaa !10
-  %39 = icmp eq i32 %37, 0
-  %40 = zext i1 %39 to i32
-  %41 = call i32 @check_int_loc(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef %40, i64 noundef %38, i64 noundef 0) #7
-  %42 = call ptr @reftable_writer_stats(ptr noundef %17) #7
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i32, ptr %43, align 8, !tbaa !26
-  %.not93 = icmp eq i32 %44, 0
+  %41 = icmp eq i32 %39, 0
+  %42 = zext i1 %41 to i32
+  %43 = call i32 @check_int_loc(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef %42, i64 noundef %40, i64 noundef 0) #7
+  %44 = call ptr @reftable_writer_stats(ptr noundef %18) #7
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %46 = load i32, ptr %45, align 8, !tbaa !26
+  %.not93 = icmp eq i32 %46, 0
   br i1 %.not93, label %._crit_edge88, label %.lr.ph87
 
-.lr.ph87:                                         ; preds = %36
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %50
+.lr.ph87:                                         ; preds = %38
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %52
 
-._crit_edge88.loopexit:                           ; preds = %60
-  %48 = icmp sgt i32 %68, 0
-  %49 = zext i1 %48 to i32
+._crit_edge88.loopexit:                           ; preds = %62
+  %50 = icmp sgt i32 %70, 0
+  %51 = zext i1 %50 to i32
   br label %._crit_edge88
 
-._crit_edge88:                                    ; preds = %._crit_edge88.loopexit, %36
-  %.lcssa74 = phi i32 [ 0, %36 ], [ %49, %._crit_edge88.loopexit ]
-  %.lcssa = phi i64 [ 0, %36 ], [ %69, %._crit_edge88.loopexit ]
-  br i1 %.not91, label %73, label %71
+._crit_edge88:                                    ; preds = %._crit_edge88.loopexit, %38
+  %.lcssa74 = phi i32 [ 0, %38 ], [ %51, %._crit_edge88.loopexit ]
+  %.lcssa = phi i64 [ 0, %38 ], [ %71, %._crit_edge88.loopexit ]
+  br i1 %.not91, label %75, label %73
 
-50:                                               ; preds = %.lr.ph87, %60
-  %.05285 = phi i64 [ 0, %.lr.ph87 ], [ %67, %60 ]
-  %51 = load i32, ptr %45, align 4, !tbaa !29
-  %.not71 = icmp eq i32 %51, 0
-  %52 = select i1 %.not71, i32 4096, i32 %51
-  %53 = zext i32 %52 to i64
-  %54 = mul i64 %.05285, %53
-  %.not72 = icmp eq i64 %54, 0
-  br i1 %.not72, label %55, label %60
+52:                                               ; preds = %.lr.ph87, %62
+  %.05285 = phi i64 [ 0, %.lr.ph87 ], [ %69, %62 ]
+  %53 = load i32, ptr %47, align 4, !tbaa !29
+  %.not71 = icmp eq i32 %53, 0
+  %54 = select i1 %.not71, i32 4096, i32 %53
+  %55 = zext i32 %54 to i64
+  %56 = mul i64 %.05285, %55
+  %.not72 = icmp eq i64 %56, 0
+  br i1 %.not72, label %57, label %62
 
-55:                                               ; preds = %50
-  %56 = load i32, ptr %46, align 4, !tbaa !31
-  %57 = icmp eq i32 %56, 247
-  %58 = select i1 %57, i32 2, i32 1
-  %59 = call i64 @header_size(i32 noundef %58) #7
-  br label %60
+57:                                               ; preds = %52
+  %58 = load i32, ptr %48, align 4, !tbaa !31
+  %59 = icmp eq i32 %58, 247
+  %60 = select i1 %59, i32 2, i32 1
+  %61 = call i64 @header_size(i32 noundef %60) #7
+  br label %62
 
-60:                                               ; preds = %55, %50
-  %.0 = phi i64 [ %54, %50 ], [ %59, %55 ]
-  %61 = load ptr, ptr %47, align 8, !tbaa !32
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %.0
-  %63 = load i8, ptr %62, align 1, !tbaa !10
-  store i8 %63, ptr @test__tmp, align 16, !tbaa !10
+62:                                               ; preds = %57, %52
+  %.0 = phi i64 [ %56, %52 ], [ %61, %57 ]
+  %63 = load ptr, ptr %49, align 8, !tbaa !32
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.0
+  %65 = load i8, ptr %64, align 1, !tbaa !10
+  store i8 %65, ptr @test__tmp, align 16, !tbaa !10
   store i8 114, ptr getelementptr inbounds nuw (i8, ptr @test__tmp, i64 8), align 8, !tbaa !10
-  %64 = icmp eq i8 %63, 114
-  %65 = zext i1 %64 to i32
-  %66 = call i32 @check_char_loc(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef %65, i8 noundef signext %63, i8 noundef signext 114) #7
-  %67 = add nuw i64 %.05285, 1
-  %68 = load i32, ptr %43, align 8, !tbaa !26
-  %69 = sext i32 %68 to i64
-  %70 = icmp ult i64 %67, %69
-  br i1 %70, label %50, label %._crit_edge88.loopexit, !llvm.loop !34
+  %66 = icmp eq i8 %65, 114
+  %67 = zext i1 %66 to i32
+  %68 = call i32 @check_char_loc(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef %67, i8 noundef signext %65, i8 noundef signext 114) #7
+  %69 = add nuw i64 %.05285, 1
+  %70 = load i32, ptr %45, align 8, !tbaa !26
+  %71 = sext i32 %70 to i64
+  %72 = icmp ult i64 %69, %71
+  br i1 %72, label %52, label %._crit_edge88.loopexit, !llvm.loop !34
 
-71:                                               ; preds = %._crit_edge88
+73:                                               ; preds = %._crit_edge88
   store i64 %.lcssa, ptr @test__tmp, align 16, !tbaa !10
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @test__tmp, i64 8), align 8, !tbaa !10
-  %72 = call i32 @check_int_loc(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef %.lcssa74, i64 noundef %.lcssa, i64 noundef 0) #7
-  br label %73
+  %74 = call i32 @check_int_loc(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef %.lcssa74, i64 noundef %.lcssa, i64 noundef 0) #7
+  br label %75
 
-73:                                               ; preds = %71, %._crit_edge88
-  br i1 %.not92, label %81, label %74
+75:                                               ; preds = %73, %._crit_edge88
+  br i1 %.not92, label %83, label %76
 
-74:                                               ; preds = %73
-  %75 = getelementptr inbounds nuw i8, ptr %42, i64 136
-  %76 = load i32, ptr %75, align 8, !tbaa !35
-  %77 = sext i32 %76 to i64
-  store i64 %77, ptr @test__tmp, align 16, !tbaa !10
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds nuw i8, ptr %44, i64 136
+  %78 = load i32, ptr %77, align 8, !tbaa !35
+  %79 = sext i32 %78 to i64
+  store i64 %79, ptr @test__tmp, align 16, !tbaa !10
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @test__tmp, i64 8), align 8, !tbaa !10
-  %78 = icmp sgt i32 %76, 0
-  %79 = zext i1 %78 to i32
-  %80 = call i32 @check_int_loc(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef %79, i64 noundef %77, i64 noundef 0) #7
-  br label %81
+  %80 = icmp sgt i32 %78, 0
+  %81 = zext i1 %80 to i32
+  %82 = call i32 @check_int_loc(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef %81, i64 noundef %79, i64 noundef 0) #7
+  br label %83
 
-81:                                               ; preds = %74, %73
-  call void @reftable_writer_free(ptr noundef %17) #7
+83:                                               ; preds = %76, %75
+  call void @reftable_writer_free(ptr noundef %18) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }

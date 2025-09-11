@@ -388,7 +388,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit:          ; preds = %_ZN8rawspeed10ByteS
 
 79:                                               ; preds = %_ZN8rawspeed10ByteStream7getByteEv.exit, %_ZN8rawspeed10ByteStream7getByteEv.exit
   %80 = mul nuw nsw i32 %65, %57
-  %81 = mul nuw i32 %80, %77
+  %81 = mul nuw nsw i32 %80, %77
   %82 = and i32 %81, 7
   %.not49 = icmp eq i32 %82, 0
   br i1 %.not49, label %84, label %83

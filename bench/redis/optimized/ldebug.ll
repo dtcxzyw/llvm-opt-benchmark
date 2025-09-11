@@ -915,9 +915,9 @@ precheck.exit:                                    ; preds = %26
   %or.cond230 = icmp eq i8 %46, 2
   br label %47
 
-47:                                               ; preds = %.lr.ph281, %225
-  %.0162279 = phi i32 [ 0, %.lr.ph281 ], [ %226, %225 ]
-  %.0168278 = phi i32 [ %40, %.lr.ph281 ], [ %.3171, %225 ]
+47:                                               ; preds = %.lr.ph281, %226
+  %.0162279 = phi i32 [ 0, %.lr.ph281 ], [ %227, %226 ]
+  %.0168278 = phi i32 [ %40, %.lr.ph281 ], [ %.3171, %226 ]
   %48 = sext i32 %.0162279 to i64
   %49 = getelementptr inbounds i32, ptr %33, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !53
@@ -1093,30 +1093,30 @@ default.unreachable307:                           ; preds = %checkArgMode.exit, 
   br i1 %129, label %130, label %.critedge232
 
 130:                                              ; preds = %125, %.critedge
-  switch i32 %51, label %225 [
+  switch i32 %51, label %226 [
     i32 2, label %131
     i32 3, label %140
     i32 4, label %141
     i32 8, label %141
     i32 5, label %143
     i32 7, label %143
-    i32 11, label %149
-    i32 21, label %154
-    i32 33, label %156
-    i32 31, label %162
-    i32 32, label %162
-    i32 22, label %165
-    i32 28, label %171
-    i32 29, label %171
-    i32 30, label %184
-    i32 34, label %189
-    i32 36, label %198
-    i32 37, label %215
+    i32 11, label %150
+    i32 21, label %155
+    i32 33, label %157
+    i32 31, label %163
+    i32 32, label %163
+    i32 22, label %166
+    i32 28, label %172
+    i32 29, label %172
+    i32 30, label %185
+    i32 34, label %190
+    i32 36, label %199
+    i32 37, label %216
   ]
 
 131:                                              ; preds = %130
   %132 = icmp eq i32 %.0180, 1
-  br i1 %132, label %133, label %225
+  br i1 %132, label %133, label %226
 
 133:                                              ; preds = %131
   %134 = add nsw i32 %.0162279, 2
@@ -1128,225 +1128,226 @@ default.unreachable307:                           ; preds = %checkArgMode.exit, 
   %138 = load i32, ptr %137, align 4, !tbaa !53
   %139 = and i32 %138, 8372287
   %or.cond223 = icmp eq i32 %139, 34
-  br i1 %or.cond223, label %.critedge232, label %225
+  br i1 %or.cond223, label %.critedge232, label %226
 
 140:                                              ; preds = %130
   %.not216 = icmp sgt i32 %53, %2
   %.not217 = icmp sgt i32 %2, %.0179
   %or.cond224 = select i1 %.not216, i1 true, i1 %.not217
   %spec.select233 = select i1 %or.cond224, i32 %.2170, i32 %.0162279
-  br label %225
+  br label %226
 
 141:                                              ; preds = %130, %130
   %142 = icmp slt i32 %.0179, %25
-  br i1 %142, label %225, label %.critedge232
+  br i1 %142, label %226, label %.critedge232
 
 143:                                              ; preds = %130, %130
   %144 = load ptr, ptr %45, align 8, !tbaa !70
   %145 = sext i32 %.0179 to i64
-  %146 = getelementptr inbounds %struct.lua_TValue, ptr %144, i64 %145, i32 1
-  %147 = load i32, ptr %146, align 8, !tbaa !33
-  %148 = icmp eq i32 %147, 4
-  br i1 %148, label %225, label %.critedge232
+  %146 = getelementptr inbounds %struct.lua_TValue, ptr %144, i64 %145
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %148 = load i32, ptr %147, align 8, !tbaa !33
+  %149 = icmp eq i32 %148, 4
+  br i1 %149, label %226, label %.critedge232
 
-149:                                              ; preds = %130
-  %150 = add nuw nsw i32 %53, 1
-  %151 = icmp samesign ult i32 %150, %10
-  br i1 %151, label %152, label %.critedge232
+150:                                              ; preds = %130
+  %151 = add nuw nsw i32 %53, 1
+  %152 = icmp samesign ult i32 %151, %10
+  br i1 %152, label %153, label %.critedge232
 
-152:                                              ; preds = %149
-  %153 = icmp eq i32 %2, %150
-  %spec.select = select i1 %153, i32 %.0162279, i32 %.2170
-  br label %225
+153:                                              ; preds = %150
+  %154 = icmp eq i32 %2, %151
+  %spec.select = select i1 %154, i32 %.0162279, i32 %.2170
+  br label %226
 
-154:                                              ; preds = %130
-  %155 = icmp slt i32 %.0179, %.0180
-  br i1 %155, label %225, label %.critedge232
+155:                                              ; preds = %130
+  %156 = icmp slt i32 %.0179, %.0180
+  br i1 %156, label %226, label %.critedge232
 
-156:                                              ; preds = %130
+157:                                              ; preds = %130
   %.not214 = icmp eq i32 %.0180, 0
-  br i1 %.not214, label %.critedge232, label %157
+  br i1 %.not214, label %.critedge232, label %158
 
-157:                                              ; preds = %156
-  %158 = add nuw nsw i32 %53, 2
-  %159 = add nuw nsw i32 %.0180, %158
-  %160 = icmp samesign ult i32 %159, %10
-  br i1 %160, label %161, label %.critedge232
+158:                                              ; preds = %157
+  %159 = add nuw nsw i32 %53, 2
+  %160 = add nuw nsw i32 %.0180, %159
+  %161 = icmp samesign ult i32 %160, %10
+  br i1 %161, label %162, label %.critedge232
 
-161:                                              ; preds = %157
-  %.not215 = icmp slt i32 %2, %158
+162:                                              ; preds = %158
+  %.not215 = icmp slt i32 %2, %159
   %spec.select225 = select i1 %.not215, i32 %.2170, i32 %.0162279
-  br label %225
+  br label %226
 
-162:                                              ; preds = %130, %130
-  %163 = add nuw nsw i32 %53, 3
-  %164 = icmp samesign ult i32 %163, %10
-  br i1 %164, label %165, label %.critedge232
+163:                                              ; preds = %130, %130
+  %164 = add nuw nsw i32 %53, 3
+  %165 = icmp samesign ult i32 %164, %10
+  br i1 %165, label %166, label %.critedge232
 
-165:                                              ; preds = %162, %130
-  %166 = add nsw i32 %.0162279, 1
-  %167 = add nsw i32 %166, %.0179
-  %168 = icmp sge i32 %.0162279, %167
-  %.not213 = icmp sgt i32 %167, %1
-  %169 = or i1 %168, %.not213
-  %or.cond227 = select i1 %.not204, i1 true, i1 %169
-  %170 = select i1 %or.cond227, i32 0, i32 %.0179
-  %.3165 = add nsw i32 %170, %.0162279
-  br label %225
+166:                                              ; preds = %163, %130
+  %167 = add nsw i32 %.0162279, 1
+  %168 = add nsw i32 %167, %.0179
+  %169 = icmp sge i32 %.0162279, %168
+  %.not213 = icmp sgt i32 %168, %1
+  %170 = or i1 %169, %.not213
+  %or.cond227 = select i1 %.not204, i1 true, i1 %170
+  %171 = select i1 %or.cond227, i32 0, i32 %.0179
+  %.3165 = add nsw i32 %171, %.0162279
+  br label %226
 
-171:                                              ; preds = %130, %130
+172:                                              ; preds = %130, %130
   %.not206 = icmp ne i32 %.0179, 0
-  %172 = add nsw i32 %.0179, %53
-  %.not207 = icmp sgt i32 %172, %10
+  %173 = add nsw i32 %.0179, %53
+  %.not207 = icmp sgt i32 %173, %10
   %or.cond257 = select i1 %.not206, i1 %.not207, i1 false
-  br i1 %or.cond257, label %.critedge232, label %173
+  br i1 %or.cond257, label %.critedge232, label %174
 
-173:                                              ; preds = %171
-  %174 = icmp eq i32 %.0180, 0
-  br i1 %174, label %175, label %180
+174:                                              ; preds = %172
+  %175 = icmp eq i32 %.0180, 0
+  br i1 %175, label %176, label %181
 
-175:                                              ; preds = %173
-  %176 = getelementptr i8, ptr %49, i64 4
-  %177 = load i32, ptr %176, align 4, !tbaa !53
-  %178 = and i32 %177, 63
-  switch i32 %178, label %.critedge232 [
+176:                                              ; preds = %174
+  %177 = getelementptr i8, ptr %49, i64 4
+  %178 = load i32, ptr %177, align 4, !tbaa !53
+  %179 = and i32 %178, 63
+  switch i32 %179, label %.critedge232 [
     i32 28, label %luaG_checkopenop.exit
     i32 29, label %luaG_checkopenop.exit
     i32 30, label %luaG_checkopenop.exit
     i32 34, label %luaG_checkopenop.exit
   ]
 
-luaG_checkopenop.exit:                            ; preds = %175, %175, %175, %175
-  %179 = icmp ugt i32 %177, 8388607
-  br i1 %179, label %.critedge232, label %183
+luaG_checkopenop.exit:                            ; preds = %176, %176, %176, %176
+  %180 = icmp ugt i32 %178, 8388607
+  br i1 %180, label %.critedge232, label %184
 
-180:                                              ; preds = %173
-  %181 = add nsw i32 %.0180, -1
-  %.not208 = icmp ne i32 %181, 0
-  %182 = add nuw nsw i32 %181, %53
-  %.not209 = icmp sgt i32 %182, %10
+181:                                              ; preds = %174
+  %182 = add nsw i32 %.0180, -1
+  %.not208 = icmp ne i32 %182, 0
+  %183 = add nuw nsw i32 %182, %53
+  %.not209 = icmp sgt i32 %183, %10
   %or.cond258 = select i1 %.not208, i1 %.not209, i1 false
-  br i1 %or.cond258, label %.critedge232, label %183
+  br i1 %or.cond258, label %.critedge232, label %184
 
-183:                                              ; preds = %180, %luaG_checkopenop.exit
+184:                                              ; preds = %181, %luaG_checkopenop.exit
   %.not211 = icmp slt i32 %2, %53
   %spec.select228 = select i1 %.not211, i32 %.0168278, i32 %.0162279
-  br label %225
+  br label %226
 
-184:                                              ; preds = %130
-  %185 = icmp sgt i32 %.0179, 1
-  br i1 %185, label %186, label %225
+185:                                              ; preds = %130
+  %186 = icmp sgt i32 %.0179, 1
+  br i1 %186, label %187, label %226
 
-186:                                              ; preds = %184
-  %187 = add nsw i32 %53, -1
-  %188 = add nsw i32 %187, %.0179
-  %.not205 = icmp sgt i32 %188, %10
-  br i1 %.not205, label %.critedge232, label %225
+187:                                              ; preds = %185
+  %188 = add nsw i32 %53, -1
+  %189 = add nsw i32 %188, %.0179
+  %.not205 = icmp sgt i32 %189, %10
+  br i1 %.not205, label %.critedge232, label %226
 
-189:                                              ; preds = %130
-  %190 = icmp slt i32 %.0179, 1
-  %191 = add nuw nsw i32 %.0179, %53
-  %192 = icmp slt i32 %191, %10
-  %or.cond260 = select i1 %190, i1 true, i1 %192
-  br i1 %or.cond260, label %193, label %.critedge232
+190:                                              ; preds = %130
+  %191 = icmp slt i32 %.0179, 1
+  %192 = add nuw nsw i32 %.0179, %53
+  %193 = icmp slt i32 %192, %10
+  %or.cond260 = select i1 %191, i1 true, i1 %193
+  br i1 %or.cond260, label %194, label %.critedge232
 
-193:                                              ; preds = %189
-  %194 = icmp eq i32 %.0180, 0
-  br i1 %194, label %195, label %225
+194:                                              ; preds = %190
+  %195 = icmp eq i32 %.0180, 0
+  br i1 %195, label %196, label %226
 
-195:                                              ; preds = %193
-  %196 = add nsw i32 %.0162279, 1
-  %197 = icmp slt i32 %196, %40
-  br i1 %197, label %225, label %.critedge232
+196:                                              ; preds = %194
+  %197 = add nsw i32 %.0162279, 1
+  %198 = icmp slt i32 %197, %40
+  br i1 %198, label %226, label %.critedge232
 
-198:                                              ; preds = %130
-  %199 = load i32, ptr %43, align 8, !tbaa !71
-  %200 = icmp slt i32 %.0179, %199
-  br i1 %200, label %201, label %.critedge232
+199:                                              ; preds = %130
+  %200 = load i32, ptr %43, align 8, !tbaa !71
+  %201 = icmp slt i32 %.0179, %200
+  br i1 %201, label %202, label %.critedge232
 
-201:                                              ; preds = %198
-  %202 = load ptr, ptr %44, align 8, !tbaa !72
-  %203 = sext i32 %.0179 to i64
-  %204 = getelementptr inbounds ptr, ptr %202, i64 %203
-  %205 = load ptr, ptr %204, align 8, !tbaa !73
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 112
-  %207 = load i8, ptr %206, align 8, !tbaa !67
-  %208 = zext i8 %207 to i32
-  %209 = add nsw i32 %.0162279, %208
-  %210 = icmp slt i32 %209, %5
-  br i1 %210, label %.preheader, label %.critedge232
+202:                                              ; preds = %199
+  %203 = load ptr, ptr %44, align 8, !tbaa !72
+  %204 = sext i32 %.0179 to i64
+  %205 = getelementptr inbounds ptr, ptr %203, i64 %204
+  %206 = load ptr, ptr %205, align 8, !tbaa !73
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 112
+  %208 = load i8, ptr %207, align 8, !tbaa !67
+  %209 = zext i8 %208 to i32
+  %210 = add nsw i32 %.0162279, %209
+  %211 = icmp slt i32 %210, %5
+  br i1 %211, label %.preheader, label %.critedge232
 
-.preheader:                                       ; preds = %201
-  %.not203274 = icmp eq i8 %207, 0
+.preheader:                                       ; preds = %202
+  %.not203274 = icmp eq i8 %208, 0
   br i1 %.not203274, label %._crit_edge277, label %.lr.ph276.preheader
 
 .lr.ph276.preheader:                              ; preds = %.preheader
-  %211 = add nuw nsw i32 %208, 1
-  %wide.trip.count291 = zext nneg i32 %211 to i64
+  %212 = add nuw nsw i32 %209, 1
+  %wide.trip.count291 = zext nneg i32 %212 to i64
   %invariant.gep = getelementptr i32, ptr %33, i64 %48
   br label %.lr.ph276
 
-212:                                              ; preds = %.lr.ph276
+213:                                              ; preds = %.lr.ph276
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %exitcond292.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count291
   br i1 %exitcond292.not, label %._crit_edge277, label %.lr.ph276, !llvm.loop !75
 
-.lr.ph276:                                        ; preds = %.lr.ph276.preheader, %212
-  %indvars.iv288 = phi i64 [ 1, %.lr.ph276.preheader ], [ %indvars.iv.next289, %212 ]
+.lr.ph276:                                        ; preds = %.lr.ph276.preheader, %213
+  %indvars.iv288 = phi i64 [ 1, %.lr.ph276.preheader ], [ %indvars.iv.next289, %213 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv288
-  %213 = load i32, ptr %gep, align 4, !tbaa !53
-  %214 = and i32 %213, 59
-  %or.cond = icmp eq i32 %214, 0
-  br i1 %or.cond, label %212, label %.critedge232
+  %214 = load i32, ptr %gep, align 4, !tbaa !53
+  %215 = and i32 %214, 59
+  %or.cond = icmp eq i32 %215, 0
+  br i1 %or.cond, label %213, label %.critedge232
 
-._crit_edge277:                                   ; preds = %212, %.preheader
-  %spec.select229 = select i1 %.not204, i32 %.0162279, i32 %209
-  br label %225
+._crit_edge277:                                   ; preds = %213, %.preheader
+  %spec.select229 = select i1 %.not204, i32 %.0162279, i32 %210
+  br label %226
 
-215:                                              ; preds = %130
-  br i1 %or.cond230, label %216, label %.critedge232
+216:                                              ; preds = %130
+  br i1 %or.cond230, label %217, label %.critedge232
 
-216:                                              ; preds = %215
-  %217 = icmp eq i32 %.0179, 0
-  br i1 %217, label %218, label %223
+217:                                              ; preds = %216
+  %218 = icmp eq i32 %.0179, 0
+  br i1 %218, label %219, label %224
 
-218:                                              ; preds = %216
-  %219 = getelementptr i8, ptr %49, i64 4
-  %220 = load i32, ptr %219, align 4, !tbaa !53
-  %221 = and i32 %220, 63
-  switch i32 %221, label %.critedge232 [
+219:                                              ; preds = %217
+  %220 = getelementptr i8, ptr %49, i64 4
+  %221 = load i32, ptr %220, align 4, !tbaa !53
+  %222 = and i32 %221, 63
+  switch i32 %222, label %.critedge232 [
     i32 28, label %luaG_checkopenop.exit243
     i32 29, label %luaG_checkopenop.exit243
     i32 30, label %luaG_checkopenop.exit243
     i32 34, label %luaG_checkopenop.exit243
   ]
 
-luaG_checkopenop.exit243:                         ; preds = %218, %218, %218, %218
-  %222 = icmp ugt i32 %220, 8388607
-  br i1 %222, label %.critedge232, label %225
+luaG_checkopenop.exit243:                         ; preds = %219, %219, %219, %219
+  %223 = icmp ugt i32 %221, 8388607
+  br i1 %223, label %.critedge232, label %226
 
-223:                                              ; preds = %216
-  %224 = add nsw i32 %.0179, -1
-  %.old = add nsw i32 %224, %53
+224:                                              ; preds = %217
+  %225 = add nsw i32 %.0179, -1
+  %.old = add nsw i32 %225, %53
   %.not202.old = icmp sgt i32 %.old, %10
-  br i1 %.not202.old, label %.critedge232, label %225
+  br i1 %.not202.old, label %.critedge232, label %226
 
-225:                                              ; preds = %luaG_checkopenop.exit243, %._crit_edge277, %140, %183, %161, %152, %130, %223, %193, %195, %184, %186, %154, %143, %141, %131, %136, %165
-  %.3171 = phi i32 [ %.2170, %130 ], [ %.2170, %136 ], [ %.2170, %131 ], [ %.2170, %141 ], [ %.2170, %143 ], [ %.2170, %154 ], [ %.2170, %165 ], [ %.2170, %186 ], [ %.2170, %184 ], [ %.2170, %195 ], [ %.2170, %193 ], [ %.2170, %._crit_edge277 ], [ %.2170, %223 ], [ %spec.select, %152 ], [ %spec.select225, %161 ], [ %spec.select228, %183 ], [ %spec.select233, %140 ], [ %.2170, %luaG_checkopenop.exit243 ]
-  %.2164 = phi i32 [ %.0162279, %130 ], [ %.0162279, %136 ], [ %.0162279, %131 ], [ %.0162279, %141 ], [ %.0162279, %143 ], [ %.0162279, %154 ], [ %.3165, %165 ], [ %.0162279, %186 ], [ %.0162279, %184 ], [ %196, %195 ], [ %.0162279, %193 ], [ %spec.select229, %._crit_edge277 ], [ %.0162279, %223 ], [ %.0162279, %152 ], [ %.0162279, %161 ], [ %.0162279, %183 ], [ %.0162279, %140 ], [ %.0162279, %luaG_checkopenop.exit243 ]
-  %226 = add nsw i32 %.2164, 1
-  %227 = icmp slt i32 %226, %1
-  br i1 %227, label %47, label %._crit_edge282, !llvm.loop !76
+226:                                              ; preds = %luaG_checkopenop.exit243, %._crit_edge277, %140, %184, %162, %153, %130, %224, %194, %196, %185, %187, %155, %143, %141, %131, %136, %166
+  %.3171 = phi i32 [ %.2170, %130 ], [ %.2170, %136 ], [ %.2170, %131 ], [ %.2170, %141 ], [ %.2170, %143 ], [ %.2170, %155 ], [ %.2170, %166 ], [ %.2170, %187 ], [ %.2170, %185 ], [ %.2170, %196 ], [ %.2170, %194 ], [ %.2170, %._crit_edge277 ], [ %.2170, %224 ], [ %spec.select, %153 ], [ %spec.select225, %162 ], [ %spec.select228, %184 ], [ %spec.select233, %140 ], [ %.2170, %luaG_checkopenop.exit243 ]
+  %.2164 = phi i32 [ %.0162279, %130 ], [ %.0162279, %136 ], [ %.0162279, %131 ], [ %.0162279, %141 ], [ %.0162279, %143 ], [ %.0162279, %155 ], [ %.3165, %166 ], [ %.0162279, %187 ], [ %.0162279, %185 ], [ %197, %196 ], [ %.0162279, %194 ], [ %spec.select229, %._crit_edge277 ], [ %.0162279, %224 ], [ %.0162279, %153 ], [ %.0162279, %162 ], [ %.0162279, %184 ], [ %.0162279, %140 ], [ %.0162279, %luaG_checkopenop.exit243 ]
+  %227 = add nsw i32 %.2164, 1
+  %228 = icmp slt i32 %227, %1
+  br i1 %228, label %47, label %._crit_edge282, !llvm.loop !76
 
-._crit_edge282:                                   ; preds = %225, %39
-  %.0168.lcssa = phi i32 [ %40, %39 ], [ %.3171, %225 ]
-  %228 = sext i32 %.0168.lcssa to i64
-  %229 = getelementptr inbounds i32, ptr %33, i64 %228
-  %230 = load i32, ptr %229, align 4, !tbaa !53
+._crit_edge282:                                   ; preds = %226, %39
+  %.0168.lcssa = phi i32 [ %40, %39 ], [ %.3171, %226 ]
+  %229 = sext i32 %.0168.lcssa to i64
+  %230 = getelementptr inbounds i32, ptr %33, i64 %229
+  %231 = load i32, ptr %230, align 4, !tbaa !53
   br label %.critedge232
 
-.critedge232:                                     ; preds = %189, %180, %171, %218, %201, %198, %175, %86, %90, %83, %81, %71, %75, %68, %66, %47, %96, %104, %._crit_edge, %122, %125, %133, %136, %141, %143, %149, %154, %156, %157, %162, %luaG_checkopenop.exit, %186, %195, %215, %luaG_checkopenop.exit243, %223, %.lr.ph276, %26, %20, %9, %3, %precheck.exit, %._crit_edge282
-  %.0 = phi i32 [ %230, %._crit_edge282 ], [ 0, %precheck.exit ], [ 0, %3 ], [ 0, %9 ], [ 0, %20 ], [ 0, %26 ], [ 0, %.lr.ph276 ], [ 0, %223 ], [ 0, %luaG_checkopenop.exit243 ], [ 0, %215 ], [ 0, %195 ], [ 0, %186 ], [ 0, %luaG_checkopenop.exit ], [ 0, %162 ], [ 0, %157 ], [ 0, %156 ], [ 0, %154 ], [ 0, %149 ], [ 0, %143 ], [ 0, %141 ], [ 0, %136 ], [ 0, %133 ], [ 0, %125 ], [ 0, %122 ], [ 0, %._crit_edge ], [ 0, %104 ], [ 0, %96 ], [ 0, %47 ], [ 0, %66 ], [ 0, %68 ], [ 0, %75 ], [ 0, %71 ], [ 0, %81 ], [ 0, %83 ], [ 0, %90 ], [ 0, %86 ], [ 0, %175 ], [ 0, %198 ], [ 0, %201 ], [ 0, %218 ], [ 0, %171 ], [ 0, %180 ], [ 0, %189 ]
+.critedge232:                                     ; preds = %190, %181, %172, %219, %202, %199, %176, %86, %90, %83, %81, %71, %75, %68, %66, %47, %96, %104, %._crit_edge, %122, %125, %133, %136, %141, %143, %150, %155, %157, %158, %163, %luaG_checkopenop.exit, %187, %196, %216, %luaG_checkopenop.exit243, %224, %.lr.ph276, %26, %20, %9, %3, %precheck.exit, %._crit_edge282
+  %.0 = phi i32 [ %231, %._crit_edge282 ], [ 0, %precheck.exit ], [ 0, %3 ], [ 0, %9 ], [ 0, %20 ], [ 0, %26 ], [ 0, %.lr.ph276 ], [ 0, %224 ], [ 0, %luaG_checkopenop.exit243 ], [ 0, %216 ], [ 0, %196 ], [ 0, %187 ], [ 0, %luaG_checkopenop.exit ], [ 0, %163 ], [ 0, %158 ], [ 0, %157 ], [ 0, %155 ], [ 0, %150 ], [ 0, %143 ], [ 0, %141 ], [ 0, %136 ], [ 0, %133 ], [ 0, %125 ], [ 0, %122 ], [ 0, %._crit_edge ], [ 0, %104 ], [ 0, %96 ], [ 0, %47 ], [ 0, %66 ], [ 0, %68 ], [ 0, %75 ], [ 0, %71 ], [ 0, %81 ], [ 0, %83 ], [ 0, %90 ], [ 0, %86 ], [ 0, %176 ], [ 0, %199 ], [ 0, %202 ], [ 0, %219 ], [ 0, %172 ], [ 0, %181 ], [ 0, %190 ]
   ret i32 %.0
 }
 

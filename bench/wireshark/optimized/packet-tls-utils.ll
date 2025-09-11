@@ -3130,7 +3130,7 @@ define hidden range(i32 -1, 1) i32 @ssl_generate_keyring_material(ptr noundef %0
 
 24:                                               ; preds = %1, %1
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.526, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  br label %298
+  br label %302
 
 25:                                               ; preds = %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 560
@@ -3147,17 +3147,17 @@ define hidden range(i32 -1, 1) i32 @ssl_generate_keyring_material(ptr noundef %0
   %32 = load i32, ptr %26, align 8
   %33 = and i32 %32, 20
   %34 = icmp eq i32 %33, 20
-  br i1 %34, label %35, label %298
+  br i1 %34, label %35, label %302
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 61
-  br i1 %38, label %39, label %298
+  br i1 %38, label %39, label %302
 
 39:                                               ; preds = %35
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.528, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  br label %253
+  br label %257
 
 40:                                               ; preds = %25
   %41 = and i32 %27, 32
@@ -3337,7 +3337,7 @@ tls_handshake_hash.exit:                          ; preds = %58, %ssl_md5_init.e
 
 120:                                              ; preds = %102
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.534, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  br label %298
+  br label %302
 
 121:                                              ; preds = %100, %102
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -3370,7 +3370,7 @@ tls_handshake_hash.exit:                          ; preds = %58, %ssl_md5_init.e
 
 139:                                              ; preds = %133
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.540, ptr noundef nonnull @__func__.ssl_generate_keyring_material, ptr noundef %137)
-  br label %298
+  br label %302
 
 .critedge237:                                     ; preds = %133, %130
   %.1181 = phi i32 [ -1, %130 ], [ %138, %133 ]
@@ -3436,365 +3436,369 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   %.val247 = load i32, ptr %153, align 4
   %154 = add i32 %.val247, -64
   %155 = sext i32 %154 to i64
-  %156 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %155, i32 1
-  %157 = load i32, ptr %156, align 8
-  %158 = shl i32 %.1211, 1
-  %159 = add i32 %.1211, %.0188
-  %160 = add i32 %159, %157
-  %161 = shl i32 %160, 1
-  %162 = sext i32 %161 to i64
-  %163 = call noalias ptr @g_malloc(i64 noundef %162) #30
-  store ptr %163, ptr %4, align 8
+  %156 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %155
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %158 = load i32, ptr %157, align 8
+  %159 = shl i32 %.1211, 1
+  %160 = add i32 %.1211, %.0188
+  %161 = add i32 %160, %158
+  %162 = shl i32 %161, 1
+  %163 = sext i32 %162 to i64
+  %164 = call noalias ptr @g_malloc(i64 noundef %163) #30
+  store ptr %164, ptr %4, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.541, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %167 = call fastcc zeroext i1 @prf(ptr noundef %0, ptr noundef nonnull %164, ptr noundef nonnull @.str.542, ptr noundef nonnull %165, ptr noundef nonnull %166, ptr noundef nonnull %4, i32 noundef %161)
-  br i1 %167, label %169, label %168
-
-168:                                              ; preds = %152
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.543, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  br label %296
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %168 = call fastcc zeroext i1 @prf(ptr noundef %0, ptr noundef nonnull %165, ptr noundef nonnull @.str.542, ptr noundef nonnull %166, ptr noundef nonnull %167, ptr noundef nonnull %4, i32 noundef %162)
+  br i1 %168, label %170, label %169
 
 169:                                              ; preds = %152
-  %170 = load ptr, ptr %4, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %172 = load i32, ptr %171, align 8
-  %173 = zext i32 %172 to i64
-  call void @ssl_print_data(ptr noundef nonnull @.str.542, ptr noundef %170, i64 noundef %173)
-  %174 = load i32, ptr %146, align 4
-  %switch = icmp ult i32 %174, 2
-  br i1 %switch, label %175, label %183
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.543, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
+  br label %300
 
-175:                                              ; preds = %169
+170:                                              ; preds = %152
+  %171 = load ptr, ptr %4, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %173 = load i32, ptr %172, align 8
+  %174 = zext i32 %173 to i64
+  call void @ssl_print_data(ptr noundef nonnull @.str.542, ptr noundef %171, i64 noundef %174)
+  %175 = load i32, ptr %146, align 4
+  %switch = icmp ult i32 %175, 2
+  br i1 %switch, label %176, label %185
+
+176:                                              ; preds = %170
   %.val248 = load i32, ptr %153, align 4
-  %176 = add i32 %.val248, -64
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %177, i32 1
-  %179 = load i32, ptr %178, align 8
-  %180 = zext i32 %179 to i64
-  %181 = getelementptr i8, ptr %170, i64 %180
-  %182 = getelementptr i8, ptr %181, i64 %180
-  br label %183
+  %177 = add i32 %.val248, -64
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %178
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %181 = load i32, ptr %180, align 8
+  %182 = zext i32 %181 to i64
+  %183 = getelementptr i8, ptr %171, i64 %182
+  %184 = getelementptr i8, ptr %183, i64 %182
+  br label %185
 
-183:                                              ; preds = %169, %175
-  %.0209 = phi ptr [ %182, %175 ], [ %170, %169 ]
-  %.1192 = phi ptr [ %170, %175 ], [ null, %169 ]
-  %.1190 = phi ptr [ %181, %175 ], [ null, %169 ]
-  %184 = zext i32 %.0188 to i64
-  %185 = getelementptr i8, ptr %.0209, i64 %184
+185:                                              ; preds = %170, %176
+  %.0209 = phi ptr [ %184, %176 ], [ %171, %170 ]
+  %.1192 = phi ptr [ %171, %176 ], [ null, %170 ]
+  %.1190 = phi ptr [ %183, %176 ], [ null, %170 ]
+  %186 = zext i32 %.0188 to i64
+  %187 = getelementptr i8, ptr %.0209, i64 %186
   %.not227 = icmp eq i32 %.1211, 0
-  %186 = getelementptr i8, ptr %185, i64 %184
-  %187 = zext i32 %.1211 to i64
-  %188 = getelementptr i8, ptr %186, i64 %187
-  %.1206 = select i1 %.not227, ptr null, ptr %186
-  %.1202 = select i1 %.not227, ptr null, ptr %188
-  br i1 %.not225255, label %239, label %189
+  %188 = getelementptr i8, ptr %187, i64 %186
+  %189 = zext i32 %.1211 to i64
+  %190 = getelementptr i8, ptr %188, i64 %189
+  %.1206 = select i1 %.not227, ptr null, ptr %188
+  %.1202 = select i1 %.not227, ptr null, ptr %190
+  br i1 %.not225255, label %241, label %191
 
-189:                                              ; preds = %183
-  %190 = icmp eq i32 %174, 1
-  br i1 %190, label %191, label %210
-
-191:                                              ; preds = %189
-  %192 = icmp ugt i32 %.1211, 16
-  br i1 %192, label %193, label %194
+191:                                              ; preds = %185
+  %192 = icmp eq i32 %175, 1
+  br i1 %192, label %193, label %212
 
 193:                                              ; preds = %191
+  %194 = icmp ugt i32 %.1211, 16
+  br i1 %194, label %195, label %196
+
+195:                                              ; preds = %193
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.544, ptr noundef nonnull @__func__.ssl_generate_keyring_material, i32 noundef 16, i32 noundef %.1211)
-  br label %296
+  br label %300
 
-194:                                              ; preds = %191
-  %195 = load i16, ptr %22, align 8
-  %196 = icmp eq i16 %195, 768
-  br i1 %196, label %197, label %202
+196:                                              ; preds = %193
+  %197 = load i16, ptr %22, align 8
+  %198 = icmp eq i16 %197, 768
+  br i1 %198, label %199, label %204
 
-197:                                              ; preds = %194
+199:                                              ; preds = %196
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %5, ptr %10, align 8
   store ptr %6, ptr %11, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.545, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %198 = call fastcc zeroext i1 @ssl3_generate_export_iv(ptr noundef nonnull %166, ptr noundef nonnull %165, ptr noundef nonnull %10, i32 noundef %.1211)
-  br i1 %198, label %199, label %.thread
-
-199:                                              ; preds = %197
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.546, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %200 = call fastcc zeroext i1 @ssl3_generate_export_iv(ptr noundef nonnull %165, ptr noundef nonnull %166, ptr noundef nonnull %11, i32 noundef %.1211)
+  %200 = call fastcc zeroext i1 @ssl3_generate_export_iv(ptr noundef nonnull %167, ptr noundef nonnull %166, ptr noundef nonnull %10, i32 noundef %.1211)
   br i1 %200, label %201, label %.thread
 
-.thread:                                          ; preds = %197, %199
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %296
-
 201:                                              ; preds = %199
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.546, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
+  %202 = call fastcc zeroext i1 @ssl3_generate_export_iv(ptr noundef nonnull %166, ptr noundef nonnull %167, ptr noundef nonnull %11, i32 noundef %.1211)
+  br i1 %202, label %203, label %.thread
+
+.thread:                                          ; preds = %199, %201
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %210
+  br label %300
 
-202:                                              ; preds = %194
+203:                                              ; preds = %201
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %212
+
+204:                                              ; preds = %196
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %15, ptr %14, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 0, ptr %203, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 0, ptr %205, align 8
   store ptr %12, ptr %13, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.547, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %204 = call fastcc zeroext i1 @prf(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.548, ptr noundef nonnull %166, ptr noundef nonnull %165, ptr noundef nonnull %13, i32 noundef %158)
-  br i1 %204, label %.thread257, label %209
+  %206 = call fastcc zeroext i1 @prf(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.548, ptr noundef nonnull %167, ptr noundef nonnull %166, ptr noundef nonnull %13, i32 noundef %159)
+  br i1 %206, label %.thread257, label %211
 
-.thread257:                                       ; preds = %202
-  %205 = load ptr, ptr %13, align 8
-  %206 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef %205, i64 noundef %187, i64 noundef 16) #31, !alias.scope !26
-  %207 = getelementptr i8, ptr %205, i64 %187
-  %208 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef %207, i64 noundef %187, i64 noundef 16) #31, !alias.scope !30
+.thread257:                                       ; preds = %204
+  %207 = load ptr, ptr %13, align 8
+  %208 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef %207, i64 noundef %189, i64 noundef 16) #31, !alias.scope !26
+  %209 = getelementptr i8, ptr %207, i64 %189
+  %210 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef %209, i64 noundef %189, i64 noundef 16) #31, !alias.scope !30
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %210
+  br label %212
 
-209:                                              ; preds = %202
+211:                                              ; preds = %204
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.549, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %296
+  br label %300
 
-210:                                              ; preds = %.thread257, %201, %189
-  %.3208 = phi ptr [ %.1206, %189 ], [ %5, %201 ], [ %5, %.thread257 ]
-  %.3204 = phi ptr [ %.1202, %189 ], [ %6, %201 ], [ %6, %.thread257 ]
-  %211 = load i16, ptr %22, align 8
-  %212 = icmp eq i16 %211, 768
-  br i1 %212, label %213, label %233
+212:                                              ; preds = %.thread257, %203, %191
+  %.3208 = phi ptr [ %.1206, %191 ], [ %5, %203 ], [ %5, %.thread257 ]
+  %.3204 = phi ptr [ %.1202, %191 ], [ %6, %203 ], [ %6, %.thread257 ]
+  %213 = load i16, ptr %22, align 8
+  %214 = icmp eq i16 %213, 768
+  br i1 %214, label %215, label %235
 
-213:                                              ; preds = %210
+215:                                              ; preds = %212
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.550, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %214 = call fastcc i32 @ssl_md5_init(ptr noundef nonnull %16)
-  %.not228 = icmp eq i32 %214, 0
-  br i1 %.not228, label %215, label %.thread260
+  %216 = call fastcc i32 @ssl_md5_init(ptr noundef nonnull %16)
+  %.not228 = icmp eq i32 %216, 0
+  br i1 %.not228, label %217, label %.thread260
 
-215:                                              ; preds = %213
+217:                                              ; preds = %215
   %.val = load ptr, ptr %16, align 8
-  %216 = sext i32 %.0188 to i64
-  call void @gcry_md_write(ptr noundef %.val, ptr noundef %.0209, i64 noundef %216)
-  %217 = load ptr, ptr %166, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %219 = load i32, ptr %218, align 8
+  %218 = sext i32 %.0188 to i64
+  call void @gcry_md_write(ptr noundef %.val, ptr noundef %.0209, i64 noundef %218)
+  %219 = load ptr, ptr %167, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %221 = load i32, ptr %220, align 8
   %.val238 = load ptr, ptr %16, align 8
-  %220 = sext i32 %219 to i64
-  call void @gcry_md_write(ptr noundef %.val238, ptr noundef %217, i64 noundef %220)
-  %221 = load ptr, ptr %165, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %223 = load i32, ptr %222, align 8
+  %222 = sext i32 %221 to i64
+  call void @gcry_md_write(ptr noundef %.val238, ptr noundef %219, i64 noundef %222)
+  %223 = load ptr, ptr %166, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %225 = load i32, ptr %224, align 8
   %.val239 = load ptr, ptr %16, align 8
-  %224 = sext i32 %223 to i64
-  call void @gcry_md_write(ptr noundef %.val239, ptr noundef %221, i64 noundef %224)
+  %226 = sext i32 %225 to i64
+  call void @gcry_md_write(ptr noundef %.val239, ptr noundef %223, i64 noundef %226)
   %.val243 = load ptr, ptr %16, align 8
   call fastcc void @ssl_md5_final(ptr noundef nonnull %7, ptr %.val243)
   %.val245 = load ptr, ptr %16, align 8
   call void @gcry_md_close(ptr noundef %.val245)
-  %225 = call fastcc i32 @ssl_md5_init(ptr noundef nonnull %16)
-  %.not229 = icmp eq i32 %225, 0
-  br i1 %.not229, label %226, label %.thread260
+  %227 = call fastcc i32 @ssl_md5_init(ptr noundef nonnull %16)
+  %.not229 = icmp eq i32 %227, 0
+  br i1 %.not229, label %228, label %.thread260
 
-.thread260:                                       ; preds = %213, %215
+.thread260:                                       ; preds = %215, %217
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %296
+  br label %300
 
-226:                                              ; preds = %215
+228:                                              ; preds = %217
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.551, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
   %.val240 = load ptr, ptr %16, align 8
-  call void @gcry_md_write(ptr noundef %.val240, ptr noundef %185, i64 noundef %216)
-  %227 = load ptr, ptr %165, align 8
-  %228 = load i32, ptr %222, align 8
+  call void @gcry_md_write(ptr noundef %.val240, ptr noundef %187, i64 noundef %218)
+  %229 = load ptr, ptr %166, align 8
+  %230 = load i32, ptr %224, align 8
   %.val241 = load ptr, ptr %16, align 8
-  %229 = sext i32 %228 to i64
-  call void @gcry_md_write(ptr noundef %.val241, ptr noundef %227, i64 noundef %229)
-  %230 = load ptr, ptr %166, align 8
-  %231 = load i32, ptr %218, align 8
+  %231 = sext i32 %230 to i64
+  call void @gcry_md_write(ptr noundef %.val241, ptr noundef %229, i64 noundef %231)
+  %232 = load ptr, ptr %167, align 8
+  %233 = load i32, ptr %220, align 8
   %.val242 = load ptr, ptr %16, align 8
-  %232 = sext i32 %231 to i64
-  call void @gcry_md_write(ptr noundef %.val242, ptr noundef %230, i64 noundef %232)
+  %234 = sext i32 %233 to i64
+  call void @gcry_md_write(ptr noundef %.val242, ptr noundef %232, i64 noundef %234)
   %.val244 = load ptr, ptr %16, align 8
   call fastcc void @ssl_md5_final(ptr noundef nonnull %8, ptr %.val244)
   %.val246 = load ptr, ptr %16, align 8
   call void @gcry_md_close(ptr noundef %.val246)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %239
+  br label %241
 
-233:                                              ; preds = %210
+235:                                              ; preds = %212
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %7, ptr %17, align 8
   store ptr %8, ptr %18, align 8
   store ptr %.0209, ptr %19, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i32 %.0188, ptr %234, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i32 %.0188, ptr %236, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.552, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %235 = call fastcc zeroext i1 @prf(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.553, ptr noundef nonnull %166, ptr noundef nonnull %165, ptr noundef nonnull %17, i32 noundef 32)
-  br i1 %235, label %236, label %.thread265
-
-236:                                              ; preds = %233
-  store ptr %185, ptr %19, align 8
-  store i32 %.0188, ptr %234, align 8
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.555, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %237 = call fastcc zeroext i1 @prf(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.556, ptr noundef nonnull %166, ptr noundef nonnull %165, ptr noundef nonnull %18, i32 noundef 32)
+  %237 = call fastcc zeroext i1 @prf(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.553, ptr noundef nonnull %167, ptr noundef nonnull %166, ptr noundef nonnull %17, i32 noundef 32)
   br i1 %237, label %238, label %.thread265
 
-.thread265:                                       ; preds = %236, %233
-  %.str.557.sink = phi ptr [ @.str.554, %233 ], [ @.str.557, %236 ]
+238:                                              ; preds = %235
+  store ptr %187, ptr %19, align 8
+  store i32 %.0188, ptr %236, align 8
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.555, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
+  %239 = call fastcc zeroext i1 @prf(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.556, ptr noundef nonnull %167, ptr noundef nonnull %166, ptr noundef nonnull %18, i32 noundef 32)
+  br i1 %239, label %240, label %.thread265
+
+.thread265:                                       ; preds = %238, %235
+  %.str.557.sink = phi ptr [ @.str.554, %235 ], [ @.str.557, %238 ]
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull %.str.557.sink, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %296
+  br label %300
 
-238:                                              ; preds = %236
+240:                                              ; preds = %238
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %239
+  br label %241
 
-239:                                              ; preds = %238, %226, %183
-  %.2207 = phi ptr [ %.3208, %226 ], [ %.3208, %238 ], [ %.1206, %183 ]
-  %.2203 = phi ptr [ %.3204, %226 ], [ %.3204, %238 ], [ %.1202, %183 ]
-  %.1198 = phi ptr [ %7, %226 ], [ %7, %238 ], [ %.0209, %183 ]
-  %.1194 = phi ptr [ %8, %226 ], [ %8, %238 ], [ %185, %183 ]
+241:                                              ; preds = %240, %228, %185
+  %.2207 = phi ptr [ %.3208, %228 ], [ %.3208, %240 ], [ %.1206, %185 ]
+  %.2203 = phi ptr [ %.3204, %228 ], [ %.3204, %240 ], [ %.1202, %185 ]
+  %.1198 = phi ptr [ %7, %228 ], [ %7, %240 ], [ %.0209, %185 ]
+  %.1194 = phi ptr [ %8, %228 ], [ %8, %240 ], [ %187, %185 ]
   %.not230 = icmp eq ptr %.1192, null
-  br i1 %.not230, label %251, label %240
+  br i1 %.not230, label %255, label %242
 
-240:                                              ; preds = %239
+242:                                              ; preds = %241
   %.val250 = load i32, ptr %153, align 4
-  %241 = add i32 %.val250, -64
-  %242 = sext i32 %241 to i64
-  %243 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %242, i32 1
-  %244 = load i32, ptr %243, align 8
-  %245 = zext i32 %244 to i64
-  call void @ssl_print_data(ptr noundef nonnull @.str.558, ptr noundef nonnull %.1192, i64 noundef %245)
+  %243 = add i32 %.val250, -64
+  %244 = sext i32 %243 to i64
+  %245 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %244
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
+  %247 = load i32, ptr %246, align 8
+  %248 = zext i32 %247 to i64
+  call void @ssl_print_data(ptr noundef nonnull @.str.558, ptr noundef nonnull %.1192, i64 noundef %248)
   %.val251 = load i32, ptr %153, align 4
-  %246 = add i32 %.val251, -64
-  %247 = sext i32 %246 to i64
-  %248 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %247, i32 1
-  %249 = load i32, ptr %248, align 8
-  %250 = zext i32 %249 to i64
-  call void @ssl_print_data(ptr noundef nonnull @.str.559, ptr noundef %.1190, i64 noundef %250)
-  br label %251
+  %249 = add i32 %.val251, -64
+  %250 = sext i32 %249 to i64
+  %251 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %250
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %253 = load i32, ptr %252, align 8
+  %254 = zext i32 %253 to i64
+  call void @ssl_print_data(ptr noundef nonnull @.str.559, ptr noundef %.1190, i64 noundef %254)
+  br label %255
 
-251:                                              ; preds = %240, %239
-  call void @ssl_print_data(ptr noundef nonnull @.str.560, ptr noundef %.1198, i64 noundef %184)
-  call void @ssl_print_data(ptr noundef nonnull @.str.561, ptr noundef %.1194, i64 noundef %184)
-  br i1 %.not227, label %253, label %252
+255:                                              ; preds = %242, %241
+  call void @ssl_print_data(ptr noundef nonnull @.str.560, ptr noundef %.1198, i64 noundef %186)
+  call void @ssl_print_data(ptr noundef nonnull @.str.561, ptr noundef %.1194, i64 noundef %186)
+  br i1 %.not227, label %257, label %256
 
-252:                                              ; preds = %251
-  call void @ssl_print_data(ptr noundef nonnull @.str.562, ptr noundef %.2207, i64 noundef %187)
-  call void @ssl_print_data(ptr noundef nonnull @.str.563, ptr noundef %.2203, i64 noundef %187)
-  br label %253
+256:                                              ; preds = %255
+  call void @ssl_print_data(ptr noundef nonnull @.str.562, ptr noundef %.2207, i64 noundef %189)
+  call void @ssl_print_data(ptr noundef nonnull @.str.563, ptr noundef %.2203, i64 noundef %189)
+  br label %257
 
-253:                                              ; preds = %251, %252, %39
-  %.0210 = phi i32 [ 0, %39 ], [ %.1211, %252 ], [ 0, %251 ]
-  %.0205 = phi ptr [ null, %39 ], [ %.2207, %252 ], [ %.2207, %251 ]
-  %.0201 = phi ptr [ null, %39 ], [ %.2203, %252 ], [ %.2203, %251 ]
-  %.0197 = phi ptr [ null, %39 ], [ %.1198, %252 ], [ %.1198, %251 ]
-  %.0193 = phi ptr [ null, %39 ], [ %.1194, %252 ], [ %.1194, %251 ]
-  %.0191 = phi ptr [ null, %39 ], [ %.1192, %252 ], [ %.1192, %251 ]
-  %.0189 = phi ptr [ null, %39 ], [ %.1190, %252 ], [ %.1190, %251 ]
-  %.0180 = phi i32 [ -1, %39 ], [ %.1181, %252 ], [ %.1181, %251 ]
+257:                                              ; preds = %255, %256, %39
+  %.0210 = phi i32 [ 0, %39 ], [ %.1211, %256 ], [ 0, %255 ]
+  %.0205 = phi ptr [ null, %39 ], [ %.2207, %256 ], [ %.2207, %255 ]
+  %.0201 = phi ptr [ null, %39 ], [ %.2203, %256 ], [ %.2203, %255 ]
+  %.0197 = phi ptr [ null, %39 ], [ %.1198, %256 ], [ %.1198, %255 ]
+  %.0193 = phi ptr [ null, %39 ], [ %.1194, %256 ], [ %.1194, %255 ]
+  %.0191 = phi ptr [ null, %39 ], [ %.1192, %256 ], [ %.1192, %255 ]
+  %.0189 = phi ptr [ null, %39 ], [ %.1190, %256 ], [ %.1190, %255 ]
+  %.0180 = phi i32 [ -1, %39 ], [ %.1181, %256 ], [ %.1181, %255 ]
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.564, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %255 = load i32, ptr %254, align 4
-  %256 = call fastcc ptr @ssl_create_decoder(ptr noundef %21, i32 noundef %.0180, i32 noundef %255, ptr noundef %.0191, ptr noundef %.0197, ptr noundef null, ptr noundef %.0205, i32 noundef %.0210)
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store ptr %256, ptr %257, align 8
-  %.not231 = icmp eq ptr %256, null
-  br i1 %.not231, label %258, label %259
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 652
+  %259 = load i32, ptr %258, align 4
+  %260 = call fastcc ptr @ssl_create_decoder(ptr noundef %21, i32 noundef %.0180, i32 noundef %259, ptr noundef %.0191, ptr noundef %.0197, ptr noundef null, ptr noundef %.0205, i32 noundef %.0210)
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  store ptr %260, ptr %261, align 8
+  %.not231 = icmp eq ptr %260, null
+  br i1 %.not231, label %262, label %263
 
-258:                                              ; preds = %253
+262:                                              ; preds = %257
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.565, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  br label %296
+  br label %300
 
-259:                                              ; preds = %253
+263:                                              ; preds = %257
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.566, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %260 = load i32, ptr %254, align 4
-  %261 = call fastcc ptr @ssl_create_decoder(ptr noundef %21, i32 noundef %.0180, i32 noundef %260, ptr noundef %.0189, ptr noundef %.0193, ptr noundef null, ptr noundef %.0201, i32 noundef %.0210)
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store ptr %261, ptr %262, align 8
-  %.not232 = icmp eq ptr %261, null
-  br i1 %.not232, label %263, label %264
+  %264 = load i32, ptr %258, align 4
+  %265 = call fastcc ptr @ssl_create_decoder(ptr noundef %21, i32 noundef %.0180, i32 noundef %264, ptr noundef %.0189, ptr noundef %.0193, ptr noundef null, ptr noundef %.0201, i32 noundef %.0210)
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  store ptr %265, ptr %266, align 8
+  %.not232 = icmp eq ptr %265, null
+  br i1 %.not232, label %267, label %268
 
-263:                                              ; preds = %259
+267:                                              ; preds = %263
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.567, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  br label %296
+  br label %300
 
-264:                                              ; preds = %259
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %266 = load ptr, ptr %265, align 8
-  %.not233 = icmp eq ptr %266, null
-  br i1 %.not233, label %270, label %267
+268:                                              ; preds = %263
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %270 = load ptr, ptr %269, align 8
+  %.not233 = icmp eq ptr %270, null
+  br i1 %.not233, label %274, label %271
 
-267:                                              ; preds = %264
-  %268 = getelementptr inbounds nuw i8, ptr %266, i64 160
-  %269 = load ptr, ptr %268, align 8
-  br label %272
+271:                                              ; preds = %268
+  %272 = getelementptr inbounds nuw i8, ptr %270, i64 160
+  %273 = load ptr, ptr %272, align 8
+  br label %276
 
-270:                                              ; preds = %264
-  %271 = call fastcc ptr @ssl_create_flow()
-  br label %272
+274:                                              ; preds = %268
+  %275 = call fastcc ptr @ssl_create_flow()
+  br label %276
 
-272:                                              ; preds = %270, %267
-  %273 = phi ptr [ %269, %267 ], [ %271, %270 ]
-  %274 = load ptr, ptr %257, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 160
-  store ptr %273, ptr %275, align 8
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %277 = load ptr, ptr %276, align 8
-  %.not234 = icmp eq ptr %277, null
-  br i1 %.not234, label %281, label %278
+276:                                              ; preds = %274, %271
+  %277 = phi ptr [ %273, %271 ], [ %275, %274 ]
+  %278 = load ptr, ptr %261, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 160
+  store ptr %277, ptr %279, align 8
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %281 = load ptr, ptr %280, align 8
+  %.not234 = icmp eq ptr %281, null
+  br i1 %.not234, label %285, label %282
 
-278:                                              ; preds = %272
-  %279 = getelementptr inbounds nuw i8, ptr %277, i64 160
-  %280 = load ptr, ptr %279, align 8
-  br label %283
+282:                                              ; preds = %276
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 160
+  %284 = load ptr, ptr %283, align 8
+  br label %287
 
-281:                                              ; preds = %272
-  %282 = call fastcc ptr @ssl_create_flow()
-  br label %283
+285:                                              ; preds = %276
+  %286 = call fastcc ptr @ssl_create_flow()
+  br label %287
 
-283:                                              ; preds = %281, %278
-  %284 = phi ptr [ %280, %278 ], [ %282, %281 ]
-  %285 = load ptr, ptr %262, align 8
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 160
-  store ptr %284, ptr %286, align 8
-  %287 = load ptr, ptr %257, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 128
-  %289 = load i64, ptr %288, align 8
-  %290 = load ptr, ptr %262, align 8
-  %291 = getelementptr inbounds nuw i8, ptr %290, i64 128
-  %292 = load i64, ptr %291, align 8
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.568, ptr noundef nonnull @__func__.ssl_generate_keyring_material, i64 noundef %289, i64 noundef %292)
-  %293 = load ptr, ptr %4, align 8
-  call void @g_free(ptr noundef %293)
-  %294 = load i32, ptr %26, align 8
-  %295 = or i32 %294, 8
-  store i32 %295, ptr %26, align 8
-  br label %298
-
-296:                                              ; preds = %.thread265, %.thread260, %209, %.thread, %263, %258, %193, %168
+287:                                              ; preds = %285, %282
+  %288 = phi ptr [ %284, %282 ], [ %286, %285 ]
+  %289 = load ptr, ptr %266, align 8
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 160
+  store ptr %288, ptr %290, align 8
+  %291 = load ptr, ptr %261, align 8
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 128
+  %293 = load i64, ptr %292, align 8
+  %294 = load ptr, ptr %266, align 8
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 128
+  %296 = load i64, ptr %295, align 8
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.568, ptr noundef nonnull @__func__.ssl_generate_keyring_material, i64 noundef %293, i64 noundef %296)
   %297 = load ptr, ptr %4, align 8
   call void @g_free(ptr noundef %297)
-  br label %298
+  %298 = load i32, ptr %26, align 8
+  %299 = or i32 %298, 8
+  store i32 %299, ptr %26, align 8
+  br label %302
+
+300:                                              ; preds = %.thread265, %.thread260, %211, %.thread, %267, %262, %195, %169
+  %301 = load ptr, ptr %4, align 8
+  call void @g_free(ptr noundef %301)
+  br label %302
 
 .critedge:                                        ; preds = %98, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %298
+  br label %302
 
-298:                                              ; preds = %139, %120, %283, %296, %35, %31, %.critedge, %24
-  %.0 = phi i32 [ -1, %24 ], [ 0, %283 ], [ -1, %296 ], [ -1, %139 ], [ -1, %120 ], [ -1, %35 ], [ -1, %31 ], [ -1, %.critedge ]
+302:                                              ; preds = %139, %120, %287, %300, %35, %31, %.critedge, %24
+  %.0 = phi i32 [ -1, %24 ], [ 0, %287 ], [ -1, %300 ], [ -1, %139 ], [ -1, %120 ], [ -1, %35 ], [ -1, %31 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4482,7 +4486,7 @@ define internal fastcc noundef ptr @ssl_create_decoder(ptr noundef %0, i32 nound
   %or.cond = and i1 %15, %14
   %16 = icmp eq i32 %10, 1
   %or.cond3 = or i1 %16, %or.cond
-  br i1 %or.cond3, label %17, label %28
+  br i1 %or.cond3, label %17, label %29
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -4500,215 +4504,217 @@ ssl_data_set.exit:                                ; preds = %17
   %.val66 = load i32, ptr %21, align 4
   %22 = add i32 %.val66, -64
   %23 = sext i32 %22 to i64
-  %24 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %23, i32 1
-  %25 = load i32, ptr %24, align 8
-  %26 = zext i32 %25 to i64
-  %27 = tail call ptr @__memcpy_chk(ptr noundef nonnull %18, ptr noundef nonnull readonly %3, i64 noundef %26, i64 noundef 172) #31, !alias.scope !69
+  %24 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load i32, ptr %25, align 8
+  %27 = zext i32 %26 to i64
+  %28 = tail call ptr @__memcpy_chk(ptr noundef nonnull %18, ptr noundef nonnull readonly %3, i64 noundef %27, i64 noundef 172) #31, !alias.scope !69
   br label %.sink.split
 
-28:                                               ; preds = %8
+29:                                               ; preds = %8
   %.off = add i32 %10, -2
   %switch = icmp ult i32 %.off, 4
-  br i1 %switch, label %29, label %39
+  br i1 %switch, label %30, label %40
 
-29:                                               ; preds = %28
-  %30 = icmp ult i32 %7, 49
-  br i1 %30, label %32, label %31
+30:                                               ; preds = %29
+  %31 = icmp ult i32 %7, 49
+  br i1 %31, label %33, label %32
 
-31:                                               ; preds = %29
+32:                                               ; preds = %30
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.503, ptr noundef nonnull @.str.504, i32 noundef 4461, ptr noundef nonnull @.str.1235) #29
   unreachable
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store ptr %33, ptr %34, align 8
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  store ptr %34, ptr %35, align 8
   %.not.i67 = icmp eq ptr %6, null
-  br i1 %.not.i67, label %35, label %ssl_data_set.exit68
+  br i1 %.not.i67, label %36, label %ssl_data_set.exit68
 
-35:                                               ; preds = %32
+36:                                               ; preds = %33
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.503, ptr noundef nonnull @.str.504, i32 noundef 3149, ptr noundef nonnull @.str.506) #29
   unreachable
 
-ssl_data_set.exit68:                              ; preds = %32
-  %36 = zext nneg i32 %7 to i64
-  %37 = tail call ptr @__memcpy_chk(ptr noundef nonnull %33, ptr noundef nonnull readonly %6, i64 noundef %36, i64 noundef 172) #31, !alias.scope !73
+ssl_data_set.exit68:                              ; preds = %33
+  %37 = zext nneg i32 %7 to i64
+  %38 = tail call ptr @__memcpy_chk(ptr noundef nonnull %34, ptr noundef nonnull readonly %6, i64 noundef %37, i64 noundef 172) #31, !alias.scope !73
   br label %.sink.split
 
 .sink.split:                                      ; preds = %ssl_data_set.exit, %ssl_data_set.exit68
   %.sink91 = phi i64 [ 88, %ssl_data_set.exit68 ], [ 72, %ssl_data_set.exit ]
-  %.sink = phi i32 [ %7, %ssl_data_set.exit68 ], [ %25, %ssl_data_set.exit ]
-  %38 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink91
-  store i32 %.sink, ptr %38, align 8
-  br label %39
+  %.sink = phi i32 [ %7, %ssl_data_set.exit68 ], [ %26, %ssl_data_set.exit ]
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink91
+  store i32 %.sink, ptr %39, align 8
+  br label %40
 
-39:                                               ; preds = %.sink.split, %28
-  %40 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  store i64 0, ptr %40, align 8
-  %41 = icmp eq i32 %2, 0
-  br i1 %41, label %ssl_create_decompressor.exit, label %42
+40:                                               ; preds = %.sink.split, %29
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  store i64 0, ptr %41, align 8
+  %42 = icmp eq i32 %2, 0
+  br i1 %42, label %ssl_create_decompressor.exit, label %43
 
-42:                                               ; preds = %39
+43:                                               ; preds = %40
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1240, i32 noundef %2)
-  %43 = tail call ptr @wmem_file_scope()
-  %44 = tail call noalias dereferenceable_or_null(120) ptr @wmem_alloc(ptr noundef %43, i64 noundef 120) #33
-  store i32 %2, ptr %44, align 8
+  %44 = tail call ptr @wmem_file_scope()
+  %45 = tail call noalias dereferenceable_or_null(120) ptr @wmem_alloc(ptr noundef %44, i64 noundef 120) #33
+  store i32 %2, ptr %45, align 8
   %cond.i = icmp eq i32 %2, 1
-  br i1 %cond.i, label %45, label %55
+  br i1 %cond.i, label %46, label %56
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 72
-  store ptr @ssl_zalloc, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 80
-  store ptr @ssl_zfree, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 88
-  store ptr null, ptr %49, align 8
-  store ptr null, ptr %46, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 32
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 72
+  store ptr @ssl_zalloc, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 80
+  store ptr @ssl_zfree, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 88
   store ptr null, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  store ptr null, ptr %47, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  store ptr null, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 0, ptr %52, align 8
-  %53 = tail call i32 @inflateInit_(ptr noundef nonnull %46, ptr noundef nonnull @.str.1241, i32 noundef 112)
-  %.not.i69 = icmp eq i32 %53, 0
-  br i1 %.not.i69, label %ssl_create_decompressor.exit, label %54
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  store i32 0, ptr %53, align 8
+  %54 = tail call i32 @inflateInit_(ptr noundef nonnull %47, ptr noundef nonnull @.str.1241, i32 noundef 112)
+  %.not.i69 = icmp eq i32 %54, 0
+  br i1 %.not.i69, label %ssl_create_decompressor.exit, label %55
 
-54:                                               ; preds = %45
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1242, i32 noundef %53)
+55:                                               ; preds = %46
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1242, i32 noundef %54)
   br label %ssl_create_decompressor.exit
 
-55:                                               ; preds = %42
+56:                                               ; preds = %43
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1243, i32 noundef %2)
   br label %ssl_create_decompressor.exit
 
-ssl_create_decompressor.exit:                     ; preds = %39, %45, %54, %55
-  %.0.i = phi ptr [ null, %54 ], [ null, %55 ], [ null, %39 ], [ %44, %45 ]
-  %56 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  store ptr %.0.i, ptr %56, align 8
-  %57 = tail call ptr @wmem_file_scope()
-  %58 = tail call i32 @wmem_register_callback(ptr noundef %57, ptr noundef nonnull @ssl_decoder_destroy_cb, ptr noundef %12)
-  %59 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  %60 = load i32, ptr %9, align 4
-  %61 = icmp eq i32 %1, -1
-  br i1 %61, label %62, label %63
-
-62:                                               ; preds = %ssl_create_decompressor.exit
-  store ptr inttoptr (i64 -1 to ptr), ptr %59, align 8
-  br label %ssl_cipher_init.exit
+ssl_create_decompressor.exit:                     ; preds = %40, %46, %55, %56
+  %.0.i = phi ptr [ null, %55 ], [ null, %56 ], [ null, %40 ], [ %45, %46 ]
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 112
+  store ptr %.0.i, ptr %57, align 8
+  %58 = tail call ptr @wmem_file_scope()
+  %59 = tail call i32 @wmem_register_callback(ptr noundef %58, ptr noundef nonnull @ssl_decoder_destroy_cb, ptr noundef %12)
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 104
+  %61 = load i32, ptr %9, align 4
+  %62 = icmp eq i32 %1, -1
+  br i1 %62, label %63, label %64
 
 63:                                               ; preds = %ssl_create_decompressor.exit
-  %64 = sext i32 %60 to i64
-  %65 = getelementptr i32, ptr @__const.ssl_cipher_init.gcry_modes, i64 %64
-  %66 = load i32, ptr %65, align 4
-  %67 = tail call i32 @gcry_cipher_open(ptr noundef nonnull %59, i32 noundef %1, i32 noundef %66, i32 noundef 0)
-  %.not.i70 = icmp eq i32 %67, 0
-  br i1 %.not.i70, label %68, label %78
+  store ptr inttoptr (i64 -1 to ptr), ptr %60, align 8
+  br label %ssl_cipher_init.exit
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %59, align 8
-  %70 = tail call i64 @gcry_cipher_get_algo_keylen(i32 noundef %1)
-  %71 = tail call i32 @gcry_cipher_setkey(ptr noundef %69, ptr noundef %4, i64 noundef %70)
-  %.not16.i = icmp eq i32 %71, 0
-  br i1 %.not16.i, label %72, label %78
+64:                                               ; preds = %ssl_create_decompressor.exit
+  %65 = sext i32 %61 to i64
+  %66 = getelementptr i32, ptr @__const.ssl_cipher_init.gcry_modes, i64 %65
+  %67 = load i32, ptr %66, align 4
+  %68 = tail call i32 @gcry_cipher_open(ptr noundef nonnull %60, i32 noundef %1, i32 noundef %67, i32 noundef 0)
+  %.not.i70 = icmp eq i32 %68, 0
+  br i1 %.not.i70, label %69, label %79
 
-72:                                               ; preds = %68
-  %73 = icmp eq i32 %60, 1
-  br i1 %73, label %74, label %ssl_cipher_init.exit
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %60, align 8
+  %71 = tail call i64 @gcry_cipher_get_algo_keylen(i32 noundef %1)
+  %72 = tail call i32 @gcry_cipher_setkey(ptr noundef %70, ptr noundef %4, i64 noundef %71)
+  %.not16.i = icmp eq i32 %72, 0
+  br i1 %.not16.i, label %73, label %79
 
-74:                                               ; preds = %72
-  %75 = load ptr, ptr %59, align 8
-  %76 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef %1)
-  %77 = tail call i32 @gcry_cipher_setiv(ptr noundef %75, ptr noundef %6, i64 noundef %76)
-  %.not17.i = icmp eq i32 %77, 0
-  br i1 %.not17.i, label %ssl_cipher_init.exit, label %78
+73:                                               ; preds = %69
+  %74 = icmp eq i32 %61, 1
+  br i1 %74, label %75, label %ssl_cipher_init.exit
 
-78:                                               ; preds = %63, %68, %74
-  %79 = load i32, ptr %9, align 4
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1236, ptr noundef nonnull @__func__.ssl_create_decoder, i32 noundef %1, i32 noundef %79)
-  br label %110
+75:                                               ; preds = %73
+  %76 = load ptr, ptr %60, align 8
+  %77 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef %1)
+  %78 = tail call i32 @gcry_cipher_setiv(ptr noundef %76, ptr noundef %6, i64 noundef %77)
+  %.not17.i = icmp eq i32 %78, 0
+  br i1 %.not17.i, label %ssl_cipher_init.exit, label %79
 
-ssl_cipher_init.exit:                             ; preds = %72, %74, %62
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp ne i32 %81, 61
-  %83 = icmp ne ptr %5, null
-  %or.cond11 = and i1 %83, %82
-  br i1 %or.cond11, label %84, label %101
+79:                                               ; preds = %64, %69, %75
+  %80 = load i32, ptr %9, align 4
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1236, ptr noundef nonnull @__func__.ssl_create_decoder, i32 noundef %1, i32 noundef %80)
+  br label %112
 
-84:                                               ; preds = %ssl_cipher_init.exit
-  switch i32 %81, label %86 [
-    i32 53, label %87
-    i32 54, label %87
-    i32 58, label %85
+ssl_cipher_init.exit:                             ; preds = %73, %75, %63
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp ne i32 %82, 61
+  %84 = icmp ne ptr %5, null
+  %or.cond11 = and i1 %84, %83
+  br i1 %or.cond11, label %85, label %102
+
+85:                                               ; preds = %ssl_cipher_init.exit
+  switch i32 %82, label %87 [
+    i32 53, label %88
+    i32 54, label %88
+    i32 58, label %86
   ]
 
-85:                                               ; preds = %84
-  br label %87
+86:                                               ; preds = %85
+  br label %88
 
-86:                                               ; preds = %84
+87:                                               ; preds = %85
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1237)
-  br label %110
+  br label %112
 
-87:                                               ; preds = %84, %84, %85
-  %.0 = phi i64 [ 0, %85 ], [ 6, %84 ], [ 6, %84 ]
-  %88 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  br i1 %61, label %89, label %90
+88:                                               ; preds = %85, %85, %86
+  %.0 = phi i64 [ 0, %86 ], [ 6, %85 ], [ 6, %85 ]
+  %89 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  br i1 %62, label %90, label %91
 
-89:                                               ; preds = %87
-  store ptr inttoptr (i64 -1 to ptr), ptr %88, align 8
+90:                                               ; preds = %88
+  store ptr inttoptr (i64 -1 to ptr), ptr %89, align 8
   br label %ssl_cipher_init.exit76
 
-90:                                               ; preds = %87
-  %91 = getelementptr i32, ptr @__const.ssl_cipher_init.gcry_modes, i64 %.0
-  %92 = load i32, ptr %91, align 8
-  %93 = tail call i32 @gcry_cipher_open(ptr noundef nonnull %88, i32 noundef %1, i32 noundef %92, i32 noundef 0)
-  %.not.i72 = icmp eq i32 %93, 0
-  br i1 %.not.i72, label %94, label %98
+91:                                               ; preds = %88
+  %92 = getelementptr i32, ptr @__const.ssl_cipher_init.gcry_modes, i64 %.0
+  %93 = load i32, ptr %92, align 8
+  %94 = tail call i32 @gcry_cipher_open(ptr noundef nonnull %89, i32 noundef %1, i32 noundef %93, i32 noundef 0)
+  %.not.i72 = icmp eq i32 %94, 0
+  br i1 %.not.i72, label %95, label %99
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %88, align 8
-  %96 = tail call i64 @gcry_cipher_get_algo_keylen(i32 noundef %1)
-  %97 = tail call i32 @gcry_cipher_setkey(ptr noundef %95, ptr noundef nonnull %5, i64 noundef %96)
-  %.not16.i74 = icmp eq i32 %97, 0
-  br i1 %.not16.i74, label %ssl_cipher_init.exit76, label %98
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %89, align 8
+  %97 = tail call i64 @gcry_cipher_get_algo_keylen(i32 noundef %1)
+  %98 = tail call i32 @gcry_cipher_setkey(ptr noundef %96, ptr noundef nonnull %5, i64 noundef %97)
+  %.not16.i74 = icmp eq i32 %98, 0
+  br i1 %.not16.i74, label %ssl_cipher_init.exit76, label %99
 
-98:                                               ; preds = %90, %94
+99:                                               ; preds = %91, %95
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1238, ptr noundef nonnull @__func__.ssl_create_decoder, i32 noundef %1, i32 noundef 6)
-  %99 = load ptr, ptr %59, align 8
-  %.not.i77 = icmp eq ptr %99, inttoptr (i64 -1 to ptr)
-  br i1 %.not.i77, label %ssl_cipher_cleanup.exit, label %100
+  %100 = load ptr, ptr %60, align 8
+  %.not.i77 = icmp eq ptr %100, inttoptr (i64 -1 to ptr)
+  br i1 %.not.i77, label %ssl_cipher_cleanup.exit, label %101
 
-100:                                              ; preds = %98
-  tail call void @gcry_cipher_close(ptr noundef %99)
+101:                                              ; preds = %99
+  tail call void @gcry_cipher_close(ptr noundef %100)
   br label %ssl_cipher_cleanup.exit
 
-ssl_cipher_cleanup.exit:                          ; preds = %98, %100
-  store ptr null, ptr %59, align 8
-  br label %110
+ssl_cipher_cleanup.exit:                          ; preds = %99, %101
+  store ptr null, ptr %60, align 8
+  br label %112
 
-101:                                              ; preds = %ssl_cipher_init.exit
-  %102 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  store ptr null, ptr %102, align 8
+102:                                              ; preds = %ssl_cipher_init.exit
+  %103 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  store ptr null, ptr %103, align 8
   br label %ssl_cipher_init.exit76
 
-ssl_cipher_init.exit76:                           ; preds = %94, %89, %101
-  %103 = getelementptr inbounds nuw i8, ptr %12, i64 136
-  store ptr null, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  store i32 0, ptr %104, align 8
-  %105 = getelementptr i8, ptr %0, i64 12
-  %.val = load i32, ptr %105, align 4
-  %106 = add i32 %.val, -64
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %107, i32 1
-  %109 = load i32, ptr %108, align 8
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1239, i32 noundef %109)
-  br label %110
+ssl_cipher_init.exit76:                           ; preds = %95, %90, %102
+  %104 = getelementptr inbounds nuw i8, ptr %12, i64 136
+  store ptr null, ptr %104, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 144
+  store i32 0, ptr %105, align 8
+  %106 = getelementptr i8, ptr %0, i64 12
+  %.val = load i32, ptr %106, align 4
+  %107 = add i32 %.val, -64
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = load i32, ptr %110, align 8
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1239, i32 noundef %111)
+  br label %112
 
-110:                                              ; preds = %ssl_cipher_init.exit76, %ssl_cipher_cleanup.exit, %86, %78
-  %.062 = phi ptr [ null, %78 ], [ null, %ssl_cipher_cleanup.exit ], [ %12, %ssl_cipher_init.exit76 ], [ null, %86 ]
+112:                                              ; preds = %ssl_cipher_init.exit76, %ssl_cipher_cleanup.exit, %87, %79
+  %.062 = phi ptr [ null, %79 ], [ null, %ssl_cipher_cleanup.exit ], [ %12, %ssl_cipher_init.exit76 ], [ null, %87 ]
   ret ptr %.062
 }
 
@@ -5593,20 +5599,21 @@ tls_decrypt_aead_record.exit:                     ; preds = %367, %368
   call void @ssl_print_data(ptr noundef nonnull @.str.599, ptr noundef %372, i64 noundef %150)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %512
+  br label %513
 
 373:                                              ; preds = %40
   %374 = getelementptr i8, ptr %37, i64 12
   %.val = load i32, ptr %374, align 4
   %375 = add i32 %.val, -64
   %376 = sext i32 %375 to i64
-  %377 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %376, i32 1
-  %378 = load i32, ptr %377, align 8
-  %379 = icmp eq i32 %39, 1
-  br i1 %379, label %380, label %._crit_edge
+  %377 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %376
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 8
+  %379 = load i32, ptr %378, align 8
+  %380 = icmp eq i32 %39, 1
+  br i1 %380, label %381, label %._crit_edge
 
-380:                                              ; preds = %373
-  switch i16 %.pr, label %404 [
+381:                                              ; preds = %373
+  switch i16 %.pr, label %405 [
     i16 770, label %ssl_get_cipher_blocksize.exit
     i16 771, label %ssl_get_cipher_blocksize.exit
     i16 -257, label %ssl_get_cipher_blocksize.exit
@@ -5615,407 +5622,407 @@ tls_decrypt_aead_record.exit:                     ; preds = %367, %368
     i16 256, label %ssl_get_cipher_blocksize.exit
   ]
 
-ssl_get_cipher_blocksize.exit:                    ; preds = %380, %380, %380, %380, %380, %380
-  %381 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %382 = load i32, ptr %381, align 4
-  %383 = add i32 %382, -48
-  %384 = sext i32 %383 to i64
-  %385 = getelementptr ptr, ptr @ciphers, i64 %384
-  %386 = load ptr, ptr %385, align 8
-  %387 = tail call i32 @gcry_cipher_map_name(ptr noundef readonly %386) #32
-  %388 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef %387)
-  %389 = trunc i64 %388 to i32
-  %390 = icmp ugt i32 %389, %16
-  br i1 %390, label %391, label %392
-
-391:                                              ; preds = %ssl_get_cipher_blocksize.exit
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.595, i32 noundef %16, i32 noundef %389)
-  br label %.critedge
+ssl_get_cipher_blocksize.exit:                    ; preds = %381, %381, %381, %381, %381, %381
+  %382 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %383 = load i32, ptr %382, align 4
+  %384 = add i32 %383, -48
+  %385 = sext i32 %384 to i64
+  %386 = getelementptr ptr, ptr @ciphers, i64 %385
+  %387 = load ptr, ptr %386, align 8
+  %388 = tail call i32 @gcry_cipher_map_name(ptr noundef readonly %387) #32
+  %389 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef %388)
+  %390 = trunc i64 %389 to i32
+  %391 = icmp ugt i32 %390, %16
+  br i1 %391, label %392, label %393
 
 392:                                              ; preds = %ssl_get_cipher_blocksize.exit
-  %393 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %394 = load ptr, ptr %393, align 8
-  %395 = and i64 %388, 4294967295
-  %396 = tail call i32 @gcry_cipher_setiv(ptr noundef %394, ptr noundef %5, i64 noundef %395)
-  %.not182 = icmp eq i32 %396, 0
-  br i1 %.not182, label %400, label %397
-
-397:                                              ; preds = %392
-  %398 = tail call ptr @gcry_strsource(i32 noundef %396)
-  %399 = tail call ptr @gcry_strerror(i32 noundef %396)
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.596, ptr noundef %398, ptr noundef %399)
-  br label %400
-
-400:                                              ; preds = %397, %392
-  %401 = trunc i64 %388 to i16
-  %402 = sub i16 %6, %401
-  %403 = getelementptr i8, ptr %5, i64 %395
-  br label %404
-
-404:                                              ; preds = %400, %380
-  %.1154 = phi i16 [ %6, %380 ], [ %402, %400 ]
-  %.1151 = phi ptr [ %5, %380 ], [ %403, %400 ]
-  %.0 = phi i32 [ 0, %380 ], [ %389, %400 ]
-  %405 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %406 = load i32, ptr %405, align 8
-  %407 = and i32 %406, 2048
-  %.not183 = icmp eq i32 %407, 0
-  %.pre216 = zext i16 %.1154 to i32
-  br i1 %.not183, label %._crit_edge, label %408
-
-408:                                              ; preds = %404
-  %409 = icmp ugt i32 %378, %.pre216
-  br i1 %409, label %410, label %411
-
-410:                                              ; preds = %408
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.597, ptr noundef nonnull @__func__.ssl_decrypt_record, i32 noundef %.pre216, i32 noundef %378)
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.595, i32 noundef %16, i32 noundef %390)
   br label %.critedge
 
-411:                                              ; preds = %408
-  %412 = trunc nuw i32 %378 to i16
-  %413 = sub i16 %.1154, %412
-  %414 = zext i16 %413 to i32
-  %415 = zext i16 %413 to i64
-  %416 = getelementptr i8, ptr %.1151, i64 %415
-  %417 = zext nneg i32 %.0 to i64
-  %418 = sub nsw i64 0, %417
-  %419 = getelementptr i8, ptr %.1151, i64 %418
-  %420 = add nuw nsw i32 %.0, %414
+393:                                              ; preds = %ssl_get_cipher_blocksize.exit
+  %394 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %395 = load ptr, ptr %394, align 8
+  %396 = and i64 %389, 4294967295
+  %397 = tail call i32 @gcry_cipher_setiv(ptr noundef %395, ptr noundef %5, i64 noundef %396)
+  %.not182 = icmp eq i32 %397, 0
+  br i1 %.not182, label %401, label %398
+
+398:                                              ; preds = %393
+  %399 = tail call ptr @gcry_strsource(i32 noundef %397)
+  %400 = tail call ptr @gcry_strerror(i32 noundef %397)
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.596, ptr noundef %399, ptr noundef %400)
+  br label %401
+
+401:                                              ; preds = %398, %393
+  %402 = trunc i64 %389 to i16
+  %403 = sub i16 %6, %402
+  %404 = getelementptr i8, ptr %5, i64 %396
+  br label %405
+
+405:                                              ; preds = %401, %381
+  %.1154 = phi i16 [ %6, %381 ], [ %403, %401 ]
+  %.1151 = phi ptr [ %5, %381 ], [ %404, %401 ]
+  %.0 = phi i32 [ 0, %381 ], [ %390, %401 ]
+  %406 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %407 = load i32, ptr %406, align 8
+  %408 = and i32 %407, 2048
+  %.not183 = icmp eq i32 %408, 0
+  %.pre216 = zext i16 %.1154 to i32
+  br i1 %.not183, label %._crit_edge, label %409
+
+409:                                              ; preds = %405
+  %410 = icmp ugt i32 %379, %.pre216
+  br i1 %410, label %411, label %412
+
+411:                                              ; preds = %409
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.597, ptr noundef nonnull @__func__.ssl_decrypt_record, i32 noundef %.pre216, i32 noundef %379)
+  br label %.critedge
+
+412:                                              ; preds = %409
+  %413 = trunc nuw i32 %379 to i16
+  %414 = sub i16 %.1154, %413
+  %415 = zext i16 %414 to i32
+  %416 = zext i16 %414 to i64
+  %417 = getelementptr i8, ptr %.1151, i64 %416
+  %418 = zext nneg i32 %.0 to i64
+  %419 = sub nsw i64 0, %418
+  %420 = getelementptr i8, ptr %.1151, i64 %419
+  %421 = add nuw nsw i32 %.0, %415
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %404, %411, %373
-  %.pre-phi = phi i32 [ %414, %411 ], [ %16, %373 ], [ %.pre216, %404 ]
-  %.0153 = phi i16 [ %413, %411 ], [ %6, %373 ], [ %.1154, %404 ]
-  %.0150 = phi ptr [ %.1151, %411 ], [ %5, %373 ], [ %.1151, %404 ]
-  %.0144 = phi i32 [ %420, %411 ], [ 0, %373 ], [ 0, %404 ]
-  %.0140 = phi ptr [ %416, %411 ], [ null, %373 ], [ null, %404 ]
-  %.0139 = phi ptr [ %419, %411 ], [ null, %373 ], [ null, %404 ]
-  %421 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %422 = load ptr, ptr %10, align 8
-  %423 = load i32, ptr %28, align 8
-  %.val189 = load ptr, ptr %421, align 8
-  %424 = icmp eq ptr %.val189, inttoptr (i64 -1 to ptr)
-  br i1 %424, label %425, label %ssl_cipher_decrypt.exit
+._crit_edge:                                      ; preds = %405, %412, %373
+  %.pre-phi = phi i32 [ %415, %412 ], [ %16, %373 ], [ %.pre216, %405 ]
+  %.0153 = phi i16 [ %414, %412 ], [ %6, %373 ], [ %.1154, %405 ]
+  %.0150 = phi ptr [ %.1151, %412 ], [ %5, %373 ], [ %.1151, %405 ]
+  %.0144 = phi i32 [ %421, %412 ], [ 0, %373 ], [ 0, %405 ]
+  %.0140 = phi ptr [ %417, %412 ], [ null, %373 ], [ null, %405 ]
+  %.0139 = phi ptr [ %420, %412 ], [ null, %373 ], [ null, %405 ]
+  %422 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %423 = load ptr, ptr %10, align 8
+  %424 = load i32, ptr %28, align 8
+  %.val189 = load ptr, ptr %422, align 8
+  %425 = icmp eq ptr %.val189, inttoptr (i64 -1 to ptr)
+  br i1 %425, label %426, label %ssl_cipher_decrypt.exit
 
-425:                                              ; preds = %._crit_edge
-  %426 = icmp ne ptr %.0150, null
-  %427 = icmp ne i16 %.0153, 0
-  %or.cond.i = and i1 %427, %426
-  br i1 %or.cond.i, label %428, label %ssl_cipher_decrypt.exit.thread
+426:                                              ; preds = %._crit_edge
+  %427 = icmp ne ptr %.0150, null
+  %428 = icmp ne i16 %.0153, 0
+  %or.cond.i = and i1 %428, %427
+  br i1 %or.cond.i, label %429, label %ssl_cipher_decrypt.exit.thread
 
-428:                                              ; preds = %425
-  %429 = tail call i32 @llvm.smin.i32(i32 %423, i32 range(i32 0, 65536) %.pre-phi)
-  %430 = sext i32 %429 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %422, ptr noundef nonnull align 1 %.0150, i64 noundef %430, i1 noundef false) #31
+429:                                              ; preds = %426
+  %430 = tail call i32 @llvm.smin.i32(i32 %424, i32 range(i32 0, 65536) %.pre-phi)
+  %431 = sext i32 %430 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %423, ptr noundef nonnull align 1 %.0150, i64 noundef %431, i1 noundef false) #31
   br label %ssl_cipher_decrypt.exit.thread
 
 ssl_cipher_decrypt.exit:                          ; preds = %._crit_edge
-  %431 = sext i32 %423 to i64
-  %432 = zext i16 %.0153 to i64
-  %433 = tail call i32 @gcry_cipher_decrypt(ptr noundef %.val189, ptr noundef %422, i64 noundef %431, ptr noundef %.0150, i64 noundef %432)
-  %.not184 = icmp eq i32 %433, 0
-  br i1 %.not184, label %ssl_cipher_decrypt.exit.thread, label %434
+  %432 = sext i32 %424 to i64
+  %433 = zext i16 %.0153 to i64
+  %434 = tail call i32 @gcry_cipher_decrypt(ptr noundef %.val189, ptr noundef %423, i64 noundef %432, ptr noundef %.0150, i64 noundef %433)
+  %.not184 = icmp eq i32 %434, 0
+  br i1 %.not184, label %ssl_cipher_decrypt.exit.thread, label %435
 
-434:                                              ; preds = %ssl_cipher_decrypt.exit
-  %435 = tail call ptr @gcry_strsource(i32 noundef %433)
-  %436 = tail call ptr @gcry_strerror(i32 noundef %433)
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.598, ptr noundef %435, ptr noundef %436)
+435:                                              ; preds = %ssl_cipher_decrypt.exit
+  %436 = tail call ptr @gcry_strsource(i32 noundef %434)
+  %437 = tail call ptr @gcry_strerror(i32 noundef %434)
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.598, ptr noundef %436, ptr noundef %437)
   br label %.critedge
 
-ssl_cipher_decrypt.exit.thread:                   ; preds = %425, %428, %ssl_cipher_decrypt.exit
-  %437 = load ptr, ptr %10, align 8
-  %438 = zext i16 %.0153 to i64
-  tail call void @ssl_print_data(ptr noundef nonnull @.str.599, ptr noundef %437, i64 noundef %438)
-  %439 = load ptr, ptr %1, align 8
-  %440 = getelementptr inbounds nuw i8, ptr %439, i64 16
-  %441 = load i32, ptr %440, align 4
-  %442 = icmp eq i32 %441, 1
-  br i1 %442, label %443, label %455
+ssl_cipher_decrypt.exit.thread:                   ; preds = %426, %429, %ssl_cipher_decrypt.exit
+  %438 = load ptr, ptr %10, align 8
+  %439 = zext i16 %.0153 to i64
+  tail call void @ssl_print_data(ptr noundef nonnull @.str.599, ptr noundef %438, i64 noundef %439)
+  %440 = load ptr, ptr %1, align 8
+  %441 = getelementptr inbounds nuw i8, ptr %440, i64 16
+  %442 = load i32, ptr %441, align 4
+  %443 = icmp eq i32 %442, 1
+  br i1 %443, label %444, label %456
 
-443:                                              ; preds = %ssl_cipher_decrypt.exit.thread
-  %444 = icmp eq i16 %.0153, 0
-  br i1 %444, label %445, label %446
+444:                                              ; preds = %ssl_cipher_decrypt.exit.thread
+  %445 = icmp eq i16 %.0153, 0
+  br i1 %445, label %446, label %447
 
-445:                                              ; preds = %443
+446:                                              ; preds = %444
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.600, i32 noundef 0)
   br label %.critedge
 
-446:                                              ; preds = %443
-  %447 = load ptr, ptr %10, align 8
-  %448 = getelementptr i8, ptr %447, i64 %438
-  %449 = getelementptr i8, ptr %448, i64 -1
-  %450 = load i8, ptr %449, align 1
-  %451 = zext i8 %450 to i32
-  %.not185 = icmp samesign ugt i32 %.pre-phi, %451
-  br i1 %.not185, label %453, label %452
+447:                                              ; preds = %444
+  %448 = load ptr, ptr %10, align 8
+  %449 = getelementptr i8, ptr %448, i64 %439
+  %450 = getelementptr i8, ptr %449, i64 -1
+  %451 = load i8, ptr %450, align 1
+  %452 = zext i8 %451 to i32
+  %.not185 = icmp samesign ugt i32 %.pre-phi, %452
+  br i1 %.not185, label %454, label %453
 
-452:                                              ; preds = %446
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.601, i32 noundef %451, i32 noundef %.pre-phi)
+453:                                              ; preds = %447
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.601, i32 noundef %452, i32 noundef %.pre-phi)
   br label %.critedge
 
-453:                                              ; preds = %446
-  %.neg = xor i32 %451, -1
-  %454 = add nsw i32 %.pre-phi, %.neg
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.602, i32 noundef %451, i32 noundef %454)
-  br label %455
+454:                                              ; preds = %447
+  %.neg = xor i32 %452, -1
+  %455 = add nsw i32 %.pre-phi, %.neg
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.602, i32 noundef %452, i32 noundef %455)
+  br label %456
 
-455:                                              ; preds = %453, %ssl_cipher_decrypt.exit.thread
-  %.1 = phi i32 [ %454, %453 ], [ %.pre-phi, %ssl_cipher_decrypt.exit.thread ]
+456:                                              ; preds = %454, %ssl_cipher_decrypt.exit.thread
+  %.1 = phi i32 [ %455, %454 ], [ %.pre-phi, %ssl_cipher_decrypt.exit.thread ]
   %.not186 = icmp eq ptr %.0140, null
-  br i1 %.not186, label %456, label %465
+  br i1 %.not186, label %457, label %466
 
-456:                                              ; preds = %455
-  %457 = icmp ult i32 %.1, %378
-  br i1 %457, label %458, label %460
+457:                                              ; preds = %456
+  %458 = icmp ult i32 %.1, %379
+  br i1 %458, label %459, label %461
 
-458:                                              ; preds = %456
-  %459 = load i32, ptr %11, align 4
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.603, ptr noundef nonnull @__func__.ssl_decrypt_record, i32 noundef %459, i32 noundef %.1)
+459:                                              ; preds = %457
+  %460 = load i32, ptr %11, align 4
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.603, ptr noundef nonnull @__func__.ssl_decrypt_record, i32 noundef %460, i32 noundef %.1)
   br label %.critedge
 
-460:                                              ; preds = %456
-  %461 = sub nuw i32 %.1, %378
-  %462 = load ptr, ptr %10, align 8
-  %463 = zext i32 %461 to i64
-  %464 = getelementptr i8, ptr %462, i64 %463
-  br label %465
+461:                                              ; preds = %457
+  %462 = sub nuw i32 %.1, %379
+  %463 = load ptr, ptr %10, align 8
+  %464 = zext i32 %462 to i64
+  %465 = getelementptr i8, ptr %463, i64 %464
+  br label %466
 
-465:                                              ; preds = %460, %455
-  %.2 = phi i32 [ %461, %460 ], [ %.1, %455 ]
-  %.3147 = phi i32 [ %461, %460 ], [ %.0144, %455 ]
-  %.3143 = phi ptr [ %464, %460 ], [ %.0140, %455 ]
-  %.3 = phi ptr [ %462, %460 ], [ %.0139, %455 ]
-  %466 = load ptr, ptr %1, align 8
-  %467 = getelementptr inbounds nuw i8, ptr %466, i64 16
-  %468 = load i32, ptr %467, align 4
-  %469 = icmp eq i32 %468, 0
-  br i1 %469, label %470, label %479
+466:                                              ; preds = %461, %456
+  %.2 = phi i32 [ %462, %461 ], [ %.1, %456 ]
+  %.3147 = phi i32 [ %462, %461 ], [ %.0144, %456 ]
+  %.3143 = phi ptr [ %465, %461 ], [ %.0140, %456 ]
+  %.3 = phi ptr [ %463, %461 ], [ %.0139, %456 ]
+  %467 = load ptr, ptr %1, align 8
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 16
+  %469 = load i32, ptr %468, align 4
+  %470 = icmp eq i32 %469, 0
+  br i1 %470, label %471, label %480
 
-470:                                              ; preds = %465
-  %471 = getelementptr inbounds nuw i8, ptr %466, i64 8
-  %472 = load i32, ptr %471, align 4
-  %473 = icmp eq i32 %472, 61
-  br i1 %473, label %474, label %479
+471:                                              ; preds = %466
+  %472 = getelementptr inbounds nuw i8, ptr %467, i64 8
+  %473 = load i32, ptr %472, align 4
+  %474 = icmp eq i32 %473, 61
+  br i1 %474, label %475, label %480
 
-474:                                              ; preds = %470
-  %475 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %476 = load i32, ptr %475, align 8
-  %477 = and i32 %476, 32
-  %.not187 = icmp eq i32 %477, 0
-  br i1 %.not187, label %478, label %479
+475:                                              ; preds = %471
+  %476 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %477 = load i32, ptr %476, align 8
+  %478 = and i32 %477, 32
+  %.not187 = icmp eq i32 %478, 0
+  br i1 %.not187, label %479, label %480
 
-478:                                              ; preds = %474
+479:                                              ; preds = %475
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.604)
-  br label %512
+  br label %513
 
-479:                                              ; preds = %474, %470, %465
-  %480 = load i16, ptr %18, align 8
-  %481 = zext i16 %480 to i32
-  %482 = zext i8 %2 to i32
-  %483 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %484 = load i64, ptr %483, align 8
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.605, i32 noundef %.2, i32 noundef %481, i32 noundef %482, i64 noundef %484)
-  %485 = load i16, ptr %18, align 8
-  switch i16 %485, label %512 [
-    i16 768, label %486
-    i16 769, label %493
-    i16 770, label %493
-    i16 771, label %493
-    i16 257, label %493
-    i16 -257, label %501
-    i16 -259, label %501
-    i16 256, label %501
+480:                                              ; preds = %475, %471, %466
+  %481 = load i16, ptr %18, align 8
+  %482 = zext i16 %481 to i32
+  %483 = zext i8 %2 to i32
+  %484 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %485 = load i64, ptr %484, align 8
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.605, i32 noundef %.2, i32 noundef %482, i32 noundef %483, i64 noundef %485)
+  %486 = load i16, ptr %18, align 8
+  switch i16 %486, label %513 [
+    i16 768, label %487
+    i16 769, label %494
+    i16 770, label %494
+    i16 771, label %494
+    i16 257, label %494
+    i16 -257, label %502
+    i16 -259, label %502
+    i16 256, label %502
   ]
 
-486:                                              ; preds = %479
-  %487 = tail call fastcc i32 @ssl3_check_mac(ptr noundef %1, i32 noundef %482, ptr noundef %.3, i32 noundef %.3147, ptr noundef %.3143)
-  %488 = icmp slt i32 %487, 0
-  br i1 %488, label %489, label %492
+487:                                              ; preds = %480
+  %488 = tail call fastcc i32 @ssl3_check_mac(ptr noundef %1, i32 noundef %483, ptr noundef %.3, i32 noundef %.3147, ptr noundef %.3143)
+  %489 = icmp slt i32 %488, 0
+  br i1 %489, label %490, label %493
 
-489:                                              ; preds = %486
-  br i1 %4, label %490, label %491
+490:                                              ; preds = %487
+  br i1 %4, label %491, label %492
 
-490:                                              ; preds = %489
+491:                                              ; preds = %490
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.606)
-  br label %512
+  br label %513
 
-491:                                              ; preds = %489
+492:                                              ; preds = %490
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.607)
   br label %.critedge
 
-492:                                              ; preds = %486
+493:                                              ; preds = %487
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.608)
-  br label %512
+  br label %513
 
-493:                                              ; preds = %479, %479, %479, %479
-  %494 = zext nneg i16 %485 to i32
-  %495 = tail call fastcc i32 @tls_check_mac(ptr noundef %1, i32 noundef %482, i32 noundef %494, ptr noundef %.3, i32 noundef %.3147, ptr noundef %.3143)
-  %496 = icmp slt i32 %495, 0
-  br i1 %496, label %497, label %500
+494:                                              ; preds = %480, %480, %480, %480
+  %495 = zext nneg i16 %486 to i32
+  %496 = tail call fastcc i32 @tls_check_mac(ptr noundef %1, i32 noundef %483, i32 noundef %495, ptr noundef %.3, i32 noundef %.3147, ptr noundef %.3143)
+  %497 = icmp slt i32 %496, 0
+  br i1 %497, label %498, label %501
 
-497:                                              ; preds = %493
-  br i1 %4, label %498, label %499
+498:                                              ; preds = %494
+  br i1 %4, label %499, label %500
 
-498:                                              ; preds = %497
+499:                                              ; preds = %498
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.606)
-  br label %512
+  br label %513
 
-499:                                              ; preds = %497
+500:                                              ; preds = %498
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.607)
   br label %.critedge
 
-500:                                              ; preds = %493
+501:                                              ; preds = %494
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.608)
-  br label %512
+  br label %513
 
-501:                                              ; preds = %479, %479, %479
-  %502 = tail call fastcc i32 @dtls_check_mac(ptr noundef %0, ptr noundef %1, i32 noundef %482, ptr noundef %.3, i32 noundef %.3147, ptr noundef %.3143, ptr noundef %7, i8 noundef zeroext %8)
-  %503 = icmp sgt i32 %502, -1
-  br i1 %503, label %504, label %505
+502:                                              ; preds = %480, %480, %480
+  %503 = tail call fastcc i32 @dtls_check_mac(ptr noundef %0, ptr noundef %1, i32 noundef %483, ptr noundef %.3, i32 noundef %.3147, ptr noundef %.3143, ptr noundef %7, i8 noundef zeroext %8)
+  %504 = icmp sgt i32 %503, -1
+  br i1 %504, label %505, label %506
 
-504:                                              ; preds = %501
+505:                                              ; preds = %502
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.608)
-  br label %512
+  br label %513
 
-505:                                              ; preds = %501
-  %506 = tail call fastcc i32 @tls_check_mac(ptr noundef %1, i32 noundef %482, i32 noundef 769, ptr noundef %.3, i32 noundef %.3147, ptr noundef %.3143)
-  %507 = icmp sgt i32 %506, -1
-  br i1 %507, label %508, label %509
+506:                                              ; preds = %502
+  %507 = tail call fastcc i32 @tls_check_mac(ptr noundef %1, i32 noundef %483, i32 noundef 769, ptr noundef %.3, i32 noundef %.3147, ptr noundef %.3143)
+  %508 = icmp sgt i32 %507, -1
+  br i1 %508, label %509, label %510
 
-508:                                              ; preds = %505
+509:                                              ; preds = %506
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.609)
-  br label %512
+  br label %513
 
-509:                                              ; preds = %505
-  br i1 %4, label %510, label %511
+510:                                              ; preds = %506
+  br i1 %4, label %511, label %512
 
-510:                                              ; preds = %509
+511:                                              ; preds = %510
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.606)
-  br label %512
+  br label %513
 
-511:                                              ; preds = %509
+512:                                              ; preds = %510
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.607)
   br label %.critedge
 
-512:                                              ; preds = %tls_decrypt_aead_record.exit, %479, %492, %490, %508, %510, %504, %498, %500, %478
-  %.0208 = phi i32 [ %.0189234.i, %tls_decrypt_aead_record.exit ], [ %.2, %478 ], [ %.2, %479 ], [ %.2, %490 ], [ %.2, %492 ], [ %.2, %498 ], [ %.2, %500 ], [ %.2, %504 ], [ %.2, %508 ], [ %.2, %510 ]
+513:                                              ; preds = %tls_decrypt_aead_record.exit, %480, %493, %491, %509, %511, %505, %499, %501, %479
+  %.0208 = phi i32 [ %.0189234.i, %tls_decrypt_aead_record.exit ], [ %.2, %479 ], [ %.2, %480 ], [ %.2, %491 ], [ %.2, %493 ], [ %.2, %499 ], [ %.2, %501 ], [ %.2, %505 ], [ %.2, %509 ], [ %.2, %511 ]
   store i32 %.0208, ptr %11, align 4
-  %513 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %514 = load i32, ptr %513, align 8
-  %515 = icmp sgt i32 %514, 0
-  br i1 %515, label %516, label %.critedge
+  %514 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %515 = load i32, ptr %514, align 8
+  %516 = icmp sgt i32 %515, 0
+  br i1 %516, label %517, label %.critedge
 
-516:                                              ; preds = %512
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.610, i32 noundef %514)
-  %517 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %518 = load i32, ptr %517, align 8
-  %519 = load i32, ptr %28, align 8
-  %520 = icmp ult i32 %518, %519
+517:                                              ; preds = %513
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.610, i32 noundef %515)
+  %518 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %519 = load i32, ptr %518, align 8
+  %520 = load i32, ptr %28, align 8
+  %521 = icmp ult i32 %519, %520
   %.pre.i = load ptr, ptr %9, align 8
-  br i1 %520, label %521, label %524
+  br i1 %521, label %522, label %525
 
-521:                                              ; preds = %516
-  %522 = zext i32 %519 to i64
-  %523 = call ptr @g_realloc(ptr noundef %.pre.i, i64 noundef %522)
-  store ptr %523, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %523, null
+522:                                              ; preds = %517
+  %523 = zext i32 %520 to i64
+  %524 = call ptr @g_realloc(ptr noundef %.pre.i, i64 noundef %523)
+  store ptr %524, ptr %9, align 8
+  %.not.i.i = icmp eq ptr %524, null
   br i1 %.not.i.i, label %ssl_data_copy.exit, label %ssl_data_realloc.exit.thread.i
 
-ssl_data_realloc.exit.thread.i:                   ; preds = %521
-  store i32 %519, ptr %517, align 8
+ssl_data_realloc.exit.thread.i:                   ; preds = %522
+  store i32 %520, ptr %518, align 8
   %.pre12.i = load i32, ptr %28, align 8
-  br label %524
+  br label %525
 
-524:                                              ; preds = %ssl_data_realloc.exit.thread.i, %516
-  %525 = phi i32 [ %.pre12.i, %ssl_data_realloc.exit.thread.i ], [ %519, %516 ]
-  %526 = phi ptr [ %523, %ssl_data_realloc.exit.thread.i ], [ %.pre.i, %516 ]
-  %527 = load ptr, ptr %10, align 8
-  %528 = zext i32 %525 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %526, ptr noundef align 1 %527, i64 noundef %528, i1 noundef false) #31
-  %529 = load i32, ptr %28, align 8
-  store i32 %529, ptr %517, align 8
+525:                                              ; preds = %ssl_data_realloc.exit.thread.i, %517
+  %526 = phi i32 [ %.pre12.i, %ssl_data_realloc.exit.thread.i ], [ %520, %517 ]
+  %527 = phi ptr [ %524, %ssl_data_realloc.exit.thread.i ], [ %.pre.i, %517 ]
+  %528 = load ptr, ptr %10, align 8
+  %529 = zext i32 %526 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %527, ptr noundef align 1 %528, i64 noundef %529, i1 noundef false) #31
+  %530 = load i32, ptr %28, align 8
+  store i32 %530, ptr %518, align 8
   %.pre = load ptr, ptr %9, align 8
   br label %ssl_data_copy.exit
 
-ssl_data_copy.exit:                               ; preds = %521, %524
-  %530 = phi ptr [ null, %521 ], [ %.pre, %524 ]
-  %531 = zext i32 %.0208 to i64
-  call void @ssl_print_data(ptr noundef nonnull @.str.611, ptr noundef %530, i64 noundef %531)
-  %532 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %533 = load ptr, ptr %532, align 8
-  %.not188 = icmp eq ptr %533, null
-  br i1 %.not188, label %534, label %535
+ssl_data_copy.exit:                               ; preds = %522, %525
+  %531 = phi ptr [ null, %522 ], [ %.pre, %525 ]
+  %532 = zext i32 %.0208 to i64
+  call void @ssl_print_data(ptr noundef nonnull @.str.611, ptr noundef %531, i64 noundef %532)
+  %533 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %534 = load ptr, ptr %533, align 8
+  %.not188 = icmp eq ptr %534, null
+  br i1 %.not188, label %535, label %536
 
-534:                                              ; preds = %ssl_data_copy.exit
+535:                                              ; preds = %ssl_data_copy.exit
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.612)
   br label %.critedge
 
-535:                                              ; preds = %ssl_data_copy.exit
-  %536 = load ptr, ptr %9, align 8
-  %537 = load i32, ptr %533, align 8
-  %cond.i196 = icmp eq i32 %537, 1
-  br i1 %cond.i196, label %538, label %554
+536:                                              ; preds = %ssl_data_copy.exit
+  %537 = load ptr, ptr %9, align 8
+  %538 = load i32, ptr %534, align 8
+  %cond.i196 = icmp eq i32 %538, 1
+  br i1 %cond.i196, label %539, label %555
 
-538:                                              ; preds = %535
-  %539 = load i32, ptr %28, align 8
-  %540 = icmp ult i32 %539, 16384
-  br i1 %540, label %541, label %ssl_data_realloc.exit.i
+539:                                              ; preds = %536
+  %540 = load i32, ptr %28, align 8
+  %541 = icmp ult i32 %540, 16384
+  br i1 %541, label %542, label %ssl_data_realloc.exit.i
 
-541:                                              ; preds = %538
-  %542 = load ptr, ptr %10, align 8
-  %543 = call ptr @g_realloc(ptr noundef %542, i64 noundef 16384)
-  store ptr %543, ptr %10, align 8
-  %.not.i.i200 = icmp eq ptr %543, null
-  br i1 %.not.i.i200, label %ssl_data_realloc.exit.i, label %544
+542:                                              ; preds = %539
+  %543 = load ptr, ptr %10, align 8
+  %544 = call ptr @g_realloc(ptr noundef %543, i64 noundef 16384)
+  store ptr %544, ptr %10, align 8
+  %.not.i.i200 = icmp eq ptr %544, null
+  br i1 %.not.i.i200, label %ssl_data_realloc.exit.i, label %545
 
-544:                                              ; preds = %541
+545:                                              ; preds = %542
   store i32 16384, ptr %28, align 8
   br label %ssl_data_realloc.exit.i
 
-ssl_data_realloc.exit.i:                          ; preds = %544, %541, %538
-  %545 = getelementptr inbounds nuw i8, ptr %533, i64 8
-  store ptr %536, ptr %545, align 8
-  %546 = getelementptr inbounds nuw i8, ptr %533, i64 16
-  store i32 %.0208, ptr %546, align 8
-  %547 = load ptr, ptr %10, align 8
-  %548 = getelementptr inbounds nuw i8, ptr %533, i64 32
-  store ptr %547, ptr %548, align 8
-  %549 = load i32, ptr %28, align 8
-  %550 = getelementptr inbounds nuw i8, ptr %533, i64 40
-  store i32 %549, ptr %550, align 8
+ssl_data_realloc.exit.i:                          ; preds = %545, %542, %539
+  %546 = getelementptr inbounds nuw i8, ptr %534, i64 8
+  store ptr %537, ptr %546, align 8
+  %547 = getelementptr inbounds nuw i8, ptr %534, i64 16
+  store i32 %.0208, ptr %547, align 8
+  %548 = load ptr, ptr %10, align 8
+  %549 = getelementptr inbounds nuw i8, ptr %534, i64 32
+  store ptr %548, ptr %549, align 8
+  %550 = load i32, ptr %28, align 8
+  %551 = getelementptr inbounds nuw i8, ptr %534, i64 40
+  store i32 %550, ptr %551, align 8
   %.not.i197 = icmp eq i32 %.0208, 0
-  br i1 %.not.i197, label %555, label %551
+  br i1 %.not.i197, label %556, label %552
 
-551:                                              ; preds = %ssl_data_realloc.exit.i
-  %552 = call i32 @inflate(ptr noundef nonnull %545, i32 noundef 2)
-  %.not21.i = icmp eq i32 %552, 0
-  br i1 %.not21.i, label %..thread_crit_edge.i, label %553
+552:                                              ; preds = %ssl_data_realloc.exit.i
+  %553 = call i32 @inflate(ptr noundef nonnull %546, i32 noundef 2)
+  %.not21.i = icmp eq i32 %553, 0
+  br i1 %.not21.i, label %..thread_crit_edge.i, label %554
 
-..thread_crit_edge.i:                             ; preds = %551
+..thread_crit_edge.i:                             ; preds = %552
   %.pre.i198 = load i32, ptr %28, align 8
-  %.pre24.i = load i32, ptr %550, align 8
-  br label %555
+  %.pre24.i = load i32, ptr %551, align 8
+  br label %556
 
-553:                                              ; preds = %551
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1275, i32 noundef %552)
+554:                                              ; preds = %552
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1275, i32 noundef %553)
   br label %.critedge
 
-554:                                              ; preds = %535
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1276, i32 noundef %537)
+555:                                              ; preds = %536
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1276, i32 noundef %538)
   br label %.critedge
 
-555:                                              ; preds = %..thread_crit_edge.i, %ssl_data_realloc.exit.i
-  %556 = phi i32 [ %.pre24.i, %..thread_crit_edge.i ], [ %549, %ssl_data_realloc.exit.i ]
-  %557 = phi i32 [ %.pre.i198, %..thread_crit_edge.i ], [ %549, %ssl_data_realloc.exit.i ]
-  %558 = sub i32 %557, %556
-  %559 = load ptr, ptr %10, align 8
-  %560 = zext i32 %558 to i64
-  call void @ssl_print_data(ptr noundef nonnull @.str.613, ptr noundef %559, i64 noundef %560)
-  store i32 %558, ptr %11, align 4
+556:                                              ; preds = %..thread_crit_edge.i, %ssl_data_realloc.exit.i
+  %557 = phi i32 [ %.pre24.i, %..thread_crit_edge.i ], [ %550, %ssl_data_realloc.exit.i ]
+  %558 = phi i32 [ %.pre.i198, %..thread_crit_edge.i ], [ %550, %ssl_data_realloc.exit.i ]
+  %559 = sub i32 %558, %557
+  %560 = load ptr, ptr %10, align 8
+  %561 = zext i32 %559 to i64
+  call void @ssl_print_data(ptr noundef nonnull @.str.613, ptr noundef %560, i64 noundef %561)
+  store i32 %559, ptr %11, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %554, %553, %tls_decrypt_aead_record.exit.thread, %410, %391, %512, %555, %534, %511, %499, %491, %458, %452, %445, %434, %26
-  %.0148 = phi i32 [ -1, %26 ], [ -1, %534 ], [ -1, %434 ], [ -1, %445 ], [ -1, %452 ], [ -1, %491 ], [ -1, %499 ], [ -1, %511 ], [ -1, %458 ], [ 0, %555 ], [ 0, %512 ], [ -1, %391 ], [ -1, %410 ], [ -1, %tls_decrypt_aead_record.exit.thread ], [ -1, %553 ], [ -1, %554 ]
+.critedge:                                        ; preds = %555, %554, %tls_decrypt_aead_record.exit.thread, %411, %392, %513, %556, %535, %512, %500, %492, %459, %453, %446, %435, %26
+  %.0148 = phi i32 [ -1, %26 ], [ -1, %535 ], [ -1, %435 ], [ -1, %446 ], [ -1, %453 ], [ -1, %492 ], [ -1, %500 ], [ -1, %512 ], [ -1, %459 ], [ 0, %556 ], [ 0, %513 ], [ -1, %392 ], [ -1, %411 ], [ -1, %tls_decrypt_aead_record.exit.thread ], [ -1, %554 ], [ -1, %555 ]
   ret i32 %.0148
 }
 

@@ -212,34 +212,34 @@ ff_samples_to_time_base.exit:                     ; preds = %19, %21
 
 32:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %.093 = phi i32 [ %1, %.lr.ph ], [ %38, %45 ]
-  %.06091 = phi i32 [ 0, %.lr.ph ], [ %39, %45 ]
+  %.093 = phi i32 [ %1, %.lr.ph ], [ %39, %45 ]
+  %.06091 = phi i32 [ 0, %.lr.ph ], [ %40, %45 ]
   %exitcond.not.not.not.not = icmp ne i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not.not.not.not, label %33, label %.critedge
 
 33:                                               ; preds = %32
   %34 = load ptr, ptr %31, align 8, !tbaa !34
-  %35 = getelementptr inbounds nuw %struct.AudioFrame, ptr %34, i64 %indvars.iv, i32 1
-  %36 = load i32, ptr %35, align 8, !tbaa !40
-  %.0. = tail call i32 @llvm.smin.i32(i32 %36, i32 %.093)
-  %37 = sub nsw i32 %36, %.0.
-  store i32 %37, ptr %35, align 8, !tbaa !40
-  %38 = sub nsw i32 %.093, %.0.
-  %39 = add nsw i32 %.0., %.06091
-  %40 = getelementptr inbounds nuw %struct.AudioFrame, ptr %34, i64 %indvars.iv
-  %41 = load i64, ptr %40, align 8, !tbaa !44
+  %35 = getelementptr inbounds nuw %struct.AudioFrame, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load i32, ptr %36, align 8, !tbaa !40
+  %.0. = tail call i32 @llvm.smin.i32(i32 %37, i32 %.093)
+  %38 = sub nsw i32 %37, %.0.
+  store i32 %38, ptr %36, align 8, !tbaa !40
+  %39 = sub nsw i32 %.093, %.0.
+  %40 = add nsw i32 %.0., %.06091
+  %41 = load i64, ptr %35, align 8, !tbaa !44
   %.not80 = icmp eq i64 %41, -9223372036854775808
   br i1 %.not80, label %45, label %42
 
 42:                                               ; preds = %33
   %43 = sext i32 %.0. to i64
   %44 = add nsw i64 %41, %43
-  store i64 %44, ptr %40, align 8, !tbaa !44
+  store i64 %44, ptr %35, align 8, !tbaa !44
   br label %45
 
 45:                                               ; preds = %42, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not73 = icmp eq i32 %38, 0
+  %.not73 = icmp eq i32 %39, 0
   br i1 %.not73, label %.critedge.split.loop.exit123, label %32, !llvm.loop !47
 
 .critedge.split.loop.exit123:                     ; preds = %45
@@ -247,7 +247,7 @@ ff_samples_to_time_base.exit:                     ; preds = %19, %21
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.critedge.split.loop.exit123
-  %.060.lcssa = phi i32 [ %39, %.critedge.split.loop.exit123 ], [ %.06091, %32 ]
+  %.060.lcssa = phi i32 [ %40, %.critedge.split.loop.exit123 ], [ %.06091, %32 ]
   %.059.lcssa = phi i32 [ %indvars.le, %.critedge.split.loop.exit123 ], [ %30, %32 ]
   %.0.lcssa = phi i32 [ 0, %.critedge.split.loop.exit123 ], [ %.093, %32 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12

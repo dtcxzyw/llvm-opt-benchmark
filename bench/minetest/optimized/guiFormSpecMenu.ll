@@ -72523,7 +72523,8 @@ lpad258:                                          ; preds = %call1.i.noexc4255, 
 
 if.end269:                                        ; preds = %if.end239
   %conv.i3006 = zext i32 %122 to i64
-  %count = getelementptr inbounds nuw %struct.ItemStack, ptr %124, i64 %conv.i3006, i32 1
+  %count.split = getelementptr inbounds nuw %struct.ItemStack, ptr %124, i64 %conv.i3006
+  %count = getelementptr inbounds nuw i8, ptr %count.split, i64 32
   %140 = load i16, ptr %count, align 8, !tbaa !162
   %conv = zext i16 %140 to i32
   br label %if.end273
@@ -72653,7 +72654,8 @@ land.end284:                                      ; preds = %if.end273
 land.end295.thread4652:                           ; preds = %land.end284
   %conv.i30194655 = zext i32 %.pr4426 to i64
   %166 = load ptr, ptr %list_s.0, align 8, !tbaa !672
-  %count.i4656 = getelementptr inbounds nuw %struct.ItemStack, ptr %166, i64 %conv.i30194655, i32 1
+  %count.i4656.split = getelementptr inbounds nuw %struct.ItemStack, ptr %166, i64 %conv.i30194655
+  %count.i4656 = getelementptr inbounds nuw i8, ptr %count.i4656.split, i64 32
   %167 = load i16, ptr %count.i4656, align 8, !tbaa !162
   %cmp.i30214657 = icmp eq i16 %167, 0
   br label %if.end323
@@ -72662,7 +72664,8 @@ land.end295:                                      ; preds = %land.rhs.i3012, %_Z
   %.ph4425.ph = phi i1 [ false, %sw.bb10.i ], [ false, %sw.bb7.i ], [ false, %land.lhs.true.i.i ], [ false, %sw.bb5.i ], [ false, %if.end.i ], [ false, %land.rhs280 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ false, %call.i.noexc3015 ], [ %cmp.i3014, %land.rhs.i3012 ], [ false, %land.lhs.true.i ], [ false, %if.end.i.i.i4268 ], [ false, %land.rhs.i18.i ]
   %conv.i3019 = zext i32 %.pr4426 to i64
   %168 = load ptr, ptr %list_s.0, align 8, !tbaa !672
-  %count.i = getelementptr inbounds nuw %struct.ItemStack, ptr %168, i64 %conv.i3019, i32 1
+  %count.i.split = getelementptr inbounds nuw %struct.ItemStack, ptr %168, i64 %conv.i3019
+  %count.i = getelementptr inbounds nuw i8, ptr %count.i.split, i64 32
   %169 = load i16, ptr %count.i, align 8, !tbaa !162
   %cmp.i3021 = icmp eq i16 %169, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %a)

@@ -134,13 +134,13 @@ define i32 @ff_add_index_entry(ptr noundef captures(none) %0, ptr noundef captur
   %9 = load i32, ptr %1, align 4, !tbaa !56
   %10 = add i32 %9, -178956969
   %11 = icmp ult i32 %10, -178956970
-  br i1 %11, label %99, label %12
+  br i1 %11, label %104, label %12
 
 12:                                               ; preds = %8
   %13 = icmp eq i64 %4, -9223372036854775808
   %or.cond = icmp ugt i32 %5, 1073741823
   %or.cond68 = or i1 %13, %or.cond
-  br i1 %or.cond68, label %99, label %14
+  br i1 %or.cond68, label %104, label %14
 
 14:                                               ; preds = %12
   %15 = icmp slt i64 %4, 9222809086901354496
@@ -152,174 +152,179 @@ define i32 @ff_add_index_entry(ptr noundef captures(none) %0, ptr noundef captur
   %20 = mul nuw nsw i64 %19, 24
   %21 = tail call ptr @av_fast_realloc(ptr noundef %17, ptr noundef %2, i64 noundef %20) #17
   %.not64 = icmp eq ptr %21, null
-  br i1 %.not64, label %99, label %22
+  br i1 %.not64, label %104, label %22
 
 22:                                               ; preds = %14
   store ptr %21, ptr %0, align 8, !tbaa !58
   %23 = load i32, ptr %1, align 4, !tbaa !56
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %30, label %24
+  br i1 %.not.i, label %31, label %24
 
 24:                                               ; preds = %22
   %25 = add nsw i32 %23, -1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %26, i32 1
-  %28 = load i64, ptr %27, align 8, !tbaa !59
-  %29 = icmp slt i64 %28, %spec.select
-  %spec.select.i = select i1 %29, i32 %25, i32 -1
-  br label %30
+  %27 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load i64, ptr %28, align 8, !tbaa !59
+  %30 = icmp slt i64 %29, %spec.select
+  %spec.select.i = select i1 %30, i32 %25, i32 -1
+  br label %31
 
-30:                                               ; preds = %24, %22
+31:                                               ; preds = %24, %22
   %.052.i = phi i32 [ -1, %22 ], [ %spec.select.i, %24 ]
-  %31 = sub nsw i32 %23, %.052.i
-  %32 = icmp sgt i32 %31, 1
-  br i1 %32, label %.lr.ph77.i, label %ff_index_search_timestamp.exit.thread
+  %32 = sub nsw i32 %23, %.052.i
+  %33 = icmp sgt i32 %32, 1
+  br i1 %33, label %.lr.ph77.i, label %ff_index_search_timestamp.exit.thread
 
-.lr.ph77.i:                                       ; preds = %30
-  %33 = add nsw i32 %23, -1
-  %34 = sext i32 %33 to i64
-  br label %35
+.lr.ph77.i:                                       ; preds = %31
+  %34 = add nsw i32 %23, -1
+  %35 = sext i32 %34 to i64
+  br label %36
 
-35:                                               ; preds = %.critedge.i, %.lr.ph77.i
+36:                                               ; preds = %.critedge.i, %.lr.ph77.i
   %.05076.i = phi i32 [ %23, %.lr.ph77.i ], [ %spec.select69.i, %.critedge.i ]
   %.15375.i = phi i32 [ %.052.i, %.lr.ph77.i ], [ %.254.i, %.critedge.i ]
-  %36 = add nsw i32 %.15375.i, %.05076.i
-  %37 = ashr i32 %36, 1
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %38, i32 2
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, 2
-  %.not6271.i = icmp ne i32 %41, 0
-  %42 = icmp slt i32 %37, %.05076.i
-  %or.cond6672.i = and i1 %42, %.not6271.i
-  %43 = icmp slt i32 %37, %33
-  %or.cond6873.i = select i1 %or.cond6672.i, i1 %43, i1 false
+  %37 = add nsw i32 %.15375.i, %.05076.i
+  %38 = ashr i32 %37, 1
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, 2
+  %.not6271.i = icmp ne i32 %43, 0
+  %44 = icmp slt i32 %38, %.05076.i
+  %or.cond6672.i = and i1 %44, %.not6271.i
+  %45 = icmp slt i32 %38, %34
+  %or.cond6873.i = select i1 %or.cond6672.i, i1 %45, i1 false
   br i1 %or.cond6873.i, label %.lr.ph.preheader.i, label %.critedge.i
 
-.lr.ph.preheader.i:                               ; preds = %35
-  %44 = sext i32 %.05076.i to i64
-  %45 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %44, i32 1
+.lr.ph.preheader.i:                               ; preds = %36
+  %46 = sext i32 %.05076.i to i64
+  %47 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %51, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %38, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %51 ]
+.lr.ph.i:                                         ; preds = %54, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ %39, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %54 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %46 = icmp eq i64 %indvars.iv.next.i, %44
-  br i1 %46, label %47, label %51
+  %49 = icmp eq i64 %indvars.iv.next.i, %46
+  br i1 %49, label %50, label %54
 
-47:                                               ; preds = %.lr.ph.i
-  %48 = load i64, ptr %45, align 8, !tbaa !59
-  %.not63.i = icmp slt i64 %48, %spec.select
-  br i1 %.not63.i, label %51, label %49
+50:                                               ; preds = %.lr.ph.i
+  %51 = load i64, ptr %48, align 8, !tbaa !59
+  %.not63.i = icmp slt i64 %51, %spec.select
+  br i1 %.not63.i, label %54, label %52
 
-49:                                               ; preds = %47
-  %50 = add nsw i32 %.05076.i, -1
+52:                                               ; preds = %50
+  %53 = add nsw i32 %.05076.i, -1
   br label %.critedge.i
 
-51:                                               ; preds = %47, %.lr.ph.i
-  %52 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %indvars.iv.next.i, i32 2
-  %53 = load i32, ptr %52, align 8
-  %54 = and i32 %53, 2
-  %.not62.i = icmp ne i32 %54, 0
-  %55 = icmp slt i64 %indvars.iv.next.i, %44
-  %or.cond66.i = and i1 %55, %.not62.i
-  %56 = icmp slt i64 %indvars.iv.next.i, %34
-  %or.cond68.i = select i1 %or.cond66.i, i1 %56, i1 false
+54:                                               ; preds = %50, %.lr.ph.i
+  %55 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %indvars.iv.next.i
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %57 = load i32, ptr %56, align 8
+  %58 = and i32 %57, 2
+  %.not62.i = icmp ne i32 %58, 0
+  %59 = icmp slt i64 %indvars.iv.next.i, %46
+  %or.cond66.i = and i1 %59, %.not62.i
+  %60 = icmp slt i64 %indvars.iv.next.i, %35
+  %or.cond68.i = select i1 %or.cond66.i, i1 %60, i1 false
   br i1 %or.cond68.i, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !61
 
-.critedge.loopexit.i:                             ; preds = %51
-  %57 = trunc nsw i64 %indvars.iv.next.i to i32
+.critedge.loopexit.i:                             ; preds = %54
+  %61 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge.loopexit.i, %49, %35
-  %.1.i = phi i32 [ %50, %49 ], [ %37, %35 ], [ %57, %.critedge.loopexit.i ]
-  %58 = sext i32 %.1.i to i64
-  %59 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %58, i32 1
-  %60 = load i64, ptr %59, align 8, !tbaa !59
-  %.not64.i = icmp slt i64 %60, %spec.select
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %52, %36
+  %.1.i = phi i32 [ %53, %52 ], [ %38, %36 ], [ %61, %.critedge.loopexit.i ]
+  %62 = sext i32 %.1.i to i64
+  %63 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load i64, ptr %64, align 8, !tbaa !59
+  %.not64.i = icmp slt i64 %65, %spec.select
   %spec.select69.i = select i1 %.not64.i, i32 %.05076.i, i32 %.1.i
-  %.not65.i = icmp sgt i64 %60, %spec.select
+  %.not65.i = icmp sgt i64 %65, %spec.select
   %.254.i = select i1 %.not65.i, i32 %.15375.i, i32 %.1.i
-  %61 = sub nsw i32 %spec.select69.i, %.254.i
-  %62 = icmp sgt i32 %61, 1
-  br i1 %62, label %35, label %ff_index_search_timestamp.exit, !llvm.loop !62
+  %66 = sub nsw i32 %spec.select69.i, %.254.i
+  %67 = icmp sgt i32 %66, 1
+  br i1 %67, label %36, label %ff_index_search_timestamp.exit, !llvm.loop !62
 
 ff_index_search_timestamp.exit:                   ; preds = %.critedge.i
-  %63 = icmp eq i32 %spec.select69.i, %23
-  %..2.i = select i1 %63, i32 -1, i32 %spec.select69.i
-  %64 = icmp slt i32 %..2.i, 0
-  br i1 %64, label %ff_index_search_timestamp.exit.thread, label %73
+  %68 = icmp eq i32 %spec.select69.i, %23
+  %..2.i = select i1 %68, i32 -1, i32 %spec.select69.i
+  %69 = icmp slt i32 %..2.i, 0
+  br i1 %69, label %ff_index_search_timestamp.exit.thread, label %78
 
-ff_index_search_timestamp.exit.thread:            ; preds = %30, %ff_index_search_timestamp.exit
-  %65 = add nsw i32 %23, 1
-  store i32 %65, ptr %1, align 4, !tbaa !56
-  %66 = sext i32 %23 to i64
-  %67 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %66
-  br i1 %.not.i, label %92, label %68
+ff_index_search_timestamp.exit.thread:            ; preds = %31, %ff_index_search_timestamp.exit
+  %70 = add nsw i32 %23, 1
+  store i32 %70, ptr %1, align 4, !tbaa !56
+  %71 = sext i32 %23 to i64
+  %72 = getelementptr inbounds %struct.AVIndexEntry, ptr %21, i64 %71
+  br i1 %.not.i, label %97, label %73
 
-68:                                               ; preds = %ff_index_search_timestamp.exit.thread
-  %69 = getelementptr inbounds i8, ptr %67, i64 -16
-  %70 = load i64, ptr %69, align 8, !tbaa !59
-  %71 = icmp slt i64 %70, %spec.select
-  br i1 %71, label %92, label %72
+73:                                               ; preds = %ff_index_search_timestamp.exit.thread
+  %74 = getelementptr inbounds i8, ptr %72, i64 -16
+  %75 = load i64, ptr %74, align 8, !tbaa !59
+  %76 = icmp slt i64 %75, %spec.select
+  br i1 %76, label %97, label %77
 
-72:                                               ; preds = %68
+77:                                               ; preds = %73
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 99) #17
   tail call void @abort() #18
   unreachable
 
-73:                                               ; preds = %ff_index_search_timestamp.exit
-  %74 = zext nneg i32 %..2.i to i64
-  %75 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %21, i64 %74
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = load i64, ptr %76, align 8, !tbaa !59
-  %.not65 = icmp eq i64 %77, %spec.select
-  br i1 %.not65, label %86, label %78
+78:                                               ; preds = %ff_index_search_timestamp.exit
+  %79 = zext nneg i32 %..2.i to i64
+  %80 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %21, i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %82 = load i64, ptr %81, align 8, !tbaa !59
+  %.not65 = icmp eq i64 %82, %spec.select
+  br i1 %.not65, label %91, label %83
 
-78:                                               ; preds = %73
-  %.not66 = icmp sgt i64 %77, %spec.select
-  br i1 %.not66, label %79, label %99
+83:                                               ; preds = %78
+  %.not66 = icmp sgt i64 %82, %spec.select
+  br i1 %.not66, label %84, label %104
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %81 = sub nsw i32 %23, %..2.i
-  %82 = sext i32 %81 to i64
-  %83 = mul nsw i64 %82, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %80, ptr nonnull align 8 %75, i64 %83, i1 false)
-  %84 = load i32, ptr %1, align 4, !tbaa !56
-  %85 = add nsw i32 %84, 1
-  store i32 %85, ptr %1, align 4, !tbaa !56
-  br label %92
+84:                                               ; preds = %83
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %86 = sub nsw i32 %23, %..2.i
+  %87 = sext i32 %86 to i64
+  %88 = mul nsw i64 %87, 24
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %85, ptr nonnull align 8 %80, i64 %88, i1 false)
+  %89 = load i32, ptr %1, align 4, !tbaa !56
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %1, align 4, !tbaa !56
+  br label %97
 
-86:                                               ; preds = %73
-  %87 = load i64, ptr %75, align 8, !tbaa !63
-  %88 = icmp eq i64 %87, %3
-  br i1 %88, label %89, label %92
+91:                                               ; preds = %78
+  %92 = load i64, ptr %80, align 8, !tbaa !63
+  %93 = icmp eq i64 %92, %3
+  br i1 %93, label %94, label %97
 
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds nuw i8, ptr %75, i64 20
-  %91 = load i32, ptr %90, align 4, !tbaa !64
-  %spec.select67 = tail call i32 @llvm.smax.i32(i32 %6, i32 %91)
-  br label %92
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %80, i64 20
+  %96 = load i32, ptr %95, align 4, !tbaa !64
+  %spec.select67 = tail call i32 @llvm.smax.i32(i32 %6, i32 %96)
+  br label %97
 
-92:                                               ; preds = %89, %79, %86, %ff_index_search_timestamp.exit.thread, %68
-  %.055 = phi i32 [ %6, %ff_index_search_timestamp.exit.thread ], [ %6, %68 ], [ %6, %79 ], [ %6, %86 ], [ %spec.select67, %89 ]
-  %.052 = phi ptr [ %67, %ff_index_search_timestamp.exit.thread ], [ %67, %68 ], [ %75, %79 ], [ %75, %86 ], [ %75, %89 ]
-  %.0 = phi i32 [ 0, %ff_index_search_timestamp.exit.thread ], [ %23, %68 ], [ %spec.select69.i, %79 ], [ %spec.select69.i, %86 ], [ %spec.select69.i, %89 ]
+97:                                               ; preds = %94, %84, %91, %ff_index_search_timestamp.exit.thread, %73
+  %.055 = phi i32 [ %6, %ff_index_search_timestamp.exit.thread ], [ %6, %73 ], [ %6, %84 ], [ %6, %91 ], [ %spec.select67, %94 ]
+  %.052 = phi ptr [ %72, %ff_index_search_timestamp.exit.thread ], [ %72, %73 ], [ %80, %84 ], [ %80, %91 ], [ %80, %94 ]
+  %.0 = phi i32 [ 0, %ff_index_search_timestamp.exit.thread ], [ %23, %73 ], [ %spec.select69.i, %84 ], [ %spec.select69.i, %91 ], [ %spec.select69.i, %94 ]
   store i64 %3, ptr %.052, align 8, !tbaa !63
-  %93 = getelementptr inbounds nuw i8, ptr %.052, i64 8
-  store i64 %spec.select, ptr %93, align 8, !tbaa !59
-  %94 = getelementptr inbounds nuw i8, ptr %.052, i64 20
-  store i32 %.055, ptr %94, align 4, !tbaa !64
-  %95 = getelementptr inbounds nuw i8, ptr %.052, i64 16
-  %96 = shl nuw i32 %5, 2
-  %97 = and i32 %7, 3
-  %98 = or disjoint i32 %97, %96
-  store i32 %98, ptr %95, align 8
-  br label %99
+  %98 = getelementptr inbounds nuw i8, ptr %.052, i64 8
+  store i64 %spec.select, ptr %98, align 8, !tbaa !59
+  %99 = getelementptr inbounds nuw i8, ptr %.052, i64 20
+  store i32 %.055, ptr %99, align 4, !tbaa !64
+  %100 = getelementptr inbounds nuw i8, ptr %.052, i64 16
+  %101 = shl nuw i32 %5, 2
+  %102 = and i32 %7, 3
+  %103 = or disjoint i32 %102, %101
+  store i32 %103, ptr %100, align 8
+  br label %104
 
-99:                                               ; preds = %78, %14, %12, %8, %92
-  %.053 = phi i32 [ %.0, %92 ], [ -1, %8 ], [ -22, %12 ], [ -1, %14 ], [ -1, %78 ]
+104:                                              ; preds = %83, %14, %12, %8, %97
+  %.053 = phi i32 [ %.0, %97 ], [ -1, %8 ], [ -22, %12 ], [ -1, %14 ], [ -1, %83 ]
   ret i32 %.053
 }
 
@@ -328,130 +333,136 @@ declare ptr @av_fast_realloc(ptr noundef, ptr noundef, i64 noundef) local_unname
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @ff_index_search_timestamp(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %11, label %5
+  br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %4
   %6 = add nsw i32 %1, -1
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.AVIndexEntry, ptr %0, i64 %7, i32 1
-  %9 = load i64, ptr %8, align 8, !tbaa !59
-  %10 = icmp slt i64 %9, %2
-  %spec.select = select i1 %10, i32 %6, i32 -1
-  br label %11
+  %8 = getelementptr inbounds %struct.AVIndexEntry, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load i64, ptr %9, align 8, !tbaa !59
+  %11 = icmp slt i64 %10, %2
+  %spec.select = select i1 %11, i32 %6, i32 -1
+  br label %12
 
-11:                                               ; preds = %5, %4
+12:                                               ; preds = %5, %4
   %.052 = phi i32 [ -1, %4 ], [ %spec.select, %5 ]
-  %12 = sub nsw i32 %1, %.052
-  %13 = icmp sgt i32 %12, 1
-  br i1 %13, label %.lr.ph77, label %._crit_edge
+  %13 = sub nsw i32 %1, %.052
+  %14 = icmp sgt i32 %13, 1
+  br i1 %14, label %.lr.ph77, label %._crit_edge
 
-.lr.ph77:                                         ; preds = %11
-  %14 = add nsw i32 %1, -1
-  %15 = sext i32 %14 to i64
-  br label %16
+.lr.ph77:                                         ; preds = %12
+  %15 = add nsw i32 %1, -1
+  %16 = sext i32 %15 to i64
+  br label %17
 
-16:                                               ; preds = %.lr.ph77, %.critedge
+17:                                               ; preds = %.lr.ph77, %.critedge
   %.05076 = phi i32 [ %1, %.lr.ph77 ], [ %spec.select69, %.critedge ]
   %.15375 = phi i32 [ %.052, %.lr.ph77 ], [ %.254, %.critedge ]
-  %17 = add nsw i32 %.05076, %.15375
-  %18 = ashr i32 %17, 1
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.AVIndexEntry, ptr %0, i64 %19, i32 2
-  %21 = load i32, ptr %20, align 8
-  %22 = and i32 %21, 2
-  %.not6271 = icmp ne i32 %22, 0
-  %23 = icmp slt i32 %18, %.05076
-  %or.cond6672 = and i1 %23, %.not6271
-  %24 = icmp slt i32 %18, %14
-  %or.cond6873 = select i1 %or.cond6672, i1 %24, i1 false
+  %18 = add nsw i32 %.05076, %.15375
+  %19 = ashr i32 %18, 1
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds %struct.AVIndexEntry, ptr %0, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load i32, ptr %22, align 8
+  %24 = and i32 %23, 2
+  %.not6271 = icmp ne i32 %24, 0
+  %25 = icmp slt i32 %19, %.05076
+  %or.cond6672 = and i1 %25, %.not6271
+  %26 = icmp slt i32 %19, %15
+  %or.cond6873 = select i1 %or.cond6672, i1 %26, i1 false
   br i1 %or.cond6873, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph.preheader:                                 ; preds = %16
-  %25 = sext i32 %.05076 to i64
-  %26 = getelementptr inbounds %struct.AVIndexEntry, ptr %0, i64 %25, i32 1
+.lr.ph.preheader:                                 ; preds = %17
+  %27 = sext i32 %.05076 to i64
+  %28 = getelementptr inbounds %struct.AVIndexEntry, ptr %0, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %32
-  %indvars.iv = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %35
+  %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %27 = icmp eq i64 %indvars.iv.next, %25
-  br i1 %27, label %28, label %32
+  %30 = icmp eq i64 %indvars.iv.next, %27
+  br i1 %30, label %31, label %35
 
-28:                                               ; preds = %.lr.ph
-  %29 = load i64, ptr %26, align 8, !tbaa !59
-  %.not63 = icmp slt i64 %29, %2
-  br i1 %.not63, label %32, label %30
+31:                                               ; preds = %.lr.ph
+  %32 = load i64, ptr %29, align 8, !tbaa !59
+  %.not63 = icmp slt i64 %32, %2
+  br i1 %.not63, label %35, label %33
 
-30:                                               ; preds = %28
-  %31 = add nsw i32 %.05076, -1
+33:                                               ; preds = %31
+  %34 = add nsw i32 %.05076, -1
   br label %.critedge
 
-32:                                               ; preds = %28, %.lr.ph
-  %33 = getelementptr inbounds %struct.AVIndexEntry, ptr %0, i64 %indvars.iv.next, i32 2
-  %34 = load i32, ptr %33, align 8
-  %35 = and i32 %34, 2
-  %.not62 = icmp ne i32 %35, 0
-  %36 = icmp slt i64 %indvars.iv.next, %25
-  %or.cond66 = and i1 %36, %.not62
-  %37 = icmp slt i64 %indvars.iv.next, %15
-  %or.cond68 = select i1 %or.cond66, i1 %37, i1 false
+35:                                               ; preds = %31, %.lr.ph
+  %36 = getelementptr inbounds %struct.AVIndexEntry, ptr %0, i64 %indvars.iv.next
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load i32, ptr %37, align 8
+  %39 = and i32 %38, 2
+  %.not62 = icmp ne i32 %39, 0
+  %40 = icmp slt i64 %indvars.iv.next, %27
+  %or.cond66 = and i1 %40, %.not62
+  %41 = icmp slt i64 %indvars.iv.next, %16
+  %or.cond68 = select i1 %or.cond66, i1 %41, i1 false
   br i1 %or.cond68, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !61
 
-.critedge.loopexit:                               ; preds = %32
-  %38 = trunc nsw i64 %indvars.iv.next to i32
+.critedge.loopexit:                               ; preds = %35
+  %42 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %16, %30
-  %.1 = phi i32 [ %31, %30 ], [ %18, %16 ], [ %38, %.critedge.loopexit ]
-  %39 = sext i32 %.1 to i64
-  %40 = getelementptr inbounds %struct.AVIndexEntry, ptr %0, i64 %39, i32 1
-  %41 = load i64, ptr %40, align 8, !tbaa !59
-  %.not64 = icmp slt i64 %41, %2
+.critedge:                                        ; preds = %.critedge.loopexit, %17, %33
+  %.1 = phi i32 [ %34, %33 ], [ %19, %17 ], [ %42, %.critedge.loopexit ]
+  %43 = sext i32 %.1 to i64
+  %44 = getelementptr inbounds %struct.AVIndexEntry, ptr %0, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i64, ptr %45, align 8, !tbaa !59
+  %.not64 = icmp slt i64 %46, %2
   %spec.select69 = select i1 %.not64, i32 %.05076, i32 %.1
-  %.not65 = icmp sgt i64 %41, %2
+  %.not65 = icmp sgt i64 %46, %2
   %.254 = select i1 %.not65, i32 %.15375, i32 %.1
-  %42 = sub nsw i32 %spec.select69, %.254
-  %43 = icmp sgt i32 %42, 1
-  br i1 %43, label %16, label %._crit_edge, !llvm.loop !62
+  %47 = sub nsw i32 %spec.select69, %.254
+  %48 = icmp sgt i32 %47, 1
+  br i1 %48, label %17, label %._crit_edge, !llvm.loop !62
 
-._crit_edge:                                      ; preds = %.critedge, %11
-  %.153.lcssa = phi i32 [ %.052, %11 ], [ %.254, %.critedge ]
-  %.050.lcssa = phi i32 [ %1, %11 ], [ %spec.select69, %.critedge ]
-  %44 = and i32 %3, 1
-  %.not60 = icmp eq i32 %44, 0
-  %45 = select i1 %.not60, i32 %.050.lcssa, i32 %.153.lcssa
-  %46 = and i32 %3, 4
-  %47 = icmp eq i32 %46, 0
-  %48 = icmp sgt i32 %45, -1
-  %or.cond = and i1 %47, %48
+._crit_edge:                                      ; preds = %.critedge, %12
+  %.153.lcssa = phi i32 [ %.052, %12 ], [ %.254, %.critedge ]
+  %.050.lcssa = phi i32 [ %1, %12 ], [ %spec.select69, %.critedge ]
+  %49 = and i32 %3, 1
+  %.not60 = icmp eq i32 %49, 0
+  %50 = select i1 %.not60, i32 %.050.lcssa, i32 %.153.lcssa
+  %51 = and i32 %3, 4
+  %52 = icmp eq i32 %51, 0
+  %53 = icmp sgt i32 %50, -1
+  %or.cond = and i1 %52, %53
   br i1 %or.cond, label %.preheader, label %.critedge2
 
 .preheader:                                       ; preds = %._crit_edge
-  %49 = select i1 %.not60, i32 1, i32 -1
-  br label %50
+  %54 = select i1 %.not60, i32 1, i32 -1
+  br label %55
 
-50:                                               ; preds = %.preheader, %57
-  %.3 = phi i32 [ %58, %57 ], [ %45, %.preheader ]
-  %51 = icmp slt i32 %.3, %1
-  br i1 %51, label %52, label %.critedge2
+55:                                               ; preds = %.preheader, %63
+  %.3 = phi i32 [ %64, %63 ], [ %50, %.preheader ]
+  %56 = icmp slt i32 %.3, %1
+  br i1 %56, label %57, label %.critedge2
 
-52:                                               ; preds = %50
-  %53 = zext nneg i32 %.3 to i64
-  %54 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %0, i64 %53, i32 2
-  %55 = load i32, ptr %54, align 8
-  %56 = and i32 %55, 1
-  %.not61 = icmp eq i32 %56, 0
-  br i1 %.not61, label %57, label %.critedge2
+57:                                               ; preds = %55
+  %58 = zext nneg i32 %.3 to i64
+  %59 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %0, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load i32, ptr %60, align 8
+  %62 = and i32 %61, 1
+  %.not61 = icmp eq i32 %62, 0
+  br i1 %.not61, label %63, label %.critedge2
 
-57:                                               ; preds = %52
-  %58 = add nsw i32 %.3, %49
-  %.old3 = icmp sgt i32 %58, -1
-  br i1 %.old3, label %50, label %.critedge2
+63:                                               ; preds = %57
+  %64 = add nsw i32 %.3, %54
+  %.old3 = icmp sgt i32 %64, -1
+  br i1 %.old3, label %55, label %.critedge2
 
-.critedge2:                                       ; preds = %52, %57, %50, %._crit_edge
-  %.2 = phi i32 [ %45, %._crit_edge ], [ %.3, %50 ], [ %.3, %52 ], [ -1, %57 ]
-  %59 = icmp eq i32 %.2, %1
-  %..2 = select i1 %59, i32 -1, i32 %.2
+.critedge2:                                       ; preds = %57, %63, %55, %._crit_edge
+  %.2 = phi i32 [ %50, %._crit_edge ], [ %.3, %55 ], [ %.3, %57 ], [ -1, %63 ]
+  %65 = icmp eq i32 %.2, %1
+  %..2 = select i1 %65, i32 -1, i32 %.2
   ret i32 %..2
 }
 

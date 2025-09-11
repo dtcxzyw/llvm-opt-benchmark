@@ -1279,7 +1279,7 @@ define internal fastcc void @i801_probe_optional_slaves(ptr noundef nonnull %0) 
 
 46:                                               ; preds = %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false)
-  %47 = getelementptr %struct.anon.5, ptr @dell_lis3lv02d_devices, i64 %32, i32 1
+  %47 = getelementptr i8, ptr %33, i64 8
   %48 = load i16, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 22
   store i16 %48, ptr %49, align 2

@@ -987,7 +987,7 @@ define i32 @Kit_GraphToTruth(ptr noundef readonly captures(none) %0) local_unnam
   %.val50 = load i32, ptr %3, align 8
   %4 = and i32 %.val50, 1
   %sext49 = add nsw i32 %4, -1
-  br label %61
+  br label %64
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 4
@@ -1014,10 +1014,10 @@ define i32 @Kit_GraphToTruth(ptr noundef readonly captures(none) %0) local_unnam
   %15 = and i32 %.val54, 1
   %sext77 = sub nsw i32 0, %15
   %spec.select = xor i32 %14, %sext77
-  br label %61
+  br label %64
 
 .critedge.preheader:                              ; preds = %21, %.preheader
-  %.lcssa = phi i32 [ 0, %.preheader ], [ %27, %21 ]
+  %.lcssa = phi i32 [ 0, %.preheader ], [ %28, %21 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !11
   %18 = icmp slt i32 %.lcssa, %17
@@ -1031,66 +1031,69 @@ define i32 @Kit_GraphToTruth(ptr noundef readonly captures(none) %0) local_unnam
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.val55 = load ptr, ptr %10, align 8, !tbaa !13
-  %22 = getelementptr inbounds nuw i32, ptr @__const.Kit_GraphToTruth.uTruths, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4, !tbaa !16
-  %24 = zext i32 %23 to i64
-  %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val55, i64 %indvars.iv, i32 2
-  store ptr %25, ptr %26, align 8, !tbaa !15
+  %22 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val55, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr @__const.Kit_GraphToTruth.uTruths, i64 %indvars.iv
+  %24 = load i32, ptr %23, align 4, !tbaa !16
+  %25 = zext i32 %24 to i64
+  %26 = inttoptr i64 %25 to ptr
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr %26, ptr %27, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i32, ptr %6, align 4, !tbaa !3
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %21, label %.critedge.preheader, !llvm.loop !17
+  %28 = load i32, ptr %6, align 4, !tbaa !3
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next, %29
+  br i1 %30, label %21, label %.critedge.preheader, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph66, %.critedge
   %indvars.iv71 = phi i64 [ %20, %.lr.ph66 ], [ %indvars.iv.next72, %.critedge ]
   %.val56 = load ptr, ptr %19, align 8, !tbaa !13
-  %30 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val56, i64 %indvars.iv71
-  %31 = load i32, ptr %30, align 8
-  %32 = lshr i32 %31, 1
-  %33 = and i32 %32, 1073741823
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val56, i64 %34, i32 2
-  %36 = load ptr, ptr %35, align 8, !tbaa !15
-  %37 = ptrtoint ptr %36 to i64
-  %38 = trunc i64 %37 to i32
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %40 = load i32, ptr %39, align 4
-  %41 = lshr i32 %40, 1
-  %42 = and i32 %41, 1073741823
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val56, i64 %43, i32 2
-  %45 = load ptr, ptr %44, align 8, !tbaa !15
-  %46 = ptrtoint ptr %45 to i64
-  %47 = trunc i64 %46 to i32
-  %48 = and i32 %31, 1
-  %sext44 = sub nsw i32 0, %48
-  %49 = xor i32 %38, %sext44
-  %50 = and i32 %40, 1
-  %sext46 = sub nsw i32 0, %50
-  %51 = xor i32 %47, %sext46
-  %52 = and i32 %51, %49
-  %53 = zext i32 %52 to i64
-  %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !15
+  %31 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val56, i64 %indvars.iv71
+  %32 = load i32, ptr %31, align 8
+  %33 = lshr i32 %32, 1
+  %34 = and i32 %33, 1073741823
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val56, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !15
+  %39 = ptrtoint ptr %38 to i64
+  %40 = trunc i64 %39 to i32
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = lshr i32 %42, 1
+  %44 = and i32 %43, 1073741823
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val56, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !15
+  %49 = ptrtoint ptr %48 to i64
+  %50 = trunc i64 %49 to i32
+  %51 = and i32 %32, 1
+  %sext44 = sub nsw i32 0, %51
+  %52 = xor i32 %40, %sext44
+  %53 = and i32 %42, 1
+  %sext46 = sub nsw i32 0, %53
+  %54 = xor i32 %50, %sext46
+  %55 = and i32 %54, %52
+  %56 = zext i32 %55 to i64
+  %57 = inttoptr i64 %56 to ptr
+  %58 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %57, ptr %58, align 8, !tbaa !15
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
-  %56 = load i32, ptr %16, align 8, !tbaa !11
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next72, %57
-  br i1 %58, label %.critedge, label %.critedge2, !llvm.loop !19
+  %59 = load i32, ptr %16, align 8, !tbaa !11
+  %60 = sext i32 %59 to i64
+  %61 = icmp slt i64 %indvars.iv.next72, %60
+  br i1 %61, label %.critedge, label %.critedge2, !llvm.loop !19
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
-  %.039.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %52, %.critedge ]
+  %.039.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %55, %.critedge ]
   %.val52 = load i32, ptr %7, align 8
-  %59 = and i32 %.val52, 1
-  %sext = sub nsw i32 0, %59
-  %60 = xor i32 %.039.lcssa, %sext
-  br label %61
+  %62 = and i32 %.val52, 1
+  %sext = sub nsw i32 0, %62
+  %63 = xor i32 %.039.lcssa, %sext
+  br label %64
 
-61:                                               ; preds = %11, %.critedge2, %2
-  %.038 = phi i32 [ %sext49, %2 ], [ %60, %.critedge2 ], [ %spec.select, %11 ]
+64:                                               ; preds = %11, %.critedge2, %2
+  %.038 = phi i32 [ %sext49, %2 ], [ %63, %.critedge2 ], [ %spec.select, %11 ]
   ret i32 %.038
 }
 

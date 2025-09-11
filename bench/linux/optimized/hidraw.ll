@@ -416,8 +416,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr noundef 
   %.pre = load i32, ptr %15, align 4
   br label %19
 
-19:                                               ; preds = %73, %4
-  %20 = phi i32 [ %81, %73 ], [ %.pre, %4 ]
+19:                                               ; preds = %72, %4
+  %20 = phi i32 [ %80, %72 ], [ %.pre, %4 ]
   %21 = load i32, ptr %14, align 8
   %22 = icmp eq i32 %21, %20
   br i1 %22, label %23, label %.thread
@@ -483,65 +483,65 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr noundef 
 .thread:                                          ; preds = %.loopexit..thread_crit_edge, %19
   %56 = phi i32 [ %.pre11, %.loopexit..thread_crit_edge ], [ %20, %19 ]
   %57 = sext i32 %56 to i64
-  %58 = getelementptr %struct.hidraw_report, ptr %7, i64 %57, i32 1
+  %.split = getelementptr %struct.hidraw_report, ptr %7, i64 %57
+  %58 = getelementptr i8, ptr %.split, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = sext i32 %59 to i64
   %61 = call i64 @llvm.umin.i64(i64 %60, i64 %2)
   %62 = trunc i64 %61 to i32
-  %63 = getelementptr %struct.hidraw_report, ptr %7, i64 %57
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %73, label %66
+  %63 = load ptr, ptr %.split, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %72, label %65
 
-66:                                               ; preds = %.thread
-  %67 = shl i64 %61, 32
-  %68 = ashr exact i64 %67, 32
-  %69 = icmp ugt i64 %68, 2147483647
-  br i1 %69, label %.critedge5, label %70, !prof !17
+65:                                               ; preds = %.thread
+  %66 = shl i64 %61, 32
+  %67 = ashr exact i64 %66, 32
+  %68 = icmp ugt i64 %67, 2147483647
+  br i1 %68, label %.critedge5, label %69, !prof !17
 
-.critedge5:                                       ; preds = %66
+.critedge5:                                       ; preds = %65
   call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #13, !srcloc !18
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 249, i32 2307, i64 12) #13, !srcloc !19
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #13, !srcloc !20
   br label %.loopexit7
 
-70:                                               ; preds = %66
-  %71 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %64, i64 noundef %68) #13
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %._crit_edge, label %.loopexit7.loopexit
+69:                                               ; preds = %65
+  %70 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %63, i64 noundef %67) #13
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %._crit_edge, label %.loopexit7.loopexit
 
-._crit_edge:                                      ; preds = %70
+._crit_edge:                                      ; preds = %69
   %.pre12 = load i32, ptr %15, align 4
   %.phi.trans.insert = sext i32 %.pre12 to i64
   %.phi.trans.insert13 = getelementptr %struct.hidraw_report, ptr %7, i64 %.phi.trans.insert
   %.pre14 = load ptr, ptr %.phi.trans.insert13, align 8
-  br label %73
+  br label %72
 
-73:                                               ; preds = %._crit_edge, %.thread
-  %74 = phi ptr [ null, %.thread ], [ %.pre14, %._crit_edge ]
-  %75 = phi i32 [ 0, %.thread ], [ %62, %._crit_edge ]
-  call void @kfree(ptr noundef %74) #13
-  %76 = load i32, ptr %15, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr %struct.hidraw_report, ptr %7, i64 %77
-  store ptr null, ptr %78, align 8
-  %79 = load i32, ptr %15, align 4
-  %80 = add i32 %79, 1
-  %81 = and i32 %80, 63
-  store i32 %81, ptr %15, align 4
-  %82 = icmp eq i32 %75, 0
-  br i1 %82, label %19, label %.loopexit7.loopexit, !llvm.loop !21
+72:                                               ; preds = %._crit_edge, %.thread
+  %73 = phi ptr [ null, %.thread ], [ %.pre14, %._crit_edge ]
+  %74 = phi i32 [ 0, %.thread ], [ %62, %._crit_edge ]
+  call void @kfree(ptr noundef %73) #13
+  %75 = load i32, ptr %15, align 4
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr %struct.hidraw_report, ptr %7, i64 %76
+  store ptr null, ptr %77, align 8
+  %78 = load i32, ptr %15, align 4
+  %79 = add i32 %78, 1
+  %80 = and i32 %79, 63
+  store i32 %80, ptr %15, align 4
+  %81 = icmp eq i32 %74, 0
+  br i1 %81, label %19, label %.loopexit7.loopexit, !llvm.loop !21
 
-.loopexit7.loopexit:                              ; preds = %.loopexit, %70, %73
-  %.ph10 = phi i32 [ %52, %.loopexit ], [ %75, %73 ], [ -14, %70 ]
-  %83 = sext i32 %.ph10 to i64
+.loopexit7.loopexit:                              ; preds = %.loopexit, %69, %72
+  %.ph10 = phi i32 [ %52, %.loopexit ], [ %74, %72 ], [ -14, %69 ]
+  %82 = sext i32 %.ph10 to i64
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %.loopexit7.loopexit, %.critedge5
-  %84 = phi i64 [ -14, %.critedge5 ], [ %83, %.loopexit7.loopexit ]
+  %83 = phi i64 [ -14, %.critedge5 ], [ %82, %.loopexit7.loopexit ]
   call void @mutex_unlock(ptr noundef nonnull %13) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i64 %84
+  ret i64 %83
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

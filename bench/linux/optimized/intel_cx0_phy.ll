@@ -3420,7 +3420,8 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr noundef rea
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr %struct.__drm_crtcs_state, ptr %7, i64 %10, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %7, i64 %10
+  %11 = getelementptr i8, ptr %.split, i64 24
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %3, i8 0, i64 44, i1 false)

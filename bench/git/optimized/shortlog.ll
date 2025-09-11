@@ -1267,7 +1267,7 @@ define dso_local void @shortlog_output(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %.lr.ph47, %77
   %24 = phi ptr [ %.pre, %.lr.ph47 ], [ %78, %77 ]
-  %.045 = phi i64 [ 0, %.lr.ph47 ], [ %80, %77 ]
+  %.045 = phi i64 [ 0, %.lr.ph47 ], [ %81, %77 ]
   %25 = getelementptr inbounds nuw %struct.string_list_item, ptr %24, i64 %.045
   %26 = load i32, ptr %15, align 8, !tbaa !28
   %.not40 = icmp eq i32 %26, 0
@@ -1376,26 +1376,27 @@ add_wrapped_shortlog_msg.exit:                    ; preds = %strbuf_avail.exit.i
 
 77:                                               ; preds = %._crit_edge, %27
   %78 = load ptr, ptr %0, align 8, !tbaa !138
-  %79 = getelementptr inbounds nuw %struct.string_list_item, ptr %78, i64 %.045, i32 1
-  store ptr null, ptr %79, align 8, !tbaa !140
-  %80 = add nuw i64 %.045, 1
-  %81 = load i64, ptr %13, align 8, !tbaa !139
-  %82 = icmp ult i64 %80, %81
-  br i1 %82, label %23, label %._crit_edge48, !llvm.loop !145
+  %79 = getelementptr inbounds nuw %struct.string_list_item, ptr %78, i64 %.045
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store ptr null, ptr %80, align 8, !tbaa !140
+  %81 = add nuw i64 %.045, 1
+  %82 = load i64, ptr %13, align 8, !tbaa !139
+  %83 = icmp ult i64 %81, %82
+  br i1 %83, label %23, label %._crit_edge48, !llvm.loop !145
 
 ._crit_edge48:                                    ; preds = %77, %12
   call void @strbuf_release(ptr noundef nonnull %2) #17
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %84 = load i8, ptr %83, align 8
-  %85 = or i8 %84, 1
-  store i8 %85, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %85 = load i8, ptr %84, align 8
+  %86 = or i8 %85, 1
+  store i8 %86, ptr %84, align 8
   call void @string_list_clear(ptr noundef nonnull %0, i32 noundef 1) #17
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  call void @clear_mailmap(ptr noundef nonnull %86) #17
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  call void @string_list_clear(ptr noundef nonnull %87, i32 noundef 0) #17
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void @clear_mailmap(ptr noundef nonnull %87) #17
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @string_list_clear(ptr noundef nonnull %88, i32 noundef 0) #17
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  call void @string_list_clear(ptr noundef nonnull %89, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

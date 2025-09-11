@@ -236,56 +236,57 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %exitcond227.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count226
   br i1 %exitcond227.not, label %.preheader, label %106, !llvm.loop !19
 
-118:                                              ; preds = %.preheader, %141
-  %indvars.iv228 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next229, %141 ]
-  %.0149202 = phi i32 [ 0, %.preheader ], [ %.1150, %141 ]
+118:                                              ; preds = %.preheader, %142
+  %indvars.iv228 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next229, %142 ]
+  %.0149202 = phi i32 [ 0, %.preheader ], [ %.1150, %142 ]
   %119 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv228
   %120 = load i16, ptr %119, align 2, !tbaa !4
-  switch i16 %120, label %128 [
+  switch i16 %120, label %129 [
     i16 0, label %121
-    i16 -1, label %123
-    i16 1, label %123
+    i16 -1, label %124
+    i16 1, label %124
   ]
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228, i32 1
-  store i32 %105, ptr %122, align 4, !tbaa !20
-  br label %141
+  %122 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  store i32 %105, ptr %123, align 4, !tbaa !20
+  br label %142
 
-123:                                              ; preds = %118, %118
-  %124 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  store i32 %103, ptr %125, align 4, !tbaa !20
-  %126 = add i32 %.0149202, -1
-  store i32 %126, ptr %124, align 4, !tbaa !23
-  %127 = add i32 %.0149202, 1
-  br label %141
+124:                                              ; preds = %118, %118
+  %125 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  store i32 %103, ptr %126, align 4, !tbaa !20
+  %127 = add i32 %.0149202, -1
+  store i32 %127, ptr %125, align 4, !tbaa !23
+  %128 = add i32 %.0149202, 1
+  br label %142
 
-128:                                              ; preds = %118
-  %129 = sext i16 %120 to i32
-  %130 = add nsw i32 %129, -1
-  %131 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %130, i1 true)
-  %132 = xor i32 %131, 31
-  %133 = sub i32 %3, %132
-  %134 = shl i32 %129, %133
-  %135 = shl i32 %133, 16
-  %136 = sub i32 %135, %134
-  %137 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  store i32 %136, ptr %138, align 4, !tbaa !20
-  %139 = sub i32 %.0149202, %129
-  store i32 %139, ptr %137, align 4, !tbaa !23
-  %140 = add i32 %.0149202, %129
-  br label %141
+129:                                              ; preds = %118
+  %130 = sext i16 %120 to i32
+  %131 = add nsw i32 %130, -1
+  %132 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %131, i1 true)
+  %133 = xor i32 %132, 31
+  %134 = sub i32 %3, %133
+  %135 = shl i32 %130, %134
+  %136 = shl i32 %134, 16
+  %137 = sub i32 %136, %135
+  %138 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
+  store i32 %137, ptr %139, align 4, !tbaa !20
+  %140 = sub i32 %.0149202, %130
+  store i32 %140, ptr %138, align 4, !tbaa !23
+  %141 = add i32 %.0149202, %130
+  br label %142
 
-141:                                              ; preds = %121, %123, %128
-  %.1150 = phi i32 [ %140, %128 ], [ %.0149202, %121 ], [ %127, %123 ]
+142:                                              ; preds = %121, %124, %129
+  %.1150 = phi i32 [ %141, %129 ], [ %.0149202, %121 ], [ %128, %124 ]
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond233 = icmp eq i64 %indvars.iv.next229, %wide.trip.count232
   br i1 %exitcond233, label %.loopexit, label %118, !llvm.loop !24
 
-.loopexit:                                        ; preds = %141, %6
-  %.0 = phi i64 [ -44, %6 ], [ 0, %141 ]
+.loopexit:                                        ; preds = %142, %6
+  %.0 = phi i64 [ -44, %6 ], [ 0, %142 ]
   ret i64 %.0
 }
 

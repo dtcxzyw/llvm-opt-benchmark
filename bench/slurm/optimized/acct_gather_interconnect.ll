@@ -638,7 +638,7 @@ declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #1
 define dso_local noundef i32 @acct_gather_interconnect_g_conf_options(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @g_context_num, align 4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %26, label %4
+  br i1 %.not, label %27, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #7
@@ -660,44 +660,45 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_options(ptr nounde
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_interconnect_g_conf_options) #9
   unreachable
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %10 = phi i32 [ %6, %.lr.ph.preheader ], [ %19, %18 ]
-  %11 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %20, %18 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %10 = phi i32 [ %6, %.lr.ph.preheader ], [ %20, %19 ]
+  %11 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %21, %19 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not14 = icmp eq ptr %13, null
-  br i1 %.not14, label %18, label %14
+  br i1 %.not14, label %19, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %15, i64 %indvars.iv, i32 1
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef %0, ptr noundef %1) #7
+  %16 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18(ptr noundef %0, ptr noundef %1) #7
   %.pre = load ptr, ptr @g_context, align 8
   %.pre18 = load i32, ptr @g_context_num, align 4
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.lr.ph, %14
-  %19 = phi i32 [ %10, %.lr.ph ], [ %.pre18, %14 ]
-  %20 = phi ptr [ %11, %.lr.ph ], [ %.pre, %14 ]
+19:                                               ; preds = %.lr.ph, %14
+  %20 = phi i32 [ %10, %.lr.ph ], [ %.pre18, %14 ]
+  %21 = phi ptr [ %11, %.lr.ph ], [ %.pre, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = sext i32 %19 to i64
-  %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %22 = sext i32 %20 to i64
+  %23 = icmp slt i64 %indvars.iv.next, %22
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %18, %.preheader
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
-  %.not13 = icmp eq i32 %23, 0
-  br i1 %.not13, label %26, label %24
+._crit_edge:                                      ; preds = %19, %.preheader
+  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
+  %.not13 = icmp eq i32 %24, 0
+  br i1 %.not13, label %27, label %25
 
-24:                                               ; preds = %._crit_edge
-  %25 = tail call ptr @__errno_location() #8
-  store i32 %23, ptr %25, align 4
+25:                                               ; preds = %._crit_edge
+  %26 = tail call ptr @__errno_location() #8
+  store i32 %24, ptr %26, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.acct_gather_interconnect_g_conf_options) #9
   unreachable
 
-26:                                               ; preds = %._crit_edge, %2
+27:                                               ; preds = %._crit_edge, %2
   ret i32 0
 }
 
@@ -705,7 +706,7 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_options(ptr nounde
 define dso_local noundef i32 @acct_gather_interconnect_g_conf_set(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @g_context_num, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %25, label %3
+  br i1 %.not, label %26, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #7
@@ -727,44 +728,45 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_set(ptr noundef %0
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_interconnect_g_conf_set) #9
   unreachable
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
-  %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %18, %17 ]
-  %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %19, %17 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
+  %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %19, %18 ]
+  %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %20, %18 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
-  br i1 %.not13, label %17, label %13
+  br i1 %.not13, label %18, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv, i32 2
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef %0) #7
+  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef %0) #7
   %.pre = load ptr, ptr @g_context, align 8
   %.pre17 = load i32, ptr @g_context_num, align 4
-  br label %17
+  br label %18
 
-17:                                               ; preds = %.lr.ph, %13
-  %18 = phi i32 [ %9, %.lr.ph ], [ %.pre17, %13 ]
-  %19 = phi ptr [ %10, %.lr.ph ], [ %.pre, %13 ]
+18:                                               ; preds = %.lr.ph, %13
+  %19 = phi i32 [ %9, %.lr.ph ], [ %.pre17, %13 ]
+  %20 = phi ptr [ %10, %.lr.ph ], [ %.pre, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = sext i32 %18 to i64
-  %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  %21 = sext i32 %19 to i64
+  %22 = icmp slt i64 %indvars.iv.next, %21
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %17, %.preheader
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
-  %.not12 = icmp eq i32 %22, 0
-  br i1 %.not12, label %25, label %23
+._crit_edge:                                      ; preds = %18, %.preheader
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
+  %.not12 = icmp eq i32 %23, 0
+  br i1 %.not12, label %26, label %24
 
-23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @__errno_location() #8
-  store i32 %22, ptr %24, align 4
+24:                                               ; preds = %._crit_edge
+  %25 = tail call ptr @__errno_location() #8
+  store i32 %23, ptr %25, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.acct_gather_interconnect_g_conf_set) #9
   unreachable
 
-25:                                               ; preds = %._crit_edge, %1
+26:                                               ; preds = %._crit_edge, %1
   ret i32 0
 }
 
@@ -772,7 +774,7 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_set(ptr noundef %0
 define dso_local noundef i32 @acct_gather_interconnect_g_conf_values(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @g_context_num, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %25, label %3
+  br i1 %.not, label %26, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #7
@@ -794,44 +796,45 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_values(ptr noundef
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_interconnect_g_conf_values) #9
   unreachable
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %17
-  %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %18, %17 ]
-  %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %19, %17 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
+  %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %19, %18 ]
+  %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %20, %18 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
-  br i1 %.not13, label %17, label %13
+  br i1 %.not13, label %18, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv, i32 3
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef %0) #7
+  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef %0) #7
   %.pre = load ptr, ptr @g_context, align 8
   %.pre17 = load i32, ptr @g_context_num, align 4
-  br label %17
+  br label %18
 
-17:                                               ; preds = %.lr.ph, %13
-  %18 = phi i32 [ %9, %.lr.ph ], [ %.pre17, %13 ]
-  %19 = phi ptr [ %10, %.lr.ph ], [ %.pre, %13 ]
+18:                                               ; preds = %.lr.ph, %13
+  %19 = phi i32 [ %9, %.lr.ph ], [ %.pre17, %13 ]
+  %20 = phi ptr [ %10, %.lr.ph ], [ %.pre, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = sext i32 %18 to i64
-  %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  %21 = sext i32 %19 to i64
+  %22 = icmp slt i64 %indvars.iv.next, %21
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %17, %.preheader
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
-  %.not12 = icmp eq i32 %22, 0
-  br i1 %.not12, label %25, label %23
+._crit_edge:                                      ; preds = %18, %.preheader
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
+  %.not12 = icmp eq i32 %23, 0
+  br i1 %.not12, label %26, label %24
 
-23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @__errno_location() #8
-  store i32 %22, ptr %24, align 4
+24:                                               ; preds = %._crit_edge
+  %25 = tail call ptr @__errno_location() #8
+  store i32 %23, ptr %25, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.acct_gather_interconnect_g_conf_values) #9
   unreachable
 
-25:                                               ; preds = %._crit_edge, %1
+26:                                               ; preds = %._crit_edge, %1
   ret i32 0
 }
 
@@ -839,7 +842,7 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_values(ptr noundef
 define dso_local noundef i32 @acct_gather_interconnect_g_get_data(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @g_context_num, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %26, label %3
+  br i1 %.not, label %27, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #7
@@ -861,48 +864,49 @@ define dso_local noundef i32 @acct_gather_interconnect_g_get_data(ptr noundef %0
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_interconnect_g_get_data) #9
   unreachable
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %19, %18 ]
-  %10 = phi ptr [ %.pre19, %.lr.ph.preheader ], [ %20, %18 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %20, %19 ]
+  %10 = phi ptr [ %.pre19, %.lr.ph.preheader ], [ %21, %19 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
-  br i1 %.not13, label %18, label %13
+  br i1 %.not13, label %19, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv, i32 4
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0) #7
-  %.not14 = icmp eq i32 %17, 0
+  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %17(ptr noundef %0) #7
+  %.not14 = icmp eq i32 %18, 0
   br i1 %.not14, label %._crit_edge20, label %._crit_edge
 
 ._crit_edge20:                                    ; preds = %13
   %.pre = load ptr, ptr @g_context, align 8
   %.pre21 = load i32, ptr @g_context_num, align 4
-  br label %18
+  br label %19
 
-18:                                               ; preds = %._crit_edge20, %.lr.ph
-  %19 = phi i32 [ %.pre21, %._crit_edge20 ], [ %9, %.lr.ph ]
-  %20 = phi ptr [ %.pre, %._crit_edge20 ], [ %10, %.lr.ph ]
+19:                                               ; preds = %._crit_edge20, %.lr.ph
+  %20 = phi i32 [ %.pre21, %._crit_edge20 ], [ %9, %.lr.ph ]
+  %21 = phi ptr [ %.pre, %._crit_edge20 ], [ %10, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = sext i32 %19 to i64
-  %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  %22 = sext i32 %20 to i64
+  %23 = icmp slt i64 %indvars.iv.next, %22
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %18, %13, %.preheader
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
-  %.not15 = icmp eq i32 %23, 0
-  br i1 %.not15, label %26, label %24
+._crit_edge:                                      ; preds = %19, %13, %.preheader
+  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
+  %.not15 = icmp eq i32 %24, 0
+  br i1 %.not15, label %27, label %25
 
-24:                                               ; preds = %._crit_edge
-  %25 = tail call ptr @__errno_location() #8
-  store i32 %23, ptr %25, align 4
+25:                                               ; preds = %._crit_edge
+  %26 = tail call ptr @__errno_location() #8
+  store i32 %24, ptr %26, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.acct_gather_interconnect_g_get_data) #9
   unreachable
 
-26:                                               ; preds = %._crit_edge, %1
+27:                                               ; preds = %._crit_edge, %1
   ret i32 0
 }
 

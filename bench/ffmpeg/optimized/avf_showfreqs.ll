@@ -347,7 +347,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   %74 = fmul nsz float %71, %73
   %75 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %80, i64 %indvars.iv.i.i
   store float %74, ptr %75, align 4, !tbaa !65
-  %76 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %80, i64 %indvars.iv.i.i, i32 1
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store float 0.000000e+00, ptr %76, align 4, !tbaa !67
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i

@@ -467,7 +467,8 @@ define internal i32 @drbg_kcapi_seed(ptr noundef %0, ptr noundef %1, i32 noundef
 
 21:                                               ; preds = %26, %14
   %22 = phi i64 [ 0, %14 ], [ %27, %26 ]
-  %23 = getelementptr %struct.drbg_core, ptr @drbg_cores, i64 %22, i32 3
+  %.split = getelementptr %struct.drbg_core, ptr @drbg_cores, i64 %22
+  %23 = getelementptr i8, ptr %.split, i64 6
   %24 = tail call i32 @bcmp(ptr %18, ptr %23, i64 %20)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.loopexit.loopexit, label %26

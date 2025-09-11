@@ -1942,7 +1942,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   br i1 %.not, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.193", ptr %13, i64 %.pn, i32 0, i32 1
+  %.sroa.0.1.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.193", ptr %13, i64 %.pn
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !261
   %36 = trunc i64 %11 to i32
   %37 = sub i32 %35, %36
@@ -2157,7 +2158,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i, label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i
-  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.193", ptr %16, i64 %.pn.i, i32 0, i32 1
+  %.sroa.0.1.i.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.193", ptr %16, i64 %.pn.i
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !261
   %39 = trunc i64 %14 to i32
   %40 = sub i32 %38, %39
@@ -2271,7 +2273,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i, label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i
-  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.193", ptr %16, i64 %.pn.i, i32 0, i32 1
+  %.sroa.0.1.i.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.193", ptr %16, i64 %.pn.i
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !261
   %39 = trunc i64 %14 to i32
   %40 = sub i32 %38, %39
@@ -2385,7 +2388,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i, label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i
-  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.193", ptr %16, i64 %.pn.i, i32 0, i32 1
+  %.sroa.0.1.i.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.193", ptr %16, i64 %.pn.i
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !261
   %39 = trunc i64 %14 to i32
   %40 = sub i32 %38, %39

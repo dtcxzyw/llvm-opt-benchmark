@@ -952,9 +952,9 @@ define dso_local ptr @pub_collist_validate(ptr noundef readonly captures(none) %
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph50, label %.critedge
 
-.lr.ph50:                                         ; preds = %.lr.ph, %47
-  %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph ]
-  %.03448 = phi ptr [ %48, %47 ], [ null, %.lr.ph ]
+.lr.ph50:                                         ; preds = %.lr.ph, %48
+  %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph ]
+  %.03448 = phi ptr [ %49, %48 ], [ null, %.lr.ph ]
   %10 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
@@ -966,8 +966,8 @@ define dso_local ptr @pub_collist_validate(ptr noundef readonly captures(none) %
   %18 = icmp eq i16 %16, 0
   br i1 %18, label %.split, label %25
 
-.critedge:                                        ; preds = %47, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %48, %47 ]
+.critedge:                                        ; preds = %48, %.lr.ph, %2
+  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %49, %48 ]
   ret ptr %.0.lcssa
 
 .split:                                           ; preds = %.lr.ph50
@@ -999,38 +999,39 @@ define dso_local ptr @pub_collist_validate(ptr noundef readonly captures(none) %
   %33 = shl nsw i64 %32, 4
   %34 = getelementptr i8, ptr %4, i64 %33
   %35 = zext nneg i16 %16 to i64
-  %36 = getelementptr %struct.FormData_pg_attribute, ptr %34, i64 %35, i32 1, i32 0, i64 10
-  %37 = load i8, ptr %36, align 2
-  %38 = icmp eq i8 %37, 118
-  br i1 %38, label %.split42, label %42
+  %36 = getelementptr %struct.FormData_pg_attribute, ptr %34, i64 %35
+  %37 = getelementptr i8, ptr %36, i64 14
+  %38 = load i8, ptr %37, align 2
+  %39 = icmp eq i8 %38, 118
+  br i1 %39, label %.split42, label %43
 
 .split42:                                         ; preds = %30
-  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 @errcode(i32 noundef 393348) #6
-  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %14) #6
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %40)
+  %41 = tail call i32 @errcode(i32 noundef 393348) #6
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %14) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 583, ptr noundef nonnull @__func__.pub_collist_validate) #6
   unreachable
 
-42:                                               ; preds = %30
-  %43 = tail call zeroext i1 @bms_is_member(i32 noundef %17, ptr noundef %.03448) #6
-  br i1 %43, label %.split45, label %47
+43:                                               ; preds = %30
+  %44 = tail call zeroext i1 @bms_is_member(i32 noundef %17, ptr noundef %.03448) #6
+  br i1 %44, label %.split45, label %48
 
-.split45:                                         ; preds = %42
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 290948) #6
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %14) #6
+.split45:                                         ; preds = %43
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %45)
+  %46 = tail call i32 @errcode(i32 noundef 290948) #6
+  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %14) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 589, ptr noundef nonnull @__func__.pub_collist_validate) #6
   unreachable
 
-47:                                               ; preds = %42
-  %48 = tail call ptr @bms_add_member(ptr noundef %.03448, i32 noundef %17) #6
+48:                                               ; preds = %43
+  %49 = tail call ptr @bms_add_member(ptr noundef %.03448, i32 noundef %17) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = load i32, ptr %5, align 4
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph50, label %.critedge
+  %50 = load i32, ptr %5, align 4
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i64 %indvars.iv.next, %51
+  br i1 %52, label %.lr.ph50, label %.critedge
 }
 
 declare i32 @GetNewOidWithIndex(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1

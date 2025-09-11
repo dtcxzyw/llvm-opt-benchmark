@@ -427,60 +427,61 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %12 = load ptr, ptr @ProcSignal, align 8
-  %13 = getelementptr %struct.ProcSignalSlot, ptr %12, i64 %indvars.iv, i32 7, i32 1
-  %14 = atomicrmw or ptr %13, i32 %2 seq_cst, align 4
+  %13 = getelementptr %struct.ProcSignalSlot, ptr %12, i64 %indvars.iv
+  %14 = getelementptr i8, ptr %13, i64 88
+  %15 = atomicrmw or ptr %14, i32 %2 seq_cst, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = load i32, ptr @MaxBackends, align 4
-  %16 = add i32 %15, 6
-  %17 = sext i32 %16 to i64
-  %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  %16 = load i32, ptr @MaxBackends, align 4
+  %17 = add i32 %16, 6
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next, %18
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
-._crit_edge27:                                    ; preds = %35, %._crit_edge
-  %19 = add i64 %7, 1
-  ret i64 %19
+._crit_edge27:                                    ; preds = %36, %._crit_edge
+  %20 = add i64 %7, 1
+  ret i64 %20
 
-.lr.ph26:                                         ; preds = %.lr.ph26.preheader, %35
-  %indvars.iv29 = phi i64 [ %11, %.lr.ph26.preheader ], [ %indvars.iv.next30, %35 ]
-  %20 = load ptr, ptr @ProcSignal, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = getelementptr inbounds nuw %struct.ProcSignalSlot, ptr %21, i64 %indvars.iv29
-  %23 = load volatile i32, ptr %22, align 4
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %35, label %24
+.lr.ph26:                                         ; preds = %.lr.ph26.preheader, %36
+  %indvars.iv29 = phi i64 [ %11, %.lr.ph26.preheader ], [ %indvars.iv.next30, %36 ]
+  %21 = load ptr, ptr @ProcSignal, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw %struct.ProcSignalSlot, ptr %22, i64 %indvars.iv29
+  %24 = load volatile i32, ptr %23, align 4
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %36, label %25
 
-24:                                               ; preds = %.lr.ph26
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 68
-  %26 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %25, i8 1, ptr nonnull elementtype(i8) %25) #11, !srcloc !9
-  %.not21 = icmp eq i8 %26, 0
-  br i1 %.not21, label %29, label %27
+25:                                               ; preds = %.lr.ph26
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 68
+  %27 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %26, i8 1, ptr nonnull elementtype(i8) %26) #11, !srcloc !9
+  %.not21 = icmp eq i8 %27, 0
+  br i1 %.not21, label %30, label %28
 
-27:                                               ; preds = %24
-  %28 = tail call i32 @s_lock(ptr noundef nonnull %25, ptr noundef nonnull @.str.2, i32 noundef 399, ptr noundef nonnull @__func__.EmitProcSignalBarrier) #11
-  br label %29
+28:                                               ; preds = %25
+  %29 = tail call i32 @s_lock(ptr noundef nonnull %26, ptr noundef nonnull @.str.2, i32 noundef 399, ptr noundef nonnull @__func__.EmitProcSignalBarrier) #11
+  br label %30
 
-29:                                               ; preds = %24, %27
-  %30 = load volatile i32, ptr %22, align 4
-  %.not22 = icmp eq i32 %30, 0
-  br i1 %.not22, label %34, label %31
+30:                                               ; preds = %25, %28
+  %31 = load volatile i32, ptr %23, align 4
+  %.not22 = icmp eq i32 %31, 0
+  br i1 %.not22, label %35, label %32
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  store volatile i32 1, ptr %32, align 4
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 28
+  store volatile i32 1, ptr %33, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
-  store volatile i8 0, ptr %25, align 4
-  %33 = tail call i32 @kill(i32 noundef %30, i32 noundef 10) #11
-  br label %35
+  store volatile i8 0, ptr %26, align 4
+  %34 = tail call i32 @kill(i32 noundef %31, i32 noundef 10) #11
+  br label %36
 
-34:                                               ; preds = %29
+35:                                               ; preds = %30
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
-  store volatile i8 0, ptr %25, align 4
-  br label %35
+  store volatile i8 0, ptr %26, align 4
+  br label %36
 
-35:                                               ; preds = %31, %34, %.lr.ph26
+36:                                               ; preds = %32, %35, %.lr.ph26
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, -1
-  %36 = icmp sgt i64 %indvars.iv29, 0
-  br i1 %36, label %.lr.ph26, label %._crit_edge27, !llvm.loop !23
+  %37 = icmp sgt i64 %indvars.iv29, 0
+  br i1 %37, label %.lr.ph26, label %._crit_edge27, !llvm.loop !23
 }
 
 ; Function Attrs: nounwind uwtable

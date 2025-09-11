@@ -189,50 +189,51 @@ define noundef i32 @dsyrk_thread_UT(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %106, label %.lr.ph, label %.lr.ph124, !llvm.loop !31
 
 107:                                              ; preds = %.lr.ph124, %107
-  %.1107123 = phi i64 [ 0, %.lr.ph124 ], [ %109, %107 ]
-  %108 = getelementptr inbounds nuw %struct.blas_queue, ptr %9, i64 %.1107123, i32 5
-  store ptr %66, ptr %108, align 8, !tbaa !33
-  %109 = add nuw nsw i64 %.1107123, 1
+  %.1107123 = phi i64 [ 0, %.lr.ph124 ], [ %110, %107 ]
+  %108 = getelementptr inbounds nuw %struct.blas_queue, ptr %9, i64 %.1107123
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
+  store ptr %66, ptr %109, align 8, !tbaa !33
+  %110 = add nuw nsw i64 %.1107123, 1
   %exitcond.not = icmp eq i64 %.1107123, %.0104122
   br i1 %exitcond.not, label %.preheader118.preheader, label %107, !llvm.loop !34
 
 .preheader118.preheader:                          ; preds = %107
-  %110 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i64 %102, ptr %110, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  store i64 %102, ptr %111, align 8, !tbaa !3
   br label %.preheader118
 
-.preheader118:                                    ; preds = %.preheader118.preheader, %115
-  %.0109127 = phi i64 [ %116, %115 ], [ 0, %.preheader118.preheader ]
-  %111 = getelementptr inbounds nuw %struct.job_t, ptr %8, i64 %.0109127
+.preheader118:                                    ; preds = %.preheader118.preheader, %116
+  %.0109127 = phi i64 [ %117, %116 ], [ 0, %.preheader118.preheader ]
+  %112 = getelementptr inbounds nuw %struct.job_t, ptr %8, i64 %.0109127
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader118, %.preheader
-  %.2108126 = phi i64 [ 0, %.preheader118 ], [ %114, %.preheader ]
-  %112 = getelementptr inbounds nuw [16 x i64], ptr %111, i64 %.2108126
-  store atomic i64 0, ptr %112 seq_cst, align 16, !tbaa !35
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
+  %.2108126 = phi i64 [ 0, %.preheader118 ], [ %115, %.preheader ]
+  %113 = getelementptr inbounds nuw [16 x i64], ptr %112, i64 %.2108126
   store atomic i64 0, ptr %113 seq_cst, align 16, !tbaa !35
-  %114 = add nuw nsw i64 %.2108126, 1
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 64
+  store atomic i64 0, ptr %114 seq_cst, align 16, !tbaa !35
+  %115 = add nuw nsw i64 %.2108126, 1
   %exitcond129.not = icmp eq i64 %.2108126, %.0104122
-  br i1 %exitcond129.not, label %115, label %.preheader, !llvm.loop !36
+  br i1 %exitcond129.not, label %116, label %.preheader, !llvm.loop !36
 
-115:                                              ; preds = %.preheader
-  %116 = add nuw nsw i64 %.0109127, 1
+116:                                              ; preds = %.preheader
+  %117 = add nuw nsw i64 %.0109127, 1
   %exitcond130.not = icmp eq i64 %.0109127, %.0104122
-  br i1 %exitcond130.not, label %117, label %.preheader118, !llvm.loop !37
+  br i1 %exitcond130.not, label %118, label %.preheader118, !llvm.loop !37
 
-117:                                              ; preds = %115
-  %118 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %3, ptr %118, align 16, !tbaa !38
-  %119 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store ptr %4, ptr %119, align 8, !tbaa !39
-  %120 = getelementptr %struct.blas_queue, ptr %9, i64 %102
-  %121 = getelementptr i8, ptr %120, i64 -104
-  store ptr null, ptr %121, align 8, !tbaa !30
-  %122 = call i32 @exec_blas(i64 noundef %102, ptr noundef nonnull %9) #7
+118:                                              ; preds = %116
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store ptr %3, ptr %119, align 16, !tbaa !38
+  %120 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store ptr %4, ptr %120, align 8, !tbaa !39
+  %121 = getelementptr %struct.blas_queue, ptr %9, i64 %102
+  %122 = getelementptr i8, ptr %121, i64 -104
+  store ptr null, ptr %122, align 8, !tbaa !30
+  %123 = call i32 @exec_blas(i64 noundef %102, ptr noundef nonnull %9) #7
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %57, %117, %19
+._crit_edge.thread:                               ; preds = %57, %118, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

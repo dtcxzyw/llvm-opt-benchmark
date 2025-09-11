@@ -1395,117 +1395,116 @@ select.unfold:                                    ; preds = %146, %144, %128, %1
   %or.cond12 = and i1 %171, %169
   %172 = add i64 %57, %.0
   %173 = icmp ult i64 %172, 4096
-  %or.cond304 = select i1 %or.cond12, i1 %173, i1 false
-  br i1 %or.cond304, label %174, label %tsrm_realpath_str.exit
+  %or.cond302 = select i1 %or.cond12, i1 %173, i1 false
+  br i1 %or.cond302, label %174, label %tsrm_realpath_str.exit
 
 174:                                              ; preds = %170
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %162, i64 %.0, i1 false)
-  %175 = getelementptr inbounds nuw i8, ptr %4, i64 %165
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %176, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %57, i1 false)
+  %175 = getelementptr inbounds nuw i8, ptr %4, i64 %.0
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %175, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %57, i1 false)
   store ptr %4, ptr %5, align 8, !tbaa !22
-  %177 = load ptr, ptr %10, align 8, !tbaa !61
-  br label %178
+  %176 = load ptr, ptr %10, align 8, !tbaa !61
+  br label %177
 
-178:                                              ; preds = %.critedge14, %174
-  %.3147 = phi ptr [ %4, %174 ], [ %184, %.critedge14 ]
-  %179 = load i8, ptr %.3147, align 1, !tbaa !23
-  %180 = sext i8 %179 to i64
-  %181 = getelementptr inbounds i16, ptr %177, i64 %180
-  %182 = load i16, ptr %181, align 2, !tbaa !63
-  %.fr255 = freeze i16 %182
-  %183 = and i16 %.fr255, 8
-  %.not183.not = icmp eq i16 %183, 0
+177:                                              ; preds = %.critedge14, %174
+  %.3147 = phi ptr [ %4, %174 ], [ %183, %.critedge14 ]
+  %178 = load i8, ptr %.3147, align 1, !tbaa !23
+  %179 = sext i8 %178 to i64
+  %180 = getelementptr inbounds i16, ptr %176, i64 %179
+  %181 = load i16, ptr %180, align 2, !tbaa !63
+  %.fr255 = freeze i16 %181
+  %182 = and i16 %.fr255, 8
+  %.not183.not = icmp eq i16 %182, 0
   br i1 %.not183.not, label %switch.early.test215, label %.critedge14
 
-switch.early.test215:                             ; preds = %178
-  switch i8 %179, label %185 [
+switch.early.test215:                             ; preds = %177
+  switch i8 %178, label %184 [
     i8 46, label %.critedge14
     i8 45, label %.critedge14
     i8 43, label %.critedge14
   ]
 
-.critedge14:                                      ; preds = %switch.early.test215, %switch.early.test215, %switch.early.test215, %178
-  %184 = getelementptr inbounds nuw i8, ptr %.3147, i64 1
-  br label %178
+.critedge14:                                      ; preds = %switch.early.test215, %switch.early.test215, %switch.early.test215, %177
+  %183 = getelementptr inbounds nuw i8, ptr %.3147, i64 1
+  br label %177
 
-185:                                              ; preds = %switch.early.test215
-  %186 = icmp eq i8 %179, 58
-  %187 = ptrtoint ptr %.3147 to i64
-  %188 = ptrtoint ptr %4 to i64
-  %189 = sub i64 %187, %188
-  %190 = icmp sgt i64 %189, 1
-  %or.cond212 = and i1 %186, %190
-  br i1 %or.cond212, label %191, label %219
+184:                                              ; preds = %switch.early.test215
+  %185 = icmp eq i8 %178, 58
+  %186 = ptrtoint ptr %.3147 to i64
+  %187 = ptrtoint ptr %4 to i64
+  %188 = sub i64 %186, %187
+  %189 = icmp sgt i64 %188, 1
+  %or.cond212 = and i1 %185, %189
+  br i1 %or.cond212, label %190, label %218
 
-191:                                              ; preds = %185
-  %192 = getelementptr inbounds nuw i8, ptr %.3147, i64 1
-  %193 = load i8, ptr %192, align 1, !tbaa !23
-  %194 = icmp eq i8 %193, 47
-  br i1 %194, label %195, label %219
+190:                                              ; preds = %184
+  %191 = getelementptr inbounds nuw i8, ptr %.3147, i64 1
+  %192 = load i8, ptr %191, align 1, !tbaa !23
+  %193 = icmp eq i8 %192, 47
+  br i1 %193, label %194, label %218
 
-195:                                              ; preds = %191
-  %196 = getelementptr inbounds nuw i8, ptr %.3147, i64 2
-  %197 = load i8, ptr %196, align 1, !tbaa !23
-  %198 = icmp eq i8 %197, 47
-  br i1 %198, label %199, label %219
+194:                                              ; preds = %190
+  %195 = getelementptr inbounds nuw i8, ptr %.3147, i64 2
+  %196 = load i8, ptr %195, align 1, !tbaa !23
+  %197 = icmp eq i8 %196, 47
+  br i1 %197, label %198, label %218
 
-199:                                              ; preds = %195
-  %200 = call ptr @php_stream_locate_url_wrapper(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 128) #17
-  %.not184 = icmp eq ptr %200, null
-  br i1 %.not184, label %tsrm_realpath_str.exit, label %201
+198:                                              ; preds = %194
+  %199 = call ptr @php_stream_locate_url_wrapper(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 128) #17
+  %.not184 = icmp eq ptr %199, null
+  br i1 %.not184, label %tsrm_realpath_str.exit, label %200
 
-201:                                              ; preds = %199
-  %.not185 = icmp eq ptr %200, @php_plain_files_wrapper
-  br i1 %.not185, label %._crit_edge275, label %202
+200:                                              ; preds = %198
+  %.not185 = icmp eq ptr %199, @php_plain_files_wrapper
+  br i1 %.not185, label %._crit_edge275, label %201
 
-._crit_edge275:                                   ; preds = %201
+._crit_edge275:                                   ; preds = %200
   %.pre276 = load ptr, ptr %5, align 8, !tbaa !22
-  br label %219
+  br label %218
 
-202:                                              ; preds = %201
-  %203 = load ptr, ptr %200, align 8, !tbaa !64
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 24
-  %205 = load ptr, ptr %204, align 8, !tbaa !67
-  %.not186 = icmp eq ptr %205, null
-  br i1 %.not186, label %tsrm_realpath_str.exit, label %206
+201:                                              ; preds = %200
+  %202 = load ptr, ptr %199, align 8, !tbaa !64
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
+  %204 = load ptr, ptr %203, align 8, !tbaa !67
+  %.not186 = icmp eq ptr %204, null
+  br i1 %.not186, label %tsrm_realpath_str.exit, label %205
 
-206:                                              ; preds = %202
+205:                                              ; preds = %201
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %207 = call i32 %205(ptr noundef nonnull %200, ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %7, ptr noundef null) #17
-  %208 = icmp eq i32 %207, 0
-  br i1 %208, label %.thread241, label %218
+  %206 = call i32 %204(ptr noundef nonnull %199, ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %7, ptr noundef null) #17
+  %207 = icmp eq i32 %206, 0
+  br i1 %207, label %.thread241, label %217
 
-.thread241:                                       ; preds = %206
-  %209 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
-  %210 = and i64 %209, -8
-  %211 = add i64 %210, 32
-  %212 = call noalias ptr @_emalloc(i64 noundef %211) #20
-  store i32 1, ptr %212, align 4, !tbaa !26
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  store i32 22, ptr %213, align 4, !tbaa !23
-  %214 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  store i64 0, ptr %214, align 8, !tbaa !31
-  %215 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  store i64 %209, ptr %215, align 8, !tbaa !27
-  %216 = getelementptr inbounds nuw i8, ptr %212, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %216, ptr nonnull align 16 %4, i64 %209, i1 false)
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 %209
-  store i8 0, ptr %217, align 1, !tbaa !23
+.thread241:                                       ; preds = %205
+  %208 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
+  %209 = and i64 %208, -8
+  %210 = add i64 %209, 32
+  %211 = call noalias ptr @_emalloc(i64 noundef %210) #20
+  store i32 1, ptr %211, align 4, !tbaa !26
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
+  store i32 22, ptr %212, align 4, !tbaa !23
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  store i64 0, ptr %213, align 8, !tbaa !31
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  store i64 %208, ptr %214, align 8, !tbaa !27
+  %215 = getelementptr inbounds nuw i8, ptr %211, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %215, ptr nonnull align 16 %4, i64 %208, i1 false)
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 %208
+  store i8 0, ptr %216, align 1, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %tsrm_realpath_str.exit
 
-218:                                              ; preds = %206
+217:                                              ; preds = %205
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %tsrm_realpath_str.exit
 
-219:                                              ; preds = %._crit_edge275, %195, %191, %185
-  %220 = phi ptr [ %.pre276, %._crit_edge275 ], [ %4, %195 ], [ %4, %191 ], [ %4, %185 ]
-  %221 = call fastcc ptr @tsrm_realpath_str(ptr noundef %220)
+218:                                              ; preds = %._crit_edge275, %194, %190, %184
+  %219 = phi ptr [ %.pre276, %._crit_edge275 ], [ %4, %194 ], [ %4, %190 ], [ %4, %184 ]
+  %220 = call fastcc ptr @tsrm_realpath_str(ptr noundef %219)
   br label %tsrm_realpath_str.exit
 
-tsrm_realpath_str.exit:                           ; preds = %144, %218, %202, %.thread241, %199, %219, %161, %tsrm_realpath_str.exit220, %.thread224, %.critedge6, %159, %170, %zend_string_alloc.exit.i, %58, %36, %3, %8, %39
-  %.0132 = phi ptr [ null, %39 ], [ null, %8 ], [ null, %3 ], [ %38, %36 ], [ %63, %zend_string_alloc.exit.i ], [ null, %58 ], [ null, %170 ], [ null, %159 ], [ null, %.critedge6 ], [ %138, %.thread224 ], [ %152, %tsrm_realpath_str.exit220 ], [ null, %161 ], [ %212, %.thread241 ], [ null, %199 ], [ %221, %219 ], [ null, %218 ], [ null, %202 ], [ null, %144 ]
+tsrm_realpath_str.exit:                           ; preds = %144, %217, %201, %.thread241, %198, %218, %161, %tsrm_realpath_str.exit220, %.thread224, %.critedge6, %159, %170, %zend_string_alloc.exit.i, %58, %36, %3, %8, %39
+  %.0132 = phi ptr [ null, %39 ], [ null, %8 ], [ null, %3 ], [ %38, %36 ], [ %63, %zend_string_alloc.exit.i ], [ null, %58 ], [ null, %170 ], [ null, %159 ], [ null, %.critedge6 ], [ %138, %.thread224 ], [ %152, %tsrm_realpath_str.exit220 ], [ null, %161 ], [ %211, %.thread241 ], [ null, %198 ], [ %220, %218 ], [ null, %217 ], [ null, %201 ], [ null, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0132

@@ -3965,22 +3965,22 @@ define void @Abc_FlowRetime_ConstrainExactAll(ptr noundef readonly captures(none
   store i32 0, ptr %32, align 4, !tbaa !37
   br i1 %30, label %.lr.ph45, label %.critedge2
 
-.lr.ph45:                                         ; preds = %.critedge, %55
-  %33 = phi ptr [ %56, %55 ], [ %26, %.critedge ]
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %55 ], [ 0, %.critedge ]
+.lr.ph45:                                         ; preds = %.critedge, %56
+  %33 = phi ptr [ %57, %56 ], [ %26, %.critedge ]
+  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %56 ], [ 0, %.critedge ]
   %34 = getelementptr i8, ptr %33, i64 8
   %.val39.val = load ptr, ptr %34, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw ptr, ptr %.val39.val, i64 %indvars.iv47
   %36 = load ptr, ptr %35, align 8, !tbaa !34
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %55, label %38
+  br i1 %37, label %56, label %38
 
 38:                                               ; preds = %.lr.ph45
   %39 = getelementptr i8, ptr %36, i64 20
   %.val38 = load i32, ptr %39, align 4
   %40 = and i32 %.val38, 15
   %.not = icmp eq i32 %40, 8
-  br i1 %.not, label %55, label %41
+  br i1 %.not, label %56, label %41
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr @pManMR, align 8, !tbaa !35
@@ -3993,31 +3993,32 @@ define void @Abc_FlowRetime_ConstrainExactAll(ptr noundef readonly captures(none
   %48 = load i16, ptr %47, align 8
   %49 = and i16 %48, 144
   %or.cond = icmp eq i16 %49, 128
-  br i1 %or.cond, label %50, label %55
+  br i1 %or.cond, label %50, label %56
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 120
   %52 = load ptr, ptr %51, align 8, !tbaa !45
-  %53 = getelementptr %struct.Vec_Ptr_t_, ptr %52, i64 %46, i32 1
-  %.val = load i32, ptr %53, align 4, !tbaa !42
+  %53 = getelementptr inbounds nuw %struct.Vec_Ptr_t_, ptr %52, i64 %46
+  %54 = getelementptr i8, ptr %53, i64 4
+  %.val = load i32, ptr %54, align 4, !tbaa !42
   %.not27 = icmp eq i32 %.val, 0
-  br i1 %.not27, label %54, label %55
+  br i1 %.not27, label %55, label %56
 
-54:                                               ; preds = %50
+55:                                               ; preds = %50
   tail call void @Abc_FlowRetime_ConstrainExact(ptr noundef nonnull %36)
   %.pre = load ptr, ptr %2, align 8, !tbaa !15
-  br label %55
+  br label %56
 
-55:                                               ; preds = %.lr.ph45, %50, %54, %41, %38
-  %56 = phi ptr [ %33, %.lr.ph45 ], [ %33, %50 ], [ %.pre, %54 ], [ %33, %41 ], [ %33, %38 ]
+56:                                               ; preds = %.lr.ph45, %50, %55, %41, %38
+  %57 = phi ptr [ %33, %.lr.ph45 ], [ %33, %50 ], [ %.pre, %55 ], [ %33, %41 ], [ %33, %38 ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %57 = getelementptr i8, ptr %56, i64 4
-  %.val30 = load i32, ptr %57, align 4, !tbaa !42
-  %58 = sext i32 %.val30 to i64
-  %59 = icmp slt i64 %indvars.iv.next48, %58
-  br i1 %59, label %.lr.ph45, label %.critedge2, !llvm.loop !103
+  %58 = getelementptr i8, ptr %57, i64 4
+  %.val30 = load i32, ptr %58, align 4, !tbaa !42
+  %59 = sext i32 %.val30 to i64
+  %60 = icmp slt i64 %indvars.iv.next48, %59
+  br i1 %60, label %.lr.ph45, label %.critedge2, !llvm.loop !103
 
-.critedge2:                                       ; preds = %55, %.critedge.thread, %.critedge
+.critedge2:                                       ; preds = %56, %.critedge.thread, %.critedge
   ret void
 }
 

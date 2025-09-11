@@ -3560,54 +3560,59 @@ declare noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef, i64 n
 define hidden noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3, i32 2
-  %5 = load i32, ptr %4, align 8
-  %6 = and i32 %5, 15
-  %7 = icmp eq i32 %6, 0
-  ret i1 %7
+  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load i32, ptr %5, align 8
+  %7 = and i32 %6, 15
+  %8 = icmp eq i32 %7, 0
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN7JVMFlag7is_ergoE12JVMFlagsEnum(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3, i32 2
-  %5 = load i32, ptr %4, align 8
-  %6 = and i32 %5, 15
-  %7 = icmp eq i32 %6, 5
-  ret i1 %7
+  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load i32, ptr %5, align 8
+  %7 = and i32 %6, 15
+  %8 = icmp eq i32 %7, 5
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN7JVMFlag10is_cmdlineE12JVMFlagsEnum(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3, i32 2
-  %5 = load i32, ptr %4, align 8
-  %6 = and i32 %5, 131072
-  %7 = icmp ne i32 %6, 0
-  ret i1 %7
+  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load i32, ptr %5, align 8
+  %7 = and i32 %6, 131072
+  %8 = icmp ne i32 %7, 0
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN7JVMFlag18is_jimage_resourceE12JVMFlagsEnum(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3, i32 2
-  %5 = load i32, ptr %4, align 8
-  %6 = and i32 %5, 15
-  %7 = icmp eq i32 %6, 8
-  ret i1 %7
+  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load i32, ptr %5, align 8
+  %7 = and i32 %6, 15
+  %8 = icmp eq i32 %7, 8
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef %0) local_unnamed_addr #8 align 2 {
   %2 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3, i32 2
-  %5 = load i32, ptr %4, align 8
-  %6 = or i32 %5, 131072
-  store i32 %6, ptr %4, align 8
+  %4 = getelementptr inbounds %class.JVMFlag, ptr %2, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load i32, ptr %5, align 8
+  %7 = or i32 %6, 131072
+  store i32 %7, ptr %5, align 8
   ret void
 }
 

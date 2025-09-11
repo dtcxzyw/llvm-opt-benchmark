@@ -381,80 +381,78 @@ define internal range(i32 0, 33619977) i32 @iwrap_mpa_pdu_length(ptr noundef %0,
   store i8 3, ptr %5, align 1
   %7 = tail call i64 @tvb_get_ntoh64(ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i64 %7, 5571024345981263954
-  br i1 %.not, label %47, label %8
+  br i1 %.not, label %46, label %8
 
 8:                                                ; preds = %4
   %9 = call fastcc ptr @get_state_of_first_fpdu(ptr noundef %1, ptr noundef %0, ptr noundef %3, ptr noundef nonnull %5)
   %.not44 = icmp eq ptr %9, null
-  br i1 %.not44, label %37, label %10
+  br i1 %.not44, label %36, label %10
 
 10:                                               ; preds = %8
   %11 = load i8, ptr %5, align 1
   %12 = zext i8 %11 to i64
-  %.idx = mul nuw nsw i64 %12, 12
-  %13 = getelementptr i8, ptr %9, i64 %.idx
+  %13 = getelementptr %struct.minfo, ptr %9, i64 %12
   %14 = getelementptr i8, ptr %13, i64 24
   %15 = load i8, ptr %14, align 4, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %37
+  br i1 %16, label %17, label %36
 
 17:                                               ; preds = %10
   %.val = load i32, ptr %3, align 4
-  %18 = getelementptr %struct.minfo, ptr %9, i64 %12
-  %19 = getelementptr i8, ptr %18, i64 20
-  %20 = load i32, ptr %19, align 4
-  %.0.i = tail call i32 @llvm.usub.sat.i32(i32 %.val, i32 %20)
-  %21 = icmp ult i32 %.val, %20
-  %22 = xor i32 %.val, -1
-  %23 = add i32 %20, %22
-  %.1.i = select i1 %21, i32 %23, i32 %.0.i
-  %24 = sub i32 0, %.1.i
-  %25 = and i32 %24, 511
-  %26 = icmp eq i32 %25, 0
-  %27 = add i32 %2, 4
-  %spec.select = select i1 %26, i32 %27, i32 %2
-  %28 = getelementptr i8, ptr %3, i64 4
-  %.val48 = load i32, ptr %28, align 4
-  %29 = icmp ult i32 %.val, %.val48
-  %spec.select.i.i = tail call i32 @llvm.usub.sat.i32(i32 %.val48, i32 %.val)
-  %30 = add i32 %.val48, %22
-  %.1.i.i = select i1 %29, i32 %spec.select.i.i, i32 %30
-  %31 = icmp ult i32 %25, %.1.i.i
-  br i1 %31, label %32, label %37
+  %18 = getelementptr i8, ptr %13, i64 20
+  %19 = load i32, ptr %18, align 4
+  %.0.i = tail call i32 @llvm.usub.sat.i32(i32 %.val, i32 %19)
+  %20 = icmp ult i32 %.val, %19
+  %21 = xor i32 %.val, -1
+  %22 = add i32 %19, %21
+  %.1.i = select i1 %20, i32 %22, i32 %.0.i
+  %23 = sub i32 0, %.1.i
+  %24 = and i32 %23, 511
+  %25 = icmp eq i32 %24, 0
+  %26 = add i32 %2, 4
+  %spec.select = select i1 %25, i32 %26, i32 %2
+  %27 = getelementptr i8, ptr %3, i64 4
+  %.val47 = load i32, ptr %27, align 4
+  %28 = icmp ult i32 %.val, %.val47
+  %spec.select.i.i = tail call i32 @llvm.usub.sat.i32(i32 %.val47, i32 %.val)
+  %29 = add i32 %.val47, %21
+  %.1.i.i = select i1 %28, i32 %spec.select.i.i, i32 %29
+  %30 = icmp ult i32 %24, %.1.i.i
+  br i1 %30, label %31, label %36
 
-32:                                               ; preds = %17
-  %33 = sub nuw i32 %.1.i.i, %25
-  %34 = lshr i32 %33, 7
-  %35 = and i32 %34, 33554428
-  %36 = add nuw nsw i32 %35, 10
-  br label %37
+31:                                               ; preds = %17
+  %32 = sub nuw i32 %.1.i.i, %24
+  %33 = lshr i32 %32, 7
+  %34 = and i32 %33, 33554428
+  %35 = add nuw nsw i32 %34, 10
+  br label %36
 
-37:                                               ; preds = %10, %8, %17, %32
-  %.04057 = phi i32 [ %spec.select, %32 ], [ %2, %10 ], [ %2, %8 ], [ %spec.select, %17 ]
-  %38 = phi i32 [ %36, %32 ], [ 6, %10 ], [ 6, %8 ], [ 6, %17 ]
-  %39 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.04057)
-  %40 = xor i16 %39, 1
-  %41 = add i16 %40, 1
-  %42 = and i16 %41, 3
-  %43 = zext nneg i16 %42 to i32
-  %44 = zext i16 %39 to i32
-  %45 = add nuw nsw i32 %38, %44
-  %46 = add nuw nsw i32 %45, %43
-  br label %54
+36:                                               ; preds = %10, %8, %17, %31
+  %.04056 = phi i32 [ %spec.select, %31 ], [ %2, %10 ], [ %2, %8 ], [ %spec.select, %17 ]
+  %37 = phi i32 [ %35, %31 ], [ 6, %10 ], [ 6, %8 ], [ 6, %17 ]
+  %38 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.04056)
+  %39 = xor i16 %38, 1
+  %40 = add i16 %39, 1
+  %41 = and i16 %40, 3
+  %42 = zext nneg i16 %41 to i32
+  %43 = zext i16 %38 to i32
+  %44 = add nuw nsw i32 %37, %43
+  %45 = add nuw nsw i32 %44, %42
+  br label %53
 
-47:                                               ; preds = %4
-  %48 = icmp slt i32 %6, 20
-  br i1 %48, label %54, label %49
+46:                                               ; preds = %4
+  %47 = icmp slt i32 %6, 20
+  br i1 %47, label %53, label %48
 
-49:                                               ; preds = %47
-  %50 = add i32 %2, 18
-  %51 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %50)
-  %52 = zext i16 %51 to i32
-  %53 = add nuw nsw i32 %52, 20
-  br label %54
+48:                                               ; preds = %46
+  %49 = add i32 %2, 18
+  %50 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %49)
+  %51 = zext i16 %50 to i32
+  %52 = add nuw nsw i32 %51, 20
+  br label %53
 
-54:                                               ; preds = %47, %49, %37
-  %.0 = phi i32 [ %46, %37 ], [ %53, %49 ], [ 0, %47 ]
+53:                                               ; preds = %46, %48, %36
+  %.0 = phi i32 [ %45, %36 ], [ %52, %48 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -972,9 +970,8 @@ get_mpa_state.exit:                               ; preds = %22, %24
   store i32 %54, ptr %55, align 4
   %56 = load i8, ptr %3, align 1
   %57 = zext i8 %56 to i64
-  %.idx = mul nuw nsw i64 %57, 12
-  %58 = getelementptr i8, ptr %29, i64 %.idx
-  %59 = getelementptr i8, ptr %58, i64 8
+  %58 = getelementptr %struct.minfo, ptr %29, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i8 1, ptr %59, align 4
   br label %is_mpa_fpdu.exit.thread
 

@@ -1040,62 +1040,66 @@ define internal fastcc i32 @init_vq(ptr noundef captures(none) %0) unnamed_addr 
 
 54:                                               ; preds = %44
   %55 = icmp sgt i32 %35, 0
-  br i1 %55, label %.preheader10.preheader, label %.loopexit11
+  br i1 %55, label %.preheader14.preheader, label %.loopexit15
 
-.preheader10.preheader:                           ; preds = %54
+.preheader14.preheader:                           ; preds = %54
   %.pre = load ptr, ptr %42, align 8
-  br label %.preheader10
+  br label %.preheader14
 
-.loopexit11.loopexit:                             ; preds = %.preheader10
+.loopexit15.loopexit:                             ; preds = %.preheader14
   %56 = trunc nuw i64 %indvars.iv.next to i16
-  br label %.loopexit11
+  br label %.loopexit15
 
-.loopexit11:                                      ; preds = %.loopexit11.loopexit, %54
-  %57 = phi i16 [ 0, %54 ], [ %56, %.loopexit11.loopexit ]
+.loopexit15:                                      ; preds = %.loopexit15.loopexit, %54
+  %57 = phi i16 [ 0, %54 ], [ %56, %.loopexit15.loopexit ]
   %58 = zext i16 %57 to i32
   %59 = icmp samesign ugt i32 %29, %58
-  br i1 %59, label %.preheader8.preheader, label %.loopexit9
+  br i1 %59, label %.preheader12.preheader, label %.loopexit13
 
-.preheader8.preheader:                            ; preds = %.loopexit11
+.preheader12.preheader:                           ; preds = %.loopexit15
   %60 = zext i16 %57 to i64
-  %.pre14 = load ptr, ptr %42, align 8
-  br label %.preheader8
+  %.pre18 = load ptr, ptr %42, align 8
+  br label %.preheader12
 
-.preheader10:                                     ; preds = %.preheader10.preheader, %.preheader10
-  %61 = phi ptr [ %.pre, %.preheader10.preheader ], [ %66, %.preheader10 ]
-  %indvars.iv = phi i64 [ 0, %.preheader10.preheader ], [ %indvars.iv.next, %.preheader10 ]
-  %62 = phi i32 [ 0, %.preheader10.preheader ], [ %69, %.preheader10 ]
+.preheader14:                                     ; preds = %.preheader14.preheader, %.preheader14
+  %61 = phi ptr [ %.pre, %.preheader14.preheader ], [ %66, %.preheader14 ]
+  %indvars.iv = phi i64 [ 0, %.preheader14.preheader ], [ %indvars.iv.next, %.preheader14 ]
+  %62 = phi i32 [ 0, %.preheader14.preheader ], [ %69, %.preheader14 ]
   %63 = getelementptr ptr, ptr %47, i64 %indvars.iv
   store ptr @virtblk_done, ptr %63, align 8
-  %64 = getelementptr %struct.virtio_blk_vq, ptr %61, i64 %indvars.iv, i32 2
+  %.split = getelementptr %struct.virtio_blk_vq, ptr %61, i64 %indvars.iv
+  %64 = getelementptr i8, ptr %.split, i64 12
   %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %64, i64 noundef 16, ptr noundef nonnull @.str.16, i32 noundef %62) #14
   %66 = load ptr, ptr %42, align 8
-  %67 = getelementptr %struct.virtio_blk_vq, ptr %66, i64 %indvars.iv, i32 2
+  %.split8 = getelementptr %struct.virtio_blk_vq, ptr %66, i64 %indvars.iv
+  %67 = getelementptr i8, ptr %.split8, i64 12
   %68 = getelementptr ptr, ptr %46, i64 %indvars.iv
   store ptr %67, ptr %68, align 8
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %69 = trunc nuw i64 %indvars.iv.next to i32
   %70 = icmp samesign ugt i32 %35, %69
-  br i1 %70, label %.preheader10, label %.loopexit11.loopexit, !llvm.loop !13
+  br i1 %70, label %.preheader14, label %.loopexit15.loopexit, !llvm.loop !13
 
-.preheader8:                                      ; preds = %.preheader8.preheader, %.preheader8
-  %71 = phi ptr [ %.pre14, %.preheader8.preheader ], [ %76, %.preheader8 ]
-  %indvars.iv12 = phi i64 [ %60, %.preheader8.preheader ], [ %indvars.iv.next13, %.preheader8 ]
-  %72 = phi i32 [ %58, %.preheader8.preheader ], [ %79, %.preheader8 ]
-  %73 = getelementptr ptr, ptr %47, i64 %indvars.iv12
+.preheader12:                                     ; preds = %.preheader12.preheader, %.preheader12
+  %71 = phi ptr [ %.pre18, %.preheader12.preheader ], [ %76, %.preheader12 ]
+  %indvars.iv16 = phi i64 [ %60, %.preheader12.preheader ], [ %indvars.iv.next17, %.preheader12 ]
+  %72 = phi i32 [ %58, %.preheader12.preheader ], [ %79, %.preheader12 ]
+  %73 = getelementptr ptr, ptr %47, i64 %indvars.iv16
   store ptr null, ptr %73, align 8
-  %74 = getelementptr %struct.virtio_blk_vq, ptr %71, i64 %indvars.iv12, i32 2
+  %.split9 = getelementptr %struct.virtio_blk_vq, ptr %71, i64 %indvars.iv16
+  %74 = getelementptr i8, ptr %.split9, i64 12
   %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %74, i64 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %72) #14
   %76 = load ptr, ptr %42, align 8
-  %77 = getelementptr %struct.virtio_blk_vq, ptr %76, i64 %indvars.iv12, i32 2
-  %78 = getelementptr ptr, ptr %46, i64 %indvars.iv12
+  %.split10 = getelementptr %struct.virtio_blk_vq, ptr %76, i64 %indvars.iv16
+  %77 = getelementptr i8, ptr %.split10, i64 12
+  %78 = getelementptr ptr, ptr %46, i64 %indvars.iv16
   store ptr %77, ptr %78, align 8
-  %indvars.iv.next13 = add nuw i64 %indvars.iv12, 1
-  %79 = trunc nuw i64 %indvars.iv.next13 to i32
+  %indvars.iv.next17 = add nuw i64 %indvars.iv16, 1
+  %79 = trunc nuw i64 %indvars.iv.next17 to i32
   %80 = icmp samesign ugt i32 %29, %79
-  br i1 %80, label %.preheader8, label %.loopexit9, !llvm.loop !14
+  br i1 %80, label %.preheader12, label %.loopexit13, !llvm.loop !14
 
-.loopexit9:                                       ; preds = %.preheader8, %.loopexit11
+.loopexit13:                                      ; preds = %.preheader12, %.loopexit15
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 752
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
@@ -1104,14 +1108,15 @@ define internal fastcc i32 @init_vq(ptr noundef captures(none) %0) unnamed_addr 
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %99
 
-87:                                               ; preds = %.loopexit9
+87:                                               ; preds = %.loopexit13
   %88 = icmp eq i32 %27, 0
   br i1 %88, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %87, %.preheader
   %89 = phi i64 [ %96, %.preheader ], [ 0, %87 ]
   %90 = load ptr, ptr %42, align 8
-  %91 = getelementptr %struct.virtio_blk_vq, ptr %90, i64 %89, i32 1
+  %.split11 = getelementptr %struct.virtio_blk_vq, ptr %90, i64 %89
+  %91 = getelementptr i8, ptr %.split11, i64 8
   store i32 0, ptr %91, align 8
   %92 = getelementptr ptr, ptr %48, i64 %89
   %93 = load ptr, ptr %92, align 8
@@ -1127,8 +1132,8 @@ define internal fastcc i32 @init_vq(ptr noundef captures(none) %0) unnamed_addr 
   store i32 %29, ptr %98, align 4
   br label %99
 
-99:                                               ; preds = %.loopexit, %.loopexit9, %44
-  %100 = phi i32 [ %85, %.loopexit9 ], [ 0, %.loopexit ], [ -12, %44 ]
+99:                                               ; preds = %.loopexit, %.loopexit13, %44
+  %100 = phi i32 [ %85, %.loopexit13 ], [ 0, %.loopexit ], [ -12, %44 ]
   call void @kfree(ptr noundef %48) #14
   call void @kfree(ptr noundef %47) #14
   call void @kfree(ptr noundef %46) #14
@@ -1344,7 +1349,8 @@ define internal void @virtblk_done(ptr noundef %0) #2 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %8 to i64
-  %12 = getelementptr %struct.virtio_blk_vq, ptr %10, i64 %11, i32 1
+  %.split = getelementptr %struct.virtio_blk_vq, ptr %10, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 8
   %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %12) #14
   br label %.outer
 
@@ -1378,12 +1384,12 @@ define internal void @virtblk_done(ptr noundef %0) #2 align 16 {
 
 .thread:                                          ; preds = %.preheader
   %30 = call zeroext i1 @virtqueue_enable_cb(ptr noundef %0) #14
-  br i1 %30, label %.thread1, label %.outer, !llvm.loop !18
+  br i1 %30, label %.thread2, label %.outer, !llvm.loop !18
 
 31:                                               ; preds = %28
-  br i1 %14, label %36, label %.thread1
+  br i1 %14, label %36, label %.thread2
 
-.thread1:                                         ; preds = %.thread, %31
+.thread2:                                         ; preds = %.thread, %31
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 80
@@ -1391,9 +1397,10 @@ define internal void @virtblk_done(ptr noundef %0) #2 align 16 {
   call void @blk_mq_start_stopped_hw_queues(ptr noundef %35, i1 noundef zeroext true) #14
   br label %36
 
-36:                                               ; preds = %.thread1, %31
+36:                                               ; preds = %.thread2, %31
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr %struct.virtio_blk_vq, ptr %37, i64 %11, i32 1
+  %.split1 = getelementptr %struct.virtio_blk_vq, ptr %37, i64 %11
+  %38 = getelementptr i8, ptr %.split1, i64 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef %38, i64 noundef %13) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -1437,13 +1444,14 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   %12 = load i32, ptr %11, align 4
   %13 = tail call fastcc zeroext i8 @virtblk_prep_rq(ptr noundef %0, ptr noundef %9, ptr noundef %10)
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %15, label %103, !prof !9
+  br i1 %14, label %15, label %102, !prof !9
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %12 to i64
-  %19 = getelementptr %struct.virtio_blk_vq, ptr %17, i64 %18, i32 1
+  %.split = getelementptr %struct.virtio_blk_vq, ptr %17, i64 %18
+  %19 = getelementptr i8, ptr %.split, i64 8
   %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %19) #14
   %21 = load ptr, ptr %16, align 8
   %22 = getelementptr %struct.virtio_blk_vq, ptr %21, i64 %18
@@ -1506,7 +1514,8 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
 
 55:                                               ; preds = %54, %48
   %56 = load ptr, ptr %16, align 8
-  %57 = getelementptr %struct.virtio_blk_vq, ptr %56, i64 %18, i32 1
+  %.split2 = getelementptr %struct.virtio_blk_vq, ptr %56, i64 %18
+  %57 = getelementptr i8, ptr %.split2, i64 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef %57, i64 noundef %20) #14
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %59 = load i32, ptr %58, align 4
@@ -1523,8 +1532,8 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
 66:                                               ; preds = %55, %62
   call void @sg_free_table_chained(ptr noundef %24, i32 noundef 2) #14
   %.pre = load i32, ptr %58, align 4
-  %.pre2 = and i32 %.pre, 262144
-  %67 = icmp eq i32 %.pre2, 0
+  %.pre5 = and i32 %.pre, 262144
+  %67 = icmp eq i32 %.pre5, 0
   br i1 %67, label %.thread, label %68
 
 68:                                               ; preds = %66
@@ -1548,39 +1557,40 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   %82 = icmp eq i32 %46, -12
   %83 = select i1 %82, i8 9, i8 10
   %84 = select i1 %53, i8 13, i8 %83
-  br label %103
+  br label %102
 
 85:                                               ; preds = %35
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %87 = load i8, ptr %86, align 8, !range !19, !noundef !20
   %88 = icmp eq i8 %87, 0
   %89 = load ptr, ptr %16, align 8
-  br i1 %88, label %101, label %90
+  %.split4 = getelementptr %struct.virtio_blk_vq, ptr %89, i64 %18
+  br i1 %88, label %100, label %90
 
 90:                                               ; preds = %85
-  %91 = getelementptr %struct.virtio_blk_vq, ptr %89, i64 %18
-  %92 = load ptr, ptr %91, align 64
-  %93 = call zeroext i1 @virtqueue_kick_prepare(ptr noundef %92) #14
-  %94 = load ptr, ptr %16, align 8
-  %95 = getelementptr %struct.virtio_blk_vq, ptr %94, i64 %18, i32 1
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %95, i64 noundef %20) #14
-  br i1 %93, label %96, label %103
+  %91 = load ptr, ptr %.split4, align 64
+  %92 = call zeroext i1 @virtqueue_kick_prepare(ptr noundef %91) #14
+  %93 = load ptr, ptr %16, align 8
+  %.split3 = getelementptr %struct.virtio_blk_vq, ptr %93, i64 %18
+  %94 = getelementptr i8, ptr %.split3, i64 8
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %94, i64 noundef %20) #14
+  br i1 %92, label %95, label %102
 
-96:                                               ; preds = %90
-  %97 = load ptr, ptr %16, align 8
-  %98 = getelementptr %struct.virtio_blk_vq, ptr %97, i64 %18
-  %99 = load ptr, ptr %98, align 64
-  %100 = call zeroext i1 @virtqueue_notify(ptr noundef %99) #14
-  br label %103
+95:                                               ; preds = %90
+  %96 = load ptr, ptr %16, align 8
+  %97 = getelementptr %struct.virtio_blk_vq, ptr %96, i64 %18
+  %98 = load ptr, ptr %97, align 64
+  %99 = call zeroext i1 @virtqueue_notify(ptr noundef %98) #14
+  br label %102
 
-101:                                              ; preds = %85
-  %102 = getelementptr %struct.virtio_blk_vq, ptr %89, i64 %18, i32 1
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %102, i64 noundef %20) #14
-  br label %103
+100:                                              ; preds = %85
+  %101 = getelementptr i8, ptr %.split4, i64 8
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %101, i64 noundef %20) #14
+  br label %102
 
-103:                                              ; preds = %101, %96, %90, %.thread, %2
-  %104 = phi i8 [ %84, %.thread ], [ %13, %2 ], [ 0, %101 ], [ 0, %96 ], [ 0, %90 ]
-  ret i8 %104
+102:                                              ; preds = %100, %95, %90, %.thread, %2
+  %103 = phi i8 [ %84, %.thread ], [ %13, %2 ], [ 0, %100 ], [ 0, %95 ], [ 0, %90 ]
+  ret i8 %103
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

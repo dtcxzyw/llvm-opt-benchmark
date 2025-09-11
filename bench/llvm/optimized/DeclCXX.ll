@@ -10436,13 +10436,14 @@ define dso_local noundef i32 @_ZNK5clang13CXXRecordDecl29getDeviceLambdaMangling
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E6doFindIS5_EEPKSA_RKT_.exit.i: ; preds = %21, %8
   %28 = phi i64 [ %15, %8 ], [ %24, %21 ]
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.764", ptr %4, i64 %28, i32 0, i32 1
-  %30 = load i32, ptr %29, align 4, !tbaa !460
+  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.764", ptr %4, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i32, ptr %30, align 4, !tbaa !460
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E6lookupES5_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E6lookupES5_.exit: ; preds = %.lr.ph.i.i.i, %1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E6doFindIS5_EEPKSA_RKT_.exit.i
-  %31 = phi i32 [ %30, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E6doFindIS5_EEPKSA_RKT_.exit.i ], [ 0, %1 ], [ 0, %.lr.ph.i.i.i ]
-  ret i32 %31
+  %32 = phi i32 [ %31, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E6doFindIS5_EEPKSA_RKT_.exit.i ], [ 0, %1 ], [ 0, %.lr.ph.i.i.i ]
+  ret i32 %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

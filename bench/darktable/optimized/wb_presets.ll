@@ -111,7 +111,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
 8:                                                ; preds = %1
   store i32 0, ptr @wb_presets_size, align 4, !tbaa !6
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str) #11
-  br label %242
+  br label %249
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -146,7 +146,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
 19:                                               ; preds = %18, %15
   %20 = call i32 @g_file_test(ptr noundef nonnull %3, i32 noundef 16) #11
   %.not108 = icmp eq i32 %20, 0
-  br i1 %.not108, label %241, label %21
+  br i1 %.not108, label %248, label %21
 
 21:                                               ; preds = %19
   %22 = call ptr @json_parser_new() #11
@@ -162,7 +162,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %28 = load ptr, ptr %2, align 8, !tbaa !12
   call void @g_error_free(ptr noundef %28) #11
   call void @g_object_unref(ptr noundef %22) #11
-  br label %241
+  br label %248
 
 29:                                               ; preds = %21
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
@@ -268,7 +268,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %72, label %.lr.ph200, label %._crit_edge201
 
 .lr.ph200:                                        ; preds = %71, %._crit_edge197
-  %.098198 = phi i32 [ %231, %._crit_edge197 ], [ 0, %71 ]
+  %.098198 = phi i32 [ %238, %._crit_edge197 ], [ 0, %71 ]
   %73 = call i32 @json_reader_read_element(ptr noundef %40, i32 noundef %.098198) #11
   %.not120 = icmp eq i32 %73, 0
   br i1 %.not120, label %74, label %79
@@ -358,7 +358,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   br label %115
 
 115:                                              ; preds = %.lr.ph196, %._crit_edge
-  %.097194 = phi i32 [ 0, %.lr.ph196 ], [ %230, %._crit_edge ]
+  %.097194 = phi i32 [ 0, %.lr.ph196 ], [ %237, %._crit_edge ]
   %116 = call i32 @json_reader_read_element(ptr noundef %40, i32 noundef %.097194) #11
   %.not128 = icmp eq i32 %116, 0
   br i1 %.not128, label %117, label %122
@@ -396,241 +396,248 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %132 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %133 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds %struct.dt_wb_data, ptr %132, i64 %134, i32 1
-  store ptr %131, ptr %135, align 8, !tbaa !56
+  %135 = getelementptr inbounds %struct.dt_wb_data, ptr %132, i64 %134
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  store ptr %131, ptr %136, align 8, !tbaa !56
   call void @json_reader_end_member(ptr noundef %40) #11
-  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
-  %137 = and i32 %136, 2
-  %.not132 = icmp eq i32 %137, 0
-  br i1 %.not132, label %144, label %138
+  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
+  %138 = and i32 %137, 2
+  %.not132 = icmp eq i32 %138, 0
+  br i1 %.not132, label %146, label %139
 
-138:                                              ; preds = %128
-  %139 = load ptr, ptr @wb_presets, align 8, !tbaa !10
-  %140 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds %struct.dt_wb_data, ptr %139, i64 %141, i32 1
-  %143 = load ptr, ptr %142, align 8, !tbaa !56
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.24, ptr noundef %143) #11
-  br label %144
+139:                                              ; preds = %128
+  %140 = load ptr, ptr @wb_presets, align 8, !tbaa !10
+  %141 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds %struct.dt_wb_data, ptr %140, i64 %142
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8, !tbaa !56
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.24, ptr noundef %145) #11
+  br label %146
 
-144:                                              ; preds = %138, %128
-  %145 = call i32 @json_reader_read_member(ptr noundef %40, ptr noundef nonnull @.str.25) #11
-  %.not133 = icmp eq i32 %145, 0
-  br i1 %.not133, label %146, label %150
+146:                                              ; preds = %139, %128
+  %147 = call i32 @json_reader_read_member(ptr noundef %40, ptr noundef nonnull @.str.25) #11
+  %.not133 = icmp eq i32 %147, 0
+  br i1 %.not133, label %148, label %152
 
-146:                                              ; preds = %144
-  %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
-  %148 = and i32 %147, 2
-  %.not134 = icmp eq i32 %148, 0
-  br i1 %.not134, label %.thread168, label %149
+148:                                              ; preds = %146
+  %149 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
+  %150 = and i32 %149, 2
+  %.not134 = icmp eq i32 %150, 0
+  br i1 %.not134, label %.thread168, label %151
 
-149:                                              ; preds = %146
+151:                                              ; preds = %148
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26) #11
   br label %.thread168
 
-150:                                              ; preds = %144
-  %151 = call i32 @json_reader_count_elements(ptr noundef %40) #11
-  %152 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
-  %153 = and i32 %152, 2
-  %.not135 = icmp eq i32 %153, 0
-  br i1 %.not135, label %155, label %154
+152:                                              ; preds = %146
+  %153 = call i32 @json_reader_count_elements(ptr noundef %40) #11
+  %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
+  %155 = and i32 %154, 2
+  %.not135 = icmp eq i32 %155, 0
+  br i1 %.not135, label %157, label %156
 
-154:                                              ; preds = %150
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.27, i32 noundef %151) #11
-  br label %155
+156:                                              ; preds = %152
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.27, i32 noundef %153) #11
+  br label %157
 
-155:                                              ; preds = %154, %150
-  %156 = icmp sgt i32 %151, 0
-  br i1 %156, label %.lr.ph, label %._crit_edge
+157:                                              ; preds = %156, %152
+  %158 = icmp sgt i32 %153, 0
+  br i1 %158, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %155
-  %157 = sext i32 %129 to i64
-  br label %158
+.lr.ph:                                           ; preds = %157
+  %159 = sext i32 %129 to i64
+  br label %160
 
-158:                                              ; preds = %.lr.ph, %228
-  %.087193 = phi i32 [ 0, %.lr.ph ], [ %229, %228 ]
-  %159 = load ptr, ptr @wb_presets, align 8, !tbaa !10
-  %160 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds %struct.dt_wb_data, ptr %159, i64 %161
-  %163 = load ptr, ptr %162, align 8, !tbaa !54
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %165, label %168
+160:                                              ; preds = %.lr.ph, %235
+  %.087193 = phi i32 [ 0, %.lr.ph ], [ %236, %235 ]
+  %161 = load ptr, ptr @wb_presets, align 8, !tbaa !10
+  %162 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds %struct.dt_wb_data, ptr %161, i64 %163
+  %165 = load ptr, ptr %164, align 8, !tbaa !54
+  %166 = icmp eq ptr %165, null
+  br i1 %166, label %167, label %170
 
-165:                                              ; preds = %158
-  %166 = getelementptr inbounds %struct.dt_wb_data, ptr %159, i64 %114
-  %167 = load ptr, ptr %166, align 8, !tbaa !54
-  store ptr %167, ptr %162, align 8, !tbaa !54
+167:                                              ; preds = %160
+  %168 = getelementptr inbounds %struct.dt_wb_data, ptr %161, i64 %114
+  %169 = load ptr, ptr %168, align 8, !tbaa !54
+  store ptr %169, ptr %164, align 8, !tbaa !54
   %.pre = load ptr, ptr @wb_presets, align 8, !tbaa !10
-  br label %168
+  br label %170
 
-168:                                              ; preds = %165, %158
-  %169 = phi ptr [ %.pre, %165 ], [ %159, %158 ]
-  %170 = getelementptr inbounds %struct.dt_wb_data, ptr %169, i64 %161, i32 1
-  %171 = load ptr, ptr %170, align 8, !tbaa !56
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %173, label %176
+170:                                              ; preds = %167, %160
+  %171 = phi ptr [ %.pre, %167 ], [ %161, %160 ]
+  %172 = getelementptr inbounds %struct.dt_wb_data, ptr %171, i64 %163
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %174 = load ptr, ptr %173, align 8, !tbaa !56
+  %175 = icmp eq ptr %174, null
+  br i1 %175, label %176, label %180
 
-173:                                              ; preds = %168
-  %174 = getelementptr inbounds %struct.dt_wb_data, ptr %169, i64 %157, i32 1
-  %175 = load ptr, ptr %174, align 8, !tbaa !56
-  store ptr %175, ptr %170, align 8, !tbaa !56
-  br label %176
+176:                                              ; preds = %170
+  %177 = getelementptr inbounds %struct.dt_wb_data, ptr %171, i64 %159
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %179 = load ptr, ptr %178, align 8, !tbaa !56
+  store ptr %179, ptr %173, align 8, !tbaa !56
+  br label %180
 
-176:                                              ; preds = %173, %168
-  %177 = call i32 @json_reader_read_element(ptr noundef %40, i32 noundef %.087193) #11
-  %.not136 = icmp eq i32 %177, 0
-  br i1 %.not136, label %178, label %183
+180:                                              ; preds = %176, %170
+  %181 = call i32 @json_reader_read_element(ptr noundef %40, i32 noundef %.087193) #11
+  %.not136 = icmp eq i32 %181, 0
+  br i1 %.not136, label %182, label %187
 
-178:                                              ; preds = %176
-  %179 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
-  %180 = and i32 %179, 2
-  %.not137 = icmp eq i32 %180, 0
-  br i1 %.not137, label %.thread168, label %181
+182:                                              ; preds = %180
+  %183 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
+  %184 = and i32 %183, 2
+  %.not137 = icmp eq i32 %184, 0
+  br i1 %.not137, label %.thread168, label %185
 
-181:                                              ; preds = %178
-  %182 = add nuw nsw i32 %.087193, 1
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.28, i32 noundef %182, i32 noundef %151) #11
+185:                                              ; preds = %182
+  %186 = add nuw nsw i32 %.087193, 1
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.28, i32 noundef %186, i32 noundef %153) #11
   br label %.thread168
 
-183:                                              ; preds = %176
-  %184 = call i32 @json_reader_read_member(ptr noundef %40, ptr noundef nonnull @.str.29) #11
-  %185 = call ptr @json_reader_get_string_value(ptr noundef %40) #11
-  %186 = call noalias ptr @g_utf8_strdown(ptr noundef %185, i64 noundef -1) #11
-  %187 = load ptr, ptr @wb_presets, align 8, !tbaa !10
-  %188 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds %struct.dt_wb_data, ptr %187, i64 %189, i32 2
-  store ptr %186, ptr %190, align 8, !tbaa !57
+187:                                              ; preds = %180
+  %188 = call i32 @json_reader_read_member(ptr noundef %40, ptr noundef nonnull @.str.29) #11
+  %189 = call ptr @json_reader_get_string_value(ptr noundef %40) #11
+  %190 = call noalias ptr @g_utf8_strdown(ptr noundef %189, i64 noundef -1) #11
+  %191 = load ptr, ptr @wb_presets, align 8, !tbaa !10
+  %192 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds %struct.dt_wb_data, ptr %191, i64 %193
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
+  store ptr %190, ptr %195, align 8, !tbaa !57
   call void @json_reader_end_member(ptr noundef %40) #11
-  %191 = call i32 @json_reader_read_member(ptr noundef %40, ptr noundef nonnull @.str.30) #11
-  %192 = call i64 @json_reader_get_int_value(ptr noundef %40) #11
-  %193 = trunc i64 %192 to i32
-  %194 = load ptr, ptr @wb_presets, align 8, !tbaa !10
-  %195 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds %struct.dt_wb_data, ptr %194, i64 %196, i32 3
-  store i32 %193, ptr %197, align 8, !tbaa !58
-  call void @json_reader_end_member(ptr noundef %40) #11
-  %198 = call i32 @json_reader_read_member(ptr noundef %40, ptr noundef nonnull @.str.31) #11
-  br label %204
-
-199:                                              ; preds = %204
-  call void @json_reader_end_member(ptr noundef %40) #11
+  %196 = call i32 @json_reader_read_member(ptr noundef %40, ptr noundef nonnull @.str.30) #11
+  %197 = call i64 @json_reader_get_int_value(ptr noundef %40) #11
+  %198 = trunc i64 %197 to i32
+  %199 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %200 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  %201 = add nsw i32 %200, 1
-  store i32 %201, ptr @wb_presets_count, align 4, !tbaa !6
-  %202 = load i32, ptr @wb_presets_size, align 4, !tbaa !6
-  %203 = icmp eq i32 %201, %202
-  br i1 %203, label %213, label %228
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds %struct.dt_wb_data, ptr %199, i64 %201
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
+  store i32 %198, ptr %203, align 8, !tbaa !58
+  call void @json_reader_end_member(ptr noundef %40) #11
+  %204 = call i32 @json_reader_read_member(ptr noundef %40, ptr noundef nonnull @.str.31) #11
+  br label %210
 
-204:                                              ; preds = %183, %204
-  %indvars.iv = phi i64 [ 0, %183 ], [ %indvars.iv.next, %204 ]
-  %205 = trunc nuw nsw i64 %indvars.iv to i32
-  %206 = call i32 @json_reader_read_element(ptr noundef %40, i32 noundef %205) #11
-  %207 = call reassoc nsz arcp contract afn double @json_reader_get_double_value(ptr noundef %40) #11
-  %208 = load ptr, ptr @wb_presets, align 8, !tbaa !10
-  %209 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds %struct.dt_wb_data, ptr %208, i64 %210, i32 4
-  %212 = getelementptr inbounds nuw double, ptr %211, i64 %indvars.iv
-  store double %207, ptr %212, align 8, !tbaa !59
+205:                                              ; preds = %210
+  call void @json_reader_end_member(ptr noundef %40) #11
+  %206 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
+  %207 = add nsw i32 %206, 1
+  store i32 %207, ptr @wb_presets_count, align 4, !tbaa !6
+  %208 = load i32, ptr @wb_presets_size, align 4, !tbaa !6
+  %209 = icmp eq i32 %207, %208
+  br i1 %209, label %220, label %235
+
+210:                                              ; preds = %187, %210
+  %indvars.iv = phi i64 [ 0, %187 ], [ %indvars.iv.next, %210 ]
+  %211 = trunc nuw nsw i64 %indvars.iv to i32
+  %212 = call i32 @json_reader_read_element(ptr noundef %40, i32 noundef %211) #11
+  %213 = call reassoc nsz arcp contract afn double @json_reader_get_double_value(ptr noundef %40) #11
+  %214 = load ptr, ptr @wb_presets, align 8, !tbaa !10
+  %215 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
+  %216 = sext i32 %215 to i64
+  %217 = getelementptr inbounds %struct.dt_wb_data, ptr %214, i64 %216
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 32
+  %219 = getelementptr inbounds nuw double, ptr %218, i64 %indvars.iv
+  store double %213, ptr %219, align 8, !tbaa !59
   call void @json_reader_end_element(ptr noundef %40) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %199, label %204
+  br i1 %exitcond.not, label %205, label %210
 
-213:                                              ; preds = %199
-  %214 = add nsw i32 %200, 2001
-  store i32 %214, ptr @wb_presets_size, align 4, !tbaa !6
-  %215 = load ptr, ptr @wb_presets, align 8, !tbaa !10
-  %216 = sext i32 %214 to i64
-  %217 = shl nsw i64 %216, 6
-  %218 = call ptr @realloc(ptr noundef %215, i64 noundef %217) #12
-  %.not138.not = icmp eq ptr %218, null
-  br i1 %.not138.not, label %219, label %224
+220:                                              ; preds = %205
+  %221 = add nsw i32 %206, 2001
+  store i32 %221, ptr @wb_presets_size, align 4, !tbaa !6
+  %222 = load ptr, ptr @wb_presets, align 8, !tbaa !10
+  %223 = sext i32 %221 to i64
+  %224 = shl nsw i64 %223, 6
+  %225 = call ptr @realloc(ptr noundef %222, i64 noundef %224) #12
+  %.not138.not = icmp eq ptr %225, null
+  br i1 %.not138.not, label %226, label %231
 
-219:                                              ; preds = %213
-  %220 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
-  %221 = and i32 %220, 2
-  %.not139 = icmp eq i32 %221, 0
-  br i1 %.not139, label %.thread168, label %222
+226:                                              ; preds = %220
+  %227 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
+  %228 = and i32 %227, 2
+  %.not139 = icmp eq i32 %228, 0
+  br i1 %.not139, label %.thread168, label %229
 
-222:                                              ; preds = %219
-  %223 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.32, i32 noundef %223) #11
+229:                                              ; preds = %226
+  %230 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.32, i32 noundef %230) #11
   br label %.thread168
 
-224:                                              ; preds = %213
-  store ptr %218, ptr @wb_presets, align 8, !tbaa !10
-  %225 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds %struct.dt_wb_data, ptr %218, i64 %226
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128000) %227, i8 0, i64 128000, i1 false)
-  br label %228
+231:                                              ; preds = %220
+  store ptr %225, ptr @wb_presets, align 8, !tbaa !10
+  %232 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
+  %233 = sext i32 %232 to i64
+  %234 = getelementptr inbounds %struct.dt_wb_data, ptr %225, i64 %233
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128000) %234, i8 0, i64 128000, i1 false)
+  br label %235
 
-228:                                              ; preds = %224, %199
+235:                                              ; preds = %231, %205
   call void @json_reader_end_element(ptr noundef %40) #11
-  %229 = add nuw nsw i32 %.087193, 1
-  %exitcond226.not = icmp eq i32 %229, %151
-  br i1 %exitcond226.not, label %._crit_edge, label %158
+  %236 = add nuw nsw i32 %.087193, 1
+  %exitcond226.not = icmp eq i32 %236, %153
+  br i1 %exitcond226.not, label %._crit_edge, label %160
 
-._crit_edge:                                      ; preds = %228, %155
+._crit_edge:                                      ; preds = %235, %157
   call void @json_reader_end_member(ptr noundef %40) #11
   call void @json_reader_end_element(ptr noundef %40) #11
-  %230 = add nuw nsw i32 %.097194, 1
-  %exitcond227.not = icmp eq i32 %230, %108
+  %237 = add nuw nsw i32 %.097194, 1
+  %exitcond227.not = icmp eq i32 %237, %108
   br i1 %exitcond227.not, label %._crit_edge197, label %115
 
 ._crit_edge197:                                   ; preds = %._crit_edge, %112
   call void @json_reader_end_member(ptr noundef %40) #11
   call void @json_reader_end_element(ptr noundef %40) #11
-  %231 = add nuw nsw i32 %.098198, 1
-  %exitcond228.not = icmp eq i32 %231, %67
+  %238 = add nuw nsw i32 %.098198, 1
+  %exitcond228.not = icmp eq i32 %238, %67
   br i1 %exitcond228.not, label %._crit_edge201, label %.lr.ph200
 
 ._crit_edge201:                                   ; preds = %._crit_edge197, %71
-  %232 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
-  %233 = and i32 %232, 2
-  %.not140 = icmp eq i32 %233, 0
-  br i1 %.not140, label %.thread168, label %234
+  %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
+  %240 = and i32 %239, 2
+  %.not140 = icmp eq i32 %240, 0
+  br i1 %.not140, label %.thread168, label %241
 
-234:                                              ; preds = %._crit_edge201
-  %235 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.33, i32 noundef %235) #11
+241:                                              ; preds = %._crit_edge201
+  %242 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.33, i32 noundef %242) #11
   br label %.thread168
 
-.thread168:                                       ; preds = %222, %219, %178, %181, %146, %149, %124, %127, %117, %120, %103, %106, %81, %84, %74, %77, %62, %65, %56, %59, %50, %53, %42, %45, %35, %38, %._crit_edge201, %234
-  %.not144 = phi i1 [ false, %234 ], [ false, %._crit_edge201 ], [ true, %38 ], [ true, %35 ], [ true, %45 ], [ true, %42 ], [ true, %53 ], [ true, %50 ], [ true, %59 ], [ true, %56 ], [ true, %65 ], [ true, %62 ], [ true, %77 ], [ true, %74 ], [ true, %84 ], [ true, %81 ], [ true, %106 ], [ true, %103 ], [ true, %120 ], [ true, %117 ], [ true, %127 ], [ true, %124 ], [ true, %149 ], [ true, %146 ], [ true, %181 ], [ true, %178 ], [ true, %219 ], [ true, %222 ]
-  %.088 = phi ptr [ %40, %234 ], [ %40, %._crit_edge201 ], [ null, %38 ], [ null, %35 ], [ %40, %45 ], [ %40, %42 ], [ %40, %53 ], [ %40, %50 ], [ %40, %59 ], [ %40, %56 ], [ %40, %65 ], [ %40, %62 ], [ %40, %77 ], [ %40, %74 ], [ %40, %84 ], [ %40, %81 ], [ %40, %106 ], [ %40, %103 ], [ %40, %120 ], [ %40, %117 ], [ %40, %127 ], [ %40, %124 ], [ %40, %149 ], [ %40, %146 ], [ %40, %181 ], [ %40, %178 ], [ %40, %219 ], [ %40, %222 ]
+.thread168:                                       ; preds = %229, %226, %182, %185, %148, %151, %124, %127, %117, %120, %103, %106, %81, %84, %74, %77, %62, %65, %56, %59, %50, %53, %42, %45, %35, %38, %._crit_edge201, %241
+  %.not144 = phi i1 [ false, %241 ], [ false, %._crit_edge201 ], [ true, %38 ], [ true, %35 ], [ true, %45 ], [ true, %42 ], [ true, %53 ], [ true, %50 ], [ true, %59 ], [ true, %56 ], [ true, %65 ], [ true, %62 ], [ true, %77 ], [ true, %74 ], [ true, %84 ], [ true, %81 ], [ true, %106 ], [ true, %103 ], [ true, %120 ], [ true, %117 ], [ true, %127 ], [ true, %124 ], [ true, %151 ], [ true, %148 ], [ true, %185 ], [ true, %182 ], [ true, %226 ], [ true, %229 ]
+  %.088 = phi ptr [ %40, %241 ], [ %40, %._crit_edge201 ], [ null, %38 ], [ null, %35 ], [ %40, %45 ], [ %40, %42 ], [ %40, %53 ], [ %40, %50 ], [ %40, %59 ], [ %40, %56 ], [ %40, %65 ], [ %40, %62 ], [ %40, %77 ], [ %40, %74 ], [ %40, %84 ], [ %40, %81 ], [ %40, %106 ], [ %40, %103 ], [ %40, %120 ], [ %40, %117 ], [ %40, %127 ], [ %40, %124 ], [ %40, %151 ], [ %40, %148 ], [ %40, %185 ], [ %40, %182 ], [ %40, %226 ], [ %40, %229 ]
   %.not142 = icmp eq ptr %22, null
-  br i1 %.not142, label %237, label %236
+  br i1 %.not142, label %244, label %243
 
-236:                                              ; preds = %.thread168
+243:                                              ; preds = %.thread168
   call void @g_object_unref(ptr noundef nonnull %22) #11
-  br label %237
+  br label %244
 
-237:                                              ; preds = %236, %.thread168
+244:                                              ; preds = %243, %.thread168
   %.not143 = icmp eq ptr %.088, null
-  br i1 %.not143, label %239, label %238
+  br i1 %.not143, label %246, label %245
 
-238:                                              ; preds = %237
+245:                                              ; preds = %244
   call void @g_object_unref(ptr noundef nonnull %.088) #11
-  br label %239
+  br label %246
 
-239:                                              ; preds = %238, %237
-  br i1 %.not144, label %240, label %241
+246:                                              ; preds = %245, %244
+  br i1 %.not144, label %247, label %248
 
-240:                                              ; preds = %239
+247:                                              ; preds = %246
   call void @exit(i32 noundef 1) #13
   unreachable
 
-241:                                              ; preds = %24, %239, %19
+248:                                              ; preds = %24, %246, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %242
+  br label %249
 
-242:                                              ; preds = %8, %241
+249:                                              ; preds = %8, %248
   ret void
 }
 

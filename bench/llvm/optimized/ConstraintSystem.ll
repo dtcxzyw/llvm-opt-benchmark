@@ -323,56 +323,56 @@ _ZN4llvm16ConstraintSystem18getLastCoefficientENS_8ArrayRefINS0_5EntryEEEt.exit9
   %138 = phi i64 [ 0, %.lr.ph169 ], [ %185, %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit ]
   %.064167 = phi i32 [ 0, %.lr.ph169 ], [ %.266, %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit ]
   %.067166 = phi i32 [ 0, %.lr.ph169 ], [ %.168, %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit ]
-  %139 = zext i32 %.064167 to i64
-  %140 = load i32, ptr %134, align 8, !tbaa !19
-  %.not80 = icmp ugt i32 %140, %.064167
-  br i1 %.not80, label %141, label %._crit_edge170
+  %139 = load i32, ptr %134, align 8, !tbaa !19
+  %.not80 = icmp ugt i32 %139, %.064167
+  br i1 %.not80, label %140, label %._crit_edge170
 
-141:                                              ; preds = %136
+140:                                              ; preds = %136
+  %141 = zext i32 %.064167 to i64
   %142 = load ptr, ptr %131, align 8, !tbaa !18
-  %143 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %142, i64 %138, i32 1
-  %144 = load i16, ptr %143, align 2, !tbaa !30
-  %145 = load ptr, ptr %129, align 8, !tbaa !18
-  %146 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %145, i64 %139, i32 1
-  %147 = load i16, ptr %146, align 2, !tbaa !30
-  %.sroa.speculated = call i16 @llvm.umin.i16(i16 %144, i16 %147)
-  %.not206 = icmp ugt i16 %144, %147
-  br i1 %.not206, label %152, label %148
+  %143 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %142, i64 %138
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load i16, ptr %144, align 2, !tbaa !30
+  %146 = load ptr, ptr %129, align 8, !tbaa !18
+  %147 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %146, i64 %141
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %149 = load i16, ptr %148, align 2, !tbaa !30
+  %.sroa.speculated = call i16 @llvm.umin.i16(i16 %145, i16 %149)
+  %.not206 = icmp ugt i16 %145, %149
+  br i1 %.not206, label %153, label %150
 
-148:                                              ; preds = %141
-  %149 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %142, i64 %138
-  %150 = load i64, ptr %149, align 8, !tbaa !24
-  %151 = add nuw i32 %.067166, 1
-  br label %152
+150:                                              ; preds = %140
+  %151 = load i64, ptr %143, align 8, !tbaa !24
+  %152 = add nuw i32 %.067166, 1
+  br label %153
 
-152:                                              ; preds = %148, %141
-  %.168 = phi i32 [ %151, %148 ], [ %.067166, %141 ]
-  %.060 = phi i64 [ %150, %148 ], [ 0, %141 ]
-  %153 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.060, i64 %135)
-  %154 = extractvalue { i64, i1 } %153, 1
-  %155 = extractvalue { i64, i1 } %153, 0
-  br i1 %154, label %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread, label %156
+153:                                              ; preds = %150, %140
+  %.168 = phi i32 [ %152, %150 ], [ %.067166, %140 ]
+  %.060 = phi i64 [ %151, %150 ], [ 0, %140 ]
+  %154 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.060, i64 %135)
+  %155 = extractvalue { i64, i1 } %154, 1
+  %156 = extractvalue { i64, i1 } %154, 0
+  br i1 %155, label %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread, label %157
 
-156:                                              ; preds = %152
-  %.not207 = icmp ugt i16 %147, %144
-  br i1 %.not207, label %161, label %157
+157:                                              ; preds = %153
+  %.not207 = icmp ugt i16 %149, %145
+  br i1 %.not207, label %161, label %158
 
-157:                                              ; preds = %156
-  %158 = getelementptr inbounds nuw %"struct.llvm::ConstraintSystem::Entry", ptr %145, i64 %139
-  %159 = load i64, ptr %158, align 8, !tbaa !24
+158:                                              ; preds = %157
+  %159 = load i64, ptr %147, align 8, !tbaa !24
   %160 = add nuw i32 %.064167, 1
   br label %161
 
-161:                                              ; preds = %157, %156
-  %.266 = phi i32 [ %160, %157 ], [ %.064167, %156 ]
-  %.0 = phi i64 [ %159, %157 ], [ 0, %156 ]
+161:                                              ; preds = %158, %157
+  %.266 = phi i32 [ %160, %158 ], [ %.064167, %157 ]
+  %.0 = phi i64 [ %159, %158 ], [ 0, %157 ]
   %162 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.0, i64 %.0141)
   %163 = extractvalue { i64, i1 } %162, 1
   br i1 %163, label %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread, label %164
 
 164:                                              ; preds = %161
   %165 = extractvalue { i64, i1 } %162, 0
-  %166 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %155, i64 %165)
+  %166 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %156, i64 %165)
   %167 = extractvalue { i64, i1 } %166, 1
   %168 = extractvalue { i64, i1 } %166, 0
   br i1 %167, label %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread, label %169
@@ -484,8 +484,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryEL
   %. = zext i1 %216 to i32
   br label %_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread
 
-_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread: ; preds = %164, %161, %152, %127, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE9push_backEOS4_.exit104, %._crit_edge170
-  %.474 = phi i32 [ 9, %._crit_edge170 ], [ %., %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE9push_backEOS4_.exit104 ], [ 9, %127 ], [ 1, %152 ], [ 1, %161 ], [ 1, %164 ]
+_ZN4llvm15SmallVectorImplINS_16ConstraintSystem5EntryEE12emplace_backIJRlRtEEERS2_DpOT_.exit.thread: ; preds = %164, %161, %153, %127, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE9push_backEOS4_.exit104, %._crit_edge170
+  %.474 = phi i32 [ 9, %._crit_edge170 ], [ %., %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE9push_backEOS4_.exit104 ], [ 9, %127 ], [ 1, %153 ], [ 1, %161 ], [ 1, %164 ]
   %217 = load ptr, ptr %3, align 8, !tbaa !18
   %218 = icmp eq ptr %217, %15
   br i1 %218, label %220, label %219

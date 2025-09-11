@@ -506,7 +506,8 @@ define internal fastcc i32 @regcache_hw_init(ptr noundef %0) unnamed_addr #0 ali
   store i32 %74, ptr %113, align 4
   %114 = load i32, ptr %2, align 4
   %115 = load ptr, ptr %38, align 8
-  %116 = getelementptr %struct.reg_default, ptr %115, i64 %112, i32 1
+  %.split = getelementptr %struct.reg_default, ptr %115, i64 %112
+  %116 = getelementptr i8, ptr %.split, i64 4
   store i32 %114, ptr %116, align 4
   %117 = add i32 %71, 1
   br label %118
@@ -738,7 +739,8 @@ define dso_local noundef zeroext i1 @regcache_reg_needs_sync(ptr noundef %0, i32
 26:                                               ; preds = %19
   %27 = lshr exact i64 %23, 3
   %28 = and i64 %27, 2147483647
-  %29 = getelementptr %struct.reg_default, ptr %20, i64 %28, i32 1
+  %.split = getelementptr %struct.reg_default, ptr %20, i64 %28
+  %29 = getelementptr i8, ptr %.split, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %2
   br i1 %31, label %33, label %32
@@ -1117,7 +1119,8 @@ define internal fastcc i32 @regcache_default_sync(ptr noundef %0, i32 noundef %1
 41:                                               ; preds = %34
   %42 = lshr exact i64 %38, 3
   %43 = and i64 %42, 2147483647
-  %44 = getelementptr %struct.reg_default, ptr %35, i64 %43, i32 1
+  %.split = getelementptr %struct.reg_default, ptr %35, i64 %43
+  %44 = getelementptr i8, ptr %.split, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %23
   br i1 %46, label %54, label %47
@@ -1728,7 +1731,8 @@ define dso_local i32 @regcache_sync_val(ptr noundef %0, i32 noundef %1, i32 noun
 26:                                               ; preds = %19
   %27 = lshr exact i64 %23, 3
   %28 = and i64 %27, 2147483647
-  %29 = getelementptr %struct.reg_default, ptr %20, i64 %28, i32 1
+  %.split = getelementptr %struct.reg_default, ptr %20, i64 %28
+  %29 = getelementptr i8, ptr %.split, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %2
   br i1 %31, label %39, label %32
@@ -1916,7 +1920,8 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
 101:                                              ; preds = %94
   %102 = lshr exact i64 %98, 3
   %103 = and i64 %102, 2147483647
-  %104 = getelementptr %struct.reg_default, ptr %95, i64 %103, i32 1
+  %.split = getelementptr %struct.reg_default, ptr %95, i64 %103
+  %104 = getelementptr i8, ptr %.split, i64 4
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %105, %83
   br i1 %106, label %107, label %122
@@ -2002,13 +2007,13 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %157 = zext i32 %4 to i64
   %158 = zext i32 %5 to i64
-  br i1 %154, label %.split.us, label %.split
+  br i1 %154, label %.split38.us, label %.split38
 
-.split.us:                                        ; preds = %151
-  br i1 %153, label %.split.us.split.us, label %.split.us.split
+.split38.us:                                      ; preds = %151
+  br i1 %153, label %.split38.us.split.us, label %.split38.us.split
 
-.split.us.split.us:                               ; preds = %.split.us, %168
-  %159 = phi i64 [ %169, %168 ], [ %157, %.split.us ]
+.split38.us.split.us:                             ; preds = %.split38.us, %168
+  %159 = phi i64 [ %169, %168 ], [ %157, %.split38.us ]
   %160 = load i32, ptr %152, align 4
   %161 = trunc i64 %159 to i32
   %162 = mul i32 %160, %161
@@ -2016,18 +2021,18 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   %164 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %163) #12
   br i1 %164, label %165, label %168
 
-165:                                              ; preds = %.split.us.split.us
+165:                                              ; preds = %.split38.us.split.us
   %166 = tail call i32 @regcache_sync_val(ptr noundef %0, i32 noundef %163, i32 noundef -22)
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %168, label %.thread26
 
-168:                                              ; preds = %165, %.split.us.split.us
+168:                                              ; preds = %165, %.split38.us.split.us
   %169 = add nuw nsw i64 %159, 1
   %170 = icmp eq i64 %169, %158
-  br i1 %170, label %.thread26, label %.split.us.split.us, !llvm.loop !72
+  br i1 %170, label %.thread26, label %.split38.us.split.us, !llvm.loop !72
 
-.split.us.split:                                  ; preds = %.split.us, %184
-  %171 = phi i64 [ %185, %184 ], [ %157, %.split.us ]
+.split38.us.split:                                ; preds = %.split38.us, %184
+  %171 = phi i64 [ %185, %184 ], [ %157, %.split38.us ]
   %172 = load i32, ptr %152, align 4
   %173 = trunc i64 %171 to i32
   %174 = mul i32 %172, %173
@@ -2038,7 +2043,7 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   %178 = icmp eq i8 %176, 0
   br i1 %178, label %184, label %179
 
-179:                                              ; preds = %.split.us.split
+179:                                              ; preds = %.split38.us.split
   %180 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %175) #12
   br i1 %180, label %181, label %184
 
@@ -2047,16 +2052,16 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %.thread26
 
-184:                                              ; preds = %181, %179, %.split.us.split
+184:                                              ; preds = %181, %179, %.split38.us.split
   %185 = add nuw nsw i64 %171, 1
   %186 = icmp eq i64 %185, %158
-  br i1 %186, label %.thread26, label %.split.us.split, !llvm.loop !72
+  br i1 %186, label %.thread26, label %.split38.us.split, !llvm.loop !72
 
-.split:                                           ; preds = %151
-  br i1 %153, label %.split.split.us, label %.split.split
+.split38:                                         ; preds = %151
+  br i1 %153, label %.split38.split.us, label %.split38.split
 
-.split.split.us:                                  ; preds = %.split, %218
-  %187 = phi i64 [ %219, %218 ], [ %157, %.split ]
+.split38.split.us:                                ; preds = %.split38, %218
+  %187 = phi i64 [ %219, %218 ], [ %157, %.split38 ]
   %188 = load i32, ptr %152, align 4
   %189 = trunc i64 %187 to i32
   %190 = mul i32 %188, %189
@@ -2064,7 +2069,7 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   %192 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %191) #12
   br i1 %192, label %193, label %218
 
-193:                                              ; preds = %.split.split.us
+193:                                              ; preds = %.split38.split.us
   %194 = load ptr, ptr %155, align 8
   %195 = icmp eq ptr %194, null
   %196 = load i32, ptr %156, align 8
@@ -2078,7 +2083,7 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   br label %214
 
 202:                                              ; preds = %193
-  switch i32 %196, label %.split39.us [
+  switch i32 %196, label %.split40.us [
     i32 1, label %210
     i32 2, label %206
     i32 4, label %203
@@ -2107,13 +2112,13 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %218, label %.thread26
 
-218:                                              ; preds = %214, %.split.split.us
+218:                                              ; preds = %214, %.split38.split.us
   %219 = add nuw nsw i64 %187, 1
   %220 = icmp eq i64 %219, %158
-  br i1 %220, label %.thread26, label %.split.split.us, !llvm.loop !72
+  br i1 %220, label %.thread26, label %.split38.split.us, !llvm.loop !72
 
-.split.split:                                     ; preds = %.split, %256
-  %221 = phi i64 [ %257, %256 ], [ %157, %.split ]
+.split38.split:                                   ; preds = %.split38, %256
+  %221 = phi i64 [ %257, %256 ], [ %157, %.split38 ]
   %222 = load i32, ptr %152, align 4
   %223 = trunc i64 %221 to i32
   %224 = mul i32 %222, %223
@@ -2124,7 +2129,7 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   %228 = icmp eq i8 %226, 0
   br i1 %228, label %256, label %229
 
-229:                                              ; preds = %.split.split
+229:                                              ; preds = %.split38.split
   %230 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %225) #12
   br i1 %230, label %231, label %256
 
@@ -2142,7 +2147,7 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   br label %252
 
 240:                                              ; preds = %231
-  switch i32 %234, label %.split39.us [
+  switch i32 %234, label %.split40.us [
     i32 1, label %241
     i32 2, label %245
     i32 4, label %249
@@ -2165,7 +2170,7 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   %251 = load i32, ptr %250, align 4
   br label %252
 
-.split39.us:                                      ; preds = %240, %202
+.split40.us:                                      ; preds = %240, %202
   tail call void asm sideeffect "572: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 572b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 572) #12, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 675, i32 0, i64 12) #12, !srcloc !16
   unreachable
@@ -2176,10 +2181,10 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %256, label %.thread26
 
-256:                                              ; preds = %252, %229, %.split.split
+256:                                              ; preds = %252, %229, %.split38.split
   %257 = add nuw nsw i64 %221, 1
   %258 = icmp eq i64 %257, %158
-  br i1 %258, label %.thread26, label %.split.split, !llvm.loop !72
+  br i1 %258, label %.thread26, label %.split38.split, !llvm.loop !72
 
 .thread26.sink.split:                             ; preds = %137, %145, %55, %118
   %.ph = phi i32 [ %116, %118 ], [ %53, %55 ], [ %143, %145 ], [ %143, %137 ]

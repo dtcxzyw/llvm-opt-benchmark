@@ -49,9 +49,9 @@ define void @add_test(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds %struct.test_info, ptr @all_tests, i64 %4
   store ptr %0, ptr %5, align 16, !tbaa !7
-  %6 = getelementptr inbounds %struct.test_info, ptr @all_tests, i64 %4, i32 1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !11
-  %7 = getelementptr inbounds %struct.test_info, ptr @all_tests, i64 %4, i32 3
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 -1, ptr %7, align 8, !tbaa !12
   %8 = add nsw i32 %3, 1
   store i32 %8, ptr @num_tests, align 4, !tbaa !3
@@ -67,11 +67,11 @@ define void @add_all_tests(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds %struct.test_info, ptr @all_tests, i64 %6
   store ptr %0, ptr %7, align 16, !tbaa !7
-  %8 = getelementptr inbounds %struct.test_info, ptr @all_tests, i64 %6, i32 2
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %1, ptr %8, align 16, !tbaa !13
-  %9 = getelementptr inbounds %struct.test_info, ptr @all_tests, i64 %6, i32 3
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %2, ptr %9, align 8, !tbaa !12
-  %10 = getelementptr inbounds %struct.test_info, ptr @all_tests, i64 %6, i32 4
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %11 = trunc i32 %3 to i8
   %12 = load i8, ptr %10, align 4
   %13 = and i8 %11, 1

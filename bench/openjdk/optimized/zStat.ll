@@ -1558,47 +1558,48 @@ define hidden noundef double @_ZN8ZStatMMU13calculate_mmuEd(double noundef %0) l
   %2 = load i64, ptr @_ZN8ZStatMMU5_nextE, align 8
   %3 = add i64 %2, -1
   %4 = urem i64 %3, 200
-  %5 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %4, i32 1
-  %6 = load double, ptr %5, align 8
-  %7 = fsub double %6, %0
-  %8 = load i64, ptr @_ZN8ZStatMMU8_npausesE, align 8
-  %.not = icmp eq i64 %8, 0
+  %5 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load double, ptr %6, align 8
+  %8 = fsub double %7, %0
+  %9 = load i64, ptr @_ZN8ZStatMMU8_npausesE, align 8
+  %.not = icmp eq i64 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %23
-  %.016 = phi double [ %24, %23 ], [ 0.000000e+00, %1 ]
-  %.01315 = phi i64 [ %25, %23 ], [ 0, %1 ]
-  %9 = xor i64 %.01315, -1
-  %10 = add i64 %2, %9
-  %11 = urem i64 %10, 200
-  %12 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %11
-  %13 = load double, ptr %12, align 16
-  %14 = fcmp ogt double %7, %13
-  %15 = select i1 %14, double %7, double %13
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %17 = load double, ptr %16, align 8
-  %18 = fcmp olt double %6, %17
-  %19 = select i1 %18, double %6, double %17
-  %20 = fcmp ogt double %19, %15
-  %21 = fsub double %19, %15
-  %.0.i = select i1 %20, double %21, double 0.000000e+00
-  %22 = fcmp oeq double %.0.i, 0.000000e+00
-  br i1 %22, label %._crit_edge, label %23
+.lr.ph:                                           ; preds = %1, %24
+  %.016 = phi double [ %25, %24 ], [ 0.000000e+00, %1 ]
+  %.01315 = phi i64 [ %26, %24 ], [ 0, %1 ]
+  %10 = xor i64 %.01315, -1
+  %11 = add i64 %2, %10
+  %12 = urem i64 %11, 200
+  %13 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %12
+  %14 = load double, ptr %13, align 16
+  %15 = fcmp ogt double %8, %14
+  %16 = select i1 %15, double %8, double %14
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %18 = load double, ptr %17, align 8
+  %19 = fcmp olt double %7, %18
+  %20 = select i1 %19, double %7, double %18
+  %21 = fcmp ogt double %20, %16
+  %22 = fsub double %20, %16
+  %.0.i = select i1 %21, double %22, double 0.000000e+00
+  %23 = fcmp oeq double %.0.i, 0.000000e+00
+  br i1 %23, label %._crit_edge, label %24
 
-23:                                               ; preds = %.lr.ph
-  %24 = fadd double %.016, %.0.i
-  %25 = add nuw i64 %.01315, 1
-  %exitcond.not = icmp eq i64 %25, %8
+24:                                               ; preds = %.lr.ph
+  %25 = fadd double %.016, %.0.i
+  %26 = add nuw i64 %.01315, 1
+  %exitcond.not = icmp eq i64 %26, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %23, %.lr.ph, %1
-  %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %.016, %.lr.ph ], [ %24, %23 ]
-  %26 = fsub double %0, %.0.lcssa
-  %27 = fcmp une double %0, 0.000000e+00
-  %28 = fdiv double %26, %0
-  %29 = fmul double %28, 1.000000e+02
-  %30 = select i1 %27, double %29, double 0.000000e+00
-  ret double %30
+._crit_edge:                                      ; preds = %24, %.lr.ph, %1
+  %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %.016, %.lr.ph ], [ %25, %24 ]
+  %27 = fsub double %0, %.0.lcssa
+  %28 = fcmp une double %0, 0.000000e+00
+  %29 = fdiv double %27, %0
+  %30 = fmul double %29, 1.000000e+02
+  %31 = select i1 %28, double %30, double 0.000000e+00
+  ret double %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1623,236 +1624,237 @@ define hidden void @_ZN8ZStatMMU14register_pauseERK11TimeInstantI30CompositeCoun
   %15 = load i64, ptr @_ZN8ZStatMMU5_nextE, align 8
   %16 = add i64 %15, -1
   %17 = urem i64 %16, 200
-  %18 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %17, i32 1
-  %19 = load double, ptr %18, align 8
-  %20 = fadd double %19, -2.000000e+00
+  %18 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load double, ptr %19, align 8
+  %21 = fadd double %20, -2.000000e+00
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %_ZN8ZStatMMU13calculate_mmuEd.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2, %35
-  %.016.i = phi double [ %36, %35 ], [ 0.000000e+00, %2 ]
-  %.01315.i = phi i64 [ %37, %35 ], [ 0, %2 ]
-  %21 = xor i64 %.01315.i, -1
-  %22 = add i64 %15, %21
-  %23 = urem i64 %22, 200
-  %24 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %23
-  %25 = load double, ptr %24, align 16
-  %26 = fcmp ogt double %20, %25
-  %27 = select i1 %26, double %20, double %25
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %29 = load double, ptr %28, align 8
-  %30 = fcmp olt double %19, %29
-  %31 = select i1 %30, double %19, double %29
-  %32 = fcmp ogt double %31, %27
-  %33 = fsub double %31, %27
-  %.0.i.i = select i1 %32, double %33, double 0.000000e+00
-  %34 = fcmp oeq double %.0.i.i, 0.000000e+00
-  br i1 %34, label %_ZN8ZStatMMU13calculate_mmuEd.exit, label %35
+.lr.ph.i:                                         ; preds = %2, %36
+  %.016.i = phi double [ %37, %36 ], [ 0.000000e+00, %2 ]
+  %.01315.i = phi i64 [ %38, %36 ], [ 0, %2 ]
+  %22 = xor i64 %.01315.i, -1
+  %23 = add i64 %15, %22
+  %24 = urem i64 %23, 200
+  %25 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %24
+  %26 = load double, ptr %25, align 16
+  %27 = fcmp ogt double %21, %26
+  %28 = select i1 %27, double %21, double %26
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %30 = load double, ptr %29, align 8
+  %31 = fcmp olt double %20, %30
+  %32 = select i1 %31, double %20, double %30
+  %33 = fcmp ogt double %32, %28
+  %34 = fsub double %32, %28
+  %.0.i.i = select i1 %33, double %34, double 0.000000e+00
+  %35 = fcmp oeq double %.0.i.i, 0.000000e+00
+  br i1 %35, label %_ZN8ZStatMMU13calculate_mmuEd.exit, label %36
 
-35:                                               ; preds = %.lr.ph.i
-  %36 = fadd double %.016.i, %.0.i.i
-  %37 = add nuw nsw i64 %.01315.i, 1
-  %exitcond.not.i = icmp eq i64 %37, %13
+36:                                               ; preds = %.lr.ph.i
+  %37 = fadd double %.016.i, %.0.i.i
+  %38 = add nuw nsw i64 %.01315.i, 1
+  %exitcond.not.i = icmp eq i64 %38, %13
   br i1 %exitcond.not.i, label %_ZN8ZStatMMU13calculate_mmuEd.exit, label %.lr.ph.i, !llvm.loop !14
 
-_ZN8ZStatMMU13calculate_mmuEd.exit:               ; preds = %.lr.ph.i, %35, %2
-  %.0.lcssa.i = phi double [ 0.000000e+00, %2 ], [ %36, %35 ], [ %.016.i, %.lr.ph.i ]
-  %38 = fsub double 2.000000e+00, %.0.lcssa.i
-  %39 = fmul double %38, 5.000000e-01
-  %40 = fmul double %39, 1.000000e+02
-  %41 = fcmp olt double %14, %40
-  %42 = select i1 %41, double %14, double %40
-  store double %42, ptr @_ZN8ZStatMMU8_mmu_2msE, align 8
-  %43 = load double, ptr @_ZN8ZStatMMU8_mmu_5msE, align 8
-  %44 = fadd double %19, -5.000000e+00
+_ZN8ZStatMMU13calculate_mmuEd.exit:               ; preds = %.lr.ph.i, %36, %2
+  %.0.lcssa.i = phi double [ 0.000000e+00, %2 ], [ %37, %36 ], [ %.016.i, %.lr.ph.i ]
+  %39 = fsub double 2.000000e+00, %.0.lcssa.i
+  %40 = fmul double %39, 5.000000e-01
+  %41 = fmul double %40, 1.000000e+02
+  %42 = fcmp olt double %14, %41
+  %43 = select i1 %42, double %14, double %41
+  store double %43, ptr @_ZN8ZStatMMU8_mmu_2msE, align 8
+  %44 = load double, ptr @_ZN8ZStatMMU8_mmu_5msE, align 8
+  %45 = fadd double %20, -5.000000e+00
   br i1 %.not.i, label %_ZN8ZStatMMU13calculate_mmuEd.exit9, label %.lr.ph.i3
 
-.lr.ph.i3:                                        ; preds = %_ZN8ZStatMMU13calculate_mmuEd.exit, %59
-  %.016.i4 = phi double [ %60, %59 ], [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit ]
-  %.01315.i5 = phi i64 [ %61, %59 ], [ 0, %_ZN8ZStatMMU13calculate_mmuEd.exit ]
-  %45 = xor i64 %.01315.i5, -1
-  %46 = add i64 %15, %45
-  %47 = urem i64 %46, 200
-  %48 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %47
-  %49 = load double, ptr %48, align 16
-  %50 = fcmp ogt double %44, %49
-  %51 = select i1 %50, double %44, double %49
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %53 = load double, ptr %52, align 8
-  %54 = fcmp olt double %19, %53
-  %55 = select i1 %54, double %19, double %53
-  %56 = fcmp ogt double %55, %51
-  %57 = fsub double %55, %51
-  %.0.i.i6 = select i1 %56, double %57, double 0.000000e+00
-  %58 = fcmp oeq double %.0.i.i6, 0.000000e+00
-  br i1 %58, label %_ZN8ZStatMMU13calculate_mmuEd.exit9, label %59
+.lr.ph.i3:                                        ; preds = %_ZN8ZStatMMU13calculate_mmuEd.exit, %60
+  %.016.i4 = phi double [ %61, %60 ], [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit ]
+  %.01315.i5 = phi i64 [ %62, %60 ], [ 0, %_ZN8ZStatMMU13calculate_mmuEd.exit ]
+  %46 = xor i64 %.01315.i5, -1
+  %47 = add i64 %15, %46
+  %48 = urem i64 %47, 200
+  %49 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %48
+  %50 = load double, ptr %49, align 16
+  %51 = fcmp ogt double %45, %50
+  %52 = select i1 %51, double %45, double %50
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %54 = load double, ptr %53, align 8
+  %55 = fcmp olt double %20, %54
+  %56 = select i1 %55, double %20, double %54
+  %57 = fcmp ogt double %56, %52
+  %58 = fsub double %56, %52
+  %.0.i.i6 = select i1 %57, double %58, double 0.000000e+00
+  %59 = fcmp oeq double %.0.i.i6, 0.000000e+00
+  br i1 %59, label %_ZN8ZStatMMU13calculate_mmuEd.exit9, label %60
 
-59:                                               ; preds = %.lr.ph.i3
-  %60 = fadd double %.016.i4, %.0.i.i6
-  %61 = add nuw nsw i64 %.01315.i5, 1
-  %exitcond.not.i7 = icmp eq i64 %61, %13
+60:                                               ; preds = %.lr.ph.i3
+  %61 = fadd double %.016.i4, %.0.i.i6
+  %62 = add nuw nsw i64 %.01315.i5, 1
+  %exitcond.not.i7 = icmp eq i64 %62, %13
   br i1 %exitcond.not.i7, label %_ZN8ZStatMMU13calculate_mmuEd.exit9, label %.lr.ph.i3, !llvm.loop !14
 
-_ZN8ZStatMMU13calculate_mmuEd.exit9:              ; preds = %.lr.ph.i3, %59, %_ZN8ZStatMMU13calculate_mmuEd.exit
-  %.0.lcssa.i8 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit ], [ %60, %59 ], [ %.016.i4, %.lr.ph.i3 ]
-  %62 = fsub double 5.000000e+00, %.0.lcssa.i8
-  %63 = fdiv double %62, 5.000000e+00
-  %64 = fmul double %63, 1.000000e+02
-  %65 = fcmp olt double %43, %64
-  %66 = select i1 %65, double %43, double %64
-  store double %66, ptr @_ZN8ZStatMMU8_mmu_5msE, align 8
-  %67 = load double, ptr @_ZN8ZStatMMU9_mmu_10msE, align 8
-  %68 = fadd double %19, -1.000000e+01
+_ZN8ZStatMMU13calculate_mmuEd.exit9:              ; preds = %.lr.ph.i3, %60, %_ZN8ZStatMMU13calculate_mmuEd.exit
+  %.0.lcssa.i8 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit ], [ %61, %60 ], [ %.016.i4, %.lr.ph.i3 ]
+  %63 = fsub double 5.000000e+00, %.0.lcssa.i8
+  %64 = fdiv double %63, 5.000000e+00
+  %65 = fmul double %64, 1.000000e+02
+  %66 = fcmp olt double %44, %65
+  %67 = select i1 %66, double %44, double %65
+  store double %67, ptr @_ZN8ZStatMMU8_mmu_5msE, align 8
+  %68 = load double, ptr @_ZN8ZStatMMU9_mmu_10msE, align 8
+  %69 = fadd double %20, -1.000000e+01
   br i1 %.not.i, label %_ZN8ZStatMMU13calculate_mmuEd.exit17, label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %_ZN8ZStatMMU13calculate_mmuEd.exit9, %83
-  %.016.i12 = phi double [ %84, %83 ], [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit9 ]
-  %.01315.i13 = phi i64 [ %85, %83 ], [ 0, %_ZN8ZStatMMU13calculate_mmuEd.exit9 ]
-  %69 = xor i64 %.01315.i13, -1
-  %70 = add i64 %15, %69
-  %71 = urem i64 %70, 200
-  %72 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %71
-  %73 = load double, ptr %72, align 16
-  %74 = fcmp ogt double %68, %73
-  %75 = select i1 %74, double %68, double %73
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %77 = load double, ptr %76, align 8
-  %78 = fcmp olt double %19, %77
-  %79 = select i1 %78, double %19, double %77
-  %80 = fcmp ogt double %79, %75
-  %81 = fsub double %79, %75
-  %.0.i.i14 = select i1 %80, double %81, double 0.000000e+00
-  %82 = fcmp oeq double %.0.i.i14, 0.000000e+00
-  br i1 %82, label %_ZN8ZStatMMU13calculate_mmuEd.exit17, label %83
+.lr.ph.i11:                                       ; preds = %_ZN8ZStatMMU13calculate_mmuEd.exit9, %84
+  %.016.i12 = phi double [ %85, %84 ], [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit9 ]
+  %.01315.i13 = phi i64 [ %86, %84 ], [ 0, %_ZN8ZStatMMU13calculate_mmuEd.exit9 ]
+  %70 = xor i64 %.01315.i13, -1
+  %71 = add i64 %15, %70
+  %72 = urem i64 %71, 200
+  %73 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %72
+  %74 = load double, ptr %73, align 16
+  %75 = fcmp ogt double %69, %74
+  %76 = select i1 %75, double %69, double %74
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %78 = load double, ptr %77, align 8
+  %79 = fcmp olt double %20, %78
+  %80 = select i1 %79, double %20, double %78
+  %81 = fcmp ogt double %80, %76
+  %82 = fsub double %80, %76
+  %.0.i.i14 = select i1 %81, double %82, double 0.000000e+00
+  %83 = fcmp oeq double %.0.i.i14, 0.000000e+00
+  br i1 %83, label %_ZN8ZStatMMU13calculate_mmuEd.exit17, label %84
 
-83:                                               ; preds = %.lr.ph.i11
-  %84 = fadd double %.016.i12, %.0.i.i14
-  %85 = add nuw nsw i64 %.01315.i13, 1
-  %exitcond.not.i15 = icmp eq i64 %85, %13
+84:                                               ; preds = %.lr.ph.i11
+  %85 = fadd double %.016.i12, %.0.i.i14
+  %86 = add nuw nsw i64 %.01315.i13, 1
+  %exitcond.not.i15 = icmp eq i64 %86, %13
   br i1 %exitcond.not.i15, label %_ZN8ZStatMMU13calculate_mmuEd.exit17, label %.lr.ph.i11, !llvm.loop !14
 
-_ZN8ZStatMMU13calculate_mmuEd.exit17:             ; preds = %.lr.ph.i11, %83, %_ZN8ZStatMMU13calculate_mmuEd.exit9
-  %.0.lcssa.i16 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit9 ], [ %84, %83 ], [ %.016.i12, %.lr.ph.i11 ]
-  %86 = fsub double 1.000000e+01, %.0.lcssa.i16
-  %87 = fdiv double %86, 1.000000e+01
-  %88 = fmul double %87, 1.000000e+02
-  %89 = fcmp olt double %67, %88
-  %90 = select i1 %89, double %67, double %88
-  store double %90, ptr @_ZN8ZStatMMU9_mmu_10msE, align 8
-  %91 = load double, ptr @_ZN8ZStatMMU9_mmu_20msE, align 8
-  %92 = fadd double %19, -2.000000e+01
+_ZN8ZStatMMU13calculate_mmuEd.exit17:             ; preds = %.lr.ph.i11, %84, %_ZN8ZStatMMU13calculate_mmuEd.exit9
+  %.0.lcssa.i16 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit9 ], [ %85, %84 ], [ %.016.i12, %.lr.ph.i11 ]
+  %87 = fsub double 1.000000e+01, %.0.lcssa.i16
+  %88 = fdiv double %87, 1.000000e+01
+  %89 = fmul double %88, 1.000000e+02
+  %90 = fcmp olt double %68, %89
+  %91 = select i1 %90, double %68, double %89
+  store double %91, ptr @_ZN8ZStatMMU9_mmu_10msE, align 8
+  %92 = load double, ptr @_ZN8ZStatMMU9_mmu_20msE, align 8
+  %93 = fadd double %20, -2.000000e+01
   br i1 %.not.i, label %_ZN8ZStatMMU13calculate_mmuEd.exit25, label %.lr.ph.i19
 
-.lr.ph.i19:                                       ; preds = %_ZN8ZStatMMU13calculate_mmuEd.exit17, %107
-  %.016.i20 = phi double [ %108, %107 ], [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit17 ]
-  %.01315.i21 = phi i64 [ %109, %107 ], [ 0, %_ZN8ZStatMMU13calculate_mmuEd.exit17 ]
-  %93 = xor i64 %.01315.i21, -1
-  %94 = add i64 %15, %93
-  %95 = urem i64 %94, 200
-  %96 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %95
-  %97 = load double, ptr %96, align 16
-  %98 = fcmp ogt double %92, %97
-  %99 = select i1 %98, double %92, double %97
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %101 = load double, ptr %100, align 8
-  %102 = fcmp olt double %19, %101
-  %103 = select i1 %102, double %19, double %101
-  %104 = fcmp ogt double %103, %99
-  %105 = fsub double %103, %99
-  %.0.i.i22 = select i1 %104, double %105, double 0.000000e+00
-  %106 = fcmp oeq double %.0.i.i22, 0.000000e+00
-  br i1 %106, label %_ZN8ZStatMMU13calculate_mmuEd.exit25, label %107
+.lr.ph.i19:                                       ; preds = %_ZN8ZStatMMU13calculate_mmuEd.exit17, %108
+  %.016.i20 = phi double [ %109, %108 ], [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit17 ]
+  %.01315.i21 = phi i64 [ %110, %108 ], [ 0, %_ZN8ZStatMMU13calculate_mmuEd.exit17 ]
+  %94 = xor i64 %.01315.i21, -1
+  %95 = add i64 %15, %94
+  %96 = urem i64 %95, 200
+  %97 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %96
+  %98 = load double, ptr %97, align 16
+  %99 = fcmp ogt double %93, %98
+  %100 = select i1 %99, double %93, double %98
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %102 = load double, ptr %101, align 8
+  %103 = fcmp olt double %20, %102
+  %104 = select i1 %103, double %20, double %102
+  %105 = fcmp ogt double %104, %100
+  %106 = fsub double %104, %100
+  %.0.i.i22 = select i1 %105, double %106, double 0.000000e+00
+  %107 = fcmp oeq double %.0.i.i22, 0.000000e+00
+  br i1 %107, label %_ZN8ZStatMMU13calculate_mmuEd.exit25, label %108
 
-107:                                              ; preds = %.lr.ph.i19
-  %108 = fadd double %.016.i20, %.0.i.i22
-  %109 = add nuw nsw i64 %.01315.i21, 1
-  %exitcond.not.i23 = icmp eq i64 %109, %13
+108:                                              ; preds = %.lr.ph.i19
+  %109 = fadd double %.016.i20, %.0.i.i22
+  %110 = add nuw nsw i64 %.01315.i21, 1
+  %exitcond.not.i23 = icmp eq i64 %110, %13
   br i1 %exitcond.not.i23, label %_ZN8ZStatMMU13calculate_mmuEd.exit25, label %.lr.ph.i19, !llvm.loop !14
 
-_ZN8ZStatMMU13calculate_mmuEd.exit25:             ; preds = %.lr.ph.i19, %107, %_ZN8ZStatMMU13calculate_mmuEd.exit17
-  %.0.lcssa.i24 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit17 ], [ %108, %107 ], [ %.016.i20, %.lr.ph.i19 ]
-  %110 = fsub double 2.000000e+01, %.0.lcssa.i24
-  %111 = fdiv double %110, 2.000000e+01
-  %112 = fmul double %111, 1.000000e+02
-  %113 = fcmp olt double %91, %112
-  %114 = select i1 %113, double %91, double %112
-  store double %114, ptr @_ZN8ZStatMMU9_mmu_20msE, align 8
-  %115 = load double, ptr @_ZN8ZStatMMU9_mmu_50msE, align 8
-  %116 = fadd double %19, -5.000000e+01
+_ZN8ZStatMMU13calculate_mmuEd.exit25:             ; preds = %.lr.ph.i19, %108, %_ZN8ZStatMMU13calculate_mmuEd.exit17
+  %.0.lcssa.i24 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit17 ], [ %109, %108 ], [ %.016.i20, %.lr.ph.i19 ]
+  %111 = fsub double 2.000000e+01, %.0.lcssa.i24
+  %112 = fdiv double %111, 2.000000e+01
+  %113 = fmul double %112, 1.000000e+02
+  %114 = fcmp olt double %92, %113
+  %115 = select i1 %114, double %92, double %113
+  store double %115, ptr @_ZN8ZStatMMU9_mmu_20msE, align 8
+  %116 = load double, ptr @_ZN8ZStatMMU9_mmu_50msE, align 8
+  %117 = fadd double %20, -5.000000e+01
   br i1 %.not.i, label %_ZN8ZStatMMU13calculate_mmuEd.exit33, label %.lr.ph.i27
 
-.lr.ph.i27:                                       ; preds = %_ZN8ZStatMMU13calculate_mmuEd.exit25, %131
-  %.016.i28 = phi double [ %132, %131 ], [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit25 ]
-  %.01315.i29 = phi i64 [ %133, %131 ], [ 0, %_ZN8ZStatMMU13calculate_mmuEd.exit25 ]
-  %117 = xor i64 %.01315.i29, -1
-  %118 = add i64 %15, %117
-  %119 = urem i64 %118, 200
-  %120 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %119
-  %121 = load double, ptr %120, align 16
-  %122 = fcmp ogt double %116, %121
-  %123 = select i1 %122, double %116, double %121
-  %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %125 = load double, ptr %124, align 8
-  %126 = fcmp olt double %19, %125
-  %127 = select i1 %126, double %19, double %125
-  %128 = fcmp ogt double %127, %123
-  %129 = fsub double %127, %123
-  %.0.i.i30 = select i1 %128, double %129, double 0.000000e+00
-  %130 = fcmp oeq double %.0.i.i30, 0.000000e+00
-  br i1 %130, label %_ZN8ZStatMMU13calculate_mmuEd.exit33, label %131
+.lr.ph.i27:                                       ; preds = %_ZN8ZStatMMU13calculate_mmuEd.exit25, %132
+  %.016.i28 = phi double [ %133, %132 ], [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit25 ]
+  %.01315.i29 = phi i64 [ %134, %132 ], [ 0, %_ZN8ZStatMMU13calculate_mmuEd.exit25 ]
+  %118 = xor i64 %.01315.i29, -1
+  %119 = add i64 %15, %118
+  %120 = urem i64 %119, 200
+  %121 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %120
+  %122 = load double, ptr %121, align 16
+  %123 = fcmp ogt double %117, %122
+  %124 = select i1 %123, double %117, double %122
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %126 = load double, ptr %125, align 8
+  %127 = fcmp olt double %20, %126
+  %128 = select i1 %127, double %20, double %126
+  %129 = fcmp ogt double %128, %124
+  %130 = fsub double %128, %124
+  %.0.i.i30 = select i1 %129, double %130, double 0.000000e+00
+  %131 = fcmp oeq double %.0.i.i30, 0.000000e+00
+  br i1 %131, label %_ZN8ZStatMMU13calculate_mmuEd.exit33, label %132
 
-131:                                              ; preds = %.lr.ph.i27
-  %132 = fadd double %.016.i28, %.0.i.i30
-  %133 = add nuw nsw i64 %.01315.i29, 1
-  %exitcond.not.i31 = icmp eq i64 %133, %13
+132:                                              ; preds = %.lr.ph.i27
+  %133 = fadd double %.016.i28, %.0.i.i30
+  %134 = add nuw nsw i64 %.01315.i29, 1
+  %exitcond.not.i31 = icmp eq i64 %134, %13
   br i1 %exitcond.not.i31, label %_ZN8ZStatMMU13calculate_mmuEd.exit33, label %.lr.ph.i27, !llvm.loop !14
 
-_ZN8ZStatMMU13calculate_mmuEd.exit33:             ; preds = %.lr.ph.i27, %131, %_ZN8ZStatMMU13calculate_mmuEd.exit25
-  %.0.lcssa.i32 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit25 ], [ %132, %131 ], [ %.016.i28, %.lr.ph.i27 ]
-  %134 = fsub double 5.000000e+01, %.0.lcssa.i32
-  %135 = fdiv double %134, 5.000000e+01
-  %136 = fmul double %135, 1.000000e+02
-  %137 = fcmp olt double %115, %136
-  %138 = select i1 %137, double %115, double %136
-  store double %138, ptr @_ZN8ZStatMMU9_mmu_50msE, align 8
-  %139 = load double, ptr @_ZN8ZStatMMU10_mmu_100msE, align 8
-  %140 = fadd double %19, -1.000000e+02
+_ZN8ZStatMMU13calculate_mmuEd.exit33:             ; preds = %.lr.ph.i27, %132, %_ZN8ZStatMMU13calculate_mmuEd.exit25
+  %.0.lcssa.i32 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit25 ], [ %133, %132 ], [ %.016.i28, %.lr.ph.i27 ]
+  %135 = fsub double 5.000000e+01, %.0.lcssa.i32
+  %136 = fdiv double %135, 5.000000e+01
+  %137 = fmul double %136, 1.000000e+02
+  %138 = fcmp olt double %116, %137
+  %139 = select i1 %138, double %116, double %137
+  store double %139, ptr @_ZN8ZStatMMU9_mmu_50msE, align 8
+  %140 = load double, ptr @_ZN8ZStatMMU10_mmu_100msE, align 8
+  %141 = fadd double %20, -1.000000e+02
   br i1 %.not.i, label %_ZN8ZStatMMU13calculate_mmuEd.exit41, label %.lr.ph.i35
 
-.lr.ph.i35:                                       ; preds = %_ZN8ZStatMMU13calculate_mmuEd.exit33, %155
-  %.016.i36 = phi double [ %156, %155 ], [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit33 ]
-  %.01315.i37 = phi i64 [ %157, %155 ], [ 0, %_ZN8ZStatMMU13calculate_mmuEd.exit33 ]
-  %141 = xor i64 %.01315.i37, -1
-  %142 = add i64 %15, %141
-  %143 = urem i64 %142, 200
-  %144 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %143
-  %145 = load double, ptr %144, align 16
-  %146 = fcmp ogt double %140, %145
-  %147 = select i1 %146, double %140, double %145
-  %148 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %149 = load double, ptr %148, align 8
-  %150 = fcmp olt double %19, %149
-  %151 = select i1 %150, double %19, double %149
-  %152 = fcmp ogt double %151, %147
-  %153 = fsub double %151, %147
-  %.0.i.i38 = select i1 %152, double %153, double 0.000000e+00
-  %154 = fcmp oeq double %.0.i.i38, 0.000000e+00
-  br i1 %154, label %_ZN8ZStatMMU13calculate_mmuEd.exit41, label %155
+.lr.ph.i35:                                       ; preds = %_ZN8ZStatMMU13calculate_mmuEd.exit33, %156
+  %.016.i36 = phi double [ %157, %156 ], [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit33 ]
+  %.01315.i37 = phi i64 [ %158, %156 ], [ 0, %_ZN8ZStatMMU13calculate_mmuEd.exit33 ]
+  %142 = xor i64 %.01315.i37, -1
+  %143 = add i64 %15, %142
+  %144 = urem i64 %143, 200
+  %145 = getelementptr inbounds nuw %class.ZStatMMUPause, ptr @_ZN8ZStatMMU7_pausesE, i64 %144
+  %146 = load double, ptr %145, align 16
+  %147 = fcmp ogt double %141, %146
+  %148 = select i1 %147, double %141, double %146
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %150 = load double, ptr %149, align 8
+  %151 = fcmp olt double %20, %150
+  %152 = select i1 %151, double %20, double %150
+  %153 = fcmp ogt double %152, %148
+  %154 = fsub double %152, %148
+  %.0.i.i38 = select i1 %153, double %154, double 0.000000e+00
+  %155 = fcmp oeq double %.0.i.i38, 0.000000e+00
+  br i1 %155, label %_ZN8ZStatMMU13calculate_mmuEd.exit41, label %156
 
-155:                                              ; preds = %.lr.ph.i35
-  %156 = fadd double %.016.i36, %.0.i.i38
-  %157 = add nuw nsw i64 %.01315.i37, 1
-  %exitcond.not.i39 = icmp eq i64 %157, %13
+156:                                              ; preds = %.lr.ph.i35
+  %157 = fadd double %.016.i36, %.0.i.i38
+  %158 = add nuw nsw i64 %.01315.i37, 1
+  %exitcond.not.i39 = icmp eq i64 %158, %13
   br i1 %exitcond.not.i39, label %_ZN8ZStatMMU13calculate_mmuEd.exit41, label %.lr.ph.i35, !llvm.loop !14
 
-_ZN8ZStatMMU13calculate_mmuEd.exit41:             ; preds = %.lr.ph.i35, %155, %_ZN8ZStatMMU13calculate_mmuEd.exit33
-  %.0.lcssa.i40 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit33 ], [ %156, %155 ], [ %.016.i36, %.lr.ph.i35 ]
-  %158 = fsub double 1.000000e+02, %.0.lcssa.i40
-  %159 = fdiv double %158, 1.000000e+02
-  %160 = fmul double %159, 1.000000e+02
-  %161 = fcmp olt double %139, %160
-  %162 = select i1 %161, double %139, double %160
-  store double %162, ptr @_ZN8ZStatMMU10_mmu_100msE, align 8
+_ZN8ZStatMMU13calculate_mmuEd.exit41:             ; preds = %.lr.ph.i35, %156, %_ZN8ZStatMMU13calculate_mmuEd.exit33
+  %.0.lcssa.i40 = phi double [ 0.000000e+00, %_ZN8ZStatMMU13calculate_mmuEd.exit33 ], [ %157, %156 ], [ %.016.i36, %.lr.ph.i35 ]
+  %159 = fsub double 1.000000e+02, %.0.lcssa.i40
+  %160 = fdiv double %159, 1.000000e+02
+  %161 = fmul double %160, 1.000000e+02
+  %162 = fcmp olt double %140, %161
+  %163 = select i1 %162, double %140, double %161
+  store double %163, ptr @_ZN8ZStatMMU10_mmu_100msE, align 8
   ret void
 }
 
@@ -5990,8 +5992,7 @@ define linkonce_odr hidden void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerDa
 38:                                               ; preds = %45, %37
   %.017.i = phi i64 [ 0, %37 ], [ %47, %45 ]
   %39 = phi i64 [ 0, %37 ], [ %46, %45 ]
-  %.idx.i = mul nuw nsw i64 %.017.i, 24
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %40 = getelementptr inbounds nuw %struct.ZStatSamplerData, ptr %3, i64 %.017.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = icmp ult i64 %39, %42
@@ -6072,8 +6073,7 @@ define linkonce_odr hidden void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerDa
 83:                                               ; preds = %90, %82
   %.017.i8 = phi i64 [ 0, %82 ], [ %92, %90 ]
   %84 = phi i64 [ 0, %82 ], [ %91, %90 ]
-  %.idx.i9 = mul nuw nsw i64 %.017.i8, 24
-  %85 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i9
+  %85 = getelementptr inbounds nuw %struct.ZStatSamplerData, ptr %53, i64 %.017.i8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = icmp ult i64 %84, %87
@@ -6086,8 +6086,8 @@ define linkonce_odr hidden void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerDa
 90:                                               ; preds = %89, %83
   %91 = phi i64 [ %84, %83 ], [ %87, %89 ]
   %92 = add nuw nsw i64 %.017.i8, 1
-  %exitcond.not.i10 = icmp eq i64 %92, 60
-  br i1 %exitcond.not.i10, label %.loopexit.i7, label %83, !llvm.loop !110
+  %exitcond.not.i9 = icmp eq i64 %92, 60
+  br i1 %exitcond.not.i9, label %.loopexit.i7, label %83, !llvm.loop !110
 
 .loopexit.i7:                                     ; preds = %90, %80, %79
   %93 = load i64, ptr %52, align 8
@@ -6103,11 +6103,11 @@ define linkonce_odr hidden void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerDa
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %99 = load i64, ptr %97, align 8
   %100 = getelementptr inbounds %struct.ZStatSamplerData, ptr %98, i64 %99
-  %.sroa.0.0.copyload.i11 = load i64, ptr %100, align 8
-  %.sroa.2.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %.sroa.2.0.copyload.i13 = load i64, ptr %.sroa.2.0..sroa_idx.i12, align 8
-  %.sroa.3.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %.sroa.3.0.copyload.i15 = load i64, ptr %.sroa.3.0..sroa_idx.i14, align 8
+  %.sroa.0.0.copyload.i10 = load i64, ptr %100, align 8
+  %.sroa.2.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %.sroa.2.0.copyload.i12 = load i64, ptr %.sroa.2.0..sroa_idx.i11, align 8
+  %.sroa.3.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %.sroa.3.0.copyload.i14 = load i64, ptr %.sroa.3.0..sroa_idx.i13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %68, i64 24, i1 false)
   %101 = load i64, ptr %68, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 3240
@@ -6126,10 +6126,10 @@ define linkonce_odr hidden void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerDa
   store i64 %112, ptr %109, align 8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 3264
   %114 = load i64, ptr %113, align 8
-  %115 = sub i64 %114, %.sroa.0.0.copyload.i11
+  %115 = sub i64 %114, %.sroa.0.0.copyload.i10
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 3272
   %117 = load i64, ptr %116, align 8
-  %118 = sub i64 %117, %.sroa.2.0.copyload.i13
+  %118 = sub i64 %117, %.sroa.2.0.copyload.i12
   %119 = add i64 %115, %101
   store i64 %119, ptr %113, align 8
   %120 = add i64 %118, %105
@@ -6141,21 +6141,20 @@ define linkonce_odr hidden void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerDa
 
 124:                                              ; preds = %96
   store i64 %111, ptr %121, align 8
-  br label %.loopexit.i16
+  br label %.loopexit.i15
 
 125:                                              ; preds = %96
-  %126 = icmp eq i64 %122, %.sroa.3.0.copyload.i15
-  br i1 %126, label %127, label %.loopexit.i16
+  %126 = icmp eq i64 %122, %.sroa.3.0.copyload.i14
+  br i1 %126, label %127, label %.loopexit.i15
 
 127:                                              ; preds = %125
   store i64 0, ptr %121, align 8
   br label %128
 
 128:                                              ; preds = %135, %127
-  %.017.i17 = phi i64 [ 0, %127 ], [ %137, %135 ]
+  %.017.i16 = phi i64 [ 0, %127 ], [ %137, %135 ]
   %129 = phi i64 [ 0, %127 ], [ %136, %135 ]
-  %.idx.i18 = mul nuw nsw i64 %.017.i17, 24
-  %130 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx.i18
+  %130 = getelementptr inbounds nuw %struct.ZStatSamplerData, ptr %98, i64 %.017.i16
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load i64, ptr %131, align 8
   %133 = icmp ult i64 %129, %132
@@ -6167,11 +6166,11 @@ define linkonce_odr hidden void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerDa
 
 135:                                              ; preds = %134, %128
   %136 = phi i64 [ %129, %128 ], [ %132, %134 ]
-  %137 = add nuw nsw i64 %.017.i17, 1
-  %exitcond.not.i19 = icmp eq i64 %137, 60
-  br i1 %exitcond.not.i19, label %.loopexit.i16, label %128, !llvm.loop !110
+  %137 = add nuw nsw i64 %.017.i16, 1
+  %exitcond.not.i17 = icmp eq i64 %137, 60
+  br i1 %exitcond.not.i17, label %.loopexit.i15, label %128, !llvm.loop !110
 
-.loopexit.i16:                                    ; preds = %135, %125, %124
+.loopexit.i15:                                    ; preds = %135, %125, %124
   %138 = phi i64 [ %122, %125 ], [ %111, %124 ], [ %136, %135 ]
   %139 = load i64, ptr %97, align 8
   %140 = add i64 %139, 1
@@ -6179,7 +6178,7 @@ define linkonce_odr hidden void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerDa
   %141 = icmp eq i64 %140, 60
   br i1 %141, label %142, label %_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit
 
-142:                                              ; preds = %.loopexit.i16
+142:                                              ; preds = %.loopexit.i15
   store i64 0, ptr %97, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 3288
@@ -6196,7 +6195,7 @@ define linkonce_odr hidden void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerDa
   store i64 %151, ptr %149, align 8
   br label %_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit
 
-_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit: ; preds = %.loopexit.i16, %.loopexit.i7, %.loopexit.i, %142
+_ZN27ZStatSamplerHistoryIntervalILm10EE3addERK16ZStatSamplerData.exit: ; preds = %.loopexit.i15, %.loopexit.i7, %.loopexit.i, %142
   ret void
 }
 
@@ -7748,14 +7747,14 @@ define hidden void @_ZN9ZStatHeap24at_select_relocation_setERK27ZRelocationSetSe
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
   %.014 = phi i64 [ 0, %2 ], [ %14, %4 ]
-  %5 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv, i32 2
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 784
+  %5 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 784
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1552
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1552
   %11 = load i64, ptr %10, align 8
-  %12 = add i64 %6, %.014
+  %12 = add i64 %7, %.014
   %13 = add i64 %12, %9
   %14 = add i64 %13, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

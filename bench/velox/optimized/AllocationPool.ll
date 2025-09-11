@@ -61,7 +61,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %runs_.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %1, i64 %conv, i32 1
+  %add.ptr.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation", ptr %1, i64 %conv
+  %runs_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %2 = load ptr, ptr %runs_.i, align 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %2, align 8
   %and.i = and i64 %retval.sroa.0.0.copyload.i, 281474976710655

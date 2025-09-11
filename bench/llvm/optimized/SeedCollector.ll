@@ -671,10 +671,11 @@ _ZN4llvm11SmallVectorISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_delet
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %90 = zext i32 %88 to i64
   %91 = load ptr, ptr %89, align 8, !tbaa !30
-  %92 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %91, i64 %90, i32 1
+  %92 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %91, i64 %90
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %92
+  ret ptr %93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

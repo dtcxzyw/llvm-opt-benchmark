@@ -1426,8 +1426,8 @@ define void @_ZNK2cv15line_descriptor11LSDDetector6detectERKSt6vectorINS_3MatESa
   ret void
 
 .lr.ph:                                           ; preds = %6, %.critedge
-  %12 = phi ptr [ %47, %.critedge ], [ %11, %6 ]
-  %.02436 = phi i64 [ %45, %.critedge ], [ 0, %6 ]
+  %12 = phi ptr [ %48, %.critedge ], [ %11, %6 ]
+  %.02436 = phi i64 [ %46, %.critedge ], [ 0, %6 ]
   %13 = load ptr, ptr %5, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw %"class.cv::Mat", ptr %13, i64 %.02436
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1441,70 +1441,71 @@ define void @_ZNK2cv15line_descriptor11LSDDetector6detectERKSt6vectorINS_3MatESa
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !55
   %22 = load i32, ptr %19, align 4, !tbaa !55
-  %23 = getelementptr inbounds nuw %"class.cv::Mat", ptr %12, i64 %.02436, i32 10
-  %24 = load ptr, ptr %23, align 8, !tbaa !54
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !55
-  %27 = load i32, ptr %24, align 4, !tbaa !55
-  %28 = icmp ne i32 %21, %26
-  %29 = icmp ne i32 %22, %27
-  %.not6.i = select i1 %28, i1 true, i1 %29
-  br i1 %.not6.i, label %.critedge2, label %30
+  %23 = getelementptr inbounds nuw %"class.cv::Mat", ptr %12, i64 %.02436
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  %25 = load ptr, ptr %24, align 8, !tbaa !54
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !55
+  %28 = load i32, ptr %25, align 4, !tbaa !55
+  %29 = icmp ne i32 %21, %27
+  %30 = icmp ne i32 %22, %28
+  %.not6.i = select i1 %29, i1 true, i1 %30
+  br i1 %.not6.i, label %.critedge2, label %31
 
-30:                                               ; preds = %17
-  %31 = load i32, ptr %14, align 8, !tbaa !56
-  %32 = and i32 %31, 4095
-  %.not25 = icmp eq i32 %32, 0
+31:                                               ; preds = %17
+  %32 = load i32, ptr %14, align 8, !tbaa !56
+  %33 = and i32 %32, 4095
+  %.not25 = icmp eq i32 %33, 0
   br i1 %.not25, label %.critedge, label %.critedge2
 
-.critedge2:                                       ; preds = %17, %30
+.critedge2:                                       ; preds = %17, %31
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %8)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv15line_descriptor11LSDDetector6detectERKNS_3MatERSt6vectorINS0_7KeyLineESaIS6_EEiiS4_, ptr noundef nonnull @.str.1, i32 noundef 126) #24
-          to label %33 unwind label %34
-
-33:                                               ; preds = %.critedge2
-  unreachable
+          to label %34 unwind label %35
 
 34:                                               ; preds = %.critedge2
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  %36 = load ptr, ptr %7, align 8, !tbaa !57
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %38 = icmp eq ptr %36, %37
-  br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  unreachable
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !61
-  %41 = icmp ult i64 %40, 16
-  call void @llvm.assume(i1 %41)
+35:                                               ; preds = %.critedge2
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  %37 = load ptr, ptr %7, align 8, !tbaa !57
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %39 = icmp eq ptr %37, %38
+  br i1 %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %41 = load i64, ptr %40, align 8, !tbaa !61
+  %42 = icmp ult i64 %41, 16
+  call void @llvm.assume(i1 %42)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %34
-  call void @_ZdlPv(ptr noundef %36) #26
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %35
+  call void @_ZdlPv(ptr noundef %37) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  resume { ptr, i32 } %35
+  resume { ptr, i32 } %36
 
-.critedge:                                        ; preds = %.lr.ph, %30
-  %42 = getelementptr inbounds nuw %"class.cv::Mat", ptr %12, i64 %.02436
-  %43 = load ptr, ptr %2, align 8, !tbaa !119
-  %44 = getelementptr inbounds nuw %"class.std::vector.3", ptr %43, i64 %.02436
-  tail call void @_ZNK2cv15line_descriptor11LSDDetector10detectImplERKNS_3MatERSt6vectorINS0_7KeyLineESaIS6_EEiiS4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(96) %42, ptr noundef nonnull align 8 dereferenceable(24) %44, i32 noundef %4, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(96) %14)
-  %45 = add nuw i64 %.02436, 1
-  %46 = load ptr, ptr %9, align 8, !tbaa !32
-  %47 = load ptr, ptr %1, align 8, !tbaa !29
-  %48 = ptrtoint ptr %46 to i64
+.critedge:                                        ; preds = %.lr.ph, %31
+  %43 = getelementptr inbounds nuw %"class.cv::Mat", ptr %12, i64 %.02436
+  %44 = load ptr, ptr %2, align 8, !tbaa !119
+  %45 = getelementptr inbounds nuw %"class.std::vector.3", ptr %44, i64 %.02436
+  tail call void @_ZNK2cv15line_descriptor11LSDDetector10detectImplERKNS_3MatERSt6vectorINS0_7KeyLineESaIS6_EEiiS4_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(96) %43, ptr noundef nonnull align 8 dereferenceable(24) %45, i32 noundef %4, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(96) %14)
+  %46 = add nuw i64 %.02436, 1
+  %47 = load ptr, ptr %9, align 8, !tbaa !32
+  %48 = load ptr, ptr %1, align 8, !tbaa !29
   %49 = ptrtoint ptr %47 to i64
-  %50 = sub i64 %48, %49
-  %51 = sdiv exact i64 %50, 96
-  %52 = icmp ult i64 %45, %51
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !122
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  %52 = sdiv exact i64 %51, 96
+  %53 = icmp ult i64 %46, %52
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !122
 }
 
 ; Function Attrs: nounwind

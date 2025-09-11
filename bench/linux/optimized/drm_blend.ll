@@ -292,7 +292,8 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 144
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
-  %43 = getelementptr %struct.__drm_crtcs_state, ptr %39, i64 %42, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %39, i64 %42
+  %43 = getelementptr i8, ptr %.split, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 10
   %46 = load i8, ptr %45, align 2
@@ -435,10 +436,10 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
 
 137:                                              ; preds = %134
   %138 = zext nneg i32 %131 to i64
-  br i1 %82, label %.split.us, label %.split
+  br i1 %82, label %.split19.us, label %.split19
 
-.split.us:                                        ; preds = %137, %.split.us
-  %139 = phi i64 [ %149, %.split.us ], [ 0, %137 ]
+.split19.us:                                      ; preds = %137, %.split19.us
+  %139 = phi i64 [ %149, %.split19.us ], [ 0, %137 ]
   %140 = getelementptr ptr, ptr %96, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
@@ -452,10 +453,10 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 4, ptr noundef nonnull @.str.16, i32 noundef %146, ptr noundef %148, i32 noundef %144) #6
   %149 = add nuw nsw i64 %139, 1
   %150 = icmp eq i64 %149, %138
-  br i1 %150, label %.thread17, label %.split.us, !llvm.loop !23
+  br i1 %150, label %.thread17, label %.split19.us, !llvm.loop !23
 
-.split:                                           ; preds = %137, %.split
-  %151 = phi i64 [ %162, %.split ], [ 0, %137 ]
+.split19:                                         ; preds = %137, %.split19
+  %151 = phi i64 [ %162, %.split19 ], [ 0, %137 ]
   %152 = getelementptr ptr, ptr %96, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = load ptr, ptr %153, align 8
@@ -470,9 +471,9 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %157, i32 noundef 4, ptr noundef nonnull @.str.16, i32 noundef %159, ptr noundef %161, i32 noundef %156) #6
   %162 = add nuw nsw i64 %151, 1
   %163 = icmp eq i64 %162, %138
-  br i1 %163, label %.thread17, label %.split, !llvm.loop !23
+  br i1 %163, label %.thread17, label %.split19, !llvm.loop !23
 
-.thread17:                                        ; preds = %.split, %.split.us, %134, %.thread15
+.thread17:                                        ; preds = %.split19, %.split19.us, %134, %.thread15
   %164 = getelementptr inbounds nuw i8, ptr %65, i64 10
   %165 = load i8, ptr %164, align 2
   %166 = or i8 %165, 16

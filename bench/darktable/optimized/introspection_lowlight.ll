@@ -650,19 +650,17 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   ret void
 
 36:                                               ; preds = %3, %36
-  %indvars.iv20 = phi i64 [ 1, %3 ], [ %indvars.iv.next21, %36 ]
+  %indvars.iv18 = phi i64 [ 1, %3 ], [ %indvars.iv.next19, %36 ]
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %36 ]
   %37 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !30
   %39 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !30
-  %41 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %25, i64 %indvars.iv20
+  %41 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %25, i64 %indvars.iv18
   store float %38, ptr %41, align 8, !tbaa !47
-  %.idx.i17 = shl nuw nsw i64 %indvars.iv20, 3
-  %42 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i17
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store float %40, ptr %43, align 4, !tbaa !49
-  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store float %40, ptr %42, align 4, !tbaa !49
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %27, label %36
@@ -1035,19 +1033,17 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   ret void
 
 78:                                               ; preds = %_iop_gui_alloc.exit, %78
-  %indvars.iv49 = phi i64 [ 1, %_iop_gui_alloc.exit ], [ %indvars.iv.next50, %78 ]
+  %indvars.iv47 = phi i64 [ 1, %_iop_gui_alloc.exit ], [ %indvars.iv.next48, %78 ]
   %indvars.iv = phi i64 [ 0, %_iop_gui_alloc.exit ], [ %indvars.iv.next, %78 ]
   %79 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
   %80 = load float, ptr %79, align 4, !tbaa !30
   %81 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   %82 = load float, ptr %81, align 4, !tbaa !30
-  %83 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %23, i64 %indvars.iv49
+  %83 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %23, i64 %indvars.iv47
   store float %80, ptr %83, align 8, !tbaa !47
-  %.idx.i46 = shl nuw nsw i64 %indvars.iv49, 3
-  %84 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i46
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  store float %82, ptr %85, align 4, !tbaa !49
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  store float %82, ptr %84, align 4, !tbaa !49
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %25, label %78
@@ -2338,21 +2334,22 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %8, label %.preheader
+  br i1 %or.cond, label %9, label %.preheader
 
 6:                                                ; preds = %.preheader
   store ptr @introspection_init.f5, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 512), align 16, !tbaa !33
-  br label %8
+  br label %9
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
-  store ptr %0, ptr %7, align 8, !tbaa !33
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %0, ptr %8, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %6, label %.preheader
 
-8:                                                ; preds = %2, %6
+9:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
   ret i32 %.06
 }

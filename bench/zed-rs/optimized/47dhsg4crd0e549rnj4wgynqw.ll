@@ -102014,55 +102014,57 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hd265c9dd71c0d840E.llvm.28409398453
   %31 = atomicrmw or ptr %15, i64 2 acq_rel, align 8
   %32 = and i64 %31, 4
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit", label %44
+  br i1 %33, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit", label %45
 
-.lr.ph.i2:                                        ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17hb22b37030ad604c2E.exit", %43
-  %.sroa.0.04.i = phi i64 [ %34, %43 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17hb22b37030ad604c2E.exit" ]
+.lr.ph.i2:                                        ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17hb22b37030ad604c2E.exit", %44
+  %.sroa.0.04.i = phi i64 [ %34, %44 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17hb22b37030ad604c2E.exit" ]
   %34 = add nuw nsw i64 %.sroa.0.04.i, 1
-  %35 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.0.04.i, i32 1
-  %36 = load atomic i64, ptr %35 acquire, align 8
-  %37 = and i64 %36, 2
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %43
+  %35 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.0.04.i
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %37 = load atomic i64, ptr %36 acquire, align 8
+  %38 = and i64 %37, 2
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %40, label %44
 
-39:                                               ; preds = %.lr.ph.i2
-  %40 = atomicrmw or ptr %35, i64 4 acq_rel, align 8
-  %41 = and i64 %40, 2
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit", label %43
+40:                                               ; preds = %.lr.ph.i2
+  %41 = atomicrmw or ptr %36, i64 4 acq_rel, align 8
+  %42 = and i64 %41, 2
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit", label %44
 
-43:                                               ; preds = %39, %.lr.ph.i2
+44:                                               ; preds = %40, %.lr.ph.i2
   %exitcond.not.i = icmp eq i64 %34, 30
   br i1 %exitcond.not.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit.sink.split", label %.lr.ph.i2
 
-44:                                               ; preds = %30
-  %45 = icmp samesign ult i64 %12, 29
-  br i1 %45, label %.lr.ph.i4, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit.sink.split"
+45:                                               ; preds = %30
+  %46 = icmp samesign ult i64 %12, 29
+  br i1 %46, label %.lr.ph.i4, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit.sink.split"
 
-.lr.ph.i4:                                        ; preds = %44, %55
-  %.sroa.0.04.i5 = phi i64 [ %46, %55 ], [ %27, %44 ]
-  %46 = add nuw nsw i64 %.sroa.0.04.i5, 1
-  %47 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.0.04.i5, i32 1
-  %48 = load atomic i64, ptr %47 acquire, align 8
-  %49 = and i64 %48, 2
-  %50 = icmp eq i64 %49, 0
-  br i1 %50, label %51, label %55
+.lr.ph.i4:                                        ; preds = %45, %57
+  %.sroa.0.04.i5 = phi i64 [ %47, %57 ], [ %27, %45 ]
+  %47 = add nuw nsw i64 %.sroa.0.04.i5, 1
+  %48 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.0.04.i5
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %50 = load atomic i64, ptr %49 acquire, align 8
+  %51 = and i64 %50, 2
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %53, label %57
 
-51:                                               ; preds = %.lr.ph.i4
-  %52 = atomicrmw or ptr %47, i64 4 acq_rel, align 8
-  %53 = and i64 %52, 2
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit", label %55
+53:                                               ; preds = %.lr.ph.i4
+  %54 = atomicrmw or ptr %49, i64 4 acq_rel, align 8
+  %55 = and i64 %54, 2
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit", label %57
 
-55:                                               ; preds = %51, %.lr.ph.i4
-  %exitcond.not.i6 = icmp eq i64 %46, 30
+57:                                               ; preds = %53, %.lr.ph.i4
+  %exitcond.not.i6 = icmp eq i64 %47, 30
   br i1 %exitcond.not.i6, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit.sink.split", label %.lr.ph.i4
 
-"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit.sink.split": ; preds = %55, %43, %44
+"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit.sink.split": ; preds = %57, %44, %45
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 1000, i64 noundef 8) #34
   br label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit"
 
-"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit": ; preds = %51, %39, %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit.sink.split", %30
+"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit": ; preds = %53, %40, %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hacdf01a60963feedE.exit.sink.split", %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %29
 }
@@ -102128,57 +102130,59 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hd265c9dd71c0d840E.llvm.28409398453
   %28 = atomicrmw or ptr %11, i64 2 acq_rel, align 8
   %29 = and i64 %28, 4
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit", label %41
+  br i1 %30, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit", label %42
 
-.lr.ph.i3:                                        ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h7eb0d0d3b6090c81E.exit", %40
-  %.sroa.0.04.i = phi i64 [ %31, %40 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h7eb0d0d3b6090c81E.exit" ]
+.lr.ph.i3:                                        ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h7eb0d0d3b6090c81E.exit", %41
+  %.sroa.0.04.i = phi i64 [ %31, %41 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h7eb0d0d3b6090c81E.exit" ]
   %31 = add nuw nsw i64 %.sroa.0.04.i, 1
-  %32 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %4, i64 %.sroa.0.04.i, i32 1
-  %33 = load atomic i64, ptr %32 acquire, align 8
-  %34 = and i64 %33, 2
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %40
+  %32 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %4, i64 %.sroa.0.04.i
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load atomic i64, ptr %33 acquire, align 8
+  %35 = and i64 %34, 2
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %41
 
-36:                                               ; preds = %.lr.ph.i3
-  %37 = atomicrmw or ptr %32, i64 4 acq_rel, align 8
-  %38 = and i64 %37, 2
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit", label %40
+37:                                               ; preds = %.lr.ph.i3
+  %38 = atomicrmw or ptr %33, i64 4 acq_rel, align 8
+  %39 = and i64 %38, 2
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit", label %41
 
-40:                                               ; preds = %36, %.lr.ph.i3
+41:                                               ; preds = %37, %.lr.ph.i3
   %exitcond.not.i = icmp eq i64 %31, 30
   br i1 %exitcond.not.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit.sink.split", label %.lr.ph.i3
 
-41:                                               ; preds = %27
-  %42 = icmp samesign ult i64 %8, 29
-  br i1 %42, label %.lr.ph.i5, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit.sink.split"
+42:                                               ; preds = %27
+  %43 = icmp samesign ult i64 %8, 29
+  br i1 %43, label %.lr.ph.i5, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit.sink.split"
 
-.lr.ph.i5:                                        ; preds = %41, %52
-  %.sroa.0.04.i6 = phi i64 [ %43, %52 ], [ %24, %41 ]
-  %43 = add nuw nsw i64 %.sroa.0.04.i6, 1
-  %44 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %4, i64 %.sroa.0.04.i6, i32 1
-  %45 = load atomic i64, ptr %44 acquire, align 8
-  %46 = and i64 %45, 2
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %52
+.lr.ph.i5:                                        ; preds = %42, %54
+  %.sroa.0.04.i6 = phi i64 [ %44, %54 ], [ %24, %42 ]
+  %44 = add nuw nsw i64 %.sroa.0.04.i6, 1
+  %45 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %4, i64 %.sroa.0.04.i6
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load atomic i64, ptr %46 acquire, align 8
+  %48 = and i64 %47, 2
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %54
 
-48:                                               ; preds = %.lr.ph.i5
-  %49 = atomicrmw or ptr %44, i64 4 acq_rel, align 8
-  %50 = and i64 %49, 2
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit", label %52
+50:                                               ; preds = %.lr.ph.i5
+  %51 = atomicrmw or ptr %46, i64 4 acq_rel, align 8
+  %52 = and i64 %51, 2
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit", label %54
 
-52:                                               ; preds = %48, %.lr.ph.i5
-  %exitcond.not.i7 = icmp eq i64 %43, 30
+54:                                               ; preds = %50, %.lr.ph.i5
+  %exitcond.not.i7 = icmp eq i64 %44, 30
   br i1 %exitcond.not.i7, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit.sink.split", label %.lr.ph.i5
 
-"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit.sink.split": ; preds = %52, %40, %41
+"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit.sink.split": ; preds = %54, %41, %42
   tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef 504, i64 noundef 8) #34
   br label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit"
 
-"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit": ; preds = %48, %36, %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit.sink.split", %27
-  %53 = icmp ne ptr %23, null
-  tail call void @llvm.assume(i1 %53)
+"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit": ; preds = %50, %37, %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hb01d3eb09bb4dc49E.exit.sink.split", %27
+  %55 = icmp ne ptr %23, null
+  tail call void @llvm.assume(i1 %55)
   br label %26
 }
 
@@ -102250,55 +102254,57 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hd265c9dd71c0d840E.llvm.28409398453
   %29 = atomicrmw or ptr %13, i64 2 acq_rel, align 8
   %30 = and i64 %29, 4
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit", label %42
+  br i1 %31, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit", label %43
 
-.lr.ph.i2:                                        ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h97427d7a9a92bc29E.exit", %41
-  %.sroa.0.04.i = phi i64 [ %32, %41 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h97427d7a9a92bc29E.exit" ]
+.lr.ph.i2:                                        ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h97427d7a9a92bc29E.exit", %42
+  %.sroa.0.04.i = phi i64 [ %32, %42 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h97427d7a9a92bc29E.exit" ]
   %32 = add nuw nsw i64 %.sroa.0.04.i, 1
-  %33 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %5, i64 %.sroa.0.04.i, i32 1
-  %34 = load atomic i64, ptr %33 acquire, align 8
-  %35 = and i64 %34, 2
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %41
+  %33 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %5, i64 %.sroa.0.04.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = load atomic i64, ptr %34 acquire, align 8
+  %36 = and i64 %35, 2
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %42
 
-37:                                               ; preds = %.lr.ph.i2
-  %38 = atomicrmw or ptr %33, i64 4 acq_rel, align 8
-  %39 = and i64 %38, 2
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit", label %41
+38:                                               ; preds = %.lr.ph.i2
+  %39 = atomicrmw or ptr %34, i64 4 acq_rel, align 8
+  %40 = and i64 %39, 2
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit", label %42
 
-41:                                               ; preds = %37, %.lr.ph.i2
+42:                                               ; preds = %38, %.lr.ph.i2
   %exitcond.not.i = icmp eq i64 %32, 30
   br i1 %exitcond.not.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit.sink.split", label %.lr.ph.i2
 
-42:                                               ; preds = %28
-  %43 = icmp samesign ult i64 %10, 29
-  br i1 %43, label %.lr.ph.i4, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit.sink.split"
+43:                                               ; preds = %28
+  %44 = icmp samesign ult i64 %10, 29
+  br i1 %44, label %.lr.ph.i4, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit.sink.split"
 
-.lr.ph.i4:                                        ; preds = %42, %53
-  %.sroa.0.04.i5 = phi i64 [ %44, %53 ], [ %25, %42 ]
-  %44 = add nuw nsw i64 %.sroa.0.04.i5, 1
-  %45 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %5, i64 %.sroa.0.04.i5, i32 1
-  %46 = load atomic i64, ptr %45 acquire, align 8
-  %47 = and i64 %46, 2
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %53
+.lr.ph.i4:                                        ; preds = %43, %55
+  %.sroa.0.04.i5 = phi i64 [ %45, %55 ], [ %25, %43 ]
+  %45 = add nuw nsw i64 %.sroa.0.04.i5, 1
+  %46 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %5, i64 %.sroa.0.04.i5
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = load atomic i64, ptr %47 acquire, align 8
+  %49 = and i64 %48, 2
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %51, label %55
 
-49:                                               ; preds = %.lr.ph.i4
-  %50 = atomicrmw or ptr %45, i64 4 acq_rel, align 8
-  %51 = and i64 %50, 2
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit", label %53
+51:                                               ; preds = %.lr.ph.i4
+  %52 = atomicrmw or ptr %47, i64 4 acq_rel, align 8
+  %53 = and i64 %52, 2
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit", label %55
 
-53:                                               ; preds = %49, %.lr.ph.i4
-  %exitcond.not.i6 = icmp eq i64 %44, 30
+55:                                               ; preds = %51, %.lr.ph.i4
+  %exitcond.not.i6 = icmp eq i64 %45, 30
   br i1 %exitcond.not.i6, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit.sink.split", label %.lr.ph.i4
 
-"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit.sink.split": ; preds = %53, %41, %42
+"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit.sink.split": ; preds = %55, %42, %43
   tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 1000, i64 noundef 8) #34
   br label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit"
 
-"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit": ; preds = %49, %37, %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit.sink.split", %28
+"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit": ; preds = %51, %38, %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h03ce4de4db4ca414E.exit.sink.split", %28
   store i64 %.sroa.018.0.copyload, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.419.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -134280,8 +134286,7 @@ common.resume.i:                                  ; preds = %"_ZN4core3ptr72drop
   %52 = load i64, ptr %51, align 8, !alias.scope !30513, !noundef !4
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load i64, ptr %53, align 8, !alias.scope !30513, !noundef !4
-  %.idx.i = mul nuw nsw i64 %46, 88
-  %55 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
+  %55 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 }, i64, i64 }, i64, { ptr, [1 x i64] } }, ptr %23, i64 %46
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 72
   %57 = load i64, ptr %56, align 8, !noalias !30513, !noundef !4
   %.not.i = icmp eq i64 %57, %54
@@ -134355,8 +134360,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
   br label %93
 
 80:                                               ; preds = %74
-  %.idx22.i = mul nuw nsw i64 %46, 88
-  %81 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx22.i
+  %81 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 }, i64, i64 }, i64, { ptr, [1 x i64] } }, ptr %23, i64 %46
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %84 = load i64, ptr %83, align 8, !noalias !30513, !noundef !4
@@ -134398,8 +134402,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
 100:                                              ; preds = %93
   %101 = extractvalue { ptr, ptr } %99, 0
   %102 = extractvalue { ptr, ptr } %99, 1
-  %.idx25.i = mul nuw nsw i64 %46, 88
-  %103 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx25.i
+  %103 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 }, i64, i64 }, i64, { ptr, [1 x i64] } }, ptr %23, i64 %46
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30525)
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 48
   %105 = load i64, ptr %104, align 8, !alias.scope !30525, !noalias !30528, !noundef !4

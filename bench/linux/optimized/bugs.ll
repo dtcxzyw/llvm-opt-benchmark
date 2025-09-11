@@ -1023,9 +1023,7 @@ define internal fastcc void @l1tf_select_mitigation() unnamed_addr #3 section ".
   br i1 %21, label %switch.lookup, label %22
 
 switch.lookup:                                    ; preds = %19
-  %switch.cast = trunc nuw i32 %switch.tableidx to i3
-  %switch.downshift = lshr exact i3 -4, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 2
   tail call void @cpu_smt_disable(i1 noundef zeroext %switch.masked) #15
   %.pr = load i32, ptr @l1tf_mitigation, align 4
   br label %22

@@ -2432,7 +2432,7 @@ define internal fastcc void @dissect_payloads(ptr noundef %0, ptr noundef %1, i3
   ]
 
 98:                                               ; preds = %92
-  %99 = icmp ult i16 %85, 12
+  %99 = icmp samesign ult i32 %90, 8
   %100 = load i32, ptr @hf_isakmp_sa_situation, align 4
   br i1 %99, label %101, label %105
 
@@ -2458,7 +2458,7 @@ define internal fastcc void @dissect_payloads(ptr noundef %0, ptr noundef %1, i3
   br label %dissect_sa.exit
 
 117:                                              ; preds = %92
-  %118 = icmp ult i16 %85, 16
+  %118 = icmp samesign ult i32 %90, 12
   %119 = load i32, ptr @hf_isakmp_sa_situation, align 4
   br i1 %118, label %120, label %124
 
@@ -3303,7 +3303,7 @@ dissect_cert.exit:                                ; preds = %508, %510, %520, %5
 552:                                              ; preds = %537
   %553 = load i32, ptr @hf_isakmp_certreq_type_v2, align 4
   %554 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %553, ptr noundef %0, i32 noundef %89, i32 noundef 1, i32 noundef 0)
-  %555 = icmp ugt i16 %85, 5
+  %555 = icmp samesign ugt i32 %90, 1
   br i1 %555, label %.preheader.preheader.i, label %dissect_certreq.exit
 
 .preheader.preheader.i:                           ; preds = %552
@@ -3974,14 +3974,14 @@ dissect_rohc_attribute.exit.i:                    ; preds = %789, %779
 
 896:                                              ; preds = %88, %88
   %897 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %89, i32 noundef range(i32 -4, 65532) %90)
-  %898 = sext i32 %90 to i64
+  %898 = zext nneg i32 %90 to i64
   %899 = call ptr @bytesprefix_to_str(ptr noundef %897, i64 noundef %898, ptr noundef nonnull @vendor_id, ptr noundef nonnull @.str.911)
   %900 = load i32, ptr @hf_isakmp_vid_bytes, align 4
   %901 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %900, ptr noundef %0, i32 noundef %89, i32 noundef range(i32 -4, 65532) %90, i32 noundef 0)
   %902 = load i32, ptr @hf_isakmp_vid_string, align 4
   %903 = call ptr @proto_tree_add_string(ptr noundef %84, i32 noundef %902, ptr noundef %0, i32 noundef %89, i32 noundef range(i32 -4, 65532) %90, ptr noundef %899)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %84, ptr noundef nonnull @.str.912, ptr noundef %899)
-  %904 = icmp ugt i16 %85, 27
+  %904 = icmp samesign ugt i32 %90, 23
   br i1 %904, label %905, label %924
 
 905:                                              ; preds = %896
@@ -4009,7 +4009,7 @@ dissect_rohc_attribute.exit.i:                    ; preds = %789, %779
   br label %.thread.i
 
 924:                                              ; preds = %896
-  %925 = icmp samesign ugt i16 %85, 17
+  %925 = icmp samesign ugt i32 %90, 13
   br i1 %925, label %.thread.i, label %958
 
 .thread.i:                                        ; preds = %924, %907, %905
@@ -4070,7 +4070,7 @@ dissect_rohc_attribute.exit.i:                    ; preds = %789, %779
   br label %.thread98.i
 
 958:                                              ; preds = %924
-  %959 = icmp samesign ugt i16 %85, 15
+  %959 = icmp samesign ugt i32 %90, 11
   br i1 %959, label %.thread98.i, label %dissect_sa.exit
 
 .thread98.i:                                      ; preds = %958, %952, %950, %948, %939
@@ -5062,7 +5062,7 @@ dissect_ts.exit.i:                                ; preds = %.sink.split.i.i185,
 
 1481:                                             ; preds = %88
   %1482 = call ptr @proto_tree_get_parent(ptr noundef %84)
-  %1483 = icmp ult i16 %85, 8
+  %1483 = icmp samesign ult i32 %90, 4
   br i1 %1483, label %dissect_sa.exit, label %1484
 
 1484:                                             ; preds = %1481
@@ -5951,33 +5951,33 @@ define internal void @isakmp_init_protocol() #0 {
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = tail call ptr @__memcpy_chk(ptr noundef nonnull %12, ptr noundef %16, i64 noundef %19, i64 noundef 276) #23, !alias.scope !41
-  %21 = getelementptr %struct._ikev1_uat_data_key, ptr %13, i64 %indvars.iv, i32 3
-  %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 364
-  store i32 %22, ptr %23, align 4
-  %24 = load ptr, ptr @isakmp_hash, align 8
-  %25 = tail call i32 @g_hash_table_insert(ptr noundef %24, ptr noundef %3, ptr noundef %8)
+  %21 = load i32, ptr %17, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 364
+  store i32 %21, ptr %22, align 4
+  %23 = load ptr, ptr @isakmp_hash, align 8
+  %24 = tail call i32 @g_hash_table_insert(ptr noundef %23, ptr noundef %3, ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = load i32, ptr @num_ikev1_uat_data, align 4
-  %27 = zext i32 %26 to i64
-  %28 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  %25 = load i32, ptr @num_ikev1_uat_data, align 4
+  %26 = zext i32 %25 to i64
+  %27 = icmp samesign ult i64 %indvars.iv.next, %26
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
-  %29 = tail call ptr @g_hash_table_new(ptr noundef nonnull @ikev2_key_hash_func, ptr noundef nonnull @ikev2_key_equal_func)
-  store ptr %29, ptr @ikev2_key_hash, align 8
-  %30 = load i32, ptr @num_ikev2_uat_data, align 4
-  %.not28 = icmp eq i32 %30, 0
+  %28 = tail call ptr @g_hash_table_new(ptr noundef nonnull @ikev2_key_hash_func, ptr noundef nonnull @ikev2_key_equal_func)
+  store ptr %28, ptr @ikev2_key_hash, align 8
+  %29 = load i32, ptr @num_ikev2_uat_data, align 4
+  %.not28 = icmp eq i32 %29, 0
   br i1 %.not28, label %._crit_edge27, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %._crit_edge, %ikev2_decrypt_find_auth_spec.exit
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %ikev2_decrypt_find_auth_spec.exit ], [ 0, %._crit_edge ]
-  %31 = load ptr, ptr @ikev2_key_hash, align 8
-  %32 = load ptr, ptr @ikev2_uat_data, align 8
-  %33 = getelementptr %struct._ikev2_uat_data, ptr %32, i64 %indvars.iv30
-  %34 = tail call i32 @g_hash_table_insert(ptr noundef %31, ptr noundef %33, ptr noundef %33)
-  %35 = load ptr, ptr @ikev2_uat_data, align 8
-  %36 = getelementptr %struct._ikev2_uat_data, ptr %35, i64 %indvars.iv30, i32 1
+  %30 = load ptr, ptr @ikev2_key_hash, align 8
+  %31 = load ptr, ptr @ikev2_uat_data, align 8
+  %32 = getelementptr %struct._ikev2_uat_data, ptr %31, i64 %indvars.iv30
+  %33 = tail call i32 @g_hash_table_insert(ptr noundef %30, ptr noundef %32, ptr noundef %32)
+  %34 = load ptr, ptr @ikev2_uat_data, align 8
+  %35 = getelementptr %struct._ikev2_uat_data, ptr %34, i64 %indvars.iv30
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = load i32, ptr @ikev2_encr_algs, align 16
   %.not7.i = icmp eq i32 %38, 0
@@ -5997,40 +5997,41 @@ define internal void @isakmp_init_protocol() #0 {
 
 ikev2_decrypt_find_encr_spec.exit:                ; preds = %.lr.ph.i, %41, %.lr.ph26
   %.05.i = phi ptr [ null, %.lr.ph26 ], [ %.08.i, %.lr.ph.i ], [ null, %41 ]
-  %44 = getelementptr %struct._ikev2_uat_data, ptr %35, i64 %indvars.iv30, i32 11
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 104
   store ptr %.05.i, ptr %44, align 8
   %45 = load ptr, ptr @ikev2_uat_data, align 8
-  %46 = getelementptr %struct._ikev2_uat_data, ptr %45, i64 %indvars.iv30, i32 2
-  %47 = load i32, ptr %46, align 4
-  %48 = load i32, ptr @ikev2_auth_algs, align 16
-  %.not7.i18 = icmp eq i32 %48, 0
+  %46 = getelementptr %struct._ikev2_uat_data, ptr %45, i64 %indvars.iv30
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
+  %48 = load i32, ptr %47, align 4
+  %49 = load i32, ptr @ikev2_auth_algs, align 16
+  %.not7.i18 = icmp eq i32 %49, 0
   br i1 %.not7.i18, label %ikev2_decrypt_find_auth_spec.exit, label %.lr.ph.i19
 
-.lr.ph.i19:                                       ; preds = %ikev2_decrypt_find_encr_spec.exit, %51
-  %49 = phi i32 [ %53, %51 ], [ %48, %ikev2_decrypt_find_encr_spec.exit ]
-  %.08.i20 = phi ptr [ %52, %51 ], [ @ikev2_auth_algs, %ikev2_decrypt_find_encr_spec.exit ]
-  %50 = icmp eq i32 %49, %47
-  br i1 %50, label %ikev2_decrypt_find_auth_spec.exit, label %51
+.lr.ph.i19:                                       ; preds = %ikev2_decrypt_find_encr_spec.exit, %52
+  %50 = phi i32 [ %54, %52 ], [ %49, %ikev2_decrypt_find_encr_spec.exit ]
+  %.08.i20 = phi ptr [ %53, %52 ], [ @ikev2_auth_algs, %ikev2_decrypt_find_encr_spec.exit ]
+  %51 = icmp eq i32 %50, %48
+  br i1 %51, label %ikev2_decrypt_find_auth_spec.exit, label %52
 
-51:                                               ; preds = %.lr.ph.i19
-  %52 = getelementptr i8, ptr %.08.i20, i64 24
-  %53 = load i32, ptr %52, align 4
-  %.not.i21 = icmp eq i32 %53, 0
+52:                                               ; preds = %.lr.ph.i19
+  %53 = getelementptr i8, ptr %.08.i20, i64 24
+  %54 = load i32, ptr %53, align 4
+  %.not.i21 = icmp eq i32 %54, 0
   br i1 %.not.i21, label %ikev2_decrypt_find_auth_spec.exit, label %.lr.ph.i19, !llvm.loop !47
 
-ikev2_decrypt_find_auth_spec.exit:                ; preds = %.lr.ph.i19, %51, %ikev2_decrypt_find_encr_spec.exit
-  %.05.i22 = phi ptr [ null, %ikev2_decrypt_find_encr_spec.exit ], [ %.08.i20, %.lr.ph.i19 ], [ null, %51 ]
-  %54 = getelementptr %struct._ikev2_uat_data, ptr %45, i64 %indvars.iv30, i32 12
-  store ptr %.05.i22, ptr %54, align 8
+ikev2_decrypt_find_auth_spec.exit:                ; preds = %.lr.ph.i19, %52, %ikev2_decrypt_find_encr_spec.exit
+  %.05.i22 = phi ptr [ null, %ikev2_decrypt_find_encr_spec.exit ], [ %.08.i20, %.lr.ph.i19 ], [ null, %52 ]
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 112
+  store ptr %.05.i22, ptr %55, align 8
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %55 = load i32, ptr @num_ikev2_uat_data, align 4
-  %56 = zext i32 %55 to i64
-  %57 = icmp samesign ult i64 %indvars.iv.next31, %56
-  br i1 %57, label %.lr.ph26, label %._crit_edge27, !llvm.loop !48
+  %56 = load i32, ptr @num_ikev2_uat_data, align 4
+  %57 = zext i32 %56 to i64
+  %58 = icmp samesign ult i64 %indvars.iv.next31, %57
+  br i1 %58, label %.lr.ph26, label %._crit_edge27, !llvm.loop !48
 
 ._crit_edge27:                                    ; preds = %ikev2_decrypt_find_auth_spec.exit, %._crit_edge
-  %58 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
-  store ptr %58, ptr @defrag_next_payload_hash, align 8
+  %59 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
+  store ptr %59, ptr @defrag_next_payload_hash, align 8
   ret void
 }
 

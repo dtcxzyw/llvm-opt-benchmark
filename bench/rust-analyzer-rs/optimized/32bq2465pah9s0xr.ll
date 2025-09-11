@@ -14211,27 +14211,28 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   br label %5
 
 5:                                                ; preds = %5, %.lr.ph.i
-  %.027.i = phi i64 [ %1, %.lr.ph.i ], [ %11, %5 ]
+  %.027.i = phi i64 [ %1, %.lr.ph.i ], [ %12, %5 ]
   %.01926.i = phi i64 [ 0, %.lr.ph.i ], [ %.022.i, %5 ]
   %.02025.i = phi i64 [ %1, %.lr.ph.i ], [ %.021.i, %5 ]
   %6 = lshr i64 %.027.i, 1
   %7 = add i64 %6, %.01926.i
   %8 = icmp ult i64 %7, %1
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr { { i32, i32 }, { i32, [1 x i32] } }, ptr %0, i64 %7, i32 0, i32 1
-  %.val24.i = load i32, ptr %9, align 4, !alias.scope !3806, !noalias !3811, !noundef !9
+  %9 = getelementptr inbounds { { i32, i32 }, { i32, [1 x i32] } }, ptr %0, i64 %7
+  %10 = getelementptr i8, ptr %9, i64 4
+  %.val24.i = load i32, ptr %10, align 4, !alias.scope !3806, !noalias !3811, !noundef !9
   %.not.i.not.i = icmp ugt i32 %.val24.i, %4
-  %10 = add nuw i64 %7, 1
-  %.022.i = select i1 %.not.i.not.i, i64 %.01926.i, i64 %10
+  %11 = add nuw i64 %7, 1
+  %.022.i = select i1 %.not.i.not.i, i64 %.01926.i, i64 %11
   %.021.i = select i1 %.not.i.not.i, i64 %7, i64 %.02025.i
-  %11 = sub i64 %.021.i, %.022.i
-  %12 = icmp ult i64 %.022.i, %.021.i
-  br i1 %12, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hf8d5401f05a15d7dE.llvm.9018798831783864632.exit"
+  %12 = sub i64 %.021.i, %.022.i
+  %13 = icmp ult i64 %.022.i, %.021.i
+  br i1 %13, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hf8d5401f05a15d7dE.llvm.9018798831783864632.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hf8d5401f05a15d7dE.llvm.9018798831783864632.exit": ; preds = %5, %3
   %.019.lcssa.i = phi i64 [ 0, %3 ], [ %.022.i, %5 ]
-  %13 = icmp ule i64 %.019.lcssa.i, %1
-  tail call void @llvm.assume(i1 %13)
+  %14 = icmp ule i64 %.019.lcssa.i, %1
+  tail call void @llvm.assume(i1 %14)
   ret i64 %.019.lcssa.i
 }
 
@@ -14339,22 +14340,23 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   ret { i64, i64 } %6
 
 7:                                                ; preds = %.lr.ph, %7
-  %.027 = phi i64 [ %1, %.lr.ph ], [ %13, %7 ]
+  %.027 = phi i64 [ %1, %.lr.ph ], [ %14, %7 ]
   %.01926 = phi i64 [ 0, %.lr.ph ], [ %.022, %7 ]
   %.02025 = phi i64 [ %1, %.lr.ph ], [ %.021, %7 ]
   %8 = lshr i64 %.027, 1
   %9 = add i64 %8, %.01926
   %10 = icmp ult i64 %9, %1
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr { { i32, i32 }, { i32, [1 x i32] } }, ptr %0, i64 %9, i32 0, i32 1
-  %.val24 = load i32, ptr %11, align 4, !noundef !9
+  %11 = getelementptr inbounds { { i32, i32 }, { i32, [1 x i32] } }, ptr %0, i64 %9
+  %12 = getelementptr i8, ptr %11, i64 4
+  %.val24 = load i32, ptr %12, align 4, !noundef !9
   %.not.i.not = icmp ugt i32 %.val24, %4
-  %12 = add nuw i64 %9, 1
-  %.022 = select i1 %.not.i.not, i64 %.01926, i64 %12
+  %13 = add nuw i64 %9, 1
+  %.022 = select i1 %.not.i.not, i64 %.01926, i64 %13
   %.021 = select i1 %.not.i.not, i64 %9, i64 %.02025
-  %13 = sub i64 %.021, %.022
-  %14 = icmp ult i64 %.022, %.021
-  br i1 %14, label %7, label %._crit_edge
+  %14 = sub i64 %.021, %.022
+  %15 = icmp ult i64 %.022, %.021
+  br i1 %15, label %7, label %._crit_edge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

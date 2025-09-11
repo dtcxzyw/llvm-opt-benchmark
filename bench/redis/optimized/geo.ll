@@ -135,19 +135,20 @@ define dso_local void @geoArrayFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.06 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
+  %.06 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr %0, align 8, !tbaa !13
-  %5 = getelementptr inbounds nuw %struct.geoPoint, ptr %4, i64 %.06, i32 4
-  %6 = load ptr, ptr %5, align 8, !tbaa !21
-  tail call void @sdsfree(ptr noundef %6) #14
-  %7 = add nuw i64 %.06, 1
-  %8 = load i64, ptr %2, align 8, !tbaa !5
-  %9 = icmp ult i64 %7, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  %5 = getelementptr inbounds nuw %struct.geoPoint, ptr %4, i64 %.06
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  tail call void @sdsfree(ptr noundef %7) #14
+  %8 = add nuw i64 %.06, 1
+  %9 = load i64, ptr %2, align 8, !tbaa !5
+  %10 = icmp ult i64 %8, %9
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %10 = load ptr, ptr %0, align 8, !tbaa !13
-  tail call void @zfree(ptr noundef %10) #14
+  %11 = load ptr, ptr %0, align 8, !tbaa !13
+  tail call void @zfree(ptr noundef %11) #14
   tail call void @zfree(ptr noundef nonnull %0) #14
   ret void
 }

@@ -219,8 +219,9 @@ stop_progress.exit:                               ; preds = %69, %71
 
 .preheader:                                       ; preds = %stop_progress.exit, %.preheader
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %.preheader ], [ 0, %stop_progress.exit ]
-  %73 = getelementptr inbounds nuw %struct.thread_data, ptr %4, i64 %indvars.iv90, i32 2
-  call void @clear_pathspec(ptr noundef nonnull %73) #10
+  %73 = getelementptr inbounds nuw %struct.thread_data, ptr %4, i64 %indvars.iv90
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  call void @clear_pathspec(ptr noundef nonnull %74) #10
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count82
   br i1 %exitcond94.not, label %.loopexit, label %.preheader, !llvm.loop !44
@@ -229,23 +230,23 @@ stop_progress.exit:                               ; preds = %69, %71
   %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8, !tbaa !45
   %trace_perf_key.val58 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %.not.i = icmp eq i32 %trace_perf_key.val, 0
-  %74 = and i8 %trace_perf_key.val58, 1
-  %.not5361 = icmp ne i8 %74, 0
+  %75 = and i8 %trace_perf_key.val58, 1
+  %.not5361 = icmp ne i8 %75, 0
   %.not53 = select i1 %.not.i, i1 %.not5361, i1 false
-  br i1 %.not53, label %77, label %75
+  br i1 %.not53, label %78, label %76
 
-75:                                               ; preds = %.loopexit
-  %76 = call i64 @getnanotime() #10
-  call void (ptr, i32, i64, ptr, ...) @trace_performance_leave_fl(ptr noundef nonnull @.str.1, i32 noundef 172, i64 noundef %76, ptr noundef nonnull @.str.7) #10
-  br label %77
+76:                                               ; preds = %.loopexit
+  %77 = call i64 @getnanotime() #10
+  call void (ptr, i32, i64, ptr, ...) @trace_performance_leave_fl(ptr noundef nonnull @.str.1, i32 noundef 172, i64 noundef %77, ptr noundef nonnull @.str.7) #10
+  br label %78
 
-77:                                               ; preds = %75, %.loopexit
-  %78 = sext i32 %68 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.1, i32 noundef 174, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef %78) #10
+78:                                               ; preds = %76, %.loopexit
+  %79 = sext i32 %68 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.1, i32 noundef 174, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef %79) #10
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.1, i32 noundef 175, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef null) #10
   br label %select.unfold.thread
 
-select.unfold.thread:                             ; preds = %11, %select.unfold, %3, %77
+select.unfold.thread:                             ; preds = %11, %select.unfold, %3, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

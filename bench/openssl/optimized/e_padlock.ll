@@ -1884,7 +1884,7 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
   store i8 %22, ptr %20, align 1, !tbaa !24
   %24 = add nuw nsw i64 %.086112, 1
   %25 = add i64 %.291111, -1
-  %26 = icmp ult i64 %.086112, 15
+  %26 = icmp samesign ult i64 %.086112, 15
   %27 = icmp ne i64 %25, 0
   %28 = select i1 %26, i1 %27, i1 false
   br i1 %28, label %.lr.ph, label %.loopexit108, !llvm.loop !25
@@ -1904,7 +1904,7 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
   %35 = add nuw nsw i64 %.288119, 1
   store i8 %30, ptr %31, align 1, !tbaa !24
   %36 = add i64 %.493118, -1
-  %37 = icmp ult i64 %.288119, 15
+  %37 = icmp samesign ult i64 %.288119, 15
   %38 = icmp ne i64 %36, 0
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %.lr.ph122, label %.loopexit108, !llvm.loop !26
@@ -1914,7 +1914,7 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
   %.187 = phi i64 [ %12, %.preheader ], [ %12, %.preheader109 ], [ %35, %.lr.ph122 ], [ %24, %.lr.ph ]
   %.382 = phi ptr [ %2, %.preheader ], [ %2, %.preheader109 ], [ %29, %.lr.ph122 ], [ %18, %.lr.ph ]
   %.3 = phi ptr [ %1, %.preheader ], [ %1, %.preheader109 ], [ %34, %.lr.ph122 ], [ %23, %.lr.ph ]
-  %40 = trunc i64 %.187 to i32
+  %40 = trunc nuw nsw i64 %.187 to i32
   %41 = and i32 %40, 15
   %42 = tail call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %41) #10
   br label %43

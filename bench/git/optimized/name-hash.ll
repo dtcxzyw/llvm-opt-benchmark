@@ -902,7 +902,7 @@ define internal noalias noundef ptr @lazy_name_thread_proc(ptr noundef readonly 
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = phi ptr [ %3, %.lr.ph ], [ %20, %7 ]
+  %8 = phi ptr [ %3, %.lr.ph ], [ %21, %7 ]
   %9 = load ptr, ptr %8, align 8, !tbaa !52
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !53
@@ -911,20 +911,21 @@ define internal noalias noundef ptr @lazy_name_thread_proc(ptr noundef readonly 
   %14 = or i32 %13, 1048576
   store i32 %14, ptr %12, align 8, !tbaa !4
   %15 = load ptr, ptr %6, align 8, !tbaa !43
-  %16 = getelementptr inbounds nuw %struct.lazy_entry, ptr %15, i64 %indvars.iv, i32 2
-  %17 = load i32, ptr %16, align 4, !tbaa !72
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %17, ptr %18, align 8, !tbaa !55
+  %16 = getelementptr inbounds nuw %struct.lazy_entry, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %18 = load i32, ptr %17, align 4, !tbaa !72
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 %18, ptr %19, align 8, !tbaa !55
   store ptr null, ptr %11, align 8, !tbaa !58
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  tail call void @hashmap_add(ptr noundef nonnull %19, ptr noundef nonnull %11) #14
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  tail call void @hashmap_add(ptr noundef nonnull %20, ptr noundef nonnull %11) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load ptr, ptr %2, align 8, !tbaa !41
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !26
-  %23 = zext i32 %22 to i64
-  %24 = icmp samesign ult i64 %indvars.iv.next, %23
-  br i1 %24, label %7, label %._crit_edge, !llvm.loop !73
+  %21 = load ptr, ptr %2, align 8, !tbaa !41
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %23 = load i32, ptr %22, align 4, !tbaa !26
+  %24 = zext i32 %23 to i64
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
+  br i1 %25, label %7, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %7, %1
   ret ptr null

@@ -8815,7 +8815,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %38, %41
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %3, i64 %55
   store i64 %53, ptr %59, align 8, !tbaa !258
-  %60 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %3, i64 %55, i32 1
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 0, ptr %60, align 8, !tbaa !260
   %61 = add i64 %55, 1
   store i64 %61, ptr %18, align 8, !tbaa !366
@@ -8880,7 +8880,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %91 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %3, i64 %90
   store i64 %89, ptr %91, align 8, !tbaa !258
   %92 = load i64, ptr %21, align 8, !tbaa !374
-  %93 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %3, i64 %90, i32 1
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i64 %92, ptr %93, align 8, !tbaa !260
   %94 = add i64 %92, %89
   store i64 %94, ptr %20, align 8, !tbaa !376
@@ -8910,7 +8910,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
   %105 = load i64, ptr %23, align 8, !tbaa !366
   %106 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %3, i64 %105
   store i64 %104, ptr %106, align 8, !tbaa !258
-  %107 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %3, i64 %105, i32 1
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i64 0, ptr %107, align 8, !tbaa !260
   %108 = add i64 %105, 1
   store i64 %108, ptr %23, align 8, !tbaa !366

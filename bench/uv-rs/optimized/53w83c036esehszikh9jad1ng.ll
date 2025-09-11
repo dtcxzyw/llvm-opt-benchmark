@@ -1082,71 +1082,72 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %16
 
-16:                                               ; preds = %38, %7
-  %.sroa.6.0 = phi i64 [ %.sroa.6.0.copyload, %7 ], [ %40, %38 ]
-  %.sroa.06.0.i = phi i64 [ 0, %7 ], [ %41, %38 ]
-  %17 = getelementptr { { i32, [1 x i32] }, i32 }, ptr %3, i64 %.sroa.06.0.i, i32 1
-  %.val21.i = load i32, ptr %17, align 4, !alias.scope !209, !noalias !212, !noundef !17
-  %18 = zext i32 %.val21.i to i64
-  %19 = load i64, ptr %14, align 8, !alias.scope !215, !noalias !218, !noundef !17
-  %20 = icmp ugt i64 %19, %18
-  br i1 %20, label %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i.i", label %21
+16:                                               ; preds = %39, %7
+  %.sroa.6.0 = phi i64 [ %.sroa.6.0.copyload, %7 ], [ %41, %39 ]
+  %.sroa.06.0.i = phi i64 [ 0, %7 ], [ %42, %39 ]
+  %17 = getelementptr inbounds { { i32, [1 x i32] }, i32 }, ptr %3, i64 %.sroa.06.0.i
+  %18 = getelementptr i8, ptr %17, i64 8
+  %.val21.i = load i32, ptr %18, align 4, !alias.scope !209, !noalias !212, !noundef !17
+  %19 = zext i32 %.val21.i to i64
+  %20 = load i64, ptr %14, align 8, !alias.scope !215, !noalias !218, !noundef !17
+  %21 = icmp ugt i64 %20, %19
+  br i1 %21, label %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i.i", label %22
 
-21:                                               ; preds = %16
-  invoke void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %18, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.715d7484820d0c73189c6aea66a4d20f.314) #54
-          to label %.noexc.i unwind label %43, !noalias !212
+22:                                               ; preds = %16
+  invoke void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %19, i64 noundef %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.715d7484820d0c73189c6aea66a4d20f.314) #54
+          to label %.noexc.i unwind label %44, !noalias !212
 
-.noexc.i:                                         ; preds = %21
+.noexc.i:                                         ; preds = %22
   unreachable
 
 "_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i.i": ; preds = %16
-  %22 = load ptr, ptr %15, align 8, !alias.scope !215, !noalias !218, !nonnull !17, !noundef !17
-  %23 = getelementptr inbounds nuw { ptr, [2 x i32] }, ptr %22, i64 %18
-  %24 = load ptr, ptr %23, align 8, !noalias !222, !nonnull !17, !align !38, !noundef !17
+  %23 = load ptr, ptr %15, align 8, !alias.scope !215, !noalias !218, !nonnull !17, !noundef !17
+  %24 = getelementptr inbounds nuw { ptr, [2 x i32] }, ptr %23, i64 %19
+  %25 = load ptr, ptr %24, align 8, !noalias !222, !nonnull !17, !align !38, !noundef !17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
-  %25 = load ptr, ptr %24, align 8, !alias.scope !223, !noalias !222, !nonnull !17, !noundef !17
-  %26 = load i64, ptr %25, align 8, !noalias !226, !noundef !17
-  %27 = and i64 %26, 1
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %38
+  %26 = load ptr, ptr %25, align 8, !alias.scope !223, !noalias !222, !nonnull !17, !noundef !17
+  %27 = load i64, ptr %26, align 8, !noalias !226, !noundef !17
+  %28 = and i64 %27, 1
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %30, label %39
 
-29:                                               ; preds = %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i.i"
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %31 = load atomic i64, ptr %30 monotonic, align 8, !noalias !226
-  %32 = and i64 %31, 1
-  %.not.i.i.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i.i.i, label %33, label %38
+30:                                               ; preds = %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i.i"
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %32 = load atomic i64, ptr %31 monotonic, align 8, !noalias !226
+  %33 = and i64 %32, 1
+  %.not.i.i.i.i = icmp eq i64 %33, 0
+  br i1 %.not.i.i.i.i, label %34, label %39
 
-33:                                               ; preds = %29
-  %34 = atomicrmw add ptr %30, i64 2 monotonic, align 8, !noalias !226
-  %35 = and i64 %34, -9223372036854775807
-  %or.cond.i.i.i.i = icmp eq i64 %35, -9223372036854775808
-  br i1 %or.cond.i.i.i.i, label %36, label %38
+34:                                               ; preds = %30
+  %35 = atomicrmw add ptr %31, i64 2 monotonic, align 8, !noalias !226
+  %36 = and i64 %35, -9223372036854775807
+  %or.cond.i.i.i.i = icmp eq i64 %36, -9223372036854775808
+  br i1 %or.cond.i.i.i.i, label %37, label %39
 
-36:                                               ; preds = %33
-  %37 = atomicrmw or ptr %30, i64 1 release, align 8, !noalias !226
-  br label %38
+37:                                               ; preds = %34
+  %38 = atomicrmw or ptr %31, i64 1 release, align 8, !noalias !226
+  br label %39
 
-38:                                               ; preds = %36, %33, %29, %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i.i"
-  %39 = getelementptr inbounds ptr, ptr %.sroa.10.0.copyload, i64 %.sroa.6.0
-  store ptr %25, ptr %39, align 8, !noalias !227
-  %40 = add i64 %.sroa.6.0, 1
-  %41 = add nuw i64 %.sroa.06.0.i, 1
-  %42 = icmp eq i64 %41, %13
-  br i1 %42, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h105e3eab379a6ae8E.llvm.17365957607923278828.exit", label %16
+39:                                               ; preds = %37, %34, %30, %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i.i"
+  %40 = getelementptr inbounds ptr, ptr %.sroa.10.0.copyload, i64 %.sroa.6.0
+  store ptr %26, ptr %40, align 8, !noalias !227
+  %41 = add i64 %.sroa.6.0, 1
+  %42 = add nuw i64 %.sroa.06.0.i, 1
+  %43 = icmp eq i64 %42, %13
+  br i1 %43, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h105e3eab379a6ae8E.llvm.17365957607923278828.exit", label %16
 
-43:                                               ; preds = %21
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %22
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %45)
-  store i64 %.sroa.6.0, ptr %.sroa.0.0.copyload, align 8, !noalias !232
-  resume { ptr, i32 } %44
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h105e3eab379a6ae8E.llvm.17365957607923278828.exit": ; preds = %38, %2
-  %storemerge = phi i64 [ %.sroa.6.0.copyload, %2 ], [ %40, %38 ]
   %46 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %46)
+  store i64 %.sroa.6.0, ptr %.sroa.0.0.copyload, align 8, !noalias !232
+  resume { ptr, i32 } %45
+
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h105e3eab379a6ae8E.llvm.17365957607923278828.exit": ; preds = %39, %2
+  %storemerge = phi i64 [ %.sroa.6.0.copyload, %2 ], [ %41, %39 ]
+  %47 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %47)
   store i64 %storemerge, ptr %.sroa.0.0.copyload, align 8, !noalias !212
   ret void
 }
@@ -24306,84 +24307,85 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val16 = load i64, ptr %15, align 8, !alias.scope !6509, !noundef !17
   store i64 %.val16, ptr %.val, align 8, !noalias !6514
-  br label %48
+  br label %49
 
-16:                                               ; preds = %6, %40
-  %.sroa.06.0 = phi i64 [ %45, %40 ], [ 0, %6 ]
-  %17 = getelementptr { { i32, [1 x i32] }, i32 }, ptr %0, i64 %.sroa.06.0, i32 1
-  %.val21 = load i32, ptr %17, align 4, !alias.scope !6519, !noundef !17
+16:                                               ; preds = %6, %41
+  %.sroa.06.0 = phi i64 [ %46, %41 ], [ 0, %6 ]
+  %17 = getelementptr inbounds { { i32, [1 x i32] }, i32 }, ptr %0, i64 %.sroa.06.0
+  %18 = getelementptr i8, ptr %17, i64 8
+  %.val21 = load i32, ptr %18, align 4, !alias.scope !6519, !noundef !17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6522)
   %.val.i = load ptr, ptr %11, align 8, !alias.scope !6522, !nonnull !17, !align !38, !noundef !17
-  %18 = zext i32 %.val21 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %20 = load i64, ptr %19, align 8, !alias.scope !6525, !noalias !6528, !noundef !17
-  %21 = icmp ugt i64 %20, %18
-  br i1 %21, label %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i", label %22
+  %19 = zext i32 %.val21 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  %21 = load i64, ptr %20, align 8, !alias.scope !6525, !noalias !6528, !noundef !17
+  %22 = icmp ugt i64 %21, %19
+  br i1 %22, label %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i", label %23
 
-22:                                               ; preds = %16
-  invoke void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %18, i64 noundef %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.715d7484820d0c73189c6aea66a4d20f.314) #54
-          to label %.noexc unwind label %49
+23:                                               ; preds = %16
+  invoke void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %19, i64 noundef %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.715d7484820d0c73189c6aea66a4d20f.314) #54
+          to label %.noexc unwind label %50
 
-.noexc:                                           ; preds = %22
+.noexc:                                           ; preds = %23
   unreachable
 
 "_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i": ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %24 = load ptr, ptr %23, align 8, !alias.scope !6525, !noalias !6528, !nonnull !17, !noundef !17
-  %25 = getelementptr inbounds nuw { ptr, [2 x i32] }, ptr %24, i64 %18
-  %26 = load ptr, ptr %25, align 8, !noalias !6522, !nonnull !17, !align !38, !noundef !17
+  %24 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %25 = load ptr, ptr %24, align 8, !alias.scope !6525, !noalias !6528, !nonnull !17, !noundef !17
+  %26 = getelementptr inbounds nuw { ptr, [2 x i32] }, ptr %25, i64 %19
+  %27 = load ptr, ptr %26, align 8, !noalias !6522, !nonnull !17, !align !38, !noundef !17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6530)
-  %27 = load ptr, ptr %26, align 8, !alias.scope !6530, !noalias !6522, !nonnull !17, !noundef !17
-  %28 = load i64, ptr %27, align 8, !noalias !6533, !noundef !17
-  %29 = and i64 %28, 1
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %40
+  %28 = load ptr, ptr %27, align 8, !alias.scope !6530, !noalias !6522, !nonnull !17, !noundef !17
+  %29 = load i64, ptr %28, align 8, !noalias !6533, !noundef !17
+  %30 = and i64 %29, 1
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %41
 
-31:                                               ; preds = %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i"
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %33 = load atomic i64, ptr %32 monotonic, align 8, !noalias !6533
-  %34 = and i64 %33, 1
-  %.not.i.i.i = icmp eq i64 %34, 0
-  br i1 %.not.i.i.i, label %35, label %40
+32:                                               ; preds = %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i"
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %34 = load atomic i64, ptr %33 monotonic, align 8, !noalias !6533
+  %35 = and i64 %34, 1
+  %.not.i.i.i = icmp eq i64 %35, 0
+  br i1 %.not.i.i.i, label %36, label %41
 
-35:                                               ; preds = %31
-  %36 = atomicrmw add ptr %32, i64 2 monotonic, align 8, !noalias !6533
-  %37 = and i64 %36, -9223372036854775807
-  %or.cond.i.i.i = icmp eq i64 %37, -9223372036854775808
-  br i1 %or.cond.i.i.i, label %38, label %40
+36:                                               ; preds = %32
+  %37 = atomicrmw add ptr %33, i64 2 monotonic, align 8, !noalias !6533
+  %38 = and i64 %37, -9223372036854775807
+  %or.cond.i.i.i = icmp eq i64 %38, -9223372036854775808
+  br i1 %or.cond.i.i.i, label %39, label %41
 
-38:                                               ; preds = %35
-  %39 = atomicrmw or ptr %32, i64 1 release, align 8, !noalias !6533
-  br label %40
+39:                                               ; preds = %36
+  %40 = atomicrmw or ptr %33, i64 1 release, align 8, !noalias !6533
+  br label %41
 
-40:                                               ; preds = %38, %35, %31, %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i"
+41:                                               ; preds = %39, %36, %32, %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17h9d487bf252b51e6eE.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6534)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6537)
-  %41 = load ptr, ptr %12, align 8, !alias.scope !6540, !noundef !17
-  %42 = load i64, ptr %13, align 8, !alias.scope !6540, !noundef !17
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
-  store ptr %27, ptr %43, align 8, !noalias !6540
-  %44 = add i64 %42, 1
-  store i64 %44, ptr %13, align 8, !alias.scope !6540
-  %45 = add nuw i64 %.sroa.06.0, 1
-  %46 = icmp eq i64 %45, %10
-  br i1 %46, label %47, label %16
+  %42 = load ptr, ptr %12, align 8, !alias.scope !6540, !noundef !17
+  %43 = load i64, ptr %13, align 8, !alias.scope !6540, !noundef !17
+  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
+  store ptr %28, ptr %44, align 8, !noalias !6540
+  %45 = add i64 %43, 1
+  store i64 %45, ptr %13, align 8, !alias.scope !6540
+  %46 = add nuw i64 %.sroa.06.0, 1
+  %47 = icmp eq i64 %46, %10
+  br i1 %47, label %48, label %16
 
-47:                                               ; preds = %40
+48:                                               ; preds = %41
   %.val17 = load ptr, ptr %2, align 8, !alias.scope !6509, !nonnull !17, !align !38, !noundef !17
-  store i64 %44, ptr %.val17, align 8, !noalias !6541
-  br label %48
+  store i64 %45, ptr %.val17, align 8, !noalias !6541
+  br label %49
 
-48:                                               ; preds = %14, %47
+49:                                               ; preds = %14, %48
   ret void
 
-49:                                               ; preds = %22
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %23
+  %51 = landingpad { ptr, i32 }
           cleanup
   %.val19 = load ptr, ptr %2, align 8, !alias.scope !6509, !nonnull !17, !align !38, !noundef !17
   %.val20 = load i64, ptr %13, align 8, !alias.scope !6509, !noundef !17
   store i64 %.val20, ptr %.val19, align 8, !noalias !6546
-  resume { ptr, i32 } %50
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

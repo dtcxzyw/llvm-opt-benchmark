@@ -152,60 +152,60 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %50 = zext nneg i32 %5 to i64
   %51 = add nuw i32 %5, 1
   %wide.trip.count133 = zext i32 %51 to i64
-  %52 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %50, i32 1
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %50
+  %52 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %50
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   br label %.lr.ph123
 
-.lr.ph123:                                        ; preds = %.lr.ph123.preheader, %62
-  %indvars.iv130 = phi i64 [ 0, %.lr.ph123.preheader ], [ %indvars.iv.next131, %62 ]
-  %.097121 = phi i32 [ %3, %.lr.ph123.preheader ], [ %.198, %62 ]
+.lr.ph123:                                        ; preds = %.lr.ph123.preheader, %63
+  %indvars.iv130 = phi i64 [ 0, %.lr.ph123.preheader ], [ %indvars.iv.next131, %63 ]
+  %.097121 = phi i32 [ %3, %.lr.ph123.preheader ], [ %.198, %63 ]
   %.not106 = icmp eq i64 %indvars.iv130, %50
-  br i1 %.not106, label %61, label %53
+  br i1 %.not106, label %62, label %54
 
-53:                                               ; preds = %.lr.ph123
-  %54 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv130
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 36
-  %56 = load i32, ptr %55, align 4, !tbaa !10
-  %57 = load i32, ptr %54, align 4, !tbaa !10
-  %58 = sub i32 %56, %57
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  store i32 %58, ptr %59, align 4, !tbaa !9
-  %.neg = sub i32 %.097121, %56
-  %60 = add i32 %.neg, %57
-  br label %62
+54:                                               ; preds = %.lr.ph123
+  %55 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv130
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 36
+  %57 = load i32, ptr %56, align 4, !tbaa !10
+  %58 = load i32, ptr %55, align 4, !tbaa !10
+  %59 = sub i32 %57, %58
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  store i32 %59, ptr %60, align 4, !tbaa !9
+  %.neg = sub i32 %.097121, %57
+  %61 = add i32 %.neg, %58
+  br label %63
 
-61:                                               ; preds = %.lr.ph123
-  store i32 %.097121, ptr %52, align 4, !tbaa !9
-  %.pre135 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !10
-  br label %62
+62:                                               ; preds = %.lr.ph123
+  store i32 %.097121, ptr %53, align 4, !tbaa !9
+  %.pre135 = load i32, ptr %52, align 4, !tbaa !10
+  br label %63
 
-62:                                               ; preds = %61, %53
-  %63 = phi i32 [ %58, %53 ], [ %.097121, %61 ]
-  %64 = phi i32 [ %57, %53 ], [ %.pre135, %61 ]
-  %.198 = phi i32 [ %60, %53 ], [ %.097121, %61 ]
-  %65 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv130
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load i32, ptr %66, align 4, !tbaa !3
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  %69 = load i32, ptr %68, align 4, !tbaa !8
-  %70 = trunc nuw nsw i64 %indvars.iv130 to i32
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %70, i32 noundef %64, i32 noundef %63, i32 noundef %67, i32 noundef %69) #3
+63:                                               ; preds = %62, %54
+  %64 = phi i32 [ %59, %54 ], [ %.097121, %62 ]
+  %65 = phi i32 [ %58, %54 ], [ %.pre135, %62 ]
+  %.198 = phi i32 [ %61, %54 ], [ %.097121, %62 ]
+  %66 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %4, i64 %indvars.iv130
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load i32, ptr %67, align 4, !tbaa !3
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 12
+  %70 = load i32, ptr %69, align 4, !tbaa !8
+  %71 = trunc nuw nsw i64 %indvars.iv130 to i32
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %71, i32 noundef %65, i32 noundef %64, i32 noundef %68, i32 noundef %70) #3
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
   br i1 %exitcond134.not, label %._crit_edge, label %.lr.ph123
 
-._crit_edge:                                      ; preds = %62, %.preheader.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre139, %.preheader.._crit_edge_crit_edge ], [ %51, %62 ]
-  %71 = call i32 @cli_rebuildpe(ptr noundef %1, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef 0, i32 noundef %8) #3
-  %.not105 = icmp eq i32 %71, 0
-  br i1 %.not105, label %72, label %.critedge
+._crit_edge:                                      ; preds = %63, %.preheader.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre139, %.preheader.._crit_edge_crit_edge ], [ %51, %63 ]
+  %72 = call i32 @cli_rebuildpe(ptr noundef %1, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef 0, i32 noundef %8) #3
+  %.not105 = icmp eq i32 %72, 0
+  br i1 %.not105, label %73, label %.critedge
 
-72:                                               ; preds = %._crit_edge
+73:                                               ; preds = %._crit_edge
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #3
   br label %.critedge
 
-.critedge:                                        ; preds = %31, %._crit_edge, %72
-  %.2 = phi i32 [ 0, %72 ], [ 1, %._crit_edge ], [ -1, %31 ]
+.critedge:                                        ; preds = %31, %._crit_edge, %73
+  %.2 = phi i32 [ 0, %73 ], [ 1, %._crit_edge ], [ -1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.2

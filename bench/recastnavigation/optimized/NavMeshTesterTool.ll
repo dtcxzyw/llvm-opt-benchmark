@@ -2313,7 +2313,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
 
 28:                                               ; preds = %18, %24
   %.144 = phi i32 [ %25, %24 ], [ %.04351, %18 ]
-  %29 = getelementptr inbounds nuw %struct.dtLink, ptr %17, i64 %19, i32 1
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.042 = load i32, ptr %29, align 4
   %.not = icmp eq i32 %.042, -1
   br i1 %.not, label %.preheader.lr.ph, label %18, !llvm.loop !15

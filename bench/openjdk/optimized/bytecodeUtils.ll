@@ -664,117 +664,118 @@ _ZN21SimulatedOperandStackC2Ev.exit:              ; preds = %.lr.ph.i.i.i.i
   %.not = icmp eq i16 %57, 0
   br i1 %.not, label %.loopexit47, label %.lr.ph
 
-.lr.ph:                                           ; preds = %55, %83
-  %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %55 ]
-  %58 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %56, i64 %indvars.iv, i32 2
-  %59 = load i16, ptr %58, align 2
-  %60 = load ptr, ptr %0, align 8
-  %61 = zext i16 %59 to i32
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = zext i16 %59 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %64
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %83
+.lr.ph:                                           ; preds = %55, %84
+  %indvars.iv = phi i64 [ %indvars.iv.next, %84 ], [ 0, %55 ]
+  %58 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %56, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %60 = load i16, ptr %59, align 2
+  %61 = load ptr, ptr %0, align 8
+  %62 = zext i16 %60 to i32
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = zext i16 %60 to i64
+  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %69, label %84
 
-68:                                               ; preds = %.lr.ph
-  %69 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #12
-  %70 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 4) #12
-  store i32 0, ptr %69, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  store i32 2, ptr %71, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store ptr %70, ptr %72, align 8
+69:                                               ; preds = %.lr.ph
+  %70 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #12
+  %71 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 4) #12
+  store i32 0, ptr %70, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  store i32 2, ptr %72, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store ptr %71, ptr %73, align 8
   br label %.lr.ph.i.i.i.i38
 
-.lr.ph.i.i.i.i38:                                 ; preds = %.lr.ph.i.i.i.i38, %68
-  %indvars.iv.i.i.i.i39 = phi i64 [ 0, %68 ], [ %indvars.iv.next.i.i.i.i40, %.lr.ph.i.i.i.i38 ]
-  %73 = getelementptr inbounds nuw %class.StackSlotAnalysisData, ptr %70, i64 %indvars.iv.i.i.i.i39
-  store i32 2621439, ptr %73, align 4
+.lr.ph.i.i.i.i38:                                 ; preds = %.lr.ph.i.i.i.i38, %69
+  %indvars.iv.i.i.i.i39 = phi i64 [ 0, %69 ], [ %indvars.iv.next.i.i.i.i40, %.lr.ph.i.i.i.i38 ]
+  %74 = getelementptr inbounds nuw %class.StackSlotAnalysisData, ptr %71, i64 %indvars.iv.i.i.i.i39
+  store i32 2621439, ptr %74, align 4
   %indvars.iv.next.i.i.i.i40 = add nuw nsw i64 %indvars.iv.i.i.i.i39, 1
   %exitcond.not.i.i.i.i41 = icmp eq i64 %indvars.iv.next.i.i.i.i40, 2
   br i1 %exitcond.not.i.i.i.i41, label %_ZN21SimulatedOperandStackC2Ev.exit42, label %.lr.ph.i.i.i.i38, !llvm.loop !6
 
 _ZN21SimulatedOperandStackC2Ev.exit42:            ; preds = %.lr.ph.i.i.i.i38
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
-  %75 = load ptr, ptr %62, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %64
-  store ptr %69, ptr %76, align 8
-  %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %64
-  %81 = load ptr, ptr %80, align 8
-  %82 = or disjoint i32 %61, 1572864
-  tail call void @_ZN21SimulatedOperandStack4pushE21StackSlotAnalysisData(ptr noundef nonnull align 8 dereferenceable(32) %81, i32 %82)
-  br label %83
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
+  %76 = load ptr, ptr %63, align 8
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %65
+  store ptr %70, ptr %77, align 8
+  %78 = load ptr, ptr %0, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %65
+  %82 = load ptr, ptr %81, align 8
+  %83 = or disjoint i32 %62, 1572864
+  tail call void @_ZN21SimulatedOperandStack4pushE21StackSlotAnalysisData(ptr noundef nonnull align 8 dereferenceable(32) %82, i32 %83)
+  br label %84
 
-83:                                               ; preds = %.lr.ph, %_ZN21SimulatedOperandStackC2Ev.exit42
+84:                                               ; preds = %.lr.ph, %_ZN21SimulatedOperandStackC2Ev.exit42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %84 = tail call noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %9) #12
-  %85 = zext i16 %84 to i64
-  %86 = icmp samesign ult i64 %indvars.iv.next, %85
-  br i1 %86, label %.lr.ph, label %.loopexit47, !llvm.loop !11
+  %85 = tail call noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %9) #12
+  %86 = zext i16 %85 to i64
+  %87 = icmp samesign ult i64 %indvars.iv.next, %86
+  br i1 %87, label %.lr.ph, label %.loopexit47, !llvm.loop !11
 
-.loopexit47:                                      ; preds = %83, %55, %_ZN21SimulatedOperandStackC2Ev.exit
-  %87 = load i8, ptr %7, align 1
-  %88 = trunc i8 %87 to i1
-  %.not3650 = xor i1 %88, true
-  %89 = load i8, ptr %6, align 4
-  %90 = trunc i8 %89 to i1
-  %or.cond51 = select i1 %.not3650, i1 %90, i1 false
+.loopexit47:                                      ; preds = %84, %55, %_ZN21SimulatedOperandStackC2Ev.exit
+  %88 = load i8, ptr %7, align 1
+  %89 = trunc i8 %88 to i1
+  %.not3650 = xor i1 %89, true
+  %90 = load i8, ptr %6, align 4
+  %91 = trunc i8 %90 to i1
+  %or.cond51 = select i1 %.not3650, i1 %91, i1 false
   br i1 %or.cond51, label %.lr.ph52.preheader, label %.critedge
 
 .lr.ph52.preheader:                               ; preds = %.loopexit47
-  %91 = sext i32 %2 to i64
+  %92 = sext i32 %2 to i64
   br label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.loopexit
   store i8 1, ptr %7, align 1
   store i8 0, ptr %6, align 4
-  br label %92
+  br label %93
 
-92:                                               ; preds = %104, %.lr.ph52
-  %.0 = phi i32 [ 0, %.lr.ph52 ], [ %96, %104 ]
-  %93 = icmp slt i32 %.0, %12
-  br i1 %93, label %94, label %.loopexit
+93:                                               ; preds = %105, %.lr.ph52
+  %.0 = phi i32 [ 0, %.lr.ph52 ], [ %97, %105 ]
+  %94 = icmp slt i32 %.0, %12
+  br i1 %94, label %95, label %.loopexit
 
-94:                                               ; preds = %92
-  %95 = tail call noundef i32 @_ZN23ExceptionMessageBuilder14do_instructionEi(ptr noundef nonnull align 8 dereferenceable(22) %0, i32 noundef %.0)
-  %96 = add nsw i32 %95, %.0
-  %97 = icmp eq i32 %2, %96
-  br i1 %97, label %98, label %104
+95:                                               ; preds = %93
+  %96 = tail call noundef i32 @_ZN23ExceptionMessageBuilder14do_instructionEi(ptr noundef nonnull align 8 dereferenceable(22) %0, i32 noundef %.0)
+  %97 = add nsw i32 %96, %.0
+  %98 = icmp eq i32 %2, %97
+  br i1 %98, label %99, label %105
 
-98:                                               ; preds = %94
-  %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds ptr, ptr %101, i64 %91
-  %103 = load ptr, ptr %102, align 8
-  %.not35 = icmp eq ptr %103, null
-  br i1 %.not35, label %104, label %.loopexit.thread
+99:                                               ; preds = %95
+  %100 = load ptr, ptr %0, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds ptr, ptr %102, i64 %92
+  %104 = load ptr, ptr %103, align 8
+  %.not35 = icmp eq ptr %104, null
+  br i1 %.not35, label %105, label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %98
+.loopexit.thread:                                 ; preds = %99
   store i8 1, ptr %7, align 1
   br label %.critedge
 
-104:                                              ; preds = %98, %94
-  %105 = load i32, ptr %5, align 8
-  %106 = icmp sgt i32 %105, 1000000
-  br i1 %106, label %.critedge, label %92, !llvm.loop !12
+105:                                              ; preds = %99, %95
+  %106 = load i32, ptr %5, align 8
+  %107 = icmp sgt i32 %106, 1000000
+  br i1 %107, label %.critedge, label %93, !llvm.loop !12
 
-.loopexit:                                        ; preds = %92
+.loopexit:                                        ; preds = %93
   %.pre = load i8, ptr %7, align 1
-  %107 = trunc i8 %.pre to i1
-  %108 = xor i1 %107, true
-  %109 = load i8, ptr %6, align 4
-  %110 = trunc i8 %109 to i1
-  %or.cond = select i1 %108, i1 %110, i1 false
+  %108 = trunc i8 %.pre to i1
+  %109 = xor i1 %108, true
+  %110 = load i8, ptr %6, align 4
+  %111 = trunc i8 %110 to i1
+  %or.cond = select i1 %109, i1 %111, i1 false
   br i1 %or.cond, label %.lr.ph52, label %.critedge, !llvm.loop !13
 
-.critedge:                                        ; preds = %.loopexit, %104, %.loopexit.thread, %.loopexit47
+.critedge:                                        ; preds = %.loopexit, %105, %.loopexit.thread, %.loopexit47
   ret void
 }
 

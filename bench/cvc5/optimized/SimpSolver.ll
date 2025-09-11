@@ -4566,13 +4566,15 @@ _ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedE
   %.sroa.022.0.copyload = load i32, ptr %141, align 4, !tbaa !6
   %142 = ashr i32 %.sroa.022.0.copyload, 1
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.5", ptr %.pre154.pre, i64 %143, i32 1
-  %145 = load i32, ptr %144, align 8, !tbaa !297
-  %146 = sext i32 %.0135 to i64
-  %147 = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.5", ptr %.pre154.pre, i64 %146, i32 1
-  %148 = load i32, ptr %147, align 8, !tbaa !297
-  %149 = icmp slt i32 %145, %148
-  %spec.select113 = select i1 %149, i32 %142, i32 %.0135
+  %144 = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.5", ptr %.pre154.pre, i64 %143
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %146 = load i32, ptr %145, align 8, !tbaa !297
+  %147 = sext i32 %.0135 to i64
+  %148 = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.5", ptr %.pre154.pre, i64 %147
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %150 = load i32, ptr %149, align 8, !tbaa !297
+  %151 = icmp slt i32 %146, %150
+  %spec.select113 = select i1 %151, i32 %142, i32 %.0135
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %140, !llvm.loop !354
@@ -4580,73 +4582,73 @@ _ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedE
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.thread103
   %.255139 = phi i32 [ %.659, %.thread103 ], [ %.053.ph178, %.lr.ph140.preheader ]
   %.262138 = phi i32 [ %.666, %.thread103 ], [ %.060.ph177, %.lr.ph140.preheader ]
-  %.070137 = phi i32 [ %208, %.thread103 ], [ 0, %.lr.ph140.preheader ]
-  %150 = load i64, ptr %81, align 4
-  %151 = trunc i64 %150 to i32
-  %152 = and i32 %151, 3
-  %.not76 = icmp eq i32 %152, 0
-  br i1 %.not76, label %153, label %.loopexit.loopexit
+  %.070137 = phi i32 [ %210, %.thread103 ], [ 0, %.lr.ph140.preheader ]
+  %152 = load i64, ptr %81, align 4
+  %153 = trunc i64 %152 to i32
+  %154 = and i32 %153, 3
+  %.not76 = icmp eq i32 %154, 0
+  br i1 %.not76, label %155, label %.loopexit.loopexit
 
-153:                                              ; preds = %.lr.ph140
-  %154 = sext i32 %.070137 to i64
-  %155 = getelementptr inbounds i32, ptr %135, i64 %154
-  %156 = load i32, ptr %155, align 4, !tbaa !6
-  %157 = load ptr, ptr %11, align 8, !tbaa !301
-  %158 = zext i32 %156 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %157, i64 %158
-  %160 = load i64, ptr %159, align 4
-  %161 = trunc i64 %160 to i32
-  %162 = and i32 %161, 3
-  %.not77 = icmp ne i32 %162, 0
-  %.not78 = icmp eq i32 %156, %72
+155:                                              ; preds = %.lr.ph140
+  %156 = sext i32 %.070137 to i64
+  %157 = getelementptr inbounds i32, ptr %135, i64 %156
+  %158 = load i32, ptr %157, align 4, !tbaa !6
+  %159 = load ptr, ptr %11, align 8, !tbaa !301
+  %160 = zext i32 %158 to i64
+  %161 = getelementptr inbounds nuw i32, ptr %159, i64 %160
+  %162 = load i64, ptr %161, align 4
+  %163 = trunc i64 %162 to i32
+  %164 = and i32 %163, 3
+  %.not77 = icmp ne i32 %164, 0
+  %.not78 = icmp eq i32 %158, %72
   %or.cond114 = or i1 %.not78, %.not77
-  br i1 %or.cond114, label %.thread103, label %163
+  br i1 %or.cond114, label %.thread103, label %165
 
-163:                                              ; preds = %153
-  %164 = load i32, ptr %17, align 4, !tbaa !63
-  %165 = icmp eq i32 %164, -1
-  %166 = lshr i32 %161, 5
-  %167 = icmp slt i32 %166, %164
-  %or.cond116 = or i1 %165, %167
-  br i1 %or.cond116, label %168, label %.thread103
+165:                                              ; preds = %155
+  %166 = load i32, ptr %17, align 4, !tbaa !63
+  %167 = icmp eq i32 %166, -1
+  %168 = lshr i32 %163, 5
+  %169 = icmp slt i32 %168, %166
+  %or.cond116 = or i1 %167, %169
+  br i1 %or.cond116, label %170, label %.thread103
 
-168:                                              ; preds = %163
-  %169 = lshr i64 %150, 32
-  %170 = trunc nuw i64 %169 to i32
-  %171 = lshr i64 %160, 32
+170:                                              ; preds = %165
+  %171 = lshr i64 %152, 32
   %172 = trunc nuw i64 %171 to i32
-  %173 = icmp sgt i32 %170, %172
-  br i1 %173, label %.thread103, label %174
+  %173 = lshr i64 %162, 32
+  %174 = trunc nuw i64 %173 to i32
+  %175 = icmp sgt i32 %172, %174
+  br i1 %175, label %.thread103, label %176
 
-174:                                              ; preds = %168
-  %175 = lshr i32 %151, 5
-  %176 = icmp samesign ult i32 %166, %175
-  br i1 %176, label %.thread103, label %177
+176:                                              ; preds = %170
+  %177 = lshr i32 %153, 5
+  %178 = icmp samesign ult i32 %168, %177
+  br i1 %178, label %.thread103, label %179
 
-177:                                              ; preds = %174
-  %178 = zext nneg i32 %175 to i64
-  %179 = getelementptr inbounds nuw %union.anon.293, ptr %96, i64 %178
-  %180 = load i32, ptr %179, align 4, !tbaa !290
-  %181 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %182 = zext nneg i32 %166 to i64
-  %183 = getelementptr inbounds nuw %union.anon.293, ptr %181, i64 %182
-  %184 = load i32, ptr %183, align 4, !tbaa !290
-  %185 = xor i32 %184, -1
-  %186 = and i32 %180, %185
-  %.not.i85 = icmp eq i32 %186, 0
+179:                                              ; preds = %176
+  %180 = zext nneg i32 %177 to i64
+  %181 = getelementptr inbounds nuw %union.anon.293, ptr %96, i64 %180
+  %182 = load i32, ptr %181, align 4, !tbaa !290
+  %183 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %184 = zext nneg i32 %168 to i64
+  %185 = getelementptr inbounds nuw %union.anon.293, ptr %183, i64 %184
+  %186 = load i32, ptr %185, align 4, !tbaa !290
+  %187 = xor i32 %186, -1
+  %188 = and i32 %182, %187
+  %.not.i85 = icmp eq i32 %188, 0
   br i1 %.not.i85, label %.preheader40.i, label %.thread103
 
-.preheader40.i:                                   ; preds = %177
-  %.not3344.not.i = icmp ult i32 %151, 32
+.preheader40.i:                                   ; preds = %179
+  %.not3344.not.i = icmp ult i32 %153, 32
   br i1 %.not3344.not.i, label %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread100, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %.preheader40.i
-  %.not47.i = icmp ult i32 %161, 32
+  %.not47.i = icmp ult i32 %163, 32
   br i1 %.not47.i, label %.thread103, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %.preheader.lr.ph.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %166, i32 1)
-  %umax61.i = tail call i32 @llvm.umax.i32(i32 %175, i32 1)
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %168, i32 1)
+  %umax61.i = tail call i32 @llvm.umax.i32(i32 %177, i32 1)
   %wide.trip.count62.i = zext nneg i32 %umax61.i to i64
   %wide.trip.count.i86 = zext nneg i32 %umax.i to i64
   br label %.preheader.i
@@ -4655,81 +4657,81 @@ _ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedE
   %indvars.iv58.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next59.i, %.split.us.i ]
   %.sroa.0.045.i = phi i32 [ -2, %.preheader.preheader.i ], [ %.us-phi.i, %.split.us.i ]
   %.sroa.0.045.fr.i = freeze i32 %.sroa.0.045.i
-  %187 = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %96, i64 %indvars.iv58.i
-  %188 = load i32, ptr %187, align 4, !tbaa !336
-  %189 = icmp eq i32 %.sroa.0.045.fr.i, -2
-  br i1 %189, label %.lr.ph.split.i, label %.lr.ph.split.us.i
+  %189 = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %96, i64 %indvars.iv58.i
+  %190 = load i32, ptr %189, align 4, !tbaa !336
+  %191 = icmp eq i32 %.sroa.0.045.fr.i, -2
+  br i1 %191, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %.preheader.i, %192
-  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %192 ], [ 0, %.preheader.i ]
-  %190 = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %181, i64 %indvars.iv.i87
-  %.sroa.03.0.copyload.us.i = load i32, ptr %190, align 4, !tbaa !6
-  %191 = icmp eq i32 %188, %.sroa.03.0.copyload.us.i
-  br i1 %191, label %.split.us.i, label %192
+.lr.ph.split.us.i:                                ; preds = %.preheader.i, %194
+  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %194 ], [ 0, %.preheader.i ]
+  %192 = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %183, i64 %indvars.iv.i87
+  %.sroa.03.0.copyload.us.i = load i32, ptr %192, align 4, !tbaa !6
+  %193 = icmp eq i32 %190, %.sroa.03.0.copyload.us.i
+  br i1 %193, label %.split.us.i, label %194
 
-192:                                              ; preds = %.lr.ph.split.us.i
+194:                                              ; preds = %.lr.ph.split.us.i
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
   %exitcond.not.i89 = icmp eq i64 %indvars.iv.next.i88, %wide.trip.count.i86
   br i1 %exitcond.not.i89, label %.thread103, label %.lr.ph.split.us.i, !llvm.loop !355
 
-193:                                              ; preds = %196
+195:                                              ; preds = %198
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count.i86
   br i1 %exitcond57.not.i, label %.thread103, label %.lr.ph.split.i, !llvm.loop !355
 
-.lr.ph.split.i:                                   ; preds = %.preheader.i, %193
-  %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %193 ], [ 0, %.preheader.i ]
-  %194 = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %181, i64 %indvars.iv52.i
-  %.sroa.03.0.copyload.i = load i32, ptr %194, align 4, !tbaa !6
-  %195 = icmp eq i32 %188, %.sroa.03.0.copyload.i
-  br i1 %195, label %.split.us.i, label %196
+.lr.ph.split.i:                                   ; preds = %.preheader.i, %195
+  %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %195 ], [ 0, %.preheader.i ]
+  %196 = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %183, i64 %indvars.iv52.i
+  %.sroa.03.0.copyload.i = load i32, ptr %196, align 4, !tbaa !6
+  %197 = icmp eq i32 %190, %.sroa.03.0.copyload.i
+  br i1 %197, label %.split.us.i, label %198
 
-196:                                              ; preds = %.lr.ph.split.i
-  %197 = xor i32 %.sroa.03.0.copyload.i, %188
-  %198 = icmp eq i32 %197, 1
-  br i1 %198, label %.split.us.i, label %193
+198:                                              ; preds = %.lr.ph.split.i
+  %199 = xor i32 %.sroa.03.0.copyload.i, %190
+  %200 = icmp eq i32 %199, 1
+  br i1 %200, label %.split.us.i, label %195
 
-.split.us.i:                                      ; preds = %.lr.ph.split.us.i, %196, %.lr.ph.split.i
-  %.us-phi.i = phi i32 [ %188, %196 ], [ -2, %.lr.ph.split.i ], [ %.sroa.0.045.fr.i, %.lr.ph.split.us.i ]
+.split.us.i:                                      ; preds = %.lr.ph.split.us.i, %198, %.lr.ph.split.i
+  %.us-phi.i = phi i32 [ %190, %198 ], [ -2, %.lr.ph.split.i ], [ %.sroa.0.045.fr.i, %.lr.ph.split.us.i ]
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count62.i
   br i1 %exitcond63.not.i, label %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit, label %.preheader.i, !llvm.loop !356
 
 _ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit: ; preds = %.split.us.i
-  switch i32 %.us-phi.i, label %200 [
+  switch i32 %.us-phi.i, label %202 [
     i32 -2, label %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread100
     i32 -1, label %.thread103
   ]
 
 _ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread100: ; preds = %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit, %.preheader40.i
-  %199 = add nsw i32 %.255139, 1
-  tail call void @_ZN4cvc58internal7Minisat10SimpSolver12removeClauseEj(ptr noundef nonnull align 8 dereferenceable(1108) %0, i32 noundef %156)
+  %201 = add nsw i32 %.255139, 1
+  tail call void @_ZN4cvc58internal7Minisat10SimpSolver12removeClauseEj(ptr noundef nonnull align 8 dereferenceable(1108) %0, i32 noundef %158)
   br label %.thread103
 
-200:                                              ; preds = %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit
-  %201 = xor i32 %.us-phi.i, 1
-  %202 = tail call noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver16strengthenClauseEjNS1_3LitE(ptr noundef nonnull align 8 dereferenceable(1108) %0, i32 noundef %156, i32 %201)
-  br i1 %202, label %203, label %.thread108
+202:                                              ; preds = %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit
+  %203 = xor i32 %.us-phi.i, 1
+  %204 = tail call noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver16strengthenClauseEjNS1_3LitE(ptr noundef nonnull align 8 dereferenceable(1108) %0, i32 noundef %158, i32 %203)
+  br i1 %204, label %205, label %.thread108
 
-203:                                              ; preds = %200
-  %204 = add nsw i32 %.262138, 1
-  %205 = ashr i32 %.us-phi.i, 1
-  %206 = icmp eq i32 %205, %.0.lcssa
-  %207 = sext i1 %206 to i32
-  %spec.select = add nsw i32 %.070137, %207
+205:                                              ; preds = %202
+  %206 = add nsw i32 %.262138, 1
+  %207 = ashr i32 %.us-phi.i, 1
+  %208 = icmp eq i32 %207, %.0.lcssa
+  %209 = sext i1 %208 to i32
+  %spec.select = add nsw i32 %.070137, %209
   br label %.thread103
 
-.thread103:                                       ; preds = %192, %193, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit, %163, %168, %177, %174, %.preheader.lr.ph.i, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread100, %203, %153
-  %.373 = phi i32 [ %.070137, %153 ], [ %spec.select, %203 ], [ %.070137, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread100 ], [ %.070137, %.preheader.lr.ph.i ], [ %.070137, %174 ], [ %.070137, %177 ], [ %.070137, %168 ], [ %.070137, %163 ], [ %.070137, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.070137, %193 ], [ %.070137, %192 ]
-  %.666 = phi i32 [ %.262138, %153 ], [ %204, %203 ], [ %.262138, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread100 ], [ %.262138, %.preheader.lr.ph.i ], [ %.262138, %174 ], [ %.262138, %177 ], [ %.262138, %168 ], [ %.262138, %163 ], [ %.262138, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.262138, %193 ], [ %.262138, %192 ]
-  %.659 = phi i32 [ %.255139, %153 ], [ %.255139, %203 ], [ %199, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread100 ], [ %.255139, %.preheader.lr.ph.i ], [ %.255139, %174 ], [ %.255139, %177 ], [ %.255139, %168 ], [ %.255139, %163 ], [ %.255139, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.255139, %193 ], [ %.255139, %192 ]
-  %208 = add nsw i32 %.373, 1
-  %209 = load i32, ptr %139, align 8, !tbaa !297
-  %210 = icmp slt i32 %208, %209
-  br i1 %210, label %.lr.ph140, label %.loopexit.loopexit, !llvm.loop !357
+.thread103:                                       ; preds = %194, %195, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit, %165, %170, %179, %176, %.preheader.lr.ph.i, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread100, %205, %155
+  %.373 = phi i32 [ %.070137, %155 ], [ %spec.select, %205 ], [ %.070137, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread100 ], [ %.070137, %.preheader.lr.ph.i ], [ %.070137, %176 ], [ %.070137, %179 ], [ %.070137, %170 ], [ %.070137, %165 ], [ %.070137, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.070137, %195 ], [ %.070137, %194 ]
+  %.666 = phi i32 [ %.262138, %155 ], [ %206, %205 ], [ %.262138, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread100 ], [ %.262138, %.preheader.lr.ph.i ], [ %.262138, %176 ], [ %.262138, %179 ], [ %.262138, %170 ], [ %.262138, %165 ], [ %.262138, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.262138, %195 ], [ %.262138, %194 ]
+  %.659 = phi i32 [ %.255139, %155 ], [ %.255139, %205 ], [ %201, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit.thread100 ], [ %.255139, %.preheader.lr.ph.i ], [ %.255139, %176 ], [ %.255139, %179 ], [ %.255139, %170 ], [ %.255139, %165 ], [ %.255139, %_ZNK4cvc58internal7Minisat6Clause8subsumesERKS2_.exit ], [ %.255139, %195 ], [ %.255139, %194 ]
+  %210 = add nsw i32 %.373, 1
+  %211 = load i32, ptr %139, align 8, !tbaa !297
+  %212 = icmp slt i32 %210, %211
+  br i1 %212, label %.lr.ph140, label %.loopexit.loopexit, !llvm.loop !357
 
-.thread108:                                       ; preds = %25, %200, %_ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit
-  %.6 = phi i1 [ true, %_ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit ], [ false, %200 ], [ true, %25 ]
+.thread108:                                       ; preds = %25, %202, %_ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit
+  %.6 = phi i1 [ true, %_ZN4cvc58internal7Minisat5QueueIjE5clearEb.exit ], [ false, %202 ], [ true, %25 ]
   ret i1 %.6
 }
 

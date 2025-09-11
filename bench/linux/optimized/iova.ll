@@ -180,7 +180,8 @@ define internal noundef i32 @iova_cpuhp_dead(i32 noundef %0, ptr noundef %1) #1 
 9:                                                ; preds = %9, %2
   %10 = phi i64 [ 0, %2 ], [ %23, %9 ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr %struct.iova_rcache, ptr %11, i64 %10, i32 3
+  %.split = getelementptr %struct.iova_rcache, ptr %11, i64 %10
+  %12 = getelementptr i8, ptr %.split, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = load i64, ptr %8, align 8
@@ -908,7 +909,8 @@ define dso_local i64 @alloc_iova_fast(ptr noundef %0, i64 noundef %1, i64 nounde
 94:                                               ; preds = %94, %91
   %95 = phi i64 [ 0, %91 ], [ %108, %94 ]
   %96 = load ptr, ptr %77, align 8
-  %97 = getelementptr %struct.iova_rcache, ptr %96, i64 %95, i32 3
+  %.split = getelementptr %struct.iova_rcache, ptr %96, i64 %95
+  %97 = getelementptr i8, ptr %.split, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = ptrtoint ptr %98 to i64
   %100 = load i64, ptr %93, align 8

@@ -33,47 +33,47 @@ define ptr @Extra_TruthElementary(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph33.split.us.split.us:                       ; preds = %.lr.ph33.split.us.split.us.preheader, %..loopexit27_crit_edge.us.us
   %indvars.iv49 = phi i64 [ 0, %.lr.ph33.split.us.split.us.preheader ], [ %indvars.iv.next50, %..loopexit27_crit_edge.us.us ]
   %9 = icmp samesign ult i64 %indvars.iv49, 5
+  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv49
   br i1 %9, label %.preheader.us.us, label %.preheader26.us.us
 
-10:                                               ; preds = %.preheader26.us.us, %10
-  %indvars.iv = phi i64 [ 0, %.preheader26.us.us ], [ %indvars.iv.next, %10 ]
-  %11 = trunc nuw nsw i64 %indvars.iv to i32
-  %12 = and i32 %22, %11
-  %.not.us.us = icmp ne i32 %12, 0
-  %13 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+11:                                               ; preds = %.preheader26.us.us, %11
+  %indvars.iv = phi i64 [ 0, %.preheader26.us.us ], [ %indvars.iv.next, %11 ]
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
+  %13 = and i32 %23, %12
+  %.not.us.us = icmp ne i32 %13, 0
+  %14 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   %. = sext i1 %.not.us.us to i32
-  store i32 %., ptr %13, align 4, !tbaa !3
+  store i32 %., ptr %14, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit27_crit_edge.us.us, label %10, !llvm.loop !7
+  br i1 %exitcond.not, label %..loopexit27_crit_edge.us.us, label %11, !llvm.loop !7
 
-..loopexit27_crit_edge.us.us:                     ; preds = %10, %14
+..loopexit27_crit_edge.us.us:                     ; preds = %11, %15
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
   br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph33.split.us.split.us, !llvm.loop !9
 
-14:                                               ; preds = %.preheader.us.us, %14
-  %indvars.iv44 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next45, %14 ]
-  %15 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv44
-  store i32 %17, ptr %15, align 4, !tbaa !3
+15:                                               ; preds = %.preheader.us.us, %15
+  %indvars.iv44 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next45, %15 ]
+  %16 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv44
+  store i32 %19, ptr %16, align 4, !tbaa !3
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %..loopexit27_crit_edge.us.us, label %14, !llvm.loop !10
+  br i1 %exitcond48.not, label %..loopexit27_crit_edge.us.us, label %15, !llvm.loop !10
 
 .preheader.us.us:                                 ; preds = %.lr.ph33.split.us.split.us
-  %16 = getelementptr inbounds nuw [2 x i32], ptr @s_VarMasks, i64 %indvars.iv49, i64 1
-  %17 = load i32, ptr %16, align 4, !tbaa !3
-  %18 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv49
-  %19 = load ptr, ptr %18, align 8, !tbaa !11
-  br label %14
+  %17 = getelementptr inbounds nuw [2 x i32], ptr @s_VarMasks, i64 %indvars.iv49
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !3
+  %20 = load ptr, ptr %10, align 8, !tbaa !11
+  br label %15
 
 .preheader26.us.us:                               ; preds = %.lr.ph33.split.us.split.us
-  %20 = trunc i64 %indvars.iv49 to i32
-  %21 = add i32 %20, -5
-  %22 = shl nuw i32 1, %21
-  %23 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv49
-  %24 = load ptr, ptr %23, align 8, !tbaa !11
-  br label %10
+  %21 = trunc i64 %indvars.iv49 to i32
+  %22 = add i32 %21, -5
+  %23 = shl nuw i32 1, %22
+  %24 = load ptr, ptr %10, align 8, !tbaa !11
+  br label %11
 
 ._crit_edge:                                      ; preds = %..loopexit27_crit_edge.us.us, %1
   ret ptr %6

@@ -875,7 +875,8 @@ for.body.i.i:                                     ; preds = %if.then.i, %_ZN4abs
   %it.sroa.9.024.i.i = phi i32 [ %it.sroa.9.2.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ 0, %if.then.i ]
   %7 = and i32 %it.sroa.9.024.i.i, 255
   %conv6.i.i.i.i = zext nneg i32 %7 to i64
-  %second.i.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %it.sroa.0.025.i.i, i64 %conv6.i.i.i.i, i32 0, i32 1, i32 6
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %it.sroa.0.025.i.i, i64 %conv6.i.i.i.i
+  %second.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i, i64 24
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %second.i.i)
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %it.sroa.0.025.i.i, i64 11
   %8 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
@@ -1152,7 +1153,8 @@ _ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map
   %16 = or i1 %14, %15
   %17 = and i32 %iter.sroa.7.0.i.i.i.i.fr.i, 255
   %conv6.i.i.i = zext nneg i32 %17 to i64
-  %second.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %iter.sroa.0.0.i2.i.i.i.fr.i, i64 %conv6.i.i.i, i32 0, i32 1, i32 6
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %iter.sroa.0.0.i2.i.i.i.fr.i, i64 %conv6.i.i.i
+  %second.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i, i64 24
   %spec.select.i = select i1 %16, ptr %second.i, ptr null
   br label %return
 
@@ -1213,8 +1215,8 @@ for.body.i.i:                                     ; preds = %if.then.i, %_ZN4abs
   %it.sroa.9.024.i.i = phi i32 [ %it.sroa.9.2.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ 0, %if.then.i ]
   %6 = and i32 %it.sroa.9.024.i.i, 255
   %conv6.i.i.i.i = zext nneg i32 %6 to i64
-  %second.i.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %it.sroa.0.025.i.i, i64 %conv6.i.i.i.i, i32 0, i32 1, i32 6
-  %7 = getelementptr i8, ptr %second.i.i, i64 10
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %it.sroa.0.025.i.i, i64 %conv6.i.i.i.i
+  %7 = getelementptr i8, ptr %arrayidx.i.i.i.i.i.i, i64 34
   %second.val.i.i = load i8, ptr %7, align 2
   %8 = and i8 %second.val.i.i, 1
   %9 = xor i8 %8, 1
@@ -5486,7 +5488,8 @@ for.body.i.i:                                     ; preds = %if.then.i, %_ZN4abs
   %it.sroa.9.024.i.i = phi i32 [ %it.sroa.9.2.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ 0, %if.then.i ]
   %6 = and i32 %it.sroa.9.024.i.i, 255
   %conv6.i.i.i.i = zext nneg i32 %6 to i64
-  %second.i.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %it.sroa.0.025.i.i, i64 %conv6.i.i.i.i, i32 0, i32 1, i32 6
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %it.sroa.0.025.i.i, i64 %conv6.i.i.i.i
+  %second.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i, i64 24
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9Extension5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i)
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %it.sroa.0.025.i.i, i64 11
   %7 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
@@ -8381,7 +8384,8 @@ _ZN4absl12lts_2023080218container_internal19btree_set_containerINS1_5btreeINS1_1
   %.sink.i.i = phi i8 [ 1, %if.end10.i.i ], [ 0, %land.lhs.true.i.i ]
   %13 = and i32 %.sink28.i.i, 255
   %conv6.i.i = zext nneg i32 %13 to i64
-  %second = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %.sink29.i.i, i64 %conv6.i.i, i32 0, i32 1, i32 6
+  %arrayidx.i.i.i.i11 = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %.sink29.i.i, i64 %conv6.i.i
+  %second = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i11, i64 24
   br label %return
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end27
@@ -15061,7 +15065,8 @@ _ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map
   %11 = or i1 %9, %10
   %12 = and i32 %iter.sroa.7.0.i.i.i.i.fr, 255
   %conv6.i.i = zext nneg i32 %12 to i64
-  %second = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %iter.sroa.0.0.i2.i.i.i.fr, i64 %conv6.i.i, i32 0, i32 1, i32 6
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %iter.sroa.0.0.i2.i.i.i.fr, i64 %conv6.i.i
+  %second = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 24
   %spec.select = select i1 %11, ptr %second, ptr null
   br label %_ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEEE4findIiEENS1_14btree_iteratorINS1_10btree_nodeISG_EERSE_PSE_EERSD_.exit.thread
 
@@ -15158,7 +15163,8 @@ _ZN4absl12lts_2023080218container_internal15btree_containerINS1_5btreeINS1_10map
   %11 = or i1 %9, %10
   %12 = and i32 %iter.sroa.7.0.i.i.i.i.fr.i, 255
   %conv6.i.i.i = zext nneg i32 %12 to i64
-  %second.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %iter.sroa.0.0.i2.i.i.i.fr.i, i64 %conv6.i.i.i, i32 0, i32 1, i32 6
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %iter.sroa.0.0.i2.i.i.i.fr.i, i64 %conv6.i.i.i
+  %second.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i, i64 24
   %spec.select.i = select i1 %11, ptr %second.i, ptr null
   br label %_ZNK6google8protobuf8internal12ExtensionSet20FindOrNullInLargeMapEi.exit
 
@@ -19462,8 +19468,7 @@ do.body.i:                                        ; preds = %do.body.i.backedge,
   %pos.1.i = phi i64 [ %conv9.i, %while.end.i ], [ %pos.1.i.be, %do.body.i.backedge ]
   %parent.1.i = phi ptr [ %12, %while.end.i ], [ %parent.1.i.be, %do.body.i.backedge ]
   %add.ptr.i.i.i38.i = getelementptr inbounds nuw i8, ptr %parent.1.i, i64 240
-  %idxprom.i39.i = and i64 %pos.1.i, 255
-  %arrayidx.i40.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i.i38.i, i64 %idxprom.i39.i
+  %arrayidx.i40.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i.i38.i, i64 %pos.1.i
   %13 = load ptr, ptr %arrayidx.i40.i, align 8
   %arrayidx.i.i41.i = getelementptr i8, ptr %13, i64 11
   %14 = load i8, ptr %arrayidx.i.i41.i, align 1

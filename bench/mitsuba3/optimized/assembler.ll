@@ -457,7 +457,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedDataArra
 
 24:                                               ; preds = %20
   %25 = zext nneg i8 %15 to i64
-  %26 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 256), i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !56
   %28 = zext i8 %27 to i64
   %29 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 %28)

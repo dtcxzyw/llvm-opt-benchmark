@@ -2495,7 +2495,7 @@ compute_drnode.exit:                              ; preds = %41, %26, %23
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = trunc i64 %.032.i to i32
+  %50 = trunc nuw i64 %.032.i to i32
   %51 = trunc i64 %.031.i to i32
   tail call void %47(ptr noundef %7, ptr noundef %49, i32 noundef %50, i32 noundef %51)
   br label %52

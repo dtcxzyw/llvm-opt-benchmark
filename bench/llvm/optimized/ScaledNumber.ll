@@ -352,7 +352,7 @@ define dso_local void @_ZN4llvm16ScaledNumberBase8toStringB5cxx11Emsij(ptr dead_
   br i1 %48, label %49, label %60
 
 49:                                               ; preds = %47
-  %50 = sub nsw i32 -64, %23
+  %50 = sub nuw nsw i32 -64, %23
   %51 = zext nneg i32 %50 to i64
   %52 = lshr i64 %1, %51
   %53 = add nsw i32 %23, 128

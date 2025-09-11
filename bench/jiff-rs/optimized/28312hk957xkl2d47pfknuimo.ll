@@ -7731,7 +7731,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h1dd3b1635714e77bE.exit:
   %80 = load ptr, ptr %79, align 8, !alias.scope !810, !nonnull !3, !align !4, !noundef !3
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %80, i64 %74
   %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !810, !nonnull !3, !align !5, !noundef !3
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %80, i64 %74, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !810, !noundef !3
   %81 = call { i64, ptr } @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17h864dcbf0bc7f2ca3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %73, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i)
   %82 = extractvalue { i64, ptr } %81, 0
@@ -7920,7 +7920,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h1dd3b1635714e77bE.exit:
   %87 = load ptr, ptr %86, align 8, !alias.scope !830, !nonnull !3, !align !4, !noundef !3
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %87, i64 %81
   %.sroa.0.0.i27 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !830, !nonnull !3, !align !5, !noundef !3
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %87, i64 %81, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i28 = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !830, !noundef !3
   %88 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h9b4a6e53c54974d4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %80, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i27, i64 noundef %.sroa.3.0.i28)
   br i1 %88, label %89, label %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit31", !prof !51
@@ -8182,7 +8182,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h1dd3b1635714e77bE.exit:
   %122 = load ptr, ptr %.in.i, align 8, !alias.scope !849, !nonnull !3, !align !4, !noundef !3
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %122, i64 %108
   %.sroa.0.0.i25 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !849, !nonnull !3, !align !5, !noundef !3
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %122, i64 %108, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !849, !noundef !3
   %123 = call { i64, ptr } @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17h864dcbf0bc7f2ca3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %107, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i25, i64 noundef %.sroa.3.0.i)
   %124 = extractvalue { i64, ptr } %123, 0
@@ -8421,7 +8421,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h1dd3b1635714e77bE.exit:
   %121 = load ptr, ptr %.in.i, align 8, !alias.scope !864, !nonnull !3, !align !4, !noundef !3
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %121, i64 %107
   %.sroa.0.0.i25 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !864, !nonnull !3, !align !5, !noundef !3
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %121, i64 %107, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !864, !noundef !3
   %122 = call { i64, ptr } @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17h864dcbf0bc7f2ca3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %106, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i25, i64 noundef %.sroa.3.0.i)
   %123 = extractvalue { i64, ptr } %122, 0
@@ -8650,7 +8650,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h1dd3b1635714e77bE.exit:
   %111 = load ptr, ptr %.in.i, align 8, !alias.scope !884, !nonnull !3, !align !4, !noundef !3
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %111, i64 %97
   %.sroa.0.0.i28 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !884, !nonnull !3, !align !5, !noundef !3
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %111, i64 %97, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i29 = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !884, !noundef !3
   %112 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h9b4a6e53c54974d4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %96, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i28, i64 noundef %.sroa.3.0.i29)
   br i1 %112, label %113, label %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit32", !prof !51
@@ -8895,7 +8895,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h1dd3b1635714e77bE.exit:
   %112 = load ptr, ptr %.in.i, align 8, !alias.scope !908, !nonnull !3, !align !4, !noundef !3
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %112, i64 %98
   %.sroa.0.0.i28 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !908, !nonnull !3, !align !5, !noundef !3
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %112, i64 %98, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i29 = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !908, !noundef !3
   %113 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h9b4a6e53c54974d4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %97, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i28, i64 noundef %.sroa.3.0.i29)
   br i1 %113, label %114, label %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E.exit32", !prof !51
@@ -9025,7 +9025,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h3637c761b92830f5E.exit:
   %61 = load ptr, ptr %.in.i, align 8, !alias.scope !919, !nonnull !3, !align !4, !noundef !3
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %61, i64 %47
   %.sroa.0.0.i26 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !919, !nonnull !3, !align !5, !noundef !3
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %61, i64 %47, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i27 = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !919, !noundef !3
   %62 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h9b4a6e53c54974d4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %23, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i26, i64 noundef %.sroa.3.0.i27)
   br i1 %62, label %63, label %69, !prof !51
@@ -9178,7 +9178,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h3637c761b92830f5E.exit:
   %73 = load ptr, ptr %.in.i, align 8, !alias.scope !929, !nonnull !3, !align !4, !noundef !3
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %73, i64 %59
   %.sroa.0.0.i26 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !929, !nonnull !3, !align !5, !noundef !3
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %73, i64 %59, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !929, !noundef !3
   %74 = call { i64, ptr } @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17h864dcbf0bc7f2ca3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %37, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i26, i64 noundef %.sroa.3.0.i)
   %75 = extractvalue { i64, ptr } %74, 0

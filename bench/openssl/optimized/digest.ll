@@ -3222,25 +3222,26 @@ define i32 @ossl_hmac2mdnid(i32 noundef %0) local_unnamed_addr #6 {
 define i32 @ossl_md2hmacnid(i32 noundef %0) local_unnamed_addr #6 {
   br label %2
 
-2:                                                ; preds = %1, %9
-  %.07 = phi i64 [ 0, %1 ], [ %10, %9 ]
+2:                                                ; preds = %1, %10
+  %.07 = phi i64 [ 0, %1 ], [ %11, %10 ]
   %3 = getelementptr inbounds nuw %struct.ossl_hmacmd_pair, ptr @ossl_hmacmd_pairs, i64 %.07
   %4 = load i32, ptr %3, align 8, !tbaa !98
   %5 = icmp eq i32 %4, %0
-  br i1 %5, label %6, label %9
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw %struct.ossl_hmacmd_pair, ptr @ossl_hmacmd_pairs, i64 %.07, i32 1
-  %8 = load i32, ptr %7, align 4, !tbaa !96
+  %7 = getelementptr inbounds nuw %struct.ossl_hmacmd_pair, ptr @ossl_hmacmd_pairs, i64 %.07
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !96
   br label %.loopexit
 
-9:                                                ; preds = %2
-  %10 = add nuw nsw i64 %.07, 1
-  %exitcond.not = icmp eq i64 %10, 15
+10:                                               ; preds = %2
+  %11 = add nuw nsw i64 %.07, 1
+  %exitcond.not = icmp eq i64 %11, 15
   br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !99
 
-.loopexit:                                        ; preds = %9, %6
-  %.06 = phi i32 [ %8, %6 ], [ 0, %9 ]
+.loopexit:                                        ; preds = %10, %6
+  %.06 = phi i32 [ %9, %6 ], [ 0, %10 ]
   ret i32 %.06
 }
 

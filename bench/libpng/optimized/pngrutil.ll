@@ -3354,12 +3354,12 @@ png_crc_read.exit:                                ; preds = %18
   %40 = zext i8 %39 to i16
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %40, ptr %41, align 2, !tbaa !157
-  %42 = getelementptr inbounds nuw %struct.png_color_struct, ptr %36, i64 %37, i32 1
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %43 = load i8, ptr %42, align 1, !tbaa !144
   %44 = zext i8 %43 to i16
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 %44, ptr %45, align 2, !tbaa !158
-  %46 = getelementptr inbounds nuw %struct.png_color_struct, ptr %36, i64 %37, i32 2
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %47 = load i8, ptr %46, align 1, !tbaa !145
   %48 = zext i8 %47 to i16
   br label %108

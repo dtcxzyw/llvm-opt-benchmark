@@ -211,7 +211,7 @@ define void @_ZN4pkpy4Dict3setEPNS_8PyObjectES2_(ptr noundef nonnull align 8 der
   %12 = load i8, ptr %4, align 1
   %13 = trunc i8 %12 to i1
   %.pre = load i32, ptr %5, align 4
-  br i1 %13, label %36, label %14
+  br i1 %13, label %37, label %14
 
 14:                                               ; preds = %11
   %15 = load i32, ptr %6, align 8
@@ -231,7 +231,7 @@ define void @_ZN4pkpy4Dict3setEPNS_8PyObjectES2_(ptr noundef nonnull align 8 der
   store i32 %.pre, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.pre, ptr %25, align 4
-  br label %36
+  br label %37
 
 26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -243,18 +243,20 @@ define void @_ZN4pkpy4Dict3setEPNS_8PyObjectES2_(ptr noundef nonnull align 8 der
   %32 = load i32, ptr %5, align 4
   %33 = load ptr, ptr %29, align 8
   %34 = sext i32 %28 to i64
-  %35 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %33, i64 %34, i32 1
-  store i32 %32, ptr %35, align 4
+  %35 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %33, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store i32 %32, ptr %36, align 4
   store i32 %32, ptr %27, align 4
-  br label %36
+  br label %37
 
-36:                                               ; preds = %23, %26, %11
-  %37 = phi i32 [ %.pre, %23 ], [ %32, %26 ], [ %.pre, %11 ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %39, i64 %40, i32 1
-  store ptr %2, ptr %41, align 8
+37:                                               ; preds = %23, %26, %11
+  %38 = phi i32 [ %.pre, %23 ], [ %32, %26 ], [ %.pre, %11 ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %40 = load ptr, ptr %39, align 8
+  %41 = sext i32 %38 to i64
+  %42 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %40, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store ptr %2, ptr %43, align 8
   ret void
 }
 
@@ -306,7 +308,7 @@ define void @_ZN4pkpy4Dict7_rehashEv(ptr noundef nonnull align 8 dereferenceable
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit
-  %.011 = phi i32 [ %67, %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit ], [ %9, %1 ]
+  %.011 = phi i32 [ %70, %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit ], [ %9, %1 ]
   %34 = sext i32 %.011 to i64
   %35 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %5, i64 %34
   %36 = load ptr, ptr %35, align 8
@@ -354,8 +356,9 @@ define void @_ZN4pkpy4Dict7_rehashEv(ptr noundef nonnull align 8 dereferenceable
   %58 = load i32, ptr %3, align 4
   %59 = load ptr, ptr %6, align 8
   %60 = sext i32 %55 to i64
-  %61 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %59, i64 %60, i32 1
-  store i32 %58, ptr %61, align 4
+  %61 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %59, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  store i32 %58, ptr %62, align 4
   br label %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit.sink.split
 
 _ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit.sink.split: ; preds = %54, %53
@@ -364,16 +367,18 @@ _ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit.sink.split: ; preds = %54, %53
   br label %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit
 
 _ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit:         ; preds = %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit.sink.split, %42
-  %62 = phi i32 [ %.pre, %42 ], [ %.pre.sink, %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit.sink.split ]
-  %63 = load ptr, ptr %4, align 8
-  %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %63, i64 %64, i32 1
-  store ptr %38, ptr %65, align 8
+  %63 = phi i32 [ %.pre, %42 ], [ %.pre.sink, %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit.sink.split ]
+  %64 = load ptr, ptr %4, align 8
+  %65 = sext i32 %63 to i64
+  %66 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %64, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr %38, ptr %67, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %66 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %7, i64 %34, i32 1
-  %67 = load i32, ptr %66, align 4
-  %.not = icmp eq i32 %67, -1
+  %68 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %7, i64 %34
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %70 = load i32, ptr %69, align 4
+  %.not = icmp eq i32 %70, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit, %1
@@ -400,19 +405,20 @@ define noundef ptr @_ZNK4pkpy4Dict7try_getEPNS_8PyObjectE(ptr noundef nonnull al
   call void @_ZNK4pkpy4Dict8_probe_0EPNS_8PyObjectERbRi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %5 = load i8, ptr %3, align 1
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %14
+  br i1 %6, label %7, label %15
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %4, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %9, i64 %11, i32 1
-  %13 = load ptr, ptr %12, align 8
-  br label %14
+  %12 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %9, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8
+  br label %15
 
-14:                                               ; preds = %2, %7
-  %.0 = phi ptr [ %13, %7 ], [ null, %2 ]
+15:                                               ; preds = %2, %7
+  %.0 = phi ptr [ %14, %7 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -435,7 +441,7 @@ define noundef zeroext i1 @_ZN4pkpy4Dict5eraseEPNS_8PyObjectE(ptr noundef nonnul
   call void @_ZNK4pkpy4Dict8_probe_0EPNS_8PyObjectERbRi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %5 = load i8, ptr %3, align 1
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %66
+  br i1 %6, label %7, label %70
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -456,75 +462,79 @@ define noundef zeroext i1 @_ZN4pkpy4Dict5eraseEPNS_8PyObjectE(ptr noundef nonnul
   store i32 -1, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 -1, ptr %19, align 4
-  br label %56
+  br label %59
 
 20:                                               ; preds = %7
   %21 = load i32, ptr %17, align 8
   %22 = icmp eq i32 %21, %10
-  br i1 %22, label %23, label %30
+  br i1 %22, label %23, label %31
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %25, i64 %11, i32 1
-  %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr %17, align 8
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %25, i64 %28
-  store i32 -1, ptr %29, align 4
-  br label %56
+  %26 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %25, i64 %11
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %28 = load i32, ptr %27, align 4
+  store i32 %28, ptr %17, align 8
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %25, i64 %29
+  store i32 -1, ptr %30, align 4
+  br label %59
 
-30:                                               ; preds = %20
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, %10
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %35, i64 %11
-  br i1 %33, label %37, label %41
+31:                                               ; preds = %20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %33, %10
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %36, i64 %11
+  br i1 %34, label %38, label %43
 
-37:                                               ; preds = %30
-  %38 = load i32, ptr %36, align 4
-  store i32 %38, ptr %31, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %35, i64 %39, i32 1
-  store i32 -1, ptr %40, align 4
-  br label %56
+38:                                               ; preds = %31
+  %39 = load i32, ptr %37, align 4
+  store i32 %39, ptr %32, align 4
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %36, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store i32 -1, ptr %42, align 4
+  br label %59
 
-41:                                               ; preds = %30
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = load i32, ptr %36, align 4
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %35, i64 %45, i32 1
-  store i32 %43, ptr %46, align 4
-  %47 = load ptr, ptr %34, align 8
-  %48 = load i32, ptr %4, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %47, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %53 = load i32, ptr %52, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %47, i64 %54
-  store i32 %51, ptr %55, align 4
-  br label %56
+43:                                               ; preds = %31
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %45 = load i32, ptr %44, align 4
+  %46 = load i32, ptr %37, align 4
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %36, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i32 %45, ptr %49, align 4
+  %50 = load ptr, ptr %35, align 8
+  %51 = load i32, ptr %4, align 4
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %50, i64 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %56 = load i32, ptr %55, align 4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %50, i64 %57
+  store i32 %54, ptr %58, align 4
+  br label %59
 
-56:                                               ; preds = %23, %41, %37, %18
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %58 = load ptr, ptr %57, align 8
-  %59 = load i32, ptr %4, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %58, i64 %60
-  store i32 -1, ptr %61, align 4
-  %62 = load ptr, ptr %57, align 8
-  %63 = load i32, ptr %4, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %62, i64 %64, i32 1
-  store i32 -1, ptr %65, align 4
-  br label %66
+59:                                               ; preds = %23, %43, %38, %18
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %61 = load ptr, ptr %60, align 8
+  %62 = load i32, ptr %4, align 4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %61, i64 %63
+  store i32 -1, ptr %64, align 4
+  %65 = load ptr, ptr %60, align 8
+  %66 = load i32, ptr %4, align 4
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %65, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  store i32 -1, ptr %69, align 4
+  br label %70
 
-66:                                               ; preds = %2, %56
+70:                                               ; preds = %2, %59
   ret i1 %6
 }
 
@@ -598,8 +608,9 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   %40 = load i32, ptr %4, align 4
   %41 = load ptr, ptr %11, align 8
   %42 = sext i32 %37 to i64
-  %43 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %41, i64 %42, i32 1
-  store i32 %40, ptr %43, align 4
+  %43 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %41, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  store i32 %40, ptr %44, align 4
   br label %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i"
 
 "_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i": ; preds = %36, %35
@@ -608,16 +619,18 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   br label %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.i"
 
 "_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.i": ; preds = %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i", %24
-  %44 = phi i32 [ %.pre.i.i.i, %24 ], [ %.pre.i.i.sink.i, %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i" ]
-  %45 = load ptr, ptr %9, align 8
-  %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %45, i64 %46, i32 1
-  store ptr %20, ptr %47, align 8
+  %45 = phi i32 [ %.pre.i.i.i, %24 ], [ %.pre.i.i.sink.i, %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i" ]
+  %46 = load ptr, ptr %9, align 8
+  %47 = sext i32 %45 to i64
+  %48 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %46, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store ptr %20, ptr %49, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %48 = load ptr, ptr %13, align 8
-  %49 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %48, i64 %16, i32 1
-  %.0.i = load i32, ptr %49, align 4
+  %50 = load ptr, ptr %13, align 8
+  %51 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %50, i64 %16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %.0.i = load i32, ptr %52, align 4
   %.not.i = icmp eq i32 %.0.i, -1
   br i1 %.not.i, label %"_ZNK4pkpy4Dict5applyIZNS0_6updateERKS0_E3$_0EEvT_.exit", label %14, !llvm.loop !6
 
@@ -658,112 +671,113 @@ define void @_ZNK4pkpy4Dict4keysEv(ptr dead_on_unwind noalias nonnull writable s
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   store ptr %18, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %21, i64 %16, i32 1
-  %.018 = load i32, ptr %22, align 4
+  %22 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %21, i64 %16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %.018 = load i32, ptr %23, align 4
   %.not = icmp eq i32 %.018, -1
   br i1 %.not, label %._crit_edge.loopexit, label %14, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %14
-  %23 = trunc nuw i64 %indvars.iv.next to i32
+  %24 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.017.lcssa = phi i32 [ 0, %2 ], [ %23, %._crit_edge.loopexit ]
-  %24 = load i32, ptr %9, align 8
-  %25 = icmp eq i32 %.017.lcssa, %24
-  br i1 %25, label %48, label %26
+  %.017.lcssa = phi i32 [ 0, %2 ], [ %24, %._crit_edge.loopexit ]
+  %25 = load i32, ptr %9, align 8
+  %26 = icmp eq i32 %.017.lcssa, %25
+  br i1 %26, label %49, label %27
 
-26:                                               ; preds = %._crit_edge
-  %27 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+27:                                               ; preds = %._crit_edge
+  %28 = tail call ptr @__cxa_allocate_exception(i64 16) #18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %28 unwind label %.thread
+          to label %29 unwind label %.thread
 
-28:                                               ; preds = %26
-  %29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull @.str)
-          to label %30 unwind label %36
+29:                                               ; preds = %27
+  %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull @.str)
+          to label %31 unwind label %37
 
-30:                                               ; preds = %28
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %29) #18
+31:                                               ; preds = %29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %30) #18
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, i32 noundef 145) #18
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %31 unwind label %38
+          to label %32 unwind label %39
 
-31:                                               ; preds = %30
-  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.2)
-          to label %33 unwind label %40
+32:                                               ; preds = %31
+  %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.2)
+          to label %34 unwind label %41
 
-33:                                               ; preds = %31
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %32) #18
-  invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %34 unwind label %42
+34:                                               ; preds = %32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %33) #18
+  invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %35 unwind label %43
 
-34:                                               ; preds = %33
-  invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
-          to label %50 unwind label %42
+35:                                               ; preds = %34
+  invoke void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
+          to label %51 unwind label %43
 
-.thread:                                          ; preds = %26
-  %35 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %27
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  br label %48
+
+37:                                               ; preds = %29
+  %38 = landingpad { ptr, i32 }
+          cleanup
   br label %47
 
-36:                                               ; preds = %28
-  %37 = landingpad { ptr, i32 }
+39:                                               ; preds = %31
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %46
 
-38:                                               ; preds = %30
-  %39 = landingpad { ptr, i32 }
+41:                                               ; preds = %32
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %45
 
-40:                                               ; preds = %31
-  %41 = landingpad { ptr, i32 }
-          cleanup
-  br label %44
-
-42:                                               ; preds = %34, %33
-  %.0 = phi i1 [ false, %34 ], [ true, %33 ]
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %35, %34
+  %.0 = phi i1 [ false, %35 ], [ true, %34 ]
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  br label %44
-
-44:                                               ; preds = %42, %40
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
-  %.4 = phi i1 [ %.0, %42 ], [ true, %40 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   br label %45
 
-45:                                               ; preds = %44, %38
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %44 ], [ %39, %38 ]
-  %.3 = phi i1 [ %.4, %44 ], [ true, %38 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
+45:                                               ; preds = %43, %41
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
+  %.4 = phi i1 [ %.0, %43 ], [ true, %41 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   br label %46
 
-46:                                               ; preds = %36, %45
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %45 ], [ %37, %36 ]
-  %.2 = phi i1 [ %.3, %45 ], [ true, %36 ]
+46:                                               ; preds = %45, %39
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %40, %39 ]
+  %.3 = phi i1 [ %.4, %45 ], [ true, %39 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
+  br label %47
+
+47:                                               ; preds = %37, %46
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %46 ], [ %38, %37 ]
+  %.2 = phi i1 [ %.3, %46 ], [ true, %37 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
-  br i1 %.2, label %47, label %49
+  br i1 %.2, label %48, label %50
 
-47:                                               ; preds = %.thread, %46
-  %.pn.pn.pn.pn26 = phi { ptr, i32 } [ %35, %.thread ], [ %.pn.pn.pn, %46 ]
-  call void @__cxa_free_exception(ptr %27) #18
-  br label %49
+48:                                               ; preds = %.thread, %47
+  %.pn.pn.pn.pn26 = phi { ptr, i32 } [ %36, %.thread ], [ %.pn.pn.pn, %47 ]
+  call void @__cxa_free_exception(ptr %28) #18
+  br label %50
 
-48:                                               ; preds = %._crit_edge
+49:                                               ; preds = %._crit_edge
   ret void
 
-49:                                               ; preds = %46, %47
-  %.pn.pn.pn.pn25 = phi { ptr, i32 } [ %.pn.pn.pn, %46 ], [ %.pn.pn.pn.pn26, %47 ]
+50:                                               ; preds = %47, %48
+  %.pn.pn.pn.pn25 = phi { ptr, i32 } [ %.pn.pn.pn, %47 ], [ %.pn.pn.pn.pn26, %48 ]
   call void @_ZN4pkpy5TupleD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #18
   resume { ptr, i32 } %.pn.pn.pn.pn25
 
-50:                                               ; preds = %34
+51:                                               ; preds = %35
   unreachable
 }
 
@@ -1015,119 +1029,121 @@ define void @_ZNK4pkpy4Dict6valuesEv(ptr dead_on_unwind noalias nonnull writable
   %.01830 = phi i32 [ %.01827, %.lr.ph ], [ %.018, %14 ]
   %15 = load ptr, ptr %12, align 8
   %16 = sext i32 %.01830 to i64
-  %17 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %15, i64 %16, i32 1
-  %18 = load ptr, ptr %17, align 8
+  %17 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %15, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
-  store ptr %18, ptr %20, align 8
-  %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %21, i64 %16, i32 1
-  %.018 = load i32, ptr %22, align 4
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  store ptr %19, ptr %21, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %22, i64 %16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %.018 = load i32, ptr %24, align 4
   %.not = icmp eq i32 %.018, -1
   br i1 %.not, label %._crit_edge.loopexit, label %14, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %14
-  %23 = trunc nuw i64 %indvars.iv.next to i32
+  %25 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.017.lcssa = phi i32 [ 0, %2 ], [ %23, %._crit_edge.loopexit ]
-  %24 = load i32, ptr %9, align 8
-  %25 = icmp eq i32 %.017.lcssa, %24
-  br i1 %25, label %48, label %26
+  %.017.lcssa = phi i32 [ 0, %2 ], [ %25, %._crit_edge.loopexit ]
+  %26 = load i32, ptr %9, align 8
+  %27 = icmp eq i32 %.017.lcssa, %26
+  br i1 %27, label %50, label %28
 
-26:                                               ; preds = %._crit_edge
-  %27 = tail call ptr @__cxa_allocate_exception(i64 16) #18
+28:                                               ; preds = %._crit_edge
+  %29 = tail call ptr @__cxa_allocate_exception(i64 16) #18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %28 unwind label %.thread
-
-28:                                               ; preds = %26
-  %29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull @.str)
-          to label %30 unwind label %36
+          to label %30 unwind label %.thread
 
 30:                                               ; preds = %28
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %29) #18
+  %31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull @.str)
+          to label %32 unwind label %38
+
+32:                                               ; preds = %30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %31) #18
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, i32 noundef 157) #18
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %31 unwind label %38
-
-31:                                               ; preds = %30
-  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.2)
           to label %33 unwind label %40
 
-33:                                               ; preds = %31
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %32) #18
-  invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %34 unwind label %42
+33:                                               ; preds = %32
+  %34 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.2)
+          to label %35 unwind label %42
 
-34:                                               ; preds = %33
-  invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
-          to label %50 unwind label %42
+35:                                               ; preds = %33
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %34) #18
+  invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %36 unwind label %44
 
-.thread:                                          ; preds = %26
-  %35 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
-  br label %47
+36:                                               ; preds = %35
+  invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #19
+          to label %52 unwind label %44
 
-36:                                               ; preds = %28
+.thread:                                          ; preds = %28
   %37 = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
+  br label %49
 
 38:                                               ; preds = %30
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %48
 
-40:                                               ; preds = %31
+40:                                               ; preds = %32
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %47
 
-42:                                               ; preds = %34, %33
-  %.0 = phi i1 [ false, %34 ], [ true, %33 ]
+42:                                               ; preds = %33
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  br label %44
-
-44:                                               ; preds = %42, %40
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
-  %.4 = phi i1 [ %.0, %42 ], [ true, %40 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  br label %45
-
-45:                                               ; preds = %44, %38
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %44 ], [ %39, %38 ]
-  %.3 = phi i1 [ %.4, %44 ], [ true, %38 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   br label %46
 
-46:                                               ; preds = %36, %45
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %45 ], [ %37, %36 ]
-  %.2 = phi i1 [ %.3, %45 ], [ true, %36 ]
+44:                                               ; preds = %36, %35
+  %.0 = phi i1 [ false, %36 ], [ true, %35 ]
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
+  br label %46
+
+46:                                               ; preds = %44, %42
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
+  %.4 = phi i1 [ %.0, %44 ], [ true, %42 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  br label %47
+
+47:                                               ; preds = %46, %40
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %41, %40 ]
+  %.3 = phi i1 [ %.4, %46 ], [ true, %40 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
+  br label %48
+
+48:                                               ; preds = %38, %47
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %47 ], [ %39, %38 ]
+  %.2 = phi i1 [ %.3, %47 ], [ true, %38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
-  br i1 %.2, label %47, label %49
+  br i1 %.2, label %49, label %51
 
-47:                                               ; preds = %.thread, %46
-  %.pn.pn.pn.pn26 = phi { ptr, i32 } [ %35, %.thread ], [ %.pn.pn.pn, %46 ]
-  call void @__cxa_free_exception(ptr %27) #18
-  br label %49
+49:                                               ; preds = %.thread, %48
+  %.pn.pn.pn.pn26 = phi { ptr, i32 } [ %37, %.thread ], [ %.pn.pn.pn, %48 ]
+  call void @__cxa_free_exception(ptr %29) #18
+  br label %51
 
-48:                                               ; preds = %._crit_edge
+50:                                               ; preds = %._crit_edge
   ret void
 
-49:                                               ; preds = %46, %47
-  %.pn.pn.pn.pn25 = phi { ptr, i32 } [ %.pn.pn.pn, %46 ], [ %.pn.pn.pn.pn26, %47 ]
+51:                                               ; preds = %48, %49
+  %.pn.pn.pn.pn25 = phi { ptr, i32 } [ %.pn.pn.pn, %48 ], [ %.pn.pn.pn.pn26, %49 ]
   call void @_ZN4pkpy5TupleD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #18
   resume { ptr, i32 } %.pn.pn.pn.pn25
 
-50:                                               ; preds = %34
+52:                                               ; preds = %36
   unreachable
 }
 
@@ -1246,8 +1262,9 @@ define void @_ZNK4pkpy4Dict8_gc_markEv(ptr noundef nonnull readonly align 8 capt
 
 "_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i": ; preds = %36, %31, %27, %24
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %37, i64 %7, i32 1
-  %.0.i = load i32, ptr %38, align 4
+  %38 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %37, i64 %7
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %.0.i = load i32, ptr %39, align 4
   %.not.i = icmp eq i32 %.0.i, -1
   br i1 %.not.i, label %"_ZNK4pkpy4Dict5applyIZNKS0_8_gc_markEvE3$_0EEvT_.exit", label %5, !llvm.loop !11
 

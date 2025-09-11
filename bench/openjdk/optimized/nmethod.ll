@@ -7525,7 +7525,7 @@ define linkonce_odr hidden void @_ZN6Events17log_nmethod_flushEP6ThreadPKcz(ptr 
   %6 = load ptr, ptr @_ZN6Events23_nmethod_flush_messagesE, align 8
   %7 = icmp ne ptr %6, null
   %or.cond = select i1 %5, i1 %7, i1 false
-  br i1 %or.cond, label %8, label %34
+  br i1 %or.cond, label %8, label %36
 
 8:                                                ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -7559,23 +7559,25 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %21, %11
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %15 to i64
-  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26, i32 1
-  store ptr %0, ptr %27, align 8
-  %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %28, i64 %26
-  store double %12, ptr %29, align 8
-  %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %30, i64 %26, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @jio_vsnprintf(ptr noundef %32, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #23
+  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %0, ptr %28, align 8
+  %29 = load ptr, ptr %24, align 8
+  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %29, i64 %26
+  store double %12, ptr %30, align 8
+  %31 = load ptr, ptr %24, align 8
+  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %31, i64 %26
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 @jio_vsnprintf(ptr noundef %34, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #23
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #23
   br label %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit
 
 _ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit: ; preds = %8, %_ZN11MutexLockerD2Ev.exit.i
   call void @llvm.va_end.p0(ptr nonnull %3)
-  br label %34
+  br label %36
 
-34:                                               ; preds = %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit, %2
+36:                                               ; preds = %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit, %2
   ret void
 }
 
@@ -8753,62 +8755,63 @@ define hidden void @_ZN7nmethod15copy_scopes_pcsEP6PcDesci(ptr noundef nonnull a
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %class.PcDesc, ptr %1, i64 %indvars.iv, i32 3
-  %7 = load i32, ptr %6, align 4
-  %8 = and i32 %7, 2
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %5, label %9
+  %6 = getelementptr inbounds nuw %class.PcDesc, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %8 = load i32, ptr %7, align 4
+  %9 = and i32 %8, 2
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %5, label %10
 
-9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %11 = load i8, ptr %10, align 4
-  %12 = or i8 %11, 2
-  store i8 %12, ptr %10, align 4
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %12 = load i8, ptr %11, align 4
+  %13 = or i8 %12, 2
+  store i8 %13, ptr %11, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %5, %3, %9
-  %13 = shl i32 %2, 4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %17 = load i32, ptr %16, align 4
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %15, i64 %18
-  %20 = sext i32 %13 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 4 %1, i64 %20, i1 false)
-  %21 = load ptr, ptr %14, align 8
-  %22 = load i32, ptr %16, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %21, i64 %23
-  %25 = sext i32 %2 to i64
-  %26 = getelementptr %class.PcDesc, ptr %24, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 -16
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load i32, ptr %30, align 8
-  %gepdiff.i = add i32 %29, 1
-  %32 = sub i32 %gepdiff.i, %31
-  store i32 %32, ptr %27, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %34 = load ptr, ptr %14, align 8
-  %35 = load i32, ptr %33, align 8
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %34, i64 %36
-  %38 = icmp ult ptr %26, %37
-  br i1 %38, label %.lr.ph18, label %._crit_edge
+.loopexit:                                        ; preds = %5, %3, %10
+  %14 = shl i32 %2, 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %18 = load i32, ptr %17, align 4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %16, i64 %19
+  %21 = sext i32 %14 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 4 %1, i64 %21, i1 false)
+  %22 = load ptr, ptr %15, align 8
+  %23 = load i32, ptr %17, align 4
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %22, i64 %24
+  %26 = sext i32 %2 to i64
+  %27 = getelementptr %class.PcDesc, ptr %25, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 -16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %32 = load i32, ptr %31, align 8
+  %gepdiff.i = add i32 %30, 1
+  %33 = sub i32 %gepdiff.i, %32
+  store i32 %33, ptr %28, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %35 = load ptr, ptr %15, align 8
+  %36 = load i32, ptr %34, align 8
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i8, ptr %35, i64 %37
+  %39 = icmp ult ptr %27, %38
+  br i1 %39, label %.lr.ph18, label %._crit_edge
 
 .lr.ph18:                                         ; preds = %.loopexit, %.lr.ph18
-  %39 = phi ptr [ %40, %.lr.ph18 ], [ %26, %.loopexit ]
-  %.017 = phi ptr [ %39, %.lr.ph18 ], [ %27, %.loopexit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %.017, i64 16, i1 false)
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = load ptr, ptr %14, align 8
-  %42 = load i32, ptr %33, align 8
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %41, i64 %43
-  %45 = icmp ult ptr %40, %44
-  br i1 %45, label %.lr.ph18, label %._crit_edge, !llvm.loop !86
+  %40 = phi ptr [ %41, %.lr.ph18 ], [ %27, %.loopexit ]
+  %.017 = phi ptr [ %40, %.lr.ph18 ], [ %28, %.loopexit ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %.017, i64 16, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load ptr, ptr %15, align 8
+  %43 = load i32, ptr %34, align 8
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i8, ptr %42, i64 %44
+  %46 = icmp ult ptr %41, %45
+  br i1 %46, label %.lr.ph18, label %._crit_edge, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph18, %.loopexit
   ret void

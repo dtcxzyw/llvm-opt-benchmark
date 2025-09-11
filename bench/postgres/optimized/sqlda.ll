@@ -80,7 +80,7 @@ sqlda_compat_total_size.exit:                     ; preds = %sqlda_compat_empty_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04749 = phi ptr [ %32, %.lr.ph.preheader ], [ %48, %.lr.ph ]
+  %.04749 = phi ptr [ %32, %.lr.ph.preheader ], [ %50, %.lr.ph ]
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = tail call i32 @PQftype(ptr noundef %1, i32 noundef %33) #6
   %35 = tail call i32 @sqlda_dynamic_type(i32 noundef %34, i32 noundef %3) #6
@@ -91,28 +91,32 @@ sqlda_compat_total_size.exit:                     ; preds = %sqlda_compat_empty_
   %39 = tail call ptr @PQfname(ptr noundef %1, i32 noundef %33) #6
   %40 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.04749, ptr noundef nonnull dereferenceable(1) %39) #6
   %41 = load ptr, ptr %28, align 8
-  %42 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %41, i64 %indvars.iv, i32 4
-  store ptr %.04749, ptr %42, align 8
-  %43 = load ptr, ptr %28, align 8
-  %44 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %43, i64 %indvars.iv, i32 4
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #7
-  %47 = getelementptr i8, ptr %.04749, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 1
-  %49 = tail call i32 @PQftype(ptr noundef %1, i32 noundef %33) #6
-  %50 = load ptr, ptr %28, align 8
-  %51 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %50, i64 %indvars.iv, i32 9
-  store i32 %49, ptr %51, align 8
-  %52 = tail call i32 @PQfsize(ptr noundef %1, i32 noundef %33) #6
-  %53 = trunc i32 %52 to i16
-  %54 = load ptr, ptr %28, align 8
-  %55 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %54, i64 %indvars.iv, i32 11
-  store i16 %53, ptr %55, align 8
+  %42 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  store ptr %.04749, ptr %43, align 8
+  %44 = load ptr, ptr %28, align 8
+  %45 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %44, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #7
+  %49 = getelementptr i8, ptr %.04749, i64 %48
+  %50 = getelementptr i8, ptr %49, i64 1
+  %51 = tail call i32 @PQftype(ptr noundef %1, i32 noundef %33) #6
+  %52 = load ptr, ptr %28, align 8
+  %53 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %52, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
+  store i32 %51, ptr %54, align 8
+  %55 = tail call i32 @PQfsize(ptr noundef %1, i32 noundef %33) #6
+  %56 = trunc i32 %55 to i16
+  %57 = load ptr, ptr %28, align 8
+  %58 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %57, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 72
+  store i16 %56, ptr %59, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = load i16, ptr %21, align 8
-  %57 = sext i16 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  %60 = load i16, ptr %21, align 8
+  %61 = sext i16 %60 to i64
+  %62 = icmp slt i64 %indvars.iv.next, %61
+  br i1 %62, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %sqlda_compat_total_size.exit
   ret ptr %21
@@ -181,29 +185,29 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %25
 
-25:                                               ; preds = %.lr.ph, %232
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %232 ]
-  %.0208209 = phi i64 [ %.0.i.i, %.lr.ph ], [ %.0207, %232 ]
+25:                                               ; preds = %.lr.ph, %253
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %253 ]
+  %.0208209 = phi i64 [ %.0.i.i, %.lr.ph ], [ %.0207, %253 ]
   %26 = load ptr, ptr %24, align 8
   %27 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv
   %28 = load i16, ptr %27, align 8
-  switch i16 %28, label %182 [
+  switch i16 %28, label %198 [
     i16 3, label %29
     i16 4, label %29
-    i16 5, label %38
-    i16 6, label %38
-    i16 7, label %47
-    i16 8, label %47
-    i16 9, label %56
-    i16 10, label %56
-    i16 11, label %65
-    i16 12, label %71
-    i16 13, label %80
-    i16 17, label %89
-    i16 16, label %98
-    i16 18, label %155
-    i16 19, label %164
-    i16 20, label %173
+    i16 5, label %39
+    i16 6, label %39
+    i16 7, label %49
+    i16 8, label %49
+    i16 9, label %59
+    i16 10, label %59
+    i16 11, label %69
+    i16 12, label %76
+    i16 13, label %86
+    i16 17, label %96
+    i16 16, label %106
+    i16 18, label %168
+    i16 19, label %178
+    i16 20, label %188
   ]
 
 29:                                               ; preds = %25, %25
@@ -214,329 +218,350 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
   %.0.i = add i64 %32, %.0208209
   %33 = add i64 %.0.i, 2
   %34 = getelementptr inbounds i8, ptr %6, i64 %.0.i
-  %35 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %34, ptr %35, align 8
   %36 = load ptr, ptr %24, align 8
-  %37 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %36, i64 %indvars.iv, i32 1
-  store i32 2, ptr %37, align 4
-  br label %205
+  %37 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  store i32 2, ptr %38, align 4
+  br label %223
 
-38:                                               ; preds = %25, %25
-  %39 = srem i64 %.0208209, 4
-  %.not.i151 = icmp eq i64 %39, 0
-  %40 = sub nsw i64 4, %39
-  %41 = select i1 %.not.i151, i64 0, i64 %40
-  %.0.i152 = add i64 %41, %.0208209
-  %42 = add i64 %.0.i152, 4
-  %43 = getelementptr inbounds i8, ptr %6, i64 %.0.i152
-  %44 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
-  store ptr %43, ptr %44, align 8
-  %45 = load ptr, ptr %24, align 8
-  %46 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %45, i64 %indvars.iv, i32 1
-  store i32 4, ptr %46, align 4
-  br label %205
+39:                                               ; preds = %25, %25
+  %40 = srem i64 %.0208209, 4
+  %.not.i151 = icmp eq i64 %40, 0
+  %41 = sub nsw i64 4, %40
+  %42 = select i1 %.not.i151, i64 0, i64 %41
+  %.0.i152 = add i64 %42, %.0208209
+  %43 = add i64 %.0.i152, 4
+  %44 = getelementptr inbounds i8, ptr %6, i64 %.0.i152
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %44, ptr %45, align 8
+  %46 = load ptr, ptr %24, align 8
+  %47 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %46, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  store i32 4, ptr %48, align 4
+  br label %223
 
-47:                                               ; preds = %25, %25
-  %48 = srem i64 %.0208209, 8
-  %.not.i153 = icmp eq i64 %48, 0
-  %49 = sub nsw i64 8, %48
-  %50 = select i1 %.not.i153, i64 0, i64 %49
-  %.0.i154 = add i64 %50, %.0208209
-  %51 = add i64 %.0.i154, 8
-  %52 = getelementptr inbounds i8, ptr %6, i64 %.0.i154
-  %53 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
-  store ptr %52, ptr %53, align 8
-  %54 = load ptr, ptr %24, align 8
-  %55 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %54, i64 %indvars.iv, i32 1
-  store i32 8, ptr %55, align 4
-  br label %205
+49:                                               ; preds = %25, %25
+  %50 = srem i64 %.0208209, 8
+  %.not.i153 = icmp eq i64 %50, 0
+  %51 = sub nsw i64 8, %50
+  %52 = select i1 %.not.i153, i64 0, i64 %51
+  %.0.i154 = add i64 %52, %.0208209
+  %53 = add i64 %.0.i154, 8
+  %54 = getelementptr inbounds i8, ptr %6, i64 %.0.i154
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %54, ptr %55, align 8
+  %56 = load ptr, ptr %24, align 8
+  %57 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %56, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  store i32 8, ptr %58, align 4
+  br label %223
 
-56:                                               ; preds = %25, %25
-  %57 = srem i64 %.0208209, 8
-  %.not.i155 = icmp eq i64 %57, 0
-  %58 = sub nsw i64 8, %57
-  %59 = select i1 %.not.i155, i64 0, i64 %58
-  %.0.i156 = add i64 %59, %.0208209
-  %60 = add i64 %.0.i156, 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 %.0.i156
-  %62 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
-  store ptr %61, ptr %62, align 8
-  %63 = load ptr, ptr %24, align 8
-  %64 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %63, i64 %indvars.iv, i32 1
-  store i32 8, ptr %64, align 4
-  br label %205
+59:                                               ; preds = %25, %25
+  %60 = srem i64 %.0208209, 8
+  %.not.i155 = icmp eq i64 %60, 0
+  %61 = sub nsw i64 8, %60
+  %62 = select i1 %.not.i155, i64 0, i64 %61
+  %.0.i156 = add i64 %62, %.0208209
+  %63 = add i64 %.0.i156, 8
+  %64 = getelementptr inbounds i8, ptr %6, i64 %.0.i156
+  %65 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %64, ptr %65, align 8
+  %66 = load ptr, ptr %24, align 8
+  %67 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %66, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  store i32 8, ptr %68, align 4
+  br label %223
 
-65:                                               ; preds = %25
-  %66 = add i64 %.0208209, 1
-  %67 = getelementptr inbounds i8, ptr %6, i64 %.0208209
-  %68 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
-  store ptr %67, ptr %68, align 8
-  %69 = load ptr, ptr %24, align 8
-  %70 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %69, i64 %indvars.iv, i32 1
-  store i32 1, ptr %70, align 4
-  br label %205
+69:                                               ; preds = %25
+  %70 = add i64 %.0208209, 1
+  %71 = getelementptr inbounds i8, ptr %6, i64 %.0208209
+  %72 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %71, ptr %72, align 8
+  %73 = load ptr, ptr %24, align 8
+  %74 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %73, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  store i32 1, ptr %75, align 4
+  br label %223
 
-71:                                               ; preds = %25
-  %72 = srem i64 %.0208209, 4
-  %.not.i159 = icmp eq i64 %72, 0
-  %73 = sub nsw i64 4, %72
-  %74 = select i1 %.not.i159, i64 0, i64 %73
-  %.0.i160 = add i64 %74, %.0208209
-  %75 = add i64 %.0.i160, 4
-  %76 = getelementptr inbounds i8, ptr %6, i64 %.0.i160
-  %77 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
-  store ptr %76, ptr %77, align 8
-  %78 = load ptr, ptr %24, align 8
-  %79 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %78, i64 %indvars.iv, i32 1
-  store i32 4, ptr %79, align 4
-  br label %205
+76:                                               ; preds = %25
+  %77 = srem i64 %.0208209, 4
+  %.not.i159 = icmp eq i64 %77, 0
+  %78 = sub nsw i64 4, %77
+  %79 = select i1 %.not.i159, i64 0, i64 %78
+  %.0.i160 = add i64 %79, %.0208209
+  %80 = add i64 %.0.i160, 4
+  %81 = getelementptr inbounds i8, ptr %6, i64 %.0.i160
+  %82 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %81, ptr %82, align 8
+  %83 = load ptr, ptr %24, align 8
+  %84 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %83, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store i32 4, ptr %85, align 4
+  br label %223
 
-80:                                               ; preds = %25
-  %81 = srem i64 %.0208209, 8
-  %.not.i161 = icmp eq i64 %81, 0
-  %82 = sub nsw i64 8, %81
-  %83 = select i1 %.not.i161, i64 0, i64 %82
-  %.0.i162 = add i64 %83, %.0208209
-  %84 = add i64 %.0.i162, 8
-  %85 = getelementptr inbounds i8, ptr %6, i64 %.0.i162
-  %86 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
-  store ptr %85, ptr %86, align 8
-  %87 = load ptr, ptr %24, align 8
-  %88 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %87, i64 %indvars.iv, i32 1
-  store i32 8, ptr %88, align 4
-  br label %205
+86:                                               ; preds = %25
+  %87 = srem i64 %.0208209, 8
+  %.not.i161 = icmp eq i64 %87, 0
+  %88 = sub nsw i64 8, %87
+  %89 = select i1 %.not.i161, i64 0, i64 %88
+  %.0.i162 = add i64 %89, %.0208209
+  %90 = add i64 %.0.i162, 8
+  %91 = getelementptr inbounds i8, ptr %6, i64 %.0.i162
+  %92 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %91, ptr %92, align 8
+  %93 = load ptr, ptr %24, align 8
+  %94 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %93, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  store i32 8, ptr %95, align 4
+  br label %223
 
-89:                                               ; preds = %25
-  %90 = srem i64 %.0208209, 4
-  %.not.i163 = icmp eq i64 %90, 0
-  %91 = sub nsw i64 4, %90
-  %92 = select i1 %.not.i163, i64 0, i64 %91
-  %.0.i164 = add i64 %92, %.0208209
-  %93 = add i64 %.0.i164, 52
-  %94 = getelementptr inbounds i8, ptr %6, i64 %.0.i164
-  %95 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
-  store ptr %94, ptr %95, align 8
-  %96 = load ptr, ptr %24, align 8
-  %97 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %96, i64 %indvars.iv, i32 1
-  store i32 52, ptr %97, align 4
-  br label %205
+96:                                               ; preds = %25
+  %97 = srem i64 %.0208209, 4
+  %.not.i163 = icmp eq i64 %97, 0
+  %98 = sub nsw i64 4, %97
+  %99 = select i1 %.not.i163, i64 0, i64 %98
+  %.0.i164 = add i64 %99, %.0208209
+  %100 = add i64 %.0.i164, 52
+  %101 = getelementptr inbounds i8, ptr %6, i64 %.0.i164
+  %102 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %101, ptr %102, align 8
+  %103 = load ptr, ptr %24, align 8
+  %104 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %103, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  store i32 52, ptr %105, align 4
+  br label %223
 
-98:                                               ; preds = %25
-  %99 = srem i64 %.0208209, 8
-  %.not.i165 = icmp eq i64 %99, 0
-  %100 = sub nsw i64 8, %99
-  %101 = select i1 %.not.i165, i64 0, i64 %100
-  %.0.i166 = add i64 %101, %.0208209
-  %102 = add i64 %.0.i166, 40
-  %103 = getelementptr inbounds i8, ptr %6, i64 %.0.i166
-  %104 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
-  store ptr %103, ptr %104, align 8
-  %105 = load ptr, ptr %24, align 8
-  %106 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %105, i64 %indvars.iv, i32 1
-  store i32 40, ptr %106, align 4
-  %107 = trunc nuw nsw i64 %indvars.iv to i32
-  %108 = tail call i32 @PQgetisnull(ptr noundef %2, i32 noundef %3, i32 noundef %107) #6
-  %.not = icmp eq i32 %108, 0
-  br i1 %.not, label %113, label %109
+106:                                              ; preds = %25
+  %107 = srem i64 %.0208209, 8
+  %.not.i165 = icmp eq i64 %107, 0
+  %108 = sub nsw i64 8, %107
+  %109 = select i1 %.not.i165, i64 0, i64 %108
+  %.0.i166 = add i64 %109, %.0208209
+  %110 = add i64 %.0.i166, 40
+  %111 = getelementptr inbounds i8, ptr %6, i64 %.0.i166
+  %112 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %111, ptr %112, align 8
+  %113 = load ptr, ptr %24, align 8
+  %114 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %113, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  store i32 40, ptr %115, align 4
+  %116 = trunc nuw nsw i64 %indvars.iv to i32
+  %117 = tail call i32 @PQgetisnull(ptr noundef %2, i32 noundef %3, i32 noundef %116) #6
+  %.not = icmp eq i32 %117, 0
+  br i1 %.not, label %123, label %118
 
-109:                                              ; preds = %98
-  %110 = load ptr, ptr %24, align 8
-  %111 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %110, i64 %indvars.iv, i32 2
-  %112 = load ptr, ptr %111, align 8
-  tail call void @ECPGset_noind_null(i32 noundef 16, ptr noundef %112) #6
-  br label %205
-
-113:                                              ; preds = %98
-  %114 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %3, i32 noundef %107) #6
-  %115 = tail call ptr @PGTYPESnumeric_from_asc(ptr noundef %114, ptr noundef null) #6
-  %.not148 = icmp eq ptr %115, null
-  %116 = load ptr, ptr %24, align 8
-  %117 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %116, i64 %indvars.iv, i32 2
-  %118 = load ptr, ptr %117, align 8
-  br i1 %.not148, label %119, label %120
-
-119:                                              ; preds = %113
-  tail call void @ECPGset_noind_null(i32 noundef 16, ptr noundef %118) #6
-  br label %205
-
-120:                                              ; preds = %113
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %118, ptr noundef nonnull align 8 dereferenceable(40) %115, i64 40, i1 false)
-  %121 = getelementptr inbounds nuw i8, ptr %115, i64 24
+118:                                              ; preds = %106
+  %119 = load ptr, ptr %24, align 8
+  %120 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %119, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
-  %.not149 = icmp eq ptr %122, null
-  br i1 %.not149, label %154, label %123
+  tail call void @ECPGset_noind_null(i32 noundef 16, ptr noundef %122) #6
+  br label %223
 
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds nuw i8, ptr %115, i64 32
-  %125 = load ptr, ptr %124, align 8
-  %126 = ptrtoint ptr %125 to i64
-  %127 = ptrtoint ptr %122 to i64
-  %128 = sub i64 %126, %127
-  %129 = load i32, ptr %115, align 8
-  %130 = trunc i64 %128 to i32
-  %131 = add i32 %129, %130
-  %132 = srem i64 %102, 4
-  %.not.i167 = icmp eq i64 %132, 0
-  %133 = sub nsw i64 4, %132
-  %134 = select i1 %.not.i167, i64 0, i64 %133
-  %.0.i168 = add i64 %134, %102
-  %135 = sext i32 %131 to i64
-  %136 = add i64 %.0.i168, %135
-  %137 = getelementptr inbounds i8, ptr %6, i64 %.0.i168
-  %138 = sext i32 %129 to i64
-  %139 = add i64 %128, %138
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %137, ptr nonnull align 1 %122, i64 %139, i1 false)
-  %140 = load ptr, ptr %24, align 8
-  %141 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %140, i64 %indvars.iv, i32 2
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  store ptr %137, ptr %143, align 8
-  %144 = load ptr, ptr %124, align 8
-  %145 = load ptr, ptr %121, align 8
-  %146 = ptrtoint ptr %144 to i64
-  %147 = ptrtoint ptr %145 to i64
-  %148 = sub i64 %146, %147
-  %149 = getelementptr inbounds i8, ptr %137, i64 %148
-  %150 = load ptr, ptr %24, align 8
-  %151 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %150, i64 %indvars.iv, i32 2
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
-  store ptr %149, ptr %153, align 8
-  br label %154
+123:                                              ; preds = %106
+  %124 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %3, i32 noundef %116) #6
+  %125 = tail call ptr @PGTYPESnumeric_from_asc(ptr noundef %124, ptr noundef null) #6
+  %.not148 = icmp eq ptr %125, null
+  %126 = load ptr, ptr %24, align 8
+  %127 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %126, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %129 = load ptr, ptr %128, align 8
+  br i1 %.not148, label %130, label %131
 
-154:                                              ; preds = %123, %120
-  %.1 = phi i64 [ %102, %120 ], [ %136, %123 ]
-  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %115) #6
-  br label %205
+130:                                              ; preds = %123
+  tail call void @ECPGset_noind_null(i32 noundef 16, ptr noundef %129) #6
+  br label %223
 
-155:                                              ; preds = %25
-  %156 = srem i64 %.0208209, 8
-  %.not.i169 = icmp eq i64 %156, 0
-  %157 = sub nsw i64 8, %156
-  %158 = select i1 %.not.i169, i64 0, i64 %157
-  %.0.i170 = add i64 %158, %.0208209
-  %159 = add i64 %.0.i170, 8
-  %160 = getelementptr inbounds i8, ptr %6, i64 %.0.i170
-  %161 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
-  store ptr %160, ptr %161, align 8
+131:                                              ; preds = %123
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %129, ptr noundef nonnull align 8 dereferenceable(40) %125, i64 40, i1 false)
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 24
+  %133 = load ptr, ptr %132, align 8
+  %.not149 = icmp eq ptr %133, null
+  br i1 %.not149, label %167, label %134
+
+134:                                              ; preds = %131
+  %135 = getelementptr inbounds nuw i8, ptr %125, i64 32
+  %136 = load ptr, ptr %135, align 8
+  %137 = ptrtoint ptr %136 to i64
+  %138 = ptrtoint ptr %133 to i64
+  %139 = sub i64 %137, %138
+  %140 = load i32, ptr %125, align 8
+  %141 = trunc i64 %139 to i32
+  %142 = add i32 %140, %141
+  %143 = srem i64 %110, 4
+  %.not.i167 = icmp eq i64 %143, 0
+  %144 = sub nsw i64 4, %143
+  %145 = select i1 %.not.i167, i64 0, i64 %144
+  %.0.i168 = add i64 %145, %110
+  %146 = sext i32 %142 to i64
+  %147 = add i64 %.0.i168, %146
+  %148 = getelementptr inbounds i8, ptr %6, i64 %.0.i168
+  %149 = sext i32 %140 to i64
+  %150 = add i64 %139, %149
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %148, ptr nonnull align 1 %133, i64 %150, i1 false)
+  %151 = load ptr, ptr %24, align 8
+  %152 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %151, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
+  store ptr %148, ptr %155, align 8
+  %156 = load ptr, ptr %135, align 8
+  %157 = load ptr, ptr %132, align 8
+  %158 = ptrtoint ptr %156 to i64
+  %159 = ptrtoint ptr %157 to i64
+  %160 = sub i64 %158, %159
+  %161 = getelementptr inbounds i8, ptr %148, i64 %160
   %162 = load ptr, ptr %24, align 8
-  %163 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %162, i64 %indvars.iv, i32 1
-  store i32 8, ptr %163, align 4
-  br label %205
+  %163 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %162, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 32
+  store ptr %161, ptr %166, align 8
+  br label %167
 
-164:                                              ; preds = %25
-  %165 = srem i64 %.0208209, 8
-  %.not.i171 = icmp eq i64 %165, 0
-  %166 = sub nsw i64 8, %165
-  %167 = select i1 %.not.i171, i64 0, i64 %166
-  %.0.i172 = add i64 %167, %.0208209
-  %168 = add i64 %.0.i172, 8
-  %169 = getelementptr inbounds i8, ptr %6, i64 %.0.i172
-  %170 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
-  store ptr %169, ptr %170, align 8
-  %171 = load ptr, ptr %24, align 8
-  %172 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %171, i64 %indvars.iv, i32 1
-  store i32 8, ptr %172, align 4
-  br label %205
+167:                                              ; preds = %134, %131
+  %.1 = phi i64 [ %110, %131 ], [ %147, %134 ]
+  tail call void @PGTYPESnumeric_free(ptr noundef nonnull %125) #6
+  br label %223
 
-173:                                              ; preds = %25
-  %174 = srem i64 %.0208209, 8
-  %.not.i173 = icmp eq i64 %174, 0
-  %175 = sub nsw i64 8, %174
-  %176 = select i1 %.not.i173, i64 0, i64 %175
-  %.0.i174 = add i64 %176, %.0208209
-  %177 = add i64 %.0.i174, 16
-  %178 = getelementptr inbounds i8, ptr %6, i64 %.0.i174
-  %179 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %26, i64 %indvars.iv, i32 2
-  store ptr %178, ptr %179, align 8
-  %180 = load ptr, ptr %24, align 8
-  %181 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %180, i64 %indvars.iv, i32 1
-  store i32 16, ptr %181, align 4
-  br label %205
+168:                                              ; preds = %25
+  %169 = srem i64 %.0208209, 8
+  %.not.i169 = icmp eq i64 %169, 0
+  %170 = sub nsw i64 8, %169
+  %171 = select i1 %.not.i169, i64 0, i64 %170
+  %.0.i170 = add i64 %171, %.0208209
+  %172 = add i64 %.0.i170, 8
+  %173 = getelementptr inbounds i8, ptr %6, i64 %.0.i170
+  %174 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %173, ptr %174, align 8
+  %175 = load ptr, ptr %24, align 8
+  %176 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %175, i64 %indvars.iv
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
+  store i32 8, ptr %177, align 4
+  br label %223
 
-182:                                              ; preds = %25
-  %183 = trunc nuw nsw i64 %indvars.iv to i32
-  %184 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %3, i32 noundef %183) #6
-  %185 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %184) #7
-  %186 = trunc i64 %185 to i32
-  %187 = add i32 %186, 1
-  %188 = srem i64 %.0208209, 4
-  %.not.i175 = icmp eq i64 %188, 0
-  %189 = sub nsw i64 4, %188
-  %190 = select i1 %.not.i175, i64 0, i64 %189
-  %.0.i176 = add i64 %190, %.0208209
-  %191 = sext i32 %187 to i64
-  %192 = add i64 %.0.i176, %191
-  %193 = getelementptr inbounds i8, ptr %6, i64 %.0.i176
-  %194 = load ptr, ptr %24, align 8
-  %195 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %194, i64 %indvars.iv, i32 2
-  store ptr %193, ptr %195, align 8
-  %196 = load ptr, ptr %24, align 8
-  %197 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %196, i64 %indvars.iv, i32 1
-  store i32 %187, ptr %197, align 4
-  %198 = icmp sgt i32 %187, 32768
-  br i1 %198, label %199, label %205
+178:                                              ; preds = %25
+  %179 = srem i64 %.0208209, 8
+  %.not.i171 = icmp eq i64 %179, 0
+  %180 = sub nsw i64 8, %179
+  %181 = select i1 %.not.i171, i64 0, i64 %180
+  %.0.i172 = add i64 %181, %.0208209
+  %182 = add i64 %.0.i172, 8
+  %183 = getelementptr inbounds i8, ptr %6, i64 %.0.i172
+  %184 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %183, ptr %184, align 8
+  %185 = load ptr, ptr %24, align 8
+  %186 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %185, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  store i32 8, ptr %187, align 4
+  br label %223
 
-199:                                              ; preds = %182
-  %200 = load ptr, ptr %24, align 8
-  %201 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %200, i64 %indvars.iv
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %201, i64 96
-  store ptr %203, ptr %204, align 8
-  br label %205
+188:                                              ; preds = %25
+  %189 = srem i64 %.0208209, 8
+  %.not.i173 = icmp eq i64 %189, 0
+  %190 = sub nsw i64 8, %189
+  %191 = select i1 %.not.i173, i64 0, i64 %190
+  %.0.i174 = add i64 %191, %.0208209
+  %192 = add i64 %.0.i174, 16
+  %193 = getelementptr inbounds i8, ptr %6, i64 %.0.i174
+  %194 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %193, ptr %194, align 8
+  %195 = load ptr, ptr %24, align 8
+  %196 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %195, i64 %indvars.iv
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
+  store i32 16, ptr %197, align 4
+  br label %223
 
-205:                                              ; preds = %109, %119, %154, %182, %199, %173, %164, %155, %89, %80, %71, %65, %56, %47, %38, %29
-  %.0207 = phi i64 [ %192, %199 ], [ %192, %182 ], [ %33, %29 ], [ %42, %38 ], [ %51, %47 ], [ %60, %56 ], [ %66, %65 ], [ %75, %71 ], [ %84, %80 ], [ %93, %89 ], [ %102, %119 ], [ %.1, %154 ], [ %102, %109 ], [ %159, %155 ], [ %168, %164 ], [ %177, %173 ]
-  %.0144 = phi i1 [ true, %199 ], [ true, %182 ], [ true, %29 ], [ true, %38 ], [ true, %47 ], [ true, %56 ], [ true, %65 ], [ true, %71 ], [ true, %80 ], [ true, %89 ], [ false, %119 ], [ false, %154 ], [ false, %109 ], [ true, %155 ], [ true, %164 ], [ true, %173 ]
-  %206 = trunc nuw nsw i64 %indvars.iv to i32
-  %207 = tail call i32 @PQgetisnull(ptr noundef %2, i32 noundef %3, i32 noundef %206) #6
-  %.not150 = icmp eq i32 %207, 0
-  %208 = select i1 %.not150, ptr @.str.3, ptr @.str.2
-  tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.1, i32 noundef %0, i32 noundef %3, i32 noundef %206, ptr noundef nonnull %208) #6
-  %209 = select i1 %.not150, ptr @value_is_not_null, ptr @value_is_null
+198:                                              ; preds = %25
+  %199 = trunc nuw nsw i64 %indvars.iv to i32
+  %200 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %3, i32 noundef %199) #6
+  %201 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %200) #7
+  %202 = trunc i64 %201 to i32
+  %203 = add i32 %202, 1
+  %204 = srem i64 %.0208209, 4
+  %.not.i175 = icmp eq i64 %204, 0
+  %205 = sub nsw i64 4, %204
+  %206 = select i1 %.not.i175, i64 0, i64 %205
+  %.0.i176 = add i64 %206, %.0208209
+  %207 = sext i32 %203 to i64
+  %208 = add i64 %.0.i176, %207
+  %209 = getelementptr inbounds i8, ptr %6, i64 %.0.i176
   %210 = load ptr, ptr %24, align 8
-  %211 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %210, i64 %indvars.iv, i32 3
-  store ptr %209, ptr %211, align 8
-  %212 = load ptr, ptr %24, align 8
-  %213 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %212, i64 %indvars.iv, i32 6
-  store i16 3, ptr %213, align 8
-  %214 = load ptr, ptr %24, align 8
-  %215 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %214, i64 %indvars.iv, i32 7
-  store i16 2, ptr %215, align 2
-  br i1 %.not150, label %216, label %225
+  %211 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %210, i64 %indvars.iv
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  store ptr %209, ptr %212, align 8
+  %213 = load ptr, ptr %24, align 8
+  %214 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %213, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
+  store i32 %203, ptr %215, align 4
+  %216 = icmp sgt i32 %203, 32768
+  br i1 %216, label %217, label %223
 
-216:                                              ; preds = %205
-  br i1 %.0144, label %217, label %232
-
-217:                                              ; preds = %216
+217:                                              ; preds = %198
   %218 = load ptr, ptr %24, align 8
   %219 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %218, i64 %indvars.iv
-  %220 = load i16, ptr %219, align 8
-  %221 = sext i16 %220 to i32
-  %222 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %223 = load ptr, ptr %222, align 8
-  %224 = tail call zeroext i1 @ecpg_get_data(ptr noundef %2, i32 noundef %3, i32 noundef %206, i32 noundef %0, i32 noundef %221, i32 noundef 29, ptr noundef %223, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 4, i32 noundef %4, i1 noundef zeroext false) #6
-  br label %232
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %219, i64 96
+  store ptr %221, ptr %222, align 8
+  br label %223
 
-225:                                              ; preds = %205
-  %226 = load ptr, ptr %24, align 8
-  %227 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %226, i64 %indvars.iv
-  %228 = load i16, ptr %227, align 8
-  %229 = sext i16 %228 to i32
-  %230 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %231 = load ptr, ptr %230, align 8
-  tail call void @ECPGset_noind_null(i32 noundef %229, ptr noundef %231) #6
-  br label %232
+223:                                              ; preds = %118, %130, %167, %198, %217, %188, %178, %168, %96, %86, %76, %69, %59, %49, %39, %29
+  %.0207 = phi i64 [ %208, %217 ], [ %208, %198 ], [ %33, %29 ], [ %43, %39 ], [ %53, %49 ], [ %63, %59 ], [ %70, %69 ], [ %80, %76 ], [ %90, %86 ], [ %100, %96 ], [ %110, %130 ], [ %.1, %167 ], [ %110, %118 ], [ %172, %168 ], [ %182, %178 ], [ %192, %188 ]
+  %.0144 = phi i1 [ true, %217 ], [ true, %198 ], [ true, %29 ], [ true, %39 ], [ true, %49 ], [ true, %59 ], [ true, %69 ], [ true, %76 ], [ true, %86 ], [ true, %96 ], [ false, %130 ], [ false, %167 ], [ false, %118 ], [ true, %168 ], [ true, %178 ], [ true, %188 ]
+  %224 = trunc nuw nsw i64 %indvars.iv to i32
+  %225 = tail call i32 @PQgetisnull(ptr noundef %2, i32 noundef %3, i32 noundef %224) #6
+  %.not150 = icmp eq i32 %225, 0
+  %226 = select i1 %.not150, ptr @.str.3, ptr @.str.2
+  tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.1, i32 noundef %0, i32 noundef %3, i32 noundef %224, ptr noundef nonnull %226) #6
+  %227 = select i1 %.not150, ptr @value_is_not_null, ptr @value_is_null
+  %228 = load ptr, ptr %24, align 8
+  %229 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %228, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
+  store ptr %227, ptr %230, align 8
+  %231 = load ptr, ptr %24, align 8
+  %232 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %231, i64 %indvars.iv
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 40
+  store i16 3, ptr %233, align 8
+  %234 = load ptr, ptr %24, align 8
+  %235 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %234, i64 %indvars.iv
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 42
+  store i16 2, ptr %236, align 2
+  br i1 %.not150, label %237, label %246
 
-232:                                              ; preds = %216, %217, %225
+237:                                              ; preds = %223
+  br i1 %.0144, label %238, label %253
+
+238:                                              ; preds = %237
+  %239 = load ptr, ptr %24, align 8
+  %240 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %239, i64 %indvars.iv
+  %241 = load i16, ptr %240, align 8
+  %242 = sext i16 %241 to i32
+  %243 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  %244 = load ptr, ptr %243, align 8
+  %245 = tail call zeroext i1 @ecpg_get_data(ptr noundef %2, i32 noundef %3, i32 noundef %224, i32 noundef %0, i32 noundef %242, i32 noundef 29, ptr noundef %244, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 4, i32 noundef %4, i1 noundef zeroext false) #6
+  br label %253
+
+246:                                              ; preds = %223
+  %247 = load ptr, ptr %24, align 8
+  %248 = getelementptr inbounds nuw %struct.sqlvar_compat, ptr %247, i64 %indvars.iv
+  %249 = load i16, ptr %248, align 8
+  %250 = sext i16 %249 to i32
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  %252 = load ptr, ptr %251, align 8
+  tail call void @ECPGset_noind_null(i32 noundef %250, ptr noundef %252) #6
+  br label %253
+
+253:                                              ; preds = %237, %238, %246
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %233 = load i16, ptr %6, align 8
-  %234 = sext i16 %233 to i64
-  %235 = icmp slt i64 %indvars.iv.next, %234
-  br i1 %235, label %25, label %.loopexit, !llvm.loop !6
+  %254 = load i16, ptr %6, align 8
+  %255 = sext i16 %254 to i64
+  %256 = icmp slt i64 %indvars.iv.next, %255
+  br i1 %256, label %25, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %232, %sqlda_compat_empty_size.exit, %5
+.loopexit:                                        ; preds = %253, %sqlda_compat_empty_size.exit, %5
   ret void
 }
 

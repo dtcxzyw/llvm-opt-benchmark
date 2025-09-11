@@ -9926,18 +9926,19 @@ _ZNKSt14default_deleteISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 define dso_local noundef zeroext i1 @_ZNK4Json5Value8Comments3hasENS_16CommentPlacementE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !43
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %9, label %4
+  br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i64 %5, i32 1
-  %7 = load i64, ptr %6, align 8, !tbaa !25
-  %8 = icmp ne i64 %7, 0
-  br label %9
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load i64, ptr %7, align 8, !tbaa !25
+  %9 = icmp ne i64 %8, 0
+  br label %10
 
-9:                                                ; preds = %4, %2
-  %10 = phi i1 [ false, %2 ], [ %8, %4 ]
-  ret i1 %10
+10:                                               ; preds = %4, %2
+  %11 = phi i1 [ false, %2 ], [ %9, %4 ]
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10371,14 +10372,15 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPla
 
 5:                                                ; preds = %2
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %6, i32 1
-  %8 = load i64, ptr %7, align 8, !tbaa !25
-  %9 = icmp ne i64 %8, 0
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load i64, ptr %8, align 8, !tbaa !25
+  %10 = icmp ne i64 %9, 0
   br label %_ZNK4Json5Value8Comments3hasENS_16CommentPlacementE.exit
 
 _ZNK4Json5Value8Comments3hasENS_16CommentPlacementE.exit: ; preds = %2, %5
-  %10 = phi i1 [ false, %2 ], [ %9, %5 ]
-  ret i1 %10
+  %11 = phi i1 [ false, %2 ], [ %10, %5 ]
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress uwtable

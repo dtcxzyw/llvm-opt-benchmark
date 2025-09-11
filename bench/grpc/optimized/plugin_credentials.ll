@@ -6784,7 +6784,7 @@ define linkonce_odr void @_ZN23grpc_plugin_credentials14PendingRequestD2Ev(ptr n
   br label %59
 
 ._crit_edge:                                      ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7, %.preheader
-  %6 = phi i64 [ %4, %.preheader ], [ %87, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7 ]
+  %6 = phi i64 [ %4, %.preheader ], [ %88, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -6897,8 +6897,8 @@ _ZN9grpc_core5WakerD2Ev.exit:                     ; preds = %_ZN9grpc_core13RefC
   ret void
 
 59:                                               ; preds = %.lr.ph, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7
-  %60 = phi i64 [ %4, %.lr.ph ], [ %87, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7 ]
-  %.09 = phi i64 [ 0, %.lr.ph ], [ %86, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7 ]
+  %60 = phi i64 [ %4, %.lr.ph ], [ %88, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7 ]
+  %.09 = phi i64 [ 0, %.lr.ph ], [ %87, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7 ]
   %61 = and i64 %60, 1
   %.not.i.i = icmp eq i64 %61, 0
   %62 = load ptr, ptr %5, align 8
@@ -6925,43 +6925,44 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %67
   %.not.i.i5 = icmp eq i64 %74, 0
   %75 = load ptr, ptr %5, align 8
   %76 = select i1 %.not.i.i5, ptr %5, ptr %75
-  %77 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %76, i64 %.09, i32 1
-  %78 = load ptr, ptr %77, align 8, !tbaa !37
-  %79 = icmp ugt ptr %78, inttoptr (i64 1 to ptr)
-  br i1 %79, label %80, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7
+  %77 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %76, i64 %.09
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %79 = load ptr, ptr %78, align 8, !tbaa !37
+  %80 = icmp ugt ptr %79, inttoptr (i64 1 to ptr)
+  br i1 %80, label %81, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7
 
-80:                                               ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
-  %81 = atomicrmw sub ptr %78, i64 1 acq_rel, align 8
-  %82 = icmp eq i64 %81, 1
-  br i1 %82, label %83, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7
+81:                                               ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
+  %82 = atomicrmw sub ptr %79, i64 1 acq_rel, align 8
+  %83 = icmp eq i64 %82, 1
+  br i1 %83, label %84, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !59
-  invoke void %85(ptr noundef nonnull align 8 dereferenceable(16) %78)
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !59
+  invoke void %86(ptr noundef nonnull align 8 dereferenceable(16) %79)
           to label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7 unwind label %.loopexit
 
-_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7: ; preds = %80, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit, %83
-  %86 = add nuw nsw i64 %.09, 1
-  %87 = load i64, ptr %3, align 8, !tbaa !21
-  %88 = lshr i64 %87, 1
-  %89 = icmp samesign ult i64 %86, %88
-  br i1 %89, label %59, label %._crit_edge, !llvm.loop !328
+_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit7: ; preds = %81, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit, %84
+  %87 = add nuw nsw i64 %.09, 1
+  %88 = load i64, ptr %3, align 8, !tbaa !21
+  %89 = lshr i64 %88, 1
+  %90 = icmp samesign ult i64 %87, %89
+  br i1 %90, label %59, label %._crit_edge, !llvm.loop !328
 
-.loopexit:                                        ; preds = %70, %83
+.loopexit:                                        ; preds = %70, %84
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %90
+  br label %91
 
 .loopexit.split-lp:                               ; preds = %1
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %90
+  br label %91
 
-90:                                               ; preds = %.loopexit.split-lp, %.loopexit
+91:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %91 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %91) #32
+  %92 = extractvalue { ptr, i32 } %lpad.phi, 0
+  tail call void @__clang_call_terminate(ptr %92) #32
   unreachable
 }
 

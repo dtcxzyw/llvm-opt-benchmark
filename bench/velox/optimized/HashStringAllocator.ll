@@ -5044,10 +5044,10 @@ while.cond79:                                     ; preds = %while.cond79, %whil
 
 if.then.i78:                                      ; preds = %while.cond79
   %33 = load ptr, ptr %this, align 8
+  %add.ptr88 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %33, i64 %i.0
   %conv90 = zext nneg i8 %32 to i64
   %sub91 = add nsw i64 %conv90, -1
-  %rawItems_.i.i.i69 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %33, i64 %i.0, i32 3
-  %arrayidx.i.i.i.i.i70 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %rawItems_.i.i.i69, i64 %sub91
+  %arrayidx.i.i.i.i.i70 = getelementptr %"union.std::aligned_storage<16, 8>::type", ptr %add.ptr88, i64 %conv90
   %cmp.i.i74 = icmp ult i8 %32, 17
   call void @llvm.assume(i1 %cmp.i.i74)
   %34 = ptrtoint ptr %arrayidx.i.i.i.i.i70 to i64

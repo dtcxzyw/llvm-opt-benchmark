@@ -1175,48 +1175,50 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %8, %11
   br i1 %.not.i, label %._crit_edge, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit, %.preheader.i
-  %.1.i = phi i32 [ %34, %.preheader.i ], [ %31, %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit ]
+  %.1.i = phi i32 [ %35, %.preheader.i ], [ %31, %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit ]
   %32 = sext i32 %.1.i to i64
-  %33 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %28, i64 %32, i32 4
-  %34 = load i32, ptr %33, align 8, !tbaa !106
-  %35 = icmp eq i32 %34, -1
-  br i1 %35, label %.lr.ph, label %.preheader.i
+  %33 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %28, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load i32, ptr %34, align 8, !tbaa !106
+  %36 = icmp eq i32 %35, -1
+  br i1 %36, label %.lr.ph, label %.preheader.i
 
 .lr.ph:                                           ; preds = %.preheader.i
   store i32 %.1.i, ptr %2, align 4, !tbaa !39
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %37
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  br label %38
 
-37:                                               ; preds = %.lr.ph, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit
-  %38 = phi ptr [ %28, %.lr.ph ], [ %45, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ]
-  %storemerge5 = phi i32 [ %.1.i, %.lr.ph ], [ %49, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ]
-  %39 = load ptr, ptr %3, align 8, !tbaa !92
-  %40 = load ptr, ptr %36, align 8, !tbaa !93
-  %41 = getelementptr inbounds i8, ptr %40, i64 -4
-  %.not.i.i3 = icmp eq ptr %39, %41
-  br i1 %.not.i.i3, label %44, label %42
+38:                                               ; preds = %.lr.ph, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit
+  %39 = phi ptr [ %28, %.lr.ph ], [ %46, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ]
+  %storemerge5 = phi i32 [ %.1.i, %.lr.ph ], [ %51, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ]
+  %40 = load ptr, ptr %3, align 8, !tbaa !92
+  %41 = load ptr, ptr %37, align 8, !tbaa !93
+  %42 = getelementptr inbounds i8, ptr %41, i64 -4
+  %.not.i.i3 = icmp eq ptr %40, %42
+  br i1 %.not.i.i3, label %45, label %43
 
-42:                                               ; preds = %37
-  store i32 %storemerge5, ptr %39, align 4, !tbaa !39
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  store ptr %43, ptr %3, align 8, !tbaa !92
+43:                                               ; preds = %38
+  store i32 %storemerge5, ptr %40, align 4, !tbaa !39
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  store ptr %44, ptr %3, align 8, !tbaa !92
   br label %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit
 
-44:                                               ; preds = %37
+45:                                               ; preds = %38
   call void @_ZNSt5dequeIiSaIiEE16_M_push_back_auxIJRKiEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %.pre = load ptr, ptr %25, align 8, !tbaa !100
   %.pre6 = load ptr, ptr %.pre, align 8, !tbaa !9
   br label %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit
 
-_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %42, %44
-  %45 = phi ptr [ %38, %42 ], [ %.pre6, %44 ]
-  %46 = load i32, ptr %2, align 4, !tbaa !39
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %45, i64 %47, i32 3
-  %49 = load i32, ptr %48, align 4, !tbaa !107
-  store i32 %49, ptr %2, align 4, !tbaa !39
-  %.not = icmp eq i32 %49, -1
-  br i1 %.not, label %._crit_edge, label %37, !llvm.loop !108
+_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %43, %45
+  %46 = phi ptr [ %39, %43 ], [ %.pre6, %45 ]
+  %47 = load i32, ptr %2, align 4, !tbaa !39
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %46, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
+  %51 = load i32, ptr %50, align 4, !tbaa !107
+  store i32 %51, ptr %2, align 4, !tbaa !39
+  %.not = icmp eq i32 %51, -1
+  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit, %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

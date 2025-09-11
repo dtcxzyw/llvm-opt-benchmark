@@ -2270,9 +2270,9 @@ _ZN11quinn_proto20transport_parameters10decode_cid17hfa21460fd58a9a2dE.exit177: 
   %220 = icmp ult i64 %218, %219
   %221 = icmp ugt i8 %217, 20
   %or.cond1.i = or i1 %221, %220
-  br i1 %or.cond1.i, label %_ZN11quinn_proto20transport_parameters16PreferredAddress4read17hd3bd928aa3079f1dE.exit.thread, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h853cac7c0f786396E.exit.i"
+  br i1 %or.cond1.i, label %_ZN11quinn_proto20transport_parameters16PreferredAddress4read17hd3bd928aa3079f1dE.exit.thread, label %_ZN11quinn_proto6shared12ConnectionId3new17h8fbb595c9982a2a6E.exit.i
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h853cac7c0f786396E.exit.i": ; preds = %216
+_ZN11quinn_proto6shared12ConnectionId3new17h8fbb595c9982a2a6E.exit.i: ; preds = %216
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !198
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %8, i8 0, i64 20, i1 false), !noalias !198
   %222 = call fastcc { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha8e3cb77df8d4e9cE"(i64 noundef 0, i64 noundef %219, ptr noalias noundef nonnull align 1 %8, i64 noundef 20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.958ad362766c6650c2bee9c81b99cdad.85), !noalias !195
@@ -2286,7 +2286,7 @@ _ZN11quinn_proto20transport_parameters10decode_cid17hfa21460fd58a9a2dE.exit177: 
   %226 = icmp ult i64 %225, 16
   br i1 %226, label %.loopexit, label %227
 
-227:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h853cac7c0f786396E.exit.i"
+227:                                              ; preds = %_ZN11quinn_proto6shared12ConnectionId3new17h8fbb595c9982a2a6E.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !198
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, i8 0, i64 16, i1 false), !noalias !198
   call void @_ZN5bytes3buf8buf_impl3Buf13copy_to_slice17h9b378eb2a88a9f50E(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 1 %7, i64 noundef 16), !noalias !195
@@ -2303,8 +2303,8 @@ _ZN11quinn_proto20transport_parameters10decode_cid17hfa21460fd58a9a2dE.exit177: 
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !198
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h853cac7c0f786396E.exit.i", %232
-  %.sroa.12.sroa.0.0 = phi i8 [ 0, %232 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h853cac7c0f786396E.exit.i" ]
+.loopexit:                                        ; preds = %_ZN11quinn_proto6shared12ConnectionId3new17h8fbb595c9982a2a6E.exit.i, %232
+  %.sroa.12.sroa.0.0 = phi i8 [ 0, %232 ], [ 1, %_ZN11quinn_proto6shared12ConnectionId3new17h8fbb595c9982a2a6E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !198
   br label %_ZN11quinn_proto20transport_parameters16PreferredAddress4read17hd3bd928aa3079f1dE.exit.thread
 

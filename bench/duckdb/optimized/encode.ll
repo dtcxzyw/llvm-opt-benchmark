@@ -6015,7 +6015,7 @@ _ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistance
   %156 = add nsw i64 %141, -2
   %157 = trunc nuw nsw i64 %156 to i32
   %158 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %157, i1 true)
-  %159 = sub nsw i32 30, %158
+  %159 = sub nuw nsw i32 30, %158
   %160 = shl nuw nsw i32 %159, 1
   %161 = zext nneg i32 %160 to i64
   %162 = zext nneg i32 %159 to i64
@@ -6063,7 +6063,7 @@ _ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit:  ; preds = %151, %155, %169, %1
   %185 = add nsw i64 %146, -6
   %186 = trunc nuw nsw i64 %185 to i32
   %187 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %186, i1 true)
-  %188 = sub nsw i32 30, %187
+  %188 = sub nuw nsw i32 30, %187
   %189 = shl nuw nsw i32 %188, 1
   %190 = zext nneg i32 %189 to i64
   %191 = zext nneg i32 %188 to i64

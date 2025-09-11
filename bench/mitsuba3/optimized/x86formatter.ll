@@ -226,7 +226,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
 
 77:                                               ; preds = %74
   %78 = zext nneg i8 %4 to i64
-  %79 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::RegFormatInfo", ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 0, i32 2, i64 %78
+  %79 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::RegFormatInfo::NameEntry", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 128), i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 3
   %81 = load i8, ptr %80, align 1, !tbaa !37
   %82 = zext i8 %81 to i32

@@ -88,13 +88,13 @@ define internal range(i32 -2147483648, 1) i32 @join_init(ptr noundef %0) #0 {
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %7, i32 noundef %27) #11
   %29 = load ptr, ptr %12, align 8, !tbaa !27
-  %30 = getelementptr inbounds nuw %struct.ChannelMap, ptr %29, i64 %indvars.iv, i32 3
-  store i32 %28, ptr %30, align 4, !tbaa !31
-  %31 = getelementptr inbounds nuw %struct.ChannelMap, ptr %29, i64 %indvars.iv
-  store i32 -1, ptr %31, align 4, !tbaa !33
-  %32 = getelementptr inbounds nuw %struct.ChannelMap, ptr %29, i64 %indvars.iv, i32 1
+  %30 = getelementptr inbounds nuw %struct.ChannelMap, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
+  store i32 %28, ptr %31, align 4, !tbaa !31
+  store i32 -1, ptr %30, align 4, !tbaa !33
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 -1, ptr %32, align 4, !tbaa !34
-  %33 = getelementptr inbounds nuw %struct.ChannelMap, ptr %29, i64 %indvars.iv, i32 2
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 -1, ptr %33, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %8, align 4, !tbaa !20
@@ -934,7 +934,7 @@ define internal range(i32 -22, 1) i32 @join_config_output(ptr noundef readonly c
   %11 = tail call noalias ptr @av_calloc(i64 noundef %10, i64 noundef 16) #11
   store ptr %11, ptr %2, align 8, !tbaa !96
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %238, label %.preheader156
+  br i1 %.not, label %239, label %.preheader156
 
 .preheader156:                                    ; preds = %1
   %12 = load i32, ptr %8, align 8, !tbaa !51
@@ -1357,54 +1357,55 @@ guess_map_any.exit.thread259:                     ; preds = %153, %guess_map_any
   %217 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %218
 
-218:                                              ; preds = %.lr.ph194, %230
-  %219 = phi i32 [ %216, %.lr.ph194 ], [ %231, %230 ]
-  %indvars.iv232 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next233, %230 ]
-  %220 = getelementptr inbounds nuw %struct.ChannelList, ptr %11, i64 %indvars.iv232, i32 1
-  %221 = load i32, ptr %220, align 8, !tbaa !99
-  %222 = load ptr, ptr %217, align 8, !tbaa !56
-  %223 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv232
-  %224 = load ptr, ptr %223, align 8, !tbaa !54
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 76
-  %226 = load i32, ptr %225, align 4, !tbaa !111
-  %227 = icmp eq i32 %221, %226
-  br i1 %227, label %228, label %230
+218:                                              ; preds = %.lr.ph194, %231
+  %219 = phi i32 [ %216, %.lr.ph194 ], [ %232, %231 ]
+  %indvars.iv232 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next233, %231 ]
+  %220 = getelementptr inbounds nuw %struct.ChannelList, ptr %11, i64 %indvars.iv232
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
+  %222 = load i32, ptr %221, align 8, !tbaa !99
+  %223 = load ptr, ptr %217, align 8, !tbaa !56
+  %224 = getelementptr inbounds nuw ptr, ptr %223, i64 %indvars.iv232
+  %225 = load ptr, ptr %224, align 8, !tbaa !54
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 76
+  %227 = load i32, ptr %226, align 4, !tbaa !111
+  %228 = icmp eq i32 %222, %227
+  br i1 %228, label %229, label %231
 
-228:                                              ; preds = %218
-  %229 = trunc nuw nsw i64 %indvars.iv232 to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 24, ptr noundef nonnull @.str.12, i32 noundef %229) #11
+229:                                              ; preds = %218
+  %230 = trunc nuw nsw i64 %indvars.iv232 to i32
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 24, ptr noundef nonnull @.str.12, i32 noundef %230) #11
   %.pre242 = load i32, ptr %8, align 8, !tbaa !51
-  br label %230
+  br label %231
 
-230:                                              ; preds = %218, %228
-  %231 = phi i32 [ %219, %218 ], [ %.pre242, %228 ]
+231:                                              ; preds = %218, %229
+  %232 = phi i32 [ %219, %218 ], [ %.pre242, %229 ]
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %232 = zext i32 %231 to i64
-  %233 = icmp samesign ult i64 %indvars.iv.next233, %232
-  br i1 %233, label %218, label %channel_list_pop_ch.exit, !llvm.loop !112
+  %233 = zext i32 %232 to i64
+  %234 = icmp samesign ult i64 %indvars.iv.next233, %233
+  br i1 %234, label %218, label %channel_list_pop_ch.exit, !llvm.loop !112
 
-channel_list_pop_ch.exit:                         ; preds = %19, %230, %guess_map_any.exit.thread259, %65, %74
-  %.2113.ph = phi i32 [ -22, %74 ], [ -22, %65 ], [ -22, %guess_map_any.exit.thread259 ], [ 0, %230 ], [ -12, %19 ]
+channel_list_pop_ch.exit:                         ; preds = %19, %231, %guess_map_any.exit.thread259, %65, %74
+  %.2113.ph = phi i32 [ -22, %74 ], [ -22, %65 ], [ -22, %guess_map_any.exit.thread259 ], [ 0, %231 ], [ -12, %19 ]
   %.pr261 = load i32, ptr %8, align 8, !tbaa !51
   %.not200 = icmp eq i32 %.pr261, 0
   br i1 %.not200, label %._crit_edge197, label %.lr.ph196
 
 .lr.ph196:                                        ; preds = %channel_list_pop_ch.exit, %.lr.ph196
   %indvars.iv235 = phi i64 [ %indvars.iv.next236, %.lr.ph196 ], [ 0, %channel_list_pop_ch.exit ]
-  %234 = getelementptr inbounds nuw %struct.ChannelList, ptr %11, i64 %indvars.iv235
-  call void @av_freep(ptr noundef nonnull %234) #11
+  %235 = getelementptr inbounds nuw %struct.ChannelList, ptr %11, i64 %indvars.iv235
+  call void @av_freep(ptr noundef nonnull %235) #11
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
-  %235 = load i32, ptr %8, align 8, !tbaa !51
-  %236 = zext i32 %235 to i64
-  %237 = icmp samesign ult i64 %indvars.iv.next236, %236
-  br i1 %237, label %.lr.ph196, label %._crit_edge197, !llvm.loop !113
+  %236 = load i32, ptr %8, align 8, !tbaa !51
+  %237 = zext i32 %236 to i64
+  %238 = icmp samesign ult i64 %indvars.iv.next236, %237
+  br i1 %238, label %.lr.ph196, label %._crit_edge197, !llvm.loop !113
 
 ._crit_edge197:                                   ; preds = %.lr.ph196, %._crit_edge191, %channel_list_pop_ch.exit
   %.2113264 = phi i32 [ %.2113.ph, %channel_list_pop_ch.exit ], [ 0, %._crit_edge191 ], [ %.2113.ph, %.lr.ph196 ]
   call void @av_freep(ptr noundef nonnull %2) #11
-  br label %238
+  br label %239
 
-238:                                              ; preds = %1, %._crit_edge197
+239:                                              ; preds = %1, %._crit_edge197
   %.0 = phi i32 [ %.2113264, %._crit_edge197 ], [ -12, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

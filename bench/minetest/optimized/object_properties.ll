@@ -1433,7 +1433,8 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %conv241 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
   %i.0240 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %ret.0239 = phi i8 [ 1, %for.body.lr.ph ], [ %ret.1, %for.inc ]
-  %_M_string_length.i43 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %conv241, i32 1
+  %_M_string_length.i43.split = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %conv241
+  %_M_string_length.i43 = getelementptr inbounds nuw i8, ptr %_M_string_length.i43.split, i64 8
   %6 = load i64, ptr %_M_string_length.i43, align 8, !tbaa !11
   %cmp6 = icmp ugt i64 %6, 65535
   br i1 %cmp6, label %if.then, label %for.inc

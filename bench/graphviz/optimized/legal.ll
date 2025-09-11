@@ -1208,7 +1208,7 @@ gt.exit.thread.i:                                 ; preds = %97, %90
   %532 = zext nneg i32 %1 to i64
   br label %.lr.ph107.i
 
-.loopexit.i74:                                    ; preds = %600, %.lr.ph107.i
+.loopexit.i74:                                    ; preds = %602, %.lr.ph107.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond116.not.i = icmp eq i64 %indvars.iv.next113.i, %532
   br i1 %exitcond116.not.i, label %findInside.exit, label %.lr.ph107.i, !llvm.loop !46
@@ -1227,110 +1227,112 @@ gt.exit.thread.i:                                 ; preds = %97, %90
   br i1 %536, label %.lr.ph.i75, label %.loopexit.i74
 
 .lr.ph.i75:                                       ; preds = %.lr.ph107.i
-  %537 = getelementptr inbounds nuw %struct.polygon, ptr %530, i64 %indvars.iv112.i, i32 2
-  %538 = getelementptr inbounds nuw i8, ptr %537, i64 8
-  %539 = getelementptr inbounds nuw i8, ptr %537, i64 16
-  %540 = getelementptr inbounds nuw i8, ptr %537, i64 24
-  %541 = getelementptr inbounds nuw i8, ptr %534, i64 8
-  br label %542
+  %537 = getelementptr inbounds nuw %struct.polygon, ptr %530, i64 %indvars.iv112.i
+  %538 = getelementptr inbounds nuw i8, ptr %537, i64 16
+  %539 = getelementptr inbounds nuw i8, ptr %537, i64 24
+  %540 = getelementptr inbounds nuw i8, ptr %537, i64 32
+  %541 = getelementptr inbounds nuw i8, ptr %537, i64 40
+  %542 = getelementptr inbounds nuw i8, ptr %534, i64 8
+  br label %543
 
-542:                                              ; preds = %600, %.lr.ph.i75
-  %indvars.iv109.i = phi i64 [ %indvars.iv.i, %.lr.ph.i75 ], [ %indvars.iv.next110.i, %600 ]
-  %543 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv109.i
-  %544 = load ptr, ptr %543, align 8, !tbaa !8
-  %545 = load double, ptr %537, align 8, !tbaa !47
-  %546 = getelementptr inbounds nuw %struct.polygon, ptr %530, i64 %indvars.iv109.i, i32 2
-  %547 = getelementptr inbounds nuw i8, ptr %546, i64 16
-  %548 = load double, ptr %547, align 8, !tbaa !48
-  %549 = fcmp ugt double %545, %548
-  %.pre.i = load double, ptr %546, align 8, !tbaa !47
-  %550 = fcmp ult double %545, %.pre.i
-  %or.cond128.i = select i1 %549, i1 true, i1 %550
-  br i1 %or.cond128.i, label %573, label %551
+543:                                              ; preds = %602, %.lr.ph.i75
+  %indvars.iv109.i = phi i64 [ %indvars.iv.i, %.lr.ph.i75 ], [ %indvars.iv.next110.i, %602 ]
+  %544 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv109.i
+  %545 = load ptr, ptr %544, align 8, !tbaa !8
+  %546 = load double, ptr %538, align 8, !tbaa !47
+  %547 = getelementptr inbounds nuw %struct.polygon, ptr %530, i64 %indvars.iv109.i
+  %548 = getelementptr inbounds nuw i8, ptr %547, i64 16
+  %549 = getelementptr inbounds nuw i8, ptr %547, i64 32
+  %550 = load double, ptr %549, align 8, !tbaa !48
+  %551 = fcmp ugt double %546, %550
+  %.pre.i = load double, ptr %548, align 8, !tbaa !47
+  %552 = fcmp ult double %546, %.pre.i
+  %or.cond128.i = select i1 %551, i1 true, i1 %552
+  br i1 %or.cond128.i, label %575, label %553
 
-551:                                              ; preds = %542
-  %552 = load double, ptr %538, align 8, !tbaa !49
-  %553 = getelementptr inbounds nuw i8, ptr %546, i64 24
-  %554 = load double, ptr %553, align 8, !tbaa !50
-  %555 = fcmp ugt double %552, %554
-  br i1 %555, label %573, label %556
+553:                                              ; preds = %543
+  %554 = load double, ptr %539, align 8, !tbaa !49
+  %555 = getelementptr inbounds nuw i8, ptr %547, i64 40
+  %556 = load double, ptr %555, align 8, !tbaa !50
+  %557 = fcmp ugt double %554, %556
+  br i1 %557, label %575, label %558
 
-556:                                              ; preds = %551
-  %557 = getelementptr inbounds nuw i8, ptr %546, i64 8
-  %558 = load double, ptr %557, align 8, !tbaa !49
-  %559 = fcmp ult double %552, %558
-  br i1 %559, label %573, label %560
+558:                                              ; preds = %553
+  %559 = getelementptr inbounds nuw i8, ptr %547, i64 24
+  %560 = load double, ptr %559, align 8, !tbaa !49
+  %561 = fcmp ult double %554, %560
+  br i1 %561, label %575, label %562
 
-560:                                              ; preds = %556
-  %561 = load double, ptr %539, align 8, !tbaa !48
-  %562 = fcmp ugt double %561, %548
-  %563 = fcmp ult double %561, %.pre.i
-  %or.cond.i = or i1 %562, %563
-  br i1 %or.cond.i, label %573, label %564
+562:                                              ; preds = %558
+  %563 = load double, ptr %540, align 8, !tbaa !48
+  %564 = fcmp ugt double %563, %550
+  %565 = fcmp ult double %563, %.pre.i
+  %or.cond.i = or i1 %564, %565
+  br i1 %or.cond.i, label %575, label %566
 
-564:                                              ; preds = %560
-  %565 = load double, ptr %540, align 8, !tbaa !50
-  %566 = fcmp ugt double %565, %554
-  %567 = fcmp ult double %565, %558
-  %or.cond98.i = or i1 %566, %567
-  br i1 %or.cond98.i, label %573, label %568
+566:                                              ; preds = %562
+  %567 = load double, ptr %541, align 8, !tbaa !50
+  %568 = fcmp ugt double %567, %556
+  %569 = fcmp ult double %567, %560
+  %or.cond98.i = or i1 %568, %569
+  br i1 %or.cond98.i, label %575, label %570
 
-568:                                              ; preds = %564
-  %569 = load ptr, ptr %544, align 8
-  %570 = getelementptr inbounds nuw i8, ptr %544, i64 8
-  %571 = load i64, ptr %570, align 8
-  %572 = tail call zeroext i1 @in_poly(ptr %569, i64 %571, double %.sroa.0.0.copyload.i, double %.sroa.4.0.copyload.i) #16
-  br i1 %572, label %findInside.exit, label %600
+570:                                              ; preds = %566
+  %571 = load ptr, ptr %545, align 8
+  %572 = getelementptr inbounds nuw i8, ptr %545, i64 8
+  %573 = load i64, ptr %572, align 8
+  %574 = tail call zeroext i1 @in_poly(ptr %571, i64 %573, double %.sroa.0.0.copyload.i, double %.sroa.4.0.copyload.i) #16
+  br i1 %574, label %findInside.exit, label %602
 
-573:                                              ; preds = %564, %560, %556, %551, %542
-  %574 = load double, ptr %539, align 8, !tbaa !48
-  %575 = fcmp ugt double %.pre.i, %574
-  %576 = fcmp ult double %.pre.i, %545
-  %or.cond101.i = or i1 %576, %575
-  br i1 %or.cond101.i, label %600, label %577
+575:                                              ; preds = %566, %562, %558, %553, %543
+  %576 = load double, ptr %540, align 8, !tbaa !48
+  %577 = fcmp ugt double %.pre.i, %576
+  %578 = fcmp ult double %.pre.i, %546
+  %or.cond101.i = or i1 %578, %577
+  br i1 %or.cond101.i, label %602, label %579
 
-577:                                              ; preds = %573
-  %578 = getelementptr inbounds nuw i8, ptr %546, i64 8
-  %579 = load double, ptr %578, align 8, !tbaa !49
-  %580 = load double, ptr %540, align 8, !tbaa !50
-  %581 = fcmp ugt double %579, %580
-  br i1 %581, label %600, label %582
+579:                                              ; preds = %575
+  %580 = getelementptr inbounds nuw i8, ptr %547, i64 24
+  %581 = load double, ptr %580, align 8, !tbaa !49
+  %582 = load double, ptr %541, align 8, !tbaa !50
+  %583 = fcmp ugt double %581, %582
+  br i1 %583, label %602, label %584
 
-582:                                              ; preds = %577
-  %583 = load double, ptr %538, align 8, !tbaa !49
-  %584 = fcmp ult double %579, %583
-  %585 = fcmp ugt double %548, %574
-  %586 = or i1 %585, %584
-  %or.cond102.i = or i1 %549, %586
-  br i1 %or.cond102.i, label %600, label %587
+584:                                              ; preds = %579
+  %585 = load double, ptr %539, align 8, !tbaa !49
+  %586 = fcmp ult double %581, %585
+  %587 = fcmp ugt double %550, %576
+  %588 = or i1 %587, %586
+  %or.cond102.i = or i1 %551, %588
+  br i1 %or.cond102.i, label %602, label %589
 
-587:                                              ; preds = %582
-  %588 = getelementptr inbounds nuw i8, ptr %546, i64 24
-  %589 = load double, ptr %588, align 8, !tbaa !50
-  %590 = fcmp ugt double %589, %580
-  %591 = fcmp ult double %589, %583
-  %or.cond100.i = or i1 %590, %591
-  br i1 %or.cond100.i, label %600, label %592
+589:                                              ; preds = %584
+  %590 = getelementptr inbounds nuw i8, ptr %547, i64 40
+  %591 = load double, ptr %590, align 8, !tbaa !50
+  %592 = fcmp ugt double %591, %582
+  %593 = fcmp ult double %591, %585
+  %or.cond100.i = or i1 %592, %593
+  br i1 %or.cond100.i, label %602, label %594
 
-592:                                              ; preds = %587
-  %593 = load ptr, ptr %544, align 8, !tbaa !21
-  %594 = load ptr, ptr %534, align 8
-  %595 = load i64, ptr %541, align 8
-  %596 = load double, ptr %593, align 8
-  %597 = getelementptr inbounds nuw i8, ptr %593, i64 8
-  %598 = load double, ptr %597, align 8
-  %599 = tail call zeroext i1 @in_poly(ptr %594, i64 %595, double %596, double %598) #16
-  br i1 %599, label %findInside.exit, label %600
+594:                                              ; preds = %589
+  %595 = load ptr, ptr %545, align 8, !tbaa !21
+  %596 = load ptr, ptr %534, align 8
+  %597 = load i64, ptr %542, align 8
+  %598 = load double, ptr %595, align 8
+  %599 = getelementptr inbounds nuw i8, ptr %595, i64 8
+  %600 = load double, ptr %599, align 8
+  %601 = tail call zeroext i1 @in_poly(ptr %596, i64 %597, double %598, double %600) #16
+  br i1 %601, label %findInside.exit, label %602
 
-600:                                              ; preds = %592, %587, %582, %577, %573, %568
+602:                                              ; preds = %594, %589, %584, %579, %575, %570
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next110.i, %532
-  br i1 %exitcond.not.i76, label %.loopexit.i74, label %542, !llvm.loop !51
+  br i1 %exitcond.not.i76, label %.loopexit.i74, label %543, !llvm.loop !51
 
-findInside.exit:                                  ; preds = %.loopexit.i74, %568, %592, %.loopexit, %.thread, %529
-  %.sink236 = phi ptr [ %11, %529 ], [ %11, %.loopexit ], [ %64, %.thread ], [ %530, %592 ], [ %530, %568 ], [ %530, %.loopexit.i74 ]
-  %.sink = phi ptr [ %36, %529 ], [ %36, %.loopexit ], [ %65, %.thread ], [ %531, %592 ], [ %531, %568 ], [ %531, %.loopexit.i74 ]
-  %.060 = phi i32 [ 0, %529 ], [ 0, %.loopexit ], [ 1, %.thread ], [ 0, %592 ], [ 0, %568 ], [ 1, %.loopexit.i74 ]
+findInside.exit:                                  ; preds = %.loopexit.i74, %570, %594, %.loopexit, %.thread, %529
+  %.sink236 = phi ptr [ %11, %529 ], [ %11, %.loopexit ], [ %64, %.thread ], [ %530, %594 ], [ %530, %570 ], [ %530, %.loopexit.i74 ]
+  %.sink = phi ptr [ %36, %529 ], [ %36, %.loopexit ], [ %65, %.thread ], [ %531, %594 ], [ %531, %570 ], [ %531, %.loopexit.i74 ]
+  %.060 = phi i32 [ 0, %529 ], [ 0, %.loopexit ], [ 1, %.thread ], [ 0, %594 ], [ 0, %570 ], [ 1, %.loopexit.i74 ]
   tail call void @free(ptr noundef %.sink236) #16
   tail call void @free(ptr noundef %.sink) #16
   ret i32 %.060

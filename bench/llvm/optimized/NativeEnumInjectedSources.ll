@@ -169,7 +169,7 @@ define dso_local void @_ZNK4llvm3pdb25NativeEnumInjectedSources15getChildAtIndex
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(48) %1) #18
   %.not = icmp ult i32 %2, %7
-  br i1 %.not, label %8, label %101
+  br i1 %.not, label %8, label %102
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -357,23 +357,24 @@ _ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv.exit.i: ; preds 
 _ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv.exit.i, %_ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit
   %.sroa.3.1.i = phi i32 [ %.sroa.2.8.insert.insert.i.i, %_ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit ], [ %.sroa.3.3.i, %_ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv.exit.i ]
   %91 = zext i32 %.sroa.3.1.i to i64
-  %92 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre, i64 %91, i32 1
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !46
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %96 = load ptr, ptr %95, align 8, !tbaa !47
-  %97 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19, !noalias !48
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceE, i64 16), ptr %97, align 8, !tbaa !3, !noalias !48
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store ptr %92, ptr %98, align 8, !tbaa !51, !noalias !48
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store ptr %96, ptr %99, align 8, !tbaa !12, !noalias !48
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store ptr %94, ptr %100, align 8, !tbaa !6, !noalias !48
-  br label %101
+  %92 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %95 = load ptr, ptr %94, align 8, !tbaa !46
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %97 = load ptr, ptr %96, align 8, !tbaa !47
+  %98 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19, !noalias !48
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceE, i64 16), ptr %98, align 8, !tbaa !3, !noalias !48
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  store ptr %93, ptr %99, align 8, !tbaa !51, !noalias !48
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  store ptr %97, ptr %100, align 8, !tbaa !12, !noalias !48
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  store ptr %95, ptr %101, align 8, !tbaa !6, !noalias !48
+  br label %102
 
-101:                                              ; preds = %3, %_ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit
-  %storemerge = phi ptr [ %97, %_ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit ], [ null, %3 ]
+102:                                              ; preds = %3, %_ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit
+  %storemerge = phi ptr [ %98, %_ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit ], [ null, %3 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !53
   ret void
 }
@@ -383,7 +384,7 @@ define dso_local void @_ZN4llvm3pdb25NativeEnumInjectedSources7getNextEv(ptr dea
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i8, ptr %3, align 4, !tbaa !56, !range !57, !noundef !58
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %19, label %_ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit
+  br i1 %5, label %20, label %_ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -393,23 +394,24 @@ _ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_del
   %7 = tail call noundef nonnull align 8 dereferenceable(13) ptr @_ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv(ptr noundef nonnull align 8 dereferenceable(13) %6)
   %8 = and i64 %.sroa.2.0.copyload.i, 4294967295
   %9 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !32
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %9, i64 %8, i32 1
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !46
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !47
-  %15 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19, !noalias !59
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceE, i64 16), ptr %15, align 8, !tbaa !3, !noalias !59
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %10, ptr %16, align 8, !tbaa !51, !noalias !59
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %14, ptr %17, align 8, !tbaa !12, !noalias !59
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr %12, ptr %18, align 8, !tbaa !6, !noalias !59
-  br label %19
+  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %9, i64 %8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = load ptr, ptr %14, align 8, !tbaa !47
+  %16 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19, !noalias !59
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceE, i64 16), ptr %16, align 8, !tbaa !3, !noalias !59
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %11, ptr %17, align 8, !tbaa !51, !noalias !59
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr %15, ptr %18, align 8, !tbaa !12, !noalias !59
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store ptr %13, ptr %19, align 8, !tbaa !6, !noalias !59
+  br label %20
 
-19:                                               ; preds = %2, %_ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit
-  %storemerge = phi ptr [ %15, %_ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit ], [ null, %2 ]
+20:                                               ; preds = %2, %_ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit
+  %storemerge = phi ptr [ %16, %_ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_deleteIS3_EED2Ev.exit ], [ null, %2 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !53
   ret void
 }

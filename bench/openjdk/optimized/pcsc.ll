@@ -918,35 +918,36 @@ throwOutOfMemoryError.exit98.thread144:           ; preds = %.preheader
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %108
   %indvars.iv121 = phi i64 [ 0, %.lr.ph108.preheader ], [ %indvars.iv.next122, %108 ]
-  %109 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv121, i32 3
-  %110 = load i64, ptr %109, align 8
-  %111 = trunc i64 %110 to i32
-  store i32 %111, ptr %7, align 4
-  %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1688
-  %114 = load ptr, ptr %113, align 8
-  %115 = trunc nuw nsw i64 %indvars.iv121 to i32
-  call void %114(ptr noundef nonnull %0, ptr noundef nonnull %103, i32 noundef %115, i32 noundef 1, ptr noundef nonnull %7) #7
-  %116 = load ptr, ptr %0, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 1824
-  %118 = load ptr, ptr %117, align 8
-  %119 = call zeroext i8 %118(ptr noundef nonnull %0) #7
-  %.not95 = icmp eq i8 %119, 0
+  %109 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv121
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %111 = load i64, ptr %110, align 8
+  %112 = trunc i64 %111 to i32
+  store i32 %112, ptr %7, align 4
+  %113 = load ptr, ptr %0, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 1688
+  %115 = load ptr, ptr %114, align 8
+  %116 = trunc nuw nsw i64 %indvars.iv121 to i32
+  call void %115(ptr noundef nonnull %0, ptr noundef nonnull %103, i32 noundef %116, i32 noundef 1, ptr noundef nonnull %7) #7
+  %117 = load ptr, ptr %0, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 1824
+  %119 = load ptr, ptr %118, align 8
+  %120 = call zeroext i8 %119(ptr noundef nonnull %0) #7
+  %.not95 = icmp eq i8 %120, 0
   br i1 %.not95, label %108, label %throwOutOfMemoryError.exit98
 
 throwOutOfMemoryError.exit98.thread:              ; preds = %95, %89, %83, %77
-  %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1560
-  %122 = load ptr, ptr %121, align 8
-  tail call void %122(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %29, i32 noundef 2) #7
+  %121 = load ptr, ptr %0, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 1560
+  %123 = load ptr, ptr %122, align 8
+  tail call void %123(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %29, i32 noundef 2) #7
   br label %.lr.ph112.preheader
 
 throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %108, %.lr.ph108, %60, %55, %handleRV.exit
   %.089 = phi ptr [ null, %handleRV.exit ], [ null, %55 ], [ null, %60 ], [ %103, %108 ], [ null, %.lr.ph108 ], [ null, %.lr.ph106 ], [ null, %42 ]
-  %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 1560
-  %125 = load ptr, ptr %124, align 8
-  call void %125(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %29, i32 noundef 2) #7
+  %124 = load ptr, ptr %0, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 1560
+  %126 = load ptr, ptr %125, align 8
+  call void %126(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %29, i32 noundef 2) #7
   br i1 %15, label %.lr.ph112.preheader, label %._crit_edge113
 
 .lr.ph112.preheader:                              ; preds = %throwOutOfMemoryError.exit98.thread, %throwOutOfMemoryError.exit98
@@ -956,9 +957,9 @@ throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %10
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
   %indvars.iv126 = phi i64 [ 0, %.lr.ph112.preheader ], [ %indvars.iv.next127, %.lr.ph112 ]
-  %126 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv126
-  %127 = load ptr, ptr %126, align 8
-  call void @free(ptr noundef %127) #7
+  %127 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv126
+  %128 = load ptr, ptr %127, align 8
+  call void @free(ptr noundef %128) #7
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
   br i1 %exitcond130.not, label %._crit_edge113, label %.lr.ph112, !llvm.loop !13

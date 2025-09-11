@@ -4921,7 +4921,8 @@ define dso_local void @__audit_log_nfcfg(ptr noundef %0, i8 noundef zeroext %1, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !5
   %14 = zext i8 %1 to i32
   %15 = zext i32 %3 to i64
-  %16 = getelementptr %struct.audit_nfcfgop_tab, ptr @audit_nfcfgs, i64 %15, i32 1
+  %.split = getelementptr %struct.audit_nfcfgop_tab, ptr @audit_nfcfgs, i64 %15
+  %16 = getelementptr i8, ptr %.split, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %11, ptr noundef nonnull @.str.6, ptr noundef %0, i32 noundef %14, i32 noundef %2, ptr noundef %17) #12
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 1320

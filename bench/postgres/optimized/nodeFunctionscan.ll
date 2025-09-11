@@ -332,29 +332,30 @@ define dso_local void @ExecEndFunctionScan(ptr noundef readonly captures(none) %
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %6
 
-6:                                                ; preds = %.lr.ph, %12
-  %7 = phi i32 [ %3, %.lr.ph ], [ %13, %12 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
+6:                                                ; preds = %.lr.ph, %13
+  %7 = phi i32 [ %3, %.lr.ph ], [ %14, %13 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %8, i64 %indvars.iv, i32 3
-  %10 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %12, label %11
+  %9 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %13, label %12
 
-11:                                               ; preds = %6
-  tail call void @tuplestore_end(ptr noundef nonnull %10) #6
-  store ptr null, ptr %9, align 8
+12:                                               ; preds = %6
+  tail call void @tuplestore_end(ptr noundef nonnull %11) #6
+  store ptr null, ptr %10, align 8
   %.pre = load i32, ptr %2, align 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %11, %6
-  %13 = phi i32 [ %.pre, %11 ], [ %7, %6 ]
+13:                                               ; preds = %12, %6
+  %14 = phi i32 [ %.pre, %12 ], [ %7, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = sext i32 %13 to i64
-  %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %6, label %._crit_edge, !llvm.loop !9
+  %15 = sext i32 %14 to i64
+  %16 = icmp slt i64 %indvars.iv.next, %15
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %12, %1
+._crit_edge:                                      ; preds = %13, %1
   ret void
 }
 
@@ -389,121 +390,126 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %18
 
-18:                                               ; preds = %.lr.ph, %28
-  %19 = phi i32 [ %15, %.lr.ph ], [ %29, %28 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
+18:                                               ; preds = %.lr.ph, %29
+  %19 = phi i32 [ %15, %.lr.ph ], [ %30, %29 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %20, i64 %indvars.iv, i32 5
-  %22 = load ptr, ptr %21, align 8
-  %.not49 = icmp eq ptr %22, null
-  br i1 %.not49, label %28, label %23
+  %21 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %23 = load ptr, ptr %22, align 8
+  %.not49 = icmp eq ptr %23, null
+  br i1 %.not49, label %29, label %24
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull %22) #6
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %28 = load ptr, ptr %27, align 8
+  tail call void %28(ptr noundef nonnull %23) #6
   %.pre = load i32, ptr %14, align 8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %23, %18
-  %29 = phi i32 [ %.pre, %23 ], [ %19, %18 ]
+29:                                               ; preds = %24, %18
+  %30 = phi i32 [ %.pre, %24 ], [ %19, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %18, label %._crit_edge, !llvm.loop !10
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %32, label %18, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %28, %13
+._crit_edge:                                      ; preds = %29, %13
   tail call void @ExecScanReScan(ptr noundef nonnull %0) #6
   %.not44 = icmp eq ptr %5, null
-  br i1 %.not44, label %.critedge, label %32
+  br i1 %.not44, label %.critedge, label %33
 
-32:                                               ; preds = %._crit_edge
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %.not45 = icmp eq ptr %34, null
+33:                                               ; preds = %._crit_edge
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %.not45 = icmp eq ptr %35, null
   br i1 %.not45, label %.critedge, label %.lr.ph54
 
-.lr.ph54:                                         ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %38 = load i32, ptr %35, align 4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph58, label %.critedge
+.lr.ph54:                                         ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %39 = load i32, ptr %36, align 4
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %.lr.ph58, label %.critedge
 
-.lr.ph58:                                         ; preds = %.lr.ph54, %56
-  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %56 ], [ 0, %.lr.ph54 ]
-  %40 = load ptr, ptr %36, align 8
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv63
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call zeroext i1 @bms_overlap(ptr noundef nonnull %5, ptr noundef %44) #6
-  br i1 %45, label %46, label %56
+.lr.ph58:                                         ; preds = %.lr.ph54, %60
+  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %60 ], [ 0, %.lr.ph54 ]
+  %41 = load ptr, ptr %37, align 8
+  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv63
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call zeroext i1 @bms_overlap(ptr noundef nonnull %5, ptr noundef %45) #6
+  br i1 %46, label %47, label %60
 
-46:                                               ; preds = %.lr.ph58
-  %47 = load ptr, ptr %37, align 8
-  %48 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %47, i64 %indvars.iv63, i32 3
-  %49 = load ptr, ptr %48, align 8
-  %.not48 = icmp eq ptr %49, null
-  br i1 %.not48, label %53, label %50
+47:                                               ; preds = %.lr.ph58
+  %48 = load ptr, ptr %38, align 8
+  %49 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %48, i64 %indvars.iv63
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %51 = load ptr, ptr %50, align 8
+  %.not48 = icmp eq ptr %51, null
+  br i1 %.not48, label %56, label %52
 
-50:                                               ; preds = %46
-  tail call void @tuplestore_end(ptr noundef nonnull %49) #6
-  %51 = load ptr, ptr %37, align 8
-  %52 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %51, i64 %indvars.iv63, i32 3
-  store ptr null, ptr %52, align 8
-  %.pre71 = load ptr, ptr %37, align 8
-  br label %53
-
-53:                                               ; preds = %50, %46
-  %54 = phi ptr [ %.pre71, %50 ], [ %47, %46 ]
-  %55 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %54, i64 %indvars.iv63, i32 4
-  store i64 -1, ptr %55, align 8
+52:                                               ; preds = %47
+  tail call void @tuplestore_end(ptr noundef nonnull %51) #6
+  %53 = load ptr, ptr %38, align 8
+  %54 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %53, i64 %indvars.iv63
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  store ptr null, ptr %55, align 8
+  %.pre71 = load ptr, ptr %38, align 8
   br label %56
 
-56:                                               ; preds = %53, %.lr.ph58
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %57 = load i32, ptr %35, align 4
-  %58 = sext i32 %57 to i64
-  %59 = icmp slt i64 %indvars.iv.next64, %58
-  br i1 %59, label %.lr.ph58, label %.critedge
+56:                                               ; preds = %52, %47
+  %57 = phi ptr [ %.pre71, %52 ], [ %48, %47 ]
+  %58 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %57, i64 %indvars.iv63
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  store i64 -1, ptr %59, align 8
+  br label %60
 
-.critedge:                                        ; preds = %56, %32, %.lr.ph54, %._crit_edge
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i64 0, ptr %60, align 8
-  %61 = load i32, ptr %14, align 8
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph60, label %._crit_edge61
+60:                                               ; preds = %56, %.lr.ph58
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %61 = load i32, ptr %36, align 4
+  %62 = sext i32 %61 to i64
+  %63 = icmp slt i64 %indvars.iv.next64, %62
+  br i1 %63, label %.lr.ph58, label %.critedge
+
+.critedge:                                        ; preds = %60, %33, %.lr.ph54, %._crit_edge
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i64 0, ptr %64, align 8
+  %65 = load i32, ptr %14, align 8
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %.lr.ph60, label %._crit_edge61
 
 .lr.ph60:                                         ; preds = %.critedge
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  br label %64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  br label %68
 
-64:                                               ; preds = %.lr.ph60, %70
-  %65 = phi i32 [ %61, %.lr.ph60 ], [ %71, %70 ]
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next69, %70 ]
-  %66 = load ptr, ptr %63, align 8
-  %67 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %66, i64 %indvars.iv68, i32 3
-  %68 = load ptr, ptr %67, align 8
-  %.not47 = icmp eq ptr %68, null
-  br i1 %.not47, label %70, label %69
+68:                                               ; preds = %.lr.ph60, %75
+  %69 = phi i32 [ %65, %.lr.ph60 ], [ %76, %75 ]
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next69, %75 ]
+  %70 = load ptr, ptr %67, align 8
+  %71 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %70, i64 %indvars.iv68
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %73 = load ptr, ptr %72, align 8
+  %.not47 = icmp eq ptr %73, null
+  br i1 %.not47, label %75, label %74
 
-69:                                               ; preds = %64
-  tail call void @tuplestore_rescan(ptr noundef nonnull %68) #6
+74:                                               ; preds = %68
+  tail call void @tuplestore_rescan(ptr noundef nonnull %73) #6
   %.pre72 = load i32, ptr %14, align 8
-  br label %70
+  br label %75
 
-70:                                               ; preds = %64, %69
-  %71 = phi i32 [ %65, %64 ], [ %.pre72, %69 ]
+75:                                               ; preds = %68, %74
+  %76 = phi i32 [ %69, %68 ], [ %.pre72, %74 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next69, %72
-  br i1 %73, label %64, label %._crit_edge61, !llvm.loop !11
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next69, %77
+  br i1 %78, label %68, label %._crit_edge61, !llvm.loop !11
 
-._crit_edge61:                                    ; preds = %70, %.critedge
+._crit_edge61:                                    ; preds = %75, %.critedge
   ret void
 }
 

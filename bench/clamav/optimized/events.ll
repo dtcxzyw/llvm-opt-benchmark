@@ -2509,29 +2509,30 @@ define void @cli_event_debug_all(ptr noundef captures(address_is_null) %0) local
   %.not7 = icmp eq i32 %3, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %10
-  %4 = phi i32 [ %11, %10 ], [ %3, %1 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %11
+  %4 = phi i32 [ %12, %11 ], [ %3, %1 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !13
-  %6 = getelementptr inbounds nuw %struct.cli_event, ptr %5, i64 %indvars.iv, i32 2
-  %7 = load i32, ptr %6, align 8, !tbaa !18
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %10, label %8
+  %6 = getelementptr inbounds nuw %struct.cli_event, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load i32, ptr %7, align 8, !tbaa !18
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %11, label %9
 
-8:                                                ; preds = %.lr.ph
-  %9 = trunc nuw i64 %indvars.iv to i32
-  tail call void @cli_event_debug(ptr noundef nonnull %0, i32 noundef %9)
+9:                                                ; preds = %.lr.ph
+  %10 = trunc nuw i64 %indvars.iv to i32
+  tail call void @cli_event_debug(ptr noundef nonnull %0, i32 noundef %10)
   %.pre = load i32, ptr %2, align 8, !tbaa !3
-  br label %10
+  br label %11
 
-10:                                               ; preds = %.lr.ph, %8
-  %11 = phi i32 [ %4, %.lr.ph ], [ %.pre, %8 ]
+11:                                               ; preds = %.lr.ph, %9
+  %12 = phi i32 [ %4, %.lr.ph ], [ %.pre, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = zext i32 %11 to i64
-  %13 = icmp samesign ult i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge
+  %13 = zext i32 %12 to i64
+  %14 = icmp samesign ult i64 %indvars.iv.next, %13
+  br i1 %14, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %10, %1
+._crit_edge:                                      ; preds = %11, %1
   ret void
 }
 
@@ -2921,42 +2922,43 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef captures(address_is_n
 
 13:                                               ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, i32 noundef %5, i32 noundef %7) #14
-  br label %29
+  br label %30
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.lr.ph ]
-  %.01828 = phi i32 [ %.1, %24 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %25
+  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.lr.ph ]
+  %.01828 = phi i32 [ %.1, %25 ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %0, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw %struct.cli_event, ptr %14, i64 %indvars.iv, i32 3
-  %16 = load i16, ptr %15, align 4
-  %17 = and i16 %16, 255
-  %18 = zext nneg i16 %17 to i32
-  %19 = trunc nuw i64 %indvars.iv to i32
-  %20 = tail call i32 %2(i32 noundef %19, i32 noundef %18) #14
-  %.not25 = icmp eq i32 %20, 0
-  br i1 %.not25, label %21, label %24
+  %15 = getelementptr inbounds nuw %struct.cli_event, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %17 = load i16, ptr %16, align 4
+  %18 = and i16 %17, 255
+  %19 = zext nneg i16 %18 to i32
+  %20 = trunc nuw i64 %indvars.iv to i32
+  %21 = tail call i32 %2(i32 noundef %20, i32 noundef %19) #14
+  %.not25 = icmp eq i32 %21, 0
+  br i1 %.not25, label %22, label %25
 
-21:                                               ; preds = %.lr.ph.split
-  %22 = tail call i32 @cli_event_diff(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %19)
-  %23 = add i32 %22, %.01828
-  br label %24
+22:                                               ; preds = %.lr.ph.split
+  %23 = tail call i32 @cli_event_diff(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %20)
+  %24 = add i32 %23, %.01828
+  br label %25
 
-24:                                               ; preds = %.lr.ph.split, %21
-  %.1 = phi i32 [ %23, %21 ], [ %.01828, %.lr.ph.split ]
+25:                                               ; preds = %.lr.ph.split, %22
+  %.1 = phi i32 [ %24, %22 ], [ %.01828, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load i32, ptr %4, align 8, !tbaa !3
-  %26 = zext i32 %25 to i64
-  %27 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph.split, label %._crit_edge
+  %26 = load i32, ptr %4, align 8, !tbaa !3
+  %27 = zext i32 %26 to i64
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
+  br i1 %28, label %.lr.ph.split, label %._crit_edge
 
-._crit_edge:                                      ; preds = %24, %.lr.ph.split.us, %.preheader
-  %.018.lcssa = phi i32 [ 0, %.preheader ], [ %9, %.lr.ph.split.us ], [ %.1, %24 ]
+._crit_edge:                                      ; preds = %25, %.lr.ph.split.us, %.preheader
+  %.018.lcssa = phi i32 [ 0, %.preheader ], [ %9, %.lr.ph.split.us ], [ %.1, %25 ]
   %.not23 = icmp ne i32 %.018.lcssa, 0
-  %28 = zext i1 %.not23 to i32
-  br label %29
+  %29 = zext i1 %.not23 to i32
+  br label %30
 
-29:                                               ; preds = %._crit_edge, %13
-  %.0 = phi i32 [ 1, %13 ], [ %28, %._crit_edge ]
+30:                                               ; preds = %._crit_edge, %13
+  %.0 = phi i32 [ 1, %13 ], [ %29, %._crit_edge ]
   ret i32 %.0
 }
 

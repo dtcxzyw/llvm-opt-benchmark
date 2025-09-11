@@ -23749,11 +23749,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %31
 
 31:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEET_SR_SR_T0_.exit"
-  %32 = phi i64 [ %18, %.lr.ph ], [ %137, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEET_SR_SR_T0_.exit" ]
-  %.025 = phi i64 [ %2, %.lr.ph ], [ %55, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEET_SR_SR_T0_.exit" ]
+  %32 = phi i64 [ %18, %.lr.ph ], [ %138, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEET_SR_SR_T0_.exit" ]
+  %.025 = phi i64 [ %2, %.lr.ph ], [ %56, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEET_SR_SR_T0_.exit" ]
   %storemerge24 = phi ptr [ %1, %.lr.ph ], [ %.sroa.011.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEET_SR_SR_T0_.exit" ]
   %33 = icmp eq i64 %.025, 0
-  br i1 %33, label %34, label %54
+  br i1 %33, label %34, label %55
 
 34:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -23764,203 +23764,204 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %39
 
 39:                                               ; preds = %39, %34
-  %.010.i.i.i = phi i64 [ %36, %34 ], [ %42, %39 ]
+  %.010.i.i.i = phi i64 [ %36, %34 ], [ %43, %39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  %40 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.010.i.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %13, align 8
-  %40 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.010.i.i.i, i32 1
-  %41 = load i64, ptr %40, align 8
-  store i64 %41, ptr %37, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load i64, ptr %41, align 8
+  store i64 %42, ptr %37, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %14, align 8
-  store i64 %41, ptr %38, align 8
+  store i64 %42, ptr %38, align 8
   call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_T0_SS_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %32, ptr noundef %14)
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
-  %42 = add nsw i64 %.010.i.i.i, -1
+  %43 = add nsw i64 %.010.i.i.i, -1
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not.i.i.i, label %.lr.ph.i9.i, label %39, !llvm.loop !644
 
 .lr.ph.i9.i:                                      ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %43 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  br label %45
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  br label %46
 
-45:                                               ; preds = %45, %.lr.ph.i9.i
-  %.sroa.0.03.i.i = phi ptr [ %storemerge24, %.lr.ph.i9.i ], [ %46, %45 ]
-  %46 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
+46:                                               ; preds = %46, %.lr.ph.i9.i
+  %.sroa.0.03.i.i = phi ptr [ %storemerge24, %.lr.ph.i9.i ], [ %47, %46 ]
+  %47 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %11, align 8
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
-  %48 = load i64, ptr %47, align 8
-  store i64 %48, ptr %43, align 8
-  %49 = load i64, ptr %23, align 8
-  store i64 %49, ptr %47, align 8
-  %50 = ptrtoint ptr %46 to i64
-  %51 = sub i64 %50, %15
-  %52 = ashr exact i64 %51, 4
+  %48 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
+  %49 = load i64, ptr %48, align 8
+  store i64 %49, ptr %44, align 8
+  %50 = load i64, ptr %23, align 8
+  store i64 %50, ptr %48, align 8
+  %51 = ptrtoint ptr %47 to i64
+  %52 = sub i64 %51, %15
+  %53 = ashr exact i64 %52, 4
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %12, align 8
-  store i64 %48, ptr %44, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_T0_SS_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %52, ptr noundef %12)
+  store i64 %49, ptr %45, align 8
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_T0_SS_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %53, ptr noundef %12)
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %53 = icmp sgt i64 %51, 16
-  br i1 %53, label %45, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_T0_.exit", !llvm.loop !645
+  %54 = icmp sgt i64 %52, 16
+  br i1 %54, label %46, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_T0_.exit", !llvm.loop !645
 
-54:                                               ; preds = %31
-  %55 = add nsw i64 %.025, -1
-  %56 = lshr i64 %32, 1
-  %57 = getelementptr inbounds nuw %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  %60 = load i8, ptr %20, align 1
-  %61 = load i8, ptr %58, align 1
-  %62 = icmp ult i8 %60, %61
-  br i1 %62, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i.i", label %63
+55:                                               ; preds = %31
+  %56 = add nsw i64 %.025, -1
+  %57 = lshr i64 %32, 1
+  %58 = getelementptr inbounds nuw %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %61 = load i8, ptr %20, align 1
+  %62 = load i8, ptr %59, align 1
+  %63 = icmp ult i8 %61, %62
+  br i1 %63, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i.i", label %64
 
-63:                                               ; preds = %54
-  %64 = icmp ult i8 %61, %60
-  br i1 %64, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread30.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i.i"
+64:                                               ; preds = %55
+  %65 = icmp ult i8 %62, %61
+  br i1 %65, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread30.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i.i": ; preds = %63
-  %65 = load i32, ptr %21, align 4
-  %66 = load i32, ptr %59, align 4
-  %67 = icmp ult i32 %65, %66
-  br i1 %67, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread30.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i.i": ; preds = %64
+  %66 = load i32, ptr %21, align 4
+  %67 = load i32, ptr %60, align 4
+  %68 = icmp ult i32 %66, %67
+  br i1 %68, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread30.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i.i", %54
-  %68 = getelementptr inbounds i8, ptr %storemerge24, i64 -8
-  %69 = getelementptr inbounds i8, ptr %storemerge24, i64 -4
-  %70 = load i8, ptr %68, align 1
-  %71 = icmp ult i8 %61, %70
-  br i1 %71, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread.i.i", label %72
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i.i", %55
+  %69 = getelementptr inbounds i8, ptr %storemerge24, i64 -8
+  %70 = getelementptr inbounds i8, ptr %storemerge24, i64 -4
+  %71 = load i8, ptr %69, align 1
+  %72 = icmp ult i8 %62, %71
+  br i1 %72, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread.i.i", label %73
 
-72:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i.i"
-  %73 = icmp ult i8 %70, %61
-  br i1 %73, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread31.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.i.i"
+73:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i.i"
+  %74 = icmp ult i8 %71, %62
+  br i1 %74, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread31.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.i.i": ; preds = %72
-  %74 = load i32, ptr %59, align 4
-  %75 = load i32, ptr %69, align 4
-  %76 = icmp ult i32 %74, %75
-  br i1 %76, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread31.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.i.i": ; preds = %73
+  %75 = load i32, ptr %60, align 4
+  %76 = load i32, ptr %70, align 4
+  %77 = icmp ult i32 %75, %76
+  br i1 %77, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread31.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %10, align 8
-  %77 = load i64, ptr %23, align 8
-  store i64 %77, ptr %28, align 8
-  %78 = load i64, ptr %58, align 8
-  store i64 %78, ptr %23, align 8
-  store i64 %77, ptr %58, align 8
+  %78 = load i64, ptr %23, align 8
+  store i64 %78, ptr %28, align 8
+  %79 = load i64, ptr %59, align 8
+  store i64 %79, ptr %23, align 8
+  store i64 %78, ptr %59, align 8
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread31.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.i.i", %72
-  %79 = icmp ult i8 %60, %70
-  br i1 %79, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread.i.i", label %80
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread31.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.i.i", %73
+  %80 = icmp ult i8 %61, %71
+  br i1 %80, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread.i.i", label %81
 
-80:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread31.i.i"
-  %81 = icmp ult i8 %70, %60
-  br i1 %81, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread32.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.i.i"
+81:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread31.i.i"
+  %82 = icmp ult i8 %71, %61
+  br i1 %82, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread32.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.i.i": ; preds = %80
-  %82 = load i32, ptr %21, align 4
-  %83 = load i32, ptr %69, align 4
-  %84 = icmp ult i32 %82, %83
-  br i1 %84, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread32.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.i.i": ; preds = %81
+  %83 = load i32, ptr %21, align 4
+  %84 = load i32, ptr %70, align 4
+  %85 = icmp ult i32 %83, %84
+  br i1 %85, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread32.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread31.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %9, align 8
-  %85 = load i64, ptr %23, align 8
-  store i64 %85, ptr %27, align 8
-  %86 = load i64, ptr %68, align 8
-  store i64 %86, ptr %23, align 8
-  store i64 %85, ptr %68, align 8
+  %86 = load i64, ptr %23, align 8
+  store i64 %86, ptr %27, align 8
+  %87 = load i64, ptr %69, align 8
+  store i64 %87, ptr %23, align 8
+  store i64 %86, ptr %69, align 8
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread32.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.i.i", %80
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread32.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.i.i", %81
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %8, align 8
-  %87 = load i64, ptr %23, align 8
-  store i64 %87, ptr %26, align 8
-  %88 = load i64, ptr %20, align 8
-  store i64 %88, ptr %23, align 8
-  store i64 %87, ptr %20, align 8
+  %88 = load i64, ptr %23, align 8
+  store i64 %88, ptr %26, align 8
+  %89 = load i64, ptr %20, align 8
+  store i64 %89, ptr %23, align 8
+  store i64 %88, ptr %20, align 8
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread30.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i.i", %63
-  %89 = getelementptr inbounds i8, ptr %storemerge24, i64 -8
-  %90 = getelementptr inbounds i8, ptr %storemerge24, i64 -4
-  %91 = load i8, ptr %89, align 1
-  %92 = icmp ult i8 %60, %91
-  br i1 %92, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread.i.i", label %93
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread30.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i.i", %64
+  %90 = getelementptr inbounds i8, ptr %storemerge24, i64 -8
+  %91 = getelementptr inbounds i8, ptr %storemerge24, i64 -4
+  %92 = load i8, ptr %90, align 1
+  %93 = icmp ult i8 %61, %92
+  br i1 %93, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread.i.i", label %94
 
-93:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread30.i.i"
-  %94 = icmp ult i8 %91, %60
-  br i1 %94, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread33.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.i.i"
+94:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread30.i.i"
+  %95 = icmp ult i8 %92, %61
+  br i1 %95, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread33.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.i.i": ; preds = %93
-  %95 = load i32, ptr %21, align 4
-  %96 = load i32, ptr %90, align 4
-  %97 = icmp ult i32 %95, %96
-  br i1 %97, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread33.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.i.i": ; preds = %94
+  %96 = load i32, ptr %21, align 4
+  %97 = load i32, ptr %91, align 4
+  %98 = icmp ult i32 %96, %97
+  br i1 %98, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread33.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread30.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %7, align 8
-  %98 = load i64, ptr %23, align 8
-  store i64 %98, ptr %25, align 8
-  %99 = load i64, ptr %20, align 8
-  store i64 %99, ptr %23, align 8
-  store i64 %98, ptr %20, align 8
+  %99 = load i64, ptr %23, align 8
+  store i64 %99, ptr %25, align 8
+  %100 = load i64, ptr %20, align 8
+  store i64 %100, ptr %23, align 8
+  store i64 %99, ptr %20, align 8
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread33.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.i.i", %93
-  %100 = icmp ult i8 %61, %91
-  br i1 %100, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread.i.i", label %101
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread33.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.i.i", %94
+  %101 = icmp ult i8 %62, %92
+  br i1 %101, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread.i.i", label %102
 
-101:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread33.i.i"
-  %102 = icmp ult i8 %91, %61
-  br i1 %102, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread34.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.i.i"
+102:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread33.i.i"
+  %103 = icmp ult i8 %92, %62
+  br i1 %103, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread34.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.i.i": ; preds = %101
-  %103 = load i32, ptr %59, align 4
-  %104 = load i32, ptr %90, align 4
-  %105 = icmp ult i32 %103, %104
-  br i1 %105, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread34.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.i.i": ; preds = %102
+  %104 = load i32, ptr %60, align 4
+  %105 = load i32, ptr %91, align 4
+  %106 = icmp ult i32 %104, %105
+  br i1 %106, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread34.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread33.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %6, align 8
-  %106 = load i64, ptr %23, align 8
-  store i64 %106, ptr %24, align 8
-  %107 = load i64, ptr %89, align 8
-  store i64 %107, ptr %23, align 8
-  store i64 %106, ptr %89, align 8
+  %107 = load i64, ptr %23, align 8
+  store i64 %107, ptr %24, align 8
+  %108 = load i64, ptr %90, align 8
+  store i64 %108, ptr %23, align 8
+  store i64 %107, ptr %90, align 8
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread34.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.i.i", %101
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread34.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.i.i", %102
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %5, align 8
-  %108 = load i64, ptr %23, align 8
-  store i64 %108, ptr %22, align 8
-  %109 = load i64, ptr %58, align 8
-  store i64 %109, ptr %23, align 8
-  store i64 %108, ptr %58, align 8
+  %109 = load i64, ptr %23, align 8
+  store i64 %109, ptr %22, align 8
+  %110 = load i64, ptr %59, align 8
+  store i64 %110, ptr %23, align 8
+  store i64 %109, ptr %59, align 8
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader"
@@ -23968,86 +23969,86 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread34.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit29.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit28.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread32.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit27.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit26.thread.i.i"
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader", %131
-  %.pn.i = phi ptr [ %.sroa.011.1.i.i, %131 ], [ %0, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %131 ], [ %storemerge24, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader" ]
-  %110 = load i8, ptr %23, align 1
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader", %132
+  %.pn.i = phi ptr [ %.sroa.011.1.i.i, %132 ], [ %0, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %132 ], [ %storemerge24, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i.preheader" ]
+  %111 = load i8, ptr %23, align 1
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i.backedge", %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i"
   %.pn.pn.i = phi ptr [ %.pn.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i" ], [ %.sroa.011.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i.backedge" ]
   %.sroa.011.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.pn.i, i64 16
-  %111 = getelementptr inbounds nuw i8, ptr %.pn.pn.i, i64 24
-  %112 = getelementptr inbounds nuw i8, ptr %.pn.pn.i, i64 28
-  %113 = load i8, ptr %111, align 1
-  %114 = icmp ult i8 %113, %110
-  br i1 %114, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i.backedge", label %115
+  %112 = getelementptr inbounds nuw i8, ptr %.pn.pn.i, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %.pn.pn.i, i64 28
+  %114 = load i8, ptr %112, align 1
+  %115 = icmp ult i8 %114, %111
+  br i1 %115, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i.backedge", label %116
 
-115:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i"
-  %116 = icmp ult i8 %110, %113
-  br i1 %116, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread14.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i13.i"
+116:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i"
+  %117 = icmp ult i8 %111, %114
+  br i1 %117, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread14.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i13.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i13.i": ; preds = %115
-  %117 = load i32, ptr %112, align 4
-  %118 = load i32, ptr %29, align 4
-  %119 = icmp ult i32 %117, %118
-  br i1 %119, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i.backedge", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread14.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i13.i": ; preds = %116
+  %118 = load i32, ptr %113, align 4
+  %119 = load i32, ptr %29, align 4
+  %120 = icmp ult i32 %118, %119
+  br i1 %120, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i.backedge", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread14.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i.backedge": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i13.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i"
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread.i14.i", !llvm.loop !646
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread14.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i13.i", %115
-  %120 = getelementptr inbounds nuw i8, ptr %.pn.pn.i, i64 24
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread14.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.i13.i", %116
+  %121 = getelementptr inbounds nuw i8, ptr %.pn.pn.i, i64 24
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i.backedge", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread14.i.i"
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread14.i.i" ], [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i.backedge" ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %122 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -4
-  %123 = load i8, ptr %121, align 1
-  %124 = icmp ult i8 %110, %123
-  br i1 %124, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i.backedge", label %125
+  %122 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %123 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -4
+  %124 = load i8, ptr %122, align 1
+  %125 = icmp ult i8 %111, %124
+  br i1 %125, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i.backedge", label %126
 
-125:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i"
-  %126 = icmp ult i8 %123, %110
-  br i1 %126, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread15.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.i.i"
+126:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i"
+  %127 = icmp ult i8 %124, %111
+  br i1 %127, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread15.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.i.i": ; preds = %125
-  %127 = load i32, ptr %29, align 4
-  %128 = load i32, ptr %122, align 4
-  %129 = icmp ult i32 %127, %128
-  br i1 %129, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i.backedge", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread15.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.i.i": ; preds = %126
+  %128 = load i32, ptr %29, align 4
+  %129 = load i32, ptr %123, align 4
+  %130 = icmp ult i32 %128, %129
+  br i1 %130, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i.backedge", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread15.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i.backedge": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i"
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread.i.i", !llvm.loop !647
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread15.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.i.i", %125
-  %130 = icmp ult ptr %.sroa.011.1.i.i, %.sroa.0.1.i.i
-  br i1 %130, label %131, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEET_SR_SR_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread15.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.i.i", %126
+  %131 = icmp ult ptr %.sroa.011.1.i.i, %.sroa.0.1.i.i
+  br i1 %131, label %132, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEET_SR_SR_T0_.exit"
 
-131:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread15.i.i"
-  %132 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+132:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread15.i.i"
+  %133 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %4, align 8
-  %133 = load i64, ptr %120, align 8
-  store i64 %133, ptr %30, align 8
-  %134 = load i64, ptr %132, align 8
-  store i64 %134, ptr %120, align 8
-  store i64 %133, ptr %132, align 8
+  %134 = load i64, ptr %121, align 8
+  store i64 %134, ptr %30, align 8
+  %135 = load i64, ptr %133, align 8
+  store i64 %135, ptr %121, align 8
+  store i64 %134, ptr %133, align 8
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_SR_T0_.exit.i", !llvm.loop !648
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEET_SR_SR_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit8.thread15.i.i"
-  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_T0_T1_"(ptr nonnull %.sroa.011.1.i.i, ptr %storemerge24, i64 noundef %55)
-  %135 = ptrtoint ptr %.sroa.011.1.i.i to i64
-  %136 = sub i64 %135, %15
-  %137 = ashr exact i64 %136, 4
-  %138 = icmp sgt i64 %137, 16
-  br i1 %138, label %31, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_T0_.exit", !llvm.loop !649
+  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_T0_T1_"(ptr nonnull %.sroa.011.1.i.i, ptr %storemerge24, i64 noundef %56)
+  %136 = ptrtoint ptr %.sroa.011.1.i.i to i64
+  %137 = sub i64 %136, %15
+  %138 = ashr exact i64 %137, 4
+  %139 = icmp sgt i64 %138, 16
+  br i1 %139, label %31, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_T0_.exit", !llvm.loop !649
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEET_SR_SR_T0_.exit", %45, %3
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEEvT_SR_SR_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue220RoseInstrPushDelayedESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EEET_SR_SR_T0_.exit", %46, %3
   ret void
 }
 
@@ -24092,78 +24093,84 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread36": ; preds = %21, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread"
   %26 = phi i64 [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread" ], [ %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit" ], [ %10, %21 ]
-  %27 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.039, i32 1
-  %28 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %26, i32 1
-  %29 = load i64, ptr %28, align 8
-  store i64 %29, ptr %27, align 8
-  %30 = icmp slt i64 %26, %7
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !650
+  %27 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %26
+  %28 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.039
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %31 = load i64, ptr %30, align 8
+  store i64 %31, ptr %29, align 8
+  %32 = icmp slt i64 %26, %7
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !650
 
 ._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread36", %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %26, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESQ_EEbT_T0_.exit.thread36" ]
-  %31 = and i64 %2, 1
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %43
+  %33 = and i64 %2, 1
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %47
 
-33:                                               ; preds = %._crit_edge
-  %34 = add nsw i64 %2, -2
-  %35 = ashr exact i64 %34, 1
-  %36 = icmp eq i64 %.0.lcssa, %35
-  br i1 %36, label %37, label %43
+35:                                               ; preds = %._crit_edge
+  %36 = add nsw i64 %2, -2
+  %37 = ashr exact i64 %36, 1
+  %38 = icmp eq i64 %.0.lcssa, %37
+  br i1 %38, label %39, label %47
 
-37:                                               ; preds = %33
-  %38 = shl nsw i64 %.0.lcssa, 1
-  %39 = or disjoint i64 %38, 1
-  %40 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.0.lcssa, i32 1
-  %41 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %39, i32 1
-  %42 = load i64, ptr %41, align 8
-  store i64 %42, ptr %40, align 8
-  br label %43
-
-43:                                               ; preds = %37, %33, %._crit_edge
-  %.1 = phi i64 [ %39, %37 ], [ %.0.lcssa, %33 ], [ %.0.lcssa, %._crit_edge ]
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %5, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
+39:                                               ; preds = %35
+  %40 = shl nsw i64 %.0.lcssa, 1
+  %41 = or disjoint i64 %40, 1
+  %42 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %41
+  %43 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.0.lcssa
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %46 = load i64, ptr %45, align 8
   store i64 %46, ptr %44, align 8
-  %47 = icmp sgt i64 %.1, %1
-  %48 = trunc i64 %46 to i8
-  %49 = lshr i64 %46, 32
-  %50 = trunc nuw i64 %49 to i32
-  br i1 %47, label %.lr.ph.i, label %.loopexit
+  br label %47
 
-.lr.ph.i:                                         ; preds = %43, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i"
-  %.010.i = phi i64 [ %.0911.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i" ], [ %.1, %43 ]
+47:                                               ; preds = %39, %35, %._crit_edge
+  %.1 = phi i64 [ %41, %39 ], [ %.0.lcssa, %35 ], [ %.0.lcssa, %._crit_edge ]
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN3ue220RoseInstrPushDelayedE, i64 16), ptr %5, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %50 = load i64, ptr %49, align 8
+  store i64 %50, ptr %48, align 8
+  %51 = icmp sgt i64 %.1, %1
+  %52 = trunc i64 %50 to i8
+  %53 = lshr i64 %50, 32
+  %54 = trunc nuw i64 %53 to i32
+  br i1 %51, label %.lr.ph.i, label %.loopexit
+
+.lr.ph.i:                                         ; preds = %47, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i"
+  %.010.i = phi i64 [ %.0911.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i" ], [ %.1, %47 ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %51 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.0911.i
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  %54 = load i8, ptr %52, align 1
-  %55 = icmp ult i8 %54, %48
-  br i1 %55, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i", label %56
+  %55 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.0911.i
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 12
+  %58 = load i8, ptr %56, align 1
+  %59 = icmp ult i8 %58, %52
+  br i1 %59, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i", label %60
 
-56:                                               ; preds = %.lr.ph.i
-  %57 = icmp ugt i8 %54, %48
-  br i1 %57, label %.loopexit, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.i"
+60:                                               ; preds = %.lr.ph.i
+  %61 = icmp ugt i8 %58, %52
+  br i1 %61, label %.loopexit, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.i": ; preds = %56
-  %58 = load i32, ptr %53, align 4
-  %59 = icmp ult i32 %58, %50
-  br i1 %59, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i", label %.loopexit
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.i": ; preds = %60
+  %62 = load i32, ptr %57, align 4
+  %63 = icmp ult i32 %62, %54
+  br i1 %63, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i", label %.loopexit
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.i", %.lr.ph.i
-  %60 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.010.i, i32 1
-  %61 = load i64, ptr %52, align 8
-  store i64 %61, ptr %60, align 8
-  %62 = icmp sgt i64 %.0911.i, %1
-  br i1 %62, label %.lr.ph.i, label %.loopexit, !llvm.loop !651
+  %64 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.010.i
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load i64, ptr %56, align 8
+  store i64 %66, ptr %65, align 8
+  %67 = icmp sgt i64 %.0911.i, %1
+  br i1 %67, label %.lr.ph.i, label %.loopexit, !llvm.loop !651
 
-.loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.i", %56, %43
-  %.0.lcssa.i = phi i64 [ %.1, %43 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.i" ], [ %.0911.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i" ], [ %.010.i, %56 ]
-  %63 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.0.lcssa.i, i32 1
-  store i64 %46, ptr %63, align 8
+.loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.i", %60, %47
+  %.0.lcssa.i = phi i64 [ %.1, %47 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.i" ], [ %.0911.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue2L27makePushDelayedInstructionsERKNS2_14RoseLiteralMapERNS2_12ProgramBuildERKNS2_8flat_setIjSt4lessIjESaIjEEERNS2_11RoseProgramEE3$_0EclINS_17__normal_iteratorIPNS2_20RoseInstrPushDelayedESt6vectorISL_SaISL_EEEESL_EEbT_RT0_.exit.thread.i" ], [ %.010.i, %60 ]
+  %68 = getelementptr inbounds %"class.ue2::RoseInstrPushDelayed", ptr %0, i64 %.0.lcssa.i
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store i64 %50, ptr %69, align 8
   call void @_ZN3ue215RoseInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   ret void
 }

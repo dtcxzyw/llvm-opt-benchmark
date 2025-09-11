@@ -1215,7 +1215,7 @@ define dso_local noundef ptr @ExecInitSubPlan(ptr noundef %0, ptr noundef %1) lo
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %66 = load i8, ptr %65, align 4, !range !5, !noundef !6
   %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %68, label %186
+  br i1 %67, label %68, label %187
 
 68:                                               ; preds = %.critedge
   %69 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1296,11 +1296,11 @@ list_length.exit:                                 ; preds = %88, %89
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.lr.ph193, label %.critedge154
 
-.lr.ph193:                                        ; preds = %.lr.ph169, %170
-  %.0145165192 = phi ptr [ %124, %170 ], [ null, %.lr.ph169 ]
-  %.0144166191 = phi ptr [ %118, %170 ], [ null, %.lr.ph169 ]
-  %.0142168190 = phi i32 [ %182, %170 ], [ 1, %.lr.ph169 ]
-  %indvars.iv176189 = phi i64 [ %indvars.iv.next177, %170 ], [ 0, %.lr.ph169 ]
+.lr.ph193:                                        ; preds = %.lr.ph169, %171
+  %.0145165192 = phi ptr [ %124, %171 ], [ null, %.lr.ph169 ]
+  %.0144166191 = phi ptr [ %118, %171 ], [ null, %.lr.ph169 ]
+  %.0142168190 = phi i32 [ %183, %171 ], [ 1, %.lr.ph169 ]
+  %indvars.iv176189 = phi i64 [ %indvars.iv.next177, %171 ], [ 0, %.lr.ph169 ]
   %109 = load ptr, ptr %106, align 8
   %110 = getelementptr inbounds nuw %union.ListCell, ptr %109, i64 %indvars.iv176189
   %111 = load ptr, ptr %110, align 8
@@ -1332,94 +1332,95 @@ list_length.exit:                                 ; preds = %88, %89
   %131 = getelementptr inbounds %struct.FmgrInfo, ptr %130, i64 %128
   call void @fmgr_info(i32 noundef %126, ptr noundef %131) #8
   %132 = load ptr, ptr %42, align 8
-  %133 = getelementptr inbounds %struct.FmgrInfo, ptr %132, i64 %128, i32 8
-  store ptr %111, ptr %133, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  %135 = load i32, ptr %134, align 4
-  %136 = call zeroext i1 @get_compatible_hash_operators(i32 noundef %135, ptr noundef null, ptr noundef nonnull %3) #8
-  br i1 %136, label %159, label %155
+  %133 = getelementptr inbounds %struct.FmgrInfo, ptr %132, i64 %128
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 40
+  store ptr %111, ptr %134, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  %136 = load i32, ptr %135, align 4
+  %137 = call zeroext i1 @get_compatible_hash_operators(i32 noundef %136, ptr noundef null, ptr noundef nonnull %3) #8
+  br i1 %137, label %160, label %156
 
-.critedge154:                                     ; preds = %170, %.lr.ph169, %list_length.exit
-  %.0145.lcssa = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph169 ], [ %124, %170 ]
-  %.0144.lcssa = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph169 ], [ %118, %170 ]
-  %137 = call ptr @ExecTypeFromTL(ptr noundef %.0144.lcssa) #8
-  %138 = call ptr @ExecInitExtraTupleSlot(ptr noundef nonnull %8, ptr noundef %137, ptr noundef nonnull @TTSOpsVirtual) #8
-  %139 = call ptr @ExecBuildProjectionInfo(ptr noundef %.0144.lcssa, ptr noundef null, ptr noundef %138, ptr noundef nonnull %1, ptr noundef null) #8
-  store ptr %139, ptr %33, align 8
-  %140 = call ptr @ExecTypeFromTL(ptr noundef %.0145.lcssa) #8
-  %141 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %140, ptr %141, align 8
-  %142 = call ptr @ExecInitExtraTupleSlot(ptr noundef nonnull %8, ptr noundef %140, ptr noundef nonnull @TTSOpsVirtual) #8
-  %143 = load ptr, ptr %37, align 8
-  %144 = load ptr, ptr %19, align 8
-  %145 = call ptr @ExecBuildProjectionInfo(ptr noundef %.0145.lcssa, ptr noundef %143, ptr noundef %142, ptr noundef %144, ptr noundef null) #8
-  store ptr %145, ptr %34, align 8
-  %146 = load ptr, ptr %41, align 8
-  %147 = load i32, ptr %93, align 8
-  %148 = load ptr, ptr %38, align 8
-  %149 = call ptr @ExecBuildHash32FromAttrs(ptr noundef %137, ptr noundef nonnull @TTSOpsVirtual, ptr noundef %102, ptr noundef %146, i32 noundef %147, ptr noundef %148, ptr noundef nonnull %1, i32 noundef 0) #8
-  %150 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  store ptr %149, ptr %150, align 8
-  %151 = load ptr, ptr %38, align 8
-  %152 = load ptr, ptr %41, align 8
-  %153 = call ptr @ExecBuildGroupingEqual(ptr noundef %137, ptr noundef %140, ptr noundef nonnull @TTSOpsVirtual, ptr noundef nonnull @TTSOpsMinimalTuple, i32 noundef %92, ptr noundef %151, ptr noundef %104, ptr noundef %152, ptr noundef nonnull %1) #8
-  %154 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  store ptr %153, ptr %154, align 8
-  br label %186
+.critedge154:                                     ; preds = %171, %.lr.ph169, %list_length.exit
+  %.0145.lcssa = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph169 ], [ %124, %171 ]
+  %.0144.lcssa = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph169 ], [ %118, %171 ]
+  %138 = call ptr @ExecTypeFromTL(ptr noundef %.0144.lcssa) #8
+  %139 = call ptr @ExecInitExtraTupleSlot(ptr noundef nonnull %8, ptr noundef %138, ptr noundef nonnull @TTSOpsVirtual) #8
+  %140 = call ptr @ExecBuildProjectionInfo(ptr noundef %.0144.lcssa, ptr noundef null, ptr noundef %139, ptr noundef nonnull %1, ptr noundef null) #8
+  store ptr %140, ptr %33, align 8
+  %141 = call ptr @ExecTypeFromTL(ptr noundef %.0145.lcssa) #8
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr %141, ptr %142, align 8
+  %143 = call ptr @ExecInitExtraTupleSlot(ptr noundef nonnull %8, ptr noundef %141, ptr noundef nonnull @TTSOpsVirtual) #8
+  %144 = load ptr, ptr %37, align 8
+  %145 = load ptr, ptr %19, align 8
+  %146 = call ptr @ExecBuildProjectionInfo(ptr noundef %.0145.lcssa, ptr noundef %144, ptr noundef %143, ptr noundef %145, ptr noundef null) #8
+  store ptr %146, ptr %34, align 8
+  %147 = load ptr, ptr %41, align 8
+  %148 = load i32, ptr %93, align 8
+  %149 = load ptr, ptr %38, align 8
+  %150 = call ptr @ExecBuildHash32FromAttrs(ptr noundef %138, ptr noundef nonnull @TTSOpsVirtual, ptr noundef %102, ptr noundef %147, i32 noundef %148, ptr noundef %149, ptr noundef nonnull %1, i32 noundef 0) #8
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  store ptr %150, ptr %151, align 8
+  %152 = load ptr, ptr %38, align 8
+  %153 = load ptr, ptr %41, align 8
+  %154 = call ptr @ExecBuildGroupingEqual(ptr noundef %138, ptr noundef %141, ptr noundef nonnull @TTSOpsVirtual, ptr noundef nonnull @TTSOpsMinimalTuple, i32 noundef %92, ptr noundef %152, ptr noundef %104, ptr noundef %153, ptr noundef nonnull %1) #8
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 184
+  store ptr %154, ptr %155, align 8
+  br label %187
 
-155:                                              ; preds = %.lr.ph193
-  %156 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %156)
-  %157 = load i32, ptr %134, align 4
-  %158 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %157) #8
+156:                                              ; preds = %.lr.ph193
+  %157 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %157)
+  %158 = load i32, ptr %135, align 4
+  %159 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %158) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1005, ptr noundef nonnull @__func__.ExecInitSubPlan) #8
   unreachable
 
-159:                                              ; preds = %.lr.ph193
-  %160 = load i32, ptr %3, align 4
-  %161 = call i32 @get_opcode(i32 noundef %160) #8
-  %162 = load ptr, ptr %39, align 8
-  %163 = getelementptr inbounds i32, ptr %162, i64 %128
-  store i32 %161, ptr %163, align 4
-  %164 = load i32, ptr %134, align 4
-  %165 = call zeroext i1 @get_op_hash_functions(i32 noundef %164, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
-  br i1 %165, label %170, label %166
+160:                                              ; preds = %.lr.ph193
+  %161 = load i32, ptr %3, align 4
+  %162 = call i32 @get_opcode(i32 noundef %161) #8
+  %163 = load ptr, ptr %39, align 8
+  %164 = getelementptr inbounds i32, ptr %163, i64 %128
+  store i32 %162, ptr %164, align 4
+  %165 = load i32, ptr %135, align 4
+  %166 = call zeroext i1 @get_op_hash_functions(i32 noundef %165, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
+  br i1 %166, label %171, label %167
 
-166:                                              ; preds = %159
-  %167 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %167)
-  %168 = load i32, ptr %134, align 4
-  %169 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %168) #8
+167:                                              ; preds = %160
+  %168 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %168)
+  %169 = load i32, ptr %135, align 4
+  %170 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %169) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1012, ptr noundef nonnull @__func__.ExecInitSubPlan) #8
   unreachable
 
-170:                                              ; preds = %159
-  %171 = load i32, ptr %4, align 4
-  %172 = getelementptr inbounds %struct.FmgrInfo, ptr %102, i64 %128
-  call void @fmgr_info(i32 noundef %171, ptr noundef %172) #8
-  %173 = load i32, ptr %5, align 4
-  %174 = load ptr, ptr %40, align 8
-  %175 = getelementptr inbounds %struct.FmgrInfo, ptr %174, i64 %128
-  call void @fmgr_info(i32 noundef %173, ptr noundef %175) #8
-  %176 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  %177 = load i32, ptr %176, align 8
-  %178 = load ptr, ptr %41, align 8
-  %179 = getelementptr inbounds i32, ptr %178, i64 %128
-  store i32 %177, ptr %179, align 4
-  %180 = load ptr, ptr %38, align 8
-  %181 = getelementptr inbounds i16, ptr %180, i64 %128
-  store i16 %116, ptr %181, align 2
-  %182 = add nuw i32 %.0142168190, 1
+171:                                              ; preds = %160
+  %172 = load i32, ptr %4, align 4
+  %173 = getelementptr inbounds %struct.FmgrInfo, ptr %102, i64 %128
+  call void @fmgr_info(i32 noundef %172, ptr noundef %173) #8
+  %174 = load i32, ptr %5, align 4
+  %175 = load ptr, ptr %40, align 8
+  %176 = getelementptr inbounds %struct.FmgrInfo, ptr %175, i64 %128
+  call void @fmgr_info(i32 noundef %174, ptr noundef %176) #8
+  %177 = getelementptr inbounds nuw i8, ptr %111, i64 24
+  %178 = load i32, ptr %177, align 8
+  %179 = load ptr, ptr %41, align 8
+  %180 = getelementptr inbounds i32, ptr %179, i64 %128
+  store i32 %178, ptr %180, align 4
+  %181 = load ptr, ptr %38, align 8
+  %182 = getelementptr inbounds i16, ptr %181, i64 %128
+  store i16 %116, ptr %182, align 2
+  %183 = add nuw i32 %.0142168190, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176189, 1
-  %183 = load i32, ptr %105, align 4
-  %184 = sext i32 %183 to i64
-  %185 = icmp slt i64 %indvars.iv.next177, %184
-  br i1 %185, label %.lr.ph193, label %.critedge154
+  %184 = load i32, ptr %105, align 4
+  %185 = sext i32 %184 to i64
+  %186 = icmp slt i64 %indvars.iv.next177, %185
+  br i1 %186, label %.lr.ph193, label %.critedge154
 
-186:                                              ; preds = %.critedge154, %.critedge
+187:                                              ; preds = %.critedge154, %.critedge
   ret ptr %6
 }
 
@@ -1823,7 +1824,7 @@ declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %6, label %70
+  br i1 %5, label %6, label %71
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1846,100 +1847,101 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   %.val.val.i = load i16, ptr %17, align 4
   %18 = and i16 %.val.val.i, 1
   %.not.i.i = icmp eq i16 %18, 0
-  br i1 %.not.i.i, label %19, label %56
+  br i1 %.not.i.i, label %19, label %57
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %struct.CompactAttribute, ptr %2, i64 %20, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp sgt i32 %22, -1
-  br i1 %23, label %24, label %54
+  %21 = getelementptr %struct.CompactAttribute, ptr %2, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 8
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp sgt i32 %23, -1
+  br i1 %24, label %25, label %55
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
-  %26 = load i8, ptr %25, align 2
-  %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %27
-  %29 = zext nneg i32 %22 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %21, i64 6
-  %32 = load i8, ptr %31, align 2, !range !5, !noundef !6
-  %33 = trunc nuw i8 %32 to i1
-  %34 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %35 = load i16, ptr %34, align 4
-  br i1 %33, label %36, label %52
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
+  %27 = load i8, ptr %26, align 2
+  %28 = zext i8 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %28
+  %30 = zext nneg i32 %23 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
+  %32 = getelementptr i8, ptr %21, i64 14
+  %33 = load i8, ptr %32, align 2, !range !5, !noundef !6
+  %34 = trunc nuw i8 %33 to i1
+  %35 = getelementptr i8, ptr %21, i64 12
+  %36 = load i16, ptr %35, align 4
+  br i1 %34, label %37, label %53
 
-36:                                               ; preds = %24
-  switch i16 %35, label %48 [
-    i16 1, label %37
-    i16 2, label %40
-    i16 4, label %43
-    i16 8, label %46
+37:                                               ; preds = %25
+  switch i16 %36, label %49 [
+    i16 1, label %38
+    i16 2, label %41
+    i16 4, label %44
+    i16 8, label %47
   ]
 
-37:                                               ; preds = %36
-  %38 = load i8, ptr %30, align 1
-  %39 = sext i8 %38 to i64
+38:                                               ; preds = %37
+  %39 = load i8, ptr %31, align 1
+  %40 = sext i8 %39 to i64
   br label %fastgetattr.exit
 
-40:                                               ; preds = %36
-  %41 = load i16, ptr %30, align 2
-  %42 = sext i16 %41 to i64
+41:                                               ; preds = %37
+  %42 = load i16, ptr %31, align 2
+  %43 = sext i16 %42 to i64
   br label %fastgetattr.exit
 
-43:                                               ; preds = %36
-  %44 = load i32, ptr %30, align 4
-  %45 = sext i32 %44 to i64
+44:                                               ; preds = %37
+  %45 = load i32, ptr %31, align 4
+  %46 = sext i32 %45 to i64
   br label %fastgetattr.exit
 
-46:                                               ; preds = %36
-  %47 = load i64, ptr %30, align 8
+47:                                               ; preds = %37
+  %48 = load i64, ptr %31, align 8
   br label %fastgetattr.exit
 
-48:                                               ; preds = %36
-  %49 = sext i16 %35 to i32
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %50)
-  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %49) #8
+49:                                               ; preds = %37
+  %50 = sext i16 %36 to i32
+  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %51)
+  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef range(i32 -32768, 32768) %50) #8
   tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 
-52:                                               ; preds = %24
-  %53 = ptrtoint ptr %30 to i64
+53:                                               ; preds = %25
+  %54 = ptrtoint ptr %31 to i64
   br label %fastgetattr.exit
 
-54:                                               ; preds = %19
-  %55 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #8
+55:                                               ; preds = %19
+  %56 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #8
   br label %fastgetattr.exit
 
-56:                                               ; preds = %16
-  %57 = add nsw i32 %1, -1
-  %58 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
-  %59 = lshr i32 %57, 3
-  %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %60
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = and i32 %57, 7
-  %65 = shl nuw nsw i32 1, %64
-  %66 = and i32 %65, %63
-  %.not.i20.i = icmp eq i32 %66, 0
-  br i1 %.not.i20.i, label %67, label %68
+57:                                               ; preds = %16
+  %58 = add nsw i32 %1, -1
+  %59 = getelementptr inbounds nuw i8, ptr %.val.i, i64 23
+  %60 = lshr i32 %58, 3
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i32
+  %65 = and i32 %58, 7
+  %66 = shl nuw nsw i32 1, %65
+  %67 = and i32 %66, %64
+  %.not.i20.i = icmp eq i32 %67, 0
+  br i1 %.not.i20.i, label %68, label %69
 
-67:                                               ; preds = %56
+68:                                               ; preds = %57
   store i8 1, ptr %3, align 1
   br label %fastgetattr.exit
 
-68:                                               ; preds = %56
-  %69 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #8
+69:                                               ; preds = %57
+  %70 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #8
   br label %fastgetattr.exit
 
-70:                                               ; preds = %4
-  %71 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #8
+71:                                               ; preds = %4
+  %72 = tail call i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #8
   br label %fastgetattr.exit
 
-fastgetattr.exit:                                 ; preds = %68, %67, %54, %52, %46, %43, %40, %37, %70, %14
-  %.0 = phi i64 [ %15, %14 ], [ %71, %70 ], [ 0, %67 ], [ %69, %68 ], [ %55, %54 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %47, %46 ], [ %53, %52 ]
+fastgetattr.exit:                                 ; preds = %69, %68, %55, %53, %47, %44, %41, %38, %71, %14
+  %.0 = phi i64 [ %15, %14 ], [ %72, %71 ], [ 0, %68 ], [ %70, %69 ], [ %56, %55 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %48, %47 ], [ %54, %53 ]
   ret i64 %.0
 }
 

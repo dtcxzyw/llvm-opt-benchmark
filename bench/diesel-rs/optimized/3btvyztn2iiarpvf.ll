@@ -5218,10 +5218,11 @@ define noundef zeroext i1 @"_ZN129_$LT$diesel..mysql..connection..stmt..iterator
 "_ZN101_$LT$diesel..mysql..connection..bind..OutputBinds$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h667f4de3bf8bd3b5E.exit": ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !alias.scope !816, !noalias !817, !nonnull !10, !noundef !10
-  %11 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %10, i64 %4, i32 6
-  %12 = load i8, ptr %11, align 2, !alias.scope !823, !noundef !10
-  %13 = icmp ne i8 %12, 0
-  ret i1 %13
+  %11 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %10, i64 %4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 34
+  %13 = load i8, ptr %12, align 2, !alias.scope !823, !noundef !10
+  %14 = icmp ne i8 %13, 0
+  ret i1 %14
 }
 
 ; Function Attrs: nonlazybind uwtable

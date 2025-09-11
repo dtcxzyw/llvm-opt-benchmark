@@ -2166,20 +2166,21 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility12is_val
   %28 = add i32 %24, -1
   %29 = zext i32 %28 to i64
   %30 = icmp ugt i64 %27, %29
-  br i1 %30, label %31, label %36
+  br i1 %30, label %31, label %37
 
 31:                                               ; preds = %25
   %32 = extractvalue { ptr, i64 } %26, 0
-  %33 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [5 x i32] }, { i32, i32 }, i32, i32, i16, i8, i8, [4 x i8] }, ptr %32, i64 %29, i32 1
-  %34 = load i32, ptr %33, align 8, !range !295, !noalias !292, !noundef !3
-  %35 = icmp eq i32 %34, 3
-  br i1 %35, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h65a1d14616f29c61E.exit", label %.backedge.i
+  %33 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [5 x i32] }, { i32, i32 }, i32, i32, i16, i8, i8, [4 x i8] }, ptr %32, i64 %29
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = load i32, ptr %34, align 8, !range !295, !noalias !292, !noundef !3
+  %36 = icmp eq i32 %35, 3
+  br i1 %36, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h65a1d14616f29c61E.exit", label %.backedge.i
 
 .backedge.i:                                      ; preds = %31, %22, %17, %11, %6
   %.not15.i = icmp eq ptr %8, %4
   br i1 %.not15.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h65a1d14616f29c61E.exit", label %6
 
-36:                                               ; preds = %25
+37:                                               ; preds = %25
   tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %29, i64 noundef %27, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.197829fd7742c65e648072fd6cc75692.62) #13, !noalias !292
   unreachable
 

@@ -556,230 +556,234 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
   store i8 1, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %64 = sext i32 %12 to i64
-  %65 = getelementptr inbounds %struct.SplitInterval, ptr %15, i64 %64, i32 1
-  %66 = getelementptr inbounds %struct.SplitInterval, ptr %16, i64 %64, i32 1
-  %67 = zext nneg i32 %11 to i64
-  %68 = trunc i32 %10 to i16
-  %69 = trunc i32 %10 to i16
+  %65 = getelementptr inbounds %struct.SplitInterval, ptr %15, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = getelementptr inbounds %struct.SplitInterval, ptr %16, i64 %64
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = zext nneg i32 %11 to i64
+  %70 = trunc i32 %10 to i16
+  %71 = trunc i32 %10 to i16
   br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge, %._crit_edge332
-  %70 = phi i1 [ true, %._crit_edge ], [ false, %._crit_edge332 ]
+  %72 = phi i1 [ true, %._crit_edge ], [ false, %._crit_edge332 ]
   %.0240343 = phi i32 [ 0, %._crit_edge ], [ 1, %._crit_edge332 ]
   br i1 %.not308, label %._crit_edge332.critedge, label %.lr.ph312
 
 .lr.ph312:                                        ; preds = %.preheader
-  br i1 %70, label %.lr.ph312.split.us, label %.lr.ph312.split
+  br i1 %72, label %.lr.ph312.split.us, label %.lr.ph312.split
 
 .lr.ph312.split.us:                               ; preds = %.lr.ph312, %.lr.ph312.split.us
-  %.1237311.us = phi i16 [ %81, %.lr.ph312.split.us ], [ 1, %.lr.ph312 ]
-  %71 = zext i16 %.1237311.us to i64
-  %72 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %63, i64 %71
-  %73 = load i64, ptr %72, align 8
-  %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load double, ptr %75, align 8
-  %77 = getelementptr %struct.SplitInterval, ptr %15, i64 %71
-  %78 = getelementptr i8, ptr %77, i64 -16
-  store double %76, ptr %78, align 8
-  %79 = load double, ptr %74, align 8
-  %80 = getelementptr i8, ptr %77, i64 -8
-  store double %79, ptr %80, align 8
-  %81 = add i16 %.1237311.us, 1
-  %.not252.us = icmp ugt i16 %81, %69
+  %.1237311.us = phi i16 [ %83, %.lr.ph312.split.us ], [ 1, %.lr.ph312 ]
+  %73 = zext i16 %.1237311.us to i64
+  %74 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %63, i64 %73
+  %75 = load i64, ptr %74, align 8
+  %76 = inttoptr i64 %75 to ptr
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %78 = load double, ptr %77, align 8
+  %79 = getelementptr %struct.SplitInterval, ptr %15, i64 %73
+  %80 = getelementptr i8, ptr %79, i64 -16
+  store double %78, ptr %80, align 8
+  %81 = load double, ptr %76, align 8
+  %82 = getelementptr i8, ptr %79, i64 -8
+  store double %81, ptr %82, align 8
+  %83 = add i16 %.1237311.us, 1
+  %.not252.us = icmp ugt i16 %83, %71
   br i1 %.not252.us, label %._crit_edge313, label %.lr.ph312.split.us, !llvm.loop !8
 
 .lr.ph312.split:                                  ; preds = %.lr.ph312, %.lr.ph312.split
-  %.1237311 = phi i16 [ %93, %.lr.ph312.split ], [ 1, %.lr.ph312 ]
-  %82 = zext i16 %.1237311 to i64
-  %83 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %63, i64 %82
-  %84 = load i64, ptr %83, align 8
-  %85 = inttoptr i64 %84 to ptr
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %87 = load double, ptr %86, align 8
-  %88 = getelementptr %struct.SplitInterval, ptr %15, i64 %82
-  %89 = getelementptr i8, ptr %88, i64 -16
-  store double %87, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %91 = load double, ptr %90, align 8
-  %92 = getelementptr i8, ptr %88, i64 -8
-  store double %91, ptr %92, align 8
-  %93 = add i16 %.1237311, 1
-  %.not252 = icmp ugt i16 %93, %68
+  %.1237311 = phi i16 [ %95, %.lr.ph312.split ], [ 1, %.lr.ph312 ]
+  %84 = zext i16 %.1237311 to i64
+  %85 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %63, i64 %84
+  %86 = load i64, ptr %85, align 8
+  %87 = inttoptr i64 %86 to ptr
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %89 = load double, ptr %88, align 8
+  %90 = getelementptr %struct.SplitInterval, ptr %15, i64 %84
+  %91 = getelementptr i8, ptr %90, i64 -16
+  store double %89, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %93 = load double, ptr %92, align 8
+  %94 = getelementptr i8, ptr %90, i64 -8
+  store double %93, ptr %94, align 8
+  %95 = add i16 %.1237311, 1
+  %.not252 = icmp ugt i16 %95, %70
   br i1 %.not252, label %._crit_edge313, label %.lr.ph312.split, !llvm.loop !8
 
 ._crit_edge313:                                   ; preds = %.lr.ph312.split, %.lr.ph312.split.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %15, i64 %14, i1 false)
   tail call void @pg_qsort(ptr noundef %15, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_lower) #16
   tail call void @pg_qsort(ptr noundef %16, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_upper) #16
-  %94 = load double, ptr %16, align 8
-  %95 = load double, ptr %15, align 8
+  %96 = load double, ptr %16, align 8
+  %97 = load double, ptr %15, align 8
   br label %.lr.ph317
 
 .lr.ph317:                                        ; preds = %._crit_edge313, %.critedge2
   %.0223327 = phi i32 [ %.1.lcssa, %.critedge2 ], [ 0, %._crit_edge313 ]
   %.0224326 = phi i64 [ %indvars.iv, %.critedge2 ], [ 0, %._crit_edge313 ]
-  %.0228325 = phi double [ %116, %.critedge2 ], [ %95, %._crit_edge313 ]
-  %.0232324 = phi double [ %.1233314.fr, %.critedge2 ], [ %94, %._crit_edge313 ]
-  %96 = fcmp uno double %.0228325, 0.000000e+00
+  %.0228325 = phi double [ %118, %.critedge2 ], [ %97, %._crit_edge313 ]
+  %.0232324 = phi double [ %.1233314.fr, %.critedge2 ], [ %96, %._crit_edge313 ]
+  %98 = fcmp uno double %.0228325, 0.000000e+00
   %sext = shl i64 %.0224326, 32
-  %97 = ashr exact i64 %sext, 32
-  br label %98
+  %99 = ashr exact i64 %sext, 32
+  br label %100
 
-98:                                               ; preds = %.lr.ph317, %float8_lt.exit.thread
-  %indvars.iv = phi i64 [ %97, %.lr.ph317 ], [ %indvars.iv.next, %float8_lt.exit.thread ]
+100:                                              ; preds = %.lr.ph317, %float8_lt.exit.thread
+  %indvars.iv = phi i64 [ %99, %.lr.ph317 ], [ %indvars.iv.next, %float8_lt.exit.thread ]
   %.1233314 = phi double [ %.0232324, %.lr.ph317 ], [ %.2234, %float8_lt.exit.thread ]
   %.1233314.fr = freeze double %.1233314
-  %99 = getelementptr inbounds %struct.SplitInterval, ptr %15, i64 %indvars.iv
-  %100 = load double, ptr %99, align 8
-  %101 = fcmp uno double %100, 0.000000e+00
-  %102 = fcmp oeq double %.0228325, %100
-  %.in.i = select i1 %96, i1 %101, i1 %102
-  br i1 %.in.i, label %103, label %112
+  %101 = getelementptr inbounds %struct.SplitInterval, ptr %15, i64 %indvars.iv
+  %102 = load double, ptr %101, align 8
+  %103 = fcmp uno double %102, 0.000000e+00
+  %104 = fcmp oeq double %.0228325, %102
+  %.in.i = select i1 %98, i1 %103, i1 %104
+  br i1 %.in.i, label %105, label %114
 
-103:                                              ; preds = %98
-  %104 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %105 = load double, ptr %104, align 8
-  %106 = fcmp uno double %.1233314.fr, 0.000000e+00
-  br i1 %106, label %float8_lt.exit.thread, label %float8_lt.exit
+105:                                              ; preds = %100
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %107 = load double, ptr %106, align 8
+  %108 = fcmp uno double %.1233314.fr, 0.000000e+00
+  br i1 %108, label %float8_lt.exit.thread, label %float8_lt.exit
 
-float8_lt.exit:                                   ; preds = %103
-  %107 = fcmp uno double %105, 0.000000e+00
-  %108 = fcmp olt double %.1233314.fr, %105
-  %109 = or i1 %107, %108
-  br i1 %109, label %110, label %float8_lt.exit.thread
+float8_lt.exit:                                   ; preds = %105
+  %109 = fcmp uno double %107, 0.000000e+00
+  %110 = fcmp olt double %.1233314.fr, %107
+  %111 = or i1 %109, %110
+  br i1 %111, label %112, label %float8_lt.exit.thread
 
-110:                                              ; preds = %float8_lt.exit
+112:                                              ; preds = %float8_lt.exit
   br label %float8_lt.exit.thread
 
-float8_lt.exit.thread:                            ; preds = %103, %110, %float8_lt.exit
-  %.2234 = phi double [ %105, %110 ], [ %.1233314.fr, %float8_lt.exit ], [ %.1233314.fr, %103 ]
+float8_lt.exit.thread:                            ; preds = %105, %112, %float8_lt.exit
+  %.2234 = phi double [ %107, %112 ], [ %.1233314.fr, %float8_lt.exit ], [ %.1233314.fr, %105 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %111 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %111, label %98, label %.lr.ph331.preheader, !llvm.loop !9
+  %113 = icmp slt i64 %indvars.iv.next, %69
+  br i1 %113, label %100, label %.lr.ph331.preheader, !llvm.loop !9
 
-112:                                              ; preds = %98
-  %113 = trunc nsw i64 %indvars.iv to i32
+114:                                              ; preds = %100
+  %115 = trunc nsw i64 %indvars.iv to i32
   %sext418 = shl i64 %indvars.iv, 32
-  %114 = ashr exact i64 %sext418, 28
-  %115 = getelementptr inbounds i8, ptr %15, i64 %114
-  %116 = load double, ptr %115, align 8
-  %117 = icmp slt i32 %.0223327, %11
-  br i1 %117, label %.lr.ph321, label %.critedge2
+  %116 = ashr exact i64 %sext418, 28
+  %117 = getelementptr inbounds i8, ptr %15, i64 %116
+  %118 = load double, ptr %117, align 8
+  %119 = icmp slt i32 %.0223327, %11
+  br i1 %119, label %.lr.ph321, label %.critedge2
 
-.lr.ph321:                                        ; preds = %112
-  %118 = fcmp uno double %.1233314.fr, 0.000000e+00
-  br i1 %118, label %.critedge2, label %.lr.ph321.split.preheader
+.lr.ph321:                                        ; preds = %114
+  %120 = fcmp uno double %.1233314.fr, 0.000000e+00
+  br i1 %120, label %.critedge2, label %.lr.ph321.split.preheader
 
 .lr.ph321.split.preheader:                        ; preds = %.lr.ph321
-  %119 = sext i32 %.0223327 to i64
+  %121 = sext i32 %.0223327 to i64
   br label %.lr.ph321.split
 
-.lr.ph321.split:                                  ; preds = %.lr.ph321.split.preheader, %123
-  %indvars.iv365 = phi i64 [ %119, %.lr.ph321.split.preheader ], [ %indvars.iv.next366, %123 ]
-  %120 = getelementptr inbounds %struct.SplitInterval, ptr %16, i64 %indvars.iv365, i32 1
-  %121 = load double, ptr %120, align 8
-  %122 = fcmp ugt double %121, %.1233314.fr
-  br i1 %122, label %.critedge2.loopexit.split.loop.exit428, label %123
+.lr.ph321.split:                                  ; preds = %.lr.ph321.split.preheader, %126
+  %indvars.iv365 = phi i64 [ %121, %.lr.ph321.split.preheader ], [ %indvars.iv.next366, %126 ]
+  %122 = getelementptr inbounds %struct.SplitInterval, ptr %16, i64 %indvars.iv365
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load double, ptr %123, align 8
+  %125 = fcmp ugt double %124, %.1233314.fr
+  br i1 %125, label %.critedge2.loopexit.split.loop.exit428, label %126
 
-123:                                              ; preds = %.lr.ph321.split
+126:                                              ; preds = %.lr.ph321.split
   %indvars.iv.next366 = add nsw i64 %indvars.iv365, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next366, %67
+  %exitcond.not = icmp eq i64 %indvars.iv.next366, %69
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph321.split, !llvm.loop !10
 
 .critedge2.loopexit.split.loop.exit428:           ; preds = %.lr.ph321.split
-  %124 = trunc nsw i64 %indvars.iv365 to i32
+  %127 = trunc nsw i64 %indvars.iv365 to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %123, %.critedge2.loopexit.split.loop.exit428, %.lr.ph321, %112
-  %.1.lcssa = phi i32 [ %.0223327, %112 ], [ %11, %.lr.ph321 ], [ %124, %.critedge2.loopexit.split.loop.exit428 ], [ %11, %123 ]
-  call fastcc void @g_box_consider_split(ptr noundef %2, i32 noundef %.0240343, double noundef %116, i32 noundef %113, double noundef %.1233314.fr, i32 noundef %.1.lcssa)
-  %125 = icmp sgt i32 %11, %113
-  br i1 %125, label %.lr.ph317, label %.lr.ph331.preheader
+.critedge2:                                       ; preds = %126, %.critedge2.loopexit.split.loop.exit428, %.lr.ph321, %114
+  %.1.lcssa = phi i32 [ %.0223327, %114 ], [ %11, %.lr.ph321 ], [ %127, %.critedge2.loopexit.split.loop.exit428 ], [ %11, %126 ]
+  call fastcc void @g_box_consider_split(ptr noundef %2, i32 noundef %.0240343, double noundef %118, i32 noundef %115, double noundef %.1233314.fr, i32 noundef %.1.lcssa)
+  %128 = icmp sgt i32 %11, %115
+  br i1 %128, label %.lr.ph317, label %.lr.ph331.preheader
 
 .lr.ph331.preheader:                              ; preds = %.critedge2, %float8_lt.exit.thread
-  %126 = load double, ptr %66, align 8
-  %127 = load double, ptr %65, align 8
+  %129 = load double, ptr %68, align 8
+  %130 = load double, ptr %66, align 8
   br label %.lr.ph331
 
 .lr.ph331:                                        ; preds = %.lr.ph331.preheader, %.critedge6
-  %.2342 = phi i32 [ %145, %.critedge6 ], [ %12, %.lr.ph331.preheader ]
+  %.2342 = phi i32 [ %148, %.critedge6 ], [ %12, %.lr.ph331.preheader ]
   %.2226341 = phi i32 [ %.3227.lcssa, %.critedge6 ], [ %12, %.lr.ph331.preheader ]
-  %.1229340 = phi double [ %.2230328, %.critedge6 ], [ %127, %.lr.ph331.preheader ]
-  %.3235339 = phi double [ %148, %.critedge6 ], [ %126, %.lr.ph331.preheader ]
-  %128 = fcmp uno double %.3235339, 0.000000e+00
-  %129 = zext i32 %.2342 to i64
-  br label %130
+  %.1229340 = phi double [ %.2230328, %.critedge6 ], [ %130, %.lr.ph331.preheader ]
+  %.3235339 = phi double [ %152, %.critedge6 ], [ %129, %.lr.ph331.preheader ]
+  %131 = fcmp uno double %.3235339, 0.000000e+00
+  %132 = zext i32 %.2342 to i64
+  br label %133
 
-130:                                              ; preds = %.lr.ph331, %float8_gt.exit.thread
-  %indvars.iv368 = phi i64 [ %129, %.lr.ph331 ], [ %indvars.iv.next369, %float8_gt.exit.thread ]
+133:                                              ; preds = %.lr.ph331, %float8_gt.exit.thread
+  %indvars.iv368 = phi i64 [ %132, %.lr.ph331 ], [ %indvars.iv.next369, %float8_gt.exit.thread ]
   %.2230328 = phi double [ %.1229340, %.lr.ph331 ], [ %.3231, %float8_gt.exit.thread ]
-  %131 = getelementptr inbounds nuw %struct.SplitInterval, ptr %16, i64 %indvars.iv368
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %133 = load double, ptr %132, align 8
-  %134 = fcmp uno double %133, 0.000000e+00
-  %135 = fcmp oeq double %.3235339, %133
-  %.in.i254 = select i1 %128, i1 %134, i1 %135
-  br i1 %.in.i254, label %136, label %.critedge4
+  %134 = getelementptr inbounds nuw %struct.SplitInterval, ptr %16, i64 %indvars.iv368
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %136 = load double, ptr %135, align 8
+  %137 = fcmp uno double %136, 0.000000e+00
+  %138 = fcmp oeq double %.3235339, %136
+  %.in.i254 = select i1 %131, i1 %137, i1 %138
+  br i1 %.in.i254, label %139, label %.critedge4
 
-136:                                              ; preds = %130
-  %137 = load double, ptr %131, align 8
-  %138 = fcmp uno double %137, 0.000000e+00
-  br i1 %138, label %float8_gt.exit.thread, label %float8_gt.exit
+139:                                              ; preds = %133
+  %140 = load double, ptr %134, align 8
+  %141 = fcmp uno double %140, 0.000000e+00
+  br i1 %141, label %float8_gt.exit.thread, label %float8_gt.exit
 
-float8_gt.exit:                                   ; preds = %136
-  %139 = fcmp uno double %.2230328, 0.000000e+00
-  %140 = fcmp ogt double %.2230328, %137
-  %141 = or i1 %139, %140
-  br i1 %141, label %142, label %float8_gt.exit.thread
+float8_gt.exit:                                   ; preds = %139
+  %142 = fcmp uno double %.2230328, 0.000000e+00
+  %143 = fcmp ogt double %.2230328, %140
+  %144 = or i1 %142, %143
+  br i1 %144, label %145, label %float8_gt.exit.thread
 
-142:                                              ; preds = %float8_gt.exit
+145:                                              ; preds = %float8_gt.exit
   br label %float8_gt.exit.thread
 
-float8_gt.exit.thread:                            ; preds = %136, %142, %float8_gt.exit
-  %.3231 = phi double [ %137, %142 ], [ %.2230328, %float8_gt.exit ], [ %.2230328, %136 ]
+float8_gt.exit.thread:                            ; preds = %139, %145, %float8_gt.exit
+  %.3231 = phi double [ %140, %145 ], [ %.2230328, %float8_gt.exit ], [ %.2230328, %139 ]
   %indvars.iv.next369 = add nsw i64 %indvars.iv368, -1
-  %143 = trunc nuw i64 %indvars.iv368 to i32
-  %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %130, label %._crit_edge332, !llvm.loop !11
+  %146 = trunc nuw i64 %indvars.iv368 to i32
+  %147 = icmp sgt i32 %146, 0
+  br i1 %147, label %133, label %._crit_edge332, !llvm.loop !11
 
-.critedge4:                                       ; preds = %130
-  %145 = trunc nuw i64 %indvars.iv368 to i32
-  %146 = and i64 %indvars.iv368, 4294967295
-  %147 = getelementptr inbounds nuw %struct.SplitInterval, ptr %16, i64 %146, i32 1
-  %148 = load double, ptr %147, align 8
-  %149 = icmp sgt i32 %.2226341, -1
-  br i1 %149, label %.lr.ph335.preheader, label %.critedge6
+.critedge4:                                       ; preds = %133
+  %148 = trunc nuw i64 %indvars.iv368 to i32
+  %149 = and i64 %indvars.iv368, 4294967295
+  %150 = getelementptr inbounds nuw %struct.SplitInterval, ptr %16, i64 %149
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %152 = load double, ptr %151, align 8
+  %153 = icmp sgt i32 %.2226341, -1
+  br i1 %153, label %.lr.ph335.preheader, label %.critedge6
 
 .lr.ph335.preheader:                              ; preds = %.critedge4
-  %150 = zext nneg i32 %.2226341 to i64
+  %154 = zext nneg i32 %.2226341 to i64
   br label %.lr.ph335
 
-.lr.ph335:                                        ; preds = %.lr.ph335.preheader, %156
-  %indvars.iv371 = phi i64 [ %150, %.lr.ph335.preheader ], [ %indvars.iv.next372, %156 ]
-  %151 = getelementptr inbounds nuw %struct.SplitInterval, ptr %15, i64 %indvars.iv371
-  %152 = load double, ptr %151, align 8
-  %153 = fcmp uno double %152, 0.000000e+00
-  %154 = fcmp oge double %152, %.2230328
-  %155 = or i1 %153, %154
-  br i1 %155, label %156, label %.critedge6.loopexit.split.loop.exit430
+.lr.ph335:                                        ; preds = %.lr.ph335.preheader, %160
+  %indvars.iv371 = phi i64 [ %154, %.lr.ph335.preheader ], [ %indvars.iv.next372, %160 ]
+  %155 = getelementptr inbounds nuw %struct.SplitInterval, ptr %15, i64 %indvars.iv371
+  %156 = load double, ptr %155, align 8
+  %157 = fcmp uno double %156, 0.000000e+00
+  %158 = fcmp oge double %156, %.2230328
+  %159 = or i1 %157, %158
+  br i1 %159, label %160, label %.critedge6.loopexit.split.loop.exit430
 
-156:                                              ; preds = %.lr.ph335
+160:                                              ; preds = %.lr.ph335
   %indvars.iv.next372 = add nsw i64 %indvars.iv371, -1
-  %157 = icmp sgt i64 %indvars.iv371, 0
-  br i1 %157, label %.lr.ph335, label %.critedge6, !llvm.loop !12
+  %161 = icmp sgt i64 %indvars.iv371, 0
+  br i1 %161, label %.lr.ph335, label %.critedge6, !llvm.loop !12
 
 .critedge6.loopexit.split.loop.exit430:           ; preds = %.lr.ph335
-  %158 = trunc nuw nsw i64 %indvars.iv371 to i32
+  %162 = trunc nuw nsw i64 %indvars.iv371 to i32
   br label %.critedge6
 
-.critedge6:                                       ; preds = %156, %.critedge6.loopexit.split.loop.exit430, %.critedge4
-  %.3227.lcssa = phi i32 [ %.2226341, %.critedge4 ], [ %158, %.critedge6.loopexit.split.loop.exit430 ], [ -1, %156 ]
-  %159 = add nsw i32 %.3227.lcssa, 1
-  %160 = add nuw nsw i32 %145, 1
-  call fastcc void @g_box_consider_split(ptr noundef %2, i32 noundef %.0240343, double noundef %.2230328, i32 noundef %159, double noundef %148, i32 noundef %160)
-  %161 = icmp sgt i32 %145, -1
-  br i1 %161, label %.lr.ph331, label %._crit_edge332
+.critedge6:                                       ; preds = %160, %.critedge6.loopexit.split.loop.exit430, %.critedge4
+  %.3227.lcssa = phi i32 [ %.2226341, %.critedge4 ], [ %162, %.critedge6.loopexit.split.loop.exit430 ], [ -1, %160 ]
+  %163 = add nsw i32 %.3227.lcssa, 1
+  %164 = add nuw nsw i32 %148, 1
+  call fastcc void @g_box_consider_split(ptr noundef %2, i32 noundef %.0240343, double noundef %.2230328, i32 noundef %163, double noundef %152, i32 noundef %164)
+  %165 = icmp sgt i32 %148, -1
+  br i1 %165, label %.lr.ph331, label %._crit_edge332
 
 ._crit_edge332.critedge:                          ; preds = %.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %15, i64 %14, i1 false)
@@ -788,935 +792,935 @@ float8_gt.exit.thread:                            ; preds = %136, %142, %float8_
   br label %._crit_edge332
 
 ._crit_edge332:                                   ; preds = %.critedge6, %float8_gt.exit.thread, %._crit_edge332.critedge
-  br i1 %70, label %.preheader, label %162, !llvm.loop !13
+  br i1 %72, label %.preheader, label %166, !llvm.loop !13
 
-162:                                              ; preds = %._crit_edge332
-  %163 = load i8, ptr %62, align 8, !range !14, !noundef !15
-  %164 = trunc nuw i8 %163 to i1
-  br i1 %164, label %165, label %282
+166:                                              ; preds = %._crit_edge332
+  %167 = load i8, ptr %62, align 8, !range !14, !noundef !15
+  %168 = trunc nuw i8 %167 to i1
+  br i1 %168, label %169, label %286
 
-165:                                              ; preds = %162
-  %166 = load i32, ptr %5, align 8
-  %167 = add i32 %166, 65535
-  %168 = and i32 %167, 65535
-  %169 = shl nuw nsw i32 %168, 1
-  %170 = add nuw nsw i32 %169, 4
-  %171 = zext nneg i32 %170 to i64
-  %172 = tail call ptr @palloc(i64 noundef %171) #16
-  store ptr %172, ptr %8, align 8
-  %173 = tail call ptr @palloc(i64 noundef %171) #16
-  %174 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %173, ptr %174, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 0, ptr %175, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 0, ptr %176, align 8
-  %177 = and i32 %166, 65535
-  %.not51.i = icmp eq i32 %177, 1
+169:                                              ; preds = %166
+  %170 = load i32, ptr %5, align 8
+  %171 = add i32 %170, 65535
+  %172 = and i32 %171, 65535
+  %173 = shl nuw nsw i32 %172, 1
+  %174 = add nuw nsw i32 %173, 4
+  %175 = zext nneg i32 %174 to i64
+  %176 = tail call ptr @palloc(i64 noundef %175) #16
+  store ptr %176, ptr %8, align 8
+  %177 = tail call ptr @palloc(i64 noundef %175) #16
+  %178 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr %177, ptr %178, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i32 0, ptr %179, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 0, ptr %180, align 8
+  %181 = and i32 %170, 65535
+  %.not51.i = icmp eq i32 %181, 1
   br i1 %.not51.i, label %fallbackSplit.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %165
-  %178 = lshr i32 %168, 1
-  %179 = trunc i32 %167 to i16
-  br label %180
+.lr.ph.i:                                         ; preds = %169
+  %182 = lshr i32 %172, 1
+  %183 = trunc i32 %171 to i16
+  br label %184
 
-180:                                              ; preds = %276, %.lr.ph.i
-  %181 = phi i32 [ 1, %.lr.ph.i ], [ %278, %276 ]
-  %.054.i = phi i16 [ 1, %.lr.ph.i ], [ %277, %276 ]
-  %.03653.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %276 ]
-  %.03752.i = phi ptr [ null, %.lr.ph.i ], [ %.138.i, %276 ]
-  %182 = zext i16 %.054.i to i64
-  %183 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %63, i64 %182
-  %184 = load i64, ptr %183, align 8
-  %185 = inttoptr i64 %184 to ptr
-  %.not42.i = icmp samesign ult i32 %178, %181
-  br i1 %.not42.i, label %231, label %186
+184:                                              ; preds = %280, %.lr.ph.i
+  %185 = phi i32 [ 1, %.lr.ph.i ], [ %282, %280 ]
+  %.054.i = phi i16 [ 1, %.lr.ph.i ], [ %281, %280 ]
+  %.03653.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %280 ]
+  %.03752.i = phi ptr [ null, %.lr.ph.i ], [ %.138.i, %280 ]
+  %186 = zext i16 %.054.i to i64
+  %187 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %63, i64 %186
+  %188 = load i64, ptr %187, align 8
+  %189 = inttoptr i64 %188 to ptr
+  %.not42.i = icmp samesign ult i32 %182, %185
+  br i1 %.not42.i, label %235, label %190
 
-186:                                              ; preds = %180
-  %187 = load ptr, ptr %8, align 8
-  %188 = load i32, ptr %176, align 8
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds i16, ptr %187, i64 %189
-  store i16 %.054.i, ptr %190, align 2
-  %191 = icmp eq ptr %.03653.i, null
-  br i1 %191, label %192, label %194
+190:                                              ; preds = %184
+  %191 = load ptr, ptr %8, align 8
+  %192 = load i32, ptr %180, align 8
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds i16, ptr %191, i64 %193
+  store i16 %.054.i, ptr %194, align 2
+  %195 = icmp eq ptr %.03653.i, null
+  br i1 %195, label %196, label %198
 
-192:                                              ; preds = %186
-  %193 = tail call ptr @palloc(i64 noundef 32) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %193, ptr noundef nonnull align 8 dereferenceable(32) %185, i64 32, i1 false)
+196:                                              ; preds = %190
+  %197 = tail call ptr @palloc(i64 noundef 32) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull align 8 dereferenceable(32) %189, i64 32, i1 false)
   br label %adjustBox.exit.i
 
-194:                                              ; preds = %186
-  %195 = load double, ptr %.03653.i, align 8
-  %196 = load double, ptr %185, align 8
-  %197 = fcmp uno double %195, 0.000000e+00
-  br i1 %197, label %float8_lt.exit.thread.i.i, label %float8_lt.exit.i.i
+198:                                              ; preds = %190
+  %199 = load double, ptr %.03653.i, align 8
+  %200 = load double, ptr %189, align 8
+  %201 = fcmp uno double %199, 0.000000e+00
+  br i1 %201, label %float8_lt.exit.thread.i.i, label %float8_lt.exit.i.i
 
-float8_lt.exit.i.i:                               ; preds = %194
-  %198 = fcmp uno double %196, 0.000000e+00
-  %199 = fcmp olt double %195, %196
-  %200 = or i1 %198, %199
-  br i1 %200, label %201, label %float8_lt.exit.thread.i.i
+float8_lt.exit.i.i:                               ; preds = %198
+  %202 = fcmp uno double %200, 0.000000e+00
+  %203 = fcmp olt double %199, %200
+  %204 = or i1 %202, %203
+  br i1 %204, label %205, label %float8_lt.exit.thread.i.i
 
-201:                                              ; preds = %float8_lt.exit.i.i
-  store double %196, ptr %.03653.i, align 8
+205:                                              ; preds = %float8_lt.exit.i.i
+  store double %200, ptr %.03653.i, align 8
   br label %float8_lt.exit.thread.i.i
 
-float8_lt.exit.thread.i.i:                        ; preds = %201, %float8_lt.exit.i.i, %194
-  %202 = getelementptr inbounds nuw i8, ptr %.03653.i, i64 16
-  %203 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %204 = load double, ptr %203, align 8
-  %205 = fcmp uno double %204, 0.000000e+00
-  br i1 %205, label %float8_gt.exit.thread.i.i, label %float8_gt.exit.i.i
+float8_lt.exit.thread.i.i:                        ; preds = %205, %float8_lt.exit.i.i, %198
+  %206 = getelementptr inbounds nuw i8, ptr %.03653.i, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  %208 = load double, ptr %207, align 8
+  %209 = fcmp uno double %208, 0.000000e+00
+  br i1 %209, label %float8_gt.exit.thread.i.i, label %float8_gt.exit.i.i
 
 float8_gt.exit.i.i:                               ; preds = %float8_lt.exit.thread.i.i
-  %206 = load double, ptr %202, align 8
-  %207 = fcmp uno double %206, 0.000000e+00
-  %208 = fcmp ogt double %206, %204
-  %209 = or i1 %207, %208
-  br i1 %209, label %210, label %float8_gt.exit.thread.i.i
+  %210 = load double, ptr %206, align 8
+  %211 = fcmp uno double %210, 0.000000e+00
+  %212 = fcmp ogt double %210, %208
+  %213 = or i1 %211, %212
+  br i1 %213, label %214, label %float8_gt.exit.thread.i.i
 
-210:                                              ; preds = %float8_gt.exit.i.i
-  store double %204, ptr %202, align 8
+214:                                              ; preds = %float8_gt.exit.i.i
+  store double %208, ptr %206, align 8
   br label %float8_gt.exit.thread.i.i
 
-float8_gt.exit.thread.i.i:                        ; preds = %210, %float8_gt.exit.i.i, %float8_lt.exit.thread.i.i
-  %211 = getelementptr inbounds nuw i8, ptr %.03653.i, i64 8
-  %212 = load double, ptr %211, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %214 = load double, ptr %213, align 8
-  %215 = fcmp uno double %212, 0.000000e+00
-  br i1 %215, label %float8_lt.exit16.thread.i.i, label %float8_lt.exit16.i.i
+float8_gt.exit.thread.i.i:                        ; preds = %214, %float8_gt.exit.i.i, %float8_lt.exit.thread.i.i
+  %215 = getelementptr inbounds nuw i8, ptr %.03653.i, i64 8
+  %216 = load double, ptr %215, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %218 = load double, ptr %217, align 8
+  %219 = fcmp uno double %216, 0.000000e+00
+  br i1 %219, label %float8_lt.exit16.thread.i.i, label %float8_lt.exit16.i.i
 
 float8_lt.exit16.i.i:                             ; preds = %float8_gt.exit.thread.i.i
-  %216 = fcmp uno double %214, 0.000000e+00
-  %217 = fcmp olt double %212, %214
-  %218 = or i1 %216, %217
-  br i1 %218, label %219, label %float8_lt.exit16.thread.i.i
+  %220 = fcmp uno double %218, 0.000000e+00
+  %221 = fcmp olt double %216, %218
+  %222 = or i1 %220, %221
+  br i1 %222, label %223, label %float8_lt.exit16.thread.i.i
 
-219:                                              ; preds = %float8_lt.exit16.i.i
-  store double %214, ptr %211, align 8
+223:                                              ; preds = %float8_lt.exit16.i.i
+  store double %218, ptr %215, align 8
   br label %float8_lt.exit16.thread.i.i
 
-float8_lt.exit16.thread.i.i:                      ; preds = %219, %float8_lt.exit16.i.i, %float8_gt.exit.thread.i.i
-  %220 = getelementptr inbounds nuw i8, ptr %.03653.i, i64 24
-  %221 = getelementptr inbounds nuw i8, ptr %185, i64 24
-  %222 = load double, ptr %221, align 8
-  %223 = fcmp uno double %222, 0.000000e+00
-  br i1 %223, label %adjustBox.exit.i, label %float8_gt.exit17.i.i
+float8_lt.exit16.thread.i.i:                      ; preds = %223, %float8_lt.exit16.i.i, %float8_gt.exit.thread.i.i
+  %224 = getelementptr inbounds nuw i8, ptr %.03653.i, i64 24
+  %225 = getelementptr inbounds nuw i8, ptr %189, i64 24
+  %226 = load double, ptr %225, align 8
+  %227 = fcmp uno double %226, 0.000000e+00
+  br i1 %227, label %adjustBox.exit.i, label %float8_gt.exit17.i.i
 
 float8_gt.exit17.i.i:                             ; preds = %float8_lt.exit16.thread.i.i
-  %224 = load double, ptr %220, align 8
-  %225 = fcmp uno double %224, 0.000000e+00
-  %226 = fcmp ogt double %224, %222
-  %227 = or i1 %225, %226
-  br i1 %227, label %228, label %adjustBox.exit.i
+  %228 = load double, ptr %224, align 8
+  %229 = fcmp uno double %228, 0.000000e+00
+  %230 = fcmp ogt double %228, %226
+  %231 = or i1 %229, %230
+  br i1 %231, label %232, label %adjustBox.exit.i
 
-228:                                              ; preds = %float8_gt.exit17.i.i
-  store double %222, ptr %220, align 8
+232:                                              ; preds = %float8_gt.exit17.i.i
+  store double %226, ptr %224, align 8
   br label %adjustBox.exit.i
 
-adjustBox.exit.i:                                 ; preds = %228, %float8_gt.exit17.i.i, %float8_lt.exit16.thread.i.i, %192
-  %.1.i = phi ptr [ %193, %192 ], [ %.03653.i, %float8_lt.exit16.thread.i.i ], [ %.03653.i, %float8_gt.exit17.i.i ], [ %.03653.i, %228 ]
-  %229 = load i32, ptr %176, align 8
-  %230 = add i32 %229, 1
-  store i32 %230, ptr %176, align 8
-  br label %276
+adjustBox.exit.i:                                 ; preds = %232, %float8_gt.exit17.i.i, %float8_lt.exit16.thread.i.i, %196
+  %.1.i = phi ptr [ %197, %196 ], [ %.03653.i, %float8_lt.exit16.thread.i.i ], [ %.03653.i, %float8_gt.exit17.i.i ], [ %.03653.i, %232 ]
+  %233 = load i32, ptr %180, align 8
+  %234 = add i32 %233, 1
+  store i32 %234, ptr %180, align 8
+  br label %280
 
-231:                                              ; preds = %180
-  %232 = load ptr, ptr %174, align 8
-  %233 = load i32, ptr %175, align 8
-  %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds i16, ptr %232, i64 %234
-  store i16 %.054.i, ptr %235, align 2
-  %236 = icmp eq ptr %.03752.i, null
-  br i1 %236, label %237, label %239
+235:                                              ; preds = %184
+  %236 = load ptr, ptr %178, align 8
+  %237 = load i32, ptr %179, align 8
+  %238 = sext i32 %237 to i64
+  %239 = getelementptr inbounds i16, ptr %236, i64 %238
+  store i16 %.054.i, ptr %239, align 2
+  %240 = icmp eq ptr %.03752.i, null
+  br i1 %240, label %241, label %243
 
-237:                                              ; preds = %231
-  %238 = tail call ptr @palloc(i64 noundef 32) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef nonnull align 8 dereferenceable(32) %185, i64 32, i1 false)
+241:                                              ; preds = %235
+  %242 = tail call ptr @palloc(i64 noundef 32) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %242, ptr noundef nonnull align 8 dereferenceable(32) %189, i64 32, i1 false)
   br label %adjustBox.exit50.i
 
-239:                                              ; preds = %231
-  %240 = load double, ptr %.03752.i, align 8
-  %241 = load double, ptr %185, align 8
-  %242 = fcmp uno double %240, 0.000000e+00
-  br i1 %242, label %float8_lt.exit.thread.i44.i, label %float8_lt.exit.i43.i
+243:                                              ; preds = %235
+  %244 = load double, ptr %.03752.i, align 8
+  %245 = load double, ptr %189, align 8
+  %246 = fcmp uno double %244, 0.000000e+00
+  br i1 %246, label %float8_lt.exit.thread.i44.i, label %float8_lt.exit.i43.i
 
-float8_lt.exit.i43.i:                             ; preds = %239
-  %243 = fcmp uno double %241, 0.000000e+00
-  %244 = fcmp olt double %240, %241
-  %245 = or i1 %243, %244
-  br i1 %245, label %246, label %float8_lt.exit.thread.i44.i
+float8_lt.exit.i43.i:                             ; preds = %243
+  %247 = fcmp uno double %245, 0.000000e+00
+  %248 = fcmp olt double %244, %245
+  %249 = or i1 %247, %248
+  br i1 %249, label %250, label %float8_lt.exit.thread.i44.i
 
-246:                                              ; preds = %float8_lt.exit.i43.i
-  store double %241, ptr %.03752.i, align 8
+250:                                              ; preds = %float8_lt.exit.i43.i
+  store double %245, ptr %.03752.i, align 8
   br label %float8_lt.exit.thread.i44.i
 
-float8_lt.exit.thread.i44.i:                      ; preds = %246, %float8_lt.exit.i43.i, %239
-  %247 = getelementptr inbounds nuw i8, ptr %.03752.i, i64 16
-  %248 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %249 = load double, ptr %248, align 8
-  %250 = fcmp uno double %249, 0.000000e+00
-  br i1 %250, label %float8_gt.exit.thread.i46.i, label %float8_gt.exit.i45.i
+float8_lt.exit.thread.i44.i:                      ; preds = %250, %float8_lt.exit.i43.i, %243
+  %251 = getelementptr inbounds nuw i8, ptr %.03752.i, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  %253 = load double, ptr %252, align 8
+  %254 = fcmp uno double %253, 0.000000e+00
+  br i1 %254, label %float8_gt.exit.thread.i46.i, label %float8_gt.exit.i45.i
 
 float8_gt.exit.i45.i:                             ; preds = %float8_lt.exit.thread.i44.i
-  %251 = load double, ptr %247, align 8
-  %252 = fcmp uno double %251, 0.000000e+00
-  %253 = fcmp ogt double %251, %249
-  %254 = or i1 %252, %253
-  br i1 %254, label %255, label %float8_gt.exit.thread.i46.i
+  %255 = load double, ptr %251, align 8
+  %256 = fcmp uno double %255, 0.000000e+00
+  %257 = fcmp ogt double %255, %253
+  %258 = or i1 %256, %257
+  br i1 %258, label %259, label %float8_gt.exit.thread.i46.i
 
-255:                                              ; preds = %float8_gt.exit.i45.i
-  store double %249, ptr %247, align 8
+259:                                              ; preds = %float8_gt.exit.i45.i
+  store double %253, ptr %251, align 8
   br label %float8_gt.exit.thread.i46.i
 
-float8_gt.exit.thread.i46.i:                      ; preds = %255, %float8_gt.exit.i45.i, %float8_lt.exit.thread.i44.i
-  %256 = getelementptr inbounds nuw i8, ptr %.03752.i, i64 8
-  %257 = load double, ptr %256, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %259 = load double, ptr %258, align 8
-  %260 = fcmp uno double %257, 0.000000e+00
-  br i1 %260, label %float8_lt.exit16.thread.i48.i, label %float8_lt.exit16.i47.i
+float8_gt.exit.thread.i46.i:                      ; preds = %259, %float8_gt.exit.i45.i, %float8_lt.exit.thread.i44.i
+  %260 = getelementptr inbounds nuw i8, ptr %.03752.i, i64 8
+  %261 = load double, ptr %260, align 8
+  %262 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %263 = load double, ptr %262, align 8
+  %264 = fcmp uno double %261, 0.000000e+00
+  br i1 %264, label %float8_lt.exit16.thread.i48.i, label %float8_lt.exit16.i47.i
 
 float8_lt.exit16.i47.i:                           ; preds = %float8_gt.exit.thread.i46.i
-  %261 = fcmp uno double %259, 0.000000e+00
-  %262 = fcmp olt double %257, %259
-  %263 = or i1 %261, %262
-  br i1 %263, label %264, label %float8_lt.exit16.thread.i48.i
+  %265 = fcmp uno double %263, 0.000000e+00
+  %266 = fcmp olt double %261, %263
+  %267 = or i1 %265, %266
+  br i1 %267, label %268, label %float8_lt.exit16.thread.i48.i
 
-264:                                              ; preds = %float8_lt.exit16.i47.i
-  store double %259, ptr %256, align 8
+268:                                              ; preds = %float8_lt.exit16.i47.i
+  store double %263, ptr %260, align 8
   br label %float8_lt.exit16.thread.i48.i
 
-float8_lt.exit16.thread.i48.i:                    ; preds = %264, %float8_lt.exit16.i47.i, %float8_gt.exit.thread.i46.i
-  %265 = getelementptr inbounds nuw i8, ptr %.03752.i, i64 24
-  %266 = getelementptr inbounds nuw i8, ptr %185, i64 24
-  %267 = load double, ptr %266, align 8
-  %268 = fcmp uno double %267, 0.000000e+00
-  br i1 %268, label %adjustBox.exit50.i, label %float8_gt.exit17.i49.i
+float8_lt.exit16.thread.i48.i:                    ; preds = %268, %float8_lt.exit16.i47.i, %float8_gt.exit.thread.i46.i
+  %269 = getelementptr inbounds nuw i8, ptr %.03752.i, i64 24
+  %270 = getelementptr inbounds nuw i8, ptr %189, i64 24
+  %271 = load double, ptr %270, align 8
+  %272 = fcmp uno double %271, 0.000000e+00
+  br i1 %272, label %adjustBox.exit50.i, label %float8_gt.exit17.i49.i
 
 float8_gt.exit17.i49.i:                           ; preds = %float8_lt.exit16.thread.i48.i
-  %269 = load double, ptr %265, align 8
-  %270 = fcmp uno double %269, 0.000000e+00
-  %271 = fcmp ogt double %269, %267
-  %272 = or i1 %270, %271
-  br i1 %272, label %273, label %adjustBox.exit50.i
+  %273 = load double, ptr %269, align 8
+  %274 = fcmp uno double %273, 0.000000e+00
+  %275 = fcmp ogt double %273, %271
+  %276 = or i1 %274, %275
+  br i1 %276, label %277, label %adjustBox.exit50.i
 
-273:                                              ; preds = %float8_gt.exit17.i49.i
-  store double %267, ptr %265, align 8
+277:                                              ; preds = %float8_gt.exit17.i49.i
+  store double %271, ptr %269, align 8
   br label %adjustBox.exit50.i
 
-adjustBox.exit50.i:                               ; preds = %273, %float8_gt.exit17.i49.i, %float8_lt.exit16.thread.i48.i, %237
-  %.239.i = phi ptr [ %238, %237 ], [ %.03752.i, %float8_lt.exit16.thread.i48.i ], [ %.03752.i, %float8_gt.exit17.i49.i ], [ %.03752.i, %273 ]
-  %274 = load i32, ptr %175, align 8
-  %275 = add i32 %274, 1
-  store i32 %275, ptr %175, align 8
-  br label %276
+adjustBox.exit50.i:                               ; preds = %277, %float8_gt.exit17.i49.i, %float8_lt.exit16.thread.i48.i, %241
+  %.239.i = phi ptr [ %242, %241 ], [ %.03752.i, %float8_lt.exit16.thread.i48.i ], [ %.03752.i, %float8_gt.exit17.i49.i ], [ %.03752.i, %277 ]
+  %278 = load i32, ptr %179, align 8
+  %279 = add i32 %278, 1
+  store i32 %279, ptr %179, align 8
+  br label %280
 
-276:                                              ; preds = %adjustBox.exit50.i, %adjustBox.exit.i
+280:                                              ; preds = %adjustBox.exit50.i, %adjustBox.exit.i
   %.138.i = phi ptr [ %.03752.i, %adjustBox.exit.i ], [ %.239.i, %adjustBox.exit50.i ]
   %.2.i = phi ptr [ %.1.i, %adjustBox.exit.i ], [ %.03653.i, %adjustBox.exit50.i ]
-  %277 = add i16 %.054.i, 1
-  %278 = zext i16 %277 to i32
-  %.not.i = icmp ugt i16 %277, %179
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %180, !llvm.loop !16
+  %281 = add i16 %.054.i, 1
+  %282 = zext i16 %281 to i32
+  %.not.i = icmp ugt i16 %281, %183
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %184, !llvm.loop !16
 
-._crit_edge.loopexit.i:                           ; preds = %276
-  %279 = ptrtoint ptr %.2.i to i64
-  %280 = ptrtoint ptr %.138.i to i64
+._crit_edge.loopexit.i:                           ; preds = %280
+  %283 = ptrtoint ptr %.2.i to i64
+  %284 = ptrtoint ptr %.138.i to i64
   br label %fallbackSplit.exit
 
-fallbackSplit.exit:                               ; preds = %165, %._crit_edge.loopexit.i
-  %.037.lcssa.i = phi i64 [ 0, %165 ], [ %280, %._crit_edge.loopexit.i ]
-  %.036.lcssa.i = phi i64 [ 0, %165 ], [ %279, %._crit_edge.loopexit.i ]
-  %281 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %.036.lcssa.i, ptr %281, align 8
-  br label %628
+fallbackSplit.exit:                               ; preds = %169, %._crit_edge.loopexit.i
+  %.037.lcssa.i = phi i64 [ 0, %169 ], [ %284, %._crit_edge.loopexit.i ]
+  %.036.lcssa.i = phi i64 [ 0, %169 ], [ %283, %._crit_edge.loopexit.i ]
+  %285 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %.036.lcssa.i, ptr %285, align 8
+  br label %632
 
-282:                                              ; preds = %162
-  %283 = shl nuw nsw i64 %13, 1
-  %284 = tail call ptr @palloc(i64 noundef %283) #16
-  store ptr %284, ptr %8, align 8
-  %285 = tail call ptr @palloc(i64 noundef %283) #16
-  %286 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %285, ptr %286, align 8
-  %287 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 0, ptr %287, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 0, ptr %288, align 8
-  %289 = tail call ptr @palloc0(i64 noundef 32) #16
-  %290 = tail call ptr @palloc0(i64 noundef 32) #16
-  %291 = tail call ptr @palloc(i64 noundef %14) #16
+286:                                              ; preds = %166
+  %287 = shl nuw nsw i64 %13, 1
+  %288 = tail call ptr @palloc(i64 noundef %287) #16
+  store ptr %288, ptr %8, align 8
+  %289 = tail call ptr @palloc(i64 noundef %287) #16
+  %290 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr %289, ptr %290, align 8
+  %291 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 0, ptr %291, align 8
+  %292 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i32 0, ptr %292, align 8
+  %293 = tail call ptr @palloc0(i64 noundef 32) #16
+  %294 = tail call ptr @palloc0(i64 noundef 32) #16
+  %295 = tail call ptr @palloc(i64 noundef %14) #16
   br i1 %.not308, label %.loopexit, label %.lr.ph348
 
-.lr.ph348:                                        ; preds = %282
-  %292 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %293 = load i32, ptr %292, align 8
-  %294 = icmp eq i32 %293, 0
-  %295 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %296 = load double, ptr %295, align 8
-  %297 = fcmp uno double %296, 0.000000e+00
-  %298 = getelementptr inbounds nuw i8, ptr %290, i64 16
-  %299 = getelementptr inbounds nuw i8, ptr %290, i64 8
-  %300 = getelementptr inbounds nuw i8, ptr %290, i64 24
-  %301 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %302 = load double, ptr %301, align 8
-  %303 = getelementptr inbounds nuw i8, ptr %289, i64 16
-  %304 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  %305 = getelementptr inbounds nuw i8, ptr %289, i64 24
-  %306 = trunc i32 %10 to i16
-  br label %307
+.lr.ph348:                                        ; preds = %286
+  %296 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %297 = load i32, ptr %296, align 8
+  %298 = icmp eq i32 %297, 0
+  %299 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %300 = load double, ptr %299, align 8
+  %301 = fcmp uno double %300, 0.000000e+00
+  %302 = getelementptr inbounds nuw i8, ptr %294, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %294, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %294, i64 24
+  %305 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %306 = load double, ptr %305, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %293, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %293, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %293, i64 24
+  %310 = trunc i32 %10 to i16
+  br label %311
 
-307:                                              ; preds = %.lr.ph348, %402
-  %308 = phi i32 [ 1, %.lr.ph348 ], [ %404, %402 ]
-  %.2238346 = phi i16 [ 1, %.lr.ph348 ], [ %403, %402 ]
-  %.0241345 = phi i32 [ 0, %.lr.ph348 ], [ %.1242, %402 ]
-  %309 = zext i16 %.2238346 to i64
-  %310 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %63, i64 %309
-  %311 = load i64, ptr %310, align 8
-  %312 = inttoptr i64 %311 to ptr
-  %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
-  %314 = getelementptr inbounds nuw i8, ptr %312, i64 24
-  %315 = getelementptr inbounds nuw i8, ptr %312, i64 8
-  %.0221.in = select i1 %294, ptr %312, ptr %315
+311:                                              ; preds = %.lr.ph348, %406
+  %312 = phi i32 [ 1, %.lr.ph348 ], [ %408, %406 ]
+  %.2238346 = phi i16 [ 1, %.lr.ph348 ], [ %407, %406 ]
+  %.0241345 = phi i32 [ 0, %.lr.ph348 ], [ %.1242, %406 ]
+  %313 = zext i16 %.2238346 to i64
+  %314 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %63, i64 %313
+  %315 = load i64, ptr %314, align 8
+  %316 = inttoptr i64 %315 to ptr
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %316, i64 24
+  %319 = getelementptr inbounds nuw i8, ptr %316, i64 8
+  %.0221.in = select i1 %298, ptr %316, ptr %319
   %.0221 = load double, ptr %.0221.in, align 8
-  %316 = fcmp ole double %.0221, %296
-  %317 = or i1 %297, %316
-  br i1 %317, label %318, label %364
+  %320 = fcmp ole double %.0221, %300
+  %321 = or i1 %301, %320
+  br i1 %321, label %322, label %368
 
-318:                                              ; preds = %307
-  %.0222.in = select i1 %294, ptr %313, ptr %314
+322:                                              ; preds = %311
+  %.0222.in = select i1 %298, ptr %317, ptr %318
   %.0222 = load double, ptr %.0222.in, align 8
-  %319 = fcmp uno double %.0222, 0.000000e+00
-  %320 = fcmp oge double %.0222, %302
-  %321 = or i1 %319, %320
-  br i1 %321, label %322, label %326
+  %323 = fcmp uno double %.0222, 0.000000e+00
+  %324 = fcmp oge double %.0222, %306
+  %325 = or i1 %323, %324
+  br i1 %325, label %326, label %330
 
-322:                                              ; preds = %318
-  %323 = add i32 %.0241345, 1
-  %324 = sext i32 %.0241345 to i64
-  %325 = getelementptr inbounds %struct.CommonEntry, ptr %291, i64 %324
-  store i32 %308, ptr %325, align 8
-  br label %402
+326:                                              ; preds = %322
+  %327 = add i32 %.0241345, 1
+  %328 = sext i32 %.0241345 to i64
+  %329 = getelementptr inbounds %struct.CommonEntry, ptr %295, i64 %328
+  store i32 %312, ptr %329, align 8
+  br label %406
 
-326:                                              ; preds = %318
-  %327 = load i32, ptr %287, align 8
-  %328 = icmp sgt i32 %327, 0
-  br i1 %328, label %329, label %358
+330:                                              ; preds = %322
+  %331 = load i32, ptr %291, align 8
+  %332 = icmp sgt i32 %331, 0
+  br i1 %332, label %333, label %362
 
-329:                                              ; preds = %326
-  %330 = load double, ptr %289, align 8
-  %331 = load double, ptr %312, align 8
-  %332 = fcmp uno double %330, 0.000000e+00
-  br i1 %332, label %float8_lt.exit.thread.i256, label %float8_lt.exit.i255
+333:                                              ; preds = %330
+  %334 = load double, ptr %293, align 8
+  %335 = load double, ptr %316, align 8
+  %336 = fcmp uno double %334, 0.000000e+00
+  br i1 %336, label %float8_lt.exit.thread.i256, label %float8_lt.exit.i255
 
-float8_lt.exit.i255:                              ; preds = %329
-  %333 = fcmp uno double %331, 0.000000e+00
-  %334 = fcmp olt double %330, %331
-  %335 = or i1 %333, %334
-  br i1 %335, label %336, label %float8_lt.exit.thread.i256
+float8_lt.exit.i255:                              ; preds = %333
+  %337 = fcmp uno double %335, 0.000000e+00
+  %338 = fcmp olt double %334, %335
+  %339 = or i1 %337, %338
+  br i1 %339, label %340, label %float8_lt.exit.thread.i256
 
-336:                                              ; preds = %float8_lt.exit.i255
-  store double %331, ptr %289, align 8
+340:                                              ; preds = %float8_lt.exit.i255
+  store double %335, ptr %293, align 8
   br label %float8_lt.exit.thread.i256
 
-float8_lt.exit.thread.i256:                       ; preds = %336, %float8_lt.exit.i255, %329
-  %337 = load double, ptr %313, align 8
-  %338 = fcmp uno double %337, 0.000000e+00
-  br i1 %338, label %float8_gt.exit.thread.i258, label %float8_gt.exit.i257
+float8_lt.exit.thread.i256:                       ; preds = %340, %float8_lt.exit.i255, %333
+  %341 = load double, ptr %317, align 8
+  %342 = fcmp uno double %341, 0.000000e+00
+  br i1 %342, label %float8_gt.exit.thread.i258, label %float8_gt.exit.i257
 
 float8_gt.exit.i257:                              ; preds = %float8_lt.exit.thread.i256
-  %339 = load double, ptr %303, align 8
-  %340 = fcmp uno double %339, 0.000000e+00
-  %341 = fcmp ogt double %339, %337
-  %342 = or i1 %340, %341
-  br i1 %342, label %343, label %float8_gt.exit.thread.i258
+  %343 = load double, ptr %307, align 8
+  %344 = fcmp uno double %343, 0.000000e+00
+  %345 = fcmp ogt double %343, %341
+  %346 = or i1 %344, %345
+  br i1 %346, label %347, label %float8_gt.exit.thread.i258
 
-343:                                              ; preds = %float8_gt.exit.i257
-  store double %337, ptr %303, align 8
+347:                                              ; preds = %float8_gt.exit.i257
+  store double %341, ptr %307, align 8
   br label %float8_gt.exit.thread.i258
 
-float8_gt.exit.thread.i258:                       ; preds = %343, %float8_gt.exit.i257, %float8_lt.exit.thread.i256
-  %344 = load double, ptr %304, align 8
-  %345 = load double, ptr %315, align 8
-  %346 = fcmp uno double %344, 0.000000e+00
-  br i1 %346, label %float8_lt.exit16.thread.i260, label %float8_lt.exit16.i259
+float8_gt.exit.thread.i258:                       ; preds = %347, %float8_gt.exit.i257, %float8_lt.exit.thread.i256
+  %348 = load double, ptr %308, align 8
+  %349 = load double, ptr %319, align 8
+  %350 = fcmp uno double %348, 0.000000e+00
+  br i1 %350, label %float8_lt.exit16.thread.i260, label %float8_lt.exit16.i259
 
 float8_lt.exit16.i259:                            ; preds = %float8_gt.exit.thread.i258
-  %347 = fcmp uno double %345, 0.000000e+00
-  %348 = fcmp olt double %344, %345
-  %349 = or i1 %347, %348
-  br i1 %349, label %350, label %float8_lt.exit16.thread.i260
+  %351 = fcmp uno double %349, 0.000000e+00
+  %352 = fcmp olt double %348, %349
+  %353 = or i1 %351, %352
+  br i1 %353, label %354, label %float8_lt.exit16.thread.i260
 
-350:                                              ; preds = %float8_lt.exit16.i259
-  store double %345, ptr %304, align 8
+354:                                              ; preds = %float8_lt.exit16.i259
+  store double %349, ptr %308, align 8
   br label %float8_lt.exit16.thread.i260
 
-float8_lt.exit16.thread.i260:                     ; preds = %350, %float8_lt.exit16.i259, %float8_gt.exit.thread.i258
-  %351 = load double, ptr %314, align 8
-  %352 = fcmp uno double %351, 0.000000e+00
-  br i1 %352, label %adjustBox.exit262, label %float8_gt.exit17.i261
+float8_lt.exit16.thread.i260:                     ; preds = %354, %float8_lt.exit16.i259, %float8_gt.exit.thread.i258
+  %355 = load double, ptr %318, align 8
+  %356 = fcmp uno double %355, 0.000000e+00
+  br i1 %356, label %adjustBox.exit262, label %float8_gt.exit17.i261
 
 float8_gt.exit17.i261:                            ; preds = %float8_lt.exit16.thread.i260
-  %353 = load double, ptr %305, align 8
-  %354 = fcmp uno double %353, 0.000000e+00
-  %355 = fcmp ogt double %353, %351
-  %356 = or i1 %354, %355
-  br i1 %356, label %357, label %adjustBox.exit262
+  %357 = load double, ptr %309, align 8
+  %358 = fcmp uno double %357, 0.000000e+00
+  %359 = fcmp ogt double %357, %355
+  %360 = or i1 %358, %359
+  br i1 %360, label %361, label %adjustBox.exit262
 
-357:                                              ; preds = %float8_gt.exit17.i261
-  store double %351, ptr %305, align 8
+361:                                              ; preds = %float8_gt.exit17.i261
+  store double %355, ptr %309, align 8
   br label %adjustBox.exit262
 
-358:                                              ; preds = %326
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %289, ptr noundef nonnull align 8 dereferenceable(32) %312, i64 32, i1 false)
+362:                                              ; preds = %330
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %293, ptr noundef nonnull align 8 dereferenceable(32) %316, i64 32, i1 false)
   br label %adjustBox.exit262
 
-adjustBox.exit262:                                ; preds = %357, %float8_gt.exit17.i261, %float8_lt.exit16.thread.i260, %358
-  %359 = load ptr, ptr %8, align 8
-  %360 = load i32, ptr %287, align 8
-  %361 = add i32 %360, 1
-  store i32 %361, ptr %287, align 8
-  %362 = sext i32 %360 to i64
-  %363 = getelementptr inbounds i16, ptr %359, i64 %362
-  store i16 %.2238346, ptr %363, align 2
-  br label %402
+adjustBox.exit262:                                ; preds = %361, %float8_gt.exit17.i261, %float8_lt.exit16.thread.i260, %362
+  %363 = load ptr, ptr %8, align 8
+  %364 = load i32, ptr %291, align 8
+  %365 = add i32 %364, 1
+  store i32 %365, ptr %291, align 8
+  %366 = sext i32 %364 to i64
+  %367 = getelementptr inbounds i16, ptr %363, i64 %366
+  store i16 %.2238346, ptr %367, align 2
+  br label %406
 
-364:                                              ; preds = %307
-  %365 = load i32, ptr %288, align 8
-  %366 = icmp sgt i32 %365, 0
-  br i1 %366, label %367, label %396
+368:                                              ; preds = %311
+  %369 = load i32, ptr %292, align 8
+  %370 = icmp sgt i32 %369, 0
+  br i1 %370, label %371, label %400
 
-367:                                              ; preds = %364
-  %368 = load double, ptr %290, align 8
-  %369 = load double, ptr %312, align 8
-  %370 = fcmp uno double %368, 0.000000e+00
-  br i1 %370, label %float8_lt.exit.thread.i264, label %float8_lt.exit.i263
+371:                                              ; preds = %368
+  %372 = load double, ptr %294, align 8
+  %373 = load double, ptr %316, align 8
+  %374 = fcmp uno double %372, 0.000000e+00
+  br i1 %374, label %float8_lt.exit.thread.i264, label %float8_lt.exit.i263
 
-float8_lt.exit.i263:                              ; preds = %367
-  %371 = fcmp uno double %369, 0.000000e+00
-  %372 = fcmp olt double %368, %369
-  %373 = or i1 %371, %372
-  br i1 %373, label %374, label %float8_lt.exit.thread.i264
+float8_lt.exit.i263:                              ; preds = %371
+  %375 = fcmp uno double %373, 0.000000e+00
+  %376 = fcmp olt double %372, %373
+  %377 = or i1 %375, %376
+  br i1 %377, label %378, label %float8_lt.exit.thread.i264
 
-374:                                              ; preds = %float8_lt.exit.i263
-  store double %369, ptr %290, align 8
+378:                                              ; preds = %float8_lt.exit.i263
+  store double %373, ptr %294, align 8
   br label %float8_lt.exit.thread.i264
 
-float8_lt.exit.thread.i264:                       ; preds = %374, %float8_lt.exit.i263, %367
-  %375 = load double, ptr %313, align 8
-  %376 = fcmp uno double %375, 0.000000e+00
-  br i1 %376, label %float8_gt.exit.thread.i266, label %float8_gt.exit.i265
+float8_lt.exit.thread.i264:                       ; preds = %378, %float8_lt.exit.i263, %371
+  %379 = load double, ptr %317, align 8
+  %380 = fcmp uno double %379, 0.000000e+00
+  br i1 %380, label %float8_gt.exit.thread.i266, label %float8_gt.exit.i265
 
 float8_gt.exit.i265:                              ; preds = %float8_lt.exit.thread.i264
-  %377 = load double, ptr %298, align 8
-  %378 = fcmp uno double %377, 0.000000e+00
-  %379 = fcmp ogt double %377, %375
-  %380 = or i1 %378, %379
-  br i1 %380, label %381, label %float8_gt.exit.thread.i266
+  %381 = load double, ptr %302, align 8
+  %382 = fcmp uno double %381, 0.000000e+00
+  %383 = fcmp ogt double %381, %379
+  %384 = or i1 %382, %383
+  br i1 %384, label %385, label %float8_gt.exit.thread.i266
 
-381:                                              ; preds = %float8_gt.exit.i265
-  store double %375, ptr %298, align 8
+385:                                              ; preds = %float8_gt.exit.i265
+  store double %379, ptr %302, align 8
   br label %float8_gt.exit.thread.i266
 
-float8_gt.exit.thread.i266:                       ; preds = %381, %float8_gt.exit.i265, %float8_lt.exit.thread.i264
-  %382 = load double, ptr %299, align 8
-  %383 = load double, ptr %315, align 8
-  %384 = fcmp uno double %382, 0.000000e+00
-  br i1 %384, label %float8_lt.exit16.thread.i268, label %float8_lt.exit16.i267
+float8_gt.exit.thread.i266:                       ; preds = %385, %float8_gt.exit.i265, %float8_lt.exit.thread.i264
+  %386 = load double, ptr %303, align 8
+  %387 = load double, ptr %319, align 8
+  %388 = fcmp uno double %386, 0.000000e+00
+  br i1 %388, label %float8_lt.exit16.thread.i268, label %float8_lt.exit16.i267
 
 float8_lt.exit16.i267:                            ; preds = %float8_gt.exit.thread.i266
-  %385 = fcmp uno double %383, 0.000000e+00
-  %386 = fcmp olt double %382, %383
-  %387 = or i1 %385, %386
-  br i1 %387, label %388, label %float8_lt.exit16.thread.i268
+  %389 = fcmp uno double %387, 0.000000e+00
+  %390 = fcmp olt double %386, %387
+  %391 = or i1 %389, %390
+  br i1 %391, label %392, label %float8_lt.exit16.thread.i268
 
-388:                                              ; preds = %float8_lt.exit16.i267
-  store double %383, ptr %299, align 8
+392:                                              ; preds = %float8_lt.exit16.i267
+  store double %387, ptr %303, align 8
   br label %float8_lt.exit16.thread.i268
 
-float8_lt.exit16.thread.i268:                     ; preds = %388, %float8_lt.exit16.i267, %float8_gt.exit.thread.i266
-  %389 = load double, ptr %314, align 8
-  %390 = fcmp uno double %389, 0.000000e+00
-  br i1 %390, label %adjustBox.exit270, label %float8_gt.exit17.i269
+float8_lt.exit16.thread.i268:                     ; preds = %392, %float8_lt.exit16.i267, %float8_gt.exit.thread.i266
+  %393 = load double, ptr %318, align 8
+  %394 = fcmp uno double %393, 0.000000e+00
+  br i1 %394, label %adjustBox.exit270, label %float8_gt.exit17.i269
 
 float8_gt.exit17.i269:                            ; preds = %float8_lt.exit16.thread.i268
-  %391 = load double, ptr %300, align 8
-  %392 = fcmp uno double %391, 0.000000e+00
-  %393 = fcmp ogt double %391, %389
-  %394 = or i1 %392, %393
-  br i1 %394, label %395, label %adjustBox.exit270
+  %395 = load double, ptr %304, align 8
+  %396 = fcmp uno double %395, 0.000000e+00
+  %397 = fcmp ogt double %395, %393
+  %398 = or i1 %396, %397
+  br i1 %398, label %399, label %adjustBox.exit270
 
-395:                                              ; preds = %float8_gt.exit17.i269
-  store double %389, ptr %300, align 8
+399:                                              ; preds = %float8_gt.exit17.i269
+  store double %393, ptr %304, align 8
   br label %adjustBox.exit270
 
-396:                                              ; preds = %364
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %290, ptr noundef nonnull align 8 dereferenceable(32) %312, i64 32, i1 false)
+400:                                              ; preds = %368
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %294, ptr noundef nonnull align 8 dereferenceable(32) %316, i64 32, i1 false)
   br label %adjustBox.exit270
 
-adjustBox.exit270:                                ; preds = %395, %float8_gt.exit17.i269, %float8_lt.exit16.thread.i268, %396
-  %397 = load ptr, ptr %286, align 8
-  %398 = load i32, ptr %288, align 8
-  %399 = add i32 %398, 1
-  store i32 %399, ptr %288, align 8
-  %400 = sext i32 %398 to i64
-  %401 = getelementptr inbounds i16, ptr %397, i64 %400
-  store i16 %.2238346, ptr %401, align 2
-  br label %402
+adjustBox.exit270:                                ; preds = %399, %float8_gt.exit17.i269, %float8_lt.exit16.thread.i268, %400
+  %401 = load ptr, ptr %290, align 8
+  %402 = load i32, ptr %292, align 8
+  %403 = add i32 %402, 1
+  store i32 %403, ptr %292, align 8
+  %404 = sext i32 %402 to i64
+  %405 = getelementptr inbounds i16, ptr %401, i64 %404
+  store i16 %.2238346, ptr %405, align 2
+  br label %406
 
-402:                                              ; preds = %322, %adjustBox.exit262, %adjustBox.exit270
-  %.1242 = phi i32 [ %323, %322 ], [ %.0241345, %adjustBox.exit262 ], [ %.0241345, %adjustBox.exit270 ]
-  %403 = add i16 %.2238346, 1
-  %404 = zext i16 %403 to i32
-  %.not249 = icmp ugt i16 %403, %306
-  br i1 %.not249, label %._crit_edge349, label %307, !llvm.loop !17
+406:                                              ; preds = %326, %adjustBox.exit262, %adjustBox.exit270
+  %.1242 = phi i32 [ %327, %326 ], [ %.0241345, %adjustBox.exit262 ], [ %.0241345, %adjustBox.exit270 ]
+  %407 = add i16 %.2238346, 1
+  %408 = zext i16 %407 to i32
+  %.not249 = icmp ugt i16 %407, %310
+  br i1 %.not249, label %._crit_edge349, label %311, !llvm.loop !17
 
-._crit_edge349:                                   ; preds = %402
-  %405 = icmp sgt i32 %.1242, 0
-  br i1 %405, label %406, label %.loopexit
+._crit_edge349:                                   ; preds = %406
+  %409 = icmp sgt i32 %.1242, 0
+  br i1 %409, label %410, label %.loopexit
 
-406:                                              ; preds = %._crit_edge349
-  %407 = uitofp nneg i32 %11 to double
-  %408 = fmul double %407, 3.000000e-01
-  %409 = tail call double @llvm.ceil.f64(double %408)
-  %410 = fptosi double %409 to i32
-  br label %411
+410:                                              ; preds = %._crit_edge349
+  %411 = uitofp nneg i32 %11 to double
+  %412 = fmul double %411, 3.000000e-01
+  %413 = tail call double @llvm.ceil.f64(double %412)
+  %414 = fptosi double %413 to i32
+  br label %415
 
-411:                                              ; preds = %406, %float8_mi.exit
-  %.3239351 = phi i16 [ 0, %406 ], [ %431, %float8_mi.exit ]
-  %412 = zext i16 %.3239351 to i64
-  %413 = getelementptr inbounds nuw %struct.CommonEntry, ptr %291, i64 %412
-  %414 = load i32, ptr %413, align 8
-  %415 = sext i32 %414 to i64
-  %416 = getelementptr inbounds %struct.GISTENTRY, ptr %63, i64 %415
-  %417 = load i64, ptr %416, align 8
-  %418 = inttoptr i64 %417 to ptr
-  %419 = tail call fastcc double @box_penalty(ptr noundef %289, ptr noundef %418)
-  %420 = tail call fastcc double @box_penalty(ptr noundef %290, ptr noundef %418)
-  %421 = fsub double %419, %420
-  %422 = tail call double @llvm.fabs.f64(double %421)
-  %423 = fcmp oeq double %422, 0x7FF0000000000000
-  br i1 %423, label %424, label %float8_mi.exit, !prof !6
+415:                                              ; preds = %410, %float8_mi.exit
+  %.3239351 = phi i16 [ 0, %410 ], [ %435, %float8_mi.exit ]
+  %416 = zext i16 %.3239351 to i64
+  %417 = getelementptr inbounds nuw %struct.CommonEntry, ptr %295, i64 %416
+  %418 = load i32, ptr %417, align 8
+  %419 = sext i32 %418 to i64
+  %420 = getelementptr inbounds %struct.GISTENTRY, ptr %63, i64 %419
+  %421 = load i64, ptr %420, align 8
+  %422 = inttoptr i64 %421 to ptr
+  %423 = tail call fastcc double @box_penalty(ptr noundef %293, ptr noundef %422)
+  %424 = tail call fastcc double @box_penalty(ptr noundef %294, ptr noundef %422)
+  %425 = fsub double %423, %424
+  %426 = tail call double @llvm.fabs.f64(double %425)
+  %427 = fcmp oeq double %426, 0x7FF0000000000000
+  br i1 %427, label %428, label %float8_mi.exit, !prof !6
 
-424:                                              ; preds = %411
-  %425 = tail call double @llvm.fabs.f64(double %419)
-  %426 = fcmp oeq double %425, 0x7FF0000000000000
-  %427 = tail call double @llvm.fabs.f64(double %420)
-  %428 = fcmp oeq double %427, 0x7FF0000000000000
-  %or.cond.i = or i1 %426, %428
-  br i1 %or.cond.i, label %float8_mi.exit, label %429
+428:                                              ; preds = %415
+  %429 = tail call double @llvm.fabs.f64(double %423)
+  %430 = fcmp oeq double %429, 0x7FF0000000000000
+  %431 = tail call double @llvm.fabs.f64(double %424)
+  %432 = fcmp oeq double %431, 0x7FF0000000000000
+  %or.cond.i = or i1 %430, %432
+  br i1 %or.cond.i, label %float8_mi.exit, label %433
 
-429:                                              ; preds = %424
+433:                                              ; preds = %428
   tail call void @float_overflow_error() #17
   unreachable
 
-float8_mi.exit:                                   ; preds = %411, %424
-  %430 = getelementptr inbounds nuw i8, ptr %413, i64 8
-  store double %422, ptr %430, align 8
-  %431 = add i16 %.3239351, 1
-  %432 = zext i16 %431 to i32
-  %433 = icmp samesign ugt i32 %.1242, %432
-  br i1 %433, label %411, label %434, !llvm.loop !18
+float8_mi.exit:                                   ; preds = %415, %428
+  %434 = getelementptr inbounds nuw i8, ptr %417, i64 8
+  store double %426, ptr %434, align 8
+  %435 = add i16 %.3239351, 1
+  %436 = zext i16 %435 to i32
+  %437 = icmp samesign ugt i32 %.1242, %436
+  br i1 %437, label %415, label %438, !llvm.loop !18
 
-434:                                              ; preds = %float8_mi.exit
-  %435 = zext nneg i32 %.1242 to i64
-  tail call void @pg_qsort(ptr noundef nonnull %291, i64 noundef %435, i64 noundef 16, ptr noundef nonnull @common_entry_cmp) #16
-  %436 = getelementptr inbounds nuw i8, ptr %289, i64 16
-  %437 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  %438 = getelementptr inbounds nuw i8, ptr %289, i64 24
-  %439 = getelementptr inbounds nuw i8, ptr %290, i64 16
-  %440 = getelementptr inbounds nuw i8, ptr %290, i64 8
-  %441 = getelementptr inbounds nuw i8, ptr %290, i64 24
-  br label %442
+438:                                              ; preds = %float8_mi.exit
+  %439 = zext nneg i32 %.1242 to i64
+  tail call void @pg_qsort(ptr noundef nonnull %295, i64 noundef %439, i64 noundef 16, ptr noundef nonnull @common_entry_cmp) #16
+  %440 = getelementptr inbounds nuw i8, ptr %293, i64 16
+  %441 = getelementptr inbounds nuw i8, ptr %293, i64 8
+  %442 = getelementptr inbounds nuw i8, ptr %293, i64 24
+  %443 = getelementptr inbounds nuw i8, ptr %294, i64 16
+  %444 = getelementptr inbounds nuw i8, ptr %294, i64 8
+  %445 = getelementptr inbounds nuw i8, ptr %294, i64 24
+  br label %446
 
-442:                                              ; preds = %434, %619
-  %443 = phi i32 [ 0, %434 ], [ %623, %619 ]
-  %.4352 = phi i16 [ 0, %434 ], [ %622, %619 ]
-  %444 = zext i16 %.4352 to i64
-  %445 = getelementptr inbounds nuw %struct.CommonEntry, ptr %291, i64 %444
-  %446 = load i32, ptr %445, align 8
-  %447 = sext i32 %446 to i64
-  %448 = getelementptr inbounds %struct.GISTENTRY, ptr %63, i64 %447
-  %449 = load i64, ptr %448, align 8
-  %450 = inttoptr i64 %449 to ptr
-  %451 = load i32, ptr %287, align 8
-  %452 = sub nuw nsw i32 %.1242, %443
-  %453 = add i32 %451, %452
-  %.not250 = icmp sgt i32 %453, %410
-  br i1 %.not250, label %493, label %454
+446:                                              ; preds = %438, %623
+  %447 = phi i32 [ 0, %438 ], [ %627, %623 ]
+  %.4352 = phi i16 [ 0, %438 ], [ %626, %623 ]
+  %448 = zext i16 %.4352 to i64
+  %449 = getelementptr inbounds nuw %struct.CommonEntry, ptr %295, i64 %448
+  %450 = load i32, ptr %449, align 8
+  %451 = sext i32 %450 to i64
+  %452 = getelementptr inbounds %struct.GISTENTRY, ptr %63, i64 %451
+  %453 = load i64, ptr %452, align 8
+  %454 = inttoptr i64 %453 to ptr
+  %455 = load i32, ptr %291, align 8
+  %456 = sub nuw nsw i32 %.1242, %447
+  %457 = add i32 %455, %456
+  %.not250 = icmp sgt i32 %457, %414
+  br i1 %.not250, label %497, label %458
 
-454:                                              ; preds = %442
-  %455 = icmp sgt i32 %451, 0
-  br i1 %455, label %456, label %488
+458:                                              ; preds = %446
+  %459 = icmp sgt i32 %455, 0
+  br i1 %459, label %460, label %492
 
-456:                                              ; preds = %454
-  %457 = load double, ptr %289, align 8
-  %458 = load double, ptr %450, align 8
-  %459 = fcmp uno double %457, 0.000000e+00
-  br i1 %459, label %float8_lt.exit.thread.i272, label %float8_lt.exit.i271
+460:                                              ; preds = %458
+  %461 = load double, ptr %293, align 8
+  %462 = load double, ptr %454, align 8
+  %463 = fcmp uno double %461, 0.000000e+00
+  br i1 %463, label %float8_lt.exit.thread.i272, label %float8_lt.exit.i271
 
-float8_lt.exit.i271:                              ; preds = %456
-  %460 = fcmp uno double %458, 0.000000e+00
-  %461 = fcmp olt double %457, %458
-  %462 = or i1 %460, %461
-  br i1 %462, label %463, label %float8_lt.exit.thread.i272
+float8_lt.exit.i271:                              ; preds = %460
+  %464 = fcmp uno double %462, 0.000000e+00
+  %465 = fcmp olt double %461, %462
+  %466 = or i1 %464, %465
+  br i1 %466, label %467, label %float8_lt.exit.thread.i272
 
-463:                                              ; preds = %float8_lt.exit.i271
-  store double %458, ptr %289, align 8
+467:                                              ; preds = %float8_lt.exit.i271
+  store double %462, ptr %293, align 8
   br label %float8_lt.exit.thread.i272
 
-float8_lt.exit.thread.i272:                       ; preds = %463, %float8_lt.exit.i271, %456
-  %464 = getelementptr inbounds nuw i8, ptr %450, i64 16
-  %465 = load double, ptr %464, align 8
-  %466 = fcmp uno double %465, 0.000000e+00
-  br i1 %466, label %float8_gt.exit.thread.i274, label %float8_gt.exit.i273
+float8_lt.exit.thread.i272:                       ; preds = %467, %float8_lt.exit.i271, %460
+  %468 = getelementptr inbounds nuw i8, ptr %454, i64 16
+  %469 = load double, ptr %468, align 8
+  %470 = fcmp uno double %469, 0.000000e+00
+  br i1 %470, label %float8_gt.exit.thread.i274, label %float8_gt.exit.i273
 
 float8_gt.exit.i273:                              ; preds = %float8_lt.exit.thread.i272
-  %467 = load double, ptr %436, align 8
-  %468 = fcmp uno double %467, 0.000000e+00
-  %469 = fcmp ogt double %467, %465
-  %470 = or i1 %468, %469
-  br i1 %470, label %471, label %float8_gt.exit.thread.i274
+  %471 = load double, ptr %440, align 8
+  %472 = fcmp uno double %471, 0.000000e+00
+  %473 = fcmp ogt double %471, %469
+  %474 = or i1 %472, %473
+  br i1 %474, label %475, label %float8_gt.exit.thread.i274
 
-471:                                              ; preds = %float8_gt.exit.i273
-  store double %465, ptr %436, align 8
+475:                                              ; preds = %float8_gt.exit.i273
+  store double %469, ptr %440, align 8
   br label %float8_gt.exit.thread.i274
 
-float8_gt.exit.thread.i274:                       ; preds = %471, %float8_gt.exit.i273, %float8_lt.exit.thread.i272
-  %472 = load double, ptr %437, align 8
-  %473 = getelementptr inbounds nuw i8, ptr %450, i64 8
-  %474 = load double, ptr %473, align 8
-  %475 = fcmp uno double %472, 0.000000e+00
-  br i1 %475, label %float8_lt.exit16.thread.i276, label %float8_lt.exit16.i275
+float8_gt.exit.thread.i274:                       ; preds = %475, %float8_gt.exit.i273, %float8_lt.exit.thread.i272
+  %476 = load double, ptr %441, align 8
+  %477 = getelementptr inbounds nuw i8, ptr %454, i64 8
+  %478 = load double, ptr %477, align 8
+  %479 = fcmp uno double %476, 0.000000e+00
+  br i1 %479, label %float8_lt.exit16.thread.i276, label %float8_lt.exit16.i275
 
 float8_lt.exit16.i275:                            ; preds = %float8_gt.exit.thread.i274
-  %476 = fcmp uno double %474, 0.000000e+00
-  %477 = fcmp olt double %472, %474
-  %478 = or i1 %476, %477
-  br i1 %478, label %479, label %float8_lt.exit16.thread.i276
+  %480 = fcmp uno double %478, 0.000000e+00
+  %481 = fcmp olt double %476, %478
+  %482 = or i1 %480, %481
+  br i1 %482, label %483, label %float8_lt.exit16.thread.i276
 
-479:                                              ; preds = %float8_lt.exit16.i275
-  store double %474, ptr %437, align 8
+483:                                              ; preds = %float8_lt.exit16.i275
+  store double %478, ptr %441, align 8
   br label %float8_lt.exit16.thread.i276
 
-float8_lt.exit16.thread.i276:                     ; preds = %479, %float8_lt.exit16.i275, %float8_gt.exit.thread.i274
-  %480 = getelementptr inbounds nuw i8, ptr %450, i64 24
-  %481 = load double, ptr %480, align 8
-  %482 = fcmp uno double %481, 0.000000e+00
-  br i1 %482, label %adjustBox.exit278, label %float8_gt.exit17.i277
+float8_lt.exit16.thread.i276:                     ; preds = %483, %float8_lt.exit16.i275, %float8_gt.exit.thread.i274
+  %484 = getelementptr inbounds nuw i8, ptr %454, i64 24
+  %485 = load double, ptr %484, align 8
+  %486 = fcmp uno double %485, 0.000000e+00
+  br i1 %486, label %adjustBox.exit278, label %float8_gt.exit17.i277
 
 float8_gt.exit17.i277:                            ; preds = %float8_lt.exit16.thread.i276
-  %483 = load double, ptr %438, align 8
-  %484 = fcmp uno double %483, 0.000000e+00
-  %485 = fcmp ogt double %483, %481
-  %486 = or i1 %484, %485
-  br i1 %486, label %487, label %adjustBox.exit278
+  %487 = load double, ptr %442, align 8
+  %488 = fcmp uno double %487, 0.000000e+00
+  %489 = fcmp ogt double %487, %485
+  %490 = or i1 %488, %489
+  br i1 %490, label %491, label %adjustBox.exit278
 
-487:                                              ; preds = %float8_gt.exit17.i277
-  store double %481, ptr %438, align 8
+491:                                              ; preds = %float8_gt.exit17.i277
+  store double %485, ptr %442, align 8
   br label %adjustBox.exit278
 
-488:                                              ; preds = %454
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %289, ptr noundef nonnull align 8 dereferenceable(32) %450, i64 32, i1 false)
+492:                                              ; preds = %458
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %293, ptr noundef nonnull align 8 dereferenceable(32) %454, i64 32, i1 false)
   br label %adjustBox.exit278
 
-adjustBox.exit278:                                ; preds = %487, %float8_gt.exit17.i277, %float8_lt.exit16.thread.i276, %488
-  %489 = load i32, ptr %445, align 8
-  %490 = load ptr, ptr %8, align 8
-  %491 = load i32, ptr %287, align 8
-  %492 = add i32 %491, 1
-  store i32 %492, ptr %287, align 8
-  br label %619
+adjustBox.exit278:                                ; preds = %491, %float8_gt.exit17.i277, %float8_lt.exit16.thread.i276, %492
+  %493 = load i32, ptr %449, align 8
+  %494 = load ptr, ptr %8, align 8
+  %495 = load i32, ptr %291, align 8
+  %496 = add i32 %495, 1
+  store i32 %496, ptr %291, align 8
+  br label %623
 
-493:                                              ; preds = %442
-  %494 = load i32, ptr %288, align 8
-  %495 = add i32 %494, %452
-  %.not251 = icmp sgt i32 %495, %410
-  br i1 %.not251, label %535, label %496
+497:                                              ; preds = %446
+  %498 = load i32, ptr %292, align 8
+  %499 = add i32 %498, %456
+  %.not251 = icmp sgt i32 %499, %414
+  br i1 %.not251, label %539, label %500
 
-496:                                              ; preds = %493
-  %497 = icmp sgt i32 %494, 0
-  br i1 %497, label %498, label %530
+500:                                              ; preds = %497
+  %501 = icmp sgt i32 %498, 0
+  br i1 %501, label %502, label %534
 
-498:                                              ; preds = %496
-  %499 = load double, ptr %290, align 8
-  %500 = load double, ptr %450, align 8
-  %501 = fcmp uno double %499, 0.000000e+00
-  br i1 %501, label %float8_lt.exit.thread.i280, label %float8_lt.exit.i279
+502:                                              ; preds = %500
+  %503 = load double, ptr %294, align 8
+  %504 = load double, ptr %454, align 8
+  %505 = fcmp uno double %503, 0.000000e+00
+  br i1 %505, label %float8_lt.exit.thread.i280, label %float8_lt.exit.i279
 
-float8_lt.exit.i279:                              ; preds = %498
-  %502 = fcmp uno double %500, 0.000000e+00
-  %503 = fcmp olt double %499, %500
-  %504 = or i1 %502, %503
-  br i1 %504, label %505, label %float8_lt.exit.thread.i280
+float8_lt.exit.i279:                              ; preds = %502
+  %506 = fcmp uno double %504, 0.000000e+00
+  %507 = fcmp olt double %503, %504
+  %508 = or i1 %506, %507
+  br i1 %508, label %509, label %float8_lt.exit.thread.i280
 
-505:                                              ; preds = %float8_lt.exit.i279
-  store double %500, ptr %290, align 8
+509:                                              ; preds = %float8_lt.exit.i279
+  store double %504, ptr %294, align 8
   br label %float8_lt.exit.thread.i280
 
-float8_lt.exit.thread.i280:                       ; preds = %505, %float8_lt.exit.i279, %498
-  %506 = getelementptr inbounds nuw i8, ptr %450, i64 16
-  %507 = load double, ptr %506, align 8
-  %508 = fcmp uno double %507, 0.000000e+00
-  br i1 %508, label %float8_gt.exit.thread.i282, label %float8_gt.exit.i281
+float8_lt.exit.thread.i280:                       ; preds = %509, %float8_lt.exit.i279, %502
+  %510 = getelementptr inbounds nuw i8, ptr %454, i64 16
+  %511 = load double, ptr %510, align 8
+  %512 = fcmp uno double %511, 0.000000e+00
+  br i1 %512, label %float8_gt.exit.thread.i282, label %float8_gt.exit.i281
 
 float8_gt.exit.i281:                              ; preds = %float8_lt.exit.thread.i280
-  %509 = load double, ptr %439, align 8
-  %510 = fcmp uno double %509, 0.000000e+00
-  %511 = fcmp ogt double %509, %507
-  %512 = or i1 %510, %511
-  br i1 %512, label %513, label %float8_gt.exit.thread.i282
+  %513 = load double, ptr %443, align 8
+  %514 = fcmp uno double %513, 0.000000e+00
+  %515 = fcmp ogt double %513, %511
+  %516 = or i1 %514, %515
+  br i1 %516, label %517, label %float8_gt.exit.thread.i282
 
-513:                                              ; preds = %float8_gt.exit.i281
-  store double %507, ptr %439, align 8
+517:                                              ; preds = %float8_gt.exit.i281
+  store double %511, ptr %443, align 8
   br label %float8_gt.exit.thread.i282
 
-float8_gt.exit.thread.i282:                       ; preds = %513, %float8_gt.exit.i281, %float8_lt.exit.thread.i280
-  %514 = load double, ptr %440, align 8
-  %515 = getelementptr inbounds nuw i8, ptr %450, i64 8
-  %516 = load double, ptr %515, align 8
-  %517 = fcmp uno double %514, 0.000000e+00
-  br i1 %517, label %float8_lt.exit16.thread.i284, label %float8_lt.exit16.i283
+float8_gt.exit.thread.i282:                       ; preds = %517, %float8_gt.exit.i281, %float8_lt.exit.thread.i280
+  %518 = load double, ptr %444, align 8
+  %519 = getelementptr inbounds nuw i8, ptr %454, i64 8
+  %520 = load double, ptr %519, align 8
+  %521 = fcmp uno double %518, 0.000000e+00
+  br i1 %521, label %float8_lt.exit16.thread.i284, label %float8_lt.exit16.i283
 
 float8_lt.exit16.i283:                            ; preds = %float8_gt.exit.thread.i282
-  %518 = fcmp uno double %516, 0.000000e+00
-  %519 = fcmp olt double %514, %516
-  %520 = or i1 %518, %519
-  br i1 %520, label %521, label %float8_lt.exit16.thread.i284
+  %522 = fcmp uno double %520, 0.000000e+00
+  %523 = fcmp olt double %518, %520
+  %524 = or i1 %522, %523
+  br i1 %524, label %525, label %float8_lt.exit16.thread.i284
 
-521:                                              ; preds = %float8_lt.exit16.i283
-  store double %516, ptr %440, align 8
+525:                                              ; preds = %float8_lt.exit16.i283
+  store double %520, ptr %444, align 8
   br label %float8_lt.exit16.thread.i284
 
-float8_lt.exit16.thread.i284:                     ; preds = %521, %float8_lt.exit16.i283, %float8_gt.exit.thread.i282
-  %522 = getelementptr inbounds nuw i8, ptr %450, i64 24
-  %523 = load double, ptr %522, align 8
-  %524 = fcmp uno double %523, 0.000000e+00
-  br i1 %524, label %adjustBox.exit286, label %float8_gt.exit17.i285
+float8_lt.exit16.thread.i284:                     ; preds = %525, %float8_lt.exit16.i283, %float8_gt.exit.thread.i282
+  %526 = getelementptr inbounds nuw i8, ptr %454, i64 24
+  %527 = load double, ptr %526, align 8
+  %528 = fcmp uno double %527, 0.000000e+00
+  br i1 %528, label %adjustBox.exit286, label %float8_gt.exit17.i285
 
 float8_gt.exit17.i285:                            ; preds = %float8_lt.exit16.thread.i284
-  %525 = load double, ptr %441, align 8
-  %526 = fcmp uno double %525, 0.000000e+00
-  %527 = fcmp ogt double %525, %523
-  %528 = or i1 %526, %527
-  br i1 %528, label %529, label %adjustBox.exit286
+  %529 = load double, ptr %445, align 8
+  %530 = fcmp uno double %529, 0.000000e+00
+  %531 = fcmp ogt double %529, %527
+  %532 = or i1 %530, %531
+  br i1 %532, label %533, label %adjustBox.exit286
 
-529:                                              ; preds = %float8_gt.exit17.i285
-  store double %523, ptr %441, align 8
+533:                                              ; preds = %float8_gt.exit17.i285
+  store double %527, ptr %445, align 8
   br label %adjustBox.exit286
 
-530:                                              ; preds = %496
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %290, ptr noundef nonnull align 8 dereferenceable(32) %450, i64 32, i1 false)
+534:                                              ; preds = %500
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %294, ptr noundef nonnull align 8 dereferenceable(32) %454, i64 32, i1 false)
   br label %adjustBox.exit286
 
-adjustBox.exit286:                                ; preds = %529, %float8_gt.exit17.i285, %float8_lt.exit16.thread.i284, %530
-  %531 = load i32, ptr %445, align 8
-  %532 = load ptr, ptr %286, align 8
-  %533 = load i32, ptr %288, align 8
-  %534 = add i32 %533, 1
-  store i32 %534, ptr %288, align 8
-  br label %619
+adjustBox.exit286:                                ; preds = %533, %float8_gt.exit17.i285, %float8_lt.exit16.thread.i284, %534
+  %535 = load i32, ptr %449, align 8
+  %536 = load ptr, ptr %290, align 8
+  %537 = load i32, ptr %292, align 8
+  %538 = add i32 %537, 1
+  store i32 %538, ptr %292, align 8
+  br label %623
 
-535:                                              ; preds = %493
-  %536 = tail call fastcc double @box_penalty(ptr noundef %289, ptr noundef %450)
-  %537 = tail call fastcc double @box_penalty(ptr noundef %290, ptr noundef %450)
-  %538 = fcmp olt double %536, %537
-  br i1 %538, label %539, label %579
+539:                                              ; preds = %497
+  %540 = tail call fastcc double @box_penalty(ptr noundef %293, ptr noundef %454)
+  %541 = tail call fastcc double @box_penalty(ptr noundef %294, ptr noundef %454)
+  %542 = fcmp olt double %540, %541
+  br i1 %542, label %543, label %583
 
-539:                                              ; preds = %535
-  %540 = load i32, ptr %287, align 8
-  %541 = icmp sgt i32 %540, 0
-  br i1 %541, label %542, label %574
+543:                                              ; preds = %539
+  %544 = load i32, ptr %291, align 8
+  %545 = icmp sgt i32 %544, 0
+  br i1 %545, label %546, label %578
 
-542:                                              ; preds = %539
-  %543 = load double, ptr %289, align 8
-  %544 = load double, ptr %450, align 8
-  %545 = fcmp uno double %543, 0.000000e+00
-  br i1 %545, label %float8_lt.exit.thread.i288, label %float8_lt.exit.i287
+546:                                              ; preds = %543
+  %547 = load double, ptr %293, align 8
+  %548 = load double, ptr %454, align 8
+  %549 = fcmp uno double %547, 0.000000e+00
+  br i1 %549, label %float8_lt.exit.thread.i288, label %float8_lt.exit.i287
 
-float8_lt.exit.i287:                              ; preds = %542
-  %546 = fcmp uno double %544, 0.000000e+00
-  %547 = fcmp olt double %543, %544
-  %548 = or i1 %546, %547
-  br i1 %548, label %549, label %float8_lt.exit.thread.i288
+float8_lt.exit.i287:                              ; preds = %546
+  %550 = fcmp uno double %548, 0.000000e+00
+  %551 = fcmp olt double %547, %548
+  %552 = or i1 %550, %551
+  br i1 %552, label %553, label %float8_lt.exit.thread.i288
 
-549:                                              ; preds = %float8_lt.exit.i287
-  store double %544, ptr %289, align 8
+553:                                              ; preds = %float8_lt.exit.i287
+  store double %548, ptr %293, align 8
   br label %float8_lt.exit.thread.i288
 
-float8_lt.exit.thread.i288:                       ; preds = %549, %float8_lt.exit.i287, %542
-  %550 = getelementptr inbounds nuw i8, ptr %450, i64 16
-  %551 = load double, ptr %550, align 8
-  %552 = fcmp uno double %551, 0.000000e+00
-  br i1 %552, label %float8_gt.exit.thread.i290, label %float8_gt.exit.i289
+float8_lt.exit.thread.i288:                       ; preds = %553, %float8_lt.exit.i287, %546
+  %554 = getelementptr inbounds nuw i8, ptr %454, i64 16
+  %555 = load double, ptr %554, align 8
+  %556 = fcmp uno double %555, 0.000000e+00
+  br i1 %556, label %float8_gt.exit.thread.i290, label %float8_gt.exit.i289
 
 float8_gt.exit.i289:                              ; preds = %float8_lt.exit.thread.i288
-  %553 = load double, ptr %436, align 8
-  %554 = fcmp uno double %553, 0.000000e+00
-  %555 = fcmp ogt double %553, %551
-  %556 = or i1 %554, %555
-  br i1 %556, label %557, label %float8_gt.exit.thread.i290
+  %557 = load double, ptr %440, align 8
+  %558 = fcmp uno double %557, 0.000000e+00
+  %559 = fcmp ogt double %557, %555
+  %560 = or i1 %558, %559
+  br i1 %560, label %561, label %float8_gt.exit.thread.i290
 
-557:                                              ; preds = %float8_gt.exit.i289
-  store double %551, ptr %436, align 8
+561:                                              ; preds = %float8_gt.exit.i289
+  store double %555, ptr %440, align 8
   br label %float8_gt.exit.thread.i290
 
-float8_gt.exit.thread.i290:                       ; preds = %557, %float8_gt.exit.i289, %float8_lt.exit.thread.i288
-  %558 = load double, ptr %437, align 8
-  %559 = getelementptr inbounds nuw i8, ptr %450, i64 8
-  %560 = load double, ptr %559, align 8
-  %561 = fcmp uno double %558, 0.000000e+00
-  br i1 %561, label %float8_lt.exit16.thread.i292, label %float8_lt.exit16.i291
+float8_gt.exit.thread.i290:                       ; preds = %561, %float8_gt.exit.i289, %float8_lt.exit.thread.i288
+  %562 = load double, ptr %441, align 8
+  %563 = getelementptr inbounds nuw i8, ptr %454, i64 8
+  %564 = load double, ptr %563, align 8
+  %565 = fcmp uno double %562, 0.000000e+00
+  br i1 %565, label %float8_lt.exit16.thread.i292, label %float8_lt.exit16.i291
 
 float8_lt.exit16.i291:                            ; preds = %float8_gt.exit.thread.i290
-  %562 = fcmp uno double %560, 0.000000e+00
-  %563 = fcmp olt double %558, %560
-  %564 = or i1 %562, %563
-  br i1 %564, label %565, label %float8_lt.exit16.thread.i292
+  %566 = fcmp uno double %564, 0.000000e+00
+  %567 = fcmp olt double %562, %564
+  %568 = or i1 %566, %567
+  br i1 %568, label %569, label %float8_lt.exit16.thread.i292
 
-565:                                              ; preds = %float8_lt.exit16.i291
-  store double %560, ptr %437, align 8
+569:                                              ; preds = %float8_lt.exit16.i291
+  store double %564, ptr %441, align 8
   br label %float8_lt.exit16.thread.i292
 
-float8_lt.exit16.thread.i292:                     ; preds = %565, %float8_lt.exit16.i291, %float8_gt.exit.thread.i290
-  %566 = getelementptr inbounds nuw i8, ptr %450, i64 24
-  %567 = load double, ptr %566, align 8
-  %568 = fcmp uno double %567, 0.000000e+00
-  br i1 %568, label %adjustBox.exit294, label %float8_gt.exit17.i293
+float8_lt.exit16.thread.i292:                     ; preds = %569, %float8_lt.exit16.i291, %float8_gt.exit.thread.i290
+  %570 = getelementptr inbounds nuw i8, ptr %454, i64 24
+  %571 = load double, ptr %570, align 8
+  %572 = fcmp uno double %571, 0.000000e+00
+  br i1 %572, label %adjustBox.exit294, label %float8_gt.exit17.i293
 
 float8_gt.exit17.i293:                            ; preds = %float8_lt.exit16.thread.i292
-  %569 = load double, ptr %438, align 8
-  %570 = fcmp uno double %569, 0.000000e+00
-  %571 = fcmp ogt double %569, %567
-  %572 = or i1 %570, %571
-  br i1 %572, label %573, label %adjustBox.exit294
+  %573 = load double, ptr %442, align 8
+  %574 = fcmp uno double %573, 0.000000e+00
+  %575 = fcmp ogt double %573, %571
+  %576 = or i1 %574, %575
+  br i1 %576, label %577, label %adjustBox.exit294
 
-573:                                              ; preds = %float8_gt.exit17.i293
-  store double %567, ptr %438, align 8
+577:                                              ; preds = %float8_gt.exit17.i293
+  store double %571, ptr %442, align 8
   br label %adjustBox.exit294
 
-574:                                              ; preds = %539
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %289, ptr noundef nonnull align 8 dereferenceable(32) %450, i64 32, i1 false)
+578:                                              ; preds = %543
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %293, ptr noundef nonnull align 8 dereferenceable(32) %454, i64 32, i1 false)
   br label %adjustBox.exit294
 
-adjustBox.exit294:                                ; preds = %573, %float8_gt.exit17.i293, %float8_lt.exit16.thread.i292, %574
-  %575 = load i32, ptr %445, align 8
-  %576 = load ptr, ptr %8, align 8
-  %577 = load i32, ptr %287, align 8
-  %578 = add i32 %577, 1
-  store i32 %578, ptr %287, align 8
-  br label %619
+adjustBox.exit294:                                ; preds = %577, %float8_gt.exit17.i293, %float8_lt.exit16.thread.i292, %578
+  %579 = load i32, ptr %449, align 8
+  %580 = load ptr, ptr %8, align 8
+  %581 = load i32, ptr %291, align 8
+  %582 = add i32 %581, 1
+  store i32 %582, ptr %291, align 8
+  br label %623
 
-579:                                              ; preds = %535
-  %580 = load i32, ptr %288, align 8
-  %581 = icmp sgt i32 %580, 0
-  br i1 %581, label %582, label %614
+583:                                              ; preds = %539
+  %584 = load i32, ptr %292, align 8
+  %585 = icmp sgt i32 %584, 0
+  br i1 %585, label %586, label %618
 
-582:                                              ; preds = %579
-  %583 = load double, ptr %290, align 8
-  %584 = load double, ptr %450, align 8
-  %585 = fcmp uno double %583, 0.000000e+00
-  br i1 %585, label %float8_lt.exit.thread.i296, label %float8_lt.exit.i295
+586:                                              ; preds = %583
+  %587 = load double, ptr %294, align 8
+  %588 = load double, ptr %454, align 8
+  %589 = fcmp uno double %587, 0.000000e+00
+  br i1 %589, label %float8_lt.exit.thread.i296, label %float8_lt.exit.i295
 
-float8_lt.exit.i295:                              ; preds = %582
-  %586 = fcmp uno double %584, 0.000000e+00
-  %587 = fcmp olt double %583, %584
-  %588 = or i1 %586, %587
-  br i1 %588, label %589, label %float8_lt.exit.thread.i296
+float8_lt.exit.i295:                              ; preds = %586
+  %590 = fcmp uno double %588, 0.000000e+00
+  %591 = fcmp olt double %587, %588
+  %592 = or i1 %590, %591
+  br i1 %592, label %593, label %float8_lt.exit.thread.i296
 
-589:                                              ; preds = %float8_lt.exit.i295
-  store double %584, ptr %290, align 8
+593:                                              ; preds = %float8_lt.exit.i295
+  store double %588, ptr %294, align 8
   br label %float8_lt.exit.thread.i296
 
-float8_lt.exit.thread.i296:                       ; preds = %589, %float8_lt.exit.i295, %582
-  %590 = getelementptr inbounds nuw i8, ptr %450, i64 16
-  %591 = load double, ptr %590, align 8
-  %592 = fcmp uno double %591, 0.000000e+00
-  br i1 %592, label %float8_gt.exit.thread.i298, label %float8_gt.exit.i297
+float8_lt.exit.thread.i296:                       ; preds = %593, %float8_lt.exit.i295, %586
+  %594 = getelementptr inbounds nuw i8, ptr %454, i64 16
+  %595 = load double, ptr %594, align 8
+  %596 = fcmp uno double %595, 0.000000e+00
+  br i1 %596, label %float8_gt.exit.thread.i298, label %float8_gt.exit.i297
 
 float8_gt.exit.i297:                              ; preds = %float8_lt.exit.thread.i296
-  %593 = load double, ptr %439, align 8
-  %594 = fcmp uno double %593, 0.000000e+00
-  %595 = fcmp ogt double %593, %591
-  %596 = or i1 %594, %595
-  br i1 %596, label %597, label %float8_gt.exit.thread.i298
+  %597 = load double, ptr %443, align 8
+  %598 = fcmp uno double %597, 0.000000e+00
+  %599 = fcmp ogt double %597, %595
+  %600 = or i1 %598, %599
+  br i1 %600, label %601, label %float8_gt.exit.thread.i298
 
-597:                                              ; preds = %float8_gt.exit.i297
-  store double %591, ptr %439, align 8
+601:                                              ; preds = %float8_gt.exit.i297
+  store double %595, ptr %443, align 8
   br label %float8_gt.exit.thread.i298
 
-float8_gt.exit.thread.i298:                       ; preds = %597, %float8_gt.exit.i297, %float8_lt.exit.thread.i296
-  %598 = load double, ptr %440, align 8
-  %599 = getelementptr inbounds nuw i8, ptr %450, i64 8
-  %600 = load double, ptr %599, align 8
-  %601 = fcmp uno double %598, 0.000000e+00
-  br i1 %601, label %float8_lt.exit16.thread.i300, label %float8_lt.exit16.i299
+float8_gt.exit.thread.i298:                       ; preds = %601, %float8_gt.exit.i297, %float8_lt.exit.thread.i296
+  %602 = load double, ptr %444, align 8
+  %603 = getelementptr inbounds nuw i8, ptr %454, i64 8
+  %604 = load double, ptr %603, align 8
+  %605 = fcmp uno double %602, 0.000000e+00
+  br i1 %605, label %float8_lt.exit16.thread.i300, label %float8_lt.exit16.i299
 
 float8_lt.exit16.i299:                            ; preds = %float8_gt.exit.thread.i298
-  %602 = fcmp uno double %600, 0.000000e+00
-  %603 = fcmp olt double %598, %600
-  %604 = or i1 %602, %603
-  br i1 %604, label %605, label %float8_lt.exit16.thread.i300
+  %606 = fcmp uno double %604, 0.000000e+00
+  %607 = fcmp olt double %602, %604
+  %608 = or i1 %606, %607
+  br i1 %608, label %609, label %float8_lt.exit16.thread.i300
 
-605:                                              ; preds = %float8_lt.exit16.i299
-  store double %600, ptr %440, align 8
+609:                                              ; preds = %float8_lt.exit16.i299
+  store double %604, ptr %444, align 8
   br label %float8_lt.exit16.thread.i300
 
-float8_lt.exit16.thread.i300:                     ; preds = %605, %float8_lt.exit16.i299, %float8_gt.exit.thread.i298
-  %606 = getelementptr inbounds nuw i8, ptr %450, i64 24
-  %607 = load double, ptr %606, align 8
-  %608 = fcmp uno double %607, 0.000000e+00
-  br i1 %608, label %adjustBox.exit302, label %float8_gt.exit17.i301
+float8_lt.exit16.thread.i300:                     ; preds = %609, %float8_lt.exit16.i299, %float8_gt.exit.thread.i298
+  %610 = getelementptr inbounds nuw i8, ptr %454, i64 24
+  %611 = load double, ptr %610, align 8
+  %612 = fcmp uno double %611, 0.000000e+00
+  br i1 %612, label %adjustBox.exit302, label %float8_gt.exit17.i301
 
 float8_gt.exit17.i301:                            ; preds = %float8_lt.exit16.thread.i300
-  %609 = load double, ptr %441, align 8
-  %610 = fcmp uno double %609, 0.000000e+00
-  %611 = fcmp ogt double %609, %607
-  %612 = or i1 %610, %611
-  br i1 %612, label %613, label %adjustBox.exit302
+  %613 = load double, ptr %445, align 8
+  %614 = fcmp uno double %613, 0.000000e+00
+  %615 = fcmp ogt double %613, %611
+  %616 = or i1 %614, %615
+  br i1 %616, label %617, label %adjustBox.exit302
 
-613:                                              ; preds = %float8_gt.exit17.i301
-  store double %607, ptr %441, align 8
+617:                                              ; preds = %float8_gt.exit17.i301
+  store double %611, ptr %445, align 8
   br label %adjustBox.exit302
 
-614:                                              ; preds = %579
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %290, ptr noundef nonnull align 8 dereferenceable(32) %450, i64 32, i1 false)
+618:                                              ; preds = %583
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %294, ptr noundef nonnull align 8 dereferenceable(32) %454, i64 32, i1 false)
   br label %adjustBox.exit302
 
-adjustBox.exit302:                                ; preds = %613, %float8_gt.exit17.i301, %float8_lt.exit16.thread.i300, %614
-  %615 = load i32, ptr %445, align 8
-  %616 = load ptr, ptr %286, align 8
-  %617 = load i32, ptr %288, align 8
-  %618 = add i32 %617, 1
-  store i32 %618, ptr %288, align 8
-  br label %619
+adjustBox.exit302:                                ; preds = %617, %float8_gt.exit17.i301, %float8_lt.exit16.thread.i300, %618
+  %619 = load i32, ptr %449, align 8
+  %620 = load ptr, ptr %290, align 8
+  %621 = load i32, ptr %292, align 8
+  %622 = add i32 %621, 1
+  store i32 %622, ptr %292, align 8
+  br label %623
 
-619:                                              ; preds = %adjustBox.exit278, %adjustBox.exit294, %adjustBox.exit302, %adjustBox.exit286
-  %.sink435 = phi i32 [ %491, %adjustBox.exit278 ], [ %577, %adjustBox.exit294 ], [ %617, %adjustBox.exit302 ], [ %533, %adjustBox.exit286 ]
-  %.sink433 = phi ptr [ %490, %adjustBox.exit278 ], [ %576, %adjustBox.exit294 ], [ %616, %adjustBox.exit302 ], [ %532, %adjustBox.exit286 ]
-  %.sink.in = phi i32 [ %489, %adjustBox.exit278 ], [ %575, %adjustBox.exit294 ], [ %615, %adjustBox.exit302 ], [ %531, %adjustBox.exit286 ]
+623:                                              ; preds = %adjustBox.exit278, %adjustBox.exit294, %adjustBox.exit302, %adjustBox.exit286
+  %.sink435 = phi i32 [ %495, %adjustBox.exit278 ], [ %581, %adjustBox.exit294 ], [ %621, %adjustBox.exit302 ], [ %537, %adjustBox.exit286 ]
+  %.sink433 = phi ptr [ %494, %adjustBox.exit278 ], [ %580, %adjustBox.exit294 ], [ %620, %adjustBox.exit302 ], [ %536, %adjustBox.exit286 ]
+  %.sink.in = phi i32 [ %493, %adjustBox.exit278 ], [ %579, %adjustBox.exit294 ], [ %619, %adjustBox.exit302 ], [ %535, %adjustBox.exit286 ]
   %.sink = trunc i32 %.sink.in to i16
-  %620 = sext i32 %.sink435 to i64
-  %621 = getelementptr inbounds i16, ptr %.sink433, i64 %620
-  store i16 %.sink, ptr %621, align 2
-  %622 = add i16 %.4352, 1
-  %623 = zext i16 %622 to i32
-  %624 = icmp samesign ugt i32 %.1242, %623
-  br i1 %624, label %442, label %.loopexit, !llvm.loop !19
+  %624 = sext i32 %.sink435 to i64
+  %625 = getelementptr inbounds i16, ptr %.sink433, i64 %624
+  store i16 %.sink, ptr %625, align 2
+  %626 = add i16 %.4352, 1
+  %627 = zext i16 %626 to i32
+  %628 = icmp samesign ugt i32 %.1242, %627
+  br i1 %628, label %446, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %619, %282, %._crit_edge349
-  %625 = ptrtoint ptr %289 to i64
-  %626 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %625, ptr %626, align 8
-  %627 = ptrtoint ptr %290 to i64
-  br label %628
+.loopexit:                                        ; preds = %623, %286, %._crit_edge349
+  %629 = ptrtoint ptr %293 to i64
+  %630 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %629, ptr %630, align 8
+  %631 = ptrtoint ptr %294 to i64
+  br label %632
 
-628:                                              ; preds = %.loopexit, %fallbackSplit.exit
-  %.sink436 = phi i64 [ %627, %.loopexit ], [ %.037.lcssa.i, %fallbackSplit.exit ]
-  %629 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 %.sink436, ptr %629, align 8
+632:                                              ; preds = %.loopexit, %fallbackSplit.exit
+  %.sink436 = phi i64 [ %631, %.loopexit ], [ %.037.lcssa.i, %fallbackSplit.exit ]
+  %633 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store i64 %.sink436, ptr %633, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %7
 }

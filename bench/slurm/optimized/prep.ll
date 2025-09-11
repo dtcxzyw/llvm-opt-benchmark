@@ -161,7 +161,7 @@ define dso_local range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed
   br i1 %62, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit32, %._crit_edge
-  %63 = phi i32 [ %76, %._crit_edge ], [ %61, %.loopexit32 ]
+  %63 = phi i32 [ %77, %._crit_edge ], [ %61, %.loopexit32 ]
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %._crit_edge ], [ 0, %.loopexit32 ]
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph35, label %._crit_edge
@@ -174,45 +174,46 @@ define dso_local range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed
 67:                                               ; preds = %67, %.lr.ph35
   %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.lr.ph35 ]
   %68 = load ptr, ptr @ops, align 8
-  %69 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %68, i64 %indvars.iv, i32 5
-  %70 = load ptr, ptr %69, align 8
-  call void %70(i32 noundef %66, ptr noundef nonnull %65) #9
-  %71 = load i8, ptr %65, align 1, !range !11, !noundef !12
-  %72 = trunc nuw i8 %71 to i1
+  %69 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %68, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  %71 = load ptr, ptr %70, align 8
+  call void %71(i32 noundef %66, ptr noundef nonnull %65) #9
+  %72 = load i8, ptr %65, align 1, !range !11, !noundef !12
+  %73 = trunc nuw i8 %72 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = load i32, ptr @g_context_cnt, align 4
-  %74 = sext i32 %73 to i64
-  %75 = icmp sge i64 %indvars.iv.next, %74
-  %or.cond.not = select i1 %72, i1 true, i1 %75
+  %74 = load i32, ptr @g_context_cnt, align 4
+  %75 = sext i32 %74 to i64
+  %76 = icmp sge i64 %indvars.iv.next, %75
+  %or.cond.not = select i1 %73, i1 true, i1 %76
   br i1 %or.cond.not, label %._crit_edge, label %67, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %67, %.preheader
-  %76 = phi i32 [ %63, %.preheader ], [ %73, %67 ]
+  %77 = phi i32 [ %63, %.preheader ], [ %74, %67 ]
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44, 5
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit32, %8, %13, %11
   %.1 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %11 ], [ %.0, %.loopexit32 ], [ %.0, %._crit_edge ]
-  %77 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not30 = icmp eq i32 %77, 0
-  br i1 %.not30, label %80, label %78
+  %78 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not30 = icmp eq i32 %78, 0
+  br i1 %.not30, label %81, label %79
 
-78:                                               ; preds = %.loopexit
-  %79 = tail call ptr @__errno_location() #10
-  store i32 %77, ptr %79, align 4
+79:                                               ; preds = %.loopexit
+  %80 = tail call ptr @__errno_location() #10
+  store i32 %78, ptr %80, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_init) #11
   unreachable
 
-80:                                               ; preds = %.loopexit
+81:                                               ; preds = %.loopexit
   %.not31 = icmp eq i32 %.1, 0
-  br i1 %.not31, label %83, label %81
+  br i1 %.not31, label %84, label %82
 
-81:                                               ; preds = %80
-  %82 = call i32 @prep_g_fini()
-  br label %83
+82:                                               ; preds = %81
+  %83 = call i32 @prep_g_fini()
+  br label %84
 
-83:                                               ; preds = %81, %80
+84:                                               ; preds = %82, %81
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -354,33 +355,34 @@ define dso_local i32 @prep_g_prolog(ptr noundef %0, ptr noundef %1) local_unname
   unreachable
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
   %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
   %.not13 = icmp eq i32 %13, 0
-  br i1 %.not13, label %25, label %23
+  br i1 %.not13, label %26, label %24
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %14, i64 %indvars.iv, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #9
+  %15 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %17(ptr noundef %0, ptr noundef %1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr @g_context_cnt, align 4
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next, %19
-  %21 = icmp eq i32 %17, 0
-  %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  %19 = load i32, ptr @g_context_cnt, align 4
+  %20 = sext i32 %19 to i64
+  %21 = icmp slt i64 %indvars.iv.next, %20
+  %22 = icmp eq i32 %18, 0
+  %23 = select i1 %21, i1 %22, i1 false
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
-23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @__errno_location() #10
-  store i32 %13, ptr %24, align 4
+24:                                               ; preds = %._crit_edge
+  %25 = tail call ptr @__errno_location() #10
+  store i32 %13, ptr %25, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_prolog) #11
   unreachable
 
-25:                                               ; preds = %._crit_edge
-  %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
+26:                                               ; preds = %._crit_edge
+  %27 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_prolog, i64 noundef 0, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -428,33 +430,34 @@ define dso_local i32 @prep_g_epilog(ptr noundef %0, ptr noundef %1) local_unname
   unreachable
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
   %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
   %.not13 = icmp eq i32 %13, 0
-  br i1 %.not13, label %25, label %23
+  br i1 %.not13, label %26, label %24
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %14, i64 %indvars.iv, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #9
+  %15 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %17(ptr noundef %0, ptr noundef %1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr @g_context_cnt, align 4
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next, %19
-  %21 = icmp eq i32 %17, 0
-  %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  %19 = load i32, ptr @g_context_cnt, align 4
+  %20 = sext i32 %19 to i64
+  %21 = icmp slt i64 %indvars.iv.next, %20
+  %22 = icmp eq i32 %18, 0
+  %23 = select i1 %21, i1 %22, i1 false
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
-23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @__errno_location() #10
-  store i32 %13, ptr %24, align 4
+24:                                               ; preds = %._crit_edge
+  %25 = tail call ptr @__errno_location() #10
+  store i32 %13, ptr %25, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_epilog) #11
   unreachable
 
-25:                                               ; preds = %._crit_edge
-  %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
+26:                                               ; preds = %._crit_edge
+  %27 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_epilog, i64 noundef 0, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -495,47 +498,48 @@ define dso_local void @prep_g_prolog_slurmctld(ptr noundef %0) local_unnamed_add
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.prep_g_prolog_slurmctld) #11
   unreachable
 
-._crit_edge:                                      ; preds = %25, %.preheader
+._crit_edge:                                      ; preds = %26, %.preheader
   %14 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
   %.not12 = icmp eq i32 %14, 0
-  br i1 %.not12, label %33, label %31
+  br i1 %.not12, label %34, label %32
 
-15:                                               ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+15:                                               ; preds = %.lr.ph, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %16, i64 %indvars.iv, i32 3
-  %18 = load ptr, ptr %17, align 8
-  %19 = call i32 %18(ptr noundef %0, ptr noundef nonnull %6) #9
-  %20 = load i8, ptr %6, align 1, !range !11, !noundef !12
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %25
+  %17 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = call i32 %19(ptr noundef %0, ptr noundef nonnull %6) #9
+  %21 = load i8, ptr %6, align 1, !range !11, !noundef !12
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %15
-  %23 = load i32, ptr %11, align 8
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %11, align 8
-  br label %25
+23:                                               ; preds = %15
+  %24 = load i32, ptr %11, align 8
+  %25 = add i32 %24, 1
+  store i32 %25, ptr %11, align 8
+  br label %26
 
-25:                                               ; preds = %22, %15
+26:                                               ; preds = %23, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = load i32, ptr @g_context_cnt, align 4
-  %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %indvars.iv.next, %27
-  %29 = icmp eq i32 %19, 0
-  %30 = select i1 %28, i1 %29, i1 false
-  br i1 %30, label %15, label %._crit_edge, !llvm.loop !19
+  %27 = load i32, ptr @g_context_cnt, align 4
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next, %28
+  %30 = icmp eq i32 %20, 0
+  %31 = select i1 %29, i1 %30, i1 false
+  br i1 %31, label %15, label %._crit_edge, !llvm.loop !19
 
-31:                                               ; preds = %._crit_edge
-  %32 = tail call ptr @__errno_location() #10
-  store i32 %14, ptr %32, align 4
+32:                                               ; preds = %._crit_edge
+  %33 = tail call ptr @__errno_location() #10
+  store i32 %14, ptr %33, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_prolog_slurmctld) #11
   unreachable
 
-33:                                               ; preds = %._crit_edge
-  %34 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
+34:                                               ; preds = %._crit_edge
+  %35 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_prolog_slurmctld, i64 noundef 0, ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -576,58 +580,59 @@ define dso_local void @prep_g_epilog_slurmctld(ptr noundef %0) local_unnamed_add
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.prep_g_epilog_slurmctld) #11
   unreachable
 
-._crit_edge:                                      ; preds = %26, %.preheader
+._crit_edge:                                      ; preds = %27, %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 708
   %15 = load i32, ptr %14, align 4
   %.not14 = icmp eq i32 %15, 0
-  br i1 %.not14, label %34, label %32
+  br i1 %.not14, label %35, label %33
 
-16:                                               ; preds = %.lr.ph, %26
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
+16:                                               ; preds = %.lr.ph, %27
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
   %17 = load ptr, ptr @ops, align 8
-  %18 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %17, i64 %indvars.iv, i32 4
-  %19 = load ptr, ptr %18, align 8
-  %20 = call i32 %19(ptr noundef %0, ptr noundef nonnull %6) #9
-  %21 = load i8, ptr %6, align 1, !range !11, !noundef !12
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %26
+  %18 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i32 %20(ptr noundef %0, ptr noundef nonnull %6) #9
+  %22 = load i8, ptr %6, align 1, !range !11, !noundef !12
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %16
-  %24 = load i32, ptr %11, align 4
-  %25 = add i32 %24, 1
-  store i32 %25, ptr %11, align 4
-  br label %26
+24:                                               ; preds = %16
+  %25 = load i32, ptr %11, align 4
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %11, align 4
+  br label %27
 
-26:                                               ; preds = %23, %16
+27:                                               ; preds = %24, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i32, ptr @g_context_cnt, align 4
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next, %28
-  %30 = icmp eq i32 %20, 0
-  %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %16, label %._crit_edge, !llvm.loop !20
+  %28 = load i32, ptr @g_context_cnt, align 4
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next, %29
+  %31 = icmp eq i32 %21, 0
+  %32 = select i1 %30, i1 %31, i1 false
+  br i1 %32, label %16, label %._crit_edge, !llvm.loop !20
 
-32:                                               ; preds = %._crit_edge
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i8 1, ptr %33, align 8
-  br label %34
+33:                                               ; preds = %._crit_edge
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i8 1, ptr %34, align 8
+  br label %35
 
-34:                                               ; preds = %._crit_edge, %32
-  %35 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
-  %.not15 = icmp eq i32 %35, 0
-  br i1 %.not15, label %38, label %36
+35:                                               ; preds = %._crit_edge, %33
+  %36 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not15 = icmp eq i32 %36, 0
+  br i1 %.not15, label %39, label %37
 
-36:                                               ; preds = %34
-  %37 = tail call ptr @__errno_location() #10
-  store i32 %35, ptr %37, align 4
+37:                                               ; preds = %35
+  %38 = tail call ptr @__errno_location() #10
+  store i32 %36, ptr %38, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_epilog_slurmctld) #11
   unreachable
 
-38:                                               ; preds = %34
-  %39 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
+39:                                               ; preds = %35
+  %40 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_epilog_slurmctld, i64 noundef 0, ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

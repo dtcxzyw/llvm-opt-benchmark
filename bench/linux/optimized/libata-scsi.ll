@@ -203,7 +203,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr n
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 14736
   %57 = load ptr, ptr %56, align 16
   %58 = zext i32 %53 to i64
-  %59 = getelementptr %struct.ata_link, ptr %57, i64 %58, i32 14
+  %.split = getelementptr %struct.ata_link, ptr %57, i64 %58
+  %59 = getelementptr i8, ptr %.split, i64 1152
   br label %60
 
 60:                                               ; preds = %55, %47
@@ -389,7 +390,8 @@ define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0,
   %71 = getelementptr inbounds nuw i8, ptr %21, i64 14736
   %72 = load ptr, ptr %71, align 16
   %73 = zext i32 %68 to i64
-  %74 = getelementptr %struct.ata_link, ptr %72, i64 %73, i32 14
+  %.split = getelementptr %struct.ata_link, ptr %72, i64 %73
+  %74 = getelementptr i8, ptr %.split, i64 1152
   br label %75
 
 75:                                               ; preds = %70, %62
@@ -619,7 +621,8 @@ define dso_local void @ata_scsi_unlock_native_capacity(ptr noundef readonly capt
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 14736
   %55 = load ptr, ptr %54, align 16
   %56 = zext i32 %51 to i64
-  %57 = getelementptr %struct.ata_link, ptr %55, i64 %56, i32 14
+  %.split = getelementptr %struct.ata_link, ptr %55, i64 %56
+  %57 = getelementptr i8, ptr %.split, i64 1152
   br label %58
 
 58:                                               ; preds = %53, %45
@@ -746,7 +749,8 @@ define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly captures(address, r
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 14736
   %50 = load ptr, ptr %49, align 16
   %51 = zext i32 %46 to i64
-  %52 = getelementptr %struct.ata_link, ptr %50, i64 %51, i32 14
+  %.split = getelementptr %struct.ata_link, ptr %50, i64 %51
+  %52 = getelementptr i8, ptr %.split, i64 1152
   br label %53
 
 53:                                               ; preds = %48, %40
@@ -1303,7 +1307,8 @@ define dso_local i32 @ata_sas_scsi_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 14736
   %120 = load ptr, ptr %119, align 16
   %121 = zext i32 %116 to i64
-  %122 = getelementptr %struct.ata_link, ptr %120, i64 %121, i32 14
+  %.split = getelementptr %struct.ata_link, ptr %120, i64 %121
+  %122 = getelementptr i8, ptr %.split, i64 1152
   br label %123
 
 123:                                              ; preds = %118, %110
@@ -1763,7 +1768,8 @@ define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_slave_config(ptr nounde
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 14736
   %52 = load ptr, ptr %51, align 16
   %53 = zext i32 %48 to i64
-  %54 = getelementptr %struct.ata_link, ptr %52, i64 %53, i32 14
+  %.split = getelementptr %struct.ata_link, ptr %52, i64 %53
+  %54 = getelementptr i8, ptr %.split, i64 1152
   br label %55
 
 55:                                               ; preds = %50, %42
@@ -1866,7 +1872,8 @@ define dso_local void @ata_scsi_slave_destroy(ptr noundef %0) #0 align 16 {
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 14736
   %57 = load ptr, ptr %56, align 16
   %58 = zext i32 %53 to i64
-  %59 = getelementptr %struct.ata_link, ptr %57, i64 %58, i32 14
+  %.split = getelementptr %struct.ata_link, ptr %57, i64 %58
+  %59 = getelementptr i8, ptr %.split, i64 1152
   br label %60
 
 60:                                               ; preds = %55, %47
@@ -3136,7 +3143,8 @@ define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr noundef readonly 
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 14736
   %56 = load ptr, ptr %55, align 16
   %57 = zext i32 %52 to i64
-  %58 = getelementptr %struct.ata_link, ptr %56, i64 %57, i32 14
+  %.split = getelementptr %struct.ata_link, ptr %56, i64 %57
+  %58 = getelementptr i8, ptr %.split, i64 1152
   br label %59
 
 59:                                               ; preds = %54, %46
@@ -4519,7 +4527,8 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_scsi_user_scan(ptr noundef r
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 14736
   %64 = load ptr, ptr %63, align 16
   %65 = zext i32 %20 to i64
-  %66 = getelementptr %struct.ata_link, ptr %64, i64 %65, i32 14
+  %.split = getelementptr %struct.ata_link, ptr %64, i64 %65
+  %66 = getelementptr i8, ptr %.split, i64 1152
   br label %67
 
 67:                                               ; preds = %62, %56

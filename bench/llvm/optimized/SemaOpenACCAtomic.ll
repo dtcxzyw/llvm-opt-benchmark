@@ -3005,18 +3005,19 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %82, %
   %89 = load i32, ptr %74, align 8, !tbaa !15
   %90 = zext i32 %89 to i64
   %91 = load ptr, ptr %88, align 8, !tbaa !441
-  %92 = getelementptr inbounds nuw %"struct.std::pair", ptr %91, i64 %90, i32 2
-  %93 = zext i1 %11 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %92, i64 noundef %93, i32 noundef 2)
+  %92 = getelementptr inbounds nuw %"struct.std::pair", ptr %91, i64 %90
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = zext i1 %11 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %93, i64 noundef %94, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit
 
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %73, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
-  %94 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_17OpenACCAtomicKindEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %95 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_17OpenACCAtomicKindEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 1 dereferenceable(1) %9)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %95 = load ptr, ptr %0, align 8, !tbaa !55
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationERKNS_17PartialDiagnosticEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %95, i32 %1, ptr noundef nonnull align 8 dereferenceable(20) %2, i1 noundef zeroext false) #13
+  %96 = load ptr, ptr %0, align 8, !tbaa !55
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationERKNS_17PartialDiagnosticEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %96, i32 %1, ptr noundef nonnull align 8 dereferenceable(20) %2, i1 noundef zeroext false) #13
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #13
   ret void
 }
@@ -3061,14 +3062,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN
 _ZN5clanglsINS_17OpenACCAtomicKindEEERKNS_8SemaBase20ImmediateDiagBuilderES5_RKT_.exit: ; preds = %8, %10, %11, %12, %13
   %.sink.i.i.i.i = phi i64 [ ptrtoint (ptr @.str.4 to i64), %13 ], [ ptrtoint (ptr @.str.3 to i64), %12 ], [ ptrtoint (ptr @.str.2 to i64), %11 ], [ ptrtoint (ptr @.str.1 to i64), %10 ], [ ptrtoint (ptr @.str to i64), %8 ]
   tail call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %4, i64 noundef %.sink.i.i.i.i, i32 noundef 1)
-  br label %41
+  br label %42
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %18 = load i8, ptr %17, align 4, !tbaa !425, !range !53, !noundef !54
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %20, label %41
+  br i1 %19, label %20, label %42
 
 20:                                               ; preds = %15
   %21 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #13
@@ -3092,18 +3093,16 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit: ; preds = %20, %24
   %31 = load i32, ptr %16, align 8, !tbaa !15
   %32 = zext i32 %31 to i64
   %33 = load ptr, ptr %30, align 8, !tbaa !441
-  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %32, i32 2
-  %35 = load i8, ptr %1, align 1, !tbaa !444
-  switch i8 %35, label %40 [
+  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load i8, ptr %1, align 1, !tbaa !444
+  switch i8 %36, label %41 [
     i8 0, label %_ZNK5clang17PartialDiagnosticlsINS_17OpenACCAtomicKindEEERKS0_RKT_.exit
-    i8 1, label %36
-    i8 2, label %37
-    i8 3, label %38
-    i8 4, label %39
+    i8 1, label %37
+    i8 2, label %38
+    i8 3, label %39
+    i8 4, label %40
   ]
-
-36:                                               ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit
-  br label %_ZNK5clang17PartialDiagnosticlsINS_17OpenACCAtomicKindEEERKS0_RKT_.exit
 
 37:                                               ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit
   br label %_ZNK5clang17PartialDiagnosticlsINS_17OpenACCAtomicKindEEERKS0_RKT_.exit
@@ -3115,15 +3114,18 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit: ; preds = %20, %24
   br label %_ZNK5clang17PartialDiagnosticlsINS_17OpenACCAtomicKindEEERKS0_RKT_.exit
 
 40:                                               ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit
+  br label %_ZNK5clang17PartialDiagnosticlsINS_17OpenACCAtomicKindEEERKS0_RKT_.exit
+
+41:                                               ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit
   unreachable
 
-_ZNK5clang17PartialDiagnosticlsINS_17OpenACCAtomicKindEEERKS0_RKT_.exit: ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit, %36, %37, %38, %39
-  %.sink.i.i.i = phi i64 [ ptrtoint (ptr @.str.4 to i64), %39 ], [ ptrtoint (ptr @.str.3 to i64), %38 ], [ ptrtoint (ptr @.str.2 to i64), %37 ], [ ptrtoint (ptr @.str.1 to i64), %36 ], [ ptrtoint (ptr @.str to i64), %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit ]
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %34, i64 noundef %.sink.i.i.i, i32 noundef 1)
+_ZNK5clang17PartialDiagnosticlsINS_17OpenACCAtomicKindEEERKS0_RKT_.exit: ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit, %37, %38, %39, %40
+  %.sink.i.i.i = phi i64 [ ptrtoint (ptr @.str.4 to i64), %40 ], [ ptrtoint (ptr @.str.3 to i64), %39 ], [ ptrtoint (ptr @.str.2 to i64), %38 ], [ ptrtoint (ptr @.str.1 to i64), %37 ], [ ptrtoint (ptr @.str to i64), %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit ]
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %35, i64 noundef %.sink.i.i.i, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %41
+  br label %42
 
-41:                                               ; preds = %15, %_ZNK5clang17PartialDiagnosticlsINS_17OpenACCAtomicKindEEERKS0_RKT_.exit, %_ZN5clanglsINS_17OpenACCAtomicKindEEERKNS_8SemaBase20ImmediateDiagBuilderES5_RKT_.exit
+42:                                               ; preds = %15, %_ZNK5clang17PartialDiagnosticlsINS_17OpenACCAtomicKindEEERKS0_RKT_.exit, %_ZN5clanglsINS_17OpenACCAtomicKindEEERKNS_8SemaBase20ImmediateDiagBuilderES5_RKT_.exit
   ret ptr %0
 }
 

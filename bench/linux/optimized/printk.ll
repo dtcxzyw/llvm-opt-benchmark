@@ -799,7 +799,7 @@ define internal noundef range(i64 -29, 1) i64 @devkmsg_llseek(ptr noundef readon
   %11 = load volatile i32, ptr @clear_seq, align 8
   %12 = and i32 %11, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr %struct.latched_seq, ptr @clear_seq, i64 0, i32 1, i64 %13
+  %14 = getelementptr i64, ptr getelementptr inbounds nuw (i8, ptr @clear_seq, i64 8), i64 %13
   %15 = load i64, ptr %14, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !16
   %16 = load volatile i32, ptr @clear_seq, align 8
@@ -822,7 +822,7 @@ define internal noundef range(i64 -29, 1) i64 @devkmsg_llseek(ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 4294967296) i64 @devkmsg_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @devkmsg_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 align 16 {
   %5 = alloca %struct.printk_message, align 8
   %6 = alloca %struct.wait_queue_entry, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -2059,7 +2059,7 @@ define internal fastcc i32 @syslog_print_all(ptr noundef nonnull %0, i32 noundef
   %13 = load volatile i32, ptr @clear_seq, align 8
   %14 = and i32 %13, 1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr %struct.latched_seq, ptr @clear_seq, i64 0, i32 1, i64 %15
+  %16 = getelementptr i64, ptr getelementptr inbounds nuw (i8, ptr @clear_seq, i64 8), i64 %15
   %17 = load i64, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !16
   %18 = load volatile i32, ptr @clear_seq, align 8
@@ -6059,7 +6059,7 @@ define dso_local noundef zeroext i1 @kmsg_dump_get_line(ptr noundef captures(non
   %11 = load volatile i32, ptr @clear_seq, align 8
   %12 = and i32 %11, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr %struct.latched_seq, ptr @clear_seq, i64 0, i32 1, i64 %13
+  %14 = getelementptr i64, ptr getelementptr inbounds nuw (i8, ptr @clear_seq, i64 8), i64 %13
   %15 = load i64, ptr %14, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !16
   %16 = load volatile i32, ptr @clear_seq, align 8
@@ -6196,7 +6196,7 @@ define dso_local noundef zeroext i1 @kmsg_dump_get_buffer(ptr noundef captures(n
   %9 = load volatile i32, ptr @clear_seq, align 8
   %10 = and i32 %9, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr %struct.latched_seq, ptr @clear_seq, i64 0, i32 1, i64 %11
+  %12 = getelementptr i64, ptr getelementptr inbounds nuw (i8, ptr @clear_seq, i64 8), i64 %11
   %13 = load i64, ptr %12, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !16
   %14 = load volatile i32, ptr @clear_seq, align 8
@@ -6518,7 +6518,7 @@ define dso_local void @kmsg_dump_rewind(ptr noundef writeonly captures(none) %0)
   %3 = load volatile i32, ptr @clear_seq, align 8
   %4 = and i32 %3, 1
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr %struct.latched_seq, ptr @clear_seq, i64 0, i32 1, i64 %5
+  %6 = getelementptr i64, ptr getelementptr inbounds nuw (i8, ptr @clear_seq, i64 8), i64 %5
   %7 = load i64, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !16
   %8 = load volatile i32, ptr @clear_seq, align 8

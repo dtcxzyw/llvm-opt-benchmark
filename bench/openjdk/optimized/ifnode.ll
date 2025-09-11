@@ -7511,7 +7511,7 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
   %..i = select i1 %15, ptr %1, ptr null
   %16 = call noundef i32 @_ZN14RangeCheckNode14is_range_checkERP4NodeS2_Ri(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %.not109 = icmp eq i32 %16, 0
-  br i1 %.not109, label %119, label %17
+  br i1 %.not109, label %120, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7638,7 +7638,7 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
   %90 = add nsw i32 %.293, -1
   %91 = srem i32 %90, 3
   %.not111 = icmp eq ptr %23, null
-  br i1 %.not111, label %114, label %92
+  br i1 %.not111, label %115, label %92
 
 92:                                               ; preds = %89
   %93 = icmp eq i32 %.293, 1
@@ -7646,77 +7646,78 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
 
 94:                                               ; preds = %92
   %95 = sext i32 %91 to i64
-  %.sroa.1.0..sroa_idx = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %95, i32 1
+  %96 = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %95
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
-  %96 = add nsw i32 %.293, -2
-  %97 = srem i32 %96, 3
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %98
-  %.sroa.05.0.copyload = load ptr, ptr %99, align 16
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %97 = add nsw i32 %.293, -2
+  %98 = srem i32 %97, 3
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %99
+  %.sroa.05.0.copyload = load ptr, ptr %100, align 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 8
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 8
-  %100 = icmp eq i32 %.sroa.1.0.copyload, %.296
-  br i1 %100, label %101, label %102
-
-101:                                              ; preds = %94
-  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.299, ptr noundef %..i)
-  br label %117
+  %101 = icmp eq i32 %.sroa.1.0.copyload, %.296
+  br i1 %101, label %102, label %103
 
 102:                                              ; preds = %94
-  %103 = icmp eq i32 %.sroa.1.0.copyload, %.299
-  br i1 %103, label %104, label %105
+  tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.299, ptr noundef %..i)
+  br label %118
 
-104:                                              ; preds = %102
+103:                                              ; preds = %94
+  %104 = icmp eq i32 %.sroa.1.0.copyload, %.299
+  br i1 %104, label %105, label %106
+
+105:                                              ; preds = %103
   tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.296, ptr noundef %..i)
-  br label %117
+  br label %118
 
-105:                                              ; preds = %102
-  %106 = icmp eq i32 %.293, 2
-  br i1 %106, label %.loopexit, label %107
+106:                                              ; preds = %103
+  %107 = icmp eq i32 %.293, 2
+  br i1 %107, label %.loopexit, label %108
 
-107:                                              ; preds = %105
-  %108 = add nsw i32 %.293, -3
-  %109 = srem i32 %108, 3
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %110
-  %.sroa.02.0.copyload = load ptr, ptr %111, align 16
+108:                                              ; preds = %106
+  %109 = add nsw i32 %.293, -3
+  %110 = srem i32 %109, 3
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %111
+  %.sroa.02.0.copyload = load ptr, ptr %112, align 16
   %.not112 = icmp sgt i32 %.sroa.7.0.copyload, %.sroa.1.0.copyload
-  br i1 %.not112, label %113, label %112
+  br i1 %.not112, label %114, label %113
 
-112:                                              ; preds = %107
+113:                                              ; preds = %108
   tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.296, ptr noundef %..i)
   tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.02.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.299, ptr noundef %..i)
-  br label %117
+  br label %118
 
-113:                                              ; preds = %107
+114:                                              ; preds = %108
   tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.05.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.299, ptr noundef %..i)
   tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.02.0.copyload, ptr noundef %22, ptr noundef nonnull %23, i32 noundef %16, i32 noundef %.296, ptr noundef %..i)
-  br label %117
+  br label %118
 
-114:                                              ; preds = %89
-  %115 = sext i32 %91 to i64
-  %116 = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %115
-  %.sroa.0.0.copyload = load ptr, ptr %116, align 16
+115:                                              ; preds = %89
+  %116 = sext i32 %91 to i64
+  %117 = getelementptr inbounds %struct.RangeCheck, ptr %7, i64 %116
+  %.sroa.0.0.copyload = load ptr, ptr %117, align 16
   tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.0.0.copyload, ptr noundef %22, ptr noundef null, i32 noundef %16, i32 noundef %.299, ptr noundef %..i)
-  br label %117
+  br label %118
 
-117:                                              ; preds = %112, %113, %104, %101, %114
-  %.2 = phi ptr [ %.sroa.05.0.copyload, %101 ], [ %.sroa.05.0.copyload, %104 ], [ %.sroa.0.0.copyload, %114 ], [ %.sroa.02.0.copyload, %113 ], [ %.sroa.02.0.copyload, %112 ]
-  %118 = tail call noundef ptr @_ZN6IfNode12dominated_byEP4NodeP12PhaseIterGVNb(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %.2, ptr noundef %..i, i1 noundef zeroext true)
+118:                                              ; preds = %113, %114, %105, %102, %115
+  %.2 = phi ptr [ %.sroa.05.0.copyload, %102 ], [ %.sroa.05.0.copyload, %105 ], [ %.sroa.0.0.copyload, %115 ], [ %.sroa.02.0.copyload, %114 ], [ %.sroa.02.0.copyload, %113 ]
+  %119 = tail call noundef ptr @_ZN6IfNode12dominated_byEP4NodeP12PhaseIterGVNb(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %.2, ptr noundef %..i, i1 noundef zeroext true)
   br label %.loopexit
 
-119:                                              ; preds = %12
-  %120 = tail call noundef ptr @_ZN6IfNode16search_identicalEiP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef 4, ptr poison)
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %.loopexit, label %.loopexit121
+120:                                              ; preds = %12
+  %121 = tail call noundef ptr @_ZN6IfNode16search_identicalEiP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef 4, ptr poison)
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %.loopexit, label %.loopexit121
 
-.loopexit121:                                     ; preds = %49, %119
-  %.3 = phi ptr [ %120, %119 ], [ %.089129, %49 ]
-  %122 = tail call noundef ptr @_ZN6IfNode12dominated_byEP4NodeP12PhaseIterGVNb(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %.3, ptr noundef %..i, i1 noundef zeroext false)
+.loopexit121:                                     ; preds = %49, %120
+  %.3 = phi ptr [ %121, %120 ], [ %.089129, %49 ]
+  %123 = tail call noundef ptr @_ZN6IfNode12dominated_byEP4NodeP12PhaseIterGVNb(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %.3, ptr noundef %..i, i1 noundef zeroext false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %119, %105, %92, %87, %76, %3, %.loopexit121, %117, %86
-  %.0 = phi ptr [ %122, %.loopexit121 ], [ %118, %117 ], [ null, %86 ], [ %11, %3 ], [ null, %76 ], [ null, %87 ], [ null, %92 ], [ null, %105 ], [ null, %119 ], [ null, %34 ]
+.loopexit:                                        ; preds = %34, %120, %106, %92, %87, %76, %3, %.loopexit121, %118, %86
+  %.0 = phi ptr [ %123, %.loopexit121 ], [ %119, %118 ], [ null, %86 ], [ %11, %3 ], [ null, %76 ], [ null, %87 ], [ null, %92 ], [ null, %106 ], [ null, %120 ], [ null, %34 ]
   ret ptr %.0
 }
 

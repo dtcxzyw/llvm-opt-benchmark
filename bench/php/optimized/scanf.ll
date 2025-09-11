@@ -1747,7 +1747,7 @@ define internal fastcc nonnull ptr @BuildCharSet(ptr noundef nonnull captures(no
 
 67:                                               ; preds = %66, %64
   %.06279.sink = phi i8 [ %.06279, %66 ], [ %65, %64 ]
-  %68 = getelementptr inbounds %struct.Range, ptr %60, i64 %62, i32 1
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store i8 %.06279.sink, ptr %68, align 1, !tbaa !25
   %69 = add nsw i32 %61, 1
   store i32 %69, ptr %31, align 8, !tbaa !32

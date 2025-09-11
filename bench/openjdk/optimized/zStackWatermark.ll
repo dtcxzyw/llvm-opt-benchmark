@@ -371,8 +371,7 @@ define hidden void @_ZN15ZStackWatermark18save_old_watermarkEv(ptr noundef nonnu
 
 22:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %23 = getelementptr inbounds nuw %struct.ZColorWatermark, ptr %6, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
   %.fr.i = freeze i64 %25
@@ -606,8 +605,7 @@ define hidden void @_ZN15ZStackWatermark21start_processing_implEPv(ptr noundef n
 
 25:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
-  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %26 = getelementptr inbounds nuw %struct.ZColorWatermark, ptr %9, i64 %indvars.iv.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8
   %.fr.i.i = freeze i64 %28

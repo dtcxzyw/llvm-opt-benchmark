@@ -696,7 +696,8 @@ define dso_local noundef range(i32 -99, 1) i32 @ipv6_dev_get_saddr(ptr noundef %
 .loopexit:                                        ; preds = %49, %.critedge, %.thread, %37
   %53 = phi i32 [ %38, %.thread ], [ 0, %37 ], [ 0, %.critedge ], [ %50, %49 ]
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr %struct.ipv6_saddr_score, ptr %6, i64 %54, i32 2
+  %.split = getelementptr %struct.ipv6_saddr_score, ptr %6, i64 %54
+  %55 = getelementptr i8, ptr %.split, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %59, label %58
@@ -5008,7 +5009,8 @@ define internal fastcc ptr @ipv6_add_dev(ptr noundef %0) unnamed_addr #0 align 1
   br i1 %150, label %.critedge, label %151, !llvm.loop !71
 
 151:                                              ; preds = %147
-  %152 = getelementptr %struct.netdev_queue, ptr %141, i64 %149, i32 2
+  %.split = getelementptr %struct.netdev_queue, ptr %141, i64 %149
+  %152 = getelementptr i8, ptr %.split, i64 8
   %153 = load volatile ptr, ptr %152, align 8
   %154 = icmp eq ptr %153, @noop_qdisc
   br i1 %154, label %147, label %155, !llvm.loop !71
@@ -13749,7 +13751,8 @@ define internal fastcc zeroext i1 @addrconf_link_ready(ptr noundef readonly capt
   br i1 %19, label %24, label %20, !llvm.loop !71
 
 20:                                               ; preds = %16
-  %21 = getelementptr %struct.netdev_queue, ptr %10, i64 %18, i32 2
+  %.split = getelementptr %struct.netdev_queue, ptr %10, i64 %18
+  %21 = getelementptr i8, ptr %.split, i64 8
   %22 = load volatile ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, @noop_qdisc
   br i1 %23, label %16, label %24, !llvm.loop !71

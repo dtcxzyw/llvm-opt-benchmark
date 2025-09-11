@@ -1741,7 +1741,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_unimap(ptr noundef readonly capt
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local range(i32 0, 65536) i32 @conv_8bit_to_uni(i8 noundef zeroext %0) local_unnamed_addr #8 align 16 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr [256 x i16], ptr @translations, i64 3, i64 %2
+  %3 = getelementptr i16, ptr getelementptr inbounds nuw (i8, ptr @translations, i64 1536), i64 %2
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
   %6 = zext i8 %0 to i32
@@ -1758,7 +1758,7 @@ define dso_local i32 @conv_uni_to_8bit(i32 noundef %0) local_unnamed_addr #9 ali
 
 3:                                                ; preds = %15, %1
   %4 = phi i64 [ 0, %1 ], [ %16, %15 ]
-  %5 = getelementptr [256 x i16], ptr @translations, i64 3, i64 %4
+  %5 = getelementptr i16, ptr getelementptr inbounds nuw (i8, ptr @translations, i64 1536), i64 %4
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
   %8 = icmp eq i32 %0, %7

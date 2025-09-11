@@ -1629,7 +1629,7 @@ _ZNK2cv11_InputArray6getMatEi.exit166:            ; preds = %55, %58
 61:                                               ; preds = %58, %55, %_ZNK2cv11_InputArray6getMatEi.exit
   %62 = landingpad { ptr, i32 }
           cleanup
-  br label %732
+  br label %734
 
 63:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit166
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3091,7 +3091,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223: ; preds = %_ZNSt6vectorIN2cv6P
   %601 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store ptr %7, ptr %601, align 8, !tbaa !25
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %37, double noundef -1.000000e+00)
-          to label %602 unwind label %708
+          to label %602 unwind label %710
 
 602:                                              ; preds = %592
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %37) #29
@@ -3115,15 +3115,15 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223: ; preds = %_ZNSt6vectorIN2cv6P
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %610 = getelementptr inbounds nuw i8, ptr %0, i64 192
   invoke void @_ZN2cvneERKNS_3MatES2_(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %41, ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %610)
-          to label %611 unwind label %710
+          to label %611 unwind label %712
 
 611:                                              ; preds = %602
   invoke void @_ZN2cvdvERKNS_7MatExprEd(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %40, ptr noundef nonnull align 8 dereferenceable(352) %41, double noundef 2.550000e+02)
-          to label %612 unwind label %712
+          to label %612 unwind label %714
 
 612:                                              ; preds = %611
   invoke void @_ZN2cv11_InputArrayC1ERKNS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(352) %40)
-          to label %613 unwind label %714
+          to label %613 unwind label %716
 
 613:                                              ; preds = %612
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
@@ -3133,11 +3133,11 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223: ; preds = %_ZNSt6vectorIN2cv6P
   store i32 33619968, ptr %42, align 8, !tbaa !19
   store ptr %606, ptr %614, align 8, !tbaa !11
   %616 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
-          to label %617 unwind label %716
+          to label %617 unwind label %718
 
 617:                                              ; preds = %613
   invoke void @_ZN2cv3addERKNS_11_InputArrayES2_RKNS_12_OutputArrayES2_i(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %616, i32 noundef 5)
-          to label %618 unwind label %716
+          to label %618 unwind label %718
 
 618:                                              ; preds = %617
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
@@ -3167,7 +3167,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223: ; preds = %_ZNSt6vectorIN2cv6P
   store i32 33619968, ptr %5, align 8, !tbaa !19
   store ptr %606, ptr %628, align 8, !tbaa !11
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %606, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef -1, double noundef %627, double noundef 0.000000e+00)
-          to label %630 unwind label %721
+          to label %630 unwind label %723
 
 630:                                              ; preds = %618
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3178,7 +3178,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223: ; preds = %_ZNSt6vectorIN2cv6P
   store i32 33619968, ptr %43, align 8, !tbaa !19
   store ptr %610, ptr %631, align 8, !tbaa !11
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(24) %43)
-          to label %633 unwind label %723
+          to label %633 unwind label %725
 
 633:                                              ; preds = %630
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -3192,7 +3192,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223: ; preds = %_ZNSt6vectorIN2cv6P
   %639 = fdiv float %638, %636
   %640 = fpext float %639 to double
   invoke void @_ZN2cvmlERKNS_3MatEd(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %45, ptr noundef nonnull align 8 dereferenceable(96) %606, double noundef %640)
-          to label %641 unwind label %725
+          to label %641 unwind label %727
 
 641:                                              ; preds = %633
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #29
@@ -3208,7 +3208,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223: ; preds = %_ZNSt6vectorIN2cv6P
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #29
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %45) #29
-  br label %727
+  br label %729
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %641
   %647 = getelementptr inbounds nuw i8, ptr %45, i64 208
@@ -3239,8 +3239,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %641
   %657 = trunc nuw nsw i64 %indvars.iv345 to i32
   br label %658
 
-658:                                              ; preds = %.preheader.us, %707
-  %indvars.iv340 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next341.pre-phi, %707 ]
+658:                                              ; preds = %.preheader.us, %709
+  %indvars.iv340 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next341.pre-phi, %709 ]
   %659 = load i64, ptr %652, align 8, !tbaa !71
   %660 = and i64 %659, 4294967295
   %661 = mul nuw i64 %660, 4164903690
@@ -3262,7 +3262,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %641
 
 ._crit_edge:                                      ; preds = %658
   %.pre354 = add nuw nsw i64 %indvars.iv340, 1
-  br label %707
+  br label %709
 
 675:                                              ; preds = %658
   %.val144.us = load ptr, ptr %131, align 8, !tbaa !100
@@ -3300,14 +3300,16 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %641
 697:                                              ; preds = %697, %.lr.ph.i229.us
   %indvars.iv.i.us = phi i64 [ %696, %.lr.ph.i229.us ], [ %indvars.iv.next.i.us, %697 ]
   %.01317.i.us = phi i32 [ %694, %.lr.ph.i229.us ], [ %spec.select.i230.us, %697 ]
-  %698 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i.us, i64 %indvars.iv.i.us, i32 2
-  %699 = load i64, ptr %698, align 8, !tbaa !168
-  %700 = sext i32 %.01317.i.us to i64
-  %701 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i.us, i64 %700, i32 2
-  %702 = load i64, ptr %701, align 8, !tbaa !168
-  %703 = icmp ult i64 %699, %702
-  %704 = trunc nsw i64 %indvars.iv.i.us to i32
-  %spec.select.i230.us = select i1 %703, i32 %704, i32 %.01317.i.us
+  %698 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i.us, i64 %indvars.iv.i.us
+  %699 = getelementptr inbounds nuw i8, ptr %698, i64 16
+  %700 = load i64, ptr %699, align 8, !tbaa !168
+  %701 = sext i32 %.01317.i.us to i64
+  %702 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i.us, i64 %701
+  %703 = getelementptr inbounds nuw i8, ptr %702, i64 16
+  %704 = load i64, ptr %703, align 8, !tbaa !168
+  %705 = icmp ult i64 %700, %704
+  %706 = trunc nsw i64 %indvars.iv.i.us to i32
+  %spec.select.i230.us = select i1 %705, i32 %706, i32 %.01317.i.us
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, 1
   %lftr.wideiv.i.us = trunc i64 %indvars.iv.next.i.us to i32
   %exitcond.not.i.us = icmp eq i32 %691, %lftr.wideiv.i.us
@@ -3315,102 +3317,102 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %641
 
 _ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit.us: ; preds = %697, %675
   %.013.lcssa.i.us = phi i32 [ %694, %675 ], [ %spec.select.i230.us, %697 ]
-  %705 = sext i32 %.013.lcssa.i.us to i64
-  %706 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i.us, i64 %705
-  store <2 x float> %.sroa.02.0.copyload.us, ptr %706, align 8
-  %.sroa.4.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %706, i64 8
+  %707 = sext i32 %.013.lcssa.i.us to i64
+  %708 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i.us, i64 %707
+  store <2 x float> %.sroa.02.0.copyload.us, ptr %708, align 8
+  %.sroa.4.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %708, i64 8
   store float %.sroa.23.0.copyload.us, ptr %.sroa.4.0..sroa_idx.us, align 8, !tbaa !37
-  %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %706, i64 12
+  %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %708, i64 12
   store i32 0, ptr %.sroa.5.0..sroa_idx.us, align 4, !tbaa !9
-  %.sroa.6.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %706, i64 16
+  %.sroa.6.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %708, i64 16
   store i64 %682, ptr %.sroa.6.0..sroa_idx.us, align 8, !tbaa !35
-  %.sroa.7.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %706, i64 24
+  %.sroa.7.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %708, i64 24
   store i64 0, ptr %.sroa.7.0..sroa_idx.us, align 8, !tbaa !35
-  br label %707
+  br label %709
 
-707:                                              ; preds = %._crit_edge, %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit.us
+709:                                              ; preds = %._crit_edge, %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit.us
   %indvars.iv.next341.pre-phi = phi i64 [ %.pre354, %._crit_edge ], [ %686, %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit.us ]
   %exitcond344.not = icmp eq i64 %indvars.iv.next341.pre-phi, %wide.trip.count343
   br i1 %exitcond344.not, label %._crit_edge.us324, label %658, !llvm.loop !172
 
-._crit_edge.us324:                                ; preds = %707
+._crit_edge.us324:                                ; preds = %709
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next346, %.sroa.15.0.extract.shift
   br i1 %exitcond349.not, label %._crit_edge322, label %.preheader.us, !llvm.loop !173
 
 ._crit_edge322:                                   ; preds = %._crit_edge.us324, %.preheader.lr.ph, %_ZNK2cv7MatExprcvNS_3MatEEv.exit
   invoke void @_ZN2cv6bgsegm28BackgroundSubtractorGSOCImpl14postprocessingERNS_3MatE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %728 unwind label %729
+          to label %730 unwind label %731
 
-708:                                              ; preds = %592
-  %709 = landingpad { ptr, i32 }
+710:                                              ; preds = %592
+  %711 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %37) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.body
 
-710:                                              ; preds = %602
-  %711 = landingpad { ptr, i32 }
-          cleanup
-  br label %720
-
-712:                                              ; preds = %611
+712:                                              ; preds = %602
   %713 = landingpad { ptr, i32 }
           cleanup
-  br label %719
+  br label %722
 
-714:                                              ; preds = %612
+714:                                              ; preds = %611
   %715 = landingpad { ptr, i32 }
           cleanup
-  br label %718
+  br label %721
 
-716:                                              ; preds = %617, %613
+716:                                              ; preds = %612
   %717 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  br label %718
-
-718:                                              ; preds = %716, %714
-  %.pn120.pn = phi { ptr, i32 } [ %717, %716 ], [ %715, %714 ]
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %40) #29
-  br label %719
-
-719:                                              ; preds = %718, %712
-  %.pn120.pn.pn = phi { ptr, i32 } [ %.pn120.pn, %718 ], [ %713, %712 ]
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %41) #29
   br label %720
 
-720:                                              ; preds = %719, %710
-  %.pn120.pn.pn.pn = phi { ptr, i32 } [ %.pn120.pn.pn, %719 ], [ %711, %710 ]
+718:                                              ; preds = %617, %613
+  %719 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  br label %720
+
+720:                                              ; preds = %718, %716
+  %.pn120.pn = phi { ptr, i32 } [ %719, %718 ], [ %717, %716 ]
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %40) #29
+  br label %721
+
+721:                                              ; preds = %720, %714
+  %.pn120.pn.pn = phi { ptr, i32 } [ %.pn120.pn, %720 ], [ %715, %714 ]
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %41) #29
+  br label %722
+
+722:                                              ; preds = %721, %712
+  %.pn120.pn.pn.pn = phi { ptr, i32 } [ %.pn120.pn.pn, %721 ], [ %713, %712 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %.body
 
-721:                                              ; preds = %618
-  %722 = landingpad { ptr, i32 }
+723:                                              ; preds = %618
+  %724 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-723:                                              ; preds = %630
-  %724 = landingpad { ptr, i32 }
+725:                                              ; preds = %630
+  %726 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %.body
 
-725:                                              ; preds = %633
-  %726 = landingpad { ptr, i32 }
+727:                                              ; preds = %633
+  %728 = landingpad { ptr, i32 }
           cleanup
-  br label %727
+  br label %729
 
-727:                                              ; preds = %.body225, %725
-  %.pn128 = phi { ptr, i32 } [ %646, %.body225 ], [ %726, %725 ]
+729:                                              ; preds = %.body225, %727
+  %.pn128 = phi { ptr, i32 } [ %646, %.body225 ], [ %728, %727 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  br label %731
+  br label %733
 
-728:                                              ; preds = %._crit_edge322
+730:                                              ; preds = %._crit_edge322
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #29
@@ -3419,23 +3421,23 @@ _ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20Backgr
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-729:                                              ; preds = %._crit_edge322
-  %730 = landingpad { ptr, i32 }
+731:                                              ; preds = %._crit_edge322
+  %732 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #29
-  br label %731
+  br label %733
 
-731:                                              ; preds = %729, %727
-  %.pn130.pn = phi { ptr, i32 } [ %730, %729 ], [ %.pn128, %727 ]
+733:                                              ; preds = %731, %729
+  %.pn130.pn = phi { ptr, i32 } [ %732, %731 ], [ %.pn128, %729 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.body
 
-.body:                                            ; preds = %335, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i182, %333, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %731, %723, %721, %720, %708, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208, %351, %346, %341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173, %111, %109, %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %.pn133.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223 ], [ %.pn130.pn, %731 ], [ %724, %723 ], [ %722, %721 ], [ %.pn120.pn.pn.pn, %720 ], [ %709, %708 ], [ %.pn105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208 ], [ %.pn103, %351 ], [ %.pn101, %346 ], [ %.pn99, %341 ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %112, %111 ], [ %110, %109 ], [ %100, %99 ], [ %.pn89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %334, %333 ], [ %154, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %336, %335 ], [ %222, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i182 ]
+.body:                                            ; preds = %335, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i182, %333, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i, %733, %725, %723, %722, %710, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208, %351, %346, %341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173, %111, %109, %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn133.pn.pn.pn = phi { ptr, i32 } [ %.pn133.pn.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit223 ], [ %.pn130.pn, %733 ], [ %726, %725 ], [ %724, %723 ], [ %.pn120.pn.pn.pn, %722 ], [ %711, %710 ], [ %.pn105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208 ], [ %.pn103, %351 ], [ %.pn101, %346 ], [ %.pn99, %341 ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173 ], [ %112, %111 ], [ %110, %109 ], [ %100, %99 ], [ %.pn89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %334, %333 ], [ %154, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i ], [ %336, %335 ], [ %222, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOCESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i182 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #29
-  br label %732
+  br label %734
 
-732:                                              ; preds = %.body, %61
+734:                                              ; preds = %.body, %61
   %.pn133.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn133.pn.pn.pn, %.body ], [ %62, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
@@ -7427,11 +7429,11 @@ define linkonce_odr hidden void @_ZNK2cv6bgsegm12ParallelGSOCclERKNS_5RangeE(ptr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %19
 
-._crit_edge:                                      ; preds = %303, %2
+._crit_edge:                                      ; preds = %313, %2
   ret void
 
-19:                                               ; preds = %.lr.ph, %303
-  %.0120 = phi i32 [ %6, %.lr.ph ], [ %304, %303 ]
+19:                                               ; preds = %.lr.ph, %313
+  %.0120 = phi i32 [ %6, %.lr.ph ], [ %314, %313 ]
   %20 = load i32, ptr %10, align 8, !tbaa !322
   %21 = sdiv i32 %.0120, %20
   %22 = srem i32 %.0120, %20
@@ -7534,7 +7536,7 @@ _ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC11findClosestEiiRKNS_7Point3_If
   %93 = tail call float @llvm.fmuladd.f32(float %90, float %87, float %92)
   %94 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val.i, i64 %.pre-phi
   %95 = fcmp ogt float %.023.lcssa.i, %93
-  br i1 %95, label %96, label %150
+  br i1 %95, label %96, label %152
 
 96:                                               ; preds = %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC11findClosestEiiRKNS_7Point3_IfEERi.exit
   %97 = load ptr, ptr %18, align 8, !tbaa !325
@@ -7561,7 +7563,7 @@ _ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC11findClosestEiiRKNS_7Point3_If
   %116 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %117 = load float, ptr %116, align 8, !tbaa !62
   %118 = fcmp olt float %115, %117
-  br i1 %118, label %119, label %303
+  br i1 %118, label %119, label %313
 
 119:                                              ; preds = %96
   %120 = load ptr, ptr %11, align 8, !tbaa !323
@@ -7597,14 +7599,16 @@ _ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC11findClosestEiiRKNS_7Point3_If
 140:                                              ; preds = %140, %.lr.ph.i69
   %indvars.iv.i70 = phi i64 [ %139, %.lr.ph.i69 ], [ %indvars.iv.next.i71, %140 ]
   %.01317.i = phi i32 [ %137, %.lr.ph.i69 ], [ %spec.select.i, %140 ]
-  %141 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i, i64 %indvars.iv.i70, i32 2
-  %142 = load i64, ptr %141, align 8, !tbaa !168
-  %143 = sext i32 %.01317.i to i64
-  %144 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i, i64 %143, i32 2
-  %145 = load i64, ptr %144, align 8, !tbaa !168
-  %146 = icmp ult i64 %142, %145
-  %147 = trunc nsw i64 %indvars.iv.i70 to i32
-  %spec.select.i = select i1 %146, i32 %147, i32 %.01317.i
+  %141 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i, i64 %indvars.iv.i70
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %143 = load i64, ptr %142, align 8, !tbaa !168
+  %144 = sext i32 %.01317.i to i64
+  %145 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i, i64 %144
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  %147 = load i64, ptr %146, align 8, !tbaa !168
+  %148 = icmp ult i64 %143, %147
+  %149 = trunc nsw i64 %indvars.iv.i70 to i32
+  %spec.select.i = select i1 %148, i32 %149, i32 %.01317.i
   %indvars.iv.next.i71 = add nsw i64 %indvars.iv.i70, 1
   %lftr.wideiv.i72 = trunc i64 %indvars.iv.next.i71 to i32
   %exitcond.not.i73 = icmp eq i32 %135, %lftr.wideiv.i72
@@ -7612,281 +7616,289 @@ _ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC11findClosestEiiRKNS_7Point3_If
 
 _ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit: ; preds = %140, %119
   %.013.lcssa.i = phi i32 [ %137, %119 ], [ %spec.select.i, %140 ]
-  %148 = sext i32 %.013.lcssa.i to i64
-  %149 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i, i64 %148
-  store <2 x float> %.sroa.03.0.copyload, ptr %149, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %150 = sext i32 %.013.lcssa.i to i64
+  %151 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i, i64 %150
+  store <2 x float> %.sroa.03.0.copyload, ptr %151, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 8
   store float %.sroa.24.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !37
-  %.sroa.5119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 12
+  %.sroa.5119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 12
   store i32 0, ptr %.sroa.5119.0..sroa_idx, align 4, !tbaa !9
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 16
   store i64 %130, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !35
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 24
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 24
   store i64 0, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !35
-  br label %303
+  br label %313
 
-150:                                              ; preds = %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC11findClosestEiiRKNS_7Point3_IfEERi.exit
-  %151 = fsub double 1.000000e+00, %76
-  %152 = load float, ptr %94, align 4, !tbaa !205
-  %153 = fpext float %152 to double
-  %154 = fmul double %151, %153
-  %155 = fptrunc double %154 to float
-  store float %155, ptr %94, align 4, !tbaa !205
-  %156 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %157 = load float, ptr %156, align 4, !tbaa !206
-  %158 = fpext float %157 to double
-  %159 = fmul double %151, %158
-  %160 = fptrunc double %159 to float
-  store float %160, ptr %156, align 4, !tbaa !206
-  %161 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %162 = load float, ptr %161, align 4, !tbaa !207
-  %163 = fpext float %162 to double
-  %164 = fmul double %151, %163
-  %165 = fptrunc double %164 to float
-  store float %165, ptr %161, align 4, !tbaa !207
-  %166 = load float, ptr %33, align 4, !tbaa !205
-  %167 = fpext float %166 to double
-  %168 = fmul double %76, %167
-  %169 = fptrunc double %168 to float
-  %170 = load float, ptr %47, align 4, !tbaa !206
-  %171 = fpext float %170 to double
-  %172 = fmul double %76, %171
-  %173 = fptrunc double %172 to float
-  %174 = load float, ptr %52, align 4, !tbaa !207
-  %175 = fpext float %174 to double
-  %176 = fmul double %76, %175
-  %177 = fptrunc double %176 to float
-  %178 = fadd float %155, %169
-  store float %178, ptr %94, align 4, !tbaa !205
-  %179 = fadd float %160, %173
-  store float %179, ptr %156, align 4, !tbaa !206
-  %180 = fadd float %165, %177
-  store float %180, ptr %161, align 4, !tbaa !207
-  %181 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  %182 = load i64, ptr %181, align 8, !tbaa !164
-  %183 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  store i64 %182, ptr %183, align 8, !tbaa !168
-  %184 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %185 = load i64, ptr %184, align 8, !tbaa !204
-  %186 = add i64 %185, 1
-  store i64 %186, ptr %184, align 8, !tbaa !204
-  %187 = getelementptr inbounds nuw i8, ptr %88, i64 64
-  %188 = load i64, ptr %187, align 8, !tbaa !64
-  %189 = icmp ugt i64 %186, %188
-  br i1 %189, label %190, label %293
+152:                                              ; preds = %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC11findClosestEiiRKNS_7Point3_IfEERi.exit
+  %153 = fsub double 1.000000e+00, %76
+  %154 = load float, ptr %94, align 4, !tbaa !205
+  %155 = fpext float %154 to double
+  %156 = fmul double %153, %155
+  %157 = fptrunc double %156 to float
+  store float %157, ptr %94, align 4, !tbaa !205
+  %158 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %159 = load float, ptr %158, align 4, !tbaa !206
+  %160 = fpext float %159 to double
+  %161 = fmul double %153, %160
+  %162 = fptrunc double %161 to float
+  store float %162, ptr %158, align 4, !tbaa !206
+  %163 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %164 = load float, ptr %163, align 4, !tbaa !207
+  %165 = fpext float %164 to double
+  %166 = fmul double %153, %165
+  %167 = fptrunc double %166 to float
+  store float %167, ptr %163, align 4, !tbaa !207
+  %168 = load float, ptr %33, align 4, !tbaa !205
+  %169 = fpext float %168 to double
+  %170 = fmul double %76, %169
+  %171 = fptrunc double %170 to float
+  %172 = load float, ptr %47, align 4, !tbaa !206
+  %173 = fpext float %172 to double
+  %174 = fmul double %76, %173
+  %175 = fptrunc double %174 to float
+  %176 = load float, ptr %52, align 4, !tbaa !207
+  %177 = fpext float %176 to double
+  %178 = fmul double %76, %177
+  %179 = fptrunc double %178 to float
+  %180 = fadd float %157, %171
+  store float %180, ptr %94, align 4, !tbaa !205
+  %181 = fadd float %162, %175
+  store float %181, ptr %158, align 4, !tbaa !206
+  %182 = fadd float %167, %179
+  store float %182, ptr %163, align 4, !tbaa !207
+  %183 = getelementptr inbounds nuw i8, ptr %88, i64 40
+  %184 = load i64, ptr %183, align 8, !tbaa !164
+  %185 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  store i64 %184, ptr %185, align 8, !tbaa !168
+  %186 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %187 = load i64, ptr %186, align 8, !tbaa !204
+  %188 = add i64 %187, 1
+  store i64 %188, ptr %186, align 8, !tbaa !204
+  %189 = getelementptr inbounds nuw i8, ptr %88, i64 64
+  %190 = load i64, ptr %189, align 8, !tbaa !64
+  %191 = icmp ugt i64 %188, %190
+  br i1 %191, label %192, label %303
 
-190:                                              ; preds = %150
-  %191 = getelementptr inbounds nuw i8, ptr %88, i64 480
-  %192 = load i64, ptr %191, align 8, !tbaa !71
-  %193 = and i64 %192, 4294967295
-  %194 = mul nuw i64 %193, 4164903690
-  %195 = lshr i64 %192, 32
-  %196 = add nuw i64 %194, %195
-  store i64 %196, ptr %191, align 8, !tbaa !71
-  %197 = trunc i64 %196 to i32
-  %198 = uitofp i32 %197 to float
-  %199 = fmul float %198, 0x3DF0000000000000
-  %200 = getelementptr inbounds nuw i8, ptr %88, i64 60
-  %201 = load float, ptr %200, align 4, !tbaa !63
-  %202 = fcmp olt float %199, %201
-  br i1 %202, label %203, label %293
+192:                                              ; preds = %152
+  %193 = getelementptr inbounds nuw i8, ptr %88, i64 480
+  %194 = load i64, ptr %193, align 8, !tbaa !71
+  %195 = and i64 %194, 4294967295
+  %196 = mul nuw i64 %195, 4164903690
+  %197 = lshr i64 %194, 32
+  %198 = add nuw i64 %196, %197
+  store i64 %198, ptr %193, align 8, !tbaa !71
+  %199 = trunc i64 %198 to i32
+  %200 = uitofp i32 %199 to float
+  %201 = fmul float %200, 0x3DF0000000000000
+  %202 = getelementptr inbounds nuw i8, ptr %88, i64 60
+  %203 = load float, ptr %202, align 4, !tbaa !63
+  %204 = fcmp olt float %201, %203
+  br i1 %204, label %205, label %303
 
-203:                                              ; preds = %190
-  %204 = add nsw i32 %21, 1
-  %205 = load i32, ptr %17, align 4, !tbaa !326
-  %206 = icmp slt i32 %204, %205
-  br i1 %206, label %207, label %223
+205:                                              ; preds = %192
+  %206 = add nsw i32 %21, 1
+  %207 = load i32, ptr %17, align 4, !tbaa !326
+  %208 = icmp slt i32 %206, %207
+  br i1 %208, label %209, label %227
 
-207:                                              ; preds = %203
-  %208 = mul nsw i32 %34, %204
-  %209 = add nsw i32 %38, %208
-  %210 = add nsw i32 %40, %208
-  %.016.i74 = add nsw i32 %210, 1
-  %211 = icmp slt i32 %.016.i74, %209
-  br i1 %211, label %.lr.ph.i77, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit84
+209:                                              ; preds = %205
+  %210 = mul nsw i32 %34, %206
+  %211 = add nsw i32 %38, %210
+  %212 = add nsw i32 %40, %210
+  %.016.i74 = add nsw i32 %212, 1
+  %213 = icmp slt i32 %.016.i74, %211
+  br i1 %213, label %.lr.ph.i77, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit84
 
-.lr.ph.i77:                                       ; preds = %207
-  %212 = sext i32 %.016.i74 to i64
-  br label %213
+.lr.ph.i77:                                       ; preds = %209
+  %214 = sext i32 %.016.i74 to i64
+  br label %215
 
-213:                                              ; preds = %213, %.lr.ph.i77
-  %indvars.iv.i78 = phi i64 [ %212, %.lr.ph.i77 ], [ %indvars.iv.next.i81, %213 ]
-  %.01317.i79 = phi i32 [ %210, %.lr.ph.i77 ], [ %spec.select.i80, %213 ]
-  %214 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val.i, i64 %indvars.iv.i78, i32 2
-  %215 = load i64, ptr %214, align 8, !tbaa !168
-  %216 = sext i32 %.01317.i79 to i64
-  %217 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val.i, i64 %216, i32 2
+215:                                              ; preds = %215, %.lr.ph.i77
+  %indvars.iv.i78 = phi i64 [ %214, %.lr.ph.i77 ], [ %indvars.iv.next.i81, %215 ]
+  %.01317.i79 = phi i32 [ %212, %.lr.ph.i77 ], [ %spec.select.i80, %215 ]
+  %216 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val.i, i64 %indvars.iv.i78
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
   %218 = load i64, ptr %217, align 8, !tbaa !168
-  %219 = icmp ult i64 %215, %218
-  %220 = trunc nsw i64 %indvars.iv.i78 to i32
-  %spec.select.i80 = select i1 %219, i32 %220, i32 %.01317.i79
+  %219 = sext i32 %.01317.i79 to i64
+  %220 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val.i, i64 %219
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
+  %222 = load i64, ptr %221, align 8, !tbaa !168
+  %223 = icmp ult i64 %218, %222
+  %224 = trunc nsw i64 %indvars.iv.i78 to i32
+  %spec.select.i80 = select i1 %223, i32 %224, i32 %.01317.i79
   %indvars.iv.next.i81 = add nsw i64 %indvars.iv.i78, 1
   %lftr.wideiv.i82 = trunc i64 %indvars.iv.next.i81 to i32
-  %exitcond.not.i83 = icmp eq i32 %209, %lftr.wideiv.i82
-  br i1 %exitcond.not.i83, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit84, label %213, !llvm.loop !171
+  %exitcond.not.i83 = icmp eq i32 %211, %lftr.wideiv.i82
+  br i1 %exitcond.not.i83, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit84, label %215, !llvm.loop !171
 
-_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit84: ; preds = %213, %207
-  %.013.lcssa.i76 = phi i32 [ %210, %207 ], [ %spec.select.i80, %213 ]
-  %221 = sext i32 %.013.lcssa.i76 to i64
-  %222 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val.i, i64 %221
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull readonly align 8 dereferenceable(32) %94, i64 32, i1 false), !tbaa.struct !158
+_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit84: ; preds = %215, %209
+  %.013.lcssa.i76 = phi i32 [ %212, %209 ], [ %spec.select.i80, %215 ]
+  %225 = sext i32 %.013.lcssa.i76 to i64
+  %226 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val.i, i64 %225
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %226, ptr noundef nonnull readonly align 8 dereferenceable(32) %94, i64 32, i1 false), !tbaa.struct !158
   %.pre121 = load i32, ptr %10, align 8, !tbaa !322
-  br label %223
+  br label %227
 
-223:                                              ; preds = %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit84, %203
-  %224 = phi i32 [ %.pre121, %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit84 ], [ %20, %203 ]
-  %225 = icmp slt i32 %36, %224
-  br i1 %225, label %226, label %247
+227:                                              ; preds = %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit84, %205
+  %228 = phi i32 [ %.pre121, %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit84 ], [ %20, %205 ]
+  %229 = icmp slt i32 %36, %228
+  br i1 %229, label %230, label %253
 
-226:                                              ; preds = %223
-  %227 = load i32, ptr %12, align 4, !tbaa !116
-  %228 = mul nsw i32 %227, %21
-  %229 = add nsw i32 %22, 2
-  %230 = load i32, ptr %13, align 8, !tbaa !109
-  %231 = mul nsw i32 %230, %229
-  %232 = add nsw i32 %231, %228
-  %233 = mul nsw i32 %230, %36
-  %234 = add nsw i32 %233, %228
-  %.016.i85 = add nsw i32 %234, 1
-  %235 = icmp slt i32 %.016.i85, %232
+230:                                              ; preds = %227
+  %231 = load i32, ptr %12, align 4, !tbaa !116
+  %232 = mul nsw i32 %231, %21
+  %233 = add nsw i32 %22, 2
+  %234 = load i32, ptr %13, align 8, !tbaa !109
+  %235 = mul nsw i32 %234, %233
+  %236 = add nsw i32 %235, %232
+  %237 = mul nsw i32 %234, %36
+  %238 = add nsw i32 %237, %232
+  %.016.i85 = add nsw i32 %238, 1
+  %239 = icmp slt i32 %.016.i85, %236
   %.val15.pre.i86 = load ptr, ptr %.val, align 8, !tbaa !117
-  br i1 %235, label %.lr.ph.i88, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit95
+  br i1 %239, label %.lr.ph.i88, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit95
 
-.lr.ph.i88:                                       ; preds = %226
-  %236 = sext i32 %.016.i85 to i64
-  br label %237
+.lr.ph.i88:                                       ; preds = %230
+  %240 = sext i32 %.016.i85 to i64
+  br label %241
 
-237:                                              ; preds = %237, %.lr.ph.i88
-  %indvars.iv.i89 = phi i64 [ %236, %.lr.ph.i88 ], [ %indvars.iv.next.i92, %237 ]
-  %.01317.i90 = phi i32 [ %234, %.lr.ph.i88 ], [ %spec.select.i91, %237 ]
-  %238 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i86, i64 %indvars.iv.i89, i32 2
-  %239 = load i64, ptr %238, align 8, !tbaa !168
-  %240 = sext i32 %.01317.i90 to i64
-  %241 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i86, i64 %240, i32 2
-  %242 = load i64, ptr %241, align 8, !tbaa !168
-  %243 = icmp ult i64 %239, %242
-  %244 = trunc nsw i64 %indvars.iv.i89 to i32
-  %spec.select.i91 = select i1 %243, i32 %244, i32 %.01317.i90
+241:                                              ; preds = %241, %.lr.ph.i88
+  %indvars.iv.i89 = phi i64 [ %240, %.lr.ph.i88 ], [ %indvars.iv.next.i92, %241 ]
+  %.01317.i90 = phi i32 [ %238, %.lr.ph.i88 ], [ %spec.select.i91, %241 ]
+  %242 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i86, i64 %indvars.iv.i89
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
+  %244 = load i64, ptr %243, align 8, !tbaa !168
+  %245 = sext i32 %.01317.i90 to i64
+  %246 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i86, i64 %245
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 16
+  %248 = load i64, ptr %247, align 8, !tbaa !168
+  %249 = icmp ult i64 %244, %248
+  %250 = trunc nsw i64 %indvars.iv.i89 to i32
+  %spec.select.i91 = select i1 %249, i32 %250, i32 %.01317.i90
   %indvars.iv.next.i92 = add nsw i64 %indvars.iv.i89, 1
   %lftr.wideiv.i93 = trunc i64 %indvars.iv.next.i92 to i32
-  %exitcond.not.i94 = icmp eq i32 %232, %lftr.wideiv.i93
-  br i1 %exitcond.not.i94, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit95, label %237, !llvm.loop !171
+  %exitcond.not.i94 = icmp eq i32 %236, %lftr.wideiv.i93
+  br i1 %exitcond.not.i94, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit95, label %241, !llvm.loop !171
 
-_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit95: ; preds = %237, %226
-  %.013.lcssa.i87 = phi i32 [ %234, %226 ], [ %spec.select.i91, %237 ]
-  %245 = sext i32 %.013.lcssa.i87 to i64
-  %246 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i86, i64 %245
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %246, ptr noundef nonnull readonly align 8 dereferenceable(32) %94, i64 32, i1 false), !tbaa.struct !158
-  br label %247
+_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit95: ; preds = %241, %230
+  %.013.lcssa.i87 = phi i32 [ %238, %230 ], [ %spec.select.i91, %241 ]
+  %251 = sext i32 %.013.lcssa.i87 to i64
+  %252 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i86, i64 %251
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %252, ptr noundef nonnull readonly align 8 dereferenceable(32) %94, i64 32, i1 false), !tbaa.struct !158
+  br label %253
 
-247:                                              ; preds = %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit95, %223
-  %248 = icmp sgt i32 %21, 0
-  br i1 %248, label %249, label %270
+253:                                              ; preds = %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit95, %227
+  %254 = icmp sgt i32 %21, 0
+  br i1 %254, label %255, label %278
 
-249:                                              ; preds = %247
-  %250 = add nsw i32 %21, -1
-  %251 = load i32, ptr %12, align 4, !tbaa !116
-  %252 = mul nsw i32 %251, %250
-  %253 = load i32, ptr %13, align 8, !tbaa !109
-  %254 = mul nsw i32 %253, %36
-  %255 = add nsw i32 %254, %252
-  %256 = mul nsw i32 %253, %22
-  %257 = add nsw i32 %256, %252
-  %.016.i96 = add nsw i32 %257, 1
-  %258 = icmp slt i32 %.016.i96, %255
+255:                                              ; preds = %253
+  %256 = add nsw i32 %21, -1
+  %257 = load i32, ptr %12, align 4, !tbaa !116
+  %258 = mul nsw i32 %257, %256
+  %259 = load i32, ptr %13, align 8, !tbaa !109
+  %260 = mul nsw i32 %259, %36
+  %261 = add nsw i32 %260, %258
+  %262 = mul nsw i32 %259, %22
+  %263 = add nsw i32 %262, %258
+  %.016.i96 = add nsw i32 %263, 1
+  %264 = icmp slt i32 %.016.i96, %261
   %.val15.pre.i97 = load ptr, ptr %.val, align 8, !tbaa !117
-  br i1 %258, label %.lr.ph.i99, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit106
+  br i1 %264, label %.lr.ph.i99, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit106
 
-.lr.ph.i99:                                       ; preds = %249
-  %259 = sext i32 %.016.i96 to i64
-  br label %260
+.lr.ph.i99:                                       ; preds = %255
+  %265 = sext i32 %.016.i96 to i64
+  br label %266
 
-260:                                              ; preds = %260, %.lr.ph.i99
-  %indvars.iv.i100 = phi i64 [ %259, %.lr.ph.i99 ], [ %indvars.iv.next.i103, %260 ]
-  %.01317.i101 = phi i32 [ %257, %.lr.ph.i99 ], [ %spec.select.i102, %260 ]
-  %261 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i97, i64 %indvars.iv.i100, i32 2
-  %262 = load i64, ptr %261, align 8, !tbaa !168
-  %263 = sext i32 %.01317.i101 to i64
-  %264 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i97, i64 %263, i32 2
-  %265 = load i64, ptr %264, align 8, !tbaa !168
-  %266 = icmp ult i64 %262, %265
-  %267 = trunc nsw i64 %indvars.iv.i100 to i32
-  %spec.select.i102 = select i1 %266, i32 %267, i32 %.01317.i101
+266:                                              ; preds = %266, %.lr.ph.i99
+  %indvars.iv.i100 = phi i64 [ %265, %.lr.ph.i99 ], [ %indvars.iv.next.i103, %266 ]
+  %.01317.i101 = phi i32 [ %263, %.lr.ph.i99 ], [ %spec.select.i102, %266 ]
+  %267 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i97, i64 %indvars.iv.i100
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
+  %269 = load i64, ptr %268, align 8, !tbaa !168
+  %270 = sext i32 %.01317.i101 to i64
+  %271 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i97, i64 %270
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 16
+  %273 = load i64, ptr %272, align 8, !tbaa !168
+  %274 = icmp ult i64 %269, %273
+  %275 = trunc nsw i64 %indvars.iv.i100 to i32
+  %spec.select.i102 = select i1 %274, i32 %275, i32 %.01317.i101
   %indvars.iv.next.i103 = add nsw i64 %indvars.iv.i100, 1
   %lftr.wideiv.i104 = trunc i64 %indvars.iv.next.i103 to i32
-  %exitcond.not.i105 = icmp eq i32 %255, %lftr.wideiv.i104
-  br i1 %exitcond.not.i105, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit106, label %260, !llvm.loop !171
+  %exitcond.not.i105 = icmp eq i32 %261, %lftr.wideiv.i104
+  br i1 %exitcond.not.i105, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit106, label %266, !llvm.loop !171
 
-_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit106: ; preds = %260, %249
-  %.013.lcssa.i98 = phi i32 [ %257, %249 ], [ %spec.select.i102, %260 ]
-  %268 = sext i32 %.013.lcssa.i98 to i64
-  %269 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i97, i64 %268
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %269, ptr noundef nonnull readonly align 8 dereferenceable(32) %94, i64 32, i1 false), !tbaa.struct !158
-  br label %270
+_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit106: ; preds = %266, %255
+  %.013.lcssa.i98 = phi i32 [ %263, %255 ], [ %spec.select.i102, %266 ]
+  %276 = sext i32 %.013.lcssa.i98 to i64
+  %277 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i97, i64 %276
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef nonnull readonly align 8 dereferenceable(32) %94, i64 32, i1 false), !tbaa.struct !158
+  br label %278
 
-270:                                              ; preds = %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit106, %247
-  %271 = icmp sgt i32 %22, 0
-  br i1 %271, label %272, label %293
+278:                                              ; preds = %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit106, %253
+  %279 = icmp sgt i32 %22, 0
+  br i1 %279, label %280, label %303
 
-272:                                              ; preds = %270
-  %273 = add nsw i32 %22, -1
-  %274 = load i32, ptr %12, align 4, !tbaa !116
-  %275 = mul nsw i32 %274, %21
-  %276 = load i32, ptr %13, align 8, !tbaa !109
-  %277 = mul nsw i32 %276, %22
-  %278 = add nsw i32 %277, %275
-  %279 = mul nsw i32 %276, %273
-  %280 = add nsw i32 %279, %275
-  %.016.i107 = add nsw i32 %280, 1
-  %281 = icmp slt i32 %.016.i107, %278
+280:                                              ; preds = %278
+  %281 = add nsw i32 %22, -1
+  %282 = load i32, ptr %12, align 4, !tbaa !116
+  %283 = mul nsw i32 %282, %21
+  %284 = load i32, ptr %13, align 8, !tbaa !109
+  %285 = mul nsw i32 %284, %22
+  %286 = add nsw i32 %285, %283
+  %287 = mul nsw i32 %284, %281
+  %288 = add nsw i32 %287, %283
+  %.016.i107 = add nsw i32 %288, 1
+  %289 = icmp slt i32 %.016.i107, %286
   %.val15.pre.i108 = load ptr, ptr %.val, align 8, !tbaa !117
-  br i1 %281, label %.lr.ph.i110, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit117
+  br i1 %289, label %.lr.ph.i110, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit117
 
-.lr.ph.i110:                                      ; preds = %272
-  %282 = sext i32 %.016.i107 to i64
-  br label %283
+.lr.ph.i110:                                      ; preds = %280
+  %290 = sext i32 %.016.i107 to i64
+  br label %291
 
-283:                                              ; preds = %283, %.lr.ph.i110
-  %indvars.iv.i111 = phi i64 [ %282, %.lr.ph.i110 ], [ %indvars.iv.next.i114, %283 ]
-  %.01317.i112 = phi i32 [ %280, %.lr.ph.i110 ], [ %spec.select.i113, %283 ]
-  %284 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i108, i64 %indvars.iv.i111, i32 2
-  %285 = load i64, ptr %284, align 8, !tbaa !168
-  %286 = sext i32 %.01317.i112 to i64
-  %287 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i108, i64 %286, i32 2
-  %288 = load i64, ptr %287, align 8, !tbaa !168
-  %289 = icmp ult i64 %285, %288
-  %290 = trunc nsw i64 %indvars.iv.i111 to i32
-  %spec.select.i113 = select i1 %289, i32 %290, i32 %.01317.i112
+291:                                              ; preds = %291, %.lr.ph.i110
+  %indvars.iv.i111 = phi i64 [ %290, %.lr.ph.i110 ], [ %indvars.iv.next.i114, %291 ]
+  %.01317.i112 = phi i32 [ %288, %.lr.ph.i110 ], [ %spec.select.i113, %291 ]
+  %292 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i108, i64 %indvars.iv.i111
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 16
+  %294 = load i64, ptr %293, align 8, !tbaa !168
+  %295 = sext i32 %.01317.i112 to i64
+  %296 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i108, i64 %295
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 16
+  %298 = load i64, ptr %297, align 8, !tbaa !168
+  %299 = icmp ult i64 %294, %298
+  %300 = trunc nsw i64 %indvars.iv.i111 to i32
+  %spec.select.i113 = select i1 %299, i32 %300, i32 %.01317.i112
   %indvars.iv.next.i114 = add nsw i64 %indvars.iv.i111, 1
   %lftr.wideiv.i115 = trunc i64 %indvars.iv.next.i114 to i32
-  %exitcond.not.i116 = icmp eq i32 %278, %lftr.wideiv.i115
-  br i1 %exitcond.not.i116, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit117, label %283, !llvm.loop !171
+  %exitcond.not.i116 = icmp eq i32 %286, %lftr.wideiv.i115
+  br i1 %exitcond.not.i116, label %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit117, label %291, !llvm.loop !171
 
-_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit117: ; preds = %283, %272
-  %.013.lcssa.i109 = phi i32 [ %280, %272 ], [ %spec.select.i113, %283 ]
-  %291 = sext i32 %.013.lcssa.i109 to i64
-  %292 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i108, i64 %291
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %292, ptr noundef nonnull readonly align 8 dereferenceable(32) %94, i64 32, i1 false), !tbaa.struct !158
-  br label %293
-
-293:                                              ; preds = %270, %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit117, %190, %150
-  %294 = load ptr, ptr %18, align 8, !tbaa !325
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
-  %296 = load ptr, ptr %295, align 8, !tbaa !27
-  %297 = getelementptr inbounds nuw i8, ptr %294, i64 72
-  %298 = load ptr, ptr %297, align 8, !tbaa !34
-  %299 = load i64, ptr %298, align 8, !tbaa !35
-  %300 = mul i64 %299, %29
-  %301 = getelementptr inbounds nuw i8, ptr %296, i64 %300
-  %302 = getelementptr inbounds i8, ptr %301, i64 %32
-  store i8 0, ptr %302, align 1, !tbaa !90
+_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit117: ; preds = %291, %280
+  %.013.lcssa.i109 = phi i32 [ %288, %280 ], [ %spec.select.i113, %291 ]
+  %301 = sext i32 %.013.lcssa.i109 to i64
+  %302 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleGSOC", ptr %.val15.pre.i108, i64 %301
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %302, ptr noundef nonnull readonly align 8 dereferenceable(32) %94, i64 32, i1 false), !tbaa.struct !158
   br label %303
 
-303:                                              ; preds = %96, %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit, %293
-  %304 = add nsw i32 %.0120, 1
-  %305 = load i32, ptr %7, align 4, !tbaa !22
-  %306 = icmp slt i32 %304, %305
-  br i1 %306, label %19, label %._crit_edge, !llvm.loop !327
+303:                                              ; preds = %278, %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit117, %192, %152
+  %304 = load ptr, ptr %18, align 8, !tbaa !325
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 16
+  %306 = load ptr, ptr %305, align 8, !tbaa !27
+  %307 = getelementptr inbounds nuw i8, ptr %304, i64 72
+  %308 = load ptr, ptr %307, align 8, !tbaa !34
+  %309 = load i64, ptr %308, align 8, !tbaa !35
+  %310 = mul i64 %309, %29
+  %311 = getelementptr inbounds nuw i8, ptr %306, i64 %310
+  %312 = getelementptr inbounds i8, ptr %311, i64 %32
+  store i8 0, ptr %312, align 1, !tbaa !90
+  br label %313
+
+313:                                              ; preds = %96, %_ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20BackgroundSampleGSOCE.exit, %303
+  %314 = add nsw i32 %.0120, 1
+  %315 = load i32, ptr %7, align 4, !tbaa !22
+  %316 = icmp slt i32 %314, %315
+  br i1 %316, label %19, label %._crit_edge, !llvm.loop !327
 }
 
 ; Function Attrs: nounwind
@@ -7925,12 +7937,12 @@ define linkonce_odr hidden void @_ZNK2cv6bgsegm12ParallelLSBPclERKNS_5RangeE(ptr
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %21
 
-._crit_edge:                                      ; preds = %301, %2
+._crit_edge:                                      ; preds = %302, %2
   ret void
 
-21:                                               ; preds = %.lr.ph, %301
-  %22 = phi ptr [ %4, %.lr.ph ], [ %302, %301 ]
-  %.0109 = phi i32 [ %6, %.lr.ph ], [ %318, %301 ]
+21:                                               ; preds = %.lr.ph, %302
+  %22 = phi ptr [ %4, %.lr.ph ], [ %303, %302 ]
+  %.0109 = phi i32 [ %6, %.lr.ph ], [ %319, %302 ]
   %23 = load i32, ptr %10, align 8, !tbaa !328
   %24 = sdiv i32 %.0109, %23
   %25 = srem i32 %.0109, %23
@@ -7953,391 +7965,392 @@ define linkonce_odr hidden void @_ZNK2cv6bgsegm12ParallelLSBPclERKNS_5RangeE(ptr
 
 37:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %35, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
-  %.01011.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %40, %37 ]
-  %38 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleLSBP", ptr %.val.i, i64 %indvars.iv.i, i32 2
-  %39 = load float, ptr %38, align 4, !tbaa !255
-  %40 = fadd float %.01011.i, %39
+  %.01011.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %41, %37 ]
+  %38 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleLSBP", ptr %.val.i, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load float, ptr %39, align 4, !tbaa !255
+  %41 = fadd float %.01011.i, %40
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %41 = icmp slt i64 %indvars.iv.next.i, %36
-  br i1 %41, label %37, label %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP8getDMeanEii.exit, !llvm.loop !329
+  %42 = icmp slt i64 %indvars.iv.next.i, %36
+  br i1 %42, label %37, label %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP8getDMeanEii.exit, !llvm.loop !329
 
 _ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP8getDMeanEii.exit: ; preds = %37, %21
-  %.010.lcssa.i = phi float [ 0.000000e+00, %21 ], [ %40, %37 ]
-  %42 = sitofp i32 %26 to float
-  %43 = fdiv float %.010.lcssa.i, %42
-  %44 = load ptr, ptr %13, align 8, !tbaa !27
-  %45 = load ptr, ptr %14, align 8, !tbaa !34
-  %46 = load i64, ptr %45, align 8, !tbaa !35
-  %47 = sext i32 %24 to i64
-  %48 = mul i64 %46, %47
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
-  %50 = sext i32 %25 to i64
-  %51 = getelementptr inbounds float, ptr %49, i64 %50
-  %52 = load float, ptr %51, align 4, !tbaa !37
-  %53 = getelementptr inbounds nuw i8, ptr %22, i64 68
-  %54 = load float, ptr %53, align 4, !tbaa !225
-  %55 = fmul float %43, %54
-  %56 = fcmp ogt float %52, %55
-  %57 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  %58 = load float, ptr %57, align 8, !tbaa !226
-  %59 = fneg float %58
-  %.pn.p = select i1 %56, float %59, float %58
+  %.010.lcssa.i = phi float [ 0.000000e+00, %21 ], [ %41, %37 ]
+  %43 = sitofp i32 %26 to float
+  %44 = fdiv float %.010.lcssa.i, %43
+  %45 = load ptr, ptr %13, align 8, !tbaa !27
+  %46 = load ptr, ptr %14, align 8, !tbaa !34
+  %47 = load i64, ptr %46, align 8, !tbaa !35
+  %48 = sext i32 %24 to i64
+  %49 = mul i64 %47, %48
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 %49
+  %51 = sext i32 %25 to i64
+  %52 = getelementptr inbounds float, ptr %50, i64 %51
+  %53 = load float, ptr %52, align 4, !tbaa !37
+  %54 = getelementptr inbounds nuw i8, ptr %22, i64 68
+  %55 = load float, ptr %54, align 4, !tbaa !225
+  %56 = fmul float %44, %55
+  %57 = fcmp ogt float %53, %56
+  %58 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  %59 = load float, ptr %58, align 8, !tbaa !226
+  %60 = fneg float %59
+  %.pn.p = select i1 %57, float %60, float %59
   %.pn = fadd float %.pn.p, 1.000000e+00
-  %storemerge = fmul float %52, %.pn
-  store float %storemerge, ptr %51, align 4, !tbaa !37
-  %60 = load ptr, ptr %16, align 8, !tbaa !330
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !27
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 72
-  %64 = load ptr, ptr %63, align 8, !tbaa !34
-  %65 = load i64, ptr %64, align 8, !tbaa !35
-  %66 = mul i64 %65, %47
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 %66
-  %68 = getelementptr inbounds i32, ptr %67, i64 %50
-  %69 = load i32, ptr %68, align 4, !tbaa !9
-  %70 = getelementptr inbounds nuw i8, ptr %22, i64 84
-  %71 = load i32, ptr %70, align 4, !tbaa !229
+  %storemerge = fmul float %53, %.pn
+  store float %storemerge, ptr %52, align 4, !tbaa !37
+  %61 = load ptr, ptr %16, align 8, !tbaa !330
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8, !tbaa !27
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 72
+  %65 = load ptr, ptr %64, align 8, !tbaa !34
+  %66 = load i64, ptr %65, align 8, !tbaa !35
+  %67 = mul i64 %66, %48
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 %67
+  %69 = getelementptr inbounds i32, ptr %68, i64 %51
+  %70 = load i32, ptr %69, align 4, !tbaa !9
+  %71 = getelementptr inbounds nuw i8, ptr %22, i64 84
+  %72 = load i32, ptr %71, align 4, !tbaa !229
   br i1 %27, label %.lr.ph.i90, label %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP12countMatchesEiiRKNS_7Point3_IfEEifiRf.exit
 
 .lr.ph.i90:                                       ; preds = %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP8getDMeanEii.exit
-  %72 = load ptr, ptr %15, align 8, !tbaa !331
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !27
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  %76 = load ptr, ptr %75, align 8, !tbaa !34
-  %77 = load i64, ptr %76, align 8, !tbaa !35
-  %78 = mul i64 %77, %47
-  %79 = getelementptr inbounds nuw i8, ptr %74, i64 %78
-  %80 = getelementptr inbounds %"class.cv::Point3_", ptr %79, i64 %50
-  %81 = load i32, ptr %12, align 4, !tbaa !254
-  %82 = add nsw i32 %25, 1
-  %83 = mul nsw i32 %26, %82
-  %84 = mul i32 %81, %24
-  %85 = add nsw i32 %84, %83
-  %86 = mul i32 %26, %25
-  %87 = add i32 %84, %86
+  %73 = load ptr, ptr %15, align 8, !tbaa !331
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load ptr, ptr %74, align 8, !tbaa !27
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 72
+  %77 = load ptr, ptr %76, align 8, !tbaa !34
+  %78 = load i64, ptr %77, align 8, !tbaa !35
+  %79 = mul i64 %78, %48
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 %79
+  %81 = getelementptr inbounds %"class.cv::Point3_", ptr %80, i64 %51
+  %82 = load i32, ptr %12, align 4, !tbaa !254
+  %83 = add nsw i32 %25, 1
+  %84 = mul nsw i32 %26, %83
+  %85 = mul i32 %82, %24
+  %86 = add nsw i32 %85, %84
+  %87 = mul i32 %26, %25
+  %88 = add i32 %85, %87
   %.val.i91 = load ptr, ptr %.val, align 8, !tbaa !258
-  %88 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %89 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %90 = sext i32 %87 to i64
-  %91 = sext i32 %85 to i64
-  %92 = load float, ptr %80, align 4, !tbaa !205
-  %93 = load float, ptr %88, align 4, !tbaa !206
-  %94 = load float, ptr %89, align 4, !tbaa !207
-  br label %95
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %91 = sext i32 %88 to i64
+  %92 = sext i32 %86 to i64
+  %93 = load float, ptr %81, align 4, !tbaa !205
+  %94 = load float, ptr %89, align 4, !tbaa !206
+  %95 = load float, ptr %90, align 4, !tbaa !207
+  br label %96
 
-95:                                               ; preds = %119, %.lr.ph.i90
-  %.0104 = phi float [ 1.000000e+09, %.lr.ph.i90 ], [ %.1, %119 ]
-  %96 = phi float [ 1.000000e+09, %.lr.ph.i90 ], [ %121, %119 ]
-  %indvars.iv.i92 = phi i64 [ %90, %.lr.ph.i90 ], [ %indvars.iv.next.i93, %119 ]
-  %.025.i = phi i32 [ 0, %.lr.ph.i90 ], [ %.1.i, %119 ]
-  %97 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleLSBP", ptr %.val.i91, i64 %indvars.iv.i92
-  %98 = load float, ptr %97, align 4, !tbaa !205
-  %99 = fsub float %92, %98
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %101 = load float, ptr %100, align 4, !tbaa !206
-  %102 = fsub float %93, %101
-  %103 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %104 = load float, ptr %103, align 4, !tbaa !207
-  %105 = fsub float %94, %104
-  %106 = tail call noundef float @llvm.fabs.f32(float %99)
-  %107 = tail call noundef float @llvm.fabs.f32(float %102)
-  %108 = fadd float %106, %107
-  %109 = tail call noundef float @llvm.fabs.f32(float %105)
-  %110 = fadd float %108, %109
-  %111 = fcmp olt float %110, %storemerge
-  br i1 %111, label %112, label %119
+96:                                               ; preds = %120, %.lr.ph.i90
+  %.0104 = phi float [ 1.000000e+09, %.lr.ph.i90 ], [ %.1, %120 ]
+  %97 = phi float [ 1.000000e+09, %.lr.ph.i90 ], [ %122, %120 ]
+  %indvars.iv.i92 = phi i64 [ %91, %.lr.ph.i90 ], [ %indvars.iv.next.i93, %120 ]
+  %.025.i = phi i32 [ 0, %.lr.ph.i90 ], [ %.1.i, %120 ]
+  %98 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleLSBP", ptr %.val.i91, i64 %indvars.iv.i92
+  %99 = load float, ptr %98, align 4, !tbaa !205
+  %100 = fsub float %93, %99
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  %102 = load float, ptr %101, align 4, !tbaa !206
+  %103 = fsub float %94, %102
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %105 = load float, ptr %104, align 4, !tbaa !207
+  %106 = fsub float %95, %105
+  %107 = tail call noundef float @llvm.fabs.f32(float %100)
+  %108 = tail call noundef float @llvm.fabs.f32(float %103)
+  %109 = fadd float %107, %108
+  %110 = tail call noundef float @llvm.fabs.f32(float %106)
+  %111 = fadd float %109, %110
+  %112 = fcmp olt float %111, %storemerge
+  br i1 %112, label %113, label %120
 
-112:                                              ; preds = %95
-  %113 = getelementptr inbounds nuw i8, ptr %97, i64 12
-  %114 = load i32, ptr %113, align 4, !tbaa !332
-  %115 = xor i32 %114, %69
-  %116 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %115)
-  %117 = icmp slt i32 %116, %71
-  %118 = zext i1 %117 to i32
-  %spec.select.i = add nsw i32 %.025.i, %118
-  br label %119
+113:                                              ; preds = %96
+  %114 = getelementptr inbounds nuw i8, ptr %98, i64 12
+  %115 = load i32, ptr %114, align 4, !tbaa !332
+  %116 = xor i32 %115, %70
+  %117 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %116)
+  %118 = icmp slt i32 %117, %72
+  %119 = zext i1 %118 to i32
+  %spec.select.i = add nsw i32 %.025.i, %119
+  br label %120
 
-119:                                              ; preds = %112, %95
-  %.1.i = phi i32 [ %.025.i, %95 ], [ %spec.select.i, %112 ]
-  %120 = fcmp olt float %110, %96
-  %.1 = select i1 %120, float %110, float %.0104
-  %121 = select i1 %120, float %110, float %96
+120:                                              ; preds = %113, %96
+  %.1.i = phi i32 [ %.025.i, %96 ], [ %spec.select.i, %113 ]
+  %121 = fcmp olt float %111, %97
+  %.1 = select i1 %121, float %111, float %.0104
+  %122 = select i1 %121, float %111, float %97
   %indvars.iv.next.i93 = add nsw i64 %indvars.iv.i92, 1
-  %122 = icmp slt i64 %indvars.iv.next.i93, %91
-  br i1 %122, label %95, label %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP12countMatchesEiiRKNS_7Point3_IfEEifiRf.exit, !llvm.loop !333
+  %123 = icmp slt i64 %indvars.iv.next.i93, %92
+  br i1 %123, label %96, label %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP12countMatchesEiiRKNS_7Point3_IfEEifiRf.exit, !llvm.loop !333
 
-_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP12countMatchesEiiRKNS_7Point3_IfEEifiRf.exit: ; preds = %119, %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP8getDMeanEii.exit
-  %.2 = phi float [ 1.000000e+09, %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP8getDMeanEii.exit ], [ %.1, %119 ]
-  %.0.lcssa.i = phi i32 [ 0, %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP8getDMeanEii.exit ], [ %.1.i, %119 ]
-  %123 = getelementptr inbounds nuw i8, ptr %22, i64 88
-  %124 = load i32, ptr %123, align 8, !tbaa !230
-  %125 = icmp slt i32 %.0.lcssa.i, %124
-  %126 = load ptr, ptr %17, align 8, !tbaa !334
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  %128 = load ptr, ptr %127, align 8, !tbaa !27
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 72
-  %130 = load ptr, ptr %129, align 8, !tbaa !34
-  %131 = load i64, ptr %130, align 8, !tbaa !35
-  %132 = mul i64 %131, %47
-  %133 = getelementptr inbounds nuw i8, ptr %128, i64 %132
-  %134 = getelementptr inbounds i8, ptr %133, i64 %50
-  br i1 %125, label %135, label %148
+_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP12countMatchesEiiRKNS_7Point3_IfEEifiRf.exit: ; preds = %120, %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP8getDMeanEii.exit
+  %.2 = phi float [ 1.000000e+09, %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP8getDMeanEii.exit ], [ %.1, %120 ]
+  %.0.lcssa.i = phi i32 [ 0, %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP8getDMeanEii.exit ], [ %.1.i, %120 ]
+  %124 = getelementptr inbounds nuw i8, ptr %22, i64 88
+  %125 = load i32, ptr %124, align 8, !tbaa !230
+  %126 = icmp slt i32 %.0.lcssa.i, %125
+  %127 = load ptr, ptr %17, align 8, !tbaa !334
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  %129 = load ptr, ptr %128, align 8, !tbaa !27
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 72
+  %131 = load ptr, ptr %130, align 8, !tbaa !34
+  %132 = load i64, ptr %131, align 8, !tbaa !35
+  %133 = mul i64 %132, %48
+  %134 = getelementptr inbounds nuw i8, ptr %129, i64 %133
+  %135 = getelementptr inbounds i8, ptr %134, i64 %51
+  br i1 %126, label %136, label %149
 
-135:                                              ; preds = %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP12countMatchesEiiRKNS_7Point3_IfEEifiRf.exit
-  store i8 -1, ptr %134, align 1, !tbaa !90
-  %136 = load ptr, ptr %3, align 8, !tbaa !287
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 60
-  %138 = load float, ptr %137, align 4, !tbaa !223
-  %139 = fdiv float %138, %43
-  %140 = load ptr, ptr %18, align 8, !tbaa !27
-  %141 = load ptr, ptr %19, align 8, !tbaa !34
-  %142 = load i64, ptr %141, align 8, !tbaa !35
-  %143 = mul i64 %142, %47
-  %144 = getelementptr inbounds nuw i8, ptr %140, i64 %143
-  %145 = getelementptr inbounds float, ptr %144, i64 %50
-  %146 = load float, ptr %145, align 4, !tbaa !37
-  %147 = fadd float %139, %146
-  store float %147, ptr %145, align 4, !tbaa !37
-  br label %301
+136:                                              ; preds = %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP12countMatchesEiiRKNS_7Point3_IfEEifiRf.exit
+  store i8 -1, ptr %135, align 1, !tbaa !90
+  %137 = load ptr, ptr %3, align 8, !tbaa !287
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 60
+  %139 = load float, ptr %138, align 4, !tbaa !223
+  %140 = fdiv float %139, %44
+  %141 = load ptr, ptr %18, align 8, !tbaa !27
+  %142 = load ptr, ptr %19, align 8, !tbaa !34
+  %143 = load i64, ptr %142, align 8, !tbaa !35
+  %144 = mul i64 %143, %48
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 %144
+  %146 = getelementptr inbounds float, ptr %145, i64 %51
+  %147 = load float, ptr %146, align 4, !tbaa !37
+  %148 = fadd float %140, %147
+  store float %148, ptr %146, align 4, !tbaa !37
+  br label %302
 
-148:                                              ; preds = %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP12countMatchesEiiRKNS_7Point3_IfEEifiRf.exit
-  store i8 0, ptr %134, align 1, !tbaa !90
-  %149 = load ptr, ptr %3, align 8, !tbaa !287
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 64
-  %151 = load float, ptr %150, align 8, !tbaa !224
-  %152 = fdiv float %151, %43
-  %153 = load ptr, ptr %18, align 8, !tbaa !27
-  %154 = load ptr, ptr %19, align 8, !tbaa !34
-  %155 = load i64, ptr %154, align 8, !tbaa !35
-  %156 = mul i64 %155, %47
-  %157 = getelementptr inbounds nuw i8, ptr %153, i64 %156
-  %158 = getelementptr inbounds float, ptr %157, i64 %50
-  %159 = load float, ptr %158, align 4, !tbaa !37
-  %160 = fsub float %159, %152
-  store float %160, ptr %158, align 4, !tbaa !37
-  %161 = getelementptr inbounds nuw i8, ptr %149, i64 384
-  %162 = load i64, ptr %161, align 8, !tbaa !71
-  %163 = and i64 %162, 4294967295
-  %164 = mul nuw i64 %163, 4164903690
-  %165 = lshr i64 %162, 32
-  %166 = add nuw i64 %164, %165
-  store i64 %166, ptr %161, align 8, !tbaa !71
-  %167 = trunc i64 %166 to i32
-  %168 = uitofp i32 %167 to float
-  %169 = fmul float %168, 0x3DF0000000000000
-  %170 = load i64, ptr %154, align 8, !tbaa !35
-  %171 = mul i64 %170, %47
-  %172 = getelementptr inbounds nuw i8, ptr %153, i64 %171
-  %173 = getelementptr inbounds float, ptr %172, i64 %50
-  %174 = load float, ptr %173, align 4, !tbaa !37
-  %175 = fdiv float 1.000000e+00, %174
-  %176 = fcmp olt float %169, %175
-  br i1 %176, label %177, label %216
+149:                                              ; preds = %_ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP12countMatchesEiiRKNS_7Point3_IfEEifiRf.exit
+  store i8 0, ptr %135, align 1, !tbaa !90
+  %150 = load ptr, ptr %3, align 8, !tbaa !287
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 64
+  %152 = load float, ptr %151, align 8, !tbaa !224
+  %153 = fdiv float %152, %44
+  %154 = load ptr, ptr %18, align 8, !tbaa !27
+  %155 = load ptr, ptr %19, align 8, !tbaa !34
+  %156 = load i64, ptr %155, align 8, !tbaa !35
+  %157 = mul i64 %156, %48
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 %157
+  %159 = getelementptr inbounds float, ptr %158, i64 %51
+  %160 = load float, ptr %159, align 4, !tbaa !37
+  %161 = fsub float %160, %153
+  store float %161, ptr %159, align 4, !tbaa !37
+  %162 = getelementptr inbounds nuw i8, ptr %150, i64 384
+  %163 = load i64, ptr %162, align 8, !tbaa !71
+  %164 = and i64 %163, 4294967295
+  %165 = mul nuw i64 %164, 4164903690
+  %166 = lshr i64 %163, 32
+  %167 = add nuw i64 %165, %166
+  store i64 %167, ptr %162, align 8, !tbaa !71
+  %168 = trunc i64 %167 to i32
+  %169 = uitofp i32 %168 to float
+  %170 = fmul float %169, 0x3DF0000000000000
+  %171 = load i64, ptr %155, align 8, !tbaa !35
+  %172 = mul i64 %171, %48
+  %173 = getelementptr inbounds nuw i8, ptr %154, i64 %172
+  %174 = getelementptr inbounds float, ptr %173, i64 %51
+  %175 = load float, ptr %174, align 4, !tbaa !37
+  %176 = fdiv float 1.000000e+00, %175
+  %177 = fcmp olt float %170, %176
+  br i1 %177, label %178, label %217
 
-177:                                              ; preds = %148
-  %178 = load ptr, ptr %15, align 8, !tbaa !331
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %180 = load ptr, ptr %179, align 8, !tbaa !27
-  %181 = getelementptr inbounds nuw i8, ptr %178, i64 72
-  %182 = load ptr, ptr %181, align 8, !tbaa !34
-  %183 = load i64, ptr %182, align 8, !tbaa !35
-  %184 = mul i64 %183, %47
-  %185 = getelementptr inbounds nuw i8, ptr %180, i64 %184
-  %186 = getelementptr inbounds %"class.cv::Point3_", ptr %185, i64 %50
-  %.sroa.015.0.copyload = load <2 x float>, ptr %186, align 4
-  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 8
+178:                                              ; preds = %149
+  %179 = load ptr, ptr %15, align 8, !tbaa !331
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
+  %181 = load ptr, ptr %180, align 8, !tbaa !27
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 72
+  %183 = load ptr, ptr %182, align 8, !tbaa !34
+  %184 = load i64, ptr %183, align 8, !tbaa !35
+  %185 = mul i64 %184, %48
+  %186 = getelementptr inbounds nuw i8, ptr %181, i64 %185
+  %187 = getelementptr inbounds %"class.cv::Point3_", ptr %186, i64 %51
+  %.sroa.015.0.copyload = load <2 x float>, ptr %187, align 4
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 8
   %.sroa.216.0.copyload = load float, ptr %.sroa.216.0..sroa_idx, align 4, !tbaa !37
-  %187 = load ptr, ptr %16, align 8, !tbaa !330
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
-  %189 = load ptr, ptr %188, align 8, !tbaa !27
-  %190 = getelementptr inbounds nuw i8, ptr %187, i64 72
-  %191 = load ptr, ptr %190, align 8, !tbaa !34
-  %192 = load i64, ptr %191, align 8, !tbaa !35
-  %193 = mul i64 %192, %47
-  %194 = getelementptr inbounds nuw i8, ptr %189, i64 %193
-  %195 = getelementptr inbounds i32, ptr %194, i64 %50
-  %196 = load i32, ptr %195, align 4, !tbaa !9
-  %197 = getelementptr inbounds nuw i8, ptr %149, i64 44
-  %198 = load i32, ptr %197, align 4, !tbaa !219
-  %199 = icmp eq i32 %198, 0
-  br i1 %199, label %_ZN2cv3RNG7uniformEii.exit, label %200
+  %188 = load ptr, ptr %16, align 8, !tbaa !330
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
+  %190 = load ptr, ptr %189, align 8, !tbaa !27
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 72
+  %192 = load ptr, ptr %191, align 8, !tbaa !34
+  %193 = load i64, ptr %192, align 8, !tbaa !35
+  %194 = mul i64 %193, %48
+  %195 = getelementptr inbounds nuw i8, ptr %190, i64 %194
+  %196 = getelementptr inbounds i32, ptr %195, i64 %51
+  %197 = load i32, ptr %196, align 4, !tbaa !9
+  %198 = getelementptr inbounds nuw i8, ptr %150, i64 44
+  %199 = load i32, ptr %198, align 4, !tbaa !219
+  %200 = icmp eq i32 %199, 0
+  br i1 %200, label %_ZN2cv3RNG7uniformEii.exit, label %201
 
-200:                                              ; preds = %177
-  %201 = and i64 %166, 4294967295
-  %202 = mul nuw i64 %201, 4164903690
-  %203 = lshr i64 %166, 32
-  %204 = add nuw i64 %202, %203
-  store i64 %204, ptr %161, align 8, !tbaa !71
-  %205 = trunc i64 %204 to i32
-  %206 = urem i32 %205, %198
+201:                                              ; preds = %178
+  %202 = and i64 %167, 4294967295
+  %203 = mul nuw i64 %202, 4164903690
+  %204 = lshr i64 %167, 32
+  %205 = add nuw i64 %203, %204
+  store i64 %205, ptr %162, align 8, !tbaa !71
+  %206 = trunc i64 %205 to i32
+  %207 = urem i32 %206, %199
   br label %_ZN2cv3RNG7uniformEii.exit
 
-_ZN2cv3RNG7uniformEii.exit:                       ; preds = %177, %200
-  %207 = phi i32 [ %206, %200 ], [ 0, %177 ]
-  %208 = load i32, ptr %12, align 4, !tbaa !254
-  %209 = mul nsw i32 %208, %24
-  %210 = load i32, ptr %11, align 8, !tbaa !247
-  %211 = mul nsw i32 %210, %25
-  %212 = add i32 %209, %207
-  %213 = add i32 %212, %211
-  %214 = sext i32 %213 to i64
+_ZN2cv3RNG7uniformEii.exit:                       ; preds = %178, %201
+  %208 = phi i32 [ %207, %201 ], [ 0, %178 ]
+  %209 = load i32, ptr %12, align 4, !tbaa !254
+  %210 = mul nsw i32 %209, %24
+  %211 = load i32, ptr %11, align 8, !tbaa !247
+  %212 = mul nsw i32 %211, %25
+  %213 = add i32 %210, %208
+  %214 = add i32 %213, %212
+  %215 = sext i32 %214 to i64
   %.val.i94 = load ptr, ptr %.val, align 8, !tbaa !258
-  %215 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleLSBP", ptr %.val.i94, i64 %214
-  store <2 x float> %.sroa.015.0.copyload, ptr %215, align 4
-  %.sroa.4100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %216 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleLSBP", ptr %.val.i94, i64 %215
+  store <2 x float> %.sroa.015.0.copyload, ptr %216, align 4
+  %.sroa.4100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %216, i64 8
   store float %.sroa.216.0.copyload, ptr %.sroa.4100.0..sroa_idx, align 4, !tbaa !37
-  %.sroa.5101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %215, i64 12
-  store i32 %196, ptr %.sroa.5101.0..sroa_idx, align 4, !tbaa !9
-  %.sroa.6102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %.sroa.5101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %216, i64 12
+  store i32 %197, ptr %.sroa.5101.0..sroa_idx, align 4, !tbaa !9
+  %.sroa.6102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %216, i64 16
   store float %.2, ptr %.sroa.6102.0..sroa_idx, align 4, !tbaa !37
   %.pre = load ptr, ptr %3, align 8, !tbaa !287
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 384
   %.pre110 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !71
   %.pre111 = load ptr, ptr %18, align 8, !tbaa !27
   %.pre112 = load ptr, ptr %19, align 8, !tbaa !34
-  br label %216
+  br label %217
 
-216:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit, %148
-  %217 = phi ptr [ %.pre112, %_ZN2cv3RNG7uniformEii.exit ], [ %154, %148 ]
-  %218 = phi ptr [ %.pre111, %_ZN2cv3RNG7uniformEii.exit ], [ %153, %148 ]
-  %219 = phi i64 [ %.pre110, %_ZN2cv3RNG7uniformEii.exit ], [ %166, %148 ]
-  %220 = phi ptr [ %.pre, %_ZN2cv3RNG7uniformEii.exit ], [ %149, %148 ]
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 384
-  %222 = and i64 %219, 4294967295
-  %223 = mul nuw i64 %222, 4164903690
-  %224 = lshr i64 %219, 32
-  %225 = add nuw i64 %223, %224
-  store i64 %225, ptr %221, align 8, !tbaa !71
-  %226 = trunc i64 %225 to i32
-  %227 = uitofp i32 %226 to float
-  %228 = fmul float %227, 0x3DF0000000000000
-  %229 = load i64, ptr %217, align 8, !tbaa !35
-  %230 = mul i64 %229, %47
-  %231 = getelementptr inbounds nuw i8, ptr %218, i64 %230
-  %232 = getelementptr inbounds float, ptr %231, i64 %50
-  %233 = load float, ptr %232, align 4, !tbaa !37
-  %234 = fdiv float 1.000000e+00, %233
-  %235 = fcmp olt float %228, %234
-  br i1 %235, label %236, label %301
+217:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit, %149
+  %218 = phi ptr [ %.pre112, %_ZN2cv3RNG7uniformEii.exit ], [ %155, %149 ]
+  %219 = phi ptr [ %.pre111, %_ZN2cv3RNG7uniformEii.exit ], [ %154, %149 ]
+  %220 = phi i64 [ %.pre110, %_ZN2cv3RNG7uniformEii.exit ], [ %167, %149 ]
+  %221 = phi ptr [ %.pre, %_ZN2cv3RNG7uniformEii.exit ], [ %150, %149 ]
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 384
+  %223 = and i64 %220, 4294967295
+  %224 = mul nuw i64 %223, 4164903690
+  %225 = lshr i64 %220, 32
+  %226 = add nuw i64 %224, %225
+  store i64 %226, ptr %222, align 8, !tbaa !71
+  %227 = trunc i64 %226 to i32
+  %228 = uitofp i32 %227 to float
+  %229 = fmul float %228, 0x3DF0000000000000
+  %230 = load i64, ptr %218, align 8, !tbaa !35
+  %231 = mul i64 %230, %48
+  %232 = getelementptr inbounds nuw i8, ptr %219, i64 %231
+  %233 = getelementptr inbounds float, ptr %232, i64 %51
+  %234 = load float, ptr %233, align 4, !tbaa !37
+  %235 = fdiv float 1.000000e+00, %234
+  %236 = fcmp olt float %229, %235
+  br i1 %236, label %237, label %302
 
-236:                                              ; preds = %216
-  %237 = and i64 %225, 4294967295
-  %238 = mul nuw i64 %237, 4164903690
-  %239 = lshr i64 %225, 32
-  %240 = add nuw i64 %238, %239
-  %241 = trunc i64 %240 to i32
-  %242 = urem i32 %241, 3
-  %243 = add i32 %24, -1
-  %244 = add i32 %243, %242
-  %245 = and i64 %240, 4294967295
-  %246 = mul nuw i64 %245, 4164903690
-  %247 = lshr i64 %240, 32
-  %248 = add nuw i64 %246, %247
-  store i64 %248, ptr %221, align 8, !tbaa !71
-  %249 = trunc i64 %248 to i32
-  %250 = urem i32 %249, 3
-  %251 = add i32 %25, -1
-  %252 = add i32 %251, %250
-  %253 = icmp sgt i32 %244, -1
-  br i1 %253, label %254, label %301
+237:                                              ; preds = %217
+  %238 = and i64 %226, 4294967295
+  %239 = mul nuw i64 %238, 4164903690
+  %240 = lshr i64 %226, 32
+  %241 = add nuw i64 %239, %240
+  %242 = trunc i64 %241 to i32
+  %243 = urem i32 %242, 3
+  %244 = add i32 %24, -1
+  %245 = add i32 %244, %243
+  %246 = and i64 %241, 4294967295
+  %247 = mul nuw i64 %246, 4164903690
+  %248 = lshr i64 %241, 32
+  %249 = add nuw i64 %247, %248
+  store i64 %249, ptr %222, align 8, !tbaa !71
+  %250 = trunc i64 %249 to i32
+  %251 = urem i32 %250, 3
+  %252 = add i32 %25, -1
+  %253 = add i32 %252, %251
+  %254 = icmp sgt i32 %245, -1
+  br i1 %254, label %255, label %302
 
-254:                                              ; preds = %236
-  %255 = load i32, ptr %20, align 4, !tbaa !335
-  %256 = icmp slt i32 %244, %255
-  %257 = icmp sgt i32 %252, -1
-  %or.cond = select i1 %256, i1 %257, i1 false
-  %258 = load i32, ptr %10, align 8
-  %259 = icmp slt i32 %252, %258
-  %or.cond89 = select i1 %or.cond, i1 %259, i1 false
-  br i1 %or.cond89, label %260, label %301
+255:                                              ; preds = %237
+  %256 = load i32, ptr %20, align 4, !tbaa !335
+  %257 = icmp slt i32 %245, %256
+  %258 = icmp sgt i32 %253, -1
+  %or.cond = select i1 %257, i1 %258, i1 false
+  %259 = load i32, ptr %10, align 8
+  %260 = icmp slt i32 %253, %259
+  %or.cond89 = select i1 %or.cond, i1 %260, i1 false
+  br i1 %or.cond89, label %261, label %302
 
-260:                                              ; preds = %254
-  %261 = load ptr, ptr %15, align 8, !tbaa !331
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  %263 = load ptr, ptr %262, align 8, !tbaa !27
-  %264 = getelementptr inbounds nuw i8, ptr %261, i64 72
-  %265 = load ptr, ptr %264, align 8, !tbaa !34
-  %266 = load i64, ptr %265, align 8, !tbaa !35
-  %267 = zext nneg i32 %244 to i64
-  %268 = mul i64 %266, %267
-  %269 = getelementptr inbounds nuw i8, ptr %263, i64 %268
-  %270 = zext nneg i32 %252 to i64
-  %271 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %269, i64 %270
-  %.sroa.02.0.copyload = load <2 x float>, ptr %271, align 4
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %271, i64 8
+261:                                              ; preds = %255
+  %262 = load ptr, ptr %15, align 8, !tbaa !331
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 16
+  %264 = load ptr, ptr %263, align 8, !tbaa !27
+  %265 = getelementptr inbounds nuw i8, ptr %262, i64 72
+  %266 = load ptr, ptr %265, align 8, !tbaa !34
+  %267 = load i64, ptr %266, align 8, !tbaa !35
+  %268 = zext nneg i32 %245 to i64
+  %269 = mul i64 %267, %268
+  %270 = getelementptr inbounds nuw i8, ptr %264, i64 %269
+  %271 = zext nneg i32 %253 to i64
+  %272 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %270, i64 %271
+  %.sroa.02.0.copyload = load <2 x float>, ptr %272, align 4
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %272, i64 8
   %.sroa.23.0.copyload = load float, ptr %.sroa.23.0..sroa_idx, align 4, !tbaa !37
-  %272 = load ptr, ptr %16, align 8, !tbaa !330
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 16
-  %274 = load ptr, ptr %273, align 8, !tbaa !27
-  %275 = getelementptr inbounds nuw i8, ptr %272, i64 72
-  %276 = load ptr, ptr %275, align 8, !tbaa !34
-  %277 = load i64, ptr %276, align 8, !tbaa !35
-  %278 = mul i64 %277, %267
-  %279 = getelementptr inbounds nuw i8, ptr %274, i64 %278
-  %280 = getelementptr inbounds nuw i32, ptr %279, i64 %270
-  %281 = load i32, ptr %280, align 4, !tbaa !9
-  %282 = getelementptr inbounds nuw i8, ptr %220, i64 44
-  %283 = load i32, ptr %282, align 4, !tbaa !219
-  %284 = icmp eq i32 %283, 0
-  br i1 %284, label %_ZN2cv3RNG7uniformEii.exit96, label %285
+  %273 = load ptr, ptr %16, align 8, !tbaa !330
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 16
+  %275 = load ptr, ptr %274, align 8, !tbaa !27
+  %276 = getelementptr inbounds nuw i8, ptr %273, i64 72
+  %277 = load ptr, ptr %276, align 8, !tbaa !34
+  %278 = load i64, ptr %277, align 8, !tbaa !35
+  %279 = mul i64 %278, %268
+  %280 = getelementptr inbounds nuw i8, ptr %275, i64 %279
+  %281 = getelementptr inbounds nuw i32, ptr %280, i64 %271
+  %282 = load i32, ptr %281, align 4, !tbaa !9
+  %283 = getelementptr inbounds nuw i8, ptr %221, i64 44
+  %284 = load i32, ptr %283, align 4, !tbaa !219
+  %285 = icmp eq i32 %284, 0
+  br i1 %285, label %_ZN2cv3RNG7uniformEii.exit96, label %286
 
-285:                                              ; preds = %260
-  %286 = and i64 %248, 4294967295
-  %287 = mul nuw i64 %286, 4164903690
-  %288 = lshr i64 %248, 32
-  %289 = add nuw i64 %287, %288
-  store i64 %289, ptr %221, align 8, !tbaa !71
-  %290 = trunc i64 %289 to i32
-  %291 = urem i32 %290, %283
+286:                                              ; preds = %261
+  %287 = and i64 %249, 4294967295
+  %288 = mul nuw i64 %287, 4164903690
+  %289 = lshr i64 %249, 32
+  %290 = add nuw i64 %288, %289
+  store i64 %290, ptr %222, align 8, !tbaa !71
+  %291 = trunc i64 %290 to i32
+  %292 = urem i32 %291, %284
   br label %_ZN2cv3RNG7uniformEii.exit96
 
-_ZN2cv3RNG7uniformEii.exit96:                     ; preds = %260, %285
-  %292 = phi i32 [ %291, %285 ], [ 0, %260 ]
-  %293 = load i32, ptr %12, align 4, !tbaa !254
-  %294 = mul nsw i32 %293, %244
-  %295 = load i32, ptr %11, align 8, !tbaa !247
-  %296 = mul nsw i32 %295, %252
-  %297 = add i32 %294, %292
-  %298 = add i32 %297, %296
-  %299 = sext i32 %298 to i64
+_ZN2cv3RNG7uniformEii.exit96:                     ; preds = %261, %286
+  %293 = phi i32 [ %292, %286 ], [ 0, %261 ]
+  %294 = load i32, ptr %12, align 4, !tbaa !254
+  %295 = mul nsw i32 %294, %245
+  %296 = load i32, ptr %11, align 8, !tbaa !247
+  %297 = mul nsw i32 %296, %253
+  %298 = add i32 %295, %293
+  %299 = add i32 %298, %297
+  %300 = sext i32 %299 to i64
   %.val.i97 = load ptr, ptr %.val, align 8, !tbaa !258
-  %300 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleLSBP", ptr %.val.i97, i64 %299
-  store <2 x float> %.sroa.02.0.copyload, ptr %300, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 8
+  %301 = getelementptr inbounds nuw %"class.cv::bgsegm::(anonymous namespace)::BackgroundSampleLSBP", ptr %.val.i97, i64 %300
+  store <2 x float> %.sroa.02.0.copyload, ptr %301, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %301, i64 8
   store float %.sroa.23.0.copyload, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !37
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 12
-  store i32 %281, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !9
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %300, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %301, i64 12
+  store i32 %282, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !9
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %301, i64 16
   store float %.2, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !37
   %.pre113 = load ptr, ptr %18, align 8, !tbaa !27
   %.pre114 = load ptr, ptr %19, align 8, !tbaa !34
   %.pre115 = load ptr, ptr %3, align 8, !tbaa !287
-  br label %301
+  br label %302
 
-301:                                              ; preds = %236, %254, %_ZN2cv3RNG7uniformEii.exit96, %216, %135
-  %302 = phi ptr [ %220, %236 ], [ %220, %254 ], [ %.pre115, %_ZN2cv3RNG7uniformEii.exit96 ], [ %220, %216 ], [ %136, %135 ]
-  %303 = phi ptr [ %217, %236 ], [ %217, %254 ], [ %.pre114, %_ZN2cv3RNG7uniformEii.exit96 ], [ %217, %216 ], [ %141, %135 ]
-  %304 = phi ptr [ %218, %236 ], [ %218, %254 ], [ %.pre113, %_ZN2cv3RNG7uniformEii.exit96 ], [ %218, %216 ], [ %140, %135 ]
-  %305 = load i64, ptr %303, align 8, !tbaa !35
-  %306 = mul i64 %305, %47
-  %307 = getelementptr inbounds nuw i8, ptr %304, i64 %306
-  %308 = getelementptr inbounds float, ptr %307, i64 %50
-  %309 = getelementptr inbounds nuw i8, ptr %302, i64 56
-  %310 = load float, ptr %309, align 4, !tbaa !37
-  %311 = load float, ptr %308, align 4, !tbaa !37
-  %312 = fcmp olt float %310, %311
-  %313 = select i1 %312, float %310, float %311
-  store float %313, ptr %308, align 4, !tbaa !37
-  %314 = getelementptr inbounds nuw i8, ptr %302, i64 52
-  %315 = load float, ptr %314, align 4, !tbaa !37
-  %316 = fcmp olt float %313, %315
-  %317 = select i1 %316, float %315, float %313
-  store float %317, ptr %308, align 4, !tbaa !37
-  %318 = add nsw i32 %.0109, 1
-  %319 = load i32, ptr %7, align 4, !tbaa !22
-  %320 = icmp slt i32 %318, %319
-  br i1 %320, label %21, label %._crit_edge, !llvm.loop !336
+302:                                              ; preds = %237, %255, %_ZN2cv3RNG7uniformEii.exit96, %217, %136
+  %303 = phi ptr [ %221, %237 ], [ %221, %255 ], [ %.pre115, %_ZN2cv3RNG7uniformEii.exit96 ], [ %221, %217 ], [ %137, %136 ]
+  %304 = phi ptr [ %218, %237 ], [ %218, %255 ], [ %.pre114, %_ZN2cv3RNG7uniformEii.exit96 ], [ %218, %217 ], [ %142, %136 ]
+  %305 = phi ptr [ %219, %237 ], [ %219, %255 ], [ %.pre113, %_ZN2cv3RNG7uniformEii.exit96 ], [ %219, %217 ], [ %141, %136 ]
+  %306 = load i64, ptr %304, align 8, !tbaa !35
+  %307 = mul i64 %306, %48
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 %307
+  %309 = getelementptr inbounds float, ptr %308, i64 %51
+  %310 = getelementptr inbounds nuw i8, ptr %303, i64 56
+  %311 = load float, ptr %310, align 4, !tbaa !37
+  %312 = load float, ptr %309, align 4, !tbaa !37
+  %313 = fcmp olt float %311, %312
+  %314 = select i1 %313, float %311, float %312
+  store float %314, ptr %309, align 4, !tbaa !37
+  %315 = getelementptr inbounds nuw i8, ptr %303, i64 52
+  %316 = load float, ptr %315, align 4, !tbaa !37
+  %317 = fcmp olt float %314, %316
+  %318 = select i1 %317, float %316, float %314
+  store float %318, ptr %309, align 4, !tbaa !37
+  %319 = add nsw i32 %.0109, 1
+  %320 = load i32, ptr %7, align 4, !tbaa !22
+  %321 = icmp slt i32 %319, %320
+  br i1 %321, label %21, label %._crit_edge, !llvm.loop !336
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

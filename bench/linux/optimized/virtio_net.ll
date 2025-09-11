@@ -1682,10 +1682,12 @@ define internal i32 @virtnet_probe(ptr noundef %0) #2 align 16 {
 593:                                              ; preds = %593, %590
   %594 = phi i64 [ 0, %590 ], [ %599, %593 ]
   %595 = load ptr, ptr %591, align 8
-  %596 = getelementptr %struct.receive_queue, ptr %595, i64 %594, i32 1
+  %.split.i = getelementptr %struct.receive_queue, ptr %595, i64 %594
+  %596 = getelementptr i8, ptr %.split.i, i64 8
   call void @__netif_napi_del(ptr noundef %596) #26
   %597 = load ptr, ptr %592, align 8
-  %598 = getelementptr %struct.send_queue, ptr %597, i64 %594, i32 5
+  %.split1.i = getelementptr %struct.send_queue, ptr %597, i64 %594
+  %598 = getelementptr i8, ptr %.split1.i, i64 688
   call void @__netif_napi_del(ptr noundef %598) #26
   %599 = add nuw nsw i64 %594, 1
   %600 = load i16, ptr %330, align 4
@@ -2081,7 +2083,7 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   tail call void @init_timer_key(ptr noundef nonnull %32, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #26
   %33 = load i16, ptr %13, align 4
   %34 = icmp eq i16 %33, 0
-  br i1 %34, label %.loopexit13, label %35
+  br i1 %34, label %.loopexit28, label %35
 
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2090,51 +2092,61 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
 37:                                               ; preds = %37, %35
   %38 = phi i64 [ 0, %35 ], [ %68, %37 ]
   %39 = load ptr, ptr %25, align 8
-  %40 = getelementptr %struct.receive_queue, ptr %39, i64 %38, i32 9
+  %.split = getelementptr %struct.receive_queue, ptr %39, i64 %38
+  %40 = getelementptr i8, ptr %.split, i64 624
   store ptr null, ptr %40, align 16
   %41 = load ptr, ptr %36, align 8
   %42 = load ptr, ptr %25, align 8
-  %43 = getelementptr %struct.receive_queue, ptr %42, i64 %38, i32 1
+  %.split9 = getelementptr %struct.receive_queue, ptr %42, i64 %38
+  %43 = getelementptr i8, ptr %.split9, i64 8
   %44 = load i32, ptr @napi_weight, align 4
   tail call void @netif_napi_add_weight(ptr noundef %41, ptr noundef %43, ptr noundef nonnull @virtnet_poll, i32 noundef %44) #26
   %45 = load ptr, ptr %36, align 8
   %46 = load ptr, ptr %18, align 8
-  %47 = getelementptr %struct.send_queue, ptr %46, i64 %38, i32 5
+  %.split10 = getelementptr %struct.send_queue, ptr %46, i64 %38
+  %47 = getelementptr i8, ptr %.split10, i64 688
   %48 = load i8, ptr @napi_tx, align 1, !range !6, !noundef !7
   %49 = icmp eq i8 %48, 0
   %50 = load i32, ptr @napi_weight, align 4
   %51 = select i1 %49, i32 0, i32 %50
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %52, i32 32, ptr nonnull elementtype(i8) %52) #26, !srcloc !35
+  %52 = getelementptr i8, ptr %.split10, i64 704
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %52, i32 32, ptr elementtype(i8) %52) #26, !srcloc !35
   tail call void @netif_napi_add_weight(ptr noundef %45, ptr noundef %47, ptr noundef nonnull @virtnet_poll_tx, i32 noundef %51) #26
   %53 = load ptr, ptr %25, align 8
-  %54 = getelementptr %struct.receive_queue, ptr %53, i64 %38, i32 6, i32 4
+  %.split11 = getelementptr %struct.receive_queue, ptr %53, i64 %38
+  %54 = getelementptr i8, ptr %.split11, i64 560
   store i64 68719476704, ptr %54, align 8
   %55 = load ptr, ptr %25, align 8
-  %56 = getelementptr %struct.receive_queue, ptr %55, i64 %38, i32 6, i32 4, i32 1
+  %.split12 = getelementptr %struct.receive_queue, ptr %55, i64 %38
+  %56 = getelementptr i8, ptr %.split12, i64 568
   store volatile ptr %56, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %57 = getelementptr i8, ptr %.split12, i64 576
   store volatile ptr %56, ptr %57, align 8
   %58 = load ptr, ptr %25, align 8
-  %59 = getelementptr %struct.receive_queue, ptr %58, i64 %38, i32 6, i32 4, i32 2
+  %.split13 = getelementptr %struct.receive_queue, ptr %58, i64 %38
+  %59 = getelementptr i8, ptr %.split13, i64 584
   store ptr @virtnet_rx_dim_work, ptr %59, align 8
   %60 = load ptr, ptr %25, align 8
-  %61 = getelementptr %struct.receive_queue, ptr %60, i64 %38, i32 6, i32 7
+  %.split14 = getelementptr %struct.receive_queue, ptr %60, i64 %38
+  %61 = getelementptr i8, ptr %.split14, i64 601
   store i8 0, ptr %61, align 1
   %62 = load ptr, ptr %25, align 8
-  %63 = getelementptr %struct.receive_queue, ptr %62, i64 %38, i32 12
+  %.split15 = getelementptr %struct.receive_queue, ptr %62, i64 %38
+  %63 = getelementptr i8, ptr %.split15, i64 656
   tail call void @sg_init_table(ptr noundef %63, i32 noundef 19) #26
   %64 = load ptr, ptr %25, align 8
-  %65 = getelementptr %struct.receive_queue, ptr %64, i64 %38, i32 10
+  %.split16 = getelementptr %struct.receive_queue, ptr %64, i64 %38
+  %65 = getelementptr i8, ptr %.split16, i64 632
   store i64 0, ptr %65, align 8
   %66 = load ptr, ptr %18, align 8
-  %67 = getelementptr %struct.send_queue, ptr %66, i64 %38, i32 1
+  %.split17 = getelementptr %struct.send_queue, ptr %66, i64 %38
+  %67 = getelementptr i8, ptr %.split17, i64 8
   tail call void @sg_init_table(ptr noundef %67, i32 noundef 19) #26
   %68 = add nuw nsw i64 %38, 1
   %69 = load i16, ptr %13, align 4
   %70 = zext i16 %69 to i64
   %71 = icmp samesign ult i64 %68, %70
-  br i1 %71, label %37, label %.loopexit13.loopexit, !llvm.loop !36
+  br i1 %71, label %37, label %.loopexit28.loopexit, !llvm.loop !36
 
 72:                                               ; preds = %20
   %73 = load ptr, ptr %18, align 8
@@ -2147,13 +2159,13 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   tail call void @kfree(ptr noundef %76) #26
   br label %264
 
-.loopexit13.loopexit:                             ; preds = %37
+.loopexit28.loopexit:                             ; preds = %37
   %77 = zext i16 %69 to i32
   %78 = shl nuw nsw i32 %77, 1
-  br label %.loopexit13
+  br label %.loopexit28
 
-.loopexit13:                                      ; preds = %.loopexit13.loopexit, %27
-  %79 = phi i32 [ %78, %.loopexit13.loopexit ], [ 0, %27 ]
+.loopexit28:                                      ; preds = %.loopexit28.loopexit, %27
+  %79 = phi i32 [ %78, %.loopexit28.loopexit ], [ 0, %27 ]
   %80 = load ptr, ptr %0, align 8
   tail call void @virtio_check_driver_offered_feature(ptr noundef %80, i32 noundef 17) #26
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 784
@@ -2166,16 +2178,16 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   %88 = shl nuw nsw i64 %87, 3
   %89 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %88, i32 noundef 3520) #32
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %.thread9, label %91
+  br i1 %90, label %.thread24, label %91
 
-91:                                               ; preds = %.loopexit13
+91:                                               ; preds = %.loopexit28
   %92 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %88, i32 noundef 3264) #32
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %.thread10, label %94
+  br i1 %93, label %.thread25, label %94
 
-.thread10:                                        ; preds = %91
+.thread25:                                        ; preds = %91
   tail call void @kfree(ptr noundef nonnull %89) #26
-  br label %.thread9
+  br label %.thread24
 
 94:                                               ; preds = %91
   %95 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %88, i32 noundef 3264) #32
@@ -2217,7 +2229,7 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
 117:                                              ; preds = %112, %108
   %118 = load i16, ptr %13, align 4
   %119 = icmp eq i16 %118, 0
-  br i1 %119, label %.loopexit12, label %120
+  br i1 %119, label %.loopexit27, label %120
 
 120:                                              ; preds = %117
   %121 = icmp eq ptr %109, null
@@ -2235,17 +2247,21 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   %130 = getelementptr ptr, ptr %92, i64 %129
   store ptr @skb_xmit_done, ptr %130, align 8
   %131 = load ptr, ptr %25, align 8
-  %132 = getelementptr %struct.receive_queue, ptr %131, i64 %123, i32 14
+  %.split18 = getelementptr %struct.receive_queue, ptr %131, i64 %123
+  %132 = getelementptr i8, ptr %.split18, i64 1268
   %133 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %132, ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %124) #26
   %134 = load ptr, ptr %18, align 8
-  %135 = getelementptr %struct.send_queue, ptr %134, i64 %123, i32 2
+  %.split19 = getelementptr %struct.send_queue, ptr %134, i64 %123
+  %135 = getelementptr i8, ptr %.split19, i64 616
   %136 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %135, ptr noundef nonnull dereferenceable(1) @.str.55, i32 noundef %124) #26
   %137 = load ptr, ptr %25, align 8
-  %138 = getelementptr %struct.receive_queue, ptr %137, i64 %123, i32 14
+  %.split20 = getelementptr %struct.receive_queue, ptr %137, i64 %123
+  %138 = getelementptr i8, ptr %.split20, i64 1268
   %139 = getelementptr ptr, ptr %95, i64 %126
   store ptr %138, ptr %139, align 8
   %140 = load ptr, ptr %18, align 8
-  %141 = getelementptr %struct.send_queue, ptr %140, i64 %123, i32 2
+  %.split21 = getelementptr %struct.send_queue, ptr %140, i64 %123
+  %141 = getelementptr i8, ptr %.split21, i64 616
   %142 = getelementptr ptr, ptr %95, i64 %129
   store ptr %141, ptr %142, align 8
   br i1 %121, label %145, label %143
@@ -2260,9 +2276,9 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   %147 = load i16, ptr %13, align 4
   %148 = zext i16 %147 to i64
   %149 = icmp samesign ult i64 %146, %148
-  br i1 %149, label %122, label %.loopexit12, !llvm.loop !37
+  br i1 %149, label %122, label %.loopexit27, !llvm.loop !37
 
-.loopexit12:                                      ; preds = %145, %117
+.loopexit27:                                      ; preds = %145, %117
   %150 = load ptr, ptr %0, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 752
   %152 = load ptr, ptr %151, align 8
@@ -2270,9 +2286,9 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   %154 = load ptr, ptr %153, align 8
   %155 = tail call i32 %154(ptr noundef %150, i32 noundef %86, ptr noundef nonnull %89, ptr noundef nonnull %92, ptr noundef nonnull %95, ptr noundef %109, ptr noundef null) #26
   %156 = icmp eq i32 %155, 0
-  br i1 %156, label %157, label %.loopexit11
+  br i1 %156, label %157, label %.loopexit26
 
-157:                                              ; preds = %.loopexit12
+157:                                              ; preds = %.loopexit27
   %158 = load i8, ptr %2, align 8, !range !6, !noundef !7
   %159 = icmp eq i8 %158, 0
   br i1 %159, label %176, label %160
@@ -2303,7 +2319,7 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
 176:                                              ; preds = %170, %160, %157
   %177 = load i16, ptr %13, align 4
   %178 = icmp eq i16 %177, 0
-  br i1 %178, label %.loopexit11, label %179
+  br i1 %178, label %.loopexit26, label %179
 
 179:                                              ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 74
@@ -2343,7 +2359,8 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   %206 = tail call i32 @llvm.usub.sat.i32(i32 %205, i32 %201)
   %207 = tail call i32 @llvm.umax.i32(i32 %206, i32 1518)
   %208 = load ptr, ptr %25, align 8
-  %209 = getelementptr %struct.receive_queue, ptr %208, i64 %183, i32 13
+  %.split22 = getelementptr %struct.receive_queue, ptr %208, i64 %183
+  %209 = getelementptr i8, ptr %.split22, i64 1264
   store i32 %207, ptr %209, align 16
   %210 = getelementptr i8, ptr %184, i64 8
   %211 = load ptr, ptr %210, align 8
@@ -2354,14 +2371,14 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   %215 = load i16, ptr %13, align 4
   %216 = zext i16 %215 to i64
   %217 = icmp samesign ult i64 %214, %216
-  br i1 %217, label %182, label %.loopexit11, !llvm.loop !38
+  br i1 %217, label %182, label %.loopexit26, !llvm.loop !38
 
-.loopexit11:                                      ; preds = %199, %176, %.loopexit12
+.loopexit26:                                      ; preds = %199, %176, %.loopexit27
   tail call void @kfree(ptr noundef %109) #26
   br label %218
 
-218:                                              ; preds = %.loopexit11, %105
-  %219 = phi i32 [ %155, %.loopexit11 ], [ -12, %105 ]
+218:                                              ; preds = %.loopexit26, %105
+  %219 = phi i32 [ %155, %.loopexit26 ], [ -12, %105 ]
   tail call void @kfree(ptr noundef nonnull %95) #26
   br label %220
 
@@ -2370,7 +2387,7 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   tail call void @kfree(ptr noundef nonnull %92) #26
   tail call void @kfree(ptr noundef nonnull %89) #26
   %222 = icmp eq i32 %221, 0
-  br i1 %222, label %223, label %.thread9
+  br i1 %222, label %223, label %.thread24
 
 223:                                              ; preds = %220
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2387,9 +2404,9 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
 231:                                              ; preds = %227, %223
   %232 = load i16, ptr %13, align 4
   %233 = icmp eq i16 %232, 0
-  br i1 %233, label %.loopexit, label %.preheader22
+  br i1 %233, label %.loopexit, label %.preheader37
 
-.preheader22:                                     ; preds = %231, %243
+.preheader37:                                     ; preds = %231, %243
   %234 = phi i64 [ %244, %243 ], [ 0, %231 ]
   %235 = load ptr, ptr %25, align 8
   %236 = getelementptr %struct.receive_queue, ptr %235, i64 %234
@@ -2398,18 +2415,19 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   %239 = icmp eq i32 %238, 0
   br i1 %239, label %240, label %243
 
-240:                                              ; preds = %.preheader22
+240:                                              ; preds = %.preheader37
   %241 = load ptr, ptr %25, align 8
-  %242 = getelementptr %struct.receive_queue, ptr %241, i64 %234, i32 18
+  %.split23 = getelementptr %struct.receive_queue, ptr %241, i64 %234
+  %242 = getelementptr i8, ptr %.split23, i64 1416
   store i8 1, ptr %242, align 8
   br label %243
 
-243:                                              ; preds = %240, %.preheader22
+243:                                              ; preds = %240, %.preheader37
   %244 = add nuw nsw i64 %234, 1
   %245 = load i16, ptr %13, align 4
   %246 = zext i16 %245 to i64
   %247 = icmp samesign ult i64 %244, %246
-  br i1 %247, label %.preheader22, label %.loopexit, !llvm.loop !39
+  br i1 %247, label %.preheader37, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %243, %231, %227
   tail call void @cpus_read_lock() #26
@@ -2417,19 +2435,21 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   tail call void @cpus_read_unlock() #26
   br label %264
 
-.thread9:                                         ; preds = %.loopexit13, %.thread10, %220
-  %248 = phi i32 [ %221, %220 ], [ -12, %.thread10 ], [ -12, %.loopexit13 ]
+.thread24:                                        ; preds = %.loopexit28, %.thread25, %220
+  %248 = phi i32 [ %221, %220 ], [ -12, %.thread25 ], [ -12, %.loopexit28 ]
   %249 = load i16, ptr %13, align 4
   %250 = icmp eq i16 %249, 0
   br i1 %250, label %virtnet_free_queues.exit, label %.preheader
 
-.preheader:                                       ; preds = %.thread9, %.preheader
-  %251 = phi i64 [ %256, %.preheader ], [ 0, %.thread9 ]
+.preheader:                                       ; preds = %.thread24, %.preheader
+  %251 = phi i64 [ %256, %.preheader ], [ 0, %.thread24 ]
   %252 = load ptr, ptr %25, align 8
-  %253 = getelementptr %struct.receive_queue, ptr %252, i64 %251, i32 1
+  %.split.i = getelementptr %struct.receive_queue, ptr %252, i64 %251
+  %253 = getelementptr i8, ptr %.split.i, i64 8
   tail call void @__netif_napi_del(ptr noundef %253) #26
   %254 = load ptr, ptr %18, align 8
-  %255 = getelementptr %struct.send_queue, ptr %254, i64 %251, i32 5
+  %.split1.i = getelementptr %struct.send_queue, ptr %254, i64 %251
+  %255 = getelementptr i8, ptr %.split1.i, i64 688
   tail call void @__netif_napi_del(ptr noundef %255) #26
   %256 = add nuw nsw i64 %251, 1
   %257 = load i16, ptr %13, align 4
@@ -2437,7 +2457,7 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
   %259 = icmp samesign ult i64 %256, %258
   br i1 %259, label %.preheader, label %virtnet_free_queues.exit, !llvm.loop !29
 
-virtnet_free_queues.exit:                         ; preds = %.preheader, %.thread9
+virtnet_free_queues.exit:                         ; preds = %.preheader, %.thread24
   tail call void @synchronize_net() #26
   %260 = load ptr, ptr %25, align 8
   tail call void @kfree(ptr noundef %260) #26
@@ -2731,14 +2751,14 @@ define internal fastcc void @free_receive_page_frags(ptr noundef readonly captur
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %7
 
-7:                                                ; preds = %58, %5
-  %8 = phi i64 [ 0, %5 ], [ %59, %58 ]
+7:                                                ; preds = %56, %5
+  %8 = phi i64 [ 0, %5 ], [ %57, %56 ]
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr %struct.receive_queue, ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 640
   %12 = load ptr, ptr %11, align 64
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %58, label %14
+  br i1 %13, label %56, label %14
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 1416
@@ -2755,72 +2775,73 @@ define internal fastcc void @free_receive_page_frags(ptr noundef readonly captur
 22:                                               ; preds = %18
   tail call fastcc void @virtnet_rq_unmap(ptr noundef %10, ptr noundef nonnull %20, i32 noundef 0)
   %.pre = load ptr, ptr %6, align 8
+  %.split.phi.trans.insert = getelementptr %struct.receive_queue, ptr %.pre, i64 %8
+  %.phi.trans.insert = getelementptr i8, ptr %.split.phi.trans.insert, i64 640
+  %.pre2 = load ptr, ptr %.phi.trans.insert, align 64
   br label %23
 
 23:                                               ; preds = %22, %18, %14
-  %24 = phi ptr [ %.pre, %22 ], [ %9, %18 ], [ %9, %14 ]
-  %25 = getelementptr %struct.receive_queue, ptr %24, i64 %8, i32 11
-  %26 = load ptr, ptr %25, align 64
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load volatile i64, ptr %27, align 8
-  %29 = and i64 %28, 1
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %34, label %31, !prof !20
+  %24 = phi ptr [ %.pre2, %22 ], [ %12, %18 ], [ %12, %14 ]
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load volatile i64, ptr %25, align 8
+  %27 = and i64 %26, 1
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %32, label %29, !prof !20
 
-31:                                               ; preds = %23
-  %32 = add nsw i64 %28, -1
-  %33 = inttoptr i64 %32 to ptr
-  br label %51
+29:                                               ; preds = %23
+  %30 = add nsw i64 %26, -1
+  %31 = inttoptr i64 %30 to ptr
+  br label %49
 
-34:                                               ; preds = %23
+32:                                               ; preds = %23
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #26
-          to label %51 [label %35], !srcloc !45
+          to label %49 [label %33], !srcloc !45
 
-35:                                               ; preds = %34
-  %36 = ptrtoint ptr %26 to i64
-  %37 = and i64 %36, 4095
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %50
+33:                                               ; preds = %32
+  %34 = ptrtoint ptr %24 to i64
+  %35 = and i64 %34, 4095
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %48
 
-39:                                               ; preds = %35
-  %40 = load volatile i64, ptr %26, align 8
-  %41 = and i64 %40, 64
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %50, label %43
+37:                                               ; preds = %33
+  %38 = load volatile i64, ptr %24, align 8
+  %39 = and i64 %38, 64
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %48, label %41
 
-43:                                               ; preds = %39
-  %44 = getelementptr i8, ptr %26, i64 72
-  %45 = load volatile i64, ptr %44, align 8
-  %46 = and i64 %45, 1
-  %47 = icmp eq i64 %46, 0
-  %48 = add nsw i64 %45, -1
-  %49 = inttoptr i64 %48 to ptr
-  br i1 %47, label %50, label %51
+41:                                               ; preds = %37
+  %42 = getelementptr i8, ptr %24, i64 72
+  %43 = load volatile i64, ptr %42, align 8
+  %44 = and i64 %43, 1
+  %45 = icmp eq i64 %44, 0
+  %46 = add nsw i64 %43, -1
+  %47 = inttoptr i64 %46 to ptr
+  br i1 %45, label %48, label %49
 
-50:                                               ; preds = %43, %39, %35
-  br label %51
+48:                                               ; preds = %41, %37, %33
+  br label %49
 
-51:                                               ; preds = %50, %43, %34, %31
-  %52 = phi ptr [ %33, %31 ], [ %49, %43 ], [ %26, %50 ], [ %26, %34 ]
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 52
-  %54 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, ptr nonnull elementtype(i32) %53) #26, !srcloc !46
-  %55 = icmp ult i8 %54, 2
-  tail call void @llvm.assume(i1 %55)
-  %56 = icmp eq i8 %54, 0
-  br i1 %56, label %58, label %57
+49:                                               ; preds = %48, %41, %32, %29
+  %50 = phi ptr [ %31, %29 ], [ %47, %41 ], [ %24, %48 ], [ %24, %32 ]
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 52
+  %52 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %51, ptr nonnull elementtype(i32) %51) #26, !srcloc !46
+  %53 = icmp ult i8 %52, 2
+  tail call void @llvm.assume(i1 %53)
+  %54 = icmp eq i8 %52, 0
+  br i1 %54, label %56, label %55
 
-57:                                               ; preds = %51
-  tail call void @__folio_put(ptr noundef %52) #26
-  br label %58
+55:                                               ; preds = %49
+  tail call void @__folio_put(ptr noundef %50) #26
+  br label %56
 
-58:                                               ; preds = %57, %51, %7
-  %59 = add nuw nsw i64 %8, 1
-  %60 = load i16, ptr %2, align 4
-  %61 = zext i16 %60 to i64
-  %62 = icmp samesign ult i64 %59, %61
-  br i1 %62, label %7, label %.loopexit, !llvm.loop !47
+56:                                               ; preds = %55, %49, %7
+  %57 = add nuw nsw i64 %8, 1
+  %58 = load i16, ptr %2, align 4
+  %59 = zext i16 %58 to i64
+  %60 = icmp samesign ult i64 %57, %59
+  br i1 %60, label %7, label %.loopexit, !llvm.loop !47
 
-.loopexit:                                        ; preds = %58, %1
+.loopexit:                                        ; preds = %56, %1
   ret void
 }
 
@@ -2849,8 +2870,8 @@ define internal range(i32 -2147483648, 1) i32 @virtnet_open(ptr noundef %0) #2 a
   %14 = getelementptr i8, ptr %0, i64 2512
   br label %15
 
-15:                                               ; preds = %68, %8
-  %16 = phi i64 [ 0, %8 ], [ %69, %68 ]
+15:                                               ; preds = %67, %8
+  %16 = phi i64 [ 0, %8 ], [ %68, %67 ]
   %17 = load i16, ptr %9, align 2
   %18 = zext i16 %17 to i64
   %19 = icmp samesign ult i64 %16, %18
@@ -2877,120 +2898,125 @@ define internal range(i32 -2147483648, 1) i32 @virtnet_open(ptr noundef %0) #2 a
   %34 = trunc nuw nsw i64 %16 to i32
   %35 = tail call i32 @__xdp_rxq_info_reg(ptr noundef nonnull %31, ptr noundef %28, i32 noundef %34, i32 noundef %33, i32 noundef 0) #26
   %36 = icmp slt i32 %35, 0
-  br i1 %36, label %.loopexit5, label %37
+  br i1 %36, label %.loopexit10, label %37
 
 37:                                               ; preds = %27
   %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr %struct.receive_queue, ptr %38, i64 %16, i32 16
+  %.split = getelementptr %struct.receive_queue, ptr %38, i64 %16
+  %39 = getelementptr i8, ptr %.split, i64 1344
   %40 = tail call i32 @xdp_rxq_info_reg_mem_model(ptr noundef %39, i32 noundef 0, ptr noundef null) #26
   %41 = icmp slt i32 %40, 0
   %42 = load ptr, ptr %10, align 8
-  br i1 %41, label %66, label %43
+  %.split5 = getelementptr %struct.receive_queue, ptr %42, i64 %16
+  br i1 %41, label %65, label %43
 
 43:                                               ; preds = %37
-  %44 = getelementptr %struct.receive_queue, ptr %42, i64 %16
-  %45 = load ptr, ptr %44, align 64
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  tail call void @napi_enable(ptr noundef nonnull %46) #26
-  %47 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !31
+  %44 = load ptr, ptr %.split5, align 64
+  %45 = getelementptr inbounds nuw i8, ptr %.split5, i64 8
+  tail call void @napi_enable(ptr noundef nonnull %45) #26
+  %46 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #30, !srcloc !31
   tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #26, !srcloc !32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !33
-  %48 = tail call zeroext i1 @napi_schedule_prep(ptr noundef nonnull %46) #26
-  br i1 %48, label %49, label %50
+  %47 = tail call zeroext i1 @napi_schedule_prep(ptr noundef nonnull %45) #26
+  br i1 %47, label %48, label %49
 
-49:                                               ; preds = %43
-  tail call void @virtqueue_disable_cb(ptr noundef %45) #26
-  tail call void @__napi_schedule(ptr noundef nonnull %46) #26
-  br label %50
+48:                                               ; preds = %43
+  tail call void @virtqueue_disable_cb(ptr noundef %44) #26
+  tail call void @__napi_schedule(ptr noundef nonnull %45) #26
+  br label %49
 
-50:                                               ; preds = %49, %43
-  tail call void @__local_bh_enable_ip(i64 noundef %47, i32 noundef 512) #26
-  %51 = load ptr, ptr %13, align 8
-  %52 = getelementptr %struct.send_queue, ptr %51, i64 %16
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 688
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 712
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %68, label %58
+49:                                               ; preds = %48, %43
+  tail call void @__local_bh_enable_ip(i64 noundef %46, i32 noundef 512) #26
+  %50 = load ptr, ptr %13, align 8
+  %51 = getelementptr %struct.send_queue, ptr %50, i64 %16
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 688
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 712
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %67, label %57
 
-58:                                               ; preds = %50
-  %59 = load i8, ptr %14, align 8, !range !6, !noundef !7
-  %60 = icmp eq i8 %59, 0
-  br i1 %60, label %61, label %62
+57:                                               ; preds = %49
+  %58 = load i8, ptr %14, align 8, !range !6, !noundef !7
+  %59 = icmp eq i8 %58, 0
+  br i1 %59, label %60, label %61
 
-61:                                               ; preds = %58
-  store i32 0, ptr %55, align 8
-  br label %68
+60:                                               ; preds = %57
+  store i32 0, ptr %54, align 8
+  br label %67
 
-62:                                               ; preds = %58
-  tail call void @napi_enable(ptr noundef nonnull %54) #26
+61:                                               ; preds = %57
+  tail call void @napi_enable(ptr noundef nonnull %53) #26
   tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #26, !srcloc !32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !33
-  %63 = tail call zeroext i1 @napi_schedule_prep(ptr noundef nonnull %54) #26
-  br i1 %63, label %64, label %65
+  %62 = tail call zeroext i1 @napi_schedule_prep(ptr noundef nonnull %53) #26
+  br i1 %62, label %63, label %64
 
-64:                                               ; preds = %62
-  tail call void @virtqueue_disable_cb(ptr noundef %53) #26
-  tail call void @__napi_schedule(ptr noundef nonnull %54) #26
-  br label %65
+63:                                               ; preds = %61
+  tail call void @virtqueue_disable_cb(ptr noundef %52) #26
+  tail call void @__napi_schedule(ptr noundef nonnull %53) #26
+  br label %64
 
-65:                                               ; preds = %64, %62
-  tail call void @__local_bh_enable_ip(i64 noundef %47, i32 noundef 512) #26
-  br label %68
+64:                                               ; preds = %63, %61
+  tail call void @__local_bh_enable_ip(i64 noundef %46, i32 noundef 512) #26
+  br label %67
 
-66:                                               ; preds = %37
-  %67 = getelementptr %struct.receive_queue, ptr %42, i64 %16, i32 16
-  tail call void @xdp_rxq_info_unreg(ptr noundef %67) #26
-  br label %.loopexit5
+65:                                               ; preds = %37
+  %66 = getelementptr i8, ptr %.split5, i64 1344
+  tail call void @xdp_rxq_info_unreg(ptr noundef %66) #26
+  br label %.loopexit10
 
-68:                                               ; preds = %50, %61, %65
-  %69 = add nuw nsw i64 %16, 1
-  %70 = load i16, ptr %5, align 4
-  %71 = zext i16 %70 to i64
-  %72 = icmp samesign ult i64 %69, %71
-  br i1 %72, label %15, label %.loopexit, !llvm.loop !48
+67:                                               ; preds = %49, %60, %64
+  %68 = add nuw nsw i64 %16, 1
+  %69 = load i16, ptr %5, align 4
+  %70 = zext i16 %69 to i64
+  %71 = icmp samesign ult i64 %68, %70
+  br i1 %71, label %15, label %.loopexit, !llvm.loop !48
 
-.loopexit5:                                       ; preds = %27, %66
-  %73 = phi i32 [ %40, %66 ], [ %35, %27 ]
+.loopexit10:                                      ; preds = %27, %65
+  %72 = phi i32 [ %40, %65 ], [ %35, %27 ]
   tail call void @_raw_spin_lock_bh(ptr noundef %3) #26
   store i8 0, ptr %4, align 8
   tail call void @_raw_spin_unlock_bh(ptr noundef %3) #26
-  %74 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef %11) #26
-  %75 = and i64 %16, 4294967295
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %.loopexit, label %.preheader
+  %73 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef %11) #26
+  %74 = and i64 %16, 4294967295
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit5, %85
-  %77 = phi i64 [ %78, %85 ], [ %16, %.loopexit5 ]
-  %78 = add nsw i64 %77, -1
-  %79 = load ptr, ptr %13, align 8
-  %80 = getelementptr %struct.send_queue, ptr %79, i64 %78, i32 5
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %85, label %84
+.preheader:                                       ; preds = %.loopexit10, %84
+  %76 = phi i64 [ %77, %84 ], [ %16, %.loopexit10 ]
+  %77 = add nsw i64 %76, -1
+  %78 = load ptr, ptr %13, align 8
+  %.split6 = getelementptr %struct.send_queue, ptr %78, i64 %77
+  %79 = getelementptr i8, ptr %.split6, i64 712
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %84, label %82
 
-84:                                               ; preds = %.preheader
-  tail call void @napi_disable(ptr noundef %80) #26
-  br label %85
+82:                                               ; preds = %.preheader
+  %83 = getelementptr i8, ptr %.split6, i64 688
+  tail call void @napi_disable(ptr noundef %83) #26
+  br label %84
 
-85:                                               ; preds = %84, %.preheader
-  %86 = load ptr, ptr %10, align 8
-  %87 = getelementptr %struct.receive_queue, ptr %86, i64 %78, i32 1
-  tail call void @napi_disable(ptr noundef %87) #26
-  %88 = load ptr, ptr %10, align 8
-  %89 = getelementptr %struct.receive_queue, ptr %88, i64 %78, i32 16
-  tail call void @xdp_rxq_info_unreg(ptr noundef %89) #26
-  %90 = load ptr, ptr %10, align 8
-  %91 = getelementptr %struct.receive_queue, ptr %90, i64 %78, i32 6, i32 4
-  %92 = tail call zeroext i1 @cancel_work_sync(ptr noundef %91) #26
-  %93 = icmp sgt i64 %77, 1
-  br i1 %93, label %.preheader, label %.loopexit, !llvm.loop !49
+84:                                               ; preds = %82, %.preheader
+  %85 = load ptr, ptr %10, align 8
+  %.split7 = getelementptr %struct.receive_queue, ptr %85, i64 %77
+  %86 = getelementptr i8, ptr %.split7, i64 8
+  tail call void @napi_disable(ptr noundef %86) #26
+  %87 = load ptr, ptr %10, align 8
+  %.split8 = getelementptr %struct.receive_queue, ptr %87, i64 %77
+  %88 = getelementptr i8, ptr %.split8, i64 1344
+  tail call void @xdp_rxq_info_unreg(ptr noundef %88) #26
+  %89 = load ptr, ptr %10, align 8
+  %.split9 = getelementptr %struct.receive_queue, ptr %89, i64 %77
+  %90 = getelementptr i8, ptr %.split9, i64 560
+  %91 = tail call zeroext i1 @cancel_work_sync(ptr noundef %90) #26
+  %92 = icmp sgt i64 %76, 1
+  br i1 %92, label %.preheader, label %.loopexit, !llvm.loop !49
 
-.loopexit:                                        ; preds = %68, %85, %.loopexit5, %1
-  %94 = phi i32 [ %73, %.loopexit5 ], [ 0, %1 ], [ %73, %85 ], [ 0, %68 ]
-  ret i32 %94
+.loopexit:                                        ; preds = %67, %84, %.loopexit10, %1
+  %93 = phi i32 [ %72, %.loopexit10 ], [ 0, %1 ], [ %72, %84 ], [ 0, %67 ]
+  ret i32 %93
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3015,25 +3041,29 @@ define internal noundef i32 @virtnet_close(ptr noundef %0) #2 align 16 {
 12:                                               ; preds = %20, %9
   %13 = phi i64 [ 0, %9 ], [ %28, %20 ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr %struct.send_queue, ptr %14, i64 %13, i32 5
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %20, label %19
+  %.split = getelementptr %struct.send_queue, ptr %14, i64 %13
+  %15 = getelementptr i8, ptr %.split, i64 712
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %20, label %18
 
-19:                                               ; preds = %12
-  tail call void @napi_disable(ptr noundef %15) #26
+18:                                               ; preds = %12
+  %19 = getelementptr i8, ptr %.split, i64 688
+  tail call void @napi_disable(ptr noundef %19) #26
   br label %20
 
-20:                                               ; preds = %19, %12
+20:                                               ; preds = %18, %12
   %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr %struct.receive_queue, ptr %21, i64 %13, i32 1
+  %.split1 = getelementptr %struct.receive_queue, ptr %21, i64 %13
+  %22 = getelementptr i8, ptr %.split1, i64 8
   tail call void @napi_disable(ptr noundef %22) #26
   %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr %struct.receive_queue, ptr %23, i64 %13, i32 16
+  %.split2 = getelementptr %struct.receive_queue, ptr %23, i64 %13
+  %24 = getelementptr i8, ptr %.split2, i64 1344
   tail call void @xdp_rxq_info_unreg(ptr noundef %24) #26
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr %struct.receive_queue, ptr %25, i64 %13, i32 6, i32 4
+  %.split3 = getelementptr %struct.receive_queue, ptr %25, i64 %13
+  %26 = getelementptr i8, ptr %.split3, i64 560
   %27 = tail call zeroext i1 @cancel_work_sync(ptr noundef %26) #26
   %28 = add nuw nsw i64 %13, 1
   %29 = load i16, ptr %6, align 4
@@ -3438,7 +3468,8 @@ define internal noundef i32 @start_xmit(ptr noundef %0, ptr noundef %1) #2 align
   br i1 %14, label %243, label %238
 
 238:                                              ; preds = %237
-  %239 = getelementptr %struct.netdev_queue, ptr %12, i64 %9, i32 13
+  %.split = getelementptr %struct.netdev_queue, ptr %12, i64 %9
+  %239 = getelementptr i8, ptr %.split, i64 144
   %240 = load i64, ptr %239, align 16
   %241 = and i64 %240, 3
   %242 = icmp eq i64 %241, 0
@@ -3794,7 +3825,8 @@ define internal void @virtnet_tx_timeout(ptr noundef %0, i32 noundef %1) #7 alig
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load volatile i64, ptr @jiffies, align 64
-  %17 = getelementptr %struct.netdev_queue, ptr %8, i64 %5, i32 12
+  %.split = getelementptr %struct.netdev_queue, ptr %8, i64 %5
+  %17 = getelementptr i8, ptr %.split, i64 136
   %18 = load volatile i64, ptr %17, align 8
   %19 = sub i64 %16, %18
   %20 = tail call i32 @jiffies_to_usecs(i64 noundef %19) #26
@@ -3818,34 +3850,36 @@ define internal void @virtnet_stats(ptr noundef %0, ptr noundef captures(none) %
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load i64, ptr %1, align 8
-  %.pre1 = load i64, ptr %9, align 8
-  %.pre2 = load i64, ptr %10, align 8
-  %.pre3 = load i64, ptr %11, align 8
-  %.pre4 = load i64, ptr %12, align 8
-  %.pre5 = load i64, ptr %13, align 8
+  %.pre2 = load i64, ptr %9, align 8
+  %.pre3 = load i64, ptr %10, align 8
+  %.pre4 = load i64, ptr %11, align 8
+  %.pre5 = load i64, ptr %12, align 8
+  %.pre6 = load i64, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %14, %6
-  %15 = phi i64 [ %.pre5, %6 ], [ %41, %14 ]
-  %16 = phi i64 [ %.pre4, %6 ], [ %40, %14 ]
-  %17 = phi i64 [ %.pre3, %6 ], [ %39, %14 ]
-  %18 = phi i64 [ %.pre2, %6 ], [ %38, %14 ]
-  %19 = phi i64 [ %.pre1, %6 ], [ %37, %14 ]
+  %15 = phi i64 [ %.pre6, %6 ], [ %41, %14 ]
+  %16 = phi i64 [ %.pre5, %6 ], [ %40, %14 ]
+  %17 = phi i64 [ %.pre4, %6 ], [ %39, %14 ]
+  %18 = phi i64 [ %.pre3, %6 ], [ %38, %14 ]
+  %19 = phi i64 [ %.pre2, %6 ], [ %37, %14 ]
   %20 = phi i64 [ %.pre, %6 ], [ %36, %14 ]
   %21 = phi i64 [ 0, %6 ], [ %42, %14 ]
   %22 = load ptr, ptr %7, align 8
   %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr %struct.send_queue, ptr %23, i64 %21, i32 3
+  %.split = getelementptr %struct.send_queue, ptr %23, i64 %21
+  %24 = getelementptr i8, ptr %.split, i64 632
   %25 = load volatile i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = getelementptr i8, ptr %.split, i64 640
   %27 = load volatile i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %28 = getelementptr i8, ptr %.split, i64 672
   %29 = load volatile i64, ptr %28, align 8
-  %30 = getelementptr %struct.receive_queue, ptr %22, i64 %21, i32 3
+  %.split1 = getelementptr %struct.receive_queue, ptr %22, i64 %21
+  %30 = getelementptr i8, ptr %.split1, i64 416
   %31 = load volatile i64, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = getelementptr i8, ptr %.split1, i64 424
   %33 = load volatile i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %34 = getelementptr i8, ptr %.split1, i64 432
   %35 = load volatile i64, ptr %34, align 8
   %36 = add i64 %20, %31
   store i64 %36, ptr %1, align 8
@@ -4216,8 +4250,8 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 408
   %109 = load ptr, ptr %108, align 8
-  %.fr17 = freeze ptr %109
-  %110 = icmp ne ptr %.fr17, null
+  %.fr22 = freeze ptr %109
+  %110 = icmp ne ptr %.fr22, null
   %111 = or i1 %70, %110
   br i1 %111, label %112, label %.loopexit
 
@@ -4226,12 +4260,12 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %114 = load volatile i64, ptr %113, align 8
   %115 = and i64 %114, 1
   %116 = icmp eq i64 %115, 0
-  br i1 %116, label %.loopexit16, label %117
+  br i1 %116, label %.loopexit20, label %117
 
 117:                                              ; preds = %112
   %118 = load i16, ptr %97, align 4
   %119 = icmp eq i16 %118, 0
-  br i1 %119, label %.loopexit16, label %120
+  br i1 %119, label %.loopexit20, label %120
 
 120:                                              ; preds = %117
   %121 = getelementptr i8, ptr %0, i64 2328
@@ -4240,33 +4274,35 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
 122:                                              ; preds = %132, %120
   %123 = phi i64 [ 0, %120 ], [ %133, %132 ]
   %124 = load ptr, ptr %106, align 8
-  %125 = getelementptr %struct.receive_queue, ptr %124, i64 %123, i32 1
+  %.split = getelementptr %struct.receive_queue, ptr %124, i64 %123
+  %125 = getelementptr i8, ptr %.split, i64 8
   tail call void @napi_disable(ptr noundef %125) #26
   %126 = load ptr, ptr %121, align 8
-  %127 = getelementptr %struct.send_queue, ptr %126, i64 %123, i32 5
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %129 = load i32, ptr %128, align 8
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %132, label %131
+  %.split12 = getelementptr %struct.send_queue, ptr %126, i64 %123
+  %127 = getelementptr i8, ptr %.split12, i64 712
+  %128 = load i32, ptr %127, align 8
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %132, label %130
 
-131:                                              ; preds = %122
-  tail call void @napi_disable(ptr noundef %127) #26
+130:                                              ; preds = %122
+  %131 = getelementptr i8, ptr %.split12, i64 688
+  tail call void @napi_disable(ptr noundef %131) #26
   br label %132
 
-132:                                              ; preds = %131, %122
+132:                                              ; preds = %130, %122
   %133 = add nuw nsw i64 %123, 1
   %134 = load i16, ptr %97, align 4
   %135 = zext i16 %134 to i64
   %136 = icmp samesign ult i64 %133, %135
-  br i1 %136, label %122, label %.loopexit16, !llvm.loop !68
+  br i1 %136, label %122, label %.loopexit20, !llvm.loop !68
 
-.loopexit16:                                      ; preds = %132, %117, %112
+.loopexit20:                                      ; preds = %132, %117, %112
   br i1 %70, label %167, label %137
 
-137:                                              ; preds = %.loopexit16
+137:                                              ; preds = %.loopexit20
   %138 = load i16, ptr %97, align 4
   %139 = icmp eq i16 %138, 0
-  br i1 %139, label %.loopexit15, label %140
+  br i1 %139, label %.loopexit19, label %140
 
 140:                                              ; preds = %137
   %141 = getelementptr i8, ptr %0, i64 2592
@@ -4278,7 +4314,8 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %145 = phi i64 [ 0, %140 ], [ %163, %162 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !69
   %146 = load ptr, ptr %106, align 8
-  %147 = getelementptr %struct.receive_queue, ptr %146, i64 %145, i32 2
+  %.split13 = getelementptr %struct.receive_queue, ptr %146, i64 %145
+  %147 = getelementptr i8, ptr %.split13, i64 408
   store volatile ptr null, ptr %147, align 8
   %148 = icmp eq i64 %145, 0
   br i1 %148, label %149, label %162
@@ -4315,13 +4352,13 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   %164 = load i16, ptr %97, align 4
   %165 = zext i16 %164 to i64
   %166 = icmp samesign ult i64 %163, %165
-  br i1 %166, label %144, label %.loopexit15, !llvm.loop !70
+  br i1 %166, label %144, label %.loopexit19, !llvm.loop !70
 
-.loopexit15:                                      ; preds = %162, %137
+.loopexit19:                                      ; preds = %162, %137
   call void @synchronize_net() #26
   br label %167
 
-167:                                              ; preds = %.loopexit15, %.loopexit16
+167:                                              ; preds = %.loopexit19, %.loopexit20
   %168 = zext i16 %105 to i32
   %169 = add nuw nsw i32 %168, %94
   %170 = trunc i32 %169 to i16
@@ -4339,36 +4376,38 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   store i8 1, ptr %176, align 2
   %177 = load i16, ptr %97, align 4
   %178 = icmp eq i16 %177, 0
-  br i1 %178, label %.loopexit12, label %179
+  br i1 %178, label %.loopexit16, label %179
 
 179:                                              ; preds = %175
   %180 = getelementptr i8, ptr %0, i64 2592
   %181 = getelementptr i8, ptr %0, i64 2552
   %182 = getelementptr i8, ptr %0, i64 2320
-  br i1 %110, label %.split.us, label %.split
+  br i1 %110, label %.split21.us, label %.split21
 
-.split.us:                                        ; preds = %179, %.split.us
-  %183 = phi i64 [ %186, %.split.us ], [ 0, %179 ]
+.split21.us:                                      ; preds = %179, %.split21.us
+  %183 = phi i64 [ %186, %.split21.us ], [ 0, %179 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !71
   %184 = load ptr, ptr %106, align 8
-  %185 = getelementptr %struct.receive_queue, ptr %184, i64 %183, i32 2
+  %.split15.us = getelementptr %struct.receive_queue, ptr %184, i64 %183
+  %185 = getelementptr i8, ptr %.split15.us, i64 408
   store volatile ptr %10, ptr %185, align 8
   %186 = add nuw nsw i64 %183, 1
   %187 = load i16, ptr %97, align 4
   %188 = zext i16 %187 to i64
   %189 = icmp samesign ult i64 %186, %188
-  br i1 %189, label %.split.us, label %.loopexit12.thread, !llvm.loop !72
+  br i1 %189, label %.split21.us, label %.loopexit16.thread, !llvm.loop !72
 
-.split:                                           ; preds = %179, %206
+.split21:                                         ; preds = %179, %206
   %190 = phi i64 [ %207, %206 ], [ 0, %179 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !71
   %191 = load ptr, ptr %106, align 8
-  %192 = getelementptr %struct.receive_queue, ptr %191, i64 %190, i32 2
+  %.split15 = getelementptr %struct.receive_queue, ptr %191, i64 %190
+  %192 = getelementptr i8, ptr %.split15, i64 408
   store volatile ptr %10, ptr %192, align 8
   %.not = icmp eq i64 %190, 0
   br i1 %.not, label %193, label %206
 
-193:                                              ; preds = %.split
+193:                                              ; preds = %.split21
   %194 = load i64, ptr %180, align 8
   %195 = icmp eq i64 %194, 0
   br i1 %195, label %206, label %196
@@ -4395,17 +4434,17 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %206
 
-206:                                              ; preds = %205, %193, %.split
+206:                                              ; preds = %205, %193, %.split21
   %207 = add nuw nsw i64 %190, 1
   %208 = load i16, ptr %97, align 4
   %209 = zext i16 %208 to i64
   %210 = icmp samesign ult i64 %207, %209
-  br i1 %210, label %.split, label %.loopexit12, !llvm.loop !72
+  br i1 %210, label %.split21, label %.loopexit16, !llvm.loop !72
 
-.loopexit12:                                      ; preds = %206, %175
+.loopexit16:                                      ; preds = %206, %175
   br i1 %110, label %thread-pre-split, label %211
 
-211:                                              ; preds = %.loopexit12
+211:                                              ; preds = %.loopexit16
   call void @xdp_features_set_redirect_target(ptr noundef %0, i1 noundef zeroext true) #26
   br label %thread-pre-split
 
@@ -4415,16 +4454,16 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_xdp(ptr noundef %0, ptr n
   store i8 0, ptr %213, align 2
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %.loopexit12, %211, %212
+thread-pre-split:                                 ; preds = %.loopexit16, %211, %212
   %.pr = load i16, ptr %97, align 4
-  br label %.loopexit12.thread
+  br label %.loopexit16.thread
 
-.loopexit12.thread:                               ; preds = %.split.us, %thread-pre-split
-  %214 = phi i16 [ %.pr, %thread-pre-split ], [ %187, %.split.us ]
+.loopexit16.thread:                               ; preds = %.split21.us, %thread-pre-split
+  %214 = phi i16 [ %.pr, %thread-pre-split ], [ %187, %.split21.us ]
   %215 = icmp eq i16 %214, 0
   br i1 %215, label %.loopexit, label %216
 
-216:                                              ; preds = %.loopexit12.thread
+216:                                              ; preds = %.loopexit16.thread
   %217 = getelementptr i8, ptr %0, i64 2328
   %218 = getelementptr i8, ptr %0, i64 2512
   br label %219
@@ -4497,7 +4536,7 @@ thread-pre-split:                                 ; preds = %.loopexit12, %211, 
   br i1 %252, label %219, label %.loopexit, !llvm.loop !73
 
 253:                                              ; preds = %167
-  br i1 %70, label %.loopexit14, label %254
+  br i1 %70, label %.loopexit18, label %254
 
 254:                                              ; preds = %253
   %255 = getelementptr i8, ptr %0, i64 2592
@@ -4532,27 +4571,28 @@ thread-pre-split:                                 ; preds = %.loopexit12, %211, 
 270:                                              ; preds = %269, %254
   %271 = load i16, ptr %97, align 4
   %272 = icmp eq i16 %271, 0
-  br i1 %272, label %.loopexit14, label %.preheader
+  br i1 %272, label %.loopexit18, label %.preheader
 
 .preheader:                                       ; preds = %270, %.preheader
   %273 = phi i64 [ %276, %.preheader ], [ 0, %270 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !74
   %274 = load ptr, ptr %106, align 8
-  %275 = getelementptr %struct.receive_queue, ptr %274, i64 %273, i32 2
-  store volatile ptr %.fr17, ptr %275, align 8
+  %.split14 = getelementptr %struct.receive_queue, ptr %274, i64 %273
+  %275 = getelementptr i8, ptr %.split14, i64 408
+  store volatile ptr %.fr22, ptr %275, align 8
   %276 = add nuw nsw i64 %273, 1
   %277 = load i16, ptr %97, align 4
   %278 = zext i16 %277 to i64
   %279 = icmp samesign ult i64 %276, %278
-  br i1 %279, label %.preheader, label %.loopexit14, !llvm.loop !75
+  br i1 %279, label %.preheader, label %.loopexit18, !llvm.loop !75
 
-.loopexit14:                                      ; preds = %.preheader, %270, %253
+.loopexit18:                                      ; preds = %.preheader, %270, %253
   %280 = load volatile i64, ptr %113, align 8
   %281 = and i64 %280, 1
   %282 = icmp eq i64 %281, 0
   br i1 %282, label %.loopexit, label %283
 
-283:                                              ; preds = %.loopexit14
+283:                                              ; preds = %.loopexit18
   %284 = load i16, ptr %97, align 4
   %285 = icmp eq i16 %284, 0
   br i1 %285, label %.loopexit, label %286
@@ -4623,8 +4663,8 @@ thread-pre-split:                                 ; preds = %.loopexit12, %211, 
   %318 = icmp samesign ult i64 %315, %317
   br i1 %318, label %289, label %.loopexit, !llvm.loop !76
 
-.loopexit:                                        ; preds = %314, %248, %283, %.loopexit14, %.loopexit12.thread, %104, %84, %68, %66, %57, %55, %2
-  %319 = phi i32 [ -22, %2 ], [ -22, %84 ], [ -95, %57 ], [ -95, %55 ], [ -22, %68 ], [ -22, %66 ], [ 0, %104 ], [ %171, %.loopexit14 ], [ 0, %.loopexit12.thread ], [ %171, %283 ], [ 0, %248 ], [ %171, %314 ]
+.loopexit:                                        ; preds = %314, %248, %283, %.loopexit18, %.loopexit16.thread, %104, %84, %68, %66, %57, %55, %2
+  %319 = phi i32 [ -22, %2 ], [ -22, %84 ], [ -95, %57 ], [ -95, %55 ], [ -22, %68 ], [ -22, %66 ], [ 0, %104 ], [ %171, %.loopexit18 ], [ 0, %.loopexit16.thread ], [ %171, %283 ], [ 0, %248 ], [ %171, %314 ]
   ret i32 %319
 }
 
@@ -6285,7 +6325,8 @@ define internal fastcc void @check_sq_full_and_disable(ptr noundef readonly capt
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = and i64 %15, 65535
-  %22 = getelementptr %struct.netdev_queue, ptr %20, i64 %21, i32 13
+  %.split = getelementptr %struct.netdev_queue, ptr %20, i64 %21
+  %22 = getelementptr i8, ptr %.split, i64 144
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i32 1, ptr elementtype(i8) %22) #26, !srcloc !35
   %23 = load ptr, ptr %2, align 8
   %24 = tail call zeroext i1 @virtqueue_enable_cb_delayed(ptr noundef %23) #26
@@ -6312,7 +6353,8 @@ define internal fastcc void @check_sq_full_and_disable(ptr noundef readonly capt
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %19, align 8
-  %36 = getelementptr %struct.netdev_queue, ptr %35, i64 %21, i32 13
+  %.split1 = getelementptr %struct.netdev_queue, ptr %35, i64 %21
+  %36 = getelementptr i8, ptr %.split1, i64 144
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %36, i32 -2, ptr elementtype(i8) %36) #26, !srcloc !87
   %37 = load ptr, ptr %2, align 8
   tail call void @virtqueue_disable_cb(ptr noundef %37) #26
@@ -6654,57 +6696,59 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %13 = load i16, ptr %12, align 4
   %14 = zext i16 %13 to i32
   %.not = icmp eq i16 %13, 0
-  br i1 %.not, label %.loopexit11, label %15
+  br i1 %.not, label %.loopexit18, label %15
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr i8, ptr %0, i64 2328
   %19 = load ptr, ptr %18, align 8
-  %.fr28 = freeze i32 %17
-  %20 = and i32 %.fr28, 1
+  %.fr36 = freeze i32 %17
+  %20 = and i32 %.fr36, 1
   %21 = icmp eq i32 %20, 0
   %22 = zext i16 %13 to i64
-  br i1 %21, label %.split.us, label %.split.split
+  br i1 %21, label %.split25.us, label %.split25.split
 
-.split.us:                                        ; preds = %15
+.split25.us:                                      ; preds = %15
   %23 = getelementptr i8, ptr %19, i64 712
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %11, %24
-  br i1 %25, label %.lr.ph.split, label %.loopexit11
+  br i1 %25, label %.lr.ph.split, label %.loopexit18
 
 26:                                               ; preds = %.lr.ph.split
-  %27 = getelementptr %struct.send_queue, ptr %19, i64 %31, i32 5, i32 2
+  %.split.us = getelementptr %struct.send_queue, ptr %19, i64 %31
+  %27 = getelementptr i8, ptr %.split.us, i64 712
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %11, %28
-  br i1 %29, label %.lr.ph.split, label %..split19.us_crit_edge, !llvm.loop !88
+  br i1 %29, label %.lr.ph.split, label %..split27.us_crit_edge, !llvm.loop !88
 
-.lr.ph.split:                                     ; preds = %.split.us, %26
-  %30 = phi i64 [ %31, %26 ], [ 0, %.split.us ]
+.lr.ph.split:                                     ; preds = %.split25.us, %26
+  %30 = phi i64 [ %31, %26 ], [ 0, %.split25.us ]
   %31 = add nuw nsw i64 %30, 1
   %32 = icmp eq i64 %31, %22
-  br i1 %32, label %.loopexit11, label %26, !llvm.loop !88
+  br i1 %32, label %.loopexit18, label %26, !llvm.loop !88
 
-..split19.us_crit_edge:                           ; preds = %26
+..split27.us_crit_edge:                           ; preds = %26
   %33 = icmp samesign ult i64 %31, %22
   %34 = trunc i64 %31 to i32
-  br label %.loopexit11
+  br label %.loopexit18
 
-.split.split:                                     ; preds = %15, %39
+.split25.split:                                   ; preds = %15, %39
   %35 = phi i64 [ %40, %39 ], [ 0, %15 ]
-  %36 = getelementptr %struct.send_queue, ptr %19, i64 %35, i32 5, i32 2
+  %.split = getelementptr %struct.send_queue, ptr %19, i64 %35
+  %36 = getelementptr i8, ptr %.split, i64 712
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %11, %37
-  br i1 %38, label %39, label %.thread6
+  br i1 %38, label %39, label %.thread13
 
-39:                                               ; preds = %.split.split
+39:                                               ; preds = %.split25.split
   %40 = add nuw nsw i64 %35, 1
   %41 = icmp eq i64 %40, %22
-  br i1 %41, label %.loopexit11, label %.split.split, !llvm.loop !88
+  br i1 %41, label %.loopexit18, label %.split25.split, !llvm.loop !88
 
-.loopexit11:                                      ; preds = %39, %.lr.ph.split, %..split19.us_crit_edge, %.split.us, %4
-  %42 = phi i32 [ 0, %4 ], [ %34, %..split19.us_crit_edge ], [ 0, %.split.us ], [ %14, %.lr.ph.split ], [ %14, %39 ]
-  %43 = phi i1 [ false, %4 ], [ %33, %..split19.us_crit_edge ], [ true, %.split.us ], [ false, %.lr.ph.split ], [ false, %39 ]
+.loopexit18:                                      ; preds = %39, %.lr.ph.split, %..split27.us_crit_edge, %.split25.us, %4
+  %42 = phi i32 [ 0, %4 ], [ %34, %..split27.us_crit_edge ], [ 0, %.split25.us ], [ %14, %.lr.ph.split ], [ %14, %39 ]
+  %43 = phi i1 [ false, %4 ], [ %33, %..split27.us_crit_edge ], [ true, %.split25.us ], [ false, %.lr.ph.split ], [ false, %39 ]
   %44 = load ptr, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 784
   %46 = load i64, ptr %45, align 8
@@ -6712,7 +6756,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %169, label %49
 
-49:                                               ; preds = %.loopexit11
+49:                                               ; preds = %.loopexit18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !15
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -6740,7 +6784,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   store i32 %65, ptr %63, align 4
   %66 = load i16, ptr %12, align 4
   %67 = icmp eq i16 %66, 0
-  br i1 %67, label %.loopexit9, label %68
+  br i1 %67, label %.loopexit16, label %68
 
 68:                                               ; preds = %61
   %69 = getelementptr i8, ptr %0, i64 2328
@@ -6750,28 +6794,30 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %71 = phi i64 [ 0, %68 ], [ %78, %70 ]
   %72 = load i32, ptr %50, align 4
   %73 = load ptr, ptr %69, align 8
-  %74 = getelementptr %struct.send_queue, ptr %73, i64 %71, i32 4, i32 1
+  %.split5 = getelementptr %struct.send_queue, ptr %73, i64 %71
+  %74 = getelementptr i8, ptr %.split5, i64 684
   store i32 %72, ptr %74, align 4
   %75 = load i32, ptr %8, align 4
   %76 = load ptr, ptr %69, align 8
-  %77 = getelementptr %struct.send_queue, ptr %76, i64 %71, i32 4
+  %.split6 = getelementptr %struct.send_queue, ptr %76, i64 %71
+  %77 = getelementptr i8, ptr %.split6, i64 680
   store i32 %75, ptr %77, align 8
   %78 = add nuw nsw i64 %71, 1
   %79 = load i16, ptr %12, align 4
   %80 = zext i16 %79 to i64
   %81 = icmp samesign ult i64 %78, %80
-  br i1 %81, label %70, label %.loopexit9.loopexit, !llvm.loop !89
+  br i1 %81, label %70, label %.loopexit16.loopexit, !llvm.loop !89
 
 82:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread6
+  br label %.thread13
 
-.loopexit9.loopexit:                              ; preds = %70
+.loopexit16.loopexit:                             ; preds = %70
   %83 = icmp eq i16 %79, 0
-  br label %.loopexit9
+  br label %.loopexit16
 
-.loopexit9:                                       ; preds = %.loopexit9.loopexit, %61
-  %84 = phi i1 [ %83, %.loopexit9.loopexit ], [ true, %61 ]
+.loopexit16:                                      ; preds = %.loopexit16.loopexit, %61
+  %84 = phi i1 [ %83, %.loopexit16.loopexit ], [ true, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %86 = load i32, ptr %85, align 4
@@ -6780,7 +6826,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !15
   br i1 %87, label %121, label %88
 
-88:                                               ; preds = %.loopexit9
+88:                                               ; preds = %.loopexit16
   %89 = load ptr, ptr %7, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 784
   %91 = load i64, ptr %90, align 8
@@ -6808,7 +6854,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %107 = getelementptr i8, ptr %0, i64 2568
   %108 = load i8, ptr %107, align 8, !range !6, !noundef !7
   %109 = icmp eq i8 %108, 0
-  br i1 %109, label %110, label %.loopexit7
+  br i1 %109, label %110, label %.loopexit14
 
 110:                                              ; preds = %106
   store i8 1, ptr %107, align 8
@@ -6821,7 +6867,8 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
 113:                                              ; preds = %113, %111
   %114 = phi i64 [ 0, %111 ], [ %117, %113 ]
   %115 = load ptr, ptr %112, align 8
-  %116 = getelementptr %struct.receive_queue, ptr %115, i64 %114, i32 5
+  %.split7 = getelementptr %struct.receive_queue, ptr %115, i64 %114
+  %116 = getelementptr i8, ptr %.split7, i64 482
   store i8 1, ptr %116, align 2
   %117 = add nuw nsw i64 %114, 1
   %118 = load i16, ptr %12, align 4
@@ -6829,15 +6876,15 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %120 = icmp samesign ult i64 %117, %119
   br i1 %120, label %113, label %.loopexit, !llvm.loop !90
 
-121:                                              ; preds = %.loopexit9
+121:                                              ; preds = %.loopexit16
   %122 = getelementptr i8, ptr %0, i64 2568
   %123 = load i8, ptr %122, align 8, !range !6, !noundef !7
   %124 = icmp eq i8 %123, 0
-  br i1 %124, label %.loopexit7, label %125
+  br i1 %124, label %.loopexit14, label %125
 
 125:                                              ; preds = %121
   store i8 0, ptr %122, align 8
-  br i1 %84, label %.loopexit7, label %126
+  br i1 %84, label %.loopexit14, label %126
 
 126:                                              ; preds = %125
   %127 = getelementptr i8, ptr %0, i64 2336
@@ -6846,15 +6893,16 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
 128:                                              ; preds = %128, %126
   %129 = phi i64 [ 0, %126 ], [ %132, %128 ]
   %130 = load ptr, ptr %127, align 8
-  %131 = getelementptr %struct.receive_queue, ptr %130, i64 %129, i32 5
+  %.split8 = getelementptr %struct.receive_queue, ptr %130, i64 %129
+  %131 = getelementptr i8, ptr %.split8, i64 482
   store i8 0, ptr %131, align 2
   %132 = add nuw nsw i64 %129, 1
   %133 = load i16, ptr %12, align 4
   %134 = zext i16 %133 to i64
   %135 = icmp samesign ult i64 %132, %134
-  br i1 %135, label %128, label %.loopexit7, !llvm.loop !91
+  br i1 %135, label %128, label %.loopexit14, !llvm.loop !91
 
-.loopexit7:                                       ; preds = %128, %125, %121, %106
+.loopexit14:                                      ; preds = %128, %125, %121, %106
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %137 = load i32, ptr %136, align 4
   %138 = load ptr, ptr %52, align 8
@@ -6871,7 +6919,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %146 = call fastcc zeroext i1 @virtnet_send_command(ptr noundef %7, i8 noundef zeroext 6, i8 noundef zeroext 1, ptr noundef nonnull %5)
   br i1 %146, label %147, label %.loopexit
 
-147:                                              ; preds = %.loopexit7
+147:                                              ; preds = %.loopexit14
   %148 = load i32, ptr %136, align 4
   %149 = getelementptr i8, ptr %0, i64 2580
   %150 = getelementptr i8, ptr %0, i64 2584
@@ -6890,11 +6938,13 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %157 = phi i64 [ 0, %154 ], [ %164, %156 ]
   %158 = load i32, ptr %136, align 4
   %159 = load ptr, ptr %155, align 8
-  %160 = getelementptr %struct.receive_queue, ptr %159, i64 %157, i32 8, i32 1
+  %.split9 = getelementptr %struct.receive_queue, ptr %159, i64 %157
+  %160 = getelementptr i8, ptr %.split9, i64 616
   store i32 %158, ptr %160, align 4
   %161 = load i32, ptr %140, align 4
   %162 = load ptr, ptr %155, align 8
-  %163 = getelementptr %struct.receive_queue, ptr %162, i64 %157, i32 8
+  %.split10 = getelementptr %struct.receive_queue, ptr %162, i64 %157
+  %163 = getelementptr i8, ptr %.split10, i64 612
   store i32 %161, ptr %163, align 4
   %164 = add nuw nsw i64 %157, 1
   %165 = load i16, ptr %12, align 4
@@ -6902,26 +6952,26 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %167 = icmp samesign ult i64 %164, %166
   br i1 %167, label %156, label %.loopexit, !llvm.loop !92
 
-.loopexit:                                        ; preds = %113, %156, %147, %.loopexit7, %110, %100, %94, %88
-  %168 = phi i32 [ -95, %88 ], [ -22, %100 ], [ -22, %94 ], [ -22, %.loopexit7 ], [ 0, %147 ], [ 0, %110 ], [ 0, %156 ], [ 0, %113 ]
+.loopexit:                                        ; preds = %113, %156, %147, %.loopexit14, %110, %100, %94, %88
+  %168 = phi i32 [ -95, %88 ], [ -22, %100 ], [ -22, %94 ], [ -22, %.loopexit14 ], [ 0, %147 ], [ 0, %110 ], [ 0, %156 ], [ 0, %113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %184
 
-169:                                              ; preds = %.loopexit11
+169:                                              ; preds = %.loopexit18
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %171 = load i32, ptr %170, align 4
   %172 = icmp eq i32 %171, 0
-  br i1 %172, label %173, label %.thread6
+  br i1 %172, label %173, label %.thread13
 
 173:                                              ; preds = %169
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %175 = load i32, ptr %174, align 4
   %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %.thread6
+  br i1 %176, label %177, label %.thread13
 
 177:                                              ; preds = %173
   %178 = icmp ugt i32 %9, 1
-  br i1 %178, label %.thread6, label %179
+  br i1 %178, label %.thread13, label %179
 
 179:                                              ; preds = %177
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6934,13 +6984,13 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
   %185 = phi i32 [ %168, %.loopexit ], [ %183, %179 ]
   %186 = icmp eq i32 %185, 0
   %187 = and i1 %43, %186
-  br i1 %187, label %188, label %.thread6
+  br i1 %187, label %188, label %.thread13
 
 188:                                              ; preds = %184
   %189 = load i16, ptr %12, align 4
   %190 = zext i16 %189 to i32
   %191 = icmp ult i32 %42, %190
-  br i1 %191, label %192, label %.thread6
+  br i1 %191, label %192, label %.thread13
 
 192:                                              ; preds = %188
   %193 = getelementptr i8, ptr %0, i64 2328
@@ -6950,16 +7000,17 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
 195:                                              ; preds = %195, %192
   %196 = phi i64 [ %194, %192 ], [ %199, %195 ]
   %197 = load ptr, ptr %193, align 8
-  %198 = getelementptr %struct.send_queue, ptr %197, i64 %196, i32 5, i32 2
+  %.split11 = getelementptr %struct.send_queue, ptr %197, i64 %196
+  %198 = getelementptr i8, ptr %.split11, i64 712
   store i32 %11, ptr %198, align 8
   %199 = add nuw nsw i64 %196, 1
   %200 = load i16, ptr %12, align 4
   %201 = zext i16 %200 to i64
   %202 = icmp samesign ult i64 %199, %201
-  br i1 %202, label %195, label %.thread6, !llvm.loop !93
+  br i1 %202, label %195, label %.thread13, !llvm.loop !93
 
-.thread6:                                         ; preds = %.split.split, %195, %177, %169, %173, %82, %188, %184
-  %203 = phi i32 [ %185, %184 ], [ 0, %188 ], [ -22, %177 ], [ -95, %169 ], [ -95, %173 ], [ -22, %82 ], [ 0, %195 ], [ -16, %.split.split ]
+.thread13:                                        ; preds = %.split25.split, %195, %177, %169, %173, %82, %188, %184
+  %203 = phi i32 [ %185, %184 ], [ 0, %188 ], [ -22, %177 ], [ -95, %169 ], [ -95, %173 ], [ -22, %82 ], [ 0, %195 ], [ -16, %.split25.split ]
   ret i32 %203
 }
 
@@ -7108,7 +7159,8 @@ define internal i32 @virtnet_set_ringparam(ptr noundef %0, ptr noundef readonly 
   %87 = load ptr, ptr %50, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr %struct.netdev_queue, ptr %89, i64 %59, i32 13
+  %.split = getelementptr %struct.netdev_queue, ptr %89, i64 %59
+  %90 = getelementptr i8, ptr %.split, i64 144
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %90, i32 1, ptr elementtype(i8) %90) #26, !srcloc !35
   store volatile i32 -1, ptr %85, align 4
   call void @_raw_spin_unlock_bh(ptr noundef nonnull %83) #26
@@ -7196,10 +7248,12 @@ define internal i32 @virtnet_set_ringparam(ptr noundef %0, ptr noundef readonly 
 
 .thread:                                          ; preds = %115
   %130 = load ptr, ptr %20, align 8
-  %131 = getelementptr %struct.send_queue, ptr %130, i64 %59, i32 4, i32 1
+  %.split8 = getelementptr %struct.send_queue, ptr %130, i64 %59
+  %131 = getelementptr i8, ptr %.split8, i64 684
   store i32 %117, ptr %131, align 4
   %132 = load ptr, ptr %20, align 8
-  %133 = getelementptr %struct.send_queue, ptr %132, i64 %59, i32 4
+  %.split9 = getelementptr %struct.send_queue, ptr %132, i64 %59
+  %133 = getelementptr i8, ptr %.split9, i64 680
   store i32 %118, ptr %133, align 8
   br label %134
 
@@ -7295,18 +7349,20 @@ define internal i32 @virtnet_set_ringparam(ptr noundef %0, ptr noundef readonly 
   call void @sg_init_one(ptr noundef nonnull %5, ptr noundef nonnull %185, i32 noundef 12) #26
   %186 = call fastcc zeroext i1 @virtnet_send_command(ptr noundef %7, i8 noundef zeroext 6, i8 noundef zeroext 2, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %186, label %.thread8, label %.loopexit
+  br i1 %186, label %.thread12, label %.loopexit
 
-.thread8:                                         ; preds = %173
+.thread12:                                        ; preds = %173
   %187 = load ptr, ptr %16, align 8
-  %188 = getelementptr %struct.receive_queue, ptr %187, i64 %59, i32 8, i32 1
+  %.split10 = getelementptr %struct.receive_queue, ptr %187, i64 %59
+  %188 = getelementptr i8, ptr %.split10, i64 616
   store i32 %175, ptr %188, align 4
   %189 = load ptr, ptr %16, align 8
-  %190 = getelementptr %struct.receive_queue, ptr %189, i64 %59, i32 8
+  %.split11 = getelementptr %struct.receive_queue, ptr %189, i64 %59
+  %190 = getelementptr i8, ptr %.split11, i64 612
   store i32 %176, ptr %190, align 4
   br label %191
 
-191:                                              ; preds = %.thread8, %134
+191:                                              ; preds = %.thread12, %134
   %192 = add nuw nsw i64 %59, 1
   %193 = load i16, ptr %46, align 4
   %194 = zext i16 %193 to i64
@@ -7403,13 +7459,15 @@ define internal void @virtnet_get_ethtool_stats(ptr noundef readonly captures(no
   %15 = phi i64 [ 0, %7 ], [ %28, %27 ]
   %16 = phi i64 [ 0, %7 ], [ %29, %27 ]
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr %struct.receive_queue, ptr %17, i64 %16, i32 3
+  %.split = getelementptr %struct.receive_queue, ptr %17, i64 %16
+  %18 = getelementptr i8, ptr %.split, i64 416
   %invariant.gep = getelementptr i64, ptr %2, i64 %15
   br label %19
 
 19:                                               ; preds = %19, %14
   %20 = phi i64 [ 0, %14 ], [ %25, %19 ]
-  %21 = getelementptr %struct.virtnet_stat_desc, ptr @virtnet_rq_stats_desc, i64 %20, i32 1
+  %.split2 = getelementptr %struct.virtnet_stat_desc, ptr @virtnet_rq_stats_desc, i64 %20
+  %21 = getelementptr i8, ptr %.split2, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr i8, ptr %18, i64 %22
   %24 = load volatile i64, ptr %23, align 8
@@ -7431,13 +7489,15 @@ define internal void @virtnet_get_ethtool_stats(ptr noundef readonly captures(no
   %34 = phi i64 [ %12, %11 ], [ %49, %48 ]
   %35 = phi i64 [ 0, %11 ], [ %50, %48 ]
   %36 = load ptr, ptr %13, align 8
-  %37 = getelementptr %struct.send_queue, ptr %36, i64 %35, i32 3
+  %.split3 = getelementptr %struct.send_queue, ptr %36, i64 %35
+  %37 = getelementptr i8, ptr %.split3, i64 632
   %38 = getelementptr i64, ptr %2, i64 %34
   br label %39
 
 39:                                               ; preds = %39, %33
   %40 = phi i64 [ 0, %33 ], [ %46, %39 ]
-  %41 = getelementptr %struct.virtnet_stat_desc, ptr @virtnet_sq_stats_desc, i64 %40, i32 1
+  %.split4 = getelementptr %struct.virtnet_stat_desc, ptr @virtnet_sq_stats_desc, i64 %40
+  %41 = getelementptr i8, ptr %.split4, i64 32
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr i8, ptr %37, i64 %42
   %44 = load volatile i64, ptr %43, align 8
@@ -7973,28 +8033,33 @@ define internal noundef range(i32 -22, 1) i32 @virtnet_get_per_queue_coalesce(pt
   %16 = getelementptr i8, ptr %0, i64 2336
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr %struct.receive_queue, ptr %17, i64 %18, i32 8, i32 1
+  %.split = getelementptr %struct.receive_queue, ptr %17, i64 %18
+  %19 = getelementptr i8, ptr %.split, i64 616
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %20, ptr %21, align 4
   %22 = getelementptr i8, ptr %0, i64 2328
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr %struct.send_queue, ptr %23, i64 %18, i32 4, i32 1
+  %.split1 = getelementptr %struct.send_queue, ptr %23, i64 %18
+  %24 = getelementptr i8, ptr %.split1, i64 684
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %25, ptr %26, align 4
   %27 = load ptr, ptr %22, align 8
-  %28 = getelementptr %struct.send_queue, ptr %27, i64 %18, i32 4
+  %.split2 = getelementptr %struct.send_queue, ptr %27, i64 %18
+  %28 = getelementptr i8, ptr %.split2, i64 680
   %29 = load i32, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %29, ptr %30, align 4
   %31 = load ptr, ptr %16, align 8
-  %32 = getelementptr %struct.receive_queue, ptr %31, i64 %18, i32 8
+  %.split3 = getelementptr %struct.receive_queue, ptr %31, i64 %18
+  %32 = getelementptr i8, ptr %.split3, i64 612
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %33, ptr %34, align 4
   %35 = load ptr, ptr %16, align 8
-  %36 = getelementptr %struct.receive_queue, ptr %35, i64 %18, i32 5
+  %.split4 = getelementptr %struct.receive_queue, ptr %35, i64 %18
+  %36 = getelementptr i8, ptr %.split4, i64 482
   %37 = load i8, ptr %36, align 2, !range !6, !noundef !7
   %38 = zext nneg i8 %37 to i32
   br label %47
@@ -8005,7 +8070,8 @@ define internal noundef range(i32 -22, 1) i32 @virtnet_get_per_queue_coalesce(pt
   %41 = getelementptr i8, ptr %0, i64 2328
   %42 = load ptr, ptr %41, align 8
   %43 = zext nneg i32 %1 to i64
-  %44 = getelementptr %struct.send_queue, ptr %42, i64 %43, i32 5, i32 2
+  %.split5 = getelementptr %struct.send_queue, ptr %42, i64 %43
+  %44 = getelementptr i8, ptr %.split5, i64 712
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %51, label %47
@@ -8031,7 +8097,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_per_queue_coalesce(ptr nounde
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i32
   %10 = icmp ult i32 %1, %9
-  br i1 %10, label %11, label %.thread7
+  br i1 %10, label %11, label %.thread14
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -8043,13 +8109,14 @@ define internal range(i32 -95, 1) i32 @virtnet_set_per_queue_coalesce(ptr nounde
   %18 = getelementptr i8, ptr %0, i64 2328
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %struct.send_queue, ptr %19, i64 %20, i32 5, i32 2
+  %.split = getelementptr %struct.send_queue, ptr %19, i64 %20
+  %21 = getelementptr i8, ptr %.split, i64 712
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %15, %22
   %24 = and i32 %17, 1
   %25 = icmp eq i32 %24, 0
   %26 = select i1 %23, i1 true, i1 %25
-  br i1 %26, label %27, label %.thread7
+  br i1 %26, label %27, label %.thread14
 
 27:                                               ; preds = %11
   %28 = load ptr, ptr %6, align 8
@@ -8057,7 +8124,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_per_queue_coalesce(ptr nounde
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 4503599627370496
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %102, label %33
+  br i1 %32, label %100, label %33
 
 33:                                               ; preds = %27
   %34 = trunc nuw i32 %1 to i16
@@ -8072,7 +8139,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_per_queue_coalesce(ptr nounde
   %43 = icmp eq i8 %42, 0
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 612
   %45 = load i32, ptr %44, align 4
-  br i1 %37, label %59, label %46
+  br i1 %37, label %58, label %46
 
 46:                                               ; preds = %33
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 616
@@ -8080,135 +8147,138 @@ define internal range(i32 -95, 1) i32 @virtnet_set_per_queue_coalesce(ptr nounde
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, %48
-  br i1 %51, label %52, label %.thread7
+  br i1 %51, label %52, label %.thread14
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, %45
-  br i1 %55, label %56, label %.thread7
+  br i1 %55, label %56, label %.thread14
 
 56:                                               ; preds = %52
-  br i1 %43, label %57, label %62
+  br i1 %43, label %57, label %60
 
 57:                                               ; preds = %56
-  %58 = getelementptr %struct.receive_queue, ptr %39, i64 %20, i32 5
-  store i8 1, ptr %58, align 2
+  store i8 1, ptr %41, align 2
   %.pre = shl i16 %34, 1
   br label %.thread
 
-59:                                               ; preds = %33
-  br i1 %43, label %62, label %60
+58:                                               ; preds = %33
+  br i1 %43, label %60, label %59
 
-60:                                               ; preds = %59
-  %61 = getelementptr %struct.receive_queue, ptr %39, i64 %20, i32 5
-  store i8 0, ptr %61, align 2
-  br label %62
+59:                                               ; preds = %58
+  store i8 0, ptr %41, align 2
+  br label %60
 
-62:                                               ; preds = %60, %59, %56
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 4
+60:                                               ; preds = %59, %58, %56
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %66 = load i32, ptr %65, align 4
-  %67 = shl i16 %34, 1
+  %65 = shl i16 %34, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !15
-  %68 = getelementptr i8, ptr %0, i64 2552
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 348
-  store i16 %67, ptr %70, align 4
-  %71 = load ptr, ptr %68, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 356
+  %66 = getelementptr i8, ptr %0, i64 2552
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 348
+  store i16 %65, ptr %68, align 4
+  %69 = load ptr, ptr %66, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 356
+  store i32 %62, ptr %70, align 4
+  %71 = load ptr, ptr %66, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 352
   store i32 %64, ptr %72, align 4
-  %73 = load ptr, ptr %68, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 352
-  store i32 %66, ptr %74, align 4
-  %75 = load ptr, ptr %68, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 348
-  call void @sg_init_one(ptr noundef nonnull %5, ptr noundef nonnull %76, i32 noundef 12) #26
-  %77 = call fastcc zeroext i1 @virtnet_send_command(ptr noundef %6, i8 noundef zeroext 6, i8 noundef zeroext 2, ptr noundef nonnull %5)
+  %73 = load ptr, ptr %66, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 348
+  call void @sg_init_one(ptr noundef nonnull %5, ptr noundef nonnull %74, i32 noundef 12) #26
+  %75 = call fastcc zeroext i1 @virtnet_send_command(ptr noundef %6, i8 noundef zeroext 6, i8 noundef zeroext 2, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %77, label %78, label %.thread7
+  br i1 %75, label %76, label %.thread14
 
-78:                                               ; preds = %62
+76:                                               ; preds = %60
+  %77 = load ptr, ptr %38, align 8
+  %.split6 = getelementptr %struct.receive_queue, ptr %77, i64 %20
+  %78 = getelementptr i8, ptr %.split6, i64 616
+  store i32 %62, ptr %78, align 4
   %79 = load ptr, ptr %38, align 8
-  %80 = getelementptr %struct.receive_queue, ptr %79, i64 %20, i32 8, i32 1
+  %.split7 = getelementptr %struct.receive_queue, ptr %79, i64 %20
+  %80 = getelementptr i8, ptr %.split7, i64 612
   store i32 %64, ptr %80, align 4
-  %81 = load ptr, ptr %38, align 8
-  %82 = getelementptr %struct.receive_queue, ptr %81, i64 %20, i32 8
-  store i32 %66, ptr %82, align 4
   br label %.thread
 
-.thread:                                          ; preds = %78, %57
-  %.pre-phi = phi i16 [ %67, %78 ], [ %.pre, %57 ]
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %84 = load i32, ptr %83, align 4
-  %85 = load i32, ptr %12, align 4
-  %86 = or disjoint i16 %.pre-phi, 1
+.thread:                                          ; preds = %76, %57
+  %.pre-phi = phi i16 [ %65, %76 ], [ %.pre, %57 ]
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %82 = load i32, ptr %81, align 4
+  %83 = load i32, ptr %12, align 4
+  %84 = or disjoint i16 %.pre-phi, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !15
-  %87 = getelementptr i8, ptr %0, i64 2552
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 348
-  store i16 %86, ptr %89, align 4
-  %90 = load ptr, ptr %87, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 356
-  store i32 %84, ptr %91, align 4
-  %92 = load ptr, ptr %87, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 352
-  store i32 %85, ptr %93, align 4
-  %94 = load ptr, ptr %87, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 348
-  call void @sg_init_one(ptr noundef nonnull %4, ptr noundef nonnull %95, i32 noundef 12) #26
-  %96 = call fastcc zeroext i1 @virtnet_send_command(ptr noundef %6, i8 noundef zeroext 6, i8 noundef zeroext 2, ptr noundef nonnull %4)
+  %85 = getelementptr i8, ptr %0, i64 2552
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 348
+  store i16 %84, ptr %87, align 4
+  %88 = load ptr, ptr %85, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 356
+  store i32 %82, ptr %89, align 4
+  %90 = load ptr, ptr %85, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 352
+  store i32 %83, ptr %91, align 4
+  %92 = load ptr, ptr %85, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 348
+  call void @sg_init_one(ptr noundef nonnull %4, ptr noundef nonnull %93, i32 noundef 12) #26
+  %94 = call fastcc zeroext i1 @virtnet_send_command(ptr noundef %6, i8 noundef zeroext 6, i8 noundef zeroext 2, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %96, label %97, label %.thread7
+  br i1 %94, label %95, label %.thread14
 
-97:                                               ; preds = %.thread
+95:                                               ; preds = %.thread
+  %96 = load ptr, ptr %18, align 8
+  %.split8 = getelementptr %struct.send_queue, ptr %96, i64 %20
+  %97 = getelementptr i8, ptr %.split8, i64 684
+  store i32 %82, ptr %97, align 4
   %98 = load ptr, ptr %18, align 8
-  %99 = getelementptr %struct.send_queue, ptr %98, i64 %20, i32 4, i32 1
-  store i32 %84, ptr %99, align 4
-  %100 = load ptr, ptr %18, align 8
-  %101 = getelementptr %struct.send_queue, ptr %100, i64 %20, i32 4
-  store i32 %85, ptr %101, align 8
-  br label %.thread9
+  %.split9 = getelementptr %struct.send_queue, ptr %98, i64 %20
+  %99 = getelementptr i8, ptr %.split9, i64 680
+  store i32 %83, ptr %99, align 8
+  br label %.thread16
 
-102:                                              ; preds = %27
-  %103 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %.thread7
+100:                                              ; preds = %27
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %104, label %.thread14
 
-106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %108 = load i32, ptr %107, align 4
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %.thread7
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %108, label %.thread14
 
-110:                                              ; preds = %106
-  %111 = icmp ugt i32 %13, 1
-  br i1 %111, label %.thread7, label %112
+108:                                              ; preds = %104
+  %109 = icmp ugt i32 %13, 1
+  br i1 %109, label %.thread14, label %110
 
-112:                                              ; preds = %110
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp eq i32 %114, 1
-  br i1 %115, label %.thread9, label %.thread7
+110:                                              ; preds = %108
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp eq i32 %112, 1
+  br i1 %113, label %.thread16, label %.thread14
 
-.thread9:                                         ; preds = %112, %97
-  %116 = icmp ne i32 %24, 0
-  %117 = select i1 %23, i1 true, i1 %116
-  br i1 %117, label %.thread7, label %118
+.thread16:                                        ; preds = %110, %95
+  %114 = icmp ne i32 %24, 0
+  %115 = select i1 %23, i1 true, i1 %114
+  br i1 %115, label %.thread14, label %116
 
-118:                                              ; preds = %.thread9
-  %119 = load ptr, ptr %18, align 8
-  %120 = getelementptr %struct.send_queue, ptr %119, i64 %20, i32 5, i32 2
-  store i32 %15, ptr %120, align 8
-  br label %.thread7
+116:                                              ; preds = %.thread16
+  %117 = load ptr, ptr %18, align 8
+  %.split10 = getelementptr %struct.send_queue, ptr %117, i64 %20
+  %118 = getelementptr i8, ptr %.split10, i64 712
+  store i32 %15, ptr %118, align 8
+  br label %.thread14
 
-.thread7:                                         ; preds = %.thread, %62, %46, %52, %112, %110, %102, %106, %118, %.thread9, %11, %3
-  %121 = phi i32 [ -22, %3 ], [ -16, %11 ], [ 0, %118 ], [ 0, %.thread9 ], [ -22, %112 ], [ -22, %110 ], [ -95, %102 ], [ -95, %106 ], [ -22, %52 ], [ -22, %46 ], [ -22, %.thread ], [ -22, %62 ]
-  ret i32 %121
+.thread14:                                        ; preds = %.thread, %60, %46, %52, %110, %108, %100, %104, %116, %.thread16, %11, %3
+  %119 = phi i32 [ -22, %3 ], [ -16, %11 ], [ 0, %116 ], [ 0, %.thread16 ], [ -22, %110 ], [ -22, %108 ], [ -95, %100 ], [ -95, %104 ], [ -22, %52 ], [ -22, %46 ], [ -22, %.thread ], [ -22, %60 ]
+  ret i32 %119
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
@@ -8853,7 +8923,8 @@ define internal i32 @virtnet_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
 
 134:                                              ; preds = %134, %131
   %135 = phi i64 [ 0, %131 ], [ %141, %134 ]
-  %136 = getelementptr %struct.virtnet_stat_desc, ptr @virtnet_rq_stats_desc, i64 %135, i32 1
+  %.split = getelementptr %struct.virtnet_stat_desc, ptr @virtnet_rq_stats_desc, i64 %135
+  %136 = getelementptr i8, ptr %.split, i64 32
   %137 = load i64, ptr %136, align 8
   %138 = getelementptr i8, ptr %133, i64 %137
   %139 = getelementptr i8, ptr %4, i64 %137
@@ -9201,10 +9272,12 @@ define internal void @virtnet_rx_dim_work(ptr noundef readonly captures(none) %0
 
 57:                                               ; preds = %45
   %58 = load ptr, ptr %16, align 8
-  %59 = getelementptr %struct.receive_queue, ptr %58, i64 %19, i32 8, i32 1
+  %.split = getelementptr %struct.receive_queue, ptr %58, i64 %19
+  %59 = getelementptr i8, ptr %.split, i64 616
   store i32 %36, ptr %59, align 4
   %60 = load ptr, ptr %16, align 8
-  %61 = getelementptr %struct.receive_queue, ptr %60, i64 %19, i32 8
+  %.split1 = getelementptr %struct.receive_queue, ptr %60, i64 %19
+  %61 = getelementptr i8, ptr %.split1, i64 612
   store i32 %.pre-phi, ptr %61, align 4
   br label %62
 
@@ -12592,9 +12665,10 @@ define internal void @skb_xmit_done(ptr noundef %0) #2 align 16 {
   %10 = add i32 %9, -1
   %11 = lshr i32 %10, 1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr %struct.send_queue, ptr %7, i64 %12, i32 5
+  %.split = getelementptr %struct.send_queue, ptr %7, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 688
   tail call void @virtqueue_disable_cb(ptr noundef %0) #26
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %14 = getelementptr i8, ptr %.split, i64 712
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %20, label %17
@@ -12751,7 +12825,7 @@ define internal fastcc void @remove_vq_common(ptr noundef captures(none) %0) unn
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %12
 
-8:                                                ; preds = %.loopexit15
+8:                                                ; preds = %.loopexit17
   %9 = icmp eq i16 %32, 0
   br i1 %9, label %.thread, label %10
 
@@ -12759,27 +12833,27 @@ define internal fastcc void @remove_vq_common(ptr noundef captures(none) %0) unn
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %35
 
-12:                                               ; preds = %.loopexit15, %6
-  %13 = phi i64 [ 0, %6 ], [ %31, %.loopexit15 ]
+12:                                               ; preds = %.loopexit17, %6
+  %13 = phi i64 [ 0, %6 ], [ %31, %.loopexit17 ]
   %14 = load ptr, ptr %7, align 8
   %15 = getelementptr %struct.send_queue, ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @virtqueue_detach_unused_buf(ptr noundef %16) #26
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.loopexit15, label %.preheader14
+  br i1 %18, label %.loopexit17, label %.preheader16
 
-.preheader14:                                     ; preds = %12, %27
+.preheader16:                                     ; preds = %12, %27
   %19 = phi ptr [ %28, %27 ], [ %17, %12 ]
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %24
 
-23:                                               ; preds = %.preheader14
+23:                                               ; preds = %.preheader16
   tail call void @consume_skb(ptr noundef nonnull %19) #26
   br label %27
 
-24:                                               ; preds = %.preheader14
+24:                                               ; preds = %.preheader16
   %25 = and i64 %20, -2
   %26 = inttoptr i64 %25 to ptr
   tail call void @xdp_return_frame(ptr noundef %26) #26
@@ -12788,9 +12862,9 @@ define internal fastcc void @remove_vq_common(ptr noundef captures(none) %0) unn
 27:                                               ; preds = %24, %23
   %28 = tail call ptr @virtqueue_detach_unused_buf(ptr noundef %16) #26
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit15, label %.preheader14, !llvm.loop !140
+  br i1 %29, label %.loopexit17, label %.preheader16, !llvm.loop !140
 
-.loopexit15:                                      ; preds = %27, %12
+.loopexit17:                                      ; preds = %27, %12
   %30 = tail call i32 @__SCT__cond_resched() #26
   %31 = add nuw nsw i64 %13, 1
   %32 = load i16, ptr %3, align 4
@@ -12798,14 +12872,14 @@ define internal fastcc void @remove_vq_common(ptr noundef captures(none) %0) unn
   %34 = icmp samesign ult i64 %31, %33
   br i1 %34, label %12, label %8, !llvm.loop !141
 
-35:                                               ; preds = %.loopexit13, %10
-  %36 = phi i64 [ 0, %10 ], [ %148, %.loopexit13 ]
+35:                                               ; preds = %.loopexit15, %10
+  %36 = phi i64 [ 0, %10 ], [ %148, %.loopexit15 ]
   %37 = load ptr, ptr %11, align 8
   %38 = getelementptr %struct.receive_queue, ptr %37, i64 %36
   %39 = load ptr, ptr %38, align 64
   %40 = tail call ptr @virtqueue_detach_unused_buf(ptr noundef %39) #26
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.loopexit13, label %42
+  br i1 %41, label %.loopexit15, label %42
 
 42:                                               ; preds = %35
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 32
@@ -12958,9 +13032,9 @@ virtnet_rq_unmap.exit:                            ; preds = %144, %138, %96, %45
   tail call fastcc void @virtnet_rq_free_buf(ptr noundef %49, ptr noundef %55, ptr noundef nonnull %46)
   %145 = tail call ptr @virtqueue_detach_unused_buf(ptr noundef %39) #26
   %146 = icmp eq ptr %145, null
-  br i1 %146, label %.loopexit13, label %45, !llvm.loop !142
+  br i1 %146, label %.loopexit15, label %45, !llvm.loop !142
 
-.loopexit13:                                      ; preds = %virtnet_rq_unmap.exit, %35
+.loopexit15:                                      ; preds = %virtnet_rq_unmap.exit, %35
   %147 = tail call i32 @__SCT__cond_resched() #26
   %148 = add nuw nsw i64 %36, 1
   %149 = load i16, ptr %3, align 4
@@ -12968,23 +13042,24 @@ virtnet_rq_unmap.exit:                            ; preds = %144, %138, %96, %45
   %151 = icmp samesign ult i64 %148, %150
   br i1 %151, label %35, label %.thread, !llvm.loop !143
 
-.thread:                                          ; preds = %.loopexit13, %1, %8
+.thread:                                          ; preds = %.loopexit15, %1, %8
   tail call void @rtnl_lock() #26
   %152 = load i16, ptr %3, align 4
   %153 = icmp eq i16 %152, 0
-  br i1 %153, label %.loopexit12, label %154
+  br i1 %153, label %.loopexit14, label %154
 
 154:                                              ; preds = %.thread
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %156
 
-156:                                              ; preds = %.loopexit11, %154
-  %157 = phi i64 [ 0, %154 ], [ %173, %.loopexit11 ]
+156:                                              ; preds = %.loopexit13, %154
+  %157 = phi i64 [ 0, %154 ], [ %173, %.loopexit13 ]
   %158 = load ptr, ptr %155, align 8
-  %159 = getelementptr %struct.receive_queue, ptr %158, i64 %157, i32 9
+  %.split = getelementptr %struct.receive_queue, ptr %158, i64 %157
+  %159 = getelementptr i8, ptr %.split, i64 624
   %160 = load ptr, ptr %159, align 16
   %161 = icmp eq ptr %160, null
-  br i1 %161, label %.loopexit11, label %.preheader
+  br i1 %161, label %.loopexit13, label %.preheader
 
 .preheader:                                       ; preds = %156, %.preheader
   %162 = phi ptr [ %169, %.preheader ], [ %160, %156 ]
@@ -12996,22 +13071,24 @@ virtnet_rq_unmap.exit:                            ; preds = %144, %138, %96, %45
   store i64 0, ptr %164, align 8
   tail call void @__free_pages(ptr noundef nonnull %162, i32 noundef 0) #26
   %167 = load ptr, ptr %155, align 8
-  %168 = getelementptr %struct.receive_queue, ptr %167, i64 %157, i32 9
+  %.split11 = getelementptr %struct.receive_queue, ptr %167, i64 %157
+  %168 = getelementptr i8, ptr %.split11, i64 624
   %169 = load ptr, ptr %168, align 16
   %170 = icmp eq ptr %169, null
-  br i1 %170, label %.loopexit11, label %.preheader, !llvm.loop !144
+  br i1 %170, label %.loopexit13, label %.preheader, !llvm.loop !144
 
-.loopexit11:                                      ; preds = %.preheader, %156
+.loopexit13:                                      ; preds = %.preheader, %156
   %171 = phi ptr [ %158, %156 ], [ %167, %.preheader ]
-  %172 = getelementptr %struct.receive_queue, ptr %171, i64 %157, i32 2
+  %.split12 = getelementptr %struct.receive_queue, ptr %171, i64 %157
+  %172 = getelementptr i8, ptr %.split12, i64 408
   store volatile ptr null, ptr %172, align 8
   %173 = add nuw nsw i64 %157, 1
   %174 = load i16, ptr %3, align 4
   %175 = zext i16 %174 to i64
   %176 = icmp samesign ult i64 %173, %175
-  br i1 %176, label %156, label %.loopexit12, !llvm.loop !145
+  br i1 %176, label %156, label %.loopexit14, !llvm.loop !145
 
-.loopexit12:                                      ; preds = %.loopexit11, %.thread
+.loopexit14:                                      ; preds = %.loopexit13, %.thread
   tail call void @rtnl_unlock() #26
   tail call fastcc void @free_receive_page_frags(ptr noundef %0)
   %177 = load ptr, ptr %0, align 8
@@ -13020,7 +13097,7 @@ virtnet_rq_unmap.exit:                            ; preds = %144, %138, %96, %45
   %180 = icmp eq i8 %179, 0
   br i1 %180, label %219, label %181
 
-181:                                              ; preds = %.loopexit12
+181:                                              ; preds = %.loopexit14
   %182 = load i16, ptr %3, align 4
   %183 = icmp eq i16 %182, 0
   br i1 %183, label %.loopexit, label %184
@@ -13076,7 +13153,7 @@ virtnet_rq_unmap.exit:                            ; preds = %144, %138, %96, %45
   store i8 0, ptr %178, align 8
   br label %219
 
-219:                                              ; preds = %.loopexit, %.loopexit12
+219:                                              ; preds = %.loopexit, %.loopexit14
   %220 = getelementptr inbounds nuw i8, ptr %177, i64 752
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 56
@@ -13094,10 +13171,12 @@ virtnet_rq_unmap.exit:                            ; preds = %144, %138, %96, %45
 229:                                              ; preds = %229, %226
   %230 = phi i64 [ 0, %226 ], [ %235, %229 ]
   %231 = load ptr, ptr %227, align 8
-  %232 = getelementptr %struct.receive_queue, ptr %231, i64 %230, i32 1
+  %.split.i = getelementptr %struct.receive_queue, ptr %231, i64 %230
+  %232 = getelementptr i8, ptr %.split.i, i64 8
   tail call void @__netif_napi_del(ptr noundef %232) #26
   %233 = load ptr, ptr %228, align 8
-  %234 = getelementptr %struct.send_queue, ptr %233, i64 %230, i32 5
+  %.split1.i = getelementptr %struct.send_queue, ptr %233, i64 %230
+  %234 = getelementptr i8, ptr %.split1.i, i64 688
   tail call void @__netif_napi_del(ptr noundef %234) #26
   %235 = add nuw nsw i64 %230, 1
   %236 = load i16, ptr %3, align 4

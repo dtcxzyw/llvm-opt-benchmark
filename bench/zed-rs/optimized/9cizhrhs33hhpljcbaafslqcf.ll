@@ -10335,37 +10335,38 @@ define hidden void @_ZN7outline19OutlineViewDelegate18set_selected_index17h72305
   %or.cond.not = select i1 %2, i1 %8, i1 false
   br i1 %or.cond.not, label %10, label %9
 
-9:                                                ; preds = %21, %4
+9:                                                ; preds = %22, %4
   ret void
 
 10:                                               ; preds = %4
   %11 = icmp ult i64 %1, %7
-  br i1 %11, label %12, label %20
+  br i1 %11, label %12, label %21
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8, !nonnull !20, !noundef !20
-  %15 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %14, i64 %1, i32 2
-  %16 = load i64, ptr %15, align 8, !noundef !20
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i64, ptr %17, align 8, !noundef !20
-  %19 = icmp ult i64 %16, %18
-  br i1 %19, label %21, label %26
+  %15 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %14, i64 %1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %17 = load i64, ptr %16, align 8, !noundef !20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load i64, ptr %18, align 8, !noundef !20
+  %20 = icmp ult i64 %17, %19
+  br i1 %20, label %22, label %27
 
-20:                                               ; preds = %10
+21:                                               ; preds = %10
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %1, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec9e5892fb265893f54c5fab6e5501e7.71.llvm.3575021329615495092) #28
   unreachable
 
-21:                                               ; preds = %12
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8, !nonnull !20, !noundef !20
-  %24 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, { [88 x i8], i8, [7 x i8] }, { [88 x i8], i8, [7 x i8] }, i64 }, ptr %23, i64 %16
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h45f233cef63b4053E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %24)
+22:                                               ; preds = %12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8, !nonnull !20, !noundef !20
+  %25 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, { [88 x i8], i8, [7 x i8] }, { [88 x i8], i8, [7 x i8] }, i64 }, ptr %24, i64 %17
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h45f233cef63b4053E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %25)
   br label %9
 
-26:                                               ; preds = %12
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %16, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec9e5892fb265893f54c5fab6e5501e7.72.llvm.3575021329615495092) #28
+27:                                               ; preds = %12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %17, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec9e5892fb265893f54c5fab6e5501e7.72.llvm.3575021329615495092) #28
   unreachable
 }
 
@@ -10420,35 +10421,36 @@ define void @"_ZN71_$LT$outline..OutlineViewDelegate$u20$as$u20$picker..PickerDe
 
 7:                                                ; preds = %3
   %8 = icmp ult i64 %1, %6
-  br i1 %8, label %9, label %17
+  br i1 %8, label %9, label %18
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load ptr, ptr %10, align 8, !alias.scope !2039, !noalias !2042, !nonnull !20, !noundef !20
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %11, i64 %1, i32 2
-  %13 = load i64, ptr %12, align 8, !noalias !2044, !noundef !20
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !alias.scope !2039, !noalias !2042, !noundef !20
-  %16 = icmp ult i64 %13, %15
-  br i1 %16, label %18, label %23
+  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %11, i64 %1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %14 = load i64, ptr %13, align 8, !noalias !2044, !noundef !20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load i64, ptr %15, align 8, !alias.scope !2039, !noalias !2042, !noundef !20
+  %17 = icmp ult i64 %14, %16
+  br i1 %17, label %19, label %24
 
-17:                                               ; preds = %7
+18:                                               ; preds = %7
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %1, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec9e5892fb265893f54c5fab6e5501e7.71.llvm.3575021329615495092) #28, !noalias !2044
   unreachable
 
-18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !alias.scope !2039, !noalias !2042, !nonnull !20, !noundef !20
-  %21 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, { [88 x i8], i8, [7 x i8] }, { [88 x i8], i8, [7 x i8] }, i64 }, ptr %20, i64 %13
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h45f233cef63b4053E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %21)
+19:                                               ; preds = %9
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8, !alias.scope !2039, !noalias !2042, !nonnull !20, !noundef !20
+  %22 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, { [88 x i8], i8, [7 x i8] }, { [88 x i8], i8, [7 x i8] }, i64 }, ptr %21, i64 %14
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h45f233cef63b4053E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %22)
   br label %_ZN7outline19OutlineViewDelegate18set_selected_index17h723054aa0c8e726bE.llvm.3575021329615495092.exit
 
-23:                                               ; preds = %9
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %13, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec9e5892fb265893f54c5fab6e5501e7.72.llvm.3575021329615495092) #28, !noalias !2044
+24:                                               ; preds = %9
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %14, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec9e5892fb265893f54c5fab6e5501e7.72.llvm.3575021329615495092) #28, !noalias !2044
   unreachable
 
-_ZN7outline19OutlineViewDelegate18set_selected_index17h723054aa0c8e726bE.llvm.3575021329615495092.exit: ; preds = %3, %18
+_ZN7outline19OutlineViewDelegate18set_selected_index17h723054aa0c8e726bE.llvm.3575021329615495092.exit: ; preds = %3, %19
   ret void
 }
 
@@ -10961,7 +10963,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h548377806fa1358dE.exit: ; preds = %.no
   %186 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  br label %211
+  br label %212
 
 187:                                              ; preds = %147, %143, %.noexc48
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2158
@@ -10985,43 +10987,44 @@ _ZN4gpui3app10entity_map9EntityMap4read17h548377806fa1358dE.exit: ; preds = %.no
 197:                                              ; preds = %195
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %199 = load ptr, ptr %198, align 8, !alias.scope !2184, !noalias !2187, !nonnull !20, !noundef !20
-  %200 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %199, i64 %.sroa.019.1, i32 2
-  %201 = load i64, ptr %200, align 8, !noalias !2189, !noundef !20
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %203 = load i64, ptr %202, align 8, !alias.scope !2184, !noalias !2187, !noundef !20
-  %204 = icmp ult i64 %201, %203
-  br i1 %204, label %205, label %.noexc52
+  %200 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %199, i64 %.sroa.019.1
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 48
+  %202 = load i64, ptr %201, align 8, !noalias !2189, !noundef !20
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %204 = load i64, ptr %203, align 8, !alias.scope !2184, !noalias !2187, !noundef !20
+  %205 = icmp ult i64 %202, %204
+  br i1 %205, label %206, label %.noexc52
 
 .noexc50:                                         ; preds = %195
   call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.019.1, i64 noundef %193, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec9e5892fb265893f54c5fab6e5501e7.71.llvm.3575021329615495092) #28
   unreachable
 
-205:                                              ; preds = %197
-  %206 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %207 = load ptr, ptr %206, align 8, !alias.scope !2184, !noalias !2187, !nonnull !20, !noundef !20
-  %208 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, { [88 x i8], i8, [7 x i8] }, { [88 x i8], i8, [7 x i8] }, i64 }, ptr %207, i64 %201
-  %209 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h45f233cef63b4053E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %209, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %208)
+206:                                              ; preds = %197
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %208 = load ptr, ptr %207, align 8, !alias.scope !2184, !noalias !2187, !nonnull !20, !noundef !20
+  %209 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, { [88 x i8], i8, [7 x i8] }, { [88 x i8], i8, [7 x i8] }, i64 }, ptr %208, i64 %202
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h45f233cef63b4053E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %210, ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %209)
   br label %_ZN7outline19OutlineViewDelegate18set_selected_index17h723054aa0c8e726bE.llvm.3575021329615495092.exit
 
 .noexc52:                                         ; preds = %197
-  call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %201, i64 noundef %203, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec9e5892fb265893f54c5fab6e5501e7.72.llvm.3575021329615495092) #28
+  call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %202, i64 noundef %204, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ec9e5892fb265893f54c5fab6e5501e7.72.llvm.3575021329615495092) #28
   unreachable
 
-_ZN7outline19OutlineViewDelegate18set_selected_index17h723054aa0c8e726bE.llvm.3575021329615495092.exit: ; preds = %205, %187
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %210, align 1
+_ZN7outline19OutlineViewDelegate18set_selected_index17h723054aa0c8e726bE.llvm.3575021329615495092.exit: ; preds = %206, %187
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %211, align 1
   store i8 0, ptr %0, align 8
   ret void
 
-211:                                              ; preds = %.thread61, %.thread67
+212:                                              ; preds = %.thread61, %.thread67
   %.pn59 = phi { ptr, i32 } [ %.pn60, %.thread67 ], [ %186, %.thread61 ]
   resume { ptr, i32 } %.pn59
 
 .thread67:                                        ; preds = %169, %37, %113, %130, %124, %.thread71, %.thread64
   %.pn60 = phi { ptr, i32 } [ %69, %.thread64 ], [ %lpad.thr_comm, %.thread71 ], [ %125, %124 ], [ %125, %130 ], [ %170, %169 ], [ %38, %37 ], [ %114, %113 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h98cf88a15b1cd74eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #29
-          to label %211 unwind label %149
+          to label %212 unwind label %149
 }
 
 ; Function Attrs: nonlazybind uwtable

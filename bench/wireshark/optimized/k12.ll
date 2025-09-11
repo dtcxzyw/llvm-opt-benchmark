@@ -458,16 +458,12 @@ memiszero.exit:                                   ; preds = %41
   %264 = getelementptr inbounds nuw i8, ptr %180, i64 24
   store i32 0, ptr %264, align 8
   %265 = icmp ugt i16 %192, 24
-  br i1 %265, label %.preheader, label %.loopexit
+  br i1 %265, label %.lr.ph, label %.loopexit
 
-.preheader:                                       ; preds = %263
+.lr.ph:                                           ; preds = %263
   %266 = add nsw i32 %193, -24
-  %.not246 = icmp eq i32 %266, 0
-  br i1 %.not246, label %.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader
   %267 = getelementptr i8, ptr %132, i64 60
-  %wide.trip.count = zext i32 %266 to i64
+  %wide.trip.count = zext nneg i32 %266 to i64
   br label %268
 
 268:                                              ; preds = %.lr.ph, %268
@@ -536,7 +532,7 @@ memiszero.exit:                                   ; preds = %41
   store i16 %.sink, ptr %300, align 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %268, %.loopexit.sink.split, %.preheader, %295, %263, %243
+.loopexit:                                        ; preds = %268, %.loopexit.sink.split, %295, %263, %243
   %301 = zext nneg i32 %233 to i64
   %302 = getelementptr i8, ptr %132, i64 %301
   %303 = getelementptr i8, ptr %302, i64 -1

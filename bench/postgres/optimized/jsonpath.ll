@@ -629,17 +629,18 @@ define dso_local noundef zeroext i1 @jspGetArraySubscript(ptr noundef readonly c
   %11 = load i32, ptr %10, align 4
   tail call void @jspInitByBuffer(ptr noundef %1, ptr noundef %6, i32 noundef %11)
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds %struct.anon.6, ptr %12, i64 %9, i32 1
-  %14 = load i32, ptr %13, align 4
-  %.not = icmp ne i32 %14, 0
-  br i1 %.not, label %15, label %17
+  %13 = getelementptr inbounds %struct.anon.6, ptr %12, i64 %9
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %15 = load i32, ptr %14, align 4
+  %.not = icmp ne i32 %15, 0
+  br i1 %.not, label %16, label %18
 
-15:                                               ; preds = %4
-  %16 = load ptr, ptr %5, align 8
-  tail call void @jspInitByBuffer(ptr noundef %2, ptr noundef %16, i32 noundef %14)
-  br label %17
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %5, align 8
+  tail call void @jspInitByBuffer(ptr noundef %2, ptr noundef %17, i32 noundef %15)
+  br label %18
 
-17:                                               ; preds = %4, %15
+18:                                               ; preds = %4, %16
   ret i1 %.not
 }
 
@@ -712,7 +713,7 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load i32, ptr %.0109, align 8
   switch i32 %15, label %.thread [
-    i32 53, label %118
+    i32 53, label %119
     i32 26, label %18
     i32 29, label %20
     i32 28, label %25
@@ -737,30 +738,30 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
     i32 41, label %79
     i32 23, label %.preheader
     i32 21, label %.loopexit
-    i32 24, label %102
-    i32 37, label %104
-    i32 42, label %112
-    i32 51, label %118
-    i32 52, label %117
-    i32 45, label %117
-    i32 50, label %117
-    i32 25, label %116
-    i32 22, label %116
-    i32 39, label %116
-    i32 40, label %116
-    i32 31, label %116
-    i32 32, label %116
-    i32 33, label %116
-    i32 34, label %116
-    i32 35, label %116
-    i32 36, label %116
-    i32 38, label %116
-    i32 43, label %116
-    i32 44, label %116
-    i32 46, label %116
-    i32 47, label %116
-    i32 48, label %116
-    i32 49, label %116
+    i32 24, label %103
+    i32 37, label %105
+    i32 42, label %113
+    i32 51, label %119
+    i32 52, label %118
+    i32 45, label %118
+    i32 50, label %118
+    i32 25, label %117
+    i32 22, label %117
+    i32 39, label %117
+    i32 40, label %117
+    i32 31, label %117
+    i32 32, label %117
+    i32 33, label %117
+    i32 34, label %117
+    i32 35, label %117
+    i32 36, label %117
+    i32 38, label %117
+    i32 43, label %117
+    i32 44, label %117
+    i32 46, label %117
+    i32 47, label %117
+    i32 48, label %117
+    i32 49, label %117
   ]
 
 .preheader:                                       ; preds = %14
@@ -912,92 +913,93 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
   %89 = load i32, ptr %88, align 4
   call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %86, i32 noundef %89)
   %90 = load ptr, ptr %.0109.sroa.phi124, align 8
-  %91 = getelementptr inbounds nuw %struct.anon.6, ptr %90, i64 %indvars.iv, i32 1
-  %92 = load i32, ptr %91, align 4
-  %.not.i.not = icmp eq i32 %92, 0
-  br i1 %.not.i.not, label %jspGetArraySubscript.exit, label %93
+  %91 = getelementptr inbounds nuw %struct.anon.6, ptr %90, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %93 = load i32, ptr %92, align 4
+  %.not.i.not = icmp eq i32 %93, 0
+  br i1 %.not.i.not, label %jspGetArraySubscript.exit, label %94
 
-93:                                               ; preds = %.lr.ph
-  %94 = load ptr, ptr %.0109.sroa.phi, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %6, ptr noundef %94, i32 noundef %92)
-  %95 = call fastcc i32 @jspIsMutableWalker(ptr noundef %6, ptr noundef %1)
+94:                                               ; preds = %.lr.ph
+  %95 = load ptr, ptr %.0109.sroa.phi, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %6, ptr noundef %95, i32 noundef %93)
+  %96 = call fastcc i32 @jspIsMutableWalker(ptr noundef %6, ptr noundef %1)
   br label %jspGetArraySubscript.exit
 
-jspGetArraySubscript.exit:                        ; preds = %.lr.ph, %93
-  %96 = call fastcc i32 @jspIsMutableWalker(ptr noundef %5, ptr noundef %1)
+jspGetArraySubscript.exit:                        ; preds = %.lr.ph, %94
+  %97 = call fastcc i32 @jspIsMutableWalker(ptr noundef %5, ptr noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %97 = load i32, ptr %.0109.sroa.phi133, align 8
-  %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  %98 = load i32, ptr %.0109.sroa.phi133, align 8
+  %99 = sext i32 %98 to i64
+  %100 = icmp slt i64 %indvars.iv.next, %99
+  br i1 %100, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %jspGetArraySubscript.exit, %.preheader, %14
-  %100 = load i8, ptr %11, align 4, !range !4, !noundef !5
-  %101 = trunc nuw i8 %100 to i1
-  %spec.select = select i1 %101, i32 %.069108, i32 0
+  %101 = load i8, ptr %11, align 4, !range !4, !noundef !5
+  %102 = trunc nuw i8 %101 to i1
+  %spec.select = select i1 %102, i32 %.069108, i32 0
   br label %.thread
 
-102:                                              ; preds = %14
-  %103 = load i32, ptr %.0109.sroa.phi133, align 8
-  %.not80 = icmp eq i32 %103, 0
+103:                                              ; preds = %14
+  %104 = load i32, ptr %.0109.sroa.phi133, align 8
+  %.not80 = icmp eq i32 %104, 0
   %spec.select86 = select i1 %.not80, i32 %.069108, i32 0
   br label %.thread
 
-104:                                              ; preds = %14
-  %105 = load i32, ptr %.0109.sroa.phi133, align 8
-  %.not = icmp eq i32 %105, 0
-  br i1 %.not, label %.thread, label %106
+105:                                              ; preds = %14
+  %106 = load i32, ptr %.0109.sroa.phi133, align 8
+  %.not = icmp eq i32 %106, 0
+  br i1 %.not, label %.thread, label %107
 
-106:                                              ; preds = %104
-  %107 = load ptr, ptr %.0109.sroa.phi, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %4, ptr noundef %107, i32 noundef %105)
-  %108 = load i32, ptr %4, align 8
-  %.not79 = icmp eq i32 %108, 1
-  br i1 %.not79, label %109, label %.thread
+107:                                              ; preds = %105
+  %108 = load ptr, ptr %.0109.sroa.phi, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %4, ptr noundef %108, i32 noundef %106)
+  %109 = load i32, ptr %4, align 8
+  %.not79 = icmp eq i32 %109, 1
+  br i1 %.not79, label %110, label %.thread
 
-109:                                              ; preds = %106
-  %110 = load ptr, ptr %10, align 8
-  %111 = tail call zeroext i1 @datetime_format_has_tz(ptr noundef %110) #13
-  %. = select i1 %111, i32 2, i32 3
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %10, align 8
+  %112 = tail call zeroext i1 @datetime_format_has_tz(ptr noundef %111) #13
+  %. = select i1 %112, i32 2, i32 3
   br label %.thread
 
-112:                                              ; preds = %14
-  %113 = load ptr, ptr %.0109.sroa.phi, align 8
-  %114 = load i32, ptr %.0109.sroa.phi133, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %4, ptr noundef %113, i32 noundef %114)
-  %115 = call fastcc i32 @jspIsMutableWalker(ptr noundef %4, ptr noundef %1)
+113:                                              ; preds = %14
+  %114 = load ptr, ptr %.0109.sroa.phi, align 8
+  %115 = load i32, ptr %.0109.sroa.phi133, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %4, ptr noundef %114, i32 noundef %115)
+  %116 = call fastcc i32 @jspIsMutableWalker(ptr noundef %4, ptr noundef %1)
   br label %.thread
 
-116:                                              ; preds = %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14
+117:                                              ; preds = %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14
   br label %.thread
 
-117:                                              ; preds = %14, %14, %14
+118:                                              ; preds = %14, %14, %14
   store i8 1, ptr %7, align 1
   br label %.thread
 
-118:                                              ; preds = %14, %14
+119:                                              ; preds = %14, %14
   store i8 1, ptr %7, align 1
   br label %.thread
 
-.thread:                                          ; preds = %43, %45, %25, %.split103, %.split103, %.split103, %60, %59, %102, %.loopexit, %104, %109, %106, %71, %62, %74, %118, %117, %116, %112, %79, %75, %20, %18, %14
-  %.2 = phi i32 [ %.069108, %14 ], [ %19, %18 ], [ %.069108, %20 ], [ %.069108, %74 ], [ %.069108, %62 ], [ %.069108, %75 ], [ %.069108, %79 ], [ %.069108, %112 ], [ 3, %118 ], [ 3, %117 ], [ 0, %116 ], [ %.069108, %71 ], [ %spec.select, %.loopexit ], [ %spec.select86, %102 ], [ %., %109 ], [ 0, %106 ], [ 1, %104 ], [ 3, %.split103 ], [ 3, %.split103 ], [ 3, %.split103 ], [ 2, %59 ], [ 0, %60 ], [ %.069108, %25 ], [ %.069108, %45 ], [ %.069108, %43 ]
-  %119 = load i32, ptr %.0109.sroa.phi118, align 4
-  %120 = icmp sgt i32 %119, 0
-  br i1 %120, label %jspGetNext.exit, label %jspGetNext.exit.thread
+.thread:                                          ; preds = %43, %45, %25, %.split103, %.split103, %.split103, %60, %59, %103, %.loopexit, %105, %110, %107, %71, %62, %74, %119, %118, %117, %113, %79, %75, %20, %18, %14
+  %.2 = phi i32 [ %.069108, %14 ], [ %19, %18 ], [ %.069108, %20 ], [ %.069108, %74 ], [ %.069108, %62 ], [ %.069108, %75 ], [ %.069108, %79 ], [ %.069108, %113 ], [ 3, %119 ], [ 3, %118 ], [ 0, %117 ], [ %.069108, %71 ], [ %spec.select, %.loopexit ], [ %spec.select86, %103 ], [ %., %110 ], [ 0, %107 ], [ 1, %105 ], [ 3, %.split103 ], [ 3, %.split103 ], [ 3, %.split103 ], [ 2, %59 ], [ 0, %60 ], [ %.069108, %25 ], [ %.069108, %45 ], [ %.069108, %43 ]
+  %120 = load i32, ptr %.0109.sroa.phi118, align 4
+  %121 = icmp sgt i32 %120, 0
+  br i1 %121, label %jspGetNext.exit, label %jspGetNext.exit.thread
 
 jspGetNext.exit.thread:                           ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit96
 
 jspGetNext.exit:                                  ; preds = %.thread
-  %121 = load ptr, ptr %.0109.sroa.phi, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %3, ptr noundef %121, i32 noundef %119)
+  %122 = load ptr, ptr %.0109.sroa.phi, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %3, ptr noundef %122, i32 noundef %120)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %122 = load i8, ptr %7, align 1, !range !4, !noundef !5
-  %123 = trunc nuw i8 %122 to i1
-  br i1 %123, label %.loopexit96, label %14
+  %123 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %124 = trunc nuw i8 %123 to i1
+  br i1 %124, label %.loopexit96, label %14
 
 .loopexit96:                                      ; preds = %jspGetNext.exit, %2, %jspGetNext.exit.thread
   %.170 = phi i32 [ %.2, %jspGetNext.exit.thread ], [ 0, %2 ], [ %.2, %jspGetNext.exit ]
@@ -1143,7 +1145,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef 4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %73 = load i32, ptr %3, align 8
-  switch i32 %73, label %191 [
+  switch i32 %73, label %192 [
     i32 1, label %74
     i32 28, label %74
     i32 25, label %74
@@ -1176,27 +1178,27 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
     i32 51, label %127
     i32 52, label %127
     i32 53, label %127
-    i32 0, label %195
-    i32 27, label %195
-    i32 21, label %195
-    i32 22, label %195
+    i32 0, label %196
+    i32 27, label %196
+    i32 21, label %196
+    i32 22, label %196
     i32 26, label %140
     i32 40, label %147
     i32 23, label %153
-    i32 24, label %188
-    i32 31, label %195
-    i32 32, label %195
-    i32 33, label %195
-    i32 34, label %195
-    i32 35, label %195
-    i32 36, label %195
-    i32 38, label %195
-    i32 43, label %195
-    i32 44, label %195
-    i32 45, label %195
-    i32 47, label %195
-    i32 48, label %195
-    i32 49, label %195
+    i32 24, label %189
+    i32 31, label %196
+    i32 32, label %196
+    i32 33, label %196
+    i32 34, label %196
+    i32 35, label %196
+    i32 36, label %196
+    i32 38, label %196
+    i32 43, label %196
+    i32 44, label %196
+    i32 45, label %196
+    i32 47, label %196
+    i32 48, label %196
+    i32 49, label %196
   ]
 
 74:                                               ; preds = %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit
@@ -1207,7 +1209,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %78 = load i32, ptr %75, align 8
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef %77, i32 noundef %78) #13
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 0) #13
-  br label %195
+  br label %196
 
 79:                                               ; preds = %alignStringInfoInt.exit
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1215,12 +1217,12 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %82 = load i32, ptr %81, align 4
   %83 = lshr i32 %82, 2
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %81, i32 noundef %83) #13
-  br label %195
+  br label %196
 
 84:                                               ; preds = %alignStringInfoInt.exit
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %85, i32 noundef 1) #13
-  br label %195
+  br label %196
 
 86:                                               ; preds = %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit
   %87 = load i32, ptr %16, align 8
@@ -1281,7 +1283,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %108 = sext i32 %88 to i64
   %109 = getelementptr inbounds i8, ptr %107, i64 %108
   store i32 %106, ptr %109, align 4
-  br label %195
+  br label %196
 
 110:                                              ; preds = %alignStringInfoInt.exit
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1310,7 +1312,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %124 = sext i32 %113 to i64
   %125 = getelementptr inbounds i8, ptr %123, i64 %124
   store i32 %122, ptr %125, align 4
-  br label %195
+  br label %196
 
 126:                                              ; preds = %alignStringInfoInt.exit
   br label %127
@@ -1347,11 +1349,11 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %138 = sext i32 %128 to i64
   %139 = getelementptr inbounds i8, ptr %137, i64 %138
   store i32 %136, ptr %139, align 4
-  br label %195
+  br label %196
 
 140:                                              ; preds = %alignStringInfoInt.exit
   %141 = icmp slt i32 %4, 1
-  br i1 %141, label %142, label %195
+  br i1 %141, label %142, label %196
 
 142:                                              ; preds = %140
   %143 = call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #13
@@ -1364,7 +1366,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   br label %.critedge150
 
 147:                                              ; preds = %alignStringInfoInt.exit
-  br i1 %5, label %195, label %148
+  br i1 %5, label %196, label %148
 
 148:                                              ; preds = %147
   %149 = call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #13
@@ -1403,100 +1405,101 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %164 = getelementptr inbounds nuw %struct.anon.13, ptr %163, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 8
   %166 = call fastcc zeroext i1 @flattenJsonPathParseItem(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %2, ptr noundef %165, i32 noundef %4, i1 noundef zeroext true)
-  br i1 %166, label %167, label %187
+  br i1 %166, label %167, label %188
 
 167:                                              ; preds = %162
   %168 = load i32, ptr %15, align 4
   %169 = sub i32 %168, %18
   %170 = load ptr, ptr %160, align 8
-  %171 = getelementptr inbounds nuw %struct.anon.13, ptr %170, i64 %indvars.iv, i32 1
-  %172 = load ptr, ptr %171, align 8
-  %.not142 = icmp eq ptr %172, null
-  br i1 %.not142, label %.critedge154, label %173
+  %171 = getelementptr inbounds nuw %struct.anon.13, ptr %170, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %.not142 = icmp eq ptr %173, null
+  br i1 %.not142, label %.critedge154, label %174
 
-173:                                              ; preds = %167
-  %174 = call fastcc zeroext i1 @flattenJsonPathParseItem(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %2, ptr noundef nonnull %172, i32 noundef %4, i1 noundef zeroext true)
-  br i1 %174, label %175, label %187
+174:                                              ; preds = %167
+  %175 = call fastcc zeroext i1 @flattenJsonPathParseItem(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %2, ptr noundef nonnull %173, i32 noundef %4, i1 noundef zeroext true)
+  br i1 %175, label %176, label %188
 
-175:                                              ; preds = %173
-  %176 = load i32, ptr %14, align 4
-  %177 = sub i32 %176, %18
+176:                                              ; preds = %174
+  %177 = load i32, ptr %14, align 4
+  %178 = sub i32 %177, %18
   br label %.critedge154
 
-.critedge154:                                     ; preds = %167, %175
-  %storemerge = phi i32 [ %177, %175 ], [ 0, %167 ]
-  %178 = load ptr, ptr %0, align 8
+.critedge154:                                     ; preds = %167, %176
+  %storemerge = phi i32 [ %178, %176 ], [ 0, %167 ]
+  %179 = load ptr, ptr %0, align 8
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %179 = shl i32 %indvars.iv.tr, 1
-  %180 = sext i32 %179 to i64
-  %181 = shl nsw i64 %180, 2
-  %182 = getelementptr i8, ptr %178, i64 %181
-  %183 = getelementptr i8, ptr %182, i64 %161
-  store i32 %169, ptr %183, align 4
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
-  store i32 %storemerge, ptr %184, align 4
+  %180 = shl i32 %indvars.iv.tr, 1
+  %181 = sext i32 %180 to i64
+  %182 = shl nsw i64 %181, 2
+  %183 = getelementptr i8, ptr %179, i64 %182
+  %184 = getelementptr i8, ptr %183, i64 %161
+  store i32 %169, ptr %184, align 4
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
+  store i32 %storemerge, ptr %185, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %185 = load i32, ptr %13, align 4
-  %186 = sext i32 %185 to i64
-  %.not143 = icmp slt i64 %indvars.iv.next, %186
+  %186 = load i32, ptr %13, align 4
+  %187 = sext i32 %186 to i64
+  %.not143 = icmp slt i64 %indvars.iv.next, %187
   br i1 %.not143, label %162, label %.critedge156, !llvm.loop !13
 
-187:                                              ; preds = %173, %162
+188:                                              ; preds = %174, %162
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge150
 
-188:                                              ; preds = %alignStringInfoInt.exit
-  %189 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %189, i32 noundef 4) #13
-  %190 = getelementptr inbounds nuw i8, ptr %3, i64 20
+189:                                              ; preds = %alignStringInfoInt.exit
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %190, i32 noundef 4) #13
-  br label %195
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %191, i32 noundef 4) #13
+  br label %196
 
-191:                                              ; preds = %alignStringInfoInt.exit
-  %192 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %192)
-  %193 = load i32, ptr %3, align 8
-  %194 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %193) #13
+192:                                              ; preds = %alignStringInfoInt.exit
+  %193 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %193)
+  %194 = load i32, ptr %3, align 8
+  %195 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %194) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 462, ptr noundef nonnull @__func__.flattenJsonPathParseItem) #13
   unreachable
 
 .critedge156:                                     ; preds = %.critedge154, %153
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %195
+  br label %196
 
-195:                                              ; preds = %120, %.critedge156, %.critedge152, %.critedge, %147, %140, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %188, %84, %79, %74, %alignStringInfoInt.exit, %alignStringInfoInt.exit
-  %196 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %197 = load ptr, ptr %196, align 8
-  %.not147 = icmp eq ptr %197, null
-  br i1 %.not147, label %206, label %198
+196:                                              ; preds = %120, %.critedge156, %.critedge152, %.critedge, %147, %140, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %189, %84, %79, %74, %alignStringInfoInt.exit, %alignStringInfoInt.exit
+  %197 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %198 = load ptr, ptr %197, align 8
+  %.not147 = icmp eq ptr %198, null
+  br i1 %.not147, label %207, label %199
 
-198:                                              ; preds = %195
-  %199 = call fastcc zeroext i1 @flattenJsonPathParseItem(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %197, i32 noundef %4, i1 noundef zeroext %5)
-  br i1 %199, label %200, label %.critedge150
+199:                                              ; preds = %196
+  %200 = call fastcc zeroext i1 @flattenJsonPathParseItem(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %198, i32 noundef %4, i1 noundef zeroext %5)
+  br i1 %200, label %201, label %.critedge150
 
-200:                                              ; preds = %198
-  %201 = load i32, ptr %12, align 4
-  %202 = sub i32 %201, %18
-  %203 = load ptr, ptr %0, align 8
-  %204 = sext i32 %72 to i64
-  %205 = getelementptr inbounds i8, ptr %203, i64 %204
-  store i32 %202, ptr %205, align 4
-  br label %206
+201:                                              ; preds = %199
+  %202 = load i32, ptr %12, align 4
+  %203 = sub i32 %202, %18
+  %204 = load ptr, ptr %0, align 8
+  %205 = sext i32 %72 to i64
+  %206 = getelementptr inbounds i8, ptr %204, i64 %205
+  store i32 %203, ptr %206, align 4
+  br label %207
 
-206:                                              ; preds = %200, %195
+207:                                              ; preds = %201, %196
   %.not148 = icmp eq ptr %1, null
-  br i1 %.not148, label %.critedge150, label %207
+  br i1 %.not148, label %.critedge150, label %208
 
-207:                                              ; preds = %206
+208:                                              ; preds = %207
   store i32 %18, ptr %1, align 4
   br label %.critedge150
 
-.critedge150:                                     ; preds = %187, %110, %206, %207, %198, %148, %150, %142, %144, %132, %92, %103
-  %.1 = phi i1 [ false, %187 ], [ false, %103 ], [ false, %92 ], [ false, %132 ], [ false, %144 ], [ false, %142 ], [ false, %150 ], [ false, %148 ], [ false, %198 ], [ true, %207 ], [ true, %206 ], [ false, %110 ]
+.critedge150:                                     ; preds = %188, %110, %207, %208, %199, %148, %150, %142, %144, %132, %92, %103
+  %.1 = phi i1 [ false, %188 ], [ false, %103 ], [ false, %92 ], [ false, %132 ], [ false, %144 ], [ false, %142 ], [ false, %150 ], [ false, %148 ], [ false, %199 ], [ true, %208 ], [ true, %207 ], [ false, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i1 %.1
 }
@@ -1528,7 +1531,7 @@ define internal fastcc void @printJsonPathItem(ptr noundef nonnull %0, ptr nound
 
 10:                                               ; preds = %9, %4
   %11 = load i32, ptr %1, align 8
-  switch i32 %11, label %267 [
+  switch i32 %11, label %268 [
     i32 0, label %12
     i32 1, label %13
     i32 2, label %18
@@ -1554,39 +1557,39 @@ define internal fastcc void @printJsonPathItem(ptr noundef nonnull %0, ptr nound
     i32 21, label %93
     i32 22, label %94
     i32 23, label %97
-    i32 24, label %120
-    i32 25, label %139
-    i32 26, label %146
-    i32 27, label %147
-    i32 28, label %148
-    i32 29, label %153
-    i32 30, label %158
-    i32 31, label %163
-    i32 32, label %164
-    i32 33, label %165
-    i32 34, label %166
-    i32 35, label %167
-    i32 36, label %168
-    i32 37, label %169
-    i32 38, label %176
-    i32 40, label %177
-    i32 42, label %178
-    i32 43, label %219
-    i32 44, label %220
-    i32 45, label %221
-    i32 46, label %222
-    i32 47, label %236
-    i32 48, label %237
-    i32 49, label %238
-    i32 50, label %239
-    i32 51, label %246
-    i32 52, label %253
-    i32 53, label %260
+    i32 24, label %121
+    i32 25, label %140
+    i32 26, label %147
+    i32 27, label %148
+    i32 28, label %149
+    i32 29, label %154
+    i32 30, label %159
+    i32 31, label %164
+    i32 32, label %165
+    i32 33, label %166
+    i32 34, label %167
+    i32 35, label %168
+    i32 36, label %169
+    i32 37, label %170
+    i32 38, label %177
+    i32 40, label %178
+    i32 42, label %179
+    i32 43, label %220
+    i32 44, label %221
+    i32 45, label %222
+    i32 46, label %223
+    i32 47, label %237
+    i32 48, label %238
+    i32 49, label %239
+    i32 50, label %240
+    i32 51, label %247
+    i32 52, label %254
+    i32 53, label %261
   ]
 
 12:                                               ; preds = %10
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.42) #13
-  br label %271
+  br label %272
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1594,7 +1597,7 @@ define internal fastcc void @printJsonPathItem(ptr noundef nonnull %0, ptr nound
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void @escape_json_with_len(ptr noundef nonnull %0, ptr noundef %17, i32 noundef %15) #13
-  br label %271
+  br label %272
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1615,11 +1618,11 @@ define internal fastcc void @printJsonPathItem(ptr noundef nonnull %0, ptr nound
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef %28) #13
   %29 = load i32, ptr %19, align 4
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %31, label %271
+  br i1 %30, label %31, label %272
 
 31:                                               ; preds = %23
   tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
+  br label %272
 
 32:                                               ; preds = %10
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1630,11 +1633,11 @@ define internal fastcc void @printJsonPathItem(ptr noundef nonnull %0, ptr nound
 
 36:                                               ; preds = %32
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.43) #13
-  br label %271
+  br label %272
 
 37:                                               ; preds = %32
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.44) #13
-  br label %271
+  br label %272
 
 38:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
   br i1 %3, label %39, label %40
@@ -1714,11 +1717,11 @@ operationPriority.exit197:                        ; preds = %operationPriority.e
   %.0.i196 = phi i32 [ %switch.load238, %switch.lookup236 ], [ 6, %operationPriority.exit195 ]
   %63 = icmp samesign ule i32 %.0.i194, %.0.i196
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext %63)
-  br i1 %3, label %64, label %271
+  br i1 %3, label %64, label %272
 
 64:                                               ; preds = %operationPriority.exit197
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
+  br label %272
 
 65:                                               ; preds = %10
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.45) #13
@@ -1729,7 +1732,7 @@ operationPriority.exit197:                        ; preds = %operationPriority.e
   call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %67, i32 noundef %69)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
+  br label %272
 
 70:                                               ; preds = %10
   tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 40) #13
@@ -1740,7 +1743,7 @@ operationPriority.exit197:                        ; preds = %operationPriority.e
   call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %72, i32 noundef %74)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.46) #13
-  br label %271
+  br label %272
 
 75:                                               ; preds = %10, %10
   br i1 %3, label %76, label %77
@@ -1788,15 +1791,15 @@ operationPriority.exit201:                        ; preds = %operationPriority.e
   %.0.i200 = phi i32 [ %switch.load246, %switch.lookup244 ], [ 6, %operationPriority.exit199 ]
   %91 = icmp samesign ule i32 %.0.i198, %.0.i200
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext %91)
-  br i1 %3, label %92, label %271
+  br i1 %3, label %92, label %272
 
 92:                                               ; preds = %operationPriority.exit201
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
+  br label %272
 
 93:                                               ; preds = %10
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.47) #13
-  br label %271
+  br label %272
 
 94:                                               ; preds = %10
   br i1 %2, label %95, label %96
@@ -1807,7 +1810,7 @@ operationPriority.exit201:                        ; preds = %operationPriority.e
 
 96:                                               ; preds = %95, %94
   tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 42) #13
-  br label %271
+  br label %272
 
 97:                                               ; preds = %10
   tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 91) #13
@@ -1821,8 +1824,8 @@ operationPriority.exit201:                        ; preds = %operationPriority.e
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %103
 
-103:                                              ; preds = %.lr.ph, %116
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %116 ]
+103:                                              ; preds = %.lr.ph, %117
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %117 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %104 = load ptr, ptr %101, align 8
@@ -1831,457 +1834,458 @@ operationPriority.exit201:                        ; preds = %operationPriority.e
   %107 = load i32, ptr %106, align 4
   call void @jspInitByBuffer(ptr noundef nonnull %6, ptr noundef %104, i32 noundef %107)
   %108 = load ptr, ptr %102, align 8
-  %109 = getelementptr inbounds nuw %struct.anon.6, ptr %108, i64 %indvars.iv, i32 1
-  %110 = load i32, ptr %109, align 4
-  %.not.i.not = icmp eq i32 %110, 0
-  br i1 %.not.i.not, label %jspGetArraySubscript.exit, label %111
+  %109 = getelementptr inbounds nuw %struct.anon.6, ptr %108, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  %111 = load i32, ptr %110, align 4
+  %.not.i.not = icmp eq i32 %111, 0
+  br i1 %.not.i.not, label %jspGetArraySubscript.exit, label %112
 
-111:                                              ; preds = %103
-  %112 = load ptr, ptr %101, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %7, ptr noundef %112, i32 noundef %110)
+112:                                              ; preds = %103
+  %113 = load ptr, ptr %101, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %7, ptr noundef %113, i32 noundef %111)
   br label %jspGetArraySubscript.exit
 
-jspGetArraySubscript.exit:                        ; preds = %103, %111
+jspGetArraySubscript.exit:                        ; preds = %103, %112
   %.not191 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not191, label %114, label %113
+  br i1 %.not191, label %115, label %114
 
-113:                                              ; preds = %jspGetArraySubscript.exit
+114:                                              ; preds = %jspGetArraySubscript.exit
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 44) #13
-  br label %114
+  br label %115
 
-114:                                              ; preds = %113, %jspGetArraySubscript.exit
+115:                                              ; preds = %114, %jspGetArraySubscript.exit
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %6, i1 noundef zeroext false, i1 noundef zeroext false)
-  br i1 %.not.i.not, label %116, label %115
+  br i1 %.not.i.not, label %117, label %116
 
-115:                                              ; preds = %114
+116:                                              ; preds = %115
   call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.48) #13
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %7, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %116
+  br label %117
 
-116:                                              ; preds = %115, %114
+117:                                              ; preds = %116, %115
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %117 = load i32, ptr %98, align 8
-  %118 = sext i32 %117 to i64
-  %119 = icmp slt i64 %indvars.iv.next, %118
-  br i1 %119, label %103, label %._crit_edge, !llvm.loop !14
+  %118 = load i32, ptr %98, align 8
+  %119 = sext i32 %118 to i64
+  %120 = icmp slt i64 %indvars.iv.next, %119
+  br i1 %120, label %103, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %116, %97
+._crit_edge:                                      ; preds = %117, %97
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 93) #13
-  br label %271
+  br label %272
 
-120:                                              ; preds = %10
-  br i1 %2, label %121, label %122
+121:                                              ; preds = %10
+  br i1 %2, label %122, label %123
 
-121:                                              ; preds = %120
+122:                                              ; preds = %121
   tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 46) #13
-  br label %122
+  br label %123
 
-122:                                              ; preds = %121, %120
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %124 = load i32, ptr %123, align 8
-  %125 = icmp eq i32 %124, 0
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %127 = load i32, ptr %126, align 4
-  br i1 %125, label %128, label %130
+123:                                              ; preds = %122, %121
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %125 = load i32, ptr %124, align 8
+  %126 = icmp eq i32 %125, 0
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %128 = load i32, ptr %127, align 4
+  br i1 %126, label %129, label %131
 
-128:                                              ; preds = %122
-  switch i32 %127, label %.thread208.thread [
-    i32 -1, label %129
+129:                                              ; preds = %123
+  switch i32 %128, label %.thread208.thread [
+    i32 -1, label %130
     i32 0, label %.thread207
   ]
 
-129:                                              ; preds = %128
+130:                                              ; preds = %129
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.49) #13
-  br label %271
+  br label %272
 
-130:                                              ; preds = %122
-  %131 = icmp eq i32 %124, %127
-  %132 = icmp eq i32 %124, -1
-  br i1 %131, label %133, label %135
+131:                                              ; preds = %123
+  %132 = icmp eq i32 %125, %128
+  %133 = icmp eq i32 %125, -1
+  br i1 %132, label %134, label %136
 
-133:                                              ; preds = %130
-  br i1 %132, label %134, label %.thread207
+134:                                              ; preds = %131
+  br i1 %133, label %135, label %.thread207
 
-134:                                              ; preds = %133
+135:                                              ; preds = %134
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.50) #13
-  br label %271
+  br label %272
 
-.thread207:                                       ; preds = %128, %133
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.51, i32 noundef %124) #13
-  br label %271
+.thread207:                                       ; preds = %129, %134
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.51, i32 noundef %125) #13
+  br label %272
 
-135:                                              ; preds = %130
-  br i1 %132, label %136, label %.thread208
+136:                                              ; preds = %131
+  br i1 %133, label %137, label %.thread208
 
-136:                                              ; preds = %135
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.52, i32 noundef %127) #13
-  br label %271
+137:                                              ; preds = %136
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.52, i32 noundef %128) #13
+  br label %272
 
-.thread208:                                       ; preds = %135
-  %137 = icmp eq i32 %127, -1
-  br i1 %137, label %138, label %.thread208.thread
+.thread208:                                       ; preds = %136
+  %138 = icmp eq i32 %128, -1
+  br i1 %138, label %139, label %.thread208.thread
 
-138:                                              ; preds = %.thread208
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.53, i32 noundef %124) #13
-  br label %271
+139:                                              ; preds = %.thread208
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.53, i32 noundef %125) #13
+  br label %272
 
-.thread208.thread:                                ; preds = %128, %.thread208
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.54, i32 noundef %124, i32 noundef %127) #13
-  br label %271
+.thread208.thread:                                ; preds = %129, %.thread208
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.54, i32 noundef %125, i32 noundef %128) #13
+  br label %272
 
-139:                                              ; preds = %10
-  br i1 %2, label %140, label %141
+140:                                              ; preds = %10
+  br i1 %2, label %141, label %142
 
-140:                                              ; preds = %139
+141:                                              ; preds = %140
   tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 46) #13
-  br label %141
+  br label %142
 
-141:                                              ; preds = %140, %139
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %143 = load i32, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %145 = load ptr, ptr %144, align 8
-  tail call void @escape_json_with_len(ptr noundef nonnull %0, ptr noundef %145, i32 noundef %143) #13
-  br label %271
-
-146:                                              ; preds = %10
-  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 64) #13
-  br label %271
+142:                                              ; preds = %141, %140
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %144 = load i32, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %146 = load ptr, ptr %145, align 8
+  tail call void @escape_json_with_len(ptr noundef nonnull %0, ptr noundef %146, i32 noundef %144) #13
+  br label %272
 
 147:                                              ; preds = %10
-  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 36) #13
-  br label %271
+  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 64) #13
+  br label %272
 
 148:                                              ; preds = %10
   tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 36) #13
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %150 = load i32, ptr %149, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %152 = load ptr, ptr %151, align 8
-  tail call void @escape_json_with_len(ptr noundef nonnull %0, ptr noundef %152, i32 noundef %150) #13
-  br label %271
+  br label %272
 
-153:                                              ; preds = %10
+149:                                              ; preds = %10
+  tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 36) #13
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %151 = load i32, ptr %150, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %153 = load ptr, ptr %152, align 8
+  tail call void @escape_json_with_len(ptr noundef nonnull %0, ptr noundef %153, i32 noundef %151) #13
+  br label %272
+
+154:                                              ; preds = %10
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.55) #13
-  %154 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %157 = load i32, ptr %156, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %155, i32 noundef %157)
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %158 = load i32, ptr %157, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %156, i32 noundef %158)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
+  br label %272
 
-158:                                              ; preds = %10
+159:                                              ; preds = %10
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.56) #13
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %162 = load i32, ptr %161, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %160, i32 noundef %162)
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %163 = load i32, ptr %162, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %161, i32 noundef %163)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
-
-163:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.57) #13
-  br label %271
+  br label %272
 
 164:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #13
-  br label %271
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.57) #13
+  br label %272
 
 165:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #13
-  br label %271
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #13
+  br label %272
 
 166:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.60) #13
-  br label %271
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #13
+  br label %272
 
 167:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.61) #13
-  br label %271
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.60) #13
+  br label %272
 
 168:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.62) #13
-  br label %271
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.61) #13
+  br label %272
 
 169:                                              ; preds = %10
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.62) #13
+  br label %272
+
+170:                                              ; preds = %10
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.63) #13
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %171 = load i32, ptr %170, align 8
-  %.not190 = icmp eq i32 %171, 0
-  br i1 %.not190, label %175, label %172
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %172 = load i32, ptr %171, align 8
+  %.not190 = icmp eq i32 %172, 0
+  br i1 %.not190, label %176, label %173
 
-172:                                              ; preds = %169
-  %173 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %174 = load ptr, ptr %173, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %174, i32 noundef %171)
+173:                                              ; preds = %170
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %175 = load ptr, ptr %174, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %175, i32 noundef %172)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %175
+  br label %176
 
-175:                                              ; preds = %172, %169
+176:                                              ; preds = %173, %170
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
-
-176:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.64) #13
-  br label %271
+  br label %272
 
 177:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.65) #13
-  br label %271
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.64) #13
+  br label %272
 
 178:                                              ; preds = %10
-  br i1 %3, label %179, label %180
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.65) #13
+  br label %272
 
-179:                                              ; preds = %178
+179:                                              ; preds = %10
+  br i1 %3, label %180, label %181
+
+180:                                              ; preds = %179
   tail call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 40) #13
-  br label %180
+  br label %181
 
-180:                                              ; preds = %179, %178
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %184 = load i32, ptr %183, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %182, i32 noundef %184)
-  %185 = load i32, ptr %5, align 8
-  %186 = tail call fastcc i32 @operationPriority(i32 noundef %185)
-  %187 = load i32, ptr %1, align 8
-  %188 = tail call fastcc i32 @operationPriority(i32 noundef %187)
-  %189 = icmp samesign ule i32 %186, %188
-  call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext %189)
+181:                                              ; preds = %180, %179
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %185 = load i32, ptr %184, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %183, i32 noundef %185)
+  %186 = load i32, ptr %5, align 8
+  %187 = tail call fastcc i32 @operationPriority(i32 noundef %186)
+  %188 = load i32, ptr %1, align 8
+  %189 = tail call fastcc i32 @operationPriority(i32 noundef %188)
+  %190 = icmp samesign ule i32 %187, %189
+  call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext %190)
   call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.66) #13
-  %190 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %193 = load i32, ptr %192, align 8
-  call void @escape_json_with_len(ptr noundef nonnull %0, ptr noundef %191, i32 noundef %193) #13
-  %194 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %195 = load i32, ptr %194, align 4
-  %.not184 = icmp eq i32 %195, 0
-  br i1 %.not184, label %217, label %196
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %194 = load i32, ptr %193, align 8
+  call void @escape_json_with_len(ptr noundef nonnull %0, ptr noundef %192, i32 noundef %194) #13
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %196 = load i32, ptr %195, align 4
+  %.not184 = icmp eq i32 %196, 0
+  br i1 %.not184, label %218, label %197
 
-196:                                              ; preds = %180
+197:                                              ; preds = %181
   call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.67) #13
-  %197 = load i32, ptr %194, align 4
-  %198 = and i32 %197, 1
-  %.not185 = icmp eq i32 %198, 0
-  br i1 %.not185, label %200, label %199
+  %198 = load i32, ptr %195, align 4
+  %199 = and i32 %198, 1
+  %.not185 = icmp eq i32 %199, 0
+  br i1 %.not185, label %201, label %200
 
-199:                                              ; preds = %196
+200:                                              ; preds = %197
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 105) #13
-  %.pre = load i32, ptr %194, align 4
-  br label %200
+  %.pre = load i32, ptr %195, align 4
+  br label %201
 
-200:                                              ; preds = %199, %196
-  %201 = phi i32 [ %.pre, %199 ], [ %197, %196 ]
-  %202 = and i32 %201, 2
-  %.not186 = icmp eq i32 %202, 0
-  br i1 %.not186, label %204, label %203
+201:                                              ; preds = %200, %197
+  %202 = phi i32 [ %.pre, %200 ], [ %198, %197 ]
+  %203 = and i32 %202, 2
+  %.not186 = icmp eq i32 %203, 0
+  br i1 %.not186, label %205, label %204
 
-203:                                              ; preds = %200
+204:                                              ; preds = %201
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 115) #13
-  %.pre212 = load i32, ptr %194, align 4
-  br label %204
+  %.pre212 = load i32, ptr %195, align 4
+  br label %205
 
-204:                                              ; preds = %203, %200
-  %205 = phi i32 [ %.pre212, %203 ], [ %201, %200 ]
-  %206 = and i32 %205, 4
-  %.not187 = icmp eq i32 %206, 0
-  br i1 %.not187, label %208, label %207
+205:                                              ; preds = %204, %201
+  %206 = phi i32 [ %.pre212, %204 ], [ %202, %201 ]
+  %207 = and i32 %206, 4
+  %.not187 = icmp eq i32 %207, 0
+  br i1 %.not187, label %209, label %208
 
-207:                                              ; preds = %204
+208:                                              ; preds = %205
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 109) #13
-  %.pre213 = load i32, ptr %194, align 4
-  br label %208
+  %.pre213 = load i32, ptr %195, align 4
+  br label %209
 
-208:                                              ; preds = %207, %204
-  %209 = phi i32 [ %.pre213, %207 ], [ %205, %204 ]
-  %210 = and i32 %209, 8
-  %.not188 = icmp eq i32 %210, 0
-  br i1 %.not188, label %212, label %211
+209:                                              ; preds = %208, %205
+  %210 = phi i32 [ %.pre213, %208 ], [ %206, %205 ]
+  %211 = and i32 %210, 8
+  %.not188 = icmp eq i32 %211, 0
+  br i1 %.not188, label %213, label %212
 
-211:                                              ; preds = %208
+212:                                              ; preds = %209
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 120) #13
-  %.pre214 = load i32, ptr %194, align 4
-  br label %212
+  %.pre214 = load i32, ptr %195, align 4
+  br label %213
 
-212:                                              ; preds = %211, %208
-  %213 = phi i32 [ %.pre214, %211 ], [ %209, %208 ]
-  %214 = and i32 %213, 16
-  %.not189 = icmp eq i32 %214, 0
-  br i1 %.not189, label %216, label %215
+213:                                              ; preds = %212, %209
+  %214 = phi i32 [ %.pre214, %212 ], [ %210, %209 ]
+  %215 = and i32 %214, 16
+  %.not189 = icmp eq i32 %215, 0
+  br i1 %.not189, label %217, label %216
 
-215:                                              ; preds = %212
+216:                                              ; preds = %213
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 113) #13
-  br label %216
-
-216:                                              ; preds = %215, %212
-  call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 34) #13
   br label %217
 
-217:                                              ; preds = %216, %180
-  br i1 %3, label %218, label %271
+217:                                              ; preds = %216, %213
+  call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 34) #13
+  br label %218
 
-218:                                              ; preds = %217
+218:                                              ; preds = %217, %181
+  br i1 %3, label %219, label %272
+
+219:                                              ; preds = %218
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
-
-219:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.68) #13
-  br label %271
+  br label %272
 
 220:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.69) #13
-  br label %271
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.68) #13
+  br label %272
 
 221:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.70) #13
-  br label %271
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.69) #13
+  br label %272
 
 222:                                              ; preds = %10
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.70) #13
+  br label %272
+
+223:                                              ; preds = %10
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.71) #13
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %224 = load i32, ptr %223, align 8
-  %.not182 = icmp eq i32 %224, 0
-  br i1 %.not182, label %228, label %225
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %225 = load i32, ptr %224, align 8
+  %.not182 = icmp eq i32 %225, 0
+  br i1 %.not182, label %229, label %226
 
-225:                                              ; preds = %222
-  %226 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %227 = load ptr, ptr %226, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %227, i32 noundef %224)
+226:                                              ; preds = %223
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %228 = load ptr, ptr %227, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %228, i32 noundef %225)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %228
+  br label %229
 
-228:                                              ; preds = %225, %222
-  %229 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %230 = load i32, ptr %229, align 4
-  %.not183 = icmp eq i32 %230, 0
-  br i1 %.not183, label %235, label %231
+229:                                              ; preds = %226, %223
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %231 = load i32, ptr %230, align 4
+  %.not183 = icmp eq i32 %231, 0
+  br i1 %.not183, label %236, label %232
 
-231:                                              ; preds = %228
+232:                                              ; preds = %229
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 44) #13
-  %232 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %233 = load ptr, ptr %232, align 8
-  %234 = load i32, ptr %229, align 4
-  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %233, i32 noundef %234)
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %234 = load ptr, ptr %233, align 8
+  %235 = load i32, ptr %230, align 4
+  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %234, i32 noundef %235)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %235
+  br label %236
 
-235:                                              ; preds = %231, %228
+236:                                              ; preds = %232, %229
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
-
-236:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.72) #13
-  br label %271
+  br label %272
 
 237:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.73) #13
-  br label %271
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.72) #13
+  br label %272
 
 238:                                              ; preds = %10
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.74) #13
-  br label %271
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.73) #13
+  br label %272
 
 239:                                              ; preds = %10
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.74) #13
+  br label %272
+
+240:                                              ; preds = %10
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.75) #13
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %241 = load i32, ptr %240, align 8
-  %.not181 = icmp eq i32 %241, 0
-  br i1 %.not181, label %245, label %242
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %242 = load i32, ptr %241, align 8
+  %.not181 = icmp eq i32 %242, 0
+  br i1 %.not181, label %246, label %243
 
-242:                                              ; preds = %239
-  %243 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %244 = load ptr, ptr %243, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %244, i32 noundef %241)
+243:                                              ; preds = %240
+  %244 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %245 = load ptr, ptr %244, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %245, i32 noundef %242)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %245
+  br label %246
 
-245:                                              ; preds = %242, %239
+246:                                              ; preds = %243, %240
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
+  br label %272
 
-246:                                              ; preds = %10
+247:                                              ; preds = %10
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.76) #13
-  %247 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %248 = load i32, ptr %247, align 8
-  %.not180 = icmp eq i32 %248, 0
-  br i1 %.not180, label %252, label %249
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %249 = load i32, ptr %248, align 8
+  %.not180 = icmp eq i32 %249, 0
+  br i1 %.not180, label %253, label %250
 
-249:                                              ; preds = %246
-  %250 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %251 = load ptr, ptr %250, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %251, i32 noundef %248)
+250:                                              ; preds = %247
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %252 = load ptr, ptr %251, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %252, i32 noundef %249)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %252
+  br label %253
 
-252:                                              ; preds = %249, %246
+253:                                              ; preds = %250, %247
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
+  br label %272
 
-253:                                              ; preds = %10
+254:                                              ; preds = %10
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.77) #13
-  %254 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %255 = load i32, ptr %254, align 8
-  %.not179 = icmp eq i32 %255, 0
-  br i1 %.not179, label %259, label %256
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %256 = load i32, ptr %255, align 8
+  %.not179 = icmp eq i32 %256, 0
+  br i1 %.not179, label %260, label %257
 
-256:                                              ; preds = %253
-  %257 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %258 = load ptr, ptr %257, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %258, i32 noundef %255)
+257:                                              ; preds = %254
+  %258 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %259 = load ptr, ptr %258, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %259, i32 noundef %256)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %259
+  br label %260
 
-259:                                              ; preds = %256, %253
+260:                                              ; preds = %257, %254
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
+  br label %272
 
-260:                                              ; preds = %10
+261:                                              ; preds = %10
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef nonnull @.str.78) #13
-  %261 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %262 = load i32, ptr %261, align 8
-  %.not178 = icmp eq i32 %262, 0
-  br i1 %.not178, label %266, label %263
+  %262 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %263 = load i32, ptr %262, align 8
+  %.not178 = icmp eq i32 %263, 0
+  br i1 %.not178, label %267, label %264
 
-263:                                              ; preds = %260
-  %264 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %265 = load ptr, ptr %264, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %265, i32 noundef %262)
+264:                                              ; preds = %261
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %266 = load ptr, ptr %265, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %266, i32 noundef %263)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %266
+  br label %267
 
-266:                                              ; preds = %263, %260
+267:                                              ; preds = %264, %261
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 41) #13
-  br label %271
+  br label %272
 
-267:                                              ; preds = %10
-  %268 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %268)
-  %269 = load i32, ptr %1, align 8
-  %270 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %269) #13
+268:                                              ; preds = %10
+  %269 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %269)
+  %270 = load i32, ptr %1, align 8
+  %271 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %270) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 835, ptr noundef nonnull @__func__.printJsonPathItem) #13
   unreachable
 
-271:                                              ; preds = %217, %218, %129, %136, %.thread208.thread, %138, %134, %.thread207, %operationPriority.exit201, %92, %operationPriority.exit197, %64, %36, %37, %23, %31, %266, %259, %252, %245, %238, %237, %236, %235, %221, %220, %219, %177, %176, %175, %168, %167, %166, %165, %164, %163, %158, %153, %148, %147, %146, %141, %._crit_edge, %96, %93, %70, %65, %13, %12
-  %272 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %273 = load i32, ptr %272, align 4
-  %274 = icmp sgt i32 %273, 0
-  br i1 %274, label %275, label %jspGetNext.exit
+272:                                              ; preds = %218, %219, %130, %137, %.thread208.thread, %139, %135, %.thread207, %operationPriority.exit201, %92, %operationPriority.exit197, %64, %36, %37, %23, %31, %267, %260, %253, %246, %239, %238, %237, %236, %222, %221, %220, %178, %177, %176, %169, %168, %167, %166, %165, %164, %159, %154, %149, %148, %147, %142, %._crit_edge, %96, %93, %70, %65, %13, %12
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %274 = load i32, ptr %273, align 4
+  %275 = icmp sgt i32 %274, 0
+  br i1 %275, label %276, label %jspGetNext.exit
 
-275:                                              ; preds = %271
-  %276 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %277 = load ptr, ptr %276, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %277, i32 noundef %273)
+276:                                              ; preds = %272
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %278 = load ptr, ptr %277, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %278, i32 noundef %274)
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef %5, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %jspGetNext.exit
 
-jspGetNext.exit:                                  ; preds = %271, %275
+jspGetNext.exit:                                  ; preds = %272, %276
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

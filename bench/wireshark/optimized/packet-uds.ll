@@ -1499,7 +1499,7 @@ reset_update_uds_routine_cb.exit:                 ; preds = %0, %2
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr @uds_ht_routine_ids, align 8
-  %10 = getelementptr %struct._generic_addr_id_string, ptr %6, i64 %indvars.iv, i32 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @g_hash_table_insert(ptr noundef %9, ptr noundef %5, ptr noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1635,7 +1635,7 @@ reset_update_uds_data_cb.exit:                    ; preds = %0, %2
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr @uds_ht_data_ids, align 8
-  %10 = getelementptr %struct._generic_addr_id_string, ptr %6, i64 %indvars.iv, i32 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @g_hash_table_insert(ptr noundef %9, ptr noundef %5, ptr noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1816,7 +1816,7 @@ reset_update_uds_dtc_cb.exit:                     ; preds = %0, %2
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr @uds_ht_dtc_ids, align 8
-  %10 = getelementptr %struct._generic_addr_id_string, ptr %6, i64 %indvars.iv, i32 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @g_hash_table_insert(ptr noundef %9, ptr noundef %5, ptr noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

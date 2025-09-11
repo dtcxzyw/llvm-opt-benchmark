@@ -6207,14 +6207,14 @@ define dso_local ptr @app_params_new_from_opts(ptr noundef %0, ptr noundef %1) l
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !30
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %38, label %8
+  br i1 %7, label %39, label %8
 
 8:                                                ; preds = %2
   %9 = mul nsw i64 %6, 40
   %10 = add nsw i64 %9, 40
   %11 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %10, ptr noundef nonnull @.str.1, i32 noundef 3449) #27
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %38, label %.preheader
+  br i1 %12, label %39, label %.preheader
 
 .preheader:                                       ; preds = %8
   %.not35 = icmp eq i32 %5, 0
@@ -6254,7 +6254,7 @@ define dso_local ptr @app_params_new_from_opts(ptr noundef %0, ptr noundef %1) l
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !48
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %38
+  br label %39
 
 .preheader.i:                                     ; preds = %17, %.lr.ph, %20
   call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.1, i32 noundef 3470) #27
@@ -6271,20 +6271,21 @@ define dso_local ptr @app_params_new_from_opts(ptr noundef %0, ptr noundef %1) l
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %34 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %11, i64 %indvars.iv.i, i32 2
-  %35 = load ptr, ptr %34, align 8, !tbaa !118
-  call void @CRYPTO_free(ptr noundef %35, ptr noundef nonnull @.str.1, i32 noundef 3484) #27
+  %34 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %11, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !118
+  call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str.1, i32 noundef 3484) #27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %36 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %11, i64 %indvars.iv.next.i
-  %37 = load ptr, ptr %36, align 8, !tbaa !116
-  %.not7.i = icmp eq ptr %37, null
+  %37 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %11, i64 %indvars.iv.next.i
+  %38 = load ptr, ptr %37, align 8, !tbaa !116
+  %.not7.i = icmp eq ptr %38, null
   br i1 %.not7.i, label %app_params_free.exit, label %.lr.ph.i, !llvm.loop !119
 
 app_params_free.exit:                             ; preds = %.lr.ph.i, %.preheader.i
   call void @CRYPTO_free(ptr noundef nonnull %11, ptr noundef nonnull @.str.1, i32 noundef 3485) #27
-  br label %38
+  br label %39
 
-38:                                               ; preds = %8, %2, %app_params_free.exit, %._crit_edge
+39:                                               ; preds = %8, %2, %app_params_free.exit, %._crit_edge
   %.0 = phi ptr [ null, %app_params_free.exit ], [ %11, %._crit_edge ], [ null, %2 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
@@ -6297,7 +6298,7 @@ declare i32 @OSSL_PARAM_allocate_from_text(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define dso_local void @app_params_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %7, label %.preheader
+  br i1 %.not, label %8, label %.preheader
 
 .preheader:                                       ; preds = %1
   %2 = load ptr, ptr %0, align 8, !tbaa !116
@@ -6306,20 +6307,21 @@ define dso_local void @app_params_free(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %3 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %0, i64 %indvars.iv, i32 2
-  %4 = load ptr, ptr %3, align 8, !tbaa !118
-  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 3484) #27
+  %3 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8, !tbaa !118
+  tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 3484) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %0, i64 %indvars.iv.next
-  %6 = load ptr, ptr %5, align 8, !tbaa !116
-  %.not7 = icmp eq ptr %6, null
+  %6 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %0, i64 %indvars.iv.next
+  %7 = load ptr, ptr %6, align 8, !tbaa !116
+  %.not7 = icmp eq ptr %7, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef 3485) #27
-  br label %7
+  br label %8
 
-7:                                                ; preds = %._crit_edge, %1
+8:                                                ; preds = %._crit_edge, %1
   ret void
 }
 

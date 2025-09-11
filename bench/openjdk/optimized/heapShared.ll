@@ -818,33 +818,35 @@ define hidden noundef zeroext i1 @_ZN10HeapShared22is_subgraph_root_classEP13Ins
 
 .lr.ph.i:                                         ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw %struct.ArchivableStaticFieldInfo, ptr @_ZL29archive_subgraph_entry_fields, i64 %indvars.iv.i, i32 2
-  %7 = load ptr, ptr %6, align 16
-  %8 = icmp eq ptr %7, %0
-  br i1 %8, label %_ZL25is_subgraph_root_class_ofP25ArchivableStaticFieldInfoP13InstanceKlass.exit, label %3
+  %6 = getelementptr inbounds nuw %struct.ArchivableStaticFieldInfo, ptr @_ZL29archive_subgraph_entry_fields, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load ptr, ptr %7, align 16
+  %9 = icmp eq ptr %8, %0
+  br i1 %9, label %_ZL25is_subgraph_root_class_ofP25ArchivableStaticFieldInfoP13InstanceKlass.exit, label %3
 
 .loopexit:                                        ; preds = %3, %1
-  %9 = load ptr, ptr @_ZL33fmg_archive_subgraph_entry_fields, align 16
-  %.not.i2 = icmp eq ptr %9, null
+  %10 = load ptr, ptr @_ZL33fmg_archive_subgraph_entry_fields, align 16
+  %.not.i2 = icmp eq ptr %10, null
   br i1 %.not.i2, label %_ZL25is_subgraph_root_class_ofP25ArchivableStaticFieldInfoP13InstanceKlass.exit, label %.lr.ph.i3
 
-10:                                               ; preds = %.lr.ph.i3
+11:                                               ; preds = %.lr.ph.i3
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
-  %11 = getelementptr inbounds nuw %struct.ArchivableStaticFieldInfo, ptr @_ZL33fmg_archive_subgraph_entry_fields, i64 %indvars.iv.next.i5
-  %12 = load ptr, ptr %11, align 16
-  %.not10.i6 = icmp eq ptr %12, null
+  %12 = getelementptr inbounds nuw %struct.ArchivableStaticFieldInfo, ptr @_ZL33fmg_archive_subgraph_entry_fields, i64 %indvars.iv.next.i5
+  %13 = load ptr, ptr %12, align 16
+  %.not10.i6 = icmp eq ptr %13, null
   br i1 %.not10.i6, label %_ZL25is_subgraph_root_class_ofP25ArchivableStaticFieldInfoP13InstanceKlass.exit, label %.lr.ph.i3, !llvm.loop !6
 
-.lr.ph.i3:                                        ; preds = %.loopexit, %10
-  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i5, %10 ], [ 0, %.loopexit ]
-  %13 = getelementptr inbounds nuw %struct.ArchivableStaticFieldInfo, ptr @_ZL33fmg_archive_subgraph_entry_fields, i64 %indvars.iv.i4, i32 2
-  %14 = load ptr, ptr %13, align 16
-  %15 = icmp eq ptr %14, %0
-  br i1 %15, label %_ZL25is_subgraph_root_class_ofP25ArchivableStaticFieldInfoP13InstanceKlass.exit, label %10
+.lr.ph.i3:                                        ; preds = %.loopexit, %11
+  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i5, %11 ], [ 0, %.loopexit ]
+  %14 = getelementptr inbounds nuw %struct.ArchivableStaticFieldInfo, ptr @_ZL33fmg_archive_subgraph_entry_fields, i64 %indvars.iv.i4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 16
+  %17 = icmp eq ptr %16, %0
+  br i1 %17, label %_ZL25is_subgraph_root_class_ofP25ArchivableStaticFieldInfoP13InstanceKlass.exit, label %11
 
-_ZL25is_subgraph_root_class_ofP25ArchivableStaticFieldInfoP13InstanceKlass.exit: ; preds = %.lr.ph.i, %.lr.ph.i3, %10, %.loopexit
-  %16 = phi i1 [ false, %.loopexit ], [ %15, %10 ], [ %15, %.lr.ph.i3 ], [ true, %.lr.ph.i ]
-  ret i1 %16
+_ZL25is_subgraph_root_class_ofP25ArchivableStaticFieldInfoP13InstanceKlass.exit: ; preds = %.lr.ph.i, %.lr.ph.i3, %11, %.loopexit
+  %18 = phi i1 [ false, %.loopexit ], [ %17, %11 ], [ %17, %.lr.ph.i3 ], [ true, %.lr.ph.i ]
+  ret i1 %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

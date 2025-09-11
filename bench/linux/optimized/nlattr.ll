@@ -775,7 +775,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   %273 = sext i1 %272 to i32
   %274 = add nsw i32 %273, %153
   %275 = zext i16 %265 to i32
-  %276 = icmp sgt i32 %274, %275
+  %276 = icmp samesign ugt i32 %274, %275
   br i1 %276, label %.thread, label %342
 
 277:                                              ; preds = %213
@@ -1607,7 +1607,7 @@ define dso_local range(i64 -7, 65536) i64 @nla_strscpy(ptr noundef writeonly cap
 
 21:                                               ; preds = %14, %12
   %22 = phi i64 [ 0, %12 ], [ %20, %14 ]
-  %23 = icmp ult i64 %22, %2
+  %23 = icmp samesign ult i64 %22, %2
   %24 = add nsw i64 %2, -1
   %25 = select i1 %23, i64 %22, i64 -7
   %26 = select i1 %23, i64 %22, i64 %24

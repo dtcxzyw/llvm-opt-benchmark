@@ -1504,7 +1504,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i10: ; preds = %_ZNSt16_Sp_coun
 513:                                              ; preds = %392
   %514 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit70.i
+  br label %.loopexit69.i
 
 515:                                              ; preds = %407
   %516 = landingpad { ptr, i32 }
@@ -1521,18 +1521,18 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i10: ; preds = %_ZNSt16_Sp_coun
   %519 = getelementptr inbounds i8, ptr %518, i64 -144
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %519) #17
   %520 = icmp eq ptr %519, %43
-  br i1 %520, label %.loopexit70.i, label %517
+  br i1 %520, label %.loopexit69.i, label %517
 
-.loopexit70.i:                                    ; preds = %517, %513
+.loopexit69.i:                                    ; preds = %517, %513
   %.pn.pn.i = phi { ptr, i32 } [ %514, %513 ], [ %.pn.i4, %517 ]
   %521 = phi i1 [ false, %513 ], [ true, %517 ]
   call void @_ZN10open_spiel13GameParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %46) #17
   br label %522
 
-522:                                              ; preds = %.loopexit70.i, %511
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %.loopexit70.i ], [ %512, %511 ]
-  %.4.i = phi ptr [ %391, %.loopexit70.i ], [ %.15.i, %511 ]
-  %.2.i = phi i1 [ %521, %.loopexit70.i ], [ false, %511 ]
+522:                                              ; preds = %.loopexit69.i, %511
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %.loopexit69.i ], [ %512, %511 ]
+  %.4.i = phi ptr [ %391, %.loopexit69.i ], [ %.15.i, %511 ]
+  %.2.i = phi i1 [ %521, %.loopexit69.i ], [ false, %511 ]
   call void @_ZN10open_spiel13GameParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %45) #17
   br label %523
 
@@ -1626,8 +1626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51.i: 
 
 546:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51.i
   %547 = zext i16 %545 to i64
-  %.idx.i = mul nuw nsw i64 %547, 6
-  %548 = getelementptr inbounds nuw i8, ptr %535, i64 %.idx.i
+  %548 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %535, i64 %547
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 4
   %550 = load i8, ptr %549, align 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #17
@@ -1717,8 +1716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56.i: 
 
 572:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56.i
   %573 = zext i16 %571 to i64
-  %.idx69.i = mul nuw nsw i64 %573, 6
-  %574 = getelementptr inbounds nuw i8, ptr %535, i64 %.idx69.i
+  %574 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %535, i64 %573
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 4
   %576 = load i8, ptr %575, align 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #17

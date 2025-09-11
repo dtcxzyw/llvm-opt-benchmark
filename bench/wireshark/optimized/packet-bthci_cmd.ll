@@ -10983,7 +10983,7 @@ define internal fastcc i32 @dissect_eir_ad_data(ptr noundef %0, ptr noundef %1, 
   %415 = icmp ugt i8 %.1792846, 3
   %416 = zext i8 %412 to i32
   %417 = add nsw i32 %414, -3
-  %418 = icmp slt i32 %417, %416
+  %418 = icmp samesign ult i32 %417, %416
   %or.cond941 = select i1 %415, i1 %418, i1 false
   br i1 %or.cond941, label %419, label %._crit_edge893
 

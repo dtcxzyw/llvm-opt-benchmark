@@ -652,54 +652,55 @@ define i32 @fdt_num_mem_rsv(ptr noundef readonly captures(none) %0) local_unname
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
   br label %.split
 
-.split:                                           ; preds = %.split.preheader, %77
-  %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %77 ]
-  %49 = phi i32 [ %18, %.split.preheader ], [ %80, %77 ]
+.split:                                           ; preds = %.split.preheader, %78
+  %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %78 ]
+  %49 = phi i32 [ %18, %.split.preheader ], [ %81, %78 ]
   %50 = sext i32 %49 to i64
   %51 = icmp ult i64 %37, %50
   br i1 %51, label %fdt_mem_rsv.exit.thread.split, label %52
 
 52:                                               ; preds = %.split
-  %53 = getelementptr inbounds nuw %struct.fdt_reserve_entry, ptr %48, i64 %indvars.iv, i32 1
-  %54 = load i8, ptr %53, align 1, !tbaa !3
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  %56 = load i8, ptr %55, align 1, !tbaa !3
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 2
-  %58 = load i8, ptr %57, align 1, !tbaa !3
-  %59 = getelementptr inbounds nuw i8, ptr %53, i64 3
-  %60 = load i8, ptr %59, align 1, !tbaa !3
-  %61 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %62 = load i8, ptr %61, align 1, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %53, i64 5
-  %64 = load i8, ptr %63, align 1, !tbaa !3
-  %65 = getelementptr inbounds nuw i8, ptr %53, i64 6
-  %66 = load i8, ptr %65, align 1, !tbaa !3
-  %67 = getelementptr inbounds nuw i8, ptr %53, i64 7
-  %68 = load i8, ptr %67, align 1, !tbaa !3
-  %69 = or i8 %56, %54
-  %70 = or i8 %69, %58
-  %71 = or i8 %70, %60
-  %72 = or i8 %71, %62
-  %73 = or i8 %72, %64
-  %74 = or i8 %73, %66
-  %75 = or i8 %74, %68
-  %76 = icmp eq i8 %75, 0
-  br i1 %76, label %fdt_mem_rsv.exit.thread.split.split.loop.exit, label %77
+  %53 = getelementptr inbounds nuw %struct.fdt_reserve_entry, ptr %48, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load i8, ptr %54, align 1, !tbaa !3
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 9
+  %57 = load i8, ptr %56, align 1, !tbaa !3
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 10
+  %59 = load i8, ptr %58, align 1, !tbaa !3
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 11
+  %61 = load i8, ptr %60, align 1, !tbaa !3
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 12
+  %63 = load i8, ptr %62, align 1, !tbaa !3
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 13
+  %65 = load i8, ptr %64, align 1, !tbaa !3
+  %66 = getelementptr inbounds nuw i8, ptr %53, i64 14
+  %67 = load i8, ptr %66, align 1, !tbaa !3
+  %68 = getelementptr inbounds nuw i8, ptr %53, i64 15
+  %69 = load i8, ptr %68, align 1, !tbaa !3
+  %70 = or i8 %57, %55
+  %71 = or i8 %70, %59
+  %72 = or i8 %71, %61
+  %73 = or i8 %72, %63
+  %74 = or i8 %73, %65
+  %75 = or i8 %74, %67
+  %76 = or i8 %75, %69
+  %77 = icmp eq i8 %76, 0
+  br i1 %77, label %fdt_mem_rsv.exit.thread.split.split.loop.exit, label %78
 
-77:                                               ; preds = %52
+78:                                               ; preds = %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = trunc nsw i64 %indvars.iv.next to i32
-  %79 = shl i32 %78, 4
-  %80 = add i32 %18, %79
-  %81 = icmp ult i32 %80, %18
-  br i1 %81, label %fdt_mem_rsv.exit.thread.split, label %.split, !llvm.loop !10
+  %79 = trunc nsw i64 %indvars.iv.next to i32
+  %80 = shl i32 %79, 4
+  %81 = add i32 %18, %80
+  %82 = icmp ult i32 %81, %18
+  br i1 %82, label %fdt_mem_rsv.exit.thread.split, label %.split, !llvm.loop !10
 
 fdt_mem_rsv.exit.thread.split.split.loop.exit:    ; preds = %52
-  %82 = trunc nuw nsw i64 %indvars.iv to i32
+  %83 = trunc nuw nsw i64 %indvars.iv to i32
   br label %fdt_mem_rsv.exit.thread.split
 
-fdt_mem_rsv.exit.thread.split:                    ; preds = %.split, %77, %fdt_mem_rsv.exit.thread.split.split.loop.exit
-  %.0.split.ph = phi i32 [ %82, %fdt_mem_rsv.exit.thread.split.split.loop.exit ], [ -8, %77 ], [ -8, %.split ]
+fdt_mem_rsv.exit.thread.split:                    ; preds = %.split, %78, %fdt_mem_rsv.exit.thread.split.split.loop.exit
+  %.0.split.ph = phi i32 [ %83, %fdt_mem_rsv.exit.thread.split.split.loop.exit ], [ -8, %78 ], [ -8, %.split ]
   ret i32 %.0.split.ph
 }
 
@@ -3180,108 +3181,109 @@ define i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
   br label %.split.i
 
-.split.i:                                         ; preds = %91, %29
-  %indvars.iv.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i, %91 ]
-  %60 = phi i32 [ %47, %29 ], [ %94, %91 ]
+.split.i:                                         ; preds = %92, %29
+  %indvars.iv.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i, %92 ]
+  %60 = phi i32 [ %47, %29 ], [ %95, %92 ]
   %61 = sext i32 %60 to i64
   %62 = icmp ult i64 %48, %61
   br i1 %62, label %fdt_num_mem_rsv.exit.thread, label %63
 
 63:                                               ; preds = %.split.i
-  %64 = getelementptr inbounds nuw %struct.fdt_reserve_entry, ptr %59, i64 %indvars.iv.i, i32 1
-  %65 = load i8, ptr %64, align 1, !tbaa !3
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 1
-  %67 = load i8, ptr %66, align 1, !tbaa !3
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 2
-  %69 = load i8, ptr %68, align 1, !tbaa !3
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 3
-  %71 = load i8, ptr %70, align 1, !tbaa !3
-  %72 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %73 = load i8, ptr %72, align 1, !tbaa !3
-  %74 = getelementptr inbounds nuw i8, ptr %64, i64 5
-  %75 = load i8, ptr %74, align 1, !tbaa !3
-  %76 = getelementptr inbounds nuw i8, ptr %64, i64 6
-  %77 = load i8, ptr %76, align 1, !tbaa !3
-  %78 = getelementptr inbounds nuw i8, ptr %64, i64 7
-  %79 = load i8, ptr %78, align 1, !tbaa !3
-  %80 = or i8 %67, %65
-  %81 = or i8 %80, %69
-  %82 = or i8 %81, %71
-  %83 = or i8 %82, %73
-  %84 = or i8 %83, %75
-  %85 = or i8 %84, %77
-  %86 = or i8 %85, %79
-  %87 = icmp eq i8 %86, 0
-  br i1 %87, label %fdt_num_mem_rsv.exit.preheader, label %91
+  %64 = getelementptr inbounds nuw %struct.fdt_reserve_entry, ptr %59, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load i8, ptr %65, align 1, !tbaa !3
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 9
+  %68 = load i8, ptr %67, align 1, !tbaa !3
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 10
+  %70 = load i8, ptr %69, align 1, !tbaa !3
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 11
+  %72 = load i8, ptr %71, align 1, !tbaa !3
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 12
+  %74 = load i8, ptr %73, align 1, !tbaa !3
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 13
+  %76 = load i8, ptr %75, align 1, !tbaa !3
+  %77 = getelementptr inbounds nuw i8, ptr %64, i64 14
+  %78 = load i8, ptr %77, align 1, !tbaa !3
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 15
+  %80 = load i8, ptr %79, align 1, !tbaa !3
+  %81 = or i8 %68, %66
+  %82 = or i8 %81, %70
+  %83 = or i8 %82, %72
+  %84 = or i8 %83, %74
+  %85 = or i8 %84, %76
+  %86 = or i8 %85, %78
+  %87 = or i8 %86, %80
+  %88 = icmp eq i8 %87, 0
+  br i1 %88, label %fdt_num_mem_rsv.exit.preheader, label %92
 
 fdt_num_mem_rsv.exit.preheader:                   ; preds = %63
-  %88 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %4) #9
-  %89 = load i32, ptr %4, align 4, !tbaa !6
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %fdt_num_mem_rsv.exit.thread, label %.lr.ph
+  %89 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %4) #9
+  %90 = load i32, ptr %4, align 4, !tbaa !6
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %fdt_num_mem_rsv.exit.thread, label %.lr.ph
 
-91:                                               ; preds = %63
+92:                                               ; preds = %63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %92 = trunc nsw i64 %indvars.iv.next.i to i32
-  %93 = shl i32 %92, 4
-  %94 = add i32 %93, %47
-  %95 = icmp ult i32 %94, %47
-  br i1 %95, label %fdt_num_mem_rsv.exit.thread, label %.split.i, !llvm.loop !10
+  %93 = trunc nsw i64 %indvars.iv.next.i to i32
+  %94 = shl i32 %93, 4
+  %95 = add i32 %94, %47
+  %96 = icmp ult i32 %95, %47
+  br i1 %96, label %fdt_num_mem_rsv.exit.thread, label %.split.i, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %fdt_num_mem_rsv.exit.preheader, %fdt_num_mem_rsv.exit
-  %96 = phi i32 [ %113, %fdt_num_mem_rsv.exit ], [ %89, %fdt_num_mem_rsv.exit.preheader ]
-  %97 = phi i32 [ %112, %fdt_num_mem_rsv.exit ], [ %88, %fdt_num_mem_rsv.exit.preheader ]
-  %98 = phi i32 [ %111, %fdt_num_mem_rsv.exit ], [ 0, %fdt_num_mem_rsv.exit.preheader ]
+  %97 = phi i32 [ %114, %fdt_num_mem_rsv.exit ], [ %90, %fdt_num_mem_rsv.exit.preheader ]
+  %98 = phi i32 [ %113, %fdt_num_mem_rsv.exit ], [ %89, %fdt_num_mem_rsv.exit.preheader ]
+  %99 = phi i32 [ %112, %fdt_num_mem_rsv.exit ], [ 0, %fdt_num_mem_rsv.exit.preheader ]
   %.01830 = phi i32 [ %.1, %fdt_num_mem_rsv.exit ], [ 0, %fdt_num_mem_rsv.exit.preheader ]
-  switch i32 %97, label %fdt_num_mem_rsv.exit.thread [
+  switch i32 %98, label %fdt_num_mem_rsv.exit.thread [
     i32 4, label %fdt_num_mem_rsv.exit
-    i32 9, label %99
-    i32 1, label %100
-    i32 2, label %103
-    i32 3, label %107
+    i32 9, label %100
+    i32 1, label %101
+    i32 2, label %104
+    i32 3, label %108
   ]
 
-99:                                               ; preds = %.lr.ph
+100:                                              ; preds = %.lr.ph
   %.not25 = icmp eq i32 %.01830, 0
   %. = select i1 %.not25, i32 0, i32 -11
   br label %fdt_num_mem_rsv.exit.thread
 
-100:                                              ; preds = %.lr.ph
-  %101 = add i32 %.01830, 1
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %fdt_num_mem_rsv.exit.thread, label %fdt_num_mem_rsv.exit
+101:                                              ; preds = %.lr.ph
+  %102 = add i32 %.01830, 1
+  %103 = icmp slt i32 %102, 0
+  br i1 %103, label %fdt_num_mem_rsv.exit.thread, label %fdt_num_mem_rsv.exit
 
-103:                                              ; preds = %.lr.ph
-  %104 = icmp eq i32 %.01830, 0
-  br i1 %104, label %fdt_num_mem_rsv.exit.thread, label %105
+104:                                              ; preds = %.lr.ph
+  %105 = icmp eq i32 %.01830, 0
+  br i1 %105, label %fdt_num_mem_rsv.exit.thread, label %106
 
-105:                                              ; preds = %103
-  %106 = add i32 %.01830, -1
+106:                                              ; preds = %104
+  %107 = add i32 %.01830, -1
   br label %fdt_num_mem_rsv.exit
 
-107:                                              ; preds = %.lr.ph
-  %108 = call ptr @fdt_getprop_by_offset(ptr noundef nonnull %0, i32 noundef %98, ptr noundef nonnull %5, ptr noundef nonnull %3)
-  %.not24 = icmp eq ptr %108, null
-  br i1 %.not24, label %109, label %.fdt_num_mem_rsv.exit_crit_edge
+108:                                              ; preds = %.lr.ph
+  %109 = call ptr @fdt_getprop_by_offset(ptr noundef nonnull %0, i32 noundef %99, ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %.not24 = icmp eq ptr %109, null
+  br i1 %.not24, label %110, label %.fdt_num_mem_rsv.exit_crit_edge
 
-.fdt_num_mem_rsv.exit_crit_edge:                  ; preds = %107
+.fdt_num_mem_rsv.exit_crit_edge:                  ; preds = %108
   %.pre = load i32, ptr %4, align 4, !tbaa !6
   br label %fdt_num_mem_rsv.exit
 
-109:                                              ; preds = %107
-  %110 = load i32, ptr %3, align 4, !tbaa !6
+110:                                              ; preds = %108
+  %111 = load i32, ptr %3, align 4, !tbaa !6
   br label %fdt_num_mem_rsv.exit.thread
 
-fdt_num_mem_rsv.exit:                             ; preds = %.fdt_num_mem_rsv.exit_crit_edge, %100, %105, %.lr.ph
-  %111 = phi i32 [ %96, %.lr.ph ], [ %96, %100 ], [ %96, %105 ], [ %.pre, %.fdt_num_mem_rsv.exit_crit_edge ]
-  %.1 = phi i32 [ %.01830, %.lr.ph ], [ %101, %100 ], [ %106, %105 ], [ %.01830, %.fdt_num_mem_rsv.exit_crit_edge ]
-  %112 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %111, ptr noundef nonnull %4) #9
-  %113 = load i32, ptr %4, align 4, !tbaa !6
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %fdt_num_mem_rsv.exit.thread, label %.lr.ph
+fdt_num_mem_rsv.exit:                             ; preds = %.fdt_num_mem_rsv.exit_crit_edge, %101, %106, %.lr.ph
+  %112 = phi i32 [ %97, %.lr.ph ], [ %97, %101 ], [ %97, %106 ], [ %.pre, %.fdt_num_mem_rsv.exit_crit_edge ]
+  %.1 = phi i32 [ %.01830, %.lr.ph ], [ %102, %101 ], [ %107, %106 ], [ %.01830, %.fdt_num_mem_rsv.exit_crit_edge ]
+  %113 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %112, ptr noundef nonnull %4) #9
+  %114 = load i32, ptr %4, align 4, !tbaa !6
+  %115 = icmp slt i32 %114, 0
+  br i1 %115, label %fdt_num_mem_rsv.exit.thread, label %.lr.ph
 
-fdt_num_mem_rsv.exit.thread:                      ; preds = %.split.i, %91, %fdt_num_mem_rsv.exit, %100, %103, %.lr.ph, %fdt_num_mem_rsv.exit.preheader, %99, %9, %7, %2, %109
-  %.0 = phi i32 [ %110, %109 ], [ -8, %2 ], [ %8, %7 ], [ -8, %9 ], [ %., %99 ], [ %89, %fdt_num_mem_rsv.exit.preheader ], [ %113, %fdt_num_mem_rsv.exit ], [ -11, %100 ], [ -11, %103 ], [ -13, %.lr.ph ], [ -8, %91 ], [ -8, %.split.i ]
+fdt_num_mem_rsv.exit.thread:                      ; preds = %.split.i, %92, %fdt_num_mem_rsv.exit, %101, %104, %.lr.ph, %fdt_num_mem_rsv.exit.preheader, %100, %9, %7, %2, %110
+  %.0 = phi i32 [ %111, %110 ], [ -8, %2 ], [ %8, %7 ], [ -8, %9 ], [ %., %100 ], [ %90, %fdt_num_mem_rsv.exit.preheader ], [ %114, %fdt_num_mem_rsv.exit ], [ -11, %101 ], [ -11, %104 ], [ -13, %.lr.ph ], [ -8, %92 ], [ -8, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

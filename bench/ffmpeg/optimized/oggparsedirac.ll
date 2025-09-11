@@ -124,32 +124,33 @@ define internal range(i64 -4294967296, 4294975487) i64 @dirac_gptopts(ptr nounde
   %8 = or disjoint i64 %6, %7
   %9 = ashr i64 %2, 31
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %10, label %18
+  br i1 %.not, label %10, label %19
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = load ptr, ptr %12, align 8, !tbaa !24
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds %struct.ogg_stream, ptr %13, i64 %14, i32 5
-  %16 = load i32, ptr %15, align 8, !tbaa !72
-  %17 = or i32 %16, 1
-  store i32 %17, ptr %15, align 8, !tbaa !72
-  br label %18
+  %15 = getelementptr inbounds %struct.ogg_stream, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = load i32, ptr %16, align 8, !tbaa !72
+  %18 = or i32 %17, 1
+  store i32 %18, ptr %16, align 8, !tbaa !72
+  br label %19
 
-18:                                               ; preds = %10, %4
+19:                                               ; preds = %10, %4
   %.not14 = icmp eq ptr %3, null
-  br i1 %.not14, label %20, label %19
+  br i1 %.not14, label %21, label %20
 
-19:                                               ; preds = %18
+20:                                               ; preds = %19
   store i64 %9, ptr %3, align 8, !tbaa !73
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %18
-  %21 = lshr i64 %2, 9
-  %22 = and i64 %21, 8191
-  %23 = add nsw i64 %22, %9
-  ret i64 %23
+21:                                               ; preds = %20, %19
+  %22 = lshr i64 %2, 9
+  %23 = and i64 %22, 8191
+  %24 = add nsw i64 %23, %9
+  ret i64 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -196,23 +197,24 @@ define internal range(i32 0, 2) i32 @old_dirac_header(ptr noundef readonly captu
 define internal range(i64 0, 18253611007) i64 @old_dirac_gptopts(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = and i64 %2, 1073741823
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %14
+  br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %struct.ogg_stream, ptr %9, i64 %10, i32 5
-  %12 = load i32, ptr %11, align 8, !tbaa !72
-  %13 = or i32 %12, 1
-  store i32 %13, ptr %11, align 8, !tbaa !72
-  br label %14
+  %11 = getelementptr inbounds %struct.ogg_stream, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %13 = load i32, ptr %12, align 8, !tbaa !72
+  %14 = or i32 %13, 1
+  store i32 %14, ptr %12, align 8, !tbaa !72
+  br label %15
 
-14:                                               ; preds = %6, %4
-  %15 = lshr i64 %2, 30
-  %16 = add nuw nsw i64 %15, %5
-  ret i64 %16
+15:                                               ; preds = %6, %4
+  %16 = lshr i64 %2, 30
+  %17 = add nuw nsw i64 %16, %5
+  ret i64 %17
 }
 
 declare i32 @av_dirac_parse_sequence_header(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2

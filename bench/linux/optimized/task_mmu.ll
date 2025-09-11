@@ -5561,7 +5561,8 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr no
   %173 = select i1 %169, i64 %170, i64 %172
   %174 = add i64 %168, %173
   %175 = lshr i64 %174, 12
-  %176 = getelementptr %struct.page, ptr %165, i64 %175, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %165, i64 %175
+  %176 = getelementptr i8, ptr %.split, i64 40
   br label %180
 
 177:                                              ; preds = %144

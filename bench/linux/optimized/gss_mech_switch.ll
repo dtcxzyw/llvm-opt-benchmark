@@ -652,12 +652,14 @@ define dso_local noundef range(i32 -2, 1) i32 @gss_mech_flavor2info(i32 noundef 
   %25 = load i32, ptr %21, align 8
   store i32 %25, ptr %1, align 4
   %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr %struct.pf_desc, ptr %26, i64 %indvars.iv, i32 1
+  %.split = getelementptr %struct.pf_desc, ptr %26, i64 %indvars.iv
+  %27 = getelementptr i8, ptr %.split, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr %struct.pf_desc, ptr %30, i64 %indvars.iv, i32 2
+  %.split3 = getelementptr %struct.pf_desc, ptr %30, i64 %indvars.iv
+  %31 = getelementptr i8, ptr %.split3, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %32, ptr %33, align 4
@@ -803,7 +805,8 @@ define dso_local i32 @gss_import_sec_context(ptr noundef %0, i64 noundef %1, ptr
 13:                                               ; preds = %9, %6
   %14 = phi i64 [ 0, %6 ], [ %12, %9 ]
   %15 = or i32 %5, 256
-  %16 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %14, i64 5
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %14
+  %16 = getelementptr i8, ptr %.split, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %17, i32 noundef %15, i64 noundef 24) #16
   store ptr %18, ptr %3, align 8

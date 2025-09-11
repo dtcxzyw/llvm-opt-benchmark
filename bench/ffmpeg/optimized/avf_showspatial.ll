@@ -1620,7 +1620,7 @@ define internal noundef i32 @run_channel_fft(ptr noundef readonly captures(none)
   %34 = fmul nsz float %31, %33
   %35 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %19, i64 %indvars.iv
   store float %34, ptr %35, align 4, !tbaa !64
-  %36 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %19, i64 %indvars.iv, i32 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store float 0.000000e+00, ptr %36, align 4, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -323,65 +323,66 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %118 = load i32, ptr %117, align 4, !tbaa !44
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds %struct.CodedBitstreamUnit, ptr %116, i64 %119, i32 1
-  %121 = load ptr, ptr %120, align 8, !tbaa !61
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %121, ptr %122, align 8, !tbaa !34
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %52, ptr %123, align 8, !tbaa !62
-  %124 = load ptr, ptr %4, align 8, !tbaa !14
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  %126 = load ptr, ptr %125, align 8, !tbaa !34
-  %127 = sext i32 %52 to i64
-  %128 = getelementptr inbounds i8, ptr %126, i64 %127
-  store ptr %128, ptr %125, align 8, !tbaa !34
-  %129 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %130 = load i32, ptr %129, align 8, !tbaa !62
-  %131 = sub nsw i32 %130, %52
-  store i32 %131, ptr %129, align 8, !tbaa !62
-  %132 = load i8, ptr %.5224332, align 4, !tbaa !51
-  %.not158 = icmp eq i8 %132, 0
-  br i1 %.not158, label %133, label %138
+  %120 = getelementptr inbounds %struct.CodedBitstreamUnit, ptr %116, i64 %119
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !61
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %122, ptr %123, align 8, !tbaa !34
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 %52, ptr %124, align 8, !tbaa !62
+  %125 = load ptr, ptr %4, align 8, !tbaa !14
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
+  %127 = load ptr, ptr %126, align 8, !tbaa !34
+  %128 = sext i32 %52 to i64
+  %129 = getelementptr inbounds i8, ptr %127, i64 %128
+  store ptr %129, ptr %126, align 8, !tbaa !34
+  %130 = getelementptr inbounds nuw i8, ptr %125, i64 32
+  %131 = load i32, ptr %130, align 8, !tbaa !62
+  %132 = sub nsw i32 %131, %52
+  store i32 %132, ptr %130, align 8, !tbaa !62
+  %133 = load i8, ptr %.5224332, align 4, !tbaa !51
+  %.not158 = icmp eq i8 %133, 0
+  br i1 %.not158, label %134, label %139
 
-133:                                              ; preds = %114
-  %134 = getelementptr inbounds nuw i8, ptr %.5224332, i64 13
-  %135 = load i8, ptr %134, align 1, !tbaa !63
-  %.not159 = icmp eq i8 %135, 0
-  br i1 %.not159, label %136, label %138
+134:                                              ; preds = %114
+  %135 = getelementptr inbounds nuw i8, ptr %.5224332, i64 13
+  %136 = load i8, ptr %135, align 1, !tbaa !63
+  %.not159 = icmp eq i8 %136, 0
+  br i1 %.not159, label %137, label %139
 
-136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 -9223372036854775808, ptr %137, align 8, !tbaa !64
-  br label %138
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 -9223372036854775808, ptr %138, align 8, !tbaa !64
+  br label %139
 
-138:                                              ; preds = %136, %133, %114
-  %139 = load i32, ptr %109, align 4, !tbaa !43
-  %140 = load i32, ptr %110, align 8, !tbaa !45
-  %141 = icmp eq i32 %139, %140
-  br i1 %141, label %142, label %.thread227
+139:                                              ; preds = %137, %134, %114
+  %140 = load i32, ptr %109, align 4, !tbaa !43
+  %141 = load i32, ptr %110, align 8, !tbaa !45
+  %142 = icmp eq i32 %140, %141
+  br i1 %142, label %143, label %.thread227
 
-142:                                              ; preds = %138
-  tail call void @av_packet_unref(ptr noundef nonnull %124) #3
+143:                                              ; preds = %139
+  tail call void @av_packet_unref(ptr noundef nonnull %125) #3
   br label %.thread227.sink.split
 
 .thread243:                                       ; preds = %.preheader, %._crit_edge, %23, %29, %85, %68, %.thread185
-  %143 = load ptr, ptr %4, align 8, !tbaa !14
-  tail call void @av_packet_move_ref(ptr noundef %1, ptr noundef %143) #3
+  %144 = load ptr, ptr %4, align 8, !tbaa !14
+  tail call void @av_packet_move_ref(ptr noundef %1, ptr noundef %144) #3
   br label %.thread227.sink.split
 
 .thread239:                                       ; preds = %.thread220.thread
   tail call void @av_packet_unref(ptr noundef %1) #3
-  %144 = load ptr, ptr %4, align 8, !tbaa !14
-  tail call void @av_packet_unref(ptr noundef %144) #3
+  %145 = load ptr, ptr %4, align 8, !tbaa !14
+  tail call void @av_packet_unref(ptr noundef %145) #3
   br label %.thread227.sink.split
 
-.thread227.sink.split:                            ; preds = %.thread239, %.thread243, %142
-  %.2.ph = phi i32 [ 0, %142 ], [ %112, %.thread239 ], [ 0, %.thread243 ]
+.thread227.sink.split:                            ; preds = %.thread239, %.thread243, %143
+  %.2.ph = phi i32 [ 0, %143 ], [ %112, %.thread239 ], [ 0, %.thread243 ]
   tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %5) #3
   br label %.thread227
 
-.thread227:                                       ; preds = %.thread227.sink.split, %138, %9
-  %.2 = phi i32 [ %10, %9 ], [ 0, %138 ], [ %.2.ph, %.thread227.sink.split ]
+.thread227:                                       ; preds = %.thread227.sink.split, %139, %9
+  %.2 = phi i32 [ %10, %9 ], [ 0, %139 ], [ %.2.ph, %.thread227.sink.split ]
   ret i32 %.2
 }
 

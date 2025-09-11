@@ -889,7 +889,7 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %156 = load ptr, ptr %155, align 8, !tbaa !104
   %.not87 = icmp eq ptr %156, null
-  br i1 %.not87, label %172, label %.preheader90
+  br i1 %.not87, label %173, label %.preheader90
 
 .preheader90:                                     ; preds = %154
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -897,81 +897,82 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
   %159 = icmp sgt i32 %158, 0
   br i1 %159, label %.lr.ph97, label %._crit_edge98.thread
 
-.lr.ph97:                                         ; preds = %.preheader90, %166
-  %160 = phi i32 [ %167, %166 ], [ %158, %.preheader90 ]
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %166 ], [ 0, %.preheader90 ]
+.lr.ph97:                                         ; preds = %.preheader90, %167
+  %160 = phi i32 [ %168, %167 ], [ %158, %.preheader90 ]
+  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %167 ], [ 0, %.preheader90 ]
   %161 = load ptr, ptr %155, align 8, !tbaa !104
-  %162 = getelementptr inbounds nuw %"struct.tetgenio::vorofacet", ptr %161, i64 %indvars.iv106, i32 2
-  %163 = load ptr, ptr %162, align 8, !tbaa !106
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %166, label %165
+  %162 = getelementptr inbounds nuw %"struct.tetgenio::vorofacet", ptr %161, i64 %indvars.iv106
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = load ptr, ptr %163, align 8, !tbaa !106
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %167, label %166
 
-165:                                              ; preds = %.lr.ph97
-  tail call void @_ZdaPv(ptr noundef nonnull %163) #14
+166:                                              ; preds = %.lr.ph97
+  tail call void @_ZdaPv(ptr noundef nonnull %164) #14
   %.pre113 = load i32, ptr %157, align 8, !tbaa !105
-  br label %166
+  br label %167
 
-166:                                              ; preds = %.lr.ph97, %165
-  %167 = phi i32 [ %160, %.lr.ph97 ], [ %.pre113, %165 ]
+167:                                              ; preds = %.lr.ph97, %166
+  %168 = phi i32 [ %160, %.lr.ph97 ], [ %.pre113, %166 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %168 = sext i32 %167 to i64
-  %169 = icmp slt i64 %indvars.iv.next107, %168
-  br i1 %169, label %.lr.ph97, label %._crit_edge98, !llvm.loop !108
+  %169 = sext i32 %168 to i64
+  %170 = icmp slt i64 %indvars.iv.next107, %169
+  br i1 %170, label %.lr.ph97, label %._crit_edge98, !llvm.loop !108
 
-._crit_edge98:                                    ; preds = %166
+._crit_edge98:                                    ; preds = %167
   %.pre114 = load ptr, ptr %155, align 8, !tbaa !104
-  %170 = icmp eq ptr %.pre114, null
-  br i1 %170, label %172, label %._crit_edge98.thread
+  %171 = icmp eq ptr %.pre114, null
+  br i1 %171, label %173, label %._crit_edge98.thread
 
 ._crit_edge98.thread:                             ; preds = %.preheader90, %._crit_edge98
-  %171 = phi ptr [ %.pre114, %._crit_edge98 ], [ %156, %.preheader90 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %171) #14
-  br label %172
+  %172 = phi ptr [ %.pre114, %._crit_edge98 ], [ %156, %.preheader90 ]
+  tail call void @_ZdaPv(ptr noundef nonnull %172) #14
+  br label %173
 
-172:                                              ; preds = %._crit_edge98, %._crit_edge98.thread, %154
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %174 = load ptr, ptr %173, align 8, !tbaa !109
-  %.not88 = icmp eq ptr %174, null
-  br i1 %.not88, label %190, label %.preheader
+173:                                              ; preds = %._crit_edge98, %._crit_edge98.thread, %154
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %175 = load ptr, ptr %174, align 8, !tbaa !109
+  %.not88 = icmp eq ptr %175, null
+  br i1 %.not88, label %191, label %.preheader
 
-.preheader:                                       ; preds = %172
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  %176 = load i32, ptr %175, align 4, !tbaa !110
-  %177 = icmp sgt i32 %176, 0
-  br i1 %177, label %.lr.ph100, label %._crit_edge101.thread
+.preheader:                                       ; preds = %173
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 388
+  %177 = load i32, ptr %176, align 4, !tbaa !110
+  %178 = icmp sgt i32 %177, 0
+  br i1 %178, label %.lr.ph100, label %._crit_edge101.thread
 
-.lr.ph100:                                        ; preds = %.preheader, %184
-  %178 = phi i32 [ %185, %184 ], [ %176, %.preheader ]
-  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %184 ], [ 0, %.preheader ]
-  %179 = load ptr, ptr %173, align 8, !tbaa !109
-  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv109
-  %181 = load ptr, ptr %180, align 8, !tbaa !111
-  %182 = icmp eq ptr %181, null
-  br i1 %182, label %184, label %183
+.lr.ph100:                                        ; preds = %.preheader, %185
+  %179 = phi i32 [ %186, %185 ], [ %177, %.preheader ]
+  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %185 ], [ 0, %.preheader ]
+  %180 = load ptr, ptr %174, align 8, !tbaa !109
+  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv109
+  %182 = load ptr, ptr %181, align 8, !tbaa !111
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %185, label %184
 
-183:                                              ; preds = %.lr.ph100
-  tail call void @_ZdaPv(ptr noundef nonnull %181) #14
-  %.pre115 = load i32, ptr %175, align 4, !tbaa !110
-  br label %184
+184:                                              ; preds = %.lr.ph100
+  tail call void @_ZdaPv(ptr noundef nonnull %182) #14
+  %.pre115 = load i32, ptr %176, align 4, !tbaa !110
+  br label %185
 
-184:                                              ; preds = %.lr.ph100, %183
-  %185 = phi i32 [ %178, %.lr.ph100 ], [ %.pre115, %183 ]
+185:                                              ; preds = %.lr.ph100, %184
+  %186 = phi i32 [ %179, %.lr.ph100 ], [ %.pre115, %184 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %186 = sext i32 %185 to i64
-  %187 = icmp slt i64 %indvars.iv.next110, %186
-  br i1 %187, label %.lr.ph100, label %._crit_edge101, !llvm.loop !112
+  %187 = sext i32 %186 to i64
+  %188 = icmp slt i64 %indvars.iv.next110, %187
+  br i1 %188, label %.lr.ph100, label %._crit_edge101, !llvm.loop !112
 
-._crit_edge101:                                   ; preds = %184
-  %.pre116 = load ptr, ptr %173, align 8, !tbaa !109
-  %188 = icmp eq ptr %.pre116, null
-  br i1 %188, label %190, label %._crit_edge101.thread
+._crit_edge101:                                   ; preds = %185
+  %.pre116 = load ptr, ptr %174, align 8, !tbaa !109
+  %189 = icmp eq ptr %.pre116, null
+  br i1 %189, label %191, label %._crit_edge101.thread
 
 ._crit_edge101.thread:                            ; preds = %.preheader, %._crit_edge101
-  %189 = phi ptr [ %.pre116, %._crit_edge101 ], [ %174, %.preheader ]
-  tail call void @_ZdaPv(ptr noundef nonnull %189) #14
-  br label %190
+  %190 = phi ptr [ %.pre116, %._crit_edge101 ], [ %175, %.preheader ]
+  tail call void @_ZdaPv(ptr noundef nonnull %190) #14
+  br label %191
 
-190:                                              ; preds = %._crit_edge101, %._crit_edge101.thread, %172
+191:                                              ; preds = %._crit_edge101, %._crit_edge101.thread, %173
   ret void
 }
 

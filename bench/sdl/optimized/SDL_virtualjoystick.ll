@@ -56,7 +56,7 @@ define hidden i32 @SDL_JoystickAttachVirtualInner(ptr noundef readonly captures(
 
 2:                                                ; preds = %1
   %3 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
-  br label %184
+  br label %187
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 8
@@ -65,7 +65,7 @@ define hidden i32 @SDL_JoystickAttachVirtualInner(ptr noundef readonly captures(
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #8
-  br label %184
+  br label %187
 
 9:                                                ; preds = %4
   %10 = tail call noalias dereferenceable_or_null(272) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 272) #9
@@ -74,7 +74,7 @@ define hidden i32 @SDL_JoystickAttachVirtualInner(ptr noundef readonly captures(
 
 11:                                               ; preds = %9
   tail call void @SDL_AssertJoysticksLocked() #8
-  br label %184
+  br label %187
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -229,7 +229,7 @@ switch.lookup:                                    ; preds = %17
 
 82:                                               ; preds = %78
   tail call fastcc void @VIRTUAL_FreeHWData(ptr noundef nonnull %10)
-  br label %184
+  br label %187
 
 83:                                               ; preds = %78
   %84 = icmp sgt i32 %.0124, -1
@@ -267,7 +267,7 @@ switch.lookup:                                    ; preds = %17
 
 100:                                              ; preds = %96
   tail call fastcc void @VIRTUAL_FreeHWData(ptr noundef nonnull %10)
-  br label %184
+  br label %187
 
 101:                                              ; preds = %96, %93
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 58
@@ -285,7 +285,7 @@ switch.lookup:                                    ; preds = %17
 
 108:                                              ; preds = %104
   tail call fastcc void @VIRTUAL_FreeHWData(ptr noundef nonnull %10)
-  br label %184
+  br label %187
 
 109:                                              ; preds = %104, %101
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -303,7 +303,7 @@ switch.lookup:                                    ; preds = %17
 
 116:                                              ; preds = %112
   tail call fastcc void @VIRTUAL_FreeHWData(ptr noundef nonnull %10)
-  br label %184
+  br label %187
 
 117:                                              ; preds = %112, %109
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 60
@@ -320,7 +320,7 @@ switch.lookup:                                    ; preds = %17
 123:                                              ; preds = %120
   tail call fastcc void @VIRTUAL_FreeHWData(ptr noundef nonnull %10)
   %124 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.13) #8
-  br label %184
+  br label %187
 
 125:                                              ; preds = %120
   %126 = zext i16 %119 to i64
@@ -337,7 +337,7 @@ switch.lookup:                                    ; preds = %17
 
 130:                                              ; preds = %125
   tail call fastcc void @VIRTUAL_FreeHWData(ptr noundef nonnull %10)
-  br label %184
+  br label %187
 
 131:                                              ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -347,7 +347,7 @@ switch.lookup:                                    ; preds = %17
   br i1 %.not160, label %.critedge, label %.critedge168, !llvm.loop !6
 
 .critedge:                                        ; preds = %.preheader171, %131
-  %134 = phi ptr [ %145, %131 ], [ %127, %.preheader171 ]
+  %134 = phi ptr [ %146, %131 ], [ %127, %.preheader171 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ 0, %.preheader171 ]
   %135 = load ptr, ptr %121, align 8
   %136 = getelementptr inbounds nuw %struct.SDL_VirtualJoystickTouchpadDesc, ptr %135, i64 %indvars.iv
@@ -359,103 +359,106 @@ switch.lookup:                                    ; preds = %17
   %141 = zext i16 %140 to i64
   %142 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %141, i64 noundef 16) #9
   %143 = load ptr, ptr %128, align 8
-  %144 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadInfo, ptr %143, i64 %indvars.iv, i32 1
-  store ptr %142, ptr %144, align 8
-  %145 = load ptr, ptr %128, align 8
-  %146 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadInfo, ptr %145, i64 %indvars.iv, i32 1
-  %147 = load ptr, ptr %146, align 8
-  %.not159.not = icmp eq ptr %147, null
-  br i1 %.not159.not, label %148, label %131
+  %144 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadInfo, ptr %143, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  store ptr %142, ptr %145, align 8
+  %146 = load ptr, ptr %128, align 8
+  %147 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadInfo, ptr %146, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %149 = load ptr, ptr %148, align 8
+  %.not159.not = icmp eq ptr %149, null
+  br i1 %.not159.not, label %150, label %131
 
-148:                                              ; preds = %.critedge
+150:                                              ; preds = %.critedge
   tail call fastcc void @VIRTUAL_FreeHWData(ptr noundef nonnull %10)
-  br label %184
+  br label %187
 
 .critedge168:                                     ; preds = %131, %.preheader171, %117
-  %149 = getelementptr inbounds nuw i8, ptr %10, i64 62
-  %150 = load i16, ptr %149, align 2
-  %.not161 = icmp eq i16 %150, 0
-  br i1 %.not161, label %.loopexit, label %151
+  %151 = getelementptr inbounds nuw i8, ptr %10, i64 62
+  %152 = load i16, ptr %151, align 2
+  %.not161 = icmp eq i16 %152, 0
+  br i1 %.not161, label %.loopexit, label %153
 
-151:                                              ; preds = %.critedge168
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %153 = load ptr, ptr %152, align 8
-  %.not162 = icmp eq ptr %153, null
-  br i1 %.not162, label %154, label %156
+153:                                              ; preds = %.critedge168
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %155 = load ptr, ptr %154, align 8
+  %.not162 = icmp eq ptr %155, null
+  br i1 %.not162, label %156, label %158
 
-154:                                              ; preds = %151
+156:                                              ; preds = %153
   tail call fastcc void @VIRTUAL_FreeHWData(ptr noundef nonnull %10)
-  %155 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #8
-  br label %184
+  %157 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #8
+  br label %187
 
-156:                                              ; preds = %151
-  %157 = zext i16 %150 to i64
-  %158 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %157, i64 noundef 24) #9
-  %159 = getelementptr inbounds nuw i8, ptr %10, i64 224
-  store ptr %158, ptr %159, align 8
-  %.not163 = icmp eq ptr %158, null
-  br i1 %.not163, label %161, label %.preheader170
+158:                                              ; preds = %153
+  %159 = zext i16 %152 to i64
+  %160 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef %159, i64 noundef 24) #9
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 224
+  store ptr %160, ptr %161, align 8
+  %.not163 = icmp eq ptr %160, null
+  br i1 %.not163, label %163, label %.preheader170
 
-.preheader170:                                    ; preds = %156
-  %160 = load i16, ptr %149, align 2
-  %.not189 = icmp eq i16 %160, 0
+.preheader170:                                    ; preds = %158
+  %162 = load i16, ptr %151, align 2
+  %.not189 = icmp eq i16 %162, 0
   br i1 %.not189, label %.loopexit, label %.lr.ph186
 
-161:                                              ; preds = %156
+163:                                              ; preds = %158
   tail call fastcc void @VIRTUAL_FreeHWData(ptr noundef nonnull %10)
-  br label %184
+  br label %187
 
 .lr.ph186:                                        ; preds = %.preheader170, %.lr.ph186
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %.lr.ph186 ], [ 0, %.preheader170 ]
-  %162 = load ptr, ptr %152, align 8
-  %163 = getelementptr inbounds nuw %struct.SDL_VirtualJoystickSensorDesc, ptr %162, i64 %indvars.iv191
-  %164 = load i32, ptr %163, align 4
-  %165 = load ptr, ptr %159, align 8
-  %166 = getelementptr inbounds nuw %struct.SDL_JoystickSensorInfo, ptr %165, i64 %indvars.iv191
-  store i32 %164, ptr %166, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  %168 = load float, ptr %167, align 4
-  %169 = load ptr, ptr %159, align 8
-  %170 = getelementptr inbounds nuw %struct.SDL_JoystickSensorInfo, ptr %169, i64 %indvars.iv191, i32 2
-  store float %168, ptr %170, align 4
+  %164 = load ptr, ptr %154, align 8
+  %165 = getelementptr inbounds nuw %struct.SDL_VirtualJoystickSensorDesc, ptr %164, i64 %indvars.iv191
+  %166 = load i32, ptr %165, align 4
+  %167 = load ptr, ptr %161, align 8
+  %168 = getelementptr inbounds nuw %struct.SDL_JoystickSensorInfo, ptr %167, i64 %indvars.iv191
+  store i32 %166, ptr %168, align 4
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 4
+  %170 = load float, ptr %169, align 4
+  %171 = load ptr, ptr %161, align 8
+  %172 = getelementptr inbounds nuw %struct.SDL_JoystickSensorInfo, ptr %171, i64 %indvars.iv191
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  store float %170, ptr %173, align 4
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
-  %171 = load i16, ptr %149, align 2
-  %172 = zext i16 %171 to i64
-  %173 = icmp samesign ult i64 %indvars.iv.next192, %172
-  br i1 %173, label %.lr.ph186, label %.loopexit, !llvm.loop !7
+  %174 = load i16, ptr %151, align 2
+  %175 = zext i16 %174 to i64
+  %176 = icmp samesign ult i64 %indvars.iv.next192, %175
+  br i1 %176, label %.lr.ph186, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph186, %.preheader170, %.critedge168
-  %174 = tail call i32 @SDL_GetNextObjectID() #8
-  store i32 %174, ptr %10, align 8
-  %175 = load ptr, ptr @g_VJoys, align 8
-  %.not164 = icmp eq ptr %175, null
-  br i1 %.not164, label %180, label %.preheader
+  %177 = tail call i32 @SDL_GetNextObjectID() #8
+  store i32 %177, ptr %10, align 8
+  %178 = load ptr, ptr @g_VJoys, align 8
+  %.not164 = icmp eq ptr %178, null
+  br i1 %.not164, label %183, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
-  %.0 = phi ptr [ %177, %.preheader ], [ %175, %.loopexit ]
-  %176 = getelementptr inbounds nuw i8, ptr %.0, i64 264
-  %177 = load ptr, ptr %176, align 8
-  %.not165 = icmp eq ptr %177, null
-  br i1 %.not165, label %178, label %.preheader, !llvm.loop !8
-
-178:                                              ; preds = %.preheader
+  %.0 = phi ptr [ %180, %.preheader ], [ %178, %.loopexit ]
   %179 = getelementptr inbounds nuw i8, ptr %.0, i64 264
-  store ptr %10, ptr %179, align 8
+  %180 = load ptr, ptr %179, align 8
+  %.not165 = icmp eq ptr %180, null
+  br i1 %.not165, label %181, label %.preheader, !llvm.loop !8
+
+181:                                              ; preds = %.preheader
+  %182 = getelementptr inbounds nuw i8, ptr %.0, i64 264
+  store ptr %10, ptr %182, align 8
   %.pre194 = load i32, ptr %10, align 8
-  br label %181
-
-180:                                              ; preds = %.loopexit
-  store ptr %10, ptr @g_VJoys, align 8
-  br label %181
-
-181:                                              ; preds = %180, %178
-  %182 = phi i32 [ %174, %180 ], [ %.pre194, %178 ]
-  tail call void @SDL_PrivateJoystickAdded(i32 noundef %182) #8
-  %183 = load i32, ptr %10, align 8
   br label %184
 
-184:                                              ; preds = %148, %181, %161, %154, %130, %123, %116, %108, %100, %82, %11, %7, %2
-  %.0120 = phi i32 [ 0, %7 ], [ %183, %181 ], [ 0, %161 ], [ 0, %154 ], [ 0, %148 ], [ 0, %130 ], [ 0, %123 ], [ 0, %116 ], [ 0, %108 ], [ 0, %100 ], [ 0, %82 ], [ 0, %11 ], [ 0, %2 ]
+183:                                              ; preds = %.loopexit
+  store ptr %10, ptr @g_VJoys, align 8
+  br label %184
+
+184:                                              ; preds = %183, %181
+  %185 = phi i32 [ %177, %183 ], [ %.pre194, %181 ]
+  tail call void @SDL_PrivateJoystickAdded(i32 noundef %185) #8
+  %186 = load i32, ptr %10, align 8
+  br label %187
+
+187:                                              ; preds = %150, %184, %163, %156, %130, %123, %116, %108, %100, %82, %11, %7, %2
+  %.0120 = phi i32 [ 0, %7 ], [ %186, %184 ], [ 0, %163 ], [ 0, %156 ], [ 0, %150 ], [ 0, %130 ], [ 0, %123 ], [ 0, %116 ], [ 0, %108 ], [ 0, %100 ], [ 0, %82 ], [ 0, %11 ], [ 0, %2 ]
   ret i32 %.0120
 }
 
@@ -470,7 +473,7 @@ declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_add
 define internal fastcc void @VIRTUAL_FreeHWData(ptr noundef %0) unnamed_addr #0 {
   tail call void @SDL_AssertJoysticksLocked() #8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %64, label %2
+  br i1 %.not, label %66, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -592,7 +595,7 @@ define internal fastcc void @VIRTUAL_FreeHWData(ptr noundef %0) unnamed_addr #0 
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %43 = load ptr, ptr %42, align 8
   %.not68 = icmp eq ptr %43, null
-  br i1 %.not68, label %55, label %.preheader
+  br i1 %.not68, label %57, label %.preheader
 
 .preheader:                                       ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -608,50 +611,52 @@ define internal fastcc void @VIRTUAL_FreeHWData(ptr noundef %0) unnamed_addr #0 
   %46 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %43, %.preheader ]
   tail call void @SDL_free_REAL(ptr noundef %46) #8
   store ptr null, ptr %42, align 8
-  br label %55
+  br label %57
 
 .lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph78 ], [ 0, %.preheader ]
   %47 = load ptr, ptr %42, align 8
-  %48 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadInfo, ptr %47, i64 %indvars.iv, i32 1
-  %49 = load ptr, ptr %48, align 8
-  tail call void @SDL_free_REAL(ptr noundef %49) #8
-  %50 = load ptr, ptr %42, align 8
-  %51 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadInfo, ptr %50, i64 %indvars.iv, i32 1
-  store ptr null, ptr %51, align 8
+  %48 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadInfo, ptr %47, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8
+  tail call void @SDL_free_REAL(ptr noundef %50) #8
+  %51 = load ptr, ptr %42, align 8
+  %52 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadInfo, ptr %51, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store ptr null, ptr %53, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = load i16, ptr %44, align 4
-  %53 = zext i16 %52 to i64
-  %54 = icmp samesign ult i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !10
+  %54 = load i16, ptr %44, align 4
+  %55 = zext i16 %54 to i64
+  %56 = icmp samesign ult i64 %indvars.iv.next, %55
+  br i1 %56, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !10
 
-55:                                               ; preds = %._crit_edge, %41
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %57 = load ptr, ptr %56, align 8
-  %.not69 = icmp eq ptr %57, null
-  br i1 %.not69, label %59, label %58
+57:                                               ; preds = %._crit_edge, %41
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %59 = load ptr, ptr %58, align 8
+  %.not69 = icmp eq ptr %59, null
+  br i1 %.not69, label %61, label %60
 
-58:                                               ; preds = %55
-  tail call void @SDL_free_REAL(ptr noundef nonnull %57) #8
-  store ptr null, ptr %56, align 8
-  br label %59
+60:                                               ; preds = %57
+  tail call void @SDL_free_REAL(ptr noundef nonnull %59) #8
+  store ptr null, ptr %58, align 8
+  br label %61
 
-59:                                               ; preds = %58, %55
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %61 = load ptr, ptr %60, align 8
-  %.not70 = icmp eq ptr %61, null
-  br i1 %.not70, label %63, label %62
+61:                                               ; preds = %60, %57
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %63 = load ptr, ptr %62, align 8
+  %.not70 = icmp eq ptr %63, null
+  br i1 %.not70, label %65, label %64
 
-62:                                               ; preds = %59
-  tail call void @SDL_free_REAL(ptr noundef nonnull %61) #8
-  store ptr null, ptr %60, align 8
-  br label %63
+64:                                               ; preds = %61
+  tail call void @SDL_free_REAL(ptr noundef nonnull %63) #8
+  store ptr null, ptr %62, align 8
+  br label %65
 
-63:                                               ; preds = %62, %59
+65:                                               ; preds = %64, %61
   tail call void @SDL_free_REAL(ptr noundef nonnull %0) #8
-  br label %64
+  br label %66
 
-64:                                               ; preds = %1, %63
+66:                                               ; preds = %1, %65
   ret void
 }
 
@@ -763,7 +768,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualBallInner(ptr noundef readonly c
 
 8:                                                ; preds = %5, %4
   %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.16) #8
-  br label %44
+  br label %46
 
 10:                                               ; preds = %5
   %11 = icmp slt i32 %1, 0
@@ -778,7 +783,7 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualBallInner(ptr noundef readonly c
 
 16:                                               ; preds = %12, %10
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #8
-  br label %44
+  br label %46
 
 18:                                               ; preds = %12
   %19 = sext i16 %2 to i32
@@ -797,23 +802,25 @@ define hidden zeroext i1 @SDL_SetJoystickVirtualBallInner(ptr noundef readonly c
   store i32 %30, ptr %27, align 4
   %31 = sext i16 %3 to i32
   %32 = load ptr, ptr %20, align 8
-  %33 = getelementptr inbounds nuw %struct.SDL_JoystickBallData, ptr %32, i64 %22, i32 1
-  %34 = load i32, ptr %33, align 4
-  %35 = add nsw i32 %34, %31
-  store i32 %35, ptr %33, align 4
-  %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds nuw %struct.SDL_JoystickBallData, ptr %36, i64 %22, i32 1
-  %38 = load i32, ptr %37, align 4
-  %39 = tail call i32 @llvm.smax.i32(i32 %38, i32 -32768)
-  %40 = tail call i32 @llvm.smin.i32(i32 %39, i32 32767)
-  store i32 %40, ptr %37, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 176
-  %42 = load i32, ptr %41, align 8
-  %43 = or i32 %42, 2
-  store i32 %43, ptr %41, align 8
-  br label %44
+  %33 = getelementptr inbounds nuw %struct.SDL_JoystickBallData, ptr %32, i64 %22
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = add nsw i32 %35, %31
+  store i32 %36, ptr %34, align 4
+  %37 = load ptr, ptr %20, align 8
+  %38 = getelementptr inbounds nuw %struct.SDL_JoystickBallData, ptr %37, i64 %22
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = tail call i32 @llvm.smax.i32(i32 %40, i32 -32768)
+  %42 = tail call i32 @llvm.smin.i32(i32 %41, i32 32767)
+  store i32 %42, ptr %39, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  %44 = load i32, ptr %43, align 8
+  %45 = or i32 %44, 2
+  store i32 %45, ptr %43, align 8
+  br label %46
 
-44:                                               ; preds = %18, %16, %8
+46:                                               ; preds = %18, %16, %8
   %.0 = phi i1 [ %17, %16 ], [ true, %18 ], [ %9, %8 ]
   ret i1 %.0
 }

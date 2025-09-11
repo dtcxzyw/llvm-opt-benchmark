@@ -2588,12 +2588,13 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsTitlecase(i32 noundef %0) loc
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i, i32 5
-  %17 = load i16, ptr %16, align 2, !tbaa !8
-  %18 = lshr i16 %17, 6
-  %.lobit = and i16 %18, 1
-  %19 = zext nneg i16 %.lobit to i32
-  ret i32 %19
+  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %18 = load i16, ptr %17, align 2, !tbaa !8
+  %19 = lshr i16 %18, 6
+  %.lobit = and i16 %19, 1
+  %20 = zext nneg i16 %.lobit to i32
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2618,12 +2619,13 @@ define hidden range(i32 0, 2) i32 @_PyUnicode_IsXidStart(i32 noundef %0) local_u
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i, i32 5
-  %17 = load i16, ptr %16, align 2, !tbaa !8
-  %18 = lshr i16 %17, 8
-  %.lobit = and i16 %18, 1
-  %19 = zext nneg i16 %.lobit to i32
-  ret i32 %19
+  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %18 = load i16, ptr %17, align 2, !tbaa !8
+  %19 = lshr i16 %18, 8
+  %.lobit = and i16 %19, 1
+  %20 = zext nneg i16 %.lobit to i32
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2648,12 +2650,13 @@ define hidden range(i32 0, 2) i32 @_PyUnicode_IsXidContinue(i32 noundef %0) loca
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i, i32 5
-  %17 = load i16, ptr %16, align 2, !tbaa !8
-  %18 = lshr i16 %17, 9
-  %.lobit = and i16 %18, 1
-  %19 = zext nneg i16 %.lobit to i32
-  ret i32 %19
+  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %18 = load i16, ptr %17, align 2, !tbaa !8
+  %19 = lshr i16 %18, 9
+  %.lobit = and i16 %19, 1
+  %20 = zext nneg i16 %.lobit to i32
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2679,14 +2682,15 @@ gettyperecord.exit:                               ; preds = %1
 
 15:                                               ; preds = %gettyperecord.exit
   %16 = zext nneg i16 %13 to i64
-  %17 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %16, i32 3
-  %18 = load i8, ptr %17, align 4, !tbaa !13
-  %19 = zext i8 %18 to i32
+  %17 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %19 = load i8, ptr %18, align 4, !tbaa !13
+  %20 = zext i8 %19 to i32
   br label %gettyperecord.exit.thread
 
 gettyperecord.exit.thread:                        ; preds = %1, %gettyperecord.exit, %15
-  %20 = phi i32 [ %19, %15 ], [ -1, %gettyperecord.exit ], [ -1, %1 ]
-  ret i32 %20
+  %21 = phi i32 [ %20, %15 ], [ -1, %gettyperecord.exit ], [ -1, %1 ]
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2780,10 +2784,11 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsDigit(i32 noundef %0) local_u
 
 gettyperecord.exit.i:                             ; preds = %3, %1
   %.0.i.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i.i, i32 5
-  %17 = load i16, ptr %16, align 2, !tbaa !8
-  %18 = lshr i16 %17, 2
-  %.lobit = and i16 %18, 1
+  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %18 = load i16, ptr %17, align 2, !tbaa !8
+  %19 = lshr i16 %18, 2
+  %.lobit = and i16 %19, 1
   %. = zext nneg i16 %.lobit to i32
   ret i32 %.
 }
@@ -2810,12 +2815,13 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsNumeric(i32 noundef %0) local
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i, i32 5
-  %17 = load i16, ptr %16, align 2, !tbaa !8
-  %18 = lshr i16 %17, 11
-  %.lobit = and i16 %18, 1
-  %19 = zext nneg i16 %.lobit to i32
-  ret i32 %19
+  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %18 = load i16, ptr %17, align 2, !tbaa !8
+  %19 = lshr i16 %18, 11
+  %.lobit = and i16 %19, 1
+  %20 = zext nneg i16 %.lobit to i32
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2840,12 +2846,13 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsPrintable(i32 noundef %0) loc
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i, i32 5
-  %17 = load i16, ptr %16, align 2, !tbaa !8
-  %18 = lshr i16 %17, 10
-  %.lobit = and i16 %18, 1
-  %19 = zext nneg i16 %.lobit to i32
-  ret i32 %19
+  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %18 = load i16, ptr %17, align 2, !tbaa !8
+  %19 = lshr i16 %18, 10
+  %.lobit = and i16 %19, 1
+  %20 = zext nneg i16 %.lobit to i32
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2870,12 +2877,13 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsLowercase(i32 noundef %0) loc
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i, i32 5
-  %17 = load i16, ptr %16, align 2, !tbaa !8
-  %18 = lshr i16 %17, 3
-  %.lobit = and i16 %18, 1
-  %19 = zext nneg i16 %.lobit to i32
-  ret i32 %19
+  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %18 = load i16, ptr %17, align 2, !tbaa !8
+  %19 = lshr i16 %18, 3
+  %.lobit = and i16 %19, 1
+  %20 = zext nneg i16 %.lobit to i32
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2900,12 +2908,13 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsUppercase(i32 noundef %0) loc
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i, i32 5
-  %17 = load i16, ptr %16, align 2, !tbaa !8
-  %18 = lshr i16 %17, 7
-  %.lobit = and i16 %18, 1
-  %19 = zext nneg i16 %.lobit to i32
-  ret i32 %19
+  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %18 = load i16, ptr %17, align 2, !tbaa !8
+  %19 = lshr i16 %18, 7
+  %.lobit = and i16 %19, 1
+  %20 = zext nneg i16 %.lobit to i32
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3328,12 +3337,13 @@ define hidden range(i32 0, 2) i32 @_PyUnicode_IsCased(i32 noundef %0) local_unna
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i, i32 5
-  %17 = load i16, ptr %16, align 2, !tbaa !8
-  %18 = lshr i16 %17, 13
-  %.lobit = and i16 %18, 1
-  %19 = zext nneg i16 %.lobit to i32
-  ret i32 %19
+  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %18 = load i16, ptr %17, align 2, !tbaa !8
+  %19 = lshr i16 %18, 13
+  %.lobit = and i16 %19, 1
+  %20 = zext nneg i16 %.lobit to i32
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3358,12 +3368,13 @@ define hidden range(i32 0, 2) i32 @_PyUnicode_IsCaseIgnorable(i32 noundef %0) lo
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i, i32 5
-  %17 = load i16, ptr %16, align 2, !tbaa !8
-  %18 = lshr i16 %17, 12
-  %.lobit = and i16 %18, 1
-  %19 = zext nneg i16 %.lobit to i32
-  ret i32 %19
+  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %18 = load i16, ptr %17, align 2, !tbaa !8
+  %19 = lshr i16 %18, 12
+  %.lobit = and i16 %19, 1
+  %20 = zext nneg i16 %.lobit to i32
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3388,11 +3399,12 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsAlpha(i32 noundef %0) local_u
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i, i32 5
-  %17 = load i16, ptr %16, align 2, !tbaa !8
-  %18 = and i16 %17, 1
-  %19 = zext nneg i16 %18 to i32
-  ret i32 %19
+  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  %18 = load i16, ptr %17, align 2, !tbaa !8
+  %19 = and i16 %18, 1
+  %20 = zext nneg i16 %19 to i32
+  ret i32 %20
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

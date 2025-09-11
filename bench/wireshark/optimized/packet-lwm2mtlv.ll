@@ -922,8 +922,8 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   %wide.trip.count = zext i32 %2 to i64
   br label %17
 
-6:                                                ; preds = %24
-  %7 = add i32 %25, %2
+6:                                                ; preds = %25
+  %7 = add i32 %26, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8
   %9 = zext i32 %7 to i64
@@ -937,105 +937,107 @@ define internal fastcc void @lwm2m_allocate_fields(ptr noundef captures(none) in
   %15 = tail call noalias ptr @g_malloc0_n(i64 noundef %14, i64 noundef 48) #11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %16, align 8
-  br label %34
+  br label %35
 
-17:                                               ; preds = %3, %24
-  %18 = phi i32 [ 0, %3 ], [ %25, %24 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %24 ]
-  %19 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv, i32 3
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, 4
-  br i1 %21, label %22, label %24
+17:                                               ; preds = %3, %25
+  %18 = phi i32 [ 0, %3 ], [ %26, %25 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %25 ]
+  %19 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp eq i32 %21, 4
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %17
-  %23 = add i32 %18, 1
-  store i32 %23, ptr %5, align 8
-  br label %24
+23:                                               ; preds = %17
+  %24 = add i32 %18, 1
+  store i32 %24, ptr %5, align 8
+  br label %25
 
-24:                                               ; preds = %17, %22
-  %25 = phi i32 [ %18, %17 ], [ %23, %22 ]
+25:                                               ; preds = %17, %23
+  %26 = phi i32 [ %18, %17 ], [ %24, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %6, label %17, !llvm.loop !11
 
-26:                                               ; preds = %55
-  %27 = load i32, ptr @proto_lwm2mtlv, align 4
-  %28 = load ptr, ptr %0, align 8
-  %29 = load i32, ptr %8, align 8
-  call void @proto_register_field_array(i32 noundef %27, ptr noundef %28, i32 noundef %29)
-  %30 = load ptr, ptr %12, align 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = load i32, ptr %32, align 8
-  call void @proto_register_subtree_array(ptr noundef %31, i32 noundef %33)
-  br label %57
+27:                                               ; preds = %56
+  %28 = load i32, ptr @proto_lwm2mtlv, align 4
+  %29 = load ptr, ptr %0, align 8
+  %30 = load i32, ptr %8, align 8
+  call void @proto_register_field_array(i32 noundef %28, ptr noundef %29, i32 noundef %30)
+  %31 = load ptr, ptr %12, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %34 = load i32, ptr %33, align 8
+  call void @proto_register_subtree_array(ptr noundef %32, i32 noundef %34)
+  br label %58
 
-34:                                               ; preds = %6, %55
-  %indvars.iv85 = phi i64 [ 0, %6 ], [ %indvars.iv.next86, %55 ]
-  %.07381 = phi i32 [ 0, %6 ], [ %.1, %55 ]
+35:                                               ; preds = %6, %56
+  %indvars.iv85 = phi i64 [ 0, %6 ], [ %indvars.iv.next86, %56 ]
+  %.07381 = phi i32 [ 0, %6 ], [ %.1, %56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %35 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv85
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store ptr %36, ptr %4, align 8
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr %struct.hf_register_info, ptr %37, i64 %indvars.iv85
-  call fastcc void @lwm2m_add_resource(ptr noundef %35, ptr noundef %38, i1 noundef zeroext false)
-  %39 = load ptr, ptr %12, align 8
-  %40 = call ptr @g_array_append_vals(ptr noundef %39, ptr noundef nonnull %4, i32 noundef 1)
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp eq i32 %42, 4
-  br i1 %43, label %44, label %55
+  %36 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv85
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  store ptr %37, ptr %4, align 8
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr %struct.hf_register_info, ptr %38, i64 %indvars.iv85
+  call fastcc void @lwm2m_add_resource(ptr noundef %36, ptr noundef %39, i1 noundef zeroext false)
+  %40 = load ptr, ptr %12, align 8
+  %41 = call ptr @g_array_append_vals(ptr noundef %40, ptr noundef nonnull %4, i32 noundef 1)
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp eq i32 %43, 4
+  br i1 %44, label %45, label %56
 
-44:                                               ; preds = %34
-  %45 = add i32 %.07381, %2
-  %46 = load ptr, ptr %16, align 8
-  %47 = zext i32 %.07381 to i64
-  %48 = getelementptr %struct._lwm2m_resource_t, ptr %46, i64 %47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(48) %48, ptr noundef align 1 dereferenceable(48) %35, i64 noundef 48, i1 noundef false) #10
-  %49 = load ptr, ptr %16, align 8
-  %50 = add i32 %.07381, 1
-  %51 = getelementptr %struct._lwm2m_resource_t, ptr %49, i64 %47
-  %52 = load ptr, ptr %0, align 8
-  %53 = zext i32 %45 to i64
-  %54 = getelementptr %struct.hf_register_info, ptr %52, i64 %53
-  call fastcc void @lwm2m_add_resource(ptr noundef %51, ptr noundef %54, i1 noundef zeroext true)
-  br label %55
+45:                                               ; preds = %35
+  %46 = add i32 %.07381, %2
+  %47 = load ptr, ptr %16, align 8
+  %48 = zext i32 %.07381 to i64
+  %49 = getelementptr %struct._lwm2m_resource_t, ptr %47, i64 %48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(48) %49, ptr noundef align 1 dereferenceable(48) %36, i64 noundef 48, i1 noundef false) #10
+  %50 = load ptr, ptr %16, align 8
+  %51 = add i32 %.07381, 1
+  %52 = getelementptr %struct._lwm2m_resource_t, ptr %50, i64 %48
+  %53 = load ptr, ptr %0, align 8
+  %54 = zext i32 %46 to i64
+  %55 = getelementptr %struct.hf_register_info, ptr %53, i64 %54
+  call fastcc void @lwm2m_add_resource(ptr noundef %52, ptr noundef %55, i1 noundef zeroext true)
+  br label %56
 
-55:                                               ; preds = %44, %34
-  %.1 = phi i32 [ %50, %44 ], [ %.07381, %34 ]
+56:                                               ; preds = %45, %35
+  %.1 = phi i32 [ %51, %45 ], [ %.07381, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count
-  br i1 %exitcond89.not, label %26, label %34, !llvm.loop !12
+  br i1 %exitcond89.not, label %27, label %35, !llvm.loop !12
 
-56:                                               ; preds = %69
+57:                                               ; preds = %71
   ret void
 
-57:                                               ; preds = %26, %69
-  %indvars.iv90 = phi i64 [ 0, %26 ], [ %indvars.iv.next91, %69 ]
-  %.282 = phi i32 [ 0, %26 ], [ %.3, %69 ]
-  %58 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv90
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp eq i32 %60, 4
-  br i1 %61, label %62, label %69
+58:                                               ; preds = %27, %71
+  %indvars.iv90 = phi i64 [ 0, %27 ], [ %indvars.iv.next91, %71 ]
+  %.282 = phi i32 [ 0, %27 ], [ %.3, %71 ]
+  %59 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv90
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp eq i32 %61, 4
+  br i1 %62, label %63, label %71
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %64 = load i32, ptr %63, align 8
-  %65 = load ptr, ptr %16, align 8
-  %66 = add i32 %.282, 1
-  %67 = zext i32 %.282 to i64
-  %68 = getelementptr %struct._lwm2m_resource_t, ptr %65, i64 %67, i32 5
-  store i32 %64, ptr %68, align 8
-  br label %69
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %65 = load i32, ptr %64, align 8
+  %66 = load ptr, ptr %16, align 8
+  %67 = add i32 %.282, 1
+  %68 = zext i32 %.282 to i64
+  %69 = getelementptr %struct._lwm2m_resource_t, ptr %66, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  store i32 %65, ptr %70, align 8
+  br label %71
 
-69:                                               ; preds = %57, %62
-  %.3 = phi i32 [ %66, %62 ], [ %.282, %57 ]
+71:                                               ; preds = %58, %63
+  %.3 = phi i32 [ %67, %63 ], [ %.282, %58 ]
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count
-  br i1 %exitcond94.not, label %56, label %57, !llvm.loop !13
+  br i1 %exitcond94.not, label %57, label %58, !llvm.loop !13
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

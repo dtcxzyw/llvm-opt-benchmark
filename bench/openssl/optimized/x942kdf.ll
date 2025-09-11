@@ -679,18 +679,19 @@ x942kdf_set_buffer.exit99.thread:                 ; preds = %95, %101, %x942kdf_
 
 115:                                              ; preds = %111
   %116 = load i64, ptr %3, align 8, !tbaa !31
-  %117 = getelementptr inbounds nuw %struct.anon, ptr @kek_algs, i64 %116, i32 1
-  %118 = load ptr, ptr %117, align 8, !tbaa !37
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %118, ptr %119, align 8, !tbaa !27
-  %120 = getelementptr inbounds nuw %struct.anon, ptr @kek_algs, i64 %116, i32 2
-  %121 = load i64, ptr %120, align 16, !tbaa !39
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i64 %121, ptr %122, align 8, !tbaa !28
-  %123 = getelementptr inbounds nuw %struct.anon, ptr @kek_algs, i64 %116, i32 3
-  %124 = load i64, ptr %123, align 8, !tbaa !40
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %124, ptr %125, align 8, !tbaa !29
+  %117 = getelementptr inbounds nuw %struct.anon, ptr @kek_algs, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %119 = load ptr, ptr %118, align 8, !tbaa !37
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %119, ptr %120, align 8, !tbaa !27
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %122 = load i64, ptr %121, align 16, !tbaa !39
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i64 %122, ptr %123, align 8, !tbaa !28
+  %124 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  %125 = load i64, ptr %124, align 8, !tbaa !40
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 %125, ptr %126, align 8, !tbaa !29
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %x942kdf_set_buffer.exit99.thread, %115, %111, %108, %x942kdf_set_buffer.exit99, %x942kdf_set_buffer.exit97, %75, %x942kdf_set_buffer.exit95, %x942kdf_set_buffer.exit93, %x942kdf_set_buffer.exit91, %x942kdf_set_buffer.exit, %10, %ossl_param_is_empty.exit, %16

@@ -4081,9 +4081,10 @@ if.end157:                                        ; preds = %call1.i1556.noexc, 
   %73 = phi i32 [ 0, %if.else108 ], [ %conv.i, %if.else115 ], [ %conv.i, %for.body86 ], [ %conv.i, %if.else94 ], [ %conv.i, %if.else101 ], [ %conv.i, %call1.i1556.noexc ], [ %conv.i, %invoke.cont130 ], [ %conv.i, %invoke.cont128 ], [ %conv.i, %call.i1141.noexc ], [ %conv.i, %invoke.cont123 ]
   %width.0 = phi i32 [ %conv.i1172, %if.else108 ], [ %conv.i1172, %if.else115 ], [ 0, %for.body86 ], [ 0, %if.else94 ], [ 0, %if.else101 ], [ 0, %call1.i1556.noexc ], [ 0, %invoke.cont130 ], [ 0, %invoke.cont128 ], [ 0, %call.i1141.noexc ], [ 0, %invoke.cont123 ]
   %74 = load ptr, ptr %columns, align 8, !tbaa !178
-  %options160 = getelementptr inbounds nuw %"struct.GUITable::TableColumn", ptr %74, i64 %indvars.iv86, i32 1
+  %options160.split = getelementptr inbounds nuw %"struct.GUITable::TableColumn", ptr %74, i64 %indvars.iv86
+  %options160 = getelementptr inbounds nuw i8, ptr %options160.split, i64 32
   %75 = load ptr, ptr %options160, align 8, !tbaa !98
-  %_M_finish.i1174 = getelementptr inbounds nuw i8, ptr %options160, i64 8
+  %_M_finish.i1174 = getelementptr inbounds nuw i8, ptr %options160.split, i64 40
   %76 = load ptr, ptr %_M_finish.i1174, align 8, !tbaa !98
   %cmp.i1175.not1813 = icmp eq ptr %75, %76
   br i1 %cmp.i1175.not1813, label %for.cond.cleanup167, label %for.body168
@@ -5561,7 +5562,8 @@ for.body718:                                      ; preds = %for.inc763, %for.bo
   br i1 %cmp720, label %if.then732, label %lor.lhs.false721
 
 lor.lhs.false721:                                 ; preds = %for.body718
-  %indent725 = getelementptr inbounds nuw %"struct.GUITable::Row", ptr %216, i64 %indvars.iv1910, i32 2
+  %indent725.split = getelementptr inbounds nuw %"struct.GUITable::Row", ptr %216, i64 %indvars.iv1910
+  %indent725 = getelementptr inbounds nuw i8, ptr %indent725.split, i64 12
   %220 = load i32, ptr %indent725, align 4, !tbaa !142
   %gep = getelementptr %"struct.GUITable::Row", ptr %invariant.gep, i64 %indvars.iv1910
   %221 = load i32, ptr %gep, align 4, !tbaa !142
@@ -5588,7 +5590,8 @@ for.body741.lr.ph.new:                            ; preds = %for.body741.lr.ph
 
 for.body741:                                      ; preds = %for.inc759.1, %for.body741.lr.ph.new
   %indvars.iv1907 = phi i64 [ 0, %for.body741.lr.ph.new ], [ %indvars.iv.next1908.1, %for.inc759.1 ]
-  %content_type748 = getelementptr inbounds nuw %"struct.GUITable::Cell", ptr %223, i64 %indvars.iv1907, i32 3
+  %content_type748.split = getelementptr inbounds nuw %"struct.GUITable::Cell", ptr %223, i64 %indvars.iv1907
+  %content_type748 = getelementptr inbounds nuw i8, ptr %content_type748.split, i64 12
   %225 = load i32, ptr %content_type748, align 4, !tbaa !258
   %cmp749 = icmp eq i32 %225, 4
   br i1 %cmp749, label %if.then750, label %for.inc759
@@ -5598,8 +5601,7 @@ if.then750:                                       ; preds = %for.body741
   br label %for.inc759
 
 for.inc759:                                       ; preds = %if.then750, %for.body741
-  %indvars.iv.next1908 = or disjoint i64 %indvars.iv1907, 1
-  %content_type748.1 = getelementptr inbounds nuw %"struct.GUITable::Cell", ptr %223, i64 %indvars.iv.next1908, i32 3
+  %content_type748.1 = getelementptr inbounds nuw i8, ptr %content_type748.split, i64 48
   %226 = load i32, ptr %content_type748.1, align 4, !tbaa !258
   %cmp749.1 = icmp eq i32 %226, 4
   br i1 %cmp749.1, label %if.then750.1, label %for.inc759.1
@@ -5619,7 +5621,8 @@ for.inc763.loopexit.unr-lcssa:                    ; preds = %for.inc759.1, %for.
   br i1 %lcmp.mod.not, label %for.inc763, label %for.body741.epil
 
 for.body741.epil:                                 ; preds = %for.inc763.loopexit.unr-lcssa
-  %content_type748.epil = getelementptr inbounds nuw %"struct.GUITable::Cell", ptr %223, i64 %indvars.iv1907.unr, i32 3
+  %content_type748.epil.split = getelementptr inbounds nuw %"struct.GUITable::Cell", ptr %223, i64 %indvars.iv1907.unr
+  %content_type748.epil = getelementptr inbounds nuw i8, ptr %content_type748.epil.split, i64 12
   %227 = load i32, ptr %content_type748.epil, align 4, !tbaa !258
   %cmp749.epil = icmp eq i32 %227, 4
   br i1 %cmp749.epil, label %if.then750.epil, label %for.inc763
@@ -5641,7 +5644,8 @@ for.cond.cleanup769:                              ; preds = %for.inc782, %for.co
 for.body770:                                      ; preds = %for.inc782, %for.cond.cleanup717
   %indvars.iv1913 = phi i64 [ 0, %for.cond.cleanup717 ], [ %indvars.iv.next1914, %for.inc782 ]
   %228 = load ptr, ptr %m_rows, align 8, !tbaa !101
-  %indent774 = getelementptr inbounds nuw %"struct.GUITable::Row", ptr %228, i64 %indvars.iv1913, i32 2
+  %indent774.split = getelementptr inbounds nuw %"struct.GUITable::Row", ptr %228, i64 %indvars.iv1913
+  %indent774 = getelementptr inbounds nuw i8, ptr %indent774.split, i64 12
   %229 = load i32, ptr %indent774, align 4, !tbaa !142
   %cmp775 = icmp slt i32 %229, %opendepth.0.lcssa
   br i1 %cmp775, label %if.then776, label %for.inc782
@@ -6889,7 +6893,8 @@ land.rhs:                                         ; preds = %while.cond
   %add.ptr.i.i = getelementptr inbounds i8, ptr %parents.sroa.9.1, i64 -4
   %22 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !89
   %conv11 = sext i32 %22 to i64
-  %indent = getelementptr inbounds %"struct.GUITable::Row", ptr %21, i64 %conv11, i32 2
+  %indent.split = getelementptr inbounds %"struct.GUITable::Row", ptr %21, i64 %conv11
+  %indent = getelementptr inbounds nuw i8, ptr %indent.split, i64 12
   %23 = load i32, ptr %indent, align 4, !tbaa !142
   %24 = load i32, ptr %indent13, align 4, !tbaa !142
   %cmp14.not = icmp slt i32 %23, %24
@@ -6908,7 +6913,8 @@ land.rhs17:                                       ; preds = %while.cond15
   %add.ptr.i.i138 = getelementptr inbounds i8, ptr %closed_parents.sroa.10.1, i64 -4
   %25 = load i32, ptr %add.ptr.i.i138, align 4, !tbaa !89
   %conv20 = sext i32 %25 to i64
-  %indent22 = getelementptr inbounds %"struct.GUITable::Row", ptr %21, i64 %conv20, i32 2
+  %indent22.split = getelementptr inbounds %"struct.GUITable::Row", ptr %21, i64 %conv20
+  %indent22 = getelementptr inbounds nuw i8, ptr %indent22.split, i64 12
   %26 = load i32, ptr %indent22, align 4, !tbaa !142
   %27 = load i32, ptr %indent13, align 4, !tbaa !142
   %cmp24.not = icmp slt i32 %26, %27
@@ -7295,7 +7301,8 @@ invoke.cont87:                                    ; preds = %.noexc128
 if.then89:                                        ; preds = %invoke.cont87
   %conv91 = zext nneg i32 %old_selected.0 to i64
   %51 = load ptr, ptr %m_rows, align 8, !tbaa !101
-  %visible_index93 = getelementptr inbounds nuw %"struct.GUITable::Row", ptr %51, i64 %conv91, i32 3
+  %visible_index93.split = getelementptr inbounds nuw %"struct.GUITable::Row", ptr %51, i64 %conv91
+  %visible_index93 = getelementptr inbounds nuw i8, ptr %visible_index93.split, i64 16
   %52 = load i32, ptr %visible_index93, align 8, !tbaa !143
   store i32 %52, ptr %m_selected, align 4, !tbaa !61
   br label %if.end95
@@ -7742,7 +7749,8 @@ if.end:                                           ; preds = %entry
   %spec.select = tail call i32 @llvm.smin.i32(i32 %conv, i32 %index)
   %index.addr.0 = add nsw i32 %spec.select, -1
   %conv8 = sext i32 %index.addr.0 to i64
-  %visible_index = getelementptr inbounds %"struct.GUITable::Row", ptr %2, i64 %conv8, i32 3
+  %visible_index.split = getelementptr inbounds %"struct.GUITable::Row", ptr %2, i64 %conv8
+  %visible_index = getelementptr inbounds nuw i8, ptr %visible_index.split, i64 16
   %3 = load i32, ptr %visible_index, align 8, !tbaa !143
   %cmp10 = icmp slt i32 %3, 0
   br i1 %cmp10, label %if.then11, label %if.end37
@@ -7769,7 +7777,8 @@ invoke.cont:                                      ; preds = %if.then11
 for.body.preheader:                               ; preds = %invoke.cont
   %sub16 = add nsw i32 %spec.select, -2
   %5 = load ptr, ptr %m_rows, align 8, !tbaa !101
-  %indent15 = getelementptr inbounds %"struct.GUITable::Row", ptr %5, i64 %conv8, i32 2
+  %indent15.split = getelementptr inbounds %"struct.GUITable::Row", ptr %5, i64 %conv8
+  %indent15 = getelementptr inbounds nuw i8, ptr %indent15.split, i64 12
   %6 = load i32, ptr %indent15, align 4, !tbaa !142
   %7 = zext nneg i32 %sub16 to i64
   br label %for.body
@@ -7788,7 +7797,8 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %10 = phi ptr [ %5, %for.body.preheader ], [ %24, %for.inc ]
   %indvars.iv = phi i64 [ %7, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %indent.080 = phi i32 [ %6, %for.body.preheader ], [ %indent.1, %for.inc ]
-  %indent21 = getelementptr inbounds %"struct.GUITable::Row", ptr %10, i64 %indvars.iv, i32 2
+  %indent21.split = getelementptr inbounds %"struct.GUITable::Row", ptr %10, i64 %indvars.iv
+  %indent21 = getelementptr inbounds nuw i8, ptr %indent21.split, i64 12
   %11 = load i32, ptr %indent21, align 4, !tbaa !142
   %cmp22 = icmp slt i32 %11, %indent.080
   br i1 %cmp22, label %if.then23, label %for.inc
@@ -7862,7 +7872,8 @@ call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIiiSt
 
 invoke.cont25:                                    ; preds = %call5.i.i.i.i.i.i.i.i.noexc, %if.end12.i.i.i
   %20 = phi ptr [ %.pre, %call5.i.i.i.i.i.i.i.i.noexc ], [ %9, %if.end12.i.i.i ]
-  %indent30 = getelementptr inbounds %"struct.GUITable::Row", ptr %20, i64 %indvars.iv, i32 2
+  %indent30.split = getelementptr inbounds %"struct.GUITable::Row", ptr %20, i64 %indvars.iv
+  %indent30 = getelementptr inbounds nuw i8, ptr %indent30.split, i64 12
   %21 = load i32, ptr %indent30, align 4, !tbaa !142
   br label %for.inc
 
@@ -7912,7 +7923,8 @@ if.end37:                                         ; preds = %_ZNSt3setIiSt4lessI
 
 if.then39:                                        ; preds = %if.end37
   %29 = load ptr, ptr %m_rows, align 8, !tbaa !101
-  %visible_index43 = getelementptr inbounds %"struct.GUITable::Row", ptr %29, i64 %conv8, i32 3
+  %visible_index43.split = getelementptr inbounds %"struct.GUITable::Row", ptr %29, i64 %conv8
+  %visible_index43 = getelementptr inbounds nuw i8, ptr %visible_index43.split, i64 16
   %30 = load i32, ptr %visible_index43, align 8, !tbaa !143
   store i32 %30, ptr %m_selected, align 4, !tbaa !61
   br label %if.end45
@@ -8017,7 +8029,8 @@ for.cond.cleanup:                                 ; preds = %for.inc, %_ZNSt3set
 for.body:                                         ; preds = %for.inc, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %5 = load ptr, ptr %m_rows, align 8, !tbaa !101
-  %indent = getelementptr inbounds nuw %"struct.GUITable::Row", ptr %5, i64 %indvars.iv, i32 2
+  %indent.split = getelementptr inbounds nuw %"struct.GUITable::Row", ptr %5, i64 %indvars.iv
+  %indent = getelementptr inbounds nuw i8, ptr %indent.split, i64 12
   %6 = load i32, ptr %indent, align 4, !tbaa !142
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add.ptr.i17 = getelementptr inbounds nuw %"struct.GUITable::Row", ptr %5, i64 %indvars.iv.next
@@ -10007,7 +10020,8 @@ land.lhs.true40:                                  ; preds = %_ZNK8GUITable6getRo
   %add.ptr.i.i119 = getelementptr inbounds nuw i32, ptr %10, i64 %conv4.i118
   %12 = load i32, ptr %add.ptr.i.i119, align 4, !tbaa !89
   %conv6.i120 = sext i32 %12 to i64
-  %indent = getelementptr inbounds %"struct.GUITable::Row", ptr %11, i64 %conv6.i120, i32 2
+  %indent.split = getelementptr inbounds %"struct.GUITable::Row", ptr %11, i64 %conv6.i120
+  %indent = getelementptr inbounds nuw i8, ptr %indent.split, i64 12
   %13 = load i32, ptr %indent, align 4, !tbaa !142
   %indent41 = getelementptr inbounds nuw i8, ptr %add.ptr.i10.i, i64 12
   %14 = load i32, ptr %indent41, align 4, !tbaa !142
@@ -10044,7 +10058,8 @@ land.lhs.true.i125:                               ; preds = %while.cond
   %add.ptr.i.i137 = getelementptr inbounds i32, ptr %16, i64 %19
   %20 = load i32, ptr %add.ptr.i.i137, align 4, !tbaa !89
   %conv6.i138 = sext i32 %20 to i64
-  %indent53 = getelementptr inbounds %"struct.GUITable::Row", ptr %17, i64 %conv6.i138, i32 2
+  %indent53.split = getelementptr inbounds %"struct.GUITable::Row", ptr %17, i64 %conv6.i138
+  %indent53 = getelementptr inbounds nuw i8, ptr %indent53.split, i64 12
   %21 = load i32, ptr %indent53, align 4, !tbaa !142
   %22 = load i32, ptr %indent54, align 4, !tbaa !142
   %cmp55.not = icmp slt i32 %21, %22

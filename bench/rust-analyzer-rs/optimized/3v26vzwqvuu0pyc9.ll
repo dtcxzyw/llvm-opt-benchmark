@@ -538,20 +538,21 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 "_ZN7base_db18source_root_crates28_$u7b$$u7b$closure$u7d$$u7d$17hac89b8976eef3792E.llvm.1853903674817351132.exit": ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8, !alias.scope !57, !noalias !58, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i8, [55 x i8] }, ptr, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr, i32, i8, i8, [2 x i8] }, ptr %13, i64 %7, i32 7
-  %15 = load i32, ptr %14, align 8, !noalias !50, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %17 = load ptr, ptr %16, align 8, !alias.scope !45, !noalias !48, !nonnull !4, !align !63, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %19 = load ptr, ptr %18, align 8, !alias.scope !45, !noalias !48, !nonnull !4, !align !44, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 336
-  %21 = load ptr, ptr %20, align 8, !invariant.load !4, !noalias !50, !nonnull !4
-  %22 = tail call noundef i32 %21(ptr noundef nonnull align 1 %17, i32 noundef %15), !noalias !50
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %24 = load ptr, ptr %23, align 8, !alias.scope !45, !noalias !48, !nonnull !4, !align !64, !noundef !4
-  %25 = load i32, ptr %24, align 4, !noalias !50, !noundef !4
-  %26 = icmp eq i32 %22, %25
-  ret i1 %26
+  %14 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i8, [55 x i8] }, ptr, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr, i32, i8, i8, [2 x i8] }, ptr %13, i64 %7
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 200
+  %16 = load i32, ptr %15, align 8, !noalias !50, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %18 = load ptr, ptr %17, align 8, !alias.scope !45, !noalias !48, !nonnull !4, !align !63, !noundef !4
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %20 = load ptr, ptr %19, align 8, !alias.scope !45, !noalias !48, !nonnull !4, !align !44, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 336
+  %22 = load ptr, ptr %21, align 8, !invariant.load !4, !noalias !50, !nonnull !4
+  %23 = tail call noundef i32 %22(ptr noundef nonnull align 1 %18, i32 noundef %16), !noalias !50
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %25 = load ptr, ptr %24, align 8, !alias.scope !45, !noalias !48, !nonnull !4, !align !64, !noundef !4
+  %26 = load i32, ptr %25, align 4, !noalias !50, !noundef !4
+  %27 = icmp eq i32 %23, %26
+  ret i1 %27
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2003,20 +2004,21 @@ define hidden noundef zeroext i1 @"_ZN7base_db18source_root_crates28_$u7b$$u7b$c
 "_ZN124_$LT$base_db..input..CrateGraph$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$$GT$5index17ha37e1347a25a6fbeE.exit": ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8, !alias.scope !331, !noalias !332, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i8, [55 x i8] }, ptr, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr, i32, i8, i8, [2 x i8] }, ptr %12, i64 %6, i32 7
-  %14 = load i32, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !nonnull !4, !align !63, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !nonnull !4, !align !44, !noundef !4
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 336
-  %20 = load ptr, ptr %19, align 8, !invariant.load !4, !nonnull !4
-  %21 = tail call noundef i32 %20(ptr noundef nonnull align 1 %16, i32 noundef %14)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8, !nonnull !4, !align !64, !noundef !4
-  %24 = load i32, ptr %23, align 4, !noundef !4
-  %25 = icmp eq i32 %21, %24
-  ret i1 %25
+  %13 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i8, [55 x i8] }, ptr, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr, i32, i8, i8, [2 x i8] }, ptr %12, i64 %6
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 200
+  %15 = load i32, ptr %14, align 8, !noundef !4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !63, !noundef !4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8, !nonnull !4, !align !44, !noundef !4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 336
+  %21 = load ptr, ptr %20, align 8, !invariant.load !4, !nonnull !4
+  %22 = tail call noundef i32 %21(ptr noundef nonnull align 1 %17, i32 noundef %15)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8, !nonnull !4, !align !64, !noundef !4
+  %25 = load i32, ptr %24, align 4, !noundef !4
+  %26 = icmp eq i32 %22, %25
+  ret i1 %26
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -245,34 +245,34 @@ init_socket_directory.exit:                       ; preds = %31, %41
   %.030.i.i.i = phi i64 [ -1, %.lr.ph.i.i.i ], [ %.1.i.i.i, %101 ]
   %.01729.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.118.i.i.i, %101 ]
   %87 = sext i32 %.01729.i.i.i to i64
-  %88 = getelementptr inbounds %struct.credential_cache_entry, ptr %86, i64 %87, i32 1
-  %89 = load i64, ptr %88, align 8, !tbaa !34
-  %.not27.i.i.i = icmp ugt i64 %89, %74
-  br i1 %.not27.i.i.i, label %99, label %90
+  %88 = getelementptr inbounds %struct.credential_cache_entry, ptr %86, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 200
+  %90 = load i64, ptr %89, align 8, !tbaa !34
+  %.not27.i.i.i = icmp ugt i64 %90, %74
+  br i1 %.not27.i.i.i, label %99, label %91
 
-90:                                               ; preds = %83
-  %91 = add nsw i32 %85, -1
-  store i32 %91, ptr @entries_nr, align 4, !tbaa !4
-  %92 = getelementptr inbounds %struct.credential_cache_entry, ptr %86, i64 %87
-  call void @credential_clear(ptr noundef %92) #16
+91:                                               ; preds = %83
+  %92 = add nsw i32 %85, -1
+  store i32 %92, ptr @entries_nr, align 4, !tbaa !4
+  call void @credential_clear(ptr noundef nonnull %88) #16
   %93 = load i32, ptr @entries_nr, align 4, !tbaa !4
   %.not28.i.i.i = icmp eq i32 %.01729.i.i.i, %93
   %.pre.i.i.i = load ptr, ptr @entries, align 8, !tbaa !32
   br i1 %.not28.i.i.i, label %98, label %94
 
-94:                                               ; preds = %90
+94:                                               ; preds = %91
   %95 = getelementptr inbounds %struct.credential_cache_entry, ptr %.pre.i.i.i, i64 %87
   %96 = sext i32 %93 to i64
   %97 = getelementptr inbounds %struct.credential_cache_entry, ptr %.pre.i.i.i, i64 %96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %95, ptr noundef nonnull align 8 dereferenceable(208) %97, i64 208, i1 false)
   br label %98
 
-98:                                               ; preds = %94, %90
+98:                                               ; preds = %94, %91
   store i64 %82, ptr @check_expirations.wait_for_entry_until, align 8, !tbaa !31
   br label %101
 
 99:                                               ; preds = %83
-  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %89, i64 %.030.i.i.i)
+  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %90, i64 %.030.i.i.i)
   %100 = add nsw i32 %.01729.i.i.i, 1
   br label %101
 

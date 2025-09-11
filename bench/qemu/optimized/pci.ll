@@ -1036,12 +1036,12 @@ vfio_prepare_kvm_msi_virq_batch.exit.lr.ph:       ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2840
   br label %vfio_prepare_kvm_msi_virq_batch.exit
 
-._crit_edge50:                                    ; preds = %66, %1
+._crit_edge50:                                    ; preds = %65, %1
   tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.11, i32 noundef 649, ptr noundef nonnull @__PRETTY_FUNCTION__.vfio_prepare_kvm_msi_virq_batch) #26
   unreachable
 
-vfio_prepare_kvm_msi_virq_batch.exit:             ; preds = %vfio_prepare_kvm_msi_virq_batch.exit.lr.ph, %66
-  %storemerge49 = phi i32 [ %3, %vfio_prepare_kvm_msi_virq_batch.exit.lr.ph ], [ %63, %66 ]
+vfio_prepare_kvm_msi_virq_batch.exit:             ; preds = %vfio_prepare_kvm_msi_virq_batch.exit.lr.ph, %65
+  %storemerge49 = phi i32 [ %3, %vfio_prepare_kvm_msi_virq_batch.exit.lr.ph ], [ %62, %65 ]
   store i8 1, ptr %5, align 8
   %12 = load ptr, ptr @kvm_state, align 8
   store ptr %12, ptr @vfio_route_change, align 8
@@ -1113,103 +1113,103 @@ vfio_add_kvm_msi_virq.exit:                       ; preds = %24, %28
   %45 = icmp sgt i32 %42, 0
   br i1 %45, label %.lr.ph.split.i, label %vfio_enable_vectors.exit
 
-.lr.ph.split.i:                                   ; preds = %._crit_edge, %57
-  %46 = phi i32 [ %58, %57 ], [ %42, %._crit_edge ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %57 ], [ 0, %._crit_edge ]
+.lr.ph.split.i:                                   ; preds = %._crit_edge, %56
+  %46 = phi i32 [ %57, %56 ], [ %42, %._crit_edge ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %56 ], [ 0, %._crit_edge ]
   %47 = load ptr, ptr %8, align 16
   %48 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %47, i64 %indvars.iv.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %50 = load i8, ptr %49, align 4, !range !6, !noundef !7
   %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %.sink.split49.i, label %57
+  br i1 %51, label %.sink.split49.i, label %56
 
 .sink.split49.i:                                  ; preds = %.lr.ph.split.i
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %53 = load i32, ptr %52, align 8
   %54 = icmp slt i32 %53, 0
-  %55 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %47, i64 %indvars.iv.i, i32 1
-  %.sink50.i = select i1 %54, ptr %48, ptr %55
-  %56 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %.sink50.i) #27
+  %.sink50.idx.i = select i1 %54, i64 0, i64 12
+  %.sink50.i = getelementptr inbounds nuw i8, ptr %48, i64 %.sink50.idx.i
+  %55 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %.sink50.i) #27
   %.pre = load i32, ptr %4, align 16
-  br label %57
+  br label %56
 
-57:                                               ; preds = %.sink.split49.i, %.lr.ph.split.i
-  %58 = phi i32 [ %46, %.lr.ph.split.i ], [ %.pre, %.sink.split49.i ]
-  %.0.i = phi i32 [ -1, %.lr.ph.split.i ], [ %56, %.sink.split49.i ]
-  %59 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i
-  store i32 %.0.i, ptr %59, align 4
+56:                                               ; preds = %.sink.split49.i, %.lr.ph.split.i
+  %57 = phi i32 [ %46, %.lr.ph.split.i ], [ %.pre, %.sink.split49.i ]
+  %.0.i = phi i32 [ -1, %.lr.ph.split.i ], [ %55, %.sink.split49.i ]
+  %58 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i
+  store i32 %.0.i, ptr %58, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %60 = sext i32 %58 to i64
-  %61 = icmp slt i64 %indvars.iv.next.i, %60
-  br i1 %61, label %.lr.ph.split.i, label %vfio_enable_vectors.exit, !llvm.loop !17
+  %59 = sext i32 %57 to i64
+  %60 = icmp slt i64 %indvars.iv.next.i, %59
+  br i1 %60, label %.lr.ph.split.i, label %vfio_enable_vectors.exit, !llvm.loop !17
 
-vfio_enable_vectors.exit:                         ; preds = %57, %._crit_edge
-  %62 = load i32, ptr %11, align 8
-  %63 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %62, i64 noundef 15214, ptr noundef nonnull %38) #27
+vfio_enable_vectors.exit:                         ; preds = %56, %._crit_edge
+  %61 = load i32, ptr %11, align 8
+  %62 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %61, i64 noundef 15214, ptr noundef nonnull %38) #27
   tail call void @g_free(ptr noundef nonnull %38) #27
-  %.not = icmp eq i32 %63, 0
-  br i1 %.not, label %71, label %64
+  %.not = icmp eq i32 %62, 0
+  br i1 %.not, label %70, label %63
 
-64:                                               ; preds = %vfio_enable_vectors.exit
-  %65 = icmp slt i32 %63, 0
-  br i1 %65, label %70, label %66
+63:                                               ; preds = %vfio_enable_vectors.exit
+  %64 = icmp slt i32 %62, 0
+  br i1 %64, label %69, label %65
 
-66:                                               ; preds = %64
-  %67 = load i32, ptr %4, align 16
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.31, i32 noundef %67, i32 noundef %63) #27
+65:                                               ; preds = %63
+  %66 = load i32, ptr %4, align 16
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.31, i32 noundef %66, i32 noundef %62) #27
   tail call fastcc void @vfio_msi_disable_common(ptr noundef nonnull %0)
-  store i32 %63, ptr %4, align 16
-  %68 = load i8, ptr %5, align 8, !range !6, !noundef !7
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %._crit_edge50, label %vfio_prepare_kvm_msi_virq_batch.exit
+  store i32 %62, ptr %4, align 16
+  %67 = load i8, ptr %5, align 8, !range !6, !noundef !7
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %._crit_edge50, label %vfio_prepare_kvm_msi_virq_batch.exit
 
-70:                                               ; preds = %64
+69:                                               ; preds = %63
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30) #27
   tail call fastcc void @vfio_msi_disable_common(ptr noundef nonnull %0)
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.32) #27
   br label %trace_vfio_msi_enable.exit
 
-71:                                               ; preds = %vfio_enable_vectors.exit
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  %73 = load ptr, ptr %72, align 8
-  %74 = load i32, ptr %4, align 16
-  %75 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i = icmp eq i32 %75, 0
-  br i1 %.not.i.i, label %trace_vfio_msi_enable.exit, label %76, !prof !5
+70:                                               ; preds = %vfio_enable_vectors.exit
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %72 = load ptr, ptr %71, align 8
+  %73 = load i32, ptr %4, align 16
+  %74 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %74, 0
+  br i1 %.not.i.i, label %trace_vfio_msi_enable.exit, label %75, !prof !5
 
-76:                                               ; preds = %71
-  %77 = load i16, ptr @_TRACE_VFIO_MSI_ENABLE_DSTATE, align 2
-  %.not3.i.i = icmp eq i16 %77, 0
-  br i1 %.not3.i.i, label %trace_vfio_msi_enable.exit, label %78
+75:                                               ; preds = %70
+  %76 = load i16, ptr @_TRACE_VFIO_MSI_ENABLE_DSTATE, align 2
+  %.not3.i.i = icmp eq i16 %76, 0
+  br i1 %.not3.i.i, label %trace_vfio_msi_enable.exit, label %77
 
-78:                                               ; preds = %76
-  %79 = load i32, ptr @qemu_loglevel, align 4
-  %80 = and i32 %79, 32768
-  %.not4.i.i = icmp eq i32 %80, 0
-  br i1 %.not4.i.i, label %trace_vfio_msi_enable.exit, label %81
+77:                                               ; preds = %75
+  %78 = load i32, ptr @qemu_loglevel, align 4
+  %79 = and i32 %78, 32768
+  %.not4.i.i = icmp eq i32 %79, 0
+  br i1 %.not4.i.i, label %trace_vfio_msi_enable.exit, label %80
 
-81:                                               ; preds = %78
-  %82 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
-  %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %90
+80:                                               ; preds = %77
+  %81 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %82 = trunc nuw i8 %81 to i1
+  br i1 %82, label %83, label %89
 
-84:                                               ; preds = %81
+83:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
-  %85 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #27
-  %86 = tail call i32 @qemu_get_thread_id() #27
-  %87 = load i64, ptr %2, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %89 = load i64, ptr %88, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %86, i64 noundef %87, i64 noundef %89, ptr noundef %73, i32 noundef %74) #27
+  %84 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #27
+  %85 = tail call i32 @qemu_get_thread_id() #27
+  %86 = load i64, ptr %2, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %88 = load i64, ptr %87, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %85, i64 noundef %86, i64 noundef %88, ptr noundef %72, i32 noundef %73) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %trace_vfio_msi_enable.exit
 
-90:                                               ; preds = %81
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef %73, i32 noundef %74) #27
+89:                                               ; preds = %80
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef %72, i32 noundef %73) #27
   br label %trace_vfio_msi_enable.exit
 
-trace_vfio_msi_enable.exit:                       ; preds = %90, %84, %78, %76, %71, %70
+trace_vfio_msi_enable.exit:                       ; preds = %89, %83, %77, %75, %70, %69
   ret void
 }
 
@@ -1350,94 +1350,95 @@ define internal fastcc void @vfio_msix_disable(ptr noundef %0) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3072
   br label %8
 
-8:                                                ; preds = %.lr.ph, %16
-  %9 = phi i32 [ %5, %.lr.ph ], [ %17, %16 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
+8:                                                ; preds = %.lr.ph, %17
+  %9 = phi i32 [ %5, %.lr.ph ], [ %18, %17 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %10 = load ptr, ptr %7, align 16
-  %11 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %10, i64 %indvars.iv, i32 4
-  %12 = load i8, ptr %11, align 4, !range !6, !noundef !7
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %16
+  %11 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %8
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @vfio_msix_vector_release(ptr noundef nonnull %0, i32 noundef %15)
-  tail call void @msix_vector_unuse(ptr noundef nonnull %0, i32 noundef %15) #27
+15:                                               ; preds = %8
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @vfio_msix_vector_release(ptr noundef nonnull %0, i32 noundef %16)
+  tail call void @msix_vector_unuse(ptr noundef nonnull %0, i32 noundef %16) #27
   %.pre = load i32, ptr %4, align 16
-  br label %16
+  br label %17
 
-16:                                               ; preds = %8, %14
-  %17 = phi i32 [ %9, %8 ], [ %.pre, %14 ]
+17:                                               ; preds = %8, %15
+  %18 = phi i32 [ %9, %8 ], [ %.pre, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %8, label %._crit_edge, !llvm.loop !18
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  br i1 %20, label %8, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %16, %1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2752
-  tail call void @vfio_disable_irqindex(ptr noundef nonnull %20, i32 noundef 2) #27
+._crit_edge:                                      ; preds = %17, %1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2752
+  tail call void @vfio_disable_irqindex(ptr noundef nonnull %21, i32 noundef 2) #27
   tail call fastcc void @vfio_msi_disable_common(ptr noundef nonnull %0)
-  %21 = call fastcc zeroext i1 @vfio_intx_enable(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  br i1 %21, label %26, label %22
+  %22 = call fastcc zeroext i1 @vfio_intx_enable(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  br i1 %22, label %27, label %23
 
-22:                                               ; preds = %._crit_edge
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  %25 = load ptr, ptr %24, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %23, ptr noundef nonnull @.str.7, ptr noundef %25) #27
-  br label %26
+23:                                               ; preds = %._crit_edge
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %26 = load ptr, ptr %25, align 8
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %24, ptr noundef nonnull @.str.7, ptr noundef %26) #27
+  br label %27
 
-26:                                               ; preds = %22, %._crit_edge
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 3080
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 2
-  %32 = load i16, ptr %31, align 2
-  %33 = zext i16 %32 to i64
-  %34 = add nuw nsw i64 %33, 63
-  %35 = lshr i64 %34, 3
-  %36 = and i64 %35, 16376
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %30, i8 noundef 0, i64 noundef %36, i1 noundef false) #27
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i = icmp eq i32 %39, 0
-  br i1 %.not.i.i, label %trace_vfio_msix_disable.exit, label %40, !prof !5
+27:                                               ; preds = %23, %._crit_edge
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 3080
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 2
+  %33 = load i16, ptr %32, align 2
+  %34 = zext i16 %33 to i64
+  %35 = add nuw nsw i64 %34, 63
+  %36 = lshr i64 %35, 3
+  %37 = and i64 %36, 16376
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %31, i8 noundef 0, i64 noundef %37, i1 noundef false) #27
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2824
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %40, 0
+  br i1 %.not.i.i, label %trace_vfio_msix_disable.exit, label %41, !prof !5
 
-40:                                               ; preds = %26
-  %41 = load i16, ptr @_TRACE_VFIO_MSIX_DISABLE_DSTATE, align 2
-  %.not2.i.i = icmp eq i16 %41, 0
-  br i1 %.not2.i.i, label %trace_vfio_msix_disable.exit, label %42
+41:                                               ; preds = %27
+  %42 = load i16, ptr @_TRACE_VFIO_MSIX_DISABLE_DSTATE, align 2
+  %.not2.i.i = icmp eq i16 %42, 0
+  br i1 %.not2.i.i, label %trace_vfio_msix_disable.exit, label %43
 
-42:                                               ; preds = %40
-  %43 = load i32, ptr @qemu_loglevel, align 4
-  %44 = and i32 %43, 32768
-  %.not3.i.i = icmp eq i32 %44, 0
-  br i1 %.not3.i.i, label %trace_vfio_msix_disable.exit, label %45
+43:                                               ; preds = %41
+  %44 = load i32, ptr @qemu_loglevel, align 4
+  %45 = and i32 %44, 32768
+  %.not3.i.i = icmp eq i32 %45, 0
+  br i1 %.not3.i.i, label %trace_vfio_msix_disable.exit, label %46
 
-45:                                               ; preds = %42
-  %46 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %54
+46:                                               ; preds = %43
+  %47 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %55
 
-48:                                               ; preds = %45
+49:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !4
-  %49 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #27
-  %50 = call i32 @qemu_get_thread_id() #27
-  %51 = load i64, ptr %2, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %53 = load i64, ptr %52, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %50, i64 noundef %51, i64 noundef %53, ptr noundef %38) #27
+  %50 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #27
+  %51 = call i32 @qemu_get_thread_id() #27
+  %52 = load i64, ptr %2, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %54 = load i64, ptr %53, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %51, i64 noundef %52, i64 noundef %54, ptr noundef %39) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %trace_vfio_msix_disable.exit
 
-54:                                               ; preds = %45
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, ptr noundef %38) #27
+55:                                               ; preds = %46
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, ptr noundef %39) #27
   br label %trace_vfio_msix_disable.exit
 
-trace_vfio_msix_disable.exit:                     ; preds = %26, %40, %42, %48, %54
+trace_vfio_msix_disable.exit:                     ; preds = %27, %41, %43, %49, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2328,66 +2329,67 @@ define internal fastcc i32 @vfio_enable_vectors(ptr noundef %0, i1 noundef zeroe
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 3072
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %53
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %53 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %54
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %54 ], [ 0, %.lr.ph ]
   %35 = load ptr, ptr %34, align 16
   %36 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %35, i64 %indvars.iv44
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %38 = load i8, ptr %37, align 4, !range !6, !noundef !7
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %53
+  br i1 %39, label %40, label %54
 
 40:                                               ; preds = %.lr.ph.split.us
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %49, label %44
+  br i1 %43, label %50, label %44
 
 44:                                               ; preds = %40
   %45 = trunc nuw nsw i64 %indvars.iv44 to i32
   %46 = tail call zeroext i1 @msix_is_masked(ptr noundef nonnull %0, i32 noundef %45) #27
   %.pre = load ptr, ptr %34, align 16
-  br i1 %46, label %49, label %47
+  br i1 %46, label %50, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %.pre, i64 %indvars.iv44, i32 1
+  %48 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %.pre, i64 %indvars.iv44
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
   br label %.sink.split
 
-49:                                               ; preds = %44, %40
-  %50 = phi ptr [ %.pre, %44 ], [ %35, %40 ]
-  %51 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %50, i64 %indvars.iv44
+50:                                               ; preds = %44, %40
+  %51 = phi ptr [ %.pre, %44 ], [ %35, %40 ]
+  %52 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %51, i64 %indvars.iv44
   br label %.sink.split
 
-.sink.split:                                      ; preds = %47, %49
-  %.sink = phi ptr [ %51, %49 ], [ %48, %47 ]
-  %52 = tail call i32 @event_notifier_get_fd(ptr noundef %.sink) #27
-  br label %53
+.sink.split:                                      ; preds = %47, %50
+  %.sink = phi ptr [ %52, %50 ], [ %49, %47 ]
+  %53 = tail call i32 @event_notifier_get_fd(ptr noundef %.sink) #27
+  br label %54
 
-53:                                               ; preds = %.sink.split, %.lr.ph.split.us
-  %.0.us = phi i32 [ -1, %.lr.ph.split.us ], [ %52, %.sink.split ]
-  %54 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv44
-  store i32 %.0.us, ptr %54, align 4
+54:                                               ; preds = %.sink.split, %.lr.ph.split.us
+  %.0.us = phi i32 [ -1, %.lr.ph.split.us ], [ %53, %.sink.split ]
+  %55 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv44
+  store i32 %.0.us, ptr %55, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %55 = load i32, ptr %21, align 16
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next45, %56
-  br i1 %57, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !17
+  %56 = load i32, ptr %21, align 16
+  %57 = sext i32 %56 to i64
+  %58 = icmp slt i64 %indvars.iv.next45, %57
+  br i1 %58, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.lr.ph ]
-  %58 = load ptr, ptr %34, align 16
-  %59 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %58, i64 %indvars.iv
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 36
-  %61 = load i8, ptr %60, align 4, !range !6, !noundef !7
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %.sink.split49, label %68
+  %59 = load ptr, ptr %34, align 16
+  %60 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 36
+  %62 = load i8, ptr %61, align 4, !range !6, !noundef !7
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %.sink.split49, label %68
 
 .sink.split49:                                    ; preds = %.lr.ph.split
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp slt i32 %64, 0
-  %66 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %58, i64 %indvars.iv, i32 1
-  %.sink50 = select i1 %65, ptr %59, ptr %66
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %65 = load i32, ptr %64, align 8
+  %66 = icmp slt i32 %65, 0
+  %.sink50.idx = select i1 %66, i64 0, i64 12
+  %.sink50 = getelementptr inbounds nuw i8, ptr %60, i64 %.sink50.idx
   %67 = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %.sink50) #27
   br label %68
 
@@ -2401,7 +2403,7 @@ define internal fastcc i32 @vfio_enable_vectors(ptr noundef %0, i1 noundef zeroe
   %72 = icmp slt i64 %indvars.iv.next, %71
   br i1 %72, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %68, %53, %19
+._crit_edge:                                      ; preds = %68, %54, %19
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2840
   %74 = load i32, ptr %73, align 8
   %75 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %74, i64 noundef 15214, ptr noundef nonnull %26) #27
@@ -4656,15 +4658,13 @@ vfio_unregister_err_notifier.exit:                ; preds = %vfio_unregister_req
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 3096
   %42 = load i8, ptr %39, align 8
   %43 = zext i8 %42 to i64
-  %.idx.i = mul nuw nsw i64 %43, 88
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i
+  %44 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %41, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
-  %.idx8.i = mul nuw nsw i64 %49, 88
-  %50 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx8.i
+  %50 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %41, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load ptr, ptr %51, align 8
   call void @msix_uninit(ptr noundef nonnull %4, ptr noundef %46, ptr noundef %52) #27
@@ -5557,12 +5557,11 @@ vfio_pci_fixup_msix_region.exit:                  ; preds = %trace_vfio_msix_ear
 265:                                              ; preds = %260
   %266 = add i32 %222, -3
   %267 = zext nneg i32 %266 to i64
-  %.idx.i = mul nuw nsw i64 %267, 88
-  %268 = getelementptr inbounds nuw i8, ptr %116, i64 %.idx.i
+  %268 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %116, i64 %267
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 74
   %270 = load i8, ptr %269, align 2, !range !6, !noundef !7
   %271 = trunc nuw i8 %270 to i1
-  br i1 %271, label %272, label %.thread76.i
+  br i1 %271, label %272, label %.thread75.i
 
 272:                                              ; preds = %265
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 1495, ptr noundef nonnull @__func__.vfio_pci_relocate_msix, ptr noundef nonnull @.str.196, i32 noundef %253, i32 noundef %266) #27
@@ -5576,120 +5575,118 @@ vfio_pci_fixup_msix_region.exit:                  ; preds = %trace_vfio_msix_ear
   %276 = getelementptr inbounds nuw i8, ptr %255, i64 74
   %277 = load i8, ptr %276, align 2, !range !6, !noundef !7
   %278 = trunc nuw i8 %277 to i1
-  br i1 %278, label %.thread77.i, label %279
+  br i1 %278, label %.thread76.i, label %279
 
 279:                                              ; preds = %275
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef 1503, ptr noundef nonnull @__func__.vfio_pci_relocate_msix, ptr noundef nonnull @.str.197, i32 noundef %253) #27
   br label %vfio_pci_relocate_msix.exit
 
 280:                                              ; preds = %273
-  br i1 %263, label %.thread76.i, label %.thread77.i
+  br i1 %263, label %.thread75.i, label %.thread76.i
 
-.thread76.i:                                      ; preds = %280, %265
+.thread75.i:                                      ; preds = %280, %265
   %281 = icmp slt i32 %253, 5
-  br i1 %281, label %282, label %291
+  br i1 %281, label %282, label %290
 
-282:                                              ; preds = %.thread76.i
-  %283 = add nsw i32 %222, -1
-  %284 = sext i32 %283 to i64
-  %.idx74.i = mul nsw i64 %284, 88
-  %285 = getelementptr i8, ptr %116, i64 %.idx74.i
-  %286 = getelementptr i8, ptr %285, i64 64
-  %287 = load i64, ptr %286, align 8
-  %.not75.i = icmp eq i64 %287, 0
-  br i1 %.not75.i, label %288, label %291
+282:                                              ; preds = %.thread75.i
+  %283 = sext i32 %222 to i64
+  %284 = getelementptr %struct.VFIOBAR, ptr %116, i64 %283
+  %285 = getelementptr i8, ptr %284, i64 -24
+  %286 = load i64, ptr %285, align 8
+  %.not74.i = icmp eq i64 %286, 0
+  br i1 %.not74.i, label %287, label %290
 
-288:                                              ; preds = %282
-  %289 = getelementptr inbounds nuw i8, ptr %255, i64 74
-  store i8 1, ptr %289, align 2
-  %290 = getelementptr inbounds nuw i8, ptr %255, i64 72
-  store i8 4, ptr %290, align 8
-  br label %291
+287:                                              ; preds = %282
+  %288 = getelementptr inbounds nuw i8, ptr %255, i64 74
+  store i8 1, ptr %288, align 2
+  %289 = getelementptr inbounds nuw i8, ptr %255, i64 72
+  store i8 4, ptr %289, align 8
+  br label %290
 
-291:                                              ; preds = %288, %282, %.thread76.i
-  %292 = getelementptr inbounds nuw i8, ptr %255, i64 72
-  %293 = load i8, ptr %292, align 8
-  %294 = or i8 %293, 8
-  store i8 %294, ptr %292, align 8
+290:                                              ; preds = %287, %282, %.thread75.i
+  %291 = getelementptr inbounds nuw i8, ptr %255, i64 72
+  %292 = load i8, ptr %291, align 8
+  %293 = or i8 %292, 8
+  store i8 %293, ptr %291, align 8
   store i64 %.0.i.i, ptr %261, align 8
-  %295 = load ptr, ptr %115, align 8
-  br label %301
+  %294 = load ptr, ptr %115, align 8
+  br label %300
 
-.thread77.i:                                      ; preds = %280, %275
-  %296 = shl i64 %262, 1
-  %297 = shl i64 %.0.i.i, 1
-  %298 = call i64 @llvm.umax.i64(i64 %296, i64 %297)
-  store i64 %298, ptr %261, align 8
-  %299 = lshr exact i64 %298, 1
-  %300 = trunc i64 %299 to i32
-  br label %301
+.thread76.i:                                      ; preds = %280, %275
+  %295 = shl i64 %262, 1
+  %296 = shl i64 %.0.i.i, 1
+  %297 = call i64 @llvm.umax.i64(i64 %295, i64 %296)
+  store i64 %297, ptr %261, align 8
+  %298 = lshr exact i64 %297, 1
+  %299 = trunc i64 %298 to i32
+  br label %300
 
-301:                                              ; preds = %.thread77.i, %291
-  %.sink82.i = phi ptr [ %219, %.thread77.i ], [ %295, %291 ]
-  %.sink.i = phi i32 [ %300, %.thread77.i ], [ 0, %291 ]
-  %302 = getelementptr inbounds nuw i8, ptr %.sink82.i, i64 4
-  store i32 %.sink.i, ptr %302, align 4
-  %303 = trunc i32 %253 to i8
+300:                                              ; preds = %.thread76.i, %290
+  %.sink81.i = phi ptr [ %219, %.thread76.i ], [ %294, %290 ]
+  %.sink.i = phi i32 [ %299, %.thread76.i ], [ 0, %290 ]
+  %301 = getelementptr inbounds nuw i8, ptr %.sink81.i, i64 4
+  store i32 %.sink.i, ptr %301, align 4
+  %302 = trunc i32 %253 to i8
+  %303 = load ptr, ptr %115, align 8
+  store i8 %302, ptr %303, align 8
   %304 = load ptr, ptr %115, align 8
-  store i8 %303, ptr %304, align 8
-  %305 = load ptr, ptr %115, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %305, i64 1
-  store i8 %303, ptr %306, align 1
-  %307 = load ptr, ptr %115, align 8
-  %308 = getelementptr inbounds nuw i8, ptr %307, i64 4
-  %309 = load i32, ptr %308, align 4
-  %310 = getelementptr inbounds nuw i8, ptr %307, i64 2
-  %311 = load i16, ptr %310, align 2
-  %312 = zext i16 %311 to i32
-  %313 = shl nuw nsw i32 %312, 4
-  %314 = add i32 %313, %309
-  %315 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  store i32 %314, ptr %315, align 8
-  %316 = load ptr, ptr %89, align 8
-  %317 = load ptr, ptr %115, align 8
-  %318 = load i8, ptr %317, align 8
-  %319 = zext i8 %318 to i32
-  %320 = getelementptr inbounds nuw i8, ptr %317, i64 4
-  %321 = load i32, ptr %320, align 4
-  %322 = zext i32 %321 to i64
-  %323 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i.i = icmp eq i32 %323, 0
-  br i1 %.not.i.i.i, label %vfio_pci_relocate_msix.exit, label %324, !prof !5
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 1
+  store i8 %302, ptr %305, align 1
+  %306 = load ptr, ptr %115, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 4
+  %308 = load i32, ptr %307, align 4
+  %309 = getelementptr inbounds nuw i8, ptr %306, i64 2
+  %310 = load i16, ptr %309, align 2
+  %311 = zext i16 %310 to i32
+  %312 = shl nuw nsw i32 %311, 4
+  %313 = add i32 %312, %308
+  %314 = getelementptr inbounds nuw i8, ptr %306, i64 8
+  store i32 %313, ptr %314, align 8
+  %315 = load ptr, ptr %89, align 8
+  %316 = load ptr, ptr %115, align 8
+  %317 = load i8, ptr %316, align 8
+  %318 = zext i8 %317 to i32
+  %319 = getelementptr inbounds nuw i8, ptr %316, i64 4
+  %320 = load i32, ptr %319, align 4
+  %321 = zext i32 %320 to i64
+  %322 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i.i = icmp eq i32 %322, 0
+  br i1 %.not.i.i.i, label %vfio_pci_relocate_msix.exit, label %323, !prof !5
 
-324:                                              ; preds = %301
-  %325 = load i16, ptr @_TRACE_VFIO_MSIX_RELO_DSTATE, align 2
-  %.not5.i.i.i = icmp eq i16 %325, 0
-  br i1 %.not5.i.i.i, label %vfio_pci_relocate_msix.exit, label %326
+323:                                              ; preds = %300
+  %324 = load i16, ptr @_TRACE_VFIO_MSIX_RELO_DSTATE, align 2
+  %.not5.i.i.i = icmp eq i16 %324, 0
+  br i1 %.not5.i.i.i, label %vfio_pci_relocate_msix.exit, label %325
 
-326:                                              ; preds = %324
-  %327 = load i32, ptr @qemu_loglevel, align 4
-  %328 = and i32 %327, 32768
-  %.not6.i.i.i = icmp eq i32 %328, 0
-  br i1 %.not6.i.i.i, label %vfio_pci_relocate_msix.exit, label %329
+325:                                              ; preds = %323
+  %326 = load i32, ptr @qemu_loglevel, align 4
+  %327 = and i32 %326, 32768
+  %.not6.i.i.i = icmp eq i32 %327, 0
+  br i1 %.not6.i.i.i, label %vfio_pci_relocate_msix.exit, label %328
 
-329:                                              ; preds = %326
-  %330 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
-  %331 = trunc nuw i8 %330 to i1
-  br i1 %331, label %332, label %338
+328:                                              ; preds = %325
+  %329 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %330 = trunc nuw i8 %329 to i1
+  br i1 %330, label %331, label %337
 
-332:                                              ; preds = %329
+331:                                              ; preds = %328
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
-  %333 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #27
-  %334 = call i32 @qemu_get_thread_id() #27
-  %335 = load i64, ptr %3, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %337 = load i64, ptr %336, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.198, i32 noundef %334, i64 noundef %335, i64 noundef %337, ptr noundef %316, i32 noundef range(i32 0, 256) %319, i64 noundef range(i64 0, 4294967296) %322) #27
+  %332 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #27
+  %333 = call i32 @qemu_get_thread_id() #27
+  %334 = load i64, ptr %3, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %336 = load i64, ptr %335, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.198, i32 noundef %333, i64 noundef %334, i64 noundef %336, ptr noundef %315, i32 noundef range(i32 0, 256) %318, i64 noundef range(i64 0, 4294967296) %321) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %vfio_pci_relocate_msix.exit
 
-338:                                              ; preds = %329
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, ptr noundef %316, i32 noundef range(i32 0, 256) %319, i64 noundef range(i64 0, 4294967296) %322) #27
+337:                                              ; preds = %328
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, ptr noundef %315, i32 noundef range(i32 0, 256) %318, i64 noundef range(i64 0, 4294967296) %321) #27
   br label %vfio_pci_relocate_msix.exit
 
-vfio_pci_relocate_msix.exit:                      ; preds = %338, %332, %326, %324, %301, %279, %272, %259, %247, %220, %vfio_pci_fixup_msix_region.exit, %2, %87, %57, %35, %27, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %27 ], [ false, %35 ], [ false, %57 ], [ false, %87 ], [ true, %2 ], [ false, %247 ], [ false, %259 ], [ false, %272 ], [ false, %279 ], [ true, %220 ], [ true, %vfio_pci_fixup_msix_region.exit ], [ true, %301 ], [ true, %324 ], [ true, %326 ], [ true, %332 ], [ true, %338 ]
+vfio_pci_relocate_msix.exit:                      ; preds = %337, %331, %325, %323, %300, %279, %272, %259, %247, %220, %vfio_pci_fixup_msix_region.exit, %2, %87, %57, %35, %27, %19
+  %.0 = phi i1 [ false, %19 ], [ false, %27 ], [ false, %35 ], [ false, %57 ], [ false, %87 ], [ true, %2 ], [ false, %247 ], [ false, %259 ], [ false, %272 ], [ false, %279 ], [ true, %220 ], [ true, %vfio_pci_fixup_msix_region.exit ], [ true, %300 ], [ true, %323 ], [ true, %325 ], [ true, %331 ], [ true, %337 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6222,15 +6219,13 @@ define internal fastcc void @vfio_teardown_msi(ptr noundef %0) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3096
   %6 = load i8, ptr %3, align 8
   %7 = zext i8 %6 to i64
-  %.idx = mul nuw nsw i64 %7, 88
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %8 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
-  %.idx8 = mul nuw nsw i64 %13, 88
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx8
+  %14 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %5, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   tail call void @msix_uninit(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %16) #27
@@ -7379,8 +7374,7 @@ vfio_pci_enable_rp_atomics.exit.i:                ; preds = %298, %294, %292, %2
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 3096
   %338 = load i8, ptr %334, align 8
   %339 = zext i8 %338 to i64
-  %.idx.i = mul nuw nsw i64 %339, 88
-  %340 = getelementptr inbounds nuw i8, ptr %337, i64 %.idx.i
+  %340 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %337, i64 %339
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 56
   %342 = load ptr, ptr %341, align 8
   %343 = getelementptr inbounds nuw i8, ptr %334, i64 4
@@ -7388,8 +7382,7 @@ vfio_pci_enable_rp_atomics.exit.i:                ; preds = %298, %294, %292, %2
   %345 = getelementptr inbounds nuw i8, ptr %334, i64 1
   %346 = load i8, ptr %345, align 1
   %347 = zext i8 %346 to i64
-  %.idx32.i = mul nuw nsw i64 %347, 88
-  %348 = getelementptr inbounds nuw i8, ptr %337, i64 %.idx32.i
+  %348 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %337, i64 %347
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 56
   %350 = load ptr, ptr %349, align 8
   %351 = getelementptr inbounds nuw i8, ptr %334, i64 8

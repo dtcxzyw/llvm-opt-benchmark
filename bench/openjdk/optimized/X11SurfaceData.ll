@@ -2290,7 +2290,7 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
   store i64 %5, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 73
   store i8 0, ptr %8, align 1
-  br label %243
+  br label %244
 
 9:                                                ; preds = %6
   %10 = add i32 %3, -1
@@ -2414,7 +2414,7 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
   %88 = load ptr, ptr %87, align 8
   %89 = tail call zeroext i8 %88(ptr noundef nonnull %0) #18
   %.not146 = icmp eq i8 %89, 0
-  br i1 %.not146, label %90, label %243
+  br i1 %.not146, label %90, label %244
 
 90:                                               ; preds = %85
   %91 = zext nneg i32 %4 to i64
@@ -2424,7 +2424,7 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
 
 .critedge:                                        ; preds = %9, %90
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.12) #18
-  br label %243
+  br label %244
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 73
@@ -2538,7 +2538,7 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
   %162 = load ptr, ptr %161, align 8
   %163 = tail call zeroext i8 %162(ptr noundef nonnull %0) #18
   %.not155 = icmp eq i8 %163, 0
-  br i1 %.not155, label %164, label %243
+  br i1 %.not155, label %164, label %244
 
 164:                                              ; preds = %159
   %165 = load i64, ptr %130, align 8
@@ -2550,7 +2550,7 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
   store i8 1, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i64 %165, ptr %168, align 8
-  br label %243
+  br label %244
 
 169:                                              ; preds = %94, %164
   %170 = load ptr, ptr %0, align 8
@@ -2596,80 +2596,81 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load i32, ptr %197, align 8
   %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds %struct.Screen, ptr %195, i64 %199, i32 2
-  %201 = load i64, ptr %200, align 8
-  %202 = tail call i64 @XCreatePixmap(ptr noundef %193, i64 noundef %201, i32 noundef %3, i32 noundef %4, i32 noundef %2) #18
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i64 %202, ptr %203, align 8
+  %200 = getelementptr inbounds %struct.Screen, ptr %195, i64 %199
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
+  %202 = load i64, ptr %201, align 8
+  %203 = tail call i64 @XCreatePixmap(ptr noundef %193, i64 noundef %202, i32 noundef %3, i32 noundef %4, i32 noundef %2) #18
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store i64 %203, ptr %204, align 8
   tail call void (...) @awt_output_flush() #18
-  %204 = load ptr, ptr %0, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 120
-  %206 = load ptr, ptr %205, align 8
-  %207 = tail call ptr %206(ptr noundef nonnull %0) #18
-  %.not159 = icmp eq ptr %207, null
-  br i1 %.not159, label %212, label %208
+  %205 = load ptr, ptr %0, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 120
+  %207 = load ptr, ptr %206, align 8
+  %208 = tail call ptr %207(ptr noundef nonnull %0) #18
+  %.not159 = icmp eq ptr %208, null
+  br i1 %.not159, label %213, label %209
 
-208:                                              ; preds = %192
-  %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 136
-  %211 = load ptr, ptr %210, align 8
-  tail call void %211(ptr noundef nonnull %0) #18
-  br label %212
+209:                                              ; preds = %192
+  %210 = load ptr, ptr %0, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 136
+  %212 = load ptr, ptr %211, align 8
+  tail call void %212(ptr noundef nonnull %0) #18
+  br label %213
 
-212:                                              ; preds = %208, %192
-  %213 = load ptr, ptr %0, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 1128
-  %215 = load ptr, ptr %214, align 8
-  %216 = load ptr, ptr @tkClass, align 8
-  %217 = load ptr, ptr @awtUnlockMID, align 8
-  tail call void (ptr, ptr, ptr, ...) %215(ptr noundef nonnull %0, ptr noundef %216, ptr noundef %217) #18
-  %218 = load ptr, ptr %0, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 1824
-  %220 = load ptr, ptr %219, align 8
-  %221 = tail call zeroext i8 %220(ptr noundef nonnull %0) #18
-  %.not160 = icmp eq i8 %221, 0
-  br i1 %.not160, label %226, label %222
+213:                                              ; preds = %209, %192
+  %214 = load ptr, ptr %0, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 1128
+  %216 = load ptr, ptr %215, align 8
+  %217 = load ptr, ptr @tkClass, align 8
+  %218 = load ptr, ptr @awtUnlockMID, align 8
+  tail call void (ptr, ptr, ptr, ...) %216(ptr noundef nonnull %0, ptr noundef %217, ptr noundef %218) #18
+  %219 = load ptr, ptr %0, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 1824
+  %221 = load ptr, ptr %220, align 8
+  %222 = tail call zeroext i8 %221(ptr noundef nonnull %0) #18
+  %.not160 = icmp eq i8 %222, 0
+  br i1 %.not160, label %227, label %223
 
-222:                                              ; preds = %212
-  %223 = load ptr, ptr %0, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 136
-  %225 = load ptr, ptr %224, align 8
-  tail call void %225(ptr noundef nonnull %0) #18
-  br label %226
+223:                                              ; preds = %213
+  %224 = load ptr, ptr %0, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 136
+  %226 = load ptr, ptr %225, align 8
+  tail call void %226(ptr noundef nonnull %0) #18
+  br label %227
 
-226:                                              ; preds = %222, %212
-  br i1 %.not159, label %232, label %227
+227:                                              ; preds = %223, %213
+  br i1 %.not159, label %233, label %228
 
-227:                                              ; preds = %226
-  %228 = load ptr, ptr %0, align 8
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 104
-  %230 = load ptr, ptr %229, align 8
-  %231 = tail call i32 %230(ptr noundef nonnull %0, ptr noundef nonnull %207) #18
-  br label %232
+228:                                              ; preds = %227
+  %229 = load ptr, ptr %0, align 8
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 104
+  %231 = load ptr, ptr %230, align 8
+  %232 = tail call i32 %231(ptr noundef nonnull %0, ptr noundef nonnull %208) #18
+  br label %233
 
-232:                                              ; preds = %226, %227
-  %233 = load ptr, ptr %0, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 1824
-  %235 = load ptr, ptr %234, align 8
-  %236 = tail call zeroext i8 %235(ptr noundef nonnull %0) #18
-  %.not161 = icmp eq i8 %236, 0
-  br i1 %.not161, label %237, label %243
+233:                                              ; preds = %227, %228
+  %234 = load ptr, ptr %0, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 1824
+  %236 = load ptr, ptr %235, align 8
+  %237 = tail call zeroext i8 %236(ptr noundef nonnull %0) #18
+  %.not161 = icmp eq i8 %237, 0
+  br i1 %.not161, label %238, label %244
 
-237:                                              ; preds = %232
-  %238 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  store i8 0, ptr %238, align 8
-  %239 = load i64, ptr %203, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  store i64 %239, ptr %240, align 8
-  %241 = icmp eq i64 %239, 0
-  br i1 %241, label %242, label %243
+238:                                              ; preds = %233
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  store i8 0, ptr %239, align 8
+  %240 = load i64, ptr %204, align 8
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  store i64 %240, ptr %241, align 8
+  %242 = icmp eq i64 %240, 0
+  br i1 %242, label %243, label %244
 
-242:                                              ; preds = %237
+243:                                              ; preds = %238
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #18
-  br label %243
+  br label %244
 
-243:                                              ; preds = %.thread, %237, %232, %159, %85, %242, %166, %.critedge
-  %.0 = phi i8 [ 0, %242 ], [ 0, %.critedge ], [ 1, %166 ], [ 0, %85 ], [ 0, %159 ], [ 0, %232 ], [ 1, %237 ], [ 1, %.thread ]
+244:                                              ; preds = %.thread, %238, %233, %159, %85, %243, %166, %.critedge
+  %.0 = phi i8 [ 0, %243 ], [ 0, %.critedge ], [ 1, %166 ], [ 0, %85 ], [ 0, %159 ], [ 0, %233 ], [ 1, %238 ], [ 1, %.thread ]
   ret i8 %.0
 }
 
@@ -2685,12 +2686,12 @@ define hidden i64 @X11SD_CreateSharedPixmap(ptr noundef captures(none) %0) local
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = load i64, ptr %7, align 8
   %9 = icmp slt i64 %8, 65536
-  br i1 %9, label %41, label %10
+  br i1 %9, label %42, label %10
 
 10:                                               ; preds = %1
   %11 = tail call ptr @X11SD_CreateSharedImage(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %5)
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %41, label %13
+  br i1 %12, label %42, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 44
@@ -2706,31 +2707,32 @@ define hidden i64 @X11SD_CreateSharedPixmap(ptr noundef captures(none) %0) local
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.Screen, ptr %21, i64 %26, i32 2
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %32 = load i32, ptr %31, align 8
-  %33 = tail call i64 @XShmCreatePixmap(ptr noundef %19, i64 noundef %28, ptr noundef %30, ptr noundef %17, i32 noundef %3, i32 noundef %5, i32 noundef %32) #18
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %X11SD_DropSharedSegment.exit, label %39
+  %27 = getelementptr inbounds %struct.Screen, ptr %21, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %33 = load i32, ptr %32, align 8
+  %34 = tail call i64 @XShmCreatePixmap(ptr noundef %19, i64 noundef %29, ptr noundef %31, ptr noundef %17, i32 noundef %3, i32 noundef %5, i32 noundef %33) #18
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %X11SD_DropSharedSegment.exit, label %40
 
 X11SD_DropSharedSegment.exit:                     ; preds = %13
-  %35 = load ptr, ptr @awt_display, align 8
-  %36 = tail call i32 @XShmDetach(ptr noundef %35, ptr noundef nonnull %17) #18
-  %37 = load ptr, ptr %29, align 8
-  %38 = tail call i32 @shmdt(ptr noundef %37) #18
-  br label %41
+  %36 = load ptr, ptr @awt_display, align 8
+  %37 = tail call i32 @XShmDetach(ptr noundef %36, ptr noundef nonnull %17) #18
+  %38 = load ptr, ptr %30, align 8
+  %39 = tail call i32 @shmdt(ptr noundef %38) #18
+  br label %42
 
-39:                                               ; preds = %13
+40:                                               ; preds = %13
   store ptr %17, ptr %6, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %15, ptr %40, align 8
-  br label %41
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 %15, ptr %41, align 8
+  br label %42
 
-41:                                               ; preds = %10, %1, %39, %X11SD_DropSharedSegment.exit
-  %.0 = phi i64 [ 0, %X11SD_DropSharedSegment.exit ], [ %33, %39 ], [ 0, %1 ], [ 0, %10 ]
+42:                                               ; preds = %10, %1, %40, %X11SD_DropSharedSegment.exit
+  %.0 = phi i64 [ 0, %X11SD_DropSharedSegment.exit ], [ %34, %40 ], [ 0, %1 ], [ 0, %10 ]
   ret i64 %.0
 }
 
@@ -3149,7 +3151,7 @@ define hidden void @X11SD_UnPuntPixmap(ptr noundef captures(none) %0) local_unna
   %4 = load i32, ptr @forceSharedPixmaps, align 4
   %5 = icmp ne i32 %4, 0
   %or.cond = select i1 %3, i1 true, i1 %5
-  br i1 %or.cond, label %59, label %6
+  br i1 %or.cond, label %60, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 220
@@ -3159,13 +3161,13 @@ define hidden void @X11SD_UnPuntPixmap(ptr noundef captures(none) %0) local_unna
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %11 = load i32, ptr %10, align 4
   %.not = icmp slt i32 %9, %11
-  br i1 %.not, label %57, label %12
+  br i1 %.not, label %58, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load i8, ptr %13, align 8
   %.not28 = icmp eq i8 %14, 0
-  br i1 %.not28, label %59, label %15
+  br i1 %.not28, label %60, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -3182,56 +3184,57 @@ define hidden void @X11SD_UnPuntPixmap(ptr noundef captures(none) %0) local_unna
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.Screen, ptr %21, i64 %26, i32 2
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %34 = load i32, ptr %33, align 8
-  %35 = tail call i64 @XCreatePixmap(ptr noundef %19, i64 noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %34) #18
-  store i64 %35, ptr %16, align 8
-  %.not30 = icmp eq i64 %35, 0
-  br i1 %.not30, label %59, label %.thread
+  %27 = getelementptr inbounds %struct.Screen, ptr %21, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %31 = load i32, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %33 = load i32, ptr %32, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %35 = load i32, ptr %34, align 8
+  %36 = tail call i64 @XCreatePixmap(ptr noundef %19, i64 noundef %29, i32 noundef %31, i32 noundef %33, i32 noundef %35) #18
+  store i64 %36, ptr %16, align 8
+  %.not30 = icmp eq i64 %36, 0
+  br i1 %.not30, label %60, label %.thread
 
 .thread:                                          ; preds = %15, %18
-  %36 = phi i64 [ %35, %18 ], [ %17, %15 ]
-  %37 = load ptr, ptr @awt_display, align 8
-  %38 = tail call ptr @XCreateGC(ptr noundef %37, i64 noundef %36, i64 noundef 0, ptr noundef null) #18
-  %.not31 = icmp eq ptr %38, null
-  br i1 %.not31, label %59, label %39
+  %37 = phi i64 [ %36, %18 ], [ %17, %15 ]
+  %38 = load ptr, ptr @awt_display, align 8
+  %39 = tail call ptr @XCreateGC(ptr noundef %38, i64 noundef %37, i64 noundef 0, ptr noundef null) #18
+  %.not31 = icmp eq ptr %39, null
+  br i1 %.not31, label %60, label %40
 
-39:                                               ; preds = %.thread
-  %40 = load i64, ptr %16, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %40, ptr %41, align 8
-  %42 = load ptr, ptr @awt_display, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %48 = load i32, ptr %47, align 4
-  %49 = tail call i32 @XCopyArea(ptr noundef %42, i64 noundef %44, i64 noundef %40, ptr noundef nonnull %38, i32 noundef 0, i32 noundef 0, i32 noundef %46, i32 noundef %48, i32 noundef 0, i32 noundef 0) #18
-  %50 = load ptr, ptr @awt_display, align 8
-  %51 = tail call i32 @XSync(ptr noundef %50, i32 noundef 0) #18
-  %52 = load ptr, ptr @awt_display, align 8
-  %53 = tail call i32 @XFreeGC(ptr noundef %52, ptr noundef nonnull %38) #18
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i8 0, ptr %54, align 4
+40:                                               ; preds = %.thread
+  %41 = load i64, ptr %16, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %41, ptr %42, align 8
+  %43 = load ptr, ptr @awt_display, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %45 = load i64, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %49 = load i32, ptr %48, align 4
+  %50 = tail call i32 @XCopyArea(ptr noundef %43, i64 noundef %45, i64 noundef %41, ptr noundef nonnull %39, i32 noundef 0, i32 noundef 0, i32 noundef %47, i32 noundef %49, i32 noundef 0, i32 noundef 0) #18
+  %51 = load ptr, ptr @awt_display, align 8
+  %52 = tail call i32 @XSync(ptr noundef %51, i32 noundef 0) #18
+  %53 = load ptr, ptr @awt_display, align 8
+  %54 = tail call i32 @XFreeGC(ptr noundef %53, ptr noundef nonnull %39) #18
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  store i8 0, ptr %55, align 4
   store i8 0, ptr %13, align 8
-  %55 = load i32, ptr %10, align 4
-  %56 = shl nsw i32 %55, 1
-  store i32 %56, ptr %10, align 4
-  br label %59
+  %56 = load i32, ptr %10, align 4
+  %57 = shl nsw i32 %56, 1
+  store i32 %57, ptr %10, align 4
+  br label %60
 
-57:                                               ; preds = %6
-  %58 = add nsw i32 %9, 1
-  store i32 %58, ptr %8, align 8
-  br label %59
+58:                                               ; preds = %6
+  %59 = add nsw i32 %9, 1
+  store i32 %59, ptr %8, align 8
+  br label %60
 
-59:                                               ; preds = %12, %.thread, %39, %18, %1, %57
+60:                                               ; preds = %12, %.thread, %40, %18, %1, %58
   ret void
 }
 

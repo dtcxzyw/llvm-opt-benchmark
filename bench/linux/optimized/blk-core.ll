@@ -3195,7 +3195,8 @@ define dso_local ptr @blk_status_to_str(i8 noundef zeroext %0) #1 align 16 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i8 %0 to i64
-  %6 = getelementptr %struct.anon.8, ptr @blk_errors, i64 %5, i32 1
+  %.split = getelementptr %struct.anon.8, ptr @blk_errors, i64 %5
+  %6 = getelementptr i8, ptr %.split, i64 8
   %7 = load ptr, ptr %6, align 8
   br label %8
 

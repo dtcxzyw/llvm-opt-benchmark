@@ -2492,7 +2492,8 @@ define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 
 .preheader22:                                     ; preds = %142, %.preheader22
   %151 = phi i64 [ %159, %.preheader22 ], [ 0, %142 ]
   %152 = phi ptr [ %157, %.preheader22 ], [ %148, %142 ]
-  %153 = getelementptr %struct.dm_stat_percpu, ptr %136, i64 %151, i32 7
+  %.split = getelementptr %struct.dm_stat_percpu, ptr %136, i64 %151
+  %153 = getelementptr i8, ptr %.split, i64 96
   store ptr %152, ptr %153, align 8
   %154 = load i32, ptr %74, align 8
   %155 = add i32 %154, 1
@@ -2856,7 +2857,8 @@ define internal fastcc void @__dm_stat_clear(ptr noundef nonnull %0, i64 noundef
   %88 = load ptr, ptr %81, align 8
   %89 = getelementptr i64, ptr %88, i64 %83
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr %struct.dm_stat_percpu, ptr %87, i64 %11, i32 7
+  %.split = getelementptr %struct.dm_stat_percpu, ptr %87, i64 %11
+  %91 = getelementptr i8, ptr %.split, i64 96
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr i64, ptr %92, i64 %83
   %94 = load i64, ptr %93, align 8

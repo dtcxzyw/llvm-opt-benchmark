@@ -67,7 +67,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 16:                                               ; preds = %11
   %puts97 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  br label %164
+  br label %165
 
 17:                                               ; preds = %11
   %18 = load i32, ptr %3, align 4, !tbaa !4
@@ -76,7 +76,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 20:                                               ; preds = %17
   %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %18)
-  br label %164
+  br label %165
 
 .thread:                                          ; preds = %17
   %22 = add nsw i32 %0, -1
@@ -111,7 +111,7 @@ sub_0121.thread:                                  ; preds = %.tail
 
 35:                                               ; preds = %.tail
   %puts96 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %164
+  br label %165
 
 sub_1122:                                         ; preds = %sub_1, %sub_0121.thread
   %36 = phi i32 [ %34, %sub_0121.thread ], [ 0, %sub_1 ]
@@ -204,7 +204,7 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread: ; preds = %43, %_ZN12_GLOB
 
 .split137.us:                                     ; preds = %58, %_ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread
   %puts94 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %164
+  br label %165
 
 .thread115:                                       ; preds = %sub_0, %sub_1122, %.thread, %.tail120
   %.071178 = phi i32 [ %0, %.tail120 ], [ %22, %.thread ], [ %0, %sub_1122 ], [ %0, %sub_0 ]
@@ -326,7 +326,7 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit103:          ; preds = %tolower.exit.i100, 
 
 ._crit_edge:                                      ; preds = %141
   call void @free(ptr noundef %94) #12
-  br i1 %143, label %154, label %._crit_edge.thread
+  br i1 %143, label %155, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
   %.172.lcssa200 = phi i32 [ %.2, %._crit_edge ], [ %22, %.thread ]
@@ -338,37 +338,38 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit103:          ; preds = %tolower.exit.i100, 
 
 147:                                              ; preds = %._crit_edge.thread
   %148 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %145)
-  br label %164
+  br label %165
 
 149:                                              ; preds = %._crit_edge.thread
   %150 = zext nneg i32 %.181.lcssa198 to i64
-  %151 = getelementptr inbounds nuw %"struct.(anonymous namespace)::functionMapEntry", ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %150, i32 1
-  %152 = load ptr, ptr %151, align 8, !tbaa !19
-  %153 = call noundef i32 %152(i32 noundef %.172.lcssa200, ptr noundef %.174.lcssa199)
-  br label %164
+  %151 = getelementptr inbounds nuw %"struct.(anonymous namespace)::functionMapEntry", ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %153 = load ptr, ptr %152, align 8, !tbaa !19
+  %154 = call noundef i32 %153(i32 noundef %.172.lcssa200, ptr noundef %.174.lcssa199)
+  br label %165
 
-154:                                              ; preds = %._crit_edge
+155:                                              ; preds = %._crit_edge
   %puts91 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %155
+  br label %156
 
-155:                                              ; preds = %154, %155
-  %indvars.iv148 = phi i64 [ 0, %154 ], [ %indvars.iv.next149, %155 ]
-  %156 = getelementptr inbounds nuw %"struct.(anonymous namespace)::functionMapEntry", ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv148
-  %157 = load ptr, ptr %156, align 16, !tbaa !8
-  %158 = trunc nuw nsw i64 %indvars.iv148 to i32
-  %159 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %158, ptr noundef %157)
+156:                                              ; preds = %155, %156
+  %indvars.iv148 = phi i64 [ 0, %155 ], [ %indvars.iv.next149, %156 ]
+  %157 = getelementptr inbounds nuw %"struct.(anonymous namespace)::functionMapEntry", ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv148
+  %158 = load ptr, ptr %157, align 16, !tbaa !8
+  %159 = trunc nuw nsw i64 %indvars.iv148 to i32
+  %160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %159, ptr noundef %158)
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 11
-  br i1 %exitcond151.not, label %160, label %155, !llvm.loop !25
+  br i1 %exitcond151.not, label %161, label %156, !llvm.loop !25
 
-160:                                              ; preds = %155
-  %161 = getelementptr inbounds nuw i8, ptr %.275, i64 8
-  %162 = load ptr, ptr %161, align 8, !tbaa !16
-  %163 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %162)
-  br label %164
+161:                                              ; preds = %156
+  %162 = getelementptr inbounds nuw i8, ptr %.275, i64 8
+  %163 = load ptr, ptr %162, align 8, !tbaa !16
+  %164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %163)
+  br label %165
 
-164:                                              ; preds = %147, %149, %160, %.split137.us, %35, %20, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %20 ], [ -1, %35 ], [ 0, %.split137.us ], [ -1, %160 ], [ -1, %147 ], [ %153, %149 ]
+165:                                              ; preds = %147, %149, %161, %.split137.us, %35, %20, %16
+  %.0 = phi i32 [ -1, %16 ], [ -1, %20 ], [ -1, %35 ], [ 0, %.split137.us ], [ -1, %161 ], [ -1, %147 ], [ %154, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

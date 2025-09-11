@@ -25228,9 +25228,10 @@ while.cond81:                                     ; preds = %while.cond81, %whil
 
 if.then.i77:                                      ; preds = %while.cond81
   %31 = load ptr, ptr %this, align 8
+  %add.ptr90 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %31, i64 %i.0
   %conv92 = zext nneg i8 %30 to i64
   %sub93 = add nsw i64 %conv92, -1
-  %rawItems_.i.i.i67 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %31, i64 %i.0, i32 3
+  %rawItems_.i.i.i67 = getelementptr inbounds nuw i8, ptr %add.ptr90, i64 16
   %arrayidx.i.i.i.i.i68 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i67, i64 %sub93
   %shr.i.i72 = lshr i64 %sub93, 1
   %cmp.i.i73 = icmp ult i8 %30, 17
@@ -60458,7 +60459,8 @@ for.body13.preheader:                             ; preds = %for.cond11.preheade
 
 for.body13:                                       ; preds = %for.body13.preheader, %_ZNSt10shared_ptrIvED2Ev.exit
   %indvars.iv = phi i64 [ %11, %for.body13.preheader ], [ %indvars.iv.next, %_ZNSt10shared_ptrIvED2Ev.exit ]
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::shared_ptr.84", ptr %4, i64 %indvars.iv, i32 0, i32 1
+  %arrayidx = getelementptr inbounds %"class.std::shared_ptr.84", ptr %4, i64 %indvars.iv
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %12 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIvED2Ev.exit, label %if.then.i.i.i
@@ -60762,7 +60764,8 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %_ZNSt10shared_ptrIvED2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt10shared_ptrIvED2Ev.exit ], [ 0, %if.end ]
-  %_M_refcount.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.84", ptr %1, i64 %indvars.iv, i32 0, i32 1
+  %arrayidx = getelementptr inbounds nuw %"class.std::shared_ptr.84", ptr %1, i64 %indvars.iv
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIvED2Ev.exit, label %if.then.i.i.i

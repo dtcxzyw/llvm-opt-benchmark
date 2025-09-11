@@ -7115,45 +7115,46 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder21findDes
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = sext i32 %1 to i64
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %19, i64 %18, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 120
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 88
-  %24 = shl nsw i32 %2, 1
-  %25 = load ptr, ptr %23, align 8
-  %26 = sext i32 %24 to i64
-  %27 = getelementptr i32, ptr %25, i64 %26
-  %28 = getelementptr i8, ptr %27, i64 4
-  %29 = load i32, ptr %28, align 4
-  %30 = sext i32 %29 to i64
-  %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %30
-  %33 = load i32, ptr %27, align 4
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph, label %.loopexit
+  %20 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %19, i64 %18
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 88
+  %25 = shl nsw i32 %2, 1
+  %26 = load ptr, ptr %24, align 8
+  %27 = sext i32 %25 to i64
+  %28 = getelementptr i32, ptr %26, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = sext i32 %30 to i64
+  %32 = load ptr, ptr %23, align 8
+  %33 = getelementptr inbounds i32, ptr %32, i64 %31
+  %34 = load i32, ptr %28, align 4
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %15
-  %35 = add nsw i32 %1, 1
-  %wide.trip.count = zext nneg i32 %33 to i64
-  br label %36
+  %36 = add nsw i32 %1, 1
+  %wide.trip.count = zext nneg i32 %34 to i64
+  br label %37
 
-36:                                               ; preds = %.lr.ph, %40
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %37 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
-  %38 = load i32, ptr %37, align 4
-  %.not = icmp eq i32 %38, -1
-  br i1 %.not, label %40, label %39
+37:                                               ; preds = %.lr.ph, %41
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
+  %38 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %39 = load i32, ptr %38, align 4
+  %.not = icmp eq i32 %39, -1
+  br i1 %.not, label %41, label %40
 
-39:                                               ; preds = %36
-  tail call void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder21findDescendantPatchesEiii(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %35, i32 noundef %38, i32 noundef %3)
-  br label %40
+40:                                               ; preds = %37
+  tail call void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder21findDescendantPatchesEiii(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %36, i32 noundef %39, i32 noundef %3)
+  br label %41
 
-40:                                               ; preds = %36, %39
+41:                                               ; preds = %37, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !61
+  br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !61
 
-.loopexit:                                        ; preds = %40, %15, %10, %14
+.loopexit:                                        ; preds = %41, %15, %10, %14
   ret void
 }
 

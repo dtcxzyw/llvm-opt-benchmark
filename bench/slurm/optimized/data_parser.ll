@@ -184,7 +184,7 @@ define dso_local noundef ptr @data_parser_g_new(ptr noundef %0, ptr noundef %1, 
 
 14:                                               ; preds = %11
   %15 = tail call i32 @load_plugins(ptr noundef nonnull @plugins, ptr noundef nonnull @.str.1, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @parse_syms, i64 noundef 13) #13
-  br label %80
+  br label %81
 
 16:                                               ; preds = %11
   %17 = tail call fastcc ptr @_parse_plugin_type(ptr noundef %8)
@@ -194,7 +194,7 @@ define dso_local noundef ptr @data_parser_g_new(ptr noundef %0, ptr noundef %1, 
 
 .thread59:                                        ; preds = %16
   %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.data_parser_g_new, ptr noundef %8) #13
-  br label %80
+  br label %81
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %17, align 8
@@ -323,21 +323,22 @@ _find_plugin_by_type.exit.thread:                 ; preds = %62, %.preheader46.i
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %12) #13
-  br label %80
+  br label %81
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %76 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %17, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef nonnull %76) #13
-  %77 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %17, i64 %indvars.iv, i32 1
-  tail call void @slurm_xfree(ptr noundef nonnull %77) #13
+  %77 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %17, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  tail call void @slurm_xfree(ptr noundef nonnull %78) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %17, i64 %indvars.iv.next
-  %79 = load ptr, ptr %78, align 8
-  %.not36 = icmp eq ptr %79, null
+  %79 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %17, i64 %indvars.iv.next
+  %80 = load ptr, ptr %79, align 8
+  %.not36 = icmp eq ptr %80, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-80:                                               ; preds = %.thread59, %._crit_edge, %14
+81:                                               ; preds = %.thread59, %._crit_edge, %14
   %.026 = phi ptr [ null, %14 ], [ %.02758, %._crit_edge ], [ null, %.thread59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.026
@@ -596,14 +597,14 @@ define dso_local ptr @data_parser_g_new_array(ptr noundef %0, ptr noundef %1, pt
 
 15:                                               ; preds = %11
   %16 = tail call i32 @load_plugins(ptr noundef nonnull @plugins, ptr noundef nonnull @.str.1, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @parse_syms, i64 noundef 13) #13
-  br label %112
+  br label %115
 
 17:                                               ; preds = %11
   %18 = tail call fastcc ptr @_parse_plugin_type(ptr noundef %8)
   store ptr %18, ptr %13, align 8
   %19 = tail call fastcc i32 @_load_plugins(ptr noundef %18, ptr noundef %9, i1 noundef zeroext %10)
   %.not57 = icmp eq i32 %19, 0
-  br i1 %.not57, label %20, label %88
+  br i1 %.not57, label %20, label %90
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @plugins, align 8
@@ -628,9 +629,9 @@ define dso_local ptr @data_parser_g_new_array(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not94, label %.loopexit, label %.lr.ph92
 
 .preheader46.i:                                   ; preds = %.preheader72, %70
-  %30 = phi ptr [ %77, %70 ], [ %18, %.preheader72 ]
+  %30 = phi ptr [ %79, %70 ], [ %18, %.preheader72 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %.preheader72 ]
-  %31 = phi ptr [ %80, %70 ], [ %26, %.preheader72 ]
+  %31 = phi ptr [ %82, %70 ], [ %26, %.preheader72 ]
   %32 = load ptr, ptr @plugins, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load i64, ptr %33, align 8
@@ -711,106 +712,109 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph52.i, %.
   br label %.preheader69
 
 70:                                               ; preds = %_find_plugin_by_type.exit
-  %71 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %30, i64 %indvars.iv, i32 1
-  %72 = load ptr, ptr %71, align 8
-  %73 = tail call fastcc ptr @_new_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %.022.i, ptr noundef %72)
-  %74 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
-  store ptr %73, ptr %74, align 8
-  %75 = load ptr, ptr %13, align 8
-  %76 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %75, i64 %indvars.iv, i32 1
-  store ptr null, ptr %76, align 8
-  %77 = load ptr, ptr %13, align 8
-  %78 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %77, i64 %indvars.iv
-  tail call void @slurm_xfree(ptr noundef %78) #13
+  %71 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %30, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call fastcc ptr @_new_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %.022.i, ptr noundef %73)
+  %75 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  store ptr %74, ptr %75, align 8
+  %76 = load ptr, ptr %13, align 8
+  %77 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %76, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store ptr null, ptr %78, align 8
+  %79 = load ptr, ptr %13, align 8
+  %80 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %79, i64 %indvars.iv
+  tail call void @slurm_xfree(ptr noundef %80) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %77, i64 %indvars.iv.next
-  %80 = load ptr, ptr %79, align 8
-  %.not59 = icmp eq ptr %80, null
+  %81 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %79, i64 %indvars.iv.next
+  %82 = load ptr, ptr %81, align 8
+  %.not59 = icmp eq ptr %82, null
   br i1 %.not59, label %.loopexit, label %.preheader46.i, !llvm.loop !16
 
 .lr.ph92:                                         ; preds = %.preheader, %.lr.ph92
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph92 ], [ 0, %.preheader ]
-  %81 = trunc nuw nsw i64 %indvars.iv116 to i32
-  %82 = tail call fastcc ptr @_new_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %81, ptr noundef null)
-  %83 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv116
-  store ptr %82, ptr %83, align 8
+  %83 = trunc nuw nsw i64 %indvars.iv116 to i32
+  %84 = tail call fastcc ptr @_new_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %83, ptr noundef null)
+  %85 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv116
+  store ptr %84, ptr %85, align 8
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %84 = load ptr, ptr @plugins, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %86 = load i64, ptr %85, align 8
-  %87 = icmp ugt i64 %86, %indvars.iv.next117
-  br i1 %87, label %.lr.ph92, label %.loopexit, !llvm.loop !17
+  %86 = load ptr, ptr @plugins, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  %88 = load i64, ptr %87, align 8
+  %89 = icmp ugt i64 %88, %indvars.iv.next117
+  br i1 %89, label %.lr.ph92, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %70, %.lr.ph92, %.preheader72, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %13) #13
-  br label %112
+  br label %115
 
-88:                                               ; preds = %17
-  %89 = tail call ptr @slurm_strerror(i32 noundef %19) #13
-  %90 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.data_parser_g_new_array, ptr noundef %89) #13
+90:                                               ; preds = %17
+  %91 = tail call ptr @slurm_strerror(i32 noundef %19) #13
+  %92 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.data_parser_g_new_array, ptr noundef %91) #13
   %.not60 = icmp eq ptr %18, null
   br i1 %.not60, label %.loopexit68, label %.preheader69
 
-.preheader69:                                     ; preds = %.thread, %88
-  %.050131 = phi i64 [ %69, %.thread ], [ 0, %88 ]
-  %91 = phi ptr [ %30, %.thread ], [ %18, %88 ]
-  %92 = phi ptr [ %25, %.thread ], [ null, %88 ]
-  %93 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %91, i64 %.050131
-  %94 = load ptr, ptr %93, align 8
-  %.not6187 = icmp eq ptr %94, null
+.preheader69:                                     ; preds = %.thread, %90
+  %.050131 = phi i64 [ %69, %.thread ], [ 0, %90 ]
+  %93 = phi ptr [ %30, %.thread ], [ %18, %90 ]
+  %94 = phi ptr [ %25, %.thread ], [ null, %90 ]
+  %95 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %93, i64 %.050131
+  %96 = load ptr, ptr %95, align 8
+  %.not6187 = icmp eq ptr %96, null
   br i1 %.not6187, label %.loopexit134, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader69, %.lr.ph
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.lr.ph ], [ %.050131, %.preheader69 ]
-  %95 = phi ptr [ %97, %.lr.ph ], [ %93, %.preheader69 ]
-  tail call void @slurm_xfree(ptr noundef nonnull %95) #13
-  %96 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %91, i64 %indvars.iv110, i32 1
-  tail call void @slurm_xfree(ptr noundef nonnull %96) #13
+  %97 = phi ptr [ %100, %.lr.ph ], [ %95, %.preheader69 ]
+  tail call void @slurm_xfree(ptr noundef nonnull %97) #13
+  %98 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %93, i64 %indvars.iv110
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  tail call void @slurm_xfree(ptr noundef nonnull %99) #13
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %97 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %91, i64 %indvars.iv.next111
-  %98 = load ptr, ptr %97, align 8
-  %.not61 = icmp eq ptr %98, null
+  %100 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %93, i64 %indvars.iv.next111
+  %101 = load ptr, ptr %100, align 8
+  %.not61 = icmp eq ptr %101, null
   br i1 %.not61, label %.loopexit134, label %.lr.ph, !llvm.loop !18
 
 .loopexit134:                                     ; preds = %.lr.ph, %.preheader69
   call void @slurm_xfree(ptr noundef nonnull %13) #13
-  %99 = load ptr, ptr @plugins, align 8
-  %100 = icmp ne ptr %99, null
-  %101 = icmp ne ptr %92, null
-  %or.cond = select i1 %100, i1 %101, i1 false
+  %102 = load ptr, ptr @plugins, align 8
+  %103 = icmp ne ptr %102, null
+  %104 = icmp ne ptr %94, null
+  %or.cond = select i1 %103, i1 %104, i1 false
   br i1 %or.cond, label %.preheader67, label %.loopexit68
 
 .preheader67:                                     ; preds = %.loopexit134
-  %102 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %103 = load i64, ptr %102, align 8
-  %.not93 = icmp eq i64 %103, 0
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 32
+  %106 = load i64, ptr %105, align 8
+  %.not93 = icmp eq i64 %106, 0
   br i1 %.not93, label %.loopexit68, label %.lr.ph90
 
-.lr.ph90:                                         ; preds = %.preheader67, %107
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %107 ], [ 0, %.preheader67 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv113
-  %105 = load ptr, ptr %104, align 8
-  %.not62 = icmp eq ptr %105, null
-  br i1 %.not62, label %107, label %106
+.lr.ph90:                                         ; preds = %.preheader67, %110
+  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %110 ], [ 0, %.preheader67 ]
+  %107 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv113
+  %108 = load ptr, ptr %107, align 8
+  %.not62 = icmp eq ptr %108, null
+  br i1 %.not62, label %110, label %109
 
-106:                                              ; preds = %.lr.ph90
-  call void @data_parser_g_free(ptr noundef nonnull %105, i1 noundef zeroext true)
-  br label %107
+109:                                              ; preds = %.lr.ph90
+  call void @data_parser_g_free(ptr noundef nonnull %108, i1 noundef zeroext true)
+  br label %110
 
-107:                                              ; preds = %106, %.lr.ph90
-  store ptr null, ptr %104, align 8
+110:                                              ; preds = %109, %.lr.ph90
+  store ptr null, ptr %107, align 8
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %108 = load ptr, ptr @plugins, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %110 = load i64, ptr %109, align 8
-  %111 = icmp ugt i64 %110, %indvars.iv.next114
-  br i1 %111, label %.lr.ph90, label %.loopexit68, !llvm.loop !19
+  %111 = load ptr, ptr @plugins, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
+  %113 = load i64, ptr %112, align 8
+  %114 = icmp ugt i64 %113, %indvars.iv.next114
+  br i1 %114, label %.lr.ph90, label %.loopexit68, !llvm.loop !19
 
-.loopexit68:                                      ; preds = %107, %88, %.preheader67, %.loopexit134
+.loopexit68:                                      ; preds = %110, %90, %.preheader67, %.loopexit134
   call void @slurm_xfree(ptr noundef nonnull %12) #13
-  br label %112
+  br label %115
 
-112:                                              ; preds = %.loopexit68, %.loopexit, %15
+115:                                              ; preds = %.loopexit68, %.loopexit, %15
   %.048 = phi ptr [ null, %.loopexit68 ], [ %25, %.loopexit ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

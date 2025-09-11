@@ -2152,12 +2152,12 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %140, label %6
+  br i1 %5, label %142, label %6
 
 6:                                                ; preds = %1
   %7 = load i8, ptr %0, align 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %140, label %9
+  br i1 %8, label %142, label %9
 
 9:                                                ; preds = %6
   %.b = load i1, ptr @read_keytab_file.first_time, align 1
@@ -2166,7 +2166,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %9
   store i1 true, ptr @read_keytab_file.first_time, align 1
   %11 = tail call i32 @krb5_init_context(ptr noundef nonnull @krb5_ctx)
-  switch i32 %11, label %140 [
+  switch i32 %11, label %142 [
     i32 -1765328249, label %12
     i32 0, label %12
   ]
@@ -2180,7 +2180,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %16, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef nonnull %0)
-  br label %140
+  br label %142
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr @krb5_ctx, align 8
@@ -2206,9 +2206,9 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %18
   %31 = load ptr, ptr @stderr, align 8
   %32 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %31, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef nonnull %0)
-  br label %140
+  br label %142
 
-33:                                               ; preds = %.lr.ph92, %121
+33:                                               ; preds = %.lr.ph92, %123
   %34 = call ptr @wmem_epan_scope()
   %35 = call noalias dereferenceable_or_null(432) ptr @wmem_alloc0(ptr noundef %34, i64 noundef 432) #21
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 308
@@ -2243,12 +2243,12 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %57 = ptrtoint ptr %43 to i64
   br i1 %56, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %49, %80
-  %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %49 ]
-  %58 = phi ptr [ %85, %80 ], [ %53, %49 ]
-  %.088 = phi ptr [ %84, %80 ], [ %52, %49 ]
-  %59 = phi i64 [ %83, %80 ], [ %51, %49 ]
-  %60 = phi i64 [ %82, %80 ], [ %51, %49 ]
+.lr.ph:                                           ; preds = %49, %82
+  %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %49 ]
+  %58 = phi ptr [ %87, %82 ], [ %53, %49 ]
+  %.088 = phi ptr [ %86, %82 ], [ %52, %49 ]
+  %59 = phi i64 [ %85, %82 ], [ %51, %49 ]
+  %60 = phi i64 [ %84, %82 ], [ %51, %49 ]
   %61 = ptrtoint ptr %.088 to i64
   %.neg83 = sub i64 %57, %61
   %62 = add i64 %.neg83, 256
@@ -2257,119 +2257,121 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %64 = select i1 %.not84, ptr @.str.6, ptr @.str.5
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr %struct._krb5_data, ptr %66, i64 %indvars.iv, i32 2
-  %68 = load ptr, ptr %67, align 8
-  %69 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.088, i64 noundef %62, i32 noundef 2, i64 noundef %63, ptr noundef nonnull @.str.4, ptr noundef nonnull %64, ptr noundef %68)
-  %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %62, %70
-  br i1 %71, label %80, label %72
+  %67 = getelementptr %struct._krb5_data, ptr %66, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.088, i64 noundef %62, i32 noundef 2, i64 noundef %63, ptr noundef nonnull @.str.4, ptr noundef nonnull %64, ptr noundef %69)
+  %71 = sext i32 %70 to i64
+  %72 = icmp slt i64 %62, %71
+  br i1 %72, label %82, label %73
 
-72:                                               ; preds = %.lr.ph
-  %73 = load ptr, ptr %26, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr %struct._krb5_data, ptr %75, i64 %indvars.iv, i32 2
-  %77 = load ptr, ptr %76, align 8
-  %78 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.088, i64 noundef %62, i32 noundef 2, i64 noundef %63, ptr noundef nonnull @.str.4, ptr noundef nonnull %64, ptr noundef %77)
-  %79 = sext i32 %78 to i64
-  br label %80
+73:                                               ; preds = %.lr.ph
+  %74 = load ptr, ptr %26, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr %struct._krb5_data, ptr %76, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.088, i64 noundef %62, i32 noundef 2, i64 noundef %63, ptr noundef nonnull @.str.4, ptr noundef nonnull %64, ptr noundef %79)
+  %81 = sext i32 %80 to i64
+  br label %82
 
-80:                                               ; preds = %.lr.ph, %72
-  %81 = phi i64 [ %79, %72 ], [ %62, %.lr.ph ]
-  %82 = add i64 %81, %60
-  %83 = add i64 %81, %59
-  %84 = getelementptr i8, ptr %.088, i64 %81
+82:                                               ; preds = %.lr.ph, %73
+  %83 = phi i64 [ %81, %73 ], [ %62, %.lr.ph ]
+  %84 = add i64 %83, %60
+  %85 = add i64 %83, %59
+  %86 = getelementptr i8, ptr %.088, i64 %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %85 = load ptr, ptr %26, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %87 = load i32, ptr %86, align 8
-  %88 = sext i32 %87 to i64
-  %89 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  %87 = load ptr, ptr %26, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  %89 = load i32, ptr %88, align 8
+  %90 = sext i32 %89 to i64
+  %91 = icmp slt i64 %indvars.iv.next, %90
+  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %80, %49
-  %.lcssa86 = phi i64 [ %51, %49 ], [ %82, %80 ]
-  %.0.lcssa = phi ptr [ %52, %49 ], [ %84, %80 ]
-  %.lcssa = phi ptr [ %53, %49 ], [ %85, %80 ]
-  %90 = ptrtoint ptr %.0.lcssa to i64
-  %.neg = sub i64 %57, %90
-  %91 = add i64 %.neg, 256
-  %92 = call i64 @llvm.usub.sat.i64(i64 432, i64 %.lcssa86)
-  %93 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %94 = load ptr, ptr %93, align 8
-  %95 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.0.lcssa, i64 noundef %91, i32 noundef 2, i64 noundef %92, ptr noundef nonnull @.str.7, ptr noundef %94)
-  %96 = sext i32 %95 to i64
-  %97 = icmp slt i64 %91, %96
-  br i1 %97, label %104, label %98
+._crit_edge:                                      ; preds = %82, %49
+  %.lcssa86 = phi i64 [ %51, %49 ], [ %84, %82 ]
+  %.0.lcssa = phi ptr [ %52, %49 ], [ %86, %82 ]
+  %.lcssa = phi ptr [ %53, %49 ], [ %87, %82 ]
+  %92 = ptrtoint ptr %.0.lcssa to i64
+  %.neg = sub i64 %57, %92
+  %93 = add i64 %.neg, 256
+  %94 = call i64 @llvm.usub.sat.i64(i64 432, i64 %.lcssa86)
+  %95 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
+  %96 = load ptr, ptr %95, align 8
+  %97 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.0.lcssa, i64 noundef %93, i32 noundef 2, i64 noundef %94, ptr noundef nonnull @.str.7, ptr noundef %96)
+  %98 = sext i32 %97 to i64
+  %99 = icmp slt i64 %93, %98
+  br i1 %99, label %106, label %100
 
-98:                                               ; preds = %._crit_edge
-  %99 = load ptr, ptr %26, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %101 = load ptr, ptr %100, align 8
-  %102 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.0.lcssa, i64 noundef %91, i32 noundef 2, i64 noundef %92, ptr noundef nonnull @.str.7, ptr noundef %101)
-  %103 = sext i32 %102 to i64
-  br label %104
+100:                                              ; preds = %._crit_edge
+  %101 = load ptr, ptr %26, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %103 = load ptr, ptr %102, align 8
+  %104 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.0.lcssa, i64 noundef %93, i32 noundef 2, i64 noundef %94, ptr noundef nonnull @.str.7, ptr noundef %103)
+  %105 = sext i32 %104 to i64
+  br label %106
 
-104:                                              ; preds = %._crit_edge, %98
-  %105 = phi i64 [ %103, %98 ], [ %91, %._crit_edge ]
-  %106 = getelementptr i8, ptr %.0.lcssa, i64 %105
-  store i8 0, ptr %106, align 1
-  %107 = load i32, ptr %27, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i32 %107, ptr %108, align 8
-  %109 = load i32, ptr %28, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  store i32 %109, ptr %110, align 4
-  %111 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %112 = load ptr, ptr %29, align 8
-  %113 = call i32 @llvm.umin.i32(i32 %109, i32 32)
-  %114 = zext nneg i32 %113 to i64
-  %115 = call ptr @__memcpy_chk(ptr noundef nonnull %111, ptr noundef %112, i64 noundef range(i64 -2147483648, 4294967296) %114, i64 noundef 416) #22, !alias.scope !10
+106:                                              ; preds = %._crit_edge, %100
+  %107 = phi i64 [ %105, %100 ], [ %93, %._crit_edge ]
+  %108 = getelementptr i8, ptr %.0.lcssa, i64 %107
+  store i8 0, ptr %108, align 1
+  %109 = load i32, ptr %27, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i32 %109, ptr %110, align 8
+  %111 = load i32, ptr %28, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  store i32 %111, ptr %112, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %114 = load ptr, ptr %29, align 8
+  %115 = call i32 @llvm.umin.i32(i32 %111, i32 32)
+  %116 = zext nneg i32 %115 to i64
+  %117 = call ptr @__memcpy_chk(ptr noundef nonnull %113, ptr noundef %114, i64 noundef range(i64 -2147483648, 4294967296) %116, i64 noundef 416) #22, !alias.scope !10
   store ptr %35, ptr @enc_key_list, align 8
-  %116 = load ptr, ptr @krb5_ctx, align 8
-  %117 = call i32 @krb5_free_keytab_entry_contents(ptr noundef %116, ptr noundef nonnull %3)
-  %.not80 = icmp eq i32 %117, 0
-  br i1 %.not80, label %121, label %118
+  %118 = load ptr, ptr @krb5_ctx, align 8
+  %119 = call i32 @krb5_free_keytab_entry_contents(ptr noundef %118, ptr noundef nonnull %3)
+  %.not80 = icmp eq i32 %119, 0
+  br i1 %.not80, label %123, label %120
 
-118:                                              ; preds = %104
-  %119 = load ptr, ptr @stderr, align 8
-  %120 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %119, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %117)
-  br label %121
+120:                                              ; preds = %106
+  %121 = load ptr, ptr @stderr, align 8
+  %122 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %121, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %119)
+  br label %123
 
-121:                                              ; preds = %118, %104
-  %122 = load ptr, ptr @kerberos_longterm_keys, align 8
-  call fastcc void @kerberos_key_map_insert(ptr noundef %122, ptr noundef %35)
-  %123 = load ptr, ptr @krb5_ctx, align 8
-  %124 = load ptr, ptr %2, align 8
-  %125 = call i32 @krb5_kt_next_entry(ptr noundef %123, ptr noundef %124, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %33, label %.critedge, !llvm.loop !14
+123:                                              ; preds = %120, %106
+  %124 = load ptr, ptr @kerberos_longterm_keys, align 8
+  call fastcc void @kerberos_key_map_insert(ptr noundef %124, ptr noundef %35)
+  %125 = load ptr, ptr @krb5_ctx, align 8
+  %126 = load ptr, ptr %2, align 8
+  %127 = call i32 @krb5_kt_next_entry(ptr noundef %125, ptr noundef %126, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %33, label %.critedge, !llvm.loop !14
 
-.critedge:                                        ; preds = %121, %.preheader
-  %127 = load ptr, ptr @krb5_ctx, align 8
-  %128 = load ptr, ptr %2, align 8
-  %129 = call i32 @krb5_kt_end_seq_get(ptr noundef %127, ptr noundef %128, ptr noundef nonnull %4)
-  %.not81 = icmp eq i32 %129, 0
-  br i1 %.not81, label %133, label %130
+.critedge:                                        ; preds = %123, %.preheader
+  %129 = load ptr, ptr @krb5_ctx, align 8
+  %130 = load ptr, ptr %2, align 8
+  %131 = call i32 @krb5_kt_end_seq_get(ptr noundef %129, ptr noundef %130, ptr noundef nonnull %4)
+  %.not81 = icmp eq i32 %131, 0
+  br i1 %.not81, label %135, label %132
 
-130:                                              ; preds = %.critedge
-  %131 = load ptr, ptr @stderr, align 8
-  %132 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %131, i32 noundef 2, ptr noundef nonnull @.str.9, i32 noundef %129)
-  br label %133
+132:                                              ; preds = %.critedge
+  %133 = load ptr, ptr @stderr, align 8
+  %134 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %133, i32 noundef 2, ptr noundef nonnull @.str.9, i32 noundef %131)
+  br label %135
 
-133:                                              ; preds = %130, %.critedge
-  %134 = load ptr, ptr @krb5_ctx, align 8
-  %135 = load ptr, ptr %2, align 8
-  %136 = call i32 @krb5_kt_close(ptr noundef %134, ptr noundef %135)
-  %.not82 = icmp eq i32 %136, 0
-  br i1 %.not82, label %140, label %137
+135:                                              ; preds = %132, %.critedge
+  %136 = load ptr, ptr @krb5_ctx, align 8
+  %137 = load ptr, ptr %2, align 8
+  %138 = call i32 @krb5_kt_close(ptr noundef %136, ptr noundef %137)
+  %.not82 = icmp eq i32 %138, 0
+  br i1 %.not82, label %142, label %139
 
-137:                                              ; preds = %133
-  %138 = load ptr, ptr @stderr, align 8
-  %139 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %138, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef %136)
-  br label %140
+139:                                              ; preds = %135
+  %140 = load ptr, ptr @stderr, align 8
+  %141 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %140, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef %138)
+  br label %142
 
-140:                                              ; preds = %133, %137, %10, %1, %6, %30, %15
+142:                                              ; preds = %135, %139, %10, %1, %6, %30, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

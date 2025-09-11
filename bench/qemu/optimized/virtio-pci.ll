@@ -2080,98 +2080,100 @@ virtio_bus_get_device.exit.i:                     ; preds = %38, %36
   %52 = getelementptr i8, ptr %0, i64 34064
   %.val9.i = load ptr, ptr %52, align 16
   %53 = zext nneg i32 %1 to i64
-  %54 = load ptr, ptr @kvm_state, align 8
-  %55 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val9.i, i64 %53, i32 1
-  %56 = load i32, ptr %55, align 8
-  %57 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %54, ptr noundef %37, i32 noundef %56) #15
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %virtio_pci_one_vector_mask.exit, label %59
+  %54 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val9.i, i64 %53
+  %55 = load ptr, ptr @kvm_state, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %57 = load i32, ptr %56, align 8
+  %58 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %55, ptr noundef %37, i32 noundef %57) #15
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %virtio_pci_one_vector_mask.exit, label %60
 
-59:                                               ; preds = %51
+60:                                               ; preds = %51
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.5, i32 noundef 865, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #16
   unreachable
 
 virtio_pci_one_vector_mask.exit:                  ; preds = %20, %51, %50
   %.066 = phi i32 [ %.0.lcssa, %50 ], [ %.0.lcssa, %51 ], [ %.069, %20 ]
   %.048 = phi i32 [ %34, %50 ], [ %34, %51 ], [ %22, %20 ]
-  %60 = tail call ptr @virtio_vector_first_queue(ptr noundef %9, i16 noundef zeroext %10) #15
-  %61 = icmp ne ptr %60, null
-  %62 = icmp sgt i32 %.066, -1
-  %63 = select i1 %61, i1 %62, i1 false
-  br i1 %63, label %.lr.ph74, label %.loopexit
+  %61 = tail call ptr @virtio_vector_first_queue(ptr noundef %9, i16 noundef zeroext %10) #15
+  %62 = icmp ne ptr %61, null
+  %63 = icmp sgt i32 %.066, -1
+  %64 = select i1 %62, i1 %63, i1 false
+  br i1 %64, label %.lr.ph74, label %.loopexit
 
 .lr.ph74:                                         ; preds = %virtio_pci_one_vector_mask.exit
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 34072
-  %65 = getelementptr i8, ptr %0, i64 34064
-  %66 = zext i32 %1 to i64
-  br label %67
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 34072
+  %66 = getelementptr i8, ptr %0, i64 34064
+  %67 = zext i32 %1 to i64
+  br label %68
 
-67:                                               ; preds = %.lr.ph74, %95
-  %.273 = phi i32 [ %.066, %.lr.ph74 ], [ %.3, %95 ]
-  %.15072 = phi ptr [ %60, %.lr.ph74 ], [ %96, %95 ]
-  %68 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef nonnull %.15072) #15
-  %69 = zext i16 %68 to i32
-  %70 = load i32, ptr %64, align 8
-  %71 = icmp sgt i32 %70, %69
-  br i1 %71, label %72, label %95
+68:                                               ; preds = %.lr.ph74, %97
+  %.273 = phi i32 [ %.066, %.lr.ph74 ], [ %.3, %97 ]
+  %.15072 = phi ptr [ %61, %.lr.ph74 ], [ %98, %97 ]
+  %69 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef nonnull %.15072) #15
+  %70 = zext i16 %69 to i32
+  %71 = load i32, ptr %65, align 8
+  %72 = icmp sgt i32 %71, %70
+  br i1 %72, label %73, label %97
 
-72:                                               ; preds = %67
-  %73 = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef nonnull %.15072) #15
+73:                                               ; preds = %68
+  %74 = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef nonnull %.15072) #15
   %.val.i59 = load ptr, ptr %5, align 8
   %.not.i.i60 = icmp eq ptr %.val.i59, null
-  br i1 %.not.i.i60, label %virtio_bus_get_device.exit.i61, label %74
+  br i1 %.not.i.i60, label %virtio_bus_get_device.exit.i61, label %75
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i8, ptr %.val.i59, i64 16
-  %76 = load ptr, ptr %75, align 8
+75:                                               ; preds = %73
+  %76 = getelementptr inbounds nuw i8, ptr %.val.i59, i64 16
+  %77 = load ptr, ptr %76, align 8
   br label %virtio_bus_get_device.exit.i61
 
-virtio_bus_get_device.exit.i61:                   ; preds = %74, %72
-  %77 = phi ptr [ %76, %74 ], [ null, %72 ]
-  %78 = tail call ptr @object_get_class(ptr noundef %77) #15
-  %79 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %78, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 88, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #15
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 457
-  %81 = load i8, ptr %80, align 1, !range !7, !noundef !6
-  %82 = trunc nuw i8 %81 to i1
-  br i1 %82, label %83, label %87
+virtio_bus_get_device.exit.i61:                   ; preds = %75, %73
+  %78 = phi ptr [ %77, %75 ], [ null, %73 ]
+  %79 = tail call ptr @object_get_class(ptr noundef %78) #15
+  %80 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %79, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 88, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #15
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 457
+  %82 = load i8, ptr %81, align 1, !range !7, !noundef !6
+  %83 = trunc nuw i8 %82 to i1
+  br i1 %83, label %84, label %88
 
-83:                                               ; preds = %virtio_bus_get_device.exit.i61
-  %84 = getelementptr inbounds nuw i8, ptr %79, i64 296
-  %85 = load ptr, ptr %84, align 8
-  %.not.i63 = icmp eq ptr %85, null
-  br i1 %.not.i63, label %87, label %86
+84:                                               ; preds = %virtio_bus_get_device.exit.i61
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 296
+  %86 = load ptr, ptr %85, align 8
+  %.not.i63 = icmp eq ptr %86, null
+  br i1 %.not.i63, label %88, label %87
 
-86:                                               ; preds = %83
-  tail call void %85(ptr noundef nonnull %77, i32 noundef range(i32 -1, 65536) %69, i1 noundef zeroext true) #15
+87:                                               ; preds = %84
+  tail call void %86(ptr noundef nonnull %78, i32 noundef range(i32 -1, 65536) %70, i1 noundef zeroext true) #15
   br label %virtio_pci_one_vector_mask.exit64
 
-87:                                               ; preds = %83, %virtio_bus_get_device.exit.i61
-  %.val9.i62 = load ptr, ptr %65, align 16
-  %88 = load ptr, ptr @kvm_state, align 8
-  %89 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val9.i62, i64 %66, i32 1
-  %90 = load i32, ptr %89, align 8
-  %91 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %88, ptr noundef %73, i32 noundef %90) #15
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %virtio_pci_one_vector_mask.exit64, label %93
+88:                                               ; preds = %84, %virtio_bus_get_device.exit.i61
+  %.val9.i62 = load ptr, ptr %66, align 16
+  %89 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val9.i62, i64 %67
+  %90 = load ptr, ptr @kvm_state, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %92 = load i32, ptr %91, align 8
+  %93 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %90, ptr noundef %74, i32 noundef %92) #15
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %virtio_pci_one_vector_mask.exit64, label %95
 
-93:                                               ; preds = %87
+95:                                               ; preds = %88
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.5, i32 noundef 865, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #16
   unreachable
 
-virtio_pci_one_vector_mask.exit64:                ; preds = %86, %87
-  %94 = add nsw i32 %.273, -1
-  br label %95
+virtio_pci_one_vector_mask.exit64:                ; preds = %87, %88
+  %96 = add nsw i32 %.273, -1
+  br label %97
 
-95:                                               ; preds = %virtio_pci_one_vector_mask.exit64, %67
-  %.3 = phi i32 [ %94, %virtio_pci_one_vector_mask.exit64 ], [ %.273, %67 ]
-  %96 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %.15072) #15
-  %97 = icmp ne ptr %96, null
-  %98 = icmp sgt i32 %.3, -1
-  %99 = select i1 %97, i1 %98, i1 false
-  br i1 %99, label %67, label %.loopexit, !llvm.loop !13
+97:                                               ; preds = %virtio_pci_one_vector_mask.exit64, %68
+  %.3 = phi i32 [ %96, %virtio_pci_one_vector_mask.exit64 ], [ %.273, %68 ]
+  %98 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %.15072) #15
+  %99 = icmp ne ptr %98, null
+  %100 = icmp sgt i32 %.3, -1
+  %101 = select i1 %99, i1 %100, i1 false
+  br i1 %101, label %68, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %95, %virtio_pci_one_vector_mask.exit, %._crit_edge, %32
-  %.051 = phi i32 [ 0, %32 ], [ 0, %._crit_edge ], [ %.048, %virtio_pci_one_vector_mask.exit ], [ %.048, %95 ]
+.loopexit:                                        ; preds = %97, %virtio_pci_one_vector_mask.exit, %._crit_edge, %32
+  %.051 = phi i32 [ 0, %32 ], [ 0, %._crit_edge ], [ %.048, %virtio_pci_one_vector_mask.exit ], [ %.048, %97 ]
   ret i32 %.051
 }
 
@@ -2201,7 +2203,7 @@ virtio_bus_get_device.exit:                       ; preds = %2, %4
   br label %13
 
 13:                                               ; preds = %.lr.ph, %virtio_pci_one_vector_mask.exit
-  %.034 = phi ptr [ %9, %.lr.ph ], [ %42, %virtio_pci_one_vector_mask.exit ]
+  %.034 = phi ptr [ %9, %.lr.ph ], [ %43, %virtio_pci_one_vector_mask.exit ]
   %14 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef nonnull %.034) #15
   %15 = zext i16 %14 to i32
   %16 = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef nonnull %.034) #15
@@ -2245,75 +2247,77 @@ virtio_bus_get_device.exit.i:                     ; preds = %22, %21
 
 35:                                               ; preds = %31, %virtio_bus_get_device.exit.i
   %.val9.i = load ptr, ptr %11, align 16
-  %36 = load ptr, ptr @kvm_state, align 8
-  %37 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val9.i, i64 %12, i32 1
-  %38 = load i32, ptr %37, align 8
-  %39 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %36, ptr noundef %16, i32 noundef %38) #15
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %virtio_pci_one_vector_mask.exit, label %41
+  %36 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val9.i, i64 %12
+  %37 = load ptr, ptr @kvm_state, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %39 = load i32, ptr %38, align 8
+  %40 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %37, ptr noundef %16, i32 noundef %39) #15
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %virtio_pci_one_vector_mask.exit, label %42
 
-41:                                               ; preds = %35
+42:                                               ; preds = %35
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.5, i32 noundef 865, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #16
   unreachable
 
 virtio_pci_one_vector_mask.exit:                  ; preds = %35, %34, %18
-  %42 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %.034) #15
-  %.not = icmp eq ptr %42, null
+  %43 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %.034) #15
+  %.not = icmp eq ptr %43, null
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %virtio_pci_one_vector_mask.exit, %13, %virtio_bus_get_device.exit
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 208
-  %44 = load i16, ptr %43, align 8
-  %45 = zext i16 %44 to i32
-  %46 = icmp eq i32 %1, %45
-  br i1 %46, label %47, label %virtio_pci_one_vector_mask.exit32
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 208
+  %45 = load i16, ptr %44, align 8
+  %46 = zext i16 %45 to i32
+  %47 = icmp eq i32 %1, %46
+  br i1 %47, label %48, label %virtio_pci_one_vector_mask.exit32
 
-47:                                               ; preds = %._crit_edge
-  %48 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef nonnull %7) #15
+48:                                               ; preds = %._crit_edge
+  %49 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef nonnull %7) #15
   %.val.i27 = load ptr, ptr %3, align 8
   %.not.i.i28 = icmp eq ptr %.val.i27, null
-  br i1 %.not.i.i28, label %virtio_bus_get_device.exit.i29, label %49
+  br i1 %.not.i.i28, label %virtio_bus_get_device.exit.i29, label %50
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %.val.i27, i64 16
-  %51 = load ptr, ptr %50, align 8
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %.val.i27, i64 16
+  %52 = load ptr, ptr %51, align 8
   br label %virtio_bus_get_device.exit.i29
 
-virtio_bus_get_device.exit.i29:                   ; preds = %49, %47
-  %52 = phi ptr [ %51, %49 ], [ null, %47 ]
-  %53 = tail call ptr @object_get_class(ptr noundef %52) #15
-  %54 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %53, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 88, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #15
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 457
-  %56 = load i8, ptr %55, align 1, !range !7, !noundef !6
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %58, label %62
+virtio_bus_get_device.exit.i29:                   ; preds = %50, %48
+  %53 = phi ptr [ %52, %50 ], [ null, %48 ]
+  %54 = tail call ptr @object_get_class(ptr noundef %53) #15
+  %55 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %54, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 88, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #15
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 457
+  %57 = load i8, ptr %56, align 1, !range !7, !noundef !6
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %58, label %59, label %63
 
-58:                                               ; preds = %virtio_bus_get_device.exit.i29
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 296
-  %60 = load ptr, ptr %59, align 8
-  %.not.i31 = icmp eq ptr %60, null
-  br i1 %.not.i31, label %62, label %61
+59:                                               ; preds = %virtio_bus_get_device.exit.i29
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 296
+  %61 = load ptr, ptr %60, align 8
+  %.not.i31 = icmp eq ptr %61, null
+  br i1 %.not.i31, label %63, label %62
 
-61:                                               ; preds = %58
-  tail call void %60(ptr noundef nonnull %52, i32 noundef -1, i1 noundef zeroext true) #15
+62:                                               ; preds = %59
+  tail call void %61(ptr noundef nonnull %53, i32 noundef -1, i1 noundef zeroext true) #15
   br label %virtio_pci_one_vector_mask.exit32
 
-62:                                               ; preds = %58, %virtio_bus_get_device.exit.i29
-  %63 = getelementptr i8, ptr %0, i64 34064
-  %.val9.i30 = load ptr, ptr %63, align 16
-  %64 = zext nneg i32 %1 to i64
-  %65 = load ptr, ptr @kvm_state, align 8
-  %66 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val9.i30, i64 %64, i32 1
-  %67 = load i32, ptr %66, align 8
-  %68 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %65, ptr noundef %48, i32 noundef %67) #15
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %virtio_pci_one_vector_mask.exit32, label %70
+63:                                               ; preds = %59, %virtio_bus_get_device.exit.i29
+  %64 = getelementptr i8, ptr %0, i64 34064
+  %.val9.i30 = load ptr, ptr %64, align 16
+  %65 = zext nneg i32 %1 to i64
+  %66 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val9.i30, i64 %65
+  %67 = load ptr, ptr @kvm_state, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %69 = load i32, ptr %68, align 8
+  %70 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %67, ptr noundef %49, i32 noundef %69) #15
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %virtio_pci_one_vector_mask.exit32, label %72
 
-70:                                               ; preds = %62
+72:                                               ; preds = %63
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.5, i32 noundef 865, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #16
   unreachable
 
-virtio_pci_one_vector_mask.exit32:                ; preds = %62, %61, %._crit_edge
+virtio_pci_one_vector_mask.exit32:                ; preds = %63, %62, %._crit_edge
   ret void
 }
 
@@ -2556,36 +2560,37 @@ virtio_pci_get_notifier.exit:                     ; preds = %28, %22
 40:                                               ; preds = %37
   %.val11 = load ptr, ptr %14, align 16
   %41 = zext i16 %.016.in to i64
-  %42 = load ptr, ptr @kvm_state, align 8
-  %43 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val11, i64 %41, i32 1
-  %44 = load i32, ptr %43, align 8
-  %45 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %42, ptr noundef %.0, i32 noundef %44) #15
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %kvm_virtio_pci_irqfd_release.exit, label %47
+  %42 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val11, i64 %41
+  %43 = load ptr, ptr @kvm_state, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %45 = load i32, ptr %44, align 8
+  %46 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %43, ptr noundef %.0, i32 noundef %45) #15
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %kvm_virtio_pci_irqfd_release.exit, label %48
 
-47:                                               ; preds = %40
+48:                                               ; preds = %40
   tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.5, i32 noundef 865, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #16
   unreachable
 
 kvm_virtio_pci_irqfd_release.exit:                ; preds = %40, %37, %33
   %.val12 = load ptr, ptr %14, align 16
-  %48 = zext i16 %.016.in to i64
-  %49 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val12, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 20
-  %51 = load i32, ptr %50, align 4
-  %52 = add i32 %51, -1
-  store i32 %52, ptr %50, align 4
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %kvm_virtio_pci_vq_vector_release.exit
+  %49 = zext i16 %.016.in to i64
+  %50 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val12, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
+  %52 = load i32, ptr %51, align 4
+  %53 = add i32 %52, -1
+  store i32 %53, ptr %51, align 4
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %kvm_virtio_pci_vq_vector_release.exit
 
-54:                                               ; preds = %kvm_virtio_pci_irqfd_release.exit
-  %55 = load ptr, ptr @kvm_state, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %57 = load i32, ptr %56, align 8
-  tail call void @kvm_irqchip_release_virq(ptr noundef %55, i32 noundef %57) #15
+55:                                               ; preds = %kvm_virtio_pci_irqfd_release.exit
+  %56 = load ptr, ptr @kvm_state, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %58 = load i32, ptr %57, align 8
+  tail call void @kvm_irqchip_release_virq(ptr noundef %56, i32 noundef %58) #15
   br label %kvm_virtio_pci_vq_vector_release.exit
 
-kvm_virtio_pci_vq_vector_release.exit:            ; preds = %26, %16, %54, %kvm_virtio_pci_irqfd_release.exit, %virtio_pci_get_notifier.exit
+kvm_virtio_pci_vq_vector_release.exit:            ; preds = %26, %16, %55, %kvm_virtio_pci_irqfd_release.exit, %virtio_pci_get_notifier.exit
   ret void
 }
 
@@ -2729,32 +2734,33 @@ kvm_virtio_pci_vq_vector_use.exit.thread:         ; preds = %41
 
 60:                                               ; preds = %57
   %.val22 = load ptr, ptr %15, align 16
-  %61 = load ptr, ptr @kvm_state, align 8
-  %62 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val22, i64 %36, i32 1
-  %63 = load i32, ptr %62, align 8
-  %64 = call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %61, ptr noundef %.028, ptr noundef null, i32 noundef %63) #15
-  %65 = icmp slt i32 %64, 0
-  br i1 %65, label %66, label %kvm_virtio_pci_vq_vector_release.exit
+  %61 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val22, i64 %36
+  %62 = load ptr, ptr @kvm_state, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %64 = load i32, ptr %63, align 8
+  %65 = call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %62, ptr noundef %.028, ptr noundef null, i32 noundef %64) #15
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %kvm_virtio_pci_vq_vector_release.exit
 
-66:                                               ; preds = %60
+67:                                               ; preds = %60
   %.val21 = load ptr, ptr %15, align 16
-  %67 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val21, i64 %36
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 20
-  %69 = load i32, ptr %68, align 4
-  %70 = add i32 %69, -1
-  store i32 %70, ptr %68, align 4
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %kvm_virtio_pci_vq_vector_release.exit
+  %68 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val21, i64 %36
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 20
+  %70 = load i32, ptr %69, align 4
+  %71 = add i32 %70, -1
+  store i32 %71, ptr %69, align 4
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %kvm_virtio_pci_vq_vector_release.exit
 
-72:                                               ; preds = %66
-  %73 = load ptr, ptr @kvm_state, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %75 = load i32, ptr %74, align 8
-  call void @kvm_irqchip_release_virq(ptr noundef %73, i32 noundef %75) #15
+73:                                               ; preds = %67
+  %74 = load ptr, ptr @kvm_state, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %76 = load i32, ptr %75, align 8
+  call void @kvm_irqchip_release_virq(ptr noundef %74, i32 noundef %76) #15
   br label %kvm_virtio_pci_vq_vector_release.exit
 
-kvm_virtio_pci_vq_vector_release.exit:            ; preds = %27, %17, %72, %66, %kvm_virtio_pci_vq_vector_use.exit.thread, %51, %57, %60, %virtio_pci_get_notifier.exit
-  %.0 = phi i32 [ 0, %virtio_pci_get_notifier.exit ], [ 0, %60 ], [ 0, %57 ], [ 0, %51 ], [ %44, %kvm_virtio_pci_vq_vector_use.exit.thread ], [ %64, %66 ], [ %64, %72 ], [ -1, %17 ], [ -1, %27 ]
+kvm_virtio_pci_vq_vector_release.exit:            ; preds = %27, %17, %73, %67, %kvm_virtio_pci_vq_vector_use.exit.thread, %51, %57, %60, %virtio_pci_get_notifier.exit
+  %.0 = phi i32 [ 0, %virtio_pci_get_notifier.exit ], [ 0, %60 ], [ 0, %57 ], [ 0, %51 ], [ %44, %kvm_virtio_pci_vq_vector_use.exit.thread ], [ %65, %67 ], [ %65, %73 ], [ -1, %17 ], [ -1, %27 ]
   ret i32 %.0
 }
 
@@ -2808,7 +2814,7 @@ virtio_bus_get_device.exit:                       ; preds = %6, %8
   %26 = load i32, ptr %25, align 8
   %27 = tail call i32 @kvm_irqchip_update_msi_route(ptr noundef %24, i32 noundef %26, i64 %3, i32 %4, ptr noundef nonnull %0) #15
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %51, label %29
+  br i1 %28, label %52, label %29
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr @kvm_state, align 8
@@ -2833,27 +2839,28 @@ virtio_bus_get_device.exit:                       ; preds = %6, %8
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 288
   %40 = load ptr, ptr %39, align 8
   %.not36 = icmp eq ptr %40, null
-  br i1 %.not36, label %51, label %41
+  br i1 %.not36, label %52, label %41
 
 41:                                               ; preds = %38
   %42 = tail call zeroext i1 %40(ptr noundef nonnull %11, i32 noundef %1) #15
-  br i1 %42, label %43, label %51
+  br i1 %42, label %43, label %52
 
 43:                                               ; preds = %41
   %44 = tail call i32 @event_notifier_set(ptr noundef %5) #15
-  br label %51
+  br label %52
 
 45:                                               ; preds = %35, %31
   %.val37 = load ptr, ptr %14, align 16
   %46 = zext i32 %2 to i64
-  %47 = load ptr, ptr @kvm_state, align 8
-  %48 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val37, i64 %46, i32 1
-  %49 = load i32, ptr %48, align 8
-  %50 = tail call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %47, ptr noundef %5, ptr noundef null, i32 noundef %49) #15
-  br label %51
+  %47 = getelementptr inbounds nuw %struct.VirtIOIRQFD, ptr %.val37, i64 %46
+  %48 = load ptr, ptr @kvm_state, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %50 = load i32, ptr %49, align 8
+  %51 = tail call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %48, ptr noundef %5, ptr noundef null, i32 noundef %50) #15
+  br label %52
 
-51:                                               ; preds = %45, %43, %41, %38, %23
-  %.027 = phi i32 [ %27, %23 ], [ %.0, %43 ], [ %.0, %41 ], [ %.0, %38 ], [ %50, %45 ]
+52:                                               ; preds = %45, %43, %41, %38, %23
+  %.027 = phi i32 [ %27, %23 ], [ %.0, %43 ], [ %.0, %41 ], [ %.0, %38 ], [ %51, %45 ]
   ret i32 %.027
 }
 
@@ -3595,8 +3602,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
 29:                                               ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 208
   %31 = load i16, ptr %30, align 8
-  %.not124 = icmp eq i16 %31, -1
-  br i1 %.not124, label %34, label %32
+  %.not120 = icmp eq i16 %31, -1
+  br i1 %.not120, label %34, label %32
 
 32:                                               ; preds = %29
   %33 = zext i16 %31 to i32
@@ -3622,8 +3629,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %45 = load i8, ptr %44, align 8
   %46 = and i8 %45, 4
-  %.not.i125 = icmp eq i8 %46, 0
-  br i1 %.not.i125, label %52, label %47
+  %.not.i121 = icmp eq i8 %46, 0
+  br i1 %.not.i121, label %52, label %47
 
 47:                                               ; preds = %42
   %48 = tail call i32 @msix_enabled(ptr noundef nonnull %0) #15
@@ -3661,8 +3668,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
 
 62:                                               ; preds = %10
   %63 = and i64 %2, 4
-  %.not123 = icmp eq i64 %63, 0
-  br i1 %.not123, label %64, label %.critedge
+  %.not119 = icmp eq i64 %63, 0
+  br i1 %.not119, label %64, label %.critedge
 
 64:                                               ; preds = %62
   tail call void @virtio_bus_stop_ioeventfd(ptr noundef nonnull %5) #15
@@ -3750,13 +3757,13 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %114 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %115 = load i8, ptr %114, align 8
   %116 = and i8 %115, 4
-  %.not.i126 = icmp eq i8 %116, 0
-  br i1 %.not.i126, label %122, label %117
+  %.not.i122 = icmp eq i8 %116, 0
+  br i1 %.not.i122, label %122, label %117
 
 117:                                              ; preds = %111
   %118 = tail call i32 @msix_enabled(ptr noundef nonnull %0) #15
-  %.not24.i127 = icmp eq i32 %118, 0
-  br i1 %.not24.i127, label %122, label %119
+  %.not24.i123 = icmp eq i32 %118, 0
+  br i1 %.not24.i123, label %122, label %119
 
 119:                                              ; preds = %117
   %120 = load i8, ptr @kvm_msi_via_irqfd_allowed, align 1, !range !7, !noundef !6
@@ -3770,8 +3777,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
 
 125:                                              ; preds = %122
   %126 = icmp ne i16 %100, -1
-  %or.cond.i128 = and i1 %126, %123
-  br i1 %or.cond.i128, label %127, label %128
+  %or.cond.i124 = and i1 %126, %123
+  br i1 %or.cond.i124, label %127, label %128
 
 127:                                              ; preds = %125
   tail call fastcc void @kvm_virtio_pci_vector_release_one(ptr noundef nonnull %0, i32 noundef range(i32 -1, 65536) %113)
@@ -3780,8 +3787,8 @@ virtio_bus_get_device.exit:                       ; preds = %4
 128:                                              ; preds = %127, %125
   tail call void @virtio_queue_set_vector(ptr noundef nonnull %8, i32 noundef range(i32 -1, 65536) %113, i16 noundef zeroext %.1) #15
   %129 = icmp ne i16 %.1, -1
-  %or.cond5.i129 = and i1 %129, %123
-  br i1 %or.cond5.i129, label %130, label %virtio_pci_set_vector.exit
+  %or.cond5.i125 = and i1 %129, %123
+  br i1 %or.cond5.i125, label %130, label %virtio_pci_set_vector.exit
 
 130:                                              ; preds = %128
   %131 = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef nonnull %0, i32 noundef range(i32 -1, 65536) %113)
@@ -3814,14 +3821,12 @@ virtio_bus_get_device.exit:                       ; preds = %4
   tail call void @virtio_queue_set_rings(ptr noundef nonnull %8, i32 noundef %144, i64 noundef %148, i64 noundef %150, i64 noundef %152) #15
   %153 = load i16, ptr %135, align 2
   %154 = zext i16 %153 to i64
-  %.idx121 = mul nuw nsw i64 %154, 28
-  %155 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx121
+  %155 = getelementptr inbounds nuw %struct.VirtIOPCIQueue, ptr %138, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 2
   store i8 1, ptr %156, align 2
   %157 = load i16, ptr %135, align 2
   %158 = zext i16 %157 to i64
-  %.idx122 = mul nuw nsw i64 %158, 28
-  %159 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx122
+  %159 = getelementptr inbounds nuw %struct.VirtIOPCIQueue, ptr %138, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 3
   store i8 0, ptr %160, align 1
   %161 = load i16, ptr %135, align 2
@@ -3902,8 +3907,7 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %210 = getelementptr inbounds nuw i8, ptr %8, i64 162
   %211 = load i16, ptr %210, align 2
   %212 = zext i16 %211 to i64
-  %.idx = mul nuw nsw i64 %212, 28
-  %213 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx
+  %213 = getelementptr inbounds nuw %struct.VirtIOPCIQueue, ptr %209, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 3
   store i8 1, ptr %214, align 1
   %215 = load i16, ptr %210, align 2
@@ -3911,14 +3915,12 @@ virtio_bus_get_device.exit:                       ; preds = %4
   tail call void @virtio_queue_reset(ptr noundef nonnull %8, i32 noundef %216) #15
   %217 = load i16, ptr %210, align 2
   %218 = zext i16 %217 to i64
-  %.idx119 = mul nuw nsw i64 %218, 28
-  %219 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx119
+  %219 = getelementptr inbounds nuw %struct.VirtIOPCIQueue, ptr %209, i64 %218
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 3
   store i8 0, ptr %220, align 1
   %221 = load i16, ptr %210, align 2
   %222 = zext i16 %221 to i64
-  %.idx120 = mul nuw nsw i64 %222, 28
-  %223 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx120
+  %223 = getelementptr inbounds nuw %struct.VirtIOPCIQueue, ptr %209, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 2
   store i8 0, ptr %224, align 2
   br label %virtio_pci_set_vector.exit

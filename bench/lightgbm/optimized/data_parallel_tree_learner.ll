@@ -6661,7 +6661,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !164
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %11, label %69
+  br i1 %10, label %11, label %71
 
 11:                                               ; preds = %3
   %12 = add nsw i32 %9, -1
@@ -6690,13 +6690,13 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %21 = sext i32 %16 to i64
   br label %22
 
-22:                                               ; preds = %.lr.ph, %66
-  %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %indvars.iv.next, %66 ]
+22:                                               ; preds = %.lr.ph, %68
+  %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %23 = load ptr, ptr %17, align 8, !tbaa !231
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1, !tbaa !232
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %66, label %27
+  br i1 %26, label %68, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %18, align 8, !tbaa !210
@@ -6728,43 +6728,45 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %53 = load i8, ptr %52, align 8, !tbaa !143, !range !144, !noundef !145
   %54 = trunc nuw i8 %53 to i1
   %55 = load ptr, ptr %20, align 8, !tbaa !318
-  %56 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %55, i64 %indvars.iv, i32 1
-  %57 = load ptr, ptr %56, align 8, !tbaa !319
-  %58 = add i32 %50, %.neg
-  %59 = sext i32 %58 to i64
-  br i1 %54, label %60, label %.sink.split
+  %56 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %55, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !319
+  %59 = add i32 %50, %.neg
+  %60 = sext i32 %59 to i64
+  br i1 %54, label %61, label %.sink.split
 
-60:                                               ; preds = %27
-  %61 = shl nsw i64 %59, 3
-  call void @llvm.memset.p0.i64(ptr align 1 %57, i8 0, i64 %61, i1 false)
-  %62 = load ptr, ptr %20, align 8, !tbaa !318
-  %63 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %62, i64 %indvars.iv, i32 2
-  %64 = load ptr, ptr %63, align 8, !tbaa !325
+61:                                               ; preds = %27
+  %62 = shl nsw i64 %60, 3
+  call void @llvm.memset.p0.i64(ptr align 1 %58, i8 0, i64 %62, i1 false)
+  %63 = load ptr, ptr %20, align 8, !tbaa !318
+  %64 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %63, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %66 = load ptr, ptr %65, align 8, !tbaa !325
   br label %.sink.split
 
-.sink.split:                                      ; preds = %27, %60
-  %.sink31 = phi i64 [ 2, %60 ], [ 4, %27 ]
-  %.sink = phi ptr [ %64, %60 ], [ %57, %27 ]
-  %65 = shl nsw i64 %59, %.sink31
-  call void @llvm.memset.p0.i64(ptr align 1 %.sink, i8 0, i64 %65, i1 false)
-  br label %66
+.sink.split:                                      ; preds = %27, %61
+  %.sink31 = phi i64 [ 2, %61 ], [ 4, %27 ]
+  %.sink = phi ptr [ %66, %61 ], [ %58, %27 ]
+  %67 = shl nsw i64 %60, %.sink31
+  call void @llvm.memset.p0.i64(ptr align 1 %.sink, i8 0, i64 %67, i1 false)
+  br label %68
 
-66:                                               ; preds = %.sink.split, %22
+68:                                               ; preds = %.sink.split, %22
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %67 = load i32, ptr %5, align 4, !tbaa !209
-  %68 = sext i32 %67 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %68
+  %69 = load i32, ptr %5, align 4, !tbaa !209
+  %70 = sext i32 %69 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %70
   br i1 %.not.not, label %22, label %._crit_edge
 
-._crit_edge:                                      ; preds = %66, %11
+._crit_edge:                                      ; preds = %68, %11
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %69
+  br label %71
 
-69:                                               ; preds = %._crit_edge, %3
+71:                                               ; preds = %._crit_edge, %3
   ret void
 }
 
@@ -8710,7 +8712,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !164
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %362
+  br i1 %17, label %18, label %368
 
 18:                                               ; preds = %10
   %19 = add nsw i32 %16, -1
@@ -8746,8 +8748,8 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %35 = sext i32 %23 to i64
   br label %36
 
-36:                                               ; preds = %.lr.ph, %359
-  %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %359 ]
+36:                                               ; preds = %.lr.ph, %365
+  %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %365 ]
   %37 = load ptr, ptr %24, align 8, !tbaa !165
   %38 = trunc nsw i64 %indvars.iv to i32
   %39 = sdiv i32 %38, 64
@@ -8762,7 +8764,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %45 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !257
   %46 = and i64 %45, %44
   %.not92 = icmp eq i64 %46, 0
-  br i1 %.not92, label %359, label %47
+  br i1 %.not92, label %365, label %47
 
 47:                                               ; preds = %36
   %48 = call i32 @omp_get_thread_num()
@@ -8812,11 +8814,11 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %86, ptr align 1 %84, i64 %87, i1 false)
   br label %118
 
-88:                                               ; preds = %345, %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, %167, %155, %146
+88:                                               ; preds = %351, %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, %169, %157, %147
   %89 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  br label %350
+  br label %356
 
 90:                                               ; preds = %58
   %91 = load ptr, ptr %29, align 8, !tbaa !168
@@ -8858,7 +8860,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %121 = load i8, ptr %120, align 8, !tbaa !143, !range !144, !noundef !145
   %122 = trunc nuw i8 %121 to i1
   %123 = load ptr, ptr %31, align 8, !tbaa !259
-  br i1 %122, label %124, label %146
+  br i1 %122, label %124, label %147
 
 124:                                              ; preds = %118
   %125 = load ptr, ptr %30, align 8, !tbaa !268
@@ -8874,388 +8876,394 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %135 = icmp ult i8 %132, 17
   %136 = load ptr, ptr %25, align 8, !tbaa !210
   %137 = load ptr, ptr %27, align 8, !tbaa !318
-  br i1 %135, label %138, label %143
+  %138 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %137, i64 %indvars.iv
+  br i1 %135, label %139, label %144
 
-138:                                              ; preds = %124
-  %139 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %137, i64 %indvars.iv, i32 2
-  %140 = load ptr, ptr %139, align 8, !tbaa !325
-  invoke void @_ZNK8LightGBM7Dataset15FixHistogramIntIiiLi16ELi16EEEvilPd(ptr noundef nonnull align 8 dereferenceable(864) %136, i32 noundef %38, i64 noundef %134, ptr noundef %140)
-          to label %155 unwind label %141
+139:                                              ; preds = %124
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 16
+  %141 = load ptr, ptr %140, align 8, !tbaa !325
+  invoke void @_ZNK8LightGBM7Dataset15FixHistogramIntIiiLi16ELi16EEEvilPd(ptr noundef nonnull align 8 dereferenceable(864) %136, i32 noundef %38, i64 noundef %134, ptr noundef %141)
+          to label %157 unwind label %142
 
-141:                                              ; preds = %143, %138
-  %142 = landingpad { ptr, i32 }
+142:                                              ; preds = %144, %139
+  %143 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  br label %350
+  br label %356
 
-143:                                              ; preds = %124
-  %144 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %137, i64 %indvars.iv, i32 1
-  %145 = load ptr, ptr %144, align 8, !tbaa !319
-  invoke void @_ZNK8LightGBM7Dataset15FixHistogramIntIllLi32ELi32EEEvilPd(ptr noundef nonnull align 8 dereferenceable(864) %136, i32 noundef %38, i64 noundef %134, ptr noundef %145)
-          to label %155 unwind label %141
+144:                                              ; preds = %124
+  %145 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %146 = load ptr, ptr %145, align 8, !tbaa !319
+  invoke void @_ZNK8LightGBM7Dataset15FixHistogramIntIllLi32ELi32EEEvilPd(ptr noundef nonnull align 8 dereferenceable(864) %136, i32 noundef %38, i64 noundef %134, ptr noundef %146)
+          to label %157 unwind label %142
 
-146:                                              ; preds = %118
-  %147 = load ptr, ptr %25, align 8, !tbaa !210
-  %148 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %149 = load double, ptr %148, align 8, !tbaa !262
-  %150 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %151 = load double, ptr %150, align 8, !tbaa !263
-  %152 = load ptr, ptr %27, align 8, !tbaa !318
-  %153 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %152, i64 %indvars.iv, i32 1
-  %154 = load ptr, ptr %153, align 8, !tbaa !319
-  invoke void @_ZNK8LightGBM7Dataset12FixHistogramEiddPd(ptr noundef nonnull align 8 dereferenceable(864) %147, i32 noundef %38, double noundef %149, double noundef %151, ptr noundef %154)
-          to label %155 unwind label %88
+147:                                              ; preds = %118
+  %148 = load ptr, ptr %25, align 8, !tbaa !210
+  %149 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %150 = load double, ptr %149, align 8, !tbaa !262
+  %151 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %152 = load double, ptr %151, align 8, !tbaa !263
+  %153 = load ptr, ptr %27, align 8, !tbaa !318
+  %154 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %153, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %156 = load ptr, ptr %155, align 8, !tbaa !319
+  invoke void @_ZNK8LightGBM7Dataset12FixHistogramEiddPd(ptr noundef nonnull align 8 dereferenceable(864) %148, i32 noundef %38, double noundef %150, double noundef %152, ptr noundef %156)
+          to label %157 unwind label %88
 
-155:                                              ; preds = %138, %143, %146
-  %156 = load ptr, ptr %27, align 8, !tbaa !318
-  %157 = load ptr, ptr %3, align 8, !tbaa !231
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv
-  %159 = load i8, ptr %158, align 1, !tbaa !232
-  %160 = load ptr, ptr %31, align 8, !tbaa !259
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  %162 = load i32, ptr %161, align 4, !tbaa !267
-  %163 = load ptr, ptr %2, align 8, !tbaa !171
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 184
-  %165 = load ptr, ptr %164, align 8
-  %166 = invoke noundef i32 %165(ptr noundef nonnull align 8 dereferenceable(856) %2, i32 noundef %162)
-          to label %167 unwind label %88
+157:                                              ; preds = %139, %144, %147
+  %158 = load ptr, ptr %27, align 8, !tbaa !318
+  %159 = load ptr, ptr %3, align 8, !tbaa !231
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 %indvars.iv
+  %161 = load i8, ptr %160, align 1, !tbaa !232
+  %162 = load ptr, ptr %31, align 8, !tbaa !259
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  %164 = load i32, ptr %163, align 4, !tbaa !267
+  %165 = load ptr, ptr %2, align 8, !tbaa !171
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 184
+  %167 = load ptr, ptr %166, align 8
+  %168 = invoke noundef i32 %167(ptr noundef nonnull align 8 dereferenceable(856) %2, i32 noundef %164)
+          to label %169 unwind label %88
 
-167:                                              ; preds = %155
-  %168 = load ptr, ptr %31, align 8, !tbaa !259
-  %169 = sext i32 %48 to i64
-  %170 = load ptr, ptr %4, align 8, !tbaa !277
-  %171 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %170, i64 %169
-  %172 = load double, ptr %5, align 8, !tbaa !285
-  invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef %156, i32 noundef %38, i32 noundef %53, i8 noundef signext %159, i32 noundef %166, ptr noundef %168, ptr noundef nonnull %171, double noundef %172)
-          to label %173 unwind label %88
+169:                                              ; preds = %157
+  %170 = load ptr, ptr %31, align 8, !tbaa !259
+  %171 = sext i32 %48 to i64
+  %172 = load ptr, ptr %4, align 8, !tbaa !277
+  %173 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %172, i64 %171
+  %174 = load double, ptr %5, align 8, !tbaa !285
+  invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef %158, i32 noundef %38, i32 noundef %53, i8 noundef signext %161, i32 noundef %168, ptr noundef %170, ptr noundef nonnull %173, double noundef %174)
+          to label %175 unwind label %88
 
-173:                                              ; preds = %167
-  %174 = load ptr, ptr %33, align 8, !tbaa !259
-  %.not.i = icmp eq ptr %174, null
-  br i1 %.not.i, label %359, label %175
+175:                                              ; preds = %169
+  %176 = load ptr, ptr %33, align 8, !tbaa !259
+  %.not.i = icmp eq ptr %176, null
+  br i1 %.not.i, label %365, label %177
 
-175:                                              ; preds = %173
-  %176 = getelementptr inbounds nuw i8, ptr %174, i64 4
-  %177 = load i32, ptr %176, align 4, !tbaa !267
-  %178 = icmp slt i32 %177, 0
-  br i1 %178, label %359, label %179
+177:                                              ; preds = %175
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 4
+  %179 = load i32, ptr %178, align 4, !tbaa !267
+  %180 = icmp slt i32 %179, 0
+  br i1 %180, label %365, label %181
 
-179:                                              ; preds = %175
-  %180 = load ptr, ptr %26, align 8, !tbaa !116
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 840
-  %182 = load i8, ptr %181, align 8, !tbaa !143, !range !144, !noundef !145
-  %183 = trunc nuw i8 %182 to i1
-  br i1 %183, label %184, label %312
+181:                                              ; preds = %177
+  %182 = load ptr, ptr %26, align 8, !tbaa !116
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 840
+  %184 = load i8, ptr %183, align 8, !tbaa !143, !range !144, !noundef !145
+  %185 = trunc nuw i8 %184 to i1
+  br i1 %185, label %186, label %317
 
-184:                                              ; preds = %179
-  %185 = load ptr, ptr %31, align 8, !tbaa !259
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  %187 = load i32, ptr %186, align 4, !tbaa !267
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %177, i32 %187)
-  %188 = load ptr, ptr %30, align 8, !tbaa !268
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 5264
-  %190 = sext i32 %.sroa.speculated to i64
-  %191 = load ptr, ptr %189, align 8, !tbaa !231
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %190
-  %193 = load i8, ptr %192, align 1, !tbaa !232
-  %194 = getelementptr inbounds nuw i8, ptr %188, i64 5240
-  %195 = zext nneg i32 %177 to i64
-  %196 = load ptr, ptr %194, align 8, !tbaa !231
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %195
-  %198 = load i8, ptr %197, align 1, !tbaa !232
-  %199 = sext i32 %187 to i64
-  %200 = getelementptr inbounds nuw i8, ptr %196, i64 %199
-  %201 = load i8, ptr %200, align 1, !tbaa !232
-  %202 = icmp ult i8 %193, 17
-  br i1 %202, label %203, label %234
+186:                                              ; preds = %181
+  %187 = load ptr, ptr %31, align 8, !tbaa !259
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 4
+  %189 = load i32, ptr %188, align 4, !tbaa !267
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %179, i32 %189)
+  %190 = load ptr, ptr %30, align 8, !tbaa !268
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 5264
+  %192 = sext i32 %.sroa.speculated to i64
+  %193 = load ptr, ptr %191, align 8, !tbaa !231
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 %192
+  %195 = load i8, ptr %194, align 1, !tbaa !232
+  %196 = getelementptr inbounds nuw i8, ptr %190, i64 5240
+  %197 = zext nneg i32 %179 to i64
+  %198 = load ptr, ptr %196, align 8, !tbaa !231
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 %197
+  %200 = load i8, ptr %199, align 1, !tbaa !232
+  %201 = sext i32 %189 to i64
+  %202 = getelementptr inbounds nuw i8, ptr %198, i64 %201
+  %203 = load i8, ptr %202, align 1, !tbaa !232
+  %204 = icmp ult i8 %195, 17
+  br i1 %204, label %205, label %237
 
-203:                                              ; preds = %184
-  %204 = icmp ult i8 %201, 17
-  br i1 %204, label %208, label %205
+205:                                              ; preds = %186
+  %206 = icmp ult i8 %203, 17
+  br i1 %206, label %210, label %207
 
-205:                                              ; preds = %203
+207:                                              ; preds = %205
   invoke void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 392)
-          to label %208 unwind label %206
+          to label %210 unwind label %208
 
-206:                                              ; preds = %238, %210, %205
-  %207 = landingpad { ptr, i32 }
+208:                                              ; preds = %241, %212, %207
+  %209 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  br label %350
+  br label %356
 
-208:                                              ; preds = %205, %203
-  %209 = icmp ult i8 %198, 17
-  br i1 %209, label %211, label %210
+210:                                              ; preds = %207, %205
+  %211 = icmp ult i8 %200, 17
+  br i1 %211, label %213, label %212
 
-210:                                              ; preds = %208
+212:                                              ; preds = %210
   invoke void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, i32 noundef 393)
-          to label %211 unwind label %206
+          to label %213 unwind label %208
 
-211:                                              ; preds = %210, %208
-  %212 = load ptr, ptr %34, align 8, !tbaa !366
-  %213 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %212, i64 %indvars.iv
-  %214 = load ptr, ptr %27, align 8, !tbaa !318
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  %216 = load ptr, ptr %215, align 8, !tbaa !325
-  %217 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %214, i64 %indvars.iv, i32 2
-  %218 = load ptr, ptr %217, align 8, !tbaa !325
-  %219 = load ptr, ptr %213, align 8, !tbaa !328
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %221 = load i8, ptr %220, align 8, !tbaa !331
-  %222 = sext i8 %221 to i32
-  %223 = load i32, ptr %219, align 8, !tbaa !329
-  %224 = icmp sgt i32 %223, %222
-  br i1 %224, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+213:                                              ; preds = %212, %210
+  %214 = load ptr, ptr %34, align 8, !tbaa !366
+  %215 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %214, i64 %indvars.iv
+  %216 = load ptr, ptr %27, align 8, !tbaa !318
+  %217 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %216, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %219 = load ptr, ptr %218, align 8, !tbaa !325
+  %220 = getelementptr inbounds nuw i8, ptr %217, i64 16
+  %221 = load ptr, ptr %220, align 8, !tbaa !325
+  %222 = load ptr, ptr %215, align 8, !tbaa !328
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
+  %224 = load i8, ptr %223, align 8, !tbaa !331
+  %225 = sext i8 %224 to i32
+  %226 = load i32, ptr %222, align 8, !tbaa !329
+  %227 = icmp sgt i32 %226, %225
+  br i1 %227, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
 
-.lr.ph.i:                                         ; preds = %211, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %211 ]
-  %225 = getelementptr inbounds nuw i32, ptr %216, i64 %indvars.iv.i
-  %226 = load i32, ptr %225, align 4, !tbaa !209
-  %227 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.i
-  %228 = load i32, ptr %227, align 4, !tbaa !209
-  %229 = sub nsw i32 %226, %228
-  store i32 %229, ptr %225, align 4, !tbaa !209
+.lr.ph.i:                                         ; preds = %213, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %213 ]
+  %228 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv.i
+  %229 = load i32, ptr %228, align 4, !tbaa !209
+  %230 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv.i
+  %231 = load i32, ptr %230, align 4, !tbaa !209
+  %232 = sub nsw i32 %229, %231
+  store i32 %232, ptr %228, align 4, !tbaa !209
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %230 = load i32, ptr %219, align 8, !tbaa !329
-  %231 = sub nsw i32 %230, %222
-  %232 = sext i32 %231 to i64
-  %233 = icmp slt i64 %indvars.iv.next.i, %232
-  br i1 %233, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, !llvm.loop !368
+  %233 = load i32, ptr %222, align 8, !tbaa !329
+  %234 = sub nsw i32 %233, %225
+  %235 = sext i32 %234 to i64
+  %236 = icmp slt i64 %indvars.iv.next.i, %235
+  br i1 %236, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, !llvm.loop !368
 
-234:                                              ; preds = %184
-  %235 = icmp ult i8 %198, 17
-  %236 = icmp ult i8 %201, 17
-  br i1 %235, label %237, label %277
+237:                                              ; preds = %186
+  %238 = icmp ult i8 %200, 17
+  %239 = icmp ult i8 %203, 17
+  br i1 %238, label %240, label %281
 
-237:                                              ; preds = %234
-  br i1 %236, label %239, label %238
+240:                                              ; preds = %237
+  br i1 %239, label %242, label %241
 
-238:                                              ; preds = %237
+241:                                              ; preds = %240
   invoke void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 397)
-          to label %._crit_edge108 unwind label %206
+          to label %._crit_edge108 unwind label %208
 
-._crit_edge108:                                   ; preds = %238
+._crit_edge108:                                   ; preds = %241
   %.pre = load ptr, ptr %30, align 8, !tbaa !268
-  br label %239
+  br label %242
 
-239:                                              ; preds = %._crit_edge108, %237
-  %240 = phi ptr [ %.pre, %._crit_edge108 ], [ %188, %237 ]
-  %241 = load ptr, ptr %34, align 8, !tbaa !366
-  %242 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %241, i64 %indvars.iv
-  %243 = load ptr, ptr %27, align 8, !tbaa !318
-  %244 = getelementptr inbounds nuw i8, ptr %240, i64 5312
-  %245 = load ptr, ptr %244, align 8, !tbaa !206
-  %246 = getelementptr inbounds nuw %"class.std::vector.35", ptr %245, i64 %indvars.iv
-  %247 = load ptr, ptr %246, align 8, !tbaa !168
-  %248 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %243, i64 %indvars.iv, i32 2
-  %249 = load ptr, ptr %248, align 8, !tbaa !325
-  %250 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  %251 = load ptr, ptr %250, align 8, !tbaa !325
-  %252 = load ptr, ptr %242, align 8, !tbaa !328
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  %254 = load i8, ptr %253, align 8, !tbaa !331
-  %255 = sext i8 %254 to i32
-  %256 = load i32, ptr %252, align 8, !tbaa !329
-  %257 = icmp sgt i32 %256, %255
-  br i1 %257, label %.lr.ph.i71, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+242:                                              ; preds = %._crit_edge108, %240
+  %243 = phi ptr [ %.pre, %._crit_edge108 ], [ %190, %240 ]
+  %244 = load ptr, ptr %34, align 8, !tbaa !366
+  %245 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %244, i64 %indvars.iv
+  %246 = load ptr, ptr %27, align 8, !tbaa !318
+  %247 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %246, i64 %indvars.iv
+  %248 = getelementptr inbounds nuw i8, ptr %243, i64 5312
+  %249 = load ptr, ptr %248, align 8, !tbaa !206
+  %250 = getelementptr inbounds nuw %"class.std::vector.35", ptr %249, i64 %indvars.iv
+  %251 = load ptr, ptr %250, align 8, !tbaa !168
+  %252 = getelementptr inbounds nuw i8, ptr %247, i64 16
+  %253 = load ptr, ptr %252, align 8, !tbaa !325
+  %254 = getelementptr inbounds nuw i8, ptr %245, i64 16
+  %255 = load ptr, ptr %254, align 8, !tbaa !325
+  %256 = load ptr, ptr %245, align 8, !tbaa !328
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
+  %258 = load i8, ptr %257, align 8, !tbaa !331
+  %259 = sext i8 %258 to i32
+  %260 = load i32, ptr %256, align 8, !tbaa !329
+  %261 = icmp sgt i32 %260, %259
+  br i1 %261, label %.lr.ph.i71, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
 
-.lr.ph.i71:                                       ; preds = %239, %.lr.ph.i71
-  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %.lr.ph.i71 ], [ 0, %239 ]
-  %258 = getelementptr inbounds nuw i32, ptr %249, i64 %indvars.iv.i72
-  %259 = load i32, ptr %258, align 4, !tbaa !209
-  %260 = getelementptr inbounds nuw i64, ptr %247, i64 %indvars.iv.i72
-  %261 = load i64, ptr %260, align 8, !tbaa !257
-  %262 = lshr i32 %259, 16
-  %263 = zext nneg i32 %262 to i64
-  %sext.i = shl nuw i64 %263, 48
-  %264 = ashr exact i64 %sext.i, 16
-  %265 = and i32 %259, 65535
-  %266 = zext nneg i32 %265 to i64
-  %267 = or disjoint i64 %264, %266
-  %268 = sub nsw i64 %261, %267
-  %sh.diff.i = lshr i64 %268, 16
+.lr.ph.i71:                                       ; preds = %242, %.lr.ph.i71
+  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %.lr.ph.i71 ], [ 0, %242 ]
+  %262 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv.i72
+  %263 = load i32, ptr %262, align 4, !tbaa !209
+  %264 = getelementptr inbounds nuw i64, ptr %251, i64 %indvars.iv.i72
+  %265 = load i64, ptr %264, align 8, !tbaa !257
+  %266 = lshr i32 %263, 16
+  %267 = zext nneg i32 %266 to i64
+  %sext.i = shl nuw i64 %267, 48
+  %268 = ashr exact i64 %sext.i, 16
+  %269 = and i32 %263, 65535
+  %270 = zext nneg i32 %269 to i64
+  %271 = or disjoint i64 %268, %270
+  %272 = sub nsw i64 %265, %271
+  %sh.diff.i = lshr i64 %272, 16
   %tr.sh.diff.i = trunc i64 %sh.diff.i to i32
-  %269 = and i32 %tr.sh.diff.i, -65536
-  %270 = trunc i64 %268 to i32
-  %271 = or i32 %269, %270
-  %272 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv.i72
-  store i32 %271, ptr %272, align 4, !tbaa !209
+  %273 = and i32 %tr.sh.diff.i, -65536
+  %274 = trunc i64 %272 to i32
+  %275 = or i32 %273, %274
+  %276 = getelementptr inbounds nuw i32, ptr %255, i64 %indvars.iv.i72
+  store i32 %275, ptr %276, align 4, !tbaa !209
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
-  %273 = load i32, ptr %252, align 8, !tbaa !329
-  %274 = sub nsw i32 %273, %255
-  %275 = sext i32 %274 to i64
-  %276 = icmp slt i64 %indvars.iv.next.i73, %275
-  br i1 %276, label %.lr.ph.i71, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, !llvm.loop !369
+  %277 = load i32, ptr %256, align 8, !tbaa !329
+  %278 = sub nsw i32 %277, %259
+  %279 = sext i32 %278 to i64
+  %280 = icmp slt i64 %indvars.iv.next.i73, %279
+  br i1 %280, label %.lr.ph.i71, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, !llvm.loop !369
 
-277:                                              ; preds = %234
-  %278 = load ptr, ptr %34, align 8, !tbaa !366
-  %279 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %278, i64 %indvars.iv
-  %280 = load ptr, ptr %27, align 8, !tbaa !318
-  %281 = getelementptr inbounds nuw i8, ptr %279, i64 8
-  %282 = load ptr, ptr %281, align 8, !tbaa !319
-  %283 = load ptr, ptr %279, align 8, !tbaa !328
-  %284 = load i32, ptr %283, align 8, !tbaa !329
-  %285 = getelementptr inbounds nuw i8, ptr %283, i64 8
-  %286 = load i8, ptr %285, align 8, !tbaa !331
-  %287 = sext i8 %286 to i32
-  %288 = sub nsw i32 %284, %287
-  %289 = icmp sgt i32 %288, 0
-  br i1 %236, label %290, label %304
+281:                                              ; preds = %237
+  %282 = load ptr, ptr %34, align 8, !tbaa !366
+  %283 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %282, i64 %indvars.iv
+  %284 = load ptr, ptr %27, align 8, !tbaa !318
+  %285 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %284, i64 %indvars.iv
+  %286 = getelementptr inbounds nuw i8, ptr %283, i64 8
+  %287 = load ptr, ptr %286, align 8, !tbaa !319
+  %288 = load ptr, ptr %283, align 8, !tbaa !328
+  %289 = load i32, ptr %288, align 8, !tbaa !329
+  %290 = getelementptr inbounds nuw i8, ptr %288, i64 8
+  %291 = load i8, ptr %290, align 8, !tbaa !331
+  %292 = sext i8 %291 to i32
+  %293 = sub nsw i32 %289, %292
+  %294 = icmp sgt i32 %293, 0
+  br i1 %239, label %295, label %309
 
-290:                                              ; preds = %277
-  %291 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %280, i64 %indvars.iv, i32 2
-  %292 = load ptr, ptr %291, align 8, !tbaa !325
-  br i1 %289, label %.lr.ph.preheader.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+295:                                              ; preds = %281
+  %296 = getelementptr inbounds nuw i8, ptr %285, i64 16
+  %297 = load ptr, ptr %296, align 8, !tbaa !325
+  br i1 %294, label %.lr.ph.preheader.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
 
-.lr.ph.preheader.i:                               ; preds = %290
-  %wide.trip.count.i = zext nneg i32 %288 to i64
+.lr.ph.preheader.i:                               ; preds = %295
+  %wide.trip.count.i = zext nneg i32 %293 to i64
   br label %.lr.ph.i74
 
 .lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i
   %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i77, %.lr.ph.i74 ]
-  %293 = getelementptr inbounds nuw i32, ptr %292, i64 %indvars.iv.i75
-  %294 = load i32, ptr %293, align 4, !tbaa !209
-  %295 = getelementptr inbounds nuw i64, ptr %282, i64 %indvars.iv.i75
-  %296 = load i64, ptr %295, align 8, !tbaa !257
-  %297 = lshr i32 %294, 16
-  %298 = zext nneg i32 %297 to i64
-  %sext.i76 = shl nuw i64 %298, 48
-  %299 = ashr exact i64 %sext.i76, 16
-  %300 = and i32 %294, 65535
-  %301 = zext nneg i32 %300 to i64
-  %302 = or disjoint i64 %299, %301
-  %303 = sub i64 %296, %302
-  store i64 %303, ptr %295, align 8, !tbaa !257
+  %298 = getelementptr inbounds nuw i32, ptr %297, i64 %indvars.iv.i75
+  %299 = load i32, ptr %298, align 4, !tbaa !209
+  %300 = getelementptr inbounds nuw i64, ptr %287, i64 %indvars.iv.i75
+  %301 = load i64, ptr %300, align 8, !tbaa !257
+  %302 = lshr i32 %299, 16
+  %303 = zext nneg i32 %302 to i64
+  %sext.i76 = shl nuw i64 %303, 48
+  %304 = ashr exact i64 %sext.i76, 16
+  %305 = and i32 %299, 65535
+  %306 = zext nneg i32 %305 to i64
+  %307 = or disjoint i64 %304, %306
+  %308 = sub i64 %301, %307
+  store i64 %308, ptr %300, align 8, !tbaa !257
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i77, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, label %.lr.ph.i74, !llvm.loop !370
 
-304:                                              ; preds = %277
-  %305 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %280, i64 %indvars.iv, i32 1
-  %306 = load ptr, ptr %305, align 8, !tbaa !319
-  br i1 %289, label %.lr.ph.preheader.i78, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+309:                                              ; preds = %281
+  %310 = getelementptr inbounds nuw i8, ptr %285, i64 8
+  %311 = load ptr, ptr %310, align 8, !tbaa !319
+  br i1 %294, label %.lr.ph.preheader.i78, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
 
-.lr.ph.preheader.i78:                             ; preds = %304
-  %wide.trip.count.i79 = zext nneg i32 %288 to i64
+.lr.ph.preheader.i78:                             ; preds = %309
+  %wide.trip.count.i79 = zext nneg i32 %293 to i64
   br label %.lr.ph.i80
 
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i78
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.preheader.i78 ], [ %indvars.iv.next.i82, %.lr.ph.i80 ]
-  %307 = getelementptr inbounds nuw i64, ptr %282, i64 %indvars.iv.i81
-  %308 = load i64, ptr %307, align 8, !tbaa !257
-  %309 = getelementptr inbounds nuw i64, ptr %306, i64 %indvars.iv.i81
-  %310 = load i64, ptr %309, align 8, !tbaa !257
-  %311 = sub nsw i64 %308, %310
-  store i64 %311, ptr %307, align 8, !tbaa !257
+  %312 = getelementptr inbounds nuw i64, ptr %287, i64 %indvars.iv.i81
+  %313 = load i64, ptr %312, align 8, !tbaa !257
+  %314 = getelementptr inbounds nuw i64, ptr %311, i64 %indvars.iv.i81
+  %315 = load i64, ptr %314, align 8, !tbaa !257
+  %316 = sub nsw i64 %313, %315
+  store i64 %316, ptr %312, align 8, !tbaa !257
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
   %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, %wide.trip.count.i79
   br i1 %exitcond.not.i83, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, label %.lr.ph.i80, !llvm.loop !371
 
-312:                                              ; preds = %179
-  %313 = load ptr, ptr %34, align 8, !tbaa !366
-  %314 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %313, i64 %indvars.iv
-  %315 = load ptr, ptr %314, align 8, !tbaa !328
-  %316 = load i32, ptr %315, align 8, !tbaa !329
-  %317 = getelementptr inbounds nuw i8, ptr %315, i64 8
-  %318 = load i8, ptr %317, align 8, !tbaa !331
-  %319 = sext i8 %318 to i32
-  %320 = sub nsw i32 %316, %319
-  %321 = icmp sgt i32 %320, 0
-  br i1 %321, label %.lr.ph.i84, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+317:                                              ; preds = %181
+  %318 = load ptr, ptr %34, align 8, !tbaa !366
+  %319 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %318, i64 %indvars.iv
+  %320 = load ptr, ptr %319, align 8, !tbaa !328
+  %321 = load i32, ptr %320, align 8, !tbaa !329
+  %322 = getelementptr inbounds nuw i8, ptr %320, i64 8
+  %323 = load i8, ptr %322, align 8, !tbaa !331
+  %324 = sext i8 %323 to i32
+  %325 = sub nsw i32 %321, %324
+  %326 = icmp sgt i32 %325, 0
+  br i1 %326, label %.lr.ph.i84, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
 
-.lr.ph.i84:                                       ; preds = %312
-  %322 = load ptr, ptr %27, align 8, !tbaa !318
-  %323 = shl nuw i32 %320, 1
-  %324 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %322, i64 %indvars.iv, i32 1
-  %325 = load ptr, ptr %324, align 8, !tbaa !319
-  %326 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  %327 = load ptr, ptr %326, align 8, !tbaa !319
-  %smax.i = call i32 @llvm.smax.i32(i32 %323, i32 1)
+.lr.ph.i84:                                       ; preds = %317
+  %327 = load ptr, ptr %27, align 8, !tbaa !318
+  %328 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %327, i64 %indvars.iv
+  %329 = shl nuw i32 %325, 1
+  %330 = getelementptr inbounds nuw i8, ptr %328, i64 8
+  %331 = load ptr, ptr %330, align 8, !tbaa !319
+  %332 = getelementptr inbounds nuw i8, ptr %319, i64 8
+  %333 = load ptr, ptr %332, align 8, !tbaa !319
+  %smax.i = call i32 @llvm.smax.i32(i32 %329, i32 1)
   %wide.trip.count.i85 = zext nneg i32 %smax.i to i64
-  br label %328
+  br label %334
 
-328:                                              ; preds = %328, %.lr.ph.i84
-  %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.i84 ], [ %indvars.iv.next.i87, %328 ]
-  %329 = getelementptr inbounds nuw double, ptr %325, i64 %indvars.iv.i86
-  %330 = load double, ptr %329, align 8, !tbaa !285
-  %331 = getelementptr inbounds nuw double, ptr %327, i64 %indvars.iv.i86
-  %332 = load double, ptr %331, align 8, !tbaa !285
-  %333 = fsub double %332, %330
-  store double %333, ptr %331, align 8, !tbaa !285
+334:                                              ; preds = %334, %.lr.ph.i84
+  %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.i84 ], [ %indvars.iv.next.i87, %334 ]
+  %335 = getelementptr inbounds nuw double, ptr %331, i64 %indvars.iv.i86
+  %336 = load double, ptr %335, align 8, !tbaa !285
+  %337 = getelementptr inbounds nuw double, ptr %333, i64 %indvars.iv.i86
+  %338 = load double, ptr %337, align 8, !tbaa !285
+  %339 = fsub double %338, %336
+  store double %339, ptr %337, align 8, !tbaa !285
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i85
-  br i1 %exitcond.not.i88, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, label %328, !llvm.loop !372
+  br i1 %exitcond.not.i88, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, label %334, !llvm.loop !372
 
-_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit: ; preds = %328, %.lr.ph.i80, %.lr.ph.i74, %.lr.ph.i71, %.lr.ph.i, %312, %304, %290, %239, %211
-  %334 = phi ptr [ %313, %312 ], [ %278, %304 ], [ %278, %290 ], [ %241, %239 ], [ %212, %211 ], [ %212, %.lr.ph.i ], [ %241, %.lr.ph.i71 ], [ %278, %.lr.ph.i74 ], [ %278, %.lr.ph.i80 ], [ %313, %328 ]
-  %335 = load ptr, ptr %6, align 8, !tbaa !231
-  %336 = getelementptr inbounds nuw i8, ptr %335, i64 %indvars.iv
-  %337 = load i8, ptr %336, align 1, !tbaa !232
-  %338 = load ptr, ptr %33, align 8, !tbaa !259
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 4
-  %340 = load i32, ptr %339, align 4, !tbaa !267
-  %341 = load ptr, ptr %2, align 8, !tbaa !171
-  %342 = getelementptr inbounds nuw i8, ptr %341, i64 184
-  %343 = load ptr, ptr %342, align 8
-  %344 = invoke noundef i32 %343(ptr noundef nonnull align 8 dereferenceable(856) %2, i32 noundef %340)
-          to label %345 unwind label %88
+_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit: ; preds = %334, %.lr.ph.i80, %.lr.ph.i74, %.lr.ph.i71, %.lr.ph.i, %317, %309, %295, %242, %213
+  %340 = phi ptr [ %318, %317 ], [ %282, %309 ], [ %282, %295 ], [ %244, %242 ], [ %214, %213 ], [ %214, %.lr.ph.i ], [ %244, %.lr.ph.i71 ], [ %282, %.lr.ph.i74 ], [ %282, %.lr.ph.i80 ], [ %318, %334 ]
+  %341 = load ptr, ptr %6, align 8, !tbaa !231
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 %indvars.iv
+  %343 = load i8, ptr %342, align 1, !tbaa !232
+  %344 = load ptr, ptr %33, align 8, !tbaa !259
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 4
+  %346 = load i32, ptr %345, align 4, !tbaa !267
+  %347 = load ptr, ptr %2, align 8, !tbaa !171
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 184
+  %349 = load ptr, ptr %348, align 8
+  %350 = invoke noundef i32 %349(ptr noundef nonnull align 8 dereferenceable(856) %2, i32 noundef %346)
+          to label %351 unwind label %88
 
-345:                                              ; preds = %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
-  %346 = load ptr, ptr %33, align 8, !tbaa !259
-  %347 = load ptr, ptr %7, align 8, !tbaa !277
-  %348 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %347, i64 %169
-  %349 = load double, ptr %8, align 8, !tbaa !285
-  invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef nonnull %334, i32 noundef %38, i32 noundef %53, i8 noundef signext %337, i32 noundef %344, ptr noundef %346, ptr noundef nonnull %348, double noundef %349)
-          to label %359 unwind label %88
+351:                                              ; preds = %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+  %352 = load ptr, ptr %33, align 8, !tbaa !259
+  %353 = load ptr, ptr %7, align 8, !tbaa !277
+  %354 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %353, i64 %171
+  %355 = load double, ptr %8, align 8, !tbaa !285
+  invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef nonnull %340, i32 noundef %38, i32 noundef %53, i8 noundef signext %343, i32 noundef %350, ptr noundef %352, ptr noundef nonnull %354, double noundef %355)
+          to label %365 unwind label %88
 
-350:                                              ; preds = %206, %141, %88
-  %.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %207, %206 ], [ %142, %141 ]
+356:                                              ; preds = %208, %142, %88
+  %.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %209, %208 ], [ %143, %142 ]
   %.065 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.066 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %351 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
-  %352 = icmp eq i32 %.066, %351
-  %353 = call ptr @__cxa_begin_catch(ptr %.065) #20
-  br i1 %352, label %354, label %.invoke121
+  %357 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
+  %358 = icmp eq i32 %.066, %357
+  %359 = call ptr @__cxa_begin_catch(ptr %.065) #20
+  br i1 %358, label %360, label %.invoke121
 
-354:                                              ; preds = %350
-  %355 = load ptr, ptr %353, align 8, !tbaa !171
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 16
-  %357 = load ptr, ptr %356, align 8
-  %358 = call noundef ptr %357(ptr noundef nonnull align 8 dereferenceable(8) %353) #20
-  invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %358)
-          to label %.invoke121 unwind label %363
+360:                                              ; preds = %356
+  %361 = load ptr, ptr %359, align 8, !tbaa !171
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 16
+  %363 = load ptr, ptr %362, align 8
+  %364 = call noundef ptr %363(ptr noundef nonnull align 8 dereferenceable(8) %359) #20
+  invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %364)
+          to label %.invoke121 unwind label %369
 
-359:                                              ; preds = %.invoke, %175, %173, %345, %36
+365:                                              ; preds = %.invoke, %177, %175, %351, %36
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %360 = load i32, ptr %12, align 4, !tbaa !209
-  %361 = sext i32 %360 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %361
+  %366 = load i32, ptr %12, align 4, !tbaa !209
+  %367 = sext i32 %366 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %367
   br i1 %.not.not, label %36, label %._crit_edge
 
-.invoke121:                                       ; preds = %350, %354
+.invoke121:                                       ; preds = %356, %360
   invoke void @_ZN21ThreadExceptionHelper16CaptureExceptionEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %.invoke unwind label %363
+          to label %.invoke unwind label %369
 
 .invoke:                                          ; preds = %.invoke121
   invoke void @__cxa_end_catch()
-          to label %359 unwind label %363
+          to label %365 unwind label %369
 
-._crit_edge:                                      ; preds = %359, %18
+._crit_edge:                                      ; preds = %365, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %362
+  br label %368
 
-362:                                              ; preds = %._crit_edge, %10
+368:                                              ; preds = %._crit_edge, %10
   ret void
 
-363:                                              ; preds = %.invoke121, %.invoke, %354
-  %364 = landingpad { ptr, i32 }
+369:                                              ; preds = %.invoke121, %.invoke, %360
+  %370 = landingpad { ptr, i32 }
           catch ptr null
-  %365 = extractvalue { ptr, i32 } %364, 0
-  call void @__clang_call_terminate(ptr %365) #35
+  %371 = extractvalue { ptr, i32 } %370, 0
+  call void @__clang_call_terminate(ptr %371) #35
   unreachable
 }
 
@@ -12264,7 +12272,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !164
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %11, label %69
+  br i1 %10, label %11, label %71
 
 11:                                               ; preds = %3
   %12 = add nsw i32 %9, -1
@@ -12293,13 +12301,13 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %21 = sext i32 %16 to i64
   br label %22
 
-22:                                               ; preds = %.lr.ph, %66
-  %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %indvars.iv.next, %66 ]
+22:                                               ; preds = %.lr.ph, %68
+  %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %23 = load ptr, ptr %17, align 8, !tbaa !231
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1, !tbaa !232
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %66, label %27
+  br i1 %26, label %68, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %18, align 8, !tbaa !210
@@ -12331,43 +12339,45 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %53 = load i8, ptr %52, align 8, !tbaa !143, !range !144, !noundef !145
   %54 = trunc nuw i8 %53 to i1
   %55 = load ptr, ptr %20, align 8, !tbaa !318
-  %56 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %55, i64 %indvars.iv, i32 1
-  %57 = load ptr, ptr %56, align 8, !tbaa !319
-  %58 = add i32 %50, %.neg
-  %59 = sext i32 %58 to i64
-  br i1 %54, label %60, label %.sink.split
+  %56 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %55, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !319
+  %59 = add i32 %50, %.neg
+  %60 = sext i32 %59 to i64
+  br i1 %54, label %61, label %.sink.split
 
-60:                                               ; preds = %27
-  %61 = shl nsw i64 %59, 3
-  call void @llvm.memset.p0.i64(ptr align 1 %57, i8 0, i64 %61, i1 false)
-  %62 = load ptr, ptr %20, align 8, !tbaa !318
-  %63 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %62, i64 %indvars.iv, i32 2
-  %64 = load ptr, ptr %63, align 8, !tbaa !325
+61:                                               ; preds = %27
+  %62 = shl nsw i64 %60, 3
+  call void @llvm.memset.p0.i64(ptr align 1 %58, i8 0, i64 %62, i1 false)
+  %63 = load ptr, ptr %20, align 8, !tbaa !318
+  %64 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %63, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %66 = load ptr, ptr %65, align 8, !tbaa !325
   br label %.sink.split
 
-.sink.split:                                      ; preds = %27, %60
-  %.sink31 = phi i64 [ 2, %60 ], [ 4, %27 ]
-  %.sink = phi ptr [ %64, %60 ], [ %57, %27 ]
-  %65 = shl nsw i64 %59, %.sink31
-  call void @llvm.memset.p0.i64(ptr align 1 %.sink, i8 0, i64 %65, i1 false)
-  br label %66
+.sink.split:                                      ; preds = %27, %61
+  %.sink31 = phi i64 [ 2, %61 ], [ 4, %27 ]
+  %.sink = phi ptr [ %66, %61 ], [ %58, %27 ]
+  %67 = shl nsw i64 %60, %.sink31
+  call void @llvm.memset.p0.i64(ptr align 1 %.sink, i8 0, i64 %67, i1 false)
+  br label %68
 
-66:                                               ; preds = %.sink.split, %22
+68:                                               ; preds = %.sink.split, %22
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %67 = load i32, ptr %5, align 4, !tbaa !209
-  %68 = sext i32 %67 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %68
+  %69 = load i32, ptr %5, align 4, !tbaa !209
+  %70 = sext i32 %69 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %70
   br i1 %.not.not, label %22, label %._crit_edge
 
-._crit_edge:                                      ; preds = %66, %11
+._crit_edge:                                      ; preds = %68, %11
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %69
+  br label %71
 
-69:                                               ; preds = %._crit_edge, %3
+71:                                               ; preds = %._crit_edge, %3
   ret void
 }
 
@@ -12650,7 +12660,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !164
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %362
+  br i1 %17, label %18, label %368
 
 18:                                               ; preds = %10
   %19 = add nsw i32 %16, -1
@@ -12686,8 +12696,8 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %35 = sext i32 %23 to i64
   br label %36
 
-36:                                               ; preds = %.lr.ph, %359
-  %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %359 ]
+36:                                               ; preds = %.lr.ph, %365
+  %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %365 ]
   %37 = load ptr, ptr %24, align 8, !tbaa !165
   %38 = trunc nsw i64 %indvars.iv to i32
   %39 = sdiv i32 %38, 64
@@ -12702,7 +12712,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %45 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !257
   %46 = and i64 %45, %44
   %.not92 = icmp eq i64 %46, 0
-  br i1 %.not92, label %359, label %47
+  br i1 %.not92, label %365, label %47
 
 47:                                               ; preds = %36
   %48 = call i32 @omp_get_thread_num()
@@ -12792,7 +12802,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %119 = load i8, ptr %118, align 8, !tbaa !143, !range !144, !noundef !145
   %120 = trunc nuw i8 %119 to i1
   %121 = load ptr, ptr %31, align 8, !tbaa !259
-  br i1 %120, label %122, label %144
+  br i1 %120, label %122, label %145
 
 122:                                              ; preds = %116
   %123 = load ptr, ptr %30, align 8, !tbaa !268
@@ -12808,394 +12818,400 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %133 = icmp ult i8 %130, 17
   %134 = load ptr, ptr %25, align 8, !tbaa !210
   %135 = load ptr, ptr %27, align 8, !tbaa !318
-  br i1 %133, label %136, label %141
+  %136 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %135, i64 %indvars.iv
+  br i1 %133, label %137, label %142
 
-136:                                              ; preds = %122
-  %137 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %135, i64 %indvars.iv, i32 2
-  %138 = load ptr, ptr %137, align 8, !tbaa !325
-  invoke void @_ZNK8LightGBM7Dataset15FixHistogramIntIiiLi16ELi16EEEvilPd(ptr noundef nonnull align 8 dereferenceable(864) %134, i32 noundef %38, i64 noundef %132, ptr noundef %138)
-          to label %155 unwind label %139
+137:                                              ; preds = %122
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %139 = load ptr, ptr %138, align 8, !tbaa !325
+  invoke void @_ZNK8LightGBM7Dataset15FixHistogramIntIiiLi16ELi16EEEvilPd(ptr noundef nonnull align 8 dereferenceable(864) %134, i32 noundef %38, i64 noundef %132, ptr noundef %139)
+          to label %157 unwind label %140
 
-139:                                              ; preds = %141, %136
-  %140 = landingpad { ptr, i32 }
+140:                                              ; preds = %142, %137
+  %141 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  br label %350
+  br label %356
 
-141:                                              ; preds = %122
-  %142 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %135, i64 %indvars.iv, i32 1
-  %143 = load ptr, ptr %142, align 8, !tbaa !319
-  invoke void @_ZNK8LightGBM7Dataset15FixHistogramIntIllLi32ELi32EEEvilPd(ptr noundef nonnull align 8 dereferenceable(864) %134, i32 noundef %38, i64 noundef %132, ptr noundef %143)
-          to label %155 unwind label %139
+142:                                              ; preds = %122
+  %143 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %144 = load ptr, ptr %143, align 8, !tbaa !319
+  invoke void @_ZNK8LightGBM7Dataset15FixHistogramIntIllLi32ELi32EEEvilPd(ptr noundef nonnull align 8 dereferenceable(864) %134, i32 noundef %38, i64 noundef %132, ptr noundef %144)
+          to label %157 unwind label %140
 
-144:                                              ; preds = %116
-  %145 = load ptr, ptr %25, align 8, !tbaa !210
-  %146 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %147 = load double, ptr %146, align 8, !tbaa !262
-  %148 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  %149 = load double, ptr %148, align 8, !tbaa !263
-  %150 = load ptr, ptr %27, align 8, !tbaa !318
-  %151 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %150, i64 %indvars.iv, i32 1
-  %152 = load ptr, ptr %151, align 8, !tbaa !319
-  invoke void @_ZNK8LightGBM7Dataset12FixHistogramEiddPd(ptr noundef nonnull align 8 dereferenceable(864) %145, i32 noundef %38, double noundef %147, double noundef %149, ptr noundef %152)
-          to label %155 unwind label %153
+145:                                              ; preds = %116
+  %146 = load ptr, ptr %25, align 8, !tbaa !210
+  %147 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %148 = load double, ptr %147, align 8, !tbaa !262
+  %149 = getelementptr inbounds nuw i8, ptr %121, i64 24
+  %150 = load double, ptr %149, align 8, !tbaa !263
+  %151 = load ptr, ptr %27, align 8, !tbaa !318
+  %152 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %151, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %154 = load ptr, ptr %153, align 8, !tbaa !319
+  invoke void @_ZNK8LightGBM7Dataset12FixHistogramEiddPd(ptr noundef nonnull align 8 dereferenceable(864) %146, i32 noundef %38, double noundef %148, double noundef %150, ptr noundef %154)
+          to label %157 unwind label %155
 
-153:                                              ; preds = %345, %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, %167, %155, %144
-  %154 = landingpad { ptr, i32 }
+155:                                              ; preds = %351, %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, %169, %157, %145
+  %156 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  br label %350
+  br label %356
 
-155:                                              ; preds = %136, %141, %144
-  %156 = load ptr, ptr %27, align 8, !tbaa !318
-  %157 = load ptr, ptr %3, align 8, !tbaa !231
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv
-  %159 = load i8, ptr %158, align 1, !tbaa !232
-  %160 = load ptr, ptr %31, align 8, !tbaa !259
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  %162 = load i32, ptr %161, align 4, !tbaa !267
-  %163 = load ptr, ptr %2, align 8, !tbaa !171
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 184
-  %165 = load ptr, ptr %164, align 8
-  %166 = invoke noundef i32 %165(ptr noundef nonnull align 8 dereferenceable(856) %2, i32 noundef %162)
-          to label %167 unwind label %153
+157:                                              ; preds = %137, %142, %145
+  %158 = load ptr, ptr %27, align 8, !tbaa !318
+  %159 = load ptr, ptr %3, align 8, !tbaa !231
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 %indvars.iv
+  %161 = load i8, ptr %160, align 1, !tbaa !232
+  %162 = load ptr, ptr %31, align 8, !tbaa !259
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  %164 = load i32, ptr %163, align 4, !tbaa !267
+  %165 = load ptr, ptr %2, align 8, !tbaa !171
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 184
+  %167 = load ptr, ptr %166, align 8
+  %168 = invoke noundef i32 %167(ptr noundef nonnull align 8 dereferenceable(856) %2, i32 noundef %164)
+          to label %169 unwind label %155
 
-167:                                              ; preds = %155
-  %168 = load ptr, ptr %31, align 8, !tbaa !259
-  %169 = sext i32 %48 to i64
-  %170 = load ptr, ptr %4, align 8, !tbaa !277
-  %171 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %170, i64 %169
-  %172 = load double, ptr %5, align 8, !tbaa !285
-  invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef %156, i32 noundef %38, i32 noundef %53, i8 noundef signext %159, i32 noundef %166, ptr noundef %168, ptr noundef nonnull %171, double noundef %172)
-          to label %173 unwind label %153
+169:                                              ; preds = %157
+  %170 = load ptr, ptr %31, align 8, !tbaa !259
+  %171 = sext i32 %48 to i64
+  %172 = load ptr, ptr %4, align 8, !tbaa !277
+  %173 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %172, i64 %171
+  %174 = load double, ptr %5, align 8, !tbaa !285
+  invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef %158, i32 noundef %38, i32 noundef %53, i8 noundef signext %161, i32 noundef %168, ptr noundef %170, ptr noundef nonnull %173, double noundef %174)
+          to label %175 unwind label %155
 
-173:                                              ; preds = %167
-  %174 = load ptr, ptr %33, align 8, !tbaa !259
-  %.not.i = icmp eq ptr %174, null
-  br i1 %.not.i, label %359, label %175
+175:                                              ; preds = %169
+  %176 = load ptr, ptr %33, align 8, !tbaa !259
+  %.not.i = icmp eq ptr %176, null
+  br i1 %.not.i, label %365, label %177
 
-175:                                              ; preds = %173
-  %176 = getelementptr inbounds nuw i8, ptr %174, i64 4
-  %177 = load i32, ptr %176, align 4, !tbaa !267
-  %178 = icmp slt i32 %177, 0
-  br i1 %178, label %359, label %179
+177:                                              ; preds = %175
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 4
+  %179 = load i32, ptr %178, align 4, !tbaa !267
+  %180 = icmp slt i32 %179, 0
+  br i1 %180, label %365, label %181
 
-179:                                              ; preds = %175
-  %180 = load ptr, ptr %26, align 8, !tbaa !116
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 840
-  %182 = load i8, ptr %181, align 8, !tbaa !143, !range !144, !noundef !145
-  %183 = trunc nuw i8 %182 to i1
-  br i1 %183, label %184, label %312
+181:                                              ; preds = %177
+  %182 = load ptr, ptr %26, align 8, !tbaa !116
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 840
+  %184 = load i8, ptr %183, align 8, !tbaa !143, !range !144, !noundef !145
+  %185 = trunc nuw i8 %184 to i1
+  br i1 %185, label %186, label %317
 
-184:                                              ; preds = %179
-  %185 = load ptr, ptr %31, align 8, !tbaa !259
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  %187 = load i32, ptr %186, align 4, !tbaa !267
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %177, i32 %187)
-  %188 = load ptr, ptr %30, align 8, !tbaa !268
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 5264
-  %190 = sext i32 %.sroa.speculated to i64
-  %191 = load ptr, ptr %189, align 8, !tbaa !231
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %190
-  %193 = load i8, ptr %192, align 1, !tbaa !232
-  %194 = getelementptr inbounds nuw i8, ptr %188, i64 5240
-  %195 = zext nneg i32 %177 to i64
-  %196 = load ptr, ptr %194, align 8, !tbaa !231
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %195
-  %198 = load i8, ptr %197, align 1, !tbaa !232
-  %199 = sext i32 %187 to i64
-  %200 = getelementptr inbounds nuw i8, ptr %196, i64 %199
-  %201 = load i8, ptr %200, align 1, !tbaa !232
-  %202 = icmp ult i8 %193, 17
-  br i1 %202, label %203, label %234
+186:                                              ; preds = %181
+  %187 = load ptr, ptr %31, align 8, !tbaa !259
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 4
+  %189 = load i32, ptr %188, align 4, !tbaa !267
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %179, i32 %189)
+  %190 = load ptr, ptr %30, align 8, !tbaa !268
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 5264
+  %192 = sext i32 %.sroa.speculated to i64
+  %193 = load ptr, ptr %191, align 8, !tbaa !231
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 %192
+  %195 = load i8, ptr %194, align 1, !tbaa !232
+  %196 = getelementptr inbounds nuw i8, ptr %190, i64 5240
+  %197 = zext nneg i32 %179 to i64
+  %198 = load ptr, ptr %196, align 8, !tbaa !231
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 %197
+  %200 = load i8, ptr %199, align 1, !tbaa !232
+  %201 = sext i32 %189 to i64
+  %202 = getelementptr inbounds nuw i8, ptr %198, i64 %201
+  %203 = load i8, ptr %202, align 1, !tbaa !232
+  %204 = icmp ult i8 %195, 17
+  br i1 %204, label %205, label %237
 
-203:                                              ; preds = %184
-  %204 = icmp ult i8 %201, 17
-  br i1 %204, label %208, label %205
+205:                                              ; preds = %186
+  %206 = icmp ult i8 %203, 17
+  br i1 %206, label %210, label %207
 
-205:                                              ; preds = %203
+207:                                              ; preds = %205
   invoke void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 392)
-          to label %208 unwind label %206
+          to label %210 unwind label %208
 
-206:                                              ; preds = %238, %210, %205
-  %207 = landingpad { ptr, i32 }
+208:                                              ; preds = %241, %212, %207
+  %209 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  br label %350
+  br label %356
 
-208:                                              ; preds = %205, %203
-  %209 = icmp ult i8 %198, 17
-  br i1 %209, label %211, label %210
+210:                                              ; preds = %207, %205
+  %211 = icmp ult i8 %200, 17
+  br i1 %211, label %213, label %212
 
-210:                                              ; preds = %208
+212:                                              ; preds = %210
   invoke void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, i32 noundef 393)
-          to label %211 unwind label %206
+          to label %213 unwind label %208
 
-211:                                              ; preds = %210, %208
-  %212 = load ptr, ptr %34, align 8, !tbaa !366
-  %213 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %212, i64 %indvars.iv
-  %214 = load ptr, ptr %27, align 8, !tbaa !318
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  %216 = load ptr, ptr %215, align 8, !tbaa !325
-  %217 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %214, i64 %indvars.iv, i32 2
-  %218 = load ptr, ptr %217, align 8, !tbaa !325
-  %219 = load ptr, ptr %213, align 8, !tbaa !328
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %221 = load i8, ptr %220, align 8, !tbaa !331
-  %222 = sext i8 %221 to i32
-  %223 = load i32, ptr %219, align 8, !tbaa !329
-  %224 = icmp sgt i32 %223, %222
-  br i1 %224, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+213:                                              ; preds = %212, %210
+  %214 = load ptr, ptr %34, align 8, !tbaa !366
+  %215 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %214, i64 %indvars.iv
+  %216 = load ptr, ptr %27, align 8, !tbaa !318
+  %217 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %216, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %219 = load ptr, ptr %218, align 8, !tbaa !325
+  %220 = getelementptr inbounds nuw i8, ptr %217, i64 16
+  %221 = load ptr, ptr %220, align 8, !tbaa !325
+  %222 = load ptr, ptr %215, align 8, !tbaa !328
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
+  %224 = load i8, ptr %223, align 8, !tbaa !331
+  %225 = sext i8 %224 to i32
+  %226 = load i32, ptr %222, align 8, !tbaa !329
+  %227 = icmp sgt i32 %226, %225
+  br i1 %227, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
 
-.lr.ph.i:                                         ; preds = %211, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %211 ]
-  %225 = getelementptr inbounds nuw i32, ptr %216, i64 %indvars.iv.i
-  %226 = load i32, ptr %225, align 4, !tbaa !209
-  %227 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.i
-  %228 = load i32, ptr %227, align 4, !tbaa !209
-  %229 = sub nsw i32 %226, %228
-  store i32 %229, ptr %225, align 4, !tbaa !209
+.lr.ph.i:                                         ; preds = %213, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %213 ]
+  %228 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv.i
+  %229 = load i32, ptr %228, align 4, !tbaa !209
+  %230 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv.i
+  %231 = load i32, ptr %230, align 4, !tbaa !209
+  %232 = sub nsw i32 %229, %231
+  store i32 %232, ptr %228, align 4, !tbaa !209
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %230 = load i32, ptr %219, align 8, !tbaa !329
-  %231 = sub nsw i32 %230, %222
-  %232 = sext i32 %231 to i64
-  %233 = icmp slt i64 %indvars.iv.next.i, %232
-  br i1 %233, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, !llvm.loop !368
+  %233 = load i32, ptr %222, align 8, !tbaa !329
+  %234 = sub nsw i32 %233, %225
+  %235 = sext i32 %234 to i64
+  %236 = icmp slt i64 %indvars.iv.next.i, %235
+  br i1 %236, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, !llvm.loop !368
 
-234:                                              ; preds = %184
-  %235 = icmp ult i8 %198, 17
-  %236 = icmp ult i8 %201, 17
-  br i1 %235, label %237, label %277
+237:                                              ; preds = %186
+  %238 = icmp ult i8 %200, 17
+  %239 = icmp ult i8 %203, 17
+  br i1 %238, label %240, label %281
 
-237:                                              ; preds = %234
-  br i1 %236, label %239, label %238
+240:                                              ; preds = %237
+  br i1 %239, label %242, label %241
 
-238:                                              ; preds = %237
+241:                                              ; preds = %240
   invoke void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 397)
-          to label %._crit_edge108 unwind label %206
+          to label %._crit_edge108 unwind label %208
 
-._crit_edge108:                                   ; preds = %238
+._crit_edge108:                                   ; preds = %241
   %.pre = load ptr, ptr %30, align 8, !tbaa !268
-  br label %239
+  br label %242
 
-239:                                              ; preds = %._crit_edge108, %237
-  %240 = phi ptr [ %.pre, %._crit_edge108 ], [ %188, %237 ]
-  %241 = load ptr, ptr %34, align 8, !tbaa !366
-  %242 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %241, i64 %indvars.iv
-  %243 = load ptr, ptr %27, align 8, !tbaa !318
-  %244 = getelementptr inbounds nuw i8, ptr %240, i64 5312
-  %245 = load ptr, ptr %244, align 8, !tbaa !206
-  %246 = getelementptr inbounds nuw %"class.std::vector.35", ptr %245, i64 %indvars.iv
-  %247 = load ptr, ptr %246, align 8, !tbaa !168
-  %248 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %243, i64 %indvars.iv, i32 2
-  %249 = load ptr, ptr %248, align 8, !tbaa !325
-  %250 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  %251 = load ptr, ptr %250, align 8, !tbaa !325
-  %252 = load ptr, ptr %242, align 8, !tbaa !328
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  %254 = load i8, ptr %253, align 8, !tbaa !331
-  %255 = sext i8 %254 to i32
-  %256 = load i32, ptr %252, align 8, !tbaa !329
-  %257 = icmp sgt i32 %256, %255
-  br i1 %257, label %.lr.ph.i71, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+242:                                              ; preds = %._crit_edge108, %240
+  %243 = phi ptr [ %.pre, %._crit_edge108 ], [ %190, %240 ]
+  %244 = load ptr, ptr %34, align 8, !tbaa !366
+  %245 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %244, i64 %indvars.iv
+  %246 = load ptr, ptr %27, align 8, !tbaa !318
+  %247 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %246, i64 %indvars.iv
+  %248 = getelementptr inbounds nuw i8, ptr %243, i64 5312
+  %249 = load ptr, ptr %248, align 8, !tbaa !206
+  %250 = getelementptr inbounds nuw %"class.std::vector.35", ptr %249, i64 %indvars.iv
+  %251 = load ptr, ptr %250, align 8, !tbaa !168
+  %252 = getelementptr inbounds nuw i8, ptr %247, i64 16
+  %253 = load ptr, ptr %252, align 8, !tbaa !325
+  %254 = getelementptr inbounds nuw i8, ptr %245, i64 16
+  %255 = load ptr, ptr %254, align 8, !tbaa !325
+  %256 = load ptr, ptr %245, align 8, !tbaa !328
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
+  %258 = load i8, ptr %257, align 8, !tbaa !331
+  %259 = sext i8 %258 to i32
+  %260 = load i32, ptr %256, align 8, !tbaa !329
+  %261 = icmp sgt i32 %260, %259
+  br i1 %261, label %.lr.ph.i71, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
 
-.lr.ph.i71:                                       ; preds = %239, %.lr.ph.i71
-  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %.lr.ph.i71 ], [ 0, %239 ]
-  %258 = getelementptr inbounds nuw i32, ptr %249, i64 %indvars.iv.i72
-  %259 = load i32, ptr %258, align 4, !tbaa !209
-  %260 = getelementptr inbounds nuw i64, ptr %247, i64 %indvars.iv.i72
-  %261 = load i64, ptr %260, align 8, !tbaa !257
-  %262 = lshr i32 %259, 16
-  %263 = zext nneg i32 %262 to i64
-  %sext.i = shl nuw i64 %263, 48
-  %264 = ashr exact i64 %sext.i, 16
-  %265 = and i32 %259, 65535
-  %266 = zext nneg i32 %265 to i64
-  %267 = or disjoint i64 %264, %266
-  %268 = sub nsw i64 %261, %267
-  %sh.diff.i = lshr i64 %268, 16
+.lr.ph.i71:                                       ; preds = %242, %.lr.ph.i71
+  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %.lr.ph.i71 ], [ 0, %242 ]
+  %262 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv.i72
+  %263 = load i32, ptr %262, align 4, !tbaa !209
+  %264 = getelementptr inbounds nuw i64, ptr %251, i64 %indvars.iv.i72
+  %265 = load i64, ptr %264, align 8, !tbaa !257
+  %266 = lshr i32 %263, 16
+  %267 = zext nneg i32 %266 to i64
+  %sext.i = shl nuw i64 %267, 48
+  %268 = ashr exact i64 %sext.i, 16
+  %269 = and i32 %263, 65535
+  %270 = zext nneg i32 %269 to i64
+  %271 = or disjoint i64 %268, %270
+  %272 = sub nsw i64 %265, %271
+  %sh.diff.i = lshr i64 %272, 16
   %tr.sh.diff.i = trunc i64 %sh.diff.i to i32
-  %269 = and i32 %tr.sh.diff.i, -65536
-  %270 = trunc i64 %268 to i32
-  %271 = or i32 %269, %270
-  %272 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv.i72
-  store i32 %271, ptr %272, align 4, !tbaa !209
+  %273 = and i32 %tr.sh.diff.i, -65536
+  %274 = trunc i64 %272 to i32
+  %275 = or i32 %273, %274
+  %276 = getelementptr inbounds nuw i32, ptr %255, i64 %indvars.iv.i72
+  store i32 %275, ptr %276, align 4, !tbaa !209
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
-  %273 = load i32, ptr %252, align 8, !tbaa !329
-  %274 = sub nsw i32 %273, %255
-  %275 = sext i32 %274 to i64
-  %276 = icmp slt i64 %indvars.iv.next.i73, %275
-  br i1 %276, label %.lr.ph.i71, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, !llvm.loop !369
+  %277 = load i32, ptr %256, align 8, !tbaa !329
+  %278 = sub nsw i32 %277, %259
+  %279 = sext i32 %278 to i64
+  %280 = icmp slt i64 %indvars.iv.next.i73, %279
+  br i1 %280, label %.lr.ph.i71, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, !llvm.loop !369
 
-277:                                              ; preds = %234
-  %278 = load ptr, ptr %34, align 8, !tbaa !366
-  %279 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %278, i64 %indvars.iv
-  %280 = load ptr, ptr %27, align 8, !tbaa !318
-  %281 = getelementptr inbounds nuw i8, ptr %279, i64 8
-  %282 = load ptr, ptr %281, align 8, !tbaa !319
-  %283 = load ptr, ptr %279, align 8, !tbaa !328
-  %284 = load i32, ptr %283, align 8, !tbaa !329
-  %285 = getelementptr inbounds nuw i8, ptr %283, i64 8
-  %286 = load i8, ptr %285, align 8, !tbaa !331
-  %287 = sext i8 %286 to i32
-  %288 = sub nsw i32 %284, %287
-  %289 = icmp sgt i32 %288, 0
-  br i1 %236, label %290, label %304
+281:                                              ; preds = %237
+  %282 = load ptr, ptr %34, align 8, !tbaa !366
+  %283 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %282, i64 %indvars.iv
+  %284 = load ptr, ptr %27, align 8, !tbaa !318
+  %285 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %284, i64 %indvars.iv
+  %286 = getelementptr inbounds nuw i8, ptr %283, i64 8
+  %287 = load ptr, ptr %286, align 8, !tbaa !319
+  %288 = load ptr, ptr %283, align 8, !tbaa !328
+  %289 = load i32, ptr %288, align 8, !tbaa !329
+  %290 = getelementptr inbounds nuw i8, ptr %288, i64 8
+  %291 = load i8, ptr %290, align 8, !tbaa !331
+  %292 = sext i8 %291 to i32
+  %293 = sub nsw i32 %289, %292
+  %294 = icmp sgt i32 %293, 0
+  br i1 %239, label %295, label %309
 
-290:                                              ; preds = %277
-  %291 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %280, i64 %indvars.iv, i32 2
-  %292 = load ptr, ptr %291, align 8, !tbaa !325
-  br i1 %289, label %.lr.ph.preheader.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+295:                                              ; preds = %281
+  %296 = getelementptr inbounds nuw i8, ptr %285, i64 16
+  %297 = load ptr, ptr %296, align 8, !tbaa !325
+  br i1 %294, label %.lr.ph.preheader.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
 
-.lr.ph.preheader.i:                               ; preds = %290
-  %wide.trip.count.i = zext nneg i32 %288 to i64
+.lr.ph.preheader.i:                               ; preds = %295
+  %wide.trip.count.i = zext nneg i32 %293 to i64
   br label %.lr.ph.i74
 
 .lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i
   %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i77, %.lr.ph.i74 ]
-  %293 = getelementptr inbounds nuw i32, ptr %292, i64 %indvars.iv.i75
-  %294 = load i32, ptr %293, align 4, !tbaa !209
-  %295 = getelementptr inbounds nuw i64, ptr %282, i64 %indvars.iv.i75
-  %296 = load i64, ptr %295, align 8, !tbaa !257
-  %297 = lshr i32 %294, 16
-  %298 = zext nneg i32 %297 to i64
-  %sext.i76 = shl nuw i64 %298, 48
-  %299 = ashr exact i64 %sext.i76, 16
-  %300 = and i32 %294, 65535
-  %301 = zext nneg i32 %300 to i64
-  %302 = or disjoint i64 %299, %301
-  %303 = sub i64 %296, %302
-  store i64 %303, ptr %295, align 8, !tbaa !257
+  %298 = getelementptr inbounds nuw i32, ptr %297, i64 %indvars.iv.i75
+  %299 = load i32, ptr %298, align 4, !tbaa !209
+  %300 = getelementptr inbounds nuw i64, ptr %287, i64 %indvars.iv.i75
+  %301 = load i64, ptr %300, align 8, !tbaa !257
+  %302 = lshr i32 %299, 16
+  %303 = zext nneg i32 %302 to i64
+  %sext.i76 = shl nuw i64 %303, 48
+  %304 = ashr exact i64 %sext.i76, 16
+  %305 = and i32 %299, 65535
+  %306 = zext nneg i32 %305 to i64
+  %307 = or disjoint i64 %304, %306
+  %308 = sub i64 %301, %307
+  store i64 %308, ptr %300, align 8, !tbaa !257
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i77, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, label %.lr.ph.i74, !llvm.loop !370
 
-304:                                              ; preds = %277
-  %305 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %280, i64 %indvars.iv, i32 1
-  %306 = load ptr, ptr %305, align 8, !tbaa !319
-  br i1 %289, label %.lr.ph.preheader.i78, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+309:                                              ; preds = %281
+  %310 = getelementptr inbounds nuw i8, ptr %285, i64 8
+  %311 = load ptr, ptr %310, align 8, !tbaa !319
+  br i1 %294, label %.lr.ph.preheader.i78, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
 
-.lr.ph.preheader.i78:                             ; preds = %304
-  %wide.trip.count.i79 = zext nneg i32 %288 to i64
+.lr.ph.preheader.i78:                             ; preds = %309
+  %wide.trip.count.i79 = zext nneg i32 %293 to i64
   br label %.lr.ph.i80
 
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i78
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.preheader.i78 ], [ %indvars.iv.next.i82, %.lr.ph.i80 ]
-  %307 = getelementptr inbounds nuw i64, ptr %282, i64 %indvars.iv.i81
-  %308 = load i64, ptr %307, align 8, !tbaa !257
-  %309 = getelementptr inbounds nuw i64, ptr %306, i64 %indvars.iv.i81
-  %310 = load i64, ptr %309, align 8, !tbaa !257
-  %311 = sub nsw i64 %308, %310
-  store i64 %311, ptr %307, align 8, !tbaa !257
+  %312 = getelementptr inbounds nuw i64, ptr %287, i64 %indvars.iv.i81
+  %313 = load i64, ptr %312, align 8, !tbaa !257
+  %314 = getelementptr inbounds nuw i64, ptr %311, i64 %indvars.iv.i81
+  %315 = load i64, ptr %314, align 8, !tbaa !257
+  %316 = sub nsw i64 %313, %315
+  store i64 %316, ptr %312, align 8, !tbaa !257
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
   %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, %wide.trip.count.i79
   br i1 %exitcond.not.i83, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, label %.lr.ph.i80, !llvm.loop !371
 
-312:                                              ; preds = %179
-  %313 = load ptr, ptr %34, align 8, !tbaa !366
-  %314 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %313, i64 %indvars.iv
-  %315 = load ptr, ptr %314, align 8, !tbaa !328
-  %316 = load i32, ptr %315, align 8, !tbaa !329
-  %317 = getelementptr inbounds nuw i8, ptr %315, i64 8
-  %318 = load i8, ptr %317, align 8, !tbaa !331
-  %319 = sext i8 %318 to i32
-  %320 = sub nsw i32 %316, %319
-  %321 = icmp sgt i32 %320, 0
-  br i1 %321, label %.lr.ph.i84, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+317:                                              ; preds = %181
+  %318 = load ptr, ptr %34, align 8, !tbaa !366
+  %319 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %318, i64 %indvars.iv
+  %320 = load ptr, ptr %319, align 8, !tbaa !328
+  %321 = load i32, ptr %320, align 8, !tbaa !329
+  %322 = getelementptr inbounds nuw i8, ptr %320, i64 8
+  %323 = load i8, ptr %322, align 8, !tbaa !331
+  %324 = sext i8 %323 to i32
+  %325 = sub nsw i32 %321, %324
+  %326 = icmp sgt i32 %325, 0
+  br i1 %326, label %.lr.ph.i84, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
 
-.lr.ph.i84:                                       ; preds = %312
-  %322 = load ptr, ptr %27, align 8, !tbaa !318
-  %323 = shl nuw i32 %320, 1
-  %324 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %322, i64 %indvars.iv, i32 1
-  %325 = load ptr, ptr %324, align 8, !tbaa !319
-  %326 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  %327 = load ptr, ptr %326, align 8, !tbaa !319
-  %smax.i = call i32 @llvm.smax.i32(i32 %323, i32 1)
+.lr.ph.i84:                                       ; preds = %317
+  %327 = load ptr, ptr %27, align 8, !tbaa !318
+  %328 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %327, i64 %indvars.iv
+  %329 = shl nuw i32 %325, 1
+  %330 = getelementptr inbounds nuw i8, ptr %328, i64 8
+  %331 = load ptr, ptr %330, align 8, !tbaa !319
+  %332 = getelementptr inbounds nuw i8, ptr %319, i64 8
+  %333 = load ptr, ptr %332, align 8, !tbaa !319
+  %smax.i = call i32 @llvm.smax.i32(i32 %329, i32 1)
   %wide.trip.count.i85 = zext nneg i32 %smax.i to i64
-  br label %328
+  br label %334
 
-328:                                              ; preds = %328, %.lr.ph.i84
-  %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.i84 ], [ %indvars.iv.next.i87, %328 ]
-  %329 = getelementptr inbounds nuw double, ptr %325, i64 %indvars.iv.i86
-  %330 = load double, ptr %329, align 8, !tbaa !285
-  %331 = getelementptr inbounds nuw double, ptr %327, i64 %indvars.iv.i86
-  %332 = load double, ptr %331, align 8, !tbaa !285
-  %333 = fsub double %332, %330
-  store double %333, ptr %331, align 8, !tbaa !285
+334:                                              ; preds = %334, %.lr.ph.i84
+  %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.i84 ], [ %indvars.iv.next.i87, %334 ]
+  %335 = getelementptr inbounds nuw double, ptr %331, i64 %indvars.iv.i86
+  %336 = load double, ptr %335, align 8, !tbaa !285
+  %337 = getelementptr inbounds nuw double, ptr %333, i64 %indvars.iv.i86
+  %338 = load double, ptr %337, align 8, !tbaa !285
+  %339 = fsub double %338, %336
+  store double %339, ptr %337, align 8, !tbaa !285
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i85
-  br i1 %exitcond.not.i88, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, label %328, !llvm.loop !372
+  br i1 %exitcond.not.i88, label %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit, label %334, !llvm.loop !372
 
-_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit: ; preds = %328, %.lr.ph.i80, %.lr.ph.i74, %.lr.ph.i71, %.lr.ph.i, %312, %304, %290, %239, %211
-  %334 = phi ptr [ %313, %312 ], [ %278, %304 ], [ %278, %290 ], [ %241, %239 ], [ %212, %211 ], [ %212, %.lr.ph.i ], [ %241, %.lr.ph.i71 ], [ %278, %.lr.ph.i74 ], [ %278, %.lr.ph.i80 ], [ %313, %328 ]
-  %335 = load ptr, ptr %6, align 8, !tbaa !231
-  %336 = getelementptr inbounds nuw i8, ptr %335, i64 %indvars.iv
-  %337 = load i8, ptr %336, align 1, !tbaa !232
-  %338 = load ptr, ptr %33, align 8, !tbaa !259
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 4
-  %340 = load i32, ptr %339, align 4, !tbaa !267
-  %341 = load ptr, ptr %2, align 8, !tbaa !171
-  %342 = getelementptr inbounds nuw i8, ptr %341, i64 184
-  %343 = load ptr, ptr %342, align 8
-  %344 = invoke noundef i32 %343(ptr noundef nonnull align 8 dereferenceable(856) %2, i32 noundef %340)
-          to label %345 unwind label %153
+_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit: ; preds = %334, %.lr.ph.i80, %.lr.ph.i74, %.lr.ph.i71, %.lr.ph.i, %317, %309, %295, %242, %213
+  %340 = phi ptr [ %318, %317 ], [ %282, %309 ], [ %282, %295 ], [ %244, %242 ], [ %214, %213 ], [ %214, %.lr.ph.i ], [ %244, %.lr.ph.i71 ], [ %282, %.lr.ph.i74 ], [ %282, %.lr.ph.i80 ], [ %318, %334 ]
+  %341 = load ptr, ptr %6, align 8, !tbaa !231
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 %indvars.iv
+  %343 = load i8, ptr %342, align 1, !tbaa !232
+  %344 = load ptr, ptr %33, align 8, !tbaa !259
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 4
+  %346 = load i32, ptr %345, align 4, !tbaa !267
+  %347 = load ptr, ptr %2, align 8, !tbaa !171
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 184
+  %349 = load ptr, ptr %348, align 8
+  %350 = invoke noundef i32 %349(ptr noundef nonnull align 8 dereferenceable(856) %2, i32 noundef %346)
+          to label %351 unwind label %155
 
-345:                                              ; preds = %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
-  %346 = load ptr, ptr %33, align 8, !tbaa !259
-  %347 = load ptr, ptr %7, align 8, !tbaa !277
-  %348 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %347, i64 %169
-  %349 = load double, ptr %8, align 8, !tbaa !285
-  invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef nonnull %334, i32 noundef %38, i32 noundef %53, i8 noundef signext %337, i32 noundef %344, ptr noundef %346, ptr noundef nonnull %348, double noundef %349)
-          to label %359 unwind label %153
+351:                                              ; preds = %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
+  %352 = load ptr, ptr %33, align 8, !tbaa !259
+  %353 = load ptr, ptr %7, align 8, !tbaa !277
+  %354 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %353, i64 %171
+  %355 = load double, ptr %8, align 8, !tbaa !285
+  invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef nonnull %340, i32 noundef %38, i32 noundef %53, i8 noundef signext %343, i32 noundef %350, ptr noundef %352, ptr noundef nonnull %354, double noundef %355)
+          to label %365 unwind label %155
 
-350:                                              ; preds = %206, %153, %139
-  %.pn.pn = phi { ptr, i32 } [ %154, %153 ], [ %207, %206 ], [ %140, %139 ]
+356:                                              ; preds = %208, %155, %140
+  %.pn.pn = phi { ptr, i32 } [ %156, %155 ], [ %209, %208 ], [ %141, %140 ]
   %.065 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.066 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %351 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
-  %352 = icmp eq i32 %.066, %351
-  %353 = call ptr @__cxa_begin_catch(ptr %.065) #20
-  br i1 %352, label %354, label %.invoke121
+  %357 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
+  %358 = icmp eq i32 %.066, %357
+  %359 = call ptr @__cxa_begin_catch(ptr %.065) #20
+  br i1 %358, label %360, label %.invoke121
 
-354:                                              ; preds = %350
-  %355 = load ptr, ptr %353, align 8, !tbaa !171
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 16
-  %357 = load ptr, ptr %356, align 8
-  %358 = call noundef ptr %357(ptr noundef nonnull align 8 dereferenceable(8) %353) #20
-  invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %358)
-          to label %.invoke121 unwind label %363
+360:                                              ; preds = %356
+  %361 = load ptr, ptr %359, align 8, !tbaa !171
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 16
+  %363 = load ptr, ptr %362, align 8
+  %364 = call noundef ptr %363(ptr noundef nonnull align 8 dereferenceable(8) %359) #20
+  invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %364)
+          to label %.invoke121 unwind label %369
 
-359:                                              ; preds = %.invoke, %175, %173, %345, %36
+365:                                              ; preds = %.invoke, %177, %175, %351, %36
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %360 = load i32, ptr %12, align 4, !tbaa !209
-  %361 = sext i32 %360 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %361
+  %366 = load i32, ptr %12, align 4, !tbaa !209
+  %367 = sext i32 %366 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %367
   br i1 %.not.not, label %36, label %._crit_edge
 
-.invoke121:                                       ; preds = %350, %354
+.invoke121:                                       ; preds = %356, %360
   invoke void @_ZN21ThreadExceptionHelper16CaptureExceptionEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %.invoke unwind label %363
+          to label %.invoke unwind label %369
 
 .invoke:                                          ; preds = %.invoke121
   invoke void @__cxa_end_catch()
-          to label %359 unwind label %363
+          to label %365 unwind label %369
 
-._crit_edge:                                      ; preds = %359, %18
+._crit_edge:                                      ; preds = %365, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %362
+  br label %368
 
-362:                                              ; preds = %._crit_edge, %10
+368:                                              ; preds = %._crit_edge, %10
   ret void
 
-363:                                              ; preds = %.invoke121, %.invoke, %354
-  %364 = landingpad { ptr, i32 }
+369:                                              ; preds = %.invoke121, %.invoke, %360
+  %370 = landingpad { ptr, i32 }
           catch ptr null
-  %365 = extractvalue { ptr, i32 } %364, 0
-  call void @__clang_call_terminate(ptr %365) #35
+  %371 = extractvalue { ptr, i32 } %370, 0
+  call void @__clang_call_terminate(ptr %371) #35
   unreachable
 }
 

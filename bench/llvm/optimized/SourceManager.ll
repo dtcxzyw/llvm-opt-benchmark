@@ -14814,48 +14814,49 @@ _ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpa
   %68 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %69 = zext i32 %67 to i64
   %.val5.i = load ptr, ptr %68, align 8, !tbaa !111
-  %70 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %.val5.i, i64 %69, i32 1
+  %70 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %.val5.i, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %71 = load i32, ptr %70, align 4, !tbaa !405
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %74
+  %72 = load i32, ptr %71, align 4, !tbaa !405
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %75
 
-73:                                               ; preds = %_ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoNS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS_11SmallVectorISt4pairIS4_SA_ELj0EEEEixERKS4_.exit
-  store i32 %.sroa.01.0.i, ptr %70, align 8, !tbaa !45
-  br label %74
+74:                                               ; preds = %_ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoNS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS_11SmallVectorISt4pairIS4_SA_ELj0EEEEixERKS4_.exit
+  store i32 %.sroa.01.0.i, ptr %71, align 8, !tbaa !45
+  br label %75
 
-74:                                               ; preds = %73, %_ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoNS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS_11SmallVectorISt4pairIS4_SA_ELj0EEEEixERKS4_.exit
-  %75 = icmp eq i32 %1, %.sroa.02.0.i.i
-  br i1 %75, label %76, label %._crit_edge
+75:                                               ; preds = %74, %_ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoNS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS_11SmallVectorISt4pairIS4_SA_ELj0EEEEixERKS4_.exit
+  %76 = icmp eq i32 %1, %.sroa.02.0.i.i
+  br i1 %76, label %77, label %._crit_edge
 
-._crit_edge:                                      ; preds = %74
+._crit_edge:                                      ; preds = %75
   %.pre = zext i32 %8 to i64
-  br label %84
+  br label %85
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %78 = load i32, ptr %77, align 4, !tbaa !520
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %77, align 4, !tbaa !520
-  %80 = zext i32 %8 to i64
-  %81 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %82 = load i64, ptr %81, align 8, !tbaa !379
-  %83 = add i64 %82, %80
-  store i64 %83, ptr %81, align 8, !tbaa !379
-  br label %84
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 12
+  %79 = load i32, ptr %78, align 4, !tbaa !520
+  %80 = add i32 %79, 1
+  store i32 %80, ptr %78, align 4, !tbaa !520
+  %81 = zext i32 %8 to i64
+  %82 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %83 = load i64, ptr %82, align 8, !tbaa !379
+  %84 = add i64 %83, %81
+  store i64 %84, ptr %82, align 8, !tbaa !379
+  br label %85
 
-84:                                               ; preds = %._crit_edge, %76
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %80, %76 ]
-  %85 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %86 = load i64, ptr %85, align 8, !tbaa !378
-  %87 = add i64 %86, %.pre-phi
-  store i64 %87, ptr %85, align 8, !tbaa !378
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !521
-  %90 = load i64, ptr %89, align 8, !tbaa !72
-  %91 = add i64 %90, %.pre-phi
-  store i64 %91, ptr %89, align 8, !tbaa !72
+85:                                               ; preds = %._crit_edge, %77
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %81, %77 ]
+  %86 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %87 = load i64, ptr %86, align 8, !tbaa !378
+  %88 = add i64 %87, %.pre-phi
+  store i64 %88, ptr %86, align 8, !tbaa !378
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %90 = load ptr, ptr %89, align 8, !tbaa !521
+  %91 = load i64, ptr %90, align 8, !tbaa !72
+  %92 = add i64 %91, %.pre-phi
+  store i64 %92, ptr %90, align 8, !tbaa !72
   ret void
 }
 

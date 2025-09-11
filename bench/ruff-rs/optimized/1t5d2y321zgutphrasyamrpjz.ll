@@ -22799,8 +22799,9 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN93_$LT$orderma
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds nuw { i64, i64, {} }, ptr %21, i64 %1, i32 1
-  ret ptr %22
+  %22 = getelementptr inbounds nuw { i64, i64, {} }, ptr %21, i64 %1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  ret ptr %23
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22889,8 +22890,9 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN93_$LT$orderma
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds nuw { i64, i32, {}, [4 x i8] }, ptr %21, i64 %1, i32 1
-  ret ptr %22
+  %22 = getelementptr inbounds nuw { i64, i32, {}, [4 x i8] }, ptr %21, i64 %1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  ret ptr %23
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22934,8 +22936,9 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN93_$LT$orderma
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds nuw { i64, i32, {}, [4 x i8] }, ptr %21, i64 %1, i32 1
-  ret ptr %22
+  %22 = getelementptr inbounds nuw { i64, i32, {}, [4 x i8] }, ptr %21, i64 %1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  ret ptr %23
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -24434,18 +24437,19 @@ define hidden void @_ZN18ty_python_semantic14semantic_index6symbol18SymbolTableB
   %5 = add i32 %1, -1
   %6 = zext i32 %5 to i64
   %7 = icmp ugt i64 %4, %6
-  br i1 %7, label %8, label %14
+  br i1 %7, label %8, label %15
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { ptr, i64, i32, i16, i8, i8 } } }, i8, [7 x i8] }, ptr %10, i64 %6, i32 1
-  %12 = load i8, ptr %11, align 8, !alias.scope !4540, !noundef !3
-  %13 = or i8 %12, 2
-  store i8 %13, ptr %11, align 8, !alias.scope !4540
+  %11 = getelementptr inbounds nuw { { { { ptr, i64, i32, i16, i8, i8 } } }, i8, [7 x i8] }, ptr %10, i64 %6
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %13 = load i8, ptr %12, align 8, !alias.scope !4540, !noundef !3
+  %14 = or i8 %13, 2
+  store i8 %14, ptr %12, align 8, !alias.scope !4540
   ret void
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %6, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4370228678aea563ecef3852b2bac777.182) #39
   unreachable
 }
@@ -24457,18 +24461,19 @@ define hidden void @_ZN18ty_python_semantic14semantic_index6symbol18SymbolTableB
   %5 = add i32 %1, -1
   %6 = zext i32 %5 to i64
   %7 = icmp ugt i64 %4, %6
-  br i1 %7, label %8, label %14
+  br i1 %7, label %8, label %15
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { ptr, i64, i32, i16, i8, i8 } } }, i8, [7 x i8] }, ptr %10, i64 %6, i32 1
-  %12 = load i8, ptr %11, align 8, !alias.scope !4543, !noundef !3
-  %13 = or i8 %12, 4
-  store i8 %13, ptr %11, align 8, !alias.scope !4543
+  %11 = getelementptr inbounds nuw { { { { ptr, i64, i32, i16, i8, i8 } } }, i8, [7 x i8] }, ptr %10, i64 %6
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %13 = load i8, ptr %12, align 8, !alias.scope !4543, !noundef !3
+  %14 = or i8 %13, 4
+  store i8 %14, ptr %12, align 8, !alias.scope !4543
   ret void
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %6, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4370228678aea563ecef3852b2bac777.183) #39
   unreachable
 }
@@ -24480,18 +24485,19 @@ define hidden void @_ZN18ty_python_semantic14semantic_index6symbol18SymbolTableB
   %5 = add i32 %1, -1
   %6 = zext i32 %5 to i64
   %7 = icmp ugt i64 %4, %6
-  br i1 %7, label %8, label %14
+  br i1 %7, label %8, label %15
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { ptr, i64, i32, i16, i8, i8 } } }, i8, [7 x i8] }, ptr %10, i64 %6, i32 1
-  %12 = load i8, ptr %11, align 8, !alias.scope !4546, !noundef !3
-  %13 = or i8 %12, 1
-  store i8 %13, ptr %11, align 8, !alias.scope !4546
+  %11 = getelementptr inbounds nuw { { { { ptr, i64, i32, i16, i8, i8 } } }, i8, [7 x i8] }, ptr %10, i64 %6
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %13 = load i8, ptr %12, align 8, !alias.scope !4546, !noundef !3
+  %14 = or i8 %13, 1
+  store i8 %14, ptr %12, align 8, !alias.scope !4546
   ret void
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %6, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4370228678aea563ecef3852b2bac777.184) #39
   unreachable
 }

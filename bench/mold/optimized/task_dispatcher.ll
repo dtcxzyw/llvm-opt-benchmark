@@ -1024,75 +1024,76 @@ define linkonce_odr void @_ZN3tbb6detail2r111task_streamILNS1_25task_stream_acce
   store ptr null, ptr %5, align 8, !tbaa !173
   %15 = load ptr, ptr %7, align 8, !tbaa !176
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %15, i64 %16, i32 1
-  %18 = load atomic i8, ptr %17 monotonic, align 1
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
+  %17 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %15, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  %19 = load atomic i8, ptr %18 monotonic, align 1
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
 
 _ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i:      ; preds = %8
-  %20 = atomicrmw xchg ptr %17, i8 1 seq_cst, align 1
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %22
+  %21 = atomicrmw xchg ptr %18, i8 1 seq_cst, align 1
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %23
 
-22:                                               ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
-  store ptr %17, ptr %5, align 8, !tbaa !173
-  %23 = load ptr, ptr %7, align 8, !tbaa !176
-  %24 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %23, i64 %16
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !177
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %28 = load ptr, ptr %27, align 8, !tbaa !182
-  %29 = getelementptr inbounds i8, ptr %28, i64 -8
-  %.not.i.i = icmp eq ptr %26, %29
-  br i1 %.not.i.i, label %33, label %30
+23:                                               ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
+  store ptr %18, ptr %5, align 8, !tbaa !173
+  %24 = load ptr, ptr %7, align 8, !tbaa !176
+  %25 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %24, i64 %16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %27 = load ptr, ptr %26, align 8, !tbaa !177
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %29 = load ptr, ptr %28, align 8, !tbaa !182
+  %30 = getelementptr inbounds i8, ptr %29, i64 -8
+  %.not.i.i = icmp eq ptr %27, %30
+  br i1 %.not.i.i, label %34, label %31
 
-30:                                               ; preds = %22
-  %31 = load ptr, ptr %4, align 8, !tbaa !147
-  store ptr %31, ptr %26, align 8, !tbaa !147
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %32, ptr %25, align 8, !tbaa !177
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %4, align 8, !tbaa !147
+  store ptr %32, ptr %27, align 8, !tbaa !147
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %33, ptr %26, align 8, !tbaa !177
   br label %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i
 
-33:                                               ; preds = %22
-  invoke void @_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE16_M_push_back_auxIJRKS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i unwind label %36
+34:                                               ; preds = %23
+  invoke void @_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE16_M_push_back_auxIJRKS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i unwind label %37
 
-_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i: ; preds = %33, %30
-  %34 = shl nuw i64 1, %16
-  %35 = atomicrmw or ptr %0, i64 %34 seq_cst, align 8
+_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i: ; preds = %34, %31
+  %35 = shl nuw i64 1, %16
+  %36 = atomicrmw or ptr %0, i64 %35 seq_cst, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i
 
-36:                                               ; preds = %33
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %34
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %37
+  resume { ptr, i32 } %38
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i: ; preds = %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i, %8
-  %38 = phi i1 [ true, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i ], [ false, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i ], [ false, %8 ]
-  %39 = load ptr, ptr %5, align 8, !tbaa !173
-  %.not.i6.i = icmp eq ptr %39, null
-  br i1 %.not.i6.i, label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit, label %40
+  %39 = phi i1 [ true, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i ], [ false, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i ], [ false, %8 ]
+  %40 = load ptr, ptr %5, align 8, !tbaa !173
+  %.not.i6.i = icmp eq ptr %40, null
+  br i1 %.not.i6.i, label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit, label %41
 
-40:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i
-  %41 = atomicrmw xchg ptr %39, i8 0 seq_cst, align 1
-  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %39)
-          to label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit unwind label %42
+41:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i
+  %42 = atomicrmw xchg ptr %40, i8 0 seq_cst, align 1
+  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %40)
+          to label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit unwind label %43
 
-42:                                               ; preds = %40
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %41
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #17
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #17
   unreachable
 
-_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, %40
+_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %38, label %45, label %8, !llvm.loop !183
+  br i1 %39, label %46, label %8, !llvm.loop !183
 
-45:                                               ; preds = %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit
+46:                                               ; preds = %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit
   ret void
 }
 
@@ -1122,75 +1123,76 @@ define linkonce_odr void @_ZN3tbb6detail2r111task_streamILNS1_25task_stream_acce
   store ptr null, ptr %5, align 8, !tbaa !173
   %19 = load ptr, ptr %7, align 8, !tbaa !176
   %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %19, i64 %20, i32 1
-  %22 = load atomic i8, ptr %21 monotonic, align 1
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
+  %21 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %19, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  %23 = load atomic i8, ptr %22 monotonic, align 1
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
 
 _ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i:      ; preds = %8
-  %24 = atomicrmw xchg ptr %21, i8 1 seq_cst, align 1
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %26
+  %25 = atomicrmw xchg ptr %22, i8 1 seq_cst, align 1
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %27
 
-26:                                               ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
-  store ptr %21, ptr %5, align 8, !tbaa !173
-  %27 = load ptr, ptr %7, align 8, !tbaa !176
-  %28 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %27, i64 %20
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !177
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  %32 = load ptr, ptr %31, align 8, !tbaa !182
-  %33 = getelementptr inbounds i8, ptr %32, i64 -8
-  %.not.i.i = icmp eq ptr %30, %33
-  br i1 %.not.i.i, label %37, label %34
+27:                                               ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
+  store ptr %22, ptr %5, align 8, !tbaa !173
+  %28 = load ptr, ptr %7, align 8, !tbaa !176
+  %29 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %28, i64 %20
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %31 = load ptr, ptr %30, align 8, !tbaa !177
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  %33 = load ptr, ptr %32, align 8, !tbaa !182
+  %34 = getelementptr inbounds i8, ptr %33, i64 -8
+  %.not.i.i = icmp eq ptr %31, %34
+  br i1 %.not.i.i, label %38, label %35
 
-34:                                               ; preds = %26
-  %35 = load ptr, ptr %4, align 8, !tbaa !147
-  store ptr %35, ptr %30, align 8, !tbaa !147
-  %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %36, ptr %29, align 8, !tbaa !177
+35:                                               ; preds = %27
+  %36 = load ptr, ptr %4, align 8, !tbaa !147
+  store ptr %36, ptr %31, align 8, !tbaa !147
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %37, ptr %30, align 8, !tbaa !177
   br label %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i
 
-37:                                               ; preds = %26
-  invoke void @_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE16_M_push_back_auxIJRKS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i unwind label %40
+38:                                               ; preds = %27
+  invoke void @_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE16_M_push_back_auxIJRKS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %29, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i unwind label %41
 
-_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i: ; preds = %37, %34
-  %38 = shl nuw i64 1, %20
-  %39 = atomicrmw or ptr %0, i64 %38 seq_cst, align 8
+_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i: ; preds = %38, %35
+  %39 = shl nuw i64 1, %20
+  %40 = atomicrmw or ptr %0, i64 %39 seq_cst, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i
 
-40:                                               ; preds = %37
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %38
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %41
+  resume { ptr, i32 } %42
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i: ; preds = %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i, %8
-  %42 = phi i1 [ true, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i ], [ false, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i ], [ false, %8 ]
-  %43 = load ptr, ptr %5, align 8, !tbaa !173
-  %.not.i6.i = icmp eq ptr %43, null
-  br i1 %.not.i6.i, label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit, label %44
+  %43 = phi i1 [ true, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i ], [ false, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i ], [ false, %8 ]
+  %44 = load ptr, ptr %5, align 8, !tbaa !173
+  %.not.i6.i = icmp eq ptr %44, null
+  br i1 %.not.i6.i, label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit, label %45
 
-44:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i
-  %45 = atomicrmw xchg ptr %43, i8 0 seq_cst, align 1
-  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %43)
-          to label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit unwind label %46
+45:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i
+  %46 = atomicrmw xchg ptr %44, i8 0 seq_cst, align 1
+  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %44)
+          to label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit unwind label %47
 
-46:                                               ; preds = %44
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %45
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #17
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #17
   unreachable
 
-_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, %44
+_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %42, label %49, label %8, !llvm.loop !186
+  br i1 %43, label %50, label %8, !llvm.loop !186
 
-49:                                               ; preds = %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit
+50:                                               ; preds = %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE8try_pushEPNS0_2d14taskEj.exit
   ret void
 }
 
@@ -1220,75 +1222,76 @@ define linkonce_odr void @_ZN3tbb6detail2r111task_streamILNS1_25task_stream_acce
   store ptr null, ptr %5, align 8, !tbaa !173
   %19 = load ptr, ptr %7, align 8, !tbaa !188
   %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %19, i64 %20, i32 1
-  %22 = load atomic i8, ptr %21 monotonic, align 1
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
+  %21 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %19, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  %23 = load atomic i8, ptr %22 monotonic, align 1
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
 
 _ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i:      ; preds = %8
-  %24 = atomicrmw xchg ptr %21, i8 1 seq_cst, align 1
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %26
+  %25 = atomicrmw xchg ptr %22, i8 1 seq_cst, align 1
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, label %27
 
-26:                                               ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
-  store ptr %21, ptr %5, align 8, !tbaa !173
-  %27 = load ptr, ptr %7, align 8, !tbaa !188
-  %28 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %27, i64 %20
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !177
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  %32 = load ptr, ptr %31, align 8, !tbaa !182
-  %33 = getelementptr inbounds i8, ptr %32, i64 -8
-  %.not.i.i = icmp eq ptr %30, %33
-  br i1 %.not.i.i, label %37, label %34
+27:                                               ; preds = %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i
+  store ptr %22, ptr %5, align 8, !tbaa !173
+  %28 = load ptr, ptr %7, align 8, !tbaa !188
+  %29 = getelementptr inbounds nuw %"struct.tbb::detail::r1::queue_and_mutex", ptr %28, i64 %20
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %31 = load ptr, ptr %30, align 8, !tbaa !177
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  %33 = load ptr, ptr %32, align 8, !tbaa !182
+  %34 = getelementptr inbounds i8, ptr %33, i64 -8
+  %.not.i.i = icmp eq ptr %31, %34
+  br i1 %.not.i.i, label %38, label %35
 
-34:                                               ; preds = %26
-  %35 = load ptr, ptr %4, align 8, !tbaa !147
-  store ptr %35, ptr %30, align 8, !tbaa !147
-  %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %36, ptr %29, align 8, !tbaa !177
+35:                                               ; preds = %27
+  %36 = load ptr, ptr %4, align 8, !tbaa !147
+  store ptr %36, ptr %31, align 8, !tbaa !147
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %37, ptr %30, align 8, !tbaa !177
   br label %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i
 
-37:                                               ; preds = %26
-  invoke void @_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE16_M_push_back_auxIJRKS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i unwind label %40
+38:                                               ; preds = %27
+  invoke void @_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE16_M_push_back_auxIJRKS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %29, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i unwind label %41
 
-_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i: ; preds = %37, %34
-  %38 = shl nuw i64 1, %20
-  %39 = atomicrmw or ptr %0, i64 %38 seq_cst, align 8
+_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i: ; preds = %38, %35
+  %39 = shl nuw i64 1, %20
+  %40 = atomicrmw or ptr %0, i64 %39 seq_cst, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i
 
-40:                                               ; preds = %37
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %38
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %41
+  resume { ptr, i32 } %42
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i: ; preds = %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i, %8
-  %42 = phi i1 [ true, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i ], [ false, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i ], [ false, %8 ]
-  %43 = load ptr, ptr %5, align 8, !tbaa !173
-  %.not.i6.i = icmp eq ptr %43, null
-  br i1 %.not.i6.i, label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE0EE8try_pushEPNS0_2d14taskEj.exit, label %44
+  %43 = phi i1 [ true, %_ZNSt5dequeIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE9push_backERKS4_.exit.i ], [ false, %_ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i ], [ false, %8 ]
+  %44 = load ptr, ptr %5, align 8, !tbaa !173
+  %.not.i6.i = icmp eq ptr %44, null
+  br i1 %.not.i6.i, label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE0EE8try_pushEPNS0_2d14taskEj.exit, label %45
 
-44:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i
-  %45 = atomicrmw xchg ptr %43, i8 0 seq_cst, align 1
-  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %43)
-          to label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE0EE8try_pushEPNS0_2d14taskEj.exit unwind label %46
+45:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i
+  %46 = atomicrmw xchg ptr %44, i8 0 seq_cst, align 1
+  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %44)
+          to label %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE0EE8try_pushEPNS0_2d14taskEj.exit unwind label %47
 
-46:                                               ; preds = %44
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %45
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #17
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #17
   unreachable
 
-_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE0EE8try_pushEPNS0_2d14taskEj.exit: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, %44
+_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE0EE8try_pushEPNS0_2d14taskEj.exit: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread.i, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %42, label %49, label %8, !llvm.loop !189
+  br i1 %43, label %50, label %8, !llvm.loop !189
 
-49:                                               ; preds = %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE0EE8try_pushEPNS0_2d14taskEj.exit
+50:                                               ; preds = %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE0EE8try_pushEPNS0_2d14taskEj.exit
   ret void
 }
 

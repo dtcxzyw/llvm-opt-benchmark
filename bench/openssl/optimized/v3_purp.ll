@@ -1061,7 +1061,7 @@ define range(i32 0, 2) i32 @X509_PURPOSE_add(i32 noundef %0, i32 noundef %1, i32
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 185, ptr noundef nonnull @__func__.X509_PURPOSE_add) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 146, ptr noundef null) #8
-  br label %108
+  br label %109
 
 12:                                               ; preds = %7
   %13 = icmp slt i32 %1, 0
@@ -1077,14 +1077,14 @@ define range(i32 0, 2) i32 @X509_PURPOSE_add(i32 noundef %0, i32 noundef %1, i32
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.X509_PURPOSE_add) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524550, ptr noundef null) #8
-  br label %108
+  br label %109
 
 18:                                               ; preds = %12
   %19 = and i32 %2, -4
   br label %20
 
-20:                                               ; preds = %40, %18
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %40 ], [ 0, %18 ]
+20:                                               ; preds = %41, %18
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %18 ]
   %21 = load ptr, ptr @xptable, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %X509_PURPOSE_get_count.exit.i, label %22
@@ -1105,199 +1105,200 @@ X509_PURPOSE_get_count.exit.i:                    ; preds = %22, %20
   br i1 %27, label %X509_PURPOSE_get0.exit.i, label %X509_PURPOSE_get0.exit.i.thread
 
 X509_PURPOSE_get0.exit.i:                         ; preds = %26
-  %28 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv.i, i32 5
-  %29 = load ptr, ptr %28, align 16, !tbaa !80
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %5) #9
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %51, label %40
+  %28 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %30 = load ptr, ptr %29, align 16, !tbaa !80
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %5) #9
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %52, label %41
 
 X509_PURPOSE_get0.exit.i.thread:                  ; preds = %26
-  %32 = load ptr, ptr @xptable, align 8, !tbaa !3
-  %33 = trunc i64 %indvars.iv.i to i32
-  %34 = add i32 %33, -10
-  %35 = tail call ptr @OPENSSL_sk_value(ptr noundef %32, i32 noundef %34) #8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !80
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(1) %5) #9
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %54, label %40
+  %33 = load ptr, ptr @xptable, align 8, !tbaa !3
+  %34 = trunc i64 %indvars.iv.i to i32
+  %35 = add i32 %34, -10
+  %36 = tail call ptr @OPENSSL_sk_value(ptr noundef %33, i32 noundef %35) #8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %38 = load ptr, ptr %37, align 8, !tbaa !80
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %5) #9
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %55, label %41
 
-40:                                               ; preds = %X509_PURPOSE_get0.exit.i.thread, %X509_PURPOSE_get0.exit.i
+41:                                               ; preds = %X509_PURPOSE_get0.exit.i.thread, %X509_PURPOSE_get0.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %20, !llvm.loop !81
 
 X509_PURPOSE_get_by_sname.exit.thread:            ; preds = %X509_PURPOSE_get_count.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %or.cond.i = icmp ult i32 %0, 11
-  br i1 %or.cond.i, label %select.unfold, label %41
+  br i1 %or.cond.i, label %select.unfold, label %42
 
-41:                                               ; preds = %X509_PURPOSE_get_by_sname.exit.thread
-  %42 = load ptr, ptr @xptable, align 8, !tbaa !3
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %46, label %44
+42:                                               ; preds = %X509_PURPOSE_get_by_sname.exit.thread
+  %43 = load ptr, ptr @xptable, align 8, !tbaa !3
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %47, label %45
 
-44:                                               ; preds = %41
+45:                                               ; preds = %42
   store i32 %0, ptr %9, align 8, !tbaa !8
-  %45 = call i32 @OPENSSL_sk_find(ptr noundef nonnull %42, ptr noundef nonnull %9) #8
-  %.inv.i = icmp sgt i32 %45, -1
-  br i1 %.inv.i, label %select.unfold, label %46
+  %46 = call i32 @OPENSSL_sk_find(ptr noundef nonnull %43, ptr noundef nonnull %9) #8
+  %.inv.i = icmp sgt i32 %46, -1
+  br i1 %.inv.i, label %select.unfold, label %47
 
-select.unfold:                                    ; preds = %44, %X509_PURPOSE_get_by_sname.exit.thread
+select.unfold:                                    ; preds = %45, %X509_PURPOSE_get_by_sname.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 202, ptr noundef nonnull @__func__.X509_PURPOSE_add) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 173, ptr noundef null) #8
-  br label %108
+  br label %109
 
-46:                                               ; preds = %41, %44
+47:                                               ; preds = %42, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %47 = call noalias ptr @CRYPTO_malloc(i64 noundef 48, ptr noundef nonnull @.str, i32 noundef 205) #8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %108, label %49
+  %48 = call noalias ptr @CRYPTO_malloc(i64 noundef 48, ptr noundef nonnull @.str, i32 noundef 205) #8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %109, label %50
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 1, ptr %50, align 8, !tbaa !82
-  br label %67
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 1, ptr %51, align 8, !tbaa !82
+  br label %68
 
-51:                                               ; preds = %X509_PURPOSE_get0.exit.i
-  %52 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %53 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv.i
+52:                                               ; preds = %X509_PURPOSE_get0.exit.i
+  %53 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %54 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv.i
   br label %X509_PURPOSE_get0.exit
 
-54:                                               ; preds = %X509_PURPOSE_get0.exit.i.thread
-  %55 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %56 = load ptr, ptr @xptable, align 8, !tbaa !3
-  %57 = add nsw i32 %55, -10
-  %58 = tail call ptr @OPENSSL_sk_value(ptr noundef %56, i32 noundef %57) #8
+55:                                               ; preds = %X509_PURPOSE_get0.exit.i.thread
+  %56 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %57 = load ptr, ptr @xptable, align 8, !tbaa !3
+  %58 = add nsw i32 %56, -10
+  %59 = tail call ptr @OPENSSL_sk_value(ptr noundef %57, i32 noundef %58) #8
   br label %X509_PURPOSE_get0.exit
 
-X509_PURPOSE_get0.exit:                           ; preds = %51, %54
-  %59 = phi i32 [ %52, %51 ], [ %55, %54 ]
-  %.0.i69 = phi ptr [ %53, %51 ], [ %58, %54 ]
-  %60 = load i32, ptr %.0.i69, align 8, !tbaa !8
-  %.not = icmp eq i32 %0, %60
-  br i1 %.not, label %67, label %61
+X509_PURPOSE_get0.exit:                           ; preds = %52, %55
+  %60 = phi i32 [ %53, %52 ], [ %56, %55 ]
+  %.0.i69 = phi ptr [ %54, %52 ], [ %59, %55 ]
+  %61 = load i32, ptr %.0.i69, align 8, !tbaa !8
+  %.not = icmp eq i32 %0, %61
+  br i1 %.not, label %68, label %62
 
-61:                                               ; preds = %X509_PURPOSE_get0.exit
+62:                                               ; preds = %X509_PURPOSE_get0.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %or.cond.i70 = icmp ult i32 %0, 11
-  br i1 %or.cond.i70, label %select.unfold81, label %62
+  br i1 %or.cond.i70, label %select.unfold81, label %63
 
-62:                                               ; preds = %61
-  %63 = load ptr, ptr @xptable, align 8, !tbaa !3
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %X509_PURPOSE_get_by_id.exit75.thread, label %65
+63:                                               ; preds = %62
+  %64 = load ptr, ptr @xptable, align 8, !tbaa !3
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %X509_PURPOSE_get_by_id.exit75.thread, label %66
 
-65:                                               ; preds = %62
+66:                                               ; preds = %63
   store i32 %0, ptr %8, align 8, !tbaa !8
-  %66 = call i32 @OPENSSL_sk_find(ptr noundef nonnull %63, ptr noundef nonnull %8) #8
-  %.inv.i72 = icmp sgt i32 %66, -1
+  %67 = call i32 @OPENSSL_sk_find(ptr noundef nonnull %64, ptr noundef nonnull %8) #8
+  %.inv.i72 = icmp sgt i32 %67, -1
   br i1 %.inv.i72, label %select.unfold81, label %X509_PURPOSE_get_by_id.exit75.thread
 
-X509_PURPOSE_get_by_id.exit75.thread:             ; preds = %62, %65
+X509_PURPOSE_get_by_id.exit75.thread:             ; preds = %63, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %67
+  br label %68
 
-select.unfold81:                                  ; preds = %65, %61
+select.unfold81:                                  ; preds = %66, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 212, ptr noundef nonnull @__func__.X509_PURPOSE_add) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 173, ptr noundef null) #8
-  br label %108
+  br label %109
 
-67:                                               ; preds = %X509_PURPOSE_get_by_id.exit75.thread, %X509_PURPOSE_get0.exit, %49
-  %.0.i77 = phi i32 [ -1, %49 ], [ %59, %X509_PURPOSE_get0.exit ], [ %59, %X509_PURPOSE_get_by_id.exit75.thread ]
-  %.052 = phi i1 [ false, %49 ], [ true, %X509_PURPOSE_get0.exit ], [ false, %X509_PURPOSE_get_by_id.exit75.thread ]
-  %.0 = phi ptr [ %47, %49 ], [ %.0.i69, %X509_PURPOSE_get0.exit ], [ %.0.i69, %X509_PURPOSE_get_by_id.exit75.thread ]
-  %68 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %69 = load i32, ptr %68, align 8, !tbaa !82
-  %70 = and i32 %69, 2
-  %.not64 = icmp eq i32 %70, 0
-  br i1 %.not64, label %76, label %71
+68:                                               ; preds = %X509_PURPOSE_get_by_id.exit75.thread, %X509_PURPOSE_get0.exit, %50
+  %.0.i77 = phi i32 [ -1, %50 ], [ %60, %X509_PURPOSE_get0.exit ], [ %60, %X509_PURPOSE_get_by_id.exit75.thread ]
+  %.052 = phi i1 [ false, %50 ], [ true, %X509_PURPOSE_get0.exit ], [ false, %X509_PURPOSE_get_by_id.exit75.thread ]
+  %.0 = phi ptr [ %48, %50 ], [ %.0.i69, %X509_PURPOSE_get0.exit ], [ %.0.i69, %X509_PURPOSE_get_by_id.exit75.thread ]
+  %69 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %70 = load i32, ptr %69, align 8, !tbaa !82
+  %71 = and i32 %70, 2
+  %.not64 = icmp eq i32 %71, 0
+  br i1 %.not64, label %77, label %72
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !83
-  call void @CRYPTO_free(ptr noundef %73, ptr noundef nonnull @.str, i32 noundef 219) #8
-  %74 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %75 = load ptr, ptr %74, align 8, !tbaa !80
-  call void @CRYPTO_free(ptr noundef %75, ptr noundef nonnull @.str, i32 noundef 220) #8
-  br label %76
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  %74 = load ptr, ptr %73, align 8, !tbaa !83
+  call void @CRYPTO_free(ptr noundef %74, ptr noundef nonnull @.str, i32 noundef 219) #8
+  %75 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %76 = load ptr, ptr %75, align 8, !tbaa !80
+  call void @CRYPTO_free(ptr noundef %76, ptr noundef nonnull @.str, i32 noundef 220) #8
+  br label %77
 
-76:                                               ; preds = %71, %67
-  %77 = call noalias ptr @CRYPTO_strdup(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 223) #8
-  %78 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr %77, ptr %78, align 8, !tbaa !83
-  %79 = call noalias ptr @CRYPTO_strdup(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 224) #8
-  %80 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  store ptr %79, ptr %80, align 8, !tbaa !80
-  %81 = load ptr, ptr %78, align 8, !tbaa !83
-  %82 = icmp eq ptr %81, null
-  %83 = icmp eq ptr %79, null
-  %or.cond67 = select i1 %82, i1 true, i1 %83
-  br i1 %or.cond67, label %105, label %84
+77:                                               ; preds = %72, %68
+  %78 = call noalias ptr @CRYPTO_strdup(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 223) #8
+  %79 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  store ptr %78, ptr %79, align 8, !tbaa !83
+  %80 = call noalias ptr @CRYPTO_strdup(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 224) #8
+  %81 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  store ptr %80, ptr %81, align 8, !tbaa !80
+  %82 = load ptr, ptr %79, align 8, !tbaa !83
+  %83 = icmp eq ptr %82, null
+  %84 = icmp eq ptr %80, null
+  %or.cond67 = select i1 %83, i1 true, i1 %84
+  br i1 %or.cond67, label %106, label %85
 
-84:                                               ; preds = %76
-  %85 = load i32, ptr %68, align 8, !tbaa !82
-  %86 = and i32 %85, 1
-  %87 = or disjoint i32 %19, %86
-  %88 = or disjoint i32 %87, 2
-  store i32 %88, ptr %68, align 8, !tbaa !82
+85:                                               ; preds = %77
+  %86 = load i32, ptr %69, align 8, !tbaa !82
+  %87 = and i32 %86, 1
+  %88 = or disjoint i32 %19, %87
+  %89 = or disjoint i32 %88, 2
+  store i32 %89, ptr %69, align 8, !tbaa !82
   store i32 %0, ptr %.0, align 8, !tbaa !8
-  %89 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  store i32 %1, ptr %89, align 4, !tbaa !84
-  %90 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store ptr %3, ptr %90, align 8, !tbaa !12
-  %91 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  store ptr %6, ptr %91, align 8, !tbaa !85
-  br i1 %.not84, label %101, label %92
+  %90 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  store i32 %1, ptr %90, align 4, !tbaa !84
+  %91 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  store ptr %3, ptr %91, align 8, !tbaa !12
+  %92 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  store ptr %6, ptr %92, align 8, !tbaa !85
+  br i1 %.not84, label %102, label %93
 
-92:                                               ; preds = %84
-  %93 = load ptr, ptr @xptable, align 8, !tbaa !3
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %95, label %98
+93:                                               ; preds = %85
+  %94 = load ptr, ptr @xptable, align 8, !tbaa !3
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %99
 
-95:                                               ; preds = %92
-  %96 = call ptr @OPENSSL_sk_new(ptr noundef nonnull @xp_cmp) #8
-  store ptr %96, ptr @xptable, align 8, !tbaa !3
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %.thread.sink.split, label %98
+96:                                               ; preds = %93
+  %97 = call ptr @OPENSSL_sk_new(ptr noundef nonnull @xp_cmp) #8
+  store ptr %97, ptr @xptable, align 8, !tbaa !3
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %.thread.sink.split, label %99
 
-98:                                               ; preds = %95, %92
-  %99 = phi ptr [ %96, %95 ], [ %93, %92 ]
-  %100 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %99, ptr noundef nonnull %.0) #8
-  %.not66 = icmp eq i32 %100, 0
-  br i1 %.not66, label %.thread.sink.split, label %108
+99:                                               ; preds = %96, %93
+  %100 = phi ptr [ %97, %96 ], [ %94, %93 ]
+  %101 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %100, ptr noundef nonnull %.0) #8
+  %.not66 = icmp eq i32 %101, 0
+  br i1 %.not66, label %.thread.sink.split, label %109
 
-101:                                              ; preds = %84
-  br i1 %.052, label %108, label %102
+102:                                              ; preds = %85
+  br i1 %.052, label %109, label %103
 
-102:                                              ; preds = %101
-  %103 = load ptr, ptr @xptable, align 8, !tbaa !3
-  %104 = call ptr @OPENSSL_sk_set(ptr noundef %103, i32 noundef %.0.i77, ptr noundef nonnull %.0) #8
-  br label %108
+103:                                              ; preds = %102
+  %104 = load ptr, ptr @xptable, align 8, !tbaa !3
+  %105 = call ptr @OPENSSL_sk_set(ptr noundef %104, i32 noundef %.0.i77, ptr noundef nonnull %.0) #8
+  br label %109
 
-105:                                              ; preds = %76
-  br i1 %.not84, label %108, label %.thread
+106:                                              ; preds = %77
+  br i1 %.not84, label %109, label %.thread
 
-.thread.sink.split:                               ; preds = %98, %95
-  %.sink = phi i32 [ 241, %95 ], [ 245, %98 ]
+.thread.sink.split:                               ; preds = %99, %96
+  %.sink = phi i32 [ 241, %96 ], [ 245, %99 ]
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.X509_PURPOSE_add) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524303, ptr noundef null) #8
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %105
-  %106 = load ptr, ptr %78, align 8, !tbaa !83
-  call void @CRYPTO_free(ptr noundef %106, ptr noundef nonnull @.str, i32 noundef 255) #8
-  %107 = load ptr, ptr %80, align 8, !tbaa !80
-  call void @CRYPTO_free(ptr noundef %107, ptr noundef nonnull @.str, i32 noundef 256) #8
+.thread:                                          ; preds = %.thread.sink.split, %106
+  %107 = load ptr, ptr %79, align 8, !tbaa !83
+  call void @CRYPTO_free(ptr noundef %107, ptr noundef nonnull @.str, i32 noundef 255) #8
+  %108 = load ptr, ptr %81, align 8, !tbaa !80
+  call void @CRYPTO_free(ptr noundef %108, ptr noundef nonnull @.str, i32 noundef 256) #8
   call void @CRYPTO_free(ptr noundef nonnull %.0, ptr noundef nonnull @.str, i32 noundef 257) #8
-  br label %108
+  br label %109
 
-108:                                              ; preds = %105, %.thread, %98, %102, %101, %46, %select.unfold81, %select.unfold, %17, %11
-  %.051 = phi i32 [ 0, %11 ], [ 0, %17 ], [ 0, %select.unfold ], [ 0, %select.unfold81 ], [ 0, %46 ], [ 1, %101 ], [ 1, %102 ], [ 1, %98 ], [ 0, %.thread ], [ 0, %105 ]
+109:                                              ; preds = %106, %.thread, %99, %103, %102, %47, %select.unfold81, %select.unfold, %17, %11
+  %.051 = phi i32 [ 0, %11 ], [ 0, %17 ], [ 0, %select.unfold ], [ 0, %select.unfold81 ], [ 0, %47 ], [ 1, %102 ], [ 1, %103 ], [ 1, %99 ], [ 0, %.thread ], [ 0, %106 ]
   ret i32 %.051
 }
 

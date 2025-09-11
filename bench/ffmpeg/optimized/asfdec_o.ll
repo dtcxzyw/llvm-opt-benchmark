@@ -1109,7 +1109,7 @@ asf_read_replicated_data.exit.i.i:                ; preds = %224, %218, %193
   br i1 %or.cond.i.i, label %.thread, label %351
 
 351:                                              ; preds = %338
-  %352 = icmp ult i64 %.057.i.i, %346
+  %352 = icmp samesign ult i64 %.057.i.i, %346
   %353 = trunc nuw i64 %.057.i.i to i32
   %354 = sub i32 %345, %353
   %storemerge.i.i = select i1 %352, i32 %354, i32 0

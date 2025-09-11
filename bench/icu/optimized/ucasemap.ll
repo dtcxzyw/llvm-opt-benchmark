@@ -1897,7 +1897,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %161 = or disjoint i32 %160, %159
   %162 = add nsw i32 %.8202, 1
   %163 = load ptr, ptr %22, align 8, !tbaa !37
-  %164 = icmp ult i32 %.7226, 864
+  %164 = icmp samesign ult i32 %.7226, 864
   br i1 %164, label %._crit_edge, label %173
 
 ._crit_edge:                                      ; preds = %158
@@ -1912,7 +1912,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br label %213
 
 173:                                              ; preds = %158
-  %174 = icmp ult i32 %.7226, 1024
+  %174 = icmp samesign ult i32 %.7226, 1024
   br i1 %174, label %175, label %187
 
 175:                                              ; preds = %173
@@ -1930,7 +1930,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br label %213
 
 187:                                              ; preds = %173
-  %188 = icmp ugt i32 %.7226, 17407
+  %188 = icmp samesign ugt i32 %.7226, 17407
   br i1 %188, label %189, label %192
 
 189:                                              ; preds = %187
@@ -3341,7 +3341,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %157 = or disjoint i32 %156, %155
   %158 = add nsw i32 %.8191.i, 1
   %159 = load ptr, ptr %18, align 8, !tbaa !37
-  %160 = icmp ult i32 %.7215.i, 864
+  %160 = icmp samesign ult i32 %.7215.i, 864
   br i1 %160, label %._crit_edge.i, label %169
 
 ._crit_edge.i:                                    ; preds = %154
@@ -3356,7 +3356,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br label %209
 
 169:                                              ; preds = %154
-  %170 = icmp ult i32 %.7215.i, 1024
+  %170 = icmp samesign ult i32 %.7215.i, 1024
   br i1 %170, label %171, label %183
 
 171:                                              ; preds = %169
@@ -3374,7 +3374,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br label %209
 
 183:                                              ; preds = %169
-  %184 = icmp ugt i32 %.7215.i, 17407
+  %184 = icmp samesign ugt i32 %.7215.i, 17407
   br i1 %184, label %185, label %188
 
 185:                                              ; preds = %183

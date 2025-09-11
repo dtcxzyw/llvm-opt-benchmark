@@ -612,9 +612,10 @@ define hidden noundef ptr @_ZNK3smt6kernel11get_formulaEj(ptr noundef nonnull re
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1152
   %5 = load ptr, ptr %4, align 8, !tbaa !516
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %class.justified_expr, ptr %5, i64 %6, i32 1
-  %8 = load ptr, ptr %7, align 8, !tbaa !517
-  ret ptr %8
+  %7 = getelementptr inbounds nuw %class.justified_expr, ptr %5, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !517
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -951,35 +952,36 @@ _ZNK3smt7context25get_num_asserted_formulasEv.exit: ; preds = %2
   %wide.trip.count = zext i32 %9 to i64
   br label %14
 
-._crit_edge:                                      ; preds = %21, %_ZNK3smt7context25get_num_asserted_formulasEv.exit.thread, %_ZNK3smt7context25get_num_asserted_formulasEv.exit
+._crit_edge:                                      ; preds = %22, %_ZNK3smt7context25get_num_asserted_formulasEv.exit.thread, %_ZNK3smt7context25get_num_asserted_formulasEv.exit
   %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 1)
   ret void
 
-14:                                               ; preds = %.lr.ph, %21
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+14:                                               ; preds = %.lr.ph, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %15 = load ptr, ptr %4, align 8, !tbaa !516
-  %16 = getelementptr inbounds nuw %class.justified_expr, ptr %15, i64 %indvars.iv, i32 1
-  %17 = load ptr, ptr %16, align 8, !tbaa !517
-  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, i64 noundef 3)
+  %16 = getelementptr inbounds nuw %class.justified_expr, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !517
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, i64 noundef 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %19 = load ptr, ptr %11, align 8, !tbaa !9
-  call void @_ZN11mk_ismt2_ppC1EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(976) %19, i32 noundef 2, i32 noundef 0, ptr noundef null)
-  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %21 unwind label %22
+  %20 = load ptr, ptr %11, align 8, !tbaa !9
+  call void @_ZN11mk_ismt2_ppC1EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(976) %20, i32 noundef 2, i32 noundef 0, ptr noundef null)
+  %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %22 unwind label %23
 
-21:                                               ; preds = %14
+22:                                               ; preds = %14
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !523
 
-22:                                               ; preds = %14
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %14
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable

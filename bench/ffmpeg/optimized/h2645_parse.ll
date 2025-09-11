@@ -1078,39 +1078,40 @@ define void @ff_h2645_packet_uninit(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !40
-  %6 = getelementptr inbounds nuw %struct.H2645NAL, ptr %5, i64 %indvars.iv, i32 12
-  tail call void @av_freep(ptr noundef nonnull %6) #6
+  %6 = getelementptr inbounds nuw %struct.H2645NAL, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  tail call void @av_freep(ptr noundef nonnull %7) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = load i32, ptr %2, align 4, !tbaa !39
-  %8 = sext i32 %7 to i64
-  %9 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  %8 = load i32, ptr %2, align 4, !tbaa !39
+  %9 = sext i32 %8 to i64
+  %10 = icmp slt i64 %indvars.iv.next, %9
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @av_freep(ptr noundef nonnull %0) #6
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %10, align 8, !tbaa !54
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %11, align 8, !tbaa !54
   store i32 0, ptr %2, align 4, !tbaa !39
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %15, label %14
-
-14:                                               ; preds = %._crit_edge
-  tail call void @av_buffer_unref(ptr noundef nonnull %12) #6
-  store ptr null, ptr %11, align 8, !tbaa !31
-  br label %16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !55
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %._crit_edge
-  tail call void @av_freep(ptr noundef nonnull %11) #6
-  br label %16
+  tail call void @av_buffer_unref(ptr noundef nonnull %13) #6
+  store ptr null, ptr %12, align 8, !tbaa !31
+  br label %17
 
-16:                                               ; preds = %15, %14
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 0, ptr %17, align 4, !tbaa !34
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %18, align 8, !tbaa !56
+16:                                               ; preds = %._crit_edge
+  tail call void @av_freep(ptr noundef nonnull %12) #6
+  br label %17
+
+17:                                               ; preds = %16, %15
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 0, ptr %18, align 4, !tbaa !34
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %19, align 8, !tbaa !56
   ret void
 }
 

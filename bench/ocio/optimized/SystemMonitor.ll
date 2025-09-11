@@ -652,7 +652,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16: ; preds = %_ZNSo
 
 28:                                               ; preds = %26
   invoke void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #22
-          to label %47 unwind label %32
+          to label %48 unwind label %32
 
 29:                                               ; preds = %_ZNSolsEm.exit15, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14, %_ZNSolsEm.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %13
   %30 = landingpad { ptr, i32 }
@@ -701,11 +701,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %32
   resume { ptr, i32 } %.pn.pn
 
 44:                                               ; preds = %2
-  %45 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::SystemMonitorsImpl::MonitorInfo", ptr %8, i64 %1, i32 1
-  %46 = load ptr, ptr %45, align 8, !tbaa !34
-  ret ptr %46
+  %45 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::SystemMonitorsImpl::MonitorInfo", ptr %8, i64 %1
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %47 = load ptr, ptr %46, align 8, !tbaa !34
+  ret ptr %47
 
-47:                                               ; preds = %28
+48:                                               ; preds = %28
   unreachable
 }
 

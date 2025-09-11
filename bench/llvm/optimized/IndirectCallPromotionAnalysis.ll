@@ -530,30 +530,31 @@ define dso_local noundef i32 @_ZN4llvm22ICallPromotionAnalysis32getProfitablePro
   %wide.trip.count = zext i32 %invariant.umin to i64
   br label %13
 
-13:                                               ; preds = %.lr.ph, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %.01523 = phi i64 [ %2, %.lr.ph ], [ %21, %20 ]
-  %14 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %7, i64 %indvars.iv, i32 1
-  %15 = load i64, ptr %14, align 8, !tbaa !56
-  %16 = mul i64 %15, 100
-  %17 = mul i64 %.01523, %9
-  %.not.i = icmp uge i64 %16, %17
-  %18 = icmp uge i64 %16, %12
-  %19 = select i1 %.not.i, i1 %18, i1 false
-  br i1 %19, label %20, label %.critedge.loopexit.split.loop.exit27
+13:                                               ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %.01523 = phi i64 [ %2, %.lr.ph ], [ %22, %21 ]
+  %14 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %7, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load i64, ptr %15, align 8, !tbaa !56
+  %17 = mul i64 %16, 100
+  %18 = mul i64 %.01523, %9
+  %.not.i = icmp uge i64 %17, %18
+  %19 = icmp uge i64 %17, %12
+  %20 = select i1 %.not.i, i1 %19, i1 false
+  br i1 %20, label %21, label %.critedge.loopexit.split.loop.exit27
 
-20:                                               ; preds = %13
-  %21 = sub i64 %.01523, %15
+21:                                               ; preds = %13
+  %22 = sub i64 %.01523, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !58
 
 .critedge.loopexit.split.loop.exit27:             ; preds = %13
-  %22 = trunc nuw i64 %indvars.iv to i32
+  %23 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %20, %.critedge.loopexit.split.loop.exit27, %3
-  %.017.lcssa = phi i32 [ 0, %3 ], [ %22, %.critedge.loopexit.split.loop.exit27 ], [ %invariant.umin, %20 ]
+.critedge:                                        ; preds = %21, %.critedge.loopexit.split.loop.exit27, %3
+  %.017.lcssa = phi i32 [ 0, %3 ], [ %23, %.critedge.loopexit.split.loop.exit27 ], [ %invariant.umin, %21 ]
   ret i32 %.017.lcssa
 }
 
@@ -689,7 +690,7 @@ _ZN4llvm11SmallVectorI18InstrProfValueDataLj4EED2Ev.exit: ; preds = %_ZN4llvm15S
 
 57:                                               ; preds = %_ZN4llvm11SmallVectorI18InstrProfValueDataLj4EED2Ev.exit
   store i32 0, ptr %3, align 4, !tbaa !47
-  br label %78
+  br label %79
 
 58:                                               ; preds = %_ZN4llvm11SmallVectorI18InstrProfValueDataLj4EED2Ev.exit
   %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16MaxNumPromotions, i64 120), align 8, !tbaa !34
@@ -708,38 +709,39 @@ _ZN4llvm11SmallVectorI18InstrProfValueDataLj4EED2Ev.exit: ; preds = %_ZN4llvm15S
   %wide.trip.count.i = zext i32 %invariant.umin.i to i64
   br label %66
 
-66:                                               ; preds = %73, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %73 ]
-  %.01523.i = phi i64 [ %60, %.lr.ph.i ], [ %74, %73 ]
-  %67 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %.pre, i64 %indvars.iv.i, i32 1
-  %68 = load i64, ptr %67, align 8, !tbaa !56
-  %69 = mul i64 %68, 100
-  %70 = mul i64 %.01523.i, %62
-  %.not.i.i = icmp uge i64 %69, %70
-  %71 = icmp uge i64 %69, %65
-  %72 = select i1 %.not.i.i, i1 %71, i1 false
-  br i1 %72, label %73, label %.critedge.loopexit.split.loop.exit27.i
+66:                                               ; preds = %74, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %74 ]
+  %.01523.i = phi i64 [ %60, %.lr.ph.i ], [ %75, %74 ]
+  %67 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %.pre, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = load i64, ptr %68, align 8, !tbaa !56
+  %70 = mul i64 %69, 100
+  %71 = mul i64 %.01523.i, %62
+  %.not.i.i = icmp uge i64 %70, %71
+  %72 = icmp uge i64 %70, %65
+  %73 = select i1 %.not.i.i, i1 %72, i1 false
+  br i1 %73, label %74, label %.critedge.loopexit.split.loop.exit27.i
 
-73:                                               ; preds = %66
-  %74 = sub i64 %.01523.i, %68
+74:                                               ; preds = %66
+  %75 = sub i64 %.01523.i, %69
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN4llvm22ICallPromotionAnalysis32getProfitablePromotionCandidatesEPKNS_11InstructionEm.exit, label %66, !llvm.loop !58
 
 .critedge.loopexit.split.loop.exit27.i:           ; preds = %66
-  %75 = trunc nuw i64 %indvars.iv.i to i32
+  %76 = trunc nuw i64 %indvars.iv.i to i32
   br label %_ZN4llvm22ICallPromotionAnalysis32getProfitablePromotionCandidatesEPKNS_11InstructionEm.exit
 
-_ZN4llvm22ICallPromotionAnalysis32getProfitablePromotionCandidatesEPKNS_11InstructionEm.exit: ; preds = %73, %58, %.critedge.loopexit.split.loop.exit27.i
-  %.017.lcssa.i = phi i32 [ 0, %58 ], [ %75, %.critedge.loopexit.split.loop.exit27.i ], [ %invariant.umin.i, %73 ]
+_ZN4llvm22ICallPromotionAnalysis32getProfitablePromotionCandidatesEPKNS_11InstructionEm.exit: ; preds = %74, %58, %.critedge.loopexit.split.loop.exit27.i
+  %.017.lcssa.i = phi i32 [ 0, %58 ], [ %76, %.critedge.loopexit.split.loop.exit27.i ], [ %invariant.umin.i, %74 ]
   store i32 %.017.lcssa.i, ptr %3, align 4, !tbaa !47
-  %76 = load i32, ptr %55, align 8, !tbaa !26
-  %77 = zext i32 %76 to i64
-  br label %78
+  %77 = load i32, ptr %55, align 8, !tbaa !26
+  %78 = zext i32 %77 to i64
+  br label %79
 
-78:                                               ; preds = %_ZN4llvm22ICallPromotionAnalysis32getProfitablePromotionCandidatesEPKNS_11InstructionEm.exit, %57
+79:                                               ; preds = %_ZN4llvm22ICallPromotionAnalysis32getProfitablePromotionCandidatesEPKNS_11InstructionEm.exit, %57
   %.sroa.0.0 = phi ptr [ null, %57 ], [ %.pre, %_ZN4llvm22ICallPromotionAnalysis32getProfitablePromotionCandidatesEPKNS_11InstructionEm.exit ]
-  %.sroa.4.0 = phi i64 [ 0, %57 ], [ %77, %_ZN4llvm22ICallPromotionAnalysis32getProfitablePromotionCandidatesEPKNS_11InstructionEm.exit ]
+  %.sroa.4.0 = phi i64 [ 0, %57 ], [ %78, %_ZN4llvm22ICallPromotionAnalysis32getProfitablePromotionCandidatesEPKNS_11InstructionEm.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert

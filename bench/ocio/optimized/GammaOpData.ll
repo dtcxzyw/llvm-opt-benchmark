@@ -3106,43 +3106,35 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev11GammaOpData10mayCom
 
 7:                                                ; preds = %2
   %8 = icmp ult i32 %6, 10
-  br i1 %8, label %switch.lookup, label %15
+  %switch.masked = icmp ult i32 %6, 6
+  %spec.select = select i1 %8, i1 %switch.masked, i1 false
+  br label %switch.lookup
 
 9:                                                ; preds = %2
   %10 = and i32 %4, -2
-  switch i32 %10, label %15 [
+  switch i32 %10, label %switch.lookup [
     i32 2, label %11
     i32 4, label %13
   ]
 
 11:                                               ; preds = %9
   %12 = icmp ult i32 %6, 10
-  br i1 %12, label %switch.lookup18, label %15
+  %switch.masked22 = icmp ult i32 %6, 4
+  %spec.select28 = select i1 %12, i1 %switch.masked22, i1 false
+  br label %switch.lookup
 
 13:                                               ; preds = %9
   %14 = icmp ult i32 %6, 10
-  br i1 %14, label %switch.lookup23, label %15
-
-switch.lookup:                                    ; preds = %7
-  %switch.cast = trunc nuw i32 %6 to i10
-  %switch.downshift = lshr i10 63, %switch.cast
-  %switch.masked = trunc i10 %switch.downshift to i1
-  br label %15
-
-switch.lookup18:                                  ; preds = %11
-  %switch.cast19 = trunc nuw i32 %6 to i10
-  %switch.downshift21 = lshr i10 15, %switch.cast19
-  %switch.masked22 = trunc i10 %switch.downshift21 to i1
-  br label %15
+  br i1 %14, label %switch.lookup23, label %switch.lookup
 
 switch.lookup23:                                  ; preds = %13
   %switch.cast24 = trunc nuw i32 %6 to i10
   %switch.downshift26 = lshr i10 51, %switch.cast24
   %switch.masked27 = trunc i10 %switch.downshift26 to i1
-  br label %15
+  br label %switch.lookup
 
-15:                                               ; preds = %9, %7, %11, %13, %switch.lookup23, %switch.lookup18, %switch.lookup
-  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked22, %switch.lookup18 ], [ %switch.masked27, %switch.lookup23 ], [ false, %13 ], [ false, %11 ], [ false, %7 ], [ false, %9 ]
+switch.lookup:                                    ; preds = %11, %7, %9, %13, %switch.lookup23
+  %.0 = phi i1 [ %switch.masked27, %switch.lookup23 ], [ false, %13 ], [ false, %9 ], [ %spec.select, %7 ], [ %spec.select28, %11 ]
   ret i1 %.0
 }
 

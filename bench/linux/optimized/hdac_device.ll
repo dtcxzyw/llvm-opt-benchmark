@@ -1459,7 +1459,8 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %.preheader
-  %26 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %19, i32 1
+  %.split = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %19
+  %26 = getelementptr i8, ptr %.split, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = or i32 %27, %20
   br label %29
@@ -1684,7 +1685,8 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
 
 10:                                               ; preds = %20, %8
   %11 = phi i64 [ 0, %8 ], [ %21, %20 ]
-  %12 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %11, i32 2
+  %.split = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 8
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %9
   br i1 %14, label %15, label %20

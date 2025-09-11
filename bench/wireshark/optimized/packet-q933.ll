@@ -1680,11 +1680,11 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
 
 505:                                              ; preds = %497
   %506 = add nsw i32 %490, -1
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %506, i32 %503)
-  %.not44.i = icmp eq i32 %spec.select.i, 0
+  %.not44.i = icmp eq i32 %506, 0
   br i1 %.not44.i, label %.thread.i205, label %507
 
 507:                                              ; preds = %505
+  %spec.select.i = call i32 @llvm.umin.i32(i32 %506, i32 %503)
   %508 = load i32, ptr @hf_q933_network_identification, align 4
   %509 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %508, ptr noundef %0, i32 noundef %502, i32 noundef %spec.select.i, i32 noundef 0)
   %510 = add i32 %spec.select.i, %502
@@ -2180,7 +2180,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #3
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

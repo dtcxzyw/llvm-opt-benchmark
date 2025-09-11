@@ -462,7 +462,8 @@ define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr nounde
 31:                                               ; preds = %110, %20
   %32 = phi i64 [ 0, %20 ], [ %111, %110 ]
   %33 = load ptr, ptr %21, align 8
-  %34 = getelementptr %struct.acpi_video_enumerated_device, ptr %33, i64 %32, i32 1
+  %.split = getelementptr %struct.acpi_video_enumerated_device, ptr %33, i64 %32
+  %34 = getelementptr i8, ptr %.split, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %110, label %37
@@ -3293,7 +3294,8 @@ define internal noundef range(i32 0, 2) i32 @acpi_video_resume(ptr noundef reado
 13:                                               ; preds = %acpi_video_device_lcd_set_level.exit, %11
   %14 = phi i64 [ 0, %11 ], [ %62, %acpi_video_device_lcd_set_level.exit ]
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr %struct.acpi_video_enumerated_device, ptr %15, i64 %14, i32 1
+  %.split = getelementptr %struct.acpi_video_enumerated_device, ptr %15, i64 %14
+  %16 = getelementptr i8, ptr %.split, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %acpi_video_device_lcd_set_level.exit, label %19

@@ -277,12 +277,12 @@ _ZN9softposit5p16e14math7acos_pi18to_fixed28_acos_pi17hef468dc48a093872E.exit: ;
 
 44:                                               ; preds = %8
   %45 = shl nuw nsw i64 %2, 42
-  %46 = sub nsw i64 72057594037927936, %45
+  %46 = sub nuw nsw i64 72057594037927936, %45
   br label %47
 
 47:                                               ; preds = %47, %44
   %.017.i = phi i64 [ 18014398509481984, %44 ], [ %49, %47 ]
-  %48 = icmp ugt i64 %.017.i, %46
+  %48 = icmp samesign ugt i64 %.017.i, %46
   %49 = lshr i64 %.017.i, 2
   br i1 %48, label %47, label %.preheader.i
 

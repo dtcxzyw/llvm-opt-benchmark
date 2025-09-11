@@ -166,7 +166,7 @@ _ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1
 .loopexit95:                                      ; preds = %51, %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i, %56
   store ptr @_hb_ot_shape, ptr %34, align 8
   store ptr @.str, ptr %35, align 8
-  br label %119
+  br label %120
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(9) @.str.1) #18
@@ -211,7 +211,7 @@ _ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_fac
 .loopexit97:                                      ; preds = %66, %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i, %71
   store ptr @_hb_fallback_shape, ptr %34, align 8
   store ptr @.str.1, ptr %35, align 8
-  br label %119
+  br label %120
 
 _ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit: ; preds = %.thread.i.i64, %.lr.ph.i.i60, %.thread.i.i, %.lr.ph.i.i, %.tail.thread
   %79 = getelementptr inbounds nuw i8, ptr %.046105, i64 8
@@ -229,104 +229,105 @@ _ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj
 86:                                               ; preds = %81, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73
   %87 = phi i1 [ true, %81 ], [ false, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73 ]
   %indvars.iv = phi i64 [ 0, %81 ], [ 1, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73 ]
-  %88 = getelementptr inbounds nuw %struct.hb_shaper_entry_t, ptr %82, i64 %indvars.iv, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, @_hb_ot_shape
-  br i1 %90, label %91, label %104
+  %88 = getelementptr inbounds nuw %struct.hb_shaper_entry_t, ptr %82, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp eq ptr %90, @_hb_ot_shape
+  br i1 %91, label %92, label %105
 
-91:                                               ; preds = %86
-  %92 = load atomic i64, ptr %85 acquire, align 8
-  %.not23.i.i65 = icmp eq i64 %92, 0
+92:                                               ; preds = %86
+  %93 = load atomic i64, ptr %85 acquire, align 8
+  %.not23.i.i65 = icmp eq i64 %93, 0
   br i1 %.not23.i.i65, label %.lr.ph.i.i67, label %.loopexit
 
-.lr.ph.i.i67:                                     ; preds = %91, %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70
-  %93 = load ptr, ptr %84, align 8
-  %.not.i.i.i68 = icmp eq ptr %93, null
-  br i1 %.not.i.i.i68, label %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73, label %94
+.lr.ph.i.i67:                                     ; preds = %92, %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70
+  %94 = load ptr, ptr %84, align 8
+  %.not.i.i.i68 = icmp eq ptr %94, null
+  br i1 %.not.i.i.i68, label %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73, label %95
 
-94:                                               ; preds = %.lr.ph.i.i67
-  %95 = tail call noundef ptr @_hb_ot_shaper_face_data_create(ptr noundef nonnull %93)
-  %.not10.i.i69 = icmp eq ptr %95, null
-  br i1 %.not10.i.i69, label %.thread.i.i72, label %96
+95:                                               ; preds = %.lr.ph.i.i67
+  %96 = tail call noundef ptr @_hb_ot_shaper_face_data_create(ptr noundef nonnull %94)
+  %.not10.i.i69 = icmp eq ptr %96, null
+  br i1 %.not10.i.i69, label %.thread.i.i72, label %97
 
-96:                                               ; preds = %94
-  %97 = ptrtoint ptr %95 to i64
-  %98 = cmpxchg weak ptr %85, i64 0, i64 %97 acq_rel monotonic, align 8
-  %99 = extractvalue { i64, i1 } %98, 1
-  br i1 %99, label %.loopexit, label %102
+97:                                               ; preds = %95
+  %98 = ptrtoint ptr %96 to i64
+  %99 = cmpxchg weak ptr %85, i64 0, i64 %98 acq_rel monotonic, align 8
+  %100 = extractvalue { i64, i1 } %99, 1
+  br i1 %100, label %.loopexit, label %103
 
-.thread.i.i72:                                    ; preds = %94
-  %100 = cmpxchg weak ptr %85, i64 0, i64 0 acq_rel monotonic, align 8
-  %101 = extractvalue { i64, i1 } %100, 1
-  br i1 %101, label %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73, label %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70
+.thread.i.i72:                                    ; preds = %95
+  %101 = cmpxchg weak ptr %85, i64 0, i64 0 acq_rel monotonic, align 8
+  %102 = extractvalue { i64, i1 } %101, 1
+  br i1 %102, label %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73, label %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70
 
-102:                                              ; preds = %96
-  tail call void @_hb_ot_shaper_face_data_destroy(ptr noundef nonnull %95)
+103:                                              ; preds = %97
+  tail call void @_hb_ot_shaper_face_data_destroy(ptr noundef nonnull %96)
   br label %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70
 
-_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70: ; preds = %102, %.thread.i.i72
-  %103 = load atomic i64, ptr %85 acquire, align 8
-  %.not.i.i71 = icmp eq i64 %103, 0
+_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70: ; preds = %103, %.thread.i.i72
+  %104 = load atomic i64, ptr %85 acquire, align 8
+  %.not.i.i71 = icmp eq i64 %104, 0
   br i1 %.not.i.i71, label %.lr.ph.i.i67, label %.loopexit
 
-.loopexit:                                        ; preds = %91, %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70, %96
+.loopexit:                                        ; preds = %92, %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70, %97
   store ptr @_hb_ot_shape, ptr %34, align 8
   store ptr @.str, ptr %35, align 8
-  br label %119
+  br label %120
 
-104:                                              ; preds = %86
-  %105 = icmp eq ptr %89, @_hb_fallback_shape
-  br i1 %105, label %106, label %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73
+105:                                              ; preds = %86
+  %106 = icmp eq ptr %90, @_hb_fallback_shape
+  br i1 %106, label %107, label %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73
 
-106:                                              ; preds = %104
-  %107 = load atomic i64, ptr %83 acquire, align 8
-  %.not23.i.i74 = icmp eq i64 %107, 0
+107:                                              ; preds = %105
+  %108 = load atomic i64, ptr %83 acquire, align 8
+  %.not23.i.i74 = icmp eq i64 %108, 0
   br i1 %.not23.i.i74, label %.lr.ph.i.i76, label %.loopexit91
 
-.lr.ph.i.i76:                                     ; preds = %106, %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79
-  %108 = load ptr, ptr %84, align 8
-  %.not.i.i.i77 = icmp eq ptr %108, null
-  br i1 %.not.i.i.i77, label %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73, label %109
+.lr.ph.i.i76:                                     ; preds = %107, %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79
+  %109 = load ptr, ptr %84, align 8
+  %.not.i.i.i77 = icmp eq ptr %109, null
+  br i1 %.not.i.i.i77, label %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73, label %110
 
-109:                                              ; preds = %.lr.ph.i.i76
-  %110 = tail call noundef ptr @_hb_fallback_shaper_face_data_create(ptr noundef nonnull %108)
-  %.not10.i.i78 = icmp eq ptr %110, null
-  br i1 %.not10.i.i78, label %.thread.i.i81, label %111
+110:                                              ; preds = %.lr.ph.i.i76
+  %111 = tail call noundef ptr @_hb_fallback_shaper_face_data_create(ptr noundef nonnull %109)
+  %.not10.i.i78 = icmp eq ptr %111, null
+  br i1 %.not10.i.i78, label %.thread.i.i81, label %112
 
-111:                                              ; preds = %109
-  %112 = ptrtoint ptr %110 to i64
-  %113 = cmpxchg weak ptr %83, i64 0, i64 %112 acq_rel monotonic, align 8
-  %114 = extractvalue { i64, i1 } %113, 1
-  br i1 %114, label %.loopexit91, label %117
+112:                                              ; preds = %110
+  %113 = ptrtoint ptr %111 to i64
+  %114 = cmpxchg weak ptr %83, i64 0, i64 %113 acq_rel monotonic, align 8
+  %115 = extractvalue { i64, i1 } %114, 1
+  br i1 %115, label %.loopexit91, label %118
 
-.thread.i.i81:                                    ; preds = %109
-  %115 = cmpxchg weak ptr %83, i64 0, i64 0 acq_rel monotonic, align 8
-  %116 = extractvalue { i64, i1 } %115, 1
-  br i1 %116, label %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73, label %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79
+.thread.i.i81:                                    ; preds = %110
+  %116 = cmpxchg weak ptr %83, i64 0, i64 0 acq_rel monotonic, align 8
+  %117 = extractvalue { i64, i1 } %116, 1
+  br i1 %117, label %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73, label %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79
 
-117:                                              ; preds = %111
-  tail call void @_hb_fallback_shaper_face_data_destroy(ptr noundef nonnull %110)
+118:                                              ; preds = %112
+  tail call void @_hb_fallback_shaper_face_data_destroy(ptr noundef nonnull %111)
   br label %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79
 
-_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79: ; preds = %117, %.thread.i.i81
-  %118 = load atomic i64, ptr %83 acquire, align 8
-  %.not.i.i80 = icmp eq i64 %118, 0
+_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79: ; preds = %118, %.thread.i.i81
+  %119 = load atomic i64, ptr %83 acquire, align 8
+  %.not.i.i80 = icmp eq i64 %119, 0
   br i1 %.not.i.i80, label %.lr.ph.i.i76, label %.loopexit91
 
-.loopexit91:                                      ; preds = %106, %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79, %111
+.loopexit91:                                      ; preds = %107, %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79, %112
   store ptr @_hb_fallback_shape, ptr %34, align 8
   store ptr @.str.1, ptr %35, align 8
-  br label %119
+  br label %120
 
-_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73: ; preds = %.thread.i.i81, %.lr.ph.i.i76, %.thread.i.i72, %.lr.ph.i.i67, %104
+_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73: ; preds = %.thread.i.i81, %.lr.ph.i.i76, %.thread.i.i72, %.lr.ph.i.i67, %105
   br i1 %87, label %86, label %.loopexit92, !llvm.loop !13
 
 .loopexit92:                                      ; preds = %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73, %.preheader, %11
   %.1 = phi ptr [ null, %11 ], [ %.04584, %.preheader ], [ %.04584, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73 ], [ %.04584, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit ]
   tail call void @free(ptr noundef %.1) #19
-  br label %119
+  br label %120
 
-119:                                              ; preds = %.loopexit92, %.loopexit91, %.loopexit, %.loopexit97, %.loopexit95
+120:                                              ; preds = %.loopexit92, %.loopexit91, %.loopexit, %.loopexit97, %.loopexit95
   %.043 = phi i1 [ true, %.loopexit95 ], [ true, %.loopexit97 ], [ false, %.loopexit92 ], [ true, %.loopexit ], [ true, %.loopexit91 ]
   ret i1 %.043
 }
@@ -762,17 +763,18 @@ define hidden ptr @hb_shape_plan_get_user_data(ptr noundef readonly captures(add
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19, i32 1
+  %20 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
 
 _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, %9
-  %20 = phi ptr [ %.sroa.2.0.copyload.i.i, %18 ], [ null, %9 ], [ null, %17 ]
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %8) #19
+  %21 = phi ptr [ %.sroa.2.0.copyload.i.i, %18 ], [ null, %9 ], [ null, %17 ]
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %8) #19
   br label %_ZL23hb_object_get_user_dataIK15hb_shape_plan_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK15hb_shape_plan_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-  %.0.i = phi ptr [ %20, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %2 ], [ null, %5 ]
+  %.0.i = phi ptr [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %2 ], [ null, %5 ]
   ret ptr %.0.i
 }
 

@@ -462,7 +462,7 @@ alloc_large_chunk.exit:                           ; preds = %41
   store i32 %97, ptr %99, align 8, !tbaa !4
   %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !37
   %101 = sdiv i32 %100, %97
-  %102 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %98, i32 1
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i32 %101, ptr %102, align 4, !tbaa !38
   %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !35
   %104 = icmp sgt i32 %103, 1
@@ -1422,40 +1422,41 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @slabs_pick_any_for_rea
   %slabs_pick_any_for_reassign.cur.promoted = load i32, ptr @slabs_pick_any_for_reassign.cur, align 4
   br label %3
 
-3:                                                ; preds = %1, %15
-  %.07 = phi i32 [ 64, %1 ], [ %16, %15 ]
-  %spec.store.select56 = phi i32 [ %slabs_pick_any_for_reassign.cur.promoted, %1 ], [ %spec.store.select, %15 ]
+3:                                                ; preds = %1, %16
+  %.07 = phi i32 [ 64, %1 ], [ %17, %16 ]
+  %spec.store.select56 = phi i32 [ %slabs_pick_any_for_reassign.cur.promoted, %1 ], [ %spec.store.select, %16 ]
   %4 = add nsw i32 %spec.store.select56, 1
   %5 = icmp sgt i32 %spec.store.select56, 63
   %spec.store.select = select i1 %5, i32 1, i32 %4
   %6 = icmp eq i32 %spec.store.select, %0
-  br i1 %6, label %15, label %7
+  br i1 %6, label %16, label %7
 
 7:                                                ; preds = %3
   %8 = sext i32 %spec.store.select to i64
-  %9 = getelementptr inbounds %struct.slabclass_t, ptr @slabclass, i64 %8, i32 4
-  %10 = load i32, ptr %9, align 4, !tbaa !13
-  %11 = icmp ugt i32 %10, 1
-  br i1 %11, label %12, label %15
+  %9 = getelementptr inbounds %struct.slabclass_t, ptr @slabclass, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %11 = load i32, ptr %10, align 4, !tbaa !13
+  %12 = icmp ugt i32 %11, 1
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %7
+13:                                               ; preds = %7
   store i32 %spec.store.select, ptr @slabs_pick_any_for_reassign.cur, align 4
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
-  %14 = load i32, ptr @slabs_pick_any_for_reassign.cur, align 4, !tbaa !17
-  br label %20
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
+  %15 = load i32, ptr @slabs_pick_any_for_reassign.cur, align 4, !tbaa !17
+  br label %21
 
-15:                                               ; preds = %7, %3
-  %16 = add nsw i32 %.07, -1
-  %17 = icmp samesign ugt i32 %.07, 1
-  br i1 %17, label %3, label %18, !llvm.loop !66
+16:                                               ; preds = %7, %3
+  %17 = add nsw i32 %.07, -1
+  %18 = icmp samesign ugt i32 %.07, 1
+  br i1 %18, label %3, label %19, !llvm.loop !66
 
-18:                                               ; preds = %15
+19:                                               ; preds = %16
   store i32 %spec.store.select, ptr @slabs_pick_any_for_reassign.cur, align 4
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
-  br label %20
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
+  br label %21
 
-20:                                               ; preds = %18, %12
-  %.04 = phi i32 [ %14, %12 ], [ -1, %18 ]
+21:                                               ; preds = %19, %13
+  %.04 = phi i32 [ %15, %13 ], [ -1, %19 ]
   ret i32 %.04
 }
 
@@ -1463,10 +1464,11 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @slabs_pick_any_for_rea
 define dso_local i32 @slabs_page_count(i32 noundef %0) local_unnamed_addr #3 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #21
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %3, i32 4
-  %5 = load i32, ptr %4, align 4, !tbaa !13
-  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
-  ret i32 %5
+  %4 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %6 = load i32, ptr %5, align 4, !tbaa !13
+  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable

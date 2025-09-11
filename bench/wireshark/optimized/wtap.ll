@@ -1131,14 +1131,14 @@ define ptr @wtap_get_debug_if_descr(ptr noundef %0, i32 noundef %1, ptr noundef 
   %28 = load ptr, ptr @encap_table_arr, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = zext nneg i32 %23 to i64
-  %31 = getelementptr %struct.encap_type_info, ptr %29, i64 %30, i32 1
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr %struct.encap_type_info, ptr %29, i64 %30
-  %34 = load ptr, ptr %33, align 8
+  %31 = getelementptr %struct.encap_type_info, ptr %29, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %31, align 8
   br label %wtap_encap_name.exit
 
 wtap_encap_name.exit:                             ; preds = %26, %.thread83, %22, %27
-  %.0.i80 = phi ptr [ %32, %27 ], [ @.str.26, %22 ], [ @.str.28, %.thread83 ], [ @.str.27, %26 ]
+  %.0.i80 = phi ptr [ %33, %27 ], [ @.str.26, %22 ], [ @.str.28, %.thread83 ], [ @.str.27, %26 ]
   %.0.i76 = phi ptr [ %34, %27 ], [ @.str.23, %22 ], [ @.str.25, %.thread83 ], [ @.str.24, %26 ]
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %9, ptr noundef nonnull @.str.8, i32 noundef %1, i32 noundef 32, ptr noundef %.0.i80, i32 noundef %23, ptr noundef %.0.i76, ptr noundef %2)
   %35 = call i32 @wtap_block_get_string_option_value(ptr noundef %0, i32 noundef 15, ptr noundef nonnull %4)
@@ -1310,27 +1310,28 @@ define ptr @wtap_encap_description(i32 noundef %0) local_unnamed_addr #3 {
   %3 = load i32, ptr @wtap_num_encap_types, align 4
   %.not = icmp slt i32 %0, %3
   %or.cond = select i1 %2, i1 %.not, i1 false
-  br i1 %or.cond, label %4, label %12
+  br i1 %or.cond, label %4, label %13
 
 4:                                                ; preds = %1
   switch i32 %0, label %6 [
-    i32 -2, label %12
+    i32 -2, label %13
     i32 -1, label %5
   ]
 
 5:                                                ; preds = %4
-  br label %12
+  br label %13
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr @encap_table_arr, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr %struct.encap_type_info, ptr %8, i64 %9, i32 1
-  %11 = load ptr, ptr %10, align 8
-  br label %12
+  %10 = getelementptr %struct.encap_type_info, ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8
+  br label %13
 
-12:                                               ; preds = %4, %1, %6, %5
-  %.0 = phi ptr [ @.str.28, %5 ], [ %11, %6 ], [ @.str.26, %1 ], [ @.str.27, %4 ]
+13:                                               ; preds = %4, %1, %6, %5
+  %.0 = phi ptr [ @.str.28, %5 ], [ %12, %6 ], [ @.str.26, %1 ], [ @.str.27, %4 ]
   ret ptr %.0
 }
 

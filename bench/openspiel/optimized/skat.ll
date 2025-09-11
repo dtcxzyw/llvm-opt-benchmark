@@ -6082,17 +6082,17 @@ _ZN10open_spiel4skat16PlayerToLocationEi.exit:    ; preds = %70, %79
   br label %83
 
 83:                                               ; preds = %80, %83
-  %indvars.iv104 = phi i64 [ 0, %80 ], [ %indvars.iv.next105, %83 ]
-  %.06094 = phi ptr [ %81, %80 ], [ %88, %83 ]
-  %84 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv104
+  %indvars.iv103 = phi i64 [ 0, %80 ], [ %indvars.iv.next104, %83 ]
+  %.06093 = phi ptr [ %81, %80 ], [ %88, %83 ]
+  %84 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv103
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds float, ptr %.06094, i64 %86
+  %87 = getelementptr inbounds float, ptr %.06093, i64 %86
   store float 1.000000e+00, ptr %87, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %.06094, i64 28
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond107.not = icmp eq i64 %indvars.iv.next105, 3
-  br i1 %exitcond107.not, label %89, label %83, !llvm.loop !37
+  %88 = getelementptr inbounds nuw i8, ptr %.06093, i64 28
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next104, 3
+  br i1 %exitcond106.not, label %89, label %83, !llvm.loop !37
 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -6109,29 +6109,29 @@ _ZN10open_spiel4skat16PlayerToLocationEi.exit:    ; preds = %70, %79
 
 96:                                               ; preds = %93, %89
   %97 = phi i32 [ %.pre, %93 ], [ %91, %89 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.06094, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %.06093, i64 40
   %99 = icmp eq i32 %1, %97
   br i1 %99, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %96, %105
-  %indvars.iv108 = phi i64 [ %indvars.iv.next109, %105 ], [ 0, %96 ]
-  %100 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv108
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %105 ], [ 0, %96 ]
+  %100 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv107
   %101 = load i32, ptr %100, align 4
   %102 = icmp eq i32 %101, 4
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %.preheader
-  %104 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv108
+  %104 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv107
   store float 1.000000e+00, ptr %104, align 4
   br label %105
 
 105:                                              ; preds = %.preheader, %103
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %exitcond111.not = icmp eq i64 %indvars.iv.next109, 32
-  br i1 %exitcond111.not, label %.loopexit, label %.preheader, !llvm.loop !38
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next108, 32
+  br i1 %exitcond110.not, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %105, %96
-  %106 = getelementptr inbounds nuw i8, ptr %.06094, i64 168
+  %106 = getelementptr inbounds nuw i8, ptr %.06093, i64 168
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %108 = load i32, ptr %107, align 4
   %109 = zext i32 %108 to i64
@@ -6142,21 +6142,20 @@ _ZN10open_spiel4skat16PlayerToLocationEi.exit:    ; preds = %70, %79
   br i1 %112, label %113, label %157
 
 113:                                              ; preds = %.loopexit
-  %114 = getelementptr inbounds nuw i8, ptr %.06094, i64 196
+  %114 = getelementptr inbounds nuw i8, ptr %.06093, i64 196
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %117 = load i32, ptr %116, align 4
   %118 = sdiv i32 %117, 3
   %.sroa.speculated.i.i = call noundef i32 @llvm.smin.i32(i32 %118, i32 9)
   %119 = sext i32 %.sroa.speculated.i.i to i64
-  %.idx92 = shl nsw i64 %119, 5
-  %120 = getelementptr i8, ptr %115, i64 %.idx92
-  %121 = getelementptr i8, ptr %120, i64 24
+  %120 = getelementptr inbounds %"class.open_spiel::skat::Trick", ptr %115, i64 %119
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i32, ptr %121, align 8
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds float, ptr %114, i64 %123
   store float 1.000000e+00, ptr %124, align 4
-  %125 = getelementptr inbounds nuw i8, ptr %.06094, i64 208
+  %125 = getelementptr inbounds nuw i8, ptr %.06093, i64 208
   %126 = load i32, ptr %116, align 4
   %127 = sdiv i32 %126, 3
   %.sroa.speculated.i.i69 = call noundef i32 @llvm.smin.i32(i32 %127, i32 9)
@@ -6199,24 +6198,24 @@ _ZNK10open_spiel4skat5Trick8GetCardsEv.exit:      ; preds = %.thread.i, %139
   br label %146
 
 146:                                              ; preds = %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit, %153
-  %indvars.iv112 = phi i64 [ 0, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %indvars.iv.next113, %153 ]
-  %.197 = phi ptr [ %125, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %154, %153 ]
-  %147 = icmp ugt i64 %145, %indvars.iv112
+  %indvars.iv111 = phi i64 [ 0, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %indvars.iv.next112, %153 ]
+  %.196 = phi ptr [ %125, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit ], [ %154, %153 ]
+  %147 = icmp ugt i64 %145, %indvars.iv111
   br i1 %147, label %148, label %153
 
 148:                                              ; preds = %146
-  %149 = getelementptr inbounds nuw i32, ptr %.sroa.081.0, i64 %indvars.iv112
+  %149 = getelementptr inbounds nuw i32, ptr %.sroa.081.0, i64 %indvars.iv111
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds float, ptr %.197, i64 %151
+  %152 = getelementptr inbounds float, ptr %.196, i64 %151
   store float 1.000000e+00, ptr %152, align 4
   br label %153
 
 153:                                              ; preds = %148, %146
-  %154 = getelementptr inbounds nuw i8, ptr %.197, i64 128
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next113, 3
-  br i1 %exitcond115.not, label %155, label %146, !llvm.loop !42
+  %154 = getelementptr inbounds nuw i8, ptr %.196, i64 128
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %exitcond114.not = icmp eq i64 %indvars.iv.next112, 3
+  br i1 %exitcond114.not, label %155, label %146, !llvm.loop !42
 
 155:                                              ; preds = %153
   %.not.i.i.i70 = icmp eq ptr %.sroa.081.0, null
@@ -6227,7 +6226,7 @@ _ZNK10open_spiel4skat5Trick8GetCardsEv.exit:      ; preds = %.thread.i, %139
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 157:                                              ; preds = %.loopexit
-  %158 = getelementptr inbounds nuw i8, ptr %.06094, i64 592
+  %158 = getelementptr inbounds nuw i8, ptr %.06093, i64 592
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %156, %155, %157
@@ -6290,24 +6289,24 @@ _ZNK10open_spiel4skat5Trick8GetCardsEv.exit74:    ; preds = %.thread.i73, %186
   br label %193
 
 193:                                              ; preds = %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74, %200
-  %indvars.iv116 = phi i64 [ 0, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74 ], [ %indvars.iv.next117, %200 ]
-  %.399 = phi ptr [ %170, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74 ], [ %201, %200 ]
-  %194 = icmp ugt i64 %192, %indvars.iv116
+  %indvars.iv115 = phi i64 [ 0, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74 ], [ %indvars.iv.next116, %200 ]
+  %.398 = phi ptr [ %170, %_ZNK10open_spiel4skat5Trick8GetCardsEv.exit74 ], [ %201, %200 ]
+  %194 = icmp ugt i64 %192, %indvars.iv115
   br i1 %194, label %195, label %200
 
 195:                                              ; preds = %193
-  %196 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv116
+  %196 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv115
   %197 = load i32, ptr %196, align 4
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds float, ptr %.399, i64 %198
+  %199 = getelementptr inbounds float, ptr %.398, i64 %198
   store float 1.000000e+00, ptr %199, align 4
   br label %200
 
 200:                                              ; preds = %195, %193
-  %201 = getelementptr inbounds nuw i8, ptr %.399, i64 128
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next117, 3
-  br i1 %exitcond119.not, label %202, label %193, !llvm.loop !46
+  %201 = getelementptr inbounds nuw i8, ptr %.398, i64 128
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %exitcond118.not = icmp eq i64 %indvars.iv.next116, 3
+  br i1 %exitcond118.not, label %202, label %193, !llvm.loop !46
 
 202:                                              ; preds = %200
   %.not.i.i.i75 = icmp eq ptr %.sroa.0.0, null

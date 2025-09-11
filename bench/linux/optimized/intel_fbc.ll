@@ -244,15 +244,17 @@ define dso_local zeroext i1 @intel_fbc_pre_update(ptr noundef readonly captures(
   %39 = load ptr, ptr %11, align 8
   %40 = load i32, ptr %12, align 8
   %41 = zext i32 %40 to i64
-  %42 = getelementptr %struct.__drm_crtcs_state, ptr %39, i64 %41, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %39, i64 %41
+  %42 = getelementptr i8, ptr %.split, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %9, align 8
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 1228
   %46 = load i32, ptr %45, align 4
   %47 = zext i32 %46 to i64
-  %48 = getelementptr %struct.__drm_planes_state, ptr %44, i64 %47, i32 2
+  %.split6 = getelementptr %struct.__drm_planes_state, ptr %44, i64 %47
+  %48 = getelementptr i8, ptr %.split6, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr %struct.__drm_planes_state, ptr %44, i64 %47, i32 3
+  %50 = getelementptr i8, ptr %.split6, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 184
   %53 = load ptr, ptr %52, align 8
@@ -985,20 +987,21 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %10
 
-10:                                               ; preds = %.thread11, %7
-  %11 = phi i64 [ 0, %7 ], [ %205, %.thread11 ]
-  %12 = phi ptr [ %3, %7 ], [ %206, %.thread11 ]
+10:                                               ; preds = %.thread12, %7
+  %11 = phi i64 [ 0, %7 ], [ %205, %.thread12 ]
+  %12 = phi ptr [ %3, %7 ], [ %206, %.thread12 ]
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr %struct.__drm_planes_state, ptr %13, i64 %11
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread11, label %17
+  br i1 %16, label %.thread12, label %17
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1228
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr %struct.__drm_planes_state, ptr %13, i64 %20, i32 3
+  %.split = getelementptr %struct.__drm_planes_state, ptr %13, i64 %20
+  %21 = getelementptr i8, ptr %.split, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 176
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 184
@@ -1007,46 +1010,47 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 1352
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread11, label %30
+  br i1 %29, label %.thread12, label %30
 
 30:                                               ; preds = %17
   %31 = tail call zeroext i1 @i915_gem_stolen_initialized(ptr noundef %12) #12
-  br i1 %31, label %32, label %.thread11.sink.split
+  br i1 %31, label %32, label %.thread12.sink.split
 
 32:                                               ; preds = %30
   %33 = tail call zeroext i1 @intel_vgpu_active(ptr noundef %12) #12
-  br i1 %33, label %.thread11.sink.split, label %34
+  br i1 %33, label %.thread12.sink.split, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 6800
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.thread11.sink.split, label %38
+  br i1 %37, label %.thread12.sink.split, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 140
   %40 = load i8, ptr %39, align 4, !range !13, !noundef !14
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %.thread11.sink.split, label %42
+  br i1 %41, label %.thread12.sink.split, label %42
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr %struct.__drm_crtcs_state, ptr %43, i64 %46, i32 3
+  %.split5 = getelementptr %struct.__drm_crtcs_state, ptr %43, i64 %46
+  %47 = getelementptr i8, ptr %.split5, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 632
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 16
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %.thread11.sink.split
+  br i1 %52, label %53, label %.thread12.sink.split
 
 53:                                               ; preds = %42
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 1518
   %55 = load i8, ptr %54, align 2, !range !13, !noundef !14
   %56 = icmp eq i8 %55, 0
-  br i1 %56, label %57, label %.thread11.sink.split
+  br i1 %56, label %57, label %.thread12.sink.split
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 2632
@@ -1059,7 +1063,7 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %63 = getelementptr inbounds nuw i8, ptr %48, i64 1410
   %64 = load i8, ptr %63, align 2, !range !13, !noundef !14
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %66, label %.thread11.sink.split
+  br i1 %65, label %66, label %.thread12.sink.split
 
 66:                                               ; preds = %62, %57
   %67 = and i16 %59, -2
@@ -1117,7 +1121,7 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %98 = getelementptr inbounds nuw i8, ptr %48, i64 1409
   %99 = load i8, ptr %98, align 1, !range !13, !noundef !14
   %100 = icmp eq i8 %99, 0
-  br i1 %100, label %101, label %.thread11.sink.split
+  br i1 %100, label %101, label %.thread12.sink.split
 
 101:                                              ; preds = %97, %93, %69
   %102 = load ptr, ptr %22, align 8
@@ -1132,12 +1136,12 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 72
   %110 = load ptr, ptr %109, align 8
   %111 = load i32, ptr %110, align 4
-  switch i32 %111, label %.thread11.sink.split [
-    i32 875713112, label %.thread6
-    i32 875709016, label %.thread6
-    i32 875713089, label %.thread6
-    i32 875708993, label %.thread6
-    i32 909199186, label %.thread6
+  switch i32 %111, label %.thread12.sink.split [
+    i32 875713112, label %.thread7
+    i32 875709016, label %.thread7
+    i32 875713089, label %.thread7
+    i32 875708993, label %.thread7
+    i32 909199186, label %.thread7
   ]
 
 112:                                              ; preds = %101
@@ -1156,7 +1160,7 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 72
   %122 = load ptr, ptr %121, align 8
   %123 = load i32, ptr %122, align 4
-  switch i32 %123, label %.thread11.sink.split [
+  switch i32 %123, label %.thread12.sink.split [
     i32 875713112, label %138
     i32 875709016, label %138
     i32 909199186, label %124
@@ -1167,14 +1171,14 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %126 = load i32, ptr %125, align 4
   %127 = and i32 %126, 196608
   %or.cond = icmp eq i32 %127, 0
-  br i1 %or.cond, label %138, label %.thread11.sink.split
+  br i1 %or.cond, label %138, label %.thread12.sink.split
 
 128:                                              ; preds = %114
   %129 = load ptr, ptr %24, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 72
   %131 = load ptr, ptr %130, align 8
   %132 = load i32, ptr %131, align 4
-  switch i32 %132, label %.thread11.sink.split [
+  switch i32 %132, label %.thread12.sink.split [
     i32 875713112, label %.thread
     i32 875709016, label %.thread
     i32 892424792, label %133
@@ -1183,14 +1187,14 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
 
 133:                                              ; preds = %128, %128
   %.not = icmp eq i16 %105, 2
-  br i1 %.not, label %.thread11.sink.split, label %.thread
+  br i1 %.not, label %.thread12.sink.split, label %.thread
 
 .thread:                                          ; preds = %133, %128, %128
   %134 = getelementptr inbounds nuw i8, ptr %129, i64 120
   %135 = load i64, ptr %134, align 8
   br label %144
 
-.thread6:                                         ; preds = %107, %107, %107, %107, %107
+.thread7:                                         ; preds = %107, %107, %107, %107, %107
   %136 = getelementptr inbounds nuw i8, ptr %108, i64 120
   %137 = load i64, ptr %136, align 8
   br label %142
@@ -1201,9 +1205,9 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %141 = load i64, ptr %140, align 8
   br i1 %139, label %142, label %144
 
-142:                                              ; preds = %.thread6, %138
-  %143 = phi i64 [ %137, %.thread6 ], [ %141, %138 ]
-  switch i64 %143, label %.thread11.sink.split [
+142:                                              ; preds = %.thread7, %138
+  %143 = phi i64 [ %137, %.thread7 ], [ %141, %138 ]
+  switch i64 %143, label %.thread12.sink.split [
     i64 0, label %147
     i64 72057594037927938, label %147
     i64 72057594037927939, label %147
@@ -1214,15 +1218,15 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
 144:                                              ; preds = %.thread, %138
   %145 = phi i64 [ %135, %.thread ], [ %141, %138 ]
   %146 = icmp eq i64 %145, 72057594037927937
-  br i1 %146, label %147, label %.thread11.sink.split
+  br i1 %146, label %147, label %.thread12.sink.split
 
 147:                                              ; preds = %144, %142, %142, %142, %142, %142
   %148 = tail call fastcc zeroext i1 @rotation_is_valid(ptr noundef %22)
-  br i1 %148, label %149, label %.thread11.sink.split
+  br i1 %148, label %149, label %.thread12.sink.split
 
 149:                                              ; preds = %147
   %150 = tail call fastcc zeroext i1 @stride_is_valid(ptr noundef %22)
-  br i1 %150, label %151, label %.thread11.sink.split
+  br i1 %150, label %151, label %.thread12.sink.split
 
 151:                                              ; preds = %149
   %152 = load i16, ptr %58, align 8
@@ -1241,30 +1245,30 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 20
   %162 = load i8, ptr %161, align 4, !range !13, !noundef !14
   %163 = icmp eq i8 %162, 0
-  br i1 %163, label %164, label %.thread11.sink.split
+  br i1 %163, label %164, label %.thread12.sink.split
 
 164:                                              ; preds = %158, %154, %151
   %165 = tail call fastcc zeroext i1 @intel_fbc_plane_size_valid(ptr noundef %22)
-  br i1 %165, label %166, label %.thread11.sink.split
+  br i1 %165, label %166, label %.thread12.sink.split
 
 166:                                              ; preds = %164
   %167 = tail call fastcc zeroext i1 @intel_fbc_hw_tracking_covers_screen(ptr noundef %22)
-  br i1 %167, label %168, label %.thread11.sink.split
+  br i1 %167, label %168, label %.thread12.sink.split
 
 168:                                              ; preds = %166
   %169 = icmp ugt i16 %152, 8
-  br i1 %169, label %170, label %.thread7
+  br i1 %169, label %170, label %.thread8
 
 170:                                              ; preds = %168
   %171 = getelementptr inbounds nuw i8, ptr %22, i64 304
   %172 = load i32, ptr %171, align 8
   %173 = and i32 %172, 3
   %174 = icmp eq i32 %173, 0
-  br i1 %174, label %175, label %.thread11.sink.split
+  br i1 %174, label %175, label %.thread12.sink.split
 
 175:                                              ; preds = %170
   %176 = icmp ugt i16 %152, 10
-  br i1 %176, label %177, label %.thread7
+  br i1 %176, label %177, label %.thread8
 
 177:                                              ; preds = %175
   %178 = getelementptr inbounds nuw i8, ptr %22, i64 120
@@ -1274,16 +1278,16 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %182 = sub i32 %179, %181
   %183 = and i32 %182, 196608
   %184 = icmp eq i32 %183, 0
-  br i1 %184, label %.thread7, label %.thread11.sink.split
+  br i1 %184, label %.thread8, label %.thread12.sink.split
 
-.thread7:                                         ; preds = %168, %177, %175
+.thread8:                                         ; preds = %168, %177, %175
   %185 = getelementptr inbounds nuw i8, ptr %12, i64 7184
   %186 = load i32, ptr %185, align 4
   %187 = and i32 %186, 12582912
   %188 = icmp eq i32 %187, 0
-  br i1 %188, label %.thread11.sink.split, label %189
+  br i1 %188, label %.thread12.sink.split, label %189
 
-189:                                              ; preds = %.thread7
+189:                                              ; preds = %.thread8
   %190 = tail call ptr @intel_atomic_get_cdclk_state(ptr noundef %0) #12
   %191 = icmp ugt ptr %190, inttoptr (i64 -4096 to ptr)
   br i1 %191, label %200, label %192
@@ -1297,21 +1301,21 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %198 = udiv i32 %197, 100
   %199 = icmp ult i32 %194, %198
   %spec.select = select i1 %199, ptr null, ptr @.str.25
-  br label %.thread11.sink.split
+  br label %.thread12.sink.split
 
 200:                                              ; preds = %189
   %201 = ptrtoint ptr %190 to i64
   %202 = trunc i64 %201 to i32
   %203 = icmp eq i32 %202, 0
-  br i1 %203, label %.thread11, label %.loopexit
+  br i1 %203, label %.thread12, label %.loopexit
 
-.thread11.sink.split:                             ; preds = %192, %30, %32, %34, %38, %42, %53, %62, %97, %107, %119, %124, %128, %133, %142, %144, %147, %149, %158, %164, %166, %170, %177, %.thread7
-  %.sink = phi ptr [ @.str.7, %30 ], [ @.str.8, %32 ], [ @.str.9, %34 ], [ @.str.10, %38 ], [ @.str.11, %42 ], [ @.str.12, %53 ], [ @.str.13, %62 ], [ @.str.15, %97 ], [ @.str.16, %124 ], [ @.str.16, %107 ], [ @.str.16, %119 ], [ @.str.16, %128 ], [ @.str.16, %133 ], [ @.str.17, %142 ], [ @.str.17, %144 ], [ @.str.18, %147 ], [ @.str.19, %149 ], [ @.str.20, %158 ], [ @.str.21, %164 ], [ @.str.22, %166 ], [ @.str.23, %170 ], [ @.str.24, %177 ], [ null, %.thread7 ], [ %spec.select, %192 ]
+.thread12.sink.split:                             ; preds = %192, %30, %32, %34, %38, %42, %53, %62, %97, %107, %119, %124, %128, %133, %142, %144, %147, %149, %158, %164, %166, %170, %177, %.thread8
+  %.sink = phi ptr [ @.str.7, %30 ], [ @.str.8, %32 ], [ @.str.9, %34 ], [ @.str.10, %38 ], [ @.str.11, %42 ], [ @.str.12, %53 ], [ @.str.13, %62 ], [ @.str.15, %97 ], [ @.str.16, %124 ], [ @.str.16, %107 ], [ @.str.16, %119 ], [ @.str.16, %128 ], [ @.str.16, %133 ], [ @.str.17, %142 ], [ @.str.17, %144 ], [ @.str.18, %147 ], [ @.str.19, %149 ], [ @.str.20, %158 ], [ @.str.21, %164 ], [ @.str.22, %166 ], [ @.str.23, %170 ], [ @.str.24, %177 ], [ null, %.thread8 ], [ %spec.select, %192 ]
   %204 = getelementptr inbounds nuw i8, ptr %22, i64 456
   store ptr %.sink, ptr %204, align 8
-  br label %.thread11
+  br label %.thread12
 
-.thread11:                                        ; preds = %.thread11.sink.split, %17, %200, %10
+.thread12:                                        ; preds = %.thread12.sink.split, %17, %200, %10
   %205 = add nuw nsw i64 %11, 1
   %206 = load ptr, ptr %2, align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 704
@@ -1320,8 +1324,8 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   %210 = icmp slt i64 %205, %209
   br i1 %210, label %10, label %.loopexit, !llvm.loop !37
 
-.loopexit:                                        ; preds = %.thread11, %200, %1
-  %211 = phi i32 [ 0, %1 ], [ 0, %.thread11 ], [ %202, %200 ]
+.loopexit:                                        ; preds = %.thread12, %200, %1
+  %211 = phi i32 [ 0, %1 ], [ 0, %.thread12 ], [ %202, %200 ]
   ret i32 %211
 }
 
@@ -1483,7 +1487,8 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct.__drm_crtcs_state, ptr %10, i64 %13, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %10, i64 %13
+  %14 = getelementptr i8, ptr %.split, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1648
@@ -1543,7 +1548,8 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 1228
   %54 = load i32, ptr %53, align 4
   %55 = zext i32 %54 to i64
-  %56 = getelementptr %struct.__drm_planes_state, ptr %52, i64 %55, i32 3
+  %.split14 = getelementptr %struct.__drm_planes_state, ptr %52, i64 %55
+  %56 = getelementptr i8, ptr %.split14, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %29, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 440
@@ -1856,7 +1862,7 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
   %256 = zext i32 %255 to i64
   %257 = tail call i32 @i915_gem_stolen_insert_node_in_range(ptr noundef %221, ptr noundef nonnull %179, i64 noundef %256, i32 noundef 4096, i64 noundef 0, i64 noundef %252) #12
   %258 = icmp eq i32 %257, 0
-  br i1 %258, label %.thread16, label %259
+  br i1 %258, label %.thread17, label %259
 
 259:                                              ; preds = %250
   %260 = load i32, ptr %222, align 4
@@ -1885,11 +1891,11 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
 
 277:                                              ; preds = %.preheader
   %278 = icmp samesign ugt i32 %264, %177
-  br i1 %278, label %279, label %.thread16
+  br i1 %278, label %279, label %.thread17
 
 279:                                              ; preds = %277
   %280 = load i1, ptr @intel_fbc_alloc_cfb.__print_once, align 1
-  br i1 %280, label %.thread16, label %281
+  br i1 %280, label %.thread17, label %281
 
 281:                                              ; preds = %279
   store i1 true, ptr @intel_fbc_alloc_cfb.__print_once, align 1
@@ -1904,9 +1910,9 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
 286:                                              ; preds = %283, %281
   %287 = phi ptr [ %285, %283 ], [ null, %281 ]
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %287, ptr noundef nonnull @.str.36) #13
-  br label %.thread16
+  br label %.thread17
 
-.thread16:                                        ; preds = %250, %286, %279, %277
+.thread17:                                        ; preds = %250, %286, %279, %277
   %288 = phi i32 [ %264, %286 ], [ %264, %279 ], [ %264, %277 ], [ %177, %250 ]
   %289 = trunc nuw nsw i32 %288 to i8
   %290 = getelementptr inbounds nuw i8, ptr %58, i64 396
@@ -1914,13 +1920,13 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
   %291 = icmp eq ptr %178, null
   br i1 %291, label %295, label %292
 
-292:                                              ; preds = %.thread16
+292:                                              ; preds = %.thread17
   %293 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %294 = load ptr, ptr %293, align 8
   br label %295
 
-295:                                              ; preds = %292, %.thread16
-  %296 = phi ptr [ %294, %292 ], [ null, %.thread16 ]
+295:                                              ; preds = %292, %.thread17
+  %296 = phi ptr [ %294, %292 ], [ null, %.thread17 ]
   %297 = tail call i64 @i915_gem_stolen_node_size(ptr noundef nonnull %179) #12
   %298 = load i8, ptr %290, align 4
   %299 = zext i8 %298 to i32
@@ -1976,8 +1982,8 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
   %323 = load ptr, ptr %322, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %319, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %321, ptr noundef %323) #12
   store ptr @.str.32, ptr %87, align 8
-  %.val14 = load i32, ptr %11, align 8
-  tail call fastcc void @intel_fbc_update_state(ptr noundef %0, i32 %.val14, ptr noundef nonnull %24)
+  %.val15 = load i32, ptr %11, align 8
+  tail call fastcc void @intel_fbc_update_state(ptr noundef %0, i32 %.val15, ptr noundef nonnull %24)
   %324 = load ptr, ptr %58, align 8
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 2632
   %326 = load i16, ptr %325, align 8
@@ -2016,11 +2022,11 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
 
 350:                                              ; preds = %345, %314, %115, %110, %84, %66, %62, %49, %45
   tail call void @mutex_unlock(ptr noundef nonnull %38) #12
-  %.pre19 = load ptr, ptr %3, align 8
+  %.pre20 = load ptr, ptr %3, align 8
   br label %351
 
 351:                                              ; preds = %350, %32, %28, %19
-  %352 = phi ptr [ %.pre19, %350 ], [ %20, %32 ], [ %20, %28 ], [ %20, %19 ]
+  %352 = phi ptr [ %.pre20, %350 ], [ %20, %32 ], [ %20, %28 ], [ %20, %19 ]
   %353 = add nuw nsw i64 %21, 1
   %354 = getelementptr inbounds nuw i8, ptr %352, i64 704
   %355 = load i32, ptr %354, align 8
@@ -3169,14 +3175,16 @@ define internal fastcc void @intel_fbc_update_state(ptr noundef readonly capture
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %.144.val to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1228
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct.__drm_planes_state, ptr %11, i64 %14, i32 3
+  %.split5 = getelementptr %struct.__drm_planes_state, ptr %11, i64 %14
+  %15 = getelementptr i8, ptr %.split5, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1352
   %18 = load ptr, ptr %17, align 8

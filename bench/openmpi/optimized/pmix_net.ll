@@ -135,7 +135,7 @@ define i32 @pmix_net_init() local_unnamed_addr #0 {
   %44 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %43, i64 %indvars.iv
   store i32 %42, ptr %44, align 4, !tbaa !17
   %45 = load i32, ptr %5, align 4, !tbaa !16
-  %46 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %43, i64 %indvars.iv, i32 1
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %45, ptr %46, align 4, !tbaa !19
   br label %47
 
@@ -155,7 +155,7 @@ define i32 @pmix_net_init() local_unnamed_addr #0 {
   %.025.lcssa = phi i64 [ %48, %._crit_edge.loopexit ], [ 0, %.preheader ]
   %50 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %49, i64 %.025.lcssa
   store i32 0, ptr %50, align 4, !tbaa !17
-  %51 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %49, i64 %.025.lcssa, i32 1
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %51, align 4, !tbaa !19
   call void @PMIx_Argv_free(ptr noundef nonnull %7) #15
   br label %52
@@ -346,8 +346,8 @@ define noundef zeroext i1 @pmix_net_addr_isipv6linklocal(ptr noundef readonly ca
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 2, !tbaa !22
-  switch i16 %2, label %21 [
-    i16 10, label %23
+  switch i16 %2, label %22 [
+    i16 10, label %24
     i16 2, label %3
   ]
 
@@ -376,30 +376,31 @@ define zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captures(none
 12:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %13 = phi i32 [ %6, %.lr.ph ], [ %11, %9 ]
-  %14 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %4, i64 %indvars.iv, i32 1
-  %15 = load i32, ptr %14, align 4, !tbaa !19
-  %notmask.i = shl nsw i32 -1, %15
-  %16 = xor i32 %notmask.i, -1
-  %17 = sub i32 32, %15
-  %18 = shl i32 %16, %17
-  %19 = tail call noundef i32 @llvm.bswap.i32(i32 %18)
-  %20 = and i32 %19, %8
-  %.not21.not = icmp ne i32 %13, %20
+  %14 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !19
+  %notmask.i = shl nsw i32 -1, %16
+  %17 = xor i32 %notmask.i, -1
+  %18 = sub i32 32, %16
+  %19 = shl i32 %17, %18
+  %20 = tail call noundef i32 @llvm.bswap.i32(i32 %19)
+  %21 = and i32 %20, %8
+  %.not21.not = icmp ne i32 %13, %21
   br i1 %.not21.not, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %12, %9, %.preheader, %3
   %.1 = phi i1 [ true, %3 ], [ undef, %.preheader ], [ false, %9 ], [ false, %12 ]
   %switch = phi i1 [ false, %3 ], [ true, %.preheader ], [ %.not21.not, %9 ], [ %.not21.not, %12 ]
   %spec.select = or i1 %.1, %switch
-  br label %23
+  br label %24
 
-21:                                               ; preds = %1
-  %22 = zext i16 %2 to i32
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.7, i32 noundef %22) #15
-  br label %23
+22:                                               ; preds = %1
+  %23 = zext i16 %2 to i32
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.7, i32 noundef %23) #15
+  br label %24
 
-23:                                               ; preds = %.loopexit, %1, %21
-  %.010 = phi i1 [ false, %21 ], [ false, %1 ], [ %spec.select, %.loopexit ]
+24:                                               ; preds = %.loopexit, %1, %22
+  %.010 = phi i1 [ false, %22 ], [ false, %1 ], [ %spec.select, %.loopexit ]
   ret i1 %.010
 }
 

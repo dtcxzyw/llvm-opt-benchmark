@@ -711,8 +711,8 @@ define range(i64 -115292150460684697, 115292150460684698) i64 @Scl_LibertyBuildI
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %201, %3
-  %.0.lcssa.i178245 = phi ptr [ %202, %201 ], [ %.promoted, %3 ]
+tailrecurse:                                      ; preds = %198, %3
+  %.0.lcssa.i178245 = phi ptr [ %199, %198 ], [ %.promoted, %3 ]
   %7 = icmp ult ptr %.0.lcssa.i178245, %2
   br i1 %7, label %.lr.ph.i, label %Scl_LibertySkipSpaces.exit
 
@@ -863,8 +863,8 @@ Scl_LibertySkipSpaces.exit187:                    ; preds = %42, %Scl_LibertyCha
   %46 = load i8, ptr %.0.lcssa.i178, align 1, !tbaa !18
   switch i8 %46, label %.loopexit194.split.loop.exit215 [
     i8 58, label %47
-    i8 40, label %101
-    i8 59, label %201
+    i8 40, label %100
+    i8 59, label %198
   ]
 
 47:                                               ; preds = %45
@@ -939,247 +939,244 @@ Scl_LibertySkipSpaces.exit187:                    ; preds = %42, %Scl_LibertyCha
   %81 = load ptr, ptr %80, align 8, !tbaa !21
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load i64, ptr %82, align 8, !tbaa !43
-  %84 = getelementptr inbounds %struct.Scl_Item_t_, ptr %81, i64 %83, i32 1
-  store i64 %79, ptr %84, align 8, !tbaa !44
-  %85 = getelementptr inbounds %struct.Scl_Item_t_, ptr %81, i64 %83
-  store i32 2, ptr %85, align 8, !tbaa !3
-  %86 = getelementptr inbounds %struct.Scl_Item_t_, ptr %81, i64 %83, i32 5
+  %84 = getelementptr inbounds %struct.Scl_Item_t_, ptr %81, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store i64 %79, ptr %85, align 8, !tbaa !44
+  store i32 2, ptr %84, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 64
   %87 = add nsw i64 %83, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 -1, i64 16, i1 false)
   store i64 %87, ptr %82, align 8, !tbaa !43
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store i64 %49, ptr %88, align 8, !tbaa !45
-  %.sroa.844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 24
+  %.sroa.844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 24
   store i64 %51, ptr %.sroa.844.0..sroa_idx, align 8, !tbaa !45
-  %89 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %90 = tail call fastcc { i64, i64 } @Scl_LibertyUpdateHead(ptr noundef nonnull %0, i64 %59, i64 %77)
   %91 = extractvalue { i64, i64 } %90, 0
   %92 = extractvalue { i64, i64 } %90, 1
   store i64 %91, ptr %89, align 8, !tbaa !45
-  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 40
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 40
   store i64 %92, ptr %.sroa.46.0..sroa_idx, align 8, !tbaa !45
   %93 = tail call i64 @Scl_LibertyBuildItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
-  %94 = getelementptr inbounds nuw i8, ptr %85, i64 64
-  store i64 %93, ptr %94, align 8, !tbaa !22
-  %95 = icmp eq i64 %93, -1
-  br i1 %95, label %.loopexit, label %96
+  store i64 %93, ptr %86, align 8, !tbaa !22
+  %94 = icmp eq i64 %93, -1
+  br i1 %94, label %.loopexit, label %95
 
-96:                                               ; preds = %74
+95:                                               ; preds = %74
   %.val = load ptr, ptr %80, align 8, !tbaa !21
-  %97 = ptrtoint ptr %85 to i64
-  %98 = ptrtoint ptr %.val to i64
-  %99 = sub i64 %97, %98
-  %100 = sdiv exact i64 %99, 80
+  %96 = ptrtoint ptr %84 to i64
+  %97 = ptrtoint ptr %.val to i64
+  %98 = sub i64 %96, %97
+  %99 = sdiv exact i64 %98, 80
   br label %.loopexit193
 
-101:                                              ; preds = %45
-  %102 = ptrtoint ptr %18 to i64
-  %103 = sub i64 %19, %102
-  %104 = ptrtoint ptr %34 to i64
-  %105 = sub i64 %35, %104
-  %106 = tail call fastcc ptr @Scl_LibertyFindMatch(ptr noundef nonnull %.0.lcssa.i178, ptr noundef %2)
-  %107 = load ptr, ptr %6, align 8, !tbaa !12
-  %108 = ptrtoint ptr %.0.lcssa.i178 to i64
-  %109 = ptrtoint ptr %107 to i64
-  %110 = sub i64 %108, %109
-  %111 = add nsw i64 %110, 1
-  %112 = ptrtoint ptr %106 to i64
-  %113 = sub i64 %112, %109
-  %114 = getelementptr inbounds nuw i8, ptr %106, i64 1
-  store ptr %114, ptr %1, align 8, !tbaa !37
-  %115 = tail call fastcc i64 @Scl_LibertySkipSpaces(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0)
-  %.not165 = icmp eq i64 %115, 0
-  br i1 %.not165, label %135, label %116
+100:                                              ; preds = %45
+  %101 = ptrtoint ptr %18 to i64
+  %102 = sub i64 %19, %101
+  %103 = ptrtoint ptr %34 to i64
+  %104 = sub i64 %35, %103
+  %105 = tail call fastcc ptr @Scl_LibertyFindMatch(ptr noundef nonnull %.0.lcssa.i178, ptr noundef %2)
+  %106 = load ptr, ptr %6, align 8, !tbaa !12
+  %107 = ptrtoint ptr %.0.lcssa.i178 to i64
+  %108 = ptrtoint ptr %106 to i64
+  %109 = sub i64 %107, %108
+  %110 = add nsw i64 %109, 1
+  %111 = ptrtoint ptr %105 to i64
+  %112 = sub i64 %111, %108
+  %113 = getelementptr inbounds nuw i8, ptr %105, i64 1
+  store ptr %113, ptr %1, align 8, !tbaa !37
+  %114 = tail call fastcc i64 @Scl_LibertySkipSpaces(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0)
+  %.not165 = icmp eq i64 %114, 0
+  br i1 %.not165, label %134, label %115
 
-116:                                              ; preds = %101
-  %117 = load i64, ptr %4, align 8, !tbaa !38
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %119 = load ptr, ptr %118, align 8, !tbaa !21
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %121 = load i64, ptr %120, align 8, !tbaa !43
-  %122 = getelementptr inbounds %struct.Scl_Item_t_, ptr %119, i64 %121, i32 1
-  store i64 %117, ptr %122, align 8, !tbaa !44
-  %123 = getelementptr inbounds %struct.Scl_Item_t_, ptr %119, i64 %121
-  store i32 3, ptr %123, align 8, !tbaa !3
-  %124 = getelementptr inbounds %struct.Scl_Item_t_, ptr %119, i64 %121, i32 5
-  %125 = add nsw i64 %121, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 -1, i64 16, i1 false)
-  store i64 %125, ptr %120, align 8, !tbaa !43
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  store i64 %103, ptr %126, align 8, !tbaa !45
-  %.sroa.844.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  store i64 %105, ptr %.sroa.844.0..sroa_idx45, align 8, !tbaa !45
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 32
-  %128 = tail call fastcc { i64, i64 } @Scl_LibertyUpdateHead(ptr noundef nonnull %0, i64 %111, i64 %113)
-  %129 = extractvalue { i64, i64 } %128, 0
-  %130 = extractvalue { i64, i64 } %128, 1
-  store i64 %129, ptr %127, align 8, !tbaa !45
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 40
-  store i64 %130, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !45
-  %.val174 = load ptr, ptr %118, align 8, !tbaa !21
-  %131 = ptrtoint ptr %123 to i64
-  %132 = ptrtoint ptr %.val174 to i64
-  %133 = sub i64 %131, %132
-  %134 = sdiv exact i64 %133, 80
+115:                                              ; preds = %100
+  %116 = load i64, ptr %4, align 8, !tbaa !38
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %118 = load ptr, ptr %117, align 8, !tbaa !21
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %120 = load i64, ptr %119, align 8, !tbaa !43
+  %121 = getelementptr inbounds %struct.Scl_Item_t_, ptr %118, i64 %120
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  store i64 %116, ptr %122, align 8, !tbaa !44
+  store i32 3, ptr %121, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 64
+  %124 = add nsw i64 %120, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 -1, i64 16, i1 false)
+  store i64 %124, ptr %119, align 8, !tbaa !43
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  store i64 %102, ptr %125, align 8, !tbaa !45
+  %.sroa.844.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %121, i64 24
+  store i64 %104, ptr %.sroa.844.0..sroa_idx45, align 8, !tbaa !45
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 32
+  %127 = tail call fastcc { i64, i64 } @Scl_LibertyUpdateHead(ptr noundef nonnull %0, i64 %110, i64 %112)
+  %128 = extractvalue { i64, i64 } %127, 0
+  %129 = extractvalue { i64, i64 } %127, 1
+  store i64 %128, ptr %126, align 8, !tbaa !45
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 40
+  store i64 %129, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !45
+  %.val174 = load ptr, ptr %117, align 8, !tbaa !21
+  %130 = ptrtoint ptr %121 to i64
+  %131 = ptrtoint ptr %.val174 to i64
+  %132 = sub i64 %130, %131
+  %133 = sdiv exact i64 %132, 80
   br label %.loopexit193
 
-135:                                              ; preds = %101
-  %136 = load ptr, ptr %1, align 8, !tbaa !37
-  %137 = load i8, ptr %136, align 1, !tbaa !18
-  switch i8 %137, label %178 [
-    i8 123, label %138
-    i8 59, label %176
+134:                                              ; preds = %100
+  %135 = load ptr, ptr %1, align 8, !tbaa !37
+  %136 = load i8, ptr %135, align 1, !tbaa !18
+  switch i8 %136, label %176 [
+    i8 123, label %137
+    i8 59, label %174
   ]
 
-138:                                              ; preds = %135
-  %139 = tail call fastcc ptr @Scl_LibertyFindMatch(ptr noundef nonnull %136, ptr noundef %2)
-  %140 = load ptr, ptr %6, align 8, !tbaa !12
-  %141 = ptrtoint ptr %136 to i64
-  %142 = ptrtoint ptr %140 to i64
-  %143 = add i64 %141, 1
-  %144 = sub i64 %143, %142
-  %145 = ptrtoint ptr %139 to i64
-  %146 = sub i64 %145, %142
-  %147 = load i64, ptr %4, align 8, !tbaa !38
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %149 = load ptr, ptr %148, align 8, !tbaa !21
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %151 = load i64, ptr %150, align 8, !tbaa !43
-  %152 = getelementptr inbounds %struct.Scl_Item_t_, ptr %149, i64 %151, i32 1
-  store i64 %147, ptr %152, align 8, !tbaa !44
-  %153 = getelementptr inbounds %struct.Scl_Item_t_, ptr %149, i64 %151
-  store i32 1, ptr %153, align 8, !tbaa !3
-  %154 = getelementptr inbounds %struct.Scl_Item_t_, ptr %149, i64 %151, i32 5
-  %155 = add nsw i64 %151, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, i8 -1, i64 16, i1 false)
-  store i64 %155, ptr %150, align 8, !tbaa !43
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  store i64 %103, ptr %156, align 8, !tbaa !45
-  %.sroa.844.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %153, i64 24
-  store i64 %105, ptr %.sroa.844.0..sroa_idx47, align 8, !tbaa !45
-  %157 = getelementptr inbounds nuw i8, ptr %153, i64 32
-  %158 = tail call fastcc { i64, i64 } @Scl_LibertyUpdateHead(ptr noundef nonnull %0, i64 %111, i64 %113)
-  %159 = extractvalue { i64, i64 } %158, 0
-  %160 = extractvalue { i64, i64 } %158, 1
-  store i64 %159, ptr %157, align 8, !tbaa !45
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 40
-  store i64 %160, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !45
-  %161 = getelementptr inbounds nuw i8, ptr %153, i64 48
-  store i64 %144, ptr %161, align 8, !tbaa !45
-  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 56
-  store i64 %146, ptr %.sroa.432.0..sroa_idx, align 8, !tbaa !45
-  %162 = getelementptr inbounds nuw i8, ptr %136, i64 1
-  store ptr %162, ptr %1, align 8, !tbaa !37
-  %163 = tail call i64 @Scl_LibertyBuildItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %139)
-  %164 = getelementptr inbounds nuw i8, ptr %153, i64 72
-  store i64 %163, ptr %164, align 8, !tbaa !20
-  %165 = icmp eq i64 %163, -1
-  br i1 %165, label %.loopexit, label %166
+137:                                              ; preds = %134
+  %138 = tail call fastcc ptr @Scl_LibertyFindMatch(ptr noundef nonnull %135, ptr noundef %2)
+  %139 = load ptr, ptr %6, align 8, !tbaa !12
+  %140 = ptrtoint ptr %135 to i64
+  %141 = ptrtoint ptr %139 to i64
+  %142 = add i64 %140, 1
+  %143 = sub i64 %142, %141
+  %144 = ptrtoint ptr %138 to i64
+  %145 = sub i64 %144, %141
+  %146 = load i64, ptr %4, align 8, !tbaa !38
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %148 = load ptr, ptr %147, align 8, !tbaa !21
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %150 = load i64, ptr %149, align 8, !tbaa !43
+  %151 = getelementptr inbounds %struct.Scl_Item_t_, ptr %148, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  store i64 %146, ptr %152, align 8, !tbaa !44
+  store i32 1, ptr %151, align 8, !tbaa !3
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 64
+  %154 = add nsw i64 %150, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, i8 -1, i64 16, i1 false)
+  store i64 %154, ptr %149, align 8, !tbaa !43
+  %155 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  store i64 %102, ptr %155, align 8, !tbaa !45
+  %.sroa.844.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %151, i64 24
+  store i64 %104, ptr %.sroa.844.0..sroa_idx47, align 8, !tbaa !45
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 32
+  %157 = tail call fastcc { i64, i64 } @Scl_LibertyUpdateHead(ptr noundef nonnull %0, i64 %110, i64 %112)
+  %158 = extractvalue { i64, i64 } %157, 0
+  %159 = extractvalue { i64, i64 } %157, 1
+  store i64 %158, ptr %156, align 8, !tbaa !45
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 40
+  store i64 %159, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !45
+  %160 = getelementptr inbounds nuw i8, ptr %151, i64 48
+  store i64 %143, ptr %160, align 8, !tbaa !45
+  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 56
+  store i64 %145, ptr %.sroa.432.0..sroa_idx, align 8, !tbaa !45
+  %161 = getelementptr inbounds nuw i8, ptr %135, i64 1
+  store ptr %161, ptr %1, align 8, !tbaa !37
+  %162 = tail call i64 @Scl_LibertyBuildItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %138)
+  %163 = getelementptr inbounds nuw i8, ptr %151, i64 72
+  store i64 %162, ptr %163, align 8, !tbaa !20
+  %164 = icmp eq i64 %162, -1
+  br i1 %164, label %.loopexit, label %165
 
-166:                                              ; preds = %138
-  %167 = getelementptr inbounds nuw i8, ptr %139, i64 1
-  store ptr %167, ptr %1, align 8, !tbaa !37
-  %168 = tail call i64 @Scl_LibertyBuildItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
-  %169 = getelementptr inbounds nuw i8, ptr %153, i64 64
-  store i64 %168, ptr %169, align 8, !tbaa !22
-  %170 = icmp eq i64 %168, -1
-  br i1 %170, label %.loopexit, label %171
+165:                                              ; preds = %137
+  %166 = getelementptr inbounds nuw i8, ptr %138, i64 1
+  store ptr %166, ptr %1, align 8, !tbaa !37
+  %167 = tail call i64 @Scl_LibertyBuildItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
+  store i64 %167, ptr %153, align 8, !tbaa !22
+  %168 = icmp eq i64 %167, -1
+  br i1 %168, label %.loopexit, label %169
 
-171:                                              ; preds = %166
-  %.val175 = load ptr, ptr %148, align 8, !tbaa !21
-  %172 = ptrtoint ptr %153 to i64
-  %173 = ptrtoint ptr %.val175 to i64
-  %174 = sub i64 %172, %173
-  %175 = sdiv exact i64 %174, 80
+169:                                              ; preds = %165
+  %.val175 = load ptr, ptr %147, align 8, !tbaa !21
+  %170 = ptrtoint ptr %151 to i64
+  %171 = ptrtoint ptr %.val175 to i64
+  %172 = sub i64 %170, %171
+  %173 = sdiv exact i64 %172, 80
   br label %.loopexit193
 
-176:                                              ; preds = %135
-  %177 = getelementptr inbounds nuw i8, ptr %136, i64 1
-  store ptr %177, ptr %1, align 8, !tbaa !37
-  br label %178
+174:                                              ; preds = %134
+  %175 = getelementptr inbounds nuw i8, ptr %135, i64 1
+  store ptr %175, ptr %1, align 8, !tbaa !37
+  br label %176
 
-178:                                              ; preds = %135, %176
-  %179 = load i64, ptr %4, align 8, !tbaa !38
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %181 = load ptr, ptr %180, align 8, !tbaa !21
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %183 = load i64, ptr %182, align 8, !tbaa !43
-  %184 = getelementptr inbounds %struct.Scl_Item_t_, ptr %181, i64 %183, i32 1
-  store i64 %179, ptr %184, align 8, !tbaa !44
-  %185 = getelementptr inbounds %struct.Scl_Item_t_, ptr %181, i64 %183
-  store i32 3, ptr %185, align 8, !tbaa !3
-  %186 = getelementptr inbounds %struct.Scl_Item_t_, ptr %181, i64 %183, i32 5
-  %187 = add nsw i64 %183, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %186, i8 -1, i64 16, i1 false)
-  store i64 %187, ptr %182, align 8, !tbaa !43
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  store i64 %103, ptr %188, align 8, !tbaa !45
-  %.sroa.844.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %185, i64 24
-  store i64 %105, ptr %.sroa.844.0..sroa_idx49, align 8, !tbaa !45
-  %189 = getelementptr inbounds nuw i8, ptr %185, i64 32
-  %190 = tail call fastcc { i64, i64 } @Scl_LibertyUpdateHead(ptr noundef nonnull %0, i64 %111, i64 %113)
-  %191 = extractvalue { i64, i64 } %190, 0
-  %192 = extractvalue { i64, i64 } %190, 1
-  store i64 %191, ptr %189, align 8, !tbaa !45
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 40
-  store i64 %192, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !45
-  %193 = tail call i64 @Scl_LibertyBuildItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
-  %194 = getelementptr inbounds nuw i8, ptr %185, i64 64
-  store i64 %193, ptr %194, align 8, !tbaa !22
-  %195 = icmp eq i64 %193, -1
-  br i1 %195, label %.loopexit, label %196
+176:                                              ; preds = %134, %174
+  %177 = load i64, ptr %4, align 8, !tbaa !38
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %179 = load ptr, ptr %178, align 8, !tbaa !21
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %181 = load i64, ptr %180, align 8, !tbaa !43
+  %182 = getelementptr inbounds %struct.Scl_Item_t_, ptr %179, i64 %181
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  store i64 %177, ptr %183, align 8, !tbaa !44
+  store i32 3, ptr %182, align 8, !tbaa !3
+  %184 = getelementptr inbounds nuw i8, ptr %182, i64 64
+  %185 = add nsw i64 %181, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, i8 -1, i64 16, i1 false)
+  store i64 %185, ptr %180, align 8, !tbaa !43
+  %186 = getelementptr inbounds nuw i8, ptr %182, i64 16
+  store i64 %102, ptr %186, align 8, !tbaa !45
+  %.sroa.844.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %182, i64 24
+  store i64 %104, ptr %.sroa.844.0..sroa_idx49, align 8, !tbaa !45
+  %187 = getelementptr inbounds nuw i8, ptr %182, i64 32
+  %188 = tail call fastcc { i64, i64 } @Scl_LibertyUpdateHead(ptr noundef nonnull %0, i64 %110, i64 %112)
+  %189 = extractvalue { i64, i64 } %188, 0
+  %190 = extractvalue { i64, i64 } %188, 1
+  store i64 %189, ptr %187, align 8, !tbaa !45
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 40
+  store i64 %190, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !45
+  %191 = tail call i64 @Scl_LibertyBuildItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
+  store i64 %191, ptr %184, align 8, !tbaa !22
+  %192 = icmp eq i64 %191, -1
+  br i1 %192, label %.loopexit, label %193
 
-196:                                              ; preds = %178
-  %.val176 = load ptr, ptr %180, align 8, !tbaa !21
-  %197 = ptrtoint ptr %185 to i64
-  %198 = ptrtoint ptr %.val176 to i64
-  %199 = sub i64 %197, %198
-  %200 = sdiv exact i64 %199, 80
+193:                                              ; preds = %176
+  %.val176 = load ptr, ptr %178, align 8, !tbaa !21
+  %194 = ptrtoint ptr %182 to i64
+  %195 = ptrtoint ptr %.val176 to i64
+  %196 = sub i64 %194, %195
+  %197 = sdiv exact i64 %196, 80
   br label %.loopexit193
 
-201:                                              ; preds = %45
-  %202 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i178, i64 1
-  store ptr %202, ptr %1, align 8, !tbaa !37
+198:                                              ; preds = %45
+  %199 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i178, i64 1
+  store ptr %199, ptr %1, align 8, !tbaa !37
   br label %tailrecurse
 
 .loopexit194.split.loop.exit:                     ; preds = %Scl_LibertySkipEntry.exit
-  %203 = ptrtoint ptr %18 to i64
-  %204 = sub i64 %19, %203
+  %200 = ptrtoint ptr %18 to i64
+  %201 = sub i64 %19, %200
   br label %.loopexit
 
 .loopexit194.split.loop.exit211:                  ; preds = %Scl_LibertySkipSpaces.exit187
-  %205 = ptrtoint ptr %18 to i64
-  %206 = sub i64 %19, %205
-  %207 = ptrtoint ptr %34 to i64
-  %208 = sub i64 %35, %207
+  %202 = ptrtoint ptr %18 to i64
+  %203 = sub i64 %19, %202
+  %204 = ptrtoint ptr %34 to i64
+  %205 = sub i64 %35, %204
   br label %.loopexit
 
 .loopexit194.split.loop.exit215:                  ; preds = %45
-  %209 = ptrtoint ptr %18 to i64
-  %210 = sub i64 %19, %209
-  %211 = ptrtoint ptr %34 to i64
-  %212 = sub i64 %35, %211
+  %206 = ptrtoint ptr %18 to i64
+  %207 = sub i64 %19, %206
+  %208 = ptrtoint ptr %34 to i64
+  %209 = sub i64 %35, %208
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %70, %68, %.critedge, %.loopexit194.split.loop.exit, %.loopexit194.split.loop.exit211, %.loopexit194.split.loop.exit215, %178, %166, %138, %74, %61, %54, %47
-  %213 = phi i64 [ %49, %47 ], [ %49, %54 ], [ %49, %61 ], [ %49, %74 ], [ %103, %138 ], [ %103, %166 ], [ %103, %178 ], [ %204, %.loopexit194.split.loop.exit ], [ %206, %.loopexit194.split.loop.exit211 ], [ %210, %.loopexit194.split.loop.exit215 ], [ %49, %.critedge ], [ %49, %68 ], [ %49, %70 ], [ %49, %.preheader ]
-  %.sroa.844.0 = phi i64 [ %51, %47 ], [ %51, %54 ], [ %51, %61 ], [ %51, %74 ], [ %105, %138 ], [ %105, %166 ], [ %105, %178 ], [ 0, %.loopexit194.split.loop.exit ], [ %208, %.loopexit194.split.loop.exit211 ], [ %212, %.loopexit194.split.loop.exit215 ], [ %51, %.critedge ], [ %51, %68 ], [ %51, %70 ], [ %51, %.preheader ]
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %215 = load ptr, ptr %214, align 8, !tbaa !46
-  %216 = icmp eq ptr %215, null
-  br i1 %216, label %217, label %.loopexit193
+.loopexit:                                        ; preds = %.preheader, %70, %68, %.critedge, %.loopexit194.split.loop.exit, %.loopexit194.split.loop.exit211, %.loopexit194.split.loop.exit215, %176, %165, %137, %74, %61, %54, %47
+  %210 = phi i64 [ %49, %47 ], [ %49, %54 ], [ %49, %61 ], [ %49, %74 ], [ %102, %137 ], [ %102, %165 ], [ %102, %176 ], [ %201, %.loopexit194.split.loop.exit ], [ %203, %.loopexit194.split.loop.exit211 ], [ %207, %.loopexit194.split.loop.exit215 ], [ %49, %.critedge ], [ %49, %68 ], [ %49, %70 ], [ %49, %.preheader ]
+  %.sroa.844.0 = phi i64 [ %51, %47 ], [ %51, %54 ], [ %51, %61 ], [ %51, %74 ], [ %104, %137 ], [ %104, %165 ], [ %104, %176 ], [ 0, %.loopexit194.split.loop.exit ], [ %205, %.loopexit194.split.loop.exit211 ], [ %209, %.loopexit194.split.loop.exit215 ], [ %51, %.critedge ], [ %51, %68 ], [ %51, %70 ], [ %51, %.preheader ]
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %212 = load ptr, ptr %211, align 8, !tbaa !46
+  %213 = icmp eq ptr %212, null
+  br i1 %213, label %214, label %.loopexit193
 
-217:                                              ; preds = %.loopexit
-  %218 = tail call noalias dereferenceable_or_null(1000) ptr @malloc(i64 noundef 1000) #28
-  store ptr %218, ptr %214, align 8, !tbaa !46
-  %219 = load ptr, ptr %0, align 8, !tbaa !47
-  %220 = load i64, ptr %4, align 8, !tbaa !38
-  %221 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %213, i64 %.sroa.844.0)
-  %222 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %218, ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %219, i64 noundef %220, ptr noundef %221) #29
+214:                                              ; preds = %.loopexit
+  %215 = tail call noalias dereferenceable_or_null(1000) ptr @malloc(i64 noundef 1000) #28
+  store ptr %215, ptr %211, align 8, !tbaa !46
+  %216 = load ptr, ptr %0, align 8, !tbaa !47
+  %217 = load i64, ptr %4, align 8, !tbaa !38
+  %218 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %210, i64 %.sroa.844.0)
+  %219 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %215, ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %216, i64 noundef %217, ptr noundef %218) #29
   br label %.loopexit193
 
-.loopexit193:                                     ; preds = %Scl_LibertySkipSpaces.exit, %.loopexit, %217, %196, %171, %116, %96
-  %.0 = phi i64 [ %100, %96 ], [ %134, %116 ], [ %175, %171 ], [ %200, %196 ], [ -1, %217 ], [ -1, %.loopexit ], [ -2, %Scl_LibertySkipSpaces.exit ]
+.loopexit193:                                     ; preds = %Scl_LibertySkipSpaces.exit, %.loopexit, %214, %193, %169, %115, %95
+  %.0 = phi i64 [ %99, %95 ], [ %133, %115 ], [ %173, %169 ], [ %197, %193 ], [ -1, %214 ], [ -1, %.loopexit ], [ -2, %Scl_LibertySkipSpaces.exit ]
   ret i64 %.0
 }
 

@@ -335,7 +335,7 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr noundef
   %20 = add i32 %19, 1
   store i32 %20, ptr @numa_reserved_meminfo, align 8
   %21 = sext i32 %19 to i64
-  %22 = getelementptr %struct.numa_meminfo, ptr @numa_reserved_meminfo, i64 0, i32 1, i64 %21
+  %22 = getelementptr %struct.numa_memblk, ptr getelementptr inbounds nuw (i8, ptr @numa_reserved_meminfo, i64 8), i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %22, ptr noundef align 8 dereferenceable(24) %12, i64 24, i1 false)
   br label %34
 
@@ -643,7 +643,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @numa_alloc_distance() unna
 
 3:                                                ; preds = %16, %0
   %4 = phi i64 [ 0, %0 ], [ %17, %16 ]
-  %5 = getelementptr %struct.numa_meminfo, ptr @numa_meminfo, i64 0, i32 1, i64 %4
+  %5 = getelementptr %struct.numa_memblk, ptr getelementptr inbounds nuw (i8, ptr @numa_meminfo, i64 8), i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
@@ -1227,7 +1227,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_register_memblks() un
 
 2:                                                ; preds = %15, %0
   %3 = phi i64 [ 0, %0 ], [ %16, %15 ]
-  %4 = getelementptr %struct.numa_meminfo, ptr @numa_meminfo, i64 0, i32 1, i64 %3
+  %4 = getelementptr %struct.numa_memblk, ptr getelementptr inbounds nuw (i8, ptr @numa_meminfo, i64 8), i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
@@ -1268,7 +1268,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_register_memblks() un
 
 .preheader10:                                     ; preds = %21, %.preheader10
   %25 = phi i64 [ %34, %.preheader10 ], [ 0, %21 ]
-  %26 = getelementptr %struct.numa_meminfo, ptr @numa_meminfo, i64 0, i32 1, i64 %25
+  %26 = getelementptr %struct.numa_memblk, ptr getelementptr inbounds nuw (i8, ptr @numa_meminfo, i64 8), i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8
@@ -1318,7 +1318,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_register_memblks() un
   %54 = phi i64 [ 0, %49 ], [ %70, %67 ]
   %55 = phi i64 [ %51, %49 ], [ %69, %67 ]
   %56 = phi i64 [ 0, %49 ], [ %68, %67 ]
-  %57 = getelementptr %struct.numa_meminfo, ptr @numa_meminfo, i64 0, i32 1, i64 %54
+  %57 = getelementptr %struct.numa_memblk, ptr getelementptr inbounds nuw (i8, ptr @numa_meminfo, i64 8), i64 %54
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %47, %59

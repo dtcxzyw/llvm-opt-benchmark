@@ -1427,30 +1427,30 @@ define internal void @xtea_parse_uat() #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next, %.critedge ]
   %5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #18
   %6 = load ptr, ptr @xteakeylist_uats, align 8
-  %7 = getelementptr %struct.xteakeys_assoc, ptr %6, i64 %indvars.iv, i32 1
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i8, ptr %8, align 1
-  %.not19 = icmp eq i8 %9, 0
+  %7 = getelementptr %struct.xteakeys_assoc, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i8, ptr %9, align 1
+  %.not19 = icmp eq i8 %10, 0
   br i1 %.not19, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %38
-  %10 = phi i8 [ %39, %38 ], [ %9, %4 ]
-  %.021 = phi ptr [ %40, %38 ], [ %8, %4 ]
+  %11 = phi i8 [ %39, %38 ], [ %10, %4 ]
+  %.021 = phi ptr [ %40, %38 ], [ %9, %4 ]
   %.01620 = phi i32 [ %.117, %38 ], [ 0, %4 ]
-  %11 = getelementptr i8, ptr %.021, i64 1
-  %12 = load i8, ptr %11, align 1
-  %13 = icmp ne i8 %12, 0
-  %14 = icmp ult i32 %.01620, 16
-  %or.cond = select i1 %13, i1 %14, i1 false
+  %12 = getelementptr i8, ptr %.021, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp ne i8 %13, 0
+  %15 = icmp ult i32 %.01620, 16
+  %or.cond = select i1 %14, i1 %15, i1 false
   br i1 %or.cond, label %24, label %.critedge
 
 .critedge:                                        ; preds = %38, %.lr.ph, %4
-  %15 = load ptr, ptr @xteakeys, align 8
-  %16 = getelementptr %struct.xteakeys_assoc, ptr %6, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 8
+  %16 = load ptr, ptr @xteakeys, align 8
+  %17 = load i32, ptr %7, align 8
   %18 = zext i32 %17 to i64
   %19 = inttoptr i64 %18 to ptr
-  %20 = tail call i32 @g_hash_table_insert(ptr noundef %15, ptr noundef %19, ptr noundef %5)
+  %20 = tail call i32 @g_hash_table_insert(ptr noundef %16, ptr noundef %19, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr @nxteakeys, align 4
   %22 = zext i32 %21 to i64
@@ -1458,7 +1458,7 @@ define internal void @xtea_parse_uat() #0 {
   br i1 %23, label %4, label %._crit_edge, !llvm.loop !13
 
 24:                                               ; preds = %.lr.ph
-  %25 = zext i8 %10 to i64
+  %25 = zext i8 %11 to i64
   %26 = getelementptr i16, ptr %3, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 128
@@ -1466,9 +1466,9 @@ define internal void @xtea_parse_uat() #0 {
   br i1 %.not18, label %29, label %38
 
 29:                                               ; preds = %24
-  %30 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %10) #17
+  %30 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %11) #17
   %31 = shl i32 %30, 4
-  %32 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %12) #17
+  %32 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %13) #17
   %33 = add i32 %31, %32
   %34 = trunc i32 %33 to i8
   %35 = add nuw nsw i32 %.01620, 1
@@ -1480,9 +1480,9 @@ define internal void @xtea_parse_uat() #0 {
   br label %38
 
 38:                                               ; preds = %24, %29
-  %39 = phi i8 [ %12, %24 ], [ %.pre, %29 ]
+  %39 = phi i8 [ %13, %24 ], [ %.pre, %29 ]
   %.117 = phi i32 [ %.01620, %24 ], [ %35, %29 ]
-  %.1 = phi ptr [ %.021, %24 ], [ %11, %29 ]
+  %.1 = phi ptr [ %.021, %24 ], [ %12, %29 ]
   %40 = getelementptr i8, ptr %.1, i64 1
   %.not = icmp eq i8 %39, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !14

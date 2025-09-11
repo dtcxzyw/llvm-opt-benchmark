@@ -304,12 +304,14 @@ if.then:                                          ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %if.then.for.end.loopexit_crit_edge, label %for.body, !llvm.loop !9
 
 if.then.for.end.loopexit_crit_edge:               ; preds = %if.then
-  %filenameId.le = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %1, i64 %indvars.iv14, i32 1
+  %arrayidx.i1315.le24 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %1, i64 %indvars.iv14
+  %filenameId.le = getelementptr inbounds nuw i8, ptr %arrayidx.i1315.le24, i64 4
   %4 = load i32, ptr %filenameId.le, align 4
   br label %for.end.loopexit, !llvm.loop !9
 
 for.end.loopexit.loopexit:                        ; preds = %for.body
-  %filenameId.le22 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %1, i64 %indvars.iv14, i32 1
+  %arrayidx.i1315.le = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %1, i64 %indvars.iv14
+  %filenameId.le22 = getelementptr inbounds nuw i8, ptr %arrayidx.i1315.le, i64 4
   %5 = load i32, ptr %filenameId.le22, align 4
   br label %for.end.loopexit
 
@@ -429,7 +431,8 @@ if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge: ; p
   br label %if.then10, !llvm.loop !9
 
 if.then10:                                        ; preds = %for.body.i, %if.then.i._ZNK6hermes3hbc9DebugInfo21getFilenameForAddressEj.exit_crit_edge
-  %filenameId.i.le35 = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %8, i64 %indvars.iv.i25, i32 1
+  %arrayidx.i13.i26.le = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %8, i64 %indvars.iv.i25
+  %filenameId.i.le35 = getelementptr inbounds nuw i8, ptr %arrayidx.i13.i26.le, i64 4
   %11 = load i32, ptr %filenameId.i.le35, align 4
   store i32 %offsetInFunction, ptr %agg.result, align 4
   %lastLocation.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
@@ -1366,7 +1369,8 @@ if.then4.i.i46:                                   ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEPKc.exit51:               ; preds = %if.then.i.i49, %if.then4.i.i46
   %phi.call.i48 = phi ptr [ %call3.i.i50, %if.then.i.i49 ], [ %call8, %if.then4.i.i46 ]
   %12 = load ptr, ptr %files_, align 8
-  %filenameId = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %12, i64 %indvars.iv, i32 1
+  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %12, i64 %indvars.iv
+  %filenameId = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %13 = load i32, ptr %filenameId, align 1
   %conv.i52 = zext i32 %13 to i64
   %call.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i48, i64 noundef %conv.i52) #16

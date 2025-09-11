@@ -728,7 +728,6 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %302 = load i8, ptr %301, align 4
   store i8 %302, ptr %7, align 1
-  %smax = tail call i32 @llvm.smax.i32(i32 %283, i32 1)
   br label %.lr.ph345
 
 .lr.ph345:                                        ; preds = %.lr.ph345.preheader, %317
@@ -761,7 +760,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit295.
   %.1278 = phi i32 [ %314, %311 ], [ %.0277342, %307 ]
   %318 = add nsw i32 %.1278, 1
   %319 = add nuw nsw i32 %.1275343, 1
-  %exitcond.not = icmp eq i32 %319, %smax
+  %exitcond.not = icmp eq i32 %319, %283
   br i1 %exitcond.not, label %._crit_edge346, label %.lr.ph345, !llvm.loop !13
 
 ._crit_edge346:                                   ; preds = %317
@@ -2068,9 +2067,6 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8

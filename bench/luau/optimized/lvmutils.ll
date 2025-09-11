@@ -3389,7 +3389,7 @@ define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1,
   %48 = tail call noundef i32 %47(ptr noundef nonnull %0)
   %49 = load ptr, ptr %25, align 8, !tbaa !53
   %50 = getelementptr inbounds i8, ptr %49, i64 -40
-  br i1 %41, label %51, label %65
+  br i1 %41, label %51, label %66
 
 51:                                               ; preds = %34
   %52 = icmp sgt i32 %48, 0
@@ -3404,25 +3404,26 @@ define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1,
   %59 = zext nneg i32 %2 to i64
   %60 = getelementptr inbounds nuw %struct.lua_TValue, ptr %58, i64 %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !33
-  br label %65
+  br label %66
 
 61:                                               ; preds = %51
   %62 = load ptr, ptr %50, align 8, !tbaa !58
   %63 = zext nneg i32 %2 to i64
-  %64 = getelementptr inbounds nuw %struct.lua_TValue, ptr %62, i64 %63, i32 2
-  store i32 0, ptr %64, align 4, !tbaa !4
-  br label %65
+  %64 = getelementptr inbounds nuw %struct.lua_TValue, ptr %62, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
+  store i32 0, ptr %65, align 4, !tbaa !4
+  br label %66
 
-65:                                               ; preds = %53, %61, %34
+66:                                               ; preds = %53, %61, %34
   store ptr %50, ptr %25, align 8, !tbaa !53
-  %66 = load ptr, ptr %50, align 8, !tbaa !58
-  store ptr %66, ptr %44, align 8, !tbaa !48
-  %67 = getelementptr inbounds i8, ptr %49, i64 -24
-  %68 = load ptr, ptr %67, align 8, !tbaa !59
-  store ptr %68, ptr %12, align 8, !tbaa !36
-  %69 = load i16, ptr %4, align 8, !tbaa !52
-  %70 = add i16 %69, -1
-  store i16 %70, ptr %4, align 8, !tbaa !52
+  %67 = load ptr, ptr %50, align 8, !tbaa !58
+  store ptr %67, ptr %44, align 8, !tbaa !48
+  %68 = getelementptr inbounds i8, ptr %49, i64 -24
+  %69 = load ptr, ptr %68, align 8, !tbaa !59
+  store ptr %69, ptr %12, align 8, !tbaa !36
+  %70 = load i16, ptr %4, align 8, !tbaa !52
+  %71 = add i16 %70, -1
+  store i16 %71, ptr %4, align 8, !tbaa !52
   ret void
 }
 

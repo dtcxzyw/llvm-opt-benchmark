@@ -2051,27 +2051,27 @@ define hidden noundef zeroext i1 @KMSDRM_GetDisplayModes(ptr readnone captures(n
 21:                                               ; preds = %19, %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds nuw %struct._drmModeModeInfo, ptr %22, i64 %indvars.iv, i32 1
-  %24 = load i16, ptr %23, align 4
-  %25 = zext i16 %24 to i32
-  store i32 %25, ptr %11, align 8
-  %26 = getelementptr inbounds nuw %struct._drmModeModeInfo, ptr %22, i64 %indvars.iv, i32 6
-  %27 = load i16, ptr %26, align 2
-  %28 = zext i16 %27 to i32
-  store i32 %28, ptr %12, align 4
-  %29 = getelementptr inbounds nuw %struct._drmModeModeInfo, ptr %22, i64 %indvars.iv
-  %30 = load i32, ptr %29, align 4
+  %23 = getelementptr inbounds nuw %struct._drmModeModeInfo, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %25 = load i16, ptr %24, align 4
+  %26 = zext i16 %25 to i32
+  store i32 %26, ptr %11, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 14
+  %28 = load i16, ptr %27, align 2
+  %29 = zext i16 %28 to i32
+  store i32 %29, ptr %12, align 4
+  %30 = load i32, ptr %23, align 4
   %31 = mul i32 %30, 1000
   store i32 %31, ptr %13, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 10
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 10
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
-  %35 = getelementptr inbounds nuw i8, ptr %29, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i32
   %38 = mul nuw nsw i32 %37, %34
   store i32 %38, ptr %14, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %29, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 16
   %.not.i = icmp eq i32 %41, 0
@@ -2096,7 +2096,7 @@ define hidden noundef zeroext i1 @KMSDRM_GetDisplayModes(ptr readnone captures(n
 
 49:                                               ; preds = %47, %44
   %50 = phi i32 [ %48, %47 ], [ %38, %44 ]
-  %51 = getelementptr inbounds nuw i8, ptr %29, i64 22
+  %51 = getelementptr inbounds nuw i8, ptr %23, i64 22
   %52 = load i16, ptr %51, align 2
   %53 = icmp ugt i16 %52, 1
   br i1 %53, label %54, label %CalculateRefreshRate.exit

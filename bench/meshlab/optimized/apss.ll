@@ -2360,7 +2360,7 @@ define linkonce_odr void @_ZNK7GaelMls10MlsSurfaceI6CMeshOE19computeNeighborhood
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %11) #23
-  br label %202
+  br label %203
 
 34:                                               ; preds = %27, %3
   %35 = phi ptr [ %11, %27 ], [ %9, %3 ]
@@ -2458,11 +2458,11 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit: ; preds = %83, %78, %_ZNSt6v
   %85 = load ptr, ptr %84, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %86 unwind label %197
+          to label %86 unwind label %198
 
 86:                                               ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit
   %87 = invoke { ptr, i32 } @_ZN3vcg3tri9AllocatorI6CMeshOE22FindPerVertexAttributeIfEENS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESE_SE_E29ConstPerVertexAttributeHandleIT_EERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1196) %85, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %88 unwind label %199
+          to label %88 unwind label %200
 
 88:                                               ; preds = %86
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
@@ -2484,7 +2484,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit: ; preds = %83, %78, %_ZNSt6v
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us
-  %.04263.us = phi i64 [ %163, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us ], [ 0, %.lr.ph ]
+  %.04263.us = phi i64 [ %164, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us ], [ 0, %.lr.ph ]
   %sext58.us = shl i64 %.04263.us, 32
   %98 = ashr exact i64 %sext58.us, 32
   %99 = load ptr, ptr %37, align 8
@@ -2542,117 +2542,118 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us: ; preds = %_ZNK7GaelMl
   %140 = load ptr, ptr %84, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds %class.CVertexO, ptr %142, i64 %114, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %144 = load float, ptr %1, align 4
-  %145 = load float, ptr %143, align 4
-  %146 = fsub float %144, %145
-  %147 = load float, ptr %95, align 4
-  %148 = getelementptr inbounds nuw i8, ptr %143, i64 4
-  %149 = load float, ptr %148, align 4
-  %150 = fsub float %147, %149
-  %151 = load float, ptr %96, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %153 = load float, ptr %152, align 4
-  %154 = fsub float %151, %153
-  %155 = load ptr, ptr %94, align 8
-  %156 = getelementptr inbounds float, ptr %155, i64 %.04263.us
-  %157 = load float, ptr %156, align 4
-  %158 = fmul float %146, %157
-  %159 = fmul float %150, %157
-  %160 = fmul float %154, %157
-  %.sroa.0.0.vec.insert.i51.us = insertelement <2 x float> poison, float %158, i64 0
-  %.sroa.0.4.vec.insert.i52.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i51.us, float %159, i64 1
-  %161 = load ptr, ptr %97, align 8
-  %162 = getelementptr inbounds %"class.vcg::Point3", ptr %161, i64 %.04263.us
-  store <2 x float> %.sroa.0.4.vec.insert.i52.us, ptr %162, align 4
-  %.sroa.26.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %162, i64 8
-  store float %160, ptr %.sroa.26.0..sroa_idx.us, align 4
-  %163 = add nuw i64 %.04263.us, 1
-  %exitcond89.not = icmp eq i64 %163, %umax88
+  %143 = getelementptr inbounds %class.CVertexO, ptr %142, i64 %114
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load float, ptr %1, align 4
+  %146 = load float, ptr %144, align 4
+  %147 = fsub float %145, %146
+  %148 = load float, ptr %95, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %143, i64 12
+  %150 = load float, ptr %149, align 4
+  %151 = fsub float %148, %150
+  %152 = load float, ptr %96, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  %154 = load float, ptr %153, align 4
+  %155 = fsub float %152, %154
+  %156 = load ptr, ptr %94, align 8
+  %157 = getelementptr inbounds float, ptr %156, i64 %.04263.us
+  %158 = load float, ptr %157, align 4
+  %159 = fmul float %147, %158
+  %160 = fmul float %151, %158
+  %161 = fmul float %155, %158
+  %.sroa.0.0.vec.insert.i51.us = insertelement <2 x float> poison, float %159, i64 0
+  %.sroa.0.4.vec.insert.i52.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i51.us, float %160, i64 1
+  %162 = load ptr, ptr %97, align 8
+  %163 = getelementptr inbounds %"class.vcg::Point3", ptr %162, i64 %.04263.us
+  store <2 x float> %.sroa.0.4.vec.insert.i52.us, ptr %163, align 4
+  %.sroa.26.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %163, i64 8
+  store float %161, ptr %.sroa.26.0..sroa_idx.us, align 4
+  %164 = add nuw i64 %.04263.us, 1
+  %exitcond89.not = icmp eq i64 %164, %umax88
   br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !49
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit
-  %.04263 = phi i64 [ %196, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit ], [ 0, %.lr.ph ]
+  %.04263 = phi i64 [ %197, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit ], [ 0, %.lr.ph ]
   %sext58 = shl i64 %.04263, 32
-  %164 = ashr exact i64 %sext58, 32
-  %165 = load ptr, ptr %37, align 8
-  %166 = load ptr, ptr %36, align 8
-  %167 = ptrtoint ptr %165 to i64
+  %165 = ashr exact i64 %sext58, 32
+  %166 = load ptr, ptr %37, align 8
+  %167 = load ptr, ptr %36, align 8
   %168 = ptrtoint ptr %166 to i64
-  %169 = sub i64 %167, %168
-  %170 = ashr exact i64 %169, 2
-  %.not.i.i.i = icmp ugt i64 %170, %164
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = ashr exact i64 %170, 2
+  %.not.i.i.i = icmp ugt i64 %171, %165
   br i1 %.not.i.i.i, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi i64 [ %98, %.lr.ph.split.us ], [ %164, %.lr.ph.split ]
-  %.us-phi64 = phi i64 [ %104, %.lr.ph.split.us ], [ %170, %.lr.ph.split ]
+  %.us-phi = phi i64 [ %98, %.lr.ph.split.us ], [ %165, %.lr.ph.split ]
+  %.us-phi64 = phi i64 [ %104, %.lr.ph.split.us ], [ %171, %.lr.ph.split ]
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi, i64 noundef %.us-phi64) #24
   unreachable
 
 _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %.lr.ph.split
-  %171 = load ptr, ptr %93, align 8
-  %172 = load ptr, ptr %92, align 8
-  %173 = ptrtoint ptr %171 to i64
+  %172 = load ptr, ptr %93, align 8
+  %173 = load ptr, ptr %92, align 8
   %174 = ptrtoint ptr %172 to i64
-  %175 = sub i64 %173, %174
-  %176 = ashr exact i64 %175, 2
-  %.not.i.i.i50 = icmp ugt i64 %176, %164
+  %175 = ptrtoint ptr %173 to i64
+  %176 = sub i64 %174, %175
+  %177 = ashr exact i64 %176, 2
+  %.not.i.i.i50 = icmp ugt i64 %177, %165
   br i1 %.not.i.i.i50, label %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit, label %.split66.us
 
 .split66.us:                                      ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit.us
-  %.us-phi67 = phi i64 [ %110, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit.us ], [ %176, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit ]
-  %.us-phi68 = phi i64 [ %98, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit.us ], [ %164, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit ]
+  %.us-phi67 = phi i64 [ %110, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit.us ], [ %177, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit ]
+  %.us-phi68 = phi i64 [ %98, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit.us ], [ %165, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit ]
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %.us-phi68, i64 noundef %.us-phi67) #24
   unreachable
 
 _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
-  %177 = load ptr, ptr %90, align 8
-  %178 = getelementptr inbounds i32, ptr %166, i64 %164
-  %179 = load i32, ptr %178, align 4
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds float, ptr %177, i64 %180
-  %182 = load float, ptr %181, align 4
-  %183 = load float, ptr %91, align 4
-  %184 = fmul float %182, %183
-  %185 = fdiv float 1.000000e+00, %184
-  %186 = fmul float %185, %185
-  %187 = getelementptr inbounds float, ptr %172, i64 %164
-  %188 = load float, ptr %187, align 4
-  %189 = fneg float %188
-  %190 = call float @llvm.fmuladd.f32(float %189, float %186, float 1.000000e+00)
-  %191 = fcmp olt float %190, 0.000000e+00
-  %.043 = select i1 %191, float 0.000000e+00, float %190
-  %192 = fmul float %.043, %.043
-  %193 = fmul float %192, %192
-  %194 = load ptr, ptr %44, align 8
-  %195 = getelementptr inbounds float, ptr %194, i64 %.04263
-  store float %193, ptr %195, align 4
-  %196 = add nuw i64 %.04263, 1
-  %exitcond.not = icmp eq i64 %196, %umax88
+  %178 = load ptr, ptr %90, align 8
+  %179 = getelementptr inbounds i32, ptr %167, i64 %165
+  %180 = load i32, ptr %179, align 4
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds float, ptr %178, i64 %181
+  %183 = load float, ptr %182, align 4
+  %184 = load float, ptr %91, align 4
+  %185 = fmul float %183, %184
+  %186 = fdiv float 1.000000e+00, %185
+  %187 = fmul float %186, %186
+  %188 = getelementptr inbounds float, ptr %173, i64 %165
+  %189 = load float, ptr %188, align 4
+  %190 = fneg float %189
+  %191 = call float @llvm.fmuladd.f32(float %190, float %187, float 1.000000e+00)
+  %192 = fcmp olt float %191, 0.000000e+00
+  %.043 = select i1 %192, float 0.000000e+00, float %191
+  %193 = fmul float %.043, %.043
+  %194 = fmul float %193, %193
+  %195 = load ptr, ptr %44, align 8
+  %196 = getelementptr inbounds float, ptr %195, i64 %.04263
+  store float %194, ptr %196, align 4
+  %197 = add nuw i64 %.04263, 1
+  %exitcond.not = icmp eq i64 %197, %umax88
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !49
 
-197:                                              ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit
-  %198 = landingpad { ptr, i32 }
+198:                                              ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit
+  %199 = landingpad { ptr, i32 }
           cleanup
-  br label %201
+  br label %202
 
-199:                                              ; preds = %86
-  %200 = landingpad { ptr, i32 }
+200:                                              ; preds = %86
+  %201 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  br label %201
-
-201:                                              ; preds = %199, %197
-  %.pn = phi { ptr, i32 } [ %200, %199 ], [ %198, %197 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22
   br label %202
+
+202:                                              ; preds = %200, %198
+  %.pn = phi { ptr, i32 } [ %201, %200 ], [ %199, %198 ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #22
+  br label %203
 
 ._crit_edge:                                      ; preds = %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us, %88
   ret void
 
-202:                                              ; preds = %201, %32
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %201 ], [ %33, %32 ]
+203:                                              ; preds = %202, %32
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %202 ], [ %33, %32 ]
   resume { ptr, i32 } %.pn.pn
 }
 

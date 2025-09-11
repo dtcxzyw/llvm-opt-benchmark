@@ -1288,53 +1288,55 @@ _load_cluster_parts.exit:                         ; preds = %9
   %.0.i22 = phi i32 [ %.0.i.ph, %_load_cluster_parts.exit.thread ], [ 0, %_load_cluster_parts.exit ]
   %24 = call i32 @get_log_level() #11
   %25 = icmp sgt i32 %24, 3
-  br i1 %25, label %26, label %50
+  br i1 %25, label %26, label %52
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @slurm_strerror(i32 noundef %.0.i22) #11
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.98, ptr noundef %28, ptr noundef %29) #11
-  br label %50
+  br label %52
 
-30:                                               ; preds = %.lr.ph, %40
-  %31 = phi i32 [ %20, %.lr.ph ], [ %41, %40 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
+30:                                               ; preds = %.lr.ph, %42
+  %31 = phi i32 [ %20, %.lr.ph ], [ %43, %42 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %32 = load ptr, ptr %21, align 8
-  %33 = getelementptr inbounds nuw %struct.partition_info, ptr %32, i64 %indvars.iv, i32 6
-  %34 = load ptr, ptr %33, align 8
-  %.not = icmp eq ptr %34, null
-  br i1 %.not, label %35, label %40
+  %33 = getelementptr inbounds nuw %struct.partition_info, ptr %32, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  %35 = load ptr, ptr %34, align 8
+  %.not = icmp eq ptr %35, null
+  br i1 %.not, label %36, label %42
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %22, align 8
-  %37 = call ptr @xstrdup(ptr noundef %36) #11
-  %38 = load ptr, ptr %21, align 8
-  %39 = getelementptr inbounds nuw %struct.partition_info, ptr %38, i64 %indvars.iv, i32 6
-  store ptr %37, ptr %39, align 8
+36:                                               ; preds = %30
+  %37 = load ptr, ptr %22, align 8
+  %38 = call ptr @xstrdup(ptr noundef %37) #11
+  %39 = load ptr, ptr %21, align 8
+  %40 = getelementptr inbounds nuw %struct.partition_info, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
+  store ptr %38, ptr %41, align 8
   %.pre = load i32, ptr %19, align 8
-  br label %40
+  br label %42
 
-40:                                               ; preds = %30, %35
-  %41 = phi i32 [ %31, %30 ], [ %.pre, %35 ]
+42:                                               ; preds = %30, %36
+  %43 = phi i32 [ %31, %30 ], [ %.pre, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = zext i32 %41 to i64
-  %43 = icmp samesign ult i64 %indvars.iv.next, %42
-  br i1 %43, label %30, label %._crit_edge, !llvm.loop !14
+  %44 = zext i32 %43 to i64
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
+  br i1 %45, label %30, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %40, %.preheader
-  %44 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.91, i32 noundef 508, ptr noundef nonnull @__func__._load_part_thread) #11
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load i32, ptr %45, align 8
-  store i32 %46, ptr %44, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %18, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  call void @list_append(ptr noundef %49, ptr noundef nonnull %44) #11
-  br label %50
+._crit_edge:                                      ; preds = %42, %.preheader
+  %46 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.91, i32 noundef 508, ptr noundef nonnull @__func__._load_part_thread) #11
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = load i32, ptr %47, align 8
+  store i32 %48, ptr %46, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store ptr %18, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load ptr, ptr %50, align 8
+  call void @list_append(ptr noundef %51, ptr noundef nonnull %46) #11
+  br label %52
 
-50:                                               ; preds = %23, %26, %._crit_edge
+52:                                               ; preds = %23, %26, %._crit_edge
   call void @slurm_xfree(ptr noundef nonnull %3) #11
   ret ptr null
 }

@@ -705,23 +705,24 @@ define void @_ZNK7Imf_3_414TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcS
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %15 = load ptr, ptr %5, align 8, !tbaa !11
-  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %indvars.iv, i32 1
-  %17 = load i64, ptr %16, align 8, !tbaa !20
-  %18 = trunc i64 %17 to i32
+  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load i64, ptr %17, align 8, !tbaa !20
+  %19 = trunc i64 %18 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 %18, ptr %4, align 4
-  %19 = load ptr, ptr %1, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
+  store i32 %19, ptr %4, align 4
+  %20 = load ptr, ptr %1, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %22 = load ptr, ptr %5, align 8, !tbaa !11
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 8, !tbaa !15
-  %25 = load ptr, ptr %1, align 8, !tbaa !3
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %24, i32 noundef %18)
+  %23 = load ptr, ptr %5, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %indvars.iv
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = load ptr, ptr %1, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 8
+  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %25, i32 noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27

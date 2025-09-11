@@ -713,7 +713,7 @@ ImportLine.exit:                                  ; preds = %.lr.ph18.i, %.prehe
   br i1 %exitcond.not.i132, label %.preheader.i133, label %201, !llvm.loop !77
 
 .lr.ph.i141:                                      ; preds = %.preheader.i133, %.lr.ph18.i121..lr.ph.i141_crit_edge
-  %wide.trip.count.i142.pre-phi = phi i64 [ %.pre226, %.lr.ph18.i121..lr.ph.i141_crit_edge ], [ %wide.trip.count.i128, %.preheader.i133 ]
+  %wide.trip.count.i142.pre-phi = phi i64 [ %.pre226, %.lr.ph18.i121..lr.ph.i141_crit_edge ], [ 8, %.preheader.i133 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 376
   %205 = load ptr, ptr %.in, align 8, !tbaa !43
   %206 = getelementptr inbounds i8, ptr %30, i64 -1
@@ -855,7 +855,7 @@ ImportLine.exit162:                               ; preds = %.lr.ph18.i149, %.pr
   br i1 %exitcond.not.i174, label %.preheader.i175, label %255, !llvm.loop !77
 
 .lr.ph.i183:                                      ; preds = %.preheader.i175, %.lr.ph18.i163..lr.ph.i183_crit_edge
-  %wide.trip.count.i184.pre-phi = phi i64 [ %.pre223, %.lr.ph18.i163..lr.ph.i183_crit_edge ], [ %wide.trip.count.i170, %.preheader.i175 ]
+  %wide.trip.count.i184.pre-phi = phi i64 [ %.pre223, %.lr.ph18.i163..lr.ph.i183_crit_edge ], [ 8, %.preheader.i175 ]
   %.pn197.in = load i32, ptr %21, align 4, !tbaa !69
   %.pn197 = sext i32 %.pn197.in to i64
   %.pn = sub nsw i64 0, %.pn197

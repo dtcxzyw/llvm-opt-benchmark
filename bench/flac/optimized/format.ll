@@ -285,9 +285,9 @@ define i32 @FLAC__format_seektable_sort(ptr noundef readonly captures(none) %0) 
   %indvars.iv42 = phi i64 [ %11, %.lr.ph40 ], [ %indvars.iv.next43, %32 ]
   %33 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %10, i64 %indvars.iv42
   store i64 -1, ptr %33, align 8, !tbaa !10
-  %34 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %10, i64 %indvars.iv42, i32 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 0, ptr %34, align 8, !tbaa !19
-  %35 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %10, i64 %indvars.iv42, i32 2
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 0, ptr %35, align 8, !tbaa !20
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
@@ -677,12 +677,13 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
   %22 = load ptr, ptr %21, align 8, !tbaa !30
   %23 = add i32 %17, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %24, i32 1
-  %26 = load i8, ptr %25, align 8, !tbaa !31
-  %.not75 = icmp eq i8 %26, -86
-  br i1 %.not75, label %.split102, label %27
+  %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load i8, ptr %26, align 8, !tbaa !31
+  %.not75 = icmp eq i8 %27, -86
+  br i1 %.not75, label %.split102, label %28
 
-27:                                               ; preds = %20
+28:                                               ; preds = %20
   %.not87 = icmp eq ptr %2, null
   br i1 %.not87, label %.loopexit, label %.loopexit.sink.split
 
@@ -693,47 +694,43 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
   br label %.split102.us.split
 
 .split102.us.split:                               ; preds = %.split102.us.split.preheader, %._crit_edge.split.us.us
-  %.068101.us = phi i32 [ %46, %._crit_edge.split.us.us ], [ 0, %.split102.us.split.preheader ]
-  %28 = zext i32 %.068101.us to i64
-  %29 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre, i64 %28, i32 1
-  %30 = load i8, ptr %29, align 8, !tbaa !31
-  %31 = icmp eq i8 %30, 0
-  br i1 %31, label %.split104.us, label %32
+  %.068101.us = phi i32 [ %47, %._crit_edge.split.us.us ], [ 0, %.split102.us.split.preheader ]
+  %29 = zext i32 %.068101.us to i64
+  %30 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load i8, ptr %31, align 8, !tbaa !31
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %.split104.us, label %34
 
-32:                                               ; preds = %.split102.us.split
-  %33 = icmp ult i32 %.068101.us, %.pre141
-  br i1 %33, label %34, label %45
-
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre, i64 %28
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 23
+34:                                               ; preds = %.split102.us.split
+  %35 = icmp ult i32 %.068101.us, %.pre141
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 23
   %37 = load i8, ptr %36, align 1, !tbaa !33
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %.split110.us, label %39
+  br i1 %35, label %39, label %46
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !34
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load i8, ptr %42, align 8, !tbaa !35
-  %44 = icmp ugt i8 %43, 1
-  br i1 %44, label %.split112.us, label %.lr.ph.us
+  br i1 %38, label %.split110.us, label %40
 
-45:                                               ; preds = %32
-  %.phi.trans.insert139 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre, i64 %28, i32 4
-  %.pre140 = load i8, ptr %.phi.trans.insert139, align 1, !tbaa !33
-  %.not114 = icmp eq i8 %.pre140, 0
-  br i1 %.not114, label %._crit_edge.split.us.us, label %.lr.ph.us
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !34
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load i8, ptr %43, align 8, !tbaa !35
+  %45 = icmp ugt i8 %44, 1
+  br i1 %45, label %.split112.us, label %.lr.ph.us
 
-._crit_edge.split.us.us:                          ; preds = %60, %45
-  %46 = add nuw i32 %.068101.us, 1
-  %exitcond134.not = icmp eq i32 %46, %14
+46:                                               ; preds = %34
+  br i1 %38, label %._crit_edge.split.us.us, label %.lr.ph.us
+
+._crit_edge.split.us.us:                          ; preds = %60, %46
+  %47 = add nuw i32 %.068101.us, 1
+  %exitcond134.not = icmp eq i32 %47, %14
   br i1 %exitcond134.not, label %.loopexit, label %.split102.us.split, !llvm.loop !37
 
-.lr.ph.us:                                        ; preds = %39, %45
-  %47 = phi i8 [ %.pre140, %45 ], [ %37, %39 ]
-  %48 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre, i64 %28, i32 5
-  %wide.trip.count132 = zext i8 %47 to i64
+.lr.ph.us:                                        ; preds = %40, %46
+  %48 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %wide.trip.count132 = zext i8 %37 to i64
   br label %49
 
 49:                                               ; preds = %60, %.lr.ph.us
@@ -743,15 +740,15 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %48, align 8, !tbaa !34
-  %52 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %51, i64 %indvars.iv129, i32 1
-  %53 = load i8, ptr %52, align 8, !tbaa !35
-  %54 = zext i8 %53 to i32
-  %55 = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %51, i64 %indvars.iv129
-  %56 = getelementptr i8, ptr %55, i64 -8
+  %52 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %51, i64 %indvars.iv129
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load i8, ptr %53, align 8, !tbaa !35
+  %55 = zext i8 %54 to i32
+  %56 = getelementptr i8, ptr %52, i64 -8
   %57 = load i8, ptr %56, align 8, !tbaa !35
   %58 = zext i8 %57 to i32
   %59 = add nuw nsw i32 %58, 1
-  %.not80.us.us = icmp eq i32 %59, %54
+  %.not80.us.us = icmp eq i32 %59, %55
   br i1 %.not80.us.us, label %60, label %.split.us
 
 60:                                               ; preds = %50, %49
@@ -762,28 +759,28 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 .split102:                                        ; preds = %20, %._crit_edge.split
   %.068101 = phi i32 [ %103, %._crit_edge.split ], [ 0, %20 ]
   %61 = zext i32 %.068101 to i64
-  %62 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %61, i32 1
-  %63 = load i8, ptr %62, align 8, !tbaa !31
-  %64 = icmp eq i8 %63, 0
-  br i1 %64, label %.split104.us, label %65
+  %62 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load i8, ptr %63, align 8, !tbaa !31
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %.split104.us, label %66
 
 .split104.us:                                     ; preds = %.split102, %.split102.us.split
   %.not86 = icmp eq ptr %2, null
   br i1 %.not86, label %.loopexit, label %.loopexit.sink.split
 
-65:                                               ; preds = %.split102
-  %66 = icmp ult i8 %63, 100
-  %67 = icmp eq i8 %63, -86
-  %or.cond = or i1 %66, %67
+66:                                               ; preds = %.split102
+  %67 = icmp ult i8 %64, 100
+  %68 = icmp eq i8 %64, -86
+  %or.cond = or i1 %67, %68
   br i1 %or.cond, label %.thread92, label %.split106
 
-.split106:                                        ; preds = %65
+.split106:                                        ; preds = %66
   %.not76 = icmp eq ptr %2, null
   br i1 %.not76, label %.loopexit, label %.loopexit.sink.split
 
-.thread92:                                        ; preds = %65
-  %68 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %61
-  %69 = load i64, ptr %68, align 8, !tbaa !39
+.thread92:                                        ; preds = %66
+  %69 = load i64, ptr %62, align 8, !tbaa !39
   %70 = urem i64 %69, 588
   %.not77 = icmp eq i64 %70, 0
   br i1 %.not77, label %73, label %.split108
@@ -799,7 +796,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 
 73:                                               ; preds = %.thread92
   %74 = icmp ult i32 %.068101, %23
-  %75 = getelementptr inbounds nuw i8, ptr %68, i64 23
+  %75 = getelementptr inbounds nuw i8, ptr %62, i64 23
   %76 = load i8, ptr %75, align 1, !tbaa !33
   %77 = icmp eq i8 %76, 0
   br i1 %74, label %78, label %85
@@ -807,19 +804,19 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 78:                                               ; preds = %73
   br i1 %77, label %.split110.us, label %79
 
-.split110.us:                                     ; preds = %78, %34
+.split110.us:                                     ; preds = %78, %39
   %.not84 = icmp eq ptr %2, null
   br i1 %.not84, label %.loopexit, label %.loopexit.sink.split
 
 79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !34
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i8, ptr %82, align 8, !tbaa !35
   %84 = icmp ugt i8 %83, 1
   br i1 %84, label %.split112.us, label %.lr.ph
 
-.split112.us:                                     ; preds = %79, %39
+.split112.us:                                     ; preds = %79, %40
   %.not83 = icmp eq ptr %2, null
   br i1 %.not83, label %.loopexit, label %.loopexit.sink.split
 
@@ -827,14 +824,14 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
   br i1 %77, label %._crit_edge.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %79, %85
-  %86 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %87 = load ptr, ptr %86, align 8, !tbaa !34
   %wide.trip.count = zext i8 %76 to i64
   br label %88
 
 88:                                               ; preds = %.lr.ph, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %102 ]
-  %89 = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %87, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %87, i64 %indvars.iv
   %90 = load i64, ptr %89, align 8, !tbaa !40
   %91 = urem i64 %90, 588
   %.not78 = icmp eq i64 %91, 0
@@ -849,7 +846,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
   br i1 %.not79, label %102, label %94
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %87, i64 %indvars.iv, i32 1
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %96 = load i8, ptr %95, align 8, !tbaa !35
   %97 = zext i8 %96 to i32
   %98 = getelementptr i8, ptr %89, i64 -8
@@ -873,13 +870,13 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
   %exitcond128.not = icmp eq i32 %103, %17
   br i1 %exitcond128.not, label %.loopexit, label %.split102, !llvm.loop !37
 
-.loopexit.sink.split:                             ; preds = %.split.us, %92, %.split112.us, %.split110.us, %71, %.split106, %.split104.us, %27, %19, %11, %8
-  %.str.53.sink = phi ptr [ @.str.42, %8 ], [ @.str.43, %11 ], [ @.str.44, %19 ], [ @.str.45, %27 ], [ @.str.46, %.split104.us ], [ @.str.47, %.split106 ], [ %.str.48..str.49, %71 ], [ @.str.50, %.split110.us ], [ @.str.51, %.split112.us ], [ @.str.52, %92 ], [ @.str.53, %.split.us ]
+.loopexit.sink.split:                             ; preds = %.split.us, %92, %.split112.us, %.split110.us, %71, %.split106, %.split104.us, %28, %19, %11, %8
+  %.str.53.sink = phi ptr [ @.str.42, %8 ], [ @.str.43, %11 ], [ @.str.44, %19 ], [ @.str.45, %28 ], [ @.str.46, %.split104.us ], [ @.str.47, %.split106 ], [ %.str.48..str.49, %71 ], [ @.str.50, %.split110.us ], [ @.str.51, %.split112.us ], [ @.str.52, %92 ], [ @.str.53, %.split.us ]
   store ptr %.str.53.sink, ptr %2, align 8, !tbaa !41
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.loopexit.sink.split, %.split.us, %92, %.split112.us, %.split110.us, %.split108, %.split106, %.split104.us, %27, %19, %11, %8
-  %.069 = phi i32 [ 0, %8 ], [ 0, %11 ], [ 0, %19 ], [ 0, %27 ], [ 0, %.split104.us ], [ 0, %.split106 ], [ 0, %.split108 ], [ 0, %.split110.us ], [ 0, %.split112.us ], [ 0, %92 ], [ 0, %.split.us ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge.split.us.us ], [ 1, %._crit_edge.split ]
+.loopexit:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.loopexit.sink.split, %.split.us, %92, %.split112.us, %.split110.us, %.split108, %.split106, %.split104.us, %28, %19, %11, %8
+  %.069 = phi i32 [ 0, %8 ], [ 0, %11 ], [ 0, %19 ], [ 0, %28 ], [ 0, %.split104.us ], [ 0, %.split106 ], [ 0, %.split108 ], [ 0, %.split110.us ], [ 0, %.split112.us ], [ 0, %92 ], [ 0, %.split.us ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge.split.us.us ], [ 1, %._crit_edge.split ]
   ret i32 %.069
 }
 

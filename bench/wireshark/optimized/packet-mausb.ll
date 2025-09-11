@@ -1197,7 +1197,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef 
   %55 = sext i16 %51 to i32
   %56 = add nsw i32 %41, -2
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %54, ptr noundef %2, i32 noundef %55, i32 noundef %56, i32 noundef 0)
-  %58 = trunc nsw i32 %56 to i16
+  %58 = trunc nuw nsw i32 %56 to i16
   %59 = add i16 %51, %58
   br label %60
 

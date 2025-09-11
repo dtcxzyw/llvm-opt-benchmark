@@ -3465,9 +3465,9 @@ define dso_local ptr @get_dependent_generated_columns(ptr noundef readonly captu
   %.not30 = icmp eq i16 %33, 0
   br i1 %.not30, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %55
-  %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.preheader ]
-  %.129 = phi ptr [ %.2, %55 ], [ null, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %56
+  %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.preheader ]
+  %.129 = phi ptr [ %.2, %56 ], [ null, %.preheader ]
   %34 = load ptr, ptr %27, align 8
   %35 = getelementptr inbounds nuw %struct.AttrDefault, ptr %34, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3478,38 +3478,39 @@ define dso_local ptr @get_dependent_generated_columns(ptr noundef readonly captu
   %39 = sext i32 %38 to i64
   %40 = shl nsw i64 %39, 4
   %41 = getelementptr i8, ptr %25, i64 %40
-  %42 = getelementptr %struct.FormData_pg_attribute, ptr %41, i64 %37, i32 1, i32 0, i64 10
-  %43 = load i8, ptr %42, align 2
-  %.not27 = icmp eq i8 %43, 0
-  br i1 %.not27, label %55, label %44
+  %42 = getelementptr %struct.FormData_pg_attribute, ptr %41, i64 %37
+  %43 = getelementptr i8, ptr %42, i64 14
+  %44 = load i8, ptr %43, align 2
+  %.not27 = icmp eq i8 %44, 0
+  br i1 %.not27, label %56, label %45
 
-44:                                               ; preds = %.lr.ph
-  %45 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = call ptr @stringToNode(ptr noundef %46) #10
-  call void @pull_varattnos(ptr noundef %47, i32 noundef 1, ptr noundef nonnull %4) #10
-  %48 = load ptr, ptr %4, align 8
-  %49 = call zeroext i1 @bms_overlap(ptr noundef %2, ptr noundef %48) #10
-  br i1 %49, label %50, label %55
+45:                                               ; preds = %.lr.ph
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = call ptr @stringToNode(ptr noundef %47) #10
+  call void @pull_varattnos(ptr noundef %48, i32 noundef 1, ptr noundef nonnull %4) #10
+  %49 = load ptr, ptr %4, align 8
+  %50 = call zeroext i1 @bms_overlap(ptr noundef %2, ptr noundef %49) #10
+  br i1 %50, label %51, label %56
 
-50:                                               ; preds = %44
-  %51 = load i16, ptr %35, align 8
-  %52 = sext i16 %51 to i32
-  %53 = add nsw i32 %52, 7
-  %54 = call ptr @bms_add_member(ptr noundef %.129, i32 noundef %53) #10
-  br label %55
+51:                                               ; preds = %45
+  %52 = load i16, ptr %35, align 8
+  %53 = sext i16 %52 to i32
+  %54 = add nsw i32 %53, 7
+  %55 = call ptr @bms_add_member(ptr noundef %.129, i32 noundef %54) #10
+  br label %56
 
-55:                                               ; preds = %44, %50, %.lr.ph
-  %.2 = phi ptr [ %.129, %.lr.ph ], [ %54, %50 ], [ %.129, %44 ]
+56:                                               ; preds = %45, %51, %.lr.ph
+  %.2 = phi ptr [ %.129, %.lr.ph ], [ %55, %51 ], [ %.129, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = load i16, ptr %32, align 8
-  %57 = zext i16 %56 to i64
-  %58 = icmp samesign ult i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !28
+  %57 = load i16, ptr %32, align 8
+  %58 = zext i16 %57 to i64
+  %59 = icmp samesign ult i64 %indvars.iv.next, %58
+  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
-.loopexit:                                        ; preds = %55, %.preheader, %28, %19
-  %.0 = phi ptr [ null, %28 ], [ null, %19 ], [ null, %.preheader ], [ %.2, %55 ]
+.loopexit:                                        ; preds = %56, %.preheader, %28, %19
+  %.0 = phi ptr [ null, %28 ], [ null, %19 ], [ null, %.preheader ], [ %.2, %56 ]
   call void @table_close(ptr noundef %23, i32 noundef 0) #10
   ret ptr %.0
 }

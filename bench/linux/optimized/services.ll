@@ -3701,7 +3701,7 @@ define dso_local void @selinux_policy_commit(ptr noundef readonly captures(none)
   %31 = phi i64 [ 0, %27 ], [ %36, %30 ]
   %32 = call i32 @ebitmap_get_bit(ptr noundef nonnull %29, i64 noundef %31) #17
   %33 = icmp ne i32 %32, 0
-  %34 = getelementptr %struct.selinux_state, ptr @selinux_state, i64 0, i32 2, i64 %31
+  %34 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 2), i64 %31
   %35 = zext i1 %33 to i8
   store volatile i8 %35, ptr %34, align 1
   %36 = add nuw nsw i64 %31, 1

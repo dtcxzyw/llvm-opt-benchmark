@@ -1193,8 +1193,9 @@ queue_sample_double.exit:                         ; preds = %.lr.ph118.i, %.lr.p
 
 .lr.ph330.split:                                  ; preds = %.lr.ph330, %.lr.ph330.split
   %indvars.iv363 = phi i64 [ %indvars.iv.next364, %.lr.ph330.split ], [ %288, %.lr.ph330 ]
-  %450 = getelementptr inbounds %struct.ChannelContext, ptr %278, i64 %indvars.iv363, i32 29
-  store i32 1, ptr %450, align 4, !tbaa !105
+  %450 = getelementptr inbounds %struct.ChannelContext, ptr %278, i64 %indvars.iv363
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 252
+  store i32 1, ptr %451, align 4, !tbaa !105
   %indvars.iv.next364 = add nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count376
   br i1 %exitcond367.not, label %._crit_edge331, label %.lr.ph330.split, !llvm.loop !107
@@ -2137,8 +2138,9 @@ queue_sample_float.exit:                          ; preds = %.lr.ph118.i, %.lr.p
 
 .lr.ph330.split:                                  ; preds = %.lr.ph330, %.lr.ph330.split
   %indvars.iv363 = phi i64 [ %indvars.iv.next364, %.lr.ph330.split ], [ %306, %.lr.ph330 ]
-  %473 = getelementptr inbounds %struct.ChannelContext, ptr %296, i64 %indvars.iv363, i32 29
-  store i32 1, ptr %473, align 4, !tbaa !105
+  %473 = getelementptr inbounds %struct.ChannelContext, ptr %296, i64 %indvars.iv363
+  %474 = getelementptr inbounds nuw i8, ptr %473, i64 252
+  store i32 1, ptr %474, align 4, !tbaa !105
   %indvars.iv.next364 = add nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count376
   br i1 %exitcond367.not, label %._crit_edge331, label %.lr.ph330.split, !llvm.loop !122

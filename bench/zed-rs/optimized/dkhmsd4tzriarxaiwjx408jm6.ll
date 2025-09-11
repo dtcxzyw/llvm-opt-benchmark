@@ -5848,10 +5848,8 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17h70e87
 
 39:                                               ; preds = %32
   %40 = load i32, ptr %11, align 8, !range !1395, !noalias !1388, !noundef !4
-  %trunc.i.i.i.i = trunc nuw i32 %40 to i1
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %42 = load ptr, ptr %41, align 8, !noalias !1388, !nonnull !4
-  %.sroa.3.0.i.i.i.i = select i1 %trunc.i.i.i.i, ptr %42, ptr %16
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1388
   %switch.not.not.i.i.i = icmp eq i32 %40, 0
   br i1 %switch.not.not.i.i.i, label %43, label %45
@@ -5958,7 +5956,7 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17h70e87
   br label %.body.i.i
 
 "_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17h3f0f3eafc9ab1472E.exit.i.i": ; preds = %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17h8aaad791b5383813E.exit9.i.i.i", %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17h8aaad791b5383813E.exit.i.i.i"
-  %79 = phi ptr [ %44, %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17h8aaad791b5383813E.exit9.i.i.i" ], [ %.sroa.3.0.i.i.i.i, %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17h8aaad791b5383813E.exit.i.i.i" ]
+  %79 = phi ptr [ %44, %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17h8aaad791b5383813E.exit9.i.i.i" ], [ %42, %"_ZN4core3ptr78drop_in_place$LT$$LP$u64$C$workspace..WorkspaceId$C$std..path..PathBuf$RP$$GT$17h8aaad791b5383813E.exit.i.i.i" ]
   store ptr %79, ptr %17, align 8, !noalias !1383
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1383
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1383

@@ -1784,10 +1784,11 @@ _ZN4llvm6memtag10AllocaInfoD2Ev.exit:             ; preds = %_ZN4llvm11SmallVect
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %87 = zext i32 %85 to i64
   %88 = load ptr, ptr %86, align 8, !tbaa !9
-  %89 = getelementptr inbounds nuw %"struct.std::pair.256", ptr %88, i64 %87, i32 1
+  %89 = getelementptr inbounds nuw %"struct.std::pair.256", ptr %88, i64 %87
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %89
+  ret ptr %90
 }
 
 declare noundef ptr @_ZN4llvm18findAllocaForValueEPNS_5ValueEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1

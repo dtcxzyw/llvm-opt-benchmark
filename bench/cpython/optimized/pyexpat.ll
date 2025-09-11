@@ -8643,7 +8643,7 @@ define internal range(i32 -1, 1) i32 @xmlparse_handler_setter(ptr noundef captur
 7:                                                ; preds = %3
   %8 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !14
   tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.136) #8
-  br label %50
+  br label %52
 
 9:                                                ; preds = %3
   %10 = and i64 %5, 274877906880
@@ -8666,7 +8666,7 @@ flush_character_buffer.exit:                      ; preds = %16
   %20 = tail call fastcc i32 @call_character_handler(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef %18)
   store i32 0, ptr %17, align 4, !tbaa !35
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %50, label %flush_character_buffer.exit.thread
+  br i1 %21, label %52, label %flush_character_buffer.exit.thread
 
 flush_character_buffer.exit.thread:               ; preds = %12, %16, %flush_character_buffer.exit
   %22 = icmp eq ptr %1, @_Py_NoneStruct
@@ -8696,47 +8696,49 @@ flush_character_buffer.exit.thread:               ; preds = %12, %16, %flush_cha
 Py_INCREF.exit:                                   ; preds = %27, %30
   %sext = shl i64 %5, 26
   %32 = ashr i64 %sext, 32
-  %33 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %32, i32 2
-  %34 = load ptr, ptr %33, align 16, !tbaa !124
+  %33 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 16, !tbaa !124
   br label %.thread24
 
 .thread24:                                        ; preds = %.thread, %24, %Py_INCREF.exit
-  %.1 = phi ptr [ %34, %Py_INCREF.exit ], [ %spec.select, %24 ], [ null, %.thread ]
+  %.1 = phi ptr [ %35, %Py_INCREF.exit ], [ %spec.select, %24 ], [ null, %.thread ]
   %.019 = phi ptr [ %1, %Py_INCREF.exit ], [ null, %24 ], [ null, %.thread ]
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %36 = load ptr, ptr %35, align 8, !tbaa !36
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %37 = load ptr, ptr %36, align 8, !tbaa !36
   %sext22 = shl i64 %5, 26
-  %37 = ashr i64 %sext22, 32
-  %38 = getelementptr ptr, ptr %36, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !14
-  store ptr %.019, ptr %38, align 8, !tbaa !14
-  %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %Py_XDECREF.exit, label %40
+  %38 = ashr i64 %sext22, 32
+  %39 = getelementptr ptr, ptr %37, i64 %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !14
+  store ptr %.019, ptr %39, align 8, !tbaa !14
+  %.not.i = icmp eq ptr %40, null
+  br i1 %.not.i, label %Py_XDECREF.exit, label %41
 
-40:                                               ; preds = %.thread24
-  %41 = load i32, ptr %39, align 8, !tbaa !13
-  %.not.i.i = icmp sgt i32 %41, -1
-  br i1 %.not.i.i, label %42, label %Py_XDECREF.exit
+41:                                               ; preds = %.thread24
+  %42 = load i32, ptr %40, align 8, !tbaa !13
+  %.not.i.i = icmp sgt i32 %42, -1
+  br i1 %.not.i.i, label %43, label %Py_XDECREF.exit
 
-42:                                               ; preds = %40
-  %43 = add nsw i32 %41, -1
-  store i32 %43, ptr %39, align 8, !tbaa !13
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %Py_XDECREF.exit
+43:                                               ; preds = %41
+  %44 = add nsw i32 %42, -1
+  store i32 %44, ptr %40, align 8, !tbaa !13
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %Py_XDECREF.exit
 
-45:                                               ; preds = %42
-  tail call void @_Py_Dealloc(ptr noundef nonnull %39) #8
+46:                                               ; preds = %43
+  tail call void @_Py_Dealloc(ptr noundef nonnull %40) #8
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %.thread24, %40, %42, %45
-  %46 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %37, i32 1
-  %47 = load ptr, ptr %46, align 8, !tbaa !56
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !39
-  tail call void %47(ptr noundef %49, ptr noundef %.1) #8
-  br label %50
+Py_XDECREF.exit:                                  ; preds = %.thread24, %41, %43, %46
+  %47 = getelementptr %struct.HandlerInfo, ptr @handler_info, i64 %38
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !39
+  tail call void %49(ptr noundef %51, ptr noundef %.1) #8
+  br label %52
 
-50:                                               ; preds = %flush_character_buffer.exit, %Py_XDECREF.exit, %7
+52:                                               ; preds = %flush_character_buffer.exit, %Py_XDECREF.exit, %7
   %.0 = phi i32 [ -1, %7 ], [ 0, %Py_XDECREF.exit ], [ -1, %flush_character_buffer.exit ]
   ret i32 %.0
 }

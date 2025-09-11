@@ -727,7 +727,7 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @g_context_num, align 4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %77, label %5
+  br i1 %.not, label %78, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #8
@@ -752,7 +752,7 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
   %16 = tail call i32 %15(i32 noundef %0, ptr noundef %1) #8
   %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not39 = icmp eq i32 %17, 0
-  br i1 %.not39, label %77, label %18
+  br i1 %.not39, label %78, label %18
 
 18:                                               ; preds = %12
   %19 = tail call ptr @__errno_location() #9
@@ -777,99 +777,100 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %32
 
-._crit_edge:                                      ; preds = %69, %20
-  %.026.lcssa = phi i32 [ -1, %20 ], [ %.1, %69 ]
+._crit_edge:                                      ; preds = %70, %20
+  %.026.lcssa = phi i32 [ -1, %20 ], [ %.1, %70 ]
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not35 = icmp eq i32 %31, 0
-  br i1 %.not35, label %75, label %73
+  br i1 %.not35, label %76, label %74
 
-32:                                               ; preds = %.lr.ph, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
-  %.02640 = phi i32 [ -1, %.lr.ph ], [ %.1, %69 ]
+32:                                               ; preds = %.lr.ph, %70
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
+  %.02640 = phi i32 [ -1, %.lr.ph ], [ %.1, %70 ]
   %33 = load ptr, ptr @g_context, align 8
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %.not36 = icmp eq ptr %35, null
-  br i1 %.not36, label %69, label %36
+  br i1 %.not36, label %70, label %36
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr @acct_gather_energy_g_get_sum.energy_array, align 8
   %38 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %37, i64 %indvars.iv
   store ptr %38, ptr @acct_gather_energy_g_get_sum.e, align 8
   %39 = load ptr, ptr @ops, align 8
-  %40 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %39, i64 %indvars.iv, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call i32 %41(i32 noundef %0, ptr noundef %38) #8
-  %.not37 = icmp eq i32 %42, 0
-  br i1 %.not37, label %43, label %69
+  %40 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call i32 %42(i32 noundef %0, ptr noundef %38) #8
+  %.not37 = icmp eq i32 %43, 0
+  br i1 %.not37, label %44, label %70
 
-43:                                               ; preds = %36
-  %44 = load ptr, ptr @acct_gather_energy_g_get_sum.e, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = load i64, ptr %45, align 8
-  %47 = icmp eq i64 %46, -2
-  br i1 %47, label %69, label %48
+44:                                               ; preds = %36
+  %45 = load ptr, ptr @acct_gather_energy_g_get_sum.e, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load i64, ptr %46, align 8
+  %48 = icmp eq i64 %47, -2
+  br i1 %48, label %70, label %49
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %50 = load i64, ptr %49, align 8
-  %51 = load i64, ptr %26, align 8
-  %52 = add i64 %51, %50
-  store i64 %52, ptr %26, align 8
-  %53 = load i32, ptr %44, align 8
-  %54 = load i32, ptr %1, align 8
-  %55 = add i32 %54, %53
-  store i32 %55, ptr %1, align 8
-  %56 = load i64, ptr %45, align 8
-  %57 = load i64, ptr %27, align 8
-  %58 = add i64 %57, %56
-  store i64 %58, ptr %27, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %60 = load i32, ptr %59, align 8
-  %61 = load i32, ptr %28, align 8
-  %62 = add i32 %61, %60
-  store i32 %62, ptr %28, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %64 = load i64, ptr %63, align 8
-  %65 = load i64, ptr %29, align 8
-  %66 = add i64 %65, %64
-  store i64 %66, ptr %29, align 8
-  %67 = load i64, ptr %30, align 8
-  %.not38 = icmp eq i64 %67, 0
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %44, i64 40
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %51 = load i64, ptr %50, align 8
+  %52 = load i64, ptr %26, align 8
+  %53 = add i64 %52, %51
+  store i64 %53, ptr %26, align 8
+  %54 = load i32, ptr %45, align 8
+  %55 = load i32, ptr %1, align 8
+  %56 = add i32 %55, %54
+  store i32 %56, ptr %1, align 8
+  %57 = load i64, ptr %46, align 8
+  %58 = load i64, ptr %27, align 8
+  %59 = add i64 %58, %57
+  store i64 %59, ptr %27, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %61 = load i32, ptr %60, align 8
+  %62 = load i32, ptr %28, align 8
+  %63 = add i32 %62, %61
+  store i32 %63, ptr %28, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %65 = load i64, ptr %64, align 8
+  %66 = load i64, ptr %29, align 8
+  %67 = add i64 %66, %65
+  store i64 %67, ptr %29, align 8
+  %68 = load i64, ptr %30, align 8
+  %.not38 = icmp eq i64 %68, 0
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %45, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %68 = icmp sgt i64 %67, %.pre
-  %or.cond = select i1 %.not38, i1 true, i1 %68
-  br i1 %or.cond, label %._crit_edge43, label %69
+  %69 = icmp sgt i64 %68, %.pre
+  %or.cond = select i1 %.not38, i1 true, i1 %69
+  br i1 %or.cond, label %._crit_edge43, label %70
 
-._crit_edge43:                                    ; preds = %48
+._crit_edge43:                                    ; preds = %49
   store i64 %.pre, ptr %30, align 8
-  br label %69
+  br label %70
 
-69:                                               ; preds = %48, %._crit_edge43, %36, %43, %32
-  %.1 = phi i32 [ %42, %36 ], [ 0, %43 ], [ 0, %._crit_edge43 ], [ %.02640, %32 ], [ 0, %48 ]
+70:                                               ; preds = %49, %._crit_edge43, %36, %44, %32
+  %.1 = phi i32 [ %43, %36 ], [ 0, %44 ], [ 0, %._crit_edge43 ], [ %.02640, %32 ], [ 0, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = load i32, ptr @g_context_num, align 4
-  %71 = sext i32 %70 to i64
-  %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %32, label %._crit_edge, !llvm.loop !13
+  %71 = load i32, ptr @g_context_num, align 4
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next, %72
+  br i1 %73, label %32, label %._crit_edge, !llvm.loop !13
 
-73:                                               ; preds = %._crit_edge
-  %74 = tail call ptr @__errno_location() #9
-  store i32 %31, ptr %74, align 4
+74:                                               ; preds = %._crit_edge
+  %75 = tail call ptr @__errno_location() #9
+  store i32 %31, ptr %75, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.acct_gather_energy_g_get_sum) #10
   unreachable
 
-75:                                               ; preds = %._crit_edge
-  %76 = load ptr, ptr @acct_gather_energy_g_get_sum.energy_array, align 8
+76:                                               ; preds = %._crit_edge
+  %77 = load ptr, ptr @acct_gather_energy_g_get_sum.energy_array, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %76, ptr %3, align 8
+  store ptr %77, ptr %3, align 8
   call void @slurm_xfree(ptr noundef nonnull %3) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %77
+  br label %78
 
-77:                                               ; preds = %12, %2, %75
-  %.0 = phi i32 [ %.026.lcssa, %75 ], [ 0, %2 ], [ %16, %12 ]
+78:                                               ; preds = %12, %2, %76
+  %.0 = phi i32 [ %.026.lcssa, %76 ], [ 0, %2 ], [ %16, %12 ]
   ret i32 %.0
 }
 
@@ -877,7 +878,7 @@ define dso_local i32 @acct_gather_energy_g_get_sum(i32 noundef %0, ptr noundef %
 define dso_local i32 @acct_gather_energy_g_get_data(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @g_context_num, align 4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %18, label %5
+  br i1 %.not, label %19, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #8
@@ -893,21 +894,22 @@ define dso_local i32 @acct_gather_energy_g_get_data(i32 noundef %0, i32 noundef 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @ops, align 8
   %11 = sext i32 %0 to i64
-  %12 = getelementptr inbounds %struct.slurm_acct_gather_energy_ops, ptr %10, i64 %11, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(i32 noundef %1, ptr noundef %2) #8
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
-  %.not11 = icmp eq i32 %15, 0
-  br i1 %.not11, label %18, label %16
+  %12 = getelementptr inbounds %struct.slurm_acct_gather_energy_ops, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 %14(i32 noundef %1, ptr noundef %2) #8
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
+  %.not11 = icmp eq i32 %16, 0
+  br i1 %.not11, label %19, label %17
 
-16:                                               ; preds = %9
-  %17 = tail call ptr @__errno_location() #9
-  store i32 %15, ptr %17, align 4
+17:                                               ; preds = %9
+  %18 = tail call ptr @__errno_location() #9
+  store i32 %16, ptr %18, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.acct_gather_energy_g_get_data) #10
   unreachable
 
-18:                                               ; preds = %9, %3
-  %.0 = phi i32 [ 0, %3 ], [ %14, %9 ]
+19:                                               ; preds = %9, %3
+  %.0 = phi i32 [ 0, %3 ], [ %15, %9 ]
   ret i32 %.0
 }
 
@@ -915,7 +917,7 @@ define dso_local i32 @acct_gather_energy_g_get_data(i32 noundef %0, i32 noundef 
 define dso_local i32 @acct_gather_energy_g_set_data(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @g_context_num, align 4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %27, label %4
+  br i1 %.not, label %28, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #8
@@ -937,47 +939,48 @@ define dso_local i32 @acct_gather_energy_g_set_data(i32 noundef %0, ptr noundef 
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_energy_g_set_data) #10
   unreachable
 
-._crit_edge:                                      ; preds = %20, %.preheader
-  %.012.lcssa = phi i32 [ -1, %.preheader ], [ %.1, %20 ]
+._crit_edge:                                      ; preds = %21, %.preheader
+  %.012.lcssa = phi i32 [ -1, %.preheader ], [ %.1, %21 ]
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not16 = icmp eq i32 %10, 0
-  br i1 %.not16, label %27, label %25
+  br i1 %.not16, label %28, label %26
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %11 = phi i32 [ %6, %.lr.ph.preheader ], [ %21, %20 ]
-  %12 = phi ptr [ %.pre21, %.lr.ph.preheader ], [ %22, %20 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %.01218 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %20 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
+  %11 = phi i32 [ %6, %.lr.ph.preheader ], [ %22, %21 ]
+  %12 = phi ptr [ %.pre21, %.lr.ph.preheader ], [ %23, %21 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
+  %.01218 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %21 ]
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %.not17 = icmp eq ptr %14, null
-  br i1 %.not17, label %20, label %15
+  br i1 %.not17, label %21, label %15
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %16, i64 %indvars.iv, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(i32 noundef %0, ptr noundef %1) #8
+  %17 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call i32 %19(i32 noundef %0, ptr noundef %1) #8
   %.pre = load ptr, ptr @g_context, align 8
   %.pre22 = load i32, ptr @g_context_num, align 4
-  br label %20
+  br label %21
 
-20:                                               ; preds = %.lr.ph, %15
-  %21 = phi i32 [ %.pre22, %15 ], [ %11, %.lr.ph ]
-  %22 = phi ptr [ %.pre, %15 ], [ %12, %.lr.ph ]
-  %.1 = phi i32 [ %19, %15 ], [ %.01218, %.lr.ph ]
+21:                                               ; preds = %.lr.ph, %15
+  %22 = phi i32 [ %.pre22, %15 ], [ %11, %.lr.ph ]
+  %23 = phi ptr [ %.pre, %15 ], [ %12, %.lr.ph ]
+  %.1 = phi i32 [ %20, %15 ], [ %.01218, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = sext i32 %21 to i64
-  %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %24 = sext i32 %22 to i64
+  %25 = icmp slt i64 %indvars.iv.next, %24
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-25:                                               ; preds = %._crit_edge
-  %26 = tail call ptr @__errno_location() #9
-  store i32 %10, ptr %26, align 4
+26:                                               ; preds = %._crit_edge
+  %27 = tail call ptr @__errno_location() #9
+  store i32 %10, ptr %27, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.acct_gather_energy_g_set_data) #10
   unreachable
 
-27:                                               ; preds = %._crit_edge, %2
+28:                                               ; preds = %._crit_edge, %2
   %.0 = phi i32 [ 0, %2 ], [ %.012.lcssa, %._crit_edge ]
   ret i32 %.0
 }
@@ -1111,7 +1114,7 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
 .preheader70:                                     ; preds = %7, %1
   br label %9
 
-9:                                                ; preds = %.preheader70, %44
+9:                                                ; preds = %.preheader70, %45
   %.b19 = load i1, ptr @init_run, align 1
   br i1 %.b19, label %10, label %.critedge
 
@@ -1139,73 +1142,74 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__._watch_node) #10
   unreachable
 
-._crit_edge:                                      ; preds = %28, %.preheader
+._crit_edge:                                      ; preds = %29, %.preheader
   %18 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not20 = icmp eq i32 %18, 0
-  br i1 %.not20, label %35, label %33
+  br i1 %.not20, label %36, label %34
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %28
-  %19 = phi i32 [ %14, %.lr.ph.preheader ], [ %29, %28 ]
-  %20 = phi ptr [ %.pre45, %.lr.ph.preheader ], [ %30, %28 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
+  %19 = phi i32 [ %14, %.lr.ph.preheader ], [ %30, %29 ]
+  %20 = phi ptr [ %.pre45, %.lr.ph.preheader ], [ %31, %29 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %.not24 = icmp eq ptr %22, null
-  br i1 %.not24, label %28, label %23
+  br i1 %.not24, label %29, label %23
 
 23:                                               ; preds = %.lr.ph
   %24 = load ptr, ptr @ops, align 8
-  %25 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %24, i64 %indvars.iv, i32 2
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 %26(i32 noundef 3, ptr noundef nonnull %2) #8
+  %25 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %24, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = call i32 %27(i32 noundef 3, ptr noundef nonnull %2) #8
   %.pre = load ptr, ptr @g_context, align 8
   %.pre46 = load i32, ptr @g_context_num, align 4
-  br label %28
+  br label %29
 
-28:                                               ; preds = %.lr.ph, %23
-  %29 = phi i32 [ %19, %.lr.ph ], [ %.pre46, %23 ]
-  %30 = phi ptr [ %20, %.lr.ph ], [ %.pre, %23 ]
+29:                                               ; preds = %.lr.ph, %23
+  %30 = phi i32 [ %19, %.lr.ph ], [ %.pre46, %23 ]
+  %31 = phi ptr [ %20, %.lr.ph ], [ %.pre, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = sext i32 %29 to i64
-  %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  %32 = sext i32 %30 to i64
+  %33 = icmp slt i64 %indvars.iv.next, %32
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
-33:                                               ; preds = %._crit_edge
-  %34 = tail call ptr @__errno_location() #9
-  store i32 %18, ptr %34, align 4
+34:                                               ; preds = %._crit_edge
+  %35 = tail call ptr @__errno_location() #9
+  store i32 %18, ptr %35, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__._watch_node) #10
   unreachable
 
-35:                                               ; preds = %._crit_edge
-  %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 64)) #8
-  %.not21 = icmp eq i32 %36, 0
-  br i1 %.not21, label %39, label %37
+36:                                               ; preds = %._crit_edge
+  %37 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 64)) #8
+  %.not21 = icmp eq i32 %37, 0
+  br i1 %.not21, label %40, label %38
 
-37:                                               ; preds = %35
-  %38 = tail call ptr @__errno_location() #9
-  store i32 %36, ptr %38, align 4
+38:                                               ; preds = %36
+  %39 = tail call ptr @__errno_location() #9
+  store i32 %37, ptr %39, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__._watch_node) #10
   unreachable
 
-39:                                               ; preds = %35
-  %40 = call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 16), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 64)) #8
-  %.not22 = icmp eq i32 %40, 0
-  br i1 %.not22, label %44, label %41
+40:                                               ; preds = %36
+  %41 = call i32 @pthread_cond_wait(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 16), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 64)) #8
+  %.not22 = icmp eq i32 %41, 0
+  br i1 %.not22, label %45, label %42
 
-41:                                               ; preds = %39
-  %42 = tail call ptr @__errno_location() #9
-  store i32 %40, ptr %42, align 4
-  %43 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.3, i32 noundef 123, ptr noundef nonnull @__func__._watch_node) #8
-  br label %44
+42:                                               ; preds = %40
+  %43 = tail call ptr @__errno_location() #9
+  store i32 %41, ptr %43, align 4
+  %44 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.3, i32 noundef 123, ptr noundef nonnull @__func__._watch_node) #8
+  br label %45
 
-44:                                               ; preds = %41, %39
-  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 64)) #8
-  %.not23 = icmp eq i32 %45, 0
-  br i1 %.not23, label %9, label %46, !llvm.loop !16
+45:                                               ; preds = %42, %40
+  %46 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 64)) #8
+  %.not23 = icmp eq i32 %46, 0
+  br i1 %.not23, label %9, label %47, !llvm.loop !16
 
-46:                                               ; preds = %44
-  %47 = tail call ptr @__errno_location() #9
-  store i32 %45, ptr %47, align 4
+47:                                               ; preds = %45
+  %48 = tail call ptr @__errno_location() #9
+  store i32 %46, ptr %48, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__._watch_node) #10
   unreachable
 
@@ -1221,7 +1225,7 @@ declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #1
 define dso_local noundef i32 @acct_gather_energy_g_conf_options(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @g_context_num, align 4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %26, label %4
+  br i1 %.not, label %27, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #8
@@ -1243,44 +1247,45 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_options(ptr noundef %0, 
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_energy_g_conf_options) #10
   unreachable
 
-._crit_edge:                                      ; preds = %19, %.preheader
+._crit_edge:                                      ; preds = %20, %.preheader
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not13 = icmp eq i32 %10, 0
-  br i1 %.not13, label %26, label %24
+  br i1 %.not13, label %27, label %25
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
-  %11 = phi i32 [ %6, %.lr.ph.preheader ], [ %20, %19 ]
-  %12 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %21, %19 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %11 = phi i32 [ %6, %.lr.ph.preheader ], [ %21, %20 ]
+  %12 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %22, %20 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %.not14 = icmp eq ptr %14, null
-  br i1 %.not14, label %19, label %15
+  br i1 %.not14, label %20, label %15
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %16, i64 %indvars.iv, i32 3
-  %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef %0, ptr noundef %1) #8
+  %17 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8
+  tail call void %19(ptr noundef %0, ptr noundef %1) #8
   %.pre = load ptr, ptr @g_context, align 8
   %.pre18 = load i32, ptr @g_context_num, align 4
-  br label %19
+  br label %20
 
-19:                                               ; preds = %.lr.ph, %15
-  %20 = phi i32 [ %11, %.lr.ph ], [ %.pre18, %15 ]
-  %21 = phi ptr [ %12, %.lr.ph ], [ %.pre, %15 ]
+20:                                               ; preds = %.lr.ph, %15
+  %21 = phi i32 [ %11, %.lr.ph ], [ %.pre18, %15 ]
+  %22 = phi ptr [ %12, %.lr.ph ], [ %.pre, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = sext i32 %20 to i64
-  %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  %23 = sext i32 %21 to i64
+  %24 = icmp slt i64 %indvars.iv.next, %23
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
-24:                                               ; preds = %._crit_edge
-  %25 = tail call ptr @__errno_location() #9
-  store i32 %10, ptr %25, align 4
+25:                                               ; preds = %._crit_edge
+  %26 = tail call ptr @__errno_location() #9
+  store i32 %10, ptr %26, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.acct_gather_energy_g_conf_options) #10
   unreachable
 
-26:                                               ; preds = %._crit_edge, %2
+27:                                               ; preds = %._crit_edge, %2
   ret i32 0
 }
 
@@ -1288,7 +1293,7 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_options(ptr noundef %0, 
 define dso_local noundef i32 @acct_gather_energy_g_conf_set(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @g_context_num, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %26, label %3
+  br i1 %.not, label %27, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #8
@@ -1310,45 +1315,46 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_set(ptr noundef %0) loca
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_energy_g_conf_set) #10
   unreachable
 
-._crit_edge:                                      ; preds = %19, %.preheader
+._crit_edge:                                      ; preds = %20, %.preheader
   %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not13 = icmp eq i32 %9, 0
-  br i1 %.not13, label %26, label %24
+  br i1 %.not13, label %27, label %25
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
-  %10 = phi i32 [ %5, %.lr.ph.preheader ], [ %20, %19 ]
-  %11 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %21, %19 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %10 = phi i32 [ %5, %.lr.ph.preheader ], [ %21, %20 ]
+  %11 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %22, %20 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not14 = icmp eq ptr %13, null
-  br i1 %.not14, label %19, label %14
+  br i1 %.not14, label %20, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %15, i64 %indvars.iv, i32 4
-  %17 = load ptr, ptr %16, align 8
-  %18 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void %17(i32 noundef %18, ptr noundef %0) #8
+  %16 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void %18(i32 noundef %19, ptr noundef %0) #8
   %.pre = load ptr, ptr @g_context, align 8
   %.pre18 = load i32, ptr @g_context_num, align 4
-  br label %19
+  br label %20
 
-19:                                               ; preds = %.lr.ph, %14
-  %20 = phi i32 [ %10, %.lr.ph ], [ %.pre18, %14 ]
-  %21 = phi ptr [ %11, %.lr.ph ], [ %.pre, %14 ]
+20:                                               ; preds = %.lr.ph, %14
+  %21 = phi i32 [ %10, %.lr.ph ], [ %.pre18, %14 ]
+  %22 = phi ptr [ %11, %.lr.ph ], [ %.pre, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = sext i32 %20 to i64
-  %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  %23 = sext i32 %21 to i64
+  %24 = icmp slt i64 %indvars.iv.next, %23
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
-24:                                               ; preds = %._crit_edge
-  %25 = tail call ptr @__errno_location() #9
-  store i32 %9, ptr %25, align 4
+25:                                               ; preds = %._crit_edge
+  %26 = tail call ptr @__errno_location() #9
+  store i32 %9, ptr %26, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.acct_gather_energy_g_conf_set) #10
   unreachable
 
-26:                                               ; preds = %._crit_edge, %1
+27:                                               ; preds = %._crit_edge, %1
   ret i32 0
 }
 
@@ -1356,7 +1362,7 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_set(ptr noundef %0) loca
 define dso_local noundef i32 @acct_gather_energy_g_conf_values(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @g_context_num, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %25, label %3
+  br i1 %.not, label %26, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #8
@@ -1378,44 +1384,45 @@ define dso_local noundef i32 @acct_gather_energy_g_conf_values(ptr noundef %0) l
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_energy_g_conf_values) #10
   unreachable
 
-._crit_edge:                                      ; preds = %18, %.preheader
+._crit_edge:                                      ; preds = %19, %.preheader
   %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not12 = icmp eq i32 %9, 0
-  br i1 %.not12, label %25, label %23
+  br i1 %.not12, label %26, label %24
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %10 = phi i32 [ %5, %.lr.ph.preheader ], [ %19, %18 ]
-  %11 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %20, %18 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %10 = phi i32 [ %5, %.lr.ph.preheader ], [ %20, %19 ]
+  %11 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %21, %19 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not13 = icmp eq ptr %13, null
-  br i1 %.not13, label %18, label %14
+  br i1 %.not13, label %19, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %15, i64 %indvars.iv, i32 5
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef %0) #8
+  %16 = getelementptr inbounds nuw %struct.slurm_acct_gather_energy_ops, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18(ptr noundef %0) #8
   %.pre = load ptr, ptr @g_context, align 8
   %.pre17 = load i32, ptr @g_context_num, align 4
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.lr.ph, %14
-  %19 = phi i32 [ %10, %.lr.ph ], [ %.pre17, %14 ]
-  %20 = phi ptr [ %11, %.lr.ph ], [ %.pre, %14 ]
+19:                                               ; preds = %.lr.ph, %14
+  %20 = phi i32 [ %10, %.lr.ph ], [ %.pre17, %14 ]
+  %21 = phi ptr [ %11, %.lr.ph ], [ %.pre, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = sext i32 %19 to i64
-  %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  %22 = sext i32 %20 to i64
+  %23 = icmp slt i64 %indvars.iv.next, %22
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
-23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @__errno_location() #9
-  store i32 %9, ptr %24, align 4
+24:                                               ; preds = %._crit_edge
+  %25 = tail call ptr @__errno_location() #9
+  store i32 %9, ptr %25, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.acct_gather_energy_g_conf_values) #10
   unreachable
 
-25:                                               ; preds = %._crit_edge, %1
+26:                                               ; preds = %._crit_edge, %1
   ret i32 0
 }
 

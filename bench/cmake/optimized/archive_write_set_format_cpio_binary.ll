@@ -503,7 +503,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %73 = phi ptr [ %.pre.i93, %._crit_edge._crit_edge.i ], [ %69, %70 ]
   %74 = getelementptr inbounds nuw %struct.anon, ptr %73, i64 %72
   store i64 %34, ptr %74, align 8, !tbaa !43
-  %75 = getelementptr inbounds nuw %struct.anon, ptr %73, i64 %72, i32 1
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 %60, ptr %75, align 8, !tbaa !45
   %76 = add i64 %72, 1
   store i64 %76, ptr %39, align 8, !tbaa !39

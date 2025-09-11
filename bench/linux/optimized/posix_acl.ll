@@ -798,7 +798,8 @@ define dso_local noundef ptr @posix_acl_from_mode(i16 noundef zeroext %0, i32 no
 
 9:                                                ; preds = %5, %2
   %10 = phi i64 [ 0, %2 ], [ %8, %5 ]
-  %11 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10, i64 6
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10
+  %11 = getelementptr i8, ptr %.split, i64 48
   %12 = load ptr, ptr %11, align 16
   %13 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %12, i32 noundef %1, i64 noundef 56) #17
   %14 = icmp eq ptr %13, null

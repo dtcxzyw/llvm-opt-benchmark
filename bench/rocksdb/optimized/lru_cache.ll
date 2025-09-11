@@ -5402,20 +5402,21 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb12ShardedCacheINS_9lru_cache1
   %8 = load i32, ptr %7, align 8, !tbaa !221
   %9 = and i32 %8, %4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %6, i64 %10, i32 15
-  tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %13 = load i32, ptr %12, align 4, !tbaa !29
-  %14 = add i32 %13, 1
-  store i32 %14, ptr %12, align 4, !tbaa !29
-  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
-          to label %_ZN7rocksdb9lru_cache13LRUCacheShard3RefEPNS0_9LRUHandleE.exit unwind label %15
+  %11 = getelementptr inbounds nuw %"class.rocksdb::lru_cache::LRUCacheShard", ptr %6, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 208
+  tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %14 = load i32, ptr %13, align 4, !tbaa !29
+  %15 = add i32 %14, 1
+  store i32 %15, ptr %13, align 4, !tbaa !29
+  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
+          to label %_ZN7rocksdb9lru_cache13LRUCacheShard3RefEPNS0_9LRUHandleE.exit unwind label %16
 
-15:                                               ; preds = %2
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %2
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #32
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #32
   unreachable
 
 _ZN7rocksdb9lru_cache13LRUCacheShard3RefEPNS0_9LRUHandleE.exit: ; preds = %2

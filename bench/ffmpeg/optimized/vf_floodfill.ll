@@ -172,7 +172,7 @@ is_inside.exit:                                   ; preds = %37
   store i16 %69, ptr %75, align 2, !tbaa !50
   %76 = load i32, ptr %34, align 4, !tbaa !42
   %77 = trunc i32 %76 to i16
-  %78 = getelementptr inbounds %struct.Points, ptr %71, i64 %74, i32 1
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 2
   store i16 %77, ptr %78, align 2, !tbaa !53
   %79 = add nsw i32 %73, 1
   store i32 %79, ptr %72, align 8, !tbaa !49
@@ -245,7 +245,7 @@ is_inside.exit114:                                ; preds = %108
   store i16 %114, ptr %118, align 2, !tbaa !50
   %119 = add nsw i32 %116, 1
   store i32 %119, ptr %82, align 8, !tbaa !49
-  %120 = getelementptr inbounds %struct.Points, ptr %115, i64 %117, i32 1
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 2
   store i16 %99, ptr %120, align 2, !tbaa !53
   br label %is_inside.exit114.thread
 
@@ -271,7 +271,7 @@ is_inside.exit118:                                ; preds = %122
   store i16 %121, ptr %126, align 2, !tbaa !50
   %127 = add nsw i32 %.pre144.pre.pre146, 1
   store i32 %127, ptr %82, align 8, !tbaa !49
-  %128 = getelementptr inbounds %struct.Points, ptr %124, i64 %125, i32 1
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 2
   store i16 %99, ptr %128, align 2, !tbaa !53
   br label %is_inside.exit118.thread
 
@@ -291,7 +291,7 @@ is_inside.exit122:                                ; preds = %is_inside.exit118.t
   %135 = trunc i32 %129 to i16
   %136 = add nsw i32 %.pre144.pre, 1
   store i32 %136, ptr %82, align 8, !tbaa !49
-  %137 = getelementptr inbounds %struct.Points, ptr %132, i64 %133, i32 1
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 2
   store i16 %135, ptr %137, align 2, !tbaa !53
   br label %is_inside.exit122.thread
 
@@ -311,7 +311,7 @@ is_inside.exit126:                                ; preds = %is_inside.exit122.t
   store i16 %96, ptr %144, align 2, !tbaa !50
   %145 = add nsw i32 %.pre144, 1
   store i32 %145, ptr %82, align 8, !tbaa !49
-  %146 = getelementptr inbounds %struct.Points, ptr %142, i64 %143, i32 1
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 2
   store i16 %141, ptr %146, align 2, !tbaa !53
   br label %is_inside.exit126.thread
 

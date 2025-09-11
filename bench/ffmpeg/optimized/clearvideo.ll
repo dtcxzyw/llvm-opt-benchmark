@@ -953,7 +953,7 @@ mvi_predict.exit:                                 ; preds = %344, %346, %358, %m
   %415 = sext i32 %414 to i64
   %416 = getelementptr inbounds %struct.MV, ptr %392, i64 %415
   store i16 %.sroa.021.1.i, ptr %416, align 2, !tbaa !92
-  %417 = getelementptr inbounds %struct.MV, ptr %392, i64 %415, i32 1
+  %417 = getelementptr inbounds nuw i8, ptr %416, i64 2
   store i16 %.sroa.8.1.i, ptr %417, align 2, !tbaa !94
   %418 = load ptr, ptr %303, align 8, !tbaa !64
   %419 = lshr i32 %.val, 3
@@ -1074,7 +1074,6 @@ copy_block.exit:                                  ; preds = %487, %432, %452, %4
   br i1 %exitcond351.not, label %.loopexit, label %432, !llvm.loop !98
 
 .thread292:                                       ; preds = %mvi_predict.exit
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 2
   %492 = load i32, ptr %321, align 4, !tbaa !38
   %493 = shl i32 %394, %492
   %494 = shl i32 %.1187335, %492
@@ -1093,7 +1092,7 @@ copy_block.exit:                                  ; preds = %487, %432, %452, %4
   %503 = shl i32 %.1187335, %501
   %504 = shl nuw i32 1, %501
   %.sroa.0.0.copyload = load i16, ptr %416, align 2, !tbaa !73
-  %.sroa.7.0.copyload = load i16, ptr %.sroa.6.0..sroa_idx, align 2, !tbaa !73
+  %.sroa.7.0.copyload = load i16, ptr %417, align 2, !tbaa !73
   %505 = sdiv i16 %.sroa.0.0.copyload, 2
   %506 = sdiv i16 %.sroa.7.0.copyload, 2
   %507 = load ptr, ptr %292, align 16, !tbaa !47
@@ -1248,10 +1247,10 @@ define internal void @clv_init_static() #0 {
   tail call void @ff_vlc_init_table_from_lengths(ptr noundef nonnull @ac_vlc, i32 noundef 554, i32 noundef 9, i32 noundef 104, ptr noundef nonnull @clv_ac_bits, i32 noundef 1, ptr noundef nonnull @clv_ac_syms, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #13
   br label %.outer
 
-.outer:                                           ; preds = %19, %0
-  %indvars.iv.ph = phi i64 [ %27, %19 ], [ 0, %0 ]
-  %.013.ph = phi i32 [ %29, %19 ], [ 0, %0 ]
-  %.0.ph = phi i32 [ %.1, %19 ], [ 0, %0 ]
+.outer:                                           ; preds = %20, %0
+  %indvars.iv.ph = phi i64 [ %28, %20 ], [ 0, %0 ]
+  %.013.ph = phi i32 [ %31, %20 ], [ 0, %0 ]
+  %.0.ph = phi i32 [ %.1, %20 ], [ 0, %0 ]
   br label %4
 
 4:                                                ; preds = %.outer, %._crit_edge
@@ -1261,50 +1260,52 @@ define internal void @clv_init_static() #0 {
   %6 = shl nuw i32 1, %5
   %7 = and i32 %6, 879
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %14, label %8
+  br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %4
   %9 = zext i32 %.0 to i64
   %10 = getelementptr inbounds nuw [16 x i8], ptr @clv_mv_len_counts, i64 %9
   %11 = call fastcc ptr @build_vlc(ptr noundef %1, ptr noundef nonnull %10, ptr noundef %2) #15
-  %12 = getelementptr inbounds nuw %struct.LevelCodes, ptr @lev, i64 %indvars.iv, i32 1
-  store ptr %11, ptr %12, align 8, !tbaa !103
-  %13 = add i32 %.0, 1
-  br label %14
+  %12 = getelementptr inbounds nuw %struct.LevelCodes, ptr @lev, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %11, ptr %13, align 8, !tbaa !103
+  %14 = add i32 %.0, 1
+  br label %15
 
-14:                                               ; preds = %8, %4
-  %.1 = phi i32 [ %13, %8 ], [ %.0, %4 ]
-  %15 = icmp eq i64 %indvars.iv, 9
-  br i1 %15, label %16, label %17
+15:                                               ; preds = %8, %4
+  %.1 = phi i32 [ %14, %8 ], [ %.0, %4 ]
+  %16 = icmp eq i64 %indvars.iv, 9
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
-17:                                               ; preds = %14
-  %18 = and i32 %6, 439
-  %.not17 = icmp eq i32 %18, 0
-  br i1 %.not17, label %._crit_edge, label %19
+18:                                               ; preds = %15
+  %19 = and i32 %6, 439
+  %.not17 = icmp eq i32 %19, 0
+  br i1 %.not17, label %._crit_edge, label %20
 
-._crit_edge:                                      ; preds = %17
+._crit_edge:                                      ; preds = %18
   %.pre = add nuw nsw i64 %indvars.iv, 1
   br label %4
 
-19:                                               ; preds = %17
-  %20 = zext i32 %.013.ph to i64
-  %21 = getelementptr inbounds nuw [16 x i8], ptr @clv_flags_bits, i64 %20
-  %22 = getelementptr inbounds nuw [16 x i8], ptr @clv_flags_syms, i64 %20
-  %23 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef 16, ptr noundef nonnull %21, i32 noundef 1, ptr noundef nonnull %22, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #13
-  %24 = getelementptr inbounds nuw %struct.LevelCodes, ptr @lev, i64 %indvars.iv
-  store ptr %23, ptr %24, align 8, !tbaa !106
-  %25 = getelementptr inbounds nuw [16 x i8], ptr @clv_bias_len_counts, i64 %20
-  %26 = call fastcc ptr @build_vlc(ptr noundef %1, ptr noundef nonnull %25, ptr noundef %3) #15
-  %27 = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds nuw %struct.LevelCodes, ptr @lev, i64 %27, i32 2
-  store ptr %26, ptr %28, align 8, !tbaa !107
-  %29 = add i32 %.013.ph, 1
+20:                                               ; preds = %18
+  %21 = zext i32 %.013.ph to i64
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @clv_flags_bits, i64 %21
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @clv_flags_syms, i64 %21
+  %24 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef 16, ptr noundef nonnull %22, i32 noundef 1, ptr noundef nonnull %23, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #13
+  %25 = getelementptr inbounds nuw %struct.LevelCodes, ptr @lev, i64 %indvars.iv
+  store ptr %24, ptr %25, align 8, !tbaa !106
+  %26 = getelementptr inbounds nuw [16 x i8], ptr @clv_bias_len_counts, i64 %21
+  %27 = call fastcc ptr @build_vlc(ptr noundef %1, ptr noundef nonnull %26, ptr noundef %3) #15
+  %28 = add nuw nsw i64 %indvars.iv, 1
+  %29 = getelementptr inbounds nuw %struct.LevelCodes, ptr @lev, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store ptr %27, ptr %30, align 8, !tbaa !107
+  %31 = add i32 %.013.ph, 1
   br label %.outer
 }
 

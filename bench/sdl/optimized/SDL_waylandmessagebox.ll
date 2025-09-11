@@ -61,7 +61,7 @@ define hidden zeroext i1 @Wayland_ShowMessageBox(ptr noundef readonly captures(n
 
 11:                                               ; preds = %9
   %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #4
-  br label %139
+  br label %143
 
 .thread:                                          ; preds = %7, %9, %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -71,7 +71,7 @@ define hidden zeroext i1 @Wayland_ShowMessageBox(ptr noundef readonly captures(n
 
 16:                                               ; preds = %.thread
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9, i32 noundef 8) #4
-  br label %139
+  br label %143
 
 18:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -82,7 +82,7 @@ define hidden zeroext i1 @Wayland_ShowMessageBox(ptr noundef readonly captures(n
 
 get_zenity_version.exit.thread:                   ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %139
+  br label %143
 
 20:                                               ; preds = %18
   %21 = call ptr @SDL_ReadProcess_REAL(ptr noundef nonnull %19, ptr noundef null, ptr noundef null) #4
@@ -92,7 +92,7 @@ get_zenity_version.exit.thread:                   ; preds = %18
 get_zenity_version.exit.thread115:                ; preds = %20
   call void @SDL_DestroyProcess_REAL(ptr noundef nonnull %19) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %139
+  br label %143
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -132,7 +132,7 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
   call void @SDL_free_REAL(ptr noundef nonnull %21) #4
   call void @SDL_DestroyProcess_REAL(ptr noundef nonnull %19) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0.i.i, label %39, label %139
+  br i1 %.0.i.i, label %39, label %143
 
 39:                                               ; preds = %get_zenity_version.exit
   %40 = icmp sgt i32 %24, 3
@@ -208,151 +208,155 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
   %.pre = load ptr, ptr %73, align 8
   br label %74
 
-74:                                               ; preds = %.lr.ph, %94
-  %75 = phi i32 [ %71, %.lr.ph ], [ %95, %94 ]
-  %76 = phi ptr [ %.pre, %.lr.ph ], [ %96, %94 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %.3122 = phi i32 [ %.273, %.lr.ph ], [ %.4, %94 ]
-  %77 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %76, i64 %indvars.iv, i32 2
-  %78 = load ptr, ptr %77, align 8
-  %.not102 = icmp eq ptr %78, null
-  br i1 %.not102, label %90, label %79
+74:                                               ; preds = %.lr.ph, %96
+  %75 = phi i32 [ %71, %.lr.ph ], [ %97, %96 ]
+  %76 = phi ptr [ %.pre, %.lr.ph ], [ %98, %96 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
+  %.3122 = phi i32 [ %.273, %.lr.ph ], [ %.4, %96 ]
+  %77 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %76, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %.not102 = icmp eq ptr %79, null
+  br i1 %.not102, label %92, label %80
 
-79:                                               ; preds = %74
-  %80 = load i8, ptr %78, align 1
-  %.not103 = icmp eq i8 %80, 0
-  br i1 %.not103, label %90, label %81
+80:                                               ; preds = %74
+  %81 = load i8, ptr %79, align 1
+  %.not103 = icmp eq i8 %81, 0
+  br i1 %.not103, label %92, label %82
 
-81:                                               ; preds = %79
-  %82 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %78) #4
-  %83 = sext i32 %.3122 to i64
-  %84 = getelementptr inbounds ptr, ptr %5, i64 %83
-  store ptr @.str.19, ptr %84, align 8
-  %85 = load ptr, ptr %73, align 8
-  %86 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %85, i64 %indvars.iv, i32 2
-  %87 = load ptr, ptr %86, align 8
-  %88 = add nsw i32 %.3122, 2
-  %89 = getelementptr i8, ptr %84, i64 8
-  store ptr %87, ptr %89, align 8
+82:                                               ; preds = %80
+  %83 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %79) #4
+  %84 = sext i32 %.3122 to i64
+  %85 = getelementptr inbounds ptr, ptr %5, i64 %84
+  store ptr @.str.19, ptr %85, align 8
+  %86 = load ptr, ptr %73, align 8
+  %87 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %86, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = add nsw i32 %.3122, 2
+  %91 = getelementptr i8, ptr %85, i64 8
+  store ptr %89, ptr %91, align 8
   %.pre134 = load i32, ptr %13, align 8
-  br label %94
+  br label %96
 
-90:                                               ; preds = %79, %74
-  %91 = add nsw i32 %.3122, 1
-  %92 = sext i32 %.3122 to i64
-  %93 = getelementptr inbounds ptr, ptr %5, i64 %92
-  store ptr @.str.20, ptr %93, align 8
-  br label %94
+92:                                               ; preds = %80, %74
+  %93 = add nsw i32 %.3122, 1
+  %94 = sext i32 %.3122 to i64
+  %95 = getelementptr inbounds ptr, ptr %5, i64 %94
+  store ptr @.str.20, ptr %95, align 8
+  br label %96
 
-94:                                               ; preds = %81, %90
-  %95 = phi i32 [ %.pre134, %81 ], [ %75, %90 ]
-  %96 = phi ptr [ %85, %81 ], [ %76, %90 ]
-  %.4 = phi i32 [ %88, %81 ], [ %91, %90 ]
+96:                                               ; preds = %82, %92
+  %97 = phi i32 [ %.pre134, %82 ], [ %75, %92 ]
+  %98 = phi ptr [ %86, %82 ], [ %76, %92 ]
+  %.4 = phi i32 [ %90, %82 ], [ %93, %92 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %97 = sext i32 %95 to i64
-  %98 = icmp slt i64 %indvars.iv.next, %97
-  br i1 %98, label %74, label %._crit_edge, !llvm.loop !3
+  %99 = sext i32 %97 to i64
+  %100 = icmp slt i64 %indvars.iv.next, %99
+  br i1 %100, label %74, label %._crit_edge, !llvm.loop !3
 
-._crit_edge:                                      ; preds = %94, %70
-  %.3.lcssa = phi i32 [ %.273, %70 ], [ %.4, %94 ]
-  %.lcssa120 = phi i32 [ %71, %70 ], [ %95, %94 ]
-  %99 = icmp eq i32 %.lcssa120, 0
-  br i1 %99, label %100, label %104
+._crit_edge:                                      ; preds = %96, %70
+  %.3.lcssa = phi i32 [ %.273, %70 ], [ %.4, %96 ]
+  %.lcssa120 = phi i32 [ %71, %70 ], [ %97, %96 ]
+  %101 = icmp eq i32 %.lcssa120, 0
+  br i1 %101, label %102, label %106
 
-100:                                              ; preds = %._crit_edge
-  %101 = add nsw i32 %.3.lcssa, 1
-  %102 = sext i32 %.3.lcssa to i64
-  %103 = getelementptr inbounds ptr, ptr %5, i64 %102
-  store ptr @.str.21, ptr %103, align 8
-  br label %104
+102:                                              ; preds = %._crit_edge
+  %103 = add nsw i32 %.3.lcssa, 1
+  %104 = sext i32 %.3.lcssa to i64
+  %105 = getelementptr inbounds ptr, ptr %5, i64 %104
+  store ptr @.str.21, ptr %105, align 8
+  br label %106
 
-104:                                              ; preds = %100, %._crit_edge
-  %.5 = phi i32 [ %101, %100 ], [ %.3.lcssa, %._crit_edge ]
-  %105 = sext i32 %.5 to i64
-  %106 = getelementptr inbounds ptr, ptr %5, i64 %105
-  store ptr null, ptr %106, align 8
-  %107 = call i32 @SDL_CreateProperties_REAL() #4
-  %.not96 = icmp eq i32 %107, 0
-  br i1 %.not96, label %139, label %108
+106:                                              ; preds = %102, %._crit_edge
+  %.5 = phi i32 [ %103, %102 ], [ %.3.lcssa, %._crit_edge ]
+  %107 = sext i32 %.5 to i64
+  %108 = getelementptr inbounds ptr, ptr %5, i64 %107
+  store ptr null, ptr %108, align 8
+  %109 = call i32 @SDL_CreateProperties_REAL() #4
+  %.not96 = icmp eq i32 %109, 0
+  br i1 %.not96, label %143, label %110
 
-108:                                              ; preds = %104
-  %109 = call zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef %107, ptr noundef nonnull @.str.22, ptr noundef nonnull %5) #4
+110:                                              ; preds = %106
+  %111 = call zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef %109, ptr noundef nonnull @.str.22, ptr noundef nonnull %5) #4
   %.not97 = icmp eq ptr %1, null
   %. = select i1 %.not97, i64 1, i64 2
-  %110 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %107, ptr noundef nonnull @.str.23, i64 noundef %.) #4
-  %111 = call ptr @SDL_CreateProcessWithProperties_REAL(i32 noundef %107) #4
-  call void @SDL_DestroyProperties_REAL(i32 noundef %107) #4
-  %.not98 = icmp eq ptr %111, null
-  br i1 %.not98, label %139, label %112
+  %112 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %109, ptr noundef nonnull @.str.23, i64 noundef %.) #4
+  %113 = call ptr @SDL_CreateProcessWithProperties_REAL(i32 noundef %109) #4
+  call void @SDL_DestroyProperties_REAL(i32 noundef %109) #4
+  %.not98 = icmp eq ptr %113, null
+  br i1 %.not98, label %143, label %114
 
-112:                                              ; preds = %108
-  br i1 %.not97, label %138, label %113
+114:                                              ; preds = %110
+  br i1 %.not97, label %142, label %115
 
-113:                                              ; preds = %112
-  %114 = call ptr @SDL_ReadProcess_REAL(ptr noundef nonnull %111, ptr noundef null, ptr noundef null) #4
-  %.not99 = icmp eq ptr %114, null
-  br i1 %.not99, label %138, label %115
-
-115:                                              ; preds = %113
-  %116 = call ptr @SDL_strrchr_REAL(ptr noundef nonnull %114, i32 noundef 10) #4
-  %.not100 = icmp eq ptr %116, null
-  br i1 %.not100, label %118, label %117
+115:                                              ; preds = %114
+  %116 = call ptr @SDL_ReadProcess_REAL(ptr noundef nonnull %113, ptr noundef null, ptr noundef null) #4
+  %.not99 = icmp eq ptr %116, null
+  br i1 %.not99, label %142, label %117
 
 117:                                              ; preds = %115
-  store i8 0, ptr %116, align 1
-  br label %118
+  %118 = call ptr @SDL_strrchr_REAL(ptr noundef nonnull %116, i32 noundef 10) #4
+  %.not100 = icmp eq ptr %118, null
+  br i1 %.not100, label %120, label %119
 
-118:                                              ; preds = %117, %115
-  %119 = load i32, ptr %13, align 8
-  %120 = icmp sgt i32 %119, 0
-  br i1 %120, label %.lr.ph127, label %.loopexit
+119:                                              ; preds = %117
+  store i8 0, ptr %118, align 1
+  br label %120
 
-.lr.ph127:                                        ; preds = %118
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %122
+120:                                              ; preds = %119, %117
+  %121 = load i32, ptr %13, align 8
+  %122 = icmp sgt i32 %121, 0
+  br i1 %122, label %.lr.ph127, label %.loopexit
 
-122:                                              ; preds = %.lr.ph127, %134
-  %123 = phi i32 [ %119, %.lr.ph127 ], [ %135, %134 ]
-  %indvars.iv131 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next132, %134 ]
-  %124 = load ptr, ptr %121, align 8
-  %125 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %124, i64 %indvars.iv131, i32 2
-  %126 = load ptr, ptr %125, align 8
-  %.not101 = icmp eq ptr %126, null
-  br i1 %.not101, label %134, label %127
+.lr.ph127:                                        ; preds = %120
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %124
 
-127:                                              ; preds = %122
-  %128 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull %114, ptr noundef nonnull %126) #4
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %._crit_edge135
+124:                                              ; preds = %.lr.ph127, %138
+  %125 = phi i32 [ %121, %.lr.ph127 ], [ %139, %138 ]
+  %indvars.iv131 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next132, %138 ]
+  %126 = load ptr, ptr %123, align 8
+  %127 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %126, i64 %indvars.iv131
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %129 = load ptr, ptr %128, align 8
+  %.not101 = icmp eq ptr %129, null
+  br i1 %.not101, label %138, label %130
 
-._crit_edge135:                                   ; preds = %127
+130:                                              ; preds = %124
+  %131 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull %116, ptr noundef nonnull %129) #4
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %133, label %._crit_edge135
+
+._crit_edge135:                                   ; preds = %130
   %.pre136 = load i32, ptr %13, align 8
-  br label %134
-
-130:                                              ; preds = %127
-  %131 = load ptr, ptr %121, align 8
-  %132 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %131, i64 %indvars.iv131, i32 1
-  %133 = load i32, ptr %132, align 4
-  store i32 %133, ptr %1, align 4
-  br label %.loopexit
-
-134:                                              ; preds = %._crit_edge135, %122
-  %135 = phi i32 [ %.pre136, %._crit_edge135 ], [ %123, %122 ]
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %136 = sext i32 %135 to i64
-  %137 = icmp slt i64 %indvars.iv.next132, %136
-  br i1 %137, label %122, label %.loopexit, !llvm.loop !5
-
-.loopexit:                                        ; preds = %134, %118, %130
-  call void @SDL_free_REAL(ptr noundef nonnull %114) #4
   br label %138
 
-138:                                              ; preds = %113, %.loopexit, %112
-  call void @SDL_DestroyProcess_REAL(ptr noundef nonnull %111) #4
-  br label %139
+133:                                              ; preds = %130
+  %134 = load ptr, ptr %123, align 8
+  %135 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %134, i64 %indvars.iv131
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
+  %137 = load i32, ptr %136, align 4
+  store i32 %137, ptr %1, align 4
+  br label %.loopexit
 
-139:                                              ; preds = %get_zenity_version.exit.thread115, %get_zenity_version.exit.thread, %11, %138, %104, %108, %get_zenity_version.exit, %16
-  %.1 = phi i1 [ %17, %16 ], [ %12, %11 ], [ false, %get_zenity_version.exit ], [ true, %138 ], [ false, %104 ], [ false, %108 ], [ false, %get_zenity_version.exit.thread ], [ false, %get_zenity_version.exit.thread115 ]
+138:                                              ; preds = %._crit_edge135, %124
+  %139 = phi i32 [ %.pre136, %._crit_edge135 ], [ %125, %124 ]
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %140 = sext i32 %139 to i64
+  %141 = icmp slt i64 %indvars.iv.next132, %140
+  br i1 %141, label %124, label %.loopexit, !llvm.loop !5
+
+.loopexit:                                        ; preds = %138, %120, %133
+  call void @SDL_free_REAL(ptr noundef nonnull %116) #4
+  br label %142
+
+142:                                              ; preds = %115, %.loopexit, %114
+  call void @SDL_DestroyProcess_REAL(ptr noundef nonnull %113) #4
+  br label %143
+
+143:                                              ; preds = %get_zenity_version.exit.thread115, %get_zenity_version.exit.thread, %11, %142, %106, %110, %get_zenity_version.exit, %16
+  %.1 = phi i1 [ %17, %16 ], [ %12, %11 ], [ false, %get_zenity_version.exit ], [ true, %142 ], [ false, %106 ], [ false, %110 ], [ false, %get_zenity_version.exit.thread ], [ false, %get_zenity_version.exit.thread115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.1
 }

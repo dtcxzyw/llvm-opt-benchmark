@@ -2205,34 +2205,36 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7VFShape21hasValidParameterListEv(
 
 19:                                               ; preds = %16
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"struct.llvm::VFParameter", ptr %6, i64 %20, i32 1
-  %22 = load i32, ptr %21, align 4, !tbaa !47
-  %.not24 = icmp ne i32 %22, 9
-  %23 = zext i32 %18 to i64
-  %24 = icmp eq i64 %indvars.iv, %23
-  %or.cond = or i1 %24, %.not24
+  %21 = getelementptr inbounds nuw %"struct.llvm::VFParameter", ptr %6, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !47
+  %.not24 = icmp ne i32 %23, 9
+  %24 = zext i32 %18 to i64
+  %25 = icmp eq i64 %indvars.iv, %24
+  %or.cond = or i1 %25, %.not24
   br i1 %or.cond, label %.thread, label %.loopexit
 
-.preheader:                                       ; preds = %8, %25
-  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %25 ], [ %indvars.iv, %8 ]
+.preheader:                                       ; preds = %8, %26
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %26 ], [ %indvars.iv, %8 ]
   %exitcond.not = icmp eq i64 %indvars.iv37, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %25
+  br i1 %exitcond.not, label %.loopexit, label %26
 
-25:                                               ; preds = %.preheader
+26:                                               ; preds = %.preheader
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %26 = getelementptr inbounds nuw %"struct.llvm::VFParameter", ptr %6, i64 %indvars.iv.next38, i32 1
-  %27 = load i32, ptr %26, align 4, !tbaa !47
-  %28 = icmp eq i32 %27, 10
-  br i1 %28, label %.thread, label %.preheader, !llvm.loop !199
+  %27 = getelementptr inbounds nuw %"struct.llvm::VFParameter", ptr %6, i64 %indvars.iv.next38
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !47
+  %30 = icmp eq i32 %29, 10
+  br i1 %30, label %.thread, label %.preheader, !llvm.loop !199
 
 .loopexit:                                        ; preds = %.preheader, %19, %8, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next, %wide.trip.count41
   br i1 %exitcond42.not, label %.thread, label %8, !llvm.loop !200
 
-.thread:                                          ; preds = %.loopexit, %12, %16, %19, %25, %1
-  %29 = phi i1 [ true, %1 ], [ false, %25 ], [ true, %.loopexit ], [ false, %12 ], [ false, %16 ], [ false, %19 ]
-  ret i1 %29
+.thread:                                          ; preds = %.loopexit, %12, %16, %19, %26, %1
+  %31 = phi i1 [ true, %1 ], [ false, %26 ], [ true, %.loopexit ], [ false, %12 ], [ false, %16 ], [ false, %19 ]
+  ret i1 %31
 }
 
 declare noundef zeroext i1 @_ZN4llvm22consumeUnsignedIntegerERNS_9StringRefEjRy(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5

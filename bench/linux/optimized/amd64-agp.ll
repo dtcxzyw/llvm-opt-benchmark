@@ -736,7 +736,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
   %55 = call i32 @pci_read_config_dword(ptr noundef nonnull %41, i32 noundef 168, ptr noundef nonnull %3) #6
   %56 = load i32, ptr %3, align 4
   %57 = and i32 %56, -16
-  %58 = getelementptr %struct.aper_size_info_32, ptr @nforce3_sizes, i64 %44, i32 3
+  %58 = getelementptr i8, ptr %45, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = or i32 %59, %57
   store i32 %60, ptr %3, align 4

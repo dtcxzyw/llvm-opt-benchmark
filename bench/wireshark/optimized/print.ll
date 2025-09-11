@@ -1899,86 +1899,87 @@ define void @write_ek_proto_tree(ptr noundef %0, i1 noundef zeroext %1, i1 nound
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   br label %26
 
-26:                                               ; preds = %37, %.lr.ph.i
-  %27 = phi ptr [ %8, %.lr.ph.i ], [ %38, %37 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
+26:                                               ; preds = %38, %.lr.ph.i
+  %27 = phi ptr [ %8, %.lr.ph.i ], [ %39, %38 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
   %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   %29 = call zeroext i1 @get_column_visible(i32 noundef %28)
-  br i1 %29, label %30, label %37
+  br i1 %29, label %30, label %38
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %25, align 8
-  %32 = getelementptr %struct.col_item_t, ptr %31, i64 %indvars.iv.i, i32 2
-  %33 = load ptr, ptr %32, align 8
-  %34 = call noalias ptr @g_ascii_strdown(ptr noundef %33, i64 noundef -1)
-  call void @json_dumper_set_member_name(ptr noundef %27, ptr noundef %34)
-  %35 = load ptr, ptr %12, align 8
-  %36 = call ptr @get_column_text(ptr noundef %21, i32 noundef %28)
-  call void @json_dumper_value_string(ptr noundef %35, ptr noundef %36)
-  br label %37
+  %32 = getelementptr %struct.col_item_t, ptr %31, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = call noalias ptr @g_ascii_strdown(ptr noundef %34, i64 noundef -1)
+  call void @json_dumper_set_member_name(ptr noundef %27, ptr noundef %35)
+  %36 = load ptr, ptr %12, align 8
+  %37 = call ptr @get_column_text(ptr noundef %21, i32 noundef %28)
+  call void @json_dumper_value_string(ptr noundef %36, ptr noundef %37)
+  br label %38
 
-37:                                               ; preds = %30, %26
-  %38 = phi ptr [ %35, %30 ], [ %27, %26 ]
+38:                                               ; preds = %30, %26
+  %39 = phi ptr [ %36, %30 ], [ %27, %26 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %39 = load i32, ptr %22, align 8
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next.i, %40
-  br i1 %41, label %26, label %write_ek_summary.exit, !llvm.loop !21
+  %40 = load i32, ptr %22, align 8
+  %41 = sext i32 %40 to i64
+  %42 = icmp slt i64 %indvars.iv.next.i, %41
+  br i1 %42, label %26, label %write_ek_summary.exit, !llvm.loop !21
 
-write_ek_summary.exit:                            ; preds = %37, %19, %6
-  %42 = phi ptr [ %8, %19 ], [ %8, %6 ], [ %38, %37 ]
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %.not = icmp eq ptr %44, null
-  br i1 %.not, label %65, label %45
+write_ek_summary.exit:                            ; preds = %38, %19, %6
+  %43 = phi ptr [ %8, %19 ], [ %8, %6 ], [ %39, %38 ]
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %.not = icmp eq ptr %45, null
+  br i1 %.not, label %66, label %46
 
-45:                                               ; preds = %write_ek_summary.exit
+46:                                               ; preds = %write_ek_summary.exit
   call void @json_dumper_set_member_name(ptr noundef nonnull %8, ptr noundef nonnull @.str.18)
   call void @json_dumper_begin_object(ptr noundef nonnull %8)
-  %46 = icmp eq ptr %0, null
-  br i1 %46, label %.thread, label %49
+  %47 = icmp eq ptr %0, null
+  br i1 %47, label %.thread, label %50
 
-.thread:                                          ; preds = %45
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %7, align 8
-  br label %58
+.thread:                                          ; preds = %46
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr %7, align 8
+  br label %59
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %63
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %64
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %7, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %57 = load ptr, ptr %56, align 8
-  br label %58
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %7, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %58 = load ptr, ptr %57, align 8
+  br label %59
 
-58:                                               ; preds = %.thread, %53
-  %59 = phi ptr [ %57, %53 ], [ null, %.thread ]
-  %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i8 %9, ptr %61, align 8
-  %62 = load ptr, ptr %43, align 8
-  call fastcc void @proto_tree_write_node_ek(ptr noundef %62, ptr noundef nonnull %7)
-  br label %64
-
-63:                                               ; preds = %49
-  call fastcc void @write_specified_fields(i32 noundef 2, ptr noundef nonnull %0, ptr noundef %3, ptr noundef null, ptr noundef %42)
-  br label %64
-
-64:                                               ; preds = %63, %58
-  call void @json_dumper_end_object(ptr noundef nonnull %8)
+59:                                               ; preds = %.thread, %54
+  %60 = phi ptr [ %58, %54 ], [ null, %.thread ]
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %60, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i8 %9, ptr %62, align 8
+  %63 = load ptr, ptr %44, align 8
+  call fastcc void @proto_tree_write_node_ek(ptr noundef %63, ptr noundef nonnull %7)
   br label %65
 
-65:                                               ; preds = %64, %write_ek_summary.exit
+64:                                               ; preds = %50
+  call fastcc void @write_specified_fields(i32 noundef 2, ptr noundef nonnull %0, ptr noundef %3, ptr noundef null, ptr noundef %43)
+  br label %65
+
+65:                                               ; preds = %64, %59
   call void @json_dumper_end_object(ptr noundef nonnull %8)
-  %66 = call zeroext i1 @json_dumper_finish(ptr noundef nonnull %8)
+  br label %66
+
+66:                                               ; preds = %65, %write_ek_summary.exit
+  call void @json_dumper_end_object(ptr noundef nonnull %8)
+  %67 = call zeroext i1 @json_dumper_finish(ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
@@ -2866,39 +2867,40 @@ print_escaped_xml.exit.us:                        ; preds = %.lr.ph.split.us
   %17 = icmp slt i32 %15, %16
   br i1 %17, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !28
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %31
+  %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = tail call zeroext i1 @get_column_visible(i32 noundef %18)
-  br i1 %19, label %20, label %30
+  br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.lr.ph.split
   %21 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull @.str.24)
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr %struct.col_item_t, ptr %22, i64 %indvars.iv, i32 2
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %print_escaped_xml.exit, label %26
+  %23 = getelementptr %struct.col_item_t, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %print_escaped_xml.exit, label %27
 
-26:                                               ; preds = %20
-  %27 = tail call ptr @xml_escape(ptr noundef nonnull %24)
-  %28 = tail call i32 @fputs(ptr noundef %27, ptr noundef nonnull %1)
-  tail call void @g_free(ptr noundef %27)
+27:                                               ; preds = %20
+  %28 = tail call ptr @xml_escape(ptr noundef nonnull %25)
+  %29 = tail call i32 @fputs(ptr noundef %28, ptr noundef nonnull %1)
+  tail call void @g_free(ptr noundef %28)
   br label %print_escaped_xml.exit
 
-print_escaped_xml.exit:                           ; preds = %20, %26
-  %29 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull @.str.25)
-  br label %30
+print_escaped_xml.exit:                           ; preds = %20, %27
+  %30 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull @.str.25)
+  br label %31
 
-30:                                               ; preds = %.lr.ph.split, %print_escaped_xml.exit
+31:                                               ; preds = %.lr.ph.split, %print_escaped_xml.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = load i32, ptr %6, align 8
-  %32 = sext i32 %31 to i64
-  %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph.split, label %._crit_edge, !llvm.loop !28
+  %32 = load i32, ptr %6, align 8
+  %33 = sext i32 %32 to i64
+  %34 = icmp slt i64 %indvars.iv.next, %33
+  br i1 %34, label %.lr.ph.split, label %._crit_edge, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %30, %14, %2
-  %34 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 2, ptr noundef nonnull @.str.26)
+._crit_edge:                                      ; preds = %31, %14, %2
+  %35 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 2, ptr noundef nonnull @.str.26)
   ret void
 }
 
@@ -3040,38 +3042,39 @@ define void @write_csv_column_titles(ptr noundef readonly captures(none) %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
-7:                                                ; preds = %.lr.ph, %15
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %.011 = phi i8 [ 0, %.lr.ph ], [ %.1, %15 ]
+7:                                                ; preds = %.lr.ph, %16
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
+  %.011 = phi i8 [ 0, %.lr.ph ], [ %.1, %16 ]
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = tail call zeroext i1 @get_column_visible(i32 noundef %8)
-  br i1 %9, label %10, label %15
+  br i1 %9, label %10, label %16
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr %struct.col_item_t, ptr %11, i64 %indvars.iv, i32 2
-  %13 = load ptr, ptr %12, align 8
-  %14 = trunc nuw i8 %.011 to i1
-  tail call fastcc void @csv_write_str(ptr noundef %13, ptr noundef %1, i1 noundef zeroext %14)
-  br label %15
+  %12 = getelementptr %struct.col_item_t, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8
+  %15 = trunc nuw i8 %.011 to i1
+  tail call fastcc void @csv_write_str(ptr noundef %14, ptr noundef %1, i1 noundef zeroext %15)
+  br label %16
 
-15:                                               ; preds = %7, %10
+16:                                               ; preds = %7, %10
   %.1 = phi i8 [ 1, %10 ], [ %.011, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr %3, align 8
-  %17 = sext i32 %16 to i64
-  %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %7, label %._crit_edge, !llvm.loop !30
+  %17 = load i32, ptr %3, align 8
+  %18 = sext i32 %17 to i64
+  %19 = icmp slt i64 %indvars.iv.next, %18
+  br i1 %19, label %7, label %._crit_edge, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %15
-  %19 = trunc nuw i8 %.1 to i1
-  br i1 %19, label %20, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %16
+  %20 = trunc nuw i8 %.1 to i1
+  br i1 %20, label %21, label %._crit_edge.thread
 
-20:                                               ; preds = %._crit_edge
-  %21 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 2, ptr noundef nonnull @.str.28)
+21:                                               ; preds = %._crit_edge
+  %22 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %1, i32 noundef 2, ptr noundef nonnull @.str.28)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %2, %20, %._crit_edge
+._crit_edge.thread:                               ; preds = %2, %21, %._crit_edge
   ret void
 }
 

@@ -3669,7 +3669,8 @@ _ZN4node17SyncProcessRunner17AddStdioInheritFDEji.exit: ; preds = %do.body6.i41
   %arrayidx.i48 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %44, i64 %conv.i43
   store i32 2, ptr %arrayidx.i48, align 8
   %45 = load ptr, ptr %uv_stdio_containers_.i47, align 8
-  %data.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %45, i64 %conv.i43, i32 1
+  %arrayidx20.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %45, i64 %conv.i43
+  %data.i = getelementptr inbounds nuw i8, ptr %arrayidx20.i, i64 8
   store i32 %ref.tmp223.sroa.29.0.extract.trunc, ptr %data.i, align 8
   br label %return
 
@@ -3810,7 +3811,8 @@ do.body4.i.i:                                     ; preds = %if.end25
 
 _ZNK4node20SyncProcessStdioPipe9uv_streamEv.exit: ; preds = %if.end25
   %13 = load ptr, ptr %uv_stdio_containers_, align 8
-  %data = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %13, i64 %conv, i32 1
+  %arrayidx32 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %13, i64 %conv
+  %data = getelementptr inbounds nuw i8, ptr %arrayidx32, i64 8
   store ptr %uv_pipe_.i.i, ptr %data, align 8
   %14 = load ptr, ptr %stdio_pipes_, align 8
   %add.ptr.i8 = getelementptr inbounds nuw %"class.std::unique_ptr.274", ptr %14, i64 %conv

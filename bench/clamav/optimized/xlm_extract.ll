@@ -2074,8 +2074,8 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   %127 = load i8, ptr %43, align 1, !tbaa !57
   %.not172 = icmp eq i8 %127, 0
   %128 = select i1 %.not172, i64 15, i64 14
-  %129 = sub nsw i64 %70, %128
-  %130 = trunc nsw i64 %129 to i32
+  %129 = sub nuw nsw i64 %70, %128
+  %130 = trunc nuw nsw i64 %129 to i32
   %131 = call i32 @llvm.smin.i32(i32 %126, i32 %130)
   %132 = getelementptr inbounds nuw i8, ptr %25, i64 %128
   %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.1189, i32 noundef %131, ptr noundef nonnull %132) #11

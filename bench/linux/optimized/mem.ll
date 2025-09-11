@@ -168,7 +168,8 @@ define internal noalias noundef ptr @mem_devnode(ptr noundef readonly captures(n
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %4
-  %13 = getelementptr %struct.memdev, ptr @devlist, i64 %8, i32 3
+  %.split = getelementptr %struct.memdev, ptr @devlist, i64 %8
+  %13 = getelementptr i8, ptr %.split, i64 20
   %14 = load i16, ptr %13, align 4
   store i16 %14, ptr %1, align 2
   br label %15

@@ -6,13 +6,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::UMutex" = type { [40 x i8], %"struct.std::atomic.0", ptr }
 %"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
 %"struct.std::__atomic_base.1" = type { ptr }
+%"class.icu_77::GenderInfo" = type <{ %"class.icu_77::UObject", i32, [4 x i8] }>
+%"class.icu_77::UObject" = type { ptr }
 %"class.icu_77::internal::LocalOpenPointer" = type { %"class.icu_77::LocalPointerBase" }
 %"class.icu_77::LocalPointerBase" = type { ptr }
 %"class.icu_77::CharString" = type { %"class.icu_77::MaybeStackArray", i32, [4 x i8] }
 %"class.icu_77::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
 %"class.icu_77::Locale" = type <{ %"class.icu_77::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
-%"class.icu_77::UObject" = type { ptr }
 
 $_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -494,7 +495,7 @@ define void @_ZN6icu_7720GenderInfo_initCacheER10UErrorCode(ptr noundef nonnull 
   tail call void @ucln_i18n_registerCleanup_77(i32 noundef 32, ptr noundef nonnull @_ZL14gender_cleanupv)
   %2 = load i32, ptr %0, align 4, !tbaa !13
   %3 = icmp slt i32 %2, 1
-  br i1 %3, label %4, label %39
+  br i1 %3, label %4, label %38
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef 56) #17
@@ -524,23 +525,23 @@ define void @_ZN6icu_7720GenderInfo_initCacheER10UErrorCode(ptr noundef nonnull 
 12:                                               ; preds = %4
   store ptr null, ptr @_ZL5gObjs, align 8, !tbaa !15
   store i32 7, ptr %0, align 4, !tbaa !13
-  br label %39
+  br label %38
 
 13:                                               ; preds = %8
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = icmp eq i64 %.idx, 8
-  br i1 %15, label %.loopexit29, label %.preheader28
+  br i1 %15, label %.loopexit28, label %.preheader27
 
-.preheader28:                                     ; preds = %13, %.preheader28
-  %.idx21 = phi i64 [ %.add22, %.preheader28 ], [ %.idx, %13 ]
+.preheader27:                                     ; preds = %13, %.preheader27
+  %.idx21 = phi i64 [ %.add22, %.preheader27 ], [ %.idx, %13 ]
   %.add22 = add nsw i64 %.idx21, -16
   %.ptr24 = getelementptr inbounds i8, ptr %5, i64 %.add22
   tail call void @_ZN6icu_7710GenderInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %.ptr24) #17
   %16 = icmp eq i64 %.add22, 8
-  br i1 %16, label %.loopexit29, label %.preheader28
+  br i1 %16, label %.loopexit28, label %.preheader27
 
-.loopexit29:                                      ; preds = %.preheader28, %13
+.loopexit28:                                      ; preds = %.preheader27, %13
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %5) #17
   resume { ptr, i32 } %14
 
@@ -549,51 +550,50 @@ define void @_ZN6icu_7720GenderInfo_initCacheER10UErrorCode(ptr noundef nonnull 
   store ptr %18, ptr @_ZL16gGenderInfoCache, align 8, !tbaa !17
   %19 = load i32, ptr %0, align 4, !tbaa !13
   %20 = icmp slt i32 %19, 1
-  br i1 %20, label %37, label %26
+  br i1 %20, label %36, label %25
 
 21:                                               ; preds = %11, %21
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %21 ]
-  %22 = shl nuw nsw i64 %indvars.iv, 4
-  %23 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %25, ptr %24, align 8, !tbaa !19
+  %22 = getelementptr inbounds nuw %"class.icu_77::GenderInfo", ptr %.ptr20, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %24, ptr %23, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %17, label %21, !llvm.loop !22
 
-26:                                               ; preds = %17
-  %27 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %39, label %29
+25:                                               ; preds = %17
+  %26 = load ptr, ptr @_ZL5gObjs, align 8, !tbaa !15
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %38, label %28
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %27, i64 -8
-  %31 = load i64, ptr %30, align 8
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %.loopexit, label %.preheader.preheader
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds i8, ptr %26, i64 -8
+  %30 = load i64, ptr %29, align 8
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %29
-  %.idx26 = shl nsw i64 %31, 4
-  %33 = getelementptr inbounds i8, ptr %27, i64 %.idx26
+.preheader.preheader:                             ; preds = %28
+  %.idx26 = shl nsw i64 %30, 4
+  %32 = getelementptr inbounds i8, ptr %26, i64 %.idx26
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %34 = phi ptr [ %35, %.preheader ], [ %33, %.preheader.preheader ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 -16
-  tail call void @_ZN6icu_7710GenderInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %35) #17
-  %36 = icmp eq ptr %35, %27
-  br i1 %36, label %.loopexit, label %.preheader
+  %33 = phi ptr [ %34, %.preheader ], [ %32, %.preheader.preheader ]
+  %34 = getelementptr inbounds i8, ptr %33, i64 -16
+  tail call void @_ZN6icu_7710GenderInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %34) #17
+  %35 = icmp eq ptr %34, %26
+  br i1 %35, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %29
-  tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %30) #17
-  br label %39
+.loopexit:                                        ; preds = %.preheader, %28
+  tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %29) #17
+  br label %38
 
-37:                                               ; preds = %17
-  %38 = tail call ptr @uhash_setKeyDeleter_77(ptr noundef %18, ptr noundef nonnull @uprv_free_77)
-  br label %39
+36:                                               ; preds = %17
+  %37 = tail call ptr @uhash_setKeyDeleter_77(ptr noundef %18, ptr noundef nonnull @uprv_free_77)
+  br label %38
 
-39:                                               ; preds = %26, %.loopexit, %1, %37, %12
+38:                                               ; preds = %25, %.loopexit, %1, %36, %12
   ret void
 }
 

@@ -2732,7 +2732,7 @@ define void @_ZNK10open_spiel9dou_dizhu13DouDizhuState12OriginalDealEv(ptr dead_
   %25 = getelementptr inbounds %"struct.std::array.11", ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %27 = load ptr, ptr %26, align 8
-  br label %46
+  br label %47
 
 28:                                               ; preds = %20, %28
   %indvars.iv = phi i64 [ 1, %20 ], [ %indvars.iv.next, %28 ]
@@ -2744,34 +2744,35 @@ define void @_ZNK10open_spiel9dou_dizhu13DouDizhuState12OriginalDealEv(ptr dead_
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds %"struct.std::array.11", ptr %0, i64 %34
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds nuw %"struct.open_spiel::State::PlayerAction", ptr %36, i64 %indvars.iv, i32 1
-  %38 = load i64, ptr %37, align 8
-  %39 = trunc i64 %38 to i32
-  %40 = add i32 %39, -51
-  %41 = tail call noundef i32 @_ZN10open_spiel9dou_dizhu10CardToRankEi(i32 noundef %40)
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %35, i64 %42
-  %44 = load i32, ptr %43, align 4
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %43, align 4
+  %37 = getelementptr inbounds nuw %"struct.open_spiel::State::PlayerAction", ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load i64, ptr %38, align 8
+  %40 = trunc i64 %39 to i32
+  %41 = add i32 %40, -51
+  %42 = tail call noundef i32 @_ZN10open_spiel9dou_dizhu10CardToRankEi(i32 noundef %41)
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i32, ptr %35, i64 %43
+  %45 = load i32, ptr %44, align 4
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 52
   br i1 %exitcond.not, label %.preheader, label %28, !llvm.loop !33
 
-46:                                               ; preds = %.preheader, %46
-  %indvars.iv13 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next14, %46 ]
-  %47 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv13
-  %48 = load i32, ptr %47, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %25, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %50, align 4
+47:                                               ; preds = %.preheader, %47
+  %indvars.iv13 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next14, %47 ]
+  %48 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv13
+  %49 = load i32, ptr %48, align 4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i32, ptr %25, i64 %50
+  %52 = load i32, ptr %51, align 4
+  %53 = add nsw i32 %52, 1
+  store i32 %53, ptr %51, align 4
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next14, 3
-  br i1 %exitcond16.not, label %53, label %46, !llvm.loop !34
+  br i1 %exitcond16.not, label %54, label %47, !llvm.loop !34
 
-53:                                               ; preds = %46
+54:                                               ; preds = %47
   ret void
 }
 
@@ -4803,14 +4804,14 @@ define void @_ZN10open_spiel9dou_dizhu13DouDizhuState15ApplyPlayActionEi(ptr nou
   store i32 %5, ptr %3, align 4
   %6 = icmp eq i32 %1, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br i1 %6, label %8, label %48
+  br i1 %6, label %8, label %49
 
 8:                                                ; preds = %2
   %9 = load i32, ptr %7, align 8
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr %7, align 8
   %11 = icmp eq i32 %10, 2
-  br i1 %11, label %12, label %135
+  br i1 %11, label %12, label %136
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -4818,226 +4819,227 @@ define void @_ZN10open_spiel9dou_dizhu13DouDizhuState15ApplyPlayActionEi(ptr nou
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds %"class.open_spiel::dou_dizhu::Trick", ptr %17, i64 %16, i32 2
-  %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %19, ptr %20, align 4
-  %21 = add nsw i32 %15, 1
-  store i32 %21, ptr %14, align 8
+  %18 = getelementptr inbounds %"class.open_spiel::dou_dizhu::Trick", ptr %17, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store i32 %20, ptr %21, align 4
+  %22 = add nsw i32 %15, 1
+  store i32 %22, ptr %14, align 8
   store i32 0, ptr %7, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %25 = load ptr, ptr %24, align 8
-  %.not.i.i = icmp eq ptr %23, %25
-  br i1 %.not.i.i, label %29, label %26
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %26 = load ptr, ptr %25, align 8
+  %.not.i.i = icmp eq ptr %24, %26
+  br i1 %.not.i.i, label %30, label %27
 
-26:                                               ; preds = %12
-  store i32 -1, ptr %23, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
+27:                                               ; preds = %12
+  store i32 -1, ptr %24, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 -3, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 -3, ptr %.sroa.4.0..sroa_idx, align 4
-  %27 = load ptr, ptr %22, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  store ptr %28, ptr %22, align 8
+  %28 = load ptr, ptr %23, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  store ptr %29, ptr %23, align 8
   br label %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE9push_backEOS2_.exit
 
-29:                                               ; preds = %12
-  %30 = ptrtoint ptr %23 to i64
-  %31 = ptrtoint ptr %17 to i64
-  %32 = sub i64 %30, %31
-  %33 = icmp eq i64 %32, 9223372036854775800
-  br i1 %33, label %34, label %_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+30:                                               ; preds = %12
+  %31 = ptrtoint ptr %24 to i64
+  %32 = ptrtoint ptr %17 to i64
+  %33 = sub i64 %31, %32
+  %34 = icmp eq i64 %33, 9223372036854775800
+  br i1 %34, label %35, label %_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
-34:                                               ; preds = %29
+35:                                               ; preds = %30
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.64) #26
   unreachable
 
-_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %29
-  %35 = sdiv exact i64 %32, 12
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %35, i64 1)
-  %36 = add nsw i64 %.sroa.speculated.i.i.i.i, %35
-  %37 = icmp ult i64 %36, %35
-  %38 = tail call i64 @llvm.umin.i64(i64 %36, i64 768614336404564650)
-  %39 = select i1 %37, i64 768614336404564650, i64 %38
-  %.not.i.i.i.i = icmp ne i64 %39, 0
+_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %30
+  %36 = sdiv exact i64 %33, 12
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
+  %37 = add nsw i64 %.sroa.speculated.i.i.i.i, %36
+  %38 = icmp ult i64 %37, %36
+  %39 = tail call i64 @llvm.umin.i64(i64 %37, i64 768614336404564650)
+  %40 = select i1 %38, i64 768614336404564650, i64 %39
+  %.not.i.i.i.i = icmp ne i64 %40, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %40 = mul nuw nsw i64 %39, 12
-  %41 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #29
-  %42 = getelementptr inbounds i8, ptr %41, i64 %32
-  store i32 -1, ptr %42, align 4
-  %.sroa.3.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %41 = mul nuw nsw i64 %40, 12
+  %42 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #29
+  %43 = getelementptr inbounds i8, ptr %42, i64 %33
+  store i32 -1, ptr %43, align 4
+  %.sroa.3.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 -3, ptr %.sroa.3.0..sroa_idx7, align 4
-  %.sroa.4.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %.sroa.4.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 -3, ptr %.sroa.4.0..sroa_idx9, align 4
-  %.not10.i.i.i.i.i.i = icmp eq ptr %17, %23
+  %.not10.i.i.i.i.i.i = icmp eq ptr %17, %24
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i ], [ %41, %_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i ], [ %17, %_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.012.i.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i.i ], [ %42, %_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i ], [ %17, %_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i, i64 12, i1 false), !alias.scope !76
-  %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 12
-  %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 12
-  %.not.i.i.i.i.i.i = icmp eq ptr %43, %23
+  %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 12
+  %.not.i.i.i.i.i.i = icmp eq ptr %44, %24
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !75
 
 _ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %41, %_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %44, %.lr.ph.i.i.i.i.i.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %32) #30
-  store ptr %41, ptr %13, align 8
-  store ptr %45, ptr %22, align 8
-  %46 = getelementptr inbounds nuw %"class.open_spiel::dou_dizhu::Trick", ptr %41, i64 %39
-  store ptr %46, ptr %24, align 8
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %42, %_ZNKSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i.i ]
+  %46 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %33) #30
+  store ptr %42, ptr %13, align 8
+  store ptr %46, ptr %23, align 8
+  %47 = getelementptr inbounds nuw %"class.open_spiel::dou_dizhu::Trick", ptr %42, i64 %40
+  store ptr %47, ptr %25, align 8
   br label %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE9push_backEOS2_.exit
 
-_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE9push_backEOS2_.exit: ; preds = %26, %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 1, ptr %47, align 8
-  br label %140
+_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE9push_backEOS2_.exit: ; preds = %27, %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i8 1, ptr %48, align 8
+  br label %141
 
-48:                                               ; preds = %2
+49:                                               ; preds = %2
   store i32 0, ptr %7, align 8
-  %49 = icmp sgt i32 %1, 26042
-  br i1 %49, label %50, label %54
+  %50 = icmp sgt i32 %1, 26042
+  br i1 %50, label %51, label %55
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %52 = load i32, ptr %51, align 8
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %51, align 8
-  br label %54
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %53 = load i32, ptr %52, align 8
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %52, align 8
+  br label %55
 
-54:                                               ; preds = %50, %48
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 444
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %57 = load i32, ptr %56, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %55, i64 %58
-  %60 = load i32, ptr %59, align 4
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %59, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %63 = load i8, ptr %62, align 8
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %65, label %66
+55:                                               ; preds = %51, %49
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 444
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %58 = load i32, ptr %57, align 4
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i32, ptr %56, i64 %59
+  %61 = load i32, ptr %60, align 4
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %60, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %64 = load i8, ptr %63, align 8
+  %65 = trunc i8 %64 to i1
+  br i1 %65, label %66, label %67
 
-65:                                               ; preds = %54
-  store i8 0, ptr %62, align 8
-  br label %66
+66:                                               ; preds = %55
+  store i8 0, ptr %63, align 8
+  br label %67
 
-66:                                               ; preds = %65, %54
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %69 = load i32, ptr %68, align 8
-  %70 = sext i32 %69 to i64
-  %71 = load ptr, ptr %67, align 8
-  %72 = getelementptr inbounds %"class.open_spiel::dou_dizhu::Trick", ptr %71, i64 %70
-  %73 = load i32, ptr %56, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 %73, ptr %74, align 4
-  store i32 %1, ptr %72, align 4
-  %75 = load i32, ptr %56, align 4
-  %76 = tail call noundef zeroext i1 @_ZN10open_spiel9dou_dizhu13DouDizhuState13AfterPlayHandEii(ptr noundef nonnull align 8 dereferenceable(660) %0, i32 noundef %75, i32 noundef %1)
-  br i1 %76, label %77, label %135
+67:                                               ; preds = %66, %55
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %70 = load i32, ptr %69, align 8
+  %71 = sext i32 %70 to i64
+  %72 = load ptr, ptr %68, align 8
+  %73 = getelementptr inbounds %"class.open_spiel::dou_dizhu::Trick", ptr %72, i64 %71
+  %74 = load i32, ptr %57, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store i32 %74, ptr %75, align 4
+  store i32 %1, ptr %73, align 4
+  %76 = load i32, ptr %57, align 4
+  %77 = tail call noundef zeroext i1 @_ZN10open_spiel9dou_dizhu13DouDizhuState13AfterPlayHandEii(ptr noundef nonnull align 8 dereferenceable(660) %0, i32 noundef %76, i32 noundef %1)
+  br i1 %77, label %78, label %136
 
-77:                                               ; preds = %66
-  %78 = load i32, ptr %56, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %78, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp eq i32 %81, -3
-  br i1 %82, label %_ZN10open_spiel9dou_dizhu13DouDizhuState7ScoreUpEv.exit, label %83
+78:                                               ; preds = %67
+  %79 = load i32, ptr %57, align 4
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 %79, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp eq i32 %82, -3
+  br i1 %83, label %_ZN10open_spiel9dou_dizhu13DouDizhuState7ScoreUpEv.exit, label %84
 
-83:                                               ; preds = %77
-  %84 = sext i32 %81 to i64
-  %85 = getelementptr inbounds i32, ptr %55, i64 %84
-  %86 = load i32, ptr %85, align 4
-  %87 = icmp eq i32 %86, 1
-  %88 = zext i1 %87 to i32
-  %89 = add nsw i32 %81, 1
-  %90 = srem i32 %89, 3
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i32, ptr %55, i64 %91
-  %93 = load i32, ptr %92, align 4
-  %.not.i = icmp eq i32 %93, 0
-  br i1 %.not.i, label %94, label %101
+84:                                               ; preds = %78
+  %85 = sext i32 %82 to i64
+  %86 = getelementptr inbounds i32, ptr %56, i64 %85
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp eq i32 %87, 1
+  %89 = zext i1 %88 to i32
+  %90 = add nsw i32 %82, 1
+  %91 = srem i32 %90, 3
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+  %94 = load i32, ptr %93, align 4
+  %.not.i = icmp eq i32 %94, 0
+  br i1 %.not.i, label %95, label %102
 
-94:                                               ; preds = %83
-  %95 = add nsw i32 %81, 2
-  %96 = srem i32 %95, 3
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i32, ptr %55, i64 %97
-  %99 = load i32, ptr %98, align 4
-  %.not14.i = icmp eq i32 %99, 0
-  %100 = zext i1 %.not14.i to i32
-  br label %101
+95:                                               ; preds = %84
+  %96 = add nsw i32 %82, 2
+  %97 = srem i32 %96, 3
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds i32, ptr %56, i64 %98
+  %100 = load i32, ptr %99, align 4
+  %.not14.i = icmp eq i32 %100, 0
+  %101 = zext i1 %.not14.i to i32
+  br label %102
 
-101:                                              ; preds = %94, %83
-  %102 = phi i32 [ 0, %83 ], [ %100, %94 ]
-  %103 = or i32 %102, %88
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %107 = load i32, ptr %106, align 8
-  %108 = add nsw i32 %107, %103
-  %109 = icmp sgt i32 %108, 0
-  br i1 %109, label %.lr.ph.i, label %._crit_edge.i
+102:                                              ; preds = %95, %84
+  %103 = phi i32 [ 0, %84 ], [ %101, %95 ]
+  %104 = or i32 %103, %89
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %106 = load i32, ptr %105, align 4
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %108 = load i32, ptr %107, align 8
+  %109 = add nsw i32 %108, %104
+  %110 = icmp sgt i32 %109, 0
+  br i1 %110, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %101, %.lr.ph.i
-  %.016.i = phi i32 [ %111, %.lr.ph.i ], [ 0, %101 ]
-  %.01215.i = phi i32 [ %110, %.lr.ph.i ], [ %105, %101 ]
-  %110 = shl nsw i32 %.01215.i, 1
-  %111 = add nuw nsw i32 %.016.i, 1
-  %exitcond.not.i = icmp eq i32 %111, %108
+.lr.ph.i:                                         ; preds = %102, %.lr.ph.i
+  %.016.i = phi i32 [ %112, %.lr.ph.i ], [ 0, %102 ]
+  %.01215.i = phi i32 [ %111, %.lr.ph.i ], [ %106, %102 ]
+  %111 = shl nsw i32 %.01215.i, 1
+  %112 = add nuw nsw i32 %.016.i, 1
+  %exitcond.not.i = icmp eq i32 %112, %109
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !80
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %101
-  %.012.lcssa.i = phi i32 [ %105, %101 ], [ %110, %.lr.ph.i ]
-  %112 = icmp eq i32 %78, %81
-  %113 = select i1 %112, i32 2, i32 -2
-  %114 = mul nsw i32 %.012.lcssa.i, %113
-  %115 = sitofp i32 %114 to double
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds double, ptr %117, i64 %84
-  store double %115, ptr %118, align 8
-  %119 = sub nsw i32 0, %.012.lcssa.i
-  %120 = select i1 %112, i32 %119, i32 %.012.lcssa.i
-  %121 = sitofp i32 %120 to double
-  %122 = load i32, ptr %80, align 4
-  %123 = add nsw i32 %122, 1
-  %124 = srem i32 %123, 3
-  %125 = sext i32 %124 to i64
-  %126 = load ptr, ptr %116, align 8
-  %127 = getelementptr inbounds double, ptr %126, i64 %125
-  store double %121, ptr %127, align 8
-  %128 = load i32, ptr %80, align 4
-  %129 = add nsw i32 %128, 2
-  %130 = srem i32 %129, 3
-  %131 = sext i32 %130 to i64
-  %132 = load ptr, ptr %116, align 8
-  %133 = getelementptr inbounds double, ptr %132, i64 %131
-  store double %121, ptr %133, align 8
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %102
+  %.012.lcssa.i = phi i32 [ %106, %102 ], [ %111, %.lr.ph.i ]
+  %113 = icmp eq i32 %79, %82
+  %114 = select i1 %113, i32 2, i32 -2
+  %115 = mul nsw i32 %.012.lcssa.i, %114
+  %116 = sitofp i32 %115 to double
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds double, ptr %118, i64 %85
+  store double %116, ptr %119, align 8
+  %120 = sub nsw i32 0, %.012.lcssa.i
+  %121 = select i1 %113, i32 %120, i32 %.012.lcssa.i
+  %122 = sitofp i32 %121 to double
+  %123 = load i32, ptr %81, align 4
+  %124 = add nsw i32 %123, 1
+  %125 = srem i32 %124, 3
+  %126 = sext i32 %125 to i64
+  %127 = load ptr, ptr %117, align 8
+  %128 = getelementptr inbounds double, ptr %127, i64 %126
+  store double %122, ptr %128, align 8
+  %129 = load i32, ptr %81, align 4
+  %130 = add nsw i32 %129, 2
+  %131 = srem i32 %130, 3
+  %132 = sext i32 %131 to i64
+  %133 = load ptr, ptr %117, align 8
+  %134 = getelementptr inbounds double, ptr %133, i64 %132
+  store double %122, ptr %134, align 8
   br label %_ZN10open_spiel9dou_dizhu13DouDizhuState7ScoreUpEv.exit
 
-_ZN10open_spiel9dou_dizhu13DouDizhuState7ScoreUpEv.exit: ; preds = %77, %._crit_edge.i
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 3, ptr %134, align 4
-  br label %140
+_ZN10open_spiel9dou_dizhu13DouDizhuState7ScoreUpEv.exit: ; preds = %78, %._crit_edge.i
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  store i32 3, ptr %135, align 4
+  br label %141
 
-135:                                              ; preds = %66, %8
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %137 = load i32, ptr %136, align 4
-  %138 = add nsw i32 %137, 1
-  %139 = srem i32 %138, 3
-  store i32 %139, ptr %136, align 4
-  br label %140
+136:                                              ; preds = %67, %8
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %138 = load i32, ptr %137, align 4
+  %139 = add nsw i32 %138, 1
+  %140 = srem i32 %139, 3
+  store i32 %140, ptr %137, align 4
+  br label %141
 
-140:                                              ; preds = %135, %_ZN10open_spiel9dou_dizhu13DouDizhuState7ScoreUpEv.exit, %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE9push_backEOS2_.exit
+141:                                              ; preds = %136, %_ZN10open_spiel9dou_dizhu13DouDizhuState7ScoreUpEv.exit, %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE9push_backEOS2_.exit
   ret void
 }
 

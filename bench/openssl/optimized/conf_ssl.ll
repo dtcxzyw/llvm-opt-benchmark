@@ -20,10 +20,10 @@ define ptr @conf_ssl_get(i64 noundef %0, ptr noundef writeonly captures(none) in
   %5 = getelementptr inbounds nuw %struct.ssl_conf_name_st, ptr %4, i64 %0
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   store ptr %6, ptr %1, align 8, !tbaa !13
-  %7 = getelementptr inbounds nuw %struct.ssl_conf_name_st, ptr %4, i64 %0, i32 2
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !14
   store i64 %8, ptr %2, align 8, !tbaa !15
-  %9 = getelementptr inbounds nuw %struct.ssl_conf_name_st, ptr %4, i64 %0, i32 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   ret ptr %10
 }
@@ -216,7 +216,7 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
 define internal void @ssl_module_free(ptr readnone captures(none) %0) #4 {
   %2 = load ptr, ptr @ssl_names, align 8, !tbaa !3
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %27, label %.preheader
+  br i1 %3, label %28, label %.preheader
 
 .preheader:                                       ; preds = %1
   %4 = load i64, ptr @ssl_names_count, align 8, !tbaa !15
@@ -224,7 +224,7 @@ define internal void @ssl_module_free(ptr readnone captures(none) %0) #4 {
   br i1 %.not, label %._crit_edge15, label %.lr.ph14
 
 .lr.ph14:                                         ; preds = %.preheader, %._crit_edge
-  %.013 = phi i64 [ %23, %._crit_edge ], [ 0, %.preheader ]
+  %.013 = phi i64 [ %24, %._crit_edge ], [ 0, %.preheader ]
   %5 = load ptr, ptr @ssl_names, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw %struct.ssl_conf_name_st, ptr %5, i64 %.013
   %7 = load ptr, ptr %6, align 8, !tbaa !8
@@ -239,41 +239,42 @@ define internal void @ssl_module_free(ptr readnone captures(none) %0) #4 {
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
-  %.01112 = phi i64 [ 0, %.lr.ph ], [ %18, %11 ]
+  %.01112 = phi i64 [ 0, %.lr.ph ], [ %19, %11 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %12, i64 %.01112
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str.1, i32 noundef 51) #7
   %15 = load ptr, ptr %10, align 8, !tbaa !16
-  %16 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %15, i64 %.01112, i32 1
-  %17 = load ptr, ptr %16, align 8, !tbaa !21
-  tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.1, i32 noundef 52) #7
-  %18 = add nuw i64 %.01112, 1
-  %19 = load i64, ptr %8, align 8, !tbaa !14
-  %20 = icmp ult i64 %18, %19
-  br i1 %20, label %11, label %._crit_edge, !llvm.loop !27
+  %16 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %15, i64 %.01112
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.1, i32 noundef 52) #7
+  %19 = add nuw i64 %.01112, 1
+  %20 = load i64, ptr %8, align 8, !tbaa !14
+  %21 = icmp ult i64 %19, %20
+  br i1 %21, label %11, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph14
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !16
-  tail call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str.1, i32 noundef 54) #7
-  %23 = add nuw i64 %.013, 1
-  %24 = load i64, ptr @ssl_names_count, align 8, !tbaa !15
-  %25 = icmp ult i64 %23, %24
-  br i1 %25, label %.lr.ph14, label %._crit_edge15.loopexit, !llvm.loop !28
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !16
+  tail call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str.1, i32 noundef 54) #7
+  %24 = add nuw i64 %.013, 1
+  %25 = load i64, ptr @ssl_names_count, align 8, !tbaa !15
+  %26 = icmp ult i64 %24, %25
+  br i1 %26, label %.lr.ph14, label %._crit_edge15.loopexit, !llvm.loop !28
 
 ._crit_edge15.loopexit:                           ; preds = %._crit_edge
   %.pre = load ptr, ptr @ssl_names, align 8, !tbaa !3
   br label %._crit_edge15
 
 ._crit_edge15:                                    ; preds = %._crit_edge15.loopexit, %.preheader
-  %26 = phi ptr [ %.pre, %._crit_edge15.loopexit ], [ %2, %.preheader ]
-  tail call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str.1, i32 noundef 56) #7
+  %27 = phi ptr [ %.pre, %._crit_edge15.loopexit ], [ %2, %.preheader ]
+  tail call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str.1, i32 noundef 56) #7
   store ptr null, ptr @ssl_names, align 8, !tbaa !3
   store i64 0, ptr @ssl_names_count, align 8, !tbaa !15
-  br label %27
+  br label %28
 
-27:                                               ; preds = %1, %._crit_edge15
+28:                                               ; preds = %1, %._crit_edge15
   ret void
 }
 

@@ -147,7 +147,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPKcmPm(pt
 38:                                               ; preds = %37
   %39 = load i8, ptr %30, align 1, !tbaa !4
   %40 = zext i8 %39 to i32
-  %41 = shl i32 %40, 28
+  %41 = shl nuw i32 %40, 28
   %42 = or disjoint i32 %41, %35
   %43 = icmp ult i8 %39, 16
   br i1 %43, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
@@ -2441,7 +2441,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPKcmPNSt7__cxx1112ba
 39:                                               ; preds = %38
   %40 = load i8, ptr %31, align 1, !tbaa !4
   %41 = zext i8 %40 to i32
-  %42 = shl i32 %41, 28
+  %42 = shl nuw i32 %41, 28
   %43 = or disjoint i32 %42, %36
   %44 = icmp ult i8 %40, 16
   br i1 %44, label %45, label %_ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread
@@ -2852,7 +2852,7 @@ define dso_local noundef i64 @_ZN6snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.0.lcssa = phi i64 [ 0, %4 ], [ %44, %.lr.ph ]
+  %.0.lcssa = phi i64 [ 0, %4 ], [ %45, %.lr.ph ]
   %7 = add i64 %.0.lcssa, 32
   %8 = udiv i64 %.0.lcssa, 6
   %9 = add i64 %7, %8
@@ -2937,13 +2937,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   ret i64 %36
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.016 = phi i64 [ %44, %.lr.ph ], [ 0, %4 ]
-  %.01215 = phi i64 [ %45, %.lr.ph ], [ 0, %4 ]
-  %42 = getelementptr inbounds nuw %struct.iovec, ptr %0, i64 %.01215, i32 1
-  %43 = load i64, ptr %42, align 8, !tbaa !66
-  %44 = add i64 %43, %.016
-  %45 = add nuw i64 %.01215, 1
-  %exitcond.not = icmp eq i64 %45, %1
+  %.016 = phi i64 [ %45, %.lr.ph ], [ 0, %4 ]
+  %.01215 = phi i64 [ %46, %.lr.ph ], [ 0, %4 ]
+  %42 = getelementptr inbounds nuw %struct.iovec, ptr %0, i64 %.01215
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load i64, ptr %43, align 8, !tbaa !66
+  %45 = add i64 %44, %.016
+  %46 = add nuw i64 %.01215, 1
+  %exitcond.not = icmp eq i64 %46, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 }
 

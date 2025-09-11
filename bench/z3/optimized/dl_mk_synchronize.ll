@@ -5264,41 +5264,42 @@ _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %12, %14
 
 22:                                               ; preds = %_ZNK6vectorI10ref_vectorIN7datalog4ruleENS1_12rule_managerEELb1EjE4sizeEv.exit
   %23 = zext i32 %1 to i64
-  %24 = getelementptr inbounds nuw %class.ref_vector.79, ptr %7, i64 %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8, !tbaa !314
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit, label %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE3endEv.exit
+  %24 = getelementptr inbounds nuw %class.ref_vector.79, ptr %7, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !314
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.loopexit, label %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE3endEv.exit
 
 _ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE3endEv.exit: ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %25, i64 -4
-  %28 = load i32, ptr %27, align 4, !tbaa !247
-  %29 = zext i32 %28 to i64
-  %30 = shl nuw nsw i64 %29, 3
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %30
-  %.not2227 = icmp eq i32 %28, 0
+  %28 = getelementptr inbounds i8, ptr %26, i64 -4
+  %29 = load i32, ptr %28, align 4, !tbaa !247
+  %30 = zext i32 %29 to i64
+  %31 = shl nuw nsw i64 %30, 3
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %31
+  %.not2227 = icmp eq i32 %29, 0
   br i1 %.not2227, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE3endEv.exit
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %33 = add nuw i32 %1, 1
-  br label %34
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %34 = add nuw i32 %1, 1
+  br label %35
 
-34:                                               ; preds = %.lr.ph, %34
-  %.028 = phi ptr [ %25, %.lr.ph ], [ %40, %34 ]
-  %35 = load ptr, ptr %.028, align 8, !tbaa !315
-  %36 = load ptr, ptr %32, align 8, !tbaa !314
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %23
-  %38 = load ptr, ptr %2, align 8, !tbaa !316
-  tail call void @_ZN7datalog12rule_manager7inc_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1104) %38, ptr noundef %35)
-  %39 = load ptr, ptr %37, align 8, !tbaa !315
-  tail call void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1104) %38, ptr noundef %39)
-  store ptr %35, ptr %37, align 8, !tbaa !315
-  tail call void @_ZN7datalog14mk_synchronize11merge_rulesEjR10ref_vectorINS_4ruleENS_12rule_managerEERK6vectorIS4_Lb1EjERNS_8rule_setE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(248) %4)
-  %40 = getelementptr inbounds nuw i8, ptr %.028, i64 8
-  %.not22 = icmp eq ptr %40, %31
-  br i1 %.not22, label %.loopexit, label %34
+35:                                               ; preds = %.lr.ph, %35
+  %.028 = phi ptr [ %26, %.lr.ph ], [ %41, %35 ]
+  %36 = load ptr, ptr %.028, align 8, !tbaa !315
+  %37 = load ptr, ptr %33, align 8, !tbaa !314
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %23
+  %39 = load ptr, ptr %2, align 8, !tbaa !316
+  tail call void @_ZN7datalog12rule_manager7inc_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1104) %39, ptr noundef %36)
+  %40 = load ptr, ptr %38, align 8, !tbaa !315
+  tail call void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1104) %39, ptr noundef %40)
+  store ptr %36, ptr %38, align 8, !tbaa !315
+  tail call void @_ZN7datalog14mk_synchronize11merge_rulesEjR10ref_vectorINS_4ruleENS_12rule_managerEERK6vectorIS4_Lb1EjERNS_8rule_setE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(248) %4)
+  %41 = getelementptr inbounds nuw i8, ptr %.028, i64 8
+  %.not22 = icmp eq ptr %41, %32
+  br i1 %.not22, label %.loopexit, label %35
 
-.loopexit:                                        ; preds = %34, %22, %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE3endEv.exit, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit
+.loopexit:                                        ; preds = %35, %22, %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE3endEv.exit, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit
   ret void
 }
 

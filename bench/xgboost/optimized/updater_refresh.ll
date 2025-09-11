@@ -2925,7 +2925,7 @@ define linkonce_odr void @_ZN7xgboost4tree13TreeRefresher7RefreshEPKNS0_10TrainP
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65, %5
-  %.tr68 = phi i32 [ %3, %5 ], [ %252, %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65 ]
+  %.tr68 = phi i32 [ %3, %5 ], [ %253, %_ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65 ]
   %12 = sext i32 %.tr68 to i64
   %13 = getelementptr inbounds %"struct.xgboost::tree::GradStats", ptr %2, i64 %12
   %.sroa.05.0.copyload = load double, ptr %13, align 8, !tbaa !198
@@ -3000,7 +3000,7 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit: ; 
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 77
   %56 = load i8, ptr %55, align 1, !tbaa !215, !range !216, !noundef !217
   %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %58, label %253
+  br i1 %57, label %58, label %254
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 4
@@ -3012,7 +3012,7 @@ _ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit: ; 
   store i32 -1, ptr %59, align 4, !tbaa !213
   %64 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 -1, ptr %64, align 4, !tbaa !219
-  br label %253
+  br label %254
 
 65:                                               ; preds = %_ZN7xgboost4tree10CalcWeightINS0_10TrainParamENS0_9GradStatsEEEfRKT_T0_.exit
   %66 = sext i32 %52 to i64
@@ -3321,11 +3321,12 @@ _ZN7xgboost4tree8CalcGainINS0_10TrainParamENS0_9GradStatsEdEET1_RKT_T0_.exit65: 
   store float %249, ptr %45, align 4, !tbaa !220
   tail call void @_ZN7xgboost4tree13TreeRefresher7RefreshEPKNS0_10TrainParamEPKNS0_9GradStatsEiPNS_7RegTreeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %52, ptr noundef nonnull %4)
   %250 = load ptr, ptr %8, align 8, !tbaa !212
-  %251 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %250, i64 %12, i32 2
-  %252 = load i32, ptr %251, align 4, !tbaa !219
+  %251 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %250, i64 %12
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %253 = load i32, ptr %252, align 4, !tbaa !219
   br label %tailrecurse
 
-253:                                              ; preds = %54, %58
+254:                                              ; preds = %54, %58
   ret void
 }
 

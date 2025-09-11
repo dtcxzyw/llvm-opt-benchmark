@@ -27078,7 +27078,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN10ClipperLiblsE
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %36, label %7
+  br i1 %6, label %38, label %7
 
 7:                                                ; preds = %2
   %8 = ptrtoint ptr %5 to i64
@@ -27097,30 +27097,32 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN10ClipperLiblsE
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.7, i64 noundef 1)
   %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds nuw %"struct.ClipperLib::IntPoint", ptr %19, i64 %12, i32 1
-  %21 = load i64, ptr %20, align 8
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef %21)
-  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.10, i64 noundef 2)
-  br label %36
+  %20 = getelementptr inbounds nuw %"struct.ClipperLib::IntPoint", ptr %19, i64 %12
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef %22)
+  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.10, i64 noundef 2)
+  br label %38
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.019 = phi i64 [ %35, %.lr.ph ], [ 0, %7 ]
-  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.6, i64 noundef 1)
-  %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds nuw %"struct.ClipperLib::IntPoint", ptr %25, i64 %.019
-  %27 = load i64, ptr %26, align 8
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %27)
-  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.7, i64 noundef 1)
-  %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds nuw %"struct.ClipperLib::IntPoint", ptr %30, i64 %.019, i32 1
-  %32 = load i64, ptr %31, align 8
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %32)
-  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.9, i64 noundef 3)
-  %35 = add nuw i64 %.019, 1
-  %exitcond.not = icmp eq i64 %35, %12
+  %.019 = phi i64 [ %37, %.lr.ph ], [ 0, %7 ]
+  %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.6, i64 noundef 1)
+  %26 = load ptr, ptr %1, align 8
+  %27 = getelementptr inbounds nuw %"struct.ClipperLib::IntPoint", ptr %26, i64 %.019
+  %28 = load i64, ptr %27, align 8
+  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %28)
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.7, i64 noundef 1)
+  %31 = load ptr, ptr %1, align 8
+  %32 = getelementptr inbounds nuw %"struct.ClipperLib::IntPoint", ptr %31, i64 %.019
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load i64, ptr %33, align 8
+  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %29, i64 noundef %34)
+  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.9, i64 noundef 3)
+  %37 = add nuw i64 %.019, 1
+  %exitcond.not = icmp eq i64 %37, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !328
 
-36:                                               ; preds = %2, %._crit_edge
+38:                                               ; preds = %2, %._crit_edge
   ret ptr %0
 }
 

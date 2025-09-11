@@ -3099,11 +3099,11 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %175, %178
 
 318:                                              ; preds = %310
   %319 = add nsw i32 %303, -1
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %319, i32 %316)
-  %.not44.i = icmp eq i32 %spec.select.i, 0
+  %.not44.i = icmp eq i32 %319, 0
   br i1 %.not44.i, label %.thread.i, label %320
 
 320:                                              ; preds = %318
+  %spec.select.i = call i32 @llvm.umin.i32(i32 %319, i32 %316)
   %321 = load i32, ptr @hf_q931_netid, align 4
   %322 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %321, ptr noundef %0, i32 noundef %315, i32 noundef %spec.select.i, i32 noundef 0)
   %323 = add i32 %spec.select.i, %315
@@ -3802,7 +3802,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6

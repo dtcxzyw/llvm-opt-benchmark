@@ -250,17 +250,16 @@ update_sharpness.exit.preheader:                  ; preds = %.split.i, %.split.u
 
 update_sharpness.exit:                            ; preds = %update_sharpness.exit.preheader, %update_sharpness.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %update_sharpness.exit ], [ 0, %update_sharpness.exit.preheader ]
-  %30 = mul nuw nsw i64 %indvars.iv, 48
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %30
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %33 = lshr i64 %indvars.iv, 4
-  %34 = trunc i64 %33 to i8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %32, i8 %34, i64 16, i1 false)
+  %30 = getelementptr inbounds nuw %struct.loop_filter_thresh, ptr %2, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %32 = lshr i64 %indvars.iv, 4
+  %33 = trunc i64 %32 to i8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %31, i8 %33, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %35, label %update_sharpness.exit, !llvm.loop !6
+  br i1 %exitcond.not, label %34, label %update_sharpness.exit, !llvm.loop !6
 
-35:                                               ; preds = %update_sharpness.exit
+34:                                               ; preds = %update_sharpness.exit
   ret void
 }
 

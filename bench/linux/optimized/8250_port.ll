@@ -1501,7 +1501,8 @@ define dso_local i32 @serial8250_do_startup(ptr noundef initializes((600, 601)) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %8, i32 1
+  %.split = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 8
   %10 = load i16, ptr %9, align 8
   %11 = zext i16 %10 to i32
   store i32 %11, ptr %2, align 4
@@ -1517,7 +1518,8 @@ define dso_local i32 @serial8250_do_startup(ptr noundef initializes((600, 601)) 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %19, i32 2
+  %.split6 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %19
+  %20 = getelementptr i8, ptr %.split6, i64 10
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i32
   store i32 %22, ptr %13, align 8
@@ -1533,7 +1535,8 @@ define dso_local i32 @serial8250_do_startup(ptr noundef initializes((600, 601)) 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %30, i32 5
+  %.split7 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %30
+  %31 = getelementptr i8, ptr %.split7, i64 20
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %24, align 8
   br label %33
@@ -1670,11 +1673,11 @@ define dso_local i32 @serial8250_do_startup(ptr noundef initializes((600, 601)) 
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %98 = load ptr, ptr %97, align 8
   tail call void %98(ptr noundef %0, i32 noundef 7, i32 noundef 160) #14
-  %.pr6 = load i32, ptr %63, align 8
+  %.pr8 = load i32, ptr %63, align 8
   br label %99
 
 99:                                               ; preds = %96, %93
-  %100 = phi i32 [ %.pr6, %96 ], [ %94, %93 ]
+  %100 = phi i32 [ %.pr8, %96 ], [ %94, %93 ]
   %101 = icmp eq i32 %100, 13
   br i1 %101, label %102, label %126
 
@@ -1711,8 +1714,8 @@ define dso_local i32 @serial8250_do_startup(ptr noundef initializes((600, 601)) 
 
 122:                                              ; preds = %112, %121
   tail call void @_raw_spin_unlock_irq(ptr noundef %0) #14
-  %.pr7 = load i32, ptr %103, align 8
-  %123 = icmp eq i32 %.pr7, 14745600
+  %.pr9 = load i32, ptr %103, align 8
+  %123 = icmp eq i32 %.pr9, 14745600
   br i1 %123, label %.thread, label %126
 
 .thread:                                          ; preds = %102, %122
@@ -1794,11 +1797,11 @@ define dso_local i32 @serial8250_do_startup(ptr noundef initializes((600, 601)) 
   tail call void %173(ptr noundef %0, i32 noundef 0, i32 noundef 96) #14
   %174 = load ptr, ptr %163, align 8
   tail call void %174(ptr noundef %0, i32 noundef 3, i32 noundef 0) #14
-  %.pre9 = load i32, ptr %63, align 8
+  %.pre11 = load i32, ptr %63, align 8
   br label %175
 
 175:                                              ; preds = %162, %159
-  %176 = phi i32 [ %.pre9, %162 ], [ %160, %159 ]
+  %176 = phi i32 [ %.pre11, %162 ], [ %160, %159 ]
   %177 = add i32 %176, -26
   %178 = icmp ult i32 %177, 3
   br i1 %178, label %179, label %198
@@ -2113,26 +2116,26 @@ define dso_local i32 @serial8250_do_startup(ptr noundef initializes((600, 601)) 
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %368 = load i32, ptr %367, align 4
   %369 = icmp eq i32 %368, %366
-  br i1 %369, label %.thread8, label %370
+  br i1 %369, label %.thread10, label %370
 
 370:                                              ; preds = %359, %363
   %371 = tail call i32 @serial8250_request_dma(ptr noundef %0) #14
   %372 = icmp eq i32 %371, 0
-  br i1 %372, label %380, label %.thread8
+  br i1 %372, label %380, label %.thread10
 
-.thread8:                                         ; preds = %363, %370
+.thread10:                                        ; preds = %363, %370
   %373 = phi ptr [ @.str.3, %370 ], [ @.str.2, %363 ]
   %374 = tail call i32 @___ratelimit(ptr noundef nonnull @serial8250_do_startup._rs.4, ptr noundef nonnull @__func__.serial8250_do_startup) #14
   %375 = icmp eq i32 %374, 0
   br i1 %375, label %379, label %376
 
-376:                                              ; preds = %.thread8
+376:                                              ; preds = %.thread10
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %378 = load ptr, ptr %377, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %378, ptr noundef nonnull @.str.5, ptr noundef nonnull %373) #16
   br label %379
 
-379:                                              ; preds = %376, %.thread8
+379:                                              ; preds = %376, %.thread10
   store ptr null, ptr %356, align 8
   br label %380
 
@@ -3503,7 +3506,8 @@ define dso_local void @serial8250_set_defaults(ptr noundef captures(none) initia
 
 12:                                               ; preds = %6
   %13 = zext i32 %8 to i64
-  %14 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %13, i32 1
+  %.split = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %13
+  %14 = getelementptr i8, ptr %.split, i64 8
   %15 = load i16, ptr %14, align 8
   %16 = zext i16 %15 to i32
   store i32 %16, ptr %9, align 4
@@ -3517,7 +3521,8 @@ define dso_local void @serial8250_set_defaults(ptr noundef captures(none) initia
 
 21:                                               ; preds = %17
   %22 = zext i32 %8 to i64
-  %23 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %22, i32 2
+  %.split1 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %22
+  %23 = getelementptr i8, ptr %.split1, i64 10
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
   store i32 %25, ptr %18, align 8
@@ -3531,7 +3536,8 @@ define dso_local void @serial8250_set_defaults(ptr noundef captures(none) initia
 
 30:                                               ; preds = %26
   %31 = zext i32 %8 to i64
-  %32 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %31, i32 5
+  %.split2 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %31
+  %32 = getelementptr i8, ptr %.split2, i64 20
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %27, align 8
   br label %34
@@ -5829,16 +5835,17 @@ default.unreachable:                              ; preds = %86
   tail call void %376(ptr noundef %0, i32 noundef 3, i32 noundef %375) #14
   %377 = load i32, ptr %95, align 8
   %378 = zext i32 %377 to i64
-  %379 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %378, i32 1
+  %.split = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %378
+  %379 = getelementptr i8, ptr %.split, i64 8
   %380 = load i16, ptr %379, align 8
   %381 = zext i16 %380 to i32
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 %381, ptr %382, align 4
   %383 = load i32, ptr %42, align 8
-  %384 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %378, i32 5
+  %384 = getelementptr i8, ptr %.split, i64 20
   %385 = load i32, ptr %384, align 4
   store i32 %385, ptr %42, align 8
-  %386 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %378, i32 2
+  %386 = getelementptr i8, ptr %.split, i64 10
   %387 = load i16, ptr %386, align 2
   %388 = zext i16 %387 to i32
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -6115,13 +6122,14 @@ default.unreachable:                              ; preds = %86
   %551 = load i64, ptr %549, align 8
   %552 = zext i32 %532 to i64
   tail call void @__release_region(ptr noundef nonnull %550, i64 noundef %551, i64 noundef %552) #14
-  %.pre6 = load i32, ptr %416, align 8
+  %.pre10 = load i32, ptr %416, align 8
   br label %553
 
 553:                                              ; preds = %548, %534, %531, %517
-  %554 = phi i32 [ %.pre6, %548 ], [ 0, %534 ], [ 0, %531 ], [ %518, %517 ]
+  %554 = phi i32 [ %.pre10, %548 ], [ 0, %534 ], [ 0, %531 ], [ %518, %517 ]
   %555 = zext i32 %554 to i64
-  %556 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %555, i32 4
+  %.split8 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %555
+  %556 = getelementptr i8, ptr %.split8, i64 13
   %557 = load i8, ptr %556, align 1
   %558 = icmp eq i8 %557, 0
   br i1 %558, label %561, label %559
@@ -6132,7 +6140,7 @@ default.unreachable:                              ; preds = %86
   br label %561
 
 561:                                              ; preds = %559, %553
-  %562 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %555, i32 3
+  %562 = getelementptr i8, ptr %.split8, i64 12
   %563 = load i8, ptr %562, align 4
   %564 = getelementptr inbounds nuw i8, ptr %0, i64 597
   store i8 %563, ptr %564, align 1
@@ -6388,8 +6396,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_trig_bytes_show(ptr n
   %22 = load i8, ptr %21, align 1
   %23 = lshr i8 %22, 6
   %24 = zext nneg i8 %23 to i64
-  %.split = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %20, i32 4
-  %25 = getelementptr i8, ptr %.split, i64 %24
+  %.split = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %20
+  %.split1 = getelementptr i8, ptr %.split, i64 13
+  %25 = getelementptr i8, ptr %.split1, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %.thread, label %28
@@ -6452,7 +6461,8 @@ define internal range(i64 1, 0) i64 @rx_trig_bytes_store(ptr noundef readonly ca
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 296
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %30, i32 4
+  %.split = getelementptr %struct.serial8250_config, ptr @uart_config, i64 %30
+  %31 = getelementptr i8, ptr %.split, i64 13
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %.thread, label %.preheader
@@ -6467,15 +6477,15 @@ define internal range(i64 1, 0) i64 @rx_trig_bytes_store(ptr noundef readonly ca
 38:                                               ; preds = %.preheader
   %39 = add nuw nsw i64 %34, 1
   %40 = icmp eq i64 %39, 4
-  br i1 %40, label %.thread4, label %.preheader, !llvm.loop !41
+  br i1 %40, label %.thread6, label %.preheader, !llvm.loop !41
 
 41:                                               ; preds = %.preheader
   %42 = trunc nuw nsw i64 %34 to i8
   %43 = shl nuw i8 %42, 6
   %44 = add i8 %43, -64
-  br label %.thread4
+  br label %.thread6
 
-.thread4:                                         ; preds = %38, %41
+.thread6:                                         ; preds = %38, %41
   %45 = phi i8 [ %44, %41 ], [ -64, %38 ]
   %46 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %47 = load ptr, ptr %46, align 8
@@ -6500,8 +6510,8 @@ define internal range(i64 1, 0) i64 @rx_trig_bytes_store(ptr noundef readonly ca
   call void @mutex_unlock(ptr noundef nonnull %16) #14
   br label %56
 
-56:                                               ; preds = %.thread, %.thread4, %12, %4
-  %57 = phi i64 [ %13, %12 ], [ -22, %4 ], [ %.ph, %.thread ], [ %3, %.thread4 ]
+56:                                               ; preds = %.thread, %.thread6, %12, %4
+  %57 = phi i64 [ %13, %12 ], [ -22, %4 ], [ %.ph, %.thread ], [ %3, %.thread6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %57
 }

@@ -5465,7 +5465,8 @@ lpad128:                                          ; preds = %if.then.i, %cond.fa
 for.body172:                                      ; preds = %for.body172.lr.ph, %invoke.cont232
   %i.0454 = phi i64 [ 0, %for.body172.lr.ph ], [ %inc, %invoke.cont232 ]
   %177 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !217
-  %exercise178 = getelementptr inbounds nuw %"struct.std::pair.82", ptr %177, i64 %i.0454, i32 0, i32 2
+  %add.ptr.i326 = getelementptr inbounds nuw %"struct.std::pair.82", ptr %177, i64 %i.0454
+  %exercise178 = getelementptr inbounds nuw i8, ptr %add.ptr.i326, i64 24
   %178 = load ptr, ptr %exercise174, align 8, !tbaa !112
   %179 = load ptr, ptr %pn3.i.i327, align 8, !tbaa !37
   %cmp.not.i.i.i328 = icmp eq ptr %179, null
@@ -5478,7 +5479,7 @@ if.then.i.i.i329:                                 ; preds = %for.body172
 
 _ZN5boost10shared_ptrIN8QuantLib8ExerciseEEC2ERKS3_.exit.i: ; preds = %if.then.i.i.i329, %for.body172
   store ptr %178, ptr %exercise178, align 8, !tbaa !3
-  %pn3.i2.i = getelementptr inbounds nuw i8, ptr %exercise178, i64 8
+  %pn3.i2.i = getelementptr inbounds nuw i8, ptr %add.ptr.i326, i64 32
   %181 = load ptr, ptr %pn3.i2.i, align 8, !tbaa !37
   store ptr %179, ptr %pn3.i2.i, align 8, !tbaa !37
   %cmp.not.i.i4.i = icmp eq ptr %181, null
@@ -5539,12 +5540,13 @@ invoke.cont183:                                   ; preds = %cond.false.i343, %_
 
 invoke.cont189:                                   ; preds = %invoke.cont183
   %191 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !217
-  %payoff193 = getelementptr inbounds nuw %"struct.std::pair.82", ptr %191, i64 %i.0454, i32 0, i32 1
+  %add.ptr.i348 = getelementptr inbounds nuw %"struct.std::pair.82", ptr %191, i64 %i.0454
+  %payoff193 = getelementptr inbounds nuw i8, ptr %add.ptr.i348, i64 8
   %192 = load ptr, ptr %ref.tmp180, align 8, !tbaa !187
   %193 = load ptr, ptr %pn3.i.i349, align 8, !tbaa !37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp180, i8 0, i64 16, i1 false)
   store ptr %192, ptr %payoff193, align 8, !tbaa !3
-  %pn3.i2.i350 = getelementptr inbounds nuw i8, ptr %payoff193, i64 8
+  %pn3.i2.i350 = getelementptr inbounds nuw i8, ptr %add.ptr.i348, i64 16
   %194 = load ptr, ptr %pn3.i2.i350, align 8, !tbaa !37
   store ptr %193, ptr %pn3.i2.i350, align 8, !tbaa !37
   %cmp.not.i.i.i351 = icmp eq ptr %194, null

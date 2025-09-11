@@ -1948,12 +1948,12 @@ bits_peek_be.exit.i:                              ; preds = %250, %244
   %285 = load i32, ptr %.sroa.26.4, align 1, !tbaa !44
   %286 = call i32 @llvm.bswap.i32(i32 %285)
   %287 = zext i32 %286 to i64
-  %288 = sub i32 43, %.sroa.45.4
+  %288 = sub nsw i32 43, %.sroa.45.4
   %289 = zext nneg i32 %288 to i64
   %290 = shl i64 %287, %289
   %291 = or i64 %290, %280
   %292 = getelementptr inbounds nuw i8, ptr %.sroa.26.4, i64 4
-  %293 = add i32 %.sroa.45.4, 21
+  %293 = add nuw nsw i32 %.sroa.45.4, 21
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %284, %279
@@ -2099,12 +2099,12 @@ bits_peek_be.exit.i222:                           ; preds = %351, %348
   %377 = load i32, ptr %.sroa.26.9, align 1, !tbaa !44
   %378 = call i32 @llvm.bswap.i32(i32 %377)
   %379 = zext i32 %378 to i64
-  %380 = sub i32 43, %361
+  %380 = sub nsw i32 43, %361
   %381 = zext nneg i32 %380 to i64
   %382 = shl i64 %379, %381
   %383 = or i64 %382, %372
   %384 = getelementptr inbounds nuw i8, ptr %.sroa.26.9, i64 4
-  %385 = add i32 %361, 21
+  %385 = add nuw nsw i32 %361, 21
   br label %bits_priv_set_idx_be.exit.i224
 
 bits_priv_set_idx_be.exit.i224:                   ; preds = %376, %371
@@ -3407,12 +3407,12 @@ bits_peek_be.exit.i:                              ; preds = %119, %112
   %154 = load i32, ptr %.sroa.26.4, align 1, !tbaa !44
   %155 = call i32 @llvm.bswap.i32(i32 %154)
   %156 = zext i32 %155 to i64
-  %157 = sub i32 43, %.sroa.45.4
+  %157 = sub nsw i32 43, %.sroa.45.4
   %158 = zext nneg i32 %157 to i64
   %159 = shl i64 %156, %158
   %160 = or i64 %159, %149
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.26.4, i64 4
-  %162 = add i32 %.sroa.45.4, 21
+  %162 = add nuw nsw i32 %.sroa.45.4, 21
   br label %bits_priv_set_idx_be.exit.i
 
 bits_priv_set_idx_be.exit.i:                      ; preds = %153, %148
@@ -3557,12 +3557,12 @@ bits_peek_be.exit.i123:                           ; preds = %220, %218
   %246 = load i32, ptr %.sroa.26.9, align 1, !tbaa !44
   %247 = call i32 @llvm.bswap.i32(i32 %246)
   %248 = zext i32 %247 to i64
-  %249 = sub i32 43, %230
+  %249 = sub nsw i32 43, %230
   %250 = zext nneg i32 %249 to i64
   %251 = shl i64 %248, %250
   %252 = or i64 %251, %241
   %253 = getelementptr inbounds nuw i8, ptr %.sroa.26.9, i64 4
-  %254 = add i32 %230, 21
+  %254 = add nuw nsw i32 %230, 21
   br label %bits_priv_set_idx_be.exit.i125
 
 bits_priv_set_idx_be.exit.i125:                   ; preds = %245, %240

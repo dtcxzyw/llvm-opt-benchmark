@@ -1559,7 +1559,7 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
   %178 = load ptr, ptr %2, align 8, !tbaa !12
   %179 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %178, i64 %173
   store i64 %177, ptr %179, align 8, !tbaa !13
-  %180 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %178, i64 %173, i32 1
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store i64 %168, ptr %180, align 8, !tbaa !15
   br label %181
 

@@ -74,132 +74,133 @@ define internal noundef i32 @vp9_metadata_update_fragment(ptr noundef %0, ptr re
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 84
   br label %13
 
-13:                                               ; preds = %.lr.ph, %77
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
+13:                                               ; preds = %.lr.ph, %78
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %14 = load ptr, ptr %9, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %14, i64 %indvars.iv, i32 5
-  %16 = load ptr, ptr %15, align 8, !tbaa !21
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !23
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 5
-  %20 = load i8, ptr %19, align 1, !tbaa !26
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %30, label %22
+  %15 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %17 = load ptr, ptr %16, align 8, !tbaa !21
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  %19 = load i8, ptr %18, align 1, !tbaa !23
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 5
+  %21 = load i8, ptr %20, align 1, !tbaa !26
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %31, label %23
 
-22:                                               ; preds = %13
-  %23 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %24 = load i8, ptr %23, align 2, !tbaa !27
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 14
-  %26 = load i8, ptr %25, align 2, !tbaa !28
-  %27 = icmp ne i8 %26, 0
-  %28 = or i8 %24, %18
-  %29 = icmp ne i8 %28, 0
-  %or.cond = select i1 %27, i1 %29, i1 false
-  br i1 %or.cond, label %30, label %66
+23:                                               ; preds = %13
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %25 = load i8, ptr %24, align 2, !tbaa !27
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 14
+  %27 = load i8, ptr %26, align 2, !tbaa !28
+  %28 = icmp ne i8 %27, 0
+  %29 = or i8 %25, %19
+  %30 = icmp ne i8 %29, 0
+  %or.cond = select i1 %28, i1 %30, i1 false
+  br i1 %or.cond, label %31, label %67
 
-30:                                               ; preds = %22, %13
-  %31 = load i32, ptr %11, align 8, !tbaa !29
-  %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %33, label %45
+31:                                               ; preds = %23, %13
+  %32 = load i32, ptr %11, align 8, !tbaa !29
+  %33 = icmp sgt i32 %32, -1
+  br i1 %33, label %34, label %46
 
-33:                                               ; preds = %30
-  %34 = and i8 %18, 1
-  %.not42 = icmp eq i8 %34, 0
-  %35 = icmp eq i32 %31, 7
-  %or.cond46 = and i1 %.not42, %35
-  br i1 %or.cond46, label %36, label %42
+34:                                               ; preds = %31
+  %35 = and i8 %19, 1
+  %.not42 = icmp eq i8 %35, 0
+  %36 = icmp eq i32 %32, 7
+  %or.cond46 = and i1 %.not42, %36
+  br i1 %or.cond46, label %37, label %43
 
-36:                                               ; preds = %33
-  %37 = load i32, ptr %10, align 8, !tbaa !34
-  %38 = and i32 %37, 2
-  %.not43 = icmp eq i32 %38, 0
-  br i1 %.not43, label %39, label %45
+37:                                               ; preds = %34
+  %38 = load i32, ptr %10, align 8, !tbaa !34
+  %39 = and i32 %38, 2
+  %.not43 = icmp eq i32 %39, 0
+  br i1 %.not43, label %40, label %46
 
-39:                                               ; preds = %36
+40:                                               ; preds = %37
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.31) #2
-  %40 = load i32, ptr %10, align 8, !tbaa !34
-  %41 = or i32 %40, 2
-  store i32 %41, ptr %10, align 8, !tbaa !34
-  br label %45
+  %41 = load i32, ptr %10, align 8, !tbaa !34
+  %42 = or i32 %41, 2
+  store i32 %42, ptr %10, align 8, !tbaa !34
+  br label %46
 
-42:                                               ; preds = %33
-  %43 = trunc i32 %31 to i8
-  %44 = getelementptr inbounds nuw i8, ptr %16, i64 9
-  store i8 %43, ptr %44, align 1, !tbaa !35
-  br label %45
+43:                                               ; preds = %34
+  %44 = trunc i32 %32 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 9
+  store i8 %44, ptr %45, align 1, !tbaa !35
+  br label %46
 
-45:                                               ; preds = %42, %39, %36, %30
-  %46 = load i32, ptr %12, align 4, !tbaa !36
-  %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %48, label %51
+46:                                               ; preds = %43, %40, %37, %31
+  %47 = load i32, ptr %12, align 4, !tbaa !36
+  %48 = icmp sgt i32 %47, -1
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %45
-  %49 = trunc i32 %46 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %16, i64 10
-  store i8 %49, ptr %50, align 2, !tbaa !37
-  br label %51
+49:                                               ; preds = %46
+  %50 = trunc i32 %47 to i8
+  %51 = getelementptr inbounds nuw i8, ptr %17, i64 10
+  store i8 %50, ptr %51, align 2, !tbaa !37
+  br label %52
 
-51:                                               ; preds = %48, %45
-  %52 = getelementptr inbounds nuw i8, ptr %16, i64 9
-  %53 = load i8, ptr %52, align 1, !tbaa !35
-  %54 = icmp eq i8 %53, 7
-  br i1 %54, label %55, label %77
+52:                                               ; preds = %49, %46
+  %53 = getelementptr inbounds nuw i8, ptr %17, i64 9
+  %54 = load i8, ptr %53, align 1, !tbaa !35
+  %55 = icmp eq i8 %54, 7
+  br i1 %55, label %56, label %78
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr %10, align 8, !tbaa !34
-  %57 = and i32 %56, 1
-  %.not44 = icmp eq i32 %57, 0
-  br i1 %.not44, label %58, label %64
+56:                                               ; preds = %52
+  %57 = load i32, ptr %10, align 8, !tbaa !34
+  %58 = and i32 %57, 1
+  %.not44 = icmp eq i32 %58, 0
+  br i1 %.not44, label %59, label %65
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %16, i64 10
-  %60 = load i8, ptr %59, align 2, !tbaa !37
-  %.not45 = icmp eq i8 %60, 0
-  br i1 %.not45, label %61, label %64
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds nuw i8, ptr %17, i64 10
+  %61 = load i8, ptr %60, align 2, !tbaa !37
+  %.not45 = icmp eq i8 %61, 0
+  br i1 %.not45, label %62, label %65
 
-61:                                               ; preds = %58
+62:                                               ; preds = %59
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.32) #2
-  %62 = load i32, ptr %10, align 8, !tbaa !34
-  %63 = or i32 %62, 1
-  store i32 %63, ptr %10, align 8, !tbaa !34
-  br label %64
+  %63 = load i32, ptr %10, align 8, !tbaa !34
+  %64 = or i32 %63, 1
+  store i32 %64, ptr %10, align 8, !tbaa !34
+  br label %65
 
-64:                                               ; preds = %61, %58, %55
-  %65 = getelementptr inbounds nuw i8, ptr %16, i64 10
-  store i8 1, ptr %65, align 2, !tbaa !37
-  br label %77
+65:                                               ; preds = %62, %59, %56
+  %66 = getelementptr inbounds nuw i8, ptr %17, i64 10
+  store i8 1, ptr %66, align 2, !tbaa !37
+  br label %78
 
-66:                                               ; preds = %22
-  %67 = load i32, ptr %10, align 8, !tbaa !34
-  %68 = and i32 %67, 4
-  %.not = icmp ne i32 %68, 0
-  %69 = icmp eq i8 %26, 0
-  %70 = or i1 %69, %.not
-  %or.cond48 = select i1 %70, i1 true, i1 %29
-  br i1 %or.cond48, label %77, label %71
+67:                                               ; preds = %23
+  %68 = load i32, ptr %10, align 8, !tbaa !34
+  %69 = and i32 %68, 4
+  %.not = icmp ne i32 %69, 0
+  %70 = icmp eq i8 %27, 0
+  %71 = or i1 %70, %.not
+  %or.cond48 = select i1 %71, i1 true, i1 %30
+  br i1 %or.cond48, label %78, label %72
 
-71:                                               ; preds = %66
-  %72 = load i32, ptr %11, align 8, !tbaa !29
-  %73 = icmp slt i32 %72, 0
-  %.not41 = icmp eq i32 %72, 1
-  %or.cond47 = or i1 %73, %.not41
-  br i1 %or.cond47, label %77, label %74
+72:                                               ; preds = %67
+  %73 = load i32, ptr %11, align 8, !tbaa !29
+  %74 = icmp slt i32 %73, 0
+  %.not41 = icmp eq i32 %73, 1
+  %or.cond47 = or i1 %74, %.not41
+  br i1 %or.cond47, label %78, label %75
 
-74:                                               ; preds = %71
+75:                                               ; preds = %72
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.33) #2
-  %75 = load i32, ptr %10, align 8, !tbaa !34
-  %76 = or i32 %75, 4
-  store i32 %76, ptr %10, align 8, !tbaa !34
-  br label %77
+  %76 = load i32, ptr %10, align 8, !tbaa !34
+  %77 = or i32 %76, 4
+  store i32 %77, ptr %10, align 8, !tbaa !34
+  br label %78
 
-77:                                               ; preds = %66, %71, %74, %51, %64
+78:                                               ; preds = %67, %72, %75, %52, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = load i32, ptr %4, align 8, !tbaa !4
-  %79 = sext i32 %78 to i64
-  %80 = icmp slt i64 %indvars.iv.next, %79
-  br i1 %80, label %13, label %._crit_edge, !llvm.loop !38
+  %79 = load i32, ptr %4, align 8, !tbaa !4
+  %80 = sext i32 %79 to i64
+  %81 = icmp slt i64 %indvars.iv.next, %80
+  br i1 %81, label %13, label %._crit_edge, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %77, %3
+._crit_edge:                                      ; preds = %78, %3
   ret i32 0
 }
 

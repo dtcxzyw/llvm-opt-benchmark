@@ -723,14 +723,14 @@ Region_NextIteration.exit.us.us:                  ; preds = %.split.us
 
 126:                                              ; preds = %.backedge.i
   %.not.i60 = icmp slt i32 %.173.i, %50
-  br i1 %.not.i60, label %127, label %167
+  br i1 %.not.i60, label %127, label %170
 
 127:                                              ; preds = %126
   %128 = sext i32 %.173.i to i64
   %129 = getelementptr inbounds i32, ptr %63, i64 %128
   %130 = load i32, ptr %129, align 4
   %.not83.i = icmp slt i32 %130, %45
-  br i1 %.not83.i, label %131, label %167
+  br i1 %.not83.i, label %131, label %170
 
 131:                                              ; preds = %127
   %spec.select.i61 = tail call i32 @llvm.smax.i32(i32 %130, i32 %35)
@@ -786,30 +786,33 @@ Region_NextIteration.exit.loopexit:               ; preds = %149
   store i16 %153, ptr %155, align 2
   %156 = trunc i32 %.sroa.4.2 to i16
   %157 = load ptr, ptr %6, align 8
-  %158 = getelementptr inbounds nuw %struct.XRectangle, ptr %157, i64 %indvars.iv, i32 1
-  store i16 %156, ptr %158, align 2
-  %159 = sub nsw i32 %.168.i, %spec.select88.i
-  %160 = trunc i32 %159 to i16
-  %161 = load ptr, ptr %6, align 8
-  %162 = getelementptr inbounds nuw %struct.XRectangle, ptr %161, i64 %indvars.iv, i32 2
-  store i16 %160, ptr %162, align 2
-  %163 = sub nsw i32 %.sroa.11.2, %.sroa.4.2
-  %164 = trunc i32 %163 to i16
-  %165 = load ptr, ptr %6, align 8
-  %166 = getelementptr inbounds nuw %struct.XRectangle, ptr %165, i64 %indvars.iv, i32 3
-  store i16 %164, ptr %166, align 2
+  %158 = getelementptr inbounds nuw %struct.XRectangle, ptr %157, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 2
+  store i16 %156, ptr %159, align 2
+  %160 = sub nsw i32 %.168.i, %spec.select88.i
+  %161 = trunc i32 %160 to i16
+  %162 = load ptr, ptr %6, align 8
+  %163 = getelementptr inbounds nuw %struct.XRectangle, ptr %162, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
+  store i16 %161, ptr %164, align 2
+  %165 = sub nsw i32 %.sroa.11.2, %.sroa.4.2
+  %166 = trunc i32 %165 to i16
+  %167 = load ptr, ptr %6, align 8
+  %168 = getelementptr inbounds nuw %struct.XRectangle, ptr %167, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 6
+  store i16 %166, ptr %169, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %.preheader, !llvm.loop !8
 
-167:                                              ; preds = %127, %126
-  %168 = load ptr, ptr %0, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 1784
-  %170 = load ptr, ptr %169, align 8
-  tail call void %170(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63, i32 noundef 2) #6
+170:                                              ; preds = %127, %126
+  %171 = load ptr, ptr %0, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 1784
+  %173 = load ptr, ptr %172, align 8
+  tail call void %173(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63, i32 noundef 2) #6
   br label %Region_EndIteration.exit63
 
-Region_EndIteration.exit63:                       ; preds = %Region_NextIteration.exit.us.us, %.split.us, %167, %11, %10, %Region_StartIteration.exit, %Region_EndIteration.exit
-  %.045 = phi i32 [ 0, %Region_EndIteration.exit ], [ 0, %Region_StartIteration.exit ], [ 1, %11 ], [ 0, %10 ], [ %.035.i137143, %167 ], [ %.035.i, %.split.us ], [ %.035.i, %Region_NextIteration.exit.us.us ]
+Region_EndIteration.exit63:                       ; preds = %Region_NextIteration.exit.us.us, %.split.us, %170, %11, %10, %Region_StartIteration.exit, %Region_EndIteration.exit
+  %.045 = phi i32 [ 0, %Region_EndIteration.exit ], [ 0, %Region_StartIteration.exit ], [ 1, %11 ], [ 0, %10 ], [ %.035.i137143, %170 ], [ %.035.i, %.split.us ], [ %.035.i, %Region_NextIteration.exit.us.us ]
   ret i32 %.045
 }
 

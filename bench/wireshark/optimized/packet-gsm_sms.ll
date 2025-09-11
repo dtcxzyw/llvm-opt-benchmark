@@ -2461,13 +2461,16 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %114, label %115, label %123
 
 115:                                              ; preds = %113
-  %116 = mul nuw nsw i32 %99, 30
-  %117 = add nsw i32 %116, -4290
-  %118 = udiv i32 %117, 60
-  %119 = add nuw nsw i32 %118, 12
-  %120 = urem i32 %117, 60
+  %116 = zext i8 %98 to i16
+  %117 = mul nuw nsw i16 %116, 30
+  %.lhs.trunc160.i = add nsw i16 %117, -4290
+  %118 = udiv i16 %.lhs.trunc160.i, 60
+  %narrow.i = add nuw nsw i16 %118, 12
+  %119 = zext nneg i16 %narrow.i to i32
+  %120 = urem i16 %.lhs.trunc160.i, 60
+  %.zext163.i = zext nneg i16 %120 to i32
   %121 = load i32, ptr @hf_gsm_sms_vp_validity_period, align 4
-  %122 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %121, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %99, ptr noundef nonnull @.str.644, i32 noundef %119, i32 noundef %120)
+  %122 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %121, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %99, ptr noundef nonnull @.str.644, i32 noundef %119, i32 noundef %.zext163.i)
   br label %.sink.split.i
 
 123:                                              ; preds = %113
@@ -2561,8 +2564,8 @@ default.unreachable:                              ; preds = %.preheader
   br label %.preheader
 
 .sink.split.i:                                    ; preds = %55, %137, %135, %129, %126, %115, %110, %105, %69, %63, %51, %43
-  %.sink230.sink.i = phi i32 [ %133, %135 ], [ 7, %51 ], [ %41, %43 ], [ 1, %115 ], [ 1, %129 ], [ 1, %126 ], [ 1, %105 ], [ 1, %110 ], [ 7, %137 ], [ 7, %69 ], [ 7, %63 ], [ 7, %55 ]
-  %186 = add i32 %38, %.sink230.sink.i
+  %.sink234.sink.i = phi i32 [ %133, %135 ], [ 7, %51 ], [ %41, %43 ], [ 1, %115 ], [ 1, %129 ], [ 1, %126 ], [ 1, %105 ], [ 1, %110 ], [ 7, %137 ], [ 7, %69 ], [ 7, %63 ], [ 7, %55 ]
+  %186 = add i32 %38, %.sink234.sink.i
   br label %dis_field_vp.exit
 
 dis_field_vp.exit:                                ; preds = %5, %.sink.split.i

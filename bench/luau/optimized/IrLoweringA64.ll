@@ -253,145 +253,145 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
     i8 3, label %110
     i8 4, label %117
     i8 5, label %124
-    i8 6, label %143
-    i8 7, label %164
-    i8 8, label %169
-    i8 9, label %211
-    i8 10, label %245
-    i8 11, label %273
-    i8 12, label %290
-    i8 14, label %318
-    i8 13, label %329
-    i8 15, label %356
-    i8 16, label %378
-    i8 17, label %400
-    i8 18, label %435
-    i8 19, label %455
-    i8 20, label %518
-    i8 21, label %580
-    i8 22, label %617
-    i8 23, label %629
-    i8 24, label %641
-    i8 25, label %653
-    i8 26, label %665
-    i8 27, label %678
-    i8 28, label %690
-    i8 29, label %703
-    i8 30, label %716
-    i8 31, label %724
-    i8 32, label %732
-    i8 33, label %740
-    i8 34, label %748
-    i8 35, label %756
-    i8 36, label %764
-    i8 37, label %779
-    i8 38, label %800
-    i8 39, label %812
-    i8 40, label %824
-    i8 41, label %836
-    i8 42, label %848
-    i8 43, label %856
-    i8 44, label %874
-    i8 45, label %917
-    i8 46, label %941
-    i8 47, label %964
-    i8 48, label %1008
-    i8 49, label %1052
-    i8 50, label %1171
-    i8 51, label %1255
-    i8 52, label %1283
-    i8 53, label %1335
-    i8 55, label %1382
-    i8 56, label %1393
-    i8 59, label %1400
-    i8 57, label %1420
-    i8 58, label %1448
-    i8 60, label %1460
-    i8 61, label %1492
-    i8 62, label %1555
-    i8 63, label %1583
-    i8 64, label %1590
-    i8 65, label %1597
-    i8 66, label %1604
-    i8 67, label %1613
-    i8 68, label %1649
-    i8 69, label %1663
-    i8 70, label %1693
-    i8 71, label %1699
-    i8 72, label %1728
-    i8 73, label %1810
-    i8 74, label %1822
-    i8 75, label %1869
-    i8 76, label %1885
-    i8 77, label %1922
-    i8 78, label %1959
-    i8 79, label %1984
-    i8 80, label %2014
-    i8 81, label %2035
-    i8 82, label %2092
-    i8 83, label %2121
-    i8 84, label %2160
-    i8 85, label %2170
-    i8 86, label %2180
-    i8 87, label %2191
-    i8 54, label %2238
-    i8 88, label %2238
-    i8 89, label %2295
-    i8 90, label %2306
-    i8 91, label %2316
-    i8 92, label %2377
-    i8 93, label %2398
-    i8 94, label %2420
-    i8 95, label %2437
-    i8 96, label %2472
-    i8 97, label %2490
-    i8 98, label %2525
-    i8 99, label %2543
-    i8 -110, label %3816
-    i8 101, label %2565
-    i8 102, label %2579
-    i8 103, label %2624
-    i8 104, label %2746
-    i8 105, label %2811
-    i8 106, label %2853
-    i8 107, label %2889
-    i8 108, label %2910
-    i8 109, label %2924
-    i8 110, label %2938
-    i8 111, label %2952
-    i8 112, label %2966
-    i8 113, label %2980
-    i8 114, label %2994
-    i8 115, label %3039
-    i8 116, label %3073
-    i8 117, label %3087
-    i8 -111, label %3793
-    i8 -112, label %3768
-    i8 119, label %3115
-    i8 120, label %3155
-    i8 121, label %3195
-    i8 122, label %3235
-    i8 123, label %3243
-    i8 124, label %3276
-    i8 125, label %3309
-    i8 126, label %3342
-    i8 127, label %3375
-    i8 -128, label %3408
-    i8 -127, label %3416
-    i8 -126, label %3425
-    i8 -125, label %3433
-    i8 -124, label %3506
-    i8 -123, label %3530
-    i8 -122, label %3543
-    i8 -121, label %3556
-    i8 -120, label %3580
-    i8 -119, label %3604
-    i8 -118, label %3626
-    i8 -117, label %3650
-    i8 -116, label %3674
-    i8 -115, label %3696
-    i8 -114, label %3720
-    i8 -113, label %3742
+    i8 6, label %144
+    i8 7, label %166
+    i8 8, label %171
+    i8 9, label %215
+    i8 10, label %250
+    i8 11, label %279
+    i8 12, label %296
+    i8 14, label %326
+    i8 13, label %337
+    i8 15, label %366
+    i8 16, label %389
+    i8 17, label %412
+    i8 18, label %448
+    i8 19, label %469
+    i8 20, label %536
+    i8 21, label %602
+    i8 22, label %641
+    i8 23, label %653
+    i8 24, label %665
+    i8 25, label %677
+    i8 26, label %689
+    i8 27, label %702
+    i8 28, label %714
+    i8 29, label %727
+    i8 30, label %740
+    i8 31, label %748
+    i8 32, label %756
+    i8 33, label %764
+    i8 34, label %772
+    i8 35, label %780
+    i8 36, label %788
+    i8 37, label %803
+    i8 38, label %824
+    i8 39, label %836
+    i8 40, label %848
+    i8 41, label %860
+    i8 42, label %872
+    i8 43, label %880
+    i8 44, label %898
+    i8 45, label %942
+    i8 46, label %966
+    i8 47, label %989
+    i8 48, label %1036
+    i8 49, label %1083
+    i8 50, label %1209
+    i8 51, label %1299
+    i8 52, label %1328
+    i8 53, label %1382
+    i8 55, label %1432
+    i8 56, label %1443
+    i8 59, label %1450
+    i8 57, label %1470
+    i8 58, label %1500
+    i8 60, label %1512
+    i8 61, label %1546
+    i8 62, label %1615
+    i8 63, label %1645
+    i8 64, label %1652
+    i8 65, label %1659
+    i8 66, label %1666
+    i8 67, label %1675
+    i8 68, label %1712
+    i8 69, label %1726
+    i8 70, label %1757
+    i8 71, label %1763
+    i8 72, label %1794
+    i8 73, label %1879
+    i8 74, label %1892
+    i8 75, label %1940
+    i8 76, label %1956
+    i8 77, label %1994
+    i8 78, label %2032
+    i8 79, label %2058
+    i8 80, label %2090
+    i8 81, label %2111
+    i8 82, label %2170
+    i8 83, label %2201
+    i8 84, label %2241
+    i8 85, label %2251
+    i8 86, label %2261
+    i8 87, label %2272
+    i8 54, label %2321
+    i8 88, label %2321
+    i8 89, label %2379
+    i8 90, label %2390
+    i8 91, label %2400
+    i8 92, label %2463
+    i8 93, label %2485
+    i8 94, label %2508
+    i8 95, label %2525
+    i8 96, label %2561
+    i8 97, label %2579
+    i8 98, label %2615
+    i8 99, label %2634
+    i8 -110, label %3959
+    i8 101, label %2656
+    i8 102, label %2671
+    i8 103, label %2718
+    i8 104, label %2845
+    i8 105, label %2913
+    i8 106, label %2957
+    i8 107, label %2994
+    i8 108, label %3016
+    i8 109, label %3031
+    i8 110, label %3046
+    i8 111, label %3061
+    i8 112, label %3076
+    i8 113, label %3091
+    i8 114, label %3106
+    i8 115, label %3154
+    i8 116, label %3190
+    i8 117, label %3205
+    i8 -111, label %3935
+    i8 -112, label %3909
+    i8 119, label %3234
+    i8 120, label %3276
+    i8 121, label %3318
+    i8 122, label %3360
+    i8 123, label %3368
+    i8 124, label %3402
+    i8 125, label %3436
+    i8 126, label %3470
+    i8 127, label %3504
+    i8 -128, label %3538
+    i8 -127, label %3546
+    i8 -126, label %3555
+    i8 -125, label %3563
+    i8 -124, label %3637
+    i8 -123, label %3662
+    i8 -122, label %3675
+    i8 -121, label %3688
+    i8 -120, label %3713
+    i8 -119, label %3738
+    i8 -118, label %3761
+    i8 -117, label %3786
+    i8 -116, label %3811
+    i8 -115, label %3834
+    i8 -114, label %3859
+    i8 -113, label %3882
   ]
 
 96:                                               ; preds = %4
@@ -463,2084 +463,2061 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %135 = lshr i32 %.sroa.01964.0.copyload, 4
   %136 = zext nneg i32 %135 to i64
   %137 = load ptr, ptr %134, align 8, !tbaa !65
-  %138 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %137, i64 %136, i32 1
-  %139 = load i32, ptr %138, align 8, !tbaa !43
-  %140 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01965.0.copyload, i32 noundef %139)
-  %141 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %141, i8 %129, i64 %140)
+  %138 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %137, i64 %136
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load i32, ptr %139, align 8, !tbaa !43
+  %141 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01965.0.copyload, i32 noundef %140)
   %142 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %142, i8 %129, i64 %141)
+  %143 = load ptr, ptr %0, align 8, !tbaa !63
   %.sroa.01961.0.copyload = load i8, ptr %127, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %142, i8 %.sroa.01961.0.copyload, i8 %129)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %143, i8 %.sroa.01961.0.copyload, i8 %129)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-143:                                              ; preds = %4
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %145 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %144, i8 noundef zeroext 5, i32 noundef %2)
-  %146 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %145, ptr %146, align 1, !tbaa !43
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %148 = load i32, ptr %147, align 4
-  %149 = and i32 %148, 15
-  %.not2967 = icmp eq i32 %149, 0
-  br i1 %.not2967, label %159, label %150
+144:                                              ; preds = %4
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %146 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %145, i8 noundef zeroext 5, i32 noundef %2)
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %146, ptr %147, align 1, !tbaa !43
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %149 = load i32, ptr %148, align 4
+  %150 = and i32 %149, 15
+  %.not2967 = icmp eq i32 %150, 0
+  br i1 %.not2967, label %161, label %151
 
-150:                                              ; preds = %143
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %152 = load ptr, ptr %151, align 8, !tbaa !64
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 48
-  %154 = lshr i32 %148, 4
-  %155 = zext nneg i32 %154 to i64
-  %156 = load ptr, ptr %153, align 8, !tbaa !65
-  %157 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %156, i64 %155, i32 1
-  %158 = load i32, ptr %157, align 8, !tbaa !43
-  br label %159
+151:                                              ; preds = %144
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %153 = load ptr, ptr %152, align 8, !tbaa !64
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 48
+  %155 = lshr i32 %149, 4
+  %156 = zext nneg i32 %155 to i64
+  %157 = load ptr, ptr %154, align 8, !tbaa !65
+  %158 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %157, i64 %156
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
+  %160 = load i32, ptr %159, align 8, !tbaa !43
+  br label %161
 
-159:                                              ; preds = %143, %150
-  %160 = phi i32 [ %158, %150 ], [ 0, %143 ]
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01955.0.copyload = load i32, ptr %161, align 4, !tbaa !43
-  %162 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01955.0.copyload, i32 noundef %160)
-  %163 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01954.0.copyload = load i8, ptr %146, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %163, i8 %.sroa.01954.0.copyload, i64 %162)
+161:                                              ; preds = %144, %151
+  %162 = phi i32 [ %160, %151 ], [ 0, %144 ]
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01955.0.copyload = load i32, ptr %163, align 4, !tbaa !43
+  %164 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01955.0.copyload, i32 noundef %162)
+  %165 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01954.0.copyload = load i8, ptr %147, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %165, i8 %.sroa.01954.0.copyload, i64 %164)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-164:                                              ; preds = %4
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %166 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %165, i8 noundef zeroext 2, i32 noundef %2)
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %166, ptr %167, align 1, !tbaa !43
-  %168 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %168, i8 %166, i64 68735908353)
+166:                                              ; preds = %4
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %168 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %167, i8 noundef zeroext 2, i32 noundef %2)
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %168, ptr %169, align 1, !tbaa !43
+  %170 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %170, i8 %168, i64 68735908353)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-169:                                              ; preds = %4
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 32
+171:                                              ; preds = %4
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %172 = load i32, ptr %171, align 4, !tbaa !43
-  store i32 %172, ptr %5, align 4, !tbaa !43
-  %173 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %170, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %5, i64 1)
-  %174 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %173, ptr %174, align 1, !tbaa !43
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %174 = load i32, ptr %173, align 4, !tbaa !43
+  store i32 %174, ptr %5, align 4, !tbaa !43
+  %175 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %172, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %5, i64 1)
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %175, ptr %176, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %175 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01944.0.copyload = load i32, ptr %171, align 4, !tbaa !43
-  %176 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01944.0.copyload)
-  %.sroa.23628.0.insert.ext = zext i8 %176 to i64
+  %177 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01944.0.copyload = load i32, ptr %173, align 4, !tbaa !43
+  %178 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01944.0.copyload)
+  %.sroa.23628.0.insert.ext = zext i8 %178 to i64
   %.sroa.23628.0.insert.shift = shl nuw nsw i64 %.sroa.23628.0.insert.ext, 8
   %.sroa.03627.0.insert.insert = or disjoint i64 %.sroa.23628.0.insert.shift, 103095599105
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %175, i8 %173, i64 %.sroa.03627.0.insert.insert)
-  %177 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %178 = load i32, ptr %177, align 4
-  %179 = and i32 %178, 15
-  switch i32 %179, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit [
-    i32 4, label %180
-    i32 2, label %183
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %177, i8 %175, i64 %.sroa.03627.0.insert.insert)
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %180 = load i32, ptr %179, align 4
+  %181 = and i32 %180, 15
+  switch i32 %181, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit [
+    i32 4, label %182
+    i32 2, label %185
   ]
 
-180:                                              ; preds = %169
-  %181 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01943.0.copyload = load i8, ptr %174, align 1, !tbaa !43
-  %182 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %178)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %181, i8 %.sroa.01943.0.copyload, i8 %.sroa.01943.0.copyload, i8 %182, i32 noundef 4)
+182:                                              ; preds = %171
+  %183 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01943.0.copyload = load i8, ptr %176, align 1, !tbaa !43
+  %184 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %180)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %183, i8 %.sroa.01943.0.copyload, i8 %.sroa.01943.0.copyload, i8 %184, i32 noundef 4)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-183:                                              ; preds = %169
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %185 = load ptr, ptr %184, align 8, !tbaa !64
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 48
-  %187 = lshr i32 %178, 4
-  %188 = zext nneg i32 %187 to i64
-  %189 = load ptr, ptr %186, align 8, !tbaa !65
-  %190 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %189, i64 %188, i32 1
-  %191 = load i32, ptr %190, align 8, !tbaa !43
-  %192 = icmp eq i32 %191, 0
-  br i1 %192, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %193
+185:                                              ; preds = %171
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %187 = load ptr, ptr %186, align 8, !tbaa !64
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 48
+  %189 = lshr i32 %180, 4
+  %190 = zext nneg i32 %189 to i64
+  %191 = load ptr, ptr %188, align 8, !tbaa !65
+  %192 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %191, i64 %190
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  %194 = load i32, ptr %193, align 8, !tbaa !43
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %196
 
-193:                                              ; preds = %183
-  %194 = icmp ult i32 %191, 256
-  br i1 %194, label %195, label %199
+196:                                              ; preds = %185
+  %197 = icmp ult i32 %194, 256
+  br i1 %197, label %198, label %202
 
-195:                                              ; preds = %193
-  %196 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01937.0.copyload = load i8, ptr %174, align 1, !tbaa !43
-  %197 = trunc nuw nsw i32 %191 to i16
-  %198 = shl nuw nsw i16 %197, 4
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %196, i8 %.sroa.01937.0.copyload, i8 %.sroa.01937.0.copyload, i16 noundef zeroext %198)
+198:                                              ; preds = %196
+  %199 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01937.0.copyload = load i8, ptr %176, align 1, !tbaa !43
+  %200 = trunc nuw nsw i32 %194 to i16
+  %201 = shl nuw nsw i16 %200, 4
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %199, i8 %.sroa.01937.0.copyload, i8 %.sroa.01937.0.copyload, i16 noundef zeroext %201)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-199:                                              ; preds = %193
-  %200 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %170, i8 noundef zeroext 2)
-  %201 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01931.0.copyload = load i32, ptr %177, align 4, !tbaa !43
-  %202 = load ptr, ptr %184, align 8, !tbaa !64
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 48
-  %204 = lshr i32 %.sroa.01931.0.copyload, 4
-  %205 = zext nneg i32 %204 to i64
-  %206 = load ptr, ptr %203, align 8, !tbaa !65
-  %207 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %206, i64 %205, i32 1
-  %208 = load i32, ptr %207, align 8, !tbaa !43
-  %209 = shl i32 %208, 4
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %201, i8 %200, i32 noundef %209)
-  %210 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01930.0.copyload = load i8, ptr %174, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %210, i8 %.sroa.01930.0.copyload, i8 %.sroa.01930.0.copyload, i8 %200, i32 noundef 0)
+202:                                              ; preds = %196
+  %203 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %172, i8 noundef zeroext 2)
+  %204 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01931.0.copyload = load i32, ptr %179, align 4, !tbaa !43
+  %205 = load ptr, ptr %186, align 8, !tbaa !64
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 48
+  %207 = lshr i32 %.sroa.01931.0.copyload, 4
+  %208 = zext nneg i32 %207 to i64
+  %209 = load ptr, ptr %206, align 8, !tbaa !65
+  %210 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %209, i64 %208
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  %212 = load i32, ptr %211, align 8, !tbaa !43
+  %213 = shl i32 %212, 4
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %204, i8 %203, i32 noundef %213)
+  %214 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01930.0.copyload = load i8, ptr %176, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %214, i8 %.sroa.01930.0.copyload, i8 %.sroa.01930.0.copyload, i8 %203, i32 noundef 0)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-211:                                              ; preds = %4
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 32
+215:                                              ; preds = %4
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %213 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %214 = load i32, ptr %213, align 4, !tbaa !43
-  store i32 %214, ptr %6, align 4, !tbaa !43
-  %215 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %212, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %6, i64 1)
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %215, ptr %216, align 1, !tbaa !43
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %218 = load i32, ptr %217, align 4, !tbaa !43
+  store i32 %218, ptr %6, align 4, !tbaa !43
+  %219 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %216, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %6, i64 1)
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %219, ptr %220, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %217 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %212, i8 noundef zeroext 2)
-  %218 = and i8 %217, -8
-  %219 = or disjoint i8 %218, 1
-  %220 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %212, i8 noundef zeroext 1)
-  %221 = and i8 %220, -8
-  %222 = or disjoint i8 %221, 2
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01911.0.copyload = load i32, ptr %223, align 4, !tbaa !43
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %225 = load ptr, ptr %224, align 8, !tbaa !64
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 48
-  %227 = lshr i32 %.sroa.01911.0.copyload, 4
-  %228 = zext nneg i32 %227 to i64
-  %229 = load ptr, ptr %226, align 8, !tbaa !65
-  %230 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %229, i64 %228, i32 1
-  %231 = load i32, ptr %230, align 8, !tbaa !43
-  %232 = icmp ult i32 %231, 1024
-  %233 = load ptr, ptr %0, align 8, !tbaa !63
-  %234 = shl i32 %231, 2
-  br i1 %232, label %235, label %236
+  %221 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %216, i8 noundef zeroext 2)
+  %222 = and i8 %221, -8
+  %223 = or disjoint i8 %222, 1
+  %224 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %216, i8 noundef zeroext 1)
+  %225 = and i8 %224, -8
+  %226 = or disjoint i8 %225, 2
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01911.0.copyload = load i32, ptr %227, align 4, !tbaa !43
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %229 = load ptr, ptr %228, align 8, !tbaa !64
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 48
+  %231 = lshr i32 %.sroa.01911.0.copyload, 4
+  %232 = zext nneg i32 %231 to i64
+  %233 = load ptr, ptr %230, align 8, !tbaa !65
+  %234 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %233, i64 %232
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  %236 = load i32, ptr %235, align 8, !tbaa !43
+  %237 = icmp ult i32 %236, 1024
+  %238 = load ptr, ptr %0, align 8, !tbaa !63
+  %239 = shl i32 %236, 2
+  br i1 %237, label %240, label %241
 
-235:                                              ; preds = %211
-  %.sroa.43626.0.insert.ext = zext nneg i32 %234 to i64
+240:                                              ; preds = %215
+  %.sroa.43626.0.insert.ext = zext nneg i32 %239 to i64
   %.sroa.43626.0.insert.shift = shl nuw nsw i64 %.sroa.43626.0.insert.ext, 32
   %.sroa.03622.0.insert.insert = or disjoint i64 %.sroa.43626.0.insert.shift, 16433665
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %233, i8 %219, i64 %.sroa.03622.0.insert.insert)
-  br label %238
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %238, i8 %223, i64 %.sroa.03622.0.insert.insert)
+  br label %243
 
-236:                                              ; preds = %211
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %233, i8 %217, i32 noundef %234)
-  %237 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.33619.0.insert.ext = zext i8 %217 to i64
+241:                                              ; preds = %215
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %238, i8 %221, i32 noundef %239)
+  %242 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.33619.0.insert.ext = zext i8 %221 to i64
   %.sroa.33619.0.insert.shift = shl nuw nsw i64 %.sroa.33619.0.insert.ext, 16
   %.sroa.23618.0.insert.insert = or disjoint i64 %.sroa.33619.0.insert.shift, 49664
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %237, i8 %219, i64 %.sroa.23618.0.insert.insert)
-  br label %238
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %242, i8 %223, i64 %.sroa.23618.0.insert.insert)
+  br label %243
 
-238:                                              ; preds = %236, %235
-  %239 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01900.0.copyload = load i32, ptr %213, align 4, !tbaa !43
-  %240 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01900.0.copyload)
-  %.sroa.23613.0.insert.ext = zext i8 %240 to i64
+243:                                              ; preds = %241, %240
+  %244 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01900.0.copyload = load i32, ptr %217, align 4, !tbaa !43
+  %245 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01900.0.copyload)
+  %.sroa.23613.0.insert.ext = zext i8 %245 to i64
   %.sroa.23613.0.insert.shift = shl nuw nsw i64 %.sroa.23613.0.insert.ext, 8
   %.sroa.03612.0.insert.insert = or disjoint i64 %.sroa.23613.0.insert.shift, 30081155073
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %239, i8 %220, i64 %.sroa.03612.0.insert.insert)
-  %241 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %241, i8 %220, i8 %220, i8 %219, i32 noundef -24)
-  %242 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01896.0.copyload = load i8, ptr %216, align 1, !tbaa !43
-  %.sroa.01894.0.copyload = load i32, ptr %213, align 4, !tbaa !43
-  %243 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01894.0.copyload)
-  %.sroa.23608.0.insert.ext = zext i8 %243 to i64
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %244, i8 %224, i64 %.sroa.03612.0.insert.insert)
+  %246 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %246, i8 %224, i8 %224, i8 %223, i32 noundef -24)
+  %247 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01896.0.copyload = load i8, ptr %220, align 1, !tbaa !43
+  %.sroa.01894.0.copyload = load i32, ptr %217, align 4, !tbaa !43
+  %248 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01894.0.copyload)
+  %.sroa.23608.0.insert.ext = zext i8 %248 to i64
   %.sroa.23608.0.insert.shift = shl nuw nsw i64 %.sroa.23608.0.insert.ext, 8
   %.sroa.03607.0.insert.insert = or disjoint i64 %.sroa.23608.0.insert.shift, 137455337473
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %242, i8 %.sroa.01896.0.copyload, i64 %.sroa.03607.0.insert.insert)
-  %244 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01893.0.copyload = load i8, ptr %216, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %244, i8 %.sroa.01893.0.copyload, i8 %.sroa.01893.0.copyload, i8 %222, i32 noundef 5)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %247, i8 %.sroa.01896.0.copyload, i64 %.sroa.03607.0.insert.insert)
+  %249 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01893.0.copyload = load i8, ptr %220, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %249, i8 %.sroa.01893.0.copyload, i8 %.sroa.01893.0.copyload, i8 %226, i32 noundef 5)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-245:                                              ; preds = %4
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 32
+250:                                              ; preds = %4
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %247 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %248 = load i32, ptr %247, align 4, !tbaa !43
-  store i32 %248, ptr %7, align 4, !tbaa !43
-  %249 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %246, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %7, i64 1)
-  %250 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %249, ptr %250, align 1, !tbaa !43
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %253 = load i32, ptr %252, align 4, !tbaa !43
+  store i32 %253, ptr %7, align 4, !tbaa !43
+  %254 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %251, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %7, i64 1)
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %254, ptr %255, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %251 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %246, i8 noundef zeroext 1)
-  %252 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %246, i8 noundef zeroext 1)
-  %253 = and i8 %252, -8
-  %254 = or disjoint i8 %253, 2
-  %255 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %255, i8 %251, i32 noundef -1)
-  %256 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01872.0.copyload = load i32, ptr %247, align 4, !tbaa !43
-  %257 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01872.0.copyload)
-  %.sroa.23603.0.insert.ext = zext i8 %257 to i64
+  %256 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %251, i8 noundef zeroext 1)
+  %257 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %251, i8 noundef zeroext 1)
+  %258 = and i8 %257, -8
+  %259 = or disjoint i8 %258, 2
+  %260 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %260, i8 %256, i32 noundef -1)
+  %261 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01872.0.copyload = load i32, ptr %252, align 4, !tbaa !43
+  %262 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01872.0.copyload)
+  %.sroa.23603.0.insert.ext = zext i8 %262 to i64
   %.sroa.23603.0.insert.shift = shl nuw nsw i64 %.sroa.23603.0.insert.ext, 8
   %.sroa.03602.0.insert.insert = or disjoint i64 %.sroa.23603.0.insert.shift, 25786187777
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %256, i8 %252, i64 %.sroa.03602.0.insert.insert)
-  %258 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %258, i8 %251, i8 %251, i8 %252)
-  %259 = load ptr, ptr %0, align 8, !tbaa !63
-  %260 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01867.0.copyload = load i32, ptr %260, align 4, !tbaa !43
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %262 = load ptr, ptr %261, align 8, !tbaa !64
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 48
-  %264 = lshr i32 %.sroa.01867.0.copyload, 4
-  %265 = zext nneg i32 %264 to i64
-  %266 = load ptr, ptr %263, align 8, !tbaa !65
-  %267 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %266, i64 %265, i32 1
-  %268 = load i32, ptr %267, align 8, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %259, i8 %252, i32 noundef %268)
-  %269 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643bicENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %269, i8 %252, i8 %252, i8 %251, i32 noundef 0)
-  %270 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01863.0.copyload = load i8, ptr %250, align 1, !tbaa !43
-  %.sroa.01861.0.copyload = load i32, ptr %247, align 4, !tbaa !43
-  %271 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01861.0.copyload)
-  %.sroa.23598.0.insert.ext = zext i8 %271 to i64
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %261, i8 %257, i64 %.sroa.03602.0.insert.insert)
+  %263 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %263, i8 %256, i8 %256, i8 %257)
+  %264 = load ptr, ptr %0, align 8, !tbaa !63
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01867.0.copyload = load i32, ptr %265, align 4, !tbaa !43
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %267 = load ptr, ptr %266, align 8, !tbaa !64
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 48
+  %269 = lshr i32 %.sroa.01867.0.copyload, 4
+  %270 = zext nneg i32 %269 to i64
+  %271 = load ptr, ptr %268, align 8, !tbaa !65
+  %272 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %271, i64 %270
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
+  %274 = load i32, ptr %273, align 8, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %264, i8 %257, i32 noundef %274)
+  %275 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643bicENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %275, i8 %257, i8 %257, i8 %256, i32 noundef 0)
+  %276 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01863.0.copyload = load i8, ptr %255, align 1, !tbaa !43
+  %.sroa.01861.0.copyload = load i32, ptr %252, align 4, !tbaa !43
+  %277 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01861.0.copyload)
+  %.sroa.23598.0.insert.ext = zext i8 %277 to i64
   %.sroa.23598.0.insert.shift = shl nuw nsw i64 %.sroa.23598.0.insert.ext, 8
   %.sroa.03597.0.insert.insert = or disjoint i64 %.sroa.23598.0.insert.shift, 137455337473
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %270, i8 %.sroa.01863.0.copyload, i64 %.sroa.03597.0.insert.insert)
-  %272 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01860.0.copyload = load i8, ptr %250, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %272, i8 %.sroa.01860.0.copyload, i8 %.sroa.01860.0.copyload, i8 %254, i32 noundef 5)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %276, i8 %.sroa.01863.0.copyload, i64 %.sroa.03597.0.insert.insert)
+  %278 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01860.0.copyload = load i8, ptr %255, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %278, i8 %.sroa.01860.0.copyload, i8 %.sroa.01860.0.copyload, i8 %259, i32 noundef 5)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-273:                                              ; preds = %4
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 32
+279:                                              ; preds = %4
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %275 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %276 = load i32, ptr %275, align 4, !tbaa !43
-  store i32 %276, ptr %8, align 4, !tbaa !43
-  %277 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %274, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %8, i64 1)
-  %278 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %277, ptr %278, align 1, !tbaa !43
+  %281 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %282 = load i32, ptr %281, align 4, !tbaa !43
+  store i32 %282, ptr %8, align 4, !tbaa !43
+  %283 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %280, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %8, i64 1)
+  %284 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %283, ptr %284, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %279 = load i32, ptr %275, align 4
-  %280 = and i32 %279, 15
-  %281 = icmp eq i32 %280, 1
-  br i1 %281, label %284, label %282
+  %285 = load i32, ptr %281, align 4
+  %286 = and i32 %285, 15
+  %287 = icmp eq i32 %286, 1
+  br i1 %287, label %290, label %288
 
-282:                                              ; preds = %273
-  %283 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %279)
-  %.sroa.01852.0.copyload.pre = load i8, ptr %278, align 1, !tbaa !43
-  br label %284
+288:                                              ; preds = %279
+  %289 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %285)
+  %.sroa.01852.0.copyload.pre = load i8, ptr %284, align 1, !tbaa !43
+  br label %290
 
-284:                                              ; preds = %273, %282
-  %.sroa.01852.0.copyload = phi i8 [ %.sroa.01852.0.copyload.pre, %282 ], [ %277, %273 ]
-  %.sroa.01854.0 = phi i8 [ %283, %282 ], [ -70, %273 ]
-  %285 = load ptr, ptr %0, align 8, !tbaa !63
-  %286 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01850.0.copyload = load i32, ptr %286, align 4, !tbaa !43
-  %287 = trunc i32 %.sroa.01850.0.copyload to i16
-  %288 = and i16 %287, -16
-  %289 = add i16 %288, 32
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %285, i8 %.sroa.01852.0.copyload, i8 %.sroa.01854.0, i16 noundef zeroext %289)
+290:                                              ; preds = %279, %288
+  %.sroa.01852.0.copyload = phi i8 [ %.sroa.01852.0.copyload.pre, %288 ], [ %283, %279 ]
+  %.sroa.01854.0 = phi i8 [ %289, %288 ], [ -70, %279 ]
+  %291 = load ptr, ptr %0, align 8, !tbaa !63
+  %292 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01850.0.copyload = load i32, ptr %292, align 4, !tbaa !43
+  %293 = trunc i32 %.sroa.01850.0.copyload to i16
+  %294 = and i16 %293, -16
+  %295 = add i16 %294, 32
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %291, i8 %.sroa.01852.0.copyload, i8 %.sroa.01854.0, i16 noundef zeroext %295)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-290:                                              ; preds = %4
-  %291 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01847.0.copyload = load i32, ptr %291, align 4, !tbaa !43
-  %292 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01847.0.copyload, i32 noundef 12)
-  %293 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01846.0.copyload = load i32, ptr %293, align 4, !tbaa !43
-  %294 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %295 = load ptr, ptr %294, align 8, !tbaa !64
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 48
-  %297 = lshr i32 %.sroa.01846.0.copyload, 4
-  %298 = zext nneg i32 %297 to i64
-  %299 = load ptr, ptr %296, align 8, !tbaa !65
-  %300 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %299, i64 %298, i32 1
-  %301 = load i8, ptr %300, align 8, !tbaa !43
-  %302 = icmp eq i8 %301, 0
-  br i1 %302, label %303, label %305
+296:                                              ; preds = %4
+  %297 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01847.0.copyload = load i32, ptr %297, align 4, !tbaa !43
+  %298 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01847.0.copyload, i32 noundef 12)
+  %299 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01846.0.copyload = load i32, ptr %299, align 4, !tbaa !43
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %301 = load ptr, ptr %300, align 8, !tbaa !64
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 48
+  %303 = lshr i32 %.sroa.01846.0.copyload, 4
+  %304 = zext nneg i32 %303 to i64
+  %305 = load ptr, ptr %302, align 8, !tbaa !65
+  %306 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %305, i64 %304
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
+  %308 = load i8, ptr %307, align 8, !tbaa !43
+  %309 = icmp eq i8 %308, 0
+  br i1 %309, label %310, label %312
 
-303:                                              ; preds = %290
-  %304 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %304, i8 -7, i64 %292)
+310:                                              ; preds = %296
+  %311 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %311, i8 -7, i64 %298)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-305:                                              ; preds = %290
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %307 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %306, i8 noundef zeroext 1)
-  %308 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01840.0.copyload = load i32, ptr %293, align 4, !tbaa !43
-  %309 = load ptr, ptr %294, align 8, !tbaa !64
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 48
-  %311 = lshr i32 %.sroa.01840.0.copyload, 4
-  %312 = zext nneg i32 %311 to i64
-  %313 = load ptr, ptr %310, align 8, !tbaa !65
-  %314 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %313, i64 %312, i32 1
-  %315 = load i8, ptr %314, align 8, !tbaa !43
-  %316 = zext i8 %315 to i32
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %308, i8 %307, i32 noundef %316)
-  %317 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %317, i8 %307, i64 %292)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-318:                                              ; preds = %4
-  %319 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01835.0.copyload = load i32, ptr %319, align 4, !tbaa !43
-  %320 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01835.0.copyload, i32 noundef 0)
-  %321 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %322 = load i32, ptr %321, align 4
-  %323 = and i32 %322, 15
-  %324 = icmp eq i32 %323, 2
+312:                                              ; preds = %296
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %314 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %313, i8 noundef zeroext 1)
+  %315 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01840.0.copyload = load i32, ptr %299, align 4, !tbaa !43
+  %316 = load ptr, ptr %300, align 8, !tbaa !64
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 48
+  %318 = lshr i32 %.sroa.01840.0.copyload, 4
+  %319 = zext nneg i32 %318 to i64
+  %320 = load ptr, ptr %317, align 8, !tbaa !65
+  %321 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %320, i64 %319
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 8
+  %323 = load i8, ptr %322, align 8, !tbaa !43
+  %324 = zext i8 %323 to i32
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %315, i8 %314, i32 noundef %324)
   %325 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %324, label %326, label %327
-
-326:                                              ; preds = %318
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %325, i8 -6, i64 %320)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %325, i8 %314, i64 %298)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-327:                                              ; preds = %318
-  %328 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %322)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %325, i8 %328, i64 %320)
+326:                                              ; preds = %4
+  %327 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01835.0.copyload = load i32, ptr %327, align 4, !tbaa !43
+  %328 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01835.0.copyload, i32 noundef 0)
+  %329 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %330 = load i32, ptr %329, align 4
+  %331 = and i32 %330, 15
+  %332 = icmp eq i32 %331, 2
+  %333 = load ptr, ptr %0, align 8, !tbaa !63
+  br i1 %332, label %334, label %335
+
+334:                                              ; preds = %326
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %333, i8 -6, i64 %328)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-329:                                              ; preds = %4
-  %330 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01827.0.copyload = load i32, ptr %330, align 4, !tbaa !43
-  %331 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01827.0.copyload, i32 noundef 8)
-  %332 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01826.0.copyload = load i32, ptr %332, align 4, !tbaa !43
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %334 = load ptr, ptr %333, align 8, !tbaa !64
-  %335 = getelementptr inbounds nuw i8, ptr %334, i64 48
-  %336 = lshr i32 %.sroa.01826.0.copyload, 4
-  %337 = zext nneg i32 %336 to i64
-  %338 = load ptr, ptr %335, align 8, !tbaa !65
-  %339 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %338, i64 %337, i32 1
-  %340 = load i32, ptr %339, align 8, !tbaa !43
-  %341 = icmp eq i32 %340, 0
-  br i1 %341, label %342, label %344
-
-342:                                              ; preds = %329
-  %343 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %343, i8 -7, i64 %331)
+335:                                              ; preds = %326
+  %336 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %330)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %333, i8 %336, i64 %328)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-344:                                              ; preds = %329
-  %345 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %346 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %345, i8 noundef zeroext 1)
-  %347 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01820.0.copyload = load i32, ptr %332, align 4, !tbaa !43
-  %348 = load ptr, ptr %333, align 8, !tbaa !64
-  %349 = getelementptr inbounds nuw i8, ptr %348, i64 48
-  %350 = lshr i32 %.sroa.01820.0.copyload, 4
-  %351 = zext nneg i32 %350 to i64
-  %352 = load ptr, ptr %349, align 8, !tbaa !65
-  %353 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %352, i64 %351, i32 1
-  %354 = load i32, ptr %353, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %347, i8 %346, i32 noundef %354)
-  %355 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %355, i8 %346, i64 %331)
+337:                                              ; preds = %4
+  %338 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01827.0.copyload = load i32, ptr %338, align 4, !tbaa !43
+  %339 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01827.0.copyload, i32 noundef 8)
+  %340 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01826.0.copyload = load i32, ptr %340, align 4, !tbaa !43
+  %341 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %342 = load ptr, ptr %341, align 8, !tbaa !64
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 48
+  %344 = lshr i32 %.sroa.01826.0.copyload, 4
+  %345 = zext nneg i32 %344 to i64
+  %346 = load ptr, ptr %343, align 8, !tbaa !65
+  %347 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %346, i64 %345
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
+  %349 = load i32, ptr %348, align 8, !tbaa !43
+  %350 = icmp eq i32 %349, 0
+  br i1 %350, label %351, label %353
+
+351:                                              ; preds = %337
+  %352 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %352, i8 -7, i64 %339)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-356:                                              ; preds = %4
-  %357 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01815.0.copyload = load i32, ptr %357, align 4, !tbaa !43
-  %358 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01815.0.copyload, i32 noundef 0)
-  %359 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %360 = load i32, ptr %359, align 4
-  %361 = and i32 %360, 15
-  %362 = icmp eq i32 %361, 2
-  br i1 %362, label %363, label %375
-
-363:                                              ; preds = %356
-  %364 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %365 = load ptr, ptr %364, align 8, !tbaa !64
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 48
-  %367 = lshr i32 %360, 4
-  %368 = zext nneg i32 %367 to i64
-  %369 = load ptr, ptr %366, align 8, !tbaa !65
-  %370 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %369, i64 %368, i32 1
-  %371 = load i64, ptr %370, align 8, !tbaa !43
-  %372 = icmp eq i64 %371, 0
-  br i1 %372, label %373, label %375
-
-373:                                              ; preds = %363
-  %374 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %374, i8 -6, i64 %358)
+353:                                              ; preds = %337
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %355 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %354, i8 noundef zeroext 1)
+  %356 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01820.0.copyload = load i32, ptr %340, align 4, !tbaa !43
+  %357 = load ptr, ptr %341, align 8, !tbaa !64
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 48
+  %359 = lshr i32 %.sroa.01820.0.copyload, 4
+  %360 = zext nneg i32 %359 to i64
+  %361 = load ptr, ptr %358, align 8, !tbaa !65
+  %362 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %361, i64 %360
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
+  %364 = load i32, ptr %363, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %356, i8 %355, i32 noundef %364)
+  %365 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %365, i8 %355, i64 %339)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-375:                                              ; preds = %363, %356
-  %376 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %360)
-  %377 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %377, i8 %376, i64 %358)
+366:                                              ; preds = %4
+  %367 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01815.0.copyload = load i32, ptr %367, align 4, !tbaa !43
+  %368 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01815.0.copyload, i32 noundef 0)
+  %369 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %370 = load i32, ptr %369, align 4
+  %371 = and i32 %370, 15
+  %372 = icmp eq i32 %371, 2
+  br i1 %372, label %373, label %386
+
+373:                                              ; preds = %366
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %375 = load ptr, ptr %374, align 8, !tbaa !64
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 48
+  %377 = lshr i32 %370, 4
+  %378 = zext nneg i32 %377 to i64
+  %379 = load ptr, ptr %376, align 8, !tbaa !65
+  %380 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %379, i64 %378
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
+  %382 = load i64, ptr %381, align 8, !tbaa !43
+  %383 = icmp eq i64 %382, 0
+  br i1 %383, label %384, label %386
+
+384:                                              ; preds = %373
+  %385 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %385, i8 -6, i64 %368)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-378:                                              ; preds = %4
-  %379 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01805.0.copyload = load i32, ptr %379, align 4, !tbaa !43
-  %380 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01805.0.copyload, i32 noundef 0)
-  %381 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %382 = load i32, ptr %381, align 4
-  %383 = and i32 %382, 15
-  %384 = icmp eq i32 %383, 2
-  br i1 %384, label %385, label %397
-
-385:                                              ; preds = %378
-  %386 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %387 = load ptr, ptr %386, align 8, !tbaa !64
-  %388 = getelementptr inbounds nuw i8, ptr %387, i64 48
-  %389 = lshr i32 %382, 4
-  %390 = zext nneg i32 %389 to i64
-  %391 = load ptr, ptr %388, align 8, !tbaa !65
-  %392 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %391, i64 %390, i32 1
-  %393 = load i32, ptr %392, align 8, !tbaa !43
-  %394 = icmp eq i32 %393, 0
-  br i1 %394, label %395, label %397
-
-395:                                              ; preds = %385
-  %396 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %396, i8 -7, i64 %380)
+386:                                              ; preds = %373, %366
+  %387 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %370)
+  %388 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %388, i8 %387, i64 %368)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-397:                                              ; preds = %385, %378
-  %398 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %382)
-  %399 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %399, i8 %398, i64 %380)
+389:                                              ; preds = %4
+  %390 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01805.0.copyload = load i32, ptr %390, align 4, !tbaa !43
+  %391 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01805.0.copyload, i32 noundef 0)
+  %392 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %393 = load i32, ptr %392, align 4
+  %394 = and i32 %393, 15
+  %395 = icmp eq i32 %394, 2
+  br i1 %395, label %396, label %409
+
+396:                                              ; preds = %389
+  %397 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %398 = load ptr, ptr %397, align 8, !tbaa !64
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 48
+  %400 = lshr i32 %393, 4
+  %401 = zext nneg i32 %400 to i64
+  %402 = load ptr, ptr %399, align 8, !tbaa !65
+  %403 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %402, i64 %401
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 8
+  %405 = load i32, ptr %404, align 8, !tbaa !43
+  %406 = icmp eq i32 %405, 0
+  br i1 %406, label %407, label %409
+
+407:                                              ; preds = %396
+  %408 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %408, i8 -7, i64 %391)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-400:                                              ; preds = %4
-  %401 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01796.0.copyload = load i32, ptr %401, align 4, !tbaa !43
-  %402 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01796.0.copyload)
-  %403 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01794.0.copyload = load i32, ptr %403, align 4, !tbaa !43
-  %404 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01794.0.copyload)
-  %405 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.01792.0.copyload = load i32, ptr %405, align 4, !tbaa !43
-  %406 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01792.0.copyload)
-  %407 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %408 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %407, i8 noundef zeroext 3)
-  %409 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01781.0.copyload = load i32, ptr %409, align 4, !tbaa !43
-  %410 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01781.0.copyload, i32 noundef 0)
+409:                                              ; preds = %396, %389
+  %410 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %393)
   %411 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %411, i8 %408, i8 %402)
-  %412 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.23593.0.insert.ext = and i64 %410, 65280
-  %.sroa.33594.0.insert.insert = and i64 %410, -4294902016
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %411, i8 %410, i64 %391)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+412:                                              ; preds = %4
+  %413 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01796.0.copyload = load i32, ptr %413, align 4, !tbaa !43
+  %414 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01796.0.copyload)
+  %415 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01794.0.copyload = load i32, ptr %415, align 4, !tbaa !43
+  %416 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01794.0.copyload)
+  %417 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.01792.0.copyload = load i32, ptr %417, align 4, !tbaa !43
+  %418 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01792.0.copyload)
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %420 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %419, i8 noundef zeroext 3)
+  %421 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01781.0.copyload = load i32, ptr %421, align 4, !tbaa !43
+  %422 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01781.0.copyload, i32 noundef 0)
+  %423 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %423, i8 %420, i8 %414)
+  %424 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.23593.0.insert.ext = and i64 %422, 65280
+  %.sroa.33594.0.insert.insert = and i64 %422, -4294902016
   %.sroa.03592.0.insert.insert = or disjoint i64 %.sroa.33594.0.insert.insert, 16384001
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %412, i8 %408, i64 %.sroa.03592.0.insert.insert)
-  %413 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %413, i8 %408, i8 %404)
-  %414 = load ptr, ptr %0, align 8, !tbaa !63
-  %415 = and i64 %410, -4294967296
-  %.sroa.33589.0.insert.insert = add i64 %415, 17196253184
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %424, i8 %420, i64 %.sroa.03592.0.insert.insert)
+  %425 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %425, i8 %420, i8 %416)
+  %426 = load ptr, ptr %0, align 8, !tbaa !63
+  %427 = and i64 %422, -4294967296
+  %.sroa.33589.0.insert.insert = add i64 %427, 17196253184
   %.sroa.23588.0.insert.insert = or disjoint i64 %.sroa.33589.0.insert.insert, %.sroa.23593.0.insert.ext
   %.sroa.03587.0.insert.insert = or disjoint i64 %.sroa.23588.0.insert.insert, 1
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %414, i8 %408, i64 %.sroa.03587.0.insert.insert)
-  %416 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %416, i8 %408, i8 %406)
-  %417 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.33584.0.insert.insert = add i64 %415, 34376122368
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %426, i8 %420, i64 %.sroa.03587.0.insert.insert)
+  %428 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %428, i8 %420, i8 %418)
+  %429 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.33584.0.insert.insert = add i64 %427, 34376122368
   %.sroa.23583.0.insert.insert = or disjoint i64 %.sroa.33584.0.insert.insert, %.sroa.23593.0.insert.ext
   %.sroa.03582.0.insert.insert = or disjoint i64 %.sroa.23583.0.insert.insert, 1
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %417, i8 %408, i64 %.sroa.03582.0.insert.insert)
-  %418 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %419 = load i32, ptr %418, align 4
-  %420 = and i32 %419, 15
-  %.not2966 = icmp eq i32 %420, 0
-  br i1 %.not2966, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %421
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %429, i8 %420, i64 %.sroa.03582.0.insert.insert)
+  %430 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %431 = load i32, ptr %430, align 4
+  %432 = and i32 %431, 15
+  %.not2966 = icmp eq i32 %432, 0
+  br i1 %.not2966, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %433
 
-421:                                              ; preds = %400
-  %422 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %407, i8 noundef zeroext 1)
-  %423 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01765.0.copyload = load i32, ptr %418, align 4, !tbaa !43
-  %424 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %425 = load ptr, ptr %424, align 8, !tbaa !64
-  %426 = getelementptr inbounds nuw i8, ptr %425, i64 48
-  %427 = lshr i32 %.sroa.01765.0.copyload, 4
-  %428 = zext nneg i32 %427 to i64
-  %429 = load ptr, ptr %426, align 8, !tbaa !65
-  %430 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %429, i64 %428, i32 1
-  %431 = load i8, ptr %430, align 8, !tbaa !43
-  %432 = zext i8 %431 to i32
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %423, i8 %422, i32 noundef %432)
-  %433 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01762.0.copyload = load i32, ptr %409, align 4, !tbaa !43
-  %434 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01762.0.copyload, i32 noundef 12)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %433, i8 %422, i64 %434)
+433:                                              ; preds = %412
+  %434 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %419, i8 noundef zeroext 1)
+  %435 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01765.0.copyload = load i32, ptr %430, align 4, !tbaa !43
+  %436 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %437 = load ptr, ptr %436, align 8, !tbaa !64
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 48
+  %439 = lshr i32 %.sroa.01765.0.copyload, 4
+  %440 = zext nneg i32 %439 to i64
+  %441 = load ptr, ptr %438, align 8, !tbaa !65
+  %442 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %441, i64 %440
+  %443 = getelementptr inbounds nuw i8, ptr %442, i64 8
+  %444 = load i8, ptr %443, align 8, !tbaa !43
+  %445 = zext i8 %444 to i32
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %435, i8 %434, i32 noundef %445)
+  %446 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01762.0.copyload = load i32, ptr %421, align 4, !tbaa !43
+  %447 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01762.0.copyload, i32 noundef 12)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %446, i8 %434, i64 %447)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-435:                                              ; preds = %4
-  %436 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %437 = load i32, ptr %436, align 4
-  %438 = and i32 %437, 15
-  %.not2965 = icmp eq i32 %438, 0
-  br i1 %.not2965, label %448, label %439
+448:                                              ; preds = %4
+  %449 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %450 = load i32, ptr %449, align 4
+  %451 = and i32 %450, 15
+  %.not2965 = icmp eq i32 %451, 0
+  br i1 %.not2965, label %462, label %452
 
-439:                                              ; preds = %435
-  %440 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %441 = load ptr, ptr %440, align 8, !tbaa !64
-  %442 = getelementptr inbounds nuw i8, ptr %441, i64 48
-  %443 = lshr i32 %437, 4
-  %444 = zext nneg i32 %443 to i64
-  %445 = load ptr, ptr %442, align 8, !tbaa !65
-  %446 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %445, i64 %444, i32 1
-  %447 = load i32, ptr %446, align 8, !tbaa !43
-  br label %448
+452:                                              ; preds = %448
+  %453 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %454 = load ptr, ptr %453, align 8, !tbaa !64
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 48
+  %456 = lshr i32 %450, 4
+  %457 = zext nneg i32 %456 to i64
+  %458 = load ptr, ptr %455, align 8, !tbaa !65
+  %459 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %458, i64 %457
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 8
+  %461 = load i32, ptr %460, align 8, !tbaa !43
+  br label %462
 
-448:                                              ; preds = %435, %439
-  %449 = phi i32 [ %447, %439 ], [ 0, %435 ]
-  %450 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01758.0.copyload = load i32, ptr %450, align 4, !tbaa !43
-  %451 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01758.0.copyload, i32 noundef %449)
-  %452 = load ptr, ptr %0, align 8, !tbaa !63
-  %453 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01756.0.copyload = load i32, ptr %453, align 4, !tbaa !43
-  %454 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01756.0.copyload)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %452, i8 %454, i64 %451)
+462:                                              ; preds = %448, %452
+  %463 = phi i32 [ %461, %452 ], [ 0, %448 ]
+  %464 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01758.0.copyload = load i32, ptr %464, align 4, !tbaa !43
+  %465 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01758.0.copyload, i32 noundef %463)
+  %466 = load ptr, ptr %0, align 8, !tbaa !63
+  %467 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01756.0.copyload = load i32, ptr %467, align 4, !tbaa !43
+  %468 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01756.0.copyload)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %466, i8 %468, i64 %465)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-455:                                              ; preds = %4
-  %456 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %457 = load i32, ptr %456, align 4
-  %458 = and i32 %457, 15
-  %.not2963 = icmp eq i32 %458, 0
-  br i1 %.not2963, label %468, label %459
+469:                                              ; preds = %4
+  %470 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %471 = load i32, ptr %470, align 4
+  %472 = and i32 %471, 15
+  %.not2963 = icmp eq i32 %472, 0
+  br i1 %.not2963, label %483, label %473
 
-459:                                              ; preds = %455
-  %460 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %461 = load ptr, ptr %460, align 8, !tbaa !64
-  %462 = getelementptr inbounds nuw i8, ptr %461, i64 48
-  %463 = lshr i32 %457, 4
-  %464 = zext nneg i32 %463 to i64
-  %465 = load ptr, ptr %462, align 8, !tbaa !65
-  %466 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %465, i64 %464, i32 1
-  %467 = load i32, ptr %466, align 8, !tbaa !43
-  br label %468
+473:                                              ; preds = %469
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %475 = load ptr, ptr %474, align 8, !tbaa !64
+  %476 = getelementptr inbounds nuw i8, ptr %475, i64 48
+  %477 = lshr i32 %471, 4
+  %478 = zext nneg i32 %477 to i64
+  %479 = load ptr, ptr %476, align 8, !tbaa !65
+  %480 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %479, i64 %478
+  %481 = getelementptr inbounds nuw i8, ptr %480, i64 8
+  %482 = load i32, ptr %481, align 8, !tbaa !43
+  br label %483
 
-468:                                              ; preds = %455, %459
-  %469 = phi i32 [ %467, %459 ], [ 0, %455 ]
-  %470 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %471 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %470, i8 noundef zeroext 1)
-  %472 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01747.0.copyload = load i32, ptr %472, align 4, !tbaa !43
-  %473 = add i32 %469, 12
-  %474 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01747.0.copyload, i32 noundef %473)
-  %475 = load ptr, ptr %0, align 8, !tbaa !63
-  %476 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01745.0.copyload = load i32, ptr %476, align 4, !tbaa !43
-  %477 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %478 = load ptr, ptr %477, align 8, !tbaa !64
-  %479 = getelementptr inbounds nuw i8, ptr %478, i64 48
-  %480 = lshr i32 %.sroa.01745.0.copyload, 4
-  %481 = zext nneg i32 %480 to i64
-  %482 = load ptr, ptr %479, align 8, !tbaa !65
-  %483 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %482, i64 %481, i32 1
-  %484 = load i8, ptr %483, align 8, !tbaa !43
-  %485 = zext i8 %484 to i32
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %475, i8 %471, i32 noundef %485)
-  %486 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %486, i8 %471, i64 %474)
-  %.sroa.01738.0.copyload = load i32, ptr %472, align 4, !tbaa !43
-  %487 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01738.0.copyload, i32 noundef %469)
-  %.sroa.01737.0.copyload = load i32, ptr %476, align 4, !tbaa !43
-  %488 = load ptr, ptr %477, align 8, !tbaa !64
-  %489 = getelementptr inbounds nuw i8, ptr %488, i64 48
-  %490 = lshr i32 %.sroa.01737.0.copyload, 4
-  %491 = zext nneg i32 %490 to i64
-  %492 = load ptr, ptr %489, align 8, !tbaa !65
-  %493 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %492, i64 %491, i32 1
-  %494 = load i8, ptr %493, align 8, !tbaa !43
-  switch i8 %494, label %512 [
-    i8 1, label %495
-    i8 3, label %508
+483:                                              ; preds = %469, %473
+  %484 = phi i32 [ %482, %473 ], [ 0, %469 ]
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %486 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %485, i8 noundef zeroext 1)
+  %487 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01747.0.copyload = load i32, ptr %487, align 4, !tbaa !43
+  %488 = add i32 %484, 12
+  %489 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01747.0.copyload, i32 noundef %488)
+  %490 = load ptr, ptr %0, align 8, !tbaa !63
+  %491 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01745.0.copyload = load i32, ptr %491, align 4, !tbaa !43
+  %492 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %493 = load ptr, ptr %492, align 8, !tbaa !64
+  %494 = getelementptr inbounds nuw i8, ptr %493, i64 48
+  %495 = lshr i32 %.sroa.01745.0.copyload, 4
+  %496 = zext nneg i32 %495 to i64
+  %497 = load ptr, ptr %494, align 8, !tbaa !65
+  %498 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %497, i64 %496
+  %499 = getelementptr inbounds nuw i8, ptr %498, i64 8
+  %500 = load i8, ptr %499, align 8, !tbaa !43
+  %501 = zext i8 %500 to i32
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %490, i8 %486, i32 noundef %501)
+  %502 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %502, i8 %486, i64 %489)
+  %.sroa.01738.0.copyload = load i32, ptr %487, align 4, !tbaa !43
+  %503 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01738.0.copyload, i32 noundef %484)
+  %.sroa.01737.0.copyload = load i32, ptr %491, align 4, !tbaa !43
+  %504 = load ptr, ptr %492, align 8, !tbaa !64
+  %505 = getelementptr inbounds nuw i8, ptr %504, i64 48
+  %506 = lshr i32 %.sroa.01737.0.copyload, 4
+  %507 = zext nneg i32 %506 to i64
+  %508 = load ptr, ptr %505, align 8, !tbaa !65
+  %509 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %508, i64 %507
+  %510 = getelementptr inbounds nuw i8, ptr %509, i64 8
+  %511 = load i8, ptr %510, align 8, !tbaa !43
+  switch i8 %511, label %530 [
+    i8 1, label %512
+    i8 3, label %526
   ]
 
-495:                                              ; preds = %468
-  %496 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %497 = load i32, ptr %496, align 4
-  %498 = and i32 %497, 15
-  %499 = icmp eq i32 %498, 2
-  %500 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %499, label %501, label %506
+512:                                              ; preds = %483
+  %513 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %514 = load i32, ptr %513, align 4
+  %515 = and i32 %514, 15
+  %516 = icmp eq i32 %515, 2
+  %517 = load ptr, ptr %0, align 8, !tbaa !63
+  br i1 %516, label %518, label %524
 
-501:                                              ; preds = %495
-  %502 = lshr i32 %497, 4
-  %503 = zext nneg i32 %502 to i64
-  %504 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %492, i64 %503, i32 1
-  %505 = load i32, ptr %504, align 8, !tbaa !43
-  %.not2964 = icmp eq i32 %505, 0
-  %.sroa.01736.0.copyload.sroa.speculated = select i1 %.not2964, i8 -7, i8 %471
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %500, i8 %.sroa.01736.0.copyload.sroa.speculated, i64 %487)
+518:                                              ; preds = %512
+  %519 = lshr i32 %514, 4
+  %520 = zext nneg i32 %519 to i64
+  %521 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %508, i64 %520
+  %522 = getelementptr inbounds nuw i8, ptr %521, i64 8
+  %523 = load i32, ptr %522, align 8, !tbaa !43
+  %.not2964 = icmp eq i32 %523, 0
+  %.sroa.01736.0.copyload.sroa.speculated = select i1 %.not2964, i8 -7, i8 %486
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %517, i8 %.sroa.01736.0.copyload.sroa.speculated, i64 %503)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-506:                                              ; preds = %495
-  %507 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %497)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %500, i8 %507, i64 %487)
+524:                                              ; preds = %512
+  %525 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %514)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %517, i8 %525, i64 %503)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-508:                                              ; preds = %468
-  %509 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01728.0.copyload = load i32, ptr %509, align 4, !tbaa !43
-  %510 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01728.0.copyload)
-  %511 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %511, i8 %510, i64 %487)
+526:                                              ; preds = %483
+  %527 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01728.0.copyload = load i32, ptr %527, align 4, !tbaa !43
+  %528 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01728.0.copyload)
+  %529 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %529, i8 %528, i64 %503)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-512:                                              ; preds = %468
-  %513 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen5isGCOEh(i8 noundef zeroext %494)
-  br i1 %513, label %514, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+530:                                              ; preds = %483
+  %531 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen5isGCOEh(i8 noundef zeroext %511)
+  br i1 %531, label %532, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-514:                                              ; preds = %512
-  %515 = load ptr, ptr %0, align 8, !tbaa !63
-  %516 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01723.0.copyload = load i32, ptr %516, align 4, !tbaa !43
-  %517 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01723.0.copyload)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %515, i8 %517, i64 %487)
+532:                                              ; preds = %530
+  %533 = load ptr, ptr %0, align 8, !tbaa !63
+  %534 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01723.0.copyload = load i32, ptr %534, align 4, !tbaa !43
+  %535 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01723.0.copyload)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %533, i8 %535, i64 %503)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-518:                                              ; preds = %4
-  %519 = getelementptr inbounds nuw i8, ptr %0, i64 32
+536:                                              ; preds = %4
+  %537 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %520 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %521 = load i32, ptr %520, align 4, !tbaa !43
-  store i32 %521, ptr %9, align 4, !tbaa !43
-  %522 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %523 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %524 = load i32, ptr %523, align 4, !tbaa !43
-  store i32 %524, ptr %522, align 4, !tbaa !43
-  %525 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %519, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %9, i64 2)
-  %526 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %525, ptr %526, align 1, !tbaa !43
+  %538 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %539 = load i32, ptr %538, align 4, !tbaa !43
+  store i32 %539, ptr %9, align 4, !tbaa !43
+  %540 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %541 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %542 = load i32, ptr %541, align 4, !tbaa !43
+  store i32 %542, ptr %540, align 4, !tbaa !43
+  %543 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %537, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %9, i64 2)
+  %544 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %543, ptr %544, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %527 = load i32, ptr %523, align 4
-  %528 = and i32 %527, 15
-  %529 = icmp eq i32 %528, 2
-  br i1 %529, label %530, label %551
+  %545 = load i32, ptr %541, align 4
+  %546 = and i32 %545, 15
+  %547 = icmp eq i32 %546, 2
+  br i1 %547, label %548, label %571
 
-530:                                              ; preds = %518
-  %531 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %532 = load ptr, ptr %531, align 8, !tbaa !64
-  %533 = getelementptr inbounds nuw i8, ptr %532, i64 48
-  %534 = lshr i32 %527, 4
-  %535 = zext nneg i32 %534 to i64
-  %536 = load ptr, ptr %533, align 8, !tbaa !65
-  %537 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %536, i64 %535, i32 1
-  %538 = load i32, ptr %537, align 8, !tbaa !43
-  %539 = icmp ult i32 %538, 4096
-  br i1 %539, label %540, label %551
+548:                                              ; preds = %536
+  %549 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %550 = load ptr, ptr %549, align 8, !tbaa !64
+  %551 = getelementptr inbounds nuw i8, ptr %550, i64 48
+  %552 = lshr i32 %545, 4
+  %553 = zext nneg i32 %552 to i64
+  %554 = load ptr, ptr %551, align 8, !tbaa !65
+  %555 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %554, i64 %553
+  %556 = getelementptr inbounds nuw i8, ptr %555, i64 8
+  %557 = load i32, ptr %556, align 8, !tbaa !43
+  %558 = icmp ult i32 %557, 4096
+  br i1 %558, label %559, label %571
 
-540:                                              ; preds = %530
-  %541 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01715.0.copyload = load i32, ptr %520, align 4, !tbaa !43
-  %542 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01715.0.copyload)
-  %.sroa.01714.0.copyload = load i32, ptr %523, align 4, !tbaa !43
-  %543 = load ptr, ptr %531, align 8, !tbaa !64
-  %544 = getelementptr inbounds nuw i8, ptr %543, i64 48
-  %545 = lshr i32 %.sroa.01714.0.copyload, 4
-  %546 = zext nneg i32 %545 to i64
-  %547 = load ptr, ptr %544, align 8, !tbaa !65
-  %548 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %547, i64 %546, i32 1
-  %549 = load i32, ptr %548, align 8, !tbaa !43
-  %550 = trunc i32 %549 to i16
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %541, i8 %525, i8 %542, i16 noundef zeroext %550)
+559:                                              ; preds = %548
+  %560 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01715.0.copyload = load i32, ptr %538, align 4, !tbaa !43
+  %561 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01715.0.copyload)
+  %.sroa.01714.0.copyload = load i32, ptr %541, align 4, !tbaa !43
+  %562 = load ptr, ptr %549, align 8, !tbaa !64
+  %563 = getelementptr inbounds nuw i8, ptr %562, i64 48
+  %564 = lshr i32 %.sroa.01714.0.copyload, 4
+  %565 = zext nneg i32 %564 to i64
+  %566 = load ptr, ptr %563, align 8, !tbaa !65
+  %567 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %566, i64 %565
+  %568 = getelementptr inbounds nuw i8, ptr %567, i64 8
+  %569 = load i32, ptr %568, align 8, !tbaa !43
+  %570 = trunc i32 %569 to i16
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %560, i8 %543, i8 %561, i16 noundef zeroext %570)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-551:                                              ; preds = %530, %518
-  %552 = load i32, ptr %520, align 4
-  %553 = and i32 %552, 15
-  %554 = icmp eq i32 %553, 2
-  br i1 %554, label %555, label %576
+571:                                              ; preds = %548, %536
+  %572 = load i32, ptr %538, align 4
+  %573 = and i32 %572, 15
+  %574 = icmp eq i32 %573, 2
+  br i1 %574, label %575, label %598
 
-555:                                              ; preds = %551
-  %556 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %557 = load ptr, ptr %556, align 8, !tbaa !64
-  %558 = getelementptr inbounds nuw i8, ptr %557, i64 48
-  %559 = lshr i32 %552, 4
-  %560 = zext nneg i32 %559 to i64
-  %561 = load ptr, ptr %558, align 8, !tbaa !65
-  %562 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %561, i64 %560, i32 1
-  %563 = load i32, ptr %562, align 8, !tbaa !43
-  %564 = icmp ult i32 %563, 4096
-  br i1 %564, label %565, label %576
+575:                                              ; preds = %571
+  %576 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %577 = load ptr, ptr %576, align 8, !tbaa !64
+  %578 = getelementptr inbounds nuw i8, ptr %577, i64 48
+  %579 = lshr i32 %572, 4
+  %580 = zext nneg i32 %579 to i64
+  %581 = load ptr, ptr %578, align 8, !tbaa !65
+  %582 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %581, i64 %580
+  %583 = getelementptr inbounds nuw i8, ptr %582, i64 8
+  %584 = load i32, ptr %583, align 8, !tbaa !43
+  %585 = icmp ult i32 %584, 4096
+  br i1 %585, label %586, label %598
 
-565:                                              ; preds = %555
-  %566 = load ptr, ptr %0, align 8, !tbaa !63
-  %567 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %527)
-  %.sroa.01709.0.copyload = load i32, ptr %520, align 4, !tbaa !43
-  %568 = load ptr, ptr %556, align 8, !tbaa !64
-  %569 = getelementptr inbounds nuw i8, ptr %568, i64 48
-  %570 = lshr i32 %.sroa.01709.0.copyload, 4
-  %571 = zext nneg i32 %570 to i64
-  %572 = load ptr, ptr %569, align 8, !tbaa !65
-  %573 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %572, i64 %571, i32 1
-  %574 = load i32, ptr %573, align 8, !tbaa !43
-  %575 = trunc i32 %574 to i16
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %566, i8 %525, i8 %567, i16 noundef zeroext %575)
+586:                                              ; preds = %575
+  %587 = load ptr, ptr %0, align 8, !tbaa !63
+  %588 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %545)
+  %.sroa.01709.0.copyload = load i32, ptr %538, align 4, !tbaa !43
+  %589 = load ptr, ptr %576, align 8, !tbaa !64
+  %590 = getelementptr inbounds nuw i8, ptr %589, i64 48
+  %591 = lshr i32 %.sroa.01709.0.copyload, 4
+  %592 = zext nneg i32 %591 to i64
+  %593 = load ptr, ptr %590, align 8, !tbaa !65
+  %594 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %593, i64 %592
+  %595 = getelementptr inbounds nuw i8, ptr %594, i64 8
+  %596 = load i32, ptr %595, align 8, !tbaa !43
+  %597 = trunc i32 %596 to i16
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %587, i8 %543, i8 %588, i16 noundef zeroext %597)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-576:                                              ; preds = %555, %551
-  %577 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %552)
-  %.sroa.01705.0.copyload = load i32, ptr %523, align 4, !tbaa !43
-  %578 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01705.0.copyload)
-  %579 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01704.0.copyload = load i8, ptr %526, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %579, i8 %.sroa.01704.0.copyload, i8 %577, i8 %578, i32 noundef 0)
+598:                                              ; preds = %575, %571
+  %599 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %572)
+  %.sroa.01705.0.copyload = load i32, ptr %541, align 4, !tbaa !43
+  %600 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01705.0.copyload)
+  %601 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01704.0.copyload = load i8, ptr %544, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %601, i8 %.sroa.01704.0.copyload, i8 %599, i8 %600, i32 noundef 0)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-580:                                              ; preds = %4
-  %581 = getelementptr inbounds nuw i8, ptr %0, i64 32
+602:                                              ; preds = %4
+  %603 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %582 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %583 = load i32, ptr %582, align 4, !tbaa !43
-  store i32 %583, ptr %10, align 4, !tbaa !43
-  %584 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %585 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %586 = load i32, ptr %585, align 4, !tbaa !43
-  store i32 %586, ptr %584, align 4, !tbaa !43
-  %587 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %581, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %10, i64 2)
-  %588 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %587, ptr %588, align 1, !tbaa !43
+  %604 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %605 = load i32, ptr %604, align 4, !tbaa !43
+  store i32 %605, ptr %10, align 4, !tbaa !43
+  %606 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %607 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %608 = load i32, ptr %607, align 4, !tbaa !43
+  store i32 %608, ptr %606, align 4, !tbaa !43
+  %609 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %603, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %10, i64 2)
+  %610 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %609, ptr %610, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %589 = load i32, ptr %585, align 4
-  %590 = and i32 %589, 15
-  %591 = icmp eq i32 %590, 2
-  br i1 %591, label %592, label %613
+  %611 = load i32, ptr %607, align 4
+  %612 = and i32 %611, 15
+  %613 = icmp eq i32 %612, 2
+  br i1 %613, label %614, label %637
 
-592:                                              ; preds = %580
-  %593 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %594 = load ptr, ptr %593, align 8, !tbaa !64
-  %595 = getelementptr inbounds nuw i8, ptr %594, i64 48
-  %596 = lshr i32 %589, 4
-  %597 = zext nneg i32 %596 to i64
-  %598 = load ptr, ptr %595, align 8, !tbaa !65
-  %599 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %598, i64 %597, i32 1
-  %600 = load i32, ptr %599, align 8, !tbaa !43
-  %601 = icmp ult i32 %600, 4096
-  br i1 %601, label %602, label %613
+614:                                              ; preds = %602
+  %615 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %616 = load ptr, ptr %615, align 8, !tbaa !64
+  %617 = getelementptr inbounds nuw i8, ptr %616, i64 48
+  %618 = lshr i32 %611, 4
+  %619 = zext nneg i32 %618 to i64
+  %620 = load ptr, ptr %617, align 8, !tbaa !65
+  %621 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %620, i64 %619
+  %622 = getelementptr inbounds nuw i8, ptr %621, i64 8
+  %623 = load i32, ptr %622, align 8, !tbaa !43
+  %624 = icmp ult i32 %623, 4096
+  br i1 %624, label %625, label %637
 
-602:                                              ; preds = %592
-  %603 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01695.0.copyload = load i32, ptr %582, align 4, !tbaa !43
-  %604 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01695.0.copyload)
-  %.sroa.01694.0.copyload = load i32, ptr %585, align 4, !tbaa !43
-  %605 = load ptr, ptr %593, align 8, !tbaa !64
-  %606 = getelementptr inbounds nuw i8, ptr %605, i64 48
-  %607 = lshr i32 %.sroa.01694.0.copyload, 4
-  %608 = zext nneg i32 %607 to i64
-  %609 = load ptr, ptr %606, align 8, !tbaa !65
-  %610 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %609, i64 %608, i32 1
-  %611 = load i32, ptr %610, align 8, !tbaa !43
-  %612 = trunc i32 %611 to i16
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %603, i8 %587, i8 %604, i16 noundef zeroext %612)
+625:                                              ; preds = %614
+  %626 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01695.0.copyload = load i32, ptr %604, align 4, !tbaa !43
+  %627 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01695.0.copyload)
+  %.sroa.01694.0.copyload = load i32, ptr %607, align 4, !tbaa !43
+  %628 = load ptr, ptr %615, align 8, !tbaa !64
+  %629 = getelementptr inbounds nuw i8, ptr %628, i64 48
+  %630 = lshr i32 %.sroa.01694.0.copyload, 4
+  %631 = zext nneg i32 %630 to i64
+  %632 = load ptr, ptr %629, align 8, !tbaa !65
+  %633 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %632, i64 %631
+  %634 = getelementptr inbounds nuw i8, ptr %633, i64 8
+  %635 = load i32, ptr %634, align 8, !tbaa !43
+  %636 = trunc i32 %635 to i16
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %626, i8 %609, i8 %627, i16 noundef zeroext %636)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-613:                                              ; preds = %592, %580
-  %.sroa.01692.0.copyload = load i32, ptr %582, align 4, !tbaa !43
-  %614 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01692.0.copyload)
-  %.sroa.01690.0.copyload = load i32, ptr %585, align 4, !tbaa !43
-  %615 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01690.0.copyload)
-  %616 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01689.0.copyload = load i8, ptr %588, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %616, i8 %.sroa.01689.0.copyload, i8 %614, i8 %615, i32 noundef 0)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-617:                                              ; preds = %4
-  %618 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %619 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %620 = load i32, ptr %619, align 4, !tbaa !43
-  store i32 %620, ptr %11, align 4, !tbaa !43
-  %621 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %622 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %623 = load i32, ptr %622, align 4, !tbaa !43
-  store i32 %623, ptr %621, align 4, !tbaa !43
-  %624 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %618, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %11, i64 2)
-  %625 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %624, ptr %625, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.sroa.01682.0.copyload = load i32, ptr %619, align 4, !tbaa !43
-  %626 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01682.0.copyload)
-  %.sroa.01680.0.copyload = load i32, ptr %622, align 4, !tbaa !43
-  %627 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01680.0.copyload)
-  %628 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01679.0.copyload = load i8, ptr %625, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644faddENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %628, i8 %.sroa.01679.0.copyload, i8 %626, i8 %627)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-629:                                              ; preds = %4
-  %630 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %631 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %632 = load i32, ptr %631, align 4, !tbaa !43
-  store i32 %632, ptr %12, align 4, !tbaa !43
-  %633 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %634 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %635 = load i32, ptr %634, align 4, !tbaa !43
-  store i32 %635, ptr %633, align 4, !tbaa !43
-  %636 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %630, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %12, i64 2)
-  %637 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %636, ptr %637, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.sroa.01672.0.copyload = load i32, ptr %631, align 4, !tbaa !43
-  %638 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01672.0.copyload)
-  %.sroa.01670.0.copyload = load i32, ptr %634, align 4, !tbaa !43
-  %639 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01670.0.copyload)
+637:                                              ; preds = %614, %602
+  %.sroa.01692.0.copyload = load i32, ptr %604, align 4, !tbaa !43
+  %638 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01692.0.copyload)
+  %.sroa.01690.0.copyload = load i32, ptr %607, align 4, !tbaa !43
+  %639 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01690.0.copyload)
   %640 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01669.0.copyload = load i8, ptr %637, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fsubENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %640, i8 %.sroa.01669.0.copyload, i8 %638, i8 %639)
+  %.sroa.01689.0.copyload = load i8, ptr %610, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %640, i8 %.sroa.01689.0.copyload, i8 %638, i8 %639, i32 noundef 0)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 641:                                              ; preds = %4
   %642 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %643 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %644 = load i32, ptr %643, align 4, !tbaa !43
-  store i32 %644, ptr %13, align 4, !tbaa !43
-  %645 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 %644, ptr %11, align 4, !tbaa !43
+  %645 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %646 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %647 = load i32, ptr %646, align 4, !tbaa !43
   store i32 %647, ptr %645, align 4, !tbaa !43
-  %648 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %642, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %13, i64 2)
+  %648 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %642, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %11, i64 2)
   %649 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %648, ptr %649, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.sroa.01662.0.copyload = load i32, ptr %643, align 4, !tbaa !43
-  %650 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01662.0.copyload)
-  %.sroa.01660.0.copyload = load i32, ptr %646, align 4, !tbaa !43
-  %651 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01660.0.copyload)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  %.sroa.01682.0.copyload = load i32, ptr %643, align 4, !tbaa !43
+  %650 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01682.0.copyload)
+  %.sroa.01680.0.copyload = load i32, ptr %646, align 4, !tbaa !43
+  %651 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01680.0.copyload)
   %652 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01659.0.copyload = load i8, ptr %649, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmulENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %652, i8 %.sroa.01659.0.copyload, i8 %650, i8 %651)
+  %.sroa.01679.0.copyload = load i8, ptr %649, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644faddENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %652, i8 %.sroa.01679.0.copyload, i8 %650, i8 %651)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 653:                                              ; preds = %4
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %655 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %656 = load i32, ptr %655, align 4, !tbaa !43
-  store i32 %656, ptr %14, align 4, !tbaa !43
-  %657 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i32 %656, ptr %12, align 4, !tbaa !43
+  %657 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %658 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %659 = load i32, ptr %658, align 4, !tbaa !43
   store i32 %659, ptr %657, align 4, !tbaa !43
-  %660 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %654, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %14, i64 2)
+  %660 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %654, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %12, i64 2)
   %661 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %660, ptr %661, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.sroa.01652.0.copyload = load i32, ptr %655, align 4, !tbaa !43
-  %662 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01652.0.copyload)
-  %.sroa.01650.0.copyload = load i32, ptr %658, align 4, !tbaa !43
-  %663 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01650.0.copyload)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  %.sroa.01672.0.copyload = load i32, ptr %655, align 4, !tbaa !43
+  %662 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01672.0.copyload)
+  %.sroa.01670.0.copyload = load i32, ptr %658, align 4, !tbaa !43
+  %663 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01670.0.copyload)
   %664 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01649.0.copyload = load i8, ptr %661, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fdivENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %664, i8 %.sroa.01649.0.copyload, i8 %662, i8 %663)
+  %.sroa.01669.0.copyload = load i8, ptr %661, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fsubENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %664, i8 %.sroa.01669.0.copyload, i8 %662, i8 %663)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 665:                                              ; preds = %4
   %666 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %667 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %668 = load i32, ptr %667, align 4, !tbaa !43
-  store i32 %668, ptr %15, align 4, !tbaa !43
-  %669 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 %668, ptr %13, align 4, !tbaa !43
+  %669 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %670 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %671 = load i32, ptr %670, align 4, !tbaa !43
   store i32 %671, ptr %669, align 4, !tbaa !43
-  %672 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %666, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %15, i64 2)
+  %672 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %666, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %13, i64 2)
   %673 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %672, ptr %673, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.sroa.01642.0.copyload = load i32, ptr %667, align 4, !tbaa !43
-  %674 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01642.0.copyload)
-  %.sroa.01640.0.copyload = load i32, ptr %670, align 4, !tbaa !43
-  %675 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01640.0.copyload)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  %.sroa.01662.0.copyload = load i32, ptr %667, align 4, !tbaa !43
+  %674 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01662.0.copyload)
+  %.sroa.01660.0.copyload = load i32, ptr %670, align 4, !tbaa !43
+  %675 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01660.0.copyload)
   %676 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01639.0.copyload = load i8, ptr %673, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fdivENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %676, i8 %.sroa.01639.0.copyload, i8 %674, i8 %675)
-  %677 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01636.0.copyload = load i8, ptr %673, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintmENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %677, i8 %.sroa.01636.0.copyload, i8 %.sroa.01636.0.copyload)
+  %.sroa.01659.0.copyload = load i8, ptr %673, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmulENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %676, i8 %.sroa.01659.0.copyload, i8 %674, i8 %675)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-678:                                              ; preds = %4
-  %679 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %680 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %679, i8 noundef zeroext 4, i32 noundef %2)
-  %681 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %680, ptr %681, align 1, !tbaa !43
-  %682 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01631.0.copyload = load i32, ptr %682, align 4, !tbaa !43
-  %683 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01631.0.copyload)
-  %684 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01628.0.copyload = load i32, ptr %684, align 4, !tbaa !43
-  %685 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01628.0.copyload)
-  %686 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01627.0.copyload = load i8, ptr %681, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fdivENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %686, i8 %.sroa.01627.0.copyload, i8 %683, i8 %685)
-  %687 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01624.0.copyload = load i8, ptr %681, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintmENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %687, i8 %.sroa.01624.0.copyload, i8 %.sroa.01624.0.copyload)
+677:                                              ; preds = %4
+  %678 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  %679 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %680 = load i32, ptr %679, align 4, !tbaa !43
+  store i32 %680, ptr %14, align 4, !tbaa !43
+  %681 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %682 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %683 = load i32, ptr %682, align 4, !tbaa !43
+  store i32 %683, ptr %681, align 4, !tbaa !43
+  %684 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %678, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %14, i64 2)
+  %685 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %684, ptr %685, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  %.sroa.01652.0.copyload = load i32, ptr %679, align 4, !tbaa !43
+  %686 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01652.0.copyload)
+  %.sroa.01650.0.copyload = load i32, ptr %682, align 4, !tbaa !43
+  %687 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01650.0.copyload)
   %688 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01622.0.copyload = load i8, ptr %681, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmulENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %688, i8 %.sroa.01622.0.copyload, i8 %.sroa.01622.0.copyload, i8 %685)
-  %689 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01619.0.copyload = load i8, ptr %681, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fsubENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %689, i8 %.sroa.01619.0.copyload, i8 %683, i8 %.sroa.01619.0.copyload)
+  %.sroa.01649.0.copyload = load i8, ptr %685, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fdivENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %688, i8 %.sroa.01649.0.copyload, i8 %686, i8 %687)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-690:                                              ; preds = %4
-  %691 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %692 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %693 = load i32, ptr %692, align 4, !tbaa !43
-  store i32 %693, ptr %16, align 4, !tbaa !43
-  %694 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %695 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %696 = load i32, ptr %695, align 4, !tbaa !43
-  store i32 %696, ptr %694, align 4, !tbaa !43
-  %697 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %691, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %16, i64 2)
-  %698 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %697, ptr %698, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.sroa.01611.0.copyload = load i32, ptr %692, align 4, !tbaa !43
-  %699 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01611.0.copyload)
-  %.sroa.01608.0.copyload = load i32, ptr %695, align 4, !tbaa !43
-  %700 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01608.0.copyload)
+689:                                              ; preds = %4
+  %690 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  %691 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %692 = load i32, ptr %691, align 4, !tbaa !43
+  store i32 %692, ptr %15, align 4, !tbaa !43
+  %693 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %694 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %695 = load i32, ptr %694, align 4, !tbaa !43
+  store i32 %695, ptr %693, align 4, !tbaa !43
+  %696 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %690, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %15, i64 2)
+  %697 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %696, ptr %697, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  %.sroa.01642.0.copyload = load i32, ptr %691, align 4, !tbaa !43
+  %698 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01642.0.copyload)
+  %.sroa.01640.0.copyload = load i32, ptr %694, align 4, !tbaa !43
+  %699 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01640.0.copyload)
+  %700 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01639.0.copyload = load i8, ptr %697, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fdivENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %700, i8 %.sroa.01639.0.copyload, i8 %698, i8 %699)
   %701 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %701, i8 %699, i8 %700)
-  %702 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01605.0.copyload = load i8, ptr %698, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %702, i8 %.sroa.01605.0.copyload, i8 %699, i8 %700, i32 noundef 4)
+  %.sroa.01636.0.copyload = load i8, ptr %697, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintmENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %701, i8 %.sroa.01636.0.copyload, i8 %.sroa.01636.0.copyload)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-703:                                              ; preds = %4
-  %704 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %705 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %706 = load i32, ptr %705, align 4, !tbaa !43
-  store i32 %706, ptr %17, align 4, !tbaa !43
-  %707 = getelementptr inbounds nuw i8, ptr %17, i64 4
+702:                                              ; preds = %4
+  %703 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %704 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %703, i8 noundef zeroext 4, i32 noundef %2)
+  %705 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %704, ptr %705, align 1, !tbaa !43
+  %706 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01631.0.copyload = load i32, ptr %706, align 4, !tbaa !43
+  %707 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01631.0.copyload)
   %708 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %709 = load i32, ptr %708, align 4, !tbaa !43
-  store i32 %709, ptr %707, align 4, !tbaa !43
-  %710 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %704, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %17, i64 2)
-  %711 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %710, ptr %711, align 1, !tbaa !43
+  %.sroa.01628.0.copyload = load i32, ptr %708, align 4, !tbaa !43
+  %709 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01628.0.copyload)
+  %710 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01627.0.copyload = load i8, ptr %705, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fdivENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %710, i8 %.sroa.01627.0.copyload, i8 %707, i8 %709)
+  %711 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01624.0.copyload = load i8, ptr %705, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintmENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %711, i8 %.sroa.01624.0.copyload, i8 %.sroa.01624.0.copyload)
+  %712 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01622.0.copyload = load i8, ptr %705, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmulENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %712, i8 %.sroa.01622.0.copyload, i8 %.sroa.01622.0.copyload, i8 %709)
+  %713 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01619.0.copyload = load i8, ptr %705, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fsubENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %713, i8 %.sroa.01619.0.copyload, i8 %707, i8 %.sroa.01619.0.copyload)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+714:                                              ; preds = %4
+  %715 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  %716 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %717 = load i32, ptr %716, align 4, !tbaa !43
+  store i32 %717, ptr %16, align 4, !tbaa !43
+  %718 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %719 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %720 = load i32, ptr %719, align 4, !tbaa !43
+  store i32 %720, ptr %718, align 4, !tbaa !43
+  %721 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %715, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %16, i64 2)
+  %722 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %721, ptr %722, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  %.sroa.01611.0.copyload = load i32, ptr %716, align 4, !tbaa !43
+  %723 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01611.0.copyload)
+  %.sroa.01608.0.copyload = load i32, ptr %719, align 4, !tbaa !43
+  %724 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01608.0.copyload)
+  %725 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %725, i8 %723, i8 %724)
+  %726 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01605.0.copyload = load i8, ptr %722, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %726, i8 %.sroa.01605.0.copyload, i8 %723, i8 %724, i32 noundef 4)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+727:                                              ; preds = %4
+  %728 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  %729 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %730 = load i32, ptr %729, align 4, !tbaa !43
+  store i32 %730, ptr %17, align 4, !tbaa !43
+  %731 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %732 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %733 = load i32, ptr %732, align 4, !tbaa !43
+  store i32 %733, ptr %731, align 4, !tbaa !43
+  %734 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %728, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %17, i64 2)
+  %735 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %734, ptr %735, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %.sroa.01597.0.copyload = load i32, ptr %705, align 4, !tbaa !43
-  %712 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01597.0.copyload)
-  %.sroa.01594.0.copyload = load i32, ptr %708, align 4, !tbaa !43
-  %713 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01594.0.copyload)
-  %714 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %714, i8 %712, i8 %713)
-  %715 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01591.0.copyload = load i8, ptr %711, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %715, i8 %.sroa.01591.0.copyload, i8 %712, i8 %713, i32 noundef 12)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-716:                                              ; preds = %4
-  %717 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %718 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %719 = load i32, ptr %718, align 4, !tbaa !43
-  store i32 %719, ptr %18, align 4, !tbaa !43
-  %720 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %717, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %18, i64 1)
-  %721 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %720, ptr %721, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %.sroa.01584.0.copyload = load i32, ptr %718, align 4, !tbaa !43
-  %722 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01584.0.copyload)
-  %723 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01583.0.copyload = load i8, ptr %721, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fnegENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %723, i8 %.sroa.01583.0.copyload, i8 %722)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-724:                                              ; preds = %4
-  %725 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %726 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %727 = load i32, ptr %726, align 4, !tbaa !43
-  store i32 %727, ptr %19, align 4, !tbaa !43
-  %728 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %725, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %19, i64 1)
-  %729 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %728, ptr %729, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %.sroa.01577.0.copyload = load i32, ptr %726, align 4, !tbaa !43
-  %730 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01577.0.copyload)
-  %731 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01576.0.copyload = load i8, ptr %729, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintmENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %731, i8 %.sroa.01576.0.copyload, i8 %730)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-732:                                              ; preds = %4
-  %733 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %734 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %735 = load i32, ptr %734, align 4, !tbaa !43
-  store i32 %735, ptr %20, align 4, !tbaa !43
-  %736 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %733, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %20, i64 1)
-  %737 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %736, ptr %737, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %.sroa.01570.0.copyload = load i32, ptr %734, align 4, !tbaa !43
-  %738 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01570.0.copyload)
+  %.sroa.01597.0.copyload = load i32, ptr %729, align 4, !tbaa !43
+  %736 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01597.0.copyload)
+  %.sroa.01594.0.copyload = load i32, ptr %732, align 4, !tbaa !43
+  %737 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01594.0.copyload)
+  %738 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %738, i8 %736, i8 %737)
   %739 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01569.0.copyload = load i8, ptr %737, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %739, i8 %.sroa.01569.0.copyload, i8 %738)
+  %.sroa.01591.0.copyload = load i8, ptr %735, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %739, i8 %.sroa.01591.0.copyload, i8 %736, i8 %737, i32 noundef 12)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 740:                                              ; preds = %4
   %741 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %742 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %743 = load i32, ptr %742, align 4, !tbaa !43
-  store i32 %743, ptr %21, align 4, !tbaa !43
-  %744 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %741, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %21, i64 1)
+  store i32 %743, ptr %18, align 4, !tbaa !43
+  %744 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %741, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %18, i64 1)
   %745 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %744, ptr %745, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %.sroa.01563.0.copyload = load i32, ptr %742, align 4, !tbaa !43
-  %746 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01563.0.copyload)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  %.sroa.01584.0.copyload = load i32, ptr %742, align 4, !tbaa !43
+  %746 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01584.0.copyload)
   %747 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01562.0.copyload = load i8, ptr %745, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintaENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %747, i8 %.sroa.01562.0.copyload, i8 %746)
+  %.sroa.01583.0.copyload = load i8, ptr %745, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fnegENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %747, i8 %.sroa.01583.0.copyload, i8 %746)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 748:                                              ; preds = %4
   %749 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %750 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %751 = load i32, ptr %750, align 4, !tbaa !43
-  store i32 %751, ptr %22, align 4, !tbaa !43
-  %752 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %749, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %22, i64 1)
+  store i32 %751, ptr %19, align 4, !tbaa !43
+  %752 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %749, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %19, i64 1)
   %753 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %752, ptr %753, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %.sroa.01556.0.copyload = load i32, ptr %750, align 4, !tbaa !43
-  %754 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01556.0.copyload)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  %.sroa.01577.0.copyload = load i32, ptr %750, align 4, !tbaa !43
+  %754 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01577.0.copyload)
   %755 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01555.0.copyload = load i8, ptr %753, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fsqrtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %755, i8 %.sroa.01555.0.copyload, i8 %754)
+  %.sroa.01576.0.copyload = load i8, ptr %753, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintmENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %755, i8 %.sroa.01576.0.copyload, i8 %754)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 756:                                              ; preds = %4
   %757 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %758 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %759 = load i32, ptr %758, align 4, !tbaa !43
-  store i32 %759, ptr %23, align 4, !tbaa !43
-  %760 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %757, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %23, i64 1)
+  store i32 %759, ptr %20, align 4, !tbaa !43
+  %760 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %757, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %20, i64 1)
   %761 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %760, ptr %761, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %.sroa.01549.0.copyload = load i32, ptr %758, align 4, !tbaa !43
-  %762 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01549.0.copyload)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  %.sroa.01570.0.copyload = load i32, ptr %758, align 4, !tbaa !43
+  %762 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01570.0.copyload)
   %763 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01548.0.copyload = load i8, ptr %761, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fabsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %763, i8 %.sroa.01548.0.copyload, i8 %762)
+  %.sroa.01569.0.copyload = load i8, ptr %761, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %763, i8 %.sroa.01569.0.copyload, i8 %762)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 764:                                              ; preds = %4
   %765 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %766 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %767 = load i32, ptr %766, align 4, !tbaa !43
-  store i32 %767, ptr %24, align 4, !tbaa !43
-  %768 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %765, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %24, i64 1)
+  store i32 %767, ptr %21, align 4, !tbaa !43
+  %768 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %765, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %21, i64 1)
   %769 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %768, ptr %769, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %.sroa.01542.0.copyload = load i32, ptr %766, align 4, !tbaa !43
-  %770 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01542.0.copyload)
-  %771 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %765, i8 noundef zeroext 4)
-  %772 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %765, i8 noundef zeroext 4)
-  %773 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcmpzENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %773, i8 %770)
-  %774 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %774, i8 %771, double noundef 0.000000e+00)
-  %775 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %775, i8 %772, double noundef 1.000000e+00)
-  %776 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01532.0.copyload = load i8, ptr %769, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %776, i8 %.sroa.01532.0.copyload, i8 %772, i8 %771, i32 noundef 12)
-  %777 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %777, i8 %772, double noundef -1.000000e+00)
-  %778 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01528.0.copyload = load i8, ptr %769, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %778, i8 %.sroa.01528.0.copyload, i8 %772, i8 %.sroa.01528.0.copyload, i32 noundef 4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  %.sroa.01563.0.copyload = load i32, ptr %766, align 4, !tbaa !43
+  %770 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01563.0.copyload)
+  %771 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01562.0.copyload = load i8, ptr %769, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintaENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %771, i8 %.sroa.01562.0.copyload, i8 %770)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-779:                                              ; preds = %4
-  %780 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %781 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %782 = load i32, ptr %781, align 4, !tbaa !43
-  store i32 %782, ptr %25, align 4, !tbaa !43
-  %783 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %784 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %785 = load i32, ptr %784, align 4, !tbaa !43
-  store i32 %785, ptr %783, align 4, !tbaa !43
-  %786 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %787 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %788 = load i32, ptr %787, align 4, !tbaa !43
-  store i32 %788, ptr %786, align 4, !tbaa !43
-  %789 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  %790 = getelementptr inbounds nuw i8, ptr %1, i64 16
+772:                                              ; preds = %4
+  %773 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  %774 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %775 = load i32, ptr %774, align 4, !tbaa !43
+  store i32 %775, ptr %22, align 4, !tbaa !43
+  %776 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %773, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %22, i64 1)
+  %777 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %776, ptr %777, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  %.sroa.01556.0.copyload = load i32, ptr %774, align 4, !tbaa !43
+  %778 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01556.0.copyload)
+  %779 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01555.0.copyload = load i8, ptr %777, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fsqrtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %779, i8 %.sroa.01555.0.copyload, i8 %778)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+780:                                              ; preds = %4
+  %781 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  %782 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %783 = load i32, ptr %782, align 4, !tbaa !43
+  store i32 %783, ptr %23, align 4, !tbaa !43
+  %784 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %781, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %23, i64 1)
+  %785 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %784, ptr %785, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  %.sroa.01549.0.copyload = load i32, ptr %782, align 4, !tbaa !43
+  %786 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01549.0.copyload)
+  %787 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01548.0.copyload = load i8, ptr %785, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fabsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %787, i8 %.sroa.01548.0.copyload, i8 %786)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+788:                                              ; preds = %4
+  %789 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  %790 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %791 = load i32, ptr %790, align 4, !tbaa !43
-  store i32 %791, ptr %789, align 4, !tbaa !43
-  %792 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %780, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %25, i64 4)
+  store i32 %791, ptr %24, align 4, !tbaa !43
+  %792 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %789, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %24, i64 1)
   %793 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %792, ptr %793, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %.sroa.01521.0.copyload = load i32, ptr %781, align 4, !tbaa !43
-  %794 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01521.0.copyload)
-  %.sroa.01519.0.copyload = load i32, ptr %784, align 4, !tbaa !43
-  %795 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01519.0.copyload)
-  %.sroa.01517.0.copyload = load i32, ptr %787, align 4, !tbaa !43
-  %796 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01517.0.copyload)
-  %.sroa.01515.0.copyload = load i32, ptr %790, align 4, !tbaa !43
-  %797 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01515.0.copyload)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  %.sroa.01542.0.copyload = load i32, ptr %790, align 4, !tbaa !43
+  %794 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01542.0.copyload)
+  %795 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %789, i8 noundef zeroext 4)
+  %796 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %789, i8 noundef zeroext 4)
+  %797 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcmpzENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %797, i8 %794)
   %798 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %798, i8 %796, i8 %797)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %798, i8 %795, double noundef 0.000000e+00)
   %799 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01512.0.copyload = load i8, ptr %793, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %799, i8 %.sroa.01512.0.copyload, i8 %795, i8 %794, i32 noundef 0)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %799, i8 %796, double noundef 1.000000e+00)
+  %800 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01532.0.copyload = load i8, ptr %793, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %800, i8 %.sroa.01532.0.copyload, i8 %796, i8 %795, i32 noundef 12)
+  %801 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %801, i8 %796, double noundef -1.000000e+00)
+  %802 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01528.0.copyload = load i8, ptr %793, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %802, i8 %.sroa.01528.0.copyload, i8 %796, i8 %.sroa.01528.0.copyload, i32 noundef 4)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-800:                                              ; preds = %4
-  %801 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %802 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %803 = load i32, ptr %802, align 4, !tbaa !43
-  store i32 %803, ptr %26, align 4, !tbaa !43
-  %804 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %805 = getelementptr inbounds nuw i8, ptr %1, i64 8
+803:                                              ; preds = %4
+  %804 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  %805 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %806 = load i32, ptr %805, align 4, !tbaa !43
-  store i32 %806, ptr %804, align 4, !tbaa !43
-  %807 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %801, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %26, i64 2)
-  %808 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %807, ptr %808, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %809 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01504.0.copyload = load i32, ptr %802, align 4, !tbaa !43
-  %810 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01504.0.copyload)
-  %.sroa.01502.0.copyload = load i32, ptr %805, align 4, !tbaa !43
-  %811 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01502.0.copyload)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644faddENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %809, i8 %807, i8 %810, i8 %811)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-812:                                              ; preds = %4
-  %813 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %814 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %806, ptr %25, align 4, !tbaa !43
+  %807 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %808 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %809 = load i32, ptr %808, align 4, !tbaa !43
+  store i32 %809, ptr %807, align 4, !tbaa !43
+  %810 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %811 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %812 = load i32, ptr %811, align 4, !tbaa !43
+  store i32 %812, ptr %810, align 4, !tbaa !43
+  %813 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  %814 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %815 = load i32, ptr %814, align 4, !tbaa !43
-  store i32 %815, ptr %27, align 4, !tbaa !43
-  %816 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %817 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %818 = load i32, ptr %817, align 4, !tbaa !43
-  store i32 %818, ptr %816, align 4, !tbaa !43
-  %819 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %813, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %27, i64 2)
-  %820 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %819, ptr %820, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %821 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01496.0.copyload = load i32, ptr %814, align 4, !tbaa !43
-  %822 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01496.0.copyload)
-  %.sroa.01494.0.copyload = load i32, ptr %817, align 4, !tbaa !43
-  %823 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01494.0.copyload)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fsubENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %821, i8 %819, i8 %822, i8 %823)
+  store i32 %815, ptr %813, align 4, !tbaa !43
+  %816 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %804, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %25, i64 4)
+  %817 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %816, ptr %817, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  %.sroa.01521.0.copyload = load i32, ptr %805, align 4, !tbaa !43
+  %818 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01521.0.copyload)
+  %.sroa.01519.0.copyload = load i32, ptr %808, align 4, !tbaa !43
+  %819 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01519.0.copyload)
+  %.sroa.01517.0.copyload = load i32, ptr %811, align 4, !tbaa !43
+  %820 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01517.0.copyload)
+  %.sroa.01515.0.copyload = load i32, ptr %814, align 4, !tbaa !43
+  %821 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01515.0.copyload)
+  %822 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %822, i8 %820, i8 %821)
+  %823 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01512.0.copyload = load i8, ptr %817, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %823, i8 %.sroa.01512.0.copyload, i8 %819, i8 %818, i32 noundef 0)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 824:                                              ; preds = %4
   %825 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %826 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %827 = load i32, ptr %826, align 4, !tbaa !43
-  store i32 %827, ptr %28, align 4, !tbaa !43
-  %828 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  store i32 %827, ptr %26, align 4, !tbaa !43
+  %828 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %829 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %830 = load i32, ptr %829, align 4, !tbaa !43
   store i32 %830, ptr %828, align 4, !tbaa !43
-  %831 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %825, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %28, i64 2)
+  %831 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %825, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %26, i64 2)
   %832 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %831, ptr %832, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %833 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01488.0.copyload = load i32, ptr %826, align 4, !tbaa !43
-  %834 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01488.0.copyload)
-  %.sroa.01486.0.copyload = load i32, ptr %829, align 4, !tbaa !43
-  %835 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01486.0.copyload)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmulENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %833, i8 %831, i8 %834, i8 %835)
+  %.sroa.01504.0.copyload = load i32, ptr %826, align 4, !tbaa !43
+  %834 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01504.0.copyload)
+  %.sroa.01502.0.copyload = load i32, ptr %829, align 4, !tbaa !43
+  %835 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01502.0.copyload)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644faddENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %833, i8 %831, i8 %834, i8 %835)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 836:                                              ; preds = %4
   %837 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %838 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %839 = load i32, ptr %838, align 4, !tbaa !43
-  store i32 %839, ptr %29, align 4, !tbaa !43
-  %840 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i32 %839, ptr %27, align 4, !tbaa !43
+  %840 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %841 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %842 = load i32, ptr %841, align 4, !tbaa !43
   store i32 %842, ptr %840, align 4, !tbaa !43
-  %843 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %837, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %29, i64 2)
+  %843 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %837, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %27, i64 2)
   %844 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %843, ptr %844, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %845 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01480.0.copyload = load i32, ptr %838, align 4, !tbaa !43
-  %846 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01480.0.copyload)
-  %.sroa.01478.0.copyload = load i32, ptr %841, align 4, !tbaa !43
-  %847 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01478.0.copyload)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fdivENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %845, i8 %843, i8 %846, i8 %847)
+  %.sroa.01496.0.copyload = load i32, ptr %838, align 4, !tbaa !43
+  %846 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01496.0.copyload)
+  %.sroa.01494.0.copyload = load i32, ptr %841, align 4, !tbaa !43
+  %847 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01494.0.copyload)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fsubENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %845, i8 %843, i8 %846, i8 %847)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 848:                                              ; preds = %4
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %850 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %851 = load i32, ptr %850, align 4, !tbaa !43
-  store i32 %851, ptr %30, align 4, !tbaa !43
-  %852 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %849, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %30, i64 1)
-  %853 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %852, ptr %853, align 1, !tbaa !43
+  store i32 %851, ptr %28, align 4, !tbaa !43
+  %852 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %853 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %854 = load i32, ptr %853, align 4, !tbaa !43
+  store i32 %854, ptr %852, align 4, !tbaa !43
+  %855 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %849, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %28, i64 2)
+  %856 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %855, ptr %856, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  %857 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01488.0.copyload = load i32, ptr %850, align 4, !tbaa !43
+  %858 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01488.0.copyload)
+  %.sroa.01486.0.copyload = load i32, ptr %853, align 4, !tbaa !43
+  %859 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01486.0.copyload)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmulENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %857, i8 %855, i8 %858, i8 %859)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+860:                                              ; preds = %4
+  %861 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  %862 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %863 = load i32, ptr %862, align 4, !tbaa !43
+  store i32 %863, ptr %29, align 4, !tbaa !43
+  %864 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %865 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %866 = load i32, ptr %865, align 4, !tbaa !43
+  store i32 %866, ptr %864, align 4, !tbaa !43
+  %867 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %861, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %29, i64 2)
+  %868 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %867, ptr %868, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  %869 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01480.0.copyload = load i32, ptr %862, align 4, !tbaa !43
+  %870 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01480.0.copyload)
+  %.sroa.01478.0.copyload = load i32, ptr %865, align 4, !tbaa !43
+  %871 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01478.0.copyload)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fdivENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %869, i8 %867, i8 %870, i8 %871)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+872:                                              ; preds = %4
+  %873 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  %874 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %875 = load i32, ptr %874, align 4, !tbaa !43
+  store i32 %875, ptr %30, align 4, !tbaa !43
+  %876 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %873, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %30, i64 1)
+  %877 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %876, ptr %877, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %854 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01472.0.copyload = load i32, ptr %850, align 4, !tbaa !43
-  %855 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01472.0.copyload)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fnegENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %854, i8 %852, i8 %855)
+  %878 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01472.0.copyload = load i32, ptr %874, align 4, !tbaa !43
+  %879 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01472.0.copyload)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fnegENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %878, i8 %876, i8 %879)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-856:                                              ; preds = %4
-  %857 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %858 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %857, i8 noundef zeroext 4, i32 noundef %2)
-  %859 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %858, ptr %859, align 1, !tbaa !43
-  %860 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %857, i8 noundef zeroext 5)
-  %861 = and i8 %860, -8
-  %862 = or disjoint i8 %861, 3
-  %.sroa.01459.0.copyload = load i8, ptr %859, align 1, !tbaa !43
-  %863 = and i8 %.sroa.01459.0.copyload, -8
-  %864 = or disjoint i8 %863, 3
-  %865 = load ptr, ptr %0, align 8, !tbaa !63
-  %866 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01456.0.copyload = load i32, ptr %866, align 4, !tbaa !43
-  %867 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01456.0.copyload)
-  %868 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01454.0.copyload = load i32, ptr %868, align 4, !tbaa !43
-  %869 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01454.0.copyload)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmulENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %865, i8 %860, i8 %867, i8 %869)
-  %870 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645faddpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %870, i8 %864, i8 %862)
-  %871 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %871, i8 %860, i8 %860, i8 noundef zeroext 2)
-  %872 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644faddENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %872, i8 %864, i8 %864, i8 %862)
-  %873 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01446.0.copyload = load i8, ptr %859, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %873, i8 %.sroa.01446.0.copyload, i8 %864)
+880:                                              ; preds = %4
+  %881 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %882 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %881, i8 noundef zeroext 4, i32 noundef %2)
+  %883 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %882, ptr %883, align 1, !tbaa !43
+  %884 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %881, i8 noundef zeroext 5)
+  %885 = and i8 %884, -8
+  %886 = or disjoint i8 %885, 3
+  %.sroa.01459.0.copyload = load i8, ptr %883, align 1, !tbaa !43
+  %887 = and i8 %.sroa.01459.0.copyload, -8
+  %888 = or disjoint i8 %887, 3
+  %889 = load ptr, ptr %0, align 8, !tbaa !63
+  %890 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01456.0.copyload = load i32, ptr %890, align 4, !tbaa !43
+  %891 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01456.0.copyload)
+  %892 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01454.0.copyload = load i32, ptr %892, align 4, !tbaa !43
+  %893 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01454.0.copyload)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmulENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %889, i8 %884, i8 %891, i8 %893)
+  %894 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645faddpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %894, i8 %888, i8 %886)
+  %895 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %895, i8 %884, i8 %884, i8 noundef zeroext 2)
+  %896 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644faddENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %896, i8 %888, i8 %888, i8 %886)
+  %897 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01446.0.copyload = load i8, ptr %883, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %897, i8 %.sroa.01446.0.copyload, i8 %888)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-874:                                              ; preds = %4
-  %875 = getelementptr inbounds nuw i8, ptr %0, i64 32
+898:                                              ; preds = %4
+  %899 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %876 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %877 = load i32, ptr %876, align 4, !tbaa !43
-  store i32 %877, ptr %31, align 4, !tbaa !43
-  %878 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %879 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %880 = load i32, ptr %879, align 4, !tbaa !43
-  store i32 %880, ptr %878, align 4, !tbaa !43
-  %881 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %875, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %31, i64 2)
-  %882 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %881, ptr %882, align 1, !tbaa !43
+  %900 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %901 = load i32, ptr %900, align 4, !tbaa !43
+  store i32 %901, ptr %31, align 4, !tbaa !43
+  %902 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %903 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %904 = load i32, ptr %903, align 4, !tbaa !43
+  store i32 %904, ptr %902, align 4, !tbaa !43
+  %905 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %899, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %31, i64 2)
+  %906 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %905, ptr %906, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  %883 = load i32, ptr %876, align 4
-  %884 = and i32 %883, 15
-  %885 = icmp eq i32 %884, 2
-  br i1 %885, label %886, label %889
+  %907 = load i32, ptr %900, align 4
+  %908 = and i32 %907, 15
+  %909 = icmp eq i32 %908, 2
+  br i1 %909, label %910, label %913
 
-886:                                              ; preds = %874
-  %887 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01439.0.copyload = load i32, ptr %879, align 4, !tbaa !43
-  %888 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01439.0.copyload)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176) %887, i8 %881, i8 %888, i32 noundef 1)
+910:                                              ; preds = %898
+  %911 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01439.0.copyload = load i32, ptr %903, align 4, !tbaa !43
+  %912 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01439.0.copyload)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176) %911, i8 %905, i8 %912, i32 noundef 1)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-889:                                              ; preds = %874
+913:                                              ; preds = %898
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 0, ptr %32, align 4, !tbaa !68
-  %890 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 -1, ptr %890, align 4, !tbaa !70
+  %914 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  store i32 -1, ptr %914, align 4, !tbaa !70
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 0, ptr %33, align 4, !tbaa !68
-  %891 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  store i32 -1, ptr %891, align 4, !tbaa !70
-  %892 = load ptr, ptr %0, align 8, !tbaa !63
-  %893 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %883)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %892, i8 %893, i16 noundef zeroext 1)
-  %894 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %894, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %32)
-  %895 = load i32, ptr %879, align 4
-  %896 = and i32 %895, 15
-  %897 = icmp eq i32 %896, 2
-  %898 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01436.0.copyload = load i8, ptr %882, align 1, !tbaa !43
-  br i1 %897, label %899, label %910
-
-899:                                              ; preds = %889
-  %900 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %901 = load ptr, ptr %900, align 8, !tbaa !64
-  %902 = getelementptr inbounds nuw i8, ptr %901, i64 48
-  %903 = lshr i32 %895, 4
-  %904 = zext nneg i32 %903 to i64
-  %905 = load ptr, ptr %902, align 8, !tbaa !65
-  %906 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %905, i64 %904, i32 1
-  %907 = load i32, ptr %906, align 8, !tbaa !43
-  %908 = icmp eq i32 %907, 0
-  %909 = zext i1 %908 to i32
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %898, i8 %.sroa.01436.0.copyload, i32 noundef %909)
-  br label %912
-
-910:                                              ; preds = %889
-  %911 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %895)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176) %898, i8 %.sroa.01436.0.copyload, i8 %911, i32 noundef 1)
-  br label %912
-
-912:                                              ; preds = %910, %899
-  %913 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %913, ptr noundef nonnull align 4 dereferenceable(8) %33)
-  %914 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %914, ptr noundef nonnull align 4 dereferenceable(8) %32)
-  %915 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01431.0.copyload = load i8, ptr %882, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644csetENS1_11RegisterA64ENS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %915, i8 %.sroa.01431.0.copyload, i32 noundef 11)
+  %915 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  store i32 -1, ptr %915, align 4, !tbaa !70
   %916 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %916, ptr noundef nonnull align 4 dereferenceable(8) %33)
+  %917 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %907)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %916, i8 %917, i16 noundef zeroext 1)
+  %918 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %918, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %32)
+  %919 = load i32, ptr %903, align 4
+  %920 = and i32 %919, 15
+  %921 = icmp eq i32 %920, 2
+  %922 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01436.0.copyload = load i8, ptr %906, align 1, !tbaa !43
+  br i1 %921, label %923, label %935
+
+923:                                              ; preds = %913
+  %924 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %925 = load ptr, ptr %924, align 8, !tbaa !64
+  %926 = getelementptr inbounds nuw i8, ptr %925, i64 48
+  %927 = lshr i32 %919, 4
+  %928 = zext nneg i32 %927 to i64
+  %929 = load ptr, ptr %926, align 8, !tbaa !65
+  %930 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %929, i64 %928
+  %931 = getelementptr inbounds nuw i8, ptr %930, i64 8
+  %932 = load i32, ptr %931, align 8, !tbaa !43
+  %933 = icmp eq i32 %932, 0
+  %934 = zext i1 %933 to i32
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %922, i8 %.sroa.01436.0.copyload, i32 noundef %934)
+  br label %937
+
+935:                                              ; preds = %913
+  %936 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %919)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176) %922, i8 %.sroa.01436.0.copyload, i8 %936, i32 noundef 1)
+  br label %937
+
+937:                                              ; preds = %935, %923
+  %938 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %938, ptr noundef nonnull align 4 dereferenceable(8) %33)
+  %939 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %939, ptr noundef nonnull align 4 dereferenceable(8) %32)
+  %940 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01431.0.copyload = load i8, ptr %906, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644csetENS1_11RegisterA64ENS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %940, i8 %.sroa.01431.0.copyload, i32 noundef 11)
+  %941 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %941, ptr noundef nonnull align 4 dereferenceable(8) %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-917:                                              ; preds = %4
-  %918 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01427.0.copyload = load i32, ptr %918, align 4, !tbaa !43
-  %919 = lshr i32 %.sroa.01427.0.copyload, 4
-  %920 = trunc i32 %919 to i8
-  %921 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %922 = load ptr, ptr %0, align 8, !tbaa !63
-  %923 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %921, ptr noundef nonnull align 8 dereferenceable(176) %922, i32 noundef %2, ptr null, i64 0)
-  %924 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %924, i8 2, i8 -102)
-  %925 = load ptr, ptr %0, align 8, !tbaa !63
-  %926 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01422.0.copyload = load i32, ptr %926, align 4, !tbaa !43
-  %927 = trunc i32 %.sroa.01422.0.copyload to i16
-  %928 = and i16 %927, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %925, i8 10, i8 -54, i16 noundef zeroext %928)
-  %929 = load ptr, ptr %0, align 8, !tbaa !63
-  %930 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01419.0.copyload = load i32, ptr %930, align 4, !tbaa !43
-  %931 = trunc i32 %.sroa.01419.0.copyload to i16
-  %932 = and i16 %931, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %929, i8 18, i8 -54, i16 noundef zeroext %932)
-  switch i8 %920, label %936 [
+942:                                              ; preds = %4
+  %943 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01427.0.copyload = load i32, ptr %943, align 4, !tbaa !43
+  %944 = lshr i32 %.sroa.01427.0.copyload, 4
+  %945 = trunc i32 %944 to i8
+  %946 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %947 = load ptr, ptr %0, align 8, !tbaa !63
+  %948 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %946, ptr noundef nonnull align 8 dereferenceable(176) %947, i32 noundef %2, ptr null, i64 0)
+  %949 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %949, i8 2, i8 -102)
+  %950 = load ptr, ptr %0, align 8, !tbaa !63
+  %951 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01422.0.copyload = load i32, ptr %951, align 4, !tbaa !43
+  %952 = trunc i32 %.sroa.01422.0.copyload to i16
+  %953 = and i16 %952, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %950, i8 10, i8 -54, i16 noundef zeroext %953)
+  %954 = load ptr, ptr %0, align 8, !tbaa !63
+  %955 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01419.0.copyload = load i32, ptr %955, align 4, !tbaa !43
+  %956 = trunc i32 %.sroa.01419.0.copyload to i16
+  %957 = and i16 %956, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %954, i8 18, i8 -54, i16 noundef zeroext %957)
+  switch i8 %945, label %961 [
     i8 4, label %.sink.split
-    i8 2, label %933
-    i8 0, label %934
+    i8 2, label %958
+    i8 0, label %959
   ]
 
-933:                                              ; preds = %917
+958:                                              ; preds = %942
   br label %.sink.split
 
-934:                                              ; preds = %917
+959:                                              ; preds = %942
   br label %.sink.split
 
-.sink.split:                                      ; preds = %917, %934, %933
-  %.sink3697 = phi i64 [ 68735902209, %933 ], [ 137455378945, %934 ], [ 103095640577, %917 ]
-  %935 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %935, i8 26, i64 %.sink3697)
-  br label %936
+.sink.split:                                      ; preds = %942, %959, %958
+  %.sink3697 = phi i64 [ 68735902209, %958 ], [ 137455378945, %959 ], [ 103095640577, %942 ]
+  %960 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %960, i8 26, i64 %.sink3697)
+  br label %961
 
-936:                                              ; preds = %.sink.split, %917
-  %937 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %937, i8 26)
-  %938 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %938, i8 -54, i64 68735900161)
-  %939 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %921, i8 1, i32 noundef %2)
-  %940 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %939, ptr %940, align 1, !tbaa !43
+961:                                              ; preds = %.sink.split, %942
+  %962 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %962, i8 26)
+  %963 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %963, i8 -54, i64 68735900161)
+  %964 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %946, i8 1, i32 noundef %2)
+  %965 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %964, ptr %965, align 1, !tbaa !43
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-941:                                              ; preds = %4
-  %942 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %943 = load i32, ptr %942, align 4
-  %944 = and i32 %943, 15
-  switch i32 %944, label %949 [
-    i32 1, label %945
-    i32 9, label %945
+966:                                              ; preds = %4
+  %967 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %968 = load i32, ptr %967, align 4
+  %969 = and i32 %968, 15
+  switch i32 %969, label %974 [
+    i32 1, label %970
+    i32 9, label %970
   ]
 
-945:                                              ; preds = %941, %941
+970:                                              ; preds = %966, %966
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i32 0, ptr %34, align 4, !tbaa !68
-  %946 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 -1, ptr %946, align 4, !tbaa !70
-  %947 = load ptr, ptr %0, align 8, !tbaa !63
-  %948 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %943, ptr noundef nonnull align 4 dereferenceable(8) %34)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %947, ptr noundef nonnull align 4 dereferenceable(8) %948)
-  %.sroa.01408.0.copyload = load i32, ptr %942, align 4, !tbaa !43
+  %971 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store i32 -1, ptr %971, align 4, !tbaa !70
+  %972 = load ptr, ptr %0, align 8, !tbaa !63
+  %973 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %968, ptr noundef nonnull align 4 dereferenceable(8) %34)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %972, ptr noundef nonnull align 4 dereferenceable(8) %973)
+  %.sroa.01408.0.copyload = load i32, ptr %967, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01408.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-949:                                              ; preds = %941
-  %950 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %951 = load ptr, ptr %950, align 8, !tbaa !64
-  %952 = lshr i32 %943, 4
-  %953 = zext nneg i32 %952 to i64
-  %954 = load ptr, ptr %951, align 8, !tbaa !71
-  %955 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %954, i64 %953
-  %956 = getelementptr inbounds nuw i8, ptr %955, i64 4
-  %957 = load i32, ptr %956, align 4, !tbaa !74
-  %958 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %959 = load i32, ptr %958, align 4, !tbaa !74
-  %960 = icmp eq i32 %957, %959
-  br i1 %960, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %961
+974:                                              ; preds = %966
+  %975 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %976 = load ptr, ptr %975, align 8, !tbaa !64
+  %977 = lshr i32 %968, 4
+  %978 = zext nneg i32 %977 to i64
+  %979 = load ptr, ptr %976, align 8, !tbaa !71
+  %980 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %979, i64 %978
+  %981 = getelementptr inbounds nuw i8, ptr %980, i64 4
+  %982 = load i32, ptr %981, align 4, !tbaa !74
+  %983 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %984 = load i32, ptr %983, align 4, !tbaa !74
+  %985 = icmp eq i32 %982, %984
+  br i1 %985, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %986
 
-961:                                              ; preds = %949
-  %962 = load ptr, ptr %0, align 8, !tbaa !63
-  %963 = getelementptr inbounds nuw i8, ptr %955, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %962, ptr noundef nonnull align 4 dereferenceable(8) %963)
+986:                                              ; preds = %974
+  %987 = load ptr, ptr %0, align 8, !tbaa !63
+  %988 = getelementptr inbounds nuw i8, ptr %980, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %987, ptr noundef nonnull align 4 dereferenceable(8) %988)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-964:                                              ; preds = %4
-  %965 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %966 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %965, i8 noundef zeroext 1)
-  %967 = load ptr, ptr %0, align 8, !tbaa !63
-  %968 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01399.0.copyload = load i32, ptr %968, align 4, !tbaa !43
-  %969 = and i32 %.sroa.01399.0.copyload, -16
-  %970 = or disjoint i32 %969, 12
-  %.sroa.43564.0.insert.ext = zext i32 %970 to i64
+989:                                              ; preds = %4
+  %990 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %991 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %990, i8 noundef zeroext 1)
+  %992 = load ptr, ptr %0, align 8, !tbaa !63
+  %993 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01399.0.copyload = load i32, ptr %993, align 4, !tbaa !43
+  %994 = and i32 %.sroa.01399.0.copyload, -16
+  %995 = or disjoint i32 %994, 12
+  %.sroa.43564.0.insert.ext = zext i32 %995 to i64
   %.sroa.43564.0.insert.shift = shl nuw i64 %.sroa.43564.0.insert.ext, 32
   %.sroa.03560.0.insert.insert = or disjoint i64 %.sroa.43564.0.insert.shift, 16435713
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %967, i8 %966, i64 %.sroa.03560.0.insert.insert)
-  %971 = load ptr, ptr %0, align 8, !tbaa !63
-  %972 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01397.0.copyload = load i32, ptr %972, align 4, !tbaa !43
-  %973 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %974 = load ptr, ptr %973, align 8, !tbaa !64
-  %975 = lshr i32 %.sroa.01397.0.copyload, 4
-  %976 = zext nneg i32 %975 to i64
-  %977 = load ptr, ptr %974, align 8, !tbaa !71
-  %978 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %977, i64 %976, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %971, i8 %966, ptr noundef nonnull align 4 dereferenceable(8) %978)
-  %979 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %979, i8 %966, i16 noundef zeroext 1)
-  %980 = load ptr, ptr %0, align 8, !tbaa !63
-  %981 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01395.0.copyload = load i32, ptr %981, align 4, !tbaa !43
-  %982 = load ptr, ptr %973, align 8, !tbaa !64
-  %983 = lshr i32 %.sroa.01395.0.copyload, 4
-  %984 = zext nneg i32 %983 to i64
-  %985 = load ptr, ptr %982, align 8, !tbaa !71
-  %986 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %985, i64 %984, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %980, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %986)
-  %987 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01392.0.copyload = load i32, ptr %968, align 4, !tbaa !43
-  %988 = and i32 %.sroa.01392.0.copyload, -16
-  %.sroa.43559.0.insert.ext = zext i32 %988 to i64
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %992, i8 %991, i64 %.sroa.03560.0.insert.insert)
+  %996 = load ptr, ptr %0, align 8, !tbaa !63
+  %997 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01397.0.copyload = load i32, ptr %997, align 4, !tbaa !43
+  %998 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %999 = load ptr, ptr %998, align 8, !tbaa !64
+  %1000 = lshr i32 %.sroa.01397.0.copyload, 4
+  %1001 = zext nneg i32 %1000 to i64
+  %1002 = load ptr, ptr %999, align 8, !tbaa !71
+  %1003 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1002, i64 %1001
+  %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %996, i8 %991, ptr noundef nonnull align 4 dereferenceable(8) %1004)
+  %1005 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1005, i8 %991, i16 noundef zeroext 1)
+  %1006 = load ptr, ptr %0, align 8, !tbaa !63
+  %1007 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01395.0.copyload = load i32, ptr %1007, align 4, !tbaa !43
+  %1008 = load ptr, ptr %998, align 8, !tbaa !64
+  %1009 = lshr i32 %.sroa.01395.0.copyload, 4
+  %1010 = zext nneg i32 %1009 to i64
+  %1011 = load ptr, ptr %1008, align 8, !tbaa !71
+  %1012 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1011, i64 %1010
+  %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1006, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1013)
+  %1014 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01392.0.copyload = load i32, ptr %993, align 4, !tbaa !43
+  %1015 = and i32 %.sroa.01392.0.copyload, -16
+  %.sroa.43559.0.insert.ext = zext i32 %1015 to i64
   %.sroa.43559.0.insert.shift = shl nuw i64 %.sroa.43559.0.insert.ext, 32
   %.sroa.03555.0.insert.insert = or disjoint i64 %.sroa.43559.0.insert.shift, 16435713
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %987, i8 %966, i64 %.sroa.03555.0.insert.insert)
-  %989 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01390.0.copyload = load i32, ptr %981, align 4, !tbaa !43
-  %990 = load ptr, ptr %973, align 8, !tbaa !64
-  %991 = lshr i32 %.sroa.01390.0.copyload, 4
-  %992 = zext nneg i32 %991 to i64
-  %993 = load ptr, ptr %990, align 8, !tbaa !71
-  %994 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %993, i64 %992, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %989, i8 %966, ptr noundef nonnull align 4 dereferenceable(8) %994)
-  %.sroa.01389.0.copyload = load i32, ptr %972, align 4, !tbaa !43
-  %995 = load ptr, ptr %973, align 8, !tbaa !64
-  %996 = lshr i32 %.sroa.01389.0.copyload, 4
-  %997 = zext nneg i32 %996 to i64
-  %998 = load ptr, ptr %995, align 8, !tbaa !71
-  %999 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %998, i64 %997
-  %1000 = getelementptr inbounds nuw i8, ptr %999, i64 4
-  %1001 = load i32, ptr %1000, align 4, !tbaa !74
-  %1002 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %1003 = load i32, ptr %1002, align 4, !tbaa !74
-  %1004 = icmp eq i32 %1001, %1003
-  br i1 %1004, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1005
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1014, i8 %991, i64 %.sroa.03555.0.insert.insert)
+  %1016 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01390.0.copyload = load i32, ptr %1007, align 4, !tbaa !43
+  %1017 = load ptr, ptr %998, align 8, !tbaa !64
+  %1018 = lshr i32 %.sroa.01390.0.copyload, 4
+  %1019 = zext nneg i32 %1018 to i64
+  %1020 = load ptr, ptr %1017, align 8, !tbaa !71
+  %1021 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1020, i64 %1019
+  %1022 = getelementptr inbounds nuw i8, ptr %1021, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1016, i8 %991, ptr noundef nonnull align 4 dereferenceable(8) %1022)
+  %.sroa.01389.0.copyload = load i32, ptr %997, align 4, !tbaa !43
+  %1023 = load ptr, ptr %998, align 8, !tbaa !64
+  %1024 = lshr i32 %.sroa.01389.0.copyload, 4
+  %1025 = zext nneg i32 %1024 to i64
+  %1026 = load ptr, ptr %1023, align 8, !tbaa !71
+  %1027 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1026, i64 %1025
+  %1028 = getelementptr inbounds nuw i8, ptr %1027, i64 4
+  %1029 = load i32, ptr %1028, align 4, !tbaa !74
+  %1030 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %1031 = load i32, ptr %1030, align 4, !tbaa !74
+  %1032 = icmp eq i32 %1029, %1031
+  br i1 %1032, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1033
 
-1005:                                             ; preds = %964
-  %1006 = load ptr, ptr %0, align 8, !tbaa !63
-  %1007 = getelementptr inbounds nuw i8, ptr %999, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1006, ptr noundef nonnull align 4 dereferenceable(8) %1007)
+1033:                                             ; preds = %989
+  %1034 = load ptr, ptr %0, align 8, !tbaa !63
+  %1035 = getelementptr inbounds nuw i8, ptr %1027, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1034, ptr noundef nonnull align 4 dereferenceable(8) %1035)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1008:                                             ; preds = %4
-  %1009 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1010 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1009, i8 noundef zeroext 1)
-  %1011 = load ptr, ptr %0, align 8, !tbaa !63
-  %1012 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01381.0.copyload = load i32, ptr %1012, align 4, !tbaa !43
-  %1013 = and i32 %.sroa.01381.0.copyload, -16
-  %1014 = or disjoint i32 %1013, 12
-  %.sroa.43554.0.insert.ext = zext i32 %1014 to i64
+1036:                                             ; preds = %4
+  %1037 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1038 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1037, i8 noundef zeroext 1)
+  %1039 = load ptr, ptr %0, align 8, !tbaa !63
+  %1040 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01381.0.copyload = load i32, ptr %1040, align 4, !tbaa !43
+  %1041 = and i32 %.sroa.01381.0.copyload, -16
+  %1042 = or disjoint i32 %1041, 12
+  %.sroa.43554.0.insert.ext = zext i32 %1042 to i64
   %.sroa.43554.0.insert.shift = shl nuw i64 %.sroa.43554.0.insert.ext, 32
   %.sroa.03550.0.insert.insert = or disjoint i64 %.sroa.43554.0.insert.shift, 16435713
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1011, i8 %1010, i64 %.sroa.03550.0.insert.insert)
-  %1015 = load ptr, ptr %0, align 8, !tbaa !63
-  %1016 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01379.0.copyload = load i32, ptr %1016, align 4, !tbaa !43
-  %1017 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1018 = load ptr, ptr %1017, align 8, !tbaa !64
-  %1019 = lshr i32 %.sroa.01379.0.copyload, 4
-  %1020 = zext nneg i32 %1019 to i64
-  %1021 = load ptr, ptr %1018, align 8, !tbaa !71
-  %1022 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1021, i64 %1020, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1015, i8 %1010, ptr noundef nonnull align 4 dereferenceable(8) %1022)
-  %1023 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1023, i8 %1010, i16 noundef zeroext 1)
-  %1024 = load ptr, ptr %0, align 8, !tbaa !63
-  %1025 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01377.0.copyload = load i32, ptr %1025, align 4, !tbaa !43
-  %1026 = load ptr, ptr %1017, align 8, !tbaa !64
-  %1027 = lshr i32 %.sroa.01377.0.copyload, 4
-  %1028 = zext nneg i32 %1027 to i64
-  %1029 = load ptr, ptr %1026, align 8, !tbaa !71
-  %1030 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1029, i64 %1028, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1024, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1030)
-  %1031 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01374.0.copyload = load i32, ptr %1012, align 4, !tbaa !43
-  %1032 = and i32 %.sroa.01374.0.copyload, -16
-  %.sroa.43549.0.insert.ext = zext i32 %1032 to i64
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1039, i8 %1038, i64 %.sroa.03550.0.insert.insert)
+  %1043 = load ptr, ptr %0, align 8, !tbaa !63
+  %1044 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01379.0.copyload = load i32, ptr %1044, align 4, !tbaa !43
+  %1045 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1046 = load ptr, ptr %1045, align 8, !tbaa !64
+  %1047 = lshr i32 %.sroa.01379.0.copyload, 4
+  %1048 = zext nneg i32 %1047 to i64
+  %1049 = load ptr, ptr %1046, align 8, !tbaa !71
+  %1050 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1049, i64 %1048
+  %1051 = getelementptr inbounds nuw i8, ptr %1050, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1043, i8 %1038, ptr noundef nonnull align 4 dereferenceable(8) %1051)
+  %1052 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1052, i8 %1038, i16 noundef zeroext 1)
+  %1053 = load ptr, ptr %0, align 8, !tbaa !63
+  %1054 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01377.0.copyload = load i32, ptr %1054, align 4, !tbaa !43
+  %1055 = load ptr, ptr %1045, align 8, !tbaa !64
+  %1056 = lshr i32 %.sroa.01377.0.copyload, 4
+  %1057 = zext nneg i32 %1056 to i64
+  %1058 = load ptr, ptr %1055, align 8, !tbaa !71
+  %1059 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1058, i64 %1057
+  %1060 = getelementptr inbounds nuw i8, ptr %1059, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1053, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1060)
+  %1061 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01374.0.copyload = load i32, ptr %1040, align 4, !tbaa !43
+  %1062 = and i32 %.sroa.01374.0.copyload, -16
+  %.sroa.43549.0.insert.ext = zext i32 %1062 to i64
   %.sroa.43549.0.insert.shift = shl nuw i64 %.sroa.43549.0.insert.ext, 32
   %.sroa.03545.0.insert.insert = or disjoint i64 %.sroa.43549.0.insert.shift, 16435713
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1031, i8 %1010, i64 %.sroa.03545.0.insert.insert)
-  %1033 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01372.0.copyload = load i32, ptr %1016, align 4, !tbaa !43
-  %1034 = load ptr, ptr %1017, align 8, !tbaa !64
-  %1035 = lshr i32 %.sroa.01372.0.copyload, 4
-  %1036 = zext nneg i32 %1035 to i64
-  %1037 = load ptr, ptr %1034, align 8, !tbaa !71
-  %1038 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1037, i64 %1036, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1033, i8 %1010, ptr noundef nonnull align 4 dereferenceable(8) %1038)
-  %.sroa.01371.0.copyload = load i32, ptr %1025, align 4, !tbaa !43
-  %1039 = load ptr, ptr %1017, align 8, !tbaa !64
-  %1040 = lshr i32 %.sroa.01371.0.copyload, 4
-  %1041 = zext nneg i32 %1040 to i64
-  %1042 = load ptr, ptr %1039, align 8, !tbaa !71
-  %1043 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1042, i64 %1041
-  %1044 = getelementptr inbounds nuw i8, ptr %1043, i64 4
-  %1045 = load i32, ptr %1044, align 4, !tbaa !74
-  %1046 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %1047 = load i32, ptr %1046, align 4, !tbaa !74
-  %1048 = icmp eq i32 %1045, %1047
-  br i1 %1048, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1049
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1061, i8 %1038, i64 %.sroa.03545.0.insert.insert)
+  %1063 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01372.0.copyload = load i32, ptr %1044, align 4, !tbaa !43
+  %1064 = load ptr, ptr %1045, align 8, !tbaa !64
+  %1065 = lshr i32 %.sroa.01372.0.copyload, 4
+  %1066 = zext nneg i32 %1065 to i64
+  %1067 = load ptr, ptr %1064, align 8, !tbaa !71
+  %1068 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1067, i64 %1066
+  %1069 = getelementptr inbounds nuw i8, ptr %1068, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1063, i8 %1038, ptr noundef nonnull align 4 dereferenceable(8) %1069)
+  %.sroa.01371.0.copyload = load i32, ptr %1054, align 4, !tbaa !43
+  %1070 = load ptr, ptr %1045, align 8, !tbaa !64
+  %1071 = lshr i32 %.sroa.01371.0.copyload, 4
+  %1072 = zext nneg i32 %1071 to i64
+  %1073 = load ptr, ptr %1070, align 8, !tbaa !71
+  %1074 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1073, i64 %1072
+  %1075 = getelementptr inbounds nuw i8, ptr %1074, i64 4
+  %1076 = load i32, ptr %1075, align 4, !tbaa !74
+  %1077 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %1078 = load i32, ptr %1077, align 4, !tbaa !74
+  %1079 = icmp eq i32 %1076, %1078
+  br i1 %1079, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1080
 
-1049:                                             ; preds = %1008
-  %1050 = load ptr, ptr %0, align 8, !tbaa !63
-  %1051 = getelementptr inbounds nuw i8, ptr %1043, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1050, ptr noundef nonnull align 4 dereferenceable(8) %1051)
+1080:                                             ; preds = %1036
+  %1081 = load ptr, ptr %0, align 8, !tbaa !63
+  %1082 = getelementptr inbounds nuw i8, ptr %1074, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1081, ptr noundef nonnull align 4 dereferenceable(8) %1082)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1052:                                             ; preds = %4
-  %1053 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1054 = load i32, ptr %1053, align 4
-  %1055 = and i32 %1054, 15
-  %1056 = icmp eq i32 %1055, 2
-  br i1 %1056, label %1057, label %1070
+1083:                                             ; preds = %4
+  %1084 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1085 = load i32, ptr %1084, align 4
+  %1086 = and i32 %1085, 15
+  %1087 = icmp eq i32 %1086, 2
+  br i1 %1087, label %1088, label %1102
 
-1057:                                             ; preds = %1052
-  %1058 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1059 = load ptr, ptr %1058, align 8, !tbaa !64
-  %1060 = getelementptr inbounds nuw i8, ptr %1059, i64 48
-  %1061 = lshr i32 %1054, 4
-  %1062 = zext nneg i32 %1061 to i64
-  %1063 = load ptr, ptr %1060, align 8, !tbaa !65
-  %1064 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1063, i64 %1062, i32 1
-  %1065 = load i8, ptr %1064, align 8, !tbaa !43
-  %1066 = icmp eq i8 %1065, 0
-  %1067 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01368.0.copyload = load i32, ptr %1067, align 4
-  br i1 %1066, label %1068, label %.thread3645
+1088:                                             ; preds = %1083
+  %1089 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1090 = load ptr, ptr %1089, align 8, !tbaa !64
+  %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 48
+  %1092 = lshr i32 %1085, 4
+  %1093 = zext nneg i32 %1092 to i64
+  %1094 = load ptr, ptr %1091, align 8, !tbaa !65
+  %1095 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1094, i64 %1093
+  %1096 = getelementptr inbounds nuw i8, ptr %1095, i64 8
+  %1097 = load i8, ptr %1096, align 8, !tbaa !43
+  %1098 = icmp eq i8 %1097, 0
+  %1099 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01368.0.copyload = load i32, ptr %1099, align 4
+  br i1 %1098, label %1100, label %.thread3645
 
-1068:                                             ; preds = %1057
-  %1069 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01368.0.copyload)
+1100:                                             ; preds = %1088
+  %1101 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01368.0.copyload)
   br label %.thread3639
 
-1070:                                             ; preds = %1052
-  %1071 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1072 = load i32, ptr %1071, align 4
-  %1073 = and i32 %1072, 15
-  %1074 = icmp eq i32 %1073, 2
-  br i1 %1074, label %1076, label %.thread
+1102:                                             ; preds = %1083
+  %1103 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1104 = load i32, ptr %1103, align 4
+  %1105 = and i32 %1104, 15
+  %1106 = icmp eq i32 %1105, 2
+  br i1 %1106, label %1108, label %.thread
 
-.thread3645:                                      ; preds = %1057
-  %1075 = and i32 %.sroa.01368.0.copyload, 15
-  switch i32 %1075, label %.thread3639 [
+.thread3645:                                      ; preds = %1088
+  %1107 = and i32 %.sroa.01368.0.copyload, 15
+  switch i32 %1107, label %.thread3639 [
     i32 2, label %.thread3689
-    i32 4, label %1109
+    i32 4, label %1144
   ]
 
-1076:                                             ; preds = %1070
+1108:                                             ; preds = %1102
   %.phi.trans.insert3665 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre3666 = load ptr, ptr %.phi.trans.insert3665, align 8, !tbaa !64
   %.phi.trans.insert3667 = getelementptr inbounds nuw i8, ptr %.pre3666, i64 48
   %.pre3668 = load ptr, ptr %.phi.trans.insert3667, align 8, !tbaa !65
-  %1077 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1078 = lshr i32 %1072, 4
-  %1079 = zext nneg i32 %1078 to i64
-  %1080 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %.pre3668, i64 %1079, i32 1
-  %1081 = load i8, ptr %1080, align 8, !tbaa !43
-  %1082 = icmp eq i8 %1081, 0
-  br i1 %1082, label %1088, label %1090
+  %1109 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1110 = lshr i32 %1104, 4
+  %1111 = zext nneg i32 %1110 to i64
+  %1112 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %.pre3668, i64 %1111
+  %1113 = getelementptr inbounds nuw i8, ptr %1112, i64 8
+  %1114 = load i8, ptr %1113, align 8, !tbaa !43
+  %1115 = icmp eq i8 %1114, 0
+  br i1 %1115, label %1122, label %1124
 
 .thread3689:                                      ; preds = %.thread3645
-  %1083 = lshr i32 %.sroa.01368.0.copyload, 4
-  %1084 = zext nneg i32 %1083 to i64
-  %1085 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1063, i64 %1084, i32 1
-  %1086 = load i8, ptr %1085, align 8, !tbaa !43
-  %1087 = icmp eq i8 %1086, 0
-  br i1 %1087, label %1088, label %.thread3639
+  %1116 = lshr i32 %.sroa.01368.0.copyload, 4
+  %1117 = zext nneg i32 %1116 to i64
+  %1118 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1094, i64 %1117
+  %1119 = getelementptr inbounds nuw i8, ptr %1118, i64 8
+  %1120 = load i8, ptr %1119, align 8, !tbaa !43
+  %1121 = icmp eq i8 %1120, 0
+  br i1 %1121, label %1122, label %.thread3639
 
-1088:                                             ; preds = %.thread3689, %1076
-  %1089 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1054)
+1122:                                             ; preds = %.thread3689, %1108
+  %1123 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1085)
   br label %.thread3639
 
-1090:                                             ; preds = %1076
-  %1091 = icmp eq i32 %1055, 4
-  br i1 %1091, label %1094, label %.thread3639
+1124:                                             ; preds = %1108
+  %1125 = icmp eq i32 %1086, 4
+  br i1 %1125, label %1128, label %.thread3639
 
-.thread:                                          ; preds = %1070
-  %1092 = icmp eq i32 %1055, 4
-  %1093 = icmp eq i32 %1073, 4
-  %or.cond3698 = and i1 %1092, %1093
-  br i1 %or.cond3698, label %1105, label %.thread3639
+.thread:                                          ; preds = %1102
+  %1126 = icmp eq i32 %1086, 4
+  %1127 = icmp eq i32 %1105, 4
+  %or.cond3698 = and i1 %1126, %1127
+  br i1 %or.cond3698, label %1140, label %.thread3639
 
-1094:                                             ; preds = %1090
-  %1095 = load ptr, ptr %0, align 8, !tbaa !63
-  %1096 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1054)
-  %.sroa.01362.0.copyload = load i32, ptr %1071, align 4, !tbaa !43
-  %1097 = load ptr, ptr %1077, align 8, !tbaa !64
-  %1098 = getelementptr inbounds nuw i8, ptr %1097, i64 48
-  %1099 = lshr i32 %.sroa.01362.0.copyload, 4
-  %1100 = zext nneg i32 %1099 to i64
-  %1101 = load ptr, ptr %1098, align 8, !tbaa !65
-  %1102 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1101, i64 %1100, i32 1
-  %1103 = load i8, ptr %1102, align 8, !tbaa !43
-  %1104 = zext i8 %1103 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1095, i8 %1096, i16 noundef zeroext %1104)
+1128:                                             ; preds = %1124
+  %1129 = load ptr, ptr %0, align 8, !tbaa !63
+  %1130 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1085)
+  %.sroa.01362.0.copyload = load i32, ptr %1103, align 4, !tbaa !43
+  %1131 = load ptr, ptr %1109, align 8, !tbaa !64
+  %1132 = getelementptr inbounds nuw i8, ptr %1131, i64 48
+  %1133 = lshr i32 %.sroa.01362.0.copyload, 4
+  %1134 = zext nneg i32 %1133 to i64
+  %1135 = load ptr, ptr %1132, align 8, !tbaa !65
+  %1136 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1135, i64 %1134
+  %1137 = getelementptr inbounds nuw i8, ptr %1136, i64 8
+  %1138 = load i8, ptr %1137, align 8, !tbaa !43
+  %1139 = zext i8 %1138 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1129, i8 %1130, i16 noundef zeroext %1139)
   br label %.thread3639
 
-1105:                                             ; preds = %.thread
-  %1106 = load ptr, ptr %0, align 8, !tbaa !63
-  %1107 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1054)
-  %.sroa.01358.0.copyload = load i32, ptr %1071, align 4, !tbaa !43
-  %1108 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01358.0.copyload)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1106, i8 %1107, i8 %1108)
+1140:                                             ; preds = %.thread
+  %1141 = load ptr, ptr %0, align 8, !tbaa !63
+  %1142 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1085)
+  %.sroa.01358.0.copyload = load i32, ptr %1103, align 4, !tbaa !43
+  %1143 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01358.0.copyload)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1141, i8 %1142, i8 %1143)
   br label %.thread3639
 
-1109:                                             ; preds = %.thread3645
-  %1110 = load ptr, ptr %0, align 8, !tbaa !63
-  %1111 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01368.0.copyload)
-  %.sroa.01355.0.copyload = load i32, ptr %1053, align 4, !tbaa !43
-  %1112 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1113 = load ptr, ptr %1112, align 8, !tbaa !64
-  %1114 = getelementptr inbounds nuw i8, ptr %1113, i64 48
-  %1115 = lshr i32 %.sroa.01355.0.copyload, 4
-  %1116 = zext nneg i32 %1115 to i64
-  %1117 = load ptr, ptr %1114, align 8, !tbaa !65
-  %1118 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1117, i64 %1116, i32 1
-  %1119 = load i8, ptr %1118, align 8, !tbaa !43
-  %1120 = zext i8 %1119 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1110, i8 %1111, i16 noundef zeroext %1120)
+1144:                                             ; preds = %.thread3645
+  %1145 = load ptr, ptr %0, align 8, !tbaa !63
+  %1146 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01368.0.copyload)
+  %.sroa.01355.0.copyload = load i32, ptr %1084, align 4, !tbaa !43
+  %1147 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1148 = load ptr, ptr %1147, align 8, !tbaa !64
+  %1149 = getelementptr inbounds nuw i8, ptr %1148, i64 48
+  %1150 = lshr i32 %.sroa.01355.0.copyload, 4
+  %1151 = zext nneg i32 %1150 to i64
+  %1152 = load ptr, ptr %1149, align 8, !tbaa !65
+  %1153 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1152, i64 %1151
+  %1154 = getelementptr inbounds nuw i8, ptr %1153, i64 8
+  %1155 = load i8, ptr %1154, align 8, !tbaa !43
+  %1156 = zext i8 %1155 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1145, i8 %1146, i16 noundef zeroext %1156)
   br label %.thread3639
 
-.thread3639:                                      ; preds = %.thread3645, %1090, %.thread, %.thread3689, %1088, %1105, %1109, %1094, %1068
-  %.sroa.03541.0 = phi i8 [ %1069, %1068 ], [ %1089, %1088 ], [ 0, %1094 ], [ 0, %1105 ], [ 0, %1109 ], [ 0, %.thread3689 ], [ 0, %.thread ], [ 0, %1090 ], [ 0, %.thread3645 ]
-  %1121 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.01354.0.copyload = load i32, ptr %1121, align 4, !tbaa !43
-  %1122 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1123 = load ptr, ptr %1122, align 8, !tbaa !64
-  %1124 = lshr i32 %.sroa.01354.0.copyload, 4
-  %1125 = zext nneg i32 %1124 to i64
-  %1126 = load ptr, ptr %1123, align 8, !tbaa !71
-  %1127 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1126, i64 %1125, i32 2
-  %1128 = load i32, ptr %1127, align 4, !tbaa !74
-  %1129 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %1130 = load i32, ptr %1129, align 4, !tbaa !74
-  %1131 = icmp eq i32 %1128, %1130
-  %.not3650 = icmp eq i8 %.sroa.03541.0, 0
-  %1132 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %1131, label %1133, label %1153
-
-1133:                                             ; preds = %.thread3639
-  %1134 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01350.0.copyload = load i32, ptr %1134, align 4, !tbaa !43
-  %1135 = lshr i32 %.sroa.01350.0.copyload, 4
-  %1136 = zext nneg i32 %1135 to i64
-  %1137 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1126, i64 %1136, i32 7
-  br i1 %.not3650, label %1139, label %1138
-
-1138:                                             ; preds = %1133
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1132, i8 %.sroa.03541.0, ptr noundef nonnull align 4 dereferenceable(8) %1137)
-  br label %1140
-
-1139:                                             ; preds = %1133
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1132, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %1137)
-  br label %1140
-
-1140:                                             ; preds = %1139, %1138
-  %.sroa.01349.0.copyload = load i32, ptr %1121, align 4, !tbaa !43
-  %1141 = load ptr, ptr %1122, align 8, !tbaa !64
-  %1142 = lshr i32 %.sroa.01349.0.copyload, 4
-  %1143 = zext nneg i32 %1142 to i64
-  %1144 = load ptr, ptr %1141, align 8, !tbaa !71
-  %1145 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1144, i64 %1143
-  %1146 = getelementptr inbounds nuw i8, ptr %1145, i64 4
-  %1147 = load i32, ptr %1146, align 4, !tbaa !74
-  %1148 = load i32, ptr %1129, align 4, !tbaa !74
-  %1149 = icmp eq i32 %1147, %1148
-  br i1 %1149, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1150
-
-1150:                                             ; preds = %1140
-  %1151 = load ptr, ptr %0, align 8, !tbaa !63
-  %1152 = getelementptr inbounds nuw i8, ptr %1145, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1151, ptr noundef nonnull align 4 dereferenceable(8) %1152)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1153:                                             ; preds = %.thread3639
-  %1154 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1126, i64 %1125, i32 7
-  br i1 %.not3650, label %1156, label %1155
-
-1155:                                             ; preds = %1153
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1132, i8 %.sroa.03541.0, ptr noundef nonnull align 4 dereferenceable(8) %1154)
-  br label %1157
-
-1156:                                             ; preds = %1153
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1132, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1154)
-  br label %1157
-
-1157:                                             ; preds = %1156, %1155
-  %1158 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01344.0.copyload = load i32, ptr %1158, align 4, !tbaa !43
-  %1159 = load ptr, ptr %1122, align 8, !tbaa !64
-  %1160 = lshr i32 %.sroa.01344.0.copyload, 4
+.thread3639:                                      ; preds = %.thread3645, %1124, %.thread, %.thread3689, %1122, %1140, %1144, %1128, %1100
+  %.sroa.03541.0 = phi i8 [ %1101, %1100 ], [ %1123, %1122 ], [ 0, %1128 ], [ 0, %1140 ], [ 0, %1144 ], [ 0, %.thread3689 ], [ 0, %.thread ], [ 0, %1124 ], [ 0, %.thread3645 ]
+  %1157 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.01354.0.copyload = load i32, ptr %1157, align 4, !tbaa !43
+  %1158 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1159 = load ptr, ptr %1158, align 8, !tbaa !64
+  %1160 = lshr i32 %.sroa.01354.0.copyload, 4
   %1161 = zext nneg i32 %1160 to i64
   %1162 = load ptr, ptr %1159, align 8, !tbaa !71
   %1163 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1162, i64 %1161
   %1164 = getelementptr inbounds nuw i8, ptr %1163, i64 4
   %1165 = load i32, ptr %1164, align 4, !tbaa !74
-  %1166 = load i32, ptr %1129, align 4, !tbaa !74
-  %1167 = icmp eq i32 %1165, %1166
-  br i1 %1167, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1168
-
-1168:                                             ; preds = %1157
+  %1166 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %1167 = load i32, ptr %1166, align 4, !tbaa !74
+  %1168 = icmp eq i32 %1165, %1167
+  %.not3650 = icmp eq i8 %.sroa.03541.0, 0
   %1169 = load ptr, ptr %0, align 8, !tbaa !63
-  %1170 = getelementptr inbounds nuw i8, ptr %1163, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1169, ptr noundef nonnull align 4 dereferenceable(8) %1170)
+  br i1 %1168, label %1170, label %1191
+
+1170:                                             ; preds = %.thread3639
+  %1171 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01350.0.copyload = load i32, ptr %1171, align 4, !tbaa !43
+  %1172 = lshr i32 %.sroa.01350.0.copyload, 4
+  %1173 = zext nneg i32 %1172 to i64
+  %1174 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1162, i64 %1173
+  %1175 = getelementptr inbounds nuw i8, ptr %1174, i64 24
+  br i1 %.not3650, label %1177, label %1176
+
+1176:                                             ; preds = %1170
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1169, i8 %.sroa.03541.0, ptr noundef nonnull align 4 dereferenceable(8) %1175)
+  br label %1178
+
+1177:                                             ; preds = %1170
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1169, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %1175)
+  br label %1178
+
+1178:                                             ; preds = %1177, %1176
+  %.sroa.01349.0.copyload = load i32, ptr %1157, align 4, !tbaa !43
+  %1179 = load ptr, ptr %1158, align 8, !tbaa !64
+  %1180 = lshr i32 %.sroa.01349.0.copyload, 4
+  %1181 = zext nneg i32 %1180 to i64
+  %1182 = load ptr, ptr %1179, align 8, !tbaa !71
+  %1183 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1182, i64 %1181
+  %1184 = getelementptr inbounds nuw i8, ptr %1183, i64 4
+  %1185 = load i32, ptr %1184, align 4, !tbaa !74
+  %1186 = load i32, ptr %1166, align 4, !tbaa !74
+  %1187 = icmp eq i32 %1185, %1186
+  br i1 %1187, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1188
+
+1188:                                             ; preds = %1178
+  %1189 = load ptr, ptr %0, align 8, !tbaa !63
+  %1190 = getelementptr inbounds nuw i8, ptr %1183, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1189, ptr noundef nonnull align 4 dereferenceable(8) %1190)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1171:                                             ; preds = %4
-  %1172 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01340.0.copyload = load i32, ptr %1172, align 4, !tbaa !43
-  %1173 = lshr i32 %.sroa.01340.0.copyload, 4
-  %1174 = trunc i32 %1173 to i8
-  switch i8 %1174, label %1217 [
-    i8 0, label %1175
-    i8 1, label %1196
+1191:                                             ; preds = %.thread3639
+  %1192 = getelementptr inbounds nuw i8, ptr %1163, i64 24
+  br i1 %.not3650, label %1194, label %1193
+
+1193:                                             ; preds = %1191
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1169, i8 %.sroa.03541.0, ptr noundef nonnull align 4 dereferenceable(8) %1192)
+  br label %1195
+
+1194:                                             ; preds = %1191
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1169, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1192)
+  br label %1195
+
+1195:                                             ; preds = %1194, %1193
+  %1196 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01344.0.copyload = load i32, ptr %1196, align 4, !tbaa !43
+  %1197 = load ptr, ptr %1158, align 8, !tbaa !64
+  %1198 = lshr i32 %.sroa.01344.0.copyload, 4
+  %1199 = zext nneg i32 %1198 to i64
+  %1200 = load ptr, ptr %1197, align 8, !tbaa !71
+  %1201 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1200, i64 %1199
+  %1202 = getelementptr inbounds nuw i8, ptr %1201, i64 4
+  %1203 = load i32, ptr %1202, align 4, !tbaa !74
+  %1204 = load i32, ptr %1166, align 4, !tbaa !74
+  %1205 = icmp eq i32 %1203, %1204
+  br i1 %1205, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1206
+
+1206:                                             ; preds = %1195
+  %1207 = load ptr, ptr %0, align 8, !tbaa !63
+  %1208 = getelementptr inbounds nuw i8, ptr %1201, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1207, ptr noundef nonnull align 4 dereferenceable(8) %1208)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+1209:                                             ; preds = %4
+  %1210 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01340.0.copyload = load i32, ptr %1210, align 4, !tbaa !43
+  %1211 = lshr i32 %.sroa.01340.0.copyload, 4
+  %1212 = trunc i32 %1211 to i8
+  switch i8 %1212, label %1259 [
+    i8 0, label %1213
+    i8 1, label %1236
   ]
 
-1175:                                             ; preds = %1171
-  %1176 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01339.0.copyload = load i32, ptr %1176, align 4, !tbaa !43
-  %1177 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1178 = load ptr, ptr %1177, align 8, !tbaa !64
-  %1179 = getelementptr inbounds nuw i8, ptr %1178, i64 48
-  %1180 = lshr i32 %.sroa.01339.0.copyload, 4
-  %1181 = zext nneg i32 %1180 to i64
-  %1182 = load ptr, ptr %1179, align 8, !tbaa !65
-  %1183 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1182, i64 %1181, i32 1
-  %1184 = load i32, ptr %1183, align 8, !tbaa !43
-  %1185 = icmp eq i32 %1184, 0
-  br i1 %1185, label %1186, label %1217
+1213:                                             ; preds = %1209
+  %1214 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01339.0.copyload = load i32, ptr %1214, align 4, !tbaa !43
+  %1215 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1216 = load ptr, ptr %1215, align 8, !tbaa !64
+  %1217 = getelementptr inbounds nuw i8, ptr %1216, i64 48
+  %1218 = lshr i32 %.sroa.01339.0.copyload, 4
+  %1219 = zext nneg i32 %1218 to i64
+  %1220 = load ptr, ptr %1217, align 8, !tbaa !65
+  %1221 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1220, i64 %1219
+  %1222 = getelementptr inbounds nuw i8, ptr %1221, i64 8
+  %1223 = load i32, ptr %1222, align 8, !tbaa !43
+  %1224 = icmp eq i32 %1223, 0
+  br i1 %1224, label %1225, label %1259
 
-1186:                                             ; preds = %1175
-  %1187 = load ptr, ptr %0, align 8, !tbaa !63
-  %1188 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01337.0.copyload = load i32, ptr %1188, align 4, !tbaa !43
-  %1189 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01337.0.copyload)
-  %1190 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.01336.0.copyload = load i32, ptr %1190, align 4, !tbaa !43
-  %1191 = load ptr, ptr %1177, align 8, !tbaa !64
-  %1192 = lshr i32 %.sroa.01336.0.copyload, 4
-  %1193 = zext nneg i32 %1192 to i64
-  %1194 = load ptr, ptr %1191, align 8, !tbaa !71
-  %1195 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1194, i64 %1193, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1187, i8 %1189, ptr noundef nonnull align 4 dereferenceable(8) %1195)
-  br label %1239
+1225:                                             ; preds = %1213
+  %1226 = load ptr, ptr %0, align 8, !tbaa !63
+  %1227 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01337.0.copyload = load i32, ptr %1227, align 4, !tbaa !43
+  %1228 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01337.0.copyload)
+  %1229 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.01336.0.copyload = load i32, ptr %1229, align 4, !tbaa !43
+  %1230 = load ptr, ptr %1215, align 8, !tbaa !64
+  %1231 = lshr i32 %.sroa.01336.0.copyload, 4
+  %1232 = zext nneg i32 %1231 to i64
+  %1233 = load ptr, ptr %1230, align 8, !tbaa !71
+  %1234 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1233, i64 %1232
+  %1235 = getelementptr inbounds nuw i8, ptr %1234, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1226, i8 %1228, ptr noundef nonnull align 4 dereferenceable(8) %1235)
+  br label %1283
 
-1196:                                             ; preds = %1171
-  %1197 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01335.0.copyload = load i32, ptr %1197, align 4, !tbaa !43
-  %1198 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1199 = load ptr, ptr %1198, align 8, !tbaa !64
-  %1200 = getelementptr inbounds nuw i8, ptr %1199, i64 48
-  %1201 = lshr i32 %.sroa.01335.0.copyload, 4
-  %1202 = zext nneg i32 %1201 to i64
-  %1203 = load ptr, ptr %1200, align 8, !tbaa !65
-  %1204 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1203, i64 %1202, i32 1
-  %1205 = load i32, ptr %1204, align 8, !tbaa !43
-  %1206 = icmp eq i32 %1205, 0
-  br i1 %1206, label %1207, label %1217
+1236:                                             ; preds = %1209
+  %1237 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01335.0.copyload = load i32, ptr %1237, align 4, !tbaa !43
+  %1238 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1239 = load ptr, ptr %1238, align 8, !tbaa !64
+  %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 48
+  %1241 = lshr i32 %.sroa.01335.0.copyload, 4
+  %1242 = zext nneg i32 %1241 to i64
+  %1243 = load ptr, ptr %1240, align 8, !tbaa !65
+  %1244 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1243, i64 %1242
+  %1245 = getelementptr inbounds nuw i8, ptr %1244, i64 8
+  %1246 = load i32, ptr %1245, align 8, !tbaa !43
+  %1247 = icmp eq i32 %1246, 0
+  br i1 %1247, label %1248, label %1259
 
-1207:                                             ; preds = %1196
-  %1208 = load ptr, ptr %0, align 8, !tbaa !63
-  %1209 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01333.0.copyload = load i32, ptr %1209, align 4, !tbaa !43
-  %1210 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01333.0.copyload)
-  %1211 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.01332.0.copyload = load i32, ptr %1211, align 4, !tbaa !43
-  %1212 = load ptr, ptr %1198, align 8, !tbaa !64
-  %1213 = lshr i32 %.sroa.01332.0.copyload, 4
-  %1214 = zext nneg i32 %1213 to i64
-  %1215 = load ptr, ptr %1212, align 8, !tbaa !71
-  %1216 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1215, i64 %1214, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1208, i8 %1210, ptr noundef nonnull align 4 dereferenceable(8) %1216)
-  br label %1239
+1248:                                             ; preds = %1236
+  %1249 = load ptr, ptr %0, align 8, !tbaa !63
+  %1250 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01333.0.copyload = load i32, ptr %1250, align 4, !tbaa !43
+  %1251 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01333.0.copyload)
+  %1252 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.01332.0.copyload = load i32, ptr %1252, align 4, !tbaa !43
+  %1253 = load ptr, ptr %1238, align 8, !tbaa !64
+  %1254 = lshr i32 %.sroa.01332.0.copyload, 4
+  %1255 = zext nneg i32 %1254 to i64
+  %1256 = load ptr, ptr %1253, align 8, !tbaa !71
+  %1257 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1256, i64 %1255
+  %1258 = getelementptr inbounds nuw i8, ptr %1257, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1249, i8 %1251, ptr noundef nonnull align 4 dereferenceable(8) %1258)
+  br label %1283
 
-1217:                                             ; preds = %1175, %1171, %1196
-  %1218 = load ptr, ptr %0, align 8, !tbaa !63
-  %1219 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01330.0.copyload = load i32, ptr %1219, align 4, !tbaa !43
-  %1220 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01330.0.copyload)
-  %1221 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01329.0.copyload = load i32, ptr %1221, align 4, !tbaa !43
-  %1222 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1223 = load ptr, ptr %1222, align 8, !tbaa !64
-  %1224 = getelementptr inbounds nuw i8, ptr %1223, i64 48
-  %1225 = lshr i32 %.sroa.01329.0.copyload, 4
-  %1226 = zext nneg i32 %1225 to i64
-  %1227 = load ptr, ptr %1224, align 8, !tbaa !65
-  %1228 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1227, i64 %1226, i32 1
-  %1229 = load i32, ptr %1228, align 8, !tbaa !43
-  %1230 = trunc i32 %1229 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1218, i8 %1220, i16 noundef zeroext %1230)
-  %1231 = load ptr, ptr %0, align 8, !tbaa !63
-  %1232 = tail call noundef i32 @_ZN4Luau7CodeGen3A6415getConditionIntENS0_11IrConditionE(i8 noundef zeroext %1174)
-  %1233 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.01328.0.copyload = load i32, ptr %1233, align 4, !tbaa !43
-  %1234 = load ptr, ptr %1222, align 8, !tbaa !64
-  %1235 = lshr i32 %.sroa.01328.0.copyload, 4
-  %1236 = zext nneg i32 %1235 to i64
-  %1237 = load ptr, ptr %1234, align 8, !tbaa !71
-  %1238 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1237, i64 %1236, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1231, i32 noundef %1232, ptr noundef nonnull align 4 dereferenceable(8) %1238)
-  br label %1239
+1259:                                             ; preds = %1213, %1209, %1236
+  %1260 = load ptr, ptr %0, align 8, !tbaa !63
+  %1261 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01330.0.copyload = load i32, ptr %1261, align 4, !tbaa !43
+  %1262 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01330.0.copyload)
+  %1263 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01329.0.copyload = load i32, ptr %1263, align 4, !tbaa !43
+  %1264 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1265 = load ptr, ptr %1264, align 8, !tbaa !64
+  %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 48
+  %1267 = lshr i32 %.sroa.01329.0.copyload, 4
+  %1268 = zext nneg i32 %1267 to i64
+  %1269 = load ptr, ptr %1266, align 8, !tbaa !65
+  %1270 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1269, i64 %1268
+  %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 8
+  %1272 = load i32, ptr %1271, align 8, !tbaa !43
+  %1273 = trunc i32 %1272 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1260, i8 %1262, i16 noundef zeroext %1273)
+  %1274 = load ptr, ptr %0, align 8, !tbaa !63
+  %1275 = tail call noundef i32 @_ZN4Luau7CodeGen3A6415getConditionIntENS0_11IrConditionE(i8 noundef zeroext %1212)
+  %1276 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.01328.0.copyload = load i32, ptr %1276, align 4, !tbaa !43
+  %1277 = load ptr, ptr %1264, align 8, !tbaa !64
+  %1278 = lshr i32 %.sroa.01328.0.copyload, 4
+  %1279 = zext nneg i32 %1278 to i64
+  %1280 = load ptr, ptr %1277, align 8, !tbaa !71
+  %1281 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1280, i64 %1279
+  %1282 = getelementptr inbounds nuw i8, ptr %1281, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1274, i32 noundef %1275, ptr noundef nonnull align 4 dereferenceable(8) %1282)
+  br label %1283
 
-1239:                                             ; preds = %1207, %1217, %1186
-  %1240 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.01327.0.copyload = load i32, ptr %1240, align 4, !tbaa !43
-  %1241 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1242 = load ptr, ptr %1241, align 8, !tbaa !64
-  %1243 = lshr i32 %.sroa.01327.0.copyload, 4
-  %1244 = zext nneg i32 %1243 to i64
-  %1245 = load ptr, ptr %1242, align 8, !tbaa !71
-  %1246 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1245, i64 %1244
-  %1247 = getelementptr inbounds nuw i8, ptr %1246, i64 4
-  %1248 = load i32, ptr %1247, align 4, !tbaa !74
-  %1249 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %1250 = load i32, ptr %1249, align 4, !tbaa !74
-  %1251 = icmp eq i32 %1248, %1250
-  br i1 %1251, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1252
+1283:                                             ; preds = %1248, %1259, %1225
+  %1284 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.01327.0.copyload = load i32, ptr %1284, align 4, !tbaa !43
+  %1285 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1286 = load ptr, ptr %1285, align 8, !tbaa !64
+  %1287 = lshr i32 %.sroa.01327.0.copyload, 4
+  %1288 = zext nneg i32 %1287 to i64
+  %1289 = load ptr, ptr %1286, align 8, !tbaa !71
+  %1290 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1289, i64 %1288
+  %1291 = getelementptr inbounds nuw i8, ptr %1290, i64 4
+  %1292 = load i32, ptr %1291, align 4, !tbaa !74
+  %1293 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %1294 = load i32, ptr %1293, align 4, !tbaa !74
+  %1295 = icmp eq i32 %1292, %1294
+  br i1 %1295, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1296
 
-1252:                                             ; preds = %1239
-  %1253 = load ptr, ptr %0, align 8, !tbaa !63
-  %1254 = getelementptr inbounds nuw i8, ptr %1246, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1253, ptr noundef nonnull align 4 dereferenceable(8) %1254)
+1296:                                             ; preds = %1283
+  %1297 = load ptr, ptr %0, align 8, !tbaa !63
+  %1298 = getelementptr inbounds nuw i8, ptr %1290, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1297, ptr noundef nonnull align 4 dereferenceable(8) %1298)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1255:                                             ; preds = %4
-  %1256 = load ptr, ptr %0, align 8, !tbaa !63
-  %1257 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01325.0.copyload = load i32, ptr %1257, align 4, !tbaa !43
-  %1258 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01325.0.copyload)
-  %1259 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01323.0.copyload = load i32, ptr %1259, align 4, !tbaa !43
-  %1260 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01323.0.copyload)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1256, i8 %1258, i8 %1260)
-  %1261 = load ptr, ptr %0, align 8, !tbaa !63
-  %1262 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01322.0.copyload = load i32, ptr %1262, align 4, !tbaa !43
-  %1263 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1264 = load ptr, ptr %1263, align 8, !tbaa !64
-  %1265 = lshr i32 %.sroa.01322.0.copyload, 4
-  %1266 = zext nneg i32 %1265 to i64
-  %1267 = load ptr, ptr %1264, align 8, !tbaa !71
-  %1268 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1267, i64 %1266, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1261, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %1268)
-  %1269 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.01321.0.copyload = load i32, ptr %1269, align 4, !tbaa !43
-  %1270 = load ptr, ptr %1263, align 8, !tbaa !64
-  %1271 = lshr i32 %.sroa.01321.0.copyload, 4
-  %1272 = zext nneg i32 %1271 to i64
-  %1273 = load ptr, ptr %1270, align 8, !tbaa !71
-  %1274 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1273, i64 %1272
-  %1275 = getelementptr inbounds nuw i8, ptr %1274, i64 4
-  %1276 = load i32, ptr %1275, align 4, !tbaa !74
-  %1277 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %1278 = load i32, ptr %1277, align 4, !tbaa !74
-  %1279 = icmp eq i32 %1276, %1278
-  br i1 %1279, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1280
+1299:                                             ; preds = %4
+  %1300 = load ptr, ptr %0, align 8, !tbaa !63
+  %1301 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01325.0.copyload = load i32, ptr %1301, align 4, !tbaa !43
+  %1302 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01325.0.copyload)
+  %1303 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01323.0.copyload = load i32, ptr %1303, align 4, !tbaa !43
+  %1304 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01323.0.copyload)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1300, i8 %1302, i8 %1304)
+  %1305 = load ptr, ptr %0, align 8, !tbaa !63
+  %1306 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01322.0.copyload = load i32, ptr %1306, align 4, !tbaa !43
+  %1307 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1308 = load ptr, ptr %1307, align 8, !tbaa !64
+  %1309 = lshr i32 %.sroa.01322.0.copyload, 4
+  %1310 = zext nneg i32 %1309 to i64
+  %1311 = load ptr, ptr %1308, align 8, !tbaa !71
+  %1312 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1311, i64 %1310
+  %1313 = getelementptr inbounds nuw i8, ptr %1312, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1305, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %1313)
+  %1314 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.01321.0.copyload = load i32, ptr %1314, align 4, !tbaa !43
+  %1315 = load ptr, ptr %1307, align 8, !tbaa !64
+  %1316 = lshr i32 %.sroa.01321.0.copyload, 4
+  %1317 = zext nneg i32 %1316 to i64
+  %1318 = load ptr, ptr %1315, align 8, !tbaa !71
+  %1319 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1318, i64 %1317
+  %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 4
+  %1321 = load i32, ptr %1320, align 4, !tbaa !74
+  %1322 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %1323 = load i32, ptr %1322, align 4, !tbaa !74
+  %1324 = icmp eq i32 %1321, %1323
+  br i1 %1324, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1325
 
-1280:                                             ; preds = %1255
-  %1281 = load ptr, ptr %0, align 8, !tbaa !63
-  %1282 = getelementptr inbounds nuw i8, ptr %1274, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1281, ptr noundef nonnull align 4 dereferenceable(8) %1282)
+1325:                                             ; preds = %1299
+  %1326 = load ptr, ptr %0, align 8, !tbaa !63
+  %1327 = getelementptr inbounds nuw i8, ptr %1319, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1326, ptr noundef nonnull align 4 dereferenceable(8) %1327)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1283:                                             ; preds = %4
-  %1284 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01319.0.copyload = load i32, ptr %1284, align 4, !tbaa !43
-  %1285 = lshr i32 %.sroa.01319.0.copyload, 4
-  %1286 = trunc i32 %1285 to i8
-  %1287 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1288 = load i32, ptr %1287, align 4
-  %1289 = and i32 %1288, 15
-  %1290 = icmp eq i32 %1289, 2
-  br i1 %1290, label %1291, label %1305
+1328:                                             ; preds = %4
+  %1329 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01319.0.copyload = load i32, ptr %1329, align 4, !tbaa !43
+  %1330 = lshr i32 %.sroa.01319.0.copyload, 4
+  %1331 = trunc i32 %1330 to i8
+  %1332 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1333 = load i32, ptr %1332, align 4
+  %1334 = and i32 %1333, 15
+  %1335 = icmp eq i32 %1334, 2
+  br i1 %1335, label %1336, label %1351
 
-1291:                                             ; preds = %1283
-  %1292 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1293 = load ptr, ptr %1292, align 8, !tbaa !64
-  %1294 = getelementptr inbounds nuw i8, ptr %1293, i64 48
-  %1295 = lshr i32 %1288, 4
-  %1296 = zext nneg i32 %1295 to i64
-  %1297 = load ptr, ptr %1294, align 8, !tbaa !65
-  %1298 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1297, i64 %1296, i32 1
-  %1299 = load double, ptr %1298, align 8, !tbaa !43
-  %1300 = fcmp oeq double %1299, 0.000000e+00
-  br i1 %1300, label %1301, label %1305
+1336:                                             ; preds = %1328
+  %1337 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1338 = load ptr, ptr %1337, align 8, !tbaa !64
+  %1339 = getelementptr inbounds nuw i8, ptr %1338, i64 48
+  %1340 = lshr i32 %1333, 4
+  %1341 = zext nneg i32 %1340 to i64
+  %1342 = load ptr, ptr %1339, align 8, !tbaa !65
+  %1343 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1342, i64 %1341
+  %1344 = getelementptr inbounds nuw i8, ptr %1343, i64 8
+  %1345 = load double, ptr %1344, align 8, !tbaa !43
+  %1346 = fcmp oeq double %1345, 0.000000e+00
+  br i1 %1346, label %1347, label %1351
 
-1301:                                             ; preds = %1291
-  %1302 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01316.0.copyload = load i32, ptr %1302, align 4, !tbaa !43
-  %1303 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01316.0.copyload)
-  %1304 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcmpzENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1304, i8 %1303)
-  br label %1310
+1347:                                             ; preds = %1336
+  %1348 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01316.0.copyload = load i32, ptr %1348, align 4, !tbaa !43
+  %1349 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01316.0.copyload)
+  %1350 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcmpzENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1350, i8 %1349)
+  br label %1356
 
-1305:                                             ; preds = %1291, %1283
-  %1306 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01313.0.copyload = load i32, ptr %1306, align 4, !tbaa !43
-  %1307 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01313.0.copyload)
-  %.sroa.01311.0.copyload = load i32, ptr %1287, align 4, !tbaa !43
-  %1308 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01311.0.copyload)
-  %1309 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1309, i8 %1307, i8 %1308)
-  br label %1310
+1351:                                             ; preds = %1336, %1328
+  %1352 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01313.0.copyload = load i32, ptr %1352, align 4, !tbaa !43
+  %1353 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01313.0.copyload)
+  %.sroa.01311.0.copyload = load i32, ptr %1332, align 4, !tbaa !43
+  %1354 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01311.0.copyload)
+  %1355 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1355, i8 %1353, i8 %1354)
+  br label %1356
 
-1310:                                             ; preds = %1305, %1301
-  %1311 = load ptr, ptr %0, align 8, !tbaa !63
-  %1312 = icmp ult i8 %1286, 10
-  br i1 %1312, label %switch.lookup, label %_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit
+1356:                                             ; preds = %1351, %1347
+  %1357 = load ptr, ptr %0, align 8, !tbaa !63
+  %1358 = icmp ult i8 %1331, 10
+  br i1 %1358, label %switch.lookup, label %_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit
 
-switch.lookup:                                    ; preds = %1310
-  %.mask = and i32 %1285, 15
-  %1313 = zext nneg i32 %.mask to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrInstEjRKNS0_7IrBlockE, i64 %1313
+switch.lookup:                                    ; preds = %1356
+  %.mask = and i32 %1330, 15
+  %1359 = zext nneg i32 %.mask to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrInstEjRKNS0_7IrBlockE, i64 %1359
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit
 
-_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit: ; preds = %1310, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 14, %1310 ]
-  %1314 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.01308.0.copyload = load i32, ptr %1314, align 4, !tbaa !43
-  %1315 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1316 = load ptr, ptr %1315, align 8, !tbaa !64
-  %1317 = lshr i32 %.sroa.01308.0.copyload, 4
-  %1318 = zext nneg i32 %1317 to i64
-  %1319 = load ptr, ptr %1316, align 8, !tbaa !71
-  %1320 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1319, i64 %1318, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1311, i32 noundef %.0.i, ptr noundef nonnull align 4 dereferenceable(8) %1320)
-  %1321 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.01307.0.copyload = load i32, ptr %1321, align 4, !tbaa !43
-  %1322 = load ptr, ptr %1315, align 8, !tbaa !64
-  %1323 = lshr i32 %.sroa.01307.0.copyload, 4
-  %1324 = zext nneg i32 %1323 to i64
-  %1325 = load ptr, ptr %1322, align 8, !tbaa !71
-  %1326 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1325, i64 %1324
-  %1327 = getelementptr inbounds nuw i8, ptr %1326, i64 4
-  %1328 = load i32, ptr %1327, align 4, !tbaa !74
-  %1329 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %1330 = load i32, ptr %1329, align 4, !tbaa !74
-  %1331 = icmp eq i32 %1328, %1330
-  br i1 %1331, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1332
-
-1332:                                             ; preds = %_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit
-  %1333 = load ptr, ptr %0, align 8, !tbaa !63
-  %1334 = getelementptr inbounds nuw i8, ptr %1326, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1333, ptr noundef nonnull align 4 dereferenceable(8) %1334)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1335:                                             ; preds = %4
-  %1336 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01304.0.copyload = load i32, ptr %1336, align 4, !tbaa !43
-  %1337 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01304.0.copyload)
-  %1338 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01301.0.copyload = load i32, ptr %1338, align 4, !tbaa !43
-  %1339 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01301.0.copyload)
-  %1340 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01299.0.copyload = load i32, ptr %1340, align 4, !tbaa !43
-  %1341 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01299.0.copyload)
-  call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  store i32 0, ptr %35, align 4, !tbaa !68
-  %1342 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i32 -1, ptr %1342, align 4, !tbaa !70
-  %1343 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcmpzENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1343, i8 %1341)
-  %1344 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1344, i32 noundef 12, ptr noundef nonnull align 4 dereferenceable(8) %35)
-  %1345 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1345, i8 %1339, i8 %1337)
-  %1346 = load ptr, ptr %0, align 8, !tbaa !63
-  %1347 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.01295.0.copyload = load i32, ptr %1347, align 4, !tbaa !43
-  %1348 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1349 = load ptr, ptr %1348, align 8, !tbaa !64
-  %1350 = lshr i32 %.sroa.01295.0.copyload, 4
-  %1351 = zext nneg i32 %1350 to i64
-  %1352 = load ptr, ptr %1349, align 8, !tbaa !71
-  %1353 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1352, i64 %1351, i32 7
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1346, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(8) %1353)
-  %1354 = load ptr, ptr %0, align 8, !tbaa !63
-  %1355 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.01294.0.copyload = load i32, ptr %1355, align 4, !tbaa !43
-  %1356 = load ptr, ptr %1348, align 8, !tbaa !64
-  %1357 = lshr i32 %.sroa.01294.0.copyload, 4
-  %1358 = zext nneg i32 %1357 to i64
-  %1359 = load ptr, ptr %1356, align 8, !tbaa !71
-  %1360 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1359, i64 %1358, i32 7
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1354, ptr noundef nonnull align 4 dereferenceable(8) %1360)
-  %1361 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1361, ptr noundef nonnull align 4 dereferenceable(8) %35)
-  %1362 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1362, i8 %1337, i8 %1339)
-  %1363 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01291.0.copyload = load i32, ptr %1347, align 4, !tbaa !43
-  %1364 = load ptr, ptr %1348, align 8, !tbaa !64
-  %1365 = lshr i32 %.sroa.01291.0.copyload, 4
-  %1366 = zext nneg i32 %1365 to i64
-  %1367 = load ptr, ptr %1364, align 8, !tbaa !71
-  %1368 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1367, i64 %1366, i32 7
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1363, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(8) %1368)
-  %.sroa.01290.0.copyload = load i32, ptr %1355, align 4, !tbaa !43
-  %1369 = load ptr, ptr %1348, align 8, !tbaa !64
-  %1370 = lshr i32 %.sroa.01290.0.copyload, 4
+_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit: ; preds = %1356, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 14, %1356 ]
+  %1360 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.01308.0.copyload = load i32, ptr %1360, align 4, !tbaa !43
+  %1361 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1362 = load ptr, ptr %1361, align 8, !tbaa !64
+  %1363 = lshr i32 %.sroa.01308.0.copyload, 4
+  %1364 = zext nneg i32 %1363 to i64
+  %1365 = load ptr, ptr %1362, align 8, !tbaa !71
+  %1366 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1365, i64 %1364
+  %1367 = getelementptr inbounds nuw i8, ptr %1366, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1357, i32 noundef %.0.i, ptr noundef nonnull align 4 dereferenceable(8) %1367)
+  %1368 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.01307.0.copyload = load i32, ptr %1368, align 4, !tbaa !43
+  %1369 = load ptr, ptr %1361, align 8, !tbaa !64
+  %1370 = lshr i32 %.sroa.01307.0.copyload, 4
   %1371 = zext nneg i32 %1370 to i64
   %1372 = load ptr, ptr %1369, align 8, !tbaa !71
   %1373 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1372, i64 %1371
@@ -2549,4118 +2526,4285 @@ _ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit: ; preds = %1310, %
   %1376 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %1377 = load i32, ptr %1376, align 4, !tbaa !74
   %1378 = icmp eq i32 %1375, %1377
-  br i1 %1378, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2978, label %1379
+  br i1 %1378, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %1379
 
-1379:                                             ; preds = %1335
+1379:                                             ; preds = %_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit
   %1380 = load ptr, ptr %0, align 8, !tbaa !63
   %1381 = getelementptr inbounds nuw i8, ptr %1373, i64 24
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1380, ptr noundef nonnull align 4 dereferenceable(8) %1381)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2978
-
-_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2978: ; preds = %1335, %1379
-  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1380, ptr noundef nonnull align 4 dereferenceable(8) %1381)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1382:                                             ; preds = %4
   %1383 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01288.0.copyload = load i32, ptr %1383, align 4, !tbaa !43
-  %1384 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01288.0.copyload)
-  %1385 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1386 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  store i8 %1384, ptr %36, align 1, !tbaa !43
-  %1387 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1385, ptr noundef nonnull align 8 dereferenceable(176) %1386, i32 noundef %2, ptr nonnull %36, i64 1)
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  %1388 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1388, i8 2, i8 %1384)
-  %1389 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1389, i8 10, i64 618491716097)
+  %.sroa.01304.0.copyload = load i32, ptr %1383, align 4, !tbaa !43
+  %1384 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01304.0.copyload)
+  %1385 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01301.0.copyload = load i32, ptr %1385, align 4, !tbaa !43
+  %1386 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01301.0.copyload)
+  %1387 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01299.0.copyload = load i32, ptr %1387, align 4, !tbaa !43
+  %1388 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01299.0.copyload)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  store i32 0, ptr %35, align 4, !tbaa !68
+  %1389 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store i32 -1, ptr %1389, align 4, !tbaa !70
   %1390 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1390, i8 10)
-  %1391 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1385, i8 1, i32 noundef %2)
-  %1392 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1391, ptr %1392, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcmpzENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1390, i8 %1388)
+  %1391 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1391, i32 noundef 12, ptr noundef nonnull align 4 dereferenceable(8) %35)
+  %1392 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1392, i8 %1386, i8 %1384)
+  %1393 = load ptr, ptr %0, align 8, !tbaa !63
+  %1394 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.01295.0.copyload = load i32, ptr %1394, align 4, !tbaa !43
+  %1395 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1396 = load ptr, ptr %1395, align 8, !tbaa !64
+  %1397 = lshr i32 %.sroa.01295.0.copyload, 4
+  %1398 = zext nneg i32 %1397 to i64
+  %1399 = load ptr, ptr %1396, align 8, !tbaa !71
+  %1400 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1399, i64 %1398
+  %1401 = getelementptr inbounds nuw i8, ptr %1400, i64 24
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1393, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(8) %1401)
+  %1402 = load ptr, ptr %0, align 8, !tbaa !63
+  %1403 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.01294.0.copyload = load i32, ptr %1403, align 4, !tbaa !43
+  %1404 = load ptr, ptr %1395, align 8, !tbaa !64
+  %1405 = lshr i32 %.sroa.01294.0.copyload, 4
+  %1406 = zext nneg i32 %1405 to i64
+  %1407 = load ptr, ptr %1404, align 8, !tbaa !71
+  %1408 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1407, i64 %1406
+  %1409 = getelementptr inbounds nuw i8, ptr %1408, i64 24
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1402, ptr noundef nonnull align 4 dereferenceable(8) %1409)
+  %1410 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1410, ptr noundef nonnull align 4 dereferenceable(8) %35)
+  %1411 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1411, i8 %1384, i8 %1386)
+  %1412 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01291.0.copyload = load i32, ptr %1394, align 4, !tbaa !43
+  %1413 = load ptr, ptr %1395, align 8, !tbaa !64
+  %1414 = lshr i32 %.sroa.01291.0.copyload, 4
+  %1415 = zext nneg i32 %1414 to i64
+  %1416 = load ptr, ptr %1413, align 8, !tbaa !71
+  %1417 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1416, i64 %1415
+  %1418 = getelementptr inbounds nuw i8, ptr %1417, i64 24
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1412, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(8) %1418)
+  %.sroa.01290.0.copyload = load i32, ptr %1403, align 4, !tbaa !43
+  %1419 = load ptr, ptr %1395, align 8, !tbaa !64
+  %1420 = lshr i32 %.sroa.01290.0.copyload, 4
+  %1421 = zext nneg i32 %1420 to i64
+  %1422 = load ptr, ptr %1419, align 8, !tbaa !71
+  %1423 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1422, i64 %1421
+  %1424 = getelementptr inbounds nuw i8, ptr %1423, i64 4
+  %1425 = load i32, ptr %1424, align 4, !tbaa !74
+  %1426 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %1427 = load i32, ptr %1426, align 4, !tbaa !74
+  %1428 = icmp eq i32 %1425, %1427
+  br i1 %1428, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2978, label %1429
+
+1429:                                             ; preds = %1382
+  %1430 = load ptr, ptr %0, align 8, !tbaa !63
+  %1431 = getelementptr inbounds nuw i8, ptr %1423, i64 24
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1430, ptr noundef nonnull align 4 dereferenceable(8) %1431)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2978
+
+_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2978: ; preds = %1382, %1429
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1393:                                             ; preds = %4
-  %1394 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1395 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1394, i8 noundef zeroext 1, i32 noundef %2)
-  %1396 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1395, ptr %1396, align 1, !tbaa !43
-  %1397 = load ptr, ptr %0, align 8, !tbaa !63
-  %1398 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01275.0.copyload = load i32, ptr %1398, align 4, !tbaa !43
-  %1399 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01275.0.copyload)
-  %.sroa.23532.0.insert.ext = zext i8 %1399 to i64
+1432:                                             ; preds = %4
+  %1433 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01288.0.copyload = load i32, ptr %1433, align 4, !tbaa !43
+  %1434 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01288.0.copyload)
+  %1435 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1436 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  store i8 %1434, ptr %36, align 1, !tbaa !43
+  %1437 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1435, ptr noundef nonnull align 8 dereferenceable(176) %1436, i32 noundef %2, ptr nonnull %36, i64 1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  %1438 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1438, i8 2, i8 %1434)
+  %1439 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1439, i8 10, i64 618491716097)
+  %1440 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1440, i8 10)
+  %1441 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1435, i8 1, i32 noundef %2)
+  %1442 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1441, ptr %1442, align 1, !tbaa !43
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+1443:                                             ; preds = %4
+  %1444 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1445 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1444, i8 noundef zeroext 1, i32 noundef %2)
+  %1446 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1445, ptr %1446, align 1, !tbaa !43
+  %1447 = load ptr, ptr %0, align 8, !tbaa !63
+  %1448 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01275.0.copyload = load i32, ptr %1448, align 4, !tbaa !43
+  %1449 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01275.0.copyload)
+  %.sroa.23532.0.insert.ext = zext i8 %1449 to i64
   %.sroa.23532.0.insert.shift = shl nuw nsw i64 %.sroa.23532.0.insert.ext, 8
   %.sroa.03531.0.insert.insert = or disjoint i64 %.sroa.23532.0.insert.shift, 85915729921
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1397, i8 %1395, i64 %.sroa.03531.0.insert.insert)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1447, i8 %1445, i64 %.sroa.03531.0.insert.insert)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1400:                                             ; preds = %4
-  %1401 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01272.0.copyload = load i32, ptr %1401, align 4, !tbaa !43
-  %1402 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01272.0.copyload)
-  %1403 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01269.0.copyload = load i32, ptr %1403, align 4, !tbaa !43
-  %1404 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01269.0.copyload)
-  %1405 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1406 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1405, i8 noundef zeroext 1)
-  %1407 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  store i8 %1402, ptr %37, align 1, !tbaa !43
-  %1408 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  store i8 %1404, ptr %1408, align 1, !tbaa !43
-  %1409 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1405, ptr noundef nonnull align 8 dereferenceable(176) %1407, i32 noundef %2, ptr nonnull %37, i64 2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  %.not3648 = icmp eq i8 %1404, 9
-  %1410 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %.not3648, label %1411, label %1413
-
-1411:                                             ; preds = %1400
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1410, i8 %1406, i8 9)
-  %1412 = load ptr, ptr %0, align 8, !tbaa !63
-  br label %1413
-
-1413:                                             ; preds = %1400, %1411
-  %.sink = phi ptr [ %1412, %1411 ], [ %1410, %1400 ]
-  %.sink3699 = phi i8 [ %1406, %1411 ], [ %1404, %1400 ]
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %.sink, i8 10, i8 %1402)
-  %1414 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1414, i8 17, i8 %.sink3699)
-  %1415 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1415, i8 2, i8 -102)
-  %1416 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1416, i8 26, i64 755930669569)
-  %1417 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1417, i8 26)
-  %1418 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1405, i8 2, i32 noundef %2)
-  %1419 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1418, ptr %1419, align 1, !tbaa !43
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1420:                                             ; preds = %4
-  %1421 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1422 = load ptr, ptr %0, align 8, !tbaa !63
-  %1423 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1421, ptr noundef nonnull align 8 dereferenceable(176) %1422, i32 noundef %2, ptr null, i64 0)
-  %1424 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1424, i8 2, i8 -102)
-  %1425 = load ptr, ptr %0, align 8, !tbaa !63
-  %1426 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01243.0.copyload = load i32, ptr %1426, align 4, !tbaa !43
-  %1427 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1428 = load ptr, ptr %1427, align 8, !tbaa !64
-  %1429 = getelementptr inbounds nuw i8, ptr %1428, i64 48
-  %1430 = lshr i32 %.sroa.01243.0.copyload, 4
-  %1431 = zext nneg i32 %1430 to i64
-  %1432 = load ptr, ptr %1429, align 8, !tbaa !65
-  %1433 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1432, i64 %1431, i32 1
-  %1434 = load i32, ptr %1433, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1425, i8 10, i32 noundef %1434)
-  %1435 = load ptr, ptr %0, align 8, !tbaa !63
-  %1436 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01241.0.copyload = load i32, ptr %1436, align 4, !tbaa !43
-  %1437 = load ptr, ptr %1427, align 8, !tbaa !64
-  %1438 = getelementptr inbounds nuw i8, ptr %1437, i64 48
-  %1439 = lshr i32 %.sroa.01241.0.copyload, 4
-  %1440 = zext nneg i32 %1439 to i64
-  %1441 = load ptr, ptr %1438, align 8, !tbaa !65
-  %1442 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1441, i64 %1440, i32 1
-  %1443 = load i32, ptr %1442, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1435, i8 18, i32 noundef %1443)
-  %1444 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1444, i8 26, i64 652851454465)
-  %1445 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1445, i8 26)
-  %1446 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1421, i8 2, i32 noundef %2)
-  %1447 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1446, ptr %1447, align 1, !tbaa !43
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1448:                                             ; preds = %4
-  %1449 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01234.0.copyload = load i32, ptr %1449, align 4, !tbaa !43
-  %1450 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01234.0.copyload)
-  %1451 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1452 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  store i8 %1450, ptr %38, align 1, !tbaa !43
-  %1453 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1451, ptr noundef nonnull align 8 dereferenceable(176) %1452, i32 noundef %2, ptr nonnull %38, i64 1)
-  call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  %1454 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1454, i8 10, i8 %1450)
-  %1455 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1455, i8 2, i8 -102)
-  %1456 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1456, i8 18, i64 687211192833)
+1450:                                             ; preds = %4
+  %1451 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01272.0.copyload = load i32, ptr %1451, align 4, !tbaa !43
+  %1452 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01272.0.copyload)
+  %1453 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01269.0.copyload = load i32, ptr %1453, align 4, !tbaa !43
+  %1454 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01269.0.copyload)
+  %1455 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1456 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1455, i8 noundef zeroext 1)
   %1457 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1457, i8 18)
-  %1458 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1451, i8 2, i32 noundef %2)
-  %1459 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1458, ptr %1459, align 1, !tbaa !43
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  store i8 %1452, ptr %37, align 1, !tbaa !43
+  %1458 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  store i8 %1454, ptr %1458, align 1, !tbaa !43
+  %1459 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1455, ptr noundef nonnull align 8 dereferenceable(176) %1457, i32 noundef %2, ptr nonnull %37, i64 2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  %.not3648 = icmp eq i8 %1454, 9
+  %1460 = load ptr, ptr %0, align 8, !tbaa !63
+  br i1 %.not3648, label %1461, label %1463
 
-1460:                                             ; preds = %4
-  %1461 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1462 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1461, i8 noundef zeroext 1, i32 noundef %2)
-  %1463 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1462, ptr %1463, align 1, !tbaa !43
-  %1464 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01218.0.copyload = load i32, ptr %1464, align 4, !tbaa !43
-  %1465 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01218.0.copyload)
+1461:                                             ; preds = %1450
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1460, i8 %1456, i8 9)
+  %1462 = load ptr, ptr %0, align 8, !tbaa !63
+  br label %1463
+
+1463:                                             ; preds = %1450, %1461
+  %.sink = phi ptr [ %1462, %1461 ], [ %1460, %1450 ]
+  %.sink3699 = phi i8 [ %1456, %1461 ], [ %1454, %1450 ]
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %.sink, i8 10, i8 %1452)
+  %1464 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1464, i8 17, i8 %.sink3699)
+  %1465 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1465, i8 2, i8 -102)
   %1466 = load ptr, ptr %0, align 8, !tbaa !63
-  %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 84
-  %1468 = load i32, ptr %1467, align 4, !tbaa !77
-  %1469 = and i32 %1468, 1
-  %.not2962 = icmp eq i32 %1469, 0
-  br i1 %.not2962, label %1479, label %1470
-
-1470:                                             ; preds = %1460
-  %.sroa.01217.0.copyload = load i8, ptr %1463, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647fjcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1466, i8 %.sroa.01217.0.copyload, i8 %1465)
-  %1471 = load ptr, ptr %0, align 8, !tbaa !63
-  %1472 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01215.0.copyload = load i32, ptr %1472, align 4, !tbaa !43
-  %1473 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1474 = load ptr, ptr %1473, align 8, !tbaa !64
-  %1475 = lshr i32 %.sroa.01215.0.copyload, 4
-  %1476 = zext nneg i32 %1475 to i64
-  %1477 = load ptr, ptr %1474, align 8, !tbaa !71
-  %1478 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1477, i64 %1476, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1471, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1478)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1466, i8 26, i64 755930669569)
+  %1467 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1467, i8 26)
+  %1468 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1455, i8 2, i32 noundef %2)
+  %1469 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1468, ptr %1469, align 1, !tbaa !43
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1479:                                             ; preds = %1460
-  %1480 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1461, i8 noundef zeroext 4)
-  %1481 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01212.0.copyload = load i8, ptr %1463, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646fcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1481, i8 %.sroa.01212.0.copyload, i8 %1465)
-  %1482 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01209.0.copyload = load i8, ptr %1463, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645scvtfENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1482, i8 %1480, i8 %.sroa.01209.0.copyload)
-  %1483 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1483, i8 %1465, i8 %1480)
-  %1484 = load ptr, ptr %0, align 8, !tbaa !63
-  %1485 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01206.0.copyload = load i32, ptr %1485, align 4, !tbaa !43
-  %1486 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1487 = load ptr, ptr %1486, align 8, !tbaa !64
-  %1488 = lshr i32 %.sroa.01206.0.copyload, 4
-  %1489 = zext nneg i32 %1488 to i64
-  %1490 = load ptr, ptr %1487, align 8, !tbaa !71
-  %1491 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1490, i64 %1489, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1484, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1491)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1492:                                             ; preds = %4
-  %1493 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1494 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1493, i8 noundef zeroext 2)
-  %1495 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1493, i8 noundef zeroext 1)
+1470:                                             ; preds = %4
+  %1471 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1472 = load ptr, ptr %0, align 8, !tbaa !63
+  %1473 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1471, ptr noundef nonnull align 8 dereferenceable(176) %1472, i32 noundef %2, ptr null, i64 0)
+  %1474 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1474, i8 2, i8 -102)
+  %1475 = load ptr, ptr %0, align 8, !tbaa !63
+  %1476 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01243.0.copyload = load i32, ptr %1476, align 4, !tbaa !43
+  %1477 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1478 = load ptr, ptr %1477, align 8, !tbaa !64
+  %1479 = getelementptr inbounds nuw i8, ptr %1478, i64 48
+  %1480 = lshr i32 %.sroa.01243.0.copyload, 4
+  %1481 = zext nneg i32 %1480 to i64
+  %1482 = load ptr, ptr %1479, align 8, !tbaa !65
+  %1483 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1482, i64 %1481
+  %1484 = getelementptr inbounds nuw i8, ptr %1483, i64 8
+  %1485 = load i32, ptr %1484, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1475, i8 10, i32 noundef %1485)
+  %1486 = load ptr, ptr %0, align 8, !tbaa !63
+  %1487 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01241.0.copyload = load i32, ptr %1487, align 4, !tbaa !43
+  %1488 = load ptr, ptr %1477, align 8, !tbaa !64
+  %1489 = getelementptr inbounds nuw i8, ptr %1488, i64 48
+  %1490 = lshr i32 %.sroa.01241.0.copyload, 4
+  %1491 = zext nneg i32 %1490 to i64
+  %1492 = load ptr, ptr %1489, align 8, !tbaa !65
+  %1493 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1492, i64 %1491
+  %1494 = getelementptr inbounds nuw i8, ptr %1493, i64 8
+  %1495 = load i32, ptr %1494, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1486, i8 18, i32 noundef %1495)
   %1496 = load ptr, ptr %0, align 8, !tbaa !63
-  %1497 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01197.0.copyload = load i32, ptr %1497, align 4, !tbaa !43
-  %1498 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01197.0.copyload)
-  %.sroa.23510.0.insert.ext = zext i8 %1498 to i64
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1496, i8 26, i64 652851454465)
+  %1497 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1497, i8 26)
+  %1498 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1471, i8 2, i32 noundef %2)
+  %1499 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1498, ptr %1499, align 1, !tbaa !43
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+1500:                                             ; preds = %4
+  %1501 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01234.0.copyload = load i32, ptr %1501, align 4, !tbaa !43
+  %1502 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01234.0.copyload)
+  %1503 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1504 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  store i8 %1502, ptr %38, align 1, !tbaa !43
+  %1505 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1503, ptr noundef nonnull align 8 dereferenceable(176) %1504, i32 noundef %2, ptr nonnull %38, i64 1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  %1506 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1506, i8 10, i8 %1502)
+  %1507 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1507, i8 2, i8 -102)
+  %1508 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1508, i8 18, i64 687211192833)
+  %1509 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1509, i8 18)
+  %1510 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1503, i8 2, i32 noundef %2)
+  %1511 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1510, ptr %1511, align 1, !tbaa !43
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+1512:                                             ; preds = %4
+  %1513 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1514 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1513, i8 noundef zeroext 1, i32 noundef %2)
+  %1515 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1514, ptr %1515, align 1, !tbaa !43
+  %1516 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01218.0.copyload = load i32, ptr %1516, align 4, !tbaa !43
+  %1517 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01218.0.copyload)
+  %1518 = load ptr, ptr %0, align 8, !tbaa !63
+  %1519 = getelementptr inbounds nuw i8, ptr %1518, i64 84
+  %1520 = load i32, ptr %1519, align 4, !tbaa !77
+  %1521 = and i32 %1520, 1
+  %.not2962 = icmp eq i32 %1521, 0
+  br i1 %.not2962, label %1532, label %1522
+
+1522:                                             ; preds = %1512
+  %.sroa.01217.0.copyload = load i8, ptr %1515, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647fjcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1518, i8 %.sroa.01217.0.copyload, i8 %1517)
+  %1523 = load ptr, ptr %0, align 8, !tbaa !63
+  %1524 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01215.0.copyload = load i32, ptr %1524, align 4, !tbaa !43
+  %1525 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1526 = load ptr, ptr %1525, align 8, !tbaa !64
+  %1527 = lshr i32 %.sroa.01215.0.copyload, 4
+  %1528 = zext nneg i32 %1527 to i64
+  %1529 = load ptr, ptr %1526, align 8, !tbaa !71
+  %1530 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1529, i64 %1528
+  %1531 = getelementptr inbounds nuw i8, ptr %1530, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1523, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1531)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+1532:                                             ; preds = %1512
+  %1533 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1513, i8 noundef zeroext 4)
+  %1534 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01212.0.copyload = load i8, ptr %1515, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646fcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1534, i8 %.sroa.01212.0.copyload, i8 %1517)
+  %1535 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01209.0.copyload = load i8, ptr %1515, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645scvtfENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1535, i8 %1533, i8 %.sroa.01209.0.copyload)
+  %1536 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1536, i8 %1517, i8 %1533)
+  %1537 = load ptr, ptr %0, align 8, !tbaa !63
+  %1538 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01206.0.copyload = load i32, ptr %1538, align 4, !tbaa !43
+  %1539 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1540 = load ptr, ptr %1539, align 8, !tbaa !64
+  %1541 = lshr i32 %.sroa.01206.0.copyload, 4
+  %1542 = zext nneg i32 %1541 to i64
+  %1543 = load ptr, ptr %1540, align 8, !tbaa !71
+  %1544 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1543, i64 %1542
+  %1545 = getelementptr inbounds nuw i8, ptr %1544, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1537, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1545)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+1546:                                             ; preds = %4
+  %1547 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1548 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1547, i8 noundef zeroext 2)
+  %1549 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1547, i8 noundef zeroext 1)
+  %1550 = load ptr, ptr %0, align 8, !tbaa !63
+  %1551 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01197.0.copyload = load i32, ptr %1551, align 4, !tbaa !43
+  %1552 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01197.0.copyload)
+  %.sroa.23510.0.insert.ext = zext i8 %1552 to i64
   %.sroa.23510.0.insert.shift = shl nuw nsw i64 %.sroa.23510.0.insert.ext, 8
   %.sroa.03509.0.insert.insert = or disjoint i64 %.sroa.23510.0.insert.shift, 68735860737
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1496, i8 %1494, i64 %.sroa.03509.0.insert.insert)
-  %1499 = load ptr, ptr %0, align 8, !tbaa !63
-  %1500 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01195.0.copyload = load i32, ptr %1500, align 4, !tbaa !43
-  %1501 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1502 = load ptr, ptr %1501, align 8, !tbaa !64
-  %1503 = lshr i32 %.sroa.01195.0.copyload, 4
-  %1504 = zext nneg i32 %1503 to i64
-  %1505 = load ptr, ptr %1502, align 8, !tbaa !71
-  %1506 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1505, i64 %1504, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1499, i8 %1494, ptr noundef nonnull align 4 dereferenceable(8) %1506)
-  %1507 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.23505.0.insert.ext = zext i8 %1494 to i64
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1550, i8 %1548, i64 %.sroa.03509.0.insert.insert)
+  %1553 = load ptr, ptr %0, align 8, !tbaa !63
+  %1554 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01195.0.copyload = load i32, ptr %1554, align 4, !tbaa !43
+  %1555 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1556 = load ptr, ptr %1555, align 8, !tbaa !64
+  %1557 = lshr i32 %.sroa.01195.0.copyload, 4
+  %1558 = zext nneg i32 %1557 to i64
+  %1559 = load ptr, ptr %1556, align 8, !tbaa !71
+  %1560 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1559, i64 %1558
+  %1561 = getelementptr inbounds nuw i8, ptr %1560, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1553, i8 %1548, ptr noundef nonnull align 4 dereferenceable(8) %1561)
+  %1562 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.23505.0.insert.ext = zext i8 %1548 to i64
   %.sroa.23505.0.insert.shift = shl nuw nsw i64 %.sroa.23505.0.insert.ext, 8
   %.sroa.03504.0.insert.insert = or disjoint i64 %.sroa.23505.0.insert.shift, 12901285889
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1507, i8 %1495, i64 %.sroa.03504.0.insert.insert)
-  %1508 = load ptr, ptr %0, align 8, !tbaa !63
-  %1509 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01191.0.copyload = load i32, ptr %1509, align 4, !tbaa !43
-  %1510 = load ptr, ptr %1501, align 8, !tbaa !64
-  %1511 = getelementptr inbounds nuw i8, ptr %1510, i64 48
-  %1512 = lshr i32 %.sroa.01191.0.copyload, 4
-  %1513 = zext nneg i32 %1512 to i64
-  %1514 = load ptr, ptr %1511, align 8, !tbaa !65
-  %1515 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1514, i64 %1513, i32 1
-  %1516 = load i32, ptr %1515, align 8, !tbaa !43
-  %1517 = shl nuw i32 1, %1516
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643tstENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(176) %1508, i8 %1495, i32 noundef %1517)
-  %1518 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01190.0.copyload = load i32, ptr %1500, align 4, !tbaa !43
-  %1519 = load ptr, ptr %1501, align 8, !tbaa !64
-  %1520 = lshr i32 %.sroa.01190.0.copyload, 4
-  %1521 = zext nneg i32 %1520 to i64
-  %1522 = load ptr, ptr %1519, align 8, !tbaa !71
-  %1523 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1522, i64 %1521, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1518, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1523)
-  %1524 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1562, i8 %1549, i64 %.sroa.03504.0.insert.insert)
+  %1563 = load ptr, ptr %0, align 8, !tbaa !63
+  %1564 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01191.0.copyload = load i32, ptr %1564, align 4, !tbaa !43
+  %1565 = load ptr, ptr %1555, align 8, !tbaa !64
+  %1566 = getelementptr inbounds nuw i8, ptr %1565, i64 48
+  %1567 = lshr i32 %.sroa.01191.0.copyload, 4
+  %1568 = zext nneg i32 %1567 to i64
+  %1569 = load ptr, ptr %1566, align 8, !tbaa !65
+  %1570 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1569, i64 %1568
+  %1571 = getelementptr inbounds nuw i8, ptr %1570, i64 8
+  %1572 = load i32, ptr %1571, align 8, !tbaa !43
+  %1573 = shl nuw i32 1, %1572
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643tstENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(176) %1563, i8 %1549, i32 noundef %1573)
+  %1574 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01190.0.copyload = load i32, ptr %1554, align 4, !tbaa !43
+  %1575 = load ptr, ptr %1555, align 8, !tbaa !64
+  %1576 = lshr i32 %.sroa.01190.0.copyload, 4
+  %1577 = zext nneg i32 %1576 to i64
+  %1578 = load ptr, ptr %1575, align 8, !tbaa !71
+  %1579 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1578, i64 %1577
+  %1580 = getelementptr inbounds nuw i8, ptr %1579, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1574, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1580)
+  %1581 = load ptr, ptr %0, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  store i8 %1494, ptr %39, align 1, !tbaa !43
-  %1525 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1493, ptr noundef nonnull align 8 dereferenceable(176) %1524, i32 noundef %2, ptr nonnull %39, i64 1)
+  store i8 %1548, ptr %39, align 1, !tbaa !43
+  %1582 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1547, ptr noundef nonnull align 8 dereferenceable(176) %1581, i32 noundef %2, ptr nonnull %39, i64 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  %1526 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1526, i8 2, i8 %1494)
-  %1527 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01184.0.copyload = load i32, ptr %1509, align 4, !tbaa !43
-  %1528 = load ptr, ptr %1501, align 8, !tbaa !64
-  %1529 = getelementptr inbounds nuw i8, ptr %1528, i64 48
-  %1530 = lshr i32 %.sroa.01184.0.copyload, 4
-  %1531 = zext nneg i32 %1530 to i64
-  %1532 = load ptr, ptr %1529, align 8, !tbaa !65
-  %1533 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1532, i64 %1531, i32 1
-  %1534 = load i32, ptr %1533, align 8, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1527, i8 9, i32 noundef %1534)
-  %1535 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01181.0.copyload = load i32, ptr %1509, align 4, !tbaa !43
-  %1536 = load ptr, ptr %1501, align 8, !tbaa !64
-  %1537 = getelementptr inbounds nuw i8, ptr %1536, i64 48
-  %1538 = lshr i32 %.sroa.01181.0.copyload, 4
-  %1539 = zext nneg i32 %1538 to i64
-  %1540 = load ptr, ptr %1537, align 8, !tbaa !65
-  %1541 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1540, i64 %1539, i32 1
-  %1542 = load i32, ptr %1541, align 8, !tbaa !43
-  %1543 = shl i32 %1542, 3
-  %1544 = add i32 %1543, 3032
-  %.sroa.43503.0.insert.ext = zext i32 %1544 to i64
+  %1583 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1583, i8 2, i8 %1548)
+  %1584 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01184.0.copyload = load i32, ptr %1564, align 4, !tbaa !43
+  %1585 = load ptr, ptr %1555, align 8, !tbaa !64
+  %1586 = getelementptr inbounds nuw i8, ptr %1585, i64 48
+  %1587 = lshr i32 %.sroa.01184.0.copyload, 4
+  %1588 = zext nneg i32 %1587 to i64
+  %1589 = load ptr, ptr %1586, align 8, !tbaa !65
+  %1590 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1589, i64 %1588
+  %1591 = getelementptr inbounds nuw i8, ptr %1590, i64 8
+  %1592 = load i32, ptr %1591, align 8, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1584, i8 9, i32 noundef %1592)
+  %1593 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01181.0.copyload = load i32, ptr %1564, align 4, !tbaa !43
+  %1594 = load ptr, ptr %1555, align 8, !tbaa !64
+  %1595 = getelementptr inbounds nuw i8, ptr %1594, i64 48
+  %1596 = lshr i32 %.sroa.01181.0.copyload, 4
+  %1597 = zext nneg i32 %1596 to i64
+  %1598 = load ptr, ptr %1595, align 8, !tbaa !65
+  %1599 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1598, i64 %1597
+  %1600 = getelementptr inbounds nuw i8, ptr %1599, i64 8
+  %1601 = load i32, ptr %1600, align 8, !tbaa !43
+  %1602 = shl i32 %1601, 3
+  %1603 = add i32 %1602, 3032
+  %.sroa.43503.0.insert.ext = zext i32 %1603 to i64
   %.sroa.43503.0.insert.shift = shl nuw i64 %.sroa.43503.0.insert.ext, 32
   %.sroa.03499.0.insert.insert = or disjoint i64 %.sroa.43503.0.insert.shift, 16427521
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1535, i8 18, i64 %.sroa.03499.0.insert.insert)
-  %1545 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1545, i8 26, i64 1030808576513)
-  %1546 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1546, i8 26)
-  %1547 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01176.0.copyload = load i32, ptr %1500, align 4, !tbaa !43
-  %1548 = load ptr, ptr %1501, align 8, !tbaa !64
-  %1549 = lshr i32 %.sroa.01176.0.copyload, 4
-  %1550 = zext nneg i32 %1549 to i64
-  %1551 = load ptr, ptr %1548, align 8, !tbaa !71
-  %1552 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1551, i64 %1550, i32 7
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1547, i8 2, ptr noundef nonnull align 4 dereferenceable(8) %1552)
-  %1553 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1493, i8 2, i32 noundef %2)
-  %1554 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1553, ptr %1554, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1593, i8 18, i64 %.sroa.03499.0.insert.insert)
+  %1604 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1604, i8 26, i64 1030808576513)
+  %1605 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1605, i8 26)
+  %1606 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01176.0.copyload = load i32, ptr %1554, align 4, !tbaa !43
+  %1607 = load ptr, ptr %1555, align 8, !tbaa !64
+  %1608 = lshr i32 %.sroa.01176.0.copyload, 4
+  %1609 = zext nneg i32 %1608 to i64
+  %1610 = load ptr, ptr %1607, align 8, !tbaa !71
+  %1611 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1610, i64 %1609
+  %1612 = getelementptr inbounds nuw i8, ptr %1611, i64 24
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1606, i8 2, ptr noundef nonnull align 4 dereferenceable(8) %1612)
+  %1613 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1547, i8 2, i32 noundef %2)
+  %1614 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1613, ptr %1614, align 1, !tbaa !43
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1555:                                             ; preds = %4
-  %1556 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1557 = load ptr, ptr %0, align 8, !tbaa !63
-  %1558 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1556, ptr noundef nonnull align 8 dereferenceable(176) %1557, i32 noundef %2, ptr null, i64 0)
-  %1559 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1559, i8 2, i8 -102)
-  %1560 = load ptr, ptr %0, align 8, !tbaa !63
-  %1561 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01170.0.copyload = load i32, ptr %1561, align 4, !tbaa !43
-  %1562 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1563 = load ptr, ptr %1562, align 8, !tbaa !64
-  %1564 = getelementptr inbounds nuw i8, ptr %1563, i64 48
-  %1565 = lshr i32 %.sroa.01170.0.copyload, 4
-  %1566 = zext nneg i32 %1565 to i64
-  %1567 = load ptr, ptr %1564, align 8, !tbaa !65
-  %1568 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1567, i64 %1566, i32 1
-  %1569 = load i32, ptr %1568, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1560, i8 10, i32 noundef %1569)
-  %1570 = load ptr, ptr %0, align 8, !tbaa !63
-  %1571 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01168.0.copyload = load i32, ptr %1571, align 4, !tbaa !43
-  %1572 = load ptr, ptr %1562, align 8, !tbaa !64
-  %1573 = getelementptr inbounds nuw i8, ptr %1572, i64 48
-  %1574 = lshr i32 %.sroa.01168.0.copyload, 4
-  %1575 = zext nneg i32 %1574 to i64
-  %1576 = load ptr, ptr %1573, align 8, !tbaa !65
-  %1577 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1576, i64 %1575, i32 1
-  %1578 = load i32, ptr %1577, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1570, i8 18, i32 noundef %1578)
-  %1579 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1579, i8 26, i64 1992881250817)
-  %1580 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1580, i8 26)
-  %1581 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1556, i8 2, i32 noundef %2)
-  %1582 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1581, ptr %1582, align 1, !tbaa !43
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1583:                                             ; preds = %4
-  %1584 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1585 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1584, i8 noundef zeroext 4, i32 noundef %2)
-  %1586 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1585, ptr %1586, align 1, !tbaa !43
-  %1587 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01160.0.copyload = load i32, ptr %1587, align 4, !tbaa !43
-  %1588 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01160.0.copyload)
-  %1589 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01159.0.copyload = load i8, ptr %1586, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645scvtfENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1589, i8 %.sroa.01159.0.copyload, i8 %1588)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1590:                                             ; preds = %4
-  %1591 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1592 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1591, i8 noundef zeroext 4, i32 noundef %2)
-  %1593 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1592, ptr %1593, align 1, !tbaa !43
-  %1594 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01155.0.copyload = load i32, ptr %1594, align 4, !tbaa !43
-  %1595 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01155.0.copyload)
-  %1596 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01154.0.copyload = load i8, ptr %1593, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ucvtfENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1596, i8 %.sroa.01154.0.copyload, i8 %1595)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1597:                                             ; preds = %4
-  %1598 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1599 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1598, i8 noundef zeroext 1, i32 noundef %2)
-  %1600 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1599, ptr %1600, align 1, !tbaa !43
-  %1601 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01150.0.copyload = load i32, ptr %1601, align 4, !tbaa !43
-  %1602 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01150.0.copyload)
-  %1603 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01149.0.copyload = load i8, ptr %1600, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646fcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1603, i8 %.sroa.01149.0.copyload, i8 %1602)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1604:                                             ; preds = %4
-  %1605 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1606 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1605, i8 noundef zeroext 1, i32 noundef %2)
-  %1607 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1606, ptr %1607, align 1, !tbaa !43
-  %1608 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01145.0.copyload = load i32, ptr %1608, align 4, !tbaa !43
-  %1609 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01145.0.copyload)
-  %1610 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01143.0.copyload = load i8, ptr %1607, align 1, !tbaa !43
-  %1611 = and i8 %.sroa.01143.0.copyload, -8
-  %1612 = or disjoint i8 %1611, 2
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646fcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1610, i8 %1612, i8 %1609)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1613:                                             ; preds = %4
-  %1614 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1615 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1614, i8 noundef zeroext 5, i32 noundef %2)
-  %1616 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1615, ptr %1616, align 1, !tbaa !43
-  %1617 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1618 = load i32, ptr %1617, align 4
-  %1619 = and i32 %1618, 15
-  %1620 = icmp eq i32 %1619, 2
-  br i1 %1620, label %1621, label %1642
-
-1621:                                             ; preds = %1613
+1615:                                             ; preds = %4
+  %1616 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1617 = load ptr, ptr %0, align 8, !tbaa !63
+  %1618 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1616, ptr noundef nonnull align 8 dereferenceable(176) %1617, i32 noundef %2, ptr null, i64 0)
+  %1619 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1619, i8 2, i8 -102)
+  %1620 = load ptr, ptr %0, align 8, !tbaa !63
+  %1621 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01170.0.copyload = load i32, ptr %1621, align 4, !tbaa !43
   %1622 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1623 = load ptr, ptr %1622, align 8, !tbaa !64
   %1624 = getelementptr inbounds nuw i8, ptr %1623, i64 48
-  %1625 = lshr i32 %1618, 4
+  %1625 = lshr i32 %.sroa.01170.0.copyload, 4
   %1626 = zext nneg i32 %1625 to i64
   %1627 = load ptr, ptr %1624, align 8, !tbaa !65
-  %1628 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1627, i64 %1626, i32 1
-  %1629 = load double, ptr %1628, align 8, !tbaa !43
-  %1630 = fptrunc double %1629 to float
-  %1631 = fpext float %1630 to double
-  %1632 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isFmovSupportedEd(double noundef %1631)
-  br i1 %1632, label %1633, label %1635
-
-1633:                                             ; preds = %1621
-  %1634 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01133.0.copyload = load i8, ptr %1616, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %1634, i8 %.sroa.01133.0.copyload, double noundef %1631)
+  %1628 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1627, i64 %1626
+  %1629 = getelementptr inbounds nuw i8, ptr %1628, i64 8
+  %1630 = load i32, ptr %1629, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1620, i8 10, i32 noundef %1630)
+  %1631 = load ptr, ptr %0, align 8, !tbaa !63
+  %1632 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01168.0.copyload = load i32, ptr %1632, align 4, !tbaa !43
+  %1633 = load ptr, ptr %1622, align 8, !tbaa !64
+  %1634 = getelementptr inbounds nuw i8, ptr %1633, i64 48
+  %1635 = lshr i32 %.sroa.01168.0.copyload, 4
+  %1636 = zext nneg i32 %1635 to i64
+  %1637 = load ptr, ptr %1634, align 8, !tbaa !65
+  %1638 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1637, i64 %1636
+  %1639 = getelementptr inbounds nuw i8, ptr %1638, i64 8
+  %1640 = load i32, ptr %1639, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1631, i8 18, i32 noundef %1640)
+  %1641 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1641, i8 26, i64 1992881250817)
+  %1642 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1642, i8 26)
+  %1643 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1616, i8 2, i32 noundef %2)
+  %1644 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1643, ptr %1644, align 1, !tbaa !43
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1635:                                             ; preds = %1621
-  %1636 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1614, i8 noundef zeroext 2)
+1645:                                             ; preds = %4
+  %1646 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1647 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1646, i8 noundef zeroext 4, i32 noundef %2)
+  %1648 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1647, ptr %1648, align 1, !tbaa !43
+  %1649 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01160.0.copyload = load i32, ptr %1649, align 4, !tbaa !43
+  %1650 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01160.0.copyload)
+  %1651 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01159.0.copyload = load i8, ptr %1648, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645scvtfENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1651, i8 %.sroa.01159.0.copyload, i8 %1650)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+1652:                                             ; preds = %4
+  %1653 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1654 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1653, i8 noundef zeroext 4, i32 noundef %2)
+  %1655 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1654, ptr %1655, align 1, !tbaa !43
+  %1656 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01155.0.copyload = load i32, ptr %1656, align 4, !tbaa !43
+  %1657 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01155.0.copyload)
+  %1658 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01154.0.copyload = load i8, ptr %1655, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ucvtfENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1658, i8 %.sroa.01154.0.copyload, i8 %1657)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+1659:                                             ; preds = %4
+  %1660 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1661 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1660, i8 noundef zeroext 1, i32 noundef %2)
+  %1662 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1661, ptr %1662, align 1, !tbaa !43
+  %1663 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01150.0.copyload = load i32, ptr %1663, align 4, !tbaa !43
+  %1664 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01150.0.copyload)
+  %1665 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01149.0.copyload = load i8, ptr %1662, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646fcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1665, i8 %.sroa.01149.0.copyload, i8 %1664)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+1666:                                             ; preds = %4
+  %1667 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1668 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1667, i8 noundef zeroext 1, i32 noundef %2)
+  %1669 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1668, ptr %1669, align 1, !tbaa !43
+  %1670 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01145.0.copyload = load i32, ptr %1670, align 4, !tbaa !43
+  %1671 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01145.0.copyload)
+  %1672 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01143.0.copyload = load i8, ptr %1669, align 1, !tbaa !43
+  %1673 = and i8 %.sroa.01143.0.copyload, -8
+  %1674 = or disjoint i8 %1673, 2
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646fcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1672, i8 %1674, i8 %1671)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+1675:                                             ; preds = %4
+  %1676 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1677 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1676, i8 noundef zeroext 5, i32 noundef %2)
+  %1678 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1677, ptr %1678, align 1, !tbaa !43
+  %1679 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1680 = load i32, ptr %1679, align 4
+  %1681 = and i32 %1680, 15
+  %1682 = icmp eq i32 %1681, 2
+  br i1 %1682, label %1683, label %1705
+
+1683:                                             ; preds = %1675
+  %1684 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1685 = load ptr, ptr %1684, align 8, !tbaa !64
+  %1686 = getelementptr inbounds nuw i8, ptr %1685, i64 48
+  %1687 = lshr i32 %1680, 4
+  %1688 = zext nneg i32 %1687 to i64
+  %1689 = load ptr, ptr %1686, align 8, !tbaa !65
+  %1690 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1689, i64 %1688
+  %1691 = getelementptr inbounds nuw i8, ptr %1690, i64 8
+  %1692 = load double, ptr %1691, align 8, !tbaa !43
+  %1693 = fptrunc double %1692 to float
+  %1694 = fpext float %1693 to double
+  %1695 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isFmovSupportedEd(double noundef %1694)
+  br i1 %1695, label %1696, label %1698
+
+1696:                                             ; preds = %1683
+  %1697 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01133.0.copyload = load i8, ptr %1678, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %1697, i8 %.sroa.01133.0.copyload, double noundef %1694)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+1698:                                             ; preds = %1683
+  %1699 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1676, i8 noundef zeroext 2)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  store float %1630, ptr %40, align 16, !tbaa !96
-  %1637 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store float %1630, ptr %1637, align 4, !tbaa !96
-  %1638 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store float %1630, ptr %1638, align 8, !tbaa !96
-  %1639 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  store i32 0, ptr %1639, align 4, !tbaa !96
-  %1640 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64EPKvm(ptr noundef nonnull align 8 dereferenceable(176) %1640, i8 %1636, ptr noundef nonnull %40, i64 noundef 16)
-  %1641 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01129.0.copyload = load i8, ptr %1616, align 1, !tbaa !43
-  %.sroa.23483.0.insert.ext = zext i8 %1636 to i64
+  store float %1693, ptr %40, align 16, !tbaa !96
+  %1700 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  store float %1693, ptr %1700, align 4, !tbaa !96
+  %1701 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store float %1693, ptr %1701, align 8, !tbaa !96
+  %1702 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  store i32 0, ptr %1702, align 4, !tbaa !96
+  %1703 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64EPKvm(ptr noundef nonnull align 8 dereferenceable(176) %1703, i8 %1699, ptr noundef nonnull %40, i64 noundef 16)
+  %1704 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01129.0.copyload = load i8, ptr %1678, align 1, !tbaa !43
+  %.sroa.23483.0.insert.ext = zext i8 %1699 to i64
   %.sroa.23483.0.insert.shift = shl nuw nsw i64 %.sroa.23483.0.insert.ext, 8
   %.sroa.03482.0.insert.insert = or disjoint i64 %.sroa.23483.0.insert.shift, 16384001
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1641, i8 %.sroa.01129.0.copyload, i64 %.sroa.03482.0.insert.insert)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1704, i8 %.sroa.01129.0.copyload, i64 %.sroa.03482.0.insert.insert)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1642:                                             ; preds = %1613
-  %1643 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1618)
-  %1644 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1614, i8 noundef zeroext 3)
-  %1645 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1645, i8 %1644, i8 %1643)
-  %1646 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01121.0.copyload = load i8, ptr %1616, align 1, !tbaa !43
-  %1647 = and i8 %1644, -8
-  %1648 = or disjoint i8 %1647, 5
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %1646, i8 %.sroa.01121.0.copyload, i8 %1648, i8 noundef zeroext 0)
+1705:                                             ; preds = %1675
+  %1706 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1680)
+  %1707 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1676, i8 noundef zeroext 3)
+  %1708 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1708, i8 %1707, i8 %1706)
+  %1709 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01121.0.copyload = load i8, ptr %1678, align 1, !tbaa !43
+  %1710 = and i8 %1707, -8
+  %1711 = or disjoint i8 %1710, 5
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %1709, i8 %.sroa.01121.0.copyload, i8 %1711, i8 noundef zeroext 0)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1649:                                             ; preds = %4
-  %1650 = getelementptr inbounds nuw i8, ptr %0, i64 32
+1712:                                             ; preds = %4
+  %1713 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  %1651 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1652 = load i32, ptr %1651, align 4, !tbaa !43
-  store i32 %1652, ptr %41, align 4, !tbaa !43
-  %1653 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %1650, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %41, i64 1)
-  %1654 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1653, ptr %1654, align 1, !tbaa !43
+  %1714 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1715 = load i32, ptr %1714, align 4, !tbaa !43
+  store i32 %1715, ptr %41, align 4, !tbaa !43
+  %1716 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %1713, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %41, i64 1)
+  %1717 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1716, ptr %1717, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  %.sroa.01113.0.copyload = load i32, ptr %1651, align 4, !tbaa !43
-  %1655 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01113.0.copyload)
-  %1656 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1650, i8 noundef zeroext 1)
-  %1657 = load i8, ptr %1654, align 1
-  %.not3647 = icmp eq i8 %1657, %1655
-  br i1 %.not3647, label %1660, label %1658
+  %.sroa.01113.0.copyload = load i32, ptr %1714, align 4, !tbaa !43
+  %1718 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01113.0.copyload)
+  %1719 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1713, i8 noundef zeroext 1)
+  %1720 = load i8, ptr %1717, align 1
+  %.not3647 = icmp eq i8 %1720, %1718
+  br i1 %.not3647, label %1723, label %1721
 
-1658:                                             ; preds = %1649
-  %1659 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1659, i8 %1657, i8 %1655)
-  br label %1660
+1721:                                             ; preds = %1712
+  %1722 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1722, i8 %1720, i8 %1718)
+  br label %1723
 
-1660:                                             ; preds = %1658, %1649
-  %1661 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1661, i8 %1656, i32 noundef 4)
-  %1662 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01106.0.copyload = load i8, ptr %1654, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %1662, i8 %.sroa.01106.0.copyload, i8 %1656, i8 noundef zeroext 3)
+1723:                                             ; preds = %1721, %1712
+  %1724 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1724, i8 %1719, i32 noundef 4)
+  %1725 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01106.0.copyload = load i8, ptr %1717, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %1725, i8 %.sroa.01106.0.copyload, i8 %1719, i8 noundef zeroext 3)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1663:                                             ; preds = %4
-  %1664 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1665 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1664, i8 noundef zeroext 2)
-  %1666 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1667 = load i32, ptr %1666, align 4
-  %1668 = and i32 %1667, 15
-  switch i32 %1668, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit [
-    i32 2, label %1669
-    i32 4, label %1685
+1726:                                             ; preds = %4
+  %1727 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1728 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1727, i8 noundef zeroext 2)
+  %1729 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1730 = load i32, ptr %1729, align 4
+  %1731 = and i32 %1730, 15
+  switch i32 %1731, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit [
+    i32 2, label %1732
+    i32 4, label %1749
   ]
 
-1669:                                             ; preds = %1663
-  %1670 = load ptr, ptr %0, align 8, !tbaa !63
-  %1671 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01096.0.copyload = load i32, ptr %1671, align 4, !tbaa !43
-  %1672 = lshr i32 %.sroa.01096.0.copyload, 4
-  %1673 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1674 = load ptr, ptr %1673, align 8, !tbaa !64
-  %1675 = getelementptr inbounds nuw i8, ptr %1674, i64 48
-  %1676 = lshr i32 %1667, 4
-  %1677 = zext nneg i32 %1676 to i64
-  %1678 = load ptr, ptr %1675, align 8, !tbaa !65
-  %1679 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1678, i64 %1677, i32 1
-  %1680 = load i32, ptr %1679, align 8, !tbaa !43
-  %1681 = add nsw i32 %1680, %1672
-  %1682 = trunc i32 %1681 to i16
-  %1683 = shl i16 %1682, 4
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1670, i8 %1665, i8 -54, i16 noundef zeroext %1683)
-  %1684 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1684, i8 %1665, i64 34376161793)
+1732:                                             ; preds = %1726
+  %1733 = load ptr, ptr %0, align 8, !tbaa !63
+  %1734 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01096.0.copyload = load i32, ptr %1734, align 4, !tbaa !43
+  %1735 = lshr i32 %.sroa.01096.0.copyload, 4
+  %1736 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1737 = load ptr, ptr %1736, align 8, !tbaa !64
+  %1738 = getelementptr inbounds nuw i8, ptr %1737, i64 48
+  %1739 = lshr i32 %1730, 4
+  %1740 = zext nneg i32 %1739 to i64
+  %1741 = load ptr, ptr %1738, align 8, !tbaa !65
+  %1742 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1741, i64 %1740
+  %1743 = getelementptr inbounds nuw i8, ptr %1742, i64 8
+  %1744 = load i32, ptr %1743, align 8, !tbaa !43
+  %1745 = add nsw i32 %1744, %1735
+  %1746 = trunc i32 %1745 to i16
+  %1747 = shl i16 %1746, 4
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1733, i8 %1728, i8 -54, i16 noundef zeroext %1747)
+  %1748 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1748, i8 %1728, i64 34376161793)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1685:                                             ; preds = %1663
-  %1686 = load ptr, ptr %0, align 8, !tbaa !63
-  %1687 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01090.0.copyload = load i32, ptr %1687, align 4, !tbaa !43
-  %1688 = trunc i32 %.sroa.01090.0.copyload to i16
-  %1689 = and i16 %1688, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1686, i8 %1665, i8 -54, i16 noundef zeroext %1689)
-  %1690 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01086.0.copyload = load i32, ptr %1666, align 4, !tbaa !43
-  %1691 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01086.0.copyload)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %1690, i8 %1665, i8 %1665, i8 %1691, i32 noundef 4)
-  %1692 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1692, i8 %1665, i64 34376161793)
+1749:                                             ; preds = %1726
+  %1750 = load ptr, ptr %0, align 8, !tbaa !63
+  %1751 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01090.0.copyload = load i32, ptr %1751, align 4, !tbaa !43
+  %1752 = trunc i32 %.sroa.01090.0.copyload to i16
+  %1753 = and i16 %1752, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1750, i8 %1728, i8 -54, i16 noundef zeroext %1753)
+  %1754 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01086.0.copyload = load i32, ptr %1729, align 4, !tbaa !43
+  %1755 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01086.0.copyload)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %1754, i8 %1728, i8 %1728, i8 %1755, i32 noundef 4)
+  %1756 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1756, i8 %1728, i64 34376161793)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1693:                                             ; preds = %4
-  %1694 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1695 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1694, i8 noundef zeroext 2)
-  %1696 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1696, i8 %1695, i64 137455376897)
-  %1697 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.23463.0.insert.ext = zext i8 %1695 to i64
+1757:                                             ; preds = %4
+  %1758 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1759 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1758, i8 noundef zeroext 2)
+  %1760 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1760, i8 %1759, i64 137455376897)
+  %1761 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.23463.0.insert.ext = zext i8 %1759 to i64
   %.sroa.23463.0.insert.shift = shl nuw nsw i64 %.sroa.23463.0.insert.ext, 8
   %.sroa.03462.0.insert.insert = or disjoint i64 %.sroa.23463.0.insert.shift, 68735860737
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1697, i8 %1695, i64 %.sroa.03462.0.insert.insert)
-  %1698 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1698, i8 %1695, i64 34376161793)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1761, i8 %1759, i64 %.sroa.03462.0.insert.insert)
+  %1762 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1762, i8 %1759, i64 34376161793)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1699:                                             ; preds = %4
-  %1700 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1701 = load ptr, ptr %0, align 8, !tbaa !63
-  %1702 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1700, ptr noundef nonnull align 8 dereferenceable(176) %1701, i32 noundef %2, ptr null, i64 0)
-  %1703 = load ptr, ptr %0, align 8, !tbaa !63
-  %1704 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01073.0.copyload = load i32, ptr %1704, align 4, !tbaa !43
-  %1705 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1706 = load ptr, ptr %1705, align 8, !tbaa !64
-  %1707 = getelementptr inbounds nuw i8, ptr %1706, i64 48
-  %1708 = lshr i32 %.sroa.01073.0.copyload, 4
-  %1709 = zext nneg i32 %1708 to i64
-  %1710 = load ptr, ptr %1707, align 8, !tbaa !65
-  %1711 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1710, i64 %1709, i32 1
-  %1712 = load i32, ptr %1711, align 8, !tbaa !43
-  %1713 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01072.0.copyload = load i32, ptr %1713, align 4, !tbaa !43
-  %1714 = lshr i32 %.sroa.01072.0.copyload, 4
-  %1715 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01071.0.copyload = load i32, ptr %1715, align 4, !tbaa !43
-  %1716 = lshr i32 %.sroa.01071.0.copyload, 4
-  %1717 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.01070.0.copyload = load i32, ptr %1717, align 4, !tbaa !43
-  %1718 = lshr i32 %.sroa.01070.0.copyload, 4
-  %1719 = zext nneg i32 %1718 to i64
-  %1720 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1710, i64 %1719, i32 1
-  %1721 = load i32, ptr %1720, align 8, !tbaa !43
-  %1722 = tail call fastcc noundef zeroext i1 @_ZN4Luau7CodeGen3A64L11emitBuiltinERNS1_18AssemblyBuilderA64ERNS0_10IrFunctionERNS1_13IrRegAllocA64Eiiii(ptr noundef nonnull align 8 dereferenceable(176) %1703, ptr noundef nonnull align 8 dereferenceable(325) %1700, i32 noundef %1712, i32 noundef %1714, i32 noundef %1716, i32 noundef %1721)
-  %1723 = xor i1 %1722, true
-  %1724 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  %1725 = load i8, ptr %1724, align 8, !tbaa !45, !range !97, !noundef !98
-  %1726 = zext i1 %1723 to i8
-  %1727 = or i8 %1725, %1726
-  store i8 %1727, ptr %1724, align 8, !tbaa !45
+1763:                                             ; preds = %4
+  %1764 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1765 = load ptr, ptr %0, align 8, !tbaa !63
+  %1766 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1764, ptr noundef nonnull align 8 dereferenceable(176) %1765, i32 noundef %2, ptr null, i64 0)
+  %1767 = load ptr, ptr %0, align 8, !tbaa !63
+  %1768 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01073.0.copyload = load i32, ptr %1768, align 4, !tbaa !43
+  %1769 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1770 = load ptr, ptr %1769, align 8, !tbaa !64
+  %1771 = getelementptr inbounds nuw i8, ptr %1770, i64 48
+  %1772 = lshr i32 %.sroa.01073.0.copyload, 4
+  %1773 = zext nneg i32 %1772 to i64
+  %1774 = load ptr, ptr %1771, align 8, !tbaa !65
+  %1775 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1774, i64 %1773
+  %1776 = getelementptr inbounds nuw i8, ptr %1775, i64 8
+  %1777 = load i32, ptr %1776, align 8, !tbaa !43
+  %1778 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01072.0.copyload = load i32, ptr %1778, align 4, !tbaa !43
+  %1779 = lshr i32 %.sroa.01072.0.copyload, 4
+  %1780 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01071.0.copyload = load i32, ptr %1780, align 4, !tbaa !43
+  %1781 = lshr i32 %.sroa.01071.0.copyload, 4
+  %1782 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.01070.0.copyload = load i32, ptr %1782, align 4, !tbaa !43
+  %1783 = lshr i32 %.sroa.01070.0.copyload, 4
+  %1784 = zext nneg i32 %1783 to i64
+  %1785 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1774, i64 %1784
+  %1786 = getelementptr inbounds nuw i8, ptr %1785, i64 8
+  %1787 = load i32, ptr %1786, align 8, !tbaa !43
+  %1788 = tail call fastcc noundef zeroext i1 @_ZN4Luau7CodeGen3A64L11emitBuiltinERNS1_18AssemblyBuilderA64ERNS0_10IrFunctionERNS1_13IrRegAllocA64Eiiii(ptr noundef nonnull align 8 dereferenceable(176) %1767, ptr noundef nonnull align 8 dereferenceable(325) %1764, i32 noundef %1777, i32 noundef %1779, i32 noundef %1781, i32 noundef %1787)
+  %1789 = xor i1 %1788, true
+  %1790 = getelementptr inbounds nuw i8, ptr %0, i64 1496
+  %1791 = load i8, ptr %1790, align 8, !tbaa !45, !range !97, !noundef !98
+  %1792 = zext i1 %1789 to i8
+  %1793 = or i8 %1791, %1792
+  store i8 %1793, ptr %1790, align 8, !tbaa !45
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1728:                                             ; preds = %4
-  %1729 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1730 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1729, i8 noundef zeroext 5)
-  %1731 = load ptr, ptr %0, align 8, !tbaa !63
+1794:                                             ; preds = %4
+  %1795 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1796 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1795, i8 noundef zeroext 5)
+  %1797 = load ptr, ptr %0, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  store i8 %1730, ptr %42, align 1, !tbaa !43
-  %1732 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1729, ptr noundef nonnull align 8 dereferenceable(176) %1731, i32 noundef %2, ptr nonnull %42, i64 1)
+  store i8 %1796, ptr %42, align 1, !tbaa !43
+  %1798 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1795, ptr noundef nonnull align 8 dereferenceable(176) %1797, i32 noundef %2, ptr nonnull %42, i64 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  %1733 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1733, i8 2, i8 -102)
-  %1734 = load ptr, ptr %0, align 8, !tbaa !63
-  %1735 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01059.0.copyload = load i32, ptr %1735, align 4, !tbaa !43
-  %1736 = trunc i32 %.sroa.01059.0.copyload to i16
-  %1737 = and i16 %1736, -16
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1734, i8 10, i8 -54, i16 noundef zeroext %1737)
-  %1738 = load ptr, ptr %0, align 8, !tbaa !63
-  %1739 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.01056.0.copyload = load i32, ptr %1739, align 4, !tbaa !43
-  %1740 = trunc i32 %.sroa.01056.0.copyload to i16
-  %1741 = and i16 %1740, -16
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1738, i8 18, i8 -54, i16 noundef zeroext %1741)
-  %1742 = load ptr, ptr %0, align 8, !tbaa !63
-  %1743 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.sroa.01054.0.copyload = load i32, ptr %1743, align 4, !tbaa !43
-  %1744 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1745 = load ptr, ptr %1744, align 8, !tbaa !64
-  %1746 = getelementptr inbounds nuw i8, ptr %1745, i64 48
-  %1747 = lshr i32 %.sroa.01054.0.copyload, 4
-  %1748 = zext nneg i32 %1747 to i64
-  %1749 = load ptr, ptr %1746, align 8, !tbaa !65
-  %1750 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1749, i64 %1748, i32 1
-  %1751 = load i32, ptr %1750, align 8, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1742, i8 25, i32 noundef %1751)
-  %1752 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %1753 = load i32, ptr %1752, align 4
-  %1754 = and i32 %1753, 15
-  %.not2961 = icmp eq i32 %1754, 1
-  br i1 %.not2961, label %1764, label %1755
+  %1799 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1799, i8 2, i8 -102)
+  %1800 = load ptr, ptr %0, align 8, !tbaa !63
+  %1801 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01059.0.copyload = load i32, ptr %1801, align 4, !tbaa !43
+  %1802 = trunc i32 %.sroa.01059.0.copyload to i16
+  %1803 = and i16 %1802, -16
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1800, i8 10, i8 -54, i16 noundef zeroext %1803)
+  %1804 = load ptr, ptr %0, align 8, !tbaa !63
+  %1805 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.01056.0.copyload = load i32, ptr %1805, align 4, !tbaa !43
+  %1806 = trunc i32 %.sroa.01056.0.copyload to i16
+  %1807 = and i16 %1806, -16
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1804, i8 18, i8 -54, i16 noundef zeroext %1807)
+  %1808 = load ptr, ptr %0, align 8, !tbaa !63
+  %1809 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.sroa.01054.0.copyload = load i32, ptr %1809, align 4, !tbaa !43
+  %1810 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1811 = load ptr, ptr %1810, align 8, !tbaa !64
+  %1812 = getelementptr inbounds nuw i8, ptr %1811, i64 48
+  %1813 = lshr i32 %.sroa.01054.0.copyload, 4
+  %1814 = zext nneg i32 %1813 to i64
+  %1815 = load ptr, ptr %1812, align 8, !tbaa !65
+  %1816 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1815, i64 %1814
+  %1817 = getelementptr inbounds nuw i8, ptr %1816, i64 8
+  %1818 = load i32, ptr %1817, align 8, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1808, i8 25, i32 noundef %1818)
+  %1819 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %1820 = load i32, ptr %1819, align 4
+  %1821 = and i32 %1820, 15
+  %.not2961 = icmp eq i32 %1821, 1
+  br i1 %.not2961, label %1831, label %1822
 
-1755:                                             ; preds = %1728
-  %1756 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1756, i8 34, i64 34376161793)
-  %1757 = load ptr, ptr %0, align 8, !tbaa !63
-  %1758 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.01049.0.copyload = load i32, ptr %1758, align 4, !tbaa !43
-  %1759 = and i32 %.sroa.01049.0.copyload, -16
-  %.sroa.43449.0.insert.ext = zext i32 %1759 to i64
+1822:                                             ; preds = %1794
+  %1823 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1823, i8 34, i64 34376161793)
+  %1824 = load ptr, ptr %0, align 8, !tbaa !63
+  %1825 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.01049.0.copyload = load i32, ptr %1825, align 4, !tbaa !43
+  %1826 = and i32 %.sroa.01049.0.copyload, -16
+  %.sroa.43449.0.insert.ext = zext i32 %1826 to i64
   %.sroa.43449.0.insert.shift = shl nuw i64 %.sroa.43449.0.insert.ext, 32
   %.sroa.03445.0.insert.insert = or disjoint i64 %.sroa.43449.0.insert.shift, 16435713
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1757, i8 %1730, i64 %.sroa.03445.0.insert.insert)
-  %1760 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1760, i8 %1730, i64 16392705)
-  %1761 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01044.0.copyload = load i32, ptr %1752, align 4, !tbaa !43
-  %1762 = and i32 %.sroa.01044.0.copyload, -16
-  %.sroa.43439.0.insert.ext = zext i32 %1762 to i64
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1824, i8 %1796, i64 %.sroa.03445.0.insert.insert)
+  %1827 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1827, i8 %1796, i64 16392705)
+  %1828 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01044.0.copyload = load i32, ptr %1819, align 4, !tbaa !43
+  %1829 = and i32 %.sroa.01044.0.copyload, -16
+  %.sroa.43439.0.insert.ext = zext i32 %1829 to i64
   %.sroa.43439.0.insert.shift = shl nuw i64 %.sroa.43439.0.insert.ext, 32
   %.sroa.03435.0.insert.insert = or disjoint i64 %.sroa.43439.0.insert.shift, 16435713
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1761, i8 %1730, i64 %.sroa.03435.0.insert.insert)
-  %1763 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1763, i8 %1730, i64 68735869441)
-  br label %1776
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1828, i8 %1796, i64 %.sroa.03435.0.insert.insert)
+  %1830 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1830, i8 %1796, i64 68735869441)
+  br label %1843
 
-1764:                                             ; preds = %1728
-  %1765 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1766 = load i32, ptr %1765, align 4
-  %1767 = and i32 %1766, 15
-  switch i32 %1767, label %1776 [
-    i32 6, label %1768
-    i32 7, label %1772
+1831:                                             ; preds = %1794
+  %1832 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1833 = load i32, ptr %1832, align 4
+  %1834 = and i32 %1833, 15
+  switch i32 %1834, label %1843 [
+    i32 6, label %1835
+    i32 7, label %1839
   ]
 
-1768:                                             ; preds = %1764
-  %1769 = load ptr, ptr %0, align 8, !tbaa !63
-  %1770 = trunc i32 %1766 to i16
-  %1771 = and i16 %1770, -16
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1769, i8 34, i8 -54, i16 noundef zeroext %1771)
-  br label %1776
+1835:                                             ; preds = %1831
+  %1836 = load ptr, ptr %0, align 8, !tbaa !63
+  %1837 = trunc i32 %1833 to i16
+  %1838 = and i16 %1837, -16
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1836, i8 34, i8 -54, i16 noundef zeroext %1838)
+  br label %1843
 
-1772:                                             ; preds = %1764
-  %1773 = load ptr, ptr %0, align 8, !tbaa !63
-  %1774 = and i32 %1766, -16
-  %1775 = zext i32 %1774 to i64
-  call fastcc void @_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m(ptr noundef nonnull align 8 dereferenceable(176) %1773, i8 34, i8 -78, i64 noundef %1775)
-  br label %1776
+1839:                                             ; preds = %1831
+  %1840 = load ptr, ptr %0, align 8, !tbaa !63
+  %1841 = and i32 %1833, -16
+  %1842 = zext i32 %1841 to i64
+  call fastcc void @_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m(ptr noundef nonnull align 8 dereferenceable(176) %1840, i8 34, i8 -78, i64 noundef %1842)
+  br label %1843
 
-1776:                                             ; preds = %1764, %1768, %1772, %1755
-  %1777 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.01035.0.copyload = load i32, ptr %1777, align 4, !tbaa !43
-  %1778 = load ptr, ptr %1744, align 8, !tbaa !64
-  %1779 = getelementptr inbounds nuw i8, ptr %1778, i64 48
-  %1780 = lshr i32 %.sroa.01035.0.copyload, 4
-  %1781 = zext nneg i32 %1780 to i64
-  %1782 = load ptr, ptr %1779, align 8, !tbaa !65
-  %1783 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1782, i64 %1781, i32 1
-  %1784 = load i32, ptr %1783, align 8, !tbaa !43
-  %1785 = icmp eq i32 %1784, -1
-  %1786 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %1785, label %1787, label %1794
+1843:                                             ; preds = %1831, %1835, %1839, %1822
+  %1844 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.01035.0.copyload = load i32, ptr %1844, align 4, !tbaa !43
+  %1845 = load ptr, ptr %1810, align 8, !tbaa !64
+  %1846 = getelementptr inbounds nuw i8, ptr %1845, i64 48
+  %1847 = lshr i32 %.sroa.01035.0.copyload, 4
+  %1848 = zext nneg i32 %1847 to i64
+  %1849 = load ptr, ptr %1846, align 8, !tbaa !65
+  %1850 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1849, i64 %1848
+  %1851 = getelementptr inbounds nuw i8, ptr %1850, i64 8
+  %1852 = load i32, ptr %1851, align 8, !tbaa !43
+  %1853 = icmp eq i32 %1852, -1
+  %1854 = load ptr, ptr %0, align 8, !tbaa !63
+  br i1 %1853, label %1855, label %1862
 
-1787:                                             ; preds = %1776
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1786, i8 42, i64 34376161793)
-  %1788 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %1788, i8 42, i8 42, i8 -54, i32 noundef 0)
-  %1789 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.01027.0.copyload = load i32, ptr %1735, align 4, !tbaa !43
-  %1790 = trunc i32 %.sroa.01027.0.copyload to i16
-  %1791 = and i16 %1790, -16
-  %1792 = add i16 %1791, 16
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1789, i8 42, i8 42, i16 noundef zeroext %1792)
-  %1793 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %1793, i8 42, i8 42, i8 noundef zeroext 4)
-  br label %1795
+1855:                                             ; preds = %1843
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1854, i8 42, i64 34376161793)
+  %1856 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %1856, i8 42, i8 42, i8 -54, i32 noundef 0)
+  %1857 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.01027.0.copyload = load i32, ptr %1801, align 4, !tbaa !43
+  %1858 = trunc i32 %.sroa.01027.0.copyload to i16
+  %1859 = and i16 %1858, -16
+  %1860 = add i16 %1859, 16
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1857, i8 42, i8 42, i16 noundef zeroext %1860)
+  %1861 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %1861, i8 42, i8 42, i8 noundef zeroext 4)
+  br label %1863
 
-1794:                                             ; preds = %1776
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1786, i8 41, i32 noundef %1784)
-  br label %1795
+1862:                                             ; preds = %1843
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1854, i8 41, i32 noundef %1852)
+  br label %1863
 
-1795:                                             ; preds = %1794, %1787
-  %1796 = load ptr, ptr %0, align 8, !tbaa !63
-  %1797 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01020.0.copyload = load i32, ptr %1797, align 4, !tbaa !43
-  %1798 = load ptr, ptr %1744, align 8, !tbaa !64
-  %1799 = getelementptr inbounds nuw i8, ptr %1798, i64 48
-  %1800 = lshr i32 %.sroa.01020.0.copyload, 4
-  %1801 = zext nneg i32 %1800 to i64
-  %1802 = load ptr, ptr %1799, align 8, !tbaa !65
-  %1803 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1802, i64 %1801, i32 1
-  %1804 = load i32, ptr %1803, align 8, !tbaa !43
-  %1805 = shl i32 %1804, 3
-  %1806 = add i32 %1805, 568
-  %.sroa.43424.0.insert.ext = zext i32 %1806 to i64
+1863:                                             ; preds = %1862, %1855
+  %1864 = load ptr, ptr %0, align 8, !tbaa !63
+  %1865 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01020.0.copyload = load i32, ptr %1865, align 4, !tbaa !43
+  %1866 = load ptr, ptr %1810, align 8, !tbaa !64
+  %1867 = getelementptr inbounds nuw i8, ptr %1866, i64 48
+  %1868 = lshr i32 %.sroa.01020.0.copyload, 4
+  %1869 = zext nneg i32 %1868 to i64
+  %1870 = load ptr, ptr %1867, align 8, !tbaa !65
+  %1871 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1870, i64 %1869
+  %1872 = getelementptr inbounds nuw i8, ptr %1871, i64 8
+  %1873 = load i32, ptr %1872, align 8, !tbaa !43
+  %1874 = shl i32 %1873, 3
+  %1875 = add i32 %1874, 568
+  %.sroa.43424.0.insert.ext = zext i32 %1875 to i64
   %.sroa.43424.0.insert.shift = shl nuw i64 %.sroa.43424.0.insert.ext, 32
   %.sroa.03420.0.insert.insert = or disjoint i64 %.sroa.43424.0.insert.shift, 16425473
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1796, i8 50, i64 %.sroa.03420.0.insert.insert)
-  %1807 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1807, i8 50)
-  %1808 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1729, i8 1, i32 noundef %2)
-  %1809 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %1808, ptr %1809, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1864, i8 50, i64 %.sroa.03420.0.insert.insert)
+  %1876 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1876, i8 50)
+  %1877 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %1795, i8 1, i32 noundef %2)
+  %1878 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %1877, ptr %1878, align 1, !tbaa !43
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1810:                                             ; preds = %4
-  %1811 = load ptr, ptr %0, align 8, !tbaa !63
-  %1812 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01015.0.copyload = load i32, ptr %1812, align 4, !tbaa !43
-  %1813 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01015.0.copyload)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1811, i8 %1813, i16 noundef zeroext 0)
-  %1814 = load ptr, ptr %0, align 8, !tbaa !63
-  %1815 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01014.0.copyload = load i32, ptr %1815, align 4, !tbaa !43
-  %1816 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1817 = load ptr, ptr %1816, align 8, !tbaa !64
-  %1818 = lshr i32 %.sroa.01014.0.copyload, 4
-  %1819 = zext nneg i32 %1818 to i64
-  %1820 = load ptr, ptr %1817, align 8, !tbaa !71
-  %1821 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1820, i64 %1819, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1814, i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %1821)
+1879:                                             ; preds = %4
+  %1880 = load ptr, ptr %0, align 8, !tbaa !63
+  %1881 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01015.0.copyload = load i32, ptr %1881, align 4, !tbaa !43
+  %1882 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01015.0.copyload)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1880, i8 %1882, i16 noundef zeroext 0)
+  %1883 = load ptr, ptr %0, align 8, !tbaa !63
+  %1884 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01014.0.copyload = load i32, ptr %1884, align 4, !tbaa !43
+  %1885 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1886 = load ptr, ptr %1885, align 8, !tbaa !64
+  %1887 = lshr i32 %.sroa.01014.0.copyload, 4
+  %1888 = zext nneg i32 %1887 to i64
+  %1889 = load ptr, ptr %1886, align 8, !tbaa !71
+  %1890 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1889, i64 %1888
+  %1891 = getelementptr inbounds nuw i8, ptr %1890, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1883, i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %1891)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1822:                                             ; preds = %4
-  %1823 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1824 = load ptr, ptr %0, align 8, !tbaa !63
-  %1825 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1823, ptr noundef nonnull align 8 dereferenceable(176) %1824, i32 noundef %2, ptr null, i64 0)
-  %1826 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1826, i8 2, i8 -102)
-  %1827 = load ptr, ptr %0, align 8, !tbaa !63
-  %1828 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01009.0.copyload = load i32, ptr %1828, align 4, !tbaa !43
-  %1829 = trunc i32 %.sroa.01009.0.copyload to i16
-  %1830 = and i16 %1829, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1827, i8 10, i8 -54, i16 noundef zeroext %1830)
-  %1831 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1832 = load i32, ptr %1831, align 4
-  %1833 = and i32 %1832, 15
-  %1834 = icmp eq i32 %1833, 7
-  %1835 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %1834, label %1836, label %1839
+1892:                                             ; preds = %4
+  %1893 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1894 = load ptr, ptr %0, align 8, !tbaa !63
+  %1895 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1893, ptr noundef nonnull align 8 dereferenceable(176) %1894, i32 noundef %2, ptr null, i64 0)
+  %1896 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1896, i8 2, i8 -102)
+  %1897 = load ptr, ptr %0, align 8, !tbaa !63
+  %1898 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01009.0.copyload = load i32, ptr %1898, align 4, !tbaa !43
+  %1899 = trunc i32 %.sroa.01009.0.copyload to i16
+  %1900 = and i16 %1899, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1897, i8 10, i8 -54, i16 noundef zeroext %1900)
+  %1901 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1902 = load i32, ptr %1901, align 4
+  %1903 = and i32 %1902, 15
+  %1904 = icmp eq i32 %1903, 7
+  %1905 = load ptr, ptr %0, align 8, !tbaa !63
+  br i1 %1904, label %1906, label %1909
 
-1836:                                             ; preds = %1822
-  %1837 = and i32 %1832, -16
-  %1838 = zext i32 %1837 to i64
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m(ptr noundef nonnull align 8 dereferenceable(176) %1835, i8 18, i8 -78, i64 noundef %1838)
-  br label %1842
+1906:                                             ; preds = %1892
+  %1907 = and i32 %1902, -16
+  %1908 = zext i32 %1907 to i64
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m(ptr noundef nonnull align 8 dereferenceable(176) %1905, i8 18, i8 -78, i64 noundef %1908)
+  br label %1912
 
-1839:                                             ; preds = %1822
-  %1840 = trunc i32 %1832 to i16
-  %1841 = and i16 %1840, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1835, i8 18, i8 -54, i16 noundef zeroext %1841)
-  br label %1842
+1909:                                             ; preds = %1892
+  %1910 = trunc i32 %1902 to i16
+  %1911 = and i16 %1910, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1905, i8 18, i8 -54, i16 noundef zeroext %1911)
+  br label %1912
 
-1842:                                             ; preds = %1839, %1836
-  %1843 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %1844 = load i32, ptr %1843, align 4
-  %1845 = and i32 %1844, 15
-  %1846 = icmp eq i32 %1845, 7
-  %1847 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %1846, label %1848, label %1851
+1912:                                             ; preds = %1909, %1906
+  %1913 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %1914 = load i32, ptr %1913, align 4
+  %1915 = and i32 %1914, 15
+  %1916 = icmp eq i32 %1915, 7
+  %1917 = load ptr, ptr %0, align 8, !tbaa !63
+  br i1 %1916, label %1918, label %1921
 
-1848:                                             ; preds = %1842
-  %1849 = and i32 %1844, -16
-  %1850 = zext i32 %1849 to i64
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m(ptr noundef nonnull align 8 dereferenceable(176) %1847, i8 26, i8 -78, i64 noundef %1850)
-  br label %1854
+1918:                                             ; preds = %1912
+  %1919 = and i32 %1914, -16
+  %1920 = zext i32 %1919 to i64
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m(ptr noundef nonnull align 8 dereferenceable(176) %1917, i8 26, i8 -78, i64 noundef %1920)
+  br label %1924
 
-1851:                                             ; preds = %1842
-  %1852 = trunc i32 %1844 to i16
-  %1853 = and i16 %1852, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1847, i8 26, i8 -54, i16 noundef zeroext %1853)
-  br label %1854
+1921:                                             ; preds = %1912
+  %1922 = trunc i32 %1914 to i16
+  %1923 = and i16 %1922, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1917, i8 26, i8 -54, i16 noundef zeroext %1923)
+  br label %1924
 
-1854:                                             ; preds = %1851, %1848
-  %1855 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0996.0.copyload = load i32, ptr %1855, align 4, !tbaa !43
-  %1856 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1857 = load ptr, ptr %1856, align 8, !tbaa !64
-  %1858 = getelementptr inbounds nuw i8, ptr %1857, i64 48
-  %1859 = lshr i32 %.sroa.0996.0.copyload, 4
-  %1860 = zext nneg i32 %1859 to i64
-  %1861 = load ptr, ptr %1858, align 8, !tbaa !65
-  %1862 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1861, i64 %1860, i32 1
-  %1863 = load i32, ptr %1862, align 8, !tbaa !43
-  %switch.tableidx = add i32 %1863, -8
-  %1864 = icmp ult i32 %switch.tableidx, 8
-  br i1 %1864, label %switch.lookup3705, label %1866
+1924:                                             ; preds = %1921, %1918
+  %1925 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0996.0.copyload = load i32, ptr %1925, align 4, !tbaa !43
+  %1926 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1927 = load ptr, ptr %1926, align 8, !tbaa !64
+  %1928 = getelementptr inbounds nuw i8, ptr %1927, i64 48
+  %1929 = lshr i32 %.sroa.0996.0.copyload, 4
+  %1930 = zext nneg i32 %1929 to i64
+  %1931 = load ptr, ptr %1928, align 8, !tbaa !65
+  %1932 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1931, i64 %1930
+  %1933 = getelementptr inbounds nuw i8, ptr %1932, i64 8
+  %1934 = load i32, ptr %1933, align 8, !tbaa !43
+  %switch.tableidx = add i32 %1934, -8
+  %1935 = icmp ult i32 %switch.tableidx, 8
+  br i1 %1935, label %switch.lookup3705, label %1937
 
-switch.lookup3705:                                ; preds = %1854
+switch.lookup3705:                                ; preds = %1924
   %switch.idx.cast = zext nneg i32 %switch.tableidx to i64
   %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 35
   %switch.offset = add nuw nsw i64 %switch.idx.mult, 171815117313
-  %1865 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1865, i8 34, i64 %switch.offset)
-  br label %1866
+  %1936 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1936, i8 34, i64 %switch.offset)
+  br label %1937
 
-1866:                                             ; preds = %1854, %switch.lookup3705
-  %1867 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1867, i8 34)
-  %1868 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1868, i8 -54, i64 68735900161)
+1937:                                             ; preds = %1924, %switch.lookup3705
+  %1938 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1938, i8 34)
+  %1939 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1939, i8 -54, i64 68735900161)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1869:                                             ; preds = %4
-  %1870 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1871 = load ptr, ptr %0, align 8, !tbaa !63
-  %1872 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1870, ptr noundef nonnull align 8 dereferenceable(176) %1871, i32 noundef %2, ptr null, i64 0)
-  %1873 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1873, i8 2, i8 -102)
-  %1874 = load ptr, ptr %0, align 8, !tbaa !63
-  %1875 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0974.0.copyload = load i32, ptr %1875, align 4, !tbaa !43
-  %1876 = trunc i32 %.sroa.0974.0.copyload to i16
-  %1877 = and i16 %1876, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1874, i8 10, i8 -54, i16 noundef zeroext %1877)
-  %1878 = load ptr, ptr %0, align 8, !tbaa !63
-  %1879 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0971.0.copyload = load i32, ptr %1879, align 4, !tbaa !43
-  %1880 = trunc i32 %.sroa.0971.0.copyload to i16
-  %1881 = and i16 %1880, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1878, i8 18, i8 -54, i16 noundef zeroext %1881)
-  %1882 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1882, i8 26, i64 446693024257)
-  %1883 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1883, i8 26)
-  %1884 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1884, i8 -54, i64 68735900161)
+1940:                                             ; preds = %4
+  %1941 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1942 = load ptr, ptr %0, align 8, !tbaa !63
+  %1943 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1941, ptr noundef nonnull align 8 dereferenceable(176) %1942, i32 noundef %2, ptr null, i64 0)
+  %1944 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1944, i8 2, i8 -102)
+  %1945 = load ptr, ptr %0, align 8, !tbaa !63
+  %1946 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0974.0.copyload = load i32, ptr %1946, align 4, !tbaa !43
+  %1947 = trunc i32 %.sroa.0974.0.copyload to i16
+  %1948 = and i16 %1947, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1945, i8 10, i8 -54, i16 noundef zeroext %1948)
+  %1949 = load ptr, ptr %0, align 8, !tbaa !63
+  %1950 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0971.0.copyload = load i32, ptr %1950, align 4, !tbaa !43
+  %1951 = trunc i32 %.sroa.0971.0.copyload to i16
+  %1952 = and i16 %1951, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1949, i8 18, i8 -54, i16 noundef zeroext %1952)
+  %1953 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1953, i8 26, i64 446693024257)
+  %1954 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1954, i8 26)
+  %1955 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1955, i8 -54, i64 68735900161)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1885:                                             ; preds = %4
-  %1886 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1887 = load ptr, ptr %0, align 8, !tbaa !63
-  %1888 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1886, ptr noundef nonnull align 8 dereferenceable(176) %1887, i32 noundef %2, ptr null, i64 0)
-  %1889 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1889, i8 2, i8 -102)
-  %1890 = load ptr, ptr %0, align 8, !tbaa !63
-  %1891 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0963.0.copyload = load i32, ptr %1891, align 4, !tbaa !43
-  %1892 = trunc i32 %.sroa.0963.0.copyload to i16
-  %1893 = and i16 %1892, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1890, i8 10, i8 -54, i16 noundef zeroext %1893)
-  %1894 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %1895 = load i32, ptr %1894, align 4
-  %1896 = and i32 %1895, 15
-  switch i32 %1896, label %1914 [
-    i32 6, label %1897
-    i32 2, label %1901
-  ]
-
-1897:                                             ; preds = %1885
-  %1898 = load ptr, ptr %0, align 8, !tbaa !63
-  %1899 = trunc i32 %1895 to i16
-  %1900 = and i16 %1899, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1898, i8 18, i8 -54, i16 noundef zeroext %1900)
-  br label %1914
-
-1901:                                             ; preds = %1885
-  call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  %1902 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i64 0, ptr %1902, align 8
-  %1903 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1904 = load ptr, ptr %1903, align 8, !tbaa !64
-  %1905 = getelementptr inbounds nuw i8, ptr %1904, i64 48
-  %1906 = lshr i32 %1895, 4
-  %1907 = zext nneg i32 %1906 to i64
-  %1908 = load ptr, ptr %1905, align 8, !tbaa !65
-  %1909 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1908, i64 %1907, i32 1
-  %1910 = load i32, ptr %1909, align 8, !tbaa !43
-  %1911 = uitofp i32 %1910 to double
-  store double %1911, ptr %43, align 8, !tbaa !43
-  %1912 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  store i32 3, ptr %1912, align 4, !tbaa !99
-  %1913 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64EPKvm(ptr noundef nonnull align 8 dereferenceable(176) %1913, i8 18, ptr noundef nonnull %43, i64 noundef 16)
-  call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  br label %1914
-
-1914:                                             ; preds = %1885, %1901, %1897
-  %1915 = load ptr, ptr %0, align 8, !tbaa !63
-  %1916 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0953.0.copyload = load i32, ptr %1916, align 4, !tbaa !43
-  %1917 = trunc i32 %.sroa.0953.0.copyload to i16
-  %1918 = and i16 %1917, -16
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1915, i8 26, i8 -54, i16 noundef zeroext %1918)
-  %1919 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1919, i8 34, i64 481052762625)
-  %1920 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1920, i8 34)
-  %1921 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1921, i8 -54, i64 68735900161)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1922:                                             ; preds = %4
-  %1923 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1924 = load ptr, ptr %0, align 8, !tbaa !63
-  %1925 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1923, ptr noundef nonnull align 8 dereferenceable(176) %1924, i32 noundef %2, ptr null, i64 0)
-  %1926 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1926, i8 2, i8 -102)
-  %1927 = load ptr, ptr %0, align 8, !tbaa !63
-  %1928 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0945.0.copyload = load i32, ptr %1928, align 4, !tbaa !43
-  %1929 = trunc i32 %.sroa.0945.0.copyload to i16
-  %1930 = and i16 %1929, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1927, i8 10, i8 -54, i16 noundef zeroext %1930)
-  %1931 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %1932 = load i32, ptr %1931, align 4
-  %1933 = and i32 %1932, 15
-  switch i32 %1933, label %1951 [
-    i32 6, label %1934
-    i32 2, label %1938
-  ]
-
-1934:                                             ; preds = %1922
-  %1935 = load ptr, ptr %0, align 8, !tbaa !63
-  %1936 = trunc i32 %1932 to i16
-  %1937 = and i16 %1936, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1935, i8 18, i8 -54, i16 noundef zeroext %1937)
-  br label %1951
-
-1938:                                             ; preds = %1922
-  call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  %1939 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i64 0, ptr %1939, align 8
-  %1940 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1941 = load ptr, ptr %1940, align 8, !tbaa !64
-  %1942 = getelementptr inbounds nuw i8, ptr %1941, i64 48
-  %1943 = lshr i32 %1932, 4
-  %1944 = zext nneg i32 %1943 to i64
-  %1945 = load ptr, ptr %1942, align 8, !tbaa !65
-  %1946 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1945, i64 %1944, i32 1
-  %1947 = load i32, ptr %1946, align 8, !tbaa !43
-  %1948 = uitofp i32 %1947 to double
-  store double %1948, ptr %44, align 8, !tbaa !43
-  %1949 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  store i32 3, ptr %1949, align 4, !tbaa !99
-  %1950 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64EPKvm(ptr noundef nonnull align 8 dereferenceable(176) %1950, i8 18, ptr noundef nonnull %44, i64 noundef 16)
-  call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  br label %1951
-
-1951:                                             ; preds = %1922, %1938, %1934
-  %1952 = load ptr, ptr %0, align 8, !tbaa !63
-  %1953 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0935.0.copyload = load i32, ptr %1953, align 4, !tbaa !43
-  %1954 = trunc i32 %.sroa.0935.0.copyload to i16
-  %1955 = and i16 %1954, -16
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1952, i8 26, i8 -54, i16 noundef zeroext %1955)
-  %1956 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1956, i8 34, i64 515412500993)
-  %1957 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1957, i8 34)
+1956:                                             ; preds = %4
+  %1957 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1958 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1958, i8 -54, i64 68735900161)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-1959:                                             ; preds = %4
-  %1960 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1959 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1957, ptr noundef nonnull align 8 dereferenceable(176) %1958, i32 noundef %2, ptr null, i64 0)
+  %1960 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1960, i8 2, i8 -102)
   %1961 = load ptr, ptr %0, align 8, !tbaa !63
-  %1962 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1960, ptr noundef nonnull align 8 dereferenceable(176) %1961, i32 noundef %2, ptr null, i64 0)
-  %1963 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1963, i8 2, i8 -102)
-  %1964 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1964, i8 10, i64 68735908353)
-  %1965 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1965, i8 18, i8 -78)
-  %1966 = load ptr, ptr %0, align 8, !tbaa !63
-  %1967 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0923.0.copyload = load i32, ptr %1967, align 4, !tbaa !43
-  %1968 = trunc i32 %.sroa.0923.0.copyload to i16
-  %1969 = and i16 %1968, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1966, i8 26, i8 -54, i16 noundef zeroext %1969)
-  %1970 = load ptr, ptr %0, align 8, !tbaa !63
-  %1971 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0921.0.copyload = load i32, ptr %1971, align 4, !tbaa !43
-  %1972 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1973 = load ptr, ptr %1972, align 8, !tbaa !64
-  %1974 = getelementptr inbounds nuw i8, ptr %1973, i64 48
-  %1975 = lshr i32 %.sroa.0921.0.copyload, 4
-  %1976 = zext nneg i32 %1975 to i64
-  %1977 = load ptr, ptr %1974, align 8, !tbaa !65
-  %1978 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1977, i64 %1976, i32 1
-  %1979 = load i32, ptr %1978, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1970, i8 33, i32 noundef %1979)
-  %1980 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1980, i8 41, i32 noundef 0)
-  %1981 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1981, i8 50, i64 549772239361)
-  %1982 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1982, i8 50)
-  %1983 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1983, i8 -54, i64 68735900161)
+  %1962 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0963.0.copyload = load i32, ptr %1962, align 4, !tbaa !43
+  %1963 = trunc i32 %.sroa.0963.0.copyload to i16
+  %1964 = and i16 %1963, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1961, i8 10, i8 -54, i16 noundef zeroext %1964)
+  %1965 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %1966 = load i32, ptr %1965, align 4
+  %1967 = and i32 %1966, 15
+  switch i32 %1967, label %1986 [
+    i32 6, label %1968
+    i32 2, label %1972
+  ]
+
+1968:                                             ; preds = %1956
+  %1969 = load ptr, ptr %0, align 8, !tbaa !63
+  %1970 = trunc i32 %1966 to i16
+  %1971 = and i16 %1970, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1969, i8 18, i8 -54, i16 noundef zeroext %1971)
+  br label %1986
+
+1972:                                             ; preds = %1956
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  %1973 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store i64 0, ptr %1973, align 8
+  %1974 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1975 = load ptr, ptr %1974, align 8, !tbaa !64
+  %1976 = getelementptr inbounds nuw i8, ptr %1975, i64 48
+  %1977 = lshr i32 %1966, 4
+  %1978 = zext nneg i32 %1977 to i64
+  %1979 = load ptr, ptr %1976, align 8, !tbaa !65
+  %1980 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1979, i64 %1978
+  %1981 = getelementptr inbounds nuw i8, ptr %1980, i64 8
+  %1982 = load i32, ptr %1981, align 8, !tbaa !43
+  %1983 = uitofp i32 %1982 to double
+  store double %1983, ptr %43, align 8, !tbaa !43
+  %1984 = getelementptr inbounds nuw i8, ptr %43, i64 12
+  store i32 3, ptr %1984, align 4, !tbaa !99
+  %1985 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64EPKvm(ptr noundef nonnull align 8 dereferenceable(176) %1985, i8 18, ptr noundef nonnull %43, i64 noundef 16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  br label %1986
+
+1986:                                             ; preds = %1956, %1972, %1968
+  %1987 = load ptr, ptr %0, align 8, !tbaa !63
+  %1988 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0953.0.copyload = load i32, ptr %1988, align 4, !tbaa !43
+  %1989 = trunc i32 %.sroa.0953.0.copyload to i16
+  %1990 = and i16 %1989, -16
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1987, i8 26, i8 -54, i16 noundef zeroext %1990)
+  %1991 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1991, i8 34, i64 481052762625)
+  %1992 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1992, i8 34)
+  %1993 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1993, i8 -54, i64 68735900161)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-1984:                                             ; preds = %4
-  %1985 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1986 = load ptr, ptr %0, align 8, !tbaa !63
-  %1987 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1985, ptr noundef nonnull align 8 dereferenceable(176) %1986, i32 noundef %2, ptr null, i64 0)
-  %1988 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1988, i8 2, i8 -102)
-  %1989 = load ptr, ptr %0, align 8, !tbaa !63
-  %1990 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0913.0.copyload = load i32, ptr %1990, align 4, !tbaa !43
-  %1991 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1992 = load ptr, ptr %1991, align 8, !tbaa !64
-  %1993 = getelementptr inbounds nuw i8, ptr %1992, i64 48
-  %1994 = lshr i32 %.sroa.0913.0.copyload, 4
-  %1995 = zext nneg i32 %1994 to i64
-  %1996 = load ptr, ptr %1993, align 8, !tbaa !65
-  %1997 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1996, i64 %1995, i32 1
-  %1998 = load i32, ptr %1997, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1989, i8 9, i32 noundef %1998)
+1994:                                             ; preds = %4
+  %1995 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1996 = load ptr, ptr %0, align 8, !tbaa !63
+  %1997 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1995, ptr noundef nonnull align 8 dereferenceable(176) %1996, i32 noundef %2, ptr null, i64 0)
+  %1998 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1998, i8 2, i8 -102)
   %1999 = load ptr, ptr %0, align 8, !tbaa !63
-  %2000 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0911.0.copyload = load i32, ptr %2000, align 4, !tbaa !43
-  %2001 = lshr i32 %.sroa.0911.0.copyload, 4
-  %.sroa.0910.0.copyload = load i32, ptr %1990, align 4, !tbaa !43
-  %2002 = load ptr, ptr %1991, align 8, !tbaa !64
-  %2003 = getelementptr inbounds nuw i8, ptr %2002, i64 48
-  %2004 = lshr i32 %.sroa.0910.0.copyload, 4
-  %2005 = zext nneg i32 %2004 to i64
-  %2006 = load ptr, ptr %2003, align 8, !tbaa !65
-  %2007 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2006, i64 %2005, i32 1
-  %2008 = load i32, ptr %2007, align 8, !tbaa !43
-  %2009 = add nsw i32 %2001, -1
-  %2010 = add i32 %2009, %2008
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1999, i8 17, i32 noundef %2010)
-  %2011 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2011, i8 26, i64 584131977729)
-  %2012 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2012, i8 26)
-  %2013 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2013, i8 -54, i64 68735900161)
+  %2000 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0945.0.copyload = load i32, ptr %2000, align 4, !tbaa !43
+  %2001 = trunc i32 %.sroa.0945.0.copyload to i16
+  %2002 = and i16 %2001, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %1999, i8 10, i8 -54, i16 noundef zeroext %2002)
+  %2003 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %2004 = load i32, ptr %2003, align 4
+  %2005 = and i32 %2004, 15
+  switch i32 %2005, label %2024 [
+    i32 6, label %2006
+    i32 2, label %2010
+  ]
+
+2006:                                             ; preds = %1994
+  %2007 = load ptr, ptr %0, align 8, !tbaa !63
+  %2008 = trunc i32 %2004 to i16
+  %2009 = and i16 %2008, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2007, i8 18, i8 -54, i16 noundef zeroext %2009)
+  br label %2024
+
+2010:                                             ; preds = %1994
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  %2011 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i64 0, ptr %2011, align 8
+  %2012 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2013 = load ptr, ptr %2012, align 8, !tbaa !64
+  %2014 = getelementptr inbounds nuw i8, ptr %2013, i64 48
+  %2015 = lshr i32 %2004, 4
+  %2016 = zext nneg i32 %2015 to i64
+  %2017 = load ptr, ptr %2014, align 8, !tbaa !65
+  %2018 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2017, i64 %2016
+  %2019 = getelementptr inbounds nuw i8, ptr %2018, i64 8
+  %2020 = load i32, ptr %2019, align 8, !tbaa !43
+  %2021 = uitofp i32 %2020 to double
+  store double %2021, ptr %44, align 8, !tbaa !43
+  %2022 = getelementptr inbounds nuw i8, ptr %44, i64 12
+  store i32 3, ptr %2022, align 4, !tbaa !99
+  %2023 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64EPKvm(ptr noundef nonnull align 8 dereferenceable(176) %2023, i8 18, ptr noundef nonnull %44, i64 noundef 16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  br label %2024
+
+2024:                                             ; preds = %1994, %2010, %2006
+  %2025 = load ptr, ptr %0, align 8, !tbaa !63
+  %2026 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0935.0.copyload = load i32, ptr %2026, align 4, !tbaa !43
+  %2027 = trunc i32 %.sroa.0935.0.copyload to i16
+  %2028 = and i16 %2027, -16
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2025, i8 26, i8 -54, i16 noundef zeroext %2028)
+  %2029 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2029, i8 34, i64 515412500993)
+  %2030 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2030, i8 34)
+  %2031 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2031, i8 -54, i64 68735900161)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2014:                                             ; preds = %4
-  %2015 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2016 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2015, i8 noundef zeroext 2)
-  %2017 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2015, i8 noundef zeroext 5)
-  %2018 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2015, i8 noundef zeroext 1)
-  %2019 = load ptr, ptr %0, align 8, !tbaa !63
-  %2020 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0893.0.copyload = load i32, ptr %2020, align 4, !tbaa !43
-  %2021 = trunc i32 %.sroa.0893.0.copyload to i16
-  %2022 = and i16 %2021, -16
-  %2023 = add i16 %2022, 32
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2019, i8 %2016, i8 -70, i16 noundef zeroext %2023)
+2032:                                             ; preds = %4
+  %2033 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2034 = load ptr, ptr %0, align 8, !tbaa !63
+  %2035 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2033, ptr noundef nonnull align 8 dereferenceable(176) %2034, i32 noundef %2, ptr null, i64 0)
+  %2036 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2036, i8 2, i8 -102)
+  %2037 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2037, i8 10, i64 68735908353)
+  %2038 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2038, i8 18, i8 -78)
+  %2039 = load ptr, ptr %0, align 8, !tbaa !63
+  %2040 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0923.0.copyload = load i32, ptr %2040, align 4, !tbaa !43
+  %2041 = trunc i32 %.sroa.0923.0.copyload to i16
+  %2042 = and i16 %2041, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2039, i8 26, i8 -54, i16 noundef zeroext %2042)
+  %2043 = load ptr, ptr %0, align 8, !tbaa !63
+  %2044 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0921.0.copyload = load i32, ptr %2044, align 4, !tbaa !43
+  %2045 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2046 = load ptr, ptr %2045, align 8, !tbaa !64
+  %2047 = getelementptr inbounds nuw i8, ptr %2046, i64 48
+  %2048 = lshr i32 %.sroa.0921.0.copyload, 4
+  %2049 = zext nneg i32 %2048 to i64
+  %2050 = load ptr, ptr %2047, align 8, !tbaa !65
+  %2051 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2050, i64 %2049
+  %2052 = getelementptr inbounds nuw i8, ptr %2051, i64 8
+  %2053 = load i32, ptr %2052, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2043, i8 33, i32 noundef %2053)
+  %2054 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2054, i8 41, i32 noundef 0)
+  %2055 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2055, i8 50, i64 549772239361)
+  %2056 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2056, i8 50)
+  %2057 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2057, i8 -54, i64 68735900161)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+2058:                                             ; preds = %4
+  %2059 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2060 = load ptr, ptr %0, align 8, !tbaa !63
+  %2061 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2059, ptr noundef nonnull align 8 dereferenceable(176) %2060, i32 noundef %2, ptr null, i64 0)
+  %2062 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2062, i8 2, i8 -102)
+  %2063 = load ptr, ptr %0, align 8, !tbaa !63
+  %2064 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0913.0.copyload = load i32, ptr %2064, align 4, !tbaa !43
+  %2065 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2066 = load ptr, ptr %2065, align 8, !tbaa !64
+  %2067 = getelementptr inbounds nuw i8, ptr %2066, i64 48
+  %2068 = lshr i32 %.sroa.0913.0.copyload, 4
+  %2069 = zext nneg i32 %2068 to i64
+  %2070 = load ptr, ptr %2067, align 8, !tbaa !65
+  %2071 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2070, i64 %2069
+  %2072 = getelementptr inbounds nuw i8, ptr %2071, i64 8
+  %2073 = load i32, ptr %2072, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2063, i8 9, i32 noundef %2073)
+  %2074 = load ptr, ptr %0, align 8, !tbaa !63
+  %2075 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0911.0.copyload = load i32, ptr %2075, align 4, !tbaa !43
+  %2076 = lshr i32 %.sroa.0911.0.copyload, 4
+  %.sroa.0910.0.copyload = load i32, ptr %2064, align 4, !tbaa !43
+  %2077 = load ptr, ptr %2065, align 8, !tbaa !64
+  %2078 = getelementptr inbounds nuw i8, ptr %2077, i64 48
+  %2079 = lshr i32 %.sroa.0910.0.copyload, 4
+  %2080 = zext nneg i32 %2079 to i64
+  %2081 = load ptr, ptr %2078, align 8, !tbaa !65
+  %2082 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2081, i64 %2080
+  %2083 = getelementptr inbounds nuw i8, ptr %2082, i64 8
+  %2084 = load i32, ptr %2083, align 8, !tbaa !43
+  %2085 = add nsw i32 %2076, -1
+  %2086 = add i32 %2085, %2084
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2074, i8 17, i32 noundef %2086)
+  %2087 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2087, i8 26, i64 584131977729)
+  %2088 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2088, i8 26)
+  %2089 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2089, i8 -54, i64 68735900161)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+2090:                                             ; preds = %4
+  %2091 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2092 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2091, i8 noundef zeroext 2)
+  %2093 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2091, i8 noundef zeroext 5)
+  %2094 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2091, i8 noundef zeroext 1)
+  %2095 = load ptr, ptr %0, align 8, !tbaa !63
+  %2096 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0893.0.copyload = load i32, ptr %2096, align 4, !tbaa !43
+  %2097 = trunc i32 %.sroa.0893.0.copyload to i16
+  %2098 = and i16 %2097, -16
+  %2099 = add i16 %2098, 32
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2095, i8 %2092, i8 -70, i16 noundef zeroext %2099)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i32 0, ptr %45, align 4, !tbaa !68
-  %2024 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i32 -1, ptr %2024, align 4, !tbaa !70
-  %2025 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.23334.0.insert.ext = zext i8 %2016 to i64
+  %2100 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store i32 -1, ptr %2100, align 4, !tbaa !70
+  %2101 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.23334.0.insert.ext = zext i8 %2092 to i64
   %.sroa.23334.0.insert.shift = shl nuw nsw i64 %.sroa.23334.0.insert.ext, 8
   %.sroa.03333.0.insert.insert = or disjoint i64 %.sroa.23334.0.insert.shift, 51555991553
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2025, i8 %2018, i64 %.sroa.03333.0.insert.insert)
-  %2026 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2026, i8 %2018, i16 noundef zeroext 12)
-  %2027 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2027, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %45)
-  %2028 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2101, i8 %2094, i64 %.sroa.03333.0.insert.insert)
+  %2102 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2102, i8 %2094, i16 noundef zeroext 12)
+  %2103 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2103, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %45)
+  %2104 = load ptr, ptr %0, align 8, !tbaa !63
   %.sroa.03328.0.insert.insert = or disjoint i64 %.sroa.23334.0.insert.shift, 16384001
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2028, i8 %2016, i64 %.sroa.03328.0.insert.insert)
-  %2029 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2104, i8 %2092, i64 %.sroa.03328.0.insert.insert)
+  %2105 = load ptr, ptr %0, align 8, !tbaa !63
   %.sroa.03323.0.insert.insert = or disjoint i64 %.sroa.23334.0.insert.shift, 34376122369
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2029, i8 %2016, i64 %.sroa.03323.0.insert.insert)
-  %2030 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2030, ptr noundef nonnull align 4 dereferenceable(8) %45)
-  %2031 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2031, i8 %2017, i64 %.sroa.03328.0.insert.insert)
-  %2032 = load ptr, ptr %0, align 8, !tbaa !63
-  %2033 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0881.0.copyload = load i32, ptr %2033, align 4, !tbaa !43
-  %2034 = and i32 %.sroa.0881.0.copyload, -16
-  %.sroa.43317.0.insert.ext = zext i32 %2034 to i64
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2105, i8 %2092, i64 %.sroa.03323.0.insert.insert)
+  %2106 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2106, ptr noundef nonnull align 4 dereferenceable(8) %45)
+  %2107 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2107, i8 %2093, i64 %.sroa.03328.0.insert.insert)
+  %2108 = load ptr, ptr %0, align 8, !tbaa !63
+  %2109 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0881.0.copyload = load i32, ptr %2109, align 4, !tbaa !43
+  %2110 = and i32 %.sroa.0881.0.copyload, -16
+  %.sroa.43317.0.insert.ext = zext i32 %2110 to i64
   %.sroa.43317.0.insert.shift = shl nuw i64 %.sroa.43317.0.insert.ext, 32
   %.sroa.03313.0.insert.insert = or disjoint i64 %.sroa.43317.0.insert.shift, 16435713
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2032, i8 %2017, i64 %.sroa.03313.0.insert.insert)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2108, i8 %2093, i64 %.sroa.03313.0.insert.insert)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2035:                                             ; preds = %4
-  %2036 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2037 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2036, i8 noundef zeroext 2)
-  %2038 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2036, i8 noundef zeroext 2)
-  %2039 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2036, i8 noundef zeroext 5)
-  %2040 = load ptr, ptr %0, align 8, !tbaa !63
-  %2041 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0869.0.copyload = load i32, ptr %2041, align 4, !tbaa !43
-  %2042 = and i32 %.sroa.0869.0.copyload, -16
-  %2043 = add i32 %2042, 32
-  %.sroa.43312.0.insert.ext = zext i32 %2043 to i64
+2111:                                             ; preds = %4
+  %2112 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2113 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2112, i8 noundef zeroext 2)
+  %2114 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2112, i8 noundef zeroext 2)
+  %2115 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2112, i8 noundef zeroext 5)
+  %2116 = load ptr, ptr %0, align 8, !tbaa !63
+  %2117 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0869.0.copyload = load i32, ptr %2117, align 4, !tbaa !43
+  %2118 = and i32 %.sroa.0869.0.copyload, -16
+  %2119 = add i32 %2118, 32
+  %.sroa.43312.0.insert.ext = zext i32 %2119 to i64
   %.sroa.43312.0.insert.shift = shl nuw i64 %.sroa.43312.0.insert.ext, 32
   %.sroa.03308.0.insert.insert = or disjoint i64 %.sroa.43312.0.insert.shift, 16431617
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2040, i8 %2037, i64 %.sroa.03308.0.insert.insert)
-  %2044 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.23304.0.insert.ext = zext i8 %2037 to i64
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2116, i8 %2113, i64 %.sroa.03308.0.insert.insert)
+  %2120 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.23304.0.insert.ext = zext i8 %2113 to i64
   %.sroa.23304.0.insert.shift = shl nuw nsw i64 %.sroa.23304.0.insert.ext, 8
   %.sroa.03303.0.insert.insert = or disjoint i64 %.sroa.23304.0.insert.shift, 34376122369
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2044, i8 %2038, i64 %.sroa.03303.0.insert.insert)
-  %2045 = load ptr, ptr %0, align 8, !tbaa !63
-  %2046 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0864.0.copyload = load i32, ptr %2046, align 4, !tbaa !43
-  %2047 = and i32 %.sroa.0864.0.copyload, -16
-  %.sroa.43302.0.insert.ext = zext i32 %2047 to i64
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2120, i8 %2114, i64 %.sroa.03303.0.insert.insert)
+  %2121 = load ptr, ptr %0, align 8, !tbaa !63
+  %2122 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0864.0.copyload = load i32, ptr %2122, align 4, !tbaa !43
+  %2123 = and i32 %.sroa.0864.0.copyload, -16
+  %.sroa.43302.0.insert.ext = zext i32 %2123 to i64
   %.sroa.43302.0.insert.shift = shl nuw i64 %.sroa.43302.0.insert.ext, 32
   %.sroa.03298.0.insert.insert = or disjoint i64 %.sroa.43302.0.insert.shift, 16435713
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2045, i8 %2039, i64 %.sroa.03298.0.insert.insert)
-  %2048 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.23294.0.insert.ext = zext i8 %2038 to i64
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2121, i8 %2115, i64 %.sroa.03298.0.insert.insert)
+  %2124 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.23294.0.insert.ext = zext i8 %2114 to i64
   %.sroa.23294.0.insert.shift = shl nuw nsw i64 %.sroa.23294.0.insert.ext, 8
   %.sroa.03293.0.insert.insert = or disjoint i64 %.sroa.23294.0.insert.shift, 16384001
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2048, i8 %2039, i64 %.sroa.03293.0.insert.insert)
-  %2049 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %2050 = load i32, ptr %2049, align 4
-  %2051 = and i32 %2050, 15
-  %2052 = icmp eq i32 %2051, 1
-  br i1 %2052, label %.thread3693, label %2055
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2124, i8 %2115, i64 %.sroa.03293.0.insert.insert)
+  %2125 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %2126 = load i32, ptr %2125, align 4
+  %2127 = and i32 %2126, 15
+  %2128 = icmp eq i32 %2127, 1
+  br i1 %2128, label %.thread3693, label %2131
 
-.thread3693:                                      ; preds = %2035
+.thread3693:                                      ; preds = %2111
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i32 0, ptr %46, align 4, !tbaa !68
-  %2053 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 -1, ptr %2053, align 4, !tbaa !70
-  %2054 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0858.0.copyload3695 = load i32, ptr %2046, align 4, !tbaa !43
-  br label %2079
+  %2129 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  store i32 -1, ptr %2129, align 4, !tbaa !70
+  %2130 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0858.0.copyload3695 = load i32, ptr %2122, align 4, !tbaa !43
+  br label %2157
 
-2055:                                             ; preds = %2035
-  %2056 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2057 = load ptr, ptr %2056, align 8, !tbaa !64
-  %2058 = getelementptr inbounds nuw i8, ptr %2057, i64 48
-  %2059 = lshr i32 %2050, 4
-  %2060 = zext nneg i32 %2059 to i64
-  %2061 = load ptr, ptr %2058, align 8, !tbaa !65
-  %2062 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2061, i64 %2060, i32 1
-  %2063 = load i8, ptr %2062, align 8, !tbaa !43
-  %2064 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen5isGCOEh(i8 noundef zeroext %2063)
-  br i1 %2064, label %2065, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+2131:                                             ; preds = %2111
+  %2132 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2133 = load ptr, ptr %2132, align 8, !tbaa !64
+  %2134 = getelementptr inbounds nuw i8, ptr %2133, i64 48
+  %2135 = lshr i32 %2126, 4
+  %2136 = zext nneg i32 %2135 to i64
+  %2137 = load ptr, ptr %2134, align 8, !tbaa !65
+  %2138 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2137, i64 %2136
+  %2139 = getelementptr inbounds nuw i8, ptr %2138, i64 8
+  %2140 = load i8, ptr %2139, align 8, !tbaa !43
+  %2141 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen5isGCOEh(i8 noundef zeroext %2140)
+  br i1 %2141, label %2142, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2065:                                             ; preds = %2055
-  %.pre3663 = load i32, ptr %2049, align 4
+2142:                                             ; preds = %2131
+  %.pre3663 = load i32, ptr %2125, align 4
   %.pre3670 = and i32 %.pre3663, 15
-  %2066 = icmp eq i32 %.pre3670, 1
+  %2143 = icmp eq i32 %.pre3670, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i32 0, ptr %46, align 4, !tbaa !68
-  %2067 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 -1, ptr %2067, align 4, !tbaa !70
-  %2068 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0858.0.copyload = load i32, ptr %2046, align 4, !tbaa !43
-  br i1 %2066, label %2079, label %2069
+  %2144 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  store i32 -1, ptr %2144, align 4, !tbaa !70
+  %2145 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0858.0.copyload = load i32, ptr %2122, align 4, !tbaa !43
+  br i1 %2143, label %2157, label %2146
 
-2069:                                             ; preds = %2065
-  %2070 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2071 = load ptr, ptr %2070, align 8, !tbaa !64
-  %2072 = getelementptr inbounds nuw i8, ptr %2071, i64 48
-  %2073 = lshr i32 %.pre3663, 4
-  %2074 = zext nneg i32 %2073 to i64
-  %2075 = load ptr, ptr %2072, align 8, !tbaa !65
-  %2076 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2075, i64 %2074, i32 1
-  %2077 = load i8, ptr %2076, align 8, !tbaa !43
-  %2078 = zext i8 %2077 to i32
-  br label %2079
+2146:                                             ; preds = %2142
+  %2147 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2148 = load ptr, ptr %2147, align 8, !tbaa !64
+  %2149 = getelementptr inbounds nuw i8, ptr %2148, i64 48
+  %2150 = lshr i32 %.pre3663, 4
+  %2151 = zext nneg i32 %2150 to i64
+  %2152 = load ptr, ptr %2149, align 8, !tbaa !65
+  %2153 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2152, i64 %2151
+  %2154 = getelementptr inbounds nuw i8, ptr %2153, i64 8
+  %2155 = load i8, ptr %2154, align 8, !tbaa !43
+  %2156 = zext i8 %2155 to i32
+  br label %2157
 
-2079:                                             ; preds = %.thread3693, %2065, %2069
-  %.sroa.0858.0.copyload3696 = phi i32 [ %.sroa.0858.0.copyload, %2069 ], [ %.sroa.0858.0.copyload, %2065 ], [ %.sroa.0858.0.copyload3695, %.thread3693 ]
-  %2080 = phi ptr [ %2068, %2069 ], [ %2068, %2065 ], [ %2054, %.thread3693 ]
-  %2081 = phi i32 [ %2078, %2069 ], [ -1, %2065 ], [ -1, %.thread3693 ]
-  call fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditionsERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_NS0_4IrOpEiRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2080, i8 %2037, i8 %2038, i32 %.sroa.0858.0.copyload3696, i32 noundef %2081, ptr noundef nonnull align 4 dereferenceable(8) %46)
-  %2082 = load ptr, ptr %0, align 8, !tbaa !63
+2157:                                             ; preds = %.thread3693, %2142, %2146
+  %.sroa.0858.0.copyload3696 = phi i32 [ %.sroa.0858.0.copyload, %2146 ], [ %.sroa.0858.0.copyload, %2142 ], [ %.sroa.0858.0.copyload3695, %.thread3693 ]
+  %2158 = phi ptr [ %2145, %2146 ], [ %2145, %2142 ], [ %2130, %.thread3693 ]
+  %2159 = phi i32 [ %2156, %2146 ], [ -1, %2142 ], [ -1, %.thread3693 ]
+  call fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditionsERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_NS0_4IrOpEiRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2158, i8 %2113, i8 %2114, i32 %.sroa.0858.0.copyload3696, i32 noundef %2159, ptr noundef nonnull align 4 dereferenceable(8) %46)
+  %2160 = load ptr, ptr %0, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  store i8 %2037, ptr %47, align 1, !tbaa !43
-  %2083 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2036, ptr noundef nonnull align 8 dereferenceable(176) %2082, i32 noundef %2, ptr nonnull %47, i64 1)
+  store i8 %2113, ptr %47, align 1, !tbaa !43
+  %2161 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2112, ptr noundef nonnull align 8 dereferenceable(176) %2160, i32 noundef %2, ptr nonnull %47, i64 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  %2084 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2084, i8 10, i8 %2037)
-  %2085 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2085, i8 2, i8 -102)
-  %2086 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0847.0.copyload = load i32, ptr %2046, align 4, !tbaa !43
-  %2087 = and i32 %.sroa.0847.0.copyload, -16
-  %.sroa.43292.0.insert.ext = zext i32 %2087 to i64
+  %2162 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2162, i8 10, i8 %2113)
+  %2163 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2163, i8 2, i8 -102)
+  %2164 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0847.0.copyload = load i32, ptr %2122, align 4, !tbaa !43
+  %2165 = and i32 %.sroa.0847.0.copyload, -16
+  %.sroa.43292.0.insert.ext = zext i32 %2165 to i64
   %.sroa.43292.0.insert.shift = shl nuw i64 %.sroa.43292.0.insert.ext, 32
   %.sroa.03288.0.insert.insert = or disjoint i64 %.sroa.43292.0.insert.shift, 16435713
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2086, i8 18, i64 %.sroa.03288.0.insert.insert)
-  %2088 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2088, i8 26, i64 824650146305)
-  %2089 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2089, i8 26)
-  %2090 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2036, ptr noundef nonnull align 8 dereferenceable(176) %2090, i64 noundef %2083)
-  %2091 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2091, ptr noundef nonnull align 4 dereferenceable(8) %46)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2164, i8 18, i64 %.sroa.03288.0.insert.insert)
+  %2166 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2166, i8 26, i64 824650146305)
+  %2167 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2167, i8 26)
+  %2168 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2112, ptr noundef nonnull align 8 dereferenceable(176) %2168, i64 noundef %2161)
+  %2169 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2169, ptr noundef nonnull align 4 dereferenceable(8) %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2092:                                             ; preds = %4
+2170:                                             ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i32 0, ptr %48, align 4, !tbaa !68
-  %2093 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 -1, ptr %2093, align 4, !tbaa !70
-  %2094 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0841.0.copyload = load i32, ptr %2094, align 4, !tbaa !43
-  %2095 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0841.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %48)
-  %2096 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0840.0.copyload = load i32, ptr %2096, align 4, !tbaa !43
-  %2097 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2098 = load ptr, ptr %2097, align 8, !tbaa !64
-  %2099 = getelementptr inbounds nuw i8, ptr %2098, i64 48
-  %2100 = lshr i32 %.sroa.0840.0.copyload, 4
-  %2101 = zext nneg i32 %2100 to i64
-  %2102 = load ptr, ptr %2099, align 8, !tbaa !65
-  %2103 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2102, i64 %2101, i32 1
-  %2104 = load i8, ptr %2103, align 8, !tbaa !43
-  %2105 = icmp eq i8 %2104, 0
-  %2106 = load ptr, ptr %0, align 8, !tbaa !63
-  %2107 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0838.0.copyload = load i32, ptr %2107, align 4, !tbaa !43
-  %2108 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0838.0.copyload)
-  br i1 %2105, label %2109, label %2110
+  %2171 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i32 -1, ptr %2171, align 4, !tbaa !70
+  %2172 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0841.0.copyload = load i32, ptr %2172, align 4, !tbaa !43
+  %2173 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0841.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %48)
+  %2174 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0840.0.copyload = load i32, ptr %2174, align 4, !tbaa !43
+  %2175 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2176 = load ptr, ptr %2175, align 8, !tbaa !64
+  %2177 = getelementptr inbounds nuw i8, ptr %2176, i64 48
+  %2178 = lshr i32 %.sroa.0840.0.copyload, 4
+  %2179 = zext nneg i32 %2178 to i64
+  %2180 = load ptr, ptr %2177, align 8, !tbaa !65
+  %2181 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2180, i64 %2179
+  %2182 = getelementptr inbounds nuw i8, ptr %2181, i64 8
+  %2183 = load i8, ptr %2182, align 8, !tbaa !43
+  %2184 = icmp eq i8 %2183, 0
+  %2185 = load ptr, ptr %0, align 8, !tbaa !63
+  %2186 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0838.0.copyload = load i32, ptr %2186, align 4, !tbaa !43
+  %2187 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0838.0.copyload)
+  br i1 %2184, label %2188, label %2189
 
-2109:                                             ; preds = %2092
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2106, i8 %2108, ptr noundef nonnull align 4 dereferenceable(8) %2095)
-  br label %2120
+2188:                                             ; preds = %2170
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2185, i8 %2187, ptr noundef nonnull align 4 dereferenceable(8) %2173)
+  br label %2200
 
-2110:                                             ; preds = %2092
-  %.sroa.0835.0.copyload = load i32, ptr %2096, align 4, !tbaa !43
-  %2111 = load ptr, ptr %2097, align 8, !tbaa !64
-  %2112 = getelementptr inbounds nuw i8, ptr %2111, i64 48
-  %2113 = lshr i32 %.sroa.0835.0.copyload, 4
-  %2114 = zext nneg i32 %2113 to i64
-  %2115 = load ptr, ptr %2112, align 8, !tbaa !65
-  %2116 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2115, i64 %2114, i32 1
-  %2117 = load i8, ptr %2116, align 8, !tbaa !43
-  %2118 = zext i8 %2117 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2106, i8 %2108, i16 noundef zeroext %2118)
-  %2119 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2119, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %2095)
-  br label %2120
+2189:                                             ; preds = %2170
+  %.sroa.0835.0.copyload = load i32, ptr %2174, align 4, !tbaa !43
+  %2190 = load ptr, ptr %2175, align 8, !tbaa !64
+  %2191 = getelementptr inbounds nuw i8, ptr %2190, i64 48
+  %2192 = lshr i32 %.sroa.0835.0.copyload, 4
+  %2193 = zext nneg i32 %2192 to i64
+  %2194 = load ptr, ptr %2191, align 8, !tbaa !65
+  %2195 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2194, i64 %2193
+  %2196 = getelementptr inbounds nuw i8, ptr %2195, i64 8
+  %2197 = load i8, ptr %2196, align 8, !tbaa !43
+  %2198 = zext i8 %2197 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2185, i8 %2187, i16 noundef zeroext %2198)
+  %2199 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2199, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %2173)
+  br label %2200
 
-2120:                                             ; preds = %2110, %2109
-  %.sroa.0834.0.copyload = load i32, ptr %2094, align 4, !tbaa !43
+2200:                                             ; preds = %2189, %2188
+  %.sroa.0834.0.copyload = load i32, ptr %2172, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0834.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2121:                                             ; preds = %4
+2201:                                             ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i32 0, ptr %49, align 4, !tbaa !68
-  %2122 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  store i32 -1, ptr %2122, align 4, !tbaa !70
-  %2123 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0830.0.copyload = load i32, ptr %2123, align 4, !tbaa !43
-  %2124 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0830.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %49)
+  %2202 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store i32 -1, ptr %2202, align 4, !tbaa !70
+  %2203 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0830.0.copyload = load i32, ptr %2203, align 4, !tbaa !43
+  %2204 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0830.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store i32 0, ptr %50, align 4, !tbaa !68
-  %2125 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 -1, ptr %2125, align 4, !tbaa !70
-  %2126 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %2127 = load i32, ptr %2126, align 4
-  %2128 = and i32 %2127, 15
-  %.not2958 = icmp eq i32 %2128, 2
-  br i1 %.not2958, label %2135, label %2129
+  %2205 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  store i32 -1, ptr %2205, align 4, !tbaa !70
+  %2206 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %2207 = load i32, ptr %2206, align 4
+  %2208 = and i32 %2207, 15
+  %.not2958 = icmp eq i32 %2208, 2
+  br i1 %.not2958, label %2215, label %2209
 
-2129:                                             ; preds = %2121
-  %2130 = load ptr, ptr %0, align 8, !tbaa !63
-  %2131 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %2127)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2130, i8 %2131, ptr noundef nonnull align 4 dereferenceable(8) %2124)
-  %2132 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0826.0.copyload = load i32, ptr %2126, align 4, !tbaa !43
-  %2133 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0826.0.copyload)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2132, i8 %2133, i16 noundef zeroext 1)
-  %2134 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2134, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %50)
-  br label %2135
+2209:                                             ; preds = %2201
+  %2210 = load ptr, ptr %0, align 8, !tbaa !63
+  %2211 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %2207)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2210, i8 %2211, ptr noundef nonnull align 4 dereferenceable(8) %2204)
+  %2212 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0826.0.copyload = load i32, ptr %2206, align 4, !tbaa !43
+  %2213 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0826.0.copyload)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2212, i8 %2213, i16 noundef zeroext 1)
+  %2214 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2214, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %50)
+  br label %2215
 
-2135:                                             ; preds = %2129, %2121
-  %2136 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2137 = load i32, ptr %2136, align 4
-  %2138 = and i32 %2137, 15
-  %.not2959 = icmp eq i32 %2138, 2
-  br i1 %.not2959, label %2142, label %2139
+2215:                                             ; preds = %2209, %2201
+  %2216 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %2217 = load i32, ptr %2216, align 4
+  %2218 = and i32 %2217, 15
+  %.not2959 = icmp eq i32 %2218, 2
+  br i1 %.not2959, label %2222, label %2219
 
-2139:                                             ; preds = %2135
-  %2140 = load ptr, ptr %0, align 8, !tbaa !63
-  %2141 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %2137)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2140, i8 %2141, ptr noundef nonnull align 4 dereferenceable(8) %2124)
-  br label %2154
+2219:                                             ; preds = %2215
+  %2220 = load ptr, ptr %0, align 8, !tbaa !63
+  %2221 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %2217)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2220, i8 %2221, ptr noundef nonnull align 4 dereferenceable(8) %2204)
+  br label %2235
 
-2142:                                             ; preds = %2135
-  %2143 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2144 = load ptr, ptr %2143, align 8, !tbaa !64
-  %2145 = getelementptr inbounds nuw i8, ptr %2144, i64 48
-  %2146 = lshr i32 %2137, 4
-  %2147 = zext nneg i32 %2146 to i64
-  %2148 = load ptr, ptr %2145, align 8, !tbaa !65
-  %2149 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2148, i64 %2147, i32 1
-  %2150 = load i32, ptr %2149, align 8, !tbaa !43
-  %2151 = icmp eq i32 %2150, 0
-  br i1 %2151, label %2152, label %2154
+2222:                                             ; preds = %2215
+  %2223 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2224 = load ptr, ptr %2223, align 8, !tbaa !64
+  %2225 = getelementptr inbounds nuw i8, ptr %2224, i64 48
+  %2226 = lshr i32 %2217, 4
+  %2227 = zext nneg i32 %2226 to i64
+  %2228 = load ptr, ptr %2225, align 8, !tbaa !65
+  %2229 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2228, i64 %2227
+  %2230 = getelementptr inbounds nuw i8, ptr %2229, i64 8
+  %2231 = load i32, ptr %2230, align 8, !tbaa !43
+  %2232 = icmp eq i32 %2231, 0
+  br i1 %2232, label %2233, label %2235
 
-2152:                                             ; preds = %2142
-  %2153 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2153, ptr noundef nonnull align 4 dereferenceable(8) %2124)
-  br label %2154
+2233:                                             ; preds = %2222
+  %2234 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2234, ptr noundef nonnull align 4 dereferenceable(8) %2204)
+  br label %2235
 
-2154:                                             ; preds = %2142, %2152, %2139
-  %2155 = load i32, ptr %2126, align 4
-  %2156 = and i32 %2155, 15
-  %.not2960 = icmp eq i32 %2156, 2
-  br i1 %.not2960, label %2159, label %2157
+2235:                                             ; preds = %2222, %2233, %2219
+  %2236 = load i32, ptr %2206, align 4
+  %2237 = and i32 %2236, 15
+  %.not2960 = icmp eq i32 %2237, 2
+  br i1 %.not2960, label %2240, label %2238
 
-2157:                                             ; preds = %2154
-  %2158 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2158, ptr noundef nonnull align 4 dereferenceable(8) %50)
-  br label %2159
+2238:                                             ; preds = %2235
+  %2239 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2239, ptr noundef nonnull align 4 dereferenceable(8) %50)
+  br label %2240
 
-2159:                                             ; preds = %2157, %2154
-  %.sroa.0822.0.copyload = load i32, ptr %2123, align 4, !tbaa !43
+2240:                                             ; preds = %2238, %2235
+  %.sroa.0822.0.copyload = load i32, ptr %2203, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0822.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2160:                                             ; preds = %4
+2241:                                             ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store i32 0, ptr %51, align 4, !tbaa !68
-  %2161 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  store i32 -1, ptr %2161, align 4, !tbaa !70
-  %2162 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2163 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2162, i8 noundef zeroext 1)
-  %2164 = load ptr, ptr %0, align 8, !tbaa !63
-  %2165 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0817.0.copyload = load i32, ptr %2165, align 4, !tbaa !43
-  %2166 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0817.0.copyload)
-  %.sroa.23279.0.insert.ext = zext i8 %2166 to i64
+  %2242 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i32 -1, ptr %2242, align 4, !tbaa !70
+  %2243 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2244 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2243, i8 noundef zeroext 1)
+  %2245 = load ptr, ptr %0, align 8, !tbaa !63
+  %2246 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0817.0.copyload = load i32, ptr %2246, align 4, !tbaa !43
+  %2247 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0817.0.copyload)
+  %.sroa.23279.0.insert.ext = zext i8 %2247 to i64
   %.sroa.23279.0.insert.shift = shl nuw nsw i64 %.sroa.23279.0.insert.ext, 8
   %.sroa.03278.0.insert.insert = or disjoint i64 %.sroa.23279.0.insert.shift, 17196253185
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2164, i8 %2163, i64 %.sroa.03278.0.insert.insert)
-  %2167 = load ptr, ptr %0, align 8, !tbaa !63
-  %2168 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0815.0.copyload = load i32, ptr %2168, align 4, !tbaa !43
-  %2169 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0815.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %51)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2167, i8 %2163, ptr noundef nonnull align 4 dereferenceable(8) %2169)
-  %.sroa.0814.0.copyload = load i32, ptr %2168, align 4, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2245, i8 %2244, i64 %.sroa.03278.0.insert.insert)
+  %2248 = load ptr, ptr %0, align 8, !tbaa !63
+  %2249 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0815.0.copyload = load i32, ptr %2249, align 4, !tbaa !43
+  %2250 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0815.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %51)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2248, i8 %2244, ptr noundef nonnull align 4 dereferenceable(8) %2250)
+  %.sroa.0814.0.copyload = load i32, ptr %2249, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0814.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2170:                                             ; preds = %4
+2251:                                             ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store i32 0, ptr %52, align 4, !tbaa !68
-  %2171 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store i32 -1, ptr %2171, align 4, !tbaa !70
-  %2172 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2173 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2172, i8 noundef zeroext 2)
-  %2174 = load ptr, ptr %0, align 8, !tbaa !63
-  %2175 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0809.0.copyload = load i32, ptr %2175, align 4, !tbaa !43
-  %2176 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0809.0.copyload)
-  %.sroa.23274.0.insert.ext = zext i8 %2176 to i64
+  %2252 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  store i32 -1, ptr %2252, align 4, !tbaa !70
+  %2253 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2254 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2253, i8 noundef zeroext 2)
+  %2255 = load ptr, ptr %0, align 8, !tbaa !63
+  %2256 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0809.0.copyload = load i32, ptr %2256, align 4, !tbaa !43
+  %2257 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0809.0.copyload)
+  %.sroa.23274.0.insert.ext = zext i8 %2257 to i64
   %.sroa.23274.0.insert.shift = shl nuw nsw i64 %.sroa.23274.0.insert.ext, 8
   %.sroa.03273.0.insert.insert = or disjoint i64 %.sroa.23274.0.insert.shift, 68735860737
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2174, i8 %2173, i64 %.sroa.03273.0.insert.insert)
-  %2177 = load ptr, ptr %0, align 8, !tbaa !63
-  %2178 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0807.0.copyload = load i32, ptr %2178, align 4, !tbaa !43
-  %2179 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0807.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %52)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2177, i8 %2173, ptr noundef nonnull align 4 dereferenceable(8) %2179)
-  %.sroa.0806.0.copyload = load i32, ptr %2178, align 4, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2255, i8 %2254, i64 %.sroa.03273.0.insert.insert)
+  %2258 = load ptr, ptr %0, align 8, !tbaa !63
+  %2259 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0807.0.copyload = load i32, ptr %2259, align 4, !tbaa !43
+  %2260 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0807.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %52)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2258, i8 %2254, ptr noundef nonnull align 4 dereferenceable(8) %2260)
+  %.sroa.0806.0.copyload = load i32, ptr %2259, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0806.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2180:                                             ; preds = %4
+2261:                                             ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store i32 0, ptr %53, align 4, !tbaa !68
-  %2181 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i32 -1, ptr %2181, align 4, !tbaa !70
-  %2182 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2183 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2182, i8 noundef zeroext 2)
-  %2184 = and i8 %2183, -8
-  %2185 = or disjoint i8 %2184, 1
-  %2186 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2186, i8 %2183, i64 68735908353)
-  %2187 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.23264.0.insert.ext = zext i8 %2183 to i64
+  %2262 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store i32 -1, ptr %2262, align 4, !tbaa !70
+  %2263 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2264 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2263, i8 noundef zeroext 2)
+  %2265 = and i8 %2264, -8
+  %2266 = or disjoint i8 %2265, 1
+  %2267 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2267, i8 %2264, i64 68735908353)
+  %2268 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.23264.0.insert.ext = zext i8 %2264 to i64
   %.sroa.23264.0.insert.shift = shl nuw nsw i64 %.sroa.23264.0.insert.ext, 8
   %.sroa.03263.0.insert.insert = or disjoint i64 %.sroa.23264.0.insert.shift, 21491220481
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2187, i8 %2185, i64 %.sroa.03263.0.insert.insert)
-  %2188 = load ptr, ptr %0, align 8, !tbaa !63
-  %2189 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0794.0.copyload = load i32, ptr %2189, align 4, !tbaa !43
-  %2190 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0794.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %53)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2188, i8 %2185, ptr noundef nonnull align 4 dereferenceable(8) %2190)
-  %.sroa.0793.0.copyload = load i32, ptr %2189, align 4, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2268, i8 %2266, i64 %.sroa.03263.0.insert.insert)
+  %2269 = load ptr, ptr %0, align 8, !tbaa !63
+  %2270 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0794.0.copyload = load i32, ptr %2270, align 4, !tbaa !43
+  %2271 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0794.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %53)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2269, i8 %2266, ptr noundef nonnull align 4 dereferenceable(8) %2271)
+  %.sroa.0793.0.copyload = load i32, ptr %2270, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0793.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2191:                                             ; preds = %4
+2272:                                             ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store i32 0, ptr %54, align 4, !tbaa !68
-  %2192 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  store i32 -1, ptr %2192, align 4, !tbaa !70
-  %2193 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0788.0.copyload = load i32, ptr %2193, align 4, !tbaa !43
-  %2194 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0788.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %54)
-  %2195 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2196 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2195, i8 noundef zeroext 1)
-  %2197 = load ptr, ptr %0, align 8, !tbaa !63
-  %2198 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0780.0.copyload = load i32, ptr %2198, align 4, !tbaa !43
-  %2199 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0780.0.copyload)
-  %.sroa.23259.0.insert.ext = zext i8 %2199 to i64
+  %2273 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store i32 -1, ptr %2273, align 4, !tbaa !70
+  %2274 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0788.0.copyload = load i32, ptr %2274, align 4, !tbaa !43
+  %2275 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0788.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %54)
+  %2276 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2277 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2276, i8 noundef zeroext 1)
+  %2278 = load ptr, ptr %0, align 8, !tbaa !63
+  %2279 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0780.0.copyload = load i32, ptr %2279, align 4, !tbaa !43
+  %2280 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0780.0.copyload)
+  %.sroa.23259.0.insert.ext = zext i8 %2280 to i64
   %.sroa.23259.0.insert.shift = shl nuw nsw i64 %.sroa.23259.0.insert.ext, 8
   %.sroa.03258.0.insert.insert = or disjoint i64 %.sroa.23259.0.insert.shift, 34376122369
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2197, i8 %2196, i64 %.sroa.03258.0.insert.insert)
-  %2200 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2201 = load i32, ptr %2200, align 4
-  %2202 = and i32 %2201, 15
-  switch i32 %2202, label %2237 [
-    i32 4, label %2203
-    i32 2, label %2207
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2278, i8 %2277, i64 %.sroa.03258.0.insert.insert)
+  %2281 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %2282 = load i32, ptr %2281, align 4
+  %2283 = and i32 %2282, 15
+  switch i32 %2283, label %2320 [
+    i32 4, label %2284
+    i32 2, label %2288
   ]
 
-2203:                                             ; preds = %2191
-  %2204 = load ptr, ptr %0, align 8, !tbaa !63
-  %2205 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %2201)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2204, i8 %2196, i8 %2205)
-  %2206 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2206, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2194)
-  br label %2237
+2284:                                             ; preds = %2272
+  %2285 = load ptr, ptr %0, align 8, !tbaa !63
+  %2286 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %2282)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2285, i8 %2277, i8 %2286)
+  %2287 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2287, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2275)
+  br label %2320
 
-2207:                                             ; preds = %2191
-  %2208 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2209 = load ptr, ptr %2208, align 8, !tbaa !64
-  %2210 = getelementptr inbounds nuw i8, ptr %2209, i64 48
-  %2211 = lshr i32 %2201, 4
-  %2212 = zext nneg i32 %2211 to i64
-  %2213 = load ptr, ptr %2210, align 8, !tbaa !65
-  %2214 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2213, i64 %2212, i32 1
-  %2215 = load i32, ptr %2214, align 8, !tbaa !43
-  %2216 = icmp eq i32 %2215, 0
-  br i1 %2216, label %2217, label %2219
+2288:                                             ; preds = %2272
+  %2289 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2290 = load ptr, ptr %2289, align 8, !tbaa !64
+  %2291 = getelementptr inbounds nuw i8, ptr %2290, i64 48
+  %2292 = lshr i32 %2282, 4
+  %2293 = zext nneg i32 %2292 to i64
+  %2294 = load ptr, ptr %2291, align 8, !tbaa !65
+  %2295 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2294, i64 %2293
+  %2296 = getelementptr inbounds nuw i8, ptr %2295, i64 8
+  %2297 = load i32, ptr %2296, align 8, !tbaa !43
+  %2298 = icmp eq i32 %2297, 0
+  br i1 %2298, label %2299, label %2301
 
-2217:                                             ; preds = %2207
-  %2218 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2218, i8 %2196, ptr noundef nonnull align 4 dereferenceable(8) %2194)
-  br label %2237
+2299:                                             ; preds = %2288
+  %2300 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2300, i8 %2277, ptr noundef nonnull align 4 dereferenceable(8) %2275)
+  br label %2320
 
-2219:                                             ; preds = %2207
-  %2220 = icmp ult i32 %2215, 4096
-  br i1 %2220, label %2221, label %2225
+2301:                                             ; preds = %2288
+  %2302 = icmp ult i32 %2297, 4096
+  br i1 %2302, label %2303, label %2307
 
-2221:                                             ; preds = %2219
-  %2222 = load ptr, ptr %0, align 8, !tbaa !63
-  %2223 = trunc nuw nsw i32 %2215 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2222, i8 %2196, i16 noundef zeroext %2223)
-  %2224 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2224, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2194)
-  br label %2237
+2303:                                             ; preds = %2301
+  %2304 = load ptr, ptr %0, align 8, !tbaa !63
+  %2305 = trunc nuw nsw i32 %2297 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2304, i8 %2277, i16 noundef zeroext %2305)
+  %2306 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2306, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2275)
+  br label %2320
 
-2225:                                             ; preds = %2219
-  %2226 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2195, i8 noundef zeroext 1)
-  %2227 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0768.0.copyload = load i32, ptr %2200, align 4, !tbaa !43
-  %2228 = load ptr, ptr %2208, align 8, !tbaa !64
-  %2229 = getelementptr inbounds nuw i8, ptr %2228, i64 48
-  %2230 = lshr i32 %.sroa.0768.0.copyload, 4
-  %2231 = zext nneg i32 %2230 to i64
-  %2232 = load ptr, ptr %2229, align 8, !tbaa !65
-  %2233 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2232, i64 %2231, i32 1
-  %2234 = load i32, ptr %2233, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2227, i8 %2226, i32 noundef %2234)
-  %2235 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2235, i8 %2196, i8 %2226)
-  %2236 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2236, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2194)
-  br label %2237
+2307:                                             ; preds = %2301
+  %2308 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2276, i8 noundef zeroext 1)
+  %2309 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0768.0.copyload = load i32, ptr %2281, align 4, !tbaa !43
+  %2310 = load ptr, ptr %2289, align 8, !tbaa !64
+  %2311 = getelementptr inbounds nuw i8, ptr %2310, i64 48
+  %2312 = lshr i32 %.sroa.0768.0.copyload, 4
+  %2313 = zext nneg i32 %2312 to i64
+  %2314 = load ptr, ptr %2311, align 8, !tbaa !65
+  %2315 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2314, i64 %2313
+  %2316 = getelementptr inbounds nuw i8, ptr %2315, i64 8
+  %2317 = load i32, ptr %2316, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2309, i8 %2308, i32 noundef %2317)
+  %2318 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2318, i8 %2277, i8 %2308)
+  %2319 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2319, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2275)
+  br label %2320
 
-2237:                                             ; preds = %2191, %2221, %2225, %2217, %2203
-  %.sroa.0765.0.copyload = load i32, ptr %2193, align 4, !tbaa !43
+2320:                                             ; preds = %2272, %2303, %2307, %2299, %2284
+  %.sroa.0765.0.copyload = load i32, ptr %2274, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0765.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2238:                                             ; preds = %4, %4
+2321:                                             ; preds = %4, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i32 0, ptr %55, align 4, !tbaa !68
-  %2239 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i32 -1, ptr %2239, align 4, !tbaa !70
-  %2240 = icmp eq i8 %95, 54
-  %2241 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2242 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.val = load i32, ptr %2241, align 4
-  %.val2956 = load i32, ptr %2242, align 4
-  %2243 = select i1 %2240, i32 %.val, i32 %.val2956
-  %2244 = and i32 %2243, 15
-  %2245 = icmp eq i32 %2244, 1
-  br i1 %2245, label %2253, label %2246
+  %2322 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  store i32 -1, ptr %2322, align 4, !tbaa !70
+  %2323 = icmp eq i8 %95, 54
+  %2324 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2325 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.val = load i32, ptr %2324, align 4
+  %.val2956 = load i32, ptr %2325, align 4
+  %2326 = select i1 %2323, i32 %.val, i32 %.val2956
+  %2327 = and i32 %2326, 15
+  %2328 = icmp eq i32 %2327, 1
+  br i1 %2328, label %2337, label %2329
 
-2246:                                             ; preds = %2238
-  %2247 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2248 = load ptr, ptr %2247, align 8, !tbaa !64
-  %2249 = lshr i32 %2243, 4
-  %2250 = zext nneg i32 %2249 to i64
-  %2251 = load ptr, ptr %2248, align 8, !tbaa !71
-  %2252 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2251, i64 %2250, i32 7
-  br label %2253
+2329:                                             ; preds = %2321
+  %2330 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2331 = load ptr, ptr %2330, align 8, !tbaa !64
+  %2332 = lshr i32 %2326, 4
+  %2333 = zext nneg i32 %2332 to i64
+  %2334 = load ptr, ptr %2331, align 8, !tbaa !71
+  %2335 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2334, i64 %2333
+  %2336 = getelementptr inbounds nuw i8, ptr %2335, i64 24
+  br label %2337
 
-2253:                                             ; preds = %2238, %2246
-  %2254 = phi ptr [ %2252, %2246 ], [ %55, %2238 ]
-  %2255 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2256 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2255, i8 noundef zeroext 2)
-  %2257 = and i8 %2256, -8
-  %2258 = or disjoint i8 %2257, 1
-  %2259 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2255, i8 noundef zeroext 2)
-  %2260 = load ptr, ptr %0, align 8, !tbaa !63
-  %2261 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0743.0.copyload = load i32, ptr %2261, align 4, !tbaa !43
-  %2262 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0743.0.copyload)
-  %.sroa.23254.0.insert.ext = zext i8 %2262 to i64
+2337:                                             ; preds = %2321, %2329
+  %2338 = phi ptr [ %2336, %2329 ], [ %55, %2321 ]
+  %2339 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2340 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2339, i8 noundef zeroext 2)
+  %2341 = and i8 %2340, -8
+  %2342 = or disjoint i8 %2341, 1
+  %2343 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2339, i8 noundef zeroext 2)
+  %2344 = load ptr, ptr %0, align 8, !tbaa !63
+  %2345 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0743.0.copyload = load i32, ptr %2345, align 4, !tbaa !43
+  %2346 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0743.0.copyload)
+  %.sroa.23254.0.insert.ext = zext i8 %2346 to i64
   %.sroa.23254.0.insert.shift = shl nuw nsw i64 %.sroa.23254.0.insert.ext, 8
   %.sroa.03253.0.insert.insert = or disjoint i64 %.sroa.23254.0.insert.shift, 68735860737
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2260, i8 %2256, i8 %2259, i64 %.sroa.03253.0.insert.insert)
-  %2263 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ubfxENS1_11RegisterA64ES3_hh(ptr noundef nonnull align 8 dereferenceable(176) %2263, i8 %2259, i8 %2259, i8 noundef zeroext 32, i8 noundef zeroext 4)
-  %2264 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2264, i8 %2259, i16 noundef zeroext 5)
-  %2265 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2265, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %2254)
-  %2266 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0738.0.copyload = load i32, ptr %2266, align 4, !tbaa !43
-  %2267 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0738.0.copyload, i32 noundef 0)
-  %2268 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2268, i8 %2259, i64 %2267)
-  %2269 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2269, i8 %2256, i8 %2259)
-  %2270 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2270, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %2254)
-  %2271 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0731.0.copyload = load i32, ptr %2261, align 4, !tbaa !43
-  %2272 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0731.0.copyload)
-  %.sroa.23249.0.insert.ext = zext i8 %2272 to i64
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2344, i8 %2340, i8 %2343, i64 %.sroa.03253.0.insert.insert)
+  %2347 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ubfxENS1_11RegisterA64ES3_hh(ptr noundef nonnull align 8 dereferenceable(176) %2347, i8 %2343, i8 %2343, i8 noundef zeroext 32, i8 noundef zeroext 4)
+  %2348 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2348, i8 %2343, i16 noundef zeroext 5)
+  %2349 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2349, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %2338)
+  %2350 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0738.0.copyload = load i32, ptr %2350, align 4, !tbaa !43
+  %2351 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0738.0.copyload, i32 noundef 0)
+  %2352 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2352, i8 %2343, i64 %2351)
+  %2353 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2353, i8 %2340, i8 %2343)
+  %2354 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2354, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %2338)
+  %2355 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0731.0.copyload = load i32, ptr %2345, align 4, !tbaa !43
+  %2356 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0731.0.copyload)
+  %.sroa.23249.0.insert.ext = zext i8 %2356 to i64
   %.sroa.23249.0.insert.shift = shl nuw nsw i64 %.sroa.23249.0.insert.ext, 8
   %.sroa.03248.0.insert.insert = or disjoint i64 %.sroa.23249.0.insert.shift, 51555991553
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2271, i8 %2258, i64 %.sroa.03248.0.insert.insert)
-  %2273 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2273, i8 %2258, ptr noundef nonnull align 4 dereferenceable(8) %2254)
-  %2274 = load i8, ptr %1, align 4, !tbaa !53
-  %2275 = icmp eq i8 %2274, 54
-  br i1 %2275, label %2276, label %2291
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2355, i8 %2342, i64 %.sroa.03248.0.insert.insert)
+  %2357 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2357, i8 %2342, ptr noundef nonnull align 4 dereferenceable(8) %2338)
+  %2358 = load i8, ptr %1, align 4, !tbaa !53
+  %2359 = icmp eq i8 %2358, 54
+  br i1 %2359, label %2360, label %2375
 
-2276:                                             ; preds = %2253
-  %.sroa.0729.0.copyload = load i32, ptr %2242, align 4, !tbaa !43
-  %2277 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2278 = load ptr, ptr %2277, align 8, !tbaa !64
-  %2279 = lshr i32 %.sroa.0729.0.copyload, 4
-  %2280 = zext nneg i32 %2279 to i64
-  %2281 = load ptr, ptr %2278, align 8, !tbaa !71
-  %2282 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2281, i64 %2280
-  %2283 = getelementptr inbounds nuw i8, ptr %2282, i64 4
-  %2284 = load i32, ptr %2283, align 4, !tbaa !74
-  %2285 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %2286 = load i32, ptr %2285, align 4, !tbaa !74
-  %2287 = icmp eq i32 %2284, %2286
-  br i1 %2287, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979, label %2288
+2360:                                             ; preds = %2337
+  %.sroa.0729.0.copyload = load i32, ptr %2325, align 4, !tbaa !43
+  %2361 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2362 = load ptr, ptr %2361, align 8, !tbaa !64
+  %2363 = lshr i32 %.sroa.0729.0.copyload, 4
+  %2364 = zext nneg i32 %2363 to i64
+  %2365 = load ptr, ptr %2362, align 8, !tbaa !71
+  %2366 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2365, i64 %2364
+  %2367 = getelementptr inbounds nuw i8, ptr %2366, i64 4
+  %2368 = load i32, ptr %2367, align 4, !tbaa !74
+  %2369 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %2370 = load i32, ptr %2369, align 4, !tbaa !74
+  %2371 = icmp eq i32 %2368, %2370
+  br i1 %2371, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979, label %2372
 
-2288:                                             ; preds = %2276
-  %2289 = load ptr, ptr %0, align 8, !tbaa !63
-  %2290 = getelementptr inbounds nuw i8, ptr %2282, i64 24
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2289, ptr noundef nonnull align 4 dereferenceable(8) %2290)
+2372:                                             ; preds = %2360
+  %2373 = load ptr, ptr %0, align 8, !tbaa !63
+  %2374 = getelementptr inbounds nuw i8, ptr %2366, i64 24
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2373, ptr noundef nonnull align 4 dereferenceable(8) %2374)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979
 
-2291:                                             ; preds = %2253
-  %2292 = load i32, ptr %55, align 4, !tbaa !68
-  %.not2957 = icmp eq i32 %2292, 0
-  br i1 %.not2957, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979, label %2293
+2375:                                             ; preds = %2337
+  %2376 = load i32, ptr %55, align 4, !tbaa !68
+  %.not2957 = icmp eq i32 %2376, 0
+  br i1 %.not2957, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979, label %2377
 
-2293:                                             ; preds = %2291
-  %2294 = load ptr, ptr %0, align 8, !tbaa !63
-  call fastcc void @_ZN4Luau7CodeGen3A64L9emitAbortERNS1_18AssemblyBuilderA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2294, ptr noundef nonnull align 4 dereferenceable(8) %55)
+2377:                                             ; preds = %2375
+  %2378 = load ptr, ptr %0, align 8, !tbaa !63
+  call fastcc void @_ZN4Luau7CodeGen3A64L9emitAbortERNS1_18AssemblyBuilderA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2378, ptr noundef nonnull align 4 dereferenceable(8) %55)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979
 
-_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979: ; preds = %2288, %2276, %2291, %2293
+_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979: ; preds = %2372, %2360, %2375, %2377
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2295:                                             ; preds = %4
+2379:                                             ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store i32 0, ptr %56, align 4, !tbaa !68
-  %2296 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  store i32 -1, ptr %2296, align 4, !tbaa !70
-  %2297 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2298 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2297, i8 noundef zeroext 1)
-  %2299 = load ptr, ptr %0, align 8, !tbaa !63
-  %2300 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0722.0.copyload = load i32, ptr %2300, align 4, !tbaa !43
-  %2301 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0722.0.copyload)
-  %.sroa.23244.0.insert.ext = zext i8 %2301 to i64
-  %.sroa.23244.0.insert.shift = shl nuw nsw i64 %.sroa.23244.0.insert.ext, 8
-  %.sroa.03243.0.insert.insert = or disjoint i64 %.sroa.23244.0.insert.shift, 120275468289
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2299, i8 %2298, i64 %.sroa.03243.0.insert.insert)
-  %2302 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %2302, i8 %2298, i8 %2298, i8 noundef zeroext 4)
-  %2303 = load ptr, ptr %0, align 8, !tbaa !63
-  %2304 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0718.0.copyload = load i32, ptr %2304, align 4, !tbaa !43
-  %2305 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0718.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %56)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2303, i8 %2298, ptr noundef nonnull align 4 dereferenceable(8) %2305)
-  %.sroa.0717.0.copyload = load i32, ptr %2304, align 4, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0717.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %56)
-  call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2306:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(ptr nonnull %57)
-  store i32 0, ptr %57, align 4, !tbaa !68
-  %2307 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i32 -1, ptr %2307, align 4, !tbaa !70
-  %2308 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2309 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2308, i8 noundef zeroext 1)
-  %2310 = load ptr, ptr %0, align 8, !tbaa !63
-  %2311 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0712.0.copyload = load i32, ptr %2311, align 4, !tbaa !43
-  %2312 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0712.0.copyload)
-  %.sroa.23239.0.insert.ext = zext i8 %2312 to i64
-  %.sroa.23239.0.insert.shift = shl nuw nsw i64 %.sroa.23239.0.insert.ext, 8
-  %.sroa.03238.0.insert.insert = or disjoint i64 %.sroa.23239.0.insert.shift, 51555991553
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2310, i8 %2309, i64 %.sroa.03238.0.insert.insert)
-  %2313 = load ptr, ptr %0, align 8, !tbaa !63
-  %2314 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0710.0.copyload = load i32, ptr %2314, align 4, !tbaa !43
-  %2315 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0710.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %57)
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2313, i8 %2309, ptr noundef nonnull align 4 dereferenceable(8) %2315)
-  %.sroa.0709.0.copyload = load i32, ptr %2314, align 4, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0709.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %57)
-  call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2316:                                             ; preds = %4
-  %2317 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0702.0.copyload = load i32, ptr %2317, align 4, !tbaa !43
-  %2318 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2319 = load ptr, ptr %2318, align 8, !tbaa !64
-  %2320 = getelementptr inbounds nuw i8, ptr %2319, i64 48
-  %2321 = lshr i32 %.sroa.0702.0.copyload, 4
-  %2322 = zext nneg i32 %2321 to i64
-  %2323 = load ptr, ptr %2320, align 8, !tbaa !65
-  %2324 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2323, i64 %2322, i32 1
-  %2325 = load i32, ptr %2324, align 8, !tbaa !43
-  call void @llvm.lifetime.start.p0(ptr nonnull %58)
-  store i32 0, ptr %58, align 4, !tbaa !68
-  %2326 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  store i32 -1, ptr %2326, align 4, !tbaa !70
-  %2327 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0696.0.copyload = load i32, ptr %2327, align 4, !tbaa !43
-  %2328 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0696.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %58)
-  %2329 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2330 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2329, i8 noundef zeroext 1)
-  %2331 = load ptr, ptr %0, align 8, !tbaa !63
-  %2332 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0688.0.copyload = load i32, ptr %2332, align 4, !tbaa !43
-  %2333 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0688.0.copyload)
-  %.sroa.23234.0.insert.ext = zext i8 %2333 to i64
-  %.sroa.23234.0.insert.shift = shl nuw nsw i64 %.sroa.23234.0.insert.ext, 8
-  %.sroa.03233.0.insert.insert = or disjoint i64 %.sroa.23234.0.insert.shift, 17196253185
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2331, i8 %2330, i64 %.sroa.03233.0.insert.insert)
-  %2334 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2335 = load i32, ptr %2334, align 4
-  %2336 = and i32 %2335, 15
-  switch i32 %2336, label %2376 [
-    i32 4, label %2337
-    i32 2, label %2351
-  ]
-
-2337:                                             ; preds = %2316
-  %2338 = icmp eq i32 %2325, 1
-  br i1 %2338, label %2339, label %2343
-
-2339:                                             ; preds = %2337
-  %2340 = load ptr, ptr %0, align 8, !tbaa !63
-  %2341 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %2335)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2340, i8 %2330, i8 %2341)
-  %2342 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2342, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2328)
-  br label %2376
-
-2343:                                             ; preds = %2337
-  %2344 = and i8 %2330, -8
-  %2345 = or disjoint i8 %2344, 2
-  %2346 = load ptr, ptr %0, align 8, !tbaa !63
-  %2347 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %2335)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %2346, i8 %2345, i8 %2345, i8 %2347, i32 noundef 0)
-  %2348 = load ptr, ptr %0, align 8, !tbaa !63
-  %2349 = trunc i32 %2325 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2348, i8 %2345, i16 noundef zeroext %2349)
-  %2350 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2350, i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %2328)
-  br label %2376
-
-2351:                                             ; preds = %2316
-  %2352 = load ptr, ptr %2318, align 8, !tbaa !64
-  %2353 = getelementptr inbounds nuw i8, ptr %2352, i64 48
-  %2354 = lshr i32 %2335, 4
-  %2355 = zext nneg i32 %2354 to i64
-  %2356 = load ptr, ptr %2353, align 8, !tbaa !65
-  %2357 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2356, i64 %2355, i32 1
-  %2358 = load i32, ptr %2357, align 8, !tbaa !43
-  %2359 = icmp slt i32 %2358, 0
-  br i1 %2359, label %2363, label %2360
-
-2360:                                             ; preds = %2351
-  %2361 = add i32 %2358, %2325
-  %2362 = icmp ugt i32 %2361, 2147483646
-  br i1 %2362, label %2363, label %2365
-
-2363:                                             ; preds = %2360, %2351
-  %2364 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2364, ptr noundef nonnull align 4 dereferenceable(8) %2328)
-  br label %2376
-
-2365:                                             ; preds = %2360
-  %2366 = icmp samesign ult i32 %2361, 4096
-  br i1 %2366, label %2367, label %2371
-
-2367:                                             ; preds = %2365
-  %2368 = load ptr, ptr %0, align 8, !tbaa !63
-  %2369 = trunc nuw nsw i32 %2361 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2368, i8 %2330, i16 noundef zeroext %2369)
-  %2370 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2370, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2328)
-  br label %2376
-
-2371:                                             ; preds = %2365
-  %2372 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2329, i8 noundef zeroext 1)
-  %2373 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2373, i8 %2372, i32 noundef %2361)
-  %2374 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2374, i8 %2330, i8 %2372)
-  %2375 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2375, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2328)
-  br label %2376
-
-2376:                                             ; preds = %2363, %2371, %2367, %2316, %2339, %2343
-  %.sroa.0663.0.copyload = load i32, ptr %2327, align 4, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0663.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %58)
-  call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2377:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  store i32 0, ptr %59, align 4, !tbaa !68
-  %2378 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store i32 -1, ptr %2378, align 4, !tbaa !70
-  %2379 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0662.0.copyload = load i32, ptr %2379, align 4, !tbaa !43
-  %2380 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0662.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %59)
+  %2380 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  store i32 -1, ptr %2380, align 4, !tbaa !70
   %2381 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2382 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2381, i8 noundef zeroext 1)
   %2383 = load ptr, ptr %0, align 8, !tbaa !63
   %2384 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0657.0.copyload = load i32, ptr %2384, align 4, !tbaa !43
-  %2385 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0657.0.copyload)
-  %.sroa.23229.0.insert.ext = zext i8 %2385 to i64
+  %.sroa.0722.0.copyload = load i32, ptr %2384, align 4, !tbaa !43
+  %2385 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0722.0.copyload)
+  %.sroa.23244.0.insert.ext = zext i8 %2385 to i64
+  %.sroa.23244.0.insert.shift = shl nuw nsw i64 %.sroa.23244.0.insert.ext, 8
+  %.sroa.03243.0.insert.insert = or disjoint i64 %.sroa.23244.0.insert.shift, 120275468289
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2383, i8 %2382, i64 %.sroa.03243.0.insert.insert)
+  %2386 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %2386, i8 %2382, i8 %2382, i8 noundef zeroext 4)
+  %2387 = load ptr, ptr %0, align 8, !tbaa !63
+  %2388 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0718.0.copyload = load i32, ptr %2388, align 4, !tbaa !43
+  %2389 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0718.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %56)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2387, i8 %2382, ptr noundef nonnull align 4 dereferenceable(8) %2389)
+  %.sroa.0717.0.copyload = load i32, ptr %2388, align 4, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0717.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+2390:                                             ; preds = %4
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  store i32 0, ptr %57, align 4, !tbaa !68
+  %2391 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  store i32 -1, ptr %2391, align 4, !tbaa !70
+  %2392 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2393 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2392, i8 noundef zeroext 1)
+  %2394 = load ptr, ptr %0, align 8, !tbaa !63
+  %2395 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0712.0.copyload = load i32, ptr %2395, align 4, !tbaa !43
+  %2396 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0712.0.copyload)
+  %.sroa.23239.0.insert.ext = zext i8 %2396 to i64
+  %.sroa.23239.0.insert.shift = shl nuw nsw i64 %.sroa.23239.0.insert.ext, 8
+  %.sroa.03238.0.insert.insert = or disjoint i64 %.sroa.23239.0.insert.shift, 51555991553
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2394, i8 %2393, i64 %.sroa.03238.0.insert.insert)
+  %2397 = load ptr, ptr %0, align 8, !tbaa !63
+  %2398 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0710.0.copyload = load i32, ptr %2398, align 4, !tbaa !43
+  %2399 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0710.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %57)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2397, i8 %2393, ptr noundef nonnull align 4 dereferenceable(8) %2399)
+  %.sroa.0709.0.copyload = load i32, ptr %2398, align 4, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0709.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+2400:                                             ; preds = %4
+  %2401 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0702.0.copyload = load i32, ptr %2401, align 4, !tbaa !43
+  %2402 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2403 = load ptr, ptr %2402, align 8, !tbaa !64
+  %2404 = getelementptr inbounds nuw i8, ptr %2403, i64 48
+  %2405 = lshr i32 %.sroa.0702.0.copyload, 4
+  %2406 = zext nneg i32 %2405 to i64
+  %2407 = load ptr, ptr %2404, align 8, !tbaa !65
+  %2408 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2407, i64 %2406
+  %2409 = getelementptr inbounds nuw i8, ptr %2408, i64 8
+  %2410 = load i32, ptr %2409, align 8, !tbaa !43
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  store i32 0, ptr %58, align 4, !tbaa !68
+  %2411 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  store i32 -1, ptr %2411, align 4, !tbaa !70
+  %2412 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0696.0.copyload = load i32, ptr %2412, align 4, !tbaa !43
+  %2413 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0696.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %58)
+  %2414 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2415 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2414, i8 noundef zeroext 1)
+  %2416 = load ptr, ptr %0, align 8, !tbaa !63
+  %2417 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0688.0.copyload = load i32, ptr %2417, align 4, !tbaa !43
+  %2418 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0688.0.copyload)
+  %.sroa.23234.0.insert.ext = zext i8 %2418 to i64
+  %.sroa.23234.0.insert.shift = shl nuw nsw i64 %.sroa.23234.0.insert.ext, 8
+  %.sroa.03233.0.insert.insert = or disjoint i64 %.sroa.23234.0.insert.shift, 17196253185
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2416, i8 %2415, i64 %.sroa.03233.0.insert.insert)
+  %2419 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %2420 = load i32, ptr %2419, align 4
+  %2421 = and i32 %2420, 15
+  switch i32 %2421, label %2462 [
+    i32 4, label %2422
+    i32 2, label %2436
+  ]
+
+2422:                                             ; preds = %2400
+  %2423 = icmp eq i32 %2410, 1
+  br i1 %2423, label %2424, label %2428
+
+2424:                                             ; preds = %2422
+  %2425 = load ptr, ptr %0, align 8, !tbaa !63
+  %2426 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %2420)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2425, i8 %2415, i8 %2426)
+  %2427 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2427, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2413)
+  br label %2462
+
+2428:                                             ; preds = %2422
+  %2429 = and i8 %2415, -8
+  %2430 = or disjoint i8 %2429, 2
+  %2431 = load ptr, ptr %0, align 8, !tbaa !63
+  %2432 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %2420)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %2431, i8 %2430, i8 %2430, i8 %2432, i32 noundef 0)
+  %2433 = load ptr, ptr %0, align 8, !tbaa !63
+  %2434 = trunc i32 %2410 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2433, i8 %2430, i16 noundef zeroext %2434)
+  %2435 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2435, i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %2413)
+  br label %2462
+
+2436:                                             ; preds = %2400
+  %2437 = load ptr, ptr %2402, align 8, !tbaa !64
+  %2438 = getelementptr inbounds nuw i8, ptr %2437, i64 48
+  %2439 = lshr i32 %2420, 4
+  %2440 = zext nneg i32 %2439 to i64
+  %2441 = load ptr, ptr %2438, align 8, !tbaa !65
+  %2442 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2441, i64 %2440
+  %2443 = getelementptr inbounds nuw i8, ptr %2442, i64 8
+  %2444 = load i32, ptr %2443, align 8, !tbaa !43
+  %2445 = icmp slt i32 %2444, 0
+  br i1 %2445, label %2449, label %2446
+
+2446:                                             ; preds = %2436
+  %2447 = add i32 %2444, %2410
+  %2448 = icmp ugt i32 %2447, 2147483646
+  br i1 %2448, label %2449, label %2451
+
+2449:                                             ; preds = %2446, %2436
+  %2450 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2450, ptr noundef nonnull align 4 dereferenceable(8) %2413)
+  br label %2462
+
+2451:                                             ; preds = %2446
+  %2452 = icmp samesign ult i32 %2447, 4096
+  br i1 %2452, label %2453, label %2457
+
+2453:                                             ; preds = %2451
+  %2454 = load ptr, ptr %0, align 8, !tbaa !63
+  %2455 = trunc nuw nsw i32 %2447 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2454, i8 %2415, i16 noundef zeroext %2455)
+  %2456 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2456, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2413)
+  br label %2462
+
+2457:                                             ; preds = %2451
+  %2458 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2414, i8 noundef zeroext 1)
+  %2459 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2459, i8 %2458, i32 noundef %2447)
+  %2460 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2460, i8 %2415, i8 %2458)
+  %2461 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2461, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2413)
+  br label %2462
+
+2462:                                             ; preds = %2449, %2457, %2453, %2400, %2424, %2428
+  %.sroa.0663.0.copyload = load i32, ptr %2412, align 4, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0663.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+2463:                                             ; preds = %4
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  store i32 0, ptr %59, align 4, !tbaa !68
+  %2464 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  store i32 -1, ptr %2464, align 4, !tbaa !70
+  %2465 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0662.0.copyload = load i32, ptr %2465, align 4, !tbaa !43
+  %2466 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0662.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %59)
+  %2467 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2468 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2467, i8 noundef zeroext 1)
+  %2469 = load ptr, ptr %0, align 8, !tbaa !63
+  %2470 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0657.0.copyload = load i32, ptr %2470, align 4, !tbaa !43
+  %2471 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0657.0.copyload)
+  %.sroa.23229.0.insert.ext = zext i8 %2471 to i64
   %.sroa.23229.0.insert.shift = shl nuw nsw i64 %.sroa.23229.0.insert.ext, 8
   %.sroa.03228.0.insert.insert = or disjoint i64 %.sroa.23229.0.insert.shift, 12901285889
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2383, i8 %2382, i64 %.sroa.03228.0.insert.insert)
-  %2386 = load ptr, ptr %0, align 8, !tbaa !63
-  %2387 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0655.0.copyload = load i32, ptr %2387, align 4, !tbaa !43
-  %2388 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2389 = load ptr, ptr %2388, align 8, !tbaa !64
-  %2390 = getelementptr inbounds nuw i8, ptr %2389, i64 48
-  %2391 = lshr i32 %.sroa.0655.0.copyload, 4
-  %2392 = zext nneg i32 %2391 to i64
-  %2393 = load ptr, ptr %2390, align 8, !tbaa !65
-  %2394 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2393, i64 %2392, i32 1
-  %2395 = load i32, ptr %2394, align 8, !tbaa !43
-  %2396 = trunc i32 %2395 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2386, i8 %2382, i16 noundef zeroext %2396)
-  %2397 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2397, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %2380)
-  %.sroa.0654.0.copyload = load i32, ptr %2379, align 4, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2469, i8 %2468, i64 %.sroa.03228.0.insert.insert)
+  %2472 = load ptr, ptr %0, align 8, !tbaa !63
+  %2473 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0655.0.copyload = load i32, ptr %2473, align 4, !tbaa !43
+  %2474 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2475 = load ptr, ptr %2474, align 8, !tbaa !64
+  %2476 = getelementptr inbounds nuw i8, ptr %2475, i64 48
+  %2477 = lshr i32 %.sroa.0655.0.copyload, 4
+  %2478 = zext nneg i32 %2477 to i64
+  %2479 = load ptr, ptr %2476, align 8, !tbaa !65
+  %2480 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2479, i64 %2478
+  %2481 = getelementptr inbounds nuw i8, ptr %2480, i64 8
+  %2482 = load i32, ptr %2481, align 8, !tbaa !43
+  %2483 = trunc i32 %2482 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2472, i8 %2468, i16 noundef zeroext %2483)
+  %2484 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2484, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %2466)
+  %.sroa.0654.0.copyload = load i32, ptr %2465, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0654.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2398:                                             ; preds = %4
-  %2399 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2400 = load ptr, ptr %0, align 8, !tbaa !63
-  %2401 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2399, ptr noundef nonnull align 8 dereferenceable(176) %2400, i32 noundef %2, ptr null, i64 0)
+2485:                                             ; preds = %4
+  %2486 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2487 = load ptr, ptr %0, align 8, !tbaa !63
+  %2488 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2486, ptr noundef nonnull align 8 dereferenceable(176) %2487, i32 noundef %2, ptr null, i64 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store i32 0, ptr %60, align 8, !tbaa !68
-  %2402 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store i32 -1, ptr %2402, align 4, !tbaa !70
-  %2403 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2403, i8 2, i64 14156228635137)
-  %2404 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2404, i8 2, ptr noundef nonnull align 4 dereferenceable(8) %60)
-  %2405 = load ptr, ptr %0, align 8, !tbaa !63
-  %2406 = call i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelEv(ptr noundef nonnull align 8 dereferenceable(176) %2405)
-  %2407 = getelementptr inbounds nuw i8, ptr %0, i64 1416
+  %2489 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  store i32 -1, ptr %2489, align 4, !tbaa !70
+  %2490 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2490, i8 2, i64 14156228635137)
+  %2491 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2491, i8 2, ptr noundef nonnull align 4 dereferenceable(8) %60)
+  %2492 = load ptr, ptr %0, align 8, !tbaa !63
+  %2493 = call i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelEv(ptr noundef nonnull align 8 dereferenceable(176) %2492)
+  %2494 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
-  %2408 = load i64, ptr %60, align 8
-  store i64 %2408, ptr %61, align 8
-  %2409 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %2410 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0649.0.copyload = load i32, ptr %2410, align 4, !tbaa !43
-  %2411 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2412 = load ptr, ptr %2411, align 8, !tbaa !64
-  %2413 = getelementptr inbounds nuw i8, ptr %2412, i64 48
-  %2414 = lshr i32 %.sroa.0649.0.copyload, 4
-  %2415 = zext nneg i32 %2414 to i64
-  %2416 = load ptr, ptr %2413, align 8, !tbaa !65
-  %2417 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2416, i64 %2415, i32 1
-  %2418 = load i32, ptr %2417, align 8, !tbaa !43
-  store i32 %2418, ptr %2409, align 8, !tbaa !101
-  %2419 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  store i64 %2406, ptr %2419, align 4
-  call void @_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6416InterruptHandlerESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %2407, ptr noundef nonnull align 4 dereferenceable(20) %61)
+  %2495 = load i64, ptr %60, align 8
+  store i64 %2495, ptr %61, align 8
+  %2496 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %2497 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0649.0.copyload = load i32, ptr %2497, align 4, !tbaa !43
+  %2498 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2499 = load ptr, ptr %2498, align 8, !tbaa !64
+  %2500 = getelementptr inbounds nuw i8, ptr %2499, i64 48
+  %2501 = lshr i32 %.sroa.0649.0.copyload, 4
+  %2502 = zext nneg i32 %2501 to i64
+  %2503 = load ptr, ptr %2500, align 8, !tbaa !65
+  %2504 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2503, i64 %2502
+  %2505 = getelementptr inbounds nuw i8, ptr %2504, i64 8
+  %2506 = load i32, ptr %2505, align 8, !tbaa !43
+  store i32 %2506, ptr %2496, align 8, !tbaa !101
+  %2507 = getelementptr inbounds nuw i8, ptr %61, i64 12
+  store i64 %2493, ptr %2507, align 4
+  call void @_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6416InterruptHandlerESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %2494, ptr noundef nonnull align 4 dereferenceable(20) %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2420:                                             ; preds = %4
-  %2421 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2422 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2421, i8 noundef zeroext 2)
-  %2423 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2421, i8 noundef zeroext 2)
+2508:                                             ; preds = %4
+  %2509 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2510 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2509, i8 noundef zeroext 2)
+  %2511 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2509, i8 noundef zeroext 2)
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store i32 0, ptr %62, align 4, !tbaa !68
-  %2424 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  store i32 -1, ptr %2424, align 4, !tbaa !70
-  %2425 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2425, i8 %2422, i8 %2423, i64 274894334465)
-  %2426 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2426, i8 %2422, i8 %2423)
-  %2427 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2427, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(8) %62)
-  %2428 = load ptr, ptr %0, align 8, !tbaa !63
-  %2429 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2421, ptr noundef nonnull align 8 dereferenceable(176) %2428, i32 noundef %2, ptr null, i64 0)
-  %2430 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2430, i8 2, i8 -102)
-  %2431 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2431, i8 9, i32 noundef 1)
-  %2432 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2432, i8 18, i64 893369623041)
-  %2433 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2433, i8 18)
-  %2434 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2434, i8 -54, i64 68735900161)
-  %2435 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2421, ptr noundef nonnull align 8 dereferenceable(176) %2435, i64 noundef %2429)
-  %2436 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2436, ptr noundef nonnull align 4 dereferenceable(8) %62)
-  call void @llvm.lifetime.end.p0(ptr nonnull %62)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2437:                                             ; preds = %4
-  %2438 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2439 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2438, i8 noundef zeroext 2)
-  call void @llvm.lifetime.start.p0(ptr nonnull %63)
-  store i32 0, ptr %63, align 4, !tbaa !68
-  %2440 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  store i32 -1, ptr %2440, align 4, !tbaa !70
-  %2441 = load ptr, ptr %0, align 8, !tbaa !63
-  %2442 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0630.0.copyload = load i32, ptr %2442, align 4, !tbaa !43
-  %2443 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0630.0.copyload)
-  %2444 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0628.0.copyload = load i32, ptr %2444, align 4, !tbaa !43
-  %2445 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %2446 = load i32, ptr %2445, align 4
-  %2447 = and i32 %2446, 15
-  %2448 = icmp eq i32 %2447, 1
-  br i1 %2448, label %2459, label %2449
-
-2449:                                             ; preds = %2437
-  %2450 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2451 = load ptr, ptr %2450, align 8, !tbaa !64
-  %2452 = getelementptr inbounds nuw i8, ptr %2451, i64 48
-  %2453 = lshr i32 %2446, 4
-  %2454 = zext nneg i32 %2453 to i64
-  %2455 = load ptr, ptr %2452, align 8, !tbaa !65
-  %2456 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2455, i64 %2454, i32 1
-  %2457 = load i8, ptr %2456, align 8, !tbaa !43
-  %2458 = zext i8 %2457 to i32
-  br label %2459
-
-2459:                                             ; preds = %2437, %2449
-  %2460 = phi i32 [ %2458, %2449 ], [ -1, %2437 ]
-  call fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditionsERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_NS0_4IrOpEiRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2441, i8 %2443, i8 %2439, i32 %.sroa.0628.0.copyload, i32 noundef %2460, ptr noundef nonnull align 4 dereferenceable(8) %63)
-  %.sroa.0625.0.copyload = load i32, ptr %2442, align 4, !tbaa !43
-  %2461 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0625.0.copyload)
-  %2462 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(ptr nonnull %64)
-  store i8 %2461, ptr %64, align 1, !tbaa !43
-  %2463 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2438, ptr noundef nonnull align 8 dereferenceable(176) %2462, i32 noundef %2, ptr nonnull %64, i64 1)
-  call void @llvm.lifetime.end.p0(ptr nonnull %64)
-  %2464 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2464, i8 10, i8 %2461)
-  %2465 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2465, i8 2, i8 -102)
-  %2466 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0615.0.copyload = load i32, ptr %2444, align 4, !tbaa !43
-  %2467 = and i32 %.sroa.0615.0.copyload, -16
-  %.sroa.43208.0.insert.ext = zext i32 %2467 to i64
-  %.sroa.43208.0.insert.shift = shl nuw i64 %.sroa.43208.0.insert.ext, 32
-  %.sroa.03204.0.insert.insert = or disjoint i64 %.sroa.43208.0.insert.shift, 16435713
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2466, i8 18, i64 %.sroa.03204.0.insert.insert)
-  %2468 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2468, i8 26, i64 824650146305)
-  %2469 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2469, i8 26)
-  %2470 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2438, ptr noundef nonnull align 8 dereferenceable(176) %2470, i64 noundef %2463)
-  %2471 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2471, ptr noundef nonnull align 4 dereferenceable(8) %63)
-  call void @llvm.lifetime.end.p0(ptr nonnull %63)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2472:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(ptr nonnull %65)
-  store i32 0, ptr %65, align 4, !tbaa !68
-  %2473 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  store i32 -1, ptr %2473, align 4, !tbaa !70
-  %2474 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2475 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2474, i8 noundef zeroext 1)
-  %2476 = load ptr, ptr %0, align 8, !tbaa !63
-  %2477 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0607.0.copyload = load i32, ptr %2477, align 4, !tbaa !43
-  %2478 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0607.0.copyload)
-  %.sroa.23195.0.insert.ext = zext i8 %2478 to i64
-  %.sroa.23195.0.insert.shift = shl nuw nsw i64 %.sroa.23195.0.insert.ext, 8
-  %.sroa.03194.0.insert.insert = or disjoint i64 %.sroa.23195.0.insert.shift, 4311351297
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2476, i8 %2475, i64 %.sroa.03194.0.insert.insert)
-  %2479 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643tbzENS1_11RegisterA64EhRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2479, i8 %2475, i8 noundef zeroext 2, ptr noundef nonnull align 4 dereferenceable(8) %65)
-  %.sroa.0604.0.copyload = load i32, ptr %2477, align 4, !tbaa !43
-  %2480 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0604.0.copyload)
-  %2481 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(ptr nonnull %66)
-  store i8 %2480, ptr %66, align 1, !tbaa !43
-  %2482 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2474, ptr noundef nonnull align 8 dereferenceable(176) %2481, i32 noundef %2, ptr nonnull %66, i64 1)
-  call void @llvm.lifetime.end.p0(ptr nonnull %66)
-  %2483 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2483, i8 10, i8 %2480)
-  %2484 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2484, i8 2, i8 -102)
-  %2485 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2485, i8 18, i8 10, i16 noundef zeroext 40)
-  %2486 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2486, i8 26, i64 859009884673)
-  %2487 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2487, i8 26)
-  %2488 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2474, ptr noundef nonnull align 8 dereferenceable(176) %2488, i64 noundef %2482)
-  %2489 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2489, ptr noundef nonnull align 4 dereferenceable(8) %65)
-  call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2490:                                             ; preds = %4
-  %2491 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2492 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2491, i8 noundef zeroext 2)
-  call void @llvm.lifetime.start.p0(ptr nonnull %67)
-  store i32 0, ptr %67, align 4, !tbaa !68
-  %2493 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  store i32 -1, ptr %2493, align 4, !tbaa !70
-  %2494 = load ptr, ptr %0, align 8, !tbaa !63
-  %2495 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0589.0.copyload = load i32, ptr %2495, align 4, !tbaa !43
-  %2496 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0589.0.copyload)
-  %2497 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0587.0.copyload = load i32, ptr %2497, align 4, !tbaa !43
-  %2498 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %2499 = load i32, ptr %2498, align 4
-  %2500 = and i32 %2499, 15
-  %2501 = icmp eq i32 %2500, 1
-  br i1 %2501, label %2512, label %2502
-
-2502:                                             ; preds = %2490
-  %2503 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2504 = load ptr, ptr %2503, align 8, !tbaa !64
-  %2505 = getelementptr inbounds nuw i8, ptr %2504, i64 48
-  %2506 = lshr i32 %2499, 4
-  %2507 = zext nneg i32 %2506 to i64
-  %2508 = load ptr, ptr %2505, align 8, !tbaa !65
-  %2509 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2508, i64 %2507, i32 1
-  %2510 = load i8, ptr %2509, align 8, !tbaa !43
-  %2511 = zext i8 %2510 to i32
-  br label %2512
-
-2512:                                             ; preds = %2490, %2502
-  %2513 = phi i32 [ %2511, %2502 ], [ -1, %2490 ]
-  call fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditionsERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_NS0_4IrOpEiRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2494, i8 %2496, i8 %2492, i32 %.sroa.0587.0.copyload, i32 noundef %2513, ptr noundef nonnull align 4 dereferenceable(8) %67)
-  %.sroa.0584.0.copyload = load i32, ptr %2495, align 4, !tbaa !43
-  %2514 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0584.0.copyload)
-  %.sroa.0582.0.copyload = load i32, ptr %2497, align 4, !tbaa !43
-  %2515 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0582.0.copyload, i32 noundef 0)
+  %2512 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  store i32 -1, ptr %2512, align 4, !tbaa !70
+  %2513 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2513, i8 %2510, i8 %2511, i64 274894334465)
+  %2514 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2514, i8 %2510, i8 %2511)
+  %2515 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2515, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(8) %62)
   %2516 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(ptr nonnull %68)
-  store i8 %2514, ptr %68, align 1, !tbaa !43
-  %2517 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2491, ptr noundef nonnull align 8 dereferenceable(176) %2516, i32 noundef %2, ptr nonnull %68, i64 1)
-  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  %2517 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2509, ptr noundef nonnull align 8 dereferenceable(176) %2516, i32 noundef %2, ptr null, i64 0)
   %2518 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2518, i8 10, i8 %2514)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2518, i8 2, i8 -102)
   %2519 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2519, i8 2, i8 -102)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2519, i8 9, i32 noundef 1)
   %2520 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2520, i8 18, i64 %2515)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2520, i8 18, i64 893369623041)
   %2521 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2521, i8 26, i64 790290407937)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2521, i8 18)
   %2522 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2522, i8 26)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2522, i8 -54, i64 68735900161)
   %2523 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2491, ptr noundef nonnull align 8 dereferenceable(176) %2523, i64 noundef %2517)
+  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2509, ptr noundef nonnull align 8 dereferenceable(176) %2523, i64 noundef %2517)
   %2524 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2524, ptr noundef nonnull align 4 dereferenceable(8) %67)
-  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2524, ptr noundef nonnull align 4 dereferenceable(8) %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2525:                                             ; preds = %4
   %2526 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2527 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2526, i8 noundef zeroext 2)
-  %2528 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2526, i8 noundef zeroext 2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  store i32 0, ptr %63, align 4, !tbaa !68
+  %2528 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  store i32 -1, ptr %2528, align 4, !tbaa !70
   %2529 = load ptr, ptr %0, align 8, !tbaa !63
   %2530 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0563.0.copyload = load i32, ptr %2530, align 4, !tbaa !43
-  %2531 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2532 = load ptr, ptr %2531, align 8, !tbaa !64
-  %2533 = getelementptr inbounds nuw i8, ptr %2532, i64 48
-  %2534 = lshr i32 %.sroa.0563.0.copyload, 4
-  %2535 = zext nneg i32 %2534 to i64
-  %2536 = load ptr, ptr %2533, align 8, !tbaa !65
-  %2537 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2536, i64 %2535, i32 1
-  %2538 = load i32, ptr %2537, align 8, !tbaa !43
-  %2539 = zext i32 %2538 to i64
-  %2540 = shl nuw nsw i64 %2539, 2
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m(ptr noundef nonnull align 8 dereferenceable(176) %2529, i8 %2527, i8 -62, i64 noundef %2540)
-  %2541 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2541, i8 %2528, i64 137455376897)
-  %2542 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.23175.0.insert.ext = zext i8 %2528 to i64
-  %.sroa.23175.0.insert.shift = shl nuw nsw i64 %.sroa.23175.0.insert.ext, 8
-  %.sroa.03174.0.insert.insert = or disjoint i64 %.sroa.23175.0.insert.shift, 103095599105
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2542, i8 %2527, i64 %.sroa.03174.0.insert.insert)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+  %.sroa.0630.0.copyload = load i32, ptr %2530, align 4, !tbaa !43
+  %2531 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0630.0.copyload)
+  %2532 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0628.0.copyload = load i32, ptr %2532, align 4, !tbaa !43
+  %2533 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %2534 = load i32, ptr %2533, align 4
+  %2535 = and i32 %2534, 15
+  %2536 = icmp eq i32 %2535, 1
+  br i1 %2536, label %2548, label %2537
 
-2543:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(ptr nonnull %69)
-  store i32 0, ptr %69, align 4, !tbaa !68
-  %2544 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  store i32 -1, ptr %2544, align 4, !tbaa !70
-  %2545 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2546 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2545, i8 noundef zeroext 2)
-  %2547 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2545, i8 noundef zeroext 2)
-  %2548 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2548, i8 %2546, i64 412333283841)
-  %2549 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2549, i8 %2546, ptr noundef nonnull align 4 dereferenceable(8) %69)
-  %2550 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.23165.0.insert.ext = zext i8 %2546 to i64
-  %.sroa.23165.0.insert.shift = shl nuw nsw i64 %.sroa.23165.0.insert.ext, 8
-  %.sroa.03164.0.insert.insert = or disjoint i64 %.sroa.23165.0.insert.shift, 34376122369
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2550, i8 %2546, i64 %.sroa.03164.0.insert.insert)
+2537:                                             ; preds = %2525
+  %2538 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2539 = load ptr, ptr %2538, align 8, !tbaa !64
+  %2540 = getelementptr inbounds nuw i8, ptr %2539, i64 48
+  %2541 = lshr i32 %2534, 4
+  %2542 = zext nneg i32 %2541 to i64
+  %2543 = load ptr, ptr %2540, align 8, !tbaa !65
+  %2544 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2543, i64 %2542
+  %2545 = getelementptr inbounds nuw i8, ptr %2544, i64 8
+  %2546 = load i8, ptr %2545, align 8, !tbaa !43
+  %2547 = zext i8 %2546 to i32
+  br label %2548
+
+2548:                                             ; preds = %2525, %2537
+  %2549 = phi i32 [ %2547, %2537 ], [ -1, %2525 ]
+  call fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditionsERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_NS0_4IrOpEiRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2529, i8 %2531, i8 %2527, i32 %.sroa.0628.0.copyload, i32 noundef %2549, ptr noundef nonnull align 4 dereferenceable(8) %63)
+  %.sroa.0625.0.copyload = load i32, ptr %2530, align 4, !tbaa !43
+  %2550 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0625.0.copyload)
   %2551 = load ptr, ptr %0, align 8, !tbaa !63
-  %2552 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0543.0.copyload = load i32, ptr %2552, align 4, !tbaa !43
-  %2553 = trunc i32 %.sroa.0543.0.copyload to i16
-  %2554 = and i16 %2553, -16
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2551, i8 %2547, i8 -54, i16 noundef zeroext %2554)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  store i8 %2550, ptr %64, align 1, !tbaa !43
+  %2552 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2526, ptr noundef nonnull align 8 dereferenceable(176) %2551, i32 noundef %2, ptr nonnull %64, i64 1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  %2553 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2553, i8 10, i8 %2550)
+  %2554 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2554, i8 2, i8 -102)
   %2555 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2555, i8 %2547, i8 %2546)
-  %2556 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2556, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(8) %69)
+  %.sroa.0615.0.copyload = load i32, ptr %2532, align 4, !tbaa !43
+  %2556 = and i32 %.sroa.0615.0.copyload, -16
+  %.sroa.43208.0.insert.ext = zext i32 %2556 to i64
+  %.sroa.43208.0.insert.shift = shl nuw i64 %.sroa.43208.0.insert.ext, 32
+  %.sroa.03204.0.insert.insert = or disjoint i64 %.sroa.43208.0.insert.shift, 16435713
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2555, i8 18, i64 %.sroa.03204.0.insert.insert)
   %2557 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(ptr nonnull %70)
-  store i8 %2547, ptr %70, align 1, !tbaa !43
-  %2558 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2545, ptr noundef nonnull align 8 dereferenceable(176) %2557, i32 noundef %2, ptr nonnull %70, i64 1)
-  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2557, i8 26, i64 824650146305)
+  %2558 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2558, i8 26)
   %2559 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2559, i8 10, i8 %2547)
+  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2526, ptr noundef nonnull align 8 dereferenceable(176) %2559, i64 noundef %2552)
   %2560 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2560, i8 2, i8 -102)
-  %2561 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2561, i8 18, i64 927729361409)
-  %2562 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2562, i8 18)
-  %2563 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2545, ptr noundef nonnull align 8 dereferenceable(176) %2563, i64 noundef %2558)
-  %2564 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2564, ptr noundef nonnull align 4 dereferenceable(8) %69)
-  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2560, ptr noundef nonnull align 4 dereferenceable(8) %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2565:                                             ; preds = %4
-  %2566 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2567 = load ptr, ptr %0, align 8, !tbaa !63
-  %2568 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2566, ptr noundef nonnull align 8 dereferenceable(176) %2567, i32 noundef %2, ptr null, i64 0)
-  %2569 = load ptr, ptr %0, align 8, !tbaa !63
-  %2570 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0530.0.copyload = load i32, ptr %2570, align 4, !tbaa !43
-  %2571 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2572 = load ptr, ptr %2571, align 8, !tbaa !64
-  %2573 = getelementptr inbounds nuw i8, ptr %2572, i64 48
-  %2574 = lshr i32 %.sroa.0530.0.copyload, 4
-  %2575 = zext nneg i32 %2574 to i64
-  %2576 = load ptr, ptr %2573, align 8, !tbaa !65
-  %2577 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2576, i64 %2575, i32 1
-  %2578 = load i32, ptr %2577, align 8, !tbaa !43
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %2569, i32 noundef 520, i32 noundef %2578)
+2561:                                             ; preds = %4
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  store i32 0, ptr %65, align 4, !tbaa !68
+  %2562 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  store i32 -1, ptr %2562, align 4, !tbaa !70
+  %2563 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2564 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2563, i8 noundef zeroext 1)
+  %2565 = load ptr, ptr %0, align 8, !tbaa !63
+  %2566 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0607.0.copyload = load i32, ptr %2566, align 4, !tbaa !43
+  %2567 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0607.0.copyload)
+  %.sroa.23195.0.insert.ext = zext i8 %2567 to i64
+  %.sroa.23195.0.insert.shift = shl nuw nsw i64 %.sroa.23195.0.insert.ext, 8
+  %.sroa.03194.0.insert.insert = or disjoint i64 %.sroa.23195.0.insert.shift, 4311351297
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2565, i8 %2564, i64 %.sroa.03194.0.insert.insert)
+  %2568 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643tbzENS1_11RegisterA64EhRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2568, i8 %2564, i8 noundef zeroext 2, ptr noundef nonnull align 4 dereferenceable(8) %65)
+  %.sroa.0604.0.copyload = load i32, ptr %2566, align 4, !tbaa !43
+  %2569 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0604.0.copyload)
+  %2570 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  store i8 %2569, ptr %66, align 1, !tbaa !43
+  %2571 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2563, ptr noundef nonnull align 8 dereferenceable(176) %2570, i32 noundef %2, ptr nonnull %66, i64 1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  %2572 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2572, i8 10, i8 %2569)
+  %2573 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2573, i8 2, i8 -102)
+  %2574 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2574, i8 18, i8 10, i16 noundef zeroext 40)
+  %2575 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2575, i8 26, i64 859009884673)
+  %2576 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2576, i8 26)
+  %2577 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2563, ptr noundef nonnull align 8 dereferenceable(176) %2577, i64 noundef %2571)
+  %2578 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2578, ptr noundef nonnull align 4 dereferenceable(8) %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2579:                                             ; preds = %4
   %2580 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2581 = load ptr, ptr %0, align 8, !tbaa !63
-  %2582 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2580, ptr noundef nonnull align 8 dereferenceable(176) %2581, i32 noundef %2, ptr null, i64 0)
-  %2583 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0529.0.copyload = load i32, ptr %2583, align 4, !tbaa !43
-  %2584 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2585 = load ptr, ptr %2584, align 8, !tbaa !64
-  %2586 = getelementptr inbounds nuw i8, ptr %2585, i64 48
-  %2587 = lshr i32 %.sroa.0529.0.copyload, 4
-  %2588 = zext nneg i32 %2587 to i64
-  %2589 = load ptr, ptr %2586, align 8, !tbaa !65
-  %2590 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2589, i64 %2588, i32 1
-  %2591 = load i32, ptr %2590, align 8, !tbaa !43
-  %2592 = icmp eq i32 %2591, -1
-  %2593 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %2592, label %2594, label %2595
+  %2581 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2580, i8 noundef zeroext 2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  store i32 0, ptr %67, align 4, !tbaa !68
+  %2582 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  store i32 -1, ptr %2582, align 4, !tbaa !70
+  %2583 = load ptr, ptr %0, align 8, !tbaa !63
+  %2584 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0589.0.copyload = load i32, ptr %2584, align 4, !tbaa !43
+  %2585 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0589.0.copyload)
+  %2586 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0587.0.copyload = load i32, ptr %2586, align 4, !tbaa !43
+  %2587 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %2588 = load i32, ptr %2587, align 4
+  %2589 = and i32 %2588, 15
+  %2590 = icmp eq i32 %2589, 1
+  br i1 %2590, label %2602, label %2591
 
-2594:                                             ; preds = %2579
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2593, i8 18, i64 34376161793)
+2591:                                             ; preds = %2579
+  %2592 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2593 = load ptr, ptr %2592, align 8, !tbaa !64
+  %2594 = getelementptr inbounds nuw i8, ptr %2593, i64 48
+  %2595 = lshr i32 %2588, 4
+  %2596 = zext nneg i32 %2595 to i64
+  %2597 = load ptr, ptr %2594, align 8, !tbaa !65
+  %2598 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2597, i64 %2596
+  %2599 = getelementptr inbounds nuw i8, ptr %2598, i64 8
+  %2600 = load i8, ptr %2599, align 8, !tbaa !43
+  %2601 = zext i8 %2600 to i32
   br label %2602
 
-2595:                                             ; preds = %2579
-  %2596 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0524.0.copyload = load i32, ptr %2596, align 4, !tbaa !43
-  %2597 = lshr i32 %.sroa.0524.0.copyload, 4
-  %2598 = add nuw i32 %2591, 1
-  %2599 = add i32 %2598, %2597
-  %2600 = trunc i32 %2599 to i16
-  %2601 = shl i16 %2600, 4
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2593, i8 18, i8 -54, i16 noundef zeroext %2601)
-  br label %2602
-
-2602:                                             ; preds = %2595, %2594
-  %2603 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2603, i8 2, i8 -102)
-  %2604 = load ptr, ptr %0, align 8, !tbaa !63
-  %2605 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0518.0.copyload = load i32, ptr %2605, align 4, !tbaa !43
-  %2606 = trunc i32 %.sroa.0518.0.copyload to i16
-  %2607 = and i16 %2606, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2604, i8 10, i8 -54, i16 noundef zeroext %2607)
+2602:                                             ; preds = %2579, %2591
+  %2603 = phi i32 [ %2601, %2591 ], [ -1, %2579 ]
+  call fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditionsERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_NS0_4IrOpEiRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2583, i8 %2585, i8 %2581, i32 %.sroa.0587.0.copyload, i32 noundef %2603, ptr noundef nonnull align 4 dereferenceable(8) %67)
+  %.sroa.0584.0.copyload = load i32, ptr %2584, align 4, !tbaa !43
+  %2604 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0584.0.copyload)
+  %.sroa.0582.0.copyload = load i32, ptr %2586, align 4, !tbaa !43
+  %2605 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0582.0.copyload, i32 noundef 0)
+  %2606 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  store i8 %2604, ptr %68, align 1, !tbaa !43
+  %2607 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2580, ptr noundef nonnull align 8 dereferenceable(176) %2606, i32 noundef %2, ptr nonnull %68, i64 1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %2608 = load ptr, ptr %0, align 8, !tbaa !63
-  %2609 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0516.0.copyload = load i32, ptr %2609, align 4, !tbaa !43
-  %2610 = load ptr, ptr %2584, align 8, !tbaa !64
-  %2611 = getelementptr inbounds nuw i8, ptr %2610, i64 48
-  %2612 = lshr i32 %.sroa.0516.0.copyload, 4
-  %2613 = zext nneg i32 %2612 to i64
-  %2614 = load ptr, ptr %2611, align 8, !tbaa !65
-  %2615 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2614, i64 %2613, i32 1
-  %2616 = load i32, ptr %2615, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2608, i8 25, i32 noundef %2616)
-  %2617 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2617, i8 34, i64 2027240989185)
-  %2618 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2618, i8 34)
-  %2619 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2619, i8 -54, i64 68735900161)
-  %2620 = load ptr, ptr %0, align 8, !tbaa !63
-  %2621 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2622 = load ptr, ptr %2621, align 8, !tbaa !103
-  %2623 = getelementptr inbounds nuw i8, ptr %2622, i64 48
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2620, i8 2, ptr noundef nonnull align 4 dereferenceable(8) %2623)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2608, i8 10, i8 %2604)
+  %2609 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2609, i8 2, i8 -102)
+  %2610 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2610, i8 18, i64 %2605)
+  %2611 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2611, i8 26, i64 790290407937)
+  %2612 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2612, i8 26)
+  %2613 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2580, ptr noundef nonnull align 8 dereferenceable(176) %2613, i64 noundef %2607)
+  %2614 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2614, ptr noundef nonnull align 4 dereferenceable(8) %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2624:                                             ; preds = %4
-  %2625 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2626 = load ptr, ptr %0, align 8, !tbaa !63
-  %2627 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2625, ptr noundef nonnull align 8 dereferenceable(176) %2626, i32 noundef %2, ptr null, i64 0)
-  %2628 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2629 = load ptr, ptr %2628, align 8, !tbaa !64
-  %2630 = getelementptr inbounds nuw i8, ptr %2629, i64 304
-  %2631 = load i8, ptr %2630, align 8, !tbaa !104, !range !97, !noundef !98
-  %2632 = trunc nuw i8 %2631 to i1
-  br i1 %2632, label %2633, label %2636
+2615:                                             ; preds = %4
+  %2616 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2617 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2616, i8 noundef zeroext 2)
+  %2618 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2616, i8 noundef zeroext 2)
+  %2619 = load ptr, ptr %0, align 8, !tbaa !63
+  %2620 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0563.0.copyload = load i32, ptr %2620, align 4, !tbaa !43
+  %2621 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2622 = load ptr, ptr %2621, align 8, !tbaa !64
+  %2623 = getelementptr inbounds nuw i8, ptr %2622, i64 48
+  %2624 = lshr i32 %.sroa.0563.0.copyload, 4
+  %2625 = zext nneg i32 %2624 to i64
+  %2626 = load ptr, ptr %2623, align 8, !tbaa !65
+  %2627 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2626, i64 %2625
+  %2628 = getelementptr inbounds nuw i8, ptr %2627, i64 8
+  %2629 = load i32, ptr %2628, align 8, !tbaa !43
+  %2630 = zext i32 %2629 to i64
+  %2631 = shl nuw nsw i64 %2630, 2
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m(ptr noundef nonnull align 8 dereferenceable(176) %2619, i8 %2617, i8 -62, i64 noundef %2631)
+  %2632 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2632, i8 %2618, i64 137455376897)
+  %2633 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.23175.0.insert.ext = zext i8 %2618 to i64
+  %.sroa.23175.0.insert.shift = shl nuw nsw i64 %.sroa.23175.0.insert.ext, 8
+  %.sroa.03174.0.insert.insert = or disjoint i64 %.sroa.23175.0.insert.shift, 103095599105
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2633, i8 %2617, i64 %.sroa.03174.0.insert.insert)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2633:                                             ; preds = %2624
-  %2634 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2634, i8 10, i64 137455376897)
-  %2635 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2635, i8 10, i64 34376124929)
-  br label %2646
+2634:                                             ; preds = %4
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  store i32 0, ptr %69, align 4, !tbaa !68
+  %2635 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  store i32 -1, ptr %2635, align 4, !tbaa !70
+  %2636 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2637 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2636, i8 noundef zeroext 2)
+  %2638 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2636, i8 noundef zeroext 2)
+  %2639 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2639, i8 %2637, i64 412333283841)
+  %2640 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2640, i8 %2637, ptr noundef nonnull align 4 dereferenceable(8) %69)
+  %2641 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.23165.0.insert.ext = zext i8 %2637 to i64
+  %.sroa.23165.0.insert.shift = shl nuw nsw i64 %.sroa.23165.0.insert.ext, 8
+  %.sroa.03164.0.insert.insert = or disjoint i64 %.sroa.23165.0.insert.shift, 34376122369
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2641, i8 %2637, i64 %.sroa.03164.0.insert.insert)
+  %2642 = load ptr, ptr %0, align 8, !tbaa !63
+  %2643 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0543.0.copyload = load i32, ptr %2643, align 4, !tbaa !43
+  %2644 = trunc i32 %.sroa.0543.0.copyload to i16
+  %2645 = and i16 %2644, -16
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2642, i8 %2638, i8 -54, i16 noundef zeroext %2645)
+  %2646 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2646, i8 %2638, i8 %2637)
+  %2647 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2647, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(8) %69)
+  %2648 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  store i8 %2638, ptr %70, align 1, !tbaa !43
+  %2649 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2636, ptr noundef nonnull align 8 dereferenceable(176) %2648, i32 noundef %2, ptr nonnull %70, i64 1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  %2650 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2650, i8 10, i8 %2638)
+  %2651 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2651, i8 2, i8 -102)
+  %2652 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2652, i8 18, i64 927729361409)
+  %2653 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2653, i8 18)
+  %2654 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2636, ptr noundef nonnull align 8 dereferenceable(176) %2654, i64 noundef %2649)
+  %2655 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2655, ptr noundef nonnull align 4 dereferenceable(8) %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2636:                                             ; preds = %2624
-  %2637 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0507.0.copyload = load i32, ptr %2637, align 4, !tbaa !43
-  %2638 = getelementptr inbounds nuw i8, ptr %2629, i64 48
-  %2639 = lshr i32 %.sroa.0507.0.copyload, 4
-  %2640 = zext nneg i32 %2639 to i64
-  %2641 = load ptr, ptr %2638, align 8, !tbaa !65
-  %2642 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2641, i64 %2640, i32 1
-  %2643 = load i32, ptr %2642, align 8, !tbaa !43
-  %.not2955 = icmp eq i32 %2643, 1
-  br i1 %.not2955, label %2646, label %2644
+2656:                                             ; preds = %4
+  %2657 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2658 = load ptr, ptr %0, align 8, !tbaa !63
+  %2659 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2657, ptr noundef nonnull align 8 dereferenceable(176) %2658, i32 noundef %2, ptr null, i64 0)
+  %2660 = load ptr, ptr %0, align 8, !tbaa !63
+  %2661 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0530.0.copyload = load i32, ptr %2661, align 4, !tbaa !43
+  %2662 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2663 = load ptr, ptr %2662, align 8, !tbaa !64
+  %2664 = getelementptr inbounds nuw i8, ptr %2663, i64 48
+  %2665 = lshr i32 %.sroa.0530.0.copyload, 4
+  %2666 = zext nneg i32 %2665 to i64
+  %2667 = load ptr, ptr %2664, align 8, !tbaa !65
+  %2668 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2667, i64 %2666
+  %2669 = getelementptr inbounds nuw i8, ptr %2668, i64 8
+  %2670 = load i32, ptr %2669, align 8, !tbaa !43
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %2660, i32 noundef 520, i32 noundef %2670)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2644:                                             ; preds = %2636
-  %2645 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2645, i8 10, i8 -54, i16 noundef zeroext 16)
-  br label %2646
+2671:                                             ; preds = %4
+  %2672 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2673 = load ptr, ptr %0, align 8, !tbaa !63
+  %2674 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2672, ptr noundef nonnull align 8 dereferenceable(176) %2673, i32 noundef %2, ptr null, i64 0)
+  %2675 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0529.0.copyload = load i32, ptr %2675, align 4, !tbaa !43
+  %2676 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2677 = load ptr, ptr %2676, align 8, !tbaa !64
+  %2678 = getelementptr inbounds nuw i8, ptr %2677, i64 48
+  %2679 = lshr i32 %.sroa.0529.0.copyload, 4
+  %2680 = zext nneg i32 %2679 to i64
+  %2681 = load ptr, ptr %2678, align 8, !tbaa !65
+  %2682 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2681, i64 %2680
+  %2683 = getelementptr inbounds nuw i8, ptr %2682, i64 8
+  %2684 = load i32, ptr %2683, align 8, !tbaa !43
+  %2685 = icmp eq i32 %2684, -1
+  %2686 = load ptr, ptr %0, align 8, !tbaa !63
+  br i1 %2685, label %2687, label %2688
 
-2646:                                             ; preds = %2636, %2644, %2633
-  %2647 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0504.0.copyload = load i32, ptr %2647, align 4, !tbaa !43
-  %2648 = load ptr, ptr %2628, align 8, !tbaa !64
-  %2649 = getelementptr inbounds nuw i8, ptr %2648, i64 48
-  %2650 = lshr i32 %.sroa.0504.0.copyload, 4
-  %2651 = zext nneg i32 %2650 to i64
-  %2652 = load ptr, ptr %2649, align 8, !tbaa !65
-  %2653 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2652, i64 %2651, i32 1
-  %2654 = load i32, ptr %2653, align 8, !tbaa !43
-  switch i32 %2654, label %2676 [
-    i32 0, label %2655
-    i32 1, label %2661
+2687:                                             ; preds = %2671
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2686, i8 18, i64 34376161793)
+  br label %2695
+
+2688:                                             ; preds = %2671
+  %2689 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0524.0.copyload = load i32, ptr %2689, align 4, !tbaa !43
+  %2690 = lshr i32 %.sroa.0524.0.copyload, 4
+  %2691 = add nuw i32 %2684, 1
+  %2692 = add i32 %2691, %2690
+  %2693 = trunc i32 %2692 to i16
+  %2694 = shl i16 %2693, 4
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2686, i8 18, i8 -54, i16 noundef zeroext %2694)
+  br label %2695
+
+2695:                                             ; preds = %2688, %2687
+  %2696 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2696, i8 2, i8 -102)
+  %2697 = load ptr, ptr %0, align 8, !tbaa !63
+  %2698 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0518.0.copyload = load i32, ptr %2698, align 4, !tbaa !43
+  %2699 = trunc i32 %.sroa.0518.0.copyload to i16
+  %2700 = and i16 %2699, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2697, i8 10, i8 -54, i16 noundef zeroext %2700)
+  %2701 = load ptr, ptr %0, align 8, !tbaa !63
+  %2702 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0516.0.copyload = load i32, ptr %2702, align 4, !tbaa !43
+  %2703 = load ptr, ptr %2676, align 8, !tbaa !64
+  %2704 = getelementptr inbounds nuw i8, ptr %2703, i64 48
+  %2705 = lshr i32 %.sroa.0516.0.copyload, 4
+  %2706 = zext nneg i32 %2705 to i64
+  %2707 = load ptr, ptr %2704, align 8, !tbaa !65
+  %2708 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2707, i64 %2706
+  %2709 = getelementptr inbounds nuw i8, ptr %2708, i64 8
+  %2710 = load i32, ptr %2709, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2701, i8 25, i32 noundef %2710)
+  %2711 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2711, i8 34, i64 2027240989185)
+  %2712 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2712, i8 34)
+  %2713 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2713, i8 -54, i64 68735900161)
+  %2714 = load ptr, ptr %0, align 8, !tbaa !63
+  %2715 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %2716 = load ptr, ptr %2715, align 8, !tbaa !103
+  %2717 = getelementptr inbounds nuw i8, ptr %2716, i64 48
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2714, i8 2, ptr noundef nonnull align 4 dereferenceable(8) %2717)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+2718:                                             ; preds = %4
+  %2719 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2720 = load ptr, ptr %0, align 8, !tbaa !63
+  %2721 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2719, ptr noundef nonnull align 8 dereferenceable(176) %2720, i32 noundef %2, ptr null, i64 0)
+  %2722 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2723 = load ptr, ptr %2722, align 8, !tbaa !64
+  %2724 = getelementptr inbounds nuw i8, ptr %2723, i64 304
+  %2725 = load i8, ptr %2724, align 8, !tbaa !104, !range !97, !noundef !98
+  %2726 = trunc nuw i8 %2725 to i1
+  br i1 %2726, label %2727, label %2730
+
+2727:                                             ; preds = %2718
+  %2728 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2728, i8 10, i64 137455376897)
+  %2729 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2729, i8 10, i64 34376124929)
+  br label %2741
+
+2730:                                             ; preds = %2718
+  %2731 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0507.0.copyload = load i32, ptr %2731, align 4, !tbaa !43
+  %2732 = getelementptr inbounds nuw i8, ptr %2723, i64 48
+  %2733 = lshr i32 %.sroa.0507.0.copyload, 4
+  %2734 = zext nneg i32 %2733 to i64
+  %2735 = load ptr, ptr %2732, align 8, !tbaa !65
+  %2736 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2735, i64 %2734
+  %2737 = getelementptr inbounds nuw i8, ptr %2736, i64 8
+  %2738 = load i32, ptr %2737, align 8, !tbaa !43
+  %.not2955 = icmp eq i32 %2738, 1
+  br i1 %.not2955, label %2741, label %2739
+
+2739:                                             ; preds = %2730
+  %2740 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2740, i8 10, i8 -54, i16 noundef zeroext 16)
+  br label %2741
+
+2741:                                             ; preds = %2730, %2739, %2727
+  %2742 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0504.0.copyload = load i32, ptr %2742, align 4, !tbaa !43
+  %2743 = load ptr, ptr %2722, align 8, !tbaa !64
+  %2744 = getelementptr inbounds nuw i8, ptr %2743, i64 48
+  %2745 = lshr i32 %.sroa.0504.0.copyload, 4
+  %2746 = zext nneg i32 %2745 to i64
+  %2747 = load ptr, ptr %2744, align 8, !tbaa !65
+  %2748 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2747, i64 %2746
+  %2749 = getelementptr inbounds nuw i8, ptr %2748, i64 8
+  %2750 = load i32, ptr %2749, align 8, !tbaa !43
+  switch i32 %2750, label %2772 [
+    i32 0, label %2751
+    i32 1, label %2757
   ]
 
-2655:                                             ; preds = %2646
-  %2656 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2656, i8 17, i32 noundef 0)
-  %2657 = load ptr, ptr %0, align 8, !tbaa !63
-  %2658 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2659 = load ptr, ptr %2658, align 8, !tbaa !103
-  %2660 = getelementptr inbounds nuw i8, ptr %2659, i64 32
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2657, ptr noundef nonnull align 4 dereferenceable(8) %2660)
+2751:                                             ; preds = %2741
+  %2752 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2752, i8 17, i32 noundef 0)
+  %2753 = load ptr, ptr %0, align 8, !tbaa !63
+  %2754 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %2755 = load ptr, ptr %2754, align 8, !tbaa !103
+  %2756 = getelementptr inbounds nuw i8, ptr %2755, i64 32
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2753, ptr noundef nonnull align 4 dereferenceable(8) %2756)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2661:                                             ; preds = %2646
-  %2662 = getelementptr inbounds nuw i8, ptr %2648, i64 304
-  %2663 = load i8, ptr %2662, align 8, !tbaa !104, !range !97, !noundef !98
-  %2664 = trunc nuw i8 %2663 to i1
-  br i1 %2664, label %.lr.ph3656, label %2665
+2757:                                             ; preds = %2741
+  %2758 = getelementptr inbounds nuw i8, ptr %2743, i64 304
+  %2759 = load i8, ptr %2758, align 8, !tbaa !104, !range !97, !noundef !98
+  %2760 = trunc nuw i8 %2759 to i1
+  br i1 %2760, label %.lr.ph3656, label %2761
 
-2665:                                             ; preds = %2661
-  %2666 = load ptr, ptr %0, align 8, !tbaa !63
-  %2667 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0499.0.copyload = load i32, ptr %2667, align 4, !tbaa !43
-  %2668 = and i32 %.sroa.0499.0.copyload, -16
-  %.sroa.43132.0.insert.ext = zext i32 %2668 to i64
+2761:                                             ; preds = %2757
+  %2762 = load ptr, ptr %0, align 8, !tbaa !63
+  %2763 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0499.0.copyload = load i32, ptr %2763, align 4, !tbaa !43
+  %2764 = and i32 %.sroa.0499.0.copyload, -16
+  %.sroa.43132.0.insert.ext = zext i32 %2764 to i64
   %.sroa.43132.0.insert.shift = shl nuw i64 %.sroa.43132.0.insert.ext, 32
   %.sroa.03128.0.insert.insert = or disjoint i64 %.sroa.43132.0.insert.shift, 16435713
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2666, i8 5, i64 %.sroa.03128.0.insert.insert)
-  %2669 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2669, i8 5, i64 -68703041023)
-  %2670 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2670, i8 10, i8 -54)
-  %2671 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2671, i8 17, i32 noundef 1)
-  %2672 = load ptr, ptr %0, align 8, !tbaa !63
-  %2673 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2674 = load ptr, ptr %2673, align 8, !tbaa !103
-  %2675 = getelementptr inbounds nuw i8, ptr %2674, i64 32
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2672, ptr noundef nonnull align 4 dereferenceable(8) %2675)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2762, i8 5, i64 %.sroa.03128.0.insert.insert)
+  %2765 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2765, i8 5, i64 -68703041023)
+  %2766 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2766, i8 10, i8 -54)
+  %2767 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2767, i8 17, i32 noundef 1)
+  %2768 = load ptr, ptr %0, align 8, !tbaa !63
+  %2769 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %2770 = load ptr, ptr %2769, align 8, !tbaa !103
+  %2771 = getelementptr inbounds nuw i8, ptr %2770, i64 32
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2768, ptr noundef nonnull align 4 dereferenceable(8) %2771)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2676:                                             ; preds = %2646
-  %2677 = add i32 %2654, -1
-  %or.cond = icmp ult i32 %2677, 3
-  br i1 %or.cond, label %.lr.ph3656, label %2699
+2772:                                             ; preds = %2741
+  %2773 = add i32 %2750, -1
+  %or.cond = icmp ult i32 %2773, 3
+  br i1 %or.cond, label %.lr.ph3656, label %2796
 
-.lr.ph3656:                                       ; preds = %2676, %2661
-  %2678 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  br label %2684
+.lr.ph3656:                                       ; preds = %2772, %2757
+  %2774 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  br label %2780
 
-._crit_edge:                                      ; preds = %2684
-  %2679 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2679, i8 17, i32 noundef %2697)
-  %2680 = load ptr, ptr %0, align 8, !tbaa !63
-  %2681 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2682 = load ptr, ptr %2681, align 8, !tbaa !103
-  %2683 = getelementptr inbounds nuw i8, ptr %2682, i64 32
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2680, ptr noundef nonnull align 4 dereferenceable(8) %2683)
+._crit_edge:                                      ; preds = %2780
+  %2775 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2775, i8 17, i32 noundef %2794)
+  %2776 = load ptr, ptr %0, align 8, !tbaa !63
+  %2777 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %2778 = load ptr, ptr %2777, align 8, !tbaa !103
+  %2779 = getelementptr inbounds nuw i8, ptr %2778, i64 32
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2776, ptr noundef nonnull align 4 dereferenceable(8) %2779)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2684:                                             ; preds = %.lr.ph3656, %2684
-  %.03655 = phi i32 [ 0, %.lr.ph3656 ], [ %2690, %2684 ]
-  %2685 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0485.0.copyload = load i32, ptr %2678, align 4, !tbaa !43
-  %2686 = shl i32 %.03655, 4
-  %2687 = add i32 %.sroa.0485.0.copyload, %2686
-  %2688 = and i32 %2687, -16
-  %.sroa.43122.0.insert.ext = zext i32 %2688 to i64
+2780:                                             ; preds = %.lr.ph3656, %2780
+  %.03655 = phi i32 [ 0, %.lr.ph3656 ], [ %2786, %2780 ]
+  %2781 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0485.0.copyload = load i32, ptr %2774, align 4, !tbaa !43
+  %2782 = shl i32 %.03655, 4
+  %2783 = add i32 %.sroa.0485.0.copyload, %2782
+  %2784 = and i32 %2783, -16
+  %.sroa.43122.0.insert.ext = zext i32 %2784 to i64
   %.sroa.43122.0.insert.shift = shl nuw i64 %.sroa.43122.0.insert.ext, 32
   %.sroa.03118.0.insert.insert = or disjoint i64 %.sroa.43122.0.insert.shift, 16435713
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2685, i8 5, i64 %.sroa.03118.0.insert.insert)
-  %2689 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2689, i8 5, i64 68735863299)
-  %2690 = add nuw nsw i32 %.03655, 1
-  %.sroa.0488.0.copyload = load i32, ptr %2647, align 4, !tbaa !43
-  %2691 = load ptr, ptr %2628, align 8, !tbaa !64
-  %2692 = getelementptr inbounds nuw i8, ptr %2691, i64 48
-  %2693 = lshr i32 %.sroa.0488.0.copyload, 4
-  %2694 = zext nneg i32 %2693 to i64
-  %2695 = load ptr, ptr %2692, align 8, !tbaa !65
-  %2696 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2695, i64 %2694, i32 1
-  %2697 = load i32, ptr %2696, align 8, !tbaa !43
-  %2698 = icmp slt i32 %2690, %2697
-  br i1 %2698, label %2684, label %._crit_edge, !llvm.loop !158
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2781, i8 5, i64 %.sroa.03118.0.insert.insert)
+  %2785 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2785, i8 5, i64 68735863299)
+  %2786 = add nuw nsw i32 %.03655, 1
+  %.sroa.0488.0.copyload = load i32, ptr %2742, align 4, !tbaa !43
+  %2787 = load ptr, ptr %2722, align 8, !tbaa !64
+  %2788 = getelementptr inbounds nuw i8, ptr %2787, i64 48
+  %2789 = lshr i32 %.sroa.0488.0.copyload, 4
+  %2790 = zext nneg i32 %2789 to i64
+  %2791 = load ptr, ptr %2788, align 8, !tbaa !65
+  %2792 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2791, i64 %2790
+  %2793 = getelementptr inbounds nuw i8, ptr %2792, i64 8
+  %2794 = load i32, ptr %2793, align 8, !tbaa !43
+  %2795 = icmp slt i32 %2786, %2794
+  br i1 %2795, label %2780, label %._crit_edge, !llvm.loop !158
 
-2699:                                             ; preds = %2676
-  %2700 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2700, i8 17, i32 noundef 0)
-  %2701 = load ptr, ptr %0, align 8, !tbaa !63
-  %2702 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0477.0.copyload = load i32, ptr %2702, align 4, !tbaa !43
-  %2703 = trunc i32 %.sroa.0477.0.copyload to i16
-  %2704 = and i16 %2703, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2701, i8 26, i8 -54, i16 noundef zeroext %2704)
-  %.sroa.0476.0.copyload = load i32, ptr %2647, align 4, !tbaa !43
-  %2705 = load ptr, ptr %2628, align 8, !tbaa !64
-  %2706 = getelementptr inbounds nuw i8, ptr %2705, i64 48
-  %2707 = lshr i32 %.sroa.0476.0.copyload, 4
-  %2708 = zext nneg i32 %2707 to i64
-  %2709 = load ptr, ptr %2706, align 8, !tbaa !65
-  %2710 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2709, i64 %2708, i32 1
-  %2711 = load i32, ptr %2710, align 8, !tbaa !43
-  %2712 = icmp eq i32 %2711, -1
-  %2713 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %2712, label %2714, label %2715
+2796:                                             ; preds = %2772
+  %2797 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2797, i8 17, i32 noundef 0)
+  %2798 = load ptr, ptr %0, align 8, !tbaa !63
+  %2799 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0477.0.copyload = load i32, ptr %2799, align 4, !tbaa !43
+  %2800 = trunc i32 %.sroa.0477.0.copyload to i16
+  %2801 = and i16 %2800, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2798, i8 26, i8 -54, i16 noundef zeroext %2801)
+  %.sroa.0476.0.copyload = load i32, ptr %2742, align 4, !tbaa !43
+  %2802 = load ptr, ptr %2722, align 8, !tbaa !64
+  %2803 = getelementptr inbounds nuw i8, ptr %2802, i64 48
+  %2804 = lshr i32 %.sroa.0476.0.copyload, 4
+  %2805 = zext nneg i32 %2804 to i64
+  %2806 = load ptr, ptr %2803, align 8, !tbaa !65
+  %2807 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2806, i64 %2805
+  %2808 = getelementptr inbounds nuw i8, ptr %2807, i64 8
+  %2809 = load i32, ptr %2808, align 8, !tbaa !43
+  %2810 = icmp eq i32 %2809, -1
+  %2811 = load ptr, ptr %0, align 8, !tbaa !63
+  br i1 %2810, label %2812, label %2813
 
-2714:                                             ; preds = %2699
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2713, i8 34, i64 34376161793)
-  br label %2720
+2812:                                             ; preds = %2796
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2811, i8 34, i64 34376161793)
+  br label %2818
 
-2715:                                             ; preds = %2699
-  %.sroa.0471.0.copyload = load i32, ptr %2702, align 4, !tbaa !43
-  %2716 = lshr i32 %.sroa.0471.0.copyload, 4
-  %2717 = add nsw i32 %2716, %2711
-  %2718 = trunc i32 %2717 to i16
-  %2719 = shl i16 %2718, 4
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2713, i8 34, i8 -54, i16 noundef zeroext %2719)
-  br label %2720
+2813:                                             ; preds = %2796
+  %.sroa.0471.0.copyload = load i32, ptr %2799, align 4, !tbaa !43
+  %2814 = lshr i32 %.sroa.0471.0.copyload, 4
+  %2815 = add nsw i32 %2814, %2809
+  %2816 = trunc i32 %2815 to i16
+  %2817 = shl i16 %2816, 4
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2811, i8 34, i8 -54, i16 noundef zeroext %2817)
+  br label %2818
 
-2720:                                             ; preds = %2715, %2714
+2818:                                             ; preds = %2813, %2812
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store i32 0, ptr %71, align 4, !tbaa !68
-  %2721 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  store i32 -1, ptr %2721, align 4, !tbaa !70
+  %2819 = getelementptr inbounds nuw i8, ptr %71, i64 4
+  store i32 -1, ptr %2819, align 4, !tbaa !70
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store i32 0, ptr %72, align 4, !tbaa !68
-  %2722 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 -1, ptr %2722, align 4, !tbaa !70
-  %.sroa.0469.0.copyload = load i32, ptr %2647, align 4, !tbaa !43
-  %2723 = load ptr, ptr %2628, align 8, !tbaa !64
-  %2724 = getelementptr inbounds nuw i8, ptr %2723, i64 48
-  %2725 = lshr i32 %.sroa.0469.0.copyload, 4
-  %2726 = zext nneg i32 %2725 to i64
-  %2727 = load ptr, ptr %2724, align 8, !tbaa !65
-  %2728 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2727, i64 %2726, i32 1
-  %2729 = load i32, ptr %2728, align 8, !tbaa !43
-  %2730 = icmp eq i32 %2729, -1
-  br i1 %2730, label %2731, label %2734
+  %2820 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  store i32 -1, ptr %2820, align 4, !tbaa !70
+  %.sroa.0469.0.copyload = load i32, ptr %2742, align 4, !tbaa !43
+  %2821 = load ptr, ptr %2722, align 8, !tbaa !64
+  %2822 = getelementptr inbounds nuw i8, ptr %2821, i64 48
+  %2823 = lshr i32 %.sroa.0469.0.copyload, 4
+  %2824 = zext nneg i32 %2823 to i64
+  %2825 = load ptr, ptr %2822, align 8, !tbaa !65
+  %2826 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2825, i64 %2824
+  %2827 = getelementptr inbounds nuw i8, ptr %2826, i64 8
+  %2828 = load i32, ptr %2827, align 8, !tbaa !43
+  %2829 = icmp eq i32 %2828, -1
+  br i1 %2829, label %2830, label %2833
 
-2731:                                             ; preds = %2720
-  %2732 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2732, i8 26, i8 34)
-  %2733 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2733, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %72)
-  br label %2734
+2830:                                             ; preds = %2818
+  %2831 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2831, i8 26, i8 34)
+  %2832 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2832, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %72)
+  br label %2833
 
-2734:                                             ; preds = %2731, %2720
-  %2735 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2735, ptr noundef nonnull align 4 dereferenceable(8) %71)
-  %2736 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2736, i8 5, i64 68735867395)
-  %2737 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2737, i8 5, i64 68735863299)
-  %2738 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2738, i8 17, i8 17, i16 noundef zeroext 1)
-  %2739 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2739, i8 26, i8 34)
-  %2740 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2740, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(8) %71)
-  %2741 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2741, ptr noundef nonnull align 4 dereferenceable(8) %72)
-  %2742 = load ptr, ptr %0, align 8, !tbaa !63
-  %2743 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2744 = load ptr, ptr %2743, align 8, !tbaa !103
-  %2745 = getelementptr inbounds nuw i8, ptr %2744, i64 32
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2742, ptr noundef nonnull align 4 dereferenceable(8) %2745)
+2833:                                             ; preds = %2830, %2818
+  %2834 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2834, ptr noundef nonnull align 4 dereferenceable(8) %71)
+  %2835 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2835, i8 5, i64 68735867395)
+  %2836 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2836, i8 5, i64 68735863299)
+  %2837 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2837, i8 17, i8 17, i16 noundef zeroext 1)
+  %2838 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2838, i8 26, i8 34)
+  %2839 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2839, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(8) %71)
+  %2840 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2840, ptr noundef nonnull align 4 dereferenceable(8) %72)
+  %2841 = load ptr, ptr %0, align 8, !tbaa !63
+  %2842 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %2843 = load ptr, ptr %2842, align 8, !tbaa !103
+  %2844 = getelementptr inbounds nuw i8, ptr %2843, i64 32
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2841, ptr noundef nonnull align 4 dereferenceable(8) %2844)
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2746:                                             ; preds = %4
-  %2747 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2748 = load ptr, ptr %0, align 8, !tbaa !63
-  %2749 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2747, ptr noundef nonnull align 8 dereferenceable(176) %2748, i32 noundef %2, ptr null, i64 0)
-  %2750 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0458.0.copyload = load i32, ptr %2750, align 4, !tbaa !43
-  %2751 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2752 = load ptr, ptr %2751, align 8, !tbaa !64
-  %2753 = getelementptr inbounds nuw i8, ptr %2752, i64 48
-  %2754 = lshr i32 %.sroa.0458.0.copyload, 4
-  %2755 = zext nneg i32 %2754 to i64
-  %2756 = load ptr, ptr %2753, align 8, !tbaa !65
-  %2757 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2756, i64 %2755, i32 1
-  %2758 = load i32, ptr %2757, align 8, !tbaa !43
-  %2759 = icmp sgt i32 %2758, 2
-  br i1 %2759, label %.lr.ph, label %.loopexit
+2845:                                             ; preds = %4
+  %2846 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2847 = load ptr, ptr %0, align 8, !tbaa !63
+  %2848 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2846, ptr noundef nonnull align 8 dereferenceable(176) %2847, i32 noundef %2, ptr null, i64 0)
+  %2849 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0458.0.copyload = load i32, ptr %2849, align 4, !tbaa !43
+  %2850 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2851 = load ptr, ptr %2850, align 8, !tbaa !64
+  %2852 = getelementptr inbounds nuw i8, ptr %2851, i64 48
+  %2853 = lshr i32 %.sroa.0458.0.copyload, 4
+  %2854 = zext nneg i32 %2853 to i64
+  %2855 = load ptr, ptr %2852, align 8, !tbaa !65
+  %2856 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2855, i64 %2854
+  %2857 = getelementptr inbounds nuw i8, ptr %2856, i64 8
+  %2858 = load i32, ptr %2857, align 8, !tbaa !43
+  %2859 = icmp sgt i32 %2858, 2
+  br i1 %2859, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %2746
-  %2760 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  br label %2761
+.lr.ph:                                           ; preds = %2845
+  %2860 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  br label %2861
 
-2761:                                             ; preds = %.lr.ph, %2761
-  %.029403653 = phi i32 [ 2, %.lr.ph ], [ %2768, %2761 ]
-  %2762 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0451.0.copyload = load i32, ptr %2760, align 4, !tbaa !43
-  %2763 = shl i32 %.029403653, 4
-  %2764 = add i32 %2763, 48
-  %2765 = add i32 %.sroa.0451.0.copyload, %2764
-  %2766 = and i32 %2765, -16
-  %2767 = or disjoint i32 %2766, 12
-  %.sroa.43095.0.insert.ext = zext i32 %2767 to i64
+2861:                                             ; preds = %.lr.ph, %2861
+  %.029403653 = phi i32 [ 2, %.lr.ph ], [ %2868, %2861 ]
+  %2862 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0451.0.copyload = load i32, ptr %2860, align 4, !tbaa !43
+  %2863 = shl i32 %.029403653, 4
+  %2864 = add i32 %2863, 48
+  %2865 = add i32 %.sroa.0451.0.copyload, %2864
+  %2866 = and i32 %2865, -16
+  %2867 = or disjoint i32 %2866, 12
+  %.sroa.43095.0.insert.ext = zext i32 %2867 to i64
   %.sroa.43095.0.insert.shift = shl nuw i64 %.sroa.43095.0.insert.ext, 32
   %.sroa.03091.0.insert.insert = or disjoint i64 %.sroa.43095.0.insert.shift, 16435713
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2762, i8 -7, i64 %.sroa.03091.0.insert.insert)
-  %2768 = add nuw nsw i32 %.029403653, 1
-  %.sroa.0454.0.copyload = load i32, ptr %2750, align 4, !tbaa !43
-  %2769 = load ptr, ptr %2751, align 8, !tbaa !64
-  %2770 = getelementptr inbounds nuw i8, ptr %2769, i64 48
-  %2771 = lshr i32 %.sroa.0454.0.copyload, 4
-  %2772 = zext nneg i32 %2771 to i64
-  %2773 = load ptr, ptr %2770, align 8, !tbaa !65
-  %2774 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2773, i64 %2772, i32 1
-  %2775 = load i32, ptr %2774, align 8, !tbaa !43
-  %2776 = icmp slt i32 %2768, %2775
-  br i1 %2776, label %2761, label %.loopexit, !llvm.loop !160
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2862, i8 -7, i64 %.sroa.03091.0.insert.insert)
+  %2868 = add nuw nsw i32 %.029403653, 1
+  %.sroa.0454.0.copyload = load i32, ptr %2849, align 4, !tbaa !43
+  %2869 = load ptr, ptr %2850, align 8, !tbaa !64
+  %2870 = getelementptr inbounds nuw i8, ptr %2869, i64 48
+  %2871 = lshr i32 %.sroa.0454.0.copyload, 4
+  %2872 = zext nneg i32 %2871 to i64
+  %2873 = load ptr, ptr %2870, align 8, !tbaa !65
+  %2874 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2873, i64 %2872
+  %2875 = getelementptr inbounds nuw i8, ptr %2874, i64 8
+  %2876 = load i32, ptr %2875, align 8, !tbaa !43
+  %2877 = icmp slt i32 %2868, %2876
+  br i1 %2877, label %2861, label %.loopexit, !llvm.loop !160
 
-.loopexit:                                        ; preds = %2761, %2746
-  %2777 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2777, i8 2, i8 -102)
-  %2778 = load ptr, ptr %0, align 8, !tbaa !63
-  %2779 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0446.0.copyload = load i32, ptr %2779, align 4, !tbaa !43
-  %2780 = and i32 %.sroa.0446.0.copyload, -16
-  %2781 = add i32 %2780, 16
-  %.sroa.43090.0.insert.ext = zext i32 %2781 to i64
+.loopexit:                                        ; preds = %2861, %2845
+  %2878 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2878, i8 2, i8 -102)
+  %2879 = load ptr, ptr %0, align 8, !tbaa !63
+  %2880 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0446.0.copyload = load i32, ptr %2880, align 4, !tbaa !43
+  %2881 = and i32 %.sroa.0446.0.copyload, -16
+  %2882 = add i32 %2881, 16
+  %.sroa.43090.0.insert.ext = zext i32 %2882 to i64
   %.sroa.43090.0.insert.shift = shl nuw i64 %.sroa.43090.0.insert.ext, 32
   %.sroa.03086.0.insert.insert = or disjoint i64 %.sroa.43090.0.insert.shift, 16435713
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2778, i8 10, i64 %.sroa.03086.0.insert.insert)
-  %2782 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0443.0.copyload = load i32, ptr %2779, align 4, !tbaa !43
-  %2783 = and i32 %.sroa.0443.0.copyload, -16
-  %2784 = add i32 %2783, 32
-  %.sroa.43085.0.insert.ext = zext i32 %2784 to i64
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2879, i8 10, i64 %.sroa.03086.0.insert.insert)
+  %2883 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0443.0.copyload = load i32, ptr %2880, align 4, !tbaa !43
+  %2884 = and i32 %.sroa.0443.0.copyload, -16
+  %2885 = add i32 %2884, 32
+  %.sroa.43085.0.insert.ext = zext i32 %2885 to i64
   %.sroa.43085.0.insert.shift = shl nuw i64 %.sroa.43085.0.insert.ext, 32
   %.sroa.03081.0.insert.insert = or disjoint i64 %.sroa.43085.0.insert.shift, 16435713
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2782, i8 17, i64 %.sroa.03081.0.insert.insert)
-  %2785 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0440.0.copyload = load i32, ptr %2779, align 4, !tbaa !43
-  %2786 = trunc i32 %.sroa.0440.0.copyload to i16
-  %2787 = and i16 %2786, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2785, i8 26, i8 -54, i16 noundef zeroext %2787)
-  %2788 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2788, i8 34, i64 1786722820609)
-  %2789 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2789, i8 34)
-  %2790 = load ptr, ptr %0, align 8, !tbaa !63
-  %2791 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0435.0.copyload = load i32, ptr %2791, align 4, !tbaa !43
-  %2792 = load ptr, ptr %2751, align 8, !tbaa !64
-  %2793 = lshr i32 %.sroa.0435.0.copyload, 4
-  %2794 = zext nneg i32 %2793 to i64
-  %2795 = load ptr, ptr %2792, align 8, !tbaa !71
-  %2796 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2795, i64 %2794, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2790, i8 1, ptr noundef nonnull align 4 dereferenceable(8) %2796)
-  %2797 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0434.0.copyload = load i32, ptr %2797, align 4, !tbaa !43
-  %2798 = load ptr, ptr %2751, align 8, !tbaa !64
-  %2799 = lshr i32 %.sroa.0434.0.copyload, 4
-  %2800 = zext nneg i32 %2799 to i64
-  %2801 = load ptr, ptr %2798, align 8, !tbaa !71
-  %2802 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2801, i64 %2800
-  %2803 = getelementptr inbounds nuw i8, ptr %2802, i64 4
-  %2804 = load i32, ptr %2803, align 4, !tbaa !74
-  %2805 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %2806 = load i32, ptr %2805, align 4, !tbaa !74
-  %2807 = icmp eq i32 %2804, %2806
-  br i1 %2807, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %2808
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2883, i8 17, i64 %.sroa.03081.0.insert.insert)
+  %2886 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0440.0.copyload = load i32, ptr %2880, align 4, !tbaa !43
+  %2887 = trunc i32 %.sroa.0440.0.copyload to i16
+  %2888 = and i16 %2887, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2886, i8 26, i8 -54, i16 noundef zeroext %2888)
+  %2889 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2889, i8 34, i64 1786722820609)
+  %2890 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2890, i8 34)
+  %2891 = load ptr, ptr %0, align 8, !tbaa !63
+  %2892 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0435.0.copyload = load i32, ptr %2892, align 4, !tbaa !43
+  %2893 = load ptr, ptr %2850, align 8, !tbaa !64
+  %2894 = lshr i32 %.sroa.0435.0.copyload, 4
+  %2895 = zext nneg i32 %2894 to i64
+  %2896 = load ptr, ptr %2893, align 8, !tbaa !71
+  %2897 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2896, i64 %2895
+  %2898 = getelementptr inbounds nuw i8, ptr %2897, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2891, i8 1, ptr noundef nonnull align 4 dereferenceable(8) %2898)
+  %2899 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0434.0.copyload = load i32, ptr %2899, align 4, !tbaa !43
+  %2900 = load ptr, ptr %2850, align 8, !tbaa !64
+  %2901 = lshr i32 %.sroa.0434.0.copyload, 4
+  %2902 = zext nneg i32 %2901 to i64
+  %2903 = load ptr, ptr %2900, align 8, !tbaa !71
+  %2904 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2903, i64 %2902
+  %2905 = getelementptr inbounds nuw i8, ptr %2904, i64 4
+  %2906 = load i32, ptr %2905, align 4, !tbaa !74
+  %2907 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %2908 = load i32, ptr %2907, align 4, !tbaa !74
+  %2909 = icmp eq i32 %2906, %2908
+  br i1 %2909, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %2910
 
-2808:                                             ; preds = %.loopexit
-  %2809 = load ptr, ptr %0, align 8, !tbaa !63
-  %2810 = getelementptr inbounds nuw i8, ptr %2802, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2809, ptr noundef nonnull align 4 dereferenceable(8) %2810)
+2910:                                             ; preds = %.loopexit
+  %2911 = load ptr, ptr %0, align 8, !tbaa !63
+  %2912 = getelementptr inbounds nuw i8, ptr %2904, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2911, ptr noundef nonnull align 4 dereferenceable(8) %2912)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2811:                                             ; preds = %4
-  %2812 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2813 = load ptr, ptr %0, align 8, !tbaa !63
-  %2814 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2812, ptr noundef nonnull align 8 dereferenceable(176) %2813, i32 noundef %2, ptr null, i64 0)
-  %2815 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2815, i8 2, i8 -102)
-  %2816 = load ptr, ptr %0, align 8, !tbaa !63
-  %2817 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0430.0.copyload = load i32, ptr %2817, align 4, !tbaa !43
-  %2818 = lshr i32 %.sroa.0430.0.copyload, 4
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2816, i8 9, i32 noundef %2818)
-  %2819 = load ptr, ptr %0, align 8, !tbaa !63
-  %2820 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0428.0.copyload = load i32, ptr %2820, align 4, !tbaa !43
-  %2821 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2822 = load ptr, ptr %2821, align 8, !tbaa !64
-  %2823 = getelementptr inbounds nuw i8, ptr %2822, i64 48
-  %2824 = lshr i32 %.sroa.0428.0.copyload, 4
-  %2825 = zext nneg i32 %2824 to i64
-  %2826 = load ptr, ptr %2823, align 8, !tbaa !65
-  %2827 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2826, i64 %2825, i32 1
-  %2828 = load i32, ptr %2827, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2819, i8 17, i32 noundef %2828)
-  %2829 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2829, i8 26, i64 1855442297345)
-  %2830 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2830, i8 26)
-  %2831 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2831, i8 -54, i64 68735900161)
-  %2832 = load ptr, ptr %0, align 8, !tbaa !63
-  %2833 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0423.0.copyload = load i32, ptr %2833, align 4, !tbaa !43
-  %2834 = load ptr, ptr %2821, align 8, !tbaa !64
-  %2835 = lshr i32 %.sroa.0423.0.copyload, 4
-  %2836 = zext nneg i32 %2835 to i64
-  %2837 = load ptr, ptr %2834, align 8, !tbaa !71
-  %2838 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2837, i64 %2836, i32 7
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2832, i8 1, ptr noundef nonnull align 4 dereferenceable(8) %2838)
-  %2839 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0422.0.copyload = load i32, ptr %2839, align 4, !tbaa !43
-  %2840 = load ptr, ptr %2821, align 8, !tbaa !64
-  %2841 = lshr i32 %.sroa.0422.0.copyload, 4
-  %2842 = zext nneg i32 %2841 to i64
-  %2843 = load ptr, ptr %2840, align 8, !tbaa !71
-  %2844 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2843, i64 %2842
-  %2845 = getelementptr inbounds nuw i8, ptr %2844, i64 4
-  %2846 = load i32, ptr %2845, align 4, !tbaa !74
-  %2847 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %2848 = load i32, ptr %2847, align 4, !tbaa !74
-  %2849 = icmp eq i32 %2846, %2848
-  br i1 %2849, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %2850
+2913:                                             ; preds = %4
+  %2914 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2915 = load ptr, ptr %0, align 8, !tbaa !63
+  %2916 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2914, ptr noundef nonnull align 8 dereferenceable(176) %2915, i32 noundef %2, ptr null, i64 0)
+  %2917 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2917, i8 2, i8 -102)
+  %2918 = load ptr, ptr %0, align 8, !tbaa !63
+  %2919 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0430.0.copyload = load i32, ptr %2919, align 4, !tbaa !43
+  %2920 = lshr i32 %.sroa.0430.0.copyload, 4
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2918, i8 9, i32 noundef %2920)
+  %2921 = load ptr, ptr %0, align 8, !tbaa !63
+  %2922 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0428.0.copyload = load i32, ptr %2922, align 4, !tbaa !43
+  %2923 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2924 = load ptr, ptr %2923, align 8, !tbaa !64
+  %2925 = getelementptr inbounds nuw i8, ptr %2924, i64 48
+  %2926 = lshr i32 %.sroa.0428.0.copyload, 4
+  %2927 = zext nneg i32 %2926 to i64
+  %2928 = load ptr, ptr %2925, align 8, !tbaa !65
+  %2929 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2928, i64 %2927
+  %2930 = getelementptr inbounds nuw i8, ptr %2929, i64 8
+  %2931 = load i32, ptr %2930, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2921, i8 17, i32 noundef %2931)
+  %2932 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2932, i8 26, i64 1855442297345)
+  %2933 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2933, i8 26)
+  %2934 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2934, i8 -54, i64 68735900161)
+  %2935 = load ptr, ptr %0, align 8, !tbaa !63
+  %2936 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0423.0.copyload = load i32, ptr %2936, align 4, !tbaa !43
+  %2937 = load ptr, ptr %2923, align 8, !tbaa !64
+  %2938 = lshr i32 %.sroa.0423.0.copyload, 4
+  %2939 = zext nneg i32 %2938 to i64
+  %2940 = load ptr, ptr %2937, align 8, !tbaa !71
+  %2941 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2940, i64 %2939
+  %2942 = getelementptr inbounds nuw i8, ptr %2941, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2935, i8 1, ptr noundef nonnull align 4 dereferenceable(8) %2942)
+  %2943 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.0422.0.copyload = load i32, ptr %2943, align 4, !tbaa !43
+  %2944 = load ptr, ptr %2923, align 8, !tbaa !64
+  %2945 = lshr i32 %.sroa.0422.0.copyload, 4
+  %2946 = zext nneg i32 %2945 to i64
+  %2947 = load ptr, ptr %2944, align 8, !tbaa !71
+  %2948 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2947, i64 %2946
+  %2949 = getelementptr inbounds nuw i8, ptr %2948, i64 4
+  %2950 = load i32, ptr %2949, align 4, !tbaa !74
+  %2951 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %2952 = load i32, ptr %2951, align 4, !tbaa !74
+  %2953 = icmp eq i32 %2950, %2952
+  br i1 %2953, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %2954
 
-2850:                                             ; preds = %2811
-  %2851 = load ptr, ptr %0, align 8, !tbaa !63
-  %2852 = getelementptr inbounds nuw i8, ptr %2844, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2851, ptr noundef nonnull align 4 dereferenceable(8) %2852)
+2954:                                             ; preds = %2913
+  %2955 = load ptr, ptr %0, align 8, !tbaa !63
+  %2956 = getelementptr inbounds nuw i8, ptr %2948, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2955, ptr noundef nonnull align 4 dereferenceable(8) %2956)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-2853:                                             ; preds = %4
-  %2854 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2855 = load ptr, ptr %0, align 8, !tbaa !63
-  %2856 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2854, ptr noundef nonnull align 8 dereferenceable(176) %2855, i32 noundef %2, ptr null, i64 0)
-  %2857 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2857, i8 2, i8 -102)
-  %2858 = load ptr, ptr %0, align 8, !tbaa !63
-  %2859 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0417.0.copyload = load i32, ptr %2859, align 4, !tbaa !43
-  %2860 = trunc i32 %.sroa.0417.0.copyload to i16
-  %2861 = and i16 %2860, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2858, i8 10, i8 -54, i16 noundef zeroext %2861)
-  %2862 = load ptr, ptr %0, align 8, !tbaa !63
-  %2863 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0415.0.copyload = load i32, ptr %2863, align 4, !tbaa !43
-  %2864 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2865 = load ptr, ptr %2864, align 8, !tbaa !64
-  %2866 = getelementptr inbounds nuw i8, ptr %2865, i64 48
-  %2867 = lshr i32 %.sroa.0415.0.copyload, 4
-  %2868 = zext nneg i32 %2867 to i64
-  %2869 = load ptr, ptr %2866, align 8, !tbaa !65
-  %2870 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2869, i64 %2868, i32 1
-  %2871 = load i32, ptr %2870, align 8, !tbaa !43
-  %2872 = add i32 %2871, 1
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2862, i8 17, i32 noundef %2872)
-  %2873 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2873, i8 26, i64 1889802035713)
-  %2874 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2874, i8 26)
-  %2875 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0411.0.copyload = load i32, ptr %2875, align 4, !tbaa !43
-  %2876 = load ptr, ptr %2864, align 8, !tbaa !64
-  %2877 = lshr i32 %.sroa.0411.0.copyload, 4
-  %2878 = zext nneg i32 %2877 to i64
-  %2879 = load ptr, ptr %2876, align 8, !tbaa !71
-  %2880 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2879, i64 %2878
-  %2881 = getelementptr inbounds nuw i8, ptr %2880, i64 4
-  %2882 = load i32, ptr %2881, align 4, !tbaa !74
-  %2883 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %2884 = load i32, ptr %2883, align 4, !tbaa !74
-  %2885 = icmp eq i32 %2882, %2884
-  br i1 %2885, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %2886
+2957:                                             ; preds = %4
+  %2958 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2959 = load ptr, ptr %0, align 8, !tbaa !63
+  %2960 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2958, ptr noundef nonnull align 8 dereferenceable(176) %2959, i32 noundef %2, ptr null, i64 0)
+  %2961 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2961, i8 2, i8 -102)
+  %2962 = load ptr, ptr %0, align 8, !tbaa !63
+  %2963 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0417.0.copyload = load i32, ptr %2963, align 4, !tbaa !43
+  %2964 = trunc i32 %.sroa.0417.0.copyload to i16
+  %2965 = and i16 %2964, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2962, i8 10, i8 -54, i16 noundef zeroext %2965)
+  %2966 = load ptr, ptr %0, align 8, !tbaa !63
+  %2967 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0415.0.copyload = load i32, ptr %2967, align 4, !tbaa !43
+  %2968 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2969 = load ptr, ptr %2968, align 8, !tbaa !64
+  %2970 = getelementptr inbounds nuw i8, ptr %2969, i64 48
+  %2971 = lshr i32 %.sroa.0415.0.copyload, 4
+  %2972 = zext nneg i32 %2971 to i64
+  %2973 = load ptr, ptr %2970, align 8, !tbaa !65
+  %2974 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2973, i64 %2972
+  %2975 = getelementptr inbounds nuw i8, ptr %2974, i64 8
+  %2976 = load i32, ptr %2975, align 8, !tbaa !43
+  %2977 = add i32 %2976, 1
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2966, i8 17, i32 noundef %2977)
+  %2978 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2978, i8 26, i64 1889802035713)
+  %2979 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %2979, i8 26)
+  %2980 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0411.0.copyload = load i32, ptr %2980, align 4, !tbaa !43
+  %2981 = load ptr, ptr %2968, align 8, !tbaa !64
+  %2982 = lshr i32 %.sroa.0411.0.copyload, 4
+  %2983 = zext nneg i32 %2982 to i64
+  %2984 = load ptr, ptr %2981, align 8, !tbaa !71
+  %2985 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %2984, i64 %2983
+  %2986 = getelementptr inbounds nuw i8, ptr %2985, i64 4
+  %2987 = load i32, ptr %2986, align 4, !tbaa !74
+  %2988 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %2989 = load i32, ptr %2988, align 4, !tbaa !74
+  %2990 = icmp eq i32 %2987, %2989
+  br i1 %2990, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %2991
 
-2886:                                             ; preds = %2853
-  %2887 = load ptr, ptr %0, align 8, !tbaa !63
-  %2888 = getelementptr inbounds nuw i8, ptr %2880, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2887, ptr noundef nonnull align 4 dereferenceable(8) %2888)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2889:                                             ; preds = %4
-  %2890 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2891 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2890, i8 noundef zeroext 2)
-  %2892 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2890, i8 noundef zeroext 1)
-  %2893 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2890, i8 noundef zeroext 1)
-  %2894 = load ptr, ptr %0, align 8, !tbaa !63
-  %2895 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0398.0.copyload = load i32, ptr %2895, align 4, !tbaa !43
-  %2896 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2897 = load ptr, ptr %2896, align 8, !tbaa !64
-  %2898 = getelementptr inbounds nuw i8, ptr %2897, i64 48
-  %2899 = lshr i32 %.sroa.0398.0.copyload, 4
-  %2900 = zext nneg i32 %2899 to i64
-  %2901 = load ptr, ptr %2898, align 8, !tbaa !65
-  %2902 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2901, i64 %2900, i32 1
-  %2903 = load i32, ptr %2902, align 8, !tbaa !43
-  %2904 = shl i32 %2903, 2
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2894, i8 %2891, i32 noundef %2904)
-  %2905 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.33059.0.insert.ext = zext i8 %2891 to i64
-  %.sroa.33059.0.insert.shift = shl nuw nsw i64 %.sroa.33059.0.insert.ext, 16
-  %.sroa.23058.0.insert.insert = or disjoint i64 %.sroa.33059.0.insert.shift, 49664
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2905, i8 %2892, i64 %.sroa.23058.0.insert.insert)
-  %2906 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2906, i8 %2893, i8 %2892, i16 noundef zeroext 256)
-  %2907 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2907, i8 %2893, i16 noundef zeroext 0)
-  %2908 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %2908, i8 %2892, i8 %2892, i8 %2893, i32 noundef 11)
-  %2909 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2909, i8 %2892, i64 %.sroa.23058.0.insert.insert)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2910:                                             ; preds = %4
-  %2911 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2912 = load ptr, ptr %0, align 8, !tbaa !63
-  %2913 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2911, ptr noundef nonnull align 8 dereferenceable(176) %2912, i32 noundef %2, ptr null, i64 0)
-  %2914 = load ptr, ptr %0, align 8, !tbaa !63
-  %2915 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0385.0.copyload = load i32, ptr %2915, align 4, !tbaa !43
-  %2916 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2917 = load ptr, ptr %2916, align 8, !tbaa !64
-  %2918 = getelementptr inbounds nuw i8, ptr %2917, i64 48
-  %2919 = lshr i32 %.sroa.0385.0.copyload, 4
-  %2920 = zext nneg i32 %2919 to i64
-  %2921 = load ptr, ptr %2918, align 8, !tbaa !65
-  %2922 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2921, i64 %2920, i32 1
-  %2923 = load i32, ptr %2922, align 8, !tbaa !43
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %2914, i32 noundef 480, i32 noundef %2923)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2924:                                             ; preds = %4
-  %2925 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2926 = load ptr, ptr %0, align 8, !tbaa !63
-  %2927 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2925, ptr noundef nonnull align 8 dereferenceable(176) %2926, i32 noundef %2, ptr null, i64 0)
-  %2928 = load ptr, ptr %0, align 8, !tbaa !63
-  %2929 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0384.0.copyload = load i32, ptr %2929, align 4, !tbaa !43
-  %2930 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2931 = load ptr, ptr %2930, align 8, !tbaa !64
-  %2932 = getelementptr inbounds nuw i8, ptr %2931, i64 48
-  %2933 = lshr i32 %.sroa.0384.0.copyload, 4
-  %2934 = zext nneg i32 %2933 to i64
-  %2935 = load ptr, ptr %2932, align 8, !tbaa !65
-  %2936 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2935, i64 %2934, i32 1
-  %2937 = load i32, ptr %2936, align 8, !tbaa !43
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %2928, i32 noundef 488, i32 noundef %2937)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2938:                                             ; preds = %4
-  %2939 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2940 = load ptr, ptr %0, align 8, !tbaa !63
-  %2941 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2939, ptr noundef nonnull align 8 dereferenceable(176) %2940, i32 noundef %2, ptr null, i64 0)
-  %2942 = load ptr, ptr %0, align 8, !tbaa !63
-  %2943 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0383.0.copyload = load i32, ptr %2943, align 4, !tbaa !43
-  %2944 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2945 = load ptr, ptr %2944, align 8, !tbaa !64
-  %2946 = getelementptr inbounds nuw i8, ptr %2945, i64 48
-  %2947 = lshr i32 %.sroa.0383.0.copyload, 4
-  %2948 = zext nneg i32 %2947 to i64
-  %2949 = load ptr, ptr %2946, align 8, !tbaa !65
-  %2950 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2949, i64 %2948, i32 1
-  %2951 = load i32, ptr %2950, align 8, !tbaa !43
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %2942, i32 noundef 496, i32 noundef %2951)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2952:                                             ; preds = %4
-  %2953 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2954 = load ptr, ptr %0, align 8, !tbaa !63
-  %2955 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2953, ptr noundef nonnull align 8 dereferenceable(176) %2954, i32 noundef %2, ptr null, i64 0)
-  %2956 = load ptr, ptr %0, align 8, !tbaa !63
-  %2957 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0382.0.copyload = load i32, ptr %2957, align 4, !tbaa !43
-  %2958 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2959 = load ptr, ptr %2958, align 8, !tbaa !64
-  %2960 = getelementptr inbounds nuw i8, ptr %2959, i64 48
-  %2961 = lshr i32 %.sroa.0382.0.copyload, 4
-  %2962 = zext nneg i32 %2961 to i64
-  %2963 = load ptr, ptr %2960, align 8, !tbaa !65
-  %2964 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2963, i64 %2962, i32 1
-  %2965 = load i32, ptr %2964, align 8, !tbaa !43
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %2956, i32 noundef 504, i32 noundef %2965)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2966:                                             ; preds = %4
-  %2967 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2968 = load ptr, ptr %0, align 8, !tbaa !63
-  %2969 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2967, ptr noundef nonnull align 8 dereferenceable(176) %2968, i32 noundef %2, ptr null, i64 0)
-  %2970 = load ptr, ptr %0, align 8, !tbaa !63
-  %2971 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0381.0.copyload = load i32, ptr %2971, align 4, !tbaa !43
-  %2972 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2973 = load ptr, ptr %2972, align 8, !tbaa !64
-  %2974 = getelementptr inbounds nuw i8, ptr %2973, i64 48
-  %2975 = lshr i32 %.sroa.0381.0.copyload, 4
-  %2976 = zext nneg i32 %2975 to i64
-  %2977 = load ptr, ptr %2974, align 8, !tbaa !65
-  %2978 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2977, i64 %2976, i32 1
-  %2979 = load i32, ptr %2978, align 8, !tbaa !43
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %2970, i32 noundef 512, i32 noundef %2979)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-2980:                                             ; preds = %4
-  %2981 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2982 = load ptr, ptr %0, align 8, !tbaa !63
-  %2983 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2981, ptr noundef nonnull align 8 dereferenceable(176) %2982, i32 noundef %2, ptr null, i64 0)
-  %2984 = load ptr, ptr %0, align 8, !tbaa !63
-  %2985 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0380.0.copyload = load i32, ptr %2985, align 4, !tbaa !43
-  %2986 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2987 = load ptr, ptr %2986, align 8, !tbaa !64
-  %2988 = getelementptr inbounds nuw i8, ptr %2987, i64 48
-  %2989 = lshr i32 %.sroa.0380.0.copyload, 4
-  %2990 = zext nneg i32 %2989 to i64
-  %2991 = load ptr, ptr %2988, align 8, !tbaa !65
-  %2992 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2991, i64 %2990, i32 1
-  %2993 = load i32, ptr %2992, align 8, !tbaa !43
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %2984, i32 noundef 560, i32 noundef %2993)
+2991:                                             ; preds = %2957
+  %2992 = load ptr, ptr %0, align 8, !tbaa !63
+  %2993 = getelementptr inbounds nuw i8, ptr %2985, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2992, ptr noundef nonnull align 4 dereferenceable(8) %2993)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2994:                                             ; preds = %4
   %2995 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2996 = load ptr, ptr %0, align 8, !tbaa !63
-  %2997 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2995, ptr noundef nonnull align 8 dereferenceable(176) %2996, i32 noundef %2, ptr null, i64 0)
-  %2998 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2998, i8 2, i8 -102)
-  %2999 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0377.0.copyload = load i32, ptr %2999, align 4, !tbaa !43
-  %3000 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3001 = load ptr, ptr %3000, align 8, !tbaa !64
-  %3002 = getelementptr inbounds nuw i8, ptr %3001, i64 48
-  %3003 = lshr i32 %.sroa.0377.0.copyload, 4
-  %3004 = zext nneg i32 %3003 to i64
-  %3005 = load ptr, ptr %3002, align 8, !tbaa !65
-  %3006 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3005, i64 %3004, i32 1
-  %3007 = load i32, ptr %3006, align 8, !tbaa !43
-  %3008 = icmp eq i32 %3007, -1
-  %3009 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %3008, label %3010, label %3025
+  %2996 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2995, i8 noundef zeroext 2)
+  %2997 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2995, i8 noundef zeroext 1)
+  %2998 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2995, i8 noundef zeroext 1)
+  %2999 = load ptr, ptr %0, align 8, !tbaa !63
+  %3000 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0398.0.copyload = load i32, ptr %3000, align 4, !tbaa !43
+  %3001 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3002 = load ptr, ptr %3001, align 8, !tbaa !64
+  %3003 = getelementptr inbounds nuw i8, ptr %3002, i64 48
+  %3004 = lshr i32 %.sroa.0398.0.copyload, 4
+  %3005 = zext nneg i32 %3004 to i64
+  %3006 = load ptr, ptr %3003, align 8, !tbaa !65
+  %3007 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3006, i64 %3005
+  %3008 = getelementptr inbounds nuw i8, ptr %3007, i64 8
+  %3009 = load i32, ptr %3008, align 8, !tbaa !43
+  %3010 = shl i32 %3009, 2
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %2999, i8 %2996, i32 noundef %3010)
+  %3011 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.33059.0.insert.ext = zext i8 %2996 to i64
+  %.sroa.33059.0.insert.shift = shl nuw nsw i64 %.sroa.33059.0.insert.ext, 16
+  %.sroa.23058.0.insert.insert = or disjoint i64 %.sroa.33059.0.insert.shift, 49664
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3011, i8 %2997, i64 %.sroa.23058.0.insert.insert)
+  %3012 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %3012, i8 %2998, i8 %2997, i16 noundef zeroext 256)
+  %3013 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %3013, i8 %2998, i16 noundef zeroext 0)
+  %3014 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %3014, i8 %2997, i8 %2997, i8 %2998, i32 noundef 11)
+  %3015 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3015, i8 %2997, i64 %.sroa.23058.0.insert.insert)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3010:                                             ; preds = %2994
-  %3011 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0374.0.copyload = load i32, ptr %3011, align 4, !tbaa !43
-  %3012 = lshr i32 %.sroa.0374.0.copyload, 4
-  %3013 = zext nneg i32 %3012 to i64
-  %3014 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3005, i64 %3013, i32 1
-  %3015 = load i32, ptr %3014, align 8, !tbaa !43
-  %3016 = zext i32 %3015 to i64
-  %3017 = shl nuw nsw i64 %3016, 2
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m(ptr noundef nonnull align 8 dereferenceable(176) %3009, i8 10, i8 -62, i64 noundef %3017)
+3016:                                             ; preds = %4
+  %3017 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3018 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3018, i8 18, i8 -54)
-  %3019 = load ptr, ptr %0, align 8, !tbaa !63
-  %3020 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0370.0.copyload = load i32, ptr %3020, align 4, !tbaa !43
-  %3021 = lshr i32 %.sroa.0370.0.copyload, 4
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %3019, i8 25, i32 noundef %3021)
-  %3022 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3022, i8 34, i64 2302118896129)
-  %3023 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3023, i8 34)
-  %3024 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3024, i8 -54, i64 68735900161)
+  %3019 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3017, ptr noundef nonnull align 8 dereferenceable(176) %3018, i32 noundef %2, ptr null, i64 0)
+  %3020 = load ptr, ptr %0, align 8, !tbaa !63
+  %3021 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0385.0.copyload = load i32, ptr %3021, align 4, !tbaa !43
+  %3022 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3023 = load ptr, ptr %3022, align 8, !tbaa !64
+  %3024 = getelementptr inbounds nuw i8, ptr %3023, i64 48
+  %3025 = lshr i32 %.sroa.0385.0.copyload, 4
+  %3026 = zext nneg i32 %3025 to i64
+  %3027 = load ptr, ptr %3024, align 8, !tbaa !65
+  %3028 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3027, i64 %3026
+  %3029 = getelementptr inbounds nuw i8, ptr %3028, i64 8
+  %3030 = load i32, ptr %3029, align 8, !tbaa !43
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %3020, i32 noundef 480, i32 noundef %3030)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3025:                                             ; preds = %2994
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3009, i8 10, i8 -54)
-  %3026 = load ptr, ptr %0, align 8, !tbaa !63
-  %3027 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0363.0.copyload = load i32, ptr %3027, align 4, !tbaa !43
-  %3028 = lshr i32 %.sroa.0363.0.copyload, 4
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %3026, i8 17, i32 noundef %3028)
-  %3029 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0361.0.copyload = load i32, ptr %2999, align 4, !tbaa !43
-  %3030 = load ptr, ptr %3000, align 8, !tbaa !64
-  %3031 = getelementptr inbounds nuw i8, ptr %3030, i64 48
-  %3032 = lshr i32 %.sroa.0361.0.copyload, 4
-  %3033 = zext nneg i32 %3032 to i64
-  %3034 = load ptr, ptr %3031, align 8, !tbaa !65
-  %3035 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3034, i64 %3033, i32 1
-  %3036 = load i32, ptr %3035, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %3029, i8 25, i32 noundef %3036)
-  %3037 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3037, i8 34, i64 2336478634497)
-  %3038 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3038, i8 34)
+3031:                                             ; preds = %4
+  %3032 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3033 = load ptr, ptr %0, align 8, !tbaa !63
+  %3034 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3032, ptr noundef nonnull align 8 dereferenceable(176) %3033, i32 noundef %2, ptr null, i64 0)
+  %3035 = load ptr, ptr %0, align 8, !tbaa !63
+  %3036 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0384.0.copyload = load i32, ptr %3036, align 4, !tbaa !43
+  %3037 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3038 = load ptr, ptr %3037, align 8, !tbaa !64
+  %3039 = getelementptr inbounds nuw i8, ptr %3038, i64 48
+  %3040 = lshr i32 %.sroa.0384.0.copyload, 4
+  %3041 = zext nneg i32 %3040 to i64
+  %3042 = load ptr, ptr %3039, align 8, !tbaa !65
+  %3043 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3042, i64 %3041
+  %3044 = getelementptr inbounds nuw i8, ptr %3043, i64 8
+  %3045 = load i32, ptr %3044, align 8, !tbaa !43
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %3035, i32 noundef 488, i32 noundef %3045)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3039:                                             ; preds = %4
-  %3040 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0356.0.copyload = load i32, ptr %3040, align 4, !tbaa !43
-  %3041 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0356.0.copyload)
-  %3042 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3043 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(ptr nonnull %73)
-  store i8 %3041, ptr %73, align 1, !tbaa !43
-  %3044 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3042, ptr noundef nonnull align 8 dereferenceable(176) %3043, i32 noundef %2, ptr nonnull %73, i64 1)
-  call void @llvm.lifetime.end.p0(ptr nonnull %73)
-  %3045 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3045, i8 18, i8 %3041)
-  %3046 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3046, i8 2, i8 -102)
-  %3047 = load ptr, ptr %0, align 8, !tbaa !63
-  %3048 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0348.0.copyload = load i32, ptr %3048, align 4, !tbaa !43
-  %3049 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3050 = load ptr, ptr %3049, align 8, !tbaa !64
-  %3051 = getelementptr inbounds nuw i8, ptr %3050, i64 48
-  %3052 = lshr i32 %.sroa.0348.0.copyload, 4
-  %3053 = zext nneg i32 %3052 to i64
-  %3054 = load ptr, ptr %3051, align 8, !tbaa !65
-  %3055 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3054, i64 %3053, i32 1
-  %3056 = load i32, ptr %3055, align 8, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %3047, i8 9, i32 noundef %3056)
-  %3057 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3057, i8 26, i64 103095646721)
-  %3058 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3058, i8 26, i64 103095605761)
-  %3059 = load ptr, ptr %0, align 8, !tbaa !63
-  %3060 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0341.0.copyload = load i32, ptr %3060, align 4, !tbaa !43
-  %3061 = load ptr, ptr %3049, align 8, !tbaa !64
-  %3062 = getelementptr inbounds nuw i8, ptr %3061, i64 48
-  %3063 = lshr i32 %.sroa.0341.0.copyload, 4
-  %3064 = zext nneg i32 %3063 to i64
-  %3065 = load ptr, ptr %3062, align 8, !tbaa !65
-  %3066 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3065, i64 %3064, i32 1
-  %3067 = load i32, ptr %3066, align 8, !tbaa !43
-  %3068 = shl i32 %3067, 3
-  %.sroa.43017.0.insert.ext = zext i32 %3068 to i64
-  %.sroa.43017.0.insert.shift = shl nuw i64 %.sroa.43017.0.insert.ext, 32
-  %.sroa.03013.0.insert.insert = or disjoint i64 %.sroa.43017.0.insert.shift, 16390657
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3059, i8 26, i64 %.sroa.03013.0.insert.insert)
-  %3069 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3069, i8 34, i64 996448838145)
-  %3070 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3070, i8 34)
-  %3071 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3042, i8 2, i32 noundef %2)
-  %3072 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3071, ptr %3072, align 1, !tbaa !43
+3046:                                             ; preds = %4
+  %3047 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3048 = load ptr, ptr %0, align 8, !tbaa !63
+  %3049 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3047, ptr noundef nonnull align 8 dereferenceable(176) %3048, i32 noundef %2, ptr null, i64 0)
+  %3050 = load ptr, ptr %0, align 8, !tbaa !63
+  %3051 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0383.0.copyload = load i32, ptr %3051, align 4, !tbaa !43
+  %3052 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3053 = load ptr, ptr %3052, align 8, !tbaa !64
+  %3054 = getelementptr inbounds nuw i8, ptr %3053, i64 48
+  %3055 = lshr i32 %.sroa.0383.0.copyload, 4
+  %3056 = zext nneg i32 %3055 to i64
+  %3057 = load ptr, ptr %3054, align 8, !tbaa !65
+  %3058 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3057, i64 %3056
+  %3059 = getelementptr inbounds nuw i8, ptr %3058, i64 8
+  %3060 = load i32, ptr %3059, align 8, !tbaa !43
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %3050, i32 noundef 496, i32 noundef %3060)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3073:                                             ; preds = %4
-  %3074 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3075 = load ptr, ptr %0, align 8, !tbaa !63
-  %3076 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3074, ptr noundef nonnull align 8 dereferenceable(176) %3075, i32 noundef %2, ptr null, i64 0)
-  %3077 = load ptr, ptr %0, align 8, !tbaa !63
-  %3078 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0335.0.copyload = load i32, ptr %3078, align 4, !tbaa !43
-  %3079 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3080 = load ptr, ptr %3079, align 8, !tbaa !64
-  %3081 = getelementptr inbounds nuw i8, ptr %3080, i64 48
-  %3082 = lshr i32 %.sroa.0335.0.copyload, 4
-  %3083 = zext nneg i32 %3082 to i64
-  %3084 = load ptr, ptr %3081, align 8, !tbaa !65
-  %3085 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3084, i64 %3083, i32 1
-  %3086 = load i32, ptr %3085, align 8, !tbaa !43
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %3077, i32 noundef 552, i32 noundef %3086)
+3061:                                             ; preds = %4
+  %3062 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3063 = load ptr, ptr %0, align 8, !tbaa !63
+  %3064 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3062, ptr noundef nonnull align 8 dereferenceable(176) %3063, i32 noundef %2, ptr null, i64 0)
+  %3065 = load ptr, ptr %0, align 8, !tbaa !63
+  %3066 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0382.0.copyload = load i32, ptr %3066, align 4, !tbaa !43
+  %3067 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3068 = load ptr, ptr %3067, align 8, !tbaa !64
+  %3069 = getelementptr inbounds nuw i8, ptr %3068, i64 48
+  %3070 = lshr i32 %.sroa.0382.0.copyload, 4
+  %3071 = zext nneg i32 %3070 to i64
+  %3072 = load ptr, ptr %3069, align 8, !tbaa !65
+  %3073 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3072, i64 %3071
+  %3074 = getelementptr inbounds nuw i8, ptr %3073, i64 8
+  %3075 = load i32, ptr %3074, align 8, !tbaa !43
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %3065, i32 noundef 504, i32 noundef %3075)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3087:                                             ; preds = %4
-  %3088 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3089 = load ptr, ptr %0, align 8, !tbaa !63
-  %3090 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3088, ptr noundef nonnull align 8 dereferenceable(176) %3089, i32 noundef %2, ptr null, i64 0)
-  %3091 = load ptr, ptr %0, align 8, !tbaa !63
-  %3092 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0334.0.copyload = load i32, ptr %3092, align 4, !tbaa !43
-  %3093 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3094 = load ptr, ptr %3093, align 8, !tbaa !64
-  %3095 = getelementptr inbounds nuw i8, ptr %3094, i64 48
-  %3096 = lshr i32 %.sroa.0334.0.copyload, 4
-  %3097 = zext nneg i32 %3096 to i64
-  %3098 = load ptr, ptr %3095, align 8, !tbaa !65
-  %3099 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3098, i64 %3097, i32 1
-  %3100 = load i32, ptr %3099, align 8, !tbaa !43
-  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %3091, i32 noundef 528, i32 noundef %3100)
-  %3101 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.0333.0.copyload = load i32, ptr %3101, align 4, !tbaa !43
-  %3102 = load ptr, ptr %3093, align 8, !tbaa !64
-  %3103 = lshr i32 %.sroa.0333.0.copyload, 4
-  %3104 = zext nneg i32 %3103 to i64
-  %3105 = load ptr, ptr %3102, align 8, !tbaa !71
-  %3106 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %3105, i64 %3104
-  %3107 = getelementptr inbounds nuw i8, ptr %3106, i64 4
-  %3108 = load i32, ptr %3107, align 4, !tbaa !74
-  %3109 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %3110 = load i32, ptr %3109, align 4, !tbaa !74
-  %3111 = icmp eq i32 %3108, %3110
-  br i1 %3111, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %3112
-
-3112:                                             ; preds = %3087
-  %3113 = load ptr, ptr %0, align 8, !tbaa !63
-  %3114 = getelementptr inbounds nuw i8, ptr %3106, i64 24
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %3113, ptr noundef nonnull align 4 dereferenceable(8) %3114)
+3076:                                             ; preds = %4
+  %3077 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3078 = load ptr, ptr %0, align 8, !tbaa !63
+  %3079 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3077, ptr noundef nonnull align 8 dereferenceable(176) %3078, i32 noundef %2, ptr null, i64 0)
+  %3080 = load ptr, ptr %0, align 8, !tbaa !63
+  %3081 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0381.0.copyload = load i32, ptr %3081, align 4, !tbaa !43
+  %3082 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3083 = load ptr, ptr %3082, align 8, !tbaa !64
+  %3084 = getelementptr inbounds nuw i8, ptr %3083, i64 48
+  %3085 = lshr i32 %.sroa.0381.0.copyload, 4
+  %3086 = zext nneg i32 %3085 to i64
+  %3087 = load ptr, ptr %3084, align 8, !tbaa !65
+  %3088 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3087, i64 %3086
+  %3089 = getelementptr inbounds nuw i8, ptr %3088, i64 8
+  %3090 = load i32, ptr %3089, align 8, !tbaa !43
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %3080, i32 noundef 512, i32 noundef %3090)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3115:                                             ; preds = %4
-  %3116 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %74)
-  %3117 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3118 = load i32, ptr %3117, align 4, !tbaa !43
-  store i32 %3118, ptr %74, align 4, !tbaa !43
-  %3119 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %3120 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3121 = load i32, ptr %3120, align 4, !tbaa !43
-  store i32 %3121, ptr %3119, align 4, !tbaa !43
-  %3122 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3116, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %74, i64 2)
-  %3123 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3122, ptr %3123, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %74)
-  %3124 = load i32, ptr %3117, align 4
-  %3125 = and i32 %3124, 15
-  %3126 = icmp eq i32 %3125, 4
-  br i1 %3126, label %3127, label %3151
+3091:                                             ; preds = %4
+  %3092 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3093 = load ptr, ptr %0, align 8, !tbaa !63
+  %3094 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3092, ptr noundef nonnull align 8 dereferenceable(176) %3093, i32 noundef %2, ptr null, i64 0)
+  %3095 = load ptr, ptr %0, align 8, !tbaa !63
+  %3096 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0380.0.copyload = load i32, ptr %3096, align 4, !tbaa !43
+  %3097 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3098 = load ptr, ptr %3097, align 8, !tbaa !64
+  %3099 = getelementptr inbounds nuw i8, ptr %3098, i64 48
+  %3100 = lshr i32 %.sroa.0380.0.copyload, 4
+  %3101 = zext nneg i32 %3100 to i64
+  %3102 = load ptr, ptr %3099, align 8, !tbaa !65
+  %3103 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3102, i64 %3101
+  %3104 = getelementptr inbounds nuw i8, ptr %3103, i64 8
+  %3105 = load i32, ptr %3104, align 8, !tbaa !43
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %3095, i32 noundef 560, i32 noundef %3105)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3127:                                             ; preds = %3115
-  %3128 = load i32, ptr %3120, align 4
-  %3129 = and i32 %3128, 15
-  %3130 = icmp eq i32 %3129, 2
-  br i1 %3130, label %3131, label %3151
+3106:                                             ; preds = %4
+  %3107 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3108 = load ptr, ptr %0, align 8, !tbaa !63
+  %3109 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3107, ptr noundef nonnull align 8 dereferenceable(176) %3108, i32 noundef %2, ptr null, i64 0)
+  %3110 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3110, i8 2, i8 -102)
+  %3111 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0377.0.copyload = load i32, ptr %3111, align 4, !tbaa !43
+  %3112 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3113 = load ptr, ptr %3112, align 8, !tbaa !64
+  %3114 = getelementptr inbounds nuw i8, ptr %3113, i64 48
+  %3115 = lshr i32 %.sroa.0377.0.copyload, 4
+  %3116 = zext nneg i32 %3115 to i64
+  %3117 = load ptr, ptr %3114, align 8, !tbaa !65
+  %3118 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3117, i64 %3116
+  %3119 = getelementptr inbounds nuw i8, ptr %3118, i64 8
+  %3120 = load i32, ptr %3119, align 8, !tbaa !43
+  %3121 = icmp eq i32 %3120, -1
+  %3122 = load ptr, ptr %0, align 8, !tbaa !63
+  br i1 %3121, label %3123, label %3139
 
-3131:                                             ; preds = %3127
-  %3132 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3133 = load ptr, ptr %3132, align 8, !tbaa !64
-  %3134 = getelementptr inbounds nuw i8, ptr %3133, i64 48
-  %3135 = lshr i32 %3128, 4
-  %3136 = zext nneg i32 %3135 to i64
-  %3137 = load ptr, ptr %3134, align 8, !tbaa !65
-  %3138 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3137, i64 %3136, i32 1
-  %3139 = load i32, ptr %3138, align 8, !tbaa !43
-  %3140 = call noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isMaskSupportedEj(i32 noundef %3139)
-  %.sroa.0323.0.copyload.pre = load i32, ptr %3117, align 4, !tbaa !43
-  br i1 %3140, label %3141, label %3151
+3123:                                             ; preds = %3106
+  %3124 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0374.0.copyload = load i32, ptr %3124, align 4, !tbaa !43
+  %3125 = lshr i32 %.sroa.0374.0.copyload, 4
+  %3126 = zext nneg i32 %3125 to i64
+  %3127 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3117, i64 %3126
+  %3128 = getelementptr inbounds nuw i8, ptr %3127, i64 8
+  %3129 = load i32, ptr %3128, align 8, !tbaa !43
+  %3130 = zext i32 %3129 to i64
+  %3131 = shl nuw nsw i64 %3130, 2
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m(ptr noundef nonnull align 8 dereferenceable(176) %3122, i8 10, i8 -62, i64 noundef %3131)
+  %3132 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3132, i8 18, i8 -54)
+  %3133 = load ptr, ptr %0, align 8, !tbaa !63
+  %3134 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0370.0.copyload = load i32, ptr %3134, align 4, !tbaa !43
+  %3135 = lshr i32 %.sroa.0370.0.copyload, 4
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %3133, i8 25, i32 noundef %3135)
+  %3136 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3136, i8 34, i64 2302118896129)
+  %3137 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3137, i8 34)
+  %3138 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3138, i8 -54, i64 68735900161)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3141:                                             ; preds = %3131
-  %3142 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0328.0.copyload = load i8, ptr %3123, align 1, !tbaa !43
-  %3143 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0323.0.copyload.pre)
-  %.sroa.0325.0.copyload = load i32, ptr %3120, align 4, !tbaa !43
-  %3144 = load ptr, ptr %3132, align 8, !tbaa !64
+3139:                                             ; preds = %3106
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3122, i8 10, i8 -54)
+  %3140 = load ptr, ptr %0, align 8, !tbaa !63
+  %3141 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0363.0.copyload = load i32, ptr %3141, align 4, !tbaa !43
+  %3142 = lshr i32 %.sroa.0363.0.copyload, 4
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %3140, i8 17, i32 noundef %3142)
+  %3143 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0361.0.copyload = load i32, ptr %3111, align 4, !tbaa !43
+  %3144 = load ptr, ptr %3112, align 8, !tbaa !64
   %3145 = getelementptr inbounds nuw i8, ptr %3144, i64 48
-  %3146 = lshr i32 %.sroa.0325.0.copyload, 4
+  %3146 = lshr i32 %.sroa.0361.0.copyload, 4
   %3147 = zext nneg i32 %3146 to i64
   %3148 = load ptr, ptr %3145, align 8, !tbaa !65
-  %3149 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3148, i64 %3147, i32 1
-  %3150 = load i32, ptr %3149, align 8, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176) %3142, i8 %.sroa.0328.0.copyload, i8 %3143, i32 noundef %3150)
+  %3149 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3148, i64 %3147
+  %3150 = getelementptr inbounds nuw i8, ptr %3149, i64 8
+  %3151 = load i32, ptr %3150, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %3143, i8 25, i32 noundef %3151)
+  %3152 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3152, i8 34, i64 2336478634497)
+  %3153 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3153, i8 34)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3151:                                             ; preds = %3131, %3127, %3115
-  %.sroa.0323.0.copyload = phi i32 [ %.sroa.0323.0.copyload.pre, %3131 ], [ %3124, %3127 ], [ %3124, %3115 ]
-  %3152 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0323.0.copyload)
-  %.sroa.0321.0.copyload = load i32, ptr %3120, align 4, !tbaa !43
-  %3153 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0321.0.copyload)
-  %3154 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0320.0.copyload = load i8, ptr %3123, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %3154, i8 %.sroa.0320.0.copyload, i8 %3152, i8 %3153, i32 noundef 0)
+3154:                                             ; preds = %4
+  %3155 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0356.0.copyload = load i32, ptr %3155, align 4, !tbaa !43
+  %3156 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0356.0.copyload)
+  %3157 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3158 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  store i8 %3156, ptr %73, align 1, !tbaa !43
+  %3159 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3157, ptr noundef nonnull align 8 dereferenceable(176) %3158, i32 noundef %2, ptr nonnull %73, i64 1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  %3160 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3160, i8 18, i8 %3156)
+  %3161 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3161, i8 2, i8 -102)
+  %3162 = load ptr, ptr %0, align 8, !tbaa !63
+  %3163 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0348.0.copyload = load i32, ptr %3163, align 4, !tbaa !43
+  %3164 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3165 = load ptr, ptr %3164, align 8, !tbaa !64
+  %3166 = getelementptr inbounds nuw i8, ptr %3165, i64 48
+  %3167 = lshr i32 %.sroa.0348.0.copyload, 4
+  %3168 = zext nneg i32 %3167 to i64
+  %3169 = load ptr, ptr %3166, align 8, !tbaa !65
+  %3170 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3169, i64 %3168
+  %3171 = getelementptr inbounds nuw i8, ptr %3170, i64 8
+  %3172 = load i32, ptr %3171, align 8, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %3162, i8 9, i32 noundef %3172)
+  %3173 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3173, i8 26, i64 103095646721)
+  %3174 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3174, i8 26, i64 103095605761)
+  %3175 = load ptr, ptr %0, align 8, !tbaa !63
+  %3176 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0341.0.copyload = load i32, ptr %3176, align 4, !tbaa !43
+  %3177 = load ptr, ptr %3164, align 8, !tbaa !64
+  %3178 = getelementptr inbounds nuw i8, ptr %3177, i64 48
+  %3179 = lshr i32 %.sroa.0341.0.copyload, 4
+  %3180 = zext nneg i32 %3179 to i64
+  %3181 = load ptr, ptr %3178, align 8, !tbaa !65
+  %3182 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3181, i64 %3180
+  %3183 = getelementptr inbounds nuw i8, ptr %3182, i64 8
+  %3184 = load i32, ptr %3183, align 8, !tbaa !43
+  %3185 = shl i32 %3184, 3
+  %.sroa.43017.0.insert.ext = zext i32 %3185 to i64
+  %.sroa.43017.0.insert.shift = shl nuw i64 %.sroa.43017.0.insert.ext, 32
+  %.sroa.03013.0.insert.insert = or disjoint i64 %.sroa.43017.0.insert.shift, 16390657
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3175, i8 26, i64 %.sroa.03013.0.insert.insert)
+  %3186 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3186, i8 34, i64 996448838145)
+  %3187 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3187, i8 34)
+  %3188 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3157, i8 2, i32 noundef %2)
+  %3189 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3188, ptr %3189, align 1, !tbaa !43
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3155:                                             ; preds = %4
-  %3156 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %75)
-  %3157 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3158 = load i32, ptr %3157, align 4, !tbaa !43
-  store i32 %3158, ptr %75, align 4, !tbaa !43
-  %3159 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %3160 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3161 = load i32, ptr %3160, align 4, !tbaa !43
-  store i32 %3161, ptr %3159, align 4, !tbaa !43
-  %3162 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3156, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %75, i64 2)
-  %3163 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3162, ptr %3163, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %75)
-  %3164 = load i32, ptr %3157, align 4
-  %3165 = and i32 %3164, 15
-  %3166 = icmp eq i32 %3165, 4
-  br i1 %3166, label %3167, label %3191
-
-3167:                                             ; preds = %3155
-  %3168 = load i32, ptr %3160, align 4
-  %3169 = and i32 %3168, 15
-  %3170 = icmp eq i32 %3169, 2
-  br i1 %3170, label %3171, label %3191
-
-3171:                                             ; preds = %3167
-  %3172 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3173 = load ptr, ptr %3172, align 8, !tbaa !64
-  %3174 = getelementptr inbounds nuw i8, ptr %3173, i64 48
-  %3175 = lshr i32 %3168, 4
-  %3176 = zext nneg i32 %3175 to i64
-  %3177 = load ptr, ptr %3174, align 8, !tbaa !65
-  %3178 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3177, i64 %3176, i32 1
-  %3179 = load i32, ptr %3178, align 8, !tbaa !43
-  %3180 = call noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isMaskSupportedEj(i32 noundef %3179)
-  %.sroa.0308.0.copyload.pre = load i32, ptr %3157, align 4, !tbaa !43
-  br i1 %3180, label %3181, label %3191
-
-3181:                                             ; preds = %3171
-  %3182 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0313.0.copyload = load i8, ptr %3163, align 1, !tbaa !43
-  %3183 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0308.0.copyload.pre)
-  %.sroa.0310.0.copyload = load i32, ptr %3160, align 4, !tbaa !43
-  %3184 = load ptr, ptr %3172, align 8, !tbaa !64
-  %3185 = getelementptr inbounds nuw i8, ptr %3184, i64 48
-  %3186 = lshr i32 %.sroa.0310.0.copyload, 4
-  %3187 = zext nneg i32 %3186 to i64
-  %3188 = load ptr, ptr %3185, align 8, !tbaa !65
-  %3189 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3188, i64 %3187, i32 1
-  %3190 = load i32, ptr %3189, align 8, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176) %3182, i8 %.sroa.0313.0.copyload, i8 %3183, i32 noundef %3190)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3191:                                             ; preds = %3171, %3167, %3155
-  %.sroa.0308.0.copyload = phi i32 [ %.sroa.0308.0.copyload.pre, %3171 ], [ %3164, %3167 ], [ %3164, %3155 ]
-  %3192 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0308.0.copyload)
-  %.sroa.0306.0.copyload = load i32, ptr %3160, align 4, !tbaa !43
-  %3193 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0306.0.copyload)
+3190:                                             ; preds = %4
+  %3191 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3192 = load ptr, ptr %0, align 8, !tbaa !63
+  %3193 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3191, ptr noundef nonnull align 8 dereferenceable(176) %3192, i32 noundef %2, ptr null, i64 0)
   %3194 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0305.0.copyload = load i8, ptr %3163, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %3194, i8 %.sroa.0305.0.copyload, i8 %3192, i8 %3193, i32 noundef 0)
+  %3195 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0335.0.copyload = load i32, ptr %3195, align 4, !tbaa !43
+  %3196 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3197 = load ptr, ptr %3196, align 8, !tbaa !64
+  %3198 = getelementptr inbounds nuw i8, ptr %3197, i64 48
+  %3199 = lshr i32 %.sroa.0335.0.copyload, 4
+  %3200 = zext nneg i32 %3199 to i64
+  %3201 = load ptr, ptr %3198, align 8, !tbaa !65
+  %3202 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3201, i64 %3200
+  %3203 = getelementptr inbounds nuw i8, ptr %3202, i64 8
+  %3204 = load i32, ptr %3203, align 8, !tbaa !43
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %3194, i32 noundef 552, i32 noundef %3204)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3195:                                             ; preds = %4
-  %3196 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %76)
-  %3197 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3198 = load i32, ptr %3197, align 4, !tbaa !43
-  store i32 %3198, ptr %76, align 4, !tbaa !43
-  %3199 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  %3200 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3201 = load i32, ptr %3200, align 4, !tbaa !43
-  store i32 %3201, ptr %3199, align 4, !tbaa !43
-  %3202 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3196, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %76, i64 2)
-  %3203 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3202, ptr %3203, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %76)
-  %3204 = load i32, ptr %3197, align 4
-  %3205 = and i32 %3204, 15
-  %3206 = icmp eq i32 %3205, 4
-  br i1 %3206, label %3207, label %3231
-
-3207:                                             ; preds = %3195
-  %3208 = load i32, ptr %3200, align 4
-  %3209 = and i32 %3208, 15
-  %3210 = icmp eq i32 %3209, 2
-  br i1 %3210, label %3211, label %3231
-
-3211:                                             ; preds = %3207
-  %3212 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3213 = load ptr, ptr %3212, align 8, !tbaa !64
-  %3214 = getelementptr inbounds nuw i8, ptr %3213, i64 48
-  %3215 = lshr i32 %3208, 4
-  %3216 = zext nneg i32 %3215 to i64
-  %3217 = load ptr, ptr %3214, align 8, !tbaa !65
-  %3218 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3217, i64 %3216, i32 1
+3205:                                             ; preds = %4
+  %3206 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3207 = load ptr, ptr %0, align 8, !tbaa !63
+  %3208 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3206, ptr noundef nonnull align 8 dereferenceable(176) %3207, i32 noundef %2, ptr null, i64 0)
+  %3209 = load ptr, ptr %0, align 8, !tbaa !63
+  %3210 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0334.0.copyload = load i32, ptr %3210, align 4, !tbaa !43
+  %3211 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3212 = load ptr, ptr %3211, align 8, !tbaa !64
+  %3213 = getelementptr inbounds nuw i8, ptr %3212, i64 48
+  %3214 = lshr i32 %.sroa.0334.0.copyload, 4
+  %3215 = zext nneg i32 %3214 to i64
+  %3216 = load ptr, ptr %3213, align 8, !tbaa !65
+  %3217 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3216, i64 %3215
+  %3218 = getelementptr inbounds nuw i8, ptr %3217, i64 8
   %3219 = load i32, ptr %3218, align 8, !tbaa !43
-  %3220 = call noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isMaskSupportedEj(i32 noundef %3219)
-  %.sroa.0293.0.copyload.pre = load i32, ptr %3197, align 4, !tbaa !43
-  br i1 %3220, label %3221, label %3231
+  tail call fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %3209, i32 noundef 528, i32 noundef %3219)
+  %3220 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.0333.0.copyload = load i32, ptr %3220, align 4, !tbaa !43
+  %3221 = load ptr, ptr %3211, align 8, !tbaa !64
+  %3222 = lshr i32 %.sroa.0333.0.copyload, 4
+  %3223 = zext nneg i32 %3222 to i64
+  %3224 = load ptr, ptr %3221, align 8, !tbaa !71
+  %3225 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %3224, i64 %3223
+  %3226 = getelementptr inbounds nuw i8, ptr %3225, i64 4
+  %3227 = load i32, ptr %3226, align 4, !tbaa !74
+  %3228 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %3229 = load i32, ptr %3228, align 4, !tbaa !74
+  %3230 = icmp eq i32 %3227, %3229
+  br i1 %3230, label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit, label %3231
 
-3221:                                             ; preds = %3211
-  %3222 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0298.0.copyload = load i8, ptr %3203, align 1, !tbaa !43
-  %3223 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0293.0.copyload.pre)
-  %.sroa.0295.0.copyload = load i32, ptr %3200, align 4, !tbaa !43
-  %3224 = load ptr, ptr %3212, align 8, !tbaa !64
-  %3225 = getelementptr inbounds nuw i8, ptr %3224, i64 48
-  %3226 = lshr i32 %.sroa.0295.0.copyload, 4
-  %3227 = zext nneg i32 %3226 to i64
-  %3228 = load ptr, ptr %3225, align 8, !tbaa !65
-  %3229 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3228, i64 %3227, i32 1
-  %3230 = load i32, ptr %3229, align 8, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643orrENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176) %3222, i8 %.sroa.0298.0.copyload, i8 %3223, i32 noundef %3230)
+3231:                                             ; preds = %3205
+  %3232 = load ptr, ptr %0, align 8, !tbaa !63
+  %3233 = getelementptr inbounds nuw i8, ptr %3225, i64 24
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %3232, ptr noundef nonnull align 4 dereferenceable(8) %3233)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3231:                                             ; preds = %3211, %3207, %3195
-  %.sroa.0293.0.copyload = phi i32 [ %.sroa.0293.0.copyload.pre, %3211 ], [ %3204, %3207 ], [ %3204, %3195 ]
-  %3232 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0293.0.copyload)
-  %.sroa.0291.0.copyload = load i32, ptr %3200, align 4, !tbaa !43
-  %3233 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0291.0.copyload)
-  %3234 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0290.0.copyload = load i8, ptr %3203, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643orrENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %3234, i8 %.sroa.0290.0.copyload, i8 %3232, i8 %3233, i32 noundef 0)
+3234:                                             ; preds = %4
+  %3235 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  %3236 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3237 = load i32, ptr %3236, align 4, !tbaa !43
+  store i32 %3237, ptr %74, align 4, !tbaa !43
+  %3238 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  %3239 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3240 = load i32, ptr %3239, align 4, !tbaa !43
+  store i32 %3240, ptr %3238, align 4, !tbaa !43
+  %3241 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3235, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %74, i64 2)
+  %3242 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3241, ptr %3242, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  %3243 = load i32, ptr %3236, align 4
+  %3244 = and i32 %3243, 15
+  %3245 = icmp eq i32 %3244, 4
+  br i1 %3245, label %3246, label %3272
+
+3246:                                             ; preds = %3234
+  %3247 = load i32, ptr %3239, align 4
+  %3248 = and i32 %3247, 15
+  %3249 = icmp eq i32 %3248, 2
+  br i1 %3249, label %3250, label %3272
+
+3250:                                             ; preds = %3246
+  %3251 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3252 = load ptr, ptr %3251, align 8, !tbaa !64
+  %3253 = getelementptr inbounds nuw i8, ptr %3252, i64 48
+  %3254 = lshr i32 %3247, 4
+  %3255 = zext nneg i32 %3254 to i64
+  %3256 = load ptr, ptr %3253, align 8, !tbaa !65
+  %3257 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3256, i64 %3255
+  %3258 = getelementptr inbounds nuw i8, ptr %3257, i64 8
+  %3259 = load i32, ptr %3258, align 8, !tbaa !43
+  %3260 = call noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isMaskSupportedEj(i32 noundef %3259)
+  %.sroa.0323.0.copyload.pre = load i32, ptr %3236, align 4, !tbaa !43
+  br i1 %3260, label %3261, label %3272
+
+3261:                                             ; preds = %3250
+  %3262 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0328.0.copyload = load i8, ptr %3242, align 1, !tbaa !43
+  %3263 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0323.0.copyload.pre)
+  %.sroa.0325.0.copyload = load i32, ptr %3239, align 4, !tbaa !43
+  %3264 = load ptr, ptr %3251, align 8, !tbaa !64
+  %3265 = getelementptr inbounds nuw i8, ptr %3264, i64 48
+  %3266 = lshr i32 %.sroa.0325.0.copyload, 4
+  %3267 = zext nneg i32 %3266 to i64
+  %3268 = load ptr, ptr %3265, align 8, !tbaa !65
+  %3269 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3268, i64 %3267
+  %3270 = getelementptr inbounds nuw i8, ptr %3269, i64 8
+  %3271 = load i32, ptr %3270, align 8, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176) %3262, i8 %.sroa.0328.0.copyload, i8 %3263, i32 noundef %3271)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3235:                                             ; preds = %4
-  %3236 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %77)
-  %3237 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3238 = load i32, ptr %3237, align 4, !tbaa !43
-  store i32 %3238, ptr %77, align 4, !tbaa !43
-  %3239 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3236, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %77, i64 1)
-  %3240 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3239, ptr %3240, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %77)
-  %.sroa.0283.0.copyload = load i32, ptr %3237, align 4, !tbaa !43
-  %3241 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0283.0.copyload)
-  %3242 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0282.0.copyload = load i8, ptr %3240, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644mvn_ENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3242, i8 %.sroa.0282.0.copyload, i8 %3241)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3243:                                             ; preds = %4
-  %3244 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %78)
-  %3245 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3246 = load i32, ptr %3245, align 4, !tbaa !43
-  store i32 %3246, ptr %78, align 4, !tbaa !43
-  %3247 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %3248 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3249 = load i32, ptr %3248, align 4, !tbaa !43
-  store i32 %3249, ptr %3247, align 4, !tbaa !43
-  %3250 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3244, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %78, i64 2)
-  %3251 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3250, ptr %3251, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %78)
-  %3252 = load i32, ptr %3245, align 4
-  %3253 = and i32 %3252, 15
-  %3254 = icmp eq i32 %3253, 4
-  br i1 %3254, label %3255, label %3272
-
-3255:                                             ; preds = %3243
-  %3256 = load i32, ptr %3248, align 4
-  %3257 = and i32 %3256, 15
-  %3258 = icmp eq i32 %3257, 2
-  br i1 %3258, label %3259, label %3272
-
-3259:                                             ; preds = %3255
-  %3260 = load ptr, ptr %0, align 8, !tbaa !63
-  %3261 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3252)
-  %.sroa.0274.0.copyload = load i32, ptr %3248, align 4, !tbaa !43
-  %3262 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3263 = load ptr, ptr %3262, align 8, !tbaa !64
-  %3264 = getelementptr inbounds nuw i8, ptr %3263, i64 48
-  %3265 = lshr i32 %.sroa.0274.0.copyload, 4
-  %3266 = zext nneg i32 %3265 to i64
-  %3267 = load ptr, ptr %3264, align 8, !tbaa !65
-  %3268 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3267, i64 %3266, i32 1
-  %3269 = load i32, ptr %3268, align 8, !tbaa !43
-  %3270 = trunc i32 %3269 to i8
-  %3271 = and i8 %3270, 31
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %3260, i8 %3250, i8 %3261, i8 noundef zeroext %3271)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3272:                                             ; preds = %3255, %3243
-  %3273 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3252)
-  %.sroa.0270.0.copyload = load i32, ptr %3248, align 4, !tbaa !43
-  %3274 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0270.0.copyload)
+3272:                                             ; preds = %3250, %3246, %3234
+  %.sroa.0323.0.copyload = phi i32 [ %.sroa.0323.0.copyload.pre, %3250 ], [ %3243, %3246 ], [ %3243, %3234 ]
+  %3273 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0323.0.copyload)
+  %.sroa.0321.0.copyload = load i32, ptr %3239, align 4, !tbaa !43
+  %3274 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0321.0.copyload)
   %3275 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0269.0.copyload = load i8, ptr %3251, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %3275, i8 %.sroa.0269.0.copyload, i8 %3273, i8 %3274)
+  %.sroa.0320.0.copyload = load i8, ptr %3242, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %3275, i8 %.sroa.0320.0.copyload, i8 %3273, i8 %3274, i32 noundef 0)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 3276:                                             ; preds = %4
   %3277 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %3278 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3279 = load i32, ptr %3278, align 4, !tbaa !43
-  store i32 %3279, ptr %79, align 4, !tbaa !43
-  %3280 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  store i32 %3279, ptr %75, align 4, !tbaa !43
+  %3280 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %3281 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3282 = load i32, ptr %3281, align 4, !tbaa !43
   store i32 %3282, ptr %3280, align 4, !tbaa !43
-  %3283 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3277, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %79, i64 2)
+  %3283 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3277, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %75, i64 2)
   %3284 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3283, ptr %3284, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   %3285 = load i32, ptr %3278, align 4
   %3286 = and i32 %3285, 15
   %3287 = icmp eq i32 %3286, 4
-  br i1 %3287, label %3288, label %3305
+  br i1 %3287, label %3288, label %3314
 
 3288:                                             ; preds = %3276
   %3289 = load i32, ptr %3281, align 4
   %3290 = and i32 %3289, 15
   %3291 = icmp eq i32 %3290, 2
-  br i1 %3291, label %3292, label %3305
+  br i1 %3291, label %3292, label %3314
 
 3292:                                             ; preds = %3288
-  %3293 = load ptr, ptr %0, align 8, !tbaa !63
-  %3294 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3285)
-  %.sroa.0260.0.copyload = load i32, ptr %3281, align 4, !tbaa !43
-  %3295 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3296 = load ptr, ptr %3295, align 8, !tbaa !64
-  %3297 = getelementptr inbounds nuw i8, ptr %3296, i64 48
-  %3298 = lshr i32 %.sroa.0260.0.copyload, 4
-  %3299 = zext nneg i32 %3298 to i64
-  %3300 = load ptr, ptr %3297, align 8, !tbaa !65
-  %3301 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3300, i64 %3299, i32 1
-  %3302 = load i32, ptr %3301, align 8, !tbaa !43
-  %3303 = trunc i32 %3302 to i8
-  %3304 = and i8 %3303, 31
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %3293, i8 %3283, i8 %3294, i8 noundef zeroext %3304)
+  %3293 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3294 = load ptr, ptr %3293, align 8, !tbaa !64
+  %3295 = getelementptr inbounds nuw i8, ptr %3294, i64 48
+  %3296 = lshr i32 %3289, 4
+  %3297 = zext nneg i32 %3296 to i64
+  %3298 = load ptr, ptr %3295, align 8, !tbaa !65
+  %3299 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3298, i64 %3297
+  %3300 = getelementptr inbounds nuw i8, ptr %3299, i64 8
+  %3301 = load i32, ptr %3300, align 8, !tbaa !43
+  %3302 = call noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isMaskSupportedEj(i32 noundef %3301)
+  %.sroa.0308.0.copyload.pre = load i32, ptr %3278, align 4, !tbaa !43
+  br i1 %3302, label %3303, label %3314
+
+3303:                                             ; preds = %3292
+  %3304 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0313.0.copyload = load i8, ptr %3284, align 1, !tbaa !43
+  %3305 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0308.0.copyload.pre)
+  %.sroa.0310.0.copyload = load i32, ptr %3281, align 4, !tbaa !43
+  %3306 = load ptr, ptr %3293, align 8, !tbaa !64
+  %3307 = getelementptr inbounds nuw i8, ptr %3306, i64 48
+  %3308 = lshr i32 %.sroa.0310.0.copyload, 4
+  %3309 = zext nneg i32 %3308 to i64
+  %3310 = load ptr, ptr %3307, align 8, !tbaa !65
+  %3311 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3310, i64 %3309
+  %3312 = getelementptr inbounds nuw i8, ptr %3311, i64 8
+  %3313 = load i32, ptr %3312, align 8, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176) %3304, i8 %.sroa.0313.0.copyload, i8 %3305, i32 noundef %3313)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3305:                                             ; preds = %3288, %3276
-  %3306 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3285)
-  %.sroa.0256.0.copyload = load i32, ptr %3281, align 4, !tbaa !43
-  %3307 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0256.0.copyload)
-  %3308 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0255.0.copyload = load i8, ptr %3284, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %3308, i8 %.sroa.0255.0.copyload, i8 %3306, i8 %3307)
+3314:                                             ; preds = %3292, %3288, %3276
+  %.sroa.0308.0.copyload = phi i32 [ %.sroa.0308.0.copyload.pre, %3292 ], [ %3285, %3288 ], [ %3285, %3276 ]
+  %3315 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0308.0.copyload)
+  %.sroa.0306.0.copyload = load i32, ptr %3281, align 4, !tbaa !43
+  %3316 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0306.0.copyload)
+  %3317 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0305.0.copyload = load i8, ptr %3284, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %3317, i8 %.sroa.0305.0.copyload, i8 %3315, i8 %3316, i32 noundef 0)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3309:                                             ; preds = %4
-  %3310 = getelementptr inbounds nuw i8, ptr %0, i64 32
+3318:                                             ; preds = %4
+  %3319 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  %3320 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3321 = load i32, ptr %3320, align 4, !tbaa !43
+  store i32 %3321, ptr %76, align 4, !tbaa !43
+  %3322 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %3323 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3324 = load i32, ptr %3323, align 4, !tbaa !43
+  store i32 %3324, ptr %3322, align 4, !tbaa !43
+  %3325 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3319, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %76, i64 2)
+  %3326 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3325, ptr %3326, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  %3327 = load i32, ptr %3320, align 4
+  %3328 = and i32 %3327, 15
+  %3329 = icmp eq i32 %3328, 4
+  br i1 %3329, label %3330, label %3356
+
+3330:                                             ; preds = %3318
+  %3331 = load i32, ptr %3323, align 4
+  %3332 = and i32 %3331, 15
+  %3333 = icmp eq i32 %3332, 2
+  br i1 %3333, label %3334, label %3356
+
+3334:                                             ; preds = %3330
+  %3335 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3336 = load ptr, ptr %3335, align 8, !tbaa !64
+  %3337 = getelementptr inbounds nuw i8, ptr %3336, i64 48
+  %3338 = lshr i32 %3331, 4
+  %3339 = zext nneg i32 %3338 to i64
+  %3340 = load ptr, ptr %3337, align 8, !tbaa !65
+  %3341 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3340, i64 %3339
+  %3342 = getelementptr inbounds nuw i8, ptr %3341, i64 8
+  %3343 = load i32, ptr %3342, align 8, !tbaa !43
+  %3344 = call noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isMaskSupportedEj(i32 noundef %3343)
+  %.sroa.0293.0.copyload.pre = load i32, ptr %3320, align 4, !tbaa !43
+  br i1 %3344, label %3345, label %3356
+
+3345:                                             ; preds = %3334
+  %3346 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0298.0.copyload = load i8, ptr %3326, align 1, !tbaa !43
+  %3347 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0293.0.copyload.pre)
+  %.sroa.0295.0.copyload = load i32, ptr %3323, align 4, !tbaa !43
+  %3348 = load ptr, ptr %3335, align 8, !tbaa !64
+  %3349 = getelementptr inbounds nuw i8, ptr %3348, i64 48
+  %3350 = lshr i32 %.sroa.0295.0.copyload, 4
+  %3351 = zext nneg i32 %3350 to i64
+  %3352 = load ptr, ptr %3349, align 8, !tbaa !65
+  %3353 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3352, i64 %3351
+  %3354 = getelementptr inbounds nuw i8, ptr %3353, i64 8
+  %3355 = load i32, ptr %3354, align 8, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643orrENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176) %3346, i8 %.sroa.0298.0.copyload, i8 %3347, i32 noundef %3355)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3356:                                             ; preds = %3334, %3330, %3318
+  %.sroa.0293.0.copyload = phi i32 [ %.sroa.0293.0.copyload.pre, %3334 ], [ %3327, %3330 ], [ %3327, %3318 ]
+  %3357 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0293.0.copyload)
+  %.sroa.0291.0.copyload = load i32, ptr %3323, align 4, !tbaa !43
+  %3358 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0291.0.copyload)
+  %3359 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0290.0.copyload = load i8, ptr %3326, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643orrENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %3359, i8 %.sroa.0290.0.copyload, i8 %3357, i8 %3358, i32 noundef 0)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3360:                                             ; preds = %4
+  %3361 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  %3362 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3363 = load i32, ptr %3362, align 4, !tbaa !43
+  store i32 %3363, ptr %77, align 4, !tbaa !43
+  %3364 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3361, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %77, i64 1)
+  %3365 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3364, ptr %3365, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  %.sroa.0283.0.copyload = load i32, ptr %3362, align 4, !tbaa !43
+  %3366 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0283.0.copyload)
+  %3367 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0282.0.copyload = load i8, ptr %3365, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644mvn_ENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3367, i8 %.sroa.0282.0.copyload, i8 %3366)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3368:                                             ; preds = %4
+  %3369 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  %3370 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3371 = load i32, ptr %3370, align 4, !tbaa !43
+  store i32 %3371, ptr %78, align 4, !tbaa !43
+  %3372 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %3373 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3374 = load i32, ptr %3373, align 4, !tbaa !43
+  store i32 %3374, ptr %3372, align 4, !tbaa !43
+  %3375 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3369, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %78, i64 2)
+  %3376 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3375, ptr %3376, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  %3377 = load i32, ptr %3370, align 4
+  %3378 = and i32 %3377, 15
+  %3379 = icmp eq i32 %3378, 4
+  br i1 %3379, label %3380, label %3398
+
+3380:                                             ; preds = %3368
+  %3381 = load i32, ptr %3373, align 4
+  %3382 = and i32 %3381, 15
+  %3383 = icmp eq i32 %3382, 2
+  br i1 %3383, label %3384, label %3398
+
+3384:                                             ; preds = %3380
+  %3385 = load ptr, ptr %0, align 8, !tbaa !63
+  %3386 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3377)
+  %.sroa.0274.0.copyload = load i32, ptr %3373, align 4, !tbaa !43
+  %3387 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3388 = load ptr, ptr %3387, align 8, !tbaa !64
+  %3389 = getelementptr inbounds nuw i8, ptr %3388, i64 48
+  %3390 = lshr i32 %.sroa.0274.0.copyload, 4
+  %3391 = zext nneg i32 %3390 to i64
+  %3392 = load ptr, ptr %3389, align 8, !tbaa !65
+  %3393 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3392, i64 %3391
+  %3394 = getelementptr inbounds nuw i8, ptr %3393, i64 8
+  %3395 = load i32, ptr %3394, align 8, !tbaa !43
+  %3396 = trunc i32 %3395 to i8
+  %3397 = and i8 %3396, 31
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %3385, i8 %3375, i8 %3386, i8 noundef zeroext %3397)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3398:                                             ; preds = %3380, %3368
+  %3399 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3377)
+  %.sroa.0270.0.copyload = load i32, ptr %3373, align 4, !tbaa !43
+  %3400 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0270.0.copyload)
+  %3401 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0269.0.copyload = load i8, ptr %3376, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %3401, i8 %.sroa.0269.0.copyload, i8 %3399, i8 %3400)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3402:                                             ; preds = %4
+  %3403 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  %3404 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3405 = load i32, ptr %3404, align 4, !tbaa !43
+  store i32 %3405, ptr %79, align 4, !tbaa !43
+  %3406 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  %3407 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3408 = load i32, ptr %3407, align 4, !tbaa !43
+  store i32 %3408, ptr %3406, align 4, !tbaa !43
+  %3409 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3403, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %79, i64 2)
+  %3410 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3409, ptr %3410, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  %3411 = load i32, ptr %3404, align 4
+  %3412 = and i32 %3411, 15
+  %3413 = icmp eq i32 %3412, 4
+  br i1 %3413, label %3414, label %3432
+
+3414:                                             ; preds = %3402
+  %3415 = load i32, ptr %3407, align 4
+  %3416 = and i32 %3415, 15
+  %3417 = icmp eq i32 %3416, 2
+  br i1 %3417, label %3418, label %3432
+
+3418:                                             ; preds = %3414
+  %3419 = load ptr, ptr %0, align 8, !tbaa !63
+  %3420 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3411)
+  %.sroa.0260.0.copyload = load i32, ptr %3407, align 4, !tbaa !43
+  %3421 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3422 = load ptr, ptr %3421, align 8, !tbaa !64
+  %3423 = getelementptr inbounds nuw i8, ptr %3422, i64 48
+  %3424 = lshr i32 %.sroa.0260.0.copyload, 4
+  %3425 = zext nneg i32 %3424 to i64
+  %3426 = load ptr, ptr %3423, align 8, !tbaa !65
+  %3427 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3426, i64 %3425
+  %3428 = getelementptr inbounds nuw i8, ptr %3427, i64 8
+  %3429 = load i32, ptr %3428, align 8, !tbaa !43
+  %3430 = trunc i32 %3429 to i8
+  %3431 = and i8 %3430, 31
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %3419, i8 %3409, i8 %3420, i8 noundef zeroext %3431)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3432:                                             ; preds = %3414, %3402
+  %3433 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3411)
+  %.sroa.0256.0.copyload = load i32, ptr %3407, align 4, !tbaa !43
+  %3434 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0256.0.copyload)
+  %3435 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0255.0.copyload = load i8, ptr %3410, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %3435, i8 %.sroa.0255.0.copyload, i8 %3433, i8 %3434)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3436:                                             ; preds = %4
+  %3437 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
-  %3311 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3312 = load i32, ptr %3311, align 4, !tbaa !43
-  store i32 %3312, ptr %80, align 4, !tbaa !43
-  %3313 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %3314 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3315 = load i32, ptr %3314, align 4, !tbaa !43
-  store i32 %3315, ptr %3313, align 4, !tbaa !43
-  %3316 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3310, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %80, i64 2)
-  %3317 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3316, ptr %3317, align 1, !tbaa !43
+  %3438 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3439 = load i32, ptr %3438, align 4, !tbaa !43
+  store i32 %3439, ptr %80, align 4, !tbaa !43
+  %3440 = getelementptr inbounds nuw i8, ptr %80, i64 4
+  %3441 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3442 = load i32, ptr %3441, align 4, !tbaa !43
+  store i32 %3442, ptr %3440, align 4, !tbaa !43
+  %3443 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3437, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %80, i64 2)
+  %3444 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3443, ptr %3444, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
-  %3318 = load i32, ptr %3311, align 4
-  %3319 = and i32 %3318, 15
-  %3320 = icmp eq i32 %3319, 4
-  br i1 %3320, label %3321, label %3338
+  %3445 = load i32, ptr %3438, align 4
+  %3446 = and i32 %3445, 15
+  %3447 = icmp eq i32 %3446, 4
+  br i1 %3447, label %3448, label %3466
 
-3321:                                             ; preds = %3309
-  %3322 = load i32, ptr %3314, align 4
-  %3323 = and i32 %3322, 15
-  %3324 = icmp eq i32 %3323, 2
-  br i1 %3324, label %3325, label %3338
+3448:                                             ; preds = %3436
+  %3449 = load i32, ptr %3441, align 4
+  %3450 = and i32 %3449, 15
+  %3451 = icmp eq i32 %3450, 2
+  br i1 %3451, label %3452, label %3466
 
-3325:                                             ; preds = %3321
-  %3326 = load ptr, ptr %0, align 8, !tbaa !63
-  %3327 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3318)
-  %.sroa.0246.0.copyload = load i32, ptr %3314, align 4, !tbaa !43
-  %3328 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3329 = load ptr, ptr %3328, align 8, !tbaa !64
-  %3330 = getelementptr inbounds nuw i8, ptr %3329, i64 48
-  %3331 = lshr i32 %.sroa.0246.0.copyload, 4
-  %3332 = zext nneg i32 %3331 to i64
-  %3333 = load ptr, ptr %3330, align 8, !tbaa !65
-  %3334 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3333, i64 %3332, i32 1
-  %3335 = load i32, ptr %3334, align 8, !tbaa !43
-  %3336 = trunc i32 %3335 to i8
-  %3337 = and i8 %3336, 31
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643asrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %3326, i8 %3316, i8 %3327, i8 noundef zeroext %3337)
+3452:                                             ; preds = %3448
+  %3453 = load ptr, ptr %0, align 8, !tbaa !63
+  %3454 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3445)
+  %.sroa.0246.0.copyload = load i32, ptr %3441, align 4, !tbaa !43
+  %3455 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3456 = load ptr, ptr %3455, align 8, !tbaa !64
+  %3457 = getelementptr inbounds nuw i8, ptr %3456, i64 48
+  %3458 = lshr i32 %.sroa.0246.0.copyload, 4
+  %3459 = zext nneg i32 %3458 to i64
+  %3460 = load ptr, ptr %3457, align 8, !tbaa !65
+  %3461 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3460, i64 %3459
+  %3462 = getelementptr inbounds nuw i8, ptr %3461, i64 8
+  %3463 = load i32, ptr %3462, align 8, !tbaa !43
+  %3464 = trunc i32 %3463 to i8
+  %3465 = and i8 %3464, 31
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643asrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %3453, i8 %3443, i8 %3454, i8 noundef zeroext %3465)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3338:                                             ; preds = %3321, %3309
-  %3339 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3318)
-  %.sroa.0242.0.copyload = load i32, ptr %3314, align 4, !tbaa !43
-  %3340 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0242.0.copyload)
-  %3341 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0241.0.copyload = load i8, ptr %3317, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643asrENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %3341, i8 %.sroa.0241.0.copyload, i8 %3339, i8 %3340)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3342:                                             ; preds = %4
-  %3343 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3344 = load i32, ptr %3343, align 4
-  %3345 = and i32 %3344, 15
-  %3346 = icmp eq i32 %3345, 4
-  %3347 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3348 = load i32, ptr %3347, align 4
-  %3349 = and i32 %3348, 15
-  %3350 = icmp eq i32 %3349, 2
-  %or.cond3704 = select i1 %3346, i1 %3350, i1 false
-  %3351 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br i1 %or.cond3704, label %3352, label %._crit_edge3658
-
-3352:                                             ; preds = %3342
-  call void @llvm.lifetime.start.p0(ptr nonnull %81)
-  store i32 %3344, ptr %81, align 4, !tbaa !43
-  %3353 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3351, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %81, i64 1)
-  %3354 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3353, ptr %3354, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %81)
-  %3355 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0233.0.copyload = load i32, ptr %3343, align 4, !tbaa !43
-  %3356 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0233.0.copyload)
-  %.sroa.0232.0.copyload = load i32, ptr %3347, align 4, !tbaa !43
-  %3357 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3358 = load ptr, ptr %3357, align 8, !tbaa !64
-  %3359 = getelementptr inbounds nuw i8, ptr %3358, i64 48
-  %3360 = lshr i32 %.sroa.0232.0.copyload, 4
-  %3361 = zext nneg i32 %3360 to i64
-  %3362 = load ptr, ptr %3359, align 8, !tbaa !65
-  %3363 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3362, i64 %3361, i32 1
-  %3364 = load i32, ptr %3363, align 8, !tbaa !43
-  %3365 = trunc i32 %3364 to i8
-  %3366 = sub i8 0, %3365
-  %3367 = and i8 %3366, 31
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %3355, i8 %3353, i8 %3356, i8 noundef zeroext %3367)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-._crit_edge3658:                                  ; preds = %3342
-  call void @llvm.lifetime.start.p0(ptr nonnull %82)
-  %3368 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %3348, ptr %82, align 4, !tbaa !43
-  %3369 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3351, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %82, i64 1)
-  %3370 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3369, ptr %3370, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %82)
-  %.sroa.0227.0.copyload = load i32, ptr %3343, align 4, !tbaa !43
-  %3371 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0227.0.copyload)
-  %.sroa.0225.0.copyload = load i32, ptr %3368, align 4, !tbaa !43
-  %3372 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0225.0.copyload)
-  %3373 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0224.0.copyload = load i8, ptr %3370, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643negENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3373, i8 %.sroa.0224.0.copyload, i8 %3372)
-  %3374 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0222.0.copyload = load i8, ptr %3370, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %3374, i8 %.sroa.0222.0.copyload, i8 %3371, i8 %.sroa.0222.0.copyload)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3375:                                             ; preds = %4
-  %3376 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %83)
-  %3377 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3378 = load i32, ptr %3377, align 4, !tbaa !43
-  store i32 %3378, ptr %83, align 4, !tbaa !43
-  %3379 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %3380 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3381 = load i32, ptr %3380, align 4, !tbaa !43
-  store i32 %3381, ptr %3379, align 4, !tbaa !43
-  %3382 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3376, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %83, i64 2)
-  %3383 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3382, ptr %3383, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %83)
-  %3384 = load i32, ptr %3377, align 4
-  %3385 = and i32 %3384, 15
-  %3386 = icmp eq i32 %3385, 4
-  br i1 %3386, label %3387, label %3404
-
-3387:                                             ; preds = %3375
-  %3388 = load i32, ptr %3380, align 4
-  %3389 = and i32 %3388, 15
-  %3390 = icmp eq i32 %3389, 2
-  br i1 %3390, label %3391, label %3404
-
-3391:                                             ; preds = %3387
-  %3392 = load ptr, ptr %0, align 8, !tbaa !63
-  %3393 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3384)
-  %.sroa.0213.0.copyload = load i32, ptr %3380, align 4, !tbaa !43
-  %3394 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3395 = load ptr, ptr %3394, align 8, !tbaa !64
-  %3396 = getelementptr inbounds nuw i8, ptr %3395, i64 48
-  %3397 = lshr i32 %.sroa.0213.0.copyload, 4
-  %3398 = zext nneg i32 %3397 to i64
-  %3399 = load ptr, ptr %3396, align 8, !tbaa !65
-  %3400 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3399, i64 %3398, i32 1
-  %3401 = load i32, ptr %3400, align 8, !tbaa !43
-  %3402 = trunc i32 %3401 to i8
-  %3403 = and i8 %3402, 31
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %3392, i8 %3382, i8 %3393, i8 noundef zeroext %3403)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3404:                                             ; preds = %3387, %3375
-  %3405 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3384)
-  %.sroa.0209.0.copyload = load i32, ptr %3380, align 4, !tbaa !43
-  %3406 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0209.0.copyload)
-  %3407 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0208.0.copyload = load i8, ptr %3383, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %3407, i8 %.sroa.0208.0.copyload, i8 %3405, i8 %3406)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3408:                                             ; preds = %4
-  %3409 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %84)
-  %3410 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3411 = load i32, ptr %3410, align 4, !tbaa !43
-  store i32 %3411, ptr %84, align 4, !tbaa !43
-  %3412 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3409, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %84, i64 1)
-  %3413 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3412, ptr %3413, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %84)
-  %.sroa.0201.0.copyload = load i32, ptr %3410, align 4, !tbaa !43
-  %3414 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0201.0.copyload)
-  %3415 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0200.0.copyload = load i8, ptr %3413, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643clzENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3415, i8 %.sroa.0200.0.copyload, i8 %3414)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3416:                                             ; preds = %4
-  %3417 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %85)
-  %3418 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3419 = load i32, ptr %3418, align 4, !tbaa !43
-  store i32 %3419, ptr %85, align 4, !tbaa !43
-  %3420 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3417, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %85, i64 1)
-  %3421 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3420, ptr %3421, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %85)
-  %.sroa.0194.0.copyload = load i32, ptr %3418, align 4, !tbaa !43
-  %3422 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0194.0.copyload)
-  %3423 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0193.0.copyload = load i8, ptr %3421, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644rbitENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3423, i8 %.sroa.0193.0.copyload, i8 %3422)
-  %3424 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0191.0.copyload = load i8, ptr %3421, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643clzENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3424, i8 %.sroa.0191.0.copyload, i8 %.sroa.0191.0.copyload)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3425:                                             ; preds = %4
-  %3426 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %86)
-  %3427 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3428 = load i32, ptr %3427, align 4, !tbaa !43
-  store i32 %3428, ptr %86, align 4, !tbaa !43
-  %3429 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3426, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %86, i64 1)
-  %3430 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3429, ptr %3430, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %86)
-  %.sroa.0185.0.copyload = load i32, ptr %3427, align 4, !tbaa !43
-  %3431 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0185.0.copyload)
-  %3432 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0184.0.copyload = load i8, ptr %3430, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643revENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3432, i8 %.sroa.0184.0.copyload, i8 %3431)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3433:                                             ; preds = %4
-  %3434 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %3435 = load i32, ptr %3434, align 4
-  %3436 = and i32 %3435, 15
-  switch i32 %3436, label %3448 [
-    i32 0, label %3483
-    i32 2, label %3437
-  ]
-
-3437:                                             ; preds = %3433
-  %3438 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3439 = load ptr, ptr %3438, align 8, !tbaa !64
-  %3440 = getelementptr inbounds nuw i8, ptr %3439, i64 48
-  %3441 = lshr i32 %3435, 4
-  %3442 = zext nneg i32 %3441 to i64
-  %3443 = load ptr, ptr %3440, align 8, !tbaa !65
-  %3444 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3443, i64 %3442
-  %.sroa.02.0.copyload.i = load i8, ptr %3444, align 8, !tbaa !161
-  %3445 = icmp eq i8 %.sroa.02.0.copyload.i, 0
-  %3446 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0173.0.copyload3641 = load i32, ptr %3446, align 4, !tbaa !43
-  %3447 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0173.0.copyload3641)
-  br i1 %3445, label %.critedge, label %3461
-
-3448:                                             ; preds = %3433
-  %3449 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3450 = load ptr, ptr %3449, align 8, !tbaa !64
-  %3451 = getelementptr inbounds nuw i8, ptr %3450, i64 24
-  %3452 = lshr i32 %3435, 4
-  %3453 = zext nneg i32 %3452 to i64
-  %3454 = load ptr, ptr %3451, align 8, !tbaa !163
-  %3455 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %3454, i64 %3453
-  %3456 = load i8, ptr %3455, align 4, !tbaa !53
-  %3457 = tail call noundef zeroext i8 @_ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE(i8 noundef zeroext %3456)
-  %3458 = icmp eq i8 %3457, 3
-  %3459 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0173.0.copyload = load i32, ptr %3459, align 4, !tbaa !43
-  %3460 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0173.0.copyload)
-  br i1 %3458, label %.critedge, label %3461
-
-3461:                                             ; preds = %3437, %3448
-  %3462 = phi i8 [ %3447, %3437 ], [ %3460, %3448 ]
-  %.sroa.0168.0.copyload = load i32, ptr %3434, align 4, !tbaa !43
-  %3463 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0168.0.copyload)
-  %3464 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3465 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %3464, i8 noundef zeroext 4)
-  %3466 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(ptr nonnull %87)
-  store i8 %3462, ptr %87, align 1, !tbaa !43
-  %3467 = getelementptr inbounds nuw i8, ptr %87, i64 1
-  store i8 %3463, ptr %3467, align 1, !tbaa !43
-  %3468 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3464, ptr noundef nonnull align 8 dereferenceable(176) %3466, i32 noundef %2, ptr nonnull %87, i64 2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %87)
-  %.not = icmp eq i8 %3463, 4
+3466:                                             ; preds = %3448, %3436
+  %3467 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3445)
+  %.sroa.0242.0.copyload = load i32, ptr %3441, align 4, !tbaa !43
+  %3468 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0242.0.copyload)
   %3469 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %.not, label %3480, label %3478
-
-.critedge:                                        ; preds = %3448, %3437
-  %3470 = phi i8 [ %3447, %3437 ], [ %3460, %3448 ]
-  %.sroa.0169.0.copyload = load i32, ptr %3434, align 4, !tbaa !43
-  %3471 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0169.0.copyload)
-  %3472 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3473 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(ptr nonnull %87)
-  store i8 %3470, ptr %87, align 1, !tbaa !43
-  %3474 = getelementptr inbounds nuw i8, ptr %87, i64 1
-  store i8 %3471, ptr %3474, align 1, !tbaa !43
-  %3475 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3472, ptr noundef nonnull align 8 dereferenceable(176) %3473, i32 noundef %2, ptr nonnull %87, i64 2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %87)
-  %3476 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3476, i8 4, i8 %3470)
-  %3477 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3477, i8 1, i8 %3471)
-  br label %3490
-
-3478:                                             ; preds = %3461
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3469, i8 4, i8 %3462)
-  %3479 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3479, i8 12, i8 %3463)
-  br label %3490
-
-3480:                                             ; preds = %3461
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3469, i8 %3465, i8 4)
-  %3481 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3481, i8 4, i8 %3462)
-  %3482 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3482, i8 12, i8 %3465)
-  br label %3490
-
-3483:                                             ; preds = %3433
-  %3484 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0147.0.copyload = load i32, ptr %3484, align 4, !tbaa !43
-  %3485 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0147.0.copyload)
-  %3486 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3487 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(ptr nonnull %88)
-  store i8 %3485, ptr %88, align 1, !tbaa !43
-  %3488 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3486, ptr noundef nonnull align 8 dereferenceable(176) %3487, i32 noundef %2, ptr nonnull %88, i64 1)
-  call void @llvm.lifetime.end.p0(ptr nonnull %88)
-  %3489 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3489, i8 4, i8 %3485)
-  br label %3490
-
-3490:                                             ; preds = %.critedge, %3480, %3478, %3483
-  %3491 = load ptr, ptr %0, align 8, !tbaa !63
-  %3492 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0140.0.copyload = load i32, ptr %3492, align 4, !tbaa !43
-  %3493 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3494 = load ptr, ptr %3493, align 8, !tbaa !64
-  %3495 = getelementptr inbounds nuw i8, ptr %3494, i64 48
-  %3496 = lshr i32 %.sroa.0140.0.copyload, 4
-  %3497 = zext nneg i32 %3496 to i64
-  %3498 = load ptr, ptr %3495, align 8, !tbaa !65
-  %3499 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3498, i64 %3497, i32 1
-  %3500 = load i32, ptr %3499, align 8, !tbaa !43
-  %3501 = call noundef i32 @_ZN4Luau7CodeGen22getNativeContextOffsetEi(i32 noundef %3500)
-  %.sroa.43003.0.insert.ext = zext i32 %3501 to i64
-  %.sroa.43003.0.insert.shift = shl nuw i64 %.sroa.43003.0.insert.ext, 32
-  %.sroa.02999.0.insert.insert = or disjoint i64 %.sroa.43003.0.insert.shift, 16425473
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3491, i8 10, i64 %.sroa.02999.0.insert.insert)
-  %3502 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3502, i8 10)
-  %3503 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3504 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3503, i8 4, i32 noundef %2)
-  %3505 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3504, ptr %3505, align 1, !tbaa !43
+  %.sroa.0241.0.copyload = load i8, ptr %3444, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643asrENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %3469, i8 %.sroa.0241.0.copyload, i8 %3467, i8 %3468)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3506:                                             ; preds = %4
-  %3507 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3508 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3507, i8 noundef zeroext 2, i32 noundef %2)
-  %3509 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3508, ptr %3509, align 1, !tbaa !43
-  %3510 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %3511 = load i32, ptr %3510, align 4
-  %3512 = and i32 %3511, 15
-  switch i32 %3512, label %3528 [
-    i32 4, label %3513
-    i32 2, label %3516
+3470:                                             ; preds = %4
+  %3471 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3472 = load i32, ptr %3471, align 4
+  %3473 = and i32 %3472, 15
+  %3474 = icmp eq i32 %3473, 4
+  %3475 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3476 = load i32, ptr %3475, align 4
+  %3477 = and i32 %3476, 15
+  %3478 = icmp eq i32 %3477, 2
+  %or.cond3704 = select i1 %3474, i1 %3478, i1 false
+  %3479 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br i1 %or.cond3704, label %3480, label %._crit_edge3658
+
+3480:                                             ; preds = %3470
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
+  store i32 %3472, ptr %81, align 4, !tbaa !43
+  %3481 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3479, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %81, i64 1)
+  %3482 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3481, ptr %3482, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  %3483 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0233.0.copyload = load i32, ptr %3471, align 4, !tbaa !43
+  %3484 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0233.0.copyload)
+  %.sroa.0232.0.copyload = load i32, ptr %3475, align 4, !tbaa !43
+  %3485 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3486 = load ptr, ptr %3485, align 8, !tbaa !64
+  %3487 = getelementptr inbounds nuw i8, ptr %3486, i64 48
+  %3488 = lshr i32 %.sroa.0232.0.copyload, 4
+  %3489 = zext nneg i32 %3488 to i64
+  %3490 = load ptr, ptr %3487, align 8, !tbaa !65
+  %3491 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3490, i64 %3489
+  %3492 = getelementptr inbounds nuw i8, ptr %3491, i64 8
+  %3493 = load i32, ptr %3492, align 8, !tbaa !43
+  %3494 = trunc i32 %3493 to i8
+  %3495 = sub i8 0, %3494
+  %3496 = and i8 %3495, 31
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %3483, i8 %3481, i8 %3484, i8 noundef zeroext %3496)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+._crit_edge3658:                                  ; preds = %3470
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  %3497 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %3476, ptr %82, align 4, !tbaa !43
+  %3498 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3479, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %82, i64 1)
+  %3499 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3498, ptr %3499, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  %.sroa.0227.0.copyload = load i32, ptr %3471, align 4, !tbaa !43
+  %3500 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0227.0.copyload)
+  %.sroa.0225.0.copyload = load i32, ptr %3497, align 4, !tbaa !43
+  %3501 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0225.0.copyload)
+  %3502 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0224.0.copyload = load i8, ptr %3499, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643negENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3502, i8 %.sroa.0224.0.copyload, i8 %3501)
+  %3503 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0222.0.copyload = load i8, ptr %3499, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %3503, i8 %.sroa.0222.0.copyload, i8 %3500, i8 %.sroa.0222.0.copyload)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3504:                                             ; preds = %4
+  %3505 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  %3506 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3507 = load i32, ptr %3506, align 4, !tbaa !43
+  store i32 %3507, ptr %83, align 4, !tbaa !43
+  %3508 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %3509 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3510 = load i32, ptr %3509, align 4, !tbaa !43
+  store i32 %3510, ptr %3508, align 4, !tbaa !43
+  %3511 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3505, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %83, i64 2)
+  %3512 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3511, ptr %3512, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  %3513 = load i32, ptr %3506, align 4
+  %3514 = and i32 %3513, 15
+  %3515 = icmp eq i32 %3514, 4
+  br i1 %3515, label %3516, label %3534
+
+3516:                                             ; preds = %3504
+  %3517 = load i32, ptr %3509, align 4
+  %3518 = and i32 %3517, 15
+  %3519 = icmp eq i32 %3518, 2
+  br i1 %3519, label %3520, label %3534
+
+3520:                                             ; preds = %3516
+  %3521 = load ptr, ptr %0, align 8, !tbaa !63
+  %3522 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3513)
+  %.sroa.0213.0.copyload = load i32, ptr %3509, align 4, !tbaa !43
+  %3523 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3524 = load ptr, ptr %3523, align 8, !tbaa !64
+  %3525 = getelementptr inbounds nuw i8, ptr %3524, i64 48
+  %3526 = lshr i32 %.sroa.0213.0.copyload, 4
+  %3527 = zext nneg i32 %3526 to i64
+  %3528 = load ptr, ptr %3525, align 8, !tbaa !65
+  %3529 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3528, i64 %3527
+  %3530 = getelementptr inbounds nuw i8, ptr %3529, i64 8
+  %3531 = load i32, ptr %3530, align 8, !tbaa !43
+  %3532 = trunc i32 %3531 to i8
+  %3533 = and i8 %3532, 31
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %3521, i8 %3511, i8 %3522, i8 noundef zeroext %3533)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3534:                                             ; preds = %3516, %3504
+  %3535 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3513)
+  %.sroa.0209.0.copyload = load i32, ptr %3509, align 4, !tbaa !43
+  %3536 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0209.0.copyload)
+  %3537 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0208.0.copyload = load i8, ptr %3512, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176) %3537, i8 %.sroa.0208.0.copyload, i8 %3535, i8 %3536)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3538:                                             ; preds = %4
+  %3539 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  %3540 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3541 = load i32, ptr %3540, align 4, !tbaa !43
+  store i32 %3541, ptr %84, align 4, !tbaa !43
+  %3542 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3539, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %84, i64 1)
+  %3543 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3542, ptr %3543, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  %.sroa.0201.0.copyload = load i32, ptr %3540, align 4, !tbaa !43
+  %3544 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0201.0.copyload)
+  %3545 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0200.0.copyload = load i8, ptr %3543, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643clzENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3545, i8 %.sroa.0200.0.copyload, i8 %3544)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3546:                                             ; preds = %4
+  %3547 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
+  %3548 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3549 = load i32, ptr %3548, align 4, !tbaa !43
+  store i32 %3549, ptr %85, align 4, !tbaa !43
+  %3550 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3547, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %85, i64 1)
+  %3551 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3550, ptr %3551, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  %.sroa.0194.0.copyload = load i32, ptr %3548, align 4, !tbaa !43
+  %3552 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0194.0.copyload)
+  %3553 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0193.0.copyload = load i8, ptr %3551, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644rbitENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3553, i8 %.sroa.0193.0.copyload, i8 %3552)
+  %3554 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0191.0.copyload = load i8, ptr %3551, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643clzENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3554, i8 %.sroa.0191.0.copyload, i8 %.sroa.0191.0.copyload)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3555:                                             ; preds = %4
+  %3556 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  %3557 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3558 = load i32, ptr %3557, align 4, !tbaa !43
+  store i32 %3558, ptr %86, align 4, !tbaa !43
+  %3559 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3556, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %86, i64 1)
+  %3560 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3559, ptr %3560, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  %.sroa.0185.0.copyload = load i32, ptr %3557, align 4, !tbaa !43
+  %3561 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0185.0.copyload)
+  %3562 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0184.0.copyload = load i8, ptr %3560, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643revENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3562, i8 %.sroa.0184.0.copyload, i8 %3561)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3563:                                             ; preds = %4
+  %3564 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %3565 = load i32, ptr %3564, align 4
+  %3566 = and i32 %3565, 15
+  switch i32 %3566, label %3578 [
+    i32 0, label %3613
+    i32 2, label %3567
   ]
 
-3513:                                             ; preds = %3506
-  %3514 = load ptr, ptr %0, align 8, !tbaa !63
-  %3515 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3511)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %3514, i8 %3508, i8 -86, i8 %3515, i32 noundef 3)
-  br label %3528
-
-3516:                                             ; preds = %3506
-  %3517 = load ptr, ptr %0, align 8, !tbaa !63
-  %3518 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3519 = load ptr, ptr %3518, align 8, !tbaa !64
-  %3520 = getelementptr inbounds nuw i8, ptr %3519, i64 48
-  %3521 = lshr i32 %3511, 4
-  %3522 = zext nneg i32 %3521 to i64
-  %3523 = load ptr, ptr %3520, align 8, !tbaa !65
-  %3524 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3523, i64 %3522, i32 1
-  %3525 = load i8, ptr %3524, align 8, !tbaa !43
-  %3526 = zext i8 %3525 to i16
-  %3527 = shl nuw nsw i16 %3526, 3
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %3517, i8 %3508, i8 -86, i16 noundef zeroext %3527)
-  br label %3528
-
-3528:                                             ; preds = %3506, %3516, %3513
-  %3529 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0128.0.copyload = load i8, ptr %3509, align 1, !tbaa !43
-  %.sroa.22995.0.insert.ext = zext i8 %.sroa.0128.0.copyload to i64
-  %.sroa.22995.0.insert.shift = shl nuw nsw i64 %.sroa.22995.0.insert.ext, 8
-  %.sroa.02994.0.insert.insert = or disjoint i64 %.sroa.22995.0.insert.shift, 12644400103425
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3529, i8 %.sroa.0128.0.copyload, i64 %.sroa.02994.0.insert.insert)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3530:                                             ; preds = %4
-  %3531 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3532 = load ptr, ptr %0, align 8, !tbaa !63
-  %3533 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3531, ptr noundef nonnull align 8 dereferenceable(176) %3532, i32 noundef %2, ptr null, i64 0)
-  %3534 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3534, i8 2, i8 -102)
-  %3535 = load ptr, ptr %0, align 8, !tbaa !63
-  %3536 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0122.0.copyload = load i32, ptr %3536, align 4, !tbaa !43
-  %3537 = trunc i32 %.sroa.0122.0.copyload to i16
-  %3538 = and i16 %3537, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %3535, i8 10, i8 -54, i16 noundef zeroext %3538)
-  %3539 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3539, i8 18, i64 1065168314881)
-  %3540 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3540, i8 18)
-  %3541 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3531, i8 2, i32 noundef %2)
-  %3542 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3541, ptr %3542, align 1, !tbaa !43
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3543:                                             ; preds = %4
-  %3544 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3545 = load ptr, ptr %0, align 8, !tbaa !63
-  %3546 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3544, ptr noundef nonnull align 8 dereferenceable(176) %3545, i32 noundef %2, ptr null, i64 0)
-  %3547 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3547, i8 2, i8 -102)
-  %3548 = load ptr, ptr %0, align 8, !tbaa !63
-  %3549 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0112.0.copyload = load i32, ptr %3549, align 4, !tbaa !43
-  %3550 = trunc i32 %.sroa.0112.0.copyload to i16
-  %3551 = and i16 %3550, -16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %3548, i8 10, i8 -54, i16 noundef zeroext %3551)
-  %3552 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3552, i8 18, i64 962089099777)
-  %3553 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3553, i8 18)
-  %3554 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3544, i8 2, i32 noundef %2)
-  %3555 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3554, ptr %3555, align 1, !tbaa !43
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
-
-3556:                                             ; preds = %4
-  %3557 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %89)
-  %3558 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3559 = load i32, ptr %3558, align 4, !tbaa !43
-  store i32 %3559, ptr %89, align 4, !tbaa !43
-  %3560 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3557, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %89, i64 1)
-  %3561 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3560, ptr %3561, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %89)
-  %3562 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0102.0.copyload = load i32, ptr %3562, align 4, !tbaa !43
-  %.sroa.0101.0.copyload = load i32, ptr %3558, align 4, !tbaa !43
-  %3563 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %3564 = load i32, ptr %3563, align 4
-  %3565 = and i32 %3564, 15
-  %3566 = icmp eq i32 %3565, 0
-  br i1 %3566, label %3576, label %3567
-
-3567:                                             ; preds = %3556
+3567:                                             ; preds = %3563
   %3568 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3569 = load ptr, ptr %3568, align 8, !tbaa !64
   %3570 = getelementptr inbounds nuw i8, ptr %3569, i64 48
-  %3571 = lshr i32 %3564, 4
+  %3571 = lshr i32 %3565, 4
   %3572 = zext nneg i32 %3571 to i64
   %3573 = load ptr, ptr %3570, align 8, !tbaa !65
-  %3574 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3573, i64 %3572, i32 1
-  %3575 = load i8, ptr %3574, align 8, !tbaa !43
-  br label %3576
+  %3574 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3573, i64 %3572
+  %.sroa.02.0.copyload.i = load i8, ptr %3574, align 8, !tbaa !161
+  %3575 = icmp eq i8 %.sroa.02.0.copyload.i, 0
+  %3576 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0173.0.copyload3641 = load i32, ptr %3576, align 4, !tbaa !43
+  %3577 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0173.0.copyload3641)
+  br i1 %3575, label %.critedge, label %3591
 
-3576:                                             ; preds = %3556, %3567
-  %3577 = phi i8 [ %3575, %3567 ], [ 10, %3556 ]
-  %3578 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0102.0.copyload, i32 %.sroa.0101.0.copyload, i8 noundef zeroext %3577)
-  %3579 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.099.0.copyload = load i8, ptr %3561, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ldrsbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3579, i8 %.sroa.099.0.copyload, i64 %3578)
-  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+3578:                                             ; preds = %3563
+  %3579 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3580 = load ptr, ptr %3579, align 8, !tbaa !64
+  %3581 = getelementptr inbounds nuw i8, ptr %3580, i64 24
+  %3582 = lshr i32 %3565, 4
+  %3583 = zext nneg i32 %3582 to i64
+  %3584 = load ptr, ptr %3581, align 8, !tbaa !163
+  %3585 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %3584, i64 %3583
+  %3586 = load i8, ptr %3585, align 4, !tbaa !53
+  %3587 = tail call noundef zeroext i8 @_ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE(i8 noundef zeroext %3586)
+  %3588 = icmp eq i8 %3587, 3
+  %3589 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0173.0.copyload = load i32, ptr %3589, align 4, !tbaa !43
+  %3590 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0173.0.copyload)
+  br i1 %3588, label %.critedge, label %3591
 
-3580:                                             ; preds = %4
-  %3581 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %90)
-  %3582 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3583 = load i32, ptr %3582, align 4, !tbaa !43
-  store i32 %3583, ptr %90, align 4, !tbaa !43
-  %3584 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3581, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %90, i64 1)
-  %3585 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3584, ptr %3585, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(ptr nonnull %90)
-  %3586 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.093.0.copyload = load i32, ptr %3586, align 4, !tbaa !43
-  %.sroa.092.0.copyload = load i32, ptr %3582, align 4, !tbaa !43
-  %3587 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %3588 = load i32, ptr %3587, align 4
-  %3589 = and i32 %3588, 15
-  %3590 = icmp eq i32 %3589, 0
-  br i1 %3590, label %3600, label %3591
+3591:                                             ; preds = %3567, %3578
+  %3592 = phi i8 [ %3577, %3567 ], [ %3590, %3578 ]
+  %.sroa.0168.0.copyload = load i32, ptr %3564, align 4, !tbaa !43
+  %3593 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0168.0.copyload)
+  %3594 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3595 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %3594, i8 noundef zeroext 4)
+  %3596 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  store i8 %3592, ptr %87, align 1, !tbaa !43
+  %3597 = getelementptr inbounds nuw i8, ptr %87, i64 1
+  store i8 %3593, ptr %3597, align 1, !tbaa !43
+  %3598 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3594, ptr noundef nonnull align 8 dereferenceable(176) %3596, i32 noundef %2, ptr nonnull %87, i64 2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  %.not = icmp eq i8 %3593, 4
+  %3599 = load ptr, ptr %0, align 8, !tbaa !63
+  br i1 %.not, label %3610, label %3608
 
-3591:                                             ; preds = %3580
-  %3592 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3593 = load ptr, ptr %3592, align 8, !tbaa !64
-  %3594 = getelementptr inbounds nuw i8, ptr %3593, i64 48
-  %3595 = lshr i32 %3588, 4
-  %3596 = zext nneg i32 %3595 to i64
-  %3597 = load ptr, ptr %3594, align 8, !tbaa !65
-  %3598 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3597, i64 %3596, i32 1
-  %3599 = load i8, ptr %3598, align 8, !tbaa !43
-  br label %3600
-
-3600:                                             ; preds = %3580, %3591
-  %3601 = phi i8 [ %3599, %3591 ], [ 10, %3580 ]
-  %3602 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.093.0.copyload, i32 %.sroa.092.0.copyload, i8 noundef zeroext %3601)
+.critedge:                                        ; preds = %3578, %3567
+  %3600 = phi i8 [ %3577, %3567 ], [ %3590, %3578 ]
+  %.sroa.0169.0.copyload = load i32, ptr %3564, align 4, !tbaa !43
+  %3601 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0169.0.copyload)
+  %3602 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3603 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.090.0.copyload = load i8, ptr %3585, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3603, i8 %.sroa.090.0.copyload, i64 %3602)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  store i8 %3600, ptr %87, align 1, !tbaa !43
+  %3604 = getelementptr inbounds nuw i8, ptr %87, i64 1
+  store i8 %3601, ptr %3604, align 1, !tbaa !43
+  %3605 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3602, ptr noundef nonnull align 8 dereferenceable(176) %3603, i32 noundef %2, ptr nonnull %87, i64 2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  %3606 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3606, i8 4, i8 %3600)
+  %3607 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3607, i8 1, i8 %3601)
+  br label %3620
+
+3608:                                             ; preds = %3591
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3599, i8 4, i8 %3592)
+  %3609 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3609, i8 12, i8 %3593)
+  br label %3620
+
+3610:                                             ; preds = %3591
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3599, i8 %3595, i8 4)
+  %3611 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3611, i8 4, i8 %3592)
+  %3612 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3612, i8 12, i8 %3595)
+  br label %3620
+
+3613:                                             ; preds = %3563
+  %3614 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0147.0.copyload = load i32, ptr %3614, align 4, !tbaa !43
+  %3615 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0147.0.copyload)
+  %3616 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3617 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
+  store i8 %3615, ptr %88, align 1, !tbaa !43
+  %3618 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3616, ptr noundef nonnull align 8 dereferenceable(176) %3617, i32 noundef %2, ptr nonnull %88, i64 1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  %3619 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3619, i8 4, i8 %3615)
+  br label %3620
+
+3620:                                             ; preds = %.critedge, %3610, %3608, %3613
+  %3621 = load ptr, ptr %0, align 8, !tbaa !63
+  %3622 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0140.0.copyload = load i32, ptr %3622, align 4, !tbaa !43
+  %3623 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3624 = load ptr, ptr %3623, align 8, !tbaa !64
+  %3625 = getelementptr inbounds nuw i8, ptr %3624, i64 48
+  %3626 = lshr i32 %.sroa.0140.0.copyload, 4
+  %3627 = zext nneg i32 %3626 to i64
+  %3628 = load ptr, ptr %3625, align 8, !tbaa !65
+  %3629 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3628, i64 %3627
+  %3630 = getelementptr inbounds nuw i8, ptr %3629, i64 8
+  %3631 = load i32, ptr %3630, align 8, !tbaa !43
+  %3632 = call noundef i32 @_ZN4Luau7CodeGen22getNativeContextOffsetEi(i32 noundef %3631)
+  %.sroa.43003.0.insert.ext = zext i32 %3632 to i64
+  %.sroa.43003.0.insert.shift = shl nuw i64 %.sroa.43003.0.insert.ext, 32
+  %.sroa.02999.0.insert.insert = or disjoint i64 %.sroa.43003.0.insert.shift, 16425473
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3621, i8 10, i64 %.sroa.02999.0.insert.insert)
+  %3633 = load ptr, ptr %0, align 8, !tbaa !63
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3633, i8 10)
+  %3634 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3635 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3634, i8 4, i32 noundef %2)
+  %3636 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3635, ptr %3636, align 1, !tbaa !43
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3604:                                             ; preds = %4
-  %3605 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.087.0.copyload = load i32, ptr %3605, align 4, !tbaa !43
-  %3606 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.087.0.copyload)
-  %3607 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.085.0.copyload = load i32, ptr %3607, align 4, !tbaa !43
-  %3608 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.084.0.copyload = load i32, ptr %3608, align 4, !tbaa !43
-  %3609 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3610 = load i32, ptr %3609, align 4
-  %3611 = and i32 %3610, 15
-  %3612 = icmp eq i32 %3611, 0
-  br i1 %3612, label %3622, label %3613
+3637:                                             ; preds = %4
+  %3638 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3639 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3638, i8 noundef zeroext 2, i32 noundef %2)
+  %3640 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3639, ptr %3640, align 1, !tbaa !43
+  %3641 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3642 = load i32, ptr %3641, align 4
+  %3643 = and i32 %3642, 15
+  switch i32 %3643, label %3660 [
+    i32 4, label %3644
+    i32 2, label %3647
+  ]
 
-3613:                                             ; preds = %3604
-  %3614 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3615 = load ptr, ptr %3614, align 8, !tbaa !64
-  %3616 = getelementptr inbounds nuw i8, ptr %3615, i64 48
-  %3617 = lshr i32 %3610, 4
-  %3618 = zext nneg i32 %3617 to i64
-  %3619 = load ptr, ptr %3616, align 8, !tbaa !65
-  %3620 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3619, i64 %3618, i32 1
-  %3621 = load i8, ptr %3620, align 8, !tbaa !43
-  br label %3622
+3644:                                             ; preds = %3637
+  %3645 = load ptr, ptr %0, align 8, !tbaa !63
+  %3646 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %3642)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %3645, i8 %3639, i8 -86, i8 %3646, i32 noundef 3)
+  br label %3660
 
-3622:                                             ; preds = %3604, %3613
-  %3623 = phi i8 [ %3621, %3613 ], [ 10, %3604 ]
-  %3624 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.085.0.copyload, i32 %.sroa.084.0.copyload, i8 noundef zeroext %3623)
-  %3625 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644strbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3625, i8 %3606, i64 %3624)
+3647:                                             ; preds = %3637
+  %3648 = load ptr, ptr %0, align 8, !tbaa !63
+  %3649 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3650 = load ptr, ptr %3649, align 8, !tbaa !64
+  %3651 = getelementptr inbounds nuw i8, ptr %3650, i64 48
+  %3652 = lshr i32 %3642, 4
+  %3653 = zext nneg i32 %3652 to i64
+  %3654 = load ptr, ptr %3651, align 8, !tbaa !65
+  %3655 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3654, i64 %3653
+  %3656 = getelementptr inbounds nuw i8, ptr %3655, i64 8
+  %3657 = load i8, ptr %3656, align 8, !tbaa !43
+  %3658 = zext i8 %3657 to i16
+  %3659 = shl nuw nsw i16 %3658, 3
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %3648, i8 %3639, i8 -86, i16 noundef zeroext %3659)
+  br label %3660
+
+3660:                                             ; preds = %3637, %3647, %3644
+  %3661 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.0128.0.copyload = load i8, ptr %3640, align 1, !tbaa !43
+  %.sroa.22995.0.insert.ext = zext i8 %.sroa.0128.0.copyload to i64
+  %.sroa.22995.0.insert.shift = shl nuw nsw i64 %.sroa.22995.0.insert.ext, 8
+  %.sroa.02994.0.insert.insert = or disjoint i64 %.sroa.22995.0.insert.shift, 12644400103425
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3661, i8 %.sroa.0128.0.copyload, i64 %.sroa.02994.0.insert.insert)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3626:                                             ; preds = %4
-  %3627 = getelementptr inbounds nuw i8, ptr %0, i64 32
+3662:                                             ; preds = %4
+  %3663 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3664 = load ptr, ptr %0, align 8, !tbaa !63
+  %3665 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3663, ptr noundef nonnull align 8 dereferenceable(176) %3664, i32 noundef %2, ptr null, i64 0)
+  %3666 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3666, i8 2, i8 -102)
+  %3667 = load ptr, ptr %0, align 8, !tbaa !63
+  %3668 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0122.0.copyload = load i32, ptr %3668, align 4, !tbaa !43
+  %3669 = trunc i32 %.sroa.0122.0.copyload to i16
+  %3670 = and i16 %3669, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %3667, i8 10, i8 -54, i16 noundef zeroext %3670)
+  %3671 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3671, i8 18, i64 1065168314881)
+  %3672 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3672, i8 18)
+  %3673 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3663, i8 2, i32 noundef %2)
+  %3674 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3673, ptr %3674, align 1, !tbaa !43
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3675:                                             ; preds = %4
+  %3676 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3677 = load ptr, ptr %0, align 8, !tbaa !63
+  %3678 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3676, ptr noundef nonnull align 8 dereferenceable(176) %3677, i32 noundef %2, ptr null, i64 0)
+  %3679 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3679, i8 2, i8 -102)
+  %3680 = load ptr, ptr %0, align 8, !tbaa !63
+  %3681 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0112.0.copyload = load i32, ptr %3681, align 4, !tbaa !43
+  %3682 = trunc i32 %.sroa.0112.0.copyload to i16
+  %3683 = and i16 %3682, -16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %3680, i8 10, i8 -54, i16 noundef zeroext %3683)
+  %3684 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3684, i8 18, i64 962089099777)
+  %3685 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %3685, i8 18)
+  %3686 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3676, i8 2, i32 noundef %2)
+  %3687 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3686, ptr %3687, align 1, !tbaa !43
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3688:                                             ; preds = %4
+  %3689 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
+  %3690 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3691 = load i32, ptr %3690, align 4, !tbaa !43
+  store i32 %3691, ptr %89, align 4, !tbaa !43
+  %3692 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3689, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %89, i64 1)
+  %3693 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3692, ptr %3693, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  %3694 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.0102.0.copyload = load i32, ptr %3694, align 4, !tbaa !43
+  %.sroa.0101.0.copyload = load i32, ptr %3690, align 4, !tbaa !43
+  %3695 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %3696 = load i32, ptr %3695, align 4
+  %3697 = and i32 %3696, 15
+  %3698 = icmp eq i32 %3697, 0
+  br i1 %3698, label %3709, label %3699
+
+3699:                                             ; preds = %3688
+  %3700 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3701 = load ptr, ptr %3700, align 8, !tbaa !64
+  %3702 = getelementptr inbounds nuw i8, ptr %3701, i64 48
+  %3703 = lshr i32 %3696, 4
+  %3704 = zext nneg i32 %3703 to i64
+  %3705 = load ptr, ptr %3702, align 8, !tbaa !65
+  %3706 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3705, i64 %3704
+  %3707 = getelementptr inbounds nuw i8, ptr %3706, i64 8
+  %3708 = load i8, ptr %3707, align 8, !tbaa !43
+  br label %3709
+
+3709:                                             ; preds = %3688, %3699
+  %3710 = phi i8 [ %3708, %3699 ], [ 10, %3688 ]
+  %3711 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0102.0.copyload, i32 %.sroa.0101.0.copyload, i8 noundef zeroext %3710)
+  %3712 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.099.0.copyload = load i8, ptr %3693, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ldrsbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3712, i8 %.sroa.099.0.copyload, i64 %3711)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3713:                                             ; preds = %4
+  %3714 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  %3715 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3716 = load i32, ptr %3715, align 4, !tbaa !43
+  store i32 %3716, ptr %90, align 4, !tbaa !43
+  %3717 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3714, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %90, i64 1)
+  %3718 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3717, ptr %3718, align 1, !tbaa !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  %3719 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.093.0.copyload = load i32, ptr %3719, align 4, !tbaa !43
+  %.sroa.092.0.copyload = load i32, ptr %3715, align 4, !tbaa !43
+  %3720 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %3721 = load i32, ptr %3720, align 4
+  %3722 = and i32 %3721, 15
+  %3723 = icmp eq i32 %3722, 0
+  br i1 %3723, label %3734, label %3724
+
+3724:                                             ; preds = %3713
+  %3725 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3726 = load ptr, ptr %3725, align 8, !tbaa !64
+  %3727 = getelementptr inbounds nuw i8, ptr %3726, i64 48
+  %3728 = lshr i32 %3721, 4
+  %3729 = zext nneg i32 %3728 to i64
+  %3730 = load ptr, ptr %3727, align 8, !tbaa !65
+  %3731 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3730, i64 %3729
+  %3732 = getelementptr inbounds nuw i8, ptr %3731, i64 8
+  %3733 = load i8, ptr %3732, align 8, !tbaa !43
+  br label %3734
+
+3734:                                             ; preds = %3713, %3724
+  %3735 = phi i8 [ %3733, %3724 ], [ 10, %3713 ]
+  %3736 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.093.0.copyload, i32 %.sroa.092.0.copyload, i8 noundef zeroext %3735)
+  %3737 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.090.0.copyload = load i8, ptr %3718, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3737, i8 %.sroa.090.0.copyload, i64 %3736)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3738:                                             ; preds = %4
+  %3739 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.087.0.copyload = load i32, ptr %3739, align 4, !tbaa !43
+  %3740 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.087.0.copyload)
+  %3741 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.085.0.copyload = load i32, ptr %3741, align 4, !tbaa !43
+  %3742 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.084.0.copyload = load i32, ptr %3742, align 4, !tbaa !43
+  %3743 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %3744 = load i32, ptr %3743, align 4
+  %3745 = and i32 %3744, 15
+  %3746 = icmp eq i32 %3745, 0
+  br i1 %3746, label %3757, label %3747
+
+3747:                                             ; preds = %3738
+  %3748 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3749 = load ptr, ptr %3748, align 8, !tbaa !64
+  %3750 = getelementptr inbounds nuw i8, ptr %3749, i64 48
+  %3751 = lshr i32 %3744, 4
+  %3752 = zext nneg i32 %3751 to i64
+  %3753 = load ptr, ptr %3750, align 8, !tbaa !65
+  %3754 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3753, i64 %3752
+  %3755 = getelementptr inbounds nuw i8, ptr %3754, i64 8
+  %3756 = load i8, ptr %3755, align 8, !tbaa !43
+  br label %3757
+
+3757:                                             ; preds = %3738, %3747
+  %3758 = phi i8 [ %3756, %3747 ], [ 10, %3738 ]
+  %3759 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.085.0.copyload, i32 %.sroa.084.0.copyload, i8 noundef zeroext %3758)
+  %3760 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644strbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3760, i8 %3740, i64 %3759)
+  br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
+
+3761:                                             ; preds = %4
+  %3762 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
-  %3628 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3629 = load i32, ptr %3628, align 4, !tbaa !43
-  store i32 %3629, ptr %91, align 4, !tbaa !43
-  %3630 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3627, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %91, i64 1)
-  %3631 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3630, ptr %3631, align 1, !tbaa !43
+  %3763 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3764 = load i32, ptr %3763, align 4, !tbaa !43
+  store i32 %3764, ptr %91, align 4, !tbaa !43
+  %3765 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3762, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %91, i64 1)
+  %3766 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3765, ptr %3766, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
-  %3632 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.076.0.copyload = load i32, ptr %3632, align 4, !tbaa !43
-  %.sroa.075.0.copyload = load i32, ptr %3628, align 4, !tbaa !43
-  %3633 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %3634 = load i32, ptr %3633, align 4
-  %3635 = and i32 %3634, 15
-  %3636 = icmp eq i32 %3635, 0
-  br i1 %3636, label %3646, label %3637
+  %3767 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.076.0.copyload = load i32, ptr %3767, align 4, !tbaa !43
+  %.sroa.075.0.copyload = load i32, ptr %3763, align 4, !tbaa !43
+  %3768 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %3769 = load i32, ptr %3768, align 4
+  %3770 = and i32 %3769, 15
+  %3771 = icmp eq i32 %3770, 0
+  br i1 %3771, label %3782, label %3772
 
-3637:                                             ; preds = %3626
-  %3638 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3639 = load ptr, ptr %3638, align 8, !tbaa !64
-  %3640 = getelementptr inbounds nuw i8, ptr %3639, i64 48
-  %3641 = lshr i32 %3634, 4
-  %3642 = zext nneg i32 %3641 to i64
-  %3643 = load ptr, ptr %3640, align 8, !tbaa !65
-  %3644 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3643, i64 %3642, i32 1
-  %3645 = load i8, ptr %3644, align 8, !tbaa !43
-  br label %3646
+3772:                                             ; preds = %3761
+  %3773 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3774 = load ptr, ptr %3773, align 8, !tbaa !64
+  %3775 = getelementptr inbounds nuw i8, ptr %3774, i64 48
+  %3776 = lshr i32 %3769, 4
+  %3777 = zext nneg i32 %3776 to i64
+  %3778 = load ptr, ptr %3775, align 8, !tbaa !65
+  %3779 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3778, i64 %3777
+  %3780 = getelementptr inbounds nuw i8, ptr %3779, i64 8
+  %3781 = load i8, ptr %3780, align 8, !tbaa !43
+  br label %3782
 
-3646:                                             ; preds = %3626, %3637
-  %3647 = phi i8 [ %3645, %3637 ], [ 10, %3626 ]
-  %3648 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.076.0.copyload, i32 %.sroa.075.0.copyload, i8 noundef zeroext %3647)
-  %3649 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.073.0.copyload = load i8, ptr %3631, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ldrshENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3649, i8 %.sroa.073.0.copyload, i64 %3648)
+3782:                                             ; preds = %3761, %3772
+  %3783 = phi i8 [ %3781, %3772 ], [ 10, %3761 ]
+  %3784 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.076.0.copyload, i32 %.sroa.075.0.copyload, i8 noundef zeroext %3783)
+  %3785 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.073.0.copyload = load i8, ptr %3766, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ldrshENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3785, i8 %.sroa.073.0.copyload, i64 %3784)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3650:                                             ; preds = %4
-  %3651 = getelementptr inbounds nuw i8, ptr %0, i64 32
+3786:                                             ; preds = %4
+  %3787 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
-  %3652 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3653 = load i32, ptr %3652, align 4, !tbaa !43
-  store i32 %3653, ptr %92, align 4, !tbaa !43
-  %3654 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3651, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %92, i64 1)
-  %3655 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3654, ptr %3655, align 1, !tbaa !43
+  %3788 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3789 = load i32, ptr %3788, align 4, !tbaa !43
+  store i32 %3789, ptr %92, align 4, !tbaa !43
+  %3790 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3787, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %92, i64 1)
+  %3791 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3790, ptr %3791, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
-  %3656 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.067.0.copyload = load i32, ptr %3656, align 4, !tbaa !43
-  %.sroa.066.0.copyload = load i32, ptr %3652, align 4, !tbaa !43
-  %3657 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %3658 = load i32, ptr %3657, align 4
-  %3659 = and i32 %3658, 15
-  %3660 = icmp eq i32 %3659, 0
-  br i1 %3660, label %3670, label %3661
+  %3792 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.067.0.copyload = load i32, ptr %3792, align 4, !tbaa !43
+  %.sroa.066.0.copyload = load i32, ptr %3788, align 4, !tbaa !43
+  %3793 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %3794 = load i32, ptr %3793, align 4
+  %3795 = and i32 %3794, 15
+  %3796 = icmp eq i32 %3795, 0
+  br i1 %3796, label %3807, label %3797
 
-3661:                                             ; preds = %3650
-  %3662 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3663 = load ptr, ptr %3662, align 8, !tbaa !64
-  %3664 = getelementptr inbounds nuw i8, ptr %3663, i64 48
-  %3665 = lshr i32 %3658, 4
-  %3666 = zext nneg i32 %3665 to i64
-  %3667 = load ptr, ptr %3664, align 8, !tbaa !65
-  %3668 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3667, i64 %3666, i32 1
-  %3669 = load i8, ptr %3668, align 8, !tbaa !43
-  br label %3670
+3797:                                             ; preds = %3786
+  %3798 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3799 = load ptr, ptr %3798, align 8, !tbaa !64
+  %3800 = getelementptr inbounds nuw i8, ptr %3799, i64 48
+  %3801 = lshr i32 %3794, 4
+  %3802 = zext nneg i32 %3801 to i64
+  %3803 = load ptr, ptr %3800, align 8, !tbaa !65
+  %3804 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3803, i64 %3802
+  %3805 = getelementptr inbounds nuw i8, ptr %3804, i64 8
+  %3806 = load i8, ptr %3805, align 8, !tbaa !43
+  br label %3807
 
-3670:                                             ; preds = %3650, %3661
-  %3671 = phi i8 [ %3669, %3661 ], [ 10, %3650 ]
-  %3672 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.067.0.copyload, i32 %.sroa.066.0.copyload, i8 noundef zeroext %3671)
-  %3673 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.064.0.copyload = load i8, ptr %3655, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrhENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3673, i8 %.sroa.064.0.copyload, i64 %3672)
+3807:                                             ; preds = %3786, %3797
+  %3808 = phi i8 [ %3806, %3797 ], [ 10, %3786 ]
+  %3809 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.067.0.copyload, i32 %.sroa.066.0.copyload, i8 noundef zeroext %3808)
+  %3810 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.064.0.copyload = load i8, ptr %3791, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrhENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3810, i8 %.sroa.064.0.copyload, i64 %3809)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3674:                                             ; preds = %4
-  %3675 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.061.0.copyload = load i32, ptr %3675, align 4, !tbaa !43
-  %3676 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.061.0.copyload)
-  %3677 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.059.0.copyload = load i32, ptr %3677, align 4, !tbaa !43
-  %3678 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.058.0.copyload = load i32, ptr %3678, align 4, !tbaa !43
-  %3679 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3680 = load i32, ptr %3679, align 4
-  %3681 = and i32 %3680, 15
-  %3682 = icmp eq i32 %3681, 0
-  br i1 %3682, label %3692, label %3683
+3811:                                             ; preds = %4
+  %3812 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.061.0.copyload = load i32, ptr %3812, align 4, !tbaa !43
+  %3813 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.061.0.copyload)
+  %3814 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.059.0.copyload = load i32, ptr %3814, align 4, !tbaa !43
+  %3815 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.058.0.copyload = load i32, ptr %3815, align 4, !tbaa !43
+  %3816 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %3817 = load i32, ptr %3816, align 4
+  %3818 = and i32 %3817, 15
+  %3819 = icmp eq i32 %3818, 0
+  br i1 %3819, label %3830, label %3820
 
-3683:                                             ; preds = %3674
-  %3684 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3685 = load ptr, ptr %3684, align 8, !tbaa !64
-  %3686 = getelementptr inbounds nuw i8, ptr %3685, i64 48
-  %3687 = lshr i32 %3680, 4
-  %3688 = zext nneg i32 %3687 to i64
-  %3689 = load ptr, ptr %3686, align 8, !tbaa !65
-  %3690 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3689, i64 %3688, i32 1
-  %3691 = load i8, ptr %3690, align 8, !tbaa !43
-  br label %3692
+3820:                                             ; preds = %3811
+  %3821 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3822 = load ptr, ptr %3821, align 8, !tbaa !64
+  %3823 = getelementptr inbounds nuw i8, ptr %3822, i64 48
+  %3824 = lshr i32 %3817, 4
+  %3825 = zext nneg i32 %3824 to i64
+  %3826 = load ptr, ptr %3823, align 8, !tbaa !65
+  %3827 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3826, i64 %3825
+  %3828 = getelementptr inbounds nuw i8, ptr %3827, i64 8
+  %3829 = load i8, ptr %3828, align 8, !tbaa !43
+  br label %3830
 
-3692:                                             ; preds = %3674, %3683
-  %3693 = phi i8 [ %3691, %3683 ], [ 10, %3674 ]
-  %3694 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.059.0.copyload, i32 %.sroa.058.0.copyload, i8 noundef zeroext %3693)
-  %3695 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644strhENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3695, i8 %3676, i64 %3694)
+3830:                                             ; preds = %3811, %3820
+  %3831 = phi i8 [ %3829, %3820 ], [ 10, %3811 ]
+  %3832 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.059.0.copyload, i32 %.sroa.058.0.copyload, i8 noundef zeroext %3831)
+  %3833 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644strhENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3833, i8 %3813, i64 %3832)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3696:                                             ; preds = %4
-  %3697 = getelementptr inbounds nuw i8, ptr %0, i64 32
+3834:                                             ; preds = %4
+  %3835 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
-  %3698 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3699 = load i32, ptr %3698, align 4, !tbaa !43
-  store i32 %3699, ptr %93, align 4, !tbaa !43
-  %3700 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3697, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %93, i64 1)
-  %3701 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3700, ptr %3701, align 1, !tbaa !43
+  %3836 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3837 = load i32, ptr %3836, align 4, !tbaa !43
+  store i32 %3837, ptr %93, align 4, !tbaa !43
+  %3838 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3835, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %93, i64 1)
+  %3839 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3838, ptr %3839, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
-  %3702 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.051.0.copyload = load i32, ptr %3702, align 4, !tbaa !43
-  %.sroa.050.0.copyload = load i32, ptr %3698, align 4, !tbaa !43
-  %3703 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %3704 = load i32, ptr %3703, align 4
-  %3705 = and i32 %3704, 15
-  %3706 = icmp eq i32 %3705, 0
-  br i1 %3706, label %3716, label %3707
+  %3840 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.051.0.copyload = load i32, ptr %3840, align 4, !tbaa !43
+  %.sroa.050.0.copyload = load i32, ptr %3836, align 4, !tbaa !43
+  %3841 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %3842 = load i32, ptr %3841, align 4
+  %3843 = and i32 %3842, 15
+  %3844 = icmp eq i32 %3843, 0
+  br i1 %3844, label %3855, label %3845
 
-3707:                                             ; preds = %3696
-  %3708 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3709 = load ptr, ptr %3708, align 8, !tbaa !64
-  %3710 = getelementptr inbounds nuw i8, ptr %3709, i64 48
-  %3711 = lshr i32 %3704, 4
-  %3712 = zext nneg i32 %3711 to i64
-  %3713 = load ptr, ptr %3710, align 8, !tbaa !65
-  %3714 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3713, i64 %3712, i32 1
-  %3715 = load i8, ptr %3714, align 8, !tbaa !43
-  br label %3716
+3845:                                             ; preds = %3834
+  %3846 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3847 = load ptr, ptr %3846, align 8, !tbaa !64
+  %3848 = getelementptr inbounds nuw i8, ptr %3847, i64 48
+  %3849 = lshr i32 %3842, 4
+  %3850 = zext nneg i32 %3849 to i64
+  %3851 = load ptr, ptr %3848, align 8, !tbaa !65
+  %3852 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3851, i64 %3850
+  %3853 = getelementptr inbounds nuw i8, ptr %3852, i64 8
+  %3854 = load i8, ptr %3853, align 8, !tbaa !43
+  br label %3855
 
-3716:                                             ; preds = %3696, %3707
-  %3717 = phi i8 [ %3715, %3707 ], [ 10, %3696 ]
-  %3718 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.051.0.copyload, i32 %.sroa.050.0.copyload, i8 noundef zeroext %3717)
-  %3719 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.048.0.copyload = load i8, ptr %3701, align 1, !tbaa !43
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3719, i8 %.sroa.048.0.copyload, i64 %3718)
+3855:                                             ; preds = %3834, %3845
+  %3856 = phi i8 [ %3854, %3845 ], [ 10, %3834 ]
+  %3857 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.051.0.copyload, i32 %.sroa.050.0.copyload, i8 noundef zeroext %3856)
+  %3858 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.048.0.copyload = load i8, ptr %3839, align 1, !tbaa !43
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3858, i8 %.sroa.048.0.copyload, i64 %3857)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3720:                                             ; preds = %4
-  %3721 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.045.0.copyload = load i32, ptr %3721, align 4, !tbaa !43
-  %3722 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.045.0.copyload)
-  %3723 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.043.0.copyload = load i32, ptr %3723, align 4, !tbaa !43
-  %3724 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.042.0.copyload = load i32, ptr %3724, align 4, !tbaa !43
-  %3725 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3726 = load i32, ptr %3725, align 4
-  %3727 = and i32 %3726, 15
-  %3728 = icmp eq i32 %3727, 0
-  br i1 %3728, label %3738, label %3729
+3859:                                             ; preds = %4
+  %3860 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.045.0.copyload = load i32, ptr %3860, align 4, !tbaa !43
+  %3861 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.045.0.copyload)
+  %3862 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.043.0.copyload = load i32, ptr %3862, align 4, !tbaa !43
+  %3863 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.042.0.copyload = load i32, ptr %3863, align 4, !tbaa !43
+  %3864 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %3865 = load i32, ptr %3864, align 4
+  %3866 = and i32 %3865, 15
+  %3867 = icmp eq i32 %3866, 0
+  br i1 %3867, label %3878, label %3868
 
-3729:                                             ; preds = %3720
-  %3730 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3731 = load ptr, ptr %3730, align 8, !tbaa !64
-  %3732 = getelementptr inbounds nuw i8, ptr %3731, i64 48
-  %3733 = lshr i32 %3726, 4
-  %3734 = zext nneg i32 %3733 to i64
-  %3735 = load ptr, ptr %3732, align 8, !tbaa !65
-  %3736 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3735, i64 %3734, i32 1
-  %3737 = load i8, ptr %3736, align 8, !tbaa !43
-  br label %3738
+3868:                                             ; preds = %3859
+  %3869 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3870 = load ptr, ptr %3869, align 8, !tbaa !64
+  %3871 = getelementptr inbounds nuw i8, ptr %3870, i64 48
+  %3872 = lshr i32 %3865, 4
+  %3873 = zext nneg i32 %3872 to i64
+  %3874 = load ptr, ptr %3871, align 8, !tbaa !65
+  %3875 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3874, i64 %3873
+  %3876 = getelementptr inbounds nuw i8, ptr %3875, i64 8
+  %3877 = load i8, ptr %3876, align 8, !tbaa !43
+  br label %3878
 
-3738:                                             ; preds = %3720, %3729
-  %3739 = phi i8 [ %3737, %3729 ], [ 10, %3720 ]
-  %3740 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.043.0.copyload, i32 %.sroa.042.0.copyload, i8 noundef zeroext %3739)
-  %3741 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3741, i8 %3722, i64 %3740)
+3878:                                             ; preds = %3859, %3868
+  %3879 = phi i8 [ %3877, %3868 ], [ 10, %3859 ]
+  %3880 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.043.0.copyload, i32 %.sroa.042.0.copyload, i8 noundef zeroext %3879)
+  %3881 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3881, i8 %3861, i64 %3880)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3742:                                             ; preds = %4
-  %3743 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3744 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3743, i8 noundef zeroext 4, i32 noundef %2)
-  %3745 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3744, ptr %3745, align 1, !tbaa !43
-  %3746 = and i8 %3744, -8
-  %3747 = or disjoint i8 %3746, 3
-  %3748 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.033.0.copyload = load i32, ptr %3748, align 4, !tbaa !43
-  %3749 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.032.0.copyload = load i32, ptr %3749, align 4, !tbaa !43
-  %3750 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %3751 = load i32, ptr %3750, align 4
-  %3752 = and i32 %3751, 15
-  %3753 = icmp eq i32 %3752, 0
-  br i1 %3753, label %3763, label %3754
+3882:                                             ; preds = %4
+  %3883 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3884 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3883, i8 noundef zeroext 4, i32 noundef %2)
+  %3885 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3884, ptr %3885, align 1, !tbaa !43
+  %3886 = and i8 %3884, -8
+  %3887 = or disjoint i8 %3886, 3
+  %3888 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.033.0.copyload = load i32, ptr %3888, align 4, !tbaa !43
+  %3889 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.032.0.copyload = load i32, ptr %3889, align 4, !tbaa !43
+  %3890 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %3891 = load i32, ptr %3890, align 4
+  %3892 = and i32 %3891, 15
+  %3893 = icmp eq i32 %3892, 0
+  br i1 %3893, label %3904, label %3894
 
-3754:                                             ; preds = %3742
-  %3755 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3756 = load ptr, ptr %3755, align 8, !tbaa !64
-  %3757 = getelementptr inbounds nuw i8, ptr %3756, i64 48
-  %3758 = lshr i32 %3751, 4
-  %3759 = zext nneg i32 %3758 to i64
-  %3760 = load ptr, ptr %3757, align 8, !tbaa !65
-  %3761 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3760, i64 %3759, i32 1
-  %3762 = load i8, ptr %3761, align 8, !tbaa !43
-  br label %3763
+3894:                                             ; preds = %3882
+  %3895 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3896 = load ptr, ptr %3895, align 8, !tbaa !64
+  %3897 = getelementptr inbounds nuw i8, ptr %3896, i64 48
+  %3898 = lshr i32 %3891, 4
+  %3899 = zext nneg i32 %3898 to i64
+  %3900 = load ptr, ptr %3897, align 8, !tbaa !65
+  %3901 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3900, i64 %3899
+  %3902 = getelementptr inbounds nuw i8, ptr %3901, i64 8
+  %3903 = load i8, ptr %3902, align 8, !tbaa !43
+  br label %3904
 
-3763:                                             ; preds = %3742, %3754
-  %3764 = phi i8 [ %3762, %3754 ], [ 10, %3742 ]
-  %3765 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.033.0.copyload, i32 %.sroa.032.0.copyload, i8 noundef zeroext %3764)
-  %3766 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3766, i8 %3747, i64 %3765)
-  %3767 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.028.0.copyload = load i8, ptr %3745, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3767, i8 %.sroa.028.0.copyload, i8 %3747)
+3904:                                             ; preds = %3882, %3894
+  %3905 = phi i8 [ %3903, %3894 ], [ 10, %3882 ]
+  %3906 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.033.0.copyload, i32 %.sroa.032.0.copyload, i8 noundef zeroext %3905)
+  %3907 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3907, i8 %3887, i64 %3906)
+  %3908 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.028.0.copyload = load i8, ptr %3885, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3908, i8 %.sroa.028.0.copyload, i8 %3887)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3768:                                             ; preds = %4
-  %3769 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.025.0.copyload = load i32, ptr %3769, align 4, !tbaa !43
-  %3770 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.025.0.copyload)
-  %3771 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3772 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %3771, i8 noundef zeroext 3)
-  %3773 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.021.0.copyload = load i32, ptr %3773, align 4, !tbaa !43
-  %3774 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.020.0.copyload = load i32, ptr %3774, align 4, !tbaa !43
-  %3775 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3776 = load i32, ptr %3775, align 4
-  %3777 = and i32 %3776, 15
-  %3778 = icmp eq i32 %3777, 0
-  br i1 %3778, label %3788, label %3779
+3909:                                             ; preds = %4
+  %3910 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.025.0.copyload = load i32, ptr %3910, align 4, !tbaa !43
+  %3911 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.025.0.copyload)
+  %3912 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3913 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %3912, i8 noundef zeroext 3)
+  %3914 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.021.0.copyload = load i32, ptr %3914, align 4, !tbaa !43
+  %3915 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.020.0.copyload = load i32, ptr %3915, align 4, !tbaa !43
+  %3916 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %3917 = load i32, ptr %3916, align 4
+  %3918 = and i32 %3917, 15
+  %3919 = icmp eq i32 %3918, 0
+  br i1 %3919, label %3930, label %3920
 
-3779:                                             ; preds = %3768
-  %3780 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3781 = load ptr, ptr %3780, align 8, !tbaa !64
-  %3782 = getelementptr inbounds nuw i8, ptr %3781, i64 48
-  %3783 = lshr i32 %3776, 4
-  %3784 = zext nneg i32 %3783 to i64
-  %3785 = load ptr, ptr %3782, align 8, !tbaa !65
-  %3786 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3785, i64 %3784, i32 1
-  %3787 = load i8, ptr %3786, align 8, !tbaa !43
-  br label %3788
+3920:                                             ; preds = %3909
+  %3921 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3922 = load ptr, ptr %3921, align 8, !tbaa !64
+  %3923 = getelementptr inbounds nuw i8, ptr %3922, i64 48
+  %3924 = lshr i32 %3917, 4
+  %3925 = zext nneg i32 %3924 to i64
+  %3926 = load ptr, ptr %3923, align 8, !tbaa !65
+  %3927 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3926, i64 %3925
+  %3928 = getelementptr inbounds nuw i8, ptr %3927, i64 8
+  %3929 = load i8, ptr %3928, align 8, !tbaa !43
+  br label %3930
 
-3788:                                             ; preds = %3768, %3779
-  %3789 = phi i8 [ %3787, %3779 ], [ 10, %3768 ]
-  %3790 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.021.0.copyload, i32 %.sroa.020.0.copyload, i8 noundef zeroext %3789)
-  %3791 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3791, i8 %3772, i8 %3770)
-  %3792 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3792, i8 %3772, i64 %3790)
+3930:                                             ; preds = %3909, %3920
+  %3931 = phi i8 [ %3929, %3920 ], [ 10, %3909 ]
+  %3932 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.021.0.copyload, i32 %.sroa.020.0.copyload, i8 noundef zeroext %3931)
+  %3933 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3933, i8 %3913, i8 %3911)
+  %3934 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3934, i8 %3913, i64 %3932)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3793:                                             ; preds = %4
-  %3794 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3795 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3794, i8 noundef zeroext 4, i32 noundef %2)
-  %3796 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 %3795, ptr %3796, align 1, !tbaa !43
-  %3797 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.012.0.copyload = load i32, ptr %3797, align 4, !tbaa !43
-  %3798 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.011.0.copyload = load i32, ptr %3798, align 4, !tbaa !43
-  %3799 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %3800 = load i32, ptr %3799, align 4
-  %3801 = and i32 %3800, 15
-  %3802 = icmp eq i32 %3801, 0
-  br i1 %3802, label %3812, label %3803
+3935:                                             ; preds = %4
+  %3936 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3937 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325) %3936, i8 noundef zeroext 4, i32 noundef %2)
+  %3938 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  store i8 %3937, ptr %3938, align 1, !tbaa !43
+  %3939 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.012.0.copyload = load i32, ptr %3939, align 4, !tbaa !43
+  %3940 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.011.0.copyload = load i32, ptr %3940, align 4, !tbaa !43
+  %3941 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %3942 = load i32, ptr %3941, align 4
+  %3943 = and i32 %3942, 15
+  %3944 = icmp eq i32 %3943, 0
+  br i1 %3944, label %3955, label %3945
 
-3803:                                             ; preds = %3793
-  %3804 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3805 = load ptr, ptr %3804, align 8, !tbaa !64
-  %3806 = getelementptr inbounds nuw i8, ptr %3805, i64 48
-  %3807 = lshr i32 %3800, 4
-  %3808 = zext nneg i32 %3807 to i64
-  %3809 = load ptr, ptr %3806, align 8, !tbaa !65
-  %3810 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3809, i64 %3808, i32 1
-  %3811 = load i8, ptr %3810, align 8, !tbaa !43
-  br label %3812
+3945:                                             ; preds = %3935
+  %3946 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3947 = load ptr, ptr %3946, align 8, !tbaa !64
+  %3948 = getelementptr inbounds nuw i8, ptr %3947, i64 48
+  %3949 = lshr i32 %3942, 4
+  %3950 = zext nneg i32 %3949 to i64
+  %3951 = load ptr, ptr %3948, align 8, !tbaa !65
+  %3952 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3951, i64 %3950
+  %3953 = getelementptr inbounds nuw i8, ptr %3952, i64 8
+  %3954 = load i8, ptr %3953, align 8, !tbaa !43
+  br label %3955
 
-3812:                                             ; preds = %3793, %3803
-  %3813 = phi i8 [ %3811, %3803 ], [ 10, %3793 ]
-  %3814 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.012.0.copyload, i32 %.sroa.011.0.copyload, i8 noundef zeroext %3813)
-  %3815 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.09.0.copyload = load i8, ptr %3796, align 1, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3815, i8 %.sroa.09.0.copyload, i64 %3814)
+3955:                                             ; preds = %3935, %3945
+  %3956 = phi i8 [ %3954, %3945 ], [ 10, %3935 ]
+  %3957 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.012.0.copyload, i32 %.sroa.011.0.copyload, i8 noundef zeroext %3956)
+  %3958 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.09.0.copyload = load i8, ptr %3938, align 1, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3958, i8 %.sroa.09.0.copyload, i64 %3957)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-3816:                                             ; preds = %4
-  %3817 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.06.0.copyload = load i32, ptr %3817, align 4, !tbaa !43
-  %3818 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.06.0.copyload)
-  %3819 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.04.0.copyload = load i32, ptr %3819, align 4, !tbaa !43
-  %3820 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.03.0.copyload = load i32, ptr %3820, align 4, !tbaa !43
-  %3821 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3822 = load i32, ptr %3821, align 4
-  %3823 = and i32 %3822, 15
-  %3824 = icmp eq i32 %3823, 0
-  br i1 %3824, label %3834, label %3825
+3959:                                             ; preds = %4
+  %3960 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.06.0.copyload = load i32, ptr %3960, align 4, !tbaa !43
+  %3961 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.06.0.copyload)
+  %3962 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.04.0.copyload = load i32, ptr %3962, align 4, !tbaa !43
+  %3963 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.03.0.copyload = load i32, ptr %3963, align 4, !tbaa !43
+  %3964 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %3965 = load i32, ptr %3964, align 4
+  %3966 = and i32 %3965, 15
+  %3967 = icmp eq i32 %3966, 0
+  br i1 %3967, label %3978, label %3968
 
-3825:                                             ; preds = %3816
-  %3826 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3827 = load ptr, ptr %3826, align 8, !tbaa !64
-  %3828 = getelementptr inbounds nuw i8, ptr %3827, i64 48
-  %3829 = lshr i32 %3822, 4
-  %3830 = zext nneg i32 %3829 to i64
-  %3831 = load ptr, ptr %3828, align 8, !tbaa !65
-  %3832 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3831, i64 %3830, i32 1
-  %3833 = load i8, ptr %3832, align 8, !tbaa !43
-  br label %3834
+3968:                                             ; preds = %3959
+  %3969 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3970 = load ptr, ptr %3969, align 8, !tbaa !64
+  %3971 = getelementptr inbounds nuw i8, ptr %3970, i64 48
+  %3972 = lshr i32 %3965, 4
+  %3973 = zext nneg i32 %3972 to i64
+  %3974 = load ptr, ptr %3971, align 8, !tbaa !65
+  %3975 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %3974, i64 %3973
+  %3976 = getelementptr inbounds nuw i8, ptr %3975, i64 8
+  %3977 = load i8, ptr %3976, align 8, !tbaa !43
+  br label %3978
 
-3834:                                             ; preds = %3816, %3825
-  %3835 = phi i8 [ %3833, %3825 ], [ 10, %3816 ]
-  %3836 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.04.0.copyload, i32 %.sroa.03.0.copyload, i8 noundef zeroext %3835)
-  %3837 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3837, i8 %3818, i64 %3836)
+3978:                                             ; preds = %3959, %3968
+  %3979 = phi i8 [ %3977, %3968 ], [ 10, %3959 ]
+  %3980 = tail call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.04.0.copyload, i32 %.sroa.03.0.copyload, i8 noundef zeroext %3979)
+  %3981 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %3981, i8 %3961, i64 %3980)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
-_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit: ; preds = %3112, %3087, %2886, %2853, %2850, %2811, %2808, %.loopexit, %1332, %_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit, %1280, %1255, %1252, %1239, %1140, %1150, %1157, %1168, %1049, %1008, %1005, %964, %961, %949, %2055, %2079, %1669, %1685, %1663, %1633, %1635, %1470, %1479, %506, %501, %514, %512, %508, %400, %421, %395, %397, %373, %375, %342, %344, %326, %327, %303, %305, %169, %3391, %3404, %3352, %._crit_edge3658, %3325, %3338, %3292, %3305, %3259, %3272, %3221, %3231, %3181, %3191, %3141, %3151, %3010, %3025, %2655, %._crit_edge, %2734, %2665, %1642, %945, %886, %912, %602, %613, %540, %576, %565, %180, %183, %199, %195, %3834, %3812, %3788, %3763, %3738, %3716, %3692, %3670, %3646, %3622, %3600, %3576, %3543, %3530, %3528, %3490, %3425, %3416, %3408, %3235, %3073, %3039, %2980, %2966, %2952, %2938, %2924, %2910, %2889, %2602, %2565, %2543, %2525, %2512, %2472, %2459, %2420, %2398, %2377, %2376, %2306, %2295, %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979, %2237, %2180, %2170, %2160, %2159, %2120, %2014, %1984, %1959, %1951, %1914, %1869, %1866, %1810, %1795, %1699, %1693, %1660, %1604, %1597, %1590, %1583, %1555, %1492, %1448, %1420, %1413, %1393, %1382, %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2978, %936, %856, %848, %836, %824, %812, %800, %779, %764, %756, %748, %740, %732, %724, %716, %703, %690, %678, %665, %653, %641, %629, %617, %448, %284, %245, %238, %164, %159, %124, %117, %110, %103, %96, %4
+_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit: ; preds = %3231, %3205, %2991, %2957, %2954, %2913, %2910, %.loopexit, %1379, %_ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit, %1325, %1299, %1296, %1283, %1178, %1188, %1195, %1206, %1080, %1036, %1033, %989, %986, %974, %2131, %2157, %1732, %1749, %1726, %1696, %1698, %1522, %1532, %524, %518, %532, %530, %526, %412, %433, %407, %409, %384, %386, %351, %353, %334, %335, %310, %312, %171, %3520, %3534, %3480, %._crit_edge3658, %3452, %3466, %3418, %3432, %3384, %3398, %3345, %3356, %3303, %3314, %3261, %3272, %3123, %3139, %2751, %._crit_edge, %2833, %2761, %1705, %970, %910, %937, %625, %637, %559, %598, %586, %182, %185, %202, %198, %3978, %3955, %3930, %3904, %3878, %3855, %3830, %3807, %3782, %3757, %3734, %3709, %3675, %3662, %3660, %3620, %3555, %3546, %3538, %3360, %3190, %3154, %3091, %3076, %3061, %3046, %3031, %3016, %2994, %2695, %2656, %2634, %2615, %2602, %2561, %2548, %2508, %2485, %2463, %2462, %2390, %2379, %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979, %2320, %2261, %2251, %2241, %2240, %2200, %2090, %2058, %2032, %2024, %1986, %1940, %1937, %1879, %1863, %1763, %1757, %1723, %1666, %1659, %1652, %1645, %1615, %1546, %1500, %1470, %1463, %1443, %1432, %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2978, %961, %880, %872, %860, %848, %836, %824, %803, %788, %780, %772, %764, %756, %748, %740, %727, %714, %702, %689, %677, %665, %653, %641, %462, %290, %250, %243, %166, %161, %124, %117, %110, %103, %96, %4
   call void @_ZN4Luau7CodeGen23IrValueLocationTracking17afterInstLoweringERNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(1056) %94, ptr noundef nonnull align 4 dereferenceable(43) %1, i32 noundef %2)
-  %3838 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(325) %3838, ptr noundef nonnull align 4 dereferenceable(43) %1, i32 noundef %2)
-  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6412freeTempRegsEv(ptr noundef nonnull align 8 dereferenceable(325) %3838)
+  %3982 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(325) %3982, ptr noundef nonnull align 4 dereferenceable(43) %1, i32 noundef %2)
+  call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6412freeTempRegsEv(ptr noundef nonnull align 8 dereferenceable(325) %3982)
   ret void
 }
 
@@ -6758,9 +6902,10 @@ define dso_local noundef i32 @_ZNK4Luau7CodeGen3A6413IrLoweringA645intOpENS0_4Ir
   %6 = lshr i32 %1, 4
   %7 = zext nneg i32 %6 to i64
   %8 = load ptr, ptr %5, align 8, !tbaa !65
-  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %8, i64 %7, i32 1
-  %10 = load i32, ptr %9, align 8, !tbaa !43
-  ret i32 %10
+  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %8, i64 %7
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i32, ptr %10, align 8, !tbaa !43
+  ret i32 %11
 }
 
 declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
@@ -6815,9 +6960,10 @@ define dso_local noundef i32 @_ZNK4Luau7CodeGen3A6413IrLoweringA646uintOpENS0_4I
   %6 = lshr i32 %1, 4
   %7 = zext nneg i32 %6 to i64
   %8 = load ptr, ptr %5, align 8, !tbaa !65
-  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %8, i64 %7, i32 1
-  %10 = load i32, ptr %9, align 8, !tbaa !43
-  ret i32 %10
+  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %8, i64 %7
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i32, ptr %10, align 8, !tbaa !43
+  ret i32 %11
 }
 
 declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #1
@@ -6836,9 +6982,10 @@ define dso_local noundef zeroext i8 @_ZNK4Luau7CodeGen3A6413IrLoweringA645tagOpE
   %6 = lshr i32 %1, 4
   %7 = zext nneg i32 %6 to i64
   %8 = load ptr, ptr %5, align 8, !tbaa !65
-  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %8, i64 %7, i32 1
-  %10 = load i8, ptr %9, align 8, !tbaa !43
-  ret i8 %10
+  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %8, i64 %7
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i8, ptr %10, align 8, !tbaa !43
+  ret i8 %11
 }
 
 declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #1
@@ -6851,15 +6998,16 @@ define dso_local noundef double @_ZNK4Luau7CodeGen3A6413IrLoweringA648doubleOpEN
   %6 = lshr i32 %1, 4
   %7 = zext nneg i32 %6 to i64
   %8 = load ptr, ptr %5, align 8, !tbaa !65
-  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %8, i64 %7, i32 1
-  %10 = load double, ptr %9, align 8, !tbaa !43
-  ret double %10
+  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %8, i64 %7
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load double, ptr %10, align 8, !tbaa !43
+  ret double %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = and i32 %1, 15
-  switch i32 %3, label %59 [
+  switch i32 %3, label %60 [
     i32 4, label %4
     i32 2, label %23
   ]
@@ -6892,7 +7040,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(
 _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 39
   %.sroa.06.0.copyload.i = load i8, ptr %22, align 1, !tbaa !43
-  br label %59
+  br label %60
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6901,71 +7049,72 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   %27 = lshr i32 %1, 4
   %28 = zext nneg i32 %27 to i64
   %29 = load ptr, ptr %26, align 8, !tbaa !65
-  %30 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %29, i64 %28, i32 1
-  %31 = load double, ptr %30, align 8, !tbaa !43
-  %32 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isFmovSupportedEd(double noundef %31)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br i1 %32, label %34, label %37
+  %30 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %29, i64 %28
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load double, ptr %31, align 8, !tbaa !43
+  %33 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isFmovSupportedEd(double noundef %32)
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br i1 %33, label %35, label %38
 
-34:                                               ; preds = %23
-  %35 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %33, i8 noundef zeroext 4)
-  %36 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %36, i8 %35, double noundef %31)
-  br label %59
+35:                                               ; preds = %23
+  %36 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %34, i8 noundef zeroext 4)
+  %37 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %37, i8 %36, double noundef %32)
+  br label %60
 
-37:                                               ; preds = %23
-  %38 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %33, i8 noundef zeroext 2)
-  %39 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %33, i8 noundef zeroext 4)
-  %40 = bitcast double %31 to i64
-  %.mask = and i64 %40, 281474976710655
-  %41 = icmp eq i64 %.mask, 0
-  br i1 %41, label %42, label %47
+38:                                               ; preds = %23
+  %39 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %34, i8 noundef zeroext 2)
+  %40 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %34, i8 noundef zeroext 4)
+  %41 = bitcast double %32 to i64
+  %.mask = and i64 %41, 281474976710655
+  %42 = icmp eq i64 %.mask, 0
+  br i1 %42, label %43, label %48
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %0, align 8, !tbaa !63
-  %44 = lshr exact i64 %40, 48
-  %45 = trunc nuw i64 %44 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644movzENS1_11RegisterA64Eti(ptr noundef nonnull align 8 dereferenceable(176) %43, i8 %38, i16 noundef zeroext %45, i32 noundef 48)
-  %46 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %46, i8 %39, i8 %38)
-  br label %59
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %0, align 8, !tbaa !63
+  %45 = lshr exact i64 %41, 48
+  %46 = trunc nuw i64 %45 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644movzENS1_11RegisterA64Eti(ptr noundef nonnull align 8 dereferenceable(176) %44, i8 %39, i16 noundef zeroext %46, i32 noundef 48)
+  %47 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %47, i8 %40, i8 %39)
+  br label %60
 
-47:                                               ; preds = %37
-  %.mask37 = and i64 %40, 4294967295
-  %48 = icmp eq i64 %.mask37, 0
-  %49 = load ptr, ptr %0, align 8, !tbaa !63
-  br i1 %48, label %50, label %57
+48:                                               ; preds = %38
+  %.mask37 = and i64 %41, 4294967295
+  %49 = icmp eq i64 %.mask37, 0
+  %50 = load ptr, ptr %0, align 8, !tbaa !63
+  br i1 %49, label %51, label %58
 
-50:                                               ; preds = %47
-  %51 = lshr i64 %40, 48
-  %52 = trunc nuw i64 %51 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644movzENS1_11RegisterA64Eti(ptr noundef nonnull align 8 dereferenceable(176) %49, i8 %38, i16 noundef zeroext %52, i32 noundef 48)
-  %53 = load ptr, ptr %0, align 8, !tbaa !63
-  %54 = lshr exact i64 %40, 32
-  %55 = trunc i64 %54 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644movkENS1_11RegisterA64Eti(ptr noundef nonnull align 8 dereferenceable(176) %53, i8 %38, i16 noundef zeroext %55, i32 noundef 32)
-  %56 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %56, i8 %39, i8 %38)
-  br label %59
+51:                                               ; preds = %48
+  %52 = lshr i64 %41, 48
+  %53 = trunc nuw i64 %52 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644movzENS1_11RegisterA64Eti(ptr noundef nonnull align 8 dereferenceable(176) %50, i8 %39, i16 noundef zeroext %53, i32 noundef 48)
+  %54 = load ptr, ptr %0, align 8, !tbaa !63
+  %55 = lshr exact i64 %41, 32
+  %56 = trunc i64 %55 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644movkENS1_11RegisterA64Eti(ptr noundef nonnull align 8 dereferenceable(176) %54, i8 %39, i16 noundef zeroext %56, i32 noundef 32)
+  %57 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %57, i8 %40, i8 %39)
+  br label %60
 
-57:                                               ; preds = %47
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %49, i8 %38, double noundef %31)
-  %58 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.2.0.insert.ext = zext i8 %38 to i64
+58:                                               ; preds = %48
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %50, i8 %39, double noundef %32)
+  %59 = load ptr, ptr %0, align 8, !tbaa !63
+  %.sroa.2.0.insert.ext = zext i8 %39 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 8
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 16384001
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %58, i8 %39, i64 %.sroa.0.0.insert.insert)
-  br label %59
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %59, i8 %40, i64 %.sroa.0.0.insert.insert)
+  br label %60
 
-59:                                               ; preds = %2, %34, %50, %57, %42, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit
-  %.sroa.032.0 = phi i8 [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ %35, %34 ], [ %39, %50 ], [ %39, %57 ], [ %39, %42 ], [ 0, %2 ]
+60:                                               ; preds = %2, %35, %51, %58, %43, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit
+  %.sroa.032.0 = phi i8 [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ %36, %35 ], [ %40, %51 ], [ %40, %58 ], [ %40, %43 ], [ 0, %2 ]
   ret i8 %.sroa.032.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = and i32 %1, 15
-  switch i32 %3, label %35 [
+  switch i32 %3, label %36 [
     i32 4, label %4
     i32 2, label %23
   ]
@@ -6998,7 +7147,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr 
 _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 39
   %.sroa.06.0.copyload.i = load i8, ptr %22, align 1, !tbaa !43
-  br label %35
+  br label %36
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7010,12 +7159,13 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   %30 = lshr i32 %1, 4
   %31 = zext nneg i32 %30 to i64
   %32 = load ptr, ptr %29, align 8, !tbaa !65
-  %33 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %32, i64 %31, i32 1
-  %34 = load i32, ptr %33, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %26, i8 %25, i32 noundef %34)
-  br label %35
+  %33 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %32, i64 %31
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load i32, ptr %34, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %26, i8 %25, i32 noundef %35)
+  br label %36
 
-35:                                               ; preds = %2, %23, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit
+36:                                               ; preds = %2, %23, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit
   %.sroa.07.0 = phi i8 [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ %25, %23 ], [ 0, %2 ]
   ret i8 %.sroa.07.0
 }
@@ -7081,7 +7231,7 @@ declare i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(8) %2) local_unnamed_addr #3 align 2 {
   %4 = and i32 %1, 15
-  switch i32 %4, label %44 [
+  switch i32 %4, label %45 [
     i32 1, label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread
     i32 9, label %5
   ]
@@ -7139,25 +7289,27 @@ define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGe
   br i1 %.not.i.i, label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread, label %28, !llvm.loop !168
 
 _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit: ; preds = %28
-  %38 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %27, i64 %.02131.i.i, i32 1
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1440
-  %40 = load i32, ptr %38, align 4, !tbaa !96
-  %41 = zext i32 %40 to i64
-  %42 = load ptr, ptr %39, align 8, !tbaa !47
-  %43 = getelementptr inbounds nuw %"struct.Luau::CodeGen::A64::IrLoweringA64::ExitHandler", ptr %42, i64 %41
+  %38 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %27, i64 %.02131.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1440
+  %41 = load i32, ptr %39, align 4, !tbaa !96
+  %42 = zext i32 %41 to i64
+  %43 = load ptr, ptr %40, align 8, !tbaa !47
+  %44 = getelementptr inbounds nuw %"struct.Luau::CodeGen::A64::IrLoweringA64::ExitHandler", ptr %43, i64 %42
   br label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread
 
-44:                                               ; preds = %3
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !64
-  %47 = lshr i32 %1, 4
-  %48 = zext nneg i32 %47 to i64
-  %49 = load ptr, ptr %46, align 8, !tbaa !71
-  %50 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %49, i64 %48, i32 7
+45:                                               ; preds = %3
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %47 = load ptr, ptr %46, align 8, !tbaa !64
+  %48 = lshr i32 %1, 4
+  %49 = zext nneg i32 %48 to i64
+  %50 = load ptr, ptr %47, align 8, !tbaa !71
+  %51 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %50, i64 %49
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   br label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread
 
-_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread: ; preds = %34, %32, %17, %12, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit, %3, %44, %8
-  %.0 = phi ptr [ %11, %8 ], [ %50, %44 ], [ %2, %3 ], [ %43, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit ], [ %2, %12 ], [ %2, %17 ], [ %2, %32 ], [ %2, %34 ]
+_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread: ; preds = %34, %32, %17, %12, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit, %3, %45, %8
+  %.0 = phi ptr [ %11, %8 ], [ %52, %45 ], [ %2, %3 ], [ %44, %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit ], [ %2, %12 ], [ %2, %17 ], [ %2, %32 ], [ %2, %34 ]
   ret ptr %.0
 }
 
@@ -7300,81 +7452,82 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
 
 _ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEEixERKj.exit: ; preds = %.lr.ph.i, %._crit_edge.i
   %77 = phi i64 [ %.02334.i.lcssa5.i, %._crit_edge.i ], [ %.02334.i7.i, %.lr.ph.i ]
-  %78 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %59, i64 %77, i32 1
-  store i32 %25, ptr %78, align 4, !tbaa !96
-  %79 = load i64, ptr %2, align 4
-  %80 = load ptr, ptr %18, align 8, !tbaa !171
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  %82 = load ptr, ptr %81, align 8, !tbaa !48
-  %.not.i.i12 = icmp eq ptr %80, %82
-  br i1 %.not.i.i12, label %86, label %83
+  %78 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %59, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  store i32 %25, ptr %79, align 4, !tbaa !96
+  %80 = load i64, ptr %2, align 4
+  %81 = load ptr, ptr %18, align 8, !tbaa !171
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1456
+  %83 = load ptr, ptr %82, align 8, !tbaa !48
+  %.not.i.i12 = icmp eq ptr %81, %83
+  br i1 %.not.i.i12, label %87, label %84
 
-83:                                               ; preds = %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEEixERKj.exit
-  store i64 %79, ptr %80, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 8
+84:                                               ; preds = %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEEixERKj.exit
+  store i64 %80, ptr %81, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 %27, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !96
-  %84 = load ptr, ptr %18, align 8, !tbaa !171
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 12
-  store ptr %85, ptr %18, align 8, !tbaa !171
+  %85 = load ptr, ptr %18, align 8, !tbaa !171
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  store ptr %86, ptr %18, align 8, !tbaa !171
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE9push_backEOS4_.exit
 
-86:                                               ; preds = %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEEixERKj.exit
-  %87 = load ptr, ptr %17, align 8, !tbaa !47
-  %88 = ptrtoint ptr %80 to i64
-  %89 = ptrtoint ptr %87 to i64
-  %90 = sub i64 %88, %89
-  %91 = icmp eq i64 %90, 9223372036854775800
-  br i1 %91, label %92, label %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
+87:                                               ; preds = %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEEixERKj.exit
+  %88 = load ptr, ptr %17, align 8, !tbaa !47
+  %89 = ptrtoint ptr %81 to i64
+  %90 = ptrtoint ptr %88 to i64
+  %91 = sub i64 %89, %90
+  %92 = icmp eq i64 %91, 9223372036854775800
+  br i1 %92, label %93, label %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
 
-92:                                               ; preds = %86
+93:                                               ; preds = %87
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #16
   unreachable
 
-_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %86
-  %93 = sdiv exact i64 %90, 12
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %93, i64 1)
-  %94 = add nsw i64 %.sroa.speculated.i.i.i.i, %93
-  %95 = icmp ult i64 %94, %93
-  %96 = tail call i64 @llvm.umin.i64(i64 %94, i64 768614336404564650)
-  %97 = select i1 %95, i64 768614336404564650, i64 %96
-  %.not.i.i.i.i = icmp ne i64 %97, 0
+_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %87
+  %94 = sdiv exact i64 %91, 12
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %94, i64 1)
+  %95 = add nsw i64 %.sroa.speculated.i.i.i.i, %94
+  %96 = icmp ult i64 %95, %94
+  %97 = tail call i64 @llvm.umin.i64(i64 %95, i64 768614336404564650)
+  %98 = select i1 %96, i64 768614336404564650, i64 %97
+  %.not.i.i.i.i = icmp ne i64 %98, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %98 = mul nuw nsw i64 %97, 12
-  %99 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %98) #17
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %90
-  store i64 %79, ptr %100, align 4
-  %.sroa.5.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %99 = mul nuw nsw i64 %98, 12
+  %100 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %99) #17
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %91
+  store i64 %80, ptr %101, align 4
+  %.sroa.5.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 %27, ptr %.sroa.5.0..sroa_idx14, align 4, !tbaa !96
-  %.not10.i.i.i.i.i.i = icmp eq ptr %87, %80
+  %.not10.i.i.i.i.i.i = icmp eq ptr %88, %81
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %102, %.lr.ph.i.i.i.i.i.i ], [ %99, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %101, %.lr.ph.i.i.i.i.i.i ], [ %87, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.012.i.i.i.i.i.i = phi ptr [ %103, %.lr.ph.i.i.i.i.i.i ], [ %100, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %102, %.lr.ph.i.i.i.i.i.i ], [ %88, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !174, !alias.scope !175
-  %101 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 12
-  %102 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 12
-  %.not.i.i.i.i.i.i = icmp eq ptr %101, %80
+  %102 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 12
+  %.not.i.i.i.i.i.i = icmp eq ptr %102, %81
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !179
 
 _ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %99, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %102, %.lr.ph.i.i.i.i.i.i ]
-  %103 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
-  %.not.i23.i.i.i = icmp eq ptr %87, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %104
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %100, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %103, %.lr.ph.i.i.i.i.i.i ]
+  %104 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
+  %.not.i23.i.i.i = icmp eq ptr %88, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %105
 
-104:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %87, i64 noundef %90) #15
+105:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %88, i64 noundef %91) #15
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %104, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
-  store ptr %99, ptr %17, align 8, !tbaa !47
-  store ptr %103, ptr %18, align 8, !tbaa !171
-  %105 = getelementptr inbounds nuw %"struct.Luau::CodeGen::A64::IrLoweringA64::ExitHandler", ptr %99, i64 %97
-  store ptr %105, ptr %81, align 8, !tbaa !48
+_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %105, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
+  store ptr %100, ptr %17, align 8, !tbaa !47
+  store ptr %104, ptr %18, align 8, !tbaa !171
+  %106 = getelementptr inbounds nuw %"struct.Luau::CodeGen::A64::IrLoweringA64::ExitHandler", ptr %100, i64 %98
+  store ptr %106, ptr %82, align 8, !tbaa !48
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE9push_backEOS4_.exit
 
-_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %83, %3, %9, %11, %6
+_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %84, %3, %9, %11, %6
   ret void
 }
 
@@ -7417,8 +7570,9 @@ define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4Luau7CodeG
   %5 = lshr i32 %1, 4
   %6 = zext nneg i32 %5 to i64
   %7 = load ptr, ptr %4, align 8, !tbaa !71
-  %8 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %7, i64 %6, i32 7
-  ret ptr %8
+  %8 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %7, i64 %6
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  ret ptr %9
 }
 
 declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), i8, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
@@ -7823,7 +7977,7 @@ declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11RegisterA64ES3
 ; Function Attrs: mustprogress uwtable
 define dso_local i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = and i32 %1, 15
-  switch i32 %3, label %35 [
+  switch i32 %3, label %36 [
     i32 4, label %4
     i32 2, label %23
   ]
@@ -7856,7 +8010,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr
 _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 39
   %.sroa.06.0.copyload.i = load i8, ptr %22, align 1, !tbaa !43
-  br label %35
+  br label %36
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7868,12 +8022,13 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   %30 = lshr i32 %1, 4
   %31 = zext nneg i32 %30 to i64
   %32 = load ptr, ptr %29, align 8, !tbaa !65
-  %33 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %32, i64 %31, i32 1
-  %34 = load i32, ptr %33, align 8, !tbaa !43
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %26, i8 %25, i32 noundef %34)
-  br label %35
+  %33 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %32, i64 %31
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load i32, ptr %34, align 8, !tbaa !43
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %26, i8 %25, i32 noundef %35)
+  br label %36
 
-35:                                               ; preds = %2, %23, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit
+36:                                               ; preds = %2, %23, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit
   %.sroa.07.0 = phi i8 [ %.sroa.06.0.copyload.i, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit ], [ %25, %23 ], [ 0, %2 ]
   ret i8 %.sroa.07.0
 }
@@ -7963,13 +8118,13 @@ define dso_local range(i64 16384001, -4278190080) i64 @_ZN4Luau7CodeGen3A6413IrL
 
 26:                                               ; preds = %22, %8
   tail call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18AssemblyBuilderA64ERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(325) %9, ptr noundef nonnull align 8 dereferenceable(176) %11, ptr noundef nonnull align 4 dereferenceable(43) %18)
-  %.pre52 = load ptr, ptr %12, align 8, !tbaa !64
-  %.phi.trans.insert53 = getelementptr inbounds nuw i8, ptr %.pre52, i64 24
-  %.pre54 = load ptr, ptr %.phi.trans.insert53, align 8, !tbaa !163
+  %.pre53 = load ptr, ptr %12, align 8, !tbaa !64
+  %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %.pre53, i64 24
+  %.pre55 = load ptr, ptr %.phi.trans.insert54, align 8, !tbaa !163
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit
 
 _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %22, %26
-  %27 = phi ptr [ %17, %22 ], [ %.pre54, %26 ]
+  %27 = phi ptr [ %17, %22 ], [ %.pre55, %26 ]
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 39
   %.sroa.06.0.copyload.i = load i8, ptr %28, align 1, !tbaa !43
   %29 = lshr i32 %2, 4
@@ -8004,129 +8159,132 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40: ; preds = %35, %39
   %46 = lshr i32 %2, 4
   %47 = zext nneg i32 %46 to i64
   %48 = load ptr, ptr %45, align 8, !tbaa !65
-  %49 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %48, i64 %47, i32 1
-  %50 = load i32, ptr %49, align 8, !tbaa !43
-  %51 = add i32 %50, %6
-  %52 = icmp ult i32 %51, 256
-  br i1 %52, label %53, label %70
+  %49 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %48, i64 %47
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !43
+  %52 = add i32 %51, %6
+  %53 = icmp ult i32 %52, 256
+  br i1 %53, label %54, label %71
 
-53:                                               ; preds = %42
-  %54 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %55 = lshr i32 %1, 4
-  %56 = zext nneg i32 %55 to i64
-  %57 = load ptr, ptr %54, align 8, !tbaa !163
-  %58 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %57, i64 %56
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 41
-  %60 = load i8, ptr %59, align 1, !tbaa !164, !range !97, !noundef !98
-  %61 = trunc nuw i8 %60 to i1
-  br i1 %61, label %66, label %62
+54:                                               ; preds = %42
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %56 = lshr i32 %1, 4
+  %57 = zext nneg i32 %56 to i64
+  %58 = load ptr, ptr %55, align 8, !tbaa !163
+  %59 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %58, i64 %57
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 41
+  %61 = load i8, ptr %60, align 1, !tbaa !164, !range !97, !noundef !98
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %67, label %63
 
-62:                                               ; preds = %53
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 42
-  %64 = load i8, ptr %63, align 2, !tbaa !165, !range !97, !noundef !98
-  %65 = trunc nuw i8 %64 to i1
-  br i1 %65, label %66, label %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42
+63:                                               ; preds = %54
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 42
+  %65 = load i8, ptr %64, align 2, !tbaa !165, !range !97, !noundef !98
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %67, label %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42
 
-66:                                               ; preds = %62, %53
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %68 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18AssemblyBuilderA64ERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(325) %67, ptr noundef nonnull align 8 dereferenceable(176) %68, ptr noundef nonnull align 4 dereferenceable(43) %58)
+67:                                               ; preds = %63, %54
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %69 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18AssemblyBuilderA64ERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(325) %68, ptr noundef nonnull align 8 dereferenceable(176) %69, ptr noundef nonnull align 4 dereferenceable(43) %59)
   %.pre48 = load ptr, ptr %43, align 8, !tbaa !64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre48, i64 48
   %.pre49 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !65
-  %.phi.trans.insert50 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %.pre49, i64 %47, i32 1
-  %.pre51 = load i32, ptr %.phi.trans.insert50, align 8, !tbaa !43
-  %.pre55 = add nsw i32 %.pre51, %6
+  %.phi.trans.insert50 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %.pre49, i64 %47
+  %.phi.trans.insert51 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert50, i64 8
+  %.pre52 = load i32, ptr %.phi.trans.insert51, align 8, !tbaa !43
+  %.pre56 = add nsw i32 %.pre52, %6
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42
 
-_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42: ; preds = %62, %66
-  %.pre-phi = phi i32 [ %51, %62 ], [ %.pre55, %66 ]
-  %69 = getelementptr inbounds nuw i8, ptr %58, i64 39
-  %.sroa.06.0.copyload.i41 = load i8, ptr %69, align 1, !tbaa !43
+_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42: ; preds = %63, %67
+  %.pre-phi = phi i32 [ %52, %63 ], [ %.pre56, %67 ]
+  %70 = getelementptr inbounds nuw i8, ptr %59, i64 39
+  %.sroa.06.0.copyload.i41 = load i8, ptr %70, align 1, !tbaa !43
   br label %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit
 
-70:                                               ; preds = %42
-  %71 = icmp slt i32 %50, 0
-  br i1 %71, label %72, label %89
+71:                                               ; preds = %42
+  %72 = icmp slt i32 %51, 0
+  br i1 %72, label %73, label %90
 
-72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %74 = lshr i32 %1, 4
-  %75 = zext nneg i32 %74 to i64
-  %76 = load ptr, ptr %73, align 8, !tbaa !163
-  %77 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %76, i64 %75
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 41
-  %79 = load i8, ptr %78, align 1, !tbaa !164, !range !97, !noundef !98
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %85, label %81
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %75 = lshr i32 %1, 4
+  %76 = zext nneg i32 %75 to i64
+  %77 = load ptr, ptr %74, align 8, !tbaa !163
+  %78 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %77, i64 %76
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 41
+  %80 = load i8, ptr %79, align 1, !tbaa !164, !range !97, !noundef !98
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %86, label %82
 
-81:                                               ; preds = %72
-  %82 = getelementptr inbounds nuw i8, ptr %77, i64 42
-  %83 = load i8, ptr %82, align 2, !tbaa !165, !range !97, !noundef !98
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44
+82:                                               ; preds = %73
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 42
+  %84 = load i8, ptr %83, align 2, !tbaa !165, !range !97, !noundef !98
+  %85 = trunc nuw i8 %84 to i1
+  br i1 %85, label %86, label %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44
 
-85:                                               ; preds = %81, %72
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %87 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18AssemblyBuilderA64ERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(325) %86, ptr noundef nonnull align 8 dereferenceable(176) %87, ptr noundef nonnull align 4 dereferenceable(43) %77)
+86:                                               ; preds = %82, %73
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %88 = load ptr, ptr %0, align 8, !tbaa !63
+  tail call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18AssemblyBuilderA64ERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(325) %87, ptr noundef nonnull align 8 dereferenceable(176) %88, ptr noundef nonnull align 4 dereferenceable(43) %78)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44
 
-_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44: ; preds = %81, %85
-  %88 = getelementptr inbounds nuw i8, ptr %77, i64 39
-  %.sroa.06.0.copyload.i43 = load i8, ptr %88, align 1, !tbaa !43
+_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44: ; preds = %82, %86
+  %89 = getelementptr inbounds nuw i8, ptr %78, i64 39
+  %.sroa.06.0.copyload.i43 = load i8, ptr %89, align 1, !tbaa !43
   br label %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit
 
-89:                                               ; preds = %70
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %91 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %90, i8 noundef zeroext 2)
-  %92 = load ptr, ptr %0, align 8, !tbaa !63
-  %93 = load ptr, ptr %43, align 8, !tbaa !64
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  %95 = lshr i32 %1, 4
-  %96 = zext nneg i32 %95 to i64
-  %97 = load ptr, ptr %94, align 8, !tbaa !163
-  %98 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %97, i64 %96
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 41
-  %100 = load i8, ptr %99, align 1, !tbaa !164, !range !97, !noundef !98
-  %101 = trunc nuw i8 %100 to i1
-  br i1 %101, label %106, label %102
+90:                                               ; preds = %71
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %92 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %91, i8 noundef zeroext 2)
+  %93 = load ptr, ptr %0, align 8, !tbaa !63
+  %94 = load ptr, ptr %43, align 8, !tbaa !64
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %96 = lshr i32 %1, 4
+  %97 = zext nneg i32 %96 to i64
+  %98 = load ptr, ptr %95, align 8, !tbaa !163
+  %99 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %98, i64 %97
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 41
+  %101 = load i8, ptr %100, align 1, !tbaa !164, !range !97, !noundef !98
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %107, label %103
 
-102:                                              ; preds = %89
-  %103 = getelementptr inbounds nuw i8, ptr %98, i64 42
-  %104 = load i8, ptr %103, align 2, !tbaa !165, !range !97, !noundef !98
-  %105 = trunc nuw i8 %104 to i1
-  br i1 %105, label %106, label %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46
+103:                                              ; preds = %90
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 42
+  %105 = load i8, ptr %104, align 2, !tbaa !165, !range !97, !noundef !98
+  %106 = trunc nuw i8 %105 to i1
+  br i1 %106, label %107, label %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46
 
-106:                                              ; preds = %102, %89
-  tail call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18AssemblyBuilderA64ERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(325) %90, ptr noundef nonnull align 8 dereferenceable(176) %92, ptr noundef nonnull align 4 dereferenceable(43) %98)
+107:                                              ; preds = %103, %90
+  tail call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18AssemblyBuilderA64ERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(325) %91, ptr noundef nonnull align 8 dereferenceable(176) %93, ptr noundef nonnull align 4 dereferenceable(43) %99)
   %.pre = load ptr, ptr %43, align 8, !tbaa !64
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46
 
-_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46: ; preds = %102, %106
-  %107 = phi ptr [ %93, %102 ], [ %.pre, %106 ]
-  %108 = getelementptr inbounds nuw i8, ptr %98, i64 39
-  %.sroa.06.0.copyload.i45 = load i8, ptr %108, align 1, !tbaa !43
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 48
-  %110 = load ptr, ptr %109, align 8, !tbaa !65
-  %111 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %110, i64 %47, i32 1
-  %112 = load i32, ptr %111, align 8, !tbaa !43
-  %113 = icmp ult i32 %112, 4096
-  br i1 %113, label %114, label %116
-
-114:                                              ; preds = %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46
-  %115 = trunc nuw nsw i32 %112 to i16
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %92, i8 %91, i8 %.sroa.06.0.copyload.i45, i16 noundef zeroext %115)
-  br label %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit
+_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46: ; preds = %103, %107
+  %108 = phi ptr [ %94, %103 ], [ %.pre, %107 ]
+  %109 = getelementptr inbounds nuw i8, ptr %99, i64 39
+  %.sroa.06.0.copyload.i45 = load i8, ptr %109, align 1, !tbaa !43
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 48
+  %111 = load ptr, ptr %110, align 8, !tbaa !65
+  %112 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %111, i64 %47
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load i32, ptr %113, align 8, !tbaa !43
+  %115 = icmp ult i32 %114, 4096
+  br i1 %115, label %116, label %118
 
 116:                                              ; preds = %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %92, i8 %91, i32 noundef %112)
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %92, i8 %91, i8 %91, i8 %.sroa.06.0.copyload.i45, i32 noundef 0)
+  %117 = trunc nuw nsw i32 %114 to i16
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %93, i8 %92, i8 %.sroa.06.0.copyload.i45, i16 noundef zeroext %117)
   br label %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit
 
-_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit: ; preds = %4, %116, %114, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40
-  %.sroa.1647.0 = phi i32 [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %.pre-phi, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %6, %114 ], [ %6, %116 ], [ 0, %4 ]
-  %.sroa.6.0 = phi i8 [ %10, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %.sroa.06.0.copyload.i41, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %.sroa.06.0.copyload.i43, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %91, %114 ], [ %91, %116 ], [ 0, %4 ]
+118:                                              ; preds = %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %93, i8 %92, i32 noundef %114)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176) %93, i8 %92, i8 %92, i8 %.sroa.06.0.copyload.i45, i32 noundef 0)
+  br label %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit
+
+_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit: ; preds = %4, %118, %116, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40
+  %.sroa.1647.0 = phi i32 [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %.pre-phi, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %6, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %6, %116 ], [ %6, %118 ], [ 0, %4 ]
+  %.sroa.6.0 = phi i8 [ %10, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit40 ], [ %.sroa.06.0.copyload.i41, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit42 ], [ %.sroa.06.0.copyload.i43, %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit44 ], [ %92, %116 ], [ %92, %118 ], [ 0, %4 ]
   %.sroa.1647.0.insert.ext = zext i32 %.sroa.1647.0 to i64
   %.sroa.1647.0.insert.shift = shl nuw i64 %.sroa.1647.0.insert.ext, 32
   %.sroa.6.0.insert.ext = zext i8 %.sroa.6.0 to i64

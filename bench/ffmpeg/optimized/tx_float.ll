@@ -9176,7 +9176,7 @@ define internal void @ff_tx_dctIII_float_c(ptr noundef readonly captures(none) %
   %37 = fmul nsz float %21, %36
   %38 = tail call nsz float @llvm.fmuladd.f32(float %35, float %26, float %37)
   store float %38, ptr %20, align 4, !tbaa !27
-  %39 = icmp sgt i64 %indvars.iv, 5
+  %39 = icmp samesign ugt i64 %indvars.iv, 5
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !154
 
 ._crit_edge71:                                    ; preds = %.lr.ph70, %._crit_edge

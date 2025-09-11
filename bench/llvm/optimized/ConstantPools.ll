@@ -772,10 +772,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionEjNS_12DenseMapInfoIS3_vEENS_6
   %.sink11.in.i = select i1 %31, ptr %35, ptr %34
   %.sink11.i = load i32, ptr %.sink11.in.i, align 8, !tbaa !59
   %36 = zext i32 %.sink11.i to i64
-  %37 = load i32, ptr %35, align 8, !tbaa !3
-  %38 = icmp eq i32 %.sink11.i, %37
-  %39 = getelementptr inbounds nuw %"struct.std::pair.168", ptr %33, i64 %36, i32 1
-  %.0 = select i1 %38, ptr null, ptr %39
+  %37 = getelementptr inbounds nuw %"struct.std::pair.168", ptr %33, i64 %36
+  %38 = load i32, ptr %35, align 8, !tbaa !3
+  %39 = icmp eq i32 %.sink11.i, %38
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %.0 = select i1 %39, ptr null, ptr %40
   ret ptr %.0
 }
 
@@ -916,10 +917,11 @@ _ZN4llvm12ConstantPoolD2Ev.exit:                  ; preds = %_ZNSt4pairIPN4llvm9
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = zext i32 %65 to i64
   %68 = load ptr, ptr %66, align 8, !tbaa !11
-  %69 = getelementptr inbounds nuw %"struct.std::pair.168", ptr %68, i64 %67, i32 1
+  %69 = getelementptr inbounds nuw %"struct.std::pair.168", ptr %68, i64 %67
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %69
+  ret ptr %70
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1074,17 +1076,18 @@ _ZN4llvm22AssemblerConstantPools15getConstantPoolEPNS_9MCSectionE.exit: ; preds 
   %.sink11.i.i = load i32, ptr %.sink11.in.i.i, align 8, !tbaa !59
   %38 = load i32, ptr %37, align 8, !tbaa !3
   %39 = icmp eq i32 %.sink11.i.i, %38
-  br i1 %39, label %45, label %40
+  br i1 %39, label %46, label %40
 
 40:                                               ; preds = %_ZN4llvm22AssemblerConstantPools15getConstantPoolEPNS_9MCSectionE.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !11
   %43 = zext i32 %.sink11.i.i to i64
-  %44 = getelementptr inbounds nuw %"struct.std::pair.168", ptr %42, i64 %43, i32 1
-  tail call fastcc void @_ZL16emitConstantPoolRN4llvm10MCStreamerEPNS_9MCSectionERNS_12ConstantPoolE(ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(216) %44)
-  br label %45
+  %44 = getelementptr inbounds nuw %"struct.std::pair.168", ptr %42, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  tail call fastcc void @_ZL16emitConstantPoolRN4llvm10MCStreamerEPNS_9MCSectionERNS_12ConstantPoolE(ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(216) %45)
+  br label %46
 
-45:                                               ; preds = %40, %_ZN4llvm22AssemblerConstantPools15getConstantPoolEPNS_9MCSectionE.exit
+46:                                               ; preds = %40, %_ZN4llvm22AssemblerConstantPools15getConstantPoolEPNS_9MCSectionE.exit
   ret void
 }
 
@@ -1148,29 +1151,29 @@ _ZN4llvm22AssemblerConstantPools15getConstantPoolEPNS_9MCSectionE.exit: ; preds 
   %.sink11.in.i.i = select i1 %35, ptr %39, ptr %38
   %.sink11.i.i = load i32, ptr %.sink11.in.i.i, align 8, !tbaa !59
   %40 = zext i32 %.sink11.i.i to i64
-  %41 = load i32, ptr %39, align 8, !tbaa !3
-  %42 = icmp eq i32 %.sink11.i.i, %41
-  %43 = getelementptr inbounds nuw %"struct.std::pair.168", ptr %37, i64 %40, i32 1
-  br i1 %42, label %_ZN4llvm12ConstantPool10clearCacheEv.exit, label %44
+  %41 = getelementptr inbounds nuw %"struct.std::pair.168", ptr %37, i64 %40
+  %42 = load i32, ptr %39, align 8, !tbaa !3
+  %43 = icmp eq i32 %.sink11.i.i, %42
+  br i1 %43, label %_ZN4llvm12ConstantPool10clearCacheEv.exit, label %44
 
 44:                                               ; preds = %_ZN4llvm22AssemblerConstantPools15getConstantPoolEPNS_9MCSectionE.exit
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 144
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 160
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 152
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 168
   %47 = load ptr, ptr %46, align 8, !tbaa !27
   tail call void @_ZNSt8_Rb_treeISt4pairIljES0_IKS1_PKN4llvm15MCSymbolRefExprEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef %47)
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 152
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 160
   store ptr null, ptr %46, align 8, !tbaa !27
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 168
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 176
   store ptr %48, ptr %49, align 8, !tbaa !66
-  %50 = getelementptr inbounds nuw i8, ptr %43, i64 176
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 184
   store ptr %48, ptr %50, align 8, !tbaa !67
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 184
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 192
   store i64 0, ptr %51, align 8, !tbaa !58
-  %52 = getelementptr inbounds nuw i8, ptr %43, i64 192
-  %53 = getelementptr inbounds nuw i8, ptr %43, i64 200
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 200
+  %53 = getelementptr inbounds nuw i8, ptr %41, i64 208
   %54 = load i32, ptr %53, align 8, !tbaa !62
   %55 = icmp eq i32 %54, 0
-  %56 = getelementptr inbounds nuw i8, ptr %43, i64 204
+  %56 = getelementptr inbounds nuw i8, ptr %41, i64 212
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 0
   %or.cond.i = select i1 %55, i1 %58, i1 false
@@ -1178,7 +1181,7 @@ _ZN4llvm22AssemblerConstantPools15getConstantPoolEPNS_9MCSectionE.exit: ; preds 
 
 59:                                               ; preds = %44
   %60 = shl i32 %54, 2
-  %61 = getelementptr inbounds nuw i8, ptr %43, i64 208
+  %61 = getelementptr inbounds nuw i8, ptr %41, i64 216
   %62 = load i32, ptr %61, align 8, !tbaa !46
   %63 = icmp ult i32 %60, %62
   %64 = icmp ugt i32 %62, 64

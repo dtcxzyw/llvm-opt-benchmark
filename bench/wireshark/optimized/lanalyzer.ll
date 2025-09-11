@@ -452,7 +452,7 @@ define internal fastcc zeroext i1 @lanalyzer_read_trace_record(ptr noundef reado
   %38 = shl nuw nsw i32 %37, 8
   %39 = zext i8 %.val61 to i32
   %40 = or disjoint i32 %38, %39
-  %41 = icmp slt i32 %34, %40
+  %41 = icmp samesign ult i32 %34, %40
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %33

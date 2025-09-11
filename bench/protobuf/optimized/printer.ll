@@ -5173,13 +5173,14 @@ if.then.i.i.i:                                    ; preds = %for.body
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairImmEEENS1_10StringHashENS1_8StringEqESaISA_IKS9_SB_EEEixIS9_SC_EEDTclsrT0_5valueclL_ZSt9addressofISG_EPT_RSM_EclL_ZSt7declvalIRSG_EDTcl9__declvalISM_ELi0EEEvEEEEERKSM_.exit: ; preds = %for.body, %if.then.i.i.i
   %11 = load ptr, ptr %slots_.i.i.i.i.i.i, align 8, !noalias !206
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.259", ptr %11, i64 %8, i32 0, i32 1
+  %add.ptr3.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.259", ptr %11, i64 %8
+  %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i, i64 32
   %12 = load i64, ptr %indent_.i, align 8
   %13 = load i64, ptr %second.i.i, align 8
   %add = add i64 %13, %12
   store i64 %add, ptr %second.i.i, align 8
   %14 = load i64, ptr %indent_.i, align 8
-  %second = getelementptr inbounds nuw i8, ptr %second.i.i, i64 8
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i, i64 40
   %15 = load i64, ptr %second, align 8
   %add15 = add i64 %15, %14
   store i64 %add15, ptr %second, align 8

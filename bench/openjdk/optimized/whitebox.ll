@@ -68,6 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.constantPoolHandle = type { ptr, ptr }
 %class.StackFrameStream = type <{ %class.frame, %class.RegisterMap, i8, [7 x i8] }>
 %class.JavaThreadIteratorWithHandle = type { [8 x i8], %class.ThreadsListHandle, i32, [4 x i8] }
+%class.ImmutableOopMapPair = type { i32, i32 }
 %"struct.G1RegionMarkStatsCache::G1RegionMarkStatsCacheEntry" = type { i32, %struct.G1RegionMarkStats }
 %struct.G1RegionMarkStats = type { i64 }
 %class.G1TaskQueueEntry = type { ptr }
@@ -29419,61 +29420,62 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %37, %41, %45
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %61, label %54
+  br i1 %53, label %62, label %54
 
 54:                                               ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %3 to i64
-  %58 = getelementptr %class.ResolvedFieldEntry, ptr %56, i64 %57, i32 8, i64 2
-  %59 = load i16, ptr %58, align 2
-  %60 = zext i16 %59 to i32
-  br label %61
+  %58 = getelementptr %class.ResolvedFieldEntry, ptr %56, i64 %57
+  %59 = getelementptr i8, ptr %58, i64 22
+  %60 = load i16, ptr %59, align 2
+  %61 = zext i16 %60 to i32
+  br label %62
 
-61:                                               ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit, %54
-  %.0 = phi i32 [ %60, %54 ], [ -1, %_ZN10JNIHandles7resolveEP8_jobject.exit ]
-  %62 = getelementptr inbounds nuw i8, ptr %8, i64 1312
-  store ptr null, ptr %62, align 8
-  %63 = load ptr, ptr %27, align 8
-  %.not.i12 = icmp eq ptr %63, null
-  br i1 %.not.i12, label %_ZN25WeakPreserveExceptionMarkD2Ev.exit, label %64
+62:                                               ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit, %54
+  %.0 = phi i32 [ %61, %54 ], [ -1, %_ZN10JNIHandles7resolveEP8_jobject.exit ]
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 1312
+  store ptr null, ptr %63, align 8
+  %64 = load ptr, ptr %27, align 8
+  %.not.i12 = icmp eq ptr %64, null
+  br i1 %.not.i12, label %_ZN25WeakPreserveExceptionMarkD2Ev.exit, label %65
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   call void @_ZN25WeakPreserveExceptionMark7restoreEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   br label %_ZN25WeakPreserveExceptionMarkD2Ev.exit
 
-_ZN25WeakPreserveExceptionMarkD2Ev.exit:          ; preds = %61, %64
-  %65 = getelementptr inbounds nuw i8, ptr %8, i64 408
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %68 = load ptr, ptr %67, align 8
+_ZN25WeakPreserveExceptionMarkD2Ev.exit:          ; preds = %62, %65
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 408
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  %.not.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %70
+  %70 = load ptr, ptr %69, align 8
+  %.not.i.i = icmp eq ptr %70, null
+  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %71
 
-70:                                               ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit
-  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %66) #15
-  %.pre.i.i = load ptr, ptr %67, align 8
+71:                                               ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit
+  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %67) #15
+  %.pre.i.i = load ptr, ptr %68, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit, %70
-  %71 = phi ptr [ %68, %_ZN25WeakPreserveExceptionMarkD2Ev.exit ], [ %.pre.i.i, %70 ]
-  %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store ptr %71, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %72, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  store ptr %76, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %72, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  store ptr %80, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %8, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %83) #15
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit, %71
+  %72 = phi ptr [ %69, %_ZN25WeakPreserveExceptionMarkD2Ev.exit ], [ %.pre.i.i, %71 ]
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  store ptr %72, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %73, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  store ptr %77, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %73, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
+  store ptr %81, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 928
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %84) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   store volatile i32 4, ptr %16, align 4
   ret i32 %.0
@@ -44086,17 +44088,16 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   br i1 %.not11.i.i, label %_ZNK5frame7oop_mapEv.exit, label %_ZNK5frame7oop_mapEv.exit.thread23
 
 _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %46 = lshr i32 %44, 21
-  %47 = and i32 %46, 2040
-  %.idx.i.i.i.i = zext nneg i32 %47 to i64
-  %48 = getelementptr i8, ptr %45, i64 %.idx.i.i.i.i
-  %49 = getelementptr i8, ptr %48, i64 4
+  %45 = lshr i32 %44, 24
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %47 = zext nneg i32 %45 to i64
+  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 3
-  %54 = getelementptr inbounds i8, ptr %45, i64 %53
+  %54 = getelementptr inbounds i8, ptr %46, i64 %53
   %55 = sext i32 %50 to i64
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
   store ptr %56, ptr %28, align 8

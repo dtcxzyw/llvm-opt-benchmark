@@ -369,7 +369,8 @@ for.body23.i.preheader:                           ; preds = %while.body.i.i.i26.
 
 for.body23.i:                                     ; preds = %for.body23.i.preheader, %for.body23.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body23.i ], [ 0, %for.body23.i.preheader ]
-  %mValue.i = getelementptr inbounds nuw %"struct.eastl::ListNode", ptr %buffer119.i, i64 %indvars.iv.i, i32 1
+  %arrayidx.i = getelementptr inbounds nuw %"struct.eastl::ListNode", ptr %buffer119.i, i64 %indvars.iv.i
+  %mValue.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   store i32 -1163005939, ptr %mValue.i, align 8
   %call28.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i6, ptr noundef nonnull @.str, i32 noundef 139, ptr noundef nonnull @.str.6)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -501,7 +502,8 @@ lpad35.loopexit.split-lp.loopexit.split-lp.i:     ; preds = %for.end31.i
 
 for.body49.i:                                     ; preds = %for.inc42.i, %for.inc56.i
   %indvars.iv264.i = phi i64 [ %indvars.iv.next265.i, %for.inc56.i ], [ 0, %for.inc42.i ]
-  %mValue52.i = getelementptr inbounds nuw %"struct.eastl::ListNode", ptr %buffer119.i, i64 %indvars.iv264.i, i32 1
+  %arrayidx51.i = getelementptr inbounds nuw %"struct.eastl::ListNode", ptr %buffer119.i, i64 %indvars.iv264.i
+  %mValue52.i = getelementptr inbounds nuw i8, ptr %arrayidx51.i, i64 16
   %52 = load i32, ptr %mValue52.i, align 8
   %cmp53.i = icmp eq i32 %52, 305419913
   %call55.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp53.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i6, ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.7)

@@ -3507,7 +3507,7 @@ bytestream2_get_be16.exit141.i:                   ; preds = %1565, %1566
   %1583 = add nsw i32 %.8155.i, 2
   %spec.select121.i = select i1 %.not112.i, i32 %1581, i32 0
   %spec.select122.i = select i1 %.not112.i, i32 %.8155.i, i32 %1583
-  %1584 = icmp sgt i32 %.3156.i, 1
+  %1584 = icmp samesign ugt i32 %.3156.i, 1
   %1585 = icmp slt i32 %spec.select122.i, %1426
   %1586 = select i1 %1584, i1 %1585, i1 false
   br i1 %1586, label %1575, label %.loopexit.i978, !llvm.loop !109
@@ -6914,9 +6914,7 @@ define internal fastcc void @decode_rgb8(ptr noundef nonnull captures(none) %0, 
   %12 = icmp sgt i32 %11, 3
   br i1 %12, label %.lr.ph61, label %.critedge
 
-.loopexit:                                        ; preds = %66, %55
-  %.227.lcssa = phi i32 [ %.02559, %55 ], [ %.328, %66 ]
-  %.2.lcssa = phi i32 [ %.02260, %55 ], [ %.3, %66 ]
+.loopexit:                                        ; preds = %66
   %13 = ptrtoint ptr %56 to i64
   %14 = sub i64 %8, %13
   %15 = trunc i64 %14 to i32
@@ -6925,8 +6923,8 @@ define internal fastcc void @decode_rgb8(ptr noundef nonnull captures(none) %0, 
 
 .lr.ph61:                                         ; preds = %5, %.loopexit
   %17 = phi i64 [ %14, %.loopexit ], [ %10, %5 ]
-  %.02260 = phi i32 [ %.2.lcssa, %.loopexit ], [ 0, %5 ]
-  %.02559 = phi i32 [ %.227.lcssa, %.loopexit ], [ 0, %5 ]
+  %.02260 = phi i32 [ %.3, %.loopexit ], [ 0, %5 ]
+  %.02559 = phi i32 [ %.328, %.loopexit ], [ 0, %5 ]
   %18 = phi ptr [ %56, %.loopexit ], [ %.promoted, %5 ]
   %19 = icmp slt i64 %17, 3
   br i1 %19, label %bytestream2_get_be24.exit, label %20
@@ -6965,7 +6963,7 @@ bytestream2_get_byte.exit:                        ; preds = %bytestream2_get_be2
   %40 = and i8 %39, 127
   %41 = zext nneg i8 %40 to i32
   %.not = icmp eq i8 %40, 0
-  br i1 %.not, label %bytestream2_get_byte.exit._crit_edge, label %55
+  br i1 %.not, label %bytestream2_get_byte.exit._crit_edge, label %.lr.ph.preheader
 
 bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byte.exit
   %.pre64 = ptrtoint ptr %38 to i64
@@ -6984,7 +6982,7 @@ bytestream2_get_byte.exit41:                      ; preds = %bytestream2_get_byt
   %46 = load i8, ptr %42, align 1, !tbaa !30
   %47 = zext i8 %46 to i32
   %.not36 = icmp eq i8 %46, 0
-  br i1 %.not36, label %bytestream2_get_byte.exit41._crit_edge, label %55
+  br i1 %.not36, label %bytestream2_get_byte.exit41._crit_edge, label %.lr.ph.preheader
 
 bytestream2_get_byte.exit41._crit_edge:           ; preds = %bytestream2_get_byte.exit41
   %.pre66 = ptrtoint ptr %45 to i64
@@ -7005,21 +7003,23 @@ bytestream2_get_be16.exit:                        ; preds = %bytestream2_get_byt
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store ptr %51, ptr %0, align 8, !tbaa !40
   %52 = load i16, ptr %48, align 1, !tbaa !30
-  %53 = tail call i16 @llvm.bswap.i16(i16 %52)
-  %54 = zext i16 %53 to i32
   %.not37 = icmp eq i16 %52, 0
-  br i1 %.not37, label %.critedge, label %55
+  br i1 %.not37, label %.critedge, label %53
 
-55:                                               ; preds = %bytestream2_get_byte.exit41, %bytestream2_get_be16.exit, %bytestream2_get_byte.exit
-  %56 = phi ptr [ %38, %bytestream2_get_byte.exit ], [ %45, %bytestream2_get_byte.exit41 ], [ %51, %bytestream2_get_be16.exit ]
-  %.023 = phi i32 [ %41, %bytestream2_get_byte.exit ], [ %47, %bytestream2_get_byte.exit41 ], [ %54, %bytestream2_get_be16.exit ]
-  %.not62 = icmp eq i32 %.023, 0
-  br i1 %.not62, label %.loopexit, label %.lr.ph
+53:                                               ; preds = %bytestream2_get_be16.exit
+  %54 = tail call i16 @llvm.bswap.i16(i16 %52)
+  %55 = zext i16 %54 to i32
+  br label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %55, %66
-  %.257 = phi i32 [ %.3, %66 ], [ %.02260, %55 ]
-  %.02456 = phi i32 [ %67, %66 ], [ 0, %55 ]
-  %.22755 = phi i32 [ %.328, %66 ], [ %.02559, %55 ]
+.lr.ph.preheader:                                 ; preds = %53, %bytestream2_get_byte.exit41, %bytestream2_get_byte.exit
+  %.02372 = phi i32 [ %55, %53 ], [ %47, %bytestream2_get_byte.exit41 ], [ %41, %bytestream2_get_byte.exit ]
+  %56 = phi ptr [ %51, %53 ], [ %45, %bytestream2_get_byte.exit41 ], [ %38, %bytestream2_get_byte.exit ]
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %66
+  %.257 = phi i32 [ %.3, %66 ], [ %.02260, %.lr.ph.preheader ]
+  %.02456 = phi i32 [ %67, %66 ], [ 0, %.lr.ph.preheader ]
+  %.22755 = phi i32 [ %.328, %66 ], [ %.02559, %.lr.ph.preheader ]
   %57 = mul nsw i32 %.22755, %4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %1, i64 %58
@@ -7040,7 +7040,7 @@ bytestream2_get_be16.exit:                        ; preds = %bytestream2_get_byt
   %.328 = phi i32 [ %.22755, %.lr.ph ], [ %65, %64 ]
   %.3 = phi i32 [ %63, %.lr.ph ], [ 0, %64 ]
   %67 = add nuw nsw i32 %.02456, 1
-  %exitcond.not = icmp eq i32 %67, %.023
+  %exitcond.not = icmp eq i32 %67, %.02372
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !165
 
 .critedge:                                        ; preds = %.loopexit, %bytestream2_get_be16.exit, %64, %5, %bytestream2_get_be16.exit.thread
@@ -7059,9 +7059,7 @@ define internal fastcc void @decode_rgbn(ptr noundef nonnull captures(none) %0, 
   %12 = icmp sgt i32 %11, 1
   br i1 %12, label %.lr.ph57, label %.critedge
 
-.loopexit:                                        ; preds = %49, %38
-  %.228.lcssa = phi i32 [ %.02655, %38 ], [ %.329, %49 ]
-  %.2.lcssa = phi i32 [ %.02556, %38 ], [ %.3, %49 ]
+.loopexit:                                        ; preds = %49
   %13 = ptrtoint ptr %39 to i64
   %14 = sub i64 %8, %13
   %15 = trunc i64 %14 to i32
@@ -7069,8 +7067,8 @@ define internal fastcc void @decode_rgbn(ptr noundef nonnull captures(none) %0, 
   br i1 %16, label %.lr.ph57, label %.critedge, !llvm.loop !166
 
 .lr.ph57:                                         ; preds = %5, %.loopexit
-  %.02556 = phi i32 [ %.2.lcssa, %.loopexit ], [ 0, %5 ]
-  %.02655 = phi i32 [ %.228.lcssa, %.loopexit ], [ 0, %5 ]
+  %.02556 = phi i32 [ %.3, %.loopexit ], [ 0, %5 ]
+  %.02655 = phi i32 [ %.329, %.loopexit ], [ 0, %5 ]
   %17 = phi ptr [ %39, %.loopexit ], [ %.promoted, %5 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store ptr %18, ptr %0, align 8, !tbaa !40
@@ -7080,7 +7078,7 @@ define internal fastcc void @decode_rgbn(ptr noundef nonnull captures(none) %0, 
   %22 = zext nneg i16 %21 to i32
   %23 = lshr i16 %20, 4
   %.not = icmp eq i16 %21, 0
-  br i1 %.not, label %24, label %38
+  br i1 %.not, label %24, label %.lr.ph.preheader
 
 24:                                               ; preds = %.lr.ph57
   %25 = ptrtoint ptr %18 to i64
@@ -7094,7 +7092,7 @@ bytestream2_get_byte.exit:                        ; preds = %24
   %29 = load i8, ptr %18, align 1, !tbaa !30
   %30 = zext i8 %29 to i32
   %.not37 = icmp eq i8 %29, 0
-  br i1 %.not37, label %bytestream2_get_byte.exit._crit_edge, label %38
+  br i1 %.not37, label %bytestream2_get_byte.exit._crit_edge, label %.lr.ph.preheader
 
 bytestream2_get_byte.exit._crit_edge:             ; preds = %bytestream2_get_byte.exit
   %.pre = ptrtoint ptr %28 to i64
@@ -7115,21 +7113,23 @@ bytestream2_get_be16.exit:                        ; preds = %bytestream2_get_byt
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 2
   store ptr %34, ptr %0, align 8, !tbaa !40
   %35 = load i16, ptr %31, align 1, !tbaa !30
-  %36 = tail call i16 @llvm.bswap.i16(i16 %35)
-  %37 = zext i16 %36 to i32
   %.not38 = icmp eq i16 %35, 0
-  br i1 %.not38, label %.critedge, label %38
+  br i1 %.not38, label %.critedge, label %36
 
-38:                                               ; preds = %bytestream2_get_byte.exit, %bytestream2_get_be16.exit, %.lr.ph57
-  %39 = phi ptr [ %18, %.lr.ph57 ], [ %28, %bytestream2_get_byte.exit ], [ %34, %bytestream2_get_be16.exit ]
-  %.023 = phi i32 [ %22, %.lr.ph57 ], [ %30, %bytestream2_get_byte.exit ], [ %37, %bytestream2_get_be16.exit ]
-  %.not58 = icmp eq i32 %.023, 0
-  br i1 %.not58, label %.loopexit, label %.lr.ph
+36:                                               ; preds = %bytestream2_get_be16.exit
+  %37 = tail call i16 @llvm.bswap.i16(i16 %35)
+  %38 = zext i16 %37 to i32
+  br label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %38, %49
-  %.02453 = phi i32 [ %50, %49 ], [ 0, %38 ]
-  %.252 = phi i32 [ %.3, %49 ], [ %.02556, %38 ]
-  %.22851 = phi i32 [ %.329, %49 ], [ %.02655, %38 ]
+.lr.ph.preheader:                                 ; preds = %36, %bytestream2_get_byte.exit, %.lr.ph57
+  %.02364 = phi i32 [ %38, %36 ], [ %30, %bytestream2_get_byte.exit ], [ %22, %.lr.ph57 ]
+  %39 = phi ptr [ %34, %36 ], [ %28, %bytestream2_get_byte.exit ], [ %18, %.lr.ph57 ]
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
+  %.02453 = phi i32 [ %50, %49 ], [ 0, %.lr.ph.preheader ]
+  %.252 = phi i32 [ %.3, %49 ], [ %.02556, %.lr.ph.preheader ]
+  %.22851 = phi i32 [ %.329, %49 ], [ %.02655, %.lr.ph.preheader ]
   %40 = mul nsw i32 %.252, %4
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %1, i64 %41
@@ -7150,7 +7150,7 @@ bytestream2_get_be16.exit:                        ; preds = %bytestream2_get_byt
   %.329 = phi i32 [ %46, %.lr.ph ], [ 0, %47 ]
   %.3 = phi i32 [ %.252, %.lr.ph ], [ %48, %47 ]
   %50 = add nuw nsw i32 %.02453, 1
-  %exitcond.not = icmp eq i32 %50, %.023
+  %exitcond.not = icmp eq i32 %50, %.02364
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !167
 
 .critedge:                                        ; preds = %.loopexit, %bytestream2_get_be16.exit, %47, %5, %bytestream2_get_be16.exit.thread

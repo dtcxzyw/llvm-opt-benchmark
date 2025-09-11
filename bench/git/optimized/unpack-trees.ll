@@ -5738,7 +5738,7 @@ define internal fastcc ptr @super_prefixed(ptr noundef %0, ptr noundef %1) unnam
 
 .thread:                                          ; preds = %5
   store i32 0, ptr @super_prefixed.super_prefix_len, align 4, !tbaa !4
-  br label %33
+  br label %34
 
 .preheader:                                       ; preds = %5
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
@@ -5753,7 +5753,7 @@ define internal fastcc ptr @super_prefixed(ptr noundef %0, ptr noundef %1) unnam
 10:                                               ; preds = %.preheader, %2
   %11 = phi i32 [ %9, %.preheader ], [ %3, %2 ]
   %.not10 = icmp eq i32 %11, 0
-  br i1 %.not10, label %33, label %12
+  br i1 %.not10, label %34, label %12
 
 12:                                               ; preds = %10
   %13 = load i32, ptr @super_prefixed.idx, align 4, !tbaa !4
@@ -5791,12 +5791,13 @@ strbuf_setlen.exit:                               ; preds = %22, %26
   tail call void @strbuf_add(ptr noundef nonnull %17, ptr noundef nonnull %0, i64 noundef %28) #17
   %29 = load i32, ptr @super_prefixed.idx, align 4, !tbaa !4
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %struct.strbuf, ptr @super_prefixed.buf, i64 %30, i32 2
-  %32 = load ptr, ptr %31, align 8, !tbaa !76
-  br label %33
+  %31 = getelementptr inbounds nuw %struct.strbuf, ptr @super_prefixed.buf, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  br label %34
 
-33:                                               ; preds = %.thread, %10, %strbuf_setlen.exit
-  %.07 = phi ptr [ %32, %strbuf_setlen.exit ], [ %0, %10 ], [ %0, %.thread ]
+34:                                               ; preds = %.thread, %10, %strbuf_setlen.exit
+  %.07 = phi ptr [ %33, %strbuf_setlen.exit ], [ %0, %10 ], [ %0, %.thread ]
   ret ptr %.07
 }
 

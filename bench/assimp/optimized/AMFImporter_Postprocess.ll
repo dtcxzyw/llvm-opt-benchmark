@@ -2548,7 +2548,7 @@ _ZN10aiMetadata5AllocEj.exit:                     ; preds = %17, %41
 
 46:                                               ; preds = %.lr.ph, %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
   %.020 = phi i64 [ 0, %.lr.ph ], [ %49, %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit ]
-  %.sroa.014.019 = phi ptr [ %43, %.lr.ph ], [ %93, %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit ]
+  %.sroa.014.019 = phi ptr [ %43, %.lr.ph ], [ %92, %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit ]
   %47 = load ptr, ptr %.sroa.014.019, align 8
   %48 = load ptr, ptr %10, align 8
   %49 = add i64 %.020, 1
@@ -2607,7 +2607,7 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; 
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not24.i = icmp eq ptr %82, null
-  br i1 %.not24.i, label %.thread.i, label %83
+  br i1 %.not24.i, label %.thread29.i, label %83
 
 83:                                               ; preds = %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %84 = load i32, ptr %80, align 8
@@ -2626,7 +2626,7 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; 
   store i8 0, ptr %88, align 1
   br label %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
 
-.thread.i:                                        ; preds = %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
+.thread29.i:                                      ; preds = %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %89 = tail call noalias noundef nonnull dereferenceable(1028) ptr @_Znwm(i64 noundef 1028) #32
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %90, i8 0, i64 1024, i1 false)
@@ -2634,14 +2634,13 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %90, ptr nonnull align 4 %45, i64 %58, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 %58
   store i8 0, ptr %91, align 1
-  %92 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %79, i64 %66, i32 1
-  store ptr %89, ptr %92, align 8
+  store ptr %89, ptr %81, align 8
   br label %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
 
-_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; preds = %46, %61, %85, %86, %.thread.i
+_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; preds = %46, %61, %85, %86, %.thread29.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.014.019, i64 8
-  %.not17 = icmp eq ptr %93, %44
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.014.019, i64 8
+  %.not17 = icmp eq ptr %92, %44
   br i1 %.not17, label %.loopexit, label %46
 
 .loopexit:                                        ; preds = %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, %_ZN10aiMetadata5AllocEj.exit, %3

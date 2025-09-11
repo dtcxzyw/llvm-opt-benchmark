@@ -554,7 +554,7 @@ define void @dgtsv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %282 = fdiv double %279, %281
   store double %282, ptr %gep607, align 8, !tbaa !7
   %indvars.iv.next557 = add nsw i64 %indvars.iv556, -1
-  %283 = icmp sgt i64 %indvars.iv556, 1
+  %283 = icmp samesign ugt i64 %indvars.iv556, 1
   br i1 %283, label %262, label %._crit_edge517, !llvm.loop !16
 
 ._crit_edge517:                                   ; preds = %262, %248, %253
@@ -631,7 +631,7 @@ define void @dgtsv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %328 = fdiv double %325, %327
   store double %328, ptr %gep601, align 8, !tbaa !7
   %indvars.iv.next549 = add nsw i64 %indvars.iv548, -1
-  %329 = icmp sgt i64 %indvars.iv548, 1
+  %329 = icmp samesign ugt i64 %indvars.iv548, 1
   br i1 %329, label %308, label %._crit_edge512, !llvm.loop !17
 
 ._crit_edge512:                                   ; preds = %308, %294, %299

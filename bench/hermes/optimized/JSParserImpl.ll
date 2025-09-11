@@ -28362,6 +28362,7 @@ if.then8:                                         ; preds = %if.then12.i.i.i, %i
 
 if.else:                                          ; preds = %if.end13.i.i.i, %if.end.i.i.i
   %15 = phi i64 [ %idx.ext20.i.i.i, %if.end.i.i.i ], [ %idx.ext.i.i.i, %if.end13.i.i.i ]
+  %16 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %6, i64 %15
   %sourceRange_.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %retval.sroa.0.0.copyload.i = load ptr, ptr %sourceRange_.i, align 8
   %retval.sroa.2.0.sourceRange_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -28369,25 +28370,25 @@ if.else:                                          ; preds = %if.end13.i.i.i, %if
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str.255, ptr %ref.tmp12, align 8
   store i8 3, ptr %LHSKind.i, align 8
-  %16 = load ptr, ptr %sm_.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %16, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp12, i32 noundef 2) #16
   %17 = load ptr, ptr %sm_.i, align 8
-  %second15 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %6, i64 %15, i32 0, i32 1
-  %18 = load ptr, ptr %second15, align 8
-  %sourceRange_.i3 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %17, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp12, i32 noundef 2) #16
+  %18 = load ptr, ptr %sm_.i, align 8
+  %second15 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = load ptr, ptr %second15, align 8
+  %sourceRange_.i3 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %retval.sroa.0.0.copyload.i4 = load ptr, ptr %sourceRange_.i3, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %retval.sroa.2.0.copyload.i6 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i5, align 8
   store i8 1, ptr %RHSKind.i10, align 1
   store ptr @.str.256, ptr %ref.tmp17, align 8
   store i8 3, ptr %LHSKind.i9, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %17, i32 noundef 3, ptr %retval.sroa.0.0.copyload.i4, ptr %retval.sroa.2.0.copyload.i6, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17, i32 noundef 0) #16
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %18, i32 noundef 3, ptr %retval.sroa.0.0.copyload.i4, ptr %retval.sroa.2.0.copyload.i6, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17, i32 noundef 0) #16
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else, %if.then8
-  %19 = load ptr, ptr %tok_.i, align 8
-  %20 = load i32, ptr %19, align 8
-  switch i32 %20, label %_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit.i [
+  %20 = load ptr, ptr %tok_.i, align 8
+  %21 = load i32, ptr %20, align 8
+  switch i32 %21, label %_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit.i [
     i32 61, label %_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE.exit
     i32 51, label %if.then.i14
   ]
@@ -28395,8 +28396,8 @@ if.end18:                                         ; preds = %if.else, %if.then8
 _ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE.exit: ; preds = %if.end18
   %call2.i.i = call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 0) #16
   store ptr %call2.i.i, ptr %tok_.i, align 8
-  %21 = load i32, ptr %call2.i.i, align 8
-  %cmp.i = icmp eq i32 %21, 51
+  %22 = load i32, ptr %call2.i.i, align 8
+  %cmp.i = icmp eq i32 %22, 51
   br i1 %cmp.i, label %if.then.i14, label %while.body, !llvm.loop !54
 
 _ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit.i: ; preds = %if.end18
@@ -28413,8 +28414,8 @@ if.then.i14:                                      ; preds = %_ZN6hermes6parser6d
 
 cleanup:                                          ; preds = %while.body, %if.then.i14, %_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit.i
   %retval.0 = phi i1 [ false, %_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE.exit.i ], [ true, %if.then.i14 ], [ false, %while.body ]
-  %22 = load ptr, ptr %boundNames, align 8
-  call void @_ZdlPv(ptr noundef %22) #16
+  %23 = load ptr, ptr %boundNames, align 8
+  call void @_ZdlPv(ptr noundef %23) #16
   ret i1 %retval.0
 }
 

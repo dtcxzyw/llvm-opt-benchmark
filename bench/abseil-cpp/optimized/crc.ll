@@ -124,7 +124,7 @@ define dso_local void @_ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j(
   %39 = sext i32 %.04556 to i64
   %40 = getelementptr inbounds i32, ptr %6, i64 %39
   %41 = or disjoint i32 %.04556, 1
-  %42 = zext i32 %41 to i64
+  %42 = zext nneg i32 %41 to i64
   %43 = zext i32 %38 to i64
   br label %44
 
@@ -330,7 +330,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit.preheader: ; preds
   %22 = sext i32 %.04556.i to i64
   %23 = getelementptr inbounds i32, ptr %1, i64 %22
   %24 = or disjoint i32 %.04556.i, 1
-  %25 = zext i32 %24 to i64
+  %25 = zext nneg i32 %24 to i64
   %26 = zext i32 %21 to i64
   br label %27
 
@@ -436,7 +436,7 @@ _ZN4absl12crc_internal7CRCImpl13FillWordTableEjjiPA256_j.exit62.preheader: ; pre
   %67 = sext i32 %.04556.i49 to i64
   %68 = getelementptr inbounds i32, ptr %34, i64 %67
   %69 = or disjoint i32 %.04556.i49, 1
-  %70 = zext i32 %69 to i64
+  %70 = zext nneg i32 %69 to i64
   %71 = zext i32 %66 to i64
   br label %72
 
@@ -613,7 +613,7 @@ _ZN4absl12crc_internal7CRCImpl15FillZeroesTableEjPA256_j.exit: ; preds = %96
   %137 = sext i32 %.04556.i77 to i64
   %138 = getelementptr inbounds i32, ptr %117, i64 %137
   %139 = or disjoint i32 %.04556.i77, 1
-  %140 = zext i32 %139 to i64
+  %140 = zext nneg i32 %139 to i64
   %141 = zext i32 %136 to i64
   br label %142
 

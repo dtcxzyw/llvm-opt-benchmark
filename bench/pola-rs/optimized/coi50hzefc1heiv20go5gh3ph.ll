@@ -31007,8 +31007,8 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$polars_io..cloud..options..C
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   switch i64 %3, label %default.unreachable [
     i64 0, label %31
-    i64 1, label %46
-    i64 2, label %61
+    i64 1, label %48
+    i64 2, label %65
     i64 3, label %9
   ]
 
@@ -31093,142 +31093,148 @@ default.unreachable:                              ; preds = %5
   br label %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit.i.i.i.i.i"
 
 "_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit.i.i.i.i.i": ; preds = %33, %31
-  %.sroa.0.0.i.i.i3.i.i = phi i64 [ 0, %31 ], [ %34, %33 ]
+  %.sroa.0.0.i.i.i3.i.i = phi i64 [ 0, %31 ], [ %35, %33 ]
   %32 = icmp eq i64 %.sroa.0.0.i.i.i3.i.i, %.val1.i2.i.i
   br i1 %32, label %"_ZN4core3ptr59drop_in_place$LT$polars_io..cloud..options..CloudConfig$GT$17h753ad7e76bb74a8cE.exit.i", label %33
 
 33:                                               ; preds = %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit.i.i.i.i.i"
-  %34 = add i64 %.sroa.0.0.i.i.i3.i.i, 1
-  %35 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i1.i.i, i64 %.sroa.0.0.i.i.i3.i.i, i32 2
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit.i.i.i.i.i" unwind label %37, !noalias !4983
+  %34 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i1.i.i, i64 %.sroa.0.0.i.i.i3.i.i
+  %35 = add i64 %.sroa.0.0.i.i.i3.i.i, 1
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %36, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit.i.i.i.i.i" unwind label %38, !noalias !4983
 
-"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit7.i.i.i.i.i": ; preds = %39, %37
-  %.sroa.0.1.i.i.i4.i.i = phi i64 [ %34, %37 ], [ %40, %39 ]
-  %36 = icmp eq i64 %.sroa.0.1.i.i.i4.i.i, %.val1.i2.i.i
-  br i1 %36, label %.body.i5.i.i, label %39
+"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit7.i.i.i.i.i": ; preds = %40, %38
+  %.sroa.0.1.i.i.i4.i.i = phi i64 [ %35, %38 ], [ %42, %40 ]
+  %37 = icmp eq i64 %.sroa.0.1.i.i.i4.i.i, %.val1.i2.i.i
+  br i1 %37, label %.body.i5.i.i, label %40
 
-37:                                               ; preds = %33
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %33
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit7.i.i.i.i.i"
 
-39:                                               ; preds = %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit7.i.i.i.i.i"
-  %40 = add i64 %.sroa.0.1.i.i.i4.i.i, 1
-  %41 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i1.i.i, i64 %.sroa.0.1.i.i.i4.i.i, i32 2
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit7.i.i.i.i.i" unwind label %42, !noalias !4983
+40:                                               ; preds = %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit7.i.i.i.i.i"
+  %41 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i1.i.i, i64 %.sroa.0.1.i.i.i4.i.i
+  %42 = add i64 %.sroa.0.1.i.i.i4.i.i, 1
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %43, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit7.i.i.i.i.i" unwind label %44, !noalias !4983
 
-42:                                               ; preds = %39
-  %43 = landingpad { ptr, i32 }
+44:                                               ; preds = %40
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24, !noalias !4983
   unreachable
 
 .body.i5.i.i:                                     ; preds = %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit7.i.i.i.i.i"
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 8, i64 noundef 32)
-          to label %.body unwind label %44
+          to label %.body unwind label %46
 
-44:                                               ; preds = %.body.i5.i.i
-  %45 = landingpad { ptr, i32 }
+46:                                               ; preds = %.body.i5.i.i
+  %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24
   unreachable
 
-46:                                               ; preds = %5
+48:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4984)
   %.val.i6.i.i = load ptr, ptr %7, align 8, !alias.scope !4987, !nonnull !3, !noundef !3
   %.val1.i7.i.i = load i64, ptr %8, align 8, !alias.scope !4987, !noundef !3
   br label %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i"
 
-"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i": ; preds = %48, %46
-  %.sroa.0.0.i.i.i8.i.i = phi i64 [ 0, %46 ], [ %49, %48 ]
-  %47 = icmp eq i64 %.sroa.0.0.i.i.i8.i.i, %.val1.i7.i.i
-  br i1 %47, label %"_ZN4core3ptr59drop_in_place$LT$polars_io..cloud..options..CloudConfig$GT$17h753ad7e76bb74a8cE.exit.i", label %48
+"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i": ; preds = %50, %48
+  %.sroa.0.0.i.i.i8.i.i = phi i64 [ 0, %48 ], [ %52, %50 ]
+  %49 = icmp eq i64 %.sroa.0.0.i.i.i8.i.i, %.val1.i7.i.i
+  br i1 %49, label %"_ZN4core3ptr59drop_in_place$LT$polars_io..cloud..options..CloudConfig$GT$17h753ad7e76bb74a8cE.exit.i", label %50
 
-48:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i"
-  %49 = add i64 %.sroa.0.0.i.i.i8.i.i, 1
-  %50 = getelementptr inbounds nuw { i8, [7 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i6.i.i, i64 %.sroa.0.0.i.i.i8.i.i, i32 2
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i" unwind label %52, !noalias !4987
+50:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i"
+  %51 = getelementptr inbounds nuw { i8, [7 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i6.i.i, i64 %.sroa.0.0.i.i.i8.i.i
+  %52 = add i64 %.sroa.0.0.i.i.i8.i.i, 1
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i" unwind label %55, !noalias !4987
 
-"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit7.i.i.i.i.i": ; preds = %54, %52
-  %.sroa.0.1.i.i.i9.i.i = phi i64 [ %49, %52 ], [ %55, %54 ]
-  %51 = icmp eq i64 %.sroa.0.1.i.i.i9.i.i, %.val1.i7.i.i
-  br i1 %51, label %.body.i10.i.i, label %54
+"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit7.i.i.i.i.i": ; preds = %57, %55
+  %.sroa.0.1.i.i.i9.i.i = phi i64 [ %52, %55 ], [ %59, %57 ]
+  %54 = icmp eq i64 %.sroa.0.1.i.i.i9.i.i, %.val1.i7.i.i
+  br i1 %54, label %.body.i10.i.i, label %57
 
-52:                                               ; preds = %48
-  %53 = landingpad { ptr, i32 }
+55:                                               ; preds = %50
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit7.i.i.i.i.i"
 
-54:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit7.i.i.i.i.i"
-  %55 = add i64 %.sroa.0.1.i.i.i9.i.i, 1
-  %56 = getelementptr inbounds nuw { i8, [7 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i6.i.i, i64 %.sroa.0.1.i.i.i9.i.i, i32 2
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit7.i.i.i.i.i" unwind label %57, !noalias !4987
+57:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit7.i.i.i.i.i"
+  %58 = getelementptr inbounds nuw { i8, [7 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i6.i.i, i64 %.sroa.0.1.i.i.i9.i.i
+  %59 = add i64 %.sroa.0.1.i.i.i9.i.i, 1
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit7.i.i.i.i.i" unwind label %61, !noalias !4987
 
-57:                                               ; preds = %54
-  %58 = landingpad { ptr, i32 }
+61:                                               ; preds = %57
+  %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24, !noalias !4987
   unreachable
 
 .body.i10.i.i:                                    ; preds = %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit7.i.i.i.i.i"
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 8, i64 noundef 32)
-          to label %.body unwind label %59
+          to label %.body unwind label %63
 
-59:                                               ; preds = %.body.i10.i.i
-  %60 = landingpad { ptr, i32 }
+63:                                               ; preds = %.body.i10.i.i
+  %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24
   unreachable
 
-61:                                               ; preds = %5
+65:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4988)
   %.val.i11.i.i = load ptr, ptr %7, align 8, !alias.scope !4991, !nonnull !3, !noundef !3
   %.val1.i12.i.i = load i64, ptr %8, align 8, !alias.scope !4991, !noundef !3
   br label %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i"
 
-"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i": ; preds = %63, %61
-  %.sroa.0.0.i.i.i13.i.i = phi i64 [ 0, %61 ], [ %64, %63 ]
-  %62 = icmp eq i64 %.sroa.0.0.i.i.i13.i.i, %.val1.i12.i.i
-  br i1 %62, label %"_ZN4core3ptr59drop_in_place$LT$polars_io..cloud..options..CloudConfig$GT$17h753ad7e76bb74a8cE.exit.i", label %63
+"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i": ; preds = %67, %65
+  %.sroa.0.0.i.i.i13.i.i = phi i64 [ 0, %65 ], [ %69, %67 ]
+  %66 = icmp eq i64 %.sroa.0.0.i.i.i13.i.i, %.val1.i12.i.i
+  br i1 %66, label %"_ZN4core3ptr59drop_in_place$LT$polars_io..cloud..options..CloudConfig$GT$17h753ad7e76bb74a8cE.exit.i", label %67
 
-63:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i"
-  %64 = add i64 %.sroa.0.0.i.i.i13.i.i, 1
-  %65 = getelementptr inbounds nuw { i8, [7 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i11.i.i, i64 %.sroa.0.0.i.i.i13.i.i, i32 2
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %65, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i" unwind label %67, !noalias !4991
+67:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i"
+  %68 = getelementptr inbounds nuw { i8, [7 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i11.i.i, i64 %.sroa.0.0.i.i.i13.i.i
+  %69 = add i64 %.sroa.0.0.i.i.i13.i.i, 1
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %70, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i" unwind label %72, !noalias !4991
 
-"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit7.i.i.i.i.i": ; preds = %69, %67
-  %.sroa.0.1.i.i.i14.i.i = phi i64 [ %64, %67 ], [ %70, %69 ]
-  %66 = icmp eq i64 %.sroa.0.1.i.i.i14.i.i, %.val1.i12.i.i
-  br i1 %66, label %.body.i15.i.i, label %69
+"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit7.i.i.i.i.i": ; preds = %74, %72
+  %.sroa.0.1.i.i.i14.i.i = phi i64 [ %69, %72 ], [ %76, %74 ]
+  %71 = icmp eq i64 %.sroa.0.1.i.i.i14.i.i, %.val1.i12.i.i
+  br i1 %71, label %.body.i15.i.i, label %74
 
-67:                                               ; preds = %63
-  %68 = landingpad { ptr, i32 }
+72:                                               ; preds = %67
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit7.i.i.i.i.i"
 
-69:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit7.i.i.i.i.i"
-  %70 = add i64 %.sroa.0.1.i.i.i14.i.i, 1
-  %71 = getelementptr inbounds nuw { i8, [7 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i11.i.i, i64 %.sroa.0.1.i.i.i14.i.i, i32 2
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %71, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit7.i.i.i.i.i" unwind label %72, !noalias !4991
+74:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit7.i.i.i.i.i"
+  %75 = getelementptr inbounds nuw { i8, [7 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i11.i.i, i64 %.sroa.0.1.i.i.i14.i.i
+  %76 = add i64 %.sroa.0.1.i.i.i14.i.i, 1
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %77, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit7.i.i.i.i.i" unwind label %78, !noalias !4991
 
-72:                                               ; preds = %69
-  %73 = landingpad { ptr, i32 }
+78:                                               ; preds = %74
+  %79 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24, !noalias !4991
   unreachable
 
 .body.i15.i.i:                                    ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit7.i.i.i.i.i"
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 8, i64 noundef 32)
-          to label %.body unwind label %74
+          to label %.body unwind label %80
 
-74:                                               ; preds = %.body.i15.i.i
-  %75 = landingpad { ptr, i32 }
+80:                                               ; preds = %.body.i15.i.i
+  %81 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24
   unreachable
@@ -31236,82 +31242,82 @@ default.unreachable:                              ; preds = %5
 "_ZN4core3ptr59drop_in_place$LT$polars_io..cloud..options..CloudConfig$GT$17h753ad7e76bb74a8cE.exit.i": ; preds = %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17hc197f99bd4987434E.exit.i.i.i.i.i", %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i", %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i", %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit.i.i.i.i.i"
   %.sink.i.i = phi i64 [ 32, %"_ZN4core3ptr98drop_in_place$LT$$LP$object_store..aws..builder..AmazonS3ConfigKey$C$alloc..string..String$RP$$GT$17h6c47f29a55161d48E.exit.i.i.i.i.i" ], [ 32, %"_ZN4core3ptr97drop_in_place$LT$$LP$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$RP$$GT$17hb71698ffdb05e78cE.exit.i.i.i.i.i" ], [ 32, %"_ZN4core3ptr96drop_in_place$LT$$LP$object_store..gcp..builder..GoogleConfigKey$C$alloc..string..String$RP$$GT$17h215f7c6188488b6dE.exit.i.i.i.i.i" ], [ 48, %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17hc197f99bd4987434E.exit.i.i.i.i.i" ]
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf4a68ddf744c208cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 8, i64 noundef %.sink.i.i)
-          to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudConfig$GT$$GT$17ha8cbb65fe92df7e4E.exit" unwind label %76
+          to label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudConfig$GT$$GT$17ha8cbb65fe92df7e4E.exit" unwind label %82
 
-76:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$polars_io..cloud..options..CloudConfig$GT$17h753ad7e76bb74a8cE.exit.i"
-  %77 = landingpad { ptr, i32 }
+82:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$polars_io..cloud..options..CloudConfig$GT$17h753ad7e76bb74a8cE.exit.i"
+  %83 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.body.i.i.i, %.body.i5.i.i, %.body.i10.i.i, %.body.i15.i.i, %76
-  %eh.lpad-body = phi { ptr, i32 } [ %77, %76 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i ], [ %38, %.body.i5.i.i ], [ %53, %.body.i10.i.i ], [ %68, %.body.i15.i.i ]
+.body:                                            ; preds = %.body.i.i.i, %.body.i5.i.i, %.body.i10.i.i, %.body.i15.i.i, %82
+  %eh.lpad-body = phi { ptr, i32 } [ %83, %82 ], [ %eh.lpad-body.i.i.i.i.i, %.body.i.i.i ], [ %39, %.body.i5.i.i ], [ %56, %.body.i10.i.i ], [ %73, %.body.i15.i.i ]
   invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E"(ptr noalias noundef align 8 dereferenceable(24) %0) #26
-          to label %102 unwind label %100
+          to label %108 unwind label %106
 
 "_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudConfig$GT$$GT$17ha8cbb65fe92df7e4E.exit": ; preds = %1, %"_ZN4core3ptr59drop_in_place$LT$polars_io..cloud..options..CloudConfig$GT$17h753ad7e76bb74a8cE.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4992)
-  %78 = load i64, ptr %0, align 8, !range !342, !alias.scope !4992, !noundef !3
-  %79 = icmp eq i64 %78, 2
-  br i1 %79, label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit", label %80
+  %84 = load i64, ptr %0, align 8, !range !342, !alias.scope !4992, !noundef !3
+  %85 = icmp eq i64 %84, 2
+  br i1 %85, label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit", label %86
 
-80:                                               ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudConfig$GT$$GT$17ha8cbb65fe92df7e4E.exit"
+86:                                               ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudConfig$GT$$GT$17ha8cbb65fe92df7e4E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4995)
-  %81 = icmp eq i64 %78, 0
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %81, label %83, label %88
+  %87 = icmp eq i64 %84, 0
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %87, label %89, label %94
 
-83:                                               ; preds = %80
+89:                                               ; preds = %86
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4998)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5001)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5004)
-  %84 = load ptr, ptr %82, align 8, !alias.scope !5007, !nonnull !3, !noundef !3
-  %85 = atomicrmw sub ptr %84, i64 1 release, align 8, !noalias !5007
-  %86 = icmp eq i64 %85, 1
-  br i1 %86, label %87, label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit"
+  %90 = load ptr, ptr %88, align 8, !alias.scope !5007, !nonnull !3, !noundef !3
+  %91 = atomicrmw sub ptr %90, i64 1 release, align 8, !noalias !5007
+  %92 = icmp eq i64 %91, 1
+  br i1 %92, label %93, label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit"
 
-87:                                               ; preds = %83
+93:                                               ; preds = %89
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha9a473fb225668c3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %82)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha9a473fb225668c3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %88)
   br label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit"
 
-88:                                               ; preds = %80
+94:                                               ; preds = %86
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5008)
-  %89 = load i64, ptr %82, align 8, !range !7, !alias.scope !5011, !noundef !3
-  %90 = icmp eq i64 %89, 0
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %90, label %92, label %96
+  %95 = load i64, ptr %88, align 8, !range !7, !alias.scope !5011, !noundef !3
+  %96 = icmp eq i64 %95, 0
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %96, label %98, label %102
 
-92:                                               ; preds = %88
+98:                                               ; preds = %94
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5012)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5015)
-  %93 = load ptr, ptr %91, align 8, !alias.scope !5018, !nonnull !3, !noundef !3
-  %94 = atomicrmw sub ptr %93, i64 1 release, align 8, !noalias !5018
-  %95 = icmp eq i64 %94, 1
-  br i1 %95, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$polars_utils..python_function..PythonObject$GT$$GT$17h45cf0c7cac8f4666E.exit.sink.split.i.i.i", label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit"
+  %99 = load ptr, ptr %97, align 8, !alias.scope !5018, !nonnull !3, !noundef !3
+  %100 = atomicrmw sub ptr %99, i64 1 release, align 8, !noalias !5018
+  %101 = icmp eq i64 %100, 1
+  br i1 %101, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$polars_utils..python_function..PythonObject$GT$$GT$17h45cf0c7cac8f4666E.exit.sink.split.i.i.i", label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit"
 
-96:                                               ; preds = %88
+102:                                              ; preds = %94
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5019)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5022)
-  %97 = load ptr, ptr %91, align 8, !alias.scope !5025, !nonnull !3, !noundef !3
-  %98 = atomicrmw sub ptr %97, i64 1 release, align 8, !noalias !5025
-  %99 = icmp eq i64 %98, 1
-  br i1 %99, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$polars_utils..python_function..PythonObject$GT$$GT$17h45cf0c7cac8f4666E.exit.sink.split.i.i.i", label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit"
+  %103 = load ptr, ptr %97, align 8, !alias.scope !5025, !nonnull !3, !noundef !3
+  %104 = atomicrmw sub ptr %103, i64 1 release, align 8, !noalias !5025
+  %105 = icmp eq i64 %104, 1
+  br i1 %105, label %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$polars_utils..python_function..PythonObject$GT$$GT$17h45cf0c7cac8f4666E.exit.sink.split.i.i.i", label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit"
 
-"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$polars_utils..python_function..PythonObject$GT$$GT$17h45cf0c7cac8f4666E.exit.sink.split.i.i.i": ; preds = %96, %92
+"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$polars_utils..python_function..PythonObject$GT$$GT$17h45cf0c7cac8f4666E.exit.sink.split.i.i.i": ; preds = %102, %98
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbbd4add1f54c1e79E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %91)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hbbd4add1f54c1e79E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %97)
   br label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit"
 
-"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit": ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudConfig$GT$$GT$17ha8cbb65fe92df7e4E.exit", %83, %87, %92, %96, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$polars_utils..python_function..PythonObject$GT$$GT$17h45cf0c7cac8f4666E.exit.sink.split.i.i.i"
+"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$$GT$17h2317843ad1bd8868E.exit": ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudConfig$GT$$GT$17ha8cbb65fe92df7e4E.exit", %89, %93, %98, %102, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$polars_utils..python_function..PythonObject$GT$$GT$17h45cf0c7cac8f4666E.exit.sink.split.i.i.i"
   ret void
 
-100:                                              ; preds = %.body
-  %101 = landingpad { ptr, i32 }
+106:                                              ; preds = %.body
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #24
   unreachable
 
-102:                                              ; preds = %.body
+108:                                              ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

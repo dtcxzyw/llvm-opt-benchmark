@@ -2215,7 +2215,8 @@ if.then.i.i.i:                                    ; preds = %call.i.i.i51.noexc
 invoke.cont67:                                    ; preds = %.noexc, %call.i.i.i51.noexc
   %slots_.i.i.i3.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %slots_.i.i.i3.i.i.i, align 8, !noalias !15
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %29, i64 %26, i32 0, i32 1
+  %add.ptr3.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %29, i64 %26
+  %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i, i64 32
   %call69 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #23

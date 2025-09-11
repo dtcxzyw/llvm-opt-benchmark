@@ -8532,7 +8532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef ptr @_ZN7glslang16HlslParseContext14lookupUserTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489) %86, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(152) %1) #16
   %.not = icmp eq ptr %87, null
-  br i1 %.not, label %88, label %269
+  br i1 %.not, label %88, label %272
 
 88:                                               ; preds = %84, %81
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -8542,7 +8542,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 344
   %94 = load ptr, ptr %93, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %94(ptr noundef nonnull align 8 dereferenceable(1280) %90, ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1) #16
-  br label %269
+  br label %272
 
 95:                                               ; preds = %64
   %96 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
@@ -8564,7 +8564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 344
   %107 = load ptr, ptr %106, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %107(ptr noundef nonnull align 8 dereferenceable(1280) %103, ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull @.str, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.1) #16
-  br label %269
+  br label %272
 
 108:                                              ; preds = %95
   %109 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 360) #16
@@ -8577,7 +8577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 344
   %115 = load ptr, ptr %114, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %115(ptr noundef nonnull align 8 dereferenceable(1280) %111, ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1) #16
-  br label %269
+  br label %272
 
 116:                                              ; preds = %108
   br i1 %15, label %117, label %155
@@ -8697,136 +8697,139 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 336
   br label %190
 
-190:                                              ; preds = %.lr.ph, %208
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %208 ]
-  %191 = phi ptr [ %182, %.lr.ph ], [ %210, %208 ]
-  %192 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %191, i64 %indvars.iv, i32 1
-  %193 = load ptr, ptr %192, align 8
+190:                                              ; preds = %.lr.ph, %210
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %210 ]
+  %191 = phi ptr [ %182, %.lr.ph ], [ %212, %210 ]
+  %192 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %191, i64 %indvars.iv
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 264
-  %196 = load ptr, ptr %195, align 8
-  %197 = call noundef zeroext i1 %196(ptr noundef nonnull align 8 dereferenceable(340) %193) #16
-  br i1 %197, label %198, label %208
+  %195 = load ptr, ptr %194, align 8
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 264
+  %197 = load ptr, ptr %196, align 8
+  %198 = call noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(340) %194) #16
+  br i1 %198, label %199, label %210
 
-198:                                              ; preds = %190
-  %199 = load ptr, ptr %97, align 8
-  %200 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %199, i64 %indvars.iv, i32 1
-  %201 = load ptr, ptr %200, align 8
-  %202 = load ptr, ptr %189, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 752
-  %204 = load ptr, ptr %203, align 8
-  %205 = load ptr, ptr %201, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 184
-  %207 = load ptr, ptr %206, align 8
-  call void %207(ptr noundef nonnull align 8 dereferenceable(340) %201, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %204) #16
-  br label %208
+199:                                              ; preds = %190
+  %200 = load ptr, ptr %97, align 8
+  %201 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %200, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
+  %203 = load ptr, ptr %202, align 8
+  %204 = load ptr, ptr %189, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 752
+  %206 = load ptr, ptr %205, align 8
+  %207 = load ptr, ptr %203, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 184
+  %209 = load ptr, ptr %208, align 8
+  call void %209(ptr noundef nonnull align 8 dereferenceable(340) %203, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %206) #16
+  br label %210
 
-208:                                              ; preds = %190, %198
+210:                                              ; preds = %190, %199
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %209 = load ptr, ptr %180, align 8
-  %210 = load ptr, ptr %97, align 8
-  %211 = ptrtoint ptr %209 to i64
-  %212 = ptrtoint ptr %210 to i64
-  %213 = sub i64 %211, %212
-  %214 = sdiv exact i64 %213, 72
-  %sext = shl i64 %214, 32
-  %215 = ashr exact i64 %sext, 32
-  %216 = icmp slt i64 %indvars.iv.next, %215
-  br i1 %216, label %190, label %._crit_edge, !llvm.loop !50
+  %211 = load ptr, ptr %180, align 8
+  %212 = load ptr, ptr %97, align 8
+  %213 = ptrtoint ptr %211 to i64
+  %214 = ptrtoint ptr %212 to i64
+  %215 = sub i64 %213, %214
+  %216 = sdiv exact i64 %215, 72
+  %sext = shl i64 %216, 32
+  %217 = ashr exact i64 %sext, 32
+  %218 = icmp slt i64 %indvars.iv.next, %217
+  br i1 %218, label %190, label %._crit_edge, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %208, %174
-  %217 = load ptr, ptr %98, align 8
-  call void @_ZN7glslang16HlslParseContext13pushNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(2489) %217, ptr noundef nonnull align 8 dereferenceable(40) %4) #16
-  %218 = load ptr, ptr %98, align 8
-  call void @_ZN7glslang16HlslParseContext13pushThisScopeERKNS_5TTypeERKNS_7TVectorINS_19TFunctionDeclaratorEEE(ptr noundef nonnull align 8 dereferenceable(2489) %218, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %7) #16
-  %219 = load ptr, ptr %180, align 8
-  %220 = load ptr, ptr %97, align 8
-  %221 = ptrtoint ptr %219 to i64
-  %222 = ptrtoint ptr %220 to i64
-  %223 = sub i64 %221, %222
-  %224 = sdiv exact i64 %223, 72
-  %225 = trunc i64 %224 to i32
-  %226 = icmp sgt i32 %225, 0
-  br i1 %226, label %.lr.ph41, label %._crit_edge42
+._crit_edge:                                      ; preds = %210, %174
+  %219 = load ptr, ptr %98, align 8
+  call void @_ZN7glslang16HlslParseContext13pushNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(2489) %219, ptr noundef nonnull align 8 dereferenceable(40) %4) #16
+  %220 = load ptr, ptr %98, align 8
+  call void @_ZN7glslang16HlslParseContext13pushThisScopeERKNS_5TTypeERKNS_7TVectorINS_19TFunctionDeclaratorEEE(ptr noundef nonnull align 8 dereferenceable(2489) %220, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %7) #16
+  %221 = load ptr, ptr %180, align 8
+  %222 = load ptr, ptr %97, align 8
+  %223 = ptrtoint ptr %221 to i64
+  %224 = ptrtoint ptr %222 to i64
+  %225 = sub i64 %223, %224
+  %226 = sdiv exact i64 %225, 72
+  %227 = trunc i64 %226 to i32
+  %228 = icmp sgt i32 %227, 0
+  br i1 %228, label %.lr.ph41, label %._crit_edge42
 
 .lr.ph41:                                         ; preds = %._crit_edge, %.lr.ph41
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.lr.ph41 ], [ 0, %._crit_edge ]
-  %227 = phi ptr [ %234, %.lr.ph41 ], [ %220, %._crit_edge ]
-  %228 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %227, i64 %indvars.iv44, i32 3
-  %229 = load ptr, ptr %228, align 8
-  call void @_ZN7glslang15HlslTokenStream15pushTokenStreamEPKNS_7TVectorINS_9HlslTokenEEE(ptr noundef nonnull align 8 dereferenceable(324) %0, ptr noundef %229) #16
-  %230 = load ptr, ptr %97, align 8
-  %231 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %230, i64 %indvars.iv44
-  %232 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar18acceptFunctionBodyERNS_19TFunctionDeclaratorERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(72) %231, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %229 = phi ptr [ %237, %.lr.ph41 ], [ %222, %._crit_edge ]
+  %230 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %229, i64 %indvars.iv44
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 64
+  %232 = load ptr, ptr %231, align 8
+  call void @_ZN7glslang15HlslTokenStream15pushTokenStreamEPKNS_7TVectorINS_9HlslTokenEEE(ptr noundef nonnull align 8 dereferenceable(324) %0, ptr noundef %232) #16
+  %233 = load ptr, ptr %97, align 8
+  %234 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %233, i64 %indvars.iv44
+  %235 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar18acceptFunctionBodyERNS_19TFunctionDeclaratorERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(72) %234, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @_ZN7glslang15HlslTokenStream14popTokenStreamEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %233 = load ptr, ptr %180, align 8
-  %234 = load ptr, ptr %97, align 8
-  %235 = ptrtoint ptr %233 to i64
-  %236 = ptrtoint ptr %234 to i64
-  %237 = sub i64 %235, %236
-  %238 = sdiv exact i64 %237, 72
-  %sext51 = shl i64 %238, 32
-  %239 = ashr exact i64 %sext51, 32
-  %240 = icmp slt i64 %indvars.iv.next45, %239
-  %241 = and i1 %240, %232
-  br i1 %241, label %.lr.ph41, label %._crit_edge42, !llvm.loop !51
+  %236 = load ptr, ptr %180, align 8
+  %237 = load ptr, ptr %97, align 8
+  %238 = ptrtoint ptr %236 to i64
+  %239 = ptrtoint ptr %237 to i64
+  %240 = sub i64 %238, %239
+  %241 = sdiv exact i64 %240, 72
+  %sext51 = shl i64 %241, 32
+  %242 = ashr exact i64 %sext51, 32
+  %243 = icmp slt i64 %indvars.iv.next45, %242
+  %244 = and i1 %243, %235
+  br i1 %244, label %.lr.ph41, label %._crit_edge42, !llvm.loop !51
 
 ._crit_edge42:                                    ; preds = %.lr.ph41, %._crit_edge
-  %.030.lcssa = phi i1 [ true, %._crit_edge ], [ %232, %.lr.ph41 ]
-  %242 = load ptr, ptr %98, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 232
-  %244 = load ptr, ptr %243, align 8
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
-  %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 -8
-  %248 = load ptr, ptr %247, align 8
-  %249 = icmp eq ptr %248, null
-  br i1 %249, label %_ZN7glslang16HlslParseContext12popThisScopeEv.exit, label %250
+  %.030.lcssa = phi i1 [ true, %._crit_edge ], [ %235, %.lr.ph41 ]
+  %245 = load ptr, ptr %98, align 8
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 232
+  %247 = load ptr, ptr %246, align 8
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i64 -8
+  %251 = load ptr, ptr %250, align 8
+  %252 = icmp eq ptr %251, null
+  br i1 %252, label %_ZN7glslang16HlslParseContext12popThisScopeEv.exit, label %253
 
-250:                                              ; preds = %._crit_edge42
-  call void @_ZN7glslang17TSymbolTableLevelD1Ev(ptr noundef nonnull align 8 dereferenceable(101) %248) #16
-  %.pre2.i.i = load ptr, ptr %245, align 8
+253:                                              ; preds = %._crit_edge42
+  call void @_ZN7glslang17TSymbolTableLevelD1Ev(ptr noundef nonnull align 8 dereferenceable(101) %251) #16
+  %.pre2.i.i = load ptr, ptr %248, align 8
   br label %_ZN7glslang16HlslParseContext12popThisScopeEv.exit
 
-_ZN7glslang16HlslParseContext12popThisScopeEv.exit: ; preds = %._crit_edge42, %250
-  %251 = phi ptr [ %.pre2.i.i, %250 ], [ %246, %._crit_edge42 ]
-  %252 = getelementptr inbounds i8, ptr %251, i64 -8
-  store ptr %252, ptr %245, align 8
-  %253 = load ptr, ptr %244, align 8
-  %254 = ptrtoint ptr %252 to i64
-  %255 = ptrtoint ptr %253 to i64
-  %256 = sub i64 %254, %255
-  %257 = lshr exact i64 %256, 3
-  %258 = trunc i64 %257 to i32
-  %259 = add nsw i32 %258, -1
-  %260 = icmp ugt i32 %259, 127
-  %261 = zext nneg i32 %259 to i64
-  %262 = shl nuw nsw i64 %261, 56
-  %263 = select i1 %260, i64 9151314442816847872, i64 %262
-  %264 = getelementptr inbounds nuw i8, ptr %244, i64 24
-  %265 = load i64, ptr %264, align 8
-  %266 = and i64 %265, 72057594037927935
-  %267 = or disjoint i64 %263, %266
-  store i64 %267, ptr %264, align 8
-  %268 = load ptr, ptr %98, align 8
-  call void @_ZN7glslang16HlslParseContext12popNamespaceEv(ptr noundef nonnull align 8 dereferenceable(2489) %268) #16
-  br label %269
+_ZN7glslang16HlslParseContext12popThisScopeEv.exit: ; preds = %._crit_edge42, %253
+  %254 = phi ptr [ %.pre2.i.i, %253 ], [ %249, %._crit_edge42 ]
+  %255 = getelementptr inbounds i8, ptr %254, i64 -8
+  store ptr %255, ptr %248, align 8
+  %256 = load ptr, ptr %247, align 8
+  %257 = ptrtoint ptr %255 to i64
+  %258 = ptrtoint ptr %256 to i64
+  %259 = sub i64 %257, %258
+  %260 = lshr exact i64 %259, 3
+  %261 = trunc i64 %260 to i32
+  %262 = add nsw i32 %261, -1
+  %263 = icmp ugt i32 %262, 127
+  %264 = zext nneg i32 %262 to i64
+  %265 = shl nuw nsw i64 %264, 56
+  %266 = select i1 %263, i64 9151314442816847872, i64 %265
+  %267 = getelementptr inbounds nuw i8, ptr %247, i64 24
+  %268 = load i64, ptr %267, align 8
+  %269 = and i64 %268, 72057594037927935
+  %270 = or disjoint i64 %266, %269
+  store i64 %270, ptr %267, align 8
+  %271 = load ptr, ptr %98, align 8
+  call void @_ZN7glslang16HlslParseContext12popNamespaceEv(ptr noundef nonnull align 8 dereferenceable(2489) %271) #16
+  br label %272
 
-269:                                              ; preds = %102, %110, %_ZN7glslang16HlslParseContext12popThisScopeEv.exit, %84, %88
+272:                                              ; preds = %102, %110, %_ZN7glslang16HlslParseContext12popThisScopeEv.exit, %84, %88
   %.133 = phi i1 [ false, %88 ], [ true, %84 ], [ %.030.lcssa, %_ZN7glslang16HlslParseContext12popThisScopeEv.exit ], [ false, %110 ], [ false, %102 ]
-  %270 = load ptr, ptr %20, align 8
-  %271 = icmp eq ptr %270, %19
-  br i1 %271, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
+  %273 = load ptr, ptr %20, align 8
+  %274 = icmp eq ptr %273, %19
+  br i1 %274, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i: ; preds = %269
-  %272 = load i64, ptr %21, align 8
-  %273 = icmp ult i64 %272, 16
-  call void @llvm.assume(i1 %273)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i: ; preds = %272
+  %275 = load i64, ptr %21, align 8
+  %276 = icmp ult i64 %275, 16
+  call void @llvm.assume(i1 %276)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i, %269, %13
-  %.032 = phi i1 [ false, %13 ], [ %.133, %269 ], [ %.133, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i, %272, %13
+  %.032 = phi i1 [ false, %13 ], [ %.133, %272 ], [ %.133, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i ]
   ret i1 %.032
 }
 

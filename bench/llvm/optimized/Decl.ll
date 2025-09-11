@@ -470,15 +470,16 @@ define dso_local noundef nonnull ptr @_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i: ; preds = %21, %8
   %28 = phi i64 [ %15, %8 ], [ %24, %21 ]
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !11
   br label %_ZN5clang10ASTContext20getPrimaryMergedDeclEPNS_4DeclE.exit
 
 _ZN5clang10ASTContext20getPrimaryMergedDeclEPNS_4DeclE.exit: ; preds = %.lr.ph.i.i.i.i, %1, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i
-  %31 = phi ptr [ %30, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i ], [ null, %1 ], [ null, %.lr.ph.i.i.i.i ]
-  %.not.i = icmp eq ptr %31, null
-  %32 = select i1 %.not.i, ptr %0, ptr %31
-  ret ptr %32
+  %32 = phi ptr [ %31, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i ], [ null, %1 ], [ null, %.lr.ph.i.i.i.i ]
+  %.not.i = icmp eq ptr %32, null
+  %33 = select i1 %.not.i, ptr %0, ptr %32
+  ret ptr %33
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -27548,18 +27549,19 @@ define linkonce_odr hidden noundef ptr @_ZN5clang9FieldDecl16getCanonicalDeclEv(
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %25, %12
   %32 = phi i64 [ %19, %12 ], [ %28, %25 ]
-  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !11
   br label %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i
 
 _ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, %5
-  %35 = phi ptr [ %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %5 ], [ null, %.lr.ph.i.i.i.i.i.i ]
-  %.not.i.i.i = icmp eq ptr %35, null
-  %36 = select i1 %.not.i.i.i, ptr %0, ptr %35
+  %36 = phi ptr [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %5 ], [ null, %.lr.ph.i.i.i.i.i.i ]
+  %.not.i.i.i = icmp eq ptr %36, null
+  %37 = select i1 %.not.i.i.i, ptr %0, ptr %36
   br label %_ZN5clang9MergeableINS_9FieldDeclEE12getFirstDeclEv.exit
 
 _ZN5clang9MergeableINS_9FieldDeclEE12getFirstDeclEv.exit: ; preds = %1, %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i
-  %.0.i = phi ptr [ %36, %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i ], [ %0, %1 ]
+  %.0.i = phi ptr [ %37, %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i ], [ %0, %1 ]
   ret ptr %.0.i
 }
 
@@ -28119,18 +28121,19 @@ define linkonce_odr hidden noundef ptr @_ZN5clang16EnumConstantDecl16getCanonica
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %25, %12
   %32 = phi i64 [ %19, %12 ], [ %28, %25 ]
-  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !11
   br label %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i
 
 _ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, %5
-  %35 = phi ptr [ %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %5 ], [ null, %.lr.ph.i.i.i.i.i.i ]
-  %.not.i.i.i = icmp eq ptr %35, null
-  %36 = select i1 %.not.i.i.i, ptr %0, ptr %35
+  %36 = phi ptr [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %5 ], [ null, %.lr.ph.i.i.i.i.i.i ]
+  %.not.i.i.i = icmp eq ptr %36, null
+  %37 = select i1 %.not.i.i.i, ptr %0, ptr %36
   br label %_ZN5clang9MergeableINS_16EnumConstantDeclEE12getFirstDeclEv.exit
 
 _ZN5clang9MergeableINS_16EnumConstantDeclEE12getFirstDeclEv.exit: ; preds = %1, %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i
-  %.0.i = phi ptr [ %36, %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i ], [ %0, %1 ]
+  %.0.i = phi ptr [ %37, %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i ], [ %0, %1 ]
   ret ptr %.0.i
 }
 
@@ -28194,18 +28197,19 @@ define linkonce_odr hidden noundef ptr @_ZN5clang17IndirectFieldDecl16getCanonic
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %25, %12
   %32 = phi i64 [ %19, %12 ], [ %28, %25 ]
-  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !11
   br label %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i
 
 _ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, %5
-  %35 = phi ptr [ %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %5 ], [ null, %.lr.ph.i.i.i.i.i.i ]
-  %.not.i.i.i = icmp eq ptr %35, null
-  %36 = select i1 %.not.i.i.i, ptr %0, ptr %35
+  %36 = phi ptr [ %35, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %5 ], [ null, %.lr.ph.i.i.i.i.i.i ]
+  %.not.i.i.i = icmp eq ptr %36, null
+  %37 = select i1 %.not.i.i.i, ptr %0, ptr %36
   br label %_ZN5clang9MergeableINS_17IndirectFieldDeclEE12getFirstDeclEv.exit
 
 _ZN5clang9MergeableINS_17IndirectFieldDeclEE12getFirstDeclEv.exit: ; preds = %1, %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i
-  %.0.i = phi ptr [ %36, %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i ], [ %0, %1 ]
+  %.0.i = phi ptr [ %37, %_ZN5clang20getPrimaryMergedDeclEPNS_4DeclE.exit.i ], [ %0, %1 ]
   ret ptr %.0.i
 }
 

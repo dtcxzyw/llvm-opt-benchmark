@@ -99,100 +99,99 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   %26 = zext nneg i32 %21 to i64
   br label %27
 
-27:                                               ; preds = %.lr.ph, %45
-  %indvars.iv = phi i64 [ %26, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %.04761 = phi i64 [ %6, %.lr.ph ], [ %.148, %45 ]
+27:                                               ; preds = %.lr.ph, %44
+  %indvars.iv = phi i64 [ %26, %.lr.ph ], [ %indvars.iv.next, %44 ]
+  %.04761 = phi i64 [ %6, %.lr.ph ], [ %.148, %44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %or.cond = icmp ult i64 %.04761, 858993460
-  br i1 %or.cond, label %29, label %._crit_edge69
+  br i1 %or.cond, label %28, label %._crit_edge69
 
 ._crit_edge69:                                    ; preds = %27
-  %.phi.trans.insert70.idx = shl nuw nsw i64 %indvars.iv.next, 3
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.phi.trans.insert70.idx
-  %.phi.trans.insert70 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw %struct.Mapping, ptr %24, i64 %indvars.iv.next
+  %.phi.trans.insert70 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 4
   %.pre = load i32, ptr %.phi.trans.insert70, align 4, !tbaa !35
-  br label %37
+  br label %36
 
-29:                                               ; preds = %27
-  %30 = trunc nuw nsw i64 %.04761 to i32
-  %31 = and i32 %30, 15
-  %32 = getelementptr inbounds nuw %struct.Mapping, ptr %24, i64 %indvars.iv.next
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 %31, ptr %33, align 4, !tbaa !35
-  %34 = lshr i32 %30, 4
-  %35 = and i32 %34, 15
-  store i32 %35, ptr %32, align 4, !tbaa !37
-  %36 = lshr i64 %.04761, 8
-  br label %37
+28:                                               ; preds = %27
+  %29 = trunc nuw nsw i64 %.04761 to i32
+  %30 = and i32 %29, 15
+  %31 = getelementptr inbounds nuw %struct.Mapping, ptr %24, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i32 %30, ptr %32, align 4, !tbaa !35
+  %33 = lshr i32 %29, 4
+  %34 = and i32 %33, 15
+  store i32 %34, ptr %31, align 4, !tbaa !37
+  %35 = lshr i64 %.04761, 8
+  br label %36
 
-37:                                               ; preds = %._crit_edge69, %29
-  %38 = phi i32 [ %31, %29 ], [ %.pre, %._crit_edge69 ]
-  %.148 = phi i64 [ %36, %29 ], [ %.04761, %._crit_edge69 ]
-  %39 = icmp sgt i32 %38, 3
-  br i1 %39, label %44, label %40
+36:                                               ; preds = %._crit_edge69, %28
+  %37 = phi i32 [ %30, %28 ], [ %.pre, %._crit_edge69 ]
+  %.148 = phi i64 [ %35, %28 ], [ %.04761, %._crit_edge69 ]
+  %38 = icmp sgt i32 %37, 3
+  br i1 %38, label %43, label %39
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw %struct.Mapping, ptr %24, i64 %indvars.iv.next
-  %42 = load i32, ptr %41, align 4, !tbaa !37
-  %43 = icmp sgt i32 %42, 3
-  br i1 %43, label %44, label %45
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw %struct.Mapping, ptr %24, i64 %indvars.iv.next
+  %41 = load i32, ptr %40, align 4, !tbaa !37
+  %42 = icmp sgt i32 %41, 3
+  br i1 %42, label %43, label %44
 
-44:                                               ; preds = %40, %37
+43:                                               ; preds = %39, %36
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.31) #8
   br label %.loopexit
 
-45:                                               ; preds = %40
-  %46 = load i32, ptr %25, align 4, !tbaa !34
-  %47 = add nsw i32 %42, 1
-  %. = tail call i32 @llvm.smax.i32(i32 %46, i32 %47)
+44:                                               ; preds = %39
+  %45 = load i32, ptr %25, align 4, !tbaa !34
+  %46 = add nsw i32 %41, 1
+  %. = tail call i32 @llvm.smax.i32(i32 %45, i32 %46)
   store i32 %., ptr %25, align 4, !tbaa !34
-  %48 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %48, label %27, label %._crit_edge, !llvm.loop !38
+  %47 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %47, label %27, label %._crit_edge, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %45, %.._crit_edge_crit_edge
-  %49 = phi i32 [ %.pre72, %.._crit_edge_crit_edge ], [ %., %45 ]
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %.not54 = icmp ne i32 %49, 0
-  %51 = icmp slt i32 %49, 5
-  %or.cond56 = and i1 %.not54, %51
-  br i1 %or.cond56, label %.preheader, label %53
+._crit_edge:                                      ; preds = %44, %.._crit_edge_crit_edge
+  %48 = phi i32 [ %.pre72, %.._crit_edge_crit_edge ], [ %., %44 ]
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %.not54 = icmp ne i32 %48, 0
+  %50 = icmp slt i32 %48, 5
+  %or.cond56 = and i1 %.not54, %50
+  br i1 %or.cond56, label %.preheader, label %52
 
 .preheader:                                       ; preds = %._crit_edge
-  %52 = icmp sgt i32 %49, 0
-  br i1 %52, label %.lr.ph65, label %.loopexit
+  %51 = icmp sgt i32 %48, 0
+  br i1 %51, label %.lr.ph65, label %.loopexit
 
-53:                                               ; preds = %._crit_edge
+52:                                               ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 107) #8
   tail call void @abort() #9
   unreachable
 
-54:                                               ; preds = %59
-  %55 = add nuw nsw i32 %.14663, 1
-  %56 = load i32, ptr %50, align 4, !tbaa !34
-  %57 = icmp slt i32 %55, %56
-  br i1 %57, label %.lr.ph65, label %.loopexit, !llvm.loop !40
+53:                                               ; preds = %58
+  %54 = add nuw nsw i32 %.14663, 1
+  %55 = load i32, ptr %49, align 4, !tbaa !34
+  %56 = icmp slt i32 %54, %55
+  br i1 %56, label %.lr.ph65, label %.loopexit, !llvm.loop !40
 
-.lr.ph65:                                         ; preds = %.preheader, %54
-  %.14663 = phi i32 [ %55, %54 ], [ 0, %.preheader ]
+.lr.ph65:                                         ; preds = %.preheader, %53
+  %.14663 = phi i32 [ %54, %53 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %58 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.35, i32 noundef %.14663) #8
-  store ptr %58, ptr %2, align 8, !tbaa !41
-  %.not55 = icmp eq ptr %58, null
-  br i1 %.not55, label %.thread, label %59
+  %57 = call ptr (ptr, ...) @av_asprintf(ptr noundef nonnull @.str.35, i32 noundef %.14663) #8
+  store ptr %57, ptr %2, align 8, !tbaa !41
+  %.not55 = icmp eq ptr %57, null
+  br i1 %.not55, label %.thread, label %58
 
 .thread:                                          ; preds = %.lr.ph65
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-59:                                               ; preds = %.lr.ph65
-  %60 = call i32 @ff_append_inpad_free_name(ptr noundef %0, ptr noundef nonnull %2) #8
-  %61 = icmp sgt i32 %60, -1
+58:                                               ; preds = %.lr.ph65
+  %59 = call i32 @ff_append_inpad_free_name(ptr noundef %0, ptr noundef nonnull %2) #8
+  %60 = icmp sgt i32 %59, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %61, label %54, label %.loopexit
+  br i1 %60, label %53, label %.loopexit
 
-.loopexit:                                        ; preds = %59, %54, %.preheader, %.thread, %44, %18
-  %.044 = phi i32 [ -22, %18 ], [ -22, %44 ], [ -12, %.thread ], [ 0, %.preheader ], [ %60, %59 ], [ 0, %54 ]
+.loopexit:                                        ; preds = %58, %53, %.preheader, %.thread, %43, %18
+  %.044 = phi i32 [ -22, %18 ], [ -22, %43 ], [ -12, %.thread ], [ 0, %.preheader ], [ %59, %58 ], [ 0, %53 ]
   ret i32 %.044
 }
 

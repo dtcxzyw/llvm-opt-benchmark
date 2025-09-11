@@ -25728,10 +25728,11 @@ _ZN4llvm11SmallVectorINS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17Mappabl
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = zext i32 %64 to i64
   %67 = load ptr, ptr %65, align 8, !tbaa !377
-  %68 = getelementptr inbounds nuw %"struct.std::pair.770", ptr %67, i64 %66, i32 1
+  %68 = getelementptr inbounds nuw %"struct.std::pair.770", ptr %67, i64 %66
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %68
+  ret ptr %69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

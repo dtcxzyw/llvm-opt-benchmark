@@ -2521,7 +2521,7 @@ define noundef signext range(i8 65, 58) i8 @_ZN7rocksdb5toHexEh(i8 noundef zeroe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 73) i32 @_ZN7rocksdb7fromHexEc(i8 noundef signext %0) local_unnamed_addr #5 {
+define noundef range(i32 -1, 16) i32 @_ZN7rocksdb7fromHexEc(i8 noundef signext %0) local_unnamed_addr #5 {
   %2 = add i8 %0, -97
   %or.cond = icmp ult i8 %2, 6
   %3 = add nsw i8 %0, -32
@@ -2567,7 +2567,7 @@ define void @_ZN7rocksdb5SliceC2ERKNS_10SlicePartsEPNSt7__cxx1112basic_stringIcS
   br label %11
 
 ._crit_edge:                                      ; preds = %11, %3
-  %.019.lcssa = phi i64 [ 0, %3 ], [ %14, %11 ]
+  %.019.lcssa = phi i64 [ 0, %3 ], [ %15, %11 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %.019.lcssa)
   %8 = load i32, ptr %4, align 8, !tbaa !133
   %9 = icmp sgt i32 %8, 0
@@ -2575,50 +2575,51 @@ define void @_ZN7rocksdb5SliceC2ERKNS_10SlicePartsEPNSt7__cxx1112basic_stringIcS
 
 .lr.ph24:                                         ; preds = %._crit_edge
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %19
+  br label %20
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %.01920 = phi i64 [ 0, %.lr.ph ], [ %14, %11 ]
-  %12 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %7, i64 %indvars.iv, i32 1
-  %13 = load i64, ptr %12, align 8, !tbaa !128
-  %14 = add i64 %13, %.01920
+  %.01920 = phi i64 [ 0, %.lr.ph ], [ %15, %11 ]
+  %12 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load i64, ptr %13, align 8, !tbaa !128
+  %15 = add i64 %14, %.01920
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !137
 
 ._crit_edge25:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, %._crit_edge
-  %15 = load ptr, ptr %2, align 8, !tbaa !27
-  store ptr %15, ptr %0, align 8, !tbaa !126
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !24
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %17, ptr %18, align 8, !tbaa !128
+  %16 = load ptr, ptr %2, align 8, !tbaa !27
+  store ptr %16, ptr %0, align 8, !tbaa !126
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = load i64, ptr %17, align 8, !tbaa !24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %18, ptr %19, align 8, !tbaa !128
   ret void
 
-19:                                               ; preds = %.lr.ph24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
+20:                                               ; preds = %.lr.ph24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
   %indvars.iv27 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
-  %20 = load ptr, ptr %1, align 8, !tbaa !136
-  %21 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %20, i64 %indvars.iv27
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !128
-  %24 = load i64, ptr %10, align 8, !tbaa !24
-  %25 = sub i64 4611686018427387903, %24
-  %26 = icmp ult i64 %25, %23
-  br i1 %26, label %27, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
+  %21 = load ptr, ptr %1, align 8, !tbaa !136
+  %22 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %21, i64 %indvars.iv27
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load i64, ptr %23, align 8, !tbaa !128
+  %25 = load i64, ptr %10, align 8, !tbaa !24
+  %26 = sub i64 4611686018427387903, %25
+  %27 = icmp ult i64 %26, %24
+  br i1 %27, label %28, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
-27:                                               ; preds = %19
+28:                                               ; preds = %20
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #26
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %19
-  %28 = load ptr, ptr %21, align 8, !tbaa !126
-  %29 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %28, i64 noundef %23)
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %20
+  %29 = load ptr, ptr %22, align 8, !tbaa !126
+  %30 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %29, i64 noundef %24)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %30 = load i32, ptr %4, align 8, !tbaa !133
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next28, %31
-  br i1 %32, label %19, label %._crit_edge25, !llvm.loop !138
+  %31 = load i32, ptr %4, align 8, !tbaa !133
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next28, %32
+  br i1 %33, label %20, label %._crit_edge25, !llvm.loop !138
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
@@ -2789,105 +2790,94 @@ define noundef zeroext i1 @_ZNK7rocksdb5Slice9DecodeHexEPNSt7__cxx1112basic_stri
   store i8 0, ptr %8, align 1, !tbaa !25
   %9 = lshr exact i64 %4, 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9)
-  %.not2738 = icmp eq i64 %4, 0
-  br i1 %.not2738, label %.critedge, label %.lr.ph
+  %.not2744 = icmp eq i64 %4, 0
+  br i1 %.not2744, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
-  %.02139 = phi i64 [ 0, %.lr.ph ], [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
+  %.02145 = phi i64 [ 0, %.lr.ph ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
   %12 = load ptr, ptr %0, align 8, !tbaa !126
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.02139
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.02145
   %14 = load i8, ptr %13, align 1, !tbaa !25
   %15 = add i8 %14, -97
   %or.cond.i = icmp ult i8 %15, 6
   %16 = add nsw i8 %14, -32
   %spec.select.i = select i1 %or.cond.i, i8 %16, i8 %14
-  %17 = sext i8 %spec.select.i to i32
-  %18 = icmp slt i8 %spec.select.i, 48
-  br i1 %18, label %.critedge, label %19
+  %17 = icmp slt i8 %spec.select.i, 48
+  br i1 %17, label %.critedge, label %18
 
-19:                                               ; preds = %11
-  %20 = icmp samesign ugt i8 %spec.select.i, 57
-  %21 = add nsw i8 %spec.select.i, -71
-  %or.cond5.i = icmp ult i8 %21, -6
-  %or.cond19.i = select i1 %20, i1 %or.cond5.i, i1 false
-  br i1 %or.cond19.i, label %.critedge, label %_ZN7rocksdb7fromHexEc.exit
+18:                                               ; preds = %11
+  %19 = icmp samesign ugt i8 %spec.select.i, 57
+  %20 = add nsw i8 %spec.select.i, -71
+  %or.cond5.i = icmp ult i8 %20, -6
+  %or.cond19.i = select i1 %19, i1 %or.cond5.i, i1 false
+  br i1 %or.cond19.i, label %.critedge, label %21
 
-_ZN7rocksdb7fromHexEc.exit:                       ; preds = %19
+21:                                               ; preds = %18
   %22 = icmp samesign ult i8 %spec.select.i, 58
-  %.016.i.v = select i1 %22, i32 -48, i32 -55
-  %.016.i = add nsw i32 %.016.i.v, %17
-  %23 = icmp slt i32 %.016.i, 0
-  br i1 %23, label %.critedge, label %24
+  %.016.i39.v = select i1 %22, i8 0, i8 9
+  %.016.i39 = add nuw nsw i8 %spec.select.i, %.016.i39.v
+  %23 = add i64 %.02145, 2
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %25 = load i8, ptr %24, align 1, !tbaa !25
+  %26 = add i8 %25, -97
+  %or.cond.i30 = icmp ult i8 %26, 6
+  %27 = add nsw i8 %25, -32
+  %spec.select.i31 = select i1 %or.cond.i30, i8 %27, i8 %25
+  %28 = icmp slt i8 %spec.select.i31, 48
+  br i1 %28, label %.critedge, label %29
 
-24:                                               ; preds = %_ZN7rocksdb7fromHexEc.exit
-  %25 = add i64 %.02139, 2
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %27 = load i8, ptr %26, align 1, !tbaa !25
-  %28 = add i8 %27, -97
-  %or.cond.i30 = icmp ult i8 %28, 6
-  %29 = add nsw i8 %27, -32
-  %spec.select.i31 = select i1 %or.cond.i30, i8 %29, i8 %27
-  %30 = sext i8 %spec.select.i31 to i32
-  %31 = icmp slt i8 %spec.select.i31, 48
-  br i1 %31, label %.critedge, label %32
+29:                                               ; preds = %21
+  %30 = icmp samesign ugt i8 %spec.select.i31, 57
+  %31 = add nsw i8 %spec.select.i31, -71
+  %or.cond5.i32 = icmp ult i8 %31, -6
+  %or.cond19.i33 = select i1 %30, i1 %or.cond5.i32, i1 false
+  br i1 %or.cond19.i33, label %.critedge, label %32
 
-32:                                               ; preds = %24
-  %33 = icmp samesign ugt i8 %spec.select.i31, 57
-  %34 = add nsw i8 %spec.select.i31, -71
-  %or.cond5.i32 = icmp ult i8 %34, -6
-  %or.cond19.i33 = select i1 %33, i1 %or.cond5.i32, i1 false
-  br i1 %or.cond19.i33, label %.critedge, label %_ZN7rocksdb7fromHexEc.exit35
+32:                                               ; preds = %29
+  %33 = icmp samesign ult i8 %spec.select.i31, 58
+  %.016.i3443.v = select i1 %33, i8 -48, i8 -55
+  %.016.i3443 = add nsw i8 %spec.select.i31, %.016.i3443.v
+  %34 = shl i8 %.016.i39, 4
+  %35 = or i8 %.016.i3443, %34
+  %36 = load i64, ptr %7, align 8, !tbaa !24
+  %37 = add i64 %36, 1
+  %38 = load ptr, ptr %1, align 8, !tbaa !27
+  %39 = icmp eq ptr %38, %10
+  br i1 %39, label %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-_ZN7rocksdb7fromHexEc.exit35:                     ; preds = %32
-  %35 = icmp samesign ult i8 %spec.select.i31, 58
-  %.016.i34.v = select i1 %35, i32 -48, i32 -55
-  %.016.i34 = add nsw i32 %.016.i34.v, %30
-  %36 = icmp sgt i32 %.016.i34, -1
-  br i1 %36, label %37, label %.critedge
-
-37:                                               ; preds = %_ZN7rocksdb7fromHexEc.exit35
-  %38 = shl nuw nsw i32 %.016.i, 4
-  %39 = or i32 %.016.i34, %38
-  %40 = trunc i32 %39 to i8
-  %41 = load i64, ptr %7, align 8, !tbaa !24
-  %42 = add i64 %41, 1
-  %43 = load ptr, ptr %1, align 8, !tbaa !27
-  %44 = icmp eq ptr %43, %10
-  br i1 %44, label %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
-
-45:                                               ; preds = %37
-  %46 = icmp ult i64 %41, 16
-  tail call void @llvm.assume(i1 %46)
+40:                                               ; preds = %32
+  %41 = icmp ult i64 %36, 16
+  tail call void @llvm.assume(i1 %41)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %45, %37
-  %47 = load i64, ptr %10, align 8
-  %48 = select i1 %44, i64 15, i64 %47
-  %49 = icmp ugt i64 %42, %48
-  br i1 %49, label %50, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %40, %32
+  %42 = load i64, ptr %10, align 8
+  %43 = select i1 %39, i64 15, i64 %42
+  %44 = icmp ugt i64 %37, %43
+  br i1 %44, label %45, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
-50:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %41, i64 noundef 0, ptr noundef null, i64 noundef 1)
+45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %36, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %50
-  %51 = phi ptr [ %.pre.i, %50 ], [ %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %41
-  store i8 %40, ptr %52, align 1, !tbaa !25
-  store i64 %42, ptr %7, align 8, !tbaa !24
-  %53 = load ptr, ptr %1, align 8, !tbaa !27
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %42
-  store i8 0, ptr %54, align 1, !tbaa !25
-  %.not27.not = icmp ult i64 %25, %4
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %45
+  %46 = phi ptr [ %.pre.i, %45 ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %36
+  store i8 %35, ptr %47, align 1, !tbaa !25
+  store i64 %37, ptr %7, align 8, !tbaa !24
+  %48 = load ptr, ptr %1, align 8, !tbaa !27
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %37
+  store i8 0, ptr %49, align 1, !tbaa !25
+  %.not27.not = icmp ult i64 %23, %4
   br i1 %.not27.not, label %11, label %.critedge, !llvm.loop !140
 
-.critedge:                                        ; preds = %24, %32, %11, %19, %_ZN7rocksdb7fromHexEc.exit35, %_ZN7rocksdb7fromHexEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %24 ], [ false, %32 ], [ false, %11 ], [ false, %19 ], [ false, %_ZN7rocksdb7fromHexEc.exit35 ], [ false, %_ZN7rocksdb7fromHexEc.exit ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
+.critedge:                                        ; preds = %21, %29, %11, %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit, %6, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %21 ], [ false, %29 ], [ false, %11 ], [ false, %18 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
   ret i1 %.0
 }
 

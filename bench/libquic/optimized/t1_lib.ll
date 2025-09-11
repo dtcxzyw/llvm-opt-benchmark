@@ -669,83 +669,84 @@ tls12_get_sigid.exit.thread:                      ; preds = %13
   br label %.sink.split
 
 tls12_get_sigid.exit:                             ; preds = %9
-  %14 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i, i32 1
-  %15 = load i32, ptr %14, align 4, !tbaa !89
-  %16 = zext i8 %4 to i32
-  %.not = icmp eq i32 %15, %16
-  br i1 %.not, label %.preheader, label %17
+  %14 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !89
+  %17 = zext i8 %4 to i32
+  %.not = icmp eq i32 %16, %17
+  br i1 %.not, label %.preheader, label %18
 
-17:                                               ; preds = %tls12_get_sigid.exit
+18:                                               ; preds = %tls12_get_sigid.exit
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 245, ptr noundef nonnull @.str, i32 noundef 534) #21
   br label %.sink.split
 
-.preheader:                                       ; preds = %tls12_get_sigid.exit, %24
-  %.01929 = phi i64 [ %25, %24 ], [ 0, %tls12_get_sigid.exit ]
-  %.02328 = phi ptr [ %26, %24 ], [ @tls12_sigalgs, %tls12_get_sigid.exit ]
-  %18 = load i8, ptr %.02328, align 1, !tbaa !90
-  %19 = icmp eq i8 %3, %18
-  br i1 %19, label %20, label %24
+.preheader:                                       ; preds = %tls12_get_sigid.exit, %25
+  %.01929 = phi i64 [ %26, %25 ], [ 0, %tls12_get_sigid.exit ]
+  %.02328 = phi ptr [ %27, %25 ], [ @tls12_sigalgs, %tls12_get_sigid.exit ]
+  %19 = load i8, ptr %.02328, align 1, !tbaa !90
+  %20 = icmp eq i8 %3, %19
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds nuw i8, ptr %.02328, i64 1
-  %22 = load i8, ptr %21, align 1, !tbaa !90
-  %23 = icmp eq i8 %4, %22
-  br i1 %23, label %.thread, label %24
+21:                                               ; preds = %.preheader
+  %22 = getelementptr inbounds nuw i8, ptr %.02328, i64 1
+  %23 = load i8, ptr %22, align 1, !tbaa !90
+  %24 = icmp eq i8 %4, %23
+  br i1 %24, label %.thread, label %25
 
-24:                                               ; preds = %.preheader, %20
-  %25 = add nuw nsw i64 %.01929, 2
-  %26 = getelementptr inbounds nuw i8, ptr %.02328, i64 2
-  %27 = icmp samesign ult i64 %.01929, 14
-  br i1 %27, label %.preheader, label %28, !llvm.loop !91
+25:                                               ; preds = %.preheader, %21
+  %26 = add nuw nsw i64 %.01929, 2
+  %27 = getelementptr inbounds nuw i8, ptr %.02328, i64 2
+  %28 = icmp samesign ult i64 %.01929, 14
+  br i1 %28, label %.preheader, label %29, !llvm.loop !91
 
-28:                                               ; preds = %24
+29:                                               ; preds = %25
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 245, ptr noundef nonnull @.str, i32 noundef 548) #21
   br label %.sink.split
 
-.thread:                                          ; preds = %20
+.thread:                                          ; preds = %21
   switch i8 %3, label %tls12_get_hash.exit.thread [
-    i8 2, label %29
-    i8 4, label %31
-    i8 5, label %33
-    i8 6, label %35
+    i8 2, label %30
+    i8 4, label %32
+    i8 5, label %34
+    i8 6, label %36
   ]
 
 tls12_get_hash.exit.thread:                       ; preds = %.thread
   store ptr null, ptr %1, align 8, !tbaa !92
-  br label %38
+  br label %39
 
-29:                                               ; preds = %.thread
-  %30 = tail call ptr @EVP_sha1() #21
+30:                                               ; preds = %.thread
+  %31 = tail call ptr @EVP_sha1() #21
   br label %tls12_get_hash.exit
 
-31:                                               ; preds = %.thread
-  %32 = tail call ptr @EVP_sha256() #21
+32:                                               ; preds = %.thread
+  %33 = tail call ptr @EVP_sha256() #21
   br label %tls12_get_hash.exit
 
-33:                                               ; preds = %.thread
-  %34 = tail call ptr @EVP_sha384() #21
+34:                                               ; preds = %.thread
+  %35 = tail call ptr @EVP_sha384() #21
   br label %tls12_get_hash.exit
 
-35:                                               ; preds = %.thread
-  %36 = tail call ptr @EVP_sha512() #21
+36:                                               ; preds = %.thread
+  %37 = tail call ptr @EVP_sha512() #21
   br label %tls12_get_hash.exit
 
-tls12_get_hash.exit:                              ; preds = %29, %31, %33, %35
-  %.0.i = phi ptr [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ]
+tls12_get_hash.exit:                              ; preds = %30, %32, %34, %36
+  %.0.i = phi ptr [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ]
   store ptr %.0.i, ptr %1, align 8, !tbaa !92
-  %37 = icmp eq ptr %.0.i, null
-  br i1 %37, label %38, label %39
+  %38 = icmp eq ptr %.0.i, null
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %tls12_get_hash.exit.thread, %tls12_get_hash.exit
+39:                                               ; preds = %tls12_get_hash.exit.thread, %tls12_get_hash.exit
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 231, ptr noundef nonnull @.str, i32 noundef 555) #21
   br label %.sink.split
 
-.sink.split:                                      ; preds = %tls12_get_sigid.exit.thread, %17, %28, %38
-  %.sink = phi i32 [ 47, %38 ], [ 47, %28 ], [ 47, %17 ], [ 80, %tls12_get_sigid.exit.thread ]
+.sink.split:                                      ; preds = %tls12_get_sigid.exit.thread, %18, %29, %39
+  %.sink = phi i32 [ 47, %39 ], [ 47, %29 ], [ 47, %18 ], [ 80, %tls12_get_sigid.exit.thread ]
   store i32 %.sink, ptr %2, align 4, !tbaa !80
-  br label %39
+  br label %40
 
-39:                                               ; preds = %.sink.split, %tls12_get_hash.exit
+40:                                               ; preds = %.sink.split, %tls12_get_hash.exit
   %.0 = phi i32 [ 1, %tls12_get_hash.exit ], [ 0, %.sink.split ]
   ret i32 %.0
 }
@@ -754,24 +755,25 @@ tls12_get_hash.exit:                              ; preds = %29, %31, %33, %35
 define hidden i32 @tls12_get_sigid(i32 noundef %0) local_unnamed_addr #7 {
   br label %2
 
-2:                                                ; preds = %9, %1
-  %exitcond.not.i = phi i1 [ false, %1 ], [ true, %9 ]
-  %.09.i = phi i64 [ 0, %1 ], [ 1, %9 ]
+2:                                                ; preds = %10, %1
+  %exitcond.not.i = phi i1 [ false, %1 ], [ true, %10 ]
+  %.09.i = phi i64 [ 0, %1 ], [ 1, %10 ]
   %3 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i
   %4 = load i32, ptr %3, align 8, !tbaa !86
   %5 = icmp eq i32 %4, %0
-  br i1 %5, label %6, label %9
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i, i32 1
-  %8 = load i32, ptr %7, align 4, !tbaa !89
+  %7 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !89
   br label %tls12_find_id.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   br i1 %exitcond.not.i, label %tls12_find_id.exit, label %2, !llvm.loop !88
 
-tls12_find_id.exit:                               ; preds = %9, %6
-  %.08.i = phi i32 [ %8, %6 ], [ -1, %9 ]
+tls12_find_id.exit:                               ; preds = %10, %6
+  %.08.i = phi i32 [ %9, %6 ], [ -1, %10 ]
   ret i32 %.08.i
 }
 
@@ -930,13 +932,13 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 724
   %13 = load i32, ptr %12, align 4, !tbaa !110
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %79, label %14
+  br i1 %.not, label %80, label %14
 
 14:                                               ; preds = %9, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %1, ptr noundef nonnull %4) #21
   %.not42 = icmp eq i32 %15, 0
-  br i1 %.not42, label %77, label %16
+  br i1 %.not42, label %78, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -948,135 +950,136 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
   store i16 0, ptr %21, align 4, !tbaa !90
   br label %22
 
-22:                                               ; preds = %16, %28
-  %.03761 = phi i64 [ 0, %16 ], [ %29, %28 ]
+22:                                               ; preds = %16, %29
+  %.03761 = phi i64 [ 0, %16 ], [ %30, %29 ]
   %23 = shl nuw nsw i64 1, %.03761
   %24 = and i64 %23, 2201
   %.not50.not = icmp eq i64 %24, 0
-  br i1 %.not50.not, label %25, label %28
+  br i1 %.not50.not, label %25, label %29
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.03761, i32 1
-  %27 = load ptr, ptr %26, align 8, !tbaa !111
-  call void %27(ptr noundef %0) #21
-  br label %28
+  %26 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.03761
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !111
+  call void %28(ptr noundef %0) #21
+  br label %29
 
-28:                                               ; preds = %22, %25
-  %29 = add nuw nsw i64 %.03761, 1
-  %exitcond.not = icmp eq i64 %29, 13
+29:                                               ; preds = %22, %25
+  %30 = add nuw nsw i64 %.03761, 1
+  %exitcond.not = icmp eq i64 %30, 13
   br i1 %exitcond.not, label %.preheader, label %22, !llvm.loop !112
 
-.preheader:                                       ; preds = %28, %47
-  %.13862 = phi i64 [ %48, %47 ], [ 0, %28 ]
-  %30 = call i64 @CBB_len(ptr noundef nonnull %4) #21
-  %31 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.13862
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 16, !tbaa !113
-  %34 = call i32 %33(ptr noundef %0, ptr noundef nonnull %4) #21
-  %.not48 = icmp eq i32 %34, 0
-  br i1 %.not48, label %44, label %35
+.preheader:                                       ; preds = %29, %48
+  %.13862 = phi i64 [ %49, %48 ], [ 0, %29 ]
+  %31 = call i64 @CBB_len(ptr noundef nonnull %4) #21
+  %32 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.13862
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 16, !tbaa !113
+  %35 = call i32 %34(ptr noundef %0, ptr noundef nonnull %4) #21
+  %.not48 = icmp eq i32 %35, 0
+  br i1 %.not48, label %45, label %36
 
-35:                                               ; preds = %.preheader
-  %36 = call i64 @CBB_len(ptr noundef nonnull %4) #21
-  %.not49 = icmp eq i64 %36, %30
-  br i1 %.not49, label %47, label %37
+36:                                               ; preds = %.preheader
+  %37 = call i64 @CBB_len(ptr noundef nonnull %4) #21
+  %.not49 = icmp eq i64 %37, %31
+  br i1 %.not49, label %48, label %38
 
-37:                                               ; preds = %35
-  %38 = trunc nuw nsw i64 %.13862 to i32
-  %39 = shl nuw nsw i32 1, %38
-  %40 = load ptr, ptr %17, align 8, !tbaa !58
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 456
-  %42 = load i32, ptr %41, align 8, !tbaa !90
-  %43 = or i32 %42, %39
-  store i32 %43, ptr %41, align 8, !tbaa !90
-  br label %47
+38:                                               ; preds = %36
+  %39 = trunc nuw nsw i64 %.13862 to i32
+  %40 = shl nuw nsw i32 1, %39
+  %41 = load ptr, ptr %17, align 8, !tbaa !58
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 456
+  %43 = load i32, ptr %42, align 8, !tbaa !90
+  %44 = or i32 %43, %40
+  store i32 %44, ptr %42, align 8, !tbaa !90
+  br label %48
 
-44:                                               ; preds = %.preheader
+45:                                               ; preds = %.preheader
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 147, ptr noundef nonnull @.str, i32 noundef 2069) #21
-  %45 = load i16, ptr %31, align 16, !tbaa !106
-  %46 = zext i16 %45 to i32
-  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %46) #21
-  br label %77
+  %46 = load i16, ptr %32, align 16, !tbaa !106
+  %47 = zext i16 %46 to i32
+  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %47) #21
+  br label %78
 
-47:                                               ; preds = %37, %35
-  %48 = add nuw nsw i64 %.13862, 1
-  %exitcond64.not = icmp eq i64 %48, 13
-  br i1 %exitcond64.not, label %49, label %.preheader, !llvm.loop !114
+48:                                               ; preds = %38, %36
+  %49 = add nuw nsw i64 %.13862, 1
+  %exitcond64.not = icmp eq i64 %49, 13
+  br i1 %exitcond64.not, label %50, label %.preheader, !llvm.loop !114
 
-49:                                               ; preds = %47
-  %50 = call i32 @custom_ext_add_clienthello(ptr noundef %0, ptr noundef nonnull %4) #21
-  %.not43 = icmp eq i32 %50, 0
-  br i1 %.not43, label %77, label %51
+50:                                               ; preds = %48
+  %51 = call i32 @custom_ext_add_clienthello(ptr noundef %0, ptr noundef nonnull %4) #21
+  %.not43 = icmp eq i32 %51, 0
+  br i1 %.not43, label %78, label %52
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !18
-  %54 = load i8, ptr %53, align 8, !tbaa !42
-  %.not44 = icmp eq i8 %54, 0
-  br i1 %.not44, label %55, label %71
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !18
+  %55 = load i8, ptr %54, align 8, !tbaa !42
+  %.not44 = icmp eq i8 %55, 0
+  br i1 %.not44, label %56, label %72
 
-55:                                               ; preds = %51
-  %56 = call i64 @CBB_len(ptr noundef nonnull %4) #21
-  %57 = add i64 %2, 2
-  %58 = add i64 %57, %56
-  %59 = and i64 %58, -256
-  %or.cond = icmp eq i64 %59, 256
-  br i1 %or.cond, label %60, label %71
+56:                                               ; preds = %52
+  %57 = call i64 @CBB_len(ptr noundef nonnull %4) #21
+  %58 = add i64 %2, 2
+  %59 = add i64 %58, %57
+  %60 = and i64 %59, -256
+  %or.cond = icmp eq i64 %60, 256
+  br i1 %or.cond, label %61, label %72
 
-60:                                               ; preds = %55
-  %61 = icmp samesign ult i64 %58, 508
-  %62 = sub nuw nsw i64 508, %58
-  %.0 = select i1 %61, i64 %62, i64 1
+61:                                               ; preds = %56
+  %62 = icmp samesign ult i64 %59, 508
+  %63 = sub nuw nsw i64 508, %59
+  %.0 = select i1 %62, i64 %63, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %63 = call i32 @CBB_add_u16(ptr noundef nonnull %4, i16 noundef zeroext 21) #21
-  %.not45 = icmp eq i32 %63, 0
-  br i1 %.not45, label %.thread58, label %64
+  %64 = call i32 @CBB_add_u16(ptr noundef nonnull %4, i16 noundef zeroext 21) #21
+  %.not45 = icmp eq i32 %64, 0
+  br i1 %.not45, label %.thread58, label %65
 
-64:                                               ; preds = %60
-  %65 = trunc nuw nsw i64 %.0 to i16
-  %66 = call i32 @CBB_add_u16(ptr noundef nonnull %4, i16 noundef zeroext %65) #21
-  %.not46 = icmp eq i32 %66, 0
-  br i1 %.not46, label %.thread58, label %67
+65:                                               ; preds = %61
+  %66 = trunc nuw nsw i64 %.0 to i16
+  %67 = call i32 @CBB_add_u16(ptr noundef nonnull %4, i16 noundef zeroext %66) #21
+  %.not46 = icmp eq i32 %67, 0
+  br i1 %.not46, label %.thread58, label %68
 
-67:                                               ; preds = %64
-  %68 = call i32 @CBB_add_space(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %.0) #21
-  %.not47 = icmp eq i32 %68, 0
-  br i1 %.not47, label %.thread58, label %69
+68:                                               ; preds = %65
+  %69 = call i32 @CBB_add_space(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %.0) #21
+  %.not47 = icmp eq i32 %69, 0
+  br i1 %.not47, label %.thread58, label %70
 
-.thread58:                                        ; preds = %67, %64, %60
+.thread58:                                        ; preds = %68, %65, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %77
+  br label %78
 
-69:                                               ; preds = %67
-  %70 = load ptr, ptr %5, align 8, !tbaa !51
-  call void @llvm.memset.p0.i64(ptr align 1 %70, i8 0, i64 %.0, i1 false)
+70:                                               ; preds = %68
+  %71 = load ptr, ptr %5, align 8, !tbaa !51
+  call void @llvm.memset.p0.i64(ptr align 1 %71, i8 0, i64 %.0, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %71
+  br label %72
 
-71:                                               ; preds = %69, %55, %51
-  %72 = call i64 @CBB_len(ptr noundef nonnull %4) #21
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %74, label %75
+72:                                               ; preds = %70, %56, %52
+  %73 = call i64 @CBB_len(ptr noundef nonnull %4) #21
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %75, label %76
 
-74:                                               ; preds = %71
+75:                                               ; preds = %72
   call void @CBB_discard_child(ptr noundef %1) #21
-  br label %75
+  br label %76
 
-75:                                               ; preds = %74, %71
-  %76 = call i32 @CBB_flush(ptr noundef %1) #21
-  br label %78
-
-77:                                               ; preds = %.thread58, %44, %49, %14
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 2120) #21
-  br label %78
-
-78:                                               ; preds = %77, %75
-  %.136 = phi i32 [ 0, %77 ], [ %76, %75 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+76:                                               ; preds = %75, %72
+  %77 = call i32 @CBB_flush(ptr noundef %1) #21
   br label %79
 
-79:                                               ; preds = %9, %78
-  %.035 = phi i32 [ %.136, %78 ], [ 1, %9 ]
+78:                                               ; preds = %.thread58, %45, %50, %14
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 2120) #21
+  br label %79
+
+79:                                               ; preds = %78, %76
+  %.136 = phi i32 [ 0, %78 ], [ %77, %76 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %80
+
+80:                                               ; preds = %9, %79
+  %.035 = phi i32 [ %.136, %79 ], [ 1, %9 ]
   ret i32 %.035
 }
 
@@ -1185,56 +1188,57 @@ define hidden range(i32 0, 2) i32 @ssl_parse_clienthello_tlsext(ptr noundef %0, 
   store i32 -1, ptr %9, align 4, !tbaa !80
   br label %10
 
-10:                                               ; preds = %16, %2
-  %.03869.i = phi i64 [ 0, %2 ], [ %17, %16 ]
+10:                                               ; preds = %17, %2
+  %.03869.i = phi i64 [ 0, %2 ], [ %18, %17 ]
   %11 = shl nuw nsw i64 1, %.03869.i
   %12 = and i64 %11, 2201
   %.not51.not.i = icmp eq i64 %12, 0
-  br i1 %.not51.not.i, label %13, label %16
+  br i1 %.not51.not.i, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.03869.i, i32 1
-  %15 = load ptr, ptr %14, align 8, !tbaa !111
-  tail call void %15(ptr noundef %0) #21
-  br label %16
+  %14 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.03869.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !111
+  tail call void %16(ptr noundef %0) #21
+  br label %17
 
-16:                                               ; preds = %13, %10
-  %17 = add nuw nsw i64 %.03869.i, 1
-  %exitcond.not.i = icmp eq i64 %17, 13
-  br i1 %exitcond.not.i, label %18, label %10, !llvm.loop !117
+17:                                               ; preds = %13, %10
+  %18 = add nuw nsw i64 %.03869.i, 1
+  %exitcond.not.i = icmp eq i64 %18, 13
+  br i1 %exitcond.not.i, label %19, label %10, !llvm.loop !117
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !58
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 456
-  store i32 0, ptr %21, align 8, !tbaa !90
-  %22 = load ptr, ptr %19, align 8, !tbaa !58
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 460
-  store i16 0, ptr %23, align 4, !tbaa !90
-  %24 = tail call i64 @CBS_len(ptr noundef %1) #21
-  %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %.preheader, label %25
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %21 = load ptr, ptr %20, align 8, !tbaa !58
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 456
+  store i32 0, ptr %22, align 8, !tbaa !90
+  %23 = load ptr, ptr %20, align 8, !tbaa !58
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 460
+  store i16 0, ptr %24, align 4, !tbaa !90
+  %25 = tail call i64 @CBS_len(ptr noundef %1) #21
+  %.not.i = icmp eq i64 %25, 0
+  br i1 %.not.i, label %.preheader, label %26
 
-.preheader:                                       ; preds = %.thread62.i, %18
-  br label %64
+.preheader:                                       ; preds = %.thread62.i, %19
+  br label %65
 
-25:                                               ; preds = %18
+26:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %26 = call i32 @CBS_get_u16_length_prefixed(ptr noundef %1, ptr noundef nonnull %4) #21
-  %.not42.i = icmp eq i32 %26, 0
-  br i1 %.not42.i, label %30, label %27
+  %27 = call i32 @CBS_get_u16_length_prefixed(ptr noundef %1, ptr noundef nonnull %4) #21
+  %.not42.i = icmp eq i32 %27, 0
+  br i1 %.not42.i, label %31, label %28
 
-27:                                               ; preds = %25
-  %28 = call fastcc i32 @tls1_check_duplicate_extensions(ptr noundef %4)
-  %.not43.i = icmp eq i32 %28, 0
-  br i1 %.not43.i, label %30, label %.preheader65.i
+28:                                               ; preds = %26
+  %29 = call fastcc i32 @tls1_check_duplicate_extensions(ptr noundef %4)
+  %.not43.i = icmp eq i32 %29, 0
+  br i1 %.not43.i, label %31, label %.preheader65.i
 
-.preheader65.i:                                   ; preds = %27
-  %29 = call i64 @CBS_len(ptr noundef nonnull %4) #21
-  %.not4470.i = icmp eq i64 %29, 0
+.preheader65.i:                                   ; preds = %28
+  %30 = call i64 @CBS_len(ptr noundef nonnull %4) #21
+  %.not4470.i = icmp eq i64 %30, 0
   br i1 %.not4470.i, label %.thread62.i, label %.lr.ph.i
 
-30:                                               ; preds = %27, %25
+31:                                               ; preds = %28, %26
   store i32 50, ptr %9, align 4, !tbaa !80
   br label %.thread59.i
 
@@ -1245,200 +1249,200 @@ define hidden range(i32 0, 2) i32 @ssl_parse_clienthello_tlsext(ptr noundef %0, 
 .lr.ph.i:                                         ; preds = %.preheader65.i, %.backedge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %31 = call i32 @CBS_get_u16(ptr noundef nonnull %4, ptr noundef nonnull %5) #21
-  %.not45.i = icmp eq i32 %31, 0
-  br i1 %.not45.i, label %34, label %32
+  %32 = call i32 @CBS_get_u16(ptr noundef nonnull %4, ptr noundef nonnull %5) #21
+  %.not45.i = icmp eq i32 %32, 0
+  br i1 %.not45.i, label %35, label %33
 
-32:                                               ; preds = %.lr.ph.i
-  %33 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %4, ptr noundef nonnull %6) #21
-  %.not46.i = icmp eq i32 %33, 0
-  br i1 %.not46.i, label %34, label %35
+33:                                               ; preds = %.lr.ph.i
+  %34 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %4, ptr noundef nonnull %6) #21
+  %.not46.i = icmp eq i32 %34, 0
+  br i1 %.not46.i, label %35, label %36
 
-34:                                               ; preds = %32, %.lr.ph.i
+35:                                               ; preds = %33, %.lr.ph.i
   store i32 50, ptr %9, align 4, !tbaa !80
   br label %.thread.i
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %0, align 8, !tbaa !118
-  %37 = icmp eq i32 %36, 768
-  %38 = load i16, ptr %5, align 2
-  %39 = icmp ne i16 %38, -255
-  %or.cond.i = select i1 %37, i1 %39, i1 false
+36:                                               ; preds = %33
+  %37 = load i32, ptr %0, align 8, !tbaa !118
+  %38 = icmp eq i32 %37, 768
+  %39 = load i16, ptr %5, align 2
+  %40 = icmp ne i16 %39, -255
+  %or.cond.i = select i1 %38, i1 %40, i1 false
   br i1 %or.cond.i, label %.backedge.i, label %.preheader.i, !llvm.loop !119
 
-.preheader.i:                                     ; preds = %35, %43
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %43 ], [ 0, %35 ]
-  %40 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %indvars.iv.i.i
-  %41 = load i16, ptr %40, align 16, !tbaa !106
-  %42 = icmp eq i16 %41, %38
-  br i1 %42, label %47, label %43
+.preheader.i:                                     ; preds = %36, %44
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %44 ], [ 0, %36 ]
+  %41 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %indvars.iv.i.i
+  %42 = load i16, ptr %41, align 16, !tbaa !106
+  %43 = icmp eq i16 %42, %39
+  br i1 %43, label %48, label %44
 
-43:                                               ; preds = %.preheader.i
+44:                                               ; preds = %.preheader.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 13
-  br i1 %exitcond.not.i.i, label %44, label %.preheader.i, !llvm.loop !108
+  br i1 %exitcond.not.i.i, label %45, label %.preheader.i, !llvm.loop !108
 
-44:                                               ; preds = %43
-  %45 = call i32 @custom_ext_parse_clienthello(ptr noundef nonnull %0, ptr noundef nonnull %9, i16 noundef zeroext %38, ptr noundef nonnull %6) #21
-  %.not48.i = icmp eq i32 %45, 0
-  br i1 %.not48.i, label %46, label %.backedge.i, !llvm.loop !119
+45:                                               ; preds = %44
+  %46 = call i32 @custom_ext_parse_clienthello(ptr noundef nonnull %0, ptr noundef nonnull %9, i16 noundef zeroext %39, ptr noundef nonnull %6) #21
+  %.not48.i = icmp eq i32 %46, 0
+  br i1 %.not48.i, label %47, label %.backedge.i, !llvm.loop !119
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str, i32 noundef 2208) #21
   br label %.thread.i
 
-47:                                               ; preds = %.preheader.i
-  %48 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %49 = shl nuw i32 1, %48
-  %50 = load ptr, ptr %19, align 8, !tbaa !58
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 456
-  %52 = load i32, ptr %51, align 8, !tbaa !90
-  %53 = or i32 %52, %49
-  store i32 %53, ptr %51, align 8, !tbaa !90
+48:                                               ; preds = %.preheader.i
+  %49 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %50 = shl nuw i32 1, %49
+  %51 = load ptr, ptr %20, align 8, !tbaa !58
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 456
+  %53 = load i32, ptr %52, align 8, !tbaa !90
+  %54 = or i32 %53, %50
+  store i32 %54, ptr %52, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 50, ptr %7, align 1, !tbaa !90
-  %54 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !120
-  %56 = call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #21
-  %.not47.i = icmp eq i32 %56, 0
-  br i1 %.not47.i, label %59, label %57
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %56 = load ptr, ptr %55, align 8, !tbaa !120
+  %57 = call i32 %56(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #21
+  %.not47.i = icmp eq i32 %57, 0
+  br i1 %.not47.i, label %60, label %58
 
-.thread.i:                                        ; preds = %46, %34
+.thread.i:                                        ; preds = %47, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread59.i
 
-57:                                               ; preds = %47
+58:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %57, %44, %35
+.backedge.i:                                      ; preds = %58, %45, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %58 = call i64 @CBS_len(ptr noundef nonnull %4) #21
-  %.not44.i = icmp eq i64 %58, 0
+  %59 = call i64 @CBS_len(ptr noundef nonnull %4) #21
+  %.not44.i = icmp eq i64 %59, 0
   br i1 %.not44.i, label %.thread62.i, label %.lr.ph.i, !llvm.loop !119
 
-.thread59.i:                                      ; preds = %.thread.i, %30
+.thread59.i:                                      ; preds = %.thread.i, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %83
+  br label %84
 
-59:                                               ; preds = %47
-  %60 = load i8, ptr %7, align 1, !tbaa !90
-  %61 = zext i8 %60 to i32
-  store i32 %61, ptr %9, align 4, !tbaa !80
+60:                                               ; preds = %48
+  %61 = load i8, ptr %7, align 1, !tbaa !90
+  %62 = zext i8 %61 to i32
+  store i32 %62, ptr %9, align 4, !tbaa !80
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str, i32 noundef 2218) #21
-  %62 = load i16, ptr %5, align 2, !tbaa !56
-  %63 = zext i16 %62 to i32
-  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %63) #21
+  %63 = load i16, ptr %5, align 2, !tbaa !56
+  %64 = zext i16 %63 to i32
+  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %64) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %83
+  br label %84
 
-64:                                               ; preds = %.preheader, %81
-  %.13971.i = phi i64 [ %82, %81 ], [ 0, %.preheader ]
-  %65 = load ptr, ptr %19, align 8, !tbaa !58
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 456
-  %67 = load i32, ptr %66, align 8, !tbaa !90
-  %68 = trunc nuw nsw i64 %.13971.i to i32
-  %69 = shl nuw nsw i32 1, %68
-  %70 = and i32 %67, %69
-  %.not49.i = icmp eq i32 %70, 0
-  br i1 %.not49.i, label %71, label %81
+65:                                               ; preds = %.preheader, %82
+  %.13971.i = phi i64 [ %83, %82 ], [ 0, %.preheader ]
+  %66 = load ptr, ptr %20, align 8, !tbaa !58
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 456
+  %68 = load i32, ptr %67, align 8, !tbaa !90
+  %69 = trunc nuw nsw i64 %.13971.i to i32
+  %70 = shl nuw nsw i32 1, %69
+  %71 = and i32 %68, %70
+  %.not49.i = icmp eq i32 %71, 0
+  br i1 %.not49.i, label %72, label %82
 
-71:                                               ; preds = %64
+72:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 50, ptr %8, align 1, !tbaa !90
-  %72 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.13971.i
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %74 = load ptr, ptr %73, align 16, !tbaa !120
-  %75 = call i32 %74(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef null) #21
-  %.not50.not.i = icmp eq i32 %75, 0
-  br i1 %.not50.not.i, label %76, label %.critedge.i
+  %73 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.13971.i
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  %75 = load ptr, ptr %74, align 16, !tbaa !120
+  %76 = call i32 %75(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef null) #21
+  %.not50.not.i = icmp eq i32 %76, 0
+  br i1 %.not50.not.i, label %77, label %.critedge.i
 
-76:                                               ; preds = %71
+77:                                               ; preds = %72
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 164, ptr noundef nonnull @.str, i32 noundef 2231) #21
-  %77 = load i16, ptr %72, align 16, !tbaa !106
-  %78 = zext i16 %77 to i32
-  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %78) #21
-  %79 = load i8, ptr %8, align 1, !tbaa !90
-  %80 = zext i8 %79 to i32
-  store i32 %80, ptr %9, align 4, !tbaa !80
+  %78 = load i16, ptr %73, align 16, !tbaa !106
+  %79 = zext i16 %78 to i32
+  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %79) #21
+  %80 = load i8, ptr %8, align 1, !tbaa !90
+  %81 = zext i8 %80 to i32
+  store i32 %81, ptr %9, align 4, !tbaa !80
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %83
+  br label %84
 
-.critedge.i:                                      ; preds = %71
+.critedge.i:                                      ; preds = %72
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %81
+  br label %82
 
-81:                                               ; preds = %.critedge.i, %64
-  %82 = add nuw nsw i64 %.13971.i, 1
-  %exitcond75.not.i = icmp eq i64 %82, 13
-  br i1 %exitcond75.not.i, label %ssl_scan_clienthello_tlsext.exit, label %64, !llvm.loop !121
+82:                                               ; preds = %.critedge.i, %65
+  %83 = add nuw nsw i64 %.13971.i, 1
+  %exitcond75.not.i = icmp eq i64 %83, 13
+  br i1 %exitcond75.not.i, label %ssl_scan_clienthello_tlsext.exit, label %65, !llvm.loop !121
 
-83:                                               ; preds = %76, %59, %.thread59.i
-  %84 = load i32, ptr %9, align 4, !tbaa !80
-  %85 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %84) #21
-  br label %109
+84:                                               ; preds = %77, %60, %.thread59.i
+  %85 = load i32, ptr %9, align 4, !tbaa !80
+  %86 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %85) #21
+  br label %110
 
-ssl_scan_clienthello_tlsext.exit:                 ; preds = %81
+ssl_scan_clienthello_tlsext.exit:                 ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 112, ptr %3, align 4, !tbaa !80
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %87 = load ptr, ptr %86, align 8, !tbaa !122
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 400
-  %89 = load ptr, ptr %88, align 8, !tbaa !123
-  %.not.i4 = icmp eq ptr %89, null
-  br i1 %.not.i4, label %90, label %95
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %88 = load ptr, ptr %87, align 8, !tbaa !122
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 400
+  %90 = load ptr, ptr %89, align 8, !tbaa !123
+  %.not.i4 = icmp eq ptr %90, null
+  br i1 %.not.i4, label %91, label %96
 
-90:                                               ; preds = %ssl_scan_clienthello_tlsext.exit
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %92 = load ptr, ptr %91, align 8, !tbaa !127
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 400
-  %94 = load ptr, ptr %93, align 8, !tbaa !123
-  %.not15.i = icmp eq ptr %94, null
-  br i1 %.not15.i, label %.thread.i5, label %95
+91:                                               ; preds = %ssl_scan_clienthello_tlsext.exit
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %93 = load ptr, ptr %92, align 8, !tbaa !127
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 400
+  %95 = load ptr, ptr %94, align 8, !tbaa !123
+  %.not15.i = icmp eq ptr %95, null
+  br i1 %.not15.i, label %.thread.i5, label %96
 
-95:                                               ; preds = %90, %ssl_scan_clienthello_tlsext.exit
-  %.sink.i = phi ptr [ %87, %ssl_scan_clienthello_tlsext.exit ], [ %92, %90 ]
-  %.sink19.i = phi ptr [ %89, %ssl_scan_clienthello_tlsext.exit ], [ %94, %90 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 408
-  %97 = load ptr, ptr %96, align 8, !tbaa !128
-  %98 = call i32 %.sink19.i(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %97) #21
-  switch i32 %98, label %ssl_check_clienthello_tlsext.exit.thread [
-    i32 2, label %106
-    i32 1, label %99
+96:                                               ; preds = %91, %ssl_scan_clienthello_tlsext.exit
+  %.sink.i = phi ptr [ %88, %ssl_scan_clienthello_tlsext.exit ], [ %93, %91 ]
+  %.sink19.i = phi ptr [ %90, %ssl_scan_clienthello_tlsext.exit ], [ %95, %91 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 408
+  %98 = load ptr, ptr %97, align 8, !tbaa !128
+  %99 = call i32 %.sink19.i(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %98) #21
+  switch i32 %99, label %ssl_check_clienthello_tlsext.exit.thread [
+    i32 2, label %107
+    i32 1, label %100
     i32 3, label %.thread.i5
   ]
 
-99:                                               ; preds = %95
-  %100 = load i32, ptr %3, align 4, !tbaa !80
-  %101 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %100) #21
+100:                                              ; preds = %96
+  %101 = load i32, ptr %3, align 4, !tbaa !80
+  %102 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %101) #21
   br label %ssl_check_clienthello_tlsext.exit.thread
 
-.thread.i5:                                       ; preds = %95, %90
-  %102 = load ptr, ptr %19, align 8, !tbaa !58
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 462
-  %104 = load i8, ptr %103, align 2
-  %105 = and i8 %104, -2
-  store i8 %105, ptr %103, align 2
+.thread.i5:                                       ; preds = %96, %91
+  %103 = load ptr, ptr %20, align 8, !tbaa !58
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 462
+  %105 = load i8, ptr %104, align 2
+  %106 = and i8 %105, -2
+  store i8 %106, ptr %104, align 2
   br label %ssl_check_clienthello_tlsext.exit.thread
 
-ssl_check_clienthello_tlsext.exit.thread:         ; preds = %99, %.thread.i5, %95
+ssl_check_clienthello_tlsext.exit.thread:         ; preds = %100, %.thread.i5, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %109
+  br label %110
 
-106:                                              ; preds = %95
-  %107 = load i32, ptr %3, align 4, !tbaa !80
-  %108 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %107) #21
+107:                                              ; preds = %96
+  %108 = load i32, ptr %3, align 4, !tbaa !80
+  %109 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %108) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 132, ptr noundef nonnull @.str, i32 noundef 2250) #21
-  br label %109
+  br label %110
 
-109:                                              ; preds = %ssl_check_clienthello_tlsext.exit.thread, %106, %83
-  %.0 = phi i32 [ 0, %83 ], [ 0, %106 ], [ 1, %ssl_check_clienthello_tlsext.exit.thread ]
+110:                                              ; preds = %ssl_check_clienthello_tlsext.exit.thread, %107, %84
+  %.0 = phi i32 [ 0, %84 ], [ 0, %107 ], [ 1, %ssl_check_clienthello_tlsext.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -1879,61 +1883,63 @@ define hidden range(i32 0, 2) i32 @tls12_add_sigandhash(ptr noundef %0, ptr noun
   %4 = tail call i32 @EVP_MD_type(ptr noundef %2) #21
   br label %5
 
-5:                                                ; preds = %12, %3
-  %.09.i = phi i64 [ 0, %3 ], [ %13, %12 ]
+5:                                                ; preds = %13, %3
+  %.09.i = phi i64 [ 0, %3 ], [ %14, %13 ]
   %6 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_md, i64 %.09.i
   %7 = load i32, ptr %6, align 8, !tbaa !86
   %8 = icmp eq i32 %7, %4
-  br i1 %8, label %9, label %12
+  br i1 %8, label %9, label %13
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_md, i64 %.09.i, i32 1
-  %11 = load i32, ptr %10, align 4, !tbaa !89
+  %10 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_md, i64 %.09.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = load i32, ptr %11, align 4, !tbaa !89
   br label %tls12_find_id.exit
 
-12:                                               ; preds = %5
-  %13 = add nuw nsw i64 %.09.i, 1
-  %exitcond.not.i = icmp eq i64 %13, 4
+13:                                               ; preds = %5
+  %14 = add nuw nsw i64 %.09.i, 1
+  %exitcond.not.i = icmp eq i64 %14, 4
   br i1 %exitcond.not.i, label %tls12_find_id.exit, label %5, !llvm.loop !88
 
-tls12_find_id.exit:                               ; preds = %12, %9
-  %.08.i = phi i32 [ %11, %9 ], [ -1, %12 ]
-  %14 = tail call i32 @ssl_private_key_type(ptr noundef %0) #21
-  br label %15
+tls12_find_id.exit:                               ; preds = %13, %9
+  %.08.i = phi i32 [ %12, %9 ], [ -1, %13 ]
+  %15 = tail call i32 @ssl_private_key_type(ptr noundef %0) #21
+  br label %16
 
-15:                                               ; preds = %19, %tls12_find_id.exit
-  %exitcond.not.i.i = phi i1 [ false, %tls12_find_id.exit ], [ true, %19 ]
-  %.09.i.i = phi i64 [ 0, %tls12_find_id.exit ], [ 1, %19 ]
-  %16 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i
-  %17 = load i32, ptr %16, align 8, !tbaa !86
-  %18 = icmp eq i32 %17, %14
-  br i1 %18, label %tls12_get_sigid.exit, label %19
+16:                                               ; preds = %20, %tls12_find_id.exit
+  %exitcond.not.i.i = phi i1 [ false, %tls12_find_id.exit ], [ true, %20 ]
+  %.09.i.i = phi i64 [ 0, %tls12_find_id.exit ], [ 1, %20 ]
+  %17 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i
+  %18 = load i32, ptr %17, align 8, !tbaa !86
+  %19 = icmp eq i32 %18, %15
+  br i1 %19, label %tls12_get_sigid.exit, label %20
 
-19:                                               ; preds = %15
-  br i1 %exitcond.not.i.i, label %tls12_get_sigid.exit.thread, label %15, !llvm.loop !88
+20:                                               ; preds = %16
+  br i1 %exitcond.not.i.i, label %tls12_get_sigid.exit.thread, label %16, !llvm.loop !88
 
-tls12_get_sigid.exit:                             ; preds = %15
-  %20 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i, i32 1
-  %21 = load i32, ptr %20, align 4, !tbaa !89
+tls12_get_sigid.exit:                             ; preds = %16
+  %21 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !89
   %.not11 = icmp eq i32 %.08.i, -1
-  br i1 %.not11, label %tls12_get_sigid.exit.thread, label %22
+  br i1 %.not11, label %tls12_get_sigid.exit.thread, label %24
 
-22:                                               ; preds = %tls12_get_sigid.exit
-  %23 = trunc i32 %.08.i to i8
-  %24 = tail call i32 @CBB_add_u8(ptr noundef %1, i8 noundef zeroext %23) #21
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %tls12_get_sigid.exit.thread, label %25
+24:                                               ; preds = %tls12_get_sigid.exit
+  %25 = trunc i32 %.08.i to i8
+  %26 = tail call i32 @CBB_add_u8(ptr noundef %1, i8 noundef zeroext %25) #21
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %tls12_get_sigid.exit.thread, label %27
 
-25:                                               ; preds = %22
-  %26 = trunc i32 %21 to i8
-  %27 = tail call i32 @CBB_add_u8(ptr noundef %1, i8 noundef zeroext %26) #21
-  %28 = icmp ne i32 %27, 0
-  %29 = zext i1 %28 to i32
+27:                                               ; preds = %24
+  %28 = trunc i32 %23 to i8
+  %29 = tail call i32 @CBB_add_u8(ptr noundef %1, i8 noundef zeroext %28) #21
+  %30 = icmp ne i32 %29, 0
+  %31 = zext i1 %30 to i32
   br label %tls12_get_sigid.exit.thread
 
-tls12_get_sigid.exit.thread:                      ; preds = %19, %25, %22, %tls12_get_sigid.exit
-  %30 = phi i32 [ 0, %22 ], [ 0, %tls12_get_sigid.exit ], [ %29, %25 ], [ 0, %19 ]
-  ret i32 %30
+tls12_get_sigid.exit.thread:                      ; preds = %20, %27, %24, %tls12_get_sigid.exit
+  %32 = phi i32 [ 0, %24 ], [ 0, %tls12_get_sigid.exit ], [ %31, %27 ], [ 0, %20 ]
+  ret i32 %32
 }
 
 declare i32 @EVP_MD_type(ptr noundef) local_unnamed_addr #1
@@ -2046,80 +2052,81 @@ define hidden ptr @tls1_choose_signing_digest(ptr noundef %0) local_unnamed_addr
   br i1 %.not53, label %._crit_edge51, label %.lr.ph50.split
 
 .lr.ph50.split:                                   ; preds = %.lr.ph50, %._crit_edge
-  %13 = phi i64 [ %36, %._crit_edge ], [ 1, %.lr.ph50 ]
-  %.02747 = phi i64 [ %37, %._crit_edge ], [ 0, %.lr.ph50 ]
+  %13 = phi i64 [ %37, %._crit_edge ], [ 1, %.lr.ph50 ]
+  %.02747 = phi i64 [ %38, %._crit_edge ], [ 0, %.lr.ph50 ]
   %14 = getelementptr inbounds nuw i32, ptr %.02963, i64 %.02747
   %15 = load i32, ptr %14, align 4, !tbaa !80
   %.not3544.not = icmp eq i64 %13, 0
   br i1 %.not3544.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph50.split, %.thread
-  %.03045 = phi i64 [ %34, %.thread ], [ 0, %.lr.ph50.split ]
+  %.03045 = phi i64 [ %35, %.thread ], [ 0, %.lr.ph50.split ]
   %16 = load ptr, ptr %11, align 8, !tbaa !136
-  %17 = getelementptr inbounds nuw %struct.tls_sigalgs_st, ptr %16, i64 %.03045, i32 1
-  %18 = load i8, ptr %17, align 1, !tbaa !141
-  switch i8 %18, label %.thread [
-    i8 2, label %19
-    i8 4, label %21
-    i8 5, label %23
-    i8 6, label %25
+  %17 = getelementptr inbounds nuw %struct.tls_sigalgs_st, ptr %16, i64 %.03045
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  %19 = load i8, ptr %18, align 1, !tbaa !141
+  switch i8 %19, label %.thread [
+    i8 2, label %20
+    i8 4, label %22
+    i8 5, label %24
+    i8 6, label %26
   ]
 
-19:                                               ; preds = %.lr.ph
-  %20 = tail call ptr @EVP_sha1() #21
+20:                                               ; preds = %.lr.ph
+  %21 = tail call ptr @EVP_sha1() #21
   br label %tls12_get_hash.exit
 
-21:                                               ; preds = %.lr.ph
-  %22 = tail call ptr @EVP_sha256() #21
+22:                                               ; preds = %.lr.ph
+  %23 = tail call ptr @EVP_sha256() #21
   br label %tls12_get_hash.exit
 
-23:                                               ; preds = %.lr.ph
-  %24 = tail call ptr @EVP_sha384() #21
+24:                                               ; preds = %.lr.ph
+  %25 = tail call ptr @EVP_sha384() #21
   br label %tls12_get_hash.exit
 
-25:                                               ; preds = %.lr.ph
-  %26 = tail call ptr @EVP_sha512() #21
+26:                                               ; preds = %.lr.ph
+  %27 = tail call ptr @EVP_sha512() #21
   br label %tls12_get_hash.exit
 
-tls12_get_hash.exit:                              ; preds = %19, %21, %23, %25
-  %.0.i = phi ptr [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ]
-  %27 = icmp eq ptr %.0.i, null
-  br i1 %27, label %.thread, label %28
+tls12_get_hash.exit:                              ; preds = %20, %22, %24, %26
+  %.0.i = phi ptr [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ]
+  %28 = icmp eq ptr %.0.i, null
+  br i1 %28, label %.thread, label %29
 
-28:                                               ; preds = %tls12_get_hash.exit
-  %29 = tail call i32 @EVP_MD_type(ptr noundef nonnull %.0.i) #21
-  %.not33 = icmp eq i32 %15, %29
-  br i1 %.not33, label %30, label %.thread
+29:                                               ; preds = %tls12_get_hash.exit
+  %30 = tail call i32 @EVP_MD_type(ptr noundef nonnull %.0.i) #21
+  %.not33 = icmp eq i32 %15, %30
+  br i1 %.not33, label %31, label %.thread
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %11, align 8, !tbaa !136
-  %32 = getelementptr inbounds nuw %struct.tls_sigalgs_st, ptr %31, i64 %.03045
-  %33 = load i8, ptr %32, align 1, !tbaa !143
-  %switch.selectcmp.i = icmp eq i8 %33, 3
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %11, align 8, !tbaa !136
+  %33 = getelementptr inbounds nuw %struct.tls_sigalgs_st, ptr %32, i64 %.03045
+  %34 = load i8, ptr %33, align 1, !tbaa !143
+  %switch.selectcmp.i = icmp eq i8 %34, 3
   %switch.select.i = select i1 %switch.selectcmp.i, i32 408, i32 -1
-  %switch.selectcmp2.i = icmp eq i8 %33, 1
+  %switch.selectcmp2.i = icmp eq i8 %34, 1
   %switch.select3.i = select i1 %switch.selectcmp2.i, i32 6, i32 %switch.select.i
   %.not34.not = icmp eq i32 %switch.select3.i, %4
   br i1 %.not34.not, label %.thread41, label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %tls12_get_hash.exit, %28, %30
-  %34 = add nuw i64 %.03045, 1
-  %35 = load i64, ptr %10, align 8, !tbaa !137
-  %.not35 = icmp ult i64 %34, %35
+.thread:                                          ; preds = %.lr.ph, %tls12_get_hash.exit, %29, %31
+  %35 = add nuw i64 %.03045, 1
+  %36 = load i64, ptr %10, align 8, !tbaa !137
+  %.not35 = icmp ult i64 %35, %36
   br i1 %.not35, label %.lr.ph, label %._crit_edge, !llvm.loop !144
 
 ._crit_edge:                                      ; preds = %.thread, %.lr.ph50.split
-  %36 = phi i64 [ 0, %.lr.ph50.split ], [ %35, %.thread ]
-  %37 = add nuw i64 %.02747, 1
-  %exitcond.not = icmp eq i64 %37, %.02864
+  %37 = phi i64 [ 0, %.lr.ph50.split ], [ %36, %.thread ]
+  %38 = add nuw i64 %.02747, 1
+  %exitcond.not = icmp eq i64 %38, %.02864
   br i1 %exitcond.not, label %._crit_edge51, label %.lr.ph50.split, !llvm.loop !145
 
 ._crit_edge51:                                    ; preds = %._crit_edge, %.lr.ph50, %7
-  %38 = tail call ptr @EVP_sha1() #21
+  %39 = tail call ptr @EVP_sha1() #21
   br label %.thread41
 
-.thread41:                                        ; preds = %30, %._crit_edge51
-  %.4 = phi ptr [ %38, %._crit_edge51 ], [ %.0.i, %30 ]
+.thread41:                                        ; preds = %31, %._crit_edge51
+  %.4 = phi ptr [ %39, %._crit_edge51 ], [ %.0.i, %31 ]
   ret ptr %.4
 }
 

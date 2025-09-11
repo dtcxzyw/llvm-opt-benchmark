@@ -214,7 +214,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
 
 60:                                               ; preds = %59
   %61 = sub i64 1023, %.pn.i
-  %62 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %31, i64 %indvars.iv.i, i32 2
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %63 = load i32, ptr %62, align 4
   %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.1.i, i64 noundef %61, ptr noundef nonnull @.str.3, i32 noundef %63) #11
   %.sroa.speculated162.i = call i32 @llvm.smax.i32(i32 %64, i32 0)
@@ -283,7 +283,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not125.i, label %111, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %31, i64 %indvars.iv.i, i32 1
+  %102 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %103, 7
   %.not126.i = icmp eq i32 %104, 0
@@ -503,7 +503,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
 191:                                              ; preds = %190
   %192 = ptrtoint ptr %.3.i36 to i64
   %193 = sub i64 %.neg.i, %192
-  %194 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %149, i64 %indvars.iv.i34, i32 2
+  %194 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %195 = load i32, ptr %194, align 4
   %196 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.3.i36, i64 noundef %193, ptr noundef nonnull @.str.10, i32 noundef %195) #11
   %.sroa.speculated163.i = call i32 @llvm.smax.i32(i32 %196, i32 0)
@@ -548,7 +548,7 @@ _ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer
   br i1 %.not125.i31, label %233, label %223
 
 223:                                              ; preds = %222
-  %224 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %149, i64 %indvars.iv.i34, i32 1
+  %224 = getelementptr inbounds nuw i8, ptr %173, i64 4
   %225 = load i32, ptr %224, align 4
   %226 = and i32 %225, 7
   %.not126.i39 = icmp eq i32 %226, 0

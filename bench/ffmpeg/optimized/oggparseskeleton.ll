@@ -42,11 +42,11 @@ define internal range(i32 -1, 2) i32 @skeleton_header(ptr noundef %0, i32 nounde
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !46
   %24 = icmp eq i32 %.pre, 0
   %or.cond66 = select i1 %.not, i1 %24, i1 false
-  br i1 %or.cond66, label %76, label %._crit_edge
+  br i1 %or.cond66, label %78, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
   %25 = icmp ult i32 %.pre, 8
-  br i1 %25, label %76, label %26
+  br i1 %25, label %78, label %26
 
 26:                                               ; preds = %._crit_edge
   %27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(8) @.str, i64 noundef 8) #4
@@ -55,7 +55,7 @@ define internal range(i32 -1, 2) i32 @skeleton_header(ptr noundef %0, i32 nounde
 
 28:                                               ; preds = %26
   %29 = icmp ult i32 %.pre, 64
-  br i1 %29, label %76, label %30
+  br i1 %29, label %78, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -70,7 +70,7 @@ define internal range(i32 -1, 2) i32 @skeleton_header(ptr noundef %0, i32 nounde
   %37 = load i16, ptr %36, align 1, !tbaa !47
   %38 = zext i16 %37 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.1, i32 noundef %35, i32 noundef %38) #5
-  br label %76
+  br label %78
 
 39:                                               ; preds = %30
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -80,7 +80,7 @@ define internal range(i32 -1, 2) i32 @skeleton_header(ptr noundef %0, i32 nounde
   %44 = icmp sgt i64 %43, 0
   %45 = icmp sgt i64 %41, 0
   %or.cond3 = select i1 %44, i1 %45, i1 false
-  br i1 %or.cond3, label %46, label %76
+  br i1 %or.cond3, label %46, label %78
 
 46:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -94,16 +94,16 @@ define internal range(i32 -1, 2) i32 @skeleton_header(ptr noundef %0, i32 nounde
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 %50, ptr %52, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %76
+  br label %78
 
 53:                                               ; preds = %26
   %54 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(8) @.str.2, i64 noundef 8) #4
   %.not53 = icmp eq i32 %54, 0
-  br i1 %.not53, label %55, label %76
+  br i1 %.not53, label %55, label %78
 
 55:                                               ; preds = %53
   %56 = icmp ult i32 %.pre, 52
-  br i1 %56, label %76, label %57
+  br i1 %56, label %78, label %57
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -117,45 +117,47 @@ define internal range(i32 -1, 2) i32 @skeleton_header(ptr noundef %0, i32 nounde
   %wide.trip.count.i = zext nneg i32 %61 to i64
   br label %63
 
-63:                                               ; preds = %67, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %67 ]
-  %64 = getelementptr inbounds nuw %struct.ogg_stream, ptr %7, i64 %indvars.iv.i, i32 7
-  %65 = load i32, ptr %64, align 8, !tbaa !52
-  %66 = icmp eq i32 %65, %59
-  br i1 %66, label %ogg_find_stream.exit, label %67
+63:                                               ; preds = %68, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %68 ]
+  %64 = getelementptr inbounds nuw %struct.ogg_stream, ptr %7, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %66 = load i32, ptr %65, align 8, !tbaa !52
+  %67 = icmp eq i32 %66, %59
+  br i1 %67, label %ogg_find_stream.exit, label %68
 
-67:                                               ; preds = %63
+68:                                               ; preds = %63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %ogg_find_stream.exit.thread, label %63, !llvm.loop !53
 
 ogg_find_stream.exit:                             ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %18, i64 36
-  %69 = load i64, ptr %68, align 1, !tbaa !47
-  %70 = and i64 %indvars.iv.i, 4294967295
-  %71 = getelementptr inbounds nuw %struct.ogg_stream, ptr %7, i64 %70, i32 9
-  %72 = load i64, ptr %71, align 8, !tbaa !55
-  %.not54 = icmp eq i64 %72, -1
-  br i1 %.not54, label %74, label %73
+  %69 = getelementptr inbounds nuw i8, ptr %18, i64 36
+  %70 = load i64, ptr %69, align 1, !tbaa !47
+  %71 = and i64 %indvars.iv.i, 4294967295
+  %72 = getelementptr inbounds nuw %struct.ogg_stream, ptr %7, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
+  %74 = load i64, ptr %73, align 8, !tbaa !55
+  %.not54 = icmp eq i64 %74, -1
+  br i1 %.not54, label %76, label %75
 
-ogg_find_stream.exit.thread:                      ; preds = %67, %57
+ogg_find_stream.exit.thread:                      ; preds = %68, %57
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.3) #5
-  br label %76
+  br label %78
 
-73:                                               ; preds = %ogg_find_stream.exit
+75:                                               ; preds = %ogg_find_stream.exit
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.4) #5
-  br label %76
+  br label %78
 
-74:                                               ; preds = %ogg_find_stream.exit
-  %.not55 = icmp eq i64 %69, -1
-  br i1 %.not55, label %76, label %75
+76:                                               ; preds = %ogg_find_stream.exit
+  %.not55 = icmp eq i64 %70, -1
+  br i1 %.not55, label %78, label %77
 
-75:                                               ; preds = %74
-  store i64 %69, ptr %71, align 8, !tbaa !55
-  br label %76
+77:                                               ; preds = %76
+  store i64 %70, ptr %73, align 8, !tbaa !55
+  br label %78
 
-76:                                               ; preds = %2, %46, %39, %74, %75, %53, %55, %28, %._crit_edge, %73, %ogg_find_stream.exit.thread, %34
-  %.0 = phi i32 [ 1, %ogg_find_stream.exit.thread ], [ 1, %73 ], [ -1, %34 ], [ -1, %._crit_edge ], [ -1, %28 ], [ -1, %55 ], [ 1, %53 ], [ 1, %75 ], [ 1, %74 ], [ 1, %39 ], [ 1, %46 ], [ 1, %2 ]
+78:                                               ; preds = %2, %46, %39, %76, %77, %53, %55, %28, %._crit_edge, %75, %ogg_find_stream.exit.thread, %34
+  %.0 = phi i32 [ 1, %ogg_find_stream.exit.thread ], [ 1, %75 ], [ -1, %34 ], [ -1, %._crit_edge ], [ -1, %28 ], [ -1, %55 ], [ 1, %53 ], [ 1, %77 ], [ 1, %76 ], [ 1, %39 ], [ 1, %46 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

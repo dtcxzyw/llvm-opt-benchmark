@@ -139,7 +139,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
 
 48:                                               ; preds = %51
   %49 = trunc i32 %58 to i16
-  %50 = getelementptr inbounds nuw [23 x i16], ptr @ff_band_index_long, i64 %indvars.iv122, i64 22
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 44
   store i16 %49, ptr %50, align 2, !tbaa !4
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 9

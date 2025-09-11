@@ -259,9 +259,9 @@ define internal fastcc void @encode_block(ptr noundef %0, i32 noundef range(i32 
 
 tailrecurse:                                      ; preds = %pq_push.exit46, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %pq_push.exit46 ], [ %7, %5 ]
-  %.tr = phi ptr [ %54, %pq_push.exit46 ], [ %0, %5 ]
-  %.tr48 = phi i32 [ %46, %pq_push.exit46 ], [ %1, %5 ]
-  %.tr49 = phi i32 [ %47, %pq_push.exit46 ], [ %2, %5 ]
+  %.tr = phi ptr [ %56, %pq_push.exit46 ], [ %0, %5 ]
+  %.tr48 = phi i32 [ %48, %pq_push.exit46 ], [ %1, %5 ]
+  %.tr49 = phi i32 [ %49, %pq_push.exit46 ], [ %2, %5 ]
   %8 = load i8, ptr %.tr, align 1, !tbaa !30
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %.loopexit
@@ -302,68 +302,70 @@ all_white.exit:                                   ; preds = %10, %17
 21:                                               ; preds = %all_white.exit
   %sext76 = shl i64 %indvars.iv, 32
   %22 = ashr exact i64 %sext76, 32
-  %23 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %22, i64 2
-  %24 = add nsw i32 %19, 1
-  store i32 %24, ptr %6, align 4, !tbaa !35
-  %25 = sext i32 %19 to i64
-  %26 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %25
-  %27 = load i16, ptr %23, align 2
-  store i16 %27, ptr %26, align 2
+  %23 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %25 = add nsw i32 %19, 1
+  store i32 %25, ptr %6, align 4, !tbaa !35
+  %26 = sext i32 %19 to i64
+  %27 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %26
+  %28 = load i16, ptr %24, align 2
+  store i16 %28, ptr %27, align 2
   br label %pq_push.exit
 
 .loopexit:                                        ; preds = %13, %tailrecurse
-  %28 = tail call fastcc i32 @all_black(ptr noundef nonnull %.tr, i32 noundef %.tr48, i32 noundef %.tr49)
-  %.not42 = icmp eq i32 %28, 0
-  %29 = load i32, ptr %6, align 4, !tbaa !35
-  %30 = icmp sgt i32 %29, 4606
-  br i1 %.not42, label %39, label %31
+  %29 = tail call fastcc i32 @all_black(ptr noundef nonnull %.tr, i32 noundef %.tr48, i32 noundef %.tr49)
+  %.not42 = icmp eq i32 %29, 0
+  %30 = load i32, ptr %6, align 4, !tbaa !35
+  %31 = icmp sgt i32 %30, 4606
+  br i1 %.not42, label %40, label %32
 
-31:                                               ; preds = %.loopexit
-  br i1 %30, label %pq_push.exit44, label %32
+32:                                               ; preds = %.loopexit
+  br i1 %31, label %pq_push.exit44, label %33
 
-32:                                               ; preds = %31
+33:                                               ; preds = %32
   %sext = shl i64 %indvars.iv, 32
-  %33 = ashr exact i64 %sext, 32
-  %34 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %33
-  %35 = add nsw i32 %29, 1
-  store i32 %35, ptr %6, align 4, !tbaa !35
-  %36 = sext i32 %29 to i64
-  %37 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %36
-  %38 = load i16, ptr %34, align 2
-  store i16 %38, ptr %37, align 2
+  %34 = ashr exact i64 %sext, 32
+  %35 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %34
+  %36 = add nsw i32 %30, 1
+  store i32 %36, ptr %6, align 4, !tbaa !35
+  %37 = sext i32 %30 to i64
+  %38 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %37
+  %39 = load i16, ptr %35, align 2
+  store i16 %39, ptr %38, align 2
   br label %pq_push.exit44
 
-pq_push.exit44:                                   ; preds = %31, %32
+pq_push.exit44:                                   ; preds = %32, %33
   tail call fastcc void @push_greys(ptr noundef %4, ptr noundef nonnull %.tr, i32 noundef %.tr48, i32 noundef %.tr49)
   br label %pq_push.exit
 
-39:                                               ; preds = %.loopexit
-  br i1 %30, label %pq_push.exit46, label %40
+40:                                               ; preds = %.loopexit
+  br i1 %31, label %pq_push.exit46, label %41
 
-40:                                               ; preds = %39
-  %41 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %indvars.iv, i64 1
-  %42 = add nsw i32 %29, 1
-  store i32 %42, ptr %6, align 4, !tbaa !35
-  %43 = sext i32 %29 to i64
-  %44 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %43
-  %45 = load i16, ptr %41, align 2
-  store i16 %45, ptr %44, align 2
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds [3 x %struct.ProbRange], ptr @ff_xface_probranges_per_level, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 2
+  %44 = add nsw i32 %30, 1
+  store i32 %44, ptr %6, align 4, !tbaa !35
+  %45 = sext i32 %30 to i64
+  %46 = getelementptr inbounds %struct.ProbRange, ptr %4, i64 %45
+  %47 = load i16, ptr %43, align 2
+  store i16 %47, ptr %46, align 2
   br label %pq_push.exit46
 
-pq_push.exit46:                                   ; preds = %39, %40
-  %46 = lshr i32 %.tr48, 1
-  %47 = lshr i32 %.tr49, 1
+pq_push.exit46:                                   ; preds = %40, %41
+  %48 = lshr i32 %.tr48, 1
+  %49 = lshr i32 %.tr49, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %48 = trunc nsw i64 %indvars.iv.next to i32
-  tail call fastcc void @encode_block(ptr noundef nonnull %.tr, i32 noundef %46, i32 noundef %47, i32 noundef %48, ptr noundef %4)
-  %49 = zext nneg i32 %46 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %.tr, i64 %49
-  tail call fastcc void @encode_block(ptr noundef nonnull %50, i32 noundef %46, i32 noundef %47, i32 noundef %48, ptr noundef %4)
-  %51 = mul nuw nsw i32 %47, 48
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %.tr, i64 %52
-  tail call fastcc void @encode_block(ptr noundef nonnull %53, i32 noundef %46, i32 noundef %47, i32 noundef %48, ptr noundef %4)
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %52
+  %50 = trunc nsw i64 %indvars.iv.next to i32
+  tail call fastcc void @encode_block(ptr noundef nonnull %.tr, i32 noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef %4)
+  %51 = zext nneg i32 %48 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %.tr, i64 %51
+  tail call fastcc void @encode_block(ptr noundef nonnull %52, i32 noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef %4)
+  %53 = mul nuw nsw i32 %49, 48
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %.tr, i64 %54
+  tail call fastcc void @encode_block(ptr noundef nonnull %55, i32 noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef %4)
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 %54
   br label %tailrecurse
 
 pq_push.exit:                                     ; preds = %21, %all_white.exit, %pq_push.exit44

@@ -253,42 +253,19 @@ define dso_local noundef zeroext i1 @_ZNK4llvm27FixedStackPseudoSourceValue10isC
   %13 = add i32 %12, %9
   %14 = zext i32 %13 to i64
   %15 = load ptr, ptr %10, align 8, !tbaa !46
-  %16 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %15, i64 %14, i32 3
-  %17 = load i8, ptr %16, align 1, !tbaa !47, !range !41, !noundef !42
-  %18 = trunc nuw i8 %17 to i1
+  %16 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %15, i64 %14
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 17
+  %18 = load i8, ptr %17, align 1, !tbaa !47, !range !41, !noundef !42
+  %19 = trunc nuw i8 %18 to i1
   br label %_ZNK4llvm16MachineFrameInfo22isImmutableObjectIndexEi.exit
 
 _ZNK4llvm16MachineFrameInfo22isImmutableObjectIndexEi.exit: ; preds = %7, %3, %2
-  %19 = phi i1 [ false, %2 ], [ %18, %7 ], [ false, %3 ]
-  ret i1 %19
+  %20 = phi i1 [ false, %2 ], [ %19, %7 ], [ false, %3 ]
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm27FixedStackPseudoSourceValue9isAliasedEPKNS_16MachineFrameInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 align 2 {
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %15, label %3
-
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !43
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load i32, ptr %7, align 8, !tbaa !45
-  %9 = add i32 %8, %5
-  %10 = zext i32 %9 to i64
-  %11 = load ptr, ptr %6, align 8, !tbaa !46
-  %12 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %11, i64 %10, i32 10
-  %13 = load i8, ptr %12, align 1, !tbaa !50, !range !41, !noundef !42
-  %14 = trunc nuw i8 %13 to i1
-  br label %15
-
-15:                                               ; preds = %2, %3
-  %.0 = phi i1 [ %14, %3 ], [ true, %2 ]
-  ret i1 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm27FixedStackPseudoSourceValue8mayAliasEPKNS_16MachineFrameInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %3
 
@@ -301,14 +278,40 @@ define dso_local noundef zeroext i1 @_ZNK4llvm27FixedStackPseudoSourceValue8mayA
   %9 = add i32 %8, %5
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %6, align 8, !tbaa !46
-  %12 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %11, i64 %10, i32 4
-  %13 = load i8, ptr %12, align 2, !tbaa !51, !range !41, !noundef !42
-  %14 = trunc nuw i8 %13 to i1
-  %15 = xor i1 %14, true
+  %12 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %11, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  %14 = load i8, ptr %13, align 1, !tbaa !50, !range !41, !noundef !42
+  %15 = trunc nuw i8 %14 to i1
   br label %16
 
 16:                                               ; preds = %2, %3
   %.0 = phi i1 [ %15, %3 ], [ true, %2 ]
+  ret i1 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define dso_local noundef zeroext i1 @_ZNK4llvm27FixedStackPseudoSourceValue8mayAliasEPKNS_16MachineFrameInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 align 2 {
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %17, label %3
+
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load i32, ptr %4, align 8, !tbaa !43
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %8 = load i32, ptr %7, align 8, !tbaa !45
+  %9 = add i32 %8, %5
+  %10 = zext i32 %9 to i64
+  %11 = load ptr, ptr %6, align 8, !tbaa !46
+  %12 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %11, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 18
+  %14 = load i8, ptr %13, align 2, !tbaa !51, !range !41, !noundef !42
+  %15 = trunc nuw i8 %14 to i1
+  %16 = xor i1 %15, true
+  br label %17
+
+17:                                               ; preds = %2, %3
+  %.0 = phi i1 [ %16, %3 ], [ true, %2 ]
   ret i1 %.0
 }
 

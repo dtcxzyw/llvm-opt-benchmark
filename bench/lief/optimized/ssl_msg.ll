@@ -2561,7 +2561,7 @@ define hidden i32 @mbedtls_ssl_flight_transmit(ptr noundef %0) local_unnamed_add
   br i1 %or.cond143, label %.thread144, label %90
 
 90:                                               ; preds = %86
-  %91 = trunc i64 %88 to i32
+  %91 = trunc nuw nsw i64 %88 to i32
   %92 = trunc nuw nsw i64 %87 to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 2622, ptr noundef nonnull @.str.70, i32 noundef %91, i32 noundef %92) #19
   %.pre = load ptr, ptr %25, align 8, !tbaa !108
@@ -2586,12 +2586,12 @@ define hidden i32 @mbedtls_ssl_flight_transmit(ptr noundef %0) local_unnamed_add
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i8 %103, ptr %105, align 1, !tbaa !32
   %106 = lshr i64 %88, 16
-  %107 = trunc i64 %106 to i8
+  %107 = trunc nuw nsw i64 %106 to i8
   %108 = load ptr, ptr %21, align 8, !tbaa !105
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 9
   store i8 %107, ptr %109, align 1, !tbaa !32
   %110 = lshr i64 %88, 8
-  %111 = trunc i64 %110 to i8
+  %111 = trunc nuw nsw i64 %110 to i8
   %112 = load ptr, ptr %21, align 8, !tbaa !105
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 10
   store i8 %111, ptr %113, align 1, !tbaa !32
@@ -2604,7 +2604,7 @@ define hidden i32 @mbedtls_ssl_flight_transmit(ptr noundef %0) local_unnamed_add
   %118 = load ptr, ptr %21, align 8, !tbaa !105
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr align 1 %70, i64 %88, i1 false)
-  %120 = add i64 %88, 12
+  %120 = add nuw nsw i64 %88, 12
   store i64 %120, ptr %22, align 8, !tbaa !98
   %121 = load i8, ptr %27, align 8, !tbaa !114
   %122 = zext i8 %121 to i32
@@ -6553,7 +6553,7 @@ ssl_check_ctr_renegotiate.exit.thread.thread:     ; preds = %8, %ssl_check_ctr_r
   br label %ssl_write_real.exit
 
 66:                                               ; preds = %63, %54
-  %67 = trunc i64 %.030.i to i32
+  %67 = trunc nuw nsw i64 %.030.i to i32
   br label %ssl_write_real.exit
 
 ssl_write_real.exit:                              ; preds = %42, %50, %56, %65, %66

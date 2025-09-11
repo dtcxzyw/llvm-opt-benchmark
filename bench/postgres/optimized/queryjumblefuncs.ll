@@ -2252,11 +2252,12 @@ AppendJumble.exit:                                ; preds = %10
   %38 = load ptr, ptr %35, align 8
   %39 = load i32, ptr %21, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.LocationLen, ptr %38, i64 %40, i32 1
-  store i32 -1, ptr %41, align 4
-  %42 = load i32, ptr %21, align 4
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %21, align 4
+  %41 = getelementptr inbounds %struct.LocationLen, ptr %38, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store i32 -1, ptr %42, align 4
+  %43 = load i32, ptr %21, align 4
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %21, align 4
   br label %RecordConstLocation.exit
 
 RecordConstLocation.exit:                         ; preds = %AppendJumble.exit, %32
@@ -11806,11 +11807,12 @@ AppendJumble.exit28:                              ; preds = %.lr.ph.i21, %45
   %71 = load ptr, ptr %68, align 8
   %72 = load i32, ptr %54, align 4
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %struct.LocationLen, ptr %71, i64 %73, i32 1
-  store i32 -1, ptr %74, align 4
-  %75 = load i32, ptr %54, align 4
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %54, align 4
+  %74 = getelementptr inbounds %struct.LocationLen, ptr %71, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  store i32 -1, ptr %75, align 4
+  %76 = load i32, ptr %54, align 4
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %54, align 4
   br label %RecordConstLocation.exit
 
 RecordConstLocation.exit:                         ; preds = %AppendJumble.exit28, %65
@@ -18532,11 +18534,12 @@ AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %23
   %49 = load ptr, ptr %46, align 8
   %50 = load i32, ptr %32, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.LocationLen, ptr %49, i64 %51, i32 1
-  store i32 -1, ptr %52, align 4
-  %53 = load i32, ptr %32, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %32, align 4
+  %52 = getelementptr inbounds %struct.LocationLen, ptr %49, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  store i32 -1, ptr %53, align 4
+  %54 = load i32, ptr %32, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %32, align 4
   br label %RecordConstLocation.exit
 
 RecordConstLocation.exit:                         ; preds = %AppendJumble.exit15, %43
@@ -20083,11 +20086,12 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   %33 = load ptr, ptr %30, align 8
   %34 = load i32, ptr %16, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.LocationLen, ptr %33, i64 %35, i32 1
-  store i32 -1, ptr %36, align 4
-  %37 = load i32, ptr %16, align 4
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %16, align 4
+  %36 = getelementptr inbounds %struct.LocationLen, ptr %33, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  store i32 -1, ptr %37, align 4
+  %38 = load i32, ptr %16, align 4
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %16, align 4
   br label %RecordConstLocation.exit
 
 RecordConstLocation.exit:                         ; preds = %AppendJumble.exit, %27

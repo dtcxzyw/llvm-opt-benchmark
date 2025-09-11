@@ -8,6 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
 %struct.ThreadData = type { ptr, ptr, ptr, double }
+%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"tonemap\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"Conversion to/from different dynamic ranges.\00", align 1
@@ -396,27 +397,24 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   %48 = sext i32 %45 to i64
   %49 = getelementptr inbounds ptr, ptr %5, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !61
-  %.idx.i.us = mul nsw i64 %48, 20
-  %51 = getelementptr i8, ptr %44, i64 %.idx.i.us
-  %52 = getelementptr i8, ptr %51, i64 4
+  %51 = getelementptr inbounds %struct.AVComponentDescriptor, ptr %44, i64 %48
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !64
   %54 = getelementptr inbounds i32, ptr %39, i64 %48
   %55 = load i32, ptr %54, align 4, !tbaa !62
   %56 = sext i32 %46 to i64
   %57 = getelementptr inbounds ptr, ptr %5, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !61
-  %.idx147.i.us = mul nsw i64 %56, 20
-  %59 = getelementptr i8, ptr %44, i64 %.idx147.i.us
-  %60 = getelementptr i8, ptr %59, i64 4
+  %59 = getelementptr inbounds %struct.AVComponentDescriptor, ptr %44, i64 %56
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !64
   %62 = getelementptr inbounds i32, ptr %39, i64 %56
   %63 = load i32, ptr %62, align 4, !tbaa !62
   %64 = sext i32 %47 to i64
   %65 = getelementptr inbounds ptr, ptr %5, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !61
-  %.idx148.i.us = mul nsw i64 %64, 20
-  %67 = getelementptr i8, ptr %44, i64 %.idx148.i.us
-  %68 = getelementptr i8, ptr %67, i64 4
+  %67 = getelementptr inbounds %struct.AVComponentDescriptor, ptr %44, i64 %64
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !64
   %70 = getelementptr inbounds i32, ptr %39, i64 %64
   %71 = load i32, ptr %70, align 4, !tbaa !62
@@ -497,11 +495,11 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   %117 = fpext nsz float %116 to double
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %119 = load i64, ptr %118, align 4
-  %.sroa.0.0.extract.trunc.i152.i.us = trunc i64 %119 to i32
-  %.sroa.2.0.extract.shift.i153.i.us = lshr i64 %119, 32
-  %.sroa.2.0.extract.trunc.i154.i.us = trunc nuw i64 %.sroa.2.0.extract.shift.i153.i.us to i32
-  %120 = sitofp i32 %.sroa.0.0.extract.trunc.i152.i.us to double
-  %121 = sitofp i32 %.sroa.2.0.extract.trunc.i154.i.us to double
+  %.sroa.0.0.extract.trunc.i150.i.us = trunc i64 %119 to i32
+  %.sroa.2.0.extract.shift.i151.i.us = lshr i64 %119, 32
+  %.sroa.2.0.extract.trunc.i152.i.us = trunc nuw i64 %.sroa.2.0.extract.shift.i151.i.us to i32
+  %120 = sitofp i32 %.sroa.0.0.extract.trunc.i150.i.us to double
+  %121 = sitofp i32 %.sroa.2.0.extract.trunc.i152.i.us to double
   %122 = fdiv nsz double %120, %121
   %123 = load float, ptr %gep28.us, align 4, !tbaa !72
   %124 = fpext nsz float %123 to double
@@ -509,11 +507,11 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
   %126 = tail call nsz double @llvm.fmuladd.f64(double %115, double %117, double %125)
   %127 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %128 = load i64, ptr %127, align 4
-  %.sroa.0.0.extract.trunc.i155.i.us = trunc i64 %128 to i32
-  %.sroa.2.0.extract.shift.i156.i.us = lshr i64 %128, 32
-  %.sroa.2.0.extract.trunc.i157.i.us = trunc nuw i64 %.sroa.2.0.extract.shift.i156.i.us to i32
-  %129 = sitofp i32 %.sroa.0.0.extract.trunc.i155.i.us to double
-  %130 = sitofp i32 %.sroa.2.0.extract.trunc.i157.i.us to double
+  %.sroa.0.0.extract.trunc.i153.i.us = trunc i64 %128 to i32
+  %.sroa.2.0.extract.shift.i154.i.us = lshr i64 %128, 32
+  %.sroa.2.0.extract.trunc.i155.i.us = trunc nuw i64 %.sroa.2.0.extract.shift.i154.i.us to i32
+  %129 = sitofp i32 %.sroa.0.0.extract.trunc.i153.i.us to double
+  %130 = sitofp i32 %.sroa.2.0.extract.trunc.i155.i.us to double
   %131 = fdiv nsz double %129, %130
   %132 = fpext nsz float %109 to double
   %133 = tail call nsz double @llvm.fmuladd.f64(double %131, double %132, double %126)
@@ -550,9 +548,9 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
 .thread.i.us:                                     ; preds = %150
   %156 = fpext nsz float %151 to double
   %157 = fcmp nsz ogt double %156, 0x3EB0C6F7A0B5ED8D
-  br i1 %157, label %.thread158.i.us, label %162
+  br i1 %157, label %.thread156.i.us, label %162
 
-.thread158.i.us:                                  ; preds = %.thread.i.us
+.thread156.i.us:                                  ; preds = %.thread.i.us
   br label %162
 
 158:                                              ; preds = %150
@@ -563,8 +561,8 @@ define internal noundef i32 @tonemap_slice(ptr noundef readonly captures(none) %
 161:                                              ; preds = %158
   br label %162
 
-162:                                              ; preds = %161, %158, %.thread158.i.us, %.thread.i.us
-  %163 = phi float [ 0x3EB0C6F7A0000000, %158 ], [ %..i.us, %161 ], [ 0x3EB0C6F7A0000000, %.thread.i.us ], [ %151, %.thread158.i.us ]
+162:                                              ; preds = %161, %158, %.thread156.i.us, %.thread.i.us
+  %163 = phi float [ 0x3EB0C6F7A0000000, %158 ], [ %..i.us, %161 ], [ 0x3EB0C6F7A0000000, %.thread.i.us ], [ %151, %.thread156.i.us ]
   switch i32 %86, label %tonemap.exit.us [
     i32 6, label %210
     i32 1, label %204

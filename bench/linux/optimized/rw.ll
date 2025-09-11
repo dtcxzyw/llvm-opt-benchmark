@@ -2405,7 +2405,8 @@ define internal fastcc noundef range(i32 -12, 1) i32 @io_setup_async_rw(ptr noun
   br i1 %3, label %._crit_edge, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %.pre3, i32 2
+  %.split = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %.pre3
+  %6 = getelementptr i8, ptr %.split, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %67, label %._crit_edge

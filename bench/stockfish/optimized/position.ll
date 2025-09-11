@@ -1053,105 +1053,107 @@ _ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader: ; preds = %.lr.
   br i1 %52, label %.lr.ph80, label %.loopexit
 
 .lr.ph80:                                         ; preds = %51
-  %53 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %indvars.iv102, i32 2
-  %54 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %indvars.iv102, i32 2
-  %55 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv102
-  %56 = shl nuw nsw i64 %indvars.iv102, 6
-  %57 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv102
-  br label %58
+  %53 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish12BishopMagicsE, i64 %indvars.iv102
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %55 = getelementptr inbounds nuw %"struct.Stockfish::Magic", ptr @_ZN9Stockfish10RookMagicsE, i64 %indvars.iv102
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv102
+  %58 = shl nuw nsw i64 %indvars.iv102, 6
+  %59 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv102
+  br label %60
 
-58:                                               ; preds = %.lr.ph80, %._crit_edge
+60:                                               ; preds = %.lr.ph80, %._crit_edge
   %indvars.iv98 = phi i64 [ %indvars.iv96, %.lr.ph80 ], [ %indvars.iv.next99, %._crit_edge ]
-  switch i32 %46, label %71 [
+  switch i32 %46, label %73 [
     i32 1, label %._crit_edge
-    i32 3, label %59
-    i32 4, label %62
-    i32 5, label %65
+    i32 3, label %61
+    i32 4, label %64
+    i32 5, label %67
   ]
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr %53, align 16
-  %61 = load i64, ptr %60, align 8
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %54, align 16
+  %63 = load i64, ptr %62, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %54, align 16
-  %64 = load i64, ptr %63, align 8
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %56, align 16
+  %66 = load i64, ptr %65, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-65:                                               ; preds = %58
-  %66 = load ptr, ptr %53, align 16
-  %67 = load i64, ptr %66, align 8
+67:                                               ; preds = %60
   %68 = load ptr, ptr %54, align 16
   %69 = load i64, ptr %68, align 8
-  %70 = or i64 %69, %67
+  %70 = load ptr, ptr %56, align 16
+  %71 = load i64, ptr %70, align 8
+  %72 = or i64 %71, %69
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-71:                                               ; preds = %58
-  %72 = load i64, ptr %55, align 8
+73:                                               ; preds = %60
+  %74 = load i64, ptr %57, align 8
   br label %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
 
-_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %59, %62, %65, %71
-  %.0.i = phi i64 [ %72, %71 ], [ %61, %59 ], [ %64, %62 ], [ %70, %65 ]
-  %73 = shl nuw i64 1, %indvars.iv98
-  %74 = and i64 %.0.i, %73
-  %.not26 = icmp eq i64 %74, 0
-  br i1 %.not26, label %._crit_edge, label %75
+_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %61, %64, %67, %73
+  %.0.i = phi i64 [ %74, %73 ], [ %63, %61 ], [ %66, %64 ], [ %72, %67 ]
+  %75 = shl nuw i64 1, %indvars.iv98
+  %76 = and i64 %.0.i, %75
+  %.not26 = icmp eq i64 %76, 0
+  br i1 %.not26, label %._crit_edge, label %77
 
-75:                                               ; preds = %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
-  %76 = add nuw nsw i64 %indvars.iv98, %56
-  %77 = trunc i64 %76 to i16
-  %78 = load i64, ptr %57, align 8
-  %79 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv98
-  %80 = load i64, ptr %79, align 8
-  %81 = xor i64 %78, %80
-  %82 = xor i64 %81, %37
-  %83 = and i64 %82, 8191
-  %84 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish6cuckooE, i64 %83
-  %85 = load i64, ptr %84, align 8
-  store i64 %82, ptr %84, align 8
-  %86 = getelementptr inbounds nuw %"class.Stockfish::Move", ptr @_ZN9Stockfish10cuckooMoveE, i64 %83
-  %.sroa.0.0.copyload.i74 = load i16, ptr %86, align 2
-  store i16 %77, ptr %86, align 2
-  %87 = icmp eq i16 %.sroa.0.0.copyload.i74, 0
-  br i1 %87, label %._crit_edge, label %.lr.ph.preheader
+77:                                               ; preds = %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
+  %78 = add nuw nsw i64 %indvars.iv98, %58
+  %79 = trunc i64 %78 to i16
+  %80 = load i64, ptr %59, align 8
+  %81 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv98
+  %82 = load i64, ptr %81, align 8
+  %83 = xor i64 %80, %82
+  %84 = xor i64 %83, %37
+  %85 = and i64 %84, 8191
+  %86 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish6cuckooE, i64 %85
+  %87 = load i64, ptr %86, align 8
+  store i64 %84, ptr %86, align 8
+  %88 = getelementptr inbounds nuw %"class.Stockfish::Move", ptr @_ZN9Stockfish10cuckooMoveE, i64 %85
+  %.sroa.0.0.copyload.i74 = load i16, ptr %88, align 2
+  store i16 %79, ptr %88, align 2
+  %89 = icmp eq i16 %.sroa.0.0.copyload.i74, 0
+  br i1 %89, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %75
-  %88 = trunc i64 %82 to i32
-  %89 = and i32 %88, 8191
+.lr.ph.preheader:                                 ; preds = %77
+  %90 = trunc i64 %84 to i32
+  %91 = and i32 %90, 8191
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.sroa.0.0.copyload.i76 = phi i16 [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %.sroa.0.0.copyload.i74, %.lr.ph.preheader ]
-  %90 = phi i64 [ %99, %.lr.ph ], [ %85, %.lr.ph.preheader ]
-  %.075 = phi i32 [ %96, %.lr.ph ], [ %89, %.lr.ph.preheader ]
-  %91 = trunc i64 %90 to i32
-  %92 = and i32 %91, 8191
-  %93 = icmp eq i32 %.075, %92
-  %94 = lshr i32 %91, 16
-  %95 = and i32 %94, 8191
-  %96 = select i1 %93, i32 %95, i32 %92
-  %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish6cuckooE, i64 %97
-  %99 = load i64, ptr %98, align 8
-  store i64 %90, ptr %98, align 8
-  %100 = getelementptr inbounds nuw %"class.Stockfish::Move", ptr @_ZN9Stockfish10cuckooMoveE, i64 %97
-  %.sroa.0.0.copyload.i = load i16, ptr %100, align 2
-  store i16 %.sroa.0.0.copyload.i76, ptr %100, align 2
-  %101 = icmp eq i16 %.sroa.0.0.copyload.i, 0
-  br i1 %101, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  %92 = phi i64 [ %101, %.lr.ph ], [ %87, %.lr.ph.preheader ]
+  %.075 = phi i32 [ %98, %.lr.ph ], [ %91, %.lr.ph.preheader ]
+  %93 = trunc i64 %92 to i32
+  %94 = and i32 %93, 8191
+  %95 = icmp eq i32 %.075, %94
+  %96 = lshr i32 %93, 16
+  %97 = and i32 %96, 8191
+  %98 = select i1 %95, i32 %97, i32 %94
+  %99 = zext nneg i32 %98 to i64
+  %100 = getelementptr inbounds nuw i64, ptr @_ZN9Stockfish6cuckooE, i64 %99
+  %101 = load i64, ptr %100, align 8
+  store i64 %92, ptr %100, align 8
+  %102 = getelementptr inbounds nuw %"class.Stockfish::Move", ptr @_ZN9Stockfish10cuckooMoveE, i64 %99
+  %.sroa.0.0.copyload.i = load i16, ptr %102, align 2
+  store i16 %.sroa.0.0.copyload.i76, ptr %102, align 2
+  %103 = icmp eq i16 %.sroa.0.0.copyload.i, 0
+  br i1 %103, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %.lr.ph, %75, %58, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
+._crit_edge:                                      ; preds = %.lr.ph, %77, %60, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, 64
-  br i1 %exitcond101.not, label %.loopexit, label %58, !llvm.loop !27
+  br i1 %exitcond101.not, label %.loopexit, label %60, !llvm.loop !27
 
 _ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit: ; preds = %.loopexit
   %.021.add = add nuw nsw i64 %.021.idx84, 4
   %.not24 = icmp eq i64 %.021.add, 48
-  br i1 %.not24, label %102, label %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader
+  br i1 %.not24, label %104, label %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader
 
-102:                                              ; preds = %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit
+104:                                              ; preds = %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit
   ret void
 }
 

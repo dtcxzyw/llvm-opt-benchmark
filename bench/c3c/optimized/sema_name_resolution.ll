@@ -539,32 +539,33 @@ define dso_local noundef ptr @sema_find_extension_method_in_list(ptr noundef rea
   %wide.trip.count = zext i32 %6 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph, %21
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+8:                                                ; preds = %.lr.ph, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %.not18 = icmp eq ptr %11, %2
-  br i1 %.not18, label %12, label %21
+  br i1 %.not18, label %12, label %22
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %7, i64 %15, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, %1
-  br i1 %20, label %._crit_edge, label %21
+  %16 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %7, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, %1
+  br i1 %21, label %._crit_edge, label %22
 
-21:                                               ; preds = %12, %8
+22:                                               ; preds = %12, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %12, %21, %3, %4
-  %.015 = phi ptr [ null, %4 ], [ null, %3 ], [ null, %21 ], [ %10, %12 ]
+._crit_edge:                                      ; preds = %12, %22, %3, %4
+  %.015 = phi ptr [ null, %4 ], [ null, %3 ], [ null, %22 ], [ %10, %12 ]
   ret ptr %.015
 }
 
@@ -593,98 +594,99 @@ define dso_local ptr @sema_resolve_method_in_module(ptr noundef readonly capture
   %wide.trip.count.i = zext i32 %15 to i64
   br label %17
 
-17:                                               ; preds = %30, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
+17:                                               ; preds = %31, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %18 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %.not18.i = icmp eq ptr %20, %2
-  br i1 %.not18.i, label %21, label %30
+  br i1 %.not18.i, label %21, label %31
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %16, i64 %24, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, %1
-  br i1 %29, label %sema_find_extension_method_in_list.exit, label %30
+  %25 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %16, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, %1
+  br i1 %30, label %sema_find_extension_method_in_list.exit, label %31
 
-30:                                               ; preds = %21, %17
+31:                                               ; preds = %21, %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.thread, label %17, !llvm.loop !17
 
 sema_find_extension_method_in_list.exit:          ; preds = %21
-  %31 = icmp ult i32 %5, 2
-  br i1 %31, label %32, label %40
+  %32 = icmp ult i32 %5, 2
+  br i1 %32, label %33, label %41
 
-32:                                               ; preds = %sema_find_extension_method_in_list.exit
-  %33 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %34 = load i64, ptr %33, align 8
-  %35 = and i64 %34, 7168
-  %36 = icmp eq i64 %35, 1024
-  br i1 %36, label %37, label %.thread
+33:                                               ; preds = %sema_find_extension_method_in_list.exit
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %35 = load i64, ptr %34, align 8
+  %36 = and i64 %35, 7168
+  %37 = icmp eq i64 %36, 1024
+  br i1 %37, label %38, label %.thread
 
-37:                                               ; preds = %32
+38:                                               ; preds = %33
   store ptr %19, ptr %3, align 8
   br label %.thread
 
-.thread:                                          ; preds = %30, %37, %32, %13, %10
-  %.042.ph = phi ptr [ %19, %32 ], [ null, %37 ], [ null, %13 ], [ null, %10 ], [ null, %30 ]
-  %38 = icmp eq i32 %5, 2
-  %39 = select i1 %38, i32 0, i32 %5
-  br label %42
+.thread:                                          ; preds = %31, %38, %33, %13, %10
+  %.042.ph = phi ptr [ %19, %33 ], [ null, %38 ], [ null, %13 ], [ null, %10 ], [ null, %31 ]
+  %39 = icmp eq i32 %5, 2
+  %40 = select i1 %39, i32 0, i32 %5
+  br label %43
 
-40:                                               ; preds = %sema_find_extension_method_in_list.exit
-  %41 = icmp eq i32 %5, 2
-  br i1 %41, label %.loopexit, label %42
+41:                                               ; preds = %sema_find_extension_method_in_list.exit
+  %42 = icmp eq i32 %5, 2
+  br i1 %42, label %.loopexit, label %43
 
-42:                                               ; preds = %.thread, %40
-  %spec.store.select = phi i32 [ %39, %.thread ], [ %5, %40 ]
-  %.04253 = phi ptr [ %.042.ph, %.thread ], [ %19, %40 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %44 = load ptr, ptr %43, align 8
-  %.not46 = icmp eq ptr %44, null
-  br i1 %.not46, label %.loopexit, label %45
+43:                                               ; preds = %.thread, %41
+  %spec.store.select = phi i32 [ %40, %.thread ], [ %5, %41 ]
+  %.04253 = phi ptr [ %.042.ph, %.thread ], [ %19, %41 ]
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %45 = load ptr, ptr %44, align 8
+  %.not46 = icmp eq ptr %45, null
+  br i1 %.not46, label %.loopexit, label %46
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %44, i64 -8
-  %47 = load i32, ptr %46, align 4
-  %.not59 = icmp eq i32 %47, 0
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %45, i64 -8
+  %48 = load i32, ptr %47, align 4
+  %.not59 = icmp eq i32 %48, 0
   br i1 %.not59, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %45
-  %wide.trip.count = zext i32 %47 to i64
+.lr.ph.preheader:                                 ; preds = %46
+  %wide.trip.count = zext i32 %48 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %53
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
-  %.157 = phi ptr [ %.04253, %.lr.ph.preheader ], [ %.2, %53 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call ptr @sema_resolve_method_in_module(ptr noundef %49, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %spec.store.select)
-  %.not47 = icmp eq ptr %50, null
-  br i1 %.not47, label %53, label %51
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %54
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
+  %.157 = phi ptr [ %.04253, %.lr.ph.preheader ], [ %.2, %54 ]
+  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call ptr @sema_resolve_method_in_module(ptr noundef %50, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %spec.store.select)
+  %.not47 = icmp eq ptr %51, null
+  br i1 %.not47, label %54, label %52
 
-51:                                               ; preds = %.lr.ph
+52:                                               ; preds = %.lr.ph
   %.not48 = icmp eq ptr %.157, null
-  br i1 %.not48, label %53, label %52
+  br i1 %.not48, label %54, label %53
 
-52:                                               ; preds = %51
-  store ptr %50, ptr %4, align 8
+53:                                               ; preds = %52
+  store ptr %51, ptr %4, align 8
   br label %.loopexit
 
-53:                                               ; preds = %51, %.lr.ph
-  %.2 = phi ptr [ %.157, %.lr.ph ], [ %50, %51 ]
+54:                                               ; preds = %52, %.lr.ph
+  %.2 = phi ptr [ %.157, %.lr.ph ], [ %51, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
-.loopexit:                                        ; preds = %53, %42, %45, %40, %6, %52
-  %.040 = phi ptr [ %.157, %52 ], [ null, %6 ], [ %19, %40 ], [ %.04253, %45 ], [ %.04253, %42 ], [ %.2, %53 ]
+.loopexit:                                        ; preds = %54, %43, %46, %41, %6, %53
+  %.040 = phi ptr [ %.157, %53 ], [ null, %6 ], [ %19, %41 ], [ %.04253, %46 ], [ %.04253, %43 ], [ %.2, %54 ]
   ret ptr %.040
 }
 
@@ -798,211 +800,213 @@ define dso_local ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef reado
   %wide.trip.count.i = zext i32 %18 to i64
   br label %20
 
-20:                                               ; preds = %33, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
+20:                                               ; preds = %34, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %.not18.i = icmp eq ptr %23, %2
-  br i1 %.not18.i, label %24, label %33
+  br i1 %.not18.i, label %24, label %34
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %19, i64 %27, i32 1
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, %.066
-  br i1 %32, label %sema_find_extension_method_in_list.exit.thread, label %33
+  %28 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %19, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, %.066
+  br i1 %33, label %sema_find_extension_method_in_list.exit.thread, label %34
 
-33:                                               ; preds = %24, %20
+34:                                               ; preds = %24, %20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %sema_find_extension_method_in_list.exit, label %20, !llvm.loop !17
 
-sema_find_extension_method_in_list.exit:          ; preds = %33, %13, %16
-  %34 = load ptr, ptr %0, align 8
-  %35 = call ptr @sema_resolve_method_in_module(ptr noundef %34, ptr noundef %.066, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 2)
+sema_find_extension_method_in_list.exit:          ; preds = %34, %13, %16
+  %35 = load ptr, ptr %0, align 8
+  %36 = call ptr @sema_resolve_method_in_module(ptr noundef %35, ptr noundef %.066, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 2)
   %.pre = load ptr, ptr %7, align 8
   %.not81 = icmp eq ptr %.pre, null
-  br i1 %.not81, label %sema_find_extension_method_in_list.exit.thread, label %36
+  br i1 %.not81, label %sema_find_extension_method_in_list.exit.thread, label %37
 
-36:                                               ; preds = %sema_find_extension_method_in_list.exit
+37:                                               ; preds = %sema_find_extension_method_in_list.exit
   store ptr %.pre, ptr %3, align 8
   br label %.thread107
 
 sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_extension_method_in_list.exit
-  %.067147 = phi ptr [ %35, %sema_find_extension_method_in_list.exit ], [ %22, %24 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %.not82 = icmp eq ptr %38, null
-  br i1 %.not82, label %._crit_edge, label %39
+  %.067147 = phi ptr [ %36, %sema_find_extension_method_in_list.exit ], [ %22, %24 ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %.not82 = icmp eq ptr %39, null
+  br i1 %.not82, label %._crit_edge, label %40
 
-39:                                               ; preds = %sema_find_extension_method_in_list.exit.thread
-  %40 = getelementptr inbounds i8, ptr %38, i64 -8
-  %41 = load i32, ptr %40, align 4
-  %.not = icmp eq i32 %41, 0
+40:                                               ; preds = %sema_find_extension_method_in_list.exit.thread
+  %41 = getelementptr inbounds i8, ptr %39, i64 -8
+  %42 = load i32, ptr %41, align 4
+  %.not = icmp eq i32 %42, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %39
-  %wide.trip.count = zext i32 %41 to i64
+.lr.ph.preheader:                                 ; preds = %40
+  %wide.trip.count = zext i32 %42 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
-  %.1124 = phi ptr [ %.067147, %.lr.ph.preheader ], [ %.2, %61 ]
-  %42 = load ptr, ptr %37, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %48 = load i16, ptr %47, align 8
-  %49 = and i16 %48, 8
-  %.not88 = icmp eq i16 %49, 0
-  br i1 %.not88, label %50, label %61
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
+  %.1124 = phi ptr [ %.067147, %.lr.ph.preheader ], [ %.2, %62 ]
+  %43 = load ptr, ptr %38, align 8
+  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load i16, ptr %48, align 8
+  %50 = and i16 %49, 8
+  %.not88 = icmp eq i16 %50, 0
+  br i1 %.not88, label %51, label %62
 
-50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 88
-  %52 = load i8, ptr %51, align 8
-  %53 = trunc i8 %52 to i1
-  %54 = select i1 %53, i32 3, i32 1
-  %55 = call ptr @sema_resolve_method_in_module(ptr noundef nonnull %46, ptr noundef %.066, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %54)
-  %.not89 = icmp eq ptr %55, null
-  br i1 %.not89, label %61, label %56
+51:                                               ; preds = %.lr.ph
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 88
+  %53 = load i8, ptr %52, align 8
+  %54 = trunc i8 %53 to i1
+  %55 = select i1 %54, i32 3, i32 1
+  %56 = call ptr @sema_resolve_method_in_module(ptr noundef nonnull %47, ptr noundef %.066, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %55)
+  %.not89 = icmp eq ptr %56, null
+  br i1 %.not89, label %62, label %57
 
-56:                                               ; preds = %50
+57:                                               ; preds = %51
   %.not90 = icmp eq ptr %.1124, null
-  br i1 %.not90, label %58, label %57
+  br i1 %.not90, label %59, label %58
 
-57:                                               ; preds = %56
-  store ptr %55, ptr %3, align 8
+58:                                               ; preds = %57
+  store ptr %56, ptr %3, align 8
   br label %.thread107
 
-58:                                               ; preds = %56
-  %59 = load ptr, ptr %7, align 8
-  %.not91 = icmp eq ptr %59, null
-  br i1 %.not91, label %61, label %60
+59:                                               ; preds = %57
+  %60 = load ptr, ptr %7, align 8
+  %.not91 = icmp eq ptr %60, null
+  br i1 %.not91, label %62, label %61
 
-60:                                               ; preds = %58
-  store ptr %59, ptr %3, align 8
+61:                                               ; preds = %59
+  store ptr %60, ptr %3, align 8
   br label %.thread107
 
-61:                                               ; preds = %58, %50, %.lr.ph
-  %.2 = phi ptr [ %.1124, %.lr.ph ], [ %55, %58 ], [ %.1124, %50 ]
+62:                                               ; preds = %59, %51, %.lr.ph
+  %.2 = phi ptr [ %.1124, %.lr.ph ], [ %56, %59 ], [ %.1124, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %61, %sema_find_extension_method_in_list.exit.thread, %39
-  %.1.lcssa = phi ptr [ %.067147, %39 ], [ %.067147, %sema_find_extension_method_in_list.exit.thread ], [ %.2, %61 ]
+._crit_edge:                                      ; preds = %62, %sema_find_extension_method_in_list.exit.thread, %40
+  %.1.lcssa = phi ptr [ %.067147, %40 ], [ %.067147, %sema_find_extension_method_in_list.exit.thread ], [ %.2, %62 ]
   %.not83 = icmp eq ptr %.1.lcssa, null
-  br i1 %.not83, label %62, label %65
+  br i1 %.not83, label %63, label %66
 
-62:                                               ; preds = %._crit_edge
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), align 8
-  %64 = call ptr @sema_resolve_method_in_module(ptr noundef %63, ptr noundef %.066, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1)
-  br label %65
+63:                                               ; preds = %._crit_edge
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), align 8
+  %65 = call ptr @sema_resolve_method_in_module(ptr noundef %64, ptr noundef %.066, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1)
+  br label %66
 
-65:                                               ; preds = %62, %._crit_edge
-  %.3 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %64, %62 ]
-  %66 = icmp ne ptr %.3, null
-  %67 = load ptr, ptr %7, align 8
-  %68 = icmp ne ptr %67, null
-  %or.cond = select i1 %66, i1 %68, i1 false
-  br i1 %or.cond, label %69, label %70
+66:                                               ; preds = %63, %._crit_edge
+  %.3 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %65, %63 ]
+  %67 = icmp ne ptr %.3, null
+  %68 = load ptr, ptr %7, align 8
+  %69 = icmp ne ptr %68, null
+  %or.cond = select i1 %67, i1 %69, i1 false
+  br i1 %or.cond, label %70, label %71
 
-69:                                               ; preds = %65
-  store ptr %67, ptr %3, align 8
+70:                                               ; preds = %66
+  store ptr %68, ptr %3, align 8
   br label %.thread107
 
-70:                                               ; preds = %65
-  br i1 %66, label %91, label %71
+71:                                               ; preds = %66
+  br i1 %67, label %93, label %72
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 48), align 8
-  %.not.i92 = icmp eq ptr %72, null
-  br i1 %.not.i92, label %.loopexit, label %73
+72:                                               ; preds = %71
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 48), align 8
+  %.not.i92 = icmp eq ptr %73, null
+  br i1 %.not.i92, label %.loopexit, label %74
 
-73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %72, i64 -8
-  %75 = load i32, ptr %74, align 4
-  %.not22.i93 = icmp eq i32 %75, 0
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds i8, ptr %73, i64 -8
+  %76 = load i32, ptr %75, align 4
+  %.not22.i93 = icmp eq i32 %76, 0
   br i1 %.not22.i93, label %.loopexit, label %.lr.ph.i94
 
-.lr.ph.i94:                                       ; preds = %73
-  %76 = load ptr, ptr @type_info_arena, align 8
-  %wide.trip.count.i95 = zext i32 %75 to i64
-  br label %77
+.lr.ph.i94:                                       ; preds = %74
+  %77 = load ptr, ptr @type_info_arena, align 8
+  %wide.trip.count.i95 = zext i32 %76 to i64
+  br label %78
 
-77:                                               ; preds = %90, %.lr.ph.i94
-  %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.i94 ], [ %indvars.iv.next.i98, %90 ]
-  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i96
-  %79 = load ptr, ptr %78, align 8
+78:                                               ; preds = %92, %.lr.ph.i94
+  %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.i94 ], [ %indvars.iv.next.i98, %92 ]
+  %79 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.i96
   %80 = load ptr, ptr %79, align 8
-  %.not18.i97 = icmp eq ptr %80, %2
-  br i1 %.not18.i97, label %81, label %90
+  %81 = load ptr, ptr %80, align 8
+  %.not18.i97 = icmp eq ptr %81, %2
+  br i1 %.not18.i97, label %82, label %92
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 80
-  %83 = load i32, ptr %82, align 8
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %76, i64 %84, i32 1
-  %86 = load ptr, ptr %85, align 8
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 80
+  %84 = load i32, ptr %83, align 8
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %77, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, %.066
-  br i1 %89, label %.thread107, label %90
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp eq ptr %90, %.066
+  br i1 %91, label %.thread107, label %92
 
-90:                                               ; preds = %81, %77
+92:                                               ; preds = %82, %78
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i95
-  br i1 %exitcond.not.i99, label %.loopexit, label %77, !llvm.loop !17
+  br i1 %exitcond.not.i99, label %.loopexit, label %78, !llvm.loop !17
 
-91:                                               ; preds = %70
+93:                                               ; preds = %71
   %.pr = load ptr, ptr %6, align 8
   %.not84 = icmp eq ptr %.pr, null
-  br i1 %.not84, label %.thread107, label %92
+  br i1 %.not84, label %.thread107, label %94
 
-92:                                               ; preds = %91
+94:                                               ; preds = %93
   store ptr %.pr, ptr %4, align 8
   br label %.thread107
 
-.loopexit:                                        ; preds = %90, %73, %71
-  %93 = load i32, ptr %.066, align 8
-  switch i32 %93, label %.thread107 [
-    i32 33, label %94
-    i32 37, label %100
+.loopexit:                                        ; preds = %92, %74, %72
+  %95 = load i32, ptr %.066, align 8
+  switch i32 %95, label %.thread107 [
+    i32 33, label %96
+    i32 37, label %102
   ]
 
-94:                                               ; preds = %.loopexit
-  %95 = getelementptr inbounds nuw i8, ptr %.066, i64 56
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call ptr @type_get_inferred_array(ptr noundef %96) #10
-  %98 = tail call ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef %97, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %.not87 = icmp eq ptr %98, null
-  br i1 %.not87, label %.thread107, label %99
+96:                                               ; preds = %.loopexit
+  %97 = getelementptr inbounds nuw i8, ptr %.066, i64 56
+  %98 = load ptr, ptr %97, align 8
+  %99 = tail call ptr @type_get_inferred_array(ptr noundef %98) #10
+  %100 = tail call ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef %99, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %.not87 = icmp eq ptr %100, null
+  br i1 %.not87, label %.thread107, label %101
 
-99:                                               ; preds = %94
+101:                                              ; preds = %96
   store ptr null, ptr %4, align 8
   br label %.thread107
 
-100:                                              ; preds = %.loopexit
-  %101 = getelementptr inbounds nuw i8, ptr %.066, i64 56
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call ptr @type_get_inferred_vector(ptr noundef %102) #10
-  %104 = tail call ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef %103, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %.not86 = icmp eq ptr %104, null
-  br i1 %.not86, label %.thread107, label %105
+102:                                              ; preds = %.loopexit
+  %103 = getelementptr inbounds nuw i8, ptr %.066, i64 56
+  %104 = load ptr, ptr %103, align 8
+  %105 = tail call ptr @type_get_inferred_vector(ptr noundef %104) #10
+  %106 = tail call ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef %105, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %.not86 = icmp eq ptr %106, null
+  br i1 %.not86, label %.thread107, label %107
 
-105:                                              ; preds = %100
+107:                                              ; preds = %102
   store ptr null, ptr %4, align 8
   br label %.thread107
 
-.thread107:                                       ; preds = %81, %91, %92, %105, %100, %94, %99, %.loopexit, %69, %60, %57, %36
-  %.065 = phi ptr [ %35, %36 ], [ %.1124, %57 ], [ %55, %60 ], [ %.3, %69 ], [ %98, %99 ], [ null, %94 ], [ %104, %105 ], [ null, %100 ], [ null, %.loopexit ], [ %.3, %92 ], [ %.3, %91 ], [ %79, %81 ]
+.thread107:                                       ; preds = %82, %93, %94, %107, %102, %96, %101, %.loopexit, %70, %61, %58, %37
+  %.065 = phi ptr [ %36, %37 ], [ %.1124, %58 ], [ %56, %61 ], [ %.3, %70 ], [ %100, %101 ], [ null, %96 ], [ %106, %107 ], [ null, %102 ], [ null, %.loopexit ], [ %.3, %94 ], [ %.3, %93 ], [ %80, %82 ]
   ret ptr %.065
 }
 

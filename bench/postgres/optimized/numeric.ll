@@ -2435,24 +2435,25 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
 .preheader:                                       ; preds = %242, %.loopexit178
   br label %243
 
-243:                                              ; preds = %.preheader, %247
-  %indvars.iv234 = phi i64 [ %indvars.iv.next235, %247 ], [ 1, %.preheader ]
-  %244 = getelementptr inbounds nuw %struct.numeric, ptr %5, i64 %indvars.iv234, i32 5
-  %245 = load ptr, ptr %244, align 8
-  %.not169 = icmp eq ptr %245, null
-  br i1 %.not169, label %247, label %246
+243:                                              ; preds = %.preheader, %248
+  %indvars.iv234 = phi i64 [ %indvars.iv.next235, %248 ], [ 1, %.preheader ]
+  %244 = getelementptr inbounds nuw %struct.numeric, ptr %5, i64 %indvars.iv234
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 24
+  %246 = load ptr, ptr %245, align 8
+  %.not169 = icmp eq ptr %246, null
+  br i1 %.not169, label %248, label %247
 
-246:                                              ; preds = %243
-  tail call void @free(ptr noundef nonnull %245) #14
-  br label %247
+247:                                              ; preds = %243
+  tail call void @free(ptr noundef nonnull %246) #14
+  br label %248
 
-247:                                              ; preds = %243, %246
+248:                                              ; preds = %243, %247
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next235, 10
   br i1 %exitcond.not, label %.loopexit, label %243, !llvm.loop !37
 
-.loopexit:                                        ; preds = %247, %59, %43
-  %.0140 = phi i32 [ -1, %43 ], [ 0, %59 ], [ %.0141, %247 ]
+.loopexit:                                        ; preds = %248, %59, %43
+  %.0140 = phi i32 [ -1, %43 ], [ 0, %59 ], [ %.0141, %248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0140

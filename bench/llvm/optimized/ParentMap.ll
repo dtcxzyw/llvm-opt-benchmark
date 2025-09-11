@@ -621,13 +621,14 @@ define dso_local noundef ptr @_ZNK5clang9ParentMap9getParentEPNS_4StmtE(ptr noun
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i: ; preds = %21, %8
   %28 = phi i64 [ %15, %8 ], [ %24, %21 ]
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !8
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit: ; preds = %.lr.ph.i.i.i, %2, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i
-  %31 = phi ptr [ %30, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i ], [ null, %2 ], [ null, %.lr.ph.i.i.i ]
-  ret ptr %31
+  %32 = phi ptr [ %31, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i ], [ null, %2 ], [ null, %.lr.ph.i.i.i ]
+  ret ptr %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -641,7 +642,7 @@ define dso_local noundef ptr @_ZNK5clang9ParentMap21getParentIgnoreParensEPNS_4S
   br i1 %7, label %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit.thread, label %.split
 
 .split:                                           ; preds = %2, %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit
-  %.0 = phi ptr [ %29, %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit ], [ %1, %2 ]
+  %.0 = phi ptr [ %30, %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit ], [ %1, %2 ]
   %9 = ptrtoint ptr %.0 to i64
   %10 = trunc i64 %9 to i32
   %11 = lshr i32 %10, 4
@@ -673,20 +674,21 @@ define dso_local noundef ptr @_ZNK5clang9ParentMap21getParentIgnoreParensEPNS_4S
 
 _ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit:   ; preds = %20, %.split
   %27 = phi i64 [ %14, %.split ], [ %23, %20 ]
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %27, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8, !tbaa !8
-  %.not.i.i = icmp eq ptr %29, null
+  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !8
+  %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit.thread, label %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit
 
 _ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit: ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit
-  %30 = load i16, ptr %29, align 8
-  %31 = and i16 %30, 511
-  %32 = icmp eq i16 %31, 22
-  br i1 %32, label %.split, label %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit.thread, !llvm.loop !50
+  %31 = load i16, ptr %30, align 8
+  %32 = and i16 %31, 511
+  %33 = icmp eq i16 %32, 22
+  br i1 %33, label %.split, label %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit.thread, !llvm.loop !50
 
 _ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit.thread: ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %.lr.ph.i.i.i.i, %2
-  %33 = phi ptr [ null, %2 ], [ null, %.lr.ph.i.i.i.i ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ %29, %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit ]
-  ret ptr %33
+  %34 = phi ptr [ null, %2 ], [ null, %.lr.ph.i.i.i.i ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ %30, %_ZN4llvm15isa_and_nonnullIJN5clang9ParenExprEEPNS1_4StmtEEEbRKT0_.exit ]
+  ret ptr %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -699,8 +701,8 @@ define dso_local noundef ptr @_ZNK5clang9ParentMap25getParentIgnoreParenCastsEPN
   %8 = add i32 %6, -1
   br i1 %7, label %.critedge, label %.critedge2
 
-.critedge2:                                       ; preds = %2, %30
-  %.0 = phi ptr [ %29, %30 ], [ %1, %2 ]
+.critedge2:                                       ; preds = %2, %31
+  %.0 = phi ptr [ %30, %31 ], [ %1, %2 ]
   %9 = ptrtoint ptr %.0 to i64
   %10 = trunc i64 %9 to i32
   %11 = lshr i32 %10, 4
@@ -732,23 +734,24 @@ define dso_local noundef ptr @_ZNK5clang9ParentMap25getParentIgnoreParenCastsEPN
 
 _ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit:   ; preds = %20, %.critedge2
   %27 = phi i64 [ %14, %.critedge2 ], [ %23, %20 ]
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %27, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8, !tbaa !8
-  %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.critedge, label %30
+  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !8
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %.critedge, label %31
 
-30:                                               ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit
-  %31 = load i16, ptr %29, align 8
-  %32 = and i16 %31, 511
-  %33 = icmp eq i16 %32, 22
-  %34 = add nsw i16 %32, -81
-  %spec.select.i.i.i.i.i.i.i.i = icmp ult i16 %34, 10
-  %or.cond = select i1 %33, i1 true, i1 %spec.select.i.i.i.i.i.i.i.i
+31:                                               ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit
+  %32 = load i16, ptr %30, align 8
+  %33 = and i16 %32, 511
+  %34 = icmp eq i16 %33, 22
+  %35 = add nsw i16 %33, -81
+  %spec.select.i.i.i.i.i.i.i.i = icmp ult i16 %35, 10
+  %or.cond = select i1 %34, i1 true, i1 %spec.select.i.i.i.i.i.i.i.i
   br i1 %or.cond, label %.critedge2, label %.critedge, !llvm.loop !51
 
-.critedge:                                        ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %30, %.lr.ph.i.i.i.i, %2
-  %35 = phi ptr [ null, %2 ], [ null, %.lr.ph.i.i.i.i ], [ %29, %30 ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ]
-  ret ptr %35
+.critedge:                                        ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %31, %.lr.ph.i.i.i.i, %2
+  %36 = phi ptr [ null, %2 ], [ null, %.lr.ph.i.i.i.i ], [ %30, %31 ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ]
+  ret ptr %36
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
@@ -761,8 +764,8 @@ define dso_local noundef ptr @_ZNK5clang9ParentMap28getParentIgnoreParenImpCasts
   %8 = add i32 %6, -1
   br i1 %7, label %.critedge, label %.split
 
-.split:                                           ; preds = %2, %33
-  %.0 = phi ptr [ %29, %33 ], [ %1, %2 ]
+.split:                                           ; preds = %2, %34
+  %.0 = phi ptr [ %30, %34 ], [ %1, %2 ]
   %9 = ptrtoint ptr %.0 to i64
   %10 = trunc i64 %9 to i32
   %11 = lshr i32 %10, 4
@@ -794,26 +797,27 @@ define dso_local noundef ptr @_ZNK5clang9ParentMap28getParentIgnoreParenImpCasts
 
 _ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit:   ; preds = %20, %.split
   %27 = phi i64 [ %14, %.split ], [ %23, %20 ]
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %27, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8, !tbaa !8
-  %.not.i.i = icmp eq ptr %29, null
+  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !8
+  %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %.critedge, label %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit
 
 _ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit: ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit
-  %30 = load i16, ptr %29, align 8
-  %31 = and i16 %30, 511
-  %32 = add nsw i16 %31, -3
-  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i16 %32, 129
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %33, label %.critedge
+  %31 = load i16, ptr %30, align 8
+  %32 = and i16 %31, 511
+  %33 = add nsw i16 %32, -3
+  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i16 %33, 129
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %34, label %.critedge
 
-33:                                               ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit
-  %34 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #16
-  %.not = icmp eq ptr %34, %29
+34:                                               ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit
+  %35 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #16
+  %.not = icmp eq ptr %35, %30
   br i1 %.not, label %.critedge, label %.split, !llvm.loop !52
 
-.critedge:                                        ; preds = %33, %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %.lr.ph.i.i.i.i, %2
-  %35 = phi ptr [ null, %2 ], [ null, %.lr.ph.i.i.i.i ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ %29, %33 ], [ %29, %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit ]
-  ret ptr %35
+.critedge:                                        ; preds = %34, %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %.lr.ph.i.i.i.i, %2
+  %36 = phi ptr [ null, %2 ], [ null, %.lr.ph.i.i.i.i ], [ null, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ %30, %34 ], [ %30, %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPNS1_4StmtEEEbRKT0_.exit ]
+  ret ptr %36
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -837,7 +841,7 @@ define dso_local noundef ptr @_ZNK5clang9ParentMap19getOuterParenParentEPNS_4Stm
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i
-  %storemerge3 = phi ptr [ %31, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i ], [ %1, %.lr.ph ]
+  %storemerge3 = phi ptr [ %32, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i ], [ %1, %.lr.ph ]
   %12 = ptrtoint ptr %storemerge3 to i64
   %13 = trunc i64 %12 to i32
   %14 = lshr i32 %13, 4
@@ -867,12 +871,13 @@ define dso_local noundef ptr @_ZNK5clang9ParentMap19getOuterParenParentEPNS_4Stm
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.split
   %29 = phi i64 [ %17, %.lr.ph.split ], [ %25, %.lr.ph.i.i.i.i ]
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %29, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8, !tbaa !8
-  %32 = load i16, ptr %31, align 8
-  %33 = and i16 %32, 511
-  %34 = icmp eq i16 %33, 22
-  br i1 %34, label %.lr.ph.split, label %._crit_edge, !llvm.loop !53
+  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !8
+  %33 = load i16, ptr %32, align 8
+  %34 = and i16 %33, 511
+  %35 = icmp eq i16 %34, 22
+  br i1 %35, label %.lr.ph.split, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ %storemerge3, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i ]
@@ -920,178 +925,181 @@ define dso_local noundef zeroext i1 @_ZNK5clang9ParentMap14isConsumedExprEPNS_4E
   br i1 %27, label %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, label %.lr.ph.i.i.i.i, !prof !26, !llvm.loop !49
 
 _ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit:   ; preds = %21
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %24, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8, !tbaa !8
-  %.not50 = icmp eq ptr %29, null
+  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !8
+  %.not50 = icmp eq ptr %30, null
   br i1 %.not50, label %.critedge.thread, label %.lr.ph.split
 
 _ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80: ; preds = %8
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %15, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8, !tbaa !8
-  %.not5081 = icmp eq ptr %31, null
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %15
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !8
+  %.not5081 = icmp eq ptr %33, null
   br i1 %.not5081, label %.critedge.thread, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80
-  %32 = phi ptr [ %31, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80 ], [ %29, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ]
-  %33 = add i32 %6, -1
-  %34 = load i16, ptr %32, align 8
-  %35 = and i16 %34, 511
-  %36 = icmp eq i16 %35, 22
-  %37 = add nsw i16 %35, -81
-  %spec.select.i.i.i.i.i.i.i.i54 = icmp ult i16 %37, 10
-  %or.cond55 = select i1 %36, i1 true, i1 %spec.select.i.i.i.i.i.i.i.i54
-  %38 = and i16 %34, 510
-  %spec.select.i.i.i.i.i.i.i.i2056 = icmp eq i16 %38, 62
+  %34 = phi ptr [ %33, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80 ], [ %30, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ]
+  %35 = add i32 %6, -1
+  %36 = load i16, ptr %34, align 8
+  %37 = and i16 %36, 511
+  %38 = icmp eq i16 %37, 22
+  %39 = add nsw i16 %37, -81
+  %spec.select.i.i.i.i.i.i.i.i54 = icmp ult i16 %39, 10
+  %or.cond55 = select i1 %38, i1 true, i1 %spec.select.i.i.i.i.i.i.i.i54
+  %40 = and i16 %36, 510
+  %spec.select.i.i.i.i.i.i.i.i2056 = icmp eq i16 %40, 62
   %or.cond4657 = or i1 %spec.select.i.i.i.i.i.i.i.i2056, %or.cond55
   br i1 %or.cond4657, label %.critedge2, label %.critedge
 
-39:                                               ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27
-  %40 = load i16, ptr %65, align 8
-  %41 = and i16 %40, 511
-  %42 = icmp eq i16 %41, 22
-  %43 = add nsw i16 %41, -81
-  %spec.select.i.i.i.i.i.i.i.i = icmp ult i16 %43, 10
-  %or.cond = select i1 %42, i1 true, i1 %spec.select.i.i.i.i.i.i.i.i
-  %44 = and i16 %40, 510
-  %spec.select.i.i.i.i.i.i.i.i20 = icmp eq i16 %44, 62
+41:                                               ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27
+  %42 = load i16, ptr %68, align 8
+  %43 = and i16 %42, 511
+  %44 = icmp eq i16 %43, 22
+  %45 = add nsw i16 %43, -81
+  %spec.select.i.i.i.i.i.i.i.i = icmp ult i16 %45, 10
+  %or.cond = select i1 %44, i1 true, i1 %spec.select.i.i.i.i.i.i.i.i
+  %46 = and i16 %42, 510
+  %spec.select.i.i.i.i.i.i.i.i20 = icmp eq i16 %46, 62
   %or.cond46 = or i1 %spec.select.i.i.i.i.i.i.i.i20, %or.cond
   br i1 %or.cond46, label %.critedge2, label %.critedge, !llvm.loop !54
 
-.critedge2:                                       ; preds = %.lr.ph.split, %39
-  %storemerge5158 = phi ptr [ %65, %39 ], [ %32, %.lr.ph.split ]
-  %45 = ptrtoint ptr %storemerge5158 to i64
-  %46 = trunc i64 %45 to i32
-  %47 = lshr i32 %46, 4
-  %48 = lshr i32 %46, 9
-  %49 = xor i32 %47, %48
-  %.01826.i.i.i.i21 = and i32 %49, %33
-  %50 = zext nneg i32 %.01826.i.i.i.i21 to i64
-  %51 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %50
-  %52 = load ptr, ptr %51, align 8, !tbaa !8
-  %53 = icmp eq ptr %storemerge5158, %52
-  br i1 %53, label %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27, label %.lr.ph.i.i.i.i22, !prof !24
+.critedge2:                                       ; preds = %.lr.ph.split, %41
+  %storemerge5158 = phi ptr [ %68, %41 ], [ %34, %.lr.ph.split ]
+  %47 = ptrtoint ptr %storemerge5158 to i64
+  %48 = trunc i64 %47 to i32
+  %49 = lshr i32 %48, 4
+  %50 = lshr i32 %48, 9
+  %51 = xor i32 %49, %50
+  %.01826.i.i.i.i21 = and i32 %51, %35
+  %52 = zext nneg i32 %.01826.i.i.i.i21 to i64
+  %53 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %52
+  %54 = load ptr, ptr %53, align 8, !tbaa !8
+  %55 = icmp eq ptr %storemerge5158, %54
+  br i1 %55, label %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27, label %.lr.ph.i.i.i.i22, !prof !24
 
-.lr.ph.i.i.i.i22:                                 ; preds = %.critedge2, %56
-  %54 = phi ptr [ %61, %56 ], [ %52, %.critedge2 ]
-  %.01828.i.i.i.i23 = phi i32 [ %.018.i.i.i.i25, %56 ], [ %.01826.i.i.i.i21, %.critedge2 ]
-  %.01627.i.i.i.i24 = phi i32 [ %57, %56 ], [ 1, %.critedge2 ]
-  %55 = icmp eq ptr %54, inttoptr (i64 -4096 to ptr)
-  br i1 %55, label %.critedge.thread, label %56, !prof !25
+.lr.ph.i.i.i.i22:                                 ; preds = %.critedge2, %58
+  %56 = phi ptr [ %63, %58 ], [ %54, %.critedge2 ]
+  %.01828.i.i.i.i23 = phi i32 [ %.018.i.i.i.i25, %58 ], [ %.01826.i.i.i.i21, %.critedge2 ]
+  %.01627.i.i.i.i24 = phi i32 [ %59, %58 ], [ 1, %.critedge2 ]
+  %57 = icmp eq ptr %56, inttoptr (i64 -4096 to ptr)
+  br i1 %57, label %.critedge.thread, label %58, !prof !25
 
-56:                                               ; preds = %.lr.ph.i.i.i.i22
-  %57 = add i32 %.01627.i.i.i.i24, 1
-  %58 = add i32 %.01627.i.i.i.i24, %.01828.i.i.i.i23
-  %.018.i.i.i.i25 = and i32 %58, %33
-  %59 = zext i32 %.018.i.i.i.i25 to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %59
-  %61 = load ptr, ptr %60, align 8, !tbaa !8
-  %62 = icmp eq ptr %storemerge5158, %61
-  br i1 %62, label %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27, label %.lr.ph.i.i.i.i22, !prof !26, !llvm.loop !49
+58:                                               ; preds = %.lr.ph.i.i.i.i22
+  %59 = add i32 %.01627.i.i.i.i24, 1
+  %60 = add i32 %.01627.i.i.i.i24, %.01828.i.i.i.i23
+  %.018.i.i.i.i25 = and i32 %60, %35
+  %61 = zext i32 %.018.i.i.i.i25 to i64
+  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %61
+  %63 = load ptr, ptr %62, align 8, !tbaa !8
+  %64 = icmp eq ptr %storemerge5158, %63
+  br i1 %64, label %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27, label %.lr.ph.i.i.i.i22, !prof !26, !llvm.loop !49
 
-_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27: ; preds = %56, %.critedge2
-  %63 = phi i64 [ %50, %.critedge2 ], [ %59, %56 ]
-  %64 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %63, i32 0, i32 1
-  %65 = load ptr, ptr %64, align 8, !tbaa !8
-  %.not = icmp eq ptr %65, null
-  br i1 %.not, label %.critedge.thread, label %39, !llvm.loop !54
+_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27: ; preds = %58, %.critedge2
+  %65 = phi i64 [ %52, %.critedge2 ], [ %61, %58 ]
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !8
+  %.not = icmp eq ptr %68, null
+  br i1 %.not, label %.critedge.thread, label %41, !llvm.loop !54
 
-.critedge:                                        ; preds = %39, %.lr.ph.split
-  %66 = phi i16 [ %34, %.lr.ph.split ], [ %40, %39 ]
-  %.us-phi = phi ptr [ %32, %.lr.ph.split ], [ %65, %39 ]
-  %.us-phi53 = phi ptr [ %1, %.lr.ph.split ], [ %storemerge5158, %39 ]
-  %67 = and i16 %66, 511
-  switch i16 %67, label %68 [
+.critedge:                                        ; preds = %41, %.lr.ph.split
+  %69 = phi i16 [ %36, %.lr.ph.split ], [ %42, %41 ]
+  %.us-phi = phi ptr [ %34, %.lr.ph.split ], [ %68, %41 ]
+  %.us-phi53 = phi ptr [ %1, %.lr.ph.split ], [ %storemerge5158, %41 ]
+  %70 = and i16 %69, 511
+  switch i16 %70, label %71 [
     i16 245, label %.critedge.thread
-    i16 120, label %70
-    i16 243, label %77
-    i16 1, label %81
-    i16 244, label %88
-    i16 241, label %92
-    i16 240, label %100
-    i16 133, label %104
-    i16 155, label %112
+    i16 120, label %73
+    i16 243, label %80
+    i16 1, label %84
+    i16 244, label %91
+    i16 241, label %95
+    i16 240, label %103
+    i16 133, label %107
+    i16 155, label %115
     i16 141, label %.critedge.thread
   ]
 
-68:                                               ; preds = %.critedge
-  %69 = add nsw i16 %67, -3
-  %spec.select.i.i.i.i.i.i.i.i28 = icmp ult i16 %69, 129
+71:                                               ; preds = %.critedge
+  %72 = add nsw i16 %70, -3
+  %spec.select.i.i.i.i.i.i.i.i28 = icmp ult i16 %72, 129
   br label %.critedge.thread
 
-70:                                               ; preds = %.critedge
-  %71 = load i32, ptr %.us-phi, align 8
-  %72 = and i32 %71, 33030144
-  %.not19 = icmp eq i32 %72, 16777216
-  br i1 %.not19, label %73, label %.critedge.thread
+73:                                               ; preds = %.critedge
+  %74 = load i32, ptr %.us-phi, align 8
+  %75 = and i32 %74, 33030144
+  %.not19 = icmp eq i32 %75, 16777216
+  br i1 %.not19, label %76, label %.critedge.thread
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
-  %75 = load ptr, ptr %74, align 8, !tbaa !8
-  %76 = icmp eq ptr %.us-phi53, %75
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
+  %78 = load ptr, ptr %77, align 8, !tbaa !8
+  %79 = icmp eq ptr %.us-phi53, %78
   br label %.critedge.thread
 
-77:                                               ; preds = %.critedge
-  %78 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
-  %79 = load ptr, ptr %78, align 8, !tbaa !8
-  %80 = icmp eq ptr %.us-phi53, %79
+80:                                               ; preds = %.critedge
+  %81 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
+  %82 = load ptr, ptr %81, align 8, !tbaa !8
+  %83 = icmp eq ptr %.us-phi53, %82
   br label %.critedge.thread
 
-81:                                               ; preds = %.critedge
-  %82 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
-  %83 = lshr i16 %66, 9
-  %.lobit.i.i = and i16 %83, 1
-  %84 = zext nneg i16 %.lobit.i.i to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %82, i64 %84
-  %86 = load ptr, ptr %85, align 8, !tbaa !8
-  %87 = icmp eq ptr %.us-phi53, %86
+84:                                               ; preds = %.critedge
+  %85 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
+  %86 = lshr i16 %69, 9
+  %.lobit.i.i = and i16 %86, 1
+  %87 = zext nneg i16 %.lobit.i.i to i64
+  %88 = getelementptr inbounds nuw ptr, ptr %85, i64 %87
+  %89 = load ptr, ptr %88, align 8, !tbaa !8
+  %90 = icmp eq ptr %.us-phi53, %89
   br label %.critedge.thread
 
-88:                                               ; preds = %.critedge
-  %89 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
-  %90 = load ptr, ptr %89, align 8, !tbaa !8
-  %91 = icmp eq ptr %.us-phi53, %90
+91:                                               ; preds = %.critedge
+  %92 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
+  %93 = load ptr, ptr %92, align 8, !tbaa !8
+  %94 = icmp eq ptr %.us-phi53, %93
   br label %.critedge.thread
 
-92:                                               ; preds = %.critedge
-  %93 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
-  %94 = lshr i16 %66, 14
-  %.lobit.i.i29 = and i16 %94, 1
-  %95 = lshr i16 %66, 13
-  %.lobit1.i.i = and i16 %95, 1
+95:                                               ; preds = %.critedge
+  %96 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
+  %97 = lshr i16 %69, 14
+  %.lobit.i.i29 = and i16 %97, 1
+  %98 = lshr i16 %69, 13
+  %.lobit1.i.i = and i16 %98, 1
   %narrow.i.i = add nuw nsw i16 %.lobit.i.i29, %.lobit1.i.i
-  %96 = zext nneg i16 %narrow.i.i to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %93, i64 %96
-  %98 = load ptr, ptr %97, align 8, !tbaa !8
-  %99 = icmp eq ptr %.us-phi53, %98
+  %99 = zext nneg i16 %narrow.i.i to i64
+  %100 = getelementptr inbounds nuw ptr, ptr %96, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !8
+  %102 = icmp eq ptr %.us-phi53, %101
   br label %.critedge.thread
 
-100:                                              ; preds = %.critedge
-  %101 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
-  %102 = load ptr, ptr %101, align 8, !tbaa !55
-  %103 = icmp eq ptr %.us-phi53, %102
+103:                                              ; preds = %.critedge
+  %104 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
+  %105 = load ptr, ptr %104, align 8, !tbaa !55
+  %106 = icmp eq ptr %.us-phi53, %105
   br label %.critedge.thread
 
-104:                                              ; preds = %.critedge
-  %105 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
-  %106 = lshr i16 %66, 9
-  %.lobit.i.i30 = and i16 %106, 1
-  %107 = lshr i16 %66, 10
-  %.lobit1.i.i31 = and i16 %107, 1
+107:                                              ; preds = %.critedge
+  %108 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
+  %109 = lshr i16 %69, 9
+  %.lobit.i.i30 = and i16 %109, 1
+  %110 = lshr i16 %69, 10
+  %.lobit1.i.i31 = and i16 %110, 1
   %narrow.i.i32 = add nuw nsw i16 %.lobit.i.i30, %.lobit1.i.i31
-  %108 = zext nneg i16 %narrow.i.i32 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %105, i64 %108
-  %110 = load ptr, ptr %109, align 8, !tbaa !8
-  %111 = icmp eq ptr %.us-phi53, %110
+  %111 = zext nneg i16 %narrow.i.i32 to i64
+  %112 = getelementptr inbounds nuw ptr, ptr %108, i64 %111
+  %113 = load ptr, ptr %112, align 8, !tbaa !8
+  %114 = icmp eq ptr %.us-phi53, %113
   br label %.critedge.thread
 
-112:                                              ; preds = %.critedge
-  %113 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
-  %114 = load ptr, ptr %113, align 8, !tbaa !8
-  %115 = icmp eq ptr %.us-phi53, %114
+115:                                              ; preds = %.critedge
+  %116 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
+  %117 = load ptr, ptr %116, align 8, !tbaa !8
+  %118 = icmp eq ptr %.us-phi53, %117
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph.i.i.i.i, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27, %.lr.ph.i.i.i.i22, %2, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %70, %73, %.critedge, %.critedge, %112, %104, %100, %92, %88, %81, %77, %68
-  %.0 = phi i1 [ %spec.select.i.i.i.i.i.i.i.i28, %68 ], [ %80, %77 ], [ %87, %81 ], [ %91, %88 ], [ %99, %92 ], [ %103, %100 ], [ %111, %104 ], [ %115, %112 ], [ true, %.critedge ], [ true, %.critedge ], [ true, %70 ], [ %76, %73 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80 ], [ false, %2 ], [ false, %.lr.ph.i.i.i.i22 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27 ], [ false, %.lr.ph.i.i.i.i ]
+.critedge.thread:                                 ; preds = %.lr.ph.i.i.i.i, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27, %.lr.ph.i.i.i.i22, %2, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %73, %76, %.critedge, %.critedge, %115, %107, %103, %95, %91, %84, %80, %71
+  %.0 = phi i1 [ %spec.select.i.i.i.i.i.i.i.i28, %71 ], [ %83, %80 ], [ %90, %84 ], [ %94, %91 ], [ %102, %95 ], [ %106, %103 ], [ %114, %107 ], [ %118, %115 ], [ true, %.critedge ], [ true, %.critedge ], [ true, %73 ], [ %79, %76 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80 ], [ false, %2 ], [ false, %.lr.ph.i.i.i.i22 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27 ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 

@@ -18388,7 +18388,8 @@ _ZNSt6vectorI15ContentFeaturesSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit: ; preds
 while.end:                                        ; preds = %_ZNSt6vectorI15ContentFeaturesSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit, %while.cond.preheader
   %8 = phi ptr [ %1, %while.cond.preheader ], [ %7, %_ZNSt6vectorI15ContentFeaturesSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit ]
   %9 = phi ptr [ %2, %while.cond.preheader ], [ %6, %_ZNSt6vectorI15ContentFeaturesSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit ]
-  %_M_string_length.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %8, i64 %conv4, i32 10, i32 1
+  %_M_string_length.i.i.split = getelementptr inbounds nuw %struct.ContentFeatures, ptr %8, i64 %conv4
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %_M_string_length.i.i.split, i64 1456
   %10 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !14
   %cmp.i = icmp eq i64 %10, 0
   %add = add i16 %id.033, 1
@@ -21947,7 +21948,8 @@ _ZNSt6vectorI15ContentFeaturesSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit.i: ; pre
 while.end.i:                                      ; preds = %_ZNSt6vectorI15ContentFeaturesSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit.i, %while.cond.preheader.i
   %9 = phi ptr [ %2, %while.cond.preheader.i ], [ %8, %_ZNSt6vectorI15ContentFeaturesSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit.i ]
   %10 = phi ptr [ %3, %while.cond.preheader.i ], [ %7, %_ZNSt6vectorI15ContentFeaturesSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit.i ]
-  %_M_string_length.i.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %9, i64 %conv4.i, i32 10, i32 1
+  %_M_string_length.i.i.i.split = getelementptr inbounds nuw %struct.ContentFeatures, ptr %9, i64 %conv4.i
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %_M_string_length.i.i.i.split, i64 1456
   %11 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %cmp.i.i57 = icmp eq i64 %11, 0
   %add.i = add i16 %id.033.i, 1
@@ -22085,7 +22087,8 @@ if.end.i68:                                       ; preds = %call.i.i66.noexc
 invoke.cont18:                                    ; preds = %if.end.i68, %call.i.i66.noexc
   %retval.0.i = phi i8 [ %28, %if.end.i68 ], [ 0, %call.i.i66.noexc ]
   %29 = load ptr, ptr %this, align 8, !tbaa !367
-  %floats = getelementptr inbounds nuw %struct.ContentFeatures, ptr %29, i64 %conv7.pre-phi, i32 8
+  %floats.split = getelementptr inbounds nuw %struct.ContentFeatures, ptr %29, i64 %conv7.pre-phi
+  %floats = getelementptr inbounds nuw i8, ptr %floats.split, i64 1446
   store i8 %retval.0.i, ptr %floats, align 2, !tbaa !436
   %30 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
   %cmp.i.i.i = icmp eq ptr %30, %25
@@ -24210,7 +24213,8 @@ if.end.i232:                                      ; preds = %call.i.i230.noexc
 invoke.cont85:                                    ; preds = %if.end.i232, %call.i.i230.noexc
   %retval.0.i = phi i8 [ %63, %if.end.i232 ], [ 0, %call.i.i230.noexc ]
   %64 = load ptr, ptr %this, align 8, !tbaa !367
-  %floats = getelementptr inbounds nuw %struct.ContentFeatures, ptr %64, i64 %conv66, i32 8
+  %floats.split = getelementptr inbounds nuw %struct.ContentFeatures, ptr %64, i64 %conv66
+  %floats = getelementptr inbounds nuw i8, ptr %floats.split, i64 1446
   store i8 %retval.0.i, ptr %floats, align 2, !tbaa !436
   %65 = load ptr, ptr %ref.tmp80, align 8, !tbaa !11
   %cmp.i.i.i236 = icmp eq ptr %65, %10

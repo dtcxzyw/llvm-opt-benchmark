@@ -774,7 +774,7 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
   %130 = sext i32 %129 to i64
   %131 = sub i64 %130, %storemerge121
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %132 = icmp ult i32 %.173, 1024
+  %132 = icmp samesign ult i32 %.173, 1024
   br i1 %132, label %133, label %136
 
 133:                                              ; preds = %.thread104, %125

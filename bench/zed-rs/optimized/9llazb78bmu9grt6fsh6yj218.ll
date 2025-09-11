@@ -4883,10 +4883,8 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17hc3032
 
 35:                                               ; preds = %32
   %36 = load i32, ptr %11, align 8, !range !384, !noalias !431, !noundef !5
-  %trunc.i.i.i.i = trunc nuw i32 %36 to i1
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %38 = load ptr, ptr %37, align 8, !noalias !431, !nonnull !5
-  %.sroa.3.0.i.i.i.i = select i1 %trunc.i.i.i.i, ptr %38, ptr %16
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !431
   %switch.not.not.i.i.i = icmp eq i32 %36, 0
   br i1 %switch.not.not.i.i.i, label %39, label %41
@@ -4984,7 +4982,7 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17hc3032
   br label %.body.i.i
 
 "_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hf1e38d58ab0e49b2E.exit.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6add7803af6cd486E.exit9.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6add7803af6cd486E.exit.i.i.i"
-  %72 = phi ptr [ %40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6add7803af6cd486E.exit9.i.i.i" ], [ %.sroa.3.0.i.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6add7803af6cd486E.exit.i.i.i" ]
+  %72 = phi ptr [ %40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6add7803af6cd486E.exit9.i.i.i" ], [ %38, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6add7803af6cd486E.exit.i.i.i" ]
   store ptr %72, ptr %17, align 8, !noalias !424
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !424
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !424

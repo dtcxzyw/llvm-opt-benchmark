@@ -2692,14 +2692,14 @@ _ZL21mde_delta_h_make_histP13t_mde_delta_hib.exit.i: ; preds = %209, %._crit_edg
   %289 = getelementptr inbounds nuw i32, ptr %286, i64 %indvars.iv158.i
   %290 = load i32, ptr %289, align 4, !tbaa !145
   %291 = add i32 %290, 1
-  %292 = add nuw nsw i64 %indvars.iv158.i, 2
-  %293 = getelementptr inbounds nuw %struct.t_enxsubblock, ptr %254, i64 %292
+  %292 = getelementptr inbounds nuw %struct.t_enxsubblock, ptr %254, i64 %indvars.iv158.i
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 160
   store i32 %291, ptr %293, align 8, !tbaa !232
-  %294 = getelementptr inbounds nuw %struct.t_enxsubblock, ptr %254, i64 %292, i32 1
+  %294 = getelementptr inbounds nuw i8, ptr %292, i64 164
   store i32 0, ptr %294, align 4, !tbaa !237
   %295 = getelementptr inbounds nuw %"class.std::vector.5", ptr %287, i64 %indvars.iv158.i
   %296 = load ptr, ptr %295, align 8, !tbaa !144
-  %297 = getelementptr inbounds nuw %struct.t_enxsubblock, ptr %254, i64 %292, i32 4
+  %297 = getelementptr inbounds nuw i8, ptr %292, i64 184
   store ptr %296, ptr %297, align 8, !tbaa !240
   %indvars.iv.next159.i = add nuw nsw i64 %indvars.iv158.i, 1
   %exitcond162.not.i = icmp eq i64 %indvars.iv.next159.i, %wide.trip.count156.i

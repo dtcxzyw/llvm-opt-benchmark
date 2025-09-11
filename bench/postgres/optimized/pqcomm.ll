@@ -2507,39 +2507,40 @@ define dso_local noundef zeroext i1 @pq_check_connection() local_unnamed_addr #0
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %0, %14
-  %6 = phi i32 [ %17, %14 ], [ %4, %0 ]
+.lr.ph:                                           ; preds = %0, %15
+  %6 = phi i32 [ %18, %15 ], [ %4, %0 ]
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %8
 
-7:                                                ; preds = %12
+7:                                                ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %8, !llvm.loop !13
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw %struct.WaitEvent, ptr %1, i64 %indvars.iv, i32 1
-  %10 = load i32, ptr %9, align 4
-  %11 = and i32 %10, 128
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %.thread
+  %9 = getelementptr inbounds nuw %struct.WaitEvent, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = and i32 %11, 128
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %13, label %.thread
 
-12:                                               ; preds = %8
-  %13 = and i32 %10, 1
-  %.not8 = icmp eq i32 %13, 0
-  br i1 %.not8, label %7, label %14
+13:                                               ; preds = %8
+  %14 = and i32 %11, 1
+  %.not8 = icmp eq i32 %14, 0
+  br i1 %.not8, label %7, label %15
 
-14:                                               ; preds = %12
-  %15 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %15) #21
-  %16 = load ptr, ptr @FeBeWaitSet, align 8
-  %17 = call i32 @WaitEventSetWait(ptr noundef %16, i64 noundef 0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0) #21
-  %18 = icmp slt i32 %17, 1
-  br i1 %18, label %.thread, label %.lr.ph
+15:                                               ; preds = %13
+  %16 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %16) #21
+  %17 = load ptr, ptr @FeBeWaitSet, align 8
+  %18 = call i32 @WaitEventSetWait(ptr noundef %17, i64 noundef 0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0) #21
+  %19 = icmp slt i32 %18, 1
+  br i1 %19, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %14, %7, %8, %0
-  %.lcssa = phi i1 [ true, %0 ], [ %.not, %8 ], [ %.not, %7 ], [ true, %14 ]
+.thread:                                          ; preds = %15, %7, %8, %0
+  %.lcssa = phi i1 [ true, %0 ], [ %.not, %8 ], [ %.not, %7 ], [ true, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.lcssa
 }

@@ -2069,7 +2069,7 @@ define internal noundef i32 @proc_pid_limits(ptr noundef %0, ptr readnone captur
   br i1 %34, label %38, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr %struct.limit_names, ptr @lnames, i64 %17, i32 1
+  %36 = getelementptr i8, ptr %21, i64 8
   %37 = load ptr, ptr %36, align 8
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.54, ptr noundef %37) #18
   br label %39

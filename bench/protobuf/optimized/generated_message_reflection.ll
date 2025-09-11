@@ -38901,7 +38901,8 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %options_.i25 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %4, i64 %indvars.iv, i32 11
+  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %4, i64 %indvars.iv
+  %options_.i25 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 56
   %6 = load ptr, ptr %options_.i25, align 8
   %weak_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 132
   %7 = load i8, ptr %weak_.i.i, align 4

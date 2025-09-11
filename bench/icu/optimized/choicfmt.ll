@@ -848,7 +848,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7712ChoiceForma
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load i32, ptr %6, align 8, !tbaa !39
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %80, label %9
+  br i1 %8, label %82, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -872,22 +872,22 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7712ChoiceForma
   br i1 %22, label %_ZN6icu_7712ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit, label %.lr.ph
 
 23:                                               ; preds = %53
-  %24 = zext nneg i32 %57 to i64
-  %25 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %32, i64 %24
+  %24 = zext nneg i32 %58 to i64
+  %25 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %31, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !45
   %27 = icmp eq i32 %26, 6
   br i1 %27, label %_ZN6icu_7712ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %23
   %28 = phi ptr [ %25, %23 ], [ %20, %.lr.ph.i ]
-  %.032.i13 = phi i32 [ %31, %23 ], [ 2, %.lr.ph.i ]
+  %.032.i13 = phi i32 [ %30, %23 ], [ 2, %.lr.ph.i ]
   %..i33.i12 = phi i32 [ %..i.i, %23 ], [ %..i30.i, %.lr.ph.i ]
-  %29 = add nuw nsw i32 %..i33.i12, 2
-  %30 = tail call noundef double @_ZNK6icu_7714MessagePattern15getNumericValueERKNS0_4PartE(ptr noundef nonnull align 8 dereferenceable(127) %5, ptr noundef nonnull align 4 dereferenceable(16) %28)
-  %31 = add nuw nsw i32 %..i33.i12, 3
-  %32 = load ptr, ptr %10, align 8, !tbaa !40
-  %33 = zext nneg i32 %29 to i64
-  %34 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %32, i64 %33, i32 1
+  %29 = tail call noundef double @_ZNK6icu_7714MessagePattern15getNumericValueERKNS0_4PartE(ptr noundef nonnull align 8 dereferenceable(127) %5, ptr noundef nonnull align 4 dereferenceable(16) %28)
+  %30 = add nuw nsw i32 %..i33.i12, 3
+  %31 = load ptr, ptr %10, align 8, !tbaa !40
+  %32 = zext nneg i32 %..i33.i12 to i64
+  %33 = getelementptr %"class.icu_77::MessagePattern::Part", ptr %31, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 36
   %35 = load i32, ptr %34, align 4, !tbaa !46
   %36 = load i16, ptr %15, align 8, !tbaa !26
   %37 = icmp slt i16 %36, 0
@@ -910,56 +910,58 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %.lr.ph
   br i1 %49, label %50, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i
 
 50:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
-  %51 = fcmp ogt double %1, %30
+  %51 = fcmp ogt double %1, %29
   br i1 %51, label %53, label %_ZN6icu_7712ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %.lr.ph
-  %52 = fcmp ult double %1, %30
+  %52 = fcmp ult double %1, %29
   br i1 %52, label %_ZN6icu_7712ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit, label %53
 
 53:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i, %50
-  %54 = zext nneg i32 %31 to i64
-  %55 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %32, i64 %54, i32 4
-  %56 = load i32, ptr %55, align 4, !tbaa !41
-  %..i.i = tail call noundef i32 @llvm.smax.i32(i32 %56, i32 %31)
-  %57 = add nuw nsw i32 %..i.i, 1
-  %.not.i = icmp slt i32 %57, %7
+  %54 = zext nneg i32 %30 to i64
+  %55 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %31, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 12
+  %57 = load i32, ptr %56, align 4, !tbaa !41
+  %..i.i = tail call noundef i32 @llvm.smax.i32(i32 %57, i32 %30)
+  %58 = add nuw nsw i32 %..i.i, 1
+  %.not.i = icmp slt i32 %58, %7
   br i1 %.not.i, label %23, label %_ZN6icu_7712ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit
 
 _ZN6icu_7712ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit: ; preds = %53, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i, %50, %23, %.lr.ph.i, %9
-  %58 = phi ptr [ %11, %9 ], [ %11, %.lr.ph.i ], [ %32, %23 ], [ %32, %50 ], [ %32, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i ], [ %32, %53 ]
-  %.0.lcssa.i = phi i32 [ 2, %9 ], [ 2, %.lr.ph.i ], [ %31, %53 ], [ %.032.i13, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i ], [ %.032.i13, %50 ], [ %31, %23 ]
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %60 = load i32, ptr %59, align 8, !tbaa !47
-  %.not = icmp eq i32 %60, 1
-  br i1 %.not, label %78, label %61
+  %59 = phi ptr [ %11, %9 ], [ %11, %.lr.ph.i ], [ %31, %23 ], [ %31, %50 ], [ %31, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i ], [ %31, %53 ]
+  %.0.lcssa.i = phi i32 [ 2, %9 ], [ 2, %.lr.ph.i ], [ %30, %53 ], [ %.032.i13, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i ], [ %.032.i13, %50 ], [ %30, %23 ]
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %61 = load i32, ptr %60, align 8, !tbaa !47
+  %.not = icmp eq i32 %61, 1
+  br i1 %.not, label %80, label %62
 
-61:                                               ; preds = %_ZN6icu_7712ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit
-  %62 = zext nneg i32 %.0.lcssa.i to i64
-  %63 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %58, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %65 = load i32, ptr %64, align 4, !tbaa !46
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %67 = load i16, ptr %66, align 4, !tbaa !48
-  %68 = zext i16 %67 to i32
-  %69 = add nsw i32 %65, %68
-  %70 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %58, i64 %62, i32 4
-  %71 = load i32, ptr %70, align 4, !tbaa !41
-  %..i = tail call noundef i32 @llvm.smax.i32(i32 %71, i32 %.0.lcssa.i)
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %73 = zext nneg i32 %..i to i64
-  %74 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %58, i64 %73, i32 1
-  %75 = load i32, ptr %74, align 4, !tbaa !46
-  %76 = sub nsw i32 %75, %69
-  %77 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %72, i32 noundef %69, i32 noundef %76)
-  br label %80
+62:                                               ; preds = %_ZN6icu_7712ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit
+  %63 = zext nneg i32 %.0.lcssa.i to i64
+  %64 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %59, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %66 = load i32, ptr %65, align 4, !tbaa !46
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %68 = load i16, ptr %67, align 4, !tbaa !48
+  %69 = zext i16 %68 to i32
+  %70 = add nsw i32 %66, %69
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 12
+  %72 = load i32, ptr %71, align 4, !tbaa !41
+  %..i = tail call noundef i32 @llvm.smax.i32(i32 %72, i32 %.0.lcssa.i)
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %74 = zext nneg i32 %..i to i64
+  %75 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %59, i64 %74
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  %77 = load i32, ptr %76, align 4, !tbaa !46
+  %78 = sub nsw i32 %77, %70
+  %79 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %73, i32 noundef %70, i32 noundef %78)
+  br label %82
 
-78:                                               ; preds = %_ZN6icu_7712ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit
-  %79 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711MessageImpl33appendSubMessageWithoutSkipSyntaxERKNS_14MessagePatternEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(127) %5, i32 noundef %.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(64) %2)
-  br label %80
+80:                                               ; preds = %_ZN6icu_7712ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit
+  %81 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711MessageImpl33appendSubMessageWithoutSkipSyntaxERKNS_14MessagePatternEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(127) %5, i32 noundef %.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(64) %2)
+  br label %82
 
-80:                                               ; preds = %61, %78, %4
-  %.0 = phi ptr [ %2, %4 ], [ %79, %78 ], [ %2, %61 ]
+82:                                               ; preds = %62, %80, %4
+  %.0 = phi ptr [ %2, %4 ], [ %81, %80 ], [ %2, %62 ]
   ret ptr %.0
 }
 
@@ -971,81 +973,83 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_ZN6icu_7712ChoiceFormat
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = sext i32 %6 to i64
-  %10 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %8, i64 %9, i32 4
-  %11 = load i32, ptr %10, align 4, !tbaa !41
-  %..i30 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %6)
-  %12 = add nsw i32 %..i30, 1
-  %.not31 = icmp slt i32 %12, %5
+  %10 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %8, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %12 = load i32, ptr %11, align 4, !tbaa !41
+  %..i30 = tail call noundef i32 @llvm.smax.i32(i32 %12, i32 %6)
+  %13 = add nsw i32 %..i30, 1
+  %.not31 = icmp slt i32 %13, %5
   br i1 %.not31, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %3
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = sext i32 %12 to i64
-  %18 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %8, i64 %17
-  %19 = load i32, ptr %18, align 4, !tbaa !45
-  %20 = icmp eq i32 %19, 6
-  br i1 %20, label %.thread, label %.lr.ph44
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = sext i32 %13 to i64
+  %19 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %8, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !45
+  %21 = icmp eq i32 %20, 6
+  br i1 %21, label %.thread, label %.lr.ph44
 
-21:                                               ; preds = %51
-  %22 = sext i32 %55 to i64
-  %23 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %30, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !45
-  %25 = icmp eq i32 %24, 6
-  br i1 %25, label %.thread, label %.lr.ph44
+22:                                               ; preds = %52
+  %23 = sext i32 %57 to i64
+  %24 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %30, i64 %23
+  %25 = load i32, ptr %24, align 4, !tbaa !45
+  %26 = icmp eq i32 %25, 6
+  br i1 %26, label %.thread, label %.lr.ph44
 
-.lr.ph44:                                         ; preds = %.lr.ph, %21
-  %26 = phi ptr [ %23, %21 ], [ %18, %.lr.ph ]
-  %.03243 = phi i32 [ %29, %21 ], [ %6, %.lr.ph ]
-  %..i3342 = phi i32 [ %..i, %21 ], [ %..i30, %.lr.ph ]
-  %27 = add nsw i32 %..i3342, 2
-  %28 = tail call noundef double @_ZNK6icu_7714MessagePattern15getNumericValueERKNS0_4PartE(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef nonnull align 4 dereferenceable(16) %26)
+.lr.ph44:                                         ; preds = %.lr.ph, %22
+  %27 = phi ptr [ %24, %22 ], [ %19, %.lr.ph ]
+  %.03243 = phi i32 [ %29, %22 ], [ %6, %.lr.ph ]
+  %..i3342 = phi i32 [ %..i, %22 ], [ %..i30, %.lr.ph ]
+  %28 = tail call noundef double @_ZNK6icu_7714MessagePattern15getNumericValueERKNS0_4PartE(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef nonnull align 4 dereferenceable(16) %27)
   %29 = add nsw i32 %..i3342, 3
   %30 = load ptr, ptr %7, align 8, !tbaa !40
-  %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %30, i64 %31, i32 1
-  %33 = load i32, ptr %32, align 4, !tbaa !46
-  %34 = load i16, ptr %13, align 8, !tbaa !26
-  %35 = icmp slt i16 %34, 0
-  %36 = ashr i16 %34, 5
-  %37 = sext i16 %36 to i32
-  %38 = load i32, ptr %14, align 4
-  %39 = select i1 %35, i32 %38, i32 %37
-  %40 = icmp ult i32 %33, %39
-  br i1 %40, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
+  %31 = sext i32 %..i3342 to i64
+  %32 = getelementptr %"class.icu_77::MessagePattern::Part", ptr %30, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 36
+  %34 = load i32, ptr %33, align 4, !tbaa !46
+  %35 = load i16, ptr %14, align 8, !tbaa !26
+  %36 = icmp slt i16 %35, 0
+  %37 = ashr i16 %35, 5
+  %38 = sext i16 %37 to i32
+  %39 = load i32, ptr %15, align 4
+  %40 = select i1 %36, i32 %39, i32 %38
+  %41 = icmp ult i32 %34, %40
+  br i1 %41, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.lr.ph44
-  %41 = and i16 %34, 2
-  %.not.i.i.i = icmp eq i16 %41, 0
-  %42 = load ptr, ptr %16, align 8
-  %43 = select i1 %.not.i.i.i, ptr %42, ptr %15
-  %44 = sext i32 %33 to i64
-  %45 = getelementptr inbounds i16, ptr %43, i64 %44
-  %46 = load i16, ptr %45, align 2, !tbaa !32
-  %47 = icmp eq i16 %46, 60
-  br i1 %47, label %48, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
+  %42 = and i16 %35, 2
+  %.not.i.i.i = icmp eq i16 %42, 0
+  %43 = load ptr, ptr %17, align 8
+  %44 = select i1 %.not.i.i.i, ptr %43, ptr %16
+  %45 = sext i32 %34 to i64
+  %46 = getelementptr inbounds i16, ptr %44, i64 %45
+  %47 = load i16, ptr %46, align 2, !tbaa !32
+  %48 = icmp eq i16 %47, 60
+  br i1 %48, label %49, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
 
-48:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %49 = fcmp ogt double %2, %28
-  br i1 %49, label %51, label %.thread
+49:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
+  %50 = fcmp ogt double %2, %28
+  br i1 %50, label %52, label %.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %.lr.ph44, %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %50 = fcmp ult double %2, %28
-  br i1 %50, label %.thread, label %51
+  %51 = fcmp ult double %2, %28
+  br i1 %51, label %.thread, label %52
 
-51:                                               ; preds = %48, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
-  %52 = sext i32 %29 to i64
-  %53 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %30, i64 %52, i32 4
-  %54 = load i32, ptr %53, align 4, !tbaa !41
-  %..i = tail call noundef i32 @llvm.smax.i32(i32 %54, i32 %29)
-  %55 = add nsw i32 %..i, 1
-  %.not = icmp slt i32 %55, %5
-  br i1 %.not, label %21, label %.thread
+52:                                               ; preds = %49, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
+  %53 = sext i32 %29 to i64
+  %54 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %30, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 12
+  %56 = load i32, ptr %55, align 4, !tbaa !41
+  %..i = tail call noundef i32 @llvm.smax.i32(i32 %56, i32 %29)
+  %57 = add nsw i32 %..i, 1
+  %.not = icmp slt i32 %57, %5
+  br i1 %.not, label %22, label %.thread
 
-.thread:                                          ; preds = %48, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %21, %51, %.lr.ph, %3
-  %.0.lcssa = phi i32 [ %6, %3 ], [ %6, %.lr.ph ], [ %29, %51 ], [ %29, %21 ], [ %.03243, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %.03243, %48 ]
+.thread:                                          ; preds = %49, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %22, %52, %.lr.ph, %3
+  %.0.lcssa = phi i32 [ %6, %3 ], [ %6, %.lr.ph ], [ %29, %52 ], [ %29, %22 ], [ %.03243, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %.03243, %49 ]
   ret i32 %.0.lcssa
 }
 
@@ -1125,10 +1129,10 @@ define noundef double @_ZN6icu_7712ChoiceFormat13parseArgumentERKNS_14MessagePat
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   br label %13
 
-13:                                               ; preds = %40, %4
-  %.040 = phi double [ %7, %4 ], [ %.545, %40 ]
-  %.038 = phi i32 [ %6, %4 ], [ %.5, %40 ]
-  %.036 = phi i32 [ %1, %4 ], [ %.137, %40 ]
+13:                                               ; preds = %41, %4
+  %.040 = phi double [ %7, %4 ], [ %.545, %41 ]
+  %.038 = phi i32 [ %6, %4 ], [ %.5, %41 ]
+  %.036 = phi i32 [ %1, %4 ], [ %.137, %41 ]
   %14 = icmp slt i32 %.036, %9
   br i1 %14, label %15, label %.critedge
 
@@ -1145,57 +1149,58 @@ define noundef double @_ZN6icu_7712ChoiceFormat13parseArgumentERKNS_14MessagePat
   %22 = add nsw i32 %.036, 2
   %23 = load ptr, ptr %10, align 8, !tbaa !40
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %23, i64 %24, i32 4
-  %26 = load i32, ptr %25, align 4, !tbaa !41
-  %..i = tail call noundef i32 @llvm.smax.i32(i32 %26, i32 %22)
-  %27 = tail call noundef i32 @_ZN6icu_7712ChoiceFormat25matchStringUntilLimitPartERKNS_14MessagePatternEiiRKNS_13UnicodeStringEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %22, i32 noundef %..i, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %6)
-  %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %29, label %.thread
+  %25 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %23, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  %27 = load i32, ptr %26, align 4, !tbaa !41
+  %..i = tail call noundef i32 @llvm.smax.i32(i32 %27, i32 %22)
+  %28 = tail call noundef i32 @_ZN6icu_7712ChoiceFormat25matchStringUntilLimitPartERKNS_14MessagePatternEiiRKNS_13UnicodeStringEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %22, i32 noundef %..i, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %6)
+  %29 = icmp sgt i32 %28, -1
+  br i1 %29, label %30, label %.thread
 
-29:                                               ; preds = %20
-  %30 = add nsw i32 %27, %6
-  %31 = icmp sgt i32 %30, %.038
-  br i1 %31, label %32, label %.thread
+30:                                               ; preds = %20
+  %31 = add nsw i32 %28, %6
+  %32 = icmp sgt i32 %31, %.038
+  br i1 %32, label %33, label %.thread
 
-32:                                               ; preds = %29
-  %33 = load i16, ptr %11, align 8, !tbaa !26
-  %34 = icmp slt i16 %33, 0
-  %35 = ashr i16 %33, 5
-  %36 = sext i16 %35 to i32
-  %37 = load i32, ptr %12, align 4
-  %38 = select i1 %34, i32 %37, i32 %36
-  %.not54 = icmp eq i32 %30, %38
-  br i1 %.not54, label %40, label %.thread
+33:                                               ; preds = %30
+  %34 = load i16, ptr %11, align 8, !tbaa !26
+  %35 = icmp slt i16 %34, 0
+  %36 = ashr i16 %34, 5
+  %37 = sext i16 %36 to i32
+  %38 = load i32, ptr %12, align 4
+  %39 = select i1 %35, i32 %38, i32 %37
+  %.not54 = icmp eq i32 %31, %39
+  br i1 %.not54, label %41, label %.thread
 
-.thread:                                          ; preds = %29, %32, %20
-  %.242 = phi double [ %21, %32 ], [ %.040, %20 ], [ %.040, %29 ]
-  %.2 = phi i32 [ %30, %32 ], [ %.038, %20 ], [ %.038, %29 ]
-  %39 = add nsw i32 %..i, 1
-  br label %40
+.thread:                                          ; preds = %30, %33, %20
+  %.242 = phi double [ %21, %33 ], [ %.040, %20 ], [ %.040, %30 ]
+  %.2 = phi i32 [ %31, %33 ], [ %.038, %20 ], [ %.038, %30 ]
+  %40 = add nsw i32 %..i, 1
+  br label %41
 
-40:                                               ; preds = %32, %.thread
-  %.545 = phi double [ %.242, %.thread ], [ %21, %32 ]
-  %.5 = phi i32 [ %.2, %.thread ], [ %30, %32 ]
-  %.137 = phi i32 [ %39, %.thread ], [ %22, %32 ]
-  %switch = phi i1 [ true, %.thread ], [ false, %32 ]
+41:                                               ; preds = %33, %.thread
+  %.545 = phi double [ %.242, %.thread ], [ %21, %33 ]
+  %.5 = phi i32 [ %.2, %.thread ], [ %31, %33 ]
+  %.137 = phi i32 [ %40, %.thread ], [ %22, %33 ]
+  %switch = phi i1 [ true, %.thread ], [ false, %33 ]
   br i1 %switch, label %13, label %.critedge
 
-.critedge:                                        ; preds = %40, %13, %15
-  %.141 = phi double [ %.545, %40 ], [ %.040, %15 ], [ %.040, %13 ]
-  %.139 = phi i32 [ %.5, %40 ], [ %.038, %15 ], [ %.038, %13 ]
-  %41 = icmp eq i32 %.139, %6
-  br i1 %41, label %42, label %44
+.critedge:                                        ; preds = %41, %13, %15
+  %.141 = phi double [ %.545, %41 ], [ %.040, %15 ], [ %.040, %13 ]
+  %.139 = phi i32 [ %.5, %41 ], [ %.038, %15 ], [ %.038, %13 ]
+  %42 = icmp eq i32 %.139, %6
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %.critedge
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %6, ptr %43, align 4, !tbaa !52
-  br label %45
+43:                                               ; preds = %.critedge
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %6, ptr %44, align 4, !tbaa !52
+  br label %46
 
-44:                                               ; preds = %.critedge
+45:                                               ; preds = %.critedge
   store i32 %.139, ptr %5, align 8, !tbaa !50
-  br label %45
+  br label %46
 
-45:                                               ; preds = %44, %42
+46:                                               ; preds = %45, %43
   ret double %.141
 }
 

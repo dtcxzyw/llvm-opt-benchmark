@@ -904,15 +904,16 @@ if.then:                                          ; preds = %for.body70
 
 invoke.cont79:                                    ; preds = %if.then
   %102 = load ptr, ptr %add.ptr.i54, align 8, !tbaa !55
-  %103 = load ptr, ptr %add.ptr.i114, align 8, !tbaa !55
-  %cumulatedCashFlows = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %103, i64 %j.0226, i32 1
-  %104 = load double, ptr %cumulatedCashFlows, align 8, !tbaa !59
-  %cumulatedCashFlows85 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %102, i64 %j.0226, i32 1
   %add.ptr.i151 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %102, i64 %j.0226
-  %.sink.in = select i1 %call80, ptr %add.ptr.i151, ptr %cumulatedCashFlows85
+  %.sink.in.idx = select i1 %call80, i64 0, i64 8
+  %.sink.in = getelementptr inbounds nuw i8, ptr %add.ptr.i151, i64 %.sink.in.idx
   %.sink = load double, ptr %.sink.in, align 8, !tbaa !32
+  %103 = load ptr, ptr %add.ptr.i114, align 8, !tbaa !55
+  %add.ptr.i154 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %103, i64 %j.0226
+  %cumulatedCashFlows87 = getelementptr inbounds nuw i8, ptr %add.ptr.i154, i64 8
+  %104 = load double, ptr %cumulatedCashFlows87, align 8, !tbaa !59
   %add88 = fadd double %.sink, %104
-  store double %add88, ptr %cumulatedCashFlows, align 8, !tbaa !59
+  store double %add88, ptr %cumulatedCashFlows87, align 8, !tbaa !59
   br label %for.inc
 
 lpad78:                                           ; preds = %if.then

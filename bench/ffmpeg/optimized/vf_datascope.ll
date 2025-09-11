@@ -2578,15 +2578,15 @@ define internal i32 @oscilloscope_filter_frame(ptr noundef readonly captures(non
   store i16 %67, ptr %71, align 2, !tbaa !114
   %72 = load i32, ptr %45, align 4, !tbaa !84
   %73 = trunc i32 %72 to i16
-  %74 = getelementptr inbounds %struct.PixelValues, ptr %68, i64 %70, i32 0, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 2
   store i16 %73, ptr %74, align 2, !tbaa !114
   %75 = load i32, ptr %46, align 8, !tbaa !84
   %76 = trunc i32 %75 to i16
-  %77 = getelementptr inbounds %struct.PixelValues, ptr %68, i64 %70, i32 0, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i16 %76, ptr %77, align 2, !tbaa !114
   %78 = load i32, ptr %47, align 4, !tbaa !84
   %79 = trunc i32 %78 to i16
-  %80 = getelementptr inbounds %struct.PixelValues, ptr %68, i64 %70, i32 0, i64 3
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 6
   store i16 %79, ptr %80, align 2, !tbaa !114
   %81 = add nsw i32 %69, 1
   store i32 %81, ptr %16, align 8, !tbaa !140

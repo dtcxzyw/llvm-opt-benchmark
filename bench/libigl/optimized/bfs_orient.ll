@@ -1309,7 +1309,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi0EiEEE13InnerIteratorC2ERKS
   %114 = sext i32 %113 to i64
   %115 = mul nsw i64 %98, %114
   %116 = getelementptr i32, ptr %99, i64 %115
-  %117 = getelementptr inbounds nuw [2 x i32], ptr %95, i64 %indvars.iv100, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %118 = load i32, ptr %117, align 4, !tbaa !28
   %119 = sext i32 %118 to i64
   %120 = mul nsw i64 %98, %119
@@ -1333,7 +1333,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIiLi0EiEEE13InnerIteratorC2ERKS
   %131 = mul nsw i64 %98, %130
   %132 = getelementptr i32, ptr %96, i64 %127
   %133 = getelementptr i32, ptr %132, i64 %131
-  %134 = getelementptr inbounds nuw [2 x i32], ptr %95, i64 %indvars.iv96, i64 1
+  %134 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %135 = load i32, ptr %134, align 4, !tbaa !28
   %136 = sext i32 %135 to i64
   %137 = mul nsw i64 %98, %136

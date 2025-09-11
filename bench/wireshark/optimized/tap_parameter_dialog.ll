@@ -3458,11 +3458,12 @@ _ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11Capture
   %59 = getelementptr i8, ptr %55, i64 %56
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
-  %62 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %58, i64 %61, i32 0, i32 0, i64 24
+  %62 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %58, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5QHashIK7QStringPFP18TapParameterDialogR7QWidgetS0_S0_R11CaptureFileEED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %62
+  ret ptr %63
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -11885,7 +11886,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParam
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %48, label %6
+  br i1 %.not, label %49, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -11908,24 +11909,25 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParam
   br i1 %23, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
-  %24 = phi i8 [ %43, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %22, %6 ]
-  %25 = phi i64 [ %39, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %18, %6 ]
+  %24 = phi i8 [ %44, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %22, %6 ]
+  %25 = phi i64 [ %40, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %18, %6 ]
   %.01830.i = phi i64 [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %15, %6 ]
-  %26 = zext i8 %24 to i64
-  %27 = getelementptr %"struct.QHashPrivate::Span", ptr %17, i64 %25, i32 1
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %28, i64 %26
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load i64, ptr %30, align 8
-  %32 = icmp eq i64 %31, %12
-  br i1 %32, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
+  %26 = getelementptr %"struct.QHashPrivate::Span", ptr %17, i64 %25
+  %27 = zext i8 %24 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 128
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %29, i64 %27
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = icmp eq i64 %32, %12
+  br i1 %33, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.i:         ; preds = %.lr.ph.i
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %12, ptr %34, i64 %12, ptr %10, i32 noundef 1) #36
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %12, ptr %35, i64 %12, ptr %10, i32 noundef 1) #36
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i
   %.pre23 = and i64 %.01830.i, 127
@@ -11933,152 +11935,153 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStr
   br label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, %.lr.ph.i
-  %37 = add i64 %.01830.i, 1
-  %38 = icmp eq i64 %37, %5
-  %spec.store.select.i.i = select i1 %38, i64 0, i64 %37
-  %39 = lshr i64 %spec.store.select.i.i, 7
-  %40 = and i64 %spec.store.select.i.i, 127
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %17, i64 %39
-  %42 = getelementptr i8, ptr %41, i64 %40
-  %43 = load i8, ptr %42, align 1
-  %44 = icmp eq i8 %43, -1
-  br i1 %44, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i, !llvm.loop !124
+  %38 = add i64 %.01830.i, 1
+  %39 = icmp eq i64 %38, %5
+  %spec.store.select.i.i = select i1 %39, i64 0, i64 %38
+  %40 = lshr i64 %spec.store.select.i.i, 7
+  %41 = and i64 %spec.store.select.i.i, 127
+  %42 = getelementptr %"struct.QHashPrivate::Span", ptr %17, i64 %40
+  %43 = getelementptr i8, ptr %42, i64 %41
+  %44 = load i8, ptr %43, align 1
+  %45 = icmp eq i8 %44, -1
+  br i1 %45, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i, !llvm.loop !124
 
 _ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge, %6
-  %.pre-phi22 = phi i64 [ %18, %6 ], [ %.pre, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %39, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
-  %.pre-phi = phi i64 [ %19, %6 ], [ %.pre23, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %40, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
+  %.pre-phi22 = phi i64 [ %18, %6 ], [ %.pre, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %40, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
+  %.pre-phi = phi i64 [ %19, %6 ], [ %.pre23, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %41, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
   %.018.lcssa.i = phi i64 [ %15, %6 ], [ %.01830.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
-  %45 = getelementptr %"struct.QHashPrivate::Span", ptr %17, i64 %.pre-phi22
-  %46 = getelementptr i8, ptr %45, i64 %.pre-phi
-  %47 = load i8, ptr %46, align 1
-  %.not.i = icmp eq i8 %47, -1
-  br i1 %.not.i, label %48, label %114
+  %46 = getelementptr %"struct.QHashPrivate::Span", ptr %17, i64 %.pre-phi22
+  %47 = getelementptr i8, ptr %46, i64 %.pre-phi
+  %48 = load i8, ptr %47, align 1
+  %.not.i = icmp eq i8 %48, -1
+  br i1 %.not.i, label %49, label %116
 
-48:                                               ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, %3
+49:                                               ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, %3
   %.sroa.0.0 = phi ptr [ null, %3 ], [ %1, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit ]
   %.sroa.8.0 = phi i64 [ 0, %3 ], [ %.018.lcssa.i, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit ]
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = load i64, ptr %49, align 8
-  %51 = lshr i64 %5, 1
-  %.not19 = icmp ult i64 %50, %51
-  br i1 %.not19, label %._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge, label %52
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %51 = load i64, ptr %50, align 8
+  %52 = lshr i64 %5, 1
+  %.not19 = icmp ult i64 %51, %52
+  br i1 %.not19, label %._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge, label %53
 
-._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge: ; preds = %48
+._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge: ; preds = %49
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre20 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13
 
-52:                                               ; preds = %48
-  %53 = add i64 %50, 1
-  invoke void @_ZN12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6rehashEm(ptr noundef align 8 dereferenceable_or_null(40) %1, i64 noundef %53)
-          to label %54 unwind label %116
+53:                                               ; preds = %49
+  %54 = add i64 %51, 1
+  invoke void @_ZN12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6rehashEm(ptr noundef align 8 dereferenceable_or_null(40) %1, i64 noundef %54)
+          to label %55 unwind label %118
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %60 = load i64, ptr %59, align 8
-  %61 = tail call noundef i64 @_Z5qHash11QStringViewm(i64 %60, ptr %58, i64 noundef %56) #36
-  %62 = load i64, ptr %4, align 8
-  %63 = add i64 %62, -1
-  %64 = and i64 %63, %61
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %66 = load ptr, ptr %65, align 8
-  %67 = lshr i64 %64, 7
-  %68 = and i64 %64, 127
-  %69 = getelementptr %"struct.QHashPrivate::Span", ptr %66, i64 %67
-  %70 = getelementptr i8, ptr %69, i64 %68
-  %71 = load i8, ptr %70, align 1
-  %72 = icmp eq i8 %71, -1
-  br i1 %72, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13, label %.lr.ph.i5
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %57 = load i64, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %61 = load i64, ptr %60, align 8
+  %62 = tail call noundef i64 @_Z5qHash11QStringViewm(i64 %61, ptr %59, i64 noundef %57) #36
+  %63 = load i64, ptr %4, align 8
+  %64 = add i64 %63, -1
+  %65 = and i64 %64, %62
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = lshr i64 %65, 7
+  %69 = and i64 %65, 127
+  %70 = getelementptr %"struct.QHashPrivate::Span", ptr %67, i64 %68
+  %71 = getelementptr i8, ptr %70, i64 %69
+  %72 = load i8, ptr %71, align 1
+  %73 = icmp eq i8 %72, -1
+  br i1 %73, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13, label %.lr.ph.i5
 
-.lr.ph.i5:                                        ; preds = %54, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7
-  %73 = phi i8 [ %92, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ], [ %71, %54 ]
-  %74 = phi i64 [ %88, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ], [ %67, %54 ]
-  %.01830.i6 = phi i64 [ %spec.store.select.i.i8, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ], [ %64, %54 ]
-  %75 = zext i8 %73 to i64
-  %76 = getelementptr %"struct.QHashPrivate::Span", ptr %66, i64 %74, i32 1
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %77, i64 %75
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %80 = load i64, ptr %79, align 8
-  %81 = icmp eq i64 %80, %60
-  br i1 %81, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7
+.lr.ph.i5:                                        ; preds = %55, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7
+  %74 = phi i8 [ %94, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ], [ %72, %55 ]
+  %75 = phi i64 [ %90, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ], [ %68, %55 ]
+  %.01830.i6 = phi i64 [ %spec.store.select.i.i8, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ], [ %65, %55 ]
+  %76 = getelementptr %"struct.QHashPrivate::Span", ptr %67, i64 %75
+  %77 = zext i8 %74 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 128
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %79, i64 %77
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load i64, ptr %81, align 8
+  %83 = icmp eq i64 %82, %61
+  br i1 %83, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12:       ; preds = %.lr.ph.i5
-  %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %60, ptr %83, i64 %60, ptr %58, i32 noundef 1) #36
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %61, ptr %85, i64 %61, ptr %59, i32 noundef 1) #36
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12, %.lr.ph.i5
-  %86 = add i64 %.01830.i6, 1
-  %87 = icmp eq i64 %86, %62
-  %spec.store.select.i.i8 = select i1 %87, i64 0, i64 %86
-  %88 = lshr i64 %spec.store.select.i.i8, 7
-  %89 = and i64 %spec.store.select.i.i8, 127
-  %90 = getelementptr %"struct.QHashPrivate::Span", ptr %66, i64 %88
-  %91 = getelementptr i8, ptr %90, i64 %89
-  %92 = load i8, ptr %91, align 1
-  %93 = icmp eq i8 %92, -1
-  br i1 %93, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13, label %.lr.ph.i5, !llvm.loop !124
+  %88 = add i64 %.01830.i6, 1
+  %89 = icmp eq i64 %88, %63
+  %spec.store.select.i.i8 = select i1 %89, i64 0, i64 %88
+  %90 = lshr i64 %spec.store.select.i.i8, 7
+  %91 = and i64 %spec.store.select.i.i8, 127
+  %92 = getelementptr %"struct.QHashPrivate::Span", ptr %67, i64 %90
+  %93 = getelementptr i8, ptr %92, i64 %91
+  %94 = load i8, ptr %93, align 1
+  %95 = icmp eq i8 %94, -1
+  br i1 %95, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13, label %.lr.ph.i5, !llvm.loop !124
 
-_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12, %._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge, %54
-  %94 = phi ptr [ %.pre20, %._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge ], [ %66, %54 ], [ %66, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12 ], [ %66, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge ], [ %1, %54 ], [ %1, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12 ], [ %1, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ]
-  %.sroa.8.1 = phi i64 [ %.sroa.8.0, %._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge ], [ %64, %54 ], [ %spec.store.select.i.i8, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ], [ %.01830.i6, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12 ]
-  %95 = lshr i64 %.sroa.8.1, 7
-  %96 = getelementptr %"struct.QHashPrivate::Span", ptr %94, i64 %95
-  %97 = and i64 %.sroa.8.1, 127
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 137
-  %99 = load i8, ptr %98, align 1
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 136
-  %101 = load i8, ptr %100, align 8
-  %102 = icmp eq i8 %99, %101
-  br i1 %102, label %103, label %104
+_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12, %._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge, %55
+  %96 = phi ptr [ %.pre20, %._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge ], [ %67, %55 ], [ %67, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12 ], [ %67, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge ], [ %1, %55 ], [ %1, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12 ], [ %1, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.0, %._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13_crit_edge ], [ %65, %55 ], [ %spec.store.select.i.i8, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i7 ], [ %.01830.i6, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i12 ]
+  %97 = lshr i64 %.sroa.8.1, 7
+  %98 = getelementptr %"struct.QHashPrivate::Span", ptr %96, i64 %97
+  %99 = and i64 %.sroa.8.1, 127
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 137
+  %101 = load i8, ptr %100, align 1
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 136
+  %103 = load i8, ptr %102, align 8
+  %104 = icmp eq i8 %101, %103
+  br i1 %104, label %105, label %106
 
-103:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13
-  invoke void @_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv(ptr noundef align 8 dereferenceable_or_null(138) %96)
-          to label %.noexc unwind label %116
+105:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13
+  invoke void @_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv(ptr noundef align 8 dereferenceable_or_null(138) %98)
+          to label %.noexc unwind label %118
 
-.noexc:                                           ; preds = %103
-  %.pre.i = load i8, ptr %98, align 1
-  br label %104
+.noexc:                                           ; preds = %105
+  %.pre.i = load i8, ptr %100, align 1
+  br label %106
 
-104:                                              ; preds = %.noexc, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13
-  %105 = phi i8 [ %.pre.i, %.noexc ], [ %99, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13 ]
-  %106 = getelementptr inbounds nuw i8, ptr %96, i64 128
-  %107 = load ptr, ptr %106, align 8
-  %108 = zext i8 %105 to i64
-  %109 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %107, i64 %108
-  %110 = load i8, ptr %109, align 1
-  store i8 %110, ptr %98, align 1
-  %111 = getelementptr i8, ptr %96, i64 %97
-  store i8 %105, ptr %111, align 1
-  %112 = load i64, ptr %49, align 8
-  %113 = add i64 %112, 1
-  store i64 %113, ptr %49, align 8
-  br label %114
+106:                                              ; preds = %.noexc, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13
+  %107 = phi i8 [ %.pre.i, %.noexc ], [ %101, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit13 ]
+  %108 = getelementptr inbounds nuw i8, ptr %98, i64 128
+  %109 = load ptr, ptr %108, align 8
+  %110 = zext i8 %107 to i64
+  %111 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %109, i64 %110
+  %112 = load i8, ptr %111, align 1
+  store i8 %112, ptr %100, align 1
+  %113 = getelementptr i8, ptr %98, i64 %99
+  store i8 %107, ptr %113, align 1
+  %114 = load i64, ptr %50, align 8
+  %115 = add i64 %114, 1
+  store i64 %115, ptr %50, align 8
+  br label %116
 
-114:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, %104
-  %.sroa.0.1.sink = phi ptr [ %.sroa.0.1, %104 ], [ %1, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit ]
-  %.sroa.8.1.sink = phi i64 [ %.sroa.8.1, %104 ], [ %.018.lcssa.i, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit ]
-  %.sink = phi i8 [ 0, %104 ], [ 1, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit ]
+116:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, %106
+  %.sroa.0.1.sink = phi ptr [ %.sroa.0.1, %106 ], [ %1, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit ]
+  %.sroa.8.1.sink = phi i64 [ %.sroa.8.1, %106 ], [ %.018.lcssa.i, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit ]
+  %.sink = phi i8 [ 0, %106 ], [ 1, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit ]
   store ptr %.sroa.0.1.sink, ptr %0, align 8
   %.sroa.8.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.8.1.sink, ptr %.sroa.8.0..sroa_idx15, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sink, ptr %117, align 8
   ret void
 
-116:                                              ; preds = %103, %52
-  %117 = landingpad { ptr, i32 }
+118:                                              ; preds = %105, %53
+  %119 = landingpad { ptr, i32 }
           catch ptr null
-  %118 = extractvalue { ptr, i32 } %117, 0
-  tail call void @__clang_call_terminate(ptr %118) #34
+  %120 = extractvalue { ptr, i32 } %119, 0
+  tail call void @__clang_call_terminate(ptr %120) #34
   unreachable
 }
 
@@ -12374,23 +12377,23 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %58 = shl nuw i64 %.037, 7
   br label %61
 
-59:                                               ; preds = %176
+59:                                               ; preds = %177
   %60 = add nuw nsw i64 %.037, 1
   %exitcond39.not = icmp eq i64 %60, %52
   br i1 %exitcond39.not, label %._crit_edge, label %54, !llvm.loop !125
 
-61:                                               ; preds = %54, %176
-  %.02335 = phi i64 [ 0, %54 ], [ %177, %176 ]
+61:                                               ; preds = %54, %177
+  %.02335 = phi i64 [ 0, %54 ], [ %178, %177 ]
   %62 = getelementptr i8, ptr %56, i64 %.02335
   %63 = load i8, ptr %62, align 1
   %.not34 = icmp eq i8 %63, -1
-  br i1 %.not34, label %176, label %64
+  br i1 %.not34, label %177, label %64
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %57, align 8
   %66 = zext i8 %63 to i64
   %67 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %65, i64 %66
-  br i1 %.not25, label %106, label %68
+  br i1 %.not25, label %107, label %68
 
 68:                                               ; preds = %64
   %69 = load i64, ptr %10, align 8
@@ -12412,197 +12415,198 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br i1 %84, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %68, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
-  %85 = phi i8 [ %104, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %83, %68 ]
-  %86 = phi i64 [ %100, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %79, %68 ]
+  %85 = phi i8 [ %105, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %83, %68 ]
+  %86 = phi i64 [ %101, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %79, %68 ]
   %.01830.i = phi i64 [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %77, %68 ]
-  %87 = zext i8 %85 to i64
-  %88 = getelementptr %"struct.QHashPrivate::Span", ptr %78, i64 %86, i32 1
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %89, i64 %87
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %92 = load i64, ptr %91, align 8
-  %93 = icmp eq i64 %92, %73
-  br i1 %93, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
+  %87 = getelementptr %"struct.QHashPrivate::Span", ptr %78, i64 %86
+  %88 = zext i8 %85 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 128
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %90, i64 %88
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %93 = load i64, ptr %92, align 8
+  %94 = icmp eq i64 %93, %73
+  br i1 %94, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.i:         ; preds = %.lr.ph.i
-  %94 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %73, ptr %95, i64 %73, ptr %71, i32 noundef 1) #36
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %73, ptr %96, i64 %73, ptr %71, i32 noundef 1) #36
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, %.lr.ph.i
-  %98 = add i64 %.01830.i, 1
-  %99 = icmp eq i64 %98, %75
-  %spec.store.select.i.i = select i1 %99, i64 0, i64 %98
-  %100 = lshr i64 %spec.store.select.i.i, 7
-  %101 = and i64 %spec.store.select.i.i, 127
-  %102 = getelementptr %"struct.QHashPrivate::Span", ptr %78, i64 %100
-  %103 = getelementptr i8, ptr %102, i64 %101
-  %104 = load i8, ptr %103, align 1
-  %105 = icmp eq i8 %104, -1
-  br i1 %105, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i, !llvm.loop !124
+  %99 = add i64 %.01830.i, 1
+  %100 = icmp eq i64 %99, %75
+  %spec.store.select.i.i = select i1 %100, i64 0, i64 %99
+  %101 = lshr i64 %spec.store.select.i.i, 7
+  %102 = and i64 %spec.store.select.i.i, 127
+  %103 = getelementptr %"struct.QHashPrivate::Span", ptr %78, i64 %101
+  %104 = getelementptr i8, ptr %103, i64 %102
+  %105 = load i8, ptr %104, align 1
+  %106 = icmp eq i8 %105, -1
+  br i1 %106, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i, !llvm.loop !124
 
-106:                                              ; preds = %64
-  %107 = add nuw nsw i64 %.02335, %58
+107:                                              ; preds = %64
+  %108 = add nuw nsw i64 %.02335, %58
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
 
-_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, %68, %106
-  %108 = phi ptr [ %.pre, %106 ], [ %78, %68 ], [ %78, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i ], [ %78, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
-  %.sroa.4.0 = phi i64 [ %107, %106 ], [ %77, %68 ], [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %.01830.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i ]
-  %109 = lshr i64 %.sroa.4.0, 7
-  %110 = getelementptr %"struct.QHashPrivate::Span", ptr %108, i64 %109
-  %111 = and i64 %.sroa.4.0, 127
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 137
-  %113 = load i8, ptr %112, align 1
-  %114 = getelementptr inbounds nuw i8, ptr %110, i64 136
-  %115 = load i8, ptr %114, align 8
-  %116 = icmp eq i8 %113, %115
-  br i1 %116, label %117, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge
+_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, %68, %107
+  %109 = phi ptr [ %.pre, %107 ], [ %78, %68 ], [ %78, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i ], [ %78, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
+  %.sroa.4.0 = phi i64 [ %108, %107 ], [ %77, %68 ], [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %.01830.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i ]
+  %110 = lshr i64 %.sroa.4.0, 7
+  %111 = getelementptr %"struct.QHashPrivate::Span", ptr %109, i64 %110
+  %112 = and i64 %.sroa.4.0, 127
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 137
+  %114 = load i8, ptr %113, align 1
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 136
+  %116 = load i8, ptr %115, align 8
+  %117 = icmp eq i8 %114, %116
+  br i1 %117, label %118, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge
 
 _ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge: ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %110, i64 128
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %111, i64 128
   %.pre40 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit
 
-117:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
-  %118 = zext i8 %113 to i64
-  %119 = add nuw nsw i64 %118, 16
-  %120 = shl nuw nsw i64 %119, 5
-  %121 = tail call noalias noundef ptr @_Znam(i64 noundef %120) #33
-  %.not.i26 = icmp eq i8 %113, 0
+118:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
+  %119 = zext i8 %114 to i64
+  %120 = add nuw nsw i64 %119, 16
+  %121 = shl nuw nsw i64 %120, 5
+  %122 = tail call noalias noundef ptr @_Znam(i64 noundef %121) #33
+  %.not.i26 = icmp eq i8 %114, 0
   br i1 %.not.i26, label %.preheader.i, label %.lr.ph.i27
 
-.lr.ph.i27:                                       ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %110, i64 128
-  br label %123
+.lr.ph.i27:                                       ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %111, i64 128
+  br label %124
 
 .preheader.loopexit.i:                            ; preds = %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i
-  %.pre22.i = add nuw nsw i64 %146, 16
+  %.pre22.i = add nuw nsw i64 %147, 16
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.loopexit.i, %117
-  %.pre-phi.i = phi i64 [ %.pre22.i, %.preheader.loopexit.i ], [ %119, %117 ]
-  %.lcssa.i = phi i64 [ %146, %.preheader.loopexit.i ], [ 0, %117 ]
-  br label %152
+.preheader.i:                                     ; preds = %.preheader.loopexit.i, %118
+  %.pre-phi.i = phi i64 [ %.pre22.i, %.preheader.loopexit.i ], [ %120, %118 ]
+  %.lcssa.i = phi i64 [ %147, %.preheader.loopexit.i ], [ 0, %118 ]
+  br label %153
 
-123:                                              ; preds = %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i, %.lr.ph.i27
-  %.01418.i = phi i64 [ 0, %.lr.ph.i27 ], [ %144, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i ]
-  %124 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %121, i64 %.01418.i
-  %125 = load ptr, ptr %122, align 8
-  %126 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %125, i64 %.01418.i
-  %127 = load ptr, ptr %126, align 8
-  store ptr %127, ptr %124, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %130 = load ptr, ptr %129, align 8
-  store ptr %130, ptr %128, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %132 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  %133 = load i64, ptr %132, align 8
-  store i64 %133, ptr %131, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %127, null
+124:                                              ; preds = %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i, %.lr.ph.i27
+  %.01418.i = phi i64 [ 0, %.lr.ph.i27 ], [ %145, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i ]
+  %125 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %122, i64 %.01418.i
+  %126 = load ptr, ptr %123, align 8
+  %127 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %126, i64 %.01418.i
+  %128 = load ptr, ptr %127, align 8
+  store ptr %128, ptr %125, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %131 = load ptr, ptr %130, align 8
+  store ptr %131, ptr %129, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  %134 = load i64, ptr %133, align 8
+  store i64 %134, ptr %132, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %128, null
   br i1 %.not.i.i.i.i.i, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.thread.i, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i
 
-_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.thread.i: ; preds = %123
-  %134 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  %135 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %136 = load ptr, ptr %135, align 8
-  store ptr %136, ptr %134, align 8
+_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.thread.i: ; preds = %124
+  %135 = getelementptr inbounds nuw i8, ptr %125, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %137 = load ptr, ptr %136, align 8
+  store ptr %137, ptr %135, align 8
   br label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i
 
-_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i: ; preds = %123
-  %137 = atomicrmw add ptr %127, i32 1 seq_cst, align 4
-  %.pre.i28 = load ptr, ptr %122, align 8
+_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i: ; preds = %124
+  %138 = atomicrmw add ptr %128, i32 1 seq_cst, align 4
+  %.pre.i28 = load ptr, ptr %123, align 8
   %.phi.trans.insert.i = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %.pre.i28, i64 %.01418.i
   %.pre21.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  %139 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %140 = load ptr, ptr %139, align 8
-  store ptr %140, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %125, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %141 = load ptr, ptr %140, align 8
+  store ptr %141, ptr %139, align 8
   %.not.i.i.i.i17.i = icmp eq ptr %.pre21.i, null
   br i1 %.not.i.i.i.i17.i, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i:  ; preds = %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i
-  %141 = atomicrmw sub ptr %.pre21.i, i32 1 seq_cst, align 4
-  %.not.i.i.i.i29 = icmp eq i32 %141, 1
-  br i1 %.not.i.i.i.i29, label %142, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i
+  %142 = atomicrmw sub ptr %.pre21.i, i32 1 seq_cst, align 4
+  %.not.i.i.i.i29 = icmp eq i32 %142, 1
+  br i1 %.not.i.i.i.i29, label %143, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i
 
-142:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i
-  %143 = load ptr, ptr %.phi.trans.insert.i, align 8
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %143, i64 noundef 2, i64 noundef 8) #31
+143:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i
+  %144 = load ptr, ptr %.phi.trans.insert.i, align 8
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %144, i64 noundef 2, i64 noundef 8) #31
   br label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i
 
-_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i: ; preds = %142, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.thread.i
-  %144 = add nuw nsw i64 %.01418.i, 1
-  %145 = load i8, ptr %114, align 8
-  %146 = zext i8 %145 to i64
-  %147 = icmp samesign ult i64 %144, %146
-  br i1 %147, label %123, label %.preheader.loopexit.i, !llvm.loop !126
+_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i: ; preds = %143, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.thread.i
+  %145 = add nuw nsw i64 %.01418.i, 1
+  %146 = load i8, ptr %115, align 8
+  %147 = zext i8 %146 to i64
+  %148 = icmp samesign ult i64 %145, %147
+  br i1 %148, label %124, label %.preheader.loopexit.i, !llvm.loop !126
 
-148:                                              ; preds = %152
-  %149 = getelementptr inbounds nuw i8, ptr %110, i64 128
-  %150 = load ptr, ptr %149, align 8
-  %151 = icmp eq ptr %150, null
-  br i1 %151, label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit, label %156
+149:                                              ; preds = %153
+  %150 = getelementptr inbounds nuw i8, ptr %111, i64 128
+  %151 = load ptr, ptr %150, align 8
+  %152 = icmp eq ptr %151, null
+  br i1 %152, label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit, label %157
 
-152:                                              ; preds = %152, %.preheader.i
-  %.019.i = phi i64 [ %.lcssa.i, %.preheader.i ], [ %153, %152 ]
-  %153 = add nuw nsw i64 %.019.i, 1
-  %154 = trunc i64 %153 to i8
-  %155 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %121, i64 %.019.i
-  store i8 %154, ptr %155, align 1
-  %exitcond.not.i = icmp eq i64 %153, %.pre-phi.i
-  br i1 %exitcond.not.i, label %148, label %152, !llvm.loop !127
+153:                                              ; preds = %153, %.preheader.i
+  %.019.i = phi i64 [ %.lcssa.i, %.preheader.i ], [ %154, %153 ]
+  %154 = add nuw nsw i64 %.019.i, 1
+  %155 = trunc i64 %154 to i8
+  %156 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %122, i64 %.019.i
+  store i8 %155, ptr %156, align 1
+  %exitcond.not.i = icmp eq i64 %154, %.pre-phi.i
+  br i1 %exitcond.not.i, label %149, label %153, !llvm.loop !127
 
-156:                                              ; preds = %148
-  tail call void @_ZdaPv(ptr noundef nonnull %150) #32
+157:                                              ; preds = %149
+  tail call void @_ZdaPv(ptr noundef nonnull %151) #32
   br label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit
 
-_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit: ; preds = %148, %156
-  store ptr %121, ptr %149, align 8
-  %157 = trunc i64 %119 to i8
-  store i8 %157, ptr %114, align 8
-  %.pre.i = load i8, ptr %112, align 1
+_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit: ; preds = %149, %157
+  store ptr %122, ptr %150, align 8
+  %158 = trunc i64 %120 to i8
+  store i8 %158, ptr %115, align 8
+  %.pre.i = load i8, ptr %113, align 1
   br label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit: ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit
-  %158 = phi ptr [ %121, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit ], [ %.pre40, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge ]
-  %159 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit ], [ %113, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge ]
-  %160 = zext i8 %159 to i64
-  %161 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %158, i64 %160
-  %162 = load i8, ptr %161, align 1
-  store i8 %162, ptr %112, align 1
-  %163 = getelementptr i8, ptr %110, i64 %111
-  store i8 %159, ptr %163, align 1
-  %164 = load ptr, ptr %67, align 8
-  store ptr %164, ptr %161, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %166 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %167 = load ptr, ptr %166, align 8
-  store ptr %167, ptr %165, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %169 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %170 = load i64, ptr %169, align 8
-  store i64 %170, ptr %168, align 8
-  %.not.i.i.i.i = icmp eq ptr %164, null
-  br i1 %.not.i.i.i.i, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2ERKSB_.exit, label %171
+  %159 = phi ptr [ %122, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit ], [ %.pre40, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge ]
+  %160 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit ], [ %114, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge ]
+  %161 = zext i8 %160 to i64
+  %162 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %159, i64 %161
+  %163 = load i8, ptr %162, align 1
+  store i8 %163, ptr %113, align 1
+  %164 = getelementptr i8, ptr %111, i64 %112
+  store i8 %160, ptr %164, align 1
+  %165 = load ptr, ptr %67, align 8
+  store ptr %165, ptr %162, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %168 = load ptr, ptr %167, align 8
+  store ptr %168, ptr %166, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %171 = load i64, ptr %170, align 8
+  store i64 %171, ptr %169, align 8
+  %.not.i.i.i.i = icmp eq ptr %165, null
+  br i1 %.not.i.i.i.i, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2ERKSB_.exit, label %172
 
-171:                                              ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit
-  %172 = atomicrmw add ptr %164, i32 1 seq_cst, align 4
+172:                                              ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit
+  %173 = atomicrmw add ptr %165, i32 1 seq_cst, align 4
   br label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2ERKSB_.exit
 
-_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2ERKSB_.exit: ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit, %171
-  %173 = getelementptr inbounds nuw i8, ptr %161, i64 24
-  %174 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %175 = load ptr, ptr %174, align 8
-  store ptr %175, ptr %173, align 8
-  br label %176
+_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2ERKSB_.exit: ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit, %172
+  %174 = getelementptr inbounds nuw i8, ptr %162, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %176 = load ptr, ptr %175, align 8
+  store ptr %176, ptr %174, align 8
+  br label %177
 
-176:                                              ; preds = %61, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2ERKSB_.exit
-  %177 = add nuw nsw i64 %.02335, 1
-  %exitcond.not = icmp eq i64 %177, 128
+177:                                              ; preds = %61, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2ERKSB_.exit
+  %178 = add nuw nsw i64 %.02335, 1
+  %exitcond.not = icmp eq i64 %178, 128
   br i1 %exitcond.not, label %59, label %61, !llvm.loop !128
 }
 
@@ -12814,7 +12818,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
 
 ._crit_edge:                                      ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE8freeDataEv.exit, %.loopexit40
   %47 = icmp eq ptr %17, null
-  br i1 %47, label %204, label %178
+  br i1 %47, label %205, label %179
 
 48:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE8freeDataEv.exit
   %.02242 = phi i64 [ 0, %.lr.ph ], [ %68, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE8freeDataEv.exit ]
@@ -12822,7 +12826,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 128
   br label %69
 
-51:                                               ; preds = %176
+51:                                               ; preds = %177
   %52 = load ptr, ptr %50, align 8
   %.not.i28 = icmp eq ptr %52, null
   br i1 %.not.i28, label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE8freeDataEv.exit, label %.preheader.i
@@ -12874,12 +12878,12 @@ _ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R
   %exitcond44.not = icmp eq i64 %68, %45
   br i1 %exitcond44.not, label %._crit_edge, label %48, !llvm.loop !129
 
-69:                                               ; preds = %48, %176
-  %.02341 = phi i64 [ 0, %48 ], [ %177, %176 ]
+69:                                               ; preds = %48, %177
+  %.02341 = phi i64 [ 0, %48 ], [ %178, %177 ]
   %70 = getelementptr i8, ptr %49, i64 %.02341
   %71 = load i8, ptr %70, align 1
   %.not = icmp eq i8 %71, -1
-  br i1 %.not, label %176, label %72
+  br i1 %.not, label %177, label %72
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %50, align 8
@@ -12904,24 +12908,25 @@ _ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R
   br i1 %91, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %72, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
-  %92 = phi i8 [ %111, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %90, %72 ]
-  %93 = phi i64 [ %107, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %86, %72 ]
+  %92 = phi i8 [ %112, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %90, %72 ]
+  %93 = phi i64 [ %108, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %86, %72 ]
   %.01830.i = phi i64 [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %84, %72 ]
-  %94 = zext i8 %92 to i64
-  %95 = getelementptr %"struct.QHashPrivate::Span", ptr %85, i64 %93, i32 1
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %96, i64 %94
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %99 = load i64, ptr %98, align 8
-  %100 = icmp eq i64 %99, %80
-  br i1 %100, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
+  %94 = getelementptr %"struct.QHashPrivate::Span", ptr %85, i64 %93
+  %95 = zext i8 %92 to i64
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 128
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %97, i64 %95
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %100 = load i64, ptr %99, align 8
+  %101 = icmp eq i64 %100, %80
+  br i1 %101, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.i:         ; preds = %.lr.ph.i
-  %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %80, ptr %102, i64 %80, ptr %78, i32 noundef 1) #36
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %80, ptr %103, i64 %80, ptr %78, i32 noundef 1) #36
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i
   %.pre48 = lshr i64 %.01830.i, 7
@@ -12929,241 +12934,241 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStr
   br label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, %.lr.ph.i
-  %105 = add i64 %.01830.i, 1
-  %106 = icmp eq i64 %105, %82
-  %spec.store.select.i.i = select i1 %106, i64 0, i64 %105
-  %107 = lshr i64 %spec.store.select.i.i, 7
-  %108 = and i64 %spec.store.select.i.i, 127
-  %109 = getelementptr %"struct.QHashPrivate::Span", ptr %85, i64 %107
-  %110 = getelementptr i8, ptr %109, i64 %108
-  %111 = load i8, ptr %110, align 1
-  %112 = icmp eq i8 %111, -1
-  br i1 %112, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i, !llvm.loop !124
+  %106 = add i64 %.01830.i, 1
+  %107 = icmp eq i64 %106, %82
+  %spec.store.select.i.i = select i1 %107, i64 0, i64 %106
+  %108 = lshr i64 %spec.store.select.i.i, 7
+  %109 = and i64 %spec.store.select.i.i, 127
+  %110 = getelementptr %"struct.QHashPrivate::Span", ptr %85, i64 %108
+  %111 = getelementptr i8, ptr %110, i64 %109
+  %112 = load i8, ptr %111, align 1
+  %113 = icmp eq i8 %112, -1
+  br i1 %113, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i, !llvm.loop !124
 
 _ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge, %72
-  %.pre-phi47 = phi i64 [ %87, %72 ], [ %.pre49, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %108, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
-  %.pre-phi = phi i64 [ %86, %72 ], [ %.pre48, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %107, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
-  %113 = getelementptr %"struct.QHashPrivate::Span", ptr %85, i64 %.pre-phi
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 137
-  %115 = load i8, ptr %114, align 1
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 136
-  %117 = load i8, ptr %116, align 8
-  %118 = icmp eq i8 %115, %117
-  br i1 %118, label %119, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge
+  %.pre-phi47 = phi i64 [ %87, %72 ], [ %.pre49, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %109, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
+  %.pre-phi = phi i64 [ %86, %72 ], [ %.pre48, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %108, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
+  %114 = getelementptr %"struct.QHashPrivate::Span", ptr %85, i64 %.pre-phi
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 137
+  %116 = load i8, ptr %115, align 1
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 136
+  %118 = load i8, ptr %117, align 8
+  %119 = icmp eq i8 %116, %118
+  br i1 %119, label %120, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge
 
 _ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge: ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %113, i64 128
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %114, i64 128
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit
 
-119:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
-  %120 = zext i8 %115 to i64
-  %121 = add nuw nsw i64 %120, 16
-  %122 = shl nuw nsw i64 %121, 5
-  %123 = tail call noalias noundef ptr @_Znam(i64 noundef %122) #33
-  %.not.i31 = icmp eq i8 %115, 0
+120:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
+  %121 = zext i8 %116 to i64
+  %122 = add nuw nsw i64 %121, 16
+  %123 = shl nuw nsw i64 %122, 5
+  %124 = tail call noalias noundef ptr @_Znam(i64 noundef %123) #33
+  %.not.i31 = icmp eq i8 %116, 0
   br i1 %.not.i31, label %.preheader.i38, label %.lr.ph.i32
 
-.lr.ph.i32:                                       ; preds = %119
-  %124 = getelementptr inbounds nuw i8, ptr %113, i64 128
-  br label %125
+.lr.ph.i32:                                       ; preds = %120
+  %125 = getelementptr inbounds nuw i8, ptr %114, i64 128
+  br label %126
 
 .preheader.loopexit.i:                            ; preds = %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37
-  %.pre22.i = add nuw nsw i64 %148, 16
+  %.pre22.i = add nuw nsw i64 %149, 16
   br label %.preheader.i38
 
-.preheader.i38:                                   ; preds = %.preheader.loopexit.i, %119
-  %.pre-phi.i = phi i64 [ %.pre22.i, %.preheader.loopexit.i ], [ %121, %119 ]
-  %.lcssa.i = phi i64 [ %148, %.preheader.loopexit.i ], [ 0, %119 ]
-  br label %154
+.preheader.i38:                                   ; preds = %.preheader.loopexit.i, %120
+  %.pre-phi.i = phi i64 [ %.pre22.i, %.preheader.loopexit.i ], [ %122, %120 ]
+  %.lcssa.i = phi i64 [ %149, %.preheader.loopexit.i ], [ 0, %120 ]
+  br label %155
 
-125:                                              ; preds = %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37, %.lr.ph.i32
-  %.01418.i = phi i64 [ 0, %.lr.ph.i32 ], [ %146, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37 ]
-  %126 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %123, i64 %.01418.i
-  %127 = load ptr, ptr %124, align 8
-  %128 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %127, i64 %.01418.i
-  %129 = load ptr, ptr %128, align 8
-  store ptr %129, ptr %126, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %132 = load ptr, ptr %131, align 8
-  store ptr %132, ptr %130, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  %134 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %135 = load i64, ptr %134, align 8
-  store i64 %135, ptr %133, align 8
-  %.not.i.i.i.i.i33 = icmp eq ptr %129, null
+126:                                              ; preds = %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37, %.lr.ph.i32
+  %.01418.i = phi i64 [ 0, %.lr.ph.i32 ], [ %147, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37 ]
+  %127 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %124, i64 %.01418.i
+  %128 = load ptr, ptr %125, align 8
+  %129 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %128, i64 %.01418.i
+  %130 = load ptr, ptr %129, align 8
+  store ptr %130, ptr %127, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %133 = load ptr, ptr %132, align 8
+  store ptr %133, ptr %131, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %136 = load i64, ptr %135, align 8
+  store i64 %136, ptr %134, align 8
+  %.not.i.i.i.i.i33 = icmp eq ptr %130, null
   br i1 %.not.i.i.i.i.i33, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.thread.i, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i
 
-_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.thread.i: ; preds = %125
-  %136 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %137 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %138 = load ptr, ptr %137, align 8
-  store ptr %138, ptr %136, align 8
+_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.thread.i: ; preds = %126
+  %137 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %129, i64 24
+  %139 = load ptr, ptr %138, align 8
+  store ptr %139, ptr %137, align 8
   br label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37
 
-_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i: ; preds = %125
-  %139 = atomicrmw add ptr %129, i32 1 seq_cst, align 4
-  %.pre.i34 = load ptr, ptr %124, align 8
+_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i: ; preds = %126
+  %140 = atomicrmw add ptr %130, i32 1 seq_cst, align 4
+  %.pre.i34 = load ptr, ptr %125, align 8
   %.phi.trans.insert.i = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %.pre.i34, i64 %.01418.i
   %.pre21.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %141 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %142 = load ptr, ptr %141, align 8
-  store ptr %142, ptr %140, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %129, i64 24
+  %143 = load ptr, ptr %142, align 8
+  store ptr %143, ptr %141, align 8
   %.not.i.i.i.i17.i = icmp eq ptr %.pre21.i, null
   br i1 %.not.i.i.i.i17.i, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i35
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i35: ; preds = %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i
-  %143 = atomicrmw sub ptr %.pre21.i, i32 1 seq_cst, align 4
-  %.not.i.i.i.i36 = icmp eq i32 %143, 1
-  br i1 %.not.i.i.i.i36, label %144, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37
+  %144 = atomicrmw sub ptr %.pre21.i, i32 1 seq_cst, align 4
+  %.not.i.i.i.i36 = icmp eq i32 %144, 1
+  br i1 %.not.i.i.i.i36, label %145, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37
 
-144:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i35
-  %145 = load ptr, ptr %.phi.trans.insert.i, align 8
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %145, i64 noundef 2, i64 noundef 8) #31
+145:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i35
+  %146 = load ptr, ptr %.phi.trans.insert.i, align 8
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %146, i64 noundef 2, i64 noundef 8) #31
   br label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37
 
-_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37: ; preds = %144, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i35, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.thread.i
-  %146 = add nuw nsw i64 %.01418.i, 1
-  %147 = load i8, ptr %116, align 8
-  %148 = zext i8 %147 to i64
-  %149 = icmp samesign ult i64 %146, %148
-  br i1 %149, label %125, label %.preheader.loopexit.i, !llvm.loop !126
+_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i37: ; preds = %145, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i35, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.i, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit.thread.i
+  %147 = add nuw nsw i64 %.01418.i, 1
+  %148 = load i8, ptr %117, align 8
+  %149 = zext i8 %148 to i64
+  %150 = icmp samesign ult i64 %147, %149
+  br i1 %150, label %126, label %.preheader.loopexit.i, !llvm.loop !126
 
-150:                                              ; preds = %154
-  %151 = getelementptr inbounds nuw i8, ptr %113, i64 128
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit, label %158
+151:                                              ; preds = %155
+  %152 = getelementptr inbounds nuw i8, ptr %114, i64 128
+  %153 = load ptr, ptr %152, align 8
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit, label %159
 
-154:                                              ; preds = %154, %.preheader.i38
-  %.019.i = phi i64 [ %.lcssa.i, %.preheader.i38 ], [ %155, %154 ]
-  %155 = add nuw nsw i64 %.019.i, 1
-  %156 = trunc i64 %155 to i8
-  %157 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %123, i64 %.019.i
-  store i8 %156, ptr %157, align 1
-  %exitcond.not.i = icmp eq i64 %155, %.pre-phi.i
-  br i1 %exitcond.not.i, label %150, label %154, !llvm.loop !127
+155:                                              ; preds = %155, %.preheader.i38
+  %.019.i = phi i64 [ %.lcssa.i, %.preheader.i38 ], [ %156, %155 ]
+  %156 = add nuw nsw i64 %.019.i, 1
+  %157 = trunc i64 %156 to i8
+  %158 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %124, i64 %.019.i
+  store i8 %157, ptr %158, align 1
+  %exitcond.not.i = icmp eq i64 %156, %.pre-phi.i
+  br i1 %exitcond.not.i, label %151, label %155, !llvm.loop !127
 
-158:                                              ; preds = %150
-  tail call void @_ZdaPv(ptr noundef nonnull %152) #32
+159:                                              ; preds = %151
+  tail call void @_ZdaPv(ptr noundef nonnull %153) #32
   br label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit
 
-_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit: ; preds = %150, %158
-  store ptr %123, ptr %151, align 8
-  %159 = trunc i64 %121 to i8
-  store i8 %159, ptr %116, align 8
-  %.pre.i = load i8, ptr %114, align 1
+_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit: ; preds = %151, %159
+  store ptr %124, ptr %152, align 8
+  %160 = trunc i64 %122 to i8
+  store i8 %160, ptr %117, align 8
+  %.pre.i = load i8, ptr %115, align 1
   br label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit: ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit
-  %160 = phi ptr [ %123, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit ], [ %.pre, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge ]
-  %161 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit ], [ %115, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge ]
-  %162 = zext i8 %161 to i64
-  %163 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %160, i64 %162
-  %164 = load i8, ptr %163, align 1
-  store i8 %164, ptr %114, align 1
-  %165 = getelementptr i8, ptr %113, i64 %.pre-phi47
-  store i8 %161, ptr %165, align 1
-  %166 = load ptr, ptr %75, align 8
-  store ptr %166, ptr %163, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %168 = load ptr, ptr %77, align 8
-  store ptr %168, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  %170 = load i64, ptr %79, align 8
-  store i64 %170, ptr %169, align 8
-  %.not.i.i.i.i29 = icmp eq ptr %166, null
-  br i1 %.not.i.i.i.i29, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit, label %171
+  %161 = phi ptr [ %124, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit ], [ %.pre, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge ]
+  %162 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE10addStorageEv.exit ], [ %116, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit._ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit_crit_edge ]
+  %163 = zext i8 %162 to i64
+  %164 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %161, i64 %163
+  %165 = load i8, ptr %164, align 1
+  store i8 %165, ptr %115, align 1
+  %166 = getelementptr i8, ptr %114, i64 %.pre-phi47
+  store i8 %162, ptr %166, align 1
+  %167 = load ptr, ptr %75, align 8
+  store ptr %167, ptr %164, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %169 = load ptr, ptr %77, align 8
+  store ptr %169, ptr %168, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  %171 = load i64, ptr %79, align 8
+  store i64 %171, ptr %170, align 8
+  %.not.i.i.i.i29 = icmp eq ptr %167, null
+  br i1 %.not.i.i.i.i29, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit, label %172
 
-171:                                              ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit
-  %172 = atomicrmw add ptr %166, i32 1 seq_cst, align 4
+172:                                              ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit
+  %173 = atomicrmw add ptr %167, i32 1 seq_cst, align 4
   br label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit
 
-_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit: ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit, %171
-  %173 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  %174 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %175 = load ptr, ptr %174, align 8
-  store ptr %175, ptr %173, align 8
-  br label %176
+_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit: ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE6insertEm.exit, %172
+  %174 = getelementptr inbounds nuw i8, ptr %164, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %176 = load ptr, ptr %175, align 8
+  store ptr %176, ptr %174, align 8
+  br label %177
 
-176:                                              ; preds = %69, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit
-  %177 = add nuw nsw i64 %.02341, 1
-  %exitcond.not = icmp eq i64 %177, 128
+177:                                              ; preds = %69, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit
+  %178 = add nuw nsw i64 %.02341, 1
+  %exitcond.not = icmp eq i64 %178, 128
   br i1 %exitcond.not, label %51, label %69, !llvm.loop !130
 
-178:                                              ; preds = %._crit_edge
-  %179 = getelementptr inbounds i8, ptr %17, i64 -8
-  %180 = load i64, ptr %179, align 8
-  %.idx = mul i64 %180, 144
-  %181 = icmp eq i64 %180, 0
-  br i1 %181, label %.loopexit, label %.preheader.preheader
+179:                                              ; preds = %._crit_edge
+  %180 = getelementptr inbounds i8, ptr %17, i64 -8
+  %181 = load i64, ptr %180, align 8
+  %.idx = mul i64 %181, 144
+  %182 = icmp eq i64 %181, 0
+  br i1 %182, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %17, i64 %.idx
+.preheader.preheader:                             ; preds = %179
+  %183 = getelementptr inbounds i8, ptr %17, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEED2Ev.exit
-  %183 = phi ptr [ %184, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEED2Ev.exit ], [ %182, %.preheader.preheader ]
-  %184 = getelementptr inbounds i8, ptr %183, i64 -144
-  %185 = getelementptr inbounds i8, ptr %183, i64 -16
-  %186 = load ptr, ptr %185, align 8
-  %.not.i.i = icmp eq ptr %186, null
+  %184 = phi ptr [ %185, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEED2Ev.exit ], [ %183, %.preheader.preheader ]
+  %185 = getelementptr inbounds i8, ptr %184, i64 -144
+  %186 = getelementptr inbounds i8, ptr %184, i64 -16
+  %187 = load ptr, ptr %186, align 8
+  %.not.i.i = icmp eq ptr %187, null
   br i1 %.not.i.i, label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEED2Ev.exit, label %.preheader.i.i
 
-187:                                              ; preds = %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i
-  %188 = load ptr, ptr %185, align 8
-  %189 = icmp eq ptr %188, null
-  br i1 %189, label %201, label %200
+188:                                              ; preds = %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i
+  %189 = load ptr, ptr %186, align 8
+  %190 = icmp eq ptr %189, null
+  br i1 %190, label %202, label %201
 
 .preheader.i.i:                                   ; preds = %.preheader, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i
-  %.012.i.i = phi ptr [ %199, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i ], [ %184, %.preheader ]
-  %190 = load i8, ptr %.012.i.i, align 1
-  %.not11.i.i = icmp eq i8 %190, -1
-  br i1 %.not11.i.i, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i, label %191
+  %.012.i.i = phi ptr [ %200, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i ], [ %185, %.preheader ]
+  %191 = load i8, ptr %.012.i.i, align 1
+  %.not11.i.i = icmp eq i8 %191, -1
+  br i1 %.not11.i.i, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i, label %192
 
-191:                                              ; preds = %.preheader.i.i
-  %192 = load ptr, ptr %185, align 8
-  %193 = zext i8 %190 to i64
-  %194 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %192, i64 %193
-  %195 = load ptr, ptr %194, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %195, null
+192:                                              ; preds = %.preheader.i.i
+  %193 = load ptr, ptr %186, align 8
+  %194 = zext i8 %191 to i64
+  %195 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %193, i64 %194
+  %196 = load ptr, ptr %195, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %196, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i: ; preds = %191
-  %196 = atomicrmw sub ptr %195, i32 1 seq_cst, align 4
-  %.not.i.i.i.i.i30 = icmp eq i32 %196, 1
-  br i1 %.not.i.i.i.i.i30, label %197, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i: ; preds = %192
+  %197 = atomicrmw sub ptr %196, i32 1 seq_cst, align 4
+  %.not.i.i.i.i.i30 = icmp eq i32 %197, 1
+  br i1 %.not.i.i.i.i.i30, label %198, label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i
 
-197:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i
-  %198 = load ptr, ptr %194, align 8
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %198, i64 noundef 2, i64 noundef 8) #31
+198:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i
+  %199 = load ptr, ptr %195, align 8
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %199, i64 noundef 2, i64 noundef 8) #31
   br label %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i
 
-_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i: ; preds = %197, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i, %191, %.preheader.i.i
-  %199 = getelementptr i8, ptr %.012.i.i, i64 1
-  %.not10.i.i = icmp eq ptr %199, %185
-  br i1 %.not10.i.i, label %187, label %.preheader.i.i
+_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEED2Ev.exit.i.i: ; preds = %198, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i, %192, %.preheader.i.i
+  %200 = getelementptr i8, ptr %.012.i.i, i64 1
+  %.not10.i.i = icmp eq ptr %200, %186
+  br i1 %.not10.i.i, label %188, label %.preheader.i.i
 
-200:                                              ; preds = %187
-  tail call void @_ZdaPv(ptr noundef nonnull %188) #32
-  br label %201
+201:                                              ; preds = %188
+  tail call void @_ZdaPv(ptr noundef nonnull %189) #32
+  br label %202
 
-201:                                              ; preds = %200, %187
-  store ptr null, ptr %185, align 8
+202:                                              ; preds = %201, %188
+  store ptr null, ptr %186, align 8
   br label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEED2Ev.exit
 
-_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEED2Ev.exit: ; preds = %.preheader, %201
-  %202 = icmp eq ptr %184, %17
-  br i1 %202, label %.loopexit, label %.preheader
+_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEED2Ev.exit: ; preds = %.preheader, %202
+  %203 = icmp eq ptr %185, %17
+  br i1 %203, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEED2Ev.exit, %178
-  %203 = or disjoint i64 %.idx, 8
-  tail call void @_ZdaPvm(ptr noundef %179, i64 noundef %203) #32
-  br label %204
+.loopexit:                                        ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEED2Ev.exit, %179
+  %204 = or disjoint i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef %180, i64 noundef %204) #32
+  br label %205
 
-204:                                              ; preds = %.loopexit, %._crit_edge
+205:                                              ; preds = %.loopexit, %._crit_edge
   ret void
 }
 
@@ -13172,7 +13177,7 @@ define linkonce_odr noundef ptr @_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %54, label %5
+  br i1 %.not, label %55, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13197,24 +13202,25 @@ define linkonce_odr noundef ptr @_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18
   br i1 %24, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
-  %25 = phi i8 [ %44, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %23, %5 ]
-  %26 = phi i64 [ %40, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %19, %5 ]
+  %25 = phi i8 [ %45, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %23, %5 ]
+  %26 = phi i64 [ %41, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %19, %5 ]
   %.01830.i = phi i64 [ %spec.store.select.i.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ], [ %16, %5 ]
-  %27 = zext i8 %25 to i64
-  %28 = getelementptr %"struct.QHashPrivate::Span", ptr %18, i64 %26, i32 1
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %29, i64 %27
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load i64, ptr %31, align 8
-  %33 = icmp eq i64 %32, %11
-  br i1 %33, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
+  %27 = getelementptr %"struct.QHashPrivate::Span", ptr %18, i64 %26
+  %28 = zext i8 %25 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 128
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %30, i64 %28
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load i64, ptr %32, align 8
+  %34 = icmp eq i64 %33, %11
+  br i1 %34, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.i:         ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %11, ptr %35, i64 %11, ptr %9, i32 noundef 1) #36
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %11, ptr %36, i64 %11, ptr %9, i32 noundef 1) #36
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge, label %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i
   %.pre7 = and i64 %.01830.i, 127
@@ -13222,35 +13228,35 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStr
   br label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
 
 _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i, %.lr.ph.i
-  %38 = add i64 %.01830.i, 1
-  %39 = icmp eq i64 %38, %14
-  %spec.store.select.i.i = select i1 %39, i64 0, i64 %38
-  %40 = lshr i64 %spec.store.select.i.i, 7
-  %41 = and i64 %spec.store.select.i.i, 127
-  %42 = getelementptr %"struct.QHashPrivate::Span", ptr %18, i64 %40
-  %43 = getelementptr i8, ptr %42, i64 %41
-  %44 = load i8, ptr %43, align 1
-  %45 = icmp eq i8 %44, -1
-  br i1 %45, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i, !llvm.loop !124
+  %39 = add i64 %.01830.i, 1
+  %40 = icmp eq i64 %39, %14
+  %spec.store.select.i.i = select i1 %40, i64 0, i64 %39
+  %41 = lshr i64 %spec.store.select.i.i, 7
+  %42 = and i64 %spec.store.select.i.i, 127
+  %43 = getelementptr %"struct.QHashPrivate::Span", ptr %18, i64 %41
+  %44 = getelementptr i8, ptr %43, i64 %42
+  %45 = load i8, ptr %44, align 1
+  %46 = icmp eq i8 %45, -1
+  br i1 %46, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i, !llvm.loop !124
 
 _ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit: ; preds = %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge, %5
-  %.pre-phi6 = phi i64 [ %19, %5 ], [ %.pre, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %40, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
-  %.pre-phi = phi i64 [ %20, %5 ], [ %.pre7, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %41, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
-  %46 = getelementptr %"struct.QHashPrivate::Span", ptr %18, i64 %.pre-phi6
-  %47 = getelementptr i8, ptr %46, i64 %.pre-phi
-  %48 = load i8, ptr %47, align 1
-  %.not.i = icmp eq i8 %48, -1
-  br i1 %.not.i, label %54, label %49
+  %.pre-phi6 = phi i64 [ %19, %5 ], [ %.pre, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %41, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
+  %.pre-phi = phi i64 [ %20, %5 ], [ %.pre7, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.i._ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit.loopexit_crit_edge ], [ %42, %_Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i ]
+  %47 = getelementptr %"struct.QHashPrivate::Span", ptr %18, i64 %.pre-phi6
+  %48 = getelementptr i8, ptr %47, i64 %.pre-phi
+  %49 = load i8, ptr %48, align 1
+  %.not.i = icmp eq i8 %49, -1
+  br i1 %.not.i, label %55, label %50
 
-49:                                               ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 128
-  %51 = load ptr, ptr %50, align 8
-  %52 = zext i8 %48 to i64
-  %53 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %51, i64 %52
-  br label %54
+50:                                               ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 128
+  %52 = load ptr, ptr %51, align 8
+  %53 = zext i8 %49 to i64
+  %54 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<const QString, TapParameterDialog *(*)(QWidget &, QString, QString, CaptureFile &)>>::Entry", ptr %52, i64 %53
+  br label %55
 
-54:                                               ; preds = %49, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ %53, %49 ], [ null, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit ]
+55:                                               ; preds = %50, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, %2
+  %.0 = phi ptr [ null, %2 ], [ %54, %50 ], [ null, %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit ]
   ret ptr %.0
 }
 

@@ -954,7 +954,7 @@ define internal noundef zeroext i8 @ownedMonitorsWithStackDepth(ptr noundef %0, 
   %7 = tail call ptr @inStream_readThreadRef(ptr noundef %6, ptr noundef %0) #4
   %8 = tail call zeroext i16 @inStream_error(ptr noundef %0) #4
   %.not = icmp eq i16 %8, 0
-  br i1 %.not, label %9, label %69
+  br i1 %.not, label %9, label %70
 
 9:                                                ; preds = %2
   %10 = icmp eq ptr %7, null
@@ -967,7 +967,7 @@ define internal noundef zeroext i8 @ownedMonitorsWithStackDepth(ptr noundef %0, 
 
 13:                                               ; preds = %11, %9
   tail call void @outStream_setError(ptr noundef %1, i16 noundef zeroext 10) #4
-  br label %69
+  br label %70
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -988,7 +988,7 @@ validateSuspendedThread.exit.thread:              ; preds = %16, %18
   %.sink.i = phi i16 [ %17, %16 ], [ 13, %18 ]
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.sink.i) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %69
+  br label %70
 
 21:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1041,45 +1041,46 @@ validateSuspendedThread.exit.thread:              ; preds = %16, %18
   %47 = call ptr @getEnv() #4
   %48 = call zeroext i16 @outStream_writeObjectRef(ptr noundef %47, ptr noundef %1, ptr noundef %44) #4
   %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds nuw %struct.jvmtiMonitorStackDepthInfo, ptr %49, i64 %indvars.iv, i32 1
-  %51 = load i32, ptr %50, align 8
-  %52 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %51) #4
+  %50 = getelementptr inbounds nuw %struct.jvmtiMonitorStackDepthInfo, ptr %49, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %51, align 8
+  %53 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %52) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr %4, align 4
-  %54 = sext i32 %53 to i64
-  %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  %54 = load i32, ptr %4, align 4
+  %55 = sext i32 %54 to i64
+  %56 = icmp slt i64 %indvars.iv.next, %55
+  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %37, %35
-  %56 = load ptr, ptr %5, align 8
-  %.not32 = icmp eq ptr %56, null
-  br i1 %.not32, label %58, label %57
+  %57 = load ptr, ptr %5, align 8
+  %.not32 = icmp eq ptr %57, null
+  br i1 %.not32, label %59, label %58
 
-57:                                               ; preds = %.loopexit
-  call void @jvmtiDeallocate(ptr noundef nonnull %56) #4
-  br label %58
+58:                                               ; preds = %.loopexit
+  call void @jvmtiDeallocate(ptr noundef nonnull %57) #4
+  br label %59
 
-58:                                               ; preds = %57, %.loopexit
-  %59 = load ptr, ptr @gdata, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 528
-  %61 = load i32, ptr %60, align 8
-  %62 = and i32 %61, 2
-  %.not33 = icmp eq i32 %62, 0
-  br i1 %.not33, label %64, label %63
+59:                                               ; preds = %58, %.loopexit
+  %60 = load ptr, ptr @gdata, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 528
+  %62 = load i32, ptr %61, align 8
+  %63 = and i32 %62, 2
+  %.not33 = icmp eq i32 %63, 0
+  br i1 %.not33, label %65, label %64
 
-63:                                               ; preds = %58
+64:                                               ; preds = %59
   call void @log_message_begin(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.17, i32 noundef 566) #4
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.21) #4
-  br label %64
+  br label %65
 
-64:                                               ; preds = %58, %63
-  %65 = load ptr, ptr %22, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 160
-  %67 = load ptr, ptr %66, align 8
-  %68 = call ptr %67(ptr noundef nonnull %22, ptr noundef null) #4
-  br label %69
+65:                                               ; preds = %59, %64
+  %66 = load ptr, ptr %22, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 160
+  %68 = load ptr, ptr %67, align 8
+  %69 = call ptr %68(ptr noundef nonnull %22, ptr noundef null) #4
+  br label %70
 
-69:                                               ; preds = %validateSuspendedThread.exit.thread, %2, %64, %13
+70:                                               ; preds = %validateSuspendedThread.exit.thread, %2, %65, %13
   ret i8 1
 }
 

@@ -290,21 +290,22 @@ extval_to_str_idx.exit77.i:                       ; preds = %match_strextval_idx
   %cond.i = icmp eq i32 %.1.i, 4
   %spec.select.i = zext i1 %cond.i to i32
   %58 = sext i32 %.1.i to i64
-  %59 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %58, i32 2
-  %60 = load ptr, ptr %59, align 8
+  %59 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load ptr, ptr %60, align 8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %57, %55, %55
-  %.sink19.i = phi ptr [ %60, %57 ], [ @hf_mndp_tlv_data, %55 ], [ @hf_mndp_tlv_data, %55 ]
+  %.sink19.i = phi ptr [ %61, %57 ], [ @hf_mndp_tlv_data, %55 ], [ @hf_mndp_tlv_data, %55 ]
   %spec.select.sink.i = phi i32 [ %spec.select.i, %57 ], [ 0, %55 ], [ 0, %55 ]
-  %61 = load i32, ptr %.sink19.i, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %61, ptr noundef %0, i32 noundef %53, i32 noundef %22, i32 noundef %spec.select.sink.i)
+  %62 = load i32, ptr %.sink19.i, align 4
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %62, ptr noundef %0, i32 noundef %53, i32 noundef %22, i32 noundef %spec.select.sink.i)
   br label %dissect_tlv.exit
 
 dissect_tlv.exit:                                 ; preds = %extval_to_str_idx.exit77.i, %.sink.split.i
   %.0.i = phi i32 [ %53, %extval_to_str_idx.exit77.i ], [ %56, %.sink.split.i ]
-  %63 = icmp ult i32 %.0.i, %6
-  br i1 %63, label %17, label %._crit_edge, !llvm.loop !8
+  %64 = icmp ult i32 %.0.i, %6
+  br i1 %64, label %17, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %dissect_tlv.exit, %3
   %.0.lcssa = phi i32 [ 4, %3 ], [ %.0.i, %dissect_tlv.exit ]

@@ -745,7 +745,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPN
 
 29:                                               ; preds = %23
   %30 = zext i8 %2 to i64
-  %31 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 256), i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !44
   %33 = zext i8 %32 to i32
   %34 = tail call noundef i32 @llvm.umin.i32(i32 %33, i32 64)
@@ -1023,7 +1023,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   %21 = load i8, ptr %20, align 1, !tbaa !107
   store i8 %21, ptr %6, align 1, !tbaa !110
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 256), i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !44
   %25 = zext i8 %24 to i32
   %26 = load i32, ptr %2, align 4, !tbaa !77
@@ -1117,7 +1117,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   %69 = zext i8 %68 to i64
   %70 = load i32, ptr %2, align 4, !tbaa !77
   %71 = lshr i32 %70, 3
-  %72 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ArchTraits", ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %69, i32 10
+  %.split = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ArchTraits", ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %69
+  %72 = getelementptr inbounds nuw i8, ptr %.split, i64 148
   %73 = and i32 %71, 31
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 %74
@@ -1722,7 +1723,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler8onAttachEPNS0_1
   %7 = zext i8 %6 to i64
   %8 = and i8 %6, 1
   %9 = xor i8 %8, 7
-  %10 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ArchTraits", ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %7, i32 9
+  %.split = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ArchTraits", ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %7
+  %10 = getelementptr inbounds nuw i8, ptr %.split, i64 20
   %11 = zext nneg i8 %9 to i64
   %12 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !98

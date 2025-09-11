@@ -273,11 +273,11 @@ pgstat_reset_after_failure.exit.i:                ; preds = %pgstat_get_kind_inf
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.preheader.i
   %81 = call i32 @fgetc(ptr noundef nonnull %17)
-  switch i32 %81, label %290 [
+  switch i32 %81, label %288 [
     i32 70, label %82
     i32 83, label %146
     i32 78, label %146
-    i32 69, label %284
+    i32 69, label %282
   ]
 
 82:                                               ; preds = %.backedge.i
@@ -370,13 +370,13 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br label %129
 
 129:                                              ; preds = %.thread106.i, %122
-  %.sink213.i = phi ptr [ %107, %.thread106.i ], [ %113, %122 ]
+  %.sink214.i = phi ptr [ %107, %.thread106.i ], [ %113, %122 ]
   %.sink.i = phi ptr [ %128, %.thread106.i ], [ %126, %122 ]
-  %130 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %.sink214.i, i64 16
   %131 = load i32, ptr %130, align 8
   %132 = zext i32 %131 to i64
   %133 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %132
-  %134 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 20
+  %134 = getelementptr inbounds nuw i8, ptr %.sink214.i, i64 20
   %135 = load i32, ptr %134, align 4
   %136 = zext i32 %135 to i64
   %137 = call i64 @fread(ptr noundef %133, i64 noundef 1, i64 noundef range(i64 0, 4294967296) %136, ptr noundef nonnull %17)
@@ -388,14 +388,14 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br i1 %140, label %141, label %.thread110.i
 
 141:                                              ; preds = %139
-  %142 = getelementptr inbounds nuw i8, ptr %.sink213.i, i64 20
+  %142 = getelementptr inbounds nuw i8, ptr %.sink214.i, i64 20
   %143 = load i32, ptr %142, align 4
   %144 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.53, i32 noundef %90, i32 noundef 70, i32 noundef %143) #17
   br label %.thread110.sink.split.i
 
 .thread110.sink.split.i:                          ; preds = %141, %120, %109, %98, %87
-  %.sink214.i = phi i32 [ 1862, %87 ], [ 1869, %98 ], [ 1877, %109 ], [ 1884, %120 ], [ 1903, %141 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink214.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  %.sink215.i = phi i32 [ 1862, %87 ], [ 1869, %98 ], [ 1877, %109 ], [ 1884, %120 ], [ 1903, %141 ]
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink215.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
   br label %.thread110.i
 
 .thread110.i:                                     ; preds = %.thread110.sink.split.i, %139, %118, %pgstat_get_kind_info.exit.thread.i, %96, %85
@@ -427,11 +427,11 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
 
 154:                                              ; preds = %151
   %155 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %155, label %156, label %.thread178.i
+  br i1 %155, label %156, label %.thread179.i
 
 156:                                              ; preds = %154
   %157 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.54, i32 noundef 83) #17
-  br label %.thread178.sink.split.i
+  br label %.thread179.sink.split.i
 
 158:                                              ; preds = %151
   %159 = load i32, ptr %6, align 8
@@ -444,14 +444,14 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
 
 165:                                              ; preds = %158
   %166 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %166, label %167, label %.thread178.i
+  br i1 %166, label %167, label %.thread179.i
 
 167:                                              ; preds = %165
   %168 = load i32, ptr %6, align 8
   %169 = load i32, ptr %68, align 4
   %170 = load i64, ptr %69, align 8
   %171 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.55, i32 noundef %168, i32 noundef %169, i64 noundef %170, i32 noundef 83) #17
-  br label %.thread178.sink.split.i
+  br label %.thread179.sink.split.i
 
 172:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -462,11 +462,11 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
 
 175:                                              ; preds = %172
   %176 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %176, label %177, label %.thread181.i
+  br i1 %176, label %177, label %.thread182.i
 
 177:                                              ; preds = %175
   %178 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49, i32 noundef %81) #17
-  br label %.thread181.sink.split.i
+  br label %.thread182.sink.split.i
 
 179:                                              ; preds = %172
   %180 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef 64, ptr noundef nonnull %17)
@@ -475,12 +475,12 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
 
 182:                                              ; preds = %179
   %183 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %183, label %184, label %.thread181.i
+  br i1 %183, label %184, label %.thread182.i
 
 184:                                              ; preds = %182
   %185 = load i32, ptr %7, align 4
   %186 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56, i32 noundef %185, i32 noundef %81) #17
-  br label %.thread181.sink.split.i
+  br label %.thread182.sink.split.i
 
 187:                                              ; preds = %179
   %188 = load i32, ptr %7, align 4
@@ -493,11 +493,11 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
 
 194:                                              ; preds = %187
   %195 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %195, label %196, label %.thread181.i
+  br i1 %195, label %196, label %.thread182.i
 
 196:                                              ; preds = %194
   %197 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef %188, i32 noundef %81) #17
-  br label %.thread181.sink.split.i
+  br label %.thread182.sink.split.i
 
 198:                                              ; preds = %187
   br i1 %190, label %pgstat_get_kind_info.exit82.thread115.i, label %201
@@ -524,11 +524,11 @@ pgstat_get_kind_info.exit82.i:                    ; preds = %202
 
 pgstat_get_kind_info.exit82.thread.i:             ; preds = %pgstat_get_kind_info.exit82.i, %202, %201
   %208 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %208, label %209, label %.thread181.i
+  br i1 %208, label %209, label %.thread182.i
 
 209:                                              ; preds = %pgstat_get_kind_info.exit82.thread.i
   %210 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %188, i32 noundef %81) #17
-  br label %.thread181.sink.split.i
+  br label %.thread182.sink.split.i
 
 211:                                              ; preds = %pgstat_get_kind_info.exit82.i, %pgstat_get_kind_info.exit82.thread115.i
   %.0.i81118.i = phi ptr [ %200, %pgstat_get_kind_info.exit82.thread115.i ], [ %207, %pgstat_get_kind_info.exit82.i ]
@@ -539,11 +539,11 @@ pgstat_get_kind_info.exit82.thread.i:             ; preds = %pgstat_get_kind_inf
 
 214:                                              ; preds = %211
   %215 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %215, label %216, label %.thread181.i
+  br i1 %215, label %216, label %.thread182.i
 
 216:                                              ; preds = %214
   %217 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %188, i32 noundef %81) #17
-  br label %.thread181.sink.split.i
+  br label %.thread182.sink.split.i
 
 218:                                              ; preds = %211
   %219 = call zeroext i1 %213(ptr noundef nonnull %8, ptr noundef nonnull %6) #17
@@ -572,15 +572,15 @@ pgstat_get_entry_len.exit.i:                      ; preds = %224, %221
   %232 = zext i32 %231 to i64
   %233 = call i32 @fseek(ptr noundef nonnull %17, i64 noundef %232, i32 noundef 1)
   %.not78.i = icmp eq i32 %233, 0
-  br i1 %.not78.i, label %294, label %234
+  br i1 %.not78.i, label %292, label %234
 
 234:                                              ; preds = %pgstat_get_entry_len.exit.i
   %235 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %235, label %236, label %.thread181.i
+  br i1 %235, label %236, label %.thread182.i
 
 236:                                              ; preds = %234
   %237 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.58, ptr noundef nonnull %8, i32 noundef %188, i32 noundef %81) #17
-  br label %.thread181.sink.split.i
+  br label %.thread182.sink.split.i
 
 238:                                              ; preds = %218
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -598,14 +598,14 @@ pgstat_get_entry_len.exit.i:                      ; preds = %224, %221
   %245 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_release_lock(ptr noundef %245, ptr noundef %241) #17
   %246 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %246, label %247, label %.thread178.i
+  br i1 %246, label %247, label %.thread179.i
 
 247:                                              ; preds = %244
   %248 = load i32, ptr %6, align 8
   %249 = load i32, ptr %68, align 4
   %250 = load i64, ptr %69, align 8
   %251 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.59, i32 noundef %248, i32 noundef %249, i64 noundef %250, i32 noundef %81) #17
-  br label %.thread178.sink.split.i
+  br label %.thread179.sink.split.i
 
 252:                                              ; preds = %239
   %253 = load i32, ptr %6, align 8
@@ -615,177 +615,175 @@ pgstat_get_entry_len.exit.i:                      ; preds = %224, %221
   %256 = load i32, ptr %6, align 8
   %257 = add i32 %256, -1
   %258 = icmp ult i32 %257, 12
-  br i1 %258, label %259, label %263
+  br i1 %258, label %259, label %262
 
 259:                                              ; preds = %252
   %260 = zext nneg i32 %256 to i64
-  %261 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %260, i32 4
-  %262 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %260
+  %261 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %260
   br label %pgstat_get_entry_len.exit88.i
 
-263:                                              ; preds = %252
-  %264 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
-  %265 = sext i32 %256 to i64
-  %266 = getelementptr ptr, ptr %264, i64 %265
-  %267 = getelementptr i8, ptr %266, i64 -1024
-  %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
+262:                                              ; preds = %252
+  %263 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
+  %264 = sext i32 %256 to i64
+  %265 = getelementptr ptr, ptr %263, i64 %264
+  %266 = getelementptr i8, ptr %265, i64 -1024
+  %267 = load ptr, ptr %266, align 8
   br label %pgstat_get_entry_len.exit88.i
 
-pgstat_get_entry_len.exit88.i:                    ; preds = %263, %259
-  %.pn.in.in.i = phi ptr [ %261, %259 ], [ %269, %263 ]
-  %.0.i.i87.i = phi ptr [ %262, %259 ], [ %268, %263 ]
+pgstat_get_entry_len.exit88.i:                    ; preds = %262, %259
+  %.pn133.i = phi ptr [ %261, %259 ], [ %267, %262 ]
+  %.pn.in.in.i = getelementptr inbounds nuw i8, ptr %.pn133.i, i64 16
   %.pn.in.i = load i32, ptr %.pn.in.in.i, align 8
   %.pn.i = zext i32 %.pn.in.i to i64
-  %270 = getelementptr inbounds nuw i8, ptr %254, i64 %.pn.i
-  %271 = getelementptr inbounds nuw i8, ptr %.0.i.i87.i, i64 20
-  %272 = load i32, ptr %271, align 4
-  %273 = zext i32 %272 to i64
-  %274 = call i64 @fread(ptr noundef %270, i64 noundef 1, i64 noundef range(i64 0, 4294967296) %273, ptr noundef nonnull %17)
-  %275 = icmp eq i64 %274, %273
-  br i1 %275, label %283, label %276
+  %268 = getelementptr inbounds nuw i8, ptr %254, i64 %.pn.i
+  %269 = getelementptr inbounds nuw i8, ptr %.pn133.i, i64 20
+  %270 = load i32, ptr %269, align 4
+  %271 = zext i32 %270 to i64
+  %272 = call i64 @fread(ptr noundef %268, i64 noundef 1, i64 noundef range(i64 0, 4294967296) %271, ptr noundef nonnull %17)
+  %273 = icmp eq i64 %272, %271
+  br i1 %273, label %281, label %274
 
-276:                                              ; preds = %pgstat_get_entry_len.exit88.i
-  %277 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %277, label %278, label %.thread178.i
+274:                                              ; preds = %pgstat_get_entry_len.exit88.i
+  %275 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  br i1 %275, label %276, label %.thread179.i
 
-278:                                              ; preds = %276
-  %279 = load i32, ptr %6, align 8
-  %280 = load i32, ptr %68, align 4
-  %281 = load i64, ptr %69, align 8
-  %282 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60, i32 noundef %279, i32 noundef %280, i64 noundef %281, i32 noundef %81) #17
-  br label %.thread178.sink.split.i
+276:                                              ; preds = %274
+  %277 = load i32, ptr %6, align 8
+  %278 = load i32, ptr %68, align 4
+  %279 = load i64, ptr %69, align 8
+  %280 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60, i32 noundef %277, i32 noundef %278, i64 noundef %279, i32 noundef %81) #17
+  br label %.thread179.sink.split.i
 
-283:                                              ; preds = %pgstat_get_entry_len.exit88.i
+281:                                              ; preds = %pgstat_get_entry_len.exit88.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.backedge.i.backedge
 
-284:                                              ; preds = %.backedge.i
-  %285 = call i32 @fgetc(ptr noundef nonnull %17)
-  %.not74.i = icmp eq i32 %285, -1
-  br i1 %.not74.i, label %.thread131.i, label %286
+282:                                              ; preds = %.backedge.i
+  %283 = call i32 @fgetc(ptr noundef nonnull %17)
+  %.not74.i = icmp eq i32 %283, -1
+  br i1 %.not74.i, label %.thread131.i, label %284
+
+284:                                              ; preds = %282
+  %285 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  br i1 %285, label %286, label %.thread129.i
 
 286:                                              ; preds = %284
-  %287 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %287, label %288, label %.thread129.i
-
-288:                                              ; preds = %286
-  %289 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61) #17
+  %287 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61) #17
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2031, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
   br label %.thread129.i
 
-290:                                              ; preds = %.backedge.i
-  %291 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %291, label %292, label %.thread129.i
+288:                                              ; preds = %.backedge.i
+  %289 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  br i1 %289, label %290, label %.thread129.i
 
-292:                                              ; preds = %290
-  %293 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.62, i32 noundef %81) #17
+290:                                              ; preds = %288
+  %291 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.62, i32 noundef %81) #17
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2038, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
   br label %.thread129.i
 
-.thread178.sink.split.i:                          ; preds = %278, %247, %167, %156
-  %.sink215.i = phi i32 [ 2017, %278 ], [ 2004, %247 ], [ 1931, %167 ], [ 1923, %156 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink215.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
-  br label %.thread178.i
+.thread179.sink.split.i:                          ; preds = %276, %247, %167, %156
+  %.sink216.i = phi i32 [ 2017, %276 ], [ 2004, %247 ], [ 1931, %167 ], [ 1923, %156 ]
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink216.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  br label %.thread179.i
 
-.thread178.i:                                     ; preds = %.thread178.sink.split.i, %276, %244, %165, %154
+.thread179.i:                                     ; preds = %.thread179.sink.split.i, %274, %244, %165, %154
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread129.i
 
-.thread181.sink.split.i:                          ; preds = %236, %216, %209, %196, %184, %177
-  %.sink216.i = phi i32 [ 1981, %236 ], [ 1971, %216 ], [ 1964, %209 ], [ 1956, %196 ], [ 1950, %184 ], [ 1944, %177 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink216.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
-  br label %.thread181.i
+.thread182.sink.split.i:                          ; preds = %236, %216, %209, %196, %184, %177
+  %.sink217.i = phi i32 [ 1981, %236 ], [ 1971, %216 ], [ 1964, %209 ], [ 1956, %196 ], [ 1950, %184 ], [ 1944, %177 ]
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink217.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  br label %.thread182.i
 
-.thread181.i:                                     ; preds = %.thread181.sink.split.i, %234, %214, %pgstat_get_kind_info.exit82.thread.i, %194, %182, %175
+.thread182.i:                                     ; preds = %.thread182.sink.split.i, %234, %214, %pgstat_get_kind_info.exit82.thread.i, %194, %182, %175
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread129.i
 
-294:                                              ; preds = %pgstat_get_entry_len.exit.i
+292:                                              ; preds = %pgstat_get_entry_len.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.backedge.i.backedge
 
-.backedge.i.backedge:                             ; preds = %294, %283, %145
+.backedge.i.backedge:                             ; preds = %292, %281, %145
   br label %.backedge.i
 
-.thread131.i:                                     ; preds = %pgstat_reset_after_failure.exit97.i, %284
-  %295 = call i32 @FreeFile(ptr noundef nonnull %17) #17
-  %296 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
-  br i1 %296, label %297, label %299
+.thread131.i:                                     ; preds = %pgstat_reset_after_failure.exit97.i, %282
+  %293 = call i32 @FreeFile(ptr noundef nonnull %17) #17
+  %294 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
+  br i1 %294, label %295, label %297
 
-297:                                              ; preds = %.thread131.i
-  %298 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str) #17
+295:                                              ; preds = %.thread131.i
+  %296 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str) #17
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2046, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
-  br label %299
+  br label %297
 
-299:                                              ; preds = %297, %.thread131.i
-  %300 = call i32 @unlink(ptr noundef nonnull @.str) #17
+297:                                              ; preds = %295, %.thread131.i
+  %298 = call i32 @unlink(ptr noundef nonnull @.str) #17
   br label %pgstat_read_statsfile.exit
 
-.thread129.i:                                     ; preds = %.thread181.i, %.thread178.i, %292, %290, %288, %286, %.thread110.i, %73, %71, %64, %62, %57, %55, %51, %49
-  %301 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
-  br i1 %301, label %302, label %304
+.thread129.i:                                     ; preds = %.thread182.i, %.thread179.i, %290, %288, %286, %284, %.thread110.i, %73, %71, %64, %62, %57, %55, %51, %49
+  %299 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  br i1 %299, label %300, label %302
 
-302:                                              ; preds = %.thread129.i
-  %303 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str) #17
+300:                                              ; preds = %.thread129.i
+  %301 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str) #17
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2053, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  br label %302
+
+302:                                              ; preds = %300, %.thread129.i
+  %303 = call i64 @GetCurrentTimestamp() #17
   br label %304
 
-304:                                              ; preds = %302, %.thread129.i
-  %305 = call i64 @GetCurrentTimestamp() #17
-  br label %306
+304:                                              ; preds = %pgstat_get_kind_info.exit.thread.i90.i, %302
+  %indvars.iv.i89.i = phi i64 [ 1, %302 ], [ %indvars.iv.next.i91.i, %pgstat_get_kind_info.exit.thread.i90.i ]
+  %305 = icmp samesign ult i64 %indvars.iv.i89.i, 13
+  br i1 %305, label %pgstat_get_kind_info.exit.thread9.i96.i, label %307
 
-306:                                              ; preds = %pgstat_get_kind_info.exit.thread.i90.i, %304
-  %indvars.iv.i89.i = phi i64 [ 1, %304 ], [ %indvars.iv.next.i91.i, %pgstat_get_kind_info.exit.thread.i90.i ]
-  %307 = icmp samesign ult i64 %indvars.iv.i89.i, 13
-  br i1 %307, label %pgstat_get_kind_info.exit.thread9.i96.i, label %309
+pgstat_get_kind_info.exit.thread9.i96.i:          ; preds = %304
+  %306 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i89.i
+  br label %315
 
-pgstat_get_kind_info.exit.thread9.i96.i:          ; preds = %306
-  %308 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i89.i
-  br label %317
+307:                                              ; preds = %304
+  %308 = add nsw i64 %indvars.iv.i89.i, -128
+  %309 = icmp ult i64 %308, 129
+  br i1 %309, label %310, label %pgstat_get_kind_info.exit.thread.i90.i
 
-309:                                              ; preds = %306
-  %310 = add nsw i64 %indvars.iv.i89.i, -128
-  %311 = icmp ult i64 %310, 129
-  br i1 %311, label %312, label %pgstat_get_kind_info.exit.thread.i90.i
+310:                                              ; preds = %307
+  %311 = load ptr, ptr @pgstat_kind_custom_infos, align 8
+  %312 = icmp eq ptr %311, null
+  br i1 %312, label %pgstat_get_kind_info.exit.thread.i90.i, label %pgstat_get_kind_info.exit.i93.i
 
-312:                                              ; preds = %309
-  %313 = load ptr, ptr @pgstat_kind_custom_infos, align 8
-  %314 = icmp eq ptr %313, null
-  br i1 %314, label %pgstat_get_kind_info.exit.thread.i90.i, label %pgstat_get_kind_info.exit.i93.i
+pgstat_get_kind_info.exit.i93.i:                  ; preds = %310
+  %313 = getelementptr inbounds nuw ptr, ptr %311, i64 %308
+  %314 = load ptr, ptr %313, align 8
+  %.not.i94.i = icmp eq ptr %314, null
+  br i1 %.not.i94.i, label %pgstat_get_kind_info.exit.thread.i90.i, label %315
 
-pgstat_get_kind_info.exit.i93.i:                  ; preds = %312
-  %315 = getelementptr inbounds nuw ptr, ptr %313, i64 %310
-  %316 = load ptr, ptr %315, align 8
-  %.not.i94.i = icmp eq ptr %316, null
-  br i1 %.not.i94.i, label %pgstat_get_kind_info.exit.thread.i90.i, label %317
+315:                                              ; preds = %pgstat_get_kind_info.exit.i93.i, %pgstat_get_kind_info.exit.thread9.i96.i
+  %.0.i12.i95.i = phi ptr [ %306, %pgstat_get_kind_info.exit.thread9.i96.i ], [ %314, %pgstat_get_kind_info.exit.i93.i ]
+  %316 = load i8, ptr %.0.i12.i95.i, align 8
+  %317 = trunc i8 %316 to i1
+  br i1 %317, label %318, label %pgstat_get_kind_info.exit.thread.i90.i
 
-317:                                              ; preds = %pgstat_get_kind_info.exit.i93.i, %pgstat_get_kind_info.exit.thread9.i96.i
-  %.0.i12.i95.i = phi ptr [ %308, %pgstat_get_kind_info.exit.thread9.i96.i ], [ %316, %pgstat_get_kind_info.exit.i93.i ]
-  %318 = load i8, ptr %.0.i12.i95.i, align 8
-  %319 = trunc i8 %318 to i1
-  br i1 %319, label %320, label %pgstat_get_kind_info.exit.thread.i90.i
-
-320:                                              ; preds = %317
-  %321 = getelementptr inbounds nuw i8, ptr %.0.i12.i95.i, i64 104
-  %322 = load ptr, ptr %321, align 8
-  call void %322(i64 noundef %305) #17
+318:                                              ; preds = %315
+  %319 = getelementptr inbounds nuw i8, ptr %.0.i12.i95.i, i64 104
+  %320 = load ptr, ptr %319, align 8
+  call void %320(i64 noundef %303) #17
   br label %pgstat_get_kind_info.exit.thread.i90.i
 
-pgstat_get_kind_info.exit.thread.i90.i:           ; preds = %320, %317, %pgstat_get_kind_info.exit.i93.i, %312, %309
+pgstat_get_kind_info.exit.thread.i90.i:           ; preds = %318, %315, %pgstat_get_kind_info.exit.i93.i, %310, %307
   %indvars.iv.next.i91.i = add nuw nsw i64 %indvars.iv.i89.i, 1
   %exitcond.not.i92.i = icmp eq i64 %indvars.iv.next.i91.i, 257
-  br i1 %exitcond.not.i92.i, label %pgstat_reset_after_failure.exit97.i, label %306, !llvm.loop !4
+  br i1 %exitcond.not.i92.i, label %pgstat_reset_after_failure.exit97.i, label %304, !llvm.loop !4
 
 pgstat_reset_after_failure.exit97.i:              ; preds = %pgstat_get_kind_info.exit.thread.i90.i
   call void @pgstat_drop_all_entries() #17
   br label %.thread131.i
 
-pgstat_read_statsfile.exit:                       ; preds = %pgstat_reset_after_failure.exit.i, %299
+pgstat_read_statsfile.exit:                       ; preds = %pgstat_reset_after_failure.exit.i, %297
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -914,7 +912,7 @@ define dso_local void @pgstat_before_server_shutdown(i32 noundef %0, i64 noundef
   %7 = alloca %struct.nameData, align 1
   %8 = tail call i64 @pgstat_report_stat(i1 noundef zeroext true)
   %9 = icmp eq i32 %0, 0
-  br i1 %9, label %10, label %177
+  br i1 %9, label %10, label %178
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr @pgStatLocal, align 8
@@ -965,8 +963,8 @@ define dso_local void @pgstat_before_server_shutdown(i32 noundef %0, i64 noundef
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_seq_init(ptr noundef nonnull %5, ptr noundef %32, i1 noundef zeroext false) #17
   %33 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #17
-  %.not75.i = icmp eq ptr %33, null
-  br i1 %.not75.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not76.i = icmp eq ptr %33, null
+  br i1 %.not76.i, label %._crit_edge.i, label %.lr.ph.i
 
 34:                                               ; preds = %pgstat_get_kind_info.exit.thread.i, %28
   %indvars.iv.i = phi i64 [ 1, %28 ], [ %indvars.iv.next.i, %pgstat_get_kind_info.exit.thread.i ]
@@ -997,256 +995,259 @@ pgstat_get_kind_info.exit.i:                      ; preds = %39
 .thread.i:                                        ; preds = %pgstat_get_kind_info.exit.i
   %46 = load i8, ptr %43, align 8
   %47 = and i8 %46, 5
-  %or.cond.not85.i = icmp eq i8 %47, 5
-  br i1 %or.cond.not85.i, label %pgstat_get_kind_info.exit.i.i, label %pgstat_get_kind_info.exit.thread.i
+  %or.cond.not86.i = icmp eq i8 %47, 5
+  br i1 %or.cond.not86.i, label %50, label %pgstat_get_kind_info.exit.thread.i
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv.i
   br label %pgstat_get_kind_info.exit.i.i
 
-pgstat_get_kind_info.exit.i.i:                    ; preds = %.thread.i, %48
-  %.0.i718689.i = phi ptr [ %49, %48 ], [ %43, %.thread.i ]
-  %.010.i.i = phi i64 [ %indvars.iv.i, %48 ], [ %37, %.thread.i ]
-  %.0.i59.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), %48 ], [ getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 49864), %.thread.i ]
-  %50 = load i32, ptr @pgstat_fetch_consistency, align 4
-  %51 = icmp eq i32 %50, 0
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i59.i, i64 %.010.i.i
-  br i1 %51, label %53, label %54
+50:                                               ; preds = %.thread.i
+  %51 = add nuw nsw i64 %indvars.iv.i, 4294967168
+  br label %pgstat_get_kind_info.exit.i.i
 
-53:                                               ; preds = %pgstat_get_kind_info.exit.i.i
-  store i8 0, ptr %52, align 1
-  br label %57
+pgstat_get_kind_info.exit.i.i:                    ; preds = %50, %48
+  %.0.i718790.i = phi ptr [ %49, %48 ], [ %43, %50 ]
+  %.010.i.i = phi i64 [ %indvars.iv.i, %48 ], [ %51, %50 ]
+  %.0.i59.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 40), %48 ], [ getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 49864), %50 ]
+  %52 = load i32, ptr @pgstat_fetch_consistency, align 4
+  %53 = icmp eq i32 %52, 0
+  %54 = and i64 %.010.i.i, 4294967295
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i59.i, i64 %54
+  br i1 %53, label %56, label %57
 
-54:                                               ; preds = %pgstat_get_kind_info.exit.i.i
-  %55 = load i8, ptr %52, align 1, !range !8, !noundef !7
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %pgstat_build_snapshot_fixed.exit.i, label %57
+56:                                               ; preds = %pgstat_get_kind_info.exit.i.i
+  store i8 0, ptr %55, align 1
+  br label %60
 
-57:                                               ; preds = %54, %53
-  %58 = getelementptr inbounds nuw i8, ptr %.0.i718689.i, i64 112
-  %59 = load ptr, ptr %58, align 8
-  tail call void %59() #17
-  store i8 1, ptr %52, align 1
+57:                                               ; preds = %pgstat_get_kind_info.exit.i.i
+  %58 = load i8, ptr %55, align 1, !range !8, !noundef !7
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %59, label %pgstat_build_snapshot_fixed.exit.i, label %60
+
+60:                                               ; preds = %57, %56
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i718790.i, i64 112
+  %62 = load ptr, ptr %61, align 8
+  tail call void %62() #17
+  store i8 1, ptr %55, align 1
   br label %pgstat_build_snapshot_fixed.exit.i
 
-pgstat_build_snapshot_fixed.exit.i:               ; preds = %57, %54
-  br i1 %35, label %60, label %65
+pgstat_build_snapshot_fixed.exit.i:               ; preds = %60, %57
+  br i1 %35, label %63, label %68
 
-60:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
-  %61 = getelementptr inbounds nuw i8, ptr %.0.i718689.i, i64 8
-  %62 = load i32, ptr %61, align 8
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), i64 %63
-  br label %70
+63:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i718790.i, i64 8
+  %65 = load i32, ptr %64, align 8
+  %66 = zext i32 %65 to i64
+  %67 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), i64 %66
+  br label %73
 
-65:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
-  %66 = add nuw nsw i64 %indvars.iv.i, 4294967168
-  %67 = and i64 %66, 4294967295
-  %68 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 %67
-  %69 = load ptr, ptr %68, align 8
-  br label %70
+68:                                               ; preds = %pgstat_build_snapshot_fixed.exit.i
+  %69 = add nuw nsw i64 %indvars.iv.i, 4294967168
+  %70 = and i64 %69, 4294967295
+  %71 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 %70
+  %72 = load ptr, ptr %71, align 8
+  br label %73
 
-70:                                               ; preds = %65, %60
-  %.0.i = phi ptr [ %64, %60 ], [ %69, %65 ]
-  %71 = tail call i32 @fputc(i32 noundef 70, ptr noundef nonnull %21)
-  %72 = call i64 @fwrite(ptr noundef nonnull readonly %6, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %21)
-  %73 = getelementptr inbounds nuw i8, ptr %.0.i718689.i, i64 20
-  %74 = load i32, ptr %73, align 4
-  %75 = zext i32 %74 to i64
-  %76 = tail call i64 @fwrite(ptr noundef readonly %.0.i, i64 noundef range(i64 0, 4294967296) %75, i64 noundef 1, ptr noundef nonnull %21)
+73:                                               ; preds = %68, %63
+  %.0.i = phi ptr [ %67, %63 ], [ %72, %68 ]
+  %74 = tail call i32 @fputc(i32 noundef 70, ptr noundef nonnull %21)
+  %75 = call i64 @fwrite(ptr noundef nonnull readonly %6, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %21)
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i718790.i, i64 20
+  %77 = load i32, ptr %76, align 4
+  %78 = zext i32 %77 to i64
+  %79 = tail call i64 @fwrite(ptr noundef readonly %.0.i, i64 noundef range(i64 0, 4294967296) %78, i64 noundef 1, ptr noundef nonnull %21)
   br label %pgstat_get_kind_info.exit.thread.i
 
-pgstat_get_kind_info.exit.thread.i:               ; preds = %70, %.thread.i, %44, %pgstat_get_kind_info.exit.i, %39, %36
+pgstat_get_kind_info.exit.thread.i:               ; preds = %73, %.thread.i, %44, %pgstat_get_kind_info.exit.i, %39, %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %77 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  store i32 %77, ptr %6, align 4
+  %80 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  store i32 %80, ptr %6, align 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 257
   br i1 %exitcond.not.i, label %31, label %34, !llvm.loop !9
 
-.lr.ph.i:                                         ; preds = %31, %150
-  %78 = phi ptr [ %151, %150 ], [ %33, %31 ]
-  %79 = load volatile i32, ptr @InterruptPending, align 4
-  %.not54.i = icmp eq i32 %79, 0
-  br i1 %.not54.i, label %81, label %80, !prof !6
+.lr.ph.i:                                         ; preds = %31, %151
+  %81 = phi ptr [ %152, %151 ], [ %33, %31 ]
+  %82 = load volatile i32, ptr @InterruptPending, align 4
+  %.not54.i = icmp eq i32 %82, 0
+  br i1 %.not54.i, label %84, label %83, !prof !6
 
-80:                                               ; preds = %.lr.ph.i
+83:                                               ; preds = %.lr.ph.i
   call void @ProcessInterrupts() #17
-  br label %81
+  br label %84
 
-81:                                               ; preds = %80, %.lr.ph.i
-  %82 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %83 = load i8, ptr %82, align 8, !range !8, !noundef !7
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %150, label %85, !llvm.loop !10
+84:                                               ; preds = %83, %.lr.ph.i
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %86 = load i8, ptr %85, align 8, !range !8, !noundef !7
+  %87 = trunc nuw i8 %86 to i1
+  br i1 %87, label %151, label %88, !llvm.loop !10
 
-85:                                               ; preds = %81
-  %86 = load i32, ptr %78, align 8
-  %87 = add i32 %86, -1
-  %88 = icmp ult i32 %87, 12
-  %89 = add i32 %86, -128
-  %90 = icmp ult i32 %89, 129
-  %91 = or i1 %88, %90
-  br i1 %91, label %101, label %92
+88:                                               ; preds = %84
+  %89 = load i32, ptr %81, align 8
+  %90 = add i32 %89, -1
+  %91 = icmp ult i32 %90, 12
+  %92 = add i32 %89, -128
+  %93 = icmp ult i32 %92, 129
+  %94 = or i1 %91, %93
+  br i1 %94, label %104, label %95
 
-92:                                               ; preds = %85
-  %93 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %93, label %94, label %150, !llvm.loop !10
+95:                                               ; preds = %88
+  %96 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  br i1 %96, label %97, label %151, !llvm.loop !10
 
-94:                                               ; preds = %92
-  %95 = load i32, ptr %78, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %99 = load i64, ptr %98, align 8
-  %100 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %95, i32 noundef %97, i64 noundef %99) #17
+97:                                               ; preds = %95
+  %98 = load i32, ptr %81, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %100 = load i32, ptr %99, align 4
+  %101 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %102 = load i64, ptr %101, align 8
+  %103 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %98, i32 noundef %100, i64 noundef %102) #17
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1689, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
-  br label %150, !llvm.loop !10
+  br label %151, !llvm.loop !10
 
-101:                                              ; preds = %85
-  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  %103 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  %104 = load i64, ptr %103, align 8
-  %105 = call ptr @dsa_get_address(ptr noundef %102, i64 noundef %104) #17
-  %106 = load i32, ptr %78, align 8
-  %107 = add i32 %106, -1
-  %108 = icmp ult i32 %107, 12
-  br i1 %108, label %109, label %112
+104:                                              ; preds = %88
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
+  %106 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  %107 = load i64, ptr %106, align 8
+  %108 = call ptr @dsa_get_address(ptr noundef %105, i64 noundef %107) #17
+  %109 = load i32, ptr %81, align 8
+  %110 = add i32 %109, -1
+  %111 = icmp ult i32 %110, 12
+  br i1 %111, label %112, label %115
 
-109:                                              ; preds = %101
-  %110 = zext nneg i32 %106 to i64
-  %111 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %110
+112:                                              ; preds = %104
+  %113 = zext nneg i32 %109 to i64
+  %114 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %113
   br label %pgstat_get_kind_info.exit61.i
 
-112:                                              ; preds = %101
-  %113 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
-  %114 = sext i32 %106 to i64
-  %115 = getelementptr ptr, ptr %113, i64 %114
-  %116 = getelementptr i8, ptr %115, i64 -1024
-  %117 = load ptr, ptr %116, align 8
+115:                                              ; preds = %104
+  %116 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
+  %117 = sext i32 %109 to i64
+  %118 = getelementptr ptr, ptr %116, i64 %117
+  %119 = getelementptr i8, ptr %118, i64 -1024
+  %120 = load ptr, ptr %119, align 8
   br label %pgstat_get_kind_info.exit61.i
 
-pgstat_get_kind_info.exit61.i:                    ; preds = %112, %109
-  %.0.i60.i = phi ptr [ %111, %109 ], [ %117, %112 ]
-  %118 = load i8, ptr %.0.i60.i, align 8
-  %119 = and i8 %118, 4
-  %.not55.i = icmp eq i8 %119, 0
-  br i1 %.not55.i, label %150, label %120, !llvm.loop !10
+pgstat_get_kind_info.exit61.i:                    ; preds = %115, %112
+  %.0.i60.i = phi ptr [ %114, %112 ], [ %120, %115 ]
+  %121 = load i8, ptr %.0.i60.i, align 8
+  %122 = and i8 %121, 4
+  %.not55.i = icmp eq i8 %122, 0
+  br i1 %.not55.i, label %151, label %123, !llvm.loop !10
 
-120:                                              ; preds = %pgstat_get_kind_info.exit61.i
-  %121 = getelementptr inbounds nuw i8, ptr %.0.i60.i, i64 64
-  %122 = load ptr, ptr %121, align 8
-  %.not56.i = icmp eq ptr %122, null
-  br i1 %.not56.i, label %123, label %126
+123:                                              ; preds = %pgstat_get_kind_info.exit61.i
+  %124 = getelementptr inbounds nuw i8, ptr %.0.i60.i, i64 64
+  %125 = load ptr, ptr %124, align 8
+  %.not56.i = icmp eq ptr %125, null
+  br i1 %.not56.i, label %126, label %129
 
-123:                                              ; preds = %120
-  %124 = call i32 @fputc(i32 noundef 83, ptr noundef nonnull %21)
-  %125 = call i64 @fwrite(ptr noundef nonnull readonly %78, i64 noundef 16, i64 noundef 1, ptr noundef nonnull %21)
-  br label %130
+126:                                              ; preds = %123
+  %127 = call i32 @fputc(i32 noundef 83, ptr noundef nonnull %21)
+  %128 = call i64 @fwrite(ptr noundef nonnull readonly %81, i64 noundef 16, i64 noundef 1, ptr noundef nonnull %21)
+  br label %133
 
-126:                                              ; preds = %120
+129:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void %122(ptr noundef nonnull %78, ptr noundef %105, ptr noundef nonnull %7) #17
-  %127 = call i32 @fputc(i32 noundef 78, ptr noundef nonnull %21)
-  %128 = call i64 @fwrite(ptr noundef nonnull readonly %78, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %21)
-  %129 = call i64 @fwrite(ptr noundef nonnull readonly %7, i64 noundef 64, i64 noundef 1, ptr noundef nonnull %21)
+  call void %125(ptr noundef nonnull %81, ptr noundef %108, ptr noundef nonnull %7) #17
+  %130 = call i32 @fputc(i32 noundef 78, ptr noundef nonnull %21)
+  %131 = call i64 @fwrite(ptr noundef nonnull readonly %81, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %21)
+  %132 = call i64 @fwrite(ptr noundef nonnull readonly %7, i64 noundef 64, i64 noundef 1, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %130
+  br label %133
 
-130:                                              ; preds = %126, %123
-  %131 = load i32, ptr %78, align 8
-  %132 = add i32 %131, -1
-  %133 = icmp ult i32 %132, 12
-  br i1 %133, label %134, label %138
+133:                                              ; preds = %129, %126
+  %134 = load i32, ptr %81, align 8
+  %135 = add i32 %134, -1
+  %136 = icmp ult i32 %135, 12
+  br i1 %136, label %137, label %140
 
-134:                                              ; preds = %130
-  %135 = zext nneg i32 %131 to i64
-  %136 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %135, i32 4
-  %137 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %135
+137:                                              ; preds = %133
+  %138 = zext nneg i32 %134 to i64
+  %139 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %138
   br label %pgstat_get_entry_len.exit.i
 
-138:                                              ; preds = %130
-  %139 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
-  %140 = sext i32 %131 to i64
-  %141 = getelementptr ptr, ptr %139, i64 %140
-  %142 = getelementptr i8, ptr %141, i64 -1024
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
+140:                                              ; preds = %133
+  %141 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
+  %142 = sext i32 %134 to i64
+  %143 = getelementptr ptr, ptr %141, i64 %142
+  %144 = getelementptr i8, ptr %143, i64 -1024
+  %145 = load ptr, ptr %144, align 8
   br label %pgstat_get_entry_len.exit.i
 
-pgstat_get_entry_len.exit.i:                      ; preds = %138, %134
-  %.pn.in.in.i = phi ptr [ %136, %134 ], [ %144, %138 ]
-  %.0.i.i65.i = phi ptr [ %137, %134 ], [ %143, %138 ]
+pgstat_get_entry_len.exit.i:                      ; preds = %140, %137
+  %.pn74.i = phi ptr [ %139, %137 ], [ %145, %140 ]
+  %.pn.in.in.i = getelementptr inbounds nuw i8, ptr %.pn74.i, i64 16
   %.pn.in.i = load i32, ptr %.pn.in.in.i, align 8
   %.pn.i = zext i32 %.pn.in.i to i64
-  %145 = getelementptr inbounds nuw i8, ptr %105, i64 %.pn.i
-  %146 = getelementptr inbounds nuw i8, ptr %.0.i.i65.i, i64 20
-  %147 = load i32, ptr %146, align 4
-  %148 = zext i32 %147 to i64
-  %149 = call i64 @fwrite(ptr noundef readonly %145, i64 noundef range(i64 0, 4294967296) %148, i64 noundef 1, ptr noundef nonnull %21)
-  br label %150
+  %146 = getelementptr inbounds nuw i8, ptr %108, i64 %.pn.i
+  %147 = getelementptr inbounds nuw i8, ptr %.pn74.i, i64 20
+  %148 = load i32, ptr %147, align 4
+  %149 = zext i32 %148 to i64
+  %150 = call i64 @fwrite(ptr noundef readonly %146, i64 noundef range(i64 0, 4294967296) %149, i64 noundef 1, ptr noundef nonnull %21)
+  br label %151
 
-150:                                              ; preds = %pgstat_get_entry_len.exit.i, %pgstat_get_kind_info.exit61.i, %94, %92, %81
-  %151 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #17
-  %.not.i = icmp eq ptr %151, null
+151:                                              ; preds = %pgstat_get_entry_len.exit.i, %pgstat_get_kind_info.exit61.i, %97, %95, %84
+  %152 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #17
+  %.not.i = icmp eq ptr %152, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %150, %31
+._crit_edge.i:                                    ; preds = %151, %31
   call void @dshash_seq_term(ptr noundef nonnull %5) #17
-  %152 = call i32 @fputc(i32 noundef 69, ptr noundef nonnull %21)
-  %153 = call i32 @ferror(ptr noundef nonnull %21) #17
-  %.not53.i = icmp eq i32 %153, 0
-  br i1 %.not53.i, label %162, label %154
+  %153 = call i32 @fputc(i32 noundef 69, ptr noundef nonnull %21)
+  %154 = call i32 @ferror(ptr noundef nonnull %21) #17
+  %.not53.i = icmp eq i32 %154, 0
+  br i1 %.not53.i, label %163, label %155
 
-154:                                              ; preds = %._crit_edge.i
-  %155 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
-  br i1 %155, label %156, label %159
+155:                                              ; preds = %._crit_edge.i
+  %156 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  br i1 %156, label %157, label %160
 
-156:                                              ; preds = %154
-  %157 = call i32 @errcode_for_file_access() #17
-  %158 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.35) #17
+157:                                              ; preds = %155
+  %158 = call i32 @errcode_for_file_access() #17
+  %159 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.35) #17
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1741, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
-  br label %159
+  br label %160
 
-159:                                              ; preds = %156, %154
-  %160 = call i32 @FreeFile(ptr noundef nonnull %21) #17
-  %161 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
+160:                                              ; preds = %157, %155
+  %161 = call i32 @FreeFile(ptr noundef nonnull %21) #17
+  %162 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
   br label %pgstat_write_statsfile.exit
 
-162:                                              ; preds = %._crit_edge.i
-  %163 = call i32 @FreeFile(ptr noundef nonnull %21) #17
-  %164 = icmp slt i32 %163, 0
-  br i1 %164, label %165, label %172
+163:                                              ; preds = %._crit_edge.i
+  %164 = call i32 @FreeFile(ptr noundef nonnull %21) #17
+  %165 = icmp slt i32 %164, 0
+  br i1 %165, label %166, label %173
 
-165:                                              ; preds = %162
-  %166 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
-  br i1 %166, label %167, label %170
+166:                                              ; preds = %163
+  %167 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  br i1 %167, label %168, label %171
 
-167:                                              ; preds = %165
-  %168 = call i32 @errcode_for_file_access() #17
-  %169 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.35) #17
+168:                                              ; preds = %166
+  %169 = call i32 @errcode_for_file_access() #17
+  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.35) #17
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1750, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
-  br label %170
+  br label %171
 
-170:                                              ; preds = %167, %165
-  %171 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
+171:                                              ; preds = %168, %166
+  %172 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
   br label %pgstat_write_statsfile.exit
 
-172:                                              ; preds = %162
-  %173 = call i32 @durable_rename(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str, i32 noundef 15) #17
-  %174 = icmp slt i32 %173, 0
-  br i1 %174, label %175, label %pgstat_write_statsfile.exit
+173:                                              ; preds = %163
+  %174 = call i32 @durable_rename(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str, i32 noundef 15) #17
+  %175 = icmp slt i32 %174, 0
+  br i1 %175, label %176, label %pgstat_write_statsfile.exit
 
-175:                                              ; preds = %172
-  %176 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
+176:                                              ; preds = %173
+  %177 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
   br label %pgstat_write_statsfile.exit
 
-pgstat_write_statsfile.exit:                      ; preds = %23, %25, %159, %170, %172, %175
+pgstat_write_statsfile.exit:                      ; preds = %23, %25, %160, %171, %173, %176
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %177
+  br label %178
 
-177:                                              ; preds = %pgstat_write_statsfile.exit, %2
+178:                                              ; preds = %pgstat_write_statsfile.exit, %2
   ret void
 }
 
@@ -2882,57 +2883,58 @@ declare void @pfree(ptr noundef) local_unnamed_addr #4
 define dso_local range(i32 0, 257) i32 @pgstat_get_kind_from_str(ptr noundef %0) local_unnamed_addr #0 {
   br label %2
 
-2:                                                ; preds = %1, %7
-  %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv, i32 18
-  %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef %4) #17
-  %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.loopexit, label %7
+2:                                                ; preds = %1, %8
+  %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %8 ]
+  %3 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %5 = load ptr, ptr %4, align 8
+  %6 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef %5) #17
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %.loopexit, label %8
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %8, label %2, !llvm.loop !22
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !22
 
-8:                                                ; preds = %7
-  %9 = load ptr, ptr @pgstat_kind_custom_infos, align 8
-  %.not = icmp eq ptr %9, null
+9:                                                ; preds = %8
+  %10 = load ptr, ptr @pgstat_kind_custom_infos, align 8
+  %.not = icmp eq ptr %10, null
   br i1 %.not, label %.thread31, label %.preheader
 
-.preheader:                                       ; preds = %8, %19
-  %10 = phi ptr [ %20, %19 ], [ %9, %8 ]
-  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %19 ], [ 128, %8 ]
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv45
-  %12 = getelementptr i8, ptr %11, i64 -1024
-  %13 = load ptr, ptr %12, align 8
-  %.not21 = icmp eq ptr %13, null
-  br i1 %.not21, label %19, label %14
+.preheader:                                       ; preds = %9, %20
+  %11 = phi ptr [ %21, %20 ], [ %10, %9 ]
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %20 ], [ 128, %9 ]
+  %12 = getelementptr ptr, ptr %11, i64 %indvars.iv45
+  %13 = getelementptr i8, ptr %12, i64 -1024
+  %14 = load ptr, ptr %13, align 8
+  %.not21 = icmp eq ptr %14, null
+  br i1 %.not21, label %20, label %15
 
-14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef %16) #17
-  %18 = icmp eq i32 %17, 0
+15:                                               ; preds = %.preheader
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 120
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef %17) #17
+  %19 = icmp eq i32 %18, 0
   %.pre = load ptr, ptr @pgstat_kind_custom_infos, align 8
-  br i1 %18, label %.loopexit, label %19
+  br i1 %19, label %.loopexit, label %20
 
-19:                                               ; preds = %.preheader, %14
-  %20 = phi ptr [ %10, %.preheader ], [ %.pre, %14 ]
+20:                                               ; preds = %.preheader, %15
+  %21 = phi ptr [ %11, %.preheader ], [ %.pre, %15 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 257
   br i1 %exitcond48.not, label %.thread31, label %.preheader, !llvm.loop !23
 
-.thread31:                                        ; preds = %19, %8
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 50856066) #17
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %0) #17
+.thread31:                                        ; preds = %20, %9
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  tail call void @llvm.assume(i1 %22)
+  %23 = tail call i32 @errcode(i32 noundef 50856066) #17
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %0) #17
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1444, ptr noundef nonnull @__func__.pgstat_get_kind_from_str) #17
   unreachable
 
-.loopexit:                                        ; preds = %2, %14
-  %.1.in = phi i64 [ %indvars.iv45, %14 ], [ %indvars.iv, %2 ]
+.loopexit:                                        ; preds = %2, %15
+  %.1.in = phi i64 [ %indvars.iv45, %15 ], [ %indvars.iv, %2 ]
   %.1 = trunc i64 %.1.in to i32
   ret i32 %.1
 }

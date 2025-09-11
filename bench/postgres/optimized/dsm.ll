@@ -596,17 +596,17 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %wide.trip.count = zext i32 %58 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %90
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %90 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %91
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %91 ]
   %59 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %56, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 20
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %90
+  br i1 %62, label %63, label %91
 
 63:                                               ; preds = %.lr.ph
   %64 = trunc nuw i64 %indvars.iv to i32
-  br i1 %.082, label %65, label %80
+  br i1 %.082, label %65, label %81
 
 65:                                               ; preds = %63
   %66 = shl i32 %64, 1
@@ -622,150 +622,152 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %76 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %75, ptr %76, align 8
   %77 = load i64, ptr %3, align 8
-  %78 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %68, i64 %indvars.iv, i32 4
-  store i64 %77, ptr %78, align 8
-  %79 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %68, i64 %indvars.iv, i32 5
-  store i64 %.06680, ptr %79, align 8
-  br label %80
+  %78 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %68, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  store i64 %77, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  store i64 %.06680, ptr %80, align 8
+  br label %81
 
-80:                                               ; preds = %63, %65
-  %81 = phi ptr [ %56, %63 ], [ %68, %65 ]
-  %82 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %85 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %84, i64 %indvars.iv
-  store i32 %83, ptr %85, align 8
-  %86 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %81, i64 %indvars.iv
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 20
-  store i32 2, ptr %87, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  store ptr null, ptr %88, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  store i8 0, ptr %89, align 8
+81:                                               ; preds = %63, %65
+  %82 = phi ptr [ %56, %63 ], [ %68, %65 ]
+  %83 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %84 = load i32, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %86 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %85, i64 %indvars.iv
+  store i32 %84, ptr %86, align 8
+  %87 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %82, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 20
+  store i32 2, ptr %88, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 40
+  store ptr null, ptr %89, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 48
+  store i8 0, ptr %90, align 8
   store i32 %64, ptr %17, align 4
   br label %.sink.split
 
-90:                                               ; preds = %.lr.ph
+91:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
-._crit_edge.loopexit:                             ; preds = %90
-  %91 = zext i32 %58 to i64
+._crit_edge.loopexit:                             ; preds = %91
+  %92 = zext i32 %58 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %55
-  %.067.lcssa = phi i64 [ 0, %55 ], [ %91, %._crit_edge.loopexit ]
-  %92 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %93 = load i32, ptr %92, align 8
-  %.not74 = icmp ult i32 %58, %93
-  br i1 %.not74, label %120, label %94
+  %.067.lcssa = phi i64 [ 0, %55 ], [ %92, %._crit_edge.loopexit ]
+  %93 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %94 = load i32, ptr %93, align 8
+  %.not74 = icmp ult i32 %58, %94
+  br i1 %.not74, label %121, label %95
 
-94:                                               ; preds = %._crit_edge
-  br i1 %.082, label %95, label %.critedge
+95:                                               ; preds = %._crit_edge
+  br i1 %.082, label %96, label %.critedge
 
-95:                                               ; preds = %94
-  %96 = load i64, ptr %3, align 8
-  call void @FreePageManagerPut(ptr noundef %4, i64 noundef %96, i64 noundef %.06680) #12
-  %97 = load ptr, ptr @MainLWLockArray, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4352
-  call void @LWLockRelease(ptr noundef nonnull %98) #12
-  br label %106
+96:                                               ; preds = %95
+  %97 = load i64, ptr %3, align 8
+  call void @FreePageManagerPut(ptr noundef %4, i64 noundef %97, i64 noundef %.06680) #12
+  %98 = load ptr, ptr @MainLWLockArray, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4352
+  call void @LWLockRelease(ptr noundef nonnull %99) #12
+  br label %107
 
-.critedge:                                        ; preds = %94
-  %99 = load ptr, ptr @MainLWLockArray, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4352
-  call void @LWLockRelease(ptr noundef nonnull %100) #12
-  %101 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %104 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %105 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %102, i64 noundef 0, ptr noundef nonnull %18, ptr noundef nonnull %103, ptr noundef nonnull %104, i32 noundef 19) #12
-  br label %106
+.critedge:                                        ; preds = %95
+  %100 = load ptr, ptr @MainLWLockArray, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4352
+  call void @LWLockRelease(ptr noundef nonnull %101) #12
+  %102 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %103 = load i32, ptr %102, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %106 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %103, i64 noundef 0, ptr noundef nonnull %18, ptr noundef nonnull %104, ptr noundef nonnull %105, i32 noundef 19) #12
+  br label %107
 
-106:                                              ; preds = %95, %.critedge
-  %107 = load ptr, ptr %20, align 8
-  %.not75 = icmp eq ptr %107, null
-  br i1 %.not75, label %110, label %108
+107:                                              ; preds = %96, %.critedge
+  %108 = load ptr, ptr %20, align 8
+  %.not75 = icmp eq ptr %108, null
+  br i1 %.not75, label %111, label %109
 
-108:                                              ; preds = %106
-  %109 = ptrtoint ptr %11 to i64
-  call void @ResourceOwnerForget(ptr noundef nonnull %107, i64 noundef %109, ptr noundef nonnull @dsm_resowner_desc) #12
-  br label %110
+109:                                              ; preds = %107
+  %110 = ptrtoint ptr %11 to i64
+  call void @ResourceOwnerForget(ptr noundef nonnull %108, i64 noundef %110, ptr noundef nonnull @dsm_resowner_desc) #12
+  br label %111
 
-110:                                              ; preds = %108, %106
-  %111 = load ptr, ptr %16, align 8
-  %112 = load ptr, ptr %11, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  store ptr %111, ptr %113, align 8
-  %114 = load ptr, ptr %11, align 8
-  store ptr %114, ptr %111, align 8
+111:                                              ; preds = %109, %107
+  %112 = load ptr, ptr %16, align 8
+  %113 = load ptr, ptr %11, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  store ptr %112, ptr %114, align 8
+  %115 = load ptr, ptr %11, align 8
+  store ptr %115, ptr %112, align 8
   call void @pfree(ptr noundef nonnull %11) #12
-  %115 = and i32 %1, 1
-  %.not76 = icmp eq i32 %115, 0
-  br i1 %.not76, label %116, label %152
+  %116 = and i32 %1, 1
+  %.not76 = icmp eq i32 %116, 0
+  br i1 %.not76, label %117, label %154
 
-116:                                              ; preds = %110
-  %117 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %117)
-  %118 = call i32 @errcode(i32 noundef 197) #12
-  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #12
+117:                                              ; preds = %111
+  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %118)
+  %119 = call i32 @errcode(i32 noundef 197) #12
+  %120 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__func__.dsm_create) #12
   unreachable
 
-120:                                              ; preds = %._crit_edge
-  br i1 %.082, label %121, label %136
+121:                                              ; preds = %._crit_edge
+  br i1 %.082, label %122, label %138
 
-121:                                              ; preds = %120
-  %122 = shl i32 %58, 1
-  %123 = call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #12
-  %124 = load ptr, ptr @dsm_control, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load i32, ptr %125, align 8
-  %127 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %126, i1 true)
-  %128 = sub nuw nsw i32 32, %127
-  %129 = shl i32 %123, %128
-  %130 = or i32 %122, %129
-  %131 = or i32 %130, 1
-  %132 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 %131, ptr %132, align 8
-  %133 = load i64, ptr %3, align 8
-  %134 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %124, i64 %.067.lcssa, i32 4
-  store i64 %133, ptr %134, align 8
-  %135 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %124, i64 %.067.lcssa, i32 5
-  store i64 %.06680, ptr %135, align 8
-  br label %136
+122:                                              ; preds = %121
+  %123 = shl i32 %58, 1
+  %124 = call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #12
+  %125 = load ptr, ptr @dsm_control, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %127 = load i32, ptr %126, align 8
+  %128 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %127, i1 true)
+  %129 = sub nuw nsw i32 32, %128
+  %130 = shl i32 %124, %129
+  %131 = or i32 %123, %130
+  %132 = or i32 %131, 1
+  %133 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i32 %132, ptr %133, align 8
+  %134 = load i64, ptr %3, align 8
+  %135 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %125, i64 %.067.lcssa
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
+  store i64 %134, ptr %136, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 32
+  store i64 %.06680, ptr %137, align 8
+  br label %138
 
-136:                                              ; preds = %121, %120
-  %137 = phi ptr [ %124, %121 ], [ %56, %120 ]
-  %138 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %139 = load i32, ptr %138, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %141 = zext i32 %58 to i64
-  %142 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %140, i64 %141
-  store i32 %139, ptr %142, align 8
-  %143 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %137, i64 %141
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 20
-  store i32 2, ptr %144, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %143, i64 40
-  store ptr null, ptr %145, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %143, i64 48
-  store i8 0, ptr %146, align 8
+138:                                              ; preds = %122, %121
+  %139 = phi ptr [ %125, %122 ], [ %56, %121 ]
+  %140 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %141 = load i32, ptr %140, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %143 = zext i32 %58 to i64
+  %144 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %142, i64 %143
+  store i32 %141, ptr %144, align 8
+  %145 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %139, i64 %143
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 20
+  store i32 2, ptr %146, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 40
+  store ptr null, ptr %147, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 48
+  store i8 0, ptr %148, align 8
   store i32 %58, ptr %17, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  %148 = load i32, ptr %147, align 4
-  %149 = add i32 %148, 1
-  store i32 %149, ptr %147, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  %150 = load i32, ptr %149, align 4
+  %151 = add i32 %150, 1
+  store i32 %151, ptr %149, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %80, %136
-  %150 = load ptr, ptr @MainLWLockArray, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 4352
-  call void @LWLockRelease(ptr noundef nonnull %151) #12
-  br label %152
+.sink.split:                                      ; preds = %81, %138
+  %152 = load ptr, ptr @MainLWLockArray, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 4352
+  call void @LWLockRelease(ptr noundef nonnull %153) #12
+  br label %154
 
-152:                                              ; preds = %.sink.split, %110
-  %.065 = phi ptr [ null, %110 ], [ %11, %.sink.split ]
+154:                                              ; preds = %.sink.split, %111
+  %.065 = phi ptr [ null, %111 ], [ %11, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.065
 }
@@ -879,19 +881,19 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %wide.trip.count = zext i32 %36 to i64
   br label %38
 
-38:                                               ; preds = %.lr.ph46, %63
-  %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %63 ]
+38:                                               ; preds = %.lr.ph46, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %64 ]
   %39 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %37, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp ult i32 %41, 2
-  br i1 %42, label %63, label %43
+  br i1 %42, label %64, label %43
 
 43:                                               ; preds = %38
   %44 = load i32, ptr %39, align 8
   %45 = load i32, ptr %30, align 8
   %.not36 = icmp eq i32 %44, %45
-  br i1 %.not36, label %46, label %63
+  br i1 %.not36, label %46, label %64
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -906,50 +908,51 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr @dsm_main_space_begin, align 8
-  %54 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %34, i64 %indvars.iv, i32 4
-  %55 = load i64, ptr %54, align 8
-  %56 = shl i64 %55, 12
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %34, i64 %indvars.iv, i32 5
-  %60 = load i64, ptr %59, align 8
-  %61 = shl i64 %60, 12
-  %62 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store i64 %61, ptr %62, align 8
+  %54 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %34, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %56 = load i64, ptr %55, align 8
+  %57 = shl i64 %56, 12
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store ptr %58, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %61 = load i64, ptr %60, align 8
+  %62 = shl i64 %61, 12
+  %63 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  store i64 %62, ptr %63, align 8
   br label %.loopexit
 
-63:                                               ; preds = %43, %38
+64:                                               ; preds = %43, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !12
 
-.loopexit:                                        ; preds = %63, %dsm_create_descriptor.exit, %46, %52
-  %64 = load ptr, ptr @MainLWLockArray, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4352
-  tail call void @LWLockRelease(ptr noundef nonnull %65) #12
-  %66 = load i32, ptr %23, align 4
-  %67 = icmp eq i32 %66, -1
-  br i1 %67, label %68, label %69
-
-68:                                               ; preds = %.loopexit
-  tail call void @dsm_detach(ptr noundef nonnull %17)
-  br label %76
+.loopexit:                                        ; preds = %64, %dsm_create_descriptor.exit, %46, %52
+  %65 = load ptr, ptr @MainLWLockArray, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4352
+  tail call void @LWLockRelease(ptr noundef nonnull %66) #12
+  %67 = load i32, ptr %23, align 4
+  %68 = icmp eq i32 %67, -1
+  br i1 %68, label %69, label %70
 
 69:                                               ; preds = %.loopexit
-  %70 = load i32, ptr %30, align 8
-  %71 = and i32 %70, 1
-  %.not38 = icmp eq i32 %71, 0
-  br i1 %.not38, label %72, label %76
+  tail call void @dsm_detach(ptr noundef nonnull %17)
+  br label %77
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %74 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %75 = tail call zeroext i1 @dsm_impl_op(i32 noundef 1, i32 noundef %70, i64 noundef 0, ptr noundef nonnull %24, ptr noundef nonnull %73, ptr noundef nonnull %74, i32 noundef 21) #12
-  br label %76
+70:                                               ; preds = %.loopexit
+  %71 = load i32, ptr %30, align 8
+  %72 = and i32 %71, 1
+  %.not38 = icmp eq i32 %72, 0
+  br i1 %.not38, label %73, label %77
 
-76:                                               ; preds = %69, %72, %68
-  %.0 = phi ptr [ null, %68 ], [ %17, %72 ], [ %17, %69 ]
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %76 = tail call zeroext i1 @dsm_impl_op(i32 noundef 1, i32 noundef %71, i64 noundef 0, ptr noundef nonnull %24, ptr noundef nonnull %74, ptr noundef nonnull %75, i32 noundef 21) #12
+  br label %77
+
+77:                                               ; preds = %70, %73, %69
+  %.0 = phi ptr [ null, %69 ], [ %17, %73 ], [ %17, %70 ]
   ret ptr %.0
 }
 

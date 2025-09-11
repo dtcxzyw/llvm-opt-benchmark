@@ -523,7 +523,7 @@ define internal void @_lib_collect_gui_update(ptr noundef %0) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1136
   %6 = load i32, ptr %5, align 8, !tbaa !65
   %.not = icmp eq i32 %6, -1
-  br i1 %.not, label %7, label %88
+  br i1 %.not, label %7, label %89
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !66
@@ -547,137 +547,138 @@ define internal void @_lib_collect_gui_update(ptr noundef %0) #1 {
 
 20:                                               ; preds = %7, %20
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %4, i64 %indvars.iv, i32 1
-  %22 = load ptr, ptr %21, align 8, !tbaa !74
-  tail call void @gtk_widget_set_no_show_all(ptr noundef %22, i32 noundef 1) #16
-  %23 = load ptr, ptr %21, align 8, !tbaa !74
-  tail call void @gtk_widget_set_visible(ptr noundef %23, i32 noundef 0) #16
+  %21 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !74
+  tail call void @gtk_widget_set_no_show_all(ptr noundef %23, i32 noundef 1) #16
+  %24 = load ptr, ptr %22, align 8, !tbaa !74
+  tail call void @gtk_widget_set_visible(ptr noundef %24, i32 noundef 0) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %.preheader.preheader, label %20
 
 .preheader.preheader:                             ; preds = %20
-  %24 = add nsw i32 %14, -1
-  %25 = zext nneg i32 %24 to i64
+  %25 = add nsw i32 %14, -1
+  %26 = zext nneg i32 %25 to i64
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %.preheader
 
-26:                                               ; preds = %87
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 1120
-  store i32 %24, ptr %27, align 8, !tbaa !78
+27:                                               ; preds = %88
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 1120
+  store i32 %25, ptr %28, align 8, !tbaa !78
   call void @dt_lib_gui_queue_update(ptr noundef %0) #16
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !66
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 96
-  %30 = load i32, ptr %29, align 8, !tbaa !67
-  %31 = add nsw i32 %30, -1
-  store i32 %31, ptr %29, align 8, !tbaa !67
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !66
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
+  %31 = load i32, ptr %30, align 8, !tbaa !67
+  %32 = add nsw i32 %31, -1
+  store i32 %32, ptr %30, align 8, !tbaa !67
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %88
+  br label %89
 
-.preheader:                                       ; preds = %.preheader.preheader, %87
-  %indvars.iv69 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next70, %87 ]
-  %32 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %4, i64 %indvars.iv69
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !74
-  call void @gtk_widget_set_no_show_all(ptr noundef %34, i32 noundef 0) #16
-  %35 = load ptr, ptr %33, align 8, !tbaa !74
-  call void @gtk_widget_set_visible(ptr noundef %35, i32 noundef 1) #16
-  %36 = load ptr, ptr %33, align 8, !tbaa !74
-  call void @gtk_widget_show_all(ptr noundef %36) #16
-  %37 = trunc nuw nsw i64 %indvars.iv69 to i32
-  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 200, ptr noundef nonnull @.str.58, i32 noundef %37) #16
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !79
-  %41 = call i32 @dt_conf_get_int(ptr noundef nonnull %2) #16
-  %42 = add nsw i32 %41, 1
-  %43 = call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef %40, i32 noundef %42) #16
-  %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %44, label %_combo_set_active_collection.exit
+.preheader:                                       ; preds = %.preheader.preheader, %88
+  %indvars.iv69 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next70, %88 ]
+  %33 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %4, i64 %indvars.iv69
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !74
+  call void @gtk_widget_set_no_show_all(ptr noundef %35, i32 noundef 0) #16
+  %36 = load ptr, ptr %34, align 8, !tbaa !74
+  call void @gtk_widget_set_visible(ptr noundef %36, i32 noundef 1) #16
+  %37 = load ptr, ptr %34, align 8, !tbaa !74
+  call void @gtk_widget_show_all(ptr noundef %37) #16
+  %38 = trunc nuw nsw i64 %indvars.iv69 to i32
+  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 200, ptr noundef nonnull @.str.58, i32 noundef %38) #16
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !79
+  %42 = call i32 @dt_conf_get_int(ptr noundef nonnull %2) #16
+  %43 = add nsw i32 %42, 1
+  %44 = call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef %41, i32 noundef %43) #16
+  %.not.i = icmp eq i32 %44, 0
+  br i1 %.not.i, label %45, label %_combo_set_active_collection.exit
 
-44:                                               ; preds = %.preheader
-  %45 = call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef %40, i32 noundef 1) #16
+45:                                               ; preds = %.preheader
+  %46 = call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef %41, i32 noundef 1) #16
   br label %_combo_set_active_collection.exit
 
-_combo_set_active_collection.exit:                ; preds = %.preheader, %44
-  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 200, ptr noundef nonnull @.str.60, i32 noundef %37) #16
-  %47 = call ptr @dt_conf_get_string_const(ptr noundef nonnull %2) #16
-  %.not65 = icmp eq ptr %47, null
-  br i1 %.not65, label %61, label %48
+_combo_set_active_collection.exit:                ; preds = %.preheader, %45
+  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 200, ptr noundef nonnull @.str.60, i32 noundef %38) #16
+  %48 = call ptr @dt_conf_get_string_const(ptr noundef nonnull %2) #16
+  %.not65 = icmp eq ptr %48, null
+  br i1 %.not65, label %62, label %49
 
-48:                                               ; preds = %_combo_set_active_collection.exit
-  %49 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !80
-  %51 = call i32 @g_signal_handlers_block_matched(ptr noundef %50, i32 noundef 8, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @entry_changed, ptr noundef null) #16
-  %52 = load ptr, ptr %49, align 8, !tbaa !80
-  %53 = tail call i64 @gtk_entry_get_type() #18
-  %54 = call ptr @g_type_check_instance_cast(ptr noundef %52, i64 noundef %53) #16
-  call void @gtk_entry_set_text(ptr noundef %54, ptr noundef nonnull %47) #16
-  %55 = load ptr, ptr %49, align 8, !tbaa !80
-  %56 = tail call i64 @gtk_editable_get_type() #18
-  %57 = call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef %56) #16
-  call void @gtk_editable_set_position(ptr noundef %57, i32 noundef -1) #16
-  %58 = load ptr, ptr %49, align 8, !tbaa !80
-  %59 = call i32 @g_signal_handlers_unblock_matched(ptr noundef %58, i32 noundef 8, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @entry_changed, ptr noundef null) #16
-  %60 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store i32 0, ptr %60, align 8, !tbaa !81
-  br label %61
+49:                                               ; preds = %_combo_set_active_collection.exit
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !80
+  %52 = call i32 @g_signal_handlers_block_matched(ptr noundef %51, i32 noundef 8, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @entry_changed, ptr noundef null) #16
+  %53 = load ptr, ptr %50, align 8, !tbaa !80
+  %54 = tail call i64 @gtk_entry_get_type() #18
+  %55 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %54) #16
+  call void @gtk_entry_set_text(ptr noundef %55, ptr noundef nonnull %48) #16
+  %56 = load ptr, ptr %50, align 8, !tbaa !80
+  %57 = tail call i64 @gtk_editable_get_type() #18
+  %58 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %57) #16
+  call void @gtk_editable_set_position(ptr noundef %58, i32 noundef -1) #16
+  %59 = load ptr, ptr %50, align 8, !tbaa !80
+  %60 = call i32 @g_signal_handlers_unblock_matched(ptr noundef %59, i32 noundef 8, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @entry_changed, ptr noundef null) #16
+  %61 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i32 0, ptr %61, align 8, !tbaa !81
+  br label %62
 
-61:                                               ; preds = %48, %_combo_set_active_collection.exit
-  %62 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %63 = load ptr, ptr %62, align 8, !tbaa !82
-  %64 = call i64 @dtgtk_button_get_type() #16
-  %65 = call ptr @g_type_check_instance_cast(ptr noundef %63, i64 noundef %64) #16
-  %66 = icmp eq i64 %indvars.iv69, 9
-  br i1 %66, label %67, label %71
+62:                                               ; preds = %49, %_combo_set_active_collection.exit
+  %63 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %64 = load ptr, ptr %63, align 8, !tbaa !82
+  %65 = call i64 @dtgtk_button_get_type() #16
+  %66 = call ptr @g_type_check_instance_cast(ptr noundef %64, i64 noundef %65) #16
+  %67 = icmp eq i64 %indvars.iv69, 9
+  br i1 %67, label %68, label %72
 
-67:                                               ; preds = %61
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  store ptr @dtgtk_cairo_paint_cancel, ptr %68, align 8, !tbaa !83
-  %69 = call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef %18) #16
-  %70 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #16
-  call void @gtk_widget_set_tooltip_text(ptr noundef %69, ptr noundef %70) #16
-  br label %87
+68:                                               ; preds = %62
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 56
+  store ptr @dtgtk_cairo_paint_cancel, ptr %69, align 8, !tbaa !83
+  %70 = call ptr @g_type_check_instance_cast(ptr noundef %66, i64 noundef %18) #16
+  %71 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #16
+  call void @gtk_widget_set_tooltip_text(ptr noundef %70, ptr noundef %71) #16
+  br label %88
 
-71:                                               ; preds = %61
-  %72 = icmp eq i64 %indvars.iv69, %25
-  br i1 %72, label %73, label %76
+72:                                               ; preds = %62
+  %73 = icmp eq i64 %indvars.iv69, %26
+  br i1 %73, label %74, label %77
 
-73:                                               ; preds = %71
-  %74 = call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef %18) #16
-  %75 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.62, i32 noundef 5) #16
-  call void @gtk_widget_set_tooltip_text(ptr noundef %74, ptr noundef %75) #16
-  call void @dtgtk_button_set_paint(ptr noundef %65, ptr noundef nonnull @dtgtk_cairo_paint_solid_arrow, i32 noundef 2, ptr noundef null) #16
-  br label %87
+74:                                               ; preds = %72
+  %75 = call ptr @g_type_check_instance_cast(ptr noundef %66, i64 noundef %18) #16
+  %76 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.62, i32 noundef 5) #16
+  call void @gtk_widget_set_tooltip_text(ptr noundef %75, ptr noundef %76) #16
+  call void @dtgtk_button_set_paint(ptr noundef %66, ptr noundef nonnull @dtgtk_cairo_paint_solid_arrow, i32 noundef 2, ptr noundef null) #16
+  br label %88
 
-76:                                               ; preds = %71
-  %77 = trunc i64 %indvars.iv69 to i32
-  %78 = add i32 %77, 1
-  %79 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 200, ptr noundef nonnull @.str.59, i32 noundef %78) #16
-  %80 = call i32 @dt_conf_get_int(ptr noundef nonnull %2) #16
-  %81 = icmp ult i32 %80, 3
-  br i1 %81, label %switch.lookup, label %84
+77:                                               ; preds = %72
+  %78 = trunc i64 %indvars.iv69 to i32
+  %79 = add i32 %78, 1
+  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 200, ptr noundef nonnull @.str.59, i32 noundef %79) #16
+  %81 = call i32 @dt_conf_get_int(ptr noundef nonnull %2) #16
+  %82 = icmp ult i32 %81, 3
+  br i1 %82, label %switch.lookup, label %85
 
-switch.lookup:                                    ; preds = %76
-  %82 = zext nneg i32 %80 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._lib_collect_gui_update, i64 %82
+switch.lookup:                                    ; preds = %77
+  %83 = zext nneg i32 %81 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._lib_collect_gui_update, i64 %83
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  store ptr %switch.load, ptr %83, align 8, !tbaa !83
-  br label %84
+  %84 = getelementptr inbounds nuw i8, ptr %66, i64 56
+  store ptr %switch.load, ptr %84, align 8, !tbaa !83
+  br label %85
 
-84:                                               ; preds = %76, %switch.lookup
-  %85 = call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef %18) #16
-  %86 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #16
-  call void @gtk_widget_set_tooltip_text(ptr noundef %85, ptr noundef %86) #16
-  br label %87
+85:                                               ; preds = %77, %switch.lookup
+  %86 = call ptr @g_type_check_instance_cast(ptr noundef %66, i64 noundef %18) #16
+  %87 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #16
+  call void @gtk_widget_set_tooltip_text(ptr noundef %86, ptr noundef %87) #16
+  br label %88
 
-87:                                               ; preds = %73, %84, %67
-  call fastcc void @_set_tooltip(ptr noundef nonnull %32)
+88:                                               ; preds = %74, %85, %68
+  call fastcc void @_set_tooltip(ptr noundef nonnull %33)
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
-  br i1 %exitcond72.not, label %26, label %.preheader
+  br i1 %exitcond72.not, label %27, label %.preheader
 
-88:                                               ; preds = %1, %26
+89:                                               ; preds = %1, %27
   ret void
 }
 
@@ -971,32 +972,34 @@ define hidden void @_mount_changed(ptr readnone captures(none) %0, ptr noundef r
   %11 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %10) #16
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i32
-  switch i32 %13, label %24 [
+  switch i32 %13, label %26 [
     i32 2, label %14
-    i32 1, label %19
+    i32 1, label %20
   ]
 
 14:                                               ; preds = %2
   %15 = load i32, ptr %5, align 8, !tbaa !78
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %16, i32 5
-  store i32 0, ptr %17, align 8, !tbaa !81
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1136
-  store i32 -1, ptr %18, align 8, !tbaa !65
+  %17 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store i32 0, ptr %18, align 8, !tbaa !81
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 1136
+  store i32 -1, ptr %19, align 8, !tbaa !65
   tail call fastcc void @_tree_view(ptr noundef nonnull %8)
-  br label %24
+  br label %26
 
-19:                                               ; preds = %2
-  %20 = load i32, ptr %5, align 8, !tbaa !78
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %21, i32 5
-  store i32 0, ptr %22, align 8, !tbaa !81
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 1136
-  store i32 -1, ptr %23, align 8, !tbaa !65
+20:                                               ; preds = %2
+  %21 = load i32, ptr %5, align 8, !tbaa !78
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store i32 0, ptr %24, align 8, !tbaa !81
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 1136
+  store i32 -1, ptr %25, align 8, !tbaa !65
   tail call fastcc void @_list_view(ptr noundef nonnull %8)
-  br label %24
+  br label %26
 
-24:                                               ; preds = %2, %19, %14
+26:                                               ; preds = %2, %20, %14
   ret void
 }
 
@@ -4230,40 +4233,42 @@ define internal void @collection_updated(ptr readnone captures(none) %0, i32 nou
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 1120
   %11 = load i32, ptr %10, align 8, !tbaa !78
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %8, i64 %12, i32 5
-  store i32 0, ptr %13, align 8, !tbaa !81
-  %14 = icmp eq i32 %1, 3
-  %15 = icmp ne i32 %2, 43
-  %or.cond = and i1 %14, %15
+  %13 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %8, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store i32 0, ptr %14, align 8, !tbaa !81
+  %15 = icmp eq i32 %1, 3
+  %16 = icmp ne i32 %2, 43
+  %or.cond = and i1 %15, %16
   br i1 %or.cond, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %6
   %.not24 = icmp slt i32 %11, 0
   br i1 %.not24, label %.critedge23, label %.lr.ph
 
-16:                                               ; preds = %.lr.ph
+17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr %10, align 8, !tbaa !78
-  %18 = sext i32 %17 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %18
+  %18 = load i32, ptr %10, align 8, !tbaa !78
+  %19 = sext i32 %18 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %19
   br i1 %.not.not, label %.lr.ph, label %.critedge23
 
-.lr.ph:                                           ; preds = %.preheader, %16
-  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %8, i64 %indvars.iv, i32 2
-  %20 = load ptr, ptr %19, align 8, !tbaa !79
-  %21 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %20) #16
-  %22 = ptrtoint ptr %21 to i64
-  %23 = trunc i64 %22 to i32
-  %24 = add i32 %23, -1
-  %.not20 = icmp eq i32 %24, %2
-  br i1 %.not20, label %.critedge, label %16
+.lr.ph:                                           ; preds = %.preheader, %17
+  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
+  %20 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %8, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !79
+  %23 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %22) #16
+  %24 = ptrtoint ptr %23 to i64
+  %25 = trunc i64 %24 to i32
+  %26 = add i32 %25, -1
+  %.not20 = icmp eq i32 %26, %2
+  br i1 %.not20, label %.critedge, label %17
 
 .critedge:                                        ; preds = %.lr.ph, %6
   tail call void @_lib_collect_gui_update(ptr noundef %5)
   br label %.critedge23
 
-.critedge23:                                      ; preds = %16, %.preheader, %.critedge
+.critedge23:                                      ; preds = %17, %.preheader, %.critedge
   ret void
 }
 
@@ -4289,8 +4294,9 @@ define internal void @filmrolls_imported(ptr readnone captures(none) %0, i32 %1,
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1120
   %8 = load i32, ptr %7, align 8, !tbaa !78
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %5, i64 %9, i32 5
-  store i32 0, ptr %10, align 8, !tbaa !81
+  %10 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %5, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store i32 0, ptr %11, align 8, !tbaa !81
   tail call void @_lib_collect_gui_update(ptr noundef %2)
   ret void
 }
@@ -4312,8 +4318,9 @@ define internal void @filmrolls_removed(ptr readnone captures(none) %0, ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 1120
   %10 = load i32, ptr %9, align 8, !tbaa !78
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %11, i32 5
-  store i32 0, ptr %12, align 8, !tbaa !81
+  %12 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i32 0, ptr %13, align 8, !tbaa !81
   tail call void @_lib_collect_gui_update(ptr noundef nonnull %1)
   ret void
 }
@@ -4325,60 +4332,63 @@ define internal void @tag_changed(ptr readnone captures(none) %0, ptr noundef re
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1120
   %6 = load i32, ptr %5, align 8, !tbaa !78
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %7, i32 2
-  %9 = load ptr, ptr %8, align 8, !tbaa !79
-  %10 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %9) #16
-  %11 = ptrtoint ptr %10 to i64
-  %12 = and i64 %11, 4294967295
-  %13 = icmp eq i64 %12, 18
-  br i1 %13, label %17, label %.preheader
+  %8 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !79
+  %11 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %10) #16
+  %12 = ptrtoint ptr %11 to i64
+  %13 = and i64 %12, 4294967295
+  %14 = icmp eq i64 %13, 18
+  br i1 %14, label %18, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1124
-  %15 = load i32, ptr %14, align 4, !tbaa !72
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph, label %.critedge
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 1124
+  %16 = load i32, ptr %15, align 4, !tbaa !72
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph, label %.critedge
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1136
-  store i32 -1, ptr %18, align 8, !tbaa !65
-  %19 = load i32, ptr %5, align 8, !tbaa !78
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %20, i32 5
-  store i32 0, ptr %21, align 8, !tbaa !81
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 1136
+  store i32 -1, ptr %19, align 8, !tbaa !65
+  %20 = load i32, ptr %5, align 8, !tbaa !78
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %4, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  store i32 0, ptr %23, align 8, !tbaa !81
   br label %.critedge.sink.split
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %27, label %.critedge, label %.critedge.sink.split
+  br i1 %30, label %.critedge, label %.critedge.sink.split
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %4, i64 %indvars.iv, i32 2
-  %23 = load ptr, ptr %22, align 8, !tbaa !79
-  %24 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %23) #16
-  %25 = ptrtoint ptr %24 to i64
-  %26 = and i64 %25, 4294967295
-  %27 = icmp ne i64 %26, 18
+  %24 = getelementptr inbounds nuw %struct.dt_lib_collect_rule_t, ptr %4, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !79
+  %27 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %26) #16
+  %28 = ptrtoint ptr %27 to i64
+  %29 = and i64 %28, 4294967295
+  %30 = icmp ne i64 %29, 18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %14, align 4, !tbaa !72
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next, %29
-  %31 = select i1 %30, i1 %27, i1 false
-  br i1 %31, label %.lr.ph, label %._crit_edge
+  %31 = load i32, ptr %15, align 4, !tbaa !72
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next, %32
+  %34 = select i1 %33, i1 %30, i1 false
+  br i1 %34, label %.lr.ph, label %._crit_edge
 
-.critedge.sink.split:                             ; preds = %._crit_edge, %17
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !28
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 336
-  %35 = load ptr, ptr %34, align 8, !tbaa !159
-  tail call void @dt_control_signal_block_by_func(ptr noundef %32, ptr noundef nonnull @collection_updated, ptr noundef %35) #16
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !64
-  tail call void @dt_collection_update_query(ptr noundef %36, i32 noundef 3, i32 noundef 17, ptr noundef null) #16
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !28
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 336
-  %40 = load ptr, ptr %39, align 8, !tbaa !159
-  tail call void @dt_control_signal_unblock_by_func(ptr noundef %37, ptr noundef nonnull @collection_updated, ptr noundef %40) #16
+.critedge.sink.split:                             ; preds = %._crit_edge, %18
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !28
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 336
+  %38 = load ptr, ptr %37, align 8, !tbaa !159
+  tail call void @dt_control_signal_block_by_func(ptr noundef %35, ptr noundef nonnull @collection_updated, ptr noundef %38) #16
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !64
+  tail call void @dt_collection_update_query(ptr noundef %39, i32 noundef 3, i32 noundef 17, ptr noundef null) #16
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !28
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 336
+  %43 = load ptr, ptr %42, align 8, !tbaa !159
+  tail call void @dt_control_signal_unblock_by_func(ptr noundef %40, ptr noundef nonnull @collection_updated, ptr noundef %43) #16
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %.preheader, %._crit_edge
@@ -4388,7 +4398,7 @@ define internal void @tag_changed(ptr readnone captures(none) %0, ptr noundef re
 ; Function Attrs: nounwind uwtable
 define internal void @_geotag_changed(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %5, label %31
+  br i1 %.not, label %5, label %33
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 280
@@ -4396,37 +4406,39 @@ define internal void @_geotag_changed(ptr readnone captures(none) %0, ptr readno
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1120
   %9 = load i32, ptr %8, align 8, !tbaa !78
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %7, i64 %10, i32 2
-  %12 = load ptr, ptr %11, align 8, !tbaa !79
-  %13 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %12) #16
-  %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, 4294967295
-  %16 = icmp eq i64 %15, 16
-  br i1 %16, label %17, label %31
+  %11 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !79
+  %14 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %13) #16
+  %15 = ptrtoint ptr %14 to i64
+  %16 = and i64 %15, 4294967295
+  %17 = icmp eq i64 %16, 16
+  br i1 %17, label %18, label %33
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 1136
-  store i32 -1, ptr %18, align 8, !tbaa !65
-  %19 = load i32, ptr %8, align 8, !tbaa !78
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %7, i64 %20, i32 5
-  store i32 0, ptr %21, align 8, !tbaa !81
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 1136
+  store i32 -1, ptr %19, align 8, !tbaa !65
+  %20 = load i32, ptr %8, align 8, !tbaa !78
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %7, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  store i32 0, ptr %23, align 8, !tbaa !81
   tail call void @_lib_collect_gui_update(ptr noundef nonnull %3)
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !28
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 336
-  %25 = load ptr, ptr %24, align 8, !tbaa !159
-  tail call void @dt_control_signal_block_by_func(ptr noundef %22, ptr noundef nonnull @collection_updated, ptr noundef %25) #16
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !64
-  tail call void @dt_collection_update_query(ptr noundef %26, i32 noundef 3, i32 noundef 15, ptr noundef null) #16
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !28
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 336
-  %30 = load ptr, ptr %29, align 8, !tbaa !159
-  tail call void @dt_control_signal_unblock_by_func(ptr noundef %27, ptr noundef nonnull @collection_updated, ptr noundef %30) #16
-  br label %31
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !28
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 336
+  %27 = load ptr, ptr %26, align 8, !tbaa !159
+  tail call void @dt_control_signal_block_by_func(ptr noundef %24, ptr noundef nonnull @collection_updated, ptr noundef %27) #16
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !64
+  tail call void @dt_collection_update_query(ptr noundef %28, i32 noundef 3, i32 noundef 15, ptr noundef null) #16
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !28
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 336
+  %32 = load ptr, ptr %31, align 8, !tbaa !159
+  tail call void @dt_control_signal_unblock_by_func(ptr noundef %29, ptr noundef nonnull @collection_updated, ptr noundef %32) #16
+  br label %33
 
-31:                                               ; preds = %5, %17, %4
+33:                                               ; preds = %5, %18, %4
   ret void
 }
 
@@ -4505,22 +4517,23 @@ _combo_set_active_collection.exit:                ; preds = %18, %21, %.preheade
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 1120
   %47 = load i32, ptr %46, align 8, !tbaa !78
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %6, i64 %48, i32 2
-  %50 = load ptr, ptr %49, align 8, !tbaa !79
-  %51 = call ptr @dt_bauhaus_combobox_get_data(ptr noundef %50) #16
-  %52 = ptrtoint ptr %51 to i64
-  %53 = trunc i64 %52 to i32
-  %54 = add i32 %53, -20
-  %or.cond3 = icmp ult i32 %54, 9
+  %49 = getelementptr inbounds %struct.dt_lib_collect_rule_t, ptr %6, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !79
+  %52 = call ptr @dt_bauhaus_combobox_get_data(ptr noundef %51) #16
+  %53 = ptrtoint ptr %52 to i64
+  %54 = trunc i64 %53 to i32
+  %55 = add i32 %54, -20
+  %or.cond3 = icmp ult i32 %55, 9
   %or.cond39 = select i1 %7, i1 true, i1 %or.cond3
-  br i1 %or.cond39, label %55, label %57
+  br i1 %or.cond39, label %56, label %58
 
-55:                                               ; preds = %.loopexit
-  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !64
-  call void @dt_collection_update_query(ptr noundef %56, i32 noundef 3, i32 noundef 19, ptr noundef null) #16
-  br label %57
+56:                                               ; preds = %.loopexit
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !64
+  call void @dt_collection_update_query(ptr noundef %57, i32 noundef 3, i32 noundef 19, ptr noundef null) #16
+  br label %58
 
-57:                                               ; preds = %.loopexit, %55
+58:                                               ; preds = %.loopexit, %56
   ret void
 }
 

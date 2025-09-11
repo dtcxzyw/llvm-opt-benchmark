@@ -924,7 +924,8 @@ for.body41:                                       ; preds = %for.cond35.preheade
   %add.ptr.i = getelementptr inbounds nuw %"struct.TextureBuffer::TextureDefinition", ptr %32, i64 %conv36133
   %call47 = tail call noundef zeroext i1 @_ZN13TextureBuffer13ensureTextureEPPN3irr5video8ITextureERKNS_17TextureDefinitionER15PipelineContext(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %add.ptr.i.i103, ptr noundef nonnull align 8 dereferenceable(60) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(47) %context)
   %34 = load ptr, ptr %m_definitions, align 8, !tbaa !23
-  %dirty = getelementptr inbounds nuw %"struct.TextureBuffer::TextureDefinition", ptr %34, i64 %conv36133, i32 2
+  %dirty.split = getelementptr inbounds nuw %"struct.TextureBuffer::TextureDefinition", ptr %34, i64 %conv36133
+  %dirty = getelementptr inbounds nuw i8, ptr %dirty.split, i64 2
   store i8 0, ptr %dirty, align 2, !tbaa !43
   %inc52 = add i32 %i34.0132, 1
   %conv36 = zext i32 %inc52 to i64

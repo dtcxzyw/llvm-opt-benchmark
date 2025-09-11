@@ -15135,7 +15135,7 @@ define hidden noundef ptr @SDL_CreateGPURenderState_REAL(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_DestroyGPURenderState_REAL(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %51, label %2
+  br i1 %.not, label %52, label %2
 
 2:                                                ; preds = %1
   %.val = load ptr, ptr %0, align 8
@@ -15192,7 +15192,7 @@ FlushRenderCommandsIfGPURenderStateNeeded.exit:   ; preds = %2, %7, %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph, label %44
+  br i1 %33, label %.lr.ph, label %45
 
 .lr.ph:                                           ; preds = %FlushRenderCommandsIfGPURenderStateNeeded.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -15202,34 +15202,35 @@ FlushRenderCommandsIfGPURenderStateNeeded.exit:   ; preds = %2, %7, %25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load ptr, ptr %35, align 8
   tail call void @SDL_free_REAL(ptr noundef %36) #15
-  br label %44
+  br label %45
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %38 = load ptr, ptr %34, align 8
-  %39 = getelementptr inbounds nuw %struct.SDL_GPURenderStateUniformBuffer, ptr %38, i64 %indvars.iv, i32 1
-  %40 = load ptr, ptr %39, align 8
-  tail call void @SDL_free_REAL(ptr noundef %40) #15
+  %39 = getelementptr inbounds nuw %struct.SDL_GPURenderStateUniformBuffer, ptr %38, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  tail call void @SDL_free_REAL(ptr noundef %41) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = load i32, ptr %31, align 8
-  %42 = sext i32 %41 to i64
-  %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %37, label %._crit_edge, !llvm.loop !43
+  %42 = load i32, ptr %31, align 8
+  %43 = sext i32 %42 to i64
+  %44 = icmp slt i64 %indvars.iv.next, %43
+  br i1 %44, label %37, label %._crit_edge, !llvm.loop !43
 
-44:                                               ; preds = %._crit_edge, %FlushRenderCommandsIfGPURenderStateNeeded.exit
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %46 = load ptr, ptr %45, align 8
-  tail call void @SDL_free_REAL(ptr noundef %46) #15
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %48 = load ptr, ptr %47, align 8
-  tail call void @SDL_free_REAL(ptr noundef %48) #15
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %50 = load ptr, ptr %49, align 8
-  tail call void @SDL_free_REAL(ptr noundef %50) #15
+45:                                               ; preds = %._crit_edge, %FlushRenderCommandsIfGPURenderStateNeeded.exit
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %47 = load ptr, ptr %46, align 8
+  tail call void @SDL_free_REAL(ptr noundef %47) #15
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %49 = load ptr, ptr %48, align 8
+  tail call void @SDL_free_REAL(ptr noundef %49) #15
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %51 = load ptr, ptr %50, align 8
+  tail call void @SDL_free_REAL(ptr noundef %51) #15
   tail call void @SDL_free_REAL(ptr noundef nonnull %0) #15
-  br label %51
+  br label %52
 
-51:                                               ; preds = %1, %44
+52:                                               ; preds = %1, %45
   ret void
 }
 

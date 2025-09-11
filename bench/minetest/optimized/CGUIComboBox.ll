@@ -1340,7 +1340,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv.i5 = zext i32 %idx to i64
-  %Data = getelementptr inbounds nuw %"struct.irr::gui::CGUIComboBox::SComboData", ptr %1, i64 %conv.i5, i32 1
+  %Data.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIComboBox::SComboData", ptr %1, i64 %conv.i5
+  %Data = getelementptr inbounds nuw i8, ptr %Data.split, i64 32
   %2 = load i32, ptr %Data, align 8, !tbaa !89
   br label %return
 
@@ -1366,7 +1367,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %Data = getelementptr inbounds nuw %"struct.irr::gui::CGUIComboBox::SComboData", ptr %1, i64 %indvars.iv, i32 1
+  %Data.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIComboBox::SComboData", ptr %1, i64 %indvars.iv
+  %Data = getelementptr inbounds nuw i8, ptr %Data.split, i64 32
   %3 = load i32, ptr %Data, align 8, !tbaa !89
   %cmp4 = icmp eq i32 %3, %data
   br i1 %cmp4, label %cleanup.loopexit.split.loop.exit, label %for.inc

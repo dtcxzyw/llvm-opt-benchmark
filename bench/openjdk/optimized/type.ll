@@ -451,39 +451,40 @@ define hidden noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %4, i32 1
-  %6 = load i8, ptr %5, align 4
-  %7 = icmp eq i8 %6, 10
-  br i1 %7, label %8, label %23
+  %5 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %7 = load i8, ptr %6, align 4
+  %8 = icmp eq i8 %7, 10
+  br i1 %8, label %9, label %24
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  %10 = icmp eq ptr %0, %9
-  br i1 %10, label %23, label %11
+9:                                                ; preds = %1
+  %10 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
+  %11 = icmp eq ptr %0, %10
+  br i1 %11, label %24, label %12
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr @_ZN7TypeInt4CHARE, align 8
-  %13 = icmp eq ptr %0, %12
-  br i1 %13, label %23, label %14
+12:                                               ; preds = %9
+  %13 = load ptr, ptr @_ZN7TypeInt4CHARE, align 8
+  %14 = icmp eq ptr %0, %13
+  br i1 %14, label %24, label %15
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr @_ZN7TypeInt4BYTEE, align 8
-  %16 = icmp eq ptr %0, %15
-  br i1 %16, label %23, label %17
+15:                                               ; preds = %12
+  %16 = load ptr, ptr @_ZN7TypeInt4BYTEE, align 8
+  %17 = icmp eq ptr %0, %16
+  br i1 %17, label %24, label %18
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
-  %19 = icmp eq ptr %0, %18
-  br i1 %19, label %23, label %20
+18:                                               ; preds = %15
+  %19 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
+  %20 = icmp eq ptr %0, %19
+  br i1 %20, label %24, label %21
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr @_ZN7TypeInt5SHORTE, align 8
-  %22 = icmp eq ptr %0, %21
-  %. = select i1 %22, i8 9, i8 14
-  br label %23
+21:                                               ; preds = %18
+  %22 = load ptr, ptr @_ZN7TypeInt5SHORTE, align 8
+  %23 = icmp eq ptr %0, %22
+  %. = select i1 %23, i8 9, i8 14
+  br label %24
 
-23:                                               ; preds = %1, %20, %17, %14, %11, %8
-  %.0 = phi i8 [ 10, %8 ], [ 5, %11 ], [ 8, %14 ], [ 4, %17 ], [ %., %20 ], [ %6, %1 ]
+24:                                               ; preds = %1, %21, %18, %15, %12, %9
+  %.0 = phi i8 [ 10, %9 ], [ 5, %12 ], [ 8, %15 ], [ 4, %18 ], [ %., %21 ], [ %7, %1 ]
   ret i8 %.0
 }
 
@@ -11547,345 +11548,346 @@ define hidden noundef nonnull ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %0, i
 
 4:                                                ; preds = %3
   %5 = tail call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %0, i32 noundef %1)
-  br label %197
+  br label %198
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %9, i32 1
-  %11 = load i8, ptr %10, align 4
-  %12 = icmp eq i8 %11, 10
-  br i1 %12, label %13, label %_ZNK4Type24array_element_basic_typeEv.exit
+  %10 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = load i8, ptr %11, align 4
+  %13 = icmp eq i8 %12, 10
+  br i1 %13, label %14, label %_ZNK4Type24array_element_basic_typeEv.exit
 
-13:                                               ; preds = %6
-  %14 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  %15 = icmp eq ptr %0, %14
-  br i1 %15, label %_ZNK4Type24array_element_basic_typeEv.exit, label %16
+14:                                               ; preds = %6
+  %15 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
+  %16 = icmp eq ptr %0, %15
+  br i1 %16, label %_ZNK4Type24array_element_basic_typeEv.exit, label %17
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr @_ZN7TypeInt4CHARE, align 8
-  %18 = icmp eq ptr %0, %17
-  br i1 %18, label %_ZNK4Type24array_element_basic_typeEv.exit, label %19
+17:                                               ; preds = %14
+  %18 = load ptr, ptr @_ZN7TypeInt4CHARE, align 8
+  %19 = icmp eq ptr %0, %18
+  br i1 %19, label %_ZNK4Type24array_element_basic_typeEv.exit, label %20
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr @_ZN7TypeInt4BYTEE, align 8
-  %21 = icmp eq ptr %0, %20
-  br i1 %21, label %_ZNK4Type24array_element_basic_typeEv.exit, label %22
+20:                                               ; preds = %17
+  %21 = load ptr, ptr @_ZN7TypeInt4BYTEE, align 8
+  %22 = icmp eq ptr %0, %21
+  br i1 %22, label %_ZNK4Type24array_element_basic_typeEv.exit, label %23
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
-  %24 = icmp eq ptr %0, %23
-  br i1 %24, label %_ZNK4Type24array_element_basic_typeEv.exit, label %25
+23:                                               ; preds = %20
+  %24 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
+  %25 = icmp eq ptr %0, %24
+  br i1 %25, label %_ZNK4Type24array_element_basic_typeEv.exit, label %26
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr @_ZN7TypeInt5SHORTE, align 8
-  %27 = icmp eq ptr %0, %26
-  %..i = select i1 %27, i8 9, i8 14
+26:                                               ; preds = %23
+  %27 = load ptr, ptr @_ZN7TypeInt5SHORTE, align 8
+  %28 = icmp eq ptr %0, %27
+  %..i = select i1 %28, i8 9, i8 14
   br label %_ZNK4Type24array_element_basic_typeEv.exit
 
-_ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %6, %13, %16, %19, %22, %25
-  %.0.i = phi i8 [ 10, %13 ], [ 5, %16 ], [ 8, %19 ], [ 4, %22 ], [ %..i, %25 ], [ %11, %6 ]
-  %28 = zext i8 %.0.i to i64
-  %29 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %28
-  %30 = load i32, ptr %29, align 4
-  %31 = mul i32 %30, %1
-  %32 = tail call noundef i32 @_ZN7Matcher16vector_ideal_regEi(i32 noundef %31) #17
-  switch i32 %32, label %195 [
-    i32 8, label %33
-    i32 9, label %60
-    i32 7, label %87
-    i32 10, label %87
-    i32 6, label %87
-    i32 11, label %114
-    i32 12, label %141
-    i32 13, label %168
+_ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %6, %14, %17, %20, %23, %26
+  %.0.i = phi i8 [ 10, %14 ], [ 5, %17 ], [ 8, %20 ], [ 4, %23 ], [ %..i, %26 ], [ %12, %6 ]
+  %29 = zext i8 %.0.i to i64
+  %30 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %29
+  %31 = load i32, ptr %30, align 4
+  %32 = mul i32 %31, %1
+  %33 = tail call noundef i32 @_ZN7Matcher16vector_ideal_regEi(i32 noundef %32) #17
+  switch i32 %33, label %196 [
+    i32 8, label %34
+    i32 9, label %61
+    i32 7, label %88
+    i32 10, label %88
+    i32 6, label %88
+    i32 11, label %115
+    i32 12, label %142
+    i32 13, label %169
   ]
 
-33:                                               ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
-  %34 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1808
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 888
-  store i64 40, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 848
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %46 = load ptr, ptr %45, align 8
-  %47 = ptrtoint ptr %44 to i64
-  %48 = ptrtoint ptr %46 to i64
-  %49 = sub i64 %47, %48
-  %.not.i.i.i = icmp ult i64 %49, 40
-  br i1 %.not.i.i.i, label %52, label %50
+34:                                               ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
+  %35 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1808
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 128
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 888
+  store i64 40, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 848
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %47 = load ptr, ptr %46, align 8
+  %48 = ptrtoint ptr %45 to i64
+  %49 = ptrtoint ptr %47 to i64
+  %50 = sub i64 %48, %49
+  %.not.i.i.i = icmp ult i64 %50, 40
+  br i1 %.not.i.i.i, label %53, label %51
 
-50:                                               ; preds = %33
-  %51 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  store ptr %51, ptr %45, align 8
+51:                                               ; preds = %34
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  store ptr %52, ptr %46, align 8
   br label %_ZN4TypenwEm.exit
 
-52:                                               ; preds = %33
-  %53 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %42, i64 noundef 40, i32 noundef 0) #17
+53:                                               ; preds = %34
+  %54 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %43, i64 noundef 40, i32 noundef 0) #17
   br label %_ZN4TypenwEm.exit
 
-_ZN4TypenwEm.exit:                                ; preds = %50, %52
-  %.0.i.i.i = phi ptr [ %46, %50 ], [ %53, %52 ]
-  %54 = icmp ne ptr %.0.i.i.i, null
-  tail call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  store ptr null, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i32 12, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  store ptr %0, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  store i32 %1, ptr %58, align 8
+_ZN4TypenwEm.exit:                                ; preds = %51, %53
+  %.0.i.i.i = phi ptr [ %47, %51 ], [ %54, %53 ]
+  %55 = icmp ne ptr %.0.i.i.i, null
+  tail call void @llvm.assume(i1 %55)
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  store ptr null, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
+  store i32 12, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
+  store ptr %0, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
+  store i32 %1, ptr %59, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectA, i64 16), ptr %.0.i.i.i, align 8
-  %59 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
-  br label %197
+  %60 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
+  br label %198
 
-60:                                               ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
-  %61 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1808
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 128
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 888
-  store i64 40, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 848
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %73 = load ptr, ptr %72, align 8
-  %74 = ptrtoint ptr %71 to i64
-  %75 = ptrtoint ptr %73 to i64
-  %76 = sub i64 %74, %75
-  %.not.i.i.i19 = icmp ult i64 %76, 40
-  br i1 %.not.i.i.i19, label %79, label %77
+61:                                               ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
+  %62 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1808
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 128
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 888
+  store i64 40, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 848
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 32
+  %74 = load ptr, ptr %73, align 8
+  %75 = ptrtoint ptr %72 to i64
+  %76 = ptrtoint ptr %74 to i64
+  %77 = sub i64 %75, %76
+  %.not.i.i.i19 = icmp ult i64 %77, 40
+  br i1 %.not.i.i.i19, label %80, label %78
 
-77:                                               ; preds = %60
-  %78 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  store ptr %78, ptr %72, align 8
+78:                                               ; preds = %61
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 40
+  store ptr %79, ptr %73, align 8
   br label %_ZN4TypenwEm.exit21
 
-79:                                               ; preds = %60
-  %80 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %69, i64 noundef 40, i32 noundef 0) #17
+80:                                               ; preds = %61
+  %81 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %70, i64 noundef 40, i32 noundef 0) #17
   br label %_ZN4TypenwEm.exit21
 
-_ZN4TypenwEm.exit21:                              ; preds = %77, %79
-  %.0.i.i.i20 = phi ptr [ %73, %77 ], [ %80, %79 ]
-  %81 = icmp ne ptr %.0.i.i.i20, null
-  tail call void @llvm.assume(i1 %81)
-  %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 8
-  store ptr null, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 16
-  store i32 13, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 24
-  store ptr %0, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 32
-  store i32 %1, ptr %85, align 8
+_ZN4TypenwEm.exit21:                              ; preds = %78, %80
+  %.0.i.i.i20 = phi ptr [ %74, %78 ], [ %81, %80 ]
+  %82 = icmp ne ptr %.0.i.i.i20, null
+  tail call void @llvm.assume(i1 %82)
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 8
+  store ptr null, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 16
+  store i32 13, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 24
+  store ptr %0, ptr %85, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 32
+  store i32 %1, ptr %86, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectS, i64 16), ptr %.0.i.i.i20, align 8
-  %86 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i20)
-  br label %197
+  %87 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i20)
+  br label %198
 
-87:                                               ; preds = %_ZNK4Type24array_element_basic_typeEv.exit, %_ZNK4Type24array_element_basic_typeEv.exit, %_ZNK4Type24array_element_basic_typeEv.exit
-  %88 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1808
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 128
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 888
-  store i64 40, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 848
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 32
-  %100 = load ptr, ptr %99, align 8
-  %101 = ptrtoint ptr %98 to i64
-  %102 = ptrtoint ptr %100 to i64
-  %103 = sub i64 %101, %102
-  %.not.i.i.i22 = icmp ult i64 %103, 40
-  br i1 %.not.i.i.i22, label %106, label %104
+88:                                               ; preds = %_ZNK4Type24array_element_basic_typeEv.exit, %_ZNK4Type24array_element_basic_typeEv.exit, %_ZNK4Type24array_element_basic_typeEv.exit
+  %89 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1808
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 128
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 888
+  store i64 40, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 848
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 32
+  %101 = load ptr, ptr %100, align 8
+  %102 = ptrtoint ptr %99 to i64
+  %103 = ptrtoint ptr %101 to i64
+  %104 = sub i64 %102, %103
+  %.not.i.i.i22 = icmp ult i64 %104, 40
+  br i1 %.not.i.i.i22, label %107, label %105
 
-104:                                              ; preds = %87
-  %105 = getelementptr inbounds nuw i8, ptr %100, i64 40
-  store ptr %105, ptr %99, align 8
+105:                                              ; preds = %88
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 40
+  store ptr %106, ptr %100, align 8
   br label %_ZN4TypenwEm.exit24
 
-106:                                              ; preds = %87
-  %107 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %96, i64 noundef 40, i32 noundef 0) #17
+107:                                              ; preds = %88
+  %108 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %97, i64 noundef 40, i32 noundef 0) #17
   br label %_ZN4TypenwEm.exit24
 
-_ZN4TypenwEm.exit24:                              ; preds = %104, %106
-  %.0.i.i.i23 = phi ptr [ %100, %104 ], [ %107, %106 ]
-  %108 = icmp ne ptr %.0.i.i.i23, null
-  tail call void @llvm.assume(i1 %108)
-  %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 8
-  store ptr null, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 16
-  store i32 14, ptr %110, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 24
-  store ptr %0, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 32
-  store i32 %1, ptr %112, align 8
+_ZN4TypenwEm.exit24:                              ; preds = %105, %107
+  %.0.i.i.i23 = phi ptr [ %101, %105 ], [ %108, %107 ]
+  %109 = icmp ne ptr %.0.i.i.i23, null
+  tail call void @llvm.assume(i1 %109)
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 8
+  store ptr null, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 16
+  store i32 14, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 24
+  store ptr %0, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %.0.i.i.i23, i64 32
+  store i32 %1, ptr %113, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectD, i64 16), ptr %.0.i.i.i23, align 8
-  %113 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i23)
-  br label %197
+  %114 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i23)
+  br label %198
 
-114:                                              ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
-  %115 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 1808
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 128
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 888
-  store i64 40, ptr %121, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 848
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 32
-  %127 = load ptr, ptr %126, align 8
-  %128 = ptrtoint ptr %125 to i64
-  %129 = ptrtoint ptr %127 to i64
-  %130 = sub i64 %128, %129
-  %.not.i.i.i25 = icmp ult i64 %130, 40
-  br i1 %.not.i.i.i25, label %133, label %131
+115:                                              ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
+  %116 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 1808
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 128
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 888
+  store i64 40, ptr %122, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 848
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 40
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 32
+  %128 = load ptr, ptr %127, align 8
+  %129 = ptrtoint ptr %126 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  %.not.i.i.i25 = icmp ult i64 %131, 40
+  br i1 %.not.i.i.i25, label %134, label %132
 
-131:                                              ; preds = %114
-  %132 = getelementptr inbounds nuw i8, ptr %127, i64 40
-  store ptr %132, ptr %126, align 8
+132:                                              ; preds = %115
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 40
+  store ptr %133, ptr %127, align 8
   br label %_ZN4TypenwEm.exit27
 
-133:                                              ; preds = %114
-  %134 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %123, i64 noundef 40, i32 noundef 0) #17
+134:                                              ; preds = %115
+  %135 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %124, i64 noundef 40, i32 noundef 0) #17
   br label %_ZN4TypenwEm.exit27
 
-_ZN4TypenwEm.exit27:                              ; preds = %131, %133
-  %.0.i.i.i26 = phi ptr [ %127, %131 ], [ %134, %133 ]
-  %135 = icmp ne ptr %.0.i.i.i26, null
-  tail call void @llvm.assume(i1 %135)
-  %136 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26, i64 8
-  store ptr null, ptr %136, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26, i64 16
-  store i32 15, ptr %137, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26, i64 24
-  store ptr %0, ptr %138, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26, i64 32
-  store i32 %1, ptr %139, align 8
+_ZN4TypenwEm.exit27:                              ; preds = %132, %134
+  %.0.i.i.i26 = phi ptr [ %128, %132 ], [ %135, %134 ]
+  %136 = icmp ne ptr %.0.i.i.i26, null
+  tail call void @llvm.assume(i1 %136)
+  %137 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26, i64 8
+  store ptr null, ptr %137, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26, i64 16
+  store i32 15, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26, i64 24
+  store ptr %0, ptr %139, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26, i64 32
+  store i32 %1, ptr %140, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectX, i64 16), ptr %.0.i.i.i26, align 8
-  %140 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i26)
-  br label %197
+  %141 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i26)
+  br label %198
 
-141:                                              ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
-  %142 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 1808
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 128
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 888
-  store i64 40, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %147, i64 848
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %150, i64 32
-  %154 = load ptr, ptr %153, align 8
-  %155 = ptrtoint ptr %152 to i64
-  %156 = ptrtoint ptr %154 to i64
-  %157 = sub i64 %155, %156
-  %.not.i.i.i28 = icmp ult i64 %157, 40
-  br i1 %.not.i.i.i28, label %160, label %158
+142:                                              ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
+  %143 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 1808
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 128
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 888
+  store i64 40, ptr %149, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 848
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 40
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 32
+  %155 = load ptr, ptr %154, align 8
+  %156 = ptrtoint ptr %153 to i64
+  %157 = ptrtoint ptr %155 to i64
+  %158 = sub i64 %156, %157
+  %.not.i.i.i28 = icmp ult i64 %158, 40
+  br i1 %.not.i.i.i28, label %161, label %159
 
-158:                                              ; preds = %141
-  %159 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  store ptr %159, ptr %153, align 8
+159:                                              ; preds = %142
+  %160 = getelementptr inbounds nuw i8, ptr %155, i64 40
+  store ptr %160, ptr %154, align 8
   br label %_ZN4TypenwEm.exit30
 
-160:                                              ; preds = %141
-  %161 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %150, i64 noundef 40, i32 noundef 0) #17
+161:                                              ; preds = %142
+  %162 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %151, i64 noundef 40, i32 noundef 0) #17
   br label %_ZN4TypenwEm.exit30
 
-_ZN4TypenwEm.exit30:                              ; preds = %158, %160
-  %.0.i.i.i29 = phi ptr [ %154, %158 ], [ %161, %160 ]
-  %162 = icmp ne ptr %.0.i.i.i29, null
-  tail call void @llvm.assume(i1 %162)
-  %163 = getelementptr inbounds nuw i8, ptr %.0.i.i.i29, i64 8
-  store ptr null, ptr %163, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %.0.i.i.i29, i64 16
-  store i32 16, ptr %164, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %.0.i.i.i29, i64 24
-  store ptr %0, ptr %165, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %.0.i.i.i29, i64 32
-  store i32 %1, ptr %166, align 8
+_ZN4TypenwEm.exit30:                              ; preds = %159, %161
+  %.0.i.i.i29 = phi ptr [ %155, %159 ], [ %162, %161 ]
+  %163 = icmp ne ptr %.0.i.i.i29, null
+  tail call void @llvm.assume(i1 %163)
+  %164 = getelementptr inbounds nuw i8, ptr %.0.i.i.i29, i64 8
+  store ptr null, ptr %164, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %.0.i.i.i29, i64 16
+  store i32 16, ptr %165, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %.0.i.i.i29, i64 24
+  store ptr %0, ptr %166, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %.0.i.i.i29, i64 32
+  store i32 %1, ptr %167, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectY, i64 16), ptr %.0.i.i.i29, align 8
-  %167 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i29)
-  br label %197
+  %168 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i29)
+  br label %198
 
-168:                                              ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
-  %169 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 1808
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 128
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 888
-  store i64 40, ptr %175, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %174, i64 848
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
-  %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %177, i64 32
-  %181 = load ptr, ptr %180, align 8
-  %182 = ptrtoint ptr %179 to i64
-  %183 = ptrtoint ptr %181 to i64
-  %184 = sub i64 %182, %183
-  %.not.i.i.i31 = icmp ult i64 %184, 40
-  br i1 %.not.i.i.i31, label %187, label %185
+169:                                              ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
+  %170 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %171 = load ptr, ptr %170, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 1808
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 128
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 888
+  store i64 40, ptr %176, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 848
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 32
+  %182 = load ptr, ptr %181, align 8
+  %183 = ptrtoint ptr %180 to i64
+  %184 = ptrtoint ptr %182 to i64
+  %185 = sub i64 %183, %184
+  %.not.i.i.i31 = icmp ult i64 %185, 40
+  br i1 %.not.i.i.i31, label %188, label %186
 
-185:                                              ; preds = %168
-  %186 = getelementptr inbounds nuw i8, ptr %181, i64 40
-  store ptr %186, ptr %180, align 8
+186:                                              ; preds = %169
+  %187 = getelementptr inbounds nuw i8, ptr %182, i64 40
+  store ptr %187, ptr %181, align 8
   br label %_ZN4TypenwEm.exit33
 
-187:                                              ; preds = %168
-  %188 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %177, i64 noundef 40, i32 noundef 0) #17
+188:                                              ; preds = %169
+  %189 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %178, i64 noundef 40, i32 noundef 0) #17
   br label %_ZN4TypenwEm.exit33
 
-_ZN4TypenwEm.exit33:                              ; preds = %185, %187
-  %.0.i.i.i32 = phi ptr [ %181, %185 ], [ %188, %187 ]
-  %189 = icmp ne ptr %.0.i.i.i32, null
-  tail call void @llvm.assume(i1 %189)
-  %190 = getelementptr inbounds nuw i8, ptr %.0.i.i.i32, i64 8
-  store ptr null, ptr %190, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %.0.i.i.i32, i64 16
-  store i32 17, ptr %191, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %.0.i.i.i32, i64 24
-  store ptr %0, ptr %192, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %.0.i.i.i32, i64 32
-  store i32 %1, ptr %193, align 8
+_ZN4TypenwEm.exit33:                              ; preds = %186, %188
+  %.0.i.i.i32 = phi ptr [ %182, %186 ], [ %189, %188 ]
+  %190 = icmp ne ptr %.0.i.i.i32, null
+  tail call void @llvm.assume(i1 %190)
+  %191 = getelementptr inbounds nuw i8, ptr %.0.i.i.i32, i64 8
+  store ptr null, ptr %191, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %.0.i.i.i32, i64 16
+  store i32 17, ptr %192, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %.0.i.i.i32, i64 24
+  store ptr %0, ptr %193, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %.0.i.i.i32, i64 32
+  store i32 %1, ptr %194, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV9TypeVectZ, i64 16), ptr %.0.i.i.i32, align 8
-  %194 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i32)
-  br label %197
+  %195 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i32)
+  br label %198
 
-195:                                              ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
-  %196 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %196, align 1
+196:                                              ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
+  %197 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %197, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.42, i32 noundef 2518) #18
   unreachable
 
-197:                                              ; preds = %_ZN4TypenwEm.exit33, %_ZN4TypenwEm.exit30, %_ZN4TypenwEm.exit27, %_ZN4TypenwEm.exit24, %_ZN4TypenwEm.exit21, %_ZN4TypenwEm.exit, %4
-  %.0 = phi ptr [ %5, %4 ], [ %59, %_ZN4TypenwEm.exit ], [ %86, %_ZN4TypenwEm.exit21 ], [ %113, %_ZN4TypenwEm.exit24 ], [ %140, %_ZN4TypenwEm.exit27 ], [ %167, %_ZN4TypenwEm.exit30 ], [ %194, %_ZN4TypenwEm.exit33 ]
+198:                                              ; preds = %_ZN4TypenwEm.exit33, %_ZN4TypenwEm.exit30, %_ZN4TypenwEm.exit27, %_ZN4TypenwEm.exit24, %_ZN4TypenwEm.exit21, %_ZN4TypenwEm.exit, %4
+  %.0 = phi ptr [ %5, %4 ], [ %60, %_ZN4TypenwEm.exit ], [ %87, %_ZN4TypenwEm.exit21 ], [ %114, %_ZN4TypenwEm.exit24 ], [ %141, %_ZN4TypenwEm.exit27 ], [ %168, %_ZN4TypenwEm.exit30 ], [ %195, %_ZN4TypenwEm.exit33 ]
   ret ptr %.0
 }
 
@@ -11894,59 +11896,60 @@ define hidden noundef nonnull ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %5, i32 1
-  %7 = load i8, ptr %6, align 4
-  %8 = icmp eq i8 %7, 10
-  br i1 %8, label %9, label %_ZNK4Type24array_element_basic_typeEv.exit
+  %6 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %8 = load i8, ptr %7, align 4
+  %9 = icmp eq i8 %8, 10
+  br i1 %9, label %10, label %_ZNK4Type24array_element_basic_typeEv.exit
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  %11 = icmp eq ptr %0, %10
-  br i1 %11, label %_ZNK4Type24array_element_basic_typeEv.exit, label %12
+10:                                               ; preds = %2
+  %11 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
+  %12 = icmp eq ptr %0, %11
+  br i1 %12, label %_ZNK4Type24array_element_basic_typeEv.exit, label %13
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr @_ZN7TypeInt4CHARE, align 8
-  %14 = icmp eq ptr %0, %13
-  br i1 %14, label %_ZNK4Type24array_element_basic_typeEv.exit, label %15
+13:                                               ; preds = %10
+  %14 = load ptr, ptr @_ZN7TypeInt4CHARE, align 8
+  %15 = icmp eq ptr %0, %14
+  br i1 %15, label %_ZNK4Type24array_element_basic_typeEv.exit, label %16
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr @_ZN7TypeInt4BYTEE, align 8
-  %17 = icmp eq ptr %0, %16
-  br i1 %17, label %_ZNK4Type24array_element_basic_typeEv.exit, label %18
+16:                                               ; preds = %13
+  %17 = load ptr, ptr @_ZN7TypeInt4BYTEE, align 8
+  %18 = icmp eq ptr %0, %17
+  br i1 %18, label %_ZNK4Type24array_element_basic_typeEv.exit, label %19
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
-  %20 = icmp eq ptr %0, %19
-  br i1 %20, label %_ZNK4Type24array_element_basic_typeEv.exit, label %21
+19:                                               ; preds = %16
+  %20 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
+  %21 = icmp eq ptr %0, %20
+  br i1 %21, label %_ZNK4Type24array_element_basic_typeEv.exit, label %22
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr @_ZN7TypeInt5SHORTE, align 8
-  %23 = icmp eq ptr %0, %22
-  %..i = select i1 %23, i8 9, i8 14
+22:                                               ; preds = %19
+  %23 = load ptr, ptr @_ZN7TypeInt5SHORTE, align 8
+  %24 = icmp eq ptr %0, %23
+  %..i = select i1 %24, i8 9, i8 14
   br label %_ZNK4Type24array_element_basic_typeEv.exit
 
-_ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %2, %9, %12, %15, %18, %21
-  %.0.i = phi i8 [ 10, %9 ], [ 5, %12 ], [ 8, %15 ], [ 4, %18 ], [ %..i, %21 ], [ %7, %2 ]
-  %24 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %25 = and i64 %24, 134217728
-  %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %31, label %26
+_ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %2, %10, %13, %16, %19, %22
+  %.0.i = phi i8 [ 10, %10 ], [ 5, %13 ], [ 8, %16 ], [ 4, %19 ], [ %..i, %22 ], [ %8, %2 ]
+  %25 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %26 = and i64 %25, 134217728
+  %.not = icmp eq i64 %26, 0
+  br i1 %.not, label %32, label %27
 
-26:                                               ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
-  %27 = tail call noundef zeroext i1 @_ZN7Matcher34match_rule_supported_vector_maskedEii9BasicType(i32 noundef 477, i32 noundef %1, i8 noundef zeroext %.0.i) #17
-  br i1 %27, label %28, label %31
+27:                                               ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
+  %28 = tail call noundef zeroext i1 @_ZN7Matcher34match_rule_supported_vector_maskedEii9BasicType(i32 noundef 477, i32 noundef %1, i8 noundef zeroext %.0.i) #17
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %26
-  %29 = tail call noundef ptr @_ZN7Matcher18predicate_reg_typeEPK4Typei(ptr noundef nonnull %0, i32 noundef %1) #17
-  %30 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %29)
-  br label %33
+29:                                               ; preds = %27
+  %30 = tail call noundef ptr @_ZN7Matcher18predicate_reg_typeEPK4Typei(ptr noundef nonnull %0, i32 noundef %1) #17
+  %31 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %30)
+  br label %34
 
-31:                                               ; preds = %26, %_ZNK4Type24array_element_basic_typeEv.exit
-  %32 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext false)
-  br label %33
+32:                                               ; preds = %27, %_ZNK4Type24array_element_basic_typeEv.exit
+  %33 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext false)
+  br label %34
 
-33:                                               ; preds = %31, %28
-  %.0 = phi ptr [ %30, %28 ], [ %32, %31 ]
+34:                                               ; preds = %32, %29
+  %.0 = phi ptr [ %31, %29 ], [ %33, %32 ]
   ret ptr %.0
 }
 
@@ -21214,130 +21217,131 @@ define hidden noundef ptr @_ZNK10TypeAryPtr16narrow_size_typeEPK7TypeInt(ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %13, i32 1
-  %15 = load i8, ptr %14, align 4
-  %16 = icmp eq i8 %15, 10
-  br i1 %16, label %17, label %_ZNK4Type24array_element_basic_typeEv.exit
+  %14 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load i8, ptr %15, align 4
+  %17 = icmp eq i8 %16, 10
+  br i1 %17, label %18, label %_ZNK4Type24array_element_basic_typeEv.exit
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  %19 = icmp eq ptr %10, %18
-  br i1 %19, label %_ZNK4Type24array_element_basic_typeEv.exit, label %20
+18:                                               ; preds = %2
+  %19 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
+  %20 = icmp eq ptr %10, %19
+  br i1 %20, label %_ZNK4Type24array_element_basic_typeEv.exit, label %21
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr @_ZN7TypeInt4CHARE, align 8
-  %22 = icmp eq ptr %10, %21
-  br i1 %22, label %_ZNK4Type24array_element_basic_typeEv.exit, label %23
+21:                                               ; preds = %18
+  %22 = load ptr, ptr @_ZN7TypeInt4CHARE, align 8
+  %23 = icmp eq ptr %10, %22
+  br i1 %23, label %_ZNK4Type24array_element_basic_typeEv.exit, label %24
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr @_ZN7TypeInt4BYTEE, align 8
-  %25 = icmp eq ptr %10, %24
-  br i1 %25, label %_ZNK4Type24array_element_basic_typeEv.exit, label %26
+24:                                               ; preds = %21
+  %25 = load ptr, ptr @_ZN7TypeInt4BYTEE, align 8
+  %26 = icmp eq ptr %10, %25
+  br i1 %26, label %_ZNK4Type24array_element_basic_typeEv.exit, label %27
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
-  %28 = icmp eq ptr %10, %27
-  br i1 %28, label %_ZNK4Type24array_element_basic_typeEv.exit, label %29
+27:                                               ; preds = %24
+  %28 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
+  %29 = icmp eq ptr %10, %28
+  br i1 %29, label %_ZNK4Type24array_element_basic_typeEv.exit, label %30
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr @_ZN7TypeInt5SHORTE, align 8
-  %31 = icmp eq ptr %10, %30
-  %..i = select i1 %31, i8 9, i8 14
+30:                                               ; preds = %27
+  %31 = load ptr, ptr @_ZN7TypeInt5SHORTE, align 8
+  %32 = icmp eq ptr %10, %31
+  %..i = select i1 %32, i8 9, i8 14
   br label %_ZNK4Type24array_element_basic_typeEv.exit
 
-_ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %2, %17, %20, %23, %26, %29
-  %.0.i = phi i8 [ 10, %17 ], [ 5, %20 ], [ 8, %23 ], [ 4, %26 ], [ %..i, %29 ], [ %15, %2 ]
-  %32 = tail call noundef i32 @_ZN10TypeAryPtr16max_array_lengthE9BasicType(i8 noundef zeroext %.0.i)
-  %33 = icmp slt i32 %6, 0
-  br i1 %33, label %34, label %38
+_ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %2, %18, %21, %24, %27, %30
+  %.0.i = phi i8 [ 10, %18 ], [ 5, %21 ], [ 8, %24 ], [ 4, %27 ], [ %..i, %30 ], [ %16, %2 ]
+  %33 = tail call noundef i32 @_ZN10TypeAryPtr16max_array_lengthE9BasicType(i8 noundef zeroext %.0.i)
+  %34 = icmp slt i32 %6, 0
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
-  %35 = load i32, ptr %5, align 8
-  %36 = load i32, ptr %3, align 4
-  %37 = icmp eq i32 %35, %36
-  %spec.select = select i1 %37, i32 0, i32 %4
-  br label %38
+35:                                               ; preds = %_ZNK4Type24array_element_basic_typeEv.exit
+  %36 = load i32, ptr %5, align 8
+  %37 = load i32, ptr %3, align 4
+  %38 = icmp eq i32 %36, %37
+  %spec.select = select i1 %38, i32 0, i32 %4
+  br label %39
 
-38:                                               ; preds = %34, %_ZNK4Type24array_element_basic_typeEv.exit
-  %.022 = phi i32 [ 0, %34 ], [ %6, %_ZNK4Type24array_element_basic_typeEv.exit ]
-  %.020 = phi i32 [ %spec.select, %34 ], [ %4, %_ZNK4Type24array_element_basic_typeEv.exit ]
-  %39 = icmp sgt i32 %.020, %32
-  br i1 %39, label %.thread, label %40
+39:                                               ; preds = %35, %_ZNK4Type24array_element_basic_typeEv.exit
+  %.022 = phi i32 [ 0, %35 ], [ %6, %_ZNK4Type24array_element_basic_typeEv.exit ]
+  %.020 = phi i32 [ %spec.select, %35 ], [ %4, %_ZNK4Type24array_element_basic_typeEv.exit ]
+  %40 = icmp sgt i32 %.020, %33
+  br i1 %40, label %.thread, label %41
 
-40:                                               ; preds = %38
-  %41 = icmp sgt i32 %.022, %.020
-  br i1 %41, label %46, label %48
+41:                                               ; preds = %39
+  %42 = icmp sgt i32 %.022, %.020
+  br i1 %42, label %47, label %49
 
-.thread:                                          ; preds = %38
-  %42 = load i32, ptr %5, align 8
-  %43 = load i32, ptr %3, align 4
-  %44 = icmp eq i32 %42, %43
-  %spec.select27 = select i1 %44, i32 %32, i32 %.022
-  %45 = icmp sgt i32 %spec.select27, %32
-  br i1 %45, label %46, label %_ZL19normalize_int_wideniii.exit.i
+.thread:                                          ; preds = %39
+  %43 = load i32, ptr %5, align 8
+  %44 = load i32, ptr %3, align 4
+  %45 = icmp eq i32 %43, %44
+  %spec.select27 = select i1 %45, i32 %33, i32 %.022
+  %46 = icmp sgt i32 %spec.select27, %33
+  br i1 %46, label %47, label %_ZL19normalize_int_wideniii.exit.i
 
-46:                                               ; preds = %.thread, %40
-  %47 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
-  br label %79
+47:                                               ; preds = %.thread, %41
+  %48 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
+  br label %80
 
-48:                                               ; preds = %40
-  br i1 %33, label %_ZL19normalize_int_wideniii.exit.i, label %79
+49:                                               ; preds = %41
+  br i1 %34, label %_ZL19normalize_int_wideniii.exit.i, label %80
 
-_ZL19normalize_int_wideniii.exit.i:               ; preds = %.thread, %48
-  %.1233139 = phi i32 [ %.022, %48 ], [ %spec.select27, %.thread ]
-  %.23238 = phi i32 [ %.020, %48 ], [ %32, %.thread ]
-  %49 = sub i32 %.23238, %.1233139
-  %50 = icmp eq i32 %49, -1
-  %51 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1808
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 128
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 888
-  store i64 32, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 848
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %63 = load ptr, ptr %62, align 8
-  %64 = ptrtoint ptr %61 to i64
-  %65 = ptrtoint ptr %63 to i64
-  %66 = sub i64 %64, %65
-  %.not.i.i.i.i = icmp ult i64 %66, 32
-  br i1 %.not.i.i.i.i, label %69, label %67
+_ZL19normalize_int_wideniii.exit.i:               ; preds = %.thread, %49
+  %.1233139 = phi i32 [ %.022, %49 ], [ %spec.select27, %.thread ]
+  %.23238 = phi i32 [ %.020, %49 ], [ %33, %.thread ]
+  %50 = sub i32 %.23238, %.1233139
+  %51 = icmp eq i32 %50, -1
+  %52 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1808
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 128
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 888
+  store i64 32, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 848
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %64 = load ptr, ptr %63, align 8
+  %65 = ptrtoint ptr %62 to i64
+  %66 = ptrtoint ptr %64 to i64
+  %67 = sub i64 %65, %66
+  %.not.i.i.i.i = icmp ult i64 %67, 32
+  br i1 %.not.i.i.i.i, label %70, label %68
 
-67:                                               ; preds = %_ZL19normalize_int_wideniii.exit.i
-  %68 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  store ptr %68, ptr %62, align 8
+68:                                               ; preds = %_ZL19normalize_int_wideniii.exit.i
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  store ptr %69, ptr %63, align 8
   br label %_ZN7TypeInt4makeEiii.exit
 
-69:                                               ; preds = %_ZL19normalize_int_wideniii.exit.i
-  %70 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %59, i64 noundef 32, i32 noundef 0) #17
+70:                                               ; preds = %_ZL19normalize_int_wideniii.exit.i
+  %71 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %60, i64 noundef 32, i32 noundef 0) #17
   br label %_ZN7TypeInt4makeEiii.exit
 
-_ZN7TypeInt4makeEiii.exit:                        ; preds = %67, %69
-  %.0.i.i.i.i = phi ptr [ %63, %67 ], [ %70, %69 ]
-  %71 = icmp ne ptr %.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %71)
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store ptr null, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 3, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
-  %75 = select i1 %50, i16 3, i16 0
-  store i16 %75, ptr %74, align 4
+_ZN7TypeInt4makeEiii.exit:                        ; preds = %68, %70
+  %.0.i.i.i.i = phi ptr [ %64, %68 ], [ %71, %70 ]
+  %72 = icmp ne ptr %.0.i.i.i.i, null
+  tail call void @llvm.assume(i1 %72)
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store ptr null, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 3, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 20
+  %76 = select i1 %51, i16 3, i16 0
+  store i16 %76, ptr %75, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store i32 %.1233139, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
-  store i32 %.23238, ptr %77, align 4
-  %78 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
-  br label %79
+  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store i32 %.1233139, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 28
+  store i32 %.23238, ptr %78, align 4
+  %79 = tail call noundef nonnull ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)
+  br label %80
 
-79:                                               ; preds = %48, %_ZN7TypeInt4makeEiii.exit, %46
-  %.019 = phi ptr [ %47, %46 ], [ %78, %_ZN7TypeInt4makeEiii.exit ], [ %1, %48 ]
+80:                                               ; preds = %49, %_ZN7TypeInt4makeEiii.exit, %47
+  %.019 = phi ptr [ %48, %47 ], [ %79, %_ZN7TypeInt4makeEiii.exit ], [ %1, %49 ]
   ret ptr %.019
 }
 
@@ -28485,23 +28489,24 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %9, %1
   %.not10.not20 = and i1 %.not1016, %14
   %15 = icmp eq i32 %.fr, 22
   %or.cond = or i1 %.not10.not20, %15
-  br i1 %or.cond, label %21, label %switch.early.test
+  br i1 %or.cond, label %22, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZNK4Type8make_ptrEv.exit
   switch i32 %.fr, label %16 [
-    i32 37, label %21
-    i32 2, label %21
+    i32 37, label %22
+    i32 2, label %22
   ]
 
 16:                                               ; preds = %switch.early.test
   %17 = zext i32 %.fr to i64
-  %18 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %17, i32 1
-  %19 = load i8, ptr %18, align 4
-  %20 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %19) #17
-  br label %21
+  %18 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %20 = load i8, ptr %19, align 4
+  %21 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %20) #17
+  br label %22
 
-21:                                               ; preds = %switch.early.test, %switch.early.test, %16, %_ZNK4Type8make_ptrEv.exit
-  %.09 = phi ptr [ null, %_ZNK4Type8make_ptrEv.exit ], [ null, %switch.early.test ], [ %20, %16 ], [ null, %switch.early.test ]
+22:                                               ; preds = %switch.early.test, %switch.early.test, %16, %_ZNK4Type8make_ptrEv.exit
+  %.09 = phi ptr [ null, %_ZNK4Type8make_ptrEv.exit ], [ null, %switch.early.test ], [ %21, %16 ], [ null, %switch.early.test ]
   ret ptr %.09
 }
 
@@ -28510,7 +28515,7 @@ define hidden noundef ptr @_ZNK10TypeAryPtr5klassEv(ptr noundef nonnull align 8 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %28
+  br i1 %.not, label %4, label %29
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -28550,27 +28555,28 @@ switch.early.test.i:                              ; preds = %_ZNK4Type8make_ptrE
 
 19:                                               ; preds = %switch.early.test.i
   %20 = zext i32 %.fr.i to i64
-  %21 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %20, i32 1
-  %22 = load i8, ptr %21, align 4
-  %23 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %22) #17
+  %21 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i8, ptr %22, align 4
+  %24 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %23) #17
   br label %_ZNK10TypeAryPtr13compute_klassEv.exit
 
 _ZNK10TypeAryPtr13compute_klassEv.exit:           ; preds = %_ZNK4Type8make_ptrEv.exit.i, %switch.early.test.i, %switch.early.test.i, %19
-  %.09.i = phi ptr [ null, %_ZNK4Type8make_ptrEv.exit.i ], [ null, %switch.early.test.i ], [ %23, %19 ], [ null, %switch.early.test.i ]
-  %24 = load ptr, ptr @_ZN10TypeAryPtr4OOPSE, align 8
-  %.not6 = icmp eq ptr %0, %24
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %.not7 = icmp eq ptr %26, %24
+  %.09.i = phi ptr [ null, %_ZNK4Type8make_ptrEv.exit.i ], [ null, %switch.early.test.i ], [ %24, %19 ], [ null, %switch.early.test.i ]
+  %25 = load ptr, ptr @_ZN10TypeAryPtr4OOPSE, align 8
+  %.not6 = icmp eq ptr %0, %25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %.not7 = icmp eq ptr %27, %25
   %or.cond = select i1 %.not6, i1 true, i1 %.not7
-  br i1 %or.cond, label %28, label %27
+  br i1 %or.cond, label %29, label %28
 
-27:                                               ; preds = %_ZNK10TypeAryPtr13compute_klassEv.exit
+28:                                               ; preds = %_ZNK10TypeAryPtr13compute_klassEv.exit
   store ptr %.09.i, ptr %2, align 8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %_ZNK10TypeAryPtr13compute_klassEv.exit, %27, %1
-  %.0 = phi ptr [ %3, %1 ], [ %.09.i, %27 ], [ %.09.i, %_ZNK10TypeAryPtr13compute_klassEv.exit ]
+29:                                               ; preds = %_ZNK10TypeAryPtr13compute_klassEv.exit, %28, %1
+  %.0 = phi ptr [ %3, %1 ], [ %.09.i, %28 ], [ %.09.i, %_ZNK10TypeAryPtr13compute_klassEv.exit ]
   ret ptr %.0
 }
 
@@ -30631,7 +30637,7 @@ define hidden noundef ptr @_ZNK15TypeAryKlassPtr5klassEv(ptr noundef nonnull ali
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %15
+  br i1 %.not, label %4, label %16
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -30644,24 +30650,25 @@ define hidden noundef ptr @_ZNK15TypeAryKlassPtr5klassEv(ptr noundef nonnull ali
   %or.cond.i = icmp ult i32 %9, 3
   %.not68 = icmp ne ptr %.fr9, null
   %.not6 = and i1 %.not68, %or.cond.i
-  br i1 %.not6, label %15, label %switch.early.test
+  br i1 %.not6, label %16, label %switch.early.test
 
 switch.early.test:                                ; preds = %4
   switch i32 %.fr, label %10 [
-    i32 37, label %15
-    i32 2, label %15
+    i32 37, label %16
+    i32 2, label %16
   ]
 
 10:                                               ; preds = %switch.early.test
   %11 = zext i32 %.fr to i64
-  %12 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %11, i32 1
-  %13 = load i8, ptr %12, align 4
-  %14 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %13) #17
-  store ptr %14, ptr %2, align 8
-  br label %15
+  %12 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i8, ptr %13, align 4
+  %15 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %14) #17
+  store ptr %15, ptr %2, align 8
+  br label %16
 
-15:                                               ; preds = %switch.early.test, %switch.early.test, %4, %10, %1
-  %.04 = phi ptr [ %3, %1 ], [ null, %switch.early.test ], [ %14, %10 ], [ null, %4 ], [ null, %switch.early.test ]
+16:                                               ; preds = %switch.early.test, %switch.early.test, %4, %10, %1
+  %.04 = phi ptr [ %3, %1 ], [ null, %switch.early.test ], [ %15, %10 ], [ null, %4 ], [ null, %switch.early.test ]
   ret ptr %.04
 }
 
@@ -30908,7 +30915,7 @@ define hidden noundef zeroext i8 @_ZNK8TypeFunc11return_typeEv(ptr noundef nonnu
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 5
-  br i1 %6, label %17, label %7
+  br i1 %6, label %18, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -30918,12 +30925,13 @@ define hidden noundef zeroext i8 @_ZNK8TypeFunc11return_typeEv(ptr noundef nonnu
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %14, i32 1
-  %16 = load i8, ptr %15, align 4
-  br label %17
+  %15 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i8, ptr %16, align 4
+  br label %18
 
-17:                                               ; preds = %1, %7
-  %.0 = phi i8 [ %16, %7 ], [ 14, %1 ]
+18:                                               ; preds = %1, %7
+  %.0 = phi i8 [ %17, %7 ], [ 14, %1 ]
   ret i8 %.0
 }
 

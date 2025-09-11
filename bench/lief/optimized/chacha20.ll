@@ -560,11 +560,13 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   br label %19
 
 19:                                               ; preds = %16, %.backedge
-  %20 = getelementptr inbounds nuw i32, ptr @test_counters, i64 %indvars.iv
-  %21 = load i32, ptr %20, align 4, !tbaa !8
-  %22 = getelementptr inbounds nuw i64, ptr @test_lengths, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8, !tbaa !17
-  %24 = getelementptr inbounds nuw [375 x i8], ptr @test_input, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [32 x i8], ptr @test_keys, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [12 x i8], ptr @test_nonces, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr @test_counters, i64 %indvars.iv
+  %23 = load i32, ptr %22, align 4, !tbaa !8
+  %24 = getelementptr inbounds nuw i64, ptr @test_lengths, i64 %indvars.iv
+  %25 = load i64, ptr %24, align 8, !tbaa !17
+  %26 = getelementptr inbounds nuw [375 x i8], ptr @test_input, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 64) #10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
@@ -573,52 +575,52 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) l
   store i32 857760878, ptr %6, align 4, !tbaa !8
   store i32 2036477234, ptr %7, align 8, !tbaa !8
   store i32 1797285236, ptr %8, align 4, !tbaa !8
-  %25 = getelementptr inbounds nuw [32 x i8], ptr @test_keys, i64 %indvars.iv, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
-  %.0.copyload.i26.i.i = load i32, ptr %25, align 4
+  %.0.copyload.i26.i.i = load i32, ptr %27, align 4
   store i32 %.0.copyload.i26.i.i, ptr %10, align 4, !tbaa !8
-  store i32 %21, ptr %11, align 8, !tbaa !8
+  store i32 %23, ptr %11, align 8, !tbaa !8
   store i32 0, ptr %12, align 4, !tbaa !8
   store i32 0, ptr %13, align 8, !tbaa !8
-  %26 = getelementptr inbounds nuw [12 x i8], ptr @test_nonces, i64 %indvars.iv, i64 8
-  %.0.copyload.i.i10.i = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.0.copyload.i.i10.i = load i32, ptr %28, align 4
   store i32 %.0.copyload.i.i10.i, ptr %14, align 4, !tbaa !8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
   store i64 64, ptr %5, align 8, !tbaa !3
-  %27 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %23, ptr noundef nonnull readonly %24, ptr noundef nonnull %3)
+  %29 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %25, ptr noundef nonnull readonly %26, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 136) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %28 = getelementptr inbounds nuw [375 x i8], ptr @test_output, i64 %indvars.iv
-  %bcmp = call i32 @bcmp(ptr nonnull %3, ptr nonnull %28, i64 %23)
-  %29 = icmp eq i32 %bcmp, 0
-  br i1 %29, label %32, label %30
+  %30 = getelementptr inbounds nuw [375 x i8], ptr @test_output, i64 %indvars.iv
+  %bcmp = call i32 @bcmp(ptr nonnull %3, ptr nonnull %30, i64 %25)
+  %31 = icmp eq i32 %bcmp, 0
+  br i1 %31, label %34, label %32
 
-30:                                               ; preds = %19
-  br i1 %.not20, label %.loopexit, label %31
+32:                                               ; preds = %19
+  br i1 %.not20, label %.loopexit, label %33
 
-31:                                               ; preds = %30
+33:                                               ; preds = %32
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.loopexit
 
-32:                                               ; preds = %19
-  br i1 %.not20, label %33, label %.thread
+34:                                               ; preds = %19
+  br i1 %.not20, label %35, label %.thread
 
-33:                                               ; preds = %32
+35:                                               ; preds = %34
   br i1 %15, label %.backedge.backedge, label %.loopexit
 
-.backedge.backedge:                               ; preds = %33, %.thread
+.backedge.backedge:                               ; preds = %35, %.thread
   br label %.backedge, !llvm.loop !18
 
-.thread:                                          ; preds = %32
+.thread:                                          ; preds = %34
   %puts21 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br i1 %15, label %.backedge.backedge, label %34
+  br i1 %15, label %.backedge.backedge, label %36
 
-34:                                               ; preds = %.thread
+36:                                               ; preds = %.thread
   %putchar = call i32 @putchar(i32 10)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %33, %34, %30, %31
-  %.018 = phi i32 [ -1, %31 ], [ -1, %30 ], [ 0, %34 ], [ 0, %33 ]
+.loopexit:                                        ; preds = %35, %36, %32, %33
+  %.018 = phi i32 [ -1, %33 ], [ -1, %32 ], [ 0, %36 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.018
 }

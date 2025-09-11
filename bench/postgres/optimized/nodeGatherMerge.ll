@@ -294,7 +294,7 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %84 = load i8, ptr %83, align 1, !range !4, !noundef !5
   %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %192, label %86
+  br i1 %85, label %197, label %86
 
 86:                                               ; preds = %78
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 252
@@ -313,346 +313,351 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
 93:                                               ; preds = %93, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %93 ]
   %94 = load ptr, ptr %92, align 8
-  %95 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %94, i64 %indvars.iv.i.i, i32 1
-  store i32 0, ptr %95, align 8
-  %96 = load ptr, ptr %92, align 8
-  %97 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %96, i64 %indvars.iv.i.i, i32 2
-  store i32 0, ptr %97, align 4
-  %98 = load ptr, ptr %92, align 8
-  %99 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %98, i64 %indvars.iv.i.i, i32 3
-  store i8 0, ptr %99, align 8
-  %100 = load ptr, ptr %89, align 8
+  %95 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %94, i64 %indvars.iv.i.i
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  store i32 0, ptr %96, align 8
+  %97 = load ptr, ptr %92, align 8
+  %98 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %97, i64 %indvars.iv.i.i
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 12
+  store i32 0, ptr %99, align 4
+  %100 = load ptr, ptr %92, align 8
+  %101 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %100, i64 %indvars.iv.i.i
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  store i8 0, ptr %102, align 8
+  %103 = load ptr, ptr %89, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv.next.i.i
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %106 = load ptr, ptr %105, align 8
-  tail call void %106(ptr noundef %102) #4
+  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv.next.i.i
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  %109 = load ptr, ptr %108, align 8
+  tail call void %109(ptr noundef %105) #4
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %93, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %93, %86
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %108 = load ptr, ptr %107, align 8
-  tail call void @binaryheap_reset(ptr noundef %108) #4
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %111 = load ptr, ptr %110, align 8
+  tail call void @binaryheap_reset(ptr noundef %111) #4
   %.not51.i.i = icmp slt i32 %88, 0
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 202
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 202
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %.not4655.i.i = icmp slt i32 %88, 1
   br i1 %.not51.i.i, label %gather_merge_init.exit.i, label %.lr.ph54.i.i
 
-.lr.ph54.i.i.loopexit:                            ; preds = %185, %179
+.lr.ph54.i.i.loopexit:                            ; preds = %190, %184
   br label %.lr.ph54.i.i
 
 .lr.ph54.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph54.i.i.loopexit
   %.042.i.i = phi i1 [ false, %.lr.ph54.i.i.loopexit ], [ true, %._crit_edge.i.i ]
-  br label %113
+  br label %116
 
 ..preheader_crit_edge.i.i:                        ; preds = %load_tuple_array.exit.i.i
   br i1 %.not4655.i.i, label %gather_merge_init.exit.i, label %.lr.ph57.i.i
 
 .lr.ph57.i.i:                                     ; preds = %..preheader_crit_edge.i.i
-  %112 = load ptr, ptr %109, align 8
-  br label %173
+  %115 = load ptr, ptr %112, align 8
+  br label %177
 
-113:                                              ; preds = %load_tuple_array.exit.i.i, %.lr.ph54.i.i
-  %.152.i.i = phi i32 [ 0, %.lr.ph54.i.i ], [ %172, %load_tuple_array.exit.i.i ]
-  %114 = load volatile i32, ptr @InterruptPending, align 4
-  %.not48.i.i = icmp eq i32 %114, 0
-  br i1 %.not48.i.i, label %116, label %115, !prof !9
-
-115:                                              ; preds = %113
-  tail call void @ProcessInterrupts() #4
-  br label %116
-
-116:                                              ; preds = %115, %113
-  %117 = icmp eq i32 %.152.i.i, 0
-  br i1 %117, label %118, label %121
+116:                                              ; preds = %load_tuple_array.exit.i.i, %.lr.ph54.i.i
+  %.152.i.i = phi i32 [ 0, %.lr.ph54.i.i ], [ %176, %load_tuple_array.exit.i.i ]
+  %117 = load volatile i32, ptr @InterruptPending, align 4
+  %.not48.i.i = icmp eq i32 %117, 0
+  br i1 %.not48.i.i, label %119, label %118, !prof !9
 
 118:                                              ; preds = %116
-  %119 = load i8, ptr %110, align 2, !range !4, !noundef !5
-  %120 = trunc nuw i8 %119 to i1
-  br i1 %120, label %128, label %load_tuple_array.exit.i.i
+  tail call void @ProcessInterrupts() #4
+  br label %119
 
-121:                                              ; preds = %116
-  %122 = load ptr, ptr %109, align 8
-  %123 = add i32 %.152.i.i, -1
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds %struct.GMReaderTupleBuffer, ptr %122, i64 %124, i32 3
-  %126 = load i8, ptr %125, align 8, !range !4, !noundef !5
-  %127 = trunc nuw i8 %126 to i1
-  br i1 %127, label %load_tuple_array.exit.i.i, label %128
+119:                                              ; preds = %118, %116
+  %120 = icmp eq i32 %.152.i.i, 0
+  br i1 %120, label %121, label %124
 
-128:                                              ; preds = %121, %118
-  %129 = load ptr, ptr %89, align 8
-  %130 = sext i32 %.152.i.i to i64
-  %131 = getelementptr inbounds ptr, ptr %129, i64 %130
-  %132 = load ptr, ptr %131, align 8
-  %133 = icmp eq ptr %132, null
-  br i1 %133, label %138, label %134
+121:                                              ; preds = %119
+  %122 = load i8, ptr %113, align 2, !range !4, !noundef !5
+  %123 = trunc nuw i8 %122 to i1
+  br i1 %123, label %132, label %load_tuple_array.exit.i.i
 
-134:                                              ; preds = %128
-  %135 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %136 = load i16, ptr %135, align 4
-  %137 = and i16 %136, 2
-  %.not49.i.i = icmp eq i16 %137, 0
-  br i1 %.not49.i.i, label %142, label %138
+124:                                              ; preds = %119
+  %125 = load ptr, ptr %112, align 8
+  %126 = add i32 %.152.i.i, -1
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds %struct.GMReaderTupleBuffer, ptr %125, i64 %127
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  %130 = load i8, ptr %129, align 8, !range !4, !noundef !5
+  %131 = trunc nuw i8 %130 to i1
+  br i1 %131, label %load_tuple_array.exit.i.i, label %132
 
-138:                                              ; preds = %134, %128
-  %139 = tail call fastcc zeroext i1 @gather_merge_readnext(ptr noundef nonnull %0, i32 noundef %.152.i.i, i1 noundef zeroext %.042.i.i)
-  br i1 %139, label %140, label %load_tuple_array.exit.i.i
+132:                                              ; preds = %124, %121
+  %133 = load ptr, ptr %89, align 8
+  %134 = sext i32 %.152.i.i to i64
+  %135 = getelementptr inbounds ptr, ptr %133, i64 %134
+  %136 = load ptr, ptr %135, align 8
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %142, label %138
 
-140:                                              ; preds = %138
-  %141 = load ptr, ptr %107, align 8
-  tail call void @binaryheap_add_unordered(ptr noundef %141, i64 noundef %130) #4
+138:                                              ; preds = %132
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 4
+  %140 = load i16, ptr %139, align 4
+  %141 = and i16 %140, 2
+  %.not49.i.i = icmp eq i16 %141, 0
+  br i1 %.not49.i.i, label %146, label %142
+
+142:                                              ; preds = %138, %132
+  %143 = tail call fastcc zeroext i1 @gather_merge_readnext(ptr noundef nonnull %0, i32 noundef %.152.i.i, i1 noundef zeroext %.042.i.i)
+  br i1 %143, label %144, label %load_tuple_array.exit.i.i
+
+144:                                              ; preds = %142
+  %145 = load ptr, ptr %110, align 8
+  tail call void @binaryheap_add_unordered(ptr noundef %145, i64 noundef %134) #4
   br label %load_tuple_array.exit.i.i
 
-142:                                              ; preds = %134
-  br i1 %117, label %load_tuple_array.exit.i.i, label %143
+146:                                              ; preds = %138
+  br i1 %120, label %load_tuple_array.exit.i.i, label %147
 
-143:                                              ; preds = %142
-  %144 = load ptr, ptr %109, align 8
-  %145 = add i32 %.152.i.i, -1
-  %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds %struct.GMReaderTupleBuffer, ptr %144, i64 %146
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %149 = load i32, ptr %148, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %147, i64 12
-  %151 = load i32, ptr %150, align 4
-  %152 = icmp eq i32 %149, %151
-  br i1 %152, label %.thread31.i.i.i, label %153
+147:                                              ; preds = %146
+  %148 = load ptr, ptr %112, align 8
+  %149 = add i32 %.152.i.i, -1
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds %struct.GMReaderTupleBuffer, ptr %148, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %153 = load i32, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 12
+  %155 = load i32, ptr %154, align 4
+  %156 = icmp eq i32 %153, %155
+  br i1 %156, label %.thread31.i.i.i, label %157
 
-.thread31.i.i.i:                                  ; preds = %143
-  store i32 0, ptr %150, align 4
-  store i32 0, ptr %148, align 8
+.thread31.i.i.i:                                  ; preds = %147
+  store i32 0, ptr %154, align 4
+  store i32 0, ptr %152, align 8
   br label %.lr.ph.i.i.i
 
-153:                                              ; preds = %143
-  %154 = icmp slt i32 %149, 10
-  br i1 %154, label %.lr.ph.i.i.i, label %load_tuple_array.exit.i.i
+157:                                              ; preds = %147
+  %158 = icmp slt i32 %153, 10
+  br i1 %158, label %.lr.ph.i.i.i, label %load_tuple_array.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %153, %.thread31.i.i.i
-  %155 = phi i32 [ 0, %.thread31.i.i.i ], [ %149, %153 ]
-  %156 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %157 = sext i32 %155 to i64
-  br label %158
+.lr.ph.i.i.i:                                     ; preds = %157, %.thread31.i.i.i
+  %159 = phi i32 [ 0, %.thread31.i.i.i ], [ %153, %157 ]
+  %160 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  %161 = sext i32 %159 to i64
+  br label %162
 
-158:                                              ; preds = %167, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ %157, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %167 ]
-  %159 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i.i.i = icmp eq i32 %159, 0
-  br i1 %.not.i.i.i.i, label %161, label %160, !prof !9
+162:                                              ; preds = %171, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ %161, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %171 ]
+  %163 = load volatile i32, ptr @InterruptPending, align 4
+  %.not.i.i.i.i = icmp eq i32 %163, 0
+  br i1 %.not.i.i.i.i, label %165, label %164, !prof !9
 
-160:                                              ; preds = %158
+164:                                              ; preds = %162
   tail call void @ProcessInterrupts() #4
-  br label %161
+  br label %165
 
-161:                                              ; preds = %160, %158
-  %162 = load ptr, ptr %111, align 8
-  %163 = getelementptr inbounds ptr, ptr %162, i64 %146
-  %164 = load ptr, ptr %163, align 8
-  %165 = tail call ptr @TupleQueueReaderNext(ptr noundef %164, i1 noundef zeroext true, ptr noundef nonnull %156) #4
-  %.not6.i.i.i.i = icmp eq ptr %165, null
+165:                                              ; preds = %164, %162
+  %166 = load ptr, ptr %114, align 8
+  %167 = getelementptr inbounds ptr, ptr %166, i64 %150
+  %168 = load ptr, ptr %167, align 8
+  %169 = tail call ptr @TupleQueueReaderNext(ptr noundef %168, i1 noundef zeroext true, ptr noundef nonnull %160) #4
+  %.not6.i.i.i.i = icmp eq ptr %169, null
   br i1 %.not6.i.i.i.i, label %load_tuple_array.exit.i.i, label %gm_readnext_tuple.exit.i.i.i
 
-gm_readnext_tuple.exit.i.i.i:                     ; preds = %161
-  %166 = tail call ptr @heap_copy_minimal_tuple(ptr noundef nonnull %165) #4
-  %.not.i.i.i = icmp eq ptr %166, null
-  br i1 %.not.i.i.i, label %load_tuple_array.exit.i.i, label %167
+gm_readnext_tuple.exit.i.i.i:                     ; preds = %165
+  %170 = tail call ptr @heap_copy_minimal_tuple(ptr noundef nonnull %169) #4
+  %.not.i.i.i = icmp eq ptr %170, null
+  br i1 %.not.i.i.i, label %load_tuple_array.exit.i.i, label %171
 
-167:                                              ; preds = %gm_readnext_tuple.exit.i.i.i
-  %168 = load ptr, ptr %147, align 8
-  %169 = getelementptr inbounds ptr, ptr %168, i64 %indvars.iv.i.i.i
-  store ptr %166, ptr %169, align 8
-  %170 = load i32, ptr %148, align 8
-  %171 = add i32 %170, 1
-  store i32 %171, ptr %148, align 8
+171:                                              ; preds = %gm_readnext_tuple.exit.i.i.i
+  %172 = load ptr, ptr %151, align 8
+  %173 = getelementptr inbounds ptr, ptr %172, i64 %indvars.iv.i.i.i
+  store ptr %170, ptr %173, align 8
+  %174 = load i32, ptr %152, align 8
+  %175 = add i32 %174, 1
+  store i32 %175, ptr %152, align 8
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 10
-  br i1 %exitcond.not.i.i.i, label %load_tuple_array.exit.i.i, label %158, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %load_tuple_array.exit.i.i, label %162, !llvm.loop !11
 
-load_tuple_array.exit.i.i:                        ; preds = %167, %gm_readnext_tuple.exit.i.i.i, %161, %153, %142, %140, %138, %121, %118
-  %172 = add i32 %.152.i.i, 1
-  %.not.i.i = icmp sgt i32 %172, %88
-  br i1 %.not.i.i, label %..preheader_crit_edge.i.i, label %113, !llvm.loop !12
+load_tuple_array.exit.i.i:                        ; preds = %171, %gm_readnext_tuple.exit.i.i.i, %165, %157, %146, %144, %142, %124, %121
+  %176 = add i32 %.152.i.i, 1
+  %.not.i.i = icmp sgt i32 %176, %88
+  br i1 %.not.i.i, label %..preheader_crit_edge.i.i, label %116, !llvm.loop !12
 
-173:                                              ; preds = %189, %.lr.ph57.i.i
-  %.256.i.i = phi i32 [ 1, %.lr.ph57.i.i ], [ %190, %189 ]
-  %174 = add i32 %.256.i.i, -1
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds %struct.GMReaderTupleBuffer, ptr %112, i64 %175, i32 3
-  %177 = load i8, ptr %176, align 8, !range !4, !noundef !5
-  %178 = trunc nuw i8 %177 to i1
-  br i1 %178, label %189, label %179
+177:                                              ; preds = %194, %.lr.ph57.i.i
+  %.256.i.i = phi i32 [ 1, %.lr.ph57.i.i ], [ %195, %194 ]
+  %178 = add i32 %.256.i.i, -1
+  %179 = sext i32 %178 to i64
+  %180 = getelementptr inbounds %struct.GMReaderTupleBuffer, ptr %115, i64 %179
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  %182 = load i8, ptr %181, align 8, !range !4, !noundef !5
+  %183 = trunc nuw i8 %182 to i1
+  br i1 %183, label %194, label %184
 
-179:                                              ; preds = %173
-  %180 = load ptr, ptr %89, align 8
-  %181 = sext i32 %.256.i.i to i64
-  %182 = getelementptr inbounds ptr, ptr %180, i64 %181
-  %183 = load ptr, ptr %182, align 8
-  %184 = icmp eq ptr %183, null
-  br i1 %184, label %.lr.ph54.i.i.loopexit, label %185
+184:                                              ; preds = %177
+  %185 = load ptr, ptr %89, align 8
+  %186 = sext i32 %.256.i.i to i64
+  %187 = getelementptr inbounds ptr, ptr %185, i64 %186
+  %188 = load ptr, ptr %187, align 8
+  %189 = icmp eq ptr %188, null
+  br i1 %189, label %.lr.ph54.i.i.loopexit, label %190
 
-185:                                              ; preds = %179
-  %186 = getelementptr inbounds nuw i8, ptr %183, i64 4
-  %187 = load i16, ptr %186, align 4
-  %188 = and i16 %187, 2
-  %.not47.i.i = icmp eq i16 %188, 0
-  br i1 %.not47.i.i, label %189, label %.lr.ph54.i.i.loopexit
+190:                                              ; preds = %184
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 4
+  %192 = load i16, ptr %191, align 4
+  %193 = and i16 %192, 2
+  %.not47.i.i = icmp eq i16 %193, 0
+  br i1 %.not47.i.i, label %194, label %.lr.ph54.i.i.loopexit
 
-189:                                              ; preds = %185, %173
-  %190 = add i32 %.256.i.i, 1
-  %.not46.i.i = icmp sgt i32 %190, %88
-  br i1 %.not46.i.i, label %gather_merge_init.exit.i, label %173, !llvm.loop !13
+194:                                              ; preds = %190, %177
+  %195 = add i32 %.256.i.i, 1
+  %.not46.i.i = icmp sgt i32 %195, %88
+  br i1 %.not46.i.i, label %gather_merge_init.exit.i, label %177, !llvm.loop !13
 
-gather_merge_init.exit.i:                         ; preds = %..preheader_crit_edge.i.i, %189, %._crit_edge.i.i
-  %191 = load ptr, ptr %107, align 8
-  tail call void @binaryheap_build(ptr noundef %191) #4
+gather_merge_init.exit.i:                         ; preds = %..preheader_crit_edge.i.i, %194, %._crit_edge.i.i
+  %196 = load ptr, ptr %110, align 8
+  tail call void @binaryheap_build(ptr noundef %196) #4
   store i8 1, ptr %83, align 1
-  br label %203
+  br label %208
 
-192:                                              ; preds = %78
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %194 = load ptr, ptr %193, align 8
-  %195 = tail call i64 @binaryheap_first(ptr noundef %194) #4
-  %196 = trunc i64 %195 to i32
-  %197 = tail call fastcc zeroext i1 @gather_merge_readnext(ptr noundef nonnull %0, i32 noundef %196, i1 noundef zeroext false)
-  %198 = load ptr, ptr %193, align 8
-  br i1 %197, label %199, label %201
+197:                                              ; preds = %78
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %199 = load ptr, ptr %198, align 8
+  %200 = tail call i64 @binaryheap_first(ptr noundef %199) #4
+  %201 = trunc i64 %200 to i32
+  %202 = tail call fastcc zeroext i1 @gather_merge_readnext(ptr noundef nonnull %0, i32 noundef %201, i1 noundef zeroext false)
+  %203 = load ptr, ptr %198, align 8
+  br i1 %202, label %204, label %206
 
-199:                                              ; preds = %192
-  %sext.i = shl i64 %195, 32
-  %200 = ashr exact i64 %sext.i, 32
-  tail call void @binaryheap_replace_first(ptr noundef %198, i64 noundef %200) #4
-  br label %203
+204:                                              ; preds = %197
+  %sext.i = shl i64 %200, 32
+  %205 = ashr exact i64 %sext.i, 32
+  tail call void @binaryheap_replace_first(ptr noundef %203, i64 noundef %205) #4
+  br label %208
 
-201:                                              ; preds = %192
-  %202 = tail call i64 @binaryheap_remove_first(ptr noundef %198) #4
-  br label %203
+206:                                              ; preds = %197
+  %207 = tail call i64 @binaryheap_remove_first(ptr noundef %203) #4
+  br label %208
 
-203:                                              ; preds = %201, %199, %gather_merge_init.exit.i
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %205 = load ptr, ptr %204, align 8
-  %206 = load i32, ptr %205, align 8
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %gather_merge_getnext.exit
+208:                                              ; preds = %206, %204, %gather_merge_init.exit.i
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %210 = load ptr, ptr %209, align 8
+  %211 = load i32, ptr %210, align 8
+  %212 = icmp eq i32 %211, 0
+  br i1 %212, label %213, label %gather_merge_getnext.exit
 
-208:                                              ; preds = %203
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %210 = load i32, ptr %209, align 4
-  %211 = icmp sgt i32 %210, 0
-  br i1 %211, label %.lr.ph13.i.i, label %gather_merge_getnext.exit.thread
+213:                                              ; preds = %208
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %215 = load i32, ptr %214, align 4
+  %216 = icmp sgt i32 %215, 0
+  br i1 %216, label %.lr.ph13.i.i, label %gather_merge_getnext.exit.thread
 
-.lr.ph13.i.i:                                     ; preds = %208
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  br label %214
+.lr.ph13.i.i:                                     ; preds = %213
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  br label %219
 
-214:                                              ; preds = %._crit_edge.i14.i, %.lr.ph13.i.i
+219:                                              ; preds = %._crit_edge.i14.i, %.lr.ph13.i.i
   %indvars.iv.i13.i = phi i64 [ 0, %.lr.ph13.i.i ], [ %indvars.iv.next.i15.i, %._crit_edge.i14.i ]
-  %215 = load ptr, ptr %212, align 8
-  %216 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %215, i64 %indvars.iv.i13.i
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %218 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %219 = load i32, ptr %217, align 4
-  %220 = load i32, ptr %218, align 8
-  %221 = icmp slt i32 %219, %220
-  br i1 %221, label %.lr.ph.i16.i, label %._crit_edge.i14.i
+  %220 = load ptr, ptr %217, align 8
+  %221 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %220, i64 %indvars.iv.i13.i
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 12
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 8
+  %224 = load i32, ptr %222, align 4
+  %225 = load i32, ptr %223, align 8
+  %226 = icmp slt i32 %224, %225
+  br i1 %226, label %.lr.ph.i16.i, label %._crit_edge.i14.i
 
-.lr.ph.i16.i:                                     ; preds = %214, %.lr.ph.i16.i
-  %222 = phi i32 [ %228, %.lr.ph.i16.i ], [ %219, %214 ]
-  %223 = load ptr, ptr %216, align 8
-  %224 = add nsw i32 %222, 1
-  store i32 %224, ptr %217, align 4
-  %225 = sext i32 %222 to i64
-  %226 = getelementptr inbounds ptr, ptr %223, i64 %225
-  %227 = load ptr, ptr %226, align 8
-  tail call void @pfree(ptr noundef %227) #4
-  %228 = load i32, ptr %217, align 4
-  %229 = load i32, ptr %218, align 8
-  %230 = icmp slt i32 %228, %229
-  br i1 %230, label %.lr.ph.i16.i, label %._crit_edge.i14.i, !llvm.loop !14
+.lr.ph.i16.i:                                     ; preds = %219, %.lr.ph.i16.i
+  %227 = phi i32 [ %233, %.lr.ph.i16.i ], [ %224, %219 ]
+  %228 = load ptr, ptr %221, align 8
+  %229 = add nsw i32 %227, 1
+  store i32 %229, ptr %222, align 4
+  %230 = sext i32 %227 to i64
+  %231 = getelementptr inbounds ptr, ptr %228, i64 %230
+  %232 = load ptr, ptr %231, align 8
+  tail call void @pfree(ptr noundef %232) #4
+  %233 = load i32, ptr %222, align 4
+  %234 = load i32, ptr %223, align 8
+  %235 = icmp slt i32 %233, %234
+  br i1 %235, label %.lr.ph.i16.i, label %._crit_edge.i14.i, !llvm.loop !14
 
-._crit_edge.i14.i:                                ; preds = %.lr.ph.i16.i, %214
-  %231 = load ptr, ptr %213, align 8
+._crit_edge.i14.i:                                ; preds = %.lr.ph.i16.i, %219
+  %236 = load ptr, ptr %218, align 8
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i13.i, 1
-  %232 = getelementptr inbounds nuw ptr, ptr %231, i64 %indvars.iv.next.i15.i
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 24
-  %237 = load ptr, ptr %236, align 8
-  tail call void %237(ptr noundef %233) #4
-  %238 = load i32, ptr %209, align 4
-  %239 = sext i32 %238 to i64
-  %240 = icmp slt i64 %indvars.iv.next.i15.i, %239
-  br i1 %240, label %214, label %gather_merge_getnext.exit.thread, !llvm.loop !15
+  %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv.next.i15.i
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
+  %240 = load ptr, ptr %239, align 8
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 24
+  %242 = load ptr, ptr %241, align 8
+  tail call void %242(ptr noundef %238) #4
+  %243 = load i32, ptr %214, align 4
+  %244 = sext i32 %243 to i64
+  %245 = icmp slt i64 %indvars.iv.next.i15.i, %244
+  br i1 %245, label %219, label %gather_merge_getnext.exit.thread, !llvm.loop !15
 
-gather_merge_getnext.exit:                        ; preds = %203
-  %241 = tail call i64 @binaryheap_first(ptr noundef nonnull %205) #4
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %243 = load ptr, ptr %242, align 8
-  %sext17.i = shl i64 %241, 32
-  %244 = ashr exact i64 %sext17.i, 29
-  %245 = getelementptr inbounds i8, ptr %243, i64 %244
-  %246 = load ptr, ptr %245, align 8
-  %247 = icmp eq ptr %246, null
-  br i1 %247, label %gather_merge_getnext.exit.thread, label %248
+gather_merge_getnext.exit:                        ; preds = %208
+  %246 = tail call i64 @binaryheap_first(ptr noundef nonnull %210) #4
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %248 = load ptr, ptr %247, align 8
+  %sext17.i = shl i64 %246, 32
+  %249 = ashr exact i64 %sext17.i, 29
+  %250 = getelementptr inbounds i8, ptr %248, i64 %249
+  %251 = load ptr, ptr %250, align 8
+  %252 = icmp eq ptr %251, null
+  br i1 %252, label %gather_merge_getnext.exit.thread, label %253
 
-248:                                              ; preds = %gather_merge_getnext.exit
-  %249 = getelementptr inbounds nuw i8, ptr %246, i64 4
-  %250 = load i16, ptr %249, align 4
-  %251 = and i16 %250, 2
-  %.not53 = icmp eq i16 %251, 0
-  br i1 %.not53, label %252, label %gather_merge_getnext.exit.thread
+253:                                              ; preds = %gather_merge_getnext.exit
+  %254 = getelementptr inbounds nuw i8, ptr %251, i64 4
+  %255 = load i16, ptr %254, align 4
+  %256 = and i16 %255, 2
+  %.not53 = icmp eq i16 %256, 0
+  br i1 %.not53, label %257, label %gather_merge_getnext.exit.thread
 
-252:                                              ; preds = %248
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %254 = load ptr, ptr %253, align 8
-  %255 = icmp eq ptr %254, null
-  br i1 %255, label %gather_merge_getnext.exit.thread, label %256
+257:                                              ; preds = %253
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %259 = load ptr, ptr %258, align 8
+  %260 = icmp eq ptr %259, null
+  br i1 %260, label %gather_merge_getnext.exit.thread, label %261
 
-256:                                              ; preds = %252
-  %257 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store ptr %246, ptr %257, align 8
-  %258 = load ptr, ptr %253, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 128
-  %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds nuw i8, ptr %258, i64 8
-  %262 = getelementptr inbounds nuw i8, ptr %258, i64 24
-  %263 = load ptr, ptr %262, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
+261:                                              ; preds = %257
+  %262 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  store ptr %251, ptr %262, align 8
+  %263 = load ptr, ptr %258, align 8
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 128
   %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 24
-  %267 = load ptr, ptr %266, align 8
-  tail call void %267(ptr noundef %263) #4
-  %268 = getelementptr inbounds nuw i8, ptr %260, i64 40
-  %269 = load ptr, ptr %268, align 8
-  %270 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %269, ptr @CurrentMemoryContext, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %258, i64 40
+  %266 = getelementptr inbounds nuw i8, ptr %263, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %263, i64 24
+  %268 = load ptr, ptr %267, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load ptr, ptr %269, align 8
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 24
   %272 = load ptr, ptr %271, align 8
-  %273 = call i64 %272(ptr noundef nonnull %261, ptr noundef %260, ptr noundef nonnull %2) #4
-  store ptr %270, ptr @CurrentMemoryContext, align 8
-  %274 = getelementptr inbounds nuw i8, ptr %263, i64 4
-  %275 = load i16, ptr %274, align 4
-  %276 = and i16 %275, -3
-  store i16 %276, ptr %274, align 4
-  %277 = getelementptr inbounds nuw i8, ptr %263, i64 16
-  %278 = load ptr, ptr %277, align 8
-  %279 = load i32, ptr %278, align 8
-  %280 = trunc i32 %279 to i16
-  %281 = getelementptr inbounds nuw i8, ptr %263, i64 6
-  store i16 %280, ptr %281, align 2
+  tail call void %272(ptr noundef %268) #4
+  %273 = getelementptr inbounds nuw i8, ptr %265, i64 40
+  %274 = load ptr, ptr %273, align 8
+  %275 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %274, ptr @CurrentMemoryContext, align 8
+  %276 = getelementptr inbounds nuw i8, ptr %263, i64 40
+  %277 = load ptr, ptr %276, align 8
+  %278 = call i64 %277(ptr noundef nonnull %266, ptr noundef %265, ptr noundef nonnull %2) #4
+  store ptr %275, ptr @CurrentMemoryContext, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %268, i64 4
+  %280 = load i16, ptr %279, align 4
+  %281 = and i16 %280, -3
+  store i16 %281, ptr %279, align 4
+  %282 = getelementptr inbounds nuw i8, ptr %268, i64 16
+  %283 = load ptr, ptr %282, align 8
+  %284 = load i32, ptr %283, align 8
+  %285 = trunc i32 %284 to i16
+  %286 = getelementptr inbounds nuw i8, ptr %268, i64 6
+  store i16 %285, ptr %286, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %gather_merge_getnext.exit.thread
 
-gather_merge_getnext.exit.thread:                 ; preds = %._crit_edge.i14.i, %208, %252, %gather_merge_getnext.exit, %248, %256
-  %.0 = phi ptr [ %263, %256 ], [ null, %248 ], [ null, %gather_merge_getnext.exit ], [ %246, %252 ], [ null, %208 ], [ null, %._crit_edge.i14.i ]
+gather_merge_getnext.exit.thread:                 ; preds = %._crit_edge.i14.i, %213, %257, %gather_merge_getnext.exit, %253, %261
+  %.0 = phi ptr [ %268, %261 ], [ null, %253 ], [ null, %gather_merge_getnext.exit ], [ %251, %257 ], [ null, %213 ], [ null, %._crit_edge.i14.i ]
   ret ptr %.0
 }
 

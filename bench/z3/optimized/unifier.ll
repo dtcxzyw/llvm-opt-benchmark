@@ -611,8 +611,9 @@ _ZN6vectorIN15expr_offset_mapI11expr_offsetE4dataELb0EjE6resizeEj.exit: ; preds 
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !11
   %72 = load ptr, ptr %43, align 8, !tbaa !16
-  %73 = getelementptr inbounds nuw %"struct.expr_offset_map<expr_offset>::data", ptr %72, i64 %68, i32 1
-  store i32 %71, ptr %73, align 8, !tbaa !19
+  %73 = getelementptr inbounds nuw %"struct.expr_offset_map<expr_offset>::data", ptr %72, i64 %68
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  store i32 %71, ptr %74, align 8, !tbaa !19
   ret void
 }
 

@@ -153,92 +153,94 @@ define dso_local void @_ZNK23btConvexPointCloudShape49batchedUnitVectorGetSuppor
 
 _ZNK9btVector36maxDotEPKS_lRf.exit.thread.us:     ; preds = %.lr.ph, %_ZNK9btVector36maxDotEPKS_lRf.exit.thread.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK9btVector36maxDotEPKS_lRf.exit.thread.us ], [ 0, %.lr.ph ]
-  %13 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv, i32 0, i64 3
-  store float 0xC3ABC16D60000000, ptr %13, align 4, !tbaa !23
+  %13 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store float 0xC3ABC16D60000000, ptr %14, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count23
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK9btVector36maxDotEPKS_lRf.exit.thread.us, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit.thread.us, %59, %4
+._crit_edge:                                      ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit.thread.us, %61, %4
   ret void
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %59
-  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %59 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv20
-  %15 = load float, ptr %14, align 4, !tbaa !23
-  %16 = load float, ptr %6, align 8, !tbaa !23
-  %17 = fmul float %15, %16
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %19 = load float, ptr %18, align 4, !tbaa !23
-  %20 = load float, ptr %7, align 4, !tbaa !23
-  %21 = fmul float %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %23 = load float, ptr %22, align 4, !tbaa !23
-  %24 = load float, ptr %8, align 8, !tbaa !23
-  %25 = fmul float %23, %24
-  %26 = load ptr, ptr %9, align 8, !tbaa !22
-  %27 = load i32, ptr %10, align 8, !tbaa !8
-  %28 = sext i32 %27 to i64
-  %29 = icmp sgt i32 %27, 0
-  br i1 %29, label %.lr.ph.i, label %_ZNK9btVector36maxDotEPKS_lRf.exit.thread
+.lr.ph.split:                                     ; preds = %.lr.ph, %61
+  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %61 ], [ 0, %.lr.ph ]
+  %15 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv20
+  %16 = load float, ptr %15, align 4, !tbaa !23
+  %17 = load float, ptr %6, align 8, !tbaa !23
+  %18 = fmul float %16, %17
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %20 = load float, ptr %19, align 4, !tbaa !23
+  %21 = load float, ptr %7, align 4, !tbaa !23
+  %22 = fmul float %20, %21
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %24 = load float, ptr %23, align 4, !tbaa !23
+  %25 = load float, ptr %8, align 8, !tbaa !23
+  %26 = fmul float %24, %25
+  %27 = load ptr, ptr %9, align 8, !tbaa !22
+  %28 = load i32, ptr %10, align 8, !tbaa !8
+  %29 = sext i32 %28 to i64
+  %30 = icmp sgt i32 %28, 0
+  br i1 %30, label %.lr.ph.i, label %_ZNK9btVector36maxDotEPKS_lRf.exit.thread
 
 _ZNK9btVector36maxDotEPKS_lRf.exit.thread:        ; preds = %.lr.ph.split
-  %30 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv20, i32 0, i64 3
-  store float 0xC3ABC16D60000000, ptr %30, align 4, !tbaa !23
-  br label %59
+  %31 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv20
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  store float 0xC3ABC16D60000000, ptr %32, align 4, !tbaa !23
+  br label %61
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.split ]
   %.019.i = phi float [ %.1.i, %.lr.ph.i ], [ 0xC7EFFFFFE0000000, %.lr.ph.split ]
   %.01218.i = phi i32 [ %.113.i, %.lr.ph.i ], [ -1, %.lr.ph.split ]
-  %31 = getelementptr inbounds nuw %class.btVector3, ptr %26, i64 %indvars.iv.i
-  %32 = load float, ptr %31, align 4, !tbaa !23
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %33 = getelementptr inbounds nuw %class.btVector3, ptr %27, i64 %indvars.iv.i
   %34 = load float, ptr %33, align 4, !tbaa !23
-  %35 = fmul float %21, %34
-  %36 = tail call float @llvm.fmuladd.f32(float %32, float %17, float %35)
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %38 = load float, ptr %37, align 4, !tbaa !23
-  %39 = tail call noundef float @llvm.fmuladd.f32(float %38, float %25, float %36)
-  %40 = fcmp ogt float %39, %.019.i
-  %41 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.113.i = select i1 %40, i32 %41, i32 %.01218.i
-  %.1.i = select i1 %40, float %39, float %.019.i
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %36 = load float, ptr %35, align 4, !tbaa !23
+  %37 = fmul float %22, %36
+  %38 = tail call float @llvm.fmuladd.f32(float %34, float %18, float %37)
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %40 = load float, ptr %39, align 4, !tbaa !23
+  %41 = tail call noundef float @llvm.fmuladd.f32(float %40, float %26, float %38)
+  %42 = fcmp ogt float %41, %.019.i
+  %43 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %.113.i = select i1 %42, i32 %43, i32 %.01218.i
+  %.1.i = select i1 %42, float %41, float %.019.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %28
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %29
   br i1 %exitcond.not.i, label %_ZNK9btVector36maxDotEPKS_lRf.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %.lr.ph.i
-  %42 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv20
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  store float 0xC3ABC16D60000000, ptr %43, align 4, !tbaa !23
-  %44 = icmp sgt i32 %.113.i, -1
-  br i1 %44, label %45, label %59
+  %44 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv20
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
+  store float 0xC3ABC16D60000000, ptr %45, align 4, !tbaa !23
+  %46 = icmp sgt i32 %.113.i, -1
+  br i1 %46, label %47, label %61
 
-45:                                               ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit
-  %46 = zext nneg i32 %.113.i to i64
-  %47 = getelementptr inbounds nuw %class.btVector3, ptr %26, i64 %46
-  %48 = load float, ptr %47, align 4, !tbaa !23
-  %49 = load float, ptr %6, align 8, !tbaa !23
-  %50 = fmul float %48, %49
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %52 = load float, ptr %51, align 4, !tbaa !23
-  %53 = load float, ptr %7, align 4, !tbaa !23
-  %54 = fmul float %52, %53
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %56 = load float, ptr %55, align 4, !tbaa !23
-  %57 = load float, ptr %8, align 8, !tbaa !23
-  %58 = fmul float %56, %57
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %50, i64 0
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %54, i64 1
-  %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %58, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %42, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
+47:                                               ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit
+  %48 = zext nneg i32 %.113.i to i64
+  %49 = getelementptr inbounds nuw %class.btVector3, ptr %27, i64 %48
+  %50 = load float, ptr %49, align 4, !tbaa !23
+  %51 = load float, ptr %6, align 8, !tbaa !23
+  %52 = fmul float %50, %51
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %54 = load float, ptr %53, align 4, !tbaa !23
+  %55 = load float, ptr %7, align 4, !tbaa !23
+  %56 = fmul float %54, %55
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %58 = load float, ptr %57, align 4, !tbaa !23
+  %59 = load float, ptr %8, align 8, !tbaa !23
+  %60 = fmul float %58, %59
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %52, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %56, i64 1
+  %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %60, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %44, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !5
-  store float %.1.i, ptr %43, align 4, !tbaa !23
-  br label %59
+  store float %.1.i, ptr %45, align 4, !tbaa !23
+  br label %61
 
-59:                                               ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit.thread, %45, %_ZNK9btVector36maxDotEPKS_lRf.exit
+61:                                               ; preds = %_ZNK9btVector36maxDotEPKS_lRf.exit.thread, %47, %_ZNK9btVector36maxDotEPKS_lRf.exit
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
   br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27

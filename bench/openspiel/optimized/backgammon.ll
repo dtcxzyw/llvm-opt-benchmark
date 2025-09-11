@@ -7782,7 +7782,7 @@ _ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EEC2ERKS4_.exit: ; pre
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = invoke noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState12PositionFromEiii(ptr nonnull readonly align 8 poison, i32 noundef %2, i32 noundef %32, i32 noundef %35)
-          to label %.noexc unwind label %42
+          to label %.noexc unwind label %43
 
 .noexc:                                           ; preds = %33
   %.not10.i = icmp eq i32 %36, 101
@@ -7790,7 +7790,7 @@ _ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EEC2ERKS4_.exit: ; pre
 
 37:                                               ; preds = %.noexc
   %38 = invoke noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState5boardEii(ptr noundef nonnull readonly align 8 dereferenceable(216) %1, i32 noundef %27, i32 noundef %36)
-          to label %.noexc12 unwind label %42
+          to label %.noexc12 unwind label %43
 
 .noexc12:                                         ; preds = %37
   %39 = icmp eq i32 %38, 1
@@ -7799,27 +7799,28 @@ _ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EEC2ERKS4_.exit: ; pre
 
 _ZNK10open_spiel10backgammon15BackgammonState5IsHitEiii.exit: ; preds = %.noexc12, %.noexc, %28
   %.0.i = phi i8 [ 0, %.noexc ], [ %40, %.noexc12 ], [ 0, %28 ]
-  %41 = getelementptr inbounds nuw %"struct.open_spiel::backgammon::CheckerMove", ptr %26, i64 %indvars.iv, i32 2
-  store i8 %.0.i, ptr %41, align 4
-  br i1 %29, label %28, label %48, !llvm.loop !29
+  %41 = getelementptr inbounds nuw %"struct.open_spiel::backgammon::CheckerMove", ptr %26, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i8 %.0.i, ptr %42, align 4
+  br i1 %29, label %28, label %49, !llvm.loop !29
 
-42:                                               ; preds = %37, %33
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %37, %33
+  %44 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit, label %44
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit, label %45
 
-44:                                               ; preds = %42
-  %45 = ptrtoint ptr %24 to i64
-  %46 = ptrtoint ptr %26 to i64
-  %47 = sub i64 %45, %46
-  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %47) #29
+45:                                               ; preds = %43
+  %46 = ptrtoint ptr %24 to i64
+  %47 = ptrtoint ptr %26 to i64
+  %48 = sub i64 %46, %47
+  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %48) #29
   br label %_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit: ; preds = %42, %44
-  resume { ptr, i32 } %43
+_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit: ; preds = %43, %45
+  resume { ptr, i32 } %44
 
-48:                                               ; preds = %_ZNK10open_spiel10backgammon15BackgammonState5IsHitEiii.exit
+49:                                               ; preds = %_ZNK10open_spiel10backgammon15BackgammonState5IsHitEiii.exit
   ret void
 }
 

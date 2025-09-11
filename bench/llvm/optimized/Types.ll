@@ -153,36 +153,38 @@ define dso_local noundef ptr @_ZN5clang6driver5types11getTypeNameENS1_2IDE(i32 n
 define dso_local noundef i32 @_ZN5clang6driver5types19getPreprocessedTypeENS1_2IDE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -1
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %3, i32 2
-  %5 = load i32, ptr %4, align 8, !tbaa !12
-  ret i32 %5
+  %4 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load i32, ptr %5, align 8, !tbaa !12
+  ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 0, 58) i32 @_ZN5clang6driver5types18getPrecompiledTypeENS1_2IDE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -35
   %3 = icmp ult i32 %2, 2
-  br i1 %3, label %16, label %4
+  br i1 %3, label %17, label %4
 
 4:                                                ; preds = %1
   %5 = add i32 %0, -29
   %spec.select.i = icmp ult i32 %5, 4
-  br i1 %spec.select.i, label %16, label %6
+  br i1 %spec.select.i, label %17, label %6
 
 6:                                                ; preds = %4
   %7 = add i32 %0, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %8, i32 3
-  %10 = load i32, ptr %9, align 4, !tbaa !13
-  %11 = and i32 %10, 2
-  %12 = icmp ne i32 %11, 0
-  %13 = add i32 %0, -37
-  %14 = icmp ult i32 %13, -2
-  %15 = and i1 %14, %12
-  %. = select i1 %15, i32 57, i32 0
-  br label %16
+  %9 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %11 = load i32, ptr %10, align 4, !tbaa !13
+  %12 = and i32 %11, 2
+  %13 = icmp ne i32 %12, 0
+  %14 = add i32 %0, -37
+  %15 = icmp ult i32 %14, -2
+  %16 = and i1 %15, %13
+  %. = select i1 %16, i32 57, i32 0
+  br label %17
 
-16:                                               ; preds = %6, %4, %1
+17:                                               ; preds = %6, %4, %1
   %.0 = phi i32 [ 51, %1 ], [ 52, %4 ], [ %., %6 ]
   ret i32 %.0
 }
@@ -191,14 +193,15 @@ define dso_local noundef range(i32 0, 58) i32 @_ZN5clang6driver5types18getPrecom
 define dso_local noundef zeroext i1 @_ZN5clang6driver5types18onlyPrecompileTypeENS1_2IDE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -1
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %3, i32 3
-  %5 = load i32, ptr %4, align 4, !tbaa !13
-  %6 = and i32 %5, 2
-  %7 = icmp ne i32 %6, 0
-  %8 = add i32 %0, -37
-  %9 = icmp ult i32 %8, -2
-  %10 = and i1 %9, %7
-  ret i1 %10
+  %4 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %6 = load i32, ptr %5, align 4, !tbaa !13
+  %7 = and i32 %6, 2
+  %8 = icmp ne i32 %7, 0
+  %9 = add i32 %0, -37
+  %10 = icmp ult i32 %9, -2
+  %11 = and i1 %10, %8
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -207,27 +210,28 @@ define dso_local noundef ptr @_ZN5clang6driver5types17getTypeTempSuffixENS1_2IDE
 
 3:                                                ; preds = %2
   switch i32 %0, label %6 [
-    i32 58, label %11
-    i32 46, label %11
+    i32 58, label %12
+    i32 46, label %12
     i32 60, label %4
     i32 38, label %5
   ]
 
 4:                                                ; preds = %3
-  br label %11
+  br label %12
 
 5:                                                ; preds = %3
-  br label %11
+  br label %12
 
 6:                                                ; preds = %3, %2
   %7 = add i32 %0, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %8, i32 1
-  %10 = load ptr, ptr %9, align 8, !tbaa !14
-  br label %11
+  %9 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
+  br label %12
 
-11:                                               ; preds = %3, %3, %6, %5, %4
-  %.0 = phi ptr [ %10, %6 ], [ @.str.1, %4 ], [ @.str.2, %5 ], [ @.str, %3 ], [ @.str, %3 ]
+12:                                               ; preds = %3, %3, %6, %5, %4
+  %.0 = phi ptr [ %11, %6 ], [ @.str.1, %4 ], [ @.str.2, %5 ], [ @.str, %3 ], [ @.str, %3 ]
   ret ptr %.0
 }
 
@@ -433,19 +437,20 @@ define dso_local noundef zeroext i1 @_ZN5clang6driver5types6isHLSLENS1_2IDE(i32 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6driver5types9isSrcFileENS1_2IDE(i32 noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq i32 %0, 58
-  br i1 %.not, label %8, label %2
+  br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %1
   %3 = add i32 %0, -1
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %4, i32 2
-  %6 = load i32, ptr %5, align 8, !tbaa !12
-  %7 = icmp ne i32 %6, 0
-  br label %8
+  %5 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load i32, ptr %6, align 8, !tbaa !12
+  %8 = icmp ne i32 %7, 0
+  br label %9
 
-8:                                                ; preds = %2, %1
-  %9 = phi i1 [ false, %1 ], [ %7, %2 ]
-  ret i1 %9
+9:                                                ; preds = %2, %1
+  %10 = phi i1 [ false, %1 ], [ %8, %2 ]
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
@@ -899,48 +904,49 @@ define dso_local void @_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_
 .lr.ph:                                           ; preds = %3
   %7 = add i32 %1, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %8, i32 3
-  %10 = load i32, ptr %9, align 4, !tbaa !13
-  br label %11
+  %9 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %11 = load i32, ptr %10, align 4, !tbaa !13
+  br label %12
 
-11:                                               ; preds = %.lr.ph, %26
-  %12 = phi i32 [ 0, %.lr.ph ], [ %27, %26 ]
-  %.09 = phi i32 [ 0, %.lr.ph ], [ %28, %26 ]
-  %13 = shl nuw i32 1, %.09
-  %14 = and i32 %10, %13
-  %.not7 = icmp eq i32 %14, 0
-  br i1 %.not7, label %26, label %15
+12:                                               ; preds = %.lr.ph, %27
+  %13 = phi i32 [ 0, %.lr.ph ], [ %28, %27 ]
+  %.09 = phi i32 [ 0, %.lr.ph ], [ %29, %27 ]
+  %14 = shl nuw i32 1, %.09
+  %15 = and i32 %11, %14
+  %.not7 = icmp eq i32 %15, 0
+  br i1 %.not7, label %27, label %16
 
-15:                                               ; preds = %11
-  %16 = load i32, ptr %6, align 4, !tbaa !22
-  %.not.i.i.not.i = icmp ult i32 %12, %16
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit, label %17, !prof !23
+16:                                               ; preds = %12
+  %17 = load i32, ptr %6, align 4, !tbaa !22
+  %.not.i.i.not.i = icmp ult i32 %13, %17
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit, label %18, !prof !23
 
-17:                                               ; preds = %15
-  %18 = zext i32 %12 to i64
-  %19 = add nuw nsw i64 %18, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %19, i64 noundef 4) #9
+18:                                               ; preds = %16
+  %19 = zext i32 %13 to i64
+  %20 = add nuw nsw i64 %19, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %20, i64 noundef 4) #9
   %.pre.i = load i32, ptr %5, align 8, !tbaa !21
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit: ; preds = %15, %17
-  %20 = phi i32 [ %12, %15 ], [ %.pre.i, %17 ]
-  %21 = load ptr, ptr %0, align 8, !tbaa !19
-  %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
-  store i32 %.09, ptr %23, align 1
-  %24 = load i32, ptr %5, align 8, !tbaa !21
-  %25 = add i32 %24, 1
-  store i32 %25, ptr %5, align 8, !tbaa !21
-  br label %26
+_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit: ; preds = %16, %18
+  %21 = phi i32 [ %13, %16 ], [ %.pre.i, %18 ]
+  %22 = load ptr, ptr %0, align 8, !tbaa !19
+  %23 = zext i32 %21 to i64
+  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  store i32 %.09, ptr %24, align 1
+  %25 = load i32, ptr %5, align 8, !tbaa !21
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %5, align 8, !tbaa !21
+  br label %27
 
-26:                                               ; preds = %11, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit
-  %27 = phi i32 [ %12, %11 ], [ %25, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit ]
-  %28 = add nuw i32 %.09, 1
+27:                                               ; preds = %12, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit
+  %28 = phi i32 [ %13, %12 ], [ %26, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit ]
+  %29 = add nuw i32 %.09, 1
   %exitcond.not = icmp eq i32 %.09, %2
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %26, %3
+._crit_edge:                                      ; preds = %27, %3
   ret void
 }
 
@@ -960,48 +966,49 @@ define dso_local void @_ZN5clang6driver5types20getCompilationPhasesERKNS0_6Drive
 .lr.ph.i:                                         ; preds = %4
   %9 = add i32 %3, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %10, i32 3
-  %12 = load i32, ptr %11, align 4, !tbaa !13, !noalias !25
-  br label %13
+  %11 = getelementptr inbounds nuw %struct.TypeInfo, ptr @_ZL9TypeInfos, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %13 = load i32, ptr %12, align 4, !tbaa !13, !noalias !25
+  br label %14
 
-13:                                               ; preds = %28, %.lr.ph.i
-  %14 = phi i32 [ 0, %.lr.ph.i ], [ %29, %28 ]
-  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %30, %28 ]
-  %15 = shl nuw i32 1, %.09.i
-  %16 = and i32 %15, %12
-  %.not7.i = icmp eq i32 %16, 0
-  br i1 %.not7.i, label %28, label %17
+14:                                               ; preds = %29, %.lr.ph.i
+  %15 = phi i32 [ 0, %.lr.ph.i ], [ %30, %29 ]
+  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %31, %29 ]
+  %16 = shl nuw i32 1, %.09.i
+  %17 = and i32 %16, %13
+  %.not7.i = icmp eq i32 %17, 0
+  br i1 %.not7.i, label %29, label %18
 
-17:                                               ; preds = %13
-  %18 = load i32, ptr %8, align 4, !tbaa !22, !alias.scope !25
-  %.not.i.i.not.i.i = icmp ult i32 %14, %18
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i, label %19, !prof !23
+18:                                               ; preds = %14
+  %19 = load i32, ptr %8, align 4, !tbaa !22, !alias.scope !25
+  %.not.i.i.not.i.i = icmp ult i32 %15, %19
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i, label %20, !prof !23
 
-19:                                               ; preds = %17
-  %20 = zext i32 %14 to i64
-  %21 = add nuw nsw i64 %20, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6, i64 noundef %21, i64 noundef 4) #9
+20:                                               ; preds = %18
+  %21 = zext i32 %15 to i64
+  %22 = add nuw nsw i64 %21, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6, i64 noundef %22, i64 noundef 4) #9
   %.pre.i.i = load i32, ptr %7, align 8, !tbaa !21, !alias.scope !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i: ; preds = %19, %17
-  %22 = phi i32 [ %14, %17 ], [ %.pre.i.i, %19 ]
-  %23 = load ptr, ptr %0, align 8, !tbaa !19, !alias.scope !25
-  %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
-  store i32 %.09.i, ptr %25, align 1
-  %26 = load i32, ptr %7, align 8, !tbaa !21, !alias.scope !25
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %7, align 8, !tbaa !21, !alias.scope !25
-  br label %28
+_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i: ; preds = %20, %18
+  %23 = phi i32 [ %15, %18 ], [ %.pre.i.i, %20 ]
+  %24 = load ptr, ptr %0, align 8, !tbaa !19, !alias.scope !25
+  %25 = zext i32 %23 to i64
+  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  store i32 %.09.i, ptr %26, align 1
+  %27 = load i32, ptr %7, align 8, !tbaa !21, !alias.scope !25
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %7, align 8, !tbaa !21, !alias.scope !25
+  br label %29
 
-28:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i, %13
-  %29 = phi i32 [ %14, %13 ], [ %27, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i ]
-  %30 = add nuw i32 %.09.i, 1
+29:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i, %14
+  %30 = phi i32 [ %15, %14 ], [ %28, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i ]
+  %31 = add nuw i32 %.09.i, 1
   %exitcond.not.i = icmp eq i32 %.09.i, %5
-  br i1 %exitcond.not.i, label %_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE.exit, label %13, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE.exit, label %14, !llvm.loop !24
 
-_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE.exit: ; preds = %28, %4
+_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE.exit: ; preds = %29, %4
   ret void
 }
 

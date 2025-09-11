@@ -4954,7 +4954,7 @@ _ZNSt6vectorI7no_initIhESaIS1_EE6resizeEm.exit543: ; preds = %_ZNSt12_Vector_bas
 
 .lr.ph2266:                                       ; preds = %1707
   %.not330 = icmp eq ptr %.0269, null
-  %1712 = icmp slt i32 %1708, 2
+  %1712 = icmp samesign ult i32 %1708, 2
   %1713 = add nsw i32 %1708, -2
   br label %1715
 

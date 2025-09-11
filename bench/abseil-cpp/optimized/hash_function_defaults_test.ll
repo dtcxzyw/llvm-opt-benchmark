@@ -29958,7 +29958,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_124HashCord_Rando
   ret void
 
 33:                                               ; preds = %1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %.077 = phi i32 [ 0, %1 ], [ %212, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %.076 = phi i32 [ 0, %1 ], [ %212, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %4, align 4, !tbaa !424
@@ -29978,7 +29978,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_124HashCord_Rando
           to label %100 unwind label %140
 
 .lr.ph:                                           ; preds = %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0976 = phi i64 [ %92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %33 ]
+  %.0975 = phi i64 [ %92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %17, ptr %9, align 8, !tbaa !40
   store i64 0, ptr %18, align 8, !tbaa !28
@@ -30130,7 +30130,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %92 = add nuw i64 %.0976, 1
+  %92 = add nuw i64 %.0975, 1
   %exitcond.not = icmp eq i64 %92, %35
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !565
 
@@ -30497,9 +30497,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %207
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %212 = add nuw nsw i32 %.077, 1
-  %exitcond78.not = icmp eq i32 %212, 1000
-  br i1 %exitcond78.not, label %32, label %33, !llvm.loop !574
+  %212 = add nuw nsw i32 %.076, 1
+  %exitcond77.not = icmp eq i32 %212, 1000
+  br i1 %exitcond77.not, label %32, label %33, !llvm.loop !574
 
 213:                                              ; preds = %_ZN7testing7MessageD2Ev.exit48, %154
   %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %_ZN7testing7MessageD2Ev.exit48 ], [ %.pn.pn, %154 ]

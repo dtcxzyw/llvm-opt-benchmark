@@ -1109,7 +1109,7 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   %12 = add i64 %9, %11
   %13 = sub i64 %7, %12
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %.loopexit18, label %15
+  br i1 %14, label %.loopexit20, label %15
 
 15:                                               ; preds = %6
   %16 = load volatile i64, ptr @jiffies, align 64
@@ -1133,7 +1133,7 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
 
 26:                                               ; preds = %24, %20
   tail call void @__rcu_read_unlock() #19
-  br label %.loopexit18
+  br label %.loopexit20
 
 27:                                               ; preds = %15
   store i32 1, ptr %17, align 8
@@ -1166,7 +1166,7 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %.loopexit20, label %46
+  br i1 %45, label %.loopexit22, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -1196,15 +1196,15 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   %63 = add nuw i64 %49, 1
   %64 = load i64, ptr %43, align 8
   %65 = icmp ult i64 %63, %64
-  br i1 %65, label %48, label %.loopexit20, !llvm.loop !33
+  br i1 %65, label %48, label %.loopexit22, !llvm.loop !33
 
-.loopexit20:                                      ; preds = %62, %42
+.loopexit22:                                      ; preds = %62, %42
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %106, label %69
 
-69:                                               ; preds = %.loopexit20
+69:                                               ; preds = %.loopexit22
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 0
@@ -1263,12 +1263,12 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %105, i32 4, ptr elementtype(i8) %105) #19, !srcloc !19
   br label %106
 
-106:                                              ; preds = %103, %73, %69, %.loopexit20
+106:                                              ; preds = %103, %73, %69, %.loopexit22
   tail call void @_raw_spin_lock_irq(ptr noundef %4) #19
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %108 = load i64, ptr %107, align 8
   %109 = icmp eq i64 %108, 0
-  br i1 %109, label %.loopexit19, label %110
+  br i1 %109, label %.loopexit21, label %110
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1289,7 +1289,8 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   %122 = add i64 %116, 2048
   %123 = load ptr, ptr %112, align 8
   %124 = lshr i64 %116, 11
-  %125 = getelementptr %struct.bitmap_page, ptr %123, i64 %124, i32 1
+  %.split = getelementptr %struct.bitmap_page, ptr %123, i64 %124
+  %125 = getelementptr i8, ptr %.split, i64 8
   %126 = load i32, ptr %125, align 8
   %127 = and i32 %126, 2
   %128 = icmp eq i32 %127, 0
@@ -1354,7 +1355,7 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
 164:                                              ; preds = %161
   %165 = load i32, ptr %66, align 8
   %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %.thread15
+  br i1 %166, label %167, label %.thread17
 
 167:                                              ; preds = %164
   store i16 0, ptr %158, align 2
@@ -1362,7 +1363,8 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   %169 = lshr i64 %119, %168
   %170 = lshr i64 %169, 11
   %171 = load ptr, ptr %112, align 8
-  %172 = getelementptr %struct.bitmap_page, ptr %171, i64 %170, i32 1
+  %.split16 = getelementptr %struct.bitmap_page, ptr %171, i64 %170
+  %172 = getelementptr i8, ptr %.split16, i64 8
   %173 = load i32, ptr %172, align 8
   %174 = add i32 %173, -4
   store i32 %174, ptr %172, align 8
@@ -1402,26 +1404,27 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
 192:                                              ; preds = %161
   %193 = add i16 %162, -1
   %194 = icmp ult i16 %193, 2
-  br i1 %194, label %.thread15, label %206
+  br i1 %194, label %.thread17, label %206
 
-.thread15:                                        ; preds = %164, %192
+.thread17:                                        ; preds = %164, %192
   store i16 1, ptr %158, align 2
   %195 = load i64, ptr %111, align 8
   %196 = lshr i64 %119, %195
   %197 = lshr i64 %196, 11
   %198 = load ptr, ptr %112, align 8
-  %199 = getelementptr %struct.bitmap_page, ptr %198, i64 %197, i32 1
+  %.split15 = getelementptr %struct.bitmap_page, ptr %198, i64 %197
+  %199 = getelementptr i8, ptr %.split15, i64 8
   %200 = load i32, ptr %199, align 8
   %201 = and i32 %200, 2
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %203, label %205
 
-203:                                              ; preds = %.thread15
+203:                                              ; preds = %.thread17
   %204 = or disjoint i32 %200, 2
   store i32 %204, ptr %199, align 8
   br label %205
 
-205:                                              ; preds = %203, %.thread15
+205:                                              ; preds = %203, %.thread17
   store i32 0, ptr %17, align 8
   br label %206
 
@@ -1431,16 +1434,16 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   %209 = add i64 %208, 1
   %210 = load i64, ptr %107, align 8
   %211 = icmp ult i64 %209, %210
-  br i1 %211, label %115, label %.loopexit19, !llvm.loop !34
+  br i1 %211, label %115, label %.loopexit21, !llvm.loop !34
 
-.loopexit19:                                      ; preds = %206, %106
+.loopexit21:                                      ; preds = %206, %106
   tail call void @_raw_spin_unlock_irq(ptr noundef %4) #19
   tail call fastcc void @md_bitmap_wait_writes(ptr noundef %4)
   %212 = load i64, ptr %43, align 8
   %213 = icmp eq i64 %212, 0
-  br i1 %213, label %.loopexit18, label %214
+  br i1 %213, label %.loopexit20, label %214
 
-214:                                              ; preds = %.loopexit19
+214:                                              ; preds = %.loopexit21
   %215 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %216 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %217 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -1455,7 +1458,7 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   %224 = load volatile i64, ptr %215, align 8
   %225 = and i64 %224, 2
   %226 = icmp eq i64 %225, 0
-  br i1 %226, label %227, label %.loopexit18
+  br i1 %226, label %227, label %.loopexit20
 
 227:                                              ; preds = %222
   %228 = trunc i64 %223 to i32
@@ -1466,7 +1469,7 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   %233 = icmp ult i8 %232, 2
   tail call void @llvm.assume(i1 %233)
   %234 = icmp eq i8 %232, 0
-  br i1 %234, label %235, label %.loopexit18
+  br i1 %234, label %235, label %.loopexit20
 
 235:                                              ; preds = %227
   %236 = load ptr, ptr %217, align 8
@@ -1579,15 +1582,15 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   %300 = add nuw i64 %223, 1
   %301 = load i64, ptr %43, align 8
   %302 = icmp ult i64 %300, %301
-  br i1 %302, label %222, label %.loopexit18, !llvm.loop !36
+  br i1 %302, label %222, label %.loopexit20, !llvm.loop !36
 
-.loopexit18:                                      ; preds = %.loopexit, %227, %222, %.loopexit19, %26, %6
+.loopexit20:                                      ; preds = %.loopexit, %227, %222, %.loopexit21, %26, %6
   %303 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %304 = load i32, ptr %303, align 8
   %305 = icmp eq i32 %304, 0
   br i1 %305, label %306, label %314
 
-306:                                              ; preds = %.loopexit18
+306:                                              ; preds = %.loopexit20
   %307 = load i64, ptr %10, align 8
   tail call void @__rcu_read_lock() #19
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -1604,7 +1607,7 @@ define dso_local void @md_bitmap_daemon_work(ptr noundef %0) local_unnamed_addr 
   tail call void @__rcu_read_unlock() #19
   br label %314
 
-314:                                              ; preds = %313, %.loopexit18, %1
+314:                                              ; preds = %313, %.loopexit20, %1
   tail call void @mutex_unlock(ptr noundef nonnull %2) #19
   ret void
 }
@@ -1875,7 +1878,8 @@ define dso_local noundef i32 @md_bitmap_startwrite(ptr noundef %0, i64 noundef %
   %84 = lshr i64 %28, %83
   %85 = lshr i64 %84, 11
   %86 = load ptr, ptr %20, align 8
-  %87 = getelementptr %struct.bitmap_page, ptr %86, i64 %85, i32 1
+  %.split = getelementptr %struct.bitmap_page, ptr %86, i64 %85
+  %87 = getelementptr i8, ptr %.split, i64 8
   %88 = load i32, ptr %87, align 8
   %89 = add i32 %88, 4
   store i32 %89, ptr %87, align 8
@@ -2194,7 +2198,8 @@ define dso_local void @md_bitmap_endwrite(ptr noundef %0, i64 noundef %1, i64 no
   %99 = lshr i64 %29, %98
   %100 = lshr i64 %99, 11
   %101 = load ptr, ptr %20, align 8
-  %102 = getelementptr %struct.bitmap_page, ptr %101, i64 %100, i32 1
+  %.split = getelementptr %struct.bitmap_page, ptr %101, i64 %100
+  %102 = getelementptr i8, ptr %.split, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = and i32 %103, 2
   %105 = icmp eq i32 %104, 0
@@ -2446,7 +2451,8 @@ define dso_local void @md_bitmap_end_sync(ptr noundef %0, i64 noundef %1, ptr no
   %72 = lshr i64 %1, %71
   %73 = lshr i64 %72, 11
   %74 = load ptr, ptr %19, align 8
-  %75 = getelementptr %struct.bitmap_page, ptr %74, i64 %73, i32 1
+  %.split = getelementptr %struct.bitmap_page, ptr %74, i64 %73
+  %75 = getelementptr i8, ptr %.split, i64 8
   %76 = load i32, ptr %75, align 8
   %77 = and i32 %76, 2
   %78 = icmp eq i32 %77, 0
@@ -2796,7 +2802,8 @@ define internal fastcc void @md_bitmap_set_memory_bits(ptr noundef %0, i64 nound
   %39 = lshr i64 %1, %38
   %40 = lshr i64 %39, 11
   %41 = load ptr, ptr %15, align 8
-  %42 = getelementptr %struct.bitmap_page, ptr %41, i64 %40, i32 1
+  %.split = getelementptr %struct.bitmap_page, ptr %41, i64 %40
+  %42 = getelementptr i8, ptr %.split, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = add i32 %43, 4
   store i32 %44, ptr %42, align 8
@@ -2835,7 +2842,8 @@ define internal fastcc void @md_bitmap_set_memory_bits(ptr noundef %0, i64 nound
   %64 = lshr i64 %1, %63
   %65 = lshr i64 %64, 11
   %66 = load ptr, ptr %15, align 8
-  %67 = getelementptr %struct.bitmap_page, ptr %66, i64 %65, i32 1
+  %.split3 = getelementptr %struct.bitmap_page, ptr %66, i64 %65
+  %67 = getelementptr i8, ptr %.split3, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = and i32 %68, 2
   %70 = icmp eq i32 %69, 0
@@ -4029,7 +4037,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %57 = add i32 %46, 10
   %58 = icmp ult i32 %57, 31
   %59 = and i1 %58, %56
-  br i1 %59, label %45, label %.loopexit60, !llvm.loop !65
+  br i1 %59, label %45, label %.loopexit64, !llvm.loop !65
 
 60:                                               ; preds = %13
   %61 = sext i32 %2 to i64
@@ -4037,18 +4045,18 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %63 = trunc i64 %62 to i32
   %64 = add i32 %63, -9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre75 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre78 = shl nuw i32 1, %64
-  %.pre79 = sext i32 %.pre78 to i64
-  %.pre81 = add i64 %1, -1
-  %.pre83 = add i64 %.pre81, %.pre79
-  %.pre85 = udiv i64 %.pre83, %.pre79
-  br label %.loopexit60
+  %.pre79 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre82 = shl nuw i32 1, %64
+  %.pre83 = sext i32 %.pre82 to i64
+  %.pre85 = add i64 %1, -1
+  %.pre87 = add i64 %.pre85, %.pre83
+  %.pre89 = udiv i64 %.pre87, %.pre83
+  br label %.loopexit64
 
-.loopexit60:                                      ; preds = %45, %60
-  %.pre-phi86 = phi i64 [ %.pre85, %60 ], [ %51, %45 ]
-  %.pre-phi80 = phi i64 [ %.pre79, %60 ], [ %49, %45 ]
-  %65 = phi ptr [ %.pre75, %60 ], [ %34, %45 ]
+.loopexit64:                                      ; preds = %45, %60
+  %.pre-phi90 = phi i64 [ %.pre89, %60 ], [ %51, %45 ]
+  %.pre-phi84 = phi i64 [ %.pre83, %60 ], [ %49, %45 ]
+  %65 = phi ptr [ %.pre79, %60 ], [ %34, %45 ]
   %66 = phi i32 [ %64, %60 ], [ %47, %45 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4057,13 +4065,13 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %71, label %75
 
-71:                                               ; preds = %.loopexit60
+71:                                               ; preds = %.loopexit64
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 872
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread28, label %75
+  br i1 %74, label %.thread32, label %75
 
-75:                                               ; preds = %71, %.loopexit60
+75:                                               ; preds = %71, %.loopexit64
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 968
   %77 = load i32, ptr %76, align 8
   %78 = icmp eq i32 %77, 0
@@ -4085,7 +4093,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
 
 .critedge:                                        ; preds = %75, %86, %82
   %89 = phi i32 [ %88, %86 ], [ 0, %82 ], [ 0, %75 ]
-  %90 = add i64 %.pre-phi86, 7
+  %90 = add i64 %.pre-phi90, 7
   %91 = lshr i64 %90, 3
   %92 = add nuw nsw i64 %91, 256
   %93 = select i1 %78, i64 %92, i64 %91
@@ -4101,7 +4109,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   br i1 %101, label %.thread, label %102
 
 102:                                              ; preds = %.critedge
-  br i1 %78, label %103, label %.thread122
+  br i1 %78, label %103, label %.thread126
 
 103:                                              ; preds = %102
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4115,32 +4123,32 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %108 = sext i32 %97 to i64
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %108, ptr %109, align 8
-  br label %.thread122
+  br label %.thread126
 
-.thread122:                                       ; preds = %102, %107
+.thread126:                                       ; preds = %102, %107
   %110 = phi ptr [ %105, %107 ], [ null, %102 ]
   %111 = phi i32 [ 1, %107 ], [ 0, %102 ]
   %112 = zext nneg i32 %111 to i64
   %113 = icmp samesign ugt i64 %95, %112
-  br i1 %113, label %.preheader58, label %.loopexit59
+  br i1 %113, label %.preheader62, label %.loopexit63
 
-114:                                              ; preds = %.preheader58
+114:                                              ; preds = %.preheader62
   %115 = add i32 %119, 1
   %116 = sext i32 %115 to i64
   %117 = icmp ugt i64 %95, %116
-  br i1 %117, label %.preheader58, label %.loopexit59, !llvm.loop !67
+  br i1 %117, label %.preheader62, label %.loopexit63, !llvm.loop !67
 
-.preheader58:                                     ; preds = %.thread122, %114
-  %118 = phi i64 [ %116, %114 ], [ %112, %.thread122 ]
-  %119 = phi i32 [ %115, %114 ], [ %111, %.thread122 ]
+.preheader62:                                     ; preds = %.thread126, %114
+  %118 = phi i64 [ %116, %114 ], [ %112, %.thread126 ]
+  %119 = phi i32 [ %115, %114 ], [ %111, %.thread126 ]
   %120 = tail call ptr @alloc_pages(i32 noundef 3520, i32 noundef 0) #19
   %121 = getelementptr ptr, ptr %99, i64 %118
   store ptr %120, ptr %121, align 8
   %122 = icmp eq ptr %120, null
   br i1 %122, label %132, label %114
 
-.loopexit59:                                      ; preds = %114, %.thread122
-  %123 = phi i64 [ %112, %.thread122 ], [ %116, %114 ]
+.loopexit63:                                      ; preds = %114, %.thread126
+  %123 = phi i64 [ %112, %.thread126 ], [ %116, %114 ]
   store i64 %123, ptr %.sroa.gep1, align 8
   %124 = shl nuw nsw i64 %95, 2
   %125 = add nuw nsw i64 %124, 7
@@ -4151,34 +4159,34 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %129, ptr %130, align 8
   %131 = icmp eq ptr %129, null
-  br i1 %131, label %.thread, label %.thread29
+  br i1 %131, label %.thread, label %.thread33
 
-.thread29:                                        ; preds = %.loopexit59
+.thread33:                                        ; preds = %.loopexit63
   store i64 %93, ptr %.sroa.gep, align 8
-  br label %.thread28
+  br label %.thread32
 
-132:                                              ; preds = %.preheader58
+132:                                              ; preds = %.preheader62
   store i64 %118, ptr %.sroa.gep1, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit59, %103, %.critedge, %132
+.thread:                                          ; preds = %.loopexit63, %103, %.critedge, %132
   call fastcc void @md_bitmap_file_unmap(ptr noundef nonnull %5)
   br label %494
 
-.thread28:                                        ; preds = %71, %.thread29
-  %133 = phi ptr [ null, %71 ], [ %110, %.thread29 ]
-  %134 = add i64 %.pre-phi86, 2047
+.thread32:                                        ; preds = %71, %.thread33
+  %133 = phi ptr [ null, %71 ], [ %110, %.thread33 ]
+  %134 = add i64 %.pre-phi90, 2047
   %135 = lshr i64 %134, 11
   %136 = shl nuw nsw i64 %135, 4
   %137 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %136, i32 noundef 3520) #23
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %140
 
-139:                                              ; preds = %.thread28
+139:                                              ; preds = %.thread32
   call fastcc void @md_bitmap_file_unmap(ptr noundef nonnull %5)
   br label %494
 
-140:                                              ; preds = %.thread28
+140:                                              ; preds = %.thread32
   br i1 %9, label %147, label %141
 
 141:                                              ; preds = %140
@@ -4237,7 +4245,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   store i64 %135, ptr %172, align 8
   %177 = sext i32 %66 to i64
   store i64 %177, ptr %173, align 8
-  store i64 %.pre-phi86, ptr %175, align 8
+  store i64 %.pre-phi90, ptr %175, align 8
   %178 = add i32 %66, 9
   %179 = zext nneg i32 %178 to i64
   %180 = shl nuw i64 1, %179
@@ -4246,13 +4254,13 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   store i64 %180, ptr %182, align 8
   %183 = shl i64 %176, %174
   %184 = zext i32 %66 to i64
-  %185 = shl i64 %.pre-phi86, %184
+  %185 = shl i64 %.pre-phi90, %184
   %186 = tail call i64 @llvm.umin.i64(i64 %183, i64 %185)
   %187 = load ptr, ptr %67, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 1928
   %189 = load ptr, ptr %188, align 8
   %190 = icmp eq ptr %189, null
-  br i1 %190, label %.thread31, label %191
+  br i1 %190, label %.thread35, label %191
 
 191:                                              ; preds = %167
   %192 = getelementptr inbounds nuw i8, ptr %187, i64 972
@@ -4260,28 +4268,28 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %194 = icmp sgt i32 %193, 1
   %195 = icmp ugt i64 %134, 2047
   %196 = and i1 %195, %194
-  br i1 %196, label %.preheader57, label %.thread31
+  br i1 %196, label %.preheader61, label %.thread35
 
-.preheader57:                                     ; preds = %191, %212
+.preheader61:                                     ; preds = %191, %212
   %197 = phi i64 [ %220, %212 ], [ 0, %191 ]
   %198 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %197, i32 noundef 1)
   %199 = icmp eq i32 %198, 0
   br i1 %199, label %212, label %200
 
-200:                                              ; preds = %.preheader57
+200:                                              ; preds = %.preheader61
   %201 = icmp eq i64 %197, 0
-  br i1 %201, label %.loopexit56, label %.preheader55
+  br i1 %201, label %.loopexit60, label %.preheader59
 
-.preheader55:                                     ; preds = %200, %.preheader55
-  %202 = phi i64 [ %205, %.preheader55 ], [ 0, %200 ]
+.preheader59:                                     ; preds = %200, %.preheader59
+  %202 = phi i64 [ %205, %.preheader59 ], [ 0, %200 ]
   %203 = getelementptr %struct.bitmap_page, ptr %137, i64 %202
   %204 = load ptr, ptr %203, align 8
   tail call void @kfree(ptr noundef %204) #19
   %205 = add nuw nsw i64 %202, 1
   %206 = icmp eq i64 %205, %197
-  br i1 %206, label %.loopexit56, label %.preheader55, !llvm.loop !68
+  br i1 %206, label %.loopexit60, label %.preheader59, !llvm.loop !68
 
-.loopexit56:                                      ; preds = %.preheader55, %200
+.loopexit60:                                      ; preds = %.preheader59, %200
   tail call void @kfree(ptr noundef nonnull %137) #19
   store ptr %169, ptr %168, align 8
   store i64 %171, ptr %170, align 8
@@ -4294,11 +4302,12 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 944
   store i64 %208, ptr %210, align 8
   %211 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21) #21
-  br label %.thread31
+  br label %.thread35
 
-212:                                              ; preds = %.preheader57
+212:                                              ; preds = %.preheader61
   %213 = load ptr, ptr %168, align 8
-  %214 = getelementptr %struct.bitmap_page, ptr %213, i64 %197, i32 1
+  %.split = getelementptr %struct.bitmap_page, ptr %213, i64 %197
+  %214 = getelementptr i8, ptr %.split, i64 8
   %215 = load i32, ptr %214, align 8
   %216 = and i32 %215, -4
   %217 = add i32 %216, 4
@@ -4307,14 +4316,14 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   store i32 %219, ptr %214, align 8
   %220 = add nuw nsw i64 %197, 1
   %221 = icmp samesign ult i64 %220, %135
-  br i1 %221, label %.preheader57, label %.thread31, !llvm.loop !69
+  br i1 %221, label %.preheader61, label %.thread35, !llvm.loop !69
 
-.thread31:                                        ; preds = %212, %167, %.loopexit56, %191
-  %222 = phi i64 [ %186, %191 ], [ %183, %.loopexit56 ], [ %186, %167 ], [ %186, %212 ]
+.thread35:                                        ; preds = %212, %167, %.loopexit60, %191
+  %222 = phi i64 [ %186, %191 ], [ %183, %.loopexit60 ], [ %186, %167 ], [ %186, %212 ]
   %223 = icmp eq i64 %222, 0
-  br i1 %223, label %.loopexit54, label %224
+  br i1 %223, label %.loopexit58, label %224
 
-224:                                              ; preds = %.thread31
+224:                                              ; preds = %.thread35
   %225 = add i64 %174, 11
   %226 = shl nsw i64 -1, %184
   %227 = shl nuw i64 1, %225
@@ -4323,16 +4332,16 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %230 = add i64 %229, -1
   br label %231
 
-231:                                              ; preds = %.thread38, %224
-  %232 = phi i64 [ 0, %224 ], [ %365, %.thread38 ]
-  %233 = phi i64 [ 0, %224 ], [ %364, %.thread38 ]
-  %234 = phi i64 [ 0, %224 ], [ %363, %.thread38 ]
+231:                                              ; preds = %.thread42, %224
+  %232 = phi i64 [ 0, %224 ], [ %365, %.thread42 ]
+  %233 = phi i64 [ 0, %224 ], [ %364, %.thread42 ]
+  %234 = phi i64 [ 0, %224 ], [ %363, %.thread42 ]
   %235 = lshr i64 %232, %174
   %236 = lshr i64 %235, 11
   %237 = shl i64 %235, 1
   %238 = and i64 %237, 4094
   %239 = icmp ult i64 %236, %171
-  br i1 %239, label %240, label %.thread38
+  br i1 %239, label %240, label %.thread42
 
 240:                                              ; preds = %231
   %241 = getelementptr %struct.bitmap_page, ptr %169, i64 %236
@@ -4350,7 +4359,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
 249:                                              ; preds = %246
   %250 = and i64 %232, %228
   %251 = sub i64 %227, %250
-  br label %.thread38
+  br label %.thread42
 
 252:                                              ; preds = %246
   %253 = and i64 %232, %230
@@ -4370,12 +4379,12 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %263 = phi i64 [ %254, %252 ], [ %258, %256 ]
   %264 = phi ptr [ %255, %252 ], [ %261, %256 ]
   %265 = icmp eq ptr %264, null
-  br i1 %265, label %.thread38, label %266
+  br i1 %265, label %.thread42, label %266
 
 266:                                              ; preds = %262
   %267 = load i16, ptr %264, align 2
   %268 = icmp slt i16 %267, 0
-  br i1 %268, label %269, label %.thread38
+  br i1 %268, label %269, label %.thread42
 
 269:                                              ; preds = %266
   %270 = load i64, ptr %173, align 8
@@ -4385,7 +4394,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %274 = and i64 %273, 4094
   %275 = load i64, ptr %170, align 8
   %276 = icmp ult i64 %272, %275
-  br i1 %276, label %277, label %.thread43
+  br i1 %276, label %277, label %.thread47
 
 277:                                              ; preds = %269
   %278 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %272, i32 noundef 0)
@@ -4400,7 +4409,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
 285:                                              ; preds = %277
   %286 = load ptr, ptr %280, align 8
   %287 = icmp eq ptr %286, null
-  br i1 %287, label %288, label %.thread39
+  br i1 %287, label %288, label %.thread43
 
 288:                                              ; preds = %277, %285
   %289 = load i64, ptr %173, align 8
@@ -4410,23 +4419,23 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %293 = and i64 %292, %232
   %294 = sub i64 %291, %293
   %295 = icmp slt i32 %278, 0
-  br i1 %295, label %.thread43, label %302
+  br i1 %295, label %.thread47, label %302
 
-.thread39:                                        ; preds = %285
+.thread43:                                        ; preds = %285
   %296 = load i64, ptr %173, align 8
   %297 = shl nuw i64 1, %296
   %298 = add i64 %297, -1
   %299 = and i64 %298, %232
   %300 = sub i64 %297, %299
   %301 = icmp slt i32 %278, 0
-  br i1 %301, label %.thread43, label %.thread40
+  br i1 %301, label %.thread47, label %.thread44
 
 302:                                              ; preds = %288
-  br i1 %284, label %..thread40_crit_edge, label %303
+  br i1 %284, label %..thread44_crit_edge, label %303
 
-..thread40_crit_edge:                             ; preds = %302
-  %.pre76 = load ptr, ptr %280, align 8
-  br label %.thread40
+..thread44_crit_edge:                             ; preds = %302
+  %.pre80 = load ptr, ptr %280, align 8
+  br label %.thread44
 
 303:                                              ; preds = %302
   %304 = icmp samesign ugt i64 %274, 2047
@@ -4434,17 +4443,17 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %306 = getelementptr i16, ptr %280, i64 %305
   br label %310
 
-.thread40:                                        ; preds = %..thread40_crit_edge, %.thread39
-  %307 = phi ptr [ %.pre76, %..thread40_crit_edge ], [ %286, %.thread39 ]
-  %308 = phi i64 [ %294, %..thread40_crit_edge ], [ %300, %.thread39 ]
+.thread44:                                        ; preds = %..thread44_crit_edge, %.thread43
+  %307 = phi ptr [ %.pre80, %..thread44_crit_edge ], [ %286, %.thread43 ]
+  %308 = phi i64 [ %294, %..thread44_crit_edge ], [ %300, %.thread43 ]
   %309 = getelementptr i8, ptr %307, i64 %274
   br label %310
 
-310:                                              ; preds = %.thread40, %303
-  %311 = phi i64 [ %308, %.thread40 ], [ %294, %303 ]
-  %312 = phi ptr [ %309, %.thread40 ], [ %306, %303 ]
+310:                                              ; preds = %.thread44, %303
+  %311 = phi i64 [ %308, %.thread44 ], [ %294, %303 ]
+  %312 = phi ptr [ %309, %.thread44 ], [ %306, %303 ]
   %313 = icmp eq ptr %312, null
-  br i1 %313, label %.thread43, label %314
+  br i1 %313, label %.thread47, label %314
 
 314:                                              ; preds = %310
   %315 = load i16, ptr %312, align 2
@@ -4455,22 +4464,23 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %318 = add i64 %311, %232
   %319 = and i64 %232, %226
   %320 = icmp ult i64 %319, %318
-  br i1 %320, label %.preheader52, label %.loopexit53
+  br i1 %320, label %.preheader56, label %.loopexit57
 
-.preheader52:                                     ; preds = %317, %.preheader52
-  %321 = phi i64 [ %322, %.preheader52 ], [ %319, %317 ]
+.preheader56:                                     ; preds = %317, %.preheader56
+  %321 = phi i64 [ %322, %.preheader56 ], [ %319, %317 ]
   tail call fastcc void @md_bitmap_file_set_bit(ptr noundef %0, i64 noundef %232)
-  %322 = add i64 %321, %.pre-phi80
+  %322 = add i64 %321, %.pre-phi84
   %323 = icmp ult i64 %322, %318
-  br i1 %323, label %.preheader52, label %.loopexit53, !llvm.loop !70
+  br i1 %323, label %.preheader56, label %.loopexit57, !llvm.loop !70
 
-.loopexit53:                                      ; preds = %.preheader52, %317
+.loopexit57:                                      ; preds = %.preheader56, %317
   store i16 2, ptr %312, align 2
   %324 = load i64, ptr %173, align 8
   %325 = lshr i64 %232, %324
   %326 = lshr i64 %325, 11
   %327 = load ptr, ptr %168, align 8
-  %328 = getelementptr %struct.bitmap_page, ptr %327, i64 %326, i32 1
+  %.split28 = getelementptr %struct.bitmap_page, ptr %327, i64 %326
+  %328 = getelementptr i8, ptr %.split28, i64 8
   %329 = load i32, ptr %328, align 8
   %330 = add i32 %329, 4
   store i32 %330, ptr %328, align 8
@@ -4481,7 +4491,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %335 = icmp ult i32 %334, 4
   br i1 %335, label %336, label %347
 
-336:                                              ; preds = %.loopexit53
+336:                                              ; preds = %.loopexit57
   %337 = and i32 %334, 1
   %338 = icmp eq i32 %337, 0
   br i1 %338, label %343, label %339
@@ -4503,12 +4513,13 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   tail call void @kfree(ptr noundef %344) #19
   br label %347
 
-347:                                              ; preds = %343, %339, %.loopexit53
+347:                                              ; preds = %343, %339, %.loopexit57
   %348 = load i64, ptr %173, align 8
   %349 = lshr i64 %232, %348
   %350 = lshr i64 %349, 11
   %351 = load ptr, ptr %168, align 8
-  %352 = getelementptr %struct.bitmap_page, ptr %351, i64 %350, i32 1
+  %.split29 = getelementptr %struct.bitmap_page, ptr %351, i64 %350
+  %352 = getelementptr i8, ptr %.split29, i64 8
   %353 = load i32, ptr %352, align 8
   %354 = and i32 %353, 2
   %355 = icmp eq i32 %354, 0
@@ -4523,32 +4534,32 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %359 = load i16, ptr %312, align 2
   %360 = or i16 %359, -32768
   store i16 %360, ptr %312, align 2
-  br label %.thread43
+  br label %.thread47
 
-.thread43:                                        ; preds = %.thread39, %269, %288, %358, %310
-  %361 = phi i64 [ %311, %358 ], [ %311, %310 ], [ %300, %.thread39 ], [ %233, %269 ], [ %294, %288 ]
+.thread47:                                        ; preds = %.thread43, %269, %288, %358, %310
+  %361 = phi i64 [ %311, %358 ], [ %311, %310 ], [ %300, %.thread43 ], [ %233, %269 ], [ %294, %288 ]
   %362 = tail call i64 @llvm.umin.i64(i64 %361, i64 %263)
-  br label %.thread38
+  br label %.thread42
 
-.thread38:                                        ; preds = %249, %231, %.thread43, %266, %262
-  %363 = phi i64 [ %263, %262 ], [ %263, %266 ], [ %362, %.thread43 ], [ %251, %249 ], [ %234, %231 ]
-  %364 = phi i64 [ %233, %262 ], [ %233, %266 ], [ %361, %.thread43 ], [ %233, %249 ], [ %233, %231 ]
+.thread42:                                        ; preds = %249, %231, %.thread47, %266, %262
+  %363 = phi i64 [ %263, %262 ], [ %263, %266 ], [ %362, %.thread47 ], [ %251, %249 ], [ %234, %231 ]
+  %364 = phi i64 [ %233, %262 ], [ %233, %266 ], [ %361, %.thread47 ], [ %233, %249 ], [ %233, %231 ]
   %365 = add i64 %363, %232
   %366 = icmp ult i64 %365, %222
-  br i1 %366, label %231, label %.loopexit54, !llvm.loop !71
+  br i1 %366, label %231, label %.loopexit58, !llvm.loop !71
 
-.loopexit54:                                      ; preds = %.thread38, %.thread31
-  %367 = phi i64 [ 0, %.thread31 ], [ %364, %.thread38 ]
-  %368 = phi i64 [ 0, %.thread31 ], [ %365, %.thread38 ]
+.loopexit58:                                      ; preds = %.thread42, %.thread35
+  %367 = phi i64 [ 0, %.thread35 ], [ %364, %.thread42 ]
+  %368 = phi i64 [ 0, %.thread35 ], [ %365, %.thread42 ]
   %369 = load ptr, ptr %168, align 8
   %370 = icmp eq ptr %369, %169
   br i1 %370, label %384, label %371
 
-371:                                              ; preds = %.loopexit54
+371:                                              ; preds = %.loopexit58
   %372 = icmp eq i64 %171, 0
-  br i1 %372, label %.loopexit51, label %.preheader50
+  br i1 %372, label %.loopexit55, label %.preheader54
 
-.preheader50:                                     ; preds = %371, %381
+.preheader54:                                     ; preds = %371, %381
   %373 = phi i64 [ %382, %381 ], [ 0, %371 ]
   %374 = getelementptr %struct.bitmap_page, ptr %169, i64 %373
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
@@ -4557,40 +4568,40 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %378 = icmp eq i32 %377, 0
   br i1 %378, label %379, label %381
 
-379:                                              ; preds = %.preheader50
+379:                                              ; preds = %.preheader54
   %380 = load ptr, ptr %374, align 8
   tail call void @kfree(ptr noundef %380) #19
   br label %381
 
-381:                                              ; preds = %379, %.preheader50
+381:                                              ; preds = %379, %.preheader54
   %382 = add nuw i64 %373, 1
   %383 = icmp eq i64 %382, %171
-  br i1 %383, label %.loopexit51, label %.preheader50, !llvm.loop !72
+  br i1 %383, label %.loopexit55, label %.preheader54, !llvm.loop !72
 
-.loopexit51:                                      ; preds = %381, %371
+.loopexit55:                                      ; preds = %381, %371
   tail call void @kfree(ptr noundef %169) #19
   br label %384
 
-384:                                              ; preds = %.loopexit51, %.loopexit54
+384:                                              ; preds = %.loopexit55, %.loopexit58
   br i1 %9, label %493, label %385
 
 385:                                              ; preds = %384
   %386 = icmp ult i64 %368, %185
-  br i1 %386, label %.preheader, label %.loopexit49
+  br i1 %386, label %.preheader, label %.loopexit53
 
-.loopexit49:                                      ; preds = %.thread48, %385
+.loopexit53:                                      ; preds = %.thread52, %385
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %388 = load i64, ptr %387, align 8
   %389 = icmp eq i64 %388, 0
   br i1 %389, label %.loopexit, label %390
 
-390:                                              ; preds = %.loopexit49
+390:                                              ; preds = %.loopexit53
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %479
 
-.preheader:                                       ; preds = %385, %.thread48
-  %392 = phi i64 [ %477, %.thread48 ], [ %368, %385 ]
-  %393 = phi i64 [ %476, %.thread48 ], [ %367, %385 ]
+.preheader:                                       ; preds = %385, %.thread52
+  %392 = phi i64 [ %477, %.thread52 ], [ %368, %385 ]
+  %393 = phi i64 [ %476, %.thread52 ], [ %367, %385 ]
   %394 = load i64, ptr %173, align 8
   %395 = lshr i64 %392, %394
   %396 = lshr i64 %395, 11
@@ -4598,7 +4609,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %398 = and i64 %397, 4094
   %399 = load i64, ptr %170, align 8
   %400 = icmp ult i64 %396, %399
-  br i1 %400, label %401, label %.thread48
+  br i1 %400, label %401, label %.thread52
 
 401:                                              ; preds = %.preheader
   %402 = tail call fastcc i32 @md_bitmap_checkpage(ptr noundef %0, i64 noundef %396, i32 noundef 0)
@@ -4613,7 +4624,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
 409:                                              ; preds = %401
   %410 = load ptr, ptr %404, align 8
   %411 = icmp eq ptr %410, null
-  br i1 %411, label %412, label %.thread44
+  br i1 %411, label %412, label %.thread48
 
 412:                                              ; preds = %401, %409
   %413 = load i64, ptr %173, align 8
@@ -4623,23 +4634,23 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %417 = and i64 %416, %392
   %418 = sub i64 %415, %417
   %419 = icmp slt i32 %402, 0
-  br i1 %419, label %.thread48, label %426
+  br i1 %419, label %.thread52, label %426
 
-.thread44:                                        ; preds = %409
+.thread48:                                        ; preds = %409
   %420 = load i64, ptr %173, align 8
   %421 = shl nuw i64 1, %420
   %422 = add i64 %421, -1
   %423 = and i64 %422, %392
   %424 = sub i64 %421, %423
   %425 = icmp slt i32 %402, 0
-  br i1 %425, label %.thread48, label %.thread45
+  br i1 %425, label %.thread52, label %.thread49
 
 426:                                              ; preds = %412
-  br i1 %408, label %..thread45_crit_edge, label %427
+  br i1 %408, label %..thread49_crit_edge, label %427
 
-..thread45_crit_edge:                             ; preds = %426
-  %.pre77 = load ptr, ptr %404, align 8
-  br label %.thread45
+..thread49_crit_edge:                             ; preds = %426
+  %.pre81 = load ptr, ptr %404, align 8
+  br label %.thread49
 
 427:                                              ; preds = %426
   %428 = icmp samesign ugt i64 %398, 2047
@@ -4647,22 +4658,22 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %430 = getelementptr i16, ptr %404, i64 %429
   br label %434
 
-.thread45:                                        ; preds = %..thread45_crit_edge, %.thread44
-  %431 = phi ptr [ %.pre77, %..thread45_crit_edge ], [ %410, %.thread44 ]
-  %432 = phi i64 [ %418, %..thread45_crit_edge ], [ %424, %.thread44 ]
+.thread49:                                        ; preds = %..thread49_crit_edge, %.thread48
+  %431 = phi ptr [ %.pre81, %..thread49_crit_edge ], [ %410, %.thread48 ]
+  %432 = phi i64 [ %418, %..thread49_crit_edge ], [ %424, %.thread48 ]
   %433 = getelementptr i8, ptr %431, i64 %398
   br label %434
 
-434:                                              ; preds = %.thread45, %427
-  %435 = phi i64 [ %432, %.thread45 ], [ %418, %427 ]
-  %436 = phi ptr [ %433, %.thread45 ], [ %430, %427 ]
+434:                                              ; preds = %.thread49, %427
+  %435 = phi i64 [ %432, %.thread49 ], [ %418, %427 ]
+  %436 = phi ptr [ %433, %.thread49 ], [ %430, %427 ]
   %437 = icmp eq ptr %436, null
-  br i1 %437, label %.thread48, label %438
+  br i1 %437, label %.thread52, label %438
 
 438:                                              ; preds = %434
   %439 = load i16, ptr %436, align 2
   %440 = icmp eq i16 %439, 0
-  br i1 %440, label %441, label %.thread48
+  br i1 %440, label %441, label %.thread52
 
 441:                                              ; preds = %438
   store i16 -32766, ptr %436, align 2
@@ -4670,7 +4681,8 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %443 = lshr i64 %392, %442
   %444 = lshr i64 %443, 11
   %445 = load ptr, ptr %168, align 8
-  %446 = getelementptr %struct.bitmap_page, ptr %445, i64 %444, i32 1
+  %.split30 = getelementptr %struct.bitmap_page, ptr %445, i64 %444
+  %446 = getelementptr i8, ptr %.split30, i64 8
   %447 = load i32, ptr %446, align 8
   %448 = add i32 %447, 4
   store i32 %448, ptr %446, align 8
@@ -4708,22 +4720,23 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %467 = lshr i64 %392, %466
   %468 = lshr i64 %467, 11
   %469 = load ptr, ptr %168, align 8
-  %470 = getelementptr %struct.bitmap_page, ptr %469, i64 %468, i32 1
+  %.split31 = getelementptr %struct.bitmap_page, ptr %469, i64 %468
+  %470 = getelementptr i8, ptr %.split31, i64 8
   %471 = load i32, ptr %470, align 8
   %472 = and i32 %471, 2
   %473 = icmp eq i32 %472, 0
-  br i1 %473, label %474, label %.thread48
+  br i1 %473, label %474, label %.thread52
 
 474:                                              ; preds = %465
   %475 = or disjoint i32 %471, 2
   store i32 %475, ptr %470, align 8
-  br label %.thread48
+  br label %.thread52
 
-.thread48:                                        ; preds = %.thread44, %.preheader, %412, %474, %465, %438, %434
-  %476 = phi i64 [ %435, %474 ], [ %435, %465 ], [ %435, %438 ], [ %435, %434 ], [ %424, %.thread44 ], [ %393, %.preheader ], [ %418, %412 ]
+.thread52:                                        ; preds = %.thread48, %.preheader, %412, %474, %465, %438, %434
+  %476 = phi i64 [ %435, %474 ], [ %435, %465 ], [ %435, %438 ], [ %435, %434 ], [ %424, %.thread48 ], [ %393, %.preheader ], [ %418, %412 ]
   %477 = add i64 %476, %392
   %478 = icmp ult i64 %477, %185
-  br i1 %478, label %.preheader, label %.loopexit49, !llvm.loop !73
+  br i1 %478, label %.preheader, label %.loopexit53, !llvm.loop !73
 
 479:                                              ; preds = %479, %390
   %480 = phi i32 [ 0, %390 ], [ %484, %479 ]
@@ -4737,7 +4750,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %487 = icmp ugt i64 %486, %485
   br i1 %487, label %479, label %.loopexit, !llvm.loop !74
 
-.loopexit:                                        ; preds = %479, %.loopexit49
+.loopexit:                                        ; preds = %479, %.loopexit53
   tail call void @_raw_spin_unlock_irq(ptr noundef %0) #19
   tail call void @md_bitmap_unplug(ptr noundef %0)
   %488 = load ptr, ptr %67, align 8

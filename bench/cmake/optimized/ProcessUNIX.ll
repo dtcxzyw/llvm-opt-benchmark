@@ -338,20 +338,20 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
   %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !35
   %33 = load ptr, ptr %28, align 8, !tbaa !32
-  %34 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %33, i64 %indvars.iv, i32 2
-  store i32 %32, ptr %34, align 4, !tbaa !36
-  %35 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %33, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i32 %32, ptr %35, align 4, !tbaa !36
   %36 = and i32 %32, 127
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %29
-  store i32 4, ptr %35, align 4, !tbaa !38
-  %39 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %33, i64 %indvars.iv, i32 1
+  store i32 4, ptr %34, align 4, !tbaa !38
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 0, ptr %39, align 4, !tbaa !39
   %40 = lshr i32 %32, 8
   %41 = and i32 %40, 255
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 %41, ptr %42, align 4, !tbaa !40
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
@@ -362,9 +362,9 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
   br i1 %45, label %46, label %82
 
 46:                                               ; preds = %43
-  store i32 2, ptr %35, align 4, !tbaa !38
-  %47 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %33, i64 %indvars.iv, i32 1
-  %48 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %33, i64 %indvars.iv, i32 4
+  store i32 2, ptr %34, align 4, !tbaa !38
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 16
   switch i32 %36, label %80 [
     i32 11, label %49
     i32 7, label %50
@@ -446,32 +446,32 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
 
 58:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 23724528828369235, ptr %48, align 1
+  store i64 23724528828369235, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 59:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 22589819993934163, ptr %48, align 1
+  store i64 22589819993934163, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 60:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 13882791725320531, ptr %48, align 1
+  store i64 13882791725320531, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 61:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 14164266702031187, ptr %48, align 1
+  store i64 14164266702031187, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 62:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 19510049202719059, ptr %48, align 1
+  store i64 19510049202719059, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 63:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 21764060672903507, ptr %48, align 1
+  store i64 21764060672903507, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 64:                                               ; preds = %46
@@ -481,32 +481,32 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
 
 65:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 19224171666426195, ptr %48, align 1
+  store i64 19224171666426195, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 66:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 23730000381823315, ptr %48, align 1
+  store i64 23730000381823315, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 67:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 22605221729880403, ptr %48, align 1
+  store i64 22605221729880403, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 68:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 22610715009829203, ptr %48, align 1
+  store i64 22610715009829203, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 69:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 22035674723469651, ptr %48, align 1
+  store i64 22035674723469651, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 70:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 24012596630210899, ptr %48, align 1
+  store i64 24012596630210899, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 71:                                               ; preds = %46
@@ -516,12 +516,12 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
 
 72:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 24013623194503507, ptr %48, align 1
+  store i64 24013623194503507, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 73:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 25424309497842003, ptr %48, align 1
+  store i64 25424309497842003, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 74:                                               ; preds = %46
@@ -531,7 +531,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
 
 75:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 19790463322507603, ptr %48, align 1
+  store i64 19790463322507603, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 76:                                               ; preds = %46
@@ -541,7 +541,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
 
 77:                                               ; preds = %46
   store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 21476001762986323, ptr %48, align 1
+  store i64 21476001762986323, ptr %48, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 78:                                               ; preds = %46
@@ -560,7 +560,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
 82:                                               ; preds = %43
-  %83 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %34, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %83, ptr noundef nonnull align 1 dereferenceable(33) @.str.7, i64 33, i1 false) #25
   %84 = load ptr, ptr %28, align 8, !tbaa !32
   %85 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %84, i64 %indvars.iv
@@ -1395,7 +1395,7 @@ define dso_local i32 @cmsysProcess_GetStateByIndex(ptr noundef %0, i32 noundef %
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local i32 @cmsysProcess_GetExitExceptionByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %14, label %3
+  br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1403,25 +1403,26 @@ define dso_local i32 @cmsysProcess_GetExitExceptionByIndex(ptr noundef %0, i32 n
   %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
   %or.cond = or i1 %7, %6
-  br i1 %or.cond, label %14, label %8
+  br i1 %or.cond, label %15, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %10, i64 %11, i32 1
-  %13 = load i32, ptr %12, align 4, !tbaa !39
-  br label %14
+  %12 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !39
+  br label %15
 
-14:                                               ; preds = %2, %3, %8
-  %.0 = phi i32 [ %13, %8 ], [ 5, %3 ], [ 5, %2 ]
+15:                                               ; preds = %2, %3, %8
+  %.0 = phi i32 [ %14, %8 ], [ 5, %3 ], [ 5, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local i32 @cmsysProcess_GetExitValueByIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %14, label %3
+  br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1429,18 +1430,19 @@ define dso_local i32 @cmsysProcess_GetExitValueByIndex(ptr noundef %0, i32 nound
   %6 = icmp sge i32 %1, %5
   %7 = icmp slt i32 %1, 0
   %or.cond = or i1 %7, %6
-  br i1 %or.cond, label %14, label %8
+  br i1 %or.cond, label %15, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %10, i64 %11, i32 3
-  %13 = load i32, ptr %12, align 4, !tbaa !40
-  br label %14
+  %12 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %14 = load i32, ptr %13, align 4, !tbaa !40
+  br label %15
 
-14:                                               ; preds = %2, %3, %8
-  %.0 = phi i32 [ %13, %8 ], [ -1, %3 ], [ -1, %2 ]
+15:                                               ; preds = %2, %3, %8
+  %.0 = phi i32 [ %14, %8 ], [ -1, %3 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -1614,15 +1616,15 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
 .lr.ph81.i:                                       ; preds = %59, %.lr.ph81.i
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.lr.ph81.i ], [ 0, %59 ]
   %65 = load ptr, ptr %53, align 8, !tbaa !32
-  %66 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %65, i64 %indvars.iv87.i, i32 1
-  store i32 0, ptr %66, align 4, !tbaa !39
-  %67 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %65, i64 %indvars.iv87.i
-  store i32 0, ptr %67, align 4, !tbaa !38
-  %68 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %65, i64 %indvars.iv87.i, i32 2
+  %66 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %65, i64 %indvars.iv87.i
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  store i32 0, ptr %67, align 4, !tbaa !39
+  store i32 0, ptr %66, align 4, !tbaa !38
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i32 1, ptr %68, align 4, !tbaa !36
-  %69 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %65, i64 %indvars.iv87.i, i32 3
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 12
   store i32 1, ptr %69, align 4, !tbaa !40
-  %70 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %65, i64 %indvars.iv87.i, i32 4
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %70, ptr noundef nonnull align 1 dereferenceable(13) @.str.3, i64 13, i1 false) #25
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %71 = load volatile i32, ptr %17, align 8, !tbaa !22

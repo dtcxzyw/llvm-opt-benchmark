@@ -109344,9 +109344,10 @@ _ZNK3smt7context25get_num_asserted_formulasEv.exit: ; preds = %1
   %10 = load ptr, ptr %2, align 8, !tbaa !386
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1152
   %12 = load ptr, ptr %11, align 8, !tbaa !1351
-  %13 = getelementptr inbounds nuw %class.justified_expr, ptr %12, i64 %indvars.iv, i32 1
-  %14 = load ptr, ptr %13, align 8, !tbaa !1352
-  tail call void @_ZN3smt10theory_str13set_up_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef %14)
+  %13 = getelementptr inbounds nuw %class.justified_expr, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !1352
+  tail call void @_ZN3smt10theory_str13set_up_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1354

@@ -91,58 +91,59 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph92, label %.lr.ph89
 
-36:                                               ; preds = %.lr.ph92, %54
-  %indvars.iv99 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next100, %54 ]
-  %.07590 = phi i64 [ %0, %.lr.ph92 ], [ %58, %54 ]
+36:                                               ; preds = %.lr.ph92, %55
+  %indvars.iv99 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next100, %55 ]
+  %.07590 = phi i64 [ %0, %.lr.ph92 ], [ %59, %55 ]
   %37 = call i64 @llvm.umin.i64(i64 %.07590, i64 %.17486)
   %.not81 = icmp eq i64 %indvars.iv99, 0
-  br i1 %.not81, label %41, label %38
+  br i1 %.not81, label %42, label %38
 
 38:                                               ; preds = %36
   %39 = call i32 @shmget(i32 noundef 0, i64 noundef %37, i32 noundef 1920) #6
-  %40 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %30, i64 %indvars.iv99, i32 1
-  store i32 %39, ptr %40, align 8, !tbaa !12
-  br label %42
+  %40 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %30, i64 %indvars.iv99
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  store i32 %39, ptr %41, align 8, !tbaa !12
+  br label %43
 
-41:                                               ; preds = %36
+42:                                               ; preds = %36
   store i32 %14, ptr %32, align 8, !tbaa !12
-  br label %42
+  br label %43
 
-42:                                               ; preds = %41, %38
-  %43 = phi i32 [ %14, %41 ], [ %39, %38 ]
-  %44 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %30, i64 %indvars.iv99
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %46 = icmp eq i32 %43, -1
-  br i1 %46, label %.loopexit, label %47
+43:                                               ; preds = %42, %38
+  %44 = phi i32 [ %14, %42 ], [ %39, %38 ]
+  %45 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %30, i64 %indvars.iv99
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %47 = icmp eq i32 %44, -1
+  br i1 %47, label %.loopexit, label %48
 
-47:                                               ; preds = %42
-  %48 = call ptr @shmat(i32 noundef %43, ptr noundef null, i32 noundef 0) #6
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr %48, ptr %49, align 8, !tbaa !16
-  %50 = icmp eq ptr %48, inttoptr (i64 -1 to ptr)
-  br i1 %50, label %51, label %54
+48:                                               ; preds = %43
+  %49 = call ptr @shmat(i32 noundef %44, ptr noundef null, i32 noundef 0) #6
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  store ptr %49, ptr %50, align 8, !tbaa !16
+  %51 = icmp eq ptr %49, inttoptr (i64 -1 to ptr)
+  br i1 %51, label %52, label %55
 
-51:                                               ; preds = %47
+52:                                               ; preds = %48
   store ptr @.str.2, ptr %3, align 8, !tbaa !4
-  %52 = load i32, ptr %45, align 8, !tbaa !12
-  %53 = call i32 @shmctl(i32 noundef %52, i32 noundef 0, ptr noundef nonnull %5) #6
+  %53 = load i32, ptr %46, align 8, !tbaa !12
+  %54 = call i32 @shmctl(i32 noundef %53, i32 noundef 0, ptr noundef nonnull %5) #6
   br label %.loopexit
 
-54:                                               ; preds = %47
-  %55 = load i32, ptr %45, align 8, !tbaa !12
-  %56 = call i32 @shmctl(i32 noundef %55, i32 noundef 0, ptr noundef nonnull %5) #6
-  %57 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i64 0, ptr %57, align 8, !tbaa !17
-  store i64 %37, ptr %44, align 8, !tbaa !18
-  %58 = sub i64 %.07590, %37
+55:                                               ; preds = %48
+  %56 = load i32, ptr %46, align 8, !tbaa !12
+  %57 = call i32 @shmctl(i32 noundef %56, i32 noundef 0, ptr noundef nonnull %5) #6
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store i64 0, ptr %58, align 8, !tbaa !17
+  store i64 %37, ptr %45, align 8, !tbaa !18
+  %59 = sub i64 %.07590, %37
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %59 = load i32, ptr %2, align 4, !tbaa !9
-  %60 = sext i32 %59 to i64
-  %61 = icmp slt i64 %indvars.iv.next100, %60
-  br i1 %61, label %36, label %.loopexit
+  %60 = load i32, ptr %2, align 4, !tbaa !9
+  %61 = sext i32 %60 to i64
+  %62 = icmp slt i64 %indvars.iv.next100, %61
+  br i1 %62, label %36, label %.loopexit
 
-.loopexit:                                        ; preds = %42, %54, %28, %51, %27, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %51 ], [ 0, %27 ], [ 1, %28 ], [ 0, %42 ], [ 1, %54 ]
+.loopexit:                                        ; preds = %43, %55, %28, %52, %27, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %52 ], [ 0, %27 ], [ 1, %28 ], [ 0, %43 ], [ 1, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

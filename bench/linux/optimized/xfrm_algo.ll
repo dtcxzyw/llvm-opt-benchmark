@@ -587,7 +587,8 @@ define dso_local i32 @xfrm_count_pfkey_auth_supported() #3 align 16 {
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %10, %1 ]
   %3 = phi i32 [ 0, %0 ], [ %9, %1 ]
-  %4 = getelementptr %struct.xfrm_algo_desc, ptr @aalg_list, i64 %2, i32 2
+  %.split = getelementptr %struct.xfrm_algo_desc, ptr @aalg_list, i64 %2
+  %4 = getelementptr i8, ptr %.split, i64 16
   %5 = load i8, ptr %4, align 16
   %6 = and i8 %5, 3
   %7 = icmp eq i8 %6, 3
@@ -608,7 +609,8 @@ define dso_local i32 @xfrm_count_pfkey_enc_supported() #3 align 16 {
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %10, %1 ]
   %3 = phi i32 [ 0, %0 ], [ %9, %1 ]
-  %4 = getelementptr %struct.xfrm_algo_desc, ptr @ealg_list, i64 %2, i32 2
+  %.split = getelementptr %struct.xfrm_algo_desc, ptr @ealg_list, i64 %2
+  %4 = getelementptr i8, ptr %.split, i64 16
   %5 = load i8, ptr %4, align 16
   %6 = and i8 %5, 3
   %7 = icmp eq i8 %6, 3

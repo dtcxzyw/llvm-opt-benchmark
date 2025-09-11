@@ -8056,7 +8056,7 @@ define hidden i32 @dissect_cip_multiple_service_packet(ptr noundef %0, ptr nound
   %60 = add i32 %4, 4
   %.not122 = icmp eq ptr %.0108, null
   %61 = getelementptr inbounds nuw i8, ptr %.0108, i64 8
-  %62 = zext i32 %59 to i64
+  %62 = zext nneg i32 %59 to i64
   %wide.trip.count = zext i16 %13 to i64
   br label %63
 

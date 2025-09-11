@@ -3021,7 +3021,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit54:       ; preds = %90, %94
 .lr.ph74:                                         ; preds = %105, %.lr.ph74
   %.073 = phi i64 [ %108, %.lr.ph74 ], [ 1, %105 ]
   %108 = mul nuw nsw i64 %.073, 10
-  %.not43 = icmp sgt i64 %108, %106
+  %.not43 = icmp samesign ugt i64 %108, %106
   br i1 %.not43, label %.preheader, label %.lr.ph74, !llvm.loop !82
 
 109:                                              ; preds = %99

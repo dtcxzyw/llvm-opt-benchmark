@@ -1810,7 +1810,7 @@ define internal fastcc range(i32 -12, 1) i32 @avi_add_ientry(ptr noundef readonl
   %34 = getelementptr inbounds ptr, ptr %32, i64 %33
   store ptr %31, ptr %34, align 8, !tbaa !118
   %.not51 = icmp eq ptr %31, null
-  br i1 %.not51, label %68, label %35
+  br i1 %.not51, label %70, label %35
 
 35:                                               ; preds = %30
   %36 = load i32, ptr %21, align 4, !tbaa !116
@@ -1840,35 +1840,37 @@ define internal fastcc range(i32 -12, 1) i32 @avi_add_ientry(ptr noundef readonl
   %50 = load ptr, ptr %49, align 8, !tbaa !117
   %51 = getelementptr inbounds ptr, ptr %50, i64 %41
   %52 = load ptr, ptr %51, align 8, !tbaa !118
-  %53 = getelementptr inbounds %struct.AVIIentry, ptr %52, i64 %44, i32 1
-  store i32 %3, ptr %53, align 4, !tbaa !120
-  %54 = tail call i64 @avio_seek(ptr noundef %9, i64 noundef 0, i32 noundef 1) #10
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %56 = load i64, ptr %55, align 8, !tbaa !91
-  %57 = sub nsw i64 %54, %56
-  %58 = trunc i64 %57 to i32
-  %59 = load ptr, ptr %49, align 8, !tbaa !117
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %41
-  %61 = load ptr, ptr %60, align 8, !tbaa !118
-  %62 = getelementptr inbounds %struct.AVIIentry, ptr %61, i64 %44, i32 2
-  store i32 %58, ptr %62, align 4, !tbaa !122
-  %63 = getelementptr inbounds %struct.AVIIentry, ptr %61, i64 %44, i32 3
-  store i32 %4, ptr %63, align 4, !tbaa !123
-  %64 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %65 = load i32, ptr %64, align 8, !tbaa !105
-  %. = tail call i32 @llvm.umax.i32(i32 %65, i32 %4)
-  store i32 %., ptr %64, align 8, !tbaa !105
-  %66 = load i32, ptr %17, align 8, !tbaa !115
-  %67 = add nsw i32 %66, 1
+  %53 = getelementptr inbounds %struct.AVIIentry, ptr %52, i64 %44
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store i32 %3, ptr %54, align 4, !tbaa !120
+  %55 = tail call i64 @avio_seek(ptr noundef %9, i64 noundef 0, i32 noundef 1) #10
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %57 = load i64, ptr %56, align 8, !tbaa !91
+  %58 = sub nsw i64 %55, %57
+  %59 = trunc i64 %58 to i32
+  %60 = load ptr, ptr %49, align 8, !tbaa !117
+  %61 = getelementptr inbounds ptr, ptr %60, i64 %41
+  %62 = load ptr, ptr %61, align 8, !tbaa !118
+  %63 = getelementptr inbounds %struct.AVIIentry, ptr %62, i64 %44
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i32 %59, ptr %64, align 4, !tbaa !122
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 12
+  store i32 %4, ptr %65, align 4, !tbaa !123
+  %66 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %67 = load i32, ptr %66, align 8, !tbaa !105
+  %. = tail call i32 @llvm.umax.i32(i32 %67, i32 %4)
+  store i32 %., ptr %66, align 8, !tbaa !105
+  %68 = load i32, ptr %17, align 8, !tbaa !115
+  %69 = add nsw i32 %68, 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %29, %48
-  %.sink55 = phi i32 [ %67, %48 ], [ 0, %29 ]
+  %.sink55 = phi i32 [ %69, %48 ], [ 0, %29 ]
   %.0.ph = phi i32 [ 0, %48 ], [ -12, %29 ]
   store i32 %.sink55, ptr %17, align 8, !tbaa !115
-  br label %68
+  br label %70
 
-68:                                               ; preds = %.sink.split, %30
+70:                                               ; preds = %.sink.split, %30
   %.0 = phi i32 [ -12, %30 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

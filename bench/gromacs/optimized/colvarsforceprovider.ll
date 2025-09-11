@@ -604,12 +604,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %128 = load double, ptr %127, align 8, !tbaa !157
   %129 = fptrunc double %128 to float
-  %130 = getelementptr inbounds nuw [3 x float], ptr %110, i64 %indvars.iv, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store float %129, ptr %130, align 4, !tbaa !146
   %131 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %132 = load double, ptr %131, align 8, !tbaa !158
   %133 = fptrunc double %132 to float
-  %134 = getelementptr inbounds nuw [3 x float], ptr %110, i64 %indvars.iv, i64 2
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store float %133, ptr %134, align 4, !tbaa !146
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

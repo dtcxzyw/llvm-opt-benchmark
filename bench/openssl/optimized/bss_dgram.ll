@@ -1390,18 +1390,19 @@ pack_local.exit:                                  ; preds = %pack_local.exit.sin
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.164 = phi i64 [ %134, %.lr.ph ], [ 0, %.preheader ]
-  %127 = getelementptr inbounds nuw %struct.mmsghdr, ptr %7, i64 %.164, i32 1
-  %128 = load i32, ptr %127, align 8, !tbaa !61
-  %129 = zext i32 %128 to i64
-  %130 = mul i64 %.164, %2
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 %130
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  store i64 %129, ptr %132, align 8, !tbaa !38
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  store i64 0, ptr %133, align 8, !tbaa !63
-  %134 = add nuw nsw i64 %.164, 1
-  %exitcond70.not = icmp eq i64 %134, %123
+  %.164 = phi i64 [ %135, %.lr.ph ], [ 0, %.preheader ]
+  %127 = getelementptr inbounds nuw %struct.mmsghdr, ptr %7, i64 %.164
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 56
+  %129 = load i32, ptr %128, align 8, !tbaa !61
+  %130 = zext i32 %129 to i64
+  %131 = mul i64 %.164, %2
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 %131
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  store i64 %130, ptr %133, align 8, !tbaa !38
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 32
+  store i64 0, ptr %134, align 8, !tbaa !63
+  %135 = add nuw nsw i64 %.164, 1
+  %exitcond70.not = icmp eq i64 %135, %123
   br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader, %6, %124, %.loopexit, %.split59.us

@@ -409,21 +409,22 @@ define dso_local void @RequestXLogStreaming(i32 noundef %0, i64 noundef %1, ptr 
 
 48:                                               ; preds = %45
   tail call void @SendPostmasterSignal(i32 noundef 6) #8
-  br label %55
+  br label %56
 
 49:                                               ; preds = %45
   %.not49 = icmp eq i32 %47, -1
-  br i1 %.not49, label %55, label %50
+  br i1 %.not49, label %56, label %50
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr @ProcGlobal, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %47 to i64
-  %54 = getelementptr inbounds %struct.PGPROC, ptr %52, i64 %53, i32 4
-  tail call void @SetLatch(ptr noundef nonnull %54) #8
-  br label %55
+  %54 = getelementptr inbounds %struct.PGPROC, ptr %52, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 36
+  tail call void @SetLatch(ptr noundef nonnull %55) #8
+  br label %56
 
-55:                                               ; preds = %49, %50, %48
+56:                                               ; preds = %49, %50, %48
   ret void
 }
 

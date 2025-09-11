@@ -166,7 +166,7 @@ define dso_local zeroext i1 @raw6_local_deliver(ptr noundef %0, i32 noundef %1) 
   %19 = mul i32 %18, 1640531527
   %20 = lshr i32 %19, 24
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr %struct.raw_hashinfo, ptr @raw_v6_hashinfo, i64 0, i32 2, i64 %21
+  %22 = getelementptr %struct.hlist_head, ptr getelementptr inbounds nuw (i8, ptr @raw_v6_hashinfo, i64 64), i64 %21
   tail call void @__rcu_read_lock() #13
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
@@ -353,7 +353,7 @@ define dso_local void @raw6_icmp_error(ptr noundef %0, i32 noundef %1, i8 nounde
   %15 = mul i32 %14, 1640531527
   %16 = lshr i32 %15, 24
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr %struct.raw_hashinfo, ptr @raw_v6_hashinfo, i64 0, i32 2, i64 %17
+  %18 = getelementptr %struct.hlist_head, ptr getelementptr inbounds nuw (i8, ptr @raw_v6_hashinfo, i64 64), i64 %17
   tail call void @__rcu_read_lock() #13
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null

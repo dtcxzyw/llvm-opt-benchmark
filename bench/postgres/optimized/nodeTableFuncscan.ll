@@ -133,27 +133,28 @@ define dso_local noundef ptr @ExecInitTableFuncScan(ptr noundef %0, ptr noundef 
   br i1 %78, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %79 = phi i32 [ %90, %.lr.ph ], [ %77, %3 ]
+  %79 = phi i32 [ %91, %.lr.ph ], [ %77, %3 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %80 = sext i32 %79 to i64
   %81 = shl nsw i64 %80, 4
   %82 = getelementptr i8, ptr %19, i64 %81
-  %83 = getelementptr %struct.FormData_pg_attribute, ptr %82, i64 %indvars.iv, i32 17
-  %84 = load i32, ptr %83, align 4
-  %85 = load ptr, ptr %76, align 8
-  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv
-  call void @getTypeInputInfo(i32 noundef %84, ptr noundef nonnull %4, ptr noundef %86) #8
-  %87 = load i32, ptr %4, align 4
-  %88 = load ptr, ptr %71, align 8
-  %89 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %88, i64 %indvars.iv
-  call void @fmgr_info(i32 noundef %87, ptr noundef %89) #8
+  %83 = getelementptr %struct.FormData_pg_attribute, ptr %82, i64 %indvars.iv
+  %84 = getelementptr i8, ptr %83, i64 92
+  %85 = load i32, ptr %84, align 4
+  %86 = load ptr, ptr %76, align 8
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv
+  call void @getTypeInputInfo(i32 noundef %85, ptr noundef nonnull %4, ptr noundef %87) #8
+  %88 = load i32, ptr %4, align 4
+  %89 = load ptr, ptr %71, align 8
+  %90 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %89, i64 %indvars.iv
+  call void @fmgr_info(i32 noundef %88, ptr noundef %90) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %90 = load i32, ptr %19, align 8
-  %91 = sext i32 %90 to i64
-  %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  %91 = load i32, ptr %19, align 8
+  %92 = sext i32 %91 to i64
+  %93 = icmp slt i64 %indvars.iv.next, %92
+  br i1 %93, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %7

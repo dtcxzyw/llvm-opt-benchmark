@@ -755,7 +755,8 @@ define dso_local ptr @hidinput_get_led_field(ptr noundef readonly captures(addre
 27:                                               ; preds = %24, %21
   %28 = phi i32 [ 0, %21 ], [ %25, %24 ]
   %29 = sext i32 %28 to i64
-  %30 = getelementptr %struct.hid_usage, ptr %23, i64 %29, i32 6
+  %.split = getelementptr %struct.hid_usage, ptr %23, i64 %29
+  %30 = getelementptr i8, ptr %.split, i64 16
   %31 = load i8, ptr %30, align 4
   %32 = icmp eq i8 %31, 17
   br i1 %32, label %.loopexit, label %24
@@ -816,7 +817,8 @@ define dso_local i32 @hidinput_count_leds(ptr noundef readonly captures(address)
   %29 = phi i32 [ 0, %24 ], [ %44, %42 ]
   %30 = phi i32 [ %17, %24 ], [ %43, %42 ]
   %31 = sext i32 %29 to i64
-  %32 = getelementptr %struct.hid_usage, ptr %26, i64 %31, i32 6
+  %.split = getelementptr %struct.hid_usage, ptr %26, i64 %31
+  %32 = getelementptr i8, ptr %.split, i64 16
   %33 = load i8, ptr %32, align 4
   %34 = icmp eq i8 %33, 17
   br i1 %34, label %35, label %42
@@ -1938,7 +1940,8 @@ define internal void @hidinput_led_worker(ptr noundef %0) #1 align 16 {
 28:                                               ; preds = %25, %22
   %29 = phi i32 [ 0, %22 ], [ %26, %25 ]
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct.hid_usage, ptr %24, i64 %30, i32 6
+  %.split = getelementptr %struct.hid_usage, ptr %24, i64 %30
+  %31 = getelementptr i8, ptr %.split, i64 16
   %32 = load i8, ptr %31, align 4
   %33 = icmp eq i8 %32, 17
   br i1 %33, label %36, label %25
@@ -6591,7 +6594,8 @@ default.unreachable314:                           ; preds = %158
 
 1400:                                             ; preds = %1394
   %1401 = zext i16 %1395 to i64
-  %1402 = getelementptr %struct.input_absinfo, ptr %1398, i64 %1401, i32 5
+  %.split = getelementptr %struct.input_absinfo, ptr %1398, i64 %1401
+  %1402 = getelementptr i8, ptr %.split, i64 20
   store i32 %1396, ptr %1402, align 4
   br label %1403
 

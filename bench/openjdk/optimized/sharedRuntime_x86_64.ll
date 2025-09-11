@@ -5338,34 +5338,35 @@ define internal fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr nou
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph, %48
-  %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %22 = getelementptr inbounds nuw %class.VMRegPair, ptr %3, i64 %indvars.iv, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i8, ptr @UseAPX, align 1
-  %25 = trunc i8 %24 to i1
-  %..i.i = select i1 %25, i32 64, i32 32
-  %26 = ptrtoint ptr %23 to i64
-  %27 = trunc i64 %26 to i32
-  %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %29 = icmp ult i32 %28, %..i.i
-  br i1 %29, label %30, label %32
+21:                                               ; preds = %.lr.ph, %49
+  %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %49 ]
+  %22 = getelementptr inbounds nuw %class.VMRegPair, ptr %3, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i8, ptr @UseAPX, align 1
+  %26 = trunc i8 %25 to i1
+  %..i.i = select i1 %26, i32 64, i32 32
+  %27 = ptrtoint ptr %24 to i64
+  %28 = trunc i64 %27 to i32
+  %29 = sub i32 %28, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %30 = icmp ult i32 %29, %..i.i
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %21
-  %31 = lshr i32 %28, 1
-  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %31) #14
-  br label %48
+31:                                               ; preds = %21
+  %32 = lshr i32 %29, 1
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %32) #14
+  br label %49
 
-32:                                               ; preds = %21
-  %33 = load i32, ptr @UseAVX, align 4
-  %34 = icmp slt i32 %33, 3
-  %35 = icmp sgt i32 %28, 79
-  %36 = select i1 %34, i32 336, i32 592
-  %37 = icmp samesign ult i32 %28, %36
-  %38 = select i1 %35, i1 %37, i1 false
-  br i1 %38, label %39, label %48
+33:                                               ; preds = %21
+  %34 = load i32, ptr @UseAVX, align 4
+  %35 = icmp slt i32 %34, 3
+  %36 = icmp sgt i32 %29, 79
+  %37 = select i1 %35, i32 336, i32 592
+  %38 = icmp samesign ult i32 %29, %37
+  %39 = select i1 %36, i1 %38, i1 false
+  br i1 %39, label %40, label %49
 
-39:                                               ; preds = %32
+40:                                               ; preds = %33
   call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef 16) #14
   store i32 4, ptr %7, align 8
   store i32 -1, ptr %9, align 4
@@ -5376,33 +5377,33 @@ define internal fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr nou
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %14, align 8
   store ptr null, ptr %15, align 8
   store i32 0, ptr %16, align 8
-  %40 = load ptr, ptr %22, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = trunc i64 %41 to i32
-  %43 = add i32 %42, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -80)
-  %44 = ashr i32 %43, 4
-  %or.cond.i.i17 = icmp ult i32 %44, 32
-  %spec.select.i.i18 = select i1 %or.cond.i.i17, i32 %44, i32 -1
+  %41 = load ptr, ptr %23, align 8
+  %42 = ptrtoint ptr %41 to i64
+  %43 = trunc i64 %42 to i32
+  %44 = add i32 %43, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -80)
+  %45 = ashr i32 %44, 4
+  %or.cond.i.i17 = icmp ult i32 %45, 32
+  %spec.select.i.i18 = select i1 %or.cond.i.i17, i32 %45, i32 -1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   call void %18(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %17) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
-  %45 = load ptr, ptr %17, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %19) #14
+  %46 = load ptr, ptr %17, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  call void %48(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %19) #14
   call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 %spec.select.i.i18) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %48
+  br label %49
 
-48:                                               ; preds = %30, %39, %32
+49:                                               ; preds = %31, %40, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %48, %4
+._crit_edge:                                      ; preds = %49, %4
   ret void
 }
 
@@ -5438,39 +5439,40 @@ define internal fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr
   %24 = zext nneg i32 %2 to i64
   br label %25
 
-25:                                               ; preds = %.lr.ph, %56
-  %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %56 ]
+25:                                               ; preds = %.lr.ph, %57
+  %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %26 = getelementptr inbounds nuw %class.VMRegPair, ptr %3, i64 %indvars.iv.next, i32 1
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i8, ptr @UseAPX, align 1
-  %29 = trunc i8 %28 to i1
-  %..i.i = select i1 %29, i32 64, i32 32
-  %30 = ptrtoint ptr %27 to i64
-  %31 = trunc i64 %30 to i32
-  %32 = sub i32 %31, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %33 = icmp ult i32 %32, %..i.i
-  br i1 %33, label %34, label %36
+  %26 = getelementptr inbounds nuw %class.VMRegPair, ptr %3, i64 %indvars.iv.next
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i8, ptr @UseAPX, align 1
+  %30 = trunc i8 %29 to i1
+  %..i.i = select i1 %30, i32 64, i32 32
+  %31 = ptrtoint ptr %28 to i64
+  %32 = trunc i64 %31 to i32
+  %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %34 = icmp ult i32 %33, %..i.i
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %25
-  %35 = lshr i32 %32, 1
-  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %35) #14
-  br label %56
+35:                                               ; preds = %25
+  %36 = lshr i32 %33, 1
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %36) #14
+  br label %57
 
-36:                                               ; preds = %25
-  %37 = load i32, ptr @UseAVX, align 4
-  %38 = icmp slt i32 %37, 3
-  %39 = icmp sgt i32 %32, 79
-  %40 = select i1 %38, i32 336, i32 592
-  %41 = icmp samesign ult i32 %32, %40
-  %42 = select i1 %39, i1 %41, i1 false
-  br i1 %42, label %43, label %56
+37:                                               ; preds = %25
+  %38 = load i32, ptr @UseAVX, align 4
+  %39 = icmp slt i32 %38, 3
+  %40 = icmp sgt i32 %33, 79
+  %41 = select i1 %39, i32 336, i32 592
+  %42 = icmp samesign ult i32 %33, %41
+  %43 = select i1 %40, i1 %42, i1 false
+  br i1 %43, label %44, label %57
 
-43:                                               ; preds = %36
-  %44 = add i32 %31, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -80)
-  %45 = ashr i32 %44, 4
-  %or.cond.i.i17 = icmp ult i32 %45, 32
-  %spec.select.i.i18 = select i1 %or.cond.i.i17, i32 %45, i32 -1
+44:                                               ; preds = %37
+  %45 = add i32 %32, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -80)
+  %46 = ashr i32 %45, 4
+  %or.cond.i.i17 = icmp ult i32 %46, 32
+  %spec.select.i.i18 = select i1 %or.cond.i.i17, i32 %46, i32 -1
   store i32 4, ptr %9, align 8
   store i32 -1, ptr %10, align 4
   store i32 -1, ptr %11, align 8
@@ -5482,47 +5484,47 @@ define internal fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr
   store i32 0, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %46 = load i8, ptr @UseXmmLoadAndClearUpper, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %52
+  %47 = load i8, ptr @UseXmmLoadAndClearUpper, align 1
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %43
+49:                                               ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 21, i1 false)
   call void %19(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %21) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
-  %49 = load ptr, ptr %21, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %22) #14
+  %50 = load ptr, ptr %21, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %22) #14
   call void @_ZN9Assembler5movsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %spec.select.i.i18, ptr noundef nonnull %6) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
-52:                                               ; preds = %43
+53:                                               ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 21, i1 false)
   call void %19(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %18) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
-  %53 = load ptr, ptr %18, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %20) #14
+  %54 = load ptr, ptr %18, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %56 = load ptr, ptr %55, align 8
+  call void %56(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %20) #14
   call void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %spec.select.i.i18, ptr noundef nonnull %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
-_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %48, %52
+_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %49, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN14MacroAssembler6addptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef 16) #14
-  br label %56
+  br label %57
 
-56:                                               ; preds = %34, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit, %36
+57:                                               ; preds = %35, %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit, %37
   %.not.not = icmp sgt i64 %indvars.iv.next, %24
   br i1 %.not.not, label %25, label %._crit_edge, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %56, %4
+._crit_edge:                                      ; preds = %57, %4
   ret void
 }
 

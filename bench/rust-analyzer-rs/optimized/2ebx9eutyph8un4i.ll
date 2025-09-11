@@ -27887,26 +27887,27 @@ define hidden noundef align 4 dereferenceable_or_null(12) ptr @"_ZN8indexmap3map
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
   %6 = icmp eq i64 %4, 1
-  br i1 %6, label %7, label %16
+  br i1 %6, label %7, label %17
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !26
   %10 = icmp ult i64 %5, %9
-  br i1 %10, label %11, label %15, !prof !4035
+  br i1 %10, label %11, label %16, !prof !4035
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !26, !noundef !26
-  %14 = getelementptr inbounds { { { i8, [23 x i8] } }, i64, { i32, [2 x i32] }, [1 x i32] }, ptr %13, i64 %5, i32 2
-  br label %16
+  %14 = getelementptr inbounds { { { i8, [23 x i8] } }, i64, { i32, [2 x i32] }, [1 x i32] }, ptr %13, i64 %5
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  br label %17
 
-15:                                               ; preds = %7
+16:                                               ; preds = %7
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %5, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b76da6c2f44d53201df22ce56aee29b6.193.llvm.2875332049115192089) #53
   unreachable
 
-16:                                               ; preds = %2, %11
-  %.0 = phi ptr [ %14, %11 ], [ null, %2 ]
+17:                                               ; preds = %2, %11
+  %.0 = phi ptr [ %15, %11 ], [ null, %2 ]
   ret ptr %.0
 }
 

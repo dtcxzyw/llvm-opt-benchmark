@@ -25987,7 +25987,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !454
   %6 = icmp ne ptr %3, %5
-  br i1 %6, label %7, label %53
+  br i1 %6, label %7, label %55
 
 7:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !455
@@ -26017,79 +26017,81 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %.037.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %14 ]
   %22 = shl i64 %.037.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = or disjoint i64 %22, 1
-  %25 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %24, i32 1
-  %26 = load i32, ptr %25, align 8, !tbaa !456
-  %27 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %23, i32 1
+  %24 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %23
+  %25 = or disjoint i64 %22, 1
+  %26 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !456
-  %29 = icmp slt i32 %26, %28
-  %spec.select.i.i.i = select i1 %29, i64 %24, i64 %23
-  %30 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %spec.select.i.i.i
-  %31 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %.037.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !455
-  %32 = icmp slt i64 %spec.select.i.i.i, %20
-  br i1 %32, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !457
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load i32, ptr %29, align 8, !tbaa !456
+  %31 = icmp slt i32 %28, %30
+  %spec.select.i.i.i = select i1 %31, i64 %25, i64 %23
+  %32 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %spec.select.i.i.i
+  %33 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %.037.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %33, ptr noundef nonnull align 8 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !455
+  %34 = icmp slt i64 %spec.select.i.i.i, %20
+  br i1 %34, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !457
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %14
   %.0.lcssa.i.i.i = phi i64 [ 0, %14 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %33 = and i64 %17, 16
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %43
+  %35 = and i64 %17, 16
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %45
 
-35:                                               ; preds = %._crit_edge.i.i.i
-  %36 = add nsw i64 %18, -2
-  %37 = ashr exact i64 %36, 1
-  %38 = icmp eq i64 %.0.lcssa.i.i.i, %37
-  br i1 %38, label %.thread.i.i, label %43
+37:                                               ; preds = %._crit_edge.i.i.i
+  %38 = add nsw i64 %18, -2
+  %39 = ashr exact i64 %38, 1
+  %40 = icmp eq i64 %.0.lcssa.i.i.i, %39
+  br i1 %40, label %.thread.i.i, label %45
 
-.thread.i.i:                                      ; preds = %35
-  %39 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct", ptr %8, i64 %40
-  %42 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %.0.lcssa.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %41, i64 12, i1 false), !tbaa.struct !455
+.thread.i.i:                                      ; preds = %37
+  %41 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct", ptr %8, i64 %42
+  %44 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %.0.lcssa.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false), !tbaa.struct !455
   br label %.lr.ph.i.i.i.i.preheader
 
-43:                                               ; preds = %35, %._crit_edge.i.i.i
+45:                                               ; preds = %37, %._crit_edge.i.i.i
   %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
   br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %43, %.thread.i.i
-  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %43 ], [ %40, %.thread.i.i ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %45, %.thread.i.i
+  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %45 ], [ %42, %.thread.i.i ]
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %48
-  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %48 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %50
+  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %50 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i89.i.i = lshr i64 %.0920.in.i.i.i.i, 1
-  %44 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct", ptr %8, i64 %.0920.i.i89.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i32, ptr %45, align 8, !tbaa !456
-  %47 = icmp slt i32 %.sroa.4.0.copyload.i.i, %46
-  br i1 %47, label %48, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i
+  %46 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct", ptr %8, i64 %.0920.i.i89.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load i32, ptr %47, align 8, !tbaa !456
+  %49 = icmp slt i32 %.sroa.4.0.copyload.i.i, %48
+  br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i
 
-48:                                               ; preds = %.lr.ph.i.i.i.i
-  %49 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %.019.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false), !tbaa.struct !455
+50:                                               ; preds = %.lr.ph.i.i.i.i
+  %51 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %.019.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !455
   %.not10.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
   br i1 %.not10.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !458
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i: ; preds = %48, %.lr.ph.i.i.i.i, %43
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %43 ], [ 0, %48 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %50 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %.0.lcssa.i.i.i.i
-  store ptr %.sroa.03.0.copyload.i.i, ptr %50, align 8, !tbaa !253
-  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i: ; preds = %50, %.lr.ph.i.i.i.i, %45
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %52 = getelementptr inbounds %"struct.cvflann::BranchStruct", ptr %8, i64 %.0.lcssa.i.i.i.i
+  store ptr %.sroa.03.0.copyload.i.i, ptr %52, align 8, !tbaa !253
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !28
   %.pre = load ptr, ptr %4, align 8, !tbaa !442
   br label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS2_7greaterIS9_EEEvT_SH_T0_.exit
 
 _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS2_7greaterIS9_EEEvT_SH_T0_.exit: ; preds = %7, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i
-  %51 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 -16
-  store ptr %52, ptr %4, align 8, !tbaa !442
-  br label %53
+  %53 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 -16
+  store ptr %54, ptr %4, align 8, !tbaa !442
+  br label %55
 
-53:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS2_7greaterIS9_EEEvT_SH_T0_.exit
+55:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_10HammingLUTEE10KMeansNodeEiEESt6vectorIS9_SaIS9_EEEENS2_7greaterIS9_EEEvT_SH_T0_.exit
   ret i1 %6
 }
 
@@ -31736,7 +31738,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !557
   %6 = icmp ne ptr %3, %5
-  br i1 %6, label %7, label %53
+  br i1 %6, label %7, label %55
 
 7:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !558
@@ -31766,79 +31768,81 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %.037.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %14 ]
   %22 = shl i64 %.037.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = or disjoint i64 %22, 1
-  %25 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %24, i32 1
-  %26 = load i32, ptr %25, align 8, !tbaa !559
-  %27 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %23, i32 1
+  %24 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %23
+  %25 = or disjoint i64 %22, 1
+  %26 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !559
-  %29 = icmp slt i32 %26, %28
-  %spec.select.i.i.i = select i1 %29, i64 %24, i64 %23
-  %30 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %spec.select.i.i.i
-  %31 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %.037.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !558
-  %32 = icmp slt i64 %spec.select.i.i.i, %20
-  br i1 %32, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !560
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load i32, ptr %29, align 8, !tbaa !559
+  %31 = icmp slt i32 %28, %30
+  %spec.select.i.i.i = select i1 %31, i64 %25, i64 %23
+  %32 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %spec.select.i.i.i
+  %33 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %.037.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %33, ptr noundef nonnull align 8 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !558
+  %34 = icmp slt i64 %spec.select.i.i.i, %20
+  br i1 %34, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !560
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %14
   %.0.lcssa.i.i.i = phi i64 [ 0, %14 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %33 = and i64 %17, 16
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %43
+  %35 = and i64 %17, 16
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %45
 
-35:                                               ; preds = %._crit_edge.i.i.i
-  %36 = add nsw i64 %18, -2
-  %37 = ashr exact i64 %36, 1
-  %38 = icmp eq i64 %.0.lcssa.i.i.i, %37
-  br i1 %38, label %.thread.i.i, label %43
+37:                                               ; preds = %._crit_edge.i.i.i
+  %38 = add nsw i64 %18, -2
+  %39 = ashr exact i64 %38, 1
+  %40 = icmp eq i64 %.0.lcssa.i.i.i, %39
+  br i1 %40, label %.thread.i.i, label %45
 
-.thread.i.i:                                      ; preds = %35
-  %39 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.118", ptr %8, i64 %40
-  %42 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %.0.lcssa.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %41, i64 12, i1 false), !tbaa.struct !558
+.thread.i.i:                                      ; preds = %37
+  %41 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.118", ptr %8, i64 %42
+  %44 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %.0.lcssa.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false), !tbaa.struct !558
   br label %.lr.ph.i.i.i.i.preheader
 
-43:                                               ; preds = %35, %._crit_edge.i.i.i
+45:                                               ; preds = %37, %._crit_edge.i.i.i
   %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
   br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %43, %.thread.i.i
-  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %43 ], [ %40, %.thread.i.i ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %45, %.thread.i.i
+  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %45 ], [ %42, %.thread.i.i ]
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %48
-  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %48 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %50
+  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %50 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i89.i.i = lshr i64 %.0920.in.i.i.i.i, 1
-  %44 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.118", ptr %8, i64 %.0920.i.i89.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i32, ptr %45, align 8, !tbaa !559
-  %47 = icmp slt i32 %.sroa.4.0.copyload.i.i, %46
-  br i1 %47, label %48, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i
+  %46 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.118", ptr %8, i64 %.0920.i.i89.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load i32, ptr %47, align 8, !tbaa !559
+  %49 = icmp slt i32 %.sroa.4.0.copyload.i.i, %48
+  br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i
 
-48:                                               ; preds = %.lr.ph.i.i.i.i
-  %49 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %.019.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false), !tbaa.struct !558
+50:                                               ; preds = %.lr.ph.i.i.i.i
+  %51 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %.019.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !558
   %.not10.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
   br i1 %.not10.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !561
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i: ; preds = %48, %.lr.ph.i.i.i.i, %43
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %43 ], [ 0, %48 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %.0.lcssa.i.i.i.i
-  store ptr %.sroa.03.0.copyload.i.i, ptr %50, align 8, !tbaa !272
-  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i: ; preds = %50, %.lr.ph.i.i.i.i, %45
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %52 = getelementptr inbounds %"struct.cvflann::BranchStruct.118", ptr %8, i64 %.0.lcssa.i.i.i.i
+  store ptr %.sroa.03.0.copyload.i.i, ptr %52, align 8, !tbaa !272
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !28
   %.pre = load ptr, ptr %4, align 8, !tbaa !543
   br label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS2_7greaterIS9_EEEvT_SH_T0_.exit
 
 _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS2_7greaterIS9_EEEvT_SH_T0_.exit: ; preds = %7, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i
-  %51 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 -16
-  store ptr %52, ptr %4, align 8, !tbaa !543
-  br label %53
+  %53 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterIS9_EEEEEvT_SK_SK_RT0_.exit.i ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 -16
+  store ptr %54, ptr %4, align 8, !tbaa !543
+  br label %55
 
-53:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS2_7greaterIS9_EEEvT_SH_T0_.exit
+55:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_10HammingLUTEE4NodeEiEESt6vectorIS9_SaIS9_EEEENS2_7greaterIS9_EEEvT_SH_T0_.exit
   ret i1 %6
 }
 
@@ -43166,157 +43170,159 @@ _ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EEC2ERKS7_
   store ptr %105, ptr %104, align 8, !tbaa !786
   %107 = load float, ptr %7, align 4, !tbaa !38
   %108 = sext i32 %94 to i64
-  %109 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %103, i64 %108, i32 1
-  store float %107, ptr %109, align 4, !tbaa !789
-  %110 = load i32, ptr %5, align 4, !tbaa !28
-  %111 = add nsw i32 %110, %1
-  %112 = invoke noundef ptr @_ZN7cvflann17KDTreeSingleIndexINS_2L2IfEEE10divideTreeEiiRSt6vectorINS3_8IntervalESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(241) %0, i32 noundef %1, i32 noundef %111, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %113 unwind label %150
+  %109 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %103, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  store float %107, ptr %110, align 4, !tbaa !789
+  %111 = load i32, ptr %5, align 4, !tbaa !28
+  %112 = add nsw i32 %111, %1
+  %113 = invoke noundef ptr @_ZN7cvflann17KDTreeSingleIndexINS_2L2IfEEE10divideTreeEiiRSt6vectorINS3_8IntervalESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(241) %0, i32 noundef %1, i32 noundef %112, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %114 unwind label %152
 
-113:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EEC2ERKS7_.exit
-  %114 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
-  store ptr %112, ptr %114, align 8, !tbaa !817
+114:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EEC2ERKS7_.exit
+  %115 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
+  store ptr %113, ptr %115, align 8, !tbaa !817
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %115 = load ptr, ptr %96, align 8, !tbaa !786
-  %116 = load ptr, ptr %3, align 8, !tbaa !710
-  %117 = ptrtoint ptr %115 to i64
+  %116 = load ptr, ptr %96, align 8, !tbaa !786
+  %117 = load ptr, ptr %3, align 8, !tbaa !710
   %118 = ptrtoint ptr %116 to i64
-  %119 = sub i64 %117, %118
-  %.not.i.i.i.i77 = icmp ne ptr %115, %116
+  %119 = ptrtoint ptr %117 to i64
+  %120 = sub i64 %118, %119
+  %.not.i.i.i.i77 = icmp ne ptr %116, %117
   call void @llvm.assume(i1 %.not.i.i.i.i77)
-  %120 = icmp ugt i64 %119, 9223372036854775800
-  br i1 %120, label %.noexc.i.i80, label %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78, !prof !344
+  %121 = icmp ugt i64 %120, 9223372036854775800
+  br i1 %121, label %.noexc.i.i80, label %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78, !prof !344
 
-.noexc.i.i80:                                     ; preds = %113
+.noexc.i.i80:                                     ; preds = %114
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #36
-          to label %.noexc unwind label %152
+          to label %.noexc unwind label %154
 
 .noexc:                                           ; preds = %.noexc.i.i80
   unreachable
 
-_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78: ; preds = %113
-  %121 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %119) #35
-          to label %122 unwind label %152
+_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78: ; preds = %114
+  %122 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %120) #35
+          to label %123 unwind label %154
 
-122:                                              ; preds = %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78
-  store ptr %121, ptr %9, align 8, !tbaa !710
-  %123 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 %119
-  %125 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %124, ptr %125, align 8, !tbaa !816
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %121, ptr align 4 %116, i64 %119, i1 false)
-  store ptr %124, ptr %123, align 8, !tbaa !786
-  %126 = load float, ptr %7, align 4, !tbaa !38
-  %127 = load i32, ptr %6, align 4, !tbaa !28
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %121, i64 %128
-  store float %126, ptr %129, align 4, !tbaa !787
-  %130 = load i32, ptr %5, align 4, !tbaa !28
-  %131 = add nsw i32 %130, %1
-  %132 = invoke noundef ptr @_ZN7cvflann17KDTreeSingleIndexINS_2L2IfEEE10divideTreeEiiRSt6vectorINS3_8IntervalESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(241) %0, i32 noundef %131, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %133 unwind label %154
+123:                                              ; preds = %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78
+  store ptr %122, ptr %9, align 8, !tbaa !710
+  %124 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 %120
+  %126 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %125, ptr %126, align 8, !tbaa !816
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %122, ptr align 4 %117, i64 %120, i1 false)
+  store ptr %125, ptr %124, align 8, !tbaa !786
+  %127 = load float, ptr %7, align 4, !tbaa !38
+  %128 = load i32, ptr %6, align 4, !tbaa !28
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %122, i64 %129
+  store float %127, ptr %130, align 4, !tbaa !787
+  %131 = load i32, ptr %5, align 4, !tbaa !28
+  %132 = add nsw i32 %131, %1
+  %133 = invoke noundef ptr @_ZN7cvflann17KDTreeSingleIndexINS_2L2IfEEE10divideTreeEiiRSt6vectorINS3_8IntervalESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(241) %0, i32 noundef %132, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %134 unwind label %156
 
-133:                                              ; preds = %122
-  %134 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
-  store ptr %132, ptr %134, align 8, !tbaa !818
-  %135 = load i32, ptr %6, align 4, !tbaa !28
-  %136 = sext i32 %135 to i64
-  %137 = load ptr, ptr %8, align 8, !tbaa !710
-  %138 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %137, i64 %136, i32 1
-  %139 = load float, ptr %138, align 4, !tbaa !789
-  %140 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 12
-  store float %139, ptr %140, align 4, !tbaa !819
-  %141 = load ptr, ptr %9, align 8, !tbaa !710
-  %142 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %141, i64 %136
-  %143 = load float, ptr %142, align 4, !tbaa !787
-  %144 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
-  store float %143, ptr %144, align 8, !tbaa !820
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %146 = load i64, ptr %145, align 8, !tbaa !705
-  %.not103 = icmp eq i64 %146, 0
+134:                                              ; preds = %123
+  %135 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
+  store ptr %133, ptr %135, align 8, !tbaa !818
+  %136 = load i32, ptr %6, align 4, !tbaa !28
+  %137 = sext i32 %136 to i64
+  %138 = load ptr, ptr %8, align 8, !tbaa !710
+  %139 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %138, i64 %137
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  %141 = load float, ptr %140, align 4, !tbaa !789
+  %142 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 12
+  store float %141, ptr %142, align 4, !tbaa !819
+  %143 = load ptr, ptr %9, align 8, !tbaa !710
+  %144 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %143, i64 %137
+  %145 = load float, ptr %144, align 4, !tbaa !787
+  %146 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
+  store float %145, ptr %146, align 8, !tbaa !820
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %148 = load i64, ptr %147, align 8, !tbaa !705
+  %.not103 = icmp eq i64 %148, 0
   br i1 %.not103, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit, label %.lr.ph100
 
-.lr.ph100:                                        ; preds = %133
-  %147 = load ptr, ptr %3, align 8, !tbaa !710
-  br label %158
+.lr.ph100:                                        ; preds = %134
+  %149 = load ptr, ptr %3, align 8, !tbaa !710
+  br label %160
 
-_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit: ; preds = %158, %133
-  call void @_ZdlPv(ptr noundef nonnull %141) #33
+_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit: ; preds = %160, %134
+  call void @_ZdlPv(ptr noundef nonnull %143) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %148 = load ptr, ptr %8, align 8, !tbaa !710
-  %.not.i.i.i83 = icmp eq ptr %148, null
-  br i1 %.not.i.i.i83, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit84, label %149
+  %150 = load ptr, ptr %8, align 8, !tbaa !710
+  %.not.i.i.i83 = icmp eq ptr %150, null
+  br i1 %.not.i.i.i83, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit84, label %151
 
-149:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %148) #33
+151:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %150) #33
   br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit84
 
-_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit84: ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit, %149
+_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit84: ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit, %151
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit93
 
-150:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EEC2ERKS7_.exit
-  %151 = landingpad { ptr, i32 }
-          cleanup
-  br label %174
-
-152:                                              ; preds = %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78, %.noexc.i.i80
+152:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EEC2ERKS7_.exit
   %153 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit86
+  br label %176
 
-154:                                              ; preds = %122
+154:                                              ; preds = %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78, %.noexc.i.i80
   %155 = landingpad { ptr, i32 }
           cleanup
-  %156 = load ptr, ptr %9, align 8, !tbaa !710
-  %.not.i.i.i85 = icmp eq ptr %156, null
-  br i1 %.not.i.i.i85, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit86, label %157
-
-157:                                              ; preds = %154
-  call void @_ZdlPv(ptr noundef nonnull %156) #33
   br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit86
 
-158:                                              ; preds = %.lr.ph100, %158
-  %.099 = phi i64 [ 0, %.lr.ph100 ], [ %173, %158 ]
-  %159 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %137, i64 %.099
-  %160 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %141, i64 %.099
-  %161 = load float, ptr %160, align 4, !tbaa !38
-  %162 = load float, ptr %159, align 4, !tbaa !38
-  %163 = fcmp olt float %161, %162
-  %164 = select i1 %163, float %161, float %162
-  %165 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %147, i64 %.099
-  store float %164, ptr %165, align 4, !tbaa !787
-  %166 = getelementptr inbounds nuw i8, ptr %159, i64 4
-  %167 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  %168 = load float, ptr %166, align 4, !tbaa !38
-  %169 = load float, ptr %167, align 4, !tbaa !38
-  %170 = fcmp olt float %168, %169
-  %171 = select i1 %170, float %169, float %168
-  %172 = getelementptr inbounds nuw i8, ptr %165, i64 4
-  store float %171, ptr %172, align 4, !tbaa !789
-  %173 = add nuw i64 %.099, 1
-  %exitcond108.not = icmp eq i64 %173, %146
-  br i1 %exitcond108.not, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit, label %158, !llvm.loop !821
+156:                                              ; preds = %123
+  %157 = landingpad { ptr, i32 }
+          cleanup
+  %158 = load ptr, ptr %9, align 8, !tbaa !710
+  %.not.i.i.i85 = icmp eq ptr %158, null
+  br i1 %.not.i.i.i85, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit86, label %159
 
-_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit86: ; preds = %157, %154, %152
-  %.pn = phi { ptr, i32 } [ %153, %152 ], [ %155, %154 ], [ %155, %157 ]
+159:                                              ; preds = %156
+  call void @_ZdlPv(ptr noundef nonnull %158) #33
+  br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit86
+
+160:                                              ; preds = %.lr.ph100, %160
+  %.099 = phi i64 [ 0, %.lr.ph100 ], [ %175, %160 ]
+  %161 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %138, i64 %.099
+  %162 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %143, i64 %.099
+  %163 = load float, ptr %162, align 4, !tbaa !38
+  %164 = load float, ptr %161, align 4, !tbaa !38
+  %165 = fcmp olt float %163, %164
+  %166 = select i1 %165, float %163, float %164
+  %167 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L2<float>>::Interval", ptr %149, i64 %.099
+  store float %166, ptr %167, align 4, !tbaa !787
+  %168 = getelementptr inbounds nuw i8, ptr %161, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  %170 = load float, ptr %168, align 4, !tbaa !38
+  %171 = load float, ptr %169, align 4, !tbaa !38
+  %172 = fcmp olt float %170, %171
+  %173 = select i1 %172, float %171, float %170
+  %174 = getelementptr inbounds nuw i8, ptr %167, i64 4
+  store float %173, ptr %174, align 4, !tbaa !789
+  %175 = add nuw i64 %.099, 1
+  %exitcond108.not = icmp eq i64 %175, %148
+  br i1 %exitcond108.not, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit, label %160, !llvm.loop !821
+
+_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit86: ; preds = %159, %156, %154
+  %.pn = phi { ptr, i32 } [ %155, %154 ], [ %157, %156 ], [ %157, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %174
+  br label %176
 
-174:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit86, %150
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit86 ], [ %151, %150 ]
-  %175 = load ptr, ptr %8, align 8, !tbaa !710
-  %.not.i.i.i88 = icmp eq ptr %175, null
-  br i1 %.not.i.i.i88, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit89, label %176
+176:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit86, %152
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit86 ], [ %153, %152 ]
+  %177 = load ptr, ptr %8, align 8, !tbaa !710
+  %.not.i.i.i88 = icmp eq ptr %177, null
+  br i1 %.not.i.i.i88, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit89, label %178
 
-176:                                              ; preds = %174
-  call void @_ZdlPv(ptr noundef nonnull %175) #33
+178:                                              ; preds = %176
+  call void @_ZdlPv(ptr noundef nonnull %177) #33
   br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit89
 
-_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit89: ; preds = %174, %176
+_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L2IfEEE8IntervalESaIS5_EED2Ev.exit89: ; preds = %176, %178
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -47528,7 +47534,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !898
   %6 = icmp ne ptr %3, %5
-  br i1 %6, label %7, label %53
+  br i1 %6, label %7, label %55
 
 7:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !899
@@ -47558,79 +47564,81 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %.037.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %14 ]
   %22 = shl i64 %.037.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = or disjoint i64 %22, 1
-  %25 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %24, i32 1
-  %26 = load float, ptr %25, align 8, !tbaa !870
-  %27 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %23, i32 1
+  %24 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %23
+  %25 = or disjoint i64 %22, 1
+  %26 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load float, ptr %27, align 8, !tbaa !870
-  %29 = fcmp olt float %26, %28
-  %spec.select.i.i.i = select i1 %29, i64 %24, i64 %23
-  %30 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %spec.select.i.i.i
-  %31 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %.037.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !899
-  %32 = icmp slt i64 %spec.select.i.i.i, %20
-  br i1 %32, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !900
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load float, ptr %29, align 8, !tbaa !870
+  %31 = fcmp olt float %28, %30
+  %spec.select.i.i.i = select i1 %31, i64 %25, i64 %23
+  %32 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %spec.select.i.i.i
+  %33 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %.037.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %33, ptr noundef nonnull align 8 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !899
+  %34 = icmp slt i64 %spec.select.i.i.i, %20
+  br i1 %34, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !900
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %14
   %.0.lcssa.i.i.i = phi i64 [ 0, %14 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %33 = and i64 %17, 16
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %43
+  %35 = and i64 %17, 16
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %45
 
-35:                                               ; preds = %._crit_edge.i.i.i
-  %36 = add nsw i64 %18, -2
-  %37 = ashr exact i64 %36, 1
-  %38 = icmp eq i64 %.0.lcssa.i.i.i, %37
-  br i1 %38, label %.thread.i.i, label %43
+37:                                               ; preds = %._crit_edge.i.i.i
+  %38 = add nsw i64 %18, -2
+  %39 = ashr exact i64 %38, 1
+  %40 = icmp eq i64 %.0.lcssa.i.i.i, %39
+  br i1 %40, label %.thread.i.i, label %45
 
-.thread.i.i:                                      ; preds = %35
-  %39 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.269", ptr %8, i64 %40
-  %42 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %.0.lcssa.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %41, i64 12, i1 false), !tbaa.struct !899
+.thread.i.i:                                      ; preds = %37
+  %41 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.269", ptr %8, i64 %42
+  %44 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %.0.lcssa.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false), !tbaa.struct !899
   br label %.lr.ph.i.i.i.i.preheader
 
-43:                                               ; preds = %35, %._crit_edge.i.i.i
+45:                                               ; preds = %37, %._crit_edge.i.i.i
   %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
   br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %43, %.thread.i.i
-  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %43 ], [ %40, %.thread.i.i ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %45, %.thread.i.i
+  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %45 ], [ %42, %.thread.i.i ]
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %48
-  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %48 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %50
+  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %50 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i89.i.i = lshr i64 %.0920.in.i.i.i.i, 1
-  %44 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.269", ptr %8, i64 %.0920.i.i89.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load float, ptr %45, align 8, !tbaa !870
-  %47 = fcmp olt float %.sroa.4.0.copyload.i.i, %46
-  br i1 %47, label %48, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
+  %46 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.269", ptr %8, i64 %.0920.i.i89.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load float, ptr %47, align 8, !tbaa !870
+  %49 = fcmp olt float %.sroa.4.0.copyload.i.i, %48
+  br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
-48:                                               ; preds = %.lr.ph.i.i.i.i
-  %49 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %.019.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false), !tbaa.struct !899
+50:                                               ; preds = %.lr.ph.i.i.i.i
+  %51 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %.019.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !899
   %.not10.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
   br i1 %.not10.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !901
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %48, %.lr.ph.i.i.i.i, %43
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %43 ], [ 0, %48 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %.0.lcssa.i.i.i.i
-  store ptr %.sroa.03.0.copyload.i.i, ptr %50, align 8, !tbaa !838
-  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %50, %.lr.ph.i.i.i.i, %45
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %52 = getelementptr inbounds %"struct.cvflann::BranchStruct.269", ptr %8, i64 %.0.lcssa.i.i.i.i
+  store ptr %.sroa.03.0.copyload.i.i, ptr %52, align 8, !tbaa !838
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !38
   %.pre = load ptr, ptr %4, align 8, !tbaa !887
   br label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit: ; preds = %7, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
-  %51 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 -16
-  store ptr %52, ptr %4, align 8, !tbaa !887
-  br label %53
+  %53 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 -16
+  store ptr %54, ptr %4, align 8, !tbaa !887
+  br label %55
 
-53:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
+55:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
   ret i1 %6
 }
 
@@ -54769,7 +54777,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !1032
   %6 = icmp ne ptr %3, %5
-  br i1 %6, label %7, label %53
+  br i1 %6, label %7, label %55
 
 7:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !1033
@@ -54799,79 +54807,81 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %.037.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %14 ]
   %22 = shl i64 %.037.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = or disjoint i64 %22, 1
-  %25 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %24, i32 1
-  %26 = load float, ptr %25, align 8, !tbaa !1034
-  %27 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %23, i32 1
+  %24 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %23
+  %25 = or disjoint i64 %22, 1
+  %26 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load float, ptr %27, align 8, !tbaa !1034
-  %29 = fcmp olt float %26, %28
-  %spec.select.i.i.i = select i1 %29, i64 %24, i64 %23
-  %30 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %spec.select.i.i.i
-  %31 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %.037.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !1033
-  %32 = icmp slt i64 %spec.select.i.i.i, %20
-  br i1 %32, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !1035
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load float, ptr %29, align 8, !tbaa !1034
+  %31 = fcmp olt float %28, %30
+  %spec.select.i.i.i = select i1 %31, i64 %25, i64 %23
+  %32 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %spec.select.i.i.i
+  %33 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %.037.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %33, ptr noundef nonnull align 8 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !1033
+  %34 = icmp slt i64 %spec.select.i.i.i, %20
+  br i1 %34, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !1035
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %14
   %.0.lcssa.i.i.i = phi i64 [ 0, %14 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %33 = and i64 %17, 16
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %43
+  %35 = and i64 %17, 16
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %45
 
-35:                                               ; preds = %._crit_edge.i.i.i
-  %36 = add nsw i64 %18, -2
-  %37 = ashr exact i64 %36, 1
-  %38 = icmp eq i64 %.0.lcssa.i.i.i, %37
-  br i1 %38, label %.thread.i.i, label %43
+37:                                               ; preds = %._crit_edge.i.i.i
+  %38 = add nsw i64 %18, -2
+  %39 = ashr exact i64 %38, 1
+  %40 = icmp eq i64 %.0.lcssa.i.i.i, %39
+  br i1 %40, label %.thread.i.i, label %45
 
-.thread.i.i:                                      ; preds = %35
-  %39 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.329", ptr %8, i64 %40
-  %42 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %.0.lcssa.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %41, i64 12, i1 false), !tbaa.struct !1033
+.thread.i.i:                                      ; preds = %37
+  %41 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.329", ptr %8, i64 %42
+  %44 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %.0.lcssa.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false), !tbaa.struct !1033
   br label %.lr.ph.i.i.i.i.preheader
 
-43:                                               ; preds = %35, %._crit_edge.i.i.i
+45:                                               ; preds = %37, %._crit_edge.i.i.i
   %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
   br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %43, %.thread.i.i
-  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %43 ], [ %40, %.thread.i.i ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %45, %.thread.i.i
+  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %45 ], [ %42, %.thread.i.i ]
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %48
-  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %48 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %50
+  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %50 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i89.i.i = lshr i64 %.0920.in.i.i.i.i, 1
-  %44 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.329", ptr %8, i64 %.0920.i.i89.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load float, ptr %45, align 8, !tbaa !1034
-  %47 = fcmp olt float %.sroa.4.0.copyload.i.i, %46
-  br i1 %47, label %48, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
+  %46 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.329", ptr %8, i64 %.0920.i.i89.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load float, ptr %47, align 8, !tbaa !1034
+  %49 = fcmp olt float %.sroa.4.0.copyload.i.i, %48
+  br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
-48:                                               ; preds = %.lr.ph.i.i.i.i
-  %49 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %.019.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false), !tbaa.struct !1033
+50:                                               ; preds = %.lr.ph.i.i.i.i
+  %51 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %.019.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !1033
   %.not10.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
   br i1 %.not10.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1036
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %48, %.lr.ph.i.i.i.i, %43
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %43 ], [ 0, %48 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %.0.lcssa.i.i.i.i
-  store ptr %.sroa.03.0.copyload.i.i, ptr %50, align 8, !tbaa !737
-  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %50, %.lr.ph.i.i.i.i, %45
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %52 = getelementptr inbounds %"struct.cvflann::BranchStruct.329", ptr %8, i64 %.0.lcssa.i.i.i.i
+  store ptr %.sroa.03.0.copyload.i.i, ptr %52, align 8, !tbaa !737
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !38
   %.pre = load ptr, ptr %4, align 8, !tbaa !1020
   br label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit: ; preds = %7, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
-  %51 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 -16
-  store ptr %52, ptr %4, align 8, !tbaa !1020
-  br label %53
+  %53 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 -16
+  store ptr %54, ptr %4, align 8, !tbaa !1020
+  br label %55
 
-53:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
+55:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L2IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
   ret i1 %6
 }
 
@@ -68406,7 +68416,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !1247
   %6 = icmp ne ptr %3, %5
-  br i1 %6, label %7, label %53
+  br i1 %6, label %7, label %55
 
 7:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !1248
@@ -68436,79 +68446,81 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %.037.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %14 ]
   %22 = shl i64 %.037.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = or disjoint i64 %22, 1
-  %25 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %24, i32 1
-  %26 = load float, ptr %25, align 8, !tbaa !1249
-  %27 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %23, i32 1
+  %24 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %23
+  %25 = or disjoint i64 %22, 1
+  %26 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load float, ptr %27, align 8, !tbaa !1249
-  %29 = fcmp olt float %26, %28
-  %spec.select.i.i.i = select i1 %29, i64 %24, i64 %23
-  %30 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %spec.select.i.i.i
-  %31 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %.037.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !1248
-  %32 = icmp slt i64 %spec.select.i.i.i, %20
-  br i1 %32, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !1250
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load float, ptr %29, align 8, !tbaa !1249
+  %31 = fcmp olt float %28, %30
+  %spec.select.i.i.i = select i1 %31, i64 %25, i64 %23
+  %32 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %spec.select.i.i.i
+  %33 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %.037.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %33, ptr noundef nonnull align 8 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !1248
+  %34 = icmp slt i64 %spec.select.i.i.i, %20
+  br i1 %34, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !1250
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %14
   %.0.lcssa.i.i.i = phi i64 [ 0, %14 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %33 = and i64 %17, 16
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %43
+  %35 = and i64 %17, 16
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %45
 
-35:                                               ; preds = %._crit_edge.i.i.i
-  %36 = add nsw i64 %18, -2
-  %37 = ashr exact i64 %36, 1
-  %38 = icmp eq i64 %.0.lcssa.i.i.i, %37
-  br i1 %38, label %.thread.i.i, label %43
+37:                                               ; preds = %._crit_edge.i.i.i
+  %38 = add nsw i64 %18, -2
+  %39 = ashr exact i64 %38, 1
+  %40 = icmp eq i64 %.0.lcssa.i.i.i, %39
+  br i1 %40, label %.thread.i.i, label %45
 
-.thread.i.i:                                      ; preds = %35
-  %39 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.390", ptr %8, i64 %40
-  %42 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %.0.lcssa.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %41, i64 12, i1 false), !tbaa.struct !1248
+.thread.i.i:                                      ; preds = %37
+  %41 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.390", ptr %8, i64 %42
+  %44 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %.0.lcssa.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false), !tbaa.struct !1248
   br label %.lr.ph.i.i.i.i.preheader
 
-43:                                               ; preds = %35, %._crit_edge.i.i.i
+45:                                               ; preds = %37, %._crit_edge.i.i.i
   %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
   br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %43, %.thread.i.i
-  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %43 ], [ %40, %.thread.i.i ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %45, %.thread.i.i
+  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %45 ], [ %42, %.thread.i.i ]
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %48
-  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %48 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %50
+  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %50 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i89.i.i = lshr i64 %.0920.in.i.i.i.i, 1
-  %44 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.390", ptr %8, i64 %.0920.i.i89.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load float, ptr %45, align 8, !tbaa !1249
-  %47 = fcmp olt float %.sroa.4.0.copyload.i.i, %46
-  br i1 %47, label %48, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
+  %46 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.390", ptr %8, i64 %.0920.i.i89.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load float, ptr %47, align 8, !tbaa !1249
+  %49 = fcmp olt float %.sroa.4.0.copyload.i.i, %48
+  br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
-48:                                               ; preds = %.lr.ph.i.i.i.i
-  %49 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %.019.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false), !tbaa.struct !1248
+50:                                               ; preds = %.lr.ph.i.i.i.i
+  %51 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %.019.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !1248
   %.not10.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
   br i1 %.not10.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1251
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %48, %.lr.ph.i.i.i.i, %43
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %43 ], [ 0, %48 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %.0.lcssa.i.i.i.i
-  store ptr %.sroa.03.0.copyload.i.i, ptr %50, align 8, !tbaa !766
-  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %50, %.lr.ph.i.i.i.i, %45
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %52 = getelementptr inbounds %"struct.cvflann::BranchStruct.390", ptr %8, i64 %.0.lcssa.i.i.i.i
+  store ptr %.sroa.03.0.copyload.i.i, ptr %52, align 8, !tbaa !766
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !38
   %.pre = load ptr, ptr %4, align 8, !tbaa !1233
   br label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit: ; preds = %7, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
-  %51 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 -16
-  store ptr %52, ptr %4, align 8, !tbaa !1233
-  br label %53
+  %53 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 -16
+  store ptr %54, ptr %4, align 8, !tbaa !1233
+  br label %55
 
-53:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
+55:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L2IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
   ret i1 %6
 }
 
@@ -77666,157 +77678,159 @@ _ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EEC2ERKS7_
   store ptr %105, ptr %104, align 8, !tbaa !1384
   %107 = load float, ptr %7, align 4, !tbaa !38
   %108 = sext i32 %94 to i64
-  %109 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %103, i64 %108, i32 1
-  store float %107, ptr %109, align 4, !tbaa !1387
-  %110 = load i32, ptr %5, align 4, !tbaa !28
-  %111 = add nsw i32 %110, %1
-  %112 = invoke noundef ptr @_ZN7cvflann17KDTreeSingleIndexINS_2L1IfEEE10divideTreeEiiRSt6vectorINS3_8IntervalESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(241) %0, i32 noundef %1, i32 noundef %111, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %113 unwind label %150
+  %109 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %103, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  store float %107, ptr %110, align 4, !tbaa !1387
+  %111 = load i32, ptr %5, align 4, !tbaa !28
+  %112 = add nsw i32 %111, %1
+  %113 = invoke noundef ptr @_ZN7cvflann17KDTreeSingleIndexINS_2L1IfEEE10divideTreeEiiRSt6vectorINS3_8IntervalESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(241) %0, i32 noundef %1, i32 noundef %112, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %114 unwind label %152
 
-113:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EEC2ERKS7_.exit
-  %114 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
-  store ptr %112, ptr %114, align 8, !tbaa !1405
+114:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EEC2ERKS7_.exit
+  %115 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
+  store ptr %113, ptr %115, align 8, !tbaa !1405
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %115 = load ptr, ptr %96, align 8, !tbaa !1384
-  %116 = load ptr, ptr %3, align 8, !tbaa !1314
-  %117 = ptrtoint ptr %115 to i64
+  %116 = load ptr, ptr %96, align 8, !tbaa !1384
+  %117 = load ptr, ptr %3, align 8, !tbaa !1314
   %118 = ptrtoint ptr %116 to i64
-  %119 = sub i64 %117, %118
-  %.not.i.i.i.i77 = icmp ne ptr %115, %116
+  %119 = ptrtoint ptr %117 to i64
+  %120 = sub i64 %118, %119
+  %.not.i.i.i.i77 = icmp ne ptr %116, %117
   call void @llvm.assume(i1 %.not.i.i.i.i77)
-  %120 = icmp ugt i64 %119, 9223372036854775800
-  br i1 %120, label %.noexc.i.i80, label %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78, !prof !344
+  %121 = icmp ugt i64 %120, 9223372036854775800
+  br i1 %121, label %.noexc.i.i80, label %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78, !prof !344
 
-.noexc.i.i80:                                     ; preds = %113
+.noexc.i.i80:                                     ; preds = %114
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #36
-          to label %.noexc unwind label %152
+          to label %.noexc unwind label %154
 
 .noexc:                                           ; preds = %.noexc.i.i80
   unreachable
 
-_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78: ; preds = %113
-  %121 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %119) #35
-          to label %122 unwind label %152
+_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78: ; preds = %114
+  %122 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %120) #35
+          to label %123 unwind label %154
 
-122:                                              ; preds = %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78
-  store ptr %121, ptr %9, align 8, !tbaa !1314
-  %123 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 %119
-  %125 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %124, ptr %125, align 8, !tbaa !1404
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %121, ptr align 4 %116, i64 %119, i1 false)
-  store ptr %124, ptr %123, align 8, !tbaa !1384
-  %126 = load float, ptr %7, align 4, !tbaa !38
-  %127 = load i32, ptr %6, align 4, !tbaa !28
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %121, i64 %128
-  store float %126, ptr %129, align 4, !tbaa !1385
-  %130 = load i32, ptr %5, align 4, !tbaa !28
-  %131 = add nsw i32 %130, %1
-  %132 = invoke noundef ptr @_ZN7cvflann17KDTreeSingleIndexINS_2L1IfEEE10divideTreeEiiRSt6vectorINS3_8IntervalESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(241) %0, i32 noundef %131, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %133 unwind label %154
+123:                                              ; preds = %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78
+  store ptr %122, ptr %9, align 8, !tbaa !1314
+  %124 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 %120
+  %126 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %125, ptr %126, align 8, !tbaa !1404
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %122, ptr align 4 %117, i64 %120, i1 false)
+  store ptr %125, ptr %124, align 8, !tbaa !1384
+  %127 = load float, ptr %7, align 4, !tbaa !38
+  %128 = load i32, ptr %6, align 4, !tbaa !28
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %122, i64 %129
+  store float %127, ptr %130, align 4, !tbaa !1385
+  %131 = load i32, ptr %5, align 4, !tbaa !28
+  %132 = add nsw i32 %131, %1
+  %133 = invoke noundef ptr @_ZN7cvflann17KDTreeSingleIndexINS_2L1IfEEE10divideTreeEiiRSt6vectorINS3_8IntervalESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(241) %0, i32 noundef %132, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %134 unwind label %156
 
-133:                                              ; preds = %122
-  %134 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
-  store ptr %132, ptr %134, align 8, !tbaa !1406
-  %135 = load i32, ptr %6, align 4, !tbaa !28
-  %136 = sext i32 %135 to i64
-  %137 = load ptr, ptr %8, align 8, !tbaa !1314
-  %138 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %137, i64 %136, i32 1
-  %139 = load float, ptr %138, align 4, !tbaa !1387
-  %140 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 12
-  store float %139, ptr %140, align 4, !tbaa !1407
-  %141 = load ptr, ptr %9, align 8, !tbaa !1314
-  %142 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %141, i64 %136
-  %143 = load float, ptr %142, align 4, !tbaa !1385
-  %144 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
-  store float %143, ptr %144, align 8, !tbaa !1408
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %146 = load i64, ptr %145, align 8, !tbaa !1309
-  %.not103 = icmp eq i64 %146, 0
+134:                                              ; preds = %123
+  %135 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
+  store ptr %133, ptr %135, align 8, !tbaa !1406
+  %136 = load i32, ptr %6, align 4, !tbaa !28
+  %137 = sext i32 %136 to i64
+  %138 = load ptr, ptr %8, align 8, !tbaa !1314
+  %139 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %138, i64 %137
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  %141 = load float, ptr %140, align 4, !tbaa !1387
+  %142 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 12
+  store float %141, ptr %142, align 4, !tbaa !1407
+  %143 = load ptr, ptr %9, align 8, !tbaa !1314
+  %144 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %143, i64 %137
+  %145 = load float, ptr %144, align 4, !tbaa !1385
+  %146 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
+  store float %145, ptr %146, align 8, !tbaa !1408
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %148 = load i64, ptr %147, align 8, !tbaa !1309
+  %.not103 = icmp eq i64 %148, 0
   br i1 %.not103, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit, label %.lr.ph100
 
-.lr.ph100:                                        ; preds = %133
-  %147 = load ptr, ptr %3, align 8, !tbaa !1314
-  br label %158
+.lr.ph100:                                        ; preds = %134
+  %149 = load ptr, ptr %3, align 8, !tbaa !1314
+  br label %160
 
-_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit: ; preds = %158, %133
-  call void @_ZdlPv(ptr noundef nonnull %141) #33
+_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit: ; preds = %160, %134
+  call void @_ZdlPv(ptr noundef nonnull %143) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %148 = load ptr, ptr %8, align 8, !tbaa !1314
-  %.not.i.i.i83 = icmp eq ptr %148, null
-  br i1 %.not.i.i.i83, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit84, label %149
+  %150 = load ptr, ptr %8, align 8, !tbaa !1314
+  %.not.i.i.i83 = icmp eq ptr %150, null
+  br i1 %.not.i.i.i83, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit84, label %151
 
-149:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %148) #33
+151:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %150) #33
   br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit84
 
-_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit84: ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit, %149
+_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit84: ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit, %151
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit93
 
-150:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EEC2ERKS7_.exit
-  %151 = landingpad { ptr, i32 }
-          cleanup
-  br label %174
-
-152:                                              ; preds = %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78, %.noexc.i.i80
+152:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EEC2ERKS7_.exit
   %153 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit86
+  br label %176
 
-154:                                              ; preds = %122
+154:                                              ; preds = %_ZNSt16allocator_traitsISaIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalEEE8allocateERS6_m.exit.i.i.i.i78, %.noexc.i.i80
   %155 = landingpad { ptr, i32 }
           cleanup
-  %156 = load ptr, ptr %9, align 8, !tbaa !1314
-  %.not.i.i.i85 = icmp eq ptr %156, null
-  br i1 %.not.i.i.i85, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit86, label %157
-
-157:                                              ; preds = %154
-  call void @_ZdlPv(ptr noundef nonnull %156) #33
   br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit86
 
-158:                                              ; preds = %.lr.ph100, %158
-  %.099 = phi i64 [ 0, %.lr.ph100 ], [ %173, %158 ]
-  %159 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %137, i64 %.099
-  %160 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %141, i64 %.099
-  %161 = load float, ptr %160, align 4, !tbaa !38
-  %162 = load float, ptr %159, align 4, !tbaa !38
-  %163 = fcmp olt float %161, %162
-  %164 = select i1 %163, float %161, float %162
-  %165 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %147, i64 %.099
-  store float %164, ptr %165, align 4, !tbaa !1385
-  %166 = getelementptr inbounds nuw i8, ptr %159, i64 4
-  %167 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  %168 = load float, ptr %166, align 4, !tbaa !38
-  %169 = load float, ptr %167, align 4, !tbaa !38
-  %170 = fcmp olt float %168, %169
-  %171 = select i1 %170, float %169, float %168
-  %172 = getelementptr inbounds nuw i8, ptr %165, i64 4
-  store float %171, ptr %172, align 4, !tbaa !1387
-  %173 = add nuw i64 %.099, 1
-  %exitcond108.not = icmp eq i64 %173, %146
-  br i1 %exitcond108.not, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit, label %158, !llvm.loop !1409
+156:                                              ; preds = %123
+  %157 = landingpad { ptr, i32 }
+          cleanup
+  %158 = load ptr, ptr %9, align 8, !tbaa !1314
+  %.not.i.i.i85 = icmp eq ptr %158, null
+  br i1 %.not.i.i.i85, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit86, label %159
 
-_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit86: ; preds = %157, %154, %152
-  %.pn = phi { ptr, i32 } [ %153, %152 ], [ %155, %154 ], [ %155, %157 ]
+159:                                              ; preds = %156
+  call void @_ZdlPv(ptr noundef nonnull %158) #33
+  br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit86
+
+160:                                              ; preds = %.lr.ph100, %160
+  %.099 = phi i64 [ 0, %.lr.ph100 ], [ %175, %160 ]
+  %161 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %138, i64 %.099
+  %162 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %143, i64 %.099
+  %163 = load float, ptr %162, align 4, !tbaa !38
+  %164 = load float, ptr %161, align 4, !tbaa !38
+  %165 = fcmp olt float %163, %164
+  %166 = select i1 %165, float %163, float %164
+  %167 = getelementptr inbounds nuw %"struct.cvflann::KDTreeSingleIndex<cvflann::L1<float>>::Interval", ptr %149, i64 %.099
+  store float %166, ptr %167, align 4, !tbaa !1385
+  %168 = getelementptr inbounds nuw i8, ptr %161, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  %170 = load float, ptr %168, align 4, !tbaa !38
+  %171 = load float, ptr %169, align 4, !tbaa !38
+  %172 = fcmp olt float %170, %171
+  %173 = select i1 %172, float %171, float %170
+  %174 = getelementptr inbounds nuw i8, ptr %167, i64 4
+  store float %173, ptr %174, align 4, !tbaa !1387
+  %175 = add nuw i64 %.099, 1
+  %exitcond108.not = icmp eq i64 %175, %148
+  br i1 %exitcond108.not, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit, label %160, !llvm.loop !1409
+
+_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit86: ; preds = %159, %156, %154
+  %.pn = phi { ptr, i32 } [ %155, %154 ], [ %157, %156 ], [ %157, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %174
+  br label %176
 
-174:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit86, %150
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit86 ], [ %151, %150 ]
-  %175 = load ptr, ptr %8, align 8, !tbaa !1314
-  %.not.i.i.i88 = icmp eq ptr %175, null
-  br i1 %.not.i.i.i88, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit89, label %176
+176:                                              ; preds = %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit86, %152
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit86 ], [ %153, %152 ]
+  %177 = load ptr, ptr %8, align 8, !tbaa !1314
+  %.not.i.i.i88 = icmp eq ptr %177, null
+  br i1 %.not.i.i.i88, label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit89, label %178
 
-176:                                              ; preds = %174
-  call void @_ZdlPv(ptr noundef nonnull %175) #33
+178:                                              ; preds = %176
+  call void @_ZdlPv(ptr noundef nonnull %177) #33
   br label %_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit89
 
-_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit89: ; preds = %174, %176
+_ZNSt6vectorIN7cvflann17KDTreeSingleIndexINS0_2L1IfEEE8IntervalESaIS5_EED2Ev.exit89: ; preds = %176, %178
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -81633,7 +81647,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !1485
   %6 = icmp ne ptr %3, %5
-  br i1 %6, label %7, label %53
+  br i1 %6, label %7, label %55
 
 7:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !1486
@@ -81663,79 +81677,81 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %.037.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %14 ]
   %22 = shl i64 %.037.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = or disjoint i64 %22, 1
-  %25 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %24, i32 1
-  %26 = load float, ptr %25, align 8, !tbaa !1457
-  %27 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %23, i32 1
+  %24 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %23
+  %25 = or disjoint i64 %22, 1
+  %26 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load float, ptr %27, align 8, !tbaa !1457
-  %29 = fcmp olt float %26, %28
-  %spec.select.i.i.i = select i1 %29, i64 %24, i64 %23
-  %30 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %spec.select.i.i.i
-  %31 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %.037.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !1486
-  %32 = icmp slt i64 %spec.select.i.i.i, %20
-  br i1 %32, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !1487
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load float, ptr %29, align 8, !tbaa !1457
+  %31 = fcmp olt float %28, %30
+  %spec.select.i.i.i = select i1 %31, i64 %25, i64 %23
+  %32 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %spec.select.i.i.i
+  %33 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %.037.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %33, ptr noundef nonnull align 8 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !1486
+  %34 = icmp slt i64 %spec.select.i.i.i, %20
+  br i1 %34, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !1487
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %14
   %.0.lcssa.i.i.i = phi i64 [ 0, %14 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %33 = and i64 %17, 16
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %43
+  %35 = and i64 %17, 16
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %45
 
-35:                                               ; preds = %._crit_edge.i.i.i
-  %36 = add nsw i64 %18, -2
-  %37 = ashr exact i64 %36, 1
-  %38 = icmp eq i64 %.0.lcssa.i.i.i, %37
-  br i1 %38, label %.thread.i.i, label %43
+37:                                               ; preds = %._crit_edge.i.i.i
+  %38 = add nsw i64 %18, -2
+  %39 = ashr exact i64 %38, 1
+  %40 = icmp eq i64 %.0.lcssa.i.i.i, %39
+  br i1 %40, label %.thread.i.i, label %45
 
-.thread.i.i:                                      ; preds = %35
-  %39 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.466", ptr %8, i64 %40
-  %42 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %.0.lcssa.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %41, i64 12, i1 false), !tbaa.struct !1486
+.thread.i.i:                                      ; preds = %37
+  %41 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.466", ptr %8, i64 %42
+  %44 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %.0.lcssa.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false), !tbaa.struct !1486
   br label %.lr.ph.i.i.i.i.preheader
 
-43:                                               ; preds = %35, %._crit_edge.i.i.i
+45:                                               ; preds = %37, %._crit_edge.i.i.i
   %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
   br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %43, %.thread.i.i
-  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %43 ], [ %40, %.thread.i.i ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %45, %.thread.i.i
+  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %45 ], [ %42, %.thread.i.i ]
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %48
-  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %48 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %50
+  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %50 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i89.i.i = lshr i64 %.0920.in.i.i.i.i, 1
-  %44 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.466", ptr %8, i64 %.0920.i.i89.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load float, ptr %45, align 8, !tbaa !1457
-  %47 = fcmp olt float %.sroa.4.0.copyload.i.i, %46
-  br i1 %47, label %48, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
+  %46 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.466", ptr %8, i64 %.0920.i.i89.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load float, ptr %47, align 8, !tbaa !1457
+  %49 = fcmp olt float %.sroa.4.0.copyload.i.i, %48
+  br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
-48:                                               ; preds = %.lr.ph.i.i.i.i
-  %49 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %.019.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false), !tbaa.struct !1486
+50:                                               ; preds = %.lr.ph.i.i.i.i
+  %51 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %.019.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !1486
   %.not10.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
   br i1 %.not10.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1488
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %48, %.lr.ph.i.i.i.i, %43
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %43 ], [ 0, %48 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %.0.lcssa.i.i.i.i
-  store ptr %.sroa.03.0.copyload.i.i, ptr %50, align 8, !tbaa !1425
-  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %50, %.lr.ph.i.i.i.i, %45
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %52 = getelementptr inbounds %"struct.cvflann::BranchStruct.466", ptr %8, i64 %.0.lcssa.i.i.i.i
+  store ptr %.sroa.03.0.copyload.i.i, ptr %52, align 8, !tbaa !1425
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !38
   %.pre = load ptr, ptr %4, align 8, !tbaa !1474
   br label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit: ; preds = %7, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
-  %51 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 -16
-  store ptr %52, ptr %4, align 8, !tbaa !1474
-  br label %53
+  %53 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 -16
+  store ptr %54, ptr %4, align 8, !tbaa !1474
+  br label %55
 
-53:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
+55:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KDTreeIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
   ret i1 %6
 }
 
@@ -88832,7 +88848,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !1605
   %6 = icmp ne ptr %3, %5
-  br i1 %6, label %7, label %53
+  br i1 %6, label %7, label %55
 
 7:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !1606
@@ -88862,79 +88878,81 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %.037.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %14 ]
   %22 = shl i64 %.037.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = or disjoint i64 %22, 1
-  %25 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %24, i32 1
-  %26 = load float, ptr %25, align 8, !tbaa !1607
-  %27 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %23, i32 1
+  %24 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %23
+  %25 = or disjoint i64 %22, 1
+  %26 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load float, ptr %27, align 8, !tbaa !1607
-  %29 = fcmp olt float %26, %28
-  %spec.select.i.i.i = select i1 %29, i64 %24, i64 %23
-  %30 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %spec.select.i.i.i
-  %31 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %.037.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !1606
-  %32 = icmp slt i64 %spec.select.i.i.i, %20
-  br i1 %32, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !1608
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load float, ptr %29, align 8, !tbaa !1607
+  %31 = fcmp olt float %28, %30
+  %spec.select.i.i.i = select i1 %31, i64 %25, i64 %23
+  %32 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %spec.select.i.i.i
+  %33 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %.037.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %33, ptr noundef nonnull align 8 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !1606
+  %34 = icmp slt i64 %spec.select.i.i.i, %20
+  br i1 %34, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !1608
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %14
   %.0.lcssa.i.i.i = phi i64 [ 0, %14 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %33 = and i64 %17, 16
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %43
+  %35 = and i64 %17, 16
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %45
 
-35:                                               ; preds = %._crit_edge.i.i.i
-  %36 = add nsw i64 %18, -2
-  %37 = ashr exact i64 %36, 1
-  %38 = icmp eq i64 %.0.lcssa.i.i.i, %37
-  br i1 %38, label %.thread.i.i, label %43
+37:                                               ; preds = %._crit_edge.i.i.i
+  %38 = add nsw i64 %18, -2
+  %39 = ashr exact i64 %38, 1
+  %40 = icmp eq i64 %.0.lcssa.i.i.i, %39
+  br i1 %40, label %.thread.i.i, label %45
 
-.thread.i.i:                                      ; preds = %35
-  %39 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.523", ptr %8, i64 %40
-  %42 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %.0.lcssa.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %41, i64 12, i1 false), !tbaa.struct !1606
+.thread.i.i:                                      ; preds = %37
+  %41 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.523", ptr %8, i64 %42
+  %44 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %.0.lcssa.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false), !tbaa.struct !1606
   br label %.lr.ph.i.i.i.i.preheader
 
-43:                                               ; preds = %35, %._crit_edge.i.i.i
+45:                                               ; preds = %37, %._crit_edge.i.i.i
   %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
   br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %43, %.thread.i.i
-  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %43 ], [ %40, %.thread.i.i ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %45, %.thread.i.i
+  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %45 ], [ %42, %.thread.i.i ]
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %48
-  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %48 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %50
+  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %50 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i89.i.i = lshr i64 %.0920.in.i.i.i.i, 1
-  %44 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.523", ptr %8, i64 %.0920.i.i89.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load float, ptr %45, align 8, !tbaa !1607
-  %47 = fcmp olt float %.sroa.4.0.copyload.i.i, %46
-  br i1 %47, label %48, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
+  %46 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.523", ptr %8, i64 %.0920.i.i89.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load float, ptr %47, align 8, !tbaa !1607
+  %49 = fcmp olt float %.sroa.4.0.copyload.i.i, %48
+  br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
-48:                                               ; preds = %.lr.ph.i.i.i.i
-  %49 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %.019.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false), !tbaa.struct !1606
+50:                                               ; preds = %.lr.ph.i.i.i.i
+  %51 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %.019.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !1606
   %.not10.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
   br i1 %.not10.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1609
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %48, %.lr.ph.i.i.i.i, %43
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %43 ], [ 0, %48 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %.0.lcssa.i.i.i.i
-  store ptr %.sroa.03.0.copyload.i.i, ptr %50, align 8, !tbaa !1341
-  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %50, %.lr.ph.i.i.i.i, %45
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %52 = getelementptr inbounds %"struct.cvflann::BranchStruct.523", ptr %8, i64 %.0.lcssa.i.i.i.i
+  store ptr %.sroa.03.0.copyload.i.i, ptr %52, align 8, !tbaa !1341
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !38
   %.pre = load ptr, ptr %4, align 8, !tbaa !1593
   br label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit: ; preds = %7, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
-  %51 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 -16
-  store ptr %52, ptr %4, align 8, !tbaa !1593
-  br label %53
+  %53 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 -16
+  store ptr %54, ptr %4, align 8, !tbaa !1593
+  br label %55
 
-53:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
+55:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_11KMeansIndexINS2_2L1IfEEE10KMeansNodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
   ret i1 %6
 }
 
@@ -100659,7 +100677,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !1779
   %6 = icmp ne ptr %3, %5
-  br i1 %6, label %7, label %53
+  br i1 %6, label %7, label %55
 
 7:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !1780
@@ -100689,79 +100707,81 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7cvflann4HeapINS_12BranchStruc
   %.037.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %14 ]
   %22 = shl i64 %.037.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = or disjoint i64 %22, 1
-  %25 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %24, i32 1
-  %26 = load float, ptr %25, align 8, !tbaa !1781
-  %27 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %23, i32 1
+  %24 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %23
+  %25 = or disjoint i64 %22, 1
+  %26 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load float, ptr %27, align 8, !tbaa !1781
-  %29 = fcmp olt float %26, %28
-  %spec.select.i.i.i = select i1 %29, i64 %24, i64 %23
-  %30 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %spec.select.i.i.i
-  %31 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %.037.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !1780
-  %32 = icmp slt i64 %spec.select.i.i.i, %20
-  br i1 %32, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !1782
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load float, ptr %29, align 8, !tbaa !1781
+  %31 = fcmp olt float %28, %30
+  %spec.select.i.i.i = select i1 %31, i64 %25, i64 %23
+  %32 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %spec.select.i.i.i
+  %33 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %.037.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %33, ptr noundef nonnull align 8 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !1780
+  %34 = icmp slt i64 %spec.select.i.i.i, %20
+  br i1 %34, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !1782
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %14
   %.0.lcssa.i.i.i = phi i64 [ 0, %14 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %33 = and i64 %17, 16
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %43
+  %35 = and i64 %17, 16
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %45
 
-35:                                               ; preds = %._crit_edge.i.i.i
-  %36 = add nsw i64 %18, -2
-  %37 = ashr exact i64 %36, 1
-  %38 = icmp eq i64 %.0.lcssa.i.i.i, %37
-  br i1 %38, label %.thread.i.i, label %43
+37:                                               ; preds = %._crit_edge.i.i.i
+  %38 = add nsw i64 %18, -2
+  %39 = ashr exact i64 %38, 1
+  %40 = icmp eq i64 %.0.lcssa.i.i.i, %39
+  br i1 %40, label %.thread.i.i, label %45
 
-.thread.i.i:                                      ; preds = %35
-  %39 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.582", ptr %8, i64 %40
-  %42 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %.0.lcssa.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %41, i64 12, i1 false), !tbaa.struct !1780
+.thread.i.i:                                      ; preds = %37
+  %41 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.582", ptr %8, i64 %42
+  %44 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %.0.lcssa.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %43, i64 12, i1 false), !tbaa.struct !1780
   br label %.lr.ph.i.i.i.i.preheader
 
-43:                                               ; preds = %35, %._crit_edge.i.i.i
+45:                                               ; preds = %37, %._crit_edge.i.i.i
   %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
   br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %43, %.thread.i.i
-  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %43 ], [ %40, %.thread.i.i ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %45, %.thread.i.i
+  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %45 ], [ %42, %.thread.i.i ]
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %48
-  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %48 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %50
+  %.019.i.i.i.i = phi i64 [ %.0920.i.i89.i.i, %50 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i89.i.i = lshr i64 %.0920.in.i.i.i.i, 1
-  %44 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.582", ptr %8, i64 %.0920.i.i89.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load float, ptr %45, align 8, !tbaa !1781
-  %47 = fcmp olt float %.sroa.4.0.copyload.i.i, %46
-  br i1 %47, label %48, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
+  %46 = getelementptr inbounds nuw %"struct.cvflann::BranchStruct.582", ptr %8, i64 %.0920.i.i89.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load float, ptr %47, align 8, !tbaa !1781
+  %49 = fcmp olt float %.sroa.4.0.copyload.i.i, %48
+  br i1 %49, label %50, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
 
-48:                                               ; preds = %.lr.ph.i.i.i.i
-  %49 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %.019.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false), !tbaa.struct !1780
+50:                                               ; preds = %.lr.ph.i.i.i.i
+  %51 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %.019.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !1780
   %.not10.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
   br i1 %.not10.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1783
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %48, %.lr.ph.i.i.i.i, %43
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %43 ], [ 0, %48 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %50 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %.0.lcssa.i.i.i.i
-  store ptr %.sroa.03.0.copyload.i.i, ptr %50, align 8, !tbaa !1369
-  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i: ; preds = %50, %.lr.ph.i.i.i.i, %45
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %52 = getelementptr inbounds %"struct.cvflann::BranchStruct.582", ptr %8, i64 %.0.lcssa.i.i.i.i
+  store ptr %.sroa.03.0.copyload.i.i, ptr %52, align 8, !tbaa !1369
+  %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8, !tbaa !38
   %.pre = load ptr, ptr %4, align 8, !tbaa !1765
   br label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
 
 _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit: ; preds = %7, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i
-  %51 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 -16
-  store ptr %52, ptr %4, align 8, !tbaa !1765
-  br label %53
+  %53 = phi ptr [ %9, %7 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_7greaterISA_EEEEEvT_SL_SL_RT0_.exit.i ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 -16
+  store ptr %54, ptr %4, align 8, !tbaa !1765
+  br label %55
 
-53:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
+55:                                               ; preds = %2, %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPN7cvflann12BranchStructIPNS2_27HierarchicalClusteringIndexINS2_2L1IfEEE4NodeEfEESt6vectorISA_SaISA_EEEENS2_7greaterISA_EEEvT_SI_T0_.exit
   ret i1 %6
 }
 

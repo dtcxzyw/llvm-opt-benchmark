@@ -4212,21 +4212,22 @@ define internal fastcc void @dissect_32_bit_capability_flags(ptr noundef %0, i32
 
 ._crit_edge.thread:                               ; preds = %13, %34, %._crit_edge
   %35 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %3)
-  %36 = getelementptr i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not4752 = icmp eq ptr %37, null
   br i1 %.not4752, label %.loopexit, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %._crit_edge.thread, %.lr.ph55
-  %38 = phi ptr [ %44, %.lr.ph55 ], [ %37, %._crit_edge.thread ]
+  %38 = phi ptr [ %45, %.lr.ph55 ], [ %37, %._crit_edge.thread ]
   %.14253 = phi i32 [ %41, %.lr.ph55 ], [ 0, %._crit_edge.thread ]
   %39 = load i32, ptr %38, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %39, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
   %41 = add i32 %.14253, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr %struct.capability_flag, ptr %4, i64 %42, i32 2
-  %44 = load ptr, ptr %43, align 8
-  %.not47 = icmp eq ptr %44, null
+  %43 = getelementptr %struct.capability_flag, ptr %4, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %.not47 = icmp eq ptr %45, null
   br i1 %.not47, label %.loopexit, label %.lr.ph55, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph55, %._crit_edge.thread, %10

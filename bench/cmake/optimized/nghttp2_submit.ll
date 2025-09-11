@@ -658,87 +658,88 @@ define dso_local i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %7 = load i8, ptr %6, align 4, !tbaa !45
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %44, label %8
+  br i1 %.not, label %45, label %8
 
 8:                                                ; preds = %4
   %.not63 = icmp eq i64 %3, 0
   br i1 %.not63, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %8, %.preheader
-  %.066 = phi i64 [ %12, %.preheader ], [ 0, %8 ]
-  %.05565 = phi i64 [ %11, %.preheader ], [ 0, %8 ]
-  %9 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.066, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !54
-  %11 = add i64 %10, %.05565
-  %12 = add nuw i64 %.066, 1
-  %exitcond.not = icmp eq i64 %12, %3
-  br i1 %exitcond.not, label %13, label %.preheader, !llvm.loop !56
+  %.066 = phi i64 [ %13, %.preheader ], [ 0, %8 ]
+  %.05565 = phi i64 [ %12, %.preheader ], [ 0, %8 ]
+  %9 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.066
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i64, ptr %10, align 8, !tbaa !54
+  %12 = add i64 %11, %.05565
+  %13 = add nuw i64 %.066, 1
+  %exitcond.not = icmp eq i64 %13, %3
+  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !56
 
-13:                                               ; preds = %.preheader
-  %14 = shl i64 %3, 1
-  %15 = add i64 %11, %14
-  %16 = icmp ugt i64 %15, 16384
-  br i1 %16, label %44, label %17
+14:                                               ; preds = %.preheader
+  %15 = shl i64 %3, 1
+  %16 = add i64 %12, %15
+  %17 = icmp ugt i64 %16, 16384
+  br i1 %17, label %45, label %18
 
-17:                                               ; preds = %13
-  %18 = mul i64 %3, 17
-  %19 = add i64 %18, %11
-  %20 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %5, i64 noundef %19) #6
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %44, label %22
+18:                                               ; preds = %14
+  %19 = mul i64 %3, 17
+  %20 = add i64 %19, %12
+  %21 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %5, i64 noundef %20) #6
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %45, label %23
 
-22:                                               ; preds = %17
-  %23 = shl i64 %3, 4
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %23
-  br label %25
+23:                                               ; preds = %18
+  %24 = shl i64 %3, 4
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %24
+  br label %26
 
-25:                                               ; preds = %22, %25
-  %.168 = phi i64 [ 0, %22 ], [ %34, %25 ]
-  %.05867 = phi ptr [ %24, %22 ], [ %33, %25 ]
-  %26 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %20, i64 %.168
-  store ptr %.05867, ptr %26, align 8, !tbaa !58
-  %27 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.168
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !54
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %29, ptr %30, align 8, !tbaa !54
-  %31 = load ptr, ptr %27, align 8, !tbaa !58
-  %32 = tail call ptr @nghttp2_cpymem(ptr noundef %.05867, ptr noundef %31, i64 noundef %29) #6
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store i8 0, ptr %32, align 1, !tbaa !9
-  %34 = add nuw i64 %.168, 1
-  %exitcond69.not = icmp eq i64 %34, %3
-  br i1 %exitcond69.not, label %.loopexit, label %25, !llvm.loop !59
+26:                                               ; preds = %23, %26
+  %.168 = phi i64 [ 0, %23 ], [ %35, %26 ]
+  %.05867 = phi ptr [ %25, %23 ], [ %34, %26 ]
+  %27 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %21, i64 %.168
+  store ptr %.05867, ptr %27, align 8, !tbaa !58
+  %28 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.168
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !54
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i64 %30, ptr %31, align 8, !tbaa !54
+  %32 = load ptr, ptr %28, align 8, !tbaa !58
+  %33 = tail call ptr @nghttp2_cpymem(ptr noundef %.05867, ptr noundef %32, i64 noundef %30) #6
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  store i8 0, ptr %33, align 1, !tbaa !9
+  %35 = add nuw i64 %.168, 1
+  %exitcond69.not = icmp eq i64 %35, %3
+  br i1 %exitcond69.not, label %.loopexit, label %26, !llvm.loop !59
 
-.loopexit:                                        ; preds = %25, %8
-  %.056 = phi ptr [ null, %8 ], [ %20, %25 ]
-  %35 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %5, i64 noundef 152) #6
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef %.056) #6
-  br label %44
+.loopexit:                                        ; preds = %26, %8
+  %.056 = phi ptr [ null, %8 ], [ %21, %26 ]
+  %36 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %5, i64 noundef 152) #6
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %39
 
 38:                                               ; preds = %.loopexit
-  tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %35) #6
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 96
-  store i8 1, ptr %39, align 8, !tbaa !9
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %40, ptr %41, align 8, !tbaa !9
-  tail call void @nghttp2_frame_origin_init(ptr noundef nonnull %35, ptr noundef %.056, i64 noundef %3) #6
-  %42 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %35) #6
-  %.not64 = icmp eq i32 %42, 0
-  br i1 %.not64, label %44, label %43
+  tail call void @free(ptr noundef %.056) #6
+  br label %45
 
-43:                                               ; preds = %38
-  tail call void @nghttp2_frame_origin_free(ptr noundef nonnull %35, ptr noundef nonnull %5) #6
-  tail call void @nghttp2_mem_free(ptr noundef nonnull %5, ptr noundef nonnull %35) #6
-  br label %44
+39:                                               ; preds = %.loopexit
+  tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %36) #6
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 96
+  store i8 1, ptr %40, align 8, !tbaa !9
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store ptr %41, ptr %42, align 8, !tbaa !9
+  tail call void @nghttp2_frame_origin_init(ptr noundef nonnull %36, ptr noundef %.056, i64 noundef %3) #6
+  %43 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %36) #6
+  %.not64 = icmp eq i32 %43, 0
+  br i1 %.not64, label %45, label %44
 
-44:                                               ; preds = %38, %17, %13, %4, %37, %43
-  %.057 = phi i32 [ -901, %37 ], [ %42, %43 ], [ -519, %4 ], [ -501, %13 ], [ -901, %17 ], [ 0, %38 ]
+44:                                               ; preds = %39
+  tail call void @nghttp2_frame_origin_free(ptr noundef nonnull %36, ptr noundef nonnull %5) #6
+  tail call void @nghttp2_mem_free(ptr noundef nonnull %5, ptr noundef nonnull %36) #6
+  br label %45
+
+45:                                               ; preds = %39, %18, %14, %4, %38, %44
+  %.057 = phi i32 [ -901, %38 ], [ %43, %44 ], [ -519, %4 ], [ -501, %14 ], [ -901, %18 ], [ 0, %39 ]
   ret i32 %.057
 }
 

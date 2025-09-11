@@ -117,42 +117,43 @@ define internal void @uninit(ptr noundef %0) #0 {
   %53 = icmp slt i64 %indvars.iv.next66, %52
   br i1 %53, label %32, label %.loopexit, !llvm.loop !35
 
-54:                                               ; preds = %.lr.ph, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
+54:                                               ; preds = %.lr.ph, %69
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %55 = load ptr, ptr %28, align 8, !tbaa !28
-  %56 = getelementptr inbounds nuw %struct.ChanStats, ptr %55, i64 %indvars.iv, i32 2
-  %57 = load double, ptr %56, align 8, !tbaa !31
-  %58 = fcmp nsz ogt double %57, 0.000000e+00
-  br i1 %58, label %59, label %68
+  %56 = getelementptr inbounds nuw %struct.ChanStats, ptr %55, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %58 = load double, ptr %57, align 8, !tbaa !31
+  %59 = fcmp nsz ogt double %58, 0.000000e+00
+  br i1 %59, label %60, label %69
 
-59:                                               ; preds = %54
-  %60 = load double, ptr %29, align 8, !tbaa !36
-  %61 = tail call nsz double @llvm.log.f64(double %60)
-  %62 = load i64, ptr %30, align 8, !tbaa !37
-  %63 = uitofp i64 %62 to double
-  %64 = fdiv nsz double %63, %57
-  %65 = tail call nsz double @llvm.log.f64(double %64)
-  %66 = fneg nsz double %65
-  %67 = tail call nsz double @llvm.fmuladd.f64(double %61, double 2.000000e+00, double %66)
-  br label %68
+60:                                               ; preds = %54
+  %61 = load double, ptr %29, align 8, !tbaa !36
+  %62 = tail call nsz double @llvm.log.f64(double %61)
+  %63 = load i64, ptr %30, align 8, !tbaa !37
+  %64 = uitofp i64 %63 to double
+  %65 = fdiv nsz double %64, %58
+  %66 = tail call nsz double @llvm.log.f64(double %65)
+  %67 = fneg nsz double %66
+  %68 = tail call nsz double @llvm.fmuladd.f64(double %62, double 2.000000e+00, double %67)
+  br label %69
 
-68:                                               ; preds = %54, %59
-  %69 = phi nsz double [ %67, %59 ], [ 0x7FF0000000000000, %54 ]
-  %70 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.13, i32 noundef %70, double noundef %69) #10
+69:                                               ; preds = %54, %60
+  %70 = phi nsz double [ %68, %60 ], [ 0x7FF0000000000000, %54 ]
+  %71 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.13, i32 noundef %71, double noundef %70) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %71 = load i32, ptr %3, align 8, !tbaa !23
-  %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %54, label %.loopexit, !llvm.loop !38
+  %72 = load i32, ptr %3, align 8, !tbaa !23
+  %73 = sext i32 %72 to i64
+  %74 = icmp slt i64 %indvars.iv.next, %73
+  br i1 %74, label %54, label %.loopexit, !llvm.loop !38
 
-.loopexit:                                        ; preds = %68, %32, %11, %.preheader55, %.preheader53, %.preheader
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @av_frame_free(ptr noundef nonnull %74) #10
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 40
+.loopexit:                                        ; preds = %69, %32, %11, %.preheader55, %.preheader53, %.preheader
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call void @av_frame_free(ptr noundef nonnull %75) #10
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call void @av_freep(ptr noundef nonnull %76) #10
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  tail call void @av_frame_free(ptr noundef nonnull %76) #10
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  tail call void @av_freep(ptr noundef nonnull %77) #10
   ret void
 }
 
@@ -775,10 +776,11 @@ define internal noundef i32 @psnr_fltp(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !84
 
 ._crit_edge.us:                                   ; preds = %33
-  %42 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv44, i32 2
-  %43 = load double, ptr %42, align 8, !tbaa !31
-  %44 = fadd nsz double %41, %43
-  store double %44, ptr %42, align 8, !tbaa !31
+  %42 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv44
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load double, ptr %43, align 8, !tbaa !31
+  %45 = fadd nsz double %41, %44
+  store double %45, ptr %43, align 8, !tbaa !31
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
   br i1 %exitcond48.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !85
@@ -845,10 +847,11 @@ define internal noundef i32 @psnr_dblp(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !86
 
 ._crit_edge.us:                                   ; preds = %33
-  %40 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv44, i32 2
-  %41 = load double, ptr %40, align 8, !tbaa !31
-  %42 = fadd nsz double %39, %41
-  store double %42, ptr %40, align 8, !tbaa !31
+  %40 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv44
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load double, ptr %41, align 8, !tbaa !31
+  %43 = fadd nsz double %39, %42
+  store double %43, ptr %41, align 8, !tbaa !31
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
   br i1 %exitcond48.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !87

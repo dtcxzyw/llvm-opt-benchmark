@@ -2293,10 +2293,11 @@ define internal range(i32 0, 2) i32 @ack_generic_decode(ptr noundef %0) #0 {
 
 28:                                               ; preds = %.lr.ph
   %29 = load ptr, ptr %3, align 8, !tbaa !33
-  %30 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %29, i64 %.012, i32 1
-  %31 = load i64, ptr %30, align 8, !tbaa !65
-  %32 = call i32 @test_uint64_t_lt(ptr noundef nonnull @.str.5, i32 noundef 1402, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, i64 noundef %31, i64 noundef 1000) #5
-  %.not11 = icmp eq i32 %32, 0
+  %30 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %29, i64 %.012
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load i64, ptr %31, align 8, !tbaa !65
+  %33 = call i32 @test_uint64_t_lt(ptr noundef nonnull @.str.5, i32 noundef 1402, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.166, i64 noundef %32, i64 noundef 1000) #5
+  %.not11 = icmp eq i32 %33, 0
   br i1 %.not11, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %18, %.preheader, %13, %10, %1

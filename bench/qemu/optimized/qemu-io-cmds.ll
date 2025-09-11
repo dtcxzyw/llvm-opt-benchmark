@@ -3829,13 +3829,13 @@ define internal i32 @zone_report_f(ptr noundef %0, i32 %1, ptr noundef readonly 
   %58 = getelementptr inbounds %struct.BlockZoneDescriptor, ptr %49, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = ashr i64 %59, 9
-  %61 = getelementptr inbounds %struct.BlockZoneDescriptor, ptr %49, i64 %57, i32 1
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = ashr i64 %62, 9
-  %64 = getelementptr inbounds %struct.BlockZoneDescriptor, ptr %49, i64 %57, i32 2
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %65 = load i64, ptr %64, align 8
   %66 = ashr i64 %65, 9
-  %67 = getelementptr inbounds %struct.BlockZoneDescriptor, ptr %49, i64 %57, i32 3
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %68 = load i64, ptr %67, align 8
   %69 = ashr i64 %68, 9
   %70 = getelementptr inbounds nuw i8, ptr %58, i64 36

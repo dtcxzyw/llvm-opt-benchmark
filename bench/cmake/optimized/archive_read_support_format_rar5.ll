@@ -4805,10 +4805,10 @@ decode_number.exit:                               ; preds = %426
   %514 = add i16 %.791.ph, -262
   %515 = zext i16 %514 to i32
   %516 = icmp ult i16 %514, 8
-  br i1 %516, label %decode_code_length.exit.thread188.i.i, label %517
+  br i1 %516, label %decode_code_length.exit.thread187.i.i, label %517
 
-decode_code_length.exit.thread188.i.i:            ; preds = %513
-  %.01523.i.i.i = add nuw nsw i32 %515, 2
+decode_code_length.exit.thread187.i.i:            ; preds = %513
+  %.015.i.i.i = add nuw nsw i32 %515, 2
   br label %553
 
 517:                                              ; preds = %513
@@ -4817,7 +4817,7 @@ decode_code_length.exit.thread188.i.i:            ; preds = %513
   %520 = and i32 %515, 3
   %521 = or disjoint i32 %520, 4
   %522 = shl i32 %521, %519
-  %.015.i.i.i = add nsw i32 %522, 2
+  %.01523.i.i.i = add nsw i32 %522, 2
   %523 = icmp samesign ugt i32 %519, 16
   br i1 %523, label %decode_code_length.exit.thread.i.i, label %524
 
@@ -4859,33 +4859,33 @@ decode_code_length.exit.i.i:                      ; preds = %524
   %549 = and i32 %543, 65535
   %550 = sub nuw nsw i32 17, %518
   %551 = lshr i32 %549, %550
-  %.2.i.i.i = add nsw i32 %.015.i.i.i, %551
+  %.2.i.i.i = add nsw i32 %.01523.i.i.i, %551
   %552 = icmp eq i32 %.2.i.i.i, -1
   br i1 %552, label %decode_code_length.exit.thread.i.i, label %553
 
 decode_code_length.exit.thread.i.i:               ; preds = %decode_code_length.exit.i.i, %517, %read_bits_16.exit.i.i.i.i
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.54) #15
-  br label %.thread208.i.i
+  br label %.thread214.i.i
 
-553:                                              ; preds = %decode_code_length.exit.i.i, %decode_code_length.exit.thread188.i.i
-  %.118.i190.i.i = phi i32 [ %.01523.i.i.i, %decode_code_length.exit.thread188.i.i ], [ %.2.i.i.i, %decode_code_length.exit.i.i ]
+553:                                              ; preds = %decode_code_length.exit.i.i, %decode_code_length.exit.thread187.i.i
+  %.118.i189.i.i = phi i32 [ %.015.i.i.i, %decode_code_length.exit.thread187.i.i ], [ %.2.i.i.i, %decode_code_length.exit.i.i ]
   %554 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %400, ptr noundef readonly %.181, ptr noundef %8)
   %.not129.i.i = icmp eq i32 %554, 0
   br i1 %.not129.i.i, label %556, label %555
 
 555:                                              ; preds = %553
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.55) #15
-  br label %.thread208.i.i
+  br label %.thread214.i.i
 
 556:                                              ; preds = %553
   %557 = load i16, ptr %8, align 2, !tbaa !108
   %558 = zext i16 %557 to i32
   %559 = icmp ult i16 %557, 4
-  br i1 %559, label %.thread.i.i, label %560
+  br i1 %559, label %.thread208.i.i, label %560
 
-.thread.i.i:                                      ; preds = %556
-  %.0104193.i.i = add nuw nsw i32 %558, 1
-  br label %650
+.thread208.i.i:                                   ; preds = %556
+  %.0104.i.i = add nuw nsw i32 %558, 1
+  br label %657
 
 560:                                              ; preds = %556
   %561 = lshr i32 %558, 1
@@ -4893,7 +4893,7 @@ decode_code_length.exit.thread.i.i:               ; preds = %decode_code_length.
   %563 = and i32 %558, 1
   %564 = or disjoint i32 %563, 2
   %565 = shl i32 %564, %562
-  %.0104.i.i = add i32 %565, 1
+  %.0104192.i.i = add i32 %565, 1
   %566 = icmp samesign ugt i32 %562, 3
   br i1 %566, label %567, label %620
 
@@ -4911,7 +4911,7 @@ decode_code_length.exit.thread.i.i:               ; preds = %decode_code_length.
 
 read_bits_32.exit.i.i:                            ; preds = %568
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.57) #15
-  br label %.thread198.i.i
+  br label %.thread199.i.i
 
 572:                                              ; preds = %568
   %573 = getelementptr inbounds i8, ptr %.181, i64 %570
@@ -4952,18 +4952,18 @@ read_bits_32.exit.i.i:                            ; preds = %568
   %606 = sub nsw i32 37, %561
   %607 = lshr i32 %599, %606
   %608 = shl i32 %607, 4
-  %609 = add i32 %608, %.0104.i.i
+  %609 = add i32 %608, %.0104192.i.i
   br label %610
 
 610:                                              ; preds = %572, %567
-  %.2106.i.i = phi i32 [ %609, %572 ], [ %.0104.i.i, %567 ]
+  %.2106.i.i = phi i32 [ %609, %572 ], [ %.0104192.i.i, %567 ]
   %611 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %401, ptr noundef readonly %.181, ptr noundef %9)
   %.not133.i.i = icmp eq i32 %611, 0
   br i1 %.not133.i.i, label %613, label %612
 
 612:                                              ; preds = %610
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.55) #15
-  br label %.thread198.i.i
+  br label %.thread199.i.i
 
 613:                                              ; preds = %610
   %614 = load i16, ptr %9, align 2, !tbaa !108
@@ -4974,11 +4974,11 @@ read_bits_32.exit.i.i:                            ; preds = %568
 
 617:                                              ; preds = %613
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.56) #15
-  br label %.thread198.i.i
+  br label %.thread199.i.i
 
-.thread198.i.i:                                   ; preds = %617, %612, %read_bits_32.exit.i.i
+.thread199.i.i:                                   ; preds = %617, %612, %read_bits_32.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread208.i.i
+  br label %.thread214.i.i
 
 618:                                              ; preds = %613
   %619 = add nsw i32 %.2106.i.i, %615
@@ -5020,38 +5020,39 @@ read_consume_bits.exit.thread.i.i:                ; preds = %620
   %646 = and i32 %640, 65535
   %647 = sub nuw nsw i32 17, %561
   %648 = lshr i32 %646, %647
-  %649 = add nuw nsw i32 %648, %.0104.i.i
+  %649 = add nuw nsw i32 %648, %.0104192.i.i
   br label %650
 
 read_consume_bits.exit.i.i:                       ; preds = %620
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
-  br label %.thread208.i.i
+  br label %.thread214.i.i
 
-650:                                              ; preds = %read_consume_bits.exit.thread.i.i, %618, %.thread.i.i
-  %.1105.i.i = phi i32 [ %619, %618 ], [ %.0104193.i.i, %.thread.i.i ], [ %649, %read_consume_bits.exit.thread.i.i ]
+650:                                              ; preds = %read_consume_bits.exit.thread.i.i, %618
+  %.1105.i.i = phi i32 [ %619, %618 ], [ %649, %read_consume_bits.exit.thread.i.i ]
   %651 = icmp sgt i32 %.1105.i.i, 256
   br i1 %651, label %652, label %657
 
 652:                                              ; preds = %650
-  %653 = add nuw nsw i32 %.118.i190.i.i, 1
+  %653 = add nuw nsw i32 %.118.i189.i.i, 1
   %654 = icmp samesign ugt i32 %.1105.i.i, 8192
   br i1 %654, label %655, label %657
 
 655:                                              ; preds = %652
   %656 = icmp samesign ugt i32 %.1105.i.i, 262144
   %spec.select.v.i.i = select i1 %656, i32 3, i32 2
-  %spec.select.i85.i = add nsw i32 %spec.select.v.i.i, %.118.i190.i.i
+  %spec.select.i85.i = add nsw i32 %spec.select.v.i.i, %.118.i189.i.i
   br label %657
 
-657:                                              ; preds = %655, %652, %650
-  %.0110.i.i = phi i32 [ %653, %652 ], [ %.118.i190.i.i, %650 ], [ %spec.select.i85.i, %655 ]
+657:                                              ; preds = %655, %652, %650, %.thread208.i.i
+  %.1105212.i.i = phi i32 [ %.1105.i.i, %652 ], [ %.1105.i.i, %650 ], [ %.1105.i.i, %655 ], [ %.0104.i.i, %.thread208.i.i ]
+  %.0110.i.i = phi i32 [ %653, %652 ], [ %.118.i189.i.i, %650 ], [ %spec.select.i85.i, %655 ], [ %.118.i189.i.i, %.thread208.i.i ]
   %658 = load i32, ptr %402, align 4, !tbaa !82
   store i32 %658, ptr %403, align 4, !tbaa !82
   %659 = load i32, ptr %404, align 4, !tbaa !82
   store i32 %659, ptr %402, align 4, !tbaa !82
   %660 = load i32, ptr %398, align 4, !tbaa !82
   store i32 %660, ptr %404, align 4, !tbaa !82
-  store i32 %.1105.i.i, ptr %398, align 4, !tbaa !82
+  store i32 %.1105212.i.i, ptr %398, align 4, !tbaa !82
   store i32 %.0110.i.i, ptr %397, align 8, !tbaa !114
   %.val138.i.i = load ptr, ptr %15, align 8, !tbaa !31
   %.val138.val.i.i = load ptr, ptr %.val138.i.i, align 8, !tbaa !46
@@ -5065,9 +5066,9 @@ read_consume_bits.exit.i.i:                       ; preds = %620
   %668 = getelementptr inbounds nuw i8, ptr %.val138.val.i.i, i64 80
   %669 = load ptr, ptr %668, align 8, !tbaa !69
   %670 = icmp eq ptr %669, null
-  br i1 %670, label %.thread212.i.i, label %.preheader.i.i.i
+  br i1 %670, label %.thread218.i.i, label %.preheader.i.i.i
 
-.thread212.i.i:                                   ; preds = %657
+.thread218.i.i:                                   ; preds = %657
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %do_uncompress_file.exit.thread
 
@@ -5076,7 +5077,7 @@ read_consume_bits.exit.i.i:                       ; preds = %620
   br i1 %671, label %.lr.ph.i.i.i14, label %682
 
 .lr.ph.i.i.i14:                                   ; preds = %.preheader.i.i.i
-  %672 = sext i32 %.1105.i.i to i64
+  %672 = sext i32 %.1105212.i.i to i64
   %wide.trip.count.i.i.i = zext nneg i32 %.0110.i.i to i64
   br label %673
 
@@ -5099,7 +5100,7 @@ read_consume_bits.exit.i.i:                       ; preds = %620
   %.pre.i.i.i = load i64, ptr %663, align 8, !tbaa !83
   br label %682
 
-.thread208.i.i:                                   ; preds = %read_consume_bits.exit.i.i, %.thread198.i.i, %555, %decode_code_length.exit.thread.i.i
+.thread214.i.i:                                   ; preds = %read_consume_bits.exit.i.i, %.thread199.i.i, %555, %decode_code_length.exit.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %do_uncompress_file.exit.thread
 
@@ -5371,16 +5372,16 @@ dist_cache_touch.exit.i.i:                        ; preds = %.lr.ph.i158.prehead
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %827 = call fastcc i32 @decode_number(ptr noundef %0, ptr noundef nonnull %399, ptr noundef readonly %.181, ptr noundef %10)
   %.not124.i.i = icmp eq i32 %827, 0
-  br i1 %.not124.i.i, label %828, label %.thread225.i.i
+  br i1 %.not124.i.i, label %828, label %.thread231.i.i
 
 828:                                              ; preds = %dist_cache_touch.exit.i.i
   %829 = load i16, ptr %10, align 2, !tbaa !108
   %830 = zext i16 %829 to i32
   %831 = icmp ult i16 %829, 8
-  br i1 %831, label %decode_code_length.exit169.thread221.i.i, label %832
+  br i1 %831, label %decode_code_length.exit168.thread227.i.i, label %832
 
-decode_code_length.exit169.thread221.i.i:         ; preds = %828
-  %.01523.i168.i.i = add nuw nsw i32 %830, 2
+decode_code_length.exit168.thread227.i.i:         ; preds = %828
+  %.015.i167.i.i = add nuw nsw i32 %830, 2
   br label %869
 
 832:                                              ; preds = %828
@@ -5389,22 +5390,22 @@ decode_code_length.exit169.thread221.i.i:         ; preds = %828
   %835 = and i32 %830, 3
   %836 = or disjoint i32 %835, 4
   %837 = shl i32 %836, %834
-  %.015.i162.i.i = add nsw i32 %837, 2
+  %.01523.i162.i.i = add nsw i32 %837, 2
   %838 = icmp samesign ugt i32 %834, 16
-  br i1 %838, label %.thread225.i.i, label %839
+  br i1 %838, label %.thread231.i.i, label %839
 
 839:                                              ; preds = %832
   %840 = load i32, ptr %394, align 4, !tbaa !104
   %841 = sext i32 %840 to i64
   %842 = load i64, ptr %395, align 8, !tbaa !103
   %.not.i.i.i163.i.i = icmp sgt i64 %842, %841
-  br i1 %.not.i.i.i163.i.i, label %decode_code_length.exit169.i.i, label %read_bits_16.exit.i.i164.i.i
+  br i1 %.not.i.i.i163.i.i, label %decode_code_length.exit168.i.i, label %read_bits_16.exit.i.i164.i.i
 
 read_bits_16.exit.i.i164.i.i:                     ; preds = %839
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.53) #15
-  br label %.thread225.i.i
+  br label %.thread231.i.i
 
-decode_code_length.exit169.i.i:                   ; preds = %839
+decode_code_length.exit168.i.i:                   ; preds = %839
   %843 = getelementptr inbounds i8, ptr %.181, i64 %841
   %844 = load i8, ptr %843, align 1, !tbaa !26
   %845 = zext i8 %844 to i32
@@ -5432,13 +5433,13 @@ decode_code_length.exit169.i.i:                   ; preds = %839
   %865 = and i32 %859, 65535
   %866 = sub nuw nsw i32 17, %833
   %867 = lshr i32 %865, %866
-  %.2.i166.i.i = add nsw i32 %.015.i162.i.i, %867
+  %.2.i166.i.i = add nsw i32 %.01523.i162.i.i, %867
   %868 = icmp eq i32 %.2.i166.i.i, -1
-  br i1 %868, label %.thread225.i.i, label %869
+  br i1 %868, label %.thread231.i.i, label %869
 
-869:                                              ; preds = %decode_code_length.exit169.i.i, %decode_code_length.exit169.thread221.i.i
-  %.118.i165223.i.i = phi i32 [ %.01523.i168.i.i, %decode_code_length.exit169.thread221.i.i ], [ %.2.i166.i.i, %decode_code_length.exit169.i.i ]
-  store i32 %.118.i165223.i.i, ptr %397, align 8, !tbaa !114
+869:                                              ; preds = %decode_code_length.exit168.i.i, %decode_code_length.exit168.thread227.i.i
+  %.118.i165229.i.i = phi i32 [ %.015.i167.i.i, %decode_code_length.exit168.thread227.i.i ], [ %.2.i166.i.i, %decode_code_length.exit168.i.i ]
+  store i32 %.118.i165229.i.i, ptr %397, align 8, !tbaa !114
   %.val140.i.i = load ptr, ptr %15, align 8, !tbaa !31
   %.val140.val.i.i = load ptr, ptr %.val140.i.i, align 8, !tbaa !46
   %870 = getelementptr inbounds nuw i8, ptr %.val140.val.i.i, i64 104
@@ -5451,24 +5452,24 @@ decode_code_length.exit169.i.i:                   ; preds = %839
   %877 = getelementptr inbounds nuw i8, ptr %.val140.val.i.i, i64 80
   %878 = load ptr, ptr %877, align 8, !tbaa !69
   %879 = icmp eq ptr %878, null
-  br i1 %879, label %.thread228.i.i, label %.preheader.i170.i.i
+  br i1 %879, label %.thread234.i.i, label %.preheader.i169.i.i
 
-.thread228.i.i:                                   ; preds = %869
+.thread234.i.i:                                   ; preds = %869
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %do_uncompress_file.exit.thread
 
-.preheader.i170.i.i:                              ; preds = %869
-  %880 = icmp sgt i32 %.118.i165223.i.i, 0
-  br i1 %880, label %.lr.ph.i173.i.i, label %891
+.preheader.i169.i.i:                              ; preds = %869
+  %880 = icmp sgt i32 %.118.i165229.i.i, 0
+  br i1 %880, label %.lr.ph.i172.i.i, label %891
 
-.lr.ph.i173.i.i:                                  ; preds = %.preheader.i170.i.i
+.lr.ph.i172.i.i:                                  ; preds = %.preheader.i169.i.i
   %881 = sext i32 %825 to i64
-  %wide.trip.count.i174.i.i = zext nneg i32 %.118.i165223.i.i to i64
+  %wide.trip.count.i173.i.i = zext nneg i32 %.118.i165229.i.i to i64
   br label %882
 
-882:                                              ; preds = %882, %.lr.ph.i173.i.i
-  %indvars.iv.i175.i.i = phi i64 [ 0, %.lr.ph.i173.i.i ], [ %indvars.iv.next.i176.i.i, %882 ]
-  %883 = add i64 %876, %indvars.iv.i175.i.i
+882:                                              ; preds = %882, %.lr.ph.i172.i.i
+  %indvars.iv.i174.i.i = phi i64 [ 0, %.lr.ph.i172.i.i ], [ %indvars.iv.next.i175.i.i, %882 ]
+  %883 = add i64 %876, %indvars.iv.i174.i.i
   %884 = and i64 %883, %871
   %885 = sub i64 %883, %881
   %886 = and i64 %885, %871
@@ -5477,21 +5478,21 @@ decode_code_length.exit169.i.i:                   ; preds = %839
   %889 = load i8, ptr %888, align 1, !tbaa !26
   %890 = getelementptr inbounds i8, ptr %887, i64 %884
   store i8 %889, ptr %890, align 1, !tbaa !26
-  %indvars.iv.next.i176.i.i = add nuw nsw i64 %indvars.iv.i175.i.i, 1
-  %exitcond.not.i177.i.i = icmp eq i64 %indvars.iv.next.i176.i.i, %wide.trip.count.i174.i.i
-  br i1 %exitcond.not.i177.i.i, label %._crit_edge.loopexit.i178.i.i, label %882, !llvm.loop !115
+  %indvars.iv.next.i175.i.i = add nuw nsw i64 %indvars.iv.i174.i.i, 1
+  %exitcond.not.i176.i.i = icmp eq i64 %indvars.iv.next.i175.i.i, %wide.trip.count.i173.i.i
+  br i1 %exitcond.not.i176.i.i, label %._crit_edge.loopexit.i177.i.i, label %882, !llvm.loop !115
 
-._crit_edge.loopexit.i178.i.i:                    ; preds = %882
-  %.pre.i179.i.i = load i64, ptr %872, align 8, !tbaa !83
+._crit_edge.loopexit.i177.i.i:                    ; preds = %882
+  %.pre.i178.i.i = load i64, ptr %872, align 8, !tbaa !83
   br label %891
 
-.thread225.i.i:                                   ; preds = %decode_code_length.exit169.i.i, %832, %dist_cache_touch.exit.i.i, %read_bits_16.exit.i.i164.i.i
+.thread231.i.i:                                   ; preds = %decode_code_length.exit168.i.i, %832, %dist_cache_touch.exit.i.i, %read_bits_16.exit.i.i164.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %do_uncompress_file.exit.thread
 
-891:                                              ; preds = %._crit_edge.loopexit.i178.i.i, %.preheader.i170.i.i
-  %892 = phi i64 [ %.pre.i179.i.i, %._crit_edge.loopexit.i178.i.i ], [ %873, %.preheader.i170.i.i ]
-  %893 = sext i32 %.118.i165223.i.i to i64
+891:                                              ; preds = %._crit_edge.loopexit.i177.i.i, %.preheader.i169.i.i
+  %892 = phi i64 [ %.pre.i178.i.i, %._crit_edge.loopexit.i177.i.i ], [ %873, %.preheader.i169.i.i ]
+  %893 = sext i32 %.118.i165229.i.i to i64
   %894 = add nsw i64 %892, %893
   store i64 %894, ptr %872, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -6072,8 +6073,8 @@ do_uncompress_file.exit:                          ; preds = %process_block.exit,
   %.not = icmp eq i32 %.036.i, -10
   br i1 %.not, label %19, label %do_uncompress_file.exit.thread
 
-do_uncompress_file.exit.thread:                   ; preds = %do_uncompress_file.exit, %232, %parse_block_header.exit.i, %105, %901, %917, %._crit_edge, %.lr.ph, %skip_base_block.exit66.thread101, %168, %.lr.ph419, %795, %parse_tables.exit.thread, %116, %139, %162, %.split._crit_edge, %151, %decode_number.exit, %.thread228.i.i, %.thread225.i.i, %.thread212.i.i, %.thread208.i.i, %cdeque_pop_front.exit.i, %push_window_data.exit.i, %954, %1125, %1119, %push_window_data.exit, %52
-  %.036.i193 = phi i32 [ -30, %954 ], [ -30, %1125 ], [ -30, %1119 ], [ 0, %push_window_data.exit ], [ -30, %52 ], [ 0, %push_window_data.exit.i ], [ 0, %cdeque_pop_front.exit.i ], [ -30, %.thread208.i.i ], [ -30, %.thread212.i.i ], [ -30, %.thread225.i.i ], [ -30, %.thread228.i.i ], [ 1, %decode_number.exit ], [ -30, %151 ], [ -30, %.split._crit_edge ], [ -30, %162 ], [ -30, %139 ], [ -30, %116 ], [ -30, %parse_tables.exit.thread ], [ -30, %795 ], [ 1, %.lr.ph419 ], [ 1, %168 ], [ -30, %skip_base_block.exit66.thread101 ], [ -30, %.lr.ph ], [ 1, %232 ], [ 1, %parse_block_header.exit.i ], [ 1, %105 ], [ -30, %901 ], [ 1, %917 ], [ -30, %._crit_edge ], [ %.036.i, %do_uncompress_file.exit ]
+do_uncompress_file.exit.thread:                   ; preds = %do_uncompress_file.exit, %232, %parse_block_header.exit.i, %105, %901, %917, %._crit_edge, %.lr.ph, %skip_base_block.exit66.thread101, %168, %.lr.ph419, %795, %parse_tables.exit.thread, %116, %139, %162, %.split._crit_edge, %151, %decode_number.exit, %.thread234.i.i, %.thread231.i.i, %.thread218.i.i, %.thread214.i.i, %cdeque_pop_front.exit.i, %push_window_data.exit.i, %954, %1125, %1119, %push_window_data.exit, %52
+  %.036.i193 = phi i32 [ -30, %954 ], [ -30, %1125 ], [ -30, %1119 ], [ 0, %push_window_data.exit ], [ -30, %52 ], [ 0, %push_window_data.exit.i ], [ 0, %cdeque_pop_front.exit.i ], [ -30, %.thread214.i.i ], [ -30, %.thread218.i.i ], [ -30, %.thread231.i.i ], [ -30, %.thread234.i.i ], [ 1, %decode_number.exit ], [ -30, %151 ], [ -30, %.split._crit_edge ], [ -30, %162 ], [ -30, %139 ], [ -30, %116 ], [ -30, %parse_tables.exit.thread ], [ -30, %795 ], [ 1, %.lr.ph419 ], [ 1, %168 ], [ -30, %skip_base_block.exit66.thread101 ], [ -30, %.lr.ph ], [ 1, %232 ], [ 1, %parse_block_header.exit.i ], [ 1, %105 ], [ -30, %901 ], [ 1, %917 ], [ -30, %._crit_edge ], [ %.036.i, %do_uncompress_file.exit ]
   ret i32 %.036.i193
 }
 

@@ -1876,22 +1876,21 @@ itx_2d.exit.i.i:                                  ; preds = %._crit_edge.us.i.i9
   %997 = load i8, ptr %276, align 1, !tbaa !78
   %998 = zext i8 %997 to i64
   %999 = sub nsw i64 %996, %998
-  %1000 = load ptr, ptr %956, align 8, !tbaa !193
-  %1001 = getelementptr inbounds nuw i8, ptr %1000, i64 1049
-  %1002 = load i8, ptr %1001, align 1, !tbaa !196
-  %1003 = zext i8 %1002 to i32
-  %1004 = shl nuw nsw i32 %1003, 1
-  %1005 = sub nsw i32 1, %1004
-  %1006 = load i8, ptr %273, align 1, !tbaa !84
-  %1007 = xor i8 %1006, %994
-  %1008 = zext i8 %1007 to i32
-  %1009 = load ptr, ptr %957, align 8, !tbaa !197
-  %.idx.i.i.i = mul nsw i64 %999, 72
-  %1010 = getelementptr i8, ptr %263, i64 %.idx.i.i.i
-  %1011 = getelementptr i8, ptr %1010, i64 64
+  %1000 = getelementptr inbounds %struct.TransformBlock, ptr %263, i64 %999
+  %1001 = load ptr, ptr %956, align 8, !tbaa !193
+  %1002 = getelementptr inbounds nuw i8, ptr %1001, i64 1049
+  %1003 = load i8, ptr %1002, align 1, !tbaa !196
+  %1004 = zext i8 %1003 to i32
+  %1005 = shl nuw nsw i32 %1004, 1
+  %1006 = sub nsw i32 1, %1005
+  %1007 = load i8, ptr %273, align 1, !tbaa !84
+  %1008 = xor i8 %1007, %994
+  %1009 = zext i8 %1008 to i32
+  %1010 = load ptr, ptr %957, align 8, !tbaa !197
+  %1011 = getelementptr inbounds nuw i8, ptr %1000, i64 64
   %1012 = load ptr, ptr %1011, align 8, !tbaa !123
   %1013 = load ptr, ptr %958, align 8, !tbaa !123
-  call void %1009(ptr noundef %1012, ptr noundef %1013, i32 noundef %.fr59.i.i.i, i32 noundef %.fr.i.i.i, i32 noundef %1005, i32 noundef %1008) #8
+  call void %1010(ptr noundef %1012, ptr noundef %1013, i32 noundef %.fr59.i.i.i, i32 noundef %.fr.i.i.i, i32 noundef %1006, i32 noundef %1009) #8
   br label %1014
 
 1014:                                             ; preds = %993, %.split.split.i.i.i

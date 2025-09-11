@@ -31,9 +31,10 @@ define i32 @av_hash_get_size(ptr noundef readonly captures(none) %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %4, i32 1
-  %6 = load i32, ptr %5, align 4, !tbaa !11
-  ret i32 %6
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %7 = load i32, ptr %6, align 4, !tbaa !11
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -419,24 +420,25 @@ define void @av_hash_final_bin(ptr noundef readonly captures(none) %0, ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %7, i32 1
-  %9 = load i32, ptr %8, align 4, !tbaa !11
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %10 = load i32, ptr %9, align 4, !tbaa !11
   call void @av_hash_final(ptr noundef %0, ptr noundef nonnull %4)
-  %10 = icmp ugt i32 %2, %9
-  %11 = call i32 @llvm.umin.i32(i32 %2, i32 %9)
-  %12 = zext i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %4, i64 %12, i1 false)
-  br i1 %10, label %13, label %18
+  %11 = icmp ugt i32 %2, %10
+  %12 = call i32 @llvm.umin.i32(i32 %2, i32 %10)
+  %13 = zext i32 %12 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %4, i64 %13, i1 false)
+  br i1 %11, label %14, label %19
 
-13:                                               ; preds = %3
-  %14 = zext i32 %9 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
-  %16 = sub nuw i32 %2, %9
-  %17 = zext i32 %16 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %17, i1 false)
-  br label %18
+14:                                               ; preds = %3
+  %15 = zext i32 %10 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
+  %17 = sub nuw i32 %2, %10
+  %18 = zext i32 %17 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %16, i8 0, i64 %18, i1 false)
+  br label %19
 
-18:                                               ; preds = %13, %3
+19:                                               ; preds = %14, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -454,11 +456,12 @@ define void @av_hash_final_hex(ptr noundef readonly captures(none) %0, ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %7, i32 1
-  %9 = load i32, ptr %8, align 4, !tbaa !11
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %10 = load i32, ptr %9, align 4, !tbaa !11
   call void @av_hash_final(ptr noundef %0, ptr noundef nonnull %4)
-  %10 = sdiv i32 %2, 2
-  %. = call i32 @llvm.umin.i32(i32 %9, i32 %10)
+  %11 = sdiv i32 %2, 2
+  %. = call i32 @llvm.umin.i32(i32 %10, i32 %11)
   %.not = icmp eq i32 %., 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -468,16 +471,16 @@ define void @av_hash_final_hex(ptr noundef readonly captures(none) %0, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = trunc nuw i64 %indvars.iv to i32
-  %12 = shl i32 %11, 1
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
-  %15 = sub i32 %2, %12
-  %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %18 = load i8, ptr %17, align 1, !tbaa !20
-  %19 = zext i8 %18 to i32
-  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %14, i64 noundef %16, ptr noundef nonnull @.str, i32 noundef %19) #10
+  %12 = trunc nuw i64 %indvars.iv to i32
+  %13 = shl i32 %12, 1
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
+  %16 = sub i32 %2, %13
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %19 = load i8, ptr %18, align 1, !tbaa !20
+  %20 = zext i8 %19 to i32
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %17, ptr noundef nonnull @.str, i32 noundef %20) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
@@ -499,28 +502,29 @@ define void @av_hash_final_b64(ptr noundef readonly captures(none) %0, ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %8, i32 1
-  %10 = load i32, ptr %9, align 4, !tbaa !11
+  %9 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %11 = load i32, ptr %10, align 4, !tbaa !11
   call void @av_hash_final(ptr noundef %0, ptr noundef nonnull %4)
-  %11 = call ptr @av_base64_encode(ptr noundef nonnull %5, i32 noundef 89, ptr noundef nonnull %4, i32 noundef %10) #10
-  %12 = add i32 %10, 2
-  %13 = udiv i32 %12, 3
-  %14 = shl i32 %13, 2
-  %15 = or disjoint i32 %14, 1
-  %.not = icmp ult i32 %14, %2
-  %16 = select i1 %.not, i32 %15, i32 %2
-  %17 = zext i32 %16 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %5, i64 %17, i1 false)
-  br i1 %.not, label %22, label %18
+  %12 = call ptr @av_base64_encode(ptr noundef nonnull %5, i32 noundef 89, ptr noundef nonnull %4, i32 noundef %11) #10
+  %13 = add i32 %11, 2
+  %14 = udiv i32 %13, 3
+  %15 = shl i32 %14, 2
+  %16 = or disjoint i32 %15, 1
+  %.not = icmp ult i32 %15, %2
+  %17 = select i1 %.not, i32 %16, i32 %2
+  %18 = zext i32 %17 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %5, i64 %18, i1 false)
+  br i1 %.not, label %23, label %19
 
-18:                                               ; preds = %3
-  %19 = sext i32 %2 to i64
-  %20 = getelementptr i8, ptr %1, i64 %19
-  %21 = getelementptr i8, ptr %20, i64 -1
-  store i8 0, ptr %21, align 1, !tbaa !20
-  br label %22
+19:                                               ; preds = %3
+  %20 = sext i32 %2 to i64
+  %21 = getelementptr i8, ptr %1, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 -1
+  store i8 0, ptr %22, align 1, !tbaa !20
+  br label %23
 
-22:                                               ; preds = %18, %3
+23:                                               ; preds = %19, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

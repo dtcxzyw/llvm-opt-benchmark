@@ -1628,7 +1628,7 @@ _ZL19findSameIndex2BlockPKiii.exit.i.i:           ; preds = %238
 
 .critedge.i..lr.ph91.preheader.i_crit_edge.i:     ; preds = %.critedge.i.i
   %.pre230.i = sext i32 %278 to i64
-  %280 = sub nsw i32 64, %259
+  %280 = sub nuw nsw i32 64, %259
   br label %.lr.ph91.i.i.preheader
 
 .lr.ph91.i.i.preheader:                           ; preds = %.critedge.i..lr.ph91.preheader.i_crit_edge.i, %.critedge.thread.i.i

@@ -3996,7 +3996,8 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_configure_endpoint(p
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %263 = load ptr, ptr %262, align 8
   %264 = and i64 %261, 4294967295
-  %265 = getelementptr %struct.xhci_root_port_bw_info, ptr %263, i64 %264, i32 1
+  %.split = getelementptr %struct.xhci_root_port_bw_info, ptr %263, i64 %264
+  %265 = getelementptr i8, ptr %.split, i64 16
   %266 = load i32, ptr %265, align 8
   %267 = mul i32 %266, 125
   %268 = add i32 %267, %250

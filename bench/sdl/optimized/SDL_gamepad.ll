@@ -4828,27 +4828,27 @@ SDL_FixupHIDAPIMapping.exit:                      ; preds = %176, %206, %172, %1
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %213
 
-213:                                              ; preds = %.lr.ph, %248
-  %214 = phi i32 [ %210, %.lr.ph ], [ %249, %248 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %248 ]
+213:                                              ; preds = %.lr.ph, %250
+  %214 = phi i32 [ %210, %.lr.ph ], [ %251, %250 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %250 ]
   %215 = load ptr, ptr %212, align 8
   %216 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %215, i64 %indvars.iv
   %217 = load i32, ptr %216, align 4
   %218 = icmp eq i32 %217, 2
-  br i1 %218, label %219, label %248
+  br i1 %218, label %219, label %250
 
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %216, i64 16
   %221 = load i32, ptr %220, align 4
   %222 = icmp eq i32 %221, 2
-  br i1 %222, label %223, label %248
+  br i1 %222, label %223, label %250
 
 223:                                              ; preds = %219
   %224 = getelementptr inbounds nuw i8, ptr %216, i64 20
   %225 = load i32, ptr %224, align 4
   %226 = and i32 %225, -2
   %switch = icmp eq i32 %226, 4
-  br i1 %switch, label %227, label %248
+  br i1 %switch, label %227, label %250
 
 227:                                              ; preds = %223
   %228 = getelementptr inbounds nuw i8, ptr %216, i64 4
@@ -4857,7 +4857,7 @@ SDL_FixupHIDAPIMapping.exit:                      ; preds = %176, %206, %172, %1
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 68
   %232 = load i32, ptr %231, align 4
   %233 = icmp slt i32 %229, %232
-  br i1 %233, label %234, label %248
+  br i1 %233, label %234, label %250
 
 234:                                              ; preds = %227
   %235 = getelementptr inbounds nuw i8, ptr %216, i64 8
@@ -4866,26 +4866,28 @@ SDL_FixupHIDAPIMapping.exit:                      ; preds = %176, %206, %172, %1
   %238 = getelementptr inbounds nuw i8, ptr %230, i64 72
   %239 = load ptr, ptr %238, align 8
   %240 = sext i32 %229 to i64
-  %241 = getelementptr inbounds %struct.SDL_JoystickAxisInfo, ptr %239, i64 %240, i32 2
-  store i16 %237, ptr %241, align 2
-  %242 = load ptr, ptr %0, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 72
-  %244 = load ptr, ptr %243, align 8
-  %245 = load i32, ptr %228, align 4
-  %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds %struct.SDL_JoystickAxisInfo, ptr %244, i64 %246, i32 1
-  store i16 %237, ptr %247, align 2
+  %241 = getelementptr inbounds %struct.SDL_JoystickAxisInfo, ptr %239, i64 %240
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
+  store i16 %237, ptr %242, align 2
+  %243 = load ptr, ptr %0, align 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 72
+  %245 = load ptr, ptr %244, align 8
+  %246 = load i32, ptr %228, align 4
+  %247 = sext i32 %246 to i64
+  %248 = getelementptr inbounds %struct.SDL_JoystickAxisInfo, ptr %245, i64 %247
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 2
+  store i16 %237, ptr %249, align 2
   %.pre53 = load i32, ptr %8, align 8
-  br label %248
+  br label %250
 
-248:                                              ; preds = %223, %227, %234, %219, %213
-  %249 = phi i32 [ %214, %223 ], [ %214, %227 ], [ %.pre53, %234 ], [ %214, %219 ], [ %214, %213 ]
+250:                                              ; preds = %223, %227, %234, %219, %213
+  %251 = phi i32 [ %214, %223 ], [ %214, %227 ], [ %.pre53, %234 ], [ %214, %219 ], [ %214, %213 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %250 = sext i32 %249 to i64
-  %251 = icmp slt i64 %indvars.iv.next, %250
-  br i1 %251, label %213, label %._crit_edge, !llvm.loop !46
+  %252 = sext i32 %251 to i64
+  %253 = icmp slt i64 %indvars.iv.next, %252
+  br i1 %253, label %213, label %._crit_edge, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %248, %156, %SDL_FixupHIDAPIMapping.exit
+._crit_edge:                                      ; preds = %250, %156, %SDL_FixupHIDAPIMapping.exit
   ret void
 }
 

@@ -172,8 +172,8 @@ define internal range(i32 -1094995529, 1) i32 @read_header(ptr noundef %0) #1 {
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %.preheader, %72
-  %indvars.iv = phi i64 [ %indvars.iv.next, %72 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %75
+  %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.preheader ]
   %15 = shl nsw i64 %indvars.iv, 4
   %16 = or disjoint i64 %15, 6
   %17 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef %16, i32 noundef 0) #4
@@ -199,98 +199,101 @@ define internal range(i32 -1094995529, 1) i32 @read_header(ptr noundef %0) #1 {
   store i32 %27, ptr %29, align 4, !tbaa !45
   %30 = tail call i32 @avio_r8(ptr noundef %5) #4
   %31 = load ptr, ptr %12, align 8, !tbaa !33
-  %32 = getelementptr inbounds nuw %struct.IcoImage, ptr %31, i64 %indvars.iv, i32 2
-  %33 = icmp eq i32 %30, 255
-  %spec.store.select = select i1 %33, i32 0, i32 %30
-  store i32 %spec.store.select, ptr %32, align 4
-  %34 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef 5) #4
-  %35 = tail call i32 @avio_rl32(ptr noundef %5) #4
-  %36 = load ptr, ptr %12, align 8, !tbaa !33
-  %37 = getelementptr inbounds nuw %struct.IcoImage, ptr %36, i64 %indvars.iv, i32 1
-  store i32 %35, ptr %37, align 4, !tbaa !46
-  %38 = icmp slt i32 %35, 1
-  br i1 %38, label %39, label %40
+  %32 = getelementptr inbounds nuw %struct.IcoImage, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = icmp eq i32 %30, 255
+  %spec.store.select = select i1 %34, i32 0, i32 %30
+  store i32 %spec.store.select, ptr %33, align 4
+  %35 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef 5) #4
+  %36 = tail call i32 @avio_rl32(ptr noundef %5) #4
+  %37 = load ptr, ptr %12, align 8, !tbaa !33
+  %38 = getelementptr inbounds nuw %struct.IcoImage, ptr %37, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  store i32 %36, ptr %39, align 4, !tbaa !46
+  %40 = icmp slt i32 %36, 1
+  br i1 %40, label %41, label %42
 
-39:                                               ; preds = %21
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %35) #4
+41:                                               ; preds = %21
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %36) #4
   br label %.thread
 
-40:                                               ; preds = %21
-  %41 = tail call i32 @avio_rl32(ptr noundef %5) #4
-  %42 = load ptr, ptr %12, align 8, !tbaa !33
-  %43 = getelementptr inbounds nuw %struct.IcoImage, ptr %42, i64 %indvars.iv
-  store i32 %41, ptr %43, align 4, !tbaa !48
-  %44 = sext i32 %41 to i64
-  %45 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef %44, i32 noundef 0) #4
-  %46 = icmp slt i64 %45, 0
-  br i1 %46, label %.thread, label %47
+42:                                               ; preds = %21
+  %43 = tail call i32 @avio_rl32(ptr noundef %5) #4
+  %44 = load ptr, ptr %12, align 8, !tbaa !33
+  %45 = getelementptr inbounds nuw %struct.IcoImage, ptr %44, i64 %indvars.iv
+  store i32 %43, ptr %45, align 4, !tbaa !48
+  %46 = sext i32 %43 to i64
+  %47 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef %46, i32 noundef 0) #4
+  %48 = icmp slt i64 %47, 0
+  br i1 %48, label %.thread, label %49
 
-47:                                               ; preds = %40
-  %48 = tail call i32 @avio_rl32(ptr noundef %5) #4
-  switch i32 %48, label %70 [
-    i32 1196314761, label %49
-    i32 40, label %53
+49:                                               ; preds = %42
+  %50 = tail call i32 @avio_rl32(ptr noundef %5) #4
+  switch i32 %50, label %73 [
+    i32 1196314761, label %51
+    i32 40, label %55
   ]
 
-49:                                               ; preds = %47
-  %50 = load ptr, ptr %22, align 8, !tbaa !34
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 61, ptr %51, align 4, !tbaa !49
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 72
-  store i32 0, ptr %52, align 8, !tbaa !44
+51:                                               ; preds = %49
+  %52 = load ptr, ptr %22, align 8, !tbaa !34
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  store i32 61, ptr %53, align 4, !tbaa !49
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 72
+  store i32 0, ptr %54, align 8, !tbaa !44
   br label %.sink.split
 
-53:                                               ; preds = %47
-  %54 = load ptr, ptr %12, align 8, !tbaa !33
-  %55 = getelementptr inbounds nuw %struct.IcoImage, ptr %54, i64 %indvars.iv, i32 1
-  %56 = load i32, ptr %55, align 4, !tbaa !46
-  %57 = icmp slt i32 %56, 40
-  br i1 %57, label %.thread, label %58
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %12, align 8, !tbaa !33
+  %57 = getelementptr inbounds nuw %struct.IcoImage, ptr %56, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %59 = load i32, ptr %58, align 4, !tbaa !46
+  %60 = icmp slt i32 %59, 40
+  br i1 %60, label %.thread, label %61
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %22, align 8, !tbaa !34
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store i32 78, ptr %60, align 4, !tbaa !49
-  %61 = tail call i32 @avio_rl32(ptr noundef %5) #4
-  %.not71 = icmp eq i32 %61, 0
-  br i1 %.not71, label %65, label %62
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %22, align 8, !tbaa !34
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  store i32 78, ptr %63, align 4, !tbaa !49
+  %64 = tail call i32 @avio_rl32(ptr noundef %5) #4
+  %.not71 = icmp eq i32 %64, 0
+  br i1 %.not71, label %68, label %65
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %22, align 8, !tbaa !34
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 72
-  store i32 %61, ptr %64, align 8, !tbaa !44
-  br label %65
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %22, align 8, !tbaa !34
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 72
+  store i32 %64, ptr %67, align 8, !tbaa !44
+  br label %68
 
-65:                                               ; preds = %62, %58
-  %66 = tail call i32 @avio_rl32(ptr noundef %5) #4
-  %.not72 = icmp eq i32 %66, 0
-  br i1 %.not72, label %72, label %67
+68:                                               ; preds = %65, %61
+  %69 = tail call i32 @avio_rl32(ptr noundef %5) #4
+  %.not72 = icmp eq i32 %69, 0
+  br i1 %.not72, label %75, label %70
 
-67:                                               ; preds = %65
-  %68 = sdiv i32 %66, 2
-  %69 = load ptr, ptr %22, align 8, !tbaa !34
+70:                                               ; preds = %68
+  %71 = sdiv i32 %69, 2
+  %72 = load ptr, ptr %22, align 8, !tbaa !34
   br label %.sink.split
 
-70:                                               ; preds = %47
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %48) #4
+73:                                               ; preds = %49
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %50) #4
   br label %.thread
 
-.sink.split:                                      ; preds = %49, %67
-  %.sink97 = phi ptr [ %69, %67 ], [ %50, %49 ]
-  %.sink = phi i32 [ %68, %67 ], [ 0, %49 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.sink97, i64 76
-  store i32 %.sink, ptr %71, align 4, !tbaa !45
-  br label %72
+.sink.split:                                      ; preds = %51, %70
+  %.sink97 = phi ptr [ %72, %70 ], [ %52, %51 ]
+  %.sink = phi i32 [ %71, %70 ], [ 0, %51 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.sink97, i64 76
+  store i32 %.sink, ptr %74, align 4, !tbaa !45
+  br label %75
 
-72:                                               ; preds = %.sink.split, %65
+75:                                               ; preds = %.sink.split, %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = load i32, ptr %8, align 4, !tbaa !31
-  %74 = sext i32 %73 to i64
-  %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %.lr.ph, label %.thread, !llvm.loop !50
+  %76 = load i32, ptr %8, align 4, !tbaa !31
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next, %77
+  br i1 %78, label %.lr.ph, label %.thread, !llvm.loop !50
 
-.thread:                                          ; preds = %72, %.lr.ph, %19, %40, %53, %.preheader, %70, %39, %9, %1
-  %.0 = phi i32 [ -1094995529, %1 ], [ -12, %9 ], [ -1094995529, %70 ], [ -1094995529, %39 ], [ 0, %.preheader ], [ 0, %72 ], [ -1094995529, %.lr.ph ], [ -12, %19 ], [ -1094995529, %40 ], [ -1094995529, %53 ]
+.thread:                                          ; preds = %75, %.lr.ph, %19, %42, %55, %.preheader, %73, %41, %9, %1
+  %.0 = phi i32 [ -1094995529, %1 ], [ -12, %9 ], [ -1094995529, %73 ], [ -1094995529, %41 ], [ 0, %.preheader ], [ 0, %75 ], [ -1094995529, %.lr.ph ], [ -12, %19 ], [ -1094995529, %42 ], [ -1094995529, %55 ]
   ret i32 %.0
 }
 

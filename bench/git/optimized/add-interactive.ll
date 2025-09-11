@@ -779,70 +779,71 @@ run_status.exit:                                  ; preds = %71, %list.exit
 
 99:                                               ; preds = %.critedge
   %100 = icmp eq i64 %96, -2
-  br i1 %100, label %108, label %.critedge.backedge
+  br i1 %100, label %109, label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %99, %112, %101
+.critedge.backedge:                               ; preds = %99, %113, %101
   br label %.critedge
 
 101:                                              ; preds = %.critedge
   %102 = load ptr, ptr %6, align 8, !tbaa !73
-  %103 = getelementptr inbounds nuw %struct.string_list_item, ptr %102, i64 %96, i32 1
-  %104 = load ptr, ptr %103, align 8, !tbaa !35
-  %.not26 = icmp eq ptr %104, null
-  br i1 %.not26, label %.critedge.backedge, label %105
+  %103 = getelementptr inbounds nuw %struct.string_list_item, ptr %102, i64 %96
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %105 = load ptr, ptr %104, align 8, !tbaa !35
+  %.not26 = icmp eq ptr %105, null
+  br i1 %.not26, label %.critedge.backedge, label %106
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !31
-  %.not27 = icmp eq ptr %107, null
-  br i1 %.not27, label %108, label %112
+106:                                              ; preds = %101
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %108 = load ptr, ptr %107, align 8, !tbaa !31
+  %.not27 = icmp eq ptr %108, null
+  br i1 %.not27, label %109, label %113
 
-108:                                              ; preds = %105, %99
-  %109 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !47
-  %.not4.i39 = icmp eq i32 %109, 0
-  br i1 %.not4.i39, label %114, label %110
+109:                                              ; preds = %106, %99
+  %110 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !47
+  %.not4.i39 = icmp eq i32 %110, 0
+  br i1 %.not4.i39, label %115, label %111
 
-110:                                              ; preds = %108
-  %111 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #18
-  br label %114
+111:                                              ; preds = %109
+  %112 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #18
+  br label %115
 
-112:                                              ; preds = %105
-  %113 = call i32 %107(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %8) #18
+113:                                              ; preds = %106
+  %114 = call i32 %108(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %8) #18
   br label %.critedge.backedge
 
-114:                                              ; preds = %110, %108
-  %.0.i40 = phi ptr [ %111, %110 ], [ @.str.37, %108 ]
-  %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.0.i40)
+115:                                              ; preds = %111, %109
+  %.0.i40 = phi ptr [ %112, %111 ], [ @.str.37, %109 ]
+  %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.0.i40)
   call void @string_list_clear(ptr noundef nonnull %10, i32 noundef 1) #18
-  %116 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  call void @string_list_clear(ptr noundef nonnull %116, i32 noundef 0) #18
-  %117 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %118 = load ptr, ptr %117, align 8, !tbaa !76
-  call void @free(ptr noundef %118) #18
-  store ptr null, ptr %117, align 8, !tbaa !76
-  %119 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @strbuf_release(ptr noundef nonnull %119) #18
-  %120 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  call void @string_list_clear(ptr noundef nonnull %117, i32 noundef 0) #18
+  %118 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %119 = load ptr, ptr %118, align 8, !tbaa !76
+  call void @free(ptr noundef %119) #18
+  store ptr null, ptr %118, align 8, !tbaa !76
+  %120 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @strbuf_release(ptr noundef nonnull %120) #18
-  %121 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %121 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @strbuf_release(ptr noundef nonnull %121) #18
-  %122 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 72
   call void @strbuf_release(ptr noundef nonnull %122) #18
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  call void @strbuf_release(ptr noundef nonnull %123) #18
   call void @strbuf_release(ptr noundef nonnull %9) #18
   call void @string_list_clear(ptr noundef nonnull %6, i32 noundef 1) #18
-  %123 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  call void @string_list_clear(ptr noundef nonnull %123, i32 noundef 0) #18
-  %124 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %125 = load ptr, ptr %124, align 8, !tbaa !76
-  call void @free(ptr noundef %125) #18
-  store ptr null, ptr %124, align 8, !tbaa !76
-  %126 = getelementptr inbounds nuw i8, ptr %3, i64 696
-  %127 = load ptr, ptr %126, align 8, !tbaa !15
-  call void @free(ptr noundef %127) #18
-  store ptr null, ptr %126, align 8, !tbaa !15
-  %128 = getelementptr inbounds nuw i8, ptr %3, i64 704
-  %129 = load ptr, ptr %128, align 8, !tbaa !16
-  call void @free(ptr noundef %129) #18
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  call void @string_list_clear(ptr noundef nonnull %124, i32 noundef 0) #18
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %126 = load ptr, ptr %125, align 8, !tbaa !76
+  call void @free(ptr noundef %126) #18
+  store ptr null, ptr %125, align 8, !tbaa !76
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 696
+  %128 = load ptr, ptr %127, align 8, !tbaa !15
+  call void @free(ptr noundef %128) #18
+  store ptr null, ptr %127, align 8, !tbaa !15
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 704
+  %130 = load ptr, ptr %129, align 8, !tbaa !16
+  call void @free(ptr noundef %130) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2375,7 +2376,7 @@ st_mult.exit.i:                                   ; preds = %28
   %38 = load ptr, ptr %37, align 8, !tbaa !78
   %39 = getelementptr inbounds nuw %struct.string_list_item, ptr %32, i64 %.056.i
   store ptr %38, ptr %39, align 8, !tbaa !78
-  %40 = getelementptr inbounds nuw %struct.string_list_item, ptr %32, i64 %.056.i, i32 1
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %37, ptr %40, align 8, !tbaa !35
   %41 = add nuw i64 %.056.i, 1
   %exitcond.not.i = icmp eq i64 %41, %33
@@ -2704,7 +2705,7 @@ sub_0:                                            ; preds = %128
   %189 = load ptr, ptr %22, align 8, !tbaa !134
   %190 = xor i32 %182, -1
   %191 = zext nneg i32 %190 to i64
-  %192 = getelementptr inbounds nuw %struct.string_list_item, ptr %189, i64 %191, i32 1
+  %192 = getelementptr inbounds nuw %struct.string_list_item, ptr %189, i64 %191
   br label %find_unique.exit
 
 193:                                              ; preds = %186
@@ -2760,11 +2761,12 @@ sub_0:                                            ; preds = %128
 
 220:                                              ; preds = %215
   %221 = load ptr, ptr %22, align 8, !tbaa !134
-  %222 = getelementptr inbounds nuw %struct.string_list_item, ptr %221, i64 %213, i32 1
+  %222 = getelementptr inbounds nuw %struct.string_list_item, ptr %221, i64 %213
   br label %find_unique.exit
 
 find_unique.exit:                                 ; preds = %188, %220
-  %.0.in.i = phi ptr [ %192, %188 ], [ %222, %220 ]
+  %.pn.i = phi ptr [ %192, %188 ], [ %222, %220 ]
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !35
   %223 = load ptr, ptr %1, align 8, !tbaa !73
   %.0.i.fr = freeze ptr %.0.i

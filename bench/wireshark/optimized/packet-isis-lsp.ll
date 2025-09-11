@@ -3231,7 +3231,7 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr readnone 
   %45 = add i32 %.2225279, -7
   %46 = add i32 %.2216280, 7
   %47 = add nsw i32 %.0281, -7
-  %48 = icmp sgt i32 %.0281, 7
+  %48 = icmp samesign ugt i32 %.0281, 7
   %49 = icmp ne i8 %39, 0
   %50 = select i1 %48, i1 %49, i1 false
   br i1 %50, label %.lr.ph275.preheader, label %.loopexit
@@ -3312,7 +3312,7 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr readnone 
   %94 = add i32 %.4227265, -5
   %95 = add i32 %.4218266, 5
   %96 = add nsw i32 %.2267, -5
-  %97 = icmp sgt i32 %.2267, 5
+  %97 = icmp samesign ugt i32 %.2267, 5
   %98 = icmp ne i8 %88, 0
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %.lr.ph261.preheader, label %.loopexit240
@@ -3393,7 +3393,7 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr readnone 
   %143 = add i32 %.6229251, -17
   %144 = add i32 %.6252, 17
   %145 = add nsw i32 %.4253, -17
-  %146 = icmp sgt i32 %.4253, 17
+  %146 = icmp samesign ugt i32 %.4253, 17
   %147 = icmp ne i8 %137, 0
   %148 = select i1 %146, i1 %147, i1 false
   br i1 %148, label %.lr.ph.preheader, label %.loopexit241

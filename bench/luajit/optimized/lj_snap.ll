@@ -2809,7 +2809,7 @@ snap_renamefilter.exit:                           ; preds = %43, %2
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 6
   %113 = load i8, ptr %112, align 2, !tbaa !40
   %.not85 = icmp eq i8 %113, -3
-  br i1 %.not85, label %.preheader, label %319
+  br i1 %.not85, label %.preheader, label %321
 
 .preheader:                                       ; preds = %104
   %.not94 = icmp eq i64 %indvars.iv97, 0
@@ -2839,10 +2839,10 @@ snap_renamefilter.exit:                           ; preds = %43, %2
 ._crit_edge:                                      ; preds = %114, %.preheader
   %124 = getelementptr inbounds nuw i8, ptr %111, i64 5
   %125 = load i8, ptr %124, align 1, !tbaa !40
-  switch i8 %125, label %228 [
+  switch i8 %125, label %229 [
     i8 83, label %126
     i8 84, label %126
-    i8 81, label %220
+    i8 81, label %221
   ]
 
 126:                                              ; preds = %._crit_edge, %._crit_edge
@@ -2882,329 +2882,331 @@ snap_renamefilter.exit:                           ; preds = %43, %2
 152:                                              ; preds = %126
   %153 = load ptr, ptr %27, align 8, !tbaa !90
   %154 = load ptr, ptr %15, align 8, !tbaa !87
-  %155 = getelementptr inbounds nuw %struct.SnapShot, ptr %154, i64 %17, i32 1
-  %156 = load i16, ptr %155, align 4, !tbaa !35
-  %157 = zext i16 %156 to i64
-  %158 = getelementptr inbounds nuw %union.IRIns, ptr %153, i64 %157
+  %155 = getelementptr inbounds nuw %struct.SnapShot, ptr %154, i64 %17
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
+  %157 = load i16, ptr %156, align 4, !tbaa !35
+  %158 = zext i16 %157 to i64
+  %159 = getelementptr inbounds nuw %union.IRIns, ptr %153, i64 %158
   %.0128.i = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %159 = icmp ult ptr %.0128.i, %158
-  br i1 %159, label %.lr.ph.i87, label %.loopexit127.i
+  %160 = icmp ult ptr %.0128.i, %159
+  br i1 %160, label %.lr.ph.i87, label %.loopexit127.i
 
 .lr.ph.i87:                                       ; preds = %152, %snap_sunk_store.exit117.thread.i
   %.0130.i = phi ptr [ %.0.i, %snap_sunk_store.exit117.thread.i ], [ %.0128.i, %152 ]
   %.pn114129.i = phi ptr [ %.0130.i, %snap_sunk_store.exit117.thread.i ], [ %111, %152 ]
-  %160 = getelementptr inbounds nuw i8, ptr %.pn114129.i, i64 14
-  %161 = load i8, ptr %160, align 2, !tbaa !40
-  %162 = icmp eq i8 %161, -2
-  br i1 %162, label %163, label %snap_sunk_store.exit117.thread.i
+  %161 = getelementptr inbounds nuw i8, ptr %.pn114129.i, i64 14
+  %162 = load i8, ptr %161, align 2, !tbaa !40
+  %163 = icmp eq i8 %162, -2
+  br i1 %163, label %164, label %snap_sunk_store.exit117.thread.i
 
-163:                                              ; preds = %.lr.ph.i87
-  %164 = getelementptr inbounds nuw i8, ptr %.pn114129.i, i64 15
-  %165 = load i8, ptr %164, align 1, !tbaa !40
-  %.not.i115.i = icmp eq i8 %165, -1
-  br i1 %.not.i115.i, label %170, label %166
+164:                                              ; preds = %.lr.ph.i87
+  %165 = getelementptr inbounds nuw i8, ptr %.pn114129.i, i64 15
+  %166 = load i8, ptr %165, align 1, !tbaa !40
+  %.not.i115.i = icmp eq i8 %166, -1
+  br i1 %.not.i115.i, label %171, label %167
 
-166:                                              ; preds = %163
-  %167 = zext i8 %165 to i64
-  %168 = getelementptr inbounds nuw %union.IRIns, ptr %111, i64 %167
-  %169 = icmp eq ptr %168, %.0130.i
-  br i1 %169, label %._crit_edge102, label %snap_sunk_store.exit117.thread.i
+167:                                              ; preds = %164
+  %168 = zext i8 %166 to i64
+  %169 = getelementptr inbounds nuw %union.IRIns, ptr %111, i64 %168
+  %170 = icmp eq ptr %169, %.0130.i
+  br i1 %170, label %._crit_edge102, label %snap_sunk_store.exit117.thread.i
 
-._crit_edge102:                                   ; preds = %166
+._crit_edge102:                                   ; preds = %167
   %.pre103 = load ptr, ptr %27, align 8, !tbaa !90
   %.pre104 = load i16, ptr %.0130.i, align 8, !tbaa !40
   %.pre112 = zext i16 %.pre104 to i64
-  br label %189
+  br label %190
 
-170:                                              ; preds = %163
-  %171 = getelementptr inbounds nuw i8, ptr %.pn114129.i, i64 13
-  %172 = load i8, ptr %171, align 1, !tbaa !40
-  switch i8 %172, label %snap_sunk_store.exit117.thread.i [
-    i8 74, label %173
-    i8 75, label %173
-    i8 77, label %173
-    i8 78, label %173
+171:                                              ; preds = %164
+  %172 = getelementptr inbounds nuw i8, ptr %.pn114129.i, i64 13
+  %173 = load i8, ptr %172, align 1, !tbaa !40
+  switch i8 %173, label %snap_sunk_store.exit117.thread.i [
+    i8 74, label %174
+    i8 75, label %174
+    i8 77, label %174
+    i8 78, label %174
   ]
 
-173:                                              ; preds = %170, %170, %170, %170
-  %174 = load ptr, ptr %27, align 8, !tbaa !90
-  %175 = load i16, ptr %.0130.i, align 8, !tbaa !40
-  %176 = zext i16 %175 to i64
-  %177 = getelementptr inbounds nuw %union.IRIns, ptr %174, i64 %176
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 5
-  %179 = load i8, ptr %178, align 1, !tbaa !40
-  %180 = and i8 %179, -2
-  %switch.i.i = icmp eq i8 %180, 56
-  br i1 %switch.i.i, label %181, label %snap_sunk_store.exit117.i
+174:                                              ; preds = %171, %171, %171, %171
+  %175 = load ptr, ptr %27, align 8, !tbaa !90
+  %176 = load i16, ptr %.0130.i, align 8, !tbaa !40
+  %177 = zext i16 %176 to i64
+  %178 = getelementptr inbounds nuw %union.IRIns, ptr %175, i64 %177
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 5
+  %180 = load i8, ptr %179, align 1, !tbaa !40
+  %181 = and i8 %180, -2
+  %switch.i.i = icmp eq i8 %181, 56
+  br i1 %switch.i.i, label %182, label %snap_sunk_store.exit117.i
 
-181:                                              ; preds = %173
-  %182 = load i16, ptr %177, align 8, !tbaa !40
-  %183 = zext i16 %182 to i64
-  %184 = getelementptr inbounds nuw %union.IRIns, ptr %174, i64 %183
+182:                                              ; preds = %174
+  %183 = load i16, ptr %178, align 8, !tbaa !40
+  %184 = zext i16 %183 to i64
+  %185 = getelementptr inbounds nuw %union.IRIns, ptr %175, i64 %184
   br label %snap_sunk_store.exit117.i
 
-snap_sunk_store.exit117.i:                        ; preds = %181, %173
-  %.0.i118.i = phi ptr [ %184, %181 ], [ %177, %173 ]
-  %185 = load i16, ptr %.0.i118.i, align 8, !tbaa !40
-  %186 = zext i16 %185 to i64
-  %187 = getelementptr inbounds nuw %union.IRIns, ptr %174, i64 %186
-  %188 = icmp eq ptr %187, %111
-  br i1 %188, label %189, label %snap_sunk_store.exit117.thread.i
+snap_sunk_store.exit117.i:                        ; preds = %182, %174
+  %.0.i118.i = phi ptr [ %185, %182 ], [ %178, %174 ]
+  %186 = load i16, ptr %.0.i118.i, align 8, !tbaa !40
+  %187 = zext i16 %186 to i64
+  %188 = getelementptr inbounds nuw %union.IRIns, ptr %175, i64 %187
+  %189 = icmp eq ptr %188, %111
+  br i1 %189, label %190, label %snap_sunk_store.exit117.thread.i
 
-189:                                              ; preds = %._crit_edge102, %snap_sunk_store.exit117.i
-  %.pre-phi113 = phi i64 [ %.pre112, %._crit_edge102 ], [ %176, %snap_sunk_store.exit117.i ]
-  %190 = phi ptr [ %.pre103, %._crit_edge102 ], [ %174, %snap_sunk_store.exit117.i ]
-  %191 = getelementptr inbounds nuw %union.IRIns, ptr %190, i64 %.pre-phi113
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 2
-  %193 = load i16, ptr %192, align 2, !tbaa !40
-  %194 = zext i16 %193 to i64
-  %195 = getelementptr inbounds nuw %union.IRIns, ptr %190, i64 %194
-  %196 = getelementptr inbounds nuw i8, ptr %.pn114129.i, i64 12
-  %197 = load i8, ptr %196, align 4, !tbaa !40
-  %198 = and i8 %197, 31
-  %199 = zext nneg i8 %198 to i32
-  %200 = shl nuw i32 1, %199
-  %201 = and i32 %200, 6315993
-  %.not112.i = icmp eq i32 %201, 0
-  br i1 %.not112.i, label %202, label %205
+190:                                              ; preds = %._crit_edge102, %snap_sunk_store.exit117.i
+  %.pre-phi113 = phi i64 [ %.pre112, %._crit_edge102 ], [ %177, %snap_sunk_store.exit117.i ]
+  %191 = phi ptr [ %.pre103, %._crit_edge102 ], [ %175, %snap_sunk_store.exit117.i ]
+  %192 = getelementptr inbounds nuw %union.IRIns, ptr %191, i64 %.pre-phi113
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 2
+  %194 = load i16, ptr %193, align 2, !tbaa !40
+  %195 = zext i16 %194 to i64
+  %196 = getelementptr inbounds nuw %union.IRIns, ptr %191, i64 %195
+  %197 = getelementptr inbounds nuw i8, ptr %.pn114129.i, i64 12
+  %198 = load i8, ptr %197, align 4, !tbaa !40
+  %199 = and i8 %198, 31
+  %200 = zext nneg i8 %199 to i32
+  %201 = shl nuw i32 1, %200
+  %202 = and i32 %201, 6315993
+  %.not112.i = icmp eq i32 %202, 0
+  br i1 %.not112.i, label %203, label %206
 
-202:                                              ; preds = %189
-  %switch.tableidx = add nsw i8 %198, -15
-  %203 = icmp ult i8 %switch.tableidx, 4
-  br i1 %203, label %switch.lookup, label %205
+203:                                              ; preds = %190
+  %switch.tableidx = add nsw i8 %199, -15
+  %204 = icmp ult i8 %switch.tableidx, 4
+  br i1 %204, label %switch.lookup, label %206
 
-switch.lookup:                                    ; preds = %202
-  %204 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lj_snap_restore, i64 %204
+switch.lookup:                                    ; preds = %203
+  %205 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lj_snap_restore, i64 %205
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %205
+  br label %206
 
-205:                                              ; preds = %202, %switch.lookup, %189
-  %.0107.i = phi i32 [ 8, %189 ], [ %switch.load, %switch.lookup ], [ 4, %202 ]
-  %206 = getelementptr inbounds nuw i8, ptr %195, i64 5
-  %207 = load i8, ptr %206, align 1, !tbaa !40
-  %208 = icmp eq i8 %207, 29
-  br i1 %208, label %209, label %212
+206:                                              ; preds = %203, %switch.lookup, %190
+  %.0107.i = phi i32 [ 8, %190 ], [ %switch.load, %switch.lookup ], [ 4, %203 ]
+  %207 = getelementptr inbounds nuw i8, ptr %196, i64 5
+  %208 = load i8, ptr %207, align 1, !tbaa !40
+  %209 = icmp eq i8 %208, 29
+  br i1 %209, label %210, label %213
 
-209:                                              ; preds = %205
-  %210 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  %211 = load i64, ptr %210, align 8, !tbaa !40
-  br label %215
+210:                                              ; preds = %206
+  %211 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  %212 = load i64, ptr %211, align 8, !tbaa !40
+  br label %216
 
-212:                                              ; preds = %205
-  %213 = load i32, ptr %195, align 8, !tbaa !40
-  %214 = sext i32 %213 to i64
-  br label %215
+213:                                              ; preds = %206
+  %214 = load i32, ptr %196, align 8, !tbaa !40
+  %215 = sext i32 %214 to i64
+  br label %216
 
-215:                                              ; preds = %212, %209
-  %.pn113.i = phi i64 [ %211, %209 ], [ %214, %212 ]
+216:                                              ; preds = %213, %210
+  %.pn113.i = phi i64 [ %212, %210 ], [ %215, %213 ]
   %.0106.i = getelementptr inbounds i8, ptr %141, i64 %.pn113.i
-  %216 = getelementptr inbounds nuw i8, ptr %.pn114129.i, i64 10
-  %217 = load i16, ptr %216, align 2, !tbaa !40
-  %218 = zext i16 %217 to i32
-  call fastcc void @snap_restoredata(ptr noundef nonnull readonly %14, ptr noundef readonly %1, i32 noundef %6, i64 noundef %.08.lcssa.i, i32 noundef %218, ptr noundef %.0106.i, i32 noundef %.0107.i)
+  %217 = getelementptr inbounds nuw i8, ptr %.pn114129.i, i64 10
+  %218 = load i16, ptr %217, align 2, !tbaa !40
+  %219 = zext i16 %218 to i32
+  call fastcc void @snap_restoredata(ptr noundef nonnull readonly %14, ptr noundef readonly %1, i32 noundef %6, i64 noundef %.08.lcssa.i, i32 noundef %219, ptr noundef %.0106.i, i32 noundef %.0107.i)
   br label %snap_sunk_store.exit117.thread.i
 
-snap_sunk_store.exit117.thread.i:                 ; preds = %215, %snap_sunk_store.exit117.i, %170, %166, %.lr.ph.i87
+snap_sunk_store.exit117.thread.i:                 ; preds = %216, %snap_sunk_store.exit117.i, %171, %167, %.lr.ph.i87
   %.0.i = getelementptr inbounds nuw i8, ptr %.0130.i, i64 8
-  %219 = icmp ult ptr %.0.i, %158
-  br i1 %219, label %.lr.ph.i87, label %.loopexit127.i, !llvm.loop !127
+  %220 = icmp ult ptr %.0.i, %159
+  br i1 %220, label %.lr.ph.i87, label %.loopexit127.i, !llvm.loop !127
 
 .loopexit127.i:                                   ; preds = %snap_sunk_store.exit117.thread.i, %152, %146
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %snap_unsink.exit
 
-220:                                              ; preds = %._crit_edge
-  %221 = load ptr, ptr %52, align 8, !tbaa !8
-  %222 = load i16, ptr %111, align 8, !tbaa !40
-  %223 = zext i16 %222 to i32
-  %224 = getelementptr inbounds nuw i8, ptr %111, i64 2
-  %225 = load i16, ptr %224, align 2, !tbaa !40
-  %226 = zext i16 %225 to i32
-  %227 = call ptr @lj_tab_new(ptr noundef %221, i32 noundef %223, i32 noundef %226) #10
-  br label %237
+221:                                              ; preds = %._crit_edge
+  %222 = load ptr, ptr %52, align 8, !tbaa !8
+  %223 = load i16, ptr %111, align 8, !tbaa !40
+  %224 = zext i16 %223 to i32
+  %225 = getelementptr inbounds nuw i8, ptr %111, i64 2
+  %226 = load i16, ptr %225, align 2, !tbaa !40
+  %227 = zext i16 %226 to i32
+  %228 = call ptr @lj_tab_new(ptr noundef %222, i32 noundef %224, i32 noundef %227) #10
+  br label %238
 
-228:                                              ; preds = %._crit_edge
-  %229 = load ptr, ptr %52, align 8, !tbaa !8
-  %230 = load i16, ptr %111, align 8, !tbaa !40
-  %231 = zext i16 %230 to i64
-  %232 = getelementptr inbounds nuw %union.IRIns, ptr %109, i64 %231
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
-  %234 = load i64, ptr %233, align 8, !tbaa !40
-  %235 = inttoptr i64 %234 to ptr
-  %236 = call ptr @lj_tab_dup(ptr noundef %229, ptr noundef %235) #10
-  br label %237
+229:                                              ; preds = %._crit_edge
+  %230 = load ptr, ptr %52, align 8, !tbaa !8
+  %231 = load i16, ptr %111, align 8, !tbaa !40
+  %232 = zext i16 %231 to i64
+  %233 = getelementptr inbounds nuw %union.IRIns, ptr %109, i64 %232
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
+  %235 = load i64, ptr %234, align 8, !tbaa !40
+  %236 = inttoptr i64 %235 to ptr
+  %237 = call ptr @lj_tab_dup(ptr noundef %230, ptr noundef %236) #10
+  br label %238
 
-237:                                              ; preds = %228, %220
-  %238 = phi ptr [ %227, %220 ], [ %236, %228 ]
-  %239 = ptrtoint ptr %238 to i64
-  %240 = or i64 %239, -1688849860263936
-  store i64 %240, ptr %107, align 8, !tbaa !40
-  %241 = load ptr, ptr %27, align 8, !tbaa !90
-  %242 = load ptr, ptr %15, align 8, !tbaa !87
-  %243 = getelementptr inbounds nuw %struct.SnapShot, ptr %242, i64 %17, i32 1
-  %244 = load i16, ptr %243, align 4, !tbaa !35
-  %245 = zext i16 %244 to i64
-  %246 = getelementptr inbounds nuw %union.IRIns, ptr %241, i64 %245
+238:                                              ; preds = %229, %221
+  %239 = phi ptr [ %228, %221 ], [ %237, %229 ]
+  %240 = ptrtoint ptr %239 to i64
+  %241 = or i64 %240, -1688849860263936
+  store i64 %241, ptr %107, align 8, !tbaa !40
+  %242 = load ptr, ptr %27, align 8, !tbaa !90
+  %243 = load ptr, ptr %15, align 8, !tbaa !87
+  %244 = getelementptr inbounds nuw %struct.SnapShot, ptr %243, i64 %17
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 4
+  %246 = load i16, ptr %245, align 4, !tbaa !35
+  %247 = zext i16 %246 to i64
+  %248 = getelementptr inbounds nuw %union.IRIns, ptr %242, i64 %247
   %.0108131.i = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %247 = icmp ult ptr %.0108131.i, %246
-  br i1 %247, label %.lr.ph134.i, label %snap_unsink.exit
+  %249 = icmp ult ptr %.0108131.i, %248
+  br i1 %249, label %.lr.ph134.i, label %snap_unsink.exit
 
-.lr.ph134.i:                                      ; preds = %237
-  %248 = getelementptr inbounds nuw i8, ptr %238, i64 32
-  br label %249
+.lr.ph134.i:                                      ; preds = %238
+  %250 = getelementptr inbounds nuw i8, ptr %239, i64 32
+  br label %251
 
-249:                                              ; preds = %snap_sunk_store.exit.thread.i, %.lr.ph134.i
+251:                                              ; preds = %snap_sunk_store.exit.thread.i, %.lr.ph134.i
   %.0108133.i = phi ptr [ %.0108131.i, %.lr.ph134.i ], [ %.0108.i, %snap_sunk_store.exit.thread.i ]
   %.pn132.i = phi ptr [ %111, %.lr.ph134.i ], [ %.0108133.i, %snap_sunk_store.exit.thread.i ]
-  %250 = getelementptr inbounds nuw i8, ptr %.pn132.i, i64 14
-  %251 = load i8, ptr %250, align 2, !tbaa !40
-  %252 = icmp eq i8 %251, -2
-  br i1 %252, label %253, label %snap_sunk_store.exit.thread.i
+  %252 = getelementptr inbounds nuw i8, ptr %.pn132.i, i64 14
+  %253 = load i8, ptr %252, align 2, !tbaa !40
+  %254 = icmp eq i8 %253, -2
+  br i1 %254, label %255, label %snap_sunk_store.exit.thread.i
 
-253:                                              ; preds = %249
-  %254 = getelementptr inbounds nuw i8, ptr %.pn132.i, i64 15
-  %255 = load i8, ptr %254, align 1, !tbaa !40
-  %.not.i.i = icmp eq i8 %255, -1
-  br i1 %.not.i.i, label %260, label %256
+255:                                              ; preds = %251
+  %256 = getelementptr inbounds nuw i8, ptr %.pn132.i, i64 15
+  %257 = load i8, ptr %256, align 1, !tbaa !40
+  %.not.i.i = icmp eq i8 %257, -1
+  br i1 %.not.i.i, label %262, label %258
 
-256:                                              ; preds = %253
-  %257 = zext i8 %255 to i64
-  %258 = getelementptr inbounds nuw %union.IRIns, ptr %111, i64 %257
-  %259 = icmp eq ptr %258, %.0108133.i
-  br i1 %259, label %._crit_edge105, label %snap_sunk_store.exit.thread.i
+258:                                              ; preds = %255
+  %259 = zext i8 %257 to i64
+  %260 = getelementptr inbounds nuw %union.IRIns, ptr %111, i64 %259
+  %261 = icmp eq ptr %260, %.0108133.i
+  br i1 %261, label %._crit_edge105, label %snap_sunk_store.exit.thread.i
 
-._crit_edge105:                                   ; preds = %256
+._crit_edge105:                                   ; preds = %258
   %.pre106 = load ptr, ptr %27, align 8, !tbaa !90
   %.pre107 = load i16, ptr %.0108133.i, align 8, !tbaa !40
   %.phi.trans.insert = zext i16 %.pre107 to i64
   %.phi.trans.insert108 = getelementptr inbounds nuw %union.IRIns, ptr %.pre106, i64 %.phi.trans.insert
   %.phi.trans.insert109 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert108, i64 5
   %.pre110 = load i8, ptr %.phi.trans.insert109, align 1, !tbaa !40
-  br label %279
+  br label %281
 
-260:                                              ; preds = %253
-  %261 = getelementptr inbounds nuw i8, ptr %.pn132.i, i64 13
-  %262 = load i8, ptr %261, align 1, !tbaa !40
-  switch i8 %262, label %snap_sunk_store.exit.thread.i [
-    i8 74, label %263
-    i8 75, label %263
-    i8 77, label %263
-    i8 78, label %263
+262:                                              ; preds = %255
+  %263 = getelementptr inbounds nuw i8, ptr %.pn132.i, i64 13
+  %264 = load i8, ptr %263, align 1, !tbaa !40
+  switch i8 %264, label %snap_sunk_store.exit.thread.i [
+    i8 74, label %265
+    i8 75, label %265
+    i8 77, label %265
+    i8 78, label %265
   ]
 
-263:                                              ; preds = %260, %260, %260, %260
-  %264 = load ptr, ptr %27, align 8, !tbaa !90
-  %265 = load i16, ptr %.0108133.i, align 8, !tbaa !40
-  %266 = zext i16 %265 to i64
-  %267 = getelementptr inbounds nuw %union.IRIns, ptr %264, i64 %266
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 5
-  %269 = load i8, ptr %268, align 1, !tbaa !40
-  %270 = and i8 %269, -2
-  %switch.i119.i = icmp eq i8 %270, 56
-  br i1 %switch.i119.i, label %271, label %snap_sunk_store.exit.i
+265:                                              ; preds = %262, %262, %262, %262
+  %266 = load ptr, ptr %27, align 8, !tbaa !90
+  %267 = load i16, ptr %.0108133.i, align 8, !tbaa !40
+  %268 = zext i16 %267 to i64
+  %269 = getelementptr inbounds nuw %union.IRIns, ptr %266, i64 %268
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 5
+  %271 = load i8, ptr %270, align 1, !tbaa !40
+  %272 = and i8 %271, -2
+  %switch.i119.i = icmp eq i8 %272, 56
+  br i1 %switch.i119.i, label %273, label %snap_sunk_store.exit.i
 
-271:                                              ; preds = %263
-  %272 = load i16, ptr %267, align 8, !tbaa !40
-  %273 = zext i16 %272 to i64
-  %274 = getelementptr inbounds nuw %union.IRIns, ptr %264, i64 %273
+273:                                              ; preds = %265
+  %274 = load i16, ptr %269, align 8, !tbaa !40
+  %275 = zext i16 %274 to i64
+  %276 = getelementptr inbounds nuw %union.IRIns, ptr %266, i64 %275
   br label %snap_sunk_store.exit.i
 
-snap_sunk_store.exit.i:                           ; preds = %271, %263
-  %.0.i120.i = phi ptr [ %274, %271 ], [ %267, %263 ]
-  %275 = load i16, ptr %.0.i120.i, align 8, !tbaa !40
-  %276 = zext i16 %275 to i64
-  %277 = getelementptr inbounds nuw %union.IRIns, ptr %264, i64 %276
-  %278 = icmp eq ptr %277, %111
-  br i1 %278, label %279, label %snap_sunk_store.exit.thread.i
+snap_sunk_store.exit.i:                           ; preds = %273, %265
+  %.0.i120.i = phi ptr [ %276, %273 ], [ %269, %265 ]
+  %277 = load i16, ptr %.0.i120.i, align 8, !tbaa !40
+  %278 = zext i16 %277 to i64
+  %279 = getelementptr inbounds nuw %union.IRIns, ptr %266, i64 %278
+  %280 = icmp eq ptr %279, %111
+  br i1 %280, label %281, label %snap_sunk_store.exit.thread.i
 
-279:                                              ; preds = %._crit_edge105, %snap_sunk_store.exit.i
-  %.pre-phi = phi i64 [ %.phi.trans.insert, %._crit_edge105 ], [ %266, %snap_sunk_store.exit.i ]
-  %280 = phi i8 [ %.pre110, %._crit_edge105 ], [ %269, %snap_sunk_store.exit.i ]
-  %281 = phi ptr [ %.pre106, %._crit_edge105 ], [ %264, %snap_sunk_store.exit.i ]
-  %282 = getelementptr inbounds nuw %union.IRIns, ptr %281, i64 %.pre-phi
+281:                                              ; preds = %._crit_edge105, %snap_sunk_store.exit.i
+  %.pre-phi = phi i64 [ %.phi.trans.insert, %._crit_edge105 ], [ %268, %snap_sunk_store.exit.i ]
+  %282 = phi i8 [ %.pre110, %._crit_edge105 ], [ %271, %snap_sunk_store.exit.i ]
+  %283 = phi ptr [ %.pre106, %._crit_edge105 ], [ %266, %snap_sunk_store.exit.i ]
+  %284 = getelementptr inbounds nuw %union.IRIns, ptr %283, i64 %.pre-phi
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %283 = icmp eq i8 %280, 62
-  %284 = getelementptr inbounds nuw i8, ptr %282, i64 2
-  %285 = load i16, ptr %284, align 2, !tbaa !40
-  br i1 %283, label %286, label %300
+  %285 = icmp eq i8 %282, 62
+  %286 = getelementptr inbounds nuw i8, ptr %284, i64 2
+  %287 = load i16, ptr %286, align 2, !tbaa !40
+  br i1 %285, label %288, label %302
 
-286:                                              ; preds = %279
-  %cond.i = icmp eq i16 %285, 5
-  br i1 %cond.i, label %287, label %317
+288:                                              ; preds = %281
+  %cond.i = icmp eq i16 %287, 5
+  br i1 %cond.i, label %289, label %319
 
-287:                                              ; preds = %286
-  %288 = getelementptr inbounds nuw i8, ptr %.pn132.i, i64 10
-  %289 = load i16, ptr %288, align 2, !tbaa !40
-  %290 = zext i16 %289 to i64
-  %291 = getelementptr inbounds nuw %union.IRIns, ptr %281, i64 %290
-  %292 = getelementptr inbounds nuw i8, ptr %291, i64 5
-  %293 = load i8, ptr %292, align 1, !tbaa !40
-  %294 = icmp eq i8 %293, 27
-  br i1 %294, label %295, label %296
+289:                                              ; preds = %288
+  %290 = getelementptr inbounds nuw i8, ptr %.pn132.i, i64 10
+  %291 = load i16, ptr %290, align 2, !tbaa !40
+  %292 = zext i16 %291 to i64
+  %293 = getelementptr inbounds nuw %union.IRIns, ptr %283, i64 %292
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 5
+  %295 = load i8, ptr %294, align 1, !tbaa !40
+  %296 = icmp eq i8 %295, 27
+  br i1 %296, label %297, label %298
 
-295:                                              ; preds = %287
-  store i64 0, ptr %248, align 8, !tbaa !128
-  br label %317
+297:                                              ; preds = %289
+  store i64 0, ptr %250, align 8, !tbaa !128
+  br label %319
 
-296:                                              ; preds = %287
-  %297 = zext i16 %289 to i32
-  call fastcc void @snap_restoreval(ptr noundef readonly %0, ptr noundef nonnull readonly %14, ptr noundef readonly %1, i32 noundef %6, i64 noundef %.08.lcssa.i, i32 noundef %297, ptr noundef nonnull %4)
-  %298 = load i64, ptr %4, align 8, !tbaa !40
-  %299 = and i64 %298, 140737488355327
-  store i64 %299, ptr %248, align 8, !tbaa !128
-  br label %317
+298:                                              ; preds = %289
+  %299 = zext i16 %291 to i32
+  call fastcc void @snap_restoreval(ptr noundef readonly %0, ptr noundef nonnull readonly %14, ptr noundef readonly %1, i32 noundef %6, i64 noundef %.08.lcssa.i, i32 noundef %299, ptr noundef nonnull %4)
+  %300 = load i64, ptr %4, align 8, !tbaa !40
+  %301 = and i64 %300, 140737488355327
+  store i64 %301, ptr %250, align 8, !tbaa !128
+  br label %319
 
-300:                                              ; preds = %279
-  %301 = zext i16 %285 to i64
-  %302 = getelementptr inbounds nuw %union.IRIns, ptr %281, i64 %301
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 5
-  %304 = load i8, ptr %303, align 1, !tbaa !40
-  %305 = icmp eq i8 %304, 30
-  br i1 %305, label %306, label %310
+302:                                              ; preds = %281
+  %303 = zext i16 %287 to i64
+  %304 = getelementptr inbounds nuw %union.IRIns, ptr %283, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 5
+  %306 = load i8, ptr %305, align 1, !tbaa !40
+  %307 = icmp eq i8 %306, 30
+  br i1 %307, label %308, label %312
 
-306:                                              ; preds = %300
-  %307 = load i16, ptr %302, align 8, !tbaa !40
-  %308 = zext i16 %307 to i64
-  %309 = getelementptr inbounds nuw %union.IRIns, ptr %281, i64 %308
-  br label %310
+308:                                              ; preds = %302
+  %309 = load i16, ptr %304, align 8, !tbaa !40
+  %310 = zext i16 %309 to i64
+  %311 = getelementptr inbounds nuw %union.IRIns, ptr %283, i64 %310
+  br label %312
 
-310:                                              ; preds = %306, %300
-  %.0105.i = phi ptr [ %309, %306 ], [ %302, %300 ]
-  %311 = load ptr, ptr %52, align 8, !tbaa !8
-  call void @lj_ir_kvalue(ptr noundef %311, ptr noundef nonnull %4, ptr noundef nonnull %.0105.i) #10
-  %312 = load ptr, ptr %52, align 8, !tbaa !8
-  %313 = call ptr @lj_tab_set(ptr noundef %312, ptr noundef %238, ptr noundef nonnull %4) #10
-  %314 = getelementptr inbounds nuw i8, ptr %.pn132.i, i64 10
-  %315 = load i16, ptr %314, align 2, !tbaa !40
-  %316 = zext i16 %315 to i32
-  call fastcc void @snap_restoreval(ptr noundef readonly %0, ptr noundef nonnull readonly %14, ptr noundef readonly %1, i32 noundef %6, i64 noundef %.08.lcssa.i, i32 noundef %316, ptr noundef %313)
-  br label %317
+312:                                              ; preds = %308, %302
+  %.0105.i = phi ptr [ %311, %308 ], [ %304, %302 ]
+  %313 = load ptr, ptr %52, align 8, !tbaa !8
+  call void @lj_ir_kvalue(ptr noundef %313, ptr noundef nonnull %4, ptr noundef nonnull %.0105.i) #10
+  %314 = load ptr, ptr %52, align 8, !tbaa !8
+  %315 = call ptr @lj_tab_set(ptr noundef %314, ptr noundef %239, ptr noundef nonnull %4) #10
+  %316 = getelementptr inbounds nuw i8, ptr %.pn132.i, i64 10
+  %317 = load i16, ptr %316, align 2, !tbaa !40
+  %318 = zext i16 %317 to i32
+  call fastcc void @snap_restoreval(ptr noundef readonly %0, ptr noundef nonnull readonly %14, ptr noundef readonly %1, i32 noundef %6, i64 noundef %.08.lcssa.i, i32 noundef %318, ptr noundef %315)
+  br label %319
 
-317:                                              ; preds = %310, %296, %295, %286
+319:                                              ; preds = %312, %298, %297, %288
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %snap_sunk_store.exit.thread.i
 
-snap_sunk_store.exit.thread.i:                    ; preds = %317, %snap_sunk_store.exit.i, %260, %256, %249
+snap_sunk_store.exit.thread.i:                    ; preds = %319, %snap_sunk_store.exit.i, %262, %258, %251
   %.0108.i = getelementptr inbounds nuw i8, ptr %.0108133.i, i64 8
-  %318 = icmp ult ptr %.0108.i, %246
-  br i1 %318, label %249, label %snap_unsink.exit, !llvm.loop !130
+  %320 = icmp ult ptr %.0108.i, %248
+  br i1 %320, label %251, label %snap_unsink.exit, !llvm.loop !130
 
-319:                                              ; preds = %104
+321:                                              ; preds = %104
   call fastcc void @snap_restoreval(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %1, i32 noundef %6, i64 noundef %.08.lcssa.i, i32 noundef %108, ptr noundef nonnull %107)
-  %320 = and i32 %102, 1048576
-  %.not84 = icmp eq i32 %320, 0
-  br i1 %.not84, label %snap_unsink.exit, label %321
+  %322 = and i32 %102, 1048576
+  %.not84 = icmp eq i32 %322, 0
+  br i1 %.not84, label %snap_unsink.exit, label %323
 
-321:                                              ; preds = %319
-  %322 = load double, ptr %107, align 8, !tbaa !40
-  %323 = fptosi double %322 to i32
-  store i32 %323, ptr %107, align 8, !tbaa !40
-  %324 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  store i32 -98305, ptr %324, align 4, !tbaa !40
+323:                                              ; preds = %321
+  %324 = load double, ptr %107, align 8, !tbaa !40
+  %325 = fptosi double %324 to i32
+  store i32 %325, ptr %107, align 8, !tbaa !40
+  %326 = getelementptr inbounds nuw i8, ptr %107, i64 4
+  store i32 -98305, ptr %326, align 4, !tbaa !40
   br label %snap_unsink.exit
 
-snap_unsink.exit:                                 ; preds = %snap_sunk_store.exit.thread.i, %237, %.loopexit127.i, %119, %321, %319, %.lr.ph91
+snap_unsink.exit:                                 ; preds = %snap_sunk_store.exit.thread.i, %238, %.loopexit127.i, %119, %323, %321, %.lr.ph91
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %._crit_edge92.loopexit, label %.lr.ph91, !llvm.loop !131
@@ -3214,50 +3216,50 @@ snap_unsink.exit:                                 ; preds = %snap_sunk_store.exi
   br label %._crit_edge92
 
 ._crit_edge92:                                    ; preds = %._crit_edge92.loopexit, %98
-  %325 = phi ptr [ %.pre111, %._crit_edge92.loopexit ], [ %99, %98 ]
-  %326 = load i32, ptr %49, align 4, !tbaa !4
-  %327 = and i32 %326, 255
-  %328 = zext nneg i32 %327 to i64
-  %329 = getelementptr inbounds nuw %union.TValue, ptr %325, i64 %328
-  store ptr %329, ptr %65, align 8, !tbaa !48
-  %330 = load i32, ptr %51, align 4, !tbaa !4
-  %331 = and i32 %330, 255
-  %332 = add nsw i32 %331, -63
-  %333 = call i32 @llvm.fshl.i32(i32 %332, i32 %332, i32 31)
-  switch i32 %333, label %334 [
-    i32 1, label %345
-    i32 2, label %345
-    i32 5, label %345
-    i32 0, label %345
+  %327 = phi ptr [ %.pre111, %._crit_edge92.loopexit ], [ %99, %98 ]
+  %328 = load i32, ptr %49, align 4, !tbaa !4
+  %329 = and i32 %328, 255
+  %330 = zext nneg i32 %329 to i64
+  %331 = getelementptr inbounds nuw %union.TValue, ptr %327, i64 %330
+  store ptr %331, ptr %65, align 8, !tbaa !48
+  %332 = load i32, ptr %51, align 4, !tbaa !4
+  %333 = and i32 %332, 255
+  %334 = add nsw i32 %333, -63
+  %335 = call i32 @llvm.fshl.i32(i32 %334, i32 %334, i32 31)
+  switch i32 %335, label %336 [
+    i32 1, label %347
+    i32 2, label %347
+    i32 5, label %347
+    i32 0, label %347
   ]
 
-334:                                              ; preds = %._crit_edge92
-  %335 = icmp samesign ult i32 %331, 89
-  br i1 %335, label %336, label %345
+336:                                              ; preds = %._crit_edge92
+  %337 = icmp samesign ult i32 %333, 89
+  br i1 %337, label %338, label %347
 
-336:                                              ; preds = %334
-  %337 = getelementptr inbounds i8, ptr %329, i64 -16
-  %338 = load i64, ptr %337, align 8, !tbaa !40
-  %339 = and i64 %338, 140737488355327
-  %340 = inttoptr i64 %339 to ptr
-  %341 = getelementptr inbounds nuw i8, ptr %340, i64 32
-  %342 = load i64, ptr %341, align 8, !tbaa !40
-  %343 = inttoptr i64 %342 to ptr
-  %344 = getelementptr inbounds i8, ptr %343, i64 -93
-  br label %347
+338:                                              ; preds = %336
+  %339 = getelementptr inbounds i8, ptr %331, i64 -16
+  %340 = load i64, ptr %339, align 8, !tbaa !40
+  %341 = and i64 %340, 140737488355327
+  %342 = inttoptr i64 %341 to ptr
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 32
+  %344 = load i64, ptr %343, align 8, !tbaa !40
+  %345 = inttoptr i64 %344 to ptr
+  %346 = getelementptr inbounds i8, ptr %345, i64 -93
+  br label %349
 
-345:                                              ; preds = %334, %._crit_edge92, %._crit_edge92, %._crit_edge92, %._crit_edge92
-  %346 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  br label %347
+347:                                              ; preds = %336, %._crit_edge92, %._crit_edge92, %._crit_edge92, %._crit_edge92
+  %348 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  br label %349
 
-347:                                              ; preds = %345, %336
-  %.sink.in = phi ptr [ %346, %345 ], [ %344, %336 ]
-  %.sink119 = phi ptr [ %100, %345 ], [ %329, %336 ]
+349:                                              ; preds = %347, %338
+  %.sink.in = phi ptr [ %348, %347 ], [ %346, %338 ]
+  %.sink119 = phi ptr [ %100, %347 ], [ %331, %338 ]
   %.sink = load i8, ptr %.sink.in, align 1, !tbaa !40
-  %348 = zext i8 %.sink to i64
-  %349 = getelementptr inbounds nuw %union.TValue, ptr %.sink119, i64 %348
-  %350 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store ptr %349, ptr %350, align 8, !tbaa !57
+  %350 = zext i8 %.sink to i64
+  %351 = getelementptr inbounds nuw %union.TValue, ptr %.sink119, i64 %350
+  %352 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  store ptr %351, ptr %352, align 8, !tbaa !57
   ret ptr %51
 }
 

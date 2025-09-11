@@ -377,91 +377,92 @@ define dso_local noundef ptr @_ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERN
 
 _ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit: ; preds = %23, %10
   %30 = phi i64 [ %17, %10 ], [ %26, %23 ]
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8, !tbaa !27
-  %.not.not = icmp eq ptr %32, null
-  br i1 %.not.not, label %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit.thread, label %68
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !27
+  %.not.not = icmp eq ptr %33, null
+  br i1 %.not.not, label %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit.thread, label %69
 
 _ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit.thread: ; preds = %.lr.ph.i.i.i.i, %3, %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = load i16, ptr %33, align 8, !tbaa !29
-  %35 = icmp ne i16 %34, 0
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %35 = load i16, ptr %34, align 8, !tbaa !29
+  %36 = icmp ne i16 %35, 0
   %.not2530 = icmp eq ptr %1, null
-  %.not25 = or i1 %.not2530, %35
-  br i1 %.not25, label %40, label %36
+  %.not25 = or i1 %.not2530, %36
+  br i1 %.not25, label %41, label %37
 
-36:                                               ; preds = %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit.thread
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !37
-  %39 = tail call noundef ptr @_ZN4llvm5VPlan14getOrAddLiveInEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %38)
-  br label %66
+37:                                               ; preds = %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit.thread
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %39 = load ptr, ptr %38, align 8, !tbaa !37
+  %40 = tail call noundef ptr @_ZN4llvm5VPlan14getOrAddLiveInEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %39)
+  br label %67
 
-40:                                               ; preds = %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit.thread
-  %.not = icmp eq i16 %34, 15
-  br i1 %.not, label %41, label %_ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit
+41:                                               ; preds = %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit.thread
+  %.not = icmp eq i16 %35, 15
+  br i1 %.not, label %42, label %_ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %1, i64 -8
-  %43 = load ptr, ptr %42, align 8, !tbaa !40
-  %44 = tail call noundef ptr @_ZN4llvm5VPlan14getOrAddLiveInEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %43)
-  br label %66
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds i8, ptr %1, i64 -8
+  %44 = load ptr, ptr %43, align 8, !tbaa !40
+  %45 = tail call noundef ptr @_ZN4llvm5VPlan14getOrAddLiveInEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %44)
+  br label %67
 
-_ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit: ; preds = %40
-  %45 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #16
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i8 2, ptr %47, align 8, !tbaa !46
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i64 0, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %50 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %51 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  store ptr %51, ptr %50, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  store i32 0, ptr %52, align 8, !tbaa !9
-  %53 = getelementptr inbounds nuw i8, ptr %45, i64 60
-  store i32 2, ptr %53, align 4, !tbaa !55
-  %54 = getelementptr inbounds nuw i8, ptr %45, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm17VPSingleDefRecipeE, i64 16), ptr %45, align 8, !tbaa !12
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm17VPSingleDefRecipeE, i64 72), ptr %49, align 8, !tbaa !12
-  %55 = getelementptr inbounds nuw i8, ptr %45, i64 96
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm17VPSingleDefRecipeE, i64 128), ptr %55, align 8, !tbaa !12
-  tail call void @_ZN4llvm7VPValueC2EhPNS_5ValueEPNS_5VPDefE(ptr noundef nonnull align 8 dereferenceable(56) %55, i8 noundef zeroext 1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(168) %45) #15
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm18VPExpandSCEVRecipeE, i64 16), ptr %45, align 8, !tbaa !12
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm18VPExpandSCEVRecipeE, i64 72), ptr %49, align 8, !tbaa !12
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18VPExpandSCEVRecipeE, i64 128), ptr %55, align 8, !tbaa !12
-  %56 = getelementptr inbounds nuw i8, ptr %45, i64 152
-  store ptr %1, ptr %56, align 8, !tbaa !56
-  %57 = getelementptr inbounds nuw i8, ptr %45, i64 160
-  store ptr %2, ptr %57, align 8, !tbaa !85
-  %58 = load ptr, ptr %0, align 8, !tbaa !86
-  %59 = tail call noundef ptr @_ZN4llvm7VPValue17getDefiningRecipeEv(ptr noundef nonnull align 8 dereferenceable(56) %55) #15
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 112
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 80
-  store ptr %58, ptr %61, align 8, !tbaa !123
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %63 = load ptr, ptr %60, align 8, !tbaa !124
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  store ptr %60, ptr %64, align 8, !tbaa !125
-  store ptr %63, ptr %62, align 8, !tbaa !124
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %62, ptr %65, align 8, !tbaa !125
-  store ptr %62, ptr %60, align 8, !tbaa !124
-  br label %66
+_ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit: ; preds = %41
+  %46 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store i8 2, ptr %48, align 8, !tbaa !46
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  store i64 0, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  store ptr %52, ptr %51, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 56
+  store i32 0, ptr %53, align 8, !tbaa !9
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 60
+  store i32 2, ptr %54, align 4, !tbaa !55
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm17VPSingleDefRecipeE, i64 16), ptr %46, align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm17VPSingleDefRecipeE, i64 72), ptr %50, align 8, !tbaa !12
+  %56 = getelementptr inbounds nuw i8, ptr %46, i64 96
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm17VPSingleDefRecipeE, i64 128), ptr %56, align 8, !tbaa !12
+  tail call void @_ZN4llvm7VPValueC2EhPNS_5ValueEPNS_5VPDefE(ptr noundef nonnull align 8 dereferenceable(56) %56, i8 noundef zeroext 1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(168) %46) #15
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm18VPExpandSCEVRecipeE, i64 16), ptr %46, align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm18VPExpandSCEVRecipeE, i64 72), ptr %50, align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18VPExpandSCEVRecipeE, i64 128), ptr %56, align 8, !tbaa !12
+  %57 = getelementptr inbounds nuw i8, ptr %46, i64 152
+  store ptr %1, ptr %57, align 8, !tbaa !56
+  %58 = getelementptr inbounds nuw i8, ptr %46, i64 160
+  store ptr %2, ptr %58, align 8, !tbaa !85
+  %59 = load ptr, ptr %0, align 8, !tbaa !86
+  %60 = tail call noundef ptr @_ZN4llvm7VPValue17getDefiningRecipeEv(ptr noundef nonnull align 8 dereferenceable(56) %56) #15
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 112
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 80
+  store ptr %59, ptr %62, align 8, !tbaa !123
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %64 = load ptr, ptr %61, align 8, !tbaa !124
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  store ptr %61, ptr %65, align 8, !tbaa !125
+  store ptr %64, ptr %63, align 8, !tbaa !124
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store ptr %63, ptr %66, align 8, !tbaa !125
+  store ptr %63, ptr %61, align 8, !tbaa !124
+  br label %67
 
-66:                                               ; preds = %41, %_ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit, %36
-  %.022 = phi ptr [ %39, %36 ], [ %44, %41 ], [ %55, %_ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit ]
+67:                                               ; preds = %42, %_ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit, %37
+  %.022 = phi ptr [ %40, %37 ], [ %45, %42 ], [ %56, %_ZN4llvm18VPExpandSCEVRecipeC2EPKNS_4SCEVERNS_15ScalarEvolutionE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !21
-  %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEPNS_7VPValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store ptr %.022, ptr %67, align 8, !tbaa !27
+  %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEPNS_7VPValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store ptr %.022, ptr %68, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %68
+  br label %69
 
-68:                                               ; preds = %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit, %66
-  %.1 = phi ptr [ %.022, %66 ], [ %32, %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit ]
+69:                                               ; preds = %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit, %67
+  %.1 = phi ptr [ %.022, %67 ], [ %33, %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit ]
   ret ptr %.1
 }
 

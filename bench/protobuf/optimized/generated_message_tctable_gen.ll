@@ -5503,7 +5503,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %enum_values.sroa.14.074 = phi ptr [ null, %for.body.lr.ph ], [ %enum_values.sroa.14.1, %for.inc ]
   %enum_values.sroa.26.073 = phi ptr [ null, %for.body.lr.ph ], [ %enum_values.sroa.26.1, %for.inc ]
   %5 = load ptr, ptr %values_.i, align 8
-  %number_.i = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %5, i64 %indvars.iv, i32 2
+  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %5, i64 %indvars.iv
+  %number_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %6 = load i32, ptr %number_.i, align 4
   %cmp.not.i.i = icmp eq ptr %enum_values.sroa.14.074, %enum_values.sroa.26.073
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i

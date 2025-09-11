@@ -13914,7 +13914,7 @@ define hidden void @_ZN8GraphKit41record_profiled_arguments_for_speculationEP8ci
   br label %26
 
 26:                                               ; preds = %.lr.ph, %_Z17is_reference_type9BasicTypeb.exit
-  %27 = phi i32 [ %19, %.lr.ph ], [ %65, %_Z17is_reference_type9BasicTypeb.exit ]
+  %27 = phi i32 [ %19, %.lr.ph ], [ %66, %_Z17is_reference_type9BasicTypeb.exit ]
   %indvars.iv = phi i64 [ %umax, %.lr.ph ], [ %indvars.iv.next, %_Z17is_reference_type9BasicTypeb.exit ]
   %.01416 = phi i32 [ 0, %.lr.ph ], [ %.1, %_Z17is_reference_type9BasicTypeb.exit ]
   %28 = load ptr, ptr %10, align 8
@@ -13926,54 +13926,55 @@ define hidden void @_ZN8GraphKit41record_profiled_arguments_for_speculationEP8ci
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %36, i32 1
-  %38 = load i8, ptr %37, align 4
-  %39 = and i8 %38, -2
-  %or.cond.i15 = icmp eq i8 %39, 12
-  br i1 %or.cond.i15, label %40, label %_Z17is_reference_type9BasicTypeb.exit
+  %37 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %39 = load i8, ptr %38, align 4
+  %40 = and i8 %39, -2
+  %or.cond.i15 = icmp eq i8 %40, 12
+  br i1 %or.cond.i15, label %41, label %_Z17is_reference_type9BasicTypeb.exit
 
-40:                                               ; preds = %26
+41:                                               ; preds = %26
   store i32 2, ptr %4, align 4
   store ptr null, ptr %5, align 8
-  %41 = load ptr, ptr %22, align 8
-  %42 = load i32, ptr %23, align 8
-  %43 = call noundef zeroext i1 @_ZN8ciMethod22argument_profiled_typeEiiRP7ciKlassR14ProfilePtrKind(ptr noundef nonnull align 8 dereferenceable(160) %41, i32 noundef %42, i32 noundef %.01416, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %4) #13
-  br i1 %43, label %44, label %63
+  %42 = load ptr, ptr %22, align 8
+  %43 = load i32, ptr %23, align 8
+  %44 = call noundef zeroext i1 @_ZN8ciMethod22argument_profiled_typeEiiRP7ciKlassR14ProfilePtrKind(ptr noundef nonnull align 8 dereferenceable(160) %42, i32 noundef %43, i32 noundef %.01416, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %4) #13
+  br i1 %44, label %45, label %64
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %24, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %51 = load i32, ptr %50, align 8
-  %52 = trunc nuw nsw i64 %indvars.iv to i32
-  %53 = add i32 %49, %52
-  %54 = add i32 %53, %51
-  %55 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = zext i32 %54 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = load i32, ptr %4, align 4
-  %62 = call noundef ptr @_ZN8GraphKit30record_profile_for_speculationEP4NodeP7ciKlass14ProfilePtrKind(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %59, ptr noundef %60, i32 noundef %61)
-  br label %63
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %24, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = load i32, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %52 = load i32, ptr %51, align 8
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
+  %54 = add i32 %50, %53
+  %55 = add i32 %54, %52
+  %56 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = zext i32 %55 to i64
+  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %5, align 8
+  %62 = load i32, ptr %4, align 4
+  %63 = call noundef ptr @_ZN8GraphKit30record_profile_for_speculationEP4NodeP7ciKlass14ProfilePtrKind(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %60, ptr noundef %61, i32 noundef %62)
+  br label %64
 
-63:                                               ; preds = %44, %40
-  %64 = add nsw i32 %.01416, 1
+64:                                               ; preds = %45, %41
+  %65 = add nsw i32 %.01416, 1
   %.pre = load i32, ptr @TypeProfileArgsLimit, align 4
   br label %_Z17is_reference_type9BasicTypeb.exit
 
-_Z17is_reference_type9BasicTypeb.exit:            ; preds = %26, %63
-  %65 = phi i32 [ %.pre, %63 ], [ %27, %26 ]
-  %.1 = phi i32 [ %64, %63 ], [ %.01416, %26 ]
+_Z17is_reference_type9BasicTypeb.exit:            ; preds = %26, %64
+  %66 = phi i32 [ %.pre, %64 ], [ %27, %26 ]
+  %.1 = phi i32 [ %65, %64 ], [ %.01416, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = icmp samesign ult i64 %indvars.iv.next, %sext
-  %67 = icmp slt i32 %.1, %65
-  %68 = select i1 %66, i1 %67, i1 false
-  br i1 %68, label %26, label %.loopexit, !llvm.loop !38
+  %67 = icmp samesign ult i64 %indvars.iv.next, %sext
+  %68 = icmp slt i32 %.1, %66
+  %69 = select i1 %67, i1 %68, i1 false
+  br i1 %69, label %26, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %_Z17is_reference_type9BasicTypeb.exit, %8, %3
   ret void

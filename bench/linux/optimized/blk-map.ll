@@ -70,34 +70,36 @@ define dso_local noundef range(i32 -22, 1) i32 @blk_rq_append_bio(ptr noundef %0
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = trunc i32 %14 to i8
-  switch i8 %15, label %.split [
-    i8 3, label %.split.us
-    i8 5, label %.split.us
-    i8 9, label %.split.us
+  switch i8 %15, label %.split2 [
+    i8 3, label %.split2.us
+    i8 5, label %.split2.us
+    i8 9, label %.split2.us
   ]
 
-.split.us:                                        ; preds = %6, %6, %6
+.split2.us:                                       ; preds = %6, %6, %6
   %16 = zext i32 %10 to i64
-  %17 = getelementptr %struct.bio_vec, ptr %12, i64 %16, i32 1
+  %.split.us = getelementptr %struct.bio_vec, ptr %12, i64 %16
+  %17 = getelementptr i8, ptr %.split.us, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = sub i32 %18, %8
   br label %20
 
-20:                                               ; preds = %20, %.split.us
-  %21 = phi i32 [ 0, %.split.us ], [ %23, %20 ]
-  %22 = phi i32 [ %4, %.split.us ], [ %24, %20 ]
+20:                                               ; preds = %20, %.split2.us
+  %21 = phi i32 [ 0, %.split2.us ], [ %23, %20 ]
+  %22 = phi i32 [ %4, %.split2.us ], [ %24, %20 ]
   %23 = add i32 %21, 1
   %24 = tail call i32 @llvm.usub.sat.i32(i32 %22, i32 %19)
   %.not = icmp ugt i32 %22, %19
   br i1 %.not, label %20, label %.loopexit, !llvm.loop !5
 
-.split:                                           ; preds = %6, %.split
-  %25 = phi i32 [ %34, %.split ], [ 0, %6 ]
-  %26 = phi i32 [ %39, %.split ], [ %8, %6 ]
-  %27 = phi i32 [ %38, %.split ], [ %10, %6 ]
-  %28 = phi i32 [ %40, %.split ], [ %4, %6 ]
+.split2:                                          ; preds = %6, %.split2
+  %25 = phi i32 [ %34, %.split2 ], [ 0, %6 ]
+  %26 = phi i32 [ %39, %.split2 ], [ %8, %6 ]
+  %27 = phi i32 [ %38, %.split2 ], [ %10, %6 ]
+  %28 = phi i32 [ %40, %.split2 ], [ %4, %6 ]
   %29 = zext i32 %27 to i64
-  %30 = getelementptr %struct.bio_vec, ptr %12, i64 %29, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %12, i64 %29
+  %30 = getelementptr i8, ptr %.split, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = sub i32 %31, %26
   %33 = tail call i32 @llvm.umin.i32(i32 %28, i32 %32)
@@ -109,10 +111,10 @@ define dso_local noundef range(i32 -22, 1) i32 @blk_rq_append_bio(ptr noundef %0
   %39 = select i1 %36, i32 0, i32 %35
   %40 = sub i32 %28, %33
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.loopexit, label %.split, !llvm.loop !5
+  br i1 %41, label %.loopexit, label %.split2, !llvm.loop !5
 
-.loopexit:                                        ; preds = %20, %.split, %2
-  %42 = phi i32 [ 0, %2 ], [ %34, %.split ], [ %23, %20 ]
+.loopexit:                                        ; preds = %20, %.split2, %2
+  %42 = phi i32 [ 0, %2 ], [ %34, %.split2 ], [ %23, %20 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null

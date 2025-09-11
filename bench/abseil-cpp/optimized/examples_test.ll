@@ -12,9 +12,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.testing::internal::GTestLog" = type { i32 }
 %"class.absl::log_uniform_int_distribution" = type { %"class.absl::log_uniform_int_distribution<unsigned long>::param_type" }
 %"class.absl::log_uniform_int_distribution<unsigned long>::param_type" = type <{ i64, i64, i64, i64, i32, [4 x i8] }>
-%"class.absl::uniform_int_distribution<unsigned char>::param_type" = type { i8, i8 }
 %"struct.absl::random_internal::UniformDistributionWrapper.43" = type { %"class.absl::uniform_int_distribution.44" }
 %"class.absl::uniform_int_distribution.44" = type { %"class.absl::uniform_int_distribution<unsigned char>::param_type" }
+%"class.absl::uniform_int_distribution<unsigned char>::param_type" = type { i8, i8 }
 %"class.absl::random_internal::FastUniformBits.42" = type { i8 }
 %"struct.absl::random_internal::UniformDistributionWrapper" = type { %"class.absl::uniform_int_distribution" }
 %"class.absl::uniform_int_distribution" = type { %"class.absl::uniform_int_distribution<unsigned long>::param_type" }
@@ -115,7 +115,7 @@ $_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13r
 
 $_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_ = comdat any
 
-$_ZN4absl24uniform_int_distributionIhEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE = comdat any
+$_ZN4absl24uniform_int_distributionIhE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_h = comdat any
 
 $_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_ = comdat any
 
@@ -363,153 +363,151 @@ define dso_local void @_ZN19Examples_Basic_Test8TestBodyEv(ptr nonnull readnone 
   %2 = alloca %"class.absl::log_uniform_int_distribution", align 8
   %3 = alloca float, align 4
   %4 = alloca float, align 4
-  %5 = alloca %"class.absl::uniform_int_distribution<unsigned char>::param_type", align 2
-  %6 = alloca %"struct.absl::random_internal::UniformDistributionWrapper.43", align 2
-  %7 = alloca %"class.absl::random_internal::FastUniformBits.42", align 1
-  %8 = alloca %"struct.absl::random_internal::UniformDistributionWrapper", align 8
-  %9 = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
-  %10 = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !20
-  call void @_ZN4absl15random_internal13randen_engineImEC2IRNS0_17RandenPoolSeedSeqEvEEOT_(ptr noundef nonnull align 8 dereferenceable(288) %10, ptr noundef nonnull align 1 dereferenceable(1) %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !20
-  %11 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #21
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %11, ptr noundef nonnull align 4 dereferenceable(20) @constinit, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i64 0, ptr %8, align 8, !tbaa !23
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 4, ptr %13, align 8, !tbaa !25
-  %14 = invoke noundef i64 @_ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(288) %10)
-          to label %15 unwind label %64
-
-15:                                               ; preds = %1
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  %5 = alloca %"struct.absl::random_internal::UniformDistributionWrapper.43", align 2
+  %6 = alloca %"class.absl::random_internal::FastUniformBits.42", align 1
+  %7 = alloca %"struct.absl::random_internal::UniformDistributionWrapper", align 8
+  %8 = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
+  %9 = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !20
+  call void @_ZN4absl15random_internal13randen_engineImEC2IRNS0_17RandenPoolSeedSeqEvEEOT_(ptr noundef nonnull align 8 dereferenceable(288) %9, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !20
+  %10 = call noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #21
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, ptr noundef nonnull align 4 dereferenceable(20) @constinit, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %16 = ptrtoint ptr %10 to i64
-  %17 = and i64 %16, 8
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 264
-  %20 = load i64, ptr %19, align 8, !tbaa !26
-  %21 = icmp ugt i64 %20, 31
-  br i1 %21, label %22, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i
+  store i64 0, ptr %7, align 8, !tbaa !23
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 4, ptr %12, align 8, !tbaa !25
+  %13 = invoke noundef i64 @_ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(288) %9)
+          to label %14 unwind label %63
 
-22:                                               ; preds = %15
-  store i64 2, ptr %19, align 8, !tbaa !26
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 272
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 280
-  %25 = load i8, ptr %24, align 8, !tbaa !30, !range !31, !noundef !32
-  %26 = trunc nuw i8 %25 to i1
-  %27 = load ptr, ptr %23, align 8, !tbaa !33
-  br i1 %26, label %28, label %29
+14:                                               ; preds = %1
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %15 = ptrtoint ptr %9 to i64
+  %16 = and i64 %15, 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 264
+  %19 = load i64, ptr %18, align 8, !tbaa !26
+  %20 = icmp ugt i64 %19, 31
+  br i1 %20, label %21, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i
 
-28:                                               ; preds = %22
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %27, ptr noundef nonnull %18)
+21:                                               ; preds = %14
+  store i64 2, ptr %18, align 8, !tbaa !26
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 272
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 280
+  %24 = load i8, ptr %23, align 8, !tbaa !30, !range !31, !noundef !32
+  %25 = trunc nuw i8 %24 to i1
+  %26 = load ptr, ptr %22, align 8, !tbaa !33
+  br i1 %25, label %27, label %28
+
+27:                                               ; preds = %21
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %26, ptr noundef nonnull %17)
           to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i unwind label %.loopexit.split-lp
 
-29:                                               ; preds = %22
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %27, ptr noundef nonnull %18)
+28:                                               ; preds = %21
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %26, ptr noundef nonnull %17)
           to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i unwind label %.loopexit.split-lp
 
-_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i: ; preds = %29, %28, %15
-  %30 = load i64, ptr %19, align 8, !tbaa !26
-  %31 = add i64 %30, 1
-  store i64 %31, ptr %19, align 8, !tbaa !26
-  %32 = getelementptr inbounds nuw i64, ptr %18, i64 %30
-  %33 = load i64, ptr %32, align 8, !tbaa !34
-  %34 = trunc i64 %33 to i32
-  %35 = mul i32 %34, 6
-  %36 = icmp ult i32 %35, 6
-  br i1 %36, label %37, label %.loopexit37, !prof !35
+_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i: ; preds = %28, %27, %14
+  %29 = load i64, ptr %18, align 8, !tbaa !26
+  %30 = add i64 %29, 1
+  store i64 %30, ptr %18, align 8, !tbaa !26
+  %31 = getelementptr inbounds nuw i64, ptr %17, i64 %29
+  %32 = load i64, ptr %31, align 8, !tbaa !34
+  %33 = trunc i64 %32 to i32
+  %34 = mul i32 %33, 6
+  %35 = icmp ult i32 %34, 6
+  br i1 %35, label %36, label %.loopexit37, !prof !35
 
-37:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i
-  %38 = icmp samesign ult i32 %35, 4
-  br i1 %38, label %.lr.ph.i.i.i.i.i.i, label %.loopexit37
+36:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i
+  %37 = icmp samesign ult i32 %34, 4
+  br i1 %37, label %.lr.ph.i.i.i.i.i.i, label %.loopexit37
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %37, %.noexc22
-  %39 = invoke noundef i32 @_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(288) %10)
+.lr.ph.i.i.i.i.i.i:                               ; preds = %36, %.noexc22
+  %38 = invoke noundef i32 @_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(288) %9)
           to label %.noexc22 unwind label %.loopexit
 
 .noexc22:                                         ; preds = %.lr.ph.i.i.i.i.i.i
-  %40 = mul i32 %39, 6
-  %41 = icmp ult i32 %40, 4
-  br i1 %41, label %.lr.ph.i.i.i.i.i.i, label %.loopexit37, !llvm.loop !36
+  %39 = mul i32 %38, 6
+  %40 = icmp ult i32 %39, 4
+  br i1 %40, label %.lr.ph.i.i.i.i.i.i, label %.loopexit37, !llvm.loop !36
 
-.loopexit37:                                      ; preds = %.noexc22, %37, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i8 0, ptr %6, align 2, !tbaa !38
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 -1, ptr %42, align 1, !tbaa !40
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %6, align 2
-  store i16 %.sroa.0.0.copyload.i.i.i.i.i, ptr %5, align 2
-  %43 = invoke noundef zeroext i8 @_ZN4absl24uniform_int_distributionIhEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 1 dereferenceable(2) %6, ptr noundef nonnull align 8 dereferenceable(288) %10, ptr noundef nonnull align 1 dereferenceable(2) %5)
-          to label %44 unwind label %66
-
-44:                                               ; preds = %.loopexit37
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+.loopexit37:                                      ; preds = %.noexc22, %36, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  store i8 0, ptr %5, align 2, !tbaa !38
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 -1, ptr %41, align 1, !tbaa !40
+  %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %5, align 2
+  %.sroa.4.0.extract.shift.i.i.i.i = lshr i16 %.sroa.0.0.copyload.i.i.i.i.i, 8
+  %.sroa.4.0.extract.trunc.i.i.i.i = trunc nuw i16 %.sroa.4.0.extract.shift.i.i.i.i to i8
+  %42 = invoke noundef zeroext i8 @_ZN4absl24uniform_int_distributionIhE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_h(ptr noundef nonnull align 1 dereferenceable(2) %5, ptr noundef nonnull align 8 dereferenceable(288) %9, i8 noundef zeroext %.sroa.4.0.extract.trunc.i.i.i.i)
+          to label %43 unwind label %65
+
+43:                                               ; preds = %.loopexit37
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %3, align 4, !tbaa !41
   store float 1.000000e+00, ptr %4, align 4, !tbaa !41
-  %45 = invoke noundef float @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRfSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %10, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %46 unwind label %68
+  %44 = invoke noundef float @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRfSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %9, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %45 unwind label %67
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre.i.i.i.i.i = load i64, ptr %19, align 8, !tbaa !26
-  %47 = icmp ugt i64 %.pre.i.i.i.i.i, 31
-  br i1 %47, label %48, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i
+  %.pre.i.i.i.i.i = load i64, ptr %18, align 8, !tbaa !26
+  %46 = icmp ugt i64 %.pre.i.i.i.i.i, 31
+  br i1 %46, label %47, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %10, i64 280
-  %50 = getelementptr inbounds nuw i8, ptr %10, i64 272
-  store i64 2, ptr %19, align 8, !tbaa !26
-  %51 = load i8, ptr %49, align 8, !tbaa !30, !range !31, !noundef !32
-  %52 = trunc nuw i8 %51 to i1
-  %53 = load ptr, ptr %50, align 8, !tbaa !33
-  br i1 %52, label %54, label %55
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 280
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 272
+  store i64 2, ptr %18, align 8, !tbaa !26
+  %50 = load i8, ptr %48, align 8, !tbaa !30, !range !31, !noundef !32
+  %51 = trunc nuw i8 %50 to i1
+  %52 = load ptr, ptr %49, align 8, !tbaa !33
+  br i1 %51, label %53, label %54
 
-54:                                               ; preds = %48
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %53, ptr noundef nonnull %18)
-          to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i unwind label %70
+53:                                               ; preds = %47
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %52, ptr noundef nonnull %17)
+          to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i unwind label %69
 
-55:                                               ; preds = %48
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %53, ptr noundef nonnull %18)
-          to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i unwind label %70
+54:                                               ; preds = %47
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %52, ptr noundef nonnull %17)
+          to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i unwind label %69
 
-_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i: ; preds = %55, %54, %46
-  %56 = load i64, ptr %19, align 8, !tbaa !26
-  %57 = add i64 %56, 1
-  store i64 %57, ptr %19, align 8, !tbaa !26
+_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i: ; preds = %54, %53, %45
+  %55 = load i64, ptr %18, align 8, !tbaa !26
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %18, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 1000, ptr %2, align 8, !tbaa !43
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 10000000, ptr %58, align 8, !tbaa !45
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 2, ptr %59, align 8, !tbaa !46
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 9999000, ptr %60, align 8, !tbaa !47
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 24, ptr %61, align 8, !tbaa !48
-  %62 = invoke noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(288) %10, ptr noundef nonnull align 8 dereferenceable(40) %2)
-          to label %63 unwind label %72
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 10000000, ptr %57, align 8, !tbaa !45
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 2, ptr %58, align 8, !tbaa !46
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 9999000, ptr %59, align 8, !tbaa !47
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 24, ptr %60, align 8, !tbaa !48
+  %61 = invoke noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(288) %9, ptr noundef nonnull align 8 dereferenceable(40) %2)
+          to label %62 unwind label %71
 
-63:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i
+62:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  invoke void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEERN4absl15random_internal17NonsecureURBGBaseINS8_13randen_engineImEENS8_17RandenPoolSeedSeqEEEEvT_SF_OT0_(ptr nonnull %11, ptr nonnull %12, ptr noundef nonnull align 8 dereferenceable(288) %10)
-          to label %_ZNSt6vectorIiSaIiEED2Ev.exit unwind label %72
+  invoke void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEERN4absl15random_internal17NonsecureURBGBaseINS8_13randen_engineImEENS8_17RandenPoolSeedSeqEEEEvT_SF_OT0_(ptr nonnull %10, ptr nonnull %11, ptr noundef nonnull align 8 dereferenceable(288) %9)
+          to label %_ZNSt6vectorIiSaIiEED2Ev.exit unwind label %71
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %63
-  call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 20) #22
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %62
+  call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-64:                                               ; preds = %1
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %1
+  %64 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit29
 
@@ -518,35 +516,35 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %63
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit29
 
-.loopexit.split-lp:                               ; preds = %28, %29
+.loopexit.split-lp:                               ; preds = %27, %28
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit29
 
-66:                                               ; preds = %.loopexit37
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %.loopexit37
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit29
 
-68:                                               ; preds = %44
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %43
+  %68 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit29
 
-70:                                               ; preds = %55, %54
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %54, %53
+  %70 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit29
 
-72:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i, %63
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i, %62
+  %72 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit29
 
-_ZNSt6vectorIiSaIiEED2Ev.exit29:                  ; preds = %.loopexit, %.loopexit.split-lp, %68, %72, %70, %66, %64
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %73, %72 ], [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 20) #22
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+_ZNSt6vectorIiSaIiEED2Ev.exit29:                  ; preds = %.loopexit, %.loopexit.split-lp, %67, %71, %69, %65, %63
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %72, %71 ], [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
@@ -2945,88 +2943,85 @@ _ZN4absl15random_internal15FastUniformBitsIjE8GenerateINS0_17NonsecureURBGBaseIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl24uniform_int_distributionIhEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 1 dereferenceable(2) %2) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl24uniform_int_distributionIhE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_h(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i8 noundef zeroext %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits.45", align 1
-  %5 = load i8, ptr %2, align 1, !tbaa !38
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %7 = load i8, ptr %6, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %8 = ptrtoint ptr %1 to i64
-  %9 = and i64 %8, 8
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %12 = load i64, ptr %11, align 8, !tbaa !26
-  %13 = icmp ugt i64 %12, 31
-  br i1 %13, label %14, label %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit.i
+  %5 = ptrtoint ptr %1 to i64
+  %6 = and i64 %5, 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %9 = load i64, ptr %8, align 8, !tbaa !26
+  %10 = icmp ugt i64 %9, 31
+  br i1 %10, label %11, label %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit
 
-14:                                               ; preds = %3
-  store i64 2, ptr %11, align 8, !tbaa !26
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %17 = load i8, ptr %16, align 8, !tbaa !30, !range !31, !noundef !32
-  %18 = trunc nuw i8 %17 to i1
-  %19 = load ptr, ptr %15, align 8, !tbaa !33
-  br i1 %18, label %20, label %21
+11:                                               ; preds = %3
+  store i64 2, ptr %8, align 8, !tbaa !26
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %14 = load i8, ptr %13, align 8, !tbaa !30, !range !31, !noundef !32
+  %15 = trunc nuw i8 %14 to i1
+  %16 = load ptr, ptr %12, align 8, !tbaa !33
+  br i1 %15, label %17, label %18
 
-20:                                               ; preds = %14
-  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %19, ptr noundef nonnull %10)
-  br label %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit.i
+17:                                               ; preds = %11
+  tail call void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %16, ptr noundef nonnull %7)
+  br label %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit
 
-21:                                               ; preds = %14
-  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %19, ptr noundef nonnull %10)
-  br label %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit.i
+18:                                               ; preds = %11
+  tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %16, ptr noundef nonnull %7)
+  br label %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit
 
-_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit.i: ; preds = %21, %20, %3
-  %22 = load i64, ptr %11, align 8, !tbaa !26
-  %23 = add i64 %22, 1
-  store i64 %23, ptr %11, align 8, !tbaa !26
-  %24 = getelementptr inbounds nuw i64, ptr %10, i64 %22
-  %25 = load i64, ptr %24, align 8, !tbaa !34
-  %26 = add i8 %7, 1
-  %27 = and i8 %26, %7
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %32
+_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit: ; preds = %3, %17, %18
+  %19 = load i64, ptr %8, align 8, !tbaa !26
+  %20 = add i64 %19, 1
+  store i64 %20, ptr %8, align 8, !tbaa !26
+  %21 = getelementptr inbounds nuw i64, ptr %7, i64 %19
+  %22 = load i64, ptr %21, align 8, !tbaa !34
+  %23 = add i8 %2, 1
+  %24 = and i8 %23, %2
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %26, label %29
 
-29:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit.i
-  %30 = trunc i64 %25 to i8
-  %31 = and i8 %7, %30
-  br label %_ZN4absl24uniform_int_distributionIhE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_h.exit
+26:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit
+  %27 = trunc i64 %22 to i8
+  %28 = and i8 %2, %27
+  br label %48
 
-32:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit.i
-  %33 = trunc i64 %25 to i16
-  %34 = and i16 %33, 255
-  %35 = zext i8 %26 to i16
-  %36 = mul nuw i16 %34, %35
-  %37 = trunc i16 %36 to i8
-  %38 = icmp ugt i8 %26, %37
-  br i1 %38, label %39, label %.loopexit.i, !prof !35
+29:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_.exit
+  %30 = trunc i64 %22 to i16
+  %31 = and i16 %30, 255
+  %32 = zext i8 %23 to i16
+  %33 = mul nuw i16 %31, %32
+  %34 = trunc i16 %33 to i8
+  %35 = icmp ugt i8 %23, %34
+  br i1 %35, label %36, label %.loopexit, !prof !35
 
-39:                                               ; preds = %32
-  %.lhs.trunc.i = sub nuw nsw i16 256, %35
-  %40 = urem i16 %.lhs.trunc.i, %35
-  %41 = and i16 %36, 255
-  %42 = icmp samesign ugt i16 %40, %41
-  br i1 %42, label %.lr.ph.i, label %.loopexit.i
+36:                                               ; preds = %29
+  %.lhs.trunc = xor i8 %2, -1
+  %37 = urem i8 %.lhs.trunc, %23
+  %38 = zext i8 %37 to i16
+  %39 = and i16 %33, 255
+  %40 = icmp samesign ult i16 %39, %38
+  br i1 %40, label %.lr.ph, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %39, %.lr.ph.i
-  %43 = call noundef zeroext i8 @_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(288) %1)
-  %44 = zext i8 %43 to i16
-  %45 = mul nuw i16 %44, %35
-  %46 = and i16 %45, 255
-  %47 = icmp samesign ugt i16 %40, %46
-  br i1 %47, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !117
+.lr.ph:                                           ; preds = %36, %.lr.ph
+  %41 = call noundef zeroext i8 @_ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEhRT_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(288) %1)
+  %42 = zext i8 %41 to i16
+  %43 = mul nuw i16 %42, %32
+  %44 = and i16 %43, 255
+  %45 = icmp samesign ult i16 %44, %38
+  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !117
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %39, %32
-  %.018.i = phi i16 [ %36, %32 ], [ %36, %39 ], [ %45, %.lr.ph.i ]
-  %48 = lshr i16 %.018.i, 8
-  %49 = trunc nuw i16 %48 to i8
-  br label %_ZN4absl24uniform_int_distributionIhE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_h.exit
+.loopexit:                                        ; preds = %.lr.ph, %36, %29
+  %.018 = phi i16 [ %33, %29 ], [ %33, %36 ], [ %43, %.lr.ph ]
+  %46 = lshr i16 %.018, 8
+  %47 = trunc nuw i16 %46 to i8
+  br label %48
 
-_ZN4absl24uniform_int_distributionIhE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEhRT_h.exit: ; preds = %29, %.loopexit.i
-  %.0.i = phi i8 [ %31, %29 ], [ %49, %.loopexit.i ]
+48:                                               ; preds = %.loopexit, %26
+  %.0 = phi i8 [ %28, %26 ], [ %47, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %50 = add i8 %.0.i, %5
-  ret i8 %50
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

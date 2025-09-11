@@ -446,25 +446,26 @@ define hidden void @proto_register_json_3gpp() local_unnamed_addr #0 {
 
 4:                                                ; preds = %4, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr %struct.hf_register_info, ptr @register_static_headers.hf, i64 %indvars.iv.i, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call noalias ptr @g_strdup(ptr noundef %6)
-  %8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #5
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr ptr, ptr @register_static_headers.json_decode_fn, i64 %indvars.iv.i
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %11, ptr %12, align 8
-  %13 = load ptr, ptr @json_header_fields_hash, align 8
-  %14 = tail call i32 @g_hash_table_insert(ptr noundef %13, ptr noundef %7, ptr noundef %8)
+  %5 = getelementptr %struct.hf_register_info, ptr @register_static_headers.hf, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call noalias ptr @g_strdup(ptr noundef %7)
+  %9 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #5
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store ptr %10, ptr %9, align 8
+  %11 = getelementptr ptr, ptr @register_static_headers.json_decode_fn, i64 %indvars.iv.i
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %12, ptr %13, align 8
+  %14 = load ptr, ptr @json_header_fields_hash, align 8
+  %15 = tail call i32 @g_hash_table_insert(ptr noundef %14, ptr noundef %8, ptr noundef %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
   br i1 %exitcond.not.i, label %register_static_headers.exit, label %4, !llvm.loop !6
 
 register_static_headers.exit:                     ; preds = %4
-  %15 = load i32, ptr @proto_json_3gpp, align 4
-  tail call void @proto_register_field_array(i32 noundef %15, ptr noundef nonnull @register_static_headers.hf, i32 noundef 12)
+  %16 = load i32, ptr @proto_json_3gpp, align 4
+  tail call void @proto_register_field_array(i32 noundef %16, ptr noundef nonnull @register_static_headers.hf, i32 noundef 12)
   ret void
 }
 

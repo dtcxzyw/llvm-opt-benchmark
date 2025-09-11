@@ -446,34 +446,34 @@ define internal fastcc void @check_attr(ptr noundef %0, ptr noundef %1, i32 noun
 20:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
   %21 = load ptr, ptr %19, align 8, !tbaa !50
-  %22 = getelementptr inbounds nuw %struct.attr_check_item, ptr %21, i64 %indvars.iv.i, i32 1
-  %23 = load ptr, ptr %22, align 8, !tbaa !51
-  %24 = icmp eq ptr %23, @git_attr__true
-  br i1 %24, label %29, label %25
+  %22 = getelementptr inbounds nuw %struct.attr_check_item, ptr %21, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !51
+  %25 = icmp eq ptr %24, @git_attr__true
+  br i1 %25, label %30, label %26
 
-25:                                               ; preds = %20
-  %26 = icmp eq ptr %23, @git_attr__false
-  br i1 %26, label %29, label %27
+26:                                               ; preds = %20
+  %27 = icmp eq ptr %24, @git_attr__false
+  br i1 %27, label %30, label %28
 
-27:                                               ; preds = %25
-  %28 = icmp eq ptr %23, null
-  %spec.store.select.i = select i1 %28, ptr @.str.28, ptr %23
-  br label %29
+28:                                               ; preds = %26
+  %29 = icmp eq ptr %24, null
+  %spec.store.select.i = select i1 %29, ptr @.str.28, ptr %24
+  br label %30
 
-29:                                               ; preds = %27, %25, %20
-  %.0.i = phi ptr [ %spec.store.select.i, %27 ], [ @.str.26, %20 ], [ @.str.27, %25 ]
-  %30 = load i32, ptr @nul_term_line, align 4, !tbaa !30
-  %.not.i = icmp eq i32 %30, 0
-  br i1 %.not.i, label %36, label %31
+30:                                               ; preds = %28, %26, %20
+  %.0.i = phi ptr [ %spec.store.select.i, %28 ], [ @.str.26, %20 ], [ @.str.27, %26 ]
+  %31 = load i32, ptr @nul_term_line, align 4, !tbaa !30
+  %.not.i = icmp eq i32 %31, 0
+  br i1 %.not.i, label %36, label %32
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw %struct.attr_check_item, ptr %21, i64 %indvars.iv.i
-  %33 = load ptr, ptr %32, align 8, !tbaa !54
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %22, align 8, !tbaa !54
   %34 = tail call ptr @git_attr_name(ptr noundef %33) #9
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %3, i32 noundef 0, ptr noundef %34, i32 noundef 0, ptr noundef nonnull %.0.i, i32 noundef 0)
   br label %44
 
-36:                                               ; preds = %29
+36:                                               ; preds = %30
   %37 = load ptr, ptr @stdout, align 8, !tbaa !35
   %38 = tail call i64 @quote_c_style(ptr noundef %3, ptr noundef null, ptr noundef %37, i32 noundef 0) #9
   %39 = load ptr, ptr %19, align 8, !tbaa !50
@@ -483,7 +483,7 @@ define internal fastcc void @check_attr(ptr noundef %0, ptr noundef %1, i32 noun
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %42, ptr noundef nonnull %.0.i)
   br label %44
 
-44:                                               ; preds = %36, %31
+44:                                               ; preds = %36, %32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %output_attr.exit, label %20, !llvm.loop !55

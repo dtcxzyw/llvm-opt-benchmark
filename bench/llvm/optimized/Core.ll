@@ -1556,7 +1556,8 @@ define dso_local ptr @LLVMModuleFlagEntriesGetKey(ptr noundef readonly captures(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMModuleFlagEntriesGetMetadata(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = zext i32 %1 to i64
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw %struct.LLVMOpaqueModuleFlagEntry, ptr %0, i64 %3, i32 3
+  %4 = getelementptr inbounds nuw %struct.LLVMOpaqueModuleFlagEntry, ptr %0, i64 %3
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !61
   ret ptr %.sroa.3.0.copyload
 }
@@ -8819,7 +8820,8 @@ define dso_local i32 @LLVMValueMetadataEntriesGetKind(ptr noundef readonly captu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMValueMetadataEntriesGetMetadata(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = zext i32 %1 to i64
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw %struct.LLVMOpaqueValueMetadataEntry, ptr %0, i64 %3, i32 1
+  %4 = getelementptr inbounds nuw %struct.LLVMOpaqueValueMetadataEntry, ptr %0, i64 %3
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !61
   ret ptr %.sroa.3.0.copyload
 }

@@ -101,7 +101,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_ZN3tbb6detail2r133ITT_DoUnsafeOneTimeInitializationEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZN3tbb6detail2r1L22ITT_InitializationDoneE.0 seq_cst, align 1
   %2 = trunc i8 %1 to i1
-  br i1 %2, label %30, label %3
+  br i1 %2, label %32, label %3
 
 3:                                                ; preds = %0
   %4 = tail call noundef i32 @_ZN3tbb6detail2r120__TBB_load_ittnotifyEv()
@@ -154,40 +154,42 @@ _ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i:    ; preds = %13, %11, %.thread7.
   br i1 %17, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %_ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i, %.split.us.i.i
-  %.05.us.i.i = phi i64 [ %19, %.split.us.i.i ], [ 0, %_ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i ]
-  %18 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.us.i.i, i32 1
-  store ptr null, ptr %18, align 8, !tbaa !15
-  %19 = add nuw nsw i64 %.05.us.i.i, 1
-  %exitcond9.not.i.i = icmp eq i64 %19, 57
+  %.05.us.i.i = phi i64 [ %20, %.split.us.i.i ], [ 0, %_ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i ]
+  %18 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.us.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr null, ptr %19, align 8, !tbaa !15
+  %20 = add nuw nsw i64 %.05.us.i.i, 1
+  %exitcond9.not.i.i = icmp eq i64 %20, 57
   br i1 %exitcond9.not.i.i, label %_ZN3tbb6detail2r1L8ITT_initEv.exit, label %.split.us.i.i, !llvm.loop !18
 
-.split.i.i:                                       ; preds = %_ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i, %25
-  %20 = phi ptr [ %26, %25 ], [ %16, %_ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i ]
-  %.05.i.i = phi i64 [ %29, %25 ], [ 0, %_ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i ]
-  %.not.i1.i = icmp eq ptr %20, null
-  br i1 %.not.i1.i, label %25, label %21
+.split.i.i:                                       ; preds = %_ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i, %26
+  %21 = phi ptr [ %27, %26 ], [ %16, %_ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i ]
+  %.05.i.i = phi i64 [ %31, %26 ], [ 0, %_ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i ]
+  %.not.i1.i = icmp eq ptr %21, null
+  br i1 %.not.i1.i, label %26, label %22
 
-21:                                               ; preds = %.split.i.i
-  %22 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.i.i
-  %23 = load ptr, ptr %22, align 16, !tbaa !20
-  %24 = tail call ptr %20(ptr noundef %23)
+22:                                               ; preds = %.split.i.i
+  %23 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.i.i
+  %24 = load ptr, ptr %23, align 16, !tbaa !20
+  %25 = tail call ptr %21(ptr noundef %24)
   %.pre.i.i = load ptr, ptr @__itt_string_handle_create_ptr__3_0, align 8, !tbaa !7
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21, %.split.i.i
-  %26 = phi ptr [ %.pre.i.i, %21 ], [ null, %.split.i.i ]
-  %27 = phi ptr [ %24, %21 ], [ null, %.split.i.i ]
-  %28 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.i.i, i32 1
-  store ptr %27, ptr %28, align 8, !tbaa !15
-  %29 = add nuw nsw i64 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %29, 57
+26:                                               ; preds = %22, %.split.i.i
+  %27 = phi ptr [ %.pre.i.i, %22 ], [ null, %.split.i.i ]
+  %28 = phi ptr [ %25, %22 ], [ null, %.split.i.i ]
+  %29 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %28, ptr %30, align 8, !tbaa !15
+  %31 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %31, 57
   br i1 %exitcond.not.i.i, label %_ZN3tbb6detail2r1L8ITT_initEv.exit, label %.split.i.i, !llvm.loop !21
 
-_ZN3tbb6detail2r1L8ITT_initEv.exit:               ; preds = %25, %.split.us.i.i, %3
+_ZN3tbb6detail2r1L8ITT_initEv.exit:               ; preds = %26, %.split.us.i.i, %3
   store atomic i8 1, ptr @_ZN3tbb6detail2r1L22ITT_InitializationDoneE.0 seq_cst, align 1
-  br label %30
+  br label %32
 
-30:                                               ; preds = %_ZN3tbb6detail2r1L8ITT_initEv.exit, %0
+32:                                               ; preds = %_ZN3tbb6detail2r1L8ITT_initEv.exit, %0
   ret void
 }
 
@@ -396,7 +398,7 @@ _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d01
 _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit: ; preds = %15, %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
   %.pr = load ptr, ptr %12, align 8, !tbaa !9
   %.not = icmp eq ptr %.pr, null
-  br i1 %.not, label %51, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
+  br i1 %.not, label %52, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
 
 _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; preds = %6, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
   %33 = phi ptr [ %.pr, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit ], [ %13, %6 ]
@@ -427,20 +429,21 @@ _ZN3tbb6detail2r1L13itt_id_createEPK13___itt_domain9___itt_id.exit: ; preds = %_
   br i1 %41, label %42, label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
 
 42:                                               ; preds = %_ZN3tbb6detail2r1L13itt_id_createEPK13___itt_domain9___itt_id.exit
-  %43 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %5, i32 1
-  %44 = load ptr, ptr %43, align 8, !tbaa !15
+  %43 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %5
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !15
   br label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
 
 _ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit: ; preds = %_ZN3tbb6detail2r1L13itt_id_createEPK13___itt_domain9___itt_id.exit, %42
-  %45 = phi ptr [ %44, %42 ], [ null, %_ZN3tbb6detail2r1L13itt_id_createEPK13___itt_domain9___itt_id.exit ]
-  %46 = load volatile i32, ptr %33, align 8, !tbaa !11
-  %47 = icmp ne i32 %46, 0
-  %48 = load ptr, ptr @__itt_task_group_ptr__3_0, align 8
-  %49 = icmp ne ptr %48, null
-  %or.cond = select i1 %47, i1 %49, i1 false
-  br i1 %or.cond, label %50, label %51
+  %46 = phi ptr [ %45, %42 ], [ null, %_ZN3tbb6detail2r1L13itt_id_createEPK13___itt_domain9___itt_id.exit ]
+  %47 = load volatile i32, ptr %33, align 8, !tbaa !11
+  %48 = icmp ne i32 %47, 0
+  %49 = load ptr, ptr @__itt_task_group_ptr__3_0, align 8
+  %50 = icmp ne ptr %49, null
+  %or.cond = select i1 %48, i1 %50, i1 false
+  br i1 %or.cond, label %51, label %52
 
-50:                                               ; preds = %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
+51:                                               ; preds = %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
   store i64 %34, ptr %9, align 8, !tbaa !27
   %.sroa.620.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %2, ptr %.sroa.620.0..sroa_idx21, align 8, !tbaa !27
@@ -451,15 +454,123 @@ _ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit: ; preds = %_ZN3tbb6detail2r1L1
   store i64 %spec.select29, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !27
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !27
-  tail call void %48(ptr noundef nonnull %33, ptr noundef nonnull byval(%struct.___itt_id) align 8 %9, ptr noundef nonnull byval(%struct.___itt_id) align 8 %10, ptr noundef %45)
-  br label %51
+  tail call void %49(ptr noundef nonnull %33, ptr noundef nonnull byval(%struct.___itt_id) align 8 %9, ptr noundef nonnull byval(%struct.___itt_id) align 8 %10, ptr noundef %46)
+  br label %52
 
-51:                                               ; preds = %50, %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
+52:                                               ; preds = %51, %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
   ret void
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r120itt_metadata_str_addENS0_2d115itt_domain_enumEPvyNS0_2d021string_resource_indexEPKc(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %6 = alloca i8, align 1
+  %7 = alloca %struct.___itt_id, align 8
+  %8 = zext i32 %0 to i64
+  %9 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %8
+  %10 = load ptr, ptr %9, align 8, !tbaa !9
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
+
+12:                                               ; preds = %5
+  %13 = load atomic i8, ptr @_ZN3tbb6detail2r1L22ITT_InitializationDoneE.0 seq_cst, align 1
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit, label %15
+
+15:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %16 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
+  %17 = icmp ne i8 %16, 0
+  store i1 %17, ptr %6, align 1
+  %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i = load i8, ptr %6, align 1, !tbaa !3, !range !23, !noundef !24
+  %18 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i to i1
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br i1 %18, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %15, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
+  %.sroa.0.03.i.i.i = phi i32 [ %.sroa.0.1.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i ], [ 1, %15 ]
+  %19 = icmp slt i32 %.sroa.0.03.i.i.i, 17
+  br i1 %19, label %20, label %25
+
+20:                                               ; preds = %.lr.ph.i.i.i
+  %21 = icmp sgt i32 %.sroa.0.03.i.i.i, 0
+  br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
+
+.lr.ph.i.i.i.i.i:                                 ; preds = %20, %.lr.ph.i.i.i.i.i
+  %.01.i.i.i.i.i = phi i32 [ %22, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.03.i.i.i, %20 ]
+  %22 = add nsw i32 %.01.i.i.i.i.i, -1
+  tail call void @llvm.x86.sse2.pause()
+  %23 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
+  br i1 %23, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !25
+
+_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %20
+  %24 = shl nsw i32 %.sroa.0.03.i.i.i, 1
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
+
+25:                                               ; preds = %.lr.ph.i.i.i
+  %26 = tail call noundef i32 @sched_yield() #3
+  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
+
+_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %25, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
+  %.sroa.0.1.i.i.i = phi i32 [ %24, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.03.i.i.i, %25 ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %27 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
+  %28 = icmp ne i8 %27, 0
+  store i1 %28, ptr %6, align 1
+  %.0..0..0..0..0..0..0..0..0..0..i.i.i.i = load i8, ptr %6, align 1, !tbaa !3, !range !23, !noundef !24
+  %29 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i.i.i.i to i1
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br i1 %29, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i, !llvm.loop !26
+
+_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %15
+  tail call void @_ZN3tbb6detail2r133ITT_DoUnsafeOneTimeInitializationEv()
+  store atomic i8 0, ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE release, align 1
+  br label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
+
+_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit: ; preds = %12, %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
+  %.pr = load ptr, ptr %9, align 8, !tbaa !9
+  %.not = icmp eq ptr %.pr, null
+  br i1 %.not, label %44, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
+
+_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; preds = %5, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
+  %30 = phi ptr [ %.pr, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit ], [ %10, %5 ]
+  %31 = ptrtoint ptr %1 to i64
+  %32 = icmp ult i64 %3, 57
+  br i1 %32, label %33, label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
+
+33:                                               ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
+  %34 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %3
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !15
+  br label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
+
+_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit: ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread, %33
+  %37 = phi ptr [ %36, %33 ], [ null, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread ]
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
+  %39 = load volatile i32, ptr %30, align 8, !tbaa !11
+  %40 = icmp ne i32 %39, 0
+  %41 = load ptr, ptr @__itt_metadata_str_add_ptr__3_0, align 8
+  %42 = icmp ne ptr %41, null
+  %or.cond = select i1 %40, i1 %42, i1 false
+  br i1 %or.cond, label %43, label %44
+
+43:                                               ; preds = %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
+  store i64 %31, ptr %7, align 8, !tbaa !27
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !27
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !27
+  tail call void %41(ptr noundef nonnull %30, ptr noundef nonnull byval(%struct.___itt_id) align 8 %7, ptr noundef %37, ptr noundef nonnull %4, i64 noundef %38)
+  br label %44
+
+44:                                               ; preds = %43, %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN3tbb6detail2r120itt_metadata_ptr_addENS0_2d115itt_domain_enumEPvyNS0_2d021string_resource_indexES4_(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
   %7 = alloca %struct.___itt_id, align 8
   %8 = zext i32 %0 to i64
@@ -535,16 +646,16 @@ _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; pred
   br i1 %32, label %33, label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
 
 33:                                               ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
-  %34 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %3, i32 1
-  %35 = load ptr, ptr %34, align 8, !tbaa !15
+  %34 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %3
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !15
   br label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
 
 _ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit: ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread, %33
-  %36 = phi ptr [ %35, %33 ], [ null, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread ]
-  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
+  %37 = phi ptr [ %36, %33 ], [ null, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread ]
   %38 = load volatile i32, ptr %30, align 8, !tbaa !11
   %39 = icmp ne i32 %38, 0
-  %40 = load ptr, ptr @__itt_metadata_str_add_ptr__3_0, align 8
+  %40 = load ptr, ptr @__itt_metadata_add_ptr__3_0, align 8
   %41 = icmp ne ptr %40, null
   %or.cond = select i1 %39, i1 %41, i1 false
   br i1 %or.cond, label %42, label %43
@@ -555,116 +666,10 @@ _ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit: ; preds = %_ZN3tbb6detail2r1L1
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !27
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !27
-  tail call void %40(ptr noundef nonnull %30, ptr noundef nonnull byval(%struct.___itt_id) align 8 %7, ptr noundef %36, ptr noundef nonnull %4, i64 noundef %37)
+  tail call void %40(ptr noundef nonnull %30, ptr noundef nonnull byval(%struct.___itt_id) align 8 %7, ptr noundef %37, i32 noundef 1, i64 noundef 1, ptr noundef %4)
   br label %43
 
 43:                                               ; preds = %42, %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
-  ret void
-}
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
-
-; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r120itt_metadata_ptr_addENS0_2d115itt_domain_enumEPvyNS0_2d021string_resource_indexES4_(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %6 = alloca i8, align 1
-  %7 = alloca %struct.___itt_id, align 8
-  %8 = zext i32 %0 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !9
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
-
-12:                                               ; preds = %5
-  %13 = load atomic i8, ptr @_ZN3tbb6detail2r1L22ITT_InitializationDoneE.0 seq_cst, align 1
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit, label %15
-
-15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %16 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
-  %17 = icmp ne i8 %16, 0
-  store i1 %17, ptr %6, align 1
-  %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i = load i8, ptr %6, align 1, !tbaa !3, !range !23, !noundef !24
-  %18 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i2.i.i.i to i1
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %18, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %15, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
-  %.sroa.0.03.i.i.i = phi i32 [ %.sroa.0.1.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i ], [ 1, %15 ]
-  %19 = icmp slt i32 %.sroa.0.03.i.i.i, 17
-  br i1 %19, label %20, label %25
-
-20:                                               ; preds = %.lr.ph.i.i.i
-  %21 = icmp sgt i32 %.sroa.0.03.i.i.i, 0
-  br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
-
-.lr.ph.i.i.i.i.i:                                 ; preds = %20, %.lr.ph.i.i.i.i.i
-  %.01.i.i.i.i.i = phi i32 [ %22, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.03.i.i.i, %20 ]
-  %22 = add nsw i32 %.01.i.i.i.i.i, -1
-  tail call void @llvm.x86.sse2.pause()
-  %23 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
-  br i1 %23, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !25
-
-_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %20
-  %24 = shl nsw i32 %.sroa.0.03.i.i.i, 1
-  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
-
-25:                                               ; preds = %.lr.ph.i.i.i
-  %26 = tail call noundef i32 @sched_yield() #3
-  br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
-
-_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %25, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
-  %.sroa.0.1.i.i.i = phi i32 [ %24, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.03.i.i.i, %25 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %27 = atomicrmw xchg ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE, i8 1 seq_cst, align 1
-  %28 = icmp ne i8 %27, 0
-  store i1 %28, ptr %6, align 1
-  %.0..0..0..0..0..0..0..0..0..0..i.i.i.i = load i8, ptr %6, align 1, !tbaa !3, !range !23, !noundef !24
-  %29 = trunc nuw i8 %.0..0..0..0..0..0..0..0..0..0..i.i.i.i to i1
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %29, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i, !llvm.loop !26
-
-_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %15
-  tail call void @_ZN3tbb6detail2r133ITT_DoUnsafeOneTimeInitializationEv()
-  store atomic i8 0, ptr @_ZN3tbb6detail2r114__TBB_InitOnce18InitializationLockE release, align 1
-  br label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
-
-_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit: ; preds = %12, %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
-  %.pr = load ptr, ptr %9, align 8, !tbaa !9
-  %.not = icmp eq ptr %.pr, null
-  br i1 %.not, label %42, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
-
-_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; preds = %5, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
-  %30 = phi ptr [ %.pr, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit ], [ %10, %5 ]
-  %31 = ptrtoint ptr %1 to i64
-  %32 = icmp ult i64 %3, 57
-  br i1 %32, label %33, label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
-
-33:                                               ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
-  %34 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %3, i32 1
-  %35 = load ptr, ptr %34, align 8, !tbaa !15
-  br label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
-
-_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit: ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread, %33
-  %36 = phi ptr [ %35, %33 ], [ null, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread ]
-  %37 = load volatile i32, ptr %30, align 8, !tbaa !11
-  %38 = icmp ne i32 %37, 0
-  %39 = load ptr, ptr @__itt_metadata_add_ptr__3_0, align 8
-  %40 = icmp ne ptr %39, null
-  %or.cond = select i1 %38, i1 %40, i1 false
-  br i1 %or.cond, label %41, label %42
-
-41:                                               ; preds = %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
-  store i64 %31, ptr %7, align 8, !tbaa !27
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !27
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !27
-  tail call void %39(ptr noundef nonnull %30, ptr noundef nonnull byval(%struct.___itt_id) align 8 %7, ptr noundef %36, i32 noundef 1, i64 noundef 1, ptr noundef %4)
-  br label %42
-
-42:                                               ; preds = %41, %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
   ret void
 }
 
@@ -837,7 +842,7 @@ _ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i: ; preds = %_ZN3tbb6detail2d01
 _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit: ; preds = %14, %_ZN3tbb6detail2r114__TBB_InitOnce4lockEv.exit.i.i
   %.pr = load ptr, ptr %11, align 8, !tbaa !9
   %.not = icmp eq ptr %.pr, null
-  br i1 %.not, label %45, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
+  br i1 %.not, label %46, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
 
 _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; preds = %6, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
   %32 = phi ptr [ %.pr, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit ], [ %12, %6 ]
@@ -851,20 +856,21 @@ _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; pred
   br i1 %35, label %36, label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
 
 36:                                               ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
-  %37 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %5, i32 1
-  %38 = load ptr, ptr %37, align 8, !tbaa !15
+  %37 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %5
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !15
   br label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
 
 _ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit: ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread, %36
-  %39 = phi ptr [ %38, %36 ], [ null, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread ]
-  %40 = load volatile i32, ptr %32, align 8, !tbaa !11
-  %41 = icmp ne i32 %40, 0
-  %42 = load ptr, ptr @__itt_task_begin_ptr__3_0, align 8
-  %43 = icmp ne ptr %42, null
-  %or.cond = select i1 %41, i1 %43, i1 false
-  br i1 %or.cond, label %44, label %45
+  %40 = phi ptr [ %39, %36 ], [ null, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread ]
+  %41 = load volatile i32, ptr %32, align 8, !tbaa !11
+  %42 = icmp ne i32 %41, 0
+  %43 = load ptr, ptr @__itt_task_begin_ptr__3_0, align 8
+  %44 = icmp ne ptr %43, null
+  %or.cond = select i1 %42, i1 %44, i1 false
+  br i1 %or.cond, label %45, label %46
 
-44:                                               ; preds = %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
+45:                                               ; preds = %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
   store i64 %33, ptr %8, align 8, !tbaa !27
   %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %spec.select24, ptr %.sroa.521.0..sroa_idx, align 8, !tbaa !27
@@ -875,10 +881,10 @@ _ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit: ; preds = %_ZN3tbb6detail2r1L1
   store i64 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !27
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !27
-  tail call void %42(ptr noundef nonnull %32, ptr noundef nonnull byval(%struct.___itt_id) align 8 %8, ptr noundef nonnull byval(%struct.___itt_id) align 8 %9, ptr noundef %39)
-  br label %45
+  tail call void %43(ptr noundef nonnull %32, ptr noundef nonnull byval(%struct.___itt_id) align 8 %8, ptr noundef nonnull byval(%struct.___itt_id) align 8 %9, ptr noundef %40)
+  br label %46
 
-45:                                               ; preds = %44, %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
+46:                                               ; preds = %45, %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit, %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit
   ret void
 }
 

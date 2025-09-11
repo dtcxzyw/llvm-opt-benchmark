@@ -605,7 +605,8 @@ define dso_local void @uncore_perf_event_update(ptr noundef %0, ptr noundef %1) 
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = zext nneg i32 %12 to i64
-  %20 = getelementptr %struct.freerunning_counters, ptr %18, i64 %19, i32 4
+  %.split = getelementptr %struct.freerunning_counters, ptr %18, i64 %19
+  %20 = getelementptr i8, ptr %.split, i64 16
   br label %33
 
 21:                                               ; preds = %2
@@ -843,7 +844,8 @@ define dso_local void @uncore_pmu_event_stop(ptr noundef %0, i32 noundef %1) #0 
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 176
   %36 = load ptr, ptr %35, align 8
   %37 = zext nneg i32 %30 to i64
-  %38 = getelementptr %struct.freerunning_counters, ptr %36, i64 %37, i32 4
+  %.split3 = getelementptr %struct.freerunning_counters, ptr %36, i64 %37
+  %38 = getelementptr i8, ptr %.split3, i64 16
   br label %51
 
 39:                                               ; preds = %21
@@ -981,7 +983,8 @@ define dso_local void @uncore_pmu_event_stop(ptr noundef %0, i32 noundef %1) #0 
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 176
   %133 = load ptr, ptr %132, align 8
   %134 = zext nneg i32 %127 to i64
-  %135 = getelementptr %struct.freerunning_counters, ptr %133, i64 %134, i32 4
+  %.split = getelementptr %struct.freerunning_counters, ptr %133, i64 %134
+  %135 = getelementptr i8, ptr %.split, i64 16
   br label %148
 
 136:                                              ; preds = %118
@@ -1893,7 +1896,8 @@ define dso_local void @uncore_pmu_event_read(ptr noundef %0) #0 align 16 {
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 176
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %13 to i64
-  %21 = getelementptr %struct.freerunning_counters, ptr %19, i64 %20, i32 4
+  %.split = getelementptr %struct.freerunning_counters, ptr %19, i64 %20
+  %21 = getelementptr i8, ptr %.split, i64 16
   br label %34
 
 22:                                               ; preds = %1
@@ -3692,7 +3696,8 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
 
 .preheader:                                       ; preds = %.loopexit8, %.preheader
   %84 = phi i64 [ %87, %.preheader ], [ 0, %.loopexit8 ]
-  %85 = getelementptr %struct.intel_uncore_pmu, ptr %10, i64 %84, i32 7
+  %.split = getelementptr %struct.intel_uncore_pmu, ptr %10, i64 %84
+  %85 = getelementptr i8, ptr %.split, i64 360
   %86 = load ptr, ptr %85, align 8
   tail call void @kfree(ptr noundef %86) #18
   %87 = add nuw nsw i64 %84, 1
@@ -4267,7 +4272,8 @@ define internal noundef range(i32 0, 2) i32 @uncore_pmu_hrtimer(ptr noundef %0) 
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 176
   %39 = load ptr, ptr %38, align 8
   %40 = zext nneg i32 %34 to i64
-  %41 = getelementptr %struct.freerunning_counters, ptr %39, i64 %40, i32 4
+  %.split = getelementptr %struct.freerunning_counters, ptr %39, i64 %40
+  %41 = getelementptr i8, ptr %.split, i64 16
   br label %52
 
 42:                                               ; preds = %22
@@ -4357,7 +4363,8 @@ define internal noundef range(i32 0, 2) i32 @uncore_pmu_hrtimer(ptr noundef %0) 
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 176
   %107 = load ptr, ptr %106, align 8
   %108 = zext nneg i32 %102 to i64
-  %109 = getelementptr %struct.freerunning_counters, ptr %107, i64 %108, i32 4
+  %.split7 = getelementptr %struct.freerunning_counters, ptr %107, i64 %108
+  %109 = getelementptr i8, ptr %.split7, i64 16
   br label %120
 
 110:                                              ; preds = %88
@@ -4649,7 +4656,8 @@ define internal i32 @uncore_pmu_event_init(ptr noundef %0) #0 align 16 {
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 176
   %93 = load ptr, ptr %92, align 8
   %94 = zext nneg i32 %82 to i64
-  %95 = getelementptr %struct.freerunning_counters, ptr %93, i64 %94, i32 3
+  %.split = getelementptr %struct.freerunning_counters, ptr %93, i64 %94
+  %95 = getelementptr i8, ptr %.split, i64 12
   %96 = load i32, ptr %95, align 4
   %97 = icmp ult i32 %91, %96
   br i1 %97, label %98, label %.thread

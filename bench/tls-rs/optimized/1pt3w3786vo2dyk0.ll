@@ -2720,9 +2720,9 @@ define void @"_ZN81_$LT$rustls..msgs..handshake..SessionId$u20$as$u20$rustls..ms
   br label %39
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE.exit": ; preds = %29
+  %37 = getelementptr inbounds i8, ptr %10, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store <32 x i8> zeroinitializer, ptr %.sroa.0, align 32
-  %37 = getelementptr inbounds i8, ptr %10, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %.sroa.0, ptr nonnull readonly align 1 %37, i64 %19, i1 false), !alias.scope !569, !noalias !573
   %.sroa.0.0..sroa.0.0..sroa.0.0. = load <32 x i8>, ptr %.sroa.0, align 32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8

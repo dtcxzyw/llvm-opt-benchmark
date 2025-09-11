@@ -307,8 +307,9 @@ _ZL12correctstackP9lua_StateP10lua_TValue.exit:   ; preds = %.lr.ph39.i, %._crit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %80 = getelementptr inbounds %struct.lua_TValue, ptr %35, i64 %indvars.iv, i32 2
-  store i32 0, ptr %80, align 4, !tbaa !50
+  %80 = getelementptr inbounds %struct.lua_TValue, ptr %35, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 12
+  store i32 0, ptr %81, align 4, !tbaa !50
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52

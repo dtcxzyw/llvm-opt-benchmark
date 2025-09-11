@@ -428,7 +428,7 @@ encode_low.exit.i:                                ; preds = %120, %.critedge.i.i
   %177 = getelementptr inbounds %struct.TrellisPath, ptr %173, i64 %176
   store i32 %.0208259.i, ptr %177, align 4, !tbaa !65
   %178 = load i32, ptr %131, align 4, !tbaa !54
-  %179 = getelementptr inbounds %struct.TrellisPath, ptr %173, i64 %176, i32 1
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 4
   store i32 %178, ptr %179, align 4, !tbaa !67
   %180 = icmp sgt i32 %.0220.i, 0
   br i1 %180, label %.lr.ph.i, label %.thread.i
@@ -565,7 +565,7 @@ encode_low.exit.i:                                ; preds = %120, %.critedge.i.i
   %245 = getelementptr inbounds %struct.TrellisPath, ptr %241, i64 %244
   store i32 %240, ptr %245, align 4, !tbaa !65
   %246 = load i32, ptr %202, align 4, !tbaa !54
-  %247 = getelementptr inbounds %struct.TrellisPath, ptr %241, i64 %244, i32 1
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 4
   store i32 %246, ptr %247, align 4, !tbaa !67
   %248 = icmp sgt i32 %.0211.i, 0
   br i1 %248, label %.lr.ph272.i, label %.thread246.i

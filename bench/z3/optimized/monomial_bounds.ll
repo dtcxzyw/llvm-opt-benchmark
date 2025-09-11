@@ -8001,51 +8001,53 @@ _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10
   %.ph6 = phi ptr [ %4, %12 ], [ %.pre1, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i ]
   %.0.i.i.ph = phi ptr [ %5, %12 ], [ %17, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i ]
   store ptr %.0.i.i.ph, ptr %.0.val, align 8, !tbaa !258
-  %30 = getelementptr inbounds nuw %"class.lp::column", ptr %.ph, i64 %8, i32 1
-  %31 = load ptr, ptr %30, align 8, !tbaa !250
-  br label %35
+  %30 = getelementptr inbounds nuw %"class.lp::column", ptr %.ph, i64 %8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !250
+  br label %37
 
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit: ; preds = %1
   store ptr %10, ptr %.0.val, align 8, !tbaa !258
-  %32 = getelementptr inbounds nuw %"class.lp::column", ptr %7, i64 %8, i32 1
-  %33 = load ptr, ptr %32, align 8, !tbaa !250
-  %34 = icmp eq ptr %10, null
-  br i1 %34, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit5, label %35
+  %33 = getelementptr inbounds nuw %"class.lp::column", ptr %7, i64 %8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !250
+  %36 = icmp eq ptr %10, null
+  br i1 %36, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit5, label %37
 
-35:                                               ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit
-  %36 = phi ptr [ %31, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread ], [ %33, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ]
+37:                                               ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit
+  %38 = phi ptr [ %32, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread ], [ %35, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ]
   %.0.i.i8 = phi ptr [ %.0.i.i.ph, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread ], [ %10, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ]
-  %37 = phi ptr [ %.ph6, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread ], [ %4, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ]
-  %38 = icmp eq ptr %36, null
-  %39 = icmp eq ptr %.0.i.i8, %36
-  %or.cond.i.i2 = or i1 %38, %39
+  %39 = phi ptr [ %.ph6, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread ], [ %4, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ]
+  %40 = icmp eq ptr %38, null
+  %41 = icmp eq ptr %.0.i.i8, %38
+  %or.cond.i.i2 = or i1 %40, %41
   br i1 %or.cond.i.i2, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit5, label %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i3
 
-_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i3: ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 1544
-  %41 = load ptr, ptr %40, align 8, !tbaa !251
-  %42 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %41, i64 noundef 24)
-  %43 = load i32, ptr %.0.i.i8, align 4
-  %44 = add i32 %43, 1
-  %45 = and i32 %44, 1073741823
-  %46 = and i32 %43, -1073741824
-  %47 = or disjoint i32 %45, %46
-  store i32 %47, ptr %.0.i.i8, align 4
-  %48 = load i32, ptr %36, align 4
-  %49 = add i32 %48, 1
-  %50 = and i32 %49, 1073741823
-  %51 = and i32 %48, -1073741824
-  %52 = or disjoint i32 %50, %51
-  store i32 %52, ptr %36, align 4
-  store i32 0, ptr %42, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %.0.i.i8, ptr %53, align 8, !tbaa !258
-  %54 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store ptr %36, ptr %54, align 8, !tbaa !258
+_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i3: ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1544
+  %43 = load ptr, ptr %42, align 8, !tbaa !251
+  %44 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %43, i64 noundef 24)
+  %45 = load i32, ptr %.0.i.i8, align 4
+  %46 = add i32 %45, 1
+  %47 = and i32 %46, 1073741823
+  %48 = and i32 %45, -1073741824
+  %49 = or disjoint i32 %47, %48
+  store i32 %49, ptr %.0.i.i8, align 4
+  %50 = load i32, ptr %38, align 4
+  %51 = add i32 %50, 1
+  %52 = and i32 %51, 1073741823
+  %53 = and i32 %50, -1073741824
+  %54 = or disjoint i32 %52, %53
+  store i32 %54, ptr %38, align 4
+  store i32 0, ptr %44, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store ptr %.0.i.i8, ptr %55, align 8, !tbaa !258
+  %56 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store ptr %38, ptr %56, align 8, !tbaa !258
   br label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit5
 
-_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit5: ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit, %35, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i3
-  %.0.i.i4 = phi ptr [ %42, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i3 ], [ %33, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ], [ %.0.i.i8, %35 ]
+_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit5: ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit, %37, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i3
+  %.0.i.i4 = phi ptr [ %44, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i3 ], [ %35, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ], [ %.0.i.i8, %37 ]
   store ptr %.0.i.i4, ptr %.0.val, align 8, !tbaa !258
   ret ptr %.0.i.i4
 }

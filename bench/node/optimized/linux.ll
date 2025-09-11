@@ -869,7 +869,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = phi i32 [ %2, %for.body.lr.ph ], [ %6, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %4 = load ptr, ptr %events, align 8
-  %data = getelementptr inbounds nuw %struct.epoll_event, ptr %4, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr inbounds nuw %struct.epoll_event, ptr %4, i64 %indvars.iv
+  %data = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %data, align 1
   %cmp3 = icmp eq i32 %5, %fd
   br i1 %cmp3, label %if.then4, label %for.inc
@@ -3397,7 +3398,8 @@ if.then91:                                        ; preds = %if.end88
   %sub.ptr.div = lshr exact i64 %model.0.add, 6
   %conv93 = trunc nuw nsw i64 %sub.ptr.div to i32
   %idxprom94 = zext nneg i32 %6 to i64
-  %model96 = getelementptr inbounds nuw %struct.cpu, ptr %call4, i64 %idxprom94, i32 6
+  %arrayidx95 = getelementptr inbounds nuw %struct.cpu, ptr %call4, i64 %idxprom94
+  %model96 = getelementptr inbounds nuw i8, ptr %arrayidx95, i64 48
   store i32 %conv93, ptr %model96, align 8
   br label %while.cond98.preheader
 

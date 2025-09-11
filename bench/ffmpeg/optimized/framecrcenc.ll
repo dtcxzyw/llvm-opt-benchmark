@@ -112,22 +112,23 @@ define internal noundef i32 @framecrc_write_packet(ptr noundef readonly captures
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %32 = load ptr, ptr %30, align 8, !tbaa !49
-  %33 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %32, i64 %indvars.iv, i32 1
-  %34 = load i64, ptr %33, align 8, !tbaa !50
-  %35 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.6, i64 noundef %34) #7
+  %33 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %32, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load i64, ptr %34, align 8, !tbaa !50
+  %36 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.6, i64 noundef %35) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr %24, align 8, !tbaa !48
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %31, label %.loopexit, !llvm.loop !52
+  %37 = load i32, ptr %24, align 8, !tbaa !48
+  %38 = sext i32 %37 to i64
+  %39 = icmp slt i64 %indvars.iv.next, %38
+  br i1 %39, label %31, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %31, %26, %23
-  %39 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.7) #7
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !38
-  %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #6
-  %43 = trunc i64 %42 to i32
-  call void @avio_write(ptr noundef %41, ptr noundef nonnull %3, i32 noundef %43) #7
+  %40 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.7) #7
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %42 = load ptr, ptr %41, align 8, !tbaa !38
+  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #6
+  %44 = trunc i64 %43 to i32
+  call void @avio_write(ptr noundef %42, ptr noundef nonnull %3, i32 noundef %44) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }

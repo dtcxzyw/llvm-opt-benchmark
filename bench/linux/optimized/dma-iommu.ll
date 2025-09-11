@@ -1496,7 +1496,8 @@ define internal noundef ptr @iommu_dma_alloc_noncontiguous(ptr noundef %0, i64 n
 
 12:                                               ; preds = %8, %5
   %13 = phi i64 [ 0, %5 ], [ %11, %8 ]
-  %14 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13, i64 5
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13
+  %14 = getelementptr i8, ptr %.split, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %15, i32 noundef %3, i64 noundef 24) #19
   %17 = icmp eq ptr %16, null

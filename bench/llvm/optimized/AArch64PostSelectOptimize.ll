@@ -1114,7 +1114,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_125AArch64PostSelec
 
 32:                                               ; preds = %22
   %33 = icmp slt i32 %.sroa.021.0.copyload, 0
-  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %16, i64 %15, i32 1
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 296
   %36 = zext nneg i32 %.sroa.021.0.copyload to i64
   %37 = load ptr, ptr %35, align 8

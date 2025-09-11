@@ -544,7 +544,8 @@ define dso_local ptr @nfs4_get_state_owner(ptr noundef %0, ptr noundef %1, i32 n
 
 42:                                               ; preds = %38, %34
   %43 = phi i64 [ 0, %34 ], [ %41, %38 ]
-  %44 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %43, i64 9
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %43
+  %44 = getelementptr i8, ptr %.split, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noalias align 8 dereferenceable_or_null(376) ptr @kmalloc_trace(ptr noundef %45, i32 noundef %35, i64 noundef 376) #19
   %47 = icmp eq ptr %46, null
@@ -1957,7 +1958,8 @@ define dso_local noundef ptr @nfs_alloc_seqid(ptr noundef %0, i32 noundef %1) lo
 
 9:                                                ; preds = %5, %2
   %10 = phi i64 [ 0, %2 ], [ %8, %5 ]
-  %11 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10, i64 5
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10
+  %11 = getelementptr i8, ptr %.split, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %12, i32 noundef %1, i64 noundef 32) #19
   %14 = icmp eq ptr %13, null

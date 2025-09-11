@@ -210,19 +210,19 @@ define hidden void @_glfwUpdateBufferScaleFromOutputsWayland(ptr noundef %0) loc
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
   %4 = tail call i32 %3(ptr noundef %2) #20
   %5 = icmp ult i32 %4, 3
-  br i1 %5, label %36, label %6
+  br i1 %5, label %37, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %8 = load i32, ptr %7, align 8, !tbaa !94
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %36, label %9
+  br i1 %.not, label %37, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %11 = load ptr, ptr %10, align 8, !tbaa !128
   %.not20 = icmp eq ptr %11, null
-  br i1 %.not20, label %.preheader, label %36
+  br i1 %.not20, label %.preheader, label %37
 
 .preheader:                                       ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1040
@@ -235,45 +235,46 @@ define hidden void @_glfwUpdateBufferScaleFromOutputsWayland(ptr noundef %0) loc
   br label %17
 
 ._crit_edge:                                      ; preds = %17, %.preheader
-  %.019.lcssa = phi i32 [ 1, %.preheader ], [ %21, %17 ]
+  %.019.lcssa = phi i32 [ 1, %.preheader ], [ %22, %17 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %16 = load i32, ptr %15, align 8, !tbaa !130
   %.not21 = icmp eq i32 %16, %.019.lcssa
-  br i1 %.not21, label %36, label %25
+  br i1 %.not21, label %37, label %26
 
 17:                                               ; preds = %.lr.ph, %17
-  %.024 = phi i64 [ 0, %.lr.ph ], [ %22, %17 ]
-  %.01923 = phi i32 [ 1, %.lr.ph ], [ %21, %17 ]
+  %.024 = phi i64 [ 0, %.lr.ph ], [ %23, %17 ]
+  %.01923 = phi i32 [ 1, %.lr.ph ], [ %22, %17 ]
   %18 = load ptr, ptr %14, align 8, !tbaa !131
-  %19 = getelementptr inbounds nuw %struct._GLFWscaleWayland, ptr %18, i64 %.024, i32 1
-  %20 = load i32, ptr %19, align 8, !tbaa !132
-  %21 = tail call i32 @_glfw_max(i32 noundef %20, i32 noundef %.01923) #20
-  %22 = add nuw i64 %.024, 1
-  %23 = load i64, ptr %12, align 8, !tbaa !129
-  %24 = icmp ult i64 %22, %23
-  br i1 %24, label %17, label %._crit_edge
+  %19 = getelementptr inbounds nuw %struct._GLFWscaleWayland, ptr %18, i64 %.024
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i32, ptr %20, align 8, !tbaa !132
+  %22 = tail call i32 @_glfw_max(i32 noundef %21, i32 noundef %.01923) #20
+  %23 = add nuw i64 %.024, 1
+  %24 = load i64, ptr %12, align 8, !tbaa !129
+  %25 = icmp ult i64 %23, %24
+  br i1 %25, label %17, label %._crit_edge
 
-25:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   store i32 %.019.lcssa, ptr %15, align 8, !tbaa !130
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %27 = load ptr, ptr %26, align 8, !tbaa !135
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
-  %30 = tail call i32 %29(ptr noundef %27) #20
-  %31 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %28(ptr noundef %27, i32 noundef 8, ptr noundef null, i32 noundef %30, i32 noundef 0, i32 noundef %.019.lcssa) #20
-  %32 = sitofp i32 %.019.lcssa to float
-  tail call void @_glfwInputWindowContentScale(ptr noundef nonnull %0, float noundef %32, float noundef %32) #20
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %28 = load ptr, ptr %27, align 8, !tbaa !135
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
+  %31 = tail call i32 %30(ptr noundef %28) #20
+  %32 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %29(ptr noundef %28, i32 noundef 8, ptr noundef null, i32 noundef %31, i32 noundef 0, i32 noundef %.019.lcssa) #20
+  %33 = sitofp i32 %.019.lcssa to float
+  tail call void @_glfwInputWindowContentScale(ptr noundef nonnull %0, float noundef %33, float noundef %33) #20
   tail call fastcc void @resizeFramebuffer(ptr noundef nonnull %0)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %34 = load i32, ptr %33, align 8, !tbaa !137
-  %.not22 = icmp eq i32 %34, 0
-  br i1 %.not22, label %36, label %35
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %35 = load i32, ptr %34, align 8, !tbaa !137
+  %.not22 = icmp eq i32 %35, 0
+  br i1 %.not22, label %37, label %36
 
-35:                                               ; preds = %25
+36:                                               ; preds = %26
   tail call void @_glfwInputWindowDamage(ptr noundef nonnull %0) #20
-  br label %36
+  br label %37
 
-36:                                               ; preds = %._crit_edge, %35, %25, %9, %6, %1
+37:                                               ; preds = %._crit_edge, %36, %26, %9, %6, %1
   ret void
 }
 
@@ -816,59 +817,60 @@ define internal void @dataDeviceHandleEnter(ptr readnone captures(none) %0, ptr 
   %29 = load ptr, ptr %28, align 8, !tbaa !135
   %30 = icmp eq ptr %3, %29
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134032), align 8, !tbaa !173
-  br i1 %30, label %31, label %35
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %22
-  %32 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %indvars.iv, i32 2
-  %33 = load i32, ptr %32, align 4, !tbaa !182
-  %.not24 = icmp eq i32 %33, 0
-  br i1 %.not24, label %35, label %34
+  %32 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
+  %34 = load i32, ptr %33, align 4, !tbaa !182
+  %.not24 = icmp eq i32 %34, 0
+  br i1 %.not24, label %36, label %35
 
-34:                                               ; preds = %31
+35:                                               ; preds = %31
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134064), align 8, !tbaa !177
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134072), align 8, !tbaa !183
   store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134080), align 8, !tbaa !184
-  br label %35
+  br label %36
 
-35:                                               ; preds = %34, %31, %22
-  %36 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %indvars.iv
-  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
-  %38 = add i32 %37, -1
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !185
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
-  %42 = add i32 %41, -1
-  store i32 %42, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
+36:                                               ; preds = %35, %31, %22
+  %37 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %indvars.iv
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
+  %39 = add i32 %38, -1
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !185
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
+  %43 = add i32 %42, -1
+  store i32 %43, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %14, %35
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137504), align 8, !tbaa !180
-  %44 = tail call ptr %43(ptr noundef %3) #20
-  %.not25 = icmp eq ptr %44, getelementptr inbounds nuw (i8, ptr @_glfw, i64 134088)
-  br i1 %.not25, label %45, label %58
+.loopexit:                                        ; preds = %17, %14, %36
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137504), align 8, !tbaa !180
+  %45 = tail call ptr %44(ptr noundef %3) #20
+  %.not25 = icmp eq ptr %45, getelementptr inbounds nuw (i8, ptr @_glfw, i64 134088)
+  br i1 %.not25, label %46, label %59
 
-45:                                               ; preds = %.loopexit
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134064), align 8, !tbaa !177
-  %.not26 = icmp eq ptr %46, null
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
-  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
-  %49 = tail call i32 %48(ptr noundef %6) #20
-  br i1 %.not26, label %52, label %50
+46:                                               ; preds = %.loopexit
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134064), align 8, !tbaa !177
+  %.not26 = icmp eq ptr %47, null
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
+  %50 = tail call i32 %49(ptr noundef %6) #20
+  br i1 %.not26, label %53, label %51
 
-50:                                               ; preds = %45
-  %51 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %47(ptr noundef %6, i32 noundef 0, ptr noundef null, i32 noundef %49, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.41) #20
-  br label %58
+51:                                               ; preds = %46
+  %52 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %48(ptr noundef %6, i32 noundef 0, ptr noundef null, i32 noundef %50, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.41) #20
+  br label %59
 
-52:                                               ; preds = %45
-  %53 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %47(ptr noundef %6, i32 noundef 0, ptr noundef null, i32 noundef %49, i32 noundef 0, i32 noundef %2, ptr noundef null) #20
-  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
-  %56 = tail call i32 %55(ptr noundef %6) #20
-  %57 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %54(ptr noundef %6, i32 noundef 2, ptr noundef null, i32 noundef %56, i32 noundef 1) #20
-  br label %58
+53:                                               ; preds = %46
+  %54 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %48(ptr noundef %6, i32 noundef 0, ptr noundef null, i32 noundef %50, i32 noundef 0, i32 noundef %2, ptr noundef null) #20
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
+  %57 = tail call i32 %56(ptr noundef %6) #20
+  %58 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %55(ptr noundef %6, i32 noundef 2, ptr noundef null, i32 noundef %57, i32 noundef 1) #20
+  br label %59
 
-58:                                               ; preds = %.loopexit, %52, %50
+59:                                               ; preds = %.loopexit, %53, %51
   ret void
 }
 

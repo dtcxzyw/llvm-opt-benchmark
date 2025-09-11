@@ -2092,7 +2092,7 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
 42:                                               ; preds = %40
   %43 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0745, ptr noundef nonnull @ei_radiotap_invalid_header_length)
   %44 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %1874
+  br label %1878
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -2104,7 +2104,7 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not795, label %52, label %51
 
 51:                                               ; preds = %45
-  br i1 %28, label %.sink.split998, label %1805
+  br i1 %28, label %.sink.split995, label %1809
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -2123,8 +2123,8 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
   %64 = call ptr @proto_tree_add_item(ptr noundef %.0744, i32 noundef %62, ptr noundef %0, i32 noundef 4, i32 noundef %63, i32 noundef 0)
   %65 = load i32, ptr @ett_radiotap_present, align 4
   %66 = call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65)
-  %.not942 = icmp ult i32 %61, 4
-  br i1 %.not942, label %.preheader, label %.lr.ph.preheader
+  %.not939 = icmp ult i32 %61, 4
+  br i1 %.not939, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %52
   %67 = lshr i64 %60, 2
@@ -2217,7 +2217,7 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
   %.2764 = select i1 %.not849, i1 %spec.select858, i1 false
   %139 = and i32 %129, 1610612736
   %140 = icmp eq i32 %139, 1610612736
-  br i1 %140, label %.thread979, label %141
+  br i1 %140, label %.thread976, label %141
 
 141:                                              ; preds = %.lr.ph
   %142 = icmp eq i32 %.0765933, 0
@@ -2302,10 +2302,10 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
   %210 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %209, ptr noundef %0, i32 noundef %133, i32 noundef 4, i32 noundef -2147483648)
   br label %213
 
-.thread979:                                       ; preds = %.lr.ph
+.thread976:                                       ; preds = %.lr.ph
   %211 = trunc nuw nsw i64 %indvars.iv to i32
   %212 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %134, ptr noundef nonnull @ei_radiotap_present, ptr noundef nonnull @.str.1276, i32 noundef %211)
-  br label %.sink.split998
+  br label %.sink.split995
 
 213:                                              ; preds = %204, %203
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2320,7 +2320,7 @@ dissect_radiotap_rate.exit:                       ; preds = %dissect_radiotap_ra
   %.1774 = phi i1 [ false, %.preheader ], [ %.1774.be, %dissect_radiotap_rate.exit.backedge ]
   %.2759 = phi i8 [ 0, %.preheader ], [ %.2759.be, %dissect_radiotap_rate.exit.backedge ]
   %214 = call i32 @ieee80211_radiotap_iterator_next(ptr noundef nonnull %14)
-  switch i32 %214, label %1801 [
+  switch i32 %214, label %1805 [
     i32 0, label %215
     i32 -2, label %.loopexit
   ]
@@ -2357,14 +2357,14 @@ dissect_radiotap_rate.exit:                       ; preds = %dissect_radiotap_ra
   %.not799 = icmp eq i32 %239, 0
   %240 = add i32 %219, 4
   %. = select i1 %.not799, i32 6, i32 8
-  %.999 = select i1 %.not799, i32 -6, i32 -8
+  %.996 = select i1 %.not799, i32 -6, i32 -8
   %hf_radiotap_ven_skip.val = load i32, ptr @hf_radiotap_ven_skip, align 4
   %hf_radiotap_ven_item.val = load i32, ptr @hf_radiotap_ven_item, align 4
   %241 = select i1 %.not799, i32 %hf_radiotap_ven_skip.val, i32 %hf_radiotap_ven_item.val
   %242 = call ptr @proto_tree_add_item(ptr noundef %233, i32 noundef %241, ptr noundef %0, i32 noundef %240, i32 noundef 2, i32 noundef -2147483648)
   %243 = add i32 %., %219
   %244 = load i32, ptr %71, align 8
-  %245 = add i32 %244, %.999
+  %245 = add i32 %244, %.996
   %246 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %243, i32 noundef %245)
   %247 = load ptr, ptr @vendor_dissector_table, align 8
   %248 = call i32 @dissector_try_uint_with_data(ptr noundef %247, i32 noundef %238, ptr noundef %246, ptr noundef %1, ptr noundef %233, i1 noundef zeroext true, ptr noundef null)
@@ -2383,7 +2383,7 @@ dissect_radiotap_rate.exit:                       ; preds = %dissect_radiotap_ra
 
 254:                                              ; preds = %252
   %255 = load i32, ptr %69, align 4
-  switch i32 %255, label %1784 [
+  switch i32 %255, label %1788 [
     i32 0, label %256
     i32 1, label %262
     i32 2, label %294
@@ -2405,15 +2405,15 @@ dissect_radiotap_rate.exit:                       ; preds = %dissect_radiotap_ra
     i32 19, label %489
     i32 20, label %629
     i32 21, label %678
-    i32 22, label %916
-    i32 23, label %941
-    i32 24, label %1089
-    i32 26, label %1149
-    i32 27, label %1159
+    i32 22, label %920
+    i32 23, label %945
+    i32 24, label %1093
+    i32 26, label %1153
+    i32 27, label %1163
     i32 28, label %dissect_radiotap_rate.exit.backedge
-    i32 32, label %1169
-    i32 33, label %1189
-    i32 34, label %1275
+    i32 32, label %1173
+    i32 33, label %1193
+    i32 34, label %1279
   ]
 
 256:                                              ; preds = %254
@@ -3167,13 +3167,13 @@ dissect_radiotap_flags.exit:                      ; preds = %268, %.sink.split.i
 645:                                              ; preds = %642, %640
   br i1 %28, label %646, label %dissect_radiotap_rate.exit.backedge
 
-dissect_radiotap_rate.exit.backedge:              ; preds = %dissect_eht_user_info.exit.i, %645, %1669, %1644, %625, %622, %619, %478, %472, %428, %424, %423, %416, %412, %385, %381, %353, %352, %304, %300, %254, %256, %dissect_radiotap_flags.exit, %361, %373, %389, %392, %395, %398, %401, %404, %432, %436, %dissect_radiotap_timestamp.exit, %dissect_radiotap_he_info.exit, %dissect_radiotap_he_mu_info.exit, %dissect_radiotap_0_length_psdu.exit, %1159, %1169, %dissect_radiotap_u_sig.exit, %1797, %1786, %615, %611, %609, %674, %646, %908, %913, %906, %252
-  %.2911.be = phi i8 [ %.2911, %252 ], [ %.2911, %1797 ], [ %.2911, %1786 ], [ %.2911, %256 ], [ %263, %dissect_radiotap_flags.exit ], [ %.2911, %361 ], [ %.2911, %373 ], [ %.2911, %389 ], [ %.2911, %392 ], [ %.2911, %395 ], [ %.2911, %398 ], [ %.2911, %401 ], [ %.2911, %404 ], [ %.2911, %432 ], [ %.2911, %436 ], [ %.2911, %611 ], [ %.2911, %615 ], [ %.2911, %609 ], [ %.2911, %674 ], [ %.2911, %646 ], [ %.2911, %906 ], [ %.2911, %908 ], [ %.2911, %913 ], [ %.2911, %dissect_radiotap_timestamp.exit ], [ %.2911, %dissect_radiotap_he_info.exit ], [ %.2911, %dissect_radiotap_he_mu_info.exit ], [ %.2911, %dissect_radiotap_0_length_psdu.exit ], [ %.2911, %1159 ], [ %.2911, %254 ], [ %.2911, %1169 ], [ %.2911, %dissect_radiotap_u_sig.exit ], [ %.2911, %300 ], [ %.2911, %304 ], [ %.2911, %352 ], [ %.2911, %353 ], [ %.2911, %381 ], [ %.2911, %385 ], [ %.2911, %412 ], [ %.2911, %416 ], [ %.2911, %423 ], [ %.2911, %424 ], [ %.2911, %428 ], [ %.2911, %472 ], [ %.2911, %478 ], [ %.2911, %619 ], [ %.2911, %622 ], [ %.2911, %625 ], [ %.2911, %1644 ], [ %.2911, %1669 ], [ %.2911, %645 ], [ %.2911, %dissect_eht_user_info.exit.i ]
-  %.2905.be = phi ptr [ %.2905, %252 ], [ %.2905, %1797 ], [ %.2905, %1786 ], [ %.2905, %256 ], [ %.2905, %dissect_radiotap_flags.exit ], [ %.2905, %361 ], [ %.2905, %373 ], [ %.2905, %389 ], [ %.2905, %392 ], [ %.2905, %395 ], [ %.2905, %398 ], [ %.2905, %401 ], [ %.2905, %404 ], [ %.2905, %432 ], [ %.2905, %436 ], [ %.2905, %611 ], [ %.2905, %615 ], [ %.2905, %609 ], [ %.2905, %674 ], [ %.2905, %646 ], [ %.2905, %906 ], [ %.2905, %908 ], [ %.2905, %913 ], [ %.2905, %dissect_radiotap_timestamp.exit ], [ %.2905, %dissect_radiotap_he_info.exit ], [ %.2905, %dissect_radiotap_he_mu_info.exit ], [ %.2905, %dissect_radiotap_0_length_psdu.exit ], [ %.2905, %1159 ], [ %.2905, %254 ], [ %.2905, %1169 ], [ %.2905, %dissect_radiotap_u_sig.exit ], [ %.2905, %300 ], [ %.2905, %304 ], [ %.2905, %352 ], [ %.2905, %353 ], [ %.2905, %381 ], [ %.2905, %385 ], [ %.2905, %412 ], [ %.2905, %416 ], [ %.2905, %423 ], [ %427, %424 ], [ %.2905, %428 ], [ %.2905, %472 ], [ %.2905, %478 ], [ %.2905, %619 ], [ %.2905, %622 ], [ %.2905, %625 ], [ %.2905, %1644 ], [ %.2905, %1669 ], [ %.2905, %645 ], [ %.2905, %dissect_eht_user_info.exit.i ]
-  %.2899.be = phi i32 [ %.2899, %252 ], [ %.2899, %1797 ], [ %.2899, %1786 ], [ %.2899, %256 ], [ %.2899, %dissect_radiotap_flags.exit ], [ %.2899, %361 ], [ %.2899, %373 ], [ %.2899, %389 ], [ %.2899, %392 ], [ %.2899, %395 ], [ %.2899, %398 ], [ %.2899, %401 ], [ %.2899, %404 ], [ %.2899, %432 ], [ %.2899, %436 ], [ %.2899, %611 ], [ %.2899, %615 ], [ %.2899, %609 ], [ %.2899, %674 ], [ %.2899, %646 ], [ %.2899, %906 ], [ %.2899, %908 ], [ %.2899, %913 ], [ %.2899, %dissect_radiotap_timestamp.exit ], [ %.2899, %dissect_radiotap_he_info.exit ], [ %.2899, %dissect_radiotap_he_mu_info.exit ], [ %.2899, %dissect_radiotap_0_length_psdu.exit ], [ %.2899, %1159 ], [ %.2899, %254 ], [ %.2899, %1169 ], [ %.2899, %dissect_radiotap_u_sig.exit ], [ %.2899, %300 ], [ %.2899, %304 ], [ %.2899, %352 ], [ %.2899, %353 ], [ %.2899, %381 ], [ %.2899, %385 ], [ %.2899, %412 ], [ %.2899, %416 ], [ %.2899, %423 ], [ %219, %424 ], [ %.2899, %428 ], [ %.2899, %472 ], [ %.2899, %478 ], [ %.2899, %619 ], [ %.2899, %622 ], [ %.2899, %625 ], [ %.2899, %1644 ], [ %.2899, %1669 ], [ %.2899, %645 ], [ %.2899, %dissect_eht_user_info.exit.i ]
-  %.2894.be = phi i32 [ %.2894, %252 ], [ %.2894, %1797 ], [ %.2894, %1786 ], [ %.2894, %256 ], [ %.2894, %dissect_radiotap_flags.exit ], [ %.2894, %361 ], [ %.2894, %373 ], [ %.2894, %389 ], [ %.2894, %392 ], [ %.2894, %395 ], [ %.2894, %398 ], [ %.2894, %401 ], [ %.2894, %404 ], [ %.2894, %432 ], [ %.2894, %436 ], [ %.2894, %611 ], [ %.2894, %615 ], [ %.2894, %609 ], [ %.2894, %674 ], [ %.2894, %646 ], [ %.2894, %906 ], [ %.2894, %908 ], [ %.2894, %913 ], [ %.2894, %dissect_radiotap_timestamp.exit ], [ %.2894, %dissect_radiotap_he_info.exit ], [ %.2894, %dissect_radiotap_he_mu_info.exit ], [ %.2894, %dissect_radiotap_0_length_psdu.exit ], [ %.2894, %1159 ], [ %.2894, %254 ], [ %.2894, %1169 ], [ %.2894, %dissect_radiotap_u_sig.exit ], [ %.2894, %300 ], [ %.2894, %304 ], [ %.2894, %352 ], [ %.2894, %353 ], [ %.2894, %381 ], [ %.2894, %385 ], [ %.2894, %412 ], [ %.2894, %416 ], [ %.2894, %423 ], [ %425, %424 ], [ %.2894, %428 ], [ %.2894, %472 ], [ %.2894, %478 ], [ %.2894, %619 ], [ %.2894, %622 ], [ %.2894, %625 ], [ %.2894, %1644 ], [ %.2894, %1669 ], [ %.2894, %645 ], [ %.2894, %dissect_eht_user_info.exit.i ]
-  %.1774.be = phi i1 [ %.1774, %252 ], [ %.1774, %1797 ], [ %.1774, %1786 ], [ %.1774, %256 ], [ %.1774, %dissect_radiotap_flags.exit ], [ %.1774, %361 ], [ %.1774, %373 ], [ %.1774, %389 ], [ %.1774, %392 ], [ %.1774, %395 ], [ %.1774, %398 ], [ %.1774, %401 ], [ %.1774, %404 ], [ %.1774, %432 ], [ %.1774, %436 ], [ %.1774, %611 ], [ %.1774, %615 ], [ %.1774, %609 ], [ %.1774, %674 ], [ %.1774, %646 ], [ %.1774, %906 ], [ %.1774, %908 ], [ %.1774, %913 ], [ %.1774, %dissect_radiotap_timestamp.exit ], [ %.1774, %dissect_radiotap_he_info.exit ], [ %.1774, %dissect_radiotap_he_mu_info.exit ], [ true, %dissect_radiotap_0_length_psdu.exit ], [ %.1774, %1159 ], [ %.1774, %254 ], [ %.1774, %1169 ], [ %.1774, %dissect_radiotap_u_sig.exit ], [ %.1774, %300 ], [ %.1774, %304 ], [ %.1774, %352 ], [ %.1774, %353 ], [ %.1774, %381 ], [ %.1774, %385 ], [ %.1774, %412 ], [ %.1774, %416 ], [ %.1774, %423 ], [ %.1774, %424 ], [ %.1774, %428 ], [ %.1774, %472 ], [ %.1774, %478 ], [ %.1774, %619 ], [ %.1774, %622 ], [ %.1774, %625 ], [ %.1774, %1644 ], [ %.1774, %1669 ], [ %.1774, %645 ], [ %.1774, %dissect_eht_user_info.exit.i ]
-  %.2759.be = phi i8 [ %.2759, %252 ], [ %.2759, %1797 ], [ %.2759, %1786 ], [ %.2759, %256 ], [ 1, %dissect_radiotap_flags.exit ], [ %.2759, %361 ], [ %.2759, %373 ], [ %.2759, %389 ], [ %.2759, %392 ], [ %.2759, %395 ], [ %.2759, %398 ], [ %.2759, %401 ], [ %.2759, %404 ], [ %.2759, %432 ], [ %.2759, %436 ], [ %.2759, %611 ], [ %.2759, %615 ], [ %.2759, %609 ], [ %.2759, %674 ], [ %.2759, %646 ], [ %.2759, %906 ], [ %.2759, %908 ], [ %.2759, %913 ], [ %.2759, %dissect_radiotap_timestamp.exit ], [ %.2759, %dissect_radiotap_he_info.exit ], [ %.2759, %dissect_radiotap_he_mu_info.exit ], [ %.2759, %dissect_radiotap_0_length_psdu.exit ], [ %.2759, %1159 ], [ %.2759, %254 ], [ %.2759, %1169 ], [ %.2759, %dissect_radiotap_u_sig.exit ], [ %.2759, %300 ], [ %.2759, %304 ], [ %.2759, %352 ], [ %.2759, %353 ], [ %.2759, %381 ], [ %.2759, %385 ], [ %.2759, %412 ], [ %.2759, %416 ], [ %.2759, %423 ], [ %.2759, %424 ], [ %.2759, %428 ], [ %.2759, %472 ], [ %.2759, %478 ], [ %.2759, %619 ], [ %.2759, %622 ], [ %.2759, %625 ], [ %.2759, %1644 ], [ %.2759, %1669 ], [ %.2759, %645 ], [ %.2759, %dissect_eht_user_info.exit.i ]
+dissect_radiotap_rate.exit.backedge:              ; preds = %dissect_eht_user_info.exit.i, %645, %1673, %1648, %625, %622, %619, %478, %472, %428, %424, %423, %416, %412, %385, %381, %353, %352, %304, %300, %254, %256, %dissect_radiotap_flags.exit, %361, %373, %389, %392, %395, %398, %401, %404, %432, %436, %dissect_radiotap_timestamp.exit, %dissect_radiotap_he_info.exit, %dissect_radiotap_he_mu_info.exit, %dissect_radiotap_0_length_psdu.exit, %1163, %1173, %dissect_radiotap_u_sig.exit, %1801, %1790, %615, %611, %609, %674, %646, %912, %917, %910, %252
+  %.2911.be = phi i8 [ %.2911, %252 ], [ %.2911, %1801 ], [ %.2911, %1790 ], [ %.2911, %256 ], [ %263, %dissect_radiotap_flags.exit ], [ %.2911, %361 ], [ %.2911, %373 ], [ %.2911, %389 ], [ %.2911, %392 ], [ %.2911, %395 ], [ %.2911, %398 ], [ %.2911, %401 ], [ %.2911, %404 ], [ %.2911, %432 ], [ %.2911, %436 ], [ %.2911, %611 ], [ %.2911, %615 ], [ %.2911, %609 ], [ %.2911, %674 ], [ %.2911, %646 ], [ %.2911, %910 ], [ %.2911, %912 ], [ %.2911, %917 ], [ %.2911, %dissect_radiotap_timestamp.exit ], [ %.2911, %dissect_radiotap_he_info.exit ], [ %.2911, %dissect_radiotap_he_mu_info.exit ], [ %.2911, %dissect_radiotap_0_length_psdu.exit ], [ %.2911, %1163 ], [ %.2911, %254 ], [ %.2911, %1173 ], [ %.2911, %dissect_radiotap_u_sig.exit ], [ %.2911, %300 ], [ %.2911, %304 ], [ %.2911, %352 ], [ %.2911, %353 ], [ %.2911, %381 ], [ %.2911, %385 ], [ %.2911, %412 ], [ %.2911, %416 ], [ %.2911, %423 ], [ %.2911, %424 ], [ %.2911, %428 ], [ %.2911, %472 ], [ %.2911, %478 ], [ %.2911, %619 ], [ %.2911, %622 ], [ %.2911, %625 ], [ %.2911, %1648 ], [ %.2911, %1673 ], [ %.2911, %645 ], [ %.2911, %dissect_eht_user_info.exit.i ]
+  %.2905.be = phi ptr [ %.2905, %252 ], [ %.2905, %1801 ], [ %.2905, %1790 ], [ %.2905, %256 ], [ %.2905, %dissect_radiotap_flags.exit ], [ %.2905, %361 ], [ %.2905, %373 ], [ %.2905, %389 ], [ %.2905, %392 ], [ %.2905, %395 ], [ %.2905, %398 ], [ %.2905, %401 ], [ %.2905, %404 ], [ %.2905, %432 ], [ %.2905, %436 ], [ %.2905, %611 ], [ %.2905, %615 ], [ %.2905, %609 ], [ %.2905, %674 ], [ %.2905, %646 ], [ %.2905, %910 ], [ %.2905, %912 ], [ %.2905, %917 ], [ %.2905, %dissect_radiotap_timestamp.exit ], [ %.2905, %dissect_radiotap_he_info.exit ], [ %.2905, %dissect_radiotap_he_mu_info.exit ], [ %.2905, %dissect_radiotap_0_length_psdu.exit ], [ %.2905, %1163 ], [ %.2905, %254 ], [ %.2905, %1173 ], [ %.2905, %dissect_radiotap_u_sig.exit ], [ %.2905, %300 ], [ %.2905, %304 ], [ %.2905, %352 ], [ %.2905, %353 ], [ %.2905, %381 ], [ %.2905, %385 ], [ %.2905, %412 ], [ %.2905, %416 ], [ %.2905, %423 ], [ %427, %424 ], [ %.2905, %428 ], [ %.2905, %472 ], [ %.2905, %478 ], [ %.2905, %619 ], [ %.2905, %622 ], [ %.2905, %625 ], [ %.2905, %1648 ], [ %.2905, %1673 ], [ %.2905, %645 ], [ %.2905, %dissect_eht_user_info.exit.i ]
+  %.2899.be = phi i32 [ %.2899, %252 ], [ %.2899, %1801 ], [ %.2899, %1790 ], [ %.2899, %256 ], [ %.2899, %dissect_radiotap_flags.exit ], [ %.2899, %361 ], [ %.2899, %373 ], [ %.2899, %389 ], [ %.2899, %392 ], [ %.2899, %395 ], [ %.2899, %398 ], [ %.2899, %401 ], [ %.2899, %404 ], [ %.2899, %432 ], [ %.2899, %436 ], [ %.2899, %611 ], [ %.2899, %615 ], [ %.2899, %609 ], [ %.2899, %674 ], [ %.2899, %646 ], [ %.2899, %910 ], [ %.2899, %912 ], [ %.2899, %917 ], [ %.2899, %dissect_radiotap_timestamp.exit ], [ %.2899, %dissect_radiotap_he_info.exit ], [ %.2899, %dissect_radiotap_he_mu_info.exit ], [ %.2899, %dissect_radiotap_0_length_psdu.exit ], [ %.2899, %1163 ], [ %.2899, %254 ], [ %.2899, %1173 ], [ %.2899, %dissect_radiotap_u_sig.exit ], [ %.2899, %300 ], [ %.2899, %304 ], [ %.2899, %352 ], [ %.2899, %353 ], [ %.2899, %381 ], [ %.2899, %385 ], [ %.2899, %412 ], [ %.2899, %416 ], [ %.2899, %423 ], [ %219, %424 ], [ %.2899, %428 ], [ %.2899, %472 ], [ %.2899, %478 ], [ %.2899, %619 ], [ %.2899, %622 ], [ %.2899, %625 ], [ %.2899, %1648 ], [ %.2899, %1673 ], [ %.2899, %645 ], [ %.2899, %dissect_eht_user_info.exit.i ]
+  %.2894.be = phi i32 [ %.2894, %252 ], [ %.2894, %1801 ], [ %.2894, %1790 ], [ %.2894, %256 ], [ %.2894, %dissect_radiotap_flags.exit ], [ %.2894, %361 ], [ %.2894, %373 ], [ %.2894, %389 ], [ %.2894, %392 ], [ %.2894, %395 ], [ %.2894, %398 ], [ %.2894, %401 ], [ %.2894, %404 ], [ %.2894, %432 ], [ %.2894, %436 ], [ %.2894, %611 ], [ %.2894, %615 ], [ %.2894, %609 ], [ %.2894, %674 ], [ %.2894, %646 ], [ %.2894, %910 ], [ %.2894, %912 ], [ %.2894, %917 ], [ %.2894, %dissect_radiotap_timestamp.exit ], [ %.2894, %dissect_radiotap_he_info.exit ], [ %.2894, %dissect_radiotap_he_mu_info.exit ], [ %.2894, %dissect_radiotap_0_length_psdu.exit ], [ %.2894, %1163 ], [ %.2894, %254 ], [ %.2894, %1173 ], [ %.2894, %dissect_radiotap_u_sig.exit ], [ %.2894, %300 ], [ %.2894, %304 ], [ %.2894, %352 ], [ %.2894, %353 ], [ %.2894, %381 ], [ %.2894, %385 ], [ %.2894, %412 ], [ %.2894, %416 ], [ %.2894, %423 ], [ %425, %424 ], [ %.2894, %428 ], [ %.2894, %472 ], [ %.2894, %478 ], [ %.2894, %619 ], [ %.2894, %622 ], [ %.2894, %625 ], [ %.2894, %1648 ], [ %.2894, %1673 ], [ %.2894, %645 ], [ %.2894, %dissect_eht_user_info.exit.i ]
+  %.1774.be = phi i1 [ %.1774, %252 ], [ %.1774, %1801 ], [ %.1774, %1790 ], [ %.1774, %256 ], [ %.1774, %dissect_radiotap_flags.exit ], [ %.1774, %361 ], [ %.1774, %373 ], [ %.1774, %389 ], [ %.1774, %392 ], [ %.1774, %395 ], [ %.1774, %398 ], [ %.1774, %401 ], [ %.1774, %404 ], [ %.1774, %432 ], [ %.1774, %436 ], [ %.1774, %611 ], [ %.1774, %615 ], [ %.1774, %609 ], [ %.1774, %674 ], [ %.1774, %646 ], [ %.1774, %910 ], [ %.1774, %912 ], [ %.1774, %917 ], [ %.1774, %dissect_radiotap_timestamp.exit ], [ %.1774, %dissect_radiotap_he_info.exit ], [ %.1774, %dissect_radiotap_he_mu_info.exit ], [ true, %dissect_radiotap_0_length_psdu.exit ], [ %.1774, %1163 ], [ %.1774, %254 ], [ %.1774, %1173 ], [ %.1774, %dissect_radiotap_u_sig.exit ], [ %.1774, %300 ], [ %.1774, %304 ], [ %.1774, %352 ], [ %.1774, %353 ], [ %.1774, %381 ], [ %.1774, %385 ], [ %.1774, %412 ], [ %.1774, %416 ], [ %.1774, %423 ], [ %.1774, %424 ], [ %.1774, %428 ], [ %.1774, %472 ], [ %.1774, %478 ], [ %.1774, %619 ], [ %.1774, %622 ], [ %.1774, %625 ], [ %.1774, %1648 ], [ %.1774, %1673 ], [ %.1774, %645 ], [ %.1774, %dissect_eht_user_info.exit.i ]
+  %.2759.be = phi i8 [ %.2759, %252 ], [ %.2759, %1801 ], [ %.2759, %1790 ], [ %.2759, %256 ], [ 1, %dissect_radiotap_flags.exit ], [ %.2759, %361 ], [ %.2759, %373 ], [ %.2759, %389 ], [ %.2759, %392 ], [ %.2759, %395 ], [ %.2759, %398 ], [ %.2759, %401 ], [ %.2759, %404 ], [ %.2759, %432 ], [ %.2759, %436 ], [ %.2759, %611 ], [ %.2759, %615 ], [ %.2759, %609 ], [ %.2759, %674 ], [ %.2759, %646 ], [ %.2759, %910 ], [ %.2759, %912 ], [ %.2759, %917 ], [ %.2759, %dissect_radiotap_timestamp.exit ], [ %.2759, %dissect_radiotap_he_info.exit ], [ %.2759, %dissect_radiotap_he_mu_info.exit ], [ %.2759, %dissect_radiotap_0_length_psdu.exit ], [ %.2759, %1163 ], [ %.2759, %254 ], [ %.2759, %1173 ], [ %.2759, %dissect_radiotap_u_sig.exit ], [ %.2759, %300 ], [ %.2759, %304 ], [ %.2759, %352 ], [ %.2759, %353 ], [ %.2759, %381 ], [ %.2759, %385 ], [ %.2759, %412 ], [ %.2759, %416 ], [ %.2759, %423 ], [ %.2759, %424 ], [ %.2759, %428 ], [ %.2759, %472 ], [ %.2759, %478 ], [ %.2759, %619 ], [ %.2759, %622 ], [ %.2759, %625 ], [ %.2759, %1648 ], [ %.2759, %1673 ], [ %.2759, %645 ], [ %.2759, %dissect_eht_user_info.exit.i ]
   br label %dissect_radiotap_rate.exit, !llvm.loop !10
 
 646:                                              ; preds = %645
@@ -3452,29 +3452,27 @@ dissect_radiotap_rate.exit.backedge:              ; preds = %dissect_eht_user_in
   %814 = and i8 %684, 1
   %815 = zext nneg i8 %814 to i32
   %816 = zext i32 %.1751 to i64
-  %invariant.gep = getelementptr [2 x float], ptr @ieee80211_vhtinfo, i64 %816
   %817 = zext nneg i8 %.0749.shrunk to i64
-  %invariant.gep939 = getelementptr float, ptr %invariant.gep, i64 %817
-  %invariant.gep941 = getelementptr [8 x i8], ptr @ieee80211_vhtvalid, i64 %816
+  %invariant.gep = getelementptr [8 x i8], ptr @ieee80211_vhtvalid, i64 %816
   br label %818
 
-818:                                              ; preds = %808, %895
-  %indvars.iv951 = phi i64 [ 0, %808 ], [ %indvars.iv.next952, %895 ]
-  %.0753936 = phi ptr [ null, %808 ], [ %.2755, %895 ]
-  %819 = trunc nuw nsw i64 %indvars.iv951 to i32
+818:                                              ; preds = %808, %899
+  %indvars.iv948 = phi i64 [ 0, %808 ], [ %indvars.iv.next949, %899 ]
+  %.0753936 = phi ptr [ null, %808 ], [ %.2755, %899 ]
+  %819 = trunc nuw nsw i64 %indvars.iv948 to i32
   %820 = add i32 %813, %819
   %821 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %820)
   %822 = zext i8 %821 to i32
   %823 = and i32 %822, 15
   %824 = lshr i32 %822, 4
   %825 = trunc nuw nsw i32 %824 to i8
-  %826 = getelementptr i8, ptr %75, i64 %indvars.iv951
+  %826 = getelementptr i8, ptr %75, i64 %indvars.iv948
   store i8 %825, ptr %826, align 1
   %827 = trunc nuw nsw i32 %823 to i8
-  %828 = getelementptr i8, ptr %112, i64 %indvars.iv951
+  %828 = getelementptr i8, ptr %112, i64 %indvars.iv948
   store i8 %827, ptr %828, align 1
   %.not828 = icmp eq i32 %823, 0
-  br i1 %.not828, label %895, label %829
+  br i1 %.not828, label %899, label %829
 
 829:                                              ; preds = %818
   %830 = load i32, ptr %19, align 8
@@ -3494,7 +3492,7 @@ dissect_radiotap_rate.exit.backedge:              ; preds = %dissect_eht_user_in
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %835, ptr noundef nonnull @.str.1280, i32 noundef %819, i32 noundef %824)
   %836 = load i32, ptr @ett_radiotap_vht_user, align 4
   %837 = call ptr @proto_item_add_subtree(ptr noundef %835, i32 noundef %836)
-  %838 = getelementptr i32, ptr @hf_radiotap_vht_mcs, i64 %indvars.iv951
+  %838 = getelementptr i32, ptr @hf_radiotap_vht_mcs, i64 %indvars.iv948
   %839 = load i32, ptr %838, align 4
   %840 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %839, ptr noundef %0, i32 noundef %820, i32 noundef 1, i32 noundef -2147483648)
   %841 = icmp ugt i8 %821, -97
@@ -3514,14 +3512,14 @@ dissect_radiotap_rate.exit.backedge:              ; preds = %dissect_eht_user_in
   br label %849
 
 849:                                              ; preds = %843, %842
-  %850 = getelementptr i32, ptr @hf_radiotap_vht_nss, i64 %indvars.iv951
+  %850 = getelementptr i32, ptr @hf_radiotap_vht_nss, i64 %indvars.iv948
   %851 = load i32, ptr %850, align 4
   %852 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %851, ptr noundef %0, i32 noundef %820, i32 noundef 1, i32 noundef -2147483648)
   br i1 %.not803, label %proto_item_set_generated.exit871, label %853
 
 853:                                              ; preds = %849
   %.0746 = shl nuw nsw i32 %823, %815
-  %854 = getelementptr i32, ptr @hf_radiotap_vht_nsts, i64 %indvars.iv951
+  %854 = getelementptr i32, ptr @hf_radiotap_vht_nsts, i64 %indvars.iv948
   %855 = load i32, ptr %854, align 4
   %856 = call ptr @proto_tree_add_uint(ptr noundef %837, i32 noundef %855, ptr noundef %0, i32 noundef %820, i32 noundef 1, i32 noundef %.0746)
   %.not.i869 = icmp eq ptr %856, null
@@ -3541,7 +3539,7 @@ dissect_radiotap_rate.exit.backedge:              ; preds = %dissect_eht_user_in
   br label %proto_item_set_generated.exit871
 
 proto_item_set_generated.exit871:                 ; preds = %860, %857, %853, %849
-  %864 = getelementptr i32, ptr @hf_radiotap_vht_coding, i64 %indvars.iv951
+  %864 = getelementptr i32, ptr @hf_radiotap_vht_coding, i64 %indvars.iv948
   %865 = load i32, ptr %864, align 4
   %866 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %865, ptr noundef %0, i32 noundef %811, i32 noundef 1, i32 noundef -2147483648)
   br label %867
@@ -3552,135 +3550,138 @@ proto_item_set_generated.exit871:                 ; preds = %860, %857, %853, %8
   %or.cond12 = and i1 %.2, %868
   %869 = icmp samesign ult i32 %823, 9
   %or.cond14 = select i1 %or.cond12, i1 %869, i1 false
-  br i1 %or.cond14, label %870, label %895
+  br i1 %or.cond14, label %870, label %899
 
 870:                                              ; preds = %867
   %871 = zext nneg i32 %824 to i64
-  %gep940 = getelementptr %struct.mcs_vht_info, ptr %invariant.gep939, i64 %871, i32 2
-  %872 = load float, ptr %gep940, align 4
-  %873 = uitofp nneg i32 %823 to float
-  %874 = fmul float %872, %873
-  %875 = fcmp une float %874, 0.000000e+00
-  br i1 %875, label %876, label %895
+  %872 = getelementptr %struct.mcs_vht_info, ptr @ieee80211_vhtinfo, i64 %871
+  %873 = getelementptr inbounds nuw i8, ptr %872, i64 16
+  %874 = getelementptr [2 x float], ptr %873, i64 %816
+  %875 = getelementptr float, ptr %874, i64 %817
+  %876 = load float, ptr %875, align 4
+  %877 = uitofp nneg i32 %823 to float
+  %878 = fmul float %876, %877
+  %879 = fcmp une float %878, 0.000000e+00
+  br i1 %879, label %880, label %899
 
-876:                                              ; preds = %870
-  %877 = getelementptr i32, ptr @hf_radiotap_vht_datarate, i64 %indvars.iv951
-  %878 = load i32, ptr %877, align 4
-  %879 = fpext float %874 to double
-  %880 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format(ptr noundef %.1754, i32 noundef %878, ptr noundef %0, i32 noundef %219, i32 noundef 12, float noundef %874, ptr noundef nonnull @.str.1279, double noundef %879)
-  %.not.i872 = icmp eq ptr %880, null
-  br i1 %.not.i872, label %proto_item_set_generated.exit874, label %881
+880:                                              ; preds = %870
+  %881 = getelementptr i32, ptr @hf_radiotap_vht_datarate, i64 %indvars.iv948
+  %882 = load i32, ptr %881, align 4
+  %883 = fpext float %878 to double
+  %884 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format(ptr noundef %.1754, i32 noundef %882, ptr noundef %0, i32 noundef %219, i32 noundef 12, float noundef %878, ptr noundef nonnull @.str.1279, double noundef %883)
+  %.not.i872 = icmp eq ptr %884, null
+  br i1 %.not.i872, label %proto_item_set_generated.exit874, label %885
 
-881:                                              ; preds = %876
-  %882 = getelementptr inbounds nuw i8, ptr %880, i64 40
-  %883 = load ptr, ptr %882, align 8
-  %.not5.i873 = icmp eq ptr %883, null
-  br i1 %.not5.i873, label %proto_item_set_generated.exit874, label %884
+885:                                              ; preds = %880
+  %886 = getelementptr inbounds nuw i8, ptr %884, i64 40
+  %887 = load ptr, ptr %886, align 8
+  %.not5.i873 = icmp eq ptr %887, null
+  br i1 %.not5.i873, label %proto_item_set_generated.exit874, label %888
 
-884:                                              ; preds = %881
-  %885 = getelementptr inbounds nuw i8, ptr %883, i64 28
-  %886 = load i32, ptr %885, align 4
-  %887 = or i32 %886, 2
-  store i32 %887, ptr %885, align 4
+888:                                              ; preds = %885
+  %889 = getelementptr inbounds nuw i8, ptr %887, i64 28
+  %890 = load i32, ptr %889, align 4
+  %891 = or i32 %890, 2
+  store i32 %891, ptr %889, align 4
   br label %proto_item_set_generated.exit874
 
-proto_item_set_generated.exit874:                 ; preds = %876, %881, %884
-  %gep = getelementptr %struct.mcs_vht_valid, ptr %invariant.gep941, i64 %871
-  %888 = zext nneg i32 %823 to i64
-  %889 = getelementptr i8, ptr %gep, i64 %888
-  %890 = getelementptr i8, ptr %889, i64 -1
-  %891 = load i8, ptr %890, align 1, !range !6, !noundef !7
-  %892 = icmp eq i8 %891, 0
-  br i1 %892, label %893, label %895
+proto_item_set_generated.exit874:                 ; preds = %880, %885, %888
+  %gep = getelementptr %struct.mcs_vht_valid, ptr %invariant.gep, i64 %871
+  %892 = zext nneg i32 %823 to i64
+  %893 = getelementptr i8, ptr %gep, i64 %892
+  %894 = getelementptr i8, ptr %893, i64 -1
+  %895 = load i8, ptr %894, align 1, !range !6, !noundef !7
+  %896 = icmp eq i8 %895, 0
+  br i1 %896, label %897, label %899
 
-893:                                              ; preds = %proto_item_set_generated.exit874
-  %894 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %880, ptr noundef nonnull @ei_radiotap_invalid_data_rate)
-  br label %895
+897:                                              ; preds = %proto_item_set_generated.exit874
+  %898 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %884, ptr noundef nonnull @ei_radiotap_invalid_data_rate)
+  br label %899
 
-895:                                              ; preds = %870, %893, %proto_item_set_generated.exit874, %818, %867
-  %.2755 = phi ptr [ %.1754, %867 ], [ %.0753936, %818 ], [ %.1754, %proto_item_set_generated.exit874 ], [ %.1754, %893 ], [ %.1754, %870 ]
-  %indvars.iv.next952 = add nuw nsw i64 %indvars.iv951, 1
-  %exitcond954.not = icmp eq i64 %indvars.iv.next952, 4
-  br i1 %exitcond954.not, label %896, label %818, !llvm.loop !11
+899:                                              ; preds = %870, %897, %proto_item_set_generated.exit874, %818, %867
+  %.2755 = phi ptr [ %.1754, %867 ], [ %.0753936, %818 ], [ %.1754, %proto_item_set_generated.exit874 ], [ %.1754, %897 ], [ %.1754, %870 ]
+  %indvars.iv.next949 = add nuw nsw i64 %indvars.iv948, 1
+  %exitcond951.not = icmp eq i64 %indvars.iv.next949, 4
+  br i1 %exitcond951.not, label %900, label %818, !llvm.loop !11
 
-896:                                              ; preds = %895
-  %897 = and i32 %680, 128
-  %.not824 = icmp eq i32 %897, 0
-  br i1 %.not824, label %906, label %898
+900:                                              ; preds = %899
+  %901 = and i32 %680, 128
+  %.not824 = icmp eq i32 %901, 0
+  br i1 %.not824, label %910, label %902
 
-898:                                              ; preds = %896
-  %899 = load i16, ptr %73, align 4
-  %900 = or i16 %899, 256
-  store i16 %900, ptr %73, align 4
-  %901 = add i32 %219, 9
-  %902 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %901)
-  store i8 %902, ptr %113, align 8
-  br i1 %.not830, label %906, label %903
+902:                                              ; preds = %900
+  %903 = load i16, ptr %73, align 4
+  %904 = or i16 %903, 256
+  store i16 %904, ptr %73, align 4
+  %905 = add i32 %219, 9
+  %906 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %905)
+  store i8 %906, ptr %113, align 8
+  br i1 %.not830, label %910, label %907
 
-903:                                              ; preds = %898
-  %904 = load i32, ptr @hf_radiotap_vht_gid, align 4
-  %905 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0756, i32 noundef %904, ptr noundef %0, i32 noundef %901, i32 noundef 1, i32 noundef -2147483648)
-  br label %906
+907:                                              ; preds = %902
+  %908 = load i32, ptr @hf_radiotap_vht_gid, align 4
+  %909 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0756, i32 noundef %908, ptr noundef %0, i32 noundef %905, i32 noundef 1, i32 noundef -2147483648)
+  br label %910
 
-906:                                              ; preds = %898, %903, %896
-  %907 = and i32 %680, 256
-  %.not826 = icmp eq i32 %907, 0
-  br i1 %.not826, label %dissect_radiotap_rate.exit.backedge, label %908
+910:                                              ; preds = %902, %907, %900
+  %911 = and i32 %680, 256
+  %.not826 = icmp eq i32 %911, 0
+  br i1 %.not826, label %dissect_radiotap_rate.exit.backedge, label %912
 
-908:                                              ; preds = %906
-  %909 = load i16, ptr %73, align 4
-  %910 = or i16 %909, 512
-  store i16 %910, ptr %73, align 4
-  %911 = add i32 %219, 10
-  %912 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %911)
-  store i16 %912, ptr %114, align 2
-  br i1 %.not830, label %dissect_radiotap_rate.exit.backedge, label %913
+912:                                              ; preds = %910
+  %913 = load i16, ptr %73, align 4
+  %914 = or i16 %913, 512
+  store i16 %914, ptr %73, align 4
+  %915 = add i32 %219, 10
+  %916 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %915)
+  store i16 %916, ptr %114, align 2
+  br i1 %.not830, label %dissect_radiotap_rate.exit.backedge, label %917
 
-913:                                              ; preds = %908
-  %914 = load i32, ptr @hf_radiotap_vht_p_aid, align 4
-  %915 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0756, i32 noundef %914, ptr noundef %0, i32 noundef %911, i32 noundef 2, i32 noundef -2147483648)
+917:                                              ; preds = %912
+  %918 = load i32, ptr @hf_radiotap_vht_p_aid, align 4
+  %919 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0756, i32 noundef %918, ptr noundef %0, i32 noundef %915, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_radiotap_rate.exit.backedge
 
-916:                                              ; preds = %254
-  %917 = load i32, ptr @hf_radiotap_timestamp, align 4
-  %918 = call ptr @proto_tree_add_item(ptr noundef %.0744, i32 noundef %917, ptr noundef %0, i32 noundef %219, i32 noundef 12, i32 noundef 0)
-  %919 = load i32, ptr @ett_radiotap_timestamp, align 4
-  %920 = call ptr @proto_item_add_subtree(ptr noundef %918, i32 noundef %919)
-  %921 = load i32, ptr @hf_radiotap_timestamp_ts, align 4
-  %922 = call ptr @proto_tree_add_item(ptr noundef %920, i32 noundef %921, ptr noundef %0, i32 noundef %219, i32 noundef 8, i32 noundef -2147483648)
-  %923 = add i32 %219, 11
-  %924 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %923)
-  %925 = and i16 %924, 2
-  %.not.i875 = icmp eq i16 %925, 0
-  br i1 %.not.i875, label %dissect_radiotap_timestamp.exit, label %926
+920:                                              ; preds = %254
+  %921 = load i32, ptr @hf_radiotap_timestamp, align 4
+  %922 = call ptr @proto_tree_add_item(ptr noundef %.0744, i32 noundef %921, ptr noundef %0, i32 noundef %219, i32 noundef 12, i32 noundef 0)
+  %923 = load i32, ptr @ett_radiotap_timestamp, align 4
+  %924 = call ptr @proto_item_add_subtree(ptr noundef %922, i32 noundef %923)
+  %925 = load i32, ptr @hf_radiotap_timestamp_ts, align 4
+  %926 = call ptr @proto_tree_add_item(ptr noundef %924, i32 noundef %925, ptr noundef %0, i32 noundef %219, i32 noundef 8, i32 noundef -2147483648)
+  %927 = add i32 %219, 11
+  %928 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %927)
+  %929 = and i16 %928, 2
+  %.not.i875 = icmp eq i16 %929, 0
+  br i1 %.not.i875, label %dissect_radiotap_timestamp.exit, label %930
 
-926:                                              ; preds = %916
-  %927 = load i32, ptr @hf_radiotap_timestamp_accuracy, align 4
-  %928 = add i32 %219, 8
-  %929 = call ptr @proto_tree_add_item(ptr noundef %920, i32 noundef %927, ptr noundef %0, i32 noundef %928, i32 noundef 2, i32 noundef -2147483648)
+930:                                              ; preds = %920
+  %931 = load i32, ptr @hf_radiotap_timestamp_accuracy, align 4
+  %932 = add i32 %219, 8
+  %933 = call ptr @proto_tree_add_item(ptr noundef %924, i32 noundef %931, ptr noundef %0, i32 noundef %932, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_radiotap_timestamp.exit
 
-dissect_radiotap_timestamp.exit:                  ; preds = %916, %926
-  %930 = load i32, ptr @hf_radiotap_timestamp_unit, align 4
-  %931 = add i32 %219, 10
-  %932 = call ptr @proto_tree_add_item(ptr noundef %920, i32 noundef %930, ptr noundef %0, i32 noundef %931, i32 noundef 1, i32 noundef -2147483648)
-  %933 = load i32, ptr @hf_radiotap_timestamp_spos, align 4
-  %934 = call ptr @proto_tree_add_item(ptr noundef %920, i32 noundef %933, ptr noundef %0, i32 noundef %931, i32 noundef 1, i32 noundef -2147483648)
-  %935 = load i32, ptr @ett_radiotap_timestamp_flags, align 4
-  %936 = call ptr @proto_item_add_subtree(ptr noundef %920, i32 noundef %935)
-  %937 = load i32, ptr @hf_radiotap_timestamp_flags_32bit, align 4
-  %938 = call ptr @proto_tree_add_item(ptr noundef %936, i32 noundef %937, ptr noundef %0, i32 noundef %923, i32 noundef 1, i32 noundef -2147483648)
-  %939 = load i32, ptr @hf_radiotap_timestamp_flags_accuracy, align 4
-  %940 = call ptr @proto_tree_add_item(ptr noundef %936, i32 noundef %939, ptr noundef %0, i32 noundef %923, i32 noundef 1, i32 noundef -2147483648)
+dissect_radiotap_timestamp.exit:                  ; preds = %920, %930
+  %934 = load i32, ptr @hf_radiotap_timestamp_unit, align 4
+  %935 = add i32 %219, 10
+  %936 = call ptr @proto_tree_add_item(ptr noundef %924, i32 noundef %934, ptr noundef %0, i32 noundef %935, i32 noundef 1, i32 noundef -2147483648)
+  %937 = load i32, ptr @hf_radiotap_timestamp_spos, align 4
+  %938 = call ptr @proto_tree_add_item(ptr noundef %924, i32 noundef %937, ptr noundef %0, i32 noundef %935, i32 noundef 1, i32 noundef -2147483648)
+  %939 = load i32, ptr @ett_radiotap_timestamp_flags, align 4
+  %940 = call ptr @proto_item_add_subtree(ptr noundef %924, i32 noundef %939)
+  %941 = load i32, ptr @hf_radiotap_timestamp_flags_32bit, align 4
+  %942 = call ptr @proto_tree_add_item(ptr noundef %940, i32 noundef %941, ptr noundef %0, i32 noundef %927, i32 noundef 1, i32 noundef -2147483648)
+  %943 = load i32, ptr @hf_radiotap_timestamp_flags_accuracy, align 4
+  %944 = call ptr @proto_tree_add_item(ptr noundef %940, i32 noundef %943, ptr noundef %0, i32 noundef %927, i32 noundef 1, i32 noundef -2147483648)
   br label %dissect_radiotap_rate.exit.backedge
 
-941:                                              ; preds = %254
+945:                                              ; preds = %254
   store i32 11, ptr %19, align 8
-  %942 = load i32, ptr %70, align 8
-  %.not924 = icmp eq i32 %942, 0
-  %943 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %219)
-  %944 = and i16 %943, 3
-  %945 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %219)
+  %946 = load i32, ptr %70, align 8
+  %.not924 = icmp eq i32 %946, 0
+  %947 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %219)
+  %948 = and i16 %947, 3
+  %949 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %219)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %8, ptr noundef nonnull align 16 dereferenceable(72) @__const.dissect_radiotap_he_info.data3_headers, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3693,318 +3694,318 @@ dissect_radiotap_timestamp.exit:                  ; preds = %916, %926
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %12, ptr noundef nonnull align 16 dereferenceable(72) @__const.dissect_radiotap_he_info.data5_headers, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %13, ptr noundef nonnull align 16 dereferenceable(48) @__const.dissect_radiotap_he_info.data6_headers, i64 48, i1 false)
-  %946 = zext i16 %945 to i32
-  %947 = and i32 %946, 4
-  %.not.not.i = icmp eq i32 %947, 0
-  %948 = and i32 %946, 8
-  %.not136.not.i = icmp eq i32 %948, 0
-  %949 = and i32 %946, 16
-  %.not137.not.i = icmp eq i32 %949, 0
-  %950 = and i32 %946, 32
-  %.not138.not.i = icmp eq i32 %950, 0
-  %951 = and i32 %946, 64
-  %.not139.not.i = icmp eq i32 %951, 0
-  %952 = and i32 %946, 128
-  %.not140.not.i = icmp eq i32 %952, 0
-  %953 = and i32 %946, 256
-  %.not141.not.i = icmp eq i32 %953, 0
-  %954 = and i32 %946, 512
-  %.not142.not.i = icmp eq i32 %954, 0
-  %955 = and i32 %946, 1024
-  %.not143.not.i = icmp eq i32 %955, 0
-  %956 = and i32 %946, 2048
-  %.not144.not.i = icmp eq i32 %956, 0
-  %957 = and i32 %946, 4096
-  %.not145.not.i = icmp eq i32 %957, 0
-  %958 = and i32 %946, 8192
-  %.not146.not.i = icmp eq i32 %958, 0
-  %959 = and i32 %946, 16384
-  %.not147.not.i = icmp eq i32 %959, 0
-  %.not148.i = icmp slt i16 %945, 0
-  %960 = load i32, ptr @ett_radiotap_he_info, align 4
-  %961 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 12, i32 noundef %960, ptr noundef null, ptr noundef nonnull @.str.93)
-  br i1 %.not924, label %969, label %962
+  %950 = zext i16 %949 to i32
+  %951 = and i32 %950, 4
+  %.not.not.i = icmp eq i32 %951, 0
+  %952 = and i32 %950, 8
+  %.not136.not.i = icmp eq i32 %952, 0
+  %953 = and i32 %950, 16
+  %.not137.not.i = icmp eq i32 %953, 0
+  %954 = and i32 %950, 32
+  %.not138.not.i = icmp eq i32 %954, 0
+  %955 = and i32 %950, 64
+  %.not139.not.i = icmp eq i32 %955, 0
+  %956 = and i32 %950, 128
+  %.not140.not.i = icmp eq i32 %956, 0
+  %957 = and i32 %950, 256
+  %.not141.not.i = icmp eq i32 %957, 0
+  %958 = and i32 %950, 512
+  %.not142.not.i = icmp eq i32 %958, 0
+  %959 = and i32 %950, 1024
+  %.not143.not.i = icmp eq i32 %959, 0
+  %960 = and i32 %950, 2048
+  %.not144.not.i = icmp eq i32 %960, 0
+  %961 = and i32 %950, 4096
+  %.not145.not.i = icmp eq i32 %961, 0
+  %962 = and i32 %950, 8192
+  %.not146.not.i = icmp eq i32 %962, 0
+  %963 = and i32 %950, 16384
+  %.not147.not.i = icmp eq i32 %963, 0
+  %.not148.i = icmp slt i16 %949, 0
+  %964 = load i32, ptr @ett_radiotap_he_info, align 4
+  %965 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 12, i32 noundef %964, ptr noundef null, ptr noundef nonnull @.str.93)
+  br i1 %.not924, label %973, label %966
 
-962:                                              ; preds = %941
-  %963 = add i32 %219, -4
-  %964 = load i32, ptr @hf_radiotap_tlv_type, align 4
-  %965 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %964, ptr noundef %0, i32 noundef %963, i32 noundef 2, i32 noundef -2147483648)
-  %966 = add i32 %219, -2
-  %967 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
-  %968 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %967, ptr noundef %0, i32 noundef %966, i32 noundef 2, i32 noundef -2147483648)
-  br label %969
+966:                                              ; preds = %945
+  %967 = add i32 %219, -4
+  %968 = load i32, ptr @hf_radiotap_tlv_type, align 4
+  %969 = call ptr @proto_tree_add_item(ptr noundef %965, i32 noundef %968, ptr noundef %0, i32 noundef %967, i32 noundef 2, i32 noundef -2147483648)
+  %970 = add i32 %219, -2
+  %971 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
+  %972 = call ptr @proto_tree_add_item(ptr noundef %965, i32 noundef %971, ptr noundef %0, i32 noundef %970, i32 noundef 2, i32 noundef -2147483648)
+  br label %973
 
-969:                                              ; preds = %962, %941
-  %970 = load i32, ptr @hf_radiotap_he_info_data_1, align 4
-  %971 = load i32, ptr @ett_radiotap_he_info_data_1, align 4
-  %972 = call ptr @proto_tree_add_bitmask(ptr noundef %961, ptr noundef %0, i32 noundef %219, i32 noundef %970, i32 noundef %971, ptr noundef nonnull @data1_headers, i32 noundef -2147483648)
-  %973 = add i32 %219, 2
-  %974 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %973)
-  %975 = load i32, ptr @hf_radiotap_he_info_data_2, align 4
-  %976 = load i32, ptr @ett_radiotap_he_info_data_2, align 4
-  %977 = call ptr @proto_tree_add_bitmask(ptr noundef %961, ptr noundef %0, i32 noundef %973, i32 noundef %975, i32 noundef %976, ptr noundef nonnull @data2_headers, i32 noundef -2147483648)
-  %978 = add i32 %219, 4
-  %979 = zext i16 %974 to i32
-  %980 = and i32 %979, 2
-  %.not149.not.i = icmp eq i32 %980, 0
-  %981 = and i32 %979, 4
-  %.not150.not.i = icmp eq i32 %981, 0
-  %982 = and i32 %979, 8
-  %.not151.not.i = icmp eq i32 %982, 0
-  %983 = and i32 %979, 16
-  %.not152.not.i = icmp eq i32 %983, 0
-  %984 = and i32 %979, 32
-  %.not153.not.i = icmp eq i32 %984, 0
-  %985 = and i32 %979, 64
-  %.not154.not.i = icmp eq i32 %985, 0
-  %986 = and i32 %979, 128
-  %.not155.not.i = icmp eq i32 %986, 0
-  br i1 %.not.not.i, label %987, label %988
+973:                                              ; preds = %966, %945
+  %974 = load i32, ptr @hf_radiotap_he_info_data_1, align 4
+  %975 = load i32, ptr @ett_radiotap_he_info_data_1, align 4
+  %976 = call ptr @proto_tree_add_bitmask(ptr noundef %965, ptr noundef %0, i32 noundef %219, i32 noundef %974, i32 noundef %975, ptr noundef nonnull @data1_headers, i32 noundef -2147483648)
+  %977 = add i32 %219, 2
+  %978 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %977)
+  %979 = load i32, ptr @hf_radiotap_he_info_data_2, align 4
+  %980 = load i32, ptr @ett_radiotap_he_info_data_2, align 4
+  %981 = call ptr @proto_tree_add_bitmask(ptr noundef %965, ptr noundef %0, i32 noundef %977, i32 noundef %979, i32 noundef %980, ptr noundef nonnull @data2_headers, i32 noundef -2147483648)
+  %982 = add i32 %219, 4
+  %983 = zext i16 %978 to i32
+  %984 = and i32 %983, 2
+  %.not149.not.i = icmp eq i32 %984, 0
+  %985 = and i32 %983, 4
+  %.not150.not.i = icmp eq i32 %985, 0
+  %986 = and i32 %983, 8
+  %.not151.not.i = icmp eq i32 %986, 0
+  %987 = and i32 %983, 16
+  %.not152.not.i = icmp eq i32 %987, 0
+  %988 = and i32 %983, 32
+  %.not153.not.i = icmp eq i32 %988, 0
+  %989 = and i32 %983, 64
+  %.not154.not.i = icmp eq i32 %989, 0
+  %990 = and i32 %983, 128
+  %.not155.not.i = icmp eq i32 %990, 0
+  br i1 %.not.not.i, label %991, label %992
 
-987:                                              ; preds = %969
+991:                                              ; preds = %973
   store ptr @hf_radiotap_he_bss_color_unknown, ptr %8, align 16
-  br label %988
-
-988:                                              ; preds = %987, %969
-  br i1 %.not136.not.i, label %989, label %990
-
-989:                                              ; preds = %988
-  store ptr @hf_radiotap_he_beam_change_unknown, ptr %92, align 8
-  br label %990
-
-990:                                              ; preds = %989, %988
-  br i1 %.not137.not.i, label %991, label %992
-
-991:                                              ; preds = %990
-  store ptr @hf_radiotap_he_ul_dl_unknown, ptr %93, align 16
   br label %992
 
-992:                                              ; preds = %991, %990
-  br i1 %.not138.not.i, label %993, label %994
+992:                                              ; preds = %991, %973
+  br i1 %.not136.not.i, label %993, label %994
 
 993:                                              ; preds = %992
-  store ptr @hf_radiotap_he_data_mcs_unknown, ptr %94, align 8
+  store ptr @hf_radiotap_he_beam_change_unknown, ptr %92, align 8
   br label %994
 
 994:                                              ; preds = %993, %992
-  br i1 %.not139.not.i, label %995, label %996
+  br i1 %.not137.not.i, label %995, label %996
 
 995:                                              ; preds = %994
-  store ptr @hf_radiotap_he_data_dcm_unknown, ptr %95, align 16
+  store ptr @hf_radiotap_he_ul_dl_unknown, ptr %93, align 16
   br label %996
 
 996:                                              ; preds = %995, %994
-  br i1 %.not140.not.i, label %997, label %998
+  br i1 %.not138.not.i, label %997, label %998
 
 997:                                              ; preds = %996
-  store ptr @hf_radiotap_he_coding_unknown, ptr %96, align 8
+  store ptr @hf_radiotap_he_data_mcs_unknown, ptr %94, align 8
   br label %998
 
 998:                                              ; preds = %997, %996
-  br i1 %.not141.not.i, label %999, label %1000
+  br i1 %.not139.not.i, label %999, label %1000
 
 999:                                              ; preds = %998
-  store ptr @hf_radiotap_he_ldpc_extra_symbol_segment_unknown, ptr %97, align 16
+  store ptr @hf_radiotap_he_data_dcm_unknown, ptr %95, align 16
   br label %1000
 
 1000:                                             ; preds = %999, %998
-  br i1 %.not142.not.i, label %1001, label %1002
+  br i1 %.not140.not.i, label %1001, label %1002
 
 1001:                                             ; preds = %1000
-  store ptr @hf_radiotap_he_stbc_unknown, ptr %98, align 8
+  store ptr @hf_radiotap_he_coding_unknown, ptr %96, align 8
   br label %1002
 
 1002:                                             ; preds = %1001, %1000
-  %1003 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %978)
-  br i1 %.not138.not.i, label %1011, label %1004
+  br i1 %.not141.not.i, label %1003, label %1004
 
-1004:                                             ; preds = %1002
-  %1005 = load i32, ptr %73, align 4
-  %1006 = and i16 %1003, 3840
-  %1007 = and i32 %1005, -3842
-  %1008 = or disjoint i16 %1006, 1
-  %1009 = zext nneg i16 %1008 to i32
-  %1010 = or disjoint i32 %1007, %1009
-  store i32 %1010, ptr %73, align 4
-  br label %1011
+1003:                                             ; preds = %1002
+  store ptr @hf_radiotap_he_ldpc_extra_symbol_segment_unknown, ptr %97, align 16
+  br label %1004
 
-1011:                                             ; preds = %1004, %1002
-  %1012 = load i32, ptr @hf_radiotap_he_info_data_3, align 4
-  %1013 = load i32, ptr @ett_radiotap_he_info_data_3, align 4
-  %1014 = call ptr @proto_tree_add_bitmask(ptr noundef %961, ptr noundef %0, i32 noundef %978, i32 noundef %1012, i32 noundef %1013, ptr noundef nonnull %8, i32 noundef -2147483648)
-  %1015 = add i32 %219, 6
-  %or.cond.i = icmp samesign ult i16 %944, 2
-  br i1 %or.cond.i, label %1016, label %1018
+1004:                                             ; preds = %1003, %1002
+  br i1 %.not142.not.i, label %1005, label %1006
 
-1016:                                             ; preds = %1011
-  br i1 %.not143.not.i, label %1017, label %1030
+1005:                                             ; preds = %1004
+  store ptr @hf_radiotap_he_stbc_unknown, ptr %98, align 8
+  br label %1006
 
-1017:                                             ; preds = %1016
-  store ptr @hf_radiotap_spatial_reuse_unknown, ptr %10, align 16
-  br label %1030
+1006:                                             ; preds = %1005, %1004
+  %1007 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %982)
+  br i1 %.not138.not.i, label %1015, label %1008
 
-1018:                                             ; preds = %1011
-  %1019 = icmp eq i16 %944, 3
-  br i1 %1019, label %1020, label %1028
+1008:                                             ; preds = %1006
+  %1009 = load i32, ptr %73, align 4
+  %1010 = and i16 %1007, 3840
+  %1011 = and i32 %1009, -3842
+  %1012 = or disjoint i16 %1010, 1
+  %1013 = zext nneg i16 %1012 to i32
+  %1014 = or disjoint i32 %1011, %1013
+  store i32 %1014, ptr %73, align 4
+  br label %1015
 
-1020:                                             ; preds = %1018
-  br i1 %.not143.not.i, label %1021, label %1022
+1015:                                             ; preds = %1008, %1006
+  %1016 = load i32, ptr @hf_radiotap_he_info_data_3, align 4
+  %1017 = load i32, ptr @ett_radiotap_he_info_data_3, align 4
+  %1018 = call ptr @proto_tree_add_bitmask(ptr noundef %965, ptr noundef %0, i32 noundef %982, i32 noundef %1016, i32 noundef %1017, ptr noundef nonnull %8, i32 noundef -2147483648)
+  %1019 = add i32 %219, 6
+  %or.cond.i = icmp samesign ult i16 %948, 2
+  br i1 %or.cond.i, label %1020, label %1022
+
+1020:                                             ; preds = %1015
+  br i1 %.not143.not.i, label %1021, label %1034
 
 1021:                                             ; preds = %1020
-  store ptr @hf_radiotap_spatial_reuse_1_unknown, ptr %9, align 16
-  br label %1022
+  store ptr @hf_radiotap_spatial_reuse_unknown, ptr %10, align 16
+  br label %1034
 
-1022:                                             ; preds = %1021, %1020
-  br i1 %.not144.not.i, label %1023, label %1024
+1022:                                             ; preds = %1015
+  %1023 = icmp eq i16 %948, 3
+  br i1 %1023, label %1024, label %1032
 
-1023:                                             ; preds = %1022
-  store ptr @hf_radiotap_spatial_reuse_2_unknown, ptr %99, align 8
-  br label %1024
-
-1024:                                             ; preds = %1023, %1022
-  br i1 %.not145.not.i, label %1025, label %1026
+1024:                                             ; preds = %1022
+  br i1 %.not143.not.i, label %1025, label %1026
 
 1025:                                             ; preds = %1024
-  store ptr @hf_radiotap_spatial_reuse_3_unknown, ptr %100, align 16
+  store ptr @hf_radiotap_spatial_reuse_1_unknown, ptr %9, align 16
   br label %1026
 
 1026:                                             ; preds = %1025, %1024
-  br i1 %.not146.not.i, label %1027, label %1030
+  br i1 %.not144.not.i, label %1027, label %1028
 
 1027:                                             ; preds = %1026
-  store ptr @hf_radiotap_spatial_reuse_4_unknown, ptr %101, align 8
-  br label %1030
+  store ptr @hf_radiotap_spatial_reuse_2_unknown, ptr %99, align 8
+  br label %1028
 
-1028:                                             ; preds = %1018
-  br i1 %.not143.not.i, label %1029, label %1030
+1028:                                             ; preds = %1027, %1026
+  br i1 %.not145.not.i, label %1029, label %1030
 
 1029:                                             ; preds = %1028
-  store ptr @hf_radiotap_spatial_reuse_unknown, ptr %11, align 16
+  store ptr @hf_radiotap_spatial_reuse_3_unknown, ptr %100, align 16
   br label %1030
 
-1030:                                             ; preds = %1029, %1028, %1027, %1026, %1017, %1016
-  %.sink2.i = phi ptr [ %10, %1017 ], [ %10, %1016 ], [ %9, %1027 ], [ %9, %1026 ], [ %11, %1029 ], [ %11, %1028 ]
-  %1031 = load i32, ptr @hf_radiotap_he_info_data_4, align 4
-  %1032 = load i32, ptr @ett_radiotap_he_info_data_4, align 4
-  %1033 = call ptr @proto_tree_add_bitmask(ptr noundef %961, ptr noundef %0, i32 noundef %1015, i32 noundef %1031, i32 noundef %1032, ptr noundef nonnull %.sink2.i, i32 noundef -2147483648)
-  %1034 = add i32 %219, 8
-  %1035 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1034)
-  %1036 = and i16 %1035, 192
-  %.not.not156.i = icmp eq i16 %1036, 0
-  br i1 %.not147.not.i, label %1037, label %1038
+1030:                                             ; preds = %1029, %1028
+  br i1 %.not146.not.i, label %1031, label %1034
 
-1037:                                             ; preds = %1030
+1031:                                             ; preds = %1030
+  store ptr @hf_radiotap_spatial_reuse_4_unknown, ptr %101, align 8
+  br label %1034
+
+1032:                                             ; preds = %1022
+  br i1 %.not143.not.i, label %1033, label %1034
+
+1033:                                             ; preds = %1032
+  store ptr @hf_radiotap_spatial_reuse_unknown, ptr %11, align 16
+  br label %1034
+
+1034:                                             ; preds = %1033, %1032, %1031, %1030, %1021, %1020
+  %.sink2.i = phi ptr [ %10, %1021 ], [ %10, %1020 ], [ %9, %1031 ], [ %9, %1030 ], [ %11, %1033 ], [ %11, %1032 ]
+  %1035 = load i32, ptr @hf_radiotap_he_info_data_4, align 4
+  %1036 = load i32, ptr @ett_radiotap_he_info_data_4, align 4
+  %1037 = call ptr @proto_tree_add_bitmask(ptr noundef %965, ptr noundef %0, i32 noundef %1019, i32 noundef %1035, i32 noundef %1036, ptr noundef nonnull %.sink2.i, i32 noundef -2147483648)
+  %1038 = add i32 %219, 8
+  %1039 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1038)
+  %1040 = and i16 %1039, 192
+  %.not.not156.i = icmp eq i16 %1040, 0
+  br i1 %.not147.not.i, label %1041, label %1042
+
+1041:                                             ; preds = %1034
   store ptr @hf_radiotap_data_bandwidth_ru_allocation_unknown, ptr %12, align 16
-  br label %1038
-
-1038:                                             ; preds = %1037, %1030
-  br i1 %.not149.not.i, label %1039, label %1040
-
-1039:                                             ; preds = %1038
-  store ptr @hf_radiotap_gi_unknown, ptr %102, align 8
-  br label %1040
-
-1040:                                             ; preds = %1039, %1038
-  br i1 %.not.not156.i, label %1041, label %1042
-
-1041:                                             ; preds = %1040
-  store ptr @hf_radiotap_ltf_symbol_size_unknown, ptr %103, align 16
   br label %1042
 
-1042:                                             ; preds = %1041, %1040
-  br i1 %.not150.not.i, label %1043, label %1044
+1042:                                             ; preds = %1041, %1034
+  br i1 %.not149.not.i, label %1043, label %1044
 
 1043:                                             ; preds = %1042
-  store ptr @hf_radiotap_num_ltf_symbols_unknown, ptr %104, align 8
+  store ptr @hf_radiotap_gi_unknown, ptr %102, align 8
   br label %1044
 
 1044:                                             ; preds = %1043, %1042
-  br i1 %.not151.not.i, label %1045, label %1046
+  br i1 %.not.not156.i, label %1045, label %1046
 
 1045:                                             ; preds = %1044
-  store ptr @hf_radiotap_pre_fec_padding_factor_unknown, ptr %105, align 8
+  store ptr @hf_radiotap_ltf_symbol_size_unknown, ptr %103, align 16
   br label %1046
 
 1046:                                             ; preds = %1045, %1044
-  br i1 %.not152.not.i, label %1047, label %1048
+  br i1 %.not150.not.i, label %1047, label %1048
 
 1047:                                             ; preds = %1046
-  store ptr @hf_radiotap_txbf_unknown, ptr %106, align 16
+  store ptr @hf_radiotap_num_ltf_symbols_unknown, ptr %104, align 8
   br label %1048
 
 1048:                                             ; preds = %1047, %1046
-  br i1 %.not153.not.i, label %1049, label %1050
+  br i1 %.not151.not.i, label %1049, label %1050
 
 1049:                                             ; preds = %1048
-  store ptr @hf_radiotap_pe_disambiguity_unknown, ptr %107, align 8
+  store ptr @hf_radiotap_pre_fec_padding_factor_unknown, ptr %105, align 8
   br label %1050
 
 1050:                                             ; preds = %1049, %1048
-  %1051 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1034)
-  br i1 %.not149.not.i, label %1061, label %1052
+  br i1 %.not152.not.i, label %1051, label %1052
 
-1052:                                             ; preds = %1050
-  %1053 = load i32, ptr %73, align 4
-  %1054 = lshr i16 %1051, 4
-  %1055 = and i16 %1054, 3
-  %1056 = zext nneg i16 %1055 to i32
-  %1057 = shl nuw nsw i32 %1056, 16
-  %1058 = and i32 %1053, -196613
-  %1059 = or disjoint i32 %1058, %1057
-  %1060 = or disjoint i32 %1059, 4
-  store i32 %1060, ptr %73, align 4
-  br label %1061
+1051:                                             ; preds = %1050
+  store ptr @hf_radiotap_txbf_unknown, ptr %106, align 16
+  br label %1052
 
-1061:                                             ; preds = %1052, %1050
-  br i1 %.not147.not.i, label %1069, label %1062
+1052:                                             ; preds = %1051, %1050
+  br i1 %.not153.not.i, label %1053, label %1054
 
-1062:                                             ; preds = %1061
-  %1063 = load i32, ptr %73, align 4
-  %1064 = shl i16 %1051, 12
-  %1065 = and i32 %1063, -61443
-  %1066 = or disjoint i16 %1064, 2
-  %1067 = zext i16 %1066 to i32
-  %1068 = or disjoint i32 %1065, %1067
-  store i32 %1068, ptr %73, align 4
-  br label %1069
+1053:                                             ; preds = %1052
+  store ptr @hf_radiotap_pe_disambiguity_unknown, ptr %107, align 8
+  br label %1054
 
-1069:                                             ; preds = %1062, %1061
-  %1070 = load i32, ptr @hf_radiotap_he_info_data_5, align 4
-  %1071 = load i32, ptr @ett_radiotap_he_info_data_5, align 4
-  %1072 = call ptr @proto_tree_add_bitmask(ptr noundef %961, ptr noundef %0, i32 noundef %1034, i32 noundef %1070, i32 noundef %1071, ptr noundef nonnull %12, i32 noundef -2147483648)
-  br i1 %.not148.i, label %1074, label %1073
+1054:                                             ; preds = %1053, %1052
+  %1055 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1038)
+  br i1 %.not149.not.i, label %1065, label %1056
 
-1073:                                             ; preds = %1069
+1056:                                             ; preds = %1054
+  %1057 = load i32, ptr %73, align 4
+  %1058 = lshr i16 %1055, 4
+  %1059 = and i16 %1058, 3
+  %1060 = zext nneg i16 %1059 to i32
+  %1061 = shl nuw nsw i32 %1060, 16
+  %1062 = and i32 %1057, -196613
+  %1063 = or disjoint i32 %1062, %1061
+  %1064 = or disjoint i32 %1063, 4
+  store i32 %1064, ptr %73, align 4
+  br label %1065
+
+1065:                                             ; preds = %1056, %1054
+  br i1 %.not147.not.i, label %1073, label %1066
+
+1066:                                             ; preds = %1065
+  %1067 = load i32, ptr %73, align 4
+  %1068 = shl i16 %1055, 12
+  %1069 = and i32 %1067, -61443
+  %1070 = or disjoint i16 %1068, 2
+  %1071 = zext i16 %1070 to i32
+  %1072 = or disjoint i32 %1069, %1071
+  store i32 %1072, ptr %73, align 4
+  br label %1073
+
+1073:                                             ; preds = %1066, %1065
+  %1074 = load i32, ptr @hf_radiotap_he_info_data_5, align 4
+  %1075 = load i32, ptr @ett_radiotap_he_info_data_5, align 4
+  %1076 = call ptr @proto_tree_add_bitmask(ptr noundef %965, ptr noundef %0, i32 noundef %1038, i32 noundef %1074, i32 noundef %1075, ptr noundef nonnull %12, i32 noundef -2147483648)
+  br i1 %.not148.i, label %1078, label %1077
+
+1077:                                             ; preds = %1073
   store ptr @hf_radiotap_he_doppler_value_unknown, ptr %108, align 8
-  br label %1074
+  br label %1078
 
-1074:                                             ; preds = %1073, %1069
-  br i1 %.not154.not.i, label %1075, label %1076
+1078:                                             ; preds = %1077, %1073
+  br i1 %.not154.not.i, label %1079, label %1080
 
-1075:                                             ; preds = %1074
+1079:                                             ; preds = %1078
   store ptr @hf_radiotap_he_txop_value_unknown, ptr %109, align 8
-  br label %1076
+  br label %1080
 
-1076:                                             ; preds = %1075, %1074
-  br i1 %.not155.not.i, label %1077, label %dissect_radiotap_he_info.exit
+1080:                                             ; preds = %1079, %1078
+  br i1 %.not155.not.i, label %1081, label %dissect_radiotap_he_info.exit
 
-1077:                                             ; preds = %1076
+1081:                                             ; preds = %1080
   store ptr @hf_radiotap_midamble_periodicity_unknown, ptr %110, align 16
   br label %dissect_radiotap_he_info.exit
 
-dissect_radiotap_he_info.exit:                    ; preds = %1076, %1077
-  %1078 = add i32 %219, 10
-  %1079 = load i32, ptr @hf_radiotap_he_info_data_6, align 4
-  %1080 = load i32, ptr @ett_radiotap_he_info_data_6, align 4
-  %1081 = call ptr @proto_tree_add_bitmask(ptr noundef %961, ptr noundef %0, i32 noundef %1078, i32 noundef %1079, i32 noundef %1080, ptr noundef nonnull %13, i32 noundef -2147483648)
-  %1082 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1078)
-  %1083 = load i32, ptr %73, align 4
-  %1084 = shl i16 %1082, 3
-  %1085 = and i16 %1084, 120
-  %1086 = zext nneg i16 %1085 to i32
-  %1087 = and i32 %1083, -121
-  %1088 = or disjoint i32 %1087, %1086
-  store i32 %1088, ptr %73, align 4
+dissect_radiotap_he_info.exit:                    ; preds = %1080, %1081
+  %1082 = add i32 %219, 10
+  %1083 = load i32, ptr @hf_radiotap_he_info_data_6, align 4
+  %1084 = load i32, ptr @ett_radiotap_he_info_data_6, align 4
+  %1085 = call ptr @proto_tree_add_bitmask(ptr noundef %965, ptr noundef %0, i32 noundef %1082, i32 noundef %1083, i32 noundef %1084, ptr noundef nonnull %13, i32 noundef -2147483648)
+  %1086 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1082)
+  %1087 = load i32, ptr %73, align 4
+  %1088 = shl i16 %1086, 3
+  %1089 = and i16 %1088, 120
+  %1090 = zext nneg i16 %1089 to i32
+  %1091 = and i32 %1087, -121
+  %1092 = or disjoint i32 %1091, %1090
+  store i32 %1092, ptr %73, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -4013,30 +4014,30 @@ dissect_radiotap_he_info.exit:                    ; preds = %1076, %1077
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_radiotap_rate.exit.backedge
 
-1089:                                             ; preds = %254
-  %1090 = load i32, ptr %70, align 8
-  %.not923 = icmp eq i32 %1090, 0
-  %1091 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %219)
+1093:                                             ; preds = %254
+  %1094 = load i32, ptr %70, align 8
+  %.not923 = icmp eq i32 %1094, 0
+  %1095 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %219)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %6, ptr noundef nonnull align 16 dereferenceable(104) @__const.dissect_radiotap_he_mu_info.flags1_headers, i64 104, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, ptr noundef nonnull align 16 dereferenceable(72) @__const.dissect_radiotap_he_mu_info.flags2_headers, i64 72, i1 false)
-  %1092 = zext i16 %1091 to i32
-  %1093 = and i32 %1092, 16
-  %.not.not.i876 = icmp eq i32 %1093, 0
-  %1094 = and i32 %1092, 64
-  %.not111.not.i = icmp eq i32 %1094, 0
-  %1095 = and i32 %1092, 128
-  %.not112.not.i = icmp eq i32 %1095, 0
-  %1096 = and i32 %1092, 256
-  %.not113.not.i = icmp eq i32 %1096, 0
-  %1097 = and i32 %1092, 512
-  %.not114.not.i = icmp eq i32 %1097, 0
-  %1098 = and i32 %1092, 4096
-  %.not115.not.i = icmp eq i32 %1098, 0
-  %1099 = and i32 %1092, 16384
-  %.not116.not.i = icmp eq i32 %1099, 0
-  %.not117.i = icmp slt i16 %1091, 0
+  %1096 = zext i16 %1095 to i32
+  %1097 = and i32 %1096, 16
+  %.not.not.i876 = icmp eq i32 %1097, 0
+  %1098 = and i32 %1096, 64
+  %.not111.not.i = icmp eq i32 %1098, 0
+  %1099 = and i32 %1096, 128
+  %.not112.not.i = icmp eq i32 %1099, 0
+  %1100 = and i32 %1096, 256
+  %.not113.not.i = icmp eq i32 %1100, 0
+  %1101 = and i32 %1096, 512
+  %.not114.not.i = icmp eq i32 %1101, 0
+  %1102 = and i32 %1096, 4096
+  %.not115.not.i = icmp eq i32 %1102, 0
+  %1103 = and i32 %1096, 16384
+  %.not116.not.i = icmp eq i32 %1103, 0
+  %.not117.i = icmp slt i16 %1095, 0
   %spec.select.i = select i1 %.not.not.i876, ptr @hf_radiotap_he_mu_sig_b_mcs_unknown, ptr @hf_radiotap_he_mu_sig_b_mcs_known
   store ptr %spec.select.i, ptr %80, align 8
   %hf_radiotap_he_mu_sig_b_dcm_known.sink.i = select i1 %.not111.not.i, ptr @hf_radiotap_he_mu_sig_b_dcm_unknown, ptr @hf_radiotap_he_mu_sig_b_dcm_known
@@ -4053,13 +4054,13 @@ dissect_radiotap_he_info.exit:                    ; preds = %1076, %1077
   store ptr %hf_radiotap_he_mu_chan1_center_26_tone_ru_value.sink.i, ptr %87, align 8
   %hf_radiotap_he_mu_sig_b_syms_mu_mimo_users_unknown.sink1.i = select i1 %.not117.i, ptr @hf_radiotap_he_mu_sig_b_syms_mu_mimo_users_known, ptr @hf_radiotap_he_mu_sig_b_syms_mu_mimo_users_unknown
   store ptr %hf_radiotap_he_mu_sig_b_syms_mu_mimo_users_unknown.sink1.i, ptr %86, align 8
-  %1100 = add i32 %219, 2
-  %1101 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1100)
-  %1102 = zext i16 %1101 to i32
-  %1103 = and i32 %1102, 4
-  %.not.not119.i = icmp eq i32 %1103, 0
-  %1104 = and i32 %1102, 1024
-  %.not118.not.i = icmp eq i32 %1104, 0
+  %1104 = add i32 %219, 2
+  %1105 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1104)
+  %1106 = zext i16 %1105 to i32
+  %1107 = and i32 %1106, 4
+  %.not.not119.i = icmp eq i32 %1107, 0
+  %1108 = and i32 %1106, 1024
+  %.not118.not.i = icmp eq i32 %1108, 0
   %storemerge.i = select i1 %.not.not119.i, ptr @hf_radiotap_he_mu_bw_from_bw_in_sig_a_unknown, ptr @hf_radiotap_he_mu_bw_from_bw_in_sig_a
   store ptr %storemerge.i, ptr %7, align 16
   %hf_radiotap_he_mu_sig_b_compression_from_sig_a.sink.i = select i1 %.not116.not.i, ptr @hf_radiotap_he_mu_sig_b_compression_unknown, ptr @hf_radiotap_he_mu_sig_b_compression_from_sig_a
@@ -4070,11 +4071,11 @@ dissect_radiotap_he_info.exit:                    ; preds = %1076, %1077
   store ptr %hf_radiotap_he_mu_preamble_puncturing.sink.i, ptr %90, align 16
   %hf_radiotap_he_mu_chan2_center_26_tone_ru_value.sink.i = select i1 %.not112.not.i, ptr @hf_radiotap_he_mu_chan2_center_26_tone_ru_bit_unknown, ptr @hf_radiotap_he_mu_chan2_center_26_tone_ru_value
   store ptr %hf_radiotap_he_mu_chan2_center_26_tone_ru_value.sink.i, ptr %91, align 16
-  %1105 = and i16 %1101, 3
-  %.not.i877 = icmp eq i16 %1105, 3
-  br i1 %.not.i877, label %1108, label %1106
+  %1109 = and i16 %1105, 3
+  %.not.i877 = icmp eq i16 %1109, 3
+  br i1 %.not.i877, label %1112, label %1110
 
-1106:                                             ; preds = %1089
+1110:                                             ; preds = %1093
   %hf_radiotap_he_mu_chan1_rus_3_unknown.val.i = load i32, ptr @hf_radiotap_he_mu_chan1_rus_3_unknown, align 4
   %hf_radiotap_he_mu_chan1_rus_3.val.i = load i32, ptr @hf_radiotap_he_mu_chan1_rus_3, align 4
   %.0102.i = select i1 %.not113.not.i, i32 %hf_radiotap_he_mu_chan1_rus_3_unknown.val.i, i32 %hf_radiotap_he_mu_chan1_rus_3.val.i
@@ -4087,1281 +4088,1281 @@ dissect_radiotap_he_info.exit:                    ; preds = %1076, %1077
   %hf_radiotap_he_mu_chan1_rus_0_unknown.val.i = load i32, ptr @hf_radiotap_he_mu_chan1_rus_0_unknown, align 4
   %hf_radiotap_he_mu_chan1_rus_0.val.i = load i32, ptr @hf_radiotap_he_mu_chan1_rus_0, align 4
   %.0107.i = select i1 %.not113.not.i, i32 %hf_radiotap_he_mu_chan1_rus_0_unknown.val.i, i32 %hf_radiotap_he_mu_chan1_rus_0.val.i
-  br i1 %.not114.not.i, label %1107, label %1113
+  br i1 %.not114.not.i, label %1111, label %1117
 
-1107:                                             ; preds = %1106
-  br label %1113
+1111:                                             ; preds = %1110
+  br label %1117
 
-1108:                                             ; preds = %1089
-  %1109 = load i32, ptr @hf_radiotap_he_mu_chan1_rus_0, align 4
-  %1110 = load i32, ptr @hf_radiotap_he_mu_chan1_rus_1, align 4
-  %1111 = load i32, ptr @hf_radiotap_he_mu_chan1_rus_2, align 4
-  %1112 = load i32, ptr @hf_radiotap_he_mu_chan1_rus_3, align 4
-  br label %1113
+1112:                                             ; preds = %1093
+  %1113 = load i32, ptr @hf_radiotap_he_mu_chan1_rus_0, align 4
+  %1114 = load i32, ptr @hf_radiotap_he_mu_chan1_rus_1, align 4
+  %1115 = load i32, ptr @hf_radiotap_he_mu_chan1_rus_2, align 4
+  %1116 = load i32, ptr @hf_radiotap_he_mu_chan1_rus_3, align 4
+  br label %1117
 
-1113:                                             ; preds = %1108, %1107, %1106
-  %.1108.i = phi i32 [ %.0107.i, %1107 ], [ %1109, %1108 ], [ %.0107.i, %1106 ]
-  %.1106.i = phi i32 [ %.0105.i, %1107 ], [ %1110, %1108 ], [ %.0105.i, %1106 ]
-  %.1104.i = phi i32 [ %.0103.i, %1107 ], [ %1111, %1108 ], [ %.0103.i, %1106 ]
-  %.1.i = phi i32 [ %.0102.i, %1107 ], [ %1112, %1108 ], [ %.0102.i, %1106 ]
-  %.0101.in.i = phi ptr [ @hf_radiotap_he_mu_chan2_rus_0_unknown, %1107 ], [ @hf_radiotap_he_mu_chan2_rus_0, %1108 ], [ @hf_radiotap_he_mu_chan2_rus_0, %1106 ]
-  %.0100.in.i = phi ptr [ @hf_radiotap_he_mu_chan2_rus_1_unknown, %1107 ], [ @hf_radiotap_he_mu_chan2_rus_1, %1108 ], [ @hf_radiotap_he_mu_chan2_rus_1, %1106 ]
-  %.099.in.i = phi ptr [ @hf_radiotap_he_mu_chan2_rus_2_unknown, %1107 ], [ @hf_radiotap_he_mu_chan2_rus_2, %1108 ], [ @hf_radiotap_he_mu_chan2_rus_2, %1106 ]
-  %.098.in.i = phi ptr [ @hf_radiotap_he_mu_chan2_rus_3_unknown, %1107 ], [ @hf_radiotap_he_mu_chan2_rus_3, %1108 ], [ @hf_radiotap_he_mu_chan2_rus_3, %1106 ]
+1117:                                             ; preds = %1112, %1111, %1110
+  %.1108.i = phi i32 [ %.0107.i, %1111 ], [ %1113, %1112 ], [ %.0107.i, %1110 ]
+  %.1106.i = phi i32 [ %.0105.i, %1111 ], [ %1114, %1112 ], [ %.0105.i, %1110 ]
+  %.1104.i = phi i32 [ %.0103.i, %1111 ], [ %1115, %1112 ], [ %.0103.i, %1110 ]
+  %.1.i = phi i32 [ %.0102.i, %1111 ], [ %1116, %1112 ], [ %.0102.i, %1110 ]
+  %.0101.in.i = phi ptr [ @hf_radiotap_he_mu_chan2_rus_0_unknown, %1111 ], [ @hf_radiotap_he_mu_chan2_rus_0, %1112 ], [ @hf_radiotap_he_mu_chan2_rus_0, %1110 ]
+  %.0100.in.i = phi ptr [ @hf_radiotap_he_mu_chan2_rus_1_unknown, %1111 ], [ @hf_radiotap_he_mu_chan2_rus_1, %1112 ], [ @hf_radiotap_he_mu_chan2_rus_1, %1110 ]
+  %.099.in.i = phi ptr [ @hf_radiotap_he_mu_chan2_rus_2_unknown, %1111 ], [ @hf_radiotap_he_mu_chan2_rus_2, %1112 ], [ @hf_radiotap_he_mu_chan2_rus_2, %1110 ]
+  %.098.in.i = phi ptr [ @hf_radiotap_he_mu_chan2_rus_3_unknown, %1111 ], [ @hf_radiotap_he_mu_chan2_rus_3, %1112 ], [ @hf_radiotap_he_mu_chan2_rus_3, %1110 ]
   %.098.i = load i32, ptr %.098.in.i, align 4
   %.099.i = load i32, ptr %.099.in.i, align 4
   %.0100.i = load i32, ptr %.0100.in.i, align 4
   %.0101.i = load i32, ptr %.0101.in.i, align 4
-  %1114 = load i32, ptr @ett_radiotap_he_mu_info, align 4
-  %1115 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 12, i32 noundef %1114, ptr noundef null, ptr noundef nonnull @.str.96)
-  br i1 %.not923, label %dissect_radiotap_he_mu_info.exit, label %1116
+  %1118 = load i32, ptr @ett_radiotap_he_mu_info, align 4
+  %1119 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 12, i32 noundef %1118, ptr noundef null, ptr noundef nonnull @.str.96)
+  br i1 %.not923, label %dissect_radiotap_he_mu_info.exit, label %1120
 
-1116:                                             ; preds = %1113
-  %1117 = add i32 %219, -4
-  %1118 = load i32, ptr @hf_radiotap_tlv_type, align 4
-  %1119 = call ptr @proto_tree_add_item(ptr noundef %1115, i32 noundef %1118, ptr noundef %0, i32 noundef %1117, i32 noundef 2, i32 noundef -2147483648)
-  %1120 = add i32 %219, -2
-  %1121 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
-  %1122 = call ptr @proto_tree_add_item(ptr noundef %1115, i32 noundef %1121, ptr noundef %0, i32 noundef %1120, i32 noundef 2, i32 noundef -2147483648)
+1120:                                             ; preds = %1117
+  %1121 = add i32 %219, -4
+  %1122 = load i32, ptr @hf_radiotap_tlv_type, align 4
+  %1123 = call ptr @proto_tree_add_item(ptr noundef %1119, i32 noundef %1122, ptr noundef %0, i32 noundef %1121, i32 noundef 2, i32 noundef -2147483648)
+  %1124 = add i32 %219, -2
+  %1125 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
+  %1126 = call ptr @proto_tree_add_item(ptr noundef %1119, i32 noundef %1125, ptr noundef %0, i32 noundef %1124, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_radiotap_he_mu_info.exit
 
-dissect_radiotap_he_mu_info.exit:                 ; preds = %1113, %1116
-  %1123 = load i32, ptr @hf_radiotap_he_mu_info_flags_1, align 4
-  %1124 = load i32, ptr @ett_radiotap_he_mu_info_flags_1, align 4
-  %1125 = call ptr @proto_tree_add_bitmask(ptr noundef %1115, ptr noundef %0, i32 noundef %219, i32 noundef %1123, i32 noundef %1124, ptr noundef nonnull %6, i32 noundef -2147483648)
-  %1126 = load i32, ptr @hf_radiotap_he_mu_info_flags_2, align 4
-  %1127 = load i32, ptr @ett_radiotap_he_mu_info_flags_2, align 4
-  %1128 = call ptr @proto_tree_add_bitmask(ptr noundef %1115, ptr noundef %0, i32 noundef %1100, i32 noundef %1126, i32 noundef %1127, ptr noundef nonnull %7, i32 noundef -2147483648)
-  %1129 = add i32 %219, 4
-  %1130 = load i32, ptr @ett_radiotap_he_mu_chan_rus, align 4
-  %1131 = call ptr @proto_tree_add_subtree(ptr noundef %1115, ptr noundef %0, i32 noundef %1129, i32 noundef 4, i32 noundef %1130, ptr noundef null, ptr noundef nonnull @.str.1301)
-  %1132 = call ptr @proto_tree_add_item(ptr noundef %1131, i32 noundef %.1108.i, ptr noundef %0, i32 noundef %1129, i32 noundef 1, i32 noundef 0)
-  %1133 = add i32 %219, 5
-  %1134 = call ptr @proto_tree_add_item(ptr noundef %1131, i32 noundef %.1106.i, ptr noundef %0, i32 noundef %1133, i32 noundef 1, i32 noundef 0)
-  %1135 = add i32 %219, 6
-  %1136 = call ptr @proto_tree_add_item(ptr noundef %1131, i32 noundef %.1104.i, ptr noundef %0, i32 noundef %1135, i32 noundef 1, i32 noundef 0)
-  %1137 = add i32 %219, 7
-  %1138 = call ptr @proto_tree_add_item(ptr noundef %1131, i32 noundef %.1.i, ptr noundef %0, i32 noundef %1137, i32 noundef 1, i32 noundef 0)
-  %1139 = add i32 %219, 8
-  %1140 = load i32, ptr @ett_radiotap_he_mu_chan_rus, align 4
-  %1141 = call ptr @proto_tree_add_subtree(ptr noundef %1115, ptr noundef %0, i32 noundef %1139, i32 noundef 4, i32 noundef %1140, ptr noundef null, ptr noundef nonnull @.str.1302)
-  %1142 = call ptr @proto_tree_add_item(ptr noundef %1141, i32 noundef %.0101.i, ptr noundef %0, i32 noundef %1139, i32 noundef 1, i32 noundef 0)
-  %1143 = add i32 %219, 9
-  %1144 = call ptr @proto_tree_add_item(ptr noundef %1141, i32 noundef %.0100.i, ptr noundef %0, i32 noundef %1143, i32 noundef 1, i32 noundef 0)
-  %1145 = add i32 %219, 10
-  %1146 = call ptr @proto_tree_add_item(ptr noundef %1141, i32 noundef %.099.i, ptr noundef %0, i32 noundef %1145, i32 noundef 1, i32 noundef 0)
-  %1147 = add i32 %219, 11
-  %1148 = call ptr @proto_tree_add_item(ptr noundef %1141, i32 noundef %.098.i, ptr noundef %0, i32 noundef %1147, i32 noundef 1, i32 noundef 0)
+dissect_radiotap_he_mu_info.exit:                 ; preds = %1117, %1120
+  %1127 = load i32, ptr @hf_radiotap_he_mu_info_flags_1, align 4
+  %1128 = load i32, ptr @ett_radiotap_he_mu_info_flags_1, align 4
+  %1129 = call ptr @proto_tree_add_bitmask(ptr noundef %1119, ptr noundef %0, i32 noundef %219, i32 noundef %1127, i32 noundef %1128, ptr noundef nonnull %6, i32 noundef -2147483648)
+  %1130 = load i32, ptr @hf_radiotap_he_mu_info_flags_2, align 4
+  %1131 = load i32, ptr @ett_radiotap_he_mu_info_flags_2, align 4
+  %1132 = call ptr @proto_tree_add_bitmask(ptr noundef %1119, ptr noundef %0, i32 noundef %1104, i32 noundef %1130, i32 noundef %1131, ptr noundef nonnull %7, i32 noundef -2147483648)
+  %1133 = add i32 %219, 4
+  %1134 = load i32, ptr @ett_radiotap_he_mu_chan_rus, align 4
+  %1135 = call ptr @proto_tree_add_subtree(ptr noundef %1119, ptr noundef %0, i32 noundef %1133, i32 noundef 4, i32 noundef %1134, ptr noundef null, ptr noundef nonnull @.str.1301)
+  %1136 = call ptr @proto_tree_add_item(ptr noundef %1135, i32 noundef %.1108.i, ptr noundef %0, i32 noundef %1133, i32 noundef 1, i32 noundef 0)
+  %1137 = add i32 %219, 5
+  %1138 = call ptr @proto_tree_add_item(ptr noundef %1135, i32 noundef %.1106.i, ptr noundef %0, i32 noundef %1137, i32 noundef 1, i32 noundef 0)
+  %1139 = add i32 %219, 6
+  %1140 = call ptr @proto_tree_add_item(ptr noundef %1135, i32 noundef %.1104.i, ptr noundef %0, i32 noundef %1139, i32 noundef 1, i32 noundef 0)
+  %1141 = add i32 %219, 7
+  %1142 = call ptr @proto_tree_add_item(ptr noundef %1135, i32 noundef %.1.i, ptr noundef %0, i32 noundef %1141, i32 noundef 1, i32 noundef 0)
+  %1143 = add i32 %219, 8
+  %1144 = load i32, ptr @ett_radiotap_he_mu_chan_rus, align 4
+  %1145 = call ptr @proto_tree_add_subtree(ptr noundef %1119, ptr noundef %0, i32 noundef %1143, i32 noundef 4, i32 noundef %1144, ptr noundef null, ptr noundef nonnull @.str.1302)
+  %1146 = call ptr @proto_tree_add_item(ptr noundef %1145, i32 noundef %.0101.i, ptr noundef %0, i32 noundef %1143, i32 noundef 1, i32 noundef 0)
+  %1147 = add i32 %219, 9
+  %1148 = call ptr @proto_tree_add_item(ptr noundef %1145, i32 noundef %.0100.i, ptr noundef %0, i32 noundef %1147, i32 noundef 1, i32 noundef 0)
+  %1149 = add i32 %219, 10
+  %1150 = call ptr @proto_tree_add_item(ptr noundef %1145, i32 noundef %.099.i, ptr noundef %0, i32 noundef %1149, i32 noundef 1, i32 noundef 0)
+  %1151 = add i32 %219, 11
+  %1152 = call ptr @proto_tree_add_item(ptr noundef %1145, i32 noundef %.098.i, ptr noundef %0, i32 noundef %1151, i32 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_radiotap_rate.exit.backedge
 
-1149:                                             ; preds = %254
+1153:                                             ; preds = %254
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %1150 = load i32, ptr @ett_radiotap_0_length_psdu, align 4
-  %1151 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef %1150, ptr noundef null, ptr noundef nonnull @.str.1303)
-  %1152 = load i32, ptr @hf_radiotap_0_length_psdu_type, align 4
-  %1153 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1151, i32 noundef %1152, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
-  %1154 = load i32, ptr %5, align 4
-  switch i32 %1154, label %dissect_radiotap_0_length_psdu.exit [
+  %1154 = load i32, ptr @ett_radiotap_0_length_psdu, align 4
+  %1155 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef %1154, ptr noundef null, ptr noundef nonnull @.str.1303)
+  %1156 = load i32, ptr @hf_radiotap_0_length_psdu_type, align 4
+  %1157 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1155, i32 noundef %1156, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
+  %1158 = load i32, ptr %5, align 4
+  switch i32 %1158, label %dissect_radiotap_0_length_psdu.exit [
     i32 0, label %.sink.split.i878
-    i32 1, label %1155
-    i32 255, label %1156
+    i32 1, label %1159
+    i32 255, label %1160
   ]
 
-1155:                                             ; preds = %1149
+1159:                                             ; preds = %1153
   br label %.sink.split.i878
 
-1156:                                             ; preds = %1149
+1160:                                             ; preds = %1153
   br label %.sink.split.i878
 
-.sink.split.i878:                                 ; preds = %1156, %1155, %1149
-  %.sink.i879 = phi i8 [ -1, %1156 ], [ 1, %1155 ], [ 0, %1149 ]
-  %1157 = load i16, ptr %78, align 8
-  %1158 = or i16 %1157, 2048
-  store i16 %1158, ptr %78, align 8
+.sink.split.i878:                                 ; preds = %1160, %1159, %1153
+  %.sink.i879 = phi i8 [ -1, %1160 ], [ 1, %1159 ], [ 0, %1153 ]
+  %1161 = load i16, ptr %78, align 8
+  %1162 = or i16 %1161, 2048
+  store i16 %1162, ptr %78, align 8
   store i8 %.sink.i879, ptr %79, align 8
   br label %dissect_radiotap_0_length_psdu.exit
 
-dissect_radiotap_0_length_psdu.exit:              ; preds = %1149, %.sink.split.i878
+dissect_radiotap_0_length_psdu.exit:              ; preds = %1153, %.sink.split.i878
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_radiotap_rate.exit.backedge
 
-1159:                                             ; preds = %254
-  %1160 = load i32, ptr @ett_radiotap_l_sig, align 4
-  %1161 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 4, i32 noundef %1160, ptr noundef null, ptr noundef nonnull @.str.103)
-  %1162 = load i32, ptr @hf_radiotap_l_sig_data_1, align 4
-  %1163 = load i32, ptr @ett_radiotap_l_sig_data_1, align 4
-  %1164 = call ptr @proto_tree_add_bitmask(ptr noundef %1161, ptr noundef %0, i32 noundef %219, i32 noundef %1162, i32 noundef %1163, ptr noundef nonnull @l_sig_data1_headers, i32 noundef -2147483648)
-  %1165 = add i32 %219, 2
-  %1166 = load i32, ptr @hf_radiotap_l_sig_data_2, align 4
-  %1167 = load i32, ptr @ett_radiotap_l_sig_data_2, align 4
-  %1168 = call ptr @proto_tree_add_bitmask(ptr noundef %1161, ptr noundef %0, i32 noundef %1165, i32 noundef %1166, i32 noundef %1167, ptr noundef nonnull @l_sig_data2_headers, i32 noundef -2147483648)
+1163:                                             ; preds = %254
+  %1164 = load i32, ptr @ett_radiotap_l_sig, align 4
+  %1165 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 4, i32 noundef %1164, ptr noundef null, ptr noundef nonnull @.str.103)
+  %1166 = load i32, ptr @hf_radiotap_l_sig_data_1, align 4
+  %1167 = load i32, ptr @ett_radiotap_l_sig_data_1, align 4
+  %1168 = call ptr @proto_tree_add_bitmask(ptr noundef %1165, ptr noundef %0, i32 noundef %219, i32 noundef %1166, i32 noundef %1167, ptr noundef nonnull @l_sig_data1_headers, i32 noundef -2147483648)
+  %1169 = add i32 %219, 2
+  %1170 = load i32, ptr @hf_radiotap_l_sig_data_2, align 4
+  %1171 = load i32, ptr @ett_radiotap_l_sig_data_2, align 4
+  %1172 = call ptr @proto_tree_add_bitmask(ptr noundef %1165, ptr noundef %0, i32 noundef %1169, i32 noundef %1170, i32 noundef %1171, ptr noundef nonnull @l_sig_data2_headers, i32 noundef -2147483648)
   br label %dissect_radiotap_rate.exit.backedge
 
-1169:                                             ; preds = %254
+1173:                                             ; preds = %254
   store i32 10, ptr %19, align 8
-  %1170 = load i32, ptr @ett_radiotap_s1g, align 4
-  %1171 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 6, i32 noundef %1170, ptr noundef null, ptr noundef nonnull @.str.1122)
-  %1172 = add i32 %219, -4
-  %1173 = load i32, ptr @hf_radiotap_tlv_type, align 4
-  %1174 = call ptr @proto_tree_add_item(ptr noundef %1171, i32 noundef %1173, ptr noundef %0, i32 noundef %1172, i32 noundef 2, i32 noundef -2147483648)
-  %1175 = add i32 %219, -2
-  %1176 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
-  %1177 = call ptr @proto_tree_add_item(ptr noundef %1171, i32 noundef %1176, ptr noundef %0, i32 noundef %1175, i32 noundef 2, i32 noundef -2147483648)
-  %1178 = load i32, ptr @hf_radiotap_s1g_known, align 4
-  %1179 = load i32, ptr @ett_radiotap_s1g_known, align 4
-  %1180 = call ptr @proto_tree_add_bitmask(ptr noundef %1171, ptr noundef %0, i32 noundef %219, i32 noundef %1178, i32 noundef %1179, ptr noundef nonnull @s1g_known_headers, i32 noundef -2147483648)
-  %1181 = add i32 %219, 2
-  %1182 = load i32, ptr @hf_radiotap_s1g_data_1, align 4
-  %1183 = load i32, ptr @ett_radiotap_s1g_data_1, align 4
-  %1184 = call ptr @proto_tree_add_bitmask(ptr noundef %1171, ptr noundef %0, i32 noundef %1181, i32 noundef %1182, i32 noundef %1183, ptr noundef nonnull @s1g_data1_headers, i32 noundef -2147483648)
-  %1185 = add i32 %219, 4
-  %1186 = load i32, ptr @hf_radiotap_s1g_data_2, align 4
-  %1187 = load i32, ptr @ett_radiotap_s1g_data_2, align 4
-  %1188 = call ptr @proto_tree_add_bitmask(ptr noundef %1171, ptr noundef %0, i32 noundef %1185, i32 noundef %1186, i32 noundef %1187, ptr noundef nonnull @s1g_data2_headers, i32 noundef -2147483648)
+  %1174 = load i32, ptr @ett_radiotap_s1g, align 4
+  %1175 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 6, i32 noundef %1174, ptr noundef null, ptr noundef nonnull @.str.1122)
+  %1176 = add i32 %219, -4
+  %1177 = load i32, ptr @hf_radiotap_tlv_type, align 4
+  %1178 = call ptr @proto_tree_add_item(ptr noundef %1175, i32 noundef %1177, ptr noundef %0, i32 noundef %1176, i32 noundef 2, i32 noundef -2147483648)
+  %1179 = add i32 %219, -2
+  %1180 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
+  %1181 = call ptr @proto_tree_add_item(ptr noundef %1175, i32 noundef %1180, ptr noundef %0, i32 noundef %1179, i32 noundef 2, i32 noundef -2147483648)
+  %1182 = load i32, ptr @hf_radiotap_s1g_known, align 4
+  %1183 = load i32, ptr @ett_radiotap_s1g_known, align 4
+  %1184 = call ptr @proto_tree_add_bitmask(ptr noundef %1175, ptr noundef %0, i32 noundef %219, i32 noundef %1182, i32 noundef %1183, ptr noundef nonnull @s1g_known_headers, i32 noundef -2147483648)
+  %1185 = add i32 %219, 2
+  %1186 = load i32, ptr @hf_radiotap_s1g_data_1, align 4
+  %1187 = load i32, ptr @ett_radiotap_s1g_data_1, align 4
+  %1188 = call ptr @proto_tree_add_bitmask(ptr noundef %1175, ptr noundef %0, i32 noundef %1185, i32 noundef %1186, i32 noundef %1187, ptr noundef nonnull @s1g_data1_headers, i32 noundef -2147483648)
+  %1189 = add i32 %219, 4
+  %1190 = load i32, ptr @hf_radiotap_s1g_data_2, align 4
+  %1191 = load i32, ptr @ett_radiotap_s1g_data_2, align 4
+  %1192 = call ptr @proto_tree_add_bitmask(ptr noundef %1175, ptr noundef %0, i32 noundef %1189, i32 noundef %1190, i32 noundef %1191, ptr noundef nonnull @s1g_data2_headers, i32 noundef -2147483648)
   br label %dissect_radiotap_rate.exit.backedge
 
-1189:                                             ; preds = %254
-  %1190 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %219)
+1193:                                             ; preds = %254
+  %1194 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %219)
   store i32 12, ptr %19, align 8
-  %1191 = load i32, ptr @ett_radiotap_u_sig, align 4
-  %1192 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 12, i32 noundef %1191, ptr noundef null, ptr noundef nonnull @.str.1123)
-  %1193 = add i32 %219, -4
-  %1194 = load i32, ptr @hf_radiotap_tlv_type, align 4
-  %1195 = call ptr @proto_tree_add_item(ptr noundef %1192, i32 noundef %1194, ptr noundef %0, i32 noundef %1193, i32 noundef 2, i32 noundef -2147483648)
-  %1196 = add i32 %219, -2
-  %1197 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
-  %1198 = call ptr @proto_tree_add_item(ptr noundef %1192, i32 noundef %1197, ptr noundef %0, i32 noundef %1196, i32 noundef 2, i32 noundef -2147483648)
-  %1199 = add i32 %219, 2
-  %1200 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1199)
-  %1201 = load i32, ptr @hf_radiotap_u_sig_common, align 4
-  %1202 = load i32, ptr @ett_radiotap_u_sig_common, align 4
-  %1203 = call ptr @proto_tree_add_bitmask(ptr noundef %1192, ptr noundef %0, i32 noundef %219, i32 noundef %1201, i32 noundef %1202, ptr noundef nonnull @usig_common_headers, i32 noundef -2147483648)
-  %1204 = and i32 %1190, 2
-  %.not.i880 = icmp eq i32 %1204, 0
-  br i1 %.not.i880, label %1211, label %1205
+  %1195 = load i32, ptr @ett_radiotap_u_sig, align 4
+  %1196 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef 12, i32 noundef %1195, ptr noundef null, ptr noundef nonnull @.str.1123)
+  %1197 = add i32 %219, -4
+  %1198 = load i32, ptr @hf_radiotap_tlv_type, align 4
+  %1199 = call ptr @proto_tree_add_item(ptr noundef %1196, i32 noundef %1198, ptr noundef %0, i32 noundef %1197, i32 noundef 2, i32 noundef -2147483648)
+  %1200 = add i32 %219, -2
+  %1201 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
+  %1202 = call ptr @proto_tree_add_item(ptr noundef %1196, i32 noundef %1201, ptr noundef %0, i32 noundef %1200, i32 noundef 2, i32 noundef -2147483648)
+  %1203 = add i32 %219, 2
+  %1204 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1203)
+  %1205 = load i32, ptr @hf_radiotap_u_sig_common, align 4
+  %1206 = load i32, ptr @ett_radiotap_u_sig_common, align 4
+  %1207 = call ptr @proto_tree_add_bitmask(ptr noundef %1196, ptr noundef %0, i32 noundef %219, i32 noundef %1205, i32 noundef %1206, ptr noundef nonnull @usig_common_headers, i32 noundef -2147483648)
+  %1208 = and i32 %1194, 2
+  %.not.i880 = icmp eq i32 %1208, 0
+  br i1 %.not.i880, label %1215, label %1209
 
-1205:                                             ; preds = %1189
-  %1206 = load i8, ptr %73, align 4
-  %1207 = or i8 %1206, 4
-  store i8 %1207, ptr %73, align 4
-  %1208 = lshr i32 %1190, 15
-  %1209 = trunc i32 %1208 to i8
-  %1210 = and i8 %1209, 7
-  store i8 %1210, ptr %77, align 1
-  br label %1211
+1209:                                             ; preds = %1193
+  %1210 = load i8, ptr %73, align 4
+  %1211 = or i8 %1210, 4
+  store i8 %1211, ptr %73, align 4
+  %1212 = lshr i32 %1194, 15
+  %1213 = trunc i32 %1212 to i8
+  %1214 = and i8 %1213, 7
+  store i8 %1214, ptr %77, align 1
+  br label %1215
 
-1211:                                             ; preds = %1205, %1189
-  %1212 = add i32 %219, 4
-  %1213 = add i32 %219, 8
-  %1214 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1213)
-  %1215 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1212)
-  %1216 = lshr i8 %1215, 6
-  %1217 = and i8 %1200, 4
-  %1218 = icmp eq i8 %1217, 0
-  br i1 %1218, label %1219, label %1223
+1215:                                             ; preds = %1209, %1193
+  %1216 = add i32 %219, 4
+  %1217 = add i32 %219, 8
+  %1218 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1217)
+  %1219 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1216)
+  %1220 = lshr i8 %1219, 6
+  %1221 = and i8 %1204, 4
+  %1222 = icmp eq i8 %1221, 0
+  br i1 %1222, label %1223, label %1227
 
-1219:                                             ; preds = %1211
-  %1220 = icmp ult i8 %1215, 64
-  %1221 = add nsw i8 %1216, -1
-  %1222 = icmp ult i8 %1221, 2
-  %or.cond5.i = or i1 %1220, %1222
-  br i1 %or.cond5.i, label %1225, label %.thread.i
+1223:                                             ; preds = %1215
+  %1224 = icmp ult i8 %1219, 64
+  %1225 = add nsw i8 %1220, -1
+  %1226 = icmp ult i8 %1225, 2
+  %or.cond5.i = or i1 %1224, %1226
+  br i1 %or.cond5.i, label %1229, label %.thread.i
 
-1223:                                             ; preds = %1211
-  %1224 = icmp eq i8 %1216, 1
-  br i1 %1224, label %1225, label %.thread.i
+1227:                                             ; preds = %1215
+  %1228 = icmp eq i8 %1220, 1
+  br i1 %1228, label %1229, label %.thread.i
 
-1225:                                             ; preds = %1223, %1219
-  %1226 = and i32 %1214, 31
-  %.not71.i = icmp eq i32 %1226, 31
-  br i1 %.not71.i, label %1228, label %1227
+1229:                                             ; preds = %1227, %1223
+  %1230 = and i32 %1218, 31
+  %.not71.i = icmp eq i32 %1230, 31
+  br i1 %.not71.i, label %1232, label %1231
 
-1227:                                             ; preds = %1225
+1231:                                             ; preds = %1229
   store ptr @hf_radiotap_usig_eht_mu_b20_b24_not_known, ptr @usig_eht_mu_ppdu_headers, align 16
-  br label %1228
+  br label %1232
 
-1228:                                             ; preds = %1227, %1225
-  %1229 = and i32 %1214, 32
-  %.not72.not.i = icmp eq i32 %1229, 0
-  br i1 %.not72.not.i, label %1230, label %1231
+1232:                                             ; preds = %1231, %1229
+  %1233 = and i32 %1218, 32
+  %.not72.not.i = icmp eq i32 %1233, 0
+  br i1 %.not72.not.i, label %1234, label %1235
 
-1230:                                             ; preds = %1228
+1234:                                             ; preds = %1232
   store ptr @hf_radiotap_usig_eht_mu_b25_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_mu_ppdu_headers, i64 8), align 8
-  br label %1231
+  br label %1235
 
-1231:                                             ; preds = %1230, %1228
-  %1232 = and i32 %1214, 256
-  %.not73.not.i = icmp eq i32 %1232, 0
-  br i1 %.not73.not.i, label %1233, label %1234
+1235:                                             ; preds = %1234, %1232
+  %1236 = and i32 %1218, 256
+  %.not73.not.i = icmp eq i32 %1236, 0
+  br i1 %.not73.not.i, label %1237, label %1238
 
-1233:                                             ; preds = %1231
+1237:                                             ; preds = %1235
   store ptr @hf_radiotap_usig_validate1_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_mu_ppdu_headers, i64 24), align 8
-  br label %1234
+  br label %1238
 
-1234:                                             ; preds = %1233, %1231
-  %1235 = and i32 %1214, 15872
-  %.not74.i = icmp eq i32 %1235, 15872
-  br i1 %.not74.i, label %1237, label %1236
+1238:                                             ; preds = %1237, %1235
+  %1239 = and i32 %1218, 15872
+  %.not74.i = icmp eq i32 %1239, 15872
+  br i1 %.not74.i, label %1241, label %1240
 
-1236:                                             ; preds = %1234
+1240:                                             ; preds = %1238
   store ptr @hf_radiotap_usig_punctured_channel_info_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_mu_ppdu_headers, i64 32), align 16
-  br label %1237
+  br label %1241
 
-1237:                                             ; preds = %1236, %1234
-  %1238 = and i32 %1214, 16384
-  %.not75.not.i = icmp eq i32 %1238, 0
-  br i1 %.not75.not.i, label %1239, label %1240
+1241:                                             ; preds = %1240, %1238
+  %1242 = and i32 %1218, 16384
+  %.not75.not.i = icmp eq i32 %1242, 0
+  br i1 %.not75.not.i, label %1243, label %1244
 
-1239:                                             ; preds = %1237
+1243:                                             ; preds = %1241
   store ptr @hf_radiotap_usig_validate2_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_mu_ppdu_headers, i64 40), align 8
-  br label %1240
+  br label %1244
 
-1240:                                             ; preds = %1239, %1237
-  %1241 = and i32 %1214, 98304
-  %.not76.i = icmp eq i32 %1241, 98304
-  br i1 %.not76.i, label %1243, label %1242
+1244:                                             ; preds = %1243, %1241
+  %1245 = and i32 %1218, 98304
+  %.not76.i = icmp eq i32 %1245, 98304
+  br i1 %.not76.i, label %1247, label %1246
 
-1242:                                             ; preds = %1240
+1246:                                             ; preds = %1244
   store ptr @hf_radiotap_usig_eht_sig_mcs_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_mu_ppdu_headers, i64 48), align 16
-  br label %1243
+  br label %1247
 
-1243:                                             ; preds = %1242, %1240
-  %1244 = and i32 %1214, 4063232
-  %.not77.i = icmp eq i32 %1244, 4063232
-  br i1 %.not77.i, label %1246, label %1245
+1247:                                             ; preds = %1246, %1244
+  %1248 = and i32 %1218, 4063232
+  %.not77.i = icmp eq i32 %1248, 4063232
+  br i1 %.not77.i, label %1250, label %1249
 
-1245:                                             ; preds = %1243
+1249:                                             ; preds = %1247
   store ptr @hf_radiotap_usig_number_eht_sig_symbols_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_mu_ppdu_headers, i64 56), align 8
-  br label %1246
+  br label %1250
 
-1246:                                             ; preds = %1245, %1243
-  %1247 = and i32 %1214, 62914560
-  %.not78.i = icmp eq i32 %1247, 62914560
-  br i1 %.not78.i, label %1249, label %1248
+1250:                                             ; preds = %1249, %1247
+  %1251 = and i32 %1218, 62914560
+  %.not78.i = icmp eq i32 %1251, 62914560
+  br i1 %.not78.i, label %1253, label %1252
 
-1248:                                             ; preds = %1246
+1252:                                             ; preds = %1250
   store ptr @hf_radiotap_usig_crc_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_mu_ppdu_headers, i64 64), align 16
-  br label %1249
+  br label %1253
 
-1249:                                             ; preds = %1248, %1246
-  %.not79.i = icmp ugt i32 %1214, -67108865
-  br i1 %.not79.i, label %dissect_radiotap_u_sig.exit, label %1250
+1253:                                             ; preds = %1252, %1250
+  %.not79.i = icmp ugt i32 %1218, -67108865
+  br i1 %.not79.i, label %dissect_radiotap_u_sig.exit, label %1254
 
-1250:                                             ; preds = %1249
+1254:                                             ; preds = %1253
   store ptr @hf_radiotap_usig_tail_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_mu_ppdu_headers, i64 72), align 8
   br label %dissect_radiotap_u_sig.exit
 
-.thread.i:                                        ; preds = %1223, %1219
-  %1251 = and i32 %1214, 63
-  %.not64.i = icmp eq i32 %1251, 63
-  br i1 %.not64.i, label %1253, label %1252
+.thread.i:                                        ; preds = %1227, %1223
+  %1255 = and i32 %1218, 63
+  %.not64.i = icmp eq i32 %1255, 63
+  br i1 %.not64.i, label %1257, label %1256
 
-1252:                                             ; preds = %.thread.i
+1256:                                             ; preds = %.thread.i
   store ptr @hf_radiotap_usig_eht_tb_b20_b25_not_known, ptr @usig_eht_tb_ppdu_headers, align 16
-  br label %1253
+  br label %1257
 
-1253:                                             ; preds = %1252, %.thread.i
-  %1254 = and i32 %1214, 256
-  %.not65.not.i = icmp eq i32 %1254, 0
-  br i1 %.not65.not.i, label %1255, label %1256
+1257:                                             ; preds = %1256, %.thread.i
+  %1258 = and i32 %1218, 256
+  %.not65.not.i = icmp eq i32 %1258, 0
+  br i1 %.not65.not.i, label %1259, label %1260
 
-1255:                                             ; preds = %1253
+1259:                                             ; preds = %1257
   store ptr @hf_radiotap_usig_eht_tb_validate1_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_tb_ppdu_headers, i64 16), align 16
-  br label %1256
+  br label %1260
 
-1256:                                             ; preds = %1255, %1253
-  %1257 = and i32 %1214, 7680
-  %.not66.i = icmp eq i32 %1257, 7680
-  br i1 %.not66.i, label %1259, label %1258
+1260:                                             ; preds = %1259, %1257
+  %1261 = and i32 %1218, 7680
+  %.not66.i = icmp eq i32 %1261, 7680
+  br i1 %.not66.i, label %1263, label %1262
 
-1258:                                             ; preds = %1256
+1262:                                             ; preds = %1260
   store ptr @hf_radiotap_usig_eht_tb_spatial_reuse_1_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_tb_ppdu_headers, i64 24), align 8
-  br label %1259
+  br label %1263
 
-1259:                                             ; preds = %1258, %1256
-  %1260 = and i32 %1214, 122880
-  %.not67.i = icmp eq i32 %1260, 122880
-  br i1 %.not67.i, label %1262, label %1261
+1263:                                             ; preds = %1262, %1260
+  %1264 = and i32 %1218, 122880
+  %.not67.i = icmp eq i32 %1264, 122880
+  br i1 %.not67.i, label %1266, label %1265
 
-1261:                                             ; preds = %1259
+1265:                                             ; preds = %1263
   store ptr @hf_radiotap_usig_eht_tb_spatial_reuse_2_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_tb_ppdu_headers, i64 32), align 16
-  br label %1262
+  br label %1266
 
-1262:                                             ; preds = %1261, %1259
-  %1263 = and i32 %1214, 4063232
-  %.not68.i = icmp eq i32 %1263, 4063232
-  br i1 %.not68.i, label %1265, label %1264
+1266:                                             ; preds = %1265, %1263
+  %1267 = and i32 %1218, 4063232
+  %.not68.i = icmp eq i32 %1267, 4063232
+  br i1 %.not68.i, label %1269, label %1268
 
-1264:                                             ; preds = %1262
+1268:                                             ; preds = %1266
   store ptr @hf_radiotap_usig_eht_tb_disregard_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_tb_ppdu_headers, i64 40), align 8
-  br label %1265
+  br label %1269
 
-1265:                                             ; preds = %1264, %1262
-  %1266 = and i32 %1214, 62914560
-  %.not69.i = icmp eq i32 %1266, 62914560
-  br i1 %.not69.i, label %1268, label %1267
+1269:                                             ; preds = %1268, %1266
+  %1270 = and i32 %1218, 62914560
+  %.not69.i = icmp eq i32 %1270, 62914560
+  br i1 %.not69.i, label %1272, label %1271
 
-1267:                                             ; preds = %1265
+1271:                                             ; preds = %1269
   store ptr @hf_radiotap_usig_eht_tb_crc_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_tb_ppdu_headers, i64 48), align 16
-  br label %1268
+  br label %1272
 
-1268:                                             ; preds = %1267, %1265
-  %.not70.i = icmp ugt i32 %1214, -67108865
-  br i1 %.not70.i, label %dissect_radiotap_u_sig.exit, label %1269
+1272:                                             ; preds = %1271, %1269
+  %.not70.i = icmp ugt i32 %1218, -67108865
+  br i1 %.not70.i, label %dissect_radiotap_u_sig.exit, label %1273
 
-1269:                                             ; preds = %1268
+1273:                                             ; preds = %1272
   store ptr @hf_radiotap_usig_eht_tb_tail_not_known, ptr getelementptr inbounds nuw (i8, ptr @usig_eht_tb_ppdu_headers, i64 56), align 8
   br label %dissect_radiotap_u_sig.exit
 
-dissect_radiotap_u_sig.exit:                      ; preds = %1249, %1250, %1268, %1269
-  %hf_radiotap_usig_value_tb_ppdu.sink.i = phi ptr [ @hf_radiotap_usig_value_mu_ppdu, %1250 ], [ @hf_radiotap_usig_value_mu_ppdu, %1249 ], [ @hf_radiotap_usig_value_tb_ppdu, %1269 ], [ @hf_radiotap_usig_value_tb_ppdu, %1268 ]
-  %usig_eht_tb_ppdu_headers.sink.i = phi ptr [ @usig_eht_mu_ppdu_headers, %1250 ], [ @usig_eht_mu_ppdu_headers, %1249 ], [ @usig_eht_tb_ppdu_headers, %1269 ], [ @usig_eht_tb_ppdu_headers, %1268 ]
-  %1270 = load i32, ptr %hf_radiotap_usig_value_tb_ppdu.sink.i, align 4
-  %1271 = load i32, ptr @ett_radiotap_u_sig_value, align 4
-  %1272 = call ptr @proto_tree_add_bitmask(ptr noundef %1192, ptr noundef %0, i32 noundef %1212, i32 noundef %1270, i32 noundef %1271, ptr noundef nonnull %usig_eht_tb_ppdu_headers.sink.i, i32 noundef -2147483648)
-  %1273 = load i32, ptr @hf_radiotap_u_sig_mask, align 4
-  %1274 = call ptr @proto_tree_add_item(ptr noundef %1192, i32 noundef %1273, ptr noundef %0, i32 noundef %1213, i32 noundef 4, i32 noundef -2147483648)
+dissect_radiotap_u_sig.exit:                      ; preds = %1253, %1254, %1272, %1273
+  %hf_radiotap_usig_value_tb_ppdu.sink.i = phi ptr [ @hf_radiotap_usig_value_mu_ppdu, %1254 ], [ @hf_radiotap_usig_value_mu_ppdu, %1253 ], [ @hf_radiotap_usig_value_tb_ppdu, %1273 ], [ @hf_radiotap_usig_value_tb_ppdu, %1272 ]
+  %usig_eht_tb_ppdu_headers.sink.i = phi ptr [ @usig_eht_mu_ppdu_headers, %1254 ], [ @usig_eht_mu_ppdu_headers, %1253 ], [ @usig_eht_tb_ppdu_headers, %1273 ], [ @usig_eht_tb_ppdu_headers, %1272 ]
+  %1274 = load i32, ptr %hf_radiotap_usig_value_tb_ppdu.sink.i, align 4
+  %1275 = load i32, ptr @ett_radiotap_u_sig_value, align 4
+  %1276 = call ptr @proto_tree_add_bitmask(ptr noundef %1196, ptr noundef %0, i32 noundef %1216, i32 noundef %1274, i32 noundef %1275, ptr noundef nonnull %usig_eht_tb_ppdu_headers.sink.i, i32 noundef -2147483648)
+  %1277 = load i32, ptr @hf_radiotap_u_sig_mask, align 4
+  %1278 = call ptr @proto_tree_add_item(ptr noundef %1196, i32 noundef %1277, ptr noundef %0, i32 noundef %1217, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_radiotap_rate.exit.backedge
 
-1275:                                             ; preds = %254
-  %1276 = add i32 %219, -2
-  %1277 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1276, i32 noundef -2147483648)
+1279:                                             ; preds = %254
+  %1280 = add i32 %219, -2
+  %1281 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1280, i32 noundef -2147483648)
   store i32 12, ptr %19, align 8
-  %1278 = zext i16 %1277 to i32
-  %1279 = load i32, ptr @ett_radiotap_eht, align 4
-  %1280 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef %1278, i32 noundef %1279, ptr noundef null, ptr noundef nonnull @.str.1124)
-  %1281 = add i32 %219, -4
-  %1282 = load i32, ptr @hf_radiotap_tlv_type, align 4
-  %1283 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1282, ptr noundef %0, i32 noundef %1281, i32 noundef 2, i32 noundef -2147483648)
-  %1284 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
-  %1285 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1284, ptr noundef %0, i32 noundef %1276, i32 noundef 2, i32 noundef -2147483648)
-  %1286 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %219, i32 noundef -2147483648)
-  %1287 = load i32, ptr @hf_radiotap_eht_known, align 4
-  %1288 = load i32, ptr @ett_radiotap_eht_known, align 4
-  %1289 = call ptr @proto_tree_add_bitmask(ptr noundef %1280, ptr noundef %0, i32 noundef %219, i32 noundef %1287, i32 noundef %1288, ptr noundef nonnull @eht_known_headers, i32 noundef -2147483648)
-  %1290 = add i32 %219, 4
-  %1291 = load i32, ptr @hf_radiotap_eht_data0, align 4
-  %1292 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1291, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  %1293 = load i32, ptr @ett_radiotap_eht_data, align 4
-  %1294 = call ptr @proto_item_add_subtree(ptr noundef %1292, i32 noundef %1293)
-  %1295 = load i32, ptr @hf_radiotap_eht_data0_reserved1, align 4
-  %1296 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1295, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  %1297 = and i32 %1286, 2
-  %.not.i881 = icmp eq i32 %1297, 0
-  br i1 %.not.i881, label %1301, label %1298
+  %1282 = zext i16 %1281 to i32
+  %1283 = load i32, ptr @ett_radiotap_eht, align 4
+  %1284 = call ptr @proto_tree_add_subtree(ptr noundef %.0744, ptr noundef %0, i32 noundef %219, i32 noundef %1282, i32 noundef %1283, ptr noundef null, ptr noundef nonnull @.str.1124)
+  %1285 = add i32 %219, -4
+  %1286 = load i32, ptr @hf_radiotap_tlv_type, align 4
+  %1287 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1286, ptr noundef %0, i32 noundef %1285, i32 noundef 2, i32 noundef -2147483648)
+  %1288 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
+  %1289 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1288, ptr noundef %0, i32 noundef %1280, i32 noundef 2, i32 noundef -2147483648)
+  %1290 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %219, i32 noundef -2147483648)
+  %1291 = load i32, ptr @hf_radiotap_eht_known, align 4
+  %1292 = load i32, ptr @ett_radiotap_eht_known, align 4
+  %1293 = call ptr @proto_tree_add_bitmask(ptr noundef %1284, ptr noundef %0, i32 noundef %219, i32 noundef %1291, i32 noundef %1292, ptr noundef nonnull @eht_known_headers, i32 noundef -2147483648)
+  %1294 = add i32 %219, 4
+  %1295 = load i32, ptr @hf_radiotap_eht_data0, align 4
+  %1296 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1295, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  %1297 = load i32, ptr @ett_radiotap_eht_data, align 4
+  %1298 = call ptr @proto_item_add_subtree(ptr noundef %1296, i32 noundef %1297)
+  %1299 = load i32, ptr @hf_radiotap_eht_data0_reserved1, align 4
+  %1300 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1299, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  %1301 = and i32 %1290, 2
+  %.not.i881 = icmp eq i32 %1301, 0
+  br i1 %.not.i881, label %1305, label %1302
 
-1298:                                             ; preds = %1275
-  %1299 = load i32, ptr @hf_radiotap_eht_data0_spatial_reuse, align 4
-  %1300 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1299, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  br label %1304
+1302:                                             ; preds = %1279
+  %1303 = load i32, ptr @hf_radiotap_eht_data0_spatial_reuse, align 4
+  %1304 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1303, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  br label %1308
 
-1301:                                             ; preds = %1275
-  %1302 = load i32, ptr @hf_radiotap_eht_data0_spatial_reuse_not_known, align 4
-  %1303 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1302, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1303, ptr noundef nonnull @.str.1304)
-  br label %1304
+1305:                                             ; preds = %1279
+  %1306 = load i32, ptr @hf_radiotap_eht_data0_spatial_reuse_not_known, align 4
+  %1307 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1306, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1307, ptr noundef nonnull @.str.1304)
+  br label %1308
 
-1304:                                             ; preds = %1301, %1298
-  %1305 = and i32 %1286, 4
-  %.not448.not.i = icmp eq i32 %1305, 0
-  br i1 %.not448.not.i, label %1309, label %1306
+1308:                                             ; preds = %1305, %1302
+  %1309 = and i32 %1290, 4
+  %.not448.not.i = icmp eq i32 %1309, 0
+  br i1 %.not448.not.i, label %1313, label %1310
 
-1306:                                             ; preds = %1304
-  %1307 = load i32, ptr @hf_radiotap_eht_data0_gi, align 4
-  %1308 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1307, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  br label %1312
+1310:                                             ; preds = %1308
+  %1311 = load i32, ptr @hf_radiotap_eht_data0_gi, align 4
+  %1312 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1311, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  br label %1316
 
-1309:                                             ; preds = %1304
-  %1310 = load i32, ptr @hf_radiotap_eht_data0_gi_not_known, align 4
-  %1311 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1310, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1311, ptr noundef nonnull @.str.1304)
-  br label %1312
+1313:                                             ; preds = %1308
+  %1314 = load i32, ptr @hf_radiotap_eht_data0_gi_not_known, align 4
+  %1315 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1314, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1315, ptr noundef nonnull @.str.1304)
+  br label %1316
 
-1312:                                             ; preds = %1309, %1306
-  %1313 = load i32, ptr @hf_radiotap_eht_data0_ltf_symbol_size, align 4
-  %1314 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1313, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  %1315 = and i32 %1286, 16
-  %.not449.i = icmp eq i32 %1315, 0
-  br i1 %.not449.i, label %1319, label %1316
+1316:                                             ; preds = %1313, %1310
+  %1317 = load i32, ptr @hf_radiotap_eht_data0_ltf_symbol_size, align 4
+  %1318 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1317, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  %1319 = and i32 %1290, 16
+  %.not449.i = icmp eq i32 %1319, 0
+  br i1 %.not449.i, label %1323, label %1320
 
-1316:                                             ; preds = %1312
-  %1317 = load i32, ptr @hf_radiotap_eht_data0_number_ltf_symbols, align 4
-  %1318 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1317, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  br label %1322
+1320:                                             ; preds = %1316
+  %1321 = load i32, ptr @hf_radiotap_eht_data0_number_ltf_symbols, align 4
+  %1322 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1321, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  br label %1326
 
-1319:                                             ; preds = %1312
-  %1320 = load i32, ptr @hf_radiotap_eht_data0_number_ltf_symbols_not_known, align 4
-  %1321 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1320, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1321, ptr noundef nonnull @.str.1304)
-  br label %1322
+1323:                                             ; preds = %1316
+  %1324 = load i32, ptr @hf_radiotap_eht_data0_number_ltf_symbols_not_known, align 4
+  %1325 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1324, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1325, ptr noundef nonnull @.str.1304)
+  br label %1326
 
-1322:                                             ; preds = %1319, %1316
-  %1323 = and i32 %1286, 32
-  %.not450.i = icmp eq i32 %1323, 0
-  br i1 %.not450.i, label %1327, label %1324
+1326:                                             ; preds = %1323, %1320
+  %1327 = and i32 %1290, 32
+  %.not450.i = icmp eq i32 %1327, 0
+  br i1 %.not450.i, label %1331, label %1328
 
-1324:                                             ; preds = %1322
-  %1325 = load i32, ptr @hf_radiotap_eht_data0_ldpc_extra_symbol_segment, align 4
-  %1326 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1325, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  br label %1330
+1328:                                             ; preds = %1326
+  %1329 = load i32, ptr @hf_radiotap_eht_data0_ldpc_extra_symbol_segment, align 4
+  %1330 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1329, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  br label %1334
 
-1327:                                             ; preds = %1322
-  %1328 = load i32, ptr @hf_radiotap_eht_data0_ldpc_extra_symbol_segment_not_known, align 4
-  %1329 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1328, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1329, ptr noundef nonnull @.str.1304)
-  br label %1330
+1331:                                             ; preds = %1326
+  %1332 = load i32, ptr @hf_radiotap_eht_data0_ldpc_extra_symbol_segment_not_known, align 4
+  %1333 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1332, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1333, ptr noundef nonnull @.str.1304)
+  br label %1334
 
-1330:                                             ; preds = %1327, %1324
-  %1331 = and i32 %1286, 64
-  %.not451.i = icmp eq i32 %1331, 0
-  br i1 %.not451.i, label %1335, label %1332
+1334:                                             ; preds = %1331, %1328
+  %1335 = and i32 %1290, 64
+  %.not451.i = icmp eq i32 %1335, 0
+  br i1 %.not451.i, label %1339, label %1336
 
-1332:                                             ; preds = %1330
-  %1333 = load i32, ptr @hf_radiotap_eht_data0_pre_fec_padding_factor, align 4
-  %1334 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1333, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  br label %1338
+1336:                                             ; preds = %1334
+  %1337 = load i32, ptr @hf_radiotap_eht_data0_pre_fec_padding_factor, align 4
+  %1338 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1337, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  br label %1342
 
-1335:                                             ; preds = %1330
-  %1336 = load i32, ptr @hf_radiotap_eht_data0_pre_fec_padding_factor_not_known, align 4
-  %1337 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1336, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1337, ptr noundef nonnull @.str.1304)
-  br label %1338
+1339:                                             ; preds = %1334
+  %1340 = load i32, ptr @hf_radiotap_eht_data0_pre_fec_padding_factor_not_known, align 4
+  %1341 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1340, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1341, ptr noundef nonnull @.str.1304)
+  br label %1342
 
-1338:                                             ; preds = %1335, %1332
-  %1339 = and i32 %1286, 128
-  %.not452.i = icmp eq i32 %1339, 0
-  br i1 %.not452.i, label %1343, label %1340
+1342:                                             ; preds = %1339, %1336
+  %1343 = and i32 %1290, 128
+  %.not452.i = icmp eq i32 %1343, 0
+  br i1 %.not452.i, label %1347, label %1344
 
-1340:                                             ; preds = %1338
-  %1341 = load i32, ptr @hf_radiotap_eht_data0_pe_disambiguity, align 4
-  %1342 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1341, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  br label %1346
+1344:                                             ; preds = %1342
+  %1345 = load i32, ptr @hf_radiotap_eht_data0_pe_disambiguity, align 4
+  %1346 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1345, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  br label %1350
 
-1343:                                             ; preds = %1338
-  %1344 = load i32, ptr @hf_radiotap_eht_data0_pe_disambiguity_not_known, align 4
-  %1345 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1344, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1345, ptr noundef nonnull @.str.1304)
-  br label %1346
+1347:                                             ; preds = %1342
+  %1348 = load i32, ptr @hf_radiotap_eht_data0_pe_disambiguity_not_known, align 4
+  %1349 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1348, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1349, ptr noundef nonnull @.str.1304)
+  br label %1350
 
-1346:                                             ; preds = %1343, %1340
-  %1347 = and i32 %1286, 256
-  %.not453.i = icmp eq i32 %1347, 0
-  br i1 %.not453.i, label %1351, label %1348
+1350:                                             ; preds = %1347, %1344
+  %1351 = and i32 %1290, 256
+  %.not453.i = icmp eq i32 %1351, 0
+  br i1 %.not453.i, label %1355, label %1352
 
-1348:                                             ; preds = %1346
-  %1349 = load i32, ptr @hf_radiotap_eht_data0_disregard, align 4
-  %1350 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1349, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  br label %1354
+1352:                                             ; preds = %1350
+  %1353 = load i32, ptr @hf_radiotap_eht_data0_disregard, align 4
+  %1354 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1353, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  br label %1358
 
-1351:                                             ; preds = %1346
-  %1352 = load i32, ptr @hf_radiotap_eht_data0_disregard_not_known, align 4
-  %1353 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1352, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1353, ptr noundef nonnull @.str.1304)
-  br label %1354
+1355:                                             ; preds = %1350
+  %1356 = load i32, ptr @hf_radiotap_eht_data0_disregard_not_known, align 4
+  %1357 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1356, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1357, ptr noundef nonnull @.str.1304)
+  br label %1358
 
-1354:                                             ; preds = %1351, %1348
-  %1355 = and i32 %1286, 8192
-  %.not454.i = icmp eq i32 %1355, 0
-  br i1 %.not454.i, label %1359, label %1356
+1358:                                             ; preds = %1355, %1352
+  %1359 = and i32 %1290, 8192
+  %.not454.i = icmp eq i32 %1359, 0
+  br i1 %.not454.i, label %1363, label %1360
 
-1356:                                             ; preds = %1354
-  %1357 = load i32, ptr @hf_radiotap_eht_data0_crc1, align 4
-  %1358 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1357, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  br label %1362
+1360:                                             ; preds = %1358
+  %1361 = load i32, ptr @hf_radiotap_eht_data0_crc1, align 4
+  %1362 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1361, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  br label %1366
 
-1359:                                             ; preds = %1354
-  %1360 = load i32, ptr @hf_radiotap_eht_data0_crc1_not_known, align 4
-  %1361 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1360, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1361, ptr noundef nonnull @.str.1304)
-  br label %1362
+1363:                                             ; preds = %1358
+  %1364 = load i32, ptr @hf_radiotap_eht_data0_crc1_not_known, align 4
+  %1365 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1364, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1365, ptr noundef nonnull @.str.1304)
+  br label %1366
 
-1362:                                             ; preds = %1359, %1356
-  %1363 = and i32 %1286, 16384
-  %.not455.i = icmp eq i32 %1363, 0
-  br i1 %.not455.i, label %1367, label %1364
+1366:                                             ; preds = %1363, %1360
+  %1367 = and i32 %1290, 16384
+  %.not455.i = icmp eq i32 %1367, 0
+  br i1 %.not455.i, label %1371, label %1368
 
-1364:                                             ; preds = %1362
-  %1365 = load i32, ptr @hf_radiotap_eht_data0_tail1, align 4
-  %1366 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1365, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  br label %1370
+1368:                                             ; preds = %1366
+  %1369 = load i32, ptr @hf_radiotap_eht_data0_tail1, align 4
+  %1370 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1369, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  br label %1374
 
-1367:                                             ; preds = %1362
-  %1368 = load i32, ptr @hf_radiotap_eht_data0_tail1_not_known, align 4
-  %1369 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1368, ptr noundef %0, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1369, ptr noundef nonnull @.str.1304)
-  br label %1370
+1371:                                             ; preds = %1366
+  %1372 = load i32, ptr @hf_radiotap_eht_data0_tail1_not_known, align 4
+  %1373 = call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1372, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1373, ptr noundef nonnull @.str.1304)
+  br label %1374
 
-1370:                                             ; preds = %1367, %1364
-  %1371 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1290)
-  br i1 %.not448.not.i, label %1379, label %1372
+1374:                                             ; preds = %1371, %1368
+  %1375 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1294)
+  br i1 %.not448.not.i, label %1383, label %1376
 
-1372:                                             ; preds = %1370
-  %1373 = load i8, ptr %73, align 4
-  %1374 = or i8 %1373, 2
-  store i8 %1374, ptr %73, align 4
-  %1375 = load i8, ptr %74, align 2
-  %sh.diff.i = lshr i16 %1371, 3
+1376:                                             ; preds = %1374
+  %1377 = load i8, ptr %73, align 4
+  %1378 = or i8 %1377, 2
+  store i8 %1378, ptr %73, align 4
+  %1379 = load i8, ptr %74, align 2
+  %sh.diff.i = lshr i16 %1375, 3
   %tr.sh.diff.i = trunc i16 %sh.diff.i to i8
-  %1376 = and i8 %tr.sh.diff.i, 48
-  %1377 = and i8 %1375, -49
-  %1378 = or disjoint i8 %1377, %1376
-  store i8 %1378, ptr %74, align 2
-  br label %1379
+  %1380 = and i8 %tr.sh.diff.i, 48
+  %1381 = and i8 %1379, -49
+  %1382 = or disjoint i8 %1381, %1380
+  store i8 %1382, ptr %74, align 2
+  br label %1383
 
-1379:                                             ; preds = %1372, %1370
-  %1380 = add i32 %219, 8
-  %1381 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1380)
-  %1382 = load i32, ptr @hf_radiotap_eht_data1, align 4
-  %1383 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1382, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648)
-  %1384 = load i32, ptr @ett_radiotap_eht_data, align 4
-  %1385 = call ptr @proto_item_add_subtree(ptr noundef %1383, i32 noundef %1384)
-  %1386 = and i32 %1286, 4194304
-  %.not456.not.i = icmp eq i32 %1386, 0
-  br i1 %.not456.not.i, label %1390, label %1387
+1383:                                             ; preds = %1376, %1374
+  %1384 = add i32 %219, 8
+  %1385 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1384)
+  %1386 = load i32, ptr @hf_radiotap_eht_data1, align 4
+  %1387 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1386, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648)
+  %1388 = load i32, ptr @ett_radiotap_eht_data, align 4
+  %1389 = call ptr @proto_item_add_subtree(ptr noundef %1387, i32 noundef %1388)
+  %1390 = and i32 %1290, 4194304
+  %.not456.not.i = icmp eq i32 %1390, 0
+  br i1 %.not456.not.i, label %1394, label %1391
 
-1387:                                             ; preds = %1379
-  %1388 = load i32, ptr @hf_radiotap_eht_data1_ru_mru_size, align 4
-  %1389 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1388, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648)
-  br label %1393
+1391:                                             ; preds = %1383
+  %1392 = load i32, ptr @hf_radiotap_eht_data1_ru_mru_size, align 4
+  %1393 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1392, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648)
+  br label %1397
 
-1390:                                             ; preds = %1379
-  %1391 = load i32, ptr @hf_radiotap_eht_data1_ru_mru_size_not_known, align 4
-  %1392 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1391, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1392, ptr noundef nonnull @.str.1304)
-  br label %1393
+1394:                                             ; preds = %1383
+  %1395 = load i32, ptr @hf_radiotap_eht_data1_ru_mru_size_not_known, align 4
+  %1396 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1395, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1396, ptr noundef nonnull @.str.1304)
+  br label %1397
 
-1393:                                             ; preds = %1390, %1387
-  %1394 = and i32 %1286, 8388608
-  %.not457.i = icmp eq i32 %1394, 0
-  br i1 %.not457.i, label %1398, label %1395
+1397:                                             ; preds = %1394, %1391
+  %1398 = and i32 %1290, 8388608
+  %.not457.i = icmp eq i32 %1398, 0
+  br i1 %.not457.i, label %1402, label %1399
 
-1395:                                             ; preds = %1393
-  %1396 = load i32, ptr @hf_radiotap_eht_data1_ru_mru_index, align 4
-  %1397 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1396, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648)
-  br label %1401
+1399:                                             ; preds = %1397
+  %1400 = load i32, ptr @hf_radiotap_eht_data1_ru_mru_index, align 4
+  %1401 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1400, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648)
+  br label %1405
 
-1398:                                             ; preds = %1393
-  %1399 = load i32, ptr @hf_radiotap_eht_data1_ru_mru_index_not_known, align 4
-  %1400 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1399, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1400, ptr noundef nonnull @.str.1304)
-  br label %1401
+1402:                                             ; preds = %1397
+  %1403 = load i32, ptr @hf_radiotap_eht_data1_ru_mru_index_not_known, align 4
+  %1404 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1403, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1404, ptr noundef nonnull @.str.1304)
+  br label %1405
 
-1401:                                             ; preds = %1398, %1395
-  %1402 = and i32 %1381, 4194304
-  %.not458.i = icmp eq i32 %1402, 0
-  br i1 %.not458.i, label %1406, label %1403
+1405:                                             ; preds = %1402, %1399
+  %1406 = and i32 %1385, 4194304
+  %.not458.i = icmp eq i32 %1406, 0
+  br i1 %.not458.i, label %1410, label %1407
 
-1403:                                             ; preds = %1401
-  %1404 = load i32, ptr @hf_radiotap_eht_data1_ru_alloc_c1_1_1, align 4
-  %1405 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1404, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648)
-  br label %1409
+1407:                                             ; preds = %1405
+  %1408 = load i32, ptr @hf_radiotap_eht_data1_ru_alloc_c1_1_1, align 4
+  %1409 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1408, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648)
+  br label %1413
 
-1406:                                             ; preds = %1401
-  %1407 = load i32, ptr @hf_radiotap_eht_data1_ru_alloc_c1_1_1_not_known, align 4
-  %1408 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1407, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1408, ptr noundef nonnull @.str.1304)
-  br label %1409
+1410:                                             ; preds = %1405
+  %1411 = load i32, ptr @hf_radiotap_eht_data1_ru_alloc_c1_1_1_not_known, align 4
+  %1412 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1411, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1412, ptr noundef nonnull @.str.1304)
+  br label %1413
 
-1409:                                             ; preds = %1406, %1403
-  %1410 = load i32, ptr @hf_radiotap_eht_data1_ru_alloc_c1_1_1_known, align 4
-  %1411 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1410, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648)
-  %1412 = load i32, ptr @hf_radiotap_eht_data1_reserved, align 4
-  %1413 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1412, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648)
-  %1414 = and i32 %1286, 33554432
-  %.not459.i = icmp eq i32 %1414, 0
-  br i1 %.not459.i, label %1418, label %1415
+1413:                                             ; preds = %1410, %1407
+  %1414 = load i32, ptr @hf_radiotap_eht_data1_ru_alloc_c1_1_1_known, align 4
+  %1415 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1414, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648)
+  %1416 = load i32, ptr @hf_radiotap_eht_data1_reserved, align 4
+  %1417 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1416, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648)
+  %1418 = and i32 %1290, 33554432
+  %.not459.i = icmp eq i32 %1418, 0
+  br i1 %.not459.i, label %1422, label %1419
 
-1415:                                             ; preds = %1409
-  %1416 = load i32, ptr @hf_radiotap_eht_data1_primary_80_mhz_chan_pos, align 4
-  %1417 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1416, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648)
-  br label %1421
+1419:                                             ; preds = %1413
+  %1420 = load i32, ptr @hf_radiotap_eht_data1_primary_80_mhz_chan_pos, align 4
+  %1421 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1420, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648)
+  br label %1425
 
-1418:                                             ; preds = %1409
-  %1419 = load i32, ptr @hf_radiotap_eht_data1_primary_80_mhz_chan_pos_not_known, align 4
-  %1420 = call ptr @proto_tree_add_item(ptr noundef %1385, i32 noundef %1419, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1420, ptr noundef nonnull @.str.1304)
-  br label %1421
+1422:                                             ; preds = %1413
+  %1423 = load i32, ptr @hf_radiotap_eht_data1_primary_80_mhz_chan_pos_not_known, align 4
+  %1424 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1423, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1424, ptr noundef nonnull @.str.1304)
+  br label %1425
 
-1421:                                             ; preds = %1418, %1415
-  %1422 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1380)
-  br i1 %.not456.not.i, label %1431, label %1423
+1425:                                             ; preds = %1422, %1419
+  %1426 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1384)
+  br i1 %.not456.not.i, label %1435, label %1427
 
-1423:                                             ; preds = %1421
-  %1424 = load i8, ptr %73, align 4
-  %1425 = or i8 %1424, 1
-  store i8 %1425, ptr %73, align 4
-  %1426 = trunc i16 %1422 to i8
-  %1427 = load i8, ptr %74, align 2
-  %1428 = and i8 %1426, 15
-  %1429 = and i8 %1427, -16
-  %1430 = or disjoint i8 %1429, %1428
-  store i8 %1430, ptr %74, align 2
-  br label %1431
+1427:                                             ; preds = %1425
+  %1428 = load i8, ptr %73, align 4
+  %1429 = or i8 %1428, 1
+  store i8 %1429, ptr %73, align 4
+  %1430 = trunc i16 %1426 to i8
+  %1431 = load i8, ptr %74, align 2
+  %1432 = and i8 %1430, 15
+  %1433 = and i8 %1431, -16
+  %1434 = or disjoint i8 %1433, %1432
+  store i8 %1434, ptr %74, align 2
+  br label %1435
 
-1431:                                             ; preds = %1423, %1421
-  %1432 = add i32 %219, 12
-  %1433 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1432)
-  %1434 = load i32, ptr @hf_radiotap_eht_data2, align 4
-  %1435 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1434, ptr noundef %0, i32 noundef %1432, i32 noundef 4, i32 noundef -2147483648)
-  %1436 = load i32, ptr @ett_radiotap_eht_data, align 4
-  %1437 = call ptr @proto_item_add_subtree(ptr noundef %1435, i32 noundef %1436)
-  %1438 = and i32 %1433, 512
-  %.not460.i = icmp eq i32 %1438, 0
-  br i1 %.not460.i, label %1442, label %1439
+1435:                                             ; preds = %1427, %1425
+  %1436 = add i32 %219, 12
+  %1437 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1436)
+  %1438 = load i32, ptr @hf_radiotap_eht_data2, align 4
+  %1439 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1438, ptr noundef %0, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648)
+  %1440 = load i32, ptr @ett_radiotap_eht_data, align 4
+  %1441 = call ptr @proto_item_add_subtree(ptr noundef %1439, i32 noundef %1440)
+  %1442 = and i32 %1437, 512
+  %.not460.i = icmp eq i32 %1442, 0
+  br i1 %.not460.i, label %1446, label %1443
 
-1439:                                             ; preds = %1431
-  %1440 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_1, align 4
-  %1441 = call ptr @proto_tree_add_item(ptr noundef %1437, i32 noundef %1440, ptr noundef %0, i32 noundef %1432, i32 noundef 4, i32 noundef -2147483648)
-  br label %1445
+1443:                                             ; preds = %1435
+  %1444 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_1, align 4
+  %1445 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1444, ptr noundef %0, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648)
+  br label %1449
 
-1442:                                             ; preds = %1431
-  %1443 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_1_not_known, align 4
-  %1444 = call ptr @proto_tree_add_item(ptr noundef %1437, i32 noundef %1443, ptr noundef %0, i32 noundef %1432, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1444, ptr noundef nonnull @.str.1304)
-  br label %1445
+1446:                                             ; preds = %1435
+  %1447 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_1_not_known, align 4
+  %1448 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1447, ptr noundef %0, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1448, ptr noundef nonnull @.str.1304)
+  br label %1449
 
-1445:                                             ; preds = %1442, %1439
-  %1446 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_1_known, align 4
-  %1447 = call ptr @proto_tree_add_item(ptr noundef %1437, i32 noundef %1446, ptr noundef %0, i32 noundef %1432, i32 noundef 4, i32 noundef -2147483648)
-  %1448 = and i32 %1433, 524288
-  %.not461.i = icmp eq i32 %1448, 0
-  br i1 %.not461.i, label %1452, label %1449
+1449:                                             ; preds = %1446, %1443
+  %1450 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_1_known, align 4
+  %1451 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1450, ptr noundef %0, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648)
+  %1452 = and i32 %1437, 524288
+  %.not461.i = icmp eq i32 %1452, 0
+  br i1 %.not461.i, label %1456, label %1453
 
-1449:                                             ; preds = %1445
-  %1450 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c1_1_2, align 4
-  %1451 = call ptr @proto_tree_add_item(ptr noundef %1437, i32 noundef %1450, ptr noundef %0, i32 noundef %1432, i32 noundef 4, i32 noundef -2147483648)
-  br label %1455
+1453:                                             ; preds = %1449
+  %1454 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c1_1_2, align 4
+  %1455 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1454, ptr noundef %0, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648)
+  br label %1459
 
-1452:                                             ; preds = %1445
-  %1453 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c1_1_2_not_known, align 4
-  %1454 = call ptr @proto_tree_add_item(ptr noundef %1437, i32 noundef %1453, ptr noundef %0, i32 noundef %1432, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1454, ptr noundef nonnull @.str.1304)
-  br label %1455
+1456:                                             ; preds = %1449
+  %1457 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c1_1_2_not_known, align 4
+  %1458 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1457, ptr noundef %0, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1458, ptr noundef nonnull @.str.1304)
+  br label %1459
 
-1455:                                             ; preds = %1452, %1449
-  %1456 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c1_1_2_known, align 4
-  %1457 = call ptr @proto_tree_add_item(ptr noundef %1437, i32 noundef %1456, ptr noundef %0, i32 noundef %1432, i32 noundef 4, i32 noundef -2147483648)
-  %1458 = and i32 %1433, 536870912
-  %.not462.i = icmp eq i32 %1458, 0
-  br i1 %.not462.i, label %1462, label %1459
+1459:                                             ; preds = %1456, %1453
+  %1460 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c1_1_2_known, align 4
+  %1461 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1460, ptr noundef %0, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648)
+  %1462 = and i32 %1437, 536870912
+  %.not462.i = icmp eq i32 %1462, 0
+  br i1 %.not462.i, label %1466, label %1463
 
-1459:                                             ; preds = %1455
-  %1460 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_2, align 4
-  %1461 = call ptr @proto_tree_add_item(ptr noundef %1437, i32 noundef %1460, ptr noundef %0, i32 noundef %1432, i32 noundef 4, i32 noundef -2147483648)
-  br label %1465
+1463:                                             ; preds = %1459
+  %1464 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_2, align 4
+  %1465 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1464, ptr noundef %0, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648)
+  br label %1469
 
-1462:                                             ; preds = %1455
-  %1463 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_2_not_known, align 4
-  %1464 = call ptr @proto_tree_add_item(ptr noundef %1437, i32 noundef %1463, ptr noundef %0, i32 noundef %1432, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1464, ptr noundef nonnull @.str.1304)
-  br label %1465
+1466:                                             ; preds = %1459
+  %1467 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_2_not_known, align 4
+  %1468 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1467, ptr noundef %0, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1468, ptr noundef nonnull @.str.1304)
+  br label %1469
 
-1465:                                             ; preds = %1462, %1459
-  %1466 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_2_known, align 4
-  %1467 = call ptr @proto_tree_add_item(ptr noundef %1437, i32 noundef %1466, ptr noundef %0, i32 noundef %1432, i32 noundef 4, i32 noundef -2147483648)
-  %1468 = load i32, ptr @hf_radiotap_eht_data2_reserved, align 4
-  %1469 = call ptr @proto_tree_add_item(ptr noundef %1437, i32 noundef %1468, ptr noundef %0, i32 noundef %1432, i32 noundef 4, i32 noundef -2147483648)
-  %1470 = add i32 %219, 16
-  %1471 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1470)
-  %1472 = load i32, ptr @hf_radiotap_eht_data3, align 4
-  %1473 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1472, ptr noundef %0, i32 noundef %1470, i32 noundef 4, i32 noundef -2147483648)
-  %1474 = load i32, ptr @ett_radiotap_eht_data, align 4
-  %1475 = call ptr @proto_item_add_subtree(ptr noundef %1473, i32 noundef %1474)
-  %1476 = and i32 %1471, 512
-  %.not463.i = icmp eq i32 %1476, 0
-  br i1 %.not463.i, label %1480, label %1477
+1469:                                             ; preds = %1466, %1463
+  %1470 = load i32, ptr @hf_radiotap_eht_data2_ru_alloc_c2_1_2_known, align 4
+  %1471 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1470, ptr noundef %0, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648)
+  %1472 = load i32, ptr @hf_radiotap_eht_data2_reserved, align 4
+  %1473 = call ptr @proto_tree_add_item(ptr noundef %1441, i32 noundef %1472, ptr noundef %0, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648)
+  %1474 = add i32 %219, 16
+  %1475 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1474)
+  %1476 = load i32, ptr @hf_radiotap_eht_data3, align 4
+  %1477 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1476, ptr noundef %0, i32 noundef %1474, i32 noundef 4, i32 noundef -2147483648)
+  %1478 = load i32, ptr @ett_radiotap_eht_data, align 4
+  %1479 = call ptr @proto_item_add_subtree(ptr noundef %1477, i32 noundef %1478)
+  %1480 = and i32 %1475, 512
+  %.not463.i = icmp eq i32 %1480, 0
+  br i1 %.not463.i, label %1484, label %1481
 
-1477:                                             ; preds = %1465
-  %1478 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_1, align 4
-  %1479 = call ptr @proto_tree_add_item(ptr noundef %1475, i32 noundef %1478, ptr noundef %0, i32 noundef %1470, i32 noundef 4, i32 noundef -2147483648)
-  br label %1483
+1481:                                             ; preds = %1469
+  %1482 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_1, align 4
+  %1483 = call ptr @proto_tree_add_item(ptr noundef %1479, i32 noundef %1482, ptr noundef %0, i32 noundef %1474, i32 noundef 4, i32 noundef -2147483648)
+  br label %1487
 
-1480:                                             ; preds = %1465
-  %1481 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_1_not_known, align 4
-  %1482 = call ptr @proto_tree_add_item(ptr noundef %1475, i32 noundef %1481, ptr noundef %0, i32 noundef %1470, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1482, ptr noundef nonnull @.str.1304)
-  br label %1483
+1484:                                             ; preds = %1469
+  %1485 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_1_not_known, align 4
+  %1486 = call ptr @proto_tree_add_item(ptr noundef %1479, i32 noundef %1485, ptr noundef %0, i32 noundef %1474, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1486, ptr noundef nonnull @.str.1304)
+  br label %1487
 
-1483:                                             ; preds = %1480, %1477
-  %1484 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_1_known, align 4
-  %1485 = call ptr @proto_tree_add_item(ptr noundef %1475, i32 noundef %1484, ptr noundef %0, i32 noundef %1470, i32 noundef 4, i32 noundef -2147483648)
-  %1486 = and i32 %1471, 524288
-  %.not464.i = icmp eq i32 %1486, 0
-  br i1 %.not464.i, label %1490, label %1487
+1487:                                             ; preds = %1484, %1481
+  %1488 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_1_known, align 4
+  %1489 = call ptr @proto_tree_add_item(ptr noundef %1479, i32 noundef %1488, ptr noundef %0, i32 noundef %1474, i32 noundef 4, i32 noundef -2147483648)
+  %1490 = and i32 %1475, 524288
+  %.not464.i = icmp eq i32 %1490, 0
+  br i1 %.not464.i, label %1494, label %1491
 
-1487:                                             ; preds = %1483
-  %1488 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c2_2_1, align 4
-  %1489 = call ptr @proto_tree_add_item(ptr noundef %1475, i32 noundef %1488, ptr noundef %0, i32 noundef %1470, i32 noundef 4, i32 noundef -2147483648)
-  br label %1493
+1491:                                             ; preds = %1487
+  %1492 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c2_2_1, align 4
+  %1493 = call ptr @proto_tree_add_item(ptr noundef %1479, i32 noundef %1492, ptr noundef %0, i32 noundef %1474, i32 noundef 4, i32 noundef -2147483648)
+  br label %1497
 
-1490:                                             ; preds = %1483
-  %1491 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c2_2_1_not_known, align 4
-  %1492 = call ptr @proto_tree_add_item(ptr noundef %1475, i32 noundef %1491, ptr noundef %0, i32 noundef %1470, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1492, ptr noundef nonnull @.str.1304)
-  br label %1493
+1494:                                             ; preds = %1487
+  %1495 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c2_2_1_not_known, align 4
+  %1496 = call ptr @proto_tree_add_item(ptr noundef %1479, i32 noundef %1495, ptr noundef %0, i32 noundef %1474, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1496, ptr noundef nonnull @.str.1304)
+  br label %1497
 
-1493:                                             ; preds = %1490, %1487
-  %1494 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c2_2_1_known, align 4
-  %1495 = call ptr @proto_tree_add_item(ptr noundef %1475, i32 noundef %1494, ptr noundef %0, i32 noundef %1470, i32 noundef 4, i32 noundef -2147483648)
-  %1496 = and i32 %1471, 536870912
-  %.not465.i = icmp eq i32 %1496, 0
-  br i1 %.not465.i, label %1500, label %1497
+1497:                                             ; preds = %1494, %1491
+  %1498 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c2_2_1_known, align 4
+  %1499 = call ptr @proto_tree_add_item(ptr noundef %1479, i32 noundef %1498, ptr noundef %0, i32 noundef %1474, i32 noundef 4, i32 noundef -2147483648)
+  %1500 = and i32 %1475, 536870912
+  %.not465.i = icmp eq i32 %1500, 0
+  br i1 %.not465.i, label %1504, label %1501
 
-1497:                                             ; preds = %1493
-  %1498 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_2, align 4
-  %1499 = call ptr @proto_tree_add_item(ptr noundef %1475, i32 noundef %1498, ptr noundef %0, i32 noundef %1470, i32 noundef 4, i32 noundef -2147483648)
-  br label %1503
+1501:                                             ; preds = %1497
+  %1502 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_2, align 4
+  %1503 = call ptr @proto_tree_add_item(ptr noundef %1479, i32 noundef %1502, ptr noundef %0, i32 noundef %1474, i32 noundef 4, i32 noundef -2147483648)
+  br label %1507
 
-1500:                                             ; preds = %1493
-  %1501 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_2_not_known, align 4
-  %1502 = call ptr @proto_tree_add_item(ptr noundef %1475, i32 noundef %1501, ptr noundef %0, i32 noundef %1470, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1502, ptr noundef nonnull @.str.1304)
-  br label %1503
+1504:                                             ; preds = %1497
+  %1505 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_2_not_known, align 4
+  %1506 = call ptr @proto_tree_add_item(ptr noundef %1479, i32 noundef %1505, ptr noundef %0, i32 noundef %1474, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1506, ptr noundef nonnull @.str.1304)
+  br label %1507
 
-1503:                                             ; preds = %1500, %1497
-  %1504 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_2_known, align 4
-  %1505 = call ptr @proto_tree_add_item(ptr noundef %1475, i32 noundef %1504, ptr noundef %0, i32 noundef %1470, i32 noundef 4, i32 noundef -2147483648)
-  %1506 = load i32, ptr @hf_radiotap_eht_data3_reserved, align 4
-  %1507 = call ptr @proto_tree_add_item(ptr noundef %1475, i32 noundef %1506, ptr noundef %0, i32 noundef %1470, i32 noundef 4, i32 noundef -2147483648)
-  %1508 = add i32 %219, 20
-  %1509 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1508)
-  %1510 = load i32, ptr @hf_radiotap_eht_data4, align 4
-  %1511 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1510, ptr noundef %0, i32 noundef %1508, i32 noundef 4, i32 noundef -2147483648)
-  %1512 = load i32, ptr @ett_radiotap_eht_data, align 4
-  %1513 = call ptr @proto_item_add_subtree(ptr noundef %1511, i32 noundef %1512)
-  %1514 = and i32 %1509, 512
-  %.not466.i = icmp eq i32 %1514, 0
-  br i1 %.not466.i, label %1518, label %1515
+1507:                                             ; preds = %1504, %1501
+  %1508 = load i32, ptr @hf_radiotap_eht_data3_ru_alloc_c1_2_2_known, align 4
+  %1509 = call ptr @proto_tree_add_item(ptr noundef %1479, i32 noundef %1508, ptr noundef %0, i32 noundef %1474, i32 noundef 4, i32 noundef -2147483648)
+  %1510 = load i32, ptr @hf_radiotap_eht_data3_reserved, align 4
+  %1511 = call ptr @proto_tree_add_item(ptr noundef %1479, i32 noundef %1510, ptr noundef %0, i32 noundef %1474, i32 noundef 4, i32 noundef -2147483648)
+  %1512 = add i32 %219, 20
+  %1513 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1512)
+  %1514 = load i32, ptr @hf_radiotap_eht_data4, align 4
+  %1515 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1514, ptr noundef %0, i32 noundef %1512, i32 noundef 4, i32 noundef -2147483648)
+  %1516 = load i32, ptr @ett_radiotap_eht_data, align 4
+  %1517 = call ptr @proto_item_add_subtree(ptr noundef %1515, i32 noundef %1516)
+  %1518 = and i32 %1513, 512
+  %.not466.i = icmp eq i32 %1518, 0
+  br i1 %.not466.i, label %1522, label %1519
 
-1515:                                             ; preds = %1503
-  %1516 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_2, align 4
-  %1517 = call ptr @proto_tree_add_item(ptr noundef %1513, i32 noundef %1516, ptr noundef %0, i32 noundef %1508, i32 noundef 4, i32 noundef -2147483648)
-  br label %1521
+1519:                                             ; preds = %1507
+  %1520 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_2, align 4
+  %1521 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %1520, ptr noundef %0, i32 noundef %1512, i32 noundef 4, i32 noundef -2147483648)
+  br label %1525
 
-1518:                                             ; preds = %1503
-  %1519 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_2_not_known, align 4
-  %1520 = call ptr @proto_tree_add_item(ptr noundef %1513, i32 noundef %1519, ptr noundef %0, i32 noundef %1508, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1520, ptr noundef nonnull @.str.1304)
-  br label %1521
+1522:                                             ; preds = %1507
+  %1523 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_2_not_known, align 4
+  %1524 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %1523, ptr noundef %0, i32 noundef %1512, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1524, ptr noundef nonnull @.str.1304)
+  br label %1525
 
-1521:                                             ; preds = %1518, %1515
-  %1522 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_2_known, align 4
-  %1523 = call ptr @proto_tree_add_item(ptr noundef %1513, i32 noundef %1522, ptr noundef %0, i32 noundef %1508, i32 noundef 4, i32 noundef -2147483648)
-  %1524 = and i32 %1509, 524288
-  %.not467.i = icmp eq i32 %1524, 0
-  br i1 %.not467.i, label %1528, label %1525
+1525:                                             ; preds = %1522, %1519
+  %1526 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_2_known, align 4
+  %1527 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %1526, ptr noundef %0, i32 noundef %1512, i32 noundef 4, i32 noundef -2147483648)
+  %1528 = and i32 %1513, 524288
+  %.not467.i = icmp eq i32 %1528, 0
+  br i1 %.not467.i, label %1532, label %1529
 
-1525:                                             ; preds = %1521
-  %1526 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c1_2_3, align 4
-  %1527 = call ptr @proto_tree_add_item(ptr noundef %1513, i32 noundef %1526, ptr noundef %0, i32 noundef %1508, i32 noundef 4, i32 noundef -2147483648)
-  br label %1531
+1529:                                             ; preds = %1525
+  %1530 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c1_2_3, align 4
+  %1531 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %1530, ptr noundef %0, i32 noundef %1512, i32 noundef 4, i32 noundef -2147483648)
+  br label %1535
 
-1528:                                             ; preds = %1521
-  %1529 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c1_2_3_not_known, align 4
-  %1530 = call ptr @proto_tree_add_item(ptr noundef %1513, i32 noundef %1529, ptr noundef %0, i32 noundef %1508, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1530, ptr noundef nonnull @.str.1304)
-  br label %1531
+1532:                                             ; preds = %1525
+  %1533 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c1_2_3_not_known, align 4
+  %1534 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %1533, ptr noundef %0, i32 noundef %1512, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1534, ptr noundef nonnull @.str.1304)
+  br label %1535
 
-1531:                                             ; preds = %1528, %1525
-  %1532 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c1_2_3_known, align 4
-  %1533 = call ptr @proto_tree_add_item(ptr noundef %1513, i32 noundef %1532, ptr noundef %0, i32 noundef %1508, i32 noundef 4, i32 noundef -2147483648)
-  %1534 = and i32 %1509, 536870912
-  %.not468.i = icmp eq i32 %1534, 0
-  br i1 %.not468.i, label %1538, label %1535
+1535:                                             ; preds = %1532, %1529
+  %1536 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c1_2_3_known, align 4
+  %1537 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %1536, ptr noundef %0, i32 noundef %1512, i32 noundef 4, i32 noundef -2147483648)
+  %1538 = and i32 %1513, 536870912
+  %.not468.i = icmp eq i32 %1538, 0
+  br i1 %.not468.i, label %1542, label %1539
 
-1535:                                             ; preds = %1531
-  %1536 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_3, align 4
-  %1537 = call ptr @proto_tree_add_item(ptr noundef %1513, i32 noundef %1536, ptr noundef %0, i32 noundef %1508, i32 noundef 4, i32 noundef -2147483648)
-  br label %1541
+1539:                                             ; preds = %1535
+  %1540 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_3, align 4
+  %1541 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %1540, ptr noundef %0, i32 noundef %1512, i32 noundef 4, i32 noundef -2147483648)
+  br label %1545
 
-1538:                                             ; preds = %1531
-  %1539 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_3_not_known, align 4
-  %1540 = call ptr @proto_tree_add_item(ptr noundef %1513, i32 noundef %1539, ptr noundef %0, i32 noundef %1508, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1540, ptr noundef nonnull @.str.1304)
-  br label %1541
+1542:                                             ; preds = %1535
+  %1543 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_3_not_known, align 4
+  %1544 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %1543, ptr noundef %0, i32 noundef %1512, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1544, ptr noundef nonnull @.str.1304)
+  br label %1545
 
-1541:                                             ; preds = %1538, %1535
-  %1542 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_3_known, align 4
-  %1543 = call ptr @proto_tree_add_item(ptr noundef %1513, i32 noundef %1542, ptr noundef %0, i32 noundef %1508, i32 noundef 4, i32 noundef -2147483648)
-  %1544 = load i32, ptr @hf_radiotap_eht_data4_reserved, align 4
-  %1545 = call ptr @proto_tree_add_item(ptr noundef %1513, i32 noundef %1544, ptr noundef %0, i32 noundef %1508, i32 noundef 4, i32 noundef -2147483648)
-  %1546 = add i32 %219, 24
-  %1547 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1546)
-  %1548 = load i32, ptr @hf_radiotap_eht_data5, align 4
-  %1549 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1548, ptr noundef %0, i32 noundef %1546, i32 noundef 4, i32 noundef -2147483648)
-  %1550 = load i32, ptr @ett_radiotap_eht_data, align 4
-  %1551 = call ptr @proto_item_add_subtree(ptr noundef %1549, i32 noundef %1550)
-  %1552 = and i32 %1547, 512
-  %.not469.i = icmp eq i32 %1552, 0
-  br i1 %.not469.i, label %1556, label %1553
+1545:                                             ; preds = %1542, %1539
+  %1546 = load i32, ptr @hf_radiotap_eht_data4_ru_alloc_c2_2_3_known, align 4
+  %1547 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %1546, ptr noundef %0, i32 noundef %1512, i32 noundef 4, i32 noundef -2147483648)
+  %1548 = load i32, ptr @hf_radiotap_eht_data4_reserved, align 4
+  %1549 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %1548, ptr noundef %0, i32 noundef %1512, i32 noundef 4, i32 noundef -2147483648)
+  %1550 = add i32 %219, 24
+  %1551 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1550)
+  %1552 = load i32, ptr @hf_radiotap_eht_data5, align 4
+  %1553 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1552, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef -2147483648)
+  %1554 = load i32, ptr @ett_radiotap_eht_data, align 4
+  %1555 = call ptr @proto_item_add_subtree(ptr noundef %1553, i32 noundef %1554)
+  %1556 = and i32 %1551, 512
+  %.not469.i = icmp eq i32 %1556, 0
+  br i1 %.not469.i, label %1560, label %1557
 
-1553:                                             ; preds = %1541
-  %1554 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_4, align 4
-  %1555 = call ptr @proto_tree_add_item(ptr noundef %1551, i32 noundef %1554, ptr noundef %0, i32 noundef %1546, i32 noundef 4, i32 noundef -2147483648)
-  br label %1559
+1557:                                             ; preds = %1545
+  %1558 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_4, align 4
+  %1559 = call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1558, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef -2147483648)
+  br label %1563
 
-1556:                                             ; preds = %1541
-  %1557 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_4_not_known, align 4
-  %1558 = call ptr @proto_tree_add_item(ptr noundef %1551, i32 noundef %1557, ptr noundef %0, i32 noundef %1546, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1558, ptr noundef nonnull @.str.1304)
-  br label %1559
+1560:                                             ; preds = %1545
+  %1561 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_4_not_known, align 4
+  %1562 = call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1561, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1562, ptr noundef nonnull @.str.1304)
+  br label %1563
 
-1559:                                             ; preds = %1556, %1553
-  %1560 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_4_known, align 4
-  %1561 = call ptr @proto_tree_add_item(ptr noundef %1551, i32 noundef %1560, ptr noundef %0, i32 noundef %1546, i32 noundef 4, i32 noundef -2147483648)
-  %1562 = and i32 %1547, 524288
-  %.not470.i = icmp eq i32 %1562, 0
-  br i1 %.not470.i, label %1566, label %1563
+1563:                                             ; preds = %1560, %1557
+  %1564 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_4_known, align 4
+  %1565 = call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1564, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef -2147483648)
+  %1566 = and i32 %1551, 524288
+  %.not470.i = icmp eq i32 %1566, 0
+  br i1 %.not470.i, label %1570, label %1567
 
-1563:                                             ; preds = %1559
-  %1564 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c2_2_4, align 4
-  %1565 = call ptr @proto_tree_add_item(ptr noundef %1551, i32 noundef %1564, ptr noundef %0, i32 noundef %1546, i32 noundef 4, i32 noundef -2147483648)
-  br label %1569
+1567:                                             ; preds = %1563
+  %1568 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c2_2_4, align 4
+  %1569 = call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1568, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef -2147483648)
+  br label %1573
 
-1566:                                             ; preds = %1559
-  %1567 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c2_2_4_not_known, align 4
-  %1568 = call ptr @proto_tree_add_item(ptr noundef %1551, i32 noundef %1567, ptr noundef %0, i32 noundef %1546, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1568, ptr noundef nonnull @.str.1304)
-  br label %1569
+1570:                                             ; preds = %1563
+  %1571 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c2_2_4_not_known, align 4
+  %1572 = call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1571, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1572, ptr noundef nonnull @.str.1304)
+  br label %1573
 
-1569:                                             ; preds = %1566, %1563
-  %1570 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c2_2_4_known, align 4
-  %1571 = call ptr @proto_tree_add_item(ptr noundef %1551, i32 noundef %1570, ptr noundef %0, i32 noundef %1546, i32 noundef 4, i32 noundef -2147483648)
-  %1572 = and i32 %1547, 536870912
-  %.not471.i = icmp eq i32 %1572, 0
-  br i1 %.not471.i, label %1576, label %1573
+1573:                                             ; preds = %1570, %1567
+  %1574 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c2_2_4_known, align 4
+  %1575 = call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1574, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef -2147483648)
+  %1576 = and i32 %1551, 536870912
+  %.not471.i = icmp eq i32 %1576, 0
+  br i1 %.not471.i, label %1580, label %1577
 
-1573:                                             ; preds = %1569
-  %1574 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_5, align 4
-  %1575 = call ptr @proto_tree_add_item(ptr noundef %1551, i32 noundef %1574, ptr noundef %0, i32 noundef %1546, i32 noundef 4, i32 noundef -2147483648)
-  br label %1579
+1577:                                             ; preds = %1573
+  %1578 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_5, align 4
+  %1579 = call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1578, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef -2147483648)
+  br label %1583
 
-1576:                                             ; preds = %1569
-  %1577 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_5_not_known, align 4
-  %1578 = call ptr @proto_tree_add_item(ptr noundef %1551, i32 noundef %1577, ptr noundef %0, i32 noundef %1546, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1578, ptr noundef nonnull @.str.1304)
-  br label %1579
+1580:                                             ; preds = %1573
+  %1581 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_5_not_known, align 4
+  %1582 = call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1581, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1582, ptr noundef nonnull @.str.1304)
+  br label %1583
 
-1579:                                             ; preds = %1576, %1573
-  %1580 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_5_known, align 4
-  %1581 = call ptr @proto_tree_add_item(ptr noundef %1551, i32 noundef %1580, ptr noundef %0, i32 noundef %1546, i32 noundef 4, i32 noundef -2147483648)
-  %1582 = load i32, ptr @hf_radiotap_eht_data5_reserved, align 4
-  %1583 = call ptr @proto_tree_add_item(ptr noundef %1551, i32 noundef %1582, ptr noundef %0, i32 noundef %1546, i32 noundef 4, i32 noundef -2147483648)
-  %1584 = add i32 %219, 28
-  %1585 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1584)
-  %1586 = load i32, ptr @hf_radiotap_eht_data6, align 4
-  %1587 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1586, ptr noundef %0, i32 noundef %1584, i32 noundef 4, i32 noundef -2147483648)
-  %1588 = load i32, ptr @ett_radiotap_eht_data, align 4
-  %1589 = call ptr @proto_item_add_subtree(ptr noundef %1587, i32 noundef %1588)
-  %1590 = and i32 %1585, 512
-  %.not472.i = icmp eq i32 %1590, 0
-  br i1 %.not472.i, label %1594, label %1591
+1583:                                             ; preds = %1580, %1577
+  %1584 = load i32, ptr @hf_radiotap_eht_data5_ru_alloc_c1_2_5_known, align 4
+  %1585 = call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1584, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef -2147483648)
+  %1586 = load i32, ptr @hf_radiotap_eht_data5_reserved, align 4
+  %1587 = call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1586, ptr noundef %0, i32 noundef %1550, i32 noundef 4, i32 noundef -2147483648)
+  %1588 = add i32 %219, 28
+  %1589 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1588)
+  %1590 = load i32, ptr @hf_radiotap_eht_data6, align 4
+  %1591 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1590, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef -2147483648)
+  %1592 = load i32, ptr @ett_radiotap_eht_data, align 4
+  %1593 = call ptr @proto_item_add_subtree(ptr noundef %1591, i32 noundef %1592)
+  %1594 = and i32 %1589, 512
+  %.not472.i = icmp eq i32 %1594, 0
+  br i1 %.not472.i, label %1598, label %1595
 
-1591:                                             ; preds = %1579
-  %1592 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_5, align 4
-  %1593 = call ptr @proto_tree_add_item(ptr noundef %1589, i32 noundef %1592, ptr noundef %0, i32 noundef %1584, i32 noundef 4, i32 noundef -2147483648)
-  br label %1597
+1595:                                             ; preds = %1583
+  %1596 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_5, align 4
+  %1597 = call ptr @proto_tree_add_item(ptr noundef %1593, i32 noundef %1596, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef -2147483648)
+  br label %1601
 
-1594:                                             ; preds = %1579
-  %1595 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_5_not_known, align 4
-  %1596 = call ptr @proto_tree_add_item(ptr noundef %1589, i32 noundef %1595, ptr noundef %0, i32 noundef %1584, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1596, ptr noundef nonnull @.str.1304)
-  br label %1597
+1598:                                             ; preds = %1583
+  %1599 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_5_not_known, align 4
+  %1600 = call ptr @proto_tree_add_item(ptr noundef %1593, i32 noundef %1599, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1600, ptr noundef nonnull @.str.1304)
+  br label %1601
 
-1597:                                             ; preds = %1594, %1591
-  %1598 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_5_known, align 4
-  %1599 = call ptr @proto_tree_add_item(ptr noundef %1589, i32 noundef %1598, ptr noundef %0, i32 noundef %1584, i32 noundef 4, i32 noundef -2147483648)
-  %1600 = and i32 %1585, 524288
-  %.not473.i = icmp eq i32 %1600, 0
-  br i1 %.not473.i, label %1604, label %1601
+1601:                                             ; preds = %1598, %1595
+  %1602 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_5_known, align 4
+  %1603 = call ptr @proto_tree_add_item(ptr noundef %1593, i32 noundef %1602, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef -2147483648)
+  %1604 = and i32 %1589, 524288
+  %.not473.i = icmp eq i32 %1604, 0
+  br i1 %.not473.i, label %1608, label %1605
 
-1601:                                             ; preds = %1597
-  %1602 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c1_2_6, align 4
-  %1603 = call ptr @proto_tree_add_item(ptr noundef %1589, i32 noundef %1602, ptr noundef %0, i32 noundef %1584, i32 noundef 4, i32 noundef -2147483648)
-  br label %1607
+1605:                                             ; preds = %1601
+  %1606 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c1_2_6, align 4
+  %1607 = call ptr @proto_tree_add_item(ptr noundef %1593, i32 noundef %1606, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef -2147483648)
+  br label %1611
 
-1604:                                             ; preds = %1597
-  %1605 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c1_2_6_not_known, align 4
-  %1606 = call ptr @proto_tree_add_item(ptr noundef %1589, i32 noundef %1605, ptr noundef %0, i32 noundef %1584, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1606, ptr noundef nonnull @.str.1304)
-  br label %1607
+1608:                                             ; preds = %1601
+  %1609 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c1_2_6_not_known, align 4
+  %1610 = call ptr @proto_tree_add_item(ptr noundef %1593, i32 noundef %1609, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1610, ptr noundef nonnull @.str.1304)
+  br label %1611
 
-1607:                                             ; preds = %1604, %1601
-  %1608 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c1_2_6_known, align 4
-  %1609 = call ptr @proto_tree_add_item(ptr noundef %1589, i32 noundef %1608, ptr noundef %0, i32 noundef %1584, i32 noundef 4, i32 noundef -2147483648)
-  %1610 = and i32 %1585, 536870912
-  %.not474.i = icmp eq i32 %1610, 0
-  br i1 %.not474.i, label %1614, label %1611
+1611:                                             ; preds = %1608, %1605
+  %1612 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c1_2_6_known, align 4
+  %1613 = call ptr @proto_tree_add_item(ptr noundef %1593, i32 noundef %1612, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef -2147483648)
+  %1614 = and i32 %1589, 536870912
+  %.not474.i = icmp eq i32 %1614, 0
+  br i1 %.not474.i, label %1618, label %1615
 
-1611:                                             ; preds = %1607
-  %1612 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_6, align 4
-  %1613 = call ptr @proto_tree_add_item(ptr noundef %1589, i32 noundef %1612, ptr noundef %0, i32 noundef %1584, i32 noundef 4, i32 noundef -2147483648)
-  br label %1617
+1615:                                             ; preds = %1611
+  %1616 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_6, align 4
+  %1617 = call ptr @proto_tree_add_item(ptr noundef %1593, i32 noundef %1616, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef -2147483648)
+  br label %1621
 
-1614:                                             ; preds = %1607
-  %1615 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_6_not_known, align 4
-  %1616 = call ptr @proto_tree_add_item(ptr noundef %1589, i32 noundef %1615, ptr noundef %0, i32 noundef %1584, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1616, ptr noundef nonnull @.str.1304)
-  br label %1617
+1618:                                             ; preds = %1611
+  %1619 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_6_not_known, align 4
+  %1620 = call ptr @proto_tree_add_item(ptr noundef %1593, i32 noundef %1619, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1620, ptr noundef nonnull @.str.1304)
+  br label %1621
 
-1617:                                             ; preds = %1614, %1611
-  %1618 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_6_known, align 4
-  %1619 = call ptr @proto_tree_add_item(ptr noundef %1589, i32 noundef %1618, ptr noundef %0, i32 noundef %1584, i32 noundef 4, i32 noundef -2147483648)
-  %1620 = load i32, ptr @hf_radiotap_eht_data6_reserved, align 4
-  %1621 = call ptr @proto_tree_add_item(ptr noundef %1589, i32 noundef %1620, ptr noundef %0, i32 noundef %1584, i32 noundef 4, i32 noundef -2147483648)
-  %1622 = add i32 %219, 32
-  %1623 = load i32, ptr @hf_radiotap_eht_data7, align 4
-  %1624 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1623, ptr noundef %0, i32 noundef %1622, i32 noundef 4, i32 noundef -2147483648)
-  %1625 = load i32, ptr @ett_radiotap_eht_data, align 4
-  %1626 = call ptr @proto_item_add_subtree(ptr noundef %1624, i32 noundef %1625)
-  %1627 = load i32, ptr @hf_radiotap_eht_data7_crc2, align 4
-  %1628 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1627, ptr noundef %0, i32 noundef %1622, i32 noundef 4, i32 noundef -2147483648)
-  %1629 = load i32, ptr @hf_radiotap_eht_data7_tail2, align 4
-  %1630 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1629, ptr noundef %0, i32 noundef %1622, i32 noundef 4, i32 noundef -2147483648)
-  %1631 = load i32, ptr @hf_radiotap_eht_data7_rsvd, align 4
-  %1632 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1631, ptr noundef %0, i32 noundef %1622, i32 noundef 4, i32 noundef -2147483648)
-  %1633 = load i32, ptr @hf_radiotap_eht_data7_nss, align 4
-  %1634 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1633, ptr noundef %0, i32 noundef %1622, i32 noundef 4, i32 noundef -2147483648)
-  %1635 = load i32, ptr @hf_radiotap_eht_data7_beamformed, align 4
-  %1636 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1635, ptr noundef %0, i32 noundef %1622, i32 noundef 4, i32 noundef -2147483648)
-  %1637 = and i32 %1286, 524288
-  %.not475.i = icmp eq i32 %1637, 0
-  br i1 %.not475.i, label %1641, label %1638
+1621:                                             ; preds = %1618, %1615
+  %1622 = load i32, ptr @hf_radiotap_eht_data6_ru_alloc_c2_2_6_known, align 4
+  %1623 = call ptr @proto_tree_add_item(ptr noundef %1593, i32 noundef %1622, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef -2147483648)
+  %1624 = load i32, ptr @hf_radiotap_eht_data6_reserved, align 4
+  %1625 = call ptr @proto_tree_add_item(ptr noundef %1593, i32 noundef %1624, ptr noundef %0, i32 noundef %1588, i32 noundef 4, i32 noundef -2147483648)
+  %1626 = add i32 %219, 32
+  %1627 = load i32, ptr @hf_radiotap_eht_data7, align 4
+  %1628 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1627, ptr noundef %0, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
+  %1629 = load i32, ptr @ett_radiotap_eht_data, align 4
+  %1630 = call ptr @proto_item_add_subtree(ptr noundef %1628, i32 noundef %1629)
+  %1631 = load i32, ptr @hf_radiotap_eht_data7_crc2, align 4
+  %1632 = call ptr @proto_tree_add_item(ptr noundef %1630, i32 noundef %1631, ptr noundef %0, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
+  %1633 = load i32, ptr @hf_radiotap_eht_data7_tail2, align 4
+  %1634 = call ptr @proto_tree_add_item(ptr noundef %1630, i32 noundef %1633, ptr noundef %0, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
+  %1635 = load i32, ptr @hf_radiotap_eht_data7_rsvd, align 4
+  %1636 = call ptr @proto_tree_add_item(ptr noundef %1630, i32 noundef %1635, ptr noundef %0, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
+  %1637 = load i32, ptr @hf_radiotap_eht_data7_nss, align 4
+  %1638 = call ptr @proto_tree_add_item(ptr noundef %1630, i32 noundef %1637, ptr noundef %0, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
+  %1639 = load i32, ptr @hf_radiotap_eht_data7_beamformed, align 4
+  %1640 = call ptr @proto_tree_add_item(ptr noundef %1630, i32 noundef %1639, ptr noundef %0, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
+  %1641 = and i32 %1290, 524288
+  %.not475.i = icmp eq i32 %1641, 0
+  br i1 %.not475.i, label %1645, label %1642
 
-1638:                                             ; preds = %1617
-  %1639 = load i32, ptr @hf_radiotap_eht_data7_number_non_ofdma_users, align 4
-  %1640 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1639, ptr noundef %0, i32 noundef %1622, i32 noundef 4, i32 noundef -2147483648)
-  br label %1644
+1642:                                             ; preds = %1621
+  %1643 = load i32, ptr @hf_radiotap_eht_data7_number_non_ofdma_users, align 4
+  %1644 = call ptr @proto_tree_add_item(ptr noundef %1630, i32 noundef %1643, ptr noundef %0, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
+  br label %1648
 
-1641:                                             ; preds = %1617
-  %1642 = load i32, ptr @hf_radiotap_eht_data7_number_non_ofdma_users_not_known, align 4
-  %1643 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1642, ptr noundef %0, i32 noundef %1622, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1643, ptr noundef nonnull @.str.1304)
-  br label %1644
+1645:                                             ; preds = %1621
+  %1646 = load i32, ptr @hf_radiotap_eht_data7_number_non_ofdma_users_not_known, align 4
+  %1647 = call ptr @proto_tree_add_item(ptr noundef %1630, i32 noundef %1646, ptr noundef %0, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1647, ptr noundef nonnull @.str.1304)
+  br label %1648
 
-1644:                                             ; preds = %1641, %1638
-  %1645 = load i32, ptr @hf_radiotap_eht_data7_user_encode_crc, align 4
-  %1646 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1645, ptr noundef %0, i32 noundef %1622, i32 noundef 4, i32 noundef -2147483648)
-  %1647 = load i32, ptr @hf_radiotap_eht_data7_user_encode_tail, align 4
-  %1648 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1647, ptr noundef %0, i32 noundef %1622, i32 noundef 4, i32 noundef -2147483648)
-  %1649 = load i32, ptr @hf_radiotap_eht_data7_rsvd2, align 4
-  %1650 = call ptr @proto_tree_add_item(ptr noundef %1626, i32 noundef %1649, ptr noundef %0, i32 noundef %1622, i32 noundef 4, i32 noundef -2147483648)
-  %1651 = add i32 %219, 36
-  %1652 = load i32, ptr @hf_radiotap_eht_data8, align 4
-  %1653 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1652, ptr noundef %0, i32 noundef %1651, i32 noundef 4, i32 noundef -2147483648)
-  %1654 = load i32, ptr @ett_radiotap_eht_data, align 4
-  %1655 = call ptr @proto_item_add_subtree(ptr noundef %1653, i32 noundef %1654)
-  %1656 = load i32, ptr @hf_radiotap_eht_data8_ru_alloc_ps_160, align 4
-  %1657 = call ptr @proto_tree_add_item(ptr noundef %1655, i32 noundef %1656, ptr noundef %0, i32 noundef %1651, i32 noundef 4, i32 noundef -2147483648)
-  %1658 = load i32, ptr @hf_radiotap_eht_data8_ru_alloc_b0, align 4
-  %1659 = call ptr @proto_tree_add_item(ptr noundef %1655, i32 noundef %1658, ptr noundef %0, i32 noundef %1651, i32 noundef 4, i32 noundef -2147483648)
-  %1660 = load i32, ptr @hf_radiotap_eht_data8_ru_alloc_b7_b1, align 4
-  %1661 = call ptr @proto_tree_add_item(ptr noundef %1655, i32 noundef %1660, ptr noundef %0, i32 noundef %1651, i32 noundef 4, i32 noundef -2147483648)
-  %1662 = load i32, ptr @hf_radiotap_eht_data8_rsvd, align 4
-  %1663 = call ptr @proto_tree_add_item(ptr noundef %1655, i32 noundef %1662, ptr noundef %0, i32 noundef %1651, i32 noundef 4, i32 noundef -2147483648)
-  %1664 = add i32 %219, 40
-  %1665 = add i16 %1277, -40
+1648:                                             ; preds = %1645, %1642
+  %1649 = load i32, ptr @hf_radiotap_eht_data7_user_encode_crc, align 4
+  %1650 = call ptr @proto_tree_add_item(ptr noundef %1630, i32 noundef %1649, ptr noundef %0, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
+  %1651 = load i32, ptr @hf_radiotap_eht_data7_user_encode_tail, align 4
+  %1652 = call ptr @proto_tree_add_item(ptr noundef %1630, i32 noundef %1651, ptr noundef %0, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
+  %1653 = load i32, ptr @hf_radiotap_eht_data7_rsvd2, align 4
+  %1654 = call ptr @proto_tree_add_item(ptr noundef %1630, i32 noundef %1653, ptr noundef %0, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
+  %1655 = add i32 %219, 36
+  %1656 = load i32, ptr @hf_radiotap_eht_data8, align 4
+  %1657 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1656, ptr noundef %0, i32 noundef %1655, i32 noundef 4, i32 noundef -2147483648)
+  %1658 = load i32, ptr @ett_radiotap_eht_data, align 4
+  %1659 = call ptr @proto_item_add_subtree(ptr noundef %1657, i32 noundef %1658)
+  %1660 = load i32, ptr @hf_radiotap_eht_data8_ru_alloc_ps_160, align 4
+  %1661 = call ptr @proto_tree_add_item(ptr noundef %1659, i32 noundef %1660, ptr noundef %0, i32 noundef %1655, i32 noundef 4, i32 noundef -2147483648)
+  %1662 = load i32, ptr @hf_radiotap_eht_data8_ru_alloc_b0, align 4
+  %1663 = call ptr @proto_tree_add_item(ptr noundef %1659, i32 noundef %1662, ptr noundef %0, i32 noundef %1655, i32 noundef 4, i32 noundef -2147483648)
+  %1664 = load i32, ptr @hf_radiotap_eht_data8_ru_alloc_b7_b1, align 4
+  %1665 = call ptr @proto_tree_add_item(ptr noundef %1659, i32 noundef %1664, ptr noundef %0, i32 noundef %1655, i32 noundef 4, i32 noundef -2147483648)
+  %1666 = load i32, ptr @hf_radiotap_eht_data8_rsvd, align 4
+  %1667 = call ptr @proto_tree_add_item(ptr noundef %1659, i32 noundef %1666, ptr noundef %0, i32 noundef %1655, i32 noundef 4, i32 noundef -2147483648)
+  %1668 = add i32 %219, 40
+  %1669 = add i16 %1281, -40
   store i8 0, ptr %75, align 1
-  %1666 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1664)
-  %1667 = icmp ne i32 %1666, 0
-  %1668 = icmp ne i16 %1665, 0
-  %or.cond.i882 = and i1 %1668, %1667
-  br i1 %or.cond.i882, label %1669, label %dissect_radiotap_rate.exit.backedge
+  %1670 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1668)
+  %1671 = icmp ne i32 %1670, 0
+  %1672 = icmp ne i16 %1669, 0
+  %or.cond.i882 = and i1 %1672, %1671
+  br i1 %or.cond.i882, label %1673, label %dissect_radiotap_rate.exit.backedge
 
-1669:                                             ; preds = %1644
-  %1670 = load i32, ptr @ett_radiotap_eht_user_info, align 4
-  %1671 = call ptr @proto_tree_add_subtree(ptr noundef %1280, ptr noundef %0, i32 noundef %1664, i32 noundef 4, i32 noundef %1670, ptr noundef null, ptr noundef nonnull @.str.1305)
-  %1672 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1664)
-  %.not3.i = icmp eq i32 %1672, 0
+1673:                                             ; preds = %1648
+  %1674 = load i32, ptr @ett_radiotap_eht_user_info, align 4
+  %1675 = call ptr @proto_tree_add_subtree(ptr noundef %1284, ptr noundef %0, i32 noundef %1668, i32 noundef 4, i32 noundef %1674, ptr noundef null, ptr noundef nonnull @.str.1305)
+  %1676 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1668)
+  %.not3.i = icmp eq i32 %1676, 0
   br i1 %.not3.i, label %dissect_radiotap_rate.exit.backedge, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %1669, %dissect_eht_user_info.exit.i
-  %.02.i = phi i32 [ %1778, %dissect_eht_user_info.exit.i ], [ %1664, %1669 ]
-  %.04461.i = phi i16 [ %1779, %dissect_eht_user_info.exit.i ], [ %1665, %1669 ]
-  %1673 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.02.i)
-  %1674 = load i32, ptr @hf_radiotap_eht_user_info, align 4
-  %1675 = call ptr @proto_tree_add_item(ptr noundef %1671, i32 noundef %1674, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1676 = load i32, ptr @ett_radiotap_eht_user_info_i, align 4
-  %1677 = call ptr @proto_item_add_subtree(ptr noundef %1675, i32 noundef %1676)
-  %1678 = load i32, ptr @hf_radiotap_eht_ui_sta_id_known, align 4
-  %1679 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1678, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1680 = load i32, ptr @hf_radiotap_eht_ui_mcs_known, align 4
-  %1681 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1680, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1682 = load i32, ptr @hf_radiotap_eht_ui_coding_known, align 4
-  %1683 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1682, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1684 = load i32, ptr @hf_radiotap_eht_ui_rsvd_known, align 4
-  %1685 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1684, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1686 = load i32, ptr @hf_radiotap_eht_ui_nss_known, align 4
-  %1687 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1686, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1688 = load i32, ptr @hf_radiotap_eht_ui_beamforming_known, align 4
-  %1689 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1688, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1690 = load i32, ptr @hf_radiotap_eht_ui_spatial_config_known, align 4
-  %1691 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1690, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1692 = load i32, ptr @hf_radiotap_eht_ui_data_captured, align 4
-  %1693 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1692, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1694 = and i32 %1673, 1
-  %.not.i.i = icmp eq i32 %1694, 0
-  br i1 %.not.i.i, label %1707, label %1695
+.lr.ph.i:                                         ; preds = %1673, %dissect_eht_user_info.exit.i
+  %.02.i = phi i32 [ %1782, %dissect_eht_user_info.exit.i ], [ %1668, %1673 ]
+  %.04461.i = phi i16 [ %1783, %dissect_eht_user_info.exit.i ], [ %1669, %1673 ]
+  %1677 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.02.i)
+  %1678 = load i32, ptr @hf_radiotap_eht_user_info, align 4
+  %1679 = call ptr @proto_tree_add_item(ptr noundef %1675, i32 noundef %1678, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1680 = load i32, ptr @ett_radiotap_eht_user_info_i, align 4
+  %1681 = call ptr @proto_item_add_subtree(ptr noundef %1679, i32 noundef %1680)
+  %1682 = load i32, ptr @hf_radiotap_eht_ui_sta_id_known, align 4
+  %1683 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1682, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1684 = load i32, ptr @hf_radiotap_eht_ui_mcs_known, align 4
+  %1685 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1684, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1686 = load i32, ptr @hf_radiotap_eht_ui_coding_known, align 4
+  %1687 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1686, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1688 = load i32, ptr @hf_radiotap_eht_ui_rsvd_known, align 4
+  %1689 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1688, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1690 = load i32, ptr @hf_radiotap_eht_ui_nss_known, align 4
+  %1691 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1690, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1692 = load i32, ptr @hf_radiotap_eht_ui_beamforming_known, align 4
+  %1693 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1692, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1694 = load i32, ptr @hf_radiotap_eht_ui_spatial_config_known, align 4
+  %1695 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1694, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1696 = load i32, ptr @hf_radiotap_eht_ui_data_captured, align 4
+  %1697 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1696, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1698 = and i32 %1677, 1
+  %.not.i.i = icmp eq i32 %1698, 0
+  br i1 %.not.i.i, label %1711, label %1699
 
-1695:                                             ; preds = %.lr.ph.i
-  %1696 = load i32, ptr @hf_radiotap_eht_ui_sta_id, align 4
-  %1697 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1696, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1698 = load i8, ptr %75, align 1
-  %1699 = icmp ult i8 %1698, 4
-  br i1 %1699, label %1700, label %1710
+1699:                                             ; preds = %.lr.ph.i
+  %1700 = load i32, ptr @hf_radiotap_eht_ui_sta_id, align 4
+  %1701 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1700, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1702 = load i8, ptr %75, align 1
+  %1703 = icmp ult i8 %1702, 4
+  br i1 %1703, label %1704, label %1714
 
-1700:                                             ; preds = %1695
-  %1701 = zext nneg i8 %1698 to i64
-  %1702 = getelementptr %struct.ieee_802_11be_user_info, ptr %76, i64 %1701
-  %1703 = load i32, ptr %1702, align 4
-  %1704 = and i32 %1703, -524034
-  %1705 = and i32 %1673, 524033
-  %1706 = or disjoint i32 %1704, %1705
-  store i32 %1706, ptr %1702, align 4
-  br label %1710
+1704:                                             ; preds = %1699
+  %1705 = zext nneg i8 %1702 to i64
+  %1706 = getelementptr %struct.ieee_802_11be_user_info, ptr %76, i64 %1705
+  %1707 = load i32, ptr %1706, align 4
+  %1708 = and i32 %1707, -524034
+  %1709 = and i32 %1677, 524033
+  %1710 = or disjoint i32 %1708, %1709
+  store i32 %1710, ptr %1706, align 4
+  br label %1714
 
-1707:                                             ; preds = %.lr.ph.i
-  %1708 = load i32, ptr @hf_radiotap_eht_ui_sta_id_not_known, align 4
-  %1709 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1708, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1709, ptr noundef nonnull @.str.1304)
-  br label %1710
+1711:                                             ; preds = %.lr.ph.i
+  %1712 = load i32, ptr @hf_radiotap_eht_ui_sta_id_not_known, align 4
+  %1713 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1712, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1713, ptr noundef nonnull @.str.1304)
+  br label %1714
 
-1710:                                             ; preds = %1707, %1700, %1695
-  %1711 = and i32 %1673, 4
-  %.not103.i.i = icmp eq i32 %1711, 0
-  br i1 %.not103.i.i, label %1715, label %1712
+1714:                                             ; preds = %1711, %1704, %1699
+  %1715 = and i32 %1677, 4
+  %.not103.i.i = icmp eq i32 %1715, 0
+  br i1 %.not103.i.i, label %1719, label %1716
 
-1712:                                             ; preds = %1710
-  %1713 = load i32, ptr @hf_radiotap_eht_ui_coding, align 4
-  %1714 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1713, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  br label %1718
+1716:                                             ; preds = %1714
+  %1717 = load i32, ptr @hf_radiotap_eht_ui_coding, align 4
+  %1718 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1717, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  br label %1722
 
-1715:                                             ; preds = %1710
-  %1716 = load i32, ptr @hf_radiotap_eht_ui_coding_not_known, align 4
-  %1717 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1716, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1717, ptr noundef nonnull @.str.1304)
-  br label %1718
+1719:                                             ; preds = %1714
+  %1720 = load i32, ptr @hf_radiotap_eht_ui_coding_not_known, align 4
+  %1721 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1720, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1721, ptr noundef nonnull @.str.1304)
+  br label %1722
 
-1718:                                             ; preds = %1715, %1712
-  %1719 = and i32 %1673, 2
-  %.not104.i.i = icmp eq i32 %1719, 0
-  br i1 %.not104.i.i, label %1732, label %1720
+1722:                                             ; preds = %1719, %1716
+  %1723 = and i32 %1677, 2
+  %.not104.i.i = icmp eq i32 %1723, 0
+  br i1 %.not104.i.i, label %1736, label %1724
 
-1720:                                             ; preds = %1718
-  %1721 = load i32, ptr @hf_radiotap_eht_ui_mcs, align 4
-  %1722 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1721, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1723 = load i8, ptr %75, align 1
-  %1724 = icmp ult i8 %1723, 4
-  br i1 %1724, label %1725, label %1735
+1724:                                             ; preds = %1722
+  %1725 = load i32, ptr @hf_radiotap_eht_ui_mcs, align 4
+  %1726 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1725, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1727 = load i8, ptr %75, align 1
+  %1728 = icmp ult i8 %1727, 4
+  br i1 %1728, label %1729, label %1739
 
-1725:                                             ; preds = %1720
-  %1726 = zext nneg i8 %1723 to i64
-  %1727 = getelementptr %struct.ieee_802_11be_user_info, ptr %76, i64 %1726
-  %1728 = load i32, ptr %1727, align 4
-  %1729 = and i32 %1728, -15728643
-  %1730 = and i32 %1673, 15728642
-  %1731 = or disjoint i32 %1729, %1730
-  store i32 %1731, ptr %1727, align 4
-  br label %1735
+1729:                                             ; preds = %1724
+  %1730 = zext nneg i8 %1727 to i64
+  %1731 = getelementptr %struct.ieee_802_11be_user_info, ptr %76, i64 %1730
+  %1732 = load i32, ptr %1731, align 4
+  %1733 = and i32 %1732, -15728643
+  %1734 = and i32 %1677, 15728642
+  %1735 = or disjoint i32 %1733, %1734
+  store i32 %1735, ptr %1731, align 4
+  br label %1739
 
-1732:                                             ; preds = %1718
-  %1733 = load i32, ptr @hf_radiotap_eht_ui_mcs_not_known, align 4
-  %1734 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1733, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1734, ptr noundef nonnull @.str.1304)
-  br label %1735
+1736:                                             ; preds = %1722
+  %1737 = load i32, ptr @hf_radiotap_eht_ui_mcs_not_known, align 4
+  %1738 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1737, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1738, ptr noundef nonnull @.str.1304)
+  br label %1739
 
-1735:                                             ; preds = %1732, %1725, %1720
-  %1736 = and i32 %1673, 16
-  %.not105.i.i = icmp eq i32 %1736, 0
-  br i1 %.not105.i.i, label %1750, label %1737
+1739:                                             ; preds = %1736, %1729, %1724
+  %1740 = and i32 %1677, 16
+  %.not105.i.i = icmp eq i32 %1740, 0
+  br i1 %.not105.i.i, label %1754, label %1741
 
-1737:                                             ; preds = %1735
-  %1738 = load i32, ptr @hf_radiotap_eht_ui_nss, align 4
-  %1739 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1738, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1740 = load i8, ptr %75, align 1
-  %1741 = icmp ult i8 %1740, 4
-  br i1 %1741, label %1742, label %1753
+1741:                                             ; preds = %1739
+  %1742 = load i32, ptr @hf_radiotap_eht_ui_nss, align 4
+  %1743 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1742, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1744 = load i8, ptr %75, align 1
+  %1745 = icmp ult i8 %1744, 4
+  br i1 %1745, label %1746, label %1757
 
-1742:                                             ; preds = %1737
-  %1743 = zext nneg i8 %1740 to i64
-  %1744 = getelementptr %struct.ieee_802_11be_user_info, ptr %76, i64 %1743
-  %1745 = load i32, ptr %1744, align 4
-  %1746 = add i32 %1673, 16777216
-  %1747 = and i32 %1745, -251658257
-  %1748 = and i32 %1746, 251658256
-  %1749 = or disjoint i32 %1747, %1748
-  store i32 %1749, ptr %1744, align 4
-  br label %1753
+1746:                                             ; preds = %1741
+  %1747 = zext nneg i8 %1744 to i64
+  %1748 = getelementptr %struct.ieee_802_11be_user_info, ptr %76, i64 %1747
+  %1749 = load i32, ptr %1748, align 4
+  %1750 = add i32 %1677, 16777216
+  %1751 = and i32 %1749, -251658257
+  %1752 = and i32 %1750, 251658256
+  %1753 = or disjoint i32 %1751, %1752
+  store i32 %1753, ptr %1748, align 4
+  br label %1757
 
-1750:                                             ; preds = %1735
-  %1751 = load i32, ptr @hf_radiotap_eht_ui_nss_not_known, align 4
-  %1752 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1751, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1752, ptr noundef nonnull @.str.1304)
-  br label %1753
+1754:                                             ; preds = %1739
+  %1755 = load i32, ptr @hf_radiotap_eht_ui_nss_not_known, align 4
+  %1756 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1755, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1756, ptr noundef nonnull @.str.1304)
+  br label %1757
 
-1753:                                             ; preds = %1750, %1742, %1737
-  %1754 = and i32 %1673, 8
-  %.not106.i.i = icmp eq i32 %1754, 0
-  br i1 %.not106.i.i, label %1758, label %1755
+1757:                                             ; preds = %1754, %1746, %1741
+  %1758 = and i32 %1677, 8
+  %.not106.i.i = icmp eq i32 %1758, 0
+  br i1 %.not106.i.i, label %1762, label %1759
 
-1755:                                             ; preds = %1753
-  %1756 = load i32, ptr @hf_radiotap_eht_ui_reserved, align 4
-  %1757 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1756, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  br label %1761
+1759:                                             ; preds = %1757
+  %1760 = load i32, ptr @hf_radiotap_eht_ui_reserved, align 4
+  %1761 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1760, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  br label %1765
 
-1758:                                             ; preds = %1753
-  %1759 = load i32, ptr @hf_radiotap_eht_ui_reserved_not_known, align 4
-  %1760 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1759, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1760, ptr noundef nonnull @.str.1304)
-  br label %1761
+1762:                                             ; preds = %1757
+  %1763 = load i32, ptr @hf_radiotap_eht_ui_reserved_not_known, align 4
+  %1764 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1763, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1764, ptr noundef nonnull @.str.1304)
+  br label %1765
 
-1761:                                             ; preds = %1758, %1755
-  %1762 = and i32 %1673, 32
-  %.not107.i.i = icmp eq i32 %1762, 0
-  br i1 %.not107.i.i, label %1766, label %1763
+1765:                                             ; preds = %1762, %1759
+  %1766 = and i32 %1677, 32
+  %.not107.i.i = icmp eq i32 %1766, 0
+  br i1 %.not107.i.i, label %1770, label %1767
 
-1763:                                             ; preds = %1761
-  %1764 = load i32, ptr @hf_radiotap_eht_ui_beamforming, align 4
-  %1765 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1764, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  br label %1769
+1767:                                             ; preds = %1765
+  %1768 = load i32, ptr @hf_radiotap_eht_ui_beamforming, align 4
+  %1769 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1768, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  br label %1773
 
-1766:                                             ; preds = %1761
-  %1767 = load i32, ptr @hf_radiotap_eht_ui_beamforming_not_known, align 4
-  %1768 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1767, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1768, ptr noundef nonnull @.str.1304)
-  br label %1769
+1770:                                             ; preds = %1765
+  %1771 = load i32, ptr @hf_radiotap_eht_ui_beamforming_not_known, align 4
+  %1772 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1771, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1772, ptr noundef nonnull @.str.1304)
+  br label %1773
 
-1769:                                             ; preds = %1766, %1763
-  %1770 = and i32 %1673, 64
-  %.not108.i.i = icmp eq i32 %1770, 0
-  br i1 %.not108.i.i, label %dissect_eht_user_info.exit.i, label %1771
+1773:                                             ; preds = %1770, %1767
+  %1774 = and i32 %1677, 64
+  %.not108.i.i = icmp eq i32 %1774, 0
+  br i1 %.not108.i.i, label %dissect_eht_user_info.exit.i, label %1775
 
-1771:                                             ; preds = %1769
-  %1772 = load i32, ptr @hf_radiotap_eht_ui_spatial_config, align 4
-  %1773 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1772, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+1775:                                             ; preds = %1773
+  %1776 = load i32, ptr @hf_radiotap_eht_ui_spatial_config, align 4
+  %1777 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1776, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_eht_user_info.exit.i
 
-dissect_eht_user_info.exit.i:                     ; preds = %1771, %1769
-  %1774 = load i32, ptr @hf_radiotap_eht_ui_rsvd1, align 4
-  %1775 = call ptr @proto_tree_add_item(ptr noundef %1677, i32 noundef %1774, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
-  %1776 = load i8, ptr %75, align 1
-  %1777 = add i8 %1776, 1
-  store i8 %1777, ptr %75, align 1
-  %1778 = add i32 %.02.i, 4
-  %1779 = add i16 %.04461.i, -4
-  %1780 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1778)
-  %1781 = icmp ne i32 %1780, 0
-  %1782 = icmp ne i16 %1779, 0
-  %1783 = select i1 %1781, i1 %1782, i1 false
-  br i1 %1783, label %.lr.ph.i, label %dissect_radiotap_rate.exit.backedge, !llvm.loop !12
+dissect_eht_user_info.exit.i:                     ; preds = %1775, %1773
+  %1778 = load i32, ptr @hf_radiotap_eht_ui_rsvd1, align 4
+  %1779 = call ptr @proto_tree_add_item(ptr noundef %1681, i32 noundef %1778, ptr noundef %0, i32 noundef %.02.i, i32 noundef 4, i32 noundef -2147483648)
+  %1780 = load i8, ptr %75, align 1
+  %1781 = add i8 %1780, 1
+  store i8 %1781, ptr %75, align 1
+  %1782 = add i32 %.02.i, 4
+  %1783 = add i16 %.04461.i, -4
+  %1784 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1782)
+  %1785 = icmp ne i32 %1784, 0
+  %1786 = icmp ne i16 %1783, 0
+  %1787 = select i1 %1785, i1 %1786, i1 false
+  br i1 %1787, label %.lr.ph.i, label %dissect_radiotap_rate.exit.backedge, !llvm.loop !12
 
-1784:                                             ; preds = %254
-  %1785 = load i32, ptr %70, align 8
-  %.not847 = icmp eq i32 %1785, 0
-  br i1 %.not847, label %1797, label %1786
+1788:                                             ; preds = %254
+  %1789 = load i32, ptr %70, align 8
+  %.not847 = icmp eq i32 %1789, 0
+  br i1 %.not847, label %1801, label %1790
 
-1786:                                             ; preds = %1784
-  %1787 = load i32, ptr @ett_radiotap_unknown_tlv, align 4
-  %1788 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %219, i32 noundef %126, i32 noundef %1787, ptr noundef null, ptr noundef nonnull @.str.1282)
-  %1789 = load i32, ptr @hf_radiotap_tlv_type, align 4
-  %1790 = call ptr @proto_tree_add_item(ptr noundef %1788, i32 noundef %1789, ptr noundef %0, i32 noundef %219, i32 noundef 2, i32 noundef -2147483648)
-  %1791 = add i32 %219, 2
-  %1792 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
-  %1793 = call ptr @proto_tree_add_item(ptr noundef %1788, i32 noundef %1792, ptr noundef %0, i32 noundef %1791, i32 noundef 2, i32 noundef -2147483648)
-  %1794 = add i32 %219, 4
-  %1795 = load i32, ptr @hf_radiotap_unknown_tlv_data, align 4
-  %1796 = call ptr @proto_tree_add_item(ptr noundef %1788, i32 noundef %1795, ptr noundef %0, i32 noundef %1794, i32 noundef %25, i32 noundef 0)
+1790:                                             ; preds = %1788
+  %1791 = load i32, ptr @ett_radiotap_unknown_tlv, align 4
+  %1792 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %219, i32 noundef %126, i32 noundef %1791, ptr noundef null, ptr noundef nonnull @.str.1282)
+  %1793 = load i32, ptr @hf_radiotap_tlv_type, align 4
+  %1794 = call ptr @proto_tree_add_item(ptr noundef %1792, i32 noundef %1793, ptr noundef %0, i32 noundef %219, i32 noundef 2, i32 noundef -2147483648)
+  %1795 = add i32 %219, 2
+  %1796 = load i32, ptr @hf_radiotap_tlv_datalen, align 4
+  %1797 = call ptr @proto_tree_add_item(ptr noundef %1792, i32 noundef %1796, ptr noundef %0, i32 noundef %1795, i32 noundef 2, i32 noundef -2147483648)
+  %1798 = add i32 %219, 4
+  %1799 = load i32, ptr @hf_radiotap_unknown_tlv_data, align 4
+  %1800 = call ptr @proto_tree_add_item(ptr noundef %1792, i32 noundef %1799, ptr noundef %0, i32 noundef %1798, i32 noundef %25, i32 noundef 0)
   br label %dissect_radiotap_rate.exit.backedge
 
-1797:                                             ; preds = %1784
-  %1798 = load i32, ptr @hf_radiotap_unknown_tlv_data, align 4
-  %1799 = load i32, ptr %71, align 8
-  %1800 = call ptr @proto_tree_add_item(ptr noundef %.0744, i32 noundef %1798, ptr noundef %0, i32 noundef %219, i32 noundef %1799, i32 noundef 0)
+1801:                                             ; preds = %1788
+  %1802 = load i32, ptr @hf_radiotap_unknown_tlv_data, align 4
+  %1803 = load i32, ptr %71, align 8
+  %1804 = call ptr @proto_tree_add_item(ptr noundef %.0744, i32 noundef %1802, ptr noundef %0, i32 noundef %219, i32 noundef %1803, i32 noundef 0)
   br label %dissect_radiotap_rate.exit.backedge
 
-1801:                                             ; preds = %dissect_radiotap_rate.exit
-  %1802 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %64, ptr noundef nonnull @ei_radiotap_data_past_header)
+1805:                                             ; preds = %dissect_radiotap_rate.exit
+  %1806 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %64, ptr noundef nonnull @ei_radiotap_data_past_header)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0752, ptr noundef nonnull @.str.1283)
-  br i1 %.1774, label %1803, label %1805
+  br i1 %.1774, label %1807, label %1809
 
 .loopexit:                                        ; preds = %dissect_radiotap_rate.exit
-  br i1 %.1774, label %1803, label %1805
+  br i1 %.1774, label %1807, label %1809
 
-1803:                                             ; preds = %1801, %.loopexit
-  %1804 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %1874
+1807:                                             ; preds = %1805, %.loopexit
+  %1808 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %1878
 
-.sink.split998:                                   ; preds = %51, %.thread979
-  %.str.1283.sink = phi ptr [ @.str.1283, %.thread979 ], [ @.str.1275, %51 ]
+.sink.split995:                                   ; preds = %51, %.thread976
+  %.str.1283.sink = phi ptr [ @.str.1283, %.thread976 ], [ @.str.1275, %51 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0752, ptr noundef nonnull %.str.1283.sink)
-  br label %1805
+  br label %1809
 
-1805:                                             ; preds = %.sink.split998, %1801, %.loopexit, %51
-  %.0909 = phi i8 [ %.2911, %.loopexit ], [ 0, %51 ], [ %.2911, %1801 ], [ 0, %.sink.split998 ]
-  %.0903 = phi ptr [ %.2905, %.loopexit ], [ null, %51 ], [ %.2905, %1801 ], [ null, %.sink.split998 ]
-  %.0897 = phi i32 [ %.2899, %.loopexit ], [ 0, %51 ], [ %.2899, %1801 ], [ 0, %.sink.split998 ]
-  %.0892 = phi i32 [ %.2894, %.loopexit ], [ 0, %51 ], [ %.2894, %1801 ], [ 0, %.sink.split998 ]
-  %.0757 = phi i8 [ %.2759, %.loopexit ], [ 0, %51 ], [ %.2759, %1801 ], [ 0, %.sink.split998 ]
-  %1806 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %1807 = load i16, ptr %1806, align 8
-  %1808 = and i16 %1807, 4
-  %.not = icmp eq i16 %1808, 0
+1809:                                             ; preds = %.sink.split995, %1805, %.loopexit, %51
+  %.0909 = phi i8 [ %.2911, %.loopexit ], [ 0, %51 ], [ %.2911, %1805 ], [ 0, %.sink.split995 ]
+  %.0903 = phi ptr [ %.2905, %.loopexit ], [ null, %51 ], [ %.2905, %1805 ], [ null, %.sink.split995 ]
+  %.0897 = phi i32 [ %.2899, %.loopexit ], [ 0, %51 ], [ %.2899, %1805 ], [ 0, %.sink.split995 ]
+  %.0892 = phi i32 [ %.2894, %.loopexit ], [ 0, %51 ], [ %.2894, %1805 ], [ 0, %.sink.split995 ]
+  %.0757 = phi i8 [ %.2759, %.loopexit ], [ 0, %51 ], [ %.2759, %1805 ], [ 0, %.sink.split995 ]
+  %1810 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %1811 = load i16, ptr %1810, align 8
+  %1812 = and i16 %1811, 4
+  %.not = icmp eq i16 %1812, 0
   %.pr.pre = load i32, ptr %19, align 8
-  br i1 %.not, label %thread-pre-split, label %1809
+  br i1 %.not, label %thread-pre-split, label %1813
 
-1809:                                             ; preds = %1805
+1813:                                             ; preds = %1809
   switch i32 %.pr.pre, label %.thread920 [
-    i32 0, label %1810
-    i32 6, label %1821
+    i32 0, label %1814
+    i32 6, label %1825
     i32 4, label %.thread922
-    i32 7, label %1833
+    i32 7, label %1837
   ]
 
-1810:                                             ; preds = %1809
-  %1811 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %1812 = load i16, ptr %1811, align 8
-  switch i16 %1812, label %.thread920 [
+1814:                                             ; preds = %1813
+  %1815 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %1816 = load i16, ptr %1815, align 8
+  switch i16 %1816, label %.thread920 [
     i16 66, label %.thread922.sink.split
     i16 44, label %.thread922.sink.split
     i16 22, label %.thread922.sink.split
     i16 11, label %.thread922.sink.split
     i16 4, label %.thread922.sink.split
     i16 2, label %.thread922.sink.split
-    i16 108, label %1813
-    i16 96, label %1813
-    i16 72, label %1813
-    i16 48, label %1813
-    i16 36, label %1813
-    i16 24, label %1813
-    i16 18, label %1813
-    i16 12, label %1813
+    i16 108, label %1817
+    i16 96, label %1817
+    i16 72, label %1817
+    i16 48, label %1817
+    i16 36, label %1817
+    i16 24, label %1817
+    i16 18, label %1817
+    i16 12, label %1817
   ]
 
-1813:                                             ; preds = %1810, %1810, %1810, %1810, %1810, %1810, %1810, %1810
-  %1814 = and i16 %1807, 2
-  %.not852 = icmp eq i16 %1814, 0
-  br i1 %.not852, label %.thread920, label %1815
+1817:                                             ; preds = %1814, %1814, %1814, %1814, %1814, %1814, %1814, %1814
+  %1818 = and i16 %1811, 2
+  %.not852 = icmp eq i16 %1818, 0
+  br i1 %.not852, label %.thread920, label %1819
 
-1815:                                             ; preds = %1813
-  %1816 = getelementptr inbounds nuw i8, ptr %15, i64 36
-  %1817 = load i32, ptr %1816, align 4
-  %1818 = icmp ult i32 %1817, 2485
-  br i1 %1818, label %1819, label %1820
+1819:                                             ; preds = %1817
+  %1820 = getelementptr inbounds nuw i8, ptr %15, i64 36
+  %1821 = load i32, ptr %1820, align 4
+  %1822 = icmp ult i32 %1821, 2485
+  br i1 %1822, label %1823, label %1824
 
-1819:                                             ; preds = %1815
+1823:                                             ; preds = %1819
   store i32 6, ptr %19, align 8
   br label %.thread920
 
-1820:                                             ; preds = %1815
+1824:                                             ; preds = %1819
   store i32 5, ptr %19, align 8
   br label %.thread920
 
-1821:                                             ; preds = %1809
-  %1822 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %1823 = load i16, ptr %1822, align 8
-  switch i16 %1823, label %.thread920 [
+1825:                                             ; preds = %1813
+  %1826 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %1827 = load i16, ptr %1826, align 8
+  switch i16 %1827, label %.thread920 [
     i16 66, label %.thread922.sink.split
     i16 44, label %.thread922.sink.split
     i16 22, label %.thread922.sink.split
@@ -5370,121 +5371,121 @@ dissect_eht_user_info.exit.i:                     ; preds = %1771, %1769
     i16 2, label %.thread922.sink.split
   ]
 
-thread-pre-split:                                 ; preds = %1805
+thread-pre-split:                                 ; preds = %1809
   switch i32 %.pr.pre, label %.thread920 [
     i32 4, label %.thread922
-    i32 7, label %1833
+    i32 7, label %1837
   ]
 
-.thread922.sink.split:                            ; preds = %1821, %1821, %1821, %1821, %1821, %1821, %1810, %1810, %1810, %1810, %1810, %1810
+.thread922.sink.split:                            ; preds = %1825, %1825, %1825, %1825, %1825, %1825, %1814, %1814, %1814, %1814, %1814, %1814
   store i32 4, ptr %19, align 8
   br label %.thread922
 
-.thread922:                                       ; preds = %.thread922.sink.split, %1809, %thread-pre-split
-  %1824 = trunc nuw i8 %.0757 to i1
-  %1825 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %1826 = load i8, ptr %1825, align 4
-  br i1 %1824, label %1827, label %1831
-
-1827:                                             ; preds = %.thread922
-  %1828 = or i8 %1826, 1
-  store i8 %1828, ptr %1825, align 4
-  %1829 = getelementptr inbounds nuw i8, ptr %15, i64 13
-  %1830 = lshr i8 %.0909, 1
-  %.lobit854 = and i8 %1830, 1
-  store i8 %.lobit854, ptr %1829, align 1
-  br label %.thread920
+.thread922:                                       ; preds = %.thread922.sink.split, %1813, %thread-pre-split
+  %1828 = trunc nuw i8 %.0757 to i1
+  %1829 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %1830 = load i8, ptr %1829, align 4
+  br i1 %1828, label %1831, label %1835
 
 1831:                                             ; preds = %.thread922
-  %1832 = and i8 %1826, -2
-  store i8 %1832, ptr %1825, align 4
+  %1832 = or i8 %1830, 1
+  store i8 %1832, ptr %1829, align 4
+  %1833 = getelementptr inbounds nuw i8, ptr %15, i64 13
+  %1834 = lshr i8 %.0909, 1
+  %.lobit854 = and i8 %1834, 1
+  store i8 %.lobit854, ptr %1833, align 1
   br label %.thread920
 
-1833:                                             ; preds = %1809, %thread-pre-split
-  %1834 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %1835 = load i8, ptr %1834, align 4
-  %1836 = and i8 %1835, 4
-  %1837 = icmp eq i8 %1836, 0
-  %1838 = trunc nuw i8 %.0757 to i1
-  %or.cond84 = select i1 %1837, i1 %1838, i1 false
-  br i1 %or.cond84, label %1839, label %.thread920
+1835:                                             ; preds = %.thread922
+  %1836 = and i8 %1830, -2
+  store i8 %1836, ptr %1829, align 4
+  br label %.thread920
 
-1839:                                             ; preds = %1833
-  %1840 = or disjoint i8 %1835, 4
-  store i8 %1840, ptr %1834, align 4
+1837:                                             ; preds = %1813, %thread-pre-split
+  %1838 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %1839 = load i8, ptr %1838, align 4
+  %1840 = and i8 %1839, 4
+  %1841 = icmp eq i8 %1840, 0
+  %1842 = trunc nuw i8 %.0757 to i1
+  %or.cond84 = select i1 %1841, i1 %1842, i1 false
+  br i1 %or.cond84, label %1843, label %.thread920
+
+1843:                                             ; preds = %1837
+  %1844 = or disjoint i8 %1839, 4
+  store i8 %1844, ptr %1838, align 4
   %.not853 = icmp sgt i8 %.0909, -1
-  %1841 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  %1842 = load i8, ptr %1841, align 4
-  br i1 %.not853, label %1845, label %1843
+  %1845 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %1846 = load i8, ptr %1845, align 4
+  br i1 %.not853, label %1849, label %1847
 
-1843:                                             ; preds = %1839
-  %1844 = or i8 %1842, 1
-  store i8 %1844, ptr %1841, align 4
+1847:                                             ; preds = %1843
+  %1848 = or i8 %1846, 1
+  store i8 %1848, ptr %1845, align 4
   br label %.thread920
 
-1845:                                             ; preds = %1839
-  %1846 = and i8 %1842, -2
-  store i8 %1846, ptr %1841, align 4
+1849:                                             ; preds = %1843
+  %1850 = and i8 %1846, -2
+  store i8 %1850, ptr %1845, align 4
   br label %.thread920
 
-.thread920:                                       ; preds = %1809, %1813, %1820, %1819, %1821, %1810, %1833, %1845, %1843, %1827, %1831, %thread-pre-split
-  %1847 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %25)
+.thread920:                                       ; preds = %1813, %1817, %1824, %1823, %1825, %1814, %1837, %1849, %1847, %1831, %1835, %thread-pre-split
+  %1851 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %25)
   %.not855 = icmp eq ptr %.0903, null
-  br i1 %.not855, label %proto_item_set_hidden.exit, label %1848
+  br i1 %.not855, label %proto_item_set_hidden.exit, label %1852
 
-1848:                                             ; preds = %.thread920
-  %1849 = call i32 @tvb_captured_length(ptr noundef %1847)
-  %1850 = call i32 @tvb_reported_length(ptr noundef %1847)
-  %1851 = load i32, ptr %15, align 8
-  %1852 = call i32 @llvm.smax.i32(i32 %1851, i32 0)
-  %.not856 = icmp uge i32 %1849, %1850
-  %1853 = icmp ugt i32 %1849, %1852
-  %or.cond860 = select i1 %.not856, i1 %1853, i1 false
-  br i1 %or.cond860, label %1854, label %1870
+1852:                                             ; preds = %.thread920
+  %1853 = call i32 @tvb_captured_length(ptr noundef %1851)
+  %1854 = call i32 @tvb_reported_length(ptr noundef %1851)
+  %1855 = load i32, ptr %15, align 8
+  %1856 = call i32 @llvm.smax.i32(i32 %1855, i32 0)
+  %.not856 = icmp uge i32 %1853, %1854
+  %1857 = icmp ugt i32 %1853, %1856
+  %or.cond860 = select i1 %.not856, i1 %1857, i1 false
+  br i1 %or.cond860, label %1858, label %1874
 
-1854:                                             ; preds = %1848
-  %1855 = call i32 @tvb_captured_length(ptr noundef %1847)
-  %1856 = sub i32 %1855, %1852
-  %1857 = call i32 @crc32_802_tvb(ptr noundef %1847, i32 noundef %1856)
-  %1858 = icmp eq i32 %1857, %.0892
-  br i1 %1858, label %1859, label %1860
+1858:                                             ; preds = %1852
+  %1859 = call i32 @tvb_captured_length(ptr noundef %1851)
+  %1860 = sub i32 %1859, %1856
+  %1861 = call i32 @crc32_802_tvb(ptr noundef %1851, i32 noundef %1860)
+  %1862 = icmp eq i32 %1861, %.0892
+  br i1 %1862, label %1863, label %1864
 
-1859:                                             ; preds = %1854
+1863:                                             ; preds = %1858
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0903, ptr noundef nonnull @.str.1284)
   br label %proto_item_set_hidden.exit
 
-1860:                                             ; preds = %1854
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0903, ptr noundef nonnull @.str.1285, i32 noundef %1857)
-  %1861 = load i32, ptr @hf_radiotap_fcs_bad, align 4
-  %1862 = call ptr @proto_tree_add_boolean(ptr noundef %.0744, i32 noundef %1861, ptr noundef %0, i32 noundef %.0897, i32 noundef 4, i64 noundef 1)
-  %.not.i883 = icmp eq ptr %1862, null
-  br i1 %.not.i883, label %proto_item_set_hidden.exit, label %1863
+1864:                                             ; preds = %1858
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0903, ptr noundef nonnull @.str.1285, i32 noundef %1861)
+  %1865 = load i32, ptr @hf_radiotap_fcs_bad, align 4
+  %1866 = call ptr @proto_tree_add_boolean(ptr noundef %.0744, i32 noundef %1865, ptr noundef %0, i32 noundef %.0897, i32 noundef 4, i64 noundef 1)
+  %.not.i883 = icmp eq ptr %1866, null
+  br i1 %.not.i883, label %proto_item_set_hidden.exit, label %1867
 
-1863:                                             ; preds = %1860
-  %1864 = getelementptr inbounds nuw i8, ptr %1862, i64 40
-  %1865 = load ptr, ptr %1864, align 8
-  %.not5.i884 = icmp eq ptr %1865, null
-  br i1 %.not5.i884, label %proto_item_set_hidden.exit, label %1866
+1867:                                             ; preds = %1864
+  %1868 = getelementptr inbounds nuw i8, ptr %1866, i64 40
+  %1869 = load ptr, ptr %1868, align 8
+  %.not5.i884 = icmp eq ptr %1869, null
+  br i1 %.not5.i884, label %proto_item_set_hidden.exit, label %1870
 
-1866:                                             ; preds = %1863
-  %1867 = getelementptr inbounds nuw i8, ptr %1865, i64 28
-  %1868 = load i32, ptr %1867, align 4
-  %1869 = or i32 %1868, 1
-  store i32 %1869, ptr %1867, align 4
+1870:                                             ; preds = %1867
+  %1871 = getelementptr inbounds nuw i8, ptr %1869, i64 28
+  %1872 = load i32, ptr %1871, align 4
+  %1873 = or i32 %1872, 1
+  store i32 %1873, ptr %1871, align 4
   br label %proto_item_set_hidden.exit
 
-1870:                                             ; preds = %1848
+1874:                                             ; preds = %1852
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0903, ptr noundef nonnull @.str.1286)
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %1866, %1863, %1860, %1870, %1859, %.thread920
-  %1871 = load ptr, ptr @ieee80211_radio_handle, align 8
-  %1872 = call i32 @call_dissector_with_data(ptr noundef %1871, ptr noundef %1847, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %15)
-  %1873 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %1874
+proto_item_set_hidden.exit:                       ; preds = %1870, %1867, %1864, %1874, %1863, %.thread920
+  %1875 = load ptr, ptr @ieee80211_radio_handle, align 8
+  %1876 = call i32 @call_dissector_with_data(ptr noundef %1875, ptr noundef %1851, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %15)
+  %1877 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %1878
 
-1874:                                             ; preds = %proto_item_set_hidden.exit, %1803, %42
-  %.0 = phi i32 [ %44, %42 ], [ %1873, %proto_item_set_hidden.exit ], [ %1804, %1803 ]
+1878:                                             ; preds = %proto_item_set_hidden.exit, %1807, %42
+  %.0 = phi i32 [ %44, %42 ], [ %1877, %proto_item_set_hidden.exit ], [ %1808, %1807 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0

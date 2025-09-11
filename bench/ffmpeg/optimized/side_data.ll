@@ -126,12 +126,12 @@ define void @av_frame_side_data_remove_by_props(ptr noundef readonly captures(no
   %.pre = load ptr, ptr %0, align 8, !tbaa !12
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %29, %3
+._crit_edge:                                      ; preds = %30, %3
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
-  %8 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %30, %29 ]
-  %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %30
+  %8 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %31, %30 ]
+  %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
@@ -139,39 +139,40 @@ define void @av_frame_side_data_remove_by_props(ptr noundef readonly captures(no
   store ptr %10, ptr %4, align 8, !tbaa !15
   %11 = load i32, ptr %10, align 8, !tbaa !17
   %12 = icmp ugt i32 %11, 29
-  br i1 %12, label %29, label %13
+  br i1 %12, label %30, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw %struct.AVSideDataDescriptor, ptr @sd_props, i64 %14, i32 1
-  %16 = load i32, ptr %15, align 8, !tbaa !24
-  %17 = and i32 %16, %2
-  %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %29, label %18
+  %15 = getelementptr inbounds nuw %struct.AVSideDataDescriptor, ptr @sd_props, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i32, ptr %16, align 8, !tbaa !24
+  %18 = and i32 %17, %2
+  %.not13 = icmp eq i32 %18, 0
+  br i1 %.not13, label %30, label %19
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  call void @av_buffer_unref(ptr noundef nonnull %19) #5
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  call void @av_dict_free(ptr noundef nonnull %20) #5
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  call void @av_buffer_unref(ptr noundef nonnull %20) #5
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  call void @av_dict_free(ptr noundef nonnull %21) #5
   call void @av_freep(ptr noundef nonnull %4) #5
-  %21 = load ptr, ptr %0, align 8, !tbaa !12
-  %22 = load i32, ptr %1, align 4, !tbaa !11
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr ptr, ptr %21, i64 %23
-  %25 = getelementptr i8, ptr %24, i64 -8
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next
-  store ptr %26, ptr %27, align 8, !tbaa !15
-  %28 = add nsw i32 %22, -1
-  store i32 %28, ptr %1, align 4, !tbaa !11
-  br label %29
+  %22 = load ptr, ptr %0, align 8, !tbaa !12
+  %23 = load i32, ptr %1, align 4, !tbaa !11
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr ptr, ptr %22, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -8
+  %27 = load ptr, ptr %26, align 8, !tbaa !15
+  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next
+  store ptr %27, ptr %28, align 8, !tbaa !15
+  %29 = add nsw i32 %23, -1
+  store i32 %29, ptr %1, align 4, !tbaa !11
+  br label %30
 
-29:                                               ; preds = %.lr.ph, %13, %18
-  %30 = phi ptr [ %8, %.lr.ph ], [ %8, %13 ], [ %21, %18 ]
+30:                                               ; preds = %.lr.ph, %13, %19
+  %31 = phi ptr [ %8, %.lr.ph ], [ %8, %13 ], [ %22, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %31 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  %32 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 }
 
 ; Function Attrs: nounwind uwtable

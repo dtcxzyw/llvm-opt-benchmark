@@ -2896,7 +2896,8 @@ if.then31:                                        ; preds = %lor.lhs.false27.if.
   %23 = phi ptr [ %.pre164, %lor.lhs.false27.if.then31_crit_edge ], [ %.pre163.pre, %if.then25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp32)
   %conv33 = zext nneg i32 %id.0 to i64
-  %Name = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %23, i64 %conv33, i32 2
+  %Name.split = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %23, i64 %conv33
+  %Name = getelementptr inbounds nuw i8, ptr %Name.split, i64 8
   %24 = load ptr, ptr %Name, align 8, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 16
   store ptr %25, ptr %ref.tmp32, align 8, !tbaa !22

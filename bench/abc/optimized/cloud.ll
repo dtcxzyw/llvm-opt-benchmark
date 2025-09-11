@@ -1964,16 +1964,17 @@ define void @Cloud_PrintHashTable(ptr noundef readonly captures(none) %0) local_
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw %struct.cloudNode, ptr %7, i64 %indvars.iv, i32 1
-  %9 = load i32, ptr %8, align 4, !tbaa !24
-  %10 = icmp eq i32 %9, 268435455
-  %. = select i1 %10, i32 45, i32 43
+  %8 = getelementptr inbounds nuw %struct.cloudNode, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !24
+  %11 = icmp eq i32 %10, 268435455
+  %. = select i1 %11, i32 45, i32 43
   %putchar5 = tail call i32 @putchar(i32 %.)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i32, ptr %2, align 4, !tbaa !18
-  %12 = sext i32 %11 to i64
-  %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %6, label %._crit_edge, !llvm.loop !55
+  %12 = load i32, ptr %2, align 4, !tbaa !18
+  %13 = sext i32 %12 to i64
+  %14 = icmp slt i64 %indvars.iv.next, %13
+  br i1 %14, label %6, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %6, %1
   %putchar = tail call i32 @putchar(i32 10)

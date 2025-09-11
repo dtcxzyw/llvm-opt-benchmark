@@ -471,9 +471,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader: ; preds = %.lr.ph.split
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us
 
 18:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us
-  %19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %indvars.iv.next28, i32 1
-  %20 = load i64, ptr %19, align 8, !tbaa !48
-  %.not.i.us = icmp eq i64 %20, 0
+  %19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %indvars.iv.next28
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !48
+  %.not.i.us = icmp eq i64 %21, 0
   br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us, !llvm.loop !65
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread11.us:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader, %18
@@ -484,17 +485,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11.us:    ; preds = %_ZN4llvmeqENS_9Stri
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11 ]
-  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %indvars.iv
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !48
-  %.not.i = icmp eq i64 %.fr23, %23
+  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load i64, ptr %23, align 8, !tbaa !48
+  %.not.i = icmp eq i64 %.fr23, %24
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.lr.ph.split
-  %24 = load ptr, ptr %21, align 8, !tbaa !62
-  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr %24, i64 %.fr23)
-  %25 = icmp eq i32 %bcmp.i, 0
-  br i1 %25, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11
+  %25 = load ptr, ptr %22, align 8, !tbaa !62
+  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr %25, i64 %.fr23)
+  %26 = icmp eq i32 %bcmp.i, 0
+  br i1 %26, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread11:       ; preds = %.lr.ph.split, %_ZN4llvmeqENS_9StringRefES0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

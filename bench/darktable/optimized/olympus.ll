@@ -1499,9 +1499,8 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %34, %39, %40, %42
 _ZNK21libraw_static_table_tixEj.exit68:           ; preds = %50, %55, %56, %58
   %.0.i67 = phi i32 [ %54, %50 ], [ %59, %58 ], [ 0, %56 ], [ 0, %55 ]
   %60 = sext i32 %.0.i67 to i64
-  %.idx = shl nsw i64 %60, 4
-  %61 = getelementptr i8, ptr %31, i64 %.idx
-  %62 = getelementptr i8, ptr %61, i64 8
+  %61 = getelementptr inbounds [4 x i32], ptr %31, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 %47, ptr %62, align 4, !tbaa !95
   br label %.thread78
 

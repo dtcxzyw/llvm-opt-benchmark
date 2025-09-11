@@ -2764,11 +2764,10 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   %427 = add nsw i32 %.0676, 6
   %428 = add nsw i32 %34, -6
   %429 = call ptr @proto_tree_add_expert(ptr noundef %412, ptr noundef %1, ptr noundef nonnull @ei_l2tp_vendor_specific_avp_data, ptr noundef %0, i32 noundef %427, i32 noundef %428)
-  %.pre = and i32 %428, 65535
   br label %430
 
 430:                                              ; preds = %422, %406
-  %.pre-phi = phi i32 [ %.pre, %422 ], [ %34, %406 ]
+  %.pre-phi = phi i32 [ %428, %422 ], [ %34, %406 ]
   %.1553 = phi ptr [ %412, %422 ], [ %.0552672, %406 ]
   %.1 = phi i32 [ %427, %422 ], [ %.0676, %406 ]
   %431 = add nsw i32 %.1, %.pre-phi

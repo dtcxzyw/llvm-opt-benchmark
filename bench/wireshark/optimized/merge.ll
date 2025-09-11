@@ -167,13 +167,13 @@ define internal fastcc zeroext i1 @merge_files_common(ptr noundef %0, ptr nounde
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br label %38
 
-38:                                               ; preds = %.lr.ph, %315
-  %.0121321 = phi i32 [ 0, %.lr.ph ], [ %316, %315 ]
-  %.0124320 = phi ptr [ null, %.lr.ph ], [ %.3127, %315 ]
-  %.0136319 = phi ptr [ null, %.lr.ph ], [ %.1137, %315 ]
-  %.0138318 = phi ptr [ null, %.lr.ph ], [ %.1139, %315 ]
-  %.0145317 = phi i32 [ %8, %.lr.ph ], [ %spec.store.select, %315 ]
-  %.0215316 = phi i32 [ %7, %.lr.ph ], [ %.2, %315 ]
+38:                                               ; preds = %.lr.ph, %318
+  %.0121321 = phi i32 [ 0, %.lr.ph ], [ %319, %318 ]
+  %.0124320 = phi ptr [ null, %.lr.ph ], [ %.3127, %318 ]
+  %.0136319 = phi ptr [ null, %.lr.ph ], [ %.1137, %318 ]
+  %.0138318 = phi ptr [ null, %.lr.ph ], [ %.1139, %318 ]
+  %.0145317 = phi i32 [ %8, %.lr.ph ], [ %spec.store.select, %318 ]
+  %.0215316 = phi i32 [ %7, %.lr.ph ], [ %.2, %318 ]
   %39 = call i32 @dup(i32 noundef 1) #12
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %.thread234, label %43
@@ -397,621 +397,624 @@ merge_open_in_files.exit.thread:                  ; preds = %merge_open_in_files
   %wide.trip.count.i = zext nneg i32 %.076.i to i64
   br label %.lr.ph.i178
 
-.lr.ph.i178:                                      ; preds = %126, %.lr.ph.preheader.i
-  %indvars.iv.i179 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i180, %126 ]
-  %.01520.i = phi i32 [ %119, %.lr.ph.preheader.i ], [ %.217.i, %126 ]
-  %122 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i179, i32 1
-  %123 = load ptr, ptr %122, align 8
-  %124 = call i32 @wtap_file_encap(ptr noundef %123)
-  %125 = call zeroext i1 @wtap_dump_can_write_encap(i32 noundef %3, i32 noundef %124)
-  %.not.i = icmp eq i32 %.01520.i, %124
+.lr.ph.i178:                                      ; preds = %127, %.lr.ph.preheader.i
+  %indvars.iv.i179 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i180, %127 ]
+  %.01520.i = phi i32 [ %119, %.lr.ph.preheader.i ], [ %.217.i, %127 ]
+  %122 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i179
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = call i32 @wtap_file_encap(ptr noundef %124)
+  %126 = call zeroext i1 @wtap_dump_can_write_encap(i32 noundef %3, i32 noundef %125)
+  %.not.i = icmp eq i32 %.01520.i, %125
   %.015..i = select i1 %.not.i, i32 %.01520.i, i32 -1
   %..i = select i1 %.not.i, i32 0, i32 2
-  %.217.i = select i1 %125, i32 %.015..i, i32 %.01520.i
-  %.014.i = select i1 %125, i32 %..i, i32 1
+  %.217.i = select i1 %126, i32 %.015..i, i32 %.01520.i
+  %.014.i = select i1 %126, i32 %..i, i32 1
   switch i32 %.014.i, label %merge_select_frame_type.exit [
-    i32 0, label %126
+    i32 0, label %127
     i32 2, label %merge_select_frame_type.exit.loopexit
   ]
 
-126:                                              ; preds = %.lr.ph.i178
+127:                                              ; preds = %.lr.ph.i178
   %indvars.iv.next.i180 = add nuw nsw i64 %indvars.iv.i179, 1
   %exitcond.not.i181 = icmp eq i64 %indvars.iv.next.i180, %wide.trip.count.i
   br i1 %exitcond.not.i181, label %merge_select_frame_type.exit.loopexit, label %.lr.ph.i178, !llvm.loop !12
 
-merge_select_frame_type.exit.loopexit:            ; preds = %.lr.ph.i178, %126
+merge_select_frame_type.exit.loopexit:            ; preds = %.lr.ph.i178, %127
   br label %merge_select_frame_type.exit
 
 merge_select_frame_type.exit:                     ; preds = %.lr.ph.i178, %merge_select_frame_type.exit.loopexit, %115, %.preheader.i177
   %.0.i = phi i32 [ 0, %115 ], [ %119, %.preheader.i177 ], [ %.217.i, %merge_select_frame_type.exit.loopexit ], [ 0, %.lr.ph.i178 ]
-  br i1 %.not82.i, label %131, label %127
+  br i1 %.not82.i, label %132, label %128
 
-127:                                              ; preds = %merge_select_frame_type.exit
-  %128 = load ptr, ptr %10, align 8
-  %129 = load ptr, ptr %28, align 8
-  %130 = call zeroext i1 %128(i32 noundef 1, i32 noundef %.0.i, ptr noundef %.073.i, i32 noundef %.076.i, ptr noundef %129)
-  br label %131
+128:                                              ; preds = %merge_select_frame_type.exit
+  %129 = load ptr, ptr %10, align 8
+  %130 = load ptr, ptr %28, align 8
+  %131 = call zeroext i1 %129(i32 noundef 1, i32 noundef %.0.i, ptr noundef %.073.i, i32 noundef %.076.i, ptr noundef %130)
+  br label %132
 
-131:                                              ; preds = %127, %merge_select_frame_type.exit
+132:                                              ; preds = %128, %merge_select_frame_type.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %37, i8 0, i64 72, i1 false)
   store i32 %.0.i, ptr %24, align 8
   store i32 %spec.store.select, ptr %29, align 4
-  %132 = call i32 @wtap_file_type_subtype_supports_block(i32 noundef %3, i32 noundef 1)
-  %.not156 = icmp eq i32 %132, 0
-  br i1 %.not156, label %256, label %133
+  %133 = call i32 @wtap_file_type_subtype_supports_block(i32 noundef %3, i32 noundef 1)
+  %.not156 = icmp eq i32 %133, 0
+  br i1 %.not156, label %259, label %134
 
-133:                                              ; preds = %131
-  %134 = load ptr, ptr %117, align 8
-  %135 = call ptr @wtap_file_get_shb_for_new_file(ptr noundef %134)
-  %136 = load ptr, ptr %135, align 8
+134:                                              ; preds = %132
+  %135 = load ptr, ptr %117, align 8
+  %136 = call ptr @wtap_file_get_shb_for_new_file(ptr noundef %135)
   %137 = load ptr, ptr %136, align 8
-  %138 = call ptr @g_string_new(ptr noundef nonnull @.str.9)
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %138, ptr noundef nonnull @.str.10)
+  %138 = load ptr, ptr %137, align 8
+  %139 = call ptr @g_string_new(ptr noundef nonnull @.str.9)
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %139, ptr noundef nonnull @.str.10)
   %wide.trip.count.i182 = zext i32 %.076.i to i64
-  br label %139
+  br label %140
 
-139:                                              ; preds = %139, %133
-  %indvars.iv.i183 = phi i64 [ 0, %133 ], [ %indvars.iv.next.i184, %139 ]
+140:                                              ; preds = %140, %134
+  %indvars.iv.i183 = phi i64 [ 0, %134 ], [ %indvars.iv.next.i184, %140 ]
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i183, 1
-  %140 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i183
-  %141 = load ptr, ptr %140, align 8
-  %142 = trunc nuw i64 %indvars.iv.next.i184 to i32
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %138, ptr noundef nonnull @.str.11, i32 noundef %142, ptr noundef %141)
+  %141 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i183
+  %142 = load ptr, ptr %141, align 8
+  %143 = trunc nuw i64 %indvars.iv.next.i184 to i32
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %139, ptr noundef nonnull @.str.11, i32 noundef %143, ptr noundef %142)
   %exitcond.not.i185 = icmp eq i64 %indvars.iv.next.i184, %wide.trip.count.i182
-  br i1 %exitcond.not.i185, label %143, label %139, !llvm.loop !13
+  br i1 %exitcond.not.i185, label %144, label %140, !llvm.loop !13
 
-143:                                              ; preds = %139
-  %144 = call ptr @g_string_new(ptr noundef nonnull @.str.9)
-  call void @get_os_version_info(ptr noundef %144)
-  %145 = call ptr @wtap_block_get_mandatory_data(ptr noundef %137)
-  store i64 -1, ptr %145, align 8
-  %146 = call ptr @g_string_free(ptr noundef %138, i32 noundef 0)
-  %147 = call i32 @wtap_block_add_string_option_owned(ptr noundef %137, i32 noundef 1, ptr noundef %146)
-  %148 = call i32 @wtap_block_remove_option(ptr noundef %137, i32 noundef 2)
-  %149 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %150 = load i64, ptr %149, align 8
-  %151 = call ptr @g_string_free(ptr noundef %144, i32 noundef 0)
-  %.not.i186 = icmp eq ptr %151, null
-  br i1 %.not.i186, label %154, label %152
+144:                                              ; preds = %140
+  %145 = call ptr @g_string_new(ptr noundef nonnull @.str.9)
+  call void @get_os_version_info(ptr noundef %145)
+  %146 = call ptr @wtap_block_get_mandatory_data(ptr noundef %138)
+  store i64 -1, ptr %146, align 8
+  %147 = call ptr @g_string_free(ptr noundef %139, i32 noundef 0)
+  %148 = call i32 @wtap_block_add_string_option_owned(ptr noundef %138, i32 noundef 1, ptr noundef %147)
+  %149 = call i32 @wtap_block_remove_option(ptr noundef %138, i32 noundef 2)
+  %150 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %151 = load i64, ptr %150, align 8
+  %152 = call ptr @g_string_free(ptr noundef %145, i32 noundef 0)
+  %.not.i186 = icmp eq ptr %152, null
+  br i1 %.not.i186, label %155, label %153
 
-152:                                              ; preds = %143
-  %153 = call i32 @wtap_block_set_string_option_value(ptr noundef %137, i32 noundef 3, ptr noundef nonnull %151, i64 noundef %150)
-  call void @g_free(ptr noundef nonnull %151)
-  br label %156
+153:                                              ; preds = %144
+  %154 = call i32 @wtap_block_set_string_option_value(ptr noundef %138, i32 noundef 3, ptr noundef nonnull %152, i64 noundef %151)
+  call void @g_free(ptr noundef nonnull %152)
+  br label %157
 
-154:                                              ; preds = %143
-  %155 = call i32 @wtap_block_remove_option(ptr noundef %137, i32 noundef 3)
-  br label %156
+155:                                              ; preds = %144
+  %156 = call i32 @wtap_block_remove_option(ptr noundef %138, i32 noundef 3)
+  br label %157
 
-156:                                              ; preds = %154, %152
-  br i1 %.not31.i, label %create_shb_header.exit, label %157
+157:                                              ; preds = %155, %153
+  br i1 %.not31.i, label %create_shb_header.exit, label %158
 
-157:                                              ; preds = %156
-  %158 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
+158:                                              ; preds = %157
+  %159 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
   br label %create_shb_header.exit
 
-create_shb_header.exit:                           ; preds = %156, %157
-  %159 = phi i64 [ %158, %157 ], [ 0, %156 ]
-  %160 = call i32 @wtap_block_set_string_option_value(ptr noundef %137, i32 noundef 4, ptr noundef %9, i64 noundef %159)
-  %161 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #14
-  %162 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
-  store ptr %162, ptr %161, align 8
-  %163 = icmp eq i32 %.0215316, 1
-  br i1 %163, label %164, label %._crit_edge104.i
+create_shb_header.exit:                           ; preds = %157, %158
+  %160 = phi i64 [ %159, %158 ], [ 0, %157 ]
+  %161 = call i32 @wtap_block_set_string_option_value(ptr noundef %138, i32 noundef 4, ptr noundef %9, i64 noundef %160)
+  %162 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #14
+  %163 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
+  store ptr %163, ptr %162, align 8
+  %164 = icmp eq i32 %.0215316, 1
+  br i1 %164, label %165, label %._crit_edge104.i
 
-164:                                              ; preds = %create_shb_header.exit
-  %165 = load ptr, ptr %117, align 8
-  %166 = call ptr @wtap_file_get_idb_info(ptr noundef %165)
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %169 = load i32, ptr %168, align 8
-  %.fr.i = freeze i32 %169
-  %170 = icmp eq i32 %.076.i, 1
-  br i1 %170, label %.loopexit75.i, label %.lr.ph35.preheader.i.i
+165:                                              ; preds = %create_shb_header.exit
+  %166 = load ptr, ptr %117, align 8
+  %167 = call ptr @wtap_file_get_idb_info(ptr noundef %166)
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  %170 = load i32, ptr %169, align 8
+  %.fr.i = freeze i32 %170
+  %171 = icmp eq i32 %.076.i, 1
+  br i1 %171, label %.loopexit75.i, label %.lr.ph35.preheader.i.i
 
-.lr.ph35.preheader.i.i:                           ; preds = %164
+.lr.ph35.preheader.i.i:                           ; preds = %165
   %.not37.i.i = icmp eq i32 %.fr.i, 0
   %wide.trip.count.i.i = zext i32 %.fr.i to i64
   br i1 %.not37.i.i, label %.lr.ph35.i.us.i, label %.lr.ph35.i.i
 
 .lr.ph35.i.us.i:                                  ; preds = %.lr.ph35.preheader.i.i, %.preheader.i.us.i
   %indvars.iv42.i.us.i = phi i64 [ %indvars.iv.next43.i.us.i, %.preheader.i.us.i ], [ 1, %.lr.ph35.preheader.i.i ]
-  %171 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv42.i.us.i, i32 1
-  %172 = load ptr, ptr %171, align 8
-  %173 = call ptr @wtap_file_get_idb_info(ptr noundef %172)
+  %172 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv42.i.us.i
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  %176 = load i32, ptr %175, align 8
-  %.not.i.us.i194 = icmp eq i32 %176, 0
+  %175 = call ptr @wtap_file_get_idb_info(ptr noundef %174)
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  %178 = load i32, ptr %177, align 8
+  %.not.i.us.i194 = icmp eq i32 %178, 0
   br i1 %.not.i.us.i194, label %.preheader.i.us.i, label %all_idbs_are_duplicates.exit.i
 
 .preheader.i.us.i:                                ; preds = %.lr.ph35.i.us.i
-  call void @g_free(ptr noundef %173)
+  call void @g_free(ptr noundef %175)
   %indvars.iv.next43.i.us.i = add nuw nsw i64 %indvars.iv42.i.us.i, 1
   %exitcond46.not.i.us.i = icmp eq i64 %indvars.iv.next43.i.us.i, %wide.trip.count.i182
   br i1 %exitcond46.not.i.us.i, label %.loopexit75.i, label %.lr.ph35.i.us.i, !llvm.loop !14
 
 .lr.ph35.i.i:                                     ; preds = %.lr.ph35.preheader.i.i, %._crit_edge.i.loopexit.i
   %indvars.iv42.i.i = phi i64 [ %indvars.iv.next43.i.i, %._crit_edge.i.loopexit.i ], [ 1, %.lr.ph35.preheader.i.i ]
-  %177 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv42.i.i, i32 1
-  %178 = load ptr, ptr %177, align 8
-  %179 = call ptr @wtap_file_get_idb_info(ptr noundef %178)
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %182 = load i32, ptr %181, align 8
-  %.not.i.i = icmp eq i32 %182, %.fr.i
+  %179 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv42.i.i
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %181 = load ptr, ptr %180, align 8
+  %182 = call ptr @wtap_file_get_idb_info(ptr noundef %181)
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %185 = load i32, ptr %184, align 8
+  %.not.i.i = icmp eq i32 %185, %.fr.i
   br i1 %.not.i.i, label %.lr.ph.i.i, label %all_idbs_are_duplicates.exit.i
 
-183:                                              ; preds = %.lr.ph.i.i
+186:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.loopexit.i, label %.lr.ph.i.i, !llvm.loop !15
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph35.i.i, %183
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %183 ], [ 0, %.lr.ph35.i.i ]
-  %184 = load ptr, ptr %166, align 8
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr ptr, ptr %185, i64 %indvars.iv.i.i
-  %187 = load ptr, ptr %186, align 8
-  %188 = load ptr, ptr %179, align 8
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr ptr, ptr %189, i64 %indvars.iv.i.i
-  %191 = load ptr, ptr %190, align 8
-  %192 = call fastcc zeroext i1 @is_duplicate_idb(ptr noundef %187, ptr noundef %191)
-  br i1 %192, label %183, label %all_idbs_are_duplicates.exit.i
+.lr.ph.i.i:                                       ; preds = %.lr.ph35.i.i, %186
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %186 ], [ 0, %.lr.ph35.i.i ]
+  %187 = load ptr, ptr %167, align 8
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr ptr, ptr %188, i64 %indvars.iv.i.i
+  %190 = load ptr, ptr %189, align 8
+  %191 = load ptr, ptr %182, align 8
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr ptr, ptr %192, i64 %indvars.iv.i.i
+  %194 = load ptr, ptr %193, align 8
+  %195 = call fastcc zeroext i1 @is_duplicate_idb(ptr noundef %190, ptr noundef %194)
+  br i1 %195, label %186, label %all_idbs_are_duplicates.exit.i
 
-._crit_edge.i.loopexit.i:                         ; preds = %183
-  call void @g_free(ptr noundef %179)
+._crit_edge.i.loopexit.i:                         ; preds = %186
+  call void @g_free(ptr noundef %182)
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond46.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, %wide.trip.count.i182
   br i1 %exitcond46.not.i.i, label %.loopexit75.i, label %.lr.ph35.i.i, !llvm.loop !14
 
 all_idbs_are_duplicates.exit.i:                   ; preds = %.lr.ph35.i.i, %.lr.ph35.i.us.i, %.lr.ph.i.i
-  %193 = phi ptr [ %179, %.lr.ph.i.i ], [ %173, %.lr.ph35.i.us.i ], [ %179, %.lr.ph35.i.i ]
-  call void @g_free(ptr noundef %193)
-  call void @g_free(ptr noundef %166)
+  %196 = phi ptr [ %182, %.lr.ph.i.i ], [ %175, %.lr.ph35.i.us.i ], [ %182, %.lr.ph35.i.i ]
+  call void @g_free(ptr noundef %196)
+  call void @g_free(ptr noundef %167)
   br label %._crit_edge104.i
 
-.loopexit75.i:                                    ; preds = %._crit_edge.i.loopexit.i, %.preheader.i.us.i, %164
-  call void @g_free(ptr noundef %166)
+.loopexit75.i:                                    ; preds = %._crit_edge.i.loopexit.i, %.preheader.i.us.i, %165
+  call void @g_free(ptr noundef %167)
   %.pn6085.i = load ptr, ptr %117, align 8
-  %194 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn6085.i)
-  %.not5986.i = icmp eq ptr %194, null
+  %197 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn6085.i)
+  %.not5986.i = icmp eq ptr %197, null
   br i1 %.not5986.i, label %generate_merged_idbs.exit, label %.lr.ph88.i
 
 .lr.ph88.i:                                       ; preds = %.loopexit75.i
-  %195 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %196 = getelementptr i8, ptr %.073.i, i64 344
-  br label %198
+  %198 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %199 = getelementptr i8, ptr %.073.i, i64 344
+  br label %201
 
-.loopexit.i193:                                   ; preds = %212, %198
+.loopexit.i193:                                   ; preds = %215, %201
   %.pn60.i = load ptr, ptr %117, align 8
-  %197 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn60.i)
-  %.not59.i = icmp eq ptr %197, null
-  br i1 %.not59.i, label %generate_merged_idbs.exit, label %198, !llvm.loop !16
+  %200 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn60.i)
+  %.not59.i = icmp eq ptr %200, null
+  br i1 %.not59.i, label %generate_merged_idbs.exit, label %201, !llvm.loop !16
 
-198:                                              ; preds = %.loopexit.i193, %.lr.ph88.i
-  %199 = phi ptr [ %194, %.lr.ph88.i ], [ %197, %.loopexit.i193 ]
+201:                                              ; preds = %.loopexit.i193, %.lr.ph88.i
+  %202 = phi ptr [ %197, %.lr.ph88.i ], [ %200, %.loopexit.i193 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %200 = call ptr @wtap_block_make_copy(ptr noundef nonnull %199)
-  store ptr %200, ptr %18, align 8
-  %201 = call ptr @wtap_block_get_mandatory_data(ptr noundef %200)
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
-  store i8 0, ptr %202, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %201, i64 32
-  store ptr null, ptr %203, align 8
-  %204 = call ptr @g_array_append_vals(ptr noundef %162, ptr noundef nonnull %18, i32 noundef 1)
+  %203 = call ptr @wtap_block_make_copy(ptr noundef nonnull %202)
+  store ptr %203, ptr %18, align 8
+  %204 = call ptr @wtap_block_get_mandatory_data(ptr noundef %203)
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
+  store i8 0, ptr %205, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 32
+  store ptr null, ptr %206, align 8
+  %207 = call ptr @g_array_append_vals(ptr noundef %163, ptr noundef nonnull %18, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %205 = load i32, ptr %195, align 8
-  %206 = add i32 %205, -1
-  %.val.i = load ptr, ptr %196, align 8
+  %208 = load i32, ptr %198, align 8
+  %209 = add i32 %208, -1
+  %.val.i = load ptr, ptr %199, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store i32 %206, ptr %17, align 4
-  %207 = call ptr @g_array_append_vals(ptr noundef %.val.i, ptr noundef nonnull %17, i32 noundef 1)
+  store i32 %209, ptr %17, align 4
+  %210 = call ptr @g_array_append_vals(ptr noundef %.val.i, ptr noundef nonnull %17, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br i1 %170, label %.loopexit.i193, label %.lr.ph84.i
+  br i1 %171, label %.loopexit.i193, label %.lr.ph84.i
 
-.lr.ph84.i:                                       ; preds = %198, %212
-  %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %212 ], [ 1, %198 ]
-  %208 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv99.i
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  %210 = load ptr, ptr %209, align 8
-  %211 = call ptr @wtap_get_next_interface_description(ptr noundef %210)
-  %.not61.i = icmp eq ptr %211, null
-  br i1 %.not61.i, label %215, label %212
+.lr.ph84.i:                                       ; preds = %201, %215
+  %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %215 ], [ 1, %201 ]
+  %211 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv99.i
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %213 = load ptr, ptr %212, align 8
+  %214 = call ptr @wtap_get_next_interface_description(ptr noundef %213)
+  %.not61.i = icmp eq ptr %214, null
+  br i1 %.not61.i, label %218, label %215
 
-212:                                              ; preds = %.lr.ph84.i
-  %213 = getelementptr i8, ptr %208, i64 344
-  %.val62.i = load ptr, ptr %213, align 8
+215:                                              ; preds = %.lr.ph84.i
+  %216 = getelementptr i8, ptr %211, i64 344
+  %.val62.i = load ptr, ptr %216, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  store i32 %206, ptr %16, align 4
-  %214 = call ptr @g_array_append_vals(ptr noundef %.val62.i, ptr noundef nonnull %16, i32 noundef 1)
+  store i32 %209, ptr %16, align 4
+  %217 = call ptr @g_array_append_vals(ptr noundef %.val62.i, ptr noundef nonnull %16, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
   %exitcond103.not.i = icmp eq i64 %indvars.iv.next100.i, %wide.trip.count.i182
   br i1 %exitcond103.not.i, label %.loopexit.i193, label %.lr.ph84.i, !llvm.loop !17
 
-215:                                              ; preds = %.lr.ph84.i
+218:                                              ; preds = %.lr.ph84.i
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.12, i32 noundef 7, ptr noundef nonnull @.str.13, i64 noundef 938, ptr noundef nonnull @__func__.generate_merged_idbs, ptr noundef nonnull @.str.14) #16
   unreachable
 
 ._crit_edge104.i:                                 ; preds = %create_shb_header.exit, %all_idbs_are_duplicates.exit.i
-  %216 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %217 = icmp eq i32 %.0215316, 2
-  br label %218
+  %219 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %220 = icmp eq i32 %.0215316, 2
+  br label %221
 
-218:                                              ; preds = %._crit_edge.i190, %._crit_edge104.i
+221:                                              ; preds = %._crit_edge.i190, %._crit_edge104.i
   %indvars.iv.i187 = phi i64 [ 0, %._crit_edge104.i ], [ %indvars.iv.next.i191, %._crit_edge.i190 ]
-  %219 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i187
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %.pn79.i = load ptr, ptr %220, align 8
-  %221 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn79.i)
-  %.not80.i = icmp eq ptr %221, null
+  %222 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i187
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
+  %.pn79.i = load ptr, ptr %223, align 8
+  %224 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn79.i)
+  %.not80.i = icmp eq ptr %224, null
   br i1 %.not80.i, label %._crit_edge.i190, label %.lr.ph.i188
 
-.lr.ph.i188:                                      ; preds = %218
-  %222 = getelementptr i8, ptr %219, i64 344
-  br i1 %217, label %.lr.ph.i188.split.us, label %find_duplicate_idb.exit.thread.i
+.lr.ph.i188:                                      ; preds = %221
+  %225 = getelementptr i8, ptr %222, i64 344
+  br i1 %220, label %.lr.ph.i188.split.us, label %find_duplicate_idb.exit.thread.i
 
-.lr.ph.i188.split.us:                             ; preds = %.lr.ph.i188, %244
-  %223 = phi ptr [ %245, %244 ], [ %221, %.lr.ph.i188 ]
-  %224 = load i32, ptr %216, align 8
-  %.not.i65.i.us = icmp eq i32 %224, 0
+.lr.ph.i188.split.us:                             ; preds = %.lr.ph.i188, %247
+  %226 = phi ptr [ %248, %247 ], [ %224, %.lr.ph.i188 ]
+  %227 = load i32, ptr %219, align 8
+  %.not.i65.i.us = icmp eq i32 %227, 0
   br i1 %.not.i65.i.us, label %find_duplicate_idb.exit.thread.i.us, label %.lr.ph.i66.i.us
 
-.lr.ph.i66.i.us:                                  ; preds = %.lr.ph.i188.split.us, %229
-  %indvars.iv.i67.i.us = phi i64 [ %indvars.iv.next.i68.i.us, %229 ], [ 0, %.lr.ph.i188.split.us ]
-  %225 = load ptr, ptr %162, align 8
-  %226 = getelementptr ptr, ptr %225, i64 %indvars.iv.i67.i.us
-  %227 = load ptr, ptr %226, align 8
-  %228 = call fastcc zeroext i1 @is_duplicate_idb(ptr noundef nonnull %223, ptr noundef %227)
-  br i1 %228, label %233, label %229
+.lr.ph.i66.i.us:                                  ; preds = %.lr.ph.i188.split.us, %232
+  %indvars.iv.i67.i.us = phi i64 [ %indvars.iv.next.i68.i.us, %232 ], [ 0, %.lr.ph.i188.split.us ]
+  %228 = load ptr, ptr %163, align 8
+  %229 = getelementptr ptr, ptr %228, i64 %indvars.iv.i67.i.us
+  %230 = load ptr, ptr %229, align 8
+  %231 = call fastcc zeroext i1 @is_duplicate_idb(ptr noundef nonnull %226, ptr noundef %230)
+  br i1 %231, label %236, label %232
 
-229:                                              ; preds = %.lr.ph.i66.i.us
+232:                                              ; preds = %.lr.ph.i66.i.us
   %indvars.iv.next.i68.i.us = add nuw nsw i64 %indvars.iv.i67.i.us, 1
-  %230 = load i32, ptr %216, align 8
-  %231 = zext i32 %230 to i64
-  %232 = icmp samesign ult i64 %indvars.iv.next.i68.i.us, %231
-  br i1 %232, label %.lr.ph.i66.i.us, label %find_duplicate_idb.exit.thread.i.us, !llvm.loop !18
+  %233 = load i32, ptr %219, align 8
+  %234 = zext i32 %233 to i64
+  %235 = icmp samesign ult i64 %indvars.iv.next.i68.i.us, %234
+  br i1 %235, label %.lr.ph.i66.i.us, label %find_duplicate_idb.exit.thread.i.us, !llvm.loop !18
 
-233:                                              ; preds = %.lr.ph.i66.i.us
-  %234 = trunc nuw i64 %indvars.iv.i67.i.us to i32
-  %.val63.i.us = load ptr, ptr %222, align 8
+236:                                              ; preds = %.lr.ph.i66.i.us
+  %237 = trunc nuw i64 %indvars.iv.i67.i.us to i32
+  %.val63.i.us = load ptr, ptr %225, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i32 %234, ptr %15, align 4
-  %235 = call ptr @g_array_append_vals(ptr noundef %.val63.i.us, ptr noundef nonnull %15, i32 noundef 1)
+  store i32 %237, ptr %15, align 4
+  %238 = call ptr @g_array_append_vals(ptr noundef %.val63.i.us, ptr noundef nonnull %15, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %244
+  br label %247
 
-find_duplicate_idb.exit.thread.i.us:              ; preds = %229, %.lr.ph.i188.split.us
+find_duplicate_idb.exit.thread.i.us:              ; preds = %232, %.lr.ph.i188.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %236 = call ptr @wtap_block_make_copy(ptr noundef nonnull %223)
-  store ptr %236, ptr %14, align 8
-  %237 = call ptr @wtap_block_get_mandatory_data(ptr noundef %236)
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  store i8 0, ptr %238, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %237, i64 32
-  store ptr null, ptr %239, align 8
-  %240 = call ptr @g_array_append_vals(ptr noundef %162, ptr noundef nonnull %14, i32 noundef 1)
+  %239 = call ptr @wtap_block_make_copy(ptr noundef nonnull %226)
+  store ptr %239, ptr %14, align 8
+  %240 = call ptr @wtap_block_get_mandatory_data(ptr noundef %239)
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 24
+  store i8 0, ptr %241, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %240, i64 32
+  store ptr null, ptr %242, align 8
+  %243 = call ptr @g_array_append_vals(ptr noundef %163, ptr noundef nonnull %14, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %241 = load i32, ptr %216, align 8
-  %242 = add i32 %241, -1
-  %.val64.i.us = load ptr, ptr %222, align 8
+  %244 = load i32, ptr %219, align 8
+  %245 = add i32 %244, -1
+  %.val64.i.us = load ptr, ptr %225, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store i32 %242, ptr %13, align 4
-  %243 = call ptr @g_array_append_vals(ptr noundef %.val64.i.us, ptr noundef nonnull %13, i32 noundef 1)
+  store i32 %245, ptr %13, align 4
+  %246 = call ptr @g_array_append_vals(ptr noundef %.val64.i.us, ptr noundef nonnull %13, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %244
+  br label %247
 
-244:                                              ; preds = %find_duplicate_idb.exit.thread.i.us, %233
-  %.pn.i.us = load ptr, ptr %220, align 8
-  %245 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn.i.us)
-  %.not.i189.us = icmp eq ptr %245, null
+247:                                              ; preds = %find_duplicate_idb.exit.thread.i.us, %236
+  %.pn.i.us = load ptr, ptr %223, align 8
+  %248 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn.i.us)
+  %.not.i189.us = icmp eq ptr %248, null
   br i1 %.not.i189.us, label %._crit_edge.i190, label %.lr.ph.i188.split.us, !llvm.loop !19
 
 find_duplicate_idb.exit.thread.i:                 ; preds = %.lr.ph.i188, %find_duplicate_idb.exit.thread.i
-  %246 = phi ptr [ %255, %find_duplicate_idb.exit.thread.i ], [ %221, %.lr.ph.i188 ]
+  %249 = phi ptr [ %258, %find_duplicate_idb.exit.thread.i ], [ %224, %.lr.ph.i188 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %247 = call ptr @wtap_block_make_copy(ptr noundef nonnull %246)
-  store ptr %247, ptr %14, align 8
-  %248 = call ptr @wtap_block_get_mandatory_data(ptr noundef %247)
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
-  store i8 0, ptr %249, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %248, i64 32
-  store ptr null, ptr %250, align 8
-  %251 = call ptr @g_array_append_vals(ptr noundef %162, ptr noundef nonnull %14, i32 noundef 1)
+  %250 = call ptr @wtap_block_make_copy(ptr noundef nonnull %249)
+  store ptr %250, ptr %14, align 8
+  %251 = call ptr @wtap_block_get_mandatory_data(ptr noundef %250)
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
+  store i8 0, ptr %252, align 8
+  %253 = getelementptr inbounds nuw i8, ptr %251, i64 32
+  store ptr null, ptr %253, align 8
+  %254 = call ptr @g_array_append_vals(ptr noundef %163, ptr noundef nonnull %14, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %252 = load i32, ptr %216, align 8
-  %253 = add i32 %252, -1
-  %.val64.i = load ptr, ptr %222, align 8
+  %255 = load i32, ptr %219, align 8
+  %256 = add i32 %255, -1
+  %.val64.i = load ptr, ptr %225, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store i32 %253, ptr %13, align 4
-  %254 = call ptr @g_array_append_vals(ptr noundef %.val64.i, ptr noundef nonnull %13, i32 noundef 1)
+  store i32 %256, ptr %13, align 4
+  %257 = call ptr @g_array_append_vals(ptr noundef %.val64.i, ptr noundef nonnull %13, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.pn.i = load ptr, ptr %220, align 8
-  %255 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn.i)
-  %.not.i189 = icmp eq ptr %255, null
+  %.pn.i = load ptr, ptr %223, align 8
+  %258 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn.i)
+  %.not.i189 = icmp eq ptr %258, null
   br i1 %.not.i189, label %._crit_edge.i190, label %find_duplicate_idb.exit.thread.i, !llvm.loop !19
 
-._crit_edge.i190:                                 ; preds = %find_duplicate_idb.exit.thread.i, %244, %218
+._crit_edge.i190:                                 ; preds = %find_duplicate_idb.exit.thread.i, %247, %221
   %indvars.iv.next.i191 = add nuw nsw i64 %indvars.iv.i187, 1
   %exitcond.not.i192 = icmp eq i64 %indvars.iv.next.i191, %wide.trip.count.i182
-  br i1 %exitcond.not.i192, label %generate_merged_idbs.exit, label %218, !llvm.loop !20
+  br i1 %exitcond.not.i192, label %generate_merged_idbs.exit, label %221, !llvm.loop !20
 
 generate_merged_idbs.exit:                        ; preds = %._crit_edge.i190, %.loopexit.i193, %.loopexit75.i
   %.3216 = phi i32 [ 2, %.loopexit75.i ], [ 2, %.loopexit.i193 ], [ %.0215316, %._crit_edge.i190 ]
   store ptr null, ptr %30, align 8
-  store ptr %135, ptr %31, align 8
-  store ptr %161, ptr %32, align 8
-  br label %256
+  store ptr %136, ptr %31, align 8
+  store ptr %162, ptr %32, align 8
+  br label %259
 
-256:                                              ; preds = %generate_merged_idbs.exit, %131
-  %.2 = phi i32 [ %.0215316, %131 ], [ %.3216, %generate_merged_idbs.exit ]
-  %.1139 = phi ptr [ %.0138318, %131 ], [ %135, %generate_merged_idbs.exit ]
-  %.1137 = phi ptr [ %.0136319, %131 ], [ %161, %generate_merged_idbs.exit ]
-  %257 = call i32 @wtap_file_type_subtype_supports_block(i32 noundef %3, i32 noundef 2)
-  %.not157 = icmp eq i32 %257, 0
-  br i1 %.not157, label %260, label %258
+259:                                              ; preds = %generate_merged_idbs.exit, %132
+  %.2 = phi i32 [ %.0215316, %132 ], [ %.3216, %generate_merged_idbs.exit ]
+  %.1139 = phi ptr [ %.0138318, %132 ], [ %136, %generate_merged_idbs.exit ]
+  %.1137 = phi ptr [ %.0136319, %132 ], [ %162, %generate_merged_idbs.exit ]
+  %260 = call i32 @wtap_file_type_subtype_supports_block(i32 noundef %3, i32 noundef 2)
+  %.not157 = icmp eq i32 %260, 0
+  br i1 %.not157, label %263, label %261
 
-258:                                              ; preds = %256
-  %259 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
-  store ptr %259, ptr %33, align 8
-  br label %260
+261:                                              ; preds = %259
+  %262 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
+  store ptr %262, ptr %33, align 8
+  br label %263
 
-260:                                              ; preds = %258, %256
-  %.1133 = phi ptr [ %259, %258 ], [ null, %256 ]
-  %261 = call i32 @wtap_file_type_subtype_supports_block(i32 noundef %3, i32 noundef 4)
-  %.not158 = icmp eq i32 %261, 0
-  br i1 %.not158, label %264, label %262
+263:                                              ; preds = %261, %259
+  %.1133 = phi ptr [ %262, %261 ], [ null, %259 ]
+  %264 = call i32 @wtap_file_type_subtype_supports_block(i32 noundef %3, i32 noundef 4)
+  %.not158 = icmp eq i32 %264, 0
+  br i1 %.not158, label %267, label %265
 
-262:                                              ; preds = %260
-  %263 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
-  store ptr %263, ptr %34, align 8
-  br label %264
+265:                                              ; preds = %263
+  %266 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
+  store ptr %266, ptr %34, align 8
+  br label %267
 
-264:                                              ; preds = %262, %260
-  %.1129 = phi ptr [ %263, %262 ], [ null, %260 ]
-  %265 = call i32 @close(i32 noundef %39)
-  %266 = icmp ult i32 %.076.i, %5
-  br i1 %266, label %267, label %276
+267:                                              ; preds = %265, %263
+  %.1129 = phi ptr [ %266, %265 ], [ null, %263 ]
+  %268 = call i32 @close(i32 noundef %39)
+  %269 = icmp ult i32 %.076.i, %5
+  br i1 %269, label %270, label %279
 
-267:                                              ; preds = %264
-  %268 = icmp eq ptr %.0124320, null
-  br i1 %268, label %269, label %271
+270:                                              ; preds = %267
+  %271 = icmp eq ptr %.0124320, null
+  br i1 %271, label %272, label %274
 
-269:                                              ; preds = %267
-  %270 = call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @tempfile_free)
-  br label %271
+272:                                              ; preds = %270
+  %273 = call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @tempfile_free)
+  br label %274
 
-271:                                              ; preds = %269, %267
-  %.2126 = phi ptr [ %270, %269 ], [ %.0124320, %267 ]
+274:                                              ; preds = %272, %270
+  %.2126 = phi ptr [ %273, %272 ], [ %.0124320, %270 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %272 = call ptr @wtap_dump_open_tempfile(ptr noundef %35, ptr noundef nonnull %25, ptr noundef nonnull %36, i32 noundef %3, i32 noundef %11, ptr noundef nonnull %24, ptr noundef nonnull %20, ptr noundef nonnull %21)
-  %.not163 = icmp eq ptr %272, null
-  br i1 %.not163, label %275, label %273
+  %275 = call ptr @wtap_dump_open_tempfile(ptr noundef %35, ptr noundef nonnull %25, ptr noundef nonnull %36, i32 noundef %3, i32 noundef %11, ptr noundef nonnull %24, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  %.not163 = icmp eq ptr %275, null
+  br i1 %.not163, label %278, label %276
 
-273:                                              ; preds = %271
-  %274 = load ptr, ptr %25, align 8
-  call void @g_ptr_array_add(ptr noundef %.2126, ptr noundef %274)
-  br label %275
+276:                                              ; preds = %274
+  %277 = load ptr, ptr %25, align 8
+  call void @g_ptr_array_add(ptr noundef %.2126, ptr noundef %277)
+  br label %278
 
-275:                                              ; preds = %273, %271
+278:                                              ; preds = %276, %274
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %284
+  br label %287
 
-276:                                              ; preds = %264
-  br i1 %.not159, label %279, label %277
-
-277:                                              ; preds = %276
-  %278 = call ptr @wtap_dump_open_tempfile(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %11, ptr noundef nonnull %24, ptr noundef nonnull %20, ptr noundef nonnull %21)
-  br label %284
-
-279:                                              ; preds = %276
-  br i1 %.not160, label %282, label %280
+279:                                              ; preds = %267
+  br i1 %.not159, label %282, label %280
 
 280:                                              ; preds = %279
-  %281 = call ptr @wtap_dump_open(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %11, ptr noundef nonnull %24, ptr noundef nonnull %20, ptr noundef nonnull %21)
-  br label %284
+  %281 = call ptr @wtap_dump_open_tempfile(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %11, ptr noundef nonnull %24, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  br label %287
 
 282:                                              ; preds = %279
-  %283 = call ptr @wtap_dump_open_stdout(i32 noundef %3, i32 noundef %11, ptr noundef nonnull %24, ptr noundef nonnull %20, ptr noundef nonnull %21)
-  br label %284
+  br i1 %.not160, label %285, label %283
 
-284:                                              ; preds = %277, %282, %280, %275
-  %.0140 = phi ptr [ %272, %275 ], [ %278, %277 ], [ %281, %280 ], [ %283, %282 ]
-  %.3127 = phi ptr [ %.2126, %275 ], [ %.0124320, %277 ], [ %.0124320, %280 ], [ %.0124320, %282 ]
+283:                                              ; preds = %282
+  %284 = call ptr @wtap_dump_open(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %11, ptr noundef nonnull %24, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  br label %287
+
+285:                                              ; preds = %282
+  %286 = call ptr @wtap_dump_open_stdout(i32 noundef %3, i32 noundef %11, ptr noundef nonnull %24, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  br label %287
+
+287:                                              ; preds = %280, %285, %283, %278
+  %.0140 = phi ptr [ %275, %278 ], [ %281, %280 ], [ %284, %283 ], [ %286, %285 ]
+  %.3127 = phi ptr [ %.2126, %278 ], [ %.0124320, %280 ], [ %.0124320, %283 ], [ %.0124320, %285 ]
   %.not169 = icmp eq ptr %.0140, null
-  br i1 %.not169, label %285, label %302
+  br i1 %.not169, label %288, label %305
 
-285:                                              ; preds = %284
-  %286 = icmp sgt i32 %.076.i, 0
-  br i1 %286, label %.lr.ph.preheader.i196, label %merge_close_in_files.exit
+288:                                              ; preds = %287
+  %289 = icmp sgt i32 %.076.i, 0
+  br i1 %289, label %.lr.ph.preheader.i196, label %merge_close_in_files.exit
 
-.lr.ph.preheader.i196:                            ; preds = %285
+.lr.ph.preheader.i196:                            ; preds = %288
   %wide.trip.count.i197 = zext nneg i32 %.076.i to i64
   br label %.lr.ph.i198
 
 .lr.ph.i198:                                      ; preds = %.lr.ph.i198, %.lr.ph.preheader.i196
   %indvars.iv.i199 = phi i64 [ 0, %.lr.ph.preheader.i196 ], [ %indvars.iv.next.i200, %.lr.ph.i198 ]
-  %287 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i199
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
-  %289 = load ptr, ptr %288, align 8
-  call void @wtap_close(ptr noundef %289)
-  store ptr null, ptr %288, align 8
-  %290 = getelementptr inbounds nuw i8, ptr %287, i64 344
-  %291 = load ptr, ptr %290, align 8
-  %292 = call ptr @g_array_free(ptr noundef %291, i32 noundef 1)
-  store ptr null, ptr %290, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %287, i64 16
-  call void @wtap_rec_cleanup(ptr noundef nonnull %293)
+  %290 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i199
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 8
+  %292 = load ptr, ptr %291, align 8
+  call void @wtap_close(ptr noundef %292)
+  store ptr null, ptr %291, align 8
+  %293 = getelementptr inbounds nuw i8, ptr %290, i64 344
+  %294 = load ptr, ptr %293, align 8
+  %295 = call ptr @g_array_free(ptr noundef %294, i32 noundef 1)
+  store ptr null, ptr %293, align 8
+  %296 = getelementptr inbounds nuw i8, ptr %290, i64 16
+  call void @wtap_rec_cleanup(ptr noundef nonnull %296)
   %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i199, 1
   %exitcond.not.i201 = icmp eq i64 %indvars.iv.next.i200, %wide.trip.count.i197
   br i1 %exitcond.not.i201, label %merge_close_in_files.exit, label %.lr.ph.i198, !llvm.loop !21
 
-merge_close_in_files.exit:                        ; preds = %.lr.ph.i198, %285
+merge_close_in_files.exit:                        ; preds = %.lr.ph.i198, %288
   call void @g_free(ptr noundef %.073.i)
   call void @wtap_block_array_free(ptr noundef %.1139)
   call void @wtap_free_idb_info(ptr noundef %.1137)
   %.not166 = icmp eq ptr %.1133, null
-  br i1 %.not166, label %296, label %294
+  br i1 %.not166, label %299, label %297
 
-294:                                              ; preds = %merge_close_in_files.exit
-  %295 = call ptr @g_array_free(ptr noundef nonnull %.1133, i32 noundef 1)
-  br label %296
-
-296:                                              ; preds = %294, %merge_close_in_files.exit
-  %.not167 = icmp eq ptr %.1129, null
-  br i1 %.not167, label %299, label %297
-
-297:                                              ; preds = %296
-  %298 = call ptr @g_array_free(ptr noundef nonnull %.1129, i32 noundef 1)
+297:                                              ; preds = %merge_close_in_files.exit
+  %298 = call ptr @g_array_free(ptr noundef nonnull %.1133, i32 noundef 1)
   br label %299
 
-299:                                              ; preds = %297, %296
-  %.not168 = icmp eq ptr %.3127, null
-  br i1 %.not168, label %312, label %300
+299:                                              ; preds = %297, %merge_close_in_files.exit
+  %.not167 = icmp eq ptr %.1129, null
+  br i1 %.not167, label %302, label %300
 
 300:                                              ; preds = %299
-  %301 = call ptr @g_ptr_array_free(ptr noundef nonnull %.3127, i32 noundef 1)
-  br label %312
+  %301 = call ptr @g_array_free(ptr noundef nonnull %.1129, i32 noundef 1)
+  br label %302
 
-302:                                              ; preds = %284
+302:                                              ; preds = %300, %299
+  %.not168 = icmp eq ptr %.3127, null
+  br i1 %.not168, label %315, label %303
+
+303:                                              ; preds = %302
+  %304 = call ptr @g_ptr_array_free(ptr noundef nonnull %.3127, i32 noundef 1)
+  br label %315
+
+305:                                              ; preds = %287
   br i1 %.not82.i, label %.split, label %.split148
 
-.split148:                                        ; preds = %302
-  %303 = load ptr, ptr %10, align 8
-  %304 = load ptr, ptr %28, align 8
-  %305 = call zeroext i1 %303(i32 noundef 2, i32 noundef 0, ptr noundef %.073.i, i32 noundef %.076.i, ptr noundef %304)
+.split148:                                        ; preds = %305
+  %306 = load ptr, ptr %10, align 8
+  %307 = load ptr, ptr %28, align 8
+  %308 = call zeroext i1 %306(i32 noundef 2, i32 noundef 0, ptr noundef %.073.i, i32 noundef %.076.i, ptr noundef %307)
   br label %.split
 
-.split:                                           ; preds = %302, %.split148
-  %.sink = phi ptr [ %10, %.split148 ], [ null, %302 ]
-  %306 = call fastcc i32 @merge_process_packets(ptr noundef %.0140, i32 noundef %3, ptr noundef %.073.i, i32 noundef %.076.i, i1 noundef zeroext %6, i32 noundef %.2, i32 noundef %spec.store.select, ptr noundef %.sink, ptr noundef %.1137, ptr noundef %.1133, ptr noundef %.1129, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
+.split:                                           ; preds = %305, %.split148
+  %.sink = phi ptr [ %10, %.split148 ], [ null, %305 ]
+  %309 = call fastcc i32 @merge_process_packets(ptr noundef %.0140, i32 noundef %3, ptr noundef %.073.i, i32 noundef %.076.i, i1 noundef zeroext %6, i32 noundef %.2, i32 noundef %spec.store.select, ptr noundef %.sink, ptr noundef %.1137, ptr noundef %.1133, ptr noundef %.1129, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
   call void @g_free(ptr noundef %.073.i)
   call void @wtap_block_array_free(ptr noundef %.1139)
   call void @wtap_free_idb_info(ptr noundef %.1137)
   %.not164 = icmp eq ptr %.1133, null
-  br i1 %.not164, label %309, label %307
+  br i1 %.not164, label %312, label %310
 
-307:                                              ; preds = %.split
-  %308 = call ptr @g_array_free(ptr noundef nonnull %.1133, i32 noundef 1)
-  br label %309
+310:                                              ; preds = %.split
+  %311 = call ptr @g_array_free(ptr noundef nonnull %.1133, i32 noundef 1)
+  br label %312
 
-309:                                              ; preds = %307, %.split
+312:                                              ; preds = %310, %.split
   %.not165 = icmp eq ptr %.1129, null
-  br i1 %.not165, label %315, label %310
+  br i1 %.not165, label %318, label %313
 
-310:                                              ; preds = %309
-  %311 = call ptr @g_array_free(ptr noundef nonnull %.1129, i32 noundef 1)
-  br label %315
+313:                                              ; preds = %312
+  %314 = call ptr @g_array_free(ptr noundef nonnull %.1129, i32 noundef 1)
+  br label %318
 
-312:                                              ; preds = %299, %300
-  %313 = load i32, ptr %20, align 4
-  %314 = load ptr, ptr %21, align 8
-  call void @report_cfile_dump_open_failure(ptr noundef %0, i32 noundef %313, ptr noundef %314, i32 noundef %3)
+315:                                              ; preds = %302, %303
+  %316 = load i32, ptr %20, align 4
+  %317 = load ptr, ptr %21, align 8
+  call void @report_cfile_dump_open_failure(ptr noundef %0, i32 noundef %316, ptr noundef %317, i32 noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.thread239.thread
 
-315:                                              ; preds = %309, %310
+318:                                              ; preds = %312, %313
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %316 = add i32 %.076.i, %.0121321
-  %317 = icmp uge i32 %316, %5
-  %318 = icmp ne i32 %306, 0
-  %.not172 = select i1 %317, i1 true, i1 %318
+  %319 = add i32 %.076.i, %.0121321
+  %320 = icmp uge i32 %319, %5
+  %321 = icmp ne i32 %309, 0
+  %.not172 = select i1 %320, i1 true, i1 %321
   br i1 %.not172, label %._crit_edge, label %38, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %315
-  switch i32 %306, label %default.unreachable398 [
+._crit_edge:                                      ; preds = %318
+  switch i32 %309, label %default.unreachable398 [
     i32 0, label %.thread239
-    i32 1, label %354
-    i32 2, label %319
-    i32 3, label %326
-    i32 4, label %329
-    i32 5, label %336
-    i32 6, label %342
-    i32 7, label %351
+    i32 1, label %357
+    i32 2, label %322
+    i32 3, label %329
+    i32 4, label %332
+    i32 5, label %339
+    i32 6, label %345
+    i32 7, label %354
   ]
 
-319:                                              ; preds = %._crit_edge
-  %320 = load i32, ptr %22, align 4
-  %321 = zext i32 %320 to i64
-  %322 = getelementptr ptr, ptr %4, i64 %321
-  %323 = load ptr, ptr %322, align 8
-  %324 = load i32, ptr %20, align 4
-  %325 = load ptr, ptr %21, align 8
-  call void @report_cfile_open_failure(ptr noundef %323, i32 noundef %324, ptr noundef %325)
-  br label %354
-
-326:                                              ; preds = %._crit_edge
+322:                                              ; preds = %._crit_edge
+  %323 = load i32, ptr %22, align 4
+  %324 = zext i32 %323 to i64
+  %325 = getelementptr ptr, ptr %4, i64 %324
+  %326 = load ptr, ptr %325, align 8
   %327 = load i32, ptr %20, align 4
   %328 = load ptr, ptr %21, align 8
-  call void @report_cfile_dump_open_failure(ptr noundef %0, i32 noundef %327, ptr noundef %328, i32 noundef %3)
-  br label %354
+  call void @report_cfile_open_failure(ptr noundef %326, i32 noundef %327, ptr noundef %328)
+  br label %357
 
 329:                                              ; preds = %._crit_edge
-  %330 = load i32, ptr %22, align 4
-  %331 = zext i32 %330 to i64
-  %332 = getelementptr ptr, ptr %4, i64 %331
-  %333 = load ptr, ptr %332, align 8
-  %334 = load i32, ptr %20, align 4
-  %335 = load ptr, ptr %21, align 8
-  call void @report_cfile_read_failure(ptr noundef %333, i32 noundef %334, ptr noundef %335)
-  br label %354
+  %330 = load i32, ptr %20, align 4
+  %331 = load ptr, ptr %21, align 8
+  call void @report_cfile_dump_open_failure(ptr noundef %0, i32 noundef %330, ptr noundef %331, i32 noundef %3)
+  br label %357
 
-336:                                              ; preds = %._crit_edge
-  %337 = load i32, ptr %23, align 4
-  %338 = load i32, ptr %22, align 4
-  %339 = zext i32 %338 to i64
-  %340 = getelementptr ptr, ptr %4, i64 %339
-  %341 = load ptr, ptr %340, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.6, i32 noundef %337, ptr noundef %341)
-  br label %354
+332:                                              ; preds = %._crit_edge
+  %333 = load i32, ptr %22, align 4
+  %334 = zext i32 %333 to i64
+  %335 = getelementptr ptr, ptr %4, i64 %334
+  %336 = load ptr, ptr %335, align 8
+  %337 = load i32, ptr %20, align 4
+  %338 = load ptr, ptr %21, align 8
+  call void @report_cfile_read_failure(ptr noundef %336, i32 noundef %337, ptr noundef %338)
+  br label %357
 
-342:                                              ; preds = %._crit_edge
-  %343 = load i32, ptr %22, align 4
-  %344 = zext i32 %343 to i64
-  %345 = getelementptr ptr, ptr %4, i64 %344
-  %346 = load ptr, ptr %345, align 8
-  %347 = load i32, ptr %20, align 4
-  %348 = load ptr, ptr %21, align 8
-  %349 = load i32, ptr %23, align 4
-  %350 = zext i32 %349 to i64
-  call void @report_cfile_write_failure(ptr noundef %346, ptr noundef %0, i32 noundef %347, ptr noundef %348, i64 noundef %350, i32 noundef %3)
-  br label %354
+339:                                              ; preds = %._crit_edge
+  %340 = load i32, ptr %23, align 4
+  %341 = load i32, ptr %22, align 4
+  %342 = zext i32 %341 to i64
+  %343 = getelementptr ptr, ptr %4, i64 %342
+  %344 = load ptr, ptr %343, align 8
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.6, i32 noundef %340, ptr noundef %344)
+  br label %357
 
-351:                                              ; preds = %._crit_edge
-  %352 = load i32, ptr %20, align 4
-  %353 = load ptr, ptr %21, align 8
-  call void @report_cfile_close_failure(ptr noundef %0, i32 noundef %352, ptr noundef %353)
-  br label %354
+345:                                              ; preds = %._crit_edge
+  %346 = load i32, ptr %22, align 4
+  %347 = zext i32 %346 to i64
+  %348 = getelementptr ptr, ptr %4, i64 %347
+  %349 = load ptr, ptr %348, align 8
+  %350 = load i32, ptr %20, align 4
+  %351 = load ptr, ptr %21, align 8
+  %352 = load i32, ptr %23, align 4
+  %353 = zext i32 %352 to i64
+  call void @report_cfile_write_failure(ptr noundef %349, ptr noundef %0, i32 noundef %350, ptr noundef %351, i64 noundef %353, i32 noundef %3)
+  br label %357
+
+354:                                              ; preds = %._crit_edge
+  %355 = load i32, ptr %20, align 4
+  %356 = load ptr, ptr %21, align 8
+  call void @report_cfile_close_failure(ptr noundef %0, i32 noundef %355, ptr noundef %356)
+  br label %357
 
 default.unreachable398:                           ; preds = %._crit_edge
   unreachable
 
-354:                                              ; preds = %._crit_edge, %351, %342, %336, %329, %326, %319
+357:                                              ; preds = %._crit_edge, %354, %345, %339, %332, %329, %322
   %.not175 = icmp eq ptr %.3127, null
-  br i1 %.not175, label %.thread239.thread, label %355
+  br i1 %.not175, label %.thread239.thread, label %358
 
-355:                                              ; preds = %354
-  %356 = call ptr @g_ptr_array_free(ptr noundef nonnull %.3127, i32 noundef 1)
+358:                                              ; preds = %357
+  %359 = call ptr @g_ptr_array_free(ptr noundef nonnull %.3127, i32 noundef 1)
   br label %.thread239.thread
 
 .thread239:                                       ; preds = %._crit_edge
   %.not174 = icmp eq ptr %.3127, null
-  br i1 %.not174, label %.thread239.thread, label %357
+  br i1 %.not174, label %.thread239.thread, label %360
 
-357:                                              ; preds = %.thread239
-  %358 = load ptr, ptr %.3127, align 8
-  %359 = getelementptr inbounds nuw i8, ptr %.3127, i64 8
-  %360 = load i32, ptr %359, align 8
-  %361 = call fastcc zeroext i1 @merge_files_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %358, i32 noundef %360, i1 noundef zeroext %6, i32 noundef %.2, i32 noundef %spec.store.select, ptr noundef %9, ptr noundef %10, i32 noundef %11)
-  %362 = call ptr @g_ptr_array_free(ptr noundef nonnull %.3127, i32 noundef 1)
-  %363 = xor i1 %361, true
+360:                                              ; preds = %.thread239
+  %361 = load ptr, ptr %.3127, align 8
+  %362 = getelementptr inbounds nuw i8, ptr %.3127, i64 8
+  %363 = load i32, ptr %362, align 8
+  %364 = call fastcc zeroext i1 @merge_files_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %361, i32 noundef %363, i1 noundef zeroext %6, i32 noundef %.2, i32 noundef %spec.store.select, ptr noundef %9, ptr noundef %10, i32 noundef %11)
+  %365 = call ptr @g_ptr_array_free(ptr noundef nonnull %.3127, i32 noundef 1)
+  %366 = xor i1 %364, true
   br label %.thread239.thread
 
-.thread239.thread:                                ; preds = %12, %merge_open_in_files.exit.thread, %312, %.thread234, %.thread239, %357, %354, %355
-  %.3 = phi i1 [ false, %355 ], [ false, %354 ], [ %363, %357 ], [ true, %.thread239 ], [ false, %.thread234 ], [ false, %312 ], [ false, %merge_open_in_files.exit.thread ], [ true, %12 ]
+.thread239.thread:                                ; preds = %12, %merge_open_in_files.exit.thread, %315, %.thread234, %.thread239, %360, %357, %358
+  %.3 = phi i1 [ false, %358 ], [ false, %357 ], [ %366, %360 ], [ true, %.thread239 ], [ false, %.thread234 ], [ false, %315 ], [ false, %merge_open_in_files.exit.thread ], [ true, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)

@@ -311,25 +311,25 @@ define internal void @leaf_check_all(i64 noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %22
   %.018.us = phi i64 [ %23, %22 ], [ 0, %.lr.ph ]
-  %11 = getelementptr inbounds nuw %struct.index_cases_st, ptr %5, i64 %.018.us, i32 2
-  %12 = load i32, ptr %11, align 8, !tbaa !33
-  %.not17.us = icmp eq i32 %12, 0
-  br i1 %.not17.us, label %13, label %22
+  %11 = getelementptr inbounds nuw %struct.index_cases_st, ptr %5, i64 %.018.us
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load i32, ptr %12, align 8, !tbaa !33
+  %.not17.us = icmp eq i32 %13, 0
+  br i1 %.not17.us, label %14, label %22
 
-13:                                               ; preds = %.lr.ph.split.us
-  %14 = getelementptr inbounds nuw %struct.index_cases_st, ptr %5, i64 %.018.us
-  %15 = load i64, ptr %14, align 8, !tbaa !28
+14:                                               ; preds = %.lr.ph.split.us
+  %15 = load i64, ptr %11, align 8, !tbaa !28
   %16 = icmp eq i64 %0, %15
   br i1 %16, label %17, label %22
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !30
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %19) #5
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.split.us, label %22
 
-22:                                               ; preds = %17, %13, %.lr.ph.split.us
+22:                                               ; preds = %17, %14, %.lr.ph.split.us
   %23 = add nuw i64 %.018.us, 1
   %exitcond22.not = icmp eq i64 %23, %8
   br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !34

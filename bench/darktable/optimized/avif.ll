@@ -1147,9 +1147,10 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 define internal void @bit_depth_changed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %4, i32 1
-  %6 = load i32, ptr %5, align 8, !tbaa !111
-  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.15, i32 noundef %6) #17
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i32, ptr %6, align 8, !tbaa !111
+  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.15, i32 noundef %7) #17
   ret void
 }
 
@@ -1201,41 +1202,42 @@ define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_add
   %8 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.18, i32 noundef 0) #17
   br label %9
 
-9:                                                ; preds = %1, %15
-  %.018 = phi i64 [ 0, %1 ], [ %16, %15 ]
-  %10 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %.018, i32 1
-  %11 = load i32, ptr %10, align 8, !tbaa !111
-  %12 = icmp eq i32 %11, %4
-  br i1 %12, label %13, label %15
+9:                                                ; preds = %1, %16
+  %.018 = phi i64 [ 0, %1 ], [ %17, %16 ]
+  %10 = getelementptr inbounds nuw %struct.anon, ptr @avif_bit_depth, i64 %.018
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i32, ptr %11, align 8, !tbaa !111
+  %13 = icmp eq i32 %12, %4
+  br i1 %13, label %14, label %16
 
-13:                                               ; preds = %9
-  %14 = trunc nuw nsw i64 %.018 to i32
+14:                                               ; preds = %9
+  %15 = trunc nuw nsw i64 %.018 to i32
   br label %.loopexit
 
-15:                                               ; preds = %9
-  %16 = add nuw nsw i64 %.018, 1
-  %.not16 = icmp eq i64 %16, 3
+16:                                               ; preds = %9
+  %17 = add nuw nsw i64 %.018, 1
+  %.not16 = icmp eq i64 %17, 3
   br i1 %.not16, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %15, %13
-  %.015 = phi i32 [ %14, %13 ], [ 0, %15 ]
+.loopexit:                                        ; preds = %16, %14
+  %.015 = phi i32 [ %15, %14 ], [ 0, %16 ]
   %.not = icmp eq i32 %6, 0
-  %17 = zext i1 %.not to i32
-  %18 = load ptr, ptr %3, align 8, !tbaa !101
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %18, i32 noundef %.015) #17
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !103
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %20, i32 noundef %5) #17
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !104
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %22, i32 noundef %17) #17
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !105
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %24, i32 noundef %7) #17
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !106
-  %27 = uitofp i32 %8 to float
-  tail call void @dt_bauhaus_slider_set(ptr noundef %26, float noundef %27) #17
+  %18 = zext i1 %.not to i32
+  %19 = load ptr, ptr %3, align 8, !tbaa !101
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %19, i32 noundef %.015) #17
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !103
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %21, i32 noundef %5) #17
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %23 = load ptr, ptr %22, align 8, !tbaa !104
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %23, i32 noundef %18) #17
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %25, i32 noundef %7) #17
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !106
+  %28 = uitofp i32 %8 to float
+  tail call void @dt_bauhaus_slider_set(ptr noundef %27, float noundef %28) #17
   ret void
 }
 

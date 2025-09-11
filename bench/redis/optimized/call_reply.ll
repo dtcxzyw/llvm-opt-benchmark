@@ -1060,9 +1060,9 @@ define internal void @callReplyArray(ptr noundef %0, ptr noundef captures(none) 
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %28, %.preheader.lr.ph.i
-  %11 = phi ptr [ %8, %.preheader.lr.ph.i ], [ %21, %28 ]
-  %.03235.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %29, %28 ]
+.preheader.i:                                     ; preds = %30, %.preheader.lr.ph.i
+  %11 = phi ptr [ %8, %.preheader.lr.ph.i ], [ %22, %30 ]
+  %.03235.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %31, %30 ]
   %12 = load ptr, ptr %1, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw %struct.CallReply, ptr %11, i64 %.03235.i
   store ptr %12, ptr %13, align 8, !tbaa !24
@@ -1070,37 +1070,39 @@ define internal void @callReplyArray(ptr noundef %0, ptr noundef captures(none) 
   %15 = getelementptr inbounds nuw %struct.CallReply, ptr %14, i64 %.03235.i
   %16 = tail call i32 @parseReply(ptr noundef %0, ptr noundef %15) #8
   %17 = load ptr, ptr %9, align 8, !tbaa !19
-  %18 = getelementptr inbounds nuw %struct.CallReply, ptr %17, i64 %.03235.i, i32 5
-  %19 = load i32, ptr %18, align 4, !tbaa !5
-  %20 = or i32 %19, 2
-  store i32 %20, ptr %18, align 4, !tbaa !5
-  %21 = load ptr, ptr %9, align 8, !tbaa !19
-  %22 = getelementptr inbounds nuw %struct.CallReply, ptr %21, i64 %.03235.i, i32 5
-  %23 = load i32, ptr %22, align 4, !tbaa !5
-  %24 = and i32 %23, 4
-  %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %28, label %25
+  %18 = getelementptr inbounds nuw %struct.CallReply, ptr %17, i64 %.03235.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
+  %20 = load i32, ptr %19, align 4, !tbaa !5
+  %21 = or i32 %20, 2
+  store i32 %21, ptr %19, align 4, !tbaa !5
+  %22 = load ptr, ptr %9, align 8, !tbaa !19
+  %23 = getelementptr inbounds nuw %struct.CallReply, ptr %22, i64 %.03235.i
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
+  %25 = load i32, ptr %24, align 4, !tbaa !5
+  %26 = and i32 %25, 4
+  %.not.i = icmp eq i32 %26, 0
+  br i1 %.not.i, label %30, label %27
 
-25:                                               ; preds = %.preheader.i
-  %26 = load i32, ptr %10, align 4, !tbaa !5
-  %27 = or i32 %26, 4
-  store i32 %27, ptr %10, align 4, !tbaa !5
-  br label %28
+27:                                               ; preds = %.preheader.i
+  %28 = load i32, ptr %10, align 4, !tbaa !5
+  %29 = or i32 %28, 4
+  store i32 %29, ptr %10, align 4, !tbaa !5
+  br label %30
 
-28:                                               ; preds = %25, %.preheader.i
-  %29 = add nuw i64 %.03235.i, 1
-  %exitcond.not = icmp eq i64 %29, %2
+30:                                               ; preds = %27, %.preheader.i
+  %31 = add nuw i64 %.03235.i, 1
+  %exitcond.not = icmp eq i64 %31, %2
   br i1 %exitcond.not, label %callReplyParseCollection.exit, label %.preheader.i, !llvm.loop !41
 
-callReplyParseCollection.exit:                    ; preds = %28, %4
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %3, ptr %30, align 8, !tbaa !25
-  %31 = load ptr, ptr %0, align 8, !tbaa !26
-  %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %3 to i64
-  %34 = sub i64 %32, %33
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %34, ptr %35, align 8, !tbaa !34
+callReplyParseCollection.exit:                    ; preds = %30, %4
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %3, ptr %32, align 8, !tbaa !25
+  %33 = load ptr, ptr %0, align 8, !tbaa !26
+  %34 = ptrtoint ptr %33 to i64
+  %35 = ptrtoint ptr %3 to i64
+  %36 = sub i64 %34, %35
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %36, ptr %37, align 8, !tbaa !34
   ret void
 }
 
@@ -1121,9 +1123,9 @@ define internal void @callReplySet(ptr noundef %0, ptr noundef captures(none) in
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %28, %.preheader.lr.ph.i
-  %11 = phi ptr [ %8, %.preheader.lr.ph.i ], [ %21, %28 ]
-  %.03235.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %29, %28 ]
+.preheader.i:                                     ; preds = %30, %.preheader.lr.ph.i
+  %11 = phi ptr [ %8, %.preheader.lr.ph.i ], [ %22, %30 ]
+  %.03235.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %31, %30 ]
   %12 = load ptr, ptr %1, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw %struct.CallReply, ptr %11, i64 %.03235.i
   store ptr %12, ptr %13, align 8, !tbaa !24
@@ -1131,41 +1133,43 @@ define internal void @callReplySet(ptr noundef %0, ptr noundef captures(none) in
   %15 = getelementptr inbounds nuw %struct.CallReply, ptr %14, i64 %.03235.i
   %16 = tail call i32 @parseReply(ptr noundef %0, ptr noundef %15) #8
   %17 = load ptr, ptr %9, align 8, !tbaa !19
-  %18 = getelementptr inbounds nuw %struct.CallReply, ptr %17, i64 %.03235.i, i32 5
-  %19 = load i32, ptr %18, align 4, !tbaa !5
-  %20 = or i32 %19, 2
-  store i32 %20, ptr %18, align 4, !tbaa !5
-  %21 = load ptr, ptr %9, align 8, !tbaa !19
-  %22 = getelementptr inbounds nuw %struct.CallReply, ptr %21, i64 %.03235.i, i32 5
-  %23 = load i32, ptr %22, align 4, !tbaa !5
-  %24 = and i32 %23, 4
-  %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %28, label %25
+  %18 = getelementptr inbounds nuw %struct.CallReply, ptr %17, i64 %.03235.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
+  %20 = load i32, ptr %19, align 4, !tbaa !5
+  %21 = or i32 %20, 2
+  store i32 %21, ptr %19, align 4, !tbaa !5
+  %22 = load ptr, ptr %9, align 8, !tbaa !19
+  %23 = getelementptr inbounds nuw %struct.CallReply, ptr %22, i64 %.03235.i
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
+  %25 = load i32, ptr %24, align 4, !tbaa !5
+  %26 = and i32 %25, 4
+  %.not.i = icmp eq i32 %26, 0
+  br i1 %.not.i, label %30, label %27
 
-25:                                               ; preds = %.preheader.i
-  %26 = load i32, ptr %10, align 4, !tbaa !5
-  %27 = or i32 %26, 4
-  store i32 %27, ptr %10, align 4, !tbaa !5
-  br label %28
+27:                                               ; preds = %.preheader.i
+  %28 = load i32, ptr %10, align 4, !tbaa !5
+  %29 = or i32 %28, 4
+  store i32 %29, ptr %10, align 4, !tbaa !5
+  br label %30
 
-28:                                               ; preds = %25, %.preheader.i
-  %29 = add nuw i64 %.03235.i, 1
-  %exitcond.not = icmp eq i64 %29, %2
+30:                                               ; preds = %27, %.preheader.i
+  %31 = add nuw i64 %.03235.i, 1
+  %exitcond.not = icmp eq i64 %31, %2
   br i1 %exitcond.not, label %callReplyParseCollection.exit, label %.preheader.i, !llvm.loop !41
 
-callReplyParseCollection.exit:                    ; preds = %28, %4
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %3, ptr %30, align 8, !tbaa !25
-  %31 = load ptr, ptr %0, align 8, !tbaa !26
-  %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %3 to i64
-  %34 = sub i64 %32, %33
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %34, ptr %35, align 8, !tbaa !34
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %37 = load i32, ptr %36, align 4, !tbaa !5
-  %38 = or i32 %37, 4
-  store i32 %38, ptr %36, align 4, !tbaa !5
+callReplyParseCollection.exit:                    ; preds = %30, %4
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %3, ptr %32, align 8, !tbaa !25
+  %33 = load ptr, ptr %0, align 8, !tbaa !26
+  %34 = ptrtoint ptr %33 to i64
+  %35 = ptrtoint ptr %3 to i64
+  %36 = sub i64 %34, %35
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %36, ptr %37, align 8, !tbaa !34
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %39 = load i32, ptr %38, align 4, !tbaa !5
+  %40 = or i32 %39, 4
+  store i32 %40, ptr %38, align 4, !tbaa !5
   ret void
 }
 
@@ -1188,19 +1192,19 @@ define internal void @callReplyMap(ptr noundef %0, ptr noundef captures(none) in
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %13, %.preheader.lr.ph.i
-  %12 = phi ptr [ %9, %.preheader.lr.ph.i ], [ %29, %13 ]
+  %12 = phi ptr [ %9, %.preheader.lr.ph.i ], [ %30, %13 ]
   %.03235.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %14, %13 ]
   br label %16
 
-13:                                               ; preds = %36
+13:                                               ; preds = %38
   %14 = add nuw i64 %.03235.i, 2
   %15 = icmp ult i64 %14, %7
   br i1 %15, label %.preheader.i, label %callReplyParseCollection.exit, !llvm.loop !41
 
-16:                                               ; preds = %36, %.preheader.i
-  %17 = phi ptr [ %12, %.preheader.i ], [ %29, %36 ]
-  %exitcond.not.i = phi i1 [ false, %.preheader.i ], [ true, %36 ]
-  %.034.i = phi i64 [ 0, %.preheader.i ], [ 1, %36 ]
+16:                                               ; preds = %38, %.preheader.i
+  %17 = phi ptr [ %12, %.preheader.i ], [ %30, %38 ]
+  %exitcond.not.i = phi i1 [ false, %.preheader.i ], [ true, %38 ]
+  %.034.i = phi i64 [ 0, %.preheader.i ], [ 1, %38 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !24
   %19 = or disjoint i64 %.034.i, %.03235.i
   %20 = getelementptr inbounds nuw %struct.CallReply, ptr %17, i64 %19
@@ -1210,39 +1214,41 @@ define internal void @callReplyMap(ptr noundef %0, ptr noundef captures(none) in
   %23 = getelementptr inbounds nuw %struct.CallReply, ptr %22, i64 %.034.i
   %24 = tail call i32 @parseReply(ptr noundef %0, ptr noundef %23) #8
   %25 = load ptr, ptr %10, align 8, !tbaa !19
-  %26 = getelementptr inbounds nuw %struct.CallReply, ptr %25, i64 %19, i32 5
-  %27 = load i32, ptr %26, align 4, !tbaa !5
-  %28 = or i32 %27, 2
-  store i32 %28, ptr %26, align 4, !tbaa !5
-  %29 = load ptr, ptr %10, align 8, !tbaa !19
-  %30 = getelementptr inbounds nuw %struct.CallReply, ptr %29, i64 %19, i32 5
-  %31 = load i32, ptr %30, align 4, !tbaa !5
-  %32 = and i32 %31, 4
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %36, label %33
+  %26 = getelementptr inbounds nuw %struct.CallReply, ptr %25, i64 %19
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 36
+  %28 = load i32, ptr %27, align 4, !tbaa !5
+  %29 = or i32 %28, 2
+  store i32 %29, ptr %27, align 4, !tbaa !5
+  %30 = load ptr, ptr %10, align 8, !tbaa !19
+  %31 = getelementptr inbounds nuw %struct.CallReply, ptr %30, i64 %19
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
+  %33 = load i32, ptr %32, align 4, !tbaa !5
+  %34 = and i32 %33, 4
+  %.not.i = icmp eq i32 %34, 0
+  br i1 %.not.i, label %38, label %35
 
-33:                                               ; preds = %16
-  %34 = load i32, ptr %11, align 4, !tbaa !5
-  %35 = or i32 %34, 4
-  store i32 %35, ptr %11, align 4, !tbaa !5
-  br label %36
+35:                                               ; preds = %16
+  %36 = load i32, ptr %11, align 4, !tbaa !5
+  %37 = or i32 %36, 4
+  store i32 %37, ptr %11, align 4, !tbaa !5
+  br label %38
 
-36:                                               ; preds = %33, %16
+38:                                               ; preds = %35, %16
   br i1 %exitcond.not.i, label %13, label %16, !llvm.loop !42
 
 callReplyParseCollection.exit:                    ; preds = %13, %4
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %3, ptr %37, align 8, !tbaa !25
-  %38 = load ptr, ptr %0, align 8, !tbaa !26
-  %39 = ptrtoint ptr %38 to i64
-  %40 = ptrtoint ptr %3 to i64
-  %41 = sub i64 %39, %40
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %41, ptr %42, align 8, !tbaa !34
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %44 = load i32, ptr %43, align 4, !tbaa !5
-  %45 = or i32 %44, 4
-  store i32 %45, ptr %43, align 4, !tbaa !5
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %3, ptr %39, align 8, !tbaa !25
+  %40 = load ptr, ptr %0, align 8, !tbaa !26
+  %41 = ptrtoint ptr %40 to i64
+  %42 = ptrtoint ptr %3 to i64
+  %43 = sub i64 %41, %42
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %43, ptr %44, align 8, !tbaa !34
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %46 = load i32, ptr %45, align 4, !tbaa !5
+  %47 = or i32 %46, 4
+  store i32 %47, ptr %45, align 4, !tbaa !5
   ret void
 }
 
@@ -1343,19 +1349,19 @@ define internal void @callReplyAttribute(ptr noundef %0, ptr noundef initializes
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %15, %.preheader.lr.ph.i
-  %14 = phi ptr [ %11, %.preheader.lr.ph.i ], [ %31, %15 ]
+  %14 = phi ptr [ %11, %.preheader.lr.ph.i ], [ %32, %15 ]
   %.03235.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %16, %15 ]
   br label %18
 
-15:                                               ; preds = %38
+15:                                               ; preds = %40
   %16 = add nuw i64 %.03235.i, 2
   %17 = icmp ult i64 %16, %9
   br i1 %17, label %.preheader.i, label %callReplyParseCollection.exit, !llvm.loop !41
 
-18:                                               ; preds = %38, %.preheader.i
-  %19 = phi ptr [ %14, %.preheader.i ], [ %31, %38 ]
-  %exitcond.not.i = phi i1 [ false, %.preheader.i ], [ true, %38 ]
-  %.034.i = phi i64 [ 0, %.preheader.i ], [ 1, %38 ]
+18:                                               ; preds = %40, %.preheader.i
+  %19 = phi ptr [ %14, %.preheader.i ], [ %32, %40 ]
+  %exitcond.not.i = phi i1 [ false, %.preheader.i ], [ true, %40 ]
+  %.034.i = phi i64 [ 0, %.preheader.i ], [ 1, %40 ]
   %20 = load ptr, ptr %5, align 8, !tbaa !24
   %21 = or disjoint i64 %.034.i, %.03235.i
   %22 = getelementptr inbounds nuw %struct.CallReply, ptr %19, i64 %21
@@ -1365,54 +1371,56 @@ define internal void @callReplyAttribute(ptr noundef %0, ptr noundef initializes
   %25 = getelementptr inbounds nuw %struct.CallReply, ptr %24, i64 %.034.i
   %26 = tail call i32 @parseReply(ptr noundef %0, ptr noundef %25) #8
   %27 = load ptr, ptr %12, align 8, !tbaa !19
-  %28 = getelementptr inbounds nuw %struct.CallReply, ptr %27, i64 %21, i32 5
-  %29 = load i32, ptr %28, align 4, !tbaa !5
-  %30 = or i32 %29, 2
-  store i32 %30, ptr %28, align 4, !tbaa !5
-  %31 = load ptr, ptr %12, align 8, !tbaa !19
-  %32 = getelementptr inbounds nuw %struct.CallReply, ptr %31, i64 %21, i32 5
-  %33 = load i32, ptr %32, align 4, !tbaa !5
-  %34 = and i32 %33, 4
-  %.not.i = icmp eq i32 %34, 0
-  br i1 %.not.i, label %38, label %35
+  %28 = getelementptr inbounds nuw %struct.CallReply, ptr %27, i64 %21
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
+  %30 = load i32, ptr %29, align 4, !tbaa !5
+  %31 = or i32 %30, 2
+  store i32 %31, ptr %29, align 4, !tbaa !5
+  %32 = load ptr, ptr %12, align 8, !tbaa !19
+  %33 = getelementptr inbounds nuw %struct.CallReply, ptr %32, i64 %21
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 36
+  %35 = load i32, ptr %34, align 4, !tbaa !5
+  %36 = and i32 %35, 4
+  %.not.i = icmp eq i32 %36, 0
+  br i1 %.not.i, label %40, label %37
 
-35:                                               ; preds = %18
-  %36 = load i32, ptr %13, align 4, !tbaa !5
-  %37 = or i32 %36, 4
-  store i32 %37, ptr %13, align 4, !tbaa !5
-  br label %38
+37:                                               ; preds = %18
+  %38 = load i32, ptr %13, align 4, !tbaa !5
+  %39 = or i32 %38, 4
+  store i32 %39, ptr %13, align 4, !tbaa !5
+  br label %40
 
-38:                                               ; preds = %35, %18
+40:                                               ; preds = %37, %18
   br i1 %exitcond.not.i, label %15, label %18, !llvm.loop !42
 
 callReplyParseCollection.exit:                    ; preds = %15, %4
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %39, align 8, !tbaa !25
-  %40 = load ptr, ptr %0, align 8, !tbaa !26
-  %41 = ptrtoint ptr %40 to i64
-  %42 = ptrtoint ptr %3 to i64
-  %43 = sub i64 %41, %42
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %43, ptr %44, align 8, !tbaa !34
-  %45 = load ptr, ptr %6, align 8, !tbaa !23
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 36
-  %47 = load i32, ptr %46, align 4, !tbaa !5
-  %48 = or i32 %47, 6
-  store i32 %48, ptr %46, align 4, !tbaa !5
-  %49 = load ptr, ptr %1, align 8, !tbaa !24
-  store ptr %49, ptr %45, align 8, !tbaa !24
-  %50 = tail call i32 @parseReply(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %3, ptr %51, align 8, !tbaa !25
-  %52 = load ptr, ptr %0, align 8, !tbaa !26
-  %53 = ptrtoint ptr %52 to i64
-  %54 = sub i64 %53, %42
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %54, ptr %55, align 8, !tbaa !34
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %57 = load i32, ptr %56, align 4, !tbaa !5
-  %58 = or i32 %57, 4
-  store i32 %58, ptr %56, align 4, !tbaa !5
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %41, align 8, !tbaa !25
+  %42 = load ptr, ptr %0, align 8, !tbaa !26
+  %43 = ptrtoint ptr %42 to i64
+  %44 = ptrtoint ptr %3 to i64
+  %45 = sub i64 %43, %44
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %45, ptr %46, align 8, !tbaa !34
+  %47 = load ptr, ptr %6, align 8, !tbaa !23
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 36
+  %49 = load i32, ptr %48, align 4, !tbaa !5
+  %50 = or i32 %49, 6
+  store i32 %50, ptr %48, align 4, !tbaa !5
+  %51 = load ptr, ptr %1, align 8, !tbaa !24
+  store ptr %51, ptr %47, align 8, !tbaa !24
+  %52 = tail call i32 @parseReply(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %3, ptr %53, align 8, !tbaa !25
+  %54 = load ptr, ptr %0, align 8, !tbaa !26
+  %55 = ptrtoint ptr %54 to i64
+  %56 = sub i64 %55, %44
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %56, ptr %57, align 8, !tbaa !34
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %59 = load i32, ptr %58, align 4, !tbaa !5
+  %60 = or i32 %59, 4
+  store i32 %60, ptr %58, align 4, !tbaa !5
   ret void
 }
 

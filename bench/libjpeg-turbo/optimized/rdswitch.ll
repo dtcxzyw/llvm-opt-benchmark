@@ -772,7 +772,7 @@ define dso_local range(i32 0, 2) i32 @set_quant_slots(ptr noundef readonly captu
   %.01119 = phi ptr [ %1, %2 ], [ %.2, %.critedge ]
   %7 = load i8, ptr %.01119, align 1, !tbaa !51
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %24, label %8
+  br i1 %.not, label %25, label %8
 
 8:                                                ; preds = %6
   store i8 44, ptr %4, align 1, !tbaa !51
@@ -795,30 +795,32 @@ define dso_local range(i32 0, 2) i32 @set_quant_slots(ptr noundef readonly captu
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %5, align 8, !tbaa !54
-  %19 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %18, i64 %indvars.iv, i32 4
-  store i32 %13, ptr %19, align 8, !tbaa !55
-  br label %20
+  %19 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i32 %13, ptr %20, align 8, !tbaa !55
+  br label %21
 
-20:                                               ; preds = %22, %17
-  %.1 = phi ptr [ %.01119, %17 ], [ %23, %22 ]
-  %21 = load i8, ptr %.1, align 1, !tbaa !51
-  %.not16 = icmp eq i8 %21, 0
-  br i1 %.not16, label %.critedge, label %22
+21:                                               ; preds = %23, %17
+  %.1 = phi ptr [ %.01119, %17 ], [ %24, %23 ]
+  %22 = load i8, ptr %.1, align 1, !tbaa !51
+  %.not16 = icmp eq i8 %22, 0
+  br i1 %.not16, label %.critedge, label %23
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %.not17 = icmp eq i8 %21, 44
-  br i1 %.not17, label %.critedge, label %20, !llvm.loop !57
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  %.not17 = icmp eq i8 %22, 44
+  br i1 %.not17, label %.critedge, label %21, !llvm.loop !57
 
-24:                                               ; preds = %6
-  %25 = load i32, ptr %3, align 4, !tbaa !11
-  %26 = load ptr, ptr %5, align 8, !tbaa !54
-  %27 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %26, i64 %indvars.iv, i32 4
-  store i32 %25, ptr %27, align 8, !tbaa !55
+25:                                               ; preds = %6
+  %26 = load i32, ptr %3, align 4, !tbaa !11
+  %27 = load ptr, ptr %5, align 8, !tbaa !54
+  %28 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store i32 %26, ptr %29, align 8, !tbaa !55
   br label %.critedge
 
-.critedge:                                        ; preds = %20, %22, %24
-  %.2 = phi ptr [ %.01119, %24 ], [ %.1, %20 ], [ %23, %22 ]
+.critedge:                                        ; preds = %21, %23, %25
+  %.2 = phi ptr [ %.01119, %25 ], [ %.1, %21 ], [ %24, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !58
@@ -848,7 +850,7 @@ define dso_local range(i32 0, 2) i32 @set_sample_factors(ptr noundef readonly ca
   %.02531 = phi ptr [ %1, %2 ], [ %.2, %.critedge ]
   %9 = load i8, ptr %.02531, align 1, !tbaa !51
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %36, label %10
+  br i1 %.not, label %37, label %10
 
 10:                                               ; preds = %8
   store i8 44, ptr %6, align 1, !tbaa !51
@@ -882,34 +884,36 @@ define dso_local range(i32 0, 2) i32 @set_sample_factors(ptr noundef readonly ca
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr %7, align 8, !tbaa !54
-  %29 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %28, i64 %indvars.iv, i32 2
-  store i32 %19, ptr %29, align 8, !tbaa !59
-  %30 = load i32, ptr %4, align 4, !tbaa !11
-  %31 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %28, i64 %indvars.iv, i32 3
-  store i32 %30, ptr %31, align 4, !tbaa !60
-  br label %32
+  %29 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %28, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i32 %19, ptr %30, align 8, !tbaa !59
+  %31 = load i32, ptr %4, align 4, !tbaa !11
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  store i32 %31, ptr %32, align 4, !tbaa !60
+  br label %33
 
-32:                                               ; preds = %34, %27
-  %.1 = phi ptr [ %.02531, %27 ], [ %35, %34 ]
-  %33 = load i8, ptr %.1, align 1, !tbaa !51
-  %.not29 = icmp eq i8 %33, 0
-  br i1 %.not29, label %.critedge, label %34
+33:                                               ; preds = %35, %27
+  %.1 = phi ptr [ %.02531, %27 ], [ %36, %35 ]
+  %34 = load i8, ptr %.1, align 1, !tbaa !51
+  %.not29 = icmp eq i8 %34, 0
+  br i1 %.not29, label %.critedge, label %35
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %.not30 = icmp eq i8 %33, 44
-  br i1 %.not30, label %.critedge, label %32, !llvm.loop !61
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  %.not30 = icmp eq i8 %34, 44
+  br i1 %.not30, label %.critedge, label %33, !llvm.loop !61
 
-36:                                               ; preds = %8
-  %37 = load ptr, ptr %7, align 8, !tbaa !54
-  %38 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %37, i64 %indvars.iv, i32 2
-  store i32 1, ptr %38, align 8, !tbaa !59
-  %39 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %37, i64 %indvars.iv, i32 3
-  store i32 1, ptr %39, align 4, !tbaa !60
+37:                                               ; preds = %8
+  %38 = load ptr, ptr %7, align 8, !tbaa !54
+  %39 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %38, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i32 1, ptr %40, align 8, !tbaa !59
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  store i32 1, ptr %41, align 4, !tbaa !60
   br label %.critedge
 
-.critedge:                                        ; preds = %32, %34, %36
-  %.2 = phi ptr [ %.02531, %36 ], [ %.1, %32 ], [ %35, %34 ]
+.critedge:                                        ; preds = %33, %35, %37
+  %.2 = phi ptr [ %.02531, %37 ], [ %.1, %33 ], [ %36, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !62

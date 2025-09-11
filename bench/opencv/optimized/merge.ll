@@ -236,16 +236,16 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc48
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.058.0113 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %61, %.lr.ph ]
+  %.sroa.058.0120 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %61, %.lr.ph ]
   %65 = icmp sgt i32 %2, 0
-  br i1 %65, label %.lr.ph87, label %._crit_edge
+  br i1 %65, label %.lr.ph92, label %._crit_edge
 
-.lr.ph87:                                         ; preds = %.preheader
+.lr.ph92:                                         ; preds = %.preheader
   %66 = load ptr, ptr %3, align 8, !tbaa !41
   %67 = load ptr, ptr %0, align 8, !tbaa !34
   %68 = load ptr, ptr %67, align 8, !tbaa !18
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %wide.trip.count96 = zext nneg i32 %2 to i64
+  %wide.trip.count103 = zext nneg i32 %2 to i64
   br label %77
 
 _ZNSt6vectorIiSaIiEED2Ev.exit50.thread:           ; preds = %.noexc.i.i, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i
@@ -290,145 +290,148 @@ _ZNSt6vectorIiSaIiEED2Ev.exit50.thread79:         ; preds = %.body, %72, %_ZNSt6
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %149, %.preheader
-  %.not.i.i.i51 = icmp eq ptr %.sroa.058.0113, null
+._crit_edge:                                      ; preds = %152, %.preheader
+  %.not.i.i.i51 = icmp eq ptr %.sroa.058.0120, null
   br i1 %.not.i.i.i51, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %76
 
 76:                                               ; preds = %._crit_edge
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.058.0113) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.058.0120) #15
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge, %76
   ret void
 
-77:                                               ; preds = %.lr.ph87, %149
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next94, %149 ]
-  %78 = getelementptr inbounds nuw %"class.cv::hfs::Edge", ptr %66, i64 %indvars.iv93
+77:                                               ; preds = %.lr.ph92, %152
+  %indvars.iv100 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next101, %152 ]
+  %78 = getelementptr inbounds nuw %"class.cv::hfs::Edge", ptr %66, i64 %indvars.iv100
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !44
   br label %81
 
 81:                                               ; preds = %81, %77
-  %.0.i = phi i32 [ %80, %77 ], [ %84, %81 ]
+  %.0.i = phi i32 [ %80, %77 ], [ %85, %81 ]
   %82 = sext i32 %.0.i to i64
-  %83 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %82, i32 1
-  %84 = load i32, ptr %83, align 4, !tbaa !32
-  %.not.i = icmp eq i32 %.0.i, %84
+  %83 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %82
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %85 = load i32, ptr %84, align 4, !tbaa !32
+  %.not.i = icmp eq i32 %.0.i, %85
   br i1 %.not.i, label %_ZN2cv3hfs9RegionSet4findEi.exit, label %81, !llvm.loop !46
 
 _ZN2cv3hfs9RegionSet4findEi.exit:                 ; preds = %81
-  %85 = sext i32 %80 to i64
-  %86 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %85, i32 1
-  store i32 %.0.i, ptr %86, align 4, !tbaa !32
-  %87 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %88 = load i32, ptr %87, align 4, !tbaa !47
-  br label %89
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %87 = sext i32 %80 to i64
+  %88 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  store i32 %.0.i, ptr %89, align 4, !tbaa !32
+  %90 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %91 = load i32, ptr %90, align 4, !tbaa !47
+  br label %92
 
-89:                                               ; preds = %89, %_ZN2cv3hfs9RegionSet4findEi.exit
-  %.0.i52 = phi i32 [ %88, %_ZN2cv3hfs9RegionSet4findEi.exit ], [ %92, %89 ]
-  %90 = sext i32 %.0.i52 to i64
-  %91 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %90, i32 1
-  %92 = load i32, ptr %91, align 4, !tbaa !32
-  %.not.i53 = icmp eq i32 %.0.i52, %92
-  br i1 %.not.i53, label %_ZN2cv3hfs9RegionSet4findEi.exit54, label %89, !llvm.loop !46
+92:                                               ; preds = %92, %_ZN2cv3hfs9RegionSet4findEi.exit
+  %.0.i52 = phi i32 [ %91, %_ZN2cv3hfs9RegionSet4findEi.exit ], [ %96, %92 ]
+  %93 = sext i32 %.0.i52 to i64
+  %94 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %93
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %96 = load i32, ptr %95, align 4, !tbaa !32
+  %.not.i53 = icmp eq i32 %.0.i52, %96
+  br i1 %.not.i53, label %_ZN2cv3hfs9RegionSet4findEi.exit54, label %92, !llvm.loop !46
 
-_ZN2cv3hfs9RegionSet4findEi.exit54:               ; preds = %89
-  %93 = sext i32 %88 to i64
-  %94 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %93, i32 1
-  store i32 %.0.i52, ptr %94, align 4, !tbaa !32
+_ZN2cv3hfs9RegionSet4findEi.exit54:               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %98 = sext i32 %91 to i64
+  %99 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
+  store i32 %.0.i52, ptr %100, align 4, !tbaa !32
   %.not = icmp eq i32 %.0.i, %.0.i52
-  br i1 %.not, label %149, label %95
+  br i1 %.not, label %152, label %101
 
-95:                                               ; preds = %_ZN2cv3hfs9RegionSet4findEi.exit54
-  %96 = load float, ptr %78, align 4, !tbaa !48
-  %97 = getelementptr inbounds nuw float, ptr %.sroa.058.0113, i64 %82
-  %98 = load float, ptr %97, align 4, !tbaa !39
-  %99 = fcmp ugt float %96, %98
-  br i1 %99, label %149, label %100
+101:                                              ; preds = %_ZN2cv3hfs9RegionSet4findEi.exit54
+  %102 = load float, ptr %78, align 4, !tbaa !48
+  %103 = getelementptr inbounds nuw float, ptr %.sroa.058.0120, i64 %82
+  %104 = load float, ptr %103, align 4, !tbaa !39
+  %105 = fcmp ugt float %102, %104
+  br i1 %105, label %152, label %106
 
-100:                                              ; preds = %95
-  %101 = getelementptr inbounds nuw float, ptr %.sroa.058.0113, i64 %90
-  %102 = load float, ptr %101, align 4, !tbaa !39
-  %103 = fcmp ugt float %96, %102
-  br i1 %103, label %149, label %104
+106:                                              ; preds = %101
+  %107 = getelementptr inbounds nuw float, ptr %.sroa.058.0120, i64 %93
+  %108 = load float, ptr %107, align 4, !tbaa !39
+  %109 = fcmp ugt float %102, %108
+  br i1 %109, label %152, label %110
 
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %82
-  %106 = load i32, ptr %105, align 4, !tbaa !28
-  %107 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %90
-  %108 = load i32, ptr %107, align 4, !tbaa !28
-  %109 = icmp sgt i32 %106, %108
-  br i1 %109, label %110, label %122
+110:                                              ; preds = %106
+  %111 = load i32, ptr %83, align 4, !tbaa !28
+  %112 = load i32, ptr %94, align 4, !tbaa !28
+  %113 = icmp sgt i32 %111, %112
+  br i1 %113, label %114, label %125
 
-110:                                              ; preds = %104
-  %111 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  store i32 %.0.i, ptr %111, align 4, !tbaa !32
-  %112 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %113 = load i32, ptr %112, align 4, !tbaa !30
-  %114 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %115 = load i32, ptr %114, align 4, !tbaa !30
-  %116 = add nsw i32 %115, %113
-  store i32 %116, ptr %114, align 4, !tbaa !30
-  %117 = getelementptr inbounds nuw i8, ptr %107, i64 12
-  %118 = load i32, ptr %117, align 4, !tbaa !31
-  %119 = getelementptr inbounds nuw i8, ptr %105, i64 12
-  %120 = load i32, ptr %119, align 4, !tbaa !31
-  %121 = add nsw i32 %120, %118
-  store i32 %121, ptr %119, align 4, !tbaa !31
+114:                                              ; preds = %110
+  store i32 %.0.i, ptr %97, align 4, !tbaa !32
+  %115 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %116 = load i32, ptr %115, align 4, !tbaa !30
+  %117 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %118 = load i32, ptr %117, align 4, !tbaa !30
+  %119 = add nsw i32 %118, %116
+  store i32 %119, ptr %117, align 4, !tbaa !30
+  %120 = getelementptr inbounds nuw i8, ptr %94, i64 12
+  %121 = load i32, ptr %120, align 4, !tbaa !31
+  %122 = getelementptr inbounds nuw i8, ptr %83, i64 12
+  %123 = load i32, ptr %122, align 4, !tbaa !31
+  %124 = add nsw i32 %123, %121
+  store i32 %124, ptr %122, align 4, !tbaa !31
   br label %_ZN2cv3hfs9RegionSet4joinEii.exit
 
-122:                                              ; preds = %104
-  %123 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  store i32 %.0.i52, ptr %123, align 4, !tbaa !32
-  %124 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %125 = load i32, ptr %124, align 4, !tbaa !30
-  %126 = getelementptr inbounds nuw i8, ptr %107, i64 8
+125:                                              ; preds = %110
+  store i32 %.0.i52, ptr %86, align 4, !tbaa !32
+  %126 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %127 = load i32, ptr %126, align 4, !tbaa !30
-  %128 = add nsw i32 %127, %125
-  store i32 %128, ptr %126, align 4, !tbaa !30
-  %129 = getelementptr inbounds nuw i8, ptr %105, i64 12
-  %130 = load i32, ptr %129, align 4, !tbaa !31
-  %131 = getelementptr inbounds nuw i8, ptr %107, i64 12
+  %128 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %129 = load i32, ptr %128, align 4, !tbaa !30
+  %130 = add nsw i32 %129, %127
+  store i32 %130, ptr %128, align 4, !tbaa !30
+  %131 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %132 = load i32, ptr %131, align 4, !tbaa !31
-  %133 = add nsw i32 %132, %130
-  store i32 %133, ptr %131, align 4, !tbaa !31
-  %134 = icmp eq i32 %106, %108
-  br i1 %134, label %135, label %_ZN2cv3hfs9RegionSet4joinEii.exit
+  %133 = getelementptr inbounds nuw i8, ptr %94, i64 12
+  %134 = load i32, ptr %133, align 4, !tbaa !31
+  %135 = add nsw i32 %134, %132
+  store i32 %135, ptr %133, align 4, !tbaa !31
+  %136 = icmp eq i32 %111, %112
+  br i1 %136, label %137, label %_ZN2cv3hfs9RegionSet4joinEii.exit
 
-135:                                              ; preds = %122
-  %136 = add nsw i32 %106, 1
-  store i32 %136, ptr %107, align 4, !tbaa !28
+137:                                              ; preds = %125
+  %138 = add nsw i32 %111, 1
+  store i32 %138, ptr %94, align 4, !tbaa !28
   br label %_ZN2cv3hfs9RegionSet4joinEii.exit
 
-_ZN2cv3hfs9RegionSet4joinEii.exit:                ; preds = %110, %122, %135
-  %137 = load i32, ptr %69, align 8, !tbaa !23
-  %138 = add nsw i32 %137, -1
-  store i32 %138, ptr %69, align 8, !tbaa !23
-  br label %139
+_ZN2cv3hfs9RegionSet4joinEii.exit:                ; preds = %114, %125, %137
+  %139 = load i32, ptr %69, align 8, !tbaa !23
+  %140 = add nsw i32 %139, -1
+  store i32 %140, ptr %69, align 8, !tbaa !23
+  br label %141
 
-139:                                              ; preds = %139, %_ZN2cv3hfs9RegionSet4joinEii.exit
-  %.0.i55 = phi i32 [ %.0.i, %_ZN2cv3hfs9RegionSet4joinEii.exit ], [ %142, %139 ]
-  %140 = sext i32 %.0.i55 to i64
-  %141 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %140, i32 1
-  %142 = load i32, ptr %141, align 4, !tbaa !32
-  %.not.i56 = icmp eq i32 %.0.i55, %142
-  br i1 %.not.i56, label %_ZN2cv3hfs9RegionSet4findEi.exit57, label %139, !llvm.loop !46
+141:                                              ; preds = %141, %_ZN2cv3hfs9RegionSet4joinEii.exit
+  %.0.i55 = phi i32 [ %.0.i, %_ZN2cv3hfs9RegionSet4joinEii.exit ], [ %145, %141 ]
+  %142 = sext i32 %.0.i55 to i64
+  %143 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %142
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
+  %145 = load i32, ptr %144, align 4, !tbaa !32
+  %.not.i56 = icmp eq i32 %.0.i55, %145
+  br i1 %.not.i56, label %_ZN2cv3hfs9RegionSet4findEi.exit57, label %141, !llvm.loop !46
 
-_ZN2cv3hfs9RegionSet4findEi.exit57:               ; preds = %139
-  store i32 %.0.i55, ptr %83, align 4, !tbaa !32
-  %143 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %140, i32 2
-  %144 = load i32, ptr %143, align 4, !tbaa !30
-  %145 = sitofp i32 %144 to float
-  %146 = fdiv float %4, %145
-  %147 = fadd float %96, %146
-  %148 = getelementptr inbounds nuw float, ptr %.sroa.058.0113, i64 %140
-  store float %147, ptr %148, align 4, !tbaa !39
-  br label %149
+_ZN2cv3hfs9RegionSet4findEi.exit57:               ; preds = %141
+  store i32 %.0.i55, ptr %86, align 4, !tbaa !32
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %147 = load i32, ptr %146, align 4, !tbaa !30
+  %148 = sitofp i32 %147 to float
+  %149 = fdiv float %4, %148
+  %150 = fadd float %102, %149
+  %151 = getelementptr inbounds nuw float, ptr %.sroa.058.0120, i64 %142
+  store float %150, ptr %151, align 4, !tbaa !39
+  br label %152
 
-149:                                              ; preds = %95, %100, %_ZN2cv3hfs9RegionSet4findEi.exit57, %_ZN2cv3hfs9RegionSet4findEi.exit54
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %._crit_edge, label %77, !llvm.loop !49
+152:                                              ; preds = %101, %106, %_ZN2cv3hfs9RegionSet4findEi.exit57, %_ZN2cv3hfs9RegionSet4findEi.exit54
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
+  %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
+  br i1 %exitcond104.not, label %._crit_edge, label %77, !llvm.loop !49
 
 _ZNSt6vectorIiSaIiEED2Ev.exit50:                  ; preds = %.body.thread, %.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread79, %73
   %.pn42 = phi { ptr, i32 } [ %74, %73 ], [ %.pn71, %_ZNSt6vectorIiSaIiEED2Ev.exit50.thread79 ], [ %71, %.thread ], [ %71, %.body.thread ]

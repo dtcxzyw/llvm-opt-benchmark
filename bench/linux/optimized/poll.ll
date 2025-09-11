@@ -904,7 +904,8 @@ define internal fastcc i32 @__io_arm_poll_handler(ptr noundef initializes((120, 
   %99 = lshr i64 %92, %98
   %100 = load ptr, ptr %94, align 8
   %101 = and i64 %99, 4294967295
-  %102 = getelementptr %struct.io_hash_bucket, ptr %100, i64 %101, i32 1
+  %.split10 = getelementptr %struct.io_hash_bucket, ptr %100, i64 %101
+  %102 = getelementptr i8, ptr %.split10, i64 8
   %103 = load ptr, ptr %102, align 8
   store volatile ptr %103, ptr %8, align 8
   %104 = icmp eq ptr %103, null
@@ -976,7 +977,8 @@ define internal fastcc i32 @__io_arm_poll_handler(ptr noundef initializes((120, 
   %143 = lshr i64 %136, %142
   %144 = load ptr, ptr %138, align 8
   %145 = and i64 %143, 4294967295
-  %146 = getelementptr %struct.io_hash_bucket, ptr %144, i64 %145, i32 1
+  %.split = getelementptr %struct.io_hash_bucket, ptr %144, i64 %145
+  %146 = getelementptr i8, ptr %.split, i64 8
   %147 = load ptr, ptr %146, align 8
   store volatile ptr %147, ptr %8, align 8
   %148 = icmp eq ptr %147, null
@@ -1120,7 +1122,8 @@ define internal fastcc i32 @__io_arm_poll_handler(ptr noundef initializes((120, 
   %228 = lshr i64 %221, %227
   %229 = load ptr, ptr %223, align 8
   %230 = and i64 %228, 4294967295
-  %231 = getelementptr %struct.io_hash_bucket, ptr %229, i64 %230, i32 1
+  %.split11 = getelementptr %struct.io_hash_bucket, ptr %229, i64 %230
+  %231 = getelementptr i8, ptr %.split11, i64 8
   %232 = load ptr, ptr %231, align 8
   store volatile ptr %232, ptr %8, align 8
   %233 = icmp eq ptr %232, null

@@ -14986,7 +14986,7 @@ define internal fastcc range(i32 -1, 1) i32 @_writevToClient(ptr noundef capture
   %33 = icmp samesign ult i64 %indvars.iv, %31
   %34 = icmp ult i64 %.170.ph99, 65536
   %or.cond = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond, label %.lr.ph.split, label %.critedge.loopexit124
+  br i1 %or.cond, label %.lr.ph.split, label %.critedge.loopexit127
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -15038,12 +15038,12 @@ define internal fastcc range(i32 -1, 1) i32 @_writevToClient(ptr noundef capture
   %60 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge.loopexit124:                            ; preds = %.lr.ph
+.critedge.loopexit127:                            ; preds = %.lr.ph
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit124, %.critedge.loopexit, %24
-  %.172.ph.lcssa = phi i32 [ %.07181, %24 ], [ %60, %.critedge.loopexit ], [ %61, %.critedge.loopexit124 ]
+.critedge:                                        ; preds = %.critedge.loopexit127, %.critedge.loopexit, %24
+  %.172.ph.lcssa = phi i32 [ %.07181, %24 ], [ %60, %.critedge.loopexit ], [ %61, %.critedge.loopexit127 ]
   %62 = icmp eq i32 %.172.ph.lcssa, 0
   br i1 %62, label %.loopexit, label %.critedge.thread
 
@@ -15066,42 +15066,44 @@ define internal fastcc range(i32 -1, 1) i32 @_writevToClient(ptr noundef capture
 70:                                               ; preds = %.critedge.thread
   %71 = load i32, ptr %10, align 8, !tbaa !76
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %73, label %83
+  br i1 %72, label %74, label %.thread124
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %75 = load i64, ptr %74, align 8, !tbaa !85
-  %76 = trunc i64 %75 to i32
-  %77 = sub i32 %71, %76
-  %78 = add i64 %75, %68
-  store i64 %78, ptr %74, align 8, !tbaa !85
-  %79 = sext i32 %77 to i64
-  %.not78 = icmp slt i32 %67, %77
-  br i1 %.not78, label %81, label %80
+.thread124:                                       ; preds = %70
+  %73 = load ptr, ptr %26, align 8, !tbaa !96
+  call void @listRewind(ptr noundef %73, ptr noundef nonnull %3) #26
+  br label %.lr.ph104
 
-80:                                               ; preds = %73
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %76 = load i64, ptr %75, align 8, !tbaa !85
+  %77 = trunc i64 %76 to i32
+  %78 = sub i32 %71, %77
+  %79 = add i64 %76, %68
+  store i64 %79, ptr %75, align 8, !tbaa !85
+  %80 = sext i32 %78 to i64
+  %.not78 = icmp slt i32 %67, %78
+  br i1 %.not78, label %82, label %81
+
+81:                                               ; preds = %74
   store i32 0, ptr %10, align 8, !tbaa !76
-  store i64 0, ptr %74, align 8, !tbaa !85
-  br label %81
+  store i64 0, ptr %75, align 8, !tbaa !85
+  br label %82
 
-81:                                               ; preds = %80, %73
-  %82 = sub nsw i64 %68, %79
-  br label %83
-
-83:                                               ; preds = %81, %70
-  %.067 = phi i64 [ %82, %81 ], [ %68, %70 ]
+82:                                               ; preds = %74, %81
+  %83 = sub nsw i64 %68, %80
   %84 = load ptr, ptr %26, align 8, !tbaa !96
   call void @listRewind(ptr noundef %84, ptr noundef nonnull %3) #26
-  %85 = icmp sgt i64 %.067, 0
+  %85 = icmp sgt i64 %83, 0
   br i1 %85, label %.lr.ph104, label %.loopexit
 
-.lr.ph104:                                        ; preds = %83
+.lr.ph104:                                        ; preds = %.thread124, %82
+  %.067126 = phi i64 [ %68, %.thread124 ], [ %83, %82 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %88
 
 88:                                               ; preds = %.lr.ph104, %99
-  %.1102 = phi i64 [ %.067, %.lr.ph104 ], [ %100, %99 ]
+  %.1102 = phi i64 [ %.067126, %.lr.ph104 ], [ %100, %99 ]
   %89 = call ptr @listNext(ptr noundef nonnull %3) #26
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !123
@@ -15129,8 +15131,8 @@ define internal fastcc range(i32 -1, 1) i32 @_writevToClient(ptr noundef capture
   %105 = icmp sgt i64 %100, 0
   br i1 %105, label %88, label %.loopexit, !llvm.loop !286
 
-.loopexit:                                        ; preds = %99, %83, %97, %.critedge.thread, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ -1, %.critedge.thread ], [ 0, %97 ], [ 0, %83 ], [ 0, %99 ]
+.loopexit:                                        ; preds = %99, %82, %97, %.critedge.thread, %.critedge
+  %.0 = phi i32 [ 0, %.critedge ], [ -1, %.critedge.thread ], [ 0, %97 ], [ 0, %82 ], [ 0, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -2987,68 +2987,71 @@ define dso_local void @_ZN37btDeformableMultiBodyConstraintSolver27pairDeformabl
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %17 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %21, %._crit_edge ]
+  %17 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %22, %._crit_edge ]
   %indvars.iv29 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next30, %._crit_edge ]
-  %18 = getelementptr inbounds nuw %class.btAlignedObjectArray.28, ptr %17, i64 %indvars.iv29, i32 1
-  %19 = load i32, ptr %18, align 4, !tbaa !144
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph, label %._crit_edge
+  %18 = getelementptr inbounds nuw %class.btAlignedObjectArray.28, ptr %17, i64 %indvars.iv29
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %20 = load i32, ptr %19, align 4, !tbaa !144
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %48, %.preheader
-  %21 = phi ptr [ %17, %.preheader ], [ %49, %48 ]
+._crit_edge:                                      ; preds = %50, %.preheader
+  %22 = phi ptr [ %17, %.preheader ], [ %51, %50 ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !148
 
-.lr.ph:                                           ; preds = %.preheader, %48
-  %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.preheader ]
-  %22 = phi ptr [ %49, %48 ], [ %17, %.preheader ]
-  %23 = getelementptr inbounds nuw %class.btAlignedObjectArray.28, ptr %22, i64 %indvars.iv29, i32 4
-  %24 = load ptr, ptr %23, align 8, !tbaa !149
-  %25 = getelementptr inbounds nuw %class.btReducedDeformableNodeRigidContactConstraint, ptr %24, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %27 = load ptr, ptr %26, align 8, !tbaa !150
-  %28 = load ptr, ptr %27, align 8, !tbaa !155
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 224
-  %30 = load i32, ptr %29, align 8, !tbaa !158
-  %31 = and i32 %30, 1
-  %.not24 = icmp eq i32 %31, 0
-  br i1 %.not24, label %32, label %48
+.lr.ph:                                           ; preds = %.preheader, %50
+  %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %.preheader ]
+  %23 = phi ptr [ %51, %50 ], [ %17, %.preheader ]
+  %24 = getelementptr inbounds nuw %class.btAlignedObjectArray.28, ptr %23, i64 %indvars.iv29
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !149
+  %27 = getelementptr inbounds nuw %class.btReducedDeformableNodeRigidContactConstraint, ptr %26, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
+  %29 = load ptr, ptr %28, align 8, !tbaa !150
+  %30 = load ptr, ptr %29, align 8, !tbaa !155
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 224
+  %32 = load i32, ptr %31, align 8, !tbaa !158
+  %33 = and i32 %32, 1
+  %.not24 = icmp eq i32 %33, 0
+  br i1 %.not24, label %34, label %50
 
-32:                                               ; preds = %.lr.ph
-  %33 = load float, ptr %15, align 4, !tbaa !159
-  %34 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %28, float noundef %33)
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %1, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !134
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 272
-  %39 = load i32, ptr %38, align 8, !tbaa !160
-  %40 = and i32 %39, 2
-  %.not.i = icmp eq i32 %40, 0
-  %.not25 = icmp eq ptr %37, null
+34:                                               ; preds = %.lr.ph
+  %35 = load float, ptr %15, align 4, !tbaa !159
+  %36 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %30, float noundef %35)
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds ptr, ptr %1, i64 %37
+  %39 = load ptr, ptr %38, align 8, !tbaa !134
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 272
+  %41 = load i32, ptr %40, align 8, !tbaa !160
+  %42 = and i32 %41, 2
+  %.not.i = icmp eq i32 %42, 0
+  %.not25 = icmp eq ptr %39, null
   %.not = or i1 %.not25, %.not.i
-  br i1 %.not, label %48, label %41
+  br i1 %.not, label %50, label %43
 
-41:                                               ; preds = %32
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 452
-  %43 = load float, ptr %42, align 4, !tbaa !161
-  %44 = fcmp une float %43, 0.000000e+00
-  br i1 %44, label %45, label %48
+43:                                               ; preds = %34
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 452
+  %45 = load float, ptr %44, align 4, !tbaa !161
+  %46 = fcmp une float %45, 0.000000e+00
+  br i1 %46, label %47, label %50
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %16, align 8, !tbaa !114
-  %47 = getelementptr inbounds %struct.btSolverBody, ptr %46, i64 %35
-  tail call void @_ZN41btReducedDeformableRigidContactConstraint13setSolverBodyEiR12btSolverBody(ptr noundef nonnull align 8 dereferenceable(436) %25, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(248) %47)
-  br label %48
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %16, align 8, !tbaa !114
+  %49 = getelementptr inbounds %struct.btSolverBody, ptr %48, i64 %37
+  tail call void @_ZN41btReducedDeformableRigidContactConstraint13setSolverBodyEiR12btSolverBody(ptr noundef nonnull align 8 dereferenceable(436) %27, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(248) %49)
+  br label %50
 
-48:                                               ; preds = %32, %41, %45, %.lr.ph
+50:                                               ; preds = %34, %43, %47, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = load ptr, ptr %14, align 8, !tbaa !140
-  %50 = getelementptr inbounds nuw %class.btAlignedObjectArray.28, ptr %49, i64 %indvars.iv29, i32 1
-  %51 = load i32, ptr %50, align 4, !tbaa !144
-  %52 = sext i32 %51 to i64
-  %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !167
+  %51 = load ptr, ptr %14, align 8, !tbaa !140
+  %52 = getelementptr inbounds nuw %class.btAlignedObjectArray.28, ptr %51, i64 %indvars.iv29
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %54 = load i32, ptr %53, align 4, !tbaa !144
+  %55 = sext i32 %54 to i64
+  %56 = icmp slt i64 %indvars.iv.next, %55
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !167
 
 .loopexit:                                        ; preds = %._crit_edge, %5
   ret void

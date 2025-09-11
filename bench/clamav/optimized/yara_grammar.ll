@@ -215,13 +215,13 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 328
   br label %29
 
-27:                                               ; preds = %1177, %1121, %88
-  %.11471 = phi ptr [ %.51474, %1177 ], [ %.01470, %1121 ], [ %.01470, %88 ]
-  %.11212 = phi ptr [ %1179, %1177 ], [ %1100, %1121 ], [ %89, %88 ]
-  %.11198 = phi ptr [ %.71204, %1177 ], [ %1099, %1121 ], [ %.21199, %88 ]
-  %.11188 = phi i32 [ 3, %1177 ], [ %.01187, %1121 ], [ %spec.select, %88 ]
-  %.11184 = phi i32 [ %1178, %1177 ], [ %1122, %1121 ], [ %84, %88 ]
-  %.1 = phi i32 [ %.8, %1177 ], [ %.7, %1121 ], [ -2, %88 ]
+27:                                               ; preds = %1178, %1122, %89
+  %.11471 = phi ptr [ %.51474, %1178 ], [ %.01470, %1122 ], [ %.01470, %89 ]
+  %.11212 = phi ptr [ %1180, %1178 ], [ %1101, %1122 ], [ %90, %89 ]
+  %.11198 = phi ptr [ %.71204, %1178 ], [ %1100, %1122 ], [ %.21199, %89 ]
+  %.11188 = phi i32 [ 3, %1178 ], [ %.01187, %1122 ], [ %spec.select, %89 ]
+  %.11184 = phi i32 [ %1179, %1178 ], [ %1123, %1122 ], [ %85, %89 ]
+  %.1 = phi i32 [ %.8, %1178 ], [ %.7, %1122 ], [ -2, %89 ]
   %28 = getelementptr inbounds nuw i8, ptr %.11198, i64 1
   br label %29
 
@@ -277,7 +277,8 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %51 = getelementptr inbounds i8, ptr %43, i64 %36
   %52 = getelementptr inbounds %union.YYSTYPE, ptr %47, i64 %37
   %53 = getelementptr inbounds i8, ptr %52, i64 -8
-  %.not1319 = icmp sgt i64 %spec.store.select, %37
+  %54 = add nsw i64 %spec.store.select, -1
+  %.not1319 = icmp sgt i64 %54, %36
   br i1 %.not1319, label %.thread1489, label %.loopexit
 
 .thread1489:                                      ; preds = %50, %29
@@ -286,2638 +287,2638 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   %.11208 = phi ptr [ %.01207, %29 ], [ %47, %50 ]
   %.21199 = phi ptr [ %.01197, %29 ], [ %51, %50 ]
   %.11191 = phi ptr [ %.01190, %29 ], [ %43, %50 ]
-  %54 = icmp eq i32 %.01183, 2
-  br i1 %54, label %.loopexit, label %55
+  %55 = icmp eq i32 %.01183, 2
+  br i1 %55, label %.loopexit, label %56
 
-55:                                               ; preds = %.thread1489
-  %56 = sext i32 %.01183 to i64
-  %57 = getelementptr inbounds i16, ptr @yypact, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !8
-  %59 = sext i16 %58 to i32
-  %60 = icmp eq i16 %58, -66
-  br i1 %60, label %91, label %61
+56:                                               ; preds = %.thread1489
+  %57 = sext i32 %.01183 to i64
+  %58 = getelementptr inbounds i16, ptr @yypact, i64 %57
+  %59 = load i16, ptr %58, align 2, !tbaa !8
+  %60 = sext i16 %59 to i32
+  %61 = icmp eq i16 %59, -66
+  br i1 %61, label %92, label %62
 
-61:                                               ; preds = %55
-  %62 = icmp eq i32 %.01178, -2
-  br i1 %62, label %63, label %65
+62:                                               ; preds = %56
+  %63 = icmp eq i32 %.01178, -2
+  br i1 %63, label %64, label %66
 
-63:                                               ; preds = %61
-  %64 = call i32 @yara_yylex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1) #13
-  br label %65
+64:                                               ; preds = %62
+  %65 = call i32 @yara_yylex(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1) #13
+  br label %66
 
-65:                                               ; preds = %63, %61
-  %.5 = phi i32 [ %64, %63 ], [ %.01178, %61 ]
-  %66 = icmp slt i32 %.5, 1
-  br i1 %66, label %74, label %67
+66:                                               ; preds = %64, %62
+  %.5 = phi i32 [ %65, %64 ], [ %.01178, %62 ]
+  %67 = icmp slt i32 %.5, 1
+  br i1 %67, label %75, label %68
 
-67:                                               ; preds = %65
-  %68 = icmp samesign ult i32 %.5, 310
-  br i1 %68, label %69, label %74
+68:                                               ; preds = %66
+  %69 = icmp samesign ult i32 %.5, 310
+  br i1 %69, label %70, label %75
 
-69:                                               ; preds = %67
-  %70 = zext nneg i32 %.5 to i64
-  %71 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %70
-  %72 = load i8, ptr %71, align 1, !tbaa !3
-  %73 = sext i8 %72 to i32
-  br label %74
+70:                                               ; preds = %68
+  %71 = zext nneg i32 %.5 to i64
+  %72 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %71
+  %73 = load i8, ptr %72, align 1, !tbaa !3
+  %74 = sext i8 %73 to i32
+  br label %75
 
-74:                                               ; preds = %69, %67, %65
-  %.01226 = phi i32 [ 0, %65 ], [ %73, %69 ], [ 2, %67 ]
-  %.6 = phi i32 [ 0, %65 ], [ %.5, %69 ], [ %.5, %67 ]
-  %75 = add nsw i32 %.01226, %59
-  %or.cond3 = icmp ugt i32 %75, 433
-  br i1 %or.cond3, label %91, label %76
+75:                                               ; preds = %70, %68, %66
+  %.01226 = phi i32 [ 0, %66 ], [ %74, %70 ], [ 2, %68 ]
+  %.6 = phi i32 [ 0, %66 ], [ %.5, %70 ], [ %.5, %68 ]
+  %76 = add nsw i32 %.01226, %60
+  %or.cond3 = icmp ugt i32 %76, 433
+  br i1 %or.cond3, label %92, label %77
 
-76:                                               ; preds = %74
-  %77 = zext nneg i32 %75 to i64
-  %78 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %77
-  %79 = load i16, ptr %78, align 2, !tbaa !8
-  %80 = sext i16 %79 to i32
-  %.not1320 = icmp eq i32 %.01226, %80
-  br i1 %.not1320, label %81, label %91
+77:                                               ; preds = %75
+  %78 = zext nneg i32 %76 to i64
+  %79 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %78
+  %80 = load i16, ptr %79, align 2, !tbaa !8
+  %81 = sext i16 %80 to i32
+  %.not1320 = icmp eq i32 %.01226, %81
+  br i1 %.not1320, label %82, label %92
 
-81:                                               ; preds = %76
-  %82 = getelementptr inbounds nuw i16, ptr @yytable, i64 %77
-  %83 = load i16, ptr %82, align 2, !tbaa !8
-  %84 = sext i16 %83 to i32
-  %85 = icmp slt i16 %83, 1
-  br i1 %85, label %86, label %88
+82:                                               ; preds = %77
+  %83 = getelementptr inbounds nuw i16, ptr @yytable, i64 %78
+  %84 = load i16, ptr %83, align 2, !tbaa !8
+  %85 = sext i16 %84 to i32
+  %86 = icmp slt i16 %84, 1
+  br i1 %86, label %87, label %89
 
-86:                                               ; preds = %81
-  %87 = sub nsw i32 0, %84
-  br label %96
+87:                                               ; preds = %82
+  %88 = sub nsw i32 0, %85
+  br label %97
 
-88:                                               ; preds = %81
+89:                                               ; preds = %82
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %.01187, i32 1)
-  %89 = getelementptr inbounds nuw i8, ptr %.21213, i64 8
-  %90 = load i64, ptr %3, align 8, !tbaa !3
-  store i64 %90, ptr %89, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw i8, ptr %.21213, i64 8
+  %91 = load i64, ptr %3, align 8, !tbaa !3
+  store i64 %91, ptr %90, align 8, !tbaa !3
   br label %27
 
-91:                                               ; preds = %74, %76, %55
-  %.4 = phi i32 [ %.01178, %55 ], [ %.6, %74 ], [ %.6, %76 ]
-  %92 = getelementptr inbounds i8, ptr @yydefact, i64 %56
-  %93 = load i8, ptr %92, align 1, !tbaa !3
-  %94 = sext i8 %93 to i32
-  %95 = icmp eq i8 %93, 0
-  br i1 %95, label %1123, label %96
+92:                                               ; preds = %75, %77, %56
+  %.4 = phi i32 [ %.01178, %56 ], [ %.6, %75 ], [ %.6, %77 ]
+  %93 = getelementptr inbounds i8, ptr @yydefact, i64 %57
+  %94 = load i8, ptr %93, align 1, !tbaa !3
+  %95 = sext i8 %94 to i32
+  %96 = icmp eq i8 %94, 0
+  br i1 %96, label %1124, label %97
 
-96:                                               ; preds = %91, %86
-  %.01224 = phi i32 [ %94, %91 ], [ %87, %86 ]
-  %.7 = phi i32 [ %.4, %91 ], [ %.6, %86 ]
-  %97 = sext i32 %.01224 to i64
-  %98 = getelementptr inbounds i8, ptr @yyr2, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !3
-  %100 = sext i8 %99 to i64
-  %101 = sub nsw i64 1, %100
-  %102 = getelementptr inbounds %union.YYSTYPE, ptr %.21213, i64 %101
-  %.sroa.0.0.copyload = load ptr, ptr %102, align 8, !tbaa !3
+97:                                               ; preds = %92, %87
+  %.01224 = phi i32 [ %95, %92 ], [ %88, %87 ]
+  %.7 = phi i32 [ %.4, %92 ], [ %.6, %87 ]
+  %98 = sext i32 %.01224 to i64
+  %99 = getelementptr inbounds i8, ptr @yyr2, i64 %98
+  %100 = load i8, ptr %99, align 1, !tbaa !3
+  %101 = sext i8 %100 to i64
+  %102 = sub nsw i64 1, %101
+  %103 = getelementptr inbounds %union.YYSTYPE, ptr %.21213, i64 %102
+  %.sroa.0.0.copyload = load ptr, ptr %103, align 8, !tbaa !3
   switch i32 %.01224, label %.thread1496 [
-    i32 7, label %103
-    i32 8, label %108
-    i32 9, label %123
-    i32 10, label %124
-    i32 11, label %128
-    i32 12, label %129
-    i32 14, label %123
-    i32 15, label %134
-    i32 16, label %140
-    i32 17, label %141
-    i32 18, label %123
-    i32 19, label %142
-    i32 20, label %144
-    i32 21, label %146
-    i32 22, label %153
-    i32 23, label %155
-    i32 24, label %158
-    i32 25, label %168
-    i32 26, label %177
-    i32 27, label %184
-    i32 28, label %191
-    i32 29, label %193
-    i32 30, label %196
-    i32 31, label %208
-    i32 32, label %210
-    i32 33, label %223
-    i32 34, label %123
-    i32 35, label %232
-    i32 36, label %238
-    i32 37, label %239
-    i32 38, label %240
-    i32 39, label %241
-    i32 40, label %242
-    i32 41, label %285
-    i32 42, label %298
-    i32 43, label %316
-    i32 44, label %345
-    i32 45, label %347
-    i32 46, label %356
-    i32 47, label %370
-    i32 48, label %373
-    i32 49, label %382
-    i32 50, label %388
-    i32 51, label %394
-    i32 52, label %413
-    i32 53, label %430
-    i32 54, label %437
-    i32 55, label %454
-    i32 56, label %466
-    i32 57, label %484
-    i32 58, label %511
-    i32 59, label %558
-    i32 60, label %582
-    i32 61, label %604
-    i32 62, label %608
-    i32 63, label %612
-    i32 64, label %616
-    i32 65, label %626
-    i32 66, label %641
-    i32 67, label %656
-    i32 68, label %671
-    i32 69, label %686
-    i32 70, label %698
-    i32 71, label %710
-    i32 72, label %722
-    i32 73, label %726
-    i32 74, label %140
-    i32 75, label %141
-    i32 76, label %731
-    i32 77, label %743
-    i32 78, label %749
-    i32 79, label %755
-    i32 81, label %757
-    i32 84, label %762
-    i32 85, label %766
-    i32 87, label %770
-    i32 88, label %774
-    i32 89, label %778
-    i32 90, label %783
-    i32 91, label %788
-    i32 92, label %796
-    i32 93, label %808
-    i32 94, label %820
-    i32 95, label %832
-    i32 96, label %844
-    i32 97, label %856
-    i32 98, label %868
-    i32 99, label %875
-    i32 100, label %883
-    i32 101, label %892
-    i32 102, label %904
-    i32 103, label %919
-    i32 104, label %934
-    i32 105, label %949
-    i32 106, label %964
-    i32 107, label %979
-    i32 108, label %994
-    i32 109, label %1009
-    i32 110, label %1024
-    i32 111, label %1039
-    i32 112, label %1054
-    i32 113, label %1063
-    i32 114, label %1078
-    i32 115, label %1093
+    i32 7, label %104
+    i32 8, label %109
+    i32 9, label %124
+    i32 10, label %125
+    i32 11, label %129
+    i32 12, label %130
+    i32 14, label %124
+    i32 15, label %135
+    i32 16, label %141
+    i32 17, label %142
+    i32 18, label %124
+    i32 19, label %143
+    i32 20, label %145
+    i32 21, label %147
+    i32 22, label %154
+    i32 23, label %156
+    i32 24, label %159
+    i32 25, label %169
+    i32 26, label %178
+    i32 27, label %185
+    i32 28, label %192
+    i32 29, label %194
+    i32 30, label %197
+    i32 31, label %209
+    i32 32, label %211
+    i32 33, label %224
+    i32 34, label %124
+    i32 35, label %233
+    i32 36, label %239
+    i32 37, label %240
+    i32 38, label %241
+    i32 39, label %242
+    i32 40, label %243
+    i32 41, label %286
+    i32 42, label %299
+    i32 43, label %317
+    i32 44, label %346
+    i32 45, label %348
+    i32 46, label %357
+    i32 47, label %371
+    i32 48, label %374
+    i32 49, label %383
+    i32 50, label %389
+    i32 51, label %395
+    i32 52, label %414
+    i32 53, label %431
+    i32 54, label %438
+    i32 55, label %455
+    i32 56, label %467
+    i32 57, label %485
+    i32 58, label %512
+    i32 59, label %559
+    i32 60, label %583
+    i32 61, label %605
+    i32 62, label %609
+    i32 63, label %613
+    i32 64, label %617
+    i32 65, label %627
+    i32 66, label %642
+    i32 67, label %657
+    i32 68, label %672
+    i32 69, label %687
+    i32 70, label %699
+    i32 71, label %711
+    i32 72, label %723
+    i32 73, label %727
+    i32 74, label %141
+    i32 75, label %142
+    i32 76, label %732
+    i32 77, label %744
+    i32 78, label %750
+    i32 79, label %756
+    i32 81, label %758
+    i32 84, label %763
+    i32 85, label %767
+    i32 87, label %771
+    i32 88, label %775
+    i32 89, label %779
+    i32 90, label %784
+    i32 91, label %789
+    i32 92, label %797
+    i32 93, label %809
+    i32 94, label %821
+    i32 95, label %833
+    i32 96, label %845
+    i32 97, label %857
+    i32 98, label %869
+    i32 99, label %876
+    i32 100, label %884
+    i32 101, label %893
+    i32 102, label %905
+    i32 103, label %920
+    i32 104, label %935
+    i32 105, label %950
+    i32 106, label %965
+    i32 107, label %980
+    i32 108, label %995
+    i32 109, label %1010
+    i32 110, label %1025
+    i32 111, label %1040
+    i32 112, label %1055
+    i32 113, label %1064
+    i32 114, label %1079
+    i32 115, label %1094
   ]
 
-103:                                              ; preds = %96
-  %104 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %105 = call i32 @yr_parser_reduce_import(ptr noundef %0, ptr noundef %104) #13
-  %106 = load ptr, ptr %.21213, align 8, !tbaa !3
-  call void @free(ptr noundef %106) #13
-  %.not1417 = icmp eq i32 %105, 0
-  br i1 %.not1417, label %.thread1496, label %107
+104:                                              ; preds = %97
+  %105 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %106 = call i32 @yr_parser_reduce_import(ptr noundef %0, ptr noundef %105) #13
+  %107 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %107) #13
+  %.not1417 = icmp eq i32 %106, 0
+  br i1 %.not1417, label %.thread1496, label %108
 
-107:                                              ; preds = %103
+108:                                              ; preds = %104
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-108:                                              ; preds = %96
-  %109 = getelementptr inbounds i8, ptr %.21213, i64 -64
-  %110 = load i64, ptr %109, align 8, !tbaa !3
-  %111 = trunc i64 %110 to i32
-  %112 = getelementptr inbounds i8, ptr %.21213, i64 -48
-  %113 = load ptr, ptr %112, align 8, !tbaa !3
-  %114 = getelementptr inbounds i8, ptr %.21213, i64 -40
-  %115 = load ptr, ptr %114, align 8, !tbaa !3
-  %116 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %117 = load ptr, ptr %116, align 8, !tbaa !3
-  %118 = getelementptr inbounds i8, ptr %.21213, i64 -24
-  %119 = load ptr, ptr %118, align 8, !tbaa !3
-  %120 = call i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %111, ptr noundef %113, ptr noundef %115, ptr noundef %117, ptr noundef %119) #13
-  %121 = load ptr, ptr %112, align 8, !tbaa !3
-  call void @free(ptr noundef %121) #13
-  %.not1416 = icmp eq i32 %120, 0
-  br i1 %.not1416, label %.thread1496, label %122
+109:                                              ; preds = %97
+  %110 = getelementptr inbounds i8, ptr %.21213, i64 -64
+  %111 = load i64, ptr %110, align 8, !tbaa !3
+  %112 = trunc i64 %111 to i32
+  %113 = getelementptr inbounds i8, ptr %.21213, i64 -48
+  %114 = load ptr, ptr %113, align 8, !tbaa !3
+  %115 = getelementptr inbounds i8, ptr %.21213, i64 -40
+  %116 = load ptr, ptr %115, align 8, !tbaa !3
+  %117 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %118 = load ptr, ptr %117, align 8, !tbaa !3
+  %119 = getelementptr inbounds i8, ptr %.21213, i64 -24
+  %120 = load ptr, ptr %119, align 8, !tbaa !3
+  %121 = call i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %112, ptr noundef %114, ptr noundef %116, ptr noundef %118, ptr noundef %120) #13
+  %122 = load ptr, ptr %113, align 8, !tbaa !3
+  call void @free(ptr noundef %122) #13
+  %.not1416 = icmp eq i32 %121, 0
+  br i1 %.not1416, label %.thread1496, label %123
 
-122:                                              ; preds = %108
+123:                                              ; preds = %109
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-123:                                              ; preds = %96, %96, %96, %96
+124:                                              ; preds = %97, %97, %97, %97
   br label %.thread1496
 
-124:                                              ; preds = %96
-  %125 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %126 = load i32, ptr %13, align 8, !tbaa !10
-  %.not1415 = icmp eq i32 %126, 0
-  br i1 %.not1415, label %.thread1496, label %127
+125:                                              ; preds = %97
+  %126 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %127 = load i32, ptr %13, align 8, !tbaa !10
+  %.not1415 = icmp eq i32 %127, 0
+  br i1 %.not1415, label %.thread1496, label %128
 
-127:                                              ; preds = %124
+128:                                              ; preds = %125
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-128:                                              ; preds = %96
+129:                                              ; preds = %97
   store ptr null, ptr %26, align 8, !tbaa !24
   br label %.thread1496
 
-129:                                              ; preds = %96
+130:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 -1, i64 48, i1 false)
   store i32 4096, ptr %24, align 8, !tbaa !25
-  %130 = load ptr, ptr %25, align 8, !tbaa !28
-  %131 = call i32 @yr_arena_write_data(ptr noundef %130, ptr noundef nonnull %8, i64 noundef 48, ptr noundef null) #13
-  store i32 %131, ptr %13, align 8, !tbaa !10
-  %.not1414 = icmp eq i32 %131, 0
-  br i1 %.not1414, label %.thread1502, label %133
+  %131 = load ptr, ptr %25, align 8, !tbaa !28
+  %132 = call i32 @yr_arena_write_data(ptr noundef %131, ptr noundef nonnull %8, i64 noundef 48, ptr noundef null) #13
+  store i32 %132, ptr %13, align 8, !tbaa !10
+  %.not1414 = icmp eq i32 %132, 0
+  br i1 %.not1414, label %.thread1502, label %134
 
-.thread1502:                                      ; preds = %129
-  %132 = load ptr, ptr %.21213, align 8, !tbaa !3
-  store ptr %132, ptr %26, align 8, !tbaa !24
+.thread1502:                                      ; preds = %130
+  %133 = load ptr, ptr %.21213, align 8, !tbaa !3
+  store ptr %133, ptr %26, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread1496
 
-133:                                              ; preds = %129
+134:                                              ; preds = %130
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread1531
 
-134:                                              ; preds = %96
-  %135 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %136 = load i64, ptr %135, align 8, !tbaa !3
-  %137 = load i64, ptr %.21213, align 8, !tbaa !3
-  %138 = or i64 %137, %136
-  %139 = inttoptr i64 %138 to ptr
+135:                                              ; preds = %97
+  %136 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %137 = load i64, ptr %136, align 8, !tbaa !3
+  %138 = load i64, ptr %.21213, align 8, !tbaa !3
+  %139 = or i64 %138, %137
+  %140 = inttoptr i64 %139 to ptr
   br label %.thread1496
 
-140:                                              ; preds = %96, %96
+141:                                              ; preds = %97, %97
   br label %.thread1496
 
-141:                                              ; preds = %96, %96
+142:                                              ; preds = %97, %97
   br label %.thread1496
 
-142:                                              ; preds = %96
-  %143 = load ptr, ptr %.21213, align 8, !tbaa !3
+143:                                              ; preds = %97
+  %144 = load ptr, ptr %.21213, align 8, !tbaa !3
   br label %.thread1496
 
-144:                                              ; preds = %96
-  %145 = load ptr, ptr %.21213, align 8, !tbaa !3
-  call void @free(ptr noundef %145) #13
+145:                                              ; preds = %97
+  %146 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %146) #13
   br label %.thread1496
 
-146:                                              ; preds = %96
-  %147 = load ptr, ptr %.21213, align 8, !tbaa !3
-  call void @free(ptr noundef %147) #13
-  %148 = load i32, ptr %13, align 8, !tbaa !10
-  %.not1413 = icmp eq i32 %148, 0
-  br i1 %.not1413, label %150, label %149
+147:                                              ; preds = %97
+  %148 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %148) #13
+  %149 = load i32, ptr %13, align 8, !tbaa !10
+  %.not1413 = icmp eq i32 %149, 0
+  br i1 %.not1413, label %151, label %150
 
-149:                                              ; preds = %146
+150:                                              ; preds = %147
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %152 = load ptr, ptr %151, align 8, !tbaa !3
+151:                                              ; preds = %147
+  %152 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %153 = load ptr, ptr %152, align 8, !tbaa !3
   br label %.thread1496
 
-153:                                              ; preds = %96
-  %154 = load ptr, ptr %.21213, align 8, !tbaa !3
+154:                                              ; preds = %97
+  %155 = load ptr, ptr %.21213, align 8, !tbaa !3
   br label %.thread1496
 
-155:                                              ; preds = %96
-  %156 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %157 = load ptr, ptr %156, align 8, !tbaa !3
+156:                                              ; preds = %97
+  %157 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %158 = load ptr, ptr %157, align 8, !tbaa !3
   br label %.thread1496
 
-158:                                              ; preds = %96
-  %159 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %160 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %161 = load ptr, ptr %160, align 8, !tbaa !3
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %163 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 noundef 2, ptr noundef %161, ptr noundef nonnull %162, i32 noundef 0) #13
-  %164 = load ptr, ptr %160, align 8, !tbaa !3
-  call void @free(ptr noundef %164) #13
-  %165 = load ptr, ptr %.21213, align 8, !tbaa !3
+159:                                              ; preds = %97
+  %160 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %161 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %162 = load ptr, ptr %161, align 8, !tbaa !3
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %164 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 noundef 2, ptr noundef %162, ptr noundef nonnull %163, i32 noundef 0) #13
+  %165 = load ptr, ptr %161, align 8, !tbaa !3
   call void @free(ptr noundef %165) #13
-  %166 = icmp eq ptr %163, null
-  br i1 %166, label %167, label %.thread1496
+  %166 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %166) #13
+  %167 = icmp eq ptr %164, null
+  br i1 %167, label %168, label %.thread1496
 
-167:                                              ; preds = %158
+168:                                              ; preds = %159
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-168:                                              ; preds = %96
-  %169 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %170 = load ptr, ptr %169, align 8, !tbaa !3
-  %171 = load i64, ptr %.21213, align 8, !tbaa !3
-  %172 = trunc i64 %171 to i32
-  %173 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 noundef 1, ptr noundef %170, ptr noundef null, i32 noundef %172) #13
-  %174 = load ptr, ptr %169, align 8, !tbaa !3
-  call void @free(ptr noundef %174) #13
-  %175 = icmp eq ptr %173, null
-  br i1 %175, label %176, label %.thread1496
+169:                                              ; preds = %97
+  %170 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %171 = load ptr, ptr %170, align 8, !tbaa !3
+  %172 = load i64, ptr %.21213, align 8, !tbaa !3
+  %173 = trunc i64 %172 to i32
+  %174 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 noundef 1, ptr noundef %171, ptr noundef null, i32 noundef %173) #13
+  %175 = load ptr, ptr %170, align 8, !tbaa !3
+  call void @free(ptr noundef %175) #13
+  %176 = icmp eq ptr %174, null
+  br i1 %176, label %177, label %.thread1496
 
-176:                                              ; preds = %168
+177:                                              ; preds = %169
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-177:                                              ; preds = %96
-  %178 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %179 = load ptr, ptr %178, align 8, !tbaa !3
-  %180 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 noundef 3, ptr noundef %179, ptr noundef null, i32 noundef 1) #13
-  %181 = load ptr, ptr %178, align 8, !tbaa !3
-  call void @free(ptr noundef %181) #13
-  %182 = icmp eq ptr %180, null
-  br i1 %182, label %183, label %.thread1496
+178:                                              ; preds = %97
+  %179 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %180 = load ptr, ptr %179, align 8, !tbaa !3
+  %181 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 noundef 3, ptr noundef %180, ptr noundef null, i32 noundef 1) #13
+  %182 = load ptr, ptr %179, align 8, !tbaa !3
+  call void @free(ptr noundef %182) #13
+  %183 = icmp eq ptr %181, null
+  br i1 %183, label %184, label %.thread1496
 
-183:                                              ; preds = %177
+184:                                              ; preds = %178
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-184:                                              ; preds = %96
-  %185 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %186 = load ptr, ptr %185, align 8, !tbaa !3
-  %187 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 noundef 3, ptr noundef %186, ptr noundef null, i32 noundef 0) #13
-  %188 = load ptr, ptr %185, align 8, !tbaa !3
-  call void @free(ptr noundef %188) #13
-  %189 = icmp eq ptr %187, null
-  br i1 %189, label %190, label %.thread1496
+185:                                              ; preds = %97
+  %186 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %187 = load ptr, ptr %186, align 8, !tbaa !3
+  %188 = call ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 noundef 3, ptr noundef %187, ptr noundef null, i32 noundef 0) #13
+  %189 = load ptr, ptr %186, align 8, !tbaa !3
+  call void @free(ptr noundef %189) #13
+  %190 = icmp eq ptr %188, null
+  br i1 %190, label %191, label %.thread1496
 
-190:                                              ; preds = %184
+191:                                              ; preds = %185
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-191:                                              ; preds = %96
-  %192 = load ptr, ptr %.21213, align 8, !tbaa !3
+192:                                              ; preds = %97
+  %193 = load ptr, ptr %.21213, align 8, !tbaa !3
   br label %.thread1496
 
-193:                                              ; preds = %96
-  %194 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %195 = load ptr, ptr %194, align 8, !tbaa !3
+194:                                              ; preds = %97
+  %195 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %196 = load ptr, ptr %195, align 8, !tbaa !3
   br label %.thread1496
 
-196:                                              ; preds = %96
-  %197 = load i64, ptr %.21213, align 8, !tbaa !3
-  %198 = trunc i64 %197 to i32
-  %199 = getelementptr inbounds i8, ptr %.21213, i64 -24
-  %200 = load ptr, ptr %199, align 8, !tbaa !3
-  %201 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %202 = load ptr, ptr %201, align 8, !tbaa !3
-  %203 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %0, i32 noundef %198, ptr noundef %200, ptr noundef %202) #13
-  %204 = load ptr, ptr %199, align 8, !tbaa !3
-  call void @free(ptr noundef %204) #13
-  %205 = load ptr, ptr %201, align 8, !tbaa !3
+197:                                              ; preds = %97
+  %198 = load i64, ptr %.21213, align 8, !tbaa !3
+  %199 = trunc i64 %198 to i32
+  %200 = getelementptr inbounds i8, ptr %.21213, i64 -24
+  %201 = load ptr, ptr %200, align 8, !tbaa !3
+  %202 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %203 = load ptr, ptr %202, align 8, !tbaa !3
+  %204 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %0, i32 noundef %199, ptr noundef %201, ptr noundef %203) #13
+  %205 = load ptr, ptr %200, align 8, !tbaa !3
   call void @free(ptr noundef %205) #13
-  %206 = icmp eq ptr %203, null
-  br i1 %206, label %207, label %.thread1496
+  %206 = load ptr, ptr %202, align 8, !tbaa !3
+  call void @free(ptr noundef %206) #13
+  %207 = icmp eq ptr %204, null
+  br i1 %207, label %208, label %.thread1496
 
-207:                                              ; preds = %196
+208:                                              ; preds = %197
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-208:                                              ; preds = %96
-  %209 = call i32 @yara_yyget_lineno(ptr noundef %0) #13
-  store i32 %209, ptr %23, align 4, !tbaa !29
+209:                                              ; preds = %97
+  %210 = call i32 @yara_yyget_lineno(ptr noundef %0) #13
+  store i32 %210, ptr %23, align 4, !tbaa !29
   br label %.thread1496
 
-210:                                              ; preds = %96
-  %211 = load i64, ptr %.21213, align 8, !tbaa !3
-  %212 = trunc i64 %211 to i32
-  %213 = or i32 %212, 32
-  %214 = getelementptr inbounds i8, ptr %.21213, i64 -32
-  %215 = load ptr, ptr %214, align 8, !tbaa !3
-  %216 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %217 = load ptr, ptr %216, align 8, !tbaa !3
-  %218 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %0, i32 noundef %213, ptr noundef %215, ptr noundef %217) #13
-  %219 = load ptr, ptr %214, align 8, !tbaa !3
-  call void @free(ptr noundef %219) #13
-  %220 = load ptr, ptr %216, align 8, !tbaa !3
+211:                                              ; preds = %97
+  %212 = load i64, ptr %.21213, align 8, !tbaa !3
+  %213 = trunc i64 %212 to i32
+  %214 = or i32 %213, 32
+  %215 = getelementptr inbounds i8, ptr %.21213, i64 -32
+  %216 = load ptr, ptr %215, align 8, !tbaa !3
+  %217 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %218 = load ptr, ptr %217, align 8, !tbaa !3
+  %219 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %0, i32 noundef %214, ptr noundef %216, ptr noundef %218) #13
+  %220 = load ptr, ptr %215, align 8, !tbaa !3
   call void @free(ptr noundef %220) #13
-  %221 = icmp eq ptr %218, null
-  br i1 %221, label %222, label %.thread1496
+  %221 = load ptr, ptr %217, align 8, !tbaa !3
+  call void @free(ptr noundef %221) #13
+  %222 = icmp eq ptr %219, null
+  br i1 %222, label %223, label %.thread1496
 
-222:                                              ; preds = %210
+223:                                              ; preds = %211
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-223:                                              ; preds = %96
-  %224 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %225 = load ptr, ptr %224, align 8, !tbaa !3
-  %226 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %227 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %0, i32 noundef 2, ptr noundef %225, ptr noundef %226) #13
-  %228 = load ptr, ptr %224, align 8, !tbaa !3
-  call void @free(ptr noundef %228) #13
-  %229 = load ptr, ptr %.21213, align 8, !tbaa !3
+224:                                              ; preds = %97
+  %225 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %226 = load ptr, ptr %225, align 8, !tbaa !3
+  %227 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %228 = call ptr @yr_parser_reduce_string_declaration(ptr noundef %0, i32 noundef 2, ptr noundef %226, ptr noundef %227) #13
+  %229 = load ptr, ptr %225, align 8, !tbaa !3
   call void @free(ptr noundef %229) #13
-  %230 = icmp eq ptr %227, null
-  br i1 %230, label %231, label %.thread1496
+  %230 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %230) #13
+  %231 = icmp eq ptr %228, null
+  br i1 %231, label %232, label %.thread1496
 
-231:                                              ; preds = %223
+232:                                              ; preds = %224
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-232:                                              ; preds = %96
-  %233 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %234 = load i64, ptr %233, align 8, !tbaa !3
-  %235 = load i64, ptr %.21213, align 8, !tbaa !3
-  %236 = or i64 %235, %234
-  %237 = inttoptr i64 %236 to ptr
+233:                                              ; preds = %97
+  %234 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %235 = load i64, ptr %234, align 8, !tbaa !3
+  %236 = load i64, ptr %.21213, align 8, !tbaa !3
+  %237 = or i64 %236, %235
+  %238 = inttoptr i64 %237 to ptr
   br label %.thread1496
 
-238:                                              ; preds = %96
+239:                                              ; preds = %97
   br label %.thread1496
 
-239:                                              ; preds = %96
+240:                                              ; preds = %97
   br label %.thread1496
 
-240:                                              ; preds = %96
+241:                                              ; preds = %97
   br label %.thread1496
 
-241:                                              ; preds = %96
+242:                                              ; preds = %97
   br label %.thread1496
 
-242:                                              ; preds = %96
+243:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %243 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %244 = call i32 @yr_parser_lookup_loop_variable(ptr noundef %0, ptr noundef %243) #13
-  %245 = icmp sgt i32 %244, -1
-  br i1 %245, label %246, label %250
+  %244 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %245 = call i32 @yr_parser_lookup_loop_variable(ptr noundef %0, ptr noundef %244) #13
+  %246 = icmp sgt i32 %245, -1
+  br i1 %246, label %247, label %251
 
-246:                                              ; preds = %242
-  %247 = shl nsw i32 %244, 2
-  %248 = zext nneg i32 %247 to i64
-  %249 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 41, i64 noundef %248, ptr noundef null) #13
+247:                                              ; preds = %243
+  %248 = shl nsw i32 %245, 2
+  %249 = zext nneg i32 %248 to i64
+  %250 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 41, i64 noundef %249, ptr noundef null) #13
   br label %.sink.split
 
-250:                                              ; preds = %242
-  %251 = load ptr, ptr %19, align 8, !tbaa !30
-  %252 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %253 = call ptr @yr_hash_table_lookup(ptr noundef %251, ptr noundef %252, ptr noundef null) #13
-  %254 = icmp eq ptr %253, null
-  br i1 %254, label %255, label %.thread1509
+251:                                              ; preds = %243
+  %252 = load ptr, ptr %19, align 8, !tbaa !30
+  %253 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %254 = call ptr @yr_hash_table_lookup(ptr noundef %252, ptr noundef %253, ptr noundef null) #13
+  %255 = icmp eq ptr %254, null
+  br i1 %255, label %256, label %.thread1509
 
-255:                                              ; preds = %250
-  %256 = load ptr, ptr %20, align 8, !tbaa !31
-  %257 = load ptr, ptr %256, align 8, !tbaa !3
-  %258 = load ptr, ptr %19, align 8, !tbaa !30
-  %259 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %260 = call ptr @yr_hash_table_lookup(ptr noundef %258, ptr noundef %259, ptr noundef %257) #13
-  %.not1410 = icmp eq ptr %260, null
-  br i1 %.not1410, label %269, label %.thread1509
+256:                                              ; preds = %251
+  %257 = load ptr, ptr %20, align 8, !tbaa !31
+  %258 = load ptr, ptr %257, align 8, !tbaa !3
+  %259 = load ptr, ptr %19, align 8, !tbaa !30
+  %260 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %261 = call ptr @yr_hash_table_lookup(ptr noundef %259, ptr noundef %260, ptr noundef %258) #13
+  %.not1410 = icmp eq ptr %261, null
+  br i1 %.not1410, label %270, label %.thread1509
 
-.thread1509:                                      ; preds = %250, %255
-  %.012271512 = phi ptr [ %260, %255 ], [ %253, %250 ]
-  %261 = load ptr, ptr %21, align 8, !tbaa !32
-  %262 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %263 = call i32 @yr_arena_write_string(ptr noundef %261, ptr noundef %262, ptr noundef nonnull %9) #13
-  store i32 %263, ptr %13, align 8, !tbaa !10
-  %264 = icmp eq i32 %263, 0
-  br i1 %264, label %265, label %281
+.thread1509:                                      ; preds = %251, %256
+  %.012271512 = phi ptr [ %261, %256 ], [ %254, %251 ]
+  %262 = load ptr, ptr %21, align 8, !tbaa !32
+  %263 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %264 = call i32 @yr_arena_write_string(ptr noundef %262, ptr noundef %263, ptr noundef nonnull %9) #13
+  store i32 %264, ptr %13, align 8, !tbaa !10
+  %265 = icmp eq i32 %264, 0
+  br i1 %265, label %266, label %282
 
-265:                                              ; preds = %.thread1509
-  %266 = load ptr, ptr %9, align 8, !tbaa !33
-  %267 = ptrtoint ptr %266 to i64
-  %268 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 25, i64 noundef %267, ptr noundef null) #13
+266:                                              ; preds = %.thread1509
+  %267 = load ptr, ptr %9, align 8, !tbaa !33
+  %268 = ptrtoint ptr %267 to i64
+  %269 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 25, i64 noundef %268, ptr noundef null) #13
   br label %.sink.split
 
-269:                                              ; preds = %255
-  %270 = load ptr, ptr %22, align 8, !tbaa !34
-  %271 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %272 = load ptr, ptr %20, align 8, !tbaa !31
-  %273 = load ptr, ptr %272, align 8, !tbaa !3
-  %274 = call ptr @yr_hash_table_lookup(ptr noundef %270, ptr noundef %271, ptr noundef %273) #13
-  %.not1411 = icmp eq ptr %274, null
-  br i1 %.not1411, label %278, label %275
+270:                                              ; preds = %256
+  %271 = load ptr, ptr %22, align 8, !tbaa !34
+  %272 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %273 = load ptr, ptr %20, align 8, !tbaa !31
+  %274 = load ptr, ptr %273, align 8, !tbaa !3
+  %275 = call ptr @yr_hash_table_lookup(ptr noundef %271, ptr noundef %272, ptr noundef %274) #13
+  %.not1411 = icmp eq ptr %275, null
+  br i1 %.not1411, label %279, label %276
 
-275:                                              ; preds = %269
-  %276 = ptrtoint ptr %274 to i64
-  %277 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 35, i64 noundef %276, ptr noundef null) #13
+276:                                              ; preds = %270
+  %277 = ptrtoint ptr %275 to i64
+  %278 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 35, i64 noundef %277, ptr noundef null) #13
   br label %.sink.split
 
-278:                                              ; preds = %269
-  %279 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %280 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %279, i64 noundef 256) #13
+279:                                              ; preds = %270
+  %280 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %281 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %280, i64 noundef 256) #13
   br label %.sink.split
 
-.sink.split:                                      ; preds = %246, %265, %278, %275
-  %.sink = phi i32 [ %277, %275 ], [ 20, %278 ], [ %268, %265 ], [ %249, %246 ]
-  %.sroa.0.2.ph = phi ptr [ inttoptr (i64 -2 to ptr), %275 ], [ inttoptr (i64 -2 to ptr), %278 ], [ %.012271512, %265 ], [ inttoptr (i64 -1 to ptr), %246 ]
+.sink.split:                                      ; preds = %247, %266, %279, %276
+  %.sink = phi i32 [ %278, %276 ], [ 20, %279 ], [ %269, %266 ], [ %250, %247 ]
+  %.sroa.0.2.ph = phi ptr [ inttoptr (i64 -2 to ptr), %276 ], [ inttoptr (i64 -2 to ptr), %279 ], [ %.012271512, %266 ], [ inttoptr (i64 -1 to ptr), %247 ]
   store i32 %.sink, ptr %13, align 8, !tbaa !10
-  br label %281
+  br label %282
 
-281:                                              ; preds = %.sink.split, %.thread1509
+282:                                              ; preds = %.sink.split, %.thread1509
   %.sroa.0.2 = phi ptr [ %.012271512, %.thread1509 ], [ %.sroa.0.2.ph, %.sink.split ]
-  %282 = load ptr, ptr %.21213, align 8, !tbaa !3
-  call void @free(ptr noundef %282) #13
-  %283 = load i32, ptr %13, align 8, !tbaa !10
-  %.not1412 = icmp eq i32 %283, 0
-  br i1 %.not1412, label %.thread1513, label %284
+  %283 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %283) #13
+  %284 = load i32, ptr %13, align 8, !tbaa !10
+  %.not1412 = icmp eq i32 %284, 0
+  br i1 %.not1412, label %.thread1513, label %285
 
-.thread1513:                                      ; preds = %281
+.thread1513:                                      ; preds = %282
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread1496
 
-284:                                              ; preds = %281
+285:                                              ; preds = %282
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread1531
 
-285:                                              ; preds = %96
-  %286 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %287 = load ptr, ptr %286, align 8, !tbaa !3
-  %magicptr = ptrtoint ptr %287 to i64
-  switch i64 %magicptr, label %288 [
-    i64 -1, label %291
-    i64 -2, label %291
-    i64 0, label %291
+286:                                              ; preds = %97
+  %287 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %288 = load ptr, ptr %287, align 8, !tbaa !3
+  %magicptr = ptrtoint ptr %288 to i64
+  switch i64 %magicptr, label %289 [
+    i64 -1, label %292
+    i64 -2, label %292
+    i64 0, label %292
   ]
 
-288:                                              ; preds = %285
-  %289 = load i8, ptr %287, align 8, !tbaa !35
-  %290 = icmp eq i8 %289, 3
-  br i1 %290, label %293, label %291
+289:                                              ; preds = %286
+  %290 = load i8, ptr %288, align 8, !tbaa !35
+  %291 = icmp eq i8 %290, 3
+  br i1 %291, label %294, label %292
 
-291:                                              ; preds = %285, %285, %285, %288
-  %292 = getelementptr inbounds nuw i8, ptr %287, i64 8
-  br label %293
+292:                                              ; preds = %286, %286, %286, %289
+  %293 = getelementptr inbounds nuw i8, ptr %288, i64 8
+  br label %294
 
-293:                                              ; preds = %288, %291
-  %.sink1769.in = phi ptr [ %292, %291 ], [ %.21213, %288 ]
-  %storemerge = phi i32 [ 35, %291 ], [ 33, %288 ]
+294:                                              ; preds = %289, %292
+  %.sink1769.in = phi ptr [ %293, %292 ], [ %.21213, %289 ]
+  %storemerge = phi i32 [ 35, %292 ], [ 33, %289 ]
   %.sink1769 = load ptr, ptr %.sink1769.in, align 8, !tbaa !3
-  %294 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %.sink1769, i64 noundef 256) #13
+  %295 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %.sink1769, i64 noundef 256) #13
   store i32 %storemerge, ptr %13, align 8, !tbaa !10
-  %295 = load ptr, ptr %.21213, align 8, !tbaa !3
-  call void @free(ptr noundef %295) #13
-  %296 = load i32, ptr %13, align 8, !tbaa !10
-  %.not1409 = icmp eq i32 %296, 0
-  br i1 %.not1409, label %.thread1496, label %297
+  %296 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %296) #13
+  %297 = load i32, ptr %13, align 8, !tbaa !10
+  %.not1409 = icmp eq i32 %297, 0
+  br i1 %.not1409, label %.thread1496, label %298
 
-297:                                              ; preds = %293
+298:                                              ; preds = %294
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-298:                                              ; preds = %96
-  %299 = getelementptr inbounds i8, ptr %.21213, i64 -24
-  %300 = load ptr, ptr %299, align 8, !tbaa !3
-  %.not1407 = icmp eq ptr %300, null
-  br i1 %.not1407, label %.thread, label %301
+299:                                              ; preds = %97
+  %300 = getelementptr inbounds i8, ptr %.21213, i64 -24
+  %301 = load ptr, ptr %300, align 8, !tbaa !3
+  %.not1407 = icmp eq ptr %301, null
+  br i1 %.not1407, label %.thread, label %302
 
-301:                                              ; preds = %298
-  %302 = load i8, ptr %300, align 8, !tbaa !35
-  %303 = icmp eq i8 %302, 4
-  br i1 %303, label %307, label %.thread
+302:                                              ; preds = %299
+  %303 = load i8, ptr %301, align 8, !tbaa !35
+  %304 = icmp eq i8 %303, 4
+  br i1 %304, label %308, label %.thread
 
-.thread:                                          ; preds = %298, %301
-  %304 = getelementptr inbounds nuw i8, ptr %300, i64 8
-  %305 = load ptr, ptr %304, align 8, !tbaa !38
-  %306 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %305, i64 noundef 256) #13
+.thread:                                          ; preds = %299, %302
+  %305 = getelementptr inbounds nuw i8, ptr %301, i64 8
+  %306 = load ptr, ptr %305, align 8, !tbaa !38
+  %307 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %306, i64 noundef 256) #13
   store i32 36, ptr %13, align 8, !tbaa !10
-  br label %315
+  br label %316
 
-307:                                              ; preds = %301
-  %308 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 28, ptr noundef null) #13
-  store i32 %308, ptr %13, align 8, !tbaa !10
-  %309 = load ptr, ptr %299, align 8, !tbaa !3
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 32
-  %311 = load ptr, ptr %310, align 8, !tbaa !39
-  %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
-  %313 = load ptr, ptr %312, align 8, !tbaa !42
-  %314 = icmp eq i32 %308, 0
-  br i1 %314, label %.thread1496, label %315
+308:                                              ; preds = %302
+  %309 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 28, ptr noundef null) #13
+  store i32 %309, ptr %13, align 8, !tbaa !10
+  %310 = load ptr, ptr %300, align 8, !tbaa !3
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 32
+  %312 = load ptr, ptr %311, align 8, !tbaa !39
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
+  %314 = load ptr, ptr %313, align 8, !tbaa !42
+  %315 = icmp eq i32 %309, 0
+  br i1 %315, label %.thread1496, label %316
 
-315:                                              ; preds = %.thread, %307
+316:                                              ; preds = %.thread, %308
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-316:                                              ; preds = %96
-  %317 = getelementptr inbounds i8, ptr %.21213, i64 -24
-  %318 = load ptr, ptr %317, align 8, !tbaa !3
-  %.not1405 = icmp eq ptr %318, null
-  br i1 %.not1405, label %336, label %319
+317:                                              ; preds = %97
+  %318 = getelementptr inbounds i8, ptr %.21213, i64 -24
+  %319 = load ptr, ptr %318, align 8, !tbaa !3
+  %.not1405 = icmp eq ptr %319, null
+  br i1 %.not1405, label %337, label %320
 
-319:                                              ; preds = %316
-  %320 = load i8, ptr %318, align 8, !tbaa !35
-  %321 = icmp eq i8 %320, 5
-  br i1 %321, label %322, label %336
+320:                                              ; preds = %317
+  %321 = load i8, ptr %319, align 8, !tbaa !35
+  %322 = icmp eq i8 %321, 5
+  br i1 %322, label %323, label %337
 
-322:                                              ; preds = %319
-  %323 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %324 = load ptr, ptr %323, align 8, !tbaa !3
-  %325 = call i32 @yr_parser_check_types(ptr noundef %1, ptr noundef nonnull %318, ptr noundef %324) #13
-  store i32 %325, ptr %13, align 8, !tbaa !10
-  %326 = icmp eq i32 %325, 0
-  br i1 %326, label %327, label %332
+323:                                              ; preds = %320
+  %324 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %325 = load ptr, ptr %324, align 8, !tbaa !3
+  %326 = call i32 @yr_parser_check_types(ptr noundef %1, ptr noundef nonnull %319, ptr noundef %325) #13
+  store i32 %326, ptr %13, align 8, !tbaa !10
+  %327 = icmp eq i32 %326, 0
+  br i1 %327, label %328, label %333
 
-327:                                              ; preds = %322
-  %328 = load ptr, ptr %323, align 8, !tbaa !3
-  %329 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %328) #14
-  %sext = shl i64 %329, 32
-  %330 = ashr exact i64 %sext, 32
-  %331 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 24, i64 noundef %330, ptr noundef null) #13
-  store i32 %331, ptr %13, align 8, !tbaa !10
-  br label %332
+328:                                              ; preds = %323
+  %329 = load ptr, ptr %324, align 8, !tbaa !3
+  %330 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %329) #14
+  %sext = shl i64 %330, 32
+  %331 = ashr exact i64 %sext, 32
+  %332 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 24, i64 noundef %331, ptr noundef null) #13
+  store i32 %332, ptr %13, align 8, !tbaa !10
+  br label %333
 
-332:                                              ; preds = %327, %322
-  %333 = load ptr, ptr %317, align 8, !tbaa !3
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 40
-  %335 = load ptr, ptr %334, align 8, !tbaa !43
-  br label %340
+333:                                              ; preds = %328, %323
+  %334 = load ptr, ptr %318, align 8, !tbaa !3
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 40
+  %336 = load ptr, ptr %335, align 8, !tbaa !43
+  br label %341
 
-336:                                              ; preds = %319, %316
-  %337 = getelementptr inbounds nuw i8, ptr %318, i64 8
-  %338 = load ptr, ptr %337, align 8, !tbaa !38
-  %339 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %338, i64 noundef 256) #13
+337:                                              ; preds = %320, %317
+  %338 = getelementptr inbounds nuw i8, ptr %319, i64 8
+  %339 = load ptr, ptr %338, align 8, !tbaa !38
+  %340 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %339, i64 noundef 256) #13
   store i32 37, ptr %13, align 8, !tbaa !10
-  br label %340
+  br label %341
 
-340:                                              ; preds = %336, %332
-  %.sroa.0.4 = phi ptr [ %335, %332 ], [ %.sroa.0.0.copyload, %336 ]
-  %341 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %342 = load ptr, ptr %341, align 8, !tbaa !3
-  call void @free(ptr noundef %342) #13
-  %343 = load i32, ptr %13, align 8, !tbaa !10
-  %.not1406 = icmp eq i32 %343, 0
-  br i1 %.not1406, label %.thread1496, label %344
+341:                                              ; preds = %337, %333
+  %.sroa.0.4 = phi ptr [ %336, %333 ], [ %.sroa.0.0.copyload, %337 ]
+  %342 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %343 = load ptr, ptr %342, align 8, !tbaa !3
+  call void @free(ptr noundef %343) #13
+  %344 = load i32, ptr %13, align 8, !tbaa !10
+  %.not1406 = icmp eq i32 %344, 0
+  br i1 %.not1406, label %.thread1496, label %345
 
-344:                                              ; preds = %340
+345:                                              ; preds = %341
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-345:                                              ; preds = %96
-  %346 = call ptr @cli_safer_strdup(ptr noundef nonnull @.str) #13
+346:                                              ; preds = %97
+  %347 = call ptr @cli_safer_strdup(ptr noundef nonnull @.str) #13
   br label %.thread1496
 
-347:                                              ; preds = %96
-  %348 = call ptr @cli_max_malloc(i64 noundef 129) #13
-  %349 = load i8, ptr %.21213, align 8, !tbaa !3
-  %switch.tableidx = add i8 %349, -1
-  %350 = icmp ult i8 %switch.tableidx, 4
-  br i1 %350, label %switch.lookup, label %353
+348:                                              ; preds = %97
+  %349 = call ptr @cli_max_malloc(i64 noundef 129) #13
+  %350 = load i8, ptr %.21213, align 8, !tbaa !3
+  %switch.tableidx = add i8 %350, -1
+  %351 = icmp ult i8 %switch.tableidx, 4
+  br i1 %351, label %switch.lookup, label %354
 
-switch.lookup:                                    ; preds = %347
-  %351 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.yara_yyparse.3, i64 %351
+switch.lookup:                                    ; preds = %348
+  %352 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.yara_yyparse.3, i64 %352
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %352 = call i64 @cli_strlcpy(ptr noundef %348, ptr noundef nonnull %switch.load, i64 noundef 128) #13
-  br label %353
+  %353 = call i64 @cli_strlcpy(ptr noundef %349, ptr noundef nonnull %switch.load, i64 noundef 128) #13
+  br label %354
 
-353:                                              ; preds = %347, %switch.lookup
-  %354 = icmp eq ptr %348, null
-  br i1 %354, label %355, label %.thread1496
+354:                                              ; preds = %348, %switch.lookup
+  %355 = icmp eq ptr %349, null
+  br i1 %355, label %356, label %.thread1496
 
-355:                                              ; preds = %353
+356:                                              ; preds = %354
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-356:                                              ; preds = %96
-  %357 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %358 = load ptr, ptr %357, align 8, !tbaa !3
-  %359 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %358) #14
-  %360 = icmp eq i64 %359, 128
-  br i1 %360, label %.thread1711, label %361
+357:                                              ; preds = %97
+  %358 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %359 = load ptr, ptr %358, align 8, !tbaa !3
+  %360 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %359) #14
+  %361 = icmp eq i64 %360, 128
+  br i1 %361, label %.thread1711, label %362
 
-.thread1711:                                      ; preds = %356
+.thread1711:                                      ; preds = %357
   store i32 39, ptr %13, align 8, !tbaa !10
+  br label %368
+
+362:                                              ; preds = %357
+  %363 = load i8, ptr %.21213, align 8, !tbaa !3
+  %switch.tableidx1819 = add i8 %363, -1
+  %364 = icmp ult i8 %switch.tableidx1819, 4
+  br i1 %364, label %switch.lookup1820, label %367
+
+switch.lookup1820:                                ; preds = %362
+  %365 = zext nneg i8 %switch.tableidx1819 to i64
+  %switch.gep1821 = getelementptr inbounds nuw ptr, ptr @switch.table.yara_yyparse.3, i64 %365
+  %switch.load1822 = load ptr, ptr %switch.gep1821, align 8
+  %366 = call i64 @cli_strlcat(ptr noundef nonnull %359, ptr noundef nonnull %switch.load1822, i64 noundef 128) #13
   br label %367
 
-361:                                              ; preds = %356
-  %362 = load i8, ptr %.21213, align 8, !tbaa !3
-  %switch.tableidx1819 = add i8 %362, -1
-  %363 = icmp ult i8 %switch.tableidx1819, 4
-  br i1 %363, label %switch.lookup1820, label %366
-
-switch.lookup1820:                                ; preds = %361
-  %364 = zext nneg i8 %switch.tableidx1819 to i64
-  %switch.gep1821 = getelementptr inbounds nuw ptr, ptr @switch.table.yara_yyparse.3, i64 %364
-  %switch.load1822 = load ptr, ptr %switch.gep1821, align 8
-  %365 = call i64 @cli_strlcat(ptr noundef nonnull %358, ptr noundef nonnull %switch.load1822, i64 noundef 128) #13
-  br label %366
-
-366:                                              ; preds = %361, %switch.lookup1820
+367:                                              ; preds = %362, %switch.lookup1820
   %.pr1710 = load i32, ptr %13, align 8, !tbaa !10
   %.not1404 = icmp eq i32 %.pr1710, 0
-  br i1 %.not1404, label %368, label %367
+  br i1 %.not1404, label %369, label %368
 
-367:                                              ; preds = %.thread1711, %366
+368:                                              ; preds = %.thread1711, %367
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-368:                                              ; preds = %366
-  %369 = load ptr, ptr %357, align 8, !tbaa !3
+369:                                              ; preds = %367
+  %370 = load ptr, ptr %358, align 8, !tbaa !3
   br label %.thread1496
 
-370:                                              ; preds = %96
-  %371 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask = and i64 %371, -256
+371:                                              ; preds = %97
+  %372 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask = and i64 %372, -256
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.mask, 4
-  %372 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
+  %373 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
   br label %.thread1496
 
-373:                                              ; preds = %96
-  %374 = load i8, ptr %.21213, align 8, !tbaa !3
-  %375 = icmp eq i8 %374, 3
-  br i1 %375, label %376, label %379
+374:                                              ; preds = %97
+  %375 = load i8, ptr %.21213, align 8, !tbaa !3
+  %376 = icmp eq i8 %375, 3
+  br i1 %376, label %377, label %380
 
-376:                                              ; preds = %373
-  %377 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 13, ptr noundef null) #13
-  store i32 %377, ptr %13, align 8, !tbaa !10
-  %.not1403 = icmp eq i32 %377, 0
-  br i1 %.not1403, label %379, label %378
+377:                                              ; preds = %374
+  %378 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 13, ptr noundef null) #13
+  store i32 %378, ptr %13, align 8, !tbaa !10
+  %.not1403 = icmp eq i32 %378, 0
+  br i1 %.not1403, label %380, label %379
 
-378:                                              ; preds = %376
+379:                                              ; preds = %377
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-379:                                              ; preds = %376, %373
-  %380 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask115 = and i64 %380, -256
+380:                                              ; preds = %377, %374
+  %381 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask115 = and i64 %381, -256
   %.sroa.0.0.insert.insert116 = or disjoint i64 %.sroa.0.0.insert.mask115, 1
-  %381 = inttoptr i64 %.sroa.0.0.insert.insert116 to ptr
+  %382 = inttoptr i64 %.sroa.0.0.insert.insert116 to ptr
   br label %.thread1496
 
-382:                                              ; preds = %96
-  %383 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef 1, ptr noundef null) #13
-  store i32 %383, ptr %13, align 8, !tbaa !10
-  %.not1402 = icmp eq i32 %383, 0
-  br i1 %.not1402, label %385, label %384
+383:                                              ; preds = %97
+  %384 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef 1, ptr noundef null) #13
+  store i32 %384, ptr %13, align 8, !tbaa !10
+  %.not1402 = icmp eq i32 %384, 0
+  br i1 %.not1402, label %386, label %385
 
-384:                                              ; preds = %382
+385:                                              ; preds = %383
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-385:                                              ; preds = %382
-  %386 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask118 = and i64 %386, -256
+386:                                              ; preds = %383
+  %387 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask118 = and i64 %387, -256
   %.sroa.0.0.insert.insert119 = or disjoint i64 %.sroa.0.0.insert.mask118, 1
-  %387 = inttoptr i64 %.sroa.0.0.insert.insert119 to ptr
+  %388 = inttoptr i64 %.sroa.0.0.insert.insert119 to ptr
   br label %.thread1496
 
-388:                                              ; preds = %96
-  %389 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef 0, ptr noundef null) #13
-  store i32 %389, ptr %13, align 8, !tbaa !10
-  %.not1401 = icmp eq i32 %389, 0
-  br i1 %.not1401, label %391, label %390
+389:                                              ; preds = %97
+  %390 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef 0, ptr noundef null) #13
+  store i32 %390, ptr %13, align 8, !tbaa !10
+  %.not1401 = icmp eq i32 %390, 0
+  br i1 %.not1401, label %392, label %391
 
-390:                                              ; preds = %388
+391:                                              ; preds = %389
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-391:                                              ; preds = %388
-  %392 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask121 = and i64 %392, -256
+392:                                              ; preds = %389
+  %393 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask121 = and i64 %393, -256
   %.sroa.0.0.insert.insert122 = or disjoint i64 %.sroa.0.0.insert.mask121, 1
-  %393 = inttoptr i64 %.sroa.0.0.insert.insert122 to ptr
+  %394 = inttoptr i64 %.sroa.0.0.insert.insert122 to ptr
   br label %.thread1496
 
-394:                                              ; preds = %96
-  %395 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %396 = load i8, ptr %395, align 8, !tbaa !3
-  switch i8 %396, label %399 [
-    i8 3, label %400
-    i8 2, label %397
+395:                                              ; preds = %97
+  %396 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %397 = load i8, ptr %396, align 8, !tbaa !3
+  switch i8 %397, label %400 [
+    i8 3, label %401
+    i8 2, label %398
   ]
 
-397:                                              ; preds = %394
-  %398 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.5, i64 noundef 256) #13
-  br label %399
+398:                                              ; preds = %395
+  %399 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.5, i64 noundef 256) #13
+  br label %400
 
-399:                                              ; preds = %394, %397
+400:                                              ; preds = %395, %398
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-400:                                              ; preds = %394
-  %401 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %401, label %404 [
-    i8 4, label %405
+401:                                              ; preds = %395
+  %402 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %402, label %405 [
+    i8 4, label %406
     i8 2, label %.sink.split1772
-    i8 3, label %402
+    i8 3, label %403
   ]
 
-402:                                              ; preds = %400
+403:                                              ; preds = %401
   br label %.sink.split1772
 
-.sink.split1772:                                  ; preds = %400, %402
-  %.str.6.sink = phi ptr [ @.str.6, %402 ], [ @.str.5, %400 ]
-  %403 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull %.str.6.sink, i64 noundef 256) #13
-  br label %404
+.sink.split1772:                                  ; preds = %401, %403
+  %.str.6.sink = phi ptr [ @.str.6, %403 ], [ @.str.5, %401 ]
+  %404 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull %.str.6.sink, i64 noundef 256) #13
+  br label %405
 
-404:                                              ; preds = %.sink.split1772, %400
+405:                                              ; preds = %.sink.split1772, %401
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-405:                                              ; preds = %400
-  %406 = load i32, ptr %13, align 8, !tbaa !10
-  %407 = icmp eq i32 %406, 0
-  br i1 %407, label %408, label %.thread1522
+406:                                              ; preds = %401
+  %407 = load i32, ptr %13, align 8, !tbaa !10
+  %408 = icmp eq i32 %407, 0
+  br i1 %408, label %409, label %.thread1522
 
-408:                                              ; preds = %405
-  %409 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 54, ptr noundef null) #13
-  store i32 %409, ptr %13, align 8, !tbaa !10
-  %.not1400 = icmp eq i32 %409, 0
-  br i1 %.not1400, label %410, label %.thread1522
+409:                                              ; preds = %406
+  %410 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 54, ptr noundef null) #13
+  store i32 %410, ptr %13, align 8, !tbaa !10
+  %.not1400 = icmp eq i32 %410, 0
+  br i1 %.not1400, label %411, label %.thread1522
 
-.thread1522:                                      ; preds = %405, %408
+.thread1522:                                      ; preds = %406, %409
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-410:                                              ; preds = %408
-  %411 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask124 = and i64 %411, -256
+411:                                              ; preds = %409
+  %412 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask124 = and i64 %412, -256
   %.sroa.0.0.insert.insert125 = or disjoint i64 %.sroa.0.0.insert.mask124, 1
-  %412 = inttoptr i64 %.sroa.0.0.insert.insert125 to ptr
+  %413 = inttoptr i64 %.sroa.0.0.insert.insert125 to ptr
   br label %.thread1496
 
-413:                                              ; preds = %96
-  %414 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %415 = load i8, ptr %414, align 8, !tbaa !3
-  switch i8 %415, label %418 [
-    i8 3, label %419
-    i8 2, label %416
+414:                                              ; preds = %97
+  %415 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %416 = load i8, ptr %415, align 8, !tbaa !3
+  switch i8 %416, label %419 [
+    i8 3, label %420
+    i8 2, label %417
   ]
 
-416:                                              ; preds = %413
-  %417 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.7, i64 noundef 256) #13
-  br label %418
+417:                                              ; preds = %414
+  %418 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.7, i64 noundef 256) #13
+  br label %419
 
-418:                                              ; preds = %413, %416
+419:                                              ; preds = %414, %417
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-419:                                              ; preds = %413
-  %420 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %420, label %423 [
-    i8 3, label %424
-    i8 2, label %421
+420:                                              ; preds = %414
+  %421 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %421, label %424 [
+    i8 3, label %425
+    i8 2, label %422
   ]
 
-421:                                              ; preds = %419
-  %422 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.7, i64 noundef 256) #13
-  br label %423
+422:                                              ; preds = %420
+  %423 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.7, i64 noundef 256) #13
+  br label %424
 
-423:                                              ; preds = %419, %421
+424:                                              ; preds = %420, %422
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-424:                                              ; preds = %419
-  %425 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 53, ptr noundef null) #13
-  store i32 %425, ptr %13, align 8, !tbaa !10
-  %.not1397 = icmp eq i32 %425, 0
-  br i1 %.not1397, label %427, label %426
+425:                                              ; preds = %420
+  %426 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 53, ptr noundef null) #13
+  store i32 %426, ptr %13, align 8, !tbaa !10
+  %.not1397 = icmp eq i32 %426, 0
+  br i1 %.not1397, label %428, label %427
 
-426:                                              ; preds = %424
+427:                                              ; preds = %425
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-427:                                              ; preds = %424
-  %428 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask127 = and i64 %428, -256
+428:                                              ; preds = %425
+  %429 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask127 = and i64 %429, -256
   %.sroa.0.0.insert.insert128 = or disjoint i64 %.sroa.0.0.insert.mask127, 1
-  %429 = inttoptr i64 %.sroa.0.0.insert.insert128 to ptr
+  %430 = inttoptr i64 %.sroa.0.0.insert.insert128 to ptr
   br label %.thread1496
 
-430:                                              ; preds = %96
-  %431 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %432 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %431, i8 noundef signext 30) #13
-  %433 = load ptr, ptr %.21213, align 8, !tbaa !3
-  call void @free(ptr noundef %433) #13
-  %.not1394 = icmp eq i32 %432, 0
-  br i1 %.not1394, label %.thread1524, label %436
+431:                                              ; preds = %97
+  %432 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %433 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %432, i8 noundef signext 30) #13
+  %434 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %434) #13
+  %.not1394 = icmp eq i32 %433, 0
+  br i1 %.not1394, label %.thread1524, label %437
 
-.thread1524:                                      ; preds = %430
-  %434 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask130 = and i64 %434, -256
+.thread1524:                                      ; preds = %431
+  %435 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask130 = and i64 %435, -256
   %.sroa.0.0.insert.insert131 = or disjoint i64 %.sroa.0.0.insert.mask130, 1
-  %435 = inttoptr i64 %.sroa.0.0.insert.insert131 to ptr
+  %436 = inttoptr i64 %.sroa.0.0.insert.insert131 to ptr
   br label %.thread1496
 
-436:                                              ; preds = %430
+437:                                              ; preds = %431
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-437:                                              ; preds = %96
-  %438 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %438, label %441 [
-    i8 2, label %442
-    i8 3, label %439
+438:                                              ; preds = %97
+  %439 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %439, label %442 [
+    i8 2, label %443
+    i8 3, label %440
   ]
 
-439:                                              ; preds = %437
-  %440 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.10, i64 noundef 256) #13
-  br label %441
+440:                                              ; preds = %438
+  %441 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.10, i64 noundef 256) #13
+  br label %442
 
-441:                                              ; preds = %437, %439
+442:                                              ; preds = %438, %440
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-442:                                              ; preds = %437
-  %443 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %444 = load ptr, ptr %443, align 8, !tbaa !3
-  %445 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %444, i8 noundef signext 31) #13
-  store i32 %445, ptr %13, align 8, !tbaa !10
-  %446 = load ptr, ptr %443, align 8, !tbaa !3
-  call void @free(ptr noundef %446) #13
-  %447 = load i32, ptr %13, align 8, !tbaa !10
-  %.not1393 = icmp eq i32 %447, 0
-  br i1 %.not1393, label %449, label %448
+443:                                              ; preds = %438
+  %444 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %445 = load ptr, ptr %444, align 8, !tbaa !3
+  %446 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %445, i8 noundef signext 31) #13
+  store i32 %446, ptr %13, align 8, !tbaa !10
+  %447 = load ptr, ptr %444, align 8, !tbaa !3
+  call void @free(ptr noundef %447) #13
+  %448 = load i32, ptr %13, align 8, !tbaa !10
+  %.not1393 = icmp eq i32 %448, 0
+  br i1 %.not1393, label %450, label %449
 
-448:                                              ; preds = %442
+449:                                              ; preds = %443
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-449:                                              ; preds = %442
-  %450 = load i32, ptr %14, align 8, !tbaa !45
-  %451 = or i32 %450, 32
-  store i32 %451, ptr %14, align 8, !tbaa !45
-  %452 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask133 = and i64 %452, -256
+450:                                              ; preds = %443
+  %451 = load i32, ptr %14, align 8, !tbaa !45
+  %452 = or i32 %451, 32
+  store i32 %452, ptr %14, align 8, !tbaa !45
+  %453 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask133 = and i64 %453, -256
   %.sroa.0.0.insert.insert134 = or disjoint i64 %.sroa.0.0.insert.mask133, 1
-  %453 = inttoptr i64 %.sroa.0.0.insert.insert134 to ptr
+  %454 = inttoptr i64 %.sroa.0.0.insert.insert134 to ptr
   br label %.thread1496
 
-454:                                              ; preds = %96
-  %455 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %456 = load ptr, ptr %455, align 8, !tbaa !3
-  %457 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %456, i8 noundef signext 32) #13
-  store i32 %457, ptr %13, align 8, !tbaa !10
-  %458 = load ptr, ptr %455, align 8, !tbaa !3
-  call void @free(ptr noundef %458) #13
-  %459 = load i32, ptr %13, align 8, !tbaa !10
-  %.not1391 = icmp eq i32 %459, 0
-  br i1 %.not1391, label %461, label %460
+455:                                              ; preds = %97
+  %456 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %457 = load ptr, ptr %456, align 8, !tbaa !3
+  %458 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %457, i8 noundef signext 32) #13
+  store i32 %458, ptr %13, align 8, !tbaa !10
+  %459 = load ptr, ptr %456, align 8, !tbaa !3
+  call void @free(ptr noundef %459) #13
+  %460 = load i32, ptr %13, align 8, !tbaa !10
+  %.not1391 = icmp eq i32 %460, 0
+  br i1 %.not1391, label %462, label %461
 
-460:                                              ; preds = %454
+461:                                              ; preds = %455
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-461:                                              ; preds = %454
-  %462 = load i32, ptr %14, align 8, !tbaa !45
-  %463 = or i32 %462, 32
-  store i32 %463, ptr %14, align 8, !tbaa !45
-  %464 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask136 = and i64 %464, -256
+462:                                              ; preds = %455
+  %463 = load i32, ptr %14, align 8, !tbaa !45
+  %464 = or i32 %463, 32
+  store i32 %464, ptr %14, align 8, !tbaa !45
+  %465 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask136 = and i64 %465, -256
   %.sroa.0.0.insert.insert137 = or disjoint i64 %.sroa.0.0.insert.mask136, 1
-  %465 = inttoptr i64 %.sroa.0.0.insert.insert137 to ptr
+  %466 = inttoptr i64 %.sroa.0.0.insert.insert137 to ptr
   br label %.thread1496
 
-466:                                              ; preds = %96
-  %467 = load i32, ptr %15, align 8, !tbaa !46
-  %468 = icmp eq i32 %467, 4
-  br i1 %468, label %.thread1713, label %469
+467:                                              ; preds = %97
+  %468 = load i32, ptr %15, align 8, !tbaa !46
+  %469 = icmp eq i32 %468, 4
+  br i1 %469, label %.thread1713, label %470
 
-.thread1713:                                      ; preds = %466
+.thread1713:                                      ; preds = %467
   store i32 12, ptr %13, align 8, !tbaa !10
-  br label %471
+  br label %472
 
-469:                                              ; preds = %466
+470:                                              ; preds = %467
   %.pre1684 = load i32, ptr %13, align 8, !tbaa !10
-  %470 = icmp eq i32 %.pre1684, 0
-  br i1 %470, label %472, label %471
+  %471 = icmp eq i32 %.pre1684, 0
+  br i1 %471, label %473, label %472
 
-471:                                              ; preds = %.thread1713, %469
+472:                                              ; preds = %.thread1713, %470
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-472:                                              ; preds = %469
-  %473 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %474 = load ptr, ptr %473, align 8, !tbaa !3
-  %475 = call i32 @yr_parser_lookup_loop_variable(ptr noundef %0, ptr noundef %474) #13
-  %476 = icmp sgt i32 %475, -1
-  br i1 %476, label %.thread1528, label %479
+473:                                              ; preds = %470
+  %474 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %475 = load ptr, ptr %474, align 8, !tbaa !3
+  %476 = call i32 @yr_parser_lookup_loop_variable(ptr noundef %0, ptr noundef %475) #13
+  %477 = icmp sgt i32 %476, -1
+  br i1 %477, label %.thread1528, label %480
 
-.thread1528:                                      ; preds = %472
-  %477 = load ptr, ptr %473, align 8, !tbaa !3
-  %478 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %477, i64 noundef 256) #13
+.thread1528:                                      ; preds = %473
+  %478 = load ptr, ptr %474, align 8, !tbaa !3
+  %479 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %478, i64 noundef 256) #13
   store i32 13, ptr %13, align 8, !tbaa !10
-  br label %480
+  br label %481
 
-479:                                              ; preds = %472
+480:                                              ; preds = %473
   %.pr = load i32, ptr %13, align 8, !tbaa !10
   %.not1389 = icmp eq i32 %.pr, 0
-  br i1 %.not1389, label %481, label %480
+  br i1 %.not1389, label %482, label %481
 
-480:                                              ; preds = %.thread1528, %479
+481:                                              ; preds = %.thread1528, %480
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-481:                                              ; preds = %479
-  %482 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null) #13
-  store i32 %482, ptr %13, align 8, !tbaa !10
-  %.not1390 = icmp eq i32 %482, 0
-  br i1 %.not1390, label %.thread1496, label %483
+482:                                              ; preds = %480
+  %483 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null) #13
+  store i32 %483, ptr %13, align 8, !tbaa !10
+  %.not1390 = icmp eq i32 %483, 0
+  br i1 %.not1390, label %.thread1496, label %484
 
-483:                                              ; preds = %481
+484:                                              ; preds = %482
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-484:                                              ; preds = %96
-  %485 = load i32, ptr %15, align 8, !tbaa !46
-  %486 = shl nsw i32 %485, 2
+485:                                              ; preds = %97
+  %486 = load i32, ptr %15, align 8, !tbaa !46
+  %487 = shl nsw i32 %486, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %487 = or disjoint i32 %486, 1
-  %488 = sext i32 %487 to i64
-  %489 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 38, i64 noundef %488, ptr noundef null) #13
-  %490 = or disjoint i32 %486, 2
-  %491 = sext i32 %490 to i64
-  %492 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 38, i64 noundef %491, ptr noundef null) #13
-  %493 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %494 = load i64, ptr %493, align 8, !tbaa !3
-  %495 = icmp eq i64 %494, 1
-  br i1 %495, label %500, label %496
+  %488 = or disjoint i32 %487, 1
+  %489 = sext i32 %488 to i64
+  %490 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 38, i64 noundef %489, ptr noundef null) #13
+  %491 = or disjoint i32 %487, 2
+  %492 = sext i32 %491 to i64
+  %493 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 38, i64 noundef %492, ptr noundef null) #13
+  %494 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %495 = load i64, ptr %494, align 8, !tbaa !3
+  %496 = icmp eq i64 %495, 1
+  br i1 %496, label %501, label %497
 
-496:                                              ; preds = %484
-  %497 = or disjoint i32 %486, 3
-  %498 = sext i32 %497 to i64
-  %499 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 40, i64 noundef %498, ptr noundef nonnull %10) #13
-  br label %500
+497:                                              ; preds = %485
+  %498 = or disjoint i32 %487, 3
+  %499 = sext i32 %498 to i64
+  %500 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 40, i64 noundef %499, ptr noundef nonnull %10) #13
+  br label %501
 
-500:                                              ; preds = %484, %496
-  %.sink1774 = phi ptr [ null, %496 ], [ %10, %484 ]
-  %501 = sext i32 %486 to i64
-  %502 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 40, i64 noundef %501, ptr noundef %.sink1774) #13
-  %503 = load ptr, ptr %10, align 8, !tbaa !33
-  %504 = load i32, ptr %15, align 8, !tbaa !46
-  %505 = sext i32 %504 to i64
-  %506 = getelementptr inbounds ptr, ptr %17, i64 %505
-  store ptr %503, ptr %506, align 8, !tbaa !33
-  %507 = getelementptr inbounds i8, ptr %.21213, i64 -32
-  %508 = load ptr, ptr %507, align 8, !tbaa !3
-  %509 = getelementptr inbounds ptr, ptr %18, i64 %505
-  store ptr %508, ptr %509, align 8, !tbaa !33
-  %510 = add nsw i32 %504, 1
-  store i32 %510, ptr %15, align 8, !tbaa !46
+501:                                              ; preds = %485, %497
+  %.sink1774 = phi ptr [ null, %497 ], [ %10, %485 ]
+  %502 = sext i32 %487 to i64
+  %503 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 40, i64 noundef %502, ptr noundef %.sink1774) #13
+  %504 = load ptr, ptr %10, align 8, !tbaa !33
+  %505 = load i32, ptr %15, align 8, !tbaa !46
+  %506 = sext i32 %505 to i64
+  %507 = getelementptr inbounds ptr, ptr %17, i64 %506
+  store ptr %504, ptr %507, align 8, !tbaa !33
+  %508 = getelementptr inbounds i8, ptr %.21213, i64 -32
+  %509 = load ptr, ptr %508, align 8, !tbaa !3
+  %510 = getelementptr inbounds ptr, ptr %18, i64 %506
+  store ptr %509, ptr %510, align 8, !tbaa !33
+  %511 = add nsw i32 %505, 1
+  store i32 %511, ptr %15, align 8, !tbaa !46
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread1496
 
-511:                                              ; preds = %96
-  %512 = load i32, ptr %15, align 8, !tbaa !46
-  %513 = add nsw i32 %512, -1
-  store i32 %513, ptr %15, align 8, !tbaa !46
-  %514 = shl nsw i32 %513, 2
-  %515 = or disjoint i32 %514, 1
-  %516 = sext i32 %515 to i64
-  %517 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 39, i64 noundef %516, ptr noundef null) #13
-  %518 = or disjoint i32 %514, 2
-  %519 = sext i32 %518 to i64
-  %520 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 37, i64 noundef %519, ptr noundef null) #13
-  %521 = getelementptr inbounds i8, ptr %.21213, i64 -40
-  %522 = load i64, ptr %521, align 8, !tbaa !3
-  %523 = icmp eq i64 %522, 1
-  br i1 %523, label %524, label %531
+512:                                              ; preds = %97
+  %513 = load i32, ptr %15, align 8, !tbaa !46
+  %514 = add nsw i32 %513, -1
+  store i32 %514, ptr %15, align 8, !tbaa !46
+  %515 = shl nsw i32 %514, 2
+  %516 = or disjoint i32 %515, 1
+  %517 = sext i32 %516 to i64
+  %518 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 39, i64 noundef %517, ptr noundef null) #13
+  %519 = or disjoint i32 %515, 2
+  %520 = sext i32 %519 to i64
+  %521 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 37, i64 noundef %520, ptr noundef null) #13
+  %522 = getelementptr inbounds i8, ptr %.21213, i64 -40
+  %523 = load i64, ptr %522, align 8, !tbaa !3
+  %524 = icmp eq i64 %523, 1
+  br i1 %524, label %525, label %532
 
-524:                                              ; preds = %511
-  %525 = load i32, ptr %15, align 8, !tbaa !46
-  %526 = sext i32 %525 to i64
-  %527 = getelementptr inbounds ptr, ptr %17, i64 %526
-  %528 = load ptr, ptr %527, align 8, !tbaa !33
-  %529 = ptrtoint ptr %528 to i64
-  %530 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 43, i64 noundef %529, ptr noundef null) #13
-  br label %546
+525:                                              ; preds = %512
+  %526 = load i32, ptr %15, align 8, !tbaa !46
+  %527 = sext i32 %526 to i64
+  %528 = getelementptr inbounds ptr, ptr %17, i64 %527
+  %529 = load ptr, ptr %528, align 8, !tbaa !33
+  %530 = ptrtoint ptr %529 to i64
+  %531 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 43, i64 noundef %530, ptr noundef null) #13
+  br label %547
 
-531:                                              ; preds = %511
-  %532 = sext i32 %514 to i64
-  %533 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 37, i64 noundef %532, ptr noundef null) #13
-  %534 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 41, i64 noundef %532, ptr noundef null) #13
-  %535 = or disjoint i32 %514, 3
-  %536 = sext i32 %535 to i64
-  %537 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 41, i64 noundef %536, ptr noundef null) #13
-  %538 = load i32, ptr %15, align 8, !tbaa !46
-  %539 = sext i32 %538 to i64
-  %540 = getelementptr inbounds ptr, ptr %17, i64 %539
-  %541 = load ptr, ptr %540, align 8, !tbaa !33
-  %542 = ptrtoint ptr %541 to i64
-  %543 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 44, i64 noundef %542, ptr noundef null) #13
-  %544 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 23, ptr noundef null) #13
+532:                                              ; preds = %512
+  %533 = sext i32 %515 to i64
+  %534 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 37, i64 noundef %533, ptr noundef null) #13
+  %535 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 41, i64 noundef %533, ptr noundef null) #13
+  %536 = or disjoint i32 %515, 3
+  %537 = sext i32 %536 to i64
+  %538 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 41, i64 noundef %537, ptr noundef null) #13
+  %539 = load i32, ptr %15, align 8, !tbaa !46
+  %540 = sext i32 %539 to i64
+  %541 = getelementptr inbounds ptr, ptr %17, i64 %540
+  %542 = load ptr, ptr %541, align 8, !tbaa !33
+  %543 = ptrtoint ptr %542 to i64
+  %544 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 44, i64 noundef %543, ptr noundef null) #13
   %545 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 23, ptr noundef null) #13
-  br label %546
+  %546 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 23, ptr noundef null) #13
+  br label %547
 
-546:                                              ; preds = %531, %524
-  %547 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 23, ptr noundef null) #13
-  %548 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 42, i64 noundef %519, ptr noundef null) #13
-  %549 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 41, i64 noundef %516, ptr noundef null) #13
-  %550 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 7, ptr noundef null) #13
-  %551 = load i32, ptr %15, align 8, !tbaa !46
-  %552 = sext i32 %551 to i64
-  %553 = getelementptr inbounds ptr, ptr %18, i64 %552
-  store ptr null, ptr %553, align 8, !tbaa !33
-  %554 = getelementptr inbounds i8, ptr %.21213, i64 -64
-  %555 = load ptr, ptr %554, align 8, !tbaa !3
-  call void @free(ptr noundef %555) #13
-  %556 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask139 = and i64 %556, -256
+547:                                              ; preds = %532, %525
+  %548 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 23, ptr noundef null) #13
+  %549 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 42, i64 noundef %520, ptr noundef null) #13
+  %550 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 41, i64 noundef %517, ptr noundef null) #13
+  %551 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 7, ptr noundef null) #13
+  %552 = load i32, ptr %15, align 8, !tbaa !46
+  %553 = sext i32 %552 to i64
+  %554 = getelementptr inbounds ptr, ptr %18, i64 %553
+  store ptr null, ptr %554, align 8, !tbaa !33
+  %555 = getelementptr inbounds i8, ptr %.21213, i64 -64
+  %556 = load ptr, ptr %555, align 8, !tbaa !3
+  call void @free(ptr noundef %556) #13
+  %557 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask139 = and i64 %557, -256
   %.sroa.0.0.insert.insert140 = or disjoint i64 %.sroa.0.0.insert.mask139, 1
-  %557 = inttoptr i64 %.sroa.0.0.insert.insert140 to ptr
+  %558 = inttoptr i64 %.sroa.0.0.insert.insert140 to ptr
   br label %.thread1496
 
-558:                                              ; preds = %96
-  %559 = load i32, ptr %15, align 8, !tbaa !46
-  %560 = shl nsw i32 %559, 2
+559:                                              ; preds = %97
+  %560 = load i32, ptr %15, align 8, !tbaa !46
+  %561 = shl nsw i32 %560, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %561 = icmp eq i32 %559, 4
-  br i1 %561, label %562, label %563
+  %562 = icmp eq i32 %560, 4
+  br i1 %562, label %563, label %564
 
-562:                                              ; preds = %558
+563:                                              ; preds = %559
   store i32 12, ptr %13, align 8, !tbaa !10
-  br label %563
+  br label %564
 
-563:                                              ; preds = %562, %558
-  %564 = load i32, ptr %16, align 4, !tbaa !47
-  %.not1386 = icmp eq i32 %564, -1
-  br i1 %.not1386, label %565, label %.thread1715
+564:                                              ; preds = %563, %559
+  %565 = load i32, ptr %16, align 4, !tbaa !47
+  %.not1386 = icmp eq i32 %565, -1
+  br i1 %.not1386, label %566, label %.thread1715
 
-.thread1715:                                      ; preds = %563
+.thread1715:                                      ; preds = %564
   store i32 32, ptr %13, align 8, !tbaa !10
-  br label %581
+  br label %582
 
-565:                                              ; preds = %563
+566:                                              ; preds = %564
   %.pre1682 = load i32, ptr %13, align 8, !tbaa !10
-  %566 = icmp eq i32 %.pre1682, 0
-  br i1 %566, label %.thread1534, label %581
+  %567 = icmp eq i32 %.pre1682, 0
+  br i1 %567, label %.thread1534, label %582
 
-.thread1534:                                      ; preds = %565
-  %567 = or disjoint i32 %560, 1
-  %568 = sext i32 %567 to i64
-  %569 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 38, i64 noundef %568, ptr noundef null) #13
-  %570 = or disjoint i32 %560, 2
-  %571 = sext i32 %570 to i64
-  %572 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 38, i64 noundef %571, ptr noundef null) #13
-  %573 = sext i32 %560 to i64
-  %574 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 40, i64 noundef %573, ptr noundef nonnull %11) #13
-  store i32 %560, ptr %16, align 4, !tbaa !47
-  %575 = load ptr, ptr %11, align 8, !tbaa !33
-  %576 = load i32, ptr %15, align 8, !tbaa !46
-  %577 = sext i32 %576 to i64
-  %578 = getelementptr inbounds ptr, ptr %17, i64 %577
-  store ptr %575, ptr %578, align 8, !tbaa !33
-  %579 = getelementptr inbounds ptr, ptr %18, i64 %577
-  store ptr null, ptr %579, align 8, !tbaa !33
-  %580 = add nsw i32 %576, 1
-  store i32 %580, ptr %15, align 8, !tbaa !46
+.thread1534:                                      ; preds = %566
+  %568 = or disjoint i32 %561, 1
+  %569 = sext i32 %568 to i64
+  %570 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 38, i64 noundef %569, ptr noundef null) #13
+  %571 = or disjoint i32 %561, 2
+  %572 = sext i32 %571 to i64
+  %573 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 38, i64 noundef %572, ptr noundef null) #13
+  %574 = sext i32 %561 to i64
+  %575 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 40, i64 noundef %574, ptr noundef nonnull %11) #13
+  store i32 %561, ptr %16, align 4, !tbaa !47
+  %576 = load ptr, ptr %11, align 8, !tbaa !33
+  %577 = load i32, ptr %15, align 8, !tbaa !46
+  %578 = sext i32 %577 to i64
+  %579 = getelementptr inbounds ptr, ptr %17, i64 %578
+  store ptr %576, ptr %579, align 8, !tbaa !33
+  %580 = getelementptr inbounds ptr, ptr %18, i64 %578
+  store ptr null, ptr %580, align 8, !tbaa !33
+  %581 = add nsw i32 %577, 1
+  store i32 %581, ptr %15, align 8, !tbaa !46
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread1496
 
-581:                                              ; preds = %.thread1715, %565
+582:                                              ; preds = %.thread1715, %566
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread1531
 
-582:                                              ; preds = %96
-  %583 = load i32, ptr %15, align 8, !tbaa !46
-  %584 = add nsw i32 %583, -1
-  store i32 %584, ptr %15, align 8, !tbaa !46
+583:                                              ; preds = %97
+  %584 = load i32, ptr %15, align 8, !tbaa !46
+  %585 = add nsw i32 %584, -1
+  store i32 %585, ptr %15, align 8, !tbaa !46
   store i32 -1, ptr %16, align 4, !tbaa !47
-  %585 = shl nsw i32 %584, 2
-  %586 = or disjoint i32 %585, 1
-  %587 = sext i32 %586 to i64
-  %588 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 39, i64 noundef %587, ptr noundef null) #13
-  %589 = or disjoint i32 %585, 2
-  %590 = sext i32 %589 to i64
-  %591 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 37, i64 noundef %590, ptr noundef null) #13
-  %592 = load i32, ptr %15, align 8, !tbaa !46
-  %593 = sext i32 %592 to i64
-  %594 = getelementptr inbounds ptr, ptr %17, i64 %593
-  %595 = load ptr, ptr %594, align 8, !tbaa !33
-  %596 = ptrtoint ptr %595 to i64
-  %597 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 43, i64 noundef %596, ptr noundef null) #13
-  %598 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 23, ptr noundef null) #13
-  %599 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 42, i64 noundef %590, ptr noundef null) #13
-  %600 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 41, i64 noundef %587, ptr noundef null) #13
-  %601 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 7, ptr noundef null) #13
-  %602 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask142 = and i64 %602, -256
+  %586 = shl nsw i32 %585, 2
+  %587 = or disjoint i32 %586, 1
+  %588 = sext i32 %587 to i64
+  %589 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 39, i64 noundef %588, ptr noundef null) #13
+  %590 = or disjoint i32 %586, 2
+  %591 = sext i32 %590 to i64
+  %592 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 37, i64 noundef %591, ptr noundef null) #13
+  %593 = load i32, ptr %15, align 8, !tbaa !46
+  %594 = sext i32 %593 to i64
+  %595 = getelementptr inbounds ptr, ptr %17, i64 %594
+  %596 = load ptr, ptr %595, align 8, !tbaa !33
+  %597 = ptrtoint ptr %596 to i64
+  %598 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 43, i64 noundef %597, ptr noundef null) #13
+  %599 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 23, ptr noundef null) #13
+  %600 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 42, i64 noundef %591, ptr noundef null) #13
+  %601 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 41, i64 noundef %588, ptr noundef null) #13
+  %602 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 7, ptr noundef null) #13
+  %603 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask142 = and i64 %603, -256
   %.sroa.0.0.insert.insert143 = or disjoint i64 %.sroa.0.0.insert.mask142, 1
-  %603 = inttoptr i64 %.sroa.0.0.insert.insert143 to ptr
+  %604 = inttoptr i64 %.sroa.0.0.insert.insert143 to ptr
   br label %.thread1496
 
-604:                                              ; preds = %96
-  %605 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 34, ptr noundef null) #13
-  %606 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask145 = and i64 %606, -256
+605:                                              ; preds = %97
+  %606 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 34, ptr noundef null) #13
+  %607 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask145 = and i64 %607, -256
   %.sroa.0.0.insert.insert146 = or disjoint i64 %.sroa.0.0.insert.mask145, 1
-  %607 = inttoptr i64 %.sroa.0.0.insert.insert146 to ptr
+  %608 = inttoptr i64 %.sroa.0.0.insert.insert146 to ptr
   br label %.thread1496
 
-608:                                              ; preds = %96
-  %609 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 4, ptr noundef null) #13
-  %610 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask148 = and i64 %610, -256
+609:                                              ; preds = %97
+  %610 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 4, ptr noundef null) #13
+  %611 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask148 = and i64 %611, -256
   %.sroa.0.0.insert.insert149 = or disjoint i64 %.sroa.0.0.insert.mask148, 1
-  %611 = inttoptr i64 %.sroa.0.0.insert.insert149 to ptr
+  %612 = inttoptr i64 %.sroa.0.0.insert.insert149 to ptr
   br label %.thread1496
 
-612:                                              ; preds = %96
-  %613 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 1, ptr noundef null) #13
-  %614 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask151 = and i64 %614, -256
+613:                                              ; preds = %97
+  %614 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 1, ptr noundef null) #13
+  %615 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask151 = and i64 %615, -256
   %.sroa.0.0.insert.insert152 = or disjoint i64 %.sroa.0.0.insert.mask151, 1
-  %615 = inttoptr i64 %.sroa.0.0.insert.insert152 to ptr
+  %616 = inttoptr i64 %.sroa.0.0.insert.insert152 to ptr
   br label %.thread1496
 
-616:                                              ; preds = %96
-  %617 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %618 = load i8, ptr %617, align 8, !tbaa !3
-  switch i8 %618, label %621 [
-    i8 1, label %622
+617:                                              ; preds = %97
+  %618 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %619 = load i8, ptr %618, align 8, !tbaa !3
+  switch i8 %619, label %622 [
+    i8 1, label %623
     i8 2, label %.sink.split1775
-    i8 3, label %619
+    i8 3, label %620
   ]
 
-619:                                              ; preds = %616
+620:                                              ; preds = %617
   br label %.sink.split1775
 
-.sink.split1775:                                  ; preds = %616, %619
-  %.str.12.sink = phi ptr [ @.str.12, %619 ], [ @.str.11, %616 ]
-  %620 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull %.str.12.sink, i64 noundef 256) #13
-  br label %621
+.sink.split1775:                                  ; preds = %617, %620
+  %.str.12.sink = phi ptr [ @.str.12, %620 ], [ @.str.11, %617 ]
+  %621 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull %.str.12.sink, i64 noundef 256) #13
+  br label %622
 
-621:                                              ; preds = %.sink.split1775, %616
+622:                                              ; preds = %.sink.split1775, %617
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-622:                                              ; preds = %616
-  %623 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 2, ptr noundef null) #13
-  %624 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask154 = and i64 %624, -256
+623:                                              ; preds = %617
+  %624 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 2, ptr noundef null) #13
+  %625 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask154 = and i64 %625, -256
   %.sroa.0.0.insert.insert155 = or disjoint i64 %.sroa.0.0.insert.mask154, 1
-  %625 = inttoptr i64 %.sroa.0.0.insert.insert155 to ptr
+  %626 = inttoptr i64 %.sroa.0.0.insert.insert155 to ptr
   br label %.thread1496
 
-626:                                              ; preds = %96
-  %627 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %628 = load i8, ptr %627, align 8, !tbaa !3
-  switch i8 %628, label %631 [
-    i8 2, label %632
-    i8 3, label %629
+627:                                              ; preds = %97
+  %628 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %629 = load i8, ptr %628, align 8, !tbaa !3
+  switch i8 %629, label %632 [
+    i8 2, label %633
+    i8 3, label %630
   ]
 
-629:                                              ; preds = %626
-  %630 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.14, i64 noundef 256) #13
-  br label %631
+630:                                              ; preds = %627
+  %631 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.14, i64 noundef 256) #13
+  br label %632
 
-631:                                              ; preds = %626, %629
+632:                                              ; preds = %627, %630
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-632:                                              ; preds = %626
-  %633 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %633, label %636 [
-    i8 2, label %637
-    i8 3, label %634
+633:                                              ; preds = %627
+  %634 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %634, label %637 [
+    i8 2, label %638
+    i8 3, label %635
   ]
 
-634:                                              ; preds = %632
-  %635 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.14, i64 noundef 256) #13
-  br label %636
+635:                                              ; preds = %633
+  %636 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.14, i64 noundef 256) #13
+  br label %637
 
-636:                                              ; preds = %632, %634
+637:                                              ; preds = %633, %635
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-637:                                              ; preds = %632
-  %638 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 5, ptr noundef null) #13
-  %639 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask157 = and i64 %639, -256
+638:                                              ; preds = %633
+  %639 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 5, ptr noundef null) #13
+  %640 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask157 = and i64 %640, -256
   %.sroa.0.0.insert.insert158 = or disjoint i64 %.sroa.0.0.insert.mask157, 1
-  %640 = inttoptr i64 %.sroa.0.0.insert.insert158 to ptr
+  %641 = inttoptr i64 %.sroa.0.0.insert.insert158 to ptr
   br label %.thread1496
 
-641:                                              ; preds = %96
-  %642 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %643 = load i8, ptr %642, align 8, !tbaa !3
-  switch i8 %643, label %646 [
-    i8 2, label %647
-    i8 3, label %644
+642:                                              ; preds = %97
+  %643 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %644 = load i8, ptr %643, align 8, !tbaa !3
+  switch i8 %644, label %647 [
+    i8 2, label %648
+    i8 3, label %645
   ]
 
-644:                                              ; preds = %641
-  %645 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.16, i64 noundef 256) #13
-  br label %646
+645:                                              ; preds = %642
+  %646 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.16, i64 noundef 256) #13
+  br label %647
 
-646:                                              ; preds = %641, %644
+647:                                              ; preds = %642, %645
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-647:                                              ; preds = %641
-  %648 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %648, label %651 [
-    i8 2, label %652
-    i8 3, label %649
+648:                                              ; preds = %642
+  %649 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %649, label %652 [
+    i8 2, label %653
+    i8 3, label %650
   ]
 
-649:                                              ; preds = %647
-  %650 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.16, i64 noundef 256) #13
-  br label %651
+650:                                              ; preds = %648
+  %651 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.16, i64 noundef 256) #13
+  br label %652
 
-651:                                              ; preds = %647, %649
+652:                                              ; preds = %648, %650
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-652:                                              ; preds = %647
-  %653 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 6, ptr noundef null) #13
-  %654 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask160 = and i64 %654, -256
+653:                                              ; preds = %648
+  %654 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 6, ptr noundef null) #13
+  %655 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask160 = and i64 %655, -256
   %.sroa.0.0.insert.insert161 = or disjoint i64 %.sroa.0.0.insert.mask160, 1
-  %655 = inttoptr i64 %.sroa.0.0.insert.insert161 to ptr
+  %656 = inttoptr i64 %.sroa.0.0.insert.insert161 to ptr
   br label %.thread1496
 
-656:                                              ; preds = %96
-  %657 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %658 = load i8, ptr %657, align 8, !tbaa !3
-  switch i8 %658, label %661 [
-    i8 2, label %662
-    i8 3, label %659
+657:                                              ; preds = %97
+  %658 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %659 = load i8, ptr %658, align 8, !tbaa !3
+  switch i8 %659, label %662 [
+    i8 2, label %663
+    i8 3, label %660
   ]
 
-659:                                              ; preds = %656
-  %660 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.18, i64 noundef 256) #13
-  br label %661
+660:                                              ; preds = %657
+  %661 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.18, i64 noundef 256) #13
+  br label %662
 
-661:                                              ; preds = %656, %659
+662:                                              ; preds = %657, %660
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-662:                                              ; preds = %656
-  %663 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %663, label %666 [
-    i8 2, label %667
-    i8 3, label %664
+663:                                              ; preds = %657
+  %664 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %664, label %667 [
+    i8 2, label %668
+    i8 3, label %665
   ]
 
-664:                                              ; preds = %662
-  %665 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.18, i64 noundef 256) #13
-  br label %666
+665:                                              ; preds = %663
+  %666 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.18, i64 noundef 256) #13
+  br label %667
 
-666:                                              ; preds = %662, %664
+667:                                              ; preds = %663, %665
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-667:                                              ; preds = %662
-  %668 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 7, ptr noundef null) #13
-  %669 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask163 = and i64 %669, -256
+668:                                              ; preds = %663
+  %669 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 7, ptr noundef null) #13
+  %670 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask163 = and i64 %670, -256
   %.sroa.0.0.insert.insert164 = or disjoint i64 %.sroa.0.0.insert.mask163, 1
-  %670 = inttoptr i64 %.sroa.0.0.insert.insert164 to ptr
+  %671 = inttoptr i64 %.sroa.0.0.insert.insert164 to ptr
   br label %.thread1496
 
-671:                                              ; preds = %96
-  %672 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %673 = load i8, ptr %672, align 8, !tbaa !3
-  switch i8 %673, label %676 [
-    i8 2, label %677
-    i8 3, label %674
+672:                                              ; preds = %97
+  %673 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %674 = load i8, ptr %673, align 8, !tbaa !3
+  switch i8 %674, label %677 [
+    i8 2, label %678
+    i8 3, label %675
   ]
 
-674:                                              ; preds = %671
-  %675 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.20, i64 noundef 256) #13
-  br label %676
+675:                                              ; preds = %672
+  %676 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.20, i64 noundef 256) #13
+  br label %677
 
-676:                                              ; preds = %671, %674
+677:                                              ; preds = %672, %675
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-677:                                              ; preds = %671
-  %678 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %678, label %681 [
-    i8 2, label %682
-    i8 3, label %679
+678:                                              ; preds = %672
+  %679 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %679, label %682 [
+    i8 2, label %683
+    i8 3, label %680
   ]
 
-679:                                              ; preds = %677
-  %680 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.20, i64 noundef 256) #13
-  br label %681
+680:                                              ; preds = %678
+  %681 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.20, i64 noundef 256) #13
+  br label %682
 
-681:                                              ; preds = %677, %679
+682:                                              ; preds = %678, %680
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-682:                                              ; preds = %677
-  %683 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 8, ptr noundef null) #13
-  %684 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask166 = and i64 %684, -256
+683:                                              ; preds = %678
+  %684 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 8, ptr noundef null) #13
+  %685 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask166 = and i64 %685, -256
   %.sroa.0.0.insert.insert167 = or disjoint i64 %.sroa.0.0.insert.mask166, 1
-  %685 = inttoptr i64 %.sroa.0.0.insert.insert167 to ptr
+  %686 = inttoptr i64 %.sroa.0.0.insert.insert167 to ptr
   br label %.thread1496
 
-686:                                              ; preds = %96
-  %687 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %688 = load i8, ptr %687, align 8, !tbaa !3
-  %689 = load i8, ptr %.21213, align 8, !tbaa !3
-  %.not1375 = icmp eq i8 %688, %689
-  br i1 %.not1375, label %691, label %.thread1717
+687:                                              ; preds = %97
+  %688 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %689 = load i8, ptr %688, align 8, !tbaa !3
+  %690 = load i8, ptr %.21213, align 8, !tbaa !3
+  %.not1375 = icmp eq i8 %689, %690
+  br i1 %.not1375, label %692, label %.thread1717
 
-.thread1717:                                      ; preds = %686
-  %690 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.21, i64 noundef 256) #13
+.thread1717:                                      ; preds = %687
+  %691 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.21, i64 noundef 256) #13
   store i32 24, ptr %13, align 8, !tbaa !10
-  br label %694
+  br label %695
 
-691:                                              ; preds = %686
-  %692 = icmp eq i8 %688, 3
-  %. = select i1 %692, i8 11, i8 9
-  %693 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext %., ptr noundef null) #13
-  store i32 %693, ptr %13, align 8, !tbaa !10
-  %.not1376 = icmp eq i32 %693, 0
-  br i1 %.not1376, label %695, label %694
+692:                                              ; preds = %687
+  %693 = icmp eq i8 %689, 3
+  %. = select i1 %693, i8 11, i8 9
+  %694 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext %., ptr noundef null) #13
+  store i32 %694, ptr %13, align 8, !tbaa !10
+  %.not1376 = icmp eq i32 %694, 0
+  br i1 %.not1376, label %696, label %695
 
-694:                                              ; preds = %.thread1717, %691
+695:                                              ; preds = %.thread1717, %692
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-695:                                              ; preds = %691
-  %696 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask169 = and i64 %696, -256
+696:                                              ; preds = %692
+  %697 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask169 = and i64 %697, -256
   %.sroa.0.0.insert.insert170 = or disjoint i64 %.sroa.0.0.insert.mask169, 1
-  %697 = inttoptr i64 %.sroa.0.0.insert.insert170 to ptr
+  %698 = inttoptr i64 %.sroa.0.0.insert.insert170 to ptr
   br label %.thread1496
 
-698:                                              ; preds = %96
-  %699 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %700 = load i8, ptr %699, align 8, !tbaa !3
-  %701 = load i8, ptr %.21213, align 8, !tbaa !3
-  %.not1373 = icmp eq i8 %700, %701
-  br i1 %.not1373, label %703, label %.thread1719
+699:                                              ; preds = %97
+  %700 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %701 = load i8, ptr %700, align 8, !tbaa !3
+  %702 = load i8, ptr %.21213, align 8, !tbaa !3
+  %.not1373 = icmp eq i8 %701, %702
+  br i1 %.not1373, label %704, label %.thread1719
 
-.thread1719:                                      ; preds = %698
-  %702 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.21, i64 noundef 256) #13
+.thread1719:                                      ; preds = %699
+  %703 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.21, i64 noundef 256) #13
   store i32 24, ptr %13, align 8, !tbaa !10
-  br label %706
+  br label %707
 
-703:                                              ; preds = %698
-  %704 = icmp eq i8 %700, 3
-  %.1784 = select i1 %704, i8 11, i8 9
-  %705 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext %.1784, ptr noundef null) #13
-  store i32 %705, ptr %13, align 8, !tbaa !10
-  %.not1374 = icmp eq i32 %705, 0
-  br i1 %.not1374, label %707, label %706
+704:                                              ; preds = %699
+  %705 = icmp eq i8 %701, 3
+  %.1784 = select i1 %705, i8 11, i8 9
+  %706 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext %.1784, ptr noundef null) #13
+  store i32 %706, ptr %13, align 8, !tbaa !10
+  %.not1374 = icmp eq i32 %706, 0
+  br i1 %.not1374, label %708, label %707
 
-706:                                              ; preds = %.thread1719, %703
+707:                                              ; preds = %.thread1719, %704
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-707:                                              ; preds = %703
-  %708 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask172 = and i64 %708, -256
+708:                                              ; preds = %704
+  %709 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask172 = and i64 %709, -256
   %.sroa.0.0.insert.insert173 = or disjoint i64 %.sroa.0.0.insert.mask172, 1
-  %709 = inttoptr i64 %.sroa.0.0.insert.insert173 to ptr
+  %710 = inttoptr i64 %.sroa.0.0.insert.insert173 to ptr
   br label %.thread1496
 
-710:                                              ; preds = %96
-  %711 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %712 = load i8, ptr %711, align 8, !tbaa !3
-  %713 = load i8, ptr %.21213, align 8, !tbaa !3
-  %.not1371 = icmp eq i8 %712, %713
-  br i1 %.not1371, label %715, label %.thread1721
+711:                                              ; preds = %97
+  %712 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %713 = load i8, ptr %712, align 8, !tbaa !3
+  %714 = load i8, ptr %.21213, align 8, !tbaa !3
+  %.not1371 = icmp eq i8 %713, %714
+  br i1 %.not1371, label %716, label %.thread1721
 
-.thread1721:                                      ; preds = %710
-  %714 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.22, i64 noundef 256) #13
+.thread1721:                                      ; preds = %711
+  %715 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.22, i64 noundef 256) #13
   store i32 24, ptr %13, align 8, !tbaa !10
-  br label %718
+  br label %719
 
-715:                                              ; preds = %710
-  %716 = icmp eq i8 %712, 3
-  %.1785 = select i1 %716, i8 12, i8 10
-  %717 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext %.1785, ptr noundef null) #13
-  store i32 %717, ptr %13, align 8, !tbaa !10
-  %.not1372 = icmp eq i32 %717, 0
-  br i1 %.not1372, label %719, label %718
+716:                                              ; preds = %711
+  %717 = icmp eq i8 %713, 3
+  %.1785 = select i1 %717, i8 12, i8 10
+  %718 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext %.1785, ptr noundef null) #13
+  store i32 %718, ptr %13, align 8, !tbaa !10
+  %.not1372 = icmp eq i32 %718, 0
+  br i1 %.not1372, label %720, label %719
 
-718:                                              ; preds = %.thread1721, %715
+719:                                              ; preds = %.thread1721, %716
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-719:                                              ; preds = %715
-  %720 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask175 = and i64 %720, -256
+720:                                              ; preds = %716
+  %721 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask175 = and i64 %721, -256
   %.sroa.0.0.insert.insert176 = or disjoint i64 %.sroa.0.0.insert.mask175, 1
-  %721 = inttoptr i64 %.sroa.0.0.insert.insert176 to ptr
+  %722 = inttoptr i64 %.sroa.0.0.insert.insert176 to ptr
   br label %.thread1496
 
-722:                                              ; preds = %96
-  %723 = load i8, ptr %.21213, align 8, !tbaa !3
-  %724 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.ext = zext i8 %723 to i64
-  %.sroa.0.0.insert.mask178 = and i64 %724, -256
+723:                                              ; preds = %97
+  %724 = load i8, ptr %.21213, align 8, !tbaa !3
+  %725 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.ext = zext i8 %724 to i64
+  %.sroa.0.0.insert.mask178 = and i64 %725, -256
   %.sroa.0.0.insert.insert179 = or disjoint i64 %.sroa.0.0.insert.mask178, %.sroa.0.0.insert.ext
-  %725 = inttoptr i64 %.sroa.0.0.insert.insert179 to ptr
+  %726 = inttoptr i64 %.sroa.0.0.insert.insert179 to ptr
   br label %.thread1496
 
-726:                                              ; preds = %96
-  %727 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %728 = load i8, ptr %727, align 8, !tbaa !3
-  %729 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.ext181 = zext i8 %728 to i64
-  %.sroa.0.0.insert.mask182 = and i64 %729, -256
+727:                                              ; preds = %97
+  %728 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %729 = load i8, ptr %728, align 8, !tbaa !3
+  %730 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.ext181 = zext i8 %729 to i64
+  %.sroa.0.0.insert.mask182 = and i64 %730, -256
   %.sroa.0.0.insert.insert183 = or disjoint i64 %.sroa.0.0.insert.mask182, %.sroa.0.0.insert.ext181
-  %730 = inttoptr i64 %.sroa.0.0.insert.insert183 to ptr
+  %731 = inttoptr i64 %.sroa.0.0.insert.insert183 to ptr
   br label %.thread1496
 
-731:                                              ; preds = %96
-  %732 = getelementptr inbounds i8, ptr %.21213, i64 -32
-  %733 = load i8, ptr %732, align 8, !tbaa !3
-  %.not1368 = icmp eq i8 %733, 2
-  br i1 %.not1368, label %736, label %734
+732:                                              ; preds = %97
+  %733 = getelementptr inbounds i8, ptr %.21213, i64 -32
+  %734 = load i8, ptr %733, align 8, !tbaa !3
+  %.not1368 = icmp eq i8 %734, 2
+  br i1 %.not1368, label %737, label %735
 
-734:                                              ; preds = %731
-  %735 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.23, i64 noundef 256) #13
+735:                                              ; preds = %732
+  %736 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.23, i64 noundef 256) #13
   store i32 24, ptr %13, align 8, !tbaa !10
-  br label %736
+  br label %737
 
-736:                                              ; preds = %734, %731
-  %737 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %738 = load i8, ptr %737, align 8, !tbaa !3
-  %.not1369 = icmp eq i8 %738, 2
-  br i1 %.not1369, label %740, label %.thread1723
+737:                                              ; preds = %735, %732
+  %738 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %739 = load i8, ptr %738, align 8, !tbaa !3
+  %.not1369 = icmp eq i8 %739, 2
+  br i1 %.not1369, label %741, label %.thread1723
 
-.thread1723:                                      ; preds = %736
-  %739 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.24, i64 noundef 256) #13
+.thread1723:                                      ; preds = %737
+  %740 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.24, i64 noundef 256) #13
   store i32 24, ptr %13, align 8, !tbaa !10
-  br label %742
+  br label %743
 
-740:                                              ; preds = %736
+741:                                              ; preds = %737
   %.pre1680 = load i32, ptr %13, align 8, !tbaa !10
-  %741 = icmp eq i32 %.pre1680, 0
-  br i1 %741, label %.thread1496, label %742
+  %742 = icmp eq i32 %.pre1680, 0
+  br i1 %742, label %.thread1496, label %743
 
-742:                                              ; preds = %.thread1723, %740
+743:                                              ; preds = %.thread1723, %741
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-743:                                              ; preds = %96
-  %744 = load i8, ptr %.21213, align 8, !tbaa !3
-  %.not1366 = icmp eq i8 %744, 2
-  br i1 %.not1366, label %746, label %.thread1725
+744:                                              ; preds = %97
+  %745 = load i8, ptr %.21213, align 8, !tbaa !3
+  %.not1366 = icmp eq i8 %745, 2
+  br i1 %.not1366, label %747, label %.thread1725
 
-.thread1725:                                      ; preds = %743
-  %745 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.25, i64 noundef 256) #13
+.thread1725:                                      ; preds = %744
+  %746 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.25, i64 noundef 256) #13
   store i32 24, ptr %13, align 8, !tbaa !10
-  br label %748
+  br label %749
 
-746:                                              ; preds = %743
+747:                                              ; preds = %744
   %.pre1678 = load i32, ptr %13, align 8, !tbaa !10
-  %747 = icmp eq i32 %.pre1678, 0
-  br i1 %747, label %.thread1496, label %748
+  %748 = icmp eq i32 %.pre1678, 0
+  br i1 %748, label %.thread1496, label %749
 
-748:                                              ; preds = %.thread1725, %746
+749:                                              ; preds = %.thread1725, %747
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-749:                                              ; preds = %96
-  %750 = load i8, ptr %.21213, align 8, !tbaa !3
-  %.not1364 = icmp eq i8 %750, 2
-  br i1 %.not1364, label %752, label %.thread1727
+750:                                              ; preds = %97
+  %751 = load i8, ptr %.21213, align 8, !tbaa !3
+  %.not1364 = icmp eq i8 %751, 2
+  br i1 %.not1364, label %753, label %.thread1727
 
-.thread1727:                                      ; preds = %749
-  %751 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.25, i64 noundef 256) #13
+.thread1727:                                      ; preds = %750
+  %752 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.25, i64 noundef 256) #13
   store i32 24, ptr %13, align 8, !tbaa !10
-  br label %754
+  br label %755
 
-752:                                              ; preds = %749
+753:                                              ; preds = %750
   %.pre = load i32, ptr %13, align 8, !tbaa !10
-  %753 = icmp eq i32 %.pre, 0
-  br i1 %753, label %.thread1496, label %754
+  %754 = icmp eq i32 %.pre, 0
+  br i1 %754, label %.thread1496, label %755
 
-754:                                              ; preds = %.thread1727, %752
+755:                                              ; preds = %.thread1727, %753
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-755:                                              ; preds = %96
-  %756 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null) #13
+756:                                              ; preds = %97
+  %757 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null) #13
   br label %.thread1496
 
-757:                                              ; preds = %96
-  %758 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null) #13
-  %759 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %0, ptr noundef nonnull @.str.26) #13
-  %760 = load i32, ptr %14, align 8, !tbaa !45
-  %761 = or i32 %760, 8
-  store i32 %761, ptr %14, align 8, !tbaa !45
+758:                                              ; preds = %97
+  %759 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null) #13
+  %760 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %0, ptr noundef nonnull @.str.26) #13
+  %761 = load i32, ptr %14, align 8, !tbaa !45
+  %762 = or i32 %761, 8
+  store i32 %762, ptr %14, align 8, !tbaa !45
   br label %.thread1496
 
-762:                                              ; preds = %96
-  %763 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %764 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %0, ptr noundef %763) #13
-  %765 = load ptr, ptr %.21213, align 8, !tbaa !3
-  call void @free(ptr noundef %765) #13
+763:                                              ; preds = %97
+  %764 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %765 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %0, ptr noundef %764) #13
+  %766 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %766) #13
   br label %.thread1496
 
-766:                                              ; preds = %96
-  %767 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %768 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %0, ptr noundef %767) #13
-  %769 = load ptr, ptr %.21213, align 8, !tbaa !3
-  call void @free(ptr noundef %769) #13
+767:                                              ; preds = %97
+  %768 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %769 = call i32 @yr_parser_emit_pushes_for_strings(ptr noundef %0, ptr noundef %768) #13
+  %770 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %770) #13
   br label %.thread1496
 
-770:                                              ; preds = %96
-  %771 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null) #13
-  %772 = load i32, ptr %14, align 8, !tbaa !45
-  %773 = or i32 %772, 2
-  store i32 %773, ptr %14, align 8, !tbaa !45
+771:                                              ; preds = %97
+  %772 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef -1483400188077313, ptr noundef null) #13
+  %773 = load i32, ptr %14, align 8, !tbaa !45
+  %774 = or i32 %773, 2
+  store i32 %774, ptr %14, align 8, !tbaa !45
   br label %.thread1496
 
-774:                                              ; preds = %96
-  %775 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef 1, ptr noundef null) #13
-  %776 = load i32, ptr %14, align 8, !tbaa !45
-  %777 = or i32 %776, 1
-  store i32 %777, ptr %14, align 8, !tbaa !45
+775:                                              ; preds = %97
+  %776 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef 1, ptr noundef null) #13
+  %777 = load i32, ptr %14, align 8, !tbaa !45
+  %778 = or i32 %777, 1
+  store i32 %778, ptr %14, align 8, !tbaa !45
   br label %.thread1496
 
-778:                                              ; preds = %96
-  %779 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %780 = load i8, ptr %779, align 8, !tbaa !3
-  %781 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.ext185 = zext i8 %780 to i64
-  %.sroa.0.0.insert.mask186 = and i64 %781, -256
+779:                                              ; preds = %97
+  %780 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %781 = load i8, ptr %780, align 8, !tbaa !3
+  %782 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.ext185 = zext i8 %781 to i64
+  %.sroa.0.0.insert.mask186 = and i64 %782, -256
   %.sroa.0.0.insert.insert187 = or disjoint i64 %.sroa.0.0.insert.mask186, %.sroa.0.0.insert.ext185
-  %782 = inttoptr i64 %.sroa.0.0.insert.insert187 to ptr
+  %783 = inttoptr i64 %.sroa.0.0.insert.insert187 to ptr
   br label %.thread1496
 
-783:                                              ; preds = %96
-  %784 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 45, ptr noundef null) #13
-  store i32 %784, ptr %13, align 8, !tbaa !10
-  %785 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask189 = and i64 %785, -256
+784:                                              ; preds = %97
+  %785 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 45, ptr noundef null) #13
+  store i32 %785, ptr %13, align 8, !tbaa !10
+  %786 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask189 = and i64 %786, -256
   %.sroa.0.0.insert.insert190 = or disjoint i64 %.sroa.0.0.insert.mask189, 2
-  %786 = inttoptr i64 %.sroa.0.0.insert.insert190 to ptr
-  %.not1363 = icmp eq i32 %784, 0
-  br i1 %.not1363, label %.thread1496, label %787
+  %787 = inttoptr i64 %.sroa.0.0.insert.insert190 to ptr
+  %.not1363 = icmp eq i32 %785, 0
+  br i1 %.not1363, label %.thread1496, label %788
 
-787:                                              ; preds = %783
+788:                                              ; preds = %784
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-788:                                              ; preds = %96
-  %789 = load i32, ptr %14, align 8, !tbaa !45
-  %790 = or i32 %789, 16
-  store i32 %790, ptr %14, align 8, !tbaa !45
-  %791 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 46, ptr noundef null) #13
-  store i32 %791, ptr %13, align 8, !tbaa !10
-  %.not1362 = icmp eq i32 %791, 0
-  br i1 %.not1362, label %793, label %792
+789:                                              ; preds = %97
+  %790 = load i32, ptr %14, align 8, !tbaa !45
+  %791 = or i32 %790, 16
+  store i32 %791, ptr %14, align 8, !tbaa !45
+  %792 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 46, ptr noundef null) #13
+  store i32 %792, ptr %13, align 8, !tbaa !10
+  %.not1362 = icmp eq i32 %792, 0
+  br i1 %.not1362, label %794, label %793
 
-792:                                              ; preds = %788
+793:                                              ; preds = %789
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-793:                                              ; preds = %788
-  %794 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask192 = and i64 %794, -256
+794:                                              ; preds = %789
+  %795 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask192 = and i64 %795, -256
   %.sroa.0.0.insert.insert193 = or disjoint i64 %.sroa.0.0.insert.mask192, 2
-  %795 = inttoptr i64 %.sroa.0.0.insert.insert193 to ptr
+  %796 = inttoptr i64 %.sroa.0.0.insert.insert193 to ptr
   br label %.thread1496
 
-796:                                              ; preds = %96
-  %797 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %798 = load i8, ptr %797, align 8, !tbaa !3
-  switch i8 %798, label %801 [
-    i8 2, label %802
-    i8 3, label %799
+797:                                              ; preds = %97
+  %798 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %799 = load i8, ptr %798, align 8, !tbaa !3
+  switch i8 %799, label %802 [
+    i8 2, label %803
+    i8 3, label %800
   ]
 
-799:                                              ; preds = %796
-  %800 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.28, i64 noundef 256) #13
-  br label %801
+800:                                              ; preds = %797
+  %801 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.28, i64 noundef 256) #13
+  br label %802
 
-801:                                              ; preds = %796, %799
+802:                                              ; preds = %797, %800
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-802:                                              ; preds = %796
-  %803 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 47, ptr noundef null) #13
-  store i32 %803, ptr %13, align 8, !tbaa !10
-  %.not1361 = icmp eq i32 %803, 0
-  br i1 %.not1361, label %805, label %804
+803:                                              ; preds = %797
+  %804 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 47, ptr noundef null) #13
+  store i32 %804, ptr %13, align 8, !tbaa !10
+  %.not1361 = icmp eq i32 %804, 0
+  br i1 %.not1361, label %806, label %805
 
-804:                                              ; preds = %802
+805:                                              ; preds = %803
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-805:                                              ; preds = %802
-  %806 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask195 = and i64 %806, -256
+806:                                              ; preds = %803
+  %807 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask195 = and i64 %807, -256
   %.sroa.0.0.insert.insert196 = or disjoint i64 %.sroa.0.0.insert.mask195, 2
-  %807 = inttoptr i64 %.sroa.0.0.insert.insert196 to ptr
+  %808 = inttoptr i64 %.sroa.0.0.insert.insert196 to ptr
   br label %.thread1496
 
-808:                                              ; preds = %96
-  %809 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %810 = load i8, ptr %809, align 8, !tbaa !3
-  switch i8 %810, label %813 [
-    i8 2, label %814
-    i8 3, label %811
+809:                                              ; preds = %97
+  %810 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %811 = load i8, ptr %810, align 8, !tbaa !3
+  switch i8 %811, label %814 [
+    i8 2, label %815
+    i8 3, label %812
   ]
 
-811:                                              ; preds = %808
-  %812 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.30, i64 noundef 256) #13
-  br label %813
+812:                                              ; preds = %809
+  %813 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.30, i64 noundef 256) #13
+  br label %814
 
-813:                                              ; preds = %808, %811
+814:                                              ; preds = %809, %812
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-814:                                              ; preds = %808
-  %815 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 48, ptr noundef null) #13
-  store i32 %815, ptr %13, align 8, !tbaa !10
-  %.not1359 = icmp eq i32 %815, 0
-  br i1 %.not1359, label %817, label %816
+815:                                              ; preds = %809
+  %816 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 48, ptr noundef null) #13
+  store i32 %816, ptr %13, align 8, !tbaa !10
+  %.not1359 = icmp eq i32 %816, 0
+  br i1 %.not1359, label %818, label %817
 
-816:                                              ; preds = %814
+817:                                              ; preds = %815
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-817:                                              ; preds = %814
-  %818 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask198 = and i64 %818, -256
+818:                                              ; preds = %815
+  %819 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask198 = and i64 %819, -256
   %.sroa.0.0.insert.insert199 = or disjoint i64 %.sroa.0.0.insert.mask198, 2
-  %819 = inttoptr i64 %.sroa.0.0.insert.insert199 to ptr
+  %820 = inttoptr i64 %.sroa.0.0.insert.insert199 to ptr
   br label %.thread1496
 
-820:                                              ; preds = %96
-  %821 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %822 = load i8, ptr %821, align 8, !tbaa !3
-  switch i8 %822, label %825 [
-    i8 2, label %826
-    i8 3, label %823
+821:                                              ; preds = %97
+  %822 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %823 = load i8, ptr %822, align 8, !tbaa !3
+  switch i8 %823, label %826 [
+    i8 2, label %827
+    i8 3, label %824
   ]
 
-823:                                              ; preds = %820
-  %824 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.32, i64 noundef 256) #13
-  br label %825
+824:                                              ; preds = %821
+  %825 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.32, i64 noundef 256) #13
+  br label %826
 
-825:                                              ; preds = %820, %823
+826:                                              ; preds = %821, %824
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-826:                                              ; preds = %820
-  %827 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 49, ptr noundef null) #13
-  store i32 %827, ptr %13, align 8, !tbaa !10
-  %.not1357 = icmp eq i32 %827, 0
-  br i1 %.not1357, label %829, label %828
+827:                                              ; preds = %821
+  %828 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 49, ptr noundef null) #13
+  store i32 %828, ptr %13, align 8, !tbaa !10
+  %.not1357 = icmp eq i32 %828, 0
+  br i1 %.not1357, label %830, label %829
 
-828:                                              ; preds = %826
+829:                                              ; preds = %827
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-829:                                              ; preds = %826
-  %830 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask201 = and i64 %830, -256
+830:                                              ; preds = %827
+  %831 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask201 = and i64 %831, -256
   %.sroa.0.0.insert.insert202 = or disjoint i64 %.sroa.0.0.insert.mask201, 2
-  %831 = inttoptr i64 %.sroa.0.0.insert.insert202 to ptr
+  %832 = inttoptr i64 %.sroa.0.0.insert.insert202 to ptr
   br label %.thread1496
 
-832:                                              ; preds = %96
-  %833 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %834 = load i8, ptr %833, align 8, !tbaa !3
-  switch i8 %834, label %837 [
-    i8 2, label %838
-    i8 3, label %835
+833:                                              ; preds = %97
+  %834 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %835 = load i8, ptr %834, align 8, !tbaa !3
+  switch i8 %835, label %838 [
+    i8 2, label %839
+    i8 3, label %836
   ]
 
-835:                                              ; preds = %832
-  %836 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.34, i64 noundef 256) #13
-  br label %837
+836:                                              ; preds = %833
+  %837 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.34, i64 noundef 256) #13
+  br label %838
 
-837:                                              ; preds = %832, %835
+838:                                              ; preds = %833, %836
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-838:                                              ; preds = %832
-  %839 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 50, ptr noundef null) #13
-  store i32 %839, ptr %13, align 8, !tbaa !10
-  %.not1355 = icmp eq i32 %839, 0
-  br i1 %.not1355, label %841, label %840
+839:                                              ; preds = %833
+  %840 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 50, ptr noundef null) #13
+  store i32 %840, ptr %13, align 8, !tbaa !10
+  %.not1355 = icmp eq i32 %840, 0
+  br i1 %.not1355, label %842, label %841
 
-840:                                              ; preds = %838
+841:                                              ; preds = %839
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-841:                                              ; preds = %838
-  %842 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask204 = and i64 %842, -256
+842:                                              ; preds = %839
+  %843 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask204 = and i64 %843, -256
   %.sroa.0.0.insert.insert205 = or disjoint i64 %.sroa.0.0.insert.mask204, 2
-  %843 = inttoptr i64 %.sroa.0.0.insert.insert205 to ptr
+  %844 = inttoptr i64 %.sroa.0.0.insert.insert205 to ptr
   br label %.thread1496
 
-844:                                              ; preds = %96
-  %845 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %846 = load i8, ptr %845, align 8, !tbaa !3
-  switch i8 %846, label %849 [
-    i8 2, label %850
-    i8 3, label %847
+845:                                              ; preds = %97
+  %846 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %847 = load i8, ptr %846, align 8, !tbaa !3
+  switch i8 %847, label %850 [
+    i8 2, label %851
+    i8 3, label %848
   ]
 
-847:                                              ; preds = %844
-  %848 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.36, i64 noundef 256) #13
-  br label %849
+848:                                              ; preds = %845
+  %849 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.36, i64 noundef 256) #13
+  br label %850
 
-849:                                              ; preds = %844, %847
+850:                                              ; preds = %845, %848
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-850:                                              ; preds = %844
-  %851 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 51, ptr noundef null) #13
-  store i32 %851, ptr %13, align 8, !tbaa !10
-  %.not1353 = icmp eq i32 %851, 0
-  br i1 %.not1353, label %853, label %852
+851:                                              ; preds = %845
+  %852 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 51, ptr noundef null) #13
+  store i32 %852, ptr %13, align 8, !tbaa !10
+  %.not1353 = icmp eq i32 %852, 0
+  br i1 %.not1353, label %854, label %853
 
-852:                                              ; preds = %850
+853:                                              ; preds = %851
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-853:                                              ; preds = %850
-  %854 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask207 = and i64 %854, -256
+854:                                              ; preds = %851
+  %855 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask207 = and i64 %855, -256
   %.sroa.0.0.insert.insert208 = or disjoint i64 %.sroa.0.0.insert.mask207, 2
-  %855 = inttoptr i64 %.sroa.0.0.insert.insert208 to ptr
+  %856 = inttoptr i64 %.sroa.0.0.insert.insert208 to ptr
   br label %.thread1496
 
-856:                                              ; preds = %96
-  %857 = getelementptr inbounds i8, ptr %.21213, i64 -8
-  %858 = load i8, ptr %857, align 8, !tbaa !3
-  switch i8 %858, label %861 [
-    i8 2, label %862
-    i8 3, label %859
+857:                                              ; preds = %97
+  %858 = getelementptr inbounds i8, ptr %.21213, i64 -8
+  %859 = load i8, ptr %858, align 8, !tbaa !3
+  switch i8 %859, label %862 [
+    i8 2, label %863
+    i8 3, label %860
   ]
 
-859:                                              ; preds = %856
-  %860 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.38, i64 noundef 256) #13
-  br label %861
+860:                                              ; preds = %857
+  %861 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.38, i64 noundef 256) #13
+  br label %862
 
-861:                                              ; preds = %856, %859
+862:                                              ; preds = %857, %860
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-862:                                              ; preds = %856
-  %863 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 52, ptr noundef null) #13
-  store i32 %863, ptr %13, align 8, !tbaa !10
-  %.not1351 = icmp eq i32 %863, 0
-  br i1 %.not1351, label %865, label %864
+863:                                              ; preds = %857
+  %864 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 52, ptr noundef null) #13
+  store i32 %864, ptr %13, align 8, !tbaa !10
+  %.not1351 = icmp eq i32 %864, 0
+  br i1 %.not1351, label %866, label %865
 
-864:                                              ; preds = %862
+865:                                              ; preds = %863
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-865:                                              ; preds = %862
-  %866 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask210 = and i64 %866, -256
+866:                                              ; preds = %863
+  %867 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask210 = and i64 %867, -256
   %.sroa.0.0.insert.insert211 = or disjoint i64 %.sroa.0.0.insert.mask210, 2
-  %867 = inttoptr i64 %.sroa.0.0.insert.insert211 to ptr
+  %868 = inttoptr i64 %.sroa.0.0.insert.insert211 to ptr
   br label %.thread1496
 
-868:                                              ; preds = %96
-  %869 = load i64, ptr %.21213, align 8, !tbaa !3
-  %870 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef %869, ptr noundef null) #13
-  store i32 %870, ptr %13, align 8, !tbaa !10
-  %.not1349 = icmp eq i32 %870, 0
-  br i1 %.not1349, label %872, label %871
+869:                                              ; preds = %97
+  %870 = load i64, ptr %.21213, align 8, !tbaa !3
+  %871 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef %870, ptr noundef null) #13
+  store i32 %871, ptr %13, align 8, !tbaa !10
+  %.not1349 = icmp eq i32 %871, 0
+  br i1 %.not1349, label %873, label %872
 
-871:                                              ; preds = %868
+872:                                              ; preds = %869
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-872:                                              ; preds = %868
-  %873 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask213 = and i64 %873, -256
+873:                                              ; preds = %869
+  %874 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask213 = and i64 %874, -256
   %.sroa.0.0.insert.insert214 = or disjoint i64 %.sroa.0.0.insert.mask213, 2
-  %874 = inttoptr i64 %.sroa.0.0.insert.insert214 to ptr
+  %875 = inttoptr i64 %.sroa.0.0.insert.insert214 to ptr
   br label %.thread1496
 
-875:                                              ; preds = %96
-  %876 = load ptr, ptr %.21213, align 8, !tbaa !3
-  call void @free(ptr noundef %876) #13
-  %877 = load i32, ptr %13, align 8, !tbaa !10
-  %878 = icmp eq i32 %877, 0
-  br i1 %878, label %879, label %.thread1537
+876:                                              ; preds = %97
+  %877 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %877) #13
+  %878 = load i32, ptr %13, align 8, !tbaa !10
+  %879 = icmp eq i32 %878, 0
+  br i1 %879, label %880, label %.thread1537
 
-879:                                              ; preds = %875
-  %880 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 22, i64 noundef 0, ptr noundef null) #13
-  store i32 %880, ptr %13, align 8, !tbaa !10
-  %.not1348 = icmp eq i32 %880, 0
+880:                                              ; preds = %876
+  %881 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 22, i64 noundef 0, ptr noundef null) #13
+  store i32 %881, ptr %13, align 8, !tbaa !10
+  %.not1348 = icmp eq i32 %881, 0
   br i1 %.not1348, label %.thread1539, label %.thread1537
 
-.thread1539:                                      ; preds = %879
-  %881 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask216 = and i64 %881, -256
+.thread1539:                                      ; preds = %880
+  %882 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask216 = and i64 %882, -256
   %.sroa.0.0.insert.insert217 = or disjoint i64 %.sroa.0.0.insert.mask216, 3
-  %882 = inttoptr i64 %.sroa.0.0.insert.insert217 to ptr
+  %883 = inttoptr i64 %.sroa.0.0.insert.insert217 to ptr
   br label %.thread1496
 
-.thread1537:                                      ; preds = %875, %879
+.thread1537:                                      ; preds = %876, %880
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-883:                                              ; preds = %96
-  %884 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %885 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %884, i8 noundef signext 29) #13
-  store i32 %885, ptr %13, align 8, !tbaa !10
-  %886 = load ptr, ptr %.21213, align 8, !tbaa !3
-  call void @free(ptr noundef %886) #13
-  %887 = load i32, ptr %13, align 8, !tbaa !10
-  %.not1347 = icmp eq i32 %887, 0
-  br i1 %.not1347, label %889, label %888
+884:                                              ; preds = %97
+  %885 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %886 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %885, i8 noundef signext 29) #13
+  store i32 %886, ptr %13, align 8, !tbaa !10
+  %887 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %887) #13
+  %888 = load i32, ptr %13, align 8, !tbaa !10
+  %.not1347 = icmp eq i32 %888, 0
+  br i1 %.not1347, label %890, label %889
 
-888:                                              ; preds = %883
+889:                                              ; preds = %884
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-889:                                              ; preds = %883
-  %890 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask219 = and i64 %890, -256
+890:                                              ; preds = %884
+  %891 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask219 = and i64 %891, -256
   %.sroa.0.0.insert.insert220 = or disjoint i64 %.sroa.0.0.insert.mask219, 2
-  %891 = inttoptr i64 %.sroa.0.0.insert.insert220 to ptr
+  %892 = inttoptr i64 %.sroa.0.0.insert.insert220 to ptr
   br label %.thread1496
 
-892:                                              ; preds = %96
-  %893 = getelementptr inbounds i8, ptr %.21213, i64 -24
-  %894 = load ptr, ptr %893, align 8, !tbaa !3
-  %895 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %894, i8 noundef signext 33) #13
-  store i32 %895, ptr %13, align 8, !tbaa !10
-  %896 = load ptr, ptr %893, align 8, !tbaa !3
-  call void @free(ptr noundef %896) #13
-  %897 = load i32, ptr %13, align 8, !tbaa !10
-  %.not1346 = icmp eq i32 %897, 0
-  br i1 %.not1346, label %899, label %898
+893:                                              ; preds = %97
+  %894 = getelementptr inbounds i8, ptr %.21213, i64 -24
+  %895 = load ptr, ptr %894, align 8, !tbaa !3
+  %896 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %895, i8 noundef signext 33) #13
+  store i32 %896, ptr %13, align 8, !tbaa !10
+  %897 = load ptr, ptr %894, align 8, !tbaa !3
+  call void @free(ptr noundef %897) #13
+  %898 = load i32, ptr %13, align 8, !tbaa !10
+  %.not1346 = icmp eq i32 %898, 0
+  br i1 %.not1346, label %900, label %899
 
-898:                                              ; preds = %892
+899:                                              ; preds = %893
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-899:                                              ; preds = %892
-  %900 = load i32, ptr %14, align 8, !tbaa !45
-  %901 = or i32 %900, 32
-  store i32 %901, ptr %14, align 8, !tbaa !45
-  %902 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask222 = and i64 %902, -256
+900:                                              ; preds = %893
+  %901 = load i32, ptr %14, align 8, !tbaa !45
+  %902 = or i32 %901, 32
+  store i32 %902, ptr %14, align 8, !tbaa !45
+  %903 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask222 = and i64 %903, -256
   %.sroa.0.0.insert.insert223 = or disjoint i64 %.sroa.0.0.insert.mask222, 2
-  %903 = inttoptr i64 %.sroa.0.0.insert.insert223 to ptr
+  %904 = inttoptr i64 %.sroa.0.0.insert.insert223 to ptr
   br label %.thread1496
 
-904:                                              ; preds = %96
-  %905 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef 1, ptr noundef null) #13
-  store i32 %905, ptr %13, align 8, !tbaa !10
-  %906 = icmp eq i32 %905, 0
-  br i1 %906, label %907, label %910
+905:                                              ; preds = %97
+  %906 = call i32 @yr_parser_emit_with_arg(ptr noundef %0, i8 noundef signext 22, i64 noundef 1, ptr noundef null) #13
+  store i32 %906, ptr %13, align 8, !tbaa !10
+  %907 = icmp eq i32 %906, 0
+  br i1 %907, label %908, label %911
 
-907:                                              ; preds = %904
-  %908 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %909 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %908, i8 noundef signext 33) #13
-  store i32 %909, ptr %13, align 8, !tbaa !10
-  br label %910
+908:                                              ; preds = %905
+  %909 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %910 = call i32 @yr_parser_reduce_string_identifier(ptr noundef %0, ptr noundef %909, i8 noundef signext 33) #13
+  store i32 %910, ptr %13, align 8, !tbaa !10
+  br label %911
 
-910:                                              ; preds = %907, %904
-  %911 = load ptr, ptr %.21213, align 8, !tbaa !3
-  call void @free(ptr noundef %911) #13
-  %912 = load i32, ptr %13, align 8, !tbaa !10
-  %.not1345 = icmp eq i32 %912, 0
-  br i1 %.not1345, label %914, label %913
+911:                                              ; preds = %908, %905
+  %912 = load ptr, ptr %.21213, align 8, !tbaa !3
+  call void @free(ptr noundef %912) #13
+  %913 = load i32, ptr %13, align 8, !tbaa !10
+  %.not1345 = icmp eq i32 %913, 0
+  br i1 %.not1345, label %915, label %914
 
-913:                                              ; preds = %910
+914:                                              ; preds = %911
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-914:                                              ; preds = %910
-  %915 = load i32, ptr %14, align 8, !tbaa !45
-  %916 = or i32 %915, 32
-  store i32 %916, ptr %14, align 8, !tbaa !45
-  %917 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask225 = and i64 %917, -256
+915:                                              ; preds = %911
+  %916 = load i32, ptr %14, align 8, !tbaa !45
+  %917 = or i32 %916, 32
+  store i32 %917, ptr %14, align 8, !tbaa !45
+  %918 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask225 = and i64 %918, -256
   %.sroa.0.0.insert.insert226 = or disjoint i64 %.sroa.0.0.insert.mask225, 2
-  %918 = inttoptr i64 %.sroa.0.0.insert.insert226 to ptr
+  %919 = inttoptr i64 %.sroa.0.0.insert.insert226 to ptr
   br label %.thread1496
 
-919:                                              ; preds = %96
-  %920 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %magicptr1457 = ptrtoint ptr %920 to i64
-  switch i64 %magicptr1457, label %922 [
-    i64 -1, label %930
-    i64 -2, label %921
+920:                                              ; preds = %97
+  %921 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %magicptr1457 = ptrtoint ptr %921 to i64
+  switch i64 %magicptr1457, label %923 [
+    i64 -1, label %931
+    i64 -2, label %922
     i64 0, label %.thread1731
   ]
 
-921:                                              ; preds = %919
-  br label %930
+922:                                              ; preds = %920
+  br label %931
 
-922:                                              ; preds = %919
-  %923 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 26, ptr noundef null) #13
-  store i32 %923, ptr %13, align 8, !tbaa !10
-  %924 = load ptr, ptr %.21213, align 8, !tbaa !3
-  %925 = load i8, ptr %924, align 8, !tbaa !35
-  switch i8 %925, label %927 [
-    i8 1, label %930
-    i8 2, label %926
+923:                                              ; preds = %920
+  %924 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 26, ptr noundef null) #13
+  store i32 %924, ptr %13, align 8, !tbaa !10
+  %925 = load ptr, ptr %.21213, align 8, !tbaa !3
+  %926 = load i8, ptr %925, align 8, !tbaa !35
+  switch i8 %926, label %928 [
+    i8 1, label %931
+    i8 2, label %927
   ]
 
-926:                                              ; preds = %922
-  br label %930
+927:                                              ; preds = %923
+  br label %931
 
-927:                                              ; preds = %922
+928:                                              ; preds = %923
   call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 1672, ptr noundef nonnull @__PRETTY_FUNCTION__.yara_yyparse) #15
   unreachable
 
-.thread1731:                                      ; preds = %919
-  %928 = load ptr, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !38
-  %929 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %928, i64 noundef 256) #13
+.thread1731:                                      ; preds = %920
+  %929 = load ptr, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !38
+  %930 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef %929, i64 noundef 256) #13
   store i32 24, ptr %13, align 8, !tbaa !10
-  br label %933
+  br label %934
 
-930:                                              ; preds = %922, %919, %921, %926
-  %.sink1782 = phi i64 [ 1, %921 ], [ 3, %926 ], [ 2, %919 ], [ 2, %922 ]
-  %931 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask231 = and i64 %931, -256
+931:                                              ; preds = %923, %920, %922, %927
+  %.sink1782 = phi i64 [ 1, %922 ], [ 3, %927 ], [ 2, %920 ], [ 2, %923 ]
+  %932 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask231 = and i64 %932, -256
   %.sroa.0.0.insert.insert232 = or disjoint i64 %.sroa.0.0.insert.mask231, %.sink1782
-  %932 = inttoptr i64 %.sroa.0.0.insert.insert232 to ptr
+  %933 = inttoptr i64 %.sroa.0.0.insert.insert232 to ptr
   %.pr1730 = load i32, ptr %13, align 8, !tbaa !10
   %.not1344 = icmp eq i32 %.pr1730, 0
-  br i1 %.not1344, label %.thread1496, label %933
+  br i1 %.not1344, label %.thread1496, label %934
 
-933:                                              ; preds = %.thread1731, %930
+934:                                              ; preds = %.thread1731, %931
   call void @yara_yyerror(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #13
   br label %.thread1531
 
-934:                                              ; preds = %96
-  %935 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %936 = load i8, ptr %935, align 8, !tbaa !3
-  switch i8 %936, label %939 [
-    i8 2, label %940
-    i8 3, label %937
+935:                                              ; preds = %97
+  %936 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %937 = load i8, ptr %936, align 8, !tbaa !3
+  switch i8 %937, label %940 [
+    i8 2, label %941
+    i8 3, label %938
   ]
 
-937:                                              ; preds = %934
-  %938 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.42, i64 noundef 256) #13
-  br label %939
+938:                                              ; preds = %935
+  %939 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.42, i64 noundef 256) #13
+  br label %940
 
-939:                                              ; preds = %934, %937
+940:                                              ; preds = %935, %938
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-940:                                              ; preds = %934
-  %941 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %941, label %944 [
-    i8 2, label %945
-    i8 3, label %942
+941:                                              ; preds = %935
+  %942 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %942, label %945 [
+    i8 2, label %946
+    i8 3, label %943
   ]
 
-942:                                              ; preds = %940
-  %943 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.42, i64 noundef 256) #13
-  br label %944
+943:                                              ; preds = %941
+  %944 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.42, i64 noundef 256) #13
+  br label %945
 
-944:                                              ; preds = %940, %942
+945:                                              ; preds = %941, %943
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-945:                                              ; preds = %940
-  %946 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 14, ptr noundef null) #13
-  %947 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask240 = and i64 %947, -256
+946:                                              ; preds = %941
+  %947 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 14, ptr noundef null) #13
+  %948 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask240 = and i64 %948, -256
   %.sroa.0.0.insert.insert241 = or disjoint i64 %.sroa.0.0.insert.mask240, 2
-  %948 = inttoptr i64 %.sroa.0.0.insert.insert241 to ptr
+  %949 = inttoptr i64 %.sroa.0.0.insert.insert241 to ptr
   br label %.thread1496
 
-949:                                              ; preds = %96
-  %950 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %951 = load i8, ptr %950, align 8, !tbaa !3
-  switch i8 %951, label %954 [
-    i8 2, label %955
-    i8 3, label %952
+950:                                              ; preds = %97
+  %951 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %952 = load i8, ptr %951, align 8, !tbaa !3
+  switch i8 %952, label %955 [
+    i8 2, label %956
+    i8 3, label %953
   ]
 
-952:                                              ; preds = %949
-  %953 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.44, i64 noundef 256) #13
-  br label %954
+953:                                              ; preds = %950
+  %954 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.44, i64 noundef 256) #13
+  br label %955
 
-954:                                              ; preds = %949, %952
+955:                                              ; preds = %950, %953
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-955:                                              ; preds = %949
-  %956 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %956, label %959 [
-    i8 2, label %960
-    i8 3, label %957
+956:                                              ; preds = %950
+  %957 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %957, label %960 [
+    i8 2, label %961
+    i8 3, label %958
   ]
 
-957:                                              ; preds = %955
-  %958 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.44, i64 noundef 256) #13
-  br label %959
+958:                                              ; preds = %956
+  %959 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.44, i64 noundef 256) #13
+  br label %960
 
-959:                                              ; preds = %955, %957
+960:                                              ; preds = %956, %958
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-960:                                              ; preds = %955
-  %961 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 15, ptr noundef null) #13
-  %962 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask243 = and i64 %962, -256
+961:                                              ; preds = %956
+  %962 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 15, ptr noundef null) #13
+  %963 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask243 = and i64 %963, -256
   %.sroa.0.0.insert.insert244 = or disjoint i64 %.sroa.0.0.insert.mask243, 2
-  %963 = inttoptr i64 %.sroa.0.0.insert.insert244 to ptr
+  %964 = inttoptr i64 %.sroa.0.0.insert.insert244 to ptr
   br label %.thread1496
 
-964:                                              ; preds = %96
-  %965 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %966 = load i8, ptr %965, align 8, !tbaa !3
-  switch i8 %966, label %969 [
-    i8 2, label %970
-    i8 3, label %967
+965:                                              ; preds = %97
+  %966 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %967 = load i8, ptr %966, align 8, !tbaa !3
+  switch i8 %967, label %970 [
+    i8 2, label %971
+    i8 3, label %968
   ]
 
-967:                                              ; preds = %964
-  %968 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.46, i64 noundef 256) #13
-  br label %969
+968:                                              ; preds = %965
+  %969 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.46, i64 noundef 256) #13
+  br label %970
 
-969:                                              ; preds = %964, %967
+970:                                              ; preds = %965, %968
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-970:                                              ; preds = %964
-  %971 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %971, label %974 [
-    i8 2, label %975
-    i8 3, label %972
+971:                                              ; preds = %965
+  %972 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %972, label %975 [
+    i8 2, label %976
+    i8 3, label %973
   ]
 
-972:                                              ; preds = %970
-  %973 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.46, i64 noundef 256) #13
-  br label %974
+973:                                              ; preds = %971
+  %974 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.46, i64 noundef 256) #13
+  br label %975
 
-974:                                              ; preds = %970, %972
+975:                                              ; preds = %971, %973
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-975:                                              ; preds = %970
-  %976 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 16, ptr noundef null) #13
-  %977 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask246 = and i64 %977, -256
+976:                                              ; preds = %971
+  %977 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 16, ptr noundef null) #13
+  %978 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask246 = and i64 %978, -256
   %.sroa.0.0.insert.insert247 = or disjoint i64 %.sroa.0.0.insert.mask246, 2
-  %978 = inttoptr i64 %.sroa.0.0.insert.insert247 to ptr
+  %979 = inttoptr i64 %.sroa.0.0.insert.insert247 to ptr
   br label %.thread1496
 
-979:                                              ; preds = %96
-  %980 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %981 = load i8, ptr %980, align 8, !tbaa !3
-  switch i8 %981, label %984 [
-    i8 2, label %985
-    i8 3, label %982
+980:                                              ; preds = %97
+  %981 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %982 = load i8, ptr %981, align 8, !tbaa !3
+  switch i8 %982, label %985 [
+    i8 2, label %986
+    i8 3, label %983
   ]
 
-982:                                              ; preds = %979
-  %983 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.48, i64 noundef 256) #13
-  br label %984
+983:                                              ; preds = %980
+  %984 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.48, i64 noundef 256) #13
+  br label %985
 
-984:                                              ; preds = %979, %982
+985:                                              ; preds = %980, %983
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-985:                                              ; preds = %979
-  %986 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %986, label %989 [
-    i8 2, label %990
-    i8 3, label %987
+986:                                              ; preds = %980
+  %987 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %987, label %990 [
+    i8 2, label %991
+    i8 3, label %988
   ]
 
-987:                                              ; preds = %985
-  %988 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.48, i64 noundef 256) #13
-  br label %989
+988:                                              ; preds = %986
+  %989 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.48, i64 noundef 256) #13
+  br label %990
 
-989:                                              ; preds = %985, %987
+990:                                              ; preds = %986, %988
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-990:                                              ; preds = %985
-  %991 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 17, ptr noundef null) #13
-  %992 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask249 = and i64 %992, -256
+991:                                              ; preds = %986
+  %992 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 17, ptr noundef null) #13
+  %993 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask249 = and i64 %993, -256
   %.sroa.0.0.insert.insert250 = or disjoint i64 %.sroa.0.0.insert.mask249, 2
-  %993 = inttoptr i64 %.sroa.0.0.insert.insert250 to ptr
+  %994 = inttoptr i64 %.sroa.0.0.insert.insert250 to ptr
   br label %.thread1496
 
-994:                                              ; preds = %96
-  %995 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %996 = load i8, ptr %995, align 8, !tbaa !3
-  switch i8 %996, label %999 [
-    i8 2, label %1000
-    i8 3, label %997
+995:                                              ; preds = %97
+  %996 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %997 = load i8, ptr %996, align 8, !tbaa !3
+  switch i8 %997, label %1000 [
+    i8 2, label %1001
+    i8 3, label %998
   ]
 
-997:                                              ; preds = %994
-  %998 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.50, i64 noundef 256) #13
-  br label %999
+998:                                              ; preds = %995
+  %999 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.50, i64 noundef 256) #13
+  br label %1000
 
-999:                                              ; preds = %994, %997
+1000:                                             ; preds = %995, %998
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1000:                                             ; preds = %994
-  %1001 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %1001, label %1004 [
-    i8 2, label %1005
-    i8 3, label %1002
+1001:                                             ; preds = %995
+  %1002 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %1002, label %1005 [
+    i8 2, label %1006
+    i8 3, label %1003
   ]
 
-1002:                                             ; preds = %1000
-  %1003 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.50, i64 noundef 256) #13
-  br label %1004
+1003:                                             ; preds = %1001
+  %1004 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.50, i64 noundef 256) #13
+  br label %1005
 
-1004:                                             ; preds = %1000, %1002
+1005:                                             ; preds = %1001, %1003
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1005:                                             ; preds = %1000
-  %1006 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 18, ptr noundef null) #13
-  %1007 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask252 = and i64 %1007, -256
+1006:                                             ; preds = %1001
+  %1007 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 18, ptr noundef null) #13
+  %1008 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask252 = and i64 %1008, -256
   %.sroa.0.0.insert.insert253 = or disjoint i64 %.sroa.0.0.insert.mask252, 2
-  %1008 = inttoptr i64 %.sroa.0.0.insert.insert253 to ptr
+  %1009 = inttoptr i64 %.sroa.0.0.insert.insert253 to ptr
   br label %.thread1496
 
-1009:                                             ; preds = %96
-  %1010 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %1011 = load i8, ptr %1010, align 8, !tbaa !3
-  switch i8 %1011, label %1014 [
-    i8 2, label %1015
-    i8 3, label %1012
+1010:                                             ; preds = %97
+  %1011 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %1012 = load i8, ptr %1011, align 8, !tbaa !3
+  switch i8 %1012, label %1015 [
+    i8 2, label %1016
+    i8 3, label %1013
   ]
 
-1012:                                             ; preds = %1009
-  %1013 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.52, i64 noundef 256) #13
-  br label %1014
+1013:                                             ; preds = %1010
+  %1014 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.52, i64 noundef 256) #13
+  br label %1015
 
-1014:                                             ; preds = %1009, %1012
+1015:                                             ; preds = %1010, %1013
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1015:                                             ; preds = %1009
-  %1016 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %1016, label %1019 [
-    i8 2, label %1020
-    i8 3, label %1017
+1016:                                             ; preds = %1010
+  %1017 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %1017, label %1020 [
+    i8 2, label %1021
+    i8 3, label %1018
   ]
 
-1017:                                             ; preds = %1015
-  %1018 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.52, i64 noundef 256) #13
-  br label %1019
+1018:                                             ; preds = %1016
+  %1019 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.52, i64 noundef 256) #13
+  br label %1020
 
-1019:                                             ; preds = %1015, %1017
+1020:                                             ; preds = %1016, %1018
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1020:                                             ; preds = %1015
-  %1021 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 3, ptr noundef null) #13
-  %1022 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask255 = and i64 %1022, -256
+1021:                                             ; preds = %1016
+  %1022 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 3, ptr noundef null) #13
+  %1023 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask255 = and i64 %1023, -256
   %.sroa.0.0.insert.insert256 = or disjoint i64 %.sroa.0.0.insert.mask255, 2
-  %1023 = inttoptr i64 %.sroa.0.0.insert.insert256 to ptr
+  %1024 = inttoptr i64 %.sroa.0.0.insert.insert256 to ptr
   br label %.thread1496
 
-1024:                                             ; preds = %96
-  %1025 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %1026 = load i8, ptr %1025, align 8, !tbaa !3
-  switch i8 %1026, label %1029 [
-    i8 2, label %1030
-    i8 3, label %1027
+1025:                                             ; preds = %97
+  %1026 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %1027 = load i8, ptr %1026, align 8, !tbaa !3
+  switch i8 %1027, label %1030 [
+    i8 2, label %1031
+    i8 3, label %1028
   ]
 
-1027:                                             ; preds = %1024
-  %1028 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.52, i64 noundef 256) #13
-  br label %1029
+1028:                                             ; preds = %1025
+  %1029 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.52, i64 noundef 256) #13
+  br label %1030
 
-1029:                                             ; preds = %1024, %1027
+1030:                                             ; preds = %1025, %1028
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1030:                                             ; preds = %1024
-  %1031 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %1031, label %1034 [
-    i8 2, label %1035
-    i8 3, label %1032
+1031:                                             ; preds = %1025
+  %1032 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %1032, label %1035 [
+    i8 2, label %1036
+    i8 3, label %1033
   ]
 
-1032:                                             ; preds = %1030
-  %1033 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.52, i64 noundef 256) #13
-  br label %1034
+1033:                                             ; preds = %1031
+  %1034 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.52, i64 noundef 256) #13
+  br label %1035
 
-1034:                                             ; preds = %1030, %1032
+1035:                                             ; preds = %1031, %1033
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1035:                                             ; preds = %1030
-  %1036 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 1, ptr noundef null) #13
-  %1037 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask258 = and i64 %1037, -256
+1036:                                             ; preds = %1031
+  %1037 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 1, ptr noundef null) #13
+  %1038 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask258 = and i64 %1038, -256
   %.sroa.0.0.insert.insert259 = or disjoint i64 %.sroa.0.0.insert.mask258, 2
-  %1038 = inttoptr i64 %.sroa.0.0.insert.insert259 to ptr
+  %1039 = inttoptr i64 %.sroa.0.0.insert.insert259 to ptr
   br label %.thread1496
 
-1039:                                             ; preds = %96
-  %1040 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %1041 = load i8, ptr %1040, align 8, !tbaa !3
-  switch i8 %1041, label %1044 [
-    i8 2, label %1045
-    i8 3, label %1042
+1040:                                             ; preds = %97
+  %1041 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %1042 = load i8, ptr %1041, align 8, !tbaa !3
+  switch i8 %1042, label %1045 [
+    i8 2, label %1046
+    i8 3, label %1043
   ]
 
-1042:                                             ; preds = %1039
-  %1043 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.54, i64 noundef 256) #13
-  br label %1044
+1043:                                             ; preds = %1040
+  %1044 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.54, i64 noundef 256) #13
+  br label %1045
 
-1044:                                             ; preds = %1039, %1042
+1045:                                             ; preds = %1040, %1043
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1045:                                             ; preds = %1039
-  %1046 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %1046, label %1049 [
-    i8 2, label %1050
-    i8 3, label %1047
+1046:                                             ; preds = %1040
+  %1047 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %1047, label %1050 [
+    i8 2, label %1051
+    i8 3, label %1048
   ]
 
-1047:                                             ; preds = %1045
-  %1048 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.54, i64 noundef 256) #13
-  br label %1049
+1048:                                             ; preds = %1046
+  %1049 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.54, i64 noundef 256) #13
+  br label %1050
 
-1049:                                             ; preds = %1045, %1047
+1050:                                             ; preds = %1046, %1048
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1050:                                             ; preds = %1045
-  %1051 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 2, ptr noundef null) #13
-  %1052 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask261 = and i64 %1052, -256
+1051:                                             ; preds = %1046
+  %1052 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 2, ptr noundef null) #13
+  %1053 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask261 = and i64 %1053, -256
   %.sroa.0.0.insert.insert262 = or disjoint i64 %.sroa.0.0.insert.mask261, 2
-  %1053 = inttoptr i64 %.sroa.0.0.insert.insert262 to ptr
+  %1054 = inttoptr i64 %.sroa.0.0.insert.insert262 to ptr
   br label %.thread1496
 
-1054:                                             ; preds = %96
-  %1055 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %1055, label %1058 [
-    i8 2, label %1059
-    i8 3, label %1056
+1055:                                             ; preds = %97
+  %1056 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %1056, label %1059 [
+    i8 2, label %1060
+    i8 3, label %1057
   ]
 
-1056:                                             ; preds = %1054
-  %1057 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.56, i64 noundef 256) #13
-  br label %1058
+1057:                                             ; preds = %1055
+  %1058 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.56, i64 noundef 256) #13
+  br label %1059
 
-1058:                                             ; preds = %1054, %1056
+1059:                                             ; preds = %1055, %1057
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1059:                                             ; preds = %1054
-  %1060 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 19, ptr noundef null) #13
-  %1061 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask264 = and i64 %1061, -256
+1060:                                             ; preds = %1055
+  %1061 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 19, ptr noundef null) #13
+  %1062 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask264 = and i64 %1062, -256
   %.sroa.0.0.insert.insert265 = or disjoint i64 %.sroa.0.0.insert.mask264, 2
-  %1062 = inttoptr i64 %.sroa.0.0.insert.insert265 to ptr
+  %1063 = inttoptr i64 %.sroa.0.0.insert.insert265 to ptr
   br label %.thread1496
 
-1063:                                             ; preds = %96
-  %1064 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %1065 = load i8, ptr %1064, align 8, !tbaa !3
-  switch i8 %1065, label %1068 [
-    i8 2, label %1069
-    i8 3, label %1066
+1064:                                             ; preds = %97
+  %1065 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %1066 = load i8, ptr %1065, align 8, !tbaa !3
+  switch i8 %1066, label %1069 [
+    i8 2, label %1070
+    i8 3, label %1067
   ]
 
-1066:                                             ; preds = %1063
-  %1067 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.58, i64 noundef 256) #13
-  br label %1068
+1067:                                             ; preds = %1064
+  %1068 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.58, i64 noundef 256) #13
+  br label %1069
 
-1068:                                             ; preds = %1063, %1066
+1069:                                             ; preds = %1064, %1067
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1069:                                             ; preds = %1063
-  %1070 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %1070, label %1073 [
-    i8 2, label %1074
-    i8 3, label %1071
+1070:                                             ; preds = %1064
+  %1071 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %1071, label %1074 [
+    i8 2, label %1075
+    i8 3, label %1072
   ]
 
-1071:                                             ; preds = %1069
-  %1072 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.58, i64 noundef 256) #13
-  br label %1073
+1072:                                             ; preds = %1070
+  %1073 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.58, i64 noundef 256) #13
+  br label %1074
 
-1073:                                             ; preds = %1069, %1071
+1074:                                             ; preds = %1070, %1072
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1074:                                             ; preds = %1069
-  %1075 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 20, ptr noundef null) #13
-  %1076 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask267 = and i64 %1076, -256
+1075:                                             ; preds = %1070
+  %1076 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 20, ptr noundef null) #13
+  %1077 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask267 = and i64 %1077, -256
   %.sroa.0.0.insert.insert268 = or disjoint i64 %.sroa.0.0.insert.mask267, 2
-  %1077 = inttoptr i64 %.sroa.0.0.insert.insert268 to ptr
+  %1078 = inttoptr i64 %.sroa.0.0.insert.insert268 to ptr
   br label %.thread1496
 
-1078:                                             ; preds = %96
-  %1079 = getelementptr inbounds i8, ptr %.21213, i64 -16
-  %1080 = load i8, ptr %1079, align 8, !tbaa !3
-  switch i8 %1080, label %1083 [
-    i8 2, label %1084
-    i8 3, label %1081
+1079:                                             ; preds = %97
+  %1080 = getelementptr inbounds i8, ptr %.21213, i64 -16
+  %1081 = load i8, ptr %1080, align 8, !tbaa !3
+  switch i8 %1081, label %1084 [
+    i8 2, label %1085
+    i8 3, label %1082
   ]
 
-1081:                                             ; preds = %1078
-  %1082 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.60, i64 noundef 256) #13
-  br label %1083
+1082:                                             ; preds = %1079
+  %1083 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.60, i64 noundef 256) #13
+  br label %1084
 
-1083:                                             ; preds = %1078, %1081
+1084:                                             ; preds = %1079, %1082
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1084:                                             ; preds = %1078
-  %1085 = load i8, ptr %.21213, align 8, !tbaa !3
-  switch i8 %1085, label %1088 [
-    i8 2, label %1089
-    i8 3, label %1086
+1085:                                             ; preds = %1079
+  %1086 = load i8, ptr %.21213, align 8, !tbaa !3
+  switch i8 %1086, label %1089 [
+    i8 2, label %1090
+    i8 3, label %1087
   ]
 
-1086:                                             ; preds = %1084
-  %1087 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.60, i64 noundef 256) #13
-  br label %1088
+1087:                                             ; preds = %1085
+  %1088 = call i64 @cli_strlcpy(ptr noundef nonnull %12, ptr noundef nonnull @.str.60, i64 noundef 256) #13
+  br label %1089
 
-1088:                                             ; preds = %1084, %1086
+1089:                                             ; preds = %1085, %1087
   store i32 24, ptr %13, align 8, !tbaa !10
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef null) #13
   br label %.thread1531
 
-1089:                                             ; preds = %1084
-  %1090 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 21, ptr noundef null) #13
-  %1091 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.mask270 = and i64 %1091, -256
+1090:                                             ; preds = %1085
+  %1091 = call i32 @yr_parser_emit(ptr noundef %0, i8 noundef signext 21, ptr noundef null) #13
+  %1092 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.mask270 = and i64 %1092, -256
   %.sroa.0.0.insert.insert271 = or disjoint i64 %.sroa.0.0.insert.mask270, 2
-  %1092 = inttoptr i64 %.sroa.0.0.insert.insert271 to ptr
+  %1093 = inttoptr i64 %.sroa.0.0.insert.insert271 to ptr
   br label %.thread1496
 
-1093:                                             ; preds = %96
-  %1094 = load i8, ptr %.21213, align 8, !tbaa !3
-  %1095 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.0.0.insert.ext273 = zext i8 %1094 to i64
-  %.sroa.0.0.insert.mask274 = and i64 %1095, -256
+1094:                                             ; preds = %97
+  %1095 = load i8, ptr %.21213, align 8, !tbaa !3
+  %1096 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.0.0.insert.ext273 = zext i8 %1095 to i64
+  %.sroa.0.0.insert.mask274 = and i64 %1096, -256
   %.sroa.0.0.insert.insert275 = or disjoint i64 %.sroa.0.0.insert.mask274, %.sroa.0.0.insert.ext273
-  %1096 = inttoptr i64 %.sroa.0.0.insert.insert275 to ptr
+  %1097 = inttoptr i64 %.sroa.0.0.insert.insert275 to ptr
   br label %.thread1496
 
-.thread1496:                                      ; preds = %340, %293, %158, %108, %103, %.thread1539, %.thread1534, %481, %.thread1524, %.thread1513, %.thread1502, %96, %930, %783, %752, %746, %740, %353, %307, %223, %210, %196, %184, %177, %168, %124, %1093, %1089, %1074, %1059, %1050, %1035, %1020, %1005, %990, %975, %960, %945, %914, %899, %889, %872, %865, %853, %841, %829, %817, %805, %793, %778, %774, %770, %766, %762, %757, %755, %726, %722, %719, %707, %695, %682, %667, %652, %637, %622, %612, %608, %604, %582, %546, %500, %461, %449, %427, %410, %391, %385, %379, %370, %368, %345, %241, %240, %239, %238, %232, %208, %193, %191, %155, %153, %150, %144, %142, %141, %140, %134, %128, %123
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %96 ], [ null, %123 ], [ %125, %124 ], [ null, %128 ], [ %139, %134 ], [ inttoptr (i64 1 to ptr), %140 ], [ inttoptr (i64 2 to ptr), %141 ], [ %143, %142 ], [ %.sroa.0.0.copyload, %144 ], [ %152, %150 ], [ %154, %153 ], [ %157, %155 ], [ %173, %168 ], [ %180, %177 ], [ %187, %184 ], [ %192, %191 ], [ %195, %193 ], [ %203, %196 ], [ %.sroa.0.0.copyload, %208 ], [ %218, %210 ], [ %227, %223 ], [ %237, %232 ], [ inttoptr (i64 16 to ptr), %238 ], [ inttoptr (i64 8 to ptr), %239 ], [ inttoptr (i64 4 to ptr), %240 ], [ inttoptr (i64 128 to ptr), %241 ], [ %313, %307 ], [ %346, %345 ], [ %348, %353 ], [ %369, %368 ], [ %372, %370 ], [ %381, %379 ], [ %387, %385 ], [ %393, %391 ], [ %412, %410 ], [ %429, %427 ], [ %453, %449 ], [ %465, %461 ], [ %.sroa.0.0.copyload, %500 ], [ %557, %546 ], [ %603, %582 ], [ %607, %604 ], [ %611, %608 ], [ %615, %612 ], [ %625, %622 ], [ %640, %637 ], [ %655, %652 ], [ %670, %667 ], [ %685, %682 ], [ %697, %695 ], [ %709, %707 ], [ %721, %719 ], [ %725, %722 ], [ %730, %726 ], [ %.sroa.0.0.copyload, %740 ], [ %.sroa.0.0.copyload, %746 ], [ %.sroa.0.0.copyload, %752 ], [ %.sroa.0.0.copyload, %755 ], [ %.sroa.0.0.copyload, %757 ], [ %.sroa.0.0.copyload, %762 ], [ %.sroa.0.0.copyload, %766 ], [ %.sroa.0.0.copyload, %770 ], [ %.sroa.0.0.copyload, %774 ], [ %782, %778 ], [ %786, %783 ], [ %795, %793 ], [ %807, %805 ], [ %819, %817 ], [ %831, %829 ], [ %843, %841 ], [ %855, %853 ], [ %867, %865 ], [ %874, %872 ], [ %891, %889 ], [ %903, %899 ], [ %918, %914 ], [ %932, %930 ], [ %948, %945 ], [ %963, %960 ], [ %978, %975 ], [ %993, %990 ], [ %1008, %1005 ], [ %1023, %1020 ], [ %1038, %1035 ], [ %1053, %1050 ], [ %1062, %1059 ], [ %1077, %1074 ], [ %1092, %1089 ], [ %1096, %1093 ], [ %132, %.thread1502 ], [ %.sroa.0.2, %.thread1513 ], [ %435, %.thread1524 ], [ %.sroa.0.0.copyload, %481 ], [ %.sroa.0.0.copyload, %.thread1534 ], [ %882, %.thread1539 ], [ %.sroa.0.0.copyload, %103 ], [ %.sroa.0.0.copyload, %108 ], [ %163, %158 ], [ null, %293 ], [ %.sroa.0.4, %340 ]
-  %1097 = sub nsw i64 0, %100
-  %1098 = getelementptr inbounds %union.YYSTYPE, ptr %.21213, i64 %1097
-  %1099 = getelementptr inbounds i8, ptr %.21199, i64 %1097
-  %1100 = getelementptr inbounds nuw i8, ptr %1098, i64 8
-  store ptr %.sroa.0.0, ptr %1100, align 8, !tbaa !3
-  %1101 = getelementptr inbounds i8, ptr @yyr1, i64 %97
-  %1102 = load i8, ptr %1101, align 1, !tbaa !3
-  %1103 = sext i8 %1102 to i64
-  %1104 = add nsw i64 %1103, -74
-  %1105 = getelementptr inbounds i16, ptr @yypgoto, i64 %1104
-  %1106 = load i16, ptr %1105, align 2, !tbaa !8
-  %1107 = sext i16 %1106 to i32
-  %1108 = load i8, ptr %1099, align 1, !tbaa !3
-  %1109 = zext i8 %1108 to i32
-  %1110 = add nsw i32 %1109, %1107
-  %or.cond9 = icmp ult i32 %1110, 434
-  br i1 %or.cond9, label %1111, label %1119
+.thread1496:                                      ; preds = %341, %294, %159, %109, %104, %.thread1539, %.thread1534, %482, %.thread1524, %.thread1513, %.thread1502, %97, %931, %784, %753, %747, %741, %354, %308, %224, %211, %197, %185, %178, %169, %125, %1094, %1090, %1075, %1060, %1051, %1036, %1021, %1006, %991, %976, %961, %946, %915, %900, %890, %873, %866, %854, %842, %830, %818, %806, %794, %779, %775, %771, %767, %763, %758, %756, %727, %723, %720, %708, %696, %683, %668, %653, %638, %623, %613, %609, %605, %583, %547, %501, %462, %450, %428, %411, %392, %386, %380, %371, %369, %346, %242, %241, %240, %239, %233, %209, %194, %192, %156, %154, %151, %145, %143, %142, %141, %135, %129, %124
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %97 ], [ null, %124 ], [ %126, %125 ], [ null, %129 ], [ %140, %135 ], [ inttoptr (i64 1 to ptr), %141 ], [ inttoptr (i64 2 to ptr), %142 ], [ %144, %143 ], [ %.sroa.0.0.copyload, %145 ], [ %153, %151 ], [ %155, %154 ], [ %158, %156 ], [ %174, %169 ], [ %181, %178 ], [ %188, %185 ], [ %193, %192 ], [ %196, %194 ], [ %204, %197 ], [ %.sroa.0.0.copyload, %209 ], [ %219, %211 ], [ %228, %224 ], [ %238, %233 ], [ inttoptr (i64 16 to ptr), %239 ], [ inttoptr (i64 8 to ptr), %240 ], [ inttoptr (i64 4 to ptr), %241 ], [ inttoptr (i64 128 to ptr), %242 ], [ %314, %308 ], [ %347, %346 ], [ %349, %354 ], [ %370, %369 ], [ %373, %371 ], [ %382, %380 ], [ %388, %386 ], [ %394, %392 ], [ %413, %411 ], [ %430, %428 ], [ %454, %450 ], [ %466, %462 ], [ %.sroa.0.0.copyload, %501 ], [ %558, %547 ], [ %604, %583 ], [ %608, %605 ], [ %612, %609 ], [ %616, %613 ], [ %626, %623 ], [ %641, %638 ], [ %656, %653 ], [ %671, %668 ], [ %686, %683 ], [ %698, %696 ], [ %710, %708 ], [ %722, %720 ], [ %726, %723 ], [ %731, %727 ], [ %.sroa.0.0.copyload, %741 ], [ %.sroa.0.0.copyload, %747 ], [ %.sroa.0.0.copyload, %753 ], [ %.sroa.0.0.copyload, %756 ], [ %.sroa.0.0.copyload, %758 ], [ %.sroa.0.0.copyload, %763 ], [ %.sroa.0.0.copyload, %767 ], [ %.sroa.0.0.copyload, %771 ], [ %.sroa.0.0.copyload, %775 ], [ %783, %779 ], [ %787, %784 ], [ %796, %794 ], [ %808, %806 ], [ %820, %818 ], [ %832, %830 ], [ %844, %842 ], [ %856, %854 ], [ %868, %866 ], [ %875, %873 ], [ %892, %890 ], [ %904, %900 ], [ %919, %915 ], [ %933, %931 ], [ %949, %946 ], [ %964, %961 ], [ %979, %976 ], [ %994, %991 ], [ %1009, %1006 ], [ %1024, %1021 ], [ %1039, %1036 ], [ %1054, %1051 ], [ %1063, %1060 ], [ %1078, %1075 ], [ %1093, %1090 ], [ %1097, %1094 ], [ %133, %.thread1502 ], [ %.sroa.0.2, %.thread1513 ], [ %436, %.thread1524 ], [ %.sroa.0.0.copyload, %482 ], [ %.sroa.0.0.copyload, %.thread1534 ], [ %883, %.thread1539 ], [ %.sroa.0.0.copyload, %104 ], [ %.sroa.0.0.copyload, %109 ], [ %164, %159 ], [ null, %294 ], [ %.sroa.0.4, %341 ]
+  %1098 = sub nsw i64 0, %101
+  %1099 = getelementptr inbounds %union.YYSTYPE, ptr %.21213, i64 %1098
+  %1100 = getelementptr inbounds i8, ptr %.21199, i64 %1098
+  %1101 = getelementptr inbounds nuw i8, ptr %1099, i64 8
+  store ptr %.sroa.0.0, ptr %1101, align 8, !tbaa !3
+  %1102 = getelementptr inbounds i8, ptr @yyr1, i64 %98
+  %1103 = load i8, ptr %1102, align 1, !tbaa !3
+  %1104 = sext i8 %1103 to i64
+  %1105 = add nsw i64 %1104, -74
+  %1106 = getelementptr inbounds i16, ptr @yypgoto, i64 %1105
+  %1107 = load i16, ptr %1106, align 2, !tbaa !8
+  %1108 = sext i16 %1107 to i32
+  %1109 = load i8, ptr %1100, align 1, !tbaa !3
+  %1110 = zext i8 %1109 to i32
+  %1111 = add nsw i32 %1110, %1108
+  %or.cond9 = icmp ult i32 %1111, 434
+  br i1 %or.cond9, label %1112, label %1120
 
-1111:                                             ; preds = %.thread1496
-  %1112 = zext nneg i32 %1110 to i64
-  %1113 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %1112
-  %1114 = load i16, ptr %1113, align 2, !tbaa !8
-  %1115 = sext i16 %1114 to i32
-  %1116 = icmp eq i32 %1115, %1109
-  br i1 %1116, label %1117, label %1119
+1112:                                             ; preds = %.thread1496
+  %1113 = zext nneg i32 %1111 to i64
+  %1114 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %1113
+  %1115 = load i16, ptr %1114, align 2, !tbaa !8
+  %1116 = sext i16 %1115 to i32
+  %1117 = icmp eq i32 %1116, %1110
+  br i1 %1117, label %1118, label %1120
 
-1117:                                             ; preds = %1111
-  %1118 = getelementptr inbounds nuw i16, ptr @yytable, i64 %1112
-  br label %1121
+1118:                                             ; preds = %1112
+  %1119 = getelementptr inbounds nuw i16, ptr @yytable, i64 %1113
+  br label %1122
 
-1119:                                             ; preds = %1111, %.thread1496
-  %1120 = getelementptr inbounds i16, ptr @yydefgoto, i64 %1104
-  br label %1121
+1120:                                             ; preds = %1112, %.thread1496
+  %1121 = getelementptr inbounds i16, ptr @yydefgoto, i64 %1105
+  br label %1122
 
-1121:                                             ; preds = %1119, %1117
-  %.in.in = phi ptr [ %1118, %1117 ], [ %1120, %1119 ]
+1122:                                             ; preds = %1120, %1118
+  %.in.in = phi ptr [ %1119, %1118 ], [ %1121, %1120 ]
   %.in = load i16, ptr %.in.in, align 2, !tbaa !8
-  %1122 = sext i16 %.in to i32
+  %1123 = sext i16 %.in to i32
   br label %27
 
-1123:                                             ; preds = %91
-  %1124 = icmp eq i32 %.4, -2
-  br i1 %1124, label %1131, label %1125
+1124:                                             ; preds = %92
+  %1125 = icmp eq i32 %.4, -2
+  br i1 %1125, label %1132, label %1126
 
-1125:                                             ; preds = %1123
+1126:                                             ; preds = %1124
   %or.cond11 = icmp ult i32 %.4, 310
-  br i1 %or.cond11, label %1126, label %1131
+  br i1 %or.cond11, label %1127, label %1132
 
-1126:                                             ; preds = %1125
-  %1127 = zext nneg i32 %.4 to i64
-  %1128 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %1127
-  %1129 = load i8, ptr %1128, align 1, !tbaa !3
-  %1130 = sext i8 %1129 to i32
-  br label %1131
+1127:                                             ; preds = %1126
+  %1128 = zext nneg i32 %.4 to i64
+  %1129 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %1128
+  %1130 = load i8, ptr %1129, align 1, !tbaa !3
+  %1131 = sext i8 %1130 to i32
+  br label %1132
 
-1131:                                             ; preds = %1126, %1125, %1123
-  %1132 = phi i32 [ -2, %1123 ], [ %1130, %1126 ], [ 2, %1125 ]
+1132:                                             ; preds = %1127, %1126, %1124
+  %1133 = phi i32 [ -2, %1124 ], [ %1131, %1127 ], [ 2, %1126 ]
   switch i32 %.01187, label %yydestruct.exit [
-    i32 0, label %1133
-    i32 3, label %1144
+    i32 0, label %1134
+    i32 3, label %1145
   ]
 
-1133:                                             ; preds = %1131
-  %1134 = call fastcc i32 @yysyntax_error(ptr noundef %7, ptr %.01470, ptr noundef %.21199, i32 noundef %1132)
-  switch i32 %1134, label %.thread1544 [
+1134:                                             ; preds = %1132
+  %1135 = call fastcc i32 @yysyntax_error(ptr noundef %7, ptr %.01470, ptr noundef %.21199, i32 noundef %1133)
+  switch i32 %1135, label %.thread1544 [
     i32 0, label %.thread1548
-    i32 1, label %1135
+    i32 1, label %1136
   ]
 
-.thread1548:                                      ; preds = %1133
+.thread1548:                                      ; preds = %1134
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef %.01470) #13
   br label %yydestruct.exit
 
-1135:                                             ; preds = %1133
+1136:                                             ; preds = %1134
   %.not1419 = icmp eq ptr %.01470, %6
-  br i1 %.not1419, label %1137, label %1136
+  br i1 %.not1419, label %1138, label %1137
 
-1136:                                             ; preds = %1135
+1137:                                             ; preds = %1136
   call void @free(ptr noundef %.01470) #13
-  br label %1137
+  br label %1138
 
-1137:                                             ; preds = %1136, %1135
-  %1138 = load i64, ptr %7, align 8, !tbaa !6
-  %1139 = call noalias ptr @malloc(i64 noundef %1138) #12
-  %.not1420 = icmp eq ptr %1139, null
-  br i1 %.not1420, label %1140, label %1141
+1138:                                             ; preds = %1137, %1136
+  %1139 = load i64, ptr %7, align 8, !tbaa !6
+  %1140 = call noalias ptr @malloc(i64 noundef %1139) #12
+  %.not1420 = icmp eq ptr %1140, null
+  br i1 %.not1420, label %1141, label %1142
 
-1140:                                             ; preds = %1137
+1141:                                             ; preds = %1138
   store i64 128, ptr %7, align 8, !tbaa !6
   br label %.thread1544
 
-.thread1544:                                      ; preds = %1133, %1140
-  %.41473.ph = phi ptr [ %6, %1140 ], [ %.01470, %1133 ]
+.thread1544:                                      ; preds = %1134, %1141
+  %.41473.ph = phi ptr [ %6, %1141 ], [ %.01470, %1134 ]
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.61) #13
   br label %.thread1482
 
-1141:                                             ; preds = %1137
-  %1142 = call fastcc i32 @yysyntax_error(ptr noundef %7, ptr nonnull %1139, ptr noundef %.21199, i32 noundef %1132)
-  call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1139) #13
-  %1143 = icmp eq i32 %1142, 2
-  br i1 %1143, label %.thread1482, label %yydestruct.exit
+1142:                                             ; preds = %1138
+  %1143 = call fastcc i32 @yysyntax_error(ptr noundef %7, ptr nonnull %1140, ptr noundef %.21199, i32 noundef %1133)
+  call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1140) #13
+  %1144 = icmp eq i32 %1143, 2
+  br i1 %1144, label %.thread1482, label %yydestruct.exit
 
-1144:                                             ; preds = %1131
-  %1145 = icmp slt i32 %.4, 1
-  br i1 %1145, label %1146, label %1148
+1145:                                             ; preds = %1132
+  %1146 = icmp slt i32 %.4, 1
+  br i1 %1146, label %1147, label %1149
 
-1146:                                             ; preds = %1144
-  %1147 = icmp eq i32 %.4, 0
-  br i1 %1147, label %.thread1575, label %yydestruct.exit
+1147:                                             ; preds = %1145
+  %1148 = icmp eq i32 %.4, 0
+  br i1 %1148, label %.thread1575, label %yydestruct.exit
 
-1148:                                             ; preds = %1144
-  switch i32 %1132, label %yydestruct.exit [
+1149:                                             ; preds = %1145
+  switch i32 %1133, label %yydestruct.exit [
     i32 9, label %.sink.split.i
     i32 10, label %.sink.split.i
     i32 11, label %.sink.split.i
@@ -2928,55 +2929,55 @@ switch.lookup1820:                                ; preds = %361
     i32 17, label %.sink.split.i
   ]
 
-.sink.split.i:                                    ; preds = %1148, %1148, %1148, %1148, %1148, %1148, %1148, %1148
-  %1149 = load ptr, ptr %3, align 8, !tbaa !3
-  call void @free(ptr noundef %1149) #13
+.sink.split.i:                                    ; preds = %1149, %1149, %1149, %1149, %1149, %1149, %1149, %1149
+  %1150 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @free(ptr noundef %1150) #13
   br label %yydestruct.exit
 
-.thread1531:                                      ; preds = %483, %480, %471, %.thread1537, %581, %436, %344, %297, %284, %167, %133, %122, %107, %1088, %1083, %1073, %1068, %1058, %1049, %1044, %1034, %1029, %1019, %1014, %1004, %999, %989, %984, %974, %969, %959, %954, %944, %939, %933, %913, %898, %888, %871, %864, %861, %852, %849, %840, %837, %828, %825, %816, %813, %804, %801, %792, %787, %754, %748, %742, %718, %706, %694, %681, %676, %666, %661, %651, %646, %636, %631, %621, %460, %448, %441, %426, %423, %418, %.thread1522, %404, %399, %390, %384, %378, %367, %355, %315, %231, %222, %207, %190, %183, %176, %149, %127
-  %1150 = sub nsw i64 0, %100
-  %1151 = getelementptr inbounds %union.YYSTYPE, ptr %.21213, i64 %1150
-  %1152 = getelementptr inbounds i8, ptr %.21199, i64 %1150
-  %1153 = load i8, ptr %1152, align 1, !tbaa !3
-  %1154 = zext i8 %1153 to i32
+.thread1531:                                      ; preds = %484, %481, %472, %.thread1537, %582, %437, %345, %298, %285, %168, %134, %123, %108, %1089, %1084, %1074, %1069, %1059, %1050, %1045, %1035, %1030, %1020, %1015, %1005, %1000, %990, %985, %975, %970, %960, %955, %945, %940, %934, %914, %899, %889, %872, %865, %862, %853, %850, %841, %838, %829, %826, %817, %814, %805, %802, %793, %788, %755, %749, %743, %719, %707, %695, %682, %677, %667, %662, %652, %647, %637, %632, %622, %461, %449, %442, %427, %424, %419, %.thread1522, %405, %400, %391, %385, %379, %368, %356, %316, %232, %223, %208, %191, %184, %177, %150, %128
+  %1151 = sub nsw i64 0, %101
+  %1152 = getelementptr inbounds %union.YYSTYPE, ptr %.21213, i64 %1151
+  %1153 = getelementptr inbounds i8, ptr %.21199, i64 %1151
+  %1154 = load i8, ptr %1153, align 1, !tbaa !3
+  %1155 = zext i8 %1154 to i32
   br label %yydestruct.exit
 
-yydestruct.exit:                                  ; preds = %1131, %1141, %.thread1548, %.sink.split.i, %1148, %1146, %.thread1531
-  %.51474 = phi ptr [ %.01470, %1146 ], [ %.01470, %.thread1531 ], [ %.01470, %1148 ], [ %.01470, %.sink.split.i ], [ %.01470, %.thread1548 ], [ %1139, %1141 ], [ %.01470, %1131 ]
-  %.61217 = phi ptr [ %.21213, %1146 ], [ %1151, %.thread1531 ], [ %.21213, %1148 ], [ %.21213, %.sink.split.i ], [ %.21213, %.thread1548 ], [ %.21213, %1141 ], [ %.21213, %1131 ]
-  %.61203 = phi ptr [ %.21199, %1146 ], [ %1152, %.thread1531 ], [ %.21199, %1148 ], [ %.21199, %.sink.split.i ], [ %.21199, %.thread1548 ], [ %.21199, %1141 ], [ %.21199, %1131 ]
-  %.21185 = phi i32 [ %.01183, %1146 ], [ %1154, %.thread1531 ], [ %.01183, %1148 ], [ %.01183, %.sink.split.i ], [ %.01183, %.thread1548 ], [ %.01183, %1141 ], [ %.01183, %1131 ]
-  %.8 = phi i32 [ %.4, %1146 ], [ %.7, %.thread1531 ], [ -2, %1148 ], [ -2, %.sink.split.i ], [ %.4, %.thread1548 ], [ %.4, %1141 ], [ %.4, %1131 ]
-  br label %1155
+yydestruct.exit:                                  ; preds = %1132, %1142, %.thread1548, %.sink.split.i, %1149, %1147, %.thread1531
+  %.51474 = phi ptr [ %.01470, %1147 ], [ %.01470, %.thread1531 ], [ %.01470, %1149 ], [ %.01470, %.sink.split.i ], [ %.01470, %.thread1548 ], [ %1140, %1142 ], [ %.01470, %1132 ]
+  %.61217 = phi ptr [ %.21213, %1147 ], [ %1152, %.thread1531 ], [ %.21213, %1149 ], [ %.21213, %.sink.split.i ], [ %.21213, %.thread1548 ], [ %.21213, %1142 ], [ %.21213, %1132 ]
+  %.61203 = phi ptr [ %.21199, %1147 ], [ %1153, %.thread1531 ], [ %.21199, %1149 ], [ %.21199, %.sink.split.i ], [ %.21199, %.thread1548 ], [ %.21199, %1142 ], [ %.21199, %1132 ]
+  %.21185 = phi i32 [ %.01183, %1147 ], [ %1155, %.thread1531 ], [ %.01183, %1149 ], [ %.01183, %.sink.split.i ], [ %.01183, %.thread1548 ], [ %.01183, %1142 ], [ %.01183, %1132 ]
+  %.8 = phi i32 [ %.4, %1147 ], [ %.7, %.thread1531 ], [ -2, %1149 ], [ -2, %.sink.split.i ], [ %.4, %.thread1548 ], [ %.4, %1142 ], [ %.4, %1132 ]
+  br label %1156
 
-1155:                                             ; preds = %yydestruct.exit1462, %yydestruct.exit
-  %.71218 = phi ptr [ %.61217, %yydestruct.exit ], [ %1173, %yydestruct.exit1462 ]
-  %.71204 = phi ptr [ %.61203, %yydestruct.exit ], [ %1174, %yydestruct.exit1462 ]
-  %.31186 = phi i32 [ %.21185, %yydestruct.exit ], [ %1176, %yydestruct.exit1462 ]
-  %1156 = sext i32 %.31186 to i64
-  %1157 = getelementptr inbounds i16, ptr @yypact, i64 %1156
-  %1158 = load i16, ptr %1157, align 2, !tbaa !8
-  %1159 = icmp sgt i16 %1158, -2
-  %1160 = icmp eq i32 %.31186, 1
-  %or.cond1459 = and i1 %1160, %1159
-  br i1 %or.cond1459, label %1161, label %1167
+1156:                                             ; preds = %yydestruct.exit1462, %yydestruct.exit
+  %.71218 = phi ptr [ %.61217, %yydestruct.exit ], [ %1174, %yydestruct.exit1462 ]
+  %.71204 = phi ptr [ %.61203, %yydestruct.exit ], [ %1175, %yydestruct.exit1462 ]
+  %.31186 = phi i32 [ %.21185, %yydestruct.exit ], [ %1177, %yydestruct.exit1462 ]
+  %1157 = sext i32 %.31186 to i64
+  %1158 = getelementptr inbounds i16, ptr @yypact, i64 %1157
+  %1159 = load i16, ptr %1158, align 2, !tbaa !8
+  %1160 = icmp sgt i16 %1159, -2
+  %1161 = icmp eq i32 %.31186, 1
+  %or.cond1459 = and i1 %1161, %1160
+  br i1 %or.cond1459, label %1162, label %1168
 
-1161:                                             ; preds = %1155
-  %1162 = sext i16 %1158 to i64
-  %1163 = getelementptr i16, ptr @yytable, i64 %1162
-  %1164 = getelementptr i8, ptr %1163, i64 2
-  %1165 = load i16, ptr %1164, align 2, !tbaa !8
-  %1166 = icmp sgt i16 %1165, 0
-  br i1 %1166, label %1177, label %1167
+1162:                                             ; preds = %1156
+  %1163 = sext i16 %1159 to i64
+  %1164 = getelementptr i16, ptr @yytable, i64 %1163
+  %1165 = getelementptr i8, ptr %1164, i64 2
+  %1166 = load i16, ptr %1165, align 2, !tbaa !8
+  %1167 = icmp sgt i16 %1166, 0
+  br i1 %1167, label %1178, label %1168
 
-1167:                                             ; preds = %1161, %1155
-  %1168 = icmp eq ptr %.71204, %.11191
-  br i1 %1168, label %.loopexit.loopexit, label %1169
+1168:                                             ; preds = %1162, %1156
+  %1169 = icmp eq ptr %.71204, %.11191
+  br i1 %1169, label %.loopexit.loopexit, label %1170
 
-1169:                                             ; preds = %1167
-  %1170 = getelementptr inbounds i8, ptr @yystos, i64 %1156
-  %1171 = load i8, ptr %1170, align 1, !tbaa !3
-  switch i8 %1171, label %yydestruct.exit1462 [
+1170:                                             ; preds = %1168
+  %1171 = getelementptr inbounds i8, ptr @yystos, i64 %1157
+  %1172 = load i8, ptr %1171, align 1, !tbaa !3
+  switch i8 %1172, label %yydestruct.exit1462 [
     i8 9, label %.sink.split.i1461
     i8 10, label %.sink.split.i1461
     i8 11, label %.sink.split.i1461
@@ -2987,39 +2988,39 @@ yydestruct.exit:                                  ; preds = %1131, %1141, %.thre
     i8 17, label %.sink.split.i1461
   ]
 
-.sink.split.i1461:                                ; preds = %1169, %1169, %1169, %1169, %1169, %1169, %1169, %1169
-  %1172 = load ptr, ptr %.71218, align 8, !tbaa !3
-  call void @free(ptr noundef %1172) #13
+.sink.split.i1461:                                ; preds = %1170, %1170, %1170, %1170, %1170, %1170, %1170, %1170
+  %1173 = load ptr, ptr %.71218, align 8, !tbaa !3
+  call void @free(ptr noundef %1173) #13
   br label %yydestruct.exit1462
 
-yydestruct.exit1462:                              ; preds = %1169, %.sink.split.i1461
-  %1173 = getelementptr inbounds i8, ptr %.71218, i64 -8
-  %1174 = getelementptr inbounds i8, ptr %.71204, i64 -1
-  %1175 = load i8, ptr %1174, align 1, !tbaa !3
-  %1176 = zext i8 %1175 to i32
-  br label %1155
+yydestruct.exit1462:                              ; preds = %1170, %.sink.split.i1461
+  %1174 = getelementptr inbounds i8, ptr %.71218, i64 -8
+  %1175 = getelementptr inbounds i8, ptr %.71204, i64 -1
+  %1176 = load i8, ptr %1175, align 1, !tbaa !3
+  %1177 = zext i8 %1176 to i32
+  br label %1156
 
-1177:                                             ; preds = %1161
-  %1178 = zext nneg i16 %1165 to i32
-  %1179 = getelementptr inbounds nuw i8, ptr %.71218, i64 8
-  %1180 = load i64, ptr %3, align 8, !tbaa !3
-  store i64 %1180, ptr %1179, align 8, !tbaa !3
+1178:                                             ; preds = %1162
+  %1179 = zext nneg i16 %1166 to i32
+  %1180 = getelementptr inbounds nuw i8, ptr %.71218, i64 8
+  %1181 = load i64, ptr %3, align 8, !tbaa !3
+  store i64 %1181, ptr %1180, align 8, !tbaa !3
   br label %27
 
-.thread1482:                                      ; preds = %39, %33, %1141, %.thread1544
-  %.2 = phi ptr [ %.41473.ph, %.thread1544 ], [ %.01470, %39 ], [ %.01470, %33 ], [ %1139, %1141 ]
-  %.51216 = phi ptr [ %.21213, %.thread1544 ], [ %.01211, %39 ], [ %.01211, %33 ], [ %.21213, %1141 ]
-  %.51202 = phi ptr [ %.21199, %.thread1544 ], [ %.01197, %39 ], [ %.01197, %33 ], [ %.21199, %1141 ]
-  %.51195 = phi ptr [ %.11191, %.thread1544 ], [ %.01190, %39 ], [ %.01190, %33 ], [ %.11191, %1141 ]
-  %.3 = phi i32 [ %.4, %.thread1544 ], [ %.01178, %39 ], [ %.01178, %33 ], [ %.4, %1141 ]
+.thread1482:                                      ; preds = %39, %33, %1142, %.thread1544
+  %.2 = phi ptr [ %.41473.ph, %.thread1544 ], [ %.01470, %39 ], [ %.01470, %33 ], [ %1140, %1142 ]
+  %.51216 = phi ptr [ %.21213, %.thread1544 ], [ %.01211, %39 ], [ %.01211, %33 ], [ %.21213, %1142 ]
+  %.51202 = phi ptr [ %.21199, %.thread1544 ], [ %.01197, %39 ], [ %.01197, %33 ], [ %.21199, %1142 ]
+  %.51195 = phi ptr [ %.11191, %.thread1544 ], [ %.01190, %39 ], [ %.01190, %33 ], [ %.11191, %1142 ]
+  %.3 = phi i32 [ %.4, %.thread1544 ], [ %.01178, %39 ], [ %.01178, %33 ], [ %.4, %1142 ]
   call void @yara_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.64) #13
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %1167
+.loopexit.loopexit:                               ; preds = %1168
   %.111911674.le = ptrtoint ptr %.11191 to i64
   %.612031675.le = ptrtoint ptr %.61203 to i64
-  %1181 = sub i64 %.111911674.le, %.612031675.le
-  %scevgep.le = getelementptr i8, ptr %.61203, i64 %1181
+  %1182 = sub i64 %.111911674.le, %.612031675.le
+  %scevgep.le = getelementptr i8, ptr %.61203, i64 %1182
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %.thread1489, %.loopexit.loopexit, %.thread1482
@@ -3032,17 +3033,17 @@ yydestruct.exit1462:                              ; preds = %1169, %.sink.split.
   %or.cond15 = icmp ult i32 %.9, 310
   br i1 %or.cond15, label %.thread1575, label %yydestruct.exit1464
 
-.thread1575:                                      ; preds = %1146, %.loopexit
-  %.6147515641593 = phi ptr [ %.61475, %.loopexit ], [ %.01470, %1146 ]
-  %.0122515661591 = phi i32 [ %.01225, %.loopexit ], [ 1, %1146 ]
-  %.8121915681589 = phi ptr [ %.81219, %.loopexit ], [ %.21213, %1146 ]
-  %.8120515701587 = phi ptr [ %.81205, %.loopexit ], [ %.21199, %1146 ]
-  %.6119615721585 = phi ptr [ %.61196, %.loopexit ], [ %.11191, %1146 ]
-  %.915741583 = phi i32 [ %.9, %.loopexit ], [ 0, %1146 ]
-  %1182 = zext nneg i32 %.915741583 to i64
-  %1183 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %1182
-  %1184 = load i8, ptr %1183, align 1, !tbaa !3
-  switch i8 %1184, label %yydestruct.exit1464 [
+.thread1575:                                      ; preds = %1147, %.loopexit
+  %.6147515641593 = phi ptr [ %.61475, %.loopexit ], [ %.01470, %1147 ]
+  %.0122515661591 = phi i32 [ %.01225, %.loopexit ], [ 1, %1147 ]
+  %.8121915681589 = phi ptr [ %.81219, %.loopexit ], [ %.21213, %1147 ]
+  %.8120515701587 = phi ptr [ %.81205, %.loopexit ], [ %.21199, %1147 ]
+  %.6119615721585 = phi ptr [ %.61196, %.loopexit ], [ %.11191, %1147 ]
+  %.915741583 = phi i32 [ %.9, %.loopexit ], [ 0, %1147 ]
+  %1183 = zext nneg i32 %.915741583 to i64
+  %1184 = getelementptr inbounds nuw i8, ptr @yytranslate, i64 %1183
+  %1185 = load i8, ptr %1184, align 1, !tbaa !3
+  switch i8 %1185, label %yydestruct.exit1464 [
     i8 9, label %.sink.split.i1463
     i8 10, label %.sink.split.i1463
     i8 11, label %.sink.split.i1463
@@ -3054,8 +3055,8 @@ yydestruct.exit1462:                              ; preds = %1169, %.sink.split.
   ]
 
 .sink.split.i1463:                                ; preds = %.thread1575, %.thread1575, %.thread1575, %.thread1575, %.thread1575, %.thread1575, %.thread1575, %.thread1575
-  %1185 = load ptr, ptr %3, align 8, !tbaa !3
-  call void @free(ptr noundef %1185) #13
+  %1186 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @free(ptr noundef %1186) #13
   br label %yydestruct.exit1464
 
 yydestruct.exit1464:                              ; preds = %.sink.split.i1463, %.thread1575, %.loopexit
@@ -3068,13 +3069,13 @@ yydestruct.exit1464:                              ; preds = %.sink.split.i1463, 
   br i1 %.not14221638, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %yydestruct.exit1464, %yydestruct.exit1466
-  %.912061640 = phi ptr [ %1192, %yydestruct.exit1466 ], [ %.812051571, %yydestruct.exit1464 ]
-  %.912201639 = phi ptr [ %1191, %yydestruct.exit1466 ], [ %.812191569, %yydestruct.exit1464 ]
-  %1186 = load i8, ptr %.912061640, align 1, !tbaa !3
-  %1187 = zext i8 %1186 to i64
-  %1188 = getelementptr inbounds nuw i8, ptr @yystos, i64 %1187
-  %1189 = load i8, ptr %1188, align 1, !tbaa !3
-  switch i8 %1189, label %yydestruct.exit1466 [
+  %.912061640 = phi ptr [ %1193, %yydestruct.exit1466 ], [ %.812051571, %yydestruct.exit1464 ]
+  %.912201639 = phi ptr [ %1192, %yydestruct.exit1466 ], [ %.812191569, %yydestruct.exit1464 ]
+  %1187 = load i8, ptr %.912061640, align 1, !tbaa !3
+  %1188 = zext i8 %1187 to i64
+  %1189 = getelementptr inbounds nuw i8, ptr @yystos, i64 %1188
+  %1190 = load i8, ptr %1189, align 1, !tbaa !3
+  switch i8 %1190, label %yydestruct.exit1466 [
     i8 9, label %.sink.split.i1465
     i8 10, label %.sink.split.i1465
     i8 11, label %.sink.split.i1465
@@ -3086,33 +3087,33 @@ yydestruct.exit1464:                              ; preds = %.sink.split.i1463, 
   ]
 
 .sink.split.i1465:                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %1190 = load ptr, ptr %.912201639, align 8, !tbaa !3
-  call void @free(ptr noundef %1190) #13
+  %1191 = load ptr, ptr %.912201639, align 8, !tbaa !3
+  call void @free(ptr noundef %1191) #13
   br label %yydestruct.exit1466
 
 yydestruct.exit1466:                              ; preds = %.lr.ph, %.sink.split.i1465
-  %1191 = getelementptr inbounds i8, ptr %.912201639, i64 -8
-  %1192 = getelementptr inbounds i8, ptr %.912061640, i64 -1
-  %.not1422 = icmp eq ptr %1192, %.611961573
+  %1192 = getelementptr inbounds i8, ptr %.912201639, i64 -8
+  %1193 = getelementptr inbounds i8, ptr %.912061640, i64 -1
+  %.not1422 = icmp eq ptr %1193, %.611961573
   br i1 %.not1422, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %yydestruct.exit1466, %yydestruct.exit1464
   %.not1423 = icmp eq ptr %.611961573, %4
-  br i1 %.not1423, label %1194, label %1193
+  br i1 %.not1423, label %1195, label %1194
 
-1193:                                             ; preds = %._crit_edge
+1194:                                             ; preds = %._crit_edge
   call void @free(ptr noundef %.611961573) #13
-  br label %1194
+  br label %1195
 
-1194:                                             ; preds = %1193, %._crit_edge
+1195:                                             ; preds = %1194, %._crit_edge
   %.not1424 = icmp eq ptr %.614751565, %6
-  br i1 %.not1424, label %1196, label %1195
+  br i1 %.not1424, label %1197, label %1196
 
-1195:                                             ; preds = %1194
+1196:                                             ; preds = %1195
   call void @free(ptr noundef %.614751565) #13
-  br label %1196
+  br label %1197
 
-1196:                                             ; preds = %1194, %1195
+1197:                                             ; preds = %1195, %1196
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -106897,7 +106897,7 @@ _ZN11polars_plan5plans9optimizer3cse8cse_expr14skip_pre_visit17hcd8248c99438549a
   br i1 %29, label %_ZN11polars_plan5plans9optimizer3cse8cse_expr14skip_pre_visit17hcd8248c99438549aE.exit.thread, label %_ZN11polars_plan5plans9optimizer3cse8cse_expr14skip_pre_visit17hcd8248c99438549aE.exit.thread14
 
 _ZN11polars_plan5plans9optimizer3cse8cse_expr14skip_pre_visit17hcd8248c99438549aE.exit.thread14: ; preds = %24, %_ZN11polars_plan5plans9optimizer3cse8cse_expr14skip_pre_visit17hcd8248c99438549aE.exit
-  %30 = getelementptr inbounds nuw { i64, { { i64, [1 x i64] }, { i64, [1 x i64] }, i64 } }, ptr %19, i64 %11, i32 1
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.val12 = load i64, ptr %30, align 8, !range !63, !noundef !7
   %.not16 = icmp eq i64 %.val12, 0
   br i1 %.not16, label %31, label %34
@@ -106948,27 +106948,27 @@ _ZN11polars_plan5plans9optimizer3cse8cse_expr14skip_pre_visit17hcd8248c99438549a
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %54 = load i64, ptr %53, align 8
   br label %55
 
 55:                                               ; preds = %47, %52
   %.sroa.5.0 = phi i64 [ %54, %52 ], [ undef, %47 ]
   %.sroa.03.0 = phi i64 [ 1, %52 ], [ 0, %47 ]
-  %56 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %57 = load i64, ptr %56, align 8, !range !63, !noundef !7
   %58 = trunc nuw i64 %57 to i1
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %61 = load i64, ptr %60, align 8
   br label %62
 
 62:                                               ; preds = %55, %59
   %.sroa.04.0 = phi i64 [ 1, %59 ], [ 0, %55 ]
   %.sroa.55.0 = phi i64 [ %61, %59 ], [ undef, %55 ]
-  %63 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %64 = load i64, ptr %63, align 8, !noundef !7
   store i64 %.sroa.03.0, ptr %5, align 8
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 8

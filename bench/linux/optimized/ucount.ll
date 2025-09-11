@@ -85,7 +85,8 @@ define dso_local noundef zeroext i1 @setup_userns_sysctls(ptr noundef %0) local_
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %11, %7 ]
   %9 = getelementptr i64, ptr %6, i64 %8
-  %10 = getelementptr %struct.ctl_table, ptr %3, i64 %8, i32 1
+  %.split = getelementptr %struct.ctl_table, ptr %3, i64 %8
+  %10 = getelementptr i8, ptr %.split, i64 8
   store ptr %9, ptr %10, align 8
   %11 = add nuw nsw i64 %8, 1
   %12 = icmp eq i64 %11, 10

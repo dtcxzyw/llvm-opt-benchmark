@@ -3323,7 +3323,8 @@ invoke.cont33:                                    ; preds = %invoke.cont31
   %blend = getelementptr inbounds nuw i8, ptr %this, i64 48
   %18 = load i8, ptr %blend, align 8, !tbaa !69
   %idxprom = zext i8 %18 to i64
-  %str = getelementptr inbounds nuw %struct.EnumString, ptr @_ZN13WearBarParams12es_BlendModeE, i64 %idxprom, i32 1
+  %str.split = getelementptr inbounds nuw %struct.EnumString, ptr @_ZN13WearBarParams12es_BlendModeE, i64 %idxprom
+  %str = getelementptr inbounds nuw i8, ptr %str.split, i64 8
   %19 = load ptr, ptr %str, align 8, !tbaa !94
   invoke void @_ZN4Json5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp35, ptr noundef %19)
           to label %invoke.cont37 unwind label %lpad36

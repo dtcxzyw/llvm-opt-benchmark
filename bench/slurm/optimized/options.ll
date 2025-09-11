@@ -66,7 +66,7 @@ define dso_local void @_help_fields_msg() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %0 ]
-  %2 = phi ptr [ %8, %5 ], [ getelementptr inbounds nuw (i8, ptr @fields, i64 8), %0 ]
+  %2 = phi ptr [ %9, %5 ], [ getelementptr inbounds nuw (i8, ptr @fields, i64 8), %0 ]
   %3 = and i64 %indvars.iv, 3
   %.not5 = icmp eq i64 %3, 0
   br i1 %.not5, label %4, label %.sink.split
@@ -84,9 +84,10 @@ define dso_local void @_help_fields_msg() local_unnamed_addr #0 {
   %6 = load ptr, ptr %2, align 8
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
+  %8 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %5, %0
@@ -112,15 +113,15 @@ define dso_local void @_usage() local_unnamed_addr #0 {
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @_do_help() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
-  switch i32 %1, label %15 [
+  switch i32 %1, label %16 [
     i32 1, label %2
     i32 2, label %3
-    i32 3, label %14
+    i32 3, label %15
   ]
 
 2:                                                ; preds = %0
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %18
+  br label %19
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @fields, i64 8), align 8
@@ -128,9 +129,9 @@ define dso_local void @_do_help() local_unnamed_addr #0 {
   br i1 %.not9.i, label %_help_fields_msg.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %9
-  %5 = phi ptr [ %13, %9 ], [ %4, %3 ]
+  %5 = phi ptr [ %14, %9 ], [ %4, %3 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %9 ], [ 0, %3 ]
-  %6 = phi ptr [ %12, %9 ], [ getelementptr inbounds nuw (i8, ptr @fields, i64 8), %3 ]
+  %6 = phi ptr [ %13, %9 ], [ getelementptr inbounds nuw (i8, ptr @fields, i64 8), %3 ]
   %7 = and i64 %indvars.iv.i, 3
   %.not5.i = icmp eq i64 %7, 0
   br i1 %.not5.i, label %8, label %.sink.split.i
@@ -149,25 +150,26 @@ define dso_local void @_do_help() local_unnamed_addr #0 {
   %10 = phi ptr [ %.pre, %.sink.split.i ], [ %5, %8 ]
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %10)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next.i, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %.not.i = icmp eq ptr %13, null
+  %12 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next.i
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_help_fields_msg.exit, label %.lr.ph.i, !llvm.loop !8
 
 _help_fields_msg.exit:                            ; preds = %9, %3
   %putchar.i = tail call i32 @putchar(i32 10)
-  br label %18
-
-14:                                               ; preds = %0
-  %puts.i1 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %18
+  br label %19
 
 15:                                               ; preds = %0
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.5, i32 noundef %1) #15
-  br label %18
+  %puts.i1 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
+  br label %19
 
-18:                                               ; preds = %15, %14, %_help_fields_msg.exit, %2
+16:                                               ; preds = %0
+  %17 = load ptr, ptr @stderr, align 8
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.5, i32 noundef %1) #15
+  br label %19
+
+19:                                               ; preds = %16, %15, %_help_fields_msg.exit, %2
   ret void
 }
 
@@ -494,9 +496,9 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   %88 = tail call ptr @__ctype_b_loc() #19
   br label %89
 
-89:                                               ; preds = %.lr.ph72, %121
-  %strchr70 = phi ptr [ %strchr67, %.lr.ph72 ], [ %strchr, %121 ]
-  %.03269 = phi ptr [ %87, %.lr.ph72 ], [ %.2, %121 ]
+89:                                               ; preds = %.lr.ph72, %122
+  %strchr70 = phi ptr [ %strchr67, %.lr.ph72 ], [ %strchr, %122 ]
+  %.03269 = phi ptr [ %87, %.lr.ph72 ], [ %.2, %122 ]
   store i8 0, ptr %strchr70, align 1
   %90 = load ptr, ptr %88, align 8
   br label %91
@@ -514,7 +516,7 @@ _addto_job_list.exit56:                           ; preds = %42, %47
 
 98:                                               ; preds = %91
   %.not48 = icmp eq i8 %92, 0
-  br i1 %.not48, label %121, label %99, !llvm.loop !14
+  br i1 %.not48, label %122, label %99, !llvm.loop !14
 
 99:                                               ; preds = %98
   %strchr49 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1, i32 37)
@@ -538,52 +540,53 @@ _addto_job_list.exit56:                           ; preds = %42, %47
   %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #20
   %sext = shl i64 %106, 32
   %107 = ashr exact i64 %sext, 32
-  br label %111
+  br label %112
 
-108:                                              ; preds = %111
+108:                                              ; preds = %112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %109 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next, i32 1
-  %110 = load ptr, ptr %109, align 8
-  %.not51 = icmp eq ptr %110, null
-  br i1 %.not51, label %._crit_edge64, label %111, !llvm.loop !15
+  %109 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv.next
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %.not51 = icmp eq ptr %111, null
+  br i1 %.not51, label %._crit_edge64, label %112, !llvm.loop !15
 
-111:                                              ; preds = %.lr.ph63, %108
+112:                                              ; preds = %.lr.ph63, %108
   %indvars.iv = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next, %108 ]
-  %112 = phi ptr [ %105, %.lr.ph63 ], [ %110, %108 ]
-  %113 = call i32 @xstrncasecmp(ptr noundef nonnull %112, ptr noundef nonnull %.1, i64 noundef %107) #16
-  %.not52 = icmp eq i32 %113, 0
-  br i1 %.not52, label %115, label %108
+  %113 = phi ptr [ %105, %.lr.ph63 ], [ %111, %108 ]
+  %114 = call i32 @xstrncasecmp(ptr noundef nonnull %113, ptr noundef nonnull %.1, i64 noundef %107) #16
+  %.not52 = icmp eq i32 %114, 0
+  br i1 %.not52, label %116, label %108
 
 ._crit_edge64:                                    ; preds = %104, %108
-  %114 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, ptr noundef nonnull %.1) #16
+  %115 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, ptr noundef nonnull %.1) #16
   call void @exit(i32 noundef 1) #18
   unreachable
 
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds nuw %struct.print_field, ptr @fields, i64 %indvars.iv
   %.not53 = icmp eq i32 %.0, 0
-  br i1 %.not53, label %118, label %117
+  br i1 %.not53, label %119, label %118
 
-117:                                              ; preds = %115
-  store i32 %.0, ptr %116, align 8
-  br label %118
+118:                                              ; preds = %116
+  store i32 %.0, ptr %117, align 8
+  br label %119
 
-118:                                              ; preds = %117, %115
-  %119 = load ptr, ptr @print_fields_list, align 8
-  call void @list_append(ptr noundef %119, ptr noundef nonnull %116) #16
-  %120 = getelementptr inbounds nuw i8, ptr %strchr70, i64 1
-  br label %121
+119:                                              ; preds = %118, %116
+  %120 = load ptr, ptr @print_fields_list, align 8
+  call void @list_append(ptr noundef %120, ptr noundef nonnull %117) #16
+  %121 = getelementptr inbounds nuw i8, ptr %strchr70, i64 1
+  br label %122
 
-121:                                              ; preds = %98, %118
-  %.2 = phi ptr [ %120, %118 ], [ %.1, %98 ]
+122:                                              ; preds = %98, %119
+  %.2 = phi ptr [ %121, %119 ], [ %.1, %98 ]
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2, i32 44)
   %.not46 = icmp eq ptr %strchr, null
   br i1 %.not46, label %._crit_edge73, label %89
 
-._crit_edge73:                                    ; preds = %121, %.thread
-  %122 = load ptr, ptr @print_fields_list, align 8
-  %123 = call i32 @list_count(ptr noundef %122) #16
-  store i32 %123, ptr @field_count, align 4
+._crit_edge73:                                    ; preds = %122, %.thread
+  %123 = load ptr, ptr @print_fields_list, align 8
+  %124 = call i32 @list_count(ptr noundef %123) #16
+  store i32 %124, ptr @field_count, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

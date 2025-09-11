@@ -31,7 +31,7 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   %7 = icmp ne ptr %6, null
   %8 = icmp ne ptr %5, null
   %or.cond = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond, label %9, label %94
+  br i1 %or.cond, label %9, label %96
 
 9:                                                ; preds = %1
   %10 = tail call ptr @agfstnode(ptr noundef %0) #15
@@ -48,7 +48,7 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   br label %17
 
 17:                                               ; preds = %.lr.ph81, %same_list_clear.exit63
-  %.04879 = phi ptr [ %10, %.lr.ph81 ], [ %83, %same_list_clear.exit63 ]
+  %.04879 = phi ptr [ %10, %.lr.ph81 ], [ %85, %same_list_clear.exit63 ]
   %18 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %.04879) #15
   %.not5270 = icmp eq ptr %18, null
   br i1 %.not5270, label %same_list_clear.exit, label %.lr.ph
@@ -62,7 +62,7 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   %19 = load ptr, ptr %2, align 8, !tbaa !12
   %20 = load i64, ptr %12, align 8, !tbaa !13
   %21 = load i64, ptr %13, align 8, !tbaa !14
-  br label %66
+  br label %67
 
 .lr.ph:                                           ; preds = %17, %54
   %.04771 = phi ptr [ %55, %54 ], [ %18, %17 ]
@@ -130,21 +130,22 @@ define void @dot_sameports(ptr noundef %0) local_unnamed_addr #0 {
   %.not52 = icmp eq ptr %55, null
   br i1 %.not52, label %.preheader, label %.lr.ph, !llvm.loop !25
 
-.lr.ph.i:                                         ; preds = %74
+.lr.ph.i:                                         ; preds = %75
   %56 = load ptr, ptr %2, align 8, !tbaa !12, !noalias !27
   %57 = load i64, ptr %12, align 8, !tbaa !13, !noalias !27
   %58 = load i64, ptr %13, align 8, !tbaa !14, !noalias !27
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.i
-  %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %62, %59 ]
+  %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %63, %59 ]
   %60 = add i64 %57, %.08.i
   %61 = urem i64 %60, %58
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds %struct.same_t, ptr %56, i64 %61, i32 1
+  %62 = getelementptr inbounds nuw %struct.same_t, ptr %56, i64 %61
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !30
   tail call void @free(ptr noundef %.sroa.2.0.copyload.i) #15
-  %62 = add nuw i64 %.08.i, 1
-  %exitcond85.not = icmp eq i64 %62, %.val.pre
+  %63 = add nuw i64 %.08.i, 1
+  %exitcond85.not = icmp eq i64 %63, %.val.pre
   br i1 %exitcond85.not, label %same_list_clear.exit, label %59, !llvm.loop !32
 
 same_list_clear.exit:                             ; preds = %59, %17, %.preheader
@@ -154,73 +155,74 @@ same_list_clear.exit:                             ; preds = %59, %17, %.preheade
   br i1 %.not84, label %same_list_clear.exit63, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %same_list_clear.exit
-  %63 = load ptr, ptr %3, align 8, !tbaa !12
-  %64 = load i64, ptr %15, align 8, !tbaa !13
-  %65 = load i64, ptr %16, align 8, !tbaa !14
-  br label %84
+  %64 = load ptr, ptr %3, align 8, !tbaa !12
+  %65 = load i64, ptr %15, align 8, !tbaa !13
+  %66 = load i64, ptr %16, align 8, !tbaa !14
+  br label %86
 
-66:                                               ; preds = %.lr.ph73, %74
-  %.04672 = phi i64 [ 0, %.lr.ph73 ], [ %75, %74 ]
-  %67 = add i64 %20, %.04672
-  %68 = urem i64 %67, %21
-  %69 = getelementptr inbounds nuw %struct.same_t, ptr %19, i64 %68
-  %70 = getelementptr i8, ptr %69, i64 24
-  %.val56 = load i64, ptr %70, align 8, !tbaa !33
-  %71 = icmp ugt i64 %.val56, 1
-  br i1 %71, label %72, label %74
+67:                                               ; preds = %.lr.ph73, %75
+  %.04672 = phi i64 [ 0, %.lr.ph73 ], [ %76, %75 ]
+  %68 = add i64 %20, %.04672
+  %69 = urem i64 %68, %21
+  %70 = getelementptr inbounds nuw %struct.same_t, ptr %19, i64 %69
+  %71 = getelementptr i8, ptr %70, i64 24
+  %.val56 = load i64, ptr %71, align 8, !tbaa !33
+  %72 = icmp ugt i64 %.val56, 1
+  br i1 %72, label %73, label %75
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  tail call fastcc void @sameport(ptr noundef %.04879, ptr noundef nonnull byval(%struct.edge_list_t) align 8 %73)
-  br label %74
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  tail call fastcc void @sameport(ptr noundef %.04879, ptr noundef nonnull byval(%struct.edge_list_t) align 8 %74)
+  br label %75
 
-74:                                               ; preds = %66, %72
-  %75 = add nuw i64 %.04672, 1
-  %exitcond.not = icmp eq i64 %75, %.val.pre
-  br i1 %exitcond.not, label %.lr.ph.i, label %66, !llvm.loop !35
+75:                                               ; preds = %67, %73
+  %76 = add nuw i64 %.04672, 1
+  %exitcond.not = icmp eq i64 %76, %.val.pre
+  br i1 %exitcond.not, label %.lr.ph.i, label %67, !llvm.loop !35
 
-.lr.ph.i59:                                       ; preds = %92
-  %76 = load ptr, ptr %3, align 8, !tbaa !12, !noalias !36
-  %77 = load i64, ptr %15, align 8, !tbaa !13, !noalias !36
-  %78 = load i64, ptr %16, align 8, !tbaa !14, !noalias !36
-  br label %79
+.lr.ph.i59:                                       ; preds = %94
+  %77 = load ptr, ptr %3, align 8, !tbaa !12, !noalias !36
+  %78 = load i64, ptr %15, align 8, !tbaa !13, !noalias !36
+  %79 = load i64, ptr %16, align 8, !tbaa !14, !noalias !36
+  br label %80
 
-79:                                               ; preds = %79, %.lr.ph.i59
-  %.08.i60 = phi i64 [ 0, %.lr.ph.i59 ], [ %82, %79 ]
-  %80 = add i64 %77, %.08.i60
-  %81 = urem i64 %80, %78
-  %.sroa.2.0..sroa_idx.i61 = getelementptr inbounds %struct.same_t, ptr %76, i64 %81, i32 1
+80:                                               ; preds = %80, %.lr.ph.i59
+  %.08.i60 = phi i64 [ 0, %.lr.ph.i59 ], [ %84, %80 ]
+  %81 = add i64 %78, %.08.i60
+  %82 = urem i64 %81, %79
+  %83 = getelementptr inbounds nuw %struct.same_t, ptr %77, i64 %82
+  %.sroa.2.0..sroa_idx.i61 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %.sroa.2.0.copyload.i62 = load ptr, ptr %.sroa.2.0..sroa_idx.i61, align 8, !tbaa !30
   tail call void @free(ptr noundef %.sroa.2.0.copyload.i62) #15
-  %82 = add nuw i64 %.08.i60, 1
-  %exitcond87.not = icmp eq i64 %82, %.val55
-  br i1 %exitcond87.not, label %same_list_clear.exit63, label %79, !llvm.loop !32
+  %84 = add nuw i64 %.08.i60, 1
+  %exitcond87.not = icmp eq i64 %84, %.val55
+  br i1 %exitcond87.not, label %same_list_clear.exit63, label %80, !llvm.loop !32
 
-same_list_clear.exit63:                           ; preds = %79, %same_list_clear.exit
+same_list_clear.exit63:                           ; preds = %80, %same_list_clear.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %83 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04879) #15
-  %.not = icmp eq ptr %83, null
+  %85 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04879) #15
+  %.not = icmp eq ptr %85, null
   br i1 %.not, label %._crit_edge82.loopexit, label %17, !llvm.loop !39
 
-84:                                               ; preds = %.lr.ph75, %92
-  %.074 = phi i64 [ 0, %.lr.ph75 ], [ %93, %92 ]
-  %85 = add i64 %64, %.074
-  %86 = urem i64 %85, %65
-  %87 = getelementptr inbounds nuw %struct.same_t, ptr %63, i64 %86
-  %88 = getelementptr i8, ptr %87, i64 24
-  %.val57 = load i64, ptr %88, align 8, !tbaa !33
-  %89 = icmp ugt i64 %.val57, 1
-  br i1 %89, label %90, label %92
+86:                                               ; preds = %.lr.ph75, %94
+  %.074 = phi i64 [ 0, %.lr.ph75 ], [ %95, %94 ]
+  %87 = add i64 %65, %.074
+  %88 = urem i64 %87, %66
+  %89 = getelementptr inbounds nuw %struct.same_t, ptr %64, i64 %88
+  %90 = getelementptr i8, ptr %89, i64 24
+  %.val57 = load i64, ptr %90, align 8, !tbaa !33
+  %91 = icmp ugt i64 %.val57, 1
+  br i1 %91, label %92, label %94
 
-90:                                               ; preds = %84
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  tail call fastcc void @sameport(ptr noundef %.04879, ptr noundef nonnull byval(%struct.edge_list_t) align 8 %91)
-  br label %92
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  tail call fastcc void @sameport(ptr noundef %.04879, ptr noundef nonnull byval(%struct.edge_list_t) align 8 %93)
+  br label %94
 
-92:                                               ; preds = %84, %90
-  %93 = add nuw i64 %.074, 1
-  %exitcond86.not = icmp eq i64 %93, %.val55
-  br i1 %exitcond86.not, label %.lr.ph.i59, label %84, !llvm.loop !40
+94:                                               ; preds = %86, %92
+  %95 = add nuw i64 %.074, 1
+  %exitcond86.not = icmp eq i64 %95, %.val55
+  br i1 %exitcond86.not, label %.lr.ph.i59, label %86, !llvm.loop !40
 
 ._crit_edge82.loopexit:                           ; preds = %same_list_clear.exit63
   %.pre92.pre = load ptr, ptr %2, align 8, !tbaa !12
@@ -231,9 +233,9 @@ same_list_free.exit69:                            ; preds = %._crit_edge82.loope
   tail call void @free(ptr noundef %.pre92) #15
   %.pre93 = load ptr, ptr %3, align 8, !tbaa !12
   tail call void @free(ptr noundef %.pre93) #15
-  br label %94
+  br label %96
 
-94:                                               ; preds = %1, %same_list_free.exit69
+96:                                               ; preds = %1, %same_list_free.exit69
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

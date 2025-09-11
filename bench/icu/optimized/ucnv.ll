@@ -2909,7 +2909,7 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
 56:                                               ; preds = %51, %47
   %57 = and i32 %.2, -1024
   %58 = icmp eq i32 %57, 55296
-  %59 = icmp sge i32 %.1108, %29
+  %59 = icmp samesign uge i32 %.1108, %29
   %or.cond130.not = and i1 %59, %58
   br i1 %or.cond130.not, label %60, label %187
 

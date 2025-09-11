@@ -127,7 +127,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %conv21 = sext i32 %ai.0150 to i64
-  %direction = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv21, i32 1
+  %add.ptr.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv21
+  %direction = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %8 = load i32, ptr %direction, align 8
   switch i32 %fillRule, label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit [
     i32 0, label %sw.bb.i
@@ -177,7 +178,8 @@ if.end:                                           ; preds = %cond.true28, %_ZN7m
 
 if.then42:                                        ; preds = %if.end
   %conv44 = sext i32 %bi.0151 to i64
-  %direction46 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %3, i64 %conv44, i32 1
+  %add.ptr.i81 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %3, i64 %conv44
+  %direction46 = getelementptr inbounds nuw i8, ptr %add.ptr.i81, i64 8
   %10 = load i32, ptr %direction46, align 8
   switch i32 %fillRule, label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit92 [
     i32 0, label %sw.bb.i90
@@ -247,7 +249,8 @@ while.body69:                                     ; preds = %while.body69.lr.ph,
 
 if.then84:                                        ; preds = %while.body69
   %conv86 = sext i32 %ai.2163 to i64
-  %direction88 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv86, i32 1
+  %add.ptr.i106 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv86
+  %direction88 = getelementptr inbounds nuw i8, ptr %add.ptr.i106, i64 8
   %13 = load i32, ptr %direction88, align 8
   switch i32 %fillRule, label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit117 [
     i32 0, label %sw.bb.i115
@@ -297,7 +300,8 @@ if.end104:                                        ; preds = %cond.true96, %_ZN7m
 
 if.then111:                                       ; preds = %if.end104
   %conv113 = sext i32 %bi.2164 to i64
-  %direction115 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %3, i64 %conv113, i32 1
+  %add.ptr.i129 = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %3, i64 %conv113
+  %direction115 = getelementptr inbounds nuw i8, ptr %add.ptr.i129, i64 8
   %15 = load i32, ptr %direction115, align 8
   switch i32 %fillRule, label %_ZN7msdfgen17interpretFillRuleEiNS_8FillRuleE.exit140 [
     i32 0, label %sw.bb.i138
@@ -844,7 +848,8 @@ _ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %while.cond.i, %if.e
 
 if.then:                                          ; preds = %_ZNK7msdfgen8Scanline6moveToEd.exit
   %conv = zext nneg i32 %index.1.sink.i to i64
-  %direction = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv, i32 1
+  %add.ptr.i = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv
+  %direction = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %9 = load i32, ptr %direction, align 8
   br label %return
 
@@ -926,7 +931,8 @@ _ZNK7msdfgen8Scanline6moveToEd.exit.i:            ; preds = %while.cond.i.i, %if
 
 if.then.i:                                        ; preds = %_ZNK7msdfgen8Scanline6moveToEd.exit.i
   %conv.i = zext nneg i32 %index.1.sink.i.i to i64
-  %direction.i = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i, i32 1
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i
+  %direction.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %9 = load i32, ptr %direction.i, align 8
   br label %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit
 

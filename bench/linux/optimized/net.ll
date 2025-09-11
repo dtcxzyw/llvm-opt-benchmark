@@ -3152,7 +3152,8 @@ define internal i32 @io_sg_from_iter(ptr noundef %0, ptr noundef %1, ptr noundef
   store i32 %51, ptr %64, align 8
   %65 = load ptr, ptr %23, align 8
   %66 = add i32 %51, %42
-  %67 = getelementptr %struct.bio_vec, ptr %65, i64 %45, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %65, i64 %45
+  %67 = getelementptr i8, ptr %.split, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %66, %68
   %70 = zext i1 %69 to i32

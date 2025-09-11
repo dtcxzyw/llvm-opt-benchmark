@@ -262,7 +262,7 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr noundef readonly captures(n
   %.3 = phi i32 [ %79, %76 ], [ %.2, %74 ]
   %81 = add nsw i32 %25, -4
   %82 = select i1 %.0159.not, i32 %81, i32 %25
-  %83 = icmp slt i32 %.3, %82
+  %83 = icmp samesign ult i32 %.3, %82
   br i1 %83, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %80, %.thread

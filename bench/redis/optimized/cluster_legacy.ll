@@ -11108,7 +11108,7 @@ define dso_local void @clusterWriteHandler(ptr noundef %0) #3 {
   %57 = add i64 %reass.sub, -24
   store i64 %57, ptr %5, align 8, !tbaa !156
   %58 = add nuw nsw i64 %.051, %26
-  %59 = icmp ult i64 %58, 65536
+  %59 = icmp samesign ult i64 %58, 65536
   br i1 %59, label %6, label %.critedge, !llvm.loop !258
 
 .critedge:                                        ; preds = %50

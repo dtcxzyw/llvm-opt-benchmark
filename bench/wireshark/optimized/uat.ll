@@ -2026,7 +2026,7 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
 define noundef zeroext i1 @uat_fld_chk_enum(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7)
-  %9 = getelementptr i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not18.not = icmp eq ptr %10, null
   br i1 %.not18.not, label %._crit_edge, label %.lr.ph
@@ -2034,24 +2034,25 @@ define noundef zeroext i1 @uat_fld_chk_enum(ptr noundef readnone captures(none) 
 11:                                               ; preds = %.lr.ph
   %12 = add i32 %.01419, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %.not.not = icmp eq ptr %15, null
+  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.not.not = icmp eq ptr %16, null
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %6, %11
-  %16 = phi ptr [ %15, %11 ], [ %10, %6 ]
+  %17 = phi ptr [ %16, %11 ], [ %10, %6 ]
   %.01419 = phi i32 [ %12, %11 ], [ 0, %6 ]
-  %17 = tail call i32 @g_strcmp0(ptr noundef nonnull %16, ptr noundef %8)
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.loopexit, label %11
+  %18 = tail call i32 @g_strcmp0(ptr noundef nonnull %17, ptr noundef %8)
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %.loopexit, label %11
 
 ._crit_edge:                                      ; preds = %11, %6
-  %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef %8)
+  %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef %8)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %.sink = phi ptr [ %19, %._crit_edge ], [ null, %.lr.ph ]
+  %.sink = phi ptr [ %20, %._crit_edge ], [ null, %.lr.ph ]
   %.not17 = phi i1 [ false, %._crit_edge ], [ true, %.lr.ph ]
   store ptr %.sink, ptr %5, align 8
   tail call void @g_free(ptr noundef %8)

@@ -208,7 +208,8 @@ define dso_local noundef i32 @xt_register_target(ptr noundef %0) #0 align 16 {
   %7 = getelementptr %struct.xt_af, ptr %4, i64 %6
   tail call void @mutex_lock(ptr noundef %7) #20
   %8 = load ptr, ptr @xt, align 8
-  %9 = getelementptr %struct.xt_af, ptr %8, i64 %6, i32 2
+  %.split = getelementptr %struct.xt_af, ptr %8, i64 %6
+  %9 = getelementptr i8, ptr %.split, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %0, ptr %11, align 8
@@ -216,8 +217,7 @@ define dso_local noundef i32 @xt_register_target(ptr noundef %0) #0 align 16 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %12, align 8
   store volatile ptr %0, ptr %9, align 8
-  %13 = getelementptr %struct.xt_af, ptr %8, i64 %6
-  tail call void @mutex_unlock(ptr noundef %13) #20
+  tail call void @mutex_unlock(ptr noundef %.split) #20
   ret i32 0
 }
 
@@ -260,7 +260,7 @@ define dso_local noundef i32 @xt_register_targets(ptr noundef %0, i32 noundef %1
   br label %6
 
 6:                                                ; preds = %6, %4
-  %7 = phi i64 [ 0, %4 ], [ %21, %6 ]
+  %7 = phi i64 [ 0, %4 ], [ %20, %6 ]
   %8 = getelementptr %struct.xt_target, ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 102
   %10 = load i16, ptr %9, align 2
@@ -270,7 +270,8 @@ define dso_local noundef i32 @xt_register_targets(ptr noundef %0, i32 noundef %1
   %14 = getelementptr %struct.xt_af, ptr %11, i64 %13
   tail call void @mutex_lock(ptr noundef %14) #20
   %15 = load ptr, ptr @xt, align 8
-  %16 = getelementptr %struct.xt_af, ptr %15, i64 %13, i32 2
+  %.split = getelementptr %struct.xt_af, ptr %15, i64 %13
+  %16 = getelementptr i8, ptr %.split, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %8, ptr %18, align 8
@@ -278,11 +279,10 @@ define dso_local noundef i32 @xt_register_targets(ptr noundef %0, i32 noundef %1
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %16, ptr %19, align 8
   store volatile ptr %8, ptr %16, align 8
-  %20 = getelementptr %struct.xt_af, ptr %15, i64 %13
-  tail call void @mutex_unlock(ptr noundef %20) #20
-  %21 = add nuw nsw i64 %7, 1
-  %22 = icmp eq i64 %21, %5
-  br i1 %22, label %.loopexit, label %6, !llvm.loop !6
+  tail call void @mutex_unlock(ptr noundef %.split) #20
+  %20 = add nuw nsw i64 %7, 1
+  %21 = icmp eq i64 %20, %5
+  br i1 %21, label %.loopexit, label %6, !llvm.loop !6
 
 .loopexit:                                        ; preds = %6, %2
   ret i32 0
@@ -336,7 +336,8 @@ define dso_local noundef i32 @xt_register_match(ptr noundef %0) #0 align 16 {
   %7 = getelementptr %struct.xt_af, ptr %4, i64 %6
   tail call void @mutex_lock(ptr noundef %7) #20
   %8 = load ptr, ptr @xt, align 8
-  %9 = getelementptr %struct.xt_af, ptr %8, i64 %6, i32 1
+  %.split = getelementptr %struct.xt_af, ptr %8, i64 %6
+  %9 = getelementptr i8, ptr %.split, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %0, ptr %11, align 8
@@ -344,8 +345,7 @@ define dso_local noundef i32 @xt_register_match(ptr noundef %0) #0 align 16 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %12, align 8
   store volatile ptr %0, ptr %9, align 8
-  %13 = getelementptr %struct.xt_af, ptr %8, i64 %6
-  tail call void @mutex_unlock(ptr noundef %13) #20
+  tail call void @mutex_unlock(ptr noundef %.split) #20
   ret i32 0
 }
 
@@ -382,7 +382,7 @@ define dso_local noundef i32 @xt_register_matches(ptr noundef %0, i32 noundef %1
   br label %6
 
 6:                                                ; preds = %6, %4
-  %7 = phi i64 [ 0, %4 ], [ %21, %6 ]
+  %7 = phi i64 [ 0, %4 ], [ %20, %6 ]
   %8 = getelementptr %struct.xt_match, ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 102
   %10 = load i16, ptr %9, align 2
@@ -392,7 +392,8 @@ define dso_local noundef i32 @xt_register_matches(ptr noundef %0, i32 noundef %1
   %14 = getelementptr %struct.xt_af, ptr %11, i64 %13
   tail call void @mutex_lock(ptr noundef %14) #20
   %15 = load ptr, ptr @xt, align 8
-  %16 = getelementptr %struct.xt_af, ptr %15, i64 %13, i32 1
+  %.split = getelementptr %struct.xt_af, ptr %15, i64 %13
+  %16 = getelementptr i8, ptr %.split, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %8, ptr %18, align 8
@@ -400,11 +401,10 @@ define dso_local noundef i32 @xt_register_matches(ptr noundef %0, i32 noundef %1
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %16, ptr %19, align 8
   store volatile ptr %8, ptr %16, align 8
-  %20 = getelementptr %struct.xt_af, ptr %15, i64 %13
-  tail call void @mutex_unlock(ptr noundef %20) #20
-  %21 = add nuw nsw i64 %7, 1
-  %22 = icmp eq i64 %21, %5
-  br i1 %22, label %.loopexit, label %6, !llvm.loop !10
+  tail call void @mutex_unlock(ptr noundef %.split) #20
+  %20 = add nuw nsw i64 %7, 1
+  %21 = icmp eq i64 %20, %5
+  br i1 %21, label %.loopexit, label %6, !llvm.loop !10
 
 .loopexit:                                        ; preds = %6, %2
   ret i32 0
@@ -452,8 +452,8 @@ define dso_local void @xt_unregister_matches(ptr noundef captures(none) %0, i32 
 define dso_local ptr @xt_find_match(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2) #0 align 16 {
   br label %4
 
-4:                                                ; preds = %43, %3
-  %5 = phi i8 [ %0, %3 ], [ 0, %43 ]
+4:                                                ; preds = %41, %3
+  %5 = phi i8 [ %0, %3 ], [ 0, %41 ]
   %6 = tail call i64 @strnlen(ptr noundef %1, i64 noundef 29)
   %7 = icmp eq i64 %6, 29
   br i1 %7, label %.loopexit, label %8
@@ -464,67 +464,66 @@ define dso_local ptr @xt_find_match(i8 noundef zeroext %0, ptr noundef readonly 
   %11 = getelementptr %struct.xt_af, ptr %9, i64 %10
   tail call void @mutex_lock(ptr noundef %11) #20
   %12 = load ptr, ptr @xt, align 8
-  %13 = getelementptr %struct.xt_af, ptr %12, i64 %10, i32 1
+  %.split = getelementptr %struct.xt_af, ptr %12, i64 %10
+  %13 = getelementptr i8, ptr %.split, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr %struct.xt_af, ptr %12, i64 %10
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = icmp eq ptr %14, %16
-  br i1 %17, label %43, label %.preheader
+  %15 = icmp eq ptr %14, %13
+  br i1 %15, label %41, label %.preheader
 
-.preheader:                                       ; preds = %8, %34
-  %18 = phi ptr [ %35, %34 ], [ %12, %8 ]
-  %19 = phi ptr [ %37, %34 ], [ %14, %8 ]
-  %20 = phi i32 [ %36, %34 ], [ -2, %8 ]
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef %1) #20
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %34
+.preheader:                                       ; preds = %8, %32
+  %16 = phi ptr [ %33, %32 ], [ %12, %8 ]
+  %17 = phi ptr [ %35, %32 ], [ %14, %8 ]
+  %18 = phi i32 [ %34, %32 ], [ -2, %8 ]
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef %1) #20
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %32
 
-24:                                               ; preds = %.preheader
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 45
-  %26 = load i8, ptr %25, align 1
-  %27 = icmp eq i8 %26, %2
-  br i1 %27, label %28, label %34
+22:                                               ; preds = %.preheader
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 45
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, %2
+  br i1 %25, label %26, label %32
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call zeroext i1 @try_module_get(ptr noundef %30) #20
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call zeroext i1 @try_module_get(ptr noundef %28) #20
   %.pre = load ptr, ptr @xt, align 8
-  br i1 %31, label %32, label %34
+  br i1 %29, label %30, label %32
 
-32:                                               ; preds = %28
-  %33 = getelementptr %struct.xt_af, ptr %.pre, i64 %10
-  tail call void @mutex_unlock(ptr noundef %33) #20
+30:                                               ; preds = %26
+  %31 = getelementptr %struct.xt_af, ptr %.pre, i64 %10
+  tail call void @mutex_unlock(ptr noundef %31) #20
   br label %.loopexit
 
-34:                                               ; preds = %28, %24, %.preheader
-  %35 = phi ptr [ %.pre, %28 ], [ %18, %.preheader ], [ %18, %24 ]
-  %36 = phi i32 [ %20, %28 ], [ %20, %.preheader ], [ -91, %24 ]
-  %37 = load ptr, ptr %19, align 8
-  %38 = getelementptr %struct.xt_af, ptr %35, i64 %10
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %40 = icmp eq ptr %37, %39
-  br i1 %40, label %41, label %.preheader, !llvm.loop !12
+32:                                               ; preds = %26, %22, %.preheader
+  %33 = phi ptr [ %.pre, %26 ], [ %16, %.preheader ], [ %16, %22 ]
+  %34 = phi i32 [ %18, %26 ], [ %18, %.preheader ], [ -91, %22 ]
+  %35 = load ptr, ptr %17, align 8
+  %36 = getelementptr %struct.xt_af, ptr %33, i64 %10
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %38 = icmp eq ptr %35, %37
+  br i1 %38, label %39, label %.preheader, !llvm.loop !12
 
-41:                                               ; preds = %34
-  %42 = sext i32 %36 to i64
-  br label %43
+39:                                               ; preds = %32
+  %40 = sext i32 %34 to i64
+  br label %41
 
-43:                                               ; preds = %41, %8
-  %44 = phi i64 [ -2, %8 ], [ %42, %41 ]
-  %45 = phi ptr [ %15, %8 ], [ %38, %41 ]
-  tail call void @mutex_unlock(ptr noundef %45) #20
-  %46 = icmp eq i8 %5, 0
-  br i1 %46, label %47, label %4
+41:                                               ; preds = %39, %8
+  %42 = phi i64 [ -2, %8 ], [ %40, %39 ]
+  %43 = phi ptr [ %.split, %8 ], [ %36, %39 ]
+  tail call void @mutex_unlock(ptr noundef %43) #20
+  %44 = icmp eq i8 %5, 0
+  br i1 %44, label %45, label %4
 
-47:                                               ; preds = %43
-  %48 = inttoptr i64 %44 to ptr
+45:                                               ; preds = %41
+  %46 = inttoptr i64 %42 to ptr
   br label %.loopexit
 
-.loopexit:                                        ; preds = %4, %47, %32
-  %49 = phi ptr [ %19, %32 ], [ %48, %47 ], [ inttoptr (i64 -22 to ptr), %4 ]
-  ret ptr %49
+.loopexit:                                        ; preds = %4, %45, %30
+  %47 = phi ptr [ %17, %30 ], [ %46, %45 ], [ inttoptr (i64 -22 to ptr), %4 ]
+  ret ptr %47
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -591,8 +590,8 @@ define dso_local ptr @xt_request_find_target(i8 noundef zeroext %0, ptr noundef 
 define internal fastcc ptr @xt_find_target(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
   br label %4
 
-4:                                                ; preds = %43, %3
-  %5 = phi i8 [ %0, %3 ], [ 0, %43 ]
+4:                                                ; preds = %41, %3
+  %5 = phi i8 [ %0, %3 ], [ 0, %41 ]
   %6 = tail call i64 @strnlen(ptr noundef %1, i64 noundef 29)
   %7 = icmp eq i64 %6, 29
   br i1 %7, label %.loopexit, label %8
@@ -603,67 +602,66 @@ define internal fastcc ptr @xt_find_target(i8 noundef zeroext %0, ptr noundef re
   %11 = getelementptr %struct.xt_af, ptr %9, i64 %10
   tail call void @mutex_lock(ptr noundef %11) #20
   %12 = load ptr, ptr @xt, align 8
-  %13 = getelementptr %struct.xt_af, ptr %12, i64 %10, i32 2
+  %.split = getelementptr %struct.xt_af, ptr %12, i64 %10
+  %13 = getelementptr i8, ptr %.split, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr %struct.xt_af, ptr %12, i64 %10
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %17 = icmp eq ptr %14, %16
-  br i1 %17, label %43, label %.preheader
+  %15 = icmp eq ptr %14, %13
+  br i1 %15, label %41, label %.preheader
 
-.preheader:                                       ; preds = %8, %34
-  %18 = phi ptr [ %35, %34 ], [ %12, %8 ]
-  %19 = phi ptr [ %37, %34 ], [ %14, %8 ]
-  %20 = phi i32 [ %36, %34 ], [ -2, %8 ]
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef %1) #20
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %34
+.preheader:                                       ; preds = %8, %32
+  %16 = phi ptr [ %33, %32 ], [ %12, %8 ]
+  %17 = phi ptr [ %35, %32 ], [ %14, %8 ]
+  %18 = phi i32 [ %34, %32 ], [ -2, %8 ]
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef %1) #20
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %32
 
-24:                                               ; preds = %.preheader
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 45
-  %26 = load i8, ptr %25, align 1
-  %27 = icmp eq i8 %26, %2
-  br i1 %27, label %28, label %34
+22:                                               ; preds = %.preheader
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 45
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, %2
+  br i1 %25, label %26, label %32
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call zeroext i1 @try_module_get(ptr noundef %30) #20
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call zeroext i1 @try_module_get(ptr noundef %28) #20
   %.pre = load ptr, ptr @xt, align 8
-  br i1 %31, label %32, label %34
+  br i1 %29, label %30, label %32
 
-32:                                               ; preds = %28
-  %33 = getelementptr %struct.xt_af, ptr %.pre, i64 %10
-  tail call void @mutex_unlock(ptr noundef %33) #20
+30:                                               ; preds = %26
+  %31 = getelementptr %struct.xt_af, ptr %.pre, i64 %10
+  tail call void @mutex_unlock(ptr noundef %31) #20
   br label %.loopexit
 
-34:                                               ; preds = %28, %24, %.preheader
-  %35 = phi ptr [ %.pre, %28 ], [ %18, %.preheader ], [ %18, %24 ]
-  %36 = phi i32 [ %20, %28 ], [ %20, %.preheader ], [ -91, %24 ]
-  %37 = load ptr, ptr %19, align 8
-  %38 = getelementptr %struct.xt_af, ptr %35, i64 %10
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %40 = icmp eq ptr %37, %39
-  br i1 %40, label %41, label %.preheader, !llvm.loop !13
+32:                                               ; preds = %26, %22, %.preheader
+  %33 = phi ptr [ %.pre, %26 ], [ %16, %.preheader ], [ %16, %22 ]
+  %34 = phi i32 [ %18, %26 ], [ %18, %.preheader ], [ -91, %22 ]
+  %35 = load ptr, ptr %17, align 8
+  %36 = getelementptr %struct.xt_af, ptr %33, i64 %10
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  %38 = icmp eq ptr %35, %37
+  br i1 %38, label %39, label %.preheader, !llvm.loop !13
 
-41:                                               ; preds = %34
-  %42 = sext i32 %36 to i64
-  br label %43
+39:                                               ; preds = %32
+  %40 = sext i32 %34 to i64
+  br label %41
 
-43:                                               ; preds = %41, %8
-  %44 = phi i64 [ -2, %8 ], [ %42, %41 ]
-  %45 = phi ptr [ %15, %8 ], [ %38, %41 ]
-  tail call void @mutex_unlock(ptr noundef %45) #20
-  %46 = icmp eq i8 %5, 0
-  br i1 %46, label %47, label %4
+41:                                               ; preds = %39, %8
+  %42 = phi i64 [ -2, %8 ], [ %40, %39 ]
+  %43 = phi ptr [ %.split, %8 ], [ %36, %39 ]
+  tail call void @mutex_unlock(ptr noundef %43) #20
+  %44 = icmp eq i8 %5, 0
+  br i1 %44, label %45, label %4
 
-47:                                               ; preds = %43
-  %48 = inttoptr i64 %44 to ptr
+45:                                               ; preds = %41
+  %46 = inttoptr i64 %42 to ptr
   br label %.loopexit
 
-.loopexit:                                        ; preds = %4, %47, %32
-  %49 = phi ptr [ %19, %32 ], [ %48, %47 ], [ inttoptr (i64 -22 to ptr), %4 ]
-  ret ptr %49
+.loopexit:                                        ; preds = %4, %45, %30
+  %47 = phi ptr [ %17, %30 ], [ %46, %45 ], [ inttoptr (i64 -22 to ptr), %4 ]
+  ret ptr %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -946,175 +944,173 @@ define dso_local range(i32 0, 2) i32 @xt_find_revision(i8 noundef zeroext %0, pt
   tail call void @mutex_lock(ptr noundef %9) #20
   %10 = load ptr, ptr @xt, align 8
   %11 = getelementptr %struct.xt_af, ptr %10, i64 %8
-  br i1 %6, label %12, label %64
+  br i1 %6, label %12, label %63
 
 12:                                               ; preds = %5
-  %13 = getelementptr %struct.xt_af, ptr %10, i64 %8, i32 2
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %15 = load ptr, ptr %13, align 8
-  %16 = icmp eq ptr %15, %14
-  br i1 %16, label %.loopexit9, label %.preheader8
+  %13 = getelementptr i8, ptr %11, i64 48
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, %13
+  br i1 %15, label %.loopexit10, label %.preheader9
 
-.preheader8:                                      ; preds = %12, %30
-  %17 = phi i32 [ %31, %30 ], [ -1, %12 ]
-  %18 = phi ptr [ %33, %30 ], [ %15, %12 ]
-  %19 = phi i32 [ %32, %30 ], [ 0, %12 ]
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef %1) #20
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %30
+.preheader9:                                      ; preds = %12, %29
+  %16 = phi i32 [ %30, %29 ], [ -1, %12 ]
+  %17 = phi ptr [ %32, %29 ], [ %14, %12 ]
+  %18 = phi i32 [ %31, %29 ], [ 0, %12 ]
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef %1) #20
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %29
 
-23:                                               ; preds = %.preheader8
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 45
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = tail call i32 @llvm.smax.i32(i32 %17, i32 %26)
-  %28 = icmp eq i8 %25, %2
-  %29 = select i1 %28, i32 1, i32 %19
-  br label %30
+22:                                               ; preds = %.preheader9
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 45
+  %24 = load i8, ptr %23, align 1
+  %25 = zext i8 %24 to i32
+  %26 = tail call i32 @llvm.smax.i32(i32 %16, i32 %25)
+  %27 = icmp eq i8 %24, %2
+  %28 = select i1 %27, i32 1, i32 %18
+  br label %29
 
-30:                                               ; preds = %23, %.preheader8
-  %31 = phi i32 [ %27, %23 ], [ %17, %.preheader8 ]
-  %32 = phi i32 [ %29, %23 ], [ %19, %.preheader8 ]
-  %33 = load ptr, ptr %18, align 8
-  %34 = icmp eq ptr %33, %14
-  br i1 %34, label %.loopexit9, label %.preheader8, !llvm.loop !23
+29:                                               ; preds = %22, %.preheader9
+  %30 = phi i32 [ %26, %22 ], [ %16, %.preheader9 ]
+  %31 = phi i32 [ %28, %22 ], [ %18, %.preheader9 ]
+  %32 = load ptr, ptr %17, align 8
+  %33 = icmp eq ptr %32, %13
+  br i1 %33, label %.loopexit10, label %.preheader9, !llvm.loop !23
 
-.loopexit9:                                       ; preds = %30, %12
-  %35 = phi i32 [ -1, %12 ], [ %31, %30 ]
-  %36 = phi i32 [ 0, %12 ], [ %32, %30 ]
+.loopexit10:                                      ; preds = %29, %12
+  %34 = phi i32 [ -1, %12 ], [ %30, %29 ]
+  %35 = phi i32 [ 0, %12 ], [ %31, %29 ]
   tail call void @mutex_unlock(ptr noundef %11) #20
-  %37 = icmp eq i8 %0, 0
-  %38 = icmp ne i32 %36, 0
-  %39 = select i1 %37, i1 true, i1 %38
-  br i1 %39, label %119, label %40
+  %36 = icmp eq i8 %0, 0
+  %37 = icmp ne i32 %35, 0
+  %38 = select i1 %36, i1 true, i1 %37
+  br i1 %38, label %117, label %39
 
-40:                                               ; preds = %.loopexit9
+39:                                               ; preds = %.loopexit10
+  %40 = load ptr, ptr @xt, align 8
+  tail call void @mutex_lock(ptr noundef %40) #20
   %41 = load ptr, ptr @xt, align 8
-  tail call void @mutex_lock(ptr noundef %41) #20
-  %42 = load ptr, ptr @xt, align 8
-  %43 = getelementptr i8, ptr %42, i64 48
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, %43
-  br i1 %45, label %.loopexit, label %.preheader
+  %42 = getelementptr i8, ptr %41, i64 48
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %43, %42
+  br i1 %44, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %40, %59
-  %46 = phi i32 [ %60, %59 ], [ %35, %40 ]
-  %47 = phi ptr [ %62, %59 ], [ %44, %40 ]
-  %48 = phi i32 [ %61, %59 ], [ 0, %40 ]
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef %1) #20
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %59
+.preheader:                                       ; preds = %39, %58
+  %45 = phi i32 [ %59, %58 ], [ %34, %39 ]
+  %46 = phi ptr [ %61, %58 ], [ %43, %39 ]
+  %47 = phi i32 [ %60, %58 ], [ 0, %39 ]
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef %1) #20
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %58
 
-52:                                               ; preds = %.preheader
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 45
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = tail call i32 @llvm.smax.i32(i32 %46, i32 %55)
-  %57 = icmp eq i8 %54, %2
-  %58 = select i1 %57, i32 1, i32 %48
-  br label %59
+51:                                               ; preds = %.preheader
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 45
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = tail call i32 @llvm.smax.i32(i32 %45, i32 %54)
+  %56 = icmp eq i8 %53, %2
+  %57 = select i1 %56, i32 1, i32 %47
+  br label %58
 
-59:                                               ; preds = %52, %.preheader
-  %60 = phi i32 [ %56, %52 ], [ %46, %.preheader ]
-  %61 = phi i32 [ %58, %52 ], [ %48, %.preheader ]
-  %62 = load ptr, ptr %47, align 8
-  %63 = icmp eq ptr %62, %43
-  br i1 %63, label %.loopexit, label %.preheader, !llvm.loop !23
+58:                                               ; preds = %51, %.preheader
+  %59 = phi i32 [ %55, %51 ], [ %45, %.preheader ]
+  %60 = phi i32 [ %57, %51 ], [ %47, %.preheader ]
+  %61 = load ptr, ptr %46, align 8
+  %62 = icmp eq ptr %61, %42
+  br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !23
 
-64:                                               ; preds = %5
-  %65 = getelementptr %struct.xt_af, ptr %10, i64 %8, i32 1
-  %66 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %67 = load ptr, ptr %65, align 8
-  %68 = icmp eq ptr %67, %66
-  br i1 %68, label %.loopexit13, label %.preheader12
+63:                                               ; preds = %5
+  %64 = getelementptr i8, ptr %11, i64 32
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, %64
+  br i1 %66, label %.loopexit14, label %.preheader13
 
-.preheader12:                                     ; preds = %64, %82
-  %69 = phi i32 [ %83, %82 ], [ -1, %64 ]
-  %70 = phi ptr [ %85, %82 ], [ %67, %64 ]
-  %71 = phi i32 [ %84, %82 ], [ 0, %64 ]
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef %1) #20
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %82
+.preheader13:                                     ; preds = %63, %80
+  %67 = phi i32 [ %81, %80 ], [ -1, %63 ]
+  %68 = phi ptr [ %83, %80 ], [ %65, %63 ]
+  %69 = phi i32 [ %82, %80 ], [ 0, %63 ]
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef %1) #20
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %80
 
-75:                                               ; preds = %.preheader12
-  %76 = getelementptr inbounds nuw i8, ptr %70, i64 45
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = tail call i32 @llvm.smax.i32(i32 %69, i32 %78)
-  %80 = icmp eq i8 %77, %2
-  %81 = select i1 %80, i32 1, i32 %71
-  br label %82
+73:                                               ; preds = %.preheader13
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 45
+  %75 = load i8, ptr %74, align 1
+  %76 = zext i8 %75 to i32
+  %77 = tail call i32 @llvm.smax.i32(i32 %67, i32 %76)
+  %78 = icmp eq i8 %75, %2
+  %79 = select i1 %78, i32 1, i32 %69
+  br label %80
 
-82:                                               ; preds = %75, %.preheader12
-  %83 = phi i32 [ %79, %75 ], [ %69, %.preheader12 ]
-  %84 = phi i32 [ %81, %75 ], [ %71, %.preheader12 ]
-  %85 = load ptr, ptr %70, align 8
-  %86 = icmp eq ptr %85, %66
-  br i1 %86, label %.loopexit13, label %.preheader12, !llvm.loop !24
+80:                                               ; preds = %73, %.preheader13
+  %81 = phi i32 [ %77, %73 ], [ %67, %.preheader13 ]
+  %82 = phi i32 [ %79, %73 ], [ %69, %.preheader13 ]
+  %83 = load ptr, ptr %68, align 8
+  %84 = icmp eq ptr %83, %64
+  br i1 %84, label %.loopexit14, label %.preheader13, !llvm.loop !24
 
-.loopexit13:                                      ; preds = %82, %64
-  %87 = phi i32 [ -1, %64 ], [ %83, %82 ]
-  %88 = phi i32 [ 0, %64 ], [ %84, %82 ]
+.loopexit14:                                      ; preds = %80, %63
+  %85 = phi i32 [ -1, %63 ], [ %81, %80 ]
+  %86 = phi i32 [ 0, %63 ], [ %82, %80 ]
   tail call void @mutex_unlock(ptr noundef %11) #20
-  %89 = icmp eq i8 %0, 0
-  %90 = icmp ne i32 %88, 0
-  %91 = select i1 %89, i1 true, i1 %90
-  br i1 %91, label %119, label %92
+  %87 = icmp eq i8 %0, 0
+  %88 = icmp ne i32 %86, 0
+  %89 = select i1 %87, i1 true, i1 %88
+  br i1 %89, label %117, label %90
 
-92:                                               ; preds = %.loopexit13
-  %93 = load ptr, ptr @xt, align 8
-  tail call void @mutex_lock(ptr noundef %93) #20
-  %94 = load ptr, ptr @xt, align 8
-  %95 = getelementptr i8, ptr %94, i64 32
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp eq ptr %96, %95
-  br i1 %97, label %.loopexit, label %.preheader10
+90:                                               ; preds = %.loopexit14
+  %91 = load ptr, ptr @xt, align 8
+  tail call void @mutex_lock(ptr noundef %91) #20
+  %92 = load ptr, ptr @xt, align 8
+  %93 = getelementptr i8, ptr %92, i64 32
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, %93
+  br i1 %95, label %.loopexit, label %.preheader11
 
-.preheader10:                                     ; preds = %92, %111
-  %98 = phi i32 [ %112, %111 ], [ %87, %92 ]
-  %99 = phi ptr [ %114, %111 ], [ %96, %92 ]
-  %100 = phi i32 [ %113, %111 ], [ 0, %92 ]
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %102 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef %1) #20
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %111
+.preheader11:                                     ; preds = %90, %109
+  %96 = phi i32 [ %110, %109 ], [ %85, %90 ]
+  %97 = phi ptr [ %112, %109 ], [ %94, %90 ]
+  %98 = phi i32 [ %111, %109 ], [ 0, %90 ]
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %100 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef %1) #20
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %109
 
-104:                                              ; preds = %.preheader10
-  %105 = getelementptr inbounds nuw i8, ptr %99, i64 45
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i32
-  %108 = tail call i32 @llvm.smax.i32(i32 %98, i32 %107)
-  %109 = icmp eq i8 %106, %2
-  %110 = select i1 %109, i32 1, i32 %100
-  br label %111
+102:                                              ; preds = %.preheader11
+  %103 = getelementptr inbounds nuw i8, ptr %97, i64 45
+  %104 = load i8, ptr %103, align 1
+  %105 = zext i8 %104 to i32
+  %106 = tail call i32 @llvm.smax.i32(i32 %96, i32 %105)
+  %107 = icmp eq i8 %104, %2
+  %108 = select i1 %107, i32 1, i32 %98
+  br label %109
 
-111:                                              ; preds = %104, %.preheader10
-  %112 = phi i32 [ %108, %104 ], [ %98, %.preheader10 ]
-  %113 = phi i32 [ %110, %104 ], [ %100, %.preheader10 ]
-  %114 = load ptr, ptr %99, align 8
-  %115 = icmp eq ptr %114, %95
-  br i1 %115, label %.loopexit, label %.preheader10, !llvm.loop !24
+109:                                              ; preds = %102, %.preheader11
+  %110 = phi i32 [ %106, %102 ], [ %96, %.preheader11 ]
+  %111 = phi i32 [ %108, %102 ], [ %98, %.preheader11 ]
+  %112 = load ptr, ptr %97, align 8
+  %113 = icmp eq ptr %112, %93
+  br i1 %113, label %.loopexit, label %.preheader11, !llvm.loop !24
 
-.loopexit:                                        ; preds = %111, %59, %92, %40
-  %116 = phi ptr [ %42, %40 ], [ %94, %92 ], [ %42, %59 ], [ %94, %111 ]
-  %117 = phi i32 [ %35, %40 ], [ %87, %92 ], [ %60, %59 ], [ %112, %111 ]
-  %118 = phi i32 [ 0, %40 ], [ 0, %92 ], [ %61, %59 ], [ %113, %111 ]
-  tail call void @mutex_unlock(ptr noundef %116) #20
-  br label %119
+.loopexit:                                        ; preds = %109, %58, %90, %39
+  %114 = phi ptr [ %41, %39 ], [ %92, %90 ], [ %41, %58 ], [ %92, %109 ]
+  %115 = phi i32 [ %34, %39 ], [ %85, %90 ], [ %59, %58 ], [ %110, %109 ]
+  %116 = phi i32 [ 0, %39 ], [ 0, %90 ], [ %60, %58 ], [ %111, %109 ]
+  tail call void @mutex_unlock(ptr noundef %114) #20
+  br label %117
 
-119:                                              ; preds = %.loopexit, %.loopexit13, %.loopexit9
-  %120 = phi i32 [ %35, %.loopexit9 ], [ %87, %.loopexit13 ], [ %117, %.loopexit ]
-  %121 = phi i32 [ %36, %.loopexit9 ], [ %88, %.loopexit13 ], [ %118, %.loopexit ]
-  %122 = icmp ne i32 %120, -1
-  %123 = icmp eq i32 %121, 0
-  %124 = select i1 %123, i32 -93, i32 %120
-  %125 = select i1 %122, i32 %124, i32 -2
-  %126 = zext i1 %122 to i32
-  store i32 %125, ptr %4, align 4
-  ret i32 %126
+117:                                              ; preds = %.loopexit, %.loopexit14, %.loopexit10
+  %118 = phi i32 [ %34, %.loopexit10 ], [ %85, %.loopexit14 ], [ %115, %.loopexit ]
+  %119 = phi i32 [ %35, %.loopexit10 ], [ %86, %.loopexit14 ], [ %116, %.loopexit ]
+  %120 = icmp ne i32 %118, -1
+  %121 = icmp eq i32 %119, 0
+  %122 = select i1 %121, i32 -93, i32 %118
+  %123 = select i1 %120, i32 %122, i32 -2
+  %124 = zext i1 %120 to i32
+  store i32 %123, ptr %4, align 4
+  ret i32 %124
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -2860,13 +2856,14 @@ define internal i32 @xt_init() #13 section ".init.text" align 16 {
   %25 = getelementptr %struct.xt_af, ptr %23, i64 %24
   tail call void @__mutex_init(ptr noundef %25, ptr noundef nonnull @.str.45, ptr noundef nonnull @xt_init.__key) #20
   %26 = load ptr, ptr @xt, align 8
-  %27 = getelementptr %struct.xt_af, ptr %26, i64 %24, i32 2
+  %.split = getelementptr %struct.xt_af, ptr %26, i64 %24
+  %27 = getelementptr i8, ptr %.split, i64 48
   store volatile ptr %27, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %28 = getelementptr i8, ptr %.split, i64 56
   store volatile ptr %27, ptr %28, align 8
-  %29 = getelementptr %struct.xt_af, ptr %26, i64 %24, i32 1
+  %29 = getelementptr i8, ptr %.split, i64 32
   store volatile ptr %29, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %30 = getelementptr i8, ptr %.split, i64 40
   store volatile ptr %29, ptr %30, align 8
   %31 = getelementptr %struct.list_head, ptr @xt_templates, i64 %24
   store volatile ptr %31, ptr %31, align 16
@@ -3095,7 +3092,8 @@ define internal ptr @xt_match_seq_start(ptr noundef readonly captures(none) %0, 
   %36 = getelementptr %struct.xt_af, ptr %34, i64 %35
   tail call void @mutex_lock(ptr noundef %36) #20
   %37 = load ptr, ptr @xt, align 8
-  %38 = getelementptr %struct.xt_af, ptr %37, i64 %35, i32 1
+  %.split.i = getelementptr %struct.xt_af, ptr %37, i64 %35
+  %38 = getelementptr i8, ptr %.split.i, i64 32
   store ptr %38, ptr %27, align 8
   store ptr %38, ptr %.val1, align 8
   %39 = load i8, ptr %19, align 8
@@ -3222,10 +3220,10 @@ define internal fastcc ptr @xt_mttg_seq_next(ptr %.104.val.168.val.592.val, ptr 
 8:                                                ; preds = %5, %2
   %9 = getelementptr inbounds nuw i8, ptr %.112.val, i64 16
   %10 = load i8, ptr %9, align 8
-  switch i8 %10, label %43 [
+  switch i8 %10, label %41 [
     i8 0, label %11
     i8 1, label %17
-    i8 2, label %36
+    i8 2, label %34
   ]
 
 11:                                               ; preds = %8
@@ -3238,7 +3236,7 @@ define internal fastcc ptr @xt_mttg_seq_next(ptr %.104.val.168.val.592.val, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %.112.val, i64 8
   store ptr %15, ptr %16, align 8
   store ptr %15, ptr %.112.val, align 8
-  br label %42
+  br label %40
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %.112.val, i64 8
@@ -3247,7 +3245,7 @@ define internal fastcc ptr @xt_mttg_seq_next(ptr %.104.val.168.val.592.val, ptr 
   store ptr %20, ptr %18, align 8
   %21 = load ptr, ptr %.112.val, align 8
   %22 = icmp eq ptr %20, %21
-  br i1 %22, label %23, label %42
+  br i1 %22, label %23, label %40
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr @xt, align 8
@@ -3257,33 +3255,33 @@ define internal fastcc ptr @xt_mttg_seq_next(ptr %.104.val.168.val.592.val, ptr 
   %27 = getelementptr %struct.xt_af, ptr %25, i64 %26
   tail call void @mutex_lock(ptr noundef %27) #20
   %28 = load ptr, ptr @xt, align 8
-  %29 = getelementptr %struct.xt_af, ptr %28, i64 %26, i32 2
-  %30 = getelementptr %struct.xt_af, ptr %28, i64 %26, i32 1
-  %31 = select i1 %1, ptr %29, ptr %30
-  store ptr %31, ptr %18, align 8
-  store ptr %31, ptr %.112.val, align 8
-  %32 = load i8, ptr %9, align 8
-  %33 = zext i8 %32 to i64
-  %34 = getelementptr i8, ptr @xt_mttg_seq_next.next_class, i64 %33
-  %35 = load i8, ptr %34, align 1
-  store i8 %35, ptr %9, align 8
-  br label %42
+  %.split = getelementptr %struct.xt_af, ptr %28, i64 %26
+  %.v = select i1 %1, i64 48, i64 32
+  %29 = getelementptr i8, ptr %.split, i64 %.v
+  store ptr %29, ptr %18, align 8
+  store ptr %29, ptr %.112.val, align 8
+  %30 = load i8, ptr %9, align 8
+  %31 = zext i8 %30 to i64
+  %32 = getelementptr i8, ptr @xt_mttg_seq_next.next_class, i64 %31
+  %33 = load i8, ptr %32, align 1
+  store i8 %33, ptr %9, align 8
+  br label %40
 
-36:                                               ; preds = %8
-  %37 = getelementptr inbounds nuw i8, ptr %.112.val, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %37, align 8
-  %40 = load ptr, ptr %.112.val, align 8
-  %41 = icmp eq ptr %39, %40
-  br i1 %41, label %43, label %42
+34:                                               ; preds = %8
+  %35 = getelementptr inbounds nuw i8, ptr %.112.val, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %36, align 8
+  store ptr %37, ptr %35, align 8
+  %38 = load ptr, ptr %.112.val, align 8
+  %39 = icmp eq ptr %37, %38
+  br i1 %39, label %41, label %40
 
-42:                                               ; preds = %36, %23, %17, %11
-  br label %43
+40:                                               ; preds = %34, %23, %17, %11
+  br label %41
 
-43:                                               ; preds = %42, %36, %8
-  %44 = phi ptr [ %.112.val, %42 ], [ null, %36 ], [ null, %8 ]
-  ret ptr %44
+41:                                               ; preds = %40, %34, %8
+  %42 = phi ptr [ %.112.val, %40 ], [ null, %34 ], [ null, %8 ]
+  ret ptr %42
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3352,7 +3350,8 @@ define internal ptr @xt_target_seq_start(ptr noundef readonly captures(none) %0,
   %36 = getelementptr %struct.xt_af, ptr %34, i64 %35
   tail call void @mutex_lock(ptr noundef %36) #20
   %37 = load ptr, ptr @xt, align 8
-  %38 = getelementptr %struct.xt_af, ptr %37, i64 %35, i32 2
+  %.split.i = getelementptr %struct.xt_af, ptr %37, i64 %35
+  %38 = getelementptr i8, ptr %.split.i, i64 48
   store ptr %38, ptr %27, align 8
   store ptr %38, ptr %.val1, align 8
   %39 = load i8, ptr %19, align 8

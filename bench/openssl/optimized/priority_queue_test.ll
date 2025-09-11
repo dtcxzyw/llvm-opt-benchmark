@@ -116,194 +116,195 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
   br label %3
 
 3:                                                ; preds = %0, %3
-  %.040 = phi i64 [ 0, %0 ], [ %5, %3 ]
-  %4 = getelementptr inbounds nuw %struct.info_st, ptr %1, i64 %.040, i32 1
-  store i64 %.040, ptr %4, align 8, !tbaa !8
-  %5 = add nuw nsw i64 %.040, 1
-  %exitcond.not = icmp eq i64 %5, 32
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !11
+  %.040 = phi i64 [ 0, %0 ], [ %6, %3 ]
+  %4 = getelementptr inbounds nuw %struct.info_st, ptr %1, i64 %.040
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %.040, ptr %5, align 8, !tbaa !8
+  %6 = add nuw nsw i64 %.040, 1
+  %exitcond.not = icmp eq i64 %6, 32
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !11
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   store i64 70650219160667140, ptr %1, align 16, !tbaa !13
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %7) #9
-  %9 = icmp ne i32 %8, 0
-  %10 = zext i1 %9 to i32
-  %11 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 192, ptr noundef nonnull @.str.29, i32 noundef %10) #9
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %109, label %12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %8) #9
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i32
+  %12 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 192, ptr noundef nonnull @.str.29, i32 noundef %11) #9
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %110, label %13
 
-12:                                               ; preds = %6
-  %13 = load i64, ptr %7, align 16, !tbaa !14
-  %14 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 193, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef %13, i64 noundef 7) #9
-  %.not19 = icmp eq i32 %14, 0
-  br i1 %.not19, label %109, label %15
+13:                                               ; preds = %7
+  %14 = load i64, ptr %8, align 16, !tbaa !14
+  %15 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 193, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef %14, i64 noundef 7) #9
+  %.not19 = icmp eq i32 %15, 0
+  br i1 %.not19, label %110, label %16
 
-15:                                               ; preds = %12
-  %16 = load i64, ptr %7, align 16, !tbaa !14
-  %17 = call ptr @ossl_pqueue_remove(ptr noundef %2, i64 noundef %16) #9
-  %18 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 194, ptr noundef nonnull @.str.32, ptr noundef %17) #9
-  %.not20 = icmp eq i32 %18, 0
-  br i1 %.not20, label %109, label %19
+16:                                               ; preds = %13
+  %17 = load i64, ptr %8, align 16, !tbaa !14
+  %18 = call ptr @ossl_pqueue_remove(ptr noundef %2, i64 noundef %17) #9
+  %19 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 194, ptr noundef nonnull @.str.32, ptr noundef %18) #9
+  %.not20 = icmp eq i32 %19, 0
+  br i1 %.not20, label %110, label %20
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 289360691352306692, ptr %20, align 8, !tbaa !13
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %22 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %20, ptr noundef nonnull %21) #9
-  %23 = icmp ne i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 198, ptr noundef nonnull @.str.33, i32 noundef %24) #9
-  %.not21 = icmp eq i32 %25, 0
-  br i1 %.not21, label %109, label %26
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 289360691352306692, ptr %21, align 8, !tbaa !13
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %23 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %21, ptr noundef nonnull %22) #9
+  %24 = icmp ne i32 %23, 0
+  %25 = zext i1 %24 to i32
+  %26 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 198, ptr noundef nonnull @.str.33, i32 noundef %25) #9
+  %.not21 = icmp eq i32 %26, 0
+  br i1 %.not21, label %110, label %27
 
-26:                                               ; preds = %19
-  %27 = load i64, ptr %21, align 8, !tbaa !14
-  %28 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 199, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.31, i64 noundef %27, i64 noundef 7) #9
-  %.not22 = icmp eq i32 %28, 0
-  br i1 %.not22, label %109, label %29
+27:                                               ; preds = %20
+  %28 = load i64, ptr %22, align 8, !tbaa !14
+  %29 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 199, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.31, i64 noundef %28, i64 noundef 7) #9
+  %.not22 = icmp eq i32 %29, 0
+  br i1 %.not22, label %110, label %30
 
-29:                                               ; preds = %26
-  %30 = load i64, ptr %21, align 8, !tbaa !14
-  %31 = call ptr @ossl_pqueue_remove(ptr noundef %2, i64 noundef %30) #9
-  %32 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 200, ptr noundef nonnull @.str.35, ptr noundef %31) #9
-  %.not23 = icmp eq i32 %32, 0
-  br i1 %.not23, label %109, label %33
+30:                                               ; preds = %27
+  %31 = load i64, ptr %22, align 8, !tbaa !14
+  %32 = call ptr @ossl_pqueue_remove(ptr noundef %2, i64 noundef %31) #9
+  %33 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 200, ptr noundef nonnull @.str.35, ptr noundef %32) #9
+  %.not23 = icmp eq i32 %33, 0
+  br i1 %.not23, label %110, label %34
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i64 289360691352306692, ptr %34, align 16, !tbaa !13
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %36 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %34, ptr noundef nonnull %35) #9
-  %37 = icmp ne i32 %36, 0
-  %38 = zext i1 %37 to i32
-  %39 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 204, ptr noundef nonnull @.str.36, i32 noundef %38) #9
-  %.not24 = icmp eq i32 %39, 0
-  br i1 %.not24, label %109, label %40
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i64 289360691352306692, ptr %35, align 16, !tbaa !13
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %37 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %35, ptr noundef nonnull %36) #9
+  %38 = icmp ne i32 %37, 0
+  %39 = zext i1 %38 to i32
+  %40 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 204, ptr noundef nonnull @.str.36, i32 noundef %39) #9
+  %.not24 = icmp eq i32 %40, 0
+  br i1 %.not24, label %110, label %41
 
-40:                                               ; preds = %33
-  %41 = load i64, ptr %35, align 16, !tbaa !14
-  %42 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 205, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.31, i64 noundef %41, i64 noundef 7) #9
-  %.not25 = icmp eq i32 %42, 0
-  br i1 %.not25, label %109, label %43
+41:                                               ; preds = %34
+  %42 = load i64, ptr %36, align 16, !tbaa !14
+  %43 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 205, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.31, i64 noundef %42, i64 noundef 7) #9
+  %.not25 = icmp eq i32 %43, 0
+  br i1 %.not25, label %110, label %44
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 289360691352306692, ptr %44, align 8, !tbaa !13
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %46 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %44, ptr noundef nonnull %45) #9
-  %47 = icmp ne i32 %46, 0
-  %48 = zext i1 %47 to i32
-  %49 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 209, ptr noundef nonnull @.str.38, i32 noundef %48) #9
-  %.not26 = icmp eq i32 %49, 0
-  br i1 %.not26, label %109, label %50
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store i64 289360691352306692, ptr %45, align 8, !tbaa !13
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %47 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %45, ptr noundef nonnull %46) #9
+  %48 = icmp ne i32 %47, 0
+  %49 = zext i1 %48 to i32
+  %50 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 209, ptr noundef nonnull @.str.38, i32 noundef %49) #9
+  %.not26 = icmp eq i32 %50, 0
+  br i1 %.not26, label %110, label %51
 
-50:                                               ; preds = %43
-  %51 = load i64, ptr %45, align 8, !tbaa !14
-  %52 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 210, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i64 noundef %51, i64 noundef 6) #9
-  %.not27 = icmp eq i32 %52, 0
-  br i1 %.not27, label %109, label %53
+51:                                               ; preds = %44
+  %52 = load i64, ptr %46, align 8, !tbaa !14
+  %53 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 210, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i64 noundef %52, i64 noundef 6) #9
+  %.not27 = icmp eq i32 %53, 0
+  br i1 %.not27, label %110, label %54
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i64 289360691352306692, ptr %54, align 16, !tbaa !13
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %56 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %54, ptr noundef nonnull %55) #9
-  %57 = icmp ne i32 %56, 0
-  %58 = zext i1 %57 to i32
-  %59 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 214, ptr noundef nonnull @.str.41, i32 noundef %58) #9
-  %.not28 = icmp eq i32 %59, 0
-  br i1 %.not28, label %109, label %60
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store i64 289360691352306692, ptr %55, align 16, !tbaa !13
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %57 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %55, ptr noundef nonnull %56) #9
+  %58 = icmp ne i32 %57, 0
+  %59 = zext i1 %58 to i32
+  %60 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 214, ptr noundef nonnull @.str.41, i32 noundef %59) #9
+  %.not28 = icmp eq i32 %60, 0
+  br i1 %.not28, label %110, label %61
 
-60:                                               ; preds = %53
-  %61 = load i64, ptr %55, align 16, !tbaa !14
-  %62 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 215, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i64 noundef %61, i64 noundef 5) #9
-  %.not29 = icmp eq i32 %62, 0
-  br i1 %.not29, label %109, label %63
+61:                                               ; preds = %54
+  %62 = load i64, ptr %56, align 16, !tbaa !14
+  %63 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 215, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i64 noundef %62, i64 noundef 5) #9
+  %.not29 = icmp eq i32 %63, 0
+  br i1 %.not29, label %110, label %64
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i64 289360691352306692, ptr %64, align 8, !tbaa !13
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %66 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %64, ptr noundef nonnull %65) #9
-  %67 = icmp ne i32 %66, 0
-  %68 = zext i1 %67 to i32
-  %69 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 219, ptr noundef nonnull @.str.44, i32 noundef %68) #9
-  %.not30 = icmp eq i32 %69, 0
-  br i1 %.not30, label %109, label %70
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i64 289360691352306692, ptr %65, align 8, !tbaa !13
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %67 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %65, ptr noundef nonnull %66) #9
+  %68 = icmp ne i32 %67, 0
+  %69 = zext i1 %68 to i32
+  %70 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 219, ptr noundef nonnull @.str.44, i32 noundef %69) #9
+  %.not30 = icmp eq i32 %70, 0
+  br i1 %.not30, label %110, label %71
 
-70:                                               ; preds = %63
-  %71 = load i64, ptr %65, align 8, !tbaa !14
-  %72 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 220, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i64 noundef %71, i64 noundef 4) #9
-  %.not31 = icmp eq i32 %72, 0
-  br i1 %.not31, label %109, label %73
+71:                                               ; preds = %64
+  %72 = load i64, ptr %66, align 8, !tbaa !14
+  %73 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 220, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i64 noundef %72, i64 noundef 4) #9
+  %.not31 = icmp eq i32 %73, 0
+  br i1 %.not31, label %110, label %74
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i64 289360691352306692, ptr %74, align 16, !tbaa !13
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %76 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %74, ptr noundef nonnull %75) #9
-  %77 = icmp ne i32 %76, 0
-  %78 = zext i1 %77 to i32
-  %79 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 224, ptr noundef nonnull @.str.47, i32 noundef %78) #9
-  %.not32 = icmp eq i32 %79, 0
-  br i1 %.not32, label %109, label %80
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  store i64 289360691352306692, ptr %75, align 16, !tbaa !13
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %77 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %75, ptr noundef nonnull %76) #9
+  %78 = icmp ne i32 %77, 0
+  %79 = zext i1 %78 to i32
+  %80 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 224, ptr noundef nonnull @.str.47, i32 noundef %79) #9
+  %.not32 = icmp eq i32 %80, 0
+  br i1 %.not32, label %110, label %81
 
-80:                                               ; preds = %73
-  %81 = load i64, ptr %75, align 16, !tbaa !14
-  %82 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 225, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i64 noundef %81, i64 noundef 3) #9
-  %.not33 = icmp eq i32 %82, 0
-  br i1 %.not33, label %109, label %83
+81:                                               ; preds = %74
+  %82 = load i64, ptr %76, align 16, !tbaa !14
+  %83 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 225, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i64 noundef %82, i64 noundef 3) #9
+  %.not33 = icmp eq i32 %83, 0
+  br i1 %.not33, label %110, label %84
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  store i64 289360691352306692, ptr %84, align 8, !tbaa !13
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %86 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %84, ptr noundef nonnull %85) #9
-  %87 = icmp ne i32 %86, 0
-  %88 = zext i1 %87 to i32
-  %89 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 229, ptr noundef nonnull @.str.50, i32 noundef %88) #9
-  %.not34 = icmp eq i32 %89, 0
-  br i1 %.not34, label %109, label %90
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  store i64 289360691352306692, ptr %85, align 8, !tbaa !13
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %87 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %85, ptr noundef nonnull %86) #9
+  %88 = icmp ne i32 %87, 0
+  %89 = zext i1 %88 to i32
+  %90 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 229, ptr noundef nonnull @.str.50, i32 noundef %89) #9
+  %.not34 = icmp eq i32 %90, 0
+  br i1 %.not34, label %110, label %91
 
-90:                                               ; preds = %83
-  %91 = load i64, ptr %85, align 8, !tbaa !14
-  %92 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 230, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i64 noundef %91, i64 noundef 2) #9
-  %.not35 = icmp eq i32 %92, 0
-  br i1 %.not35, label %109, label %93
+91:                                               ; preds = %84
+  %92 = load i64, ptr %86, align 8, !tbaa !14
+  %93 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 230, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i64 noundef %92, i64 noundef 2) #9
+  %.not35 = icmp eq i32 %93, 0
+  br i1 %.not35, label %110, label %94
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  store i64 289360691352306692, ptr %94, align 16, !tbaa !13
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %96 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %94, ptr noundef nonnull %95) #9
-  %97 = icmp ne i32 %96, 0
-  %98 = zext i1 %97 to i32
-  %99 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 234, ptr noundef nonnull @.str.53, i32 noundef %98) #9
-  %.not36 = icmp eq i32 %99, 0
-  br i1 %.not36, label %109, label %100
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  store i64 289360691352306692, ptr %95, align 16, !tbaa !13
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %97 = call i32 @ossl_pqueue_push(ptr noundef %2, ptr noundef nonnull %95, ptr noundef nonnull %96) #9
+  %98 = icmp ne i32 %97, 0
+  %99 = zext i1 %98 to i32
+  %100 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 234, ptr noundef nonnull @.str.53, i32 noundef %99) #9
+  %.not36 = icmp eq i32 %100, 0
+  br i1 %.not36, label %110, label %101
 
-100:                                              ; preds = %93
-  %101 = load i64, ptr %95, align 16, !tbaa !14
-  %102 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 235, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i64 noundef %101, i64 noundef 1) #9
-  %.not37 = icmp eq i32 %102, 0
-  br i1 %.not37, label %109, label %103
+101:                                              ; preds = %94
+  %102 = load i64, ptr %96, align 16, !tbaa !14
+  %103 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 235, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i64 noundef %102, i64 noundef 1) #9
+  %.not37 = icmp eq i32 %103, 0
+  br i1 %.not37, label %110, label %104
 
-103:                                              ; preds = %100
-  %104 = call ptr @ossl_pqueue_pop(ptr noundef %2) #9
-  %105 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 238, ptr noundef nonnull @.str.56, ptr noundef %104) #9
-  %.not38 = icmp eq i32 %105, 0
-  br i1 %.not38, label %109, label %106
+104:                                              ; preds = %101
+  %105 = call ptr @ossl_pqueue_pop(ptr noundef %2) #9
+  %106 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 238, ptr noundef nonnull @.str.56, ptr noundef %105) #9
+  %.not38 = icmp eq i32 %106, 0
+  br i1 %.not38, label %110, label %107
 
-106:                                              ; preds = %103
-  %107 = call ptr @ossl_pqueue_pop(ptr noundef %2) #9
-  %108 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 239, ptr noundef nonnull @.str.56, ptr noundef %107) #9
-  %.not39 = icmp ne i32 %108, 0
+107:                                              ; preds = %104
+  %108 = call ptr @ossl_pqueue_pop(ptr noundef %2) #9
+  %109 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 239, ptr noundef nonnull @.str.56, ptr noundef %108) #9
+  %.not39 = icmp ne i32 %109, 0
   %spec.select = zext i1 %.not39 to i32
-  br label %109
+  br label %110
 
-109:                                              ; preds = %106, %103, %93, %100, %83, %90, %73, %80, %63, %70, %53, %60, %43, %50, %33, %40, %19, %26, %29, %6, %12, %15
-  %.018 = phi i32 [ 0, %103 ], [ 0, %100 ], [ 0, %93 ], [ 0, %90 ], [ 0, %83 ], [ 0, %80 ], [ 0, %73 ], [ 0, %70 ], [ 0, %63 ], [ 0, %60 ], [ 0, %53 ], [ 0, %50 ], [ 0, %43 ], [ 0, %40 ], [ 0, %33 ], [ 0, %29 ], [ 0, %26 ], [ 0, %19 ], [ 0, %15 ], [ 0, %12 ], [ 0, %6 ], [ %spec.select, %106 ]
+110:                                              ; preds = %107, %104, %94, %101, %84, %91, %74, %81, %64, %71, %54, %61, %44, %51, %34, %41, %20, %27, %30, %7, %13, %16
+  %.018 = phi i32 [ 0, %104 ], [ 0, %101 ], [ 0, %94 ], [ 0, %91 ], [ 0, %84 ], [ 0, %81 ], [ 0, %74 ], [ 0, %71 ], [ 0, %64 ], [ 0, %61 ], [ 0, %54 ], [ 0, %51 ], [ 0, %44 ], [ 0, %41 ], [ 0, %34 ], [ 0, %30 ], [ 0, %27 ], [ 0, %20 ], [ 0, %16 ], [ 0, %13 ], [ 0, %7 ], [ %spec.select, %107 ]
   call void @ossl_pqueue_free(ptr noundef %2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.018

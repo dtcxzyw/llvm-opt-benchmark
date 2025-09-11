@@ -1599,7 +1599,8 @@ _ZN4llvh9BitVector9push_backEb.exit:              ; preds = %if.then.i6, %if.els
 if.end6:                                          ; preds = %entry
   %conv.i7 = zext i32 %0 to i64
   %8 = load ptr, ptr %this, align 8
-  %num_.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %8, i64 %conv.i7, i32 1
+  %add.ptr.i.i8 = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %8, i64 %conv.i7
+  %num_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i8, i64 8
   %bf.load.i = load i32, ptr %num_.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   store i32 %bf.lshr.i, ptr %firstFreeID_, align 8
@@ -2170,7 +2171,8 @@ if.then:                                          ; preds = %entry
   %hashTable_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN6hermes2vm6detail19IdentifierHashTable6removeEPKNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(32) %hashTable_, ptr noundef nonnull %2) #16
   %.pre = load ptr, ptr %this, align 8
-  %num_.i.i.phi.trans.insert = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %.pre, i64 %conv, i32 1
+  %add.ptr.i.i.phi.trans.insert = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %.pre, i64 %conv
+  %num_.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.phi.trans.insert, i64 8
   %bf.load.i.i.pre = load i32, ptr %num_.i.i.phi.trans.insert, align 8
   br label %if.end
 
@@ -2404,7 +2406,8 @@ if.then13:                                        ; preds = %if.end
 if.then14:                                        ; preds = %if.then13
   tail call void @_ZN6hermes2vm6GCBase9IDTracker13untrackSymbolEj(ptr noundef nonnull align 8 dereferenceable(192) %tracker, i32 noundef %__begin2.sroa.2.036) #16
   %.pre = load ptr, ptr %this, align 8
-  %isNotUniqued_.i.i.phi.trans.insert = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %.pre, i64 %conv, i32 1
+  %add.ptr.i.i.phi.trans.insert = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %.pre, i64 %conv
+  %isNotUniqued_.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.phi.trans.insert, i64 8
   %bf.load.i.i.pre = load i32, ptr %isNotUniqued_.i.i.phi.trans.insert, align 8
   br label %if.end15
 
@@ -2424,7 +2427,8 @@ if.then.i22:                                      ; preds = %if.end15
   store i32 %and.i.i, ptr %lengthAndUniquedFlag_.i.i, align 4
   tail call void @_ZN6hermes2vm6detail19IdentifierHashTable6removeEPKNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(32) %hashTable_.i, ptr noundef nonnull %34) #16
   %.pre.i23 = load ptr, ptr %this, align 8
-  %num_.i.i.phi.trans.insert.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %.pre.i23, i64 %conv, i32 1
+  %add.ptr.i.i.phi.trans.insert.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %.pre.i23, i64 %conv
+  %num_.i.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.phi.trans.insert.i, i64 8
   %bf.load.i.i.pre.i = load i32, ptr %num_.i.i.phi.trans.insert.i, align 8
   br label %_ZN6hermes2vm15IdentifierTable10freeSymbolEj.exit
 

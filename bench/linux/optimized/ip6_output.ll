@@ -3916,7 +3916,8 @@ define internal fastcc noundef range(i32 -105, 1) i32 @ip6_setup_cork(ptr nounde
 34:                                               ; preds = %30, %25
   %35 = phi i64 [ 0, %25 ], [ %33, %30 ]
   %36 = or i32 %27, 256
-  %37 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %35, i64 6
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %35
+  %37 = getelementptr i8, ptr %.split, i64 48
   %38 = load ptr, ptr %37, align 16
   %39 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %38, i32 noundef %36, i64 noundef 64) #16
   store ptr %39, ptr %2, align 8
@@ -4836,8 +4837,8 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %450 = zext i32 %449 to i64
   %451 = getelementptr i8, ptr %448, i64 %450
   %452 = add nsw i32 %430, -1
-  %453 = sext i32 %452 to i64
-  %.idx.us = shl nsw i64 %453, 4
+  %453 = zext nneg i32 %452 to i64
+  %.idx.us = shl nuw nsw i64 %453, 4
   %454 = getelementptr i8, ptr %451, i64 56
   %455 = getelementptr i8, ptr %454, i64 %.idx.us
   %456 = load i32, ptr %455, align 8

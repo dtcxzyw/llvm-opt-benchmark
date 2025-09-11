@@ -396,12 +396,12 @@ switch.early.test:                                ; preds = %46
   %151 = mul i8 %135, 10
   %narrow = add i8 %151, 32
   %152 = zext i8 %narrow to i32
-  %153 = add nuw nsw i32 %152, %150
-  %154 = icmp samesign ugt i32 %153, 71
-  br i1 %154, label %_get_time.exit, label %.thread.i
+  %153 = add nsw i32 %152, -48
+  %154 = add nsw i32 %153, %150
+  %155 = icmp samesign ugt i32 %154, 23
+  br i1 %155, label %_get_time.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %149
-  %155 = add nsw i32 %153, -48
   %156 = add nsw i32 %storemerge, 2
   %.phi.trans.insert.i = sext i32 %156 to i64
   %.phi.trans.insert113.i = getelementptr inbounds i8, ptr %0, i64 %.phi.trans.insert.i
@@ -410,9 +410,9 @@ switch.early.test:                                ; preds = %46
   br i1 %157, label %.thread.thread.i, label %_get_time.exit
 
 .thread.thread.i:                                 ; preds = %.thread205, %.thread.i
-  %.079107121.i = phi i32 [ %155, %.thread.i ], [ %142, %.thread205 ]
-  %.1108120.i = phi i32 [ %156, %.thread.i ], [ %141, %.thread205 ]
-  %158 = add nsw i32 %.1108120.i, 1
+  %.079107122.i = phi i32 [ %154, %.thread.i ], [ %142, %.thread205 ]
+  %.1108121.i = phi i32 [ %156, %.thread.i ], [ %141, %.thread205 ]
+  %158 = add nsw i32 %.1108121.i, 1
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i8, ptr %0, i64 %159
   %161 = load i8, ptr %160, align 1
@@ -421,7 +421,7 @@ switch.early.test:                                ; preds = %46
   br i1 %or.cond101.i, label %_get_time.exit, label %163
 
 163:                                              ; preds = %.thread.thread.i
-  %164 = add nsw i32 %.1108120.i, 2
+  %164 = add nsw i32 %.1108121.i, 2
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds i8, ptr %0, i64 %165
   %167 = load i8, ptr %166, align 1
@@ -440,7 +440,7 @@ switch.early.test:                                ; preds = %46
   br i1 %175, label %_get_time.exit, label %176
 
 176:                                              ; preds = %169
-  %177 = add nsw i32 %.1108120.i, 3
+  %177 = add nsw i32 %.1108121.i, 3
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i8, ptr %0, i64 %178
   %180 = load i8, ptr %179, align 1
@@ -448,7 +448,7 @@ switch.early.test:                                ; preds = %46
   br i1 %181, label %182, label %202
 
 182:                                              ; preds = %176
-  %183 = add nsw i32 %.1108120.i, 4
+  %183 = add nsw i32 %.1108121.i, 4
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds i8, ptr %0, i64 %184
   %186 = load i8, ptr %185, align 1
@@ -457,7 +457,7 @@ switch.early.test:                                ; preds = %46
   br i1 %or.cond103.i, label %_get_time.exit, label %188
 
 188:                                              ; preds = %182
-  %189 = add nsw i32 %.1108120.i, 5
+  %189 = add nsw i32 %.1108121.i, 5
   %190 = sext i32 %189 to i64
   %191 = getelementptr inbounds i8, ptr %0, i64 %190
   %192 = load i8, ptr %191, align 1
@@ -476,7 +476,7 @@ switch.early.test:                                ; preds = %46
 
 ._crit_edge.i:                                    ; preds = %194
   %200 = add nsw i32 %198, -48
-  %201 = add nsw i32 %.1108120.i, 6
+  %201 = add nsw i32 %.1108121.i, 6
   %.pre114.i = sext i32 %201 to i64
   br label %202
 
@@ -506,8 +506,8 @@ switch.early.test:                                ; preds = %46
   br i1 %.not98.i, label %215, label %222
 
 215:                                              ; preds = %211
-  %216 = add nuw nsw i32 %.079107121.i, 12
-  %217 = icmp sgt i32 %.079107121.i, 11
+  %216 = add nuw nsw i32 %.079107122.i, 12
+  %217 = icmp samesign ugt i32 %.079107122.i, 11
   br i1 %217, label %218, label %220
 
 218:                                              ; preds = %215
@@ -525,20 +525,20 @@ switch.early.test:                                ; preds = %46
   br i1 %.not99.i, label %224, label %_get_time.exit.thread
 
 224:                                              ; preds = %222
-  %225 = icmp sgt i32 %.079107121.i, 11
+  %225 = icmp samesign ugt i32 %.079107122.i, 11
   br i1 %225, label %226, label %228
 
 226:                                              ; preds = %224
-  %227 = icmp eq i32 %.079107121.i, 12
+  %227 = icmp eq i32 %.079107122.i, 12
   br i1 %227, label %228, label %_get_time.exit
 
 228:                                              ; preds = %226, %224
-  %.382.i = phi i32 [ %.079107121.i, %224 ], [ 0, %226 ]
+  %.382.i = phi i32 [ %.079107122.i, %224 ], [ 0, %226 ]
   %229 = add nsw i32 %213, 2
   br label %_get_time.exit.thread
 
 _get_time.exit.thread:                            ; preds = %220, %222, %228
-  %.281.i = phi i32 [ %.079107121.i, %222 ], [ %.382.i, %228 ], [ %.180.i, %220 ]
+  %.281.i = phi i32 [ %.079107122.i, %222 ], [ %.382.i, %228 ], [ %.180.i, %220 ]
   %.4.i = phi i32 [ %213, %222 ], [ %229, %228 ], [ %221, %220 ]
   %230 = add nsw i32 %.4.i, -1
   store i32 %230, ptr %8, align 4

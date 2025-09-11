@@ -5300,51 +5300,53 @@ define hidden void @"_ZN4core3ptr109drop_in_place$LT$$u5b$$LP$core..ops..range..
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit"
-  %.sroa.0.09 = phi i64 [ %4, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit" ], [ 0, %2 ]
-  %4 = add nuw i64 %.sroa.0.09, 1
-  %5 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %0, i64 %.sroa.0.09, i32 1
-  %6 = load i8, ptr %5, align 8, !range !1428, !alias.scope !1429, !noundef !4
-  %7 = icmp samesign ult i8 %6, 21
-  br i1 %7, label %8, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit"
+  %.sroa.0.09 = phi i64 [ %5, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit" ], [ 0, %2 ]
+  %4 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %0, i64 %.sroa.0.09
+  %5 = add nuw i64 %.sroa.0.09, 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %7 = load i8, ptr %6, align 8, !range !1428, !alias.scope !1429, !noundef !4
+  %8 = icmp samesign ult i8 %7, 21
+  br i1 %8, label %9, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit"
 
-8:                                                ; preds = %.lr.ph
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
-          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit" unwind label %10
+9:                                                ; preds = %.lr.ph
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %6)
+          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit" unwind label %11
 
-"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit": ; preds = %8, %.lr.ph
-  %9 = icmp eq i64 %4, %1
-  br i1 %9, label %._crit_edge, label %.lr.ph
+"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit": ; preds = %9, %.lr.ph
+  %10 = icmp eq i64 %5, %1
+  br i1 %10, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit", %2
   ret void
 
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = icmp eq i64 %4, %1
-  br i1 %12, label %._crit_edge13, label %.lr.ph12
+  %13 = icmp eq i64 %5, %1
+  br i1 %13, label %._crit_edge13, label %.lr.ph12
 
-.lr.ph12:                                         ; preds = %10, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8"
-  %.sroa.0.110 = phi i64 [ %13, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8" ], [ %4, %10 ]
-  %13 = add i64 %.sroa.0.110, 1
-  %14 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %0, i64 %.sroa.0.110, i32 1
-  %15 = load i8, ptr %14, align 8, !range !1428, !alias.scope !1434, !noundef !4
-  %16 = icmp samesign ult i8 %15, 21
-  br i1 %16, label %17, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8"
+.lr.ph12:                                         ; preds = %11, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8"
+  %.sroa.0.110 = phi i64 [ %15, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8" ], [ %5, %11 ]
+  %14 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %0, i64 %.sroa.0.110
+  %15 = add i64 %.sroa.0.110, 1
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %17 = load i8, ptr %16, align 8, !range !1428, !alias.scope !1434, !noundef !4
+  %18 = icmp samesign ult i8 %17, 21
+  br i1 %18, label %19, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8"
 
-17:                                               ; preds = %.lr.ph12
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %14)
-          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8" unwind label %19
+19:                                               ; preds = %.lr.ph12
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %16)
+          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8" unwind label %21
 
-"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8": ; preds = %17, %.lr.ph12
-  %18 = icmp eq i64 %13, %1
-  br i1 %18, label %._crit_edge13, label %.lr.ph12
+"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8": ; preds = %19, %.lr.ph12
+  %20 = icmp eq i64 %15, %1
+  br i1 %20, label %._crit_edge13, label %.lr.ph12
 
-._crit_edge13:                                    ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8", %10
-  resume { ptr, i32 } %11
+._crit_edge13:                                    ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8", %11
+  resume { ptr, i32 } %12
 
-19:                                               ; preds = %17
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
   unreachable
@@ -7476,78 +7478,80 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..Vec$LT$$LP$core
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha12947cdda1a8aeaE.llvm.15385039395483765890.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i"
-  %.sroa.0.09.i.i = phi i64 [ %7, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i" ], [ 0, %1 ]
-  %7 = add nuw i64 %.sroa.0.09.i.i, 1
-  %8 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.09.i.i, i32 1
-  %9 = load i8, ptr %8, align 8, !range !1428, !alias.scope !2132, !noalias !2129, !noundef !4
-  %10 = icmp samesign ult i8 %9, 21
-  br i1 %10, label %11, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i"
+  %.sroa.0.09.i.i = phi i64 [ %8, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.09.i.i
+  %8 = add nuw i64 %.sroa.0.09.i.i, 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %10 = load i8, ptr %9, align 8, !range !1428, !alias.scope !2132, !noalias !2129, !noundef !4
+  %11 = icmp samesign ult i8 %10, 21
+  br i1 %11, label %12, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i"
 
-11:                                               ; preds = %.lr.ph.i.i
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
-          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i" unwind label %13, !noalias !2129
+12:                                               ; preds = %.lr.ph.i.i
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %9)
+          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i" unwind label %14, !noalias !2129
 
-"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i": ; preds = %11, %.lr.ph.i.i
-  %12 = icmp eq i64 %7, %5
-  br i1 %12, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha12947cdda1a8aeaE.llvm.15385039395483765890.exit", label %.lr.ph.i.i
+"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i": ; preds = %12, %.lr.ph.i.i
+  %13 = icmp eq i64 %8, %5
+  br i1 %13, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha12947cdda1a8aeaE.llvm.15385039395483765890.exit", label %.lr.ph.i.i
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp eq i64 %7, %5
-  br i1 %15, label %.body, label %.lr.ph12.i.i
+  %16 = icmp eq i64 %8, %5
+  br i1 %16, label %.body, label %.lr.ph12.i.i
 
-.lr.ph12.i.i:                                     ; preds = %13, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i"
-  %.sroa.0.110.i.i = phi i64 [ %16, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i" ], [ %7, %13 ]
-  %16 = add i64 %.sroa.0.110.i.i, 1
-  %17 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.110.i.i, i32 1
-  %18 = load i8, ptr %17, align 8, !range !1428, !alias.scope !2139, !noalias !2129, !noundef !4
-  %19 = icmp samesign ult i8 %18, 21
-  br i1 %19, label %20, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i"
+.lr.ph12.i.i:                                     ; preds = %14, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i"
+  %.sroa.0.110.i.i = phi i64 [ %18, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i" ], [ %8, %14 ]
+  %17 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.110.i.i
+  %18 = add i64 %.sroa.0.110.i.i, 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = load i8, ptr %19, align 8, !range !1428, !alias.scope !2139, !noalias !2129, !noundef !4
+  %21 = icmp samesign ult i8 %20, 21
+  br i1 %21, label %22, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i"
 
-20:                                               ; preds = %.lr.ph12.i.i
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17)
-          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i" unwind label %22, !noalias !2129
+22:                                               ; preds = %.lr.ph12.i.i
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %19)
+          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i" unwind label %24, !noalias !2129
 
-"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i": ; preds = %20, %.lr.ph12.i.i
-  %21 = icmp eq i64 %16, %5
-  br i1 %21, label %.body, label %.lr.ph12.i.i
+"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i": ; preds = %22, %.lr.ph12.i.i
+  %23 = icmp eq i64 %18, %5
+  br i1 %23, label %.body, label %.lr.ph12.i.i
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28, !noalias !2129
   unreachable
 
-.body:                                            ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i", %13
+.body:                                            ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i", %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2147)
-  %24 = load i64, ptr %0, align 8, !alias.scope !2150, !noalias !2153, !noundef !4
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$$GT$17h1515aace44f67d4bE.llvm.15385039395483765890.exit", label %26
+  %26 = load i64, ptr %0, align 8, !alias.scope !2150, !noalias !2153, !noundef !4
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$$GT$17h1515aace44f67d4bE.llvm.15385039395483765890.exit", label %28
 
-26:                                               ; preds = %.body
-  %27 = mul nuw i64 %24, 96
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %27, i64 noundef 8) #27, !noalias !2155
+28:                                               ; preds = %.body
+  %29 = mul nuw i64 %26, 96
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %29, i64 noundef 8) #27, !noalias !2155
   br label %"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$$GT$17h1515aace44f67d4bE.llvm.15385039395483765890.exit"
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha12947cdda1a8aeaE.llvm.15385039395483765890.exit": ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i", %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2156)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2159)
-  %28 = load i64, ptr %0, align 8, !alias.scope !2162, !noalias !2165, !noundef !4
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$$GT$17h1515aace44f67d4bE.llvm.15385039395483765890.exit1", label %30
+  %30 = load i64, ptr %0, align 8, !alias.scope !2162, !noalias !2165, !noundef !4
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$$GT$17h1515aace44f67d4bE.llvm.15385039395483765890.exit1", label %32
 
-30:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha12947cdda1a8aeaE.llvm.15385039395483765890.exit"
-  %31 = mul nuw i64 %28, 96
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %31, i64 noundef 8) #27, !noalias !2167
+32:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha12947cdda1a8aeaE.llvm.15385039395483765890.exit"
+  %33 = mul nuw i64 %30, 96
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %33, i64 noundef 8) #27, !noalias !2167
   br label %"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$$GT$17h1515aace44f67d4bE.llvm.15385039395483765890.exit1"
 
-"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$$GT$17h1515aace44f67d4bE.llvm.15385039395483765890.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha12947cdda1a8aeaE.llvm.15385039395483765890.exit", %30
+"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$$GT$17h1515aace44f67d4bE.llvm.15385039395483765890.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha12947cdda1a8aeaE.llvm.15385039395483765890.exit", %32
   ret void
 
-"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$$GT$17h1515aace44f67d4bE.llvm.15385039395483765890.exit": ; preds = %26, %.body
-  resume { ptr, i32 } %14
+"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$$GT$17h1515aace44f67d4bE.llvm.15385039395483765890.exit": ; preds = %28, %.body
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10062,78 +10066,80 @@ define hidden void @"_ZN4core3ptr149drop_in_place$LT$alloc..vec..Vec$LT$$LP$core
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1da4855eb4bd214E.llvm.15385039395483765890.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i"
-  %.sroa.0.09.i.i = phi i64 [ %7, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i" ], [ 0, %1 ]
-  %7 = add nuw i64 %.sroa.0.09.i.i, 1
-  %8 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.09.i.i, i32 1
-  %9 = load i8, ptr %8, align 8, !range !1428, !alias.scope !3029, !noalias !3026, !noundef !4
-  %10 = icmp samesign ult i8 %9, 21
-  br i1 %10, label %11, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i"
+  %.sroa.0.09.i.i = phi i64 [ %8, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.09.i.i
+  %8 = add nuw i64 %.sroa.0.09.i.i, 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %10 = load i8, ptr %9, align 8, !range !1428, !alias.scope !3029, !noalias !3026, !noundef !4
+  %11 = icmp samesign ult i8 %10, 21
+  br i1 %11, label %12, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i"
 
-11:                                               ; preds = %.lr.ph.i.i
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
-          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i" unwind label %13, !noalias !3026
+12:                                               ; preds = %.lr.ph.i.i
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %9)
+          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i" unwind label %14, !noalias !3026
 
-"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i": ; preds = %11, %.lr.ph.i.i
-  %12 = icmp eq i64 %7, %5
-  br i1 %12, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1da4855eb4bd214E.llvm.15385039395483765890.exit", label %.lr.ph.i.i
+"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i": ; preds = %12, %.lr.ph.i.i
+  %13 = icmp eq i64 %8, %5
+  br i1 %13, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1da4855eb4bd214E.llvm.15385039395483765890.exit", label %.lr.ph.i.i
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp eq i64 %7, %5
-  br i1 %15, label %.body, label %.lr.ph12.i.i
+  %16 = icmp eq i64 %8, %5
+  br i1 %16, label %.body, label %.lr.ph12.i.i
 
-.lr.ph12.i.i:                                     ; preds = %13, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i"
-  %.sroa.0.110.i.i = phi i64 [ %16, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i" ], [ %7, %13 ]
-  %16 = add i64 %.sroa.0.110.i.i, 1
-  %17 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.110.i.i, i32 1
-  %18 = load i8, ptr %17, align 8, !range !1428, !alias.scope !3036, !noalias !3026, !noundef !4
-  %19 = icmp samesign ult i8 %18, 21
-  br i1 %19, label %20, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i"
+.lr.ph12.i.i:                                     ; preds = %14, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i"
+  %.sroa.0.110.i.i = phi i64 [ %18, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i" ], [ %8, %14 ]
+  %17 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.110.i.i
+  %18 = add i64 %.sroa.0.110.i.i, 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = load i8, ptr %19, align 8, !range !1428, !alias.scope !3036, !noalias !3026, !noundef !4
+  %21 = icmp samesign ult i8 %20, 21
+  br i1 %21, label %22, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i"
 
-20:                                               ; preds = %.lr.ph12.i.i
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17)
-          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i" unwind label %22, !noalias !3026
+22:                                               ; preds = %.lr.ph12.i.i
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %19)
+          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i" unwind label %24, !noalias !3026
 
-"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i": ; preds = %20, %.lr.ph12.i.i
-  %21 = icmp eq i64 %16, %5
-  br i1 %21, label %.body, label %.lr.ph12.i.i
+"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i": ; preds = %22, %.lr.ph12.i.i
+  %23 = icmp eq i64 %18, %5
+  br i1 %23, label %.body, label %.lr.ph12.i.i
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28, !noalias !3026
   unreachable
 
-.body:                                            ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i", %13
+.body:                                            ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i.i", %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3041)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3044)
-  %24 = load i64, ptr %0, align 8, !alias.scope !3047, !noalias !3050, !noundef !4
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %"_ZN4core3ptr156drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$C$$RF$alloc..alloc..Global$GT$$GT$17h92f17fc79ee13fdcE.llvm.15385039395483765890.exit", label %26
+  %26 = load i64, ptr %0, align 8, !alias.scope !3047, !noalias !3050, !noundef !4
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %"_ZN4core3ptr156drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$C$$RF$alloc..alloc..Global$GT$$GT$17h92f17fc79ee13fdcE.llvm.15385039395483765890.exit", label %28
 
-26:                                               ; preds = %.body
-  %27 = mul nuw i64 %24, 96
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %27, i64 noundef 8) #27, !noalias !3052
+28:                                               ; preds = %.body
+  %29 = mul nuw i64 %26, 96
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %29, i64 noundef 8) #27, !noalias !3052
   br label %"_ZN4core3ptr156drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$C$$RF$alloc..alloc..Global$GT$$GT$17h92f17fc79ee13fdcE.llvm.15385039395483765890.exit"
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1da4855eb4bd214E.llvm.15385039395483765890.exit": ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i.i", %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3053)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3056)
-  %28 = load i64, ptr %0, align 8, !alias.scope !3059, !noalias !3062, !noundef !4
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %"_ZN4core3ptr156drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$C$$RF$alloc..alloc..Global$GT$$GT$17h92f17fc79ee13fdcE.llvm.15385039395483765890.exit1", label %30
+  %30 = load i64, ptr %0, align 8, !alias.scope !3059, !noalias !3062, !noundef !4
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %"_ZN4core3ptr156drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$C$$RF$alloc..alloc..Global$GT$$GT$17h92f17fc79ee13fdcE.llvm.15385039395483765890.exit1", label %32
 
-30:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1da4855eb4bd214E.llvm.15385039395483765890.exit"
-  %31 = mul nuw i64 %28, 96
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %31, i64 noundef 8) #27, !noalias !3064
+32:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1da4855eb4bd214E.llvm.15385039395483765890.exit"
+  %33 = mul nuw i64 %30, 96
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %33, i64 noundef 8) #27, !noalias !3064
   br label %"_ZN4core3ptr156drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$C$$RF$alloc..alloc..Global$GT$$GT$17h92f17fc79ee13fdcE.llvm.15385039395483765890.exit1"
 
-"_ZN4core3ptr156drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$C$$RF$alloc..alloc..Global$GT$$GT$17h92f17fc79ee13fdcE.llvm.15385039395483765890.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1da4855eb4bd214E.llvm.15385039395483765890.exit", %30
+"_ZN4core3ptr156drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$C$$RF$alloc..alloc..Global$GT$$GT$17h92f17fc79ee13fdcE.llvm.15385039395483765890.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1da4855eb4bd214E.llvm.15385039395483765890.exit", %32
   ret void
 
-"_ZN4core3ptr156drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$C$$RF$alloc..alloc..Global$GT$$GT$17h92f17fc79ee13fdcE.llvm.15385039395483765890.exit": ; preds = %26, %.body
-  resume { ptr, i32 } %14
+"_ZN4core3ptr156drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$C$$RF$alloc..alloc..Global$GT$$GT$17h92f17fc79ee13fdcE.llvm.15385039395483765890.exit": ; preds = %28, %.body
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -51634,48 +51640,50 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %6, label %"_ZN4core3ptr109drop_in_place$LT$$u5b$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$u5d$$GT$17hbfad76eb00326b84E.llvm.15385039395483765890.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i"
-  %.sroa.0.09.i = phi i64 [ %7, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i" ], [ 0, %1 ]
-  %7 = add nuw i64 %.sroa.0.09.i, 1
-  %8 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.09.i, i32 1
-  %9 = load i8, ptr %8, align 8, !range !1428, !alias.scope !15568, !noundef !4
-  %10 = icmp samesign ult i8 %9, 21
-  br i1 %10, label %11, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i"
+  %.sroa.0.09.i = phi i64 [ %8, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.09.i
+  %8 = add nuw i64 %.sroa.0.09.i, 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %10 = load i8, ptr %9, align 8, !range !1428, !alias.scope !15568, !noundef !4
+  %11 = icmp samesign ult i8 %10, 21
+  br i1 %11, label %12, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i"
 
-11:                                               ; preds = %.lr.ph.i
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
-          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i" unwind label %13
+12:                                               ; preds = %.lr.ph.i
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %9)
+          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i" unwind label %14
 
-"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i": ; preds = %11, %.lr.ph.i
-  %12 = icmp eq i64 %7, %5
-  br i1 %12, label %"_ZN4core3ptr109drop_in_place$LT$$u5b$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$u5d$$GT$17hbfad76eb00326b84E.llvm.15385039395483765890.exit", label %.lr.ph.i
+"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i": ; preds = %12, %.lr.ph.i
+  %13 = icmp eq i64 %8, %5
+  br i1 %13, label %"_ZN4core3ptr109drop_in_place$LT$$u5b$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$u5d$$GT$17hbfad76eb00326b84E.llvm.15385039395483765890.exit", label %.lr.ph.i
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp eq i64 %7, %5
-  br i1 %15, label %._crit_edge13.i, label %.lr.ph12.i
+  %16 = icmp eq i64 %8, %5
+  br i1 %16, label %._crit_edge13.i, label %.lr.ph12.i
 
-.lr.ph12.i:                                       ; preds = %13, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i"
-  %.sroa.0.110.i = phi i64 [ %16, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i" ], [ %7, %13 ]
-  %16 = add i64 %.sroa.0.110.i, 1
-  %17 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.110.i, i32 1
-  %18 = load i8, ptr %17, align 8, !range !1428, !alias.scope !15575, !noundef !4
-  %19 = icmp samesign ult i8 %18, 21
-  br i1 %19, label %20, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i"
+.lr.ph12.i:                                       ; preds = %14, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i"
+  %.sroa.0.110.i = phi i64 [ %18, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i" ], [ %8, %14 ]
+  %17 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.110.i
+  %18 = add i64 %.sroa.0.110.i, 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = load i8, ptr %19, align 8, !range !1428, !alias.scope !15575, !noundef !4
+  %21 = icmp samesign ult i8 %20, 21
+  br i1 %21, label %22, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i"
 
-20:                                               ; preds = %.lr.ph12.i
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17)
-          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i" unwind label %22
+22:                                               ; preds = %.lr.ph12.i
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %19)
+          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i" unwind label %24
 
-"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i": ; preds = %20, %.lr.ph12.i
-  %21 = icmp eq i64 %16, %5
-  br i1 %21, label %._crit_edge13.i, label %.lr.ph12.i
+"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i": ; preds = %22, %.lr.ph12.i
+  %23 = icmp eq i64 %18, %5
+  br i1 %23, label %._crit_edge13.i, label %.lr.ph12.i
 
-._crit_edge13.i:                                  ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i", %13
-  resume { ptr, i32 } %14
+._crit_edge13.i:                                  ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i", %14
+  resume { ptr, i32 } %15
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
   unreachable
@@ -51694,48 +51702,50 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %6, label %"_ZN4core3ptr109drop_in_place$LT$$u5b$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$u5d$$GT$17hbfad76eb00326b84E.llvm.15385039395483765890.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i"
-  %.sroa.0.09.i = phi i64 [ %7, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i" ], [ 0, %1 ]
-  %7 = add nuw i64 %.sroa.0.09.i, 1
-  %8 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.09.i, i32 1
-  %9 = load i8, ptr %8, align 8, !range !1428, !alias.scope !15580, !noundef !4
-  %10 = icmp samesign ult i8 %9, 21
-  br i1 %10, label %11, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i"
+  %.sroa.0.09.i = phi i64 [ %8, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.09.i
+  %8 = add nuw i64 %.sroa.0.09.i, 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %10 = load i8, ptr %9, align 8, !range !1428, !alias.scope !15580, !noundef !4
+  %11 = icmp samesign ult i8 %10, 21
+  br i1 %11, label %12, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i"
 
-11:                                               ; preds = %.lr.ph.i
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
-          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i" unwind label %13
+12:                                               ; preds = %.lr.ph.i
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %9)
+          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i" unwind label %14
 
-"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i": ; preds = %11, %.lr.ph.i
-  %12 = icmp eq i64 %7, %5
-  br i1 %12, label %"_ZN4core3ptr109drop_in_place$LT$$u5b$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$u5d$$GT$17hbfad76eb00326b84E.llvm.15385039395483765890.exit", label %.lr.ph.i
+"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit.i": ; preds = %12, %.lr.ph.i
+  %13 = icmp eq i64 %8, %5
+  br i1 %13, label %"_ZN4core3ptr109drop_in_place$LT$$u5b$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$u5d$$GT$17hbfad76eb00326b84E.llvm.15385039395483765890.exit", label %.lr.ph.i
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp eq i64 %7, %5
-  br i1 %15, label %._crit_edge13.i, label %.lr.ph12.i
+  %16 = icmp eq i64 %8, %5
+  br i1 %16, label %._crit_edge13.i, label %.lr.ph12.i
 
-.lr.ph12.i:                                       ; preds = %13, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i"
-  %.sroa.0.110.i = phi i64 [ %16, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i" ], [ %7, %13 ]
-  %16 = add i64 %.sroa.0.110.i, 1
-  %17 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.110.i, i32 1
-  %18 = load i8, ptr %17, align 8, !range !1428, !alias.scope !15587, !noundef !4
-  %19 = icmp samesign ult i8 %18, 21
-  br i1 %19, label %20, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i"
+.lr.ph12.i:                                       ; preds = %14, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i"
+  %.sroa.0.110.i = phi i64 [ %18, %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i" ], [ %8, %14 ]
+  %17 = getelementptr inbounds { { i64, i64 }, { i8, [79 x i8] } }, ptr %3, i64 %.sroa.0.110.i
+  %18 = add i64 %.sroa.0.110.i, 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = load i8, ptr %19, align 8, !range !1428, !alias.scope !15587, !noundef !4
+  %21 = icmp samesign ult i8 %20, 21
+  br i1 %21, label %22, label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i"
 
-20:                                               ; preds = %.lr.ph12.i
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17)
-          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i" unwind label %22
+22:                                               ; preds = %.lr.ph12.i
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$markdown..parser..MarkdownTag$GT$17h1175f5a13334efdaE.llvm.15385039395483765890"(ptr noalias noundef nonnull align 8 dereferenceable(80) %19)
+          to label %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i" unwind label %24
 
-"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i": ; preds = %20, %.lr.ph12.i
-  %21 = icmp eq i64 %16, %5
-  br i1 %21, label %._crit_edge13.i, label %.lr.ph12.i
+"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i": ; preds = %22, %.lr.ph12.i
+  %23 = icmp eq i64 %18, %5
+  br i1 %23, label %._crit_edge13.i, label %.lr.ph12.i
 
-._crit_edge13.i:                                  ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i", %13
-  resume { ptr, i32 } %14
+._crit_edge13.i:                                  ; preds = %"_ZN4core3ptr99drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$markdown..parser..MarkdownEvent$RP$$GT$17hc2dba7a4dbf5bb5eE.llvm.15385039395483765890.exit8.i", %14
+  resume { ptr, i32 } %15
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
   unreachable

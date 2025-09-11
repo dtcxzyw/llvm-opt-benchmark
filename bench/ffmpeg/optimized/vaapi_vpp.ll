@@ -1678,40 +1678,41 @@ vaapi_vpp_fill_colour_standard.exit:              ; preds = %.lr.ph.i, %.split.i
   br i1 %160, label %161, label %156
 
 161:                                              ; preds = %157
-  %162 = getelementptr inbounds nuw %struct.anon, ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 %indvars.iv.i13, i32 1
-  %163 = load i8, ptr %162, align 4, !tbaa !148
+  %162 = getelementptr inbounds nuw %struct.anon, ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 %indvars.iv.i13
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  %164 = load i8, ptr %163, align 4, !tbaa !148
   br label %vaapi_vpp_fill_chroma_sample_location.exit
 
 vaapi_vpp_fill_chroma_sample_location.exit:       ; preds = %156, %161
-  %.sink.i = phi i8 [ %163, %161 ], [ 0, %156 ]
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %.sink.i, ptr %164, align 4, !tbaa !135
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %166 = load i32, ptr %165, align 4, !tbaa !149
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %switch.selectcmp.i = icmp eq i32 %166, 2
+  %.sink.i = phi i8 [ %164, %161 ], [ 0, %156 ]
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 %.sink.i, ptr %165, align 4, !tbaa !135
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %167 = load i32, ptr %166, align 4, !tbaa !149
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %switch.selectcmp.i = icmp eq i32 %167, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i8 2, i8 0
-  %switch.selectcmp4.i = icmp eq i32 %166, 1
+  %switch.selectcmp4.i = icmp eq i32 %167, 1
   %switch.select5.i = select i1 %switch.selectcmp4.i, i8 1, i8 %switch.select.i
-  store i8 %switch.select5.i, ptr %167, align 1, !tbaa !136
-  %168 = tail call ptr @av_color_range_name(i32 noundef %166) #7
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %170 = load i32, ptr %169, align 4, !tbaa !126
-  %171 = tail call ptr @av_color_space_name(i32 noundef %170) #7
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %173 = load i32, ptr %172, align 4, !tbaa !127
-  %174 = tail call ptr @av_color_primaries_name(i32 noundef %173) #7
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %176 = load i32, ptr %175, align 4, !tbaa !128
-  %177 = tail call ptr @av_color_transfer_name(i32 noundef %176) #7
-  %178 = load i32, ptr %154, align 4, !tbaa !144
-  %179 = tail call ptr @av_chroma_location_name(i32 noundef %178) #7
-  %180 = load i32, ptr %1, align 4, !tbaa !123
-  %181 = load i8, ptr %164, align 4, !tbaa !135
-  %182 = zext i8 %181 to i32
-  %183 = load i8, ptr %167, align 1, !tbaa !136
-  %184 = zext i8 %183 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.26, ptr noundef %168, ptr noundef %171, ptr noundef %174, ptr noundef %177, ptr noundef %179, i32 noundef %180, i32 noundef %182, i32 noundef %184) #7
+  store i8 %switch.select5.i, ptr %168, align 1, !tbaa !136
+  %169 = tail call ptr @av_color_range_name(i32 noundef %167) #7
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %171 = load i32, ptr %170, align 4, !tbaa !126
+  %172 = tail call ptr @av_color_space_name(i32 noundef %171) #7
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %174 = load i32, ptr %173, align 4, !tbaa !127
+  %175 = tail call ptr @av_color_primaries_name(i32 noundef %174) #7
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %177 = load i32, ptr %176, align 4, !tbaa !128
+  %178 = tail call ptr @av_color_transfer_name(i32 noundef %177) #7
+  %179 = load i32, ptr %154, align 4, !tbaa !144
+  %180 = tail call ptr @av_chroma_location_name(i32 noundef %179) #7
+  %181 = load i32, ptr %1, align 4, !tbaa !123
+  %182 = load i8, ptr %165, align 4, !tbaa !135
+  %183 = zext i8 %182 to i32
+  %184 = load i8, ptr %168, align 1, !tbaa !136
+  %185 = zext i8 %184 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.26, ptr noundef %169, ptr noundef %172, ptr noundef %175, ptr noundef %178, ptr noundef %180, i32 noundef %181, i32 noundef %183, i32 noundef %185) #7
   ret void
 }
 

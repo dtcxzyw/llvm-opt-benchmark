@@ -80,22 +80,22 @@ if.then.i:                                        ; preds = %for.cond.i
   %1 = load i8, ptr %arrayidx2.i, align 1, !alias.scope !5, !noalias !10
   %cmp4.i = icmp eq i8 %1, 37
   %idxprom.i = sext i32 %spanIndex.0.i to i64
+  %arrayidx6.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span", ptr %spans.i, i64 %idxprom.i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %mbEscapePresent.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span", ptr %spans.i, i64 %idxprom.i, i32 9
+  %mbEscapePresent.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 72
   store i8 1, ptr %mbEscapePresent.i, align 8, !noalias !8
   br label %for.inc99.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %arrayidx8.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span", ptr %spans.i, i64 %idxprom.i
-  %mpEnd.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 8
+  %mpEnd.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 8
   store ptr %p.0.i, ptr %mpEnd.i, align 8, !noalias !8
-  %mFormat.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 48
+  %mFormat.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 48
   %idxprom11.i = sext i32 %nFormatLength.0.i to i64
   %arrayidx12.i = getelementptr inbounds i8, ptr %mFormat.i, i64 %idxprom11.i
   store i8 0, ptr %arrayidx12.i, align 1, !noalias !8
-  %mFormatChar.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 64
+  %mFormatChar.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 64
   store i8 0, ptr %mFormatChar.i, align 16, !noalias !8
   %inc.i = add nsw i32 %spanIndex.0.i, 1
   %cmp15.i = icmp eq i32 %inc.i, 21
@@ -1287,22 +1287,22 @@ if.then.i:                                        ; preds = %for.cond.i
   %1 = load i16, ptr %arrayidx2.i, align 2, !alias.scope !34, !noalias !39
   %cmp4.i = icmp eq i16 %1, 37
   %idxprom.i = sext i32 %spanIndex.0.i to i64
+  %arrayidx6.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.0", ptr %spans.i, i64 %idxprom.i
   br i1 %cmp4.i, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %mbEscapePresent.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.0", ptr %spans.i, i64 %idxprom.i, i32 9
+  %mbEscapePresent.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 88
   store i8 1, ptr %mbEscapePresent.i, align 8, !noalias !37
   br label %for.inc99.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %arrayidx8.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.0", ptr %spans.i, i64 %idxprom.i
-  %mpEnd.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 8
+  %mpEnd.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 8
   store ptr %p.0.i, ptr %mpEnd.i, align 8, !noalias !37
-  %mFormat.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 48
+  %mFormat.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 48
   %idxprom11.i = sext i32 %nFormatLength.0.i to i64
   %arrayidx12.i = getelementptr inbounds i16, ptr %mFormat.i, i64 %idxprom11.i
   store i16 0, ptr %arrayidx12.i, align 2, !noalias !37
-  %mFormatChar.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 80
+  %mFormatChar.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 80
   store i16 0, ptr %mFormatChar.i, align 16, !noalias !37
   %inc.i = add nsw i32 %spanIndex.0.i, 1
   %cmp15.i = icmp eq i32 %inc.i, 21
@@ -2486,22 +2486,22 @@ if.then.i:                                        ; preds = %for.cond.i
   %1 = load i32, ptr %arrayidx2.i, align 4, !alias.scope !62, !noalias !67
   %cmp3.i = icmp eq i32 %1, 37
   %idxprom.i = sext i32 %spanIndex.0.i to i64
+  %arrayidx5.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.2", ptr %spans.i, i64 %idxprom.i
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %mbEscapePresent.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.2", ptr %spans.i, i64 %idxprom.i, i32 8
+  %mbEscapePresent.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i, i64 120
   store i8 1, ptr %mbEscapePresent.i, align 8, !noalias !65
   br label %for.inc93.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %arrayidx7.i = getelementptr inbounds %"struct.EA::StdC::SprintfLocal::Span.2", ptr %spans.i, i64 %idxprom.i
-  %mpEnd.i = getelementptr inbounds nuw i8, ptr %arrayidx7.i, i64 8
+  %mpEnd.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i, i64 8
   store ptr %p.0.i, ptr %mpEnd.i, align 8, !noalias !65
-  %mFormat.i = getelementptr inbounds nuw i8, ptr %arrayidx7.i, i64 48
+  %mFormat.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i, i64 48
   %idxprom10.i = sext i32 %nFormatLength.0.i to i64
   %arrayidx11.i = getelementptr inbounds i32, ptr %mFormat.i, i64 %idxprom10.i
   store i32 0, ptr %arrayidx11.i, align 4, !noalias !65
-  %mFormatChar.i = getelementptr inbounds nuw i8, ptr %arrayidx7.i, i64 112
+  %mFormatChar.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i, i64 112
   store i32 0, ptr %mFormatChar.i, align 16, !noalias !65
   %inc.i = add nsw i32 %spanIndex.0.i, 1
   %cmp14.i = icmp eq i32 %inc.i, 21

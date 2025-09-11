@@ -339,15 +339,15 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %50 = getelementptr inbounds nuw %struct.TM_IndexDelete, ptr %27, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %50, ptr noundef nonnull readonly align 2 dereferenceable(6) %49, i64 6, i1 false)
   %51 = trunc i32 %42 to i16
-  %52 = getelementptr inbounds nuw %struct.TM_IndexDelete, ptr %27, i64 %indvars.iv, i32 1
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 6
   store i16 %51, ptr %52, align 2
   %53 = getelementptr inbounds nuw %struct.TM_IndexStatus, ptr %30, i64 %indvars.iv
   store i16 %44, ptr %53, align 2
-  %54 = getelementptr inbounds nuw %struct.TM_IndexStatus, ptr %30, i64 %indvars.iv, i32 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   store i8 1, ptr %54, align 2
-  %55 = getelementptr inbounds nuw %struct.TM_IndexStatus, ptr %30, i64 %indvars.iv, i32 2
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 3
   store i8 0, ptr %55, align 1
-  %56 = getelementptr inbounds nuw %struct.TM_IndexStatus, ptr %30, i64 %indvars.iv, i32 3
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i16 0, ptr %56, align 2
   %57 = add i32 %42, 1
   store i32 %57, ptr %24, align 4

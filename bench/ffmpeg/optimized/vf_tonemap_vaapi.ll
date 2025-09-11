@@ -861,7 +861,7 @@ define internal i32 @tonemap_vaapi_build_filter_params(ptr noundef %0) #2 {
 16:                                               ; preds = %1
   %17 = call ptr @vaErrorStr(i32 noundef %13) #9
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.50, i32 noundef %13, ptr noundef %17) #9
-  br label %36
+  br label %38
 
 18:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -877,7 +877,7 @@ define internal i32 @tonemap_vaapi_build_filter_params(ptr noundef %0) #2 {
 
 ._crit_edge:                                      ; preds = %18, %.preheader40
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.51) #9
-  br label %36
+  br label %38
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 192
@@ -892,46 +892,48 @@ define internal i32 @tonemap_vaapi_build_filter_params(ptr noundef %0) #2 {
 
 .lr.ph44:                                         ; preds = %21, %24
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %24 ], [ 0, %21 ]
-  %25 = getelementptr inbounds nuw %struct._VAProcFilterCapHighDynamicRange, ptr %3, i64 %indvars.iv51, i32 1
-  %26 = load i16, ptr %25, align 4, !tbaa !128
-  %27 = and i16 %26, 1
-  %.not34 = icmp eq i16 %27, 0
+  %25 = getelementptr inbounds nuw %struct._VAProcFilterCapHighDynamicRange, ptr %3, i64 %indvars.iv51
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %27 = load i16, ptr %26, align 4, !tbaa !128
+  %28 = and i16 %27, 1
+  %.not34 = icmp eq i16 %28, 0
   br i1 %.not34, label %24, label %.thread36
 
 ._crit_edge45:                                    ; preds = %24
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.52) #9
-  br label %36
+  br label %38
 
-28:                                               ; preds = %.lr.ph47
+29:                                               ; preds = %.lr.ph47
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
   br i1 %exitcond60.not, label %._crit_edge48, label %.lr.ph47, !llvm.loop !129
 
-.lr.ph47:                                         ; preds = %21, %28
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %28 ], [ 0, %21 ]
-  %29 = getelementptr inbounds nuw %struct._VAProcFilterCapHighDynamicRange, ptr %3, i64 %indvars.iv56, i32 1
-  %30 = load i16, ptr %29, align 4, !tbaa !128
-  %31 = and i16 %30, 2
-  %.not32 = icmp eq i16 %31, 0
-  br i1 %.not32, label %28, label %.thread36
+.lr.ph47:                                         ; preds = %21, %29
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %29 ], [ 0, %21 ]
+  %30 = getelementptr inbounds nuw %struct._VAProcFilterCapHighDynamicRange, ptr %3, i64 %indvars.iv56
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %32 = load i16, ptr %31, align 4, !tbaa !128
+  %33 = and i16 %32, 2
+  %.not32 = icmp eq i16 %33, 0
+  br i1 %.not32, label %29, label %.thread36
 
-._crit_edge48:                                    ; preds = %28
+._crit_edge48:                                    ; preds = %29
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.53) #9
-  br label %36
+  br label %38
 
 .thread36:                                        ; preds = %.lr.ph44, %.lr.ph47
   store i32 8, ptr %2, align 8, !tbaa !130
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1, ptr %32, align 8, !tbaa !131
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %7, ptr %33, align 8, !tbaa !92
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 60, ptr %34, align 8, !tbaa !132
-  %35 = call i32 @ff_vaapi_vpp_make_param_buffers(ptr noundef %0, i32 noundef 42, ptr noundef nonnull %2, i64 noundef 112, i32 noundef 1) #9
-  br label %36
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 1, ptr %34, align 8, !tbaa !131
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %7, ptr %35, align 8, !tbaa !92
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 60, ptr %36, align 8, !tbaa !132
+  %37 = call i32 @ff_vaapi_vpp_make_param_buffers(ptr noundef %0, i32 noundef 42, ptr noundef nonnull %2, i64 noundef 112, i32 noundef 1) #9
+  br label %38
 
-36:                                               ; preds = %.thread36, %._crit_edge48, %._crit_edge45, %._crit_edge, %16
-  %.027 = phi i32 [ -5, %16 ], [ -22, %._crit_edge ], [ -22, %._crit_edge45 ], [ %35, %.thread36 ], [ -22, %._crit_edge48 ]
+38:                                               ; preds = %.thread36, %._crit_edge48, %._crit_edge45, %._crit_edge, %16
+  %.027 = phi i32 [ -5, %16 ], [ -22, %._crit_edge ], [ -22, %._crit_edge45 ], [ %37, %.thread36 ], [ -22, %._crit_edge48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

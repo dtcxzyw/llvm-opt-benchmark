@@ -4803,7 +4803,7 @@ define void @_ZN12regex_syntax3hir7literal14PreferenceTrie8minimize17hc77086b620
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %14, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17ha197f77b8080eaadE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
-          to label %17 unwind label %43
+          to label %17 unwind label %44
 
 15:                                               ; preds = %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8b83f49f09aff271E.llvm.15241997999693184539.exit.i"
   %16 = landingpad { ptr, i32 }
@@ -4837,7 +4837,7 @@ define void @_ZN12regex_syntax3hir7literal14PreferenceTrie8minimize17hc77086b620
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$usize$GT$$GT$17h5c14c8054b8fe210E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #22
-          to label %.thread unwind label %41
+          to label %.thread unwind label %42
 
 ._crit_edge:                                      ; preds = %36, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !937
@@ -4862,7 +4862,7 @@ define void @_ZN12regex_syntax3hir7literal14PreferenceTrie8minimize17hc77086b620
           to label %35 unwind label %15
 
 29:                                               ; preds = %.lr.ph, %36
-  %30 = phi ptr [ %.sroa.412.0.copyload, %.lr.ph ], [ %38, %36 ]
+  %30 = phi ptr [ %.sroa.412.0.copyload, %.lr.ph ], [ %39, %36 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !942)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %31, ptr %.sroa.5.0..sroa_idx10, align 8, !alias.scope !942
@@ -4888,31 +4888,32 @@ define void @_ZN12regex_syntax3hir7literal14PreferenceTrie8minimize17hc77086b620
 
 36:                                               ; preds = %29
   %.val = load ptr, ptr %21, align 8, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { { { i64, ptr }, i64 }, i8, [7 x i8] }, ptr %.val, i64 %32, i32 1
-  store i8 0, ptr %37, align 8
-  %38 = load ptr, ptr %.sroa.5.0..sroa_idx10, align 8, !alias.scope !946, !noundef !5
-  %39 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !946, !noundef !5
-  %40 = icmp eq ptr %38, %39
-  br i1 %40, label %._crit_edge, label %29
+  %37 = getelementptr inbounds { { { i64, ptr }, i64 }, i8, [7 x i8] }, ptr %.val, i64 %32
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store i8 0, ptr %38, align 8
+  %39 = load ptr, ptr %.sroa.5.0..sroa_idx10, align 8, !alias.scope !946, !noundef !5
+  %40 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !946, !noundef !5
+  %41 = icmp eq ptr %39, %40
+  br i1 %41, label %._crit_edge, label %29
 
-41:                                               ; preds = %43, %.thread, %22
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %44, %.thread, %22
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-.thread:                                          ; preds = %25, %22, %15, %43
-  %.pn16 = phi { ptr, i32 } [ %44, %43 ], [ %16, %15 ], [ %23, %22 ], [ %26, %25 ]
+.thread:                                          ; preds = %25, %22, %15, %44
+  %.pn16 = phi { ptr, i32 } [ %45, %44 ], [ %16, %15 ], [ %23, %22 ], [ %26, %25 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$regex_syntax..hir..literal..PreferenceTrie$GT$17h9903b1eeb4c1834fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7) #22
-          to label %45 unwind label %41
+          to label %46 unwind label %42
 
-43:                                               ; preds = %2
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %2
+  %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17hf29efd788a0b74b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #22
-          to label %.thread unwind label %41
+          to label %.thread unwind label %42
 
-45:                                               ; preds = %.thread
+46:                                               ; preds = %.thread
   resume { ptr, i32 } %.pn16
 }
 
@@ -5033,7 +5034,7 @@ _ZN12regex_syntax3hir7literal14PreferenceTrie4root17h732ab1ae1320ff00E.exit: ; p
   br i1 %47, label %.lr.ph.i.i, label %.loopexit
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h0191e45d91a27d83E.exit": ; preds = %.lr.ph.i.i
-  %48 = getelementptr inbounds { i8, i64 }, ptr %34, i64 %38, i32 1
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %49 = load i64, ptr %48, align 8, !noundef !5
   %.val23 = load i64, ptr %10, align 8, !noundef !5
   %50 = icmp ult i64 %49, %.val23

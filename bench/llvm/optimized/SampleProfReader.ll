@@ -13758,14 +13758,15 @@ define dso_local void @_ZN4llvm10sampleprof34SampleProfileReaderItaniumRemapper1
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6lookupERKm.exit: ; preds = %27, %14
   %35 = phi i64 [ %21, %14 ], [ %31, %27 ]
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.514", ptr %10, i64 %35, i32 0, i32 1
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.514", ptr %10, i64 %35
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !55
   %37 = icmp eq i64 %.sroa.4.0.copyload.i, 0
   br i1 %37, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6lookupERKm.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6lookupERKm.exit
-  %.sroa.0.0.copyload.i = load ptr, ptr %36, align 8, !tbaa !54
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %.sroa.0.0.copyload.i = load ptr, ptr %38, align 8, !tbaa !54
   store ptr %.sroa.0.0.copyload.i, ptr %0, align 8, !tbaa !54
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !55
@@ -13773,8 +13774,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6de
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6lookupERKm.exit.thread: ; preds = %.lr.ph.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6lookupERKm.exit, %4, %8, %.critedge
   %.sink = phi i8 [ 1, %.critedge ], [ 0, %8 ], [ 0, %4 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_9StringRefENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEEEmS2_S4_S7_E6lookupERKm.exit ], [ 0, %.lr.ph.i.i.i ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %38, align 8, !tbaa !618
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sink, ptr %39, align 8, !tbaa !618
   ret void
 }
 

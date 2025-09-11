@@ -297,16 +297,17 @@ define dso_local range(i64 1, 0) i64 @commit_graph_generation(ptr noundef readon
 
 commit_graph_data_slab_peek.exit:                 ; preds = %6
   %10 = zext nneg i32 %4 to i64
-  %11 = getelementptr inbounds nuw %struct.commit_graph_data, ptr %9, i64 %10, i32 1
-  %12 = load i64, ptr %11, align 8, !tbaa !63
-  %.not6 = icmp eq i64 %12, 0
-  br i1 %.not6, label %commit_graph_data_slab_peek.exit.thread, label %13
+  %11 = getelementptr inbounds nuw %struct.commit_graph_data, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load i64, ptr %12, align 8, !tbaa !63
+  %.not6 = icmp eq i64 %13, 0
+  br i1 %.not6, label %commit_graph_data_slab_peek.exit.thread, label %14
 
 commit_graph_data_slab_peek.exit.thread:          ; preds = %6, %1, %commit_graph_data_slab_peek.exit
-  br label %13
+  br label %14
 
-13:                                               ; preds = %commit_graph_data_slab_peek.exit, %commit_graph_data_slab_peek.exit.thread
-  %.0 = phi i64 [ 9223372036854775807, %commit_graph_data_slab_peek.exit.thread ], [ %12, %commit_graph_data_slab_peek.exit ]
+14:                                               ; preds = %commit_graph_data_slab_peek.exit, %commit_graph_data_slab_peek.exit.thread
+  %.0 = phi i64 [ 9223372036854775807, %commit_graph_data_slab_peek.exit.thread ], [ %13, %commit_graph_data_slab_peek.exit ]
   ret i64 %.0
 }
 
@@ -7375,7 +7376,7 @@ commit_graph_data_slab_peek.exit.i200.i:          ; preds = %.thread299.i
   %380 = icmp eq i32 %379, 0
   %381 = icmp eq i64 %.0223.i, 1073741823
   %or.cond.i = select i1 %380, i1 %381, i1 false
-  %382 = getelementptr inbounds nuw %struct.commit_graph_data, ptr %365, i64 %366, i32 1
+  %382 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %383 = load i64, ptr %382, align 8, !tbaa !63
   %.not6.i.i = icmp eq i64 %383, 0
   %spec.select319.i = select i1 %.not6.i.i, i64 9223372036854775807, i64 %383

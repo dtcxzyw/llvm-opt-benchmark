@@ -48694,7 +48694,7 @@ parser_precise_mbclen.exit.thread:                ; preds = %2
   %13 = getelementptr i8, ptr %12, i64 8
   %.val.i = load ptr, ptr %13, align 8, !tbaa !486
   tail call void (ptr, ptr, ...) @ripper_compile_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.610, ptr noundef %.val.i) #31
-  br label %ruby_nonempty_memcpy.exit
+  br label %53
 
 parser_precise_mbclen.exit:                       ; preds = %2
   %14 = trunc i32 %1 to i8
@@ -48729,7 +48729,7 @@ tokadd.exit:                                      ; preds = %parser_precise_mbcl
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   store ptr %33, ptr %3, align 8, !tbaa !48
   %.not = icmp eq i32 %10, 1
-  br i1 %.not, label %ruby_nonempty_memcpy.exit, label %34
+  br i1 %.not, label %53, label %34
 
 34:                                               ; preds = %tokadd.exit
   %35 = load i32, ptr %17, align 8, !tbaa !505
@@ -48741,7 +48741,7 @@ tokadd.exit:                                      ; preds = %parser_precise_mbcl
 
 ._crit_edge.i:                                    ; preds = %34
   %.pre.i = load ptr, ptr %15, align 8, !tbaa !462
-  br label %tokspace.exit
+  br label %ruby_nonempty_memcpy.exit
 
 .preheader.i:                                     ; preds = %34, %.preheader.i
   %38 = phi i32 [ %39, %.preheader.i ], [ %37, %34 ]
@@ -48756,22 +48756,23 @@ tokadd.exit:                                      ; preds = %parser_precise_mbcl
   %44 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %42, i64 noundef %43, i64 noundef 1) #38
   store ptr %44, ptr %15, align 8, !tbaa !462
   %.pre13.i = load i32, ptr %17, align 8, !tbaa !505
-  br label %tokspace.exit
-
-tokspace.exit:                                    ; preds = %41, %._crit_edge.i
-  %45 = phi i32 [ %36, %._crit_edge.i ], [ %.pre13.i, %41 ]
-  %46 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %44, %41 ]
-  %47 = load ptr, ptr %3, align 8, !tbaa !48
-  %48 = sub nsw i64 0, %32
-  %49 = getelementptr inbounds i8, ptr %47, i64 %48
-  %50 = sub nsw i32 %45, %30
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %46, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %52, ptr noundef nonnull readonly align 1 %49, i64 noundef range(i64 1, 0) %32, i1 noundef false) #31
+  %.pre = load ptr, ptr %3, align 8, !tbaa !48
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %tokspace.exit, %parser_precise_mbclen.exit.thread, %tokadd.exit
-  %.0 = phi i32 [ %1, %tokadd.exit ], [ -1, %parser_precise_mbclen.exit.thread ], [ %1, %tokspace.exit ]
+ruby_nonempty_memcpy.exit:                        ; preds = %._crit_edge.i, %41
+  %45 = phi ptr [ %33, %._crit_edge.i ], [ %.pre, %41 ]
+  %46 = phi i32 [ %36, %._crit_edge.i ], [ %.pre13.i, %41 ]
+  %47 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %44, %41 ]
+  %48 = sub nsw i32 %46, %30
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i8, ptr %47, i64 %49
+  %51 = sub nsw i64 0, %32
+  %52 = getelementptr inbounds i8, ptr %45, i64 %51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %50, ptr noundef nonnull readonly align 1 %52, i64 noundef range(i64 1, 0) %32, i1 noundef false) #31
+  br label %53
+
+53:                                               ; preds = %parser_precise_mbclen.exit.thread, %tokadd.exit, %ruby_nonempty_memcpy.exit
+  %.0 = phi i32 [ %1, %ruby_nonempty_memcpy.exit ], [ %1, %tokadd.exit ], [ -1, %parser_precise_mbclen.exit.thread ]
   ret i32 %.0
 }
 

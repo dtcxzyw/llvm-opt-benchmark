@@ -609,18 +609,16 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
 
 48:                                               ; preds = %44
   %49 = sext i32 %spec.store.select to i64
-  %.idx184 = mul nsw i64 %49, 24
-  %50 = getelementptr i8, ptr %9, i64 %.idx184
-  %51 = getelementptr i8, ptr %50, i64 8
+  %50 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store double 0x10000000000000, ptr %51, align 8, !tbaa !78
   br label %58
 
 52:                                               ; preds = %44
   %53 = fpext nsz float %36 to double
   %54 = sext i32 %spec.store.select to i64
-  %.idx = mul nsw i64 %54, 24
-  %55 = getelementptr i8, ptr %9, i64 %.idx
-  %56 = getelementptr i8, ptr %55, i64 8
+  %55 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store double %53, ptr %56, align 8, !tbaa !78
   %57 = fpext nsz float %39 to double
   br label %58
@@ -628,9 +626,8 @@ define internal void @analyze_channel_flt(ptr noundef readonly captures(none) %0
 58:                                               ; preds = %52, %48
   %.sink = phi double [ %57, %52 ], [ 0.000000e+00, %48 ]
   %.pre-phi142 = phi i64 [ %54, %52 ], [ %49, %48 ]
-  %.idx185 = mul nsw i64 %.pre-phi142, 24
-  %59 = getelementptr i8, ptr %9, i64 %.idx185
-  %60 = getelementptr i8, ptr %59, i64 16
+  %59 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %.pre-phi142
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store double %.sink, ptr %60, align 8, !tbaa !79
   %61 = getelementptr inbounds %struct.PeriodItem, ptr %9, i64 %.pre-phi142
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -2277,9 +2274,8 @@ define internal fastcc i32 @available_samples(ptr readonly captures(none) %.32.v
   %6 = getelementptr inbounds nuw i8, ptr %.72.val.104.val, i64 21168040
   %7 = load i32, ptr %6, align 8, !tbaa !84
   %8 = sext i32 %3 to i64
-  %.idx = mul nsw i64 %8, 24
-  %9 = getelementptr i8, ptr %1, i64 %.idx
-  %10 = getelementptr i8, ptr %9, i64 4
+  %9 = getelementptr inbounds %struct.PeriodItem, ptr %1, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !80
   %12 = icmp eq i32 %11, 0
   %.not16.i = icmp eq i32 %3, %5
@@ -2324,7 +2320,7 @@ get_pi_samples.exit:                              ; preds = %.lr.ph.i, %20, %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %get_pi_samples.exit40
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %get_pi_samples.exit40 ]
-  %.04 = phi i32 [ %.014.i, %.lr.ph.preheader ], [ %62, %get_pi_samples.exit40 ]
+  %.03 = phi i32 [ %.014.i, %.lr.ph.preheader ], [ %62, %get_pi_samples.exit40 ]
   %29 = getelementptr inbounds nuw %struct.ChannelContext, ptr %.72.val.104.val, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 21168032
@@ -2334,9 +2330,8 @@ get_pi_samples.exit:                              ; preds = %.lr.ph.i, %20, %0
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 21168040
   %36 = load i32, ptr %35, align 8, !tbaa !84
   %37 = sext i32 %32 to i64
-  %.idx2 = mul nsw i64 %37, 24
-  %38 = getelementptr i8, ptr %30, i64 %.idx2
-  %39 = getelementptr i8, ptr %38, i64 4
+  %38 = getelementptr inbounds %struct.PeriodItem, ptr %30, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !80
   %41 = icmp eq i32 %40, 0
   %.not16.i23 = icmp eq i32 %32, %34
@@ -2364,11 +2359,11 @@ get_pi_samples.exit:                              ; preds = %.lr.ph.i, %20, %0
 
 get_pi_samples.exit31:                            ; preds = %.lr.ph.i25, %49
   %.014.i30 = phi i32 [ %.018.i26, %.lr.ph.i25 ], [ %51, %49 ]
-  %.not = icmp sgt i32 %.04, %.014.i30
+  %.not = icmp sgt i32 %.03, %.014.i30
   br i1 %.not, label %.lr.ph.i34, label %get_pi_samples.exit40
 
 get_pi_samples.exit31.thread:                     ; preds = %.lr.ph
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.04, i32 %36)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.03, i32 %36)
   br label %get_pi_samples.exit40
 
 .lr.ph.i34:                                       ; preds = %get_pi_samples.exit31, %59
@@ -2391,7 +2386,7 @@ get_pi_samples.exit31.thread:                     ; preds = %.lr.ph
   br i1 %.not.i38, label %get_pi_samples.exit40, label %.lr.ph.i34, !llvm.loop !118
 
 get_pi_samples.exit40:                            ; preds = %59, %.lr.ph.i34, %get_pi_samples.exit31.thread, %get_pi_samples.exit31
-  %62 = phi i32 [ %.04, %get_pi_samples.exit31 ], [ %spec.select, %get_pi_samples.exit31.thread ], [ %61, %59 ], [ %.018.i35, %.lr.ph.i34 ]
+  %62 = phi i32 [ %.03, %get_pi_samples.exit31 ], [ %spec.select, %get_pi_samples.exit31.thread ], [ %61, %59 ], [ %.018.i35, %.lr.ph.i34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = icmp samesign ult i64 %indvars.iv.next, %28
   %64 = icmp sgt i32 %62, 0

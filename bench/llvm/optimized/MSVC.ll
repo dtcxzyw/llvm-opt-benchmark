@@ -9463,7 +9463,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %60
   %93 = load ptr, ptr %38, align 8, !tbaa !3, !noalias !517
   %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %.sroa.4.0.extract.shift.i.i.i.i
   %95 = and i64 %92, 4294967295
-  %96 = getelementptr inbounds nuw ptr, ptr %93, i64 %95
+  %96 = getelementptr ptr, ptr %93, i64 %95
   %.not2428.i.i.i.i.i.i = icmp samesign eq i64 %.sroa.4.0.extract.shift.i.i.i.i, %95
   br i1 %.not2428.i.i.i.i.i.i, label %_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -9881,7 +9881,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %7, %12
   %25 = load ptr, ptr %24, align 8, !tbaa !3, !noalias !525
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.sroa.4.0.extract.shift.i.i
   %27 = and i64 %23, 4294967295
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
+  %28 = getelementptr ptr, ptr %25, i64 %27
   %.not2428.i.i.i.i = icmp samesign eq i64 %.sroa.4.0.extract.shift.i.i, %27
   br i1 %.not2428.i.i.i.i, label %_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 

@@ -2372,7 +2372,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %38, %40, %41
 
 96:                                               ; preds = %.lr.ph336, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread
   %.054334 = phi i64 [ %60, %.lr.ph336 ], [ %.1.ph, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread ]
-  %.sroa.0222.0333 = phi ptr [ %1, %.lr.ph336 ], [ %627, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread ]
+  %.sroa.0222.0333 = phi ptr [ %1, %.lr.ph336 ], [ %631, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread ]
   %97 = getelementptr inbounds i8, ptr %.sroa.0222.0333, i64 -56
   %98 = load ptr, ptr %3, align 8, !tbaa !266
   %99 = load i32, ptr %61, align 8, !tbaa !269
@@ -2583,12 +2583,12 @@ _ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %177, %18
   %.not286316 = icmp eq ptr %.sroa.0.0.i.ph432, %194
   br i1 %.not286316, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit, %218
-  %.sroa.0214.0317 = phi ptr [ %219, %218 ], [ %.sroa.0.0.i.ph432, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit ]
+.lr.ph:                                           ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit, %219
+  %.sroa.0214.0317 = phi ptr [ %220, %219 ], [ %.sroa.0.0.i.ph432, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit ]
   %195 = load ptr, ptr %.sroa.0214.0317, align 8, !tbaa !264
   %196 = load i8, ptr %195, align 4, !tbaa !290
   %.not288 = icmp eq i8 %196, 26
-  br i1 %.not288, label %197, label %218
+  br i1 %.not288, label %197, label %219
 
 197:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -2637,120 +2637,121 @@ _ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3
   %214 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %212, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i ]
   %215 = zext i32 %214 to i64
   %216 = load ptr, ptr %70, align 8, !tbaa !25
-  %217 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %216, i64 %215, i32 1
+  %217 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %216, i64 %215
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  store i32 0, ptr %217, align 4, !tbaa !53
-  br label %218
+  store i32 0, ptr %218, align 4, !tbaa !53
+  br label %219
 
-218:                                              ; preds = %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit, %.lr.ph
-  %219 = getelementptr inbounds nuw i8, ptr %.sroa.0214.0317, i64 8
-  %.not286 = icmp eq ptr %219, %194
+219:                                              ; preds = %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit, %.lr.ph
+  %220 = getelementptr inbounds nuw i8, ptr %.sroa.0214.0317, i64 8
+  %.not286 = icmp eq ptr %220, %194
   br i1 %.not286, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %218, %_ZNK4llvm12DISubprogram16getRetainedNodesEv.exit, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit, %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE6insertEOSG_.exit
-  %220 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0333, i64 24
-  %221 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0333, i64 16
-  %.sroa.0208.0327 = load ptr, ptr %220, align 8, !tbaa !187
-  %.not289328 = icmp eq ptr %.sroa.0208.0327, %221
+.loopexit:                                        ; preds = %219, %_ZNK4llvm12DISubprogram16getRetainedNodesEv.exit, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit, %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE6insertEOSG_.exit
+  %221 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0333, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0333, i64 16
+  %.sroa.0208.0327 = load ptr, ptr %221, align 8, !tbaa !187
+  %.not289328 = icmp eq ptr %.sroa.0208.0327, %222
   br i1 %.not289328, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %.lr.ph331
 
 .lr.ph331:                                        ; preds = %.loopexit, %._crit_edge326
   %.sroa.0208.0329 = phi ptr [ %.sroa.0208.0, %._crit_edge326 ], [ %.sroa.0208.0327, %.loopexit ]
-  %222 = getelementptr inbounds nuw i8, ptr %.sroa.0208.0329, i64 32
-  %223 = getelementptr inbounds nuw i8, ptr %.sroa.0208.0329, i64 24
-  %.sroa.0202.0321 = load ptr, ptr %222, align 8, !tbaa !193
-  %.not290322 = icmp eq ptr %.sroa.0202.0321, %223
+  %223 = getelementptr inbounds nuw i8, ptr %.sroa.0208.0329, i64 32
+  %224 = getelementptr inbounds nuw i8, ptr %.sroa.0208.0329, i64 24
+  %.sroa.0202.0321 = load ptr, ptr %223, align 8, !tbaa !193
+  %.not290322 = icmp eq ptr %.sroa.0202.0321, %224
   br i1 %.not290322, label %._crit_edge326, label %.lr.ph325
 
 ._crit_edge326:                                   ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, %.lr.ph331
-  %224 = getelementptr inbounds nuw i8, ptr %.sroa.0208.0329, i64 8
-  %.sroa.0208.0 = load ptr, ptr %224, align 8, !tbaa !187
-  %.not289 = icmp eq ptr %.sroa.0208.0, %221
+  %225 = getelementptr inbounds nuw i8, ptr %.sroa.0208.0329, i64 8
+  %.sroa.0208.0 = load ptr, ptr %225, align 8, !tbaa !187
+  %.not289 = icmp eq ptr %.sroa.0208.0, %222
   br i1 %.not289, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %.lr.ph331
 
 .lr.ph325:                                        ; preds = %.lr.ph331, %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit
   %.sroa.0202.0323 = phi ptr [ %.sroa.0202.0, %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit ], [ %.sroa.0202.0321, %.lr.ph331 ]
-  %225 = getelementptr inbounds i8, ptr %.sroa.0202.0323, i64 -24
-  %226 = load i8, ptr %225, align 8, !tbaa !198
-  %227 = icmp eq i8 %226, 84
-  br i1 %227, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %228
+  %226 = getelementptr inbounds i8, ptr %.sroa.0202.0323, i64 -24
+  %227 = load i8, ptr %226, align 8, !tbaa !198
+  %228 = icmp eq i8 %227, 84
+  br i1 %228, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %229
 
-228:                                              ; preds = %.lr.ph325
+229:                                              ; preds = %.lr.ph325
   %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_113DebugifyLevelE, i64 120), align 8, !tbaa !188
-  %229 = icmp sgt i32 %.val.i, 0
-  br i1 %229, label %230, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit"
+  %230 = icmp sgt i32 %.val.i, 0
+  br i1 %230, label %231, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit"
 
-230:                                              ; preds = %228
-  %231 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 40
-  %232 = load ptr, ptr %231, align 8, !tbaa !299
-  %.not.i.i = icmp eq ptr %232, null
-  br i1 %.not.i.i, label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, label %233
+231:                                              ; preds = %229
+  %232 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 40
+  %233 = load ptr, ptr %232, align 8, !tbaa !299
+  %.not.i.i = icmp eq ptr %233, null
+  br i1 %.not.i.i, label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, label %234
 
-233:                                              ; preds = %230
-  %234 = call { ptr, ptr } @_ZN4llvm9DbgMarker17getDbgRecordRangeEv(ptr noundef nonnull align 8 dereferenceable(24) %232) #26
+234:                                              ; preds = %231
+  %235 = call { ptr, ptr } @_ZN4llvm9DbgMarker17getDbgRecordRangeEv(ptr noundef nonnull align 8 dereferenceable(24) %233) #26
   br label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit
 
-_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit: ; preds = %230, %233
-  %.pn.i.i78 = phi { ptr, ptr } [ %234, %233 ], [ { ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8) }, %230 ]
-  %235 = extractvalue { ptr, ptr } %.pn.i.i78, 0
-  %236 = extractvalue { ptr, ptr } %.pn.i.i78, 1
-  %.not1.i.i.i.i.i = icmp eq ptr %235, %236
+_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit: ; preds = %231, %234
+  %.pn.i.i78 = phi { ptr, ptr } [ %235, %234 ], [ { ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8) }, %231 ]
+  %236 = extractvalue { ptr, ptr } %.pn.i.i78, 0
+  %237 = extractvalue { ptr, ptr } %.pn.i.i78, 1
+  %.not1.i.i.i.i.i = icmp eq ptr %236, %237
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, label %.lr.ph.i.i.i.i.i79
 
-.lr.ph.i.i.i.i.i79:                               ; preds = %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, %239
-  %.sroa.01.0.i.i = phi ptr [ %241, %239 ], [ %235, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit ]
-  %237 = getelementptr i8, ptr %.sroa.01.0.i.i, i64 32
-  %.val.i.i.i.i.i = load i8, ptr %237, align 8, !tbaa !309, !noalias !314
-  %238 = icmp eq i8 %.val.i.i.i.i.i, 0
-  br i1 %238, label %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, label %239
+.lr.ph.i.i.i.i.i79:                               ; preds = %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, %240
+  %.sroa.01.0.i.i = phi ptr [ %242, %240 ], [ %236, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit ]
+  %238 = getelementptr i8, ptr %.sroa.01.0.i.i, i64 32
+  %.val.i.i.i.i.i = load i8, ptr %238, align 8, !tbaa !309, !noalias !314
+  %239 = icmp eq i8 %.val.i.i.i.i.i, 0
+  br i1 %239, label %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, label %240
 
-239:                                              ; preds = %.lr.ph.i.i.i.i.i79
-  %240 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i, i64 8
-  %241 = load ptr, ptr %240, align 8, !tbaa !187, !noalias !314
-  %.not.i.i.i.i.i = icmp eq ptr %241, %236
+240:                                              ; preds = %.lr.ph.i.i.i.i.i79
+  %241 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i, i64 8
+  %242 = load ptr, ptr %241, align 8, !tbaa !187, !noalias !314
+  %.not.i.i.i.i.i = icmp eq ptr %242, %237
   br i1 %.not.i.i.i.i.i, label %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, label %.lr.ph.i.i.i.i.i79, !llvm.loop !319
 
-_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i79, %239, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit
-  %.sroa.01.1.i.i = phi ptr [ %235, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit ], [ %241, %239 ], [ %.sroa.01.0.i.i, %.lr.ph.i.i.i.i.i79 ]
-  %.not291318 = icmp eq ptr %.sroa.01.1.i.i, %236
+_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i79, %240, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit
+  %.sroa.01.1.i.i = phi ptr [ %236, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit ], [ %242, %240 ], [ %.sroa.01.0.i.i, %.lr.ph.i.i.i.i.i79 ]
+  %.not291318 = icmp eq ptr %.sroa.01.1.i.i, %237
   br i1 %.not291318, label %._crit_edge, label %.lr.ph320
 
 ._crit_edge:                                      ; preds = %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit, %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit
-  %242 = load i8, ptr %225, align 8, !tbaa !198
-  %243 = icmp eq i8 %242, 85
-  br i1 %243, label %244, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
+  %243 = load i8, ptr %226, align 8, !tbaa !198
+  %244 = icmp eq i8 %243, 85
+  br i1 %244, label %245, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
-244:                                              ; preds = %._crit_edge
-  %245 = getelementptr inbounds i8, ptr %.sroa.0202.0323, i64 -56
-  %246 = load ptr, ptr %245, align 8, !tbaa !320
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %246, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %247
+245:                                              ; preds = %._crit_edge
+  %246 = getelementptr inbounds i8, ptr %.sroa.0202.0323, i64 -56
+  %247 = load ptr, ptr %246, align 8, !tbaa !320
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %247, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %248
 
-247:                                              ; preds = %244
-  %248 = load i8, ptr %246, align 8, !tbaa !198
-  %249 = icmp eq i8 %248, 0
-  br i1 %249, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
+248:                                              ; preds = %245
+  %249 = load i8, ptr %247, align 8, !tbaa !198
+  %250 = icmp eq i8 %249, 0
+  br i1 %250, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %247
-  %250 = getelementptr inbounds nuw i8, ptr %246, i64 24
-  %251 = load ptr, ptr %250, align 8, !tbaa !325
-  %252 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 56
-  %253 = load ptr, ptr %252, align 8, !tbaa !328
-  %254 = icmp eq ptr %251, %253
-  br i1 %254, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %248
+  %251 = getelementptr inbounds nuw i8, ptr %247, i64 24
+  %252 = load ptr, ptr %251, align 8, !tbaa !325
+  %253 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 56
+  %254 = load ptr, ptr %253, align 8, !tbaa !328
+  %255 = icmp eq ptr %252, %254
+  br i1 %255, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
 _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %255 = getelementptr inbounds nuw i8, ptr %246, i64 32
-  %256 = load i32, ptr %255, align 8
-  %257 = and i32 %256, 8192
-  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %257, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %258
+  %256 = getelementptr inbounds nuw i8, ptr %247, i64 32
+  %257 = load i32, ptr %256, align 8
+  %258 = and i32 %257, 8192
+  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %258, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %259
 
-258:                                              ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i
-  %259 = getelementptr inbounds nuw i8, ptr %246, i64 36
-  %260 = load i32, ptr %259, align 4, !tbaa !333
-  switch i32 %260, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split" [
+259:                                              ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i
+  %260 = getelementptr inbounds nuw i8, ptr %247, i64 36
+  %261 = load i32, ptr %260, align 4, !tbaa !333
+  switch i32 %261, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split" [
     i32 69, label %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
     i32 71, label %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
     i32 68, label %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
@@ -2758,792 +2759,795 @@ _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i: ; pre
 
 .lr.ph320:                                        ; preds = %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit
   %.sroa.0193.0319 = phi ptr [ %.sroa.0193.2, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit ], [ %.sroa.01.1.i.i, %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit ]
-  br i1 %.not61, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", label %261
+  br i1 %.not61, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", label %262
 
-261:                                              ; preds = %.lr.ph320
+262:                                              ; preds = %.lr.ph320
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !334)
-  %262 = getelementptr inbounds nuw i8, ptr %.sroa.0193.0319, i64 24
-  %263 = load ptr, ptr %262, align 8, !tbaa !196, !noalias !334
-  store ptr %263, ptr %12, align 8, !tbaa !196, !alias.scope !334
-  %.not.i.i.i.i.i.i = icmp eq ptr %263, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i, label %264
+  %263 = getelementptr inbounds nuw i8, ptr %.sroa.0193.0319, i64 24
+  %264 = load ptr, ptr %263, align 8, !tbaa !196, !noalias !334
+  store ptr %264, ptr %12, align 8, !tbaa !196, !alias.scope !334
+  %.not.i.i.i.i.i.i = icmp eq ptr %264, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i, label %265
 
-264:                                              ; preds = %261
-  %265 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %263, i64 1) #26
+265:                                              ; preds = %262
+  %266 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %264, i64 1) #26
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
 
-_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i:        ; preds = %264, %261
-  %266 = call noundef ptr @_ZNK4llvm8DebugLoc12getInlinedAtEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #26
-  %.not4.i = icmp eq ptr %266, null
-  %267 = load ptr, ptr %12, align 8, !tbaa !196
-  %.not.i.i.i.i.i82 = icmp eq ptr %267, null
-  br i1 %.not.i.i.i.i.i82, label %_ZN4llvm8DebugLocD2Ev.exit.i, label %268
+_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i:        ; preds = %265, %262
+  %267 = call noundef ptr @_ZNK4llvm8DebugLoc12getInlinedAtEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #26
+  %.not4.i = icmp eq ptr %267, null
+  %268 = load ptr, ptr %12, align 8, !tbaa !196
+  %.not.i.i.i.i.i82 = icmp eq ptr %268, null
+  br i1 %.not.i.i.i.i.i82, label %_ZN4llvm8DebugLocD2Ev.exit.i, label %269
 
-268:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %267) #26
+269:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %268) #26
   br label %_ZN4llvm8DebugLocD2Ev.exit.i
 
-_ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %268, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
+_ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %269, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %.not4.i, label %269, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit"
+  br i1 %.not4.i, label %270, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit"
 
-269:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i
-  %270 = call noundef zeroext i1 @_ZNK4llvm17DbgVariableRecord14isKillLocationEv(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0193.0319) #26
-  br i1 %270, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", label %271
+270:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i
+  %271 = call noundef zeroext i1 @_ZNK4llvm17DbgVariableRecord14isKillLocationEv(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0193.0319) #26
+  br i1 %271, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", label %272
 
-271:                                              ; preds = %269
-  %272 = getelementptr inbounds nuw i8, ptr %.sroa.0193.0319, i64 72
-  %273 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_15DILocalVariableEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %272) #26
-  %274 = load ptr, ptr %67, align 8, !tbaa !337, !noalias !339
-  %275 = load i32, ptr %74, align 8, !tbaa !342, !noalias !339
-  %276 = icmp eq i32 %275, 0
-  br i1 %276, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %277
+272:                                              ; preds = %270
+  %273 = getelementptr inbounds nuw i8, ptr %.sroa.0193.0319, i64 72
+  %274 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_15DILocalVariableEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %273) #26
+  %275 = load ptr, ptr %67, align 8, !tbaa !337, !noalias !339
+  %276 = load i32, ptr %74, align 8, !tbaa !342, !noalias !339
+  %277 = icmp eq i32 %276, 0
+  br i1 %277, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %278
 
-277:                                              ; preds = %271
-  %278 = ptrtoint ptr %273 to i64
-  %279 = trunc i64 %278 to i32
-  %280 = lshr i32 %279, 4
-  %281 = lshr i32 %279, 9
-  %282 = xor i32 %280, %281
-  %283 = add i32 %275, -1
-  %.02944.i.i = and i32 %282, %283
-  %284 = zext nneg i32 %.02944.i.i to i64
-  %285 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %274, i64 %284
-  %286 = load ptr, ptr %285, align 8, !tbaa !343, !noalias !339
-  %287 = icmp eq ptr %273, %286
-  br i1 %287, label %._crit_edge.i.i, label %.lr.ph.i.i, !prof !272
+278:                                              ; preds = %272
+  %279 = ptrtoint ptr %274 to i64
+  %280 = trunc i64 %279 to i32
+  %281 = lshr i32 %280, 4
+  %282 = lshr i32 %280, 9
+  %283 = xor i32 %281, %282
+  %284 = add i32 %276, -1
+  %.02944.i.i = and i32 %283, %284
+  %285 = zext nneg i32 %.02944.i.i to i64
+  %286 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %275, i64 %285
+  %287 = load ptr, ptr %286, align 8, !tbaa !343, !noalias !339
+  %288 = icmp eq ptr %274, %287
+  br i1 %288, label %._crit_edge.i.i, label %.lr.ph.i.i, !prof !272
 
-.lr.ph.i.i:                                       ; preds = %277, %293
-  %288 = phi ptr [ %300, %293 ], [ %286, %277 ]
-  %289 = phi ptr [ %299, %293 ], [ %285, %277 ]
-  %.02947.i.i = phi i32 [ %.029.i.i, %293 ], [ %.02944.i.i, %277 ]
-  %.02746.i.i = phi i32 [ %296, %293 ], [ 1, %277 ]
-  %.03245.i.i = phi ptr [ %spec.select.i.i105, %293 ], [ null, %277 ]
-  %290 = icmp eq ptr %288, inttoptr (i64 -4096 to ptr)
-  br i1 %290, label %291, label %293, !prof !33
+.lr.ph.i.i:                                       ; preds = %278, %294
+  %289 = phi ptr [ %301, %294 ], [ %287, %278 ]
+  %290 = phi ptr [ %300, %294 ], [ %286, %278 ]
+  %.02947.i.i = phi i32 [ %.029.i.i, %294 ], [ %.02944.i.i, %278 ]
+  %.02746.i.i = phi i32 [ %297, %294 ], [ 1, %278 ]
+  %.03245.i.i = phi ptr [ %spec.select.i.i105, %294 ], [ null, %278 ]
+  %291 = icmp eq ptr %289, inttoptr (i64 -4096 to ptr)
+  br i1 %291, label %292, label %294, !prof !33
 
-291:                                              ; preds = %.lr.ph.i.i
+292:                                              ; preds = %.lr.ph.i.i
   %.not.i.i107 = icmp eq ptr %.03245.i.i, null
-  %292 = select i1 %.not.i.i107, ptr %289, ptr %.03245.i.i
+  %293 = select i1 %.not.i.i107, ptr %290, ptr %.03245.i.i
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
 
-293:                                              ; preds = %.lr.ph.i.i
-  %294 = icmp eq ptr %288, inttoptr (i64 -8192 to ptr)
-  %295 = icmp eq ptr %.03245.i.i, null
-  %or.cond.not.i.i = select i1 %294, i1 %295, i1 false
-  %spec.select.i.i105 = select i1 %or.cond.not.i.i, ptr %289, ptr %.03245.i.i
-  %296 = add i32 %.02746.i.i, 1
-  %297 = add i32 %.02746.i.i, %.02947.i.i
-  %.029.i.i = and i32 %297, %283
-  %298 = zext i32 %.029.i.i to i64
-  %299 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %274, i64 %298
-  %300 = load ptr, ptr %299, align 8, !tbaa !343, !noalias !339
-  %301 = icmp eq ptr %273, %300
-  br i1 %301, label %._crit_edge.i.i, label %.lr.ph.i.i, !prof !273, !llvm.loop !344
+294:                                              ; preds = %.lr.ph.i.i
+  %295 = icmp eq ptr %289, inttoptr (i64 -8192 to ptr)
+  %296 = icmp eq ptr %.03245.i.i, null
+  %or.cond.not.i.i = select i1 %295, i1 %296, i1 false
+  %spec.select.i.i105 = select i1 %or.cond.not.i.i, ptr %290, ptr %.03245.i.i
+  %297 = add i32 %.02746.i.i, 1
+  %298 = add i32 %.02746.i.i, %.02947.i.i
+  %.029.i.i = and i32 %298, %284
+  %299 = zext i32 %.029.i.i to i64
+  %300 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %275, i64 %299
+  %301 = load ptr, ptr %300, align 8, !tbaa !343, !noalias !339
+  %302 = icmp eq ptr %274, %301
+  br i1 %302, label %._crit_edge.i.i, label %.lr.ph.i.i, !prof !273, !llvm.loop !344
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %291, %271
-  %.sink.i.i = phi ptr [ %292, %291 ], [ null, %271 ]
-  %302 = load i32, ptr %75, align 8, !tbaa !345, !noalias !339
-  %303 = shl i32 %302, 2
-  %304 = add i32 %303, 4
-  %305 = mul i32 %275, 3
-  %.not.i.i.i108 = icmp ult i32 %304, %305
-  br i1 %.not.i.i.i108, label %308, label %306, !prof !33
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %292, %272
+  %.sink.i.i = phi ptr [ %293, %292 ], [ null, %272 ]
+  %303 = load i32, ptr %75, align 8, !tbaa !345, !noalias !339
+  %304 = shl i32 %303, 2
+  %305 = add i32 %304, 4
+  %306 = mul i32 %276, 3
+  %.not.i.i.i108 = icmp ult i32 %305, %306
+  br i1 %.not.i.i.i108, label %309, label %307, !prof !33
 
-306:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
-  %307 = shl i32 %275, 1
+307:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
+  %308 = shl i32 %276, 1
   br label %.sink.split.i.i.i
 
-308:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
-  %309 = load i32, ptr %76, align 4, !tbaa !346, !noalias !339
-  %.neg.i.i.i = xor i32 %302, -1
-  %.neg12.i.i.i = add i32 %275, %.neg.i.i.i
-  %310 = sub i32 %.neg12.i.i.i, %309
-  %311 = lshr i32 %275, 3
-  %.not10.i.i.i = icmp ugt i32 %310, %311
-  br i1 %.not10.i.i.i, label %340, label %.sink.split.i.i.i, !prof !33
+309:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
+  %310 = load i32, ptr %76, align 4, !tbaa !346, !noalias !339
+  %.neg.i.i.i = xor i32 %303, -1
+  %.neg12.i.i.i = add i32 %276, %.neg.i.i.i
+  %311 = sub i32 %.neg12.i.i.i, %310
+  %312 = lshr i32 %276, 3
+  %.not10.i.i.i = icmp ugt i32 %311, %312
+  br i1 %.not10.i.i.i, label %341, label %.sink.split.i.i.i, !prof !33
 
-.sink.split.i.i.i:                                ; preds = %308, %306
-  %.sink.i.i.i = phi i32 [ %307, %306 ], [ %275, %308 ]
+.sink.split.i.i.i:                                ; preds = %309, %307
+  %.sink.i.i.i = phi i32 [ %308, %307 ], [ %276, %309 ]
   call void @_ZN4llvm8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(40) %67, i32 noundef %.sink.i.i.i), !noalias !339
-  %312 = load ptr, ptr %67, align 8, !tbaa !337, !noalias !339
-  %313 = load i32, ptr %74, align 8, !tbaa !342, !noalias !339
-  %314 = icmp eq i32 %313, 0
-  br i1 %314, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %315
+  %313 = load ptr, ptr %67, align 8, !tbaa !337, !noalias !339
+  %314 = load i32, ptr %74, align 8, !tbaa !342, !noalias !339
+  %315 = icmp eq i32 %314, 0
+  br i1 %315, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %316
 
-315:                                              ; preds = %.sink.split.i.i.i
-  %316 = ptrtoint ptr %273 to i64
-  %317 = trunc i64 %316 to i32
-  %318 = lshr i32 %317, 4
-  %319 = lshr i32 %317, 9
-  %320 = xor i32 %318, %319
-  %321 = add i32 %313, -1
-  %.02944.i = and i32 %321, %320
-  %322 = zext nneg i32 %.02944.i to i64
-  %323 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %312, i64 %322
-  %324 = load ptr, ptr %323, align 8, !tbaa !343, !noalias !339
-  %325 = icmp eq ptr %273, %324
-  br i1 %325, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i, !prof !272
+316:                                              ; preds = %.sink.split.i.i.i
+  %317 = ptrtoint ptr %274 to i64
+  %318 = trunc i64 %317 to i32
+  %319 = lshr i32 %318, 4
+  %320 = lshr i32 %318, 9
+  %321 = xor i32 %319, %320
+  %322 = add i32 %314, -1
+  %.02944.i = and i32 %322, %321
+  %323 = zext nneg i32 %.02944.i to i64
+  %324 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %313, i64 %323
+  %325 = load ptr, ptr %324, align 8, !tbaa !343, !noalias !339
+  %326 = icmp eq ptr %274, %325
+  br i1 %326, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i, !prof !272
 
-.lr.ph.i:                                         ; preds = %315, %331
-  %326 = phi ptr [ %338, %331 ], [ %324, %315 ]
-  %327 = phi ptr [ %337, %331 ], [ %323, %315 ]
-  %.02947.i = phi i32 [ %.029.i, %331 ], [ %.02944.i, %315 ]
-  %.02746.i = phi i32 [ %334, %331 ], [ 1, %315 ]
-  %.03245.i = phi ptr [ %spec.select.i, %331 ], [ null, %315 ]
-  %328 = icmp eq ptr %326, inttoptr (i64 -4096 to ptr)
-  br i1 %328, label %329, label %331, !prof !33
+.lr.ph.i:                                         ; preds = %316, %332
+  %327 = phi ptr [ %339, %332 ], [ %325, %316 ]
+  %328 = phi ptr [ %338, %332 ], [ %324, %316 ]
+  %.02947.i = phi i32 [ %.029.i, %332 ], [ %.02944.i, %316 ]
+  %.02746.i = phi i32 [ %335, %332 ], [ 1, %316 ]
+  %.03245.i = phi ptr [ %spec.select.i, %332 ], [ null, %316 ]
+  %329 = icmp eq ptr %327, inttoptr (i64 -4096 to ptr)
+  br i1 %329, label %330, label %332, !prof !33
 
-329:                                              ; preds = %.lr.ph.i
+330:                                              ; preds = %.lr.ph.i
   %.not.i140 = icmp eq ptr %.03245.i, null
-  %330 = select i1 %.not.i140, ptr %327, ptr %.03245.i
+  %331 = select i1 %.not.i140, ptr %328, ptr %.03245.i
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit
 
-331:                                              ; preds = %.lr.ph.i
-  %332 = icmp eq ptr %326, inttoptr (i64 -8192 to ptr)
-  %333 = icmp eq ptr %.03245.i, null
-  %or.cond.not.i = select i1 %332, i1 %333, i1 false
-  %spec.select.i = select i1 %or.cond.not.i, ptr %327, ptr %.03245.i
-  %334 = add i32 %.02746.i, 1
-  %335 = add i32 %.02746.i, %.02947.i
-  %.029.i = and i32 %335, %321
-  %336 = zext i32 %.029.i to i64
-  %337 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %312, i64 %336
-  %338 = load ptr, ptr %337, align 8, !tbaa !343, !noalias !339
-  %339 = icmp eq ptr %273, %338
-  br i1 %339, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i, !prof !273, !llvm.loop !344
+332:                                              ; preds = %.lr.ph.i
+  %333 = icmp eq ptr %327, inttoptr (i64 -8192 to ptr)
+  %334 = icmp eq ptr %.03245.i, null
+  %or.cond.not.i = select i1 %333, i1 %334, i1 false
+  %spec.select.i = select i1 %or.cond.not.i, ptr %328, ptr %.03245.i
+  %335 = add i32 %.02746.i, 1
+  %336 = add i32 %.02746.i, %.02947.i
+  %.029.i = and i32 %336, %322
+  %337 = zext i32 %.029.i to i64
+  %338 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %313, i64 %337
+  %339 = load ptr, ptr %338, align 8, !tbaa !343, !noalias !339
+  %340 = icmp eq ptr %274, %339
+  br i1 %340, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i, !prof !273, !llvm.loop !344
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit: ; preds = %331, %.sink.split.i.i.i, %315, %329
-  %.sink.i138 = phi ptr [ %330, %329 ], [ null, %.sink.split.i.i.i ], [ %323, %315 ], [ %337, %331 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit: ; preds = %332, %.sink.split.i.i.i, %316, %330
+  %.sink.i138 = phi ptr [ %331, %330 ], [ null, %.sink.split.i.i.i ], [ %324, %316 ], [ %338, %332 ]
   %.pre.i.i109 = load i32, ptr %75, align 8, !tbaa !345, !noalias !339
-  br label %340
+  br label %341
 
-340:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, %308
-  %341 = phi ptr [ %.sink.i138, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %.sink.i.i, %308 ]
-  %342 = phi i32 [ %.pre.i.i109, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %302, %308 ]
-  %343 = add i32 %342, 1
-  store i32 %343, ptr %75, align 8, !tbaa !345, !noalias !339
-  %344 = load ptr, ptr %341, align 8, !tbaa !343, !noalias !339
-  %345 = icmp eq ptr %344, inttoptr (i64 -4096 to ptr)
-  br i1 %345, label %351, label %346
+341:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, %309
+  %342 = phi ptr [ %.sink.i138, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %.sink.i.i, %309 ]
+  %343 = phi i32 [ %.pre.i.i109, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %303, %309 ]
+  %344 = add i32 %343, 1
+  store i32 %344, ptr %75, align 8, !tbaa !345, !noalias !339
+  %345 = load ptr, ptr %342, align 8, !tbaa !343, !noalias !339
+  %346 = icmp eq ptr %345, inttoptr (i64 -4096 to ptr)
+  br i1 %346, label %353, label %347
 
-346:                                              ; preds = %340
-  %347 = load i32, ptr %76, align 4, !tbaa !346, !noalias !339
-  %348 = add i32 %347, -1
-  store i32 %348, ptr %76, align 4, !tbaa !346, !noalias !339
-  br label %351
+347:                                              ; preds = %341
+  %348 = load i32, ptr %76, align 4, !tbaa !346, !noalias !339
+  %349 = add i32 %348, -1
+  store i32 %349, ptr %76, align 4, !tbaa !346, !noalias !339
+  br label %353
 
-._crit_edge.i.i:                                  ; preds = %293, %277
-  %349 = phi i64 [ %284, %277 ], [ %298, %293 ]
-  %350 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %274, i64 %349, i32 0, i32 1
-  %.pre.i.i83 = load i32, ptr %350, align 4, !tbaa !53
+._crit_edge.i.i:                                  ; preds = %294, %278
+  %350 = phi i64 [ %285, %278 ], [ %299, %294 ]
+  %351 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %275, i64 %350
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
+  %.pre.i.i83 = load i32, ptr %352, align 4, !tbaa !53
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i
 
-351:                                              ; preds = %346, %340
-  store ptr %273, ptr %341, align 8, !tbaa !343, !noalias !339
-  %352 = getelementptr inbounds nuw i8, ptr %341, i64 8
-  store i32 0, ptr %352, align 8, !tbaa !53, !noalias !339
-  %353 = load i32, ptr %71, align 8, !tbaa !26
-  %354 = load i32, ptr %72, align 4, !tbaa !27
-  %.not.i.i.not.i.i.i = icmp ult i32 %353, %354
-  br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i, label %355, !prof !33
+353:                                              ; preds = %347, %341
+  store ptr %274, ptr %342, align 8, !tbaa !343, !noalias !339
+  %354 = getelementptr inbounds nuw i8, ptr %342, i64 8
+  store i32 0, ptr %354, align 8, !tbaa !53, !noalias !339
+  %355 = load i32, ptr %71, align 8, !tbaa !26
+  %356 = load i32, ptr %72, align 4, !tbaa !27
+  %.not.i.i.not.i.i.i = icmp ult i32 %355, %356
+  br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i, label %357, !prof !33
 
-355:                                              ; preds = %351
-  %356 = zext i32 %353 to i64
-  %357 = add nuw nsw i64 %356, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull %73, i64 noundef %357, i64 noundef 16) #26
+357:                                              ; preds = %353
+  %358 = zext i32 %355 to i64
+  %359 = add nuw nsw i64 %358, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull %73, i64 noundef %359, i64 noundef 16) #26
   %.pre.i.i.i = load i32, ptr %71, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i: ; preds = %355, %351
-  %358 = phi i32 [ %353, %351 ], [ %.pre.i.i.i, %355 ]
-  %359 = load ptr, ptr %70, align 8, !tbaa !25
-  %360 = zext i32 %358 to i64
-  %361 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %359, i64 %360
-  store ptr %273, ptr %361, align 1
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %361, i64 8
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i: ; preds = %357, %353
+  %360 = phi i32 [ %355, %353 ], [ %.pre.i.i.i, %357 ]
+  %361 = load ptr, ptr %70, align 8, !tbaa !25
+  %362 = zext i32 %360 to i64
+  %363 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %361, i64 %362
+  store ptr %274, ptr %363, align 1
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %363, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
-  %362 = load i32, ptr %71, align 8, !tbaa !26
-  %363 = add i32 %362, 1
-  store i32 %363, ptr %71, align 8, !tbaa !26
-  store i32 %362, ptr %352, align 4, !tbaa !53
+  %364 = load i32, ptr %71, align 8, !tbaa !26
+  %365 = add i32 %364, 1
+  store i32 %365, ptr %71, align 8, !tbaa !26
+  store i32 %364, ptr %354, align 4, !tbaa !53
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i
 
 _ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i, %._crit_edge.i.i
-  %364 = phi i32 [ %.pre.i.i83, %._crit_edge.i.i ], [ %362, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i ]
-  %365 = zext i32 %364 to i64
-  %366 = load ptr, ptr %70, align 8, !tbaa !25
-  %367 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %366, i64 %365, i32 1
-  %368 = load i32, ptr %367, align 4, !tbaa !53
-  %369 = add i32 %368, 1
-  store i32 %369, ptr %367, align 4, !tbaa !53
+  %366 = phi i32 [ %.pre.i.i83, %._crit_edge.i.i ], [ %364, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i ]
+  %367 = zext i32 %366 to i64
+  %368 = load ptr, ptr %70, align 8, !tbaa !25
+  %369 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %368, i64 %367
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
+  %371 = load i32, ptr %370, align 4, !tbaa !53
+  %372 = add i32 %371, 1
+  store i32 %372, ptr %370, align 4, !tbaa !53
   br label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit"
 
-"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit": ; preds = %.lr.ph320, %_ZN4llvm8DebugLocD2Ev.exit.i, %269, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i
-  %370 = getelementptr inbounds nuw i8, ptr %.sroa.0193.0319, i64 8
-  %371 = load ptr, ptr %370, align 8, !tbaa !187
-  %.not1.i.i.i = icmp eq ptr %371, %236
+"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit": ; preds = %.lr.ph320, %_ZN4llvm8DebugLocD2Ev.exit.i, %270, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i
+  %373 = getelementptr inbounds nuw i8, ptr %.sroa.0193.0319, i64 8
+  %374 = load ptr, ptr %373, align 8, !tbaa !187
+  %.not1.i.i.i = icmp eq ptr %374, %237
   br i1 %.not1.i.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", %374
-  %.sroa.0193.1 = phi ptr [ %376, %374 ], [ %371, %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit" ]
-  %372 = getelementptr i8, ptr %.sroa.0193.1, i64 32
-  %.val.i.i.i = load i8, ptr %372, align 8, !tbaa !309
-  %373 = icmp eq i8 %.val.i.i.i, 0
-  br i1 %373, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit, label %374
+.lr.ph.i.i.i:                                     ; preds = %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", %377
+  %.sroa.0193.1 = phi ptr [ %379, %377 ], [ %374, %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit" ]
+  %375 = getelementptr i8, ptr %.sroa.0193.1, i64 32
+  %.val.i.i.i = load i8, ptr %375, align 8, !tbaa !309
+  %376 = icmp eq i8 %.val.i.i.i, 0
+  br i1 %376, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit, label %377
 
-374:                                              ; preds = %.lr.ph.i.i.i
-  %375 = getelementptr inbounds nuw i8, ptr %.sroa.0193.1, i64 8
-  %376 = load ptr, ptr %375, align 8, !tbaa !187
-  %.not.i.i.i84 = icmp eq ptr %376, %236
+377:                                              ; preds = %.lr.ph.i.i.i
+  %378 = getelementptr inbounds nuw i8, ptr %.sroa.0193.1, i64 8
+  %379 = load ptr, ptr %378, align 8, !tbaa !187
+  %.not.i.i.i84 = icmp eq ptr %379, %237
   br i1 %.not.i.i.i84, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit, label %.lr.ph.i.i.i, !llvm.loop !319
 
-_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit: ; preds = %.lr.ph.i.i.i, %374, %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit"
-  %.sroa.0193.2 = phi ptr [ %371, %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit" ], [ %376, %374 ], [ %.sroa.0193.1, %.lr.ph.i.i.i ]
-  %.not291 = icmp eq ptr %.sroa.0193.2, %236
+_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit: ; preds = %.lr.ph.i.i.i, %377, %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit"
+  %.sroa.0193.2 = phi ptr [ %374, %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit" ], [ %379, %377 ], [ %.sroa.0193.1, %.lr.ph.i.i.i ]
+  %.not291 = icmp eq ptr %.sroa.0193.2, %237
   br i1 %.not291, label %._crit_edge, label %.lr.ph320
 
-_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit: ; preds = %258, %258, %258
-  br i1 %.not61, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %377
+_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit: ; preds = %259, %259, %259
+  br i1 %.not61, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %380
 
-377:                                              ; preds = %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
-  %378 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 24
-  %379 = call noundef ptr @_ZNK4llvm8DebugLoc12getInlinedAtEv(ptr noundef nonnull align 8 dereferenceable(8) %378) #26
-  %.not4.i86 = icmp eq ptr %379, null
-  br i1 %.not4.i86, label %380, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
+380:                                              ; preds = %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
+  %381 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 24
+  %382 = call noundef ptr @_ZNK4llvm8DebugLoc12getInlinedAtEv(ptr noundef nonnull align 8 dereferenceable(8) %381) #26
+  %.not4.i86 = icmp eq ptr %382, null
+  br i1 %.not4.i86, label %383, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
-380:                                              ; preds = %377
-  %381 = call noundef zeroext i1 @_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv(ptr noundef nonnull align 8 dereferenceable(88) %225)
-  br i1 %381, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %382
+383:                                              ; preds = %380
+  %384 = call noundef zeroext i1 @_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv(ptr noundef nonnull align 8 dereferenceable(88) %226)
+  br i1 %384, label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %385
 
-382:                                              ; preds = %380
-  %383 = getelementptr inbounds i8, ptr %.sroa.0202.0323, i64 -20
-  %384 = load i32, ptr %383, align 4
-  %385 = and i32 %384, 134217727
-  %386 = zext nneg i32 %385 to i64
-  %387 = sub nsw i64 0, %386
-  %388 = getelementptr inbounds %"class.llvm::Use", ptr %225, i64 %387
-  %389 = getelementptr inbounds nuw i8, ptr %388, i64 32
-  %390 = load ptr, ptr %389, align 8, !tbaa !320
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 24
-  %392 = load ptr, ptr %391, align 8, !tbaa !347
+385:                                              ; preds = %383
+  %386 = getelementptr inbounds i8, ptr %.sroa.0202.0323, i64 -20
+  %387 = load i32, ptr %386, align 4
+  %388 = and i32 %387, 134217727
+  %389 = zext nneg i32 %388 to i64
+  %390 = sub nsw i64 0, %389
+  %391 = getelementptr inbounds %"class.llvm::Use", ptr %226, i64 %390
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 32
+  %393 = load ptr, ptr %392, align 8, !tbaa !320
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 24
+  %395 = load ptr, ptr %394, align 8, !tbaa !347
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store ptr %392, ptr %10, align 8, !tbaa !291
+  store ptr %395, ptr %10, align 8, !tbaa !291
   store i32 0, ptr %77, align 8, !tbaa !294
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E11try_emplaceIJRKjEEESt4pairINS_16DenseMapIteratorIS4_jS6_S9_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.558") align 8 %11, ptr noundef nonnull align 8 dereferenceable(40) %67, ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(4) %77)
-  %393 = load ptr, ptr %11, align 8
-  %394 = getelementptr inbounds nuw i8, ptr %393, i64 8
-  %395 = load i8, ptr %78, align 8, !tbaa !295, !range !46, !noundef !47
-  %396 = trunc nuw i8 %395 to i1
-  br i1 %396, label %397, label %._crit_edge.i.i87
+  %396 = load ptr, ptr %11, align 8
+  %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
+  %398 = load i8, ptr %78, align 8, !tbaa !295, !range !46, !noundef !47
+  %399 = trunc nuw i8 %398 to i1
+  br i1 %399, label %400, label %._crit_edge.i.i87
 
-._crit_edge.i.i87:                                ; preds = %382
-  %.pre.i.i88 = load i32, ptr %394, align 4, !tbaa !53
+._crit_edge.i.i87:                                ; preds = %385
+  %.pre.i.i88 = load i32, ptr %397, align 4, !tbaa !53
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i89
 
-397:                                              ; preds = %382
-  %398 = load i32, ptr %71, align 8, !tbaa !26
-  %399 = load i32, ptr %72, align 4, !tbaa !27
-  %.not.i.i.not.i.i.i90 = icmp ult i32 %398, %399
-  br i1 %.not.i.i.not.i.i.i90, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i92, label %400, !prof !33
+400:                                              ; preds = %385
+  %401 = load i32, ptr %71, align 8, !tbaa !26
+  %402 = load i32, ptr %72, align 4, !tbaa !27
+  %.not.i.i.not.i.i.i90 = icmp ult i32 %401, %402
+  br i1 %.not.i.i.not.i.i.i90, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i92, label %403, !prof !33
 
-400:                                              ; preds = %397
-  %401 = zext i32 %398 to i64
-  %402 = add nuw nsw i64 %401, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull %73, i64 noundef %402, i64 noundef 16) #26
+403:                                              ; preds = %400
+  %404 = zext i32 %401 to i64
+  %405 = add nuw nsw i64 %404, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull %73, i64 noundef %405, i64 noundef 16) #26
   %.pre.i.i.i91 = load i32, ptr %71, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i92
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i92: ; preds = %400, %397
-  %403 = phi i32 [ %398, %397 ], [ %.pre.i.i.i91, %400 ]
-  %404 = load ptr, ptr %70, align 8, !tbaa !25
-  %405 = zext i32 %403 to i64
-  %406 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %404, i64 %405
-  store ptr %392, ptr %406, align 1
-  %.sroa.2.0..sroa_idx.i.i.i93 = getelementptr inbounds nuw i8, ptr %406, i64 8
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i92: ; preds = %403, %400
+  %406 = phi i32 [ %401, %400 ], [ %.pre.i.i.i91, %403 ]
+  %407 = load ptr, ptr %70, align 8, !tbaa !25
+  %408 = zext i32 %406 to i64
+  %409 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %407, i64 %408
+  store ptr %395, ptr %409, align 1
+  %.sroa.2.0..sroa_idx.i.i.i93 = getelementptr inbounds nuw i8, ptr %409, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i93, align 1
-  %407 = load i32, ptr %71, align 8, !tbaa !26
-  %408 = add i32 %407, 1
-  store i32 %408, ptr %71, align 8, !tbaa !26
-  store i32 %407, ptr %394, align 4, !tbaa !53
+  %410 = load i32, ptr %71, align 8, !tbaa !26
+  %411 = add i32 %410, 1
+  store i32 %411, ptr %71, align 8, !tbaa !26
+  store i32 %410, ptr %397, align 4, !tbaa !53
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i89
 
 _ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i89: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i92, %._crit_edge.i.i87
-  %409 = phi i32 [ %.pre.i.i88, %._crit_edge.i.i87 ], [ %407, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i92 ]
-  %410 = zext i32 %409 to i64
-  %411 = load ptr, ptr %70, align 8, !tbaa !25
-  %412 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %411, i64 %410, i32 1
+  %412 = phi i32 [ %.pre.i.i88, %._crit_edge.i.i87 ], [ %410, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i92 ]
+  %413 = zext i32 %412 to i64
+  %414 = load ptr, ptr %70, align 8, !tbaa !25
+  %415 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %414, i64 %413
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %413 = load i32, ptr %412, align 4, !tbaa !53
-  %414 = add i32 %413, 1
-  store i32 %414, ptr %412, align 4, !tbaa !53
+  %417 = load i32, ptr %416, align 4, !tbaa !53
+  %418 = add i32 %417, 1
+  store i32 %418, ptr %416, align 4, !tbaa !53
   br label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
-"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split": ; preds = %258, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %244, %247, %._crit_edge, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i89, %380, %377, %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
-  %.pr = load i8, ptr %225, align 8, !tbaa !198
+"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split": ; preds = %259, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %245, %248, %._crit_edge, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i89, %383, %380, %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
+  %.pr = load i8, ptr %226, align 8, !tbaa !198
   br label %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit"
 
-"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit": ; preds = %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", %228
-  %415 = phi i8 [ %.pr, %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split" ], [ %226, %228 ]
-  %416 = icmp eq i8 %415, 85
-  br i1 %416, label %417, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
+"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit": ; preds = %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", %229
+  %419 = phi i8 [ %.pr, %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split" ], [ %227, %229 ]
+  %420 = icmp eq i8 %419, 85
+  br i1 %420, label %421, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
 
-417:                                              ; preds = %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit"
-  %418 = getelementptr inbounds i8, ptr %.sroa.0202.0323, i64 -56
-  %419 = load ptr, ptr %418, align 8, !tbaa !320
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i94 = icmp eq ptr %419, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i94, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, label %420
+421:                                              ; preds = %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit"
+  %422 = getelementptr inbounds i8, ptr %.sroa.0202.0323, i64 -56
+  %423 = load ptr, ptr %422, align 8, !tbaa !320
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i94 = icmp eq ptr %423, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i94, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, label %424
 
-420:                                              ; preds = %417
-  %421 = load i8, ptr %419, align 8, !tbaa !198
-  %422 = icmp eq i8 %421, 0
-  br i1 %422, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i95, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
+424:                                              ; preds = %421
+  %425 = load i8, ptr %423, align 8, !tbaa !198
+  %426 = icmp eq i8 %425, 0
+  br i1 %426, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i95, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i95: ; preds = %420
-  %423 = getelementptr inbounds nuw i8, ptr %419, i64 24
-  %424 = load ptr, ptr %423, align 8, !tbaa !325
-  %425 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 56
-  %426 = load ptr, ptr %425, align 8, !tbaa !328
-  %427 = icmp eq ptr %424, %426
-  br i1 %427, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i96, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i95: ; preds = %424
+  %427 = getelementptr inbounds nuw i8, ptr %423, i64 24
+  %428 = load ptr, ptr %427, align 8, !tbaa !325
+  %429 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 56
+  %430 = load ptr, ptr %429, align 8, !tbaa !328
+  %431 = icmp eq ptr %428, %430
+  br i1 %431, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i96, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
 
 _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i96: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i95
-  %428 = getelementptr inbounds nuw i8, ptr %419, i64 32
-  %429 = load i32, ptr %428, align 8
-  %430 = and i32 %429, 8192
-  %.not.i.i.i.i.i.i.i.i97 = icmp eq i32 %430, 0
+  %432 = getelementptr inbounds nuw i8, ptr %423, i64 32
+  %433 = load i32, ptr %432, align 8
+  %434 = and i32 %433, 8192
+  %.not.i.i.i.i.i.i.i.i97 = icmp eq i32 %434, 0
   br i1 %.not.i.i.i.i.i.i.i.i97, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit
 
 _ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit: ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i96
-  %431 = getelementptr inbounds nuw i8, ptr %419, i64 36
-  %432 = load i32, ptr %431, align 4, !tbaa !333
-  %433 = and i32 %432, -4
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %433, 68
+  %435 = getelementptr inbounds nuw i8, ptr %423, i64 36
+  %436 = load i32, ptr %435, align 4, !tbaa !333
+  %437 = and i32 %436, -4
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %437, 68
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
 
-_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i95, %417, %420, %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit", %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i96, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit
+_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i95, %421, %424, %"_ZZN4llvm24collectDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit", %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i96, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store ptr %225, ptr %20, align 8, !tbaa !349
+  store ptr %226, ptr %20, align 8, !tbaa !349
   store i64 4, ptr %80, align 8
   store ptr null, ptr %81, align 8, !tbaa !357
-  store ptr %225, ptr %82, align 8, !tbaa !358
-  %magicptr.i.i.i = ptrtoint ptr %225 to i64
-  switch i64 %magicptr.i.i.i, label %434 [
+  store ptr %226, ptr %82, align 8, !tbaa !358
+  %magicptr.i.i.i = ptrtoint ptr %226 to i64
+  switch i64 %magicptr.i.i.i, label %438 [
     i64 0, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
     i64 -4096, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
     i64 -8192, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
   ]
 
-434:                                              ; preds = %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
+438:                                              ; preds = %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
   call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %80) #26
   %.pre362 = load ptr, ptr %20, align 8, !tbaa !359
   br label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
 
-_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit: ; preds = %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, %434
-  %435 = phi ptr [ %225, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread ], [ %225, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread ], [ %225, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread ], [ %.pre362, %434 ]
-  %436 = load ptr, ptr %79, align 8, !tbaa !360, !noalias !363
-  %437 = load i32, ptr %83, align 8, !tbaa !366, !noalias !363
-  %438 = icmp eq i32 %437, 0
-  br i1 %438, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i155, label %439
+_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit: ; preds = %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, %438
+  %439 = phi ptr [ %226, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread ], [ %226, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread ], [ %226, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread ], [ %.pre362, %438 ]
+  %440 = load ptr, ptr %79, align 8, !tbaa !360, !noalias !363
+  %441 = load i32, ptr %83, align 8, !tbaa !366, !noalias !363
+  %442 = icmp eq i32 %441, 0
+  br i1 %442, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i155, label %443
 
-439:                                              ; preds = %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
-  %440 = ptrtoint ptr %435 to i64
-  %441 = trunc i64 %440 to i32
-  %442 = lshr i32 %441, 4
-  %443 = lshr i32 %441, 9
-  %444 = xor i32 %442, %443
-  %445 = add i32 %437, -1
-  %.02944.i.i141 = and i32 %444, %445
-  %446 = zext nneg i32 %.02944.i.i141 to i64
-  %447 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %436, i64 %446
-  %448 = load ptr, ptr %447, align 8, !tbaa !359, !noalias !363
-  %449 = icmp eq ptr %435, %448
-  br i1 %449, label %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit, label %.lr.ph.i.i142, !prof !272
+443:                                              ; preds = %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
+  %444 = ptrtoint ptr %439 to i64
+  %445 = trunc i64 %444 to i32
+  %446 = lshr i32 %445, 4
+  %447 = lshr i32 %445, 9
+  %448 = xor i32 %446, %447
+  %449 = add i32 %441, -1
+  %.02944.i.i141 = and i32 %448, %449
+  %450 = zext nneg i32 %.02944.i.i141 to i64
+  %451 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %440, i64 %450
+  %452 = load ptr, ptr %451, align 8, !tbaa !359, !noalias !363
+  %453 = icmp eq ptr %439, %452
+  br i1 %453, label %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit, label %.lr.ph.i.i142, !prof !272
 
-.lr.ph.i.i142:                                    ; preds = %439, %455
-  %450 = phi ptr [ %462, %455 ], [ %448, %439 ]
-  %451 = phi ptr [ %461, %455 ], [ %447, %439 ]
-  %.02947.i.i143 = phi i32 [ %.029.i.i148, %455 ], [ %.02944.i.i141, %439 ]
-  %.02746.i.i144 = phi i32 [ %458, %455 ], [ 1, %439 ]
-  %.03245.i.i145 = phi ptr [ %spec.select.i.i147, %455 ], [ null, %439 ]
-  %452 = icmp eq ptr %450, inttoptr (i64 -4096 to ptr)
-  br i1 %452, label %453, label %455, !prof !33
+.lr.ph.i.i142:                                    ; preds = %443, %459
+  %454 = phi ptr [ %466, %459 ], [ %452, %443 ]
+  %455 = phi ptr [ %465, %459 ], [ %451, %443 ]
+  %.02947.i.i143 = phi i32 [ %.029.i.i148, %459 ], [ %.02944.i.i141, %443 ]
+  %.02746.i.i144 = phi i32 [ %462, %459 ], [ 1, %443 ]
+  %.03245.i.i145 = phi ptr [ %spec.select.i.i147, %459 ], [ null, %443 ]
+  %456 = icmp eq ptr %454, inttoptr (i64 -4096 to ptr)
+  br i1 %456, label %457, label %459, !prof !33
 
-453:                                              ; preds = %.lr.ph.i.i142
+457:                                              ; preds = %.lr.ph.i.i142
   %.not.i.i154 = icmp eq ptr %.03245.i.i145, null
-  %454 = select i1 %.not.i.i154, ptr %451, ptr %.03245.i.i145
+  %458 = select i1 %.not.i.i154, ptr %455, ptr %.03245.i.i145
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i155
 
-455:                                              ; preds = %.lr.ph.i.i142
-  %456 = icmp eq ptr %450, inttoptr (i64 -8192 to ptr)
-  %457 = icmp eq ptr %.03245.i.i145, null
-  %or.cond.not.i.i146 = select i1 %456, i1 %457, i1 false
-  %spec.select.i.i147 = select i1 %or.cond.not.i.i146, ptr %451, ptr %.03245.i.i145
-  %458 = add i32 %.02746.i.i144, 1
-  %459 = add i32 %.02746.i.i144, %.02947.i.i143
-  %.029.i.i148 = and i32 %459, %445
-  %460 = zext i32 %.029.i.i148 to i64
-  %461 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %436, i64 %460
-  %462 = load ptr, ptr %461, align 8, !tbaa !359, !noalias !363
-  %463 = icmp eq ptr %435, %462
-  br i1 %463, label %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit, label %.lr.ph.i.i142, !prof !273, !llvm.loop !367
+459:                                              ; preds = %.lr.ph.i.i142
+  %460 = icmp eq ptr %454, inttoptr (i64 -8192 to ptr)
+  %461 = icmp eq ptr %.03245.i.i145, null
+  %or.cond.not.i.i146 = select i1 %460, i1 %461, i1 false
+  %spec.select.i.i147 = select i1 %or.cond.not.i.i146, ptr %455, ptr %.03245.i.i145
+  %462 = add i32 %.02746.i.i144, 1
+  %463 = add i32 %.02746.i.i144, %.02947.i.i143
+  %.029.i.i148 = and i32 %463, %449
+  %464 = zext i32 %.029.i.i148 to i64
+  %465 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %440, i64 %464
+  %466 = load ptr, ptr %465, align 8, !tbaa !359, !noalias !363
+  %467 = icmp eq ptr %439, %466
+  br i1 %467, label %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit, label %.lr.ph.i.i142, !prof !273, !llvm.loop !367
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i155: ; preds = %453, %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
-  %.sink.i.i156 = phi ptr [ %454, %453 ], [ null, %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit ]
-  %464 = load i32, ptr %84, align 8, !tbaa !368, !noalias !363
-  %465 = shl i32 %464, 2
-  %466 = add i32 %465, 4
-  %467 = mul i32 %437, 3
-  %.not.i.i.i157 = icmp ult i32 %466, %467
-  br i1 %.not.i.i.i157, label %470, label %468, !prof !33
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i155: ; preds = %457, %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
+  %.sink.i.i156 = phi ptr [ %458, %457 ], [ null, %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IPS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit ]
+  %468 = load i32, ptr %84, align 8, !tbaa !368, !noalias !363
+  %469 = shl i32 %468, 2
+  %470 = add i32 %469, 4
+  %471 = mul i32 %441, 3
+  %.not.i.i.i157 = icmp ult i32 %470, %471
+  br i1 %.not.i.i.i157, label %474, label %472, !prof !33
 
-468:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i155
-  %469 = shl i32 %437, 1
+472:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i155
+  %473 = shl i32 %441, 1
   br label %.sink.split.i.i.i158
 
-470:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i155
-  %471 = load i32, ptr %85, align 4, !tbaa !369, !noalias !363
-  %.neg.i.i.i162 = xor i32 %464, -1
-  %.neg12.i.i.i163 = add i32 %437, %.neg.i.i.i162
-  %472 = sub i32 %.neg12.i.i.i163, %471
-  %473 = lshr i32 %437, 3
-  %.not10.i.i.i164 = icmp ugt i32 %472, %473
-  br i1 %.not10.i.i.i164, label %502, label %.sink.split.i.i.i158, !prof !33
+474:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i155
+  %475 = load i32, ptr %85, align 4, !tbaa !369, !noalias !363
+  %.neg.i.i.i162 = xor i32 %468, -1
+  %.neg12.i.i.i163 = add i32 %441, %.neg.i.i.i162
+  %476 = sub i32 %.neg12.i.i.i163, %475
+  %477 = lshr i32 %441, 3
+  %.not10.i.i.i164 = icmp ugt i32 %476, %477
+  br i1 %.not10.i.i.i164, label %506, label %.sink.split.i.i.i158, !prof !33
 
-.sink.split.i.i.i158:                             ; preds = %470, %468
-  %.sink.i.i.i159 = phi i32 [ %469, %468 ], [ %437, %470 ]
+.sink.split.i.i.i158:                             ; preds = %474, %472
+  %.sink.i.i.i159 = phi i32 [ %473, %472 ], [ %441, %474 ]
   call void @_ZN4llvm8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(40) %79, i32 noundef %.sink.i.i.i159), !noalias !363
-  %474 = load ptr, ptr %79, align 8, !tbaa !360, !noalias !363
-  %475 = load i32, ptr %83, align 8, !tbaa !366, !noalias !363
-  %476 = icmp eq i32 %475, 0
-  br i1 %476, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188, label %477
+  %478 = load ptr, ptr %79, align 8, !tbaa !360, !noalias !363
+  %479 = load i32, ptr %83, align 8, !tbaa !366, !noalias !363
+  %480 = icmp eq i32 %479, 0
+  br i1 %480, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188, label %481
 
-477:                                              ; preds = %.sink.split.i.i.i158
-  %478 = ptrtoint ptr %435 to i64
-  %479 = trunc i64 %478 to i32
-  %480 = lshr i32 %479, 4
-  %481 = lshr i32 %479, 9
-  %482 = xor i32 %480, %481
-  %483 = add i32 %475, -1
-  %.02944.i177 = and i32 %483, %482
-  %484 = zext nneg i32 %.02944.i177 to i64
-  %485 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %474, i64 %484
-  %486 = load ptr, ptr %485, align 8, !tbaa !359, !noalias !363
-  %487 = icmp eq ptr %435, %486
-  br i1 %487, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188, label %.lr.ph.i178, !prof !272
+481:                                              ; preds = %.sink.split.i.i.i158
+  %482 = ptrtoint ptr %439 to i64
+  %483 = trunc i64 %482 to i32
+  %484 = lshr i32 %483, 4
+  %485 = lshr i32 %483, 9
+  %486 = xor i32 %484, %485
+  %487 = add i32 %479, -1
+  %.02944.i177 = and i32 %487, %486
+  %488 = zext nneg i32 %.02944.i177 to i64
+  %489 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %478, i64 %488
+  %490 = load ptr, ptr %489, align 8, !tbaa !359, !noalias !363
+  %491 = icmp eq ptr %439, %490
+  br i1 %491, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188, label %.lr.ph.i178, !prof !272
 
-.lr.ph.i178:                                      ; preds = %477, %493
-  %488 = phi ptr [ %500, %493 ], [ %486, %477 ]
-  %489 = phi ptr [ %499, %493 ], [ %485, %477 ]
-  %.02947.i179 = phi i32 [ %.029.i184, %493 ], [ %.02944.i177, %477 ]
-  %.02746.i180 = phi i32 [ %496, %493 ], [ 1, %477 ]
-  %.03245.i181 = phi ptr [ %spec.select.i183, %493 ], [ null, %477 ]
-  %490 = icmp eq ptr %488, inttoptr (i64 -4096 to ptr)
-  br i1 %490, label %491, label %493, !prof !33
+.lr.ph.i178:                                      ; preds = %481, %497
+  %492 = phi ptr [ %504, %497 ], [ %490, %481 ]
+  %493 = phi ptr [ %503, %497 ], [ %489, %481 ]
+  %.02947.i179 = phi i32 [ %.029.i184, %497 ], [ %.02944.i177, %481 ]
+  %.02746.i180 = phi i32 [ %500, %497 ], [ 1, %481 ]
+  %.03245.i181 = phi ptr [ %spec.select.i183, %497 ], [ null, %481 ]
+  %494 = icmp eq ptr %492, inttoptr (i64 -4096 to ptr)
+  br i1 %494, label %495, label %497, !prof !33
 
-491:                                              ; preds = %.lr.ph.i178
+495:                                              ; preds = %.lr.ph.i178
   %.not.i187 = icmp eq ptr %.03245.i181, null
-  %492 = select i1 %.not.i187, ptr %489, ptr %.03245.i181
+  %496 = select i1 %.not.i187, ptr %493, ptr %.03245.i181
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188
 
-493:                                              ; preds = %.lr.ph.i178
-  %494 = icmp eq ptr %488, inttoptr (i64 -8192 to ptr)
-  %495 = icmp eq ptr %.03245.i181, null
-  %or.cond.not.i182 = select i1 %494, i1 %495, i1 false
-  %spec.select.i183 = select i1 %or.cond.not.i182, ptr %489, ptr %.03245.i181
-  %496 = add i32 %.02746.i180, 1
-  %497 = add i32 %.02746.i180, %.02947.i179
-  %.029.i184 = and i32 %497, %483
-  %498 = zext i32 %.029.i184 to i64
-  %499 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %474, i64 %498
-  %500 = load ptr, ptr %499, align 8, !tbaa !359, !noalias !363
-  %501 = icmp eq ptr %435, %500
-  br i1 %501, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188, label %.lr.ph.i178, !prof !273, !llvm.loop !367
+497:                                              ; preds = %.lr.ph.i178
+  %498 = icmp eq ptr %492, inttoptr (i64 -8192 to ptr)
+  %499 = icmp eq ptr %.03245.i181, null
+  %or.cond.not.i182 = select i1 %498, i1 %499, i1 false
+  %spec.select.i183 = select i1 %or.cond.not.i182, ptr %493, ptr %.03245.i181
+  %500 = add i32 %.02746.i180, 1
+  %501 = add i32 %.02746.i180, %.02947.i179
+  %.029.i184 = and i32 %501, %487
+  %502 = zext i32 %.029.i184 to i64
+  %503 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %478, i64 %502
+  %504 = load ptr, ptr %503, align 8, !tbaa !359, !noalias !363
+  %505 = icmp eq ptr %439, %504
+  br i1 %505, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188, label %.lr.ph.i178, !prof !273, !llvm.loop !367
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188: ; preds = %493, %.sink.split.i.i.i158, %477, %491
-  %.sink.i185 = phi ptr [ %492, %491 ], [ null, %.sink.split.i.i.i158 ], [ %485, %477 ], [ %499, %493 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188: ; preds = %497, %.sink.split.i.i.i158, %481, %495
+  %.sink.i185 = phi ptr [ %496, %495 ], [ null, %.sink.split.i.i.i158 ], [ %489, %481 ], [ %503, %497 ]
   %.pre.i.i160 = load i32, ptr %84, align 8, !tbaa !368, !noalias !363
-  br label %502
+  br label %506
 
-502:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188, %470
-  %503 = phi ptr [ %.sink.i185, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188 ], [ %.sink.i.i156, %470 ]
-  %504 = phi i32 [ %.pre.i.i160, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188 ], [ %464, %470 ]
-  %505 = add i32 %504, 1
-  store i32 %505, ptr %84, align 8, !tbaa !368, !noalias !363
-  %506 = load ptr, ptr %503, align 8, !tbaa !359, !noalias !363
-  %507 = icmp eq ptr %506, inttoptr (i64 -4096 to ptr)
-  br i1 %507, label %511, label %508
+506:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188, %474
+  %507 = phi ptr [ %.sink.i185, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188 ], [ %.sink.i.i156, %474 ]
+  %508 = phi i32 [ %.pre.i.i160, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit188 ], [ %468, %474 ]
+  %509 = add i32 %508, 1
+  store i32 %509, ptr %84, align 8, !tbaa !368, !noalias !363
+  %510 = load ptr, ptr %507, align 8, !tbaa !359, !noalias !363
+  %511 = icmp eq ptr %510, inttoptr (i64 -4096 to ptr)
+  br i1 %511, label %515, label %512
 
-508:                                              ; preds = %502
-  %509 = load i32, ptr %85, align 4, !tbaa !369, !noalias !363
-  %510 = add i32 %509, -1
-  store i32 %510, ptr %85, align 4, !tbaa !369, !noalias !363
-  br label %511
+512:                                              ; preds = %506
+  %513 = load i32, ptr %85, align 4, !tbaa !369, !noalias !363
+  %514 = add i32 %513, -1
+  store i32 %514, ptr %85, align 4, !tbaa !369, !noalias !363
+  br label %515
 
-511:                                              ; preds = %508, %502
-  store ptr %435, ptr %503, align 8, !tbaa !359, !noalias !363
-  %512 = getelementptr inbounds nuw i8, ptr %503, i64 8
-  store i32 0, ptr %512, align 8, !tbaa !53, !noalias !363
-  %513 = load i32, ptr %87, align 8, !tbaa !26
-  store i32 %513, ptr %512, align 8, !tbaa !370
+515:                                              ; preds = %512, %506
+  store ptr %439, ptr %507, align 8, !tbaa !359, !noalias !363
+  %516 = getelementptr inbounds nuw i8, ptr %507, i64 8
+  store i32 0, ptr %516, align 8, !tbaa !53, !noalias !363
+  %517 = load i32, ptr %87, align 8, !tbaa !26
+  store i32 %517, ptr %516, align 8, !tbaa !370
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %20, ptr %8, align 8, !tbaa !372, !alias.scope !374
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %80, ptr %9, align 8, !tbaa !377, !alias.scope !379
-  %514 = load i32, ptr %88, align 4, !tbaa !27
-  %.not.i.i110 = icmp ult i32 %513, %514
-  br i1 %.not.i.i110, label %517, label %515, !prof !33
+  %518 = load i32, ptr %88, align 4, !tbaa !27
+  %.not.i.i110 = icmp ult i32 %517, %518
+  br i1 %.not.i.i110, label %521, label %519, !prof !33
 
-515:                                              ; preds = %511
-  %516 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESC_IJOS5_EEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+519:                                              ; preds = %515
+  %520 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESC_IJOS5_EEEEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   br label %_ZN4llvm15SmallVectorImplISt4pairIPKNS_11InstructionENS_6WeakVHEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESC_IJOS5_EEEEERS6_DpOT_.exit.i
 
-517:                                              ; preds = %511
-  %518 = zext i32 %513 to i64
-  %519 = load ptr, ptr %86, align 8, !tbaa !25
-  %520 = getelementptr inbounds nuw %"struct.std::pair.252", ptr %519, i64 %518
-  %521 = load ptr, ptr %20, align 8, !tbaa !359
-  store ptr %521, ptr %520, align 8, !tbaa !349
-  %522 = getelementptr inbounds nuw i8, ptr %520, i64 8
-  store i64 4, ptr %522, align 8
-  %523 = getelementptr inbounds nuw i8, ptr %520, i64 16
-  store ptr null, ptr %523, align 8, !tbaa !357
-  %524 = getelementptr inbounds nuw i8, ptr %520, i64 24
-  %525 = load ptr, ptr %82, align 8, !tbaa !358
-  store ptr %525, ptr %524, align 8, !tbaa !358
-  %magicptr.i.i.i.i.i.i = ptrtoint ptr %525 to i64
-  switch i64 %magicptr.i.i.i.i.i.i, label %526 [
+521:                                              ; preds = %515
+  %522 = zext i32 %517 to i64
+  %523 = load ptr, ptr %86, align 8, !tbaa !25
+  %524 = getelementptr inbounds nuw %"struct.std::pair.252", ptr %523, i64 %522
+  %525 = load ptr, ptr %20, align 8, !tbaa !359
+  store ptr %525, ptr %524, align 8, !tbaa !349
+  %526 = getelementptr inbounds nuw i8, ptr %524, i64 8
+  store i64 4, ptr %526, align 8
+  %527 = getelementptr inbounds nuw i8, ptr %524, i64 16
+  store ptr null, ptr %527, align 8, !tbaa !357
+  %528 = getelementptr inbounds nuw i8, ptr %524, i64 24
+  %529 = load ptr, ptr %82, align 8, !tbaa !358
+  store ptr %529, ptr %528, align 8, !tbaa !358
+  %magicptr.i.i.i.i.i.i = ptrtoint ptr %529 to i64
+  switch i64 %magicptr.i.i.i.i.i.i, label %530 [
     i64 0, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IJOS3_EJOS4_EEESt21piecewise_construct_tSt5tupleIJDpT_EESA_IJDpT0_EE.exit.i.i
     i64 -4096, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IJOS3_EJOS4_EEESt21piecewise_construct_tSt5tupleIJDpT_EESA_IJDpT0_EE.exit.i.i
     i64 -8192, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IJOS3_EJOS4_EEESt21piecewise_construct_tSt5tupleIJDpT_EESA_IJDpT0_EE.exit.i.i
   ]
 
-526:                                              ; preds = %517
+530:                                              ; preds = %521
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %80, align 8
-  %527 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
-  %528 = inttoptr i64 %527 to ptr
-  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %522, ptr noundef %528) #26
+  %531 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
+  %532 = inttoptr i64 %531 to ptr
+  call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %526, ptr noundef %532) #26
   br label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IJOS3_EJOS4_EEESt21piecewise_construct_tSt5tupleIJDpT_EESA_IJDpT0_EE.exit.i.i
 
-_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IJOS3_EJOS4_EEESt21piecewise_construct_tSt5tupleIJDpT_EESA_IJDpT0_EE.exit.i.i: ; preds = %526, %517, %517, %517
-  %529 = load i32, ptr %87, align 8, !tbaa !26
-  %530 = add i32 %529, 1
-  store i32 %530, ptr %87, align 8, !tbaa !26
+_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IJOS3_EJOS4_EEESt21piecewise_construct_tSt5tupleIJDpT_EESA_IJDpT0_EE.exit.i.i: ; preds = %530, %521, %521, %521
+  %533 = load i32, ptr %87, align 8, !tbaa !26
+  %534 = add i32 %533, 1
+  store i32 %534, ptr %87, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplISt4pairIPKNS_11InstructionENS_6WeakVHEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESC_IJOS5_EEEEERS6_DpOT_.exit.i
 
-_ZN4llvm15SmallVectorImplISt4pairIPKNS_11InstructionENS_6WeakVHEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESC_IJOS5_EEEEERS6_DpOT_.exit.i: ; preds = %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IJOS3_EJOS4_EEESt21piecewise_construct_tSt5tupleIJDpT_EESA_IJDpT0_EE.exit.i.i, %515
+_ZN4llvm15SmallVectorImplISt4pairIPKNS_11InstructionENS_6WeakVHEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESC_IJOS5_EEEEERS6_DpOT_.exit.i: ; preds = %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEEC2IJOS3_EJOS4_EEESt21piecewise_construct_tSt5tupleIJDpT_EESA_IJDpT0_EE.exit.i.i, %519
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit
 
-_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit: ; preds = %455, %439, %_ZN4llvm15SmallVectorImplISt4pairIPKNS_11InstructionENS_6WeakVHEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESC_IJOS5_EEEEERS6_DpOT_.exit.i
-  %531 = load ptr, ptr %82, align 8, !tbaa !358
-  %magicptr.i.i = ptrtoint ptr %531 to i64
-  switch i64 %magicptr.i.i, label %532 [
+_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit: ; preds = %459, %443, %_ZN4llvm15SmallVectorImplISt4pairIPKNS_11InstructionENS_6WeakVHEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESC_IJOS5_EEEEERS6_DpOT_.exit.i
+  %535 = load ptr, ptr %82, align 8, !tbaa !358
+  %magicptr.i.i = ptrtoint ptr %535 to i64
+  switch i64 %magicptr.i.i, label %536 [
     i64 0, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit
     i64 -4096, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit
     i64 -8192, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit
   ]
 
-532:                                              ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit
+536:                                              ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit
   call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %80) #26
   br label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit
 
-_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit: ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit, %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit, %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit, %532
+_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit: ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit, %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit, %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEE11try_emplaceIJS4_EEESD_IPSE_bEOS3_DpOT_.exit, %536
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %533 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 24
-  %534 = call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %533) #26
-  %535 = icmp ne ptr %534, null
-  %536 = zext i1 %535 to i8
-  %537 = load ptr, ptr %89, align 8, !tbaa !360, !noalias !382
-  %538 = load i32, ptr %90, align 8, !tbaa !366, !noalias !382
-  %539 = icmp eq i32 %538, 0
-  br i1 %539, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %540
+  %537 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 24
+  %538 = call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %537) #26
+  %539 = icmp ne ptr %538, null
+  %540 = zext i1 %539 to i8
+  %541 = load ptr, ptr %89, align 8, !tbaa !360, !noalias !382
+  %542 = load i32, ptr %90, align 8, !tbaa !366, !noalias !382
+  %543 = icmp eq i32 %542, 0
+  br i1 %543, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %544
 
-540:                                              ; preds = %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit
-  %541 = trunc i64 %magicptr.i.i.i to i32
-  %542 = lshr i32 %541, 4
-  %543 = lshr i32 %541, 9
-  %544 = xor i32 %542, %543
-  %545 = add i32 %538, -1
-  %.02944.i.i115 = and i32 %545, %544
-  %546 = zext nneg i32 %.02944.i.i115 to i64
-  %547 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %537, i64 %546
-  %548 = load ptr, ptr %547, align 8, !tbaa !359, !noalias !382
-  %549 = icmp eq ptr %225, %548
-  br i1 %549, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %.lr.ph.i.i116, !prof !272
+544:                                              ; preds = %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit
+  %545 = trunc i64 %magicptr.i.i.i to i32
+  %546 = lshr i32 %545, 4
+  %547 = lshr i32 %545, 9
+  %548 = xor i32 %546, %547
+  %549 = add i32 %542, -1
+  %.02944.i.i115 = and i32 %549, %548
+  %550 = zext nneg i32 %.02944.i.i115 to i64
+  %551 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %541, i64 %550
+  %552 = load ptr, ptr %551, align 8, !tbaa !359, !noalias !382
+  %553 = icmp eq ptr %226, %552
+  br i1 %553, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %.lr.ph.i.i116, !prof !272
 
-.lr.ph.i.i116:                                    ; preds = %540, %555
-  %550 = phi ptr [ %562, %555 ], [ %548, %540 ]
-  %551 = phi ptr [ %561, %555 ], [ %547, %540 ]
-  %.02947.i.i117 = phi i32 [ %.029.i.i122, %555 ], [ %.02944.i.i115, %540 ]
-  %.02746.i.i118 = phi i32 [ %558, %555 ], [ 1, %540 ]
-  %.03245.i.i119 = phi ptr [ %spec.select.i.i121, %555 ], [ null, %540 ]
-  %552 = icmp eq ptr %550, inttoptr (i64 -4096 to ptr)
-  br i1 %552, label %553, label %555, !prof !33
+.lr.ph.i.i116:                                    ; preds = %544, %559
+  %554 = phi ptr [ %566, %559 ], [ %552, %544 ]
+  %555 = phi ptr [ %565, %559 ], [ %551, %544 ]
+  %.02947.i.i117 = phi i32 [ %.029.i.i122, %559 ], [ %.02944.i.i115, %544 ]
+  %.02746.i.i118 = phi i32 [ %562, %559 ], [ 1, %544 ]
+  %.03245.i.i119 = phi ptr [ %spec.select.i.i121, %559 ], [ null, %544 ]
+  %556 = icmp eq ptr %554, inttoptr (i64 -4096 to ptr)
+  br i1 %556, label %557, label %559, !prof !33
 
-553:                                              ; preds = %.lr.ph.i.i116
+557:                                              ; preds = %.lr.ph.i.i116
   %.not.i.i128 = icmp eq ptr %.03245.i.i119, null
-  %554 = select i1 %.not.i.i128, ptr %551, ptr %.03245.i.i119
+  %558 = select i1 %.not.i.i128, ptr %555, ptr %.03245.i.i119
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
 
-555:                                              ; preds = %.lr.ph.i.i116
-  %556 = icmp eq ptr %550, inttoptr (i64 -8192 to ptr)
-  %557 = icmp eq ptr %.03245.i.i119, null
-  %or.cond.not.i.i120 = select i1 %556, i1 %557, i1 false
-  %spec.select.i.i121 = select i1 %or.cond.not.i.i120, ptr %551, ptr %.03245.i.i119
-  %558 = add i32 %.02746.i.i118, 1
-  %559 = add i32 %.02746.i.i118, %.02947.i.i117
-  %.029.i.i122 = and i32 %559, %545
-  %560 = zext i32 %.029.i.i122 to i64
-  %561 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %537, i64 %560
-  %562 = load ptr, ptr %561, align 8, !tbaa !359, !noalias !382
-  %563 = icmp eq ptr %225, %562
-  br i1 %563, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %.lr.ph.i.i116, !prof !273, !llvm.loop !367
+559:                                              ; preds = %.lr.ph.i.i116
+  %560 = icmp eq ptr %554, inttoptr (i64 -8192 to ptr)
+  %561 = icmp eq ptr %.03245.i.i119, null
+  %or.cond.not.i.i120 = select i1 %560, i1 %561, i1 false
+  %spec.select.i.i121 = select i1 %or.cond.not.i.i120, ptr %555, ptr %.03245.i.i119
+  %562 = add i32 %.02746.i.i118, 1
+  %563 = add i32 %.02746.i.i118, %.02947.i.i117
+  %.029.i.i122 = and i32 %563, %549
+  %564 = zext i32 %.029.i.i122 to i64
+  %565 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %541, i64 %564
+  %566 = load ptr, ptr %565, align 8, !tbaa !359, !noalias !382
+  %567 = icmp eq ptr %226, %566
+  br i1 %567, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %.lr.ph.i.i116, !prof !273, !llvm.loop !367
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %553, %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit
-  %.sink.i.i129 = phi ptr [ %554, %553 ], [ null, %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit ]
-  %564 = load i32, ptr %91, align 8, !tbaa !368, !noalias !382
-  %565 = shl i32 %564, 2
-  %566 = add i32 %565, 4
-  %567 = mul i32 %538, 3
-  %.not.i.i.i130 = icmp ult i32 %566, %567
-  br i1 %.not.i.i.i130, label %570, label %568, !prof !33
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %557, %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit
+  %.sink.i.i129 = phi ptr [ %558, %557 ], [ null, %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit ]
+  %568 = load i32, ptr %91, align 8, !tbaa !368, !noalias !382
+  %569 = shl i32 %568, 2
+  %570 = add i32 %569, 4
+  %571 = mul i32 %542, 3
+  %.not.i.i.i130 = icmp ult i32 %570, %571
+  br i1 %.not.i.i.i130, label %574, label %572, !prof !33
 
-568:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
-  %569 = shl i32 %538, 1
+572:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
+  %573 = shl i32 %542, 1
   br label %.sink.split.i.i.i131
 
-570:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
-  %571 = load i32, ptr %92, align 4, !tbaa !369, !noalias !382
-  %.neg.i.i.i135 = xor i32 %564, -1
-  %.neg12.i.i.i136 = add i32 %538, %.neg.i.i.i135
-  %572 = sub i32 %.neg12.i.i.i136, %571
-  %573 = lshr i32 %538, 3
-  %.not10.i.i.i137 = icmp ugt i32 %572, %573
-  br i1 %.not10.i.i.i137, label %601, label %.sink.split.i.i.i131, !prof !33
+574:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
+  %575 = load i32, ptr %92, align 4, !tbaa !369, !noalias !382
+  %.neg.i.i.i135 = xor i32 %568, -1
+  %.neg12.i.i.i136 = add i32 %542, %.neg.i.i.i135
+  %576 = sub i32 %.neg12.i.i.i136, %575
+  %577 = lshr i32 %542, 3
+  %.not10.i.i.i137 = icmp ugt i32 %576, %577
+  br i1 %.not10.i.i.i137, label %605, label %.sink.split.i.i.i131, !prof !33
 
-.sink.split.i.i.i131:                             ; preds = %570, %568
-  %.sink.i.i.i132 = phi i32 [ %569, %568 ], [ %538, %570 ]
+.sink.split.i.i.i131:                             ; preds = %574, %572
+  %.sink.i.i.i132 = phi i32 [ %573, %572 ], [ %542, %574 ]
   call void @_ZN4llvm8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(40) %89, i32 noundef %.sink.i.i.i132), !noalias !382
-  %574 = load ptr, ptr %89, align 8, !tbaa !360, !noalias !382
-  %575 = load i32, ptr %90, align 8, !tbaa !366, !noalias !382
-  %576 = icmp eq i32 %575, 0
-  br i1 %576, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %577
+  %578 = load ptr, ptr %89, align 8, !tbaa !360, !noalias !382
+  %579 = load i32, ptr %90, align 8, !tbaa !366, !noalias !382
+  %580 = icmp eq i32 %579, 0
+  br i1 %580, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %581
 
-577:                                              ; preds = %.sink.split.i.i.i131
-  %578 = trunc i64 %magicptr.i.i.i to i32
-  %579 = lshr i32 %578, 4
-  %580 = lshr i32 %578, 9
-  %581 = xor i32 %579, %580
-  %582 = add i32 %575, -1
-  %.02944.i166 = and i32 %582, %581
-  %583 = zext nneg i32 %.02944.i166 to i64
-  %584 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %574, i64 %583
-  %585 = load ptr, ptr %584, align 8, !tbaa !359, !noalias !382
-  %586 = icmp eq ptr %225, %585
-  br i1 %586, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i167, !prof !272
+581:                                              ; preds = %.sink.split.i.i.i131
+  %582 = trunc i64 %magicptr.i.i.i to i32
+  %583 = lshr i32 %582, 4
+  %584 = lshr i32 %582, 9
+  %585 = xor i32 %583, %584
+  %586 = add i32 %579, -1
+  %.02944.i166 = and i32 %586, %585
+  %587 = zext nneg i32 %.02944.i166 to i64
+  %588 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %578, i64 %587
+  %589 = load ptr, ptr %588, align 8, !tbaa !359, !noalias !382
+  %590 = icmp eq ptr %226, %589
+  br i1 %590, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i167, !prof !272
 
-.lr.ph.i167:                                      ; preds = %577, %592
-  %587 = phi ptr [ %599, %592 ], [ %585, %577 ]
-  %588 = phi ptr [ %598, %592 ], [ %584, %577 ]
-  %.02947.i168 = phi i32 [ %.029.i173, %592 ], [ %.02944.i166, %577 ]
-  %.02746.i169 = phi i32 [ %595, %592 ], [ 1, %577 ]
-  %.03245.i170 = phi ptr [ %spec.select.i172, %592 ], [ null, %577 ]
-  %589 = icmp eq ptr %587, inttoptr (i64 -4096 to ptr)
-  br i1 %589, label %590, label %592, !prof !33
+.lr.ph.i167:                                      ; preds = %581, %596
+  %591 = phi ptr [ %603, %596 ], [ %589, %581 ]
+  %592 = phi ptr [ %602, %596 ], [ %588, %581 ]
+  %.02947.i168 = phi i32 [ %.029.i173, %596 ], [ %.02944.i166, %581 ]
+  %.02746.i169 = phi i32 [ %599, %596 ], [ 1, %581 ]
+  %.03245.i170 = phi ptr [ %spec.select.i172, %596 ], [ null, %581 ]
+  %593 = icmp eq ptr %591, inttoptr (i64 -4096 to ptr)
+  br i1 %593, label %594, label %596, !prof !33
 
-590:                                              ; preds = %.lr.ph.i167
+594:                                              ; preds = %.lr.ph.i167
   %.not.i176 = icmp eq ptr %.03245.i170, null
-  %591 = select i1 %.not.i176, ptr %588, ptr %.03245.i170
+  %595 = select i1 %.not.i176, ptr %592, ptr %.03245.i170
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit
 
-592:                                              ; preds = %.lr.ph.i167
-  %593 = icmp eq ptr %587, inttoptr (i64 -8192 to ptr)
-  %594 = icmp eq ptr %.03245.i170, null
-  %or.cond.not.i171 = select i1 %593, i1 %594, i1 false
-  %spec.select.i172 = select i1 %or.cond.not.i171, ptr %588, ptr %.03245.i170
-  %595 = add i32 %.02746.i169, 1
-  %596 = add i32 %.02746.i169, %.02947.i168
-  %.029.i173 = and i32 %596, %582
-  %597 = zext i32 %.029.i173 to i64
-  %598 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %574, i64 %597
-  %599 = load ptr, ptr %598, align 8, !tbaa !359, !noalias !382
-  %600 = icmp eq ptr %225, %599
-  br i1 %600, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i167, !prof !273, !llvm.loop !367
+596:                                              ; preds = %.lr.ph.i167
+  %597 = icmp eq ptr %591, inttoptr (i64 -8192 to ptr)
+  %598 = icmp eq ptr %.03245.i170, null
+  %or.cond.not.i171 = select i1 %597, i1 %598, i1 false
+  %spec.select.i172 = select i1 %or.cond.not.i171, ptr %592, ptr %.03245.i170
+  %599 = add i32 %.02746.i169, 1
+  %600 = add i32 %.02746.i169, %.02947.i168
+  %.029.i173 = and i32 %600, %586
+  %601 = zext i32 %.029.i173 to i64
+  %602 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %578, i64 %601
+  %603 = load ptr, ptr %602, align 8, !tbaa !359, !noalias !382
+  %604 = icmp eq ptr %226, %603
+  br i1 %604, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i167, !prof !273, !llvm.loop !367
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit: ; preds = %592, %.sink.split.i.i.i131, %577, %590
-  %.sink.i174 = phi ptr [ %591, %590 ], [ null, %.sink.split.i.i.i131 ], [ %584, %577 ], [ %598, %592 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit: ; preds = %596, %.sink.split.i.i.i131, %581, %594
+  %.sink.i174 = phi ptr [ %595, %594 ], [ null, %.sink.split.i.i.i131 ], [ %588, %581 ], [ %602, %596 ]
   %.pre.i.i133 = load i32, ptr %91, align 8, !tbaa !368, !noalias !382
-  br label %601
+  br label %605
 
-601:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, %570
-  %602 = phi ptr [ %.sink.i174, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %.sink.i.i129, %570 ]
-  %603 = phi i32 [ %.pre.i.i133, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %564, %570 ]
-  %604 = add i32 %603, 1
-  store i32 %604, ptr %91, align 8, !tbaa !368, !noalias !382
-  %605 = load ptr, ptr %602, align 8, !tbaa !359, !noalias !382
-  %606 = icmp eq ptr %605, inttoptr (i64 -4096 to ptr)
-  br i1 %606, label %610, label %607
+605:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, %574
+  %606 = phi ptr [ %.sink.i174, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %.sink.i.i129, %574 ]
+  %607 = phi i32 [ %.pre.i.i133, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %568, %574 ]
+  %608 = add i32 %607, 1
+  store i32 %608, ptr %91, align 8, !tbaa !368, !noalias !382
+  %609 = load ptr, ptr %606, align 8, !tbaa !359, !noalias !382
+  %610 = icmp eq ptr %609, inttoptr (i64 -4096 to ptr)
+  br i1 %610, label %614, label %611
 
-607:                                              ; preds = %601
-  %608 = load i32, ptr %92, align 4, !tbaa !369, !noalias !382
-  %609 = add i32 %608, -1
-  store i32 %609, ptr %92, align 4, !tbaa !369, !noalias !382
-  br label %610
+611:                                              ; preds = %605
+  %612 = load i32, ptr %92, align 4, !tbaa !369, !noalias !382
+  %613 = add i32 %612, -1
+  store i32 %613, ptr %92, align 4, !tbaa !369, !noalias !382
+  br label %614
 
-610:                                              ; preds = %607, %601
-  store ptr %225, ptr %602, align 8, !tbaa !359, !noalias !382
-  %611 = getelementptr inbounds nuw i8, ptr %602, i64 8
-  store i32 0, ptr %611, align 8, !tbaa !53, !noalias !382
-  %612 = load i32, ptr %94, align 8, !tbaa !26
-  store i32 %612, ptr %611, align 8, !tbaa !370
-  %613 = load i32, ptr %95, align 4, !tbaa !27
-  %.not.i.i.i102 = icmp ult i32 %612, %613
-  %614 = zext i32 %612 to i64
-  br i1 %.not.i.i.i102, label %620, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit, !prof !33
+614:                                              ; preds = %611, %605
+  store ptr %226, ptr %606, align 8, !tbaa !359, !noalias !382
+  %615 = getelementptr inbounds nuw i8, ptr %606, i64 8
+  store i32 0, ptr %615, align 8, !tbaa !53, !noalias !382
+  %616 = load i32, ptr %94, align 8, !tbaa !26
+  store i32 %616, ptr %615, align 8, !tbaa !370
+  %617 = load i32, ptr %95, align 4, !tbaa !27
+  %.not.i.i.i102 = icmp ult i32 %616, %617
+  %618 = zext i32 %616 to i64
+  br i1 %.not.i.i.i102, label %624, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit, !prof !33
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit: ; preds = %610
-  %615 = add nuw nsw i64 %614, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull %79, i64 noundef %615, i64 noundef 16) #26
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit: ; preds = %614
+  %619 = add nuw nsw i64 %618, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull %79, i64 noundef %619, i64 noundef 16) #26
   %.pre.i.i113 = load i32, ptr %94, align 8, !tbaa !26
-  %616 = load ptr, ptr %93, align 8, !tbaa !25
-  %617 = zext i32 %.pre.i.i113 to i64
-  %618 = getelementptr inbounds nuw %"struct.std::pair.259", ptr %616, i64 %617
-  store ptr %225, ptr %618, align 1
-  %.sroa.2.0..sroa_idx.i.i114 = getelementptr inbounds nuw i8, ptr %618, i64 8
-  store i8 %536, ptr %.sroa.2.0..sroa_idx.i.i114, align 1
-  %619 = load i32, ptr %94, align 8, !tbaa !26
+  %620 = load ptr, ptr %93, align 8, !tbaa !25
+  %621 = zext i32 %.pre.i.i113 to i64
+  %622 = getelementptr inbounds nuw %"struct.std::pair.259", ptr %620, i64 %621
+  store ptr %226, ptr %622, align 1
+  %.sroa.2.0..sroa_idx.i.i114 = getelementptr inbounds nuw i8, ptr %622, i64 8
+  store i8 %540, ptr %.sroa.2.0..sroa_idx.i.i114, align 1
+  %623 = load i32, ptr %94, align 8, !tbaa !26
   br label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split
 
-620:                                              ; preds = %610
-  %621 = load ptr, ptr %93, align 8, !tbaa !25
-  %622 = getelementptr inbounds nuw %"struct.std::pair.259", ptr %621, i64 %614
-  store ptr %225, ptr %622, align 8, !tbaa !385
-  %623 = getelementptr inbounds nuw i8, ptr %622, i64 8
-  store i8 %536, ptr %623, align 8, !tbaa !387
+624:                                              ; preds = %614
+  %625 = load ptr, ptr %93, align 8, !tbaa !25
+  %626 = getelementptr inbounds nuw %"struct.std::pair.259", ptr %625, i64 %618
+  store ptr %226, ptr %626, align 8, !tbaa !385
+  %627 = getelementptr inbounds nuw i8, ptr %626, i64 8
+  store i8 %540, ptr %627, align 8, !tbaa !387
   br label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split
 
-_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit, %620
-  %.sink459 = phi i32 [ %612, %620 ], [ %619, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit ]
-  %624 = add i32 %.sink459, 1
-  store i32 %624, ptr %94, align 8, !tbaa !26
+_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit, %624
+  %.sink459 = phi i32 [ %616, %624 ], [ %623, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit ]
+  %628 = add i32 %.sink459, 1
+  store i32 %628, ptr %94, align 8, !tbaa !26
   br label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit
 
-_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit: ; preds = %555, %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split, %540, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit, %.lr.ph325
-  %625 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 8
-  %.sroa.0202.0 = load ptr, ptr %625, align 8, !tbaa !193
-  %.not290 = icmp eq ptr %.sroa.0202.0, %223
+_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit: ; preds = %559, %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split, %544, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit, %.lr.ph325
+  %629 = getelementptr inbounds nuw i8, ptr %.sroa.0202.0323, i64 8
+  %.sroa.0202.0 = load ptr, ptr %629, align 8, !tbaa !193
+  %.not290 = icmp eq ptr %.sroa.0202.0, %224
   br i1 %.not290, label %._crit_edge326, label %.lr.ph325
 
 _ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread: ; preds = %._crit_edge326, %.loopexit, %133, %129, %129, %129, %127, %125, %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit
   %.1.ph = phi i64 [ %.054334, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit ], [ %.054334, %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit ], [ %.054334, %125 ], [ %.054334, %127 ], [ %.054334, %129 ], [ %.054334, %129 ], [ %.054334, %129 ], [ %.054334, %133 ], [ %138, %.loopexit ], [ %138, %._crit_edge326 ]
-  %626 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0333, i64 8
-  %627 = load ptr, ptr %626, align 8, !tbaa !187
-  %.not284 = icmp eq ptr %627, %2
+  %630 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0333, i64 8
+  %631 = load ptr, ptr %630, align 8, !tbaa !187
+  %.not284 = icmp eq ptr %631, %2
   br i1 %.not284, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %96
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %137, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, %57, %53, %51
@@ -3723,7 +3727,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %82, %84, %85
   %125 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %126 = getelementptr inbounds nuw i8, ptr %55, i64 52
   %127 = getelementptr inbounds nuw i8, ptr %55, i64 76
-  br label %1803
+  br label %1808
 
 ._crit_edge655:                                   ; preds = %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, %101
   %128 = call noundef ptr @_ZNK4llvm6Module16getNamedMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841) %0, ptr nonnull @.str.12, i64 11) #26
@@ -4307,7 +4311,7 @@ _ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3
 
 395:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %.lr.ph.i
   %.03.i = phi i1 [ true, %.lr.ph.i ], [ %.1.i, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
-  %.0482.i = phi ptr [ %.val93, %.lr.ph.i ], [ %726, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
+  %.0482.i = phi ptr [ %.val93, %.lr.ph.i ], [ %727, %_ZN4llvm11raw_ostreamlsEc.exit.i ]
   %396 = getelementptr inbounds nuw i8, ptr %.0482.i, i64 8
   %397 = load ptr, ptr %396, align 8, !tbaa !277
   %.not52.i = icmp eq ptr %397, null
@@ -4695,339 +4699,340 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i:  ; preds = %565, %564, %562
 576:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
   %577 = zext i32 %.sink7.i.i to i64
   %578 = load ptr, ptr %180, align 8, !tbaa !25
-  %579 = getelementptr inbounds nuw %"struct.std::pair.229", ptr %578, i64 %577, i32 1
-  %580 = load ptr, ptr %579, align 8, !tbaa !277
-  %.not53.not.i = icmp eq ptr %580, null
-  br i1 %.not53.not.i, label %_ZN4llvm11raw_ostreamlsEc.exit.i, label %581
+  %579 = getelementptr inbounds nuw %"struct.std::pair.229", ptr %578, i64 %577
+  %580 = getelementptr inbounds nuw i8, ptr %579, i64 8
+  %581 = load ptr, ptr %580, align 8, !tbaa !277
+  %.not53.not.i = icmp eq ptr %581, null
+  br i1 %.not53.not.i, label %_ZN4llvm11raw_ostreamlsEc.exit.i, label %582
 
-581:                                              ; preds = %576
-  br i1 %.not583, label %625, label %582
+582:                                              ; preds = %576
+  br i1 %.not583, label %626, label %583
 
-582:                                              ; preds = %581
+583:                                              ; preds = %582
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr nonnull @.str.51, i64 8)
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %367, ptr nonnull @.str.52, i64 12)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %368, ptr nonnull @.str.53, i64 4)
-  %583 = load ptr, ptr %.0482.i, align 8, !tbaa !275
-  %584 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %583) #26
-  %585 = extractvalue { ptr, i64 } %584, 0
-  %586 = extractvalue { ptr, i64 } %584, 1
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %369, ptr %585, i64 %586)
+  %584 = load ptr, ptr %.0482.i, align 8, !tbaa !275
+  %585 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %584) #26
+  %586 = extractvalue { ptr, i64 } %585, 0
+  %587 = extractvalue { ptr, i64 } %585, 1
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %369, ptr %586, i64 %587)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %370, ptr nonnull @.str.54, i64 6)
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %371, ptr nonnull @.str.59, i64 4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 20, i1 false)
   br label %.lr.ph.i70.i
 
-.lr.ph.i70.i:                                     ; preds = %594, %582
-  %.015.i71.idx.i = phi i64 [ %.015.i71.add.i, %594 ], [ 0, %582 ]
+.lr.ph.i70.i:                                     ; preds = %595, %583
+  %.015.i71.idx.i = phi i64 [ %.015.i71.add.i, %595 ], [ 0, %583 ]
   %.015.i71.ptr.i = getelementptr inbounds nuw i8, ptr %54, i64 %.015.i71.idx.i
   call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !410
-  %587 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %.015.i71.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %47), !noalias !410
-  br i1 %587, label %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i73.i, label %588
+  %588 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %.015.i71.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %47), !noalias !410
+  br i1 %588, label %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i73.i, label %589
 
 _ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i73.i: ; preds = %.lr.ph.i70.i
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !410
-  br label %594
+  br label %595
 
-588:                                              ; preds = %.lr.ph.i70.i
-  %589 = load ptr, ptr %47, align 8, !tbaa !395, !noalias !410
-  %590 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E20InsertIntoBucketImplIS3_EEPSA_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %.015.i71.ptr.i, ptr noundef %589), !noalias !410
-  %591 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm4json9ObjectKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %590, ptr noundef nonnull align 8 dereferenceable(24) %.015.i71.ptr.i), !noalias !410
-  %592 = getelementptr inbounds nuw i8, ptr %590, i64 24
-  store i16 0, ptr %592, align 8, !tbaa !397, !noalias !410
+589:                                              ; preds = %.lr.ph.i70.i
+  %590 = load ptr, ptr %47, align 8, !tbaa !395, !noalias !410
+  %591 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E20InsertIntoBucketImplIS3_EEPSA_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %.015.i71.ptr.i, ptr noundef %590), !noalias !410
+  %592 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm4json9ObjectKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %591, ptr noundef nonnull align 8 dereferenceable(24) %.015.i71.ptr.i), !noalias !410
+  %593 = getelementptr inbounds nuw i8, ptr %591, i64 24
+  store i16 0, ptr %593, align 8, !tbaa !397, !noalias !410
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !410
-  %593 = getelementptr inbounds nuw i8, ptr %.015.i71.ptr.i, i64 24
-  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %592, ptr noundef nonnull align 8 dereferenceable(40) %593) #26
-  br label %594
+  %594 = getelementptr inbounds nuw i8, ptr %.015.i71.ptr.i, i64 24
+  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %593, ptr noundef nonnull align 8 dereferenceable(40) %594) #26
+  br label %595
 
-594:                                              ; preds = %588, %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i73.i
+595:                                              ; preds = %589, %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i73.i
   %.015.i71.add.i = add nuw nsw i64 %.015.i71.idx.i, 64
   %.not.i72.i = icmp eq i64 %.015.i71.add.i, 192
   br i1 %.not.i72.i, label %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit74.i, label %.lr.ph.i70.i
 
-_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit74.i: ; preds = %594
+_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit74.i: ; preds = %595
   store i16 7, ptr %52, align 8, !tbaa !397
-  %595 = load ptr, ptr %53, align 8, !tbaa !395
-  store ptr %595, ptr %373, align 8, !tbaa !395
+  %596 = load ptr, ptr %53, align 8, !tbaa !395
+  store ptr %596, ptr %373, align 8, !tbaa !395
   store ptr null, ptr %53, align 8, !tbaa !395
-  %596 = load i32, ptr %375, align 8, !tbaa !53
-  store i32 %596, ptr %374, align 8, !tbaa !53
+  %597 = load i32, ptr %375, align 8, !tbaa !53
+  store i32 %597, ptr %374, align 8, !tbaa !53
   store i32 0, ptr %375, align 8, !tbaa !53
-  %597 = load i32, ptr %377, align 4, !tbaa !53
-  store i32 %597, ptr %376, align 4, !tbaa !53
+  %598 = load i32, ptr %377, align 4, !tbaa !53
+  store i32 %598, ptr %376, align 4, !tbaa !53
   store i32 0, ptr %377, align 4, !tbaa !53
-  %598 = load i32, ptr %379, align 8, !tbaa !53
-  store i32 %598, ptr %378, align 8, !tbaa !53
+  %599 = load i32, ptr %379, align 8, !tbaa !53
+  store i32 %599, ptr %378, align 8, !tbaa !53
   store i32 0, ptr %379, align 8, !tbaa !53
-  %599 = load ptr, ptr %380, align 8, !tbaa !401
-  %600 = load ptr, ptr %381, align 8, !tbaa !404
-  %.not.i.i.i75.i = icmp eq ptr %599, %600
-  br i1 %.not.i.i.i75.i, label %604, label %601
+  %600 = load ptr, ptr %380, align 8, !tbaa !401
+  %601 = load ptr, ptr %381, align 8, !tbaa !404
+  %.not.i.i.i75.i = icmp eq ptr %600, %601
+  br i1 %.not.i.i.i75.i, label %605, label %602
 
-601:                                              ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit74.i
-  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %599, ptr noundef nonnull align 8 dereferenceable(40) %52) #26
-  %602 = load ptr, ptr %380, align 8, !tbaa !401
-  %603 = getelementptr inbounds nuw i8, ptr %602, i64 40
-  store ptr %603, ptr %380, align 8, !tbaa !401
+602:                                              ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit74.i
+  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %600, ptr noundef nonnull align 8 dereferenceable(40) %52) #26
+  %603 = load ptr, ptr %380, align 8, !tbaa !401
+  %604 = getelementptr inbounds nuw i8, ptr %603, i64 40
+  store ptr %604, ptr %380, align 8, !tbaa !401
   br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit76.i
 
-604:                                              ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit74.i
-  call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr %599, ptr noundef nonnull align 8 dereferenceable(40) %52)
+605:                                              ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit74.i
+  call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr %600, ptr noundef nonnull align 8 dereferenceable(40) %52)
   br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit76.i
 
-_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit76.i: ; preds = %604, %601
+_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit76.i: ; preds = %605, %602
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %52) #26
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %53)
-  %605 = load ptr, ptr %53, align 8, !tbaa !405
-  %606 = load i32, ptr %379, align 8, !tbaa !407
-  %607 = zext i32 %606 to i64
-  %608 = shl nuw nsw i64 %607, 6
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %605, i64 noundef %608, i64 noundef 8) #26
-  br label %609
+  %606 = load ptr, ptr %53, align 8, !tbaa !405
+  %607 = load i32, ptr %379, align 8, !tbaa !407
+  %608 = zext i32 %607 to i64
+  %609 = shl nuw nsw i64 %608, 6
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %606, i64 noundef %609, i64 noundef 8) #26
+  br label %610
 
-609:                                              ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit81.i, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit76.i
-  %610 = phi ptr [ %372, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit76.i ], [ %611, %_ZN4llvm4json6Object2KVD2Ev.exit81.i ]
-  %611 = getelementptr inbounds i8, ptr %610, i64 -64
-  %612 = getelementptr inbounds i8, ptr %610, i64 -40
-  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %612) #26
-  %613 = load ptr, ptr %611, align 8, !tbaa !408
-  %.not.i.i.i77.i = icmp eq ptr %613, null
-  br i1 %.not.i.i.i77.i, label %_ZN4llvm4json6Object2KVD2Ev.exit81.i, label %614
+610:                                              ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit81.i, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit76.i
+  %611 = phi ptr [ %372, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit76.i ], [ %612, %_ZN4llvm4json6Object2KVD2Ev.exit81.i ]
+  %612 = getelementptr inbounds i8, ptr %611, i64 -64
+  %613 = getelementptr inbounds i8, ptr %611, i64 -40
+  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %613) #26
+  %614 = load ptr, ptr %612, align 8, !tbaa !408
+  %.not.i.i.i77.i = icmp eq ptr %614, null
+  br i1 %.not.i.i.i77.i, label %_ZN4llvm4json6Object2KVD2Ev.exit81.i, label %615
 
-614:                                              ; preds = %609
-  %615 = load ptr, ptr %613, align 8, !tbaa !165
-  %616 = getelementptr inbounds nuw i8, ptr %613, i64 16
-  %617 = icmp eq ptr %615, %616
-  br i1 %617, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i80.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i78.i
+615:                                              ; preds = %610
+  %616 = load ptr, ptr %614, align 8, !tbaa !165
+  %617 = getelementptr inbounds nuw i8, ptr %614, i64 16
+  %618 = icmp eq ptr %616, %617
+  br i1 %618, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i80.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i78.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i80.i: ; preds = %614
-  %618 = getelementptr inbounds nuw i8, ptr %613, i64 8
-  %619 = load i64, ptr %618, align 8, !tbaa !166
-  %620 = icmp ult i64 %619, 16
-  call void @llvm.assume(i1 %620)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i80.i: ; preds = %615
+  %619 = getelementptr inbounds nuw i8, ptr %614, i64 8
+  %620 = load i64, ptr %619, align 8, !tbaa !166
+  %621 = icmp ult i64 %620, 16
+  call void @llvm.assume(i1 %621)
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i79.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i78.i: ; preds = %614
-  %621 = load i64, ptr %616, align 8, !tbaa !220
-  %622 = add i64 %621, 1
-  call void @_ZdlPvm(ptr noundef %615, i64 noundef %622) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i78.i: ; preds = %615
+  %622 = load i64, ptr %617, align 8, !tbaa !220
+  %623 = add i64 %622, 1
+  call void @_ZdlPvm(ptr noundef %616, i64 noundef %623) #27
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i79.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i79.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i78.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i80.i
-  call void @_ZdlPvm(ptr noundef nonnull %613, i64 noundef 32) #27
+  call void @_ZdlPvm(ptr noundef nonnull %614, i64 noundef 32) #27
   br label %_ZN4llvm4json6Object2KVD2Ev.exit81.i
 
-_ZN4llvm4json6Object2KVD2Ev.exit81.i:             ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i79.i, %609
-  store ptr null, ptr %611, align 8, !tbaa !408
-  %623 = icmp eq ptr %611, %54
-  br i1 %623, label %624, label %609
+_ZN4llvm4json6Object2KVD2Ev.exit81.i:             ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i79.i, %610
+  store ptr null, ptr %612, align 8, !tbaa !408
+  %624 = icmp eq ptr %612, %54
+  br i1 %624, label %625, label %610
 
-624:                                              ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit81.i
+625:                                              ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit81.i
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
-625:                                              ; preds = %581
-  %626 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_15QuietE, i64 120), align 8, !tbaa !34, !range !46, !noundef !47
-  %627 = trunc nuw i8 %626 to i1
-  br i1 %627, label %628, label %630
+626:                                              ; preds = %582
+  %627 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_15QuietE, i64 120), align 8, !tbaa !34, !range !46, !noundef !47
+  %628 = trunc nuw i8 %627 to i1
+  br i1 %628, label %629, label %631
 
-628:                                              ; preds = %625
-  %629 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
+629:                                              ; preds = %626
+  %630 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
   br label %_ZN12_GLOBAL__N_13dbgEv.exit82.i
 
-630:                                              ; preds = %625
-  %631 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
+631:                                              ; preds = %626
+  %632 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
   br label %_ZN12_GLOBAL__N_13dbgEv.exit82.i
 
-_ZN12_GLOBAL__N_13dbgEv.exit82.i:                 ; preds = %630, %628
-  %632 = phi ptr [ %629, %628 ], [ %631, %630 ]
-  %633 = getelementptr inbounds nuw i8, ptr %632, i64 24
-  %634 = load ptr, ptr %633, align 8, !tbaa !61
-  %635 = getelementptr inbounds nuw i8, ptr %632, i64 32
-  %636 = load ptr, ptr %635, align 8, !tbaa !65
-  %637 = ptrtoint ptr %634 to i64
-  %638 = ptrtoint ptr %636 to i64
-  %639 = sub i64 %637, %638
-  %640 = icmp ult i64 %639, 7
-  br i1 %640, label %641, label %643
+_ZN12_GLOBAL__N_13dbgEv.exit82.i:                 ; preds = %631, %629
+  %633 = phi ptr [ %630, %629 ], [ %632, %631 ]
+  %634 = getelementptr inbounds nuw i8, ptr %633, i64 24
+  %635 = load ptr, ptr %634, align 8, !tbaa !61
+  %636 = getelementptr inbounds nuw i8, ptr %633, i64 32
+  %637 = load ptr, ptr %636, align 8, !tbaa !65
+  %638 = ptrtoint ptr %635 to i64
+  %639 = ptrtoint ptr %637 to i64
+  %640 = sub i64 %638, %639
+  %641 = icmp ult i64 %640, 7
+  br i1 %641, label %642, label %644
 
-641:                                              ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit82.i
-  %642 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %632, ptr noundef nonnull @.str.56, i64 noundef 7) #26
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %642, i64 32
+642:                                              ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit82.i
+  %643 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %633, ptr noundef nonnull @.str.56, i64 noundef 7) #26
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %643, i64 32
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit85.i
 
-643:                                              ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit82.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %636, ptr noundef nonnull align 1 dereferenceable(7) @.str.56, i64 7, i1 false)
-  %644 = load ptr, ptr %635, align 8, !tbaa !65
-  %645 = getelementptr inbounds nuw i8, ptr %644, i64 7
-  store ptr %645, ptr %635, align 8, !tbaa !65
+644:                                              ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit82.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %637, ptr noundef nonnull align 1 dereferenceable(7) @.str.56, i64 7, i1 false)
+  %645 = load ptr, ptr %636, align 8, !tbaa !65
+  %646 = getelementptr inbounds nuw i8, ptr %645, i64 7
+  store ptr %646, ptr %636, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit85.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit85.i:             ; preds = %643, %641
-  %646 = phi ptr [ %.pre.i, %641 ], [ %645, %643 ]
-  %.0.i.i84.i = phi ptr [ %642, %641 ], [ %632, %643 ]
-  %647 = getelementptr inbounds nuw i8, ptr %.0.i.i84.i, i64 24
-  %648 = load ptr, ptr %647, align 8, !tbaa !61
-  %649 = getelementptr inbounds nuw i8, ptr %.0.i.i84.i, i64 32
-  %650 = ptrtoint ptr %648 to i64
-  %651 = ptrtoint ptr %646 to i64
-  %652 = sub i64 %650, %651
-  %653 = icmp ugt i64 %.sroa.226.0.copyload, %652
-  br i1 %653, label %654, label %656
+_ZN4llvm11raw_ostreamlsEPKc.exit85.i:             ; preds = %644, %642
+  %647 = phi ptr [ %.pre.i, %642 ], [ %646, %644 ]
+  %.0.i.i84.i = phi ptr [ %643, %642 ], [ %633, %644 ]
+  %648 = getelementptr inbounds nuw i8, ptr %.0.i.i84.i, i64 24
+  %649 = load ptr, ptr %648, align 8, !tbaa !61
+  %650 = getelementptr inbounds nuw i8, ptr %.0.i.i84.i, i64 32
+  %651 = ptrtoint ptr %649 to i64
+  %652 = ptrtoint ptr %647 to i64
+  %653 = sub i64 %651, %652
+  %654 = icmp ugt i64 %.sroa.226.0.copyload, %653
+  br i1 %654, label %655, label %657
 
-654:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit85.i
-  %655 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i84.i, ptr noundef %.sroa.025.0.copyload, i64 noundef %.sroa.226.0.copyload) #26
-  %.phi.trans.insert4.i = getelementptr inbounds nuw i8, ptr %655, i64 32
+655:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit85.i
+  %656 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i84.i, ptr noundef %.sroa.025.0.copyload, i64 noundef %.sroa.226.0.copyload) #26
+  %.phi.trans.insert4.i = getelementptr inbounds nuw i8, ptr %656, i64 32
   %.pre5.i = load ptr, ptr %.phi.trans.insert4.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i
 
-656:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit85.i
-  br i1 %.not.i86.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i, label %657
+657:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit85.i
+  br i1 %.not.i86.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i, label %658
 
-657:                                              ; preds = %656
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %646, ptr align 1 %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload, i1 false)
-  %658 = load ptr, ptr %649, align 8, !tbaa !65
-  %659 = getelementptr inbounds nuw i8, ptr %658, i64 %.sroa.226.0.copyload
-  store ptr %659, ptr %649, align 8, !tbaa !65
+658:                                              ; preds = %657
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %647, ptr align 1 %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload, i1 false)
+  %659 = load ptr, ptr %650, align 8, !tbaa !65
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 %.sroa.226.0.copyload
+  store ptr %660, ptr %650, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i:  ; preds = %657, %656, %654
-  %660 = phi ptr [ %.pre5.i, %654 ], [ %659, %657 ], [ %646, %656 ]
-  %.0.i87.i = phi ptr [ %655, %654 ], [ %.0.i.i84.i, %657 ], [ %.0.i.i84.i, %656 ]
-  %661 = getelementptr inbounds nuw i8, ptr %.0.i87.i, i64 24
-  %662 = load ptr, ptr %661, align 8, !tbaa !61
-  %663 = ptrtoint ptr %662 to i64
-  %664 = ptrtoint ptr %660 to i64
-  %665 = sub i64 %663, %664
-  %666 = icmp ult i64 %665, 25
-  br i1 %666, label %667, label %669
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i:  ; preds = %658, %657, %655
+  %661 = phi ptr [ %.pre5.i, %655 ], [ %660, %658 ], [ %647, %657 ]
+  %.0.i87.i = phi ptr [ %656, %655 ], [ %.0.i.i84.i, %658 ], [ %.0.i.i84.i, %657 ]
+  %662 = getelementptr inbounds nuw i8, ptr %.0.i87.i, i64 24
+  %663 = load ptr, ptr %662, align 8, !tbaa !61
+  %664 = ptrtoint ptr %663 to i64
+  %665 = ptrtoint ptr %661 to i64
+  %666 = sub i64 %664, %665
+  %667 = icmp ult i64 %666, 25
+  br i1 %667, label %668, label %670
 
-667:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i
-  %668 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i87.i, ptr noundef nonnull @.str.60, i64 noundef 25) #26
+668:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i
+  %669 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i87.i, ptr noundef nonnull @.str.60, i64 noundef 25) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit91.i
 
-669:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i
-  %670 = getelementptr inbounds nuw i8, ptr %.0.i87.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %660, ptr noundef nonnull align 1 dereferenceable(25) @.str.60, i64 25, i1 false)
-  %671 = load ptr, ptr %670, align 8, !tbaa !65
-  %672 = getelementptr inbounds nuw i8, ptr %671, i64 25
-  store ptr %672, ptr %670, align 8, !tbaa !65
+670:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i
+  %671 = getelementptr inbounds nuw i8, ptr %.0.i87.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %661, ptr noundef nonnull align 1 dereferenceable(25) @.str.60, i64 25, i1 false)
+  %672 = load ptr, ptr %671, align 8, !tbaa !65
+  %673 = getelementptr inbounds nuw i8, ptr %672, i64 25
+  store ptr %673, ptr %671, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit91.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit91.i:             ; preds = %669, %667
-  %.0.i.i90.i = phi ptr [ %668, %667 ], [ %.0.i87.i, %669 ]
-  %673 = load ptr, ptr %.0482.i, align 8, !tbaa !275
-  %674 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %673) #26
-  %675 = extractvalue { ptr, i64 } %674, 0
-  %676 = extractvalue { ptr, i64 } %674, 1
-  %677 = getelementptr inbounds nuw i8, ptr %.0.i.i90.i, i64 24
-  %678 = load ptr, ptr %677, align 8, !tbaa !61
-  %679 = getelementptr inbounds nuw i8, ptr %.0.i.i90.i, i64 32
-  %680 = load ptr, ptr %679, align 8, !tbaa !65
-  %681 = ptrtoint ptr %678 to i64
-  %682 = ptrtoint ptr %680 to i64
-  %683 = sub i64 %681, %682
-  %684 = icmp ugt i64 %676, %683
-  br i1 %684, label %685, label %687
+_ZN4llvm11raw_ostreamlsEPKc.exit91.i:             ; preds = %670, %668
+  %.0.i.i90.i = phi ptr [ %669, %668 ], [ %.0.i87.i, %670 ]
+  %674 = load ptr, ptr %.0482.i, align 8, !tbaa !275
+  %675 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %674) #26
+  %676 = extractvalue { ptr, i64 } %675, 0
+  %677 = extractvalue { ptr, i64 } %675, 1
+  %678 = getelementptr inbounds nuw i8, ptr %.0.i.i90.i, i64 24
+  %679 = load ptr, ptr %678, align 8, !tbaa !61
+  %680 = getelementptr inbounds nuw i8, ptr %.0.i.i90.i, i64 32
+  %681 = load ptr, ptr %680, align 8, !tbaa !65
+  %682 = ptrtoint ptr %679 to i64
+  %683 = ptrtoint ptr %681 to i64
+  %684 = sub i64 %682, %683
+  %685 = icmp ugt i64 %677, %684
+  br i1 %685, label %686, label %688
 
-685:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit91.i
-  %686 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i90.i, ptr noundef %675, i64 noundef %676) #26
-  %.phi.trans.insert6.i = getelementptr inbounds nuw i8, ptr %686, i64 32
+686:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit91.i
+  %687 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i90.i, ptr noundef %676, i64 noundef %677) #26
+  %.phi.trans.insert6.i = getelementptr inbounds nuw i8, ptr %687, i64 32
   %.pre7.i = load ptr, ptr %.phi.trans.insert6.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i
 
-687:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit91.i
-  %.not.i92.i = icmp eq i64 %676, 0
-  br i1 %.not.i92.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i, label %688
+688:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit91.i
+  %.not.i92.i = icmp eq i64 %677, 0
+  br i1 %.not.i92.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i, label %689
 
-688:                                              ; preds = %687
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %680, ptr align 1 %675, i64 %676, i1 false)
-  %689 = load ptr, ptr %679, align 8, !tbaa !65
-  %690 = getelementptr inbounds nuw i8, ptr %689, i64 %676
-  store ptr %690, ptr %679, align 8, !tbaa !65
+689:                                              ; preds = %688
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %681, ptr align 1 %676, i64 %677, i1 false)
+  %690 = load ptr, ptr %680, align 8, !tbaa !65
+  %691 = getelementptr inbounds nuw i8, ptr %690, i64 %677
+  store ptr %691, ptr %680, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i:  ; preds = %688, %687, %685
-  %691 = phi ptr [ %.pre7.i, %685 ], [ %690, %688 ], [ %680, %687 ]
-  %.0.i93.i = phi ptr [ %686, %685 ], [ %.0.i.i90.i, %688 ], [ %.0.i.i90.i, %687 ]
-  %692 = getelementptr inbounds nuw i8, ptr %.0.i93.i, i64 24
-  %693 = load ptr, ptr %692, align 8, !tbaa !61
-  %694 = ptrtoint ptr %693 to i64
-  %695 = ptrtoint ptr %691 to i64
-  %696 = sub i64 %694, %695
-  %697 = icmp ult i64 %696, 6
-  br i1 %697, label %698, label %700
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i:  ; preds = %689, %688, %686
+  %692 = phi ptr [ %.pre7.i, %686 ], [ %691, %689 ], [ %681, %688 ]
+  %.0.i93.i = phi ptr [ %687, %686 ], [ %.0.i.i90.i, %689 ], [ %.0.i.i90.i, %688 ]
+  %693 = getelementptr inbounds nuw i8, ptr %.0.i93.i, i64 24
+  %694 = load ptr, ptr %693, align 8, !tbaa !61
+  %695 = ptrtoint ptr %694 to i64
+  %696 = ptrtoint ptr %692 to i64
+  %697 = sub i64 %695, %696
+  %698 = icmp ult i64 %697, 6
+  br i1 %698, label %699, label %701
 
-698:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i
-  %699 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i93.i, ptr noundef nonnull @.str.58, i64 noundef 6) #26
-  %.phi.trans.insert8.i = getelementptr inbounds nuw i8, ptr %699, i64 32
+699:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i
+  %700 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i93.i, ptr noundef nonnull @.str.58, i64 noundef 6) #26
+  %.phi.trans.insert8.i = getelementptr inbounds nuw i8, ptr %700, i64 32
   %.pre9.i = load ptr, ptr %.phi.trans.insert8.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit97.i
 
-700:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i
-  %701 = getelementptr inbounds nuw i8, ptr %.0.i93.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %691, ptr noundef nonnull align 1 dereferenceable(6) @.str.58, i64 6, i1 false)
-  %702 = load ptr, ptr %701, align 8, !tbaa !65
-  %703 = getelementptr inbounds nuw i8, ptr %702, i64 6
-  store ptr %703, ptr %701, align 8, !tbaa !65
+701:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i
+  %702 = getelementptr inbounds nuw i8, ptr %.0.i93.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %692, ptr noundef nonnull align 1 dereferenceable(6) @.str.58, i64 6, i1 false)
+  %703 = load ptr, ptr %702, align 8, !tbaa !65
+  %704 = getelementptr inbounds nuw i8, ptr %703, i64 6
+  store ptr %704, ptr %702, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit97.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit97.i:             ; preds = %700, %698
-  %704 = phi ptr [ %.pre9.i, %698 ], [ %703, %700 ]
-  %.0.i.i96.i = phi ptr [ %699, %698 ], [ %.0.i93.i, %700 ]
-  %705 = getelementptr inbounds nuw i8, ptr %.0.i.i96.i, i64 24
-  %706 = load ptr, ptr %705, align 8, !tbaa !61
-  %707 = getelementptr inbounds nuw i8, ptr %.0.i.i96.i, i64 32
-  %708 = ptrtoint ptr %706 to i64
-  %709 = ptrtoint ptr %704 to i64
-  %710 = sub i64 %708, %709
-  %711 = icmp ugt i64 %.sroa.3.1.i, %710
-  br i1 %711, label %712, label %714
+_ZN4llvm11raw_ostreamlsEPKc.exit97.i:             ; preds = %701, %699
+  %705 = phi ptr [ %.pre9.i, %699 ], [ %704, %701 ]
+  %.0.i.i96.i = phi ptr [ %700, %699 ], [ %.0.i93.i, %701 ]
+  %706 = getelementptr inbounds nuw i8, ptr %.0.i.i96.i, i64 24
+  %707 = load ptr, ptr %706, align 8, !tbaa !61
+  %708 = getelementptr inbounds nuw i8, ptr %.0.i.i96.i, i64 32
+  %709 = ptrtoint ptr %707 to i64
+  %710 = ptrtoint ptr %705 to i64
+  %711 = sub i64 %709, %710
+  %712 = icmp ugt i64 %.sroa.3.1.i, %711
+  br i1 %712, label %713, label %715
 
-712:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit97.i
-  %713 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i96.i, ptr noundef %.sroa.0.1.i, i64 noundef %.sroa.3.1.i) #26
-  %.phi.trans.insert10.i = getelementptr inbounds nuw i8, ptr %713, i64 32
+713:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit97.i
+  %714 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i96.i, ptr noundef %.sroa.0.1.i, i64 noundef %.sroa.3.1.i) #26
+  %.phi.trans.insert10.i = getelementptr inbounds nuw i8, ptr %714, i64 32
   %.pre11.i = load ptr, ptr %.phi.trans.insert10.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit100.i
 
-714:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit97.i
-  br i1 %.not.i98.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit100.i, label %715
+715:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit97.i
+  br i1 %.not.i98.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit100.i, label %716
 
-715:                                              ; preds = %714
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %704, ptr align 1 %.sroa.0.1.i, i64 %.sroa.3.1.i, i1 false)
-  %716 = load ptr, ptr %707, align 8, !tbaa !65
-  %717 = getelementptr inbounds nuw i8, ptr %716, i64 %.sroa.3.1.i
-  store ptr %717, ptr %707, align 8, !tbaa !65
+716:                                              ; preds = %715
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %705, ptr align 1 %.sroa.0.1.i, i64 %.sroa.3.1.i, i1 false)
+  %717 = load ptr, ptr %708, align 8, !tbaa !65
+  %718 = getelementptr inbounds nuw i8, ptr %717, i64 %.sroa.3.1.i
+  store ptr %718, ptr %708, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit100.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit100.i: ; preds = %715, %714, %712
-  %718 = phi ptr [ %.pre11.i, %712 ], [ %717, %715 ], [ %704, %714 ]
-  %.0.i99.i = phi ptr [ %713, %712 ], [ %.0.i.i96.i, %715 ], [ %.0.i.i96.i, %714 ]
-  %719 = getelementptr inbounds nuw i8, ptr %.0.i99.i, i64 24
-  %720 = load ptr, ptr %719, align 8, !tbaa !61
-  %.not.i101.i = icmp ult ptr %718, %720
-  br i1 %.not.i101.i, label %723, label %721
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit100.i: ; preds = %716, %715, %713
+  %719 = phi ptr [ %.pre11.i, %713 ], [ %718, %716 ], [ %705, %715 ]
+  %.0.i99.i = phi ptr [ %714, %713 ], [ %.0.i.i96.i, %716 ], [ %.0.i.i96.i, %715 ]
+  %720 = getelementptr inbounds nuw i8, ptr %.0.i99.i, i64 24
+  %721 = load ptr, ptr %720, align 8, !tbaa !61
+  %.not.i101.i = icmp ult ptr %719, %721
+  br i1 %.not.i101.i, label %724, label %722
 
-721:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit100.i
-  %722 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i99.i, i8 noundef zeroext 10) #26
+722:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit100.i
+  %723 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i99.i, i8 noundef zeroext 10) #26
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
-723:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit100.i
-  %724 = getelementptr inbounds nuw i8, ptr %.0.i99.i, i64 32
-  %725 = getelementptr inbounds nuw i8, ptr %718, i64 1
-  store ptr %725, ptr %724, align 8, !tbaa !65
-  store i8 10, ptr %718, align 1, !tbaa !220
+724:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit100.i
+  %725 = getelementptr inbounds nuw i8, ptr %.0.i99.i, i64 32
+  %726 = getelementptr inbounds nuw i8, ptr %719, i64 1
+  store ptr %726, ptr %725, align 8, !tbaa !65
+  store i8 10, ptr %719, align 1, !tbaa !220
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
-_ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %723, %721, %624, %576, %573, %571, %474, %395
-  %.1.i = phi i1 [ %.03.i, %395 ], [ false, %474 ], [ %.03.i, %576 ], [ false, %624 ], [ false, %571 ], [ false, %573 ], [ false, %721 ], [ false, %723 ]
-  %726 = getelementptr inbounds nuw i8, ptr %.0482.i, i64 16
-  %.not.i156 = icmp eq ptr %726, %366
+_ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %724, %722, %625, %576, %573, %571, %474, %395
+  %.1.i = phi i1 [ %.03.i, %395 ], [ false, %474 ], [ %.03.i, %576 ], [ false, %625 ], [ false, %571 ], [ false, %573 ], [ false, %722 ], [ false, %724 ]
+  %727 = getelementptr inbounds nuw i8, ptr %.0482.i, i64 16
+  %.not.i156 = icmp eq ptr %727, %366
   br i1 %.not.i156, label %_ZL14checkFunctionsRKN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEEESK_NS_9StringRefESL_bRNS_4json5ArrayE.exit, label %395
 
 _ZL14checkFunctionsRKN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEEESK_NS_9StringRefESL_bRNS_4json5ArrayE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEC2ERKSF_.exit155
@@ -5038,614 +5043,615 @@ _ZL14checkFunctionsRKN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8Den
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %727 = zext i32 %.val96 to i64
-  %.idx.i159 = shl nuw nsw i64 %727, 4
-  %728 = getelementptr inbounds nuw i8, ptr %.val95, i64 %.idx.i159
+  %728 = zext i32 %.val96 to i64
+  %.idx.i159 = shl nuw nsw i64 %728, 4
+  %729 = getelementptr inbounds nuw i8, ptr %.val95, i64 %.idx.i159
   %.not18.i = icmp eq i32 %.val96, 0
   br i1 %.not18.i, label %_ZL17checkInstructionsRKN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEEESH_RKNS0_IS3_NS_6WeakVHESA_NSB_ISC_IS3_SI_ELj0EEEEENS_9StringRefESO_bRNS_4json5ArrayE.exit, label %.lr.ph.i160
 
 .lr.ph.i160:                                      ; preds = %_ZL14checkFunctionsRKN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEEESK_NS_9StringRefESL_bRNS_4json5ArrayE.exit
   %.not.i144.i = icmp eq i64 %.sroa.226.0.copyload, 0
   %.not.i165.i = icmp eq i64 %.sroa.3.1.i, 0
-  %729 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %730 = getelementptr inbounds nuw i8, ptr %44, i64 64
-  %731 = getelementptr inbounds nuw i8, ptr %44, i64 88
-  %732 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %733 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %734 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %735 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %736 = getelementptr inbounds nuw i8, ptr %44, i64 96
-  %737 = getelementptr inbounds nuw i8, ptr %44, i64 112
-  %738 = getelementptr inbounds nuw i8, ptr %44, i64 104
-  %739 = getelementptr inbounds nuw i8, ptr %44, i64 128
-  %740 = getelementptr inbounds nuw i8, ptr %44, i64 152
-  %741 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %742 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %743 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %744 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %745 = getelementptr inbounds nuw i8, ptr %44, i64 160
-  %746 = getelementptr inbounds nuw i8, ptr %44, i64 176
-  %747 = getelementptr inbounds nuw i8, ptr %44, i64 168
-  %748 = getelementptr inbounds nuw i8, ptr %44, i64 192
-  %749 = getelementptr inbounds nuw i8, ptr %44, i64 216
-  %750 = getelementptr inbounds nuw i8, ptr %44, i64 256
-  %751 = getelementptr inbounds nuw i8, ptr %44, i64 280
-  %752 = getelementptr inbounds nuw i8, ptr %44, i64 320
-  %753 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %754 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %755 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %756 = getelementptr inbounds nuw i8, ptr %42, i64 20
-  %757 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  %758 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %759 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %760 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %761 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %762 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %763 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  %764 = getelementptr inbounds nuw i8, ptr %39, i64 88
-  %765 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %766 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %767 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %768 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %769 = getelementptr inbounds nuw i8, ptr %39, i64 96
-  %770 = getelementptr inbounds nuw i8, ptr %39, i64 112
-  %771 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  %772 = getelementptr inbounds nuw i8, ptr %39, i64 128
-  %773 = getelementptr inbounds nuw i8, ptr %39, i64 152
-  %774 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %775 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %776 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %777 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %778 = getelementptr inbounds nuw i8, ptr %39, i64 160
-  %779 = getelementptr inbounds nuw i8, ptr %39, i64 176
-  %780 = getelementptr inbounds nuw i8, ptr %39, i64 168
-  %781 = getelementptr inbounds nuw i8, ptr %39, i64 192
-  %782 = getelementptr inbounds nuw i8, ptr %39, i64 216
-  %783 = getelementptr inbounds nuw i8, ptr %39, i64 256
-  %784 = getelementptr inbounds nuw i8, ptr %39, i64 280
-  %785 = getelementptr inbounds nuw i8, ptr %39, i64 320
-  %786 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %787 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %788 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %789 = getelementptr inbounds nuw i8, ptr %37, i64 20
-  %790 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %791 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %792 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  br label %793
+  %730 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %731 = getelementptr inbounds nuw i8, ptr %44, i64 64
+  %732 = getelementptr inbounds nuw i8, ptr %44, i64 88
+  %733 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %734 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %735 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %736 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %737 = getelementptr inbounds nuw i8, ptr %44, i64 96
+  %738 = getelementptr inbounds nuw i8, ptr %44, i64 112
+  %739 = getelementptr inbounds nuw i8, ptr %44, i64 104
+  %740 = getelementptr inbounds nuw i8, ptr %44, i64 128
+  %741 = getelementptr inbounds nuw i8, ptr %44, i64 152
+  %742 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %743 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %744 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %745 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %746 = getelementptr inbounds nuw i8, ptr %44, i64 160
+  %747 = getelementptr inbounds nuw i8, ptr %44, i64 176
+  %748 = getelementptr inbounds nuw i8, ptr %44, i64 168
+  %749 = getelementptr inbounds nuw i8, ptr %44, i64 192
+  %750 = getelementptr inbounds nuw i8, ptr %44, i64 216
+  %751 = getelementptr inbounds nuw i8, ptr %44, i64 256
+  %752 = getelementptr inbounds nuw i8, ptr %44, i64 280
+  %753 = getelementptr inbounds nuw i8, ptr %44, i64 320
+  %754 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %755 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %756 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %757 = getelementptr inbounds nuw i8, ptr %42, i64 20
+  %758 = getelementptr inbounds nuw i8, ptr %43, i64 12
+  %759 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %760 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %761 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %762 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %763 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %764 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  %765 = getelementptr inbounds nuw i8, ptr %39, i64 88
+  %766 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %767 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %768 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %769 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %770 = getelementptr inbounds nuw i8, ptr %39, i64 96
+  %771 = getelementptr inbounds nuw i8, ptr %39, i64 112
+  %772 = getelementptr inbounds nuw i8, ptr %39, i64 104
+  %773 = getelementptr inbounds nuw i8, ptr %39, i64 128
+  %774 = getelementptr inbounds nuw i8, ptr %39, i64 152
+  %775 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %776 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %777 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %778 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %779 = getelementptr inbounds nuw i8, ptr %39, i64 160
+  %780 = getelementptr inbounds nuw i8, ptr %39, i64 176
+  %781 = getelementptr inbounds nuw i8, ptr %39, i64 168
+  %782 = getelementptr inbounds nuw i8, ptr %39, i64 192
+  %783 = getelementptr inbounds nuw i8, ptr %39, i64 216
+  %784 = getelementptr inbounds nuw i8, ptr %39, i64 256
+  %785 = getelementptr inbounds nuw i8, ptr %39, i64 280
+  %786 = getelementptr inbounds nuw i8, ptr %39, i64 320
+  %787 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %788 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %789 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %790 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %791 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %792 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %793 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  br label %794
 
-793:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit101.i, %.lr.ph.i160
+794:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit101.i, %.lr.ph.i160
   %.020.i = phi i1 [ true, %.lr.ph.i160 ], [ %.1.i170, %_ZN4llvm11raw_ostreamlsEPKc.exit101.i ]
-  %.04619.i = phi ptr [ %.val95, %.lr.ph.i160 ], [ %1424, %_ZN4llvm11raw_ostreamlsEPKc.exit101.i ]
-  %794 = getelementptr inbounds nuw i8, ptr %.04619.i, i64 8
-  %795 = load i8, ptr %794, align 8, !tbaa !387, !range !46, !noundef !47
-  %796 = trunc nuw i8 %795 to i1
-  br i1 %796, label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i, label %797
+  %.04619.i = phi ptr [ %.val95, %.lr.ph.i160 ], [ %1427, %_ZN4llvm11raw_ostreamlsEPKc.exit101.i ]
+  %795 = getelementptr inbounds nuw i8, ptr %.04619.i, i64 8
+  %796 = load i8, ptr %795, align 8, !tbaa !387, !range !46, !noundef !47
+  %797 = trunc nuw i8 %796 to i1
+  br i1 %797, label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i, label %798
 
-797:                                              ; preds = %793
-  %798 = load ptr, ptr %.04619.i, align 8, !tbaa !385
-  %799 = load ptr, ptr %61, align 8, !tbaa !360
-  %800 = load i32, ptr %278, align 8, !tbaa !366
-  %801 = icmp eq i32 %800, 0
-  br i1 %801, label %.loopexit.i.i.i195, label %802
+798:                                              ; preds = %794
+  %799 = load ptr, ptr %.04619.i, align 8, !tbaa !385
+  %800 = load ptr, ptr %61, align 8, !tbaa !360
+  %801 = load i32, ptr %278, align 8, !tbaa !366
+  %802 = icmp eq i32 %801, 0
+  br i1 %802, label %.loopexit.i.i.i195, label %803
 
-802:                                              ; preds = %797
-  %803 = ptrtoint ptr %798 to i64
-  %804 = trunc i64 %803 to i32
-  %805 = lshr i32 %804, 4
-  %806 = lshr i32 %804, 9
-  %807 = xor i32 %805, %806
-  %808 = add i32 %800, -1
-  %.01826.i.i.i.i.i161 = and i32 %807, %808
-  %809 = zext nneg i32 %.01826.i.i.i.i.i161 to i64
-  %810 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %799, i64 %809
-  %811 = load ptr, ptr %810, align 8, !tbaa !359
-  %812 = icmp eq ptr %798, %811
-  br i1 %812, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i.i162, !prof !272
+803:                                              ; preds = %798
+  %804 = ptrtoint ptr %799 to i64
+  %805 = trunc i64 %804 to i32
+  %806 = lshr i32 %805, 4
+  %807 = lshr i32 %805, 9
+  %808 = xor i32 %806, %807
+  %809 = add i32 %801, -1
+  %.01826.i.i.i.i.i161 = and i32 %808, %809
+  %810 = zext nneg i32 %.01826.i.i.i.i.i161 to i64
+  %811 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %800, i64 %810
+  %812 = load ptr, ptr %811, align 8, !tbaa !359
+  %813 = icmp eq ptr %799, %812
+  br i1 %813, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i.i162, !prof !272
 
-.lr.ph.i.i.i.i.i162:                              ; preds = %802, %815
-  %813 = phi ptr [ %820, %815 ], [ %811, %802 ]
-  %.01828.i.i.i.i.i163 = phi i32 [ %.018.i.i.i.i.i165, %815 ], [ %.01826.i.i.i.i.i161, %802 ]
-  %.01627.i.i.i.i.i164 = phi i32 [ %816, %815 ], [ 1, %802 ]
-  %814 = icmp eq ptr %813, inttoptr (i64 -4096 to ptr)
-  br i1 %814, label %.loopexit.i.i.i195, label %815, !prof !33
+.lr.ph.i.i.i.i.i162:                              ; preds = %803, %816
+  %814 = phi ptr [ %821, %816 ], [ %812, %803 ]
+  %.01828.i.i.i.i.i163 = phi i32 [ %.018.i.i.i.i.i165, %816 ], [ %.01826.i.i.i.i.i161, %803 ]
+  %.01627.i.i.i.i.i164 = phi i32 [ %817, %816 ], [ 1, %803 ]
+  %815 = icmp eq ptr %814, inttoptr (i64 -4096 to ptr)
+  br i1 %815, label %.loopexit.i.i.i195, label %816, !prof !33
 
-815:                                              ; preds = %.lr.ph.i.i.i.i.i162
-  %816 = add i32 %.01627.i.i.i.i.i164, 1
-  %817 = add i32 %.01627.i.i.i.i.i164, %.01828.i.i.i.i.i163
-  %.018.i.i.i.i.i165 = and i32 %817, %808
-  %818 = zext i32 %.018.i.i.i.i.i165 to i64
-  %819 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %799, i64 %818
-  %820 = load ptr, ptr %819, align 8, !tbaa !359
-  %821 = icmp eq ptr %798, %820
-  br i1 %821, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i.i162, !prof !273, !llvm.loop !415
+816:                                              ; preds = %.lr.ph.i.i.i.i.i162
+  %817 = add i32 %.01627.i.i.i.i.i164, 1
+  %818 = add i32 %.01627.i.i.i.i.i164, %.01828.i.i.i.i.i163
+  %.018.i.i.i.i.i165 = and i32 %818, %809
+  %819 = zext i32 %.018.i.i.i.i.i165 to i64
+  %820 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %800, i64 %819
+  %821 = load ptr, ptr %820, align 8, !tbaa !359
+  %822 = icmp eq ptr %799, %821
+  br i1 %822, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i.i162, !prof !273, !llvm.loop !415
 
-.loopexit.i.i.i195:                               ; preds = %.lr.ph.i.i.i.i.i162, %797
-  %822 = zext i32 %800 to i64
-  %823 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %799, i64 %822
+.loopexit.i.i.i195:                               ; preds = %.lr.ph.i.i.i.i.i162, %798
+  %823 = zext i32 %801 to i64
+  %824 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %800, i64 %823
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i: ; preds = %815, %.loopexit.i.i.i195, %802
-  %.sroa.0.1.i.i.i166 = phi ptr [ %823, %.loopexit.i.i.i195 ], [ %810, %802 ], [ %819, %815 ]
-  %824 = zext i32 %800 to i64
-  %825 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %799, i64 %824
-  %826 = icmp eq ptr %.sroa.0.1.i.i.i166, %825
-  %827 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i166, i64 8
-  %.sink7.in.i.i167 = select i1 %826, ptr %298, ptr %827
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i: ; preds = %816, %.loopexit.i.i.i195, %803
+  %.sroa.0.1.i.i.i166 = phi ptr [ %824, %.loopexit.i.i.i195 ], [ %811, %803 ], [ %820, %816 ]
+  %825 = zext i32 %801 to i64
+  %826 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %800, i64 %825
+  %827 = icmp eq ptr %.sroa.0.1.i.i.i166, %826
+  %828 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i166, i64 8
+  %.sink7.in.i.i167 = select i1 %827, ptr %298, ptr %828
   %.sink7.i.i168 = load i32, ptr %.sink7.in.i.i167, align 8, !tbaa !53
-  %828 = load i32, ptr %298, align 8, !tbaa !26
-  %.not51.i = icmp eq i32 %.sink7.i.i168, %828
-  br i1 %.not51.i, label %834, label %829
+  %829 = load i32, ptr %298, align 8, !tbaa !26
+  %.not51.i = icmp eq i32 %.sink7.i.i168, %829
+  br i1 %.not51.i, label %836, label %830
 
-829:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
-  %830 = zext i32 %.sink7.i.i168 to i64
-  %831 = load ptr, ptr %296, align 8, !tbaa !25
-  %832 = getelementptr inbounds nuw %"struct.std::pair.252", ptr %831, i64 %830, i32 1, i32 0, i32 2
-  %833 = load ptr, ptr %832, align 8, !tbaa !358
-  %.not52.i169 = icmp eq ptr %833, null
-  br i1 %.not52.i169, label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i, label %834
+830:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
+  %831 = zext i32 %.sink7.i.i168 to i64
+  %832 = load ptr, ptr %296, align 8, !tbaa !25
+  %833 = getelementptr inbounds nuw %"struct.std::pair.252", ptr %832, i64 %831
+  %834 = getelementptr inbounds nuw i8, ptr %833, i64 24
+  %835 = load ptr, ptr %834, align 8, !tbaa !358
+  %.not52.i169 = icmp eq ptr %835, null
+  br i1 %.not52.i169, label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i, label %836
 
-834:                                              ; preds = %829, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
-  %835 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %798) #26
-  %836 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %835) #26
-  %837 = extractvalue { ptr, i64 } %836, 0
-  %838 = extractvalue { ptr, i64 } %836, 1
-  %839 = getelementptr inbounds nuw i8, ptr %798, i64 40
-  %840 = load ptr, ptr %839, align 8, !tbaa !204
-  %841 = getelementptr inbounds nuw i8, ptr %840, i64 4
-  %842 = load i32, ptr %841, align 4
-  %843 = and i32 %842, 268435456
-  %.not16.i = icmp eq i32 %843, 0
-  br i1 %.not16.i, label %848, label %844
+836:                                              ; preds = %830, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
+  %837 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %799) #26
+  %838 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %837) #26
+  %839 = extractvalue { ptr, i64 } %838, 0
+  %840 = extractvalue { ptr, i64 } %838, 1
+  %841 = getelementptr inbounds nuw i8, ptr %799, i64 40
+  %842 = load ptr, ptr %841, align 8, !tbaa !204
+  %843 = getelementptr inbounds nuw i8, ptr %842, i64 4
+  %844 = load i32, ptr %843, align 4
+  %845 = and i32 %844, 268435456
+  %.not16.i = icmp eq i32 %845, 0
+  br i1 %.not16.i, label %850, label %846
 
-844:                                              ; preds = %834
-  %845 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %840) #26
-  %846 = extractvalue { ptr, i64 } %845, 0
-  %847 = extractvalue { ptr, i64 } %845, 1
-  br label %848
+846:                                              ; preds = %836
+  %847 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %842) #26
+  %848 = extractvalue { ptr, i64 } %847, 0
+  %849 = extractvalue { ptr, i64 } %847, 1
+  br label %850
 
-848:                                              ; preds = %844, %834
-  %.sroa.8.0.i = phi i64 [ %847, %844 ], [ 7, %834 ]
-  %.sroa.0.0.i = phi ptr [ %846, %844 ], [ @.str.62, %834 ]
-  %849 = load i8, ptr %798, align 8, !tbaa !198
-  %850 = zext i8 %849 to i32
-  %851 = add nsw i32 %850, -29
-  %852 = call noundef ptr @_ZN4llvm11Instruction13getOpcodeNameEj(i32 noundef %851) #26
-  %853 = load ptr, ptr %59, align 8, !tbaa !360
-  %854 = load i32, ptr %220, align 8, !tbaa !366
-  %855 = icmp eq i32 %854, 0
-  br i1 %855, label %.loopexit.i.i62.i, label %856
+850:                                              ; preds = %846, %836
+  %.sroa.8.0.i = phi i64 [ %849, %846 ], [ 7, %836 ]
+  %.sroa.0.0.i = phi ptr [ %848, %846 ], [ @.str.62, %836 ]
+  %851 = load i8, ptr %799, align 8, !tbaa !198
+  %852 = zext i8 %851 to i32
+  %853 = add nsw i32 %852, -29
+  %854 = call noundef ptr @_ZN4llvm11Instruction13getOpcodeNameEj(i32 noundef %853) #26
+  %855 = load ptr, ptr %59, align 8, !tbaa !360
+  %856 = load i32, ptr %220, align 8, !tbaa !366
+  %857 = icmp eq i32 %856, 0
+  br i1 %857, label %.loopexit.i.i62.i, label %858
 
-856:                                              ; preds = %848
-  %857 = ptrtoint ptr %798 to i64
-  %858 = trunc i64 %857 to i32
-  %859 = lshr i32 %858, 4
-  %860 = lshr i32 %858, 9
-  %861 = xor i32 %859, %860
-  %862 = add i32 %854, -1
-  %.01826.i.i.i.i53.i = and i32 %862, %861
-  %863 = zext nneg i32 %.01826.i.i.i.i53.i to i64
-  %864 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %853, i64 %863
-  %865 = load ptr, ptr %864, align 8, !tbaa !359
-  %866 = icmp eq ptr %798, %865
-  br i1 %866, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i58.i, label %.lr.ph.i.i.i.i54.i, !prof !272
+858:                                              ; preds = %850
+  %859 = ptrtoint ptr %799 to i64
+  %860 = trunc i64 %859 to i32
+  %861 = lshr i32 %860, 4
+  %862 = lshr i32 %860, 9
+  %863 = xor i32 %861, %862
+  %864 = add i32 %856, -1
+  %.01826.i.i.i.i53.i = and i32 %864, %863
+  %865 = zext nneg i32 %.01826.i.i.i.i53.i to i64
+  %866 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %855, i64 %865
+  %867 = load ptr, ptr %866, align 8, !tbaa !359
+  %868 = icmp eq ptr %799, %867
+  br i1 %868, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i58.i, label %.lr.ph.i.i.i.i54.i, !prof !272
 
-.lr.ph.i.i.i.i54.i:                               ; preds = %856, %869
-  %867 = phi ptr [ %874, %869 ], [ %865, %856 ]
-  %.01828.i.i.i.i55.i = phi i32 [ %.018.i.i.i.i57.i, %869 ], [ %.01826.i.i.i.i53.i, %856 ]
-  %.01627.i.i.i.i56.i = phi i32 [ %870, %869 ], [ 1, %856 ]
-  %868 = icmp eq ptr %867, inttoptr (i64 -4096 to ptr)
-  br i1 %868, label %.loopexit.i.i62.i, label %869, !prof !33
+.lr.ph.i.i.i.i54.i:                               ; preds = %858, %871
+  %869 = phi ptr [ %876, %871 ], [ %867, %858 ]
+  %.01828.i.i.i.i55.i = phi i32 [ %.018.i.i.i.i57.i, %871 ], [ %.01826.i.i.i.i53.i, %858 ]
+  %.01627.i.i.i.i56.i = phi i32 [ %872, %871 ], [ 1, %858 ]
+  %870 = icmp eq ptr %869, inttoptr (i64 -4096 to ptr)
+  br i1 %870, label %.loopexit.i.i62.i, label %871, !prof !33
 
-869:                                              ; preds = %.lr.ph.i.i.i.i54.i
-  %870 = add i32 %.01627.i.i.i.i56.i, 1
-  %871 = add i32 %.01627.i.i.i.i56.i, %.01828.i.i.i.i55.i
-  %.018.i.i.i.i57.i = and i32 %871, %862
-  %872 = zext i32 %.018.i.i.i.i57.i to i64
-  %873 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %853, i64 %872
-  %874 = load ptr, ptr %873, align 8, !tbaa !359
-  %875 = icmp eq ptr %798, %874
-  br i1 %875, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i58.i, label %.lr.ph.i.i.i.i54.i, !prof !273, !llvm.loop !415
+871:                                              ; preds = %.lr.ph.i.i.i.i54.i
+  %872 = add i32 %.01627.i.i.i.i56.i, 1
+  %873 = add i32 %.01627.i.i.i.i56.i, %.01828.i.i.i.i55.i
+  %.018.i.i.i.i57.i = and i32 %873, %864
+  %874 = zext i32 %.018.i.i.i.i57.i to i64
+  %875 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %855, i64 %874
+  %876 = load ptr, ptr %875, align 8, !tbaa !359
+  %877 = icmp eq ptr %799, %876
+  br i1 %877, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i58.i, label %.lr.ph.i.i.i.i54.i, !prof !273, !llvm.loop !415
 
-.loopexit.i.i62.i:                                ; preds = %.lr.ph.i.i.i.i54.i, %848
-  %876 = zext i32 %854 to i64
-  %877 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %853, i64 %876
+.loopexit.i.i62.i:                                ; preds = %.lr.ph.i.i.i.i54.i, %850
+  %878 = zext i32 %856 to i64
+  %879 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %855, i64 %878
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i58.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i58.i: ; preds = %869, %.loopexit.i.i62.i, %856
-  %.sroa.0.1.i.i59.i = phi ptr [ %877, %.loopexit.i.i62.i ], [ %864, %856 ], [ %873, %869 ]
-  %878 = zext i32 %854 to i64
-  %879 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %853, i64 %878
-  %880 = icmp eq ptr %.sroa.0.1.i.i59.i, %879
-  %881 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i59.i, i64 8
-  %.sink7.in.i60.i = select i1 %880, ptr %241, ptr %881
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i58.i: ; preds = %871, %.loopexit.i.i62.i, %858
+  %.sroa.0.1.i.i59.i = phi ptr [ %879, %.loopexit.i.i62.i ], [ %866, %858 ], [ %875, %871 ]
+  %880 = zext i32 %856 to i64
+  %881 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %855, i64 %880
+  %882 = icmp eq ptr %.sroa.0.1.i.i59.i, %881
+  %883 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i59.i, i64 8
+  %.sink7.in.i60.i = select i1 %882, ptr %241, ptr %883
   %.sink7.i61.i = load i32, ptr %.sink7.in.i60.i, align 8, !tbaa !53
-  %882 = load i32, ptr %241, align 8, !tbaa !26
-  %883 = icmp eq i32 %.sink7.i61.i, %882
-  br i1 %883, label %884, label %1151
+  %884 = load i32, ptr %241, align 8, !tbaa !26
+  %885 = icmp eq i32 %.sink7.i61.i, %884
+  br i1 %885, label %886, label %1153
 
-884:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i58.i
-  br i1 %.not583, label %1009, label %885
+886:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i58.i
+  br i1 %.not583, label %1011, label %887
 
-885:                                              ; preds = %884
+887:                                              ; preds = %886
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr nonnull @.str.51, i64 8)
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %762, ptr nonnull @.str.63, i64 10)
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %763, ptr nonnull @.str.64, i64 7)
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %763, ptr nonnull @.str.63, i64 10)
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %764, ptr nonnull @.str.64, i64 7)
   call void @llvm.experimental.noalias.scope.decl(metadata !416)
-  %.not.i.i180 = icmp eq ptr %837, null
-  store ptr %765, ptr %40, align 8, !tbaa !222, !alias.scope !416
-  br i1 %.not.i.i180, label %886, label %887
+  %.not.i.i180 = icmp eq ptr %839, null
+  store ptr %766, ptr %40, align 8, !tbaa !222, !alias.scope !416
+  br i1 %.not.i.i180, label %888, label %889
 
-886:                                              ; preds = %885
-  store i64 0, ptr %766, align 8, !tbaa !166, !alias.scope !416
-  store i8 0, ptr %765, align 8, !tbaa !220, !alias.scope !416
+888:                                              ; preds = %887
+  store i64 0, ptr %767, align 8, !tbaa !166, !alias.scope !416
+  store i8 0, ptr %766, align 8, !tbaa !220, !alias.scope !416
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i
 
-887:                                              ; preds = %885
-  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !416
-  store i64 %838, ptr %36, align 8, !tbaa !45, !noalias !416
-  %888 = icmp ugt i64 %838, 15
-  br i1 %888, label %889, label %._crit_edge.i.i.i.i
-
 889:                                              ; preds = %887
-  %890 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef 0) #26
-  store ptr %890, ptr %40, align 8, !tbaa !165, !alias.scope !416
-  %891 = load i64, ptr %36, align 8, !tbaa !45, !noalias !416
-  store i64 %891, ptr %765, align 8, !tbaa !220, !alias.scope !416
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !416
+  store i64 %840, ptr %36, align 8, !tbaa !45, !noalias !416
+  %890 = icmp ugt i64 %840, 15
+  br i1 %890, label %891, label %._crit_edge.i.i.i.i
+
+891:                                              ; preds = %889
+  %892 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef 0) #26
+  store ptr %892, ptr %40, align 8, !tbaa !165, !alias.scope !416
+  %893 = load i64, ptr %36, align 8, !tbaa !45, !noalias !416
+  store i64 %893, ptr %766, align 8, !tbaa !220, !alias.scope !416
   br label %._crit_edge.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %889, %887
-  %892 = phi ptr [ %890, %889 ], [ %765, %887 ]
-  switch i64 %838, label %895 [
-    i64 1, label %893
+._crit_edge.i.i.i.i:                              ; preds = %891, %889
+  %894 = phi ptr [ %892, %891 ], [ %766, %889 ]
+  switch i64 %840, label %897 [
+    i64 1, label %895
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
   ]
 
-893:                                              ; preds = %._crit_edge.i.i.i.i
-  %894 = load i8, ptr %837, align 1, !tbaa !220
-  store i8 %894, ptr %892, align 1, !tbaa !220
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
-
 895:                                              ; preds = %._crit_edge.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %892, ptr nonnull align 1 %837, i64 %838, i1 false)
+  %896 = load i8, ptr %839, align 1, !tbaa !220
+  store i8 %896, ptr %894, align 1, !tbaa !220
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i: ; preds = %895, %893, %._crit_edge.i.i.i.i
-  %896 = load i64, ptr %36, align 8, !tbaa !45, !noalias !416
-  store i64 %896, ptr %766, align 8, !tbaa !166, !alias.scope !416
-  %897 = load ptr, ptr %40, align 8, !tbaa !165, !alias.scope !416
-  %898 = getelementptr inbounds nuw i8, ptr %897, i64 %896
-  store i8 0, ptr %898, align 1, !tbaa !220
+897:                                              ; preds = %._crit_edge.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %894, ptr nonnull align 1 %839, i64 %840, i1 false)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i: ; preds = %897, %895, %._crit_edge.i.i.i.i
+  %898 = load i64, ptr %36, align 8, !tbaa !45, !noalias !416
+  store i64 %898, ptr %767, align 8, !tbaa !166, !alias.scope !416
+  %899 = load ptr, ptr %40, align 8, !tbaa !165, !alias.scope !416
+  %900 = getelementptr inbounds nuw i8, ptr %899, i64 %898
+  store i8 0, ptr %900, align 1, !tbaa !220
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !416
   %.pre58.i = load ptr, ptr %40, align 8, !tbaa !165
-  %.pre59.i = load i64, ptr %766, align 8, !tbaa !166
+  %.pre59.i = load i64, ptr %767, align 8, !tbaa !166
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i
 
-_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i:          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i, %886
-  %899 = phi i64 [ 0, %886 ], [ %.pre59.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i ]
-  %900 = phi ptr [ %765, %886 ], [ %.pre58.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i ]
-  store i16 6, ptr %764, align 8, !tbaa !397
-  %901 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %900, i64 %899, ptr noundef null) #26
-  br i1 %901, label %912, label %902, !prof !33
+_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i:          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i, %888
+  %901 = phi i64 [ 0, %888 ], [ %.pre59.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i ]
+  %902 = phi ptr [ %766, %888 ], [ %.pre58.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i ]
+  store i16 6, ptr %765, align 8, !tbaa !397
+  %903 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %902, i64 %901, ptr noundef null) #26
+  br i1 %903, label %914, label %904, !prof !33
 
-902:                                              ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i
+904:                                              ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %903 = load ptr, ptr %40, align 8, !tbaa !165
-  %904 = load i64, ptr %766, align 8, !tbaa !166
-  call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, ptr %903, i64 %904) #26
-  %905 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %35) #26
-  %906 = load ptr, ptr %35, align 8, !tbaa !165
-  %907 = icmp eq ptr %906, %767
-  br i1 %907, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+  %905 = load ptr, ptr %40, align 8, !tbaa !165
+  %906 = load i64, ptr %767, align 8, !tbaa !166
+  call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, ptr %905, i64 %906) #26
+  %907 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %35) #26
+  %908 = load ptr, ptr %35, align 8, !tbaa !165
+  %909 = icmp eq ptr %908, %768
+  br i1 %909, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %902
-  %908 = load i64, ptr %768, align 8, !tbaa !166
-  %909 = icmp ult i64 %908, 16
-  call void @llvm.assume(i1 %909)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %904
+  %910 = load i64, ptr %769, align 8, !tbaa !166
+  %911 = icmp ult i64 %910, 16
+  call void @llvm.assume(i1 %911)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %902
-  %910 = load i64, ptr %767, align 8, !tbaa !220
-  %911 = add i64 %910, 1
-  call void @_ZdlPvm(ptr noundef %906, i64 noundef %911) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %904
+  %912 = load i64, ptr %768, align 8, !tbaa !220
+  %913 = add i64 %912, 1
+  call void @_ZdlPvm(ptr noundef %908, i64 noundef %913) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br label %912
+  br label %914
 
-912:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i
-  store ptr %770, ptr %769, align 8, !tbaa !222
-  %913 = load ptr, ptr %40, align 8, !tbaa !165
-  %914 = icmp eq ptr %913, %765
-  br i1 %914, label %915, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i
+914:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i
+  store ptr %771, ptr %770, align 8, !tbaa !222
+  %915 = load ptr, ptr %40, align 8, !tbaa !165
+  %916 = icmp eq ptr %915, %766
+  br i1 %916, label %917, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i
 
-915:                                              ; preds = %912
-  %916 = load i64, ptr %766, align 8, !tbaa !166
-  %917 = icmp ult i64 %916, 16
-  call void @llvm.assume(i1 %917)
-  %918 = add nuw nsw i64 %916, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %770, ptr noundef nonnull align 8 dereferenceable(1) %765, i64 %918, i1 false)
+917:                                              ; preds = %914
+  %918 = load i64, ptr %767, align 8, !tbaa !166
+  %919 = icmp ult i64 %918, 16
+  call void @llvm.assume(i1 %919)
+  %920 = add nuw nsw i64 %918, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %771, ptr noundef nonnull align 8 dereferenceable(1) %766, i64 %920, i1 false)
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i: ; preds = %912
-  store ptr %913, ptr %769, align 8, !tbaa !165
-  %919 = load i64, ptr %765, align 8, !tbaa !220
-  store i64 %919, ptr %770, align 8, !tbaa !220
-  %.pre60.i = load i64, ptr %766, align 8, !tbaa !166
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i: ; preds = %914
+  store ptr %915, ptr %770, align 8, !tbaa !165
+  %921 = load i64, ptr %766, align 8, !tbaa !220
+  store i64 %921, ptr %771, align 8, !tbaa !220
+  %.pre60.i = load i64, ptr %767, align 8, !tbaa !166
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 
-_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i, %915
-  %920 = phi i64 [ %916, %915 ], [ %.pre60.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i ]
-  store i64 %920, ptr %771, align 8, !tbaa !166
-  store ptr %765, ptr %40, align 8, !tbaa !165
-  store i64 0, ptr %766, align 8, !tbaa !166
-  store i8 0, ptr %765, align 8, !tbaa !220
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %772, ptr nonnull @.str.65, i64 7)
+_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i, %917
+  %922 = phi i64 [ %918, %917 ], [ %.pre60.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i ]
+  store i64 %922, ptr %772, align 8, !tbaa !166
+  store ptr %766, ptr %40, align 8, !tbaa !165
+  store i64 0, ptr %767, align 8, !tbaa !166
+  store i8 0, ptr %766, align 8, !tbaa !220
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %773, ptr nonnull @.str.65, i64 7)
   call void @llvm.experimental.noalias.scope.decl(metadata !419)
   %.not.i63.i = icmp eq ptr %.sroa.0.0.i, null
-  store ptr %774, ptr %41, align 8, !tbaa !222, !alias.scope !419
-  br i1 %.not.i63.i, label %921, label %922
+  store ptr %775, ptr %41, align 8, !tbaa !222, !alias.scope !419
+  br i1 %.not.i63.i, label %923, label %924
 
-921:                                              ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
-  store i64 0, ptr %775, align 8, !tbaa !166, !alias.scope !419
-  store i8 0, ptr %774, align 8, !tbaa !220, !alias.scope !419
+923:                                              ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
+  store i64 0, ptr %776, align 8, !tbaa !166, !alias.scope !419
+  store i8 0, ptr %775, align 8, !tbaa !220, !alias.scope !419
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit66.i
 
-922:                                              ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
+924:                                              ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !419
   store i64 %.sroa.8.0.i, ptr %34, align 8, !tbaa !45, !noalias !419
-  %923 = icmp ugt i64 %.sroa.8.0.i, 15
-  br i1 %923, label %924, label %._crit_edge.i.i.i64.i
+  %925 = icmp ugt i64 %.sroa.8.0.i, 15
+  br i1 %925, label %926, label %._crit_edge.i.i.i64.i
 
-924:                                              ; preds = %922
-  %925 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(8) %34, i64 noundef 0) #26
-  store ptr %925, ptr %41, align 8, !tbaa !165, !alias.scope !419
-  %926 = load i64, ptr %34, align 8, !tbaa !45, !noalias !419
-  store i64 %926, ptr %774, align 8, !tbaa !220, !alias.scope !419
+926:                                              ; preds = %924
+  %927 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(8) %34, i64 noundef 0) #26
+  store ptr %927, ptr %41, align 8, !tbaa !165, !alias.scope !419
+  %928 = load i64, ptr %34, align 8, !tbaa !45, !noalias !419
+  store i64 %928, ptr %775, align 8, !tbaa !220, !alias.scope !419
   br label %._crit_edge.i.i.i64.i
 
-._crit_edge.i.i.i64.i:                            ; preds = %924, %922
-  %927 = phi ptr [ %925, %924 ], [ %774, %922 ]
-  switch i64 %.sroa.8.0.i, label %930 [
-    i64 1, label %928
+._crit_edge.i.i.i64.i:                            ; preds = %926, %924
+  %929 = phi ptr [ %927, %926 ], [ %775, %924 ]
+  switch i64 %.sroa.8.0.i, label %932 [
+    i64 1, label %930
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i
   ]
 
-928:                                              ; preds = %._crit_edge.i.i.i64.i
-  %929 = load i8, ptr %.sroa.0.0.i, align 1, !tbaa !220
-  store i8 %929, ptr %927, align 1, !tbaa !220
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i
-
 930:                                              ; preds = %._crit_edge.i.i.i64.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %927, ptr nonnull align 1 %.sroa.0.0.i, i64 %.sroa.8.0.i, i1 false)
+  %931 = load i8, ptr %.sroa.0.0.i, align 1, !tbaa !220
+  store i8 %931, ptr %929, align 1, !tbaa !220
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i: ; preds = %930, %928, %._crit_edge.i.i.i64.i
-  %931 = load i64, ptr %34, align 8, !tbaa !45, !noalias !419
-  store i64 %931, ptr %775, align 8, !tbaa !166, !alias.scope !419
-  %932 = load ptr, ptr %41, align 8, !tbaa !165, !alias.scope !419
-  %933 = getelementptr inbounds nuw i8, ptr %932, i64 %931
-  store i8 0, ptr %933, align 1, !tbaa !220
+932:                                              ; preds = %._crit_edge.i.i.i64.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %929, ptr nonnull align 1 %.sroa.0.0.i, i64 %.sroa.8.0.i, i1 false)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i: ; preds = %932, %930, %._crit_edge.i.i.i64.i
+  %933 = load i64, ptr %34, align 8, !tbaa !45, !noalias !419
+  store i64 %933, ptr %776, align 8, !tbaa !166, !alias.scope !419
+  %934 = load ptr, ptr %41, align 8, !tbaa !165, !alias.scope !419
+  %935 = getelementptr inbounds nuw i8, ptr %934, i64 %933
+  store i8 0, ptr %935, align 1, !tbaa !220
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !419
   %.pre61.i = load ptr, ptr %41, align 8, !tbaa !165
-  %.pre62.i = load i64, ptr %775, align 8, !tbaa !166
+  %.pre62.i = load i64, ptr %776, align 8, !tbaa !166
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit66.i
 
-_ZNK4llvm9StringRef3strB5cxx11Ev.exit66.i:        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i, %921
-  %934 = phi i64 [ 0, %921 ], [ %.pre62.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i ]
-  %935 = phi ptr [ %774, %921 ], [ %.pre61.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i ]
-  store i16 6, ptr %773, align 8, !tbaa !397
-  %936 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %935, i64 %934, ptr noundef null) #26
-  br i1 %936, label %947, label %937, !prof !33
+_ZNK4llvm9StringRef3strB5cxx11Ev.exit66.i:        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i, %923
+  %936 = phi i64 [ 0, %923 ], [ %.pre62.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i ]
+  %937 = phi ptr [ %775, %923 ], [ %.pre61.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i65.i ]
+  store i16 6, ptr %774, align 8, !tbaa !397
+  %938 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %937, i64 %936, ptr noundef null) #26
+  br i1 %938, label %949, label %939, !prof !33
 
-937:                                              ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit66.i
+939:                                              ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit66.i
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %938 = load ptr, ptr %41, align 8, !tbaa !165
-  %939 = load i64, ptr %775, align 8, !tbaa !166
-  call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %33, ptr %938, i64 %939) #26
-  %940 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %33) #26
-  %941 = load ptr, ptr %33, align 8, !tbaa !165
-  %942 = icmp eq ptr %941, %776
-  br i1 %942, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i70.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67.i
+  %940 = load ptr, ptr %41, align 8, !tbaa !165
+  %941 = load i64, ptr %776, align 8, !tbaa !166
+  call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %33, ptr %940, i64 %941) #26
+  %942 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %33) #26
+  %943 = load ptr, ptr %33, align 8, !tbaa !165
+  %944 = icmp eq ptr %943, %777
+  br i1 %944, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i70.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i70.i: ; preds = %937
-  %943 = load i64, ptr %777, align 8, !tbaa !166
-  %944 = icmp ult i64 %943, 16
-  call void @llvm.assume(i1 %944)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i70.i: ; preds = %939
+  %945 = load i64, ptr %778, align 8, !tbaa !166
+  %946 = icmp ult i64 %945, 16
+  call void @llvm.assume(i1 %946)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i68.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67.i: ; preds = %937
-  %945 = load i64, ptr %776, align 8, !tbaa !220
-  %946 = add i64 %945, 1
-  call void @_ZdlPvm(ptr noundef %941, i64 noundef %946) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67.i: ; preds = %939
+  %947 = load i64, ptr %777, align 8, !tbaa !220
+  %948 = add i64 %947, 1
+  call void @_ZdlPvm(ptr noundef %943, i64 noundef %948) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i68.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i68.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i70.i
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  br label %947
+  br label %949
 
-947:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i68.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit66.i
-  store ptr %779, ptr %778, align 8, !tbaa !222
-  %948 = load ptr, ptr %41, align 8, !tbaa !165
-  %949 = icmp eq ptr %948, %774
-  br i1 %949, label %950, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i69.i
+949:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i68.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit66.i
+  store ptr %780, ptr %779, align 8, !tbaa !222
+  %950 = load ptr, ptr %41, align 8, !tbaa !165
+  %951 = icmp eq ptr %950, %775
+  br i1 %951, label %952, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i69.i
 
-950:                                              ; preds = %947
-  %951 = load i64, ptr %775, align 8, !tbaa !166
-  %952 = icmp ult i64 %951, 16
-  call void @llvm.assume(i1 %952)
-  %953 = add nuw nsw i64 %951, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %779, ptr noundef nonnull align 8 dereferenceable(1) %774, i64 %953, i1 false)
+952:                                              ; preds = %949
+  %953 = load i64, ptr %776, align 8, !tbaa !166
+  %954 = icmp ult i64 %953, 16
+  call void @llvm.assume(i1 %954)
+  %955 = add nuw nsw i64 %953, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %780, ptr noundef nonnull align 8 dereferenceable(1) %775, i64 %955, i1 false)
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i69.i: ; preds = %947
-  store ptr %948, ptr %778, align 8, !tbaa !165
-  %954 = load i64, ptr %774, align 8, !tbaa !220
-  store i64 %954, ptr %779, align 8, !tbaa !220
-  %.pre63.i = load i64, ptr %775, align 8, !tbaa !166
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i69.i: ; preds = %949
+  store ptr %950, ptr %779, align 8, !tbaa !165
+  %956 = load i64, ptr %775, align 8, !tbaa !220
+  store i64 %956, ptr %780, align 8, !tbaa !220
+  %.pre63.i = load i64, ptr %776, align 8, !tbaa !166
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71.i
 
-_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i69.i, %950
-  %955 = phi i64 [ %951, %950 ], [ %.pre63.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i69.i ]
-  store i64 %955, ptr %780, align 8, !tbaa !166
-  store ptr %774, ptr %41, align 8, !tbaa !165
-  store i64 0, ptr %775, align 8, !tbaa !166
-  store i8 0, ptr %774, align 8, !tbaa !220
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %781, ptr nonnull @.str.66, i64 5)
-  %.not.i.i.i181 = icmp eq ptr %852, null
-  br i1 %.not.i.i.i181, label %_ZN4llvm4json5ValueC2EPKc.exit.i, label %956
+_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i69.i, %952
+  %957 = phi i64 [ %953, %952 ], [ %.pre63.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i69.i ]
+  store i64 %957, ptr %781, align 8, !tbaa !166
+  store ptr %775, ptr %41, align 8, !tbaa !165
+  store i64 0, ptr %776, align 8, !tbaa !166
+  store i8 0, ptr %775, align 8, !tbaa !220
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %782, ptr nonnull @.str.66, i64 5)
+  %.not.i.i.i181 = icmp eq ptr %854, null
+  br i1 %.not.i.i.i181, label %_ZN4llvm4json5ValueC2EPKc.exit.i, label %958
 
-956:                                              ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71.i
-  %957 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %852) #26
+958:                                              ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71.i
+  %959 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %854) #26
   br label %_ZN4llvm4json5ValueC2EPKc.exit.i
 
-_ZN4llvm4json5ValueC2EPKc.exit.i:                 ; preds = %956, %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71.i
-  %958 = phi i64 [ %957, %956 ], [ 0, %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71.i ]
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %782, ptr %852, i64 %958)
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %783, ptr nonnull @.str.54, i64 6)
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %784, ptr nonnull @.str.55, i64 12)
+_ZN4llvm4json5ValueC2EPKc.exit.i:                 ; preds = %958, %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71.i
+  %960 = phi i64 [ %959, %958 ], [ 0, %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71.i ]
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %783, ptr %854, i64 %960)
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %784, ptr nonnull @.str.54, i64 6)
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %785, ptr nonnull @.str.55, i64 12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 20, i1 false)
   br label %.lr.ph.i.i182
 
-.lr.ph.i.i182:                                    ; preds = %966, %_ZN4llvm4json5ValueC2EPKc.exit.i
-  %.015.i.idx.i183 = phi i64 [ %.015.i.add.i185, %966 ], [ 0, %_ZN4llvm4json5ValueC2EPKc.exit.i ]
+.lr.ph.i.i182:                                    ; preds = %968, %_ZN4llvm4json5ValueC2EPKc.exit.i
+  %.015.i.idx.i183 = phi i64 [ %.015.i.add.i185, %968 ], [ 0, %_ZN4llvm4json5ValueC2EPKc.exit.i ]
   %.015.i.ptr.i184 = getelementptr inbounds nuw i8, ptr %39, i64 %.015.i.idx.i183
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !422
-  %959 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.i184, ptr noundef nonnull align 8 dereferenceable(8) %32), !noalias !422
-  br i1 %959, label %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i.i194, label %960
+  %961 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.i184, ptr noundef nonnull align 8 dereferenceable(8) %32), !noalias !422
+  br i1 %961, label %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i.i194, label %962
 
 _ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i.i194: ; preds = %.lr.ph.i.i182
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !422
-  br label %966
+  br label %968
 
-960:                                              ; preds = %.lr.ph.i.i182
-  %961 = load ptr, ptr %32, align 8, !tbaa !395, !noalias !422
-  %962 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E20InsertIntoBucketImplIS3_EEPSA_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.i184, ptr noundef %961), !noalias !422
-  %963 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm4json9ObjectKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %962, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.i184), !noalias !422
-  %964 = getelementptr inbounds nuw i8, ptr %962, i64 24
-  store i16 0, ptr %964, align 8, !tbaa !397, !noalias !422
+962:                                              ; preds = %.lr.ph.i.i182
+  %963 = load ptr, ptr %32, align 8, !tbaa !395, !noalias !422
+  %964 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E20InsertIntoBucketImplIS3_EEPSA_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.i184, ptr noundef %963), !noalias !422
+  %965 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm4json9ObjectKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %964, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.i184), !noalias !422
+  %966 = getelementptr inbounds nuw i8, ptr %964, i64 24
+  store i16 0, ptr %966, align 8, !tbaa !397, !noalias !422
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !422
-  %965 = getelementptr inbounds nuw i8, ptr %.015.i.ptr.i184, i64 24
-  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %964, ptr noundef nonnull align 8 dereferenceable(40) %965) #26
-  br label %966
+  %967 = getelementptr inbounds nuw i8, ptr %.015.i.ptr.i184, i64 24
+  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %966, ptr noundef nonnull align 8 dereferenceable(40) %967) #26
+  br label %968
 
-966:                                              ; preds = %960, %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i.i194
+968:                                              ; preds = %962, %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i.i194
   %.015.i.add.i185 = add nuw nsw i64 %.015.i.idx.i183, 64
   %.not.i72.i186 = icmp eq i64 %.015.i.add.i185, 320
   br i1 %.not.i72.i186, label %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.i187, label %.lr.ph.i.i182
 
-_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.i187: ; preds = %966
+_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.i187: ; preds = %968
   store i16 7, ptr %37, align 8, !tbaa !397
-  %967 = load ptr, ptr %38, align 8, !tbaa !395
-  store ptr %967, ptr %786, align 8, !tbaa !395
+  %969 = load ptr, ptr %38, align 8, !tbaa !395
+  store ptr %969, ptr %787, align 8, !tbaa !395
   store ptr null, ptr %38, align 8, !tbaa !395
-  %968 = load i32, ptr %788, align 8, !tbaa !53
-  store i32 %968, ptr %787, align 8, !tbaa !53
-  store i32 0, ptr %788, align 8, !tbaa !53
-  %969 = load i32, ptr %790, align 4, !tbaa !53
-  store i32 %969, ptr %789, align 4, !tbaa !53
-  store i32 0, ptr %790, align 4, !tbaa !53
-  %970 = load i32, ptr %792, align 8, !tbaa !53
-  store i32 %970, ptr %791, align 8, !tbaa !53
-  store i32 0, ptr %792, align 8, !tbaa !53
-  %971 = load ptr, ptr %760, align 8, !tbaa !401
-  %972 = load ptr, ptr %761, align 8, !tbaa !404
-  %.not.i.i.i.i188 = icmp eq ptr %971, %972
-  br i1 %.not.i.i.i.i188, label %976, label %973
+  %970 = load i32, ptr %789, align 8, !tbaa !53
+  store i32 %970, ptr %788, align 8, !tbaa !53
+  store i32 0, ptr %789, align 8, !tbaa !53
+  %971 = load i32, ptr %791, align 4, !tbaa !53
+  store i32 %971, ptr %790, align 4, !tbaa !53
+  store i32 0, ptr %791, align 4, !tbaa !53
+  %972 = load i32, ptr %793, align 8, !tbaa !53
+  store i32 %972, ptr %792, align 8, !tbaa !53
+  store i32 0, ptr %793, align 8, !tbaa !53
+  %973 = load ptr, ptr %761, align 8, !tbaa !401
+  %974 = load ptr, ptr %762, align 8, !tbaa !404
+  %.not.i.i.i.i188 = icmp eq ptr %973, %974
+  br i1 %.not.i.i.i.i188, label %978, label %975
 
-973:                                              ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.i187
-  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %971, ptr noundef nonnull align 8 dereferenceable(40) %37) #26
-  %974 = load ptr, ptr %760, align 8, !tbaa !401
-  %975 = getelementptr inbounds nuw i8, ptr %974, i64 40
-  store ptr %975, ptr %760, align 8, !tbaa !401
+975:                                              ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.i187
+  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %973, ptr noundef nonnull align 8 dereferenceable(40) %37) #26
+  %976 = load ptr, ptr %761, align 8, !tbaa !401
+  %977 = getelementptr inbounds nuw i8, ptr %976, i64 40
+  store ptr %977, ptr %761, align 8, !tbaa !401
   br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.i189
 
-976:                                              ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.i187
-  call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr %971, ptr noundef nonnull align 8 dereferenceable(40) %37)
+978:                                              ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.i187
+  call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr %973, ptr noundef nonnull align 8 dereferenceable(40) %37)
   br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.i189
 
-_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.i189: ; preds = %976, %973
+_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.i189: ; preds = %978, %975
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %37) #26
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %38)
-  %977 = load ptr, ptr %38, align 8, !tbaa !405
-  %978 = load i32, ptr %792, align 8, !tbaa !407
-  %979 = zext i32 %978 to i64
-  %980 = shl nuw nsw i64 %979, 6
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %977, i64 noundef %980, i64 noundef 8) #26
-  br label %981
+  %979 = load ptr, ptr %38, align 8, !tbaa !405
+  %980 = load i32, ptr %793, align 8, !tbaa !407
+  %981 = zext i32 %980 to i64
+  %982 = shl nuw nsw i64 %981, 6
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %979, i64 noundef %982, i64 noundef 8) #26
+  br label %983
 
-981:                                              ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit.i192, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.i189
-  %982 = phi ptr [ %785, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.i189 ], [ %983, %_ZN4llvm4json6Object2KVD2Ev.exit.i192 ]
-  %983 = getelementptr inbounds i8, ptr %982, i64 -64
-  %984 = getelementptr inbounds i8, ptr %982, i64 -40
-  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %984) #26
-  %985 = load ptr, ptr %983, align 8, !tbaa !408
-  %.not.i.i.i73.i = icmp eq ptr %985, null
-  br i1 %.not.i.i.i73.i, label %_ZN4llvm4json6Object2KVD2Ev.exit.i192, label %986
+983:                                              ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit.i192, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.i189
+  %984 = phi ptr [ %786, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.i189 ], [ %985, %_ZN4llvm4json6Object2KVD2Ev.exit.i192 ]
+  %985 = getelementptr inbounds i8, ptr %984, i64 -64
+  %986 = getelementptr inbounds i8, ptr %984, i64 -40
+  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %986) #26
+  %987 = load ptr, ptr %985, align 8, !tbaa !408
+  %.not.i.i.i73.i = icmp eq ptr %987, null
+  br i1 %.not.i.i.i73.i, label %_ZN4llvm4json6Object2KVD2Ev.exit.i192, label %988
 
-986:                                              ; preds = %981
-  %987 = load ptr, ptr %985, align 8, !tbaa !165
-  %988 = getelementptr inbounds nuw i8, ptr %985, i64 16
-  %989 = icmp eq ptr %987, %988
-  br i1 %989, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i193, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i190
+988:                                              ; preds = %983
+  %989 = load ptr, ptr %987, align 8, !tbaa !165
+  %990 = getelementptr inbounds nuw i8, ptr %987, i64 16
+  %991 = icmp eq ptr %989, %990
+  br i1 %991, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i193, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i190
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i193: ; preds = %986
-  %990 = getelementptr inbounds nuw i8, ptr %985, i64 8
-  %991 = load i64, ptr %990, align 8, !tbaa !166
-  %992 = icmp ult i64 %991, 16
-  call void @llvm.assume(i1 %992)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i193: ; preds = %988
+  %992 = getelementptr inbounds nuw i8, ptr %987, i64 8
+  %993 = load i64, ptr %992, align 8, !tbaa !166
+  %994 = icmp ult i64 %993, 16
+  call void @llvm.assume(i1 %994)
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i191
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i190: ; preds = %986
-  %993 = load i64, ptr %988, align 8, !tbaa !220
-  %994 = add i64 %993, 1
-  call void @_ZdlPvm(ptr noundef %987, i64 noundef %994) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i190: ; preds = %988
+  %995 = load i64, ptr %990, align 8, !tbaa !220
+  %996 = add i64 %995, 1
+  call void @_ZdlPvm(ptr noundef %989, i64 noundef %996) #27
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i191
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i191: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i190, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i193
-  call void @_ZdlPvm(ptr noundef nonnull %985, i64 noundef 32) #27
+  call void @_ZdlPvm(ptr noundef nonnull %987, i64 noundef 32) #27
   br label %_ZN4llvm4json6Object2KVD2Ev.exit.i192
 
-_ZN4llvm4json6Object2KVD2Ev.exit.i192:            ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i191, %981
-  store ptr null, ptr %983, align 8, !tbaa !408
-  %995 = icmp eq ptr %983, %39
-  br i1 %995, label %996, label %981
+_ZN4llvm4json6Object2KVD2Ev.exit.i192:            ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i191, %983
+  store ptr null, ptr %985, align 8, !tbaa !408
+  %997 = icmp eq ptr %985, %39
+  br i1 %997, label %998, label %983
 
-996:                                              ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit.i192
-  %997 = load ptr, ptr %41, align 8, !tbaa !165
-  %998 = icmp eq ptr %997, %774
-  br i1 %998, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+998:                                              ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit.i192
+  %999 = load ptr, ptr %41, align 8, !tbaa !165
+  %1000 = icmp eq ptr %999, %775
+  br i1 %1000, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %996
-  %999 = load i64, ptr %775, align 8, !tbaa !166
-  %1000 = icmp ult i64 %999, 16
-  call void @llvm.assume(i1 %1000)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %998
+  %1001 = load i64, ptr %776, align 8, !tbaa !166
+  %1002 = icmp ult i64 %1001, 16
+  call void @llvm.assume(i1 %1002)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %996
-  %1001 = load i64, ptr %774, align 8, !tbaa !220
-  %1002 = add i64 %1001, 1
-  call void @_ZdlPvm(ptr noundef %997, i64 noundef %1002) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %998
+  %1003 = load i64, ptr %775, align 8, !tbaa !220
+  %1004 = add i64 %1003, 1
+  call void @_ZdlPvm(ptr noundef %999, i64 noundef %1004) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %1003 = load ptr, ptr %40, align 8, !tbaa !165
-  %1004 = icmp eq ptr %1003, %765
-  br i1 %1004, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74.i
+  %1005 = load ptr, ptr %40, align 8, !tbaa !165
+  %1006 = icmp eq ptr %1005, %766
+  br i1 %1006, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %1005 = load i64, ptr %766, align 8, !tbaa !166
-  %1006 = icmp ult i64 %1005, 16
-  call void @llvm.assume(i1 %1006)
+  %1007 = load i64, ptr %767, align 8, !tbaa !166
+  %1008 = icmp ult i64 %1007, 16
+  call void @llvm.assume(i1 %1008)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %1007 = load i64, ptr %765, align 8, !tbaa !220
-  %1008 = add i64 %1007, 1
-  call void @_ZdlPvm(ptr noundef %1003, i64 noundef %1008) #27
+  %1009 = load i64, ptr %766, align 8, !tbaa !220
+  %1010 = add i64 %1009, 1
+  call void @_ZdlPvm(ptr noundef %1005, i64 noundef %1010) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75.i
@@ -5654,671 +5660,672 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i
 
-1009:                                             ; preds = %884
-  %1010 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_15QuietE, i64 120), align 8, !tbaa !34, !range !46, !noundef !47
-  %1011 = trunc nuw i8 %1010 to i1
-  br i1 %1011, label %1012, label %1014
+1011:                                             ; preds = %886
+  %1012 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_15QuietE, i64 120), align 8, !tbaa !34, !range !46, !noundef !47
+  %1013 = trunc nuw i8 %1012 to i1
+  br i1 %1013, label %1014, label %1016
 
-1012:                                             ; preds = %1009
-  %1013 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
+1014:                                             ; preds = %1011
+  %1015 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
   br label %_ZN12_GLOBAL__N_13dbgEv.exit.i175
 
-1014:                                             ; preds = %1009
-  %1015 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
+1016:                                             ; preds = %1011
+  %1017 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
   br label %_ZN12_GLOBAL__N_13dbgEv.exit.i175
 
-_ZN12_GLOBAL__N_13dbgEv.exit.i175:                ; preds = %1014, %1012
-  %1016 = phi ptr [ %1013, %1012 ], [ %1015, %1014 ]
-  %1017 = getelementptr inbounds nuw i8, ptr %1016, i64 24
-  %1018 = load ptr, ptr %1017, align 8, !tbaa !61
-  %1019 = getelementptr inbounds nuw i8, ptr %1016, i64 32
-  %1020 = load ptr, ptr %1019, align 8, !tbaa !65
-  %1021 = ptrtoint ptr %1018 to i64
-  %1022 = ptrtoint ptr %1020 to i64
-  %1023 = sub i64 %1021, %1022
-  %1024 = icmp ult i64 %1023, 9
-  br i1 %1024, label %1025, label %1027
+_ZN12_GLOBAL__N_13dbgEv.exit.i175:                ; preds = %1016, %1014
+  %1018 = phi ptr [ %1015, %1014 ], [ %1017, %1016 ]
+  %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 24
+  %1020 = load ptr, ptr %1019, align 8, !tbaa !61
+  %1021 = getelementptr inbounds nuw i8, ptr %1018, i64 32
+  %1022 = load ptr, ptr %1021, align 8, !tbaa !65
+  %1023 = ptrtoint ptr %1020 to i64
+  %1024 = ptrtoint ptr %1022 to i64
+  %1025 = sub i64 %1023, %1024
+  %1026 = icmp ult i64 %1025, 9
+  br i1 %1026, label %1027, label %1029
 
-1025:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit.i175
-  %1026 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1016, ptr noundef nonnull @.str.67, i64 noundef 9) #26
-  %.phi.trans.insert42.i = getelementptr inbounds nuw i8, ptr %1026, i64 32
+1027:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit.i175
+  %1028 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1018, ptr noundef nonnull @.str.67, i64 noundef 9) #26
+  %.phi.trans.insert42.i = getelementptr inbounds nuw i8, ptr %1028, i64 32
   %.pre43.i = load ptr, ptr %.phi.trans.insert42.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i176
 
-1027:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit.i175
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1020, ptr noundef nonnull align 1 dereferenceable(9) @.str.67, i64 9, i1 false)
-  %1028 = load ptr, ptr %1019, align 8, !tbaa !65
-  %1029 = getelementptr inbounds nuw i8, ptr %1028, i64 9
-  store ptr %1029, ptr %1019, align 8, !tbaa !65
+1029:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit.i175
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1022, ptr noundef nonnull align 1 dereferenceable(9) @.str.67, i64 9, i1 false)
+  %1030 = load ptr, ptr %1021, align 8, !tbaa !65
+  %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 9
+  store ptr %1031, ptr %1021, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i176
 
-_ZN4llvm11raw_ostreamlsEPKc.exit.i176:            ; preds = %1027, %1025
-  %1030 = phi ptr [ %.pre43.i, %1025 ], [ %1029, %1027 ]
-  %.0.i.i.i177 = phi ptr [ %1026, %1025 ], [ %1016, %1027 ]
-  %1031 = getelementptr inbounds nuw i8, ptr %.0.i.i.i177, i64 24
-  %1032 = load ptr, ptr %1031, align 8, !tbaa !61
-  %1033 = getelementptr inbounds nuw i8, ptr %.0.i.i.i177, i64 32
-  %1034 = ptrtoint ptr %1032 to i64
-  %1035 = ptrtoint ptr %1030 to i64
-  %1036 = sub i64 %1034, %1035
-  %1037 = icmp ugt i64 %.sroa.226.0.copyload, %1036
-  br i1 %1037, label %1038, label %1040
+_ZN4llvm11raw_ostreamlsEPKc.exit.i176:            ; preds = %1029, %1027
+  %1032 = phi ptr [ %.pre43.i, %1027 ], [ %1031, %1029 ]
+  %.0.i.i.i177 = phi ptr [ %1028, %1027 ], [ %1018, %1029 ]
+  %1033 = getelementptr inbounds nuw i8, ptr %.0.i.i.i177, i64 24
+  %1034 = load ptr, ptr %1033, align 8, !tbaa !61
+  %1035 = getelementptr inbounds nuw i8, ptr %.0.i.i.i177, i64 32
+  %1036 = ptrtoint ptr %1034 to i64
+  %1037 = ptrtoint ptr %1032 to i64
+  %1038 = sub i64 %1036, %1037
+  %1039 = icmp ugt i64 %.sroa.226.0.copyload, %1038
+  br i1 %1039, label %1040, label %1042
 
-1038:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i176
-  %1039 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i177, ptr noundef %.sroa.025.0.copyload, i64 noundef %.sroa.226.0.copyload) #26
-  %.phi.trans.insert44.i = getelementptr inbounds nuw i8, ptr %1039, i64 32
+1040:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i176
+  %1041 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i177, ptr noundef %.sroa.025.0.copyload, i64 noundef %.sroa.226.0.copyload) #26
+  %.phi.trans.insert44.i = getelementptr inbounds nuw i8, ptr %1041, i64 32
   %.pre45.i = load ptr, ptr %.phi.trans.insert44.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i178
 
-1040:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i176
-  br i1 %.not.i144.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i178, label %1041
+1042:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i176
+  br i1 %.not.i144.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i178, label %1043
 
-1041:                                             ; preds = %1040
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1030, ptr align 1 %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload, i1 false)
-  %1042 = load ptr, ptr %1033, align 8, !tbaa !65
-  %1043 = getelementptr inbounds nuw i8, ptr %1042, i64 %.sroa.226.0.copyload
-  store ptr %1043, ptr %1033, align 8, !tbaa !65
+1043:                                             ; preds = %1042
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1032, ptr align 1 %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload, i1 false)
+  %1044 = load ptr, ptr %1035, align 8, !tbaa !65
+  %1045 = getelementptr inbounds nuw i8, ptr %1044, i64 %.sroa.226.0.copyload
+  store ptr %1045, ptr %1035, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i178
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i178: ; preds = %1041, %1040, %1038
-  %1044 = phi ptr [ %.pre45.i, %1038 ], [ %1043, %1041 ], [ %1030, %1040 ]
-  %.0.i.i179 = phi ptr [ %1039, %1038 ], [ %.0.i.i.i177, %1041 ], [ %.0.i.i.i177, %1040 ]
-  %1045 = getelementptr inbounds nuw i8, ptr %.0.i.i179, i64 24
-  %1046 = load ptr, ptr %1045, align 8, !tbaa !61
-  %1047 = ptrtoint ptr %1046 to i64
-  %1048 = ptrtoint ptr %1044 to i64
-  %1049 = sub i64 %1047, %1048
-  %1050 = icmp ult i64 %1049, 33
-  br i1 %1050, label %1051, label %1053
-
-1051:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i178
-  %1052 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i179, ptr noundef nonnull @.str.68, i64 noundef 33) #26
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit80.i
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i178: ; preds = %1043, %1042, %1040
+  %1046 = phi ptr [ %.pre45.i, %1040 ], [ %1045, %1043 ], [ %1032, %1042 ]
+  %.0.i.i179 = phi ptr [ %1041, %1040 ], [ %.0.i.i.i177, %1043 ], [ %.0.i.i.i177, %1042 ]
+  %1047 = getelementptr inbounds nuw i8, ptr %.0.i.i179, i64 24
+  %1048 = load ptr, ptr %1047, align 8, !tbaa !61
+  %1049 = ptrtoint ptr %1048 to i64
+  %1050 = ptrtoint ptr %1046 to i64
+  %1051 = sub i64 %1049, %1050
+  %1052 = icmp ult i64 %1051, 33
+  br i1 %1052, label %1053, label %1055
 
 1053:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i178
-  %1054 = getelementptr inbounds nuw i8, ptr %.0.i.i179, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %1044, ptr noundef nonnull align 1 dereferenceable(33) @.str.68, i64 33, i1 false)
-  %1055 = load ptr, ptr %1054, align 8, !tbaa !65
-  %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 33
-  store ptr %1056, ptr %1054, align 8, !tbaa !65
+  %1054 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i179, ptr noundef nonnull @.str.68, i64 noundef 33) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit80.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit80.i:             ; preds = %1053, %1051
-  %.0.i.i79.i = phi ptr [ %1052, %1051 ], [ %.0.i.i179, %1053 ]
-  call void @_ZNK4llvm5Value5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %798, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i79.i, i1 noundef zeroext false) #26
-  %1057 = getelementptr inbounds nuw i8, ptr %.0.i.i79.i, i64 24
-  %1058 = load ptr, ptr %1057, align 8, !tbaa !61
-  %1059 = getelementptr inbounds nuw i8, ptr %.0.i.i79.i, i64 32
-  %1060 = load ptr, ptr %1059, align 8, !tbaa !65
-  %1061 = ptrtoint ptr %1058 to i64
-  %1062 = ptrtoint ptr %1060 to i64
-  %1063 = sub i64 %1061, %1062
-  %1064 = icmp ult i64 %1063, 6
-  br i1 %1064, label %1065, label %1067
+1055:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i178
+  %1056 = getelementptr inbounds nuw i8, ptr %.0.i.i179, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %1046, ptr noundef nonnull align 1 dereferenceable(33) @.str.68, i64 33, i1 false)
+  %1057 = load ptr, ptr %1056, align 8, !tbaa !65
+  %1058 = getelementptr inbounds nuw i8, ptr %1057, i64 33
+  store ptr %1058, ptr %1056, align 8, !tbaa !65
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit80.i
 
-1065:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit80.i
-  %1066 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i79.i, ptr noundef nonnull @.str.69, i64 noundef 6) #26
-  %.phi.trans.insert46.i = getelementptr inbounds nuw i8, ptr %1066, i64 32
+_ZN4llvm11raw_ostreamlsEPKc.exit80.i:             ; preds = %1055, %1053
+  %.0.i.i79.i = phi ptr [ %1054, %1053 ], [ %.0.i.i179, %1055 ]
+  call void @_ZNK4llvm5Value5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %799, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i79.i, i1 noundef zeroext false) #26
+  %1059 = getelementptr inbounds nuw i8, ptr %.0.i.i79.i, i64 24
+  %1060 = load ptr, ptr %1059, align 8, !tbaa !61
+  %1061 = getelementptr inbounds nuw i8, ptr %.0.i.i79.i, i64 32
+  %1062 = load ptr, ptr %1061, align 8, !tbaa !65
+  %1063 = ptrtoint ptr %1060 to i64
+  %1064 = ptrtoint ptr %1062 to i64
+  %1065 = sub i64 %1063, %1064
+  %1066 = icmp ult i64 %1065, 6
+  br i1 %1066, label %1067, label %1069
+
+1067:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit80.i
+  %1068 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i79.i, ptr noundef nonnull @.str.69, i64 noundef 6) #26
+  %.phi.trans.insert46.i = getelementptr inbounds nuw i8, ptr %1068, i64 32
   %.pre47.i = load ptr, ptr %.phi.trans.insert46.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit83.i
 
-1067:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit80.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1060, ptr noundef nonnull align 1 dereferenceable(6) @.str.69, i64 6, i1 false)
-  %1068 = load ptr, ptr %1059, align 8, !tbaa !65
-  %1069 = getelementptr inbounds nuw i8, ptr %1068, i64 6
-  store ptr %1069, ptr %1059, align 8, !tbaa !65
+1069:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit80.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1062, ptr noundef nonnull align 1 dereferenceable(6) @.str.69, i64 6, i1 false)
+  %1070 = load ptr, ptr %1061, align 8, !tbaa !65
+  %1071 = getelementptr inbounds nuw i8, ptr %1070, i64 6
+  store ptr %1071, ptr %1061, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit83.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit83.i:             ; preds = %1067, %1065
-  %1070 = phi ptr [ %.pre47.i, %1065 ], [ %1069, %1067 ]
-  %.0.i.i82.i = phi ptr [ %1066, %1065 ], [ %.0.i.i79.i, %1067 ]
-  %1071 = getelementptr inbounds nuw i8, ptr %.0.i.i82.i, i64 24
-  %1072 = load ptr, ptr %1071, align 8, !tbaa !61
-  %1073 = getelementptr inbounds nuw i8, ptr %.0.i.i82.i, i64 32
-  %1074 = ptrtoint ptr %1072 to i64
-  %1075 = ptrtoint ptr %1070 to i64
-  %1076 = sub i64 %1074, %1075
-  %1077 = icmp ugt i64 %.sroa.8.0.i, %1076
-  br i1 %1077, label %1078, label %1080
+_ZN4llvm11raw_ostreamlsEPKc.exit83.i:             ; preds = %1069, %1067
+  %1072 = phi ptr [ %.pre47.i, %1067 ], [ %1071, %1069 ]
+  %.0.i.i82.i = phi ptr [ %1068, %1067 ], [ %.0.i.i79.i, %1069 ]
+  %1073 = getelementptr inbounds nuw i8, ptr %.0.i.i82.i, i64 24
+  %1074 = load ptr, ptr %1073, align 8, !tbaa !61
+  %1075 = getelementptr inbounds nuw i8, ptr %.0.i.i82.i, i64 32
+  %1076 = ptrtoint ptr %1074 to i64
+  %1077 = ptrtoint ptr %1072 to i64
+  %1078 = sub i64 %1076, %1077
+  %1079 = icmp ugt i64 %.sroa.8.0.i, %1078
+  br i1 %1079, label %1080, label %1082
 
-1078:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit83.i
-  %1079 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i82.i, ptr noundef %.sroa.0.0.i, i64 noundef %.sroa.8.0.i) #26
-  %.phi.trans.insert48.i = getelementptr inbounds nuw i8, ptr %1079, i64 32
+1080:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit83.i
+  %1081 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i82.i, ptr noundef %.sroa.0.0.i, i64 noundef %.sroa.8.0.i) #26
+  %.phi.trans.insert48.i = getelementptr inbounds nuw i8, ptr %1081, i64 32
   %.pre49.i = load ptr, ptr %.phi.trans.insert48.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit86.i
 
-1080:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit83.i
+1082:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit83.i
   %.not.i84.i = icmp eq i64 %.sroa.8.0.i, 0
-  br i1 %.not.i84.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit86.i, label %1081
+  br i1 %.not.i84.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit86.i, label %1083
 
-1081:                                             ; preds = %1080
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1070, ptr align 1 %.sroa.0.0.i, i64 %.sroa.8.0.i, i1 false)
-  %1082 = load ptr, ptr %1073, align 8, !tbaa !65
-  %1083 = getelementptr inbounds nuw i8, ptr %1082, i64 %.sroa.8.0.i
-  store ptr %1083, ptr %1073, align 8, !tbaa !65
+1083:                                             ; preds = %1082
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1072, ptr align 1 %.sroa.0.0.i, i64 %.sroa.8.0.i, i1 false)
+  %1084 = load ptr, ptr %1075, align 8, !tbaa !65
+  %1085 = getelementptr inbounds nuw i8, ptr %1084, i64 %.sroa.8.0.i
+  store ptr %1085, ptr %1075, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit86.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit86.i:  ; preds = %1081, %1080, %1078
-  %1084 = phi ptr [ %.pre49.i, %1078 ], [ %1083, %1081 ], [ %1070, %1080 ]
-  %.0.i85.i = phi ptr [ %1079, %1078 ], [ %.0.i.i82.i, %1081 ], [ %.0.i.i82.i, %1080 ]
-  %1085 = getelementptr inbounds nuw i8, ptr %.0.i85.i, i64 24
-  %1086 = load ptr, ptr %1085, align 8, !tbaa !61
-  %1087 = ptrtoint ptr %1086 to i64
-  %1088 = ptrtoint ptr %1084 to i64
-  %1089 = sub i64 %1087, %1088
-  %1090 = icmp ult i64 %1089, 6
-  br i1 %1090, label %1091, label %1093
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit86.i:  ; preds = %1083, %1082, %1080
+  %1086 = phi ptr [ %.pre49.i, %1080 ], [ %1085, %1083 ], [ %1072, %1082 ]
+  %.0.i85.i = phi ptr [ %1081, %1080 ], [ %.0.i.i82.i, %1083 ], [ %.0.i.i82.i, %1082 ]
+  %1087 = getelementptr inbounds nuw i8, ptr %.0.i85.i, i64 24
+  %1088 = load ptr, ptr %1087, align 8, !tbaa !61
+  %1089 = ptrtoint ptr %1088 to i64
+  %1090 = ptrtoint ptr %1086 to i64
+  %1091 = sub i64 %1089, %1090
+  %1092 = icmp ult i64 %1091, 6
+  br i1 %1092, label %1093, label %1095
 
-1091:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit86.i
-  %1092 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i85.i, ptr noundef nonnull @.str.70, i64 noundef 6) #26
-  %.phi.trans.insert50.i = getelementptr inbounds nuw i8, ptr %1092, i64 32
+1093:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit86.i
+  %1094 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i85.i, ptr noundef nonnull @.str.70, i64 noundef 6) #26
+  %.phi.trans.insert50.i = getelementptr inbounds nuw i8, ptr %1094, i64 32
   %.pre51.i = load ptr, ptr %.phi.trans.insert50.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit89.i
 
-1093:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit86.i
-  %1094 = getelementptr inbounds nuw i8, ptr %.0.i85.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1084, ptr noundef nonnull align 1 dereferenceable(6) @.str.70, i64 6, i1 false)
-  %1095 = load ptr, ptr %1094, align 8, !tbaa !65
-  %1096 = getelementptr inbounds nuw i8, ptr %1095, i64 6
-  store ptr %1096, ptr %1094, align 8, !tbaa !65
+1095:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit86.i
+  %1096 = getelementptr inbounds nuw i8, ptr %.0.i85.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1086, ptr noundef nonnull align 1 dereferenceable(6) @.str.70, i64 6, i1 false)
+  %1097 = load ptr, ptr %1096, align 8, !tbaa !65
+  %1098 = getelementptr inbounds nuw i8, ptr %1097, i64 6
+  store ptr %1098, ptr %1096, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit89.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit89.i:             ; preds = %1093, %1091
-  %1097 = phi ptr [ %.pre51.i, %1091 ], [ %1096, %1093 ]
-  %.0.i.i88.i = phi ptr [ %1092, %1091 ], [ %.0.i85.i, %1093 ]
-  %1098 = getelementptr inbounds nuw i8, ptr %.0.i.i88.i, i64 24
-  %1099 = load ptr, ptr %1098, align 8, !tbaa !61
-  %1100 = getelementptr inbounds nuw i8, ptr %.0.i.i88.i, i64 32
-  %1101 = ptrtoint ptr %1099 to i64
-  %1102 = ptrtoint ptr %1097 to i64
-  %1103 = sub i64 %1101, %1102
-  %1104 = icmp ugt i64 %838, %1103
-  br i1 %1104, label %1105, label %1107
+_ZN4llvm11raw_ostreamlsEPKc.exit89.i:             ; preds = %1095, %1093
+  %1099 = phi ptr [ %.pre51.i, %1093 ], [ %1098, %1095 ]
+  %.0.i.i88.i = phi ptr [ %1094, %1093 ], [ %.0.i85.i, %1095 ]
+  %1100 = getelementptr inbounds nuw i8, ptr %.0.i.i88.i, i64 24
+  %1101 = load ptr, ptr %1100, align 8, !tbaa !61
+  %1102 = getelementptr inbounds nuw i8, ptr %.0.i.i88.i, i64 32
+  %1103 = ptrtoint ptr %1101 to i64
+  %1104 = ptrtoint ptr %1099 to i64
+  %1105 = sub i64 %1103, %1104
+  %1106 = icmp ugt i64 %840, %1105
+  br i1 %1106, label %1107, label %1109
 
-1105:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit89.i
-  %1106 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i88.i, ptr noundef %837, i64 noundef %838) #26
-  %.phi.trans.insert52.i = getelementptr inbounds nuw i8, ptr %1106, i64 32
+1107:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit89.i
+  %1108 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i88.i, ptr noundef %839, i64 noundef %840) #26
+  %.phi.trans.insert52.i = getelementptr inbounds nuw i8, ptr %1108, i64 32
   %.pre53.i = load ptr, ptr %.phi.trans.insert52.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92.i
 
-1107:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit89.i
-  %.not.i90.i = icmp eq i64 %838, 0
-  br i1 %.not.i90.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92.i, label %1108
+1109:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit89.i
+  %.not.i90.i = icmp eq i64 %840, 0
+  br i1 %.not.i90.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92.i, label %1110
 
-1108:                                             ; preds = %1107
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1097, ptr align 1 %837, i64 %838, i1 false)
-  %1109 = load ptr, ptr %1100, align 8, !tbaa !65
-  %1110 = getelementptr inbounds nuw i8, ptr %1109, i64 %838
-  store ptr %1110, ptr %1100, align 8, !tbaa !65
+1110:                                             ; preds = %1109
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1099, ptr align 1 %839, i64 %840, i1 false)
+  %1111 = load ptr, ptr %1102, align 8, !tbaa !65
+  %1112 = getelementptr inbounds nuw i8, ptr %1111, i64 %840
+  store ptr %1112, ptr %1102, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92.i:  ; preds = %1108, %1107, %1105
-  %1111 = phi ptr [ %.pre53.i, %1105 ], [ %1110, %1108 ], [ %1097, %1107 ]
-  %.0.i91.i = phi ptr [ %1106, %1105 ], [ %.0.i.i88.i, %1108 ], [ %.0.i.i88.i, %1107 ]
-  %1112 = getelementptr inbounds nuw i8, ptr %.0.i91.i, i64 24
-  %1113 = load ptr, ptr %1112, align 8, !tbaa !61
-  %1114 = ptrtoint ptr %1113 to i64
-  %1115 = ptrtoint ptr %1111 to i64
-  %1116 = sub i64 %1114, %1115
-  %1117 = icmp ult i64 %1116, 8
-  br i1 %1117, label %1118, label %1120
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92.i:  ; preds = %1110, %1109, %1107
+  %1113 = phi ptr [ %.pre53.i, %1107 ], [ %1112, %1110 ], [ %1099, %1109 ]
+  %.0.i91.i = phi ptr [ %1108, %1107 ], [ %.0.i.i88.i, %1110 ], [ %.0.i.i88.i, %1109 ]
+  %1114 = getelementptr inbounds nuw i8, ptr %.0.i91.i, i64 24
+  %1115 = load ptr, ptr %1114, align 8, !tbaa !61
+  %1116 = ptrtoint ptr %1115 to i64
+  %1117 = ptrtoint ptr %1113 to i64
+  %1118 = sub i64 %1116, %1117
+  %1119 = icmp ult i64 %1118, 8
+  br i1 %1119, label %1120, label %1122
 
-1118:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92.i
-  %1119 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i91.i, ptr noundef nonnull @.str.71, i64 noundef 8) #26
-  %.phi.trans.insert54.i = getelementptr inbounds nuw i8, ptr %1119, i64 32
+1120:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92.i
+  %1121 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i91.i, ptr noundef nonnull @.str.71, i64 noundef 8) #26
+  %.phi.trans.insert54.i = getelementptr inbounds nuw i8, ptr %1121, i64 32
   %.pre55.i = load ptr, ptr %.phi.trans.insert54.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit95.i
 
-1120:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92.i
-  %1121 = getelementptr inbounds nuw i8, ptr %.0.i91.i, i64 32
-  store i64 2322280074159988780, ptr %1111, align 1
-  %1122 = load ptr, ptr %1121, align 8, !tbaa !65
-  %1123 = getelementptr inbounds nuw i8, ptr %1122, i64 8
-  store ptr %1123, ptr %1121, align 8, !tbaa !65
+1122:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92.i
+  %1123 = getelementptr inbounds nuw i8, ptr %.0.i91.i, i64 32
+  store i64 2322280074159988780, ptr %1113, align 1
+  %1124 = load ptr, ptr %1123, align 8, !tbaa !65
+  %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 8
+  store ptr %1125, ptr %1123, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit95.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit95.i:             ; preds = %1120, %1118
-  %1124 = phi ptr [ %.pre55.i, %1118 ], [ %1123, %1120 ]
-  %.0.i.i94.i = phi ptr [ %1119, %1118 ], [ %.0.i91.i, %1120 ]
-  %1125 = getelementptr inbounds nuw i8, ptr %.0.i.i94.i, i64 24
-  %1126 = load ptr, ptr %1125, align 8, !tbaa !61
-  %1127 = getelementptr inbounds nuw i8, ptr %.0.i.i94.i, i64 32
-  %1128 = ptrtoint ptr %1126 to i64
-  %1129 = ptrtoint ptr %1124 to i64
-  %1130 = sub i64 %1128, %1129
-  %1131 = icmp ugt i64 %.sroa.3.1.i, %1130
-  br i1 %1131, label %1132, label %1134
+_ZN4llvm11raw_ostreamlsEPKc.exit95.i:             ; preds = %1122, %1120
+  %1126 = phi ptr [ %.pre55.i, %1120 ], [ %1125, %1122 ]
+  %.0.i.i94.i = phi ptr [ %1121, %1120 ], [ %.0.i91.i, %1122 ]
+  %1127 = getelementptr inbounds nuw i8, ptr %.0.i.i94.i, i64 24
+  %1128 = load ptr, ptr %1127, align 8, !tbaa !61
+  %1129 = getelementptr inbounds nuw i8, ptr %.0.i.i94.i, i64 32
+  %1130 = ptrtoint ptr %1128 to i64
+  %1131 = ptrtoint ptr %1126 to i64
+  %1132 = sub i64 %1130, %1131
+  %1133 = icmp ugt i64 %.sroa.3.1.i, %1132
+  br i1 %1133, label %1134, label %1136
 
-1132:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit95.i
-  %1133 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i94.i, ptr noundef %.sroa.0.1.i, i64 noundef %.sroa.3.1.i) #26
-  %.phi.trans.insert56.i = getelementptr inbounds nuw i8, ptr %1133, i64 32
+1134:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit95.i
+  %1135 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i94.i, ptr noundef %.sroa.0.1.i, i64 noundef %.sroa.3.1.i) #26
+  %.phi.trans.insert56.i = getelementptr inbounds nuw i8, ptr %1135, i64 32
   %.pre57.i = load ptr, ptr %.phi.trans.insert56.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit98.i
 
-1134:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit95.i
-  br i1 %.not.i165.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit98.i, label %1135
+1136:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit95.i
+  br i1 %.not.i165.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit98.i, label %1137
 
-1135:                                             ; preds = %1134
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1124, ptr align 1 %.sroa.0.1.i, i64 %.sroa.3.1.i, i1 false)
-  %1136 = load ptr, ptr %1127, align 8, !tbaa !65
-  %1137 = getelementptr inbounds nuw i8, ptr %1136, i64 %.sroa.3.1.i
-  store ptr %1137, ptr %1127, align 8, !tbaa !65
+1137:                                             ; preds = %1136
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1126, ptr align 1 %.sroa.0.1.i, i64 %.sroa.3.1.i, i1 false)
+  %1138 = load ptr, ptr %1129, align 8, !tbaa !65
+  %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 %.sroa.3.1.i
+  store ptr %1139, ptr %1129, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit98.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit98.i:  ; preds = %1135, %1134, %1132
-  %1138 = phi ptr [ %.pre57.i, %1132 ], [ %1137, %1135 ], [ %1124, %1134 ]
-  %.0.i97.i = phi ptr [ %1133, %1132 ], [ %.0.i.i94.i, %1135 ], [ %.0.i.i94.i, %1134 ]
-  %1139 = getelementptr inbounds nuw i8, ptr %.0.i97.i, i64 24
-  %1140 = load ptr, ptr %1139, align 8, !tbaa !61
-  %1141 = ptrtoint ptr %1140 to i64
-  %1142 = ptrtoint ptr %1138 to i64
-  %1143 = sub i64 %1141, %1142
-  %1144 = icmp ult i64 %1143, 2
-  br i1 %1144, label %1145, label %1147
-
-1145:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit98.i
-  %1146 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i97.i, ptr noundef nonnull @.str.72, i64 noundef 2) #26
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit98.i:  ; preds = %1137, %1136, %1134
+  %1140 = phi ptr [ %.pre57.i, %1134 ], [ %1139, %1137 ], [ %1126, %1136 ]
+  %.0.i97.i = phi ptr [ %1135, %1134 ], [ %.0.i.i94.i, %1137 ], [ %.0.i.i94.i, %1136 ]
+  %1141 = getelementptr inbounds nuw i8, ptr %.0.i97.i, i64 24
+  %1142 = load ptr, ptr %1141, align 8, !tbaa !61
+  %1143 = ptrtoint ptr %1142 to i64
+  %1144 = ptrtoint ptr %1140 to i64
+  %1145 = sub i64 %1143, %1144
+  %1146 = icmp ult i64 %1145, 2
+  br i1 %1146, label %1147, label %1149
 
 1147:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit98.i
-  %1148 = getelementptr inbounds nuw i8, ptr %.0.i97.i, i64 32
-  store i16 2601, ptr %1138, align 1
-  %1149 = load ptr, ptr %1148, align 8, !tbaa !65
-  %1150 = getelementptr inbounds nuw i8, ptr %1149, i64 2
-  store ptr %1150, ptr %1148, align 8, !tbaa !65
+  %1148 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i97.i, ptr noundef nonnull @.str.72, i64 noundef 2) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i
 
-1151:                                             ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i58.i
-  %1152 = zext i32 %.sink7.i61.i to i64
-  %1153 = load ptr, ptr %238, align 8, !tbaa !25
-  %1154 = getelementptr inbounds nuw %"struct.std::pair.259", ptr %1153, i64 %1152, i32 1
-  %1155 = load i8, ptr %1154, align 8, !tbaa !387, !range !46, !noundef !47
-  %1156 = trunc nuw i8 %1155 to i1
-  br i1 %1156, label %1157, label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i
+1149:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit98.i
+  %1150 = getelementptr inbounds nuw i8, ptr %.0.i97.i, i64 32
+  store i16 2601, ptr %1140, align 1
+  %1151 = load ptr, ptr %1150, align 8, !tbaa !65
+  %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 2
+  store ptr %1152, ptr %1150, align 8, !tbaa !65
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i
 
-1157:                                             ; preds = %1151
-  br i1 %.not583, label %1282, label %1158
+1153:                                             ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i58.i
+  %1154 = zext i32 %.sink7.i61.i to i64
+  %1155 = load ptr, ptr %238, align 8, !tbaa !25
+  %1156 = getelementptr inbounds nuw %"struct.std::pair.259", ptr %1155, i64 %1154
+  %1157 = getelementptr inbounds nuw i8, ptr %1156, i64 8
+  %1158 = load i8, ptr %1157, align 8, !tbaa !387, !range !46, !noundef !47
+  %1159 = trunc nuw i8 %1158 to i1
+  br i1 %1159, label %1160, label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i
 
-1158:                                             ; preds = %1157
+1160:                                             ; preds = %1153
+  br i1 %.not583, label %1285, label %1161
+
+1161:                                             ; preds = %1160
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr nonnull @.str.51, i64 8)
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %729, ptr nonnull @.str.63, i64 10)
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %730, ptr nonnull @.str.64, i64 7)
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %730, ptr nonnull @.str.63, i64 10)
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %731, ptr nonnull @.str.64, i64 7)
   call void @llvm.experimental.noalias.scope.decl(metadata !427)
-  %.not.i102.i = icmp eq ptr %837, null
-  store ptr %732, ptr %45, align 8, !tbaa !222, !alias.scope !427
-  br i1 %.not.i102.i, label %1159, label %1160
+  %.not.i102.i = icmp eq ptr %839, null
+  store ptr %733, ptr %45, align 8, !tbaa !222, !alias.scope !427
+  br i1 %.not.i102.i, label %1162, label %1163
 
-1159:                                             ; preds = %1158
-  store i64 0, ptr %733, align 8, !tbaa !166, !alias.scope !427
-  store i8 0, ptr %732, align 8, !tbaa !220, !alias.scope !427
+1162:                                             ; preds = %1161
+  store i64 0, ptr %734, align 8, !tbaa !166, !alias.scope !427
+  store i8 0, ptr %733, align 8, !tbaa !220, !alias.scope !427
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit105.i
 
-1160:                                             ; preds = %1158
+1163:                                             ; preds = %1161
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !427
-  store i64 %838, ptr %31, align 8, !tbaa !45, !noalias !427
-  %1161 = icmp ugt i64 %838, 15
-  br i1 %1161, label %1162, label %._crit_edge.i.i.i103.i
+  store i64 %840, ptr %31, align 8, !tbaa !45, !noalias !427
+  %1164 = icmp ugt i64 %840, 15
+  br i1 %1164, label %1165, label %._crit_edge.i.i.i103.i
 
-1162:                                             ; preds = %1160
-  %1163 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 0) #26
-  store ptr %1163, ptr %45, align 8, !tbaa !165, !alias.scope !427
-  %1164 = load i64, ptr %31, align 8, !tbaa !45, !noalias !427
-  store i64 %1164, ptr %732, align 8, !tbaa !220, !alias.scope !427
+1165:                                             ; preds = %1163
+  %1166 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 0) #26
+  store ptr %1166, ptr %45, align 8, !tbaa !165, !alias.scope !427
+  %1167 = load i64, ptr %31, align 8, !tbaa !45, !noalias !427
+  store i64 %1167, ptr %733, align 8, !tbaa !220, !alias.scope !427
   br label %._crit_edge.i.i.i103.i
 
-._crit_edge.i.i.i103.i:                           ; preds = %1162, %1160
-  %1165 = phi ptr [ %1163, %1162 ], [ %732, %1160 ]
-  switch i64 %838, label %1168 [
-    i64 1, label %1166
+._crit_edge.i.i.i103.i:                           ; preds = %1165, %1163
+  %1168 = phi ptr [ %1166, %1165 ], [ %733, %1163 ]
+  switch i64 %840, label %1171 [
+    i64 1, label %1169
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i104.i
   ]
 
-1166:                                             ; preds = %._crit_edge.i.i.i103.i
-  %1167 = load i8, ptr %837, align 1, !tbaa !220
-  store i8 %1167, ptr %1165, align 1, !tbaa !220
+1169:                                             ; preds = %._crit_edge.i.i.i103.i
+  %1170 = load i8, ptr %839, align 1, !tbaa !220
+  store i8 %1170, ptr %1168, align 1, !tbaa !220
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i104.i
 
-1168:                                             ; preds = %._crit_edge.i.i.i103.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1165, ptr nonnull align 1 %837, i64 %838, i1 false)
+1171:                                             ; preds = %._crit_edge.i.i.i103.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1168, ptr nonnull align 1 %839, i64 %840, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i104.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i104.i: ; preds = %1168, %1166, %._crit_edge.i.i.i103.i
-  %1169 = load i64, ptr %31, align 8, !tbaa !45, !noalias !427
-  store i64 %1169, ptr %733, align 8, !tbaa !166, !alias.scope !427
-  %1170 = load ptr, ptr %45, align 8, !tbaa !165, !alias.scope !427
-  %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 %1169
-  store i8 0, ptr %1171, align 1, !tbaa !220
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i104.i: ; preds = %1171, %1169, %._crit_edge.i.i.i103.i
+  %1172 = load i64, ptr %31, align 8, !tbaa !45, !noalias !427
+  store i64 %1172, ptr %734, align 8, !tbaa !166, !alias.scope !427
+  %1173 = load ptr, ptr %45, align 8, !tbaa !165, !alias.scope !427
+  %1174 = getelementptr inbounds nuw i8, ptr %1173, i64 %1172
+  store i8 0, ptr %1174, align 1, !tbaa !220
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !427
   %.pre36.i = load ptr, ptr %45, align 8, !tbaa !165
-  %.pre37.i = load i64, ptr %733, align 8, !tbaa !166
+  %.pre37.i = load i64, ptr %734, align 8, !tbaa !166
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit105.i
 
-_ZNK4llvm9StringRef3strB5cxx11Ev.exit105.i:       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i104.i, %1159
-  %1172 = phi i64 [ 0, %1159 ], [ %.pre37.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i104.i ]
-  %1173 = phi ptr [ %732, %1159 ], [ %.pre36.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i104.i ]
-  store i16 6, ptr %731, align 8, !tbaa !397
-  %1174 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1173, i64 %1172, ptr noundef null) #26
-  br i1 %1174, label %1185, label %1175, !prof !33
+_ZNK4llvm9StringRef3strB5cxx11Ev.exit105.i:       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i104.i, %1162
+  %1175 = phi i64 [ 0, %1162 ], [ %.pre37.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i104.i ]
+  %1176 = phi ptr [ %733, %1162 ], [ %.pre36.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i104.i ]
+  store i16 6, ptr %732, align 8, !tbaa !397
+  %1177 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1176, i64 %1175, ptr noundef null) #26
+  br i1 %1177, label %1188, label %1178, !prof !33
 
-1175:                                             ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit105.i
+1178:                                             ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit105.i
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %1176 = load ptr, ptr %45, align 8, !tbaa !165
-  %1177 = load i64, ptr %733, align 8, !tbaa !166
-  call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr %1176, i64 %1177) #26
-  %1178 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %30) #26
-  %1179 = load ptr, ptr %30, align 8, !tbaa !165
-  %1180 = icmp eq ptr %1179, %734
-  br i1 %1180, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i109.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i106.i
+  %1179 = load ptr, ptr %45, align 8, !tbaa !165
+  %1180 = load i64, ptr %734, align 8, !tbaa !166
+  call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr %1179, i64 %1180) #26
+  %1181 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %30) #26
+  %1182 = load ptr, ptr %30, align 8, !tbaa !165
+  %1183 = icmp eq ptr %1182, %735
+  br i1 %1183, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i109.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i106.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i109.i: ; preds = %1175
-  %1181 = load i64, ptr %735, align 8, !tbaa !166
-  %1182 = icmp ult i64 %1181, 16
-  call void @llvm.assume(i1 %1182)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i109.i: ; preds = %1178
+  %1184 = load i64, ptr %736, align 8, !tbaa !166
+  %1185 = icmp ult i64 %1184, 16
+  call void @llvm.assume(i1 %1185)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i107.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i106.i: ; preds = %1175
-  %1183 = load i64, ptr %734, align 8, !tbaa !220
-  %1184 = add i64 %1183, 1
-  call void @_ZdlPvm(ptr noundef %1179, i64 noundef %1184) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i106.i: ; preds = %1178
+  %1186 = load i64, ptr %735, align 8, !tbaa !220
+  %1187 = add i64 %1186, 1
+  call void @_ZdlPvm(ptr noundef %1182, i64 noundef %1187) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i107.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i107.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i106.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i109.i
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %1185
+  br label %1188
 
-1185:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i107.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit105.i
-  store ptr %737, ptr %736, align 8, !tbaa !222
-  %1186 = load ptr, ptr %45, align 8, !tbaa !165
-  %1187 = icmp eq ptr %1186, %732
-  br i1 %1187, label %1188, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i108.i
+1188:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i107.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit105.i
+  store ptr %738, ptr %737, align 8, !tbaa !222
+  %1189 = load ptr, ptr %45, align 8, !tbaa !165
+  %1190 = icmp eq ptr %1189, %733
+  br i1 %1190, label %1191, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i108.i
 
-1188:                                             ; preds = %1185
-  %1189 = load i64, ptr %733, align 8, !tbaa !166
-  %1190 = icmp ult i64 %1189, 16
-  call void @llvm.assume(i1 %1190)
-  %1191 = add nuw nsw i64 %1189, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %737, ptr noundef nonnull align 8 dereferenceable(1) %732, i64 %1191, i1 false)
+1191:                                             ; preds = %1188
+  %1192 = load i64, ptr %734, align 8, !tbaa !166
+  %1193 = icmp ult i64 %1192, 16
+  call void @llvm.assume(i1 %1193)
+  %1194 = add nuw nsw i64 %1192, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %738, ptr noundef nonnull align 8 dereferenceable(1) %733, i64 %1194, i1 false)
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i108.i: ; preds = %1185
-  store ptr %1186, ptr %736, align 8, !tbaa !165
-  %1192 = load i64, ptr %732, align 8, !tbaa !220
-  store i64 %1192, ptr %737, align 8, !tbaa !220
-  %.pre38.i = load i64, ptr %733, align 8, !tbaa !166
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i108.i: ; preds = %1188
+  store ptr %1189, ptr %737, align 8, !tbaa !165
+  %1195 = load i64, ptr %733, align 8, !tbaa !220
+  store i64 %1195, ptr %738, align 8, !tbaa !220
+  %.pre38.i = load i64, ptr %734, align 8, !tbaa !166
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110.i
 
-_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i108.i, %1188
-  %1193 = phi i64 [ %1189, %1188 ], [ %.pre38.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i108.i ]
-  store i64 %1193, ptr %738, align 8, !tbaa !166
-  store ptr %732, ptr %45, align 8, !tbaa !165
-  store i64 0, ptr %733, align 8, !tbaa !166
-  store i8 0, ptr %732, align 8, !tbaa !220
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %739, ptr nonnull @.str.65, i64 7)
+_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i108.i, %1191
+  %1196 = phi i64 [ %1192, %1191 ], [ %.pre38.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i108.i ]
+  store i64 %1196, ptr %739, align 8, !tbaa !166
+  store ptr %733, ptr %45, align 8, !tbaa !165
+  store i64 0, ptr %734, align 8, !tbaa !166
+  store i8 0, ptr %733, align 8, !tbaa !220
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %740, ptr nonnull @.str.65, i64 7)
   call void @llvm.experimental.noalias.scope.decl(metadata !430)
   %.not.i111.i = icmp eq ptr %.sroa.0.0.i, null
-  store ptr %741, ptr %46, align 8, !tbaa !222, !alias.scope !430
-  br i1 %.not.i111.i, label %1194, label %1195
+  store ptr %742, ptr %46, align 8, !tbaa !222, !alias.scope !430
+  br i1 %.not.i111.i, label %1197, label %1198
 
-1194:                                             ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110.i
-  store i64 0, ptr %742, align 8, !tbaa !166, !alias.scope !430
-  store i8 0, ptr %741, align 8, !tbaa !220, !alias.scope !430
+1197:                                             ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110.i
+  store i64 0, ptr %743, align 8, !tbaa !166, !alias.scope !430
+  store i8 0, ptr %742, align 8, !tbaa !220, !alias.scope !430
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit114.i
 
-1195:                                             ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110.i
+1198:                                             ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110.i
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !430
   store i64 %.sroa.8.0.i, ptr %29, align 8, !tbaa !45, !noalias !430
-  %1196 = icmp ugt i64 %.sroa.8.0.i, 15
-  br i1 %1196, label %1197, label %._crit_edge.i.i.i112.i
+  %1199 = icmp ugt i64 %.sroa.8.0.i, 15
+  br i1 %1199, label %1200, label %._crit_edge.i.i.i112.i
 
-1197:                                             ; preds = %1195
-  %1198 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %29, i64 noundef 0) #26
-  store ptr %1198, ptr %46, align 8, !tbaa !165, !alias.scope !430
-  %1199 = load i64, ptr %29, align 8, !tbaa !45, !noalias !430
-  store i64 %1199, ptr %741, align 8, !tbaa !220, !alias.scope !430
+1200:                                             ; preds = %1198
+  %1201 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(8) %29, i64 noundef 0) #26
+  store ptr %1201, ptr %46, align 8, !tbaa !165, !alias.scope !430
+  %1202 = load i64, ptr %29, align 8, !tbaa !45, !noalias !430
+  store i64 %1202, ptr %742, align 8, !tbaa !220, !alias.scope !430
   br label %._crit_edge.i.i.i112.i
 
-._crit_edge.i.i.i112.i:                           ; preds = %1197, %1195
-  %1200 = phi ptr [ %1198, %1197 ], [ %741, %1195 ]
-  switch i64 %.sroa.8.0.i, label %1203 [
-    i64 1, label %1201
+._crit_edge.i.i.i112.i:                           ; preds = %1200, %1198
+  %1203 = phi ptr [ %1201, %1200 ], [ %742, %1198 ]
+  switch i64 %.sroa.8.0.i, label %1206 [
+    i64 1, label %1204
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i113.i
   ]
 
-1201:                                             ; preds = %._crit_edge.i.i.i112.i
-  %1202 = load i8, ptr %.sroa.0.0.i, align 1, !tbaa !220
-  store i8 %1202, ptr %1200, align 1, !tbaa !220
+1204:                                             ; preds = %._crit_edge.i.i.i112.i
+  %1205 = load i8, ptr %.sroa.0.0.i, align 1, !tbaa !220
+  store i8 %1205, ptr %1203, align 1, !tbaa !220
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i113.i
 
-1203:                                             ; preds = %._crit_edge.i.i.i112.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1200, ptr nonnull align 1 %.sroa.0.0.i, i64 %.sroa.8.0.i, i1 false)
+1206:                                             ; preds = %._crit_edge.i.i.i112.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1203, ptr nonnull align 1 %.sroa.0.0.i, i64 %.sroa.8.0.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i113.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i113.i: ; preds = %1203, %1201, %._crit_edge.i.i.i112.i
-  %1204 = load i64, ptr %29, align 8, !tbaa !45, !noalias !430
-  store i64 %1204, ptr %742, align 8, !tbaa !166, !alias.scope !430
-  %1205 = load ptr, ptr %46, align 8, !tbaa !165, !alias.scope !430
-  %1206 = getelementptr inbounds nuw i8, ptr %1205, i64 %1204
-  store i8 0, ptr %1206, align 1, !tbaa !220
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i113.i: ; preds = %1206, %1204, %._crit_edge.i.i.i112.i
+  %1207 = load i64, ptr %29, align 8, !tbaa !45, !noalias !430
+  store i64 %1207, ptr %743, align 8, !tbaa !166, !alias.scope !430
+  %1208 = load ptr, ptr %46, align 8, !tbaa !165, !alias.scope !430
+  %1209 = getelementptr inbounds nuw i8, ptr %1208, i64 %1207
+  store i8 0, ptr %1209, align 1, !tbaa !220
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !430
   %.pre39.i = load ptr, ptr %46, align 8, !tbaa !165
-  %.pre40.i = load i64, ptr %742, align 8, !tbaa !166
+  %.pre40.i = load i64, ptr %743, align 8, !tbaa !166
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit114.i
 
-_ZNK4llvm9StringRef3strB5cxx11Ev.exit114.i:       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i113.i, %1194
-  %1207 = phi i64 [ 0, %1194 ], [ %.pre40.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i113.i ]
-  %1208 = phi ptr [ %741, %1194 ], [ %.pre39.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i113.i ]
-  store i16 6, ptr %740, align 8, !tbaa !397
-  %1209 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1208, i64 %1207, ptr noundef null) #26
-  br i1 %1209, label %1220, label %1210, !prof !33
+_ZNK4llvm9StringRef3strB5cxx11Ev.exit114.i:       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i113.i, %1197
+  %1210 = phi i64 [ 0, %1197 ], [ %.pre40.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i113.i ]
+  %1211 = phi ptr [ %742, %1197 ], [ %.pre39.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i113.i ]
+  store i16 6, ptr %741, align 8, !tbaa !397
+  %1212 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1211, i64 %1210, ptr noundef null) #26
+  br i1 %1212, label %1223, label %1213, !prof !33
 
-1210:                                             ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit114.i
+1213:                                             ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit114.i
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %1211 = load ptr, ptr %46, align 8, !tbaa !165
-  %1212 = load i64, ptr %742, align 8, !tbaa !166
-  call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %28, ptr %1211, i64 %1212) #26
-  %1213 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %28) #26
-  %1214 = load ptr, ptr %28, align 8, !tbaa !165
-  %1215 = icmp eq ptr %1214, %743
-  br i1 %1215, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i118.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i115.i
+  %1214 = load ptr, ptr %46, align 8, !tbaa !165
+  %1215 = load i64, ptr %743, align 8, !tbaa !166
+  call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %28, ptr %1214, i64 %1215) #26
+  %1216 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %28) #26
+  %1217 = load ptr, ptr %28, align 8, !tbaa !165
+  %1218 = icmp eq ptr %1217, %744
+  br i1 %1218, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i118.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i115.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i118.i: ; preds = %1210
-  %1216 = load i64, ptr %744, align 8, !tbaa !166
-  %1217 = icmp ult i64 %1216, 16
-  call void @llvm.assume(i1 %1217)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i118.i: ; preds = %1213
+  %1219 = load i64, ptr %745, align 8, !tbaa !166
+  %1220 = icmp ult i64 %1219, 16
+  call void @llvm.assume(i1 %1220)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i116.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i115.i: ; preds = %1210
-  %1218 = load i64, ptr %743, align 8, !tbaa !220
-  %1219 = add i64 %1218, 1
-  call void @_ZdlPvm(ptr noundef %1214, i64 noundef %1219) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i115.i: ; preds = %1213
+  %1221 = load i64, ptr %744, align 8, !tbaa !220
+  %1222 = add i64 %1221, 1
+  call void @_ZdlPvm(ptr noundef %1217, i64 noundef %1222) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i116.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i116.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i115.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i118.i
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %1220
+  br label %1223
 
-1220:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i116.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit114.i
-  store ptr %746, ptr %745, align 8, !tbaa !222
-  %1221 = load ptr, ptr %46, align 8, !tbaa !165
-  %1222 = icmp eq ptr %1221, %741
-  br i1 %1222, label %1223, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i117.i
+1223:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i116.i, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit114.i
+  store ptr %747, ptr %746, align 8, !tbaa !222
+  %1224 = load ptr, ptr %46, align 8, !tbaa !165
+  %1225 = icmp eq ptr %1224, %742
+  br i1 %1225, label %1226, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i117.i
 
-1223:                                             ; preds = %1220
-  %1224 = load i64, ptr %742, align 8, !tbaa !166
-  %1225 = icmp ult i64 %1224, 16
-  call void @llvm.assume(i1 %1225)
-  %1226 = add nuw nsw i64 %1224, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %746, ptr noundef nonnull align 8 dereferenceable(1) %741, i64 %1226, i1 false)
+1226:                                             ; preds = %1223
+  %1227 = load i64, ptr %743, align 8, !tbaa !166
+  %1228 = icmp ult i64 %1227, 16
+  call void @llvm.assume(i1 %1228)
+  %1229 = add nuw nsw i64 %1227, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %747, ptr noundef nonnull align 8 dereferenceable(1) %742, i64 %1229, i1 false)
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i117.i: ; preds = %1220
-  store ptr %1221, ptr %745, align 8, !tbaa !165
-  %1227 = load i64, ptr %741, align 8, !tbaa !220
-  store i64 %1227, ptr %746, align 8, !tbaa !220
-  %.pre41.i = load i64, ptr %742, align 8, !tbaa !166
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i117.i: ; preds = %1223
+  store ptr %1224, ptr %746, align 8, !tbaa !165
+  %1230 = load i64, ptr %742, align 8, !tbaa !220
+  store i64 %1230, ptr %747, align 8, !tbaa !220
+  %.pre41.i = load i64, ptr %743, align 8, !tbaa !166
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119.i
 
-_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i117.i, %1223
-  %1228 = phi i64 [ %1224, %1223 ], [ %.pre41.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i117.i ]
-  store i64 %1228, ptr %747, align 8, !tbaa !166
-  store ptr %741, ptr %46, align 8, !tbaa !165
-  store i64 0, ptr %742, align 8, !tbaa !166
-  store i8 0, ptr %741, align 8, !tbaa !220
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %748, ptr nonnull @.str.66, i64 5)
-  %.not.i.i120.i = icmp eq ptr %852, null
-  br i1 %.not.i.i120.i, label %_ZN4llvm4json5ValueC2EPKc.exit121.i, label %1229
+_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i117.i, %1226
+  %1231 = phi i64 [ %1227, %1226 ], [ %.pre41.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i117.i ]
+  store i64 %1231, ptr %748, align 8, !tbaa !166
+  store ptr %742, ptr %46, align 8, !tbaa !165
+  store i64 0, ptr %743, align 8, !tbaa !166
+  store i8 0, ptr %742, align 8, !tbaa !220
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %749, ptr nonnull @.str.66, i64 5)
+  %.not.i.i120.i = icmp eq ptr %854, null
+  br i1 %.not.i.i120.i, label %_ZN4llvm4json5ValueC2EPKc.exit121.i, label %1232
 
-1229:                                             ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119.i
-  %1230 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %852) #26
+1232:                                             ; preds = %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119.i
+  %1233 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %854) #26
   br label %_ZN4llvm4json5ValueC2EPKc.exit121.i
 
-_ZN4llvm4json5ValueC2EPKc.exit121.i:              ; preds = %1229, %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119.i
-  %1231 = phi i64 [ %1230, %1229 ], [ 0, %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119.i ]
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %749, ptr %852, i64 %1231)
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %750, ptr nonnull @.str.54, i64 6)
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %751, ptr nonnull @.str.59, i64 4)
+_ZN4llvm4json5ValueC2EPKc.exit121.i:              ; preds = %1232, %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119.i
+  %1234 = phi i64 [ %1233, %1232 ], [ 0, %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119.i ]
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %750, ptr %854, i64 %1234)
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %751, ptr nonnull @.str.54, i64 6)
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %752, ptr nonnull @.str.59, i64 4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 20, i1 false)
   br label %.lr.ph.i122.i
 
-.lr.ph.i122.i:                                    ; preds = %1239, %_ZN4llvm4json5ValueC2EPKc.exit121.i
-  %.015.i123.idx.i = phi i64 [ %.015.i123.add.i, %1239 ], [ 0, %_ZN4llvm4json5ValueC2EPKc.exit121.i ]
+.lr.ph.i122.i:                                    ; preds = %1242, %_ZN4llvm4json5ValueC2EPKc.exit121.i
+  %.015.i123.idx.i = phi i64 [ %.015.i123.add.i, %1242 ], [ 0, %_ZN4llvm4json5ValueC2EPKc.exit121.i ]
   %.015.i123.ptr.i = getelementptr inbounds nuw i8, ptr %44, i64 %.015.i123.idx.i
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !433
-  %1232 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %.015.i123.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %27), !noalias !433
-  br i1 %1232, label %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i125.i, label %1233
+  %1235 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %.015.i123.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %27), !noalias !433
+  br i1 %1235, label %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i125.i, label %1236
 
 _ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i125.i: ; preds = %.lr.ph.i122.i
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !433
-  br label %1239
+  br label %1242
 
-1233:                                             ; preds = %.lr.ph.i122.i
-  %1234 = load ptr, ptr %27, align 8, !tbaa !395, !noalias !433
-  %1235 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E20InsertIntoBucketImplIS3_EEPSA_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %.015.i123.ptr.i, ptr noundef %1234), !noalias !433
-  %1236 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm4json9ObjectKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %1235, ptr noundef nonnull align 8 dereferenceable(24) %.015.i123.ptr.i), !noalias !433
-  %1237 = getelementptr inbounds nuw i8, ptr %1235, i64 24
-  store i16 0, ptr %1237, align 8, !tbaa !397, !noalias !433
+1236:                                             ; preds = %.lr.ph.i122.i
+  %1237 = load ptr, ptr %27, align 8, !tbaa !395, !noalias !433
+  %1238 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E20InsertIntoBucketImplIS3_EEPSA_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %.015.i123.ptr.i, ptr noundef %1237), !noalias !433
+  %1239 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm4json9ObjectKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %1238, ptr noundef nonnull align 8 dereferenceable(24) %.015.i123.ptr.i), !noalias !433
+  %1240 = getelementptr inbounds nuw i8, ptr %1238, i64 24
+  store i16 0, ptr %1240, align 8, !tbaa !397, !noalias !433
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !433
-  %1238 = getelementptr inbounds nuw i8, ptr %.015.i123.ptr.i, i64 24
-  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1237, ptr noundef nonnull align 8 dereferenceable(40) %1238) #26
-  br label %1239
+  %1241 = getelementptr inbounds nuw i8, ptr %.015.i123.ptr.i, i64 24
+  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1240, ptr noundef nonnull align 8 dereferenceable(40) %1241) #26
+  br label %1242
 
-1239:                                             ; preds = %1233, %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i125.i
+1242:                                             ; preds = %1236, %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i125.i
   %.015.i123.add.i = add nuw nsw i64 %.015.i123.idx.i, 64
   %.not.i124.i = icmp eq i64 %.015.i123.add.i, 320
   br i1 %.not.i124.i, label %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit126.i, label %.lr.ph.i122.i
 
-_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit126.i: ; preds = %1239
+_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit126.i: ; preds = %1242
   store i16 7, ptr %42, align 8, !tbaa !397
-  %1240 = load ptr, ptr %43, align 8, !tbaa !395
-  store ptr %1240, ptr %753, align 8, !tbaa !395
+  %1243 = load ptr, ptr %43, align 8, !tbaa !395
+  store ptr %1243, ptr %754, align 8, !tbaa !395
   store ptr null, ptr %43, align 8, !tbaa !395
-  %1241 = load i32, ptr %755, align 8, !tbaa !53
-  store i32 %1241, ptr %754, align 8, !tbaa !53
-  store i32 0, ptr %755, align 8, !tbaa !53
-  %1242 = load i32, ptr %757, align 4, !tbaa !53
-  store i32 %1242, ptr %756, align 4, !tbaa !53
-  store i32 0, ptr %757, align 4, !tbaa !53
-  %1243 = load i32, ptr %759, align 8, !tbaa !53
-  store i32 %1243, ptr %758, align 8, !tbaa !53
-  store i32 0, ptr %759, align 8, !tbaa !53
-  %1244 = load ptr, ptr %760, align 8, !tbaa !401
-  %1245 = load ptr, ptr %761, align 8, !tbaa !404
-  %.not.i.i.i127.i = icmp eq ptr %1244, %1245
-  br i1 %.not.i.i.i127.i, label %1249, label %1246
-
-1246:                                             ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit126.i
-  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1244, ptr noundef nonnull align 8 dereferenceable(40) %42) #26
-  %1247 = load ptr, ptr %760, align 8, !tbaa !401
-  %1248 = getelementptr inbounds nuw i8, ptr %1247, i64 40
-  store ptr %1248, ptr %760, align 8, !tbaa !401
-  br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit128.i
+  %1244 = load i32, ptr %756, align 8, !tbaa !53
+  store i32 %1244, ptr %755, align 8, !tbaa !53
+  store i32 0, ptr %756, align 8, !tbaa !53
+  %1245 = load i32, ptr %758, align 4, !tbaa !53
+  store i32 %1245, ptr %757, align 4, !tbaa !53
+  store i32 0, ptr %758, align 4, !tbaa !53
+  %1246 = load i32, ptr %760, align 8, !tbaa !53
+  store i32 %1246, ptr %759, align 8, !tbaa !53
+  store i32 0, ptr %760, align 8, !tbaa !53
+  %1247 = load ptr, ptr %761, align 8, !tbaa !401
+  %1248 = load ptr, ptr %762, align 8, !tbaa !404
+  %.not.i.i.i127.i = icmp eq ptr %1247, %1248
+  br i1 %.not.i.i.i127.i, label %1252, label %1249
 
 1249:                                             ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit126.i
-  call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr %1244, ptr noundef nonnull align 8 dereferenceable(40) %42)
+  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1247, ptr noundef nonnull align 8 dereferenceable(40) %42) #26
+  %1250 = load ptr, ptr %761, align 8, !tbaa !401
+  %1251 = getelementptr inbounds nuw i8, ptr %1250, i64 40
+  store ptr %1251, ptr %761, align 8, !tbaa !401
   br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit128.i
 
-_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit128.i: ; preds = %1249, %1246
+1252:                                             ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit126.i
+  call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr %1247, ptr noundef nonnull align 8 dereferenceable(40) %42)
+  br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit128.i
+
+_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit128.i: ; preds = %1252, %1249
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %42) #26
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %43)
-  %1250 = load ptr, ptr %43, align 8, !tbaa !405
-  %1251 = load i32, ptr %759, align 8, !tbaa !407
-  %1252 = zext i32 %1251 to i64
-  %1253 = shl nuw nsw i64 %1252, 6
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %1250, i64 noundef %1253, i64 noundef 8) #26
-  br label %1254
+  %1253 = load ptr, ptr %43, align 8, !tbaa !405
+  %1254 = load i32, ptr %760, align 8, !tbaa !407
+  %1255 = zext i32 %1254 to i64
+  %1256 = shl nuw nsw i64 %1255, 6
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %1253, i64 noundef %1256, i64 noundef 8) #26
+  br label %1257
 
-1254:                                             ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit133.i, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit128.i
-  %1255 = phi ptr [ %752, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit128.i ], [ %1256, %_ZN4llvm4json6Object2KVD2Ev.exit133.i ]
-  %1256 = getelementptr inbounds i8, ptr %1255, i64 -64
-  %1257 = getelementptr inbounds i8, ptr %1255, i64 -40
-  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %1257) #26
-  %1258 = load ptr, ptr %1256, align 8, !tbaa !408
-  %.not.i.i.i129.i = icmp eq ptr %1258, null
-  br i1 %.not.i.i.i129.i, label %_ZN4llvm4json6Object2KVD2Ev.exit133.i, label %1259
+1257:                                             ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit133.i, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit128.i
+  %1258 = phi ptr [ %753, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit128.i ], [ %1259, %_ZN4llvm4json6Object2KVD2Ev.exit133.i ]
+  %1259 = getelementptr inbounds i8, ptr %1258, i64 -64
+  %1260 = getelementptr inbounds i8, ptr %1258, i64 -40
+  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %1260) #26
+  %1261 = load ptr, ptr %1259, align 8, !tbaa !408
+  %.not.i.i.i129.i = icmp eq ptr %1261, null
+  br i1 %.not.i.i.i129.i, label %_ZN4llvm4json6Object2KVD2Ev.exit133.i, label %1262
 
-1259:                                             ; preds = %1254
-  %1260 = load ptr, ptr %1258, align 8, !tbaa !165
-  %1261 = getelementptr inbounds nuw i8, ptr %1258, i64 16
-  %1262 = icmp eq ptr %1260, %1261
-  br i1 %1262, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i132.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i130.i
+1262:                                             ; preds = %1257
+  %1263 = load ptr, ptr %1261, align 8, !tbaa !165
+  %1264 = getelementptr inbounds nuw i8, ptr %1261, i64 16
+  %1265 = icmp eq ptr %1263, %1264
+  br i1 %1265, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i132.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i130.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i132.i: ; preds = %1259
-  %1263 = getelementptr inbounds nuw i8, ptr %1258, i64 8
-  %1264 = load i64, ptr %1263, align 8, !tbaa !166
-  %1265 = icmp ult i64 %1264, 16
-  call void @llvm.assume(i1 %1265)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i132.i: ; preds = %1262
+  %1266 = getelementptr inbounds nuw i8, ptr %1261, i64 8
+  %1267 = load i64, ptr %1266, align 8, !tbaa !166
+  %1268 = icmp ult i64 %1267, 16
+  call void @llvm.assume(i1 %1268)
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i131.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i130.i: ; preds = %1259
-  %1266 = load i64, ptr %1261, align 8, !tbaa !220
-  %1267 = add i64 %1266, 1
-  call void @_ZdlPvm(ptr noundef %1260, i64 noundef %1267) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i130.i: ; preds = %1262
+  %1269 = load i64, ptr %1264, align 8, !tbaa !220
+  %1270 = add i64 %1269, 1
+  call void @_ZdlPvm(ptr noundef %1263, i64 noundef %1270) #27
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i131.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i131.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i130.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i132.i
-  call void @_ZdlPvm(ptr noundef nonnull %1258, i64 noundef 32) #27
+  call void @_ZdlPvm(ptr noundef nonnull %1261, i64 noundef 32) #27
   br label %_ZN4llvm4json6Object2KVD2Ev.exit133.i
 
-_ZN4llvm4json6Object2KVD2Ev.exit133.i:            ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i131.i, %1254
-  store ptr null, ptr %1256, align 8, !tbaa !408
-  %1268 = icmp eq ptr %1256, %44
-  br i1 %1268, label %1269, label %1254
+_ZN4llvm4json6Object2KVD2Ev.exit133.i:            ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i131.i, %1257
+  store ptr null, ptr %1259, align 8, !tbaa !408
+  %1271 = icmp eq ptr %1259, %44
+  br i1 %1271, label %1272, label %1257
 
-1269:                                             ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit133.i
-  %1270 = load ptr, ptr %46, align 8, !tbaa !165
-  %1271 = icmp eq ptr %1270, %741
-  br i1 %1271, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i135.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134.i
+1272:                                             ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit133.i
+  %1273 = load ptr, ptr %46, align 8, !tbaa !165
+  %1274 = icmp eq ptr %1273, %742
+  br i1 %1274, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i135.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i135.i: ; preds = %1269
-  %1272 = load i64, ptr %742, align 8, !tbaa !166
-  %1273 = icmp ult i64 %1272, 16
-  call void @llvm.assume(i1 %1273)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i135.i: ; preds = %1272
+  %1275 = load i64, ptr %743, align 8, !tbaa !166
+  %1276 = icmp ult i64 %1275, 16
+  call void @llvm.assume(i1 %1276)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134.i: ; preds = %1269
-  %1274 = load i64, ptr %741, align 8, !tbaa !220
-  %1275 = add i64 %1274, 1
-  call void @_ZdlPvm(ptr noundef %1270, i64 noundef %1275) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134.i: ; preds = %1272
+  %1277 = load i64, ptr %742, align 8, !tbaa !220
+  %1278 = add i64 %1277, 1
+  call void @_ZdlPvm(ptr noundef %1273, i64 noundef %1278) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i135.i
-  %1276 = load ptr, ptr %45, align 8, !tbaa !165
-  %1277 = icmp eq ptr %1276, %732
-  br i1 %1277, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137.i
+  %1279 = load ptr, ptr %45, align 8, !tbaa !165
+  %1280 = icmp eq ptr %1279, %733
+  br i1 %1280, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i
-  %1278 = load i64, ptr %733, align 8, !tbaa !166
-  %1279 = icmp ult i64 %1278, 16
-  call void @llvm.assume(i1 %1279)
+  %1281 = load i64, ptr %734, align 8, !tbaa !166
+  %1282 = icmp ult i64 %1281, 16
+  call void @llvm.assume(i1 %1282)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i
-  %1280 = load i64, ptr %732, align 8, !tbaa !220
-  %1281 = add i64 %1280, 1
-  call void @_ZdlPvm(ptr noundef %1276, i64 noundef %1281) #27
+  %1283 = load i64, ptr %733, align 8, !tbaa !220
+  %1284 = add i64 %1283, 1
+  call void @_ZdlPvm(ptr noundef %1279, i64 noundef %1284) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i
@@ -6327,285 +6334,285 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i
 
-1282:                                             ; preds = %1157
-  %1283 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_15QuietE, i64 120), align 8, !tbaa !34, !range !46, !noundef !47
-  %1284 = trunc nuw i8 %1283 to i1
-  br i1 %1284, label %1285, label %1287
+1285:                                             ; preds = %1160
+  %1286 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_15QuietE, i64 120), align 8, !tbaa !34, !range !46, !noundef !47
+  %1287 = trunc nuw i8 %1286 to i1
+  br i1 %1287, label %1288, label %1290
 
-1285:                                             ; preds = %1282
-  %1286 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
+1288:                                             ; preds = %1285
+  %1289 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
   br label %_ZN12_GLOBAL__N_13dbgEv.exit140.i
 
-1287:                                             ; preds = %1282
-  %1288 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
+1290:                                             ; preds = %1285
+  %1291 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
   br label %_ZN12_GLOBAL__N_13dbgEv.exit140.i
 
-_ZN12_GLOBAL__N_13dbgEv.exit140.i:                ; preds = %1287, %1285
-  %1289 = phi ptr [ %1286, %1285 ], [ %1288, %1287 ]
-  %1290 = getelementptr inbounds nuw i8, ptr %1289, i64 24
-  %1291 = load ptr, ptr %1290, align 8, !tbaa !61
-  %1292 = getelementptr inbounds nuw i8, ptr %1289, i64 32
-  %1293 = load ptr, ptr %1292, align 8, !tbaa !65
-  %1294 = ptrtoint ptr %1291 to i64
-  %1295 = ptrtoint ptr %1293 to i64
-  %1296 = sub i64 %1294, %1295
-  %1297 = icmp ult i64 %1296, 9
-  br i1 %1297, label %1298, label %1300
+_ZN12_GLOBAL__N_13dbgEv.exit140.i:                ; preds = %1290, %1288
+  %1292 = phi ptr [ %1289, %1288 ], [ %1291, %1290 ]
+  %1293 = getelementptr inbounds nuw i8, ptr %1292, i64 24
+  %1294 = load ptr, ptr %1293, align 8, !tbaa !61
+  %1295 = getelementptr inbounds nuw i8, ptr %1292, i64 32
+  %1296 = load ptr, ptr %1295, align 8, !tbaa !65
+  %1297 = ptrtoint ptr %1294 to i64
+  %1298 = ptrtoint ptr %1296 to i64
+  %1299 = sub i64 %1297, %1298
+  %1300 = icmp ult i64 %1299, 9
+  br i1 %1300, label %1301, label %1303
 
-1298:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit140.i
-  %1299 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1289, ptr noundef nonnull @.str.67, i64 noundef 9) #26
-  %.phi.trans.insert.i173 = getelementptr inbounds nuw i8, ptr %1299, i64 32
+1301:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit140.i
+  %1302 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1292, ptr noundef nonnull @.str.67, i64 noundef 9) #26
+  %.phi.trans.insert.i173 = getelementptr inbounds nuw i8, ptr %1302, i64 32
   %.pre.i174 = load ptr, ptr %.phi.trans.insert.i173, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit143.i
 
-1300:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit140.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1293, ptr noundef nonnull align 1 dereferenceable(9) @.str.67, i64 9, i1 false)
-  %1301 = load ptr, ptr %1292, align 8, !tbaa !65
-  %1302 = getelementptr inbounds nuw i8, ptr %1301, i64 9
-  store ptr %1302, ptr %1292, align 8, !tbaa !65
+1303:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit140.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1296, ptr noundef nonnull align 1 dereferenceable(9) @.str.67, i64 9, i1 false)
+  %1304 = load ptr, ptr %1295, align 8, !tbaa !65
+  %1305 = getelementptr inbounds nuw i8, ptr %1304, i64 9
+  store ptr %1305, ptr %1295, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit143.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit143.i:            ; preds = %1300, %1298
-  %1303 = phi ptr [ %.pre.i174, %1298 ], [ %1302, %1300 ]
-  %.0.i.i142.i = phi ptr [ %1299, %1298 ], [ %1289, %1300 ]
-  %1304 = getelementptr inbounds nuw i8, ptr %.0.i.i142.i, i64 24
-  %1305 = load ptr, ptr %1304, align 8, !tbaa !61
-  %1306 = getelementptr inbounds nuw i8, ptr %.0.i.i142.i, i64 32
-  %1307 = ptrtoint ptr %1305 to i64
-  %1308 = ptrtoint ptr %1303 to i64
-  %1309 = sub i64 %1307, %1308
-  %1310 = icmp ugt i64 %.sroa.226.0.copyload, %1309
-  br i1 %1310, label %1311, label %1313
+_ZN4llvm11raw_ostreamlsEPKc.exit143.i:            ; preds = %1303, %1301
+  %1306 = phi ptr [ %.pre.i174, %1301 ], [ %1305, %1303 ]
+  %.0.i.i142.i = phi ptr [ %1302, %1301 ], [ %1292, %1303 ]
+  %1307 = getelementptr inbounds nuw i8, ptr %.0.i.i142.i, i64 24
+  %1308 = load ptr, ptr %1307, align 8, !tbaa !61
+  %1309 = getelementptr inbounds nuw i8, ptr %.0.i.i142.i, i64 32
+  %1310 = ptrtoint ptr %1308 to i64
+  %1311 = ptrtoint ptr %1306 to i64
+  %1312 = sub i64 %1310, %1311
+  %1313 = icmp ugt i64 %.sroa.226.0.copyload, %1312
+  br i1 %1313, label %1314, label %1316
 
-1311:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit143.i
-  %1312 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i142.i, ptr noundef %.sroa.025.0.copyload, i64 noundef %.sroa.226.0.copyload) #26
-  %.phi.trans.insert22.i = getelementptr inbounds nuw i8, ptr %1312, i64 32
+1314:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit143.i
+  %1315 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i142.i, ptr noundef %.sroa.025.0.copyload, i64 noundef %.sroa.226.0.copyload) #26
+  %.phi.trans.insert22.i = getelementptr inbounds nuw i8, ptr %1315, i64 32
   %.pre23.i = load ptr, ptr %.phi.trans.insert22.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit146.i
 
-1313:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit143.i
-  br i1 %.not.i144.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit146.i, label %1314
+1316:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit143.i
+  br i1 %.not.i144.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit146.i, label %1317
 
-1314:                                             ; preds = %1313
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1303, ptr align 1 %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload, i1 false)
-  %1315 = load ptr, ptr %1306, align 8, !tbaa !65
-  %1316 = getelementptr inbounds nuw i8, ptr %1315, i64 %.sroa.226.0.copyload
-  store ptr %1316, ptr %1306, align 8, !tbaa !65
+1317:                                             ; preds = %1316
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1306, ptr align 1 %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload, i1 false)
+  %1318 = load ptr, ptr %1309, align 8, !tbaa !65
+  %1319 = getelementptr inbounds nuw i8, ptr %1318, i64 %.sroa.226.0.copyload
+  store ptr %1319, ptr %1309, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit146.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit146.i: ; preds = %1314, %1313, %1311
-  %1317 = phi ptr [ %.pre23.i, %1311 ], [ %1316, %1314 ], [ %1303, %1313 ]
-  %.0.i145.i = phi ptr [ %1312, %1311 ], [ %.0.i.i142.i, %1314 ], [ %.0.i.i142.i, %1313 ]
-  %1318 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 24
-  %1319 = load ptr, ptr %1318, align 8, !tbaa !61
-  %1320 = ptrtoint ptr %1319 to i64
-  %1321 = ptrtoint ptr %1317 to i64
-  %1322 = sub i64 %1320, %1321
-  %1323 = icmp ult i64 %1322, 23
-  br i1 %1323, label %1324, label %1326
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit146.i: ; preds = %1317, %1316, %1314
+  %1320 = phi ptr [ %.pre23.i, %1314 ], [ %1319, %1317 ], [ %1306, %1316 ]
+  %.0.i145.i = phi ptr [ %1315, %1314 ], [ %.0.i.i142.i, %1317 ], [ %.0.i.i142.i, %1316 ]
+  %1321 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 24
+  %1322 = load ptr, ptr %1321, align 8, !tbaa !61
+  %1323 = ptrtoint ptr %1322 to i64
+  %1324 = ptrtoint ptr %1320 to i64
+  %1325 = sub i64 %1323, %1324
+  %1326 = icmp ult i64 %1325, 23
+  br i1 %1326, label %1327, label %1329
 
-1324:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit146.i
-  %1325 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i145.i, ptr noundef nonnull @.str.73, i64 noundef 23) #26
+1327:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit146.i
+  %1328 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i145.i, ptr noundef nonnull @.str.73, i64 noundef 23) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit149.i
 
-1326:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit146.i
-  %1327 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %1317, ptr noundef nonnull align 1 dereferenceable(23) @.str.73, i64 23, i1 false)
-  %1328 = load ptr, ptr %1327, align 8, !tbaa !65
-  %1329 = getelementptr inbounds nuw i8, ptr %1328, i64 23
-  store ptr %1329, ptr %1327, align 8, !tbaa !65
+1329:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit146.i
+  %1330 = getelementptr inbounds nuw i8, ptr %.0.i145.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %1320, ptr noundef nonnull align 1 dereferenceable(23) @.str.73, i64 23, i1 false)
+  %1331 = load ptr, ptr %1330, align 8, !tbaa !65
+  %1332 = getelementptr inbounds nuw i8, ptr %1331, i64 23
+  store ptr %1332, ptr %1330, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit149.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit149.i:            ; preds = %1326, %1324
-  %.0.i.i148.i = phi ptr [ %1325, %1324 ], [ %.0.i145.i, %1326 ]
-  call void @_ZNK4llvm5Value5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %798, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i148.i, i1 noundef zeroext false) #26
-  %1330 = getelementptr inbounds nuw i8, ptr %.0.i.i148.i, i64 24
-  %1331 = load ptr, ptr %1330, align 8, !tbaa !61
-  %1332 = getelementptr inbounds nuw i8, ptr %.0.i.i148.i, i64 32
-  %1333 = load ptr, ptr %1332, align 8, !tbaa !65
-  %1334 = ptrtoint ptr %1331 to i64
-  %1335 = ptrtoint ptr %1333 to i64
-  %1336 = sub i64 %1334, %1335
-  %1337 = icmp ult i64 %1336, 6
-  br i1 %1337, label %1338, label %1340
+_ZN4llvm11raw_ostreamlsEPKc.exit149.i:            ; preds = %1329, %1327
+  %.0.i.i148.i = phi ptr [ %1328, %1327 ], [ %.0.i145.i, %1329 ]
+  call void @_ZNK4llvm5Value5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(24) %799, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i148.i, i1 noundef zeroext false) #26
+  %1333 = getelementptr inbounds nuw i8, ptr %.0.i.i148.i, i64 24
+  %1334 = load ptr, ptr %1333, align 8, !tbaa !61
+  %1335 = getelementptr inbounds nuw i8, ptr %.0.i.i148.i, i64 32
+  %1336 = load ptr, ptr %1335, align 8, !tbaa !65
+  %1337 = ptrtoint ptr %1334 to i64
+  %1338 = ptrtoint ptr %1336 to i64
+  %1339 = sub i64 %1337, %1338
+  %1340 = icmp ult i64 %1339, 6
+  br i1 %1340, label %1341, label %1343
 
-1338:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit149.i
-  %1339 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i148.i, ptr noundef nonnull @.str.69, i64 noundef 6) #26
-  %.phi.trans.insert24.i = getelementptr inbounds nuw i8, ptr %1339, i64 32
+1341:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit149.i
+  %1342 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i148.i, ptr noundef nonnull @.str.69, i64 noundef 6) #26
+  %.phi.trans.insert24.i = getelementptr inbounds nuw i8, ptr %1342, i64 32
   %.pre25.i = load ptr, ptr %.phi.trans.insert24.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit152.i
 
-1340:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit149.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1333, ptr noundef nonnull align 1 dereferenceable(6) @.str.69, i64 6, i1 false)
-  %1341 = load ptr, ptr %1332, align 8, !tbaa !65
-  %1342 = getelementptr inbounds nuw i8, ptr %1341, i64 6
-  store ptr %1342, ptr %1332, align 8, !tbaa !65
+1343:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit149.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1336, ptr noundef nonnull align 1 dereferenceable(6) @.str.69, i64 6, i1 false)
+  %1344 = load ptr, ptr %1335, align 8, !tbaa !65
+  %1345 = getelementptr inbounds nuw i8, ptr %1344, i64 6
+  store ptr %1345, ptr %1335, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit152.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit152.i:            ; preds = %1340, %1338
-  %1343 = phi ptr [ %.pre25.i, %1338 ], [ %1342, %1340 ]
-  %.0.i.i151.i = phi ptr [ %1339, %1338 ], [ %.0.i.i148.i, %1340 ]
-  %1344 = getelementptr inbounds nuw i8, ptr %.0.i.i151.i, i64 24
-  %1345 = load ptr, ptr %1344, align 8, !tbaa !61
-  %1346 = getelementptr inbounds nuw i8, ptr %.0.i.i151.i, i64 32
-  %1347 = ptrtoint ptr %1345 to i64
-  %1348 = ptrtoint ptr %1343 to i64
-  %1349 = sub i64 %1347, %1348
-  %1350 = icmp ugt i64 %.sroa.8.0.i, %1349
-  br i1 %1350, label %1351, label %1353
+_ZN4llvm11raw_ostreamlsEPKc.exit152.i:            ; preds = %1343, %1341
+  %1346 = phi ptr [ %.pre25.i, %1341 ], [ %1345, %1343 ]
+  %.0.i.i151.i = phi ptr [ %1342, %1341 ], [ %.0.i.i148.i, %1343 ]
+  %1347 = getelementptr inbounds nuw i8, ptr %.0.i.i151.i, i64 24
+  %1348 = load ptr, ptr %1347, align 8, !tbaa !61
+  %1349 = getelementptr inbounds nuw i8, ptr %.0.i.i151.i, i64 32
+  %1350 = ptrtoint ptr %1348 to i64
+  %1351 = ptrtoint ptr %1346 to i64
+  %1352 = sub i64 %1350, %1351
+  %1353 = icmp ugt i64 %.sroa.8.0.i, %1352
+  br i1 %1353, label %1354, label %1356
 
-1351:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit152.i
-  %1352 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i151.i, ptr noundef %.sroa.0.0.i, i64 noundef %.sroa.8.0.i) #26
-  %.phi.trans.insert26.i = getelementptr inbounds nuw i8, ptr %1352, i64 32
+1354:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit152.i
+  %1355 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i151.i, ptr noundef %.sroa.0.0.i, i64 noundef %.sroa.8.0.i) #26
+  %.phi.trans.insert26.i = getelementptr inbounds nuw i8, ptr %1355, i64 32
   %.pre27.i = load ptr, ptr %.phi.trans.insert26.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit155.i
 
-1353:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit152.i
+1356:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit152.i
   %.not.i153.i = icmp eq i64 %.sroa.8.0.i, 0
-  br i1 %.not.i153.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit155.i, label %1354
+  br i1 %.not.i153.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit155.i, label %1357
 
-1354:                                             ; preds = %1353
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1343, ptr align 1 %.sroa.0.0.i, i64 %.sroa.8.0.i, i1 false)
-  %1355 = load ptr, ptr %1346, align 8, !tbaa !65
-  %1356 = getelementptr inbounds nuw i8, ptr %1355, i64 %.sroa.8.0.i
-  store ptr %1356, ptr %1346, align 8, !tbaa !65
+1357:                                             ; preds = %1356
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1346, ptr align 1 %.sroa.0.0.i, i64 %.sroa.8.0.i, i1 false)
+  %1358 = load ptr, ptr %1349, align 8, !tbaa !65
+  %1359 = getelementptr inbounds nuw i8, ptr %1358, i64 %.sroa.8.0.i
+  store ptr %1359, ptr %1349, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit155.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit155.i: ; preds = %1354, %1353, %1351
-  %1357 = phi ptr [ %.pre27.i, %1351 ], [ %1356, %1354 ], [ %1343, %1353 ]
-  %.0.i154.i = phi ptr [ %1352, %1351 ], [ %.0.i.i151.i, %1354 ], [ %.0.i.i151.i, %1353 ]
-  %1358 = getelementptr inbounds nuw i8, ptr %.0.i154.i, i64 24
-  %1359 = load ptr, ptr %1358, align 8, !tbaa !61
-  %1360 = ptrtoint ptr %1359 to i64
-  %1361 = ptrtoint ptr %1357 to i64
-  %1362 = sub i64 %1360, %1361
-  %1363 = icmp ult i64 %1362, 6
-  br i1 %1363, label %1364, label %1366
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit155.i: ; preds = %1357, %1356, %1354
+  %1360 = phi ptr [ %.pre27.i, %1354 ], [ %1359, %1357 ], [ %1346, %1356 ]
+  %.0.i154.i = phi ptr [ %1355, %1354 ], [ %.0.i.i151.i, %1357 ], [ %.0.i.i151.i, %1356 ]
+  %1361 = getelementptr inbounds nuw i8, ptr %.0.i154.i, i64 24
+  %1362 = load ptr, ptr %1361, align 8, !tbaa !61
+  %1363 = ptrtoint ptr %1362 to i64
+  %1364 = ptrtoint ptr %1360 to i64
+  %1365 = sub i64 %1363, %1364
+  %1366 = icmp ult i64 %1365, 6
+  br i1 %1366, label %1367, label %1369
 
-1364:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit155.i
-  %1365 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i154.i, ptr noundef nonnull @.str.70, i64 noundef 6) #26
-  %.phi.trans.insert28.i = getelementptr inbounds nuw i8, ptr %1365, i64 32
+1367:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit155.i
+  %1368 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i154.i, ptr noundef nonnull @.str.70, i64 noundef 6) #26
+  %.phi.trans.insert28.i = getelementptr inbounds nuw i8, ptr %1368, i64 32
   %.pre29.i = load ptr, ptr %.phi.trans.insert28.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit158.i
 
-1366:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit155.i
-  %1367 = getelementptr inbounds nuw i8, ptr %.0.i154.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1357, ptr noundef nonnull align 1 dereferenceable(6) @.str.70, i64 6, i1 false)
-  %1368 = load ptr, ptr %1367, align 8, !tbaa !65
-  %1369 = getelementptr inbounds nuw i8, ptr %1368, i64 6
-  store ptr %1369, ptr %1367, align 8, !tbaa !65
+1369:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit155.i
+  %1370 = getelementptr inbounds nuw i8, ptr %.0.i154.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1360, ptr noundef nonnull align 1 dereferenceable(6) @.str.70, i64 6, i1 false)
+  %1371 = load ptr, ptr %1370, align 8, !tbaa !65
+  %1372 = getelementptr inbounds nuw i8, ptr %1371, i64 6
+  store ptr %1372, ptr %1370, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit158.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit158.i:            ; preds = %1366, %1364
-  %1370 = phi ptr [ %.pre29.i, %1364 ], [ %1369, %1366 ]
-  %.0.i.i157.i = phi ptr [ %1365, %1364 ], [ %.0.i154.i, %1366 ]
-  %1371 = getelementptr inbounds nuw i8, ptr %.0.i.i157.i, i64 24
-  %1372 = load ptr, ptr %1371, align 8, !tbaa !61
-  %1373 = getelementptr inbounds nuw i8, ptr %.0.i.i157.i, i64 32
-  %1374 = ptrtoint ptr %1372 to i64
-  %1375 = ptrtoint ptr %1370 to i64
-  %1376 = sub i64 %1374, %1375
-  %1377 = icmp ugt i64 %838, %1376
-  br i1 %1377, label %1378, label %1380
+_ZN4llvm11raw_ostreamlsEPKc.exit158.i:            ; preds = %1369, %1367
+  %1373 = phi ptr [ %.pre29.i, %1367 ], [ %1372, %1369 ]
+  %.0.i.i157.i = phi ptr [ %1368, %1367 ], [ %.0.i154.i, %1369 ]
+  %1374 = getelementptr inbounds nuw i8, ptr %.0.i.i157.i, i64 24
+  %1375 = load ptr, ptr %1374, align 8, !tbaa !61
+  %1376 = getelementptr inbounds nuw i8, ptr %.0.i.i157.i, i64 32
+  %1377 = ptrtoint ptr %1375 to i64
+  %1378 = ptrtoint ptr %1373 to i64
+  %1379 = sub i64 %1377, %1378
+  %1380 = icmp ugt i64 %840, %1379
+  br i1 %1380, label %1381, label %1383
 
-1378:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit158.i
-  %1379 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i157.i, ptr noundef %837, i64 noundef %838) #26
-  %.phi.trans.insert30.i = getelementptr inbounds nuw i8, ptr %1379, i64 32
+1381:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit158.i
+  %1382 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i157.i, ptr noundef %839, i64 noundef %840) #26
+  %.phi.trans.insert30.i = getelementptr inbounds nuw i8, ptr %1382, i64 32
   %.pre31.i = load ptr, ptr %.phi.trans.insert30.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit161.i
 
-1380:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit158.i
-  %.not.i159.i = icmp eq i64 %838, 0
-  br i1 %.not.i159.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit161.i, label %1381
+1383:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit158.i
+  %.not.i159.i = icmp eq i64 %840, 0
+  br i1 %.not.i159.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit161.i, label %1384
 
-1381:                                             ; preds = %1380
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1370, ptr align 1 %837, i64 %838, i1 false)
-  %1382 = load ptr, ptr %1373, align 8, !tbaa !65
-  %1383 = getelementptr inbounds nuw i8, ptr %1382, i64 %838
-  store ptr %1383, ptr %1373, align 8, !tbaa !65
+1384:                                             ; preds = %1383
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1373, ptr align 1 %839, i64 %840, i1 false)
+  %1385 = load ptr, ptr %1376, align 8, !tbaa !65
+  %1386 = getelementptr inbounds nuw i8, ptr %1385, i64 %840
+  store ptr %1386, ptr %1376, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit161.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit161.i: ; preds = %1381, %1380, %1378
-  %1384 = phi ptr [ %.pre31.i, %1378 ], [ %1383, %1381 ], [ %1370, %1380 ]
-  %.0.i160.i = phi ptr [ %1379, %1378 ], [ %.0.i.i157.i, %1381 ], [ %.0.i.i157.i, %1380 ]
-  %1385 = getelementptr inbounds nuw i8, ptr %.0.i160.i, i64 24
-  %1386 = load ptr, ptr %1385, align 8, !tbaa !61
-  %1387 = ptrtoint ptr %1386 to i64
-  %1388 = ptrtoint ptr %1384 to i64
-  %1389 = sub i64 %1387, %1388
-  %1390 = icmp ult i64 %1389, 8
-  br i1 %1390, label %1391, label %1393
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit161.i: ; preds = %1384, %1383, %1381
+  %1387 = phi ptr [ %.pre31.i, %1381 ], [ %1386, %1384 ], [ %1373, %1383 ]
+  %.0.i160.i = phi ptr [ %1382, %1381 ], [ %.0.i.i157.i, %1384 ], [ %.0.i.i157.i, %1383 ]
+  %1388 = getelementptr inbounds nuw i8, ptr %.0.i160.i, i64 24
+  %1389 = load ptr, ptr %1388, align 8, !tbaa !61
+  %1390 = ptrtoint ptr %1389 to i64
+  %1391 = ptrtoint ptr %1387 to i64
+  %1392 = sub i64 %1390, %1391
+  %1393 = icmp ult i64 %1392, 8
+  br i1 %1393, label %1394, label %1396
 
-1391:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit161.i
-  %1392 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i160.i, ptr noundef nonnull @.str.71, i64 noundef 8) #26
-  %.phi.trans.insert32.i = getelementptr inbounds nuw i8, ptr %1392, i64 32
+1394:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit161.i
+  %1395 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i160.i, ptr noundef nonnull @.str.71, i64 noundef 8) #26
+  %.phi.trans.insert32.i = getelementptr inbounds nuw i8, ptr %1395, i64 32
   %.pre33.i = load ptr, ptr %.phi.trans.insert32.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit164.i
 
-1393:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit161.i
-  %1394 = getelementptr inbounds nuw i8, ptr %.0.i160.i, i64 32
-  store i64 2322280074159988780, ptr %1384, align 1
-  %1395 = load ptr, ptr %1394, align 8, !tbaa !65
-  %1396 = getelementptr inbounds nuw i8, ptr %1395, i64 8
-  store ptr %1396, ptr %1394, align 8, !tbaa !65
+1396:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit161.i
+  %1397 = getelementptr inbounds nuw i8, ptr %.0.i160.i, i64 32
+  store i64 2322280074159988780, ptr %1387, align 1
+  %1398 = load ptr, ptr %1397, align 8, !tbaa !65
+  %1399 = getelementptr inbounds nuw i8, ptr %1398, i64 8
+  store ptr %1399, ptr %1397, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit164.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit164.i:            ; preds = %1393, %1391
-  %1397 = phi ptr [ %.pre33.i, %1391 ], [ %1396, %1393 ]
-  %.0.i.i163.i = phi ptr [ %1392, %1391 ], [ %.0.i160.i, %1393 ]
-  %1398 = getelementptr inbounds nuw i8, ptr %.0.i.i163.i, i64 24
-  %1399 = load ptr, ptr %1398, align 8, !tbaa !61
-  %1400 = getelementptr inbounds nuw i8, ptr %.0.i.i163.i, i64 32
-  %1401 = ptrtoint ptr %1399 to i64
-  %1402 = ptrtoint ptr %1397 to i64
-  %1403 = sub i64 %1401, %1402
-  %1404 = icmp ugt i64 %.sroa.3.1.i, %1403
-  br i1 %1404, label %1405, label %1407
+_ZN4llvm11raw_ostreamlsEPKc.exit164.i:            ; preds = %1396, %1394
+  %1400 = phi ptr [ %.pre33.i, %1394 ], [ %1399, %1396 ]
+  %.0.i.i163.i = phi ptr [ %1395, %1394 ], [ %.0.i160.i, %1396 ]
+  %1401 = getelementptr inbounds nuw i8, ptr %.0.i.i163.i, i64 24
+  %1402 = load ptr, ptr %1401, align 8, !tbaa !61
+  %1403 = getelementptr inbounds nuw i8, ptr %.0.i.i163.i, i64 32
+  %1404 = ptrtoint ptr %1402 to i64
+  %1405 = ptrtoint ptr %1400 to i64
+  %1406 = sub i64 %1404, %1405
+  %1407 = icmp ugt i64 %.sroa.3.1.i, %1406
+  br i1 %1407, label %1408, label %1410
 
-1405:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit164.i
-  %1406 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i163.i, ptr noundef %.sroa.0.1.i, i64 noundef %.sroa.3.1.i) #26
-  %.phi.trans.insert34.i = getelementptr inbounds nuw i8, ptr %1406, i64 32
+1408:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit164.i
+  %1409 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i163.i, ptr noundef %.sroa.0.1.i, i64 noundef %.sroa.3.1.i) #26
+  %.phi.trans.insert34.i = getelementptr inbounds nuw i8, ptr %1409, i64 32
   %.pre35.i = load ptr, ptr %.phi.trans.insert34.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit167.i
 
-1407:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit164.i
-  br i1 %.not.i165.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit167.i, label %1408
+1410:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit164.i
+  br i1 %.not.i165.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit167.i, label %1411
 
-1408:                                             ; preds = %1407
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1397, ptr align 1 %.sroa.0.1.i, i64 %.sroa.3.1.i, i1 false)
-  %1409 = load ptr, ptr %1400, align 8, !tbaa !65
-  %1410 = getelementptr inbounds nuw i8, ptr %1409, i64 %.sroa.3.1.i
-  store ptr %1410, ptr %1400, align 8, !tbaa !65
+1411:                                             ; preds = %1410
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1400, ptr align 1 %.sroa.0.1.i, i64 %.sroa.3.1.i, i1 false)
+  %1412 = load ptr, ptr %1403, align 8, !tbaa !65
+  %1413 = getelementptr inbounds nuw i8, ptr %1412, i64 %.sroa.3.1.i
+  store ptr %1413, ptr %1403, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit167.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit167.i: ; preds = %1408, %1407, %1405
-  %1411 = phi ptr [ %.pre35.i, %1405 ], [ %1410, %1408 ], [ %1397, %1407 ]
-  %.0.i166.i = phi ptr [ %1406, %1405 ], [ %.0.i.i163.i, %1408 ], [ %.0.i.i163.i, %1407 ]
-  %1412 = getelementptr inbounds nuw i8, ptr %.0.i166.i, i64 24
-  %1413 = load ptr, ptr %1412, align 8, !tbaa !61
-  %1414 = ptrtoint ptr %1413 to i64
-  %1415 = ptrtoint ptr %1411 to i64
-  %1416 = sub i64 %1414, %1415
-  %1417 = icmp ult i64 %1416, 2
-  br i1 %1417, label %1418, label %1420
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit167.i: ; preds = %1411, %1410, %1408
+  %1414 = phi ptr [ %.pre35.i, %1408 ], [ %1413, %1411 ], [ %1400, %1410 ]
+  %.0.i166.i = phi ptr [ %1409, %1408 ], [ %.0.i.i163.i, %1411 ], [ %.0.i.i163.i, %1410 ]
+  %1415 = getelementptr inbounds nuw i8, ptr %.0.i166.i, i64 24
+  %1416 = load ptr, ptr %1415, align 8, !tbaa !61
+  %1417 = ptrtoint ptr %1416 to i64
+  %1418 = ptrtoint ptr %1414 to i64
+  %1419 = sub i64 %1417, %1418
+  %1420 = icmp ult i64 %1419, 2
+  br i1 %1420, label %1421, label %1423
 
-1418:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit167.i
-  %1419 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i166.i, ptr noundef nonnull @.str.72, i64 noundef 2) #26
+1421:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit167.i
+  %1422 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i166.i, ptr noundef nonnull @.str.72, i64 noundef 2) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i
 
-1420:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit167.i
-  %1421 = getelementptr inbounds nuw i8, ptr %.0.i166.i, i64 32
-  store i16 2601, ptr %1411, align 1
-  %1422 = load ptr, ptr %1421, align 8, !tbaa !65
-  %1423 = getelementptr inbounds nuw i8, ptr %1422, i64 2
-  store ptr %1423, ptr %1421, align 8, !tbaa !65
+1423:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit167.i
+  %1424 = getelementptr inbounds nuw i8, ptr %.0.i166.i, i64 32
+  store i16 2601, ptr %1414, align 1
+  %1425 = load ptr, ptr %1424, align 8, !tbaa !65
+  %1426 = getelementptr inbounds nuw i8, ptr %1425, i64 2
+  store ptr %1426, ptr %1424, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit101.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit101.i:            ; preds = %1420, %1418, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i, %1151, %1147, %1145, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i, %829, %793
-  %.1.i170 = phi i1 [ %.020.i, %793 ], [ %.020.i, %829 ], [ %.020.i, %1151 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i ], [ false, %1145 ], [ false, %1147 ], [ false, %1418 ], [ false, %1420 ]
-  %1424 = getelementptr inbounds nuw i8, ptr %.04619.i, i64 16
-  %.not.i171 = icmp eq ptr %1424, %728
-  br i1 %.not.i171, label %_ZL17checkInstructionsRKN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEEESH_RKNS0_IS3_NS_6WeakVHESA_NSB_ISC_IS3_SI_ELj0EEEEENS_9StringRefESO_bRNS_4json5ArrayE.exit, label %793
+_ZN4llvm11raw_ostreamlsEPKc.exit101.i:            ; preds = %1423, %1421, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i, %1153, %1149, %1147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i, %830, %794
+  %.1.i170 = phi i1 [ %.020.i, %794 ], [ %.020.i, %830 ], [ %.020.i, %1153 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76.i ], [ false, %1147 ], [ false, %1149 ], [ false, %1421 ], [ false, %1423 ]
+  %1427 = getelementptr inbounds nuw i8, ptr %.04619.i, i64 16
+  %.not.i171 = icmp eq ptr %1427, %729
+  br i1 %.not.i171, label %_ZL17checkInstructionsRKN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEEESH_RKNS0_IS3_NS_6WeakVHESA_NSB_ISC_IS3_SI_ELj0EEEEENS_9StringRefESO_bRNS_4json5ArrayE.exit, label %794
 
 _ZL17checkInstructionsRKN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEEESH_RKNS0_IS3_NS_6WeakVHESA_NSB_ISC_IS3_SI_ELj0EEEEENS_9StringRefESO_bRNS_4json5ArrayE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit101.i, %_ZL14checkFunctionsRKN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEEESK_NS_9StringRefESL_bRNS_4json5ArrayE.exit
   %.0.lcssa.i172 = phi i1 [ true, %_ZL14checkFunctionsRKN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEEESK_NS_9StringRefESL_bRNS_4json5ArrayE.exit ], [ %.1.i170, %_ZN4llvm11raw_ostreamlsEPKc.exit101.i ]
@@ -6617,744 +6624,746 @@ _ZL17checkInstructionsRKN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS
   %.sroa.218.0.copyload = load i64, ptr %.sroa.226.0..sroa_idx, align 8, !tbaa !45
   %.val99 = load ptr, ptr %324, align 8, !tbaa !25
   %.val100 = load i32, ptr %327, align 8, !tbaa !26
-  %1425 = zext i32 %.val100 to i64
-  %.idx.i196 = shl nuw nsw i64 %1425, 4
-  %1426 = getelementptr inbounds nuw i8, ptr %.val99, i64 %.idx.i196
+  %1428 = zext i32 %.val100 to i64
+  %.idx.i196 = shl nuw nsw i64 %1428, 4
+  %1429 = getelementptr inbounds nuw i8, ptr %.val99, i64 %.idx.i196
   %.not20.i = icmp eq i32 %.val100, 0
   br i1 %.not20.i, label %_ZL9checkVarsRKN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEESH_NS_9StringRefESI_bRNS_4json5ArrayE.exit, label %.lr.ph.i197
 
 .lr.ph.i197:                                      ; preds = %_ZL17checkInstructionsRKN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEEESH_RKNS0_IS3_NS_6WeakVHESA_NSB_ISC_IS3_SI_ELj0EEEEENS_9StringRefESO_bRNS_4json5ArrayE.exit
   %.not.i52.i = icmp eq i64 %.sroa.218.0.copyload, 0
   %.not.i92.i198 = icmp eq i64 %.sroa.3.1.i, 0
-  %1427 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %1428 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %1429 = getelementptr inbounds nuw i8, ptr %26, i64 88
-  %1430 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %1431 = getelementptr inbounds nuw i8, ptr %26, i64 152
-  %1432 = getelementptr inbounds nuw i8, ptr %26, i64 192
-  %1433 = getelementptr inbounds nuw i8, ptr %26, i64 216
-  %1434 = getelementptr inbounds nuw i8, ptr %26, i64 256
-  %1435 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %1436 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %1437 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %1438 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %1439 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  %1440 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %1441 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %1442 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %1443 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %1430 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %1431 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  %1432 = getelementptr inbounds nuw i8, ptr %26, i64 88
+  %1433 = getelementptr inbounds nuw i8, ptr %26, i64 128
+  %1434 = getelementptr inbounds nuw i8, ptr %26, i64 152
+  %1435 = getelementptr inbounds nuw i8, ptr %26, i64 192
+  %1436 = getelementptr inbounds nuw i8, ptr %26, i64 216
+  %1437 = getelementptr inbounds nuw i8, ptr %26, i64 256
+  %1438 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %1439 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %1440 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %1441 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %1442 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  %1443 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %1444 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %1445 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %1446 = getelementptr inbounds nuw i8, ptr %64, i64 16
   br i1 %.not583, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i197, %_ZN4llvm11raw_ostreamlsEPKc.exit97.us.i
   %.022.us.i = phi i1 [ %.1.us.i, %_ZN4llvm11raw_ostreamlsEPKc.exit97.us.i ], [ true, %.lr.ph.i197 ]
-  %.03721.us.i = phi ptr [ %1572, %_ZN4llvm11raw_ostreamlsEPKc.exit97.us.i ], [ %.val99, %.lr.ph.i197 ]
-  %1444 = load ptr, ptr %.03721.us.i, align 8, !tbaa !343
-  %1445 = load ptr, ptr %63, align 8, !tbaa !337
-  %1446 = load i32, ptr %336, align 8, !tbaa !342
-  %1447 = icmp eq i32 %1446, 0
-  br i1 %1447, label %.loopexit.i.i.us.i, label %1448
+  %.03721.us.i = phi ptr [ %1576, %_ZN4llvm11raw_ostreamlsEPKc.exit97.us.i ], [ %.val99, %.lr.ph.i197 ]
+  %1447 = load ptr, ptr %.03721.us.i, align 8, !tbaa !343
+  %1448 = load ptr, ptr %63, align 8, !tbaa !337
+  %1449 = load i32, ptr %336, align 8, !tbaa !342
+  %1450 = icmp eq i32 %1449, 0
+  br i1 %1450, label %.loopexit.i.i.us.i, label %1451
 
-1448:                                             ; preds = %.lr.ph.split.us.i
-  %1449 = ptrtoint ptr %1444 to i64
-  %1450 = trunc i64 %1449 to i32
-  %1451 = lshr i32 %1450, 4
-  %1452 = lshr i32 %1450, 9
-  %1453 = xor i32 %1451, %1452
-  %1454 = add i32 %1446, -1
-  %.01826.i.i.i.i.us.i = and i32 %1453, %1454
-  %1455 = zext nneg i32 %.01826.i.i.i.i.us.i to i64
-  %1456 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1445, i64 %1455
-  %1457 = load ptr, ptr %1456, align 8, !tbaa !343
-  %1458 = icmp eq ptr %1444, %1457
-  br i1 %1458, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i, label %.lr.ph.i.i.i.i.us.i, !prof !272
+1451:                                             ; preds = %.lr.ph.split.us.i
+  %1452 = ptrtoint ptr %1447 to i64
+  %1453 = trunc i64 %1452 to i32
+  %1454 = lshr i32 %1453, 4
+  %1455 = lshr i32 %1453, 9
+  %1456 = xor i32 %1454, %1455
+  %1457 = add i32 %1449, -1
+  %.01826.i.i.i.i.us.i = and i32 %1456, %1457
+  %1458 = zext nneg i32 %.01826.i.i.i.i.us.i to i64
+  %1459 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1448, i64 %1458
+  %1460 = load ptr, ptr %1459, align 8, !tbaa !343
+  %1461 = icmp eq ptr %1447, %1460
+  br i1 %1461, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i, label %.lr.ph.i.i.i.i.us.i, !prof !272
 
-.lr.ph.i.i.i.i.us.i:                              ; preds = %1448, %1461
-  %1459 = phi ptr [ %1466, %1461 ], [ %1457, %1448 ]
-  %.01828.i.i.i.i.us.i = phi i32 [ %.018.i.i.i.i.us.i, %1461 ], [ %.01826.i.i.i.i.us.i, %1448 ]
-  %.01627.i.i.i.i.us.i = phi i32 [ %1462, %1461 ], [ 1, %1448 ]
-  %1460 = icmp eq ptr %1459, inttoptr (i64 -4096 to ptr)
-  br i1 %1460, label %.loopexit.i.i.us.i, label %1461, !prof !33
+.lr.ph.i.i.i.i.us.i:                              ; preds = %1451, %1464
+  %1462 = phi ptr [ %1469, %1464 ], [ %1460, %1451 ]
+  %.01828.i.i.i.i.us.i = phi i32 [ %.018.i.i.i.i.us.i, %1464 ], [ %.01826.i.i.i.i.us.i, %1451 ]
+  %.01627.i.i.i.i.us.i = phi i32 [ %1465, %1464 ], [ 1, %1451 ]
+  %1463 = icmp eq ptr %1462, inttoptr (i64 -4096 to ptr)
+  br i1 %1463, label %.loopexit.i.i.us.i, label %1464, !prof !33
 
-1461:                                             ; preds = %.lr.ph.i.i.i.i.us.i
-  %1462 = add i32 %.01627.i.i.i.i.us.i, 1
-  %1463 = add i32 %.01627.i.i.i.i.us.i, %.01828.i.i.i.i.us.i
-  %.018.i.i.i.i.us.i = and i32 %1463, %1454
-  %1464 = zext i32 %.018.i.i.i.i.us.i to i64
-  %1465 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1445, i64 %1464
-  %1466 = load ptr, ptr %1465, align 8, !tbaa !343
-  %1467 = icmp eq ptr %1444, %1466
-  br i1 %1467, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i, label %.lr.ph.i.i.i.i.us.i, !prof !273, !llvm.loop !438
+1464:                                             ; preds = %.lr.ph.i.i.i.i.us.i
+  %1465 = add i32 %.01627.i.i.i.i.us.i, 1
+  %1466 = add i32 %.01627.i.i.i.i.us.i, %.01828.i.i.i.i.us.i
+  %.018.i.i.i.i.us.i = and i32 %1466, %1457
+  %1467 = zext i32 %.018.i.i.i.i.us.i to i64
+  %1468 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1448, i64 %1467
+  %1469 = load ptr, ptr %1468, align 8, !tbaa !343
+  %1470 = icmp eq ptr %1447, %1469
+  br i1 %1470, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i, label %.lr.ph.i.i.i.i.us.i, !prof !273, !llvm.loop !438
 
 .loopexit.i.i.us.i:                               ; preds = %.lr.ph.i.i.i.i.us.i, %.lr.ph.split.us.i
-  %1468 = zext i32 %1446 to i64
-  %1469 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1445, i64 %1468
+  %1471 = zext i32 %1449 to i64
+  %1472 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1448, i64 %1471
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i: ; preds = %1461, %.loopexit.i.i.us.i, %1448
-  %.sroa.0.1.i.i.us.i = phi ptr [ %1469, %.loopexit.i.i.us.i ], [ %1456, %1448 ], [ %1465, %1461 ]
-  %1470 = zext i32 %1446 to i64
-  %1471 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1445, i64 %1470
-  %1472 = icmp eq ptr %.sroa.0.1.i.i.us.i, %1471
-  %1473 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.us.i, i64 8
-  %.sink7.in.i.us.i = select i1 %1472, ptr %356, ptr %1473
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i: ; preds = %1464, %.loopexit.i.i.us.i, %1451
+  %.sroa.0.1.i.i.us.i = phi ptr [ %1472, %.loopexit.i.i.us.i ], [ %1459, %1451 ], [ %1468, %1464 ]
+  %1473 = zext i32 %1449 to i64
+  %1474 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1448, i64 %1473
+  %1475 = icmp eq ptr %.sroa.0.1.i.i.us.i, %1474
+  %1476 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.us.i, i64 8
+  %.sink7.in.i.us.i = select i1 %1475, ptr %356, ptr %1476
   %.sink7.i.us.i = load i32, ptr %.sink7.in.i.us.i, align 8, !tbaa !53
-  %1474 = load i32, ptr %356, align 8, !tbaa !26
-  %1475 = icmp eq i32 %.sink7.i.us.i, %1474
-  br i1 %1475, label %_ZN4llvm11raw_ostreamlsEPKc.exit97.us.i, label %1476
+  %1477 = load i32, ptr %356, align 8, !tbaa !26
+  %1478 = icmp eq i32 %.sink7.i.us.i, %1477
+  br i1 %1478, label %_ZN4llvm11raw_ostreamlsEPKc.exit97.us.i, label %1479
 
-1476:                                             ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i
-  %1477 = zext i32 %.sink7.i.us.i to i64
-  %1478 = load ptr, ptr %354, align 8, !tbaa !25
-  %1479 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %1478, i64 %1477, i32 1
-  %1480 = load i32, ptr %1479, align 8, !tbaa !294
-  %1481 = getelementptr inbounds nuw i8, ptr %.03721.us.i, i64 8
-  %1482 = load i32, ptr %1481, align 8, !tbaa !294
-  %1483 = icmp ugt i32 %1482, %1480
-  br i1 %1483, label %1484, label %_ZN4llvm11raw_ostreamlsEPKc.exit97.us.i
+1479:                                             ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i
+  %1480 = zext i32 %.sink7.i.us.i to i64
+  %1481 = load ptr, ptr %354, align 8, !tbaa !25
+  %1482 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %1481, i64 %1480
+  %1483 = getelementptr inbounds nuw i8, ptr %1482, i64 8
+  %1484 = load i32, ptr %1483, align 8, !tbaa !294
+  %1485 = getelementptr inbounds nuw i8, ptr %.03721.us.i, i64 8
+  %1486 = load i32, ptr %1485, align 8, !tbaa !294
+  %1487 = icmp ugt i32 %1486, %1484
+  br i1 %1487, label %1488, label %_ZN4llvm11raw_ostreamlsEPKc.exit97.us.i
 
-1484:                                             ; preds = %1476
+1488:                                             ; preds = %1479
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr nonnull @.str.51, i64 8)
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1427, ptr nonnull @.str.75, i64 17)
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1428, ptr nonnull @.str.53, i64 4)
-  %1485 = load ptr, ptr %.03721.us.i, align 8, !tbaa !291
-  %1486 = getelementptr inbounds i8, ptr %1485, i64 -16
-  %1487 = load i64, ptr %1486, align 8
-  %1488 = and i64 %1487, 2
-  %.not.i.i.i.i.i.us.i = icmp eq i64 %1488, 0
-  br i1 %.not.i.i.i.i.i.us.i, label %1492, label %1489
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1430, ptr nonnull @.str.75, i64 17)
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1431, ptr nonnull @.str.53, i64 4)
+  %1489 = load ptr, ptr %.03721.us.i, align 8, !tbaa !291
+  %1490 = getelementptr inbounds i8, ptr %1489, i64 -16
+  %1491 = load i64, ptr %1490, align 8
+  %1492 = and i64 %1491, 2
+  %.not.i.i.i.i.i.us.i = icmp eq i64 %1492, 0
+  br i1 %.not.i.i.i.i.i.us.i, label %1496, label %1493
 
-1489:                                             ; preds = %1484
-  %1490 = getelementptr inbounds i8, ptr %1485, i64 -32
-  %1491 = load ptr, ptr %1490, align 8, !tbaa !25
+1493:                                             ; preds = %1488
+  %1494 = getelementptr inbounds i8, ptr %1489, i64 -32
+  %1495 = load ptr, ptr %1494, align 8, !tbaa !25
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i
 
-1492:                                             ; preds = %1484
-  %1493 = lshr i64 %1487, 2
-  %1494 = and i64 %1493, 15
-  %1495 = sub nsw i64 0, %1494
-  %1496 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1486, i64 %1495
+1496:                                             ; preds = %1488
+  %1497 = lshr i64 %1491, 2
+  %1498 = and i64 %1497, 15
+  %1499 = sub nsw i64 0, %1498
+  %1500 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1490, i64 %1499
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i
 
-_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i: ; preds = %1492, %1489
-  %.sroa.0.0.i.i.i.i.i.us.i = phi ptr [ %1496, %1492 ], [ %1491, %1489 ]
-  %1497 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.us.i, i64 8
-  %1498 = load ptr, ptr %1497, align 8, !tbaa !264
-  %.not.not.i.i.us.i = icmp eq ptr %1498, null
-  br i1 %.not.not.i.i.us.i, label %_ZNK4llvm10DIVariable7getNameEv.exit.us.i, label %1499
+_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i: ; preds = %1496, %1493
+  %.sroa.0.0.i.i.i.i.i.us.i = phi ptr [ %1500, %1496 ], [ %1495, %1493 ]
+  %1501 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.us.i, i64 8
+  %1502 = load ptr, ptr %1501, align 8, !tbaa !264
+  %.not.not.i.i.us.i = icmp eq ptr %1502, null
+  br i1 %.not.not.i.i.us.i, label %_ZNK4llvm10DIVariable7getNameEv.exit.us.i, label %1503
 
-1499:                                             ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i
-  %1500 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %1498) #26
-  %1501 = extractvalue { ptr, i64 } %1500, 0
-  %1502 = extractvalue { ptr, i64 } %1500, 1
+1503:                                             ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i
+  %1504 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %1502) #26
+  %1505 = extractvalue { ptr, i64 } %1504, 0
+  %1506 = extractvalue { ptr, i64 } %1504, 1
   br label %_ZNK4llvm10DIVariable7getNameEv.exit.us.i
 
-_ZNK4llvm10DIVariable7getNameEv.exit.us.i:        ; preds = %1499, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i
-  %.sroa.0.1.i.i40.us.i = phi ptr [ %1501, %1499 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i ]
-  %.sroa.4.1.i.i.us.i = phi i64 [ %1502, %1499 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i ]
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1429, ptr %.sroa.0.1.i.i40.us.i, i64 %.sroa.4.1.i.i.us.i)
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1430, ptr nonnull @.str.64, i64 7)
-  %1503 = load ptr, ptr %.03721.us.i, align 8, !tbaa !291
-  %1504 = getelementptr inbounds i8, ptr %1503, i64 -16
-  %1505 = load i64, ptr %1504, align 8
-  %1506 = and i64 %1505, 2
-  %.not.i.i.i.i.i41.us.i = icmp eq i64 %1506, 0
-  br i1 %.not.i.i.i.i.i41.us.i, label %1510, label %1507
+_ZNK4llvm10DIVariable7getNameEv.exit.us.i:        ; preds = %1503, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i
+  %.sroa.0.1.i.i40.us.i = phi ptr [ %1505, %1503 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i ]
+  %.sroa.4.1.i.i.us.i = phi i64 [ %1506, %1503 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.us.i ]
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1432, ptr %.sroa.0.1.i.i40.us.i, i64 %.sroa.4.1.i.i.us.i)
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1433, ptr nonnull @.str.64, i64 7)
+  %1507 = load ptr, ptr %.03721.us.i, align 8, !tbaa !291
+  %1508 = getelementptr inbounds i8, ptr %1507, i64 -16
+  %1509 = load i64, ptr %1508, align 8
+  %1510 = and i64 %1509, 2
+  %.not.i.i.i.i.i41.us.i = icmp eq i64 %1510, 0
+  br i1 %.not.i.i.i.i.i41.us.i, label %1514, label %1511
 
-1507:                                             ; preds = %_ZNK4llvm10DIVariable7getNameEv.exit.us.i
-  %1508 = getelementptr inbounds i8, ptr %1503, i64 -32
-  %1509 = load ptr, ptr %1508, align 8, !tbaa !25
+1511:                                             ; preds = %_ZNK4llvm10DIVariable7getNameEv.exit.us.i
+  %1512 = getelementptr inbounds i8, ptr %1507, i64 -32
+  %1513 = load ptr, ptr %1512, align 8, !tbaa !25
   br label %_ZNK4llvm15DILocalVariable8getScopeEv.exit.us.i
 
-1510:                                             ; preds = %_ZNK4llvm10DIVariable7getNameEv.exit.us.i
-  %1511 = lshr i64 %1505, 2
-  %1512 = and i64 %1511, 15
-  %1513 = sub nsw i64 0, %1512
-  %1514 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1504, i64 %1513
+1514:                                             ; preds = %_ZNK4llvm10DIVariable7getNameEv.exit.us.i
+  %1515 = lshr i64 %1509, 2
+  %1516 = and i64 %1515, 15
+  %1517 = sub nsw i64 0, %1516
+  %1518 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1508, i64 %1517
   br label %_ZNK4llvm15DILocalVariable8getScopeEv.exit.us.i
 
-_ZNK4llvm15DILocalVariable8getScopeEv.exit.us.i:  ; preds = %1510, %1507
-  %.sroa.0.0.i.i.i.i.i42.us.i = phi ptr [ %1514, %1510 ], [ %1509, %1507 ]
-  %1515 = load ptr, ptr %.sroa.0.0.i.i.i.i.i42.us.i, align 8, !tbaa !264
-  %1516 = call noundef ptr @_ZNK4llvm12DILocalScope13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(16) %1515) #26
-  %1517 = getelementptr inbounds i8, ptr %1516, i64 -16
-  %1518 = load i64, ptr %1517, align 8
-  %1519 = and i64 %1518, 2
-  %.not.i.i.i.i.i43.us.i = icmp eq i64 %1519, 0
-  br i1 %.not.i.i.i.i.i43.us.i, label %1523, label %1520
+_ZNK4llvm15DILocalVariable8getScopeEv.exit.us.i:  ; preds = %1514, %1511
+  %.sroa.0.0.i.i.i.i.i42.us.i = phi ptr [ %1518, %1514 ], [ %1513, %1511 ]
+  %1519 = load ptr, ptr %.sroa.0.0.i.i.i.i.i42.us.i, align 8, !tbaa !264
+  %1520 = call noundef ptr @_ZNK4llvm12DILocalScope13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(16) %1519) #26
+  %1521 = getelementptr inbounds i8, ptr %1520, i64 -16
+  %1522 = load i64, ptr %1521, align 8
+  %1523 = and i64 %1522, 2
+  %.not.i.i.i.i.i43.us.i = icmp eq i64 %1523, 0
+  br i1 %.not.i.i.i.i.i43.us.i, label %1527, label %1524
 
-1520:                                             ; preds = %_ZNK4llvm15DILocalVariable8getScopeEv.exit.us.i
-  %1521 = getelementptr inbounds i8, ptr %1516, i64 -32
-  %1522 = load ptr, ptr %1521, align 8, !tbaa !25
+1524:                                             ; preds = %_ZNK4llvm15DILocalVariable8getScopeEv.exit.us.i
+  %1525 = getelementptr inbounds i8, ptr %1520, i64 -32
+  %1526 = load ptr, ptr %1525, align 8, !tbaa !25
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i
 
-1523:                                             ; preds = %_ZNK4llvm15DILocalVariable8getScopeEv.exit.us.i
-  %1524 = lshr i64 %1518, 2
-  %1525 = and i64 %1524, 15
-  %1526 = sub nsw i64 0, %1525
-  %1527 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1517, i64 %1526
+1527:                                             ; preds = %_ZNK4llvm15DILocalVariable8getScopeEv.exit.us.i
+  %1528 = lshr i64 %1522, 2
+  %1529 = and i64 %1528, 15
+  %1530 = sub nsw i64 0, %1529
+  %1531 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1521, i64 %1530
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i
 
-_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i: ; preds = %1523, %1520
-  %.sroa.0.0.i.i.i.i.i45.us.i = phi ptr [ %1527, %1523 ], [ %1522, %1520 ]
-  %1528 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i45.us.i, i64 16
-  %1529 = load ptr, ptr %1528, align 8, !tbaa !264
-  %.not.not.i.i46.us.i = icmp eq ptr %1529, null
-  br i1 %.not.not.i.i46.us.i, label %_ZNK4llvm12DISubprogram7getNameEv.exit.us.i, label %1530
+_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i: ; preds = %1527, %1524
+  %.sroa.0.0.i.i.i.i.i45.us.i = phi ptr [ %1531, %1527 ], [ %1526, %1524 ]
+  %1532 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i45.us.i, i64 16
+  %1533 = load ptr, ptr %1532, align 8, !tbaa !264
+  %.not.not.i.i46.us.i = icmp eq ptr %1533, null
+  br i1 %.not.not.i.i46.us.i, label %_ZNK4llvm12DISubprogram7getNameEv.exit.us.i, label %1534
 
-1530:                                             ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i
-  %1531 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %1529) #26
-  %1532 = extractvalue { ptr, i64 } %1531, 0
-  %1533 = extractvalue { ptr, i64 } %1531, 1
+1534:                                             ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i
+  %1535 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %1533) #26
+  %1536 = extractvalue { ptr, i64 } %1535, 0
+  %1537 = extractvalue { ptr, i64 } %1535, 1
   br label %_ZNK4llvm12DISubprogram7getNameEv.exit.us.i
 
-_ZNK4llvm12DISubprogram7getNameEv.exit.us.i:      ; preds = %1530, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i
-  %.sroa.0.1.i.i47.us.i = phi ptr [ %1532, %1530 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i ]
-  %.sroa.4.1.i.i48.us.i = phi i64 [ %1533, %1530 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i ]
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1431, ptr %.sroa.0.1.i.i47.us.i, i64 %.sroa.4.1.i.i48.us.i)
-  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1432, ptr nonnull @.str.54, i64 6)
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1433, ptr nonnull @.str.59, i64 4)
+_ZNK4llvm12DISubprogram7getNameEv.exit.us.i:      ; preds = %1534, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i
+  %.sroa.0.1.i.i47.us.i = phi ptr [ %1536, %1534 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i ]
+  %.sroa.4.1.i.i48.us.i = phi i64 [ %1537, %1534 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i44.us.i ]
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1434, ptr %.sroa.0.1.i.i47.us.i, i64 %.sroa.4.1.i.i48.us.i)
+  call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1435, ptr nonnull @.str.54, i64 6)
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %1436, ptr nonnull @.str.59, i64 4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 20, i1 false)
   br label %.lr.ph.i.us.i
 
-.lr.ph.i.us.i:                                    ; preds = %1541, %_ZNK4llvm12DISubprogram7getNameEv.exit.us.i
-  %.015.i.idx.us.i = phi i64 [ %.015.i.add.us.i, %1541 ], [ 0, %_ZNK4llvm12DISubprogram7getNameEv.exit.us.i ]
+.lr.ph.i.us.i:                                    ; preds = %1545, %_ZNK4llvm12DISubprogram7getNameEv.exit.us.i
+  %.015.i.idx.us.i = phi i64 [ %.015.i.add.us.i, %1545 ], [ 0, %_ZNK4llvm12DISubprogram7getNameEv.exit.us.i ]
   %.015.i.ptr.us.i = getelementptr inbounds nuw i8, ptr %26, i64 %.015.i.idx.us.i
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !439
-  %1534 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.us.i, ptr noundef nonnull align 8 dereferenceable(8) %23), !noalias !439
-  br i1 %1534, label %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i.us.i, label %1535
+  %1538 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.us.i, ptr noundef nonnull align 8 dereferenceable(8) %23), !noalias !439
+  br i1 %1538, label %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i.us.i, label %1539
 
-1535:                                             ; preds = %.lr.ph.i.us.i
-  %1536 = load ptr, ptr %23, align 8, !tbaa !395, !noalias !439
-  %1537 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E20InsertIntoBucketImplIS3_EEPSA_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.us.i, ptr noundef %1536), !noalias !439
-  %1538 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm4json9ObjectKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %1537, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.us.i), !noalias !439
-  %1539 = getelementptr inbounds nuw i8, ptr %1537, i64 24
-  store i16 0, ptr %1539, align 8, !tbaa !397, !noalias !439
+1539:                                             ; preds = %.lr.ph.i.us.i
+  %1540 = load ptr, ptr %23, align 8, !tbaa !395, !noalias !439
+  %1541 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E20InsertIntoBucketImplIS3_EEPSA_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.us.i, ptr noundef %1540), !noalias !439
+  %1542 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm4json9ObjectKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %1541, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr.us.i), !noalias !439
+  %1543 = getelementptr inbounds nuw i8, ptr %1541, i64 24
+  store i16 0, ptr %1543, align 8, !tbaa !397, !noalias !439
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !439
-  %1540 = getelementptr inbounds nuw i8, ptr %.015.i.ptr.us.i, i64 24
-  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1539, ptr noundef nonnull align 8 dereferenceable(40) %1540) #26
-  br label %1541
+  %1544 = getelementptr inbounds nuw i8, ptr %.015.i.ptr.us.i, i64 24
+  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1543, ptr noundef nonnull align 8 dereferenceable(40) %1544) #26
+  br label %1545
 
 _ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i.us.i: ; preds = %.lr.ph.i.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !439
-  br label %1541
+  br label %1545
 
-1541:                                             ; preds = %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i.us.i, %1535
+1545:                                             ; preds = %_ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9ObjectKeyENS0_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS5_S6_EELb0EEEbERKS5_DpOT_.exit.i.us.i, %1539
   %.015.i.add.us.i = add nuw nsw i64 %.015.i.idx.us.i, 64
   %.not.i.us.i = icmp eq i64 %.015.i.add.us.i, 256
   br i1 %.not.i.us.i, label %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.us.i, label %.lr.ph.i.us.i
 
-_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.us.i: ; preds = %1541
+_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.us.i: ; preds = %1545
   store i16 7, ptr %24, align 8, !tbaa !397
-  %1542 = load ptr, ptr %25, align 8, !tbaa !395
-  store ptr %1542, ptr %1435, align 8, !tbaa !395
+  %1546 = load ptr, ptr %25, align 8, !tbaa !395
+  store ptr %1546, ptr %1438, align 8, !tbaa !395
   store ptr null, ptr %25, align 8, !tbaa !395
-  %1543 = load i32, ptr %1437, align 8, !tbaa !53
-  store i32 %1543, ptr %1436, align 8, !tbaa !53
-  store i32 0, ptr %1437, align 8, !tbaa !53
-  %1544 = load i32, ptr %1439, align 4, !tbaa !53
-  store i32 %1544, ptr %1438, align 4, !tbaa !53
-  store i32 0, ptr %1439, align 4, !tbaa !53
-  %1545 = load i32, ptr %1441, align 8, !tbaa !53
-  store i32 %1545, ptr %1440, align 8, !tbaa !53
-  store i32 0, ptr %1441, align 8, !tbaa !53
-  %1546 = load ptr, ptr %1442, align 8, !tbaa !401
-  %1547 = load ptr, ptr %1443, align 8, !tbaa !404
-  %.not.i.i.i.us.i = icmp eq ptr %1546, %1547
-  br i1 %.not.i.i.i.us.i, label %1551, label %1548
+  %1547 = load i32, ptr %1440, align 8, !tbaa !53
+  store i32 %1547, ptr %1439, align 8, !tbaa !53
+  store i32 0, ptr %1440, align 8, !tbaa !53
+  %1548 = load i32, ptr %1442, align 4, !tbaa !53
+  store i32 %1548, ptr %1441, align 4, !tbaa !53
+  store i32 0, ptr %1442, align 4, !tbaa !53
+  %1549 = load i32, ptr %1444, align 8, !tbaa !53
+  store i32 %1549, ptr %1443, align 8, !tbaa !53
+  store i32 0, ptr %1444, align 8, !tbaa !53
+  %1550 = load ptr, ptr %1445, align 8, !tbaa !401
+  %1551 = load ptr, ptr %1446, align 8, !tbaa !404
+  %.not.i.i.i.us.i = icmp eq ptr %1550, %1551
+  br i1 %.not.i.i.i.us.i, label %1555, label %1552
 
-1548:                                             ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.us.i
-  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1546, ptr noundef nonnull align 8 dereferenceable(40) %24) #26
-  %1549 = load ptr, ptr %1442, align 8, !tbaa !401
-  %1550 = getelementptr inbounds nuw i8, ptr %1549, i64 40
-  store ptr %1550, ptr %1442, align 8, !tbaa !401
+1552:                                             ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.us.i
+  call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %1550, ptr noundef nonnull align 8 dereferenceable(40) %24) #26
+  %1553 = load ptr, ptr %1445, align 8, !tbaa !401
+  %1554 = getelementptr inbounds nuw i8, ptr %1553, i64 40
+  store ptr %1554, ptr %1445, align 8, !tbaa !401
   br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.us.i
 
-1551:                                             ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.us.i
-  call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr %1546, ptr noundef nonnull align 8 dereferenceable(40) %24)
+1555:                                             ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.us.i
+  call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr %1550, ptr noundef nonnull align 8 dereferenceable(40) %24)
   br label %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.us.i
 
-_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.us.i: ; preds = %1551, %1548
+_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.us.i: ; preds = %1555, %1552
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %24) #26
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %25)
-  %1552 = load ptr, ptr %25, align 8, !tbaa !405
-  %1553 = load i32, ptr %1441, align 8, !tbaa !407
-  %1554 = zext i32 %1553 to i64
-  %1555 = shl nuw nsw i64 %1554, 6
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %1552, i64 noundef %1555, i64 noundef 8) #26
-  br label %1556
+  %1556 = load ptr, ptr %25, align 8, !tbaa !405
+  %1557 = load i32, ptr %1444, align 8, !tbaa !407
+  %1558 = zext i32 %1557 to i64
+  %1559 = shl nuw nsw i64 %1558, 6
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %1556, i64 noundef %1559, i64 noundef 8) #26
+  br label %1560
 
-1556:                                             ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit.us.i, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.us.i
-  %1557 = phi ptr [ %1434, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.us.i ], [ %1558, %_ZN4llvm4json6Object2KVD2Ev.exit.us.i ]
-  %1558 = getelementptr inbounds i8, ptr %1557, i64 -64
-  %1559 = getelementptr inbounds i8, ptr %1557, i64 -40
-  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %1559) #26
-  %1560 = load ptr, ptr %1558, align 8, !tbaa !408
-  %.not.i.i.i51.us.i = icmp eq ptr %1560, null
-  br i1 %.not.i.i.i51.us.i, label %_ZN4llvm4json6Object2KVD2Ev.exit.us.i, label %1561
+1560:                                             ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit.us.i, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.us.i
+  %1561 = phi ptr [ %1437, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit.us.i ], [ %1562, %_ZN4llvm4json6Object2KVD2Ev.exit.us.i ]
+  %1562 = getelementptr inbounds i8, ptr %1561, i64 -64
+  %1563 = getelementptr inbounds i8, ptr %1561, i64 -40
+  call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %1563) #26
+  %1564 = load ptr, ptr %1562, align 8, !tbaa !408
+  %.not.i.i.i51.us.i = icmp eq ptr %1564, null
+  br i1 %.not.i.i.i51.us.i, label %_ZN4llvm4json6Object2KVD2Ev.exit.us.i, label %1565
 
-1561:                                             ; preds = %1556
-  %1562 = load ptr, ptr %1560, align 8, !tbaa !165
-  %1563 = getelementptr inbounds nuw i8, ptr %1560, i64 16
-  %1564 = icmp eq ptr %1562, %1563
-  br i1 %1564, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.us.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.us.i
+1565:                                             ; preds = %1560
+  %1566 = load ptr, ptr %1564, align 8, !tbaa !165
+  %1567 = getelementptr inbounds nuw i8, ptr %1564, i64 16
+  %1568 = icmp eq ptr %1566, %1567
+  br i1 %1568, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.us.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.us.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.us.i: ; preds = %1561
-  %1565 = load i64, ptr %1563, align 8, !tbaa !220
-  %1566 = add i64 %1565, 1
-  call void @_ZdlPvm(ptr noundef %1562, i64 noundef %1566) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.us.i: ; preds = %1565
+  %1569 = load i64, ptr %1567, align 8, !tbaa !220
+  %1570 = add i64 %1569, 1
+  call void @_ZdlPvm(ptr noundef %1566, i64 noundef %1570) #27
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.us.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.us.i: ; preds = %1561
-  %1567 = getelementptr inbounds nuw i8, ptr %1560, i64 8
-  %1568 = load i64, ptr %1567, align 8, !tbaa !166
-  %1569 = icmp ult i64 %1568, 16
-  call void @llvm.assume(i1 %1569)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.us.i: ; preds = %1565
+  %1571 = getelementptr inbounds nuw i8, ptr %1564, i64 8
+  %1572 = load i64, ptr %1571, align 8, !tbaa !166
+  %1573 = icmp ult i64 %1572, 16
+  call void @llvm.assume(i1 %1573)
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.us.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.us.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.us.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.us.i
-  call void @_ZdlPvm(ptr noundef nonnull %1560, i64 noundef 32) #27
+  call void @_ZdlPvm(ptr noundef nonnull %1564, i64 noundef 32) #27
   br label %_ZN4llvm4json6Object2KVD2Ev.exit.us.i
 
-_ZN4llvm4json6Object2KVD2Ev.exit.us.i:            ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.us.i, %1556
-  store ptr null, ptr %1558, align 8, !tbaa !408
-  %1570 = icmp eq ptr %1558, %26
-  br i1 %1570, label %1571, label %1556
+_ZN4llvm4json6Object2KVD2Ev.exit.us.i:            ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.us.i, %1560
+  store ptr null, ptr %1562, align 8, !tbaa !408
+  %1574 = icmp eq ptr %1562, %26
+  br i1 %1574, label %1575, label %1560
 
-1571:                                             ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit.us.i
+1575:                                             ; preds = %_ZN4llvm4json6Object2KVD2Ev.exit.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit97.us.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit97.us.i:          ; preds = %1571, %1476, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i
-  %.1.us.i = phi i1 [ %.022.us.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i ], [ %.022.us.i, %1476 ], [ false, %1571 ]
-  %1572 = getelementptr inbounds nuw i8, ptr %.03721.us.i, i64 16
-  %.not.us.i = icmp eq ptr %1572, %1426
+_ZN4llvm11raw_ostreamlsEPKc.exit97.us.i:          ; preds = %1575, %1479, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i
+  %.1.us.i = phi i1 [ %.022.us.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.us.i ], [ %.022.us.i, %1479 ], [ false, %1575 ]
+  %1576 = getelementptr inbounds nuw i8, ptr %.03721.us.i, i64 16
+  %.not.us.i = icmp eq ptr %1576, %1429
   br i1 %.not.us.i, label %_ZL9checkVarsRKN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEESH_NS_9StringRefESI_bRNS_4json5ArrayE.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i197, %_ZN4llvm11raw_ostreamlsEPKc.exit97.i207
   %.022.i = phi i1 [ %.1.i208, %_ZN4llvm11raw_ostreamlsEPKc.exit97.i207 ], [ true, %.lr.ph.i197 ]
-  %.03721.i = phi ptr [ %1802, %_ZN4llvm11raw_ostreamlsEPKc.exit97.i207 ], [ %.val99, %.lr.ph.i197 ]
-  %1573 = load ptr, ptr %.03721.i, align 8, !tbaa !343
-  %1574 = load ptr, ptr %63, align 8, !tbaa !337
-  %1575 = load i32, ptr %336, align 8, !tbaa !342
-  %1576 = icmp eq i32 %1575, 0
-  br i1 %1576, label %.loopexit.i.i.i227, label %1577
+  %.03721.i = phi ptr [ %1807, %_ZN4llvm11raw_ostreamlsEPKc.exit97.i207 ], [ %.val99, %.lr.ph.i197 ]
+  %1577 = load ptr, ptr %.03721.i, align 8, !tbaa !343
+  %1578 = load ptr, ptr %63, align 8, !tbaa !337
+  %1579 = load i32, ptr %336, align 8, !tbaa !342
+  %1580 = icmp eq i32 %1579, 0
+  br i1 %1580, label %.loopexit.i.i.i227, label %1581
 
-1577:                                             ; preds = %.lr.ph.split.i
-  %1578 = ptrtoint ptr %1573 to i64
-  %1579 = trunc i64 %1578 to i32
-  %1580 = lshr i32 %1579, 4
-  %1581 = lshr i32 %1579, 9
-  %1582 = xor i32 %1580, %1581
-  %1583 = add i32 %1575, -1
-  %.01826.i.i.i.i.i199 = and i32 %1582, %1583
-  %1584 = zext nneg i32 %.01826.i.i.i.i.i199 to i64
-  %1585 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1574, i64 %1584
-  %1586 = load ptr, ptr %1585, align 8, !tbaa !343
-  %1587 = icmp eq ptr %1573, %1586
-  br i1 %1587, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i.i200, !prof !272
+1581:                                             ; preds = %.lr.ph.split.i
+  %1582 = ptrtoint ptr %1577 to i64
+  %1583 = trunc i64 %1582 to i32
+  %1584 = lshr i32 %1583, 4
+  %1585 = lshr i32 %1583, 9
+  %1586 = xor i32 %1584, %1585
+  %1587 = add i32 %1579, -1
+  %.01826.i.i.i.i.i199 = and i32 %1586, %1587
+  %1588 = zext nneg i32 %.01826.i.i.i.i.i199 to i64
+  %1589 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1578, i64 %1588
+  %1590 = load ptr, ptr %1589, align 8, !tbaa !343
+  %1591 = icmp eq ptr %1577, %1590
+  br i1 %1591, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i.i200, !prof !272
 
-.lr.ph.i.i.i.i.i200:                              ; preds = %1577, %1590
-  %1588 = phi ptr [ %1595, %1590 ], [ %1586, %1577 ]
-  %.01828.i.i.i.i.i201 = phi i32 [ %.018.i.i.i.i.i203, %1590 ], [ %.01826.i.i.i.i.i199, %1577 ]
-  %.01627.i.i.i.i.i202 = phi i32 [ %1591, %1590 ], [ 1, %1577 ]
-  %1589 = icmp eq ptr %1588, inttoptr (i64 -4096 to ptr)
-  br i1 %1589, label %.loopexit.i.i.i227, label %1590, !prof !33
+.lr.ph.i.i.i.i.i200:                              ; preds = %1581, %1594
+  %1592 = phi ptr [ %1599, %1594 ], [ %1590, %1581 ]
+  %.01828.i.i.i.i.i201 = phi i32 [ %.018.i.i.i.i.i203, %1594 ], [ %.01826.i.i.i.i.i199, %1581 ]
+  %.01627.i.i.i.i.i202 = phi i32 [ %1595, %1594 ], [ 1, %1581 ]
+  %1593 = icmp eq ptr %1592, inttoptr (i64 -4096 to ptr)
+  br i1 %1593, label %.loopexit.i.i.i227, label %1594, !prof !33
 
-1590:                                             ; preds = %.lr.ph.i.i.i.i.i200
-  %1591 = add i32 %.01627.i.i.i.i.i202, 1
-  %1592 = add i32 %.01627.i.i.i.i.i202, %.01828.i.i.i.i.i201
-  %.018.i.i.i.i.i203 = and i32 %1592, %1583
-  %1593 = zext i32 %.018.i.i.i.i.i203 to i64
-  %1594 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1574, i64 %1593
-  %1595 = load ptr, ptr %1594, align 8, !tbaa !343
-  %1596 = icmp eq ptr %1573, %1595
-  br i1 %1596, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i.i200, !prof !273, !llvm.loop !438
+1594:                                             ; preds = %.lr.ph.i.i.i.i.i200
+  %1595 = add i32 %.01627.i.i.i.i.i202, 1
+  %1596 = add i32 %.01627.i.i.i.i.i202, %.01828.i.i.i.i.i201
+  %.018.i.i.i.i.i203 = and i32 %1596, %1587
+  %1597 = zext i32 %.018.i.i.i.i.i203 to i64
+  %1598 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1578, i64 %1597
+  %1599 = load ptr, ptr %1598, align 8, !tbaa !343
+  %1600 = icmp eq ptr %1577, %1599
+  br i1 %1600, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i, label %.lr.ph.i.i.i.i.i200, !prof !273, !llvm.loop !438
 
 .loopexit.i.i.i227:                               ; preds = %.lr.ph.i.i.i.i.i200, %.lr.ph.split.i
-  %1597 = zext i32 %1575 to i64
-  %1598 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1574, i64 %1597
+  %1601 = zext i32 %1579 to i64
+  %1602 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1578, i64 %1601
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i: ; preds = %1590, %.loopexit.i.i.i227, %1577
-  %.sroa.0.1.i.i.i204 = phi ptr [ %1598, %.loopexit.i.i.i227 ], [ %1585, %1577 ], [ %1594, %1590 ]
-  %1599 = zext i32 %1575 to i64
-  %1600 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1574, i64 %1599
-  %1601 = icmp eq ptr %.sroa.0.1.i.i.i204, %1600
-  %1602 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i204, i64 8
-  %.sink7.in.i.i205 = select i1 %1601, ptr %356, ptr %1602
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i: ; preds = %1594, %.loopexit.i.i.i227, %1581
+  %.sroa.0.1.i.i.i204 = phi ptr [ %1602, %.loopexit.i.i.i227 ], [ %1589, %1581 ], [ %1598, %1594 ]
+  %1603 = zext i32 %1579 to i64
+  %1604 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1578, i64 %1603
+  %1605 = icmp eq ptr %.sroa.0.1.i.i.i204, %1604
+  %1606 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i204, i64 8
+  %.sink7.in.i.i205 = select i1 %1605, ptr %356, ptr %1606
   %.sink7.i.i206 = load i32, ptr %.sink7.in.i.i205, align 8, !tbaa !53
-  %1603 = load i32, ptr %356, align 8, !tbaa !26
-  %1604 = icmp eq i32 %.sink7.i.i206, %1603
-  br i1 %1604, label %_ZN4llvm11raw_ostreamlsEPKc.exit97.i207, label %1605
+  %1607 = load i32, ptr %356, align 8, !tbaa !26
+  %1608 = icmp eq i32 %.sink7.i.i206, %1607
+  br i1 %1608, label %_ZN4llvm11raw_ostreamlsEPKc.exit97.i207, label %1609
 
-1605:                                             ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
-  %1606 = zext i32 %.sink7.i.i206 to i64
-  %1607 = load ptr, ptr %354, align 8, !tbaa !25
-  %1608 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %1607, i64 %1606, i32 1
-  %1609 = load i32, ptr %1608, align 8, !tbaa !294
-  %1610 = getelementptr inbounds nuw i8, ptr %.03721.i, i64 8
-  %1611 = load i32, ptr %1610, align 8, !tbaa !294
-  %1612 = icmp ugt i32 %1611, %1609
-  br i1 %1612, label %1613, label %_ZN4llvm11raw_ostreamlsEPKc.exit97.i207
+1609:                                             ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
+  %1610 = zext i32 %.sink7.i.i206 to i64
+  %1611 = load ptr, ptr %354, align 8, !tbaa !25
+  %1612 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %1611, i64 %1610
+  %1613 = getelementptr inbounds nuw i8, ptr %1612, i64 8
+  %1614 = load i32, ptr %1613, align 8, !tbaa !294
+  %1615 = getelementptr inbounds nuw i8, ptr %.03721.i, i64 8
+  %1616 = load i32, ptr %1615, align 8, !tbaa !294
+  %1617 = icmp ugt i32 %1616, %1614
+  br i1 %1617, label %1618, label %_ZN4llvm11raw_ostreamlsEPKc.exit97.i207
 
-1613:                                             ; preds = %1605
-  %1614 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_15QuietE, i64 120), align 8, !tbaa !34, !range !46, !noundef !47
-  %1615 = trunc nuw i8 %1614 to i1
-  br i1 %1615, label %1616, label %1618
+1618:                                             ; preds = %1609
+  %1619 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_15QuietE, i64 120), align 8, !tbaa !34, !range !46, !noundef !47
+  %1620 = trunc nuw i8 %1619 to i1
+  br i1 %1620, label %1621, label %1623
 
-1616:                                             ; preds = %1613
-  %1617 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
+1621:                                             ; preds = %1618
+  %1622 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
   br label %_ZN12_GLOBAL__N_13dbgEv.exit.i211
 
-1618:                                             ; preds = %1613
-  %1619 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
+1623:                                             ; preds = %1618
+  %1624 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
   br label %_ZN12_GLOBAL__N_13dbgEv.exit.i211
 
-_ZN12_GLOBAL__N_13dbgEv.exit.i211:                ; preds = %1618, %1616
-  %1620 = phi ptr [ %1617, %1616 ], [ %1619, %1618 ]
-  %1621 = getelementptr inbounds nuw i8, ptr %1620, i64 24
-  %1622 = load ptr, ptr %1621, align 8, !tbaa !61
-  %1623 = getelementptr inbounds nuw i8, ptr %1620, i64 32
-  %1624 = load ptr, ptr %1623, align 8, !tbaa !65
-  %1625 = ptrtoint ptr %1622 to i64
-  %1626 = ptrtoint ptr %1624 to i64
-  %1627 = sub i64 %1625, %1626
-  %1628 = icmp ult i64 %1627, 9
-  br i1 %1628, label %1629, label %1631
+_ZN12_GLOBAL__N_13dbgEv.exit.i211:                ; preds = %1623, %1621
+  %1625 = phi ptr [ %1622, %1621 ], [ %1624, %1623 ]
+  %1626 = getelementptr inbounds nuw i8, ptr %1625, i64 24
+  %1627 = load ptr, ptr %1626, align 8, !tbaa !61
+  %1628 = getelementptr inbounds nuw i8, ptr %1625, i64 32
+  %1629 = load ptr, ptr %1628, align 8, !tbaa !65
+  %1630 = ptrtoint ptr %1627 to i64
+  %1631 = ptrtoint ptr %1629 to i64
+  %1632 = sub i64 %1630, %1631
+  %1633 = icmp ult i64 %1632, 9
+  br i1 %1633, label %1634, label %1636
 
-1629:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit.i211
-  %1630 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1620, ptr noundef nonnull @.str.67, i64 noundef 9) #26
-  %.phi.trans.insert.i225 = getelementptr inbounds nuw i8, ptr %1630, i64 32
+1634:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit.i211
+  %1635 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1625, ptr noundef nonnull @.str.67, i64 noundef 9) #26
+  %.phi.trans.insert.i225 = getelementptr inbounds nuw i8, ptr %1635, i64 32
   %.pre.i226 = load ptr, ptr %.phi.trans.insert.i225, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i212
 
-1631:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit.i211
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1624, ptr noundef nonnull align 1 dereferenceable(9) @.str.67, i64 9, i1 false)
-  %1632 = load ptr, ptr %1623, align 8, !tbaa !65
-  %1633 = getelementptr inbounds nuw i8, ptr %1632, i64 9
-  store ptr %1633, ptr %1623, align 8, !tbaa !65
+1636:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit.i211
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1629, ptr noundef nonnull align 1 dereferenceable(9) @.str.67, i64 9, i1 false)
+  %1637 = load ptr, ptr %1628, align 8, !tbaa !65
+  %1638 = getelementptr inbounds nuw i8, ptr %1637, i64 9
+  store ptr %1638, ptr %1628, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i212
 
-_ZN4llvm11raw_ostreamlsEPKc.exit.i212:            ; preds = %1631, %1629
-  %1634 = phi ptr [ %.pre.i226, %1629 ], [ %1633, %1631 ]
-  %.0.i.i.i213 = phi ptr [ %1630, %1629 ], [ %1620, %1631 ]
-  %1635 = getelementptr inbounds nuw i8, ptr %.0.i.i.i213, i64 24
-  %1636 = load ptr, ptr %1635, align 8, !tbaa !61
-  %1637 = getelementptr inbounds nuw i8, ptr %.0.i.i.i213, i64 32
-  %1638 = ptrtoint ptr %1636 to i64
-  %1639 = ptrtoint ptr %1634 to i64
-  %1640 = sub i64 %1638, %1639
-  %1641 = icmp ugt i64 %.sroa.218.0.copyload, %1640
-  br i1 %1641, label %1642, label %1644
+_ZN4llvm11raw_ostreamlsEPKc.exit.i212:            ; preds = %1636, %1634
+  %1639 = phi ptr [ %.pre.i226, %1634 ], [ %1638, %1636 ]
+  %.0.i.i.i213 = phi ptr [ %1635, %1634 ], [ %1625, %1636 ]
+  %1640 = getelementptr inbounds nuw i8, ptr %.0.i.i.i213, i64 24
+  %1641 = load ptr, ptr %1640, align 8, !tbaa !61
+  %1642 = getelementptr inbounds nuw i8, ptr %.0.i.i.i213, i64 32
+  %1643 = ptrtoint ptr %1641 to i64
+  %1644 = ptrtoint ptr %1639 to i64
+  %1645 = sub i64 %1643, %1644
+  %1646 = icmp ugt i64 %.sroa.218.0.copyload, %1645
+  br i1 %1646, label %1647, label %1649
 
-1642:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i212
-  %1643 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i213, ptr noundef %.sroa.017.0.copyload, i64 noundef %.sroa.218.0.copyload) #26
-  %.phi.trans.insert25.i = getelementptr inbounds nuw i8, ptr %1643, i64 32
+1647:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i212
+  %1648 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i213, ptr noundef %.sroa.017.0.copyload, i64 noundef %.sroa.218.0.copyload) #26
+  %.phi.trans.insert25.i = getelementptr inbounds nuw i8, ptr %1648, i64 32
   %.pre26.i = load ptr, ptr %.phi.trans.insert25.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i214
 
-1644:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i212
-  br i1 %.not.i52.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i214, label %1645
+1649:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i212
+  br i1 %.not.i52.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i214, label %1650
 
-1645:                                             ; preds = %1644
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1634, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload, i1 false)
-  %1646 = load ptr, ptr %1637, align 8, !tbaa !65
-  %1647 = getelementptr inbounds nuw i8, ptr %1646, i64 %.sroa.218.0.copyload
-  store ptr %1647, ptr %1637, align 8, !tbaa !65
+1650:                                             ; preds = %1649
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1639, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload, i1 false)
+  %1651 = load ptr, ptr %1642, align 8, !tbaa !65
+  %1652 = getelementptr inbounds nuw i8, ptr %1651, i64 %.sroa.218.0.copyload
+  store ptr %1652, ptr %1642, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i214
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i214: ; preds = %1645, %1644, %1642
-  %1648 = phi ptr [ %.pre26.i, %1642 ], [ %1647, %1645 ], [ %1634, %1644 ]
-  %.0.i.i215 = phi ptr [ %1643, %1642 ], [ %.0.i.i.i213, %1645 ], [ %.0.i.i.i213, %1644 ]
-  %1649 = getelementptr inbounds nuw i8, ptr %.0.i.i215, i64 24
-  %1650 = load ptr, ptr %1649, align 8, !tbaa !61
-  %1651 = ptrtoint ptr %1650 to i64
-  %1652 = ptrtoint ptr %1648 to i64
-  %1653 = sub i64 %1651, %1652
-  %1654 = icmp ult i64 %1653, 37
-  br i1 %1654, label %1655, label %1657
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i214: ; preds = %1650, %1649, %1647
+  %1653 = phi ptr [ %.pre26.i, %1647 ], [ %1652, %1650 ], [ %1639, %1649 ]
+  %.0.i.i215 = phi ptr [ %1648, %1647 ], [ %.0.i.i.i213, %1650 ], [ %.0.i.i.i213, %1649 ]
+  %1654 = getelementptr inbounds nuw i8, ptr %.0.i.i215, i64 24
+  %1655 = load ptr, ptr %1654, align 8, !tbaa !61
+  %1656 = ptrtoint ptr %1655 to i64
+  %1657 = ptrtoint ptr %1653 to i64
+  %1658 = sub i64 %1656, %1657
+  %1659 = icmp ult i64 %1658, 37
+  br i1 %1659, label %1660, label %1662
 
-1655:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i214
-  %1656 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i215, ptr noundef nonnull @.str.76, i64 noundef 37) #26
+1660:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i214
+  %1661 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i215, ptr noundef nonnull @.str.76, i64 noundef 37) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit55.i
 
-1657:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i214
-  %1658 = getelementptr inbounds nuw i8, ptr %.0.i.i215, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(37) %1648, ptr noundef nonnull align 1 dereferenceable(37) @.str.76, i64 37, i1 false)
-  %1659 = load ptr, ptr %1658, align 8, !tbaa !65
-  %1660 = getelementptr inbounds nuw i8, ptr %1659, i64 37
-  store ptr %1660, ptr %1658, align 8, !tbaa !65
+1662:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i214
+  %1663 = getelementptr inbounds nuw i8, ptr %.0.i.i215, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(37) %1653, ptr noundef nonnull align 1 dereferenceable(37) @.str.76, i64 37, i1 false)
+  %1664 = load ptr, ptr %1663, align 8, !tbaa !65
+  %1665 = getelementptr inbounds nuw i8, ptr %1664, i64 37
+  store ptr %1665, ptr %1663, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit55.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit55.i:             ; preds = %1657, %1655
-  %.0.i.i54.i = phi ptr [ %1656, %1655 ], [ %.0.i.i215, %1657 ]
-  %1661 = load ptr, ptr %.03721.i, align 8, !tbaa !291
-  %1662 = getelementptr inbounds i8, ptr %1661, i64 -16
-  %1663 = load i64, ptr %1662, align 8
-  %1664 = and i64 %1663, 2
-  %.not.i.i.i.i.i56.i = icmp eq i64 %1664, 0
-  br i1 %.not.i.i.i.i.i56.i, label %1668, label %1665
+_ZN4llvm11raw_ostreamlsEPKc.exit55.i:             ; preds = %1662, %1660
+  %.0.i.i54.i = phi ptr [ %1661, %1660 ], [ %.0.i.i215, %1662 ]
+  %1666 = load ptr, ptr %.03721.i, align 8, !tbaa !291
+  %1667 = getelementptr inbounds i8, ptr %1666, i64 -16
+  %1668 = load i64, ptr %1667, align 8
+  %1669 = and i64 %1668, 2
+  %.not.i.i.i.i.i56.i = icmp eq i64 %1669, 0
+  br i1 %.not.i.i.i.i.i56.i, label %1673, label %1670
 
-1665:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit55.i
-  %1666 = getelementptr inbounds i8, ptr %1661, i64 -32
-  %1667 = load ptr, ptr %1666, align 8, !tbaa !25
+1670:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit55.i
+  %1671 = getelementptr inbounds i8, ptr %1666, i64 -32
+  %1672 = load ptr, ptr %1671, align 8, !tbaa !25
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i57.i
 
-1668:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit55.i
-  %1669 = lshr i64 %1663, 2
-  %1670 = and i64 %1669, 15
-  %1671 = sub nsw i64 0, %1670
-  %1672 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1662, i64 %1671
+1673:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit55.i
+  %1674 = lshr i64 %1668, 2
+  %1675 = and i64 %1674, 15
+  %1676 = sub nsw i64 0, %1675
+  %1677 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1667, i64 %1676
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i57.i
 
-_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i57.i: ; preds = %1668, %1665
-  %.sroa.0.0.i.i.i.i.i58.i = phi ptr [ %1672, %1668 ], [ %1667, %1665 ]
-  %1673 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i58.i, i64 8
-  %1674 = load ptr, ptr %1673, align 8, !tbaa !264
-  %.not.not.i.i59.i = icmp eq ptr %1674, null
+_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i57.i: ; preds = %1673, %1670
+  %.sroa.0.0.i.i.i.i.i58.i = phi ptr [ %1677, %1673 ], [ %1672, %1670 ]
+  %1678 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i58.i, i64 8
+  %1679 = load ptr, ptr %1678, align 8, !tbaa !264
+  %.not.not.i.i59.i = icmp eq ptr %1679, null
   br i1 %.not.not.i.i59.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i216, label %_ZNK4llvm10DIVariable7getNameEv.exit64.i
 
 _ZNK4llvm10DIVariable7getNameEv.exit64.i:         ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i57.i
-  %1675 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %1674) #26
-  %1676 = extractvalue { ptr, i64 } %1675, 0
-  %1677 = extractvalue { ptr, i64 } %1675, 1
-  %1678 = getelementptr inbounds nuw i8, ptr %.0.i.i54.i, i64 24
-  %1679 = load ptr, ptr %1678, align 8, !tbaa !61
-  %1680 = getelementptr inbounds nuw i8, ptr %.0.i.i54.i, i64 32
-  %1681 = load ptr, ptr %1680, align 8, !tbaa !65
-  %1682 = ptrtoint ptr %1679 to i64
-  %1683 = ptrtoint ptr %1681 to i64
-  %1684 = sub i64 %1682, %1683
-  %1685 = icmp ugt i64 %1677, %1684
-  br i1 %1685, label %1686, label %1688
+  %1680 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %1679) #26
+  %1681 = extractvalue { ptr, i64 } %1680, 0
+  %1682 = extractvalue { ptr, i64 } %1680, 1
+  %1683 = getelementptr inbounds nuw i8, ptr %.0.i.i54.i, i64 24
+  %1684 = load ptr, ptr %1683, align 8, !tbaa !61
+  %1685 = getelementptr inbounds nuw i8, ptr %.0.i.i54.i, i64 32
+  %1686 = load ptr, ptr %1685, align 8, !tbaa !65
+  %1687 = ptrtoint ptr %1684 to i64
+  %1688 = ptrtoint ptr %1686 to i64
+  %1689 = sub i64 %1687, %1688
+  %1690 = icmp ugt i64 %1682, %1689
+  br i1 %1690, label %1691, label %1693
 
-1686:                                             ; preds = %_ZNK4llvm10DIVariable7getNameEv.exit64.i
-  %1687 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i54.i, ptr noundef %1676, i64 noundef %1677) #26
+1691:                                             ; preds = %_ZNK4llvm10DIVariable7getNameEv.exit64.i
+  %1692 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i54.i, ptr noundef %1681, i64 noundef %1682) #26
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i216
 
-1688:                                             ; preds = %_ZNK4llvm10DIVariable7getNameEv.exit64.i
-  %.not.i65.i = icmp eq i64 %1677, 0
-  br i1 %.not.i65.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i216, label %1689
+1693:                                             ; preds = %_ZNK4llvm10DIVariable7getNameEv.exit64.i
+  %.not.i65.i = icmp eq i64 %1682, 0
+  br i1 %.not.i65.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i216, label %1694
 
-1689:                                             ; preds = %1688
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1681, ptr align 1 %1676, i64 %1677, i1 false)
-  %1690 = load ptr, ptr %1680, align 8, !tbaa !65
-  %1691 = getelementptr inbounds nuw i8, ptr %1690, i64 %1677
-  store ptr %1691, ptr %1680, align 8, !tbaa !65
+1694:                                             ; preds = %1693
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1686, ptr align 1 %1681, i64 %1682, i1 false)
+  %1695 = load ptr, ptr %1685, align 8, !tbaa !65
+  %1696 = getelementptr inbounds nuw i8, ptr %1695, i64 %1682
+  store ptr %1696, ptr %1685, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i216
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i216: ; preds = %1689, %1688, %1686, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i57.i
-  %.0.i66.i217 = phi ptr [ %1687, %1686 ], [ %.0.i.i54.i, %1689 ], [ %.0.i.i54.i, %1688 ], [ %.0.i.i54.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i57.i ]
-  %1692 = getelementptr inbounds nuw i8, ptr %.0.i66.i217, i64 24
-  %1693 = load ptr, ptr %1692, align 8, !tbaa !61
-  %1694 = getelementptr inbounds nuw i8, ptr %.0.i66.i217, i64 32
-  %1695 = load ptr, ptr %1694, align 8, !tbaa !65
-  %1696 = ptrtoint ptr %1693 to i64
-  %1697 = ptrtoint ptr %1695 to i64
-  %1698 = sub i64 %1696, %1697
-  %1699 = icmp ult i64 %1698, 6
-  br i1 %1699, label %1700, label %1702
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i216: ; preds = %1694, %1693, %1691, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i57.i
+  %.0.i66.i217 = phi ptr [ %1692, %1691 ], [ %.0.i.i54.i, %1694 ], [ %.0.i.i54.i, %1693 ], [ %.0.i.i54.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i57.i ]
+  %1697 = getelementptr inbounds nuw i8, ptr %.0.i66.i217, i64 24
+  %1698 = load ptr, ptr %1697, align 8, !tbaa !61
+  %1699 = getelementptr inbounds nuw i8, ptr %.0.i66.i217, i64 32
+  %1700 = load ptr, ptr %1699, align 8, !tbaa !65
+  %1701 = ptrtoint ptr %1698 to i64
+  %1702 = ptrtoint ptr %1700 to i64
+  %1703 = sub i64 %1701, %1702
+  %1704 = icmp ult i64 %1703, 6
+  br i1 %1704, label %1705, label %1707
 
-1700:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i216
-  %1701 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i66.i217, ptr noundef nonnull @.str.58, i64 noundef 6) #26
-  %.phi.trans.insert27.i = getelementptr inbounds nuw i8, ptr %1701, i64 32
+1705:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i216
+  %1706 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i66.i217, ptr noundef nonnull @.str.58, i64 noundef 6) #26
+  %.phi.trans.insert27.i = getelementptr inbounds nuw i8, ptr %1706, i64 32
   %.pre28.i = load ptr, ptr %.phi.trans.insert27.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit70.i
 
-1702:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1695, ptr noundef nonnull align 1 dereferenceable(6) @.str.58, i64 6, i1 false)
-  %1703 = load ptr, ptr %1694, align 8, !tbaa !65
-  %1704 = getelementptr inbounds nuw i8, ptr %1703, i64 6
-  store ptr %1704, ptr %1694, align 8, !tbaa !65
+1707:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit67.i216
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1700, ptr noundef nonnull align 1 dereferenceable(6) @.str.58, i64 6, i1 false)
+  %1708 = load ptr, ptr %1699, align 8, !tbaa !65
+  %1709 = getelementptr inbounds nuw i8, ptr %1708, i64 6
+  store ptr %1709, ptr %1699, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit70.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit70.i:             ; preds = %1702, %1700
-  %1705 = phi ptr [ %.pre28.i, %1700 ], [ %1704, %1702 ]
-  %.0.i.i69.i = phi ptr [ %1701, %1700 ], [ %.0.i66.i217, %1702 ]
-  %1706 = getelementptr inbounds nuw i8, ptr %.0.i.i69.i, i64 24
-  %1707 = load ptr, ptr %1706, align 8, !tbaa !61
-  %1708 = ptrtoint ptr %1707 to i64
-  %1709 = ptrtoint ptr %1705 to i64
-  %1710 = sub i64 %1708, %1709
-  %1711 = icmp ult i64 %1710, 9
-  br i1 %1711, label %1712, label %1714
+_ZN4llvm11raw_ostreamlsEPKc.exit70.i:             ; preds = %1707, %1705
+  %1710 = phi ptr [ %.pre28.i, %1705 ], [ %1709, %1707 ]
+  %.0.i.i69.i = phi ptr [ %1706, %1705 ], [ %.0.i66.i217, %1707 ]
+  %1711 = getelementptr inbounds nuw i8, ptr %.0.i.i69.i, i64 24
+  %1712 = load ptr, ptr %1711, align 8, !tbaa !61
+  %1713 = ptrtoint ptr %1712 to i64
+  %1714 = ptrtoint ptr %1710 to i64
+  %1715 = sub i64 %1713, %1714
+  %1716 = icmp ult i64 %1715, 9
+  br i1 %1716, label %1717, label %1719
 
-1712:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit70.i
-  %1713 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i69.i, ptr noundef nonnull @.str.77, i64 noundef 9) #26
+1717:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit70.i
+  %1718 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i69.i, ptr noundef nonnull @.str.77, i64 noundef 9) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit73.i
 
-1714:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit70.i
-  %1715 = getelementptr inbounds nuw i8, ptr %.0.i.i69.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1705, ptr noundef nonnull align 1 dereferenceable(9) @.str.77, i64 9, i1 false)
-  %1716 = load ptr, ptr %1715, align 8, !tbaa !65
-  %1717 = getelementptr inbounds nuw i8, ptr %1716, i64 9
-  store ptr %1717, ptr %1715, align 8, !tbaa !65
+1719:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit70.i
+  %1720 = getelementptr inbounds nuw i8, ptr %.0.i.i69.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1710, ptr noundef nonnull align 1 dereferenceable(9) @.str.77, i64 9, i1 false)
+  %1721 = load ptr, ptr %1720, align 8, !tbaa !65
+  %1722 = getelementptr inbounds nuw i8, ptr %1721, i64 9
+  store ptr %1722, ptr %1720, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit73.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit73.i:             ; preds = %1714, %1712
-  %.0.i.i72.i = phi ptr [ %1713, %1712 ], [ %.0.i.i69.i, %1714 ]
-  %1718 = load ptr, ptr %.03721.i, align 8, !tbaa !291
-  %1719 = getelementptr inbounds i8, ptr %1718, i64 -16
-  %1720 = load i64, ptr %1719, align 8
-  %1721 = and i64 %1720, 2
-  %.not.i.i.i.i.i74.i = icmp eq i64 %1721, 0
-  br i1 %.not.i.i.i.i.i74.i, label %1725, label %1722
+_ZN4llvm11raw_ostreamlsEPKc.exit73.i:             ; preds = %1719, %1717
+  %.0.i.i72.i = phi ptr [ %1718, %1717 ], [ %.0.i.i69.i, %1719 ]
+  %1723 = load ptr, ptr %.03721.i, align 8, !tbaa !291
+  %1724 = getelementptr inbounds i8, ptr %1723, i64 -16
+  %1725 = load i64, ptr %1724, align 8
+  %1726 = and i64 %1725, 2
+  %.not.i.i.i.i.i74.i = icmp eq i64 %1726, 0
+  br i1 %.not.i.i.i.i.i74.i, label %1730, label %1727
 
-1722:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit73.i
-  %1723 = getelementptr inbounds i8, ptr %1718, i64 -32
-  %1724 = load ptr, ptr %1723, align 8, !tbaa !25
+1727:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit73.i
+  %1728 = getelementptr inbounds i8, ptr %1723, i64 -32
+  %1729 = load ptr, ptr %1728, align 8, !tbaa !25
   br label %_ZNK4llvm15DILocalVariable8getScopeEv.exit76.i
 
-1725:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit73.i
-  %1726 = lshr i64 %1720, 2
-  %1727 = and i64 %1726, 15
-  %1728 = sub nsw i64 0, %1727
-  %1729 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1719, i64 %1728
+1730:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit73.i
+  %1731 = lshr i64 %1725, 2
+  %1732 = and i64 %1731, 15
+  %1733 = sub nsw i64 0, %1732
+  %1734 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1724, i64 %1733
   br label %_ZNK4llvm15DILocalVariable8getScopeEv.exit76.i
 
-_ZNK4llvm15DILocalVariable8getScopeEv.exit76.i:   ; preds = %1725, %1722
-  %.sroa.0.0.i.i.i.i.i75.i = phi ptr [ %1729, %1725 ], [ %1724, %1722 ]
-  %1730 = load ptr, ptr %.sroa.0.0.i.i.i.i.i75.i, align 8, !tbaa !264
-  %1731 = call noundef ptr @_ZNK4llvm12DILocalScope13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(16) %1730) #26
-  %1732 = getelementptr inbounds i8, ptr %1731, i64 -16
-  %1733 = load i64, ptr %1732, align 8
-  %1734 = and i64 %1733, 2
-  %.not.i.i.i.i.i77.i = icmp eq i64 %1734, 0
-  br i1 %.not.i.i.i.i.i77.i, label %1738, label %1735
+_ZNK4llvm15DILocalVariable8getScopeEv.exit76.i:   ; preds = %1730, %1727
+  %.sroa.0.0.i.i.i.i.i75.i = phi ptr [ %1734, %1730 ], [ %1729, %1727 ]
+  %1735 = load ptr, ptr %.sroa.0.0.i.i.i.i.i75.i, align 8, !tbaa !264
+  %1736 = call noundef ptr @_ZNK4llvm12DILocalScope13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(16) %1735) #26
+  %1737 = getelementptr inbounds i8, ptr %1736, i64 -16
+  %1738 = load i64, ptr %1737, align 8
+  %1739 = and i64 %1738, 2
+  %.not.i.i.i.i.i77.i = icmp eq i64 %1739, 0
+  br i1 %.not.i.i.i.i.i77.i, label %1743, label %1740
 
-1735:                                             ; preds = %_ZNK4llvm15DILocalVariable8getScopeEv.exit76.i
-  %1736 = getelementptr inbounds i8, ptr %1731, i64 -32
-  %1737 = load ptr, ptr %1736, align 8, !tbaa !25
+1740:                                             ; preds = %_ZNK4llvm15DILocalVariable8getScopeEv.exit76.i
+  %1741 = getelementptr inbounds i8, ptr %1736, i64 -32
+  %1742 = load ptr, ptr %1741, align 8, !tbaa !25
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i78.i
 
-1738:                                             ; preds = %_ZNK4llvm15DILocalVariable8getScopeEv.exit76.i
-  %1739 = lshr i64 %1733, 2
-  %1740 = and i64 %1739, 15
-  %1741 = sub nsw i64 0, %1740
-  %1742 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1732, i64 %1741
+1743:                                             ; preds = %_ZNK4llvm15DILocalVariable8getScopeEv.exit76.i
+  %1744 = lshr i64 %1738, 2
+  %1745 = and i64 %1744, 15
+  %1746 = sub nsw i64 0, %1745
+  %1747 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1737, i64 %1746
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i78.i
 
-_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i78.i: ; preds = %1738, %1735
-  %.sroa.0.0.i.i.i.i.i79.i = phi ptr [ %1742, %1738 ], [ %1737, %1735 ]
-  %1743 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i79.i, i64 16
-  %1744 = load ptr, ptr %1743, align 8, !tbaa !264
-  %.not.not.i.i80.i = icmp eq ptr %1744, null
+_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i78.i: ; preds = %1743, %1740
+  %.sroa.0.0.i.i.i.i.i79.i = phi ptr [ %1747, %1743 ], [ %1742, %1740 ]
+  %1748 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i79.i, i64 16
+  %1749 = load ptr, ptr %1748, align 8, !tbaa !264
+  %.not.not.i.i80.i = icmp eq ptr %1749, null
   br i1 %.not.not.i.i80.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i219, label %_ZNK4llvm12DISubprogram7getNameEv.exit85.i
 
 _ZNK4llvm12DISubprogram7getNameEv.exit85.i:       ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i78.i
-  %1745 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %1744) #26
-  %1746 = extractvalue { ptr, i64 } %1745, 0
-  %1747 = extractvalue { ptr, i64 } %1745, 1
-  %1748 = getelementptr inbounds nuw i8, ptr %.0.i.i72.i, i64 24
-  %1749 = load ptr, ptr %1748, align 8, !tbaa !61
-  %1750 = getelementptr inbounds nuw i8, ptr %.0.i.i72.i, i64 32
-  %1751 = load ptr, ptr %1750, align 8, !tbaa !65
-  %1752 = ptrtoint ptr %1749 to i64
-  %1753 = ptrtoint ptr %1751 to i64
-  %1754 = sub i64 %1752, %1753
-  %1755 = icmp ugt i64 %1747, %1754
-  br i1 %1755, label %1756, label %1758
+  %1750 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %1749) #26
+  %1751 = extractvalue { ptr, i64 } %1750, 0
+  %1752 = extractvalue { ptr, i64 } %1750, 1
+  %1753 = getelementptr inbounds nuw i8, ptr %.0.i.i72.i, i64 24
+  %1754 = load ptr, ptr %1753, align 8, !tbaa !61
+  %1755 = getelementptr inbounds nuw i8, ptr %.0.i.i72.i, i64 32
+  %1756 = load ptr, ptr %1755, align 8, !tbaa !65
+  %1757 = ptrtoint ptr %1754 to i64
+  %1758 = ptrtoint ptr %1756 to i64
+  %1759 = sub i64 %1757, %1758
+  %1760 = icmp ugt i64 %1752, %1759
+  br i1 %1760, label %1761, label %1763
 
-1756:                                             ; preds = %_ZNK4llvm12DISubprogram7getNameEv.exit85.i
-  %1757 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i72.i, ptr noundef %1746, i64 noundef %1747) #26
+1761:                                             ; preds = %_ZNK4llvm12DISubprogram7getNameEv.exit85.i
+  %1762 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i72.i, ptr noundef %1751, i64 noundef %1752) #26
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i219
 
-1758:                                             ; preds = %_ZNK4llvm12DISubprogram7getNameEv.exit85.i
-  %.not.i86.i218 = icmp eq i64 %1747, 0
-  br i1 %.not.i86.i218, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i219, label %1759
+1763:                                             ; preds = %_ZNK4llvm12DISubprogram7getNameEv.exit85.i
+  %.not.i86.i218 = icmp eq i64 %1752, 0
+  br i1 %.not.i86.i218, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i219, label %1764
 
-1759:                                             ; preds = %1758
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1751, ptr align 1 %1746, i64 %1747, i1 false)
-  %1760 = load ptr, ptr %1750, align 8, !tbaa !65
-  %1761 = getelementptr inbounds nuw i8, ptr %1760, i64 %1747
-  store ptr %1761, ptr %1750, align 8, !tbaa !65
+1764:                                             ; preds = %1763
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1756, ptr align 1 %1751, i64 %1752, i1 false)
+  %1765 = load ptr, ptr %1755, align 8, !tbaa !65
+  %1766 = getelementptr inbounds nuw i8, ptr %1765, i64 %1752
+  store ptr %1766, ptr %1755, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i219
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i219: ; preds = %1759, %1758, %1756, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i78.i
-  %.0.i87.i220 = phi ptr [ %1757, %1756 ], [ %.0.i.i72.i, %1759 ], [ %.0.i.i72.i, %1758 ], [ %.0.i.i72.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i78.i ]
-  %1762 = getelementptr inbounds nuw i8, ptr %.0.i87.i220, i64 24
-  %1763 = load ptr, ptr %1762, align 8, !tbaa !61
-  %1764 = getelementptr inbounds nuw i8, ptr %.0.i87.i220, i64 32
-  %1765 = load ptr, ptr %1764, align 8, !tbaa !65
-  %1766 = ptrtoint ptr %1763 to i64
-  %1767 = ptrtoint ptr %1765 to i64
-  %1768 = sub i64 %1766, %1767
-  %1769 = icmp ult i64 %1768, 7
-  br i1 %1769, label %1770, label %1772
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i219: ; preds = %1764, %1763, %1761, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i78.i
+  %.0.i87.i220 = phi ptr [ %1762, %1761 ], [ %.0.i.i72.i, %1764 ], [ %.0.i.i72.i, %1763 ], [ %.0.i.i72.i, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i78.i ]
+  %1767 = getelementptr inbounds nuw i8, ptr %.0.i87.i220, i64 24
+  %1768 = load ptr, ptr %1767, align 8, !tbaa !61
+  %1769 = getelementptr inbounds nuw i8, ptr %.0.i87.i220, i64 32
+  %1770 = load ptr, ptr %1769, align 8, !tbaa !65
+  %1771 = ptrtoint ptr %1768 to i64
+  %1772 = ptrtoint ptr %1770 to i64
+  %1773 = sub i64 %1771, %1772
+  %1774 = icmp ult i64 %1773, 7
+  br i1 %1774, label %1775, label %1777
 
-1770:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i219
-  %1771 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i87.i220, ptr noundef nonnull @.str.78, i64 noundef 7) #26
-  %.phi.trans.insert29.i = getelementptr inbounds nuw i8, ptr %1771, i64 32
+1775:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i219
+  %1776 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i87.i220, ptr noundef nonnull @.str.78, i64 noundef 7) #26
+  %.phi.trans.insert29.i = getelementptr inbounds nuw i8, ptr %1776, i64 32
   %.pre30.i = load ptr, ptr %.phi.trans.insert29.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit91.i221
 
-1772:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i219
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %1765, ptr noundef nonnull align 1 dereferenceable(7) @.str.78, i64 7, i1 false)
-  %1773 = load ptr, ptr %1764, align 8, !tbaa !65
-  %1774 = getelementptr inbounds nuw i8, ptr %1773, i64 7
-  store ptr %1774, ptr %1764, align 8, !tbaa !65
+1777:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit88.i219
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %1770, ptr noundef nonnull align 1 dereferenceable(7) @.str.78, i64 7, i1 false)
+  %1778 = load ptr, ptr %1769, align 8, !tbaa !65
+  %1779 = getelementptr inbounds nuw i8, ptr %1778, i64 7
+  store ptr %1779, ptr %1769, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit91.i221
 
-_ZN4llvm11raw_ostreamlsEPKc.exit91.i221:          ; preds = %1772, %1770
-  %1775 = phi ptr [ %.pre30.i, %1770 ], [ %1774, %1772 ]
-  %.0.i.i90.i222 = phi ptr [ %1771, %1770 ], [ %.0.i87.i220, %1772 ]
-  %1776 = getelementptr inbounds nuw i8, ptr %.0.i.i90.i222, i64 24
-  %1777 = load ptr, ptr %1776, align 8, !tbaa !61
-  %1778 = getelementptr inbounds nuw i8, ptr %.0.i.i90.i222, i64 32
-  %1779 = ptrtoint ptr %1777 to i64
-  %1780 = ptrtoint ptr %1775 to i64
-  %1781 = sub i64 %1779, %1780
-  %1782 = icmp ugt i64 %.sroa.3.1.i, %1781
-  br i1 %1782, label %1783, label %1785
+_ZN4llvm11raw_ostreamlsEPKc.exit91.i221:          ; preds = %1777, %1775
+  %1780 = phi ptr [ %.pre30.i, %1775 ], [ %1779, %1777 ]
+  %.0.i.i90.i222 = phi ptr [ %1776, %1775 ], [ %.0.i87.i220, %1777 ]
+  %1781 = getelementptr inbounds nuw i8, ptr %.0.i.i90.i222, i64 24
+  %1782 = load ptr, ptr %1781, align 8, !tbaa !61
+  %1783 = getelementptr inbounds nuw i8, ptr %.0.i.i90.i222, i64 32
+  %1784 = ptrtoint ptr %1782 to i64
+  %1785 = ptrtoint ptr %1780 to i64
+  %1786 = sub i64 %1784, %1785
+  %1787 = icmp ugt i64 %.sroa.3.1.i, %1786
+  br i1 %1787, label %1788, label %1790
 
-1783:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit91.i221
-  %1784 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i90.i222, ptr noundef %.sroa.0.1.i, i64 noundef %.sroa.3.1.i) #26
-  %.phi.trans.insert31.i = getelementptr inbounds nuw i8, ptr %1784, i64 32
+1788:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit91.i221
+  %1789 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i90.i222, ptr noundef %.sroa.0.1.i, i64 noundef %.sroa.3.1.i) #26
+  %.phi.trans.insert31.i = getelementptr inbounds nuw i8, ptr %1789, i64 32
   %.pre32.i = load ptr, ptr %.phi.trans.insert31.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i223
 
-1785:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit91.i221
-  br i1 %.not.i92.i198, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i223, label %1786
+1790:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit91.i221
+  br i1 %.not.i92.i198, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i223, label %1791
 
-1786:                                             ; preds = %1785
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1775, ptr align 1 %.sroa.0.1.i, i64 %.sroa.3.1.i, i1 false)
-  %1787 = load ptr, ptr %1778, align 8, !tbaa !65
-  %1788 = getelementptr inbounds nuw i8, ptr %1787, i64 %.sroa.3.1.i
-  store ptr %1788, ptr %1778, align 8, !tbaa !65
+1791:                                             ; preds = %1790
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1780, ptr align 1 %.sroa.0.1.i, i64 %.sroa.3.1.i, i1 false)
+  %1792 = load ptr, ptr %1783, align 8, !tbaa !65
+  %1793 = getelementptr inbounds nuw i8, ptr %1792, i64 %.sroa.3.1.i
+  store ptr %1793, ptr %1783, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i223
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i223: ; preds = %1786, %1785, %1783
-  %1789 = phi ptr [ %.pre32.i, %1783 ], [ %1788, %1786 ], [ %1775, %1785 ]
-  %.0.i93.i224 = phi ptr [ %1784, %1783 ], [ %.0.i.i90.i222, %1786 ], [ %.0.i.i90.i222, %1785 ]
-  %1790 = getelementptr inbounds nuw i8, ptr %.0.i93.i224, i64 24
-  %1791 = load ptr, ptr %1790, align 8, !tbaa !61
-  %1792 = ptrtoint ptr %1791 to i64
-  %1793 = ptrtoint ptr %1789 to i64
-  %1794 = sub i64 %1792, %1793
-  %1795 = icmp ult i64 %1794, 2
-  br i1 %1795, label %1796, label %1798
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i223: ; preds = %1791, %1790, %1788
+  %1794 = phi ptr [ %.pre32.i, %1788 ], [ %1793, %1791 ], [ %1780, %1790 ]
+  %.0.i93.i224 = phi ptr [ %1789, %1788 ], [ %.0.i.i90.i222, %1791 ], [ %.0.i.i90.i222, %1790 ]
+  %1795 = getelementptr inbounds nuw i8, ptr %.0.i93.i224, i64 24
+  %1796 = load ptr, ptr %1795, align 8, !tbaa !61
+  %1797 = ptrtoint ptr %1796 to i64
+  %1798 = ptrtoint ptr %1794 to i64
+  %1799 = sub i64 %1797, %1798
+  %1800 = icmp ult i64 %1799, 2
+  br i1 %1800, label %1801, label %1803
 
-1796:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i223
-  %1797 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i93.i224, ptr noundef nonnull @.str.72, i64 noundef 2) #26
+1801:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i223
+  %1802 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i93.i224, ptr noundef nonnull @.str.72, i64 noundef 2) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit97.i207
 
-1798:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i223
-  %1799 = getelementptr inbounds nuw i8, ptr %.0.i93.i224, i64 32
-  store i16 2601, ptr %1789, align 1
-  %1800 = load ptr, ptr %1799, align 8, !tbaa !65
-  %1801 = getelementptr inbounds nuw i8, ptr %1800, i64 2
-  store ptr %1801, ptr %1799, align 8, !tbaa !65
+1803:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit94.i223
+  %1804 = getelementptr inbounds nuw i8, ptr %.0.i93.i224, i64 32
+  store i16 2601, ptr %1794, align 1
+  %1805 = load ptr, ptr %1804, align 8, !tbaa !65
+  %1806 = getelementptr inbounds nuw i8, ptr %1805, i64 2
+  store ptr %1806, ptr %1804, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit97.i207
 
-_ZN4llvm11raw_ostreamlsEPKc.exit97.i207:          ; preds = %1798, %1796, %1605, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
-  %.1.i208 = phi i1 [ %.022.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i ], [ %.022.i, %1605 ], [ false, %1796 ], [ false, %1798 ]
-  %1802 = getelementptr inbounds nuw i8, ptr %.03721.i, i64 16
-  %.not.i209 = icmp eq ptr %1802, %1426
+_ZN4llvm11raw_ostreamlsEPKc.exit97.i207:          ; preds = %1803, %1801, %1609, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i
+  %.1.i208 = phi i1 [ %.022.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i ], [ %.022.i, %1609 ], [ false, %1801 ], [ false, %1803 ]
+  %1807 = getelementptr inbounds nuw i8, ptr %.03721.i, i64 16
+  %.not.i209 = icmp eq ptr %1807, %1429
   br i1 %.not.i209, label %_ZL9checkVarsRKN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEESH_NS_9StringRefESI_bRNS_4json5ArrayE.exit.loopexit, label %.lr.ph.split.i
 
 _ZL9checkVarsRKN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEESH_NS_9StringRefESI_bRNS_4json5ArrayE.exit.loopexit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit97.i207
@@ -7370,513 +7379,515 @@ _ZL9checkVarsRKN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12De
   %.not.i.i228 = icmp eq i64 %.sroa.211.0.copyload, 0
   %spec.select592 = select i1 %.not.i.i228, ptr %4, ptr %.sroa.010.0.copyload
   %spec.select593 = select i1 %.not.i.i228, i64 %5, i64 %.sroa.211.0.copyload
-  br i1 %.not583, label %2628, label %2420
+  br i1 %.not583, label %2639, label %2431
 
-1803:                                             ; preds = %.lr.ph654, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread
-  %.sroa.0491.0652 = phi ptr [ %1, %.lr.ph654 ], [ %2419, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread ]
-  %1804 = getelementptr inbounds i8, ptr %.sroa.0491.0652, i64 -56
-  %1805 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(136) %1804) #26
-  br i1 %1805, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %1806
+1808:                                             ; preds = %.lr.ph654, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread
+  %.sroa.0491.0652 = phi ptr [ %1, %.lr.ph654 ], [ %2430, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread ]
+  %1809 = getelementptr inbounds i8, ptr %.sroa.0491.0652, i64 -56
+  %1810 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(136) %1809) #26
+  br i1 %1810, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %1811
 
-1806:                                             ; preds = %1803
-  %1807 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(136) %1804) #26
-  br i1 %1807, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %1808
+1811:                                             ; preds = %1808
+  %1812 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(136) %1809) #26
+  br i1 %1812, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %1813
 
-1808:                                             ; preds = %1806
-  %1809 = getelementptr inbounds i8, ptr %.sroa.0491.0652, i64 -24
-  %1810 = load i32, ptr %1809, align 8
-  %1811 = and i32 %1810, 15
-  switch i32 %1811, label %1814 [
+1813:                                             ; preds = %1811
+  %1814 = getelementptr inbounds i8, ptr %.sroa.0491.0652, i64 -24
+  %1815 = load i32, ptr %1814, align 8
+  %1816 = and i32 %1815, 15
+  switch i32 %1816, label %1819 [
     i32 5, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread
     i32 3, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread
     i32 1, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread
-    i32 4, label %1812
-    i32 2, label %1812
-    i32 10, label %1812
-    i32 9, label %1812
-    i32 0, label %1812
-    i32 6, label %1812
-    i32 7, label %1812
-    i32 8, label %1812
+    i32 4, label %1817
+    i32 2, label %1817
+    i32 10, label %1817
+    i32 9, label %1817
+    i32 0, label %1817
+    i32 6, label %1817
+    i32 7, label %1817
+    i32 8, label %1817
   ]
 
-1812:                                             ; preds = %1808, %1808, %1808, %1808, %1808, %1808, %1808, %1808
-  %1813 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue14isInterposableEv(ptr noundef nonnull align 8 dereferenceable(136) %1804) #26
-  br i1 %1813, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit
+1817:                                             ; preds = %1813, %1813, %1813, %1813, %1813, %1813, %1813, %1813
+  %1818 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue14isInterposableEv(ptr noundef nonnull align 8 dereferenceable(136) %1809) #26
+  br i1 %1818, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit
 
-1814:                                             ; preds = %1808
+1819:                                             ; preds = %1813
   unreachable
 
-_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit: ; preds = %1812
-  %1815 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue16isNobuiltinFnDefEv(ptr noundef nonnull align 8 dereferenceable(136) %1804) #26
-  br i1 %1815, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %1816
+_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit: ; preds = %1817
+  %1820 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue16isNobuiltinFnDefEv(ptr noundef nonnull align 8 dereferenceable(136) %1809) #26
+  br i1 %1820, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %1821
 
-1816:                                             ; preds = %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit
-  %1817 = load ptr, ptr %3, align 8, !tbaa !266
-  %1818 = load i32, ptr %115, align 8, !tbaa !269
-  %1819 = icmp eq i32 %1818, 0
-  br i1 %1819, label %.loopexit.i.i.i236, label %1820
+1821:                                             ; preds = %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit
+  %1822 = load ptr, ptr %3, align 8, !tbaa !266
+  %1823 = load i32, ptr %115, align 8, !tbaa !269
+  %1824 = icmp eq i32 %1823, 0
+  br i1 %1824, label %.loopexit.i.i.i236, label %1825
 
-1820:                                             ; preds = %1816
-  %1821 = ptrtoint ptr %1804 to i64
-  %1822 = trunc i64 %1821 to i32
-  %1823 = lshr i32 %1822, 4
-  %1824 = lshr i32 %1822, 9
-  %1825 = xor i32 %1823, %1824
-  %1826 = add i32 %1818, -1
-  %.01826.i.i.i.i.i230 = and i32 %1826, %1825
-  %1827 = zext nneg i32 %.01826.i.i.i.i.i230 to i64
-  %1828 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.411", ptr %1817, i64 %1827
-  %1829 = load ptr, ptr %1828, align 8, !tbaa !270
-  %1830 = icmp eq ptr %1804, %1829
-  br i1 %1830, label %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit, label %.lr.ph.i.i.i.i.i231, !prof !272
+1825:                                             ; preds = %1821
+  %1826 = ptrtoint ptr %1809 to i64
+  %1827 = trunc i64 %1826 to i32
+  %1828 = lshr i32 %1827, 4
+  %1829 = lshr i32 %1827, 9
+  %1830 = xor i32 %1828, %1829
+  %1831 = add i32 %1823, -1
+  %.01826.i.i.i.i.i230 = and i32 %1831, %1830
+  %1832 = zext nneg i32 %.01826.i.i.i.i.i230 to i64
+  %1833 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.411", ptr %1822, i64 %1832
+  %1834 = load ptr, ptr %1833, align 8, !tbaa !270
+  %1835 = icmp eq ptr %1809, %1834
+  br i1 %1835, label %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit, label %.lr.ph.i.i.i.i.i231, !prof !272
 
-.lr.ph.i.i.i.i.i231:                              ; preds = %1820, %1833
-  %1831 = phi ptr [ %1838, %1833 ], [ %1829, %1820 ]
-  %.01828.i.i.i.i.i232 = phi i32 [ %.018.i.i.i.i.i234, %1833 ], [ %.01826.i.i.i.i.i230, %1820 ]
-  %.01627.i.i.i.i.i233 = phi i32 [ %1834, %1833 ], [ 1, %1820 ]
-  %1832 = icmp eq ptr %1831, inttoptr (i64 -4096 to ptr)
-  br i1 %1832, label %.loopexit.i.i.i236, label %1833, !prof !33
+.lr.ph.i.i.i.i.i231:                              ; preds = %1825, %1838
+  %1836 = phi ptr [ %1843, %1838 ], [ %1834, %1825 ]
+  %.01828.i.i.i.i.i232 = phi i32 [ %.018.i.i.i.i.i234, %1838 ], [ %.01826.i.i.i.i.i230, %1825 ]
+  %.01627.i.i.i.i.i233 = phi i32 [ %1839, %1838 ], [ 1, %1825 ]
+  %1837 = icmp eq ptr %1836, inttoptr (i64 -4096 to ptr)
+  br i1 %1837, label %.loopexit.i.i.i236, label %1838, !prof !33
 
-1833:                                             ; preds = %.lr.ph.i.i.i.i.i231
-  %1834 = add i32 %.01627.i.i.i.i.i233, 1
-  %1835 = add i32 %.01627.i.i.i.i.i233, %.01828.i.i.i.i.i232
-  %.018.i.i.i.i.i234 = and i32 %1835, %1826
-  %1836 = zext i32 %.018.i.i.i.i.i234 to i64
-  %1837 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.411", ptr %1817, i64 %1836
-  %1838 = load ptr, ptr %1837, align 8, !tbaa !270
-  %1839 = icmp eq ptr %1804, %1838
-  br i1 %1839, label %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit, label %.lr.ph.i.i.i.i.i231, !prof !273, !llvm.loop !274
+1838:                                             ; preds = %.lr.ph.i.i.i.i.i231
+  %1839 = add i32 %.01627.i.i.i.i.i233, 1
+  %1840 = add i32 %.01627.i.i.i.i.i233, %.01828.i.i.i.i.i232
+  %.018.i.i.i.i.i234 = and i32 %1840, %1831
+  %1841 = zext i32 %.018.i.i.i.i.i234 to i64
+  %1842 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.411", ptr %1822, i64 %1841
+  %1843 = load ptr, ptr %1842, align 8, !tbaa !270
+  %1844 = icmp eq ptr %1809, %1843
+  br i1 %1844, label %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit, label %.lr.ph.i.i.i.i.i231, !prof !273, !llvm.loop !274
 
-.loopexit.i.i.i236:                               ; preds = %.lr.ph.i.i.i.i.i231, %1816
-  %1840 = zext i32 %1818 to i64
-  %1841 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.411", ptr %1817, i64 %1840
+.loopexit.i.i.i236:                               ; preds = %.lr.ph.i.i.i.i.i231, %1821
+  %1845 = zext i32 %1823 to i64
+  %1846 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.411", ptr %1822, i64 %1845
   br label %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit
 
-_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit: ; preds = %1833, %1820, %.loopexit.i.i.i236
-  %.sroa.0.1.i.i.i235 = phi ptr [ %1841, %.loopexit.i.i.i236 ], [ %1828, %1820 ], [ %1837, %1833 ]
-  %1842 = zext i32 %1818 to i64
-  %1843 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.411", ptr %1817, i64 %1842
-  %.not584 = icmp eq ptr %.sroa.0.1.i.i.i235, %1843
-  br i1 %.not584, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %1844
+_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit: ; preds = %1838, %1825, %.loopexit.i.i.i236
+  %.sroa.0.1.i.i.i235 = phi ptr [ %1846, %.loopexit.i.i.i236 ], [ %1833, %1825 ], [ %1842, %1838 ]
+  %1847 = zext i32 %1823 to i64
+  %1848 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.411", ptr %1822, i64 %1847
+  %.not584 = icmp eq ptr %.sroa.0.1.i.i.i235, %1848
+  br i1 %.not584, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %1849
 
-1844:                                             ; preds = %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit
-  %1845 = call noundef ptr @_ZNK4llvm8Function13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(136) %1804) #26
+1849:                                             ; preds = %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit
+  %1850 = call noundef ptr @_ZNK4llvm8Function13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(136) %1809) #26
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
-  store ptr %1804, ptr %56, align 8, !tbaa !275
-  store ptr %1845, ptr %116, align 8, !tbaa !277
+  store ptr %1809, ptr %56, align 8, !tbaa !275
+  store ptr %1850, ptr %116, align 8, !tbaa !277
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store ptr %1804, ptr %20, align 8, !tbaa !278
+  store ptr %1809, ptr %20, align 8, !tbaa !278
   store i32 0, ptr %117, align 8, !tbaa !280
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS4_jS6_S9_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.542") align 8 %19, ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(4) %117)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %1846 = load i8, ptr %118, align 8, !tbaa !281, !range !46, !noundef !47
-  %1847 = trunc nuw i8 %1846 to i1
-  br i1 %1847, label %1848, label %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE6insertEOSG_.exit
+  %1851 = load i8, ptr %118, align 8, !tbaa !281, !range !46, !noundef !47
+  %1852 = trunc nuw i8 %1851 to i1
+  br i1 %1852, label %1853, label %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE6insertEOSG_.exit
 
-1848:                                             ; preds = %1844
-  %1849 = load i32, ptr %104, align 8, !tbaa !26
-  %1850 = load ptr, ptr %19, align 8
-  %1851 = getelementptr inbounds nuw i8, ptr %1850, i64 8
-  store i32 %1849, ptr %1851, align 8, !tbaa !280
+1853:                                             ; preds = %1849
+  %1854 = load i32, ptr %104, align 8, !tbaa !26
+  %1855 = load ptr, ptr %19, align 8
+  %1856 = getelementptr inbounds nuw i8, ptr %1855, i64 8
+  store i32 %1854, ptr %1856, align 8, !tbaa !280
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %56, ptr %21, align 8, !tbaa !282, !alias.scope !444
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %116, ptr %22, align 8, !tbaa !182, !alias.scope !447
-  %1852 = load i32, ptr %119, align 4, !tbaa !27
-  %.not.i.i.i237 = icmp ult i32 %1849, %1852
-  br i1 %.not.i.i.i237, label %1855, label %1853, !prof !33
+  %1857 = load i32, ptr %119, align 4, !tbaa !27
+  %.not.i.i.i237 = icmp ult i32 %1854, %1857
+  br i1 %.not.i.i.i237, label %1860, label %1858, !prof !33
 
-1853:                                             ; preds = %1848
-  %1854 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_8FunctionEPKNS_12DISubprogramEELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESE_IJOS7_EEEEERS8_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+1858:                                             ; preds = %1853
+  %1859 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_8FunctionEPKNS_12DISubprogramEELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESE_IJOS7_EEEEERS8_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   br label %_ZN4llvm15SmallVectorImplISt4pairIPKNS_8FunctionEPKNS_12DISubprogramEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESE_IJOS7_EEEEERS8_DpOT_.exit.i.i
 
-1855:                                             ; preds = %1848
-  %1856 = zext i32 %1849 to i64
-  %1857 = load ptr, ptr %102, align 8, !tbaa !25
-  %1858 = getelementptr inbounds nuw %"struct.std::pair.229", ptr %1857, i64 %1856
-  %1859 = load ptr, ptr %56, align 8, !tbaa !270
-  store ptr %1859, ptr %1858, align 8, !tbaa !275
-  %1860 = getelementptr inbounds nuw i8, ptr %1858, i64 8
-  %1861 = load ptr, ptr %116, align 8, !tbaa !177
-  store ptr %1861, ptr %1860, align 8, !tbaa !277
-  %1862 = add nuw i32 %1849, 1
-  store i32 %1862, ptr %104, align 8, !tbaa !26
+1860:                                             ; preds = %1853
+  %1861 = zext i32 %1854 to i64
+  %1862 = load ptr, ptr %102, align 8, !tbaa !25
+  %1863 = getelementptr inbounds nuw %"struct.std::pair.229", ptr %1862, i64 %1861
+  %1864 = load ptr, ptr %56, align 8, !tbaa !270
+  store ptr %1864, ptr %1863, align 8, !tbaa !275
+  %1865 = getelementptr inbounds nuw i8, ptr %1863, i64 8
+  %1866 = load ptr, ptr %116, align 8, !tbaa !177
+  store ptr %1866, ptr %1865, align 8, !tbaa !277
+  %1867 = add nuw i32 %1854, 1
+  store i32 %1867, ptr %104, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplISt4pairIPKNS_8FunctionEPKNS_12DISubprogramEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESE_IJOS7_EEEEERS8_DpOT_.exit.i.i
 
-_ZN4llvm15SmallVectorImplISt4pairIPKNS_8FunctionEPKNS_12DISubprogramEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESE_IJOS7_EEEEERS8_DpOT_.exit.i.i: ; preds = %1855, %1853
+_ZN4llvm15SmallVectorImplISt4pairIPKNS_8FunctionEPKNS_12DISubprogramEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESE_IJOS7_EEEEERS8_DpOT_.exit.i.i: ; preds = %1860, %1858
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE6insertEOSG_.exit
 
-_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE6insertEOSG_.exit: ; preds = %1844, %_ZN4llvm15SmallVectorImplISt4pairIPKNS_8FunctionEPKNS_12DISubprogramEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESE_IJOS7_EEEEERS8_DpOT_.exit.i.i
+_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE6insertEOSG_.exit: ; preds = %1849, %_ZN4llvm15SmallVectorImplISt4pairIPKNS_8FunctionEPKNS_12DISubprogramEEE12emplace_backIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESE_IJOS7_EEEEERS8_DpOT_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  %.not88 = icmp eq ptr %1845, null
-  br i1 %.not88, label %.loopexit, label %1863
+  %.not88 = icmp eq ptr %1850, null
+  br i1 %.not88, label %.loopexit, label %1868
 
-1863:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE6insertEOSG_.exit
-  %1864 = getelementptr inbounds i8, ptr %1845, i64 -16
-  %1865 = load i64, ptr %1864, align 8
-  %1866 = and i64 %1865, 2
-  %.not.i.i.i.i238 = icmp eq i64 %1866, 0
-  br i1 %.not.i.i.i.i238, label %1870, label %1867
+1868:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE6insertEOSG_.exit
+  %1869 = getelementptr inbounds i8, ptr %1850, i64 -16
+  %1870 = load i64, ptr %1869, align 8
+  %1871 = and i64 %1870, 2
+  %.not.i.i.i.i238 = icmp eq i64 %1871, 0
+  br i1 %.not.i.i.i.i238, label %1875, label %1872
 
-1867:                                             ; preds = %1863
-  %1868 = getelementptr inbounds i8, ptr %1845, i64 -32
-  %1869 = load ptr, ptr %1868, align 8, !tbaa !25
+1872:                                             ; preds = %1868
+  %1873 = getelementptr inbounds i8, ptr %1850, i64 -32
+  %1874 = load ptr, ptr %1873, align 8, !tbaa !25
   br label %_ZNK4llvm12DISubprogram16getRetainedNodesEv.exit
 
-1870:                                             ; preds = %1863
-  %1871 = lshr i64 %1865, 2
-  %1872 = and i64 %1871, 15
-  %1873 = sub nsw i64 0, %1872
-  %1874 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1864, i64 %1873
+1875:                                             ; preds = %1868
+  %1876 = lshr i64 %1870, 2
+  %1877 = and i64 %1876, 15
+  %1878 = sub nsw i64 0, %1877
+  %1879 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1869, i64 %1878
   br label %_ZNK4llvm12DISubprogram16getRetainedNodesEv.exit
 
-_ZNK4llvm12DISubprogram16getRetainedNodesEv.exit: ; preds = %1867, %1870
-  %.sroa.0.0.i.i.i.i = phi ptr [ %1874, %1870 ], [ %1869, %1867 ]
-  %1875 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 56
-  %1876 = load ptr, ptr %1875, align 8, !tbaa !264
-  %.not.i239 = icmp eq ptr %1876, null
-  br i1 %.not.i239, label %.loopexit, label %1877
+_ZNK4llvm12DISubprogram16getRetainedNodesEv.exit: ; preds = %1872, %1875
+  %.sroa.0.0.i.i.i.i = phi ptr [ %1879, %1875 ], [ %1874, %1872 ]
+  %1880 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 56
+  %1881 = load ptr, ptr %1880, align 8, !tbaa !264
+  %.not.i239 = icmp eq ptr %1881, null
+  br i1 %.not.i239, label %.loopexit, label %1882
 
-1877:                                             ; preds = %_ZNK4llvm12DISubprogram16getRetainedNodesEv.exit
-  %1878 = getelementptr inbounds i8, ptr %1876, i64 -16
-  %1879 = load i64, ptr %1878, align 8
-  %1880 = and i64 %1879, 2
-  %.not.i.i.i.i240 = icmp eq i64 %1880, 0
-  br i1 %.not.i.i.i.i240, label %1887, label %1881
+1882:                                             ; preds = %_ZNK4llvm12DISubprogram16getRetainedNodesEv.exit
+  %1883 = getelementptr inbounds i8, ptr %1881, i64 -16
+  %1884 = load i64, ptr %1883, align 8
+  %1885 = and i64 %1884, 2
+  %.not.i.i.i.i240 = icmp eq i64 %1885, 0
+  br i1 %.not.i.i.i.i240, label %1892, label %1886
 
-1881:                                             ; preds = %1877
-  %1882 = getelementptr inbounds i8, ptr %1876, i64 -32
-  %1883 = load ptr, ptr %1882, align 8, !tbaa !25
-  %1884 = getelementptr inbounds i8, ptr %1876, i64 -24
-  %1885 = load i32, ptr %1884, align 8, !tbaa !26
-  %1886 = zext i32 %1885 to i64
+1886:                                             ; preds = %1882
+  %1887 = getelementptr inbounds i8, ptr %1881, i64 -32
+  %1888 = load ptr, ptr %1887, align 8, !tbaa !25
+  %1889 = getelementptr inbounds i8, ptr %1881, i64 -24
+  %1890 = load i32, ptr %1889, align 8, !tbaa !26
+  %1891 = zext i32 %1890 to i64
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
 
-1887:                                             ; preds = %1877
-  %1888 = lshr i64 %1879, 2
-  %1889 = and i64 %1888, 15
-  %1890 = sub nsw i64 0, %1889
-  %1891 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1878, i64 %1890
-  %1892 = lshr i64 %1879, 2
-  %1893 = and i64 %1892, 15
-  %1894 = sub nsw i64 0, %1893
-  %1895 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1878, i64 %1894
-  %1896 = lshr i64 %1879, 6
-  %1897 = and i64 %1896, 15
+1892:                                             ; preds = %1882
+  %1893 = lshr i64 %1884, 2
+  %1894 = and i64 %1893, 15
+  %1895 = sub nsw i64 0, %1894
+  %1896 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1883, i64 %1895
+  %1897 = lshr i64 %1884, 2
+  %1898 = and i64 %1897, 15
+  %1899 = sub nsw i64 0, %1898
+  %1900 = getelementptr inbounds %"class.llvm::MDOperand", ptr %1883, i64 %1899
+  %1901 = lshr i64 %1884, 6
+  %1902 = and i64 %1901, 15
   br label %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit
 
-_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %1881, %1887
-  %.sroa.0.0.i241.ph923 = phi ptr [ %1891, %1887 ], [ %1883, %1881 ]
-  %.sroa.3.0.i.i.i.i = phi i64 [ %1897, %1887 ], [ %1886, %1881 ]
-  %.sroa.0.0.i.i.i.i244 = phi ptr [ %1895, %1887 ], [ %1883, %1881 ]
-  %1898 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i244, i64 %.sroa.3.0.i.i.i.i
-  %.not585635 = icmp eq ptr %.sroa.0.0.i241.ph923, %1898
+_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit: ; preds = %1886, %1892
+  %.sroa.0.0.i241.ph923 = phi ptr [ %1896, %1892 ], [ %1888, %1886 ]
+  %.sroa.3.0.i.i.i.i = phi i64 [ %1902, %1892 ], [ %1891, %1886 ]
+  %.sroa.0.0.i.i.i.i244 = phi ptr [ %1900, %1892 ], [ %1888, %1886 ]
+  %1903 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i.i244, i64 %.sroa.3.0.i.i.i.i
+  %.not585635 = icmp eq ptr %.sroa.0.0.i241.ph923, %1903
   br i1 %.not585635, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit, %1996
-  %.sroa.0483.0636 = phi ptr [ %1997, %1996 ], [ %.sroa.0.0.i241.ph923, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit ]
-  %1899 = load ptr, ptr %.sroa.0483.0636, align 8, !tbaa !264
-  %1900 = load i8, ptr %1899, align 4, !tbaa !290
-  %.not587 = icmp eq i8 %1900, 26
-  br i1 %.not587, label %1901, label %1996
+.lr.ph:                                           ; preds = %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit, %2003
+  %.sroa.0483.0636 = phi ptr [ %2004, %2003 ], [ %.sroa.0.0.i241.ph923, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit ]
+  %1904 = load ptr, ptr %.sroa.0483.0636, align 8, !tbaa !264
+  %1905 = load i8, ptr %1904, align 4, !tbaa !290
+  %.not587 = icmp eq i8 %1905, 26
+  br i1 %.not587, label %1906, label %2003
 
-1901:                                             ; preds = %.lr.ph
-  %1902 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !450
-  %1903 = load i32, ptr %120, align 8, !tbaa !342, !noalias !450
-  %1904 = icmp eq i32 %1903, 0
-  br i1 %1904, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %1905
+1906:                                             ; preds = %.lr.ph
+  %1907 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !450
+  %1908 = load i32, ptr %120, align 8, !tbaa !342, !noalias !450
+  %1909 = icmp eq i32 %1908, 0
+  br i1 %1909, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %1910
 
-1905:                                             ; preds = %1901
-  %1906 = ptrtoint ptr %1899 to i64
-  %1907 = trunc i64 %1906 to i32
-  %1908 = lshr i32 %1907, 4
-  %1909 = lshr i32 %1907, 9
-  %1910 = xor i32 %1908, %1909
-  %1911 = add i32 %1903, -1
-  %.02944.i.i = and i32 %1911, %1910
-  %1912 = zext nneg i32 %.02944.i.i to i64
-  %1913 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1902, i64 %1912
-  %1914 = load ptr, ptr %1913, align 8, !tbaa !343, !noalias !450
-  %1915 = icmp eq ptr %1899, %1914
-  br i1 %1915, label %._crit_edge.i, label %.lr.ph.i.i330, !prof !272
+1910:                                             ; preds = %1906
+  %1911 = ptrtoint ptr %1904 to i64
+  %1912 = trunc i64 %1911 to i32
+  %1913 = lshr i32 %1912, 4
+  %1914 = lshr i32 %1912, 9
+  %1915 = xor i32 %1913, %1914
+  %1916 = add i32 %1908, -1
+  %.02944.i.i = and i32 %1916, %1915
+  %1917 = zext nneg i32 %.02944.i.i to i64
+  %1918 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1907, i64 %1917
+  %1919 = load ptr, ptr %1918, align 8, !tbaa !343, !noalias !450
+  %1920 = icmp eq ptr %1904, %1919
+  br i1 %1920, label %._crit_edge.i, label %.lr.ph.i.i330, !prof !272
 
-.lr.ph.i.i330:                                    ; preds = %1905, %1921
-  %1916 = phi ptr [ %1928, %1921 ], [ %1914, %1905 ]
-  %1917 = phi ptr [ %1927, %1921 ], [ %1913, %1905 ]
-  %.02947.i.i = phi i32 [ %.029.i.i, %1921 ], [ %.02944.i.i, %1905 ]
-  %.02746.i.i = phi i32 [ %1924, %1921 ], [ 1, %1905 ]
-  %.03245.i.i = phi ptr [ %spec.select.i.i331, %1921 ], [ null, %1905 ]
-  %1918 = icmp eq ptr %1916, inttoptr (i64 -4096 to ptr)
-  br i1 %1918, label %1919, label %1921, !prof !33
+.lr.ph.i.i330:                                    ; preds = %1910, %1926
+  %1921 = phi ptr [ %1933, %1926 ], [ %1919, %1910 ]
+  %1922 = phi ptr [ %1932, %1926 ], [ %1918, %1910 ]
+  %.02947.i.i = phi i32 [ %.029.i.i, %1926 ], [ %.02944.i.i, %1910 ]
+  %.02746.i.i = phi i32 [ %1929, %1926 ], [ 1, %1910 ]
+  %.03245.i.i = phi ptr [ %spec.select.i.i331, %1926 ], [ null, %1910 ]
+  %1923 = icmp eq ptr %1921, inttoptr (i64 -4096 to ptr)
+  br i1 %1923, label %1924, label %1926, !prof !33
 
-1919:                                             ; preds = %.lr.ph.i.i330
+1924:                                             ; preds = %.lr.ph.i.i330
   %.not.i.i333 = icmp eq ptr %.03245.i.i, null
-  %1920 = select i1 %.not.i.i333, ptr %1917, ptr %.03245.i.i
+  %1925 = select i1 %.not.i.i333, ptr %1922, ptr %.03245.i.i
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
 
-1921:                                             ; preds = %.lr.ph.i.i330
-  %1922 = icmp eq ptr %1916, inttoptr (i64 -8192 to ptr)
-  %1923 = icmp eq ptr %.03245.i.i, null
-  %or.cond.not.i.i = select i1 %1922, i1 %1923, i1 false
-  %spec.select.i.i331 = select i1 %or.cond.not.i.i, ptr %1917, ptr %.03245.i.i
-  %1924 = add i32 %.02746.i.i, 1
-  %1925 = add i32 %.02746.i.i, %.02947.i.i
-  %.029.i.i = and i32 %1925, %1911
-  %1926 = zext i32 %.029.i.i to i64
-  %1927 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1902, i64 %1926
-  %1928 = load ptr, ptr %1927, align 8, !tbaa !343, !noalias !450
-  %1929 = icmp eq ptr %1899, %1928
-  br i1 %1929, label %._crit_edge.i, label %.lr.ph.i.i330, !prof !273, !llvm.loop !344
+1926:                                             ; preds = %.lr.ph.i.i330
+  %1927 = icmp eq ptr %1921, inttoptr (i64 -8192 to ptr)
+  %1928 = icmp eq ptr %.03245.i.i, null
+  %or.cond.not.i.i = select i1 %1927, i1 %1928, i1 false
+  %spec.select.i.i331 = select i1 %or.cond.not.i.i, ptr %1922, ptr %.03245.i.i
+  %1929 = add i32 %.02746.i.i, 1
+  %1930 = add i32 %.02746.i.i, %.02947.i.i
+  %.029.i.i = and i32 %1930, %1916
+  %1931 = zext i32 %.029.i.i to i64
+  %1932 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1907, i64 %1931
+  %1933 = load ptr, ptr %1932, align 8, !tbaa !343, !noalias !450
+  %1934 = icmp eq ptr %1904, %1933
+  br i1 %1934, label %._crit_edge.i, label %.lr.ph.i.i330, !prof !273, !llvm.loop !344
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %1919, %1901
-  %.sink.i.i = phi ptr [ %1920, %1919 ], [ null, %1901 ]
-  %1930 = load i32, ptr %121, align 8, !tbaa !345, !noalias !450
-  %1931 = shl i32 %1930, 2
-  %1932 = add i32 %1931, 4
-  %1933 = mul i32 %1903, 3
-  %.not.i.i.i334 = icmp ult i32 %1932, %1933
-  br i1 %.not.i.i.i334, label %1936, label %1934, !prof !33
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %1924, %1906
+  %.sink.i.i = phi ptr [ %1925, %1924 ], [ null, %1906 ]
+  %1935 = load i32, ptr %121, align 8, !tbaa !345, !noalias !450
+  %1936 = shl i32 %1935, 2
+  %1937 = add i32 %1936, 4
+  %1938 = mul i32 %1908, 3
+  %.not.i.i.i334 = icmp ult i32 %1937, %1938
+  br i1 %.not.i.i.i334, label %1941, label %1939, !prof !33
 
-1934:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
-  %1935 = shl i32 %1903, 1
+1939:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
+  %1940 = shl i32 %1908, 1
   br label %.sink.split.i.i.i335
 
-1936:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
-  %1937 = load i32, ptr %122, align 4, !tbaa !346, !noalias !450
-  %.neg.i.i.i = xor i32 %1930, -1
-  %.neg12.i.i.i = add i32 %1903, %.neg.i.i.i
-  %1938 = sub i32 %.neg12.i.i.i, %1937
-  %1939 = lshr i32 %1903, 3
-  %.not10.i.i.i = icmp ugt i32 %1938, %1939
-  br i1 %.not10.i.i.i, label %1968, label %.sink.split.i.i.i335, !prof !33
+1941:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
+  %1942 = load i32, ptr %122, align 4, !tbaa !346, !noalias !450
+  %.neg.i.i.i = xor i32 %1935, -1
+  %.neg12.i.i.i = add i32 %1908, %.neg.i.i.i
+  %1943 = sub i32 %.neg12.i.i.i, %1942
+  %1944 = lshr i32 %1908, 3
+  %.not10.i.i.i = icmp ugt i32 %1943, %1944
+  br i1 %.not10.i.i.i, label %1973, label %.sink.split.i.i.i335, !prof !33
 
-.sink.split.i.i.i335:                             ; preds = %1936, %1934
-  %.sink.i.i.i = phi i32 [ %1935, %1934 ], [ %1903, %1936 ]
+.sink.split.i.i.i335:                             ; preds = %1941, %1939
+  %.sink.i.i.i = phi i32 [ %1940, %1939 ], [ %1908, %1941 ]
   call void @_ZN4llvm8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(40) %109, i32 noundef %.sink.i.i.i), !noalias !450
-  %1940 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !450
-  %1941 = load i32, ptr %120, align 8, !tbaa !342, !noalias !450
-  %1942 = icmp eq i32 %1941, 0
-  br i1 %1942, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %1943
+  %1945 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !450
+  %1946 = load i32, ptr %120, align 8, !tbaa !342, !noalias !450
+  %1947 = icmp eq i32 %1946, 0
+  br i1 %1947, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %1948
 
-1943:                                             ; preds = %.sink.split.i.i.i335
-  %1944 = ptrtoint ptr %1899 to i64
-  %1945 = trunc i64 %1944 to i32
-  %1946 = lshr i32 %1945, 4
-  %1947 = lshr i32 %1945, 9
-  %1948 = xor i32 %1946, %1947
-  %1949 = add i32 %1941, -1
-  %.02944.i = and i32 %1949, %1948
-  %1950 = zext nneg i32 %.02944.i to i64
-  %1951 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1940, i64 %1950
-  %1952 = load ptr, ptr %1951, align 8, !tbaa !343, !noalias !450
-  %1953 = icmp eq ptr %1899, %1952
-  br i1 %1953, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i416, !prof !272
+1948:                                             ; preds = %.sink.split.i.i.i335
+  %1949 = ptrtoint ptr %1904 to i64
+  %1950 = trunc i64 %1949 to i32
+  %1951 = lshr i32 %1950, 4
+  %1952 = lshr i32 %1950, 9
+  %1953 = xor i32 %1951, %1952
+  %1954 = add i32 %1946, -1
+  %.02944.i = and i32 %1954, %1953
+  %1955 = zext nneg i32 %.02944.i to i64
+  %1956 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1945, i64 %1955
+  %1957 = load ptr, ptr %1956, align 8, !tbaa !343, !noalias !450
+  %1958 = icmp eq ptr %1904, %1957
+  br i1 %1958, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i416, !prof !272
 
-.lr.ph.i416:                                      ; preds = %1943, %1959
-  %1954 = phi ptr [ %1966, %1959 ], [ %1952, %1943 ]
-  %1955 = phi ptr [ %1965, %1959 ], [ %1951, %1943 ]
-  %.02947.i = phi i32 [ %.029.i, %1959 ], [ %.02944.i, %1943 ]
-  %.02746.i = phi i32 [ %1962, %1959 ], [ 1, %1943 ]
-  %.03245.i = phi ptr [ %spec.select.i, %1959 ], [ null, %1943 ]
-  %1956 = icmp eq ptr %1954, inttoptr (i64 -4096 to ptr)
-  br i1 %1956, label %1957, label %1959, !prof !33
+.lr.ph.i416:                                      ; preds = %1948, %1964
+  %1959 = phi ptr [ %1971, %1964 ], [ %1957, %1948 ]
+  %1960 = phi ptr [ %1970, %1964 ], [ %1956, %1948 ]
+  %.02947.i = phi i32 [ %.029.i, %1964 ], [ %.02944.i, %1948 ]
+  %.02746.i = phi i32 [ %1967, %1964 ], [ 1, %1948 ]
+  %.03245.i = phi ptr [ %spec.select.i, %1964 ], [ null, %1948 ]
+  %1961 = icmp eq ptr %1959, inttoptr (i64 -4096 to ptr)
+  br i1 %1961, label %1962, label %1964, !prof !33
 
-1957:                                             ; preds = %.lr.ph.i416
+1962:                                             ; preds = %.lr.ph.i416
   %.not.i419 = icmp eq ptr %.03245.i, null
-  %1958 = select i1 %.not.i419, ptr %1955, ptr %.03245.i
+  %1963 = select i1 %.not.i419, ptr %1960, ptr %.03245.i
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit
 
-1959:                                             ; preds = %.lr.ph.i416
-  %1960 = icmp eq ptr %1954, inttoptr (i64 -8192 to ptr)
-  %1961 = icmp eq ptr %.03245.i, null
-  %or.cond.not.i = select i1 %1960, i1 %1961, i1 false
-  %spec.select.i = select i1 %or.cond.not.i, ptr %1955, ptr %.03245.i
-  %1962 = add i32 %.02746.i, 1
-  %1963 = add i32 %.02746.i, %.02947.i
-  %.029.i = and i32 %1963, %1949
-  %1964 = zext i32 %.029.i to i64
-  %1965 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1940, i64 %1964
-  %1966 = load ptr, ptr %1965, align 8, !tbaa !343, !noalias !450
-  %1967 = icmp eq ptr %1899, %1966
-  br i1 %1967, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i416, !prof !273, !llvm.loop !344
+1964:                                             ; preds = %.lr.ph.i416
+  %1965 = icmp eq ptr %1959, inttoptr (i64 -8192 to ptr)
+  %1966 = icmp eq ptr %.03245.i, null
+  %or.cond.not.i = select i1 %1965, i1 %1966, i1 false
+  %spec.select.i = select i1 %or.cond.not.i, ptr %1960, ptr %.03245.i
+  %1967 = add i32 %.02746.i, 1
+  %1968 = add i32 %.02746.i, %.02947.i
+  %.029.i = and i32 %1968, %1954
+  %1969 = zext i32 %.029.i to i64
+  %1970 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1945, i64 %1969
+  %1971 = load ptr, ptr %1970, align 8, !tbaa !343, !noalias !450
+  %1972 = icmp eq ptr %1904, %1971
+  br i1 %1972, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i416, !prof !273, !llvm.loop !344
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit: ; preds = %1959, %.sink.split.i.i.i335, %1943, %1957
-  %.sink.i417 = phi ptr [ %1958, %1957 ], [ null, %.sink.split.i.i.i335 ], [ %1951, %1943 ], [ %1965, %1959 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit: ; preds = %1964, %.sink.split.i.i.i335, %1948, %1962
+  %.sink.i417 = phi ptr [ %1963, %1962 ], [ null, %.sink.split.i.i.i335 ], [ %1956, %1948 ], [ %1970, %1964 ]
   %.pre.i.i336 = load i32, ptr %121, align 8, !tbaa !345, !noalias !450
-  br label %1968
+  br label %1973
 
-1968:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, %1936
-  %1969 = phi ptr [ %.sink.i417, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %.sink.i.i, %1936 ]
-  %1970 = phi i32 [ %.pre.i.i336, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %1930, %1936 ]
-  %1971 = add i32 %1970, 1
-  store i32 %1971, ptr %121, align 8, !tbaa !345, !noalias !450
-  %1972 = load ptr, ptr %1969, align 8, !tbaa !343, !noalias !450
-  %1973 = icmp eq ptr %1972, inttoptr (i64 -4096 to ptr)
-  br i1 %1973, label %1979, label %1974
+1973:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, %1941
+  %1974 = phi ptr [ %.sink.i417, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %.sink.i.i, %1941 ]
+  %1975 = phi i32 [ %.pre.i.i336, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %1935, %1941 ]
+  %1976 = add i32 %1975, 1
+  store i32 %1976, ptr %121, align 8, !tbaa !345, !noalias !450
+  %1977 = load ptr, ptr %1974, align 8, !tbaa !343, !noalias !450
+  %1978 = icmp eq ptr %1977, inttoptr (i64 -4096 to ptr)
+  br i1 %1978, label %1985, label %1979
 
-1974:                                             ; preds = %1968
-  %1975 = load i32, ptr %122, align 4, !tbaa !346, !noalias !450
-  %1976 = add i32 %1975, -1
-  store i32 %1976, ptr %122, align 4, !tbaa !346, !noalias !450
-  br label %1979
+1979:                                             ; preds = %1973
+  %1980 = load i32, ptr %122, align 4, !tbaa !346, !noalias !450
+  %1981 = add i32 %1980, -1
+  store i32 %1981, ptr %122, align 4, !tbaa !346, !noalias !450
+  br label %1985
 
-._crit_edge.i:                                    ; preds = %1921, %1905
-  %1977 = phi i64 [ %1912, %1905 ], [ %1926, %1921 ]
-  %1978 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1902, i64 %1977, i32 0, i32 1
-  %.pre.i246 = load i32, ptr %1978, align 4, !tbaa !53
+._crit_edge.i:                                    ; preds = %1926, %1910
+  %1982 = phi i64 [ %1917, %1910 ], [ %1931, %1926 ]
+  %1983 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %1907, i64 %1982
+  %1984 = getelementptr inbounds nuw i8, ptr %1983, i64 8
+  %.pre.i246 = load i32, ptr %1984, align 4, !tbaa !53
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit
 
-1979:                                             ; preds = %1974, %1968
-  store ptr %1899, ptr %1969, align 8, !tbaa !343, !noalias !450
-  %1980 = getelementptr inbounds nuw i8, ptr %1969, i64 8
-  store i32 0, ptr %1980, align 8, !tbaa !53, !noalias !450
-  %1981 = load i32, ptr %113, align 8, !tbaa !26
-  %1982 = load i32, ptr %114, align 4, !tbaa !27
-  %.not.i.i.not.i.i = icmp ult i32 %1981, %1982
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i, label %1983, !prof !33
+1985:                                             ; preds = %1979, %1973
+  store ptr %1904, ptr %1974, align 8, !tbaa !343, !noalias !450
+  %1986 = getelementptr inbounds nuw i8, ptr %1974, i64 8
+  store i32 0, ptr %1986, align 8, !tbaa !53, !noalias !450
+  %1987 = load i32, ptr %113, align 8, !tbaa !26
+  %1988 = load i32, ptr %114, align 4, !tbaa !27
+  %.not.i.i.not.i.i = icmp ult i32 %1987, %1988
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i, label %1989, !prof !33
 
-1983:                                             ; preds = %1979
-  %1984 = zext i32 %1981 to i64
-  %1985 = add nuw nsw i64 %1984, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull %112, i64 noundef %1985, i64 noundef 16) #26
+1989:                                             ; preds = %1985
+  %1990 = zext i32 %1987 to i64
+  %1991 = add nuw nsw i64 %1990, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull %112, i64 noundef %1991, i64 noundef 16) #26
   %.pre.i.i247 = load i32, ptr %113, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i: ; preds = %1983, %1979
-  %1986 = phi i32 [ %1981, %1979 ], [ %.pre.i.i247, %1983 ]
-  %1987 = load ptr, ptr %111, align 8, !tbaa !25
-  %1988 = zext i32 %1986 to i64
-  %1989 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %1987, i64 %1988
-  store ptr %1899, ptr %1989, align 1
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1989, i64 8
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i: ; preds = %1989, %1985
+  %1992 = phi i32 [ %1987, %1985 ], [ %.pre.i.i247, %1989 ]
+  %1993 = load ptr, ptr %111, align 8, !tbaa !25
+  %1994 = zext i32 %1992 to i64
+  %1995 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %1993, i64 %1994
+  store ptr %1904, ptr %1995, align 1
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1995, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i, align 1
-  %1990 = load i32, ptr %113, align 8, !tbaa !26
-  %1991 = add i32 %1990, 1
-  store i32 %1991, ptr %113, align 8, !tbaa !26
-  store i32 %1990, ptr %1980, align 4, !tbaa !53
+  %1996 = load i32, ptr %113, align 8, !tbaa !26
+  %1997 = add i32 %1996, 1
+  store i32 %1997, ptr %113, align 8, !tbaa !26
+  store i32 %1996, ptr %1986, align 4, !tbaa !53
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit
 
 _ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit: ; preds = %._crit_edge.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i
-  %1992 = phi i32 [ %.pre.i246, %._crit_edge.i ], [ %1990, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i ]
-  %1993 = zext i32 %1992 to i64
-  %1994 = load ptr, ptr %111, align 8, !tbaa !25
-  %1995 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %1994, i64 %1993, i32 1
-  store i32 0, ptr %1995, align 4, !tbaa !53
-  br label %1996
+  %1998 = phi i32 [ %.pre.i246, %._crit_edge.i ], [ %1996, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i ]
+  %1999 = zext i32 %1998 to i64
+  %2000 = load ptr, ptr %111, align 8, !tbaa !25
+  %2001 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %2000, i64 %1999
+  %2002 = getelementptr inbounds nuw i8, ptr %2001, i64 8
+  store i32 0, ptr %2002, align 4, !tbaa !53
+  br label %2003
 
-1996:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit, %.lr.ph
-  %1997 = getelementptr inbounds nuw i8, ptr %.sroa.0483.0636, i64 8
-  %.not585 = icmp eq ptr %1997, %1898
+2003:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit, %.lr.ph
+  %2004 = getelementptr inbounds nuw i8, ptr %.sroa.0483.0636, i64 8
+  %.not585 = icmp eq ptr %2004, %1903
   br i1 %.not585, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %1996, %_ZNK4llvm12DISubprogram16getRetainedNodesEv.exit, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit, %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE6insertEOSG_.exit
-  %1998 = getelementptr inbounds nuw i8, ptr %.sroa.0491.0652, i64 24
-  %1999 = getelementptr inbounds nuw i8, ptr %.sroa.0491.0652, i64 16
-  %.sroa.0477.0646 = load ptr, ptr %1998, align 8, !tbaa !187
-  %.not588647 = icmp eq ptr %.sroa.0477.0646, %1999
+.loopexit:                                        ; preds = %2003, %_ZNK4llvm12DISubprogram16getRetainedNodesEv.exit, %_ZNK4llvm24MDTupleTypedArrayWrapperINS_6DINodeEE3endEv.exit, %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE6insertEOSG_.exit
+  %2005 = getelementptr inbounds nuw i8, ptr %.sroa.0491.0652, i64 24
+  %2006 = getelementptr inbounds nuw i8, ptr %.sroa.0491.0652, i64 16
+  %.sroa.0477.0646 = load ptr, ptr %2005, align 8, !tbaa !187
+  %.not588647 = icmp eq ptr %.sroa.0477.0646, %2006
   br i1 %.not588647, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %.lr.ph650
 
 .lr.ph650:                                        ; preds = %.loopexit, %._crit_edge645
   %.sroa.0477.0648 = phi ptr [ %.sroa.0477.0, %._crit_edge645 ], [ %.sroa.0477.0646, %.loopexit ]
-  %2000 = getelementptr inbounds nuw i8, ptr %.sroa.0477.0648, i64 32
-  %2001 = getelementptr inbounds nuw i8, ptr %.sroa.0477.0648, i64 24
-  %.sroa.0471.0640 = load ptr, ptr %2000, align 8, !tbaa !193
-  %.not589641 = icmp eq ptr %.sroa.0471.0640, %2001
+  %2007 = getelementptr inbounds nuw i8, ptr %.sroa.0477.0648, i64 32
+  %2008 = getelementptr inbounds nuw i8, ptr %.sroa.0477.0648, i64 24
+  %.sroa.0471.0640 = load ptr, ptr %2007, align 8, !tbaa !193
+  %.not589641 = icmp eq ptr %.sroa.0471.0640, %2008
   br i1 %.not589641, label %._crit_edge645, label %.lr.ph644
 
 ._crit_edge645:                                   ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, %.lr.ph650
-  %2002 = getelementptr inbounds nuw i8, ptr %.sroa.0477.0648, i64 8
-  %.sroa.0477.0 = load ptr, ptr %2002, align 8, !tbaa !187
-  %.not588 = icmp eq ptr %.sroa.0477.0, %1999
+  %2009 = getelementptr inbounds nuw i8, ptr %.sroa.0477.0648, i64 8
+  %.sroa.0477.0 = load ptr, ptr %2009, align 8, !tbaa !187
+  %.not588 = icmp eq ptr %.sroa.0477.0, %2006
   br i1 %.not588, label %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread, label %.lr.ph650
 
 .lr.ph644:                                        ; preds = %.lr.ph650, %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit
   %.sroa.0471.0642 = phi ptr [ %.sroa.0471.0, %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit ], [ %.sroa.0471.0640, %.lr.ph650 ]
-  %2003 = getelementptr inbounds i8, ptr %.sroa.0471.0642, i64 -24
-  %2004 = load i8, ptr %2003, align 8, !tbaa !198
-  %2005 = icmp eq i8 %2004, 84
-  br i1 %2005, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %2006
+  %2010 = getelementptr inbounds i8, ptr %.sroa.0471.0642, i64 -24
+  %2011 = load i8, ptr %2010, align 8, !tbaa !198
+  %2012 = icmp eq i8 %2011, 84
+  br i1 %2012, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %2013
 
-2006:                                             ; preds = %.lr.ph644
+2013:                                             ; preds = %.lr.ph644
   %.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_113DebugifyLevelE, i64 120), align 8, !tbaa !188
-  %2007 = icmp sgt i32 %.val.i, 0
-  br i1 %2007, label %2008, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit"
+  %2014 = icmp sgt i32 %.val.i, 0
+  br i1 %2014, label %2015, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit"
 
-2008:                                             ; preds = %2006
-  %2009 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 40
-  %2010 = load ptr, ptr %2009, align 8, !tbaa !299
-  %.not.i.i251 = icmp eq ptr %2010, null
-  br i1 %.not.i.i251, label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, label %2011
+2015:                                             ; preds = %2013
+  %2016 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 40
+  %2017 = load ptr, ptr %2016, align 8, !tbaa !299
+  %.not.i.i251 = icmp eq ptr %2017, null
+  br i1 %.not.i.i251, label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, label %2018
 
-2011:                                             ; preds = %2008
-  %2012 = call { ptr, ptr } @_ZN4llvm9DbgMarker17getDbgRecordRangeEv(ptr noundef nonnull align 8 dereferenceable(24) %2010) #26
+2018:                                             ; preds = %2015
+  %2019 = call { ptr, ptr } @_ZN4llvm9DbgMarker17getDbgRecordRangeEv(ptr noundef nonnull align 8 dereferenceable(24) %2017) #26
   br label %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit
 
-_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit: ; preds = %2008, %2011
-  %.pn.i.i252 = phi { ptr, ptr } [ %2012, %2011 ], [ { ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8) }, %2008 ]
-  %2013 = extractvalue { ptr, ptr } %.pn.i.i252, 0
-  %2014 = extractvalue { ptr, ptr } %.pn.i.i252, 1
-  %.not1.i.i.i.i.i = icmp eq ptr %2013, %2014
+_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit: ; preds = %2015, %2018
+  %.pn.i.i252 = phi { ptr, ptr } [ %2019, %2018 ], [ { ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9DbgMarker14EmptyDbgMarkerE, i64 8) }, %2015 ]
+  %2020 = extractvalue { ptr, ptr } %.pn.i.i252, 0
+  %2021 = extractvalue { ptr, ptr } %.pn.i.i252, 1
+  %.not1.i.i.i.i.i = icmp eq ptr %2020, %2021
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, label %.lr.ph.i.i.i.i.i253
 
-.lr.ph.i.i.i.i.i253:                              ; preds = %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, %2017
-  %.sroa.01.0.i.i = phi ptr [ %2019, %2017 ], [ %2013, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit ]
-  %2015 = getelementptr i8, ptr %.sroa.01.0.i.i, i64 32
-  %.val.i.i.i.i.i = load i8, ptr %2015, align 8, !tbaa !309, !noalias !453
-  %2016 = icmp eq i8 %.val.i.i.i.i.i, 0
-  br i1 %2016, label %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, label %2017
+.lr.ph.i.i.i.i.i253:                              ; preds = %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit, %2024
+  %.sroa.01.0.i.i = phi ptr [ %2026, %2024 ], [ %2020, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit ]
+  %2022 = getelementptr i8, ptr %.sroa.01.0.i.i, i64 32
+  %.val.i.i.i.i.i = load i8, ptr %2022, align 8, !tbaa !309, !noalias !453
+  %2023 = icmp eq i8 %.val.i.i.i.i.i, 0
+  br i1 %2023, label %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, label %2024
 
-2017:                                             ; preds = %.lr.ph.i.i.i.i.i253
-  %2018 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i, i64 8
-  %2019 = load ptr, ptr %2018, align 8, !tbaa !187, !noalias !453
-  %.not.i.i.i.i.i254 = icmp eq ptr %2019, %2014
+2024:                                             ; preds = %.lr.ph.i.i.i.i.i253
+  %2025 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i, i64 8
+  %2026 = load ptr, ptr %2025, align 8, !tbaa !187, !noalias !453
+  %.not.i.i.i.i.i254 = icmp eq ptr %2026, %2021
   br i1 %.not.i.i.i.i.i254, label %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, label %.lr.ph.i.i.i.i.i253, !llvm.loop !319
 
-_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i253, %2017, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit
-  %.sroa.01.1.i.i = phi ptr [ %2013, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit ], [ %2019, %2017 ], [ %.sroa.01.0.i.i, %.lr.ph.i.i.i.i.i253 ]
-  %.not590637 = icmp eq ptr %.sroa.01.1.i.i, %2014
+_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit: ; preds = %.lr.ph.i.i.i.i.i253, %2024, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit
+  %.sroa.01.1.i.i = phi ptr [ %2020, %_ZNK4llvm11Instruction17getDbgRecordRangeEv.exit ], [ %2026, %2024 ], [ %.sroa.01.0.i.i, %.lr.ph.i.i.i.i.i253 ]
+  %.not590637 = icmp eq ptr %.sroa.01.1.i.i, %2021
   br i1 %.not590637, label %._crit_edge, label %.lr.ph639
 
 ._crit_edge:                                      ; preds = %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit, %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit
-  %2020 = load i8, ptr %2003, align 8, !tbaa !198
-  %2021 = icmp eq i8 %2020, 85
-  br i1 %2021, label %2022, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
+  %2027 = load i8, ptr %2010, align 8, !tbaa !198
+  %2028 = icmp eq i8 %2027, 85
+  br i1 %2028, label %2029, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
-2022:                                             ; preds = %._crit_edge
-  %2023 = getelementptr inbounds i8, ptr %.sroa.0471.0642, i64 -56
-  %2024 = load ptr, ptr %2023, align 8, !tbaa !320
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2024, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %2025
+2029:                                             ; preds = %._crit_edge
+  %2030 = getelementptr inbounds i8, ptr %.sroa.0471.0642, i64 -56
+  %2031 = load ptr, ptr %2030, align 8, !tbaa !320
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2031, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %2032
 
-2025:                                             ; preds = %2022
-  %2026 = load i8, ptr %2024, align 8, !tbaa !198
-  %2027 = icmp eq i8 %2026, 0
-  br i1 %2027, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
+2032:                                             ; preds = %2029
+  %2033 = load i8, ptr %2031, align 8, !tbaa !198
+  %2034 = icmp eq i8 %2033, 0
+  br i1 %2034, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %2025
-  %2028 = getelementptr inbounds nuw i8, ptr %2024, i64 24
-  %2029 = load ptr, ptr %2028, align 8, !tbaa !325
-  %2030 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 56
-  %2031 = load ptr, ptr %2030, align 8, !tbaa !328
-  %2032 = icmp eq ptr %2029, %2031
-  br i1 %2032, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %2032
+  %2035 = getelementptr inbounds nuw i8, ptr %2031, i64 24
+  %2036 = load ptr, ptr %2035, align 8, !tbaa !325
+  %2037 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 56
+  %2038 = load ptr, ptr %2037, align 8, !tbaa !328
+  %2039 = icmp eq ptr %2036, %2038
+  br i1 %2039, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
 _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %2033 = getelementptr inbounds nuw i8, ptr %2024, i64 32
-  %2034 = load i32, ptr %2033, align 8
-  %2035 = and i32 %2034, 8192
-  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %2035, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %2036
+  %2040 = getelementptr inbounds nuw i8, ptr %2031, i64 32
+  %2041 = load i32, ptr %2040, align 8
+  %2042 = and i32 %2041, 8192
+  %.not.i.i.i.i.i.i.i.i = icmp eq i32 %2042, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %2043
 
-2036:                                             ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i
-  %2037 = getelementptr inbounds nuw i8, ptr %2024, i64 36
-  %2038 = load i32, ptr %2037, align 4, !tbaa !333
-  switch i32 %2038, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split" [
+2043:                                             ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i
+  %2044 = getelementptr inbounds nuw i8, ptr %2031, i64 36
+  %2045 = load i32, ptr %2044, align 4, !tbaa !333
+  switch i32 %2045, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split" [
     i32 69, label %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
     i32 71, label %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
     i32 68, label %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
@@ -7884,1203 +7895,1207 @@ _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i: ; pre
 
 .lr.ph639:                                        ; preds = %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit
   %.sroa.0462.0638 = phi ptr [ %.sroa.0462.2, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit ], [ %.sroa.01.1.i.i, %_ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEEE.exit ]
-  br i1 %.not88, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", label %2039
+  br i1 %.not88, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", label %2046
 
-2039:                                             ; preds = %.lr.ph639
+2046:                                             ; preds = %.lr.ph639
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.experimental.noalias.scope.decl(metadata !458)
-  %2040 = getelementptr inbounds nuw i8, ptr %.sroa.0462.0638, i64 24
-  %2041 = load ptr, ptr %2040, align 8, !tbaa !196, !noalias !458
-  store ptr %2041, ptr %18, align 8, !tbaa !196, !alias.scope !458
-  %.not.i.i.i.i.i.i257 = icmp eq ptr %2041, null
-  br i1 %.not.i.i.i.i.i.i257, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i, label %2042
+  %2047 = getelementptr inbounds nuw i8, ptr %.sroa.0462.0638, i64 24
+  %2048 = load ptr, ptr %2047, align 8, !tbaa !196, !noalias !458
+  store ptr %2048, ptr %18, align 8, !tbaa !196, !alias.scope !458
+  %.not.i.i.i.i.i.i257 = icmp eq ptr %2048, null
+  br i1 %.not.i.i.i.i.i.i257, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i, label %2049
 
-2042:                                             ; preds = %2039
-  %2043 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %2041, i64 1) #26
+2049:                                             ; preds = %2046
+  %2050 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %2048, i64 1) #26
   br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
 
-_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i:        ; preds = %2042, %2039
-  %2044 = call noundef ptr @_ZNK4llvm8DebugLoc12getInlinedAtEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #26
-  %.not4.i = icmp eq ptr %2044, null
-  %2045 = load ptr, ptr %18, align 8, !tbaa !196
-  %.not.i.i.i.i.i258 = icmp eq ptr %2045, null
-  br i1 %.not.i.i.i.i.i258, label %_ZN4llvm8DebugLocD2Ev.exit.i, label %2046
+_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i:        ; preds = %2049, %2046
+  %2051 = call noundef ptr @_ZNK4llvm8DebugLoc12getInlinedAtEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #26
+  %.not4.i = icmp eq ptr %2051, null
+  %2052 = load ptr, ptr %18, align 8, !tbaa !196
+  %.not.i.i.i.i.i258 = icmp eq ptr %2052, null
+  br i1 %.not.i.i.i.i.i258, label %_ZN4llvm8DebugLocD2Ev.exit.i, label %2053
 
-2046:                                             ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %2045) #26
+2053:                                             ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(8) %2052) #26
   br label %_ZN4llvm8DebugLocD2Ev.exit.i
 
-_ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %2046, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
+_ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %2053, %_ZNK4llvm9DbgRecord11getDebugLocEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br i1 %.not4.i, label %2047, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit"
+  br i1 %.not4.i, label %2054, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit"
 
-2047:                                             ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i
-  %2048 = call noundef zeroext i1 @_ZNK4llvm17DbgVariableRecord14isKillLocationEv(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0462.0638) #26
-  br i1 %2048, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", label %2049
+2054:                                             ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i
+  %2055 = call noundef zeroext i1 @_ZNK4llvm17DbgVariableRecord14isKillLocationEv(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0462.0638) #26
+  br i1 %2055, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", label %2056
 
-2049:                                             ; preds = %2047
-  %2050 = getelementptr inbounds nuw i8, ptr %.sroa.0462.0638, i64 72
-  %2051 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_15DILocalVariableEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2050) #26
-  %2052 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !461
-  %2053 = load i32, ptr %120, align 8, !tbaa !342, !noalias !461
-  %2054 = icmp eq i32 %2053, 0
-  br i1 %2054, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i351, label %2055
+2056:                                             ; preds = %2054
+  %2057 = getelementptr inbounds nuw i8, ptr %.sroa.0462.0638, i64 72
+  %2058 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_15DILocalVariableEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2057) #26
+  %2059 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !461
+  %2060 = load i32, ptr %120, align 8, !tbaa !342, !noalias !461
+  %2061 = icmp eq i32 %2060, 0
+  br i1 %2061, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i351, label %2062
 
-2055:                                             ; preds = %2049
-  %2056 = ptrtoint ptr %2051 to i64
-  %2057 = trunc i64 %2056 to i32
-  %2058 = lshr i32 %2057, 4
-  %2059 = lshr i32 %2057, 9
-  %2060 = xor i32 %2058, %2059
-  %2061 = add i32 %2053, -1
-  %.02944.i.i337 = and i32 %2060, %2061
-  %2062 = zext nneg i32 %.02944.i.i337 to i64
-  %2063 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2052, i64 %2062
-  %2064 = load ptr, ptr %2063, align 8, !tbaa !343, !noalias !461
-  %2065 = icmp eq ptr %2051, %2064
-  br i1 %2065, label %._crit_edge.i.i, label %.lr.ph.i.i338, !prof !272
+2062:                                             ; preds = %2056
+  %2063 = ptrtoint ptr %2058 to i64
+  %2064 = trunc i64 %2063 to i32
+  %2065 = lshr i32 %2064, 4
+  %2066 = lshr i32 %2064, 9
+  %2067 = xor i32 %2065, %2066
+  %2068 = add i32 %2060, -1
+  %.02944.i.i337 = and i32 %2067, %2068
+  %2069 = zext nneg i32 %.02944.i.i337 to i64
+  %2070 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2059, i64 %2069
+  %2071 = load ptr, ptr %2070, align 8, !tbaa !343, !noalias !461
+  %2072 = icmp eq ptr %2058, %2071
+  br i1 %2072, label %._crit_edge.i.i, label %.lr.ph.i.i338, !prof !272
 
-.lr.ph.i.i338:                                    ; preds = %2055, %2071
-  %2066 = phi ptr [ %2078, %2071 ], [ %2064, %2055 ]
-  %2067 = phi ptr [ %2077, %2071 ], [ %2063, %2055 ]
-  %.02947.i.i339 = phi i32 [ %.029.i.i344, %2071 ], [ %.02944.i.i337, %2055 ]
-  %.02746.i.i340 = phi i32 [ %2074, %2071 ], [ 1, %2055 ]
-  %.03245.i.i341 = phi ptr [ %spec.select.i.i343, %2071 ], [ null, %2055 ]
-  %2068 = icmp eq ptr %2066, inttoptr (i64 -4096 to ptr)
-  br i1 %2068, label %2069, label %2071, !prof !33
+.lr.ph.i.i338:                                    ; preds = %2062, %2078
+  %2073 = phi ptr [ %2085, %2078 ], [ %2071, %2062 ]
+  %2074 = phi ptr [ %2084, %2078 ], [ %2070, %2062 ]
+  %.02947.i.i339 = phi i32 [ %.029.i.i344, %2078 ], [ %.02944.i.i337, %2062 ]
+  %.02746.i.i340 = phi i32 [ %2081, %2078 ], [ 1, %2062 ]
+  %.03245.i.i341 = phi ptr [ %spec.select.i.i343, %2078 ], [ null, %2062 ]
+  %2075 = icmp eq ptr %2073, inttoptr (i64 -4096 to ptr)
+  br i1 %2075, label %2076, label %2078, !prof !33
 
-2069:                                             ; preds = %.lr.ph.i.i338
+2076:                                             ; preds = %.lr.ph.i.i338
   %.not.i.i350 = icmp eq ptr %.03245.i.i341, null
-  %2070 = select i1 %.not.i.i350, ptr %2067, ptr %.03245.i.i341
+  %2077 = select i1 %.not.i.i350, ptr %2074, ptr %.03245.i.i341
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i351
 
-2071:                                             ; preds = %.lr.ph.i.i338
-  %2072 = icmp eq ptr %2066, inttoptr (i64 -8192 to ptr)
-  %2073 = icmp eq ptr %.03245.i.i341, null
-  %or.cond.not.i.i342 = select i1 %2072, i1 %2073, i1 false
-  %spec.select.i.i343 = select i1 %or.cond.not.i.i342, ptr %2067, ptr %.03245.i.i341
-  %2074 = add i32 %.02746.i.i340, 1
-  %2075 = add i32 %.02746.i.i340, %.02947.i.i339
-  %.029.i.i344 = and i32 %2075, %2061
-  %2076 = zext i32 %.029.i.i344 to i64
-  %2077 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2052, i64 %2076
-  %2078 = load ptr, ptr %2077, align 8, !tbaa !343, !noalias !461
-  %2079 = icmp eq ptr %2051, %2078
-  br i1 %2079, label %._crit_edge.i.i, label %.lr.ph.i.i338, !prof !273, !llvm.loop !344
+2078:                                             ; preds = %.lr.ph.i.i338
+  %2079 = icmp eq ptr %2073, inttoptr (i64 -8192 to ptr)
+  %2080 = icmp eq ptr %.03245.i.i341, null
+  %or.cond.not.i.i342 = select i1 %2079, i1 %2080, i1 false
+  %spec.select.i.i343 = select i1 %or.cond.not.i.i342, ptr %2074, ptr %.03245.i.i341
+  %2081 = add i32 %.02746.i.i340, 1
+  %2082 = add i32 %.02746.i.i340, %.02947.i.i339
+  %.029.i.i344 = and i32 %2082, %2068
+  %2083 = zext i32 %.029.i.i344 to i64
+  %2084 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2059, i64 %2083
+  %2085 = load ptr, ptr %2084, align 8, !tbaa !343, !noalias !461
+  %2086 = icmp eq ptr %2058, %2085
+  br i1 %2086, label %._crit_edge.i.i, label %.lr.ph.i.i338, !prof !273, !llvm.loop !344
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i351: ; preds = %2069, %2049
-  %.sink.i.i352 = phi ptr [ %2070, %2069 ], [ null, %2049 ]
-  %2080 = load i32, ptr %121, align 8, !tbaa !345, !noalias !461
-  %2081 = shl i32 %2080, 2
-  %2082 = add i32 %2081, 4
-  %2083 = mul i32 %2053, 3
-  %.not.i.i.i353 = icmp ult i32 %2082, %2083
-  br i1 %.not.i.i.i353, label %2086, label %2084, !prof !33
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i351: ; preds = %2076, %2056
+  %.sink.i.i352 = phi ptr [ %2077, %2076 ], [ null, %2056 ]
+  %2087 = load i32, ptr %121, align 8, !tbaa !345, !noalias !461
+  %2088 = shl i32 %2087, 2
+  %2089 = add i32 %2088, 4
+  %2090 = mul i32 %2060, 3
+  %.not.i.i.i353 = icmp ult i32 %2089, %2090
+  br i1 %.not.i.i.i353, label %2093, label %2091, !prof !33
 
-2084:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i351
-  %2085 = shl i32 %2053, 1
+2091:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i351
+  %2092 = shl i32 %2060, 1
   br label %.sink.split.i.i.i354
 
-2086:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i351
-  %2087 = load i32, ptr %122, align 4, !tbaa !346, !noalias !461
-  %.neg.i.i.i358 = xor i32 %2080, -1
-  %.neg12.i.i.i359 = add i32 %2053, %.neg.i.i.i358
-  %2088 = sub i32 %.neg12.i.i.i359, %2087
-  %2089 = lshr i32 %2053, 3
-  %.not10.i.i.i360 = icmp ugt i32 %2088, %2089
-  br i1 %.not10.i.i.i360, label %2118, label %.sink.split.i.i.i354, !prof !33
+2093:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i351
+  %2094 = load i32, ptr %122, align 4, !tbaa !346, !noalias !461
+  %.neg.i.i.i358 = xor i32 %2087, -1
+  %.neg12.i.i.i359 = add i32 %2060, %.neg.i.i.i358
+  %2095 = sub i32 %.neg12.i.i.i359, %2094
+  %2096 = lshr i32 %2060, 3
+  %.not10.i.i.i360 = icmp ugt i32 %2095, %2096
+  br i1 %.not10.i.i.i360, label %2125, label %.sink.split.i.i.i354, !prof !33
 
-.sink.split.i.i.i354:                             ; preds = %2086, %2084
-  %.sink.i.i.i355 = phi i32 [ %2085, %2084 ], [ %2053, %2086 ]
+.sink.split.i.i.i354:                             ; preds = %2093, %2091
+  %.sink.i.i.i355 = phi i32 [ %2092, %2091 ], [ %2060, %2093 ]
   call void @_ZN4llvm8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(40) %109, i32 noundef %.sink.i.i.i355), !noalias !461
-  %2090 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !461
-  %2091 = load i32, ptr %120, align 8, !tbaa !342, !noalias !461
-  %2092 = icmp eq i32 %2091, 0
-  br i1 %2092, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431, label %2093
+  %2097 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !461
+  %2098 = load i32, ptr %120, align 8, !tbaa !342, !noalias !461
+  %2099 = icmp eq i32 %2098, 0
+  br i1 %2099, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431, label %2100
 
-2093:                                             ; preds = %.sink.split.i.i.i354
-  %2094 = ptrtoint ptr %2051 to i64
-  %2095 = trunc i64 %2094 to i32
-  %2096 = lshr i32 %2095, 4
-  %2097 = lshr i32 %2095, 9
-  %2098 = xor i32 %2096, %2097
-  %2099 = add i32 %2091, -1
-  %.02944.i420 = and i32 %2099, %2098
-  %2100 = zext nneg i32 %.02944.i420 to i64
-  %2101 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2090, i64 %2100
-  %2102 = load ptr, ptr %2101, align 8, !tbaa !343, !noalias !461
-  %2103 = icmp eq ptr %2051, %2102
-  br i1 %2103, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431, label %.lr.ph.i421, !prof !272
+2100:                                             ; preds = %.sink.split.i.i.i354
+  %2101 = ptrtoint ptr %2058 to i64
+  %2102 = trunc i64 %2101 to i32
+  %2103 = lshr i32 %2102, 4
+  %2104 = lshr i32 %2102, 9
+  %2105 = xor i32 %2103, %2104
+  %2106 = add i32 %2098, -1
+  %.02944.i420 = and i32 %2106, %2105
+  %2107 = zext nneg i32 %.02944.i420 to i64
+  %2108 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2097, i64 %2107
+  %2109 = load ptr, ptr %2108, align 8, !tbaa !343, !noalias !461
+  %2110 = icmp eq ptr %2058, %2109
+  br i1 %2110, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431, label %.lr.ph.i421, !prof !272
 
-.lr.ph.i421:                                      ; preds = %2093, %2109
-  %2104 = phi ptr [ %2116, %2109 ], [ %2102, %2093 ]
-  %2105 = phi ptr [ %2115, %2109 ], [ %2101, %2093 ]
-  %.02947.i422 = phi i32 [ %.029.i427, %2109 ], [ %.02944.i420, %2093 ]
-  %.02746.i423 = phi i32 [ %2112, %2109 ], [ 1, %2093 ]
-  %.03245.i424 = phi ptr [ %spec.select.i426, %2109 ], [ null, %2093 ]
-  %2106 = icmp eq ptr %2104, inttoptr (i64 -4096 to ptr)
-  br i1 %2106, label %2107, label %2109, !prof !33
+.lr.ph.i421:                                      ; preds = %2100, %2116
+  %2111 = phi ptr [ %2123, %2116 ], [ %2109, %2100 ]
+  %2112 = phi ptr [ %2122, %2116 ], [ %2108, %2100 ]
+  %.02947.i422 = phi i32 [ %.029.i427, %2116 ], [ %.02944.i420, %2100 ]
+  %.02746.i423 = phi i32 [ %2119, %2116 ], [ 1, %2100 ]
+  %.03245.i424 = phi ptr [ %spec.select.i426, %2116 ], [ null, %2100 ]
+  %2113 = icmp eq ptr %2111, inttoptr (i64 -4096 to ptr)
+  br i1 %2113, label %2114, label %2116, !prof !33
 
-2107:                                             ; preds = %.lr.ph.i421
+2114:                                             ; preds = %.lr.ph.i421
   %.not.i430 = icmp eq ptr %.03245.i424, null
-  %2108 = select i1 %.not.i430, ptr %2105, ptr %.03245.i424
+  %2115 = select i1 %.not.i430, ptr %2112, ptr %.03245.i424
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431
 
-2109:                                             ; preds = %.lr.ph.i421
-  %2110 = icmp eq ptr %2104, inttoptr (i64 -8192 to ptr)
-  %2111 = icmp eq ptr %.03245.i424, null
-  %or.cond.not.i425 = select i1 %2110, i1 %2111, i1 false
-  %spec.select.i426 = select i1 %or.cond.not.i425, ptr %2105, ptr %.03245.i424
-  %2112 = add i32 %.02746.i423, 1
-  %2113 = add i32 %.02746.i423, %.02947.i422
-  %.029.i427 = and i32 %2113, %2099
-  %2114 = zext i32 %.029.i427 to i64
-  %2115 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2090, i64 %2114
-  %2116 = load ptr, ptr %2115, align 8, !tbaa !343, !noalias !461
-  %2117 = icmp eq ptr %2051, %2116
-  br i1 %2117, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431, label %.lr.ph.i421, !prof !273, !llvm.loop !344
+2116:                                             ; preds = %.lr.ph.i421
+  %2117 = icmp eq ptr %2111, inttoptr (i64 -8192 to ptr)
+  %2118 = icmp eq ptr %.03245.i424, null
+  %or.cond.not.i425 = select i1 %2117, i1 %2118, i1 false
+  %spec.select.i426 = select i1 %or.cond.not.i425, ptr %2112, ptr %.03245.i424
+  %2119 = add i32 %.02746.i423, 1
+  %2120 = add i32 %.02746.i423, %.02947.i422
+  %.029.i427 = and i32 %2120, %2106
+  %2121 = zext i32 %.029.i427 to i64
+  %2122 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2097, i64 %2121
+  %2123 = load ptr, ptr %2122, align 8, !tbaa !343, !noalias !461
+  %2124 = icmp eq ptr %2058, %2123
+  br i1 %2124, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431, label %.lr.ph.i421, !prof !273, !llvm.loop !344
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431: ; preds = %2109, %.sink.split.i.i.i354, %2093, %2107
-  %.sink.i428 = phi ptr [ %2108, %2107 ], [ null, %.sink.split.i.i.i354 ], [ %2101, %2093 ], [ %2115, %2109 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431: ; preds = %2116, %.sink.split.i.i.i354, %2100, %2114
+  %.sink.i428 = phi ptr [ %2115, %2114 ], [ null, %.sink.split.i.i.i354 ], [ %2108, %2100 ], [ %2122, %2116 ]
   %.pre.i.i356 = load i32, ptr %121, align 8, !tbaa !345, !noalias !461
-  br label %2118
+  br label %2125
 
-2118:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431, %2086
-  %2119 = phi ptr [ %.sink.i428, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431 ], [ %.sink.i.i352, %2086 ]
-  %2120 = phi i32 [ %.pre.i.i356, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431 ], [ %2080, %2086 ]
-  %2121 = add i32 %2120, 1
-  store i32 %2121, ptr %121, align 8, !tbaa !345, !noalias !461
-  %2122 = load ptr, ptr %2119, align 8, !tbaa !343, !noalias !461
-  %2123 = icmp eq ptr %2122, inttoptr (i64 -4096 to ptr)
-  br i1 %2123, label %2129, label %2124
+2125:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431, %2093
+  %2126 = phi ptr [ %.sink.i428, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431 ], [ %.sink.i.i352, %2093 ]
+  %2127 = phi i32 [ %.pre.i.i356, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit431 ], [ %2087, %2093 ]
+  %2128 = add i32 %2127, 1
+  store i32 %2128, ptr %121, align 8, !tbaa !345, !noalias !461
+  %2129 = load ptr, ptr %2126, align 8, !tbaa !343, !noalias !461
+  %2130 = icmp eq ptr %2129, inttoptr (i64 -4096 to ptr)
+  br i1 %2130, label %2137, label %2131
 
-2124:                                             ; preds = %2118
-  %2125 = load i32, ptr %122, align 4, !tbaa !346, !noalias !461
-  %2126 = add i32 %2125, -1
-  store i32 %2126, ptr %122, align 4, !tbaa !346, !noalias !461
-  br label %2129
+2131:                                             ; preds = %2125
+  %2132 = load i32, ptr %122, align 4, !tbaa !346, !noalias !461
+  %2133 = add i32 %2132, -1
+  store i32 %2133, ptr %122, align 4, !tbaa !346, !noalias !461
+  br label %2137
 
-._crit_edge.i.i:                                  ; preds = %2071, %2055
-  %2127 = phi i64 [ %2062, %2055 ], [ %2076, %2071 ]
-  %2128 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2052, i64 %2127, i32 0, i32 1
-  %.pre.i.i259 = load i32, ptr %2128, align 4, !tbaa !53
+._crit_edge.i.i:                                  ; preds = %2078, %2062
+  %2134 = phi i64 [ %2069, %2062 ], [ %2083, %2078 ]
+  %2135 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2059, i64 %2134
+  %2136 = getelementptr inbounds nuw i8, ptr %2135, i64 8
+  %.pre.i.i259 = load i32, ptr %2136, align 4, !tbaa !53
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i
 
-2129:                                             ; preds = %2124, %2118
-  store ptr %2051, ptr %2119, align 8, !tbaa !343, !noalias !461
-  %2130 = getelementptr inbounds nuw i8, ptr %2119, i64 8
-  store i32 0, ptr %2130, align 8, !tbaa !53, !noalias !461
-  %2131 = load i32, ptr %113, align 8, !tbaa !26
-  %2132 = load i32, ptr %114, align 4, !tbaa !27
-  %.not.i.i.not.i.i.i = icmp ult i32 %2131, %2132
-  br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i, label %2133, !prof !33
+2137:                                             ; preds = %2131, %2125
+  store ptr %2058, ptr %2126, align 8, !tbaa !343, !noalias !461
+  %2138 = getelementptr inbounds nuw i8, ptr %2126, i64 8
+  store i32 0, ptr %2138, align 8, !tbaa !53, !noalias !461
+  %2139 = load i32, ptr %113, align 8, !tbaa !26
+  %2140 = load i32, ptr %114, align 4, !tbaa !27
+  %.not.i.i.not.i.i.i = icmp ult i32 %2139, %2140
+  br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i, label %2141, !prof !33
 
-2133:                                             ; preds = %2129
-  %2134 = zext i32 %2131 to i64
-  %2135 = add nuw nsw i64 %2134, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull %112, i64 noundef %2135, i64 noundef 16) #26
+2141:                                             ; preds = %2137
+  %2142 = zext i32 %2139 to i64
+  %2143 = add nuw nsw i64 %2142, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull %112, i64 noundef %2143, i64 noundef 16) #26
   %.pre.i.i.i260 = load i32, ptr %113, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i: ; preds = %2133, %2129
-  %2136 = phi i32 [ %2131, %2129 ], [ %.pre.i.i.i260, %2133 ]
-  %2137 = load ptr, ptr %111, align 8, !tbaa !25
-  %2138 = zext i32 %2136 to i64
-  %2139 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %2137, i64 %2138
-  store ptr %2051, ptr %2139, align 1
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2139, i64 8
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i: ; preds = %2141, %2137
+  %2144 = phi i32 [ %2139, %2137 ], [ %.pre.i.i.i260, %2141 ]
+  %2145 = load ptr, ptr %111, align 8, !tbaa !25
+  %2146 = zext i32 %2144 to i64
+  %2147 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %2145, i64 %2146
+  store ptr %2058, ptr %2147, align 1
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2147, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
-  %2140 = load i32, ptr %113, align 8, !tbaa !26
-  %2141 = add i32 %2140, 1
-  store i32 %2141, ptr %113, align 8, !tbaa !26
-  store i32 %2140, ptr %2130, align 4, !tbaa !53
+  %2148 = load i32, ptr %113, align 8, !tbaa !26
+  %2149 = add i32 %2148, 1
+  store i32 %2149, ptr %113, align 8, !tbaa !26
+  store i32 %2148, ptr %2138, align 4, !tbaa !53
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i
 
 _ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i, %._crit_edge.i.i
-  %2142 = phi i32 [ %.pre.i.i259, %._crit_edge.i.i ], [ %2140, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i ]
-  %2143 = zext i32 %2142 to i64
-  %2144 = load ptr, ptr %111, align 8, !tbaa !25
-  %2145 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %2144, i64 %2143, i32 1
-  %2146 = load i32, ptr %2145, align 4, !tbaa !53
-  %2147 = add i32 %2146, 1
-  store i32 %2147, ptr %2145, align 4, !tbaa !53
+  %2150 = phi i32 [ %.pre.i.i259, %._crit_edge.i.i ], [ %2148, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i ]
+  %2151 = zext i32 %2150 to i64
+  %2152 = load ptr, ptr %111, align 8, !tbaa !25
+  %2153 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %2152, i64 %2151
+  %2154 = getelementptr inbounds nuw i8, ptr %2153, i64 8
+  %2155 = load i32, ptr %2154, align 4, !tbaa !53
+  %2156 = add i32 %2155, 1
+  store i32 %2156, ptr %2154, align 4, !tbaa !53
   br label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit"
 
-"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit": ; preds = %.lr.ph639, %_ZN4llvm8DebugLocD2Ev.exit.i, %2047, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i
-  %2148 = getelementptr inbounds nuw i8, ptr %.sroa.0462.0638, i64 8
-  %2149 = load ptr, ptr %2148, align 8, !tbaa !187
-  %.not1.i.i.i = icmp eq ptr %2149, %2014
+"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit": ; preds = %.lr.ph639, %_ZN4llvm8DebugLocD2Ev.exit.i, %2054, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i
+  %2157 = getelementptr inbounds nuw i8, ptr %.sroa.0462.0638, i64 8
+  %2158 = load ptr, ptr %2157, align 8, !tbaa !187
+  %.not1.i.i.i = icmp eq ptr %2158, %2021
   br i1 %.not1.i.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", %2152
-  %.sroa.0462.1 = phi ptr [ %2154, %2152 ], [ %2149, %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit" ]
-  %2150 = getelementptr i8, ptr %.sroa.0462.1, i64 32
-  %.val.i.i.i = load i8, ptr %2150, align 8, !tbaa !309
-  %2151 = icmp eq i8 %.val.i.i.i, 0
-  br i1 %2151, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit, label %2152
+.lr.ph.i.i.i:                                     ; preds = %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit", %2161
+  %.sroa.0462.1 = phi ptr [ %2163, %2161 ], [ %2158, %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit" ]
+  %2159 = getelementptr i8, ptr %.sroa.0462.1, i64 32
+  %.val.i.i.i = load i8, ptr %2159, align 8, !tbaa !309
+  %2160 = icmp eq i8 %.val.i.i.i, 0
+  br i1 %2160, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit, label %2161
 
-2152:                                             ; preds = %.lr.ph.i.i.i
-  %2153 = getelementptr inbounds nuw i8, ptr %.sroa.0462.1, i64 8
-  %2154 = load ptr, ptr %2153, align 8, !tbaa !187
-  %.not.i.i.i261 = icmp eq ptr %2154, %2014
+2161:                                             ; preds = %.lr.ph.i.i.i
+  %2162 = getelementptr inbounds nuw i8, ptr %.sroa.0462.1, i64 8
+  %2163 = load ptr, ptr %2162, align 8, !tbaa !187
+  %.not.i.i.i261 = icmp eq ptr %2163, %2021
   br i1 %.not.i.i.i261, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit, label %.lr.ph.i.i.i, !llvm.loop !319
 
-_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit: ; preds = %.lr.ph.i.i.i, %2152, %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit"
-  %.sroa.0462.2 = phi ptr [ %2149, %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit" ], [ %2154, %2152 ], [ %.sroa.0462.1, %.lr.ph.i.i.i ]
-  %.not590 = icmp eq ptr %.sroa.0462.2, %2014
+_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_9DbgRecordELb0ELb0EvLb0EvEELb0ELb0EEEZNS_L13filterDbgVarsENS_14iterator_rangeIS8_EEEUlRS6_E_St26bidirectional_iterator_tagEEZNS_L13filterDbgVarsESA_EUlSB_E0_St17reference_wrapperINS_17DbgVariableRecordEEEESE_SD_SI_lPSI_SI_EppEv.exit: ; preds = %.lr.ph.i.i.i, %2161, %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit"
+  %.sroa.0462.2 = phi ptr [ %2158, %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_17DbgVariableRecordEEEDaPT_.exit" ], [ %2163, %2161 ], [ %.sroa.0462.1, %.lr.ph.i.i.i ]
+  %.not590 = icmp eq ptr %.sroa.0462.2, %2021
   br i1 %.not590, label %._crit_edge, label %.lr.ph639
 
-_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit: ; preds = %2036, %2036, %2036
-  br i1 %.not88, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %2155
+_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit: ; preds = %2043, %2043, %2043
+  br i1 %.not88, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", label %2164
 
-2155:                                             ; preds = %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
-  %2156 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 24
-  %2157 = call noundef ptr @_ZNK4llvm8DebugLoc12getInlinedAtEv(ptr noundef nonnull align 8 dereferenceable(8) %2156) #26
-  %.not4.i263 = icmp eq ptr %2157, null
-  br i1 %.not4.i263, label %2158, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
+2164:                                             ; preds = %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit
+  %2165 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 24
+  %2166 = call noundef ptr @_ZNK4llvm8DebugLoc12getInlinedAtEv(ptr noundef nonnull align 8 dereferenceable(8) %2165) #26
+  %.not4.i263 = icmp eq ptr %2166, null
+  br i1 %.not4.i263, label %2167, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
-2158:                                             ; preds = %2155
+2167:                                             ; preds = %2164
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %2159 = getelementptr inbounds i8, ptr %.sroa.0471.0642, i64 -20
-  %2160 = load i32, ptr %2159, align 4
-  %2161 = and i32 %2160, 134217727
-  %2162 = zext nneg i32 %2161 to i64
-  %2163 = sub nsw i64 0, %2162
-  %2164 = getelementptr inbounds %"class.llvm::Use", ptr %2003, i64 %2163
-  %2165 = load ptr, ptr %2164, align 8, !tbaa !320
-  %2166 = getelementptr inbounds nuw i8, ptr %2165, i64 24
-  %2167 = load ptr, ptr %2166, align 8, !tbaa !347
-  store ptr %2167, ptr %10, align 8
-  %2168 = getelementptr inbounds nuw i8, ptr %2164, i64 64
-  %2169 = load ptr, ptr %2168, align 8, !tbaa !320
-  %2170 = getelementptr inbounds nuw i8, ptr %2169, i64 24
-  %2171 = load ptr, ptr %2170, align 8, !tbaa !347
-  %2172 = load i8, ptr %2167, align 4, !tbaa !290
-  %2173 = icmp eq i8 %2172, 4
-  br i1 %2173, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i.i, label %2174
+  %2168 = getelementptr inbounds i8, ptr %.sroa.0471.0642, i64 -20
+  %2169 = load i32, ptr %2168, align 4
+  %2170 = and i32 %2169, 134217727
+  %2171 = zext nneg i32 %2170 to i64
+  %2172 = sub nsw i64 0, %2171
+  %2173 = getelementptr inbounds %"class.llvm::Use", ptr %2010, i64 %2172
+  %2174 = load ptr, ptr %2173, align 8, !tbaa !320
+  %2175 = getelementptr inbounds nuw i8, ptr %2174, i64 24
+  %2176 = load ptr, ptr %2175, align 8, !tbaa !347
+  store ptr %2176, ptr %10, align 8
+  %2177 = getelementptr inbounds nuw i8, ptr %2173, i64 64
+  %2178 = load ptr, ptr %2177, align 8, !tbaa !320
+  %2179 = getelementptr inbounds nuw i8, ptr %2178, i64 24
+  %2180 = load ptr, ptr %2179, align 8, !tbaa !347
+  %2181 = load i8, ptr %2176, align 4, !tbaa !290
+  %2182 = icmp eq i8 %2181, 4
+  br i1 %2182, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i.i, label %2183
 
-2174:                                             ; preds = %2158
-  %2175 = add i8 %2172, -5
-  %switch.i.i.i.i.i.i.i.i.i.i387 = icmp ult i8 %2175, 31
+2183:                                             ; preds = %2167
+  %2184 = add i8 %2181, -5
+  %switch.i.i.i.i.i.i.i.i.i.i387 = icmp ult i8 %2184, 31
   br i1 %switch.i.i.i.i.i.i.i.i.i.i387, label %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit.thread, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i
 
-_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i.i: ; preds = %2158
-  %2176 = getelementptr inbounds nuw i8, ptr %2167, i64 136
-  %2177 = load i32, ptr %2176, align 8, !tbaa !26
-  %2178 = icmp eq i32 %2177, 0
-  br i1 %2178, label %2179, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i
+_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i.i: ; preds = %2167
+  %2185 = getelementptr inbounds nuw i8, ptr %2176, i64 136
+  %2186 = load i32, ptr %2185, align 8, !tbaa !26
+  %2187 = icmp eq i32 %2186, 0
+  br i1 %2187, label %2188, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i
 
-2179:                                             ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i.i
-  %2180 = call noundef zeroext i1 @_ZNK4llvm12DIExpression9isComplexEv(ptr noundef nonnull align 8 dereferenceable(40) %2171) #26
-  br i1 %2180, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i, label %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit.thread
+2188:                                             ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i.i
+  %2189 = call noundef zeroext i1 @_ZNK4llvm12DIExpression9isComplexEv(ptr noundef nonnull align 8 dereferenceable(40) %2180) #26
+  br i1 %2189, label %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i, label %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit.thread
 
-_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i: ; preds = %2179, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i.i, %2174
+_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i: ; preds = %2188, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.i.i, %2183
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK4llvm18RawLocationWrapper12location_opsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.398") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #26
-  %2181 = load i64, ptr %9, align 8, !noalias !464
-  %2182 = load i64, ptr %123, align 8, !noalias !473
-  %.not3.i.i.i.i.i.i.i.i = icmp eq i64 %2181, %2182
+  %2190 = load i64, ptr %9, align 8, !noalias !464
+  %2191 = load i64, ptr %123, align 8, !noalias !473
+  %.not3.i.i.i.i.i.i.i.i = icmp eq i64 %2190, %2191
   br i1 %.not3.i.i.i.i.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i, %2194
-  %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i.i.i, %2194 ], [ %2181, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i ]
-  %2183 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i.i, 4
-  %2184 = icmp eq i64 %2183, 0
-  %2185 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i.i, -8
-  %2186 = inttoptr i64 %2185 to ptr
-  br i1 %2184, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i.i, label %2187
+.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i, %2203
+  %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i.i.i, %2203 ], [ %2190, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i ]
+  %2192 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i.i, 4
+  %2193 = icmp eq i64 %2192, 0
+  %2194 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i.i, -8
+  %2195 = inttoptr i64 %2194 to ptr
+  br i1 %2193, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i.i, label %2196
 
-2187:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %2188 = load ptr, ptr %2186, align 8, !tbaa !482, !noalias !484
+2196:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+  %2197 = load ptr, ptr %2195, align 8, !tbaa !482, !noalias !484
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i.i: ; preds = %2187, %.lr.ph.i.i.i.i.i.i.i.i
-  %2189 = phi ptr [ %2188, %2187 ], [ %2186, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %2190 = getelementptr inbounds nuw i8, ptr %2189, i64 128
-  %2191 = load ptr, ptr %2190, align 8, !tbaa !491, !noalias !484
-  %2192 = load i8, ptr %2191, align 8, !tbaa !198, !noalias !484
-  %2193 = and i8 %2192, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %2193, 12
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit, label %2194
+_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i.i: ; preds = %2196, %.lr.ph.i.i.i.i.i.i.i.i
+  %2198 = phi ptr [ %2197, %2196 ], [ %2195, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %2199 = getelementptr inbounds nuw i8, ptr %2198, i64 128
+  %2200 = load ptr, ptr %2199, align 8, !tbaa !491, !noalias !484
+  %2201 = load i8, ptr %2200, align 8, !tbaa !198, !noalias !484
+  %2202 = and i8 %2201, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %2202, 12
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit, label %2203
 
-2194:                                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i.i
-  %2195 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i.i, -4
-  %2196 = add nuw i64 %2195, 8
-  %2197 = add nuw i64 %2185, 136
-  %storemerge.i.i.i.i.i.i.i.i.i = select i1 %2184, i64 %2197, i64 %2196
-  %.not.i.i.i.i.i.i.i.i388 = icmp eq i64 %storemerge.i.i.i.i.i.i.i.i.i, %2182
+2203:                                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i.i
+  %2204 = and i64 %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i.i, -4
+  %2205 = add nuw i64 %2204, 8
+  %2206 = add nuw i64 %2194, 136
+  %storemerge.i.i.i.i.i.i.i.i.i = select i1 %2193, i64 %2206, i64 %2205
+  %.not.i.i.i.i.i.i.i.i388 = icmp eq i64 %storemerge.i.i.i.i.i.i.i.i.i, %2191
   br i1 %.not.i.i.i.i.i.i.i.i388, label %.sink.split, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !496
 
-_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit.thread: ; preds = %2174, %2179
+_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit.thread: ; preds = %2183, %2188
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
 _ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKNS2_12DIExpressionEEUlPNS2_5ValueEE_EclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i.i.i
-  %.not591 = icmp eq i64 %2182, %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i.i
+  %.not591 = icmp eq i64 %2191, %.sroa.01.0.copyload.i.i4.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.not591, label %2198, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
+  br i1 %.not591, label %2207, label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
-.sink.split:                                      ; preds = %2194, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i
+.sink.split:                                      ; preds = %2203, %_ZNK4llvm18RawLocationWrapper25getNumVariableLocationOpsEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %2198
+  br label %2207
 
-2198:                                             ; preds = %.sink.split, %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit
-  %2199 = load i32, ptr %2159, align 4
-  %2200 = and i32 %2199, 134217727
-  %2201 = zext nneg i32 %2200 to i64
-  %2202 = sub nsw i64 0, %2201
-  %2203 = getelementptr inbounds %"class.llvm::Use", ptr %2003, i64 %2202
-  %2204 = getelementptr inbounds nuw i8, ptr %2203, i64 32
-  %2205 = load ptr, ptr %2204, align 8, !tbaa !320
-  %2206 = getelementptr inbounds nuw i8, ptr %2205, i64 24
-  %2207 = load ptr, ptr %2206, align 8, !tbaa !347
-  %2208 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !497
-  %2209 = load i32, ptr %120, align 8, !tbaa !342, !noalias !497
-  %2210 = icmp eq i32 %2209, 0
-  br i1 %2210, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i376, label %2211
+2207:                                             ; preds = %.sink.split, %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit
+  %2208 = load i32, ptr %2168, align 4
+  %2209 = and i32 %2208, 134217727
+  %2210 = zext nneg i32 %2209 to i64
+  %2211 = sub nsw i64 0, %2210
+  %2212 = getelementptr inbounds %"class.llvm::Use", ptr %2010, i64 %2211
+  %2213 = getelementptr inbounds nuw i8, ptr %2212, i64 32
+  %2214 = load ptr, ptr %2213, align 8, !tbaa !320
+  %2215 = getelementptr inbounds nuw i8, ptr %2214, i64 24
+  %2216 = load ptr, ptr %2215, align 8, !tbaa !347
+  %2217 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !497
+  %2218 = load i32, ptr %120, align 8, !tbaa !342, !noalias !497
+  %2219 = icmp eq i32 %2218, 0
+  br i1 %2219, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i376, label %2220
 
-2211:                                             ; preds = %2198
-  %2212 = ptrtoint ptr %2207 to i64
-  %2213 = trunc i64 %2212 to i32
-  %2214 = lshr i32 %2213, 4
-  %2215 = lshr i32 %2213, 9
-  %2216 = xor i32 %2214, %2215
-  %2217 = add i32 %2209, -1
-  %.02944.i.i362 = and i32 %2216, %2217
-  %2218 = zext nneg i32 %.02944.i.i362 to i64
-  %2219 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2208, i64 %2218
-  %2220 = load ptr, ptr %2219, align 8, !tbaa !343, !noalias !497
-  %2221 = icmp eq ptr %2207, %2220
-  br i1 %2221, label %._crit_edge.i.i264, label %.lr.ph.i.i363, !prof !272
+2220:                                             ; preds = %2207
+  %2221 = ptrtoint ptr %2216 to i64
+  %2222 = trunc i64 %2221 to i32
+  %2223 = lshr i32 %2222, 4
+  %2224 = lshr i32 %2222, 9
+  %2225 = xor i32 %2223, %2224
+  %2226 = add i32 %2218, -1
+  %.02944.i.i362 = and i32 %2225, %2226
+  %2227 = zext nneg i32 %.02944.i.i362 to i64
+  %2228 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2217, i64 %2227
+  %2229 = load ptr, ptr %2228, align 8, !tbaa !343, !noalias !497
+  %2230 = icmp eq ptr %2216, %2229
+  br i1 %2230, label %._crit_edge.i.i264, label %.lr.ph.i.i363, !prof !272
 
-.lr.ph.i.i363:                                    ; preds = %2211, %2227
-  %2222 = phi ptr [ %2234, %2227 ], [ %2220, %2211 ]
-  %2223 = phi ptr [ %2233, %2227 ], [ %2219, %2211 ]
-  %.02947.i.i364 = phi i32 [ %.029.i.i369, %2227 ], [ %.02944.i.i362, %2211 ]
-  %.02746.i.i365 = phi i32 [ %2230, %2227 ], [ 1, %2211 ]
-  %.03245.i.i366 = phi ptr [ %spec.select.i.i368, %2227 ], [ null, %2211 ]
-  %2224 = icmp eq ptr %2222, inttoptr (i64 -4096 to ptr)
-  br i1 %2224, label %2225, label %2227, !prof !33
+.lr.ph.i.i363:                                    ; preds = %2220, %2236
+  %2231 = phi ptr [ %2243, %2236 ], [ %2229, %2220 ]
+  %2232 = phi ptr [ %2242, %2236 ], [ %2228, %2220 ]
+  %.02947.i.i364 = phi i32 [ %.029.i.i369, %2236 ], [ %.02944.i.i362, %2220 ]
+  %.02746.i.i365 = phi i32 [ %2239, %2236 ], [ 1, %2220 ]
+  %.03245.i.i366 = phi ptr [ %spec.select.i.i368, %2236 ], [ null, %2220 ]
+  %2233 = icmp eq ptr %2231, inttoptr (i64 -4096 to ptr)
+  br i1 %2233, label %2234, label %2236, !prof !33
 
-2225:                                             ; preds = %.lr.ph.i.i363
+2234:                                             ; preds = %.lr.ph.i.i363
   %.not.i.i375 = icmp eq ptr %.03245.i.i366, null
-  %2226 = select i1 %.not.i.i375, ptr %2223, ptr %.03245.i.i366
+  %2235 = select i1 %.not.i.i375, ptr %2232, ptr %.03245.i.i366
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i376
 
-2227:                                             ; preds = %.lr.ph.i.i363
-  %2228 = icmp eq ptr %2222, inttoptr (i64 -8192 to ptr)
-  %2229 = icmp eq ptr %.03245.i.i366, null
-  %or.cond.not.i.i367 = select i1 %2228, i1 %2229, i1 false
-  %spec.select.i.i368 = select i1 %or.cond.not.i.i367, ptr %2223, ptr %.03245.i.i366
-  %2230 = add i32 %.02746.i.i365, 1
-  %2231 = add i32 %.02746.i.i365, %.02947.i.i364
-  %.029.i.i369 = and i32 %2231, %2217
-  %2232 = zext i32 %.029.i.i369 to i64
-  %2233 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2208, i64 %2232
-  %2234 = load ptr, ptr %2233, align 8, !tbaa !343, !noalias !497
-  %2235 = icmp eq ptr %2207, %2234
-  br i1 %2235, label %._crit_edge.i.i264, label %.lr.ph.i.i363, !prof !273, !llvm.loop !344
+2236:                                             ; preds = %.lr.ph.i.i363
+  %2237 = icmp eq ptr %2231, inttoptr (i64 -8192 to ptr)
+  %2238 = icmp eq ptr %.03245.i.i366, null
+  %or.cond.not.i.i367 = select i1 %2237, i1 %2238, i1 false
+  %spec.select.i.i368 = select i1 %or.cond.not.i.i367, ptr %2232, ptr %.03245.i.i366
+  %2239 = add i32 %.02746.i.i365, 1
+  %2240 = add i32 %.02746.i.i365, %.02947.i.i364
+  %.029.i.i369 = and i32 %2240, %2226
+  %2241 = zext i32 %.029.i.i369 to i64
+  %2242 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2217, i64 %2241
+  %2243 = load ptr, ptr %2242, align 8, !tbaa !343, !noalias !497
+  %2244 = icmp eq ptr %2216, %2243
+  br i1 %2244, label %._crit_edge.i.i264, label %.lr.ph.i.i363, !prof !273, !llvm.loop !344
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i376: ; preds = %2225, %2198
-  %.sink.i.i377 = phi ptr [ %2226, %2225 ], [ null, %2198 ]
-  %2236 = load i32, ptr %121, align 8, !tbaa !345, !noalias !497
-  %2237 = shl i32 %2236, 2
-  %2238 = add i32 %2237, 4
-  %2239 = mul i32 %2209, 3
-  %.not.i.i.i378 = icmp ult i32 %2238, %2239
-  br i1 %.not.i.i.i378, label %2242, label %2240, !prof !33
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i376: ; preds = %2234, %2207
+  %.sink.i.i377 = phi ptr [ %2235, %2234 ], [ null, %2207 ]
+  %2245 = load i32, ptr %121, align 8, !tbaa !345, !noalias !497
+  %2246 = shl i32 %2245, 2
+  %2247 = add i32 %2246, 4
+  %2248 = mul i32 %2218, 3
+  %.not.i.i.i378 = icmp ult i32 %2247, %2248
+  br i1 %.not.i.i.i378, label %2251, label %2249, !prof !33
 
-2240:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i376
-  %2241 = shl i32 %2209, 1
+2249:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i376
+  %2250 = shl i32 %2218, 1
   br label %.sink.split.i.i.i379
 
-2242:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i376
-  %2243 = load i32, ptr %122, align 4, !tbaa !346, !noalias !497
-  %.neg.i.i.i383 = xor i32 %2236, -1
-  %.neg12.i.i.i384 = add i32 %2209, %.neg.i.i.i383
-  %2244 = sub i32 %.neg12.i.i.i384, %2243
-  %2245 = lshr i32 %2209, 3
-  %.not10.i.i.i385 = icmp ugt i32 %2244, %2245
-  br i1 %.not10.i.i.i385, label %2274, label %.sink.split.i.i.i379, !prof !33
+2251:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i376
+  %2252 = load i32, ptr %122, align 4, !tbaa !346, !noalias !497
+  %.neg.i.i.i383 = xor i32 %2245, -1
+  %.neg12.i.i.i384 = add i32 %2218, %.neg.i.i.i383
+  %2253 = sub i32 %.neg12.i.i.i384, %2252
+  %2254 = lshr i32 %2218, 3
+  %.not10.i.i.i385 = icmp ugt i32 %2253, %2254
+  br i1 %.not10.i.i.i385, label %2283, label %.sink.split.i.i.i379, !prof !33
 
-.sink.split.i.i.i379:                             ; preds = %2242, %2240
-  %.sink.i.i.i380 = phi i32 [ %2241, %2240 ], [ %2209, %2242 ]
+.sink.split.i.i.i379:                             ; preds = %2251, %2249
+  %.sink.i.i.i380 = phi i32 [ %2250, %2249 ], [ %2218, %2251 ]
   call void @_ZN4llvm8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(40) %109, i32 noundef %.sink.i.i.i380), !noalias !497
-  %2246 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !497
-  %2247 = load i32, ptr %120, align 8, !tbaa !342, !noalias !497
-  %2248 = icmp eq i32 %2247, 0
-  br i1 %2248, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443, label %2249
+  %2255 = load ptr, ptr %109, align 8, !tbaa !337, !noalias !497
+  %2256 = load i32, ptr %120, align 8, !tbaa !342, !noalias !497
+  %2257 = icmp eq i32 %2256, 0
+  br i1 %2257, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443, label %2258
 
-2249:                                             ; preds = %.sink.split.i.i.i379
-  %2250 = ptrtoint ptr %2207 to i64
-  %2251 = trunc i64 %2250 to i32
-  %2252 = lshr i32 %2251, 4
-  %2253 = lshr i32 %2251, 9
-  %2254 = xor i32 %2252, %2253
-  %2255 = add i32 %2247, -1
-  %.02944.i432 = and i32 %2255, %2254
-  %2256 = zext nneg i32 %.02944.i432 to i64
-  %2257 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2246, i64 %2256
-  %2258 = load ptr, ptr %2257, align 8, !tbaa !343, !noalias !497
-  %2259 = icmp eq ptr %2207, %2258
-  br i1 %2259, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443, label %.lr.ph.i433, !prof !272
+2258:                                             ; preds = %.sink.split.i.i.i379
+  %2259 = ptrtoint ptr %2216 to i64
+  %2260 = trunc i64 %2259 to i32
+  %2261 = lshr i32 %2260, 4
+  %2262 = lshr i32 %2260, 9
+  %2263 = xor i32 %2261, %2262
+  %2264 = add i32 %2256, -1
+  %.02944.i432 = and i32 %2264, %2263
+  %2265 = zext nneg i32 %.02944.i432 to i64
+  %2266 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2255, i64 %2265
+  %2267 = load ptr, ptr %2266, align 8, !tbaa !343, !noalias !497
+  %2268 = icmp eq ptr %2216, %2267
+  br i1 %2268, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443, label %.lr.ph.i433, !prof !272
 
-.lr.ph.i433:                                      ; preds = %2249, %2265
-  %2260 = phi ptr [ %2272, %2265 ], [ %2258, %2249 ]
-  %2261 = phi ptr [ %2271, %2265 ], [ %2257, %2249 ]
-  %.02947.i434 = phi i32 [ %.029.i439, %2265 ], [ %.02944.i432, %2249 ]
-  %.02746.i435 = phi i32 [ %2268, %2265 ], [ 1, %2249 ]
-  %.03245.i436 = phi ptr [ %spec.select.i438, %2265 ], [ null, %2249 ]
-  %2262 = icmp eq ptr %2260, inttoptr (i64 -4096 to ptr)
-  br i1 %2262, label %2263, label %2265, !prof !33
+.lr.ph.i433:                                      ; preds = %2258, %2274
+  %2269 = phi ptr [ %2281, %2274 ], [ %2267, %2258 ]
+  %2270 = phi ptr [ %2280, %2274 ], [ %2266, %2258 ]
+  %.02947.i434 = phi i32 [ %.029.i439, %2274 ], [ %.02944.i432, %2258 ]
+  %.02746.i435 = phi i32 [ %2277, %2274 ], [ 1, %2258 ]
+  %.03245.i436 = phi ptr [ %spec.select.i438, %2274 ], [ null, %2258 ]
+  %2271 = icmp eq ptr %2269, inttoptr (i64 -4096 to ptr)
+  br i1 %2271, label %2272, label %2274, !prof !33
 
-2263:                                             ; preds = %.lr.ph.i433
+2272:                                             ; preds = %.lr.ph.i433
   %.not.i442 = icmp eq ptr %.03245.i436, null
-  %2264 = select i1 %.not.i442, ptr %2261, ptr %.03245.i436
+  %2273 = select i1 %.not.i442, ptr %2270, ptr %.03245.i436
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443
 
-2265:                                             ; preds = %.lr.ph.i433
-  %2266 = icmp eq ptr %2260, inttoptr (i64 -8192 to ptr)
-  %2267 = icmp eq ptr %.03245.i436, null
-  %or.cond.not.i437 = select i1 %2266, i1 %2267, i1 false
-  %spec.select.i438 = select i1 %or.cond.not.i437, ptr %2261, ptr %.03245.i436
-  %2268 = add i32 %.02746.i435, 1
-  %2269 = add i32 %.02746.i435, %.02947.i434
-  %.029.i439 = and i32 %2269, %2255
-  %2270 = zext i32 %.029.i439 to i64
-  %2271 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2246, i64 %2270
-  %2272 = load ptr, ptr %2271, align 8, !tbaa !343, !noalias !497
-  %2273 = icmp eq ptr %2207, %2272
-  br i1 %2273, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443, label %.lr.ph.i433, !prof !273, !llvm.loop !344
+2274:                                             ; preds = %.lr.ph.i433
+  %2275 = icmp eq ptr %2269, inttoptr (i64 -8192 to ptr)
+  %2276 = icmp eq ptr %.03245.i436, null
+  %or.cond.not.i437 = select i1 %2275, i1 %2276, i1 false
+  %spec.select.i438 = select i1 %or.cond.not.i437, ptr %2270, ptr %.03245.i436
+  %2277 = add i32 %.02746.i435, 1
+  %2278 = add i32 %.02746.i435, %.02947.i434
+  %.029.i439 = and i32 %2278, %2264
+  %2279 = zext i32 %.029.i439 to i64
+  %2280 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2255, i64 %2279
+  %2281 = load ptr, ptr %2280, align 8, !tbaa !343, !noalias !497
+  %2282 = icmp eq ptr %2216, %2281
+  br i1 %2282, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443, label %.lr.ph.i433, !prof !273, !llvm.loop !344
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443: ; preds = %2265, %.sink.split.i.i.i379, %2249, %2263
-  %.sink.i440 = phi ptr [ %2264, %2263 ], [ null, %.sink.split.i.i.i379 ], [ %2257, %2249 ], [ %2271, %2265 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443: ; preds = %2274, %.sink.split.i.i.i379, %2258, %2272
+  %.sink.i440 = phi ptr [ %2273, %2272 ], [ null, %.sink.split.i.i.i379 ], [ %2266, %2258 ], [ %2280, %2274 ]
   %.pre.i.i381 = load i32, ptr %121, align 8, !tbaa !345, !noalias !497
-  br label %2274
+  br label %2283
 
-2274:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443, %2242
-  %2275 = phi ptr [ %.sink.i440, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443 ], [ %.sink.i.i377, %2242 ]
-  %2276 = phi i32 [ %.pre.i.i381, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443 ], [ %2236, %2242 ]
-  %2277 = add i32 %2276, 1
-  store i32 %2277, ptr %121, align 8, !tbaa !345, !noalias !497
-  %2278 = load ptr, ptr %2275, align 8, !tbaa !343, !noalias !497
-  %2279 = icmp eq ptr %2278, inttoptr (i64 -4096 to ptr)
-  br i1 %2279, label %2285, label %2280
+2283:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443, %2251
+  %2284 = phi ptr [ %.sink.i440, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443 ], [ %.sink.i.i377, %2251 ]
+  %2285 = phi i32 [ %.pre.i.i381, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit443 ], [ %2245, %2251 ]
+  %2286 = add i32 %2285, 1
+  store i32 %2286, ptr %121, align 8, !tbaa !345, !noalias !497
+  %2287 = load ptr, ptr %2284, align 8, !tbaa !343, !noalias !497
+  %2288 = icmp eq ptr %2287, inttoptr (i64 -4096 to ptr)
+  br i1 %2288, label %2295, label %2289
 
-2280:                                             ; preds = %2274
-  %2281 = load i32, ptr %122, align 4, !tbaa !346, !noalias !497
-  %2282 = add i32 %2281, -1
-  store i32 %2282, ptr %122, align 4, !tbaa !346, !noalias !497
-  br label %2285
+2289:                                             ; preds = %2283
+  %2290 = load i32, ptr %122, align 4, !tbaa !346, !noalias !497
+  %2291 = add i32 %2290, -1
+  store i32 %2291, ptr %122, align 4, !tbaa !346, !noalias !497
+  br label %2295
 
-._crit_edge.i.i264:                               ; preds = %2227, %2211
-  %2283 = phi i64 [ %2218, %2211 ], [ %2232, %2227 ]
-  %2284 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2208, i64 %2283, i32 0, i32 1
-  %.pre.i.i265 = load i32, ptr %2284, align 4, !tbaa !53
+._crit_edge.i.i264:                               ; preds = %2236, %2220
+  %2292 = phi i64 [ %2227, %2220 ], [ %2241, %2236 ]
+  %2293 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %2217, i64 %2292
+  %2294 = getelementptr inbounds nuw i8, ptr %2293, i64 8
+  %.pre.i.i265 = load i32, ptr %2294, align 4, !tbaa !53
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i266
 
-2285:                                             ; preds = %2280, %2274
-  store ptr %2207, ptr %2275, align 8, !tbaa !343, !noalias !497
-  %2286 = getelementptr inbounds nuw i8, ptr %2275, i64 8
-  store i32 0, ptr %2286, align 8, !tbaa !53, !noalias !497
-  %2287 = load i32, ptr %113, align 8, !tbaa !26
-  %2288 = load i32, ptr %114, align 4, !tbaa !27
-  %.not.i.i.not.i.i.i267 = icmp ult i32 %2287, %2288
-  br i1 %.not.i.i.not.i.i.i267, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i269, label %2289, !prof !33
+2295:                                             ; preds = %2289, %2283
+  store ptr %2216, ptr %2284, align 8, !tbaa !343, !noalias !497
+  %2296 = getelementptr inbounds nuw i8, ptr %2284, i64 8
+  store i32 0, ptr %2296, align 8, !tbaa !53, !noalias !497
+  %2297 = load i32, ptr %113, align 8, !tbaa !26
+  %2298 = load i32, ptr %114, align 4, !tbaa !27
+  %.not.i.i.not.i.i.i267 = icmp ult i32 %2297, %2298
+  br i1 %.not.i.i.not.i.i.i267, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i269, label %2299, !prof !33
 
-2289:                                             ; preds = %2285
-  %2290 = zext i32 %2287 to i64
-  %2291 = add nuw nsw i64 %2290, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull %112, i64 noundef %2291, i64 noundef 16) #26
+2299:                                             ; preds = %2295
+  %2300 = zext i32 %2297 to i64
+  %2301 = add nuw nsw i64 %2300, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull %112, i64 noundef %2301, i64 noundef 16) #26
   %.pre.i.i.i268 = load i32, ptr %113, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i269
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i269: ; preds = %2289, %2285
-  %2292 = phi i32 [ %2287, %2285 ], [ %.pre.i.i.i268, %2289 ]
-  %2293 = load ptr, ptr %111, align 8, !tbaa !25
-  %2294 = zext i32 %2292 to i64
-  %2295 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %2293, i64 %2294
-  store ptr %2207, ptr %2295, align 1
-  %.sroa.2.0..sroa_idx.i.i.i270 = getelementptr inbounds nuw i8, ptr %2295, i64 8
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i269: ; preds = %2299, %2295
+  %2302 = phi i32 [ %2297, %2295 ], [ %.pre.i.i.i268, %2299 ]
+  %2303 = load ptr, ptr %111, align 8, !tbaa !25
+  %2304 = zext i32 %2302 to i64
+  %2305 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %2303, i64 %2304
+  store ptr %2216, ptr %2305, align 1
+  %.sroa.2.0..sroa_idx.i.i.i270 = getelementptr inbounds nuw i8, ptr %2305, i64 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i.i.i270, align 1
-  %2296 = load i32, ptr %113, align 8, !tbaa !26
-  %2297 = add i32 %2296, 1
-  store i32 %2297, ptr %113, align 8, !tbaa !26
-  store i32 %2296, ptr %2286, align 4, !tbaa !53
+  %2306 = load i32, ptr %113, align 8, !tbaa !26
+  %2307 = add i32 %2306, 1
+  store i32 %2307, ptr %113, align 8, !tbaa !26
+  store i32 %2306, ptr %2296, align 4, !tbaa !53
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i266
 
 _ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i266: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i269, %._crit_edge.i.i264
-  %2298 = phi i32 [ %.pre.i.i265, %._crit_edge.i.i264 ], [ %2296, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i269 ]
-  %2299 = zext i32 %2298 to i64
-  %2300 = load ptr, ptr %111, align 8, !tbaa !25
-  %2301 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %2300, i64 %2299, i32 1
-  %2302 = load i32, ptr %2301, align 4, !tbaa !53
-  %2303 = add i32 %2302, 1
-  store i32 %2303, ptr %2301, align 4, !tbaa !53
+  %2308 = phi i32 [ %.pre.i.i265, %._crit_edge.i.i264 ], [ %2306, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_15DILocalVariableEjELb1EE9push_backES5_.exit.i.i269 ]
+  %2309 = zext i32 %2308 to i64
+  %2310 = load ptr, ptr %111, align 8, !tbaa !25
+  %2311 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %2310, i64 %2309
+  %2312 = getelementptr inbounds nuw i8, ptr %2311, i64 8
+  %2313 = load i32, ptr %2312, align 4, !tbaa !53
+  %2314 = add i32 %2313, 1
+  store i32 %2314, ptr %2312, align 4, !tbaa !53
   br label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split"
 
-"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split": ; preds = %2036, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %2022, %2025, %._crit_edge, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i266, %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit, %2155, %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit, %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit.thread
-  %.pr = load i8, ptr %2003, align 8, !tbaa !198
+"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split": ; preds = %2043, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %2029, %2032, %._crit_edge, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEixERKS3_.exit.i266, %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit, %2164, %_ZN4llvm8dyn_castINS_20DbgVariableIntrinsicENS_11InstructionEEEDcPT0_.exit, %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit.thread
+  %.pr = load i8, ptr %2010, align 8, !tbaa !198
   br label %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit"
 
-"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit": ; preds = %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", %2006
-  %2304 = phi i8 [ %.pr, %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split" ], [ %2004, %2006 ]
-  %2305 = icmp eq i8 %2304, 85
-  br i1 %2305, label %2306, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
+"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit": ; preds = %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split", %2013
+  %2315 = phi i8 [ %.pr, %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exitthread-pre-split" ], [ %2011, %2013 ]
+  %2316 = icmp eq i8 %2315, 85
+  br i1 %2316, label %2317, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
 
-2306:                                             ; preds = %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit"
-  %2307 = getelementptr inbounds i8, ptr %.sroa.0471.0642, i64 -56
-  %2308 = load ptr, ptr %2307, align 8, !tbaa !320
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i271 = icmp eq ptr %2308, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i271, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, label %2309
+2317:                                             ; preds = %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit"
+  %2318 = getelementptr inbounds i8, ptr %.sroa.0471.0642, i64 -56
+  %2319 = load ptr, ptr %2318, align 8, !tbaa !320
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i271 = icmp eq ptr %2319, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i271, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, label %2320
 
-2309:                                             ; preds = %2306
-  %2310 = load i8, ptr %2308, align 8, !tbaa !198
-  %2311 = icmp eq i8 %2310, 0
-  br i1 %2311, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i272, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
+2320:                                             ; preds = %2317
+  %2321 = load i8, ptr %2319, align 8, !tbaa !198
+  %2322 = icmp eq i8 %2321, 0
+  br i1 %2322, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i272, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i272: ; preds = %2309
-  %2312 = getelementptr inbounds nuw i8, ptr %2308, i64 24
-  %2313 = load ptr, ptr %2312, align 8, !tbaa !325
-  %2314 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 56
-  %2315 = load ptr, ptr %2314, align 8, !tbaa !328
-  %2316 = icmp eq ptr %2313, %2315
-  br i1 %2316, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i273, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i272: ; preds = %2320
+  %2323 = getelementptr inbounds nuw i8, ptr %2319, i64 24
+  %2324 = load ptr, ptr %2323, align 8, !tbaa !325
+  %2325 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 56
+  %2326 = load ptr, ptr %2325, align 8, !tbaa !328
+  %2327 = icmp eq ptr %2324, %2326
+  br i1 %2327, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i273, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
 
 _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i273: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i272
-  %2317 = getelementptr inbounds nuw i8, ptr %2308, i64 32
-  %2318 = load i32, ptr %2317, align 8
-  %2319 = and i32 %2318, 8192
-  %.not.i.i.i.i.i.i.i.i274 = icmp eq i32 %2319, 0
+  %2328 = getelementptr inbounds nuw i8, ptr %2319, i64 32
+  %2329 = load i32, ptr %2328, align 8
+  %2330 = and i32 %2329, 8192
+  %.not.i.i.i.i.i.i.i.i274 = icmp eq i32 %2330, 0
   br i1 %.not.i.i.i.i.i.i.i.i274, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit
 
 _ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit: ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i273
-  %2320 = getelementptr inbounds nuw i8, ptr %2308, i64 36
-  %2321 = load i32, ptr %2320, align 4, !tbaa !333
-  %2322 = and i32 %2321, -4
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %2322, 68
+  %2331 = getelementptr inbounds nuw i8, ptr %2319, i64 36
+  %2332 = load i32, ptr %2331, align 4, !tbaa !333
+  %2333 = and i32 %2332, -4
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %2333, 68
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
 
-_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i272, %2306, %2309, %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit", %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i273, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit
-  %2323 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 24
-  %2324 = call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2323) #26
-  %2325 = icmp ne ptr %2324, null
-  %2326 = zext i1 %2325 to i8
-  %2327 = load ptr, ptr %103, align 8, !tbaa !360, !noalias !500
-  %2328 = load i32, ptr %124, align 8, !tbaa !366, !noalias !500
-  %2329 = icmp eq i32 %2328, 0
-  br i1 %2329, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %2330
+_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i272, %2317, %2320, %"_ZZN4llvm22checkDebugInfoMetadataERNS_6ModuleENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEER16DebugInfoPerPassNS_9StringRefESC_SC_ENK3$_0clINS_20DbgVariableIntrinsicEEEDaPT_.exit", %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i273, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit
+  %2334 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 24
+  %2335 = call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %2334) #26
+  %2336 = icmp ne ptr %2335, null
+  %2337 = zext i1 %2336 to i8
+  %2338 = load ptr, ptr %103, align 8, !tbaa !360, !noalias !500
+  %2339 = load i32, ptr %124, align 8, !tbaa !366, !noalias !500
+  %2340 = icmp eq i32 %2339, 0
+  br i1 %2340, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %2341
 
-2330:                                             ; preds = %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
-  %2331 = ptrtoint ptr %2003 to i64
-  %2332 = trunc i64 %2331 to i32
-  %2333 = lshr i32 %2332, 4
-  %2334 = lshr i32 %2332, 9
-  %2335 = xor i32 %2333, %2334
-  %2336 = add i32 %2328, -1
-  %.02944.i.i393 = and i32 %2336, %2335
-  %2337 = zext nneg i32 %.02944.i.i393 to i64
-  %2338 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %2327, i64 %2337
-  %2339 = load ptr, ptr %2338, align 8, !tbaa !359, !noalias !500
-  %2340 = icmp eq ptr %2003, %2339
-  br i1 %2340, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %.lr.ph.i.i394, !prof !272
+2341:                                             ; preds = %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
+  %2342 = ptrtoint ptr %2010 to i64
+  %2343 = trunc i64 %2342 to i32
+  %2344 = lshr i32 %2343, 4
+  %2345 = lshr i32 %2343, 9
+  %2346 = xor i32 %2344, %2345
+  %2347 = add i32 %2339, -1
+  %.02944.i.i393 = and i32 %2347, %2346
+  %2348 = zext nneg i32 %.02944.i.i393 to i64
+  %2349 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %2338, i64 %2348
+  %2350 = load ptr, ptr %2349, align 8, !tbaa !359, !noalias !500
+  %2351 = icmp eq ptr %2010, %2350
+  br i1 %2351, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %.lr.ph.i.i394, !prof !272
 
-.lr.ph.i.i394:                                    ; preds = %2330, %2346
-  %2341 = phi ptr [ %2353, %2346 ], [ %2339, %2330 ]
-  %2342 = phi ptr [ %2352, %2346 ], [ %2338, %2330 ]
-  %.02947.i.i395 = phi i32 [ %.029.i.i400, %2346 ], [ %.02944.i.i393, %2330 ]
-  %.02746.i.i396 = phi i32 [ %2349, %2346 ], [ 1, %2330 ]
-  %.03245.i.i397 = phi ptr [ %spec.select.i.i399, %2346 ], [ null, %2330 ]
-  %2343 = icmp eq ptr %2341, inttoptr (i64 -4096 to ptr)
-  br i1 %2343, label %2344, label %2346, !prof !33
+.lr.ph.i.i394:                                    ; preds = %2341, %2357
+  %2352 = phi ptr [ %2364, %2357 ], [ %2350, %2341 ]
+  %2353 = phi ptr [ %2363, %2357 ], [ %2349, %2341 ]
+  %.02947.i.i395 = phi i32 [ %.029.i.i400, %2357 ], [ %.02944.i.i393, %2341 ]
+  %.02746.i.i396 = phi i32 [ %2360, %2357 ], [ 1, %2341 ]
+  %.03245.i.i397 = phi ptr [ %spec.select.i.i399, %2357 ], [ null, %2341 ]
+  %2354 = icmp eq ptr %2352, inttoptr (i64 -4096 to ptr)
+  br i1 %2354, label %2355, label %2357, !prof !33
 
-2344:                                             ; preds = %.lr.ph.i.i394
+2355:                                             ; preds = %.lr.ph.i.i394
   %.not.i.i406 = icmp eq ptr %.03245.i.i397, null
-  %2345 = select i1 %.not.i.i406, ptr %2342, ptr %.03245.i.i397
+  %2356 = select i1 %.not.i.i406, ptr %2353, ptr %.03245.i.i397
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
 
-2346:                                             ; preds = %.lr.ph.i.i394
-  %2347 = icmp eq ptr %2341, inttoptr (i64 -8192 to ptr)
-  %2348 = icmp eq ptr %.03245.i.i397, null
-  %or.cond.not.i.i398 = select i1 %2347, i1 %2348, i1 false
-  %spec.select.i.i399 = select i1 %or.cond.not.i.i398, ptr %2342, ptr %.03245.i.i397
-  %2349 = add i32 %.02746.i.i396, 1
-  %2350 = add i32 %.02746.i.i396, %.02947.i.i395
-  %.029.i.i400 = and i32 %2350, %2336
-  %2351 = zext i32 %.029.i.i400 to i64
-  %2352 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %2327, i64 %2351
-  %2353 = load ptr, ptr %2352, align 8, !tbaa !359, !noalias !500
-  %2354 = icmp eq ptr %2003, %2353
-  br i1 %2354, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %.lr.ph.i.i394, !prof !273, !llvm.loop !367
+2357:                                             ; preds = %.lr.ph.i.i394
+  %2358 = icmp eq ptr %2352, inttoptr (i64 -8192 to ptr)
+  %2359 = icmp eq ptr %.03245.i.i397, null
+  %or.cond.not.i.i398 = select i1 %2358, i1 %2359, i1 false
+  %spec.select.i.i399 = select i1 %or.cond.not.i.i398, ptr %2353, ptr %.03245.i.i397
+  %2360 = add i32 %.02746.i.i396, 1
+  %2361 = add i32 %.02746.i.i396, %.02947.i.i395
+  %.029.i.i400 = and i32 %2361, %2347
+  %2362 = zext i32 %.029.i.i400 to i64
+  %2363 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %2338, i64 %2362
+  %2364 = load ptr, ptr %2363, align 8, !tbaa !359, !noalias !500
+  %2365 = icmp eq ptr %2010, %2364
+  br i1 %2365, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit, label %.lr.ph.i.i394, !prof !273, !llvm.loop !367
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %2344, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
-  %.sink.i.i407 = phi ptr [ %2345, %2344 ], [ null, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread ]
-  %2355 = load i32, ptr %125, align 8, !tbaa !368, !noalias !500
-  %2356 = shl i32 %2355, 2
-  %2357 = add i32 %2356, 4
-  %2358 = mul i32 %2328, 3
-  %.not.i.i.i408 = icmp ult i32 %2357, %2358
-  br i1 %.not.i.i.i408, label %2361, label %2359, !prof !33
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %2355, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread
+  %.sink.i.i407 = phi ptr [ %2356, %2355 ], [ null, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit.thread ]
+  %2366 = load i32, ptr %125, align 8, !tbaa !368, !noalias !500
+  %2367 = shl i32 %2366, 2
+  %2368 = add i32 %2367, 4
+  %2369 = mul i32 %2339, 3
+  %.not.i.i.i408 = icmp ult i32 %2368, %2369
+  br i1 %.not.i.i.i408, label %2372, label %2370, !prof !33
 
-2359:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
-  %2360 = shl i32 %2328, 1
+2370:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
+  %2371 = shl i32 %2339, 1
   br label %.sink.split.i.i.i409
 
-2361:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
-  %2362 = load i32, ptr %126, align 4, !tbaa !369, !noalias !500
-  %.neg.i.i.i413 = xor i32 %2355, -1
-  %.neg12.i.i.i414 = add i32 %2328, %.neg.i.i.i413
-  %2363 = sub i32 %.neg12.i.i.i414, %2362
-  %2364 = lshr i32 %2328, 3
-  %.not10.i.i.i415 = icmp ugt i32 %2363, %2364
-  br i1 %.not10.i.i.i415, label %2393, label %.sink.split.i.i.i409, !prof !33
+2372:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i
+  %2373 = load i32, ptr %126, align 4, !tbaa !369, !noalias !500
+  %.neg.i.i.i413 = xor i32 %2366, -1
+  %.neg12.i.i.i414 = add i32 %2339, %.neg.i.i.i413
+  %2374 = sub i32 %.neg12.i.i.i414, %2373
+  %2375 = lshr i32 %2339, 3
+  %.not10.i.i.i415 = icmp ugt i32 %2374, %2375
+  br i1 %.not10.i.i.i415, label %2404, label %.sink.split.i.i.i409, !prof !33
 
-.sink.split.i.i.i409:                             ; preds = %2361, %2359
-  %.sink.i.i.i410 = phi i32 [ %2360, %2359 ], [ %2328, %2361 ]
+.sink.split.i.i.i409:                             ; preds = %2372, %2370
+  %.sink.i.i.i410 = phi i32 [ %2371, %2370 ], [ %2339, %2372 ]
   call void @_ZN4llvm8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(40) %103, i32 noundef %.sink.i.i.i410), !noalias !500
-  %2365 = load ptr, ptr %103, align 8, !tbaa !360, !noalias !500
-  %2366 = load i32, ptr %124, align 8, !tbaa !366, !noalias !500
-  %2367 = icmp eq i32 %2366, 0
-  br i1 %2367, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %2368
+  %2376 = load ptr, ptr %103, align 8, !tbaa !360, !noalias !500
+  %2377 = load i32, ptr %124, align 8, !tbaa !366, !noalias !500
+  %2378 = icmp eq i32 %2377, 0
+  br i1 %2378, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %2379
 
-2368:                                             ; preds = %.sink.split.i.i.i409
-  %2369 = ptrtoint ptr %2003 to i64
-  %2370 = trunc i64 %2369 to i32
-  %2371 = lshr i32 %2370, 4
-  %2372 = lshr i32 %2370, 9
-  %2373 = xor i32 %2371, %2372
-  %2374 = add i32 %2366, -1
-  %.02944.i444 = and i32 %2374, %2373
-  %2375 = zext nneg i32 %.02944.i444 to i64
-  %2376 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %2365, i64 %2375
-  %2377 = load ptr, ptr %2376, align 8, !tbaa !359, !noalias !500
-  %2378 = icmp eq ptr %2003, %2377
-  br i1 %2378, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i445, !prof !272
+2379:                                             ; preds = %.sink.split.i.i.i409
+  %2380 = ptrtoint ptr %2010 to i64
+  %2381 = trunc i64 %2380 to i32
+  %2382 = lshr i32 %2381, 4
+  %2383 = lshr i32 %2381, 9
+  %2384 = xor i32 %2382, %2383
+  %2385 = add i32 %2377, -1
+  %.02944.i444 = and i32 %2385, %2384
+  %2386 = zext nneg i32 %.02944.i444 to i64
+  %2387 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %2376, i64 %2386
+  %2388 = load ptr, ptr %2387, align 8, !tbaa !359, !noalias !500
+  %2389 = icmp eq ptr %2010, %2388
+  br i1 %2389, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i445, !prof !272
 
-.lr.ph.i445:                                      ; preds = %2368, %2384
-  %2379 = phi ptr [ %2391, %2384 ], [ %2377, %2368 ]
-  %2380 = phi ptr [ %2390, %2384 ], [ %2376, %2368 ]
-  %.02947.i446 = phi i32 [ %.029.i451, %2384 ], [ %.02944.i444, %2368 ]
-  %.02746.i447 = phi i32 [ %2387, %2384 ], [ 1, %2368 ]
-  %.03245.i448 = phi ptr [ %spec.select.i450, %2384 ], [ null, %2368 ]
-  %2381 = icmp eq ptr %2379, inttoptr (i64 -4096 to ptr)
-  br i1 %2381, label %2382, label %2384, !prof !33
+.lr.ph.i445:                                      ; preds = %2379, %2395
+  %2390 = phi ptr [ %2402, %2395 ], [ %2388, %2379 ]
+  %2391 = phi ptr [ %2401, %2395 ], [ %2387, %2379 ]
+  %.02947.i446 = phi i32 [ %.029.i451, %2395 ], [ %.02944.i444, %2379 ]
+  %.02746.i447 = phi i32 [ %2398, %2395 ], [ 1, %2379 ]
+  %.03245.i448 = phi ptr [ %spec.select.i450, %2395 ], [ null, %2379 ]
+  %2392 = icmp eq ptr %2390, inttoptr (i64 -4096 to ptr)
+  br i1 %2392, label %2393, label %2395, !prof !33
 
-2382:                                             ; preds = %.lr.ph.i445
+2393:                                             ; preds = %.lr.ph.i445
   %.not.i454 = icmp eq ptr %.03245.i448, null
-  %2383 = select i1 %.not.i454, ptr %2380, ptr %.03245.i448
+  %2394 = select i1 %.not.i454, ptr %2391, ptr %.03245.i448
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit
 
-2384:                                             ; preds = %.lr.ph.i445
-  %2385 = icmp eq ptr %2379, inttoptr (i64 -8192 to ptr)
-  %2386 = icmp eq ptr %.03245.i448, null
-  %or.cond.not.i449 = select i1 %2385, i1 %2386, i1 false
-  %spec.select.i450 = select i1 %or.cond.not.i449, ptr %2380, ptr %.03245.i448
-  %2387 = add i32 %.02746.i447, 1
-  %2388 = add i32 %.02746.i447, %.02947.i446
-  %.029.i451 = and i32 %2388, %2374
-  %2389 = zext i32 %.029.i451 to i64
-  %2390 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %2365, i64 %2389
-  %2391 = load ptr, ptr %2390, align 8, !tbaa !359, !noalias !500
-  %2392 = icmp eq ptr %2003, %2391
-  br i1 %2392, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i445, !prof !273, !llvm.loop !367
+2395:                                             ; preds = %.lr.ph.i445
+  %2396 = icmp eq ptr %2390, inttoptr (i64 -8192 to ptr)
+  %2397 = icmp eq ptr %.03245.i448, null
+  %or.cond.not.i449 = select i1 %2396, i1 %2397, i1 false
+  %spec.select.i450 = select i1 %or.cond.not.i449, ptr %2391, ptr %.03245.i448
+  %2398 = add i32 %.02746.i447, 1
+  %2399 = add i32 %.02746.i447, %.02947.i446
+  %.029.i451 = and i32 %2399, %2385
+  %2400 = zext i32 %.029.i451 to i64
+  %2401 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.416", ptr %2376, i64 %2400
+  %2402 = load ptr, ptr %2401, align 8, !tbaa !359, !noalias !500
+  %2403 = icmp eq ptr %2010, %2402
+  br i1 %2403, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i445, !prof !273, !llvm.loop !367
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit: ; preds = %2384, %.sink.split.i.i.i409, %2368, %2382
-  %.sink.i452 = phi ptr [ %2383, %2382 ], [ null, %.sink.split.i.i.i409 ], [ %2376, %2368 ], [ %2390, %2384 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit: ; preds = %2395, %.sink.split.i.i.i409, %2379, %2393
+  %.sink.i452 = phi ptr [ %2394, %2393 ], [ null, %.sink.split.i.i.i409 ], [ %2387, %2379 ], [ %2401, %2395 ]
   %.pre.i.i411 = load i32, ptr %125, align 8, !tbaa !368, !noalias !500
-  br label %2393
+  br label %2404
 
-2393:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, %2361
-  %2394 = phi ptr [ %.sink.i452, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %.sink.i.i407, %2361 ]
-  %2395 = phi i32 [ %.pre.i.i411, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %2355, %2361 ]
-  %2396 = add i32 %2395, 1
-  store i32 %2396, ptr %125, align 8, !tbaa !368, !noalias !500
-  %2397 = load ptr, ptr %2394, align 8, !tbaa !359, !noalias !500
-  %2398 = icmp eq ptr %2397, inttoptr (i64 -4096 to ptr)
-  br i1 %2398, label %2402, label %2399
+2404:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, %2372
+  %2405 = phi ptr [ %.sink.i452, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %.sink.i.i407, %2372 ]
+  %2406 = phi i32 [ %.pre.i.i411, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit ], [ %2366, %2372 ]
+  %2407 = add i32 %2406, 1
+  store i32 %2407, ptr %125, align 8, !tbaa !368, !noalias !500
+  %2408 = load ptr, ptr %2405, align 8, !tbaa !359, !noalias !500
+  %2409 = icmp eq ptr %2408, inttoptr (i64 -4096 to ptr)
+  br i1 %2409, label %2413, label %2410
 
-2399:                                             ; preds = %2393
-  %2400 = load i32, ptr %126, align 4, !tbaa !369, !noalias !500
-  %2401 = add i32 %2400, -1
-  store i32 %2401, ptr %126, align 4, !tbaa !369, !noalias !500
-  br label %2402
+2410:                                             ; preds = %2404
+  %2411 = load i32, ptr %126, align 4, !tbaa !369, !noalias !500
+  %2412 = add i32 %2411, -1
+  store i32 %2412, ptr %126, align 4, !tbaa !369, !noalias !500
+  br label %2413
 
-2402:                                             ; preds = %2399, %2393
-  store ptr %2003, ptr %2394, align 8, !tbaa !359, !noalias !500
-  %2403 = getelementptr inbounds nuw i8, ptr %2394, i64 8
-  store i32 0, ptr %2403, align 8, !tbaa !53, !noalias !500
-  %2404 = load i32, ptr %107, align 8, !tbaa !26
-  store i32 %2404, ptr %2403, align 8, !tbaa !370
-  %2405 = load i32, ptr %127, align 4, !tbaa !27
-  %.not.i.i.i279 = icmp ult i32 %2404, %2405
-  %2406 = zext i32 %2404 to i64
-  br i1 %.not.i.i.i279, label %2412, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit, !prof !33
+2413:                                             ; preds = %2410, %2404
+  store ptr %2010, ptr %2405, align 8, !tbaa !359, !noalias !500
+  %2414 = getelementptr inbounds nuw i8, ptr %2405, i64 8
+  store i32 0, ptr %2414, align 8, !tbaa !53, !noalias !500
+  %2415 = load i32, ptr %107, align 8, !tbaa !26
+  store i32 %2415, ptr %2414, align 8, !tbaa !370
+  %2416 = load i32, ptr %127, align 4, !tbaa !27
+  %.not.i.i.i279 = icmp ult i32 %2415, %2416
+  %2417 = zext i32 %2415 to i64
+  br i1 %.not.i.i.i279, label %2423, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit, !prof !33
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit: ; preds = %2402
-  %2407 = add nuw nsw i64 %2406, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull %106, i64 noundef %2407, i64 noundef 16) #26
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit: ; preds = %2413
+  %2418 = add nuw nsw i64 %2417, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull %106, i64 noundef %2418, i64 noundef 16) #26
   %.pre.i.i391 = load i32, ptr %107, align 8, !tbaa !26
-  %2408 = load ptr, ptr %105, align 8, !tbaa !25
-  %2409 = zext i32 %.pre.i.i391 to i64
-  %2410 = getelementptr inbounds nuw %"struct.std::pair.259", ptr %2408, i64 %2409
-  store ptr %2003, ptr %2410, align 1
-  %.sroa.2.0..sroa_idx.i.i392 = getelementptr inbounds nuw i8, ptr %2410, i64 8
-  store i8 %2326, ptr %.sroa.2.0..sroa_idx.i.i392, align 1
-  %2411 = load i32, ptr %107, align 8, !tbaa !26
+  %2419 = load ptr, ptr %105, align 8, !tbaa !25
+  %2420 = zext i32 %.pre.i.i391 to i64
+  %2421 = getelementptr inbounds nuw %"struct.std::pair.259", ptr %2419, i64 %2420
+  store ptr %2010, ptr %2421, align 1
+  %.sroa.2.0..sroa_idx.i.i392 = getelementptr inbounds nuw i8, ptr %2421, i64 8
+  store i8 %2337, ptr %.sroa.2.0..sroa_idx.i.i392, align 1
+  %2422 = load i32, ptr %107, align 8, !tbaa !26
   br label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split
 
-2412:                                             ; preds = %2402
-  %2413 = load ptr, ptr %105, align 8, !tbaa !25
-  %2414 = getelementptr inbounds nuw %"struct.std::pair.259", ptr %2413, i64 %2406
-  store ptr %2003, ptr %2414, align 8, !tbaa !385
-  %2415 = getelementptr inbounds nuw i8, ptr %2414, i64 8
-  store i8 %2326, ptr %2415, align 8, !tbaa !387
+2423:                                             ; preds = %2413
+  %2424 = load ptr, ptr %105, align 8, !tbaa !25
+  %2425 = getelementptr inbounds nuw %"struct.std::pair.259", ptr %2424, i64 %2417
+  store ptr %2010, ptr %2425, align 8, !tbaa !385
+  %2426 = getelementptr inbounds nuw i8, ptr %2425, i64 8
+  store i8 %2337, ptr %2426, align 8, !tbaa !387
   br label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split
 
-_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit, %2412
-  %.sink966 = phi i32 [ %2404, %2412 ], [ %2411, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit ]
-  %2416 = add i32 %.sink966, 1
-  store i32 %2416, ptr %107, align 8, !tbaa !26
+_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit, %2423
+  %.sink966 = phi i32 [ %2415, %2423 ], [ %2422, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionEbELb1EE18growAndEmplaceBackIJRKSt21piecewise_construct_tSt5tupleIJOS4_EESB_IJObEEEEERS5_DpOT_.exit ]
+  %2427 = add i32 %.sink966, 1
+  store i32 %2427, ptr %107, align 8, !tbaa !26
   br label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit
 
-_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit: ; preds = %2346, %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split, %2330, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit, %.lr.ph644
-  %2417 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 8
-  %.sroa.0471.0 = load ptr, ptr %2417, align 8, !tbaa !193
-  %.not589 = icmp eq ptr %.sroa.0471.0, %2001
+_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit: ; preds = %2357, %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEE6insertEOSD_.exit.sink.split, %2341, %_ZN4llvm3isaINS_16DbgInfoIntrinsicEPNS_11InstructionEEEbRKT0_.exit, %.lr.ph644
+  %2428 = getelementptr inbounds nuw i8, ptr %.sroa.0471.0642, i64 8
+  %.sroa.0471.0 = load ptr, ptr %2428, align 8, !tbaa !193
+  %.not589 = icmp eq ptr %.sroa.0471.0, %2008
   br i1 %.not589, label %._crit_edge645, label %.lr.ph644
 
-_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread: ; preds = %._crit_edge645, %.loopexit, %1812, %1808, %1808, %1808, %1806, %1803, %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit
-  %2418 = getelementptr inbounds nuw i8, ptr %.sroa.0491.0652, i64 8
-  %2419 = load ptr, ptr %2418, align 8, !tbaa !187
-  %.not582 = icmp eq ptr %2419, %2
-  br i1 %.not582, label %._crit_edge655, label %1803
+_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit.thread: ; preds = %._crit_edge645, %.loopexit, %1817, %1813, %1813, %1813, %1811, %1808, %_ZNK4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEE5countERKS3_.exit, %_ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit
+  %2429 = getelementptr inbounds nuw i8, ptr %.sroa.0491.0652, i64 8
+  %2430 = load ptr, ptr %2429, align 8, !tbaa !187
+  %.not582 = icmp eq ptr %2430, %2
+  br i1 %.not582, label %._crit_edge655, label %1808
 
-2420:                                             ; preds = %_ZL9checkVarsRKN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEESH_NS_9StringRefESI_bRNS_4json5ArrayE.exit
-  %2421 = load ptr, ptr %64, align 8, !tbaa !503
-  %2422 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %2423 = load ptr, ptr %2422, align 8, !tbaa !503
-  %2424 = icmp eq ptr %2421, %2423
-  br i1 %2424, label %2628, label %2425
+2431:                                             ; preds = %_ZL9checkVarsRKN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEESH_NS_9StringRefESI_bRNS_4json5ArrayE.exit
+  %2432 = load ptr, ptr %64, align 8, !tbaa !503
+  %2433 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %2434 = load ptr, ptr %2433, align 8, !tbaa !503
+  %2435 = icmp eq ptr %2432, %2434
+  br i1 %2435, label %2639, label %2436
 
-2425:                                             ; preds = %2420
+2436:                                             ; preds = %2431
   %.sroa.08.0.copyload = load ptr, ptr %7, align 8, !tbaa !44
   %.sroa.29.0.copyload = load i64, ptr %363, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 8, !tbaa !504
-  %2426 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %2427 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #28
-  store ptr %2427, ptr %2426, align 8, !tbaa !507
+  %2437 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %2438 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #28
+  store ptr %2438, ptr %2437, align 8, !tbaa !507
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr %.sroa.08.0.copyload, i64 %.sroa.29.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 7) #26
-  %2428 = load i32, ptr %12, align 8, !tbaa !504
-  %.not.i282 = icmp eq i32 %2428, 0
-  br i1 %.not.i282, label %2495, label %2429
+  %2439 = load i32, ptr %12, align 8, !tbaa !504
+  %.not.i282 = icmp eq i32 %2439, 0
+  br i1 %.not.i282, label %2506, label %2440
 
-2429:                                             ; preds = %2425
-  %2430 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
-  %2431 = getelementptr inbounds nuw i8, ptr %2430, i64 24
-  %2432 = load ptr, ptr %2431, align 8, !tbaa !61
-  %2433 = getelementptr inbounds nuw i8, ptr %2430, i64 32
-  %2434 = load ptr, ptr %2433, align 8, !tbaa !65
-  %2435 = ptrtoint ptr %2432 to i64
-  %2436 = ptrtoint ptr %2434 to i64
-  %2437 = sub i64 %2435, %2436
-  %2438 = icmp ult i64 %2437, 21
-  br i1 %2438, label %2439, label %2441
+2440:                                             ; preds = %2436
+  %2441 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
+  %2442 = getelementptr inbounds nuw i8, ptr %2441, i64 24
+  %2443 = load ptr, ptr %2442, align 8, !tbaa !61
+  %2444 = getelementptr inbounds nuw i8, ptr %2441, i64 32
+  %2445 = load ptr, ptr %2444, align 8, !tbaa !65
+  %2446 = ptrtoint ptr %2443 to i64
+  %2447 = ptrtoint ptr %2445 to i64
+  %2448 = sub i64 %2446, %2447
+  %2449 = icmp ult i64 %2448, 21
+  br i1 %2449, label %2450, label %2452
 
-2439:                                             ; preds = %2429
-  %2440 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2430, ptr noundef nonnull @.str.24, i64 noundef 21) #26
+2450:                                             ; preds = %2440
+  %2451 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2441, ptr noundef nonnull @.str.24, i64 noundef 21) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i283
 
-2441:                                             ; preds = %2429
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %2434, ptr noundef nonnull align 1 dereferenceable(21) @.str.24, i64 21, i1 false)
-  %2442 = load ptr, ptr %2433, align 8, !tbaa !65
-  %2443 = getelementptr inbounds nuw i8, ptr %2442, i64 21
-  store ptr %2443, ptr %2433, align 8, !tbaa !65
+2452:                                             ; preds = %2440
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %2445, ptr noundef nonnull align 1 dereferenceable(21) @.str.24, i64 21, i1 false)
+  %2453 = load ptr, ptr %2444, align 8, !tbaa !65
+  %2454 = getelementptr inbounds nuw i8, ptr %2453, i64 21
+  store ptr %2454, ptr %2444, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i283
 
-_ZN4llvm11raw_ostreamlsEPKc.exit.i283:            ; preds = %2441, %2439
-  %.0.i.i.i284 = phi ptr [ %2440, %2439 ], [ %2430, %2441 ]
+_ZN4llvm11raw_ostreamlsEPKc.exit.i283:            ; preds = %2452, %2450
+  %.0.i.i.i284 = phi ptr [ %2451, %2450 ], [ %2441, %2452 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %2444 = load ptr, ptr %2426, align 8, !tbaa !507, !noalias !508
-  %2445 = load i32, ptr %12, align 8, !tbaa !504, !noalias !508
-  %2446 = load ptr, ptr %2444, align 8, !tbaa !3, !noalias !508
-  %2447 = getelementptr inbounds nuw i8, ptr %2446, i64 32
-  %2448 = load ptr, ptr %2447, align 8, !noalias !508
-  call void %2448(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %2444, i32 noundef %2445) #26
-  %2449 = load ptr, ptr %14, align 8, !tbaa !165
-  %2450 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %2451 = load i64, ptr %2450, align 8, !tbaa !166
-  %2452 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i284, ptr noundef %2449, i64 noundef %2451) #26
-  %2453 = getelementptr inbounds nuw i8, ptr %2452, i64 24
-  %2454 = load ptr, ptr %2453, align 8, !tbaa !61
-  %2455 = getelementptr inbounds nuw i8, ptr %2452, i64 32
-  %2456 = load ptr, ptr %2455, align 8, !tbaa !65
-  %2457 = ptrtoint ptr %2454 to i64
-  %2458 = ptrtoint ptr %2456 to i64
-  %2459 = sub i64 %2457, %2458
-  %2460 = icmp ult i64 %2459, 2
-  br i1 %2460, label %2461, label %2463
+  %2455 = load ptr, ptr %2437, align 8, !tbaa !507, !noalias !508
+  %2456 = load i32, ptr %12, align 8, !tbaa !504, !noalias !508
+  %2457 = load ptr, ptr %2455, align 8, !tbaa !3, !noalias !508
+  %2458 = getelementptr inbounds nuw i8, ptr %2457, i64 32
+  %2459 = load ptr, ptr %2458, align 8, !noalias !508
+  call void %2459(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %2455, i32 noundef %2456) #26
+  %2460 = load ptr, ptr %14, align 8, !tbaa !165
+  %2461 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %2462 = load i64, ptr %2461, align 8, !tbaa !166
+  %2463 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i284, ptr noundef %2460, i64 noundef %2462) #26
+  %2464 = getelementptr inbounds nuw i8, ptr %2463, i64 24
+  %2465 = load ptr, ptr %2464, align 8, !tbaa !61
+  %2466 = getelementptr inbounds nuw i8, ptr %2463, i64 32
+  %2467 = load ptr, ptr %2466, align 8, !tbaa !65
+  %2468 = ptrtoint ptr %2465 to i64
+  %2469 = ptrtoint ptr %2467 to i64
+  %2470 = sub i64 %2468, %2469
+  %2471 = icmp ult i64 %2470, 2
+  br i1 %2471, label %2472, label %2474
 
-2461:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i283
-  %2462 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2452, ptr noundef nonnull @.str.25, i64 noundef 2) #26
-  %.phi.trans.insert.i294 = getelementptr inbounds nuw i8, ptr %2462, i64 32
+2472:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i283
+  %2473 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2463, ptr noundef nonnull @.str.25, i64 noundef 2) #26
+  %.phi.trans.insert.i294 = getelementptr inbounds nuw i8, ptr %2473, i64 32
   %.pre.i295 = load ptr, ptr %.phi.trans.insert.i294, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19.i
 
-2463:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i283
-  store i16 8236, ptr %2456, align 1
-  %2464 = load ptr, ptr %2455, align 8, !tbaa !65
-  %2465 = getelementptr inbounds nuw i8, ptr %2464, i64 2
-  store ptr %2465, ptr %2455, align 8, !tbaa !65
+2474:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i283
+  store i16 8236, ptr %2467, align 1
+  %2475 = load ptr, ptr %2466, align 8, !tbaa !65
+  %2476 = getelementptr inbounds nuw i8, ptr %2475, i64 2
+  store ptr %2476, ptr %2466, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit19.i:             ; preds = %2463, %2461
-  %2466 = phi ptr [ %.pre.i295, %2461 ], [ %2465, %2463 ]
-  %.0.i.i18.i = phi ptr [ %2462, %2461 ], [ %2452, %2463 ]
-  %2467 = getelementptr inbounds nuw i8, ptr %.0.i.i18.i, i64 24
-  %2468 = load ptr, ptr %2467, align 8, !tbaa !61
-  %2469 = getelementptr inbounds nuw i8, ptr %.0.i.i18.i, i64 32
-  %2470 = ptrtoint ptr %2468 to i64
-  %2471 = ptrtoint ptr %2466 to i64
-  %2472 = sub i64 %2470, %2471
-  %2473 = icmp ugt i64 %.sroa.29.0.copyload, %2472
-  br i1 %2473, label %2474, label %2476
+_ZN4llvm11raw_ostreamlsEPKc.exit19.i:             ; preds = %2474, %2472
+  %2477 = phi ptr [ %.pre.i295, %2472 ], [ %2476, %2474 ]
+  %.0.i.i18.i = phi ptr [ %2473, %2472 ], [ %2463, %2474 ]
+  %2478 = getelementptr inbounds nuw i8, ptr %.0.i.i18.i, i64 24
+  %2479 = load ptr, ptr %2478, align 8, !tbaa !61
+  %2480 = getelementptr inbounds nuw i8, ptr %.0.i.i18.i, i64 32
+  %2481 = ptrtoint ptr %2479 to i64
+  %2482 = ptrtoint ptr %2477 to i64
+  %2483 = sub i64 %2481, %2482
+  %2484 = icmp ugt i64 %.sroa.29.0.copyload, %2483
+  br i1 %2484, label %2485, label %2487
 
-2474:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit19.i
-  %2475 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i18.i, ptr noundef %.sroa.08.0.copyload, i64 noundef %.sroa.29.0.copyload) #26
-  %.phi.trans.insert52.i292 = getelementptr inbounds nuw i8, ptr %2475, i64 32
+2485:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit19.i
+  %2486 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i18.i, ptr noundef %.sroa.08.0.copyload, i64 noundef %.sroa.29.0.copyload) #26
+  %.phi.trans.insert52.i292 = getelementptr inbounds nuw i8, ptr %2486, i64 32
   %.pre53.i293 = load ptr, ptr %.phi.trans.insert52.i292, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i286
 
-2476:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit19.i
+2487:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit19.i
   %.not.i.i285 = icmp eq i64 %.sroa.29.0.copyload, 0
-  br i1 %.not.i.i285, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i286, label %2477
+  br i1 %.not.i.i285, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i286, label %2488
 
-2477:                                             ; preds = %2476
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2466, ptr align 1 %.sroa.08.0.copyload, i64 %.sroa.29.0.copyload, i1 false)
-  %2478 = load ptr, ptr %2469, align 8, !tbaa !65
-  %2479 = getelementptr inbounds nuw i8, ptr %2478, i64 %.sroa.29.0.copyload
-  store ptr %2479, ptr %2469, align 8, !tbaa !65
+2488:                                             ; preds = %2487
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2477, ptr align 1 %.sroa.08.0.copyload, i64 %.sroa.29.0.copyload, i1 false)
+  %2489 = load ptr, ptr %2480, align 8, !tbaa !65
+  %2490 = getelementptr inbounds nuw i8, ptr %2489, i64 %.sroa.29.0.copyload
+  store ptr %2490, ptr %2480, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i286
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i286: ; preds = %2477, %2476, %2474
-  %2480 = phi ptr [ %.pre53.i293, %2474 ], [ %2479, %2477 ], [ %2466, %2476 ]
-  %.0.i.i287 = phi ptr [ %2475, %2474 ], [ %.0.i.i18.i, %2477 ], [ %.0.i.i18.i, %2476 ]
-  %2481 = getelementptr inbounds nuw i8, ptr %.0.i.i287, i64 24
-  %2482 = load ptr, ptr %2481, align 8, !tbaa !61
-  %.not.i20.i = icmp ult ptr %2480, %2482
-  br i1 %.not.i20.i, label %2485, label %2483
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i286: ; preds = %2488, %2487, %2485
+  %2491 = phi ptr [ %.pre53.i293, %2485 ], [ %2490, %2488 ], [ %2477, %2487 ]
+  %.0.i.i287 = phi ptr [ %2486, %2485 ], [ %.0.i.i18.i, %2488 ], [ %.0.i.i18.i, %2487 ]
+  %2492 = getelementptr inbounds nuw i8, ptr %.0.i.i287, i64 24
+  %2493 = load ptr, ptr %2492, align 8, !tbaa !61
+  %.not.i20.i = icmp ult ptr %2491, %2493
+  br i1 %.not.i20.i, label %2496, label %2494
 
-2483:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i286
-  %2484 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i287, i8 noundef zeroext 10) #26
+2494:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i286
+  %2495 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i287, i8 noundef zeroext 10) #26
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i288
 
-2485:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i286
-  %2486 = getelementptr inbounds nuw i8, ptr %.0.i.i287, i64 32
-  %2487 = getelementptr inbounds nuw i8, ptr %2480, i64 1
-  store ptr %2487, ptr %2486, align 8, !tbaa !65
-  store i8 10, ptr %2480, align 1, !tbaa !220
+2496:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i286
+  %2497 = getelementptr inbounds nuw i8, ptr %.0.i.i287, i64 32
+  %2498 = getelementptr inbounds nuw i8, ptr %2491, i64 1
+  store ptr %2498, ptr %2497, align 8, !tbaa !65
+  store i8 10, ptr %2491, align 1, !tbaa !220
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i288
 
-_ZN4llvm11raw_ostreamlsEc.exit.i288:              ; preds = %2485, %2483
-  %2488 = load ptr, ptr %14, align 8, !tbaa !165
-  %2489 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %2490 = icmp eq ptr %2488, %2489
-  br i1 %2490, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i291, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i289
+_ZN4llvm11raw_ostreamlsEc.exit.i288:              ; preds = %2496, %2494
+  %2499 = load ptr, ptr %14, align 8, !tbaa !165
+  %2500 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %2501 = icmp eq ptr %2499, %2500
+  br i1 %2501, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i291, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i289
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i291: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i288
-  %2491 = load i64, ptr %2450, align 8, !tbaa !166
-  %2492 = icmp ult i64 %2491, 16
-  call void @llvm.assume(i1 %2492)
+  %2502 = load i64, ptr %2461, align 8, !tbaa !166
+  %2503 = icmp ult i64 %2502, 16
+  call void @llvm.assume(i1 %2503)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i290
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i289: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i288
-  %2493 = load i64, ptr %2489, align 8, !tbaa !220
-  %2494 = add i64 %2493, 1
-  call void @_ZdlPvm(ptr noundef %2488, i64 noundef %2494) #27
+  %2504 = load i64, ptr %2500, align 8, !tbaa !220
+  %2505 = add i64 %2504, 1
+  call void @_ZdlPvm(ptr noundef %2499, i64 noundef %2505) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i290
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i290: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i289, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i291
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZL9writeJSONN4llvm9StringRefES0_S0_RNS_4json5ArrayE.exit
 
-2495:                                             ; preds = %2425
+2506:                                             ; preds = %2436
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN4llvm14raw_fd_ostream4lockEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %15, ptr noundef nonnull align 8 dereferenceable(96) %13) #26
-  %2496 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %2497 = load i8, ptr %2496, align 8
-  %2498 = trunc i8 %2497 to i1
-  br i1 %2498, label %2616, label %2499
+  %2507 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %2508 = load i8, ptr %2507, align 8
+  %2509 = trunc i8 %2508 to i1
+  br i1 %2509, label %2627, label %2510
 
-2499:                                             ; preds = %2495
-  %2500 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %2501 = load ptr, ptr %2500, align 8, !tbaa !61
-  %2502 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %2503 = load ptr, ptr %2502, align 8, !tbaa !65
-  %2504 = ptrtoint ptr %2501 to i64
-  %2505 = ptrtoint ptr %2503 to i64
-  %2506 = sub i64 %2504, %2505
-  %2507 = icmp ult i64 %2506, 9
-  br i1 %2507, label %2508, label %2510
+2510:                                             ; preds = %2506
+  %2511 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %2512 = load ptr, ptr %2511, align 8, !tbaa !61
+  %2513 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %2514 = load ptr, ptr %2513, align 8, !tbaa !65
+  %2515 = ptrtoint ptr %2512 to i64
+  %2516 = ptrtoint ptr %2514 to i64
+  %2517 = sub i64 %2515, %2516
+  %2518 = icmp ult i64 %2517, 9
+  br i1 %2518, label %2519, label %2521
 
-2508:                                             ; preds = %2499
-  %2509 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull @.str.79, i64 noundef 9) #26
-  %.phi.trans.insert54.i301 = getelementptr inbounds nuw i8, ptr %2509, i64 32
+2519:                                             ; preds = %2510
+  %2520 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull @.str.79, i64 noundef 9) #26
+  %.phi.trans.insert54.i301 = getelementptr inbounds nuw i8, ptr %2520, i64 32
   %.pre55.i302 = load ptr, ptr %.phi.trans.insert54.i301, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit24.i
 
-2510:                                             ; preds = %2499
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %2503, ptr noundef nonnull align 1 dereferenceable(9) @.str.79, i64 9, i1 false)
-  %2511 = load ptr, ptr %2502, align 8, !tbaa !65
-  %2512 = getelementptr inbounds nuw i8, ptr %2511, i64 9
-  store ptr %2512, ptr %2502, align 8, !tbaa !65
+2521:                                             ; preds = %2510
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %2514, ptr noundef nonnull align 1 dereferenceable(9) @.str.79, i64 9, i1 false)
+  %2522 = load ptr, ptr %2513, align 8, !tbaa !65
+  %2523 = getelementptr inbounds nuw i8, ptr %2522, i64 9
+  store ptr %2523, ptr %2513, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit24.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit24.i:             ; preds = %2510, %2508
-  %2513 = phi ptr [ %.pre55.i302, %2508 ], [ %2512, %2510 ]
-  %.0.i.i23.i = phi ptr [ %2509, %2508 ], [ %13, %2510 ]
-  %2514 = getelementptr inbounds nuw i8, ptr %.0.i.i23.i, i64 24
-  %2515 = load ptr, ptr %2514, align 8, !tbaa !61
-  %2516 = getelementptr inbounds nuw i8, ptr %.0.i.i23.i, i64 32
-  %2517 = ptrtoint ptr %2515 to i64
-  %2518 = ptrtoint ptr %2513 to i64
-  %2519 = sub i64 %2517, %2518
-  %2520 = icmp ugt i64 %.sroa.3.1.i, %2519
-  br i1 %2520, label %2521, label %2523
+_ZN4llvm11raw_ostreamlsEPKc.exit24.i:             ; preds = %2521, %2519
+  %2524 = phi ptr [ %.pre55.i302, %2519 ], [ %2523, %2521 ]
+  %.0.i.i23.i = phi ptr [ %2520, %2519 ], [ %13, %2521 ]
+  %2525 = getelementptr inbounds nuw i8, ptr %.0.i.i23.i, i64 24
+  %2526 = load ptr, ptr %2525, align 8, !tbaa !61
+  %2527 = getelementptr inbounds nuw i8, ptr %.0.i.i23.i, i64 32
+  %2528 = ptrtoint ptr %2526 to i64
+  %2529 = ptrtoint ptr %2524 to i64
+  %2530 = sub i64 %2528, %2529
+  %2531 = icmp ugt i64 %.sroa.3.1.i, %2530
+  br i1 %2531, label %2532, label %2534
 
-2521:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit24.i
-  %2522 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i23.i, ptr noundef %.sroa.0.1.i, i64 noundef %.sroa.3.1.i) #26
-  %.phi.trans.insert56.i299 = getelementptr inbounds nuw i8, ptr %2522, i64 32
+2532:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit24.i
+  %2533 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i23.i, ptr noundef %.sroa.0.1.i, i64 noundef %.sroa.3.1.i) #26
+  %.phi.trans.insert56.i299 = getelementptr inbounds nuw i8, ptr %2533, i64 32
   %.pre57.i300 = load ptr, ptr %.phi.trans.insert56.i299, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit27.i
 
-2523:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit24.i
+2534:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit24.i
   %.not.i25.i = icmp eq i64 %.sroa.3.1.i, 0
-  br i1 %.not.i25.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit27.i, label %2524
+  br i1 %.not.i25.i, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit27.i, label %2535
 
-2524:                                             ; preds = %2523
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2513, ptr align 1 %.sroa.0.1.i, i64 %.sroa.3.1.i, i1 false)
-  %2525 = load ptr, ptr %2516, align 8, !tbaa !65
-  %2526 = getelementptr inbounds nuw i8, ptr %2525, i64 %.sroa.3.1.i
-  store ptr %2526, ptr %2516, align 8, !tbaa !65
+2535:                                             ; preds = %2534
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2524, ptr align 1 %.sroa.0.1.i, i64 %.sroa.3.1.i, i1 false)
+  %2536 = load ptr, ptr %2527, align 8, !tbaa !65
+  %2537 = getelementptr inbounds nuw i8, ptr %2536, i64 %.sroa.3.1.i
+  store ptr %2537, ptr %2527, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit27.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit27.i:  ; preds = %2524, %2523, %2521
-  %2527 = phi ptr [ %.pre57.i300, %2521 ], [ %2526, %2524 ], [ %2513, %2523 ]
-  %.0.i26.i = phi ptr [ %2522, %2521 ], [ %.0.i.i23.i, %2524 ], [ %.0.i.i23.i, %2523 ]
-  %2528 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 24
-  %2529 = load ptr, ptr %2528, align 8, !tbaa !61
-  %2530 = ptrtoint ptr %2529 to i64
-  %2531 = ptrtoint ptr %2527 to i64
-  %2532 = sub i64 %2530, %2531
-  %2533 = icmp ult i64 %2532, 3
-  br i1 %2533, label %2534, label %2536
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit27.i:  ; preds = %2535, %2534, %2532
+  %2538 = phi ptr [ %.pre57.i300, %2532 ], [ %2537, %2535 ], [ %2524, %2534 ]
+  %.0.i26.i = phi ptr [ %2533, %2532 ], [ %.0.i.i23.i, %2535 ], [ %.0.i.i23.i, %2534 ]
+  %2539 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 24
+  %2540 = load ptr, ptr %2539, align 8, !tbaa !61
+  %2541 = ptrtoint ptr %2540 to i64
+  %2542 = ptrtoint ptr %2538 to i64
+  %2543 = sub i64 %2541, %2542
+  %2544 = icmp ult i64 %2543, 3
+  br i1 %2544, label %2545, label %2547
 
-2534:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit27.i
-  %2535 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i26.i, ptr noundef nonnull @.str.80, i64 noundef 3) #26
+2545:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit27.i
+  %2546 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i26.i, ptr noundef nonnull @.str.80, i64 noundef 3) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30.i
 
-2536:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit27.i
-  %2537 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2527, ptr noundef nonnull align 1 dereferenceable(3) @.str.80, i64 3, i1 false)
-  %2538 = load ptr, ptr %2537, align 8, !tbaa !65
-  %2539 = getelementptr inbounds nuw i8, ptr %2538, i64 3
-  store ptr %2539, ptr %2537, align 8, !tbaa !65
+2547:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit27.i
+  %2548 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2538, ptr noundef nonnull align 1 dereferenceable(3) @.str.80, i64 3, i1 false)
+  %2549 = load ptr, ptr %2548, align 8, !tbaa !65
+  %2550 = getelementptr inbounds nuw i8, ptr %2549, i64 3
+  store ptr %2550, ptr %2548, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit30.i:             ; preds = %2536, %2534
+_ZN4llvm11raw_ostreamlsEPKc.exit30.i:             ; preds = %2547, %2545
   %.sroa.048.0.i = select i1 %.not.i.i228, ptr @.str.62, ptr %.sroa.010.0.copyload
   %.sroa.5.0.i = select i1 %.not.i.i228, i64 7, i64 %.sroa.211.0.copyload
-  %2540 = load ptr, ptr %2500, align 8, !tbaa !61
-  %2541 = load ptr, ptr %2502, align 8, !tbaa !65
-  %2542 = ptrtoint ptr %2540 to i64
-  %2543 = ptrtoint ptr %2541 to i64
-  %2544 = sub i64 %2542, %2543
-  %2545 = icmp ult i64 %2544, 8
-  br i1 %2545, label %2546, label %2548
+  %2551 = load ptr, ptr %2511, align 8, !tbaa !61
+  %2552 = load ptr, ptr %2513, align 8, !tbaa !65
+  %2553 = ptrtoint ptr %2551 to i64
+  %2554 = ptrtoint ptr %2552 to i64
+  %2555 = sub i64 %2553, %2554
+  %2556 = icmp ult i64 %2555, 8
+  br i1 %2556, label %2557, label %2559
 
-2546:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit30.i
-  %2547 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull @.str.81, i64 noundef 8) #26
-  %.phi.trans.insert58.i = getelementptr inbounds nuw i8, ptr %2547, i64 32
+2557:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit30.i
+  %2558 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull @.str.81, i64 noundef 8) #26
+  %.phi.trans.insert58.i = getelementptr inbounds nuw i8, ptr %2558, i64 32
   %.pre59.i298 = load ptr, ptr %.phi.trans.insert58.i, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit34.i
 
-2548:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit30.i
-  store i64 2466321625191116834, ptr %2541, align 1
-  %2549 = load ptr, ptr %2502, align 8, !tbaa !65
-  %2550 = getelementptr inbounds nuw i8, ptr %2549, i64 8
-  store ptr %2550, ptr %2502, align 8, !tbaa !65
+2559:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit30.i
+  store i64 2466321625191116834, ptr %2552, align 1
+  %2560 = load ptr, ptr %2513, align 8, !tbaa !65
+  %2561 = getelementptr inbounds nuw i8, ptr %2560, i64 8
+  store ptr %2561, ptr %2513, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit34.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit34.i:             ; preds = %2548, %2546
-  %2551 = phi ptr [ %.pre59.i298, %2546 ], [ %2550, %2548 ]
-  %.0.i.i33.i = phi ptr [ %2547, %2546 ], [ %13, %2548 ]
-  %2552 = getelementptr inbounds nuw i8, ptr %.0.i.i33.i, i64 24
-  %2553 = load ptr, ptr %2552, align 8, !tbaa !61
-  %2554 = ptrtoint ptr %2553 to i64
-  %2555 = ptrtoint ptr %2551 to i64
-  %2556 = sub i64 %2554, %2555
-  %2557 = icmp ugt i64 %.sroa.5.0.i, %2556
-  br i1 %2557, label %2558, label %2560
+_ZN4llvm11raw_ostreamlsEPKc.exit34.i:             ; preds = %2559, %2557
+  %2562 = phi ptr [ %.pre59.i298, %2557 ], [ %2561, %2559 ]
+  %.0.i.i33.i = phi ptr [ %2558, %2557 ], [ %13, %2559 ]
+  %2563 = getelementptr inbounds nuw i8, ptr %.0.i.i33.i, i64 24
+  %2564 = load ptr, ptr %2563, align 8, !tbaa !61
+  %2565 = ptrtoint ptr %2564 to i64
+  %2566 = ptrtoint ptr %2562 to i64
+  %2567 = sub i64 %2565, %2566
+  %2568 = icmp ugt i64 %.sroa.5.0.i, %2567
+  br i1 %2568, label %2569, label %2571
 
-2558:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit34.i
-  %2559 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i33.i, ptr noundef %.sroa.048.0.i, i64 noundef %.sroa.5.0.i) #26
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2559, i64 32
+2569:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit34.i
+  %2570 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i33.i, ptr noundef %.sroa.048.0.i, i64 noundef %.sroa.5.0.i) #26
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2570, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit37.i
 
-2560:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit34.i
-  %2561 = getelementptr inbounds nuw i8, ptr %.0.i.i33.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2551, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.048.0.i, i64 %.sroa.5.0.i, i1 false)
-  %2562 = load ptr, ptr %2561, align 8, !tbaa !65
-  %2563 = getelementptr inbounds nuw i8, ptr %2562, i64 %.sroa.5.0.i
-  store ptr %2563, ptr %2561, align 8, !tbaa !65
+2571:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit34.i
+  %2572 = getelementptr inbounds nuw i8, ptr %.0.i.i33.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2562, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.048.0.i, i64 %.sroa.5.0.i, i1 false)
+  %2573 = load ptr, ptr %2572, align 8, !tbaa !65
+  %2574 = getelementptr inbounds nuw i8, ptr %2573, i64 %.sroa.5.0.i
+  store ptr %2574, ptr %2572, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit37.i
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit37.i:  ; preds = %2560, %2558
-  %2564 = phi ptr [ %.pre, %2558 ], [ %2563, %2560 ]
-  %.0.i36.i = phi ptr [ %2559, %2558 ], [ %.0.i.i33.i, %2560 ]
-  %2565 = getelementptr inbounds nuw i8, ptr %.0.i36.i, i64 24
-  %2566 = load ptr, ptr %2565, align 8, !tbaa !61
-  %2567 = ptrtoint ptr %2566 to i64
-  %2568 = ptrtoint ptr %2564 to i64
-  %2569 = sub i64 %2567, %2568
-  %2570 = icmp ult i64 %2569, 3
-  br i1 %2570, label %2571, label %2573
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit37.i:  ; preds = %2571, %2569
+  %2575 = phi ptr [ %.pre, %2569 ], [ %2574, %2571 ]
+  %.0.i36.i = phi ptr [ %2570, %2569 ], [ %.0.i.i33.i, %2571 ]
+  %2576 = getelementptr inbounds nuw i8, ptr %.0.i36.i, i64 24
+  %2577 = load ptr, ptr %2576, align 8, !tbaa !61
+  %2578 = ptrtoint ptr %2577 to i64
+  %2579 = ptrtoint ptr %2575 to i64
+  %2580 = sub i64 %2578, %2579
+  %2581 = icmp ult i64 %2580, 3
+  br i1 %2581, label %2582, label %2584
 
-2571:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit37.i
-  %2572 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i36.i, ptr noundef nonnull @.str.80, i64 noundef 3) #26
+2582:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit37.i
+  %2583 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i36.i, ptr noundef nonnull @.str.80, i64 noundef 3) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit40.i
 
-2573:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit37.i
-  %2574 = getelementptr inbounds nuw i8, ptr %.0.i36.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2564, ptr noundef nonnull align 1 dereferenceable(3) @.str.80, i64 3, i1 false)
-  %2575 = load ptr, ptr %2574, align 8, !tbaa !65
-  %2576 = getelementptr inbounds nuw i8, ptr %2575, i64 3
-  store ptr %2576, ptr %2574, align 8, !tbaa !65
+2584:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit37.i
+  %2585 = getelementptr inbounds nuw i8, ptr %.0.i36.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2575, ptr noundef nonnull align 1 dereferenceable(3) @.str.80, i64 3, i1 false)
+  %2586 = load ptr, ptr %2585, align 8, !tbaa !65
+  %2587 = getelementptr inbounds nuw i8, ptr %2586, i64 3
+  store ptr %2587, ptr %2585, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit40.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit40.i:             ; preds = %2573, %2571
+_ZN4llvm11raw_ostreamlsEPKc.exit40.i:             ; preds = %2584, %2582
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i16 8, ptr %17, align 8, !tbaa !397
-  %2577 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %2578 = load ptr, ptr %64, align 8, !tbaa !511
-  store ptr %2578, ptr %2577, align 8, !tbaa !511
-  %2579 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %2580 = load ptr, ptr %2422, align 8, !tbaa !401
-  store ptr %2580, ptr %2579, align 8, !tbaa !401
-  %2581 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %2582 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %2583 = load ptr, ptr %2582, align 8, !tbaa !404
-  store ptr %2583, ptr %2581, align 8, !tbaa !404
+  %2588 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %2589 = load ptr, ptr %64, align 8, !tbaa !511
+  store ptr %2589, ptr %2588, align 8, !tbaa !511
+  %2590 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %2591 = load ptr, ptr %2433, align 8, !tbaa !401
+  store ptr %2591, ptr %2590, align 8, !tbaa !401
+  %2592 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %2593 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %2594 = load ptr, ptr %2593, align 8, !tbaa !404
+  store ptr %2594, ptr %2592, align 8, !tbaa !404
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   call void @_ZN4llvm4json5ValueC1ESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr nonnull %17, i64 1) #26
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %17) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %2584 = load ptr, ptr %2500, align 8, !tbaa !61
-  %2585 = load ptr, ptr %2502, align 8, !tbaa !65
-  %2586 = ptrtoint ptr %2584 to i64
-  %2587 = ptrtoint ptr %2585 to i64
-  %2588 = sub i64 %2586, %2587
-  %2589 = icmp ult i64 %2588, 8
-  br i1 %2589, label %2590, label %2592
+  %2595 = load ptr, ptr %2511, align 8, !tbaa !61
+  %2596 = load ptr, ptr %2513, align 8, !tbaa !65
+  %2597 = ptrtoint ptr %2595 to i64
+  %2598 = ptrtoint ptr %2596 to i64
+  %2599 = sub i64 %2597, %2598
+  %2600 = icmp ult i64 %2599, 8
+  br i1 %2600, label %2601, label %2603
 
-2590:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit40.i
-  %2591 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull @.str.82, i64 noundef 8) #26
+2601:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit40.i
+  %2602 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull @.str.82, i64 noundef 8) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit43.i
 
-2592:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit40.i
-  store i64 2322206436915241506, ptr %2585, align 1
-  %2593 = load ptr, ptr %2502, align 8, !tbaa !65
-  %2594 = getelementptr inbounds nuw i8, ptr %2593, i64 8
-  store ptr %2594, ptr %2502, align 8, !tbaa !65
+2603:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit40.i
+  store i64 2322206436915241506, ptr %2596, align 1
+  %2604 = load ptr, ptr %2513, align 8, !tbaa !65
+  %2605 = getelementptr inbounds nuw i8, ptr %2604, i64 8
+  store ptr %2605, ptr %2513, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit43.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit43.i:             ; preds = %2592, %2590
-  %.0.i.i42.i = phi ptr [ %2591, %2590 ], [ %13, %2592 ]
+_ZN4llvm11raw_ostreamlsEPKc.exit43.i:             ; preds = %2603, %2601
+  %.0.i.i42.i = phi ptr [ %2602, %2601 ], [ %13, %2603 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %2595 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %2595, ptr %11, align 8, !tbaa !25
-  %2596 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %2597 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 16, ptr %2597, align 4, !tbaa !27
-  %2598 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2598, i8 0, i64 16, i1 false)
-  %2599 = getelementptr inbounds nuw i8, ptr %11, i64 160
-  store ptr %.0.i.i42.i, ptr %2599, align 8, !tbaa !512
-  %2600 = getelementptr inbounds nuw i8, ptr %11, i64 168
-  store i32 0, ptr %2600, align 8, !tbaa !514
-  %2601 = getelementptr inbounds nuw i8, ptr %11, i64 172
-  store i32 0, ptr %2601, align 4, !tbaa !521
-  store i64 0, ptr %2595, align 8
-  store i32 1, ptr %2596, align 8, !tbaa !26
+  %2606 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %2606, ptr %11, align 8, !tbaa !25
+  %2607 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %2608 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i32 16, ptr %2608, align 4, !tbaa !27
+  %2609 = getelementptr inbounds nuw i8, ptr %11, i64 144
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2609, i8 0, i64 16, i1 false)
+  %2610 = getelementptr inbounds nuw i8, ptr %11, i64 160
+  store ptr %.0.i.i42.i, ptr %2610, align 8, !tbaa !512
+  %2611 = getelementptr inbounds nuw i8, ptr %11, i64 168
+  store i32 0, ptr %2611, align 8, !tbaa !514
+  %2612 = getelementptr inbounds nuw i8, ptr %11, i64 172
+  store i32 0, ptr %2612, align 4, !tbaa !521
+  store i64 0, ptr %2606, align 8
+  store i32 1, ptr %2607, align 8, !tbaa !26
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %11, ptr noundef nonnull align 8 dereferenceable(40) %16) #26
-  %2602 = load ptr, ptr %11, align 8, !tbaa !25
-  %2603 = icmp eq ptr %2602, %2595
-  br i1 %2603, label %_ZN4llvm4jsonlsERNS_11raw_ostreamERKNS0_5ValueE.exit.i, label %2604
+  %2613 = load ptr, ptr %11, align 8, !tbaa !25
+  %2614 = icmp eq ptr %2613, %2606
+  br i1 %2614, label %_ZN4llvm4jsonlsERNS_11raw_ostreamERKNS0_5ValueE.exit.i, label %2615
 
-2604:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit43.i
-  call void @free(ptr noundef %2602) #26
+2615:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit43.i
+  call void @free(ptr noundef %2613) #26
   br label %_ZN4llvm4jsonlsERNS_11raw_ostreamERKNS0_5ValueE.exit.i
 
-_ZN4llvm4jsonlsERNS_11raw_ostreamERKNS0_5ValueE.exit.i: ; preds = %2604, %_ZN4llvm11raw_ostreamlsEPKc.exit43.i
+_ZN4llvm4jsonlsERNS_11raw_ostreamERKNS0_5ValueE.exit.i: ; preds = %2615, %_ZN4llvm11raw_ostreamlsEPKc.exit43.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %2605 = load ptr, ptr %2500, align 8, !tbaa !61
-  %2606 = load ptr, ptr %2502, align 8, !tbaa !65
-  %2607 = ptrtoint ptr %2605 to i64
-  %2608 = ptrtoint ptr %2606 to i64
-  %2609 = sub i64 %2607, %2608
-  %2610 = icmp ult i64 %2609, 2
-  br i1 %2610, label %2611, label %2613
+  %2616 = load ptr, ptr %2511, align 8, !tbaa !61
+  %2617 = load ptr, ptr %2513, align 8, !tbaa !65
+  %2618 = ptrtoint ptr %2616 to i64
+  %2619 = ptrtoint ptr %2617 to i64
+  %2620 = sub i64 %2618, %2619
+  %2621 = icmp ult i64 %2620, 2
+  br i1 %2621, label %2622, label %2624
 
-2611:                                             ; preds = %_ZN4llvm4jsonlsERNS_11raw_ostreamERKNS0_5ValueE.exit.i
-  %2612 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull @.str.83, i64 noundef 2) #26
+2622:                                             ; preds = %_ZN4llvm4jsonlsERNS_11raw_ostreamERKNS0_5ValueE.exit.i
+  %2623 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull @.str.83, i64 noundef 2) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit46.i
 
-2613:                                             ; preds = %_ZN4llvm4jsonlsERNS_11raw_ostreamERKNS0_5ValueE.exit.i
-  store i16 2685, ptr %2606, align 1
-  %2614 = load ptr, ptr %2502, align 8, !tbaa !65
-  %2615 = getelementptr inbounds nuw i8, ptr %2614, i64 2
-  store ptr %2615, ptr %2502, align 8, !tbaa !65
+2624:                                             ; preds = %_ZN4llvm4jsonlsERNS_11raw_ostreamERKNS0_5ValueE.exit.i
+  store i16 2685, ptr %2617, align 1
+  %2625 = load ptr, ptr %2513, align 8, !tbaa !65
+  %2626 = getelementptr inbounds nuw i8, ptr %2625, i64 2
+  store ptr %2626, ptr %2513, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit46.i
 
-_ZN4llvm11raw_ostreamlsEPKc.exit46.i:             ; preds = %2613, %2611
+_ZN4llvm11raw_ostreamlsEPKc.exit46.i:             ; preds = %2624, %2622
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %16) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.pre60.i297 = load i8, ptr %2496, align 8
-  br label %2616
+  %.pre60.i297 = load i8, ptr %2507, align 8
+  br label %2627
 
-2616:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit46.i, %2495
-  %2617 = phi i8 [ %.pre60.i297, %_ZN4llvm11raw_ostreamlsEPKc.exit46.i ], [ %2497, %2495 ]
-  %2618 = trunc i8 %2617 to i1
-  br i1 %2618, label %2623, label %2619
+2627:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit46.i, %2506
+  %2628 = phi i8 [ %.pre60.i297, %_ZN4llvm11raw_ostreamlsEPKc.exit46.i ], [ %2508, %2506 ]
+  %2629 = trunc i8 %2628 to i1
+  br i1 %2629, label %2634, label %2630
 
-2619:                                             ; preds = %2616
-  %2620 = load i32, ptr %15, align 8, !tbaa !522
-  %.not.i.i47.i = icmp eq i32 %2620, -1
-  br i1 %.not.i.i47.i, label %_ZN4llvm8ExpectedINS_3sys2fs10FileLockerEED2Ev.exit.i, label %2621
+2630:                                             ; preds = %2627
+  %2631 = load i32, ptr %15, align 8, !tbaa !522
+  %.not.i.i47.i = icmp eq i32 %2631, -1
+  br i1 %.not.i.i47.i, label %_ZN4llvm8ExpectedINS_3sys2fs10FileLockerEED2Ev.exit.i, label %2632
 
-2621:                                             ; preds = %2619
-  %2622 = call { i32, ptr } @_ZN4llvm3sys2fs10unlockFileEi(i32 noundef %2620) #26
+2632:                                             ; preds = %2630
+  %2633 = call { i32, ptr } @_ZN4llvm3sys2fs10unlockFileEi(i32 noundef %2631) #26
   br label %_ZN4llvm8ExpectedINS_3sys2fs10FileLockerEED2Ev.exit.i
 
-2623:                                             ; preds = %2616
-  %2624 = load ptr, ptr %15, align 8, !tbaa !524
-  %.not.i1.i.i = icmp eq ptr %2624, null
+2634:                                             ; preds = %2627
+  %2635 = load ptr, ptr %15, align 8, !tbaa !524
+  %.not.i1.i.i = icmp eq ptr %2635, null
   br i1 %.not.i1.i.i, label %_ZN4llvm8ExpectedINS_3sys2fs10FileLockerEED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %2623
-  %2625 = load ptr, ptr %2624, align 8, !tbaa !3
-  %2626 = getelementptr inbounds nuw i8, ptr %2625, i64 8
-  %2627 = load ptr, ptr %2626, align 8
-  call void %2627(ptr noundef nonnull align 8 dereferenceable(8) %2624) #26
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %2634
+  %2636 = load ptr, ptr %2635, align 8, !tbaa !3
+  %2637 = getelementptr inbounds nuw i8, ptr %2636, i64 8
+  %2638 = load ptr, ptr %2637, align 8
+  call void %2638(ptr noundef nonnull align 8 dereferenceable(8) %2635) #26
   br label %_ZN4llvm8ExpectedINS_3sys2fs10FileLockerEED2Ev.exit.i
 
-_ZN4llvm8ExpectedINS_3sys2fs10FileLockerEED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i, %2623, %2621, %2619
+_ZN4llvm8ExpectedINS_3sys2fs10FileLockerEED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i, %2634, %2632, %2630
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN4llvm14raw_fd_ostream5closeEv(ptr noundef nonnull align 8 dereferenceable(96) %13) #26
   br label %_ZL9writeJSONN4llvm9StringRefES0_S0_RNS_4json5ArrayE.exit
@@ -9089,196 +9104,196 @@ _ZL9writeJSONN4llvm9StringRefES0_S0_RNS_4json5ArrayE.exit: ; preds = %_ZNSt7__cx
   call void @_ZN4llvm14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %2628
+  br label %2639
 
-2628:                                             ; preds = %_ZL9writeJSONN4llvm9StringRefES0_S0_RNS_4json5ArrayE.exit, %2420, %_ZL9checkVarsRKN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEESH_NS_9StringRefESI_bRNS_4json5ArrayE.exit
-  %2629 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_15QuietE, i64 120), align 8, !tbaa !34, !range !46, !noundef !47
-  %2630 = trunc nuw i8 %2629 to i1
-  br i1 %spec.select, label %2631, label %2664
+2639:                                             ; preds = %_ZL9writeJSONN4llvm9StringRefES0_S0_RNS_4json5ArrayE.exit, %2431, %_ZL9checkVarsRKN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEESH_NS_9StringRefESI_bRNS_4json5ArrayE.exit
+  %2640 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_15QuietE, i64 120), align 8, !tbaa !34, !range !46, !noundef !47
+  %2641 = trunc nuw i8 %2640 to i1
+  br i1 %spec.select, label %2642, label %2675
 
-2631:                                             ; preds = %2628
-  br i1 %2630, label %2632, label %2634
+2642:                                             ; preds = %2639
+  br i1 %2641, label %2643, label %2645
 
-2632:                                             ; preds = %2631
-  %2633 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
+2643:                                             ; preds = %2642
+  %2644 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
   br label %_ZN12_GLOBAL__N_13dbgEv.exit303
 
-2634:                                             ; preds = %2631
-  %2635 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
+2645:                                             ; preds = %2642
+  %2646 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
   br label %_ZN12_GLOBAL__N_13dbgEv.exit303
 
-_ZN12_GLOBAL__N_13dbgEv.exit303:                  ; preds = %2632, %2634
-  %2636 = phi ptr [ %2633, %2632 ], [ %2635, %2634 ]
-  %2637 = getelementptr inbounds nuw i8, ptr %2636, i64 24
-  %2638 = load ptr, ptr %2637, align 8, !tbaa !61
-  %2639 = getelementptr inbounds nuw i8, ptr %2636, i64 32
-  %2640 = load ptr, ptr %2639, align 8, !tbaa !65
-  %2641 = ptrtoint ptr %2638 to i64
-  %2642 = ptrtoint ptr %2640 to i64
-  %2643 = sub i64 %2641, %2642
-  %2644 = icmp ugt i64 %spec.select593, %2643
-  br i1 %2644, label %2645, label %2647
+_ZN12_GLOBAL__N_13dbgEv.exit303:                  ; preds = %2643, %2645
+  %2647 = phi ptr [ %2644, %2643 ], [ %2646, %2645 ]
+  %2648 = getelementptr inbounds nuw i8, ptr %2647, i64 24
+  %2649 = load ptr, ptr %2648, align 8, !tbaa !61
+  %2650 = getelementptr inbounds nuw i8, ptr %2647, i64 32
+  %2651 = load ptr, ptr %2650, align 8, !tbaa !65
+  %2652 = ptrtoint ptr %2649 to i64
+  %2653 = ptrtoint ptr %2651 to i64
+  %2654 = sub i64 %2652, %2653
+  %2655 = icmp ugt i64 %spec.select593, %2654
+  br i1 %2655, label %2656, label %2658
 
-2645:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit303
-  %2646 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2636, ptr noundef %spec.select592, i64 noundef %spec.select593) #26
-  %.phi.trans.insert699 = getelementptr inbounds nuw i8, ptr %2646, i64 32
+2656:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit303
+  %2657 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2647, ptr noundef %spec.select592, i64 noundef %spec.select593) #26
+  %.phi.trans.insert699 = getelementptr inbounds nuw i8, ptr %2657, i64 32
   %.pre700 = load ptr, ptr %.phi.trans.insert699, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit306
 
-2647:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit303
+2658:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit303
   %.not.i304 = icmp eq i64 %spec.select593, 0
-  br i1 %.not.i304, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit306, label %2648
+  br i1 %.not.i304, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit306, label %2659
 
-2648:                                             ; preds = %2647
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2640, ptr align 1 %spec.select592, i64 %spec.select593, i1 false)
-  %2649 = load ptr, ptr %2639, align 8, !tbaa !65
-  %2650 = getelementptr inbounds nuw i8, ptr %2649, i64 %spec.select593
-  store ptr %2650, ptr %2639, align 8, !tbaa !65
+2659:                                             ; preds = %2658
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2651, ptr align 1 %spec.select592, i64 %spec.select593, i1 false)
+  %2660 = load ptr, ptr %2650, align 8, !tbaa !65
+  %2661 = getelementptr inbounds nuw i8, ptr %2660, i64 %spec.select593
+  store ptr %2661, ptr %2650, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit306
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit306:   ; preds = %2645, %2647, %2648
-  %2651 = phi ptr [ %.pre700, %2645 ], [ %2650, %2648 ], [ %2640, %2647 ]
-  %.0.i305 = phi ptr [ %2646, %2645 ], [ %2636, %2648 ], [ %2636, %2647 ]
-  %2652 = getelementptr inbounds nuw i8, ptr %.0.i305, i64 24
-  %2653 = load ptr, ptr %2652, align 8, !tbaa !61
-  %2654 = ptrtoint ptr %2653 to i64
-  %2655 = ptrtoint ptr %2651 to i64
-  %2656 = sub i64 %2654, %2655
-  %2657 = icmp ult i64 %2656, 7
-  br i1 %2657, label %2658, label %2660
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit306:   ; preds = %2656, %2658, %2659
+  %2662 = phi ptr [ %.pre700, %2656 ], [ %2661, %2659 ], [ %2651, %2658 ]
+  %.0.i305 = phi ptr [ %2657, %2656 ], [ %2647, %2659 ], [ %2647, %2658 ]
+  %2663 = getelementptr inbounds nuw i8, ptr %.0.i305, i64 24
+  %2664 = load ptr, ptr %2663, align 8, !tbaa !61
+  %2665 = ptrtoint ptr %2664 to i64
+  %2666 = ptrtoint ptr %2662 to i64
+  %2667 = sub i64 %2665, %2666
+  %2668 = icmp ult i64 %2667, 7
+  br i1 %2668, label %2669, label %2671
 
-2658:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit306
-  %2659 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i305, ptr noundef nonnull @.str.22, i64 noundef 7) #26
+2669:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit306
+  %2670 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i305, ptr noundef nonnull @.str.22, i64 noundef 7) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit310
 
-2660:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit306
-  %2661 = getelementptr inbounds nuw i8, ptr %.0.i305, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %2651, ptr noundef nonnull align 1 dereferenceable(7) @.str.22, i64 7, i1 false)
-  %2662 = load ptr, ptr %2661, align 8, !tbaa !65
-  %2663 = getelementptr inbounds nuw i8, ptr %2662, i64 7
-  store ptr %2663, ptr %2661, align 8, !tbaa !65
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit310
-
-2664:                                             ; preds = %2628
-  br i1 %2630, label %2665, label %2667
-
-2665:                                             ; preds = %2664
-  %2666 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
-  br label %_ZN12_GLOBAL__N_13dbgEv.exit311
-
-2667:                                             ; preds = %2664
-  %2668 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
-  br label %_ZN12_GLOBAL__N_13dbgEv.exit311
-
-_ZN12_GLOBAL__N_13dbgEv.exit311:                  ; preds = %2665, %2667
-  %2669 = phi ptr [ %2666, %2665 ], [ %2668, %2667 ]
-  %2670 = getelementptr inbounds nuw i8, ptr %2669, i64 24
-  %2671 = load ptr, ptr %2670, align 8, !tbaa !61
-  %2672 = getelementptr inbounds nuw i8, ptr %2669, i64 32
+2671:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit306
+  %2672 = getelementptr inbounds nuw i8, ptr %.0.i305, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %2662, ptr noundef nonnull align 1 dereferenceable(7) @.str.22, i64 7, i1 false)
   %2673 = load ptr, ptr %2672, align 8, !tbaa !65
-  %2674 = ptrtoint ptr %2671 to i64
-  %2675 = ptrtoint ptr %2673 to i64
-  %2676 = sub i64 %2674, %2675
-  %2677 = icmp ugt i64 %spec.select593, %2676
-  br i1 %2677, label %2678, label %2680
+  %2674 = getelementptr inbounds nuw i8, ptr %2673, i64 7
+  store ptr %2674, ptr %2672, align 8, !tbaa !65
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit310
 
-2678:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit311
-  %2679 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2669, ptr noundef %spec.select592, i64 noundef %spec.select593) #26
-  %.phi.trans.insert697 = getelementptr inbounds nuw i8, ptr %2679, i64 32
+2675:                                             ; preds = %2639
+  br i1 %2641, label %2676, label %2678
+
+2676:                                             ; preds = %2675
+  %2677 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nullsEv() #26
+  br label %_ZN12_GLOBAL__N_13dbgEv.exit311
+
+2678:                                             ; preds = %2675
+  %2679 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
+  br label %_ZN12_GLOBAL__N_13dbgEv.exit311
+
+_ZN12_GLOBAL__N_13dbgEv.exit311:                  ; preds = %2676, %2678
+  %2680 = phi ptr [ %2677, %2676 ], [ %2679, %2678 ]
+  %2681 = getelementptr inbounds nuw i8, ptr %2680, i64 24
+  %2682 = load ptr, ptr %2681, align 8, !tbaa !61
+  %2683 = getelementptr inbounds nuw i8, ptr %2680, i64 32
+  %2684 = load ptr, ptr %2683, align 8, !tbaa !65
+  %2685 = ptrtoint ptr %2682 to i64
+  %2686 = ptrtoint ptr %2684 to i64
+  %2687 = sub i64 %2685, %2686
+  %2688 = icmp ugt i64 %spec.select593, %2687
+  br i1 %2688, label %2689, label %2691
+
+2689:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit311
+  %2690 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %2680, ptr noundef %spec.select592, i64 noundef %spec.select593) #26
+  %.phi.trans.insert697 = getelementptr inbounds nuw i8, ptr %2690, i64 32
   %.pre698 = load ptr, ptr %.phi.trans.insert697, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit314
 
-2680:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit311
+2691:                                             ; preds = %_ZN12_GLOBAL__N_13dbgEv.exit311
   %.not.i312 = icmp eq i64 %spec.select593, 0
-  br i1 %.not.i312, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit314, label %2681
+  br i1 %.not.i312, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit314, label %2692
 
-2681:                                             ; preds = %2680
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2673, ptr align 1 %spec.select592, i64 %spec.select593, i1 false)
-  %2682 = load ptr, ptr %2672, align 8, !tbaa !65
-  %2683 = getelementptr inbounds nuw i8, ptr %2682, i64 %spec.select593
-  store ptr %2683, ptr %2672, align 8, !tbaa !65
+2692:                                             ; preds = %2691
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2684, ptr align 1 %spec.select592, i64 %spec.select593, i1 false)
+  %2693 = load ptr, ptr %2683, align 8, !tbaa !65
+  %2694 = getelementptr inbounds nuw i8, ptr %2693, i64 %spec.select593
+  store ptr %2694, ptr %2683, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit314
 
-_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit314:   ; preds = %2678, %2680, %2681
-  %2684 = phi ptr [ %.pre698, %2678 ], [ %2683, %2681 ], [ %2673, %2680 ]
-  %.0.i313 = phi ptr [ %2679, %2678 ], [ %2669, %2681 ], [ %2669, %2680 ]
-  %2685 = getelementptr inbounds nuw i8, ptr %.0.i313, i64 24
-  %2686 = load ptr, ptr %2685, align 8, !tbaa !61
-  %2687 = ptrtoint ptr %2686 to i64
-  %2688 = ptrtoint ptr %2684 to i64
-  %2689 = sub i64 %2687, %2688
-  %2690 = icmp ult i64 %2689, 7
-  br i1 %2690, label %2691, label %2693
+_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit314:   ; preds = %2689, %2691, %2692
+  %2695 = phi ptr [ %.pre698, %2689 ], [ %2694, %2692 ], [ %2684, %2691 ]
+  %.0.i313 = phi ptr [ %2690, %2689 ], [ %2680, %2692 ], [ %2680, %2691 ]
+  %2696 = getelementptr inbounds nuw i8, ptr %.0.i313, i64 24
+  %2697 = load ptr, ptr %2696, align 8, !tbaa !61
+  %2698 = ptrtoint ptr %2697 to i64
+  %2699 = ptrtoint ptr %2695 to i64
+  %2700 = sub i64 %2698, %2699
+  %2701 = icmp ult i64 %2700, 7
+  br i1 %2701, label %2702, label %2704
 
-2691:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit314
-  %2692 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i313, ptr noundef nonnull @.str.23, i64 noundef 7) #26
+2702:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit314
+  %2703 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i313, ptr noundef nonnull @.str.23, i64 noundef 7) #26
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit310
 
-2693:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit314
-  %2694 = getelementptr inbounds nuw i8, ptr %.0.i313, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %2684, ptr noundef nonnull align 1 dereferenceable(7) @.str.23, i64 7, i1 false)
-  %2695 = load ptr, ptr %2694, align 8, !tbaa !65
-  %2696 = getelementptr inbounds nuw i8, ptr %2695, i64 7
-  store ptr %2696, ptr %2694, align 8, !tbaa !65
+2704:                                             ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit314
+  %2705 = getelementptr inbounds nuw i8, ptr %.0.i313, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %2695, ptr noundef nonnull align 1 dereferenceable(7) @.str.23, i64 7, i1 false)
+  %2706 = load ptr, ptr %2705, align 8, !tbaa !65
+  %2707 = getelementptr inbounds nuw i8, ptr %2706, i64 7
+  store ptr %2707, ptr %2705, align 8, !tbaa !65
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit310
 
-_ZN4llvm11raw_ostreamlsEPKc.exit310:              ; preds = %2693, %2691, %2660, %2658
-  %2697 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEEaSERKSI_(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull align 8 dereferenceable(160) %55)
-  %2698 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEEaSERKSF_(ptr noundef nonnull align 8 dereferenceable(40) %219, ptr noundef nonnull align 8 dereferenceable(40) %103)
+_ZN4llvm11raw_ostreamlsEPKc.exit310:              ; preds = %2704, %2702, %2671, %2669
+  %2708 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEEaSERKSI_(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull align 8 dereferenceable(160) %55)
+  %2709 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEEaSERKSF_(ptr noundef nonnull align 8 dereferenceable(40) %219, ptr noundef nonnull align 8 dereferenceable(40) %103)
   %.not.i.i.i319 = icmp eq ptr %55, %3
-  br i1 %.not.i.i.i319, label %_ZN16DebugInfoPerPassaSERKS_.exit, label %2699
+  br i1 %.not.i.i.i319, label %_ZN16DebugInfoPerPassaSERKS_.exit, label %2710
 
-2699:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit310
-  %2700 = load ptr, ptr %277, align 8, !tbaa !360
-  %2701 = load i32, ptr %279, align 8, !tbaa !366
-  %2702 = zext i32 %2701 to i64
-  %2703 = shl nuw nsw i64 %2702, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2700, i64 noundef %2703, i64 noundef 8) #26
-  %2704 = getelementptr inbounds nuw i8, ptr %55, i64 96
-  %2705 = load i32, ptr %2704, align 8, !tbaa !366
-  store i32 %2705, ptr %279, align 8, !tbaa !366
-  %.not.i.i.i.i320 = icmp eq i32 %2705, 0
-  br i1 %.not.i.i.i.i320, label %2720, label %2706
+2710:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit310
+  %2711 = load ptr, ptr %277, align 8, !tbaa !360
+  %2712 = load i32, ptr %279, align 8, !tbaa !366
+  %2713 = zext i32 %2712 to i64
+  %2714 = shl nuw nsw i64 %2713, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2711, i64 noundef %2714, i64 noundef 8) #26
+  %2715 = getelementptr inbounds nuw i8, ptr %55, i64 96
+  %2716 = load i32, ptr %2715, align 8, !tbaa !366
+  store i32 %2716, ptr %279, align 8, !tbaa !366
+  %.not.i.i.i.i320 = icmp eq i32 %2716, 0
+  br i1 %.not.i.i.i.i320, label %2731, label %2717
 
-2706:                                             ; preds = %2699
-  %2707 = zext i32 %2705 to i64
-  %2708 = shl nuw nsw i64 %2707, 4
-  %2709 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %2708, i64 noundef 8) #26
-  store ptr %2709, ptr %277, align 8, !tbaa !360
-  %2710 = getelementptr inbounds nuw i8, ptr %55, i64 88
-  %2711 = load i32, ptr %2710, align 8, !tbaa !368
-  %2712 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store i32 %2711, ptr %2712, align 8, !tbaa !368
-  %2713 = getelementptr inbounds nuw i8, ptr %55, i64 92
-  %2714 = load i32, ptr %2713, align 4, !tbaa !369
-  %2715 = getelementptr inbounds nuw i8, ptr %3, i64 92
-  store i32 %2714, ptr %2715, align 4, !tbaa !369
-  %2716 = load ptr, ptr %106, align 8, !tbaa !360
-  %2717 = load i32, ptr %279, align 8, !tbaa !366
-  %2718 = zext i32 %2717 to i64
+2717:                                             ; preds = %2710
+  %2718 = zext i32 %2716 to i64
   %2719 = shl nuw nsw i64 %2718, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2709, ptr align 8 %2716, i64 %2719, i1 false)
+  %2720 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %2719, i64 noundef 8) #26
+  store ptr %2720, ptr %277, align 8, !tbaa !360
+  %2721 = getelementptr inbounds nuw i8, ptr %55, i64 88
+  %2722 = load i32, ptr %2721, align 8, !tbaa !368
+  %2723 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  store i32 %2722, ptr %2723, align 8, !tbaa !368
+  %2724 = getelementptr inbounds nuw i8, ptr %55, i64 92
+  %2725 = load i32, ptr %2724, align 4, !tbaa !369
+  %2726 = getelementptr inbounds nuw i8, ptr %3, i64 92
+  store i32 %2725, ptr %2726, align 4, !tbaa !369
+  %2727 = load ptr, ptr %106, align 8, !tbaa !360
+  %2728 = load i32, ptr %279, align 8, !tbaa !366
+  %2729 = zext i32 %2728 to i64
+  %2730 = shl nuw nsw i64 %2729, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2720, ptr align 8 %2727, i64 %2730, i1 false)
   br label %_ZN16DebugInfoPerPassaSERKS_.exit
 
-2720:                                             ; preds = %2699
+2731:                                             ; preds = %2710
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %277, i8 0, i64 16, i1 false)
   br label %_ZN16DebugInfoPerPassaSERKS_.exit
 
-_ZN16DebugInfoPerPassaSERKS_.exit:                ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit310, %2706, %2720
-  %2721 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %2722 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIPKNS_11InstructionENS_6WeakVHEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(16) %2721, ptr noundef nonnull align 8 dereferenceable(16) %108)
-  %2723 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEaSERKSF_(ptr noundef nonnull align 8 dereferenceable(40) %305, ptr noundef nonnull align 8 dereferenceable(40) %109)
-  %2724 = load ptr, ptr %64, align 8, !tbaa !511
-  %2725 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %2726 = load ptr, ptr %2725, align 8, !tbaa !401
-  %.not4.i.i.i.i.i = icmp eq ptr %2724, %2726
+_ZN16DebugInfoPerPassaSERKS_.exit:                ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit310, %2717, %2731
+  %2732 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %2733 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIPKNS_11InstructionENS_6WeakVHEEEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(16) %2732, ptr noundef nonnull align 8 dereferenceable(16) %108)
+  %2734 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEEaSERKSF_(ptr noundef nonnull align 8 dereferenceable(40) %305, ptr noundef nonnull align 8 dereferenceable(40) %109)
+  %2735 = load ptr, ptr %64, align 8, !tbaa !511
+  %2736 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %2737 = load ptr, ptr %2736, align 8, !tbaa !401
+  %.not4.i.i.i.i.i = icmp eq ptr %2735, %2737
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i321
 
 .lr.ph.i.i.i.i.i321:                              ; preds = %_ZN16DebugInfoPerPassaSERKS_.exit, %.lr.ph.i.i.i.i.i321
-  %.05.i.i.i.i.i = phi ptr [ %2727, %.lr.ph.i.i.i.i.i321 ], [ %2724, %_ZN16DebugInfoPerPassaSERKS_.exit ]
+  %.05.i.i.i.i.i = phi ptr [ %2738, %.lr.ph.i.i.i.i.i321 ], [ %2735, %_ZN16DebugInfoPerPassaSERKS_.exit ]
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i.i.i) #26
-  %2727 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i322 = icmp eq ptr %2727, %2726
+  %2738 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i322 = icmp eq ptr %2738, %2737
   br i1 %.not.i.i.i.i.i322, label %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i321, !llvm.loop !526
 
 _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i321
@@ -9286,81 +9301,81 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; 
   br label %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %_ZN16DebugInfoPerPassaSERKS_.exit
-  %2728 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i ], [ %2724, %_ZN16DebugInfoPerPassaSERKS_.exit ]
-  %.not.i.i.i.i323 = icmp eq ptr %2728, null
-  br i1 %.not.i.i.i.i323, label %_ZN4llvm4json5ArrayD2Ev.exit, label %2729
+  %2739 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i ], [ %2735, %_ZN16DebugInfoPerPassaSERKS_.exit ]
+  %.not.i.i.i.i323 = icmp eq ptr %2739, null
+  br i1 %.not.i.i.i.i323, label %_ZN4llvm4json5ArrayD2Ev.exit, label %2740
 
-2729:                                             ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i
-  %2730 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %2731 = load ptr, ptr %2730, align 8, !tbaa !404
-  %2732 = ptrtoint ptr %2731 to i64
-  %2733 = ptrtoint ptr %2728 to i64
-  %2734 = sub i64 %2732, %2733
-  call void @_ZdlPvm(ptr noundef nonnull %2728, i64 noundef %2734) #27
+2740:                                             ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i
+  %2741 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %2742 = load ptr, ptr %2741, align 8, !tbaa !404
+  %2743 = ptrtoint ptr %2742 to i64
+  %2744 = ptrtoint ptr %2739 to i64
+  %2745 = sub i64 %2743, %2744
+  call void @_ZdlPvm(ptr noundef nonnull %2739, i64 noundef %2745) #27
   br label %_ZN4llvm4json5ArrayD2Ev.exit
 
-_ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i, %2729
+_ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i, %2740
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
-  %2735 = load ptr, ptr %354, align 8, !tbaa !25
-  %2736 = icmp eq ptr %2735, %355
-  br i1 %2736, label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit, label %2737
+  %2746 = load ptr, ptr %354, align 8, !tbaa !25
+  %2747 = icmp eq ptr %2746, %355
+  br i1 %2747, label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit, label %2748
 
-2737:                                             ; preds = %_ZN4llvm4json5ArrayD2Ev.exit
-  call void @free(ptr noundef %2735) #26
+2748:                                             ; preds = %_ZN4llvm4json5ArrayD2Ev.exit
+  call void @free(ptr noundef %2746) #26
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit
 
-_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit: ; preds = %_ZN4llvm4json5ArrayD2Ev.exit, %2737
-  %2738 = load ptr, ptr %63, align 8, !tbaa !337
-  %2739 = load i32, ptr %336, align 8, !tbaa !342
-  %2740 = zext i32 %2739 to i64
-  %2741 = shl nuw nsw i64 %2740, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2738, i64 noundef %2741, i64 noundef 8) #26
+_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit: ; preds = %_ZN4llvm4json5ArrayD2Ev.exit, %2748
+  %2749 = load ptr, ptr %63, align 8, !tbaa !337
+  %2750 = load i32, ptr %336, align 8, !tbaa !342
+  %2751 = zext i32 %2750 to i64
+  %2752 = shl nuw nsw i64 %2751, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2749, i64 noundef %2752, i64 noundef 8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
-  %2742 = load ptr, ptr %324, align 8, !tbaa !25
-  %2743 = icmp eq ptr %2742, %326
-  br i1 %2743, label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit324, label %2744
+  %2753 = load ptr, ptr %324, align 8, !tbaa !25
+  %2754 = icmp eq ptr %2753, %326
+  br i1 %2754, label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit324, label %2755
 
-2744:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit
-  call void @free(ptr noundef %2742) #26
+2755:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit
+  call void @free(ptr noundef %2753) #26
   br label %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit324
 
-_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit324: ; preds = %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit, %2744
-  %2745 = load ptr, ptr %62, align 8, !tbaa !337
-  %2746 = load i32, ptr %306, align 8, !tbaa !342
-  %2747 = zext i32 %2746 to i64
-  %2748 = shl nuw nsw i64 %2747, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2745, i64 noundef %2748, i64 noundef 8) #26
+_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit324: ; preds = %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit, %2755
+  %2756 = load ptr, ptr %62, align 8, !tbaa !337
+  %2757 = load i32, ptr %306, align 8, !tbaa !342
+  %2758 = zext i32 %2757 to i64
+  %2759 = shl nuw nsw i64 %2758, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2756, i64 noundef %2759, i64 noundef 8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
-  %2749 = load ptr, ptr %296, align 8, !tbaa !25
-  %2750 = load i32, ptr %298, align 8, !tbaa !26
-  %.not4.i.i.i = icmp eq i32 %2750, 0
+  %2760 = load ptr, ptr %296, align 8, !tbaa !25
+  %2761 = load i32, ptr %298, align 8, !tbaa !26
+  %.not4.i.i.i = icmp eq i32 %2761, 0
   br i1 %.not4.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit324
-  %2751 = zext i32 %2750 to i64
-  %.idx.i.i = shl nuw nsw i64 %2751, 5
-  %2752 = getelementptr inbounds nuw i8, ptr %2749, i64 %.idx.i.i
+  %2762 = zext i32 %2761 to i64
+  %.idx.i.i = shl nuw nsw i64 %2762, 5
+  %2763 = getelementptr inbounds nuw i8, ptr %2760, i64 %.idx.i.i
   br label %.lr.ph.i.i.i325
 
 .lr.ph.i.i.i325:                                  ; preds = %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
-  %.05.i.i.i = phi ptr [ %2753, %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit.i.i.i ], [ %2752, %.lr.ph.i.preheader.i.i ]
-  %2753 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -32
-  %2754 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -8
-  %2755 = load ptr, ptr %2754, align 8, !tbaa !358
-  %magicptr.i.i.i.i.i = ptrtoint ptr %2755 to i64
-  switch i64 %magicptr.i.i.i.i.i, label %2756 [
+  %.05.i.i.i = phi ptr [ %2764, %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit.i.i.i ], [ %2763, %.lr.ph.i.preheader.i.i ]
+  %2764 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -32
+  %2765 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -8
+  %2766 = load ptr, ptr %2765, align 8, !tbaa !358
+  %magicptr.i.i.i.i.i = ptrtoint ptr %2766 to i64
+  switch i64 %magicptr.i.i.i.i.i, label %2767 [
     i64 0, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit.i.i.i
     i64 -4096, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit.i.i.i
     i64 -8192, label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit.i.i.i
   ]
 
-2756:                                             ; preds = %.lr.ph.i.i.i325
-  %2757 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -24
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %2757) #26
+2767:                                             ; preds = %.lr.ph.i.i.i325
+  %2768 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -24
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %2768) #26
   br label %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit.i.i.i
 
-_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit.i.i.i: ; preds = %2756, %.lr.ph.i.i.i325, %.lr.ph.i.i.i325, %.lr.ph.i.i.i325
-  %.not.i.i.i326 = icmp eq ptr %2749, %2753
+_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit.i.i.i: ; preds = %2767, %.lr.ph.i.i.i325, %.lr.ph.i.i.i325, %.lr.ph.i.i.i325
+  %.not.i.i.i326 = icmp eq ptr %2760, %2764
   br i1 %.not.i.i.i326, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i, label %.lr.ph.i.i.i325, !llvm.loop !527
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i: ; preds = %_ZNSt4pairIPKN4llvm11InstructionENS0_6WeakVHEED2Ev.exit.i.i.i
@@ -9368,80 +9383,80 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit324
-  %2758 = phi ptr [ %.pre.i.i327, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i ], [ %2749, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit324 ]
-  %2759 = icmp eq ptr %2758, %297
-  br i1 %2759, label %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEED2Ev.exit, label %2760
+  %2769 = phi ptr [ %.pre.i.i327, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i ], [ %2760, %_ZN4llvm9MapVectorIPKNS_15DILocalVariableEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_jELj0EEEED2Ev.exit324 ]
+  %2770 = icmp eq ptr %2769, %297
+  br i1 %2770, label %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEED2Ev.exit, label %2771
 
-2760:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.i.i
-  call void @free(ptr noundef %2758) #26
+2771:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.i.i
+  call void @free(ptr noundef %2769) #26
   br label %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEED2Ev.exit
 
-_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.i.i, %2760
-  %2761 = load ptr, ptr %61, align 8, !tbaa !360
-  %2762 = load i32, ptr %278, align 8, !tbaa !366
-  %2763 = zext i32 %2762 to i64
-  %2764 = shl nuw nsw i64 %2763, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2761, i64 noundef %2764, i64 noundef 8) #26
+_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_11InstructionENS_6WeakVHEELb0EE13destroy_rangeEPS6_S8_.exit.i.i, %2771
+  %2772 = load ptr, ptr %61, align 8, !tbaa !360
+  %2773 = load i32, ptr %278, align 8, !tbaa !366
+  %2774 = zext i32 %2773 to i64
+  %2775 = shl nuw nsw i64 %2774, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2772, i64 noundef %2775, i64 noundef 8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
-  %2765 = load ptr, ptr %268, align 8, !tbaa !25
-  %2766 = icmp eq ptr %2765, %269
-  br i1 %2766, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit, label %2767
+  %2776 = load ptr, ptr %268, align 8, !tbaa !25
+  %2777 = icmp eq ptr %2776, %269
+  br i1 %2777, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit, label %2778
 
-2767:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEED2Ev.exit
-  call void @free(ptr noundef %2765) #26
+2778:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEED2Ev.exit
+  call void @free(ptr noundef %2776) #26
   br label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit
 
-_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit: ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEED2Ev.exit, %2767
-  %2768 = load ptr, ptr %60, align 8, !tbaa !360
-  %2769 = load i32, ptr %250, align 8, !tbaa !366
-  %2770 = zext i32 %2769 to i64
-  %2771 = shl nuw nsw i64 %2770, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2768, i64 noundef %2771, i64 noundef 8) #26
+_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit: ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionENS_6WeakVHENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S4_ELj0EEEED2Ev.exit, %2778
+  %2779 = load ptr, ptr %60, align 8, !tbaa !360
+  %2780 = load i32, ptr %250, align 8, !tbaa !366
+  %2781 = zext i32 %2780 to i64
+  %2782 = shl nuw nsw i64 %2781, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2779, i64 noundef %2782, i64 noundef 8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  %2772 = load ptr, ptr %238, align 8, !tbaa !25
-  %2773 = icmp eq ptr %2772, %240
-  br i1 %2773, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit328, label %2774
+  %2783 = load ptr, ptr %238, align 8, !tbaa !25
+  %2784 = icmp eq ptr %2783, %240
+  br i1 %2784, label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit328, label %2785
 
-2774:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit
-  call void @free(ptr noundef %2772) #26
+2785:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit
+  call void @free(ptr noundef %2783) #26
   br label %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit328
 
-_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit328: ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit, %2774
-  %2775 = load ptr, ptr %59, align 8, !tbaa !360
-  %2776 = load i32, ptr %220, align 8, !tbaa !366
-  %2777 = zext i32 %2776 to i64
-  %2778 = shl nuw nsw i64 %2777, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2775, i64 noundef %2778, i64 noundef 8) #26
+_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit328: ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit, %2785
+  %2786 = load ptr, ptr %59, align 8, !tbaa !360
+  %2787 = load i32, ptr %220, align 8, !tbaa !366
+  %2788 = zext i32 %2787 to i64
+  %2789 = shl nuw nsw i64 %2788, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2786, i64 noundef %2789, i64 noundef 8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  %2779 = load ptr, ptr %210, align 8, !tbaa !25
-  %2780 = icmp eq ptr %2779, %211
-  br i1 %2780, label %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit, label %2781
+  %2790 = load ptr, ptr %210, align 8, !tbaa !25
+  %2791 = icmp eq ptr %2790, %211
+  br i1 %2791, label %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit, label %2792
 
-2781:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit328
-  call void @free(ptr noundef %2779) #26
+2792:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit328
+  call void @free(ptr noundef %2790) #26
   br label %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit
 
-_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit: ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit328, %2781
-  %2782 = load ptr, ptr %58, align 8, !tbaa !266
-  %2783 = load i32, ptr %192, align 8, !tbaa !269
-  %2784 = zext i32 %2783 to i64
-  %2785 = shl nuw nsw i64 %2784, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2782, i64 noundef %2785, i64 noundef 8) #26
+_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit: ; preds = %_ZN4llvm9MapVectorIPKNS_11InstructionEbNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_bELj0EEEED2Ev.exit328, %2792
+  %2793 = load ptr, ptr %58, align 8, !tbaa !266
+  %2794 = load i32, ptr %192, align 8, !tbaa !269
+  %2795 = zext i32 %2794 to i64
+  %2796 = shl nuw nsw i64 %2795, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2793, i64 noundef %2796, i64 noundef 8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  %2786 = load ptr, ptr %180, align 8, !tbaa !25
-  %2787 = icmp eq ptr %2786, %182
-  br i1 %2787, label %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit329, label %2788
+  %2797 = load ptr, ptr %180, align 8, !tbaa !25
+  %2798 = icmp eq ptr %2797, %182
+  br i1 %2798, label %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit329, label %2799
 
-2788:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit
-  call void @free(ptr noundef %2786) #26
+2799:                                             ; preds = %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit
+  call void @free(ptr noundef %2797) #26
   br label %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit329
 
-_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit329: ; preds = %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit, %2788
-  %2789 = load ptr, ptr %57, align 8, !tbaa !266
-  %2790 = load i32, ptr %162, align 8, !tbaa !269
-  %2791 = zext i32 %2790 to i64
-  %2792 = shl nuw nsw i64 %2791, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2789, i64 noundef %2792, i64 noundef 8) #26
+_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit329: ; preds = %_ZN4llvm9MapVectorIPKNS_8FunctionEPKNS_12DISubprogramENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS_11SmallVectorISt4pairIS3_S6_ELj0EEEED2Ev.exit, %2799
+  %2800 = load ptr, ptr %57, align 8, !tbaa !266
+  %2801 = load i32, ptr %162, align 8, !tbaa !269
+  %2802 = zext i32 %2801 to i64
+  %2803 = shl nuw nsw i64 %2802, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %2800, i64 noundef %2803, i64 noundef 8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @_ZN16DebugInfoPerPassD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %55) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
@@ -12840,92 +12855,94 @@ define internal noundef zeroext i1 @_ZN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS
   br i1 %18, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us
-  %.01528.i.us = phi i64 [ %19, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us ], [ 0, %.lr.ph.i ]
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::Level>::OptionInfo", ptr %.val.i, i64 %.01528.i.us, i32 0, i32 0, i32 1
+  %.01528.i.us = phi i64 [ %20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us ], [ 0, %.lr.ph.i ]
+  %19 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::Level>::OptionInfo", ptr %.val.i, i64 %.01528.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !45
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us:  ; preds = %.lr.ph.i.split.us
-  %19 = add nuw nsw i64 %.01528.i.us, 1
-  %.not.i.us = icmp eq i64 %19, %16
+  %20 = add nuw nsw i64 %.01528.i.us, 1
+  %.not.i.us = icmp eq i64 %20, %16
   br i1 %.not.i.us, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, label %.lr.ph.i.split.us, !llvm.loop !631
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i
-  %.01528.i = phi i64 [ %25, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::Level>::OptionInfo", ptr %.val.i, i64 %.01528.i
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.01528.i = phi i64 [ %27, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i ], [ 0, %.lr.ph.i ]
+  %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::Level>::OptionInfo", ptr %.val.i, i64 %.01528.i
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !45
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select25.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %20, align 8, !tbaa !44
+  %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !44
   %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select25.i)
-  %21 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %21, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i
+  %22 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %22, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i
 
 _ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
-  %22 = phi i64 [ %.01528.i.us, %.lr.ph.i.split.us ], [ %.01528.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %23 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::Level>::OptionInfo", ptr %.val.i, i64 %22, i32 1, i32 0, i32 0, i32 1
-  %24 = load i32, ptr %23, align 4, !tbaa !220
-  store i32 %24, ptr %9, align 4, !tbaa !220
-  br label %35
+  %23 = phi i64 [ %.01528.i.us, %.lr.ph.i.split.us ], [ %.01528.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %24 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::Level>::OptionInfo", ptr %.val.i, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %26 = load i32, ptr %25, align 4, !tbaa !220
+  store i32 %26, ptr %9, align 4, !tbaa !220
+  br label %37
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread23.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
-  %25 = add nuw nsw i64 %.01528.i, 1
-  %.not.i = icmp eq i64 %25, %16
+  %27 = add nuw nsw i64 %.01528.i, 1
+  %.not.i = icmp eq i64 %27, %16
   br i1 %.not.i, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, label %.lr.ph.i.split, !llvm.loop !631
 
 _ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 3, ptr %26, align 8, !tbaa !632, !alias.scope !635
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 5, ptr %27, align 1, !tbaa !638, !alias.scope !635
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 3, ptr %28, align 8, !tbaa !632, !alias.scope !635
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 5, ptr %29, align 1, !tbaa !638, !alias.scope !635
   store ptr @.str.46, ptr %8, align 8, !tbaa !220, !alias.scope !635
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %spec.select.i, ptr %28, align 8, !tbaa !220, !alias.scope !635
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select25.i, ptr %29, align 8, !tbaa !220, !alias.scope !635
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %spec.select.i, ptr %30, align 8, !tbaa !220, !alias.scope !635
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 %spec.select25.i, ptr %31, align 8, !tbaa !220, !alias.scope !635
   store ptr %8, ptr %7, align 8, !alias.scope !639
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @.str.47, ptr %30, align 8, !alias.scope !639
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 2, ptr %31, align 8, !tbaa !632, !alias.scope !639
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 3, ptr %32, align 1, !tbaa !638, !alias.scope !639
-  %33 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
-  %34 = call noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %33) #26
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @.str.47, ptr %32, align 8, !alias.scope !639
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 2, ptr %33, align 8, !tbaa !632, !alias.scope !639
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 3, ptr %34, align 1, !tbaa !638, !alias.scope !639
+  %35 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26
+  %36 = call noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %35) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %34, label %46, label %35
+  br i1 %36, label %48, label %37
 
-35:                                               ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit
-  %36 = phi i32 [ %24, %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread ], [ 0, %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %36, ptr %37, align 8, !tbaa !188
-  %38 = trunc i32 %1 to i16
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %38, ptr %39, align 4, !tbaa !627
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %41 = load ptr, ptr %40, align 8, !tbaa !43
-  %.not.i.i8 = icmp eq ptr %41, null
-  br i1 %.not.i.i8, label %42, label %_ZNKSt8functionIFvRKN12_GLOBAL__N_15LevelEEEclES3_.exit
+37:                                               ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit
+  %38 = phi i32 [ %26, %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread ], [ 0, %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 %38, ptr %39, align 8, !tbaa !188
+  %40 = trunc i32 %1 to i16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i16 %40, ptr %41, align 4, !tbaa !627
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %43 = load ptr, ptr %42, align 8, !tbaa !43
+  %.not.i.i8 = icmp eq ptr %43, null
+  br i1 %.not.i.i8, label %44, label %_ZNKSt8functionIFvRKN12_GLOBAL__N_15LevelEEEclES3_.exit
 
-42:                                               ; preds = %35
+44:                                               ; preds = %37
   call void @_ZSt25__throw_bad_function_callv() #30
   unreachable
 
-_ZNKSt8functionIFvRKN12_GLOBAL__N_15LevelEEEclES3_.exit: ; preds = %35
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %45 = load ptr, ptr %44, align 8, !tbaa !644
-  call void %45(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 4 dereferenceable(4) %9) #26
-  br label %46
+_ZNKSt8functionIFvRKN12_GLOBAL__N_15LevelEEEclES3_.exit: ; preds = %37
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %47 = load ptr, ptr %46, align 8, !tbaa !644
+  call void %47(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 4 dereferenceable(4) %9) #26
+  br label %48
 
-46:                                               ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, %_ZNKSt8functionIFvRKN12_GLOBAL__N_15LevelEEEclES3_.exit
+48:                                               ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, %_ZNKSt8functionIFvRKN12_GLOBAL__N_15LevelEEEclES3_.exit
   %.1.i11 = phi i1 [ true, %_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit ], [ false, %_ZNKSt8functionIFvRKN12_GLOBAL__N_15LevelEEEclES3_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.1.i11
@@ -13182,8 +13199,9 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm2cl6par
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %.val = load ptr, ptr %3, align 8, !tbaa !25
-  %5 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::Level>::OptionInfo", ptr %.val, i64 %4, i32 1
-  ret ptr %5
+  %5 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::Level>::OptionInfo", ptr %.val, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  ret ptr %6
 }
 
 declare void @_ZNK4llvm2cl19generic_parser_base15printOptionInfoERKNS0_6OptionEm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(120), i64 noundef) unnamed_addr #3
@@ -16506,10 +16524,11 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefE18DebugifyStatisticsELb1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = zext i32 %40 to i64
   %43 = load ptr, ptr %41, align 8, !tbaa !25
-  %44 = getelementptr inbounds nuw %"struct.std::pair.281", ptr %43, i64 %42, i32 1
+  %44 = getelementptr inbounds nuw %"struct.std::pair.281", ptr %43, i64 %42
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %44
+  ret ptr %45
 }
 
 declare noundef i32 @_ZNK4llvm8DebugLoc7getLineEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3

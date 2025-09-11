@@ -335,19 +335,20 @@ define dso_local noundef i32 @_ZNK27btMultiBodySliderConstraint12getIslandIdAEv(
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %16, i64 %17, i32 22
-  %19 = load ptr, ptr %18, align 8, !tbaa !52
-  %.not10 = icmp eq ptr %19, null
+  %18 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %16, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 544
+  %20 = load ptr, ptr %19, align 8, !tbaa !52
+  %.not10 = icmp eq ptr %20, null
   br i1 %.not10, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %14, %11, %1
-  %.sink18 = phi ptr [ %3, %1 ], [ %13, %11 ], [ %19, %14 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sink18, i64 228
-  %21 = load i32, ptr %20, align 4, !tbaa !58
+  %.sink18 = phi ptr [ %3, %1 ], [ %13, %11 ], [ %20, %14 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sink18, i64 228
+  %22 = load i32, ptr %21, align 4, !tbaa !58
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %11, %4, %14
-  %.04 = phi i32 [ -1, %14 ], [ -1, %4 ], [ -1, %11 ], [ %21, %.thread.sink.split ]
+  %.04 = phi i32 [ -1, %14 ], [ -1, %4 ], [ -1, %11 ], [ %22, %.thread.sink.split ]
   ret i32 %.04
 }
 
@@ -380,19 +381,20 @@ define dso_local noundef i32 @_ZNK27btMultiBodySliderConstraint12getIslandIdBEv(
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %16, i64 %17, i32 22
-  %19 = load ptr, ptr %18, align 8, !tbaa !52
-  %.not10 = icmp eq ptr %19, null
+  %18 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %16, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 544
+  %20 = load ptr, ptr %19, align 8, !tbaa !52
+  %.not10 = icmp eq ptr %20, null
   br i1 %.not10, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %14, %11, %1
-  %.sink18 = phi ptr [ %3, %1 ], [ %13, %11 ], [ %19, %14 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sink18, i64 228
-  %21 = load i32, ptr %20, align 4, !tbaa !58
+  %.sink18 = phi ptr [ %3, %1 ], [ %13, %11 ], [ %20, %14 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sink18, i64 228
+  %22 = load i32, ptr %21, align 4, !tbaa !58
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %11, %4, %14
-  %.04 = phi i32 [ -1, %14 ], [ -1, %4 ], [ -1, %11 ], [ %21, %.thread.sink.split ]
+  %.04 = phi i32 [ -1, %14 ], [ -1, %4 ], [ -1, %11 ], [ %22, %.thread.sink.split ]
   ret i32 %.04
 }
 

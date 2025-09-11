@@ -2144,7 +2144,7 @@ define internal fastcc i32 @_ping(i32 noundef range(i32 1, -2147483648) %0, ptr 
 
 7:                                                ; preds = %2
   %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.106) #15
-  br label %51
+  br label %52
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr @mime_type, align 8
@@ -2211,7 +2211,7 @@ define internal fastcc i32 @_ping(i32 noundef range(i32 1, -2147483648) %0, ptr 
 
 .lr.ph:                                           ; preds = %.preheader, %_set_ping_exit_code.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_set_ping_exit_code.exit ], [ 0, %.preheader ]
-  %35 = phi ptr [ %50, %_set_ping_exit_code.exit ], [ %11, %.preheader ]
+  %35 = phi ptr [ %51, %_set_ping_exit_code.exit ], [ %11, %.preheader ]
   %36 = getelementptr inbounds nuw %struct.slurmdbd_ping_t, ptr %6, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i8, ptr %37, align 8, !range !14, !noundef !15
@@ -2222,37 +2222,38 @@ define internal fastcc i32 @_ping(i32 noundef range(i32 1, -2147483648) %0, ptr 
   %42 = icmp eq i32 %41, 0
   %.0.i = select i1 %42, ptr @.str.109, ptr @.str.110
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, ptr noundef nonnull %.0.i, ptr noundef nonnull %35, ptr noundef nonnull %.str.107..str.108.i)
-  %44 = getelementptr %struct.slurmdbd_ping_t, ptr %6, i64 %indvars.iv, i32 1
-  %.val = load i8, ptr %44, align 8, !range !14, !noundef !15
-  %45 = trunc nuw i8 %.val to i1
-  br i1 %45, label %46, label %47
+  %44 = getelementptr inbounds nuw %struct.slurmdbd_ping_t, ptr %6, i64 %indvars.iv
+  %45 = getelementptr i8, ptr %44, i64 8
+  %.val = load i8, ptr %45, align 8, !range !14, !noundef !15
+  %46 = trunc nuw i8 %.val to i1
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %.lr.ph
+47:                                               ; preds = %.lr.ph
   store i32 0, ptr @exit_code, align 4
   store i1 true, ptr @_set_ping_exit_code.slurmdbd_up, align 1
   br label %_set_ping_exit_code.exit
 
-47:                                               ; preds = %.lr.ph
+48:                                               ; preds = %.lr.ph
   %.b1.i = load i1, ptr @_set_ping_exit_code.slurmdbd_up, align 1
-  br i1 %.b1.i, label %_set_ping_exit_code.exit, label %48
+  br i1 %.b1.i, label %_set_ping_exit_code.exit, label %49
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   store i32 1, ptr @exit_code, align 4
   br label %_set_ping_exit_code.exit
 
-_set_ping_exit_code.exit:                         ; preds = %46, %47, %48
+_set_ping_exit_code.exit:                         ; preds = %47, %48, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = getelementptr inbounds nuw %struct.slurmdbd_ping_t, ptr %6, i64 %indvars.iv.next
-  %50 = load ptr, ptr %49, align 8
-  %.not24 = icmp eq ptr %50, null
+  %50 = getelementptr inbounds nuw %struct.slurmdbd_ping_t, ptr %6, i64 %indvars.iv.next
+  %51 = load ptr, ptr %50, align 8
+  %.not24 = icmp eq ptr %51, null
   br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_set_ping_exit_code.exit, %.preheader, %33
   %.018 = phi i32 [ %27, %33 ], [ 0, %.preheader ], [ 0, %_set_ping_exit_code.exit ]
   call void @slurm_xfree(ptr noundef nonnull %3) #15
-  br label %51
+  br label %52
 
-51:                                               ; preds = %.loopexit, %7
+52:                                               ; preds = %.loopexit, %7
   %.017 = phi i32 [ %.018, %.loopexit ], [ -1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.017

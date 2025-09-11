@@ -39719,7 +39719,8 @@ for.body13.preheader:                             ; preds = %for.cond11.preheade
 
 for.body13:                                       ; preds = %for.body13.preheader, %_ZNSt10shared_ptrIvED2Ev.exit
   %indvars.iv = phi i64 [ %11, %for.body13.preheader ], [ %indvars.iv.next, %_ZNSt10shared_ptrIvED2Ev.exit ]
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::shared_ptr.369", ptr %4, i64 %indvars.iv, i32 0, i32 1
+  %arrayidx = getelementptr inbounds %"class.std::shared_ptr.369", ptr %4, i64 %indvars.iv
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %12 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIvED2Ev.exit, label %if.then.i.i.i
@@ -40041,7 +40042,8 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %_ZNSt10shared_ptrIvED2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt10shared_ptrIvED2Ev.exit ], [ 0, %if.end ]
-  %_M_refcount.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.369", ptr %1, i64 %indvars.iv, i32 0, i32 1
+  %arrayidx = getelementptr inbounds nuw %"class.std::shared_ptr.369", ptr %1, i64 %indvars.iv
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIvED2Ev.exit, label %if.then.i.i.i

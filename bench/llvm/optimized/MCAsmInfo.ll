@@ -872,92 +872,94 @@ define internal noundef zeroext i1 @_ZN4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOf
   br i1 %18, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us
-  %.01528.i.us = phi i64 [ %19, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us ], [ 0, %.lr.ph.i ]
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::DefaultOnOff>::OptionInfo", ptr %.val.i, i64 %.01528.i.us, i32 0, i32 0, i32 1
+  %.01528.i.us = phi i64 [ %20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us ], [ 0, %.lr.ph.i ]
+  %19 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::DefaultOnOff>::OptionInfo", ptr %.val.i, i64 %.01528.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !49
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us:  ; preds = %.lr.ph.i.split.us
-  %19 = add nuw nsw i64 %.01528.i.us, 1
-  %.not.i.us = icmp eq i64 %19, %16
+  %20 = add nuw nsw i64 %.01528.i.us, 1
+  %.not.i.us = icmp eq i64 %20, %16
   br i1 %.not.i.us, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, label %.lr.ph.i.split.us, !llvm.loop !195
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i
-  %.01528.i = phi i64 [ %25, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::DefaultOnOff>::OptionInfo", ptr %.val.i, i64 %.01528.i
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.01528.i = phi i64 [ %27, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i ], [ 0, %.lr.ph.i ]
+  %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::DefaultOnOff>::OptionInfo", ptr %.val.i, i64 %.01528.i
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !49
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select25.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %20, align 8, !tbaa !48
+  %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !48
   %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select25.i)
-  %21 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %21, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i
+  %22 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %22, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i
 
 _ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
-  %22 = phi i64 [ %.01528.i.us, %.lr.ph.i.split.us ], [ %.01528.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %23 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::DefaultOnOff>::OptionInfo", ptr %.val.i, i64 %22, i32 1, i32 0, i32 0, i32 1
-  %24 = load i32, ptr %23, align 4, !tbaa !148
-  store i32 %24, ptr %9, align 4, !tbaa !148
-  br label %35
+  %23 = phi i64 [ %.01528.i.us, %.lr.ph.i.split.us ], [ %.01528.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %24 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::DefaultOnOff>::OptionInfo", ptr %.val.i, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %26 = load i32, ptr %25, align 4, !tbaa !148
+  store i32 %26, ptr %9, align 4, !tbaa !148
+  br label %37
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread23.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
-  %25 = add nuw nsw i64 %.01528.i, 1
-  %.not.i = icmp eq i64 %25, %16
+  %27 = add nuw nsw i64 %.01528.i, 1
+  %.not.i = icmp eq i64 %27, %16
   br i1 %.not.i, label %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, label %.lr.ph.i.split, !llvm.loop !195
 
 _ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread23.i.us, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 3, ptr %26, align 8, !tbaa !196, !alias.scope !199
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 5, ptr %27, align 1, !tbaa !202, !alias.scope !199
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 3, ptr %28, align 8, !tbaa !196, !alias.scope !199
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 5, ptr %29, align 1, !tbaa !202, !alias.scope !199
   store ptr @.str.33, ptr %8, align 8, !tbaa !148, !alias.scope !199
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %spec.select.i, ptr %28, align 8, !tbaa !148, !alias.scope !199
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select25.i, ptr %29, align 8, !tbaa !148, !alias.scope !199
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %spec.select.i, ptr %30, align 8, !tbaa !148, !alias.scope !199
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 %spec.select25.i, ptr %31, align 8, !tbaa !148, !alias.scope !199
   store ptr %8, ptr %7, align 8, !alias.scope !203
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @.str.34, ptr %30, align 8, !alias.scope !203
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 2, ptr %31, align 8, !tbaa !196, !alias.scope !203
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 3, ptr %32, align 1, !tbaa !202, !alias.scope !203
-  %33 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #25
-  %34 = call noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %33) #25
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @.str.34, ptr %32, align 8, !alias.scope !203
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 2, ptr %33, align 8, !tbaa !196, !alias.scope !203
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 3, ptr %34, align 1, !tbaa !202, !alias.scope !203
+  %35 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #25
+  %36 = call noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %35) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %34, label %46, label %35
+  br i1 %36, label %48, label %37
 
-35:                                               ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit
-  %36 = phi i32 [ %24, %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread ], [ 0, %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %36, ptr %37, align 8, !tbaa !134
-  %38 = trunc i32 %1 to i16
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i16 %38, ptr %39, align 4, !tbaa !208
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %41 = load ptr, ptr %40, align 8, !tbaa !6
-  %.not.i.i8 = icmp eq ptr %41, null
-  br i1 %.not.i.i8, label %42, label %_ZNKSt8functionIFvRKN12_GLOBAL__N_112DefaultOnOffEEEclES3_.exit
+37:                                               ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit
+  %38 = phi i32 [ %26, %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread ], [ 0, %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 %38, ptr %39, align 8, !tbaa !134
+  %40 = trunc i32 %1 to i16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i16 %40, ptr %41, align 4, !tbaa !208
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %43 = load ptr, ptr %42, align 8, !tbaa !6
+  %.not.i.i8 = icmp eq ptr %43, null
+  br i1 %.not.i.i8, label %44, label %_ZNKSt8functionIFvRKN12_GLOBAL__N_112DefaultOnOffEEEclES3_.exit
 
-42:                                               ; preds = %35
+44:                                               ; preds = %37
   call void @_ZSt25__throw_bad_function_callv() #27
   unreachable
 
-_ZNKSt8functionIFvRKN12_GLOBAL__N_112DefaultOnOffEEEclES3_.exit: ; preds = %35
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %45 = load ptr, ptr %44, align 8, !tbaa !209
-  call void %45(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 4 dereferenceable(4) %9) #25
-  br label %46
+_ZNKSt8functionIFvRKN12_GLOBAL__N_112DefaultOnOffEEEclES3_.exit: ; preds = %37
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %47 = load ptr, ptr %46, align 8, !tbaa !209
+  call void %47(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 4 dereferenceable(4) %9) #25
+  br label %48
 
-46:                                               ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, %_ZNKSt8functionIFvRKN12_GLOBAL__N_112DefaultOnOffEEEclES3_.exit
+48:                                               ; preds = %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit, %_ZNKSt8functionIFvRKN12_GLOBAL__N_112DefaultOnOffEEEclES3_.exit
   %.1.i11 = phi i1 [ true, %_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit ], [ false, %_ZNKSt8functionIFvRKN12_GLOBAL__N_112DefaultOnOffEEEclES3_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.1.i11
@@ -1218,8 +1220,9 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm2cl6par
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %.val = load ptr, ptr %3, align 8, !tbaa !10
-  %5 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::DefaultOnOff>::OptionInfo", ptr %.val, i64 %4, i32 1
-  ret ptr %5
+  %5 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::DefaultOnOff>::OptionInfo", ptr %.val, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  ret ptr %6
 }
 
 declare void @_ZNK4llvm2cl19generic_parser_base15printOptionInfoERKNS0_6OptionEm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(120), i64 noundef) unnamed_addr #6

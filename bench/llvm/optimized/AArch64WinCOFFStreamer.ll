@@ -436,10 +436,11 @@ _ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit:         ; preds = %52, %_ZN4llvm23Smal
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = zext i32 %60 to i64
   %63 = load ptr, ptr %61, align 8, !tbaa !86
-  %64 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %63, i64 %62, i32 1
+  %64 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %63, i64 %62
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %64
+  ret ptr %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

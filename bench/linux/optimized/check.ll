@@ -215,7 +215,7 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
   store i64 %38, ptr %41, align 16
   %42 = load i64, ptr %2, align 8
   %43 = sub i64 %42, %38
-  %44 = getelementptr %struct.scan_area, ptr @scan_areas, i64 %40, i32 1
+  %44 = getelementptr i8, ptr %41, i64 8
   store i64 %43, ptr %44, align 8
   %45 = load i64, ptr @page_offset_base, align 8
   %46 = add i64 %45, %38

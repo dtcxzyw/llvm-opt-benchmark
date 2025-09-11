@@ -243,52 +243,53 @@ define internal fastcc void @huff_build_tree(ptr noundef captures(none) %0, i32 
 
 10:                                               ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct.hnode, ptr %5, i64 %indvars.iv, i32 1
-  store i8 0, ptr %11, align 4, !tbaa !51
+  %11 = getelementptr inbounds nuw %struct.hnode, ptr %5, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i8 0, ptr %12, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
   br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !52
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %indvars.iv31 = phi i64 [ 256, %.lr.ph.preheader ], [ %indvars.iv.next32, %18 ]
-  %12 = phi ptr [ %7, %.lr.ph.preheader ], [ %29, %18 ]
-  %13 = phi ptr [ %9, %.lr.ph.preheader ], [ %27, %18 ]
-  %14 = trunc nuw nsw i64 %indvars.iv31 to i32
-  %15 = tail call fastcc i32 @huff_smallest_node(ptr noundef nonnull %5, i32 noundef %14)
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 %15, ptr %16, align 4, !tbaa !44
-  %17 = icmp eq i32 %15, -1
-  br i1 %17, label %._crit_edge.loopexit, label %18
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %indvars.iv31 = phi i64 [ 256, %.lr.ph.preheader ], [ %indvars.iv.next32, %19 ]
+  %13 = phi ptr [ %7, %.lr.ph.preheader ], [ %30, %19 ]
+  %14 = phi ptr [ %9, %.lr.ph.preheader ], [ %28, %19 ]
+  %15 = trunc nuw nsw i64 %indvars.iv31 to i32
+  %16 = tail call fastcc i32 @huff_smallest_node(ptr noundef nonnull %5, i32 noundef %15)
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  store i32 %16, ptr %17, align 4, !tbaa !44
+  %18 = icmp eq i32 %16, -1
+  br i1 %18, label %._crit_edge.loopexit, label %19
 
-18:                                               ; preds = %.lr.ph
-  %19 = load i32, ptr %12, align 4, !tbaa !44
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.hnode, ptr %5, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !34
-  %23 = sext i32 %15 to i64
-  %24 = getelementptr inbounds %struct.hnode, ptr %5, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !34
-  %26 = add nsw i32 %25, %22
-  store i32 %26, ptr %13, align 4, !tbaa !34
+19:                                               ; preds = %.lr.ph
+  %20 = load i32, ptr %13, align 4, !tbaa !44
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds %struct.hnode, ptr %5, i64 %21
+  %23 = load i32, ptr %22, align 4, !tbaa !34
+  %24 = sext i32 %16 to i64
+  %25 = getelementptr inbounds %struct.hnode, ptr %5, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !34
+  %27 = add nsw i32 %26, %23
+  store i32 %27, ptr %14, align 4, !tbaa !34
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %indvars = trunc i64 %indvars.iv.next32 to i32
-  %27 = getelementptr inbounds nuw %struct.hnode, ptr %5, i64 %indvars.iv.next32
-  %28 = tail call fastcc i32 @huff_smallest_node(ptr noundef nonnull %5, i32 noundef %indvars)
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 %28, ptr %29, align 4, !tbaa !44
-  %30 = icmp eq i32 %28, -1
-  br i1 %30, label %._crit_edge.loopexit, label %.lr.ph
+  %28 = getelementptr inbounds nuw %struct.hnode, ptr %5, i64 %indvars.iv.next32
+  %29 = tail call fastcc i32 @huff_smallest_node(ptr noundef nonnull %5, i32 noundef %indvars)
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i32 %29, ptr %30, align 4, !tbaa !44
+  %31 = icmp eq i32 %29, -1
+  br i1 %31, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %18
-  %.024.lcssa.ph = phi i32 [ %indvars, %18 ], [ %14, %.lr.ph ]
-  %31 = add nsw i32 %.024.lcssa.ph, -1
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %19
+  %.024.lcssa.ph = phi i32 [ %indvars, %19 ], [ %15, %.lr.ph ]
+  %32 = add nsw i32 %.024.lcssa.ph, -1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.024.lcssa = phi i32 [ 255, %.preheader ], [ %31, %._crit_edge.loopexit ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2097172
-  %33 = getelementptr inbounds i32, ptr %32, i64 %4
-  store i32 %.024.lcssa, ptr %33, align 4, !tbaa !44
+  %.024.lcssa = phi i32 [ 255, %.preheader ], [ %32, %._crit_edge.loopexit ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2097172
+  %34 = getelementptr inbounds i32, ptr %33, i64 %4
+  store i32 %.024.lcssa, ptr %34, align 4, !tbaa !44
   ret void
 }
 
@@ -334,8 +335,9 @@ define internal fastcc i32 @huff_smallest_node(ptr noundef captures(none) %0, i3
 
 13:                                               ; preds = %._crit_edge
   %14 = sext i32 %.1 to i64
-  %15 = getelementptr inbounds %struct.hnode, ptr %0, i64 %14, i32 1
-  store i8 1, ptr %15, align 4, !tbaa !51
+  %15 = getelementptr inbounds %struct.hnode, ptr %0, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i8 1, ptr %16, align 4, !tbaa !51
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge, %13

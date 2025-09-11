@@ -98,7 +98,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 80
   br label %57
 
-43:                                               ; preds = %95
+43:                                               ; preds = %96
   %44 = load i32, ptr %41, align 4, !tbaa !113
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 2368
   %46 = load ptr, ptr %45, align 8, !tbaa !114
@@ -115,191 +115,194 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %8
   %.not69.us = icmp eq ptr %56, %34
   br i1 %.not69.us, label %._crit_edge, label %.lr.ph.split.us
 
-57:                                               ; preds = %95, %.lr.ph.split.us
-  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %95 ], [ 0, %.lr.ph.split.us ]
-  %.15071.us = phi double [ %.2.us, %95 ], [ %.04976.us, %.lr.ph.split.us ]
-  %.15270.us = phi double [ %.253.us, %95 ], [ %.05175.us, %.lr.ph.split.us ]
-  %58 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv81, i32 5
-  %59 = load i32, ptr %58, align 4, !tbaa !131
-  %60 = and i32 %59, 1
-  %.not62.us = icmp eq i32 %60, 0
-  br i1 %.not62.us, label %95, label %61
+57:                                               ; preds = %96, %.lr.ph.split.us
+  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %96 ], [ 0, %.lr.ph.split.us ]
+  %.15071.us = phi double [ %.2.us, %96 ], [ %.04976.us, %.lr.ph.split.us ]
+  %.15270.us = phi double [ %.253.us, %96 ], [ %.05175.us, %.lr.ph.split.us ]
+  %58 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv81
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
+  %60 = load i32, ptr %59, align 4, !tbaa !131
+  %61 = and i32 %60, 1
+  %.not62.us = icmp eq i32 %61, 0
+  br i1 %.not62.us, label %96, label %62
 
-61:                                               ; preds = %57
-  %62 = trunc nuw nsw i64 %indvars.iv81 to i32
-  switch i32 %62, label %71 [
-    i32 52, label %70
-    i32 53, label %70
-    i32 4, label %76
-    i32 10, label %63
-    i32 19, label %63
-    i32 20, label %63
-    i32 33, label %63
+62:                                               ; preds = %57
+  %63 = trunc nuw nsw i64 %indvars.iv81 to i32
+  switch i32 %63, label %72 [
+    i32 52, label %71
+    i32 53, label %71
+    i32 4, label %77
+    i32 10, label %64
+    i32 19, label %64
+    i32 20, label %64
+    i32 33, label %64
   ]
 
-63:                                               ; preds = %61, %61, %61, %61
-  %64 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv81, i32 2
-  %65 = load i32, ptr %64, align 16, !tbaa !134
-  %66 = add nsw i32 %65, -1
-  %67 = sitofp i32 %66 to double
-  %68 = fmul double %.1, %67
-  %69 = fmul double %37, %67
-  br label %76
+64:                                               ; preds = %62, %62, %62, %62
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %66 = load i32, ptr %65, align 16, !tbaa !134
+  %67 = add nsw i32 %66, -1
+  %68 = sitofp i32 %67 to double
+  %69 = fmul double %.1, %68
+  %70 = fmul double %37, %68
+  br label %77
 
-70:                                               ; preds = %61, %61
-  br label %76
+71:                                               ; preds = %62, %62
+  br label %77
 
-71:                                               ; preds = %61
-  %72 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv81, i32 2
-  %73 = load i32, ptr %72, align 16, !tbaa !134
-  %74 = add nsw i32 %73, -1
-  %75 = sitofp i32 %74 to double
-  br label %76
+72:                                               ; preds = %62
+  %73 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %74 = load i32, ptr %73, align 16, !tbaa !134
+  %75 = add nsw i32 %74, -1
+  %76 = sitofp i32 %75 to double
+  br label %77
 
-76:                                               ; preds = %71, %70, %63, %61
-  %.046.us = phi double [ %75, %71 ], [ 1.000000e+00, %70 ], [ 0.000000e+00, %61 ], [ %68, %63 ]
-  %.0.us = phi double [ 0.000000e+00, %71 ], [ 0.000000e+00, %70 ], [ 0.000000e+00, %61 ], [ %69, %63 ]
-  %77 = load i32, ptr %41, align 4, !tbaa !113
-  %78 = getelementptr inbounds nuw %struct.InteractionList, ptr %42, i64 %indvars.iv81
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !135
-  %81 = load ptr, ptr %78, align 8, !tbaa !136
-  %82 = ptrtoint ptr %80 to i64
+77:                                               ; preds = %72, %71, %64, %62
+  %.046.us = phi double [ %76, %72 ], [ 1.000000e+00, %71 ], [ 0.000000e+00, %62 ], [ %69, %64 ]
+  %.0.us = phi double [ 0.000000e+00, %72 ], [ 0.000000e+00, %71 ], [ 0.000000e+00, %62 ], [ %70, %64 ]
+  %78 = load i32, ptr %41, align 4, !tbaa !113
+  %79 = getelementptr inbounds nuw %struct.InteractionList, ptr %42, i64 %indvars.iv81
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !135
+  %82 = load ptr, ptr %79, align 8, !tbaa !136
   %83 = ptrtoint ptr %81 to i64
-  %84 = sub i64 %82, %83
-  %85 = lshr exact i64 %84, 2
-  %86 = trunc i64 %85 to i32
-  %87 = mul nsw i32 %77, %86
-  %88 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv81, i32 2
-  %89 = load i32, ptr %88, align 16, !tbaa !134
-  %90 = add nsw i32 %89, 1
-  %91 = sdiv i32 %87, %90
-  %92 = sitofp i32 %91 to double
-  %93 = tail call double @llvm.fmuladd.f64(double %92, double %.046.us, double %.15071.us)
-  %94 = tail call double @llvm.fmuladd.f64(double %92, double %.0.us, double %.15270.us)
-  br label %95
+  %84 = ptrtoint ptr %82 to i64
+  %85 = sub i64 %83, %84
+  %86 = lshr exact i64 %85, 2
+  %87 = trunc i64 %86 to i32
+  %88 = mul nsw i32 %78, %87
+  %89 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %90 = load i32, ptr %89, align 16, !tbaa !134
+  %91 = add nsw i32 %90, 1
+  %92 = sdiv i32 %88, %91
+  %93 = sitofp i32 %92 to double
+  %94 = tail call double @llvm.fmuladd.f64(double %93, double %.046.us, double %.15071.us)
+  %95 = tail call double @llvm.fmuladd.f64(double %93, double %.0.us, double %.15270.us)
+  br label %96
 
-95:                                               ; preds = %76, %57
-  %.253.us = phi double [ %94, %76 ], [ %.15270.us, %57 ]
-  %.2.us = phi double [ %93, %76 ], [ %.15071.us, %57 ]
+96:                                               ; preds = %77, %57
+  %.253.us = phi double [ %95, %77 ], [ %.15270.us, %57 ]
+  %.2.us = phi double [ %94, %77 ], [ %.15071.us, %57 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 95
   br i1 %exitcond84.not, label %43, label %57, !llvm.loop !137
 
-._crit_edge:                                      ; preds = %140, %43, %30
-  %.051.lcssa = phi double [ 0.000000e+00, %30 ], [ %.253.us, %43 ], [ %.253, %140 ]
-  %.049.lcssa = phi double [ 0.000000e+00, %30 ], [ %55, %43 ], [ %.2, %140 ]
-  %96 = load ptr, ptr @debug, align 8, !tbaa !139
-  %.not59 = icmp eq ptr %96, null
-  br i1 %.not59, label %144, label %142
+._crit_edge:                                      ; preds = %143, %43, %30
+  %.051.lcssa = phi double [ 0.000000e+00, %30 ], [ %.253.us, %43 ], [ %.253, %143 ]
+  %.049.lcssa = phi double [ 0.000000e+00, %30 ], [ %55, %43 ], [ %.2, %143 ]
+  %97 = load ptr, ptr @debug, align 8, !tbaa !139
+  %.not59 = icmp eq ptr %97, null
+  br i1 %.not59, label %147, label %145
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %140
-  %.04976 = phi double [ %.2, %140 ], [ 0.000000e+00, %.lr.ph ]
-  %.05175 = phi double [ %.253, %140 ], [ 0.000000e+00, %.lr.ph ]
-  %.sroa.063.074 = phi ptr [ %141, %140 ], [ %32, %.lr.ph ]
-  %97 = load i32, ptr %.sroa.063.074, align 8, !tbaa !111
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.063.074, i64 4
-  %100 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %36, i64 %98, i32 2
-  br label %101
+.lr.ph.split:                                     ; preds = %.lr.ph, %143
+  %.04976 = phi double [ %.2, %143 ], [ 0.000000e+00, %.lr.ph ]
+  %.05175 = phi double [ %.253, %143 ], [ 0.000000e+00, %.lr.ph ]
+  %.sroa.063.074 = phi ptr [ %144, %143 ], [ %32, %.lr.ph ]
+  %98 = load i32, ptr %.sroa.063.074, align 8, !tbaa !111
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %36, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.063.074, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 80
+  br label %103
 
-101:                                              ; preds = %.lr.ph.split, %139
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %139 ]
-  %.15071 = phi double [ %.04976, %.lr.ph.split ], [ %.2, %139 ]
-  %.15270 = phi double [ %.05175, %.lr.ph.split ], [ %.253, %139 ]
-  %102 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 5
-  %103 = load i32, ptr %102, align 4, !tbaa !131
-  %104 = and i32 %103, 1
-  %.not62 = icmp eq i32 %104, 0
-  br i1 %.not62, label %139, label %105
+103:                                              ; preds = %.lr.ph.split, %142
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %142 ]
+  %.15071 = phi double [ %.04976, %.lr.ph.split ], [ %.2, %142 ]
+  %.15270 = phi double [ %.05175, %.lr.ph.split ], [ %.253, %142 ]
+  %104 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 28
+  %106 = load i32, ptr %105, align 4, !tbaa !131
+  %107 = and i32 %106, 1
+  %.not62 = icmp eq i32 %107, 0
+  br i1 %.not62, label %142, label %108
 
-105:                                              ; preds = %101
-  %106 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %106, label %115 [
-    i32 52, label %107
-    i32 53, label %107
-    i32 4, label %120
-    i32 10, label %108
-    i32 19, label %108
-    i32 20, label %108
-    i32 33, label %108
+108:                                              ; preds = %103
+  %109 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %109, label %118 [
+    i32 52, label %110
+    i32 53, label %110
+    i32 4, label %123
+    i32 10, label %111
+    i32 19, label %111
+    i32 20, label %111
+    i32 33, label %111
   ]
 
-107:                                              ; preds = %105, %105
-  br label %120
+110:                                              ; preds = %108, %108
+  br label %123
 
-108:                                              ; preds = %105, %105, %105, %105
-  %109 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 2
-  %110 = load i32, ptr %109, align 16, !tbaa !134
-  %111 = add nsw i32 %110, -1
-  %112 = sitofp i32 %111 to double
-  %113 = fmul double %.1, %112
-  %114 = fmul double %37, %112
-  br label %120
+111:                                              ; preds = %108, %108, %108, %108
+  %112 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %113 = load i32, ptr %112, align 16, !tbaa !134
+  %114 = add nsw i32 %113, -1
+  %115 = sitofp i32 %114 to double
+  %116 = fmul double %.1, %115
+  %117 = fmul double %37, %115
+  br label %123
 
-115:                                              ; preds = %105
-  %116 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 2
-  %117 = load i32, ptr %116, align 16, !tbaa !134
-  %118 = add nsw i32 %117, -1
-  %119 = sitofp i32 %118 to double
-  br label %120
+118:                                              ; preds = %108
+  %119 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %120 = load i32, ptr %119, align 16, !tbaa !134
+  %121 = add nsw i32 %120, -1
+  %122 = sitofp i32 %121 to double
+  br label %123
 
-120:                                              ; preds = %115, %108, %107, %105
-  %.046 = phi double [ %119, %115 ], [ 1.000000e+00, %107 ], [ 0.000000e+00, %105 ], [ %113, %108 ]
-  %.0 = phi double [ 0.000000e+00, %115 ], [ 0.000000e+00, %107 ], [ 0.000000e+00, %105 ], [ %114, %108 ]
-  %121 = load i32, ptr %99, align 4, !tbaa !113
-  %122 = getelementptr inbounds nuw %struct.InteractionList, ptr %100, i64 %indvars.iv
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !135
-  %125 = load ptr, ptr %122, align 8, !tbaa !136
-  %126 = ptrtoint ptr %124 to i64
-  %127 = ptrtoint ptr %125 to i64
-  %128 = sub i64 %126, %127
-  %129 = lshr exact i64 %128, 2
-  %130 = trunc i64 %129 to i32
-  %131 = mul nsw i32 %121, %130
-  %132 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv, i32 2
-  %133 = load i32, ptr %132, align 16, !tbaa !134
-  %134 = add nsw i32 %133, 1
-  %135 = sdiv i32 %131, %134
-  %136 = sitofp i32 %135 to double
-  %137 = tail call double @llvm.fmuladd.f64(double %136, double %.046, double %.15071)
-  %138 = tail call double @llvm.fmuladd.f64(double %136, double %.0, double %.15270)
-  br label %139
+123:                                              ; preds = %118, %111, %110, %108
+  %.046 = phi double [ %122, %118 ], [ 1.000000e+00, %110 ], [ 0.000000e+00, %108 ], [ %116, %111 ]
+  %.0 = phi double [ 0.000000e+00, %118 ], [ 0.000000e+00, %110 ], [ 0.000000e+00, %108 ], [ %117, %111 ]
+  %124 = load i32, ptr %101, align 4, !tbaa !113
+  %125 = getelementptr inbounds nuw %struct.InteractionList, ptr %102, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %127 = load ptr, ptr %126, align 8, !tbaa !135
+  %128 = load ptr, ptr %125, align 8, !tbaa !136
+  %129 = ptrtoint ptr %127 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  %132 = lshr exact i64 %131, 2
+  %133 = trunc i64 %132 to i32
+  %134 = mul nsw i32 %124, %133
+  %135 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %136 = load i32, ptr %135, align 16, !tbaa !134
+  %137 = add nsw i32 %136, 1
+  %138 = sdiv i32 %134, %137
+  %139 = sitofp i32 %138 to double
+  %140 = tail call double @llvm.fmuladd.f64(double %139, double %.046, double %.15071)
+  %141 = tail call double @llvm.fmuladd.f64(double %139, double %.0, double %.15270)
+  br label %142
 
-139:                                              ; preds = %120, %101
-  %.253 = phi double [ %138, %120 ], [ %.15270, %101 ]
-  %.2 = phi double [ %137, %120 ], [ %.15071, %101 ]
+142:                                              ; preds = %123, %103
+  %.253 = phi double [ %141, %123 ], [ %.15270, %103 ]
+  %.2 = phi double [ %140, %123 ], [ %.15071, %103 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 95
-  br i1 %exitcond.not, label %140, label %101, !llvm.loop !137
+  br i1 %exitcond.not, label %143, label %103, !llvm.loop !137
 
-140:                                              ; preds = %139
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.063.074, i64 56
-  %.not69 = icmp eq ptr %141, %34
+143:                                              ; preds = %142
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.063.074, i64 56
+  %.not69 = icmp eq ptr %144, %34
   br i1 %.not69, label %._crit_edge, label %.lr.ph.split
 
-142:                                              ; preds = %._crit_edge
-  %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %96, ptr noundef nonnull @.str, double noundef %.049.lcssa, double noundef %.051.lcssa) #6
-  br label %144
+145:                                              ; preds = %._crit_edge
+  %146 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %97, ptr noundef nonnull @.str, double noundef %.049.lcssa, double noundef %.051.lcssa) #6
+  br label %147
 
-144:                                              ; preds = %142, %._crit_edge
+147:                                              ; preds = %145, %._crit_edge
   %.not60 = icmp eq ptr %2, null
-  br i1 %.not60, label %146, label %145
+  br i1 %.not60, label %149, label %148
 
-145:                                              ; preds = %144
+148:                                              ; preds = %147
   store double %.049.lcssa, ptr %2, align 8, !tbaa !141
-  br label %146
+  br label %149
 
-146:                                              ; preds = %145, %144
+149:                                              ; preds = %148, %147
   %.not61 = icmp eq ptr %3, null
-  br i1 %.not61, label %148, label %147
+  br i1 %.not61, label %151, label %150
 
-147:                                              ; preds = %146
+150:                                              ; preds = %149
   store double %.051.lcssa, ptr %3, align 8, !tbaa !141
-  br label %148
+  br label %151
 
-148:                                              ; preds = %147, %146
+151:                                              ; preds = %150, %149
   ret void
 }
 

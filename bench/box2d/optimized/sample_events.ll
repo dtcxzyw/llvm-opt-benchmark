@@ -741,162 +741,163 @@ define linkonce_odr dso_local void @_ZN12SensorFunnel4StepER8Settings(ptr nounde
   %13 = ptrtoint ptr %12 to i64
   br label %18
 
-.preheader:                                       ; preds = %36, %2
+.preheader:                                       ; preds = %37, %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12696
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8952
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12664
-  br label %47
+  br label %48
 
-18:                                               ; preds = %.lr.ph, %36
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+18:                                               ; preds = %.lr.ph, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %19 = load ptr, ptr %4, align 8, !tbaa !68
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw %struct.b2SensorBeginTouchEvent, ptr %19, i64 %indvars.iv, i32 1
+  %20 = getelementptr inbounds nuw %struct.b2SensorBeginTouchEvent, ptr %19, i64 %indvars.iv
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 4
-  %20 = call i64 @b2Shape_GetBody(i64 %.sroa.3.0.copyload)
-  %21 = load i32, ptr %9, align 8, !tbaa !61
-  %22 = icmp eq i32 %21, 1
-  %23 = call ptr @b2Body_GetUserData(i64 %20)
-  %.not28 = icmp eq ptr %23, null
-  br i1 %22, label %24, label %29
+  %21 = call i64 @b2Shape_GetBody(i64 %.sroa.3.0.copyload)
+  %22 = load i32, ptr %9, align 8, !tbaa !61
+  %23 = icmp eq i32 %22, 1
+  %24 = call ptr @b2Body_GetUserData(i64 %21)
+  %.not28 = icmp eq ptr %24, null
+  br i1 %23, label %25, label %30
 
-24:                                               ; preds = %18
-  br i1 %.not28, label %36, label %25
+25:                                               ; preds = %18
+  br i1 %.not28, label %37, label %26
 
-25:                                               ; preds = %24
-  %26 = ptrtoint ptr %23 to i64
-  %27 = sub i64 %26, %13
-  %28 = sdiv exact i64 %27, 116
+26:                                               ; preds = %25
+  %27 = ptrtoint ptr %24 to i64
+  %28 = sub i64 %27, %13
+  %29 = sdiv exact i64 %28, 116
   br label %.sink.split
 
-29:                                               ; preds = %18
-  br i1 %.not28, label %36, label %30
+30:                                               ; preds = %18
+  br i1 %.not28, label %37, label %31
 
-30:                                               ; preds = %29
-  %31 = ptrtoint ptr %23 to i64
-  %32 = sub i64 %31, %11
-  %33 = sdiv exact i64 %32, 272
+31:                                               ; preds = %30
+  %32 = ptrtoint ptr %24 to i64
+  %33 = sub i64 %32, %11
+  %34 = sdiv exact i64 %33, 272
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %30
-  %.sink = phi i64 [ %33, %30 ], [ %28, %25 ]
+.sink.split:                                      ; preds = %26, %31
+  %.sink = phi i64 [ %34, %31 ], [ %29, %26 ]
   %sext = shl i64 %.sink, 32
-  %34 = ashr exact i64 %sext, 32
-  %35 = getelementptr inbounds i8, ptr %3, i64 %34
-  store i8 1, ptr %35, align 1, !tbaa !62
-  br label %36
+  %35 = ashr exact i64 %sext, 32
+  %36 = getelementptr inbounds i8, ptr %3, i64 %35
+  store i8 1, ptr %36, align 1, !tbaa !62
+  br label %37
 
-36:                                               ; preds = %.sink.split, %29, %24
+37:                                               ; preds = %.sink.split, %30, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = load i32, ptr %6, align 8, !tbaa !64
-  %38 = sext i32 %37 to i64
-  %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %18, label %.preheader, !llvm.loop !69
+  %38 = load i32, ptr %6, align 8, !tbaa !64
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next, %39
+  br i1 %40, label %18, label %.preheader, !llvm.loop !69
 
-40:                                               ; preds = %59
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %42 = load float, ptr %41, align 4, !tbaa !70
-  %43 = fcmp ogt float %42, 0.000000e+00
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %45 = load i8, ptr %44, align 1, !range !13
-  %46 = icmp eq i8 %45, 0
-  %or.cond = select i1 %43, i1 %46, i1 false
-  br i1 %or.cond, label %60, label %89
+41:                                               ; preds = %60
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %43 = load float, ptr %42, align 4, !tbaa !70
+  %44 = fcmp ogt float %43, 0.000000e+00
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 41
+  %46 = load i8, ptr %45, align 1, !range !13
+  %47 = icmp eq i8 %46, 0
+  %or.cond = select i1 %44, i1 %47, i1 false
+  br i1 %or.cond, label %61, label %90
 
-47:                                               ; preds = %.preheader, %59
-  %indvars.iv37 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next38, %59 ]
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv37
-  %49 = load i8, ptr %48, align 1, !tbaa !62, !range !13, !noundef !14
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %59
+48:                                               ; preds = %.preheader, %60
+  %indvars.iv37 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next38, %60 ]
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv37
+  %50 = load i8, ptr %49, align 1, !tbaa !62, !range !13, !noundef !14
+  %51 = trunc nuw i8 %50 to i1
+  br i1 %51, label %52, label %60
 
-51:                                               ; preds = %47
-  %52 = load i32, ptr %14, align 8, !tbaa !61
-  %53 = icmp eq i32 %52, 1
-  br i1 %53, label %54, label %56
+52:                                               ; preds = %48
+  %53 = load i32, ptr %14, align 8, !tbaa !61
+  %54 = icmp eq i32 %53, 1
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw %class.Donut, ptr %16, i64 %indvars.iv37
-  call void @_ZN5Donut7DespawnEv(ptr noundef nonnull align 4 dereferenceable(113) %55)
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw %class.Donut, ptr %16, i64 %indvars.iv37
+  call void @_ZN5Donut7DespawnEv(ptr noundef nonnull align 4 dereferenceable(113) %56)
   br label %_ZN12SensorFunnel14DestroyElementEi.exit
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw %struct.Human, ptr %15, i64 %indvars.iv37
-  call void @DestroyHuman(ptr noundef nonnull %57)
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds nuw %struct.Human, ptr %15, i64 %indvars.iv37
+  call void @DestroyHuman(ptr noundef nonnull %58)
   br label %_ZN12SensorFunnel14DestroyElementEi.exit
 
-_ZN12SensorFunnel14DestroyElementEi.exit:         ; preds = %54, %56
-  %58 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv37
-  store i8 0, ptr %58, align 1, !tbaa !62
-  br label %59
+_ZN12SensorFunnel14DestroyElementEi.exit:         ; preds = %55, %57
+  %59 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv37
+  store i8 0, ptr %59, align 1, !tbaa !62
+  br label %60
 
-59:                                               ; preds = %47, %_ZN12SensorFunnel14DestroyElementEi.exit
+60:                                               ; preds = %48, %_ZN12SensorFunnel14DestroyElementEi.exit
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next38, 32
-  br i1 %exitcond.not, label %40, label %47, !llvm.loop !71
+  br i1 %exitcond.not, label %41, label %48, !llvm.loop !71
 
-60:                                               ; preds = %40
-  %61 = fdiv float 1.000000e+00, %42
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 12700
-  %63 = load float, ptr %62, align 4, !tbaa !51
-  %64 = fsub float %63, %61
-  store float %64, ptr %62, align 4, !tbaa !51
-  %65 = fcmp olt float %64, 0.000000e+00
-  br i1 %65, label %.preheader45, label %89
+61:                                               ; preds = %41
+  %62 = fdiv float 1.000000e+00, %43
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 12700
+  %64 = load float, ptr %63, align 4, !tbaa !51
+  %65 = fsub float %64, %62
+  store float %65, ptr %63, align 4, !tbaa !51
+  %66 = fcmp olt float %65, 0.000000e+00
+  br i1 %66, label %.preheader45, label %90
 
-.preheader45:                                     ; preds = %60, %69
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %69 ], [ 0, %60 ]
-  %66 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv.i
-  %67 = load i8, ptr %66, align 1, !tbaa !62, !range !13, !noundef !14
-  %68 = icmp eq i8 %67, 0
-  br i1 %68, label %70, label %69
+.preheader45:                                     ; preds = %61, %70
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %70 ], [ 0, %61 ]
+  %67 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv.i
+  %68 = load i8, ptr %67, align 1, !tbaa !62, !range !13, !noundef !14
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %71, label %70
 
-69:                                               ; preds = %.preheader45
+70:                                               ; preds = %.preheader45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.not.i, label %_ZN12SensorFunnel13CreateElementEv.exit, label %.preheader45, !llvm.loop !63
 
-70:                                               ; preds = %.preheader45
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 12704
-  %72 = load float, ptr %71, align 8, !tbaa !60
-  %.sroa.011.4.vec.insert.i = insertelement <2 x float> <float poison, float 2.950000e+01>, float %72, i64 0
-  %73 = load i32, ptr %14, align 8, !tbaa !61
-  %74 = icmp eq i32 %73, 1
-  br i1 %74, label %75, label %78
+71:                                               ; preds = %.preheader45
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 12704
+  %73 = load float, ptr %72, align 8, !tbaa !60
+  %.sroa.011.4.vec.insert.i = insertelement <2 x float> <float poison, float 2.950000e+01>, float %73, i64 0
+  %74 = load i32, ptr %14, align 8, !tbaa !61
+  %75 = icmp eq i32 %74, 1
+  br i1 %75, label %76, label %79
 
-75:                                               ; preds = %70
-  %76 = and i64 %indvars.iv.i, 4294967295
-  %77 = getelementptr inbounds nuw %class.Donut, ptr %16, i64 %76
+76:                                               ; preds = %71
+  %77 = and i64 %indvars.iv.i, 4294967295
+  %78 = getelementptr inbounds nuw %class.Donut, ptr %16, i64 %77
   %.sroa.08.0.copyload.i = load i32, ptr %5, align 4
-  call void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull align 4 dereferenceable(113) %77, i32 %.sroa.08.0.copyload.i, <2 x float> %.sroa.011.4.vec.insert.i, float noundef 1.000000e+00, i32 noundef 0, ptr noundef nonnull %77)
-  br label %83
+  call void @_ZN5Donut5SpawnE9b2WorldId6b2Vec2fiPv(ptr noundef nonnull align 4 dereferenceable(113) %78, i32 %.sroa.08.0.copyload.i, <2 x float> %.sroa.011.4.vec.insert.i, float noundef 1.000000e+00, i32 noundef 0, ptr noundef nonnull %78)
+  br label %84
 
-78:                                               ; preds = %70
-  %79 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %80 = and i64 %indvars.iv.i, 4294967295
-  %81 = getelementptr inbounds nuw %struct.Human, ptr %15, i64 %80
+79:                                               ; preds = %71
+  %80 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %81 = and i64 %indvars.iv.i, 4294967295
+  %82 = getelementptr inbounds nuw %struct.Human, ptr %15, i64 %81
   %.sroa.01.0.copyload.i = load i32, ptr %5, align 4
-  %82 = add nuw nsw i32 %79, 1
-  call void @CreateHuman(ptr noundef nonnull %81, i32 %.sroa.01.0.copyload.i, <2 x float> %.sroa.011.4.vec.insert.i, float noundef 2.000000e+00, float noundef 0x3FA99999A0000000, float noundef 6.000000e+00, float noundef 5.000000e-01, i32 noundef %82, ptr noundef nonnull %81, i1 noundef zeroext true)
-  br label %83
+  %83 = add nuw nsw i32 %80, 1
+  call void @CreateHuman(ptr noundef nonnull %82, i32 %.sroa.01.0.copyload.i, <2 x float> %.sroa.011.4.vec.insert.i, float noundef 2.000000e+00, float noundef 0x3FA99999A0000000, float noundef 6.000000e+00, float noundef 5.000000e-01, i32 noundef %83, ptr noundef nonnull %82, i1 noundef zeroext true)
+  br label %84
 
-83:                                               ; preds = %78, %75
-  %.pre-phi.i = phi i64 [ %80, %78 ], [ %76, %75 ]
-  %84 = getelementptr inbounds nuw i8, ptr %17, i64 %.pre-phi.i
-  store i8 1, ptr %84, align 1, !tbaa !62
-  %85 = load float, ptr %71, align 8, !tbaa !60
-  %86 = fneg float %85
-  store float %86, ptr %71, align 8, !tbaa !60
-  %.pre = load float, ptr %62, align 4, !tbaa !51
+84:                                               ; preds = %79, %76
+  %.pre-phi.i = phi i64 [ %81, %79 ], [ %77, %76 ]
+  %85 = getelementptr inbounds nuw i8, ptr %17, i64 %.pre-phi.i
+  store i8 1, ptr %85, align 1, !tbaa !62
+  %86 = load float, ptr %72, align 8, !tbaa !60
+  %87 = fneg float %86
+  store float %87, ptr %72, align 8, !tbaa !60
+  %.pre = load float, ptr %63, align 4, !tbaa !51
   br label %_ZN12SensorFunnel13CreateElementEv.exit
 
-_ZN12SensorFunnel13CreateElementEv.exit:          ; preds = %69, %83
-  %87 = phi float [ %.pre, %83 ], [ %64, %69 ]
-  %88 = fadd float %87, 5.000000e-01
-  store float %88, ptr %62, align 4, !tbaa !51
-  br label %89
+_ZN12SensorFunnel13CreateElementEv.exit:          ; preds = %70, %84
+  %88 = phi float [ %.pre, %84 ], [ %65, %70 ]
+  %89 = fadd float %88, 5.000000e-01
+  store float %89, ptr %63, align 4, !tbaa !51
+  br label %90
 
-89:                                               ; preds = %60, %_ZN12SensorFunnel13CreateElementEv.exit, %40
+90:                                               ; preds = %61, %_ZN12SensorFunnel13CreateElementEv.exit, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1331,7 +1332,7 @@ define linkonce_odr dso_local void @_ZN13SensorBookend4StepER8Settings(ptr nound
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %24, !llvm.loop !84
 
-._crit_edge:                                      ; preds = %57, %.preheader
+._crit_edge:                                      ; preds = %58, %.preheader
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i32, ptr %32, align 8, !tbaa !85
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -1347,45 +1348,46 @@ define linkonce_odr dso_local void @_ZN13SensorBookend4StepER8Settings(ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-42:                                               ; preds = %.lr.ph20, %57
-  %indvars.iv22 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next23, %57 ]
+42:                                               ; preds = %.lr.ph20, %58
+  %indvars.iv22 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next23, %58 ]
   %43 = load ptr, ptr %19, align 8, !tbaa !87
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw %struct.b2SensorEndTouchEvent, ptr %43, i64 %indvars.iv22, i32 1
+  %44 = getelementptr inbounds nuw %struct.b2SensorEndTouchEvent, ptr %43, i64 %indvars.iv22
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 4
-  %44 = call zeroext i1 @b2Shape_IsValid(i64 %.sroa.3.0.copyload)
+  %45 = call zeroext i1 @b2Shape_IsValid(i64 %.sroa.3.0.copyload)
   %.sroa.3.8.extract.trunc = trunc i64 %.sroa.3.0.copyload to i32
-  %45 = load i32, ptr %20, align 8, !tbaa !80
-  %46 = icmp eq i32 %45, %.sroa.3.8.extract.trunc
-  br i1 %46, label %47, label %55
+  %46 = load i32, ptr %20, align 8, !tbaa !80
+  %47 = icmp eq i32 %46, %.sroa.3.8.extract.trunc
+  br i1 %47, label %48, label %56
 
-47:                                               ; preds = %42
+48:                                               ; preds = %42
   %.sroa.3.12.extract.shift = lshr i64 %.sroa.3.0.copyload, 32
-  %48 = load i16, ptr %21, align 4, !tbaa !88
-  %49 = trunc i64 %.sroa.3.12.extract.shift to i16
-  %50 = icmp eq i16 %48, %49
-  br i1 %50, label %51, label %55
+  %49 = load i16, ptr %21, align 4, !tbaa !88
+  %50 = trunc i64 %.sroa.3.12.extract.shift to i16
+  %51 = icmp eq i16 %49, %50
+  br i1 %51, label %52, label %56
 
-51:                                               ; preds = %47
+52:                                               ; preds = %48
   %.sroa.3.14.extract.shift = lshr i64 %.sroa.3.0.copyload, 48
-  %52 = load i16, ptr %22, align 2, !tbaa !89
-  %53 = zext i16 %52 to i64
-  %54 = icmp ne i64 %.sroa.3.14.extract.shift, %53
-  %or.cond.not = select i1 %54, i1 %44, i1 false
-  br i1 %or.cond.not, label %57, label %56
+  %53 = load i16, ptr %22, align 2, !tbaa !89
+  %54 = zext i16 %53 to i64
+  %55 = icmp ne i64 %.sroa.3.14.extract.shift, %54
+  %or.cond.not = select i1 %55, i1 %45, i1 false
+  br i1 %or.cond.not, label %58, label %57
 
-55:                                               ; preds = %47, %42
-  br i1 %44, label %57, label %56
+56:                                               ; preds = %48, %42
+  br i1 %45, label %58, label %57
 
-56:                                               ; preds = %55, %51
+57:                                               ; preds = %56, %52
   store i8 0, ptr %23, align 8, !tbaa !77
-  br label %57
+  br label %58
 
-57:                                               ; preds = %51, %56, %55
+58:                                               ; preds = %52, %57, %56
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %58 = load i32, ptr %16, align 4, !tbaa !81
-  %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next23, %59
-  br i1 %60, label %42, label %._crit_edge, !llvm.loop !90
+  %59 = load i32, ptr %16, align 4, !tbaa !81
+  %60 = sext i32 %59 to i64
+  %61 = icmp slt i64 %indvars.iv.next23, %60
+  br i1 %61, label %42, label %._crit_edge, !llvm.loop !90
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4116,7 +4118,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10Platformer14PreSolveStati
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.019.lcssa.i = phi float [ 0.000000e+00, %.preheader.i ], [ %36, %.lr.ph.i ]
+  %.019.lcssa.i = phi float [ 0.000000e+00, %.preheader.i ], [ %37, %.lr.ph.i ]
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 252
   %30 = load float, ptr %29, align 4, !tbaa !164
   %31 = fmul float %30, 0x3FB99999A0000000
@@ -4125,11 +4127,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10Platformer14PreSolveStati
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.01932.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i ], [ %36, %.lr.ph.i ]
-  %33 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %2, i64 %indvars.iv.i, i32 6
-  %34 = load float, ptr %33, align 4, !tbaa !176
-  %35 = fcmp olt float %.01932.i, %34
-  %36 = select i1 %35, float %.01932.i, float %34
+  %.01932.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i ], [ %37, %.lr.ph.i ]
+  %33 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %2, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 36
+  %35 = load float, ptr %34, align 4, !tbaa !176
+  %36 = fcmp olt float %.01932.i, %35
+  %37 = select i1 %36, float %.01932.i, float %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !178

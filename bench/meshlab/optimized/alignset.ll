@@ -3576,12 +3576,8 @@ switch.lookup:                                    ; preds = %58
   %switch.cast89 = trunc nuw i32 %61 to i8
   %switch.downshift91 = lshr i8 -21, %switch.cast89
   %switch.masked92 = trunc i8 %switch.downshift91 to i1
-  %switch.cast93 = trunc nuw i32 %61 to i8
-  %switch.downshift95 = lshr i8 64, %switch.cast93
-  %switch.masked96 = trunc i8 %switch.downshift95 to i1
-  %switch.cast97 = trunc nuw i32 %61 to i8
-  %switch.downshift99 = lshr exact i8 -128, %switch.cast97
-  %switch.masked100 = trunc i8 %switch.downshift99 to i1
+  %switch.masked96 = icmp eq i32 %61, 6
+  %switch.masked100 = icmp eq i32 %61, 7
   br label %66
 
 66:                                               ; preds = %switch.lookup, %58

@@ -16,6 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.vframeStreamForte = type { %class.vframeStreamCommon }
 %class.vframeStreamCommon = type { %class.frame, ptr, %class.RegisterMap, i32, i32, i32, i32, ptr, i32, ptr, i8, %class.Handle }
 %struct.ASGCT_CallFrame = type { i32, ptr }
+%class.ImmutableOopMapPair = type { i32, i32 }
 
 $_ZN18vframeStreamCommon15fill_from_frameEv = comdat any
 
@@ -962,7 +963,7 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %233
+  br label %234
 
 _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i
   %.sroa.6.0 = phi i8 [ %.sroa.6.0.copyload27, %_ZN7nmethod10pc_desc_atEPh.exit.thread.i.i ], [ %.sroa.6.0.copyload27, %_ZN7nmethod12pc_desc_nearEPh.exit.thread26.i.i ], [ %.sroa.6.0.copyload29, %_ZL33is_decipherable_interpreted_frameP10JavaThreadP5framePP6MethodPi.exit.thread.sink.split.i ], [ %.sroa.6.0.copyload27, %_ZN7nmethod12pc_desc_nearEPh.exit.i.i ]
@@ -975,7 +976,7 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %186 = icmp eq ptr %.1, null
-  br i1 %186, label %233, label %187
+  br i1 %186, label %234, label %187
 
 187:                                              ; preds = %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread46, %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit
   %.154 = phi ptr [ %101, %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread46 ], [ %.1, %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit ]
@@ -988,7 +989,7 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %
 189:                                              ; preds = %187
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 -2, ptr %190, align 8
-  br label %233
+  br label %234
 
 191:                                              ; preds = %187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
@@ -1040,7 +1041,7 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %
 212:                                              ; preds = %208
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 -2, ptr %213, align 8
-  br label %233
+  br label %234
 
 214:                                              ; preds = %208
   %215 = getelementptr inbounds nuw i8, ptr %210, i64 8
@@ -1051,35 +1052,36 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %
   %220 = load ptr, ptr %219, align 8
   %221 = call noundef ptr @_ZN13InstanceKlass18jmethod_id_or_nullEP6Method(ptr noundef nonnull align 8 dereferenceable(464) %220, ptr noundef nonnull align 8 dereferenceable(88) %210) #8
   %222 = load ptr, ptr %206, align 8
-  %223 = getelementptr inbounds nuw %struct.ASGCT_CallFrame, ptr %222, i64 %indvars.iv, i32 1
-  store ptr %221, ptr %223, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %210, i64 40
-  %.sroa.0.0.copyload.i.i = load i32, ptr %224, align 8
-  %225 = and i32 %.sroa.0.0.copyload.i.i, 256
-  %.not = icmp eq i32 %225, 0
-  %226 = load ptr, ptr %206, align 8
-  %227 = getelementptr inbounds nuw %struct.ASGCT_CallFrame, ptr %226, i64 %indvars.iv
+  %223 = getelementptr inbounds nuw %struct.ASGCT_CallFrame, ptr %222, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  store ptr %221, ptr %224, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %210, i64 40
+  %.sroa.0.0.copyload.i.i = load i32, ptr %225, align 8
+  %226 = and i32 %.sroa.0.0.copyload.i.i, 256
+  %.not = icmp eq i32 %226, 0
+  %227 = load ptr, ptr %206, align 8
+  %228 = getelementptr inbounds nuw %struct.ASGCT_CallFrame, ptr %227, i64 %indvars.iv
   %. = select i1 %.not, i32 %209, i32 -3
-  store i32 %., ptr %227, align 8
+  store i32 %., ptr %228, align 8
   call void @_ZN17vframeStreamForte10forte_nextEv(ptr noundef nonnull align 8 dereferenceable(5104) %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %228 = load i32, ptr %200, align 8
-  %229 = icmp eq i32 %228, 2
-  %230 = icmp samesign uge i64 %indvars.iv.next, %207
-  %.not15 = select i1 %229, i1 true, i1 %230
+  %229 = load i32, ptr %200, align 8
+  %230 = icmp eq i32 %229, 2
+  %231 = icmp samesign uge i64 %indvars.iv.next, %207
+  %.not15 = select i1 %230, i1 true, i1 %231
   br i1 %.not15, label %._crit_edge.loopexit, label %208, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %214
-  %231 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %232 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %191
-  %.0.lcssa = phi i32 [ 0, %191 ], [ %231, %._crit_edge.loopexit ]
-  %232 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.0.lcssa, ptr %232, align 8
-  br label %233
+  %.0.lcssa = phi i32 [ 0, %191 ], [ %232, %._crit_edge.loopexit ]
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %.0.lcssa, ptr %233, align 8
+  br label %234
 
-233:                                              ; preds = %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread, %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit, %._crit_edge, %212, %189
+234:                                              ; preds = %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit.thread, %_ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit, %._crit_edge, %212, %189
   ret void
 }
 
@@ -1824,17 +1826,16 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   br i1 %.not11.i.i, label %_ZNK5frame7oop_mapEv.exit, label %_ZNK5frame7oop_mapEv.exit.thread23
 
 _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %46 = lshr i32 %44, 21
-  %47 = and i32 %46, 2040
-  %.idx.i.i.i.i = zext nneg i32 %47 to i64
-  %48 = getelementptr i8, ptr %45, i64 %.idx.i.i.i.i
-  %49 = getelementptr i8, ptr %48, i64 4
+  %45 = lshr i32 %44, 24
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %47 = zext nneg i32 %45 to i64
+  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 3
-  %54 = getelementptr inbounds i8, ptr %45, i64 %53
+  %54 = getelementptr inbounds i8, ptr %46, i64 %53
   %55 = sext i32 %50 to i64
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
   store ptr %56, ptr %28, align 8

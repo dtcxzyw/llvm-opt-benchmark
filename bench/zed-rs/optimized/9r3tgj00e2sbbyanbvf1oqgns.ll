@@ -2329,9 +2329,9 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   unreachable
 
 85:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h5c5aa0249ea91cb5E.exit.i.i"
-  %86 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { { i64, [1 x i64] }, { { i32, [1 x i32] }, { i32, [1 x i32] } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, float, float, i8, i8, i8, i8, i8, i8, i8, [1 x i8] } }, ptr %37, i64 %41, i32 2
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %43, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %43, i64 88
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h8048b35496d52154E(ptr noalias noundef nonnull align 8 dereferenceable(32) %87, ptr noalias noundef nonnull readonly align 1 %88, i64 noundef 48, i64 noundef 16)
           to label %"_ZN4core3ptr69drop_in_place$LT$workspace..workspace_settings..WorkspaceSettings$GT$17h88065115741a7376E.exit" unwind label %.thread51
 
@@ -2603,9 +2603,9 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   unreachable
 
 91:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7e80824272ddc0cfE.exit.i.i"
-  %92 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { i8, i8 }, [6 x i8] }, ptr %38, i64 %42, i32 2
+  %92 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i8 %34, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %44, i64 25
   store i8 %36, ptr %93, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !495)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !498)
@@ -2854,7 +2854,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   unreachable
 
 88:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17he4443adf6bf05cf5E.exit.i.i"
-  %89 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { i8, i8, i8 }, [5 x i8] }, ptr %36, i64 %40, i32 2
+  %89 = getelementptr inbounds nuw i8, ptr %42, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %89, ptr noundef nonnull align 1 dereferenceable(3) %12, i64 3, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !561)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !564)
@@ -3103,7 +3103,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   unreachable
 
 88:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h04de1bff85020d61E.exit.i.i"
-  %89 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { i8, i8, i8 }, [5 x i8] }, ptr %36, i64 %40, i32 2
+  %89 = getelementptr inbounds nuw i8, ptr %42, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %89, ptr noundef nonnull align 1 dereferenceable(3) %12, i64 3, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !627)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !630)
@@ -68073,14 +68073,15 @@ define hidden noundef zeroext i1 @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12cont
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !4
-  %14 = extractvalue { i32, i32 } %6, 0
-  %15 = getelementptr inbounds nuw { { [490 x i64] }, i32, [1 x i32] }, ptr %13, i64 %10, i32 1
-  %16 = load i32, ptr %15, align 8, !alias.scope !18295, !noalias !18300, !noundef !4
-  %17 = icmp eq i32 %16, %14
+  %14 = getelementptr inbounds nuw { { [490 x i64] }, i32, [1 x i32] }, ptr %13, i64 %10
+  %15 = extractvalue { i32, i32 } %6, 0
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 3920
+  %17 = load i32, ptr %16, align 8, !alias.scope !18295, !noalias !18300, !noundef !4
+  %18 = icmp eq i32 %17, %15
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h47a5d8244fd4edb8E.llvm.4784060810856971783.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h47a5d8244fd4edb8E.llvm.4784060810856971783.exit": ; preds = %3, %11
-  %.sroa.02.0.in.i = phi i1 [ %17, %11 ], [ false, %3 ]
+  %.sroa.02.0.in.i = phi i1 [ %18, %11 ], [ false, %3 ]
   ret i1 %.sroa.02.0.in.i
 }
 
@@ -68375,42 +68376,43 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17hc44416a541
 
 "_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h44ea8fffd07e2fb1E.llvm.4784060810856971783.exit.thread": ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %21
+  br label %22
 
 "_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h44ea8fffd07e2fb1E.llvm.4784060810856971783.exit": ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !18341, !nonnull !4
-  %17 = extractvalue { i32, i32 } %10, 0
-  %18 = getelementptr inbounds nuw { { [490 x i64] }, i32, [1 x i32] }, ptr %16, i64 %14, i32 1
-  %19 = load i32, ptr %18, align 8, !alias.scope !18344, !noalias !18349, !noundef !4
-  %20 = icmp eq i32 %19, %17
+  %17 = getelementptr inbounds nuw { { [490 x i64] }, i32, [1 x i32] }, ptr %16, i64 %14
+  %18 = extractvalue { i32, i32 } %10, 0
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 3920
+  %20 = load i32, ptr %19, align 8, !alias.scope !18344, !noalias !18349, !noundef !4
+  %21 = icmp eq i32 %20, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %20, label %22, label %21
+  br i1 %21, label %23, label %22
 
-21:                                               ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h44ea8fffd07e2fb1E.llvm.4784060810856971783.exit.thread", %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h44ea8fffd07e2fb1E.llvm.4784060810856971783.exit"
+22:                                               ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h44ea8fffd07e2fb1E.llvm.4784060810856971783.exit.thread", %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h44ea8fffd07e2fb1E.llvm.4784060810856971783.exit"
   store i64 3, ptr %0, align 8
-  br label %34
+  br label %35
 
-22:                                               ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h44ea8fffd07e2fb1E.llvm.4784060810856971783.exit"
-  %23 = extractvalue { i32, i32 } %8, 1
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw { { [490 x i64] }, i32, [1 x i32] }, ptr %16, i64 %24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3920) %0, ptr noundef nonnull align 8 dereferenceable(3920) %25, i64 3920, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %27 = load i32, ptr %26, align 8, !noundef !4
-  store i32 %27, ptr %25, align 8
-  store i32 %23, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %29 = load i32, ptr %28, align 4, !noundef !4
-  %30 = add i32 %29, -1
-  store i32 %30, ptr %28, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 3920
-  %32 = load i32, ptr %31, align 8, !noundef !4
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %31, align 8
-  br label %34
+23:                                               ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h44ea8fffd07e2fb1E.llvm.4784060810856971783.exit"
+  %24 = extractvalue { i32, i32 } %8, 1
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw { { [490 x i64] }, i32, [1 x i32] }, ptr %16, i64 %25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3920) %0, ptr noundef nonnull align 8 dereferenceable(3920) %26, i64 3920, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %28 = load i32, ptr %27, align 8, !noundef !4
+  store i32 %28, ptr %26, align 8
+  store i32 %24, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %30 = load i32, ptr %29, align 4, !noundef !4
+  %31 = add i32 %30, -1
+  store i32 %31, ptr %29, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 3920
+  %33 = load i32, ptr %32, align 8, !noundef !4
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %32, align 8
+  br label %35
 
-34:                                               ; preds = %22, %21
+35:                                               ; preds = %23, %22
   ret void
 }
 

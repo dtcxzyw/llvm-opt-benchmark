@@ -64,12 +64,13 @@ define hidden i64 @awt_getX11KeySym(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %12, label %7
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw %struct.KEYMAP_ENTRY, ptr @keymapTable, i64 %indvars.iv, i32 1
-  %14 = load i64, ptr %13, align 8
+  %13 = getelementptr inbounds nuw %struct.KEYMAP_ENTRY, ptr @keymapTable, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load i64, ptr %14, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %5, %3, %12
-  %.07 = phi i64 [ %14, %12 ], [ 65406, %3 ], [ 0, %5 ], [ 0, %7 ]
+  %.07 = phi i64 [ %15, %12 ], [ 65406, %3 ], [ 0, %5 ], [ 0, %7 ]
   ret i64 %.07
 }
 
@@ -194,7 +195,7 @@ define i32 @Java_sun_awt_X11_XWindow_getAWTKeyCodeForKeySym(ptr noundef readnone
   br i1 %.not16.i, label %.keysymToAWTKeyCode.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw %struct.KEYMAP_ENTRY, ptr @keymapTable, i64 %indvars.iv.next.i, i32 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %4
   br i1 %16, label %keysymToAWTKeyCode.exit, label %.lr.ph, !llvm.loop !8
@@ -395,13 +396,14 @@ define i32 @Java_sun_awt_X11_XWindow_getKeySymForAWTKeyCode(ptr noundef readnone
   br i1 %13, label %14, label %9
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw %struct.KEYMAP_ENTRY, ptr @keymapTable, i64 %indvars.iv.i, i32 1
-  %16 = load i64, ptr %15, align 8
-  %17 = trunc i64 %16 to i32
+  %15 = getelementptr inbounds nuw %struct.KEYMAP_ENTRY, ptr @keymapTable, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = trunc i64 %17 to i32
   br label %awt_getX11KeySym.exit
 
 awt_getX11KeySym.exit:                            ; preds = %9, %5, %7, %14
-  %.07.i = phi i32 [ %17, %14 ], [ 65406, %5 ], [ 0, %7 ], [ 0, %9 ]
+  %.07.i = phi i32 [ %18, %14 ], [ 65406, %5 ], [ 0, %7 ], [ 0, %9 ]
   ret i32 %.07.i
 }
 

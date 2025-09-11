@@ -6312,7 +6312,7 @@ _ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit: ; preds = %.lr.ph.
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load i32, ptr %103, align 8, !tbaa !20
   %105 = icmp ugt i32 %104, 300
-  br i1 %105, label %339, label %106
+  br i1 %105, label %340, label %106
 
 106:                                              ; preds = %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit"
   br i1 %41, label %107, label %114
@@ -6391,7 +6391,7 @@ _ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit: ; preds = %.lr.ph.
 
 151:                                              ; preds = %145
   %152 = load ptr, ptr %8, align 8, !tbaa !334
-  br label %338
+  br label %339
 
 153:                                              ; preds = %145
   br i1 %41, label %154, label %157
@@ -6416,7 +6416,7 @@ _ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit: ; preds = %.lr.ph.
   %164 = or disjoint i16 %163, 128
   store i16 %164, ptr %161, align 1
   %165 = load ptr, ptr %8, align 8, !tbaa !334
-  br label %338
+  br label %339
 
 166:                                              ; preds = %154
   %167 = icmp eq i16 %149, 25
@@ -6710,14 +6710,14 @@ _ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit57: ; preds = %.lr.p
 
 325:                                              ; preds = %324, %319, %318
   %326 = icmp eq i64 %.013.lcssa.i, %.013.lcssa.i56
-  br i1 %326, label %327, label %338
+  br i1 %326, label %327, label %339
 
 327:                                              ; preds = %325
   %328 = load ptr, ptr %0, align 8, !tbaa !95
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 48
   store i64 %127, ptr %329, align 8, !tbaa !430
   %.not43 = icmp eq i64 %127, -1
-  br i1 %.not43, label %338, label %330
+  br i1 %.not43, label %339, label %330
 
 330:                                              ; preds = %327
   %331 = load ptr, ptr %33, align 8, !tbaa !216
@@ -6726,18 +6726,19 @@ _ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit57: ; preds = %.lr.p
   %334 = zext i32 %333 to i64
   %335 = add nsw i64 %334, -1
   %336 = load ptr, ptr %331, align 8, !tbaa !79
-  %337 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %336, i64 %127, i32 13
-  store i64 %335, ptr %337, align 8, !tbaa !457
-  br label %338
+  %337 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %336, i64 %127
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 56
+  store i64 %335, ptr %338, align 8, !tbaa !457
+  br label %339
 
-338:                                              ; preds = %325, %330, %327, %158, %151
+339:                                              ; preds = %325, %330, %327, %158, %151
   %.1 = phi ptr [ %152, %151 ], [ %165, %158 ], [ %197, %327 ], [ %197, %330 ], [ %197, %325 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call fastcc void @_ZN5clang6format12_GLOBAL__N_122ScopedDeclarationStateD2Ev(ptr nonnull %.pre, ptr nonnull %133) #22
-  br label %339
+  br label %340
 
-339:                                              ; preds = %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit", %338
-  %.0 = phi ptr [ %.1, %338 ], [ null, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit" ]
+340:                                              ; preds = %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit", %339
+  %.0 = phi ptr [ %.1, %339 ], [ null, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit" ]
   ret ptr %.0
 }
 
@@ -25179,18 +25180,19 @@ define dso_local void @_ZN5clang6format19UnwrappedLineParser21parseVerilogCaseLa
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !80
   %39 = icmp ugt i32 %38, %8
-  br i1 %39, label %40, label %43
+  br i1 %39, label %40, label %44
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %36, align 8, !tbaa !79
-  %42 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %41, i64 %9, i32 1
-  store i32 %4, ptr %42, align 8, !tbaa !20
-  br label %43
+  %42 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %41, i64 %9
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  store i32 %4, ptr %43, align 8, !tbaa !20
+  br label %44
 
-43:                                               ; preds = %40, %35
-  %44 = load ptr, ptr %0, align 8, !tbaa !95
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store i32 %4, ptr %45, align 8, !tbaa !20
+44:                                               ; preds = %40, %35
+  %45 = load ptr, ptr %0, align 8, !tbaa !95
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  store i32 %4, ptr %46, align 8, !tbaa !20
   ret void
 }
 
@@ -28922,7 +28924,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMa
   br i1 %.not.i, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit, label %35
 
 35:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.216", ptr %14, i64 %.pn.i, i32 0, i32 1
+  %.sroa.0.1.i.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.216", ptr %14, i64 %.pn.i
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !770
   br label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit
 
@@ -29024,7 +29027,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMa
   br i1 %.not.i, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit, label %40
 
 40:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.216", ptr %19, i64 %.pn.i, i32 0, i32 1
+  %.sroa.0.1.i.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.216", ptr %19, i64 %.pn.i
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !770
   br label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit
 
@@ -29046,21 +29050,21 @@ _ZNK5clang6format18IndexedTokenSource9successorEi.exit: ; preds = %.lr.ph.i.i.i.
 .lr.ph:                                           ; preds = %.preheader
   %51 = add i32 %21, -1
   %52 = zext i32 %21 to i64
-  br i1 %22, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15.us, label %.lr.ph.split
+  br i1 %22, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16.us, label %.lr.ph.split
 
-_ZNK5clang6format18IndexedTokenSource9successorEi.exit15.us: ; preds = %.lr.ph, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15.us ], [ %45, %.lr.ph ]
+_ZNK5clang6format18IndexedTokenSource9successorEi.exit16.us: ; preds = %.lr.ph, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16.us ], [ %45, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %53 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.next
   %54 = load ptr, ptr %53, align 8, !tbaa !334
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i16, ptr %55, align 8, !tbaa !45
   %57 = icmp eq i16 %56, 4
-  br i1 %57, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15.us, label %.loopexit.loopexit, !llvm.loop !772
+  br i1 %57, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16.us, label %.loopexit.loopexit, !llvm.loop !772
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15
-  %.017 = phi i32 [ %.0.i14, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15 ], [ %.0.i, %.lr.ph ]
-  %58 = add nsw i32 %.017, 1
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16
+  %.018 = phi i32 [ %.0.i15, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16 ], [ %.0.i, %.lr.ph ]
+  %58 = add nsw i32 %.018, 1
   %59 = mul i32 %58, 37
   %.01728.i.i.i.i6 = and i32 %59, %51
   %60 = zext i32 %.01728.i.i.i.i6 to i64
@@ -29074,7 +29078,7 @@ _ZNK5clang6format18IndexedTokenSource9successorEi.exit15.us: ; preds = %.lr.ph, 
   %.01730.i.i.i.i8 = phi i32 [ %.017.i.i.i.i10, %66 ], [ %.01728.i.i.i.i6, %.lr.ph.split ]
   %.01529.i.i.i.i9 = phi i32 [ %67, %66 ], [ 1, %.lr.ph.split ]
   %65 = icmp eq i32 %64, 2147483647
-  br i1 %65, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15, label %66, !prof !354
+  br i1 %65, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16, label %66, !prof !354
 
 66:                                               ; preds = %.lr.ph.i.i.i.i7
   %67 = add i32 %.01529.i.i.i.i9, 1
@@ -29089,16 +29093,17 @@ _ZNK5clang6format18IndexedTokenSource9successorEi.exit15.us: ; preds = %.lr.ph, 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i11: ; preds = %66, %.lr.ph.split
   %.pn.i12 = phi i64 [ %60, %.lr.ph.split ], [ %69, %66 ]
   %.not.i13 = icmp samesign eq i64 %.pn.i12, %52
-  br i1 %.not.i13, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15, label %73
+  br i1 %.not.i13, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16, label %73
 
 73:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i11
-  %74 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.216", ptr %19, i64 %.pn.i12, i32 0, i32 1
+  %.sroa.0.1.i.i14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.216", ptr %19, i64 %.pn.i12
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i14, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !770
-  br label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15
+  br label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16
 
-_ZNK5clang6format18IndexedTokenSource9successorEi.exit15: ; preds = %.lr.ph.i.i.i.i7, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i11, %73
-  %.0.i14 = phi i32 [ %75, %73 ], [ %58, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i11 ], [ %58, %.lr.ph.i.i.i.i7 ]
-  %76 = sext i32 %.0.i14 to i64
+_ZNK5clang6format18IndexedTokenSource9successorEi.exit16: ; preds = %.lr.ph.i.i.i.i7, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i11, %73
+  %.0.i15 = phi i32 [ %75, %73 ], [ %58, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i11 ], [ %58, %.lr.ph.i.i.i.i7 ]
+  %76 = sext i32 %.0.i15 to i64
   %77 = getelementptr inbounds nuw ptr, ptr %44, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !334
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -29106,12 +29111,12 @@ _ZNK5clang6format18IndexedTokenSource9successorEi.exit15: ; preds = %.lr.ph.i.i.
   %81 = icmp eq i16 %80, 4
   br i1 %81, label %.lr.ph.split, label %.loopexit, !llvm.loop !772
 
-.loopexit.loopexit:                               ; preds = %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15.us
+.loopexit.loopexit:                               ; preds = %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16.us
   %82 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit, %.loopexit.loopexit, %.preheader
-  %.1 = phi i32 [ %.0.i, %.preheader ], [ %82, %.loopexit.loopexit ], [ %.0.i, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit ], [ %.0.i14, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15 ]
+.loopexit:                                        ; preds = %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit, %.loopexit.loopexit, %.preheader
+  %.1 = phi i32 [ %.0.i, %.preheader ], [ %82, %.loopexit.loopexit ], [ %.0.i, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit ], [ %.0.i15, %_ZNK5clang6format18IndexedTokenSource9successorEi.exit16 ]
   %83 = sext i32 %.1 to i64
   %84 = getelementptr inbounds nuw ptr, ptr %44, i64 %83
   br label %85

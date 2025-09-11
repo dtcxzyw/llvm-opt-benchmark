@@ -164,14 +164,15 @@ define dso_local void @tr2_sysenv_release() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr inbounds nuw %struct.tr2_sysenv_entry, ptr @tr2_sysenv_settings, i64 %indvars.iv, i32 2
-  %3 = load ptr, ptr %2, align 16, !tbaa !13
-  tail call void @free(ptr noundef %3) #6
+  %2 = getelementptr inbounds nuw %struct.tr2_sysenv_entry, ptr @tr2_sysenv_settings, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %4 = load ptr, ptr %3, align 16, !tbaa !13
+  tail call void @free(ptr noundef %4) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %4, label %1, !llvm.loop !16
+  br i1 %exitcond.not, label %5, label %1, !llvm.loop !16
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   ret void
 }
 

@@ -1768,67 +1768,67 @@ define dso_local ptr @_nc_First_Active_Field(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i16, ptr %6, align 4, !tbaa !47
   %8 = sext i16 %7 to i64
-  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8, i32 1
-  %10 = load i16, ptr %9, align 2, !tbaa !79
-  %11 = sext i16 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %3, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !81
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %15 = load ptr, ptr %14, align 8, !tbaa !44
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %17 = load ptr, ptr %16, align 8, !tbaa !62
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 34
-  %19 = load i16, ptr %18, align 2, !tbaa !82
-  %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %17, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  %23 = load ptr, ptr %22, align 8, !tbaa !78
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 28
-  %25 = load i16, ptr %24, align 4, !tbaa !47
-  %26 = sext i16 %25 to i64
-  %27 = getelementptr inbounds %struct._PAGE, ptr %23, i64 %26
-  %28 = load i16, ptr %27, align 2, !tbaa !83
-  %29 = sext i16 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %17, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 2
-  %32 = load i16, ptr %31, align 2, !tbaa !79
-  %33 = sext i16 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %17, i64 %33
-  br label %35
+  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %11 = load i16, ptr %10, align 2, !tbaa !79
+  %12 = sext i16 %11 to i64
+  %13 = getelementptr inbounds ptr, ptr %3, i64 %12
+  %14 = load ptr, ptr %13, align 8, !tbaa !81
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  %16 = load ptr, ptr %15, align 8, !tbaa !44
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %18 = load ptr, ptr %17, align 8, !tbaa !62
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 34
+  %20 = load i16, ptr %19, align 2, !tbaa !82
+  %21 = sext i16 %20 to i64
+  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  %24 = load ptr, ptr %23, align 8, !tbaa !78
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %26 = load i16, ptr %25, align 4, !tbaa !47
+  %27 = sext i16 %26 to i64
+  %28 = getelementptr inbounds %struct._PAGE, ptr %24, i64 %27
+  %29 = load i16, ptr %28, align 2, !tbaa !83
+  %30 = sext i16 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %18, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 2
+  %33 = load i16, ptr %32, align 2, !tbaa !79
+  %34 = sext i16 %33 to i64
+  %35 = getelementptr inbounds ptr, ptr %18, i64 %34
+  br label %36
 
-35:                                               ; preds = %35, %1
-  %.0.i = phi ptr [ %21, %1 ], [ %38, %35 ]
-  %36 = icmp eq ptr %.0.i, %34
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %38 = select i1 %36, ptr %30, ptr %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !81
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !19
-  %42 = and i32 %41, 3
-  %43 = icmp eq i32 %42, 3
-  %.not.i = icmp eq ptr %13, %39
-  %or.cond.i = or i1 %.not.i, %43
-  br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %35, !llvm.loop !84
+36:                                               ; preds = %36, %1
+  %.0.i = phi ptr [ %22, %1 ], [ %39, %36 ]
+  %37 = icmp eq ptr %.0.i, %35
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %39 = select i1 %37, ptr %31, ptr %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !81
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
+  %42 = load i32, ptr %41, align 8, !tbaa !19
+  %43 = and i32 %42, 3
+  %44 = icmp eq i32 %43, 3
+  %.not.i = icmp eq ptr %14, %40
+  %or.cond.i = or i1 %.not.i, %44
+  br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %36, !llvm.loop !84
 
-Next_Field_On_Page.exit:                          ; preds = %35
+Next_Field_On_Page.exit:                          ; preds = %36
   %.not.i.not = xor i1 %.not.i, true
-  %brmerge = or i1 %43, %.not.i.not
-  br i1 %brmerge, label %64, label %44
+  %brmerge = or i1 %44, %.not.i.not
+  br i1 %brmerge, label %64, label %45
 
-44:                                               ; preds = %Next_Field_On_Page.exit
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 34
-  %46 = load i16, ptr %45, align 2, !tbaa !82
-  %47 = sext i16 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %3, i64 %47
-  %49 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8
-  %50 = load i16, ptr %49, align 2, !tbaa !83
+45:                                               ; preds = %Next_Field_On_Page.exit
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 34
+  %47 = load i16, ptr %46, align 2, !tbaa !82
+  %48 = sext i16 %47 to i64
+  %49 = getelementptr inbounds ptr, ptr %3, i64 %48
+  %50 = load i16, ptr %9, align 2, !tbaa !83
   %51 = sext i16 %50 to i64
   %52 = getelementptr inbounds ptr, ptr %3, i64 %51
   br label %53
 
-53:                                               ; preds = %53, %44
-  %.025 = phi ptr [ %48, %44 ], [ %56, %53 ]
-  %54 = icmp eq ptr %.025, %12
+53:                                               ; preds = %53, %45
+  %.025 = phi ptr [ %49, %45 ], [ %56, %53 ]
+  %54 = icmp eq ptr %.025, %13
   %55 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %56 = select i1 %54, ptr %52, ptr %55
   %57 = load ptr, ptr %56, align 8, !tbaa !81
@@ -1836,7 +1836,7 @@ Next_Field_On_Page.exit:                          ; preds = %35
   %59 = load i32, ptr %58, align 8, !tbaa !19
   %60 = and i32 %59, 1
   %.not30 = icmp ne i32 %60, 0
-  %.not31 = icmp eq ptr %13, %57
+  %.not31 = icmp eq ptr %14, %57
   %or.cond = or i1 %.not31, %.not30
   br i1 %or.cond, label %61, label %53, !llvm.loop !85
 
@@ -1850,7 +1850,7 @@ Next_Field_On_Page.exit:                          ; preds = %35
   br label %64
 
 64:                                               ; preds = %Next_Field_On_Page.exit, %61, %62
-  %.0 = phi ptr [ %39, %Next_Field_On_Page.exit ], [ %63, %62 ], [ %57, %61 ]
+  %.0 = phi ptr [ %40, %Next_Field_On_Page.exit ], [ %63, %62 ], [ %57, %61 ]
   ret ptr %.0
 }
 
@@ -1886,90 +1886,92 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load ptr, ptr %20, align 8, !tbaa !78
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds %struct._PAGE, ptr %21, i64 %22, i32 2
-  %24 = load i16, ptr %23, align 2, !tbaa !86
-  %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %19, i64 %25
-  %27 = load ptr, ptr %26, align 8, !tbaa !81
-  br label %28
+  %23 = getelementptr inbounds %struct._PAGE, ptr %21, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %25 = load i16, ptr %24, align 2, !tbaa !86
+  %26 = sext i16 %25 to i64
+  %27 = getelementptr inbounds ptr, ptr %19, i64 %26
+  %28 = load ptr, ptr %27, align 8, !tbaa !81
+  br label %29
 
-28:                                               ; preds = %34, %14
-  %.023 = phi ptr [ %27, %14 ], [ %36, %34 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.023, i64 48
-  %30 = load i32, ptr %29, align 8, !tbaa !19
-  %31 = and i32 %30, 1
-  %.not35 = icmp eq i32 %31, 0
-  br i1 %.not35, label %34, label %32
+29:                                               ; preds = %35, %14
+  %.023 = phi ptr [ %28, %14 ], [ %37, %35 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.023, i64 48
+  %31 = load i32, ptr %30, align 8, !tbaa !19
+  %32 = and i32 %31, 1
+  %.not35 = icmp eq i32 %32, 0
+  br i1 %.not35, label %35, label %33
 
-32:                                               ; preds = %28
-  %33 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %.023, i1 noundef zeroext false)
-  %.not36 = icmp eq i32 %33, 0
-  br i1 %.not36, label %34, label %.critedge
+33:                                               ; preds = %29
+  %34 = tail call fastcc i32 @Display_Or_Erase_Field(ptr noundef nonnull %.023, i1 noundef zeroext false)
+  %.not36 = icmp eq i32 %34, 0
+  br i1 %.not36, label %35, label %.critedge
 
-34:                                               ; preds = %32, %28
-  %35 = getelementptr inbounds nuw i8, ptr %.023, i64 56
-  %36 = load ptr, ptr %35, align 8, !tbaa !87
-  %.not37 = icmp eq ptr %36, %27
-  br i1 %.not37, label %37, label %28, !llvm.loop !88
+35:                                               ; preds = %33, %29
+  %36 = getelementptr inbounds nuw i8, ptr %.023, i64 56
+  %37 = load ptr, ptr %36, align 8, !tbaa !87
+  %.not37 = icmp eq ptr %37, %28
+  br i1 %.not37, label %38, label %29, !llvm.loop !88
 
-37:                                               ; preds = %34
+38:                                               ; preds = %35
   %.not38 = icmp eq ptr %2, null
-  br i1 %.not38, label %38, label %.critedge.sink.split
+  br i1 %.not38, label %39, label %.critedge.sink.split
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %18, align 8, !tbaa !62
-  %40 = load ptr, ptr %20, align 8, !tbaa !78
-  %41 = load i16, ptr %4, align 4, !tbaa !47
-  %42 = sext i16 %41 to i64
-  %43 = getelementptr inbounds %struct._PAGE, ptr %40, i64 %42, i32 1
-  %44 = load i16, ptr %43, align 2, !tbaa !79
-  %45 = sext i16 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %39, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !81
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 80
-  %49 = load ptr, ptr %48, align 8, !tbaa !44
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %51 = load ptr, ptr %50, align 8, !tbaa !62
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 34
-  %53 = load i16, ptr %52, align 2, !tbaa !82
-  %54 = sext i16 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %51, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 80
-  %57 = load ptr, ptr %56, align 8, !tbaa !78
-  %58 = getelementptr inbounds nuw i8, ptr %49, i64 28
-  %59 = load i16, ptr %58, align 4, !tbaa !47
-  %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct._PAGE, ptr %57, i64 %60
-  %62 = load i16, ptr %61, align 2, !tbaa !83
-  %63 = sext i16 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %51, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  %66 = load i16, ptr %65, align 2, !tbaa !79
-  %67 = sext i16 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %51, i64 %67
-  br label %69
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %18, align 8, !tbaa !62
+  %41 = load ptr, ptr %20, align 8, !tbaa !78
+  %42 = load i16, ptr %4, align 4, !tbaa !47
+  %43 = sext i16 %42 to i64
+  %44 = getelementptr inbounds %struct._PAGE, ptr %41, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 2
+  %46 = load i16, ptr %45, align 2, !tbaa !79
+  %47 = sext i16 %46 to i64
+  %48 = getelementptr inbounds ptr, ptr %40, i64 %47
+  %49 = load ptr, ptr %48, align 8, !tbaa !81
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 80
+  %51 = load ptr, ptr %50, align 8, !tbaa !44
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %53 = load ptr, ptr %52, align 8, !tbaa !62
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 34
+  %55 = load i16, ptr %54, align 2, !tbaa !82
+  %56 = sext i16 %55 to i64
+  %57 = getelementptr inbounds ptr, ptr %53, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 80
+  %59 = load ptr, ptr %58, align 8, !tbaa !78
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 28
+  %61 = load i16, ptr %60, align 4, !tbaa !47
+  %62 = sext i16 %61 to i64
+  %63 = getelementptr inbounds %struct._PAGE, ptr %59, i64 %62
+  %64 = load i16, ptr %63, align 2, !tbaa !83
+  %65 = sext i16 %64 to i64
+  %66 = getelementptr inbounds ptr, ptr %53, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 2
+  %68 = load i16, ptr %67, align 2, !tbaa !79
+  %69 = sext i16 %68 to i64
+  %70 = getelementptr inbounds ptr, ptr %53, i64 %69
+  br label %71
 
-69:                                               ; preds = %69, %38
-  %.0.i.i = phi ptr [ %55, %38 ], [ %72, %69 ]
-  %70 = icmp eq ptr %.0.i.i, %68
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %72 = select i1 %70, ptr %64, ptr %71
-  %73 = load ptr, ptr %72, align 8, !tbaa !81
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
-  %75 = load i32, ptr %74, align 8, !tbaa !19
-  %76 = and i32 %75, 3
-  %77 = icmp eq i32 %76, 3
-  %.not.i.i = icmp eq ptr %47, %73
-  %or.cond.i.i = or i1 %.not.i.i, %77
-  br i1 %or.cond.i.i, label %.critedge.sink.split, label %69, !llvm.loop !84
+71:                                               ; preds = %71, %39
+  %.0.i.i = phi ptr [ %57, %39 ], [ %74, %71 ]
+  %72 = icmp eq ptr %.0.i.i, %70
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %74 = select i1 %72, ptr %66, ptr %73
+  %75 = load ptr, ptr %74, align 8, !tbaa !81
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
+  %77 = load i32, ptr %76, align 8, !tbaa !19
+  %78 = and i32 %77, 3
+  %79 = icmp eq i32 %78, 3
+  %.not.i.i = icmp eq ptr %49, %75
+  %or.cond.i.i = or i1 %.not.i.i, %79
+  br i1 %or.cond.i.i, label %.critedge.sink.split, label %71, !llvm.loop !84
 
-.critedge.sink.split:                             ; preds = %69, %37
-  %.sink = phi ptr [ %2, %37 ], [ %73, %69 ]
-  %78 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.sink)
+.critedge.sink.split:                             ; preds = %71, %38
+  %.sink = phi ptr [ %2, %38 ], [ %75, %71 ]
+  %80 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.sink)
   br label %.critedge
 
-.critedge:                                        ; preds = %32, %.critedge.sink.split, %3
-  %.1 = phi i32 [ 0, %3 ], [ %78, %.critedge.sink.split ], [ -1, %32 ]
+.critedge:                                        ; preds = %33, %.critedge.sink.split, %3
+  %.1 = phi i32 [ 0, %3 ], [ %80, %.critedge.sink.split ], [ -1, %33 ]
   ret i32 %.1
 }
 
@@ -1982,51 +1984,52 @@ define internal range(i32 -11, 1) i32 @FN_First_Field(ptr noundef captures(addre
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i16, ptr %6, align 4, !tbaa !47
   %8 = sext i16 %7 to i64
-  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8, i32 1
-  %10 = load i16, ptr %9, align 2, !tbaa !79
-  %11 = sext i16 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %3, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !81
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %15 = load ptr, ptr %14, align 8, !tbaa !44
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %17 = load ptr, ptr %16, align 8, !tbaa !62
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 34
-  %19 = load i16, ptr %18, align 2, !tbaa !82
-  %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %17, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  %23 = load ptr, ptr %22, align 8, !tbaa !78
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 28
-  %25 = load i16, ptr %24, align 4, !tbaa !47
-  %26 = sext i16 %25 to i64
-  %27 = getelementptr inbounds %struct._PAGE, ptr %23, i64 %26
-  %28 = load i16, ptr %27, align 2, !tbaa !83
-  %29 = sext i16 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %17, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 2
-  %32 = load i16, ptr %31, align 2, !tbaa !79
-  %33 = sext i16 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %17, i64 %33
-  br label %35
+  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %11 = load i16, ptr %10, align 2, !tbaa !79
+  %12 = sext i16 %11 to i64
+  %13 = getelementptr inbounds ptr, ptr %3, i64 %12
+  %14 = load ptr, ptr %13, align 8, !tbaa !81
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  %16 = load ptr, ptr %15, align 8, !tbaa !44
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %18 = load ptr, ptr %17, align 8, !tbaa !62
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 34
+  %20 = load i16, ptr %19, align 2, !tbaa !82
+  %21 = sext i16 %20 to i64
+  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  %24 = load ptr, ptr %23, align 8, !tbaa !78
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %26 = load i16, ptr %25, align 4, !tbaa !47
+  %27 = sext i16 %26 to i64
+  %28 = getelementptr inbounds %struct._PAGE, ptr %24, i64 %27
+  %29 = load i16, ptr %28, align 2, !tbaa !83
+  %30 = sext i16 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %18, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 2
+  %33 = load i16, ptr %32, align 2, !tbaa !79
+  %34 = sext i16 %33 to i64
+  %35 = getelementptr inbounds ptr, ptr %18, i64 %34
+  br label %36
 
-35:                                               ; preds = %35, %1
-  %.0.i = phi ptr [ %21, %1 ], [ %38, %35 ]
-  %36 = icmp eq ptr %.0.i, %34
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %38 = select i1 %36, ptr %30, ptr %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !81
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %41 = load i32, ptr %40, align 8, !tbaa !19
-  %42 = and i32 %41, 3
-  %43 = icmp eq i32 %42, 3
-  %.not.i = icmp eq ptr %13, %39
-  %or.cond.i = or i1 %.not.i, %43
-  br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %35, !llvm.loop !84
+36:                                               ; preds = %36, %1
+  %.0.i = phi ptr [ %22, %1 ], [ %39, %36 ]
+  %37 = icmp eq ptr %.0.i, %35
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %39 = select i1 %37, ptr %31, ptr %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !81
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
+  %42 = load i32, ptr %41, align 8, !tbaa !19
+  %43 = and i32 %42, 3
+  %44 = icmp eq i32 %43, 3
+  %.not.i = icmp eq ptr %14, %40
+  %or.cond.i = or i1 %.not.i, %44
+  br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %36, !llvm.loop !84
 
-Next_Field_On_Page.exit:                          ; preds = %35
-  %44 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %39)
-  ret i32 %44
+Next_Field_On_Page.exit:                          ; preds = %36
+  %45 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %40)
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2060,67 +2063,67 @@ define dso_local i32 @form_driver(ptr noundef %0, i32 noundef %1) local_unnamed_
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i16, ptr %15, align 4, !tbaa !47
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds %struct._PAGE, ptr %14, i64 %17, i32 1
-  %19 = load i16, ptr %18, align 2, !tbaa !79
-  %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %7, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !81
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  %24 = load ptr, ptr %23, align 8, !tbaa !44
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %26 = load ptr, ptr %25, align 8, !tbaa !62
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 34
-  %28 = load i16, ptr %27, align 2, !tbaa !82
-  %29 = sext i16 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %26, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  %32 = load ptr, ptr %31, align 8, !tbaa !78
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 28
-  %34 = load i16, ptr %33, align 4, !tbaa !47
-  %35 = sext i16 %34 to i64
-  %36 = getelementptr inbounds %struct._PAGE, ptr %32, i64 %35
-  %37 = load i16, ptr %36, align 2, !tbaa !83
-  %38 = sext i16 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %26, i64 %38
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 2
-  %41 = load i16, ptr %40, align 2, !tbaa !79
-  %42 = sext i16 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %26, i64 %42
-  br label %44
+  %18 = getelementptr inbounds %struct._PAGE, ptr %14, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
+  %20 = load i16, ptr %19, align 2, !tbaa !79
+  %21 = sext i16 %20 to i64
+  %22 = getelementptr inbounds ptr, ptr %7, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !81
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
+  %25 = load ptr, ptr %24, align 8, !tbaa !44
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %27 = load ptr, ptr %26, align 8, !tbaa !62
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 34
+  %29 = load i16, ptr %28, align 2, !tbaa !82
+  %30 = sext i16 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 80
+  %33 = load ptr, ptr %32, align 8, !tbaa !78
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 28
+  %35 = load i16, ptr %34, align 4, !tbaa !47
+  %36 = sext i16 %35 to i64
+  %37 = getelementptr inbounds %struct._PAGE, ptr %33, i64 %36
+  %38 = load i16, ptr %37, align 2, !tbaa !83
+  %39 = sext i16 %38 to i64
+  %40 = getelementptr inbounds ptr, ptr %27, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 2
+  %42 = load i16, ptr %41, align 2, !tbaa !79
+  %43 = sext i16 %42 to i64
+  %44 = getelementptr inbounds ptr, ptr %27, i64 %43
+  br label %45
 
-44:                                               ; preds = %44, %12
-  %.0.i.i = phi ptr [ %30, %12 ], [ %47, %44 ]
-  %45 = icmp eq ptr %.0.i.i, %43
-  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %47 = select i1 %45, ptr %39, ptr %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !81
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %50 = load i32, ptr %49, align 8, !tbaa !19
-  %51 = and i32 %50, 3
-  %52 = icmp eq i32 %51, 3
-  %.not.i.i = icmp eq ptr %22, %48
-  %or.cond.i.i = or i1 %.not.i.i, %52
-  br i1 %or.cond.i.i, label %Next_Field_On_Page.exit.i, label %44, !llvm.loop !84
+45:                                               ; preds = %45, %12
+  %.0.i.i = phi ptr [ %31, %12 ], [ %48, %45 ]
+  %46 = icmp eq ptr %.0.i.i, %44
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %48 = select i1 %46, ptr %40, ptr %47
+  %49 = load ptr, ptr %48, align 8, !tbaa !81
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
+  %51 = load i32, ptr %50, align 8, !tbaa !19
+  %52 = and i32 %51, 3
+  %53 = icmp eq i32 %52, 3
+  %.not.i.i = icmp eq ptr %23, %49
+  %or.cond.i.i = or i1 %.not.i.i, %53
+  br i1 %or.cond.i.i, label %Next_Field_On_Page.exit.i, label %45, !llvm.loop !84
 
-Next_Field_On_Page.exit.i:                        ; preds = %44
+Next_Field_On_Page.exit.i:                        ; preds = %45
   %.not.i.not.i = xor i1 %.not.i.i, true
-  %brmerge.i = or i1 %52, %.not.i.not.i
-  br i1 %brmerge.i, label %_nc_First_Active_Field.exit, label %53
+  %brmerge.i = or i1 %53, %.not.i.not.i
+  br i1 %brmerge.i, label %_nc_First_Active_Field.exit, label %54
 
-53:                                               ; preds = %Next_Field_On_Page.exit.i
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 34
-  %55 = load i16, ptr %54, align 2, !tbaa !82
-  %56 = sext i16 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %7, i64 %56
-  %58 = getelementptr inbounds %struct._PAGE, ptr %14, i64 %17
-  %59 = load i16, ptr %58, align 2, !tbaa !83
+54:                                               ; preds = %Next_Field_On_Page.exit.i
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 34
+  %56 = load i16, ptr %55, align 2, !tbaa !82
+  %57 = sext i16 %56 to i64
+  %58 = getelementptr inbounds ptr, ptr %7, i64 %57
+  %59 = load i16, ptr %18, align 2, !tbaa !83
   %60 = sext i16 %59 to i64
   %61 = getelementptr inbounds ptr, ptr %7, i64 %60
   br label %62
 
-62:                                               ; preds = %62, %53
-  %.025.i = phi ptr [ %57, %53 ], [ %65, %62 ]
-  %63 = icmp eq ptr %.025.i, %21
+62:                                               ; preds = %62, %54
+  %.025.i = phi ptr [ %58, %54 ], [ %65, %62 ]
+  %63 = icmp eq ptr %.025.i, %22
   %64 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %65 = select i1 %63, ptr %61, ptr %64
   %66 = load ptr, ptr %65, align 8, !tbaa !81
@@ -2128,7 +2131,7 @@ Next_Field_On_Page.exit.i:                        ; preds = %44
   %68 = load i32, ptr %67, align 8, !tbaa !19
   %69 = and i32 %68, 1
   %.not30.i = icmp ne i32 %69, 0
-  %.not31.i = icmp eq ptr %22, %66
+  %.not31.i = icmp eq ptr %23, %66
   %or.cond.i = or i1 %.not31.i, %.not30.i
   br i1 %or.cond.i, label %70, label %62, !llvm.loop !85
 
@@ -2142,7 +2145,7 @@ Next_Field_On_Page.exit.i:                        ; preds = %44
   br label %_nc_First_Active_Field.exit
 
 _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.exit.i, %70, %71
-  %.0.i = phi ptr [ %48, %Next_Field_On_Page.exit.i ], [ %72, %71 ], [ %66, %70 ]
+  %.0.i = phi ptr [ %49, %Next_Field_On_Page.exit.i ], [ %72, %71 ], [ %66, %70 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.0.i, ptr %73, align 8, !tbaa !14
   br label %128
@@ -3845,28 +3848,29 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_First_Field(ptr noundef capture
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i16, ptr %6, align 4, !tbaa !47
   %8 = sext i16 %7 to i64
-  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8, i32 3
-  %10 = load i16, ptr %9, align 2, !tbaa !113
-  %11 = sext i16 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %3, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !81
-  br label %14
+  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  %11 = load i16, ptr %10, align 2, !tbaa !113
+  %12 = sext i16 %11 to i64
+  %13 = getelementptr inbounds ptr, ptr %3, i64 %12
+  %14 = load ptr, ptr %13, align 8, !tbaa !81
+  br label %15
 
-14:                                               ; preds = %14, %1
-  %.0.i = phi ptr [ %13, %1 ], [ %16, %14 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
-  %16 = load ptr, ptr %15, align 8, !tbaa !87
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %18 = load i32, ptr %17, align 8, !tbaa !19
-  %19 = and i32 %18, 3
-  %20 = icmp eq i32 %19, 3
-  %.not.i = icmp eq ptr %16, %13
-  %or.cond.i = or i1 %.not.i, %20
-  br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %14, !llvm.loop !110
+15:                                               ; preds = %15, %1
+  %.0.i = phi ptr [ %14, %1 ], [ %17, %15 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
+  %17 = load ptr, ptr %16, align 8, !tbaa !87
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %19 = load i32, ptr %18, align 8, !tbaa !19
+  %20 = and i32 %19, 3
+  %21 = icmp eq i32 %20, 3
+  %.not.i = icmp eq ptr %17, %14
+  %or.cond.i = or i1 %.not.i, %21
+  br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %15, !llvm.loop !110
 
-Sorted_Next_Field.exit:                           ; preds = %14
-  %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %16)
-  ret i32 %21
+Sorted_Next_Field.exit:                           ; preds = %15
+  %22 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %17)
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3878,28 +3882,29 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_Last_Field(ptr noundef captures
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i16, ptr %6, align 4, !tbaa !47
   %8 = sext i16 %7 to i64
-  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8, i32 2
-  %10 = load i16, ptr %9, align 2, !tbaa !86
-  %11 = sext i16 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %3, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !81
-  br label %14
+  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load i16, ptr %10, align 2, !tbaa !86
+  %12 = sext i16 %11 to i64
+  %13 = getelementptr inbounds ptr, ptr %3, i64 %12
+  %14 = load ptr, ptr %13, align 8, !tbaa !81
+  br label %15
 
-14:                                               ; preds = %14, %1
-  %.0.i = phi ptr [ %13, %1 ], [ %16, %14 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  %16 = load ptr, ptr %15, align 8, !tbaa !111
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %18 = load i32, ptr %17, align 8, !tbaa !19
-  %19 = and i32 %18, 3
-  %20 = icmp eq i32 %19, 3
-  %.not.i = icmp eq ptr %16, %13
-  %or.cond.i = or i1 %.not.i, %20
-  br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %14, !llvm.loop !112
+15:                                               ; preds = %15, %1
+  %.0.i = phi ptr [ %14, %1 ], [ %17, %15 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
+  %17 = load ptr, ptr %16, align 8, !tbaa !111
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %19 = load i32, ptr %18, align 8, !tbaa !19
+  %20 = and i32 %19, 3
+  %21 = icmp eq i32 %20, 3
+  %.not.i = icmp eq ptr %17, %14
+  %or.cond.i = or i1 %.not.i, %21
+  br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %15, !llvm.loop !112
 
-Sorted_Previous_Field.exit:                       ; preds = %14
-  %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %16)
-  ret i32 %21
+Sorted_Previous_Field.exit:                       ; preds = %15
+  %22 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %17)
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable

@@ -229,31 +229,31 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoI
   %7 = add nsw i32 %6, %2
   store i32 %7, ptr %5, align 4, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %.val119360 = load i8, ptr %8, align 4, !tbaa !3
-  %9 = zext i8 %.val119360 to i32
-  %.not194361 = icmp ne i8 %.val119360, 0
-  br i1 %.not194361, label %.lr.ph.preheader, label %.critedge114.thread
+  %.val119363 = load i8, ptr %8, align 4, !tbaa !3
+  %9 = zext i8 %.val119363 to i32
+  %.not195364 = icmp ne i8 %.val119363, 0
+  br i1 %.not195364, label %.lr.ph.preheader, label %.critedge114.thread
 
 .lr.ph.preheader:                                 ; preds = %4, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit
-  %10 = phi i32 [ %67, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %9, %4 ]
-  %.val119365 = phi i8 [ %.val119, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %.val119360, %4 ]
-  %11 = phi ptr [ %66, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %8, %4 ]
-  %12 = phi ptr [ %63, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %5, %4 ]
-  %ret.known.tr364 = phi i1 [ true, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ false, %4 ]
-  %.tr154363 = phi ptr [ null, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %3, %4 ]
-  %.tr362 = phi ptr [ %.tr., %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %0, %4 ]
+  %10 = phi i32 [ %70, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %9, %4 ]
+  %.val119368 = phi i8 [ %.val119, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %.val119363, %4 ]
+  %11 = phi ptr [ %69, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %8, %4 ]
+  %12 = phi ptr [ %66, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %5, %4 ]
+  %ret.known.tr367 = phi i1 [ true, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ false, %4 ]
+  %.tr154366 = phi ptr [ null, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %3, %4 ]
+  %.tr365 = phi ptr [ %.tr., %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ], [ %0, %4 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
-  %.0105195 = phi i32 [ %18, %17 ], [ 0, %.lr.ph.preheader ]
-  %13 = zext nneg i32 %.0105195 to i64
-  %14 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr362, i64 %13
+  %.0105196 = phi i32 [ %18, %17 ], [ 0, %.lr.ph.preheader ]
+  %13 = zext nneg i32 %.0105196 to i64
+  %14 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr365, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !21
   %16 = icmp ugt i32 %1, %15
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %.lr.ph
-  %18 = add nuw nsw i32 %.0105195, 1
+  %18 = add nuw nsw i32 %.0105196, 1
   %.not = icmp eq i32 %18, %10
   br i1 %.not, label %.critedge114, label %.lr.ph, !llvm.loop !29
 
@@ -262,391 +262,396 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoI
   br i1 %19, label %20, label %.critedge114
 
 20:                                               ; preds = %.critedge
-  %21 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr362, i64 %13, i32 1
-  %22 = load i32, ptr %21, align 4, !tbaa !30
-  %23 = add nsw i32 %22, %2
-  store i32 %23, ptr %21, align 4, !tbaa !30
-  br label %183
+  %21 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr365, i64 %13
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !30
+  %24 = add nsw i32 %23, %2
+  store i32 %24, ptr %22, align 4, !tbaa !30
+  br label %188
 
 .critedge114:                                     ; preds = %17, %.critedge
-  %.0105167 = phi i32 [ %.0105195, %.critedge ], [ %10, %17 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.tr362, i64 121
-  %.val = load i8, ptr %24, align 1, !tbaa !9, !range !14, !noundef !15
-  %25 = trunc nuw i8 %.val to i1
-  br i1 %25, label %28, label %.loopexit
+  %.0105167 = phi i32 [ %.0105196, %.critedge ], [ %10, %17 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.tr365, i64 121
+  %.val = load i8, ptr %25, align 1, !tbaa !9, !range !14, !noundef !15
+  %26 = trunc nuw i8 %.val to i1
+  br i1 %26, label %29, label %.loopexit
 
 .critedge114.thread:                              ; preds = %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit, %4
   %.tr.lcssa = phi ptr [ %0, %4 ], [ %.tr., %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ]
   %.tr154.lcssa = phi ptr [ %3, %4 ], [ null, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ]
-  %.lcssa338 = phi ptr [ %5, %4 ], [ %63, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ]
-  %.lcssa334 = phi ptr [ %8, %4 ], [ %66, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ]
-  %.lcssa330 = phi i32 [ %9, %4 ], [ %67, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ]
-  %26 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 121
-  %.val250 = load i8, ptr %26, align 1, !tbaa !9, !range !14, !noundef !15
-  %27 = trunc nuw i8 %.val250 to i1
-  br i1 %27, label %._crit_edge, label %69
+  %.lcssa341 = phi ptr [ %5, %4 ], [ %66, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ]
+  %.lcssa337 = phi ptr [ %8, %4 ], [ %69, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ]
+  %.lcssa333 = phi i32 [ %9, %4 ], [ %70, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit ]
+  %27 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 121
+  %.val251 = load i8, ptr %27, align 1, !tbaa !9, !range !14, !noundef !15
+  %28 = trunc nuw i8 %.val251 to i1
+  br i1 %28, label %._crit_edge, label %72
 
-28:                                               ; preds = %.critedge114
-  %29 = icmp eq i8 %.val119365, 15
-  br i1 %29, label %.lr.ph.preheader.i.i, label %30
+29:                                               ; preds = %.critedge114
+  %30 = icmp eq i8 %.val119368, 15
+  br i1 %30, label %.lr.ph.preheader.i.i, label %31
 
-30:                                               ; preds = %28
-  br i1 %16, label %._crit_edge, label %32
+31:                                               ; preds = %29
+  br i1 %16, label %._crit_edge, label %33
 
-._crit_edge:                                      ; preds = %.critedge114.thread, %30
-  %.tr357 = phi ptr [ %.tr362, %30 ], [ %.tr.lcssa, %.critedge114.thread ]
-  %ret.known.tr348 = phi i1 [ %ret.known.tr364, %30 ], [ %.not194361, %.critedge114.thread ]
-  %31 = phi ptr [ %11, %30 ], [ %.lcssa334, %.critedge114.thread ]
-  %.0105167252258262 = phi i32 [ %.0105167, %30 ], [ 0, %.critedge114.thread ]
-  %.pre241 = zext nneg i32 %.0105167252258262 to i64
-  br label %41
+._crit_edge:                                      ; preds = %.critedge114.thread, %31
+  %.tr360 = phi ptr [ %.tr365, %31 ], [ %.tr.lcssa, %.critedge114.thread ]
+  %ret.known.tr351 = phi i1 [ %ret.known.tr367, %31 ], [ %.not195364, %.critedge114.thread ]
+  %32 = phi ptr [ %11, %31 ], [ %.lcssa337, %.critedge114.thread ]
+  %.0105167253259263 = phi i32 [ %.0105167, %31 ], [ 0, %.critedge114.thread ]
+  %.pre242 = zext nneg i32 %.0105167253259263 to i64
+  br label %42
 
-32:                                               ; preds = %30
-  %33 = add nuw i32 %.0105167, 1
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr362, i64 %34
-  %36 = zext nneg i32 %.0105167 to i64
-  %37 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr362, i64 %36
-  %38 = sub nsw i32 %10, %.0105167
-  %39 = zext i32 %38 to i64
-  %40 = shl nuw nsw i64 %39, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %35, ptr nonnull align 4 %37, i64 %40, i1 false)
-  br label %41
+33:                                               ; preds = %31
+  %34 = add nuw i32 %.0105167, 1
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr365, i64 %35
+  %37 = zext nneg i32 %.0105167 to i64
+  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr365, i64 %37
+  %39 = sub nsw i32 %10, %.0105167
+  %40 = zext i32 %39 to i64
+  %41 = shl nuw nsw i64 %40, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %36, ptr nonnull align 4 %38, i64 %41, i1 false)
+  br label %42
 
-41:                                               ; preds = %._crit_edge, %32
-  %.tr356 = phi ptr [ %.tr357, %._crit_edge ], [ %.tr362, %32 ]
-  %ret.known.tr347 = phi i1 [ %ret.known.tr348, %._crit_edge ], [ %ret.known.tr364, %32 ]
-  %42 = phi ptr [ %31, %._crit_edge ], [ %11, %32 ]
-  %.pre-phi242 = phi i64 [ %.pre241, %._crit_edge ], [ %36, %32 ]
+42:                                               ; preds = %._crit_edge, %33
+  %.tr359 = phi ptr [ %.tr360, %._crit_edge ], [ %.tr365, %33 ]
+  %ret.known.tr350 = phi i1 [ %ret.known.tr351, %._crit_edge ], [ %ret.known.tr367, %33 ]
+  %43 = phi ptr [ %32, %._crit_edge ], [ %11, %33 ]
+  %.pre-phi243 = phi i64 [ %.pre242, %._crit_edge ], [ %37, %33 ]
   %.sroa.2.0.insert.ext.i = zext i32 %2 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %1 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %43 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr356, i64 %.pre-phi242
-  store i64 %.sroa.0.0.insert.insert.i, ptr %43, align 4
-  %44 = load i8, ptr %42, align 4, !tbaa !3
-  %45 = add i8 %44, 1
-  store i8 %45, ptr %42, align 4, !tbaa !3
-  br label %183
+  %44 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr359, i64 %.pre-phi243
+  store i64 %.sroa.0.0.insert.insert.i, ptr %44, align 4
+  %45 = load i8, ptr %43, align 4, !tbaa !3
+  %46 = add i8 %45, 1
+  store i8 %46, ptr %43, align 4, !tbaa !3
+  br label %188
 
-.lr.ph.preheader.i.i:                             ; preds = %28
-  %46 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #6
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 120
-  store i8 0, ptr %47, align 4, !tbaa !3
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 121
-  store i8 1, ptr %48, align 1, !tbaa !9
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 124
-  store i32 0, ptr %49, align 4, !tbaa !10
-  %50 = getelementptr inbounds nuw i8, ptr %.tr362, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %46, ptr noundef nonnull align 4 dereferenceable(56) %50, i64 56, i1 false)
+.lr.ph.preheader.i.i:                             ; preds = %29
+  %47 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #6
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 120
+  store i8 0, ptr %48, align 4, !tbaa !3
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 121
+  store i8 1, ptr %49, align 1, !tbaa !9
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 124
+  store i32 0, ptr %50, align 4, !tbaa !10
+  %51 = getelementptr inbounds nuw i8, ptr %.tr365, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %47, ptr noundef nonnull align 4 dereferenceable(56) %51, i64 56, i1 false)
   store i8 7, ptr %11, align 4, !tbaa !3
-  store i8 7, ptr %47, align 4, !tbaa !3
+  store i8 7, ptr %48, align 4, !tbaa !3
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %.022.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %53, %.lr.ph.i.i ]
-  %51 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %46, i64 %indvars.iv.i.i, i32 1
-  %52 = load i32, ptr %51, align 4, !tbaa !30
-  %53 = add nsw i32 %52, %.022.i.i
+  %.022.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %55, %.lr.ph.i.i ]
+  %52 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %47, i64 %indvars.iv.i.i
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %54 = load i32, ptr %53, align 4, !tbaa !30
+  %55 = add nsw i32 %54, %.022.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 7
   br i1 %.not.i.i, label %.lr.ph.preheader.i15.i, label %.lr.ph.i.i, !llvm.loop !31
 
 .lr.ph.preheader.i15.i:                           ; preds = %.lr.ph.i.i
-  store i32 %53, ptr %49, align 4, !tbaa !10
+  store i32 %55, ptr %50, align 4, !tbaa !10
   br label %.lr.ph.i16.i
 
 .lr.ph.i16.i:                                     ; preds = %.lr.ph.i16.i, %.lr.ph.preheader.i15.i
   %indvars.iv.i17.i = phi i64 [ 0, %.lr.ph.preheader.i15.i ], [ %indvars.iv.next.i19.i, %.lr.ph.i16.i ]
-  %.022.i18.i = phi i32 [ 0, %.lr.ph.preheader.i15.i ], [ %56, %.lr.ph.i16.i ]
-  %54 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr362, i64 %indvars.iv.i17.i, i32 1
-  %55 = load i32, ptr %54, align 4, !tbaa !30
-  %56 = add nsw i32 %55, %.022.i18.i
+  %.022.i18.i = phi i32 [ 0, %.lr.ph.preheader.i15.i ], [ %59, %.lr.ph.i16.i ]
+  %56 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr365, i64 %indvars.iv.i17.i
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %58 = load i32, ptr %57, align 4, !tbaa !30
+  %59 = add nsw i32 %58, %.022.i18.i
   %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i17.i, 1
   %.not.i20.i = icmp eq i64 %indvars.iv.next.i19.i, 7
   br i1 %.not.i20.i, label %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit, label %.lr.ph.i16.i, !llvm.loop !31
 
 _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit: ; preds = %.lr.ph.i16.i
-  store i32 %56, ptr %12, align 4, !tbaa !10
-  store ptr %.tr362, ptr %.tr154363, align 8, !tbaa !26
-  %57 = getelementptr inbounds nuw i8, ptr %.tr154363, i64 8
-  store ptr %46, ptr %57, align 8, !tbaa !28
-  %58 = getelementptr inbounds nuw i8, ptr %.tr362, i64 56
-  %59 = getelementptr inbounds nuw i8, ptr %.tr154363, i64 16
-  %60 = load i64, ptr %58, align 4
-  store i64 %60, ptr %59, align 8
-  %61 = trunc i64 %60 to i32
-  %62 = icmp ult i32 %1, %61
-  %.tr. = select i1 %62, ptr %.tr362, ptr %46
-  %63 = getelementptr inbounds nuw i8, ptr %.tr., i64 124
-  %64 = load i32, ptr %63, align 4, !tbaa !10
-  %65 = add nsw i32 %64, %2
-  store i32 %65, ptr %63, align 4, !tbaa !10
-  %66 = getelementptr inbounds nuw i8, ptr %.tr., i64 120
-  %.val119 = load i8, ptr %66, align 4, !tbaa !3
-  %67 = zext i8 %.val119 to i32
-  %.not194 = icmp eq i8 %.val119, 0
-  br i1 %.not194, label %.critedge114.thread, label %.lr.ph.preheader
+  store i32 %59, ptr %12, align 4, !tbaa !10
+  store ptr %.tr365, ptr %.tr154366, align 8, !tbaa !26
+  %60 = getelementptr inbounds nuw i8, ptr %.tr154366, i64 8
+  store ptr %47, ptr %60, align 8, !tbaa !28
+  %61 = getelementptr inbounds nuw i8, ptr %.tr365, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %.tr154366, i64 16
+  %63 = load i64, ptr %61, align 4
+  store i64 %63, ptr %62, align 8
+  %64 = trunc i64 %63 to i32
+  %65 = icmp ult i32 %1, %64
+  %.tr. = select i1 %65, ptr %.tr365, ptr %47
+  %66 = getelementptr inbounds nuw i8, ptr %.tr., i64 124
+  %67 = load i32, ptr %66, align 4, !tbaa !10
+  %68 = add nsw i32 %67, %2
+  store i32 %68, ptr %66, align 4, !tbaa !10
+  %69 = getelementptr inbounds nuw i8, ptr %.tr., i64 120
+  %.val119 = load i8, ptr %69, align 4, !tbaa !3
+  %70 = zext i8 %.val119 to i32
+  %.not195 = icmp eq i8 %.val119, 0
+  br i1 %.not195, label %.critedge114.thread, label %.lr.ph.preheader
 
 .loopexit:                                        ; preds = %.critedge114
-  %68 = getelementptr inbounds nuw i8, ptr %.tr362, i64 121
-  br label %69
+  %71 = getelementptr inbounds nuw i8, ptr %.tr365, i64 121
+  br label %72
 
-69:                                               ; preds = %.loopexit, %.critedge114.thread
-  %.tr358 = phi ptr [ %.tr.lcssa, %.critedge114.thread ], [ %.tr362, %.loopexit ]
-  %.tr154352 = phi ptr [ %.tr154.lcssa, %.critedge114.thread ], [ %.tr154363, %.loopexit ]
-  %ret.known.tr346 = phi i1 [ %.not194361, %.critedge114.thread ], [ %ret.known.tr364, %.loopexit ]
-  %70 = phi ptr [ %.lcssa338, %.critedge114.thread ], [ %12, %.loopexit ]
-  %71 = phi ptr [ %.lcssa334, %.critedge114.thread ], [ %11, %.loopexit ]
-  %72 = phi i32 [ %.lcssa330, %.critedge114.thread ], [ %10, %.loopexit ]
-  %73 = phi ptr [ %26, %.critedge114.thread ], [ %68, %.loopexit ]
-  %.not164253 = phi i1 [ true, %.critedge114.thread ], [ %16, %.loopexit ]
-  %.0105167251 = phi i32 [ 0, %.critedge114.thread ], [ %.0105167, %.loopexit ]
-  %74 = getelementptr inbounds nuw i8, ptr %.tr358, i64 128
-  %75 = zext nneg i32 %.0105167251 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %75
-  %77 = load ptr, ptr %76, align 8, !tbaa !16
-  %78 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoInsertionEjiPNS0_12InsertResultE(ptr noundef nonnull align 4 dereferenceable(128) %77, i32 noundef %1, i32 noundef %2, ptr noundef %.tr154352)
-  br i1 %78, label %79, label %183
+72:                                               ; preds = %.loopexit, %.critedge114.thread
+  %.tr361 = phi ptr [ %.tr.lcssa, %.critedge114.thread ], [ %.tr365, %.loopexit ]
+  %.tr154355 = phi ptr [ %.tr154.lcssa, %.critedge114.thread ], [ %.tr154366, %.loopexit ]
+  %ret.known.tr349 = phi i1 [ %.not195364, %.critedge114.thread ], [ %ret.known.tr367, %.loopexit ]
+  %73 = phi ptr [ %.lcssa341, %.critedge114.thread ], [ %12, %.loopexit ]
+  %74 = phi ptr [ %.lcssa337, %.critedge114.thread ], [ %11, %.loopexit ]
+  %75 = phi i32 [ %.lcssa333, %.critedge114.thread ], [ %10, %.loopexit ]
+  %76 = phi ptr [ %27, %.critedge114.thread ], [ %71, %.loopexit ]
+  %.not164254 = phi i1 [ true, %.critedge114.thread ], [ %16, %.loopexit ]
+  %.0105167252 = phi i32 [ 0, %.critedge114.thread ], [ %.0105167, %.loopexit ]
+  %77 = getelementptr inbounds nuw i8, ptr %.tr361, i64 128
+  %78 = zext nneg i32 %.0105167252 to i64
+  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %78
+  %80 = load ptr, ptr %79, align 8, !tbaa !16
+  %81 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113DeltaTreeNode11DoInsertionEjiPNS0_12InsertResultE(ptr noundef nonnull align 4 dereferenceable(128) %80, i32 noundef %1, i32 noundef %2, ptr noundef %.tr154355)
+  br i1 %81, label %82, label %188
 
-79:                                               ; preds = %69
-  %.val122 = load i8, ptr %71, align 4, !tbaa !3
-  %80 = icmp eq i8 %.val122, 15
-  br i1 %80, label %109, label %81
+82:                                               ; preds = %72
+  %.val122 = load i8, ptr %74, align 4, !tbaa !3
+  %83 = icmp eq i8 %.val122, 15
+  br i1 %83, label %112, label %84
 
-81:                                               ; preds = %79
-  br i1 %.not164253, label %.critedge116, label %82
+84:                                               ; preds = %82
+  br i1 %.not164254, label %.critedge116, label %85
 
-82:                                               ; preds = %81
-  %83 = add nuw i32 %.0105167251, 2
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %74, i64 %84
-  %86 = add nuw i32 %.0105167251, 1
+85:                                               ; preds = %84
+  %86 = add nuw i32 %.0105167252, 2
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %74, i64 %87
-  %89 = sub nsw i32 %72, %.0105167251
+  %88 = getelementptr inbounds nuw ptr, ptr %77, i64 %87
+  %89 = add nuw i32 %.0105167252, 1
   %90 = zext i32 %89 to i64
-  %91 = shl nuw nsw i64 %90, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %85, ptr nonnull align 8 %88, i64 %91, i1 false)
-  %92 = load ptr, ptr %.tr154352, align 8, !tbaa !26
-  store ptr %92, ptr %76, align 8, !tbaa !16
-  %93 = getelementptr inbounds nuw i8, ptr %.tr154352, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !28
-  store ptr %94, ptr %88, align 8, !tbaa !16
-  %95 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr358, i64 %87
-  %96 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr358, i64 %75
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %95, ptr nonnull align 4 %96, i64 %91, i1 false)
-  br label %103
+  %91 = getelementptr inbounds nuw ptr, ptr %77, i64 %90
+  %92 = sub nsw i32 %75, %.0105167252
+  %93 = zext i32 %92 to i64
+  %94 = shl nuw nsw i64 %93, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %88, ptr nonnull align 8 %91, i64 %94, i1 false)
+  %95 = load ptr, ptr %.tr154355, align 8, !tbaa !26
+  store ptr %95, ptr %79, align 8, !tbaa !16
+  %96 = getelementptr inbounds nuw i8, ptr %.tr154355, i64 8
+  %97 = load ptr, ptr %96, align 8, !tbaa !28
+  store ptr %97, ptr %91, align 8, !tbaa !16
+  %98 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr361, i64 %90
+  %99 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr361, i64 %78
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %98, ptr nonnull align 4 %99, i64 %94, i1 false)
+  br label %106
 
-.critedge116:                                     ; preds = %81
-  %97 = load ptr, ptr %.tr154352, align 8, !tbaa !26
-  store ptr %97, ptr %76, align 8, !tbaa !16
-  %98 = getelementptr inbounds nuw i8, ptr %.tr154352, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !28
-  %100 = add nuw i32 %.0105167251, 1
-  %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw ptr, ptr %74, i64 %101
-  store ptr %99, ptr %102, align 8, !tbaa !16
-  br label %103
+.critedge116:                                     ; preds = %84
+  %100 = load ptr, ptr %.tr154355, align 8, !tbaa !26
+  store ptr %100, ptr %79, align 8, !tbaa !16
+  %101 = getelementptr inbounds nuw i8, ptr %.tr154355, i64 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !28
+  %103 = add nuw i32 %.0105167252, 1
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw ptr, ptr %77, i64 %104
+  store ptr %102, ptr %105, align 8, !tbaa !16
+  br label %106
 
-103:                                              ; preds = %.critedge116, %82
-  %104 = getelementptr inbounds nuw i8, ptr %.tr154352, i64 16
-  %105 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr358, i64 %75
-  %106 = load i64, ptr %104, align 8
-  store i64 %106, ptr %105, align 4
-  %107 = load i8, ptr %71, align 4, !tbaa !3
-  %108 = add i8 %107, 1
-  store i8 %108, ptr %71, align 4, !tbaa !3
-  br label %183
+106:                                              ; preds = %.critedge116, %85
+  %107 = getelementptr inbounds nuw i8, ptr %.tr154355, i64 16
+  %108 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr361, i64 %78
+  %109 = load i64, ptr %107, align 8
+  store i64 %109, ptr %108, align 4
+  %110 = load i8, ptr %74, align 4, !tbaa !3
+  %111 = add i8 %110, 1
+  store i8 %111, ptr %74, align 4, !tbaa !3
+  br label %188
 
-109:                                              ; preds = %79
-  %110 = load ptr, ptr %.tr154352, align 8, !tbaa !26
-  store ptr %110, ptr %76, align 8, !tbaa !16
-  %111 = getelementptr inbounds nuw i8, ptr %.tr154352, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !28
-  %113 = getelementptr inbounds nuw i8, ptr %.tr154352, i64 16
-  %.sroa.0.0.copyload = load i32, ptr %113, align 8, !tbaa !32
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.tr154352, i64 20
+112:                                              ; preds = %82
+  %113 = load ptr, ptr %.tr154355, align 8, !tbaa !26
+  store ptr %113, ptr %79, align 8, !tbaa !16
+  %114 = getelementptr inbounds nuw i8, ptr %.tr154355, i64 8
+  %115 = load ptr, ptr %114, align 8, !tbaa !28
+  %116 = getelementptr inbounds nuw i8, ptr %.tr154355, i64 16
+  %.sroa.0.0.copyload = load i32, ptr %116, align 8, !tbaa !32
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.tr154355, i64 20
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !32
-  %.val3.val.i.i.i123 = load i8, ptr %73, align 1, !tbaa !9, !range !14, !noundef !15
-  %114 = trunc nuw i8 %.val3.val.i.i.i123 to i1
-  br i1 %114, label %122, label %115
+  %.val3.val.i.i.i123 = load i8, ptr %76, align 1, !tbaa !9, !range !14, !noundef !15
+  %117 = trunc nuw i8 %.val3.val.i.i.i123 to i1
+  br i1 %117, label %125, label %118
 
-115:                                              ; preds = %109
-  %116 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #6
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 120
-  store i8 0, ptr %117, align 4, !tbaa !3
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 121
-  store i8 0, ptr %118, align 1, !tbaa !9
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 124
-  store i32 0, ptr %119, align 4, !tbaa !10
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 128
-  %121 = getelementptr inbounds nuw i8, ptr %.tr358, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %120, ptr noundef nonnull align 8 dereferenceable(64) %121, i64 64, i1 false)
+118:                                              ; preds = %112
+  %119 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #6
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 120
+  store i8 0, ptr %120, align 4, !tbaa !3
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 121
+  store i8 0, ptr %121, align 1, !tbaa !9
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 124
+  store i32 0, ptr %122, align 4, !tbaa !10
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 128
+  %124 = getelementptr inbounds nuw i8, ptr %.tr361, i64 192
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %123, ptr noundef nonnull align 8 dereferenceable(64) %124, i64 64, i1 false)
   br label %.lr.ph.preheader.i.i124
 
-122:                                              ; preds = %109
-  %123 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #6
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 120
-  store i8 0, ptr %124, align 4, !tbaa !3
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 121
-  store i8 1, ptr %125, align 1, !tbaa !9
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 124
-  store i32 0, ptr %126, align 4, !tbaa !10
+125:                                              ; preds = %112
+  %126 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #6
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 120
+  store i8 0, ptr %127, align 4, !tbaa !3
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 121
+  store i8 1, ptr %128, align 1, !tbaa !9
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 124
+  store i32 0, ptr %129, align 4, !tbaa !10
   br label %.lr.ph.preheader.i.i124
 
-.lr.ph.preheader.i.i124:                          ; preds = %122, %115
-  %.0.i125 = phi ptr [ %116, %115 ], [ %123, %122 ]
-  %127 = getelementptr inbounds nuw i8, ptr %.tr358, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.0.i125, ptr noundef nonnull align 4 dereferenceable(56) %127, i64 56, i1 false)
-  store i8 7, ptr %71, align 4, !tbaa !3
-  %128 = getelementptr inbounds nuw i8, ptr %.0.i125, i64 120
-  store i8 7, ptr %128, align 4, !tbaa !3
+.lr.ph.preheader.i.i124:                          ; preds = %125, %118
+  %.0.i125 = phi ptr [ %119, %118 ], [ %126, %125 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.tr361, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.0.i125, ptr noundef nonnull align 4 dereferenceable(56) %130, i64 56, i1 false)
+  store i8 7, ptr %74, align 4, !tbaa !3
+  %131 = getelementptr inbounds nuw i8, ptr %.0.i125, i64 120
+  store i8 7, ptr %131, align 4, !tbaa !3
   br label %.lr.ph.i.i126
 
 ._crit_edge.i.i131:                               ; preds = %.lr.ph.i.i126
-  br i1 %114, label %.lr.ph.preheader.i15.i137, label %132
+  br i1 %117, label %.lr.ph.preheader.i15.i137, label %136
 
 .lr.ph.i.i126:                                    ; preds = %.lr.ph.i.i126, %.lr.ph.preheader.i.i124
   %indvars.iv.i.i127 = phi i64 [ 0, %.lr.ph.preheader.i.i124 ], [ %indvars.iv.next.i.i129, %.lr.ph.i.i126 ]
-  %.022.i.i128 = phi i32 [ 0, %.lr.ph.preheader.i.i124 ], [ %131, %.lr.ph.i.i126 ]
-  %129 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.0.i125, i64 %indvars.iv.i.i127, i32 1
-  %130 = load i32, ptr %129, align 4, !tbaa !30
-  %131 = add nsw i32 %130, %.022.i.i128
+  %.022.i.i128 = phi i32 [ 0, %.lr.ph.preheader.i.i124 ], [ %135, %.lr.ph.i.i126 ]
+  %132 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.0.i125, i64 %indvars.iv.i.i127
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
+  %134 = load i32, ptr %133, align 4, !tbaa !30
+  %135 = add nsw i32 %134, %.022.i.i128
   %indvars.iv.next.i.i129 = add nuw nsw i64 %indvars.iv.i.i127, 1
   %.not.i.i130 = icmp eq i64 %indvars.iv.next.i.i129, 7
   br i1 %.not.i.i130, label %._crit_edge.i.i131, label %.lr.ph.i.i126, !llvm.loop !31
 
-132:                                              ; preds = %._crit_edge.i.i131
-  %133 = getelementptr inbounds nuw i8, ptr %.0.i125, i64 128
-  br label %134
+136:                                              ; preds = %._crit_edge.i.i131
+  %137 = getelementptr inbounds nuw i8, ptr %.0.i125, i64 128
+  br label %138
 
-134:                                              ; preds = %134, %132
-  %indvars.iv27.i.i132 = phi i64 [ 0, %132 ], [ %indvars.iv.next28.i.i135, %134 ]
-  %.224.i.i133 = phi i32 [ %131, %132 ], [ %138, %134 ]
-  %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv27.i.i132
-  %136 = load ptr, ptr %135, align 8, !tbaa !16
-  %137 = getelementptr i8, ptr %136, i64 124
-  %.val19.i.i134 = load i32, ptr %137, align 4, !tbaa !10
-  %138 = add nsw i32 %.val19.i.i134, %.224.i.i133
+138:                                              ; preds = %138, %136
+  %indvars.iv27.i.i132 = phi i64 [ 0, %136 ], [ %indvars.iv.next28.i.i135, %138 ]
+  %.224.i.i133 = phi i32 [ %135, %136 ], [ %142, %138 ]
+  %139 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv27.i.i132
+  %140 = load ptr, ptr %139, align 8, !tbaa !16
+  %141 = getelementptr i8, ptr %140, i64 124
+  %.val19.i.i134 = load i32, ptr %141, align 4, !tbaa !10
+  %142 = add nsw i32 %.val19.i.i134, %.224.i.i133
   %indvars.iv.next28.i.i135 = add nuw nsw i64 %indvars.iv27.i.i132, 1
   %.not17.i.i136 = icmp eq i64 %indvars.iv27.i.i132, 7
-  br i1 %.not17.i.i136, label %.lr.ph.preheader.i15.i137, label %134, !llvm.loop !33
+  br i1 %.not17.i.i136, label %.lr.ph.preheader.i15.i137, label %138, !llvm.loop !33
 
-.lr.ph.preheader.i15.i137:                        ; preds = %134, %._crit_edge.i.i131
-  %.1.i.i138 = phi i32 [ %131, %._crit_edge.i.i131 ], [ %138, %134 ]
-  %139 = getelementptr inbounds nuw i8, ptr %.0.i125, i64 124
-  store i32 %.1.i.i138, ptr %139, align 4, !tbaa !10
+.lr.ph.preheader.i15.i137:                        ; preds = %138, %._crit_edge.i.i131
+  %.1.i.i138 = phi i32 [ %135, %._crit_edge.i.i131 ], [ %142, %138 ]
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i125, i64 124
+  store i32 %.1.i.i138, ptr %143, align 4, !tbaa !10
   br label %.lr.ph.i16.i139
 
 ._crit_edge.i21.i144:                             ; preds = %.lr.ph.i16.i139
-  br i1 %114, label %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151, label %.preheader
+  br i1 %117, label %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151, label %.preheader
 
 .lr.ph.i16.i139:                                  ; preds = %.lr.ph.i16.i139, %.lr.ph.preheader.i15.i137
   %indvars.iv.i17.i140 = phi i64 [ 0, %.lr.ph.preheader.i15.i137 ], [ %indvars.iv.next.i19.i142, %.lr.ph.i16.i139 ]
-  %.022.i18.i141 = phi i32 [ 0, %.lr.ph.preheader.i15.i137 ], [ %142, %.lr.ph.i16.i139 ]
-  %140 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr358, i64 %indvars.iv.i17.i140, i32 1
-  %141 = load i32, ptr %140, align 4, !tbaa !30
-  %142 = add nsw i32 %141, %.022.i18.i141
+  %.022.i18.i141 = phi i32 [ 0, %.lr.ph.preheader.i15.i137 ], [ %147, %.lr.ph.i16.i139 ]
+  %144 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %.tr361, i64 %indvars.iv.i17.i140
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
+  %146 = load i32, ptr %145, align 4, !tbaa !30
+  %147 = add nsw i32 %146, %.022.i18.i141
   %indvars.iv.next.i19.i142 = add nuw nsw i64 %indvars.iv.i17.i140, 1
   %.not.i20.i143 = icmp eq i64 %indvars.iv.next.i19.i142, 7
   br i1 %.not.i20.i143, label %._crit_edge.i21.i144, label %.lr.ph.i16.i139, !llvm.loop !31
 
 .preheader:                                       ; preds = %._crit_edge.i21.i144, %.preheader
   %indvars.iv27.i24.i145 = phi i64 [ %indvars.iv.next28.i27.i148, %.preheader ], [ 0, %._crit_edge.i21.i144 ]
-  %.224.i25.i146 = phi i32 [ %146, %.preheader ], [ %142, %._crit_edge.i21.i144 ]
-  %143 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv27.i24.i145
-  %144 = load ptr, ptr %143, align 8, !tbaa !16
-  %145 = getelementptr i8, ptr %144, i64 124
-  %.val19.i26.i147 = load i32, ptr %145, align 4, !tbaa !10
-  %146 = add nsw i32 %.val19.i26.i147, %.224.i25.i146
+  %.224.i25.i146 = phi i32 [ %151, %.preheader ], [ %147, %._crit_edge.i21.i144 ]
+  %148 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv27.i24.i145
+  %149 = load ptr, ptr %148, align 8, !tbaa !16
+  %150 = getelementptr i8, ptr %149, i64 124
+  %.val19.i26.i147 = load i32, ptr %150, align 4, !tbaa !10
+  %151 = add nsw i32 %.val19.i26.i147, %.224.i25.i146
   %indvars.iv.next28.i27.i148 = add nuw nsw i64 %indvars.iv27.i24.i145, 1
   %.not17.i28.i149 = icmp eq i64 %indvars.iv27.i24.i145, 7
   br i1 %.not17.i28.i149, label %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151, label %.preheader, !llvm.loop !33
 
 _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151: ; preds = %.preheader, %._crit_edge.i21.i144
-  %.1.i29.i150 = phi i32 [ %142, %._crit_edge.i21.i144 ], [ %146, %.preheader ]
-  store i32 %.1.i29.i150, ptr %70, align 4, !tbaa !10
-  store ptr %.tr358, ptr %.tr154352, align 8, !tbaa !26
-  store ptr %.0.i125, ptr %111, align 8, !tbaa !28
-  %147 = getelementptr inbounds nuw i8, ptr %.tr358, i64 56
-  %148 = load i64, ptr %147, align 4
-  store i64 %148, ptr %113, align 8
-  %149 = trunc i64 %148 to i32
-  %150 = icmp ult i32 %.sroa.0.0.copyload, %149
-  %spec.select = select i1 %150, ptr %.tr358, ptr %.0.i125
-  %151 = getelementptr i8, ptr %spec.select, i64 120
-  %.0.val = load i8, ptr %151, align 4, !tbaa !3
-  %152 = zext i8 %.0.val to i32
-  %.not113200 = icmp eq i8 %.0.val, 0
-  br i1 %.not113200, label %.critedge118, label %.lr.ph202
+  %.1.i29.i150 = phi i32 [ %147, %._crit_edge.i21.i144 ], [ %151, %.preheader ]
+  store i32 %.1.i29.i150, ptr %73, align 4, !tbaa !10
+  store ptr %.tr361, ptr %.tr154355, align 8, !tbaa !26
+  store ptr %.0.i125, ptr %114, align 8, !tbaa !28
+  %152 = getelementptr inbounds nuw i8, ptr %.tr361, i64 56
+  %153 = load i64, ptr %152, align 4
+  store i64 %153, ptr %116, align 8
+  %154 = trunc i64 %153 to i32
+  %155 = icmp ult i32 %.sroa.0.0.copyload, %154
+  %spec.select = select i1 %155, ptr %.tr361, ptr %.0.i125
+  %156 = getelementptr i8, ptr %spec.select, i64 120
+  %.0.val = load i8, ptr %156, align 4, !tbaa !3
+  %157 = zext i8 %.0.val to i32
+  %.not113201 = icmp eq i8 %.0.val, 0
+  br i1 %.not113201, label %.critedge118, label %.lr.ph203
 
-.lr.ph202:                                        ; preds = %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151, %157
-  %.1106201 = phi i32 [ %158, %157 ], [ 0, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151 ]
-  %153 = zext nneg i32 %.1106201 to i64
-  %154 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %153
-  %155 = load i32, ptr %154, align 4, !tbaa !21
-  %156 = icmp ugt i32 %.sroa.0.0.copyload, %155
-  br i1 %156, label %157, label %.critedge117
+.lr.ph203:                                        ; preds = %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151, %162
+  %.1106202 = phi i32 [ %163, %162 ], [ 0, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151 ]
+  %158 = zext nneg i32 %.1106202 to i64
+  %159 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %158
+  %160 = load i32, ptr %159, align 4, !tbaa !21
+  %161 = icmp ugt i32 %.sroa.0.0.copyload, %160
+  br i1 %161, label %162, label %.critedge117
 
-157:                                              ; preds = %.lr.ph202
-  %158 = add nuw nsw i32 %.1106201, 1
-  %.not113 = icmp eq i32 %158, %152
-  br i1 %.not113, label %.critedge118.loopexit, label %.lr.ph202, !llvm.loop !34
+162:                                              ; preds = %.lr.ph203
+  %163 = add nuw nsw i32 %.1106202, 1
+  %.not113 = icmp eq i32 %163, %157
+  br i1 %.not113, label %.critedge118.loopexit, label %.lr.ph203, !llvm.loop !34
 
-.critedge117:                                     ; preds = %.lr.ph202
-  %159 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %153
-  %160 = getelementptr inbounds nuw i8, ptr %spec.select, i64 128
-  %161 = add nuw i32 %.1106201, 2
-  %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %160, i64 %162
-  %164 = add nuw i32 %.1106201, 1
-  %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds nuw ptr, ptr %160, i64 %165
-  %167 = sub nsw i32 %152, %.1106201
-  %168 = zext i32 %167 to i64
-  %169 = shl nuw nsw i64 %168, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %163, ptr nonnull align 8 %166, i64 %169, i1 false)
-  store ptr %112, ptr %166, align 8, !tbaa !16
-  %170 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %165
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %170, ptr nonnull align 8 %159, i64 %169, i1 false)
-  %.pre = load i8, ptr %151, align 8, !tbaa !3
-  br label %174
+.critedge117:                                     ; preds = %.lr.ph203
+  %164 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %158
+  %165 = getelementptr inbounds nuw i8, ptr %spec.select, i64 128
+  %166 = add nuw i32 %.1106202, 2
+  %167 = zext i32 %166 to i64
+  %168 = getelementptr inbounds nuw ptr, ptr %165, i64 %167
+  %169 = add nuw i32 %.1106202, 1
+  %170 = zext i32 %169 to i64
+  %171 = getelementptr inbounds nuw ptr, ptr %165, i64 %170
+  %172 = sub nsw i32 %157, %.1106202
+  %173 = zext i32 %172 to i64
+  %174 = shl nuw nsw i64 %173, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %168, ptr nonnull align 8 %171, i64 %174, i1 false)
+  store ptr %115, ptr %171, align 8, !tbaa !16
+  %175 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %170
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %175, ptr nonnull align 8 %164, i64 %174, i1 false)
+  %.pre = load i8, ptr %156, align 8, !tbaa !3
+  br label %179
 
-.critedge118.loopexit:                            ; preds = %157
-  %171 = zext i8 %.0.val to i64
+.critedge118.loopexit:                            ; preds = %162
+  %176 = zext i8 %.0.val to i64
   br label %.critedge118
 
 .critedge118:                                     ; preds = %.critedge118.loopexit, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151
-  %.1106.lcssa = phi i64 [ 0, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151 ], [ %171, %.critedge118.loopexit ]
-  %172 = getelementptr inbounds nuw ptr, ptr %spec.select, i64 %.1106.lcssa
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 136
-  store ptr %112, ptr %173, align 8, !tbaa !16
-  br label %174
+  %.1106.lcssa = phi i64 [ 0, %_ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151 ], [ %176, %.critedge118.loopexit ]
+  %177 = getelementptr inbounds nuw ptr, ptr %spec.select, i64 %.1106.lcssa
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 136
+  store ptr %115, ptr %178, align 8, !tbaa !16
+  br label %179
 
-174:                                              ; preds = %.critedge118, %.critedge117
-  %.pre-phi = phi i64 [ %.1106.lcssa, %.critedge118 ], [ %153, %.critedge117 ]
-  %175 = phi i8 [ %.0.val, %.critedge118 ], [ %.pre, %.critedge117 ]
-  %176 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %.pre-phi
-  store i32 %.sroa.0.0.copyload, ptr %176, align 8, !tbaa !32
-  %.sroa.6.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %176, i64 4
+179:                                              ; preds = %.critedge118, %.critedge117
+  %.pre-phi = phi i64 [ %.1106.lcssa, %.critedge118 ], [ %158, %.critedge117 ]
+  %180 = phi i8 [ %.0.val, %.critedge118 ], [ %.pre, %.critedge117 ]
+  %181 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SourceDelta", ptr %spec.select, i64 %.pre-phi
+  store i32 %.sroa.0.0.copyload, ptr %181, align 8, !tbaa !32
+  %.sroa.6.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %181, i64 4
   store i32 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx14, align 4, !tbaa !32
-  %177 = add i8 %175, 1
-  store i8 %177, ptr %151, align 8, !tbaa !3
-  %178 = getelementptr i8, ptr %112, i64 124
-  %.val120 = load i32, ptr %178, align 4, !tbaa !10
-  %179 = add nsw i32 %.val120, %.sroa.6.0.copyload
-  %180 = getelementptr inbounds nuw i8, ptr %spec.select, i64 124
-  %181 = load i32, ptr %180, align 4, !tbaa !10
-  %182 = add nsw i32 %179, %181
-  store i32 %182, ptr %180, align 4, !tbaa !10
-  br label %183
+  %182 = add i8 %180, 1
+  store i8 %182, ptr %156, align 8, !tbaa !3
+  %183 = getelementptr i8, ptr %115, i64 124
+  %.val120 = load i32, ptr %183, align 4, !tbaa !10
+  %184 = add nsw i32 %.val120, %.sroa.6.0.copyload
+  %185 = getelementptr inbounds nuw i8, ptr %spec.select, i64 124
+  %186 = load i32, ptr %185, align 4, !tbaa !10
+  %187 = add nsw i32 %184, %186
+  store i32 %187, ptr %185, align 4, !tbaa !10
+  br label %188
 
-183:                                              ; preds = %103, %174, %69, %41, %20
-  %ret.known.tr345 = phi i1 [ %ret.known.tr364, %20 ], [ %ret.known.tr347, %41 ], [ %ret.known.tr346, %174 ], [ %ret.known.tr346, %103 ], [ %ret.known.tr346, %69 ]
-  %.0104 = phi i1 [ false, %20 ], [ false, %41 ], [ true, %174 ], [ false, %103 ], [ false, %69 ]
-  %current.ret.tr156 = or i1 %ret.known.tr345, %.0104
+188:                                              ; preds = %106, %179, %72, %42, %20
+  %ret.known.tr348 = phi i1 [ %ret.known.tr367, %20 ], [ %ret.known.tr350, %42 ], [ %ret.known.tr349, %179 ], [ %ret.known.tr349, %106 ], [ %ret.known.tr349, %72 ]
+  %.0104 = phi i1 [ false, %20 ], [ false, %42 ], [ true, %179 ], [ false, %106 ], [ false, %72 ]
+  %current.ret.tr156 = or i1 %ret.known.tr348, %.0104
   ret i1 %current.ret.tr156
 }
 

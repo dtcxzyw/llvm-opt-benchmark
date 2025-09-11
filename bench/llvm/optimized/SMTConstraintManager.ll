@@ -8577,7 +8577,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjN5clang4ento17ConditionTruthValENS_12DenseM
   br i1 %.not, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjN5clang4ento17ConditionTruthValENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit.thread, label %81
 
 81:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjN5clang4ento17ConditionTruthValENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %.pn, i32 0, i32 1
+  %.sroa.0.1.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %.pn
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
   %.sroa.02.0.copyload = load i16, ptr %82, align 4
   br label %103
 

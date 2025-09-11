@@ -139,14 +139,13 @@ find_palette.exit.i:                              ; preds = %.lr.ph.i.i, %.threa
   br i1 %54, label %.lr.ph.i, label %parse_palette_segment.exit
 
 .lr.ph.i:                                         ; preds = %find_palette.exit.i
-  %55 = getelementptr inbounds nuw i8, ptr %.082110, i64 5
-  %.idx.i = mul nsw i64 %53, 1028
-  %56 = getelementptr i8, ptr %40, i64 %.idx.i
-  %57 = getelementptr i8, ptr %56, i64 4
+  %55 = getelementptr inbounds %struct.PGSSubPalette, ptr %40, i64 %53
+  %56 = getelementptr inbounds nuw i8, ptr %.082110, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 4
   br label %58
 
 58:                                               ; preds = %58, %.lr.ph.i
-  %.05862.i = phi ptr [ %55, %.lr.ph.i ], [ %70, %58 ]
+  %.05862.i = phi ptr [ %56, %.lr.ph.i ], [ %70, %58 ]
   %59 = getelementptr inbounds nuw i8, ptr %.05862.i, i64 1
   %60 = load i8, ptr %.05862.i, align 1, !tbaa !31
   %61 = getelementptr inbounds nuw i8, ptr %.05862.i, i64 2

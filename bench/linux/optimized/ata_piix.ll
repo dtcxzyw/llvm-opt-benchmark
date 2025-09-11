@@ -1176,7 +1176,7 @@ define internal fastcc void @do_pata_set_dmamode(ptr noundef readonly captures(n
 
 46:                                               ; preds = %23
   %47 = icmp eq i32 %24, 5
-  %48 = icmp ugt i32 %24, 2
+  %48 = icmp samesign ugt i32 %24, 2
   %49 = zext i1 %48 to i32
   %50 = select i1 %47, i32 4096, i32 %49
   %51 = call i32 @pci_read_config_word(ptr noundef %12, i32 noundef 84, ptr noundef nonnull %6) #13

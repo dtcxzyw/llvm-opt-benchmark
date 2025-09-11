@@ -299,28 +299,29 @@ define dso_local void @_ZNK5clang22ComparisonCategoryInfo9ValueInfo11getIntValue
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !24
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"class.clang::APValue", ptr %7, i64 %10, i32 3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !25
-  store i32 %14, ptr %12, align 8, !tbaa !25
-  %15 = icmp ult i32 %14, 65
-  br i1 %15, label %16, label %18
+  %11 = getelementptr inbounds nuw %"class.clang::APValue", ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %15 = load i32, ptr %14, align 8, !tbaa !25
+  store i32 %15, ptr %13, align 8, !tbaa !25
+  %16 = icmp ult i32 %15, 65
+  br i1 %16, label %17, label %19
 
-16:                                               ; preds = %2
-  %17 = load i64, ptr %11, align 8, !tbaa !12
-  store i64 %17, ptr %0, align 8, !tbaa !12
+17:                                               ; preds = %2
+  %18 = load i64, ptr %12, align 8, !tbaa !12
+  store i64 %18, ptr %0, align 8, !tbaa !12
   br label %_ZN4llvm6APSIntC2ERKS0_.exit
 
-18:                                               ; preds = %2
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(13) %11) #13
+19:                                               ; preds = %2
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(13) %12) #13
   br label %_ZN4llvm6APSIntC2ERKS0_.exit
 
-_ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %16, %18
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %21 = load i8, ptr %20, align 4, !tbaa !27, !range !30, !noundef !31
-  store i8 %21, ptr %19, align 4, !tbaa !27
+_ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %17, %19
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %22 = load i8, ptr %21, align 4, !tbaa !27, !range !30, !noundef !31
+  store i8 %22, ptr %20, align 4, !tbaa !27
   ret void
 }
 

@@ -2458,9 +2458,10 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %HelpStr = getelementptr inbounds nuw %"class.llvh::cl::parser<long>::OptionInfo", ptr %0, i64 %conv, i32 0, i32 1
+  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<long>::OptionInfo", ptr %0, i64 %conv
+  %HelpStr = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %retval.sroa.0.0.copyload = load ptr, ptr %HelpStr, align 8
-  %retval.sroa.2.0.HelpStr.sroa_idx = getelementptr inbounds nuw i8, ptr %HelpStr, i64 8
+  %retval.sroa.2.0.HelpStr.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.HelpStr.sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.2.0.copyload, 1
@@ -2475,7 +2476,8 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %V = getelementptr inbounds nuw %"class.llvh::cl::parser<long>::OptionInfo", ptr %0, i64 %conv, i32 1
+  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<long>::OptionInfo", ptr %0, i64 %conv
+  %V = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   ret ptr %V
 }
 
@@ -2790,9 +2792,10 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %HelpStr = getelementptr inbounds nuw %"class.llvh::cl::parser<cl::MemorySize>::OptionInfo", ptr %0, i64 %conv, i32 0, i32 1
+  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<cl::MemorySize>::OptionInfo", ptr %0, i64 %conv
+  %HelpStr = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %retval.sroa.0.0.copyload = load ptr, ptr %HelpStr, align 8
-  %retval.sroa.2.0.HelpStr.sroa_idx = getelementptr inbounds nuw i8, ptr %HelpStr, i64 8
+  %retval.sroa.2.0.HelpStr.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.HelpStr.sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.2.0.copyload, 1
@@ -2805,7 +2808,8 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %V = getelementptr inbounds nuw %"class.llvh::cl::parser<cl::MemorySize>::OptionInfo", ptr %0, i64 %conv, i32 1
+  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<cl::MemorySize>::OptionInfo", ptr %0, i64 %conv
+  %V = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   ret ptr %V
 }
 

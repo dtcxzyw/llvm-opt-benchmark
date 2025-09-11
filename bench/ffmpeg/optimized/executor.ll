@@ -244,40 +244,41 @@ define internal fastcc void @executor_free(ptr noundef nonnull %0, i32 noundef %
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %17 = load ptr, ptr %15, align 8, !tbaa !23
-  %18 = getelementptr inbounds nuw %struct.ThreadInfo, ptr %17, i64 %indvars.iv, i32 1
-  %19 = load i64, ptr %18, align 8, !tbaa !36
-  %20 = tail call i32 @pthread_join(i64 noundef %19, ptr noundef null) #5
+  %18 = getelementptr inbounds nuw %struct.ThreadInfo, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load i64, ptr %19, align 8, !tbaa !36
+  %21 = tail call i32 @pthread_join(i64 noundef %20, ptr noundef null) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = load i32, ptr %4, align 8, !tbaa !24
-  %22 = sext i32 %21 to i64
-  %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %16, label %.loopexit, !llvm.loop !37
+  %22 = load i32, ptr %4, align 8, !tbaa !24
+  %23 = sext i32 %22 to i64
+  %24 = icmp slt i64 %indvars.iv.next, %23
+  br i1 %24, label %16, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %16, %6, %3
   %.not16 = icmp eq i32 %2, 0
-  br i1 %.not16, label %27, label %24
+  br i1 %.not16, label %28, label %25
 
-24:                                               ; preds = %.loopexit
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %26 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %25) #5
-  br label %27
+25:                                               ; preds = %.loopexit
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %27 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %26) #5
+  br label %28
 
-27:                                               ; preds = %24, %.loopexit
+28:                                               ; preds = %25, %.loopexit
   %.not17 = icmp eq i32 %1, 0
-  br i1 %.not17, label %31, label %28
+  br i1 %.not17, label %32, label %29
 
-28:                                               ; preds = %27
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %30 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %29) #5
-  br label %31
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %31 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %30) #5
+  br label %32
 
-31:                                               ; preds = %28, %27
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !23
-  tail call void @av_free(ptr noundef %33) #5
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %35 = load ptr, ptr %34, align 8, !tbaa !22
-  tail call void @av_free(ptr noundef %35) #5
+32:                                               ; preds = %29, %28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %34 = load ptr, ptr %33, align 8, !tbaa !23
+  tail call void @av_free(ptr noundef %34) #5
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %36 = load ptr, ptr %35, align 8, !tbaa !22
+  tail call void @av_free(ptr noundef %36) #5
   tail call void @av_free(ptr noundef nonnull %0) #5
   ret void
 }

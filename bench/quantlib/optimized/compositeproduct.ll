@@ -4192,7 +4192,8 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNKSt6vectorIN8QuantLib20MarketModelComposite10SubProductESaIS2_EE2atEm.exit: ; preds = %entry
-  %multiplier = getelementptr inbounds nuw %"struct.QuantLib::MarketModelComposite::SubProduct", ptr %1, i64 %i, i32 1
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.QuantLib::MarketModelComposite::SubProduct", ptr %1, i64 %i
+  %multiplier = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %2 = load double, ptr %multiplier, align 8, !tbaa !78
   ret double %2
 }

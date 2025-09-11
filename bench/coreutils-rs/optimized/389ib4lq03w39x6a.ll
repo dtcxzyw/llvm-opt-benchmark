@@ -1631,8 +1631,9 @@ _ZN5alloc5slice11stable_sort17h4e6e4256d427f6e3E.exit.i: ; preds = %74
   br i1 %91, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.split.i
-  %.phi.trans.insert.i = getelementptr inbounds { i64, i64 }, ptr %76, i64 %.sroa.01.035.i, i32 1
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !noalias !267
+  %.phi.trans.insert.i = getelementptr inbounds { i64, i64 }, ptr %76, i64 %.sroa.01.035.i
+  %.phi.trans.insert38.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i, i64 8
+  %.pre.i = load i64, ptr %.phi.trans.insert38.i, align 8, !noalias !267
   %92 = getelementptr inbounds { i64, i64 }, ptr %76, i64 %90
   %93 = load i64, ptr %92, align 8, !noalias !267, !noundef !13
   %94 = add i64 %.pre.i, 1
@@ -1651,7 +1652,7 @@ _ZN5alloc5slice11stable_sort17h4e6e4256d427f6e3E.exit.i: ; preds = %74
   br i1 %.not.i, label %._crit_edge.i.loopexit.sink.split, label %101
 
 ._crit_edge.i.loopexit.sink.split:                ; preds = %101, %.lr.ph.i
-  store i64 %.0.sroa.speculated.i.i, ptr %.phi.trans.insert.i, align 8, !noalias !267
+  store i64 %.0.sroa.speculated.i.i, ptr %.phi.trans.insert38.i, align 8, !noalias !267
   br label %._crit_edge.i.loopexit
 
 ._crit_edge.i.loopexit:                           ; preds = %._crit_edge.i.loopexit.sink.split, %.lr.ph.preheader.i

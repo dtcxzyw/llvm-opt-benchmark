@@ -1073,25 +1073,26 @@ define double @Cudd_ReadCacheUsedSlots(ptr noundef readonly captures(none) %0) l
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0910 = phi i64 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  %7 = getelementptr inbounds nuw %struct.DdCache, ptr %5, i64 %indvars.iv, i32 2
-  %8 = load i64, ptr %7, align 8, !tbaa !79
-  %9 = icmp ne i64 %8, 0
-  %10 = zext i1 %9 to i64
-  %11 = add i64 %.0910, %10
+  %.0910 = phi i64 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
+  %7 = getelementptr inbounds nuw %struct.DdCache, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load i64, ptr %8, align 8, !tbaa !79
+  %10 = icmp ne i64 %9, 0
+  %11 = zext i1 %10 to i64
+  %12 = add i64 %.0910, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %12 = uitofp i64 %11 to double
+  %13 = uitofp i64 %12 to double
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.09.lcssa = phi double [ 0.000000e+00, %1 ], [ %12, %._crit_edge.loopexit ]
-  %13 = uitofp i32 %3 to double
-  %14 = fdiv double %.09.lcssa, %13
-  ret double %14
+  %.09.lcssa = phi double [ 0.000000e+00, %1 ], [ %13, %._crit_edge.loopexit ]
+  %14 = uitofp i32 %3 to double
+  %15 = fdiv double %.09.lcssa, %14
+  ret double %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -3211,7 +3212,7 @@ define range(i32 0, 2) i32 @Cudd_bddBindVar(ptr noundef readonly captures(none) 
   %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %17, label %7
+  br i1 %or.cond, label %18, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -3222,11 +3223,12 @@ define range(i32 0, 2) i32 @Cudd_bddBindVar(ptr noundef readonly captures(none) 
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 7
-  store i32 1, ptr %16, align 8, !tbaa !148
-  br label %17
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store i32 1, ptr %17, align 8, !tbaa !148
+  br label %18
 
-17:                                               ; preds = %2, %7
+18:                                               ; preds = %2, %7
   %.0 = phi i32 [ 1, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -3238,7 +3240,7 @@ define range(i32 0, 2) i32 @Cudd_bddUnbindVar(ptr noundef readonly captures(none
   %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %17, label %7
+  br i1 %or.cond, label %18, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -3249,11 +3251,12 @@ define range(i32 0, 2) i32 @Cudd_bddUnbindVar(ptr noundef readonly captures(none
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 7
-  store i32 0, ptr %16, align 8, !tbaa !148
-  br label %17
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store i32 0, ptr %17, align 8, !tbaa !148
+  br label %18
 
-17:                                               ; preds = %2, %7
+18:                                               ; preds = %2, %7
   %.0 = phi i32 [ 1, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -3265,6 +3268,34 @@ define i32 @Cudd_bddVarIsBound(ptr noundef readonly captures(none) %0, i32 nound
   %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
+  br i1 %or.cond, label %19, label %7
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = load ptr, ptr %10, align 8, !tbaa !42
+  %12 = zext nneg i32 %1 to i64
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %18 = load i32, ptr %17, align 8, !tbaa !148
+  br label %19
+
+19:                                               ; preds = %2, %7
+  %.0 = phi i32 [ %18, %7 ], [ 0, %2 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddSetPiVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %4 = load i32, ptr %3, align 8, !tbaa !3
+  %5 = icmp sge i32 %1, %4
+  %6 = icmp slt i32 %1, 0
+  %or.cond = or i1 %6, %5
   br i1 %or.cond, label %18, label %7
 
 7:                                                ; preds = %2
@@ -3276,38 +3307,12 @@ define i32 @Cudd_bddVarIsBound(ptr noundef readonly captures(none) %0, i32 nound
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 7
-  %17 = load i32, ptr %16, align 8, !tbaa !148
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
+  store i32 0, ptr %17, align 4, !tbaa !149
   br label %18
 
 18:                                               ; preds = %2, %7
-  %.0 = phi i32 [ %17, %7 ], [ 0, %2 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddSetPiVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load i32, ptr %3, align 8, !tbaa !3
-  %5 = icmp sge i32 %1, %4
-  %6 = icmp slt i32 %1, 0
-  %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %17, label %7
-
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load ptr, ptr %8, align 8, !tbaa !91
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
-  %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !36
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 8
-  store i32 0, ptr %16, align 4, !tbaa !149
-  br label %17
-
-17:                                               ; preds = %2, %7
   %.0 = phi i32 [ 1, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -3319,7 +3324,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetPsVar(ptr noundef readonly captures(none)
   %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %17, label %7
+  br i1 %or.cond, label %18, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -3330,158 +3335,18 @@ define range(i32 0, 2) i32 @Cudd_bddSetPsVar(ptr noundef readonly captures(none)
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 8
-  store i32 1, ptr %16, align 4, !tbaa !149
-  br label %17
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
+  store i32 1, ptr %17, align 4, !tbaa !149
+  br label %18
 
-17:                                               ; preds = %2, %7
+18:                                               ; preds = %2, %7
   %.0 = phi i32 [ 1, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Cudd_bddSetNsVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load i32, ptr %3, align 8, !tbaa !3
-  %5 = icmp sge i32 %1, %4
-  %6 = icmp slt i32 %1, 0
-  %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %17, label %7
-
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load ptr, ptr %8, align 8, !tbaa !91
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
-  %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !36
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 8
-  store i32 2, ptr %16, align 4, !tbaa !149
-  br label %17
-
-17:                                               ; preds = %2, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %2 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Cudd_bddIsPiVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load i32, ptr %3, align 8, !tbaa !3
-  %5 = icmp sge i32 %1, %4
-  %6 = icmp slt i32 %1, 0
-  %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %20, label %7
-
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load ptr, ptr %8, align 8, !tbaa !91
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
-  %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !36
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 8
-  %17 = load i32, ptr %16, align 4, !tbaa !149
-  %18 = icmp eq i32 %17, 0
-  %19 = zext i1 %18 to i32
-  br label %20
-
-20:                                               ; preds = %2, %7
-  %.0 = phi i32 [ %19, %7 ], [ -1, %2 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Cudd_bddIsPsVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load i32, ptr %3, align 8, !tbaa !3
-  %5 = icmp sge i32 %1, %4
-  %6 = icmp slt i32 %1, 0
-  %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %20, label %7
-
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load ptr, ptr %8, align 8, !tbaa !91
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
-  %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !36
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 8
-  %17 = load i32, ptr %16, align 4, !tbaa !149
-  %18 = icmp eq i32 %17, 1
-  %19 = zext i1 %18 to i32
-  br label %20
-
-20:                                               ; preds = %2, %7
-  %.0 = phi i32 [ %19, %7 ], [ -1, %2 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Cudd_bddIsNsVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load i32, ptr %3, align 8, !tbaa !3
-  %5 = icmp sge i32 %1, %4
-  %6 = icmp slt i32 %1, 0
-  %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %20, label %7
-
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load ptr, ptr %8, align 8, !tbaa !91
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
-  %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !36
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 8
-  %17 = load i32, ptr %16, align 4, !tbaa !149
-  %18 = icmp eq i32 %17, 2
-  %19 = zext i1 %18 to i32
-  br label %20
-
-20:                                               ; preds = %2, %7
-  %.0 = phi i32 [ %19, %7 ], [ -1, %2 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddSetPairIndex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %5 = load i32, ptr %4, align 8, !tbaa !3
-  %6 = icmp sge i32 %1, %5
-  %7 = icmp slt i32 %1, 0
-  %or.cond = or i1 %7, %6
-  br i1 %or.cond, label %18, label %8
-
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %10 = load ptr, ptr %9, align 8, !tbaa !91
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %12 = load ptr, ptr %11, align 8, !tbaa !42
-  %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !36
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.DdSubtable, ptr %10, i64 %16, i32 9
-  store i32 %2, ptr %17, align 8, !tbaa !150
-  br label %18
-
-18:                                               ; preds = %3, %8
-  %.0 = phi i32 [ 1, %8 ], [ 0, %3 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Cudd_bddReadPairIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sge i32 %1, %4
@@ -3498,12 +3363,159 @@ define i32 @Cudd_bddReadPairIndex(ptr noundef readonly captures(none) %0, i32 no
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 9
-  %17 = load i32, ptr %16, align 8, !tbaa !150
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
+  store i32 2, ptr %17, align 4, !tbaa !149
   br label %18
 
 18:                                               ; preds = %2, %7
-  %.0 = phi i32 [ %17, %7 ], [ -1, %2 ]
+  %.0 = phi i32 [ 1, %7 ], [ 0, %2 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define range(i32 -1, 2) i32 @Cudd_bddIsPiVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %4 = load i32, ptr %3, align 8, !tbaa !3
+  %5 = icmp sge i32 %1, %4
+  %6 = icmp slt i32 %1, 0
+  %or.cond = or i1 %6, %5
+  br i1 %or.cond, label %21, label %7
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = load ptr, ptr %10, align 8, !tbaa !42
+  %12 = zext nneg i32 %1 to i64
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
+  %18 = load i32, ptr %17, align 4, !tbaa !149
+  %19 = icmp eq i32 %18, 0
+  %20 = zext i1 %19 to i32
+  br label %21
+
+21:                                               ; preds = %2, %7
+  %.0 = phi i32 [ %20, %7 ], [ -1, %2 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define range(i32 -1, 2) i32 @Cudd_bddIsPsVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %4 = load i32, ptr %3, align 8, !tbaa !3
+  %5 = icmp sge i32 %1, %4
+  %6 = icmp slt i32 %1, 0
+  %or.cond = or i1 %6, %5
+  br i1 %or.cond, label %21, label %7
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = load ptr, ptr %10, align 8, !tbaa !42
+  %12 = zext nneg i32 %1 to i64
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
+  %18 = load i32, ptr %17, align 4, !tbaa !149
+  %19 = icmp eq i32 %18, 1
+  %20 = zext i1 %19 to i32
+  br label %21
+
+21:                                               ; preds = %2, %7
+  %.0 = phi i32 [ %20, %7 ], [ -1, %2 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define range(i32 -1, 2) i32 @Cudd_bddIsNsVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %4 = load i32, ptr %3, align 8, !tbaa !3
+  %5 = icmp sge i32 %1, %4
+  %6 = icmp slt i32 %1, 0
+  %or.cond = or i1 %6, %5
+  br i1 %or.cond, label %21, label %7
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = load ptr, ptr %10, align 8, !tbaa !42
+  %12 = zext nneg i32 %1 to i64
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
+  %18 = load i32, ptr %17, align 4, !tbaa !149
+  %19 = icmp eq i32 %18, 2
+  %20 = zext i1 %19 to i32
+  br label %21
+
+21:                                               ; preds = %2, %7
+  %.0 = phi i32 [ %20, %7 ], [ -1, %2 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define range(i32 0, 2) i32 @Cudd_bddSetPairIndex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %5 = load i32, ptr %4, align 8, !tbaa !3
+  %6 = icmp sge i32 %1, %5
+  %7 = icmp slt i32 %1, 0
+  %or.cond = or i1 %7, %6
+  br i1 %or.cond, label %19, label %8
+
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %10 = load ptr, ptr %9, align 8, !tbaa !91
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  %13 = zext nneg i32 %1 to i64
+  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %15 = load i32, ptr %14, align 4, !tbaa !36
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds %struct.DdSubtable, ptr %10, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store i32 %2, ptr %18, align 8, !tbaa !150
+  br label %19
+
+19:                                               ; preds = %3, %8
+  %.0 = phi i32 [ 1, %8 ], [ 0, %3 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define i32 @Cudd_bddReadPairIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %4 = load i32, ptr %3, align 8, !tbaa !3
+  %5 = icmp sge i32 %1, %4
+  %6 = icmp slt i32 %1, 0
+  %or.cond = or i1 %6, %5
+  br i1 %or.cond, label %19, label %7
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = load ptr, ptr %10, align 8, !tbaa !42
+  %12 = zext nneg i32 %1 to i64
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %18 = load i32, ptr %17, align 8, !tbaa !150
+  br label %19
+
+19:                                               ; preds = %2, %7
+  %.0 = phi i32 [ %18, %7 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -3514,7 +3526,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarToBeGrouped(ptr noundef readonly captu
   %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %20, label %7
+  br i1 %or.cond, label %21, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -3525,17 +3537,18 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarToBeGrouped(ptr noundef readonly captu
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 11
-  %17 = load i32, ptr %16, align 8, !tbaa !151
-  %18 = icmp ult i32 %17, 2
-  br i1 %18, label %19, label %20
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 8, !tbaa !151
+  %19 = icmp ult i32 %18, 2
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %7
-  store i32 1, ptr %16, align 8, !tbaa !151
-  br label %20
+20:                                               ; preds = %7
+  store i32 1, ptr %17, align 8, !tbaa !151
+  br label %21
 
-20:                                               ; preds = %7, %19, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %19 ], [ 1, %7 ]
+21:                                               ; preds = %7, %20, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %20 ], [ 1, %7 ]
   ret i32 %.0
 }
 
@@ -3546,7 +3559,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarHardGroup(ptr noundef readonly capture
   %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %17, label %7
+  br i1 %or.cond, label %18, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -3557,11 +3570,12 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarHardGroup(ptr noundef readonly capture
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 11
-  store i32 2, ptr %16, align 8, !tbaa !151
-  br label %17
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store i32 2, ptr %17, align 8, !tbaa !151
+  br label %18
 
-17:                                               ; preds = %2, %7
+18:                                               ; preds = %2, %7
   %.0 = phi i32 [ 1, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -3573,6 +3587,39 @@ define range(i32 0, 2) i32 @Cudd_bddResetVarToBeGrouped(ptr noundef readonly cap
   %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
+  br i1 %or.cond, label %21, label %7
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = load ptr, ptr %10, align 8, !tbaa !42
+  %12 = zext nneg i32 %1 to i64
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 8, !tbaa !151
+  %19 = icmp ult i32 %18, 2
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %7
+  store i32 0, ptr %17, align 8, !tbaa !151
+  br label %21
+
+21:                                               ; preds = %7, %20, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %20 ], [ 1, %7 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define range(i32 4, 3) i32 @Cudd_bddIsVarToBeGrouped(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %4 = load i32, ptr %3, align 8, !tbaa !3
+  %5 = icmp sge i32 %1, %4
+  %6 = icmp slt i32 %1, 0
+  %or.cond = or i1 %6, %5
   br i1 %or.cond, label %20, label %7
 
 7:                                                ; preds = %2
@@ -3584,45 +3631,14 @@ define range(i32 0, 2) i32 @Cudd_bddResetVarToBeGrouped(ptr noundef readonly cap
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 11
-  %17 = load i32, ptr %16, align 8, !tbaa !151
-  %18 = icmp ult i32 %17, 2
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %7
-  store i32 0, ptr %16, align 8, !tbaa !151
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 8, !tbaa !151
+  %19 = icmp eq i32 %18, 3
+  %. = select i1 %19, i32 0, i32 %18
   br label %20
 
-20:                                               ; preds = %7, %19, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %19 ], [ 1, %7 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 4, 3) i32 @Cudd_bddIsVarToBeGrouped(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load i32, ptr %3, align 8, !tbaa !3
-  %5 = icmp sge i32 %1, %4
-  %6 = icmp slt i32 %1, 0
-  %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %19, label %7
-
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load ptr, ptr %8, align 8, !tbaa !91
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
-  %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !36
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 11
-  %17 = load i32, ptr %16, align 8, !tbaa !151
-  %18 = icmp eq i32 %17, 3
-  %. = select i1 %18, i32 0, i32 %17
-  br label %19
-
-19:                                               ; preds = %7, %2
+20:                                               ; preds = %7, %2
   %.0 = phi i32 [ -1, %2 ], [ %., %7 ]
   ret i32 %.0
 }
@@ -3634,7 +3650,7 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarToBeUngrouped(ptr noundef readonly cap
   %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %17, label %7
+  br i1 %or.cond, label %18, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -3645,17 +3661,48 @@ define range(i32 0, 2) i32 @Cudd_bddSetVarToBeUngrouped(ptr noundef readonly cap
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 11
-  store i32 3, ptr %16, align 8, !tbaa !151
-  br label %17
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store i32 3, ptr %17, align 8, !tbaa !151
+  br label %18
 
-17:                                               ; preds = %2, %7
+18:                                               ; preds = %2, %7
   %.0 = phi i32 [ 1, %7 ], [ 0, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @Cudd_bddIsVarToBeUngrouped(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %4 = load i32, ptr %3, align 8, !tbaa !3
+  %5 = icmp sge i32 %1, %4
+  %6 = icmp slt i32 %1, 0
+  %or.cond = or i1 %6, %5
+  br i1 %or.cond, label %21, label %7
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = load ptr, ptr %10, align 8, !tbaa !42
+  %12 = zext nneg i32 %1 to i64
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 8, !tbaa !151
+  %19 = icmp eq i32 %18, 3
+  %20 = zext i1 %19 to i32
+  br label %21
+
+21:                                               ; preds = %2, %7
+  %.0 = phi i32 [ %20, %7 ], [ -1, %2 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define range(i32 -1, 2) i32 @Cudd_bddIsVarHardGroup(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp sge i32 %1, %4
@@ -3672,42 +3719,14 @@ define range(i32 -1, 2) i32 @Cudd_bddIsVarToBeUngrouped(ptr noundef readonly cap
   %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 11
-  %17 = load i32, ptr %16, align 8, !tbaa !151
-  %18 = icmp eq i32 %17, 3
-  %19 = zext i1 %18 to i32
+  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %18 = load i32, ptr %17, align 8, !tbaa !151
+  %19 = icmp eq i32 %18, 2
+  %. = zext i1 %19 to i32
   br label %20
 
-20:                                               ; preds = %2, %7
-  %.0 = phi i32 [ %19, %7 ], [ -1, %2 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Cudd_bddIsVarHardGroup(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load i32, ptr %3, align 8, !tbaa !3
-  %5 = icmp sge i32 %1, %4
-  %6 = icmp slt i32 %1, 0
-  %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %19, label %7
-
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load ptr, ptr %8, align 8, !tbaa !91
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
-  %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !36
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.DdSubtable, ptr %9, i64 %15, i32 11
-  %17 = load i32, ptr %16, align 8, !tbaa !151
-  %18 = icmp eq i32 %17, 2
-  %. = zext i1 %18 to i32
-  br label %19
-
-19:                                               ; preds = %7, %2
+20:                                               ; preds = %7, %2
   %.0 = phi i32 [ -1, %2 ], [ %., %7 ]
   ret i32 %.0
 }

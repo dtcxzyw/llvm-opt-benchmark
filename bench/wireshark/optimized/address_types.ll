@@ -88,23 +88,23 @@ define i32 @address_type_dissector_register(ptr noundef %0, ptr noundef %1, ptr 
   %12 = sext i32 %10 to i64
   %13 = getelementptr %struct._address_type_t, ptr @dissector_type_addresses, i64 %12
   store i32 %11, ptr %13, align 16
-  %14 = getelementptr %struct._address_type_t, ptr @dissector_type_addresses, i64 %12, i32 1
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %14, align 8
-  %15 = getelementptr %struct._address_type_t, ptr @dissector_type_addresses, i64 %12, i32 2
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %1, ptr %15, align 16
-  %16 = getelementptr %struct._address_type_t, ptr @dissector_type_addresses, i64 %12, i32 3
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %2, ptr %16, align 8
-  %17 = getelementptr %struct._address_type_t, ptr @dissector_type_addresses, i64 %12, i32 4
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %3, ptr %17, align 16
-  %18 = getelementptr %struct._address_type_t, ptr @dissector_type_addresses, i64 %12, i32 5
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %4, ptr %18, align 8
-  %19 = getelementptr %struct._address_type_t, ptr @dissector_type_addresses, i64 %12, i32 6
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %5, ptr %19, align 16
-  %20 = getelementptr %struct._address_type_t, ptr @dissector_type_addresses, i64 %12, i32 7
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %6, ptr %20, align 8
-  %21 = getelementptr %struct._address_type_t, ptr @dissector_type_addresses, i64 %12, i32 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr %7, ptr %21, align 16
-  %22 = getelementptr %struct._address_type_t, ptr @dissector_type_addresses, i64 %12, i32 9
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr %8, ptr %22, align 8
   %23 = sext i32 %11 to i64
   %24 = getelementptr ptr, ptr @type_list, i64 %23

@@ -1804,7 +1804,7 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   br label %39
 
 32:                                               ; preds = %.lr.ph.i.i
-  %33 = getelementptr inbounds { i32, float, float }, ptr %4, i64 %8, i32 1
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %34 = load float, ptr %33, align 4, !noundef !10
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %36 = load float, ptr %35, align 4, !noundef !10

@@ -113,16 +113,17 @@ define void @lv_demo_render(i32 noundef %0, i8 noundef zeroext %1) local_unnamed
   tail call void @lv_obj_set_grid_dsc_array(ptr noundef %6, ptr noundef nonnull @lv_demo_render.grid_cols, ptr noundef nonnull @lv_demo_render.grid_rows) #6
   store i8 %1, ptr @opa_saved, align 1, !tbaa !3
   %.not = icmp eq i32 %0, 14
-  br i1 %.not, label %12, label %8
+  br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %2
   %9 = zext i32 %0 to i64
-  %10 = getelementptr inbounds nuw %struct.scene_dsc_t, ptr @scenes, i64 %9, i32 1
-  %11 = load ptr, ptr %10, align 8, !tbaa !6
-  tail call void %11(ptr noundef %6) #6
-  br label %12
+  %10 = getelementptr inbounds nuw %struct.scene_dsc_t, ptr @scenes, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !6
+  tail call void %12(ptr noundef %6) #6
+  br label %13
 
-12:                                               ; preds = %8, %2
+13:                                               ; preds = %8, %2
   ret void
 }
 

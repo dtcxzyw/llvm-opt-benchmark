@@ -977,7 +977,7 @@ define linkonce_odr void @_ZN9grpc_core23CallCombinerClosureList11RunClosuresEPN
 
 9:                                                ; preds = %2
   tail call void @_ZN9grpc_core12CallCombiner4StopEPKc(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull @.str.7)
-  br label %77
+  br label %78
 
 ._crit_edge:                                      ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %.preheader
   %.lcssa = phi i64 [ %6, %.preheader ], [ %45, %_ZN4absl12lts_202407226StatusD2Ev.exit ]
@@ -1002,7 +1002,7 @@ define linkonce_odr void @_ZN9grpc_core23CallCombinerClosureList11RunClosuresEPN
 
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %._crit_edge, %18
   invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202407226StatusE(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %14, ptr noundef nonnull %5)
-          to label %50 unwind label %78
+          to label %50 unwind label %79
 
 21:                                               ; preds = %.lr.ph, %_ZN4absl12lts_202407226StatusD2Ev.exit
   %22 = phi i64 [ %6, %.lr.ph ], [ %45, %_ZN4absl12lts_202407226StatusD2Ev.exit ]
@@ -1060,7 +1060,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %36, %39
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
-  br label %80
+  br label %81
 
 50:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %51 = load i64, ptr %5, align 8, !tbaa !41
@@ -1097,25 +1097,26 @@ _ZN4absl12lts_202407226StatusD2Ev.exit20:         ; preds = %50, %53
 .lr.ph.i.i:                                       ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i, %.lr.ph.i.preheader.i
   %.06.i.i = phi i64 [ %63, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %62, %.lr.ph.i.preheader.i ]
   %63 = add nsw i64 %.06.i.i, -1
-  %64 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %61, i64 %63, i32 1
-  %65 = load i64, ptr %64, align 8, !tbaa !41
-  %66 = and i64 %65, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %66, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %67, label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i
+  %64 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %61, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load i64, ptr %65, align 8, !tbaa !41
+  %67 = and i64 %66, 1
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %67, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %68, label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i
 
-67:                                               ; preds = %.lr.ph.i.i
-  %68 = inttoptr i64 %65 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %68)
-          to label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i unwind label %69
+68:                                               ; preds = %.lr.ph.i.i
+  %69 = inttoptr i64 %66 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %69)
+          to label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i unwind label %70
 
-69:                                               ; preds = %67
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %68
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #27
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #27
   unreachable
 
-_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i: ; preds = %67, %.lr.ph.i.i
+_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i: ; preds = %68, %.lr.ph.i.i
   %.not.i1.i = icmp eq i64 %63, 0
   br i1 %.not.i1.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !96
 
@@ -1127,32 +1128,32 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit.i: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit.loopexit.i, %_ZN4absl12lts_202407226StatusD2Ev.exit20
   %.pre-phi.i = phi i64 [ %.pre3.i, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit.loopexit.i ], [ %59, %_ZN4absl12lts_202407226StatusD2Ev.exit20 ]
   %.not.i2.i = icmp eq i64 %.pre-phi.i, 0
-  br i1 %.not.i2.i, label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS4_EE5clearEv.exit, label %72
+  br i1 %.not.i2.i, label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS4_EE5clearEv.exit, label %73
 
-72:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit.i
-  %73 = load ptr, ptr %11, align 8, !tbaa !38
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %75 = load i64, ptr %74, align 8, !tbaa !38
-  %76 = mul i64 %75, 24
-  call void @_ZdlPvm(ptr noundef %73, i64 noundef %76) #28
+73:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit.i
+  %74 = load ptr, ptr %11, align 8, !tbaa !38
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %76 = load i64, ptr %75, align 8, !tbaa !38
+  %77 = mul i64 %76, 24
+  call void @_ZdlPvm(ptr noundef %74, i64 noundef %77) #28
   br label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS4_EE5clearEv.exit
 
-_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS4_EE5clearEv.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit.i, %72
+_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS4_EE5clearEv.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit.i, %73
   store i64 0, ptr %0, align 8, !tbaa !53
-  br label %77
+  br label %78
 
-77:                                               ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS4_EE5clearEv.exit, %9
+78:                                               ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS4_EE5clearEv.exit, %9
   ret void
 
-78:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
-  %79 = landingpad { ptr, i32 }
+79:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %80 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
-80:                                               ; preds = %78, %48
-  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %79, %78 ]
+81:                                               ; preds = %79, %48
+  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %80, %79 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1886,25 +1887,26 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %.lr.ph.i.preheader ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %6, i64 %8, i32 1
-  %10 = load i64, ptr %9, align 8, !tbaa !41
-  %11 = and i64 %10, 1
-  %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i.i.i.i.i, label %12, label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i
+  %9 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i64, ptr %10, align 8, !tbaa !41
+  %12 = and i64 %11, 1
+  %.not.i.i.i.i.i.i = icmp eq i64 %12, 0
+  br i1 %.not.i.i.i.i.i.i, label %13, label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = inttoptr i64 %10 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %13)
-          to label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i unwind label %14
+13:                                               ; preds = %.lr.ph.i
+  %14 = inttoptr i64 %11 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
+          to label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i unwind label %15
 
-14:                                               ; preds = %12
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #27
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #27
   unreachable
 
-_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i: ; preds = %12, %.lr.ph.i
+_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i: ; preds = %13, %.lr.ph.i
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit.loopexit, label %.lr.ph.i, !llvm.loop !96
 
@@ -1916,17 +1918,17 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit.loopexit, %1
   %.pre-phi = phi i64 [ %.pre3, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit.loopexit ], [ %3, %1 ]
   %.not.i2 = icmp eq i64 %.pre-phi, 0
-  br i1 %.not.i2, label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS5_EE21DeallocateIfAllocatedEv.exit, label %17
+  br i1 %.not.i2, label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS5_EE21DeallocateIfAllocatedEv.exit, label %18
 
-17:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit
-  %18 = load ptr, ptr %4, align 8, !tbaa !38
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !38
-  %21 = mul i64 %20, 24
-  tail call void @_ZdlPvm(ptr noundef %18, i64 noundef %21) #28
+18:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit
+  %19 = load ptr, ptr %4, align 8, !tbaa !38
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = load i64, ptr %20, align 8, !tbaa !38
+  %22 = mul i64 %21, 24
+  tail call void @_ZdlPvm(ptr noundef %19, i64 noundef %22) #28
   br label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS5_EE21DeallocateIfAllocatedEv.exit
 
-_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS5_EE21DeallocateIfAllocatedEv.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit, %17
+_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core23CallCombinerClosureList19CallCombinerClosureELm6ESaIS5_EE21DeallocateIfAllocatedEv.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit, %18
   ret void
 }
 
@@ -2024,49 +2026,50 @@ _ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClo
 .lr.ph.i18:                                       ; preds = %.lr.ph.i, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %47, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sink1.i, %.lr.ph.i ]
   %47 = add nsw i64 %.06.i, -1
-  %48 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i, i64 %47, i32 1
-  %49 = load i64, ptr %48, align 8, !tbaa !41
-  %50 = and i64 %49, 1
-  %.not.i.i.i.i.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i.i.i.i, label %51, label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i
+  %48 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load i64, ptr %49, align 8, !tbaa !41
+  %51 = and i64 %50, 1
+  %.not.i.i.i.i.i.i = icmp eq i64 %51, 0
+  br i1 %.not.i.i.i.i.i.i, label %52, label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i
 
-51:                                               ; preds = %.lr.ph.i18
-  %52 = inttoptr i64 %49 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %52)
-          to label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i unwind label %53
+52:                                               ; preds = %.lr.ph.i18
+  %53 = inttoptr i64 %50 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %53)
+          to label %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i unwind label %54
 
-53:                                               ; preds = %51
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %52
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #27
+  %56 = extractvalue { ptr, i32 } %55, 0
+  tail call void @__clang_call_terminate(ptr %56) #27
   unreachable
 
-_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i: ; preds = %51, %.lr.ph.i18
+_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i: ; preds = %52, %.lr.ph.i18
   %.not.i19 = icmp eq i64 %47, 0
   br i1 %.not.i19, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit, label %.lr.ph.i18, !llvm.loop !96
 
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit
-  %56 = load i64, ptr %0, align 8, !tbaa !53
-  %57 = and i64 %56, 1
-  %.not.i21 = icmp eq i64 %57, 0
-  br i1 %.not.i21, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEED2Ev.exit, label %58
+  %57 = load i64, ptr %0, align 8, !tbaa !53
+  %58 = and i64 %57, 1
+  %.not.i21 = icmp eq i64 %58, 0
+  br i1 %.not.i21, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEED2Ev.exit, label %59
 
-58:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit
-  %59 = load ptr, ptr %7, align 8, !tbaa !38
-  %60 = load i64, ptr %9, align 8, !tbaa !38
-  %61 = mul i64 %60, 24
-  tail call void @_ZdlPvm(ptr noundef %59, i64 noundef %61) #28
+59:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit
+  %60 = load ptr, ptr %7, align 8, !tbaa !38
+  %61 = load i64, ptr %9, align 8, !tbaa !38
+  %62 = mul i64 %61, 24
+  tail call void @_ZdlPvm(ptr noundef %60, i64 noundef %62) #28
   %.pre = load i64, ptr %0, align 8, !tbaa !53
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEED2Ev.exit
 
-_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEED2Ev.exit: ; preds = %58, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit
-  %62 = phi i64 [ %.pre, %58 ], [ %56, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit ]
+_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEED2Ev.exit: ; preds = %59, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit
+  %63 = phi i64 [ %.pre, %59 ], [ %57, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE15DestroyElementsERS6_PS5_m.exit ]
   store ptr %17, ptr %7, align 8, !tbaa !38
   store i64 %12, ptr %9, align 8, !tbaa !38
-  %63 = or i64 %62, 1
-  %64 = add i64 %63, 2
-  store i64 %64, ptr %0, align 8, !tbaa !53
+  %64 = or i64 %63, 1
+  %65 = add i64 %64, 2
+  store i64 %65, ptr %0, align 8, !tbaa !53
   ret ptr %18
 }
 

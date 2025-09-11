@@ -30713,11 +30713,11 @@ _ZN12VerilatedVarC2EPKcPv16VerilatedVarType17VerilatedVarFlagsib.exit: ; preds =
   br i1 %.not25, label %123, label %116
 
 116:                                              ; preds = %115
-  %117 = add nsw i64 %indvars.iv, -1
-  %118 = load ptr, ptr %36, align 8
-  %119 = getelementptr inbounds nuw %class.VerilatedRange, ptr %118, i64 %117
+  %117 = load ptr, ptr %36, align 8
+  %118 = getelementptr %class.VerilatedRange, ptr %117, i64 %indvars.iv
+  %119 = getelementptr i8, ptr %118, i64 -8
   store i32 %110, ptr %119, align 4
-  %120 = getelementptr inbounds nuw %class.VerilatedRange, ptr %118, i64 %117, i32 1
+  %120 = getelementptr i8, ptr %118, i64 -4
   store i32 %112, ptr %120, align 4
   br label %148
 

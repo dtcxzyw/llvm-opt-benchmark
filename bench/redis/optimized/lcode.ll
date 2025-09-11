@@ -706,7 +706,7 @@ define internal fastcc i32 @addk(ptr noundef captures(none) %0, ptr noundef nonn
 15:                                               ; preds = %3
   %16 = load double, ptr %8, align 8, !tbaa !39
   %17 = fptosi double %16 to i32
-  br label %57
+  br label %58
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -742,51 +742,52 @@ define internal fastcc i32 @addk(ptr noundef captures(none) %0, ptr noundef nonn
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds %struct.lua_TValue, ptr %32, i64 %indvars.iv, i32 1
-  store i32 0, ptr %35, align 8, !tbaa !43
+  %35 = getelementptr inbounds %struct.lua_TValue, ptr %32, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i32 0, ptr %36, align 8, !tbaa !43
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %34, %28
-  %36 = load i32, ptr %19, align 8, !tbaa !48
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.lua_TValue, ptr %32, i64 %37
-  %39 = load i64, ptr %2, align 8, !tbaa !39
-  store i64 %39, ptr %38, align 8, !tbaa !39
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !43
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i32 %41, ptr %42, align 8, !tbaa !43
-  %43 = icmp sgt i32 %41, 3
-  br i1 %43, label %44, label %54
+  %37 = load i32, ptr %19, align 8, !tbaa !48
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds %struct.lua_TValue, ptr %32, i64 %38
+  %40 = load i64, ptr %2, align 8, !tbaa !39
+  store i64 %40, ptr %39, align 8, !tbaa !39
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %42 = load i32, ptr %41, align 8, !tbaa !43
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i32 %42, ptr %43, align 8, !tbaa !43
+  %44 = icmp sgt i32 %42, 3
+  br i1 %44, label %45, label %55
 
-44:                                               ; preds = %._crit_edge
-  %45 = load ptr, ptr %2, align 8, !tbaa !39
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 9
-  %47 = load i8, ptr %46, align 1, !tbaa !39
-  %48 = and i8 %47, 3
-  %.not37 = icmp eq i8 %48, 0
-  br i1 %.not37, label %54, label %49
+45:                                               ; preds = %._crit_edge
+  %46 = load ptr, ptr %2, align 8, !tbaa !39
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 9
+  %48 = load i8, ptr %47, align 1, !tbaa !39
+  %49 = and i8 %48, 3
+  %.not37 = icmp eq i8 %49, 0
+  br i1 %.not37, label %55, label %50
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %51 = load i8, ptr %50, align 1, !tbaa !39
-  %52 = and i8 %51, 4
-  %.not38 = icmp eq i8 %52, 0
-  br i1 %.not38, label %54, label %53
+50:                                               ; preds = %45
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %52 = load i8, ptr %51, align 1, !tbaa !39
+  %53 = and i8 %52, 4
+  %.not38 = icmp eq i8 %53, 0
+  br i1 %.not38, label %55, label %54
 
-53:                                               ; preds = %49
-  tail call void @luaC_barrierf(ptr noundef %5, ptr noundef nonnull %9, ptr noundef nonnull %45) #8
-  br label %54
+54:                                               ; preds = %50
+  tail call void @luaC_barrierf(ptr noundef %5, ptr noundef nonnull %9, ptr noundef nonnull %46) #8
+  br label %55
 
-54:                                               ; preds = %53, %49, %44, %._crit_edge
-  %55 = load i32, ptr %19, align 8, !tbaa !48
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %19, align 8, !tbaa !48
-  br label %57
+55:                                               ; preds = %54, %50, %45, %._crit_edge
+  %56 = load i32, ptr %19, align 8, !tbaa !48
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %19, align 8, !tbaa !48
+  br label %58
 
-57:                                               ; preds = %54, %15
-  %.0 = phi i32 [ %17, %15 ], [ %55, %54 ]
+58:                                               ; preds = %55, %15
+  %.0 = phi i32 [ %17, %15 ], [ %56, %55 ]
   ret i32 %.0
 }
 

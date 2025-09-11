@@ -31,7 +31,7 @@ define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef captures(address_is_nul
   %16 = load ptr, ptr %0, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %16, i64 %8
   store ptr %1, ptr %17, align 8, !tbaa !16
-  %18 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %16, i64 %8, i32 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %11, ptr %18, align 8, !tbaa !18
   store i64 %8, ptr %14, align 8, !tbaa !13
   %.not17.i = icmp eq i64 %8, 0

@@ -22375,13 +22375,14 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang7CodeGen15CodeGenFunction18CGC
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang7VarDeclEPNS2_9FieldDeclELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPKSC_RKT_.exit.i: ; preds = %30, %17
   %37 = phi i64 [ %24, %17 ], [ %33, %30 ]
-  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1791", ptr %12, i64 %37, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8, !tbaa !1856
+  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1791", ptr %12, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !1856
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang7VarDeclEPNS2_9FieldDeclELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6lookupES5_.exit
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang7VarDeclEPNS2_9FieldDeclELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6lookupES5_.exit: ; preds = %.lr.ph.i.i.i, %2, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang7VarDeclEPNS2_9FieldDeclELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPKSC_RKT_.exit.i
-  %40 = phi ptr [ %39, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang7VarDeclEPNS2_9FieldDeclELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPKSC_RKT_.exit.i ], [ null, %2 ], [ null, %.lr.ph.i.i.i ]
-  ret ptr %40
+  %41 = phi ptr [ %40, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang7VarDeclEPNS2_9FieldDeclELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPKSC_RKT_.exit.i ], [ null, %2 ], [ null, %.lr.ph.i.i.i ]
+  ret ptr %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

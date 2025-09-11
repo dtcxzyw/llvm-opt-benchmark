@@ -312,7 +312,7 @@ switch.lookup:                                    ; preds = %4
   %switch.gep = getelementptr i8, ptr %11, i64 -16368
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %switch.load)
-  br label %111
+  br label %110
 
 13:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -333,7 +333,7 @@ switch.lookup:                                    ; preds = %4
 
 23:                                               ; preds = %13
   %24 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull @.str.9)
-  br label %110
+  br label %109
 
 25:                                               ; preds = %13
   br i1 %.not83, label %27, label %26
@@ -357,7 +357,7 @@ switch.lookup:                                    ; preds = %4
   %35 = sub nuw nsw i64 13, %32
   %36 = call ptr @__memcpy_chk(ptr noundef %33, ptr noundef nonnull %5, i64 noundef range(i64 -127, 256) %34, i64 noundef %35) #11, !alias.scope !11
   %37 = add nuw nsw i32 %.mask85, %.072
-  br label %106
+  br label %105
 
 38:                                               ; preds = %27
   %39 = icmp sgt i8 %.071, 0
@@ -381,12 +381,12 @@ switch.lookup:                                    ; preds = %4
   call void @llvm.assume(i1 %53)
   %54 = call ptr @__memset_chk(ptr noundef %48, i32 noundef 48, i64 noundef range(i64 -128, 129) %49, i64 noundef %52) #11
   %55 = add nuw nsw i32 %46, %29
-  br label %106
+  br label %105
 
 56:                                               ; preds = %38
   %57 = sub nsw i32 0, %29
   %58 = and i32 %28, 255
-  %59 = icmp sgt i32 %58, %57
+  %59 = icmp samesign ugt i32 %58, %57
   %60 = zext nneg i32 %.072 to i64
   %61 = getelementptr i8, ptr %6, i64 %60
   br i1 %59, label %62, label %84
@@ -415,55 +415,55 @@ switch.lookup:                                    ; preds = %4
   call void @llvm.assume(i1 %81)
   %82 = call ptr @__memcpy_chk(ptr noundef %72, ptr noundef %76, i64 noundef range(i64 -127, 256) %77, i64 noundef %80) #11, !alias.scope !23
   %83 = sub nsw i32 %70, %29
-  br label %106
+  br label %105
 
 84:                                               ; preds = %56
   store i8 48, ptr %61, align 1
   %85 = getelementptr i8, ptr %61, i64 1
   store i8 46, ptr %85, align 1
   %86 = or disjoint i32 %.072, 2
-  %87 = sub nsw i32 %57, %58
-  %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %89, label %96
+  %.not = icmp eq i32 %58, %57
+  br i1 %.not, label %95, label %87
 
-89:                                               ; preds = %84
-  %90 = zext nneg i32 %86 to i64
-  %91 = getelementptr i8, ptr %6, i64 %90
-  %92 = zext nneg i32 %87 to i64
-  %93 = sub nuw nsw i64 13, %90
-  %94 = call ptr @__memset_chk(ptr noundef %91, i32 noundef 48, i64 noundef range(i64 -128, 129) %92, i64 noundef %93) #11
-  %95 = add nuw nsw i32 %87, %86
-  br label %96
+87:                                               ; preds = %84
+  %88 = sub nuw nsw i32 %57, %58
+  %89 = zext nneg i32 %86 to i64
+  %90 = getelementptr i8, ptr %6, i64 %89
+  %91 = zext nneg i32 %88 to i64
+  %92 = sub nuw nsw i64 13, %89
+  %93 = call ptr @__memset_chk(ptr noundef %90, i32 noundef 48, i64 noundef range(i64 -128, 129) %91, i64 noundef %92) #11
+  %94 = add nuw nsw i32 %88, %86
+  br label %95
 
-96:                                               ; preds = %89, %84
-  %.2 = phi i32 [ %95, %89 ], [ %86, %84 ]
-  %97 = zext nneg i32 %.2 to i64
-  %98 = getelementptr i8, ptr %6, i64 %97
-  %99 = zext nneg i32 %58 to i64
-  %100 = sub nsw i64 13, %97
-  %101 = icmp samesign ugt i32 %.2, 13
-  %102 = select i1 %101, i64 0, i64 %100
-  %103 = icmp ne i64 %102, -1
-  call void @llvm.assume(i1 %103)
-  %104 = call ptr @__memcpy_chk(ptr noundef %98, ptr noundef nonnull %5, i64 noundef range(i64 -127, 256) %99, i64 noundef %102) #11, !alias.scope !27
-  %105 = add nuw nsw i32 %.2, %58
-  br label %106
+95:                                               ; preds = %87, %84
+  %.2 = phi i32 [ %94, %87 ], [ %86, %84 ]
+  %96 = zext nneg i32 %.2 to i64
+  %97 = getelementptr i8, ptr %6, i64 %96
+  %98 = zext nneg i32 %58 to i64
+  %99 = sub nsw i64 13, %96
+  %100 = icmp samesign ugt i32 %.2, 13
+  %101 = select i1 %100, i64 0, i64 %99
+  %102 = icmp ne i64 %101, -1
+  call void @llvm.assume(i1 %102)
+  %103 = call ptr @__memcpy_chk(ptr noundef %97, ptr noundef nonnull %5, i64 noundef range(i64 -127, 256) %98, i64 noundef %101) #11, !alias.scope !27
+  %104 = add nuw nsw i32 %.2, %58
+  br label %105
 
-106:                                              ; preds = %40, %96, %62, %31
-  %.173 = phi i32 [ %37, %31 ], [ %55, %40 ], [ %83, %62 ], [ %105, %96 ]
-  %107 = zext i32 %.173 to i64
-  %108 = getelementptr i8, ptr %6, i64 %107
-  store i8 0, ptr %108, align 1
-  %109 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %6)
+105:                                              ; preds = %40, %95, %62, %31
+  %.173 = phi i32 [ %37, %31 ], [ %55, %40 ], [ %83, %62 ], [ %104, %95 ]
+  %106 = zext i32 %.173 to i64
+  %107 = getelementptr i8, ptr %6, i64 %106
+  store i8 0, ptr %107, align 1
+  %108 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %6)
+  br label %109
+
+109:                                              ; preds = %105, %23
+  %.1 = phi ptr [ %24, %23 ], [ %108, %105 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %110
 
-110:                                              ; preds = %106, %23
-  %.1 = phi ptr [ %24, %23 ], [ %109, %106 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %111
-
-111:                                              ; preds = %110, %switch.lookup
-  %.070 = phi ptr [ %12, %switch.lookup ], [ %.1, %110 ]
+110:                                              ; preds = %109, %switch.lookup
+  %.070 = phi ptr [ %12, %switch.lookup ], [ %.1, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.070
 }

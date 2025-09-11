@@ -470,7 +470,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %FPUKind to i64
-  %FPUVersion = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom, i32 3
+  %arrayidx = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom
+  %FPUVersion = getelementptr inbounds nuw i8, ptr %arrayidx, i64 20
   %0 = load i32, ptr %FPUVersion, align 4
   br label %return
 
@@ -487,7 +488,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %FPUKind to i64
-  %NeonSupport = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom, i32 4
+  %arrayidx = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom
+  %NeonSupport = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %0 = load i32, ptr %NeonSupport, align 8
   br label %return
 
@@ -504,7 +506,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %FPUKind to i64
-  %Restriction = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom, i32 5
+  %arrayidx = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom
+  %Restriction = getelementptr inbounds nuw i8, ptr %arrayidx, i64 28
   %0 = load i32, ptr %Restriction, align 4
   br label %return
 
@@ -536,7 +539,8 @@ if.end.i2499:                                     ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i2499
   %idxprom = zext i32 %AK to i64
-  %DefaultFPU = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames", ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 %idxprom, i32 6
+  %arrayidx = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames", ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 %idxprom
+  %DefaultFPU = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %1 = load i32, ptr %DefaultFPU, align 16
   br label %return
 
@@ -981,7 +985,8 @@ if.end.i2581:                                     ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i2581
   %idxprom = zext i32 %AK to i64
-  %ArchBaseExtensions = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames", ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 %idxprom, i32 7
+  %arrayidx = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames", ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 %idxprom
+  %ArchBaseExtensions = getelementptr inbounds nuw i8, ptr %arrayidx, i64 52
   %1 = load i32, ptr %ArchBaseExtensions, align 4
   br label %return
 
@@ -5006,7 +5011,8 @@ entry:
 define hidden noundef i32 @_ZN4llvh3ARM11getArchAttrENS0_8ArchKindE(i32 noundef %AK) local_unnamed_addr #4 {
 entry:
   %idxprom = zext i32 %AK to i64
-  %ArchAttr = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames", ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 %idxprom, i32 9
+  %arrayidx = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames", ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 %idxprom
+  %ArchAttr = getelementptr inbounds nuw i8, ptr %arrayidx, i64 60
   %0 = load i32, ptr %ArchAttr, align 4
   ret i32 %0
 }
@@ -5312,7 +5318,8 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %idxprom.i = zext nneg i32 %FPUKind to i64
-  %FPUVersion.i = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom.i, i32 3
+  %arrayidx.i = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom.i
+  %FPUVersion.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   %0 = load i32, ptr %FPUVersion.i, align 4
   br label %_ZN4llvh3ARM13getFPUVersionEj.exit
 
@@ -5329,7 +5336,8 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %idxprom.i = zext nneg i32 %FPUKind to i64
-  %NeonSupport.i = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom.i, i32 4
+  %arrayidx.i = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom.i
+  %NeonSupport.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %0 = load i32, ptr %NeonSupport.i, align 8
   br label %_ZN4llvh3ARM22getFPUNeonSupportLevelEj.exit
 
@@ -5346,7 +5354,8 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %idxprom.i = zext nneg i32 %FPUKind to i64
-  %Restriction.i = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom.i, i32 5
+  %arrayidx.i = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_18FPUNamesE, i64 %idxprom.i
+  %Restriction.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 28
   %0 = load i32, ptr %Restriction.i, align 4
   br label %_ZN4llvh3ARM17getFPURestrictionEj.exit
 
@@ -5376,7 +5385,8 @@ if.end.i639:                                      ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i639
   %idxprom = zext i32 %AK to i64
-  %DefaultFPU = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames.2", ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 %idxprom, i32 6
+  %arrayidx = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames.2", ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 %idxprom
+  %DefaultFPU = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %1 = load i32, ptr %DefaultFPU, align 16
   br label %return
 
@@ -5514,7 +5524,8 @@ if.end.i659:                                      ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i659
   %idxprom = zext i32 %AK to i64
-  %ArchBaseExtensions = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames.2", ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 %idxprom, i32 7
+  %arrayidx = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames.2", ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 %idxprom
+  %ArchBaseExtensions = getelementptr inbounds nuw i8, ptr %arrayidx, i64 52
   %1 = load i32, ptr %ArchBaseExtensions, align 4
   br label %return
 
@@ -7220,7 +7231,8 @@ entry:
 define hidden noundef i32 @_ZN4llvh7AArch6411getArchAttrENS0_8ArchKindE(i32 noundef %AK) local_unnamed_addr #4 {
 entry:
   %idxprom = zext i32 %AK to i64
-  %ArchAttr = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames.2", ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 %idxprom, i32 9
+  %arrayidx = getelementptr inbounds nuw %"struct.(anonymous namespace)::ArchNames.2", ptr @_ZN12_GLOBAL__N_116AArch64ARCHNamesE, i64 %idxprom
+  %ArchAttr = getelementptr inbounds nuw i8, ptr %arrayidx, i64 60
   %0 = load i32, ptr %ArchAttr, align 4
   ret i32 %0
 }

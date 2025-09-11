@@ -1280,7 +1280,7 @@ _ZNSt6vectorIN5Eigen7TripletIdiEESaIS2_EE12emplace_backIJlRKiRKdEEERS2_DpOT_.exi
   %420 = add nuw nsw i64 %.01701287, 1
   %421 = getelementptr i32, ptr %418, i64 %113
   %422 = urem i64 %420, %113
-  %423 = trunc nuw i64 %422 to i32
+  %423 = trunc nuw nsw i64 %422 to i32
   store i32 %423, ptr %421, align 4, !tbaa !21
   %424 = getelementptr i8, ptr %418, i64 %.idx795
   store i32 %112, ptr %424, align 4, !tbaa !21

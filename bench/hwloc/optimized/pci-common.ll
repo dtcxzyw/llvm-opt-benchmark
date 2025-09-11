@@ -339,12 +339,12 @@ define internal fastcc void @hwloc_pci_forced_locality_parse(ptr noundef capture
   %47 = getelementptr inbounds nuw %struct.hwloc_pci_forced_locality_s, ptr %44, i64 %46
   store i32 %45, ptr %47, align 8, !tbaa !41
   %48 = load i32, ptr %4, align 4, !tbaa !39
-  %49 = getelementptr inbounds nuw %struct.hwloc_pci_forced_locality_s, ptr %44, i64 %46, i32 1
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %48, ptr %49, align 4, !tbaa !43
   %50 = load i32, ptr %5, align 4, !tbaa !39
-  %51 = getelementptr inbounds nuw %struct.hwloc_pci_forced_locality_s, ptr %44, i64 %46, i32 2
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 %50, ptr %51, align 8, !tbaa !44
-  %52 = getelementptr inbounds nuw %struct.hwloc_pci_forced_locality_s, ptr %44, i64 %46, i32 3
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %34, ptr %52, align 8, !tbaa !45
   %53 = load i32, ptr %8, align 4, !tbaa !38
   %54 = add i32 %53, 1
@@ -393,41 +393,42 @@ define hidden void @hwloc_pci_discovery_exit(ptr noundef captures(none) %0) loca
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !40
-  %7 = getelementptr inbounds nuw %struct.hwloc_pci_forced_locality_s, ptr %6, i64 %indvars.iv, i32 3
-  %8 = load ptr, ptr %7, align 8, !tbaa !45
-  tail call void @hwloc_bitmap_free(ptr noundef %8) #22
+  %7 = getelementptr inbounds nuw %struct.hwloc_pci_forced_locality_s, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !45
+  tail call void @hwloc_bitmap_free(ptr noundef %9) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = load i32, ptr %2, align 4, !tbaa !38
-  %10 = zext i32 %9 to i64
-  %11 = icmp samesign ult i64 %indvars.iv.next, %10
-  br i1 %11, label %5, label %._crit_edge, !llvm.loop !46
+  %10 = load i32, ptr %2, align 4, !tbaa !38
+  %11 = zext i32 %10 to i64
+  %12 = icmp samesign ult i64 %indvars.iv.next, %11
+  br i1 %12, label %5, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %5, %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %13 = load ptr, ptr %12, align 8, !tbaa !40
-  tail call void @free(ptr noundef %13) #22
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %15 = load ptr, ptr %14, align 8, !tbaa !48
-  %.not14 = icmp eq ptr %15, null
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %14 = load ptr, ptr %13, align 8, !tbaa !40
+  tail call void @free(ptr noundef %14) #22
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %16 = load ptr, ptr %15, align 8, !tbaa !48
+  %.not14 = icmp eq ptr %16, null
   br i1 %.not14, label %._crit_edge18, label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %._crit_edge, %.lr.ph17
-  %.015 = phi ptr [ %17, %.lr.ph17 ], [ %15, %._crit_edge ]
-  %16 = getelementptr inbounds nuw i8, ptr %.015, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !49
-  %18 = getelementptr inbounds nuw i8, ptr %.015, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !52
-  tail call void @hwloc_bitmap_free(ptr noundef %19) #22
+  %.015 = phi ptr [ %18, %.lr.ph17 ], [ %16, %._crit_edge ]
+  %17 = getelementptr inbounds nuw i8, ptr %.015, i64 40
+  %18 = load ptr, ptr %17, align 8, !tbaa !49
+  %19 = getelementptr inbounds nuw i8, ptr %.015, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !52
+  tail call void @hwloc_bitmap_free(ptr noundef %20) #22
   tail call void @free(ptr noundef nonnull %.015) #22
-  %.not = icmp eq ptr %17, null
+  %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge18, label %.lr.ph17, !llvm.loop !53
 
 ._crit_edge18:                                    ; preds = %.lr.ph17, %._crit_edge
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store i64 -1, ptr %21, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  store i64 -1, ptr %22, align 8, !tbaa !3
   ret void
 }
 

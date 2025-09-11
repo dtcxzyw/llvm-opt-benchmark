@@ -2118,8 +2118,8 @@ define linkonce_odr noundef ptr @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEEixENS_7S
   br i1 %37, label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %36, %.lr.ph.i.i.i
-  %.012.i9.i.i = phi i16 [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %22, %36 ]
-  %38 = add i16 %.012.i9.i.i, 1
+  %.010.i9.i.i = phi i16 [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %22, %36 ]
+  %38 = add i16 %.010.i9.i.i, 1
   %.0.i.i.i = and i16 %38, %21
   %39 = zext i16 %.0.i.i.i to i64
   %40 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %24, i64 %39
@@ -2132,8 +2132,8 @@ define linkonce_odr noundef ptr @_ZNK4pkpy12NameDictImplIPNS_8PyObjectEEixENS_7S
   br i1 %43, label %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i: ; preds = %.lr.ph.i.i.i, %29, %19
-  %.lcssa15.sink.i.i = phi i64 [ %25, %19 ], [ %32, %29 ], [ %39, %.lr.ph.i.i.i ]
-  %44 = getelementptr inbounds nuw %"struct.pkpy::NameDictItem", ptr %24, i64 %.lcssa15.sink.i.i, i32 1
+  %.sink16.i.i = phi ptr [ %26, %19 ], [ %33, %29 ], [ %40, %.lr.ph.i.i.i ]
+  %44 = getelementptr inbounds nuw i8, ptr %.sink16.i.i, i64 8
   br label %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit: ; preds = %16, %_ZNK4pkpy13LargeNameDictIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.sink.split.i.i

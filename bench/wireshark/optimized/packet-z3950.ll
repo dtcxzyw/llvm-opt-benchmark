@@ -5260,12 +5260,13 @@ define internal i32 @dissect_z3950(ptr noundef %0, ptr noundef %1, ptr noundef %
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr %struct._ber_choice_t, ptr @PDU_choice, i64 %20, i32 3
-  %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = call ptr @val_to_str_const(i32 noundef %22, ptr noundef nonnull @z3950_PDU_vals, ptr noundef nonnull @.str.2153)
-  call void @col_set_str(ptr noundef %24, i32 noundef 25, ptr noundef %25)
+  %21 = getelementptr %struct._ber_choice_t, ptr @PDU_choice, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 20
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull @z3950_PDU_vals, ptr noundef nonnull @.str.2153)
+  call void @col_set_str(ptr noundef %25, i32 noundef 25, ptr noundef %26)
   br label %dissect_z3950_PDU.exit
 
 dissect_z3950_PDU.exit:                           ; preds = %4, %17

@@ -6193,7 +6193,7 @@ _ZNK5arrow5Datum13chunked_arrayEv.exit:           ; preds = %_ZNKSt6vectorIN5arr
 define noundef zeroext i1 @_ZN5arrow7compute6detail16ExecSpanIterator4NextEPNS0_8ExecSpanE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %0, align 8, !tbaa !239, !range !136, !noundef !137
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %140, label %5
+  br i1 %4, label %142, label %5
 
 5:                                                ; preds = %2
   store i64 0, ptr %1, align 8, !tbaa !265
@@ -6283,7 +6283,7 @@ _ZNSt6vectorIN5arrow7compute9ExecValueESaIS2_EE6resizeEm.exit: ; preds = %24, %2
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %57
 
-._crit_edge:                                      ; preds = %105, %_ZNSt6vectorIN5arrow7compute9ExecValueESaIS2_EE6resizeEm.exit
+._crit_edge:                                      ; preds = %107, %_ZNSt6vectorIN5arrow7compute9ExecValueESaIS2_EE6resizeEm.exit
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %52 = load i8, ptr %51, align 2, !tbaa !240, !range !136, !noundef !137
   %53 = trunc nuw i8 %52 to i1
@@ -6291,15 +6291,15 @@ _ZNSt6vectorIN5arrow7compute9ExecValueESaIS2_EE6resizeEm.exit: ; preds = %24, %2
   %55 = load i8, ptr %54, align 1, !range !136
   %56 = trunc nuw i8 %55 to i1
   %or.cond = select i1 %53, i1 %56, i1 false
-  br i1 %or.cond, label %116, label %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit
+  br i1 %or.cond, label %118, label %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit
 
-57:                                               ; preds = %.lr.ph, %105
-  %58 = phi ptr [ %48, %.lr.ph ], [ %110, %105 ]
-  %.04860 = phi i64 [ 0, %.lr.ph ], [ %106, %105 ]
+57:                                               ; preds = %.lr.ph, %107
+  %58 = phi ptr [ %48, %.lr.ph ], [ %112, %107 ]
+  %.04860 = phi i64 [ 0, %.lr.ph ], [ %108, %107 ]
   %59 = getelementptr inbounds nuw %"struct.arrow::Datum", ptr %58, i64 %.04860
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i8, ptr %60, align 8, !tbaa !78
-  switch i8 %61, label %73 [
+  switch i8 %61, label %74 [
     i8 1, label %_ZNK5arrow5Datum6scalarEv.exit
     i8 2, label %_ZNK5arrow5Datum5arrayEv.exit
     i8 3, label %_ZNK5arrow5Datum13chunked_arrayEv.exit
@@ -6307,244 +6307,247 @@ _ZNSt6vectorIN5arrow7compute9ExecValueESaIS2_EE6resizeEm.exit: ; preds = %24, %2
 
 _ZNK5arrow5Datum6scalarEv.exit:                   ; preds = %57
   %62 = load ptr, ptr %6, align 8, !tbaa !251
-  %63 = load ptr, ptr %59, align 8, !tbaa !101
-  %64 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %62, i64 %.04860, i32 1
-  store ptr %63, ptr %64, align 8, !tbaa !254
-  br label %105
+  %63 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %62, i64 %.04860
+  %64 = load ptr, ptr %59, align 8, !tbaa !101
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 128
+  store ptr %64, ptr %65, align 8, !tbaa !254
+  br label %107
 
 _ZNK5arrow5Datum5arrayEv.exit:                    ; preds = %57
-  %65 = load ptr, ptr %59, align 8, !tbaa !69
-  %66 = load ptr, ptr %6, align 8, !tbaa !251
-  %67 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %66, i64 %.04860
-  tail call void @_ZN5arrow9ArraySpan10SetMembersERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(136) %67, ptr noundef nonnull align 8 dereferenceable(120) %65)
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 128
-  store ptr null, ptr %68, align 8, !tbaa !254
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %70 = load i64, ptr %69, align 8, !tbaa !262
-  %71 = load ptr, ptr %49, align 8, !tbaa !244
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %.04860
-  store i64 %70, ptr %72, align 8, !tbaa !141
-  br label %105
+  %66 = load ptr, ptr %59, align 8, !tbaa !69
+  %67 = load ptr, ptr %6, align 8, !tbaa !251
+  %68 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %67, i64 %.04860
+  tail call void @_ZN5arrow9ArraySpan10SetMembersERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(136) %68, ptr noundef nonnull align 8 dereferenceable(120) %66)
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 128
+  store ptr null, ptr %69, align 8, !tbaa !254
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  %71 = load i64, ptr %70, align 8, !tbaa !262
+  %72 = load ptr, ptr %49, align 8, !tbaa !244
+  %73 = getelementptr inbounds nuw i64, ptr %72, i64 %.04860
+  store i64 %71, ptr %73, align 8, !tbaa !141
+  br label %107
 
-73:                                               ; preds = %57
-  %74 = tail call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %74, align 8, !tbaa !62
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr @.str.29, ptr %75, align 8, !tbaa !98
-  tail call void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+74:                                               ; preds = %57
+  %75 = tail call ptr @__cxa_allocate_exception(i64 16) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %75, align 8, !tbaa !62
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store ptr @.str.29, ptr %76, align 8, !tbaa !98
+  tail call void @__cxa_throw(ptr nonnull %75, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
 _ZNK5arrow5Datum13chunked_arrayEv.exit:           ; preds = %57
-  %76 = load ptr, ptr %59, align 8, !tbaa !138
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !182
-  %79 = load ptr, ptr %76, align 8, !tbaa !178
-  %80 = ptrtoint ptr %78 to i64
+  %77 = load ptr, ptr %59, align 8, !tbaa !138
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !182
+  %80 = load ptr, ptr %77, align 8, !tbaa !178
   %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = lshr exact i64 %82, 4
-  %84 = trunc i64 %83 to i32
-  %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %86, label %97
+  %82 = ptrtoint ptr %80 to i64
+  %83 = sub i64 %81, %82
+  %84 = lshr exact i64 %83, 4
+  %85 = trunc i64 %84 to i32
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %87, label %98
 
-86:                                               ; preds = %_ZNK5arrow5Datum13chunked_arrayEv.exit
-  %87 = load ptr, ptr %79, align 8, !tbaa !122
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !69
-  %90 = load ptr, ptr %6, align 8, !tbaa !251
-  %91 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %90, i64 %.04860
-  tail call void @_ZN5arrow9ArraySpan10SetMembersERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(136) %91, ptr noundef nonnull align 8 dereferenceable(120) %89)
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 128
-  store ptr null, ptr %92, align 8, !tbaa !254
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %94 = load i64, ptr %93, align 8, !tbaa !262
-  %95 = load ptr, ptr %49, align 8, !tbaa !244
-  %96 = getelementptr inbounds nuw i64, ptr %95, i64 %.04860
-  store i64 %94, ptr %96, align 8, !tbaa !141
-  br label %104
+87:                                               ; preds = %_ZNK5arrow5Datum13chunked_arrayEv.exit
+  %88 = load ptr, ptr %80, align 8, !tbaa !122
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !69
+  %91 = load ptr, ptr %6, align 8, !tbaa !251
+  %92 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %91, i64 %.04860
+  tail call void @_ZN5arrow9ArraySpan10SetMembersERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(136) %92, ptr noundef nonnull align 8 dereferenceable(120) %90)
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 128
+  store ptr null, ptr %93, align 8, !tbaa !254
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  %95 = load i64, ptr %94, align 8, !tbaa !262
+  %96 = load ptr, ptr %49, align 8, !tbaa !244
+  %97 = getelementptr inbounds nuw i64, ptr %96, i64 %.04860
+  store i64 %95, ptr %97, align 8, !tbaa !141
+  br label %106
 
-97:                                               ; preds = %_ZNK5arrow5Datum13chunked_arrayEv.exit
-  %98 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %99 = load ptr, ptr %98, align 8, !tbaa !275
-  %100 = load ptr, ptr %6, align 8, !tbaa !251
-  %101 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %100, i64 %.04860
-  tail call void @_ZN5arrow8internal19FillZeroLengthArrayEPKNS_8DataTypeEPNS_9ArraySpanE(ptr noundef %99, ptr noundef nonnull %101)
-  %102 = load ptr, ptr %6, align 8, !tbaa !251
-  %103 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %102, i64 %.04860, i32 1
-  store ptr null, ptr %103, align 8, !tbaa !254
-  br label %104
+98:                                               ; preds = %_ZNK5arrow5Datum13chunked_arrayEv.exit
+  %99 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %100 = load ptr, ptr %99, align 8, !tbaa !275
+  %101 = load ptr, ptr %6, align 8, !tbaa !251
+  %102 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %101, i64 %.04860
+  tail call void @_ZN5arrow8internal19FillZeroLengthArrayEPKNS_8DataTypeEPNS_9ArraySpanE(ptr noundef %100, ptr noundef nonnull %102)
+  %103 = load ptr, ptr %6, align 8, !tbaa !251
+  %104 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %103, i64 %.04860
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 128
+  store ptr null, ptr %105, align 8, !tbaa !254
+  br label %106
 
-104:                                              ; preds = %97, %86
+106:                                              ; preds = %98, %87
   store i8 1, ptr %50, align 1, !tbaa !238
-  br label %105
+  br label %107
 
-105:                                              ; preds = %_ZNK5arrow5Datum5arrayEv.exit, %104, %_ZNK5arrow5Datum6scalarEv.exit
-  %106 = add nuw i64 %.04860, 1
-  %107 = load ptr, ptr %7, align 8, !tbaa !232
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = load ptr, ptr %108, align 8, !tbaa !38
-  %110 = load ptr, ptr %107, align 8, !tbaa !33
-  %111 = ptrtoint ptr %109 to i64
-  %112 = ptrtoint ptr %110 to i64
-  %113 = sub i64 %111, %112
-  %114 = sdiv exact i64 %113, 24
-  %115 = icmp ult i64 %106, %114
-  br i1 %115, label %57, label %._crit_edge, !llvm.loop !276
+107:                                              ; preds = %_ZNK5arrow5Datum5arrayEv.exit, %106, %_ZNK5arrow5Datum6scalarEv.exit
+  %108 = add nuw i64 %.04860, 1
+  %109 = load ptr, ptr %7, align 8, !tbaa !232
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8, !tbaa !38
+  %112 = load ptr, ptr %109, align 8, !tbaa !33
+  %113 = ptrtoint ptr %111 to i64
+  %114 = ptrtoint ptr %112 to i64
+  %115 = sub i64 %113, %114
+  %116 = sdiv exact i64 %115, 24
+  %117 = icmp ult i64 %108, %116
+  br i1 %117, label %57, label %._crit_edge, !llvm.loop !276
 
-116:                                              ; preds = %._crit_edge
-  %117 = load ptr, ptr %16, align 8, !tbaa !270
-  %118 = load ptr, ptr %6, align 8, !tbaa !251
-  %119 = ptrtoint ptr %117 to i64
-  %120 = ptrtoint ptr %118 to i64
-  %121 = sub i64 %119, %120
-  %122 = sdiv exact i64 %121, 136
-  %123 = trunc i64 %122 to i32
-  %124 = icmp sgt i32 %123, 0
-  br i1 %124, label %.lr.ph.i, label %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit
+118:                                              ; preds = %._crit_edge
+  %119 = load ptr, ptr %16, align 8, !tbaa !270
+  %120 = load ptr, ptr %6, align 8, !tbaa !251
+  %121 = ptrtoint ptr %119 to i64
+  %122 = ptrtoint ptr %120 to i64
+  %123 = sub i64 %121, %122
+  %124 = sdiv exact i64 %123, 136
+  %125 = trunc i64 %124 to i32
+  %126 = icmp sgt i32 %125, 0
+  br i1 %126, label %.lr.ph.i, label %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit
 
-.lr.ph.i:                                         ; preds = %116, %131
-  %125 = phi ptr [ %132, %131 ], [ %118, %116 ]
-  %126 = phi ptr [ %133, %131 ], [ %117, %116 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %131 ], [ 0, %116 ]
-  %127 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %125, i64 %indvars.iv.i
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 128
-  %129 = load ptr, ptr %128, align 8, !tbaa !254
-  %.not.i = icmp eq ptr %129, null
-  br i1 %.not.i, label %131, label %130
+.lr.ph.i:                                         ; preds = %118, %133
+  %127 = phi ptr [ %134, %133 ], [ %120, %118 ]
+  %128 = phi ptr [ %135, %133 ], [ %119, %118 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %133 ], [ 0, %118 ]
+  %129 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %127, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 128
+  %131 = load ptr, ptr %130, align 8, !tbaa !254
+  %.not.i = icmp eq ptr %131, null
+  br i1 %.not.i, label %133, label %132
 
-130:                                              ; preds = %.lr.ph.i
-  tail call void @_ZN5arrow9ArraySpan14FillFromScalarERKNS_6ScalarE(ptr noundef nonnull align 8 dereferenceable(128) %127, ptr noundef nonnull align 8 dereferenceable(41) %129)
-  store ptr null, ptr %128, align 8, !tbaa !254
+132:                                              ; preds = %.lr.ph.i
+  tail call void @_ZN5arrow9ArraySpan14FillFromScalarERKNS_6ScalarE(ptr noundef nonnull align 8 dereferenceable(128) %129, ptr noundef nonnull align 8 dereferenceable(41) %131)
+  store ptr null, ptr %130, align 8, !tbaa !254
   %.pre.i = load ptr, ptr %16, align 8, !tbaa !270
   %.pre10.i = load ptr, ptr %6, align 8, !tbaa !251
-  br label %131
+  br label %133
 
-131:                                              ; preds = %130, %.lr.ph.i
-  %132 = phi ptr [ %.pre10.i, %130 ], [ %125, %.lr.ph.i ]
-  %133 = phi ptr [ %.pre.i, %130 ], [ %126, %.lr.ph.i ]
+133:                                              ; preds = %132, %.lr.ph.i
+  %134 = phi ptr [ %.pre10.i, %132 ], [ %127, %.lr.ph.i ]
+  %135 = phi ptr [ %.pre.i, %132 ], [ %128, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %134 = ptrtoint ptr %133 to i64
-  %135 = ptrtoint ptr %132 to i64
-  %136 = sub i64 %134, %135
-  %137 = sdiv exact i64 %136, 136
-  %sext.i = shl i64 %137, 32
-  %138 = ashr exact i64 %sext.i, 32
-  %139 = icmp slt i64 %indvars.iv.next.i, %138
-  br i1 %139, label %.lr.ph.i, label %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit, !llvm.loop !277
+  %136 = ptrtoint ptr %135 to i64
+  %137 = ptrtoint ptr %134 to i64
+  %138 = sub i64 %136, %137
+  %139 = sdiv exact i64 %138, 136
+  %sext.i = shl i64 %139, 32
+  %140 = ashr exact i64 %sext.i, 32
+  %141 = icmp slt i64 %indvars.iv.next.i, %140
+  br i1 %141, label %.lr.ph.i, label %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit, !llvm.loop !277
 
-_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit: ; preds = %131, %116, %._crit_edge
+_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit: ; preds = %133, %118, %._crit_edge
   store i8 1, ptr %0, align 8, !tbaa !239
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !243
   %.phi.trans.insert65 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.pre66 = load i64, ptr %.phi.trans.insert65, align 8, !tbaa !242
-  br label %146
+  br label %148
 
-140:                                              ; preds = %2
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %142 = load i64, ptr %141, align 8, !tbaa !242
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %144 = load i64, ptr %143, align 8, !tbaa !243
-  %145 = icmp eq i64 %142, %144
-  br i1 %145, label %202, label %146
+142:                                              ; preds = %2
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %144 = load i64, ptr %143, align 8, !tbaa !242
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %146 = load i64, ptr %145, align 8, !tbaa !243
+  %147 = icmp eq i64 %144, %146
+  br i1 %147, label %205, label %148
 
-146:                                              ; preds = %140, %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit
-  %147 = phi i64 [ %142, %140 ], [ %.pre66, %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit ]
-  %148 = phi i64 [ %144, %140 ], [ %.pre, %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit ]
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %150 = sub nsw i64 %148, %147
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %152 = load i64, ptr %151, align 8, !tbaa !141
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %152, i64 %150)
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %154 = load i8, ptr %153, align 1, !tbaa !238, !range !136, !noundef !137
-  %155 = trunc nuw i8 %154 to i1
-  br i1 %155, label %156, label %158
+148:                                              ; preds = %142, %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit
+  %149 = phi i64 [ %144, %142 ], [ %.pre66, %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit ]
+  %150 = phi i64 [ %146, %142 ], [ %.pre, %_ZN5arrow7compute6detail12_GLOBAL__N_122PromoteExecSpanScalarsEPNS0_8ExecSpanE.exit ]
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %152 = sub nsw i64 %150, %149
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %154 = load i64, ptr %153, align 8, !tbaa !141
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %154, i64 %152)
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %156 = load i8, ptr %155, align 1, !tbaa !238, !range !136, !noundef !137
+  %157 = trunc nuw i8 %156 to i1
+  br i1 %157, label %158, label %160
 
-156:                                              ; preds = %146
-  %157 = tail call noundef i64 @_ZN5arrow7compute6detail16ExecSpanIterator16GetNextChunkSpanElPNS0_8ExecSpanE(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %.sroa.speculated, ptr noundef %1)
-  br label %158
+158:                                              ; preds = %148
+  %159 = tail call noundef i64 @_ZN5arrow7compute6detail16ExecSpanIterator16GetNextChunkSpanElPNS0_8ExecSpanE(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %.sroa.speculated, ptr noundef %1)
+  br label %160
 
-158:                                              ; preds = %156, %146
-  %.050 = phi i64 [ %157, %156 ], [ %.sroa.speculated, %146 ]
+160:                                              ; preds = %158, %148
+  %.050 = phi i64 [ %159, %158 ], [ %.sroa.speculated, %148 ]
   store i64 %.050, ptr %1, align 8, !tbaa !265
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %160 = load ptr, ptr %159, align 8, !tbaa !232
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %162 = load ptr, ptr %161, align 8, !tbaa !38
-  %163 = load ptr, ptr %160, align 8, !tbaa !33
-  %.not64 = icmp eq ptr %162, %163
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %162 = load ptr, ptr %161, align 8, !tbaa !232
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = load ptr, ptr %163, align 8, !tbaa !38
+  %165 = load ptr, ptr %162, align 8, !tbaa !33
+  %.not64 = icmp eq ptr %164, %165
   br i1 %.not64, label %._crit_edge63, label %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit.lr.ph
 
-_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit.lr.ph: ; preds = %158
-  %164 = ptrtoint ptr %162 to i64
-  %165 = ptrtoint ptr %163 to i64
-  %166 = sub i64 %164, %165
-  %167 = sdiv exact i64 %166, 24
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 64
+_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit.lr.ph: ; preds = %160
+  %166 = ptrtoint ptr %164 to i64
+  %167 = ptrtoint ptr %165 to i64
+  %168 = sub i64 %166, %167
+  %169 = sdiv exact i64 %168, 24
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %174 = load ptr, ptr %173, align 8
   br label %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit
 
-._crit_edge63:                                    ; preds = %200, %158
-  %173 = load i64, ptr %149, align 8, !tbaa !242
-  %174 = add nsw i64 %173, %.050
-  store i64 %174, ptr %149, align 8, !tbaa !242
-  br label %202
+._crit_edge63:                                    ; preds = %203, %160
+  %175 = load i64, ptr %151, align 8, !tbaa !242
+  %176 = add nsw i64 %175, %.050
+  store i64 %176, ptr %151, align 8, !tbaa !242
+  br label %205
 
-_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit:   ; preds = %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit.lr.ph, %200
-  %.04962 = phi i64 [ 0, %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit.lr.ph ], [ %201, %200 ]
-  %175 = getelementptr inbounds nuw %"struct.arrow::Datum", ptr %163, i64 %.04962, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %176 = load i8, ptr %175, align 8, !tbaa !78
-  %cond.i56 = icmp eq i8 %176, 1
-  br i1 %cond.i56, label %200, label %177
+_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit:   ; preds = %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit.lr.ph, %203
+  %.04962 = phi i64 [ 0, %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit.lr.ph ], [ %204, %203 ]
+  %177 = getelementptr inbounds nuw %"struct.arrow::Datum", ptr %165, i64 %.04962
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %179 = load i8, ptr %178, align 8, !tbaa !78
+  %cond.i56 = icmp eq i8 %179, 1
+  br i1 %cond.i56, label %203, label %180
 
-177:                                              ; preds = %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit
-  %178 = load ptr, ptr %168, align 8, !tbaa !251
-  %179 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %178, i64 %.04962
-  %180 = getelementptr inbounds nuw i64, ptr %170, i64 %.04962
-  %181 = load i64, ptr %180, align 8, !tbaa !141
-  %182 = getelementptr inbounds nuw i64, ptr %172, i64 %.04962
-  %183 = load i64, ptr %182, align 8, !tbaa !141
-  %184 = add nsw i64 %183, %181
-  %185 = getelementptr inbounds nuw i8, ptr %179, i64 24
-  store i64 %184, ptr %185, align 8, !tbaa !278
-  %186 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  store i64 %.050, ptr %186, align 8, !tbaa !279
-  %187 = load ptr, ptr %179, align 8, !tbaa !280
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 40
-  %189 = load i32, ptr %188, align 8, !tbaa !281
-  %190 = icmp eq i32 %189, 0
-  %191 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  br i1 %190, label %_ZN5arrow9ArraySpan8SetSliceEll.exit, label %192
+180:                                              ; preds = %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit
+  %181 = load ptr, ptr %170, align 8, !tbaa !251
+  %182 = getelementptr inbounds nuw %"struct.arrow::compute::ExecValue", ptr %181, i64 %.04962
+  %183 = getelementptr inbounds nuw i64, ptr %172, i64 %.04962
+  %184 = load i64, ptr %183, align 8, !tbaa !141
+  %185 = getelementptr inbounds nuw i64, ptr %174, i64 %.04962
+  %186 = load i64, ptr %185, align 8, !tbaa !141
+  %187 = add nsw i64 %186, %184
+  %188 = getelementptr inbounds nuw i8, ptr %182, i64 24
+  store i64 %187, ptr %188, align 8, !tbaa !278
+  %189 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  store i64 %.050, ptr %189, align 8, !tbaa !279
+  %190 = load ptr, ptr %182, align 8, !tbaa !280
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 40
+  %192 = load i32, ptr %191, align 8, !tbaa !281
+  %193 = icmp eq i32 %192, 0
+  %194 = getelementptr inbounds nuw i8, ptr %182, i64 16
+  br i1 %193, label %_ZN5arrow9ArraySpan8SetSliceEll.exit, label %195
 
-192:                                              ; preds = %177
-  %193 = load i64, ptr %191, align 8, !tbaa !297
-  %.not.i.i57 = icmp ne i64 %193, 0
-  %194 = getelementptr inbounds nuw i8, ptr %179, i64 32
-  %195 = load ptr, ptr %194, align 8
-  %196 = icmp ne ptr %195, null
-  %197 = select i1 %.not.i.i57, i1 %196, i1 false
-  %..i58 = sext i1 %197 to i64
+195:                                              ; preds = %180
+  %196 = load i64, ptr %194, align 8, !tbaa !297
+  %.not.i.i57 = icmp ne i64 %196, 0
+  %197 = getelementptr inbounds nuw i8, ptr %182, i64 32
+  %198 = load ptr, ptr %197, align 8
+  %199 = icmp ne ptr %198, null
+  %200 = select i1 %.not.i.i57, i1 %199, i1 false
+  %..i58 = sext i1 %200 to i64
   br label %_ZN5arrow9ArraySpan8SetSliceEll.exit
 
-_ZN5arrow9ArraySpan8SetSliceEll.exit:             ; preds = %177, %192
-  %.sink.i = phi i64 [ %.050, %177 ], [ %..i58, %192 ]
-  store i64 %.sink.i, ptr %191, align 8, !tbaa !297
-  %198 = load i64, ptr %180, align 8, !tbaa !141
-  %199 = add nsw i64 %198, %.050
-  store i64 %199, ptr %180, align 8, !tbaa !141
-  br label %200
+_ZN5arrow9ArraySpan8SetSliceEll.exit:             ; preds = %180, %195
+  %.sink.i = phi i64 [ %.050, %180 ], [ %..i58, %195 ]
+  store i64 %.sink.i, ptr %194, align 8, !tbaa !297
+  %201 = load i64, ptr %183, align 8, !tbaa !141
+  %202 = add nsw i64 %201, %.050
+  store i64 %202, ptr %183, align 8, !tbaa !141
+  br label %203
 
-200:                                              ; preds = %_ZN5arrow9ArraySpan8SetSliceEll.exit, %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit
-  %201 = add nuw i64 %.04962, 1
-  %exitcond.not = icmp eq i64 %201, %167
+203:                                              ; preds = %_ZN5arrow9ArraySpan8SetSliceEll.exit, %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit
+  %204 = add nuw i64 %.04962, 1
+  %exitcond.not = icmp eq i64 %204, %169
   br i1 %exitcond.not, label %._crit_edge63, label %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit, !llvm.loop !298
 
-202:                                              ; preds = %140, %._crit_edge63
-  %.0 = phi i1 [ true, %._crit_edge63 ], [ false, %140 ]
+205:                                              ; preds = %142, %._crit_edge63
+  %.0 = phi i1 [ true, %._crit_edge63 ], [ false, %142 ]
   ret i1 %.0
 }
 

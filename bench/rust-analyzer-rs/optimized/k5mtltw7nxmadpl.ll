@@ -18410,57 +18410,58 @@ define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$$RF$str$C
   br label %5
 
 5:                                                ; preds = %1, %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit"
-  %.06 = phi i64 [ 0, %1 ], [ %6, %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit" ]
-  %6 = add nuw nsw i64 %.06, 1
-  %7 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %.06, i32 3
+  %.06 = phi i64 [ 0, %1 ], [ %7, %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit" ]
+  %6 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %.06
+  %7 = add nuw nsw i64 %.06, 1
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3543
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
-          to label %.noexc unwind label %18
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+          to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %5
-  %8 = load i64, ptr %3, align 8, !range !159, !noalias !3543, !noundef !4
-  %.not.i.i.i.i.i = icmp eq i64 %8, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit", label %9
+  %9 = load i64, ptr %3, align 8, !range !159, !noalias !3543, !noundef !4
+  %.not.i.i.i.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit", label %10
 
-9:                                                ; preds = %.noexc
-  %10 = load i64, ptr %4, align 8, !noalias !3543, !noundef !4
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit", label %12
+10:                                               ; preds = %.noexc
+  %11 = load i64, ptr %4, align 8, !noalias !3543, !noundef !4
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit", label %13
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr %2, align 8, !noalias !3543, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %10, i64 noundef %8) #56
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %2, align 8, !noalias !3543, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %11, i64 noundef %9) #56
   br label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit"
 
-"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit": ; preds = %.noexc, %9, %12
+"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit": ; preds = %.noexc, %10, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !3543
-  %14 = icmp eq i64 %6, 55
-  br i1 %14, label %15, label %5
+  %15 = icmp eq i64 %7, 55
+  br i1 %15, label %16, label %5
 
-15:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit"
+16:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit"
   ret void
 
-16:                                               ; preds = %20, %18
-  %.1 = phi i64 [ %6, %18 ], [ %22, %20 ]
-  %17 = icmp eq i64 %.1, 55
-  br i1 %17, label %23, label %20
+17:                                               ; preds = %21, %19
+  %.1 = phi i64 [ %7, %19 ], [ %23, %21 ]
+  %18 = icmp eq i64 %.1, 55
+  br i1 %18, label %24, label %21
 
-18:                                               ; preds = %5
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %5
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %16
+  br label %17
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %.1
-  %22 = add nuw nsw i64 %.1, 1
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %21) #53
-          to label %16 unwind label %24
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %.1
+  %23 = add nuw nsw i64 %.1, 1
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %22) #53
+          to label %17 unwind label %25
 
-23:                                               ; preds = %16
-  resume { ptr, i32 } %19
+24:                                               ; preds = %17
+  resume { ptr, i32 } %20
 
-24:                                               ; preds = %20
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable
@@ -18474,57 +18475,58 @@ define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$$RF$str$C
   br label %5
 
 5:                                                ; preds = %1, %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit"
-  %.06 = phi i64 [ 0, %1 ], [ %6, %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit" ]
-  %6 = add nuw nsw i64 %.06, 1
-  %7 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %.06, i32 3
+  %.06 = phi i64 [ 0, %1 ], [ %7, %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit" ]
+  %6 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %.06
+  %7 = add nuw nsw i64 %.06, 1
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3554
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
-          to label %.noexc unwind label %18
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+          to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %5
-  %8 = load i64, ptr %3, align 8, !range !159, !noalias !3554, !noundef !4
-  %.not.i.i.i.i.i = icmp eq i64 %8, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit", label %9
+  %9 = load i64, ptr %3, align 8, !range !159, !noalias !3554, !noundef !4
+  %.not.i.i.i.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit", label %10
 
-9:                                                ; preds = %.noexc
-  %10 = load i64, ptr %4, align 8, !noalias !3554, !noundef !4
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit", label %12
+10:                                               ; preds = %.noexc
+  %11 = load i64, ptr %4, align 8, !noalias !3554, !noundef !4
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit", label %13
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr %2, align 8, !noalias !3554, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %10, i64 noundef %8) #56
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %2, align 8, !noalias !3554, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %11, i64 noundef %9) #56
   br label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit"
 
-"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit": ; preds = %.noexc, %9, %12
+"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit": ; preds = %.noexc, %10, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !3554
-  %14 = icmp eq i64 %6, 96
-  br i1 %14, label %15, label %5
+  %15 = icmp eq i64 %7, 96
+  br i1 %15, label %16, label %5
 
-15:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit"
+16:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit"
   ret void
 
-16:                                               ; preds = %20, %18
-  %.1 = phi i64 [ %6, %18 ], [ %22, %20 ]
-  %17 = icmp eq i64 %.1, 96
-  br i1 %17, label %23, label %20
+17:                                               ; preds = %21, %19
+  %.1 = phi i64 [ %7, %19 ], [ %23, %21 ]
+  %18 = icmp eq i64 %.1, 96
+  br i1 %18, label %24, label %21
 
-18:                                               ; preds = %5
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %5
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %16
+  br label %17
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %.1
-  %22 = add nuw nsw i64 %.1, 1
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %21) #53
-          to label %16 unwind label %24
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %.1
+  %23 = add nuw nsw i64 %.1, 1
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %22) #53
+          to label %17 unwind label %25
 
-23:                                               ; preds = %16
-  resume { ptr, i32 } %19
+24:                                               ; preds = %17
+  resume { ptr, i32 } %20
 
-24:                                               ; preds = %20
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %21
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable
@@ -78435,8 +78437,8 @@ define internal fastcc void @_ZN13rust_analyzer6config17GlobalConfigInput13schem
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54, !noalias !15639
   unreachable
 
-common.resume:                                    ; preds = %3429, %.body593, %3415, %403
-  %common.resume.op = phi { ptr, i32 } [ %404, %403 ], [ %3416, %3415 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body593 ], [ %3432, %3429 ]
+common.resume:                                    ; preds = %3430, %.body593, %3415, %403
+  %common.resume.op = phi { ptr, i32 } [ %404, %403 ], [ %3416, %3415 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body593 ], [ %3433, %3430 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc62041466210e95dE.exit596": ; preds = %1
@@ -78537,7 +78539,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body593:                                         ; preds = %443, %424, %437, %.body590
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body590 ], [ %438, %437 ], [ %425, %424 ], [ %444, %443 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %396) #53
-          to label %common.resume unwind label %3438
+          to label %common.resume unwind label %3439
 
 437:                                              ; preds = %426, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc62041466210e95dE.exit596"
   %438 = landingpad { ptr, i32 }
@@ -78603,7 +78605,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body590:                                         ; preds = %463, %455, %.body587
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body587 ], [ %456, %455 ], [ %464, %463 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %395) #53
-          to label %.body593 unwind label %3438
+          to label %.body593 unwind label %3439
 
 455:                                              ; preds = %448
   %456 = landingpad { ptr, i32 }
@@ -78706,7 +78708,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body587:                                         ; preds = %499, %485, %489, %.body584
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body584 ], [ %490, %489 ], [ %486, %485 ], [ %500, %499 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %394) #53
-          to label %.body590 unwind label %3438
+          to label %.body590 unwind label %3439
 
 489:                                              ; preds = %468
   %490 = landingpad { ptr, i32 }
@@ -78775,7 +78777,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body584:                                         ; preds = %520, %512, %.body581
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body581 ], [ %513, %512 ], [ %521, %520 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %393) #53
-          to label %.body587 unwind label %3438
+          to label %.body587 unwind label %3439
 
 512:                                              ; preds = %504
   %513 = landingpad { ptr, i32 }
@@ -78840,7 +78842,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body581:                                         ; preds = %540, %532, %.body578
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body578 ], [ %533, %532 ], [ %541, %540 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %392) #53
-          to label %.body584 unwind label %3438
+          to label %.body584 unwind label %3439
 
 532:                                              ; preds = %525
   %533 = landingpad { ptr, i32 }
@@ -78905,7 +78907,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body578:                                         ; preds = %560, %552, %.body575
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body575 ], [ %553, %552 ], [ %561, %560 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %391) #53
-          to label %.body581 unwind label %3438
+          to label %.body581 unwind label %3439
 
 552:                                              ; preds = %545
   %553 = landingpad { ptr, i32 }
@@ -78970,7 +78972,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body575:                                         ; preds = %580, %572, %.body572
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body572 ], [ %573, %572 ], [ %581, %580 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %390) #53
-          to label %.body578 unwind label %3438
+          to label %.body578 unwind label %3439
 
 572:                                              ; preds = %565
   %573 = landingpad { ptr, i32 }
@@ -79035,7 +79037,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body572:                                         ; preds = %600, %592, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit"
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit" ], [ %593, %592 ], [ %601, %600 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %389) #53
-          to label %.body575 unwind label %3438
+          to label %.body575 unwind label %3439
 
 592:                                              ; preds = %585
   %593 = landingpad { ptr, i32 }
@@ -79112,7 +79114,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 
 616:                                              ; preds = %.body569
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %386)
-          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit" unwind label %3438
+          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit" unwind label %3439
 
 617:                                              ; preds = %605
   %618 = load i64, ptr %258, align 8, !range !159, !noundef !4
@@ -79158,7 +79160,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit": ; preds = %.body569, %616, %.body566, %632
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body566 ], [ %633, %632 ], [ %eh.lpad-body570, %616 ], [ %eh.lpad-body570, %.body569 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %388) #53
-          to label %.body572 unwind label %3438
+          to label %.body572 unwind label %3439
 
 632:                                              ; preds = %631
   %633 = landingpad { ptr, i32 }
@@ -79192,7 +79194,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body566:                                         ; preds = %648, %640, %.body563
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body563 ], [ %641, %640 ], [ %649, %648 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %387) #53
-          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit" unwind label %3438
+          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit" unwind label %3439
 
 640:                                              ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit677"
   %641 = landingpad { ptr, i32 }
@@ -79257,7 +79259,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body563:                                         ; preds = %668, %660, %753
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %753 ], [ %661, %660 ], [ %669, %668 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %385) #53
-          to label %.body566 unwind label %3438
+          to label %.body566 unwind label %3439
 
 660:                                              ; preds = %653
   %661 = landingpad { ptr, i32 }
@@ -79327,7 +79329,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
   %682 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr199drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17ha297df45a5e1ed59E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %381) #53
-          to label %753 unwind label %3438
+          to label %753 unwind label %3439
 
 683:                                              ; preds = %673
   %684 = extractvalue { i64, ptr } %680, 0
@@ -79517,7 +79519,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body560:                                         ; preds = %742, %736, %721
   %eh.lpad-body561 = phi { ptr, i32 } [ %737, %736 ], [ %722, %721 ], [ %743, %742 ]
   invoke void @"_ZN4core3ptr199drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17ha297df45a5e1ed59E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %382) #53
-          to label %753 unwind label %3438
+          to label %753 unwind label %3439
 
 738:                                              ; preds = %723
   %.sroa.01859.0.copyload1860 = load i64, ptr %95, align 8, !noalias !15788
@@ -79569,7 +79571,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 753:                                              ; preds = %796, %754, %.body560, %681
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %796 ], [ %755, %754 ], [ %eh.lpad-body561, %.body560 ], [ %682, %681 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %384) #53
-          to label %.body563 unwind label %3438
+          to label %.body563 unwind label %3439
 
 754:                                              ; preds = %.noexc693, %751
   %755 = landingpad { ptr, i32 }
@@ -79679,7 +79681,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body557:                                         ; preds = %790, %784, %769
   %eh.lpad-body558 = phi { ptr, i32 } [ %785, %784 ], [ %770, %769 ], [ %791, %790 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %375) #53
-          to label %796 unwind label %3438
+          to label %796 unwind label %3439
 
 786:                                              ; preds = %771
   %.sroa.01870.0.copyload1871 = load i64, ptr %92, align 8, !noalias !15824
@@ -79720,7 +79722,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 796:                                              ; preds = %845, %797, %.body557
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %845 ], [ %798, %797 ], [ %eh.lpad-body558, %.body557 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %383) #53
-          to label %753 unwind label %3438
+          to label %753 unwind label %3439
 
 797:                                              ; preds = %795
   %798 = landingpad { ptr, i32 }
@@ -79826,7 +79828,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body554:                                         ; preds = %834, %828, %813
   %eh.lpad-body555 = phi { ptr, i32 } [ %829, %828 ], [ %814, %813 ], [ %835, %834 ]
   invoke void @"_ZN4core3ptr171drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc3c72de4bac92f58E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %373) #53
-          to label %845 unwind label %3438
+          to label %845 unwind label %3439
 
 830:                                              ; preds = %815
   %.sroa.01881.0.copyload1882 = load i64, ptr %89, align 8, !noalias !15847
@@ -79878,7 +79880,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 845:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..config..CargoFeaturesDef$GT$17hd468f6542abf052dE.exit", %846, %.body554
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..config..CargoFeaturesDef$GT$17hd468f6542abf052dE.exit" ], [ %847, %846 ], [ %eh.lpad-body555, %.body554 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %376) #53
-          to label %796 unwind label %3438
+          to label %796 unwind label %3439
 
 846:                                              ; preds = %.noexc713, %843
   %847 = landingpad { ptr, i32 }
@@ -80021,7 +80023,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 
 888:                                              ; preds = %.body551
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %371)
-          to label %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..config..CargoFeaturesDef$GT$17hd468f6542abf052dE.exit" unwind label %3438
+          to label %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..config..CargoFeaturesDef$GT$17hd468f6542abf052dE.exit" unwind label %3439
 
 889:                                              ; preds = %.thread.i, %871
   %.sroa.01892.0.copyload1893 = load i64, ptr %86, align 8, !noalias !15867
@@ -80067,7 +80069,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 "_ZN4core3ptr60drop_in_place$LT$rust_analyzer..config..CargoFeaturesDef$GT$17hd468f6542abf052dE.exit": ; preds = %.body551, %888, %.body548, %902
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body548 ], [ %903, %902 ], [ %eh.lpad-body552, %888 ], [ %eh.lpad-body552, %.body551 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %374) #53
-          to label %845 unwind label %3438
+          to label %845 unwind label %3439
 
 902:                                              ; preds = %901
   %903 = landingpad { ptr, i32 }
@@ -80101,7 +80103,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body548:                                         ; preds = %918, %910, %931
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %931 ], [ %911, %910 ], [ %919, %918 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %372) #53
-          to label %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..config..CargoFeaturesDef$GT$17hd468f6542abf052dE.exit" unwind label %3438
+          to label %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..config..CargoFeaturesDef$GT$17hd468f6542abf052dE.exit" unwind label %3439
 
 910:                                              ; preds = %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..config..CargoFeaturesDef$GT$17hd468f6542abf052dE.exit727"
   %911 = landingpad { ptr, i32 }
@@ -80166,7 +80168,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 931:                                              ; preds = %.body542, %.body545, %932
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body542 ], [ %933, %932 ], [ %eh.lpad-body546, %.body545 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %370) #53
-          to label %.body548 unwind label %3438
+          to label %.body548 unwind label %3439
 
 932:                                              ; preds = %954, %923
   %933 = landingpad { ptr, i32 }
@@ -80196,7 +80198,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body545:                                         ; preds = %946, %938
   %eh.lpad-body546 = phi { ptr, i32 } [ %939, %938 ], [ %947, %946 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f0f279d64fa8c7dE.llvm.3663151438746104753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %368) #53
-          to label %931 unwind label %3438
+          to label %931 unwind label %3439
 
 940:                                              ; preds = %934
   %941 = load i64, ptr %254, align 8, !range !159, !noundef !4
@@ -80289,7 +80291,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body542:                                         ; preds = %977, %969, %1014
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1014 ], [ %970, %969 ], [ %978, %977 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %369) #53
-          to label %931 unwind label %3438
+          to label %931 unwind label %3439
 
 969:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f0f279d64fa8c7dE.llvm.3663151438746104753.exit"
   %970 = landingpad { ptr, i32 }
@@ -80361,7 +80363,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body539:                                         ; preds = %997, %989
   %eh.lpad-body540 = phi { ptr, i32 } [ %990, %989 ], [ %998, %997 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f0f279d64fa8c7dE.llvm.3663151438746104753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %365) #53
-          to label %1014 unwind label %3438
+          to label %1014 unwind label %3439
 
 991:                                              ; preds = %982
   %992 = load i64, ptr %252, align 8, !range !159, !noundef !4
@@ -80430,7 +80432,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1014:                                             ; preds = %1048, %1015, %.body539
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1048 ], [ %1016, %1015 ], [ %eh.lpad-body540, %.body539 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %367) #53
-          to label %.body542 unwind label %3438
+          to label %.body542 unwind label %3439
 
 1015:                                             ; preds = %1005
   %1016 = landingpad { ptr, i32 }
@@ -80471,7 +80473,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body536:                                         ; preds = %1031, %1023
   %eh.lpad-body537 = phi { ptr, i32 } [ %1024, %1023 ], [ %1032, %1031 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f0f279d64fa8c7dE.llvm.3663151438746104753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %363) #53
-          to label %1048 unwind label %3438
+          to label %1048 unwind label %3439
 
 1025:                                             ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f0f279d64fa8c7dE.llvm.3663151438746104753.exit732"
   %1026 = load i64, ptr %251, align 8, !range !159, !noundef !4
@@ -80540,7 +80542,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1048:                                             ; preds = %1115, %1049, %.body536
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1115 ], [ %1050, %1049 ], [ %eh.lpad-body537, %.body536 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %366) #53
-          to label %1014 unwind label %3438
+          to label %1014 unwind label %3439
 
 1049:                                             ; preds = %1039
   %1050 = landingpad { ptr, i32 }
@@ -80688,7 +80690,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body533:                                         ; preds = %1099, %1093, %1078
   %eh.lpad-body534 = phi { ptr, i32 } [ %1094, %1093 ], [ %1079, %1078 ], [ %1100, %1099 ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..TargetDirectory$GT$$GT$17hd96c1c1fbf404c21E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %361) #53
-          to label %1115 unwind label %3438
+          to label %1115 unwind label %3439
 
 1095:                                             ; preds = %._crit_edge, %.thread.i742
   %.sroa.91923.0.copyload1925 = phi i64 [ %.sroa.91923.0.copyload1925.pre, %._crit_edge ], [ %1075, %.thread.i742 ]
@@ -80757,7 +80759,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1115:                                             ; preds = %.body530, %1116, %.body533
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body530 ], [ %1117, %1116 ], [ %eh.lpad-body534, %.body533 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %364) #53
-          to label %1048 unwind label %3438
+          to label %1048 unwind label %3439
 
 1116:                                             ; preds = %1106
   %1117 = landingpad { ptr, i32 }
@@ -80791,7 +80793,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body530:                                         ; preds = %1132, %1124, %.body527
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body527 ], [ %1125, %1124 ], [ %1133, %1132 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %362) #53
-          to label %1115 unwind label %3438
+          to label %1115 unwind label %3439
 
 1124:                                             ; preds = %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..TargetDirectory$GT$$GT$17hd96c1c1fbf404c21E.exit"
   %1125 = landingpad { ptr, i32 }
@@ -80856,7 +80858,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body527:                                         ; preds = %1152, %1144, %1165
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1165 ], [ %1145, %1144 ], [ %1153, %1152 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %360) #53
-          to label %.body530 unwind label %3438
+          to label %.body530 unwind label %3439
 
 1144:                                             ; preds = %1137
   %1145 = landingpad { ptr, i32 }
@@ -80921,7 +80923,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1165:                                             ; preds = %1256, %.body524, %1166
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1256 ], [ %1167, %1166 ], [ %eh.lpad-body525, %.body524 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %359) #53
-          to label %.body527 unwind label %3438
+          to label %.body527 unwind label %3439
 
 1166:                                             ; preds = %1206, %1157
   %1167 = landingpad { ptr, i32 }
@@ -81020,7 +81022,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body524:                                         ; preds = %1201, %1195, %1182
   %eh.lpad-body525 = phi { ptr, i32 } [ %1196, %1195 ], [ %1183, %1182 ], [ %1202, %1201 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %357) #53
-          to label %1165 unwind label %3438
+          to label %1165 unwind label %3439
 
 1197:                                             ; preds = %.noexc.i756
   call void @llvm.lifetime.end.p0(ptr nonnull %75), !noalias !16048
@@ -81181,7 +81183,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body521:                                         ; preds = %1250, %1244, %1229
   %eh.lpad-body522 = phi { ptr, i32 } [ %1245, %1244 ], [ %1230, %1229 ], [ %1251, %1250 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %355) #53
-          to label %1256 unwind label %3438
+          to label %1256 unwind label %3439
 
 1246:                                             ; preds = %1231
   %.sroa.01946.0.copyload1947 = load i64, ptr %72, align 8, !noalias !16089
@@ -81222,7 +81224,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1256:                                             ; preds = %1305, %1257, %.body521
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1305 ], [ %1258, %1257 ], [ %eh.lpad-body522, %.body521 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %358) #53
-          to label %1165 unwind label %3438
+          to label %1165 unwind label %3439
 
 1257:                                             ; preds = %1255
   %1258 = landingpad { ptr, i32 }
@@ -81328,7 +81330,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body518:                                         ; preds = %1294, %1288, %1273
   %eh.lpad-body519 = phi { ptr, i32 } [ %1289, %1288 ], [ %1274, %1273 ], [ %1295, %1294 ]
   invoke void @"_ZN4core3ptr171drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc3c72de4bac92f58E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %353) #53
-          to label %1305 unwind label %3438
+          to label %1305 unwind label %3439
 
 1290:                                             ; preds = %1275
   %.sroa.01957.0.copyload1958 = load i64, ptr %69, align 8, !noalias !16112
@@ -81380,7 +81382,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1305:                                             ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CargoFeaturesDef$GT$$GT$17hd035f831bb819218E.exit", %1306, %.body518
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CargoFeaturesDef$GT$$GT$17hd035f831bb819218E.exit" ], [ %1307, %1306 ], [ %eh.lpad-body519, %.body518 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %356) #53
-          to label %1256 unwind label %3438
+          to label %1256 unwind label %3439
 
 1306:                                             ; preds = %.noexc786, %1303
   %1307 = landingpad { ptr, i32 }
@@ -81552,7 +81554,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 
 1357:                                             ; preds = %.body515
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %351)
-          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CargoFeaturesDef$GT$$GT$17hd035f831bb819218E.exit" unwind label %3438
+          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CargoFeaturesDef$GT$$GT$17hd035f831bb819218E.exit" unwind label %3439
 
 1358:                                             ; preds = %.thread.i794, %1341
   %.sroa.01968.0.copyload1969 = load i64, ptr %66, align 8, !noalias !16132
@@ -81598,7 +81600,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CargoFeaturesDef$GT$$GT$17hd035f831bb819218E.exit": ; preds = %.body515, %1357, %1372, %1370
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1372 ], [ %1371, %1370 ], [ %eh.lpad-body516, %1357 ], [ %eh.lpad-body516, %.body515 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %354) #53
-          to label %1305 unwind label %3438
+          to label %1305 unwind label %3439
 
 1370:                                             ; preds = %1369
   %1371 = landingpad { ptr, i32 }
@@ -81608,7 +81610,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1372:                                             ; preds = %.body509, %.body512, %1373
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body509 ], [ %1374, %1373 ], [ %eh.lpad-body513, %.body512 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %352) #53
-          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CargoFeaturesDef$GT$$GT$17hd035f831bb819218E.exit" unwind label %3438
+          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CargoFeaturesDef$GT$$GT$17hd035f831bb819218E.exit" unwind label %3439
 
 1373:                                             ; preds = %.noexc817, %1419
   %1374 = landingpad { ptr, i32 }
@@ -81714,7 +81716,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body512:                                         ; preds = %1410, %1404, %1389
   %eh.lpad-body513 = phi { ptr, i32 } [ %1405, %1404 ], [ %1390, %1389 ], [ %1411, %1410 ]
   invoke void @"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17haf3eda086ef59e4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %349) #53
-          to label %1372 unwind label %3438
+          to label %1372 unwind label %3439
 
 1406:                                             ; preds = %1391
   %.sroa.01980.0.copyload1981 = load i64, ptr %63, align 8, !noalias !16199
@@ -81790,7 +81792,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body509:                                         ; preds = %1435, %1427, %.body506
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body506 ], [ %1428, %1427 ], [ %1436, %1435 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %350) #53
-          to label %1372 unwind label %3438
+          to label %1372 unwind label %3439
 
 1427:                                             ; preds = %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17haf3eda086ef59e4cE.exit"
   %1428 = landingpad { ptr, i32 }
@@ -81855,7 +81857,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body506:                                         ; preds = %1455, %1447, %.body503
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body503 ], [ %1448, %1447 ], [ %1456, %1455 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %348) #53
-          to label %.body509 unwind label %3438
+          to label %.body509 unwind label %3439
 
 1447:                                             ; preds = %1440
   %1448 = landingpad { ptr, i32 }
@@ -81920,7 +81922,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body503:                                         ; preds = %1475, %1467, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit820"
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit820" ], [ %1468, %1467 ], [ %1476, %1475 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %347) #53
-          to label %.body506 unwind label %3438
+          to label %.body506 unwind label %3439
 
 1467:                                             ; preds = %1460
   %1468 = landingpad { ptr, i32 }
@@ -81997,7 +81999,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 
 1491:                                             ; preds = %.body500
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %344)
-          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit820" unwind label %3438
+          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit820" unwind label %3439
 
 1492:                                             ; preds = %1480
   %1493 = load i64, ptr %245, align 8, !range !159, !noundef !4
@@ -82043,7 +82045,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit820": ; preds = %.body500, %1491, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CheckOnSaveTargets$GT$$GT$17hfe7442ef54e89221E.exit", %1507
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CheckOnSaveTargets$GT$$GT$17hfe7442ef54e89221E.exit" ], [ %1508, %1507 ], [ %eh.lpad-body501, %1491 ], [ %eh.lpad-body501, %.body500 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %346) #53
-          to label %.body503 unwind label %3438
+          to label %.body503 unwind label %3439
 
 1507:                                             ; preds = %1506
   %1508 = landingpad { ptr, i32 }
@@ -82225,7 +82227,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 
 1568:                                             ; preds = %.body497
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %342)
-          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CheckOnSaveTargets$GT$$GT$17hfe7442ef54e89221E.exit" unwind label %3438
+          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CheckOnSaveTargets$GT$$GT$17hfe7442ef54e89221E.exit" unwind label %3439
 
 1569:                                             ; preds = %.thread.i831, %1551
   %.sroa.02003.0.copyload2004 = load i64, ptr %60, align 8, !noalias !16251
@@ -82271,7 +82273,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CheckOnSaveTargets$GT$$GT$17hfe7442ef54e89221E.exit": ; preds = %.body497, %1568, %.body494, %1582
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body494 ], [ %1583, %1582 ], [ %eh.lpad-body498, %1568 ], [ %eh.lpad-body498, %.body497 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %345) #53
-          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit820" unwind label %3438
+          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit820" unwind label %3439
 
 1582:                                             ; preds = %1581
   %1583 = landingpad { ptr, i32 }
@@ -82305,7 +82307,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body494:                                         ; preds = %1598, %1590, %1603
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1603 ], [ %1591, %1590 ], [ %1599, %1598 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %343) #53
-          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CheckOnSaveTargets$GT$$GT$17hfe7442ef54e89221E.exit" unwind label %3438
+          to label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CheckOnSaveTargets$GT$$GT$17hfe7442ef54e89221E.exit" unwind label %3439
 
 1590:                                             ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CheckOnSaveTargets$GT$$GT$17hfe7442ef54e89221E.exit843"
   %1591 = landingpad { ptr, i32 }
@@ -82344,7 +82346,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1603:                                             ; preds = %.body488, %.body491, %1604
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body488 ], [ %1605, %1604 ], [ %eh.lpad-body492, %.body491 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %341) #53
-          to label %.body494 unwind label %3438
+          to label %.body494 unwind label %3439
 
 1604:                                             ; preds = %.noexc854, %1650
   %1605 = landingpad { ptr, i32 }
@@ -82452,7 +82454,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body491:                                         ; preds = %1641, %1635, %1620
   %eh.lpad-body492 = phi { ptr, i32 } [ %1636, %1635 ], [ %1621, %1620 ], [ %1642, %1641 ]
   invoke void @"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17haf3eda086ef59e4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %339) #53
-          to label %1603 unwind label %3438
+          to label %1603 unwind label %3439
 
 1637:                                             ; preds = %1622
   %.sroa.02018.0.copyload2019 = load i64, ptr %57, align 8, !noalias !16350
@@ -82528,7 +82530,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body488:                                         ; preds = %1666, %1658, %.body485
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body485 ], [ %1659, %1658 ], [ %1667, %1666 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %340) #53
-          to label %1603 unwind label %3438
+          to label %1603 unwind label %3439
 
 1658:                                             ; preds = %"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17haf3eda086ef59e4cE.exit856"
   %1659 = landingpad { ptr, i32 }
@@ -82593,7 +82595,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body485:                                         ; preds = %1686, %1678, %1737
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1737 ], [ %1679, %1678 ], [ %1687, %1686 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %338) #53
-          to label %.body488 unwind label %3438
+          to label %.body488 unwind label %3439
 
 1678:                                             ; preds = %1671
   %1679 = landingpad { ptr, i32 }
@@ -82730,7 +82732,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body482:                                         ; preds = %1726, %1720, %1705
   %eh.lpad-body483 = phi { ptr, i32 } [ %1721, %1720 ], [ %1706, %1705 ], [ %1727, %1726 ]
   invoke void @"_ZN4core3ptr171drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc3c72de4bac92f58E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %335) #53
-          to label %1737 unwind label %3438
+          to label %1737 unwind label %3439
 
 1722:                                             ; preds = %1707
   %.sroa.02035.0.copyload2036 = load i64, ptr %54, align 8, !noalias !16400
@@ -82782,7 +82784,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1737:                                             ; preds = %.body479, %1738, %.body482
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body479 ], [ %1739, %1738 ], [ %eh.lpad-body483, %.body482 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %337) #53
-          to label %.body485 unwind label %3438
+          to label %.body485 unwind label %3439
 
 1738:                                             ; preds = %.noexc867, %1735
   %1739 = landingpad { ptr, i32 }
@@ -82816,7 +82818,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body479:                                         ; preds = %1754, %1746, %1800
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1800 ], [ %1747, %1746 ], [ %1755, %1754 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %336) #53
-          to label %1737 unwind label %3438
+          to label %1737 unwind label %3439
 
 1746:                                             ; preds = %"_ZN4core3ptr171drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hc3c72de4bac92f58E.exit869"
   %1747 = landingpad { ptr, i32 }
@@ -82957,7 +82959,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body476:                                         ; preds = %1794, %1788, %1773
   %eh.lpad-body477 = phi { ptr, i32 } [ %1789, %1788 ], [ %1774, %1773 ], [ %1795, %1794 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %332) #53
-          to label %1800 unwind label %3438
+          to label %1800 unwind label %3439
 
 1790:                                             ; preds = %1775
   %.sroa.02049.0.copyload2050 = load i64, ptr %51, align 8, !noalias !16442
@@ -82998,7 +83000,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1800:                                             ; preds = %1844, %1801, %.body476
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1844 ], [ %1802, %1801 ], [ %eh.lpad-body477, %.body476 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %334) #53
-          to label %.body479 unwind label %3438
+          to label %.body479 unwind label %3439
 
 1801:                                             ; preds = %1799
   %1802 = landingpad { ptr, i32 }
@@ -83108,7 +83110,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body473:                                         ; preds = %1838, %1832, %1817
   %eh.lpad-body474 = phi { ptr, i32 } [ %1833, %1832 ], [ %1818, %1817 ], [ %1839, %1838 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %330) #53
-          to label %1844 unwind label %3438
+          to label %1844 unwind label %3439
 
 1834:                                             ; preds = %1819
   %.sroa.02060.0.copyload2061 = load i64, ptr %48, align 8, !noalias !16465
@@ -83149,7 +83151,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1844:                                             ; preds = %1888, %1845, %.body473
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1888 ], [ %1846, %1845 ], [ %eh.lpad-body474, %.body473 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %333) #53
-          to label %1800 unwind label %3438
+          to label %1800 unwind label %3439
 
 1845:                                             ; preds = %1843
   %1846 = landingpad { ptr, i32 }
@@ -83259,7 +83261,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body470:                                         ; preds = %1882, %1876, %1861
   %eh.lpad-body471 = phi { ptr, i32 } [ %1877, %1876 ], [ %1862, %1861 ], [ %1883, %1882 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$camino..Utf8PathBuf$GT$$GT$17ha1654c53d6307bb8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %328) #53
-          to label %1888 unwind label %3438
+          to label %1888 unwind label %3439
 
 1878:                                             ; preds = %1863
   %.sroa.02071.0.copyload2072 = load i64, ptr %45, align 8, !noalias !16488
@@ -83300,7 +83302,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 1888:                                             ; preds = %.body467, %1889, %.body470
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body467 ], [ %1890, %1889 ], [ %eh.lpad-body471, %.body470 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %331) #53
-          to label %1844 unwind label %3438
+          to label %1844 unwind label %3439
 
 1889:                                             ; preds = %1887
   %1890 = landingpad { ptr, i32 }
@@ -83403,7 +83405,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body467:                                         ; preds = %1927, %1908, %1921, %.body464
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body464 ], [ %1922, %1921 ], [ %1909, %1908 ], [ %1928, %1927 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %329) #53
-          to label %1888 unwind label %3438
+          to label %1888 unwind label %3439
 
 1921:                                             ; preds = %1910, %1891
   %1922 = landingpad { ptr, i32 }
@@ -83469,7 +83471,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body464:                                         ; preds = %1947, %1939, %.body461
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body461 ], [ %1940, %1939 ], [ %1948, %1947 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %327) #53
-          to label %.body467 unwind label %3438
+          to label %.body467 unwind label %3439
 
 1939:                                             ; preds = %1932
   %1940 = landingpad { ptr, i32 }
@@ -83534,7 +83536,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body461:                                         ; preds = %1967, %1959, %.body458
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body458 ], [ %1960, %1959 ], [ %1968, %1967 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %326) #53
-          to label %.body464 unwind label %3438
+          to label %.body464 unwind label %3439
 
 1959:                                             ; preds = %1952
   %1960 = landingpad { ptr, i32 }
@@ -83599,7 +83601,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body458:                                         ; preds = %1987, %1979, %.body455
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body455 ], [ %1980, %1979 ], [ %1988, %1987 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %325) #53
-          to label %.body461 unwind label %3438
+          to label %.body461 unwind label %3439
 
 1979:                                             ; preds = %1972
   %1980 = landingpad { ptr, i32 }
@@ -83664,7 +83666,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body455:                                         ; preds = %2007, %1999, %.body452
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body452 ], [ %2000, %1999 ], [ %2008, %2007 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %324) #53
-          to label %.body458 unwind label %3438
+          to label %.body458 unwind label %3439
 
 1999:                                             ; preds = %1992
   %2000 = landingpad { ptr, i32 }
@@ -83729,7 +83731,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body452:                                         ; preds = %2027, %2019, %.body449
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body449 ], [ %2020, %2019 ], [ %2028, %2027 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %323) #53
-          to label %.body455 unwind label %3438
+          to label %.body455 unwind label %3439
 
 2019:                                             ; preds = %2012
   %2020 = landingpad { ptr, i32 }
@@ -83794,7 +83796,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body449:                                         ; preds = %2047, %2039, %.body446
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body446 ], [ %2040, %2039 ], [ %2048, %2047 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %322) #53
-          to label %.body452 unwind label %3438
+          to label %.body452 unwind label %3439
 
 2039:                                             ; preds = %2032
   %2040 = landingpad { ptr, i32 }
@@ -83859,7 +83861,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body446:                                         ; preds = %2067, %2059, %.body443
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body443 ], [ %2060, %2059 ], [ %2068, %2067 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %321) #53
-          to label %.body449 unwind label %3438
+          to label %.body449 unwind label %3439
 
 2059:                                             ; preds = %2052
   %2060 = landingpad { ptr, i32 }
@@ -83924,7 +83926,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body443:                                         ; preds = %2087, %2079, %.body440
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body440 ], [ %2080, %2079 ], [ %2088, %2087 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %320) #53
-          to label %.body446 unwind label %3438
+          to label %.body446 unwind label %3439
 
 2079:                                             ; preds = %2072
   %2080 = landingpad { ptr, i32 }
@@ -83989,7 +83991,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body440:                                         ; preds = %2107, %2099, %.body437
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body437 ], [ %2100, %2099 ], [ %2108, %2107 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %319) #53
-          to label %.body443 unwind label %3438
+          to label %.body443 unwind label %3439
 
 2099:                                             ; preds = %2092
   %2100 = landingpad { ptr, i32 }
@@ -84054,7 +84056,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body437:                                         ; preds = %2127, %2119, %.body434
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body434 ], [ %2120, %2119 ], [ %2128, %2127 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %318) #53
-          to label %.body440 unwind label %3438
+          to label %.body440 unwind label %3439
 
 2119:                                             ; preds = %2112
   %2120 = landingpad { ptr, i32 }
@@ -84119,7 +84121,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body434:                                         ; preds = %2147, %2139, %.body431
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body431 ], [ %2140, %2139 ], [ %2148, %2147 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %317) #53
-          to label %.body437 unwind label %3438
+          to label %.body437 unwind label %3439
 
 2139:                                             ; preds = %2132
   %2140 = landingpad { ptr, i32 }
@@ -84184,7 +84186,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body431:                                         ; preds = %2167, %2159, %.body428
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body428 ], [ %2160, %2159 ], [ %2168, %2167 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %316) #53
-          to label %.body434 unwind label %3438
+          to label %.body434 unwind label %3439
 
 2159:                                             ; preds = %2152
   %2160 = landingpad { ptr, i32 }
@@ -84249,7 +84251,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body428:                                         ; preds = %2187, %2179, %.body425
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body425 ], [ %2180, %2179 ], [ %2188, %2187 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %315) #53
-          to label %.body431 unwind label %3438
+          to label %.body431 unwind label %3439
 
 2179:                                             ; preds = %2172
   %2180 = landingpad { ptr, i32 }
@@ -84314,7 +84316,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body425:                                         ; preds = %2207, %2199, %.body422
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body422 ], [ %2200, %2199 ], [ %2208, %2207 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %314) #53
-          to label %.body428 unwind label %3438
+          to label %.body428 unwind label %3439
 
 2199:                                             ; preds = %2192
   %2200 = landingpad { ptr, i32 }
@@ -84379,7 +84381,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body422:                                         ; preds = %2227, %2219, %.body419
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body419 ], [ %2220, %2219 ], [ %2228, %2227 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %313) #53
-          to label %.body425 unwind label %3438
+          to label %.body425 unwind label %3439
 
 2219:                                             ; preds = %2212
   %2220 = landingpad { ptr, i32 }
@@ -84444,7 +84446,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body419:                                         ; preds = %2247, %2239, %.body416
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body416 ], [ %2240, %2239 ], [ %2248, %2247 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %312) #53
-          to label %.body422 unwind label %3438
+          to label %.body422 unwind label %3439
 
 2239:                                             ; preds = %2232
   %2240 = landingpad { ptr, i32 }
@@ -84509,7 +84511,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body416:                                         ; preds = %2267, %2259, %.body413
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body413 ], [ %2260, %2259 ], [ %2268, %2267 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %311) #53
-          to label %.body419 unwind label %3438
+          to label %.body419 unwind label %3439
 
 2259:                                             ; preds = %2252
   %2260 = landingpad { ptr, i32 }
@@ -84574,7 +84576,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body413:                                         ; preds = %2287, %2279, %.body410
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body410 ], [ %2280, %2279 ], [ %2288, %2287 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %310) #53
-          to label %.body416 unwind label %3438
+          to label %.body416 unwind label %3439
 
 2279:                                             ; preds = %2272
   %2280 = landingpad { ptr, i32 }
@@ -84639,7 +84641,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body410:                                         ; preds = %2307, %2299, %.body407
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body407 ], [ %2300, %2299 ], [ %2308, %2307 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %309) #53
-          to label %.body413 unwind label %3438
+          to label %.body413 unwind label %3439
 
 2299:                                             ; preds = %2292
   %2300 = landingpad { ptr, i32 }
@@ -84704,7 +84706,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body407:                                         ; preds = %2327, %2319, %.body404
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body404 ], [ %2320, %2319 ], [ %2328, %2327 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %308) #53
-          to label %.body410 unwind label %3438
+          to label %.body410 unwind label %3439
 
 2319:                                             ; preds = %2312
   %2320 = landingpad { ptr, i32 }
@@ -84769,7 +84771,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body404:                                         ; preds = %2347, %2339, %.body401
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body401 ], [ %2340, %2339 ], [ %2348, %2347 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %307) #53
-          to label %.body407 unwind label %3438
+          to label %.body407 unwind label %3439
 
 2339:                                             ; preds = %2332
   %2340 = landingpad { ptr, i32 }
@@ -84903,7 +84905,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body401:                                         ; preds = %2388, %2369, %2382, %.body398
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body398 ], [ %2383, %2382 ], [ %2370, %2369 ], [ %2389, %2388 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %306) #53
-          to label %.body404 unwind label %3438
+          to label %.body404 unwind label %3439
 
 2382:                                             ; preds = %2371, %2352
   %2383 = landingpad { ptr, i32 }
@@ -84969,7 +84971,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body398:                                         ; preds = %2408, %2400, %.body395
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body395 ], [ %2401, %2400 ], [ %2409, %2408 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %305) #53
-          to label %.body401 unwind label %3438
+          to label %.body401 unwind label %3439
 
 2400:                                             ; preds = %2393
   %2401 = landingpad { ptr, i32 }
@@ -85034,7 +85036,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body395:                                         ; preds = %2428, %2420, %.body392
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body392 ], [ %2421, %2420 ], [ %2429, %2428 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %304) #53
-          to label %.body398 unwind label %3438
+          to label %.body398 unwind label %3439
 
 2420:                                             ; preds = %2413
   %2421 = landingpad { ptr, i32 }
@@ -85099,7 +85101,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body392:                                         ; preds = %2448, %2440, %.body389
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body389 ], [ %2441, %2440 ], [ %2449, %2448 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %303) #53
-          to label %.body395 unwind label %3438
+          to label %.body395 unwind label %3439
 
 2440:                                             ; preds = %2433
   %2441 = landingpad { ptr, i32 }
@@ -85164,7 +85166,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body389:                                         ; preds = %2468, %2460, %.body386
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body386 ], [ %2461, %2460 ], [ %2469, %2468 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %302) #53
-          to label %.body392 unwind label %3438
+          to label %.body392 unwind label %3439
 
 2460:                                             ; preds = %2453
   %2461 = landingpad { ptr, i32 }
@@ -85229,7 +85231,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body386:                                         ; preds = %2488, %2480, %.body937
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body937 ], [ %2481, %2480 ], [ %2489, %2488 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %301) #53
-          to label %.body389 unwind label %3438
+          to label %.body389 unwind label %3439
 
 2480:                                             ; preds = %2473
   %2481 = landingpad { ptr, i32 }
@@ -85370,7 +85372,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body383:                                         ; preds = %2528, %2522, %2507
   %eh.lpad-body384 = phi { ptr, i32 } [ %2523, %2522 ], [ %2508, %2507 ], [ %2529, %2528 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$rust_analyzer..config..ManifestOrProjectJson$GT$$GT$17he797142039a57d22E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %298) #53
-          to label %.body937 unwind label %3438
+          to label %.body937 unwind label %3439
 
 2524:                                             ; preds = %2509
   %.sroa.02182.0.copyload2183 = load i64, ptr %36, align 8, !noalias !16705
@@ -85448,7 +85450,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body937:                                         ; preds = %2548, %2536, %.body380, %.body383
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body380 ], [ %eh.lpad-body384, %.body383 ], [ %2549, %2548 ], [ %2537, %2536 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %300) #53
-          to label %.body386 unwind label %3438
+          to label %.body386 unwind label %3439
 
 2548:                                             ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa0daadf86248177E.llvm.10409712727403535664.exit.i"
   %2549 = landingpad { ptr, i32 }
@@ -85483,7 +85485,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body380:                                         ; preds = %2565, %2557, %2616
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2616 ], [ %2558, %2557 ], [ %2566, %2565 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %299) #53
-          to label %.body937 unwind label %3438
+          to label %.body937 unwind label %3439
 
 2557:                                             ; preds = %2550
   %2558 = landingpad { ptr, i32 }
@@ -85620,7 +85622,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body377:                                         ; preds = %2605, %2599, %2584
   %eh.lpad-body378 = phi { ptr, i32 } [ %2600, %2599 ], [ %2585, %2584 ], [ %2606, %2605 ]
   invoke void @"_ZN4core3ptr162drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..boxed..Box$LT$str$GT$$C$usize$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h1ed21f0ed23d5d3eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %295) #53
-          to label %2616 unwind label %3438
+          to label %2616 unwind label %3439
 
 2601:                                             ; preds = %2586
   %.sroa.02196.0.copyload2197 = load i64, ptr %32, align 8, !noalias !16745
@@ -85672,7 +85674,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 2616:                                             ; preds = %.body374, %2617, %.body377
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body374 ], [ %2618, %2617 ], [ %eh.lpad-body378, %.body377 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %297) #53
-          to label %.body380 unwind label %3438
+          to label %.body380 unwind label %3439
 
 2617:                                             ; preds = %.noexc948, %2614
   %2618 = landingpad { ptr, i32 }
@@ -85706,7 +85708,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body374:                                         ; preds = %2633, %2625, %.body371
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body371 ], [ %2626, %2625 ], [ %2634, %2633 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %296) #53
-          to label %2616 unwind label %3438
+          to label %2616 unwind label %3439
 
 2625:                                             ; preds = %"_ZN4core3ptr162drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..boxed..Box$LT$str$GT$$C$usize$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h1ed21f0ed23d5d3eE.exit"
   %2626 = landingpad { ptr, i32 }
@@ -85771,7 +85773,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body371:                                         ; preds = %2653, %2645, %.body368
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body368 ], [ %2646, %2645 ], [ %2654, %2653 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %294) #53
-          to label %.body374 unwind label %3438
+          to label %.body374 unwind label %3439
 
 2645:                                             ; preds = %2638
   %2646 = landingpad { ptr, i32 }
@@ -85836,7 +85838,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body368:                                         ; preds = %2673, %2665, %.body365
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body365 ], [ %2666, %2665 ], [ %2674, %2673 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %293) #53
-          to label %.body371 unwind label %3438
+          to label %.body371 unwind label %3439
 
 2665:                                             ; preds = %2658
   %2666 = landingpad { ptr, i32 }
@@ -85901,7 +85903,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body365:                                         ; preds = %2693, %2685, %.body362
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body362 ], [ %2686, %2685 ], [ %2694, %2693 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %292) #53
-          to label %.body368 unwind label %3438
+          to label %.body368 unwind label %3439
 
 2685:                                             ; preds = %2678
   %2686 = landingpad { ptr, i32 }
@@ -85966,7 +85968,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body362:                                         ; preds = %2713, %2705, %2764
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2764 ], [ %2706, %2705 ], [ %2714, %2713 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %291) #53
-          to label %.body365 unwind label %3438
+          to label %.body365 unwind label %3439
 
 2705:                                             ; preds = %2698
   %2706 = landingpad { ptr, i32 }
@@ -86103,7 +86105,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body359:                                         ; preds = %2753, %2747, %2732
   %eh.lpad-body360 = phi { ptr, i32 } [ %2748, %2747 ], [ %2733, %2732 ], [ %2754, %2753 ]
   invoke void @"_ZN4core3ptr220drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..boxed..Box$LT$str$GT$$C$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$str$GT$$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h471cf3ab5b57c9f4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %288) #53
-          to label %2764 unwind label %3438
+          to label %2764 unwind label %3439
 
 2749:                                             ; preds = %2734
   %.sroa.02222.0.copyload2223 = load i64, ptr %29, align 8, !noalias !16811
@@ -86155,7 +86157,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 2764:                                             ; preds = %2834, %2765, %.body359
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2834 ], [ %2766, %2765 ], [ %eh.lpad-body360, %.body359 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %290) #53
-          to label %.body362 unwind label %3438
+          to label %.body362 unwind label %3439
 
 2765:                                             ; preds = %.noexc959, %2762
   %2766 = landingpad { ptr, i32 }
@@ -86307,7 +86309,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body356:                                         ; preds = %2817, %2811, %2796
   %eh.lpad-body357 = phi { ptr, i32 } [ %2812, %2811 ], [ %2797, %2796 ], [ %2818, %2817 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$camino..Utf8PathBuf$GT$$GT$17h87b267bb3e79c048E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %286) #53
-          to label %2834 unwind label %3438
+          to label %2834 unwind label %3439
 
 2813:                                             ; preds = %._crit_edge2991, %.thread.i968
   %.sroa.92238.0.copyload2240 = phi i64 [ %.sroa.92238.0.copyload2240.pre, %._crit_edge2991 ], [ %2791, %.thread.i968 ]
@@ -86376,7 +86378,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 2834:                                             ; preds = %.body353, %2835, %.body356
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body353 ], [ %2836, %2835 ], [ %eh.lpad-body357, %.body356 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %289) #53
-          to label %2764 unwind label %3438
+          to label %2764 unwind label %3439
 
 2835:                                             ; preds = %2825
   %2836 = landingpad { ptr, i32 }
@@ -86410,7 +86412,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body353:                                         ; preds = %2851, %2843, %.body350
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body350 ], [ %2844, %2843 ], [ %2852, %2851 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %287) #53
-          to label %2834 unwind label %3438
+          to label %2834 unwind label %3439
 
 2843:                                             ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$camino..Utf8PathBuf$GT$$GT$17h87b267bb3e79c048E.exit"
   %2844 = landingpad { ptr, i32 }
@@ -86475,7 +86477,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body350:                                         ; preds = %2871, %2863, %2908
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2908 ], [ %2864, %2863 ], [ %2872, %2871 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %285) #53
-          to label %.body353 unwind label %3438
+          to label %.body353 unwind label %3439
 
 2863:                                             ; preds = %2856
   %2864 = landingpad { ptr, i32 }
@@ -86547,7 +86549,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body347:                                         ; preds = %2891, %2883
   %eh.lpad-body348 = phi { ptr, i32 } [ %2884, %2883 ], [ %2892, %2891 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f0f279d64fa8c7dE.llvm.3663151438746104753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %282) #53
-          to label %2908 unwind label %3438
+          to label %2908 unwind label %3439
 
 2885:                                             ; preds = %2876
   %2886 = load i64, ptr %206, align 8, !range !159, !noundef !4
@@ -86616,7 +86618,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 2908:                                             ; preds = %2951, %2909, %.body347
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2951 ], [ %2910, %2909 ], [ %eh.lpad-body348, %.body347 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %284) #53
-          to label %.body350 unwind label %3438
+          to label %.body350 unwind label %3439
 
 2909:                                             ; preds = %2899
   %2910 = landingpad { ptr, i32 }
@@ -86726,7 +86728,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 .body344:                                         ; preds = %2945, %2939, %2924
   %eh.lpad-body345 = phi { ptr, i32 } [ %2940, %2939 ], [ %2925, %2924 ], [ %2946, %2945 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %280) #53
-          to label %2951 unwind label %3438
+          to label %2951 unwind label %3439
 
 2941:                                             ; preds = %2926
   %.sroa.02253.0.copyload2254 = load i64, ptr %21, align 8, !noalias !16947
@@ -86767,7 +86769,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 2951:                                             ; preds = %2965, %2952, %.body344
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2965 ], [ %2953, %2952 ], [ %eh.lpad-body345, %.body344 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %283) #53
-          to label %2908 unwind label %3438
+          to label %2908 unwind label %3439
 
 2952:                                             ; preds = %2950
   %2953 = landingpad { ptr, i32 }
@@ -86810,7 +86812,7 @@ common.resume:                                    ; preds = %3429, %.body593, %3
 2965:                                             ; preds = %2969, %3041, %.body341, %2966
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3041 ], [ %2967, %2966 ], [ %eh.lpad-body342, %.body341 ], [ %2970, %2969 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %281) #53
-          to label %2951 unwind label %3438
+          to label %2951 unwind label %3439
 
 2966:                                             ; preds = %2964, %3008
   %2967 = landingpad { ptr, i32 }
@@ -86920,7 +86922,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 .body341:                                         ; preds = %3003, %2997, %2982
   %eh.lpad-body342 = phi { ptr, i32 } [ %2998, %2997 ], [ %2983, %2982 ], [ %3004, %3003 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %278) #53
-          to label %2965 unwind label %3438
+          to label %2965 unwind label %3439
 
 2999:                                             ; preds = %2984
   %.sroa.02264.0.copyload2265 = load i64, ptr %18, align 8, !noalias !16973
@@ -86992,7 +86994,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 .body338:                                         ; preds = %3024, %3016
   %eh.lpad-body339 = phi { ptr, i32 } [ %3017, %3016 ], [ %3025, %3024 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f0f279d64fa8c7dE.llvm.3663151438746104753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %276) #53
-          to label %3041 unwind label %3438
+          to label %3041 unwind label %3439
 
 3018:                                             ; preds = %3009
   %3019 = load i64, ptr %205, align 8, !range !159, !noundef !4
@@ -87061,7 +87063,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 3041:                                             ; preds = %3084, %3042, %.body338
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %3084 ], [ %3043, %3042 ], [ %eh.lpad-body339, %.body338 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %279) #53
-          to label %2965 unwind label %3438
+          to label %2965 unwind label %3439
 
 3042:                                             ; preds = %3032
   %3043 = landingpad { ptr, i32 }
@@ -87171,7 +87173,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 .body335:                                         ; preds = %3078, %3072, %3057
   %eh.lpad-body336 = phi { ptr, i32 } [ %3073, %3072 ], [ %3058, %3057 ], [ %3079, %3078 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %274) #53
-          to label %3084 unwind label %3438
+          to label %3084 unwind label %3439
 
 3074:                                             ; preds = %3059
   %.sroa.02278.0.copyload2279 = load i64, ptr %14, align 8, !noalias !17014
@@ -87212,7 +87214,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 3084:                                             ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit1018", %3085, %.body335
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit1018" ], [ %3086, %3085 ], [ %eh.lpad-body336, %.body335 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %277) #53
-          to label %3041 unwind label %3438
+          to label %3041 unwind label %3439
 
 3085:                                             ; preds = %3083
   %3086 = landingpad { ptr, i32 }
@@ -87258,7 +87260,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 
 3098:                                             ; preds = %.body332
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h9ea3fd850387aca7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %272)
-          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit1018" unwind label %3438
+          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit1018" unwind label %3439
 
 3099:                                             ; preds = %3087
   %3100 = load i64, ptr %204, align 8, !range !159, !noundef !4
@@ -87304,7 +87306,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit1018": ; preds = %.body332, %3098, %.body329, %3114
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %.body329 ], [ %3115, %3114 ], [ %eh.lpad-body333, %3098 ], [ %eh.lpad-body333, %.body332 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %275) #53
-          to label %3084 unwind label %3438
+          to label %3084 unwind label %3439
 
 3114:                                             ; preds = %3113
   %3115 = landingpad { ptr, i32 }
@@ -87338,7 +87340,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 .body329:                                         ; preds = %3130, %3122, %.body326
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %.body326 ], [ %3123, %3122 ], [ %3131, %3130 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %273) #53
-          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit1018" unwind label %3438
+          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit1018" unwind label %3439
 
 3122:                                             ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit1020"
   %3123 = landingpad { ptr, i32 }
@@ -87472,7 +87474,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 .body326:                                         ; preds = %3171, %3152, %3165, %.body323
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.body323 ], [ %3166, %3165 ], [ %3153, %3152 ], [ %3172, %3171 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %271) #53
-          to label %.body329 unwind label %3438
+          to label %.body329 unwind label %3439
 
 3165:                                             ; preds = %3154, %3135
   %3166 = landingpad { ptr, i32 }
@@ -87538,7 +87540,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 .body323:                                         ; preds = %3191, %3183, %.body320
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body320 ], [ %3184, %3183 ], [ %3192, %3191 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %270) #53
-          to label %.body326 unwind label %3438
+          to label %.body326 unwind label %3439
 
 3183:                                             ; preds = %3176
   %3184 = landingpad { ptr, i32 }
@@ -87603,7 +87605,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 .body320:                                         ; preds = %3211, %3203, %.body317
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body317 ], [ %3204, %3203 ], [ %3212, %3211 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %269) #53
-          to label %.body323 unwind label %3438
+          to label %.body323 unwind label %3439
 
 3203:                                             ; preds = %3196
   %3204 = landingpad { ptr, i32 }
@@ -87737,7 +87739,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 .body317:                                         ; preds = %3252, %3233, %3246, %.body314
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body314 ], [ %3247, %3246 ], [ %3234, %3233 ], [ %3253, %3252 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %268) #53
-          to label %.body320 unwind label %3438
+          to label %.body320 unwind label %3439
 
 3246:                                             ; preds = %3235, %3216
   %3247 = landingpad { ptr, i32 }
@@ -87803,7 +87805,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 .body314:                                         ; preds = %3272, %3264, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %3265, %3264 ], [ %3273, %3272 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %267) #53
-          to label %.body317 unwind label %3438
+          to label %.body317 unwind label %3439
 
 3264:                                             ; preds = %3257
   %3265 = landingpad { ptr, i32 }
@@ -87941,7 +87943,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
 .body:                                            ; preds = %3313, %3307, %3294
   %eh.lpad-body = phi { ptr, i32 } [ %3308, %3307 ], [ %3295, %3294 ], [ %3314, %3313 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %266) #53
-          to label %.body314 unwind label %3438
+          to label %.body314 unwind label %3439
 
 3309:                                             ; preds = %.noexc.i1053
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !17098
@@ -88287,7 +88289,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
   %3416 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$u3b$$u20$96$u5d$$GT$17h99db83576a175b0bE"(ptr noalias noundef align 8 dereferenceable(6912) %397) #53
-          to label %common.resume unwind label %3438
+          to label %common.resume unwind label %3439
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb8efc5b863143e3bE.exit": ; preds = %3318
   %3417 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -88295,51 +88297,52 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
   br label %3419
 
 3419:                                             ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb8efc5b863143e3bE.exit"
-  %.06.i = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb8efc5b863143e3bE.exit" ], [ %3420, %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i" ]
-  %3420 = add nuw nsw i64 %.06.i, 1
-  %3421 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %397, i64 %.06.i, i32 3
+  %.06.i = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb8efc5b863143e3bE.exit" ], [ %3421, %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i" ]
+  %3420 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %397, i64 %.06.i
+  %3421 = add nuw nsw i64 %.06.i, 1
+  %3422 = getelementptr inbounds nuw i8, ptr %3420, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !17114
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3421)
-          to label %.noexc.i1064 unwind label %3431
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3422)
+          to label %.noexc.i1064 unwind label %3432
 
 .noexc.i1064:                                     ; preds = %3419
-  %3422 = load i64, ptr %3417, align 8, !range !159, !noalias !17114, !noundef !4
-  %.not.i.i.i.i.i.i1065 = icmp eq i64 %3422, 0
-  br i1 %.not.i.i.i.i.i.i1065, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i", label %3423
+  %3423 = load i64, ptr %3417, align 8, !range !159, !noalias !17114, !noundef !4
+  %.not.i.i.i.i.i.i1065 = icmp eq i64 %3423, 0
+  br i1 %.not.i.i.i.i.i.i1065, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i", label %3424
 
-3423:                                             ; preds = %.noexc.i1064
-  %3424 = load i64, ptr %3418, align 8, !noalias !17114, !noundef !4
-  %3425 = icmp eq i64 %3424, 0
-  br i1 %3425, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i", label %3426
+3424:                                             ; preds = %.noexc.i1064
+  %3425 = load i64, ptr %3418, align 8, !noalias !17114, !noundef !4
+  %3426 = icmp eq i64 %3425, 0
+  br i1 %3426, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i", label %3427
 
-3426:                                             ; preds = %3423
-  %3427 = load ptr, ptr %2, align 8, !noalias !17114, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %3427, i64 noundef %3424, i64 noundef %3422) #56
+3427:                                             ; preds = %3424
+  %3428 = load ptr, ptr %2, align 8, !noalias !17114, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %3428, i64 noundef %3425, i64 noundef %3423) #56
   br label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i"
 
-"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i": ; preds = %3426, %3423, %.noexc.i1064
+"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i": ; preds = %3427, %3424, %.noexc.i1064
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !17114
-  %3428 = icmp eq i64 %3420, 96
-  br i1 %3428, label %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$u3b$$u20$96$u5d$$GT$17h99db83576a175b0bE.exit", label %3419
+  %3429 = icmp eq i64 %3421, 96
+  br i1 %3429, label %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$u3b$$u20$96$u5d$$GT$17h99db83576a175b0bE.exit", label %3419
 
-3429:                                             ; preds = %3433, %3431
-  %.1.i = phi i64 [ %3420, %3431 ], [ %3435, %3433 ]
-  %3430 = icmp eq i64 %.1.i, 96
-  br i1 %3430, label %common.resume, label %3433
+3430:                                             ; preds = %3434, %3432
+  %.1.i = phi i64 [ %3421, %3432 ], [ %3436, %3434 ]
+  %3431 = icmp eq i64 %.1.i, 96
+  br i1 %3431, label %common.resume, label %3434
 
-3431:                                             ; preds = %3419
-  %3432 = landingpad { ptr, i32 }
+3432:                                             ; preds = %3419
+  %3433 = landingpad { ptr, i32 }
           cleanup
-  br label %3429
+  br label %3430
 
-3433:                                             ; preds = %3429
-  %3434 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %397, i64 %.1.i
-  %3435 = add nuw nsw i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %3434) #53
-          to label %3429 unwind label %3436
+3434:                                             ; preds = %3430
+  %3435 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %397, i64 %.1.i
+  %3436 = add nuw nsw i64 %.1.i, 1
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %3435) #53
+          to label %3430 unwind label %3437
 
-3436:                                             ; preds = %3433
-  %3437 = landingpad { ptr, i32 }
+3437:                                             ; preds = %3434
+  %3438 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable
@@ -88348,8 +88351,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3663151438746104753.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %397)
   ret void
 
-3438:                                             ; preds = %3098, %1568, %1491, %1357, %888, %616, %3415, %.body, %.body314, %.body317, %.body320, %.body323, %.body326, %.body329, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit1018", %3084, %.body335, %3041, %.body338, %.body341, %2965, %2951, %.body344, %2908, %.body347, %.body350, %.body353, %2834, %.body356, %2764, %.body359, %.body362, %.body365, %.body368, %.body371, %.body374, %2616, %.body377, %.body380, %.body937, %.body383, %.body386, %.body389, %.body392, %.body395, %.body398, %.body401, %.body404, %.body407, %.body410, %.body413, %.body416, %.body419, %.body422, %.body425, %.body428, %.body431, %.body434, %.body437, %.body440, %.body443, %.body446, %.body449, %.body452, %.body455, %.body458, %.body461, %.body464, %.body467, %1888, %.body470, %1844, %.body473, %1800, %.body476, %.body479, %1737, %.body482, %.body485, %.body488, %.body491, %1603, %.body494, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CheckOnSaveTargets$GT$$GT$17hfe7442ef54e89221E.exit", %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit820", %.body503, %.body506, %.body509, %.body512, %1372, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CargoFeaturesDef$GT$$GT$17hd035f831bb819218E.exit", %1305, %.body518, %1256, %.body521, %.body524, %1165, %.body527, %.body530, %1115, %.body533, %1048, %.body536, %1014, %.body539, %.body542, %.body545, %931, %.body548, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..config..CargoFeaturesDef$GT$17hd468f6542abf052dE.exit", %845, %.body554, %796, %.body557, %753, %.body560, %681, %.body563, %.body566, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit", %.body572, %.body575, %.body578, %.body581, %.body584, %.body587, %.body590, %.body593
-  %3439 = landingpad { ptr, i32 }
+3439:                                             ; preds = %3098, %1568, %1491, %1357, %888, %616, %3415, %.body, %.body314, %.body317, %.body320, %.body323, %.body326, %.body329, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit1018", %3084, %.body335, %3041, %.body338, %.body341, %2965, %2951, %.body344, %2908, %.body347, %.body350, %.body353, %2834, %.body356, %2764, %.body359, %.body362, %.body365, %.body368, %.body371, %.body374, %2616, %.body377, %.body380, %.body937, %.body383, %.body386, %.body389, %.body392, %.body395, %.body398, %.body401, %.body404, %.body407, %.body410, %.body413, %.body416, %.body419, %.body422, %.body425, %.body428, %.body431, %.body434, %.body437, %.body440, %.body443, %.body446, %.body449, %.body452, %.body455, %.body458, %.body461, %.body464, %.body467, %1888, %.body470, %1844, %.body473, %1800, %.body476, %.body479, %1737, %.body482, %.body485, %.body488, %.body491, %1603, %.body494, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CheckOnSaveTargets$GT$$GT$17hfe7442ef54e89221E.exit", %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit820", %.body503, %.body506, %.body509, %.body512, %1372, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$rust_analyzer..config..CargoFeaturesDef$GT$$GT$17hd035f831bb819218E.exit", %1305, %.body518, %1256, %.body521, %.body524, %1165, %.body527, %.body530, %1115, %.body533, %1048, %.body536, %1014, %.body539, %.body542, %.body545, %931, %.body548, %"_ZN4core3ptr60drop_in_place$LT$rust_analyzer..config..CargoFeaturesDef$GT$17hd468f6542abf052dE.exit", %845, %.body554, %796, %.body557, %753, %.body560, %681, %.body563, %.body566, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hffa876fe88197dbbE.exit", %.body572, %.body575, %.body578, %.body581, %.body584, %.body587, %.body590, %.body593
+  %3440 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable
@@ -90333,8 +90336,8 @@ define internal fastcc void @_ZN13rust_analyzer6config16LocalConfigInput13schema
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54, !noalias !17138
   unreachable
 
-common.resume:                                    ; preds = %1597, %.body273, %1583, %202
-  %common.resume.op = phi { ptr, i32 } [ %203, %202 ], [ %1584, %1583 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body273 ], [ %1600, %1597 ]
+common.resume:                                    ; preds = %1598, %.body273, %1583, %202
+  %common.resume.op = phi { ptr, i32 } [ %203, %202 ], [ %1584, %1583 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body273 ], [ %1601, %1598 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc62041466210e95dE.exit276": ; preds = %1
@@ -90366,7 +90369,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body273:                                         ; preds = %221, %213, %.body270
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body270 ], [ %214, %213 ], [ %222, %221 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %195) #53
-          to label %common.resume unwind label %1606
+          to label %common.resume unwind label %1607
 
 213:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc62041466210e95dE.exit276"
   %214 = landingpad { ptr, i32 }
@@ -90500,7 +90503,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body270:                                         ; preds = %262, %243, %256, %.body267
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body267 ], [ %257, %256 ], [ %244, %243 ], [ %263, %262 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %194) #53
-          to label %.body273 unwind label %1606
+          to label %.body273 unwind label %1607
 
 256:                                              ; preds = %245, %226
   %257 = landingpad { ptr, i32 }
@@ -90566,7 +90569,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body267:                                         ; preds = %282, %274, %.body264
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body264 ], [ %275, %274 ], [ %283, %282 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %193) #53
-          to label %.body270 unwind label %1606
+          to label %.body270 unwind label %1607
 
 274:                                              ; preds = %267
   %275 = landingpad { ptr, i32 }
@@ -90631,7 +90634,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body264:                                         ; preds = %302, %294, %.body261
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body261 ], [ %295, %294 ], [ %303, %302 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %192) #53
-          to label %.body267 unwind label %1606
+          to label %.body267 unwind label %1607
 
 294:                                              ; preds = %287
   %295 = landingpad { ptr, i32 }
@@ -90696,7 +90699,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body261:                                         ; preds = %322, %314, %.body258
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body258 ], [ %315, %314 ], [ %323, %322 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %191) #53
-          to label %.body264 unwind label %1606
+          to label %.body264 unwind label %1607
 
 314:                                              ; preds = %307
   %315 = landingpad { ptr, i32 }
@@ -90761,7 +90764,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body258:                                         ; preds = %342, %334, %.body
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %335, %334 ], [ %343, %342 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %190) #53
-          to label %.body261 unwind label %1606
+          to label %.body261 unwind label %1607
 
 334:                                              ; preds = %327
   %335 = landingpad { ptr, i32 }
@@ -90833,7 +90836,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body:                                            ; preds = %.body255, %362, %354, %.body252
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body252 ], [ %355, %354 ], [ %363, %362 ], [ %eh.lpad-body256, %.body255 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %189) #53
-          to label %.body258 unwind label %1606
+          to label %.body258 unwind label %1607
 
 354:                                              ; preds = %401, %347
   %355 = landingpad { ptr, i32 }
@@ -90950,7 +90953,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body255:                                         ; preds = %396, %390, %375
   %eh.lpad-body256 = phi { ptr, i32 } [ %391, %390 ], [ %376, %375 ], [ %397, %396 ]
   invoke void @"_ZN4core3ptr119drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$alloc..string..String$C$rust_analyzer..config..SnippetDef$GT$$GT$17h110f43d8642a434fE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %187)
-          to label %.body unwind label %1606
+          to label %.body unwind label %1607
 
 392:                                              ; preds = %377
   %.sroa.01031.0.copyload1032 = load i64, ptr %32, align 8, !noalias !17210
@@ -91015,7 +91018,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body252:                                         ; preds = %416, %408, %.body249
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body249 ], [ %409, %408 ], [ %417, %416 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %188) #53
-          to label %.body unwind label %1606
+          to label %.body unwind label %1607
 
 408:                                              ; preds = %"_ZN4core3ptr109drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$rust_analyzer..config..SnippetDef$GT$$GT$17h344e9855358d6d05E.exit343"
   %409 = landingpad { ptr, i32 }
@@ -91080,7 +91083,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body249:                                         ; preds = %436, %428, %.body246
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body246 ], [ %429, %428 ], [ %437, %436 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %185) #53
-          to label %.body252 unwind label %1606
+          to label %.body252 unwind label %1607
 
 428:                                              ; preds = %421
   %429 = landingpad { ptr, i32 }
@@ -91145,7 +91148,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body246:                                         ; preds = %456, %448, %.body243
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body243 ], [ %449, %448 ], [ %457, %456 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %184) #53
-          to label %.body249 unwind label %1606
+          to label %.body249 unwind label %1607
 
 448:                                              ; preds = %441
   %449 = landingpad { ptr, i32 }
@@ -91210,7 +91213,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body243:                                         ; preds = %476, %468, %.body240
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body240 ], [ %469, %468 ], [ %477, %476 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %183) #53
-          to label %.body246 unwind label %1606
+          to label %.body246 unwind label %1607
 
 468:                                              ; preds = %461
   %469 = landingpad { ptr, i32 }
@@ -91275,7 +91278,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body240:                                         ; preds = %496, %488, %.body237
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body237 ], [ %489, %488 ], [ %497, %496 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %182) #53
-          to label %.body243 unwind label %1606
+          to label %.body243 unwind label %1607
 
 488:                                              ; preds = %481
   %489 = landingpad { ptr, i32 }
@@ -91340,7 +91343,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body237:                                         ; preds = %516, %508, %.body234
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body234 ], [ %509, %508 ], [ %517, %516 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %181) #53
-          to label %.body240 unwind label %1606
+          to label %.body240 unwind label %1607
 
 508:                                              ; preds = %501
   %509 = landingpad { ptr, i32 }
@@ -91405,7 +91408,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body234:                                         ; preds = %536, %528, %.body231
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body231 ], [ %529, %528 ], [ %537, %536 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %180) #53
-          to label %.body237 unwind label %1606
+          to label %.body237 unwind label %1607
 
 528:                                              ; preds = %521
   %529 = landingpad { ptr, i32 }
@@ -91537,7 +91540,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body231:                                         ; preds = %576, %555, %570, %.body228
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body228 ], [ %571, %570 ], [ %556, %555 ], [ %577, %576 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %179) #53
-          to label %.body234 unwind label %1606
+          to label %.body234 unwind label %1607
 
 570:                                              ; preds = %559, %541
   %571 = landingpad { ptr, i32 }
@@ -91603,7 +91606,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body228:                                         ; preds = %596, %588, %.body225
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body225 ], [ %589, %588 ], [ %597, %596 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %178) #53
-          to label %.body231 unwind label %1606
+          to label %.body231 unwind label %1607
 
 588:                                              ; preds = %581
   %589 = landingpad { ptr, i32 }
@@ -91668,7 +91671,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body225:                                         ; preds = %616, %608, %.body222
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body222 ], [ %609, %608 ], [ %617, %616 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %176) #53
-          to label %.body228 unwind label %1606
+          to label %.body228 unwind label %1607
 
 608:                                              ; preds = %601
   %609 = landingpad { ptr, i32 }
@@ -91733,7 +91736,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body222:                                         ; preds = %636, %628, %.body219
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body219 ], [ %629, %628 ], [ %637, %636 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %175) #53
-          to label %.body225 unwind label %1606
+          to label %.body225 unwind label %1607
 
 628:                                              ; preds = %621
   %629 = landingpad { ptr, i32 }
@@ -91798,7 +91801,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body219:                                         ; preds = %656, %648, %.body216
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body216 ], [ %649, %648 ], [ %657, %656 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %174) #53
-          to label %.body222 unwind label %1606
+          to label %.body222 unwind label %1607
 
 648:                                              ; preds = %641
   %649 = landingpad { ptr, i32 }
@@ -91932,7 +91935,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body216:                                         ; preds = %697, %678, %691, %.body213
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body213 ], [ %692, %691 ], [ %679, %678 ], [ %698, %697 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %173) #53
-          to label %.body219 unwind label %1606
+          to label %.body219 unwind label %1607
 
 691:                                              ; preds = %680, %661
   %692 = landingpad { ptr, i32 }
@@ -91998,7 +92001,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body213:                                         ; preds = %717, %709, %.body210
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body210 ], [ %710, %709 ], [ %718, %717 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %172) #53
-          to label %.body216 unwind label %1606
+          to label %.body216 unwind label %1607
 
 709:                                              ; preds = %702
   %710 = landingpad { ptr, i32 }
@@ -92063,7 +92066,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body210:                                         ; preds = %737, %729, %.body207
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body207 ], [ %730, %729 ], [ %738, %737 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %171) #53
-          to label %.body213 unwind label %1606
+          to label %.body213 unwind label %1607
 
 729:                                              ; preds = %722
   %730 = landingpad { ptr, i32 }
@@ -92128,7 +92131,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body207:                                         ; preds = %757, %749, %.body204
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body204 ], [ %750, %749 ], [ %758, %757 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %170) #53
-          to label %.body210 unwind label %1606
+          to label %.body210 unwind label %1607
 
 749:                                              ; preds = %742
   %750 = landingpad { ptr, i32 }
@@ -92193,7 +92196,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body204:                                         ; preds = %777, %769, %.body201
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body201 ], [ %770, %769 ], [ %778, %777 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %169) #53
-          to label %.body207 unwind label %1606
+          to label %.body207 unwind label %1607
 
 769:                                              ; preds = %762
   %770 = landingpad { ptr, i32 }
@@ -92258,7 +92261,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body201:                                         ; preds = %797, %789, %.body198
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body198 ], [ %790, %789 ], [ %798, %797 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %168) #53
-          to label %.body204 unwind label %1606
+          to label %.body204 unwind label %1607
 
 789:                                              ; preds = %782
   %790 = landingpad { ptr, i32 }
@@ -92392,7 +92395,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body198:                                         ; preds = %838, %819, %832, %.body195
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body195 ], [ %833, %832 ], [ %820, %819 ], [ %839, %838 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %167) #53
-          to label %.body201 unwind label %1606
+          to label %.body201 unwind label %1607
 
 832:                                              ; preds = %821, %802
   %833 = landingpad { ptr, i32 }
@@ -92525,7 +92528,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body195:                                         ; preds = %878, %857, %872, %.body192
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body192 ], [ %873, %872 ], [ %858, %857 ], [ %879, %878 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %166) #53
-          to label %.body198 unwind label %1606
+          to label %.body198 unwind label %1607
 
 872:                                              ; preds = %861, %843
   %873 = landingpad { ptr, i32 }
@@ -92660,7 +92663,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body192:                                         ; preds = %919, %900, %913, %.body189
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body189 ], [ %914, %913 ], [ %901, %900 ], [ %920, %919 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %165) #53
-          to label %.body195 unwind label %1606
+          to label %.body195 unwind label %1607
 
 913:                                              ; preds = %902, %883
   %914 = landingpad { ptr, i32 }
@@ -92795,7 +92798,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body189:                                         ; preds = %960, %941, %954, %.body186
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body186 ], [ %955, %954 ], [ %942, %941 ], [ %961, %960 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %163) #53
-          to label %.body192 unwind label %1606
+          to label %.body192 unwind label %1607
 
 954:                                              ; preds = %943, %924
   %955 = landingpad { ptr, i32 }
@@ -92861,7 +92864,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body186:                                         ; preds = %980, %972, %.body183
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body183 ], [ %973, %972 ], [ %981, %980 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %162) #53
-          to label %.body189 unwind label %1606
+          to label %.body189 unwind label %1607
 
 972:                                              ; preds = %965
   %973 = landingpad { ptr, i32 }
@@ -92993,7 +92996,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body183:                                         ; preds = %1020, %999, %1014, %.body180
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body180 ], [ %1015, %1014 ], [ %1000, %999 ], [ %1021, %1020 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %161) #53
-          to label %.body186 unwind label %1606
+          to label %.body186 unwind label %1607
 
 1014:                                             ; preds = %1003, %985
   %1015 = landingpad { ptr, i32 }
@@ -93059,7 +93062,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body180:                                         ; preds = %1040, %1032, %.body177
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body177 ], [ %1033, %1032 ], [ %1041, %1040 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %160) #53
-          to label %.body183 unwind label %1606
+          to label %.body183 unwind label %1607
 
 1032:                                             ; preds = %1025
   %1033 = landingpad { ptr, i32 }
@@ -93193,7 +93196,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body177:                                         ; preds = %1081, %1062, %1075, %.body174
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body174 ], [ %1076, %1075 ], [ %1063, %1062 ], [ %1082, %1081 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %158) #53
-          to label %.body180 unwind label %1606
+          to label %.body180 unwind label %1607
 
 1075:                                             ; preds = %1064, %1045
   %1076 = landingpad { ptr, i32 }
@@ -93259,7 +93262,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body174:                                         ; preds = %1101, %1093, %.body171
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body171 ], [ %1094, %1093 ], [ %1102, %1101 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %157) #53
-          to label %.body177 unwind label %1606
+          to label %.body177 unwind label %1607
 
 1093:                                             ; preds = %1086
   %1094 = landingpad { ptr, i32 }
@@ -93324,7 +93327,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body171:                                         ; preds = %1121, %1113, %.body168
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body168 ], [ %1114, %1113 ], [ %1122, %1121 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %156) #53
-          to label %.body174 unwind label %1606
+          to label %.body174 unwind label %1607
 
 1113:                                             ; preds = %1106
   %1114 = landingpad { ptr, i32 }
@@ -93389,7 +93392,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body168:                                         ; preds = %1141, %1133, %.body165
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body165 ], [ %1134, %1133 ], [ %1142, %1141 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %155) #53
-          to label %.body171 unwind label %1606
+          to label %.body171 unwind label %1607
 
 1133:                                             ; preds = %1126
   %1134 = landingpad { ptr, i32 }
@@ -93454,7 +93457,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body165:                                         ; preds = %1161, %1153, %.body162
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body162 ], [ %1154, %1153 ], [ %1162, %1161 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %154) #53
-          to label %.body168 unwind label %1606
+          to label %.body168 unwind label %1607
 
 1153:                                             ; preds = %1146
   %1154 = landingpad { ptr, i32 }
@@ -93588,7 +93591,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body162:                                         ; preds = %1202, %1183, %1196, %.body159
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body159 ], [ %1197, %1196 ], [ %1184, %1183 ], [ %1203, %1202 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %153) #53
-          to label %.body165 unwind label %1606
+          to label %.body165 unwind label %1607
 
 1196:                                             ; preds = %1185, %1166
   %1197 = landingpad { ptr, i32 }
@@ -93654,7 +93657,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body159:                                         ; preds = %1222, %1214, %.body156
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body156 ], [ %1215, %1214 ], [ %1223, %1222 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %152) #53
-          to label %.body162 unwind label %1606
+          to label %.body162 unwind label %1607
 
 1214:                                             ; preds = %1207
   %1215 = landingpad { ptr, i32 }
@@ -93719,7 +93722,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body156:                                         ; preds = %1242, %1234, %.body153
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body153 ], [ %1235, %1234 ], [ %1243, %1242 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %151) #53
-          to label %.body159 unwind label %1606
+          to label %.body159 unwind label %1607
 
 1234:                                             ; preds = %1227
   %1235 = landingpad { ptr, i32 }
@@ -93784,7 +93787,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body153:                                         ; preds = %1262, %1254, %.body150
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body150 ], [ %1255, %1254 ], [ %1263, %1262 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %150) #53
-          to label %.body156 unwind label %1606
+          to label %.body156 unwind label %1607
 
 1254:                                             ; preds = %1247
   %1255 = landingpad { ptr, i32 }
@@ -93849,7 +93852,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body150:                                         ; preds = %1282, %1274, %.body147
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body147 ], [ %1275, %1274 ], [ %1283, %1282 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %149) #53
-          to label %.body153 unwind label %1606
+          to label %.body153 unwind label %1607
 
 1274:                                             ; preds = %1267
   %1275 = landingpad { ptr, i32 }
@@ -93914,7 +93917,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body147:                                         ; preds = %1302, %1294, %.body144
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body144 ], [ %1295, %1294 ], [ %1303, %1302 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %148) #53
-          to label %.body150 unwind label %1606
+          to label %.body150 unwind label %1607
 
 1294:                                             ; preds = %1287
   %1295 = landingpad { ptr, i32 }
@@ -93979,7 +93982,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body144:                                         ; preds = %1322, %1314, %.body141
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body141 ], [ %1315, %1314 ], [ %1323, %1322 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %147) #53
-          to label %.body147 unwind label %1606
+          to label %.body147 unwind label %1607
 
 1314:                                             ; preds = %1307
   %1315 = landingpad { ptr, i32 }
@@ -94044,7 +94047,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body141:                                         ; preds = %1342, %1334, %.body138
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %.body138 ], [ %1335, %1334 ], [ %1343, %1342 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %146) #53
-          to label %.body144 unwind label %1606
+          to label %.body144 unwind label %1607
 
 1334:                                             ; preds = %1327
   %1335 = landingpad { ptr, i32 }
@@ -94109,7 +94112,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body138:                                         ; preds = %1362, %1354, %.body135
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %.body135 ], [ %1355, %1354 ], [ %1363, %1362 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %145) #53
-          to label %.body141 unwind label %1606
+          to label %.body141 unwind label %1607
 
 1354:                                             ; preds = %1347
   %1355 = landingpad { ptr, i32 }
@@ -94174,7 +94177,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body135:                                         ; preds = %1382, %1374, %.body132
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %.body132 ], [ %1375, %1374 ], [ %1383, %1382 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %144) #53
-          to label %.body138 unwind label %1606
+          to label %.body138 unwind label %1607
 
 1374:                                             ; preds = %1367
   %1375 = landingpad { ptr, i32 }
@@ -94239,7 +94242,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body132:                                         ; preds = %1402, %1394, %.body129
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %.body129 ], [ %1395, %1394 ], [ %1403, %1402 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %143) #53
-          to label %.body135 unwind label %1606
+          to label %.body135 unwind label %1607
 
 1394:                                             ; preds = %1387
   %1395 = landingpad { ptr, i32 }
@@ -94304,7 +94307,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body129:                                         ; preds = %1422, %1414, %.body126
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %.body126 ], [ %1415, %1414 ], [ %1423, %1422 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %142) #53
-          to label %.body132 unwind label %1606
+          to label %.body132 unwind label %1607
 
 1414:                                             ; preds = %1407
   %1415 = landingpad { ptr, i32 }
@@ -94369,7 +94372,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body126:                                         ; preds = %1442, %1434, %.body123
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body123 ], [ %1435, %1434 ], [ %1443, %1442 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %141) #53
-          to label %.body129 unwind label %1606
+          to label %.body129 unwind label %1607
 
 1434:                                             ; preds = %1427
   %1435 = landingpad { ptr, i32 }
@@ -94434,7 +94437,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body123:                                         ; preds = %1462, %1454, %.body120
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body120 ], [ %1455, %1454 ], [ %1463, %1462 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %140) #53
-          to label %.body126 unwind label %1606
+          to label %.body126 unwind label %1607
 
 1454:                                             ; preds = %1447
   %1455 = landingpad { ptr, i32 }
@@ -94499,7 +94502,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body120:                                         ; preds = %1482, %1474, %.body117
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body117 ], [ %1475, %1474 ], [ %1483, %1482 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %139) #53
-          to label %.body123 unwind label %1606
+          to label %.body123 unwind label %1607
 
 1474:                                             ; preds = %1467
   %1475 = landingpad { ptr, i32 }
@@ -94564,7 +94567,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body117:                                         ; preds = %1502, %1494, %.body115
   %.pn = phi { ptr, i32 } [ %eh.lpad-body116, %.body115 ], [ %1495, %1494 ], [ %1503, %1502 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %138) #53
-          to label %.body120 unwind label %1606
+          to label %.body120 unwind label %1607
 
 1494:                                             ; preds = %1487
   %1495 = landingpad { ptr, i32 }
@@ -94633,7 +94636,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
 .body115:                                         ; preds = %1522, %1514
   %eh.lpad-body116 = phi { ptr, i32 } [ %1515, %1514 ], [ %1523, %1522 ]
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %137) #53
-          to label %.body117 unwind label %1606
+          to label %.body117 unwind label %1607
 
 1516:                                             ; preds = %1507
   %1517 = load i64, ptr %92, align 8, !range !159, !noundef !4
@@ -94855,7 +94858,7 @@ common.resume:                                    ; preds = %1597, %.body273, %1
   %1584 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$u3b$$u20$55$u5d$$GT$17h591876c65ef65f57E"(ptr noalias noundef align 8 dereferenceable(3960) %196) #53
-          to label %common.resume unwind label %1606
+          to label %common.resume unwind label %1607
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb8efc5b863143e3bE.exit": ; preds = %1527
   %1585 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -94863,51 +94866,52 @@ common.resume:                                    ; preds = %1597, %.body273, %1
   br label %1587
 
 1587:                                             ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb8efc5b863143e3bE.exit"
-  %.06.i = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb8efc5b863143e3bE.exit" ], [ %1588, %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i" ]
-  %1588 = add nuw nsw i64 %.06.i, 1
-  %1589 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %196, i64 %.06.i, i32 3
+  %.06.i = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb8efc5b863143e3bE.exit" ], [ %1589, %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i" ]
+  %1588 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %196, i64 %.06.i
+  %1589 = add nuw nsw i64 %.06.i, 1
+  %1590 = getelementptr inbounds nuw i8, ptr %1588, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !17628
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1589)
-          to label %.noexc.i461 unwind label %1599
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7ab6145b2068713cE.llvm.10409712727403535664"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1590)
+          to label %.noexc.i461 unwind label %1600
 
 .noexc.i461:                                      ; preds = %1587
-  %1590 = load i64, ptr %1585, align 8, !range !159, !noalias !17628, !noundef !4
-  %.not.i.i.i.i.i.i = icmp eq i64 %1590, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i", label %1591
+  %1591 = load i64, ptr %1585, align 8, !range !159, !noalias !17628, !noundef !4
+  %.not.i.i.i.i.i.i = icmp eq i64 %1591, 0
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i", label %1592
 
-1591:                                             ; preds = %.noexc.i461
-  %1592 = load i64, ptr %1586, align 8, !noalias !17628, !noundef !4
-  %1593 = icmp eq i64 %1592, 0
-  br i1 %1593, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i", label %1594
+1592:                                             ; preds = %.noexc.i461
+  %1593 = load i64, ptr %1586, align 8, !noalias !17628, !noundef !4
+  %1594 = icmp eq i64 %1593, 0
+  br i1 %1594, label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i", label %1595
 
-1594:                                             ; preds = %1591
-  %1595 = load ptr, ptr %2, align 8, !noalias !17628, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %1595, i64 noundef %1592, i64 noundef %1590) #56
+1595:                                             ; preds = %1592
+  %1596 = load ptr, ptr %2, align 8, !noalias !17628, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %1596, i64 noundef %1593, i64 noundef %1591) #56
   br label %"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i"
 
-"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i": ; preds = %1594, %1591, %.noexc.i461
+"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E.exit.i": ; preds = %1595, %1592, %.noexc.i461
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !17628
-  %1596 = icmp eq i64 %1588, 55
-  br i1 %1596, label %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$u3b$$u20$55$u5d$$GT$17h591876c65ef65f57E.exit", label %1587
+  %1597 = icmp eq i64 %1589, 55
+  br i1 %1597, label %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$u3b$$u20$55$u5d$$GT$17h591876c65ef65f57E.exit", label %1587
 
-1597:                                             ; preds = %1601, %1599
-  %.1.i = phi i64 [ %1588, %1599 ], [ %1603, %1601 ]
-  %1598 = icmp eq i64 %.1.i, 55
-  br i1 %1598, label %common.resume, label %1601
+1598:                                             ; preds = %1602, %1600
+  %.1.i = phi i64 [ %1589, %1600 ], [ %1604, %1602 ]
+  %1599 = icmp eq i64 %.1.i, 55
+  br i1 %1599, label %common.resume, label %1602
 
-1599:                                             ; preds = %1587
-  %1600 = landingpad { ptr, i32 }
+1600:                                             ; preds = %1587
+  %1601 = landingpad { ptr, i32 }
           cleanup
-  br label %1597
+  br label %1598
 
-1601:                                             ; preds = %1597
-  %1602 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %196, i64 %.1.i
-  %1603 = add nuw nsw i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %1602) #53
-          to label %1597 unwind label %1604
+1602:                                             ; preds = %1598
+  %1603 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %196, i64 %.1.i
+  %1604 = add nuw nsw i64 %.1.i, 1
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$$LP$$RF$str$C$$RF$str$C$$RF$$u5b$$RF$str$u5d$$C$alloc..string..String$RP$$GT$17hd8da4ad4442948f9E"(ptr noalias noundef align 8 dereferenceable(72) %1603) #53
+          to label %1598 unwind label %1605
 
-1604:                                             ; preds = %1601
-  %1605 = landingpad { ptr, i32 }
+1605:                                             ; preds = %1602
+  %1606 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable
@@ -94916,8 +94920,8 @@ common.resume:                                    ; preds = %1597, %.body273, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %196)
   ret void
 
-1606:                                             ; preds = %.body255, %1583, %.body115, %.body117, %.body120, %.body123, %.body126, %.body129, %.body132, %.body135, %.body138, %.body141, %.body144, %.body147, %.body150, %.body153, %.body156, %.body159, %.body162, %.body165, %.body168, %.body171, %.body174, %.body177, %.body180, %.body183, %.body186, %.body189, %.body192, %.body195, %.body198, %.body201, %.body204, %.body207, %.body210, %.body213, %.body216, %.body219, %.body222, %.body225, %.body228, %.body231, %.body234, %.body237, %.body240, %.body243, %.body246, %.body249, %.body252, %.body, %.body258, %.body261, %.body264, %.body267, %.body270, %.body273
-  %1607 = landingpad { ptr, i32 }
+1607:                                             ; preds = %.body255, %1583, %.body115, %.body117, %.body120, %.body123, %.body126, %.body129, %.body132, %.body135, %.body138, %.body141, %.body144, %.body147, %.body150, %.body153, %.body156, %.body159, %.body162, %.body165, %.body168, %.body171, %.body174, %.body177, %.body180, %.body183, %.body186, %.body189, %.body192, %.body195, %.body198, %.body201, %.body204, %.body207, %.body210, %.body213, %.body216, %.body219, %.body222, %.body225, %.body228, %.body231, %.body234, %.body237, %.body240, %.body243, %.body246, %.body249, %.body252, %.body, %.body258, %.body261, %.body264, %.body267, %.body270, %.body273
+  %1608 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable

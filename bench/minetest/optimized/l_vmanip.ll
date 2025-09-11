@@ -2087,7 +2087,8 @@ for.cond.cleanup:                                 ; preds = %for.body, %if.end
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %6 = load ptr, ptr %m_data, align 8, !tbaa !43
-  %param1 = getelementptr inbounds nuw %struct.MapNode, ptr %6, i64 %indvars.iv, i32 1
+  %param1.split = getelementptr inbounds nuw %struct.MapNode, ptr %6, i64 %indvars.iv
+  %param1 = getelementptr inbounds nuw i8, ptr %param1.split, i64 2
   %7 = load i8, ptr %param1, align 2, !tbaa !86
   %conv = zext i8 %7 to i64
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv)
@@ -2197,7 +2198,8 @@ for.body:                                         ; preds = %for.body, %for.body
   %call11 = tail call i64 @lua_tointeger(ptr noundef %L, i32 noundef -1)
   %conv = trunc i64 %call11 to i8
   %12 = load ptr, ptr %m_data, align 8, !tbaa !43
-  %param1 = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %indvars.iv, i32 1
+  %param1.split = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %indvars.iv
+  %param1 = getelementptr inbounds nuw i8, ptr %param1.split, i64 2
   store i8 %conv, ptr %param1, align 2, !tbaa !86
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2)
   %cmp10.not = icmp eq i64 %indvars.iv.next, %10
@@ -2252,7 +2254,8 @@ for.cond.cleanup:                                 ; preds = %for.body, %if.end
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %6 = load ptr, ptr %m_data, align 8, !tbaa !43
-  %param25 = getelementptr inbounds nuw %struct.MapNode, ptr %6, i64 %indvars.iv, i32 2
+  %param25.split = getelementptr inbounds nuw %struct.MapNode, ptr %6, i64 %indvars.iv
+  %param25 = getelementptr inbounds nuw i8, ptr %param25.split, i64 3
   %7 = load i8, ptr %param25, align 1, !tbaa !89
   %conv = zext i8 %7 to i64
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv)
@@ -2362,7 +2365,8 @@ for.body:                                         ; preds = %for.body, %for.body
   %call11 = tail call i64 @lua_tointeger(ptr noundef %L, i32 noundef -1)
   %conv = trunc i64 %call11 to i8
   %12 = load ptr, ptr %m_data, align 8, !tbaa !43
-  %param212 = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %indvars.iv, i32 2
+  %param212.split = getelementptr inbounds nuw %struct.MapNode, ptr %12, i64 %indvars.iv
+  %param212 = getelementptr inbounds nuw i8, ptr %param212.split, i64 3
   store i8 %conv, ptr %param212, align 1, !tbaa !89
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2)
   %cmp10.not = icmp eq i64 %indvars.iv.next, %10

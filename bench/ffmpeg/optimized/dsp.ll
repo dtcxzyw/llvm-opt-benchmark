@@ -37,1152 +37,1161 @@ define void @ff_vvc_dsp_init(ptr noundef writeonly %0, i32 noundef %1) local_unn
 
 .preheader171.i:                                  ; preds = %.preheader237, %.preheader171.i
   %indvars.iv198.i = phi i64 [ %indvars.iv.next199.i, %.preheader171.i ], [ 0, %.preheader237 ]
-  %4 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv198.i, i64 0, i64 1
-  store ptr @put_luma_h_12, ptr %4, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv198.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @put_luma_h_12, ptr %5, align 8, !tbaa !4
   %indvars.iv.next199.i = add nuw nsw i64 %indvars.iv198.i, 1
   %exitcond201.not.i = icmp eq i64 %indvars.iv.next199.i, 7
   br i1 %exitcond201.not.i, label %.preheader170.i, label %.preheader171.i, !llvm.loop !10
 
 .preheader170.i:                                  ; preds = %.preheader171.i, %.preheader170.i
   %indvars.iv202.i = phi i64 [ %indvars.iv.next203.i, %.preheader170.i ], [ 0, %.preheader171.i ]
-  %5 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv202.i, i64 1
-  store ptr @put_luma_v_12, ptr %5, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv202.i
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @put_luma_v_12, ptr %7, align 8, !tbaa !4
   %indvars.iv.next203.i = add nuw nsw i64 %indvars.iv202.i, 1
   %exitcond205.not.i = icmp eq i64 %indvars.iv.next203.i, 7
   br i1 %exitcond205.not.i, label %.preheader169.i, label %.preheader170.i, !llvm.loop !11
 
 .preheader168.i:                                  ; preds = %.preheader169.i
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  br label %8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  br label %11
 
 .preheader169.i:                                  ; preds = %.preheader170.i, %.preheader169.i
   %indvars.iv206.i = phi i64 [ %indvars.iv.next207.i, %.preheader169.i ], [ 0, %.preheader170.i ]
-  %7 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv206.i, i64 1, i64 1
-  store ptr @put_luma_hv_12, ptr %7, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv206.i
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr @put_luma_hv_12, ptr %10, align 8, !tbaa !4
   %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
   %exitcond209.not.i = icmp eq i64 %indvars.iv.next207.i, 7
   br i1 %exitcond209.not.i, label %.preheader168.i, label %.preheader169.i, !llvm.loop !12
 
-8:                                                ; preds = %8, %.preheader168.i
-  %indvars.iv210.i = phi i64 [ 0, %.preheader168.i ], [ %indvars.iv.next211.i, %8 ]
-  %9 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %6, i64 %indvars.iv210.i
-  store ptr @put_uni_pixels_12, ptr %9, align 8, !tbaa !4
+11:                                               ; preds = %11, %.preheader168.i
+  %indvars.iv210.i = phi i64 [ 0, %.preheader168.i ], [ %indvars.iv.next211.i, %11 ]
+  %12 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %8, i64 %indvars.iv210.i
+  store ptr @put_uni_pixels_12, ptr %12, align 8, !tbaa !4
   %indvars.iv.next211.i = add nuw nsw i64 %indvars.iv210.i, 1
   %exitcond213.not.i = icmp eq i64 %indvars.iv.next211.i, 7
-  br i1 %exitcond213.not.i, label %.preheader167.i, label %8, !llvm.loop !13
+  br i1 %exitcond213.not.i, label %.preheader167.i, label %11, !llvm.loop !13
 
-.preheader167.i:                                  ; preds = %8, %.preheader167.i
-  %indvars.iv214.i = phi i64 [ %indvars.iv.next215.i, %.preheader167.i ], [ 0, %8 ]
-  %10 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv214.i
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 456
-  store ptr @put_uni_luma_h_12, ptr %11, align 8, !tbaa !4
+.preheader167.i:                                  ; preds = %11, %.preheader167.i
+  %indvars.iv214.i = phi i64 [ %indvars.iv.next215.i, %.preheader167.i ], [ 0, %11 ]
+  %13 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv214.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 456
+  store ptr @put_uni_luma_h_12, ptr %14, align 8, !tbaa !4
   %indvars.iv.next215.i = add nuw nsw i64 %indvars.iv214.i, 1
   %exitcond217.not.i = icmp eq i64 %indvars.iv.next215.i, 7
   br i1 %exitcond217.not.i, label %.preheader166.i, label %.preheader167.i, !llvm.loop !14
 
 .preheader166.i:                                  ; preds = %.preheader167.i, %.preheader166.i
   %indvars.iv218.i = phi i64 [ %indvars.iv.next219.i, %.preheader166.i ], [ 0, %.preheader167.i ]
-  %12 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv218.i
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 464
-  store ptr @put_uni_luma_v_12, ptr %13, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv218.i
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 464
+  store ptr @put_uni_luma_v_12, ptr %16, align 8, !tbaa !4
   %indvars.iv.next219.i = add nuw nsw i64 %indvars.iv218.i, 1
   %exitcond221.not.i = icmp eq i64 %indvars.iv.next219.i, 7
   br i1 %exitcond221.not.i, label %.preheader165.i, label %.preheader166.i, !llvm.loop !15
 
 .preheader164.i:                                  ; preds = %.preheader165.i
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  br label %17
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  br label %20
 
 .preheader165.i:                                  ; preds = %.preheader166.i, %.preheader165.i
   %indvars.iv222.i = phi i64 [ %indvars.iv.next223.i, %.preheader165.i ], [ 0, %.preheader166.i ]
-  %15 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv222.i
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 472
-  store ptr @put_uni_luma_hv_12, ptr %16, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv222.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 472
+  store ptr @put_uni_luma_hv_12, ptr %19, align 8, !tbaa !4
   %indvars.iv.next223.i = add nuw nsw i64 %indvars.iv222.i, 1
   %exitcond225.not.i = icmp eq i64 %indvars.iv.next223.i, 7
   br i1 %exitcond225.not.i, label %.preheader164.i, label %.preheader165.i, !llvm.loop !16
 
-17:                                               ; preds = %17, %.preheader164.i
-  %indvars.iv226.i = phi i64 [ 0, %.preheader164.i ], [ %indvars.iv.next227.i, %17 ]
-  %18 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %14, i64 %indvars.iv226.i
-  store ptr @put_uni_w_pixels_12, ptr %18, align 8, !tbaa !4
+20:                                               ; preds = %20, %.preheader164.i
+  %indvars.iv226.i = phi i64 [ 0, %.preheader164.i ], [ %indvars.iv.next227.i, %20 ]
+  %21 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %17, i64 %indvars.iv226.i
+  store ptr @put_uni_w_pixels_12, ptr %21, align 8, !tbaa !4
   %indvars.iv.next227.i = add nuw nsw i64 %indvars.iv226.i, 1
   %exitcond229.not.i = icmp eq i64 %indvars.iv.next227.i, 7
-  br i1 %exitcond229.not.i, label %.preheader163.i, label %17, !llvm.loop !17
+  br i1 %exitcond229.not.i, label %.preheader163.i, label %20, !llvm.loop !17
 
-.preheader163.i:                                  ; preds = %17, %.preheader163.i
-  %indvars.iv230.i = phi i64 [ %indvars.iv.next231.i, %.preheader163.i ], [ 0, %17 ]
-  %19 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv230.i
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 904
-  store ptr @put_uni_luma_w_h_12, ptr %20, align 8, !tbaa !4
+.preheader163.i:                                  ; preds = %20, %.preheader163.i
+  %indvars.iv230.i = phi i64 [ %indvars.iv.next231.i, %.preheader163.i ], [ 0, %20 ]
+  %22 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv230.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 904
+  store ptr @put_uni_luma_w_h_12, ptr %23, align 8, !tbaa !4
   %indvars.iv.next231.i = add nuw nsw i64 %indvars.iv230.i, 1
   %exitcond233.not.i = icmp eq i64 %indvars.iv.next231.i, 7
   br i1 %exitcond233.not.i, label %.preheader162.i, label %.preheader163.i, !llvm.loop !18
 
 .preheader162.i:                                  ; preds = %.preheader163.i, %.preheader162.i
   %indvars.iv234.i = phi i64 [ %indvars.iv.next235.i, %.preheader162.i ], [ 0, %.preheader163.i ]
-  %21 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv234.i
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 912
-  store ptr @put_uni_luma_w_v_12, ptr %22, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv234.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 912
+  store ptr @put_uni_luma_w_v_12, ptr %25, align 8, !tbaa !4
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 1
   %exitcond237.not.i = icmp eq i64 %indvars.iv.next235.i, 7
   br i1 %exitcond237.not.i, label %.preheader161.i, label %.preheader162.i, !llvm.loop !19
 
 .preheader160.i:                                  ; preds = %.preheader161.i
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  br label %26
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  br label %29
 
 .preheader161.i:                                  ; preds = %.preheader162.i, %.preheader161.i
   %indvars.iv238.i = phi i64 [ %indvars.iv.next239.i, %.preheader161.i ], [ 0, %.preheader162.i ]
-  %24 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv238.i
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 920
-  store ptr @put_uni_luma_w_hv_12, ptr %25, align 8, !tbaa !4
+  %27 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv238.i
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 920
+  store ptr @put_uni_luma_w_hv_12, ptr %28, align 8, !tbaa !4
   %indvars.iv.next239.i = add nuw nsw i64 %indvars.iv238.i, 1
   %exitcond241.not.i = icmp eq i64 %indvars.iv.next239.i, 7
   br i1 %exitcond241.not.i, label %.preheader160.i, label %.preheader161.i, !llvm.loop !20
 
-26:                                               ; preds = %26, %.preheader160.i
-  %indvars.iv242.i = phi i64 [ 0, %.preheader160.i ], [ %indvars.iv.next243.i, %26 ]
-  %27 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %23, i64 %indvars.iv242.i
-  store ptr @put_pixels_12, ptr %27, align 8, !tbaa !4
+29:                                               ; preds = %29, %.preheader160.i
+  %indvars.iv242.i = phi i64 [ 0, %.preheader160.i ], [ %indvars.iv.next243.i, %29 ]
+  %30 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %26, i64 %indvars.iv242.i
+  store ptr @put_pixels_12, ptr %30, align 8, !tbaa !4
   %indvars.iv.next243.i = add nuw nsw i64 %indvars.iv242.i, 1
   %exitcond245.not.i = icmp eq i64 %indvars.iv.next243.i, 7
-  br i1 %exitcond245.not.i, label %.preheader159.i, label %26, !llvm.loop !21
+  br i1 %exitcond245.not.i, label %.preheader159.i, label %29, !llvm.loop !21
 
-.preheader159.i:                                  ; preds = %26, %.preheader159.i
-  %indvars.iv246.i = phi i64 [ %indvars.iv.next247.i, %.preheader159.i ], [ 0, %26 ]
-  %28 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv246.i
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 232
-  store ptr @put_chroma_h_12, ptr %29, align 8, !tbaa !4
+.preheader159.i:                                  ; preds = %29, %.preheader159.i
+  %indvars.iv246.i = phi i64 [ %indvars.iv.next247.i, %.preheader159.i ], [ 0, %29 ]
+  %31 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv246.i
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 232
+  store ptr @put_chroma_h_12, ptr %32, align 8, !tbaa !4
   %indvars.iv.next247.i = add nuw nsw i64 %indvars.iv246.i, 1
   %exitcond249.not.i = icmp eq i64 %indvars.iv.next247.i, 7
   br i1 %exitcond249.not.i, label %.preheader158.i, label %.preheader159.i, !llvm.loop !22
 
 .preheader158.i:                                  ; preds = %.preheader159.i, %.preheader158.i
   %indvars.iv250.i = phi i64 [ %indvars.iv.next251.i, %.preheader158.i ], [ 0, %.preheader159.i ]
-  %30 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv250.i
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 240
-  store ptr @put_chroma_v_12, ptr %31, align 8, !tbaa !4
+  %33 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv250.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 240
+  store ptr @put_chroma_v_12, ptr %34, align 8, !tbaa !4
   %indvars.iv.next251.i = add nuw nsw i64 %indvars.iv250.i, 1
   %exitcond253.not.i = icmp eq i64 %indvars.iv.next251.i, 7
   br i1 %exitcond253.not.i, label %.preheader157.i, label %.preheader158.i, !llvm.loop !23
 
 .preheader156.i:                                  ; preds = %.preheader157.i
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  br label %35
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  br label %38
 
 .preheader157.i:                                  ; preds = %.preheader158.i, %.preheader157.i
   %indvars.iv254.i = phi i64 [ %indvars.iv.next255.i, %.preheader157.i ], [ 0, %.preheader158.i ]
-  %33 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv254.i
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 248
-  store ptr @put_chroma_hv_12, ptr %34, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv254.i
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 248
+  store ptr @put_chroma_hv_12, ptr %37, align 8, !tbaa !4
   %indvars.iv.next255.i = add nuw nsw i64 %indvars.iv254.i, 1
   %exitcond257.not.i = icmp eq i64 %indvars.iv.next255.i, 7
   br i1 %exitcond257.not.i, label %.preheader156.i, label %.preheader157.i, !llvm.loop !24
 
-35:                                               ; preds = %35, %.preheader156.i
-  %indvars.iv258.i = phi i64 [ 0, %.preheader156.i ], [ %indvars.iv.next259.i, %35 ]
-  %36 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %32, i64 %indvars.iv258.i
-  store ptr @put_uni_pixels_12, ptr %36, align 8, !tbaa !4
+38:                                               ; preds = %38, %.preheader156.i
+  %indvars.iv258.i = phi i64 [ 0, %.preheader156.i ], [ %indvars.iv.next259.i, %38 ]
+  %39 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %35, i64 %indvars.iv258.i
+  store ptr @put_uni_pixels_12, ptr %39, align 8, !tbaa !4
   %indvars.iv.next259.i = add nuw nsw i64 %indvars.iv258.i, 1
   %exitcond261.not.i = icmp eq i64 %indvars.iv.next259.i, 7
-  br i1 %exitcond261.not.i, label %.preheader155.i, label %35, !llvm.loop !25
+  br i1 %exitcond261.not.i, label %.preheader155.i, label %38, !llvm.loop !25
 
-.preheader155.i:                                  ; preds = %35, %.preheader155.i
-  %indvars.iv262.i = phi i64 [ %indvars.iv.next263.i, %.preheader155.i ], [ 0, %35 ]
-  %37 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv262.i
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 680
-  store ptr @put_uni_chroma_h_12, ptr %38, align 8, !tbaa !4
+.preheader155.i:                                  ; preds = %38, %.preheader155.i
+  %indvars.iv262.i = phi i64 [ %indvars.iv.next263.i, %.preheader155.i ], [ 0, %38 ]
+  %40 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv262.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 680
+  store ptr @put_uni_chroma_h_12, ptr %41, align 8, !tbaa !4
   %indvars.iv.next263.i = add nuw nsw i64 %indvars.iv262.i, 1
   %exitcond265.not.i = icmp eq i64 %indvars.iv.next263.i, 7
   br i1 %exitcond265.not.i, label %.preheader154.i, label %.preheader155.i, !llvm.loop !26
 
 .preheader154.i:                                  ; preds = %.preheader155.i, %.preheader154.i
   %indvars.iv266.i = phi i64 [ %indvars.iv.next267.i, %.preheader154.i ], [ 0, %.preheader155.i ]
-  %39 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv266.i
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 688
-  store ptr @put_uni_chroma_v_12, ptr %40, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv266.i
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 688
+  store ptr @put_uni_chroma_v_12, ptr %43, align 8, !tbaa !4
   %indvars.iv.next267.i = add nuw nsw i64 %indvars.iv266.i, 1
   %exitcond269.not.i = icmp eq i64 %indvars.iv.next267.i, 7
   br i1 %exitcond269.not.i, label %.preheader153.i, label %.preheader154.i, !llvm.loop !27
 
 .preheader152.i:                                  ; preds = %.preheader153.i
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  br label %44
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  br label %47
 
 .preheader153.i:                                  ; preds = %.preheader154.i, %.preheader153.i
   %indvars.iv270.i = phi i64 [ %indvars.iv.next271.i, %.preheader153.i ], [ 0, %.preheader154.i ]
-  %42 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv270.i
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 696
-  store ptr @put_uni_chroma_hv_12, ptr %43, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv270.i
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 696
+  store ptr @put_uni_chroma_hv_12, ptr %46, align 8, !tbaa !4
   %indvars.iv.next271.i = add nuw nsw i64 %indvars.iv270.i, 1
   %exitcond273.not.i = icmp eq i64 %indvars.iv.next271.i, 7
   br i1 %exitcond273.not.i, label %.preheader152.i, label %.preheader153.i, !llvm.loop !28
 
-44:                                               ; preds = %44, %.preheader152.i
-  %indvars.iv274.i = phi i64 [ 0, %.preheader152.i ], [ %indvars.iv.next275.i, %44 ]
-  %45 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %41, i64 %indvars.iv274.i
-  store ptr @put_uni_w_pixels_12, ptr %45, align 8, !tbaa !4
+47:                                               ; preds = %47, %.preheader152.i
+  %indvars.iv274.i = phi i64 [ 0, %.preheader152.i ], [ %indvars.iv.next275.i, %47 ]
+  %48 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %44, i64 %indvars.iv274.i
+  store ptr @put_uni_w_pixels_12, ptr %48, align 8, !tbaa !4
   %indvars.iv.next275.i = add nuw nsw i64 %indvars.iv274.i, 1
   %exitcond277.not.i = icmp eq i64 %indvars.iv.next275.i, 7
-  br i1 %exitcond277.not.i, label %.preheader151.i, label %44, !llvm.loop !29
+  br i1 %exitcond277.not.i, label %.preheader151.i, label %47, !llvm.loop !29
 
-.preheader151.i:                                  ; preds = %44, %.preheader151.i
-  %indvars.iv278.i = phi i64 [ %indvars.iv.next279.i, %.preheader151.i ], [ 0, %44 ]
-  %46 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv278.i
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1128
-  store ptr @put_uni_chroma_w_h_12, ptr %47, align 8, !tbaa !4
+.preheader151.i:                                  ; preds = %47, %.preheader151.i
+  %indvars.iv278.i = phi i64 [ %indvars.iv.next279.i, %.preheader151.i ], [ 0, %47 ]
+  %49 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv278.i
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1128
+  store ptr @put_uni_chroma_w_h_12, ptr %50, align 8, !tbaa !4
   %indvars.iv.next279.i = add nuw nsw i64 %indvars.iv278.i, 1
   %exitcond281.not.i = icmp eq i64 %indvars.iv.next279.i, 7
   br i1 %exitcond281.not.i, label %.preheader150.i, label %.preheader151.i, !llvm.loop !30
 
 .preheader150.i:                                  ; preds = %.preheader151.i, %.preheader150.i
   %indvars.iv282.i = phi i64 [ %indvars.iv.next283.i, %.preheader150.i ], [ 0, %.preheader151.i ]
-  %48 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv282.i
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1136
-  store ptr @put_uni_chroma_w_v_12, ptr %49, align 8, !tbaa !4
+  %51 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv282.i
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1136
+  store ptr @put_uni_chroma_w_v_12, ptr %52, align 8, !tbaa !4
   %indvars.iv.next283.i = add nuw nsw i64 %indvars.iv282.i, 1
   %exitcond285.not.i = icmp eq i64 %indvars.iv.next283.i, 7
   br i1 %exitcond285.not.i, label %.preheader149.i, label %.preheader150.i, !llvm.loop !31
 
 .preheader.i:                                     ; preds = %.preheader149.i
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1512
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1568
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1624
-  br label %58
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1344
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1400
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1456
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1512
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1568
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  br label %61
 
 .preheader149.i:                                  ; preds = %.preheader150.i, %.preheader149.i
   %indvars.iv286.i = phi i64 [ %indvars.iv.next287.i, %.preheader149.i ], [ 0, %.preheader150.i ]
-  %56 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv286.i
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1144
-  store ptr @put_uni_chroma_w_hv_12, ptr %57, align 8, !tbaa !4
+  %59 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv286.i
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1144
+  store ptr @put_uni_chroma_w_hv_12, ptr %60, align 8, !tbaa !4
   %indvars.iv.next287.i = add nuw nsw i64 %indvars.iv286.i, 1
   %exitcond289.not.i = icmp eq i64 %indvars.iv.next287.i, 7
   br i1 %exitcond289.not.i, label %.preheader.i, label %.preheader149.i, !llvm.loop !32
 
-58:                                               ; preds = %58, %.preheader.i
-  %indvars.iv290.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next291.i, %58 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv290.i
-  store ptr @put_luma_scaled_12, ptr %59, align 8, !tbaa !4
-  %60 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv290.i
-  store ptr @put_chroma_scaled_12, ptr %60, align 8, !tbaa !4
-  %61 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv290.i
-  store ptr @put_uni_luma_scaled_12, ptr %61, align 8, !tbaa !4
+61:                                               ; preds = %61, %.preheader.i
+  %indvars.iv290.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next291.i, %61 ]
   %62 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv290.i
-  store ptr @put_uni_chroma_scaled_12, ptr %62, align 8, !tbaa !4
+  store ptr @put_luma_scaled_12, ptr %62, align 8, !tbaa !4
   %63 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv290.i
-  store ptr @put_uni_luma_w_scaled_12, ptr %63, align 8, !tbaa !4
+  store ptr @put_chroma_scaled_12, ptr %63, align 8, !tbaa !4
   %64 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv290.i
-  store ptr @put_uni_chroma_w_scaled_12, ptr %64, align 8, !tbaa !4
+  store ptr @put_uni_luma_scaled_12, ptr %64, align 8, !tbaa !4
+  %65 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv290.i
+  store ptr @put_uni_chroma_scaled_12, ptr %65, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv290.i
+  store ptr @put_uni_luma_w_scaled_12, ptr %66, align 8, !tbaa !4
+  %67 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv290.i
+  store ptr @put_uni_chroma_w_scaled_12, ptr %67, align 8, !tbaa !4
   %indvars.iv.next291.i = add nuw nsw i64 %indvars.iv290.i, 1
   %exitcond293.not.i = icmp eq i64 %indvars.iv.next291.i, 7
-  br i1 %exitcond293.not.i, label %ff_vvc_inter_dsp_init_12.exit, label %58, !llvm.loop !33
+  br i1 %exitcond293.not.i, label %ff_vvc_inter_dsp_init_12.exit, label %61, !llvm.loop !33
 
-ff_vvc_inter_dsp_init_12.exit:                    ; preds = %58
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1680
-  store ptr @avg_12, ptr %65, align 8, !tbaa !34
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  store ptr @w_avg_12, ptr %66, align 8, !tbaa !36
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  store ptr @dmvr_12, ptr %67, align 8, !tbaa !4
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1776
-  store ptr @dmvr_h_12, ptr %68, align 8, !tbaa !4
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1784
-  store ptr @dmvr_v_12, ptr %69, align 8, !tbaa !4
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  store ptr @dmvr_hv_12, ptr %70, align 8, !tbaa !4
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  store ptr @put_ciip_12, ptr %71, align 8, !tbaa !37
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1704
-  store ptr @put_gpm_12, ptr %72, align 8, !tbaa !38
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1712
-  store ptr @fetch_samples_12, ptr %73, align 8, !tbaa !39
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1720
-  store ptr @bdof_fetch_samples_12, ptr %74, align 8, !tbaa !40
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1728
-  store ptr @apply_prof_12, ptr %75, align 8, !tbaa !41
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1736
-  store ptr @apply_prof_uni_12, ptr %76, align 8, !tbaa !42
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  store ptr @apply_prof_uni_w_12, ptr %77, align 8, !tbaa !43
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1752
-  store ptr @apply_bdof_12, ptr %78, align 8, !tbaa !44
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1760
-  store ptr @vvc_sad, ptr %79, align 8, !tbaa !45
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1800
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1808
-  store ptr @lmcs_scale_chroma_12, ptr %81, align 8, !tbaa !46
-  store ptr @intra_cclm_pred_12, ptr %80, align 8, !tbaa !48
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  store ptr @intra_pred_12, ptr %82, align 8, !tbaa !49
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  store ptr @pred_planar_12, ptr %83, align 8, !tbaa !50
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  store ptr @pred_mip_12, ptr %84, align 8, !tbaa !51
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1840
-  store ptr @pred_dc_12, ptr %85, align 8, !tbaa !52
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1848
-  store ptr @pred_v_12, ptr %86, align 8, !tbaa !53
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1856
-  store ptr @pred_h_12, ptr %87, align 8, !tbaa !54
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1864
-  store ptr @pred_angular_v_12, ptr %88, align 8, !tbaa !55
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1872
-  store ptr @pred_angular_h_12, ptr %89, align 8, !tbaa !56
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  store ptr @add_residual_12, ptr %90, align 8, !tbaa !57
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1888
-  store ptr @pred_residual_joint_12, ptr %91, align 8, !tbaa !59
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 2040
-  store ptr @transform_bdpcm_12, ptr %92, align 8, !tbaa !60
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1896
-  store ptr @ff_vvc_inv_dct2_2, ptr %93, align 8, !tbaa !4
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1936
-  store ptr @ff_vvc_inv_dct2_64, ptr %94, align 8, !tbaa !4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 1904
-  store ptr @ff_vvc_inv_dct2_4, ptr %95, align 8, !tbaa !4
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 1912
-  store ptr @ff_vvc_inv_dct2_8, ptr %96, align 8, !tbaa !4
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 1920
-  store ptr @ff_vvc_inv_dct2_16, ptr %97, align 8, !tbaa !4
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  store ptr @ff_vvc_inv_dct2_32, ptr %98, align 8, !tbaa !4
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 2000
-  store ptr @ff_vvc_inv_dct8_4, ptr %99, align 8, !tbaa !4
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 2008
-  store ptr @ff_vvc_inv_dct8_8, ptr %100, align 8, !tbaa !4
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 2016
-  store ptr @ff_vvc_inv_dct8_16, ptr %101, align 8, !tbaa !4
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 2024
-  store ptr @ff_vvc_inv_dct8_32, ptr %102, align 8, !tbaa !4
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 1952
-  store ptr @ff_vvc_inv_dst7_4, ptr %103, align 8, !tbaa !4
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1960
-  store ptr @ff_vvc_inv_dst7_8, ptr %104, align 8, !tbaa !4
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 1968
-  store ptr @ff_vvc_inv_dst7_16, ptr %105, align 8, !tbaa !4
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1976
-  store ptr @ff_vvc_inv_dst7_32, ptr %106, align 8, !tbaa !4
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  store ptr @adaptive_color_transform_12, ptr %107, align 8, !tbaa !61
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  store ptr @lmcs_filter_luma_12, ptr %108, align 8, !tbaa !62
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  store ptr @vvc_h_loop_ladf_level_12, ptr %109, align 8, !tbaa !4
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 2072
-  store ptr @vvc_v_loop_ladf_level_12, ptr %110, align 8, !tbaa !4
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 2080
-  store ptr @vvc_h_loop_filter_luma_12, ptr %111, align 8, !tbaa !4
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 2088
-  store ptr @vvc_v_loop_filter_luma_12, ptr %112, align 8, !tbaa !4
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 2096
-  store ptr @vvc_h_loop_filter_chroma_12, ptr %113, align 8, !tbaa !4
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 2104
-  store ptr @vvc_v_loop_filter_chroma_12, ptr %114, align 8, !tbaa !4
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  br label %117
+ff_vvc_inter_dsp_init_12.exit:                    ; preds = %61
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1680
+  store ptr @avg_12, ptr %68, align 8, !tbaa !34
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1688
+  store ptr @w_avg_12, ptr %69, align 8, !tbaa !36
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  store ptr @dmvr_12, ptr %70, align 8, !tbaa !4
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1776
+  store ptr @dmvr_h_12, ptr %71, align 8, !tbaa !4
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1784
+  store ptr @dmvr_v_12, ptr %72, align 8, !tbaa !4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1792
+  store ptr @dmvr_hv_12, ptr %73, align 8, !tbaa !4
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1696
+  store ptr @put_ciip_12, ptr %74, align 8, !tbaa !37
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1704
+  store ptr @put_gpm_12, ptr %75, align 8, !tbaa !38
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1712
+  store ptr @fetch_samples_12, ptr %76, align 8, !tbaa !39
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1720
+  store ptr @bdof_fetch_samples_12, ptr %77, align 8, !tbaa !40
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1728
+  store ptr @apply_prof_12, ptr %78, align 8, !tbaa !41
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1736
+  store ptr @apply_prof_uni_12, ptr %79, align 8, !tbaa !42
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1744
+  store ptr @apply_prof_uni_w_12, ptr %80, align 8, !tbaa !43
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1752
+  store ptr @apply_bdof_12, ptr %81, align 8, !tbaa !44
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1760
+  store ptr @vvc_sad, ptr %82, align 8, !tbaa !45
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1808
+  store ptr @lmcs_scale_chroma_12, ptr %84, align 8, !tbaa !46
+  store ptr @intra_cclm_pred_12, ptr %83, align 8, !tbaa !48
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1816
+  store ptr @intra_pred_12, ptr %85, align 8, !tbaa !49
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1824
+  store ptr @pred_planar_12, ptr %86, align 8, !tbaa !50
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  store ptr @pred_mip_12, ptr %87, align 8, !tbaa !51
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1840
+  store ptr @pred_dc_12, ptr %88, align 8, !tbaa !52
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1848
+  store ptr @pred_v_12, ptr %89, align 8, !tbaa !53
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1856
+  store ptr @pred_h_12, ptr %90, align 8, !tbaa !54
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1864
+  store ptr @pred_angular_v_12, ptr %91, align 8, !tbaa !55
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1872
+  store ptr @pred_angular_h_12, ptr %92, align 8, !tbaa !56
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1880
+  store ptr @add_residual_12, ptr %93, align 8, !tbaa !57
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1888
+  store ptr @pred_residual_joint_12, ptr %94, align 8, !tbaa !59
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 2040
+  store ptr @transform_bdpcm_12, ptr %95, align 8, !tbaa !60
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 1896
+  store ptr @ff_vvc_inv_dct2_2, ptr %96, align 8, !tbaa !4
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 1936
+  store ptr @ff_vvc_inv_dct2_64, ptr %97, align 8, !tbaa !4
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1904
+  store ptr @ff_vvc_inv_dct2_4, ptr %98, align 8, !tbaa !4
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 1912
+  store ptr @ff_vvc_inv_dct2_8, ptr %99, align 8, !tbaa !4
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 1920
+  store ptr @ff_vvc_inv_dct2_16, ptr %100, align 8, !tbaa !4
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1928
+  store ptr @ff_vvc_inv_dct2_32, ptr %101, align 8, !tbaa !4
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 2000
+  store ptr @ff_vvc_inv_dct8_4, ptr %102, align 8, !tbaa !4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 2008
+  store ptr @ff_vvc_inv_dct8_8, ptr %103, align 8, !tbaa !4
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 2016
+  store ptr @ff_vvc_inv_dct8_16, ptr %104, align 8, !tbaa !4
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 2024
+  store ptr @ff_vvc_inv_dct8_32, ptr %105, align 8, !tbaa !4
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1952
+  store ptr @ff_vvc_inv_dst7_4, ptr %106, align 8, !tbaa !4
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1960
+  store ptr @ff_vvc_inv_dst7_8, ptr %107, align 8, !tbaa !4
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1968
+  store ptr @ff_vvc_inv_dst7_16, ptr %108, align 8, !tbaa !4
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 1976
+  store ptr @ff_vvc_inv_dst7_32, ptr %109, align 8, !tbaa !4
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 2048
+  store ptr @adaptive_color_transform_12, ptr %110, align 8, !tbaa !61
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 2056
+  store ptr @lmcs_filter_luma_12, ptr %111, align 8, !tbaa !62
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 2064
+  store ptr @vvc_h_loop_ladf_level_12, ptr %112, align 8, !tbaa !4
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 2072
+  store ptr @vvc_v_loop_ladf_level_12, ptr %113, align 8, !tbaa !4
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 2080
+  store ptr @vvc_h_loop_filter_luma_12, ptr %114, align 8, !tbaa !4
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 2088
+  store ptr @vvc_v_loop_filter_luma_12, ptr %115, align 8, !tbaa !4
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 2096
+  store ptr @vvc_h_loop_filter_chroma_12, ptr %116, align 8, !tbaa !4
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 2104
+  store ptr @vvc_v_loop_filter_chroma_12, ptr %117, align 8, !tbaa !4
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  br label %120
 
-.preheader.i24:                                   ; preds = %117
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  br label %119
+.preheader.i24:                                   ; preds = %120
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 2184
+  br label %122
 
-117:                                              ; preds = %117, %ff_vvc_inter_dsp_init_12.exit
-  %indvars.iv.i21 = phi i64 [ 0, %ff_vvc_inter_dsp_init_12.exit ], [ %indvars.iv.next.i22, %117 ]
-  %118 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv.i21
-  store ptr @sao_band_filter_12, ptr %118, align 8, !tbaa !4
+120:                                              ; preds = %120, %ff_vvc_inter_dsp_init_12.exit
+  %indvars.iv.i21 = phi i64 [ 0, %ff_vvc_inter_dsp_init_12.exit ], [ %indvars.iv.next.i22, %120 ]
+  %121 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv.i21
+  store ptr @sao_band_filter_12, ptr %121, align 8, !tbaa !4
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 9
-  br i1 %exitcond.not.i23, label %.preheader.i24, label %117, !llvm.loop !64
+  br i1 %exitcond.not.i23, label %.preheader.i24, label %120, !llvm.loop !64
 
-119:                                              ; preds = %119, %.preheader.i24
-  %indvars.iv15.i = phi i64 [ 0, %.preheader.i24 ], [ %indvars.iv.next16.i, %119 ]
-  %120 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv15.i
-  store ptr @sao_edge_filter_12, ptr %120, align 8, !tbaa !4
+122:                                              ; preds = %122, %.preheader.i24
+  %indvars.iv15.i = phi i64 [ 0, %.preheader.i24 ], [ %indvars.iv.next16.i, %122 ]
+  %123 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv15.i
+  store ptr @sao_edge_filter_12, ptr %123, align 8, !tbaa !4
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next16.i, 9
-  br i1 %exitcond18.not.i, label %ff_vvc_sao_dsp_init_12.exit, label %119, !llvm.loop !65
+  br i1 %exitcond18.not.i, label %ff_vvc_sao_dsp_init_12.exit, label %122, !llvm.loop !65
 
 .preheader238:                                    ; preds = %2, %.preheader238
   %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %.preheader238 ], [ 0, %2 ]
-  %121 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv.i25
-  store ptr @put_pixels_10, ptr %121, align 8, !tbaa !4
+  %124 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv.i25
+  store ptr @put_pixels_10, ptr %124, align 8, !tbaa !4
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 7
   br i1 %exitcond.not.i27, label %.preheader171.i28, label %.preheader238, !llvm.loop !66
 
 .preheader171.i28:                                ; preds = %.preheader238, %.preheader171.i28
   %indvars.iv198.i29 = phi i64 [ %indvars.iv.next199.i30, %.preheader171.i28 ], [ 0, %.preheader238 ]
-  %122 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv198.i29, i64 0, i64 1
-  store ptr @put_luma_h_10, ptr %122, align 8, !tbaa !4
+  %125 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv198.i29
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  store ptr @put_luma_h_10, ptr %126, align 8, !tbaa !4
   %indvars.iv.next199.i30 = add nuw nsw i64 %indvars.iv198.i29, 1
   %exitcond201.not.i31 = icmp eq i64 %indvars.iv.next199.i30, 7
   br i1 %exitcond201.not.i31, label %.preheader170.i32, label %.preheader171.i28, !llvm.loop !67
 
 .preheader170.i32:                                ; preds = %.preheader171.i28, %.preheader170.i32
   %indvars.iv202.i33 = phi i64 [ %indvars.iv.next203.i34, %.preheader170.i32 ], [ 0, %.preheader171.i28 ]
-  %123 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv202.i33, i64 1
-  store ptr @put_luma_v_10, ptr %123, align 8, !tbaa !4
+  %127 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv202.i33
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  store ptr @put_luma_v_10, ptr %128, align 8, !tbaa !4
   %indvars.iv.next203.i34 = add nuw nsw i64 %indvars.iv202.i33, 1
   %exitcond205.not.i35 = icmp eq i64 %indvars.iv.next203.i34, 7
   br i1 %exitcond205.not.i35, label %.preheader169.i36, label %.preheader170.i32, !llvm.loop !68
 
 .preheader168.i40:                                ; preds = %.preheader169.i36
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  br label %126
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  br label %132
 
 .preheader169.i36:                                ; preds = %.preheader170.i32, %.preheader169.i36
   %indvars.iv206.i37 = phi i64 [ %indvars.iv.next207.i38, %.preheader169.i36 ], [ 0, %.preheader170.i32 ]
-  %125 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv206.i37, i64 1, i64 1
-  store ptr @put_luma_hv_10, ptr %125, align 8, !tbaa !4
+  %130 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv206.i37
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
+  store ptr @put_luma_hv_10, ptr %131, align 8, !tbaa !4
   %indvars.iv.next207.i38 = add nuw nsw i64 %indvars.iv206.i37, 1
   %exitcond209.not.i39 = icmp eq i64 %indvars.iv.next207.i38, 7
   br i1 %exitcond209.not.i39, label %.preheader168.i40, label %.preheader169.i36, !llvm.loop !69
 
-126:                                              ; preds = %126, %.preheader168.i40
-  %indvars.iv210.i41 = phi i64 [ 0, %.preheader168.i40 ], [ %indvars.iv.next211.i42, %126 ]
-  %127 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %124, i64 %indvars.iv210.i41
-  store ptr @put_uni_pixels_10, ptr %127, align 8, !tbaa !4
+132:                                              ; preds = %132, %.preheader168.i40
+  %indvars.iv210.i41 = phi i64 [ 0, %.preheader168.i40 ], [ %indvars.iv.next211.i42, %132 ]
+  %133 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %129, i64 %indvars.iv210.i41
+  store ptr @put_uni_pixels_10, ptr %133, align 8, !tbaa !4
   %indvars.iv.next211.i42 = add nuw nsw i64 %indvars.iv210.i41, 1
   %exitcond213.not.i43 = icmp eq i64 %indvars.iv.next211.i42, 7
-  br i1 %exitcond213.not.i43, label %.preheader167.i44, label %126, !llvm.loop !70
+  br i1 %exitcond213.not.i43, label %.preheader167.i44, label %132, !llvm.loop !70
 
-.preheader167.i44:                                ; preds = %126, %.preheader167.i44
-  %indvars.iv214.i45 = phi i64 [ %indvars.iv.next215.i46, %.preheader167.i44 ], [ 0, %126 ]
-  %128 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv214.i45
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 456
-  store ptr @put_uni_luma_h_10, ptr %129, align 8, !tbaa !4
+.preheader167.i44:                                ; preds = %132, %.preheader167.i44
+  %indvars.iv214.i45 = phi i64 [ %indvars.iv.next215.i46, %.preheader167.i44 ], [ 0, %132 ]
+  %134 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv214.i45
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 456
+  store ptr @put_uni_luma_h_10, ptr %135, align 8, !tbaa !4
   %indvars.iv.next215.i46 = add nuw nsw i64 %indvars.iv214.i45, 1
   %exitcond217.not.i47 = icmp eq i64 %indvars.iv.next215.i46, 7
   br i1 %exitcond217.not.i47, label %.preheader166.i48, label %.preheader167.i44, !llvm.loop !71
 
 .preheader166.i48:                                ; preds = %.preheader167.i44, %.preheader166.i48
   %indvars.iv218.i49 = phi i64 [ %indvars.iv.next219.i50, %.preheader166.i48 ], [ 0, %.preheader167.i44 ]
-  %130 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv218.i49
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 464
-  store ptr @put_uni_luma_v_10, ptr %131, align 8, !tbaa !4
+  %136 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv218.i49
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 464
+  store ptr @put_uni_luma_v_10, ptr %137, align 8, !tbaa !4
   %indvars.iv.next219.i50 = add nuw nsw i64 %indvars.iv218.i49, 1
   %exitcond221.not.i51 = icmp eq i64 %indvars.iv.next219.i50, 7
   br i1 %exitcond221.not.i51, label %.preheader165.i52, label %.preheader166.i48, !llvm.loop !72
 
 .preheader164.i56:                                ; preds = %.preheader165.i52
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  br label %135
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  br label %141
 
 .preheader165.i52:                                ; preds = %.preheader166.i48, %.preheader165.i52
   %indvars.iv222.i53 = phi i64 [ %indvars.iv.next223.i54, %.preheader165.i52 ], [ 0, %.preheader166.i48 ]
-  %133 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv222.i53
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 472
-  store ptr @put_uni_luma_hv_10, ptr %134, align 8, !tbaa !4
+  %139 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv222.i53
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 472
+  store ptr @put_uni_luma_hv_10, ptr %140, align 8, !tbaa !4
   %indvars.iv.next223.i54 = add nuw nsw i64 %indvars.iv222.i53, 1
   %exitcond225.not.i55 = icmp eq i64 %indvars.iv.next223.i54, 7
   br i1 %exitcond225.not.i55, label %.preheader164.i56, label %.preheader165.i52, !llvm.loop !73
 
-135:                                              ; preds = %135, %.preheader164.i56
-  %indvars.iv226.i57 = phi i64 [ 0, %.preheader164.i56 ], [ %indvars.iv.next227.i58, %135 ]
-  %136 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %132, i64 %indvars.iv226.i57
-  store ptr @put_uni_w_pixels_10, ptr %136, align 8, !tbaa !4
+141:                                              ; preds = %141, %.preheader164.i56
+  %indvars.iv226.i57 = phi i64 [ 0, %.preheader164.i56 ], [ %indvars.iv.next227.i58, %141 ]
+  %142 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %138, i64 %indvars.iv226.i57
+  store ptr @put_uni_w_pixels_10, ptr %142, align 8, !tbaa !4
   %indvars.iv.next227.i58 = add nuw nsw i64 %indvars.iv226.i57, 1
   %exitcond229.not.i59 = icmp eq i64 %indvars.iv.next227.i58, 7
-  br i1 %exitcond229.not.i59, label %.preheader163.i60, label %135, !llvm.loop !74
+  br i1 %exitcond229.not.i59, label %.preheader163.i60, label %141, !llvm.loop !74
 
-.preheader163.i60:                                ; preds = %135, %.preheader163.i60
-  %indvars.iv230.i61 = phi i64 [ %indvars.iv.next231.i62, %.preheader163.i60 ], [ 0, %135 ]
-  %137 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv230.i61
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 904
-  store ptr @put_uni_luma_w_h_10, ptr %138, align 8, !tbaa !4
+.preheader163.i60:                                ; preds = %141, %.preheader163.i60
+  %indvars.iv230.i61 = phi i64 [ %indvars.iv.next231.i62, %.preheader163.i60 ], [ 0, %141 ]
+  %143 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv230.i61
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 904
+  store ptr @put_uni_luma_w_h_10, ptr %144, align 8, !tbaa !4
   %indvars.iv.next231.i62 = add nuw nsw i64 %indvars.iv230.i61, 1
   %exitcond233.not.i63 = icmp eq i64 %indvars.iv.next231.i62, 7
   br i1 %exitcond233.not.i63, label %.preheader162.i64, label %.preheader163.i60, !llvm.loop !75
 
 .preheader162.i64:                                ; preds = %.preheader163.i60, %.preheader162.i64
   %indvars.iv234.i65 = phi i64 [ %indvars.iv.next235.i66, %.preheader162.i64 ], [ 0, %.preheader163.i60 ]
-  %139 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv234.i65
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 912
-  store ptr @put_uni_luma_w_v_10, ptr %140, align 8, !tbaa !4
+  %145 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv234.i65
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 912
+  store ptr @put_uni_luma_w_v_10, ptr %146, align 8, !tbaa !4
   %indvars.iv.next235.i66 = add nuw nsw i64 %indvars.iv234.i65, 1
   %exitcond237.not.i67 = icmp eq i64 %indvars.iv.next235.i66, 7
   br i1 %exitcond237.not.i67, label %.preheader161.i68, label %.preheader162.i64, !llvm.loop !76
 
 .preheader160.i72:                                ; preds = %.preheader161.i68
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  br label %144
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  br label %150
 
 .preheader161.i68:                                ; preds = %.preheader162.i64, %.preheader161.i68
   %indvars.iv238.i69 = phi i64 [ %indvars.iv.next239.i70, %.preheader161.i68 ], [ 0, %.preheader162.i64 ]
-  %142 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv238.i69
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 920
-  store ptr @put_uni_luma_w_hv_10, ptr %143, align 8, !tbaa !4
+  %148 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv238.i69
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 920
+  store ptr @put_uni_luma_w_hv_10, ptr %149, align 8, !tbaa !4
   %indvars.iv.next239.i70 = add nuw nsw i64 %indvars.iv238.i69, 1
   %exitcond241.not.i71 = icmp eq i64 %indvars.iv.next239.i70, 7
   br i1 %exitcond241.not.i71, label %.preheader160.i72, label %.preheader161.i68, !llvm.loop !77
 
-144:                                              ; preds = %144, %.preheader160.i72
-  %indvars.iv242.i73 = phi i64 [ 0, %.preheader160.i72 ], [ %indvars.iv.next243.i74, %144 ]
-  %145 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %141, i64 %indvars.iv242.i73
-  store ptr @put_pixels_10, ptr %145, align 8, !tbaa !4
+150:                                              ; preds = %150, %.preheader160.i72
+  %indvars.iv242.i73 = phi i64 [ 0, %.preheader160.i72 ], [ %indvars.iv.next243.i74, %150 ]
+  %151 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %147, i64 %indvars.iv242.i73
+  store ptr @put_pixels_10, ptr %151, align 8, !tbaa !4
   %indvars.iv.next243.i74 = add nuw nsw i64 %indvars.iv242.i73, 1
   %exitcond245.not.i75 = icmp eq i64 %indvars.iv.next243.i74, 7
-  br i1 %exitcond245.not.i75, label %.preheader159.i76, label %144, !llvm.loop !78
+  br i1 %exitcond245.not.i75, label %.preheader159.i76, label %150, !llvm.loop !78
 
-.preheader159.i76:                                ; preds = %144, %.preheader159.i76
-  %indvars.iv246.i77 = phi i64 [ %indvars.iv.next247.i78, %.preheader159.i76 ], [ 0, %144 ]
-  %146 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv246.i77
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 232
-  store ptr @put_chroma_h_10, ptr %147, align 8, !tbaa !4
+.preheader159.i76:                                ; preds = %150, %.preheader159.i76
+  %indvars.iv246.i77 = phi i64 [ %indvars.iv.next247.i78, %.preheader159.i76 ], [ 0, %150 ]
+  %152 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv246.i77
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 232
+  store ptr @put_chroma_h_10, ptr %153, align 8, !tbaa !4
   %indvars.iv.next247.i78 = add nuw nsw i64 %indvars.iv246.i77, 1
   %exitcond249.not.i79 = icmp eq i64 %indvars.iv.next247.i78, 7
   br i1 %exitcond249.not.i79, label %.preheader158.i80, label %.preheader159.i76, !llvm.loop !79
 
 .preheader158.i80:                                ; preds = %.preheader159.i76, %.preheader158.i80
   %indvars.iv250.i81 = phi i64 [ %indvars.iv.next251.i82, %.preheader158.i80 ], [ 0, %.preheader159.i76 ]
-  %148 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv250.i81
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 240
-  store ptr @put_chroma_v_10, ptr %149, align 8, !tbaa !4
+  %154 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv250.i81
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 240
+  store ptr @put_chroma_v_10, ptr %155, align 8, !tbaa !4
   %indvars.iv.next251.i82 = add nuw nsw i64 %indvars.iv250.i81, 1
   %exitcond253.not.i83 = icmp eq i64 %indvars.iv.next251.i82, 7
   br i1 %exitcond253.not.i83, label %.preheader157.i84, label %.preheader158.i80, !llvm.loop !80
 
 .preheader156.i88:                                ; preds = %.preheader157.i84
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  br label %153
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  br label %159
 
 .preheader157.i84:                                ; preds = %.preheader158.i80, %.preheader157.i84
   %indvars.iv254.i85 = phi i64 [ %indvars.iv.next255.i86, %.preheader157.i84 ], [ 0, %.preheader158.i80 ]
-  %151 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv254.i85
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 248
-  store ptr @put_chroma_hv_10, ptr %152, align 8, !tbaa !4
+  %157 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv254.i85
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 248
+  store ptr @put_chroma_hv_10, ptr %158, align 8, !tbaa !4
   %indvars.iv.next255.i86 = add nuw nsw i64 %indvars.iv254.i85, 1
   %exitcond257.not.i87 = icmp eq i64 %indvars.iv.next255.i86, 7
   br i1 %exitcond257.not.i87, label %.preheader156.i88, label %.preheader157.i84, !llvm.loop !81
 
-153:                                              ; preds = %153, %.preheader156.i88
-  %indvars.iv258.i89 = phi i64 [ 0, %.preheader156.i88 ], [ %indvars.iv.next259.i90, %153 ]
-  %154 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %150, i64 %indvars.iv258.i89
-  store ptr @put_uni_pixels_10, ptr %154, align 8, !tbaa !4
+159:                                              ; preds = %159, %.preheader156.i88
+  %indvars.iv258.i89 = phi i64 [ 0, %.preheader156.i88 ], [ %indvars.iv.next259.i90, %159 ]
+  %160 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %156, i64 %indvars.iv258.i89
+  store ptr @put_uni_pixels_10, ptr %160, align 8, !tbaa !4
   %indvars.iv.next259.i90 = add nuw nsw i64 %indvars.iv258.i89, 1
   %exitcond261.not.i91 = icmp eq i64 %indvars.iv.next259.i90, 7
-  br i1 %exitcond261.not.i91, label %.preheader155.i92, label %153, !llvm.loop !82
+  br i1 %exitcond261.not.i91, label %.preheader155.i92, label %159, !llvm.loop !82
 
-.preheader155.i92:                                ; preds = %153, %.preheader155.i92
-  %indvars.iv262.i93 = phi i64 [ %indvars.iv.next263.i94, %.preheader155.i92 ], [ 0, %153 ]
-  %155 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv262.i93
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 680
-  store ptr @put_uni_chroma_h_10, ptr %156, align 8, !tbaa !4
+.preheader155.i92:                                ; preds = %159, %.preheader155.i92
+  %indvars.iv262.i93 = phi i64 [ %indvars.iv.next263.i94, %.preheader155.i92 ], [ 0, %159 ]
+  %161 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv262.i93
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 680
+  store ptr @put_uni_chroma_h_10, ptr %162, align 8, !tbaa !4
   %indvars.iv.next263.i94 = add nuw nsw i64 %indvars.iv262.i93, 1
   %exitcond265.not.i95 = icmp eq i64 %indvars.iv.next263.i94, 7
   br i1 %exitcond265.not.i95, label %.preheader154.i96, label %.preheader155.i92, !llvm.loop !83
 
 .preheader154.i96:                                ; preds = %.preheader155.i92, %.preheader154.i96
   %indvars.iv266.i97 = phi i64 [ %indvars.iv.next267.i98, %.preheader154.i96 ], [ 0, %.preheader155.i92 ]
-  %157 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv266.i97
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 688
-  store ptr @put_uni_chroma_v_10, ptr %158, align 8, !tbaa !4
+  %163 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv266.i97
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 688
+  store ptr @put_uni_chroma_v_10, ptr %164, align 8, !tbaa !4
   %indvars.iv.next267.i98 = add nuw nsw i64 %indvars.iv266.i97, 1
   %exitcond269.not.i99 = icmp eq i64 %indvars.iv.next267.i98, 7
   br i1 %exitcond269.not.i99, label %.preheader153.i100, label %.preheader154.i96, !llvm.loop !84
 
 .preheader152.i104:                               ; preds = %.preheader153.i100
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  br label %162
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  br label %168
 
 .preheader153.i100:                               ; preds = %.preheader154.i96, %.preheader153.i100
   %indvars.iv270.i101 = phi i64 [ %indvars.iv.next271.i102, %.preheader153.i100 ], [ 0, %.preheader154.i96 ]
-  %160 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv270.i101
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 696
-  store ptr @put_uni_chroma_hv_10, ptr %161, align 8, !tbaa !4
+  %166 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv270.i101
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 696
+  store ptr @put_uni_chroma_hv_10, ptr %167, align 8, !tbaa !4
   %indvars.iv.next271.i102 = add nuw nsw i64 %indvars.iv270.i101, 1
   %exitcond273.not.i103 = icmp eq i64 %indvars.iv.next271.i102, 7
   br i1 %exitcond273.not.i103, label %.preheader152.i104, label %.preheader153.i100, !llvm.loop !85
 
-162:                                              ; preds = %162, %.preheader152.i104
-  %indvars.iv274.i105 = phi i64 [ 0, %.preheader152.i104 ], [ %indvars.iv.next275.i106, %162 ]
-  %163 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %159, i64 %indvars.iv274.i105
-  store ptr @put_uni_w_pixels_10, ptr %163, align 8, !tbaa !4
+168:                                              ; preds = %168, %.preheader152.i104
+  %indvars.iv274.i105 = phi i64 [ 0, %.preheader152.i104 ], [ %indvars.iv.next275.i106, %168 ]
+  %169 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %165, i64 %indvars.iv274.i105
+  store ptr @put_uni_w_pixels_10, ptr %169, align 8, !tbaa !4
   %indvars.iv.next275.i106 = add nuw nsw i64 %indvars.iv274.i105, 1
   %exitcond277.not.i107 = icmp eq i64 %indvars.iv.next275.i106, 7
-  br i1 %exitcond277.not.i107, label %.preheader151.i108, label %162, !llvm.loop !86
+  br i1 %exitcond277.not.i107, label %.preheader151.i108, label %168, !llvm.loop !86
 
-.preheader151.i108:                               ; preds = %162, %.preheader151.i108
-  %indvars.iv278.i109 = phi i64 [ %indvars.iv.next279.i110, %.preheader151.i108 ], [ 0, %162 ]
-  %164 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv278.i109
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 1128
-  store ptr @put_uni_chroma_w_h_10, ptr %165, align 8, !tbaa !4
+.preheader151.i108:                               ; preds = %168, %.preheader151.i108
+  %indvars.iv278.i109 = phi i64 [ %indvars.iv.next279.i110, %.preheader151.i108 ], [ 0, %168 ]
+  %170 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv278.i109
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 1128
+  store ptr @put_uni_chroma_w_h_10, ptr %171, align 8, !tbaa !4
   %indvars.iv.next279.i110 = add nuw nsw i64 %indvars.iv278.i109, 1
   %exitcond281.not.i111 = icmp eq i64 %indvars.iv.next279.i110, 7
   br i1 %exitcond281.not.i111, label %.preheader150.i112, label %.preheader151.i108, !llvm.loop !87
 
 .preheader150.i112:                               ; preds = %.preheader151.i108, %.preheader150.i112
   %indvars.iv282.i113 = phi i64 [ %indvars.iv.next283.i114, %.preheader150.i112 ], [ 0, %.preheader151.i108 ]
-  %166 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv282.i113
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 1136
-  store ptr @put_uni_chroma_w_v_10, ptr %167, align 8, !tbaa !4
+  %172 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv282.i113
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 1136
+  store ptr @put_uni_chroma_w_v_10, ptr %173, align 8, !tbaa !4
   %indvars.iv.next283.i114 = add nuw nsw i64 %indvars.iv282.i113, 1
   %exitcond285.not.i115 = icmp eq i64 %indvars.iv.next283.i114, 7
   br i1 %exitcond285.not.i115, label %.preheader149.i116, label %.preheader150.i112, !llvm.loop !88
 
 .preheader.i120:                                  ; preds = %.preheader149.i116
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 1512
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 1568
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 1624
-  br label %176
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 1344
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 1400
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 1456
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 1512
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 1568
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  br label %182
 
 .preheader149.i116:                               ; preds = %.preheader150.i112, %.preheader149.i116
   %indvars.iv286.i117 = phi i64 [ %indvars.iv.next287.i118, %.preheader149.i116 ], [ 0, %.preheader150.i112 ]
-  %174 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv286.i117
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 1144
-  store ptr @put_uni_chroma_w_hv_10, ptr %175, align 8, !tbaa !4
+  %180 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv286.i117
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 1144
+  store ptr @put_uni_chroma_w_hv_10, ptr %181, align 8, !tbaa !4
   %indvars.iv.next287.i118 = add nuw nsw i64 %indvars.iv286.i117, 1
   %exitcond289.not.i119 = icmp eq i64 %indvars.iv.next287.i118, 7
   br i1 %exitcond289.not.i119, label %.preheader.i120, label %.preheader149.i116, !llvm.loop !89
 
-176:                                              ; preds = %176, %.preheader.i120
-  %indvars.iv290.i121 = phi i64 [ 0, %.preheader.i120 ], [ %indvars.iv.next291.i122, %176 ]
-  %177 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv290.i121
-  store ptr @put_luma_scaled_10, ptr %177, align 8, !tbaa !4
-  %178 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv290.i121
-  store ptr @put_chroma_scaled_10, ptr %178, align 8, !tbaa !4
-  %179 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv290.i121
-  store ptr @put_uni_luma_scaled_10, ptr %179, align 8, !tbaa !4
-  %180 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv290.i121
-  store ptr @put_uni_chroma_scaled_10, ptr %180, align 8, !tbaa !4
-  %181 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv290.i121
-  store ptr @put_uni_luma_w_scaled_10, ptr %181, align 8, !tbaa !4
-  %182 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv290.i121
-  store ptr @put_uni_chroma_w_scaled_10, ptr %182, align 8, !tbaa !4
+182:                                              ; preds = %182, %.preheader.i120
+  %indvars.iv290.i121 = phi i64 [ 0, %.preheader.i120 ], [ %indvars.iv.next291.i122, %182 ]
+  %183 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv290.i121
+  store ptr @put_luma_scaled_10, ptr %183, align 8, !tbaa !4
+  %184 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv290.i121
+  store ptr @put_chroma_scaled_10, ptr %184, align 8, !tbaa !4
+  %185 = getelementptr inbounds nuw ptr, ptr %176, i64 %indvars.iv290.i121
+  store ptr @put_uni_luma_scaled_10, ptr %185, align 8, !tbaa !4
+  %186 = getelementptr inbounds nuw ptr, ptr %177, i64 %indvars.iv290.i121
+  store ptr @put_uni_chroma_scaled_10, ptr %186, align 8, !tbaa !4
+  %187 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv290.i121
+  store ptr @put_uni_luma_w_scaled_10, ptr %187, align 8, !tbaa !4
+  %188 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv290.i121
+  store ptr @put_uni_chroma_w_scaled_10, ptr %188, align 8, !tbaa !4
   %indvars.iv.next291.i122 = add nuw nsw i64 %indvars.iv290.i121, 1
   %exitcond293.not.i123 = icmp eq i64 %indvars.iv.next291.i122, 7
-  br i1 %exitcond293.not.i123, label %ff_vvc_inter_dsp_init_10.exit, label %176, !llvm.loop !90
+  br i1 %exitcond293.not.i123, label %ff_vvc_inter_dsp_init_10.exit, label %182, !llvm.loop !90
 
-ff_vvc_inter_dsp_init_10.exit:                    ; preds = %176
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 1680
-  store ptr @avg_10, ptr %183, align 8, !tbaa !34
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  store ptr @w_avg_10, ptr %184, align 8, !tbaa !36
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  store ptr @dmvr_10, ptr %185, align 8, !tbaa !4
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 1776
-  store ptr @dmvr_h_10, ptr %186, align 8, !tbaa !4
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 1784
-  store ptr @dmvr_v_10, ptr %187, align 8, !tbaa !4
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  store ptr @dmvr_hv_10, ptr %188, align 8, !tbaa !4
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  store ptr @put_ciip_10, ptr %189, align 8, !tbaa !37
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 1704
-  store ptr @put_gpm_10, ptr %190, align 8, !tbaa !38
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 1712
-  store ptr @fetch_samples_10, ptr %191, align 8, !tbaa !39
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 1720
-  store ptr @bdof_fetch_samples_10, ptr %192, align 8, !tbaa !40
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 1728
-  store ptr @apply_prof_10, ptr %193, align 8, !tbaa !41
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 1736
-  store ptr @apply_prof_uni_10, ptr %194, align 8, !tbaa !42
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  store ptr @apply_prof_uni_w_10, ptr %195, align 8, !tbaa !43
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 1752
-  store ptr @apply_bdof_10, ptr %196, align 8, !tbaa !44
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 1760
-  store ptr @vvc_sad, ptr %197, align 8, !tbaa !45
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 1800
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 1808
-  store ptr @lmcs_scale_chroma_10, ptr %199, align 8, !tbaa !46
-  store ptr @intra_cclm_pred_10, ptr %198, align 8, !tbaa !48
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  store ptr @intra_pred_10, ptr %200, align 8, !tbaa !49
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  store ptr @pred_planar_10, ptr %201, align 8, !tbaa !50
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  store ptr @pred_mip_10, ptr %202, align 8, !tbaa !51
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 1840
-  store ptr @pred_dc_10, ptr %203, align 8, !tbaa !52
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 1848
-  store ptr @pred_v_10, ptr %204, align 8, !tbaa !53
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 1856
-  store ptr @pred_h_10, ptr %205, align 8, !tbaa !54
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 1864
-  store ptr @pred_angular_v_10, ptr %206, align 8, !tbaa !55
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 1872
-  store ptr @pred_angular_h_10, ptr %207, align 8, !tbaa !56
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  store ptr @add_residual_10, ptr %208, align 8, !tbaa !57
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 1888
-  store ptr @pred_residual_joint_10, ptr %209, align 8, !tbaa !59
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 2040
-  store ptr @transform_bdpcm_10, ptr %210, align 8, !tbaa !60
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 1896
-  store ptr @ff_vvc_inv_dct2_2, ptr %211, align 8, !tbaa !4
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 1936
-  store ptr @ff_vvc_inv_dct2_64, ptr %212, align 8, !tbaa !4
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 1904
-  store ptr @ff_vvc_inv_dct2_4, ptr %213, align 8, !tbaa !4
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 1912
-  store ptr @ff_vvc_inv_dct2_8, ptr %214, align 8, !tbaa !4
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 1920
-  store ptr @ff_vvc_inv_dct2_16, ptr %215, align 8, !tbaa !4
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  store ptr @ff_vvc_inv_dct2_32, ptr %216, align 8, !tbaa !4
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 2000
-  store ptr @ff_vvc_inv_dct8_4, ptr %217, align 8, !tbaa !4
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 2008
-  store ptr @ff_vvc_inv_dct8_8, ptr %218, align 8, !tbaa !4
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 2016
-  store ptr @ff_vvc_inv_dct8_16, ptr %219, align 8, !tbaa !4
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 2024
-  store ptr @ff_vvc_inv_dct8_32, ptr %220, align 8, !tbaa !4
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 1952
-  store ptr @ff_vvc_inv_dst7_4, ptr %221, align 8, !tbaa !4
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 1960
-  store ptr @ff_vvc_inv_dst7_8, ptr %222, align 8, !tbaa !4
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 1968
-  store ptr @ff_vvc_inv_dst7_16, ptr %223, align 8, !tbaa !4
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 1976
-  store ptr @ff_vvc_inv_dst7_32, ptr %224, align 8, !tbaa !4
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  store ptr @adaptive_color_transform_10, ptr %225, align 8, !tbaa !61
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  store ptr @lmcs_filter_luma_10, ptr %226, align 8, !tbaa !62
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  store ptr @vvc_h_loop_ladf_level_10, ptr %227, align 8, !tbaa !4
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 2072
-  store ptr @vvc_v_loop_ladf_level_10, ptr %228, align 8, !tbaa !4
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 2080
-  store ptr @vvc_h_loop_filter_luma_10, ptr %229, align 8, !tbaa !4
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 2088
-  store ptr @vvc_v_loop_filter_luma_10, ptr %230, align 8, !tbaa !4
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 2096
-  store ptr @vvc_h_loop_filter_chroma_10, ptr %231, align 8, !tbaa !4
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 2104
-  store ptr @vvc_v_loop_filter_chroma_10, ptr %232, align 8, !tbaa !4
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  br label %235
+ff_vvc_inter_dsp_init_10.exit:                    ; preds = %182
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 1680
+  store ptr @avg_10, ptr %189, align 8, !tbaa !34
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 1688
+  store ptr @w_avg_10, ptr %190, align 8, !tbaa !36
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  store ptr @dmvr_10, ptr %191, align 8, !tbaa !4
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 1776
+  store ptr @dmvr_h_10, ptr %192, align 8, !tbaa !4
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 1784
+  store ptr @dmvr_v_10, ptr %193, align 8, !tbaa !4
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 1792
+  store ptr @dmvr_hv_10, ptr %194, align 8, !tbaa !4
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 1696
+  store ptr @put_ciip_10, ptr %195, align 8, !tbaa !37
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 1704
+  store ptr @put_gpm_10, ptr %196, align 8, !tbaa !38
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 1712
+  store ptr @fetch_samples_10, ptr %197, align 8, !tbaa !39
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 1720
+  store ptr @bdof_fetch_samples_10, ptr %198, align 8, !tbaa !40
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 1728
+  store ptr @apply_prof_10, ptr %199, align 8, !tbaa !41
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1736
+  store ptr @apply_prof_uni_10, ptr %200, align 8, !tbaa !42
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 1744
+  store ptr @apply_prof_uni_w_10, ptr %201, align 8, !tbaa !43
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 1752
+  store ptr @apply_bdof_10, ptr %202, align 8, !tbaa !44
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 1760
+  store ptr @vvc_sad, ptr %203, align 8, !tbaa !45
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 1808
+  store ptr @lmcs_scale_chroma_10, ptr %205, align 8, !tbaa !46
+  store ptr @intra_cclm_pred_10, ptr %204, align 8, !tbaa !48
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 1816
+  store ptr @intra_pred_10, ptr %206, align 8, !tbaa !49
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 1824
+  store ptr @pred_planar_10, ptr %207, align 8, !tbaa !50
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  store ptr @pred_mip_10, ptr %208, align 8, !tbaa !51
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 1840
+  store ptr @pred_dc_10, ptr %209, align 8, !tbaa !52
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 1848
+  store ptr @pred_v_10, ptr %210, align 8, !tbaa !53
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 1856
+  store ptr @pred_h_10, ptr %211, align 8, !tbaa !54
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 1864
+  store ptr @pred_angular_v_10, ptr %212, align 8, !tbaa !55
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 1872
+  store ptr @pred_angular_h_10, ptr %213, align 8, !tbaa !56
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 1880
+  store ptr @add_residual_10, ptr %214, align 8, !tbaa !57
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 1888
+  store ptr @pred_residual_joint_10, ptr %215, align 8, !tbaa !59
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 2040
+  store ptr @transform_bdpcm_10, ptr %216, align 8, !tbaa !60
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 1896
+  store ptr @ff_vvc_inv_dct2_2, ptr %217, align 8, !tbaa !4
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 1936
+  store ptr @ff_vvc_inv_dct2_64, ptr %218, align 8, !tbaa !4
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 1904
+  store ptr @ff_vvc_inv_dct2_4, ptr %219, align 8, !tbaa !4
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 1912
+  store ptr @ff_vvc_inv_dct2_8, ptr %220, align 8, !tbaa !4
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 1920
+  store ptr @ff_vvc_inv_dct2_16, ptr %221, align 8, !tbaa !4
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 1928
+  store ptr @ff_vvc_inv_dct2_32, ptr %222, align 8, !tbaa !4
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 2000
+  store ptr @ff_vvc_inv_dct8_4, ptr %223, align 8, !tbaa !4
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 2008
+  store ptr @ff_vvc_inv_dct8_8, ptr %224, align 8, !tbaa !4
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 2016
+  store ptr @ff_vvc_inv_dct8_16, ptr %225, align 8, !tbaa !4
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 2024
+  store ptr @ff_vvc_inv_dct8_32, ptr %226, align 8, !tbaa !4
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 1952
+  store ptr @ff_vvc_inv_dst7_4, ptr %227, align 8, !tbaa !4
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 1960
+  store ptr @ff_vvc_inv_dst7_8, ptr %228, align 8, !tbaa !4
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 1968
+  store ptr @ff_vvc_inv_dst7_16, ptr %229, align 8, !tbaa !4
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 1976
+  store ptr @ff_vvc_inv_dst7_32, ptr %230, align 8, !tbaa !4
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 2048
+  store ptr @adaptive_color_transform_10, ptr %231, align 8, !tbaa !61
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 2056
+  store ptr @lmcs_filter_luma_10, ptr %232, align 8, !tbaa !62
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 2064
+  store ptr @vvc_h_loop_ladf_level_10, ptr %233, align 8, !tbaa !4
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 2072
+  store ptr @vvc_v_loop_ladf_level_10, ptr %234, align 8, !tbaa !4
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 2080
+  store ptr @vvc_h_loop_filter_luma_10, ptr %235, align 8, !tbaa !4
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 2088
+  store ptr @vvc_v_loop_filter_luma_10, ptr %236, align 8, !tbaa !4
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 2096
+  store ptr @vvc_h_loop_filter_chroma_10, ptr %237, align 8, !tbaa !4
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 2104
+  store ptr @vvc_v_loop_filter_chroma_10, ptr %238, align 8, !tbaa !4
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  br label %241
 
-.preheader.i127:                                  ; preds = %235
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  br label %237
+.preheader.i127:                                  ; preds = %241
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 2184
+  br label %243
 
-235:                                              ; preds = %235, %ff_vvc_inter_dsp_init_10.exit
-  %indvars.iv.i124 = phi i64 [ 0, %ff_vvc_inter_dsp_init_10.exit ], [ %indvars.iv.next.i125, %235 ]
-  %236 = getelementptr inbounds nuw ptr, ptr %233, i64 %indvars.iv.i124
-  store ptr @sao_band_filter_10, ptr %236, align 8, !tbaa !4
+241:                                              ; preds = %241, %ff_vvc_inter_dsp_init_10.exit
+  %indvars.iv.i124 = phi i64 [ 0, %ff_vvc_inter_dsp_init_10.exit ], [ %indvars.iv.next.i125, %241 ]
+  %242 = getelementptr inbounds nuw ptr, ptr %239, i64 %indvars.iv.i124
+  store ptr @sao_band_filter_10, ptr %242, align 8, !tbaa !4
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 1
   %exitcond.not.i126 = icmp eq i64 %indvars.iv.next.i125, 9
-  br i1 %exitcond.not.i126, label %.preheader.i127, label %235, !llvm.loop !91
+  br i1 %exitcond.not.i126, label %.preheader.i127, label %241, !llvm.loop !91
 
-237:                                              ; preds = %237, %.preheader.i127
-  %indvars.iv15.i128 = phi i64 [ 0, %.preheader.i127 ], [ %indvars.iv.next16.i129, %237 ]
-  %238 = getelementptr inbounds nuw ptr, ptr %234, i64 %indvars.iv15.i128
-  store ptr @sao_edge_filter_10, ptr %238, align 8, !tbaa !4
+243:                                              ; preds = %243, %.preheader.i127
+  %indvars.iv15.i128 = phi i64 [ 0, %.preheader.i127 ], [ %indvars.iv.next16.i129, %243 ]
+  %244 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv15.i128
+  store ptr @sao_edge_filter_10, ptr %244, align 8, !tbaa !4
   %indvars.iv.next16.i129 = add nuw nsw i64 %indvars.iv15.i128, 1
   %exitcond18.not.i130 = icmp eq i64 %indvars.iv.next16.i129, 9
-  br i1 %exitcond18.not.i130, label %ff_vvc_sao_dsp_init_12.exit, label %237, !llvm.loop !92
+  br i1 %exitcond18.not.i130, label %ff_vvc_sao_dsp_init_12.exit, label %243, !llvm.loop !92
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv.i131 = phi i64 [ %indvars.iv.next.i132, %.preheader ], [ 0, %2 ]
-  %239 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv.i131
-  store ptr @put_pixels_8, ptr %239, align 8, !tbaa !4
+  %245 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv.i131
+  store ptr @put_pixels_8, ptr %245, align 8, !tbaa !4
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i131, 1
   %exitcond.not.i133 = icmp eq i64 %indvars.iv.next.i132, 7
   br i1 %exitcond.not.i133, label %.preheader171.i134, label %.preheader, !llvm.loop !93
 
 .preheader171.i134:                               ; preds = %.preheader, %.preheader171.i134
   %indvars.iv198.i135 = phi i64 [ %indvars.iv.next199.i136, %.preheader171.i134 ], [ 0, %.preheader ]
-  %240 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv198.i135, i64 0, i64 1
-  store ptr @put_luma_h_8, ptr %240, align 8, !tbaa !4
+  %246 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv198.i135
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
+  store ptr @put_luma_h_8, ptr %247, align 8, !tbaa !4
   %indvars.iv.next199.i136 = add nuw nsw i64 %indvars.iv198.i135, 1
   %exitcond201.not.i137 = icmp eq i64 %indvars.iv.next199.i136, 7
   br i1 %exitcond201.not.i137, label %.preheader170.i138, label %.preheader171.i134, !llvm.loop !94
 
 .preheader170.i138:                               ; preds = %.preheader171.i134, %.preheader170.i138
   %indvars.iv202.i139 = phi i64 [ %indvars.iv.next203.i140, %.preheader170.i138 ], [ 0, %.preheader171.i134 ]
-  %241 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv202.i139, i64 1
-  store ptr @put_luma_v_8, ptr %241, align 8, !tbaa !4
+  %248 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv202.i139
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
+  store ptr @put_luma_v_8, ptr %249, align 8, !tbaa !4
   %indvars.iv.next203.i140 = add nuw nsw i64 %indvars.iv202.i139, 1
   %exitcond205.not.i141 = icmp eq i64 %indvars.iv.next203.i140, 7
   br i1 %exitcond205.not.i141, label %.preheader169.i142, label %.preheader170.i138, !llvm.loop !95
 
 .preheader168.i146:                               ; preds = %.preheader169.i142
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  br label %244
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  br label %253
 
 .preheader169.i142:                               ; preds = %.preheader170.i138, %.preheader169.i142
   %indvars.iv206.i143 = phi i64 [ %indvars.iv.next207.i144, %.preheader169.i142 ], [ 0, %.preheader170.i138 ]
-  %243 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv206.i143, i64 1, i64 1
-  store ptr @put_luma_hv_8, ptr %243, align 8, !tbaa !4
+  %251 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv206.i143
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
+  store ptr @put_luma_hv_8, ptr %252, align 8, !tbaa !4
   %indvars.iv.next207.i144 = add nuw nsw i64 %indvars.iv206.i143, 1
   %exitcond209.not.i145 = icmp eq i64 %indvars.iv.next207.i144, 7
   br i1 %exitcond209.not.i145, label %.preheader168.i146, label %.preheader169.i142, !llvm.loop !96
 
-244:                                              ; preds = %244, %.preheader168.i146
-  %indvars.iv210.i147 = phi i64 [ 0, %.preheader168.i146 ], [ %indvars.iv.next211.i148, %244 ]
-  %245 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %242, i64 %indvars.iv210.i147
-  store ptr @put_uni_pixels_8, ptr %245, align 8, !tbaa !4
+253:                                              ; preds = %253, %.preheader168.i146
+  %indvars.iv210.i147 = phi i64 [ 0, %.preheader168.i146 ], [ %indvars.iv.next211.i148, %253 ]
+  %254 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %250, i64 %indvars.iv210.i147
+  store ptr @put_uni_pixels_8, ptr %254, align 8, !tbaa !4
   %indvars.iv.next211.i148 = add nuw nsw i64 %indvars.iv210.i147, 1
   %exitcond213.not.i149 = icmp eq i64 %indvars.iv.next211.i148, 7
-  br i1 %exitcond213.not.i149, label %.preheader167.i150, label %244, !llvm.loop !97
+  br i1 %exitcond213.not.i149, label %.preheader167.i150, label %253, !llvm.loop !97
 
-.preheader167.i150:                               ; preds = %244, %.preheader167.i150
-  %indvars.iv214.i151 = phi i64 [ %indvars.iv.next215.i152, %.preheader167.i150 ], [ 0, %244 ]
-  %246 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv214.i151
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 456
-  store ptr @put_uni_luma_h_8, ptr %247, align 8, !tbaa !4
+.preheader167.i150:                               ; preds = %253, %.preheader167.i150
+  %indvars.iv214.i151 = phi i64 [ %indvars.iv.next215.i152, %.preheader167.i150 ], [ 0, %253 ]
+  %255 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv214.i151
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 456
+  store ptr @put_uni_luma_h_8, ptr %256, align 8, !tbaa !4
   %indvars.iv.next215.i152 = add nuw nsw i64 %indvars.iv214.i151, 1
   %exitcond217.not.i153 = icmp eq i64 %indvars.iv.next215.i152, 7
   br i1 %exitcond217.not.i153, label %.preheader166.i154, label %.preheader167.i150, !llvm.loop !98
 
 .preheader166.i154:                               ; preds = %.preheader167.i150, %.preheader166.i154
   %indvars.iv218.i155 = phi i64 [ %indvars.iv.next219.i156, %.preheader166.i154 ], [ 0, %.preheader167.i150 ]
-  %248 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv218.i155
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 464
-  store ptr @put_uni_luma_v_8, ptr %249, align 8, !tbaa !4
+  %257 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv218.i155
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 464
+  store ptr @put_uni_luma_v_8, ptr %258, align 8, !tbaa !4
   %indvars.iv.next219.i156 = add nuw nsw i64 %indvars.iv218.i155, 1
   %exitcond221.not.i157 = icmp eq i64 %indvars.iv.next219.i156, 7
   br i1 %exitcond221.not.i157, label %.preheader165.i158, label %.preheader166.i154, !llvm.loop !99
 
 .preheader164.i162:                               ; preds = %.preheader165.i158
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  br label %253
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  br label %262
 
 .preheader165.i158:                               ; preds = %.preheader166.i154, %.preheader165.i158
   %indvars.iv222.i159 = phi i64 [ %indvars.iv.next223.i160, %.preheader165.i158 ], [ 0, %.preheader166.i154 ]
-  %251 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv222.i159
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 472
-  store ptr @put_uni_luma_hv_8, ptr %252, align 8, !tbaa !4
+  %260 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv222.i159
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 472
+  store ptr @put_uni_luma_hv_8, ptr %261, align 8, !tbaa !4
   %indvars.iv.next223.i160 = add nuw nsw i64 %indvars.iv222.i159, 1
   %exitcond225.not.i161 = icmp eq i64 %indvars.iv.next223.i160, 7
   br i1 %exitcond225.not.i161, label %.preheader164.i162, label %.preheader165.i158, !llvm.loop !100
 
-253:                                              ; preds = %253, %.preheader164.i162
-  %indvars.iv226.i163 = phi i64 [ 0, %.preheader164.i162 ], [ %indvars.iv.next227.i164, %253 ]
-  %254 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %250, i64 %indvars.iv226.i163
-  store ptr @put_uni_w_pixels_8, ptr %254, align 8, !tbaa !4
+262:                                              ; preds = %262, %.preheader164.i162
+  %indvars.iv226.i163 = phi i64 [ 0, %.preheader164.i162 ], [ %indvars.iv.next227.i164, %262 ]
+  %263 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %259, i64 %indvars.iv226.i163
+  store ptr @put_uni_w_pixels_8, ptr %263, align 8, !tbaa !4
   %indvars.iv.next227.i164 = add nuw nsw i64 %indvars.iv226.i163, 1
   %exitcond229.not.i165 = icmp eq i64 %indvars.iv.next227.i164, 7
-  br i1 %exitcond229.not.i165, label %.preheader163.i166, label %253, !llvm.loop !101
+  br i1 %exitcond229.not.i165, label %.preheader163.i166, label %262, !llvm.loop !101
 
-.preheader163.i166:                               ; preds = %253, %.preheader163.i166
-  %indvars.iv230.i167 = phi i64 [ %indvars.iv.next231.i168, %.preheader163.i166 ], [ 0, %253 ]
-  %255 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv230.i167
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 904
-  store ptr @put_uni_luma_w_h_8, ptr %256, align 8, !tbaa !4
+.preheader163.i166:                               ; preds = %262, %.preheader163.i166
+  %indvars.iv230.i167 = phi i64 [ %indvars.iv.next231.i168, %.preheader163.i166 ], [ 0, %262 ]
+  %264 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv230.i167
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 904
+  store ptr @put_uni_luma_w_h_8, ptr %265, align 8, !tbaa !4
   %indvars.iv.next231.i168 = add nuw nsw i64 %indvars.iv230.i167, 1
   %exitcond233.not.i169 = icmp eq i64 %indvars.iv.next231.i168, 7
   br i1 %exitcond233.not.i169, label %.preheader162.i170, label %.preheader163.i166, !llvm.loop !102
 
 .preheader162.i170:                               ; preds = %.preheader163.i166, %.preheader162.i170
   %indvars.iv234.i171 = phi i64 [ %indvars.iv.next235.i172, %.preheader162.i170 ], [ 0, %.preheader163.i166 ]
-  %257 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv234.i171
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 912
-  store ptr @put_uni_luma_w_v_8, ptr %258, align 8, !tbaa !4
+  %266 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv234.i171
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 912
+  store ptr @put_uni_luma_w_v_8, ptr %267, align 8, !tbaa !4
   %indvars.iv.next235.i172 = add nuw nsw i64 %indvars.iv234.i171, 1
   %exitcond237.not.i173 = icmp eq i64 %indvars.iv.next235.i172, 7
   br i1 %exitcond237.not.i173, label %.preheader161.i174, label %.preheader162.i170, !llvm.loop !103
 
 .preheader160.i178:                               ; preds = %.preheader161.i174
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  br label %262
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  br label %271
 
 .preheader161.i174:                               ; preds = %.preheader162.i170, %.preheader161.i174
   %indvars.iv238.i175 = phi i64 [ %indvars.iv.next239.i176, %.preheader161.i174 ], [ 0, %.preheader162.i170 ]
-  %260 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv238.i175
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 920
-  store ptr @put_uni_luma_w_hv_8, ptr %261, align 8, !tbaa !4
+  %269 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv238.i175
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 920
+  store ptr @put_uni_luma_w_hv_8, ptr %270, align 8, !tbaa !4
   %indvars.iv.next239.i176 = add nuw nsw i64 %indvars.iv238.i175, 1
   %exitcond241.not.i177 = icmp eq i64 %indvars.iv.next239.i176, 7
   br i1 %exitcond241.not.i177, label %.preheader160.i178, label %.preheader161.i174, !llvm.loop !104
 
-262:                                              ; preds = %262, %.preheader160.i178
-  %indvars.iv242.i179 = phi i64 [ 0, %.preheader160.i178 ], [ %indvars.iv.next243.i180, %262 ]
-  %263 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %259, i64 %indvars.iv242.i179
-  store ptr @put_pixels_8, ptr %263, align 8, !tbaa !4
+271:                                              ; preds = %271, %.preheader160.i178
+  %indvars.iv242.i179 = phi i64 [ 0, %.preheader160.i178 ], [ %indvars.iv.next243.i180, %271 ]
+  %272 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %268, i64 %indvars.iv242.i179
+  store ptr @put_pixels_8, ptr %272, align 8, !tbaa !4
   %indvars.iv.next243.i180 = add nuw nsw i64 %indvars.iv242.i179, 1
   %exitcond245.not.i181 = icmp eq i64 %indvars.iv.next243.i180, 7
-  br i1 %exitcond245.not.i181, label %.preheader159.i182, label %262, !llvm.loop !105
+  br i1 %exitcond245.not.i181, label %.preheader159.i182, label %271, !llvm.loop !105
 
-.preheader159.i182:                               ; preds = %262, %.preheader159.i182
-  %indvars.iv246.i183 = phi i64 [ %indvars.iv.next247.i184, %.preheader159.i182 ], [ 0, %262 ]
-  %264 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv246.i183
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 232
-  store ptr @put_chroma_h_8, ptr %265, align 8, !tbaa !4
+.preheader159.i182:                               ; preds = %271, %.preheader159.i182
+  %indvars.iv246.i183 = phi i64 [ %indvars.iv.next247.i184, %.preheader159.i182 ], [ 0, %271 ]
+  %273 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv246.i183
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 232
+  store ptr @put_chroma_h_8, ptr %274, align 8, !tbaa !4
   %indvars.iv.next247.i184 = add nuw nsw i64 %indvars.iv246.i183, 1
   %exitcond249.not.i185 = icmp eq i64 %indvars.iv.next247.i184, 7
   br i1 %exitcond249.not.i185, label %.preheader158.i186, label %.preheader159.i182, !llvm.loop !106
 
 .preheader158.i186:                               ; preds = %.preheader159.i182, %.preheader158.i186
   %indvars.iv250.i187 = phi i64 [ %indvars.iv.next251.i188, %.preheader158.i186 ], [ 0, %.preheader159.i182 ]
-  %266 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv250.i187
-  %267 = getelementptr inbounds nuw i8, ptr %266, i64 240
-  store ptr @put_chroma_v_8, ptr %267, align 8, !tbaa !4
+  %275 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv250.i187
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 240
+  store ptr @put_chroma_v_8, ptr %276, align 8, !tbaa !4
   %indvars.iv.next251.i188 = add nuw nsw i64 %indvars.iv250.i187, 1
   %exitcond253.not.i189 = icmp eq i64 %indvars.iv.next251.i188, 7
   br i1 %exitcond253.not.i189, label %.preheader157.i190, label %.preheader158.i186, !llvm.loop !107
 
 .preheader156.i194:                               ; preds = %.preheader157.i190
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  br label %271
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  br label %280
 
 .preheader157.i190:                               ; preds = %.preheader158.i186, %.preheader157.i190
   %indvars.iv254.i191 = phi i64 [ %indvars.iv.next255.i192, %.preheader157.i190 ], [ 0, %.preheader158.i186 ]
-  %269 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv254.i191
-  %270 = getelementptr inbounds nuw i8, ptr %269, i64 248
-  store ptr @put_chroma_hv_8, ptr %270, align 8, !tbaa !4
+  %278 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv254.i191
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 248
+  store ptr @put_chroma_hv_8, ptr %279, align 8, !tbaa !4
   %indvars.iv.next255.i192 = add nuw nsw i64 %indvars.iv254.i191, 1
   %exitcond257.not.i193 = icmp eq i64 %indvars.iv.next255.i192, 7
   br i1 %exitcond257.not.i193, label %.preheader156.i194, label %.preheader157.i190, !llvm.loop !108
 
-271:                                              ; preds = %271, %.preheader156.i194
-  %indvars.iv258.i195 = phi i64 [ 0, %.preheader156.i194 ], [ %indvars.iv.next259.i196, %271 ]
-  %272 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %268, i64 %indvars.iv258.i195
-  store ptr @put_uni_pixels_8, ptr %272, align 8, !tbaa !4
+280:                                              ; preds = %280, %.preheader156.i194
+  %indvars.iv258.i195 = phi i64 [ 0, %.preheader156.i194 ], [ %indvars.iv.next259.i196, %280 ]
+  %281 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %277, i64 %indvars.iv258.i195
+  store ptr @put_uni_pixels_8, ptr %281, align 8, !tbaa !4
   %indvars.iv.next259.i196 = add nuw nsw i64 %indvars.iv258.i195, 1
   %exitcond261.not.i197 = icmp eq i64 %indvars.iv.next259.i196, 7
-  br i1 %exitcond261.not.i197, label %.preheader155.i198, label %271, !llvm.loop !109
+  br i1 %exitcond261.not.i197, label %.preheader155.i198, label %280, !llvm.loop !109
 
-.preheader155.i198:                               ; preds = %271, %.preheader155.i198
-  %indvars.iv262.i199 = phi i64 [ %indvars.iv.next263.i200, %.preheader155.i198 ], [ 0, %271 ]
-  %273 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv262.i199
-  %274 = getelementptr inbounds nuw i8, ptr %273, i64 680
-  store ptr @put_uni_chroma_h_8, ptr %274, align 8, !tbaa !4
+.preheader155.i198:                               ; preds = %280, %.preheader155.i198
+  %indvars.iv262.i199 = phi i64 [ %indvars.iv.next263.i200, %.preheader155.i198 ], [ 0, %280 ]
+  %282 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv262.i199
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 680
+  store ptr @put_uni_chroma_h_8, ptr %283, align 8, !tbaa !4
   %indvars.iv.next263.i200 = add nuw nsw i64 %indvars.iv262.i199, 1
   %exitcond265.not.i201 = icmp eq i64 %indvars.iv.next263.i200, 7
   br i1 %exitcond265.not.i201, label %.preheader154.i202, label %.preheader155.i198, !llvm.loop !110
 
 .preheader154.i202:                               ; preds = %.preheader155.i198, %.preheader154.i202
   %indvars.iv266.i203 = phi i64 [ %indvars.iv.next267.i204, %.preheader154.i202 ], [ 0, %.preheader155.i198 ]
-  %275 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv266.i203
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 688
-  store ptr @put_uni_chroma_v_8, ptr %276, align 8, !tbaa !4
+  %284 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv266.i203
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 688
+  store ptr @put_uni_chroma_v_8, ptr %285, align 8, !tbaa !4
   %indvars.iv.next267.i204 = add nuw nsw i64 %indvars.iv266.i203, 1
   %exitcond269.not.i205 = icmp eq i64 %indvars.iv.next267.i204, 7
   br i1 %exitcond269.not.i205, label %.preheader153.i206, label %.preheader154.i202, !llvm.loop !111
 
 .preheader152.i210:                               ; preds = %.preheader153.i206
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  br label %280
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  br label %289
 
 .preheader153.i206:                               ; preds = %.preheader154.i202, %.preheader153.i206
   %indvars.iv270.i207 = phi i64 [ %indvars.iv.next271.i208, %.preheader153.i206 ], [ 0, %.preheader154.i202 ]
-  %278 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv270.i207
-  %279 = getelementptr inbounds nuw i8, ptr %278, i64 696
-  store ptr @put_uni_chroma_hv_8, ptr %279, align 8, !tbaa !4
+  %287 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv270.i207
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 696
+  store ptr @put_uni_chroma_hv_8, ptr %288, align 8, !tbaa !4
   %indvars.iv.next271.i208 = add nuw nsw i64 %indvars.iv270.i207, 1
   %exitcond273.not.i209 = icmp eq i64 %indvars.iv.next271.i208, 7
   br i1 %exitcond273.not.i209, label %.preheader152.i210, label %.preheader153.i206, !llvm.loop !112
 
-280:                                              ; preds = %280, %.preheader152.i210
-  %indvars.iv274.i211 = phi i64 [ 0, %.preheader152.i210 ], [ %indvars.iv.next275.i212, %280 ]
-  %281 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %277, i64 %indvars.iv274.i211
-  store ptr @put_uni_w_pixels_8, ptr %281, align 8, !tbaa !4
+289:                                              ; preds = %289, %.preheader152.i210
+  %indvars.iv274.i211 = phi i64 [ 0, %.preheader152.i210 ], [ %indvars.iv.next275.i212, %289 ]
+  %290 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %286, i64 %indvars.iv274.i211
+  store ptr @put_uni_w_pixels_8, ptr %290, align 8, !tbaa !4
   %indvars.iv.next275.i212 = add nuw nsw i64 %indvars.iv274.i211, 1
   %exitcond277.not.i213 = icmp eq i64 %indvars.iv.next275.i212, 7
-  br i1 %exitcond277.not.i213, label %.preheader151.i214, label %280, !llvm.loop !113
+  br i1 %exitcond277.not.i213, label %.preheader151.i214, label %289, !llvm.loop !113
 
-.preheader151.i214:                               ; preds = %280, %.preheader151.i214
-  %indvars.iv278.i215 = phi i64 [ %indvars.iv.next279.i216, %.preheader151.i214 ], [ 0, %280 ]
-  %282 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv278.i215
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 1128
-  store ptr @put_uni_chroma_w_h_8, ptr %283, align 8, !tbaa !4
+.preheader151.i214:                               ; preds = %289, %.preheader151.i214
+  %indvars.iv278.i215 = phi i64 [ %indvars.iv.next279.i216, %.preheader151.i214 ], [ 0, %289 ]
+  %291 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv278.i215
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 1128
+  store ptr @put_uni_chroma_w_h_8, ptr %292, align 8, !tbaa !4
   %indvars.iv.next279.i216 = add nuw nsw i64 %indvars.iv278.i215, 1
   %exitcond281.not.i217 = icmp eq i64 %indvars.iv.next279.i216, 7
   br i1 %exitcond281.not.i217, label %.preheader150.i218, label %.preheader151.i214, !llvm.loop !114
 
 .preheader150.i218:                               ; preds = %.preheader151.i214, %.preheader150.i218
   %indvars.iv282.i219 = phi i64 [ %indvars.iv.next283.i220, %.preheader150.i218 ], [ 0, %.preheader151.i214 ]
-  %284 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv282.i219
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 1136
-  store ptr @put_uni_chroma_w_v_8, ptr %285, align 8, !tbaa !4
+  %293 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv282.i219
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 1136
+  store ptr @put_uni_chroma_w_v_8, ptr %294, align 8, !tbaa !4
   %indvars.iv.next283.i220 = add nuw nsw i64 %indvars.iv282.i219, 1
   %exitcond285.not.i221 = icmp eq i64 %indvars.iv.next283.i220, 7
   br i1 %exitcond285.not.i221, label %.preheader149.i222, label %.preheader150.i218, !llvm.loop !115
 
 .preheader.i226:                                  ; preds = %.preheader149.i222
-  %286 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %287 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  %289 = getelementptr inbounds nuw i8, ptr %0, i64 1512
-  %290 = getelementptr inbounds nuw i8, ptr %0, i64 1568
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 1624
-  br label %294
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 1344
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 1400
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 1456
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 1512
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 1568
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  br label %303
 
 .preheader149.i222:                               ; preds = %.preheader150.i218, %.preheader149.i222
   %indvars.iv286.i223 = phi i64 [ %indvars.iv.next287.i224, %.preheader149.i222 ], [ 0, %.preheader150.i218 ]
-  %292 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv286.i223
-  %293 = getelementptr inbounds nuw i8, ptr %292, i64 1144
-  store ptr @put_uni_chroma_w_hv_8, ptr %293, align 8, !tbaa !4
+  %301 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %0, i64 %indvars.iv286.i223
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 1144
+  store ptr @put_uni_chroma_w_hv_8, ptr %302, align 8, !tbaa !4
   %indvars.iv.next287.i224 = add nuw nsw i64 %indvars.iv286.i223, 1
   %exitcond289.not.i225 = icmp eq i64 %indvars.iv.next287.i224, 7
   br i1 %exitcond289.not.i225, label %.preheader.i226, label %.preheader149.i222, !llvm.loop !116
 
-294:                                              ; preds = %294, %.preheader.i226
-  %indvars.iv290.i227 = phi i64 [ 0, %.preheader.i226 ], [ %indvars.iv.next291.i228, %294 ]
-  %295 = getelementptr inbounds nuw ptr, ptr %286, i64 %indvars.iv290.i227
-  store ptr @put_luma_scaled_8, ptr %295, align 8, !tbaa !4
-  %296 = getelementptr inbounds nuw ptr, ptr %287, i64 %indvars.iv290.i227
-  store ptr @put_chroma_scaled_8, ptr %296, align 8, !tbaa !4
-  %297 = getelementptr inbounds nuw ptr, ptr %288, i64 %indvars.iv290.i227
-  store ptr @put_uni_luma_scaled_8, ptr %297, align 8, !tbaa !4
-  %298 = getelementptr inbounds nuw ptr, ptr %289, i64 %indvars.iv290.i227
-  store ptr @put_uni_chroma_scaled_8, ptr %298, align 8, !tbaa !4
-  %299 = getelementptr inbounds nuw ptr, ptr %290, i64 %indvars.iv290.i227
-  store ptr @put_uni_luma_w_scaled_8, ptr %299, align 8, !tbaa !4
-  %300 = getelementptr inbounds nuw ptr, ptr %291, i64 %indvars.iv290.i227
-  store ptr @put_uni_chroma_w_scaled_8, ptr %300, align 8, !tbaa !4
+303:                                              ; preds = %303, %.preheader.i226
+  %indvars.iv290.i227 = phi i64 [ 0, %.preheader.i226 ], [ %indvars.iv.next291.i228, %303 ]
+  %304 = getelementptr inbounds nuw ptr, ptr %295, i64 %indvars.iv290.i227
+  store ptr @put_luma_scaled_8, ptr %304, align 8, !tbaa !4
+  %305 = getelementptr inbounds nuw ptr, ptr %296, i64 %indvars.iv290.i227
+  store ptr @put_chroma_scaled_8, ptr %305, align 8, !tbaa !4
+  %306 = getelementptr inbounds nuw ptr, ptr %297, i64 %indvars.iv290.i227
+  store ptr @put_uni_luma_scaled_8, ptr %306, align 8, !tbaa !4
+  %307 = getelementptr inbounds nuw ptr, ptr %298, i64 %indvars.iv290.i227
+  store ptr @put_uni_chroma_scaled_8, ptr %307, align 8, !tbaa !4
+  %308 = getelementptr inbounds nuw ptr, ptr %299, i64 %indvars.iv290.i227
+  store ptr @put_uni_luma_w_scaled_8, ptr %308, align 8, !tbaa !4
+  %309 = getelementptr inbounds nuw ptr, ptr %300, i64 %indvars.iv290.i227
+  store ptr @put_uni_chroma_w_scaled_8, ptr %309, align 8, !tbaa !4
   %indvars.iv.next291.i228 = add nuw nsw i64 %indvars.iv290.i227, 1
   %exitcond293.not.i229 = icmp eq i64 %indvars.iv.next291.i228, 7
-  br i1 %exitcond293.not.i229, label %ff_vvc_inter_dsp_init_8.exit, label %294, !llvm.loop !117
+  br i1 %exitcond293.not.i229, label %ff_vvc_inter_dsp_init_8.exit, label %303, !llvm.loop !117
 
-ff_vvc_inter_dsp_init_8.exit:                     ; preds = %294
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 1680
-  store ptr @avg_8, ptr %301, align 8, !tbaa !34
-  %302 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  store ptr @w_avg_8, ptr %302, align 8, !tbaa !36
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  store ptr @dmvr_8, ptr %303, align 8, !tbaa !4
-  %304 = getelementptr inbounds nuw i8, ptr %0, i64 1776
-  store ptr @dmvr_h_8, ptr %304, align 8, !tbaa !4
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 1784
-  store ptr @dmvr_v_8, ptr %305, align 8, !tbaa !4
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  store ptr @dmvr_hv_8, ptr %306, align 8, !tbaa !4
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  store ptr @put_ciip_8, ptr %307, align 8, !tbaa !37
-  %308 = getelementptr inbounds nuw i8, ptr %0, i64 1704
-  store ptr @put_gpm_8, ptr %308, align 8, !tbaa !38
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 1712
-  store ptr @fetch_samples_8, ptr %309, align 8, !tbaa !39
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 1720
-  store ptr @bdof_fetch_samples_8, ptr %310, align 8, !tbaa !40
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 1728
-  store ptr @apply_prof_8, ptr %311, align 8, !tbaa !41
-  %312 = getelementptr inbounds nuw i8, ptr %0, i64 1736
-  store ptr @apply_prof_uni_8, ptr %312, align 8, !tbaa !42
-  %313 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  store ptr @apply_prof_uni_w_8, ptr %313, align 8, !tbaa !43
-  %314 = getelementptr inbounds nuw i8, ptr %0, i64 1752
-  store ptr @apply_bdof_8, ptr %314, align 8, !tbaa !44
-  %315 = getelementptr inbounds nuw i8, ptr %0, i64 1760
-  store ptr @vvc_sad, ptr %315, align 8, !tbaa !45
-  %316 = getelementptr inbounds nuw i8, ptr %0, i64 1800
-  %317 = getelementptr inbounds nuw i8, ptr %0, i64 1808
-  store ptr @lmcs_scale_chroma_8, ptr %317, align 8, !tbaa !46
-  store ptr @intra_cclm_pred_8, ptr %316, align 8, !tbaa !48
-  %318 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  store ptr @intra_pred_8, ptr %318, align 8, !tbaa !49
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  store ptr @pred_planar_8, ptr %319, align 8, !tbaa !50
-  %320 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  store ptr @pred_mip_8, ptr %320, align 8, !tbaa !51
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 1840
-  store ptr @pred_dc_8, ptr %321, align 8, !tbaa !52
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 1848
-  store ptr @pred_v_8, ptr %322, align 8, !tbaa !53
-  %323 = getelementptr inbounds nuw i8, ptr %0, i64 1856
-  store ptr @pred_h_8, ptr %323, align 8, !tbaa !54
-  %324 = getelementptr inbounds nuw i8, ptr %0, i64 1864
-  store ptr @pred_angular_v_8, ptr %324, align 8, !tbaa !55
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 1872
-  store ptr @pred_angular_h_8, ptr %325, align 8, !tbaa !56
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  store ptr @add_residual_8, ptr %326, align 8, !tbaa !57
-  %327 = getelementptr inbounds nuw i8, ptr %0, i64 1888
-  store ptr @pred_residual_joint_8, ptr %327, align 8, !tbaa !59
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 2040
-  store ptr @transform_bdpcm_8, ptr %328, align 8, !tbaa !60
-  %329 = getelementptr inbounds nuw i8, ptr %0, i64 1896
-  store ptr @ff_vvc_inv_dct2_2, ptr %329, align 8, !tbaa !4
-  %330 = getelementptr inbounds nuw i8, ptr %0, i64 1936
-  store ptr @ff_vvc_inv_dct2_64, ptr %330, align 8, !tbaa !4
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 1904
-  store ptr @ff_vvc_inv_dct2_4, ptr %331, align 8, !tbaa !4
-  %332 = getelementptr inbounds nuw i8, ptr %0, i64 1912
-  store ptr @ff_vvc_inv_dct2_8, ptr %332, align 8, !tbaa !4
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 1920
-  store ptr @ff_vvc_inv_dct2_16, ptr %333, align 8, !tbaa !4
-  %334 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  store ptr @ff_vvc_inv_dct2_32, ptr %334, align 8, !tbaa !4
-  %335 = getelementptr inbounds nuw i8, ptr %0, i64 2000
-  store ptr @ff_vvc_inv_dct8_4, ptr %335, align 8, !tbaa !4
-  %336 = getelementptr inbounds nuw i8, ptr %0, i64 2008
-  store ptr @ff_vvc_inv_dct8_8, ptr %336, align 8, !tbaa !4
-  %337 = getelementptr inbounds nuw i8, ptr %0, i64 2016
-  store ptr @ff_vvc_inv_dct8_16, ptr %337, align 8, !tbaa !4
-  %338 = getelementptr inbounds nuw i8, ptr %0, i64 2024
-  store ptr @ff_vvc_inv_dct8_32, ptr %338, align 8, !tbaa !4
-  %339 = getelementptr inbounds nuw i8, ptr %0, i64 1952
-  store ptr @ff_vvc_inv_dst7_4, ptr %339, align 8, !tbaa !4
-  %340 = getelementptr inbounds nuw i8, ptr %0, i64 1960
-  store ptr @ff_vvc_inv_dst7_8, ptr %340, align 8, !tbaa !4
-  %341 = getelementptr inbounds nuw i8, ptr %0, i64 1968
-  store ptr @ff_vvc_inv_dst7_16, ptr %341, align 8, !tbaa !4
-  %342 = getelementptr inbounds nuw i8, ptr %0, i64 1976
-  store ptr @ff_vvc_inv_dst7_32, ptr %342, align 8, !tbaa !4
-  %343 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  store ptr @adaptive_color_transform_8, ptr %343, align 8, !tbaa !61
-  %344 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  store ptr @lmcs_filter_luma_8, ptr %344, align 8, !tbaa !62
-  %345 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  store ptr @vvc_h_loop_ladf_level_8, ptr %345, align 8, !tbaa !4
-  %346 = getelementptr inbounds nuw i8, ptr %0, i64 2072
-  store ptr @vvc_v_loop_ladf_level_8, ptr %346, align 8, !tbaa !4
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 2080
-  store ptr @vvc_h_loop_filter_luma_8, ptr %347, align 8, !tbaa !4
-  %348 = getelementptr inbounds nuw i8, ptr %0, i64 2088
-  store ptr @vvc_v_loop_filter_luma_8, ptr %348, align 8, !tbaa !4
-  %349 = getelementptr inbounds nuw i8, ptr %0, i64 2096
-  store ptr @vvc_h_loop_filter_chroma_8, ptr %349, align 8, !tbaa !4
-  %350 = getelementptr inbounds nuw i8, ptr %0, i64 2104
-  store ptr @vvc_v_loop_filter_chroma_8, ptr %350, align 8, !tbaa !4
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  br label %353
+ff_vvc_inter_dsp_init_8.exit:                     ; preds = %303
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 1680
+  store ptr @avg_8, ptr %310, align 8, !tbaa !34
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 1688
+  store ptr @w_avg_8, ptr %311, align 8, !tbaa !36
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  store ptr @dmvr_8, ptr %312, align 8, !tbaa !4
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 1776
+  store ptr @dmvr_h_8, ptr %313, align 8, !tbaa !4
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 1784
+  store ptr @dmvr_v_8, ptr %314, align 8, !tbaa !4
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 1792
+  store ptr @dmvr_hv_8, ptr %315, align 8, !tbaa !4
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 1696
+  store ptr @put_ciip_8, ptr %316, align 8, !tbaa !37
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 1704
+  store ptr @put_gpm_8, ptr %317, align 8, !tbaa !38
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 1712
+  store ptr @fetch_samples_8, ptr %318, align 8, !tbaa !39
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 1720
+  store ptr @bdof_fetch_samples_8, ptr %319, align 8, !tbaa !40
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 1728
+  store ptr @apply_prof_8, ptr %320, align 8, !tbaa !41
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 1736
+  store ptr @apply_prof_uni_8, ptr %321, align 8, !tbaa !42
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 1744
+  store ptr @apply_prof_uni_w_8, ptr %322, align 8, !tbaa !43
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 1752
+  store ptr @apply_bdof_8, ptr %323, align 8, !tbaa !44
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 1760
+  store ptr @vvc_sad, ptr %324, align 8, !tbaa !45
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 1808
+  store ptr @lmcs_scale_chroma_8, ptr %326, align 8, !tbaa !46
+  store ptr @intra_cclm_pred_8, ptr %325, align 8, !tbaa !48
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 1816
+  store ptr @intra_pred_8, ptr %327, align 8, !tbaa !49
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 1824
+  store ptr @pred_planar_8, ptr %328, align 8, !tbaa !50
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  store ptr @pred_mip_8, ptr %329, align 8, !tbaa !51
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 1840
+  store ptr @pred_dc_8, ptr %330, align 8, !tbaa !52
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 1848
+  store ptr @pred_v_8, ptr %331, align 8, !tbaa !53
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 1856
+  store ptr @pred_h_8, ptr %332, align 8, !tbaa !54
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 1864
+  store ptr @pred_angular_v_8, ptr %333, align 8, !tbaa !55
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 1872
+  store ptr @pred_angular_h_8, ptr %334, align 8, !tbaa !56
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 1880
+  store ptr @add_residual_8, ptr %335, align 8, !tbaa !57
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 1888
+  store ptr @pred_residual_joint_8, ptr %336, align 8, !tbaa !59
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 2040
+  store ptr @transform_bdpcm_8, ptr %337, align 8, !tbaa !60
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 1896
+  store ptr @ff_vvc_inv_dct2_2, ptr %338, align 8, !tbaa !4
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 1936
+  store ptr @ff_vvc_inv_dct2_64, ptr %339, align 8, !tbaa !4
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 1904
+  store ptr @ff_vvc_inv_dct2_4, ptr %340, align 8, !tbaa !4
+  %341 = getelementptr inbounds nuw i8, ptr %0, i64 1912
+  store ptr @ff_vvc_inv_dct2_8, ptr %341, align 8, !tbaa !4
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 1920
+  store ptr @ff_vvc_inv_dct2_16, ptr %342, align 8, !tbaa !4
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 1928
+  store ptr @ff_vvc_inv_dct2_32, ptr %343, align 8, !tbaa !4
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 2000
+  store ptr @ff_vvc_inv_dct8_4, ptr %344, align 8, !tbaa !4
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 2008
+  store ptr @ff_vvc_inv_dct8_8, ptr %345, align 8, !tbaa !4
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 2016
+  store ptr @ff_vvc_inv_dct8_16, ptr %346, align 8, !tbaa !4
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 2024
+  store ptr @ff_vvc_inv_dct8_32, ptr %347, align 8, !tbaa !4
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 1952
+  store ptr @ff_vvc_inv_dst7_4, ptr %348, align 8, !tbaa !4
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 1960
+  store ptr @ff_vvc_inv_dst7_8, ptr %349, align 8, !tbaa !4
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 1968
+  store ptr @ff_vvc_inv_dst7_16, ptr %350, align 8, !tbaa !4
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 1976
+  store ptr @ff_vvc_inv_dst7_32, ptr %351, align 8, !tbaa !4
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 2048
+  store ptr @adaptive_color_transform_8, ptr %352, align 8, !tbaa !61
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 2056
+  store ptr @lmcs_filter_luma_8, ptr %353, align 8, !tbaa !62
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 2064
+  store ptr @vvc_h_loop_ladf_level_8, ptr %354, align 8, !tbaa !4
+  %355 = getelementptr inbounds nuw i8, ptr %0, i64 2072
+  store ptr @vvc_v_loop_ladf_level_8, ptr %355, align 8, !tbaa !4
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 2080
+  store ptr @vvc_h_loop_filter_luma_8, ptr %356, align 8, !tbaa !4
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 2088
+  store ptr @vvc_v_loop_filter_luma_8, ptr %357, align 8, !tbaa !4
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 2096
+  store ptr @vvc_h_loop_filter_chroma_8, ptr %358, align 8, !tbaa !4
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 2104
+  store ptr @vvc_v_loop_filter_chroma_8, ptr %359, align 8, !tbaa !4
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  br label %362
 
-.preheader.i233:                                  ; preds = %353
-  %352 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  br label %355
+.preheader.i233:                                  ; preds = %362
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 2184
+  br label %364
 
-353:                                              ; preds = %353, %ff_vvc_inter_dsp_init_8.exit
-  %indvars.iv.i230 = phi i64 [ 0, %ff_vvc_inter_dsp_init_8.exit ], [ %indvars.iv.next.i231, %353 ]
-  %354 = getelementptr inbounds nuw ptr, ptr %351, i64 %indvars.iv.i230
-  store ptr @sao_band_filter_8, ptr %354, align 8, !tbaa !4
+362:                                              ; preds = %362, %ff_vvc_inter_dsp_init_8.exit
+  %indvars.iv.i230 = phi i64 [ 0, %ff_vvc_inter_dsp_init_8.exit ], [ %indvars.iv.next.i231, %362 ]
+  %363 = getelementptr inbounds nuw ptr, ptr %360, i64 %indvars.iv.i230
+  store ptr @sao_band_filter_8, ptr %363, align 8, !tbaa !4
   %indvars.iv.next.i231 = add nuw nsw i64 %indvars.iv.i230, 1
   %exitcond.not.i232 = icmp eq i64 %indvars.iv.next.i231, 9
-  br i1 %exitcond.not.i232, label %.preheader.i233, label %353, !llvm.loop !118
+  br i1 %exitcond.not.i232, label %.preheader.i233, label %362, !llvm.loop !118
 
-355:                                              ; preds = %355, %.preheader.i233
-  %indvars.iv15.i234 = phi i64 [ 0, %.preheader.i233 ], [ %indvars.iv.next16.i235, %355 ]
-  %356 = getelementptr inbounds nuw ptr, ptr %352, i64 %indvars.iv15.i234
-  store ptr @sao_edge_filter_8, ptr %356, align 8, !tbaa !4
+364:                                              ; preds = %364, %.preheader.i233
+  %indvars.iv15.i234 = phi i64 [ 0, %.preheader.i233 ], [ %indvars.iv.next16.i235, %364 ]
+  %365 = getelementptr inbounds nuw ptr, ptr %361, i64 %indvars.iv15.i234
+  store ptr @sao_edge_filter_8, ptr %365, align 8, !tbaa !4
   %indvars.iv.next16.i235 = add nuw nsw i64 %indvars.iv15.i234, 1
   %exitcond18.not.i236 = icmp eq i64 %indvars.iv.next16.i235, 9
-  br i1 %exitcond18.not.i236, label %ff_vvc_sao_dsp_init_12.exit, label %355, !llvm.loop !119
+  br i1 %exitcond18.not.i236, label %ff_vvc_sao_dsp_init_12.exit, label %364, !llvm.loop !119
 
-ff_vvc_sao_dsp_init_12.exit:                      ; preds = %237, %119, %355
-  %sao_edge_restore_0_8.sink = phi ptr [ @sao_edge_restore_0_8, %355 ], [ @sao_edge_restore_0_12, %119 ], [ @sao_edge_restore_0_10, %237 ]
-  %sao_edge_restore_1_8.sink = phi ptr [ @sao_edge_restore_1_8, %355 ], [ @sao_edge_restore_1_12, %119 ], [ @sao_edge_restore_1_10, %237 ]
-  %alf_filter_luma_8.sink = phi ptr [ @alf_filter_luma_8, %355 ], [ @alf_filter_luma_12, %119 ], [ @alf_filter_luma_10, %237 ]
-  %alf_filter_chroma_8.sink = phi ptr [ @alf_filter_chroma_8, %355 ], [ @alf_filter_chroma_12, %119 ], [ @alf_filter_chroma_10, %237 ]
-  %alf_filter_cc_8.sink = phi ptr [ @alf_filter_cc_8, %355 ], [ @alf_filter_cc_12, %119 ], [ @alf_filter_cc_10, %237 ]
-  %alf_classify_8.sink = phi ptr [ @alf_classify_8, %355 ], [ @alf_classify_12, %119 ], [ @alf_classify_10, %237 ]
-  %alf_recon_coeff_and_clip_8.sink = phi ptr [ @alf_recon_coeff_and_clip_8, %355 ], [ @alf_recon_coeff_and_clip_12, %119 ], [ @alf_recon_coeff_and_clip_10, %237 ]
-  %357 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  store ptr %sao_edge_restore_0_8.sink, ptr %357, align 8, !tbaa !4
-  %358 = getelementptr inbounds nuw i8, ptr %0, i64 2264
-  store ptr %sao_edge_restore_1_8.sink, ptr %358, align 8, !tbaa !4
-  %359 = getelementptr inbounds nuw i8, ptr %0, i64 2272
-  store ptr %alf_filter_luma_8.sink, ptr %359, align 8, !tbaa !4
-  %360 = getelementptr inbounds nuw i8, ptr %0, i64 2280
-  store ptr %alf_filter_chroma_8.sink, ptr %360, align 8, !tbaa !4
-  %361 = getelementptr inbounds nuw i8, ptr %0, i64 2288
-  store ptr %alf_filter_cc_8.sink, ptr %361, align 8, !tbaa !120
-  %362 = getelementptr inbounds nuw i8, ptr %0, i64 2296
-  store ptr %alf_classify_8.sink, ptr %362, align 8, !tbaa !122
-  %363 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  store ptr %alf_recon_coeff_and_clip_8.sink, ptr %363, align 8, !tbaa !123
+ff_vvc_sao_dsp_init_12.exit:                      ; preds = %243, %122, %364
+  %sao_edge_restore_0_8.sink = phi ptr [ @sao_edge_restore_0_8, %364 ], [ @sao_edge_restore_0_12, %122 ], [ @sao_edge_restore_0_10, %243 ]
+  %sao_edge_restore_1_8.sink = phi ptr [ @sao_edge_restore_1_8, %364 ], [ @sao_edge_restore_1_12, %122 ], [ @sao_edge_restore_1_10, %243 ]
+  %alf_filter_luma_8.sink = phi ptr [ @alf_filter_luma_8, %364 ], [ @alf_filter_luma_12, %122 ], [ @alf_filter_luma_10, %243 ]
+  %alf_filter_chroma_8.sink = phi ptr [ @alf_filter_chroma_8, %364 ], [ @alf_filter_chroma_12, %122 ], [ @alf_filter_chroma_10, %243 ]
+  %alf_filter_cc_8.sink = phi ptr [ @alf_filter_cc_8, %364 ], [ @alf_filter_cc_12, %122 ], [ @alf_filter_cc_10, %243 ]
+  %alf_classify_8.sink = phi ptr [ @alf_classify_8, %364 ], [ @alf_classify_12, %122 ], [ @alf_classify_10, %243 ]
+  %alf_recon_coeff_and_clip_8.sink = phi ptr [ @alf_recon_coeff_and_clip_8, %364 ], [ @alf_recon_coeff_and_clip_12, %122 ], [ @alf_recon_coeff_and_clip_10, %243 ]
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 2256
+  store ptr %sao_edge_restore_0_8.sink, ptr %366, align 8, !tbaa !4
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 2264
+  store ptr %sao_edge_restore_1_8.sink, ptr %367, align 8, !tbaa !4
+  %368 = getelementptr inbounds nuw i8, ptr %0, i64 2272
+  store ptr %alf_filter_luma_8.sink, ptr %368, align 8, !tbaa !4
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 2280
+  store ptr %alf_filter_chroma_8.sink, ptr %369, align 8, !tbaa !4
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 2288
+  store ptr %alf_filter_cc_8.sink, ptr %370, align 8, !tbaa !120
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 2296
+  store ptr %alf_classify_8.sink, ptr %371, align 8, !tbaa !122
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 2304
+  store ptr %alf_recon_coeff_and_clip_8.sink, ptr %372, align 8, !tbaa !123
   ret void
 }
 

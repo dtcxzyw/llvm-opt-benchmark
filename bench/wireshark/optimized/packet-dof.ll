@@ -1594,96 +1594,100 @@ define internal void @dof_shutdown_routine() #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
-  %3 = getelementptr %struct._dof_identity_data, ptr %2, i64 %indvars.iv, i32 2
-  %4 = load ptr, ptr %3, align 8
-  tail call void @g_free(ptr noundef %4)
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
-  %6 = getelementptr %struct._dof_identity_data, ptr %5, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8
-  tail call void @g_free(ptr noundef %7)
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
-  %9 = getelementptr %struct._dof_identity_data, ptr %8, i64 %indvars.iv, i32 4
-  %10 = load ptr, ptr %9, align 8
-  tail call void @g_free(ptr noundef %10)
+  %3 = getelementptr %struct._dof_identity_data, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call void @g_free(ptr noundef %5)
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
+  %7 = getelementptr %struct._dof_identity_data, ptr %6, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8
+  tail call void @g_free(ptr noundef %8)
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
+  %10 = getelementptr %struct._dof_identity_data, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %12 = load ptr, ptr %11, align 8
+  tail call void @g_free(ptr noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i16, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 40), align 8
-  %12 = zext i16 %11 to i64
-  %13 = icmp samesign ult i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  %13 = load i16, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 40), align 8
+  %14 = zext i16 %13 to i64
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
-  tail call void @g_free(ptr noundef %14)
-  %15 = load i16, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 24), align 8
-  %.not25 = icmp eq i16 %15, 0
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 32), align 8
+  tail call void @g_free(ptr noundef %16)
+  %17 = load i16, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 24), align 8
+  %.not25 = icmp eq i16 %17, 0
   br i1 %.not25, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %._crit_edge, %.lr.ph22
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.lr.ph22 ], [ 0, %._crit_edge ]
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 16), align 8
-  %17 = getelementptr %struct._dof_group_data, ptr %16, i64 %indvars.iv27
-  %18 = load ptr, ptr %17, align 8
-  tail call void @g_free(ptr noundef %18)
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 16), align 8
-  %20 = getelementptr %struct._dof_group_data, ptr %19, i64 %indvars.iv27, i32 2
-  %21 = load ptr, ptr %20, align 8
-  tail call void @g_free(ptr noundef %21)
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 16), align 8
-  %23 = getelementptr %struct._dof_group_data, ptr %22, i64 %indvars.iv27, i32 4
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 16), align 8
+  %19 = getelementptr %struct._dof_group_data, ptr %18, i64 %indvars.iv27
+  %20 = load ptr, ptr %19, align 8
+  tail call void @g_free(ptr noundef %20)
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 16), align 8
+  %22 = getelementptr %struct._dof_group_data, ptr %21, i64 %indvars.iv27
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void @g_free(ptr noundef %24)
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 16), align 8
+  %26 = getelementptr %struct._dof_group_data, ptr %25, i64 %indvars.iv27
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %28 = load ptr, ptr %27, align 8
+  tail call void @g_free(ptr noundef %28)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %25 = load i16, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 24), align 8
-  %26 = zext i16 %25 to i64
-  %27 = icmp samesign ult i64 %indvars.iv.next28, %26
-  br i1 %27, label %.lr.ph22, label %._crit_edge23, !llvm.loop !9
+  %29 = load i16, ptr getelementptr inbounds nuw (i8, ptr @global_security, i64 24), align 8
+  %30 = zext i16 %29 to i64
+  %31 = icmp samesign ult i64 %indvars.iv.next28, %30
+  br i1 %31, label %.lr.ph22, label %._crit_edge23, !llvm.loop !9
 
 ._crit_edge23:                                    ; preds = %.lr.ph22, %._crit_edge
-  %28 = load ptr, ptr @addr_port_to_id, align 8
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %30, label %29
+  %32 = load ptr, ptr @addr_port_to_id, align 8
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %34, label %33
 
-29:                                               ; preds = %._crit_edge23
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %28)
-  br label %30
+33:                                               ; preds = %._crit_edge23
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %32)
+  br label %34
 
-30:                                               ; preds = %29, %._crit_edge23
-  %31 = load ptr, ptr @dpp_opid_to_packet_data, align 8
-  %.not15 = icmp eq ptr %31, null
-  br i1 %.not15, label %33, label %32
+34:                                               ; preds = %33, %._crit_edge23
+  %35 = load ptr, ptr @dpp_opid_to_packet_data, align 8
+  %.not15 = icmp eq ptr %35, null
+  br i1 %.not15, label %37, label %36
 
-32:                                               ; preds = %30
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %31)
-  br label %33
+36:                                               ; preds = %34
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %35)
+  br label %37
 
-33:                                               ; preds = %32, %30
-  %34 = load ptr, ptr @node_key_to_sid_id, align 8
-  %.not16 = icmp eq ptr %34, null
-  br i1 %.not16, label %36, label %35
+37:                                               ; preds = %36, %34
+  %38 = load ptr, ptr @node_key_to_sid_id, align 8
+  %.not16 = icmp eq ptr %38, null
+  br i1 %.not16, label %40, label %39
 
-35:                                               ; preds = %33
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %34)
-  br label %36
+39:                                               ; preds = %37
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %38)
+  br label %40
 
-36:                                               ; preds = %35, %33
-  %37 = load ptr, ptr @sid_buffer_to_sid_id, align 8
-  %.not17 = icmp eq ptr %37, null
-  br i1 %.not17, label %39, label %38
+40:                                               ; preds = %39, %37
+  %41 = load ptr, ptr @sid_buffer_to_sid_id, align 8
+  %.not17 = icmp eq ptr %41, null
+  br i1 %.not17, label %43, label %42
 
-38:                                               ; preds = %36
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %37)
-  br label %39
+42:                                               ; preds = %40
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %41)
+  br label %43
 
-39:                                               ; preds = %38, %36
-  %40 = load ptr, ptr @sid_id_to_sid_buffer, align 8
-  %.not18 = icmp eq ptr %40, null
-  br i1 %.not18, label %42, label %41
+43:                                               ; preds = %42, %40
+  %44 = load ptr, ptr @sid_id_to_sid_buffer, align 8
+  %.not18 = icmp eq ptr %44, null
+  br i1 %.not18, label %46, label %45
 
-41:                                               ; preds = %39
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %40)
-  br label %42
+45:                                               ; preds = %43
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %44)
+  br label %46
 
-42:                                               ; preds = %41, %39
+46:                                               ; preds = %45, %43
   ret void
 }
 

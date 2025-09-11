@@ -1588,22 +1588,25 @@ define hidden void @SDL_DitherPalette(ptr noundef readonly captures(none) %0) lo
   %19 = or disjoint i32 %18, %15
   %20 = trunc nuw i32 %19 to i8
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds nuw %struct.SDL_Color, ptr %21, i64 %indvars.iv, i32 1
-  store i8 %20, ptr %22, align 1
-  %23 = trunc i64 %indvars.iv to i8
-  %24 = and i8 %23, 3
-  %25 = mul nuw i8 %24, 85
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds nuw %struct.SDL_Color, ptr %26, i64 %indvars.iv, i32 2
-  store i8 %25, ptr %27, align 1
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds nuw %struct.SDL_Color, ptr %28, i64 %indvars.iv, i32 3
-  store i8 -1, ptr %29, align 1
+  %22 = getelementptr inbounds nuw %struct.SDL_Color, ptr %21, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  store i8 %20, ptr %23, align 1
+  %24 = trunc i64 %indvars.iv to i8
+  %25 = and i8 %24, 3
+  %26 = mul nuw i8 %25, 85
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.SDL_Color, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
+  store i8 %26, ptr %29, align 1
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds nuw %struct.SDL_Color, ptr %30, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 3
+  store i8 -1, ptr %32, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i32, ptr %0, align 8
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %4, label %.loopexit, !llvm.loop !12
+  %33 = load i32, ptr %0, align 8
+  %34 = sext i32 %33 to i64
+  %35 = icmp slt i64 %indvars.iv.next, %34
+  br i1 %35, label %4, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %4, %1
   ret void
@@ -1778,9 +1781,10 @@ define hidden void @SDL_DetectPalette(ptr noundef readonly captures(none) %0, pt
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw %struct.SDL_Color, ptr %6, i64 %indvars.iv, i32 3
-  %10 = load i8, ptr %9, align 1
-  %.not = icmp eq i8 %10, -1
+  %9 = getelementptr inbounds nuw %struct.SDL_Color, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 3
+  %11 = load i8, ptr %10, align 1
+  %.not = icmp eq i8 %11, -1
   br i1 %.not, label %7, label %.lr.ph47
 
 .critedge:                                        ; preds = %.lr.ph47
@@ -1790,9 +1794,10 @@ define hidden void @SDL_DetectPalette(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph47:                                         ; preds = %8, %.critedge
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.critedge ], [ 0, %8 ]
-  %11 = getelementptr inbounds nuw %struct.SDL_Color, ptr %6, i64 %indvars.iv49, i32 3
-  %12 = load i8, ptr %11, align 1
-  %.not32 = icmp eq i8 %12, 0
+  %12 = getelementptr inbounds nuw %struct.SDL_Color, ptr %6, i64 %indvars.iv49
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 3
+  %14 = load i8, ptr %13, align 1
+  %.not32 = icmp eq i8 %14, 0
   br i1 %.not32, label %.critedge, label %.critedge39
 
 .critedge39:                                      ; preds = %7, %.lr.ph47, %.critedge, %3
@@ -2213,12 +2218,12 @@ define hidden void @SDL_GetRGB_REAL(i32 noundef %0, ptr noundef readonly capture
   %.mask = and i32 %9, -268435456
   %.not75 = icmp eq i32 %.mask, 268435456
   %or.cond = or i1 %.not74, %.not75
-  br i1 %or.cond, label %10, label %60
+  br i1 %or.cond, label %10, label %62
 
 10:                                               ; preds = %8
   %11 = lshr i32 %9, 24
   %12 = and i32 %11, 15
-  switch i32 %12, label %30 [
+  switch i32 %12, label %32 [
     i32 1, label %13
     i32 12, label %13
     i32 2, label %13
@@ -2227,12 +2232,12 @@ define hidden void @SDL_GetRGB_REAL(i32 noundef %0, ptr noundef readonly capture
 
 13:                                               ; preds = %10, %10, %10, %10
   %.not76 = icmp eq ptr %2, null
-  br i1 %.not76, label %29, label %14
+  br i1 %.not76, label %31, label %14
 
 14:                                               ; preds = %13
   %15 = load i32, ptr %2, align 8
   %16 = icmp ult i32 %0, %15
-  br i1 %16, label %17, label %29
+  br i1 %16, label %17, label %31
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2251,29 +2256,31 @@ define hidden void @SDL_GetRGB_REAL(i32 noundef %0, ptr noundef readonly capture
 
 .else88:                                          ; preds = %.cont104
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds nuw %struct.SDL_Color, ptr %23, i64 %19, i32 1
-  %25 = load i8, ptr %24, align 1
-  store i8 %25, ptr %4, align 1
+  %24 = getelementptr inbounds nuw %struct.SDL_Color, ptr %23, i64 %19
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  %26 = load i8, ptr %25, align 1
+  store i8 %26, ptr %4, align 1
   br label %.cont86
 
 .cont86:                                          ; preds = %.cont104, %.else88
   br i1 %.not72, label %.cont.cont, label %.cont86.else
 
 .cont86.else:                                     ; preds = %.cont86
-  %26 = load ptr, ptr %18, align 8
-  %27 = getelementptr inbounds nuw %struct.SDL_Color, ptr %26, i64 %19, i32 2
-  %28 = load i8, ptr %27, align 1
-  store i8 %28, ptr %5, align 1
+  %27 = load ptr, ptr %18, align 8
+  %28 = getelementptr inbounds nuw %struct.SDL_Color, ptr %27, i64 %19
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
+  %30 = load i8, ptr %29, align 1
+  store i8 %30, ptr %5, align 1
   br label %.cont.cont
 
-29:                                               ; preds = %14, %13
+31:                                               ; preds = %14, %13
   br i1 %.not72, label %.cont101, label %.else103
 
-.else103:                                         ; preds = %29
+.else103:                                         ; preds = %31
   store i8 0, ptr %5, align 1
   br label %.cont101
 
-.cont101:                                         ; preds = %29, %.else103
+.cont101:                                         ; preds = %31, %.else103
   br i1 %.not71, label %.cont83, label %.else85
 
 .else85:                                          ; preds = %.cont101
@@ -2287,126 +2294,126 @@ define hidden void @SDL_GetRGB_REAL(i32 noundef %0, ptr noundef readonly capture
   store i8 0, ptr %3, align 1
   br label %.cont.cont
 
-30:                                               ; preds = %10
-  %31 = and i32 %9, 252641280
-  %or.cond82 = icmp eq i32 %31, 101122048
-  br i1 %or.cond82, label %32, label %60
+32:                                               ; preds = %10
+  %33 = and i32 %9, 252641280
+  %or.cond82 = icmp eq i32 %33, 101122048
+  br i1 %or.cond82, label %34, label %62
 
-32:                                               ; preds = %30
+34:                                               ; preds = %32
   br i1 %.not, label %.cont107, label %.else109
 
-.else109:                                         ; preds = %32
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %34 = load i32, ptr %33, align 4
-  %35 = and i32 %34, %0
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %37 = load i8, ptr %36, align 4
-  %38 = zext nneg i8 %37 to i32
-  %39 = lshr i32 %35, %38
-  %40 = lshr i32 %39, 2
-  %41 = trunc i32 %40 to i8
-  store i8 %41, ptr %3, align 1
+.else109:                                         ; preds = %34
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %36 = load i32, ptr %35, align 4
+  %37 = and i32 %36, %0
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %39 = load i8, ptr %38, align 4
+  %40 = zext nneg i8 %39 to i32
+  %41 = lshr i32 %37, %40
+  %42 = lshr i32 %41, 2
+  %43 = trunc i32 %42 to i8
+  store i8 %43, ptr %3, align 1
   br label %.cont107
 
-.cont107:                                         ; preds = %32, %.else109
+.cont107:                                         ; preds = %34, %.else109
   br i1 %.not71, label %.cont89, label %.else91
 
 .else91:                                          ; preds = %.cont107
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %43 = load i32, ptr %42, align 4
-  %44 = and i32 %43, %0
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %46 = load i8, ptr %45, align 1
-  %47 = zext nneg i8 %46 to i32
-  %48 = lshr i32 %44, %47
-  %49 = lshr i32 %48, 2
-  %50 = trunc i32 %49 to i8
-  store i8 %50, ptr %4, align 1
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %45 = load i32, ptr %44, align 4
+  %46 = and i32 %45, %0
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %48 = load i8, ptr %47, align 1
+  %49 = zext nneg i8 %48 to i32
+  %50 = lshr i32 %46, %49
+  %51 = lshr i32 %50, 2
+  %52 = trunc i32 %51 to i8
+  store i8 %52, ptr %4, align 1
   br label %.cont89
 
 .cont89:                                          ; preds = %.cont107, %.else91
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %52 = load i32, ptr %51, align 4
-  %53 = and i32 %52, %0
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %55 = load i8, ptr %54, align 2
-  %56 = zext nneg i8 %55 to i32
-  %57 = lshr i32 %53, %56
-  %58 = lshr i32 %57, 2
-  %59 = trunc i32 %58 to i8
-  br label %106
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %54 = load i32, ptr %53, align 4
+  %55 = and i32 %54, %0
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %57 = load i8, ptr %56, align 2
+  %58 = zext nneg i8 %57 to i32
+  %59 = lshr i32 %55, %58
+  %60 = lshr i32 %59, 2
+  %61 = trunc i32 %60 to i8
+  br label %108
 
-60:                                               ; preds = %8, %30
+62:                                               ; preds = %8, %32
   br i1 %.not, label %.cont110, label %.else112
 
-.else112:                                         ; preds = %60
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %62 = load i8, ptr %61, align 4
-  %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %63
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %67 = load i32, ptr %66, align 4
-  %68 = and i32 %67, %0
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %70 = load i8, ptr %69, align 4
-  %71 = zext nneg i8 %70 to i32
-  %72 = lshr i32 %68, %71
-  %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i8, ptr %65, i64 %73
-  %75 = load i8, ptr %74, align 1
-  store i8 %75, ptr %3, align 1
+.else112:                                         ; preds = %62
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %64 = load i8, ptr %63, align 4
+  %65 = zext i8 %64 to i64
+  %66 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %65
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %69 = load i32, ptr %68, align 4
+  %70 = and i32 %69, %0
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %72 = load i8, ptr %71, align 4
+  %73 = zext nneg i8 %72 to i32
+  %74 = lshr i32 %70, %73
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 %75
+  %77 = load i8, ptr %76, align 1
+  store i8 %77, ptr %3, align 1
   br label %.cont110
 
-.cont110:                                         ; preds = %60, %.else112
+.cont110:                                         ; preds = %62, %.else112
   br i1 %.not71, label %.cont92, label %.else94
 
 .else94:                                          ; preds = %.cont110
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %78
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %82 = load i32, ptr %81, align 4
-  %83 = and i32 %82, %0
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %85 = load i8, ptr %84, align 1
-  %86 = zext nneg i8 %85 to i32
-  %87 = lshr i32 %83, %86
-  %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i8, ptr %80, i64 %88
-  %90 = load i8, ptr %89, align 1
-  store i8 %90, ptr %4, align 1
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i64
+  %81 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %80
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %84 = load i32, ptr %83, align 4
+  %85 = and i32 %84, %0
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %87 = load i8, ptr %86, align 1
+  %88 = zext nneg i8 %87 to i32
+  %89 = lshr i32 %85, %88
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 %90
+  %92 = load i8, ptr %91, align 1
+  store i8 %92, ptr %4, align 1
   br label %.cont92
 
 .cont92:                                          ; preds = %.cont110, %.else94
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %92 = load i32, ptr %91, align 4
-  %93 = and i32 %92, %0
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %95 = load i8, ptr %94, align 2
-  %96 = zext nneg i8 %95 to i32
-  %97 = lshr i32 %93, %96
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %99 = load i8, ptr %98, align 2
-  %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %100
-  %102 = load ptr, ptr %101, align 8
-  %103 = zext i32 %97 to i64
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 %103
-  %105 = load i8, ptr %104, align 1
-  br label %106
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %94 = load i32, ptr %93, align 4
+  %95 = and i32 %94, %0
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %97 = load i8, ptr %96, align 2
+  %98 = zext nneg i8 %97 to i32
+  %99 = lshr i32 %95, %98
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %101 = load i8, ptr %100, align 2
+  %102 = zext i8 %101 to i64
+  %103 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %102
+  %104 = load ptr, ptr %103, align 8
+  %105 = zext i32 %99 to i64
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 %105
+  %107 = load i8, ptr %106, align 1
+  br label %108
 
-106:                                              ; preds = %.cont92, %.cont89
-  %storemerge = phi i8 [ %59, %.cont89 ], [ %105, %.cont92 ]
+108:                                              ; preds = %.cont92, %.cont89
+  %storemerge = phi i8 [ %61, %.cont89 ], [ %107, %.cont92 ]
   br i1 %.not72, label %.cont.cont, label %.else97
 
-.else97:                                          ; preds = %106
+.else97:                                          ; preds = %108
   store i8 %storemerge, ptr %5, align 1
   br label %.cont.cont
 
-.cont.cont:                                       ; preds = %.else97, %106, %.cont83.else, %.cont83, %.cont86.else, %.cont86, %.cont.else, %.cont
+.cont.cont:                                       ; preds = %.else97, %108, %.cont83.else, %.cont83, %.cont86.else, %.cont86, %.cont.else, %.cont
   ret void
 }
 
@@ -2453,12 +2460,12 @@ define hidden void @SDL_GetRGBA_REAL(i32 noundef %0, ptr noundef readonly captur
   %.mask = and i32 %10, -268435456
   %.not95 = icmp eq i32 %.mask, 268435456
   %or.cond = or i1 %.not94, %.not95
-  br i1 %or.cond, label %11, label %64
+  br i1 %or.cond, label %11, label %67
 
 11:                                               ; preds = %9
   %12 = lshr i32 %10, 24
   %13 = and i32 %12, 15
-  switch i32 %13, label %34 [
+  switch i32 %13, label %37 [
     i32 1, label %14
     i32 12, label %14
     i32 2, label %14
@@ -2467,12 +2474,12 @@ define hidden void @SDL_GetRGBA_REAL(i32 noundef %0, ptr noundef readonly captur
 
 14:                                               ; preds = %11, %11, %11, %11
   %.not96 = icmp eq ptr %2, null
-  br i1 %.not96, label %33, label %15
+  br i1 %.not96, label %36, label %15
 
 15:                                               ; preds = %14
   %16 = load i32, ptr %2, align 8
   %17 = icmp ult i32 %0, %16
-  br i1 %17, label %18, label %33
+  br i1 %17, label %18, label %36
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2491,39 +2498,42 @@ define hidden void @SDL_GetRGBA_REAL(i32 noundef %0, ptr noundef readonly captur
 
 .else114:                                         ; preds = %.cont127
   %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr inbounds nuw %struct.SDL_Color, ptr %24, i64 %20, i32 1
-  %26 = load i8, ptr %25, align 1
-  store i8 %26, ptr %4, align 1
+  %25 = getelementptr inbounds nuw %struct.SDL_Color, ptr %24, i64 %20
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %27 = load i8, ptr %26, align 1
+  store i8 %27, ptr %4, align 1
   br label %.cont112
 
 .cont112:                                         ; preds = %.cont127, %.else114
   br i1 %.not91, label %.cont112.cont, label %.cont112.else
 
 .cont112.else:                                    ; preds = %.cont112
-  %27 = load ptr, ptr %19, align 8
-  %28 = getelementptr inbounds nuw %struct.SDL_Color, ptr %27, i64 %20, i32 2
-  %29 = load i8, ptr %28, align 1
-  store i8 %29, ptr %5, align 1
+  %28 = load ptr, ptr %19, align 8
+  %29 = getelementptr inbounds nuw %struct.SDL_Color, ptr %28, i64 %20
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
+  %31 = load i8, ptr %30, align 1
+  store i8 %31, ptr %5, align 1
   br label %.cont112.cont
 
 .cont112.cont:                                    ; preds = %.cont112, %.cont112.else
   br i1 %.not92, label %.cont103.cont.cont, label %.else111
 
 .else111:                                         ; preds = %.cont112.cont
-  %30 = load ptr, ptr %19, align 8
-  %31 = getelementptr inbounds nuw %struct.SDL_Color, ptr %30, i64 %20, i32 3
-  %32 = load i8, ptr %31, align 1
-  store i8 %32, ptr %6, align 1
+  %32 = load ptr, ptr %19, align 8
+  %33 = getelementptr inbounds nuw %struct.SDL_Color, ptr %32, i64 %20
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 3
+  %35 = load i8, ptr %34, align 1
+  store i8 %35, ptr %6, align 1
   br label %.cont103.cont.cont
 
-33:                                               ; preds = %15, %14
+36:                                               ; preds = %15, %14
   br i1 %.not92, label %.cont106, label %.else108
 
-.else108:                                         ; preds = %33
+.else108:                                         ; preds = %36
   store i8 0, ptr %6, align 1
   br label %.cont106
 
-.cont106:                                         ; preds = %33, %.else108
+.cont106:                                         ; preds = %36, %.else108
   br i1 %.not91, label %.cont106.cont124, label %.cont106.else126
 
 .cont106.else126:                                 ; preds = %.cont106
@@ -2544,125 +2554,125 @@ define hidden void @SDL_GetRGBA_REAL(i32 noundef %0, ptr noundef readonly captur
   store i8 0, ptr %3, align 1
   br label %.cont103.cont.cont
 
-34:                                               ; preds = %11
-  %35 = and i32 %10, 252641280
-  %or.cond102 = icmp eq i32 %35, 101122048
-  br i1 %or.cond102, label %36, label %64
+37:                                               ; preds = %11
+  %38 = and i32 %10, 252641280
+  %or.cond102 = icmp eq i32 %38, 101122048
+  br i1 %or.cond102, label %39, label %67
 
-36:                                               ; preds = %34
+39:                                               ; preds = %37
   br i1 %.not, label %.cont130, label %.else132
 
-.else132:                                         ; preds = %36
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load i32, ptr %37, align 4
-  %39 = and i32 %38, %0
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %41 = load i8, ptr %40, align 4
-  %42 = zext nneg i8 %41 to i32
-  %43 = lshr i32 %39, %42
-  %44 = lshr i32 %43, 2
-  %45 = trunc i32 %44 to i8
-  store i8 %45, ptr %3, align 1
+.else132:                                         ; preds = %39
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %41 = load i32, ptr %40, align 4
+  %42 = and i32 %41, %0
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %44 = load i8, ptr %43, align 4
+  %45 = zext nneg i8 %44 to i32
+  %46 = lshr i32 %42, %45
+  %47 = lshr i32 %46, 2
+  %48 = trunc i32 %47 to i8
+  store i8 %48, ptr %3, align 1
   br label %.cont130
 
-.cont130:                                         ; preds = %36, %.else132
+.cont130:                                         ; preds = %39, %.else132
   br i1 %.not90, label %.cont115, label %.else117
 
 .else117:                                         ; preds = %.cont130
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %47 = load i32, ptr %46, align 4
-  %48 = and i32 %47, %0
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %50 = load i8, ptr %49, align 1
-  %51 = zext nneg i8 %50 to i32
-  %52 = lshr i32 %48, %51
-  %53 = lshr i32 %52, 2
-  %54 = trunc i32 %53 to i8
-  store i8 %54, ptr %4, align 1
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %50 = load i32, ptr %49, align 4
+  %51 = and i32 %50, %0
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %53 = load i8, ptr %52, align 1
+  %54 = zext nneg i8 %53 to i32
+  %55 = lshr i32 %51, %54
+  %56 = lshr i32 %55, 2
+  %57 = trunc i32 %56 to i8
+  store i8 %57, ptr %4, align 1
   br label %.cont115
 
 .cont115:                                         ; preds = %.cont130, %.else117
   br i1 %.not91, label %.cont115.cont, label %.cont115.else
 
 .cont115.else:                                    ; preds = %.cont115
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %56 = load i32, ptr %55, align 4
-  %57 = and i32 %56, %0
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %59 = load i8, ptr %58, align 2
-  %60 = zext nneg i8 %59 to i32
-  %61 = lshr i32 %57, %60
-  %62 = lshr i32 %61, 2
-  %63 = trunc i32 %62 to i8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %59, %0
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %62 = load i8, ptr %61, align 2
+  %63 = zext nneg i8 %62 to i32
+  %64 = lshr i32 %60, %63
+  %65 = lshr i32 %64, 2
+  %66 = trunc i32 %65 to i8
   br label %.cont115.cont.sink.split
 
-64:                                               ; preds = %9, %34
+67:                                               ; preds = %9, %37
   br i1 %.not, label %.cont133, label %.else135
 
-.else135:                                         ; preds = %64
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %66 = load i8, ptr %65, align 4
-  %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %71 = load i32, ptr %70, align 4
-  %72 = and i32 %71, %0
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %74 = load i8, ptr %73, align 4
-  %75 = zext nneg i8 %74 to i32
-  %76 = lshr i32 %72, %75
-  %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %69, i64 %77
-  %79 = load i8, ptr %78, align 1
-  store i8 %79, ptr %3, align 1
+.else135:                                         ; preds = %67
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %69 = load i8, ptr %68, align 4
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %70
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %74 = load i32, ptr %73, align 4
+  %75 = and i32 %74, %0
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %77 = load i8, ptr %76, align 4
+  %78 = zext nneg i8 %77 to i32
+  %79 = lshr i32 %75, %78
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 %80
+  %82 = load i8, ptr %81, align 1
+  store i8 %82, ptr %3, align 1
   br label %.cont133
 
-.cont133:                                         ; preds = %64, %.else135
+.cont133:                                         ; preds = %67, %.else135
   br i1 %.not90, label %.cont118, label %.else120
 
 .else120:                                         ; preds = %.cont133
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %81 = load i8, ptr %80, align 1
-  %82 = zext i8 %81 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %82
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %86 = load i32, ptr %85, align 4
-  %87 = and i32 %86, %0
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %89 = load i8, ptr %88, align 1
-  %90 = zext nneg i8 %89 to i32
-  %91 = lshr i32 %87, %90
-  %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw i8, ptr %84, i64 %92
-  %94 = load i8, ptr %93, align 1
-  store i8 %94, ptr %4, align 1
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %84 = load i8, ptr %83, align 1
+  %85 = zext i8 %84 to i64
+  %86 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %85
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %89 = load i32, ptr %88, align 4
+  %90 = and i32 %89, %0
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %92 = load i8, ptr %91, align 1
+  %93 = zext nneg i8 %92 to i32
+  %94 = lshr i32 %90, %93
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr inbounds nuw i8, ptr %87, i64 %95
+  %97 = load i8, ptr %96, align 1
+  store i8 %97, ptr %4, align 1
   br label %.cont118
 
 .cont118:                                         ; preds = %.cont133, %.else120
   br i1 %.not91, label %.cont115.cont, label %.cont118.else
 
 .cont118.else:                                    ; preds = %.cont118
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %96 = load i8, ptr %95, align 2
-  %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %97
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %101 = load i32, ptr %100, align 4
-  %102 = and i32 %101, %0
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %104 = load i8, ptr %103, align 2
-  %105 = zext nneg i8 %104 to i32
-  %106 = lshr i32 %102, %105
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw i8, ptr %99, i64 %107
-  %109 = load i8, ptr %108, align 1
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %99 = load i8, ptr %98, align 2
+  %100 = zext i8 %99 to i64
+  %101 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %100
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %104 = load i32, ptr %103, align 4
+  %105 = and i32 %104, %0
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %107 = load i8, ptr %106, align 2
+  %108 = zext nneg i8 %107 to i32
+  %109 = lshr i32 %105, %108
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw i8, ptr %102, i64 %110
+  %112 = load i8, ptr %111, align 1
   br label %.cont115.cont.sink.split
 
 .cont115.cont.sink.split:                         ; preds = %.cont115.else, %.cont118.else
-  %.sink = phi i8 [ %109, %.cont118.else ], [ %63, %.cont115.else ]
+  %.sink = phi i8 [ %112, %.cont118.else ], [ %66, %.cont115.else ]
   store i8 %.sink, ptr %5, align 1
   br label %.cont115.cont
 
@@ -2670,21 +2680,21 @@ define hidden void @SDL_GetRGBA_REAL(i32 noundef %0, ptr noundef readonly captur
   br i1 %.not92, label %.cont103.cont.cont, label %.else
 
 .else:                                            ; preds = %.cont115.cont
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 27
-  %111 = load i8, ptr %110, align 1
-  %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %112
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %116 = load i32, ptr %115, align 4
-  %117 = and i32 %116, %0
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 31
-  %119 = load i8, ptr %118, align 1
-  %120 = zext nneg i8 %119 to i32
-  %121 = lshr i32 %117, %120
-  %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %114, i64 %122
-  %storemerge = load i8, ptr %123, align 1
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 27
+  %114 = load i8, ptr %113, align 1
+  %115 = zext i8 %114 to i64
+  %116 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %115
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %119 = load i32, ptr %118, align 4
+  %120 = and i32 %119, %0
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 31
+  %122 = load i8, ptr %121, align 1
+  %123 = zext nneg i8 %122 to i32
+  %124 = lshr i32 %120, %123
+  %125 = zext i32 %124 to i64
+  %126 = getelementptr inbounds nuw i8, ptr %117, i64 %125
+  %storemerge = load i8, ptr %126, align 1
   store i8 %storemerge, ptr %6, align 1
   br label %.cont103.cont.cont
 

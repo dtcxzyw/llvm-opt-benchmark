@@ -898,9 +898,10 @@ define noundef i32 @_ZNK6icu_7717UCharsTrieBuilder15getElementValueEi(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %4, i64 %5, i32 1
-  %7 = load i32, ptr %6, align 4, !tbaa !13
-  ret i32 %7
+  %6 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %4, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %8 = load i32, ptr %7, align 4, !tbaa !13
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

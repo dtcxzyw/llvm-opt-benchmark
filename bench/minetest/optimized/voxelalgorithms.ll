@@ -227,22 +227,23 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.i.i.not.i, label %while.body.i, label %while.body, !llvm.loop !15
 
 while.body:                                       ; preds = %if.end.i, %while.cond
+  %5 = phi ptr [ %1, %while.cond ], [ %4, %if.end.i ]
   %idxprom7.i.pre-phi = phi i64 [ %idxprom19.i, %while.cond ], [ %idxprom.i, %if.end.i ]
-  %5 = phi i8 [ %max_light.promoted.i, %while.cond ], [ %dec.i, %if.end.i ]
-  %_M_finish.i.i14.i = getelementptr inbounds nuw %"class.std::vector", ptr %from_nodes, i64 %idxprom7.i.pre-phi, i32 0, i32 0, i32 0, i32 1
-  %6 = load ptr, ptr %_M_finish.i.i14.i, align 8, !tbaa !13
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 -32
+  %6 = phi i8 [ %max_light.promoted.i, %while.cond ], [ %dec.i, %if.end.i ]
+  %_M_finish.i.i14.i.split = getelementptr inbounds nuw %"class.std::vector", ptr %from_nodes, i64 %idxprom7.i.pre-phi
+  %_M_finish.i.i14.i = getelementptr inbounds nuw i8, ptr %_M_finish.i.i14.i.split, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 -32
   %current.sroa.0.0.copyload = load i48, ptr %add.ptr.i.i.i, align 8, !tbaa.struct !17
   %current.sroa.0.sroa.0.0.extract.trunc = trunc i48 %current.sroa.0.0.copyload to i16
   %current.sroa.0.sroa.7.0.extract.shift = lshr i48 %current.sroa.0.0.copyload, 16
   %current.sroa.0.sroa.7.0.extract.trunc = trunc i48 %current.sroa.0.sroa.7.0.extract.shift to i16
   %current.sroa.0.sroa.8.0.extract.shift = lshr i48 %current.sroa.0.0.copyload, 32
   %current.sroa.0.sroa.8.0.extract.trunc = trunc nuw i48 %current.sroa.0.sroa.8.0.extract.shift to i16
-  %current.sroa.9.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %6, i64 -26
+  %current.sroa.9.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %5, i64 -26
   %current.sroa.9.0.copyload = load i48, ptr %current.sroa.9.0.add.ptr.i.i.i.sroa_idx, align 2, !tbaa.struct !20
-  %current.sroa.11268.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %6, i64 -16
+  %current.sroa.11268.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %5, i64 -16
   %current.sroa.11268.0.copyload = load ptr, ptr %current.sroa.11268.0.add.ptr.i.i.i.sroa_idx, align 8, !tbaa !13
-  %current.sroa.17.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %6, i64 -8
+  %current.sroa.17.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %5, i64 -8
   %current.sroa.17.0.copyload = load i8, ptr %current.sroa.17.0.add.ptr.i.i.i.sroa_idx, align 8, !tbaa !19
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i14.i, align 8, !tbaa !21
   %p.sroa.0.0.extract.trunc.i = zext i48 %current.sroa.0.0.copyload to i64
@@ -285,7 +286,7 @@ while.body:                                       ; preds = %if.end.i, %while.co
   %m_timestamp.i.i.i = getelementptr inbounds nuw i8, ptr %current.sroa.11268.0.copyload, i64 80
   %m_disk_timestamp.i.i.i = getelementptr inbounds nuw i8, ptr %current.sroa.11268.0.copyload, i64 84
   %inc.i = add nsw i16 %current.sroa.0.sroa.0.0.extract.trunc, 1
-  %cmp32318 = icmp ne i8 %5, 0
+  %cmp32318 = icmp ne i8 %6, 0
   %neighbor_block_pos.sroa.0.0.extract.trunc = trunc i48 %current.sroa.9.0.copyload to i16
   %neighbor_block_pos.sroa.12.0.extract.shift = lshr i48 %current.sroa.9.0.copyload, 16
   %neighbor_block_pos.sroa.12.0.extract.trunc = trunc i48 %neighbor_block_pos.sroa.12.0.extract.shift to i16
@@ -441,7 +442,7 @@ _ZNK7MapNode11getLightRawE9LightBank20ContentLightingFlags.exit: ; preds = %if.e
   %cond.in.i = select i1 %cmp.i146, i8 %19, i8 %20
   %21 = and i8 %retval.sroa.0.0.copyload.i, 32
   %bf.cast.not = icmp ne i8 %21, 0
-  %cmp32 = icmp ult i8 %cond.in.i, %5
+  %cmp32 = icmp ult i8 %cond.in.i, %6
   %or.cond = and i1 %bf.cast.not, %cmp32
   br i1 %or.cond, label %if.then33, label %if.else49
 
@@ -915,24 +916,25 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.i.i.not.i, label %while.body.i, label %while.body, !llvm.loop !15
 
 while.body:                                       ; preds = %if.end.i, %while.cond
+  %5 = phi ptr [ %1, %while.cond ], [ %4, %if.end.i ]
   %idxprom7.i.pre-phi = phi i64 [ %idxprom19.i, %while.cond ], [ %idxprom.i, %if.end.i ]
-  %5 = phi i8 [ %max_light.promoted.i, %while.cond ], [ %dec.i, %if.end.i ]
-  %_M_finish.i.i14.i = getelementptr inbounds nuw %"class.std::vector", ptr %light_sources, i64 %idxprom7.i.pre-phi, i32 0, i32 0, i32 0, i32 1
-  %6 = load ptr, ptr %_M_finish.i.i14.i, align 8, !tbaa !13
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 -32
+  %6 = phi i8 [ %max_light.promoted.i, %while.cond ], [ %dec.i, %if.end.i ]
+  %_M_finish.i.i14.i.split = getelementptr inbounds nuw %"class.std::vector", ptr %light_sources, i64 %idxprom7.i.pre-phi
+  %_M_finish.i.i14.i = getelementptr inbounds nuw i8, ptr %_M_finish.i.i14.i.split, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 -32
   %current.sroa.0.0.copyload = load i16, ptr %add.ptr.i.i.i, align 8, !tbaa !18
-  %current.sroa.5.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %6, i64 -30
+  %current.sroa.5.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %5, i64 -30
   %current.sroa.5.0.copyload = load i16, ptr %current.sroa.5.0.add.ptr.i.i.i.sroa_idx, align 2, !tbaa !18
-  %current.sroa.6.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %6, i64 -28
+  %current.sroa.6.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %5, i64 -28
   %current.sroa.6.0.copyload = load i16, ptr %current.sroa.6.0.add.ptr.i.i.i.sroa_idx, align 4, !tbaa !18
-  %current.sroa.7.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %6, i64 -26
+  %current.sroa.7.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %5, i64 -26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %current.sroa.7, ptr noundef nonnull align 2 dereferenceable(6) %current.sroa.7.0.add.ptr.i.i.i.sroa_idx, i64 6, i1 false), !tbaa.struct !20
-  %current.sroa.8134.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %6, i64 -16
+  %current.sroa.8134.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %5, i64 -16
   %current.sroa.8134.0.copyload = load ptr, ptr %current.sroa.8134.0.add.ptr.i.i.i.sroa_idx, align 8, !tbaa !13
-  %current.sroa.12.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %6, i64 -8
+  %current.sroa.12.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %5, i64 -8
   %current.sroa.12.0.copyload = load i8, ptr %current.sroa.12.0.add.ptr.i.i.i.sroa_idx, align 8, !tbaa !19
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i14.i, align 8, !tbaa !21
-  %dec = add i8 %5, -1
+  %dec = add i8 %6, -1
   %conv1 = zext i8 %current.sroa.12.0.copyload to i32
   %cmp54.i = icmp sgt i16 %current.sroa.0.0.copyload, 0
   %dec57.i = add nsw i16 %current.sroa.0.0.copyload, -1
@@ -4556,7 +4558,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %13 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.1, i8 %12)
   %cond.i.1 = select i1 %bf.cast.not.i.i.1, i8 %bf.clear.i.1, i8 %13
   %cmp40.1 = icmp eq i8 %cond.i.1, 15
-  %arrayidx44.1 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 1
+  %arrayidx44.1 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 1
   %frombool45.1 = zext i1 %cmp40.1 to i8
   store i8 %frombool45.1, ptr %arrayidx44.1, align 1, !tbaa !118
   %arrayidx.i.2 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
@@ -4574,7 +4576,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %17 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.2, i8 %16)
   %cond.i.2 = select i1 %bf.cast.not.i.i.2, i8 %bf.clear.i.2, i8 %17
   %cmp40.2 = icmp eq i8 %cond.i.2, 15
-  %arrayidx44.2 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 2
+  %arrayidx44.2 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 2
   %frombool45.2 = zext i1 %cmp40.2 to i8
   store i8 %frombool45.2, ptr %arrayidx44.2, align 1, !tbaa !118
   %arrayidx.i.3 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
@@ -4592,7 +4594,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %21 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.3, i8 %20)
   %cond.i.3 = select i1 %bf.cast.not.i.i.3, i8 %bf.clear.i.3, i8 %21
   %cmp40.3 = icmp eq i8 %cond.i.3, 15
-  %arrayidx44.3 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 3
+  %arrayidx44.3 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 3
   %frombool45.3 = zext i1 %cmp40.3 to i8
   store i8 %frombool45.3, ptr %arrayidx44.3, align 1, !tbaa !118
   %arrayidx.i.4 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
@@ -4610,7 +4612,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %25 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.4, i8 %24)
   %cond.i.4 = select i1 %bf.cast.not.i.i.4, i8 %bf.clear.i.4, i8 %25
   %cmp40.4 = icmp eq i8 %cond.i.4, 15
-  %arrayidx44.4 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 4
+  %arrayidx44.4 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 4
   %frombool45.4 = zext i1 %cmp40.4 to i8
   store i8 %frombool45.4, ptr %arrayidx44.4, align 1, !tbaa !118
   %arrayidx.i.5 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
@@ -4628,7 +4630,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %29 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.5, i8 %28)
   %cond.i.5 = select i1 %bf.cast.not.i.i.5, i8 %bf.clear.i.5, i8 %29
   %cmp40.5 = icmp eq i8 %cond.i.5, 15
-  %arrayidx44.5 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 5
+  %arrayidx44.5 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 5
   %frombool45.5 = zext i1 %cmp40.5 to i8
   store i8 %frombool45.5, ptr %arrayidx44.5, align 1, !tbaa !118
   %arrayidx.i.6 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
@@ -4646,7 +4648,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %33 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.6, i8 %32)
   %cond.i.6 = select i1 %bf.cast.not.i.i.6, i8 %bf.clear.i.6, i8 %33
   %cmp40.6 = icmp eq i8 %cond.i.6, 15
-  %arrayidx44.6 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 6
+  %arrayidx44.6 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 6
   %frombool45.6 = zext i1 %cmp40.6 to i8
   store i8 %frombool45.6, ptr %arrayidx44.6, align 1, !tbaa !118
   %arrayidx.i.7 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 28
@@ -4664,7 +4666,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %37 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.7, i8 %36)
   %cond.i.7 = select i1 %bf.cast.not.i.i.7, i8 %bf.clear.i.7, i8 %37
   %cmp40.7 = icmp eq i8 %cond.i.7, 15
-  %arrayidx44.7 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 7
+  %arrayidx44.7 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 7
   %frombool45.7 = zext i1 %cmp40.7 to i8
   store i8 %frombool45.7, ptr %arrayidx44.7, align 1, !tbaa !118
   %arrayidx.i.8 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -4682,7 +4684,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %41 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.8, i8 %40)
   %cond.i.8 = select i1 %bf.cast.not.i.i.8, i8 %bf.clear.i.8, i8 %41
   %cmp40.8 = icmp eq i8 %cond.i.8, 15
-  %arrayidx44.8 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 8
+  %arrayidx44.8 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 8
   %frombool45.8 = zext i1 %cmp40.8 to i8
   store i8 %frombool45.8, ptr %arrayidx44.8, align 1, !tbaa !118
   %arrayidx.i.9 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 36
@@ -4700,7 +4702,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %45 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.9, i8 %44)
   %cond.i.9 = select i1 %bf.cast.not.i.i.9, i8 %bf.clear.i.9, i8 %45
   %cmp40.9 = icmp eq i8 %cond.i.9, 15
-  %arrayidx44.9 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 9
+  %arrayidx44.9 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 9
   %frombool45.9 = zext i1 %cmp40.9 to i8
   store i8 %frombool45.9, ptr %arrayidx44.9, align 1, !tbaa !118
   %arrayidx.i.10 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
@@ -4718,7 +4720,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %49 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.10, i8 %48)
   %cond.i.10 = select i1 %bf.cast.not.i.i.10, i8 %bf.clear.i.10, i8 %49
   %cmp40.10 = icmp eq i8 %cond.i.10, 15
-  %arrayidx44.10 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 10
+  %arrayidx44.10 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 10
   %frombool45.10 = zext i1 %cmp40.10 to i8
   store i8 %frombool45.10, ptr %arrayidx44.10, align 1, !tbaa !118
   %arrayidx.i.11 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 44
@@ -4736,7 +4738,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %53 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.11, i8 %52)
   %cond.i.11 = select i1 %bf.cast.not.i.i.11, i8 %bf.clear.i.11, i8 %53
   %cmp40.11 = icmp eq i8 %cond.i.11, 15
-  %arrayidx44.11 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 11
+  %arrayidx44.11 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 11
   %frombool45.11 = zext i1 %cmp40.11 to i8
   store i8 %frombool45.11, ptr %arrayidx44.11, align 1, !tbaa !118
   %arrayidx.i.12 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 48
@@ -4754,7 +4756,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %57 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.12, i8 %56)
   %cond.i.12 = select i1 %bf.cast.not.i.i.12, i8 %bf.clear.i.12, i8 %57
   %cmp40.12 = icmp eq i8 %cond.i.12, 15
-  %arrayidx44.12 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 12
+  %arrayidx44.12 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 12
   %frombool45.12 = zext i1 %cmp40.12 to i8
   store i8 %frombool45.12, ptr %arrayidx44.12, align 1, !tbaa !118
   %arrayidx.i.13 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 52
@@ -4772,7 +4774,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %61 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.13, i8 %60)
   %cond.i.13 = select i1 %bf.cast.not.i.i.13, i8 %bf.clear.i.13, i8 %61
   %cmp40.13 = icmp eq i8 %cond.i.13, 15
-  %arrayidx44.13 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 13
+  %arrayidx44.13 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 13
   %frombool45.13 = zext i1 %cmp40.13 to i8
   store i8 %frombool45.13, ptr %arrayidx44.13, align 1, !tbaa !118
   %arrayidx.i.14 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
@@ -4790,7 +4792,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %65 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.14, i8 %64)
   %cond.i.14 = select i1 %bf.cast.not.i.i.14, i8 %bf.clear.i.14, i8 %65
   %cmp40.14 = icmp eq i8 %cond.i.14, 15
-  %arrayidx44.14 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 14
+  %arrayidx44.14 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 14
   %frombool45.14 = zext i1 %cmp40.14 to i8
   store i8 %frombool45.14, ptr %arrayidx44.14, align 1, !tbaa !118
   %arrayidx.i.15 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 60
@@ -4808,7 +4810,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %69 = tail call i8 @llvm.umax.i8(i8 %bf.clear.i.15, i8 %68)
   %cond.i.15 = select i1 %bf.cast.not.i.i.15, i8 %bf.clear.i.15, i8 %69
   %cmp40.15 = icmp eq i8 %cond.i.15, 15
-  %arrayidx44.15 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 15
+  %arrayidx44.15 = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 15
   %frombool45.15 = zext i1 %cmp40.15 to i8
   store i8 %frombool45.15, ptr %arrayidx44.15, align 1, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

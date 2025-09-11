@@ -3883,7 +3883,8 @@ define dso_local void @cpudl_clear(ptr noundef %0, i32 noundef %1) local_unnamed
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %1 to i64
-  %13 = getelementptr %struct.cpudl_item, ptr %11, i64 %12, i32 2
+  %.split = getelementptr %struct.cpudl_item, ptr %11, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %37, label %16
@@ -3901,17 +3902,20 @@ define dso_local void @cpudl_clear(ptr noundef %0, i32 noundef %1) local_unnamed
   %26 = getelementptr %struct.cpudl_item, ptr %11, i64 %25
   store i64 %24, ptr %26, align 8
   %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr %struct.cpudl_item, ptr %27, i64 %25, i32 1
+  %.split1 = getelementptr %struct.cpudl_item, ptr %27, i64 %25
+  %28 = getelementptr i8, ptr %.split1, i64 8
   store i32 %23, ptr %28, align 8
   %29 = load i32, ptr %17, align 4
   %30 = add i32 %29, -1
   store i32 %30, ptr %17, align 4
   %31 = load ptr, ptr %10, align 8
   %32 = sext i32 %23 to i64
-  %33 = getelementptr %struct.cpudl_item, ptr %31, i64 %32, i32 2
+  %.split2 = getelementptr %struct.cpudl_item, ptr %31, i64 %32
+  %33 = getelementptr i8, ptr %.split2, i64 12
   store i32 %14, ptr %33, align 4
   %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr %struct.cpudl_item, ptr %34, i64 %12, i32 2
+  %.split3 = getelementptr %struct.cpudl_item, ptr %34, i64 %12
+  %35 = getelementptr i8, ptr %.split3, i64 12
   store i32 -1, ptr %35, align 4
   tail call fastcc void @cpudl_heapify(ptr noundef %0, i32 noundef %14)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3964,10 +3968,11 @@ define internal fastcc void @cpudl_heapify(ptr noundef readonly captures(none) %
   br i1 %29, label %split, label %30
 
 30:                                               ; preds = %20
-  %31 = getelementptr %struct.cpudl_item, ptr %24, i64 %25, i32 1
+  %31 = getelementptr i8, ptr %26, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %21 to i64
-  %34 = getelementptr %struct.cpudl_item, ptr %24, i64 %33, i32 1
+  %.split11 = getelementptr %struct.cpudl_item, ptr %24, i64 %33
+  %34 = getelementptr i8, ptr %.split11, i64 8
   store i32 %32, ptr %34, align 8
   %35 = load ptr, ptr %4, align 8
   %36 = getelementptr %struct.cpudl_item, ptr %35, i64 %25
@@ -3975,130 +3980,140 @@ define internal fastcc void @cpudl_heapify(ptr noundef readonly captures(none) %
   %38 = getelementptr %struct.cpudl_item, ptr %35, i64 %33
   store i64 %37, ptr %38, align 8
   %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr %struct.cpudl_item, ptr %39, i64 %33, i32 1
+  %.split12 = getelementptr %struct.cpudl_item, ptr %39, i64 %33
+  %40 = getelementptr i8, ptr %.split12, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr %struct.cpudl_item, ptr %39, i64 %42, i32 2
+  %.split13 = getelementptr %struct.cpudl_item, ptr %39, i64 %42
+  %43 = getelementptr i8, ptr %.split13, i64 12
   store i32 %21, ptr %43, align 4
   %44 = icmp ult i32 %22, 2
-  br i1 %44, label %._crit_edge6, label %20, !llvm.loop !143
+  br i1 %44, label %._crit_edge18, label %20, !llvm.loop !143
 
-._crit_edge6:                                     ; preds = %30
-  %.pre7 = load ptr, ptr %4, align 8
+._crit_edge18:                                    ; preds = %30
+  %.pre19 = load ptr, ptr %4, align 8
   br label %split, !llvm.loop !143
 
-split:                                            ; preds = %20, %._crit_edge6
-  %45 = phi ptr [ %.pre7, %._crit_edge6 ], [ %24, %20 ]
-  %46 = phi i32 [ 0, %._crit_edge6 ], [ %21, %20 ]
+split:                                            ; preds = %20, %._crit_edge18
+  %45 = phi ptr [ %.pre19, %._crit_edge18 ], [ %24, %20 ]
+  %46 = phi i32 [ 0, %._crit_edge18 ], [ %21, %20 ]
   %47 = sext i32 %46 to i64
-  %48 = getelementptr %struct.cpudl_item, ptr %45, i64 %47, i32 1
+  %.split14 = getelementptr %struct.cpudl_item, ptr %45, i64 %47
+  %48 = getelementptr i8, ptr %.split14, i64 8
   store i32 %19, ptr %48, align 8
   %49 = load ptr, ptr %4, align 8
   %50 = getelementptr %struct.cpudl_item, ptr %49, i64 %47
   store i64 %14, ptr %50, align 8
   %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr %struct.cpudl_item, ptr %51, i64 %47, i32 1
-  br label %117
+  %.split15 = getelementptr %struct.cpudl_item, ptr %51, i64 %47
+  br label %115
 
 ._crit_edge:                                      ; preds = %2, %6
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = sext i32 %1 to i64
-  %55 = getelementptr %struct.cpudl_item, ptr %5, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load i32, ptr %56, align 8
-  %58 = load i64, ptr %55, align 8
-  %59 = shl i32 %1, 1
-  %60 = or disjoint i32 %59, 1
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp slt i32 %60, %62
-  br i1 %63, label %.preheader, label %124
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = sext i32 %1 to i64
+  %54 = getelementptr %struct.cpudl_item, ptr %5, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load i32, ptr %55, align 8
+  %57 = load i64, ptr %54, align 8
+  %58 = shl i32 %1, 1
+  %59 = or disjoint i32 %58, 1
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp slt i32 %59, %61
+  br i1 %62, label %.preheader, label %122
 
-.preheader:                                       ; preds = %._crit_edge, %95
-  %64 = phi i32 [ %.pre5, %95 ], [ %62, %._crit_edge ]
-  %65 = phi i32 [ %92, %95 ], [ %1, %._crit_edge ]
-  %66 = shl i32 %65, 1
-  %67 = or disjoint i32 %66, 1
-  %68 = add i32 %66, 2
-  %69 = icmp slt i32 %67, %64
-  br i1 %69, label %70, label %79
+.preheader:                                       ; preds = %._crit_edge, %94
+  %63 = phi i32 [ %.pre17, %94 ], [ %61, %._crit_edge ]
+  %64 = phi i32 [ %91, %94 ], [ %1, %._crit_edge ]
+  %65 = shl i32 %64, 1
+  %66 = or disjoint i32 %65, 1
+  %67 = add i32 %65, 2
+  %68 = icmp slt i32 %66, %63
+  br i1 %68, label %69, label %78
 
-70:                                               ; preds = %.preheader
-  %71 = load ptr, ptr %53, align 8
-  %72 = sext i32 %67 to i64
-  %73 = getelementptr %struct.cpudl_item, ptr %71, i64 %72
-  %74 = load i64, ptr %73, align 8
-  %75 = sub i64 %58, %74
-  %76 = icmp slt i64 %75, 0
-  %77 = select i1 %76, i32 %67, i32 %65
-  %78 = select i1 %76, i64 %74, i64 %58
-  br label %79
+69:                                               ; preds = %.preheader
+  %70 = load ptr, ptr %52, align 8
+  %71 = sext i32 %66 to i64
+  %72 = getelementptr %struct.cpudl_item, ptr %70, i64 %71
+  %73 = load i64, ptr %72, align 8
+  %74 = sub i64 %57, %73
+  %75 = icmp slt i64 %74, 0
+  %76 = select i1 %75, i32 %66, i32 %64
+  %77 = select i1 %75, i64 %73, i64 %57
+  br label %78
 
-79:                                               ; preds = %70, %.preheader
-  %80 = phi i32 [ %65, %.preheader ], [ %77, %70 ]
-  %81 = phi i64 [ %58, %.preheader ], [ %78, %70 ]
-  %82 = icmp slt i32 %68, %64
-  br i1 %82, label %83, label %91
+78:                                               ; preds = %69, %.preheader
+  %79 = phi i32 [ %64, %.preheader ], [ %76, %69 ]
+  %80 = phi i64 [ %57, %.preheader ], [ %77, %69 ]
+  %81 = icmp slt i32 %67, %63
+  br i1 %81, label %82, label %90
 
-83:                                               ; preds = %79
-  %84 = load ptr, ptr %53, align 8
-  %85 = sext i32 %68 to i64
-  %86 = getelementptr %struct.cpudl_item, ptr %84, i64 %85
-  %87 = load i64, ptr %86, align 8
-  %88 = sub i64 %81, %87
-  %89 = icmp slt i64 %88, 0
-  %90 = select i1 %89, i32 %68, i32 %80
-  br label %91
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %52, align 8
+  %84 = sext i32 %67 to i64
+  %85 = getelementptr %struct.cpudl_item, ptr %83, i64 %84
+  %86 = load i64, ptr %85, align 8
+  %87 = sub i64 %80, %86
+  %88 = icmp slt i64 %87, 0
+  %89 = select i1 %88, i32 %67, i32 %79
+  br label %90
 
-91:                                               ; preds = %83, %79
-  %92 = phi i32 [ %80, %79 ], [ %90, %83 ]
-  %93 = icmp eq i32 %92, %65
-  %94 = load ptr, ptr %53, align 8
-  br i1 %93, label %110, label %95
+90:                                               ; preds = %82, %78
+  %91 = phi i32 [ %79, %78 ], [ %89, %82 ]
+  %92 = icmp eq i32 %91, %64
+  %93 = load ptr, ptr %52, align 8
+  br i1 %92, label %109, label %94
 
-95:                                               ; preds = %91
-  %96 = sext i32 %92 to i64
-  %97 = getelementptr %struct.cpudl_item, ptr %94, i64 %96, i32 1
-  %98 = load i32, ptr %97, align 8
-  %99 = sext i32 %65 to i64
-  %100 = getelementptr %struct.cpudl_item, ptr %94, i64 %99, i32 1
-  store i32 %98, ptr %100, align 8
-  %101 = load ptr, ptr %53, align 8
-  %102 = getelementptr %struct.cpudl_item, ptr %101, i64 %96
-  %103 = load i64, ptr %102, align 8
-  %104 = getelementptr %struct.cpudl_item, ptr %101, i64 %99
-  store i64 %103, ptr %104, align 8
-  %105 = load ptr, ptr %53, align 8
-  %106 = getelementptr %struct.cpudl_item, ptr %105, i64 %99, i32 1
-  %107 = load i32, ptr %106, align 8
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr %struct.cpudl_item, ptr %105, i64 %108, i32 2
-  store i32 %65, ptr %109, align 4
-  %.pre5 = load i32, ptr %61, align 4
+94:                                               ; preds = %90
+  %95 = sext i32 %91 to i64
+  %.split = getelementptr %struct.cpudl_item, ptr %93, i64 %95
+  %96 = getelementptr i8, ptr %.split, i64 8
+  %97 = load i32, ptr %96, align 8
+  %98 = sext i32 %64 to i64
+  %.split5 = getelementptr %struct.cpudl_item, ptr %93, i64 %98
+  %99 = getelementptr i8, ptr %.split5, i64 8
+  store i32 %97, ptr %99, align 8
+  %100 = load ptr, ptr %52, align 8
+  %101 = getelementptr %struct.cpudl_item, ptr %100, i64 %95
+  %102 = load i64, ptr %101, align 8
+  %103 = getelementptr %struct.cpudl_item, ptr %100, i64 %98
+  store i64 %102, ptr %103, align 8
+  %104 = load ptr, ptr %52, align 8
+  %.split6 = getelementptr %struct.cpudl_item, ptr %104, i64 %98
+  %105 = getelementptr i8, ptr %.split6, i64 8
+  %106 = load i32, ptr %105, align 8
+  %107 = sext i32 %106 to i64
+  %.split7 = getelementptr %struct.cpudl_item, ptr %104, i64 %107
+  %108 = getelementptr i8, ptr %.split7, i64 12
+  store i32 %64, ptr %108, align 4
+  %.pre17 = load i32, ptr %60, align 4
   br label %.preheader
 
-110:                                              ; preds = %91
-  %111 = sext i32 %65 to i64
-  %112 = getelementptr %struct.cpudl_item, ptr %94, i64 %111, i32 1
-  store i32 %57, ptr %112, align 8
-  %113 = load ptr, ptr %53, align 8
-  %114 = getelementptr %struct.cpudl_item, ptr %113, i64 %111
-  store i64 %58, ptr %114, align 8
-  %115 = load ptr, ptr %53, align 8
-  %116 = getelementptr %struct.cpudl_item, ptr %115, i64 %111, i32 1
-  br label %117
+109:                                              ; preds = %90
+  %110 = sext i32 %64 to i64
+  %.split8 = getelementptr %struct.cpudl_item, ptr %93, i64 %110
+  %111 = getelementptr i8, ptr %.split8, i64 8
+  store i32 %56, ptr %111, align 8
+  %112 = load ptr, ptr %52, align 8
+  %113 = getelementptr %struct.cpudl_item, ptr %112, i64 %110
+  store i64 %57, ptr %113, align 8
+  %114 = load ptr, ptr %52, align 8
+  %.split9 = getelementptr %struct.cpudl_item, ptr %114, i64 %110
+  br label %115
 
-117:                                              ; preds = %110, %split
-  %118 = phi ptr [ %116, %110 ], [ %52, %split ]
-  %119 = phi ptr [ %115, %110 ], [ %51, %split ]
-  %120 = phi i32 [ %65, %110 ], [ %46, %split ]
-  %121 = load i32, ptr %118, align 8
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr %struct.cpudl_item, ptr %119, i64 %122, i32 2
-  store i32 %120, ptr %123, align 4
-  br label %124
+115:                                              ; preds = %109, %split
+  %.split9.pn = phi ptr [ %.split9, %109 ], [ %.split15, %split ]
+  %116 = phi ptr [ %114, %109 ], [ %51, %split ]
+  %117 = phi i32 [ %64, %109 ], [ %46, %split ]
+  %118 = getelementptr i8, ptr %.split9.pn, i64 8
+  %119 = load i32, ptr %118, align 8
+  %120 = sext i32 %119 to i64
+  %.split16 = getelementptr %struct.cpudl_item, ptr %116, i64 %120
+  %121 = getelementptr i8, ptr %.split16, i64 12
+  store i32 %117, ptr %121, align 4
+  br label %122
 
-124:                                              ; preds = %117, %._crit_edge
+122:                                              ; preds = %115, %._crit_edge
   ret void
 }
 
@@ -4125,7 +4140,8 @@ define dso_local void @cpudl_set(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %1 to i64
-  %14 = getelementptr %struct.cpudl_item, ptr %12, i64 %13, i32 2
+  %.split = getelementptr %struct.cpudl_item, ptr %12, i64 %13
+  %14 = getelementptr i8, ptr %.split, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %17, label %70
@@ -4139,10 +4155,12 @@ define dso_local void @cpudl_set(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   %22 = getelementptr %struct.cpudl_item, ptr %12, i64 %21
   store i64 %2, ptr %22, align 8
   %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr %struct.cpudl_item, ptr %23, i64 %21, i32 1
+  %.split2 = getelementptr %struct.cpudl_item, ptr %23, i64 %21
+  %24 = getelementptr i8, ptr %.split2, i64 8
   store i32 %1, ptr %24, align 8
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr %struct.cpudl_item, ptr %25, i64 %13, i32 2
+  %.split3 = getelementptr %struct.cpudl_item, ptr %25, i64 %13
+  %26 = getelementptr i8, ptr %.split3, i64 12
   store i32 %19, ptr %26, align 4
   %27 = load ptr, ptr %11, align 8
   %28 = getelementptr %struct.cpudl_item, ptr %27, i64 %21
@@ -4165,10 +4183,11 @@ define dso_local void @cpudl_set(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   br i1 %41, label %split, label %42
 
 42:                                               ; preds = %.preheader
-  %43 = getelementptr %struct.cpudl_item, ptr %36, i64 %37, i32 1
+  %43 = getelementptr i8, ptr %38, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %33 to i64
-  %46 = getelementptr %struct.cpudl_item, ptr %36, i64 %45, i32 1
+  %.split5 = getelementptr %struct.cpudl_item, ptr %36, i64 %45
+  %46 = getelementptr i8, ptr %.split5, i64 8
   store i32 %44, ptr %46, align 8
   %47 = load ptr, ptr %11, align 8
   %48 = getelementptr %struct.cpudl_item, ptr %47, i64 %37
@@ -4176,10 +4195,12 @@ define dso_local void @cpudl_set(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   %50 = getelementptr %struct.cpudl_item, ptr %47, i64 %45
   store i64 %49, ptr %50, align 8
   %51 = load ptr, ptr %11, align 8
-  %52 = getelementptr %struct.cpudl_item, ptr %51, i64 %45, i32 1
+  %.split6 = getelementptr %struct.cpudl_item, ptr %51, i64 %45
+  %52 = getelementptr i8, ptr %.split6, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = sext i32 %53 to i64
-  %55 = getelementptr %struct.cpudl_item, ptr %51, i64 %54, i32 2
+  %.split7 = getelementptr %struct.cpudl_item, ptr %51, i64 %54
+  %55 = getelementptr i8, ptr %.split7, i64 12
   store i32 %33, ptr %55, align 4
   %56 = icmp ult i32 %34, 2
   br i1 %56, label %._crit_edge, label %.preheader, !llvm.loop !143
@@ -4192,16 +4213,19 @@ split:                                            ; preds = %.preheader, %._crit
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %36, %.preheader ]
   %58 = phi i32 [ 0, %._crit_edge ], [ %33, %.preheader ]
   %59 = sext i32 %58 to i64
-  %60 = getelementptr %struct.cpudl_item, ptr %57, i64 %59, i32 1
+  %.split8 = getelementptr %struct.cpudl_item, ptr %57, i64 %59
+  %60 = getelementptr i8, ptr %.split8, i64 8
   store i32 %30, ptr %60, align 8
   %61 = load ptr, ptr %11, align 8
   %62 = getelementptr %struct.cpudl_item, ptr %61, i64 %59
   store i64 %31, ptr %62, align 8
   %63 = load ptr, ptr %11, align 8
-  %64 = getelementptr %struct.cpudl_item, ptr %63, i64 %59, i32 1
+  %.split9 = getelementptr %struct.cpudl_item, ptr %63, i64 %59
+  %64 = getelementptr i8, ptr %.split9, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
-  %67 = getelementptr %struct.cpudl_item, ptr %63, i64 %66, i32 2
+  %.split10 = getelementptr %struct.cpudl_item, ptr %63, i64 %66
+  %67 = getelementptr i8, ptr %.split10, i64 12
   store i32 %58, ptr %67, align 4
   br label %68
 
@@ -4274,7 +4298,8 @@ define dso_local noundef range(i32 -12, 1) i32 @cpudl_init(ptr noundef captures(
 21:                                               ; preds = %17
   %22 = load ptr, ptr %7, align 8
   %23 = and i64 %18, 63
-  %24 = getelementptr %struct.cpudl_item, ptr %22, i64 %23, i32 2
+  %.split = getelementptr %struct.cpudl_item, ptr %22, i64 %23
+  %24 = getelementptr i8, ptr %.split, i64 12
   store i32 -1, ptr %24, align 4
   %25 = add nuw nsw i64 %18, 1
   %26 = and i64 %25, 127

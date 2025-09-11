@@ -22048,7 +22048,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr noundef readonly cap
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 456
   %24 = load ptr, ptr %23, align 8, !tbaa !235
   %.not53 = icmp eq ptr %24, null
-  br i1 %.not53, label %103, label %25
+  br i1 %.not53, label %104, label %25
 
 25:                                               ; preds = %22
   %26 = tail call ptr @_zend_new_array_0() #13
@@ -22065,15 +22065,15 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr noundef readonly cap
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 448
   br label %32
 
-32:                                               ; preds = %.lr.ph, %97
-  %33 = phi ptr [ %28, %.lr.ph ], [ %98, %97 ]
-  %34 = phi ptr [ %29, %.lr.ph ], [ %102, %97 ]
-  %35 = phi i64 [ 0, %.lr.ph ], [ %100, %97 ]
-  %.04567 = phi i32 [ 0, %.lr.ph ], [ %99, %97 ]
+32:                                               ; preds = %.lr.ph, %98
+  %33 = phi ptr [ %28, %.lr.ph ], [ %99, %98 ]
+  %34 = phi ptr [ %29, %.lr.ph ], [ %103, %98 ]
+  %35 = phi i64 [ 0, %.lr.ph ], [ %101, %98 ]
+  %.04567 = phi i32 [ 0, %.lr.ph ], [ %100, %98 ]
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !238
   %.not55 = icmp eq ptr %37, null
-  br i1 %.not55, label %97, label %38
+  br i1 %.not55, label %98, label %38
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -22099,101 +22099,102 @@ zend_hash_find_ptr.exit:                          ; preds = %41, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %41 ]
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8, !tbaa !243
   %50 = load ptr, ptr %31, align 8, !tbaa !231
-  %51 = getelementptr inbounds nuw %struct._zend_class_name, ptr %50, i64 %indvars.iv, i32 1
-  %52 = load ptr, ptr %51, align 8, !tbaa !234
-  %53 = tail call ptr @zend_hash_find(ptr noundef %49, ptr noundef %52) #13
-  %.not.i = icmp ne ptr %53, null
+  %51 = getelementptr inbounds nuw %struct._zend_class_name, ptr %50, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !234
+  %54 = tail call ptr @zend_hash_find(ptr noundef %49, ptr noundef %53) #13
+  %.not.i = icmp ne ptr %54, null
   tail call void @llvm.assume(i1 %.not.i)
-  %54 = load ptr, ptr %53, align 8, !tbaa !26, !nonnull !73, !noundef !73
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 64
-  %56 = tail call ptr @zend_hash_find(ptr noundef nonnull %55, ptr noundef %43) #13
-  %.not63 = icmp eq ptr %56, null
-  br i1 %.not63, label %45, label %57
+  %55 = load ptr, ptr %54, align 8, !tbaa !26, !nonnull !73, !noundef !73
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
+  %57 = tail call ptr @zend_hash_find(ptr noundef nonnull %56, ptr noundef %43) #13
+  %.not63 = icmp eq ptr %57, null
+  br i1 %.not63, label %45, label %58
 
-57:                                               ; preds = %zend_hash_find_ptr.exit
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !36
+58:                                               ; preds = %zend_hash_find_ptr.exit
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !36
   br label %.loopexit
 
-.loopexit:                                        ; preds = %45, %41, %57
-  %.2 = phi ptr [ %59, %57 ], [ null, %41 ], [ null, %45 ]
-  %60 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %61 = load i32, ptr %60, align 4, !tbaa !26
-  %62 = and i32 %61, 64
-  %.not.i58 = icmp eq i32 %62, 0
-  br i1 %.not.i58, label %63, label %zend_string_release_ex.exit
+.loopexit:                                        ; preds = %45, %41, %58
+  %.2 = phi ptr [ %60, %58 ], [ null, %41 ], [ null, %45 ]
+  %61 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %62 = load i32, ptr %61, align 4, !tbaa !26
+  %63 = and i32 %62, 64
+  %.not.i58 = icmp eq i32 %63, 0
+  br i1 %.not.i58, label %64, label %zend_string_release_ex.exit
 
-63:                                               ; preds = %.loopexit
-  %64 = load i32, ptr %43, align 4, !tbaa !37
-  %65 = icmp ne i32 %64, 0
-  tail call void @llvm.assume(i1 %65)
-  %66 = add i32 %64, -1
-  store i32 %66, ptr %43, align 4, !tbaa !37
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %zend_string_release_ex.exit
+64:                                               ; preds = %.loopexit
+  %65 = load i32, ptr %43, align 4, !tbaa !37
+  %66 = icmp ne i32 %65, 0
+  tail call void @llvm.assume(i1 %66)
+  %67 = add i32 %65, -1
+  store i32 %67, ptr %43, align 4, !tbaa !37
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %zend_string_release_ex.exit
 
-68:                                               ; preds = %63
+69:                                               ; preds = %64
   tail call void @_efree(ptr noundef nonnull %43) #13
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %.loopexit, %63, %68
-  %69 = icmp ne ptr %.2, null
-  tail call void @llvm.assume(i1 %69)
+zend_string_release_ex.exit:                      ; preds = %.loopexit, %64, %69
+  %70 = icmp ne ptr %.2, null
+  tail call void @llvm.assume(i1 %70)
   br label %zend_string_alloc.exit
 
 zend_string_alloc.exit:                           ; preds = %zend_string_release_ex.exit, %38
   %.046 = phi ptr [ %40, %38 ], [ %.2, %zend_string_release_ex.exit ]
-  %70 = getelementptr inbounds nuw i8, ptr %.046, i64 16
-  %71 = load i64, ptr %70, align 8, !tbaa !75
-  %72 = load ptr, ptr %34, align 8, !tbaa !242
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load i64, ptr %73, align 8, !tbaa !75
-  %75 = add i64 %74, %71
-  %76 = add i64 %75, 2
-  %77 = and i64 %76, -8
-  %78 = add i64 %77, 32
-  %79 = tail call noalias ptr @_emalloc(i64 noundef %78) #14
-  store i32 1, ptr %79, align 4, !tbaa !37
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  store i32 22, ptr %80, align 4, !tbaa !26
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i64 0, ptr %81, align 8, !tbaa !77
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store i64 %76, ptr %82, align 8, !tbaa !75
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %84 = add i64 %75, 3
-  %85 = getelementptr inbounds nuw i8, ptr %.046, i64 24
-  %86 = load ptr, ptr %34, align 8, !tbaa !242
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %88 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %83, i64 noundef %84, ptr noundef nonnull @.str.56, ptr noundef nonnull %85, ptr noundef nonnull %87) #13
-  %89 = load ptr, ptr %23, align 8, !tbaa !235
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %35
-  %91 = load ptr, ptr %90, align 8, !tbaa !236
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8, !tbaa !238
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %96 = load i64, ptr %95, align 8, !tbaa !75
-  tail call void @add_assoc_str_ex(ptr noundef nonnull %1, ptr noundef nonnull %94, i64 noundef %96, ptr noundef nonnull %79) #13
+  %71 = getelementptr inbounds nuw i8, ptr %.046, i64 16
+  %72 = load i64, ptr %71, align 8, !tbaa !75
+  %73 = load ptr, ptr %34, align 8, !tbaa !242
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load i64, ptr %74, align 8, !tbaa !75
+  %76 = add i64 %75, %72
+  %77 = add i64 %76, 2
+  %78 = and i64 %77, -8
+  %79 = add i64 %78, 32
+  %80 = tail call noalias ptr @_emalloc(i64 noundef %79) #14
+  store i32 1, ptr %80, align 4, !tbaa !37
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
+  store i32 22, ptr %81, align 4, !tbaa !26
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  store i64 0, ptr %82, align 8, !tbaa !77
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  store i64 %77, ptr %83, align 8, !tbaa !75
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %85 = add i64 %76, 3
+  %86 = getelementptr inbounds nuw i8, ptr %.046, i64 24
+  %87 = load ptr, ptr %34, align 8, !tbaa !242
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %89 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %84, i64 noundef %85, ptr noundef nonnull @.str.56, ptr noundef nonnull %86, ptr noundef nonnull %88) #13
+  %90 = load ptr, ptr %23, align 8, !tbaa !235
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %35
+  %92 = load ptr, ptr %91, align 8, !tbaa !236
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %94 = load ptr, ptr %93, align 8, !tbaa !238
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %97 = load i64, ptr %96, align 8, !tbaa !75
+  tail call void @add_assoc_str_ex(ptr noundef nonnull %1, ptr noundef nonnull %95, i64 noundef %97, ptr noundef nonnull %80) #13
   %.pre = load ptr, ptr %23, align 8, !tbaa !235
-  br label %97
+  br label %98
 
-97:                                               ; preds = %zend_string_alloc.exit, %32
-  %98 = phi ptr [ %.pre, %zend_string_alloc.exit ], [ %33, %32 ]
-  %99 = add i32 %.04567, 1
-  %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw ptr, ptr %98, i64 %100
-  %102 = load ptr, ptr %101, align 8, !tbaa !236
-  %.not54 = icmp eq ptr %102, null
+98:                                               ; preds = %zend_string_alloc.exit, %32
+  %99 = phi ptr [ %.pre, %zend_string_alloc.exit ], [ %33, %32 ]
+  %100 = add i32 %.04567, 1
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %101
+  %103 = load ptr, ptr %102, align 8, !tbaa !236
+  %.not54 = icmp eq ptr %103, null
   br i1 %.not54, label %.loopexit64, label %32
 
-103:                                              ; preds = %22
+104:                                              ; preds = %22
   store ptr @zend_empty_array, ptr %1, align 8, !tbaa !26
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 7, ptr %104, align 8, !tbaa !26
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 7, ptr %105, align 8, !tbaa !26
   br label %.loopexit64
 
-.loopexit64:                                      ; preds = %97, %25, %14, %103, %19, %5
+.loopexit64:                                      ; preds = %98, %25, %14, %104, %19, %5
   ret void
 }
 

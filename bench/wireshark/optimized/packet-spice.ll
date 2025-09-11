@@ -4388,7 +4388,7 @@ define internal fastcc void @dissect_POINT16(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_RedCursor(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_RedCursor(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %2)
@@ -4447,33 +4447,31 @@ dissect_CursorHeader.exit:                        ; preds = %11, %18
 
 44:                                               ; preds = %dissect_CursorHeader.exit
   switch i8 %13, label %.thread [
-    i8 0, label %45
-    i8 1, label %47
+    i8 0, label %49
+    i8 1, label %.thread47
   ]
 
-45:                                               ; preds = %44
-  %46 = shl nuw nsw i32 %37, 2
-  br label %51
+.thread47:                                        ; preds = %44
+  %45 = add nuw nsw i32 %37, 7
+  %46 = lshr i32 %45, 2
+  %47 = and i32 %46, 32766
+  %48 = mul nuw nsw i32 %47, %39
+  br label %52
 
-47:                                               ; preds = %44
-  %48 = add nuw nsw i32 %37, 7
-  %49 = lshr i32 %48, 2
-  %50 = and i32 %49, 32766
-  br label %51
-
-51:                                               ; preds = %47, %45
-  %.pn = phi i32 [ %46, %45 ], [ %50, %47 ]
-  %.0 = mul i32 %.pn, %39
-  %.not = icmp eq i32 %.0, 0
+49:                                               ; preds = %44
+  %50 = shl nuw nsw i32 %37, 2
+  %51 = mul i32 %50, %39
+  %.not = icmp eq i32 %51, 0
   br i1 %.not, label %.thread, label %52
 
-52:                                               ; preds = %51
+52:                                               ; preds = %.thread47, %49
+  %.050 = phi i32 [ %48, %.thread47 ], [ %51, %49 ]
   %53 = load i32, ptr @hf_spice_cursor_data, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %53, ptr noundef %0, i32 noundef %36, i32 noundef %.0, i32 noundef 0)
-  %55 = add i32 %.0, 19
+  %54 = call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %53, ptr noundef %0, i32 noundef %36, i32 noundef %.050, i32 noundef 0)
+  %55 = add i32 %.050, 19
   br label %58
 
-.thread:                                          ; preds = %44, %51
+.thread:                                          ; preds = %44, %49
   %56 = load i32, ptr @hf_spice_cursor_data, align 4
   %57 = call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %56, ptr noundef %0, i32 noundef %36, i32 noundef -1, i32 noundef 0)
   br label %58

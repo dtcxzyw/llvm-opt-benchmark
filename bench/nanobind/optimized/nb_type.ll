@@ -2169,7 +2169,7 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i.i.i.i, i64 16
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, %0
-  br i1 %122, label %.critedge96, label %165, !prof !3
+  br i1 %122, label %.critedge96, label %166, !prof !3
 
 .critedge96:                                      ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i.i.i.i, i64 4
@@ -2203,11 +2203,11 @@ _ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i:
   br i1 %141, label %.lr.ph.i.i.i, label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE10erase_fastENS_17detail_robin_hash10robin_hashIS8_NSD_9KeySelectENSD_11ValueSelectES4_S6_S9_Lb0ESC_E14robin_iteratorILb0EEE.exit
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i
-  %142 = phi i16 [ %162, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i ], [ %140, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i ]
-  %143 = phi ptr [ %160, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i ], [ %138, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i ]
-  %144 = phi ptr [ %156, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i ], [ %128, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i ]
+  %142 = phi i16 [ %163, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i ], [ %140, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i ]
+  %143 = phi ptr [ %161, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i ], [ %138, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i ]
+  %144 = phi ptr [ %157, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i ], [ %128, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i ]
   %.014.i.i.i = phi i64 [ %.01113.i.i.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i ], [ %135, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i ]
-  %.01113.i.i.i = phi i64 [ %159, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i ], [ %137, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i ]
+  %.01113.i.i.i = phi i64 [ %160, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i ], [ %137, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i ]
   %145 = add nsw i16 %142, -1
   %146 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %144, i64 %.014.i.i.i
   %147 = load i32, ptr %143, align 4
@@ -2218,147 +2218,148 @@ _ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i:
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store i16 %145, ptr %150, align 4
   %151 = load ptr, ptr %99, align 8
-  %152 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %151, i64 %.01113.i.i.i, i32 1
-  %153 = load i16, ptr %152, align 4
-  %154 = icmp eq i16 %153, -1
-  br i1 %154, label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i, label %155
+  %152 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %151, i64 %.01113.i.i.i
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
+  %154 = load i16, ptr %153, align 4
+  %155 = icmp eq i16 %154, -1
+  br i1 %155, label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i, label %156
 
-155:                                              ; preds = %.lr.ph.i.i.i
-  store i16 -1, ptr %152, align 4
+156:                                              ; preds = %.lr.ph.i.i.i
+  store i16 -1, ptr %153, align 4
   %.pre.i.i.i = load ptr, ptr %99, align 8
   br label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i
 
-_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i: ; preds = %155, %.lr.ph.i.i.i
-  %156 = phi ptr [ %151, %.lr.ph.i.i.i ], [ %.pre.i.i.i, %155 ]
-  %157 = add i64 %.01113.i.i.i, 1
-  %158 = load i64, ptr %65, align 8
-  %159 = and i64 %158, %157
-  %160 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %156, i64 %159
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  %162 = load i16, ptr %161, align 4
-  %163 = icmp sgt i16 %162, 0
-  br i1 %163, label %.lr.ph.i.i.i, label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE10erase_fastENS_17detail_robin_hash10robin_hashIS8_NSD_9KeySelectENSD_11ValueSelectES4_S6_S9_Lb0ESC_E14robin_iteratorILb0EEE.exit, !llvm.loop !46
+_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i: ; preds = %156, %.lr.ph.i.i.i
+  %157 = phi ptr [ %151, %.lr.ph.i.i.i ], [ %.pre.i.i.i, %156 ]
+  %158 = add i64 %.01113.i.i.i, 1
+  %159 = load i64, ptr %65, align 8
+  %160 = and i64 %159, %158
+  %161 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %157, i64 %160
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
+  %163 = load i16, ptr %162, align 4
+  %164 = icmp sgt i16 %163, 0
+  br i1 %164, label %.lr.ph.i.i.i, label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE10erase_fastENS_17detail_robin_hash10robin_hashIS8_NSD_9KeySelectENSD_11ValueSelectES4_S6_S9_Lb0ESC_E14robin_iteratorILb0EEE.exit, !llvm.loop !46
 
 _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE10erase_fastENS_17detail_robin_hash10robin_hashIS8_NSD_9KeySelectENSD_11ValueSelectES4_S6_S9_Lb0ESC_E14robin_iteratorILb0EEE.exit: ; preds = %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i.i
-  %164 = getelementptr inbounds nuw i8, ptr %64, i64 153
-  store i8 1, ptr %164, align 1
-  br label %188
+  %165 = getelementptr inbounds nuw i8, ptr %64, i64 153
+  store i8 1, ptr %165, align 1
+  br label %189
 
-165:                                              ; preds = %119
-  %166 = ptrtoint ptr %121 to i64
-  %167 = and i64 %166, 1
-  %.not120 = icmp eq i64 %167, 0
-  br i1 %.not120, label %.critedge, label %168
+166:                                              ; preds = %119
+  %167 = ptrtoint ptr %121 to i64
+  %168 = and i64 %167, 1
+  %.not120 = icmp eq i64 %168, 0
+  br i1 %.not120, label %.critedge, label %169
 
-168:                                              ; preds = %165
-  %169 = and i64 %166, -2
-  %170 = inttoptr i64 %169 to ptr
-  %171 = load ptr, ptr %170, align 8
-  %.not121125 = icmp eq ptr %171, %0
-  br i1 %.not121125, label %177, label %.lr.ph
+169:                                              ; preds = %166
+  %170 = and i64 %167, -2
+  %171 = inttoptr i64 %170 to ptr
+  %172 = load ptr, ptr %171, align 8
+  %.not121125 = icmp eq ptr %172, %0
+  br i1 %.not121125, label %178, label %.lr.ph
 
-172:                                              ; preds = %.lr.ph
-  %173 = load ptr, ptr %186, align 8
-  %.not121 = icmp eq ptr %173, %0
+173:                                              ; preds = %.lr.ph
+  %174 = load ptr, ptr %187, align 8
+  %.not121 = icmp eq ptr %174, %0
   br i1 %.not121, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %172
-  %174 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %.071126, i64 8
-  store ptr %175, ptr %176, align 8
-  br label %187
-
-177:                                              ; preds = %168
-  %178 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %179 = load ptr, ptr %178, align 8
-  %.not92 = icmp eq ptr %179, null
-  br i1 %.not92, label %184, label %180
-
-180:                                              ; preds = %177
-  %181 = ptrtoint ptr %179 to i64
-  %182 = or i64 %181, 1
-  %183 = inttoptr i64 %182 to ptr
-  store ptr %183, ptr %120, align 8
-  br label %187
-
-184:                                              ; preds = %177
-  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE10erase_fastENS_17detail_robin_hash10robin_hashIS8_NSD_9KeySelectENSD_11ValueSelectES4_S6_S9_Lb0ESC_E14robin_iteratorILb0EEE(ptr noundef nonnull align 8 dereferenceable(80) %65, ptr nonnull %.sroa.09.0.i.i.i.i.i)
-  br label %187
-
-.lr.ph:                                           ; preds = %168, %172
-  %.071126 = phi ptr [ %186, %172 ], [ %170, %168 ]
-  %185 = getelementptr inbounds nuw i8, ptr %.071126, i64 8
-  %186 = load ptr, ptr %185, align 8
-  %.not90 = icmp eq ptr %186, null
-  br i1 %.not90, label %.critedge, label %172, !llvm.loop !47
-
-187:                                              ; preds = %._crit_edge, %184, %180
-  %.071.lcssa155 = phi ptr [ %186, %._crit_edge ], [ %170, %184 ], [ %170, %180 ]
-  call void @PyMem_Free(ptr noundef nonnull %.071.lcssa155)
+._crit_edge:                                      ; preds = %173
+  %175 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %.071126, i64 8
+  store ptr %176, ptr %177, align 8
   br label %188
 
-.critedge:                                        ; preds = %.lr.ph, %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS1_m.exit, %165
+178:                                              ; preds = %169
+  %179 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %180 = load ptr, ptr %179, align 8
+  %.not92 = icmp eq ptr %180, null
+  br i1 %.not92, label %185, label %181
+
+181:                                              ; preds = %178
+  %182 = ptrtoint ptr %180 to i64
+  %183 = or i64 %182, 1
+  %184 = inttoptr i64 %183 to ptr
+  store ptr %184, ptr %120, align 8
+  br label %188
+
+185:                                              ; preds = %178
+  call void @_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE10erase_fastENS_17detail_robin_hash10robin_hashIS8_NSD_9KeySelectENSD_11ValueSelectES4_S6_S9_Lb0ESC_E14robin_iteratorILb0EEE(ptr noundef nonnull align 8 dereferenceable(80) %65, ptr nonnull %.sroa.09.0.i.i.i.i.i)
+  br label %188
+
+.lr.ph:                                           ; preds = %169, %173
+  %.071126 = phi ptr [ %187, %173 ], [ %171, %169 ]
+  %186 = getelementptr inbounds nuw i8, ptr %.071126, i64 8
+  %187 = load ptr, ptr %186, align 8
+  %.not90 = icmp eq ptr %187, null
+  br i1 %.not90, label %.critedge, label %173, !llvm.loop !47
+
+188:                                              ; preds = %._crit_edge, %185, %181
+  %.071.lcssa155 = phi ptr [ %187, %._crit_edge ], [ %171, %185 ], [ %171, %181 ]
+  call void @PyMem_Free(ptr noundef nonnull %.071.lcssa155)
+  br label %189
+
+.critedge:                                        ; preds = %.lr.ph, %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKS1_m.exit, %166
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #29
   unreachable
 
-188:                                              ; preds = %187, %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE10erase_fastENS_17detail_robin_hash10robin_hashIS8_NSD_9KeySelectENSD_11ValueSelectES4_S6_S9_Lb0ESC_E14robin_iteratorILb0EEE.exit
+189:                                              ; preds = %188, %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE10erase_fastENS_17detail_robin_hash10robin_hashIS8_NSD_9KeySelectENSD_11ValueSelectES4_S6_S9_Lb0ESC_E14robin_iteratorILb0EEE.exit
   %.not93128 = icmp eq ptr %.0, null
   br i1 %.not93128, label %._crit_edge132, label %.lr.ph131
 
-.lr.ph131:                                        ; preds = %188, %_ZL10_Py_DECREFP7_object.exit101
-  %.1129 = phi ptr [ %190, %_ZL10_Py_DECREFP7_object.exit101 ], [ %.0, %188 ]
-  %189 = getelementptr inbounds nuw i8, ptr %.1129, i64 16
-  %190 = load ptr, ptr %189, align 8
-  %191 = load ptr, ptr %.1129, align 8
-  %.not94 = icmp eq ptr %191, null
-  %192 = getelementptr inbounds nuw i8, ptr %.1129, i64 8
-  %193 = load ptr, ptr %192, align 8
-  br i1 %.not94, label %195, label %194
-
-194:                                              ; preds = %.lr.ph131
-  call void %191(ptr noundef %193) #31
-  br label %_ZL10_Py_DECREFP7_object.exit101
+.lr.ph131:                                        ; preds = %189, %_ZL10_Py_DECREFP7_object.exit101
+  %.1129 = phi ptr [ %191, %_ZL10_Py_DECREFP7_object.exit101 ], [ %.0, %189 ]
+  %190 = getelementptr inbounds nuw i8, ptr %.1129, i64 16
+  %191 = load ptr, ptr %190, align 8
+  %192 = load ptr, ptr %.1129, align 8
+  %.not94 = icmp eq ptr %192, null
+  %193 = getelementptr inbounds nuw i8, ptr %.1129, i64 8
+  %194 = load ptr, ptr %193, align 8
+  br i1 %.not94, label %196, label %195
 
 195:                                              ; preds = %.lr.ph131
-  %196 = load i64, ptr %193, align 8
-  %197 = add nsw i64 %196, -1
-  store i64 %197, ptr %193, align 8
-  %.not.i100 = icmp eq i64 %197, 0
-  br i1 %.not.i100, label %198, label %_ZL10_Py_DECREFP7_object.exit101
-
-198:                                              ; preds = %195
-  call void @_Py_Dealloc(ptr noundef nonnull %193)
+  call void %192(ptr noundef %194) #31
   br label %_ZL10_Py_DECREFP7_object.exit101
 
-_ZL10_Py_DECREFP7_object.exit101:                 ; preds = %198, %195, %194
+196:                                              ; preds = %.lr.ph131
+  %197 = load i64, ptr %194, align 8
+  %198 = add nsw i64 %197, -1
+  store i64 %198, ptr %194, align 8
+  %.not.i100 = icmp eq i64 %198, 0
+  br i1 %.not.i100, label %199, label %_ZL10_Py_DECREFP7_object.exit101
+
+199:                                              ; preds = %196
+  call void @_Py_Dealloc(ptr noundef nonnull %194)
+  br label %_ZL10_Py_DECREFP7_object.exit101
+
+_ZL10_Py_DECREFP7_object.exit101:                 ; preds = %199, %196, %195
   call void @PyMem_Free(ptr noundef nonnull %.1129)
-  %.not93 = icmp eq ptr %190, null
+  %.not93 = icmp eq ptr %191, null
   br i1 %.not93, label %._crit_edge132, label %.lr.ph131, !llvm.loop !48
 
-._crit_edge132:                                   ; preds = %_ZL10_Py_DECREFP7_object.exit101, %188
-  br i1 %.not, label %200, label %199, !prof !3
-
-199:                                              ; preds = %._crit_edge132
-  call void @PyObject_GC_Del(ptr noundef %0)
-  br label %201
+._crit_edge132:                                   ; preds = %_ZL10_Py_DECREFP7_object.exit101, %189
+  br i1 %.not, label %201, label %200, !prof !3
 
 200:                                              ; preds = %._crit_edge132
+  call void @PyObject_GC_Del(ptr noundef %0)
+  br label %202
+
+201:                                              ; preds = %._crit_edge132
   call void @PyObject_Free(ptr noundef %0)
-  br label %201
+  br label %202
 
-201:                                              ; preds = %200, %199
-  %202 = load i64, ptr %4, align 8
-  %203 = add nsw i64 %202, -1
-  store i64 %203, ptr %4, align 8
-  %.not.i102 = icmp eq i64 %203, 0
-  br i1 %.not.i102, label %204, label %_ZL10_Py_DECREFP7_object.exit103
+202:                                              ; preds = %201, %200
+  %203 = load i64, ptr %4, align 8
+  %204 = add nsw i64 %203, -1
+  store i64 %204, ptr %4, align 8
+  %.not.i102 = icmp eq i64 %204, 0
+  br i1 %.not.i102, label %205, label %_ZL10_Py_DECREFP7_object.exit103
 
-204:                                              ; preds = %201
+205:                                              ; preds = %202
   call void @_Py_Dealloc(ptr noundef nonnull %4)
   br label %_ZL10_Py_DECREFP7_object.exit103
 
-_ZL10_Py_DECREFP7_object.exit103:                 ; preds = %201, %204
+_ZL10_Py_DECREFP7_object.exit103:                 ; preds = %202, %205
   ret void
 }
 
@@ -5730,11 +5731,11 @@ _ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i: ;
   br i1 %22, label %.lr.ph.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E10erase_fastENSI_14robin_iteratorILb0EEE.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i
-  %23 = phi i16 [ %43, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i ], [ %21, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i ]
-  %24 = phi ptr [ %41, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i ], [ %19, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i ]
-  %25 = phi ptr [ %37, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i ], [ %11, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i ]
+  %23 = phi i16 [ %44, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i ], [ %21, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i ]
+  %24 = phi ptr [ %42, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i ], [ %19, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i ]
+  %25 = phi ptr [ %38, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i ], [ %11, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i ]
   %.014.i.i = phi i64 [ %.01113.i.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i ], [ %15, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i ]
-  %.01113.i.i = phi i64 [ %40, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i ], [ %18, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i ]
+  %.01113.i.i = phi i64 [ %41, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i ], [ %18, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i ]
   %26 = add nsw i16 %23, -1
   %27 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %25, i64 %.014.i.i
   %28 = load i32, ptr %24, align 4
@@ -5745,30 +5746,31 @@ _ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i: ;
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i16 %26, ptr %31, align 4
   %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %32, i64 %.01113.i.i, i32 1
-  %34 = load i16, ptr %33, align 4
-  %35 = icmp eq i16 %34, -1
-  br i1 %35, label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i, label %36
+  %33 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %32, i64 %.01113.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %35 = load i16, ptr %34, align 4
+  %36 = icmp eq i16 %35, -1
+  br i1 %36, label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i, label %37
 
-36:                                               ; preds = %.lr.ph.i.i
-  store i16 -1, ptr %33, align 4
+37:                                               ; preds = %.lr.ph.i.i
+  store i16 -1, ptr %34, align 4
   %.pre.i.i = load ptr, ptr %10, align 8
   br label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i
 
-_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i: ; preds = %36, %.lr.ph.i.i
-  %37 = phi ptr [ %32, %.lr.ph.i.i ], [ %.pre.i.i, %36 ]
-  %38 = add i64 %.01113.i.i, 1
-  %39 = load i64, ptr %0, align 8
-  %40 = and i64 %39, %38
-  %41 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %37, i64 %40
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %43 = load i16, ptr %42, align 4
-  %44 = icmp sgt i16 %43, 0
-  br i1 %44, label %.lr.ph.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E10erase_fastENSI_14robin_iteratorILb0EEE.exit, !llvm.loop !46
+_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i: ; preds = %37, %.lr.ph.i.i
+  %38 = phi ptr [ %32, %.lr.ph.i.i ], [ %.pre.i.i, %37 ]
+  %39 = add i64 %.01113.i.i, 1
+  %40 = load i64, ptr %0, align 8
+  %41 = and i64 %40, %39
+  %42 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %38, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %44 = load i16, ptr %43, align 4
+  %45 = icmp sgt i16 %44, 0
+  br i1 %45, label %.lr.ph.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E10erase_fastENSI_14robin_iteratorILb0EEE.exit, !llvm.loop !46
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E10erase_fastENSI_14robin_iteratorILb0EEE.exit: ; preds = %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit12.i.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EE5clearEv.exit.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  store i8 1, ptr %45, align 1
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  store i8 1, ptr %46, align 1
   ret void
 }
 
@@ -6153,7 +6155,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !74
 
 .loopexit:                                        ; preds = %.lr.ph66, %.lr.ph69
-  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %39, %.lr.ph66 ]
+  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %40, %.lr.ph66 ]
   %.2.lcssa = phi i64 [ %.262, %.lr.ph69 ], [ %.2, %.lr.ph66 ]
   %33 = tail call noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E22rehash_on_extreme_loadEs(ptr noundef nonnull align 8 dereferenceable(74) %0, i16 noundef signext %.236.lcssa)
   br i1 %33, label %.lr.ph69, label %._crit_edge, !llvm.loop !75
@@ -6162,159 +6164,161 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %34 = load i64, ptr %0, align 8
   %35 = load ptr, ptr %17, align 8
   %.262 = and i64 %15, %34
-  %36 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.262, i32 1
-  %37 = load i16, ptr %36, align 4
-  %.not3763 = icmp slt i16 %37, 0
+  %36 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.262
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %38 = load i16, ptr %37, align 4
+  %.not3763 = icmp slt i16 %38, 0
   br i1 %.not3763, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph69, %.lr.ph66
   %.265 = phi i64 [ %.2, %.lr.ph66 ], [ %.262, %.lr.ph69 ]
-  %.23664 = phi i16 [ %39, %.lr.ph66 ], [ 0, %.lr.ph69 ]
-  %38 = add i64 %.265, 1
-  %39 = add i16 %.23664, 1
-  %.2 = and i64 %38, %34
-  %40 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.2, i32 1
-  %41 = load i16, ptr %40, align 4
-  %.not37 = icmp sgt i16 %39, %41
+  %.23664 = phi i16 [ %40, %.lr.ph66 ], [ 0, %.lr.ph69 ]
+  %39 = add i64 %.265, 1
+  %40 = add i16 %.23664, 1
+  %.2 = and i64 %39, %34
+  %41 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.2
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = load i16, ptr %42, align 4
+  %.not37 = icmp sgt i16 %40, %43
   br i1 %.not37, label %.loopexit, label %.lr.ph66, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.135.lcssa = phi i16 [ %.034.lcssa, %.preheader ], [ %.236.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
-  %42 = load ptr, ptr %17, align 8
-  %43 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %42, i64 %.1.lcssa
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i16, ptr %44, align 4
-  %46 = icmp eq i16 %45, -1
-  %47 = trunc i64 %15 to i32
-  br i1 %46, label %48, label %57
+  %44 = load ptr, ptr %17, align 8
+  %45 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %44, i64 %.1.lcssa
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %47 = load i16, ptr %46, align 4
+  %48 = icmp eq i16 %47, -1
+  %49 = trunc i64 %15 to i32
+  br i1 %48, label %50, label %59
 
-48:                                               ; preds = %._crit_edge
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %50 = load i64, ptr %3, align 8
-  %51 = inttoptr i64 %50 to ptr
-  %52 = load i64, ptr %4, align 8
+50:                                               ; preds = %._crit_edge
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %52 = load i64, ptr %3, align 8
   %53 = inttoptr i64 %52 to ptr
-  %54 = load ptr, ptr %51, align 8
-  store ptr %54, ptr %49, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %54 = load i64, ptr %4, align 8
+  %55 = inttoptr i64 %54 to ptr
   %56 = load ptr, ptr %53, align 8
-  store ptr %56, ptr %55, align 8
-  store i32 %47, ptr %43, align 8
-  store i16 %.135.lcssa, ptr %44, align 4
-  br label %105
+  store ptr %56, ptr %51, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %58 = load ptr, ptr %55, align 8
+  store ptr %58, ptr %57, align 8
+  store i32 %49, ptr %45, align 8
+  store i16 %.135.lcssa, ptr %46, align 4
+  br label %107
 
-57:                                               ; preds = %._crit_edge
-  %58 = load i64, ptr %3, align 8
-  %59 = inttoptr i64 %58 to ptr
-  %60 = load i64, ptr %4, align 8
+59:                                               ; preds = %._crit_edge
+  %60 = load i64, ptr %3, align 8
   %61 = inttoptr i64 %60 to ptr
-  %62 = load ptr, ptr %59, align 8
-  %63 = load ptr, ptr %61, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %65 = load ptr, ptr %64, align 8
-  store ptr %62, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %62 = load i64, ptr %4, align 8
+  %63 = inttoptr i64 %62 to ptr
+  %64 = load ptr, ptr %61, align 8
+  %65 = load ptr, ptr %63, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %67 = load ptr, ptr %66, align 8
-  store ptr %63, ptr %66, align 8
-  store i16 %.135.lcssa, ptr %44, align 4
-  %68 = load i32, ptr %43, align 8
-  store i32 %47, ptr %43, align 8
-  %69 = add i64 %.1.lcssa, 1
-  %70 = load i64, ptr %0, align 8
-  %71 = and i64 %70, %69
-  %storemerge22.i.i = add nuw i16 %45, 1
-  %72 = load ptr, ptr %17, align 8
-  %73 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %72, i64 %71
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %75 = load i16, ptr %74, align 4
-  %76 = icmp eq i16 %75, -1
-  br i1 %76, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS3_EESN_IJRP7_objectEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
+  store ptr %64, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %69 = load ptr, ptr %68, align 8
+  store ptr %65, ptr %68, align 8
+  store i16 %.135.lcssa, ptr %46, align 4
+  %70 = load i32, ptr %45, align 8
+  store i32 %49, ptr %45, align 8
+  %71 = add i64 %.1.lcssa, 1
+  %72 = load i64, ptr %0, align 8
+  %73 = and i64 %72, %71
+  %storemerge22.i.i = add nuw i16 %47, 1
+  %74 = load ptr, ptr %17, align 8
+  %75 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %74, i64 %73
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  %77 = load i16, ptr %76, align 4
+  %78 = icmp eq i16 %77, -1
+  br i1 %78, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS3_EESN_IJRP7_objectEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %57
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %78
+.lr.ph.i.i:                                       ; preds = %59
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %80
 
-78:                                               ; preds = %95, %.lr.ph.i.i
-  %.sroa.06.0.i = phi ptr [ %65, %.lr.ph.i.i ], [ %.sroa.06.1.i, %95 ]
-  %.sroa.8.0.i = phi ptr [ %67, %.lr.ph.i.i ], [ %.sroa.8.1.i, %95 ]
-  %79 = phi ptr [ %72, %.lr.ph.i.i ], [ %96, %95 ]
-  %80 = phi i64 [ %70, %.lr.ph.i.i ], [ %97, %95 ]
-  %81 = phi i16 [ %75, %.lr.ph.i.i ], [ %102, %95 ]
-  %82 = phi ptr [ %74, %.lr.ph.i.i ], [ %101, %95 ]
-  %83 = phi ptr [ %73, %.lr.ph.i.i ], [ %100, %95 ]
-  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %95 ]
-  %.024.i.i = phi i64 [ %71, %.lr.ph.i.i ], [ %99, %95 ]
-  %.01823.i.i = phi i32 [ %68, %.lr.ph.i.i ], [ %.1.i.i, %95 ]
-  %84 = icmp sgt i16 %storemerge25.i.i, %81
-  br i1 %84, label %85, label %95
+80:                                               ; preds = %97, %.lr.ph.i.i
+  %.sroa.06.0.i = phi ptr [ %67, %.lr.ph.i.i ], [ %.sroa.06.1.i, %97 ]
+  %.sroa.8.0.i = phi ptr [ %69, %.lr.ph.i.i ], [ %.sroa.8.1.i, %97 ]
+  %81 = phi ptr [ %74, %.lr.ph.i.i ], [ %98, %97 ]
+  %82 = phi i64 [ %72, %.lr.ph.i.i ], [ %99, %97 ]
+  %83 = phi i16 [ %77, %.lr.ph.i.i ], [ %104, %97 ]
+  %84 = phi ptr [ %76, %.lr.ph.i.i ], [ %103, %97 ]
+  %85 = phi ptr [ %75, %.lr.ph.i.i ], [ %102, %97 ]
+  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %97 ]
+  %.024.i.i = phi i64 [ %73, %.lr.ph.i.i ], [ %101, %97 ]
+  %.01823.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ %.1.i.i, %97 ]
+  %86 = icmp sgt i16 %storemerge25.i.i, %83
+  br i1 %86, label %87, label %97
 
-85:                                               ; preds = %78
-  %86 = icmp sgt i16 %storemerge25.i.i, 8192
-  br i1 %86, label %87, label %88
+87:                                               ; preds = %80
+  %88 = icmp sgt i16 %storemerge25.i.i, 8192
+  br i1 %88, label %89, label %90
 
-87:                                               ; preds = %85
-  store i8 1, ptr %77, align 8
-  br label %88
+89:                                               ; preds = %87
+  store i8 1, ptr %79, align 8
+  br label %90
 
-88:                                               ; preds = %87, %85
-  %89 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %90 = load ptr, ptr %89, align 8
-  store ptr %.sroa.06.0.i, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %83, i64 16
+90:                                               ; preds = %89, %87
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %92 = load ptr, ptr %91, align 8
-  store ptr %.sroa.8.0.i, ptr %91, align 8
-  %93 = load i16, ptr %82, align 2
-  store i16 %storemerge25.i.i, ptr %82, align 2
-  %94 = load i32, ptr %83, align 8
-  store i32 %.01823.i.i, ptr %83, align 8
+  store ptr %.sroa.06.0.i, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %94 = load ptr, ptr %93, align 8
+  store ptr %.sroa.8.0.i, ptr %93, align 8
+  %95 = load i16, ptr %84, align 2
+  store i16 %storemerge25.i.i, ptr %84, align 2
+  %96 = load i32, ptr %85, align 8
+  store i32 %.01823.i.i, ptr %85, align 8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre32.i.i = load ptr, ptr %17, align 8
-  br label %95
+  br label %97
 
-95:                                               ; preds = %88, %78
-  %.sroa.06.1.i = phi ptr [ %90, %88 ], [ %.sroa.06.0.i, %78 ]
-  %.sroa.8.1.i = phi ptr [ %92, %88 ], [ %.sroa.8.0.i, %78 ]
-  %96 = phi ptr [ %.pre32.i.i, %88 ], [ %79, %78 ]
-  %97 = phi i64 [ %.pre.i.i, %88 ], [ %80, %78 ]
-  %.120.i.i = phi i16 [ %93, %88 ], [ %storemerge25.i.i, %78 ]
-  %.1.i.i = phi i32 [ %94, %88 ], [ %.01823.i.i, %78 ]
-  %98 = add i64 %.024.i.i, 1
-  %99 = and i64 %97, %98
+97:                                               ; preds = %90, %80
+  %.sroa.06.1.i = phi ptr [ %92, %90 ], [ %.sroa.06.0.i, %80 ]
+  %.sroa.8.1.i = phi ptr [ %94, %90 ], [ %.sroa.8.0.i, %80 ]
+  %98 = phi ptr [ %.pre32.i.i, %90 ], [ %81, %80 ]
+  %99 = phi i64 [ %.pre.i.i, %90 ], [ %82, %80 ]
+  %.120.i.i = phi i16 [ %95, %90 ], [ %storemerge25.i.i, %80 ]
+  %.1.i.i = phi i32 [ %96, %90 ], [ %.01823.i.i, %80 ]
+  %100 = add i64 %.024.i.i, 1
+  %101 = and i64 %99, %100
   %storemerge.i.i = add i16 %.120.i.i, 1
-  %100 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %96, i64 %99
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %102 = load i16, ptr %101, align 4
-  %103 = icmp eq i16 %102, -1
-  br i1 %103, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS3_EESN_IJRP7_objectEEEEEvmsjDpOT_.exit, label %78, !llvm.loop !77
+  %102 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %98, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  %104 = load i16, ptr %103, align 4
+  %105 = icmp eq i16 %104, -1
+  br i1 %105, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS3_EESN_IJRP7_objectEEEEEvmsjDpOT_.exit, label %80, !llvm.loop !77
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS3_EESN_IJRP7_objectEEEEEvmsjDpOT_.exit: ; preds = %95, %57
-  %.sroa.06.2.i = phi ptr [ %65, %57 ], [ %.sroa.06.1.i, %95 ]
-  %.sroa.8.2.i = phi ptr [ %67, %57 ], [ %.sroa.8.1.i, %95 ]
-  %.018.lcssa.i.i = phi i32 [ %68, %57 ], [ %.1.i.i, %95 ]
-  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %57 ], [ %storemerge.i.i, %95 ]
-  %.lcssa21.i.i = phi ptr [ %73, %57 ], [ %100, %95 ]
-  %.lcssa.i.i = phi ptr [ %74, %57 ], [ %101, %95 ]
-  %104 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
-  store ptr %.sroa.06.2.i, ptr %104, align 8
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS3_EESN_IJRP7_objectEEEEEvmsjDpOT_.exit: ; preds = %97, %59
+  %.sroa.06.2.i = phi ptr [ %67, %59 ], [ %.sroa.06.1.i, %97 ]
+  %.sroa.8.2.i = phi ptr [ %69, %59 ], [ %.sroa.8.1.i, %97 ]
+  %.018.lcssa.i.i = phi i32 [ %70, %59 ], [ %.1.i.i, %97 ]
+  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %59 ], [ %storemerge.i.i, %97 ]
+  %.lcssa21.i.i = phi ptr [ %75, %59 ], [ %102, %97 ]
+  %.lcssa.i.i = phi ptr [ %76, %59 ], [ %103, %97 ]
+  %106 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
+  store ptr %.sroa.06.2.i, ptr %106, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 16
   store ptr %.sroa.8.2.i, ptr %.sroa.8.0..sroa_idx.i, align 8
   store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 8
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 4
-  br label %105
+  br label %107
 
-105:                                              ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS3_EESN_IJRP7_objectEEEEEvmsjDpOT_.exit, %48
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %107 = load i64, ptr %106, align 8
-  %108 = add i64 %107, 1
-  store i64 %108, ptr %106, align 8
-  %109 = load ptr, ptr %17, align 8
-  %110 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %109, i64 %.1.lcssa
+107:                                              ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS3_EESN_IJRP7_objectEEEEEvmsjDpOT_.exit, %50
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %109 = load i64, ptr %108, align 8
+  %110 = add i64 %109, 1
+  store i64 %110, ptr %108, align 8
+  %111 = load ptr, ptr %17, align 8
+  %112 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %111, i64 %.1.lcssa
   br label %.loopexit49
 
-.loopexit49:                                      ; preds = %.lr.ph, %105
-  %.pn47 = phi ptr [ %110, %105 ], [ %23, %.lr.ph ]
-  %.pn45 = phi i8 [ 1, %105 ], [ 0, %.lr.ph ]
+.loopexit49:                                      ; preds = %.lr.ph, %107
+  %.pn47 = phi ptr [ %112, %107 ], [ %23, %.lr.ph ]
+  %.pn45 = phi i8 [ 1, %107 ], [ 0, %.lr.ph ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.pn47, 0
   %.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn45, 1
   ret { ptr, i8 } %.pn
@@ -6942,7 +6946,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.lr.ph66, %.lr.ph69
-  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %39, %.lr.ph66 ]
+  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %40, %.lr.ph66 ]
   %.2.lcssa = phi i64 [ %.262, %.lr.ph69 ], [ %.2, %.lr.ph66 ]
   %33 = tail call noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E22rehash_on_extreme_loadEs(ptr noundef nonnull align 8 dereferenceable(74) %0, i16 noundef signext %.236.lcssa)
   br i1 %33, label %.lr.ph69, label %._crit_edge, !llvm.loop !84
@@ -6951,159 +6955,161 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %34 = load i64, ptr %0, align 8
   %35 = load ptr, ptr %17, align 8
   %.262 = and i64 %15, %34
-  %36 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.262, i32 1
-  %37 = load i16, ptr %36, align 4
-  %.not3763 = icmp slt i16 %37, 0
+  %36 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.262
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %38 = load i16, ptr %37, align 4
+  %.not3763 = icmp slt i16 %38, 0
   br i1 %.not3763, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph69, %.lr.ph66
   %.265 = phi i64 [ %.2, %.lr.ph66 ], [ %.262, %.lr.ph69 ]
-  %.23664 = phi i16 [ %39, %.lr.ph66 ], [ 0, %.lr.ph69 ]
-  %38 = add i64 %.265, 1
-  %39 = add i16 %.23664, 1
-  %.2 = and i64 %38, %34
-  %40 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.2, i32 1
-  %41 = load i16, ptr %40, align 4
-  %.not37 = icmp sgt i16 %39, %41
+  %.23664 = phi i16 [ %40, %.lr.ph66 ], [ 0, %.lr.ph69 ]
+  %39 = add i64 %.265, 1
+  %40 = add i16 %.23664, 1
+  %.2 = and i64 %39, %34
+  %41 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.2
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = load i16, ptr %42, align 4
+  %.not37 = icmp sgt i16 %40, %43
   br i1 %.not37, label %.loopexit, label %.lr.ph66, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.135.lcssa = phi i16 [ %.034.lcssa, %.preheader ], [ %.236.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
-  %42 = load ptr, ptr %17, align 8
-  %43 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %42, i64 %.1.lcssa
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i16, ptr %44, align 4
-  %46 = icmp eq i16 %45, -1
-  %47 = trunc i64 %15 to i32
-  br i1 %46, label %48, label %57
+  %44 = load ptr, ptr %17, align 8
+  %45 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %44, i64 %.1.lcssa
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %47 = load i16, ptr %46, align 4
+  %48 = icmp eq i16 %47, -1
+  %49 = trunc i64 %15 to i32
+  br i1 %48, label %50, label %59
 
-48:                                               ; preds = %._crit_edge
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %50 = load i64, ptr %3, align 8
-  %51 = inttoptr i64 %50 to ptr
-  %52 = load i64, ptr %4, align 8
+50:                                               ; preds = %._crit_edge
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %52 = load i64, ptr %3, align 8
   %53 = inttoptr i64 %52 to ptr
-  %54 = load ptr, ptr %51, align 8
-  store ptr %54, ptr %49, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %54 = load i64, ptr %4, align 8
+  %55 = inttoptr i64 %54 to ptr
   %56 = load ptr, ptr %53, align 8
-  store ptr %56, ptr %55, align 8
-  store i32 %47, ptr %43, align 8
-  store i16 %.135.lcssa, ptr %44, align 4
-  br label %105
+  store ptr %56, ptr %51, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %58 = load ptr, ptr %55, align 8
+  store ptr %58, ptr %57, align 8
+  store i32 %49, ptr %45, align 8
+  store i16 %.135.lcssa, ptr %46, align 4
+  br label %107
 
-57:                                               ; preds = %._crit_edge
-  %58 = load i64, ptr %3, align 8
-  %59 = inttoptr i64 %58 to ptr
-  %60 = load i64, ptr %4, align 8
+59:                                               ; preds = %._crit_edge
+  %60 = load i64, ptr %3, align 8
   %61 = inttoptr i64 %60 to ptr
-  %62 = load ptr, ptr %59, align 8
-  %63 = load ptr, ptr %61, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %65 = load ptr, ptr %64, align 8
-  store ptr %62, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %62 = load i64, ptr %4, align 8
+  %63 = inttoptr i64 %62 to ptr
+  %64 = load ptr, ptr %61, align 8
+  %65 = load ptr, ptr %63, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %67 = load ptr, ptr %66, align 8
-  store ptr %63, ptr %66, align 8
-  store i16 %.135.lcssa, ptr %44, align 4
-  %68 = load i32, ptr %43, align 8
-  store i32 %47, ptr %43, align 8
-  %69 = add i64 %.1.lcssa, 1
-  %70 = load i64, ptr %0, align 8
-  %71 = and i64 %70, %69
-  %storemerge22.i.i = add nuw i16 %45, 1
-  %72 = load ptr, ptr %17, align 8
-  %73 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %72, i64 %71
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %75 = load i16, ptr %74, align 4
-  %76 = icmp eq i16 %75, -1
-  br i1 %76, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJRPNS7_7nb_instEEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
+  store ptr %64, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %69 = load ptr, ptr %68, align 8
+  store ptr %65, ptr %68, align 8
+  store i16 %.135.lcssa, ptr %46, align 4
+  %70 = load i32, ptr %45, align 8
+  store i32 %49, ptr %45, align 8
+  %71 = add i64 %.1.lcssa, 1
+  %72 = load i64, ptr %0, align 8
+  %73 = and i64 %72, %71
+  %storemerge22.i.i = add nuw i16 %47, 1
+  %74 = load ptr, ptr %17, align 8
+  %75 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %74, i64 %73
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  %77 = load i16, ptr %76, align 4
+  %78 = icmp eq i16 %77, -1
+  br i1 %78, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJRPNS7_7nb_instEEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %57
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %78
+.lr.ph.i.i:                                       ; preds = %59
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %80
 
-78:                                               ; preds = %95, %.lr.ph.i.i
-  %.sroa.06.0.i = phi ptr [ %65, %.lr.ph.i.i ], [ %.sroa.06.1.i, %95 ]
-  %.sroa.8.0.i = phi ptr [ %67, %.lr.ph.i.i ], [ %.sroa.8.1.i, %95 ]
-  %79 = phi ptr [ %72, %.lr.ph.i.i ], [ %96, %95 ]
-  %80 = phi i64 [ %70, %.lr.ph.i.i ], [ %97, %95 ]
-  %81 = phi i16 [ %75, %.lr.ph.i.i ], [ %102, %95 ]
-  %82 = phi ptr [ %74, %.lr.ph.i.i ], [ %101, %95 ]
-  %83 = phi ptr [ %73, %.lr.ph.i.i ], [ %100, %95 ]
-  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %95 ]
-  %.024.i.i = phi i64 [ %71, %.lr.ph.i.i ], [ %99, %95 ]
-  %.01823.i.i = phi i32 [ %68, %.lr.ph.i.i ], [ %.1.i.i, %95 ]
-  %84 = icmp sgt i16 %storemerge25.i.i, %81
-  br i1 %84, label %85, label %95
+80:                                               ; preds = %97, %.lr.ph.i.i
+  %.sroa.06.0.i = phi ptr [ %67, %.lr.ph.i.i ], [ %.sroa.06.1.i, %97 ]
+  %.sroa.8.0.i = phi ptr [ %69, %.lr.ph.i.i ], [ %.sroa.8.1.i, %97 ]
+  %81 = phi ptr [ %74, %.lr.ph.i.i ], [ %98, %97 ]
+  %82 = phi i64 [ %72, %.lr.ph.i.i ], [ %99, %97 ]
+  %83 = phi i16 [ %77, %.lr.ph.i.i ], [ %104, %97 ]
+  %84 = phi ptr [ %76, %.lr.ph.i.i ], [ %103, %97 ]
+  %85 = phi ptr [ %75, %.lr.ph.i.i ], [ %102, %97 ]
+  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %97 ]
+  %.024.i.i = phi i64 [ %73, %.lr.ph.i.i ], [ %101, %97 ]
+  %.01823.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ %.1.i.i, %97 ]
+  %86 = icmp sgt i16 %storemerge25.i.i, %83
+  br i1 %86, label %87, label %97
 
-85:                                               ; preds = %78
-  %86 = icmp sgt i16 %storemerge25.i.i, 8192
-  br i1 %86, label %87, label %88
+87:                                               ; preds = %80
+  %88 = icmp sgt i16 %storemerge25.i.i, 8192
+  br i1 %88, label %89, label %90
 
-87:                                               ; preds = %85
-  store i8 1, ptr %77, align 8
-  br label %88
+89:                                               ; preds = %87
+  store i8 1, ptr %79, align 8
+  br label %90
 
-88:                                               ; preds = %87, %85
-  %89 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %90 = load ptr, ptr %89, align 8
-  store ptr %.sroa.06.0.i, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %83, i64 16
+90:                                               ; preds = %89, %87
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %92 = load ptr, ptr %91, align 8
-  store ptr %.sroa.8.0.i, ptr %91, align 8
-  %93 = load i16, ptr %82, align 2
-  store i16 %storemerge25.i.i, ptr %82, align 2
-  %94 = load i32, ptr %83, align 8
-  store i32 %.01823.i.i, ptr %83, align 8
+  store ptr %.sroa.06.0.i, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %94 = load ptr, ptr %93, align 8
+  store ptr %.sroa.8.0.i, ptr %93, align 8
+  %95 = load i16, ptr %84, align 2
+  store i16 %storemerge25.i.i, ptr %84, align 2
+  %96 = load i32, ptr %85, align 8
+  store i32 %.01823.i.i, ptr %85, align 8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre32.i.i = load ptr, ptr %17, align 8
-  br label %95
+  br label %97
 
-95:                                               ; preds = %88, %78
-  %.sroa.06.1.i = phi ptr [ %90, %88 ], [ %.sroa.06.0.i, %78 ]
-  %.sroa.8.1.i = phi ptr [ %92, %88 ], [ %.sroa.8.0.i, %78 ]
-  %96 = phi ptr [ %.pre32.i.i, %88 ], [ %79, %78 ]
-  %97 = phi i64 [ %.pre.i.i, %88 ], [ %80, %78 ]
-  %.120.i.i = phi i16 [ %93, %88 ], [ %storemerge25.i.i, %78 ]
-  %.1.i.i = phi i32 [ %94, %88 ], [ %.01823.i.i, %78 ]
-  %98 = add i64 %.024.i.i, 1
-  %99 = and i64 %97, %98
+97:                                               ; preds = %90, %80
+  %.sroa.06.1.i = phi ptr [ %92, %90 ], [ %.sroa.06.0.i, %80 ]
+  %.sroa.8.1.i = phi ptr [ %94, %90 ], [ %.sroa.8.0.i, %80 ]
+  %98 = phi ptr [ %.pre32.i.i, %90 ], [ %81, %80 ]
+  %99 = phi i64 [ %.pre.i.i, %90 ], [ %82, %80 ]
+  %.120.i.i = phi i16 [ %95, %90 ], [ %storemerge25.i.i, %80 ]
+  %.1.i.i = phi i32 [ %96, %90 ], [ %.01823.i.i, %80 ]
+  %100 = add i64 %.024.i.i, 1
+  %101 = and i64 %99, %100
   %storemerge.i.i = add i16 %.120.i.i, 1
-  %100 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %96, i64 %99
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %102 = load i16, ptr %101, align 4
-  %103 = icmp eq i16 %102, -1
-  br i1 %103, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJRPNS7_7nb_instEEEEEEvmsjDpOT_.exit, label %78, !llvm.loop !77
+  %102 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %98, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  %104 = load i16, ptr %103, align 4
+  %105 = icmp eq i16 %104, -1
+  br i1 %105, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJRPNS7_7nb_instEEEEEEvmsjDpOT_.exit, label %80, !llvm.loop !77
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJRPNS7_7nb_instEEEEEEvmsjDpOT_.exit: ; preds = %95, %57
-  %.sroa.06.2.i = phi ptr [ %65, %57 ], [ %.sroa.06.1.i, %95 ]
-  %.sroa.8.2.i = phi ptr [ %67, %57 ], [ %.sroa.8.1.i, %95 ]
-  %.018.lcssa.i.i = phi i32 [ %68, %57 ], [ %.1.i.i, %95 ]
-  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %57 ], [ %storemerge.i.i, %95 ]
-  %.lcssa21.i.i = phi ptr [ %73, %57 ], [ %100, %95 ]
-  %.lcssa.i.i = phi ptr [ %74, %57 ], [ %101, %95 ]
-  %104 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
-  store ptr %.sroa.06.2.i, ptr %104, align 8
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJRPNS7_7nb_instEEEEEEvmsjDpOT_.exit: ; preds = %97, %59
+  %.sroa.06.2.i = phi ptr [ %67, %59 ], [ %.sroa.06.1.i, %97 ]
+  %.sroa.8.2.i = phi ptr [ %69, %59 ], [ %.sroa.8.1.i, %97 ]
+  %.018.lcssa.i.i = phi i32 [ %70, %59 ], [ %.1.i.i, %97 ]
+  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %59 ], [ %storemerge.i.i, %97 ]
+  %.lcssa21.i.i = phi ptr [ %75, %59 ], [ %102, %97 ]
+  %.lcssa.i.i = phi ptr [ %76, %59 ], [ %103, %97 ]
+  %106 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
+  store ptr %.sroa.06.2.i, ptr %106, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 16
   store ptr %.sroa.8.2.i, ptr %.sroa.8.0..sroa_idx.i, align 8
   store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 8
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 4
-  br label %105
+  br label %107
 
-105:                                              ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJRPNS7_7nb_instEEEEEEvmsjDpOT_.exit, %48
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %107 = load i64, ptr %106, align 8
-  %108 = add i64 %107, 1
-  store i64 %108, ptr %106, align 8
-  %109 = load ptr, ptr %17, align 8
-  %110 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %109, i64 %.1.lcssa
+107:                                              ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJRPNS7_7nb_instEEEEEEvmsjDpOT_.exit, %50
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %109 = load i64, ptr %108, align 8
+  %110 = add i64 %109, 1
+  store i64 %110, ptr %108, align 8
+  %111 = load ptr, ptr %17, align 8
+  %112 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %111, i64 %.1.lcssa
   br label %.loopexit49
 
-.loopexit49:                                      ; preds = %.lr.ph, %105
-  %.pn47 = phi ptr [ %110, %105 ], [ %23, %.lr.ph ]
-  %.pn45 = phi i8 [ 1, %105 ], [ 0, %.lr.ph ]
+.loopexit49:                                      ; preds = %.lr.ph, %107
+  %.pn47 = phi ptr [ %112, %107 ], [ %23, %.lr.ph ]
+  %.pn45 = phi i8 [ 1, %107 ], [ 0, %.lr.ph ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.pn47, 0
   %.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn45, 1
   ret { ptr, i8 } %.pn
@@ -7241,7 +7247,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !88
 
 .loopexit:                                        ; preds = %.lr.ph66, %.lr.ph69
-  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %39, %.lr.ph66 ]
+  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %40, %.lr.ph66 ]
   %.2.lcssa = phi i64 [ %.262, %.lr.ph69 ], [ %.2, %.lr.ph66 ]
   %33 = tail call noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E22rehash_on_extreme_loadEs(ptr noundef nonnull align 8 dereferenceable(74) %0, i16 noundef signext %.236.lcssa)
   br i1 %33, label %.lr.ph69, label %._crit_edge, !llvm.loop !89
@@ -7250,153 +7256,155 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %34 = load i64, ptr %0, align 8
   %35 = load ptr, ptr %17, align 8
   %.262 = and i64 %15, %34
-  %36 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %35, i64 %.262, i32 1
-  %37 = load i16, ptr %36, align 4
-  %.not3763 = icmp slt i16 %37, 0
+  %36 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %35, i64 %.262
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %38 = load i16, ptr %37, align 4
+  %.not3763 = icmp slt i16 %38, 0
   br i1 %.not3763, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph69, %.lr.ph66
   %.265 = phi i64 [ %.2, %.lr.ph66 ], [ %.262, %.lr.ph69 ]
-  %.23664 = phi i16 [ %39, %.lr.ph66 ], [ 0, %.lr.ph69 ]
-  %38 = add i64 %.265, 1
-  %39 = add i16 %.23664, 1
-  %.2 = and i64 %38, %34
-  %40 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %35, i64 %.2, i32 1
-  %41 = load i16, ptr %40, align 4
-  %.not37 = icmp sgt i16 %39, %41
+  %.23664 = phi i16 [ %40, %.lr.ph66 ], [ 0, %.lr.ph69 ]
+  %39 = add i64 %.265, 1
+  %40 = add i16 %.23664, 1
+  %.2 = and i64 %39, %34
+  %41 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %35, i64 %.2
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = load i16, ptr %42, align 4
+  %.not37 = icmp sgt i16 %40, %43
   br i1 %.not37, label %.loopexit, label %.lr.ph66, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.135.lcssa = phi i16 [ %.034.lcssa, %.preheader ], [ %.236.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
-  %42 = load ptr, ptr %17, align 8
-  %43 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %42, i64 %.1.lcssa
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i16, ptr %44, align 4
-  %46 = icmp eq i16 %45, -1
-  %47 = trunc i64 %15 to i32
-  br i1 %46, label %48, label %54
+  %44 = load ptr, ptr %17, align 8
+  %45 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %44, i64 %.1.lcssa
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %47 = load i16, ptr %46, align 4
+  %48 = icmp eq i16 %47, -1
+  %49 = trunc i64 %15 to i32
+  br i1 %48, label %50, label %56
 
-48:                                               ; preds = %._crit_edge
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %50 = load i64, ptr %3, align 8
-  %51 = inttoptr i64 %50 to ptr
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %49, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store ptr null, ptr %53, align 8
-  store i32 %47, ptr %43, align 8
-  store i16 %.135.lcssa, ptr %44, align 4
-  br label %99
+50:                                               ; preds = %._crit_edge
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %52 = load i64, ptr %3, align 8
+  %53 = inttoptr i64 %52 to ptr
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %51, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store ptr null, ptr %55, align 8
+  store i32 %49, ptr %45, align 8
+  store i16 %.135.lcssa, ptr %46, align 4
+  br label %101
 
-54:                                               ; preds = %._crit_edge
-  %55 = load i64, ptr %3, align 8
-  %56 = inttoptr i64 %55 to ptr
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %43, i64 8
+56:                                               ; preds = %._crit_edge
+  %57 = load i64, ptr %3, align 8
+  %58 = inttoptr i64 %57 to ptr
   %59 = load ptr, ptr %58, align 8
-  store ptr %57, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %61 = load ptr, ptr %60, align 8
-  store ptr null, ptr %60, align 8
-  store i16 %.135.lcssa, ptr %44, align 4
-  %62 = load i32, ptr %43, align 8
-  store i32 %47, ptr %43, align 8
-  %63 = add i64 %.1.lcssa, 1
-  %64 = load i64, ptr %0, align 8
-  %65 = and i64 %64, %63
-  %storemerge22.i.i = add nuw i16 %45, 1
-  %66 = load ptr, ptr %17, align 8
-  %67 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %66, i64 %65
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %69 = load i16, ptr %68, align 4
-  %70 = icmp eq i16 %69, -1
-  br i1 %70, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESR_IJEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
+  store ptr %59, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %63 = load ptr, ptr %62, align 8
+  store ptr null, ptr %62, align 8
+  store i16 %.135.lcssa, ptr %46, align 4
+  %64 = load i32, ptr %45, align 8
+  store i32 %49, ptr %45, align 8
+  %65 = add i64 %.1.lcssa, 1
+  %66 = load i64, ptr %0, align 8
+  %67 = and i64 %66, %65
+  %storemerge22.i.i = add nuw i16 %47, 1
+  %68 = load ptr, ptr %17, align 8
+  %69 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %68, i64 %67
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %71 = load i16, ptr %70, align 4
+  %72 = icmp eq i16 %71, -1
+  br i1 %72, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESR_IJEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %54
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %72
+.lr.ph.i.i:                                       ; preds = %56
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %74
 
-72:                                               ; preds = %89, %.lr.ph.i.i
-  %.sroa.04.0.i = phi ptr [ %59, %.lr.ph.i.i ], [ %.sroa.04.1.i, %89 ]
-  %.sroa.8.0.i = phi ptr [ %61, %.lr.ph.i.i ], [ %.sroa.8.1.i, %89 ]
-  %73 = phi ptr [ %66, %.lr.ph.i.i ], [ %90, %89 ]
-  %74 = phi i64 [ %64, %.lr.ph.i.i ], [ %91, %89 ]
-  %75 = phi i16 [ %69, %.lr.ph.i.i ], [ %96, %89 ]
-  %76 = phi ptr [ %68, %.lr.ph.i.i ], [ %95, %89 ]
-  %77 = phi ptr [ %67, %.lr.ph.i.i ], [ %94, %89 ]
-  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %89 ]
-  %.024.i.i = phi i64 [ %65, %.lr.ph.i.i ], [ %93, %89 ]
-  %.01823.i.i = phi i32 [ %62, %.lr.ph.i.i ], [ %.1.i.i, %89 ]
-  %78 = icmp sgt i16 %storemerge25.i.i, %75
-  br i1 %78, label %79, label %89
+74:                                               ; preds = %91, %.lr.ph.i.i
+  %.sroa.04.0.i = phi ptr [ %61, %.lr.ph.i.i ], [ %.sroa.04.1.i, %91 ]
+  %.sroa.8.0.i = phi ptr [ %63, %.lr.ph.i.i ], [ %.sroa.8.1.i, %91 ]
+  %75 = phi ptr [ %68, %.lr.ph.i.i ], [ %92, %91 ]
+  %76 = phi i64 [ %66, %.lr.ph.i.i ], [ %93, %91 ]
+  %77 = phi i16 [ %71, %.lr.ph.i.i ], [ %98, %91 ]
+  %78 = phi ptr [ %70, %.lr.ph.i.i ], [ %97, %91 ]
+  %79 = phi ptr [ %69, %.lr.ph.i.i ], [ %96, %91 ]
+  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %91 ]
+  %.024.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %95, %91 ]
+  %.01823.i.i = phi i32 [ %64, %.lr.ph.i.i ], [ %.1.i.i, %91 ]
+  %80 = icmp sgt i16 %storemerge25.i.i, %77
+  br i1 %80, label %81, label %91
 
-79:                                               ; preds = %72
-  %80 = icmp sgt i16 %storemerge25.i.i, 8192
-  br i1 %80, label %81, label %82
+81:                                               ; preds = %74
+  %82 = icmp sgt i16 %storemerge25.i.i, 8192
+  br i1 %82, label %83, label %84
 
-81:                                               ; preds = %79
-  store i8 1, ptr %71, align 8
-  br label %82
+83:                                               ; preds = %81
+  store i8 1, ptr %73, align 8
+  br label %84
 
-82:                                               ; preds = %81, %79
-  %83 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %84 = load ptr, ptr %83, align 8
-  store ptr %.sroa.04.0.i, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %77, i64 16
+84:                                               ; preds = %83, %81
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %86 = load ptr, ptr %85, align 8
-  store ptr %.sroa.8.0.i, ptr %85, align 8
-  %87 = load i16, ptr %76, align 2
-  store i16 %storemerge25.i.i, ptr %76, align 2
-  %88 = load i32, ptr %77, align 8
-  store i32 %.01823.i.i, ptr %77, align 8
+  store ptr %.sroa.04.0.i, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %88 = load ptr, ptr %87, align 8
+  store ptr %.sroa.8.0.i, ptr %87, align 8
+  %89 = load i16, ptr %78, align 2
+  store i16 %storemerge25.i.i, ptr %78, align 2
+  %90 = load i32, ptr %79, align 8
+  store i32 %.01823.i.i, ptr %79, align 8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre32.i.i = load ptr, ptr %17, align 8
-  br label %89
+  br label %91
 
-89:                                               ; preds = %82, %72
-  %.sroa.04.1.i = phi ptr [ %84, %82 ], [ %.sroa.04.0.i, %72 ]
-  %.sroa.8.1.i = phi ptr [ %86, %82 ], [ %.sroa.8.0.i, %72 ]
-  %90 = phi ptr [ %.pre32.i.i, %82 ], [ %73, %72 ]
-  %91 = phi i64 [ %.pre.i.i, %82 ], [ %74, %72 ]
-  %.120.i.i = phi i16 [ %87, %82 ], [ %storemerge25.i.i, %72 ]
-  %.1.i.i = phi i32 [ %88, %82 ], [ %.01823.i.i, %72 ]
-  %92 = add i64 %.024.i.i, 1
-  %93 = and i64 %91, %92
+91:                                               ; preds = %84, %74
+  %.sroa.04.1.i = phi ptr [ %86, %84 ], [ %.sroa.04.0.i, %74 ]
+  %.sroa.8.1.i = phi ptr [ %88, %84 ], [ %.sroa.8.0.i, %74 ]
+  %92 = phi ptr [ %.pre32.i.i, %84 ], [ %75, %74 ]
+  %93 = phi i64 [ %.pre.i.i, %84 ], [ %76, %74 ]
+  %.120.i.i = phi i16 [ %89, %84 ], [ %storemerge25.i.i, %74 ]
+  %.1.i.i = phi i32 [ %90, %84 ], [ %.01823.i.i, %74 ]
+  %94 = add i64 %.024.i.i, 1
+  %95 = and i64 %93, %94
   %storemerge.i.i = add i16 %.120.i.i, 1
-  %94 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %90, i64 %93
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %96 = load i16, ptr %95, align 4
-  %97 = icmp eq i16 %96, -1
-  br i1 %97, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESR_IJEEEEEvmsjDpOT_.exit, label %72, !llvm.loop !91
+  %96 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %92, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %98 = load i16, ptr %97, align 4
+  %99 = icmp eq i16 %98, -1
+  br i1 %99, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESR_IJEEEEEvmsjDpOT_.exit, label %74, !llvm.loop !91
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESR_IJEEEEEvmsjDpOT_.exit: ; preds = %89, %54
-  %.sroa.04.2.i = phi ptr [ %59, %54 ], [ %.sroa.04.1.i, %89 ]
-  %.sroa.8.2.i = phi ptr [ %61, %54 ], [ %.sroa.8.1.i, %89 ]
-  %.018.lcssa.i.i = phi i32 [ %62, %54 ], [ %.1.i.i, %89 ]
-  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %54 ], [ %storemerge.i.i, %89 ]
-  %.lcssa21.i.i = phi ptr [ %67, %54 ], [ %94, %89 ]
-  %.lcssa.i.i = phi ptr [ %68, %54 ], [ %95, %89 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
-  store ptr %.sroa.04.2.i, ptr %98, align 8
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESR_IJEEEEEvmsjDpOT_.exit: ; preds = %91, %56
+  %.sroa.04.2.i = phi ptr [ %61, %56 ], [ %.sroa.04.1.i, %91 ]
+  %.sroa.8.2.i = phi ptr [ %63, %56 ], [ %.sroa.8.1.i, %91 ]
+  %.018.lcssa.i.i = phi i32 [ %64, %56 ], [ %.1.i.i, %91 ]
+  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %56 ], [ %storemerge.i.i, %91 ]
+  %.lcssa21.i.i = phi ptr [ %69, %56 ], [ %96, %91 ]
+  %.lcssa.i.i = phi ptr [ %70, %56 ], [ %97, %91 ]
+  %100 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
+  store ptr %.sroa.04.2.i, ptr %100, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 16
   store ptr %.sroa.8.2.i, ptr %.sroa.8.0..sroa_idx.i, align 8
   store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 8
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 4
-  br label %99
+  br label %101
 
-99:                                               ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESR_IJEEEEEvmsjDpOT_.exit, %48
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %101 = load i64, ptr %100, align 8
-  %102 = add i64 %101, 1
-  store i64 %102, ptr %100, align 8
-  %103 = load ptr, ptr %17, align 8
-  %104 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %103, i64 %.1.lcssa
+101:                                              ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESR_IJEEEEEvmsjDpOT_.exit, %50
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %103 = load i64, ptr %102, align 8
+  %104 = add i64 %103, 1
+  store i64 %104, ptr %102, align 8
+  %105 = load ptr, ptr %17, align 8
+  %106 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %105, i64 %.1.lcssa
   br label %.loopexit49
 
-.loopexit49:                                      ; preds = %.lr.ph, %99
-  %.pn47 = phi ptr [ %104, %99 ], [ %23, %.lr.ph ]
-  %.pn45 = phi i8 [ 1, %99 ], [ 0, %.lr.ph ]
+.loopexit49:                                      ; preds = %.lr.ph, %101
+  %.pn47 = phi ptr [ %106, %101 ], [ %23, %.lr.ph ]
+  %.pn45 = phi i8 [ 1, %101 ], [ 0, %.lr.ph ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.pn47, 0
   %.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn45, 1
   ret { ptr, i8 } %.pn
@@ -8007,7 +8015,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
   %.sroa.09.0.i.i.i.i = phi ptr [ %36, %._crit_edge.i.i.i.i ], [ %17, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E4findIS5_EENSL_14robin_iteratorILb0EEERKT_m.exit.loopexit ]
   %38 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %6, i64 %37
   %.not = icmp eq ptr %.sroa.09.0.i.i.i.i, %38
-  br i1 %.not, label %82, label %39
+  br i1 %.not, label %83, label %39
 
 39:                                               ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E4findIS5_EENSL_14robin_iteratorILb0EEERKT_m.exit
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i.i.i, i64 4
@@ -8041,11 +8049,11 @@ _ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detai
   br i1 %58, label %.lr.ph.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E17erase_from_bucketENSL_14robin_iteratorILb0EEE.exit
 
 .lr.ph.i:                                         ; preds = %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i
-  %59 = phi i16 [ %79, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %57, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
-  %60 = phi ptr [ %77, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %55, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
-  %61 = phi ptr [ %73, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %45, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
+  %59 = phi i16 [ %80, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %57, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
+  %60 = phi ptr [ %78, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %55, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
+  %61 = phi ptr [ %74, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %45, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
   %.014.i = phi i64 [ %.01113.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %52, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
-  %.01113.i = phi i64 [ %76, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %54, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
+  %.01113.i = phi i64 [ %77, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %54, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
   %62 = add nsw i16 %59, -1
   %63 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %61, i64 %.014.i
   %64 = load i32, ptr %60, align 4
@@ -8056,33 +8064,34 @@ _ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detai
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i16 %62, ptr %67, align 4
   %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %68, i64 %.01113.i, i32 1
-  %70 = load i16, ptr %69, align 4
-  %71 = icmp eq i16 %70, -1
-  br i1 %71, label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i, label %72
+  %69 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %68, i64 %.01113.i
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %71 = load i16, ptr %70, align 4
+  %72 = icmp eq i16 %71, -1
+  br i1 %72, label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i, label %73
 
-72:                                               ; preds = %.lr.ph.i
-  store i16 -1, ptr %69, align 4
+73:                                               ; preds = %.lr.ph.i
+  store i16 -1, ptr %70, align 4
   %.pre.i = load ptr, ptr %5, align 8
   br label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i
 
-_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i: ; preds = %72, %.lr.ph.i
-  %73 = phi ptr [ %68, %.lr.ph.i ], [ %.pre.i, %72 ]
-  %74 = add i64 %.01113.i, 1
-  %75 = load i64, ptr %0, align 8
-  %76 = and i64 %75, %74
-  %77 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %73, i64 %76
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  %79 = load i16, ptr %78, align 4
-  %80 = icmp sgt i16 %79, 0
-  br i1 %80, label %.lr.ph.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E17erase_from_bucketENSL_14robin_iteratorILb0EEE.exit, !llvm.loop !95
+_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i: ; preds = %73, %.lr.ph.i
+  %74 = phi ptr [ %68, %.lr.ph.i ], [ %.pre.i, %73 ]
+  %75 = add i64 %.01113.i, 1
+  %76 = load i64, ptr %0, align 8
+  %77 = and i64 %76, %75
+  %78 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %74, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %80 = load i16, ptr %79, align 4
+  %81 = icmp sgt i16 %80, 0
+  br i1 %81, label %.lr.ph.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E17erase_from_bucketENSL_14robin_iteratorILb0EEE.exit, !llvm.loop !95
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E17erase_from_bucketENSL_14robin_iteratorILb0EEE.exit: ; preds = %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  store i8 1, ptr %81, align 1
-  br label %82
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  store i8 1, ptr %82, align 1
+  br label %83
 
-82:                                               ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E4findIS5_EENSL_14robin_iteratorILb0EEERKT_m.exit, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E17erase_from_bucketENSL_14robin_iteratorILb0EEE.exit
+83:                                               ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E4findIS5_EENSL_14robin_iteratorILb0EEERKT_m.exit, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E17erase_from_bucketENSL_14robin_iteratorILb0EEE.exit
   %.0 = phi i64 [ 1, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E17erase_from_bucketENSL_14robin_iteratorILb0EEE.exit ], [ 0, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E4findIS5_EENSL_14robin_iteratorILb0EEERKT_m.exit ]
   ret i64 %.0
 }
@@ -8138,7 +8147,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
   %.sroa.09.0.i.i.i.i = phi ptr [ %24, %._crit_edge.i.i.i.i ], [ %12, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E4findIS5_EENSM_14robin_iteratorILb0EEERKT_m.exit.loopexit ]
   %26 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %6, i64 %25
   %.not = icmp eq ptr %.sroa.09.0.i.i.i.i, %26
-  br i1 %.not, label %70, label %27
+  br i1 %.not, label %71, label %27
 
 27:                                               ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E4findIS5_EENSM_14robin_iteratorILb0EEERKT_m.exit
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i.i.i, i64 4
@@ -8172,11 +8181,11 @@ _ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detai
   br i1 %46, label %.lr.ph.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E17erase_from_bucketENSM_14robin_iteratorILb0EEE.exit
 
 .lr.ph.i:                                         ; preds = %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i
-  %47 = phi i16 [ %67, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %45, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
-  %48 = phi ptr [ %65, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %43, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
-  %49 = phi ptr [ %61, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %33, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
+  %47 = phi i16 [ %68, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %45, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
+  %48 = phi ptr [ %66, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %43, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
+  %49 = phi ptr [ %62, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %33, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
   %.014.i = phi i64 [ %.01113.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %40, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
-  %.01113.i = phi i64 [ %64, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %42, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
+  %.01113.i = phi i64 [ %65, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i ], [ %42, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i ]
   %50 = add nsw i16 %47, -1
   %51 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %49, i64 %.014.i
   %52 = load i32, ptr %48, align 4
@@ -8187,33 +8196,34 @@ _ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detai
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i16 %50, ptr %55, align 4
   %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %56, i64 %.01113.i, i32 1
-  %58 = load i16, ptr %57, align 4
-  %59 = icmp eq i16 %58, -1
-  br i1 %59, label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i, label %60
+  %57 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %56, i64 %.01113.i
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %59 = load i16, ptr %58, align 4
+  %60 = icmp eq i16 %59, -1
+  br i1 %60, label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i, label %61
 
-60:                                               ; preds = %.lr.ph.i
-  store i16 -1, ptr %57, align 4
+61:                                               ; preds = %.lr.ph.i
+  store i16 -1, ptr %58, align 4
   %.pre.i = load ptr, ptr %5, align 8
   br label %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i
 
-_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i: ; preds = %60, %.lr.ph.i
-  %61 = phi ptr [ %56, %.lr.ph.i ], [ %.pre.i, %60 ]
-  %62 = add i64 %.01113.i, 1
-  %63 = load i64, ptr %0, align 8
-  %64 = and i64 %63, %62
-  %65 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %61, i64 %64
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %67 = load i16, ptr %66, align 4
-  %68 = icmp sgt i16 %67, 0
-  br i1 %68, label %.lr.ph.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E17erase_from_bucketENSM_14robin_iteratorILb0EEE.exit, !llvm.loop !96
+_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i: ; preds = %61, %.lr.ph.i
+  %62 = phi ptr [ %56, %.lr.ph.i ], [ %.pre.i, %61 ]
+  %63 = add i64 %.01113.i, 1
+  %64 = load i64, ptr %0, align 8
+  %65 = and i64 %64, %63
+  %66 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %62, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  %68 = load i16, ptr %67, align 4
+  %69 = icmp sgt i16 %68, 0
+  br i1 %69, label %.lr.ph.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E17erase_from_bucketENSM_14robin_iteratorILb0EEE.exit, !llvm.loop !96
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E17erase_from_bucketENSM_14robin_iteratorILb0EEE.exit: ; preds = %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit12.i, %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EE5clearEv.exit.i
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  store i8 1, ptr %69, align 1
-  br label %70
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  store i8 1, ptr %70, align 1
+  br label %71
 
-70:                                               ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E4findIS5_EENSM_14robin_iteratorILb0EEERKT_m.exit, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E17erase_from_bucketENSM_14robin_iteratorILb0EEE.exit
+71:                                               ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E4findIS5_EENSM_14robin_iteratorILb0EEERKT_m.exit, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E17erase_from_bucketENSM_14robin_iteratorILb0EEE.exit
   %.0 = phi i64 [ 1, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E17erase_from_bucketENSM_14robin_iteratorILb0EEE.exit ], [ 0, %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E4findIS5_EENSM_14robin_iteratorILb0EEERKT_m.exit ]
   ret i64 %.0
 }
@@ -8296,7 +8306,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   br i1 %.not, label %.preheader, label %30, !llvm.loop !97
 
 .loopexit:                                        ; preds = %.lr.ph66, %.lr.ph69
-  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %54, %.lr.ph66 ]
+  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %55, %.lr.ph66 ]
   %.2.lcssa = phi i64 [ %.262, %.lr.ph69 ], [ %.2, %.lr.ph66 ]
   %48 = tail call noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E22rehash_on_extreme_loadEs(ptr noundef nonnull align 8 dereferenceable(74) %0, i16 noundef signext %.236.lcssa)
   br i1 %48, label %.lr.ph69, label %._crit_edge, !llvm.loop !98
@@ -8305,153 +8315,155 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %49 = load i64, ptr %0, align 8
   %50 = load ptr, ptr %18, align 8
   %.262 = and i64 %13, %49
-  %51 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %50, i64 %.262, i32 1
-  %52 = load i16, ptr %51, align 4
-  %.not3763 = icmp slt i16 %52, 0
+  %51 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %50, i64 %.262
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %53 = load i16, ptr %52, align 4
+  %.not3763 = icmp slt i16 %53, 0
   br i1 %.not3763, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph69, %.lr.ph66
   %.265 = phi i64 [ %.2, %.lr.ph66 ], [ %.262, %.lr.ph69 ]
-  %.23664 = phi i16 [ %54, %.lr.ph66 ], [ 0, %.lr.ph69 ]
-  %53 = add i64 %.265, 1
-  %54 = add i16 %.23664, 1
-  %.2 = and i64 %53, %49
-  %55 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %50, i64 %.2, i32 1
-  %56 = load i16, ptr %55, align 4
-  %.not37 = icmp sgt i16 %54, %56
+  %.23664 = phi i16 [ %55, %.lr.ph66 ], [ 0, %.lr.ph69 ]
+  %54 = add i64 %.265, 1
+  %55 = add i16 %.23664, 1
+  %.2 = and i64 %54, %49
+  %56 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %50, i64 %.2
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %58 = load i16, ptr %57, align 4
+  %.not37 = icmp sgt i16 %55, %58
   br i1 %.not37, label %.loopexit, label %.lr.ph66, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.135.lcssa = phi i16 [ %.034.lcssa, %.preheader ], [ %.236.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
-  %57 = load ptr, ptr %18, align 8
-  %58 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %57, i64 %.1.lcssa
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %60 = load i16, ptr %59, align 4
-  %61 = icmp eq i16 %60, -1
-  %62 = trunc i64 %13 to i32
-  br i1 %61, label %63, label %69
+  %59 = load ptr, ptr %18, align 8
+  %60 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %59, i64 %.1.lcssa
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %62 = load i16, ptr %61, align 4
+  %63 = icmp eq i16 %62, -1
+  %64 = trunc i64 %13 to i32
+  br i1 %63, label %65, label %71
 
-63:                                               ; preds = %._crit_edge
-  %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %65 = load i64, ptr %3, align 8
-  %66 = inttoptr i64 %65 to ptr
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr %64, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store ptr null, ptr %68, align 8
-  store i32 %62, ptr %58, align 8
-  store i16 %.135.lcssa, ptr %59, align 4
-  br label %114
+65:                                               ; preds = %._crit_edge
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %67 = load i64, ptr %3, align 8
+  %68 = inttoptr i64 %67 to ptr
+  %69 = load ptr, ptr %68, align 8
+  store ptr %69, ptr %66, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  store ptr null, ptr %70, align 8
+  store i32 %64, ptr %60, align 8
+  store i16 %.135.lcssa, ptr %61, align 4
+  br label %116
 
-69:                                               ; preds = %._crit_edge
-  %70 = load i64, ptr %3, align 8
-  %71 = inttoptr i64 %70 to ptr
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %58, i64 8
+71:                                               ; preds = %._crit_edge
+  %72 = load i64, ptr %3, align 8
+  %73 = inttoptr i64 %72 to ptr
   %74 = load ptr, ptr %73, align 8
-  store ptr %72, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %76 = load ptr, ptr %75, align 8
-  store ptr null, ptr %75, align 8
-  store i16 %.135.lcssa, ptr %59, align 4
-  %77 = load i32, ptr %58, align 8
-  store i32 %62, ptr %58, align 8
-  %78 = add i64 %.1.lcssa, 1
-  %79 = load i64, ptr %0, align 8
-  %80 = and i64 %79, %78
-  %storemerge22.i.i = add nuw i16 %60, 1
-  %81 = load ptr, ptr %18, align 8
-  %82 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %81, i64 %80
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %84 = load i16, ptr %83, align 4
-  %85 = icmp eq i16 %84, -1
-  br i1 %85, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJODnEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
+  store ptr %74, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %78 = load ptr, ptr %77, align 8
+  store ptr null, ptr %77, align 8
+  store i16 %.135.lcssa, ptr %61, align 4
+  %79 = load i32, ptr %60, align 8
+  store i32 %64, ptr %60, align 8
+  %80 = add i64 %.1.lcssa, 1
+  %81 = load i64, ptr %0, align 8
+  %82 = and i64 %81, %80
+  %storemerge22.i.i = add nuw i16 %62, 1
+  %83 = load ptr, ptr %18, align 8
+  %84 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %83, i64 %82
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %86 = load i16, ptr %85, align 4
+  %87 = icmp eq i16 %86, -1
+  br i1 %87, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJODnEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %69
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %87
+.lr.ph.i.i:                                       ; preds = %71
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %89
 
-87:                                               ; preds = %104, %.lr.ph.i.i
-  %.sroa.06.0.i = phi ptr [ %74, %.lr.ph.i.i ], [ %.sroa.06.1.i, %104 ]
-  %.sroa.8.0.i = phi ptr [ %76, %.lr.ph.i.i ], [ %.sroa.8.1.i, %104 ]
-  %88 = phi ptr [ %81, %.lr.ph.i.i ], [ %105, %104 ]
-  %89 = phi i64 [ %79, %.lr.ph.i.i ], [ %106, %104 ]
-  %90 = phi i16 [ %84, %.lr.ph.i.i ], [ %111, %104 ]
-  %91 = phi ptr [ %83, %.lr.ph.i.i ], [ %110, %104 ]
-  %92 = phi ptr [ %82, %.lr.ph.i.i ], [ %109, %104 ]
-  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %104 ]
-  %.024.i.i = phi i64 [ %80, %.lr.ph.i.i ], [ %108, %104 ]
-  %.01823.i.i = phi i32 [ %77, %.lr.ph.i.i ], [ %.1.i.i, %104 ]
-  %93 = icmp sgt i16 %storemerge25.i.i, %90
-  br i1 %93, label %94, label %104
+89:                                               ; preds = %106, %.lr.ph.i.i
+  %.sroa.06.0.i = phi ptr [ %76, %.lr.ph.i.i ], [ %.sroa.06.1.i, %106 ]
+  %.sroa.8.0.i = phi ptr [ %78, %.lr.ph.i.i ], [ %.sroa.8.1.i, %106 ]
+  %90 = phi ptr [ %83, %.lr.ph.i.i ], [ %107, %106 ]
+  %91 = phi i64 [ %81, %.lr.ph.i.i ], [ %108, %106 ]
+  %92 = phi i16 [ %86, %.lr.ph.i.i ], [ %113, %106 ]
+  %93 = phi ptr [ %85, %.lr.ph.i.i ], [ %112, %106 ]
+  %94 = phi ptr [ %84, %.lr.ph.i.i ], [ %111, %106 ]
+  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %106 ]
+  %.024.i.i = phi i64 [ %82, %.lr.ph.i.i ], [ %110, %106 ]
+  %.01823.i.i = phi i32 [ %79, %.lr.ph.i.i ], [ %.1.i.i, %106 ]
+  %95 = icmp sgt i16 %storemerge25.i.i, %92
+  br i1 %95, label %96, label %106
 
-94:                                               ; preds = %87
-  %95 = icmp sgt i16 %storemerge25.i.i, 8192
-  br i1 %95, label %96, label %97
+96:                                               ; preds = %89
+  %97 = icmp sgt i16 %storemerge25.i.i, 8192
+  br i1 %97, label %98, label %99
 
-96:                                               ; preds = %94
-  store i8 1, ptr %86, align 8
-  br label %97
+98:                                               ; preds = %96
+  store i8 1, ptr %88, align 8
+  br label %99
 
-97:                                               ; preds = %96, %94
-  %98 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %99 = load ptr, ptr %98, align 8
-  store ptr %.sroa.06.0.i, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %92, i64 16
+99:                                               ; preds = %98, %96
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %101 = load ptr, ptr %100, align 8
-  store ptr %.sroa.8.0.i, ptr %100, align 8
-  %102 = load i16, ptr %91, align 2
-  store i16 %storemerge25.i.i, ptr %91, align 2
-  %103 = load i32, ptr %92, align 8
-  store i32 %.01823.i.i, ptr %92, align 8
+  store ptr %.sroa.06.0.i, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %103 = load ptr, ptr %102, align 8
+  store ptr %.sroa.8.0.i, ptr %102, align 8
+  %104 = load i16, ptr %93, align 2
+  store i16 %storemerge25.i.i, ptr %93, align 2
+  %105 = load i32, ptr %94, align 8
+  store i32 %.01823.i.i, ptr %94, align 8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre32.i.i = load ptr, ptr %18, align 8
-  br label %104
+  br label %106
 
-104:                                              ; preds = %97, %87
-  %.sroa.06.1.i = phi ptr [ %99, %97 ], [ %.sroa.06.0.i, %87 ]
-  %.sroa.8.1.i = phi ptr [ %101, %97 ], [ %.sroa.8.0.i, %87 ]
-  %105 = phi ptr [ %.pre32.i.i, %97 ], [ %88, %87 ]
-  %106 = phi i64 [ %.pre.i.i, %97 ], [ %89, %87 ]
-  %.120.i.i = phi i16 [ %102, %97 ], [ %storemerge25.i.i, %87 ]
-  %.1.i.i = phi i32 [ %103, %97 ], [ %.01823.i.i, %87 ]
-  %107 = add i64 %.024.i.i, 1
-  %108 = and i64 %106, %107
+106:                                              ; preds = %99, %89
+  %.sroa.06.1.i = phi ptr [ %101, %99 ], [ %.sroa.06.0.i, %89 ]
+  %.sroa.8.1.i = phi ptr [ %103, %99 ], [ %.sroa.8.0.i, %89 ]
+  %107 = phi ptr [ %.pre32.i.i, %99 ], [ %90, %89 ]
+  %108 = phi i64 [ %.pre.i.i, %99 ], [ %91, %89 ]
+  %.120.i.i = phi i16 [ %104, %99 ], [ %storemerge25.i.i, %89 ]
+  %.1.i.i = phi i32 [ %105, %99 ], [ %.01823.i.i, %89 ]
+  %109 = add i64 %.024.i.i, 1
+  %110 = and i64 %108, %109
   %storemerge.i.i = add i16 %.120.i.i, 1
-  %109 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %105, i64 %108
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  %111 = load i16, ptr %110, align 4
-  %112 = icmp eq i16 %111, -1
-  br i1 %112, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJODnEEEEEvmsjDpOT_.exit, label %87, !llvm.loop !100
+  %111 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %107, i64 %110
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  %113 = load i16, ptr %112, align 4
+  %114 = icmp eq i16 %113, -1
+  br i1 %114, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJODnEEEEEvmsjDpOT_.exit, label %89, !llvm.loop !100
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJODnEEEEEvmsjDpOT_.exit: ; preds = %104, %69
-  %.sroa.06.2.i = phi ptr [ %74, %69 ], [ %.sroa.06.1.i, %104 ]
-  %.sroa.8.2.i = phi ptr [ %76, %69 ], [ %.sroa.8.1.i, %104 ]
-  %.018.lcssa.i.i = phi i32 [ %77, %69 ], [ %.1.i.i, %104 ]
-  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %69 ], [ %storemerge.i.i, %104 ]
-  %.lcssa21.i.i = phi ptr [ %82, %69 ], [ %109, %104 ]
-  %.lcssa.i.i = phi ptr [ %83, %69 ], [ %110, %104 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
-  store ptr %.sroa.06.2.i, ptr %113, align 8
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJODnEEEEEvmsjDpOT_.exit: ; preds = %106, %71
+  %.sroa.06.2.i = phi ptr [ %76, %71 ], [ %.sroa.06.1.i, %106 ]
+  %.sroa.8.2.i = phi ptr [ %78, %71 ], [ %.sroa.8.1.i, %106 ]
+  %.018.lcssa.i.i = phi i32 [ %79, %71 ], [ %.1.i.i, %106 ]
+  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %71 ], [ %storemerge.i.i, %106 ]
+  %.lcssa21.i.i = phi ptr [ %84, %71 ], [ %111, %106 ]
+  %.lcssa.i.i = phi ptr [ %85, %71 ], [ %112, %106 ]
+  %115 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
+  store ptr %.sroa.06.2.i, ptr %115, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 16
   store ptr %.sroa.8.2.i, ptr %.sroa.8.0..sroa_idx.i, align 8
   store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 8
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 4
-  br label %114
+  br label %116
 
-114:                                              ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJODnEEEEEvmsjDpOT_.exit, %63
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %116 = load i64, ptr %115, align 8
-  %117 = add i64 %116, 1
-  store i64 %117, ptr %115, align 8
-  %118 = load ptr, ptr %18, align 8
-  %119 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %118, i64 %.1.lcssa
+116:                                              ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJODnEEEEEvmsjDpOT_.exit, %65
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %118 = load i64, ptr %117, align 8
+  %119 = add i64 %118, 1
+  store i64 %119, ptr %117, align 8
+  %120 = load ptr, ptr %18, align 8
+  %121 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %120, i64 %.1.lcssa
   br label %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit.thread
 
-_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit.thread: ; preds = %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit, %30, %114
-  %.pn48 = phi ptr [ %119, %114 ], [ %31, %30 ], [ %31, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit ]
-  %.pn46 = phi i8 [ 1, %114 ], [ 0, %30 ], [ 0, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit ]
+_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit.thread: ; preds = %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit, %30, %116
+  %.pn48 = phi ptr [ %121, %116 ], [ %31, %30 ], [ %31, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit ]
+  %.pn46 = phi i8 [ 1, %116 ], [ 0, %30 ], [ 0, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.pn48, 0
   %.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn46, 1
   ret { ptr, i8 } %.pn
@@ -9066,7 +9078,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   br i1 %.not, label %.preheader, label %30, !llvm.loop !102
 
 .loopexit:                                        ; preds = %.lr.ph66, %.lr.ph69
-  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %54, %.lr.ph66 ]
+  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %55, %.lr.ph66 ]
   %.2.lcssa = phi i64 [ %.262, %.lr.ph69 ], [ %.2, %.lr.ph66 ]
   %48 = tail call noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E22rehash_on_extreme_loadEs(ptr noundef nonnull align 8 dereferenceable(74) %0, i16 noundef signext %.236.lcssa)
   br i1 %48, label %.lr.ph69, label %._crit_edge, !llvm.loop !103
@@ -9075,153 +9087,155 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail
   %49 = load i64, ptr %0, align 8
   %50 = load ptr, ptr %18, align 8
   %.262 = and i64 %13, %49
-  %51 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %50, i64 %.262, i32 1
-  %52 = load i16, ptr %51, align 4
-  %.not3763 = icmp slt i16 %52, 0
+  %51 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %50, i64 %.262
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %53 = load i16, ptr %52, align 4
+  %.not3763 = icmp slt i16 %53, 0
   br i1 %.not3763, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph69, %.lr.ph66
   %.265 = phi i64 [ %.2, %.lr.ph66 ], [ %.262, %.lr.ph69 ]
-  %.23664 = phi i16 [ %54, %.lr.ph66 ], [ 0, %.lr.ph69 ]
-  %53 = add i64 %.265, 1
-  %54 = add i16 %.23664, 1
-  %.2 = and i64 %53, %49
-  %55 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %50, i64 %.2, i32 1
-  %56 = load i16, ptr %55, align 4
-  %.not37 = icmp sgt i16 %54, %56
+  %.23664 = phi i16 [ %55, %.lr.ph66 ], [ 0, %.lr.ph69 ]
+  %54 = add i64 %.265, 1
+  %55 = add i16 %.23664, 1
+  %.2 = and i64 %54, %49
+  %56 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %50, i64 %.2
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %58 = load i16, ptr %57, align 4
+  %.not37 = icmp sgt i16 %55, %58
   br i1 %.not37, label %.loopexit, label %.lr.ph66, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.135.lcssa = phi i16 [ %.034.lcssa, %.preheader ], [ %.236.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
-  %57 = load ptr, ptr %18, align 8
-  %58 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %57, i64 %.1.lcssa
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %60 = load i16, ptr %59, align 4
-  %61 = icmp eq i16 %60, -1
-  %62 = trunc i64 %13 to i32
-  br i1 %61, label %63, label %69
+  %59 = load ptr, ptr %18, align 8
+  %60 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %59, i64 %.1.lcssa
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %62 = load i16, ptr %61, align 4
+  %63 = icmp eq i16 %62, -1
+  %64 = trunc i64 %13 to i32
+  br i1 %63, label %65, label %71
 
-63:                                               ; preds = %._crit_edge
-  %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %65 = load i64, ptr %3, align 8
-  %66 = inttoptr i64 %65 to ptr
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr %64, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store ptr null, ptr %68, align 8
-  store i32 %62, ptr %58, align 8
-  store i16 %.135.lcssa, ptr %59, align 4
-  br label %114
+65:                                               ; preds = %._crit_edge
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %67 = load i64, ptr %3, align 8
+  %68 = inttoptr i64 %67 to ptr
+  %69 = load ptr, ptr %68, align 8
+  store ptr %69, ptr %66, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  store ptr null, ptr %70, align 8
+  store i32 %64, ptr %60, align 8
+  store i16 %.135.lcssa, ptr %61, align 4
+  br label %116
 
-69:                                               ; preds = %._crit_edge
-  %70 = load i64, ptr %3, align 8
-  %71 = inttoptr i64 %70 to ptr
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %58, i64 8
+71:                                               ; preds = %._crit_edge
+  %72 = load i64, ptr %3, align 8
+  %73 = inttoptr i64 %72 to ptr
   %74 = load ptr, ptr %73, align 8
-  store ptr %72, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %76 = load ptr, ptr %75, align 8
-  store ptr null, ptr %75, align 8
-  store i16 %.135.lcssa, ptr %59, align 4
-  %77 = load i32, ptr %58, align 8
-  store i32 %62, ptr %58, align 8
-  %78 = add i64 %.1.lcssa, 1
-  %79 = load i64, ptr %0, align 8
-  %80 = and i64 %79, %78
-  %storemerge22.i.i = add nuw i16 %60, 1
-  %81 = load ptr, ptr %18, align 8
-  %82 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %81, i64 %80
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %84 = load i16, ptr %83, align 4
-  %85 = icmp eq i16 %84, -1
-  br i1 %85, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
+  store ptr %74, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %78 = load ptr, ptr %77, align 8
+  store ptr null, ptr %77, align 8
+  store i16 %.135.lcssa, ptr %61, align 4
+  %79 = load i32, ptr %60, align 8
+  store i32 %64, ptr %60, align 8
+  %80 = add i64 %.1.lcssa, 1
+  %81 = load i64, ptr %0, align 8
+  %82 = and i64 %81, %80
+  %storemerge22.i.i = add nuw i16 %62, 1
+  %83 = load ptr, ptr %18, align 8
+  %84 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %83, i64 %82
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %86 = load i16, ptr %85, align 4
+  %87 = icmp eq i16 %86, -1
+  br i1 %87, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %69
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %87
+.lr.ph.i.i:                                       ; preds = %71
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %89
 
-87:                                               ; preds = %104, %.lr.ph.i.i
-  %.sroa.04.0.i = phi ptr [ %74, %.lr.ph.i.i ], [ %.sroa.04.1.i, %104 ]
-  %.sroa.8.0.i = phi ptr [ %76, %.lr.ph.i.i ], [ %.sroa.8.1.i, %104 ]
-  %88 = phi ptr [ %81, %.lr.ph.i.i ], [ %105, %104 ]
-  %89 = phi i64 [ %79, %.lr.ph.i.i ], [ %106, %104 ]
-  %90 = phi i16 [ %84, %.lr.ph.i.i ], [ %111, %104 ]
-  %91 = phi ptr [ %83, %.lr.ph.i.i ], [ %110, %104 ]
-  %92 = phi ptr [ %82, %.lr.ph.i.i ], [ %109, %104 ]
-  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %104 ]
-  %.024.i.i = phi i64 [ %80, %.lr.ph.i.i ], [ %108, %104 ]
-  %.01823.i.i = phi i32 [ %77, %.lr.ph.i.i ], [ %.1.i.i, %104 ]
-  %93 = icmp sgt i16 %storemerge25.i.i, %90
-  br i1 %93, label %94, label %104
+89:                                               ; preds = %106, %.lr.ph.i.i
+  %.sroa.04.0.i = phi ptr [ %76, %.lr.ph.i.i ], [ %.sroa.04.1.i, %106 ]
+  %.sroa.8.0.i = phi ptr [ %78, %.lr.ph.i.i ], [ %.sroa.8.1.i, %106 ]
+  %90 = phi ptr [ %83, %.lr.ph.i.i ], [ %107, %106 ]
+  %91 = phi i64 [ %81, %.lr.ph.i.i ], [ %108, %106 ]
+  %92 = phi i16 [ %86, %.lr.ph.i.i ], [ %113, %106 ]
+  %93 = phi ptr [ %85, %.lr.ph.i.i ], [ %112, %106 ]
+  %94 = phi ptr [ %84, %.lr.ph.i.i ], [ %111, %106 ]
+  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %106 ]
+  %.024.i.i = phi i64 [ %82, %.lr.ph.i.i ], [ %110, %106 ]
+  %.01823.i.i = phi i32 [ %79, %.lr.ph.i.i ], [ %.1.i.i, %106 ]
+  %95 = icmp sgt i16 %storemerge25.i.i, %92
+  br i1 %95, label %96, label %106
 
-94:                                               ; preds = %87
-  %95 = icmp sgt i16 %storemerge25.i.i, 8192
-  br i1 %95, label %96, label %97
+96:                                               ; preds = %89
+  %97 = icmp sgt i16 %storemerge25.i.i, 8192
+  br i1 %97, label %98, label %99
 
-96:                                               ; preds = %94
-  store i8 1, ptr %86, align 8
-  br label %97
+98:                                               ; preds = %96
+  store i8 1, ptr %88, align 8
+  br label %99
 
-97:                                               ; preds = %96, %94
-  %98 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %99 = load ptr, ptr %98, align 8
-  store ptr %.sroa.04.0.i, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %92, i64 16
+99:                                               ; preds = %98, %96
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %101 = load ptr, ptr %100, align 8
-  store ptr %.sroa.8.0.i, ptr %100, align 8
-  %102 = load i16, ptr %91, align 2
-  store i16 %storemerge25.i.i, ptr %91, align 2
-  %103 = load i32, ptr %92, align 8
-  store i32 %.01823.i.i, ptr %92, align 8
+  store ptr %.sroa.04.0.i, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %103 = load ptr, ptr %102, align 8
+  store ptr %.sroa.8.0.i, ptr %102, align 8
+  %104 = load i16, ptr %93, align 2
+  store i16 %storemerge25.i.i, ptr %93, align 2
+  %105 = load i32, ptr %94, align 8
+  store i32 %.01823.i.i, ptr %94, align 8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre32.i.i = load ptr, ptr %18, align 8
-  br label %104
+  br label %106
 
-104:                                              ; preds = %97, %87
-  %.sroa.04.1.i = phi ptr [ %99, %97 ], [ %.sroa.04.0.i, %87 ]
-  %.sroa.8.1.i = phi ptr [ %101, %97 ], [ %.sroa.8.0.i, %87 ]
-  %105 = phi ptr [ %.pre32.i.i, %97 ], [ %88, %87 ]
-  %106 = phi i64 [ %.pre.i.i, %97 ], [ %89, %87 ]
-  %.120.i.i = phi i16 [ %102, %97 ], [ %storemerge25.i.i, %87 ]
-  %.1.i.i = phi i32 [ %103, %97 ], [ %.01823.i.i, %87 ]
-  %107 = add i64 %.024.i.i, 1
-  %108 = and i64 %106, %107
+106:                                              ; preds = %99, %89
+  %.sroa.04.1.i = phi ptr [ %101, %99 ], [ %.sroa.04.0.i, %89 ]
+  %.sroa.8.1.i = phi ptr [ %103, %99 ], [ %.sroa.8.0.i, %89 ]
+  %107 = phi ptr [ %.pre32.i.i, %99 ], [ %90, %89 ]
+  %108 = phi i64 [ %.pre.i.i, %99 ], [ %91, %89 ]
+  %.120.i.i = phi i16 [ %104, %99 ], [ %storemerge25.i.i, %89 ]
+  %.1.i.i = phi i32 [ %105, %99 ], [ %.01823.i.i, %89 ]
+  %109 = add i64 %.024.i.i, 1
+  %110 = and i64 %108, %109
   %storemerge.i.i = add i16 %.120.i.i, 1
-  %109 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %105, i64 %108
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  %111 = load i16, ptr %110, align 4
-  %112 = icmp eq i16 %111, -1
-  br i1 %112, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJEEEEEvmsjDpOT_.exit, label %87, !llvm.loop !100
+  %111 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %107, i64 %110
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  %113 = load i16, ptr %112, align 4
+  %114 = icmp eq i16 %113, -1
+  br i1 %114, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJEEEEEvmsjDpOT_.exit, label %89, !llvm.loop !100
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJEEEEEvmsjDpOT_.exit: ; preds = %104, %69
-  %.sroa.04.2.i = phi ptr [ %74, %69 ], [ %.sroa.04.1.i, %104 ]
-  %.sroa.8.2.i = phi ptr [ %76, %69 ], [ %.sroa.8.1.i, %104 ]
-  %.018.lcssa.i.i = phi i32 [ %77, %69 ], [ %.1.i.i, %104 ]
-  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %69 ], [ %storemerge.i.i, %104 ]
-  %.lcssa21.i.i = phi ptr [ %82, %69 ], [ %109, %104 ]
-  %.lcssa.i.i = phi ptr [ %83, %69 ], [ %110, %104 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
-  store ptr %.sroa.04.2.i, ptr %113, align 8
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJEEEEEvmsjDpOT_.exit: ; preds = %106, %71
+  %.sroa.04.2.i = phi ptr [ %76, %71 ], [ %.sroa.04.1.i, %106 ]
+  %.sroa.8.2.i = phi ptr [ %78, %71 ], [ %.sroa.8.1.i, %106 ]
+  %.018.lcssa.i.i = phi i32 [ %79, %71 ], [ %.1.i.i, %106 ]
+  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %71 ], [ %storemerge.i.i, %106 ]
+  %.lcssa21.i.i = phi ptr [ %84, %71 ], [ %111, %106 ]
+  %.lcssa.i.i = phi ptr [ %85, %71 ], [ %112, %106 ]
+  %115 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
+  store ptr %.sroa.04.2.i, ptr %115, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 16
   store ptr %.sroa.8.2.i, ptr %.sroa.8.0..sroa_idx.i, align 8
   store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 8
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 4
-  br label %114
+  br label %116
 
-114:                                              ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJEEEEEvmsjDpOT_.exit, %63
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %116 = load i64, ptr %115, align 8
-  %117 = add i64 %116, 1
-  store i64 %117, ptr %115, align 8
-  %118 = load ptr, ptr %18, align 8
-  %119 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %118, i64 %.1.lcssa
+116:                                              ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESQ_IJEEEEEvmsjDpOT_.exit, %65
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %118 = load i64, ptr %117, align 8
+  %119 = add i64 %118, 1
+  store i64 %119, ptr %117, align 8
+  %120 = load ptr, ptr %18, align 8
+  %121 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.46", ptr %120, i64 %.1.lcssa
   br label %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit.thread
 
-_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit.thread: ; preds = %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit, %30, %114
-  %.pn48 = phi ptr [ %119, %114 ], [ %31, %30 ], [ %31, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit ]
-  %.pn46 = phi i8 [ 1, %114 ], [ 0, %30 ], [ 0, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit ]
+_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit.thread: ; preds = %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit, %30, %116
+  %.pn48 = phi ptr [ %121, %116 ], [ %31, %30 ], [ %31, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit ]
+  %.pn46 = phi i8 [ 1, %116 ], [ 0, %30 ], [ 0, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E12compare_keysIS5_S5_EEbRKT_RKT0_.exit ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.pn48, 0
   %.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn46, 1
   ret { ptr, i8 } %.pn
@@ -9279,7 +9293,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !105
 
 .loopexit:                                        ; preds = %.lr.ph66, %.lr.ph69
-  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %39, %.lr.ph66 ]
+  %.236.lcssa = phi i16 [ 0, %.lr.ph69 ], [ %40, %.lr.ph66 ]
   %.2.lcssa = phi i64 [ %.262, %.lr.ph69 ], [ %.2, %.lr.ph66 ]
   %33 = tail call noundef zeroext i1 @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E22rehash_on_extreme_loadEs(ptr noundef nonnull align 8 dereferenceable(74) %0, i16 noundef signext %.236.lcssa)
   br i1 %33, label %.lr.ph69, label %._crit_edge, !llvm.loop !106
@@ -9288,153 +9302,155 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %34 = load i64, ptr %0, align 8
   %35 = load ptr, ptr %17, align 8
   %.262 = and i64 %15, %34
-  %36 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.262, i32 1
-  %37 = load i16, ptr %36, align 4
-  %.not3763 = icmp slt i16 %37, 0
+  %36 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.262
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %38 = load i16, ptr %37, align 4
+  %.not3763 = icmp slt i16 %38, 0
   br i1 %.not3763, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph69, %.lr.ph66
   %.265 = phi i64 [ %.2, %.lr.ph66 ], [ %.262, %.lr.ph69 ]
-  %.23664 = phi i16 [ %39, %.lr.ph66 ], [ 0, %.lr.ph69 ]
-  %38 = add i64 %.265, 1
-  %39 = add i16 %.23664, 1
-  %.2 = and i64 %38, %34
-  %40 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.2, i32 1
-  %41 = load i16, ptr %40, align 4
-  %.not37 = icmp sgt i16 %39, %41
+  %.23664 = phi i16 [ %40, %.lr.ph66 ], [ 0, %.lr.ph69 ]
+  %39 = add i64 %.265, 1
+  %40 = add i16 %.23664, 1
+  %.2 = and i64 %39, %34
+  %41 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.2
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = load i16, ptr %42, align 4
+  %.not37 = icmp sgt i16 %40, %43
   br i1 %.not37, label %.loopexit, label %.lr.ph66, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.135.lcssa = phi i16 [ %.034.lcssa, %.preheader ], [ %.236.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
-  %42 = load ptr, ptr %17, align 8
-  %43 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %42, i64 %.1.lcssa
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i16, ptr %44, align 4
-  %46 = icmp eq i16 %45, -1
-  %47 = trunc i64 %15 to i32
-  br i1 %46, label %48, label %54
+  %44 = load ptr, ptr %17, align 8
+  %45 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %44, i64 %.1.lcssa
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %47 = load i16, ptr %46, align 4
+  %48 = icmp eq i16 %47, -1
+  %49 = trunc i64 %15 to i32
+  br i1 %48, label %50, label %56
 
-48:                                               ; preds = %._crit_edge
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %50 = load i64, ptr %3, align 8
-  %51 = inttoptr i64 %50 to ptr
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %49, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store ptr null, ptr %53, align 8
-  store i32 %47, ptr %43, align 8
-  store i16 %.135.lcssa, ptr %44, align 4
-  br label %99
+50:                                               ; preds = %._crit_edge
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %52 = load i64, ptr %3, align 8
+  %53 = inttoptr i64 %52 to ptr
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %51, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store ptr null, ptr %55, align 8
+  store i32 %49, ptr %45, align 8
+  store i16 %.135.lcssa, ptr %46, align 4
+  br label %101
 
-54:                                               ; preds = %._crit_edge
-  %55 = load i64, ptr %3, align 8
-  %56 = inttoptr i64 %55 to ptr
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %43, i64 8
+56:                                               ; preds = %._crit_edge
+  %57 = load i64, ptr %3, align 8
+  %58 = inttoptr i64 %57 to ptr
   %59 = load ptr, ptr %58, align 8
-  store ptr %57, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %61 = load ptr, ptr %60, align 8
-  store ptr null, ptr %60, align 8
-  store i16 %.135.lcssa, ptr %44, align 4
-  %62 = load i32, ptr %43, align 8
-  store i32 %47, ptr %43, align 8
-  %63 = add i64 %.1.lcssa, 1
-  %64 = load i64, ptr %0, align 8
-  %65 = and i64 %64, %63
-  %storemerge22.i.i = add nuw i16 %45, 1
-  %66 = load ptr, ptr %17, align 8
-  %67 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %66, i64 %65
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %69 = load i16, ptr %68, align 4
-  %70 = icmp eq i16 %69, -1
-  br i1 %70, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
+  store ptr %59, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %63 = load ptr, ptr %62, align 8
+  store ptr null, ptr %62, align 8
+  store i16 %.135.lcssa, ptr %46, align 4
+  %64 = load i32, ptr %45, align 8
+  store i32 %49, ptr %45, align 8
+  %65 = add i64 %.1.lcssa, 1
+  %66 = load i64, ptr %0, align 8
+  %67 = and i64 %66, %65
+  %storemerge22.i.i = add nuw i16 %47, 1
+  %68 = load ptr, ptr %17, align 8
+  %69 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %68, i64 %67
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %71 = load i16, ptr %70, align 4
+  %72 = icmp eq i16 %71, -1
+  br i1 %72, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %54
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %72
+.lr.ph.i.i:                                       ; preds = %56
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %74
 
-72:                                               ; preds = %89, %.lr.ph.i.i
-  %.sroa.04.0.i = phi ptr [ %59, %.lr.ph.i.i ], [ %.sroa.04.1.i, %89 ]
-  %.sroa.8.0.i = phi ptr [ %61, %.lr.ph.i.i ], [ %.sroa.8.1.i, %89 ]
-  %73 = phi ptr [ %66, %.lr.ph.i.i ], [ %90, %89 ]
-  %74 = phi i64 [ %64, %.lr.ph.i.i ], [ %91, %89 ]
-  %75 = phi i16 [ %69, %.lr.ph.i.i ], [ %96, %89 ]
-  %76 = phi ptr [ %68, %.lr.ph.i.i ], [ %95, %89 ]
-  %77 = phi ptr [ %67, %.lr.ph.i.i ], [ %94, %89 ]
-  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %89 ]
-  %.024.i.i = phi i64 [ %65, %.lr.ph.i.i ], [ %93, %89 ]
-  %.01823.i.i = phi i32 [ %62, %.lr.ph.i.i ], [ %.1.i.i, %89 ]
-  %78 = icmp sgt i16 %storemerge25.i.i, %75
-  br i1 %78, label %79, label %89
+74:                                               ; preds = %91, %.lr.ph.i.i
+  %.sroa.04.0.i = phi ptr [ %61, %.lr.ph.i.i ], [ %.sroa.04.1.i, %91 ]
+  %.sroa.8.0.i = phi ptr [ %63, %.lr.ph.i.i ], [ %.sroa.8.1.i, %91 ]
+  %75 = phi ptr [ %68, %.lr.ph.i.i ], [ %92, %91 ]
+  %76 = phi i64 [ %66, %.lr.ph.i.i ], [ %93, %91 ]
+  %77 = phi i16 [ %71, %.lr.ph.i.i ], [ %98, %91 ]
+  %78 = phi ptr [ %70, %.lr.ph.i.i ], [ %97, %91 ]
+  %79 = phi ptr [ %69, %.lr.ph.i.i ], [ %96, %91 ]
+  %storemerge25.i.i = phi i16 [ %storemerge22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %91 ]
+  %.024.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %95, %91 ]
+  %.01823.i.i = phi i32 [ %64, %.lr.ph.i.i ], [ %.1.i.i, %91 ]
+  %80 = icmp sgt i16 %storemerge25.i.i, %77
+  br i1 %80, label %81, label %91
 
-79:                                               ; preds = %72
-  %80 = icmp sgt i16 %storemerge25.i.i, 8192
-  br i1 %80, label %81, label %82
+81:                                               ; preds = %74
+  %82 = icmp sgt i16 %storemerge25.i.i, 8192
+  br i1 %82, label %83, label %84
 
-81:                                               ; preds = %79
-  store i8 1, ptr %71, align 8
-  br label %82
+83:                                               ; preds = %81
+  store i8 1, ptr %73, align 8
+  br label %84
 
-82:                                               ; preds = %81, %79
-  %83 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %84 = load ptr, ptr %83, align 8
-  store ptr %.sroa.04.0.i, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %77, i64 16
+84:                                               ; preds = %83, %81
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %86 = load ptr, ptr %85, align 8
-  store ptr %.sroa.8.0.i, ptr %85, align 8
-  %87 = load i16, ptr %76, align 2
-  store i16 %storemerge25.i.i, ptr %76, align 2
-  %88 = load i32, ptr %77, align 8
-  store i32 %.01823.i.i, ptr %77, align 8
+  store ptr %.sroa.04.0.i, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %88 = load ptr, ptr %87, align 8
+  store ptr %.sroa.8.0.i, ptr %87, align 8
+  %89 = load i16, ptr %78, align 2
+  store i16 %storemerge25.i.i, ptr %78, align 2
+  %90 = load i32, ptr %79, align 8
+  store i32 %.01823.i.i, ptr %79, align 8
   %.pre.i.i = load i64, ptr %0, align 8
   %.pre32.i.i = load ptr, ptr %17, align 8
-  br label %89
+  br label %91
 
-89:                                               ; preds = %82, %72
-  %.sroa.04.1.i = phi ptr [ %84, %82 ], [ %.sroa.04.0.i, %72 ]
-  %.sroa.8.1.i = phi ptr [ %86, %82 ], [ %.sroa.8.0.i, %72 ]
-  %90 = phi ptr [ %.pre32.i.i, %82 ], [ %73, %72 ]
-  %91 = phi i64 [ %.pre.i.i, %82 ], [ %74, %72 ]
-  %.120.i.i = phi i16 [ %87, %82 ], [ %storemerge25.i.i, %72 ]
-  %.1.i.i = phi i32 [ %88, %82 ], [ %.01823.i.i, %72 ]
-  %92 = add i64 %.024.i.i, 1
-  %93 = and i64 %91, %92
+91:                                               ; preds = %84, %74
+  %.sroa.04.1.i = phi ptr [ %86, %84 ], [ %.sroa.04.0.i, %74 ]
+  %.sroa.8.1.i = phi ptr [ %88, %84 ], [ %.sroa.8.0.i, %74 ]
+  %92 = phi ptr [ %.pre32.i.i, %84 ], [ %75, %74 ]
+  %93 = phi i64 [ %.pre.i.i, %84 ], [ %76, %74 ]
+  %.120.i.i = phi i16 [ %89, %84 ], [ %storemerge25.i.i, %74 ]
+  %.1.i.i = phi i32 [ %90, %84 ], [ %.01823.i.i, %74 ]
+  %94 = add i64 %.024.i.i, 1
+  %95 = and i64 %93, %94
   %storemerge.i.i = add i16 %.120.i.i, 1
-  %94 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %90, i64 %93
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %96 = load i16, ptr %95, align 4
-  %97 = icmp eq i16 %96, -1
-  br i1 %97, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJEEEEEvmsjDpOT_.exit, label %72, !llvm.loop !77
+  %96 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %92, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %98 = load i16, ptr %97, align 4
+  %99 = icmp eq i16 %98, -1
+  br i1 %99, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJEEEEEvmsjDpOT_.exit, label %74, !llvm.loop !77
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJEEEEEvmsjDpOT_.exit: ; preds = %89, %54
-  %.sroa.04.2.i = phi ptr [ %59, %54 ], [ %.sroa.04.1.i, %89 ]
-  %.sroa.8.2.i = phi ptr [ %61, %54 ], [ %.sroa.8.1.i, %89 ]
-  %.018.lcssa.i.i = phi i32 [ %62, %54 ], [ %.1.i.i, %89 ]
-  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %54 ], [ %storemerge.i.i, %89 ]
-  %.lcssa21.i.i = phi ptr [ %67, %54 ], [ %94, %89 ]
-  %.lcssa.i.i = phi ptr [ %68, %54 ], [ %95, %89 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
-  store ptr %.sroa.04.2.i, ptr %98, align 8
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJEEEEEvmsjDpOT_.exit: ; preds = %91, %56
+  %.sroa.04.2.i = phi ptr [ %61, %56 ], [ %.sroa.04.1.i, %91 ]
+  %.sroa.8.2.i = phi ptr [ %63, %56 ], [ %.sroa.8.1.i, %91 ]
+  %.018.lcssa.i.i = phi i32 [ %64, %56 ], [ %.1.i.i, %91 ]
+  %storemerge.lcssa.i.i = phi i16 [ %storemerge22.i.i, %56 ], [ %storemerge.i.i, %91 ]
+  %.lcssa21.i.i = phi ptr [ %69, %56 ], [ %96, %91 ]
+  %.lcssa.i.i = phi ptr [ %70, %56 ], [ %97, %91 ]
+  %100 = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 8
+  store ptr %.sroa.04.2.i, ptr %100, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa21.i.i, i64 16
   store ptr %.sroa.8.2.i, ptr %.sroa.8.0..sroa_idx.i, align 8
   store i32 %.018.lcssa.i.i, ptr %.lcssa21.i.i, align 8
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 4
-  br label %99
+  br label %101
 
-99:                                               ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJEEEEEvmsjDpOT_.exit, %48
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %101 = load i64, ptr %100, align 8
-  %102 = add i64 %101, 1
-  store i64 %102, ptr %100, align 8
-  %103 = load ptr, ptr %17, align 8
-  %104 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %103, i64 %.1.lcssa
+101:                                              ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJOS3_EESN_IJEEEEEvmsjDpOT_.exit, %50
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %103 = load i64, ptr %102, align 8
+  %104 = add i64 %103, 1
+  store i64 %104, ptr %102, align 8
+  %105 = load ptr, ptr %17, align 8
+  %106 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %105, i64 %.1.lcssa
   br label %.loopexit49
 
-.loopexit49:                                      ; preds = %.lr.ph, %99
-  %.pn47 = phi ptr [ %104, %99 ], [ %23, %.lr.ph ]
-  %.pn45 = phi i8 [ 1, %99 ], [ 0, %.lr.ph ]
+.loopexit49:                                      ; preds = %.lr.ph, %101
+  %.pn47 = phi ptr [ %106, %101 ], [ %23, %.lr.ph ]
+  %.pn45 = phi i8 [ 1, %101 ], [ 0, %.lr.ph ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i8 } poison, ptr %.pn47, 0
   %.pn = insertvalue { ptr, i8 } %.fca.0.insert.i.pn, i8 %.pn45, 1
   ret { ptr, i8 } %.pn

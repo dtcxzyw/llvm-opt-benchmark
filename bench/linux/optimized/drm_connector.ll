@@ -294,11 +294,12 @@ define dso_local void @drm_connector_ida_init() local_unnamed_addr #0 align 16 {
 
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %6, %1 ]
-  %3 = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %2, i32 2
+  %.split = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %2
+  %3 = getelementptr i8, ptr %.split, i64 16
   store i32 0, ptr %3, align 16
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %4 = getelementptr i8, ptr %.split, i64 20
   store i32 67108869, ptr %4, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = getelementptr i8, ptr %.split, i64 24
   store ptr null, ptr %5, align 8
   %6 = add nuw nsw i64 %2, 1
   %7 = icmp eq i64 %6, 21
@@ -314,7 +315,8 @@ define dso_local void @drm_connector_ida_destroy() local_unnamed_addr #1 align 1
 
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %4, %1 ]
-  %3 = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %2, i32 2
+  %.split = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %2
+  %3 = getelementptr i8, ptr %.split, i64 16
   tail call void @ida_destroy(ptr noundef %3) #21
   %4 = add nuw nsw i64 %2, 1
   %5 = icmp eq i64 %4, 21
@@ -334,7 +336,8 @@ define dso_local ptr @drm_get_connector_type_name(i32 noundef %0) #3 align 16 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %4, i32 1
+  %.split = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %4
+  %5 = getelementptr i8, ptr %.split, i64 8
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -986,7 +989,8 @@ define dso_local void @drm_connector_cleanup(ptr noundef %0) #1 align 16 {
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %56, i32 2
+  %.split = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %56
+  %57 = getelementptr i8, ptr %.split, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %59 = load i32, ptr %58, align 8
   tail call void @ida_free(ptr noundef %57, i32 noundef %59) #21
@@ -1650,7 +1654,8 @@ define dso_local noundef nonnull ptr @drm_get_connector_force_name(i32 noundef %
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local ptr @drm_get_subpixel_order_name(i32 noundef %0) #7 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr %struct.drm_prop_enum_list, ptr @drm_subpixel_enum_list, i64 %2, i32 1
+  %.split = getelementptr %struct.drm_prop_enum_list, ptr @drm_subpixel_enum_list, i64 %2
+  %3 = getelementptr i8, ptr %.split, i64 8
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }

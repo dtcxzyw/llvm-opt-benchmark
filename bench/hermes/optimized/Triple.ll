@@ -3163,16 +3163,15 @@ for.body180.preheader:                            ; preds = %for.end174
 for.body180:                                      ; preds = %for.body180.preheader, %for.inc188
   %indvars.iv390 = phi i64 [ 0, %for.body180.preheader ], [ %indvars.iv.next391, %for.inc188 ]
   %44 = load ptr, ptr %Components, align 8
-  %Length.i630 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %44, i64 %indvars.iv390, i32 1
+  %arrayidx.i520 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %44, i64 %indvars.iv390
+  %Length.i630 = getelementptr inbounds nuw i8, ptr %arrayidx.i520, i64 8
   %45 = load i64, ptr %Length.i630, align 8
   %cmp.i631 = icmp eq i64 %45, 0
   br i1 %cmp.i631, label %_ZN4llvh9StringRefC2EPKc.exit347, label %for.inc188
 
 _ZN4llvh9StringRefC2EPKc.exit347:                 ; preds = %for.body180
-  %arrayidx.i515 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %44, i64 %indvars.iv390
-  store ptr @.str, ptr %arrayidx.i515, align 8
-  %ref.tmp.sroa.2.0.arrayidx.i515.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i515, i64 8
-  store i64 7, ptr %ref.tmp.sroa.2.0.arrayidx.i515.sroa_idx, align 8
+  store ptr @.str, ptr %arrayidx.i520, align 8
+  store i64 7, ptr %Length.i630, align 8
   br label %for.inc188
 
 for.inc188:                                       ; preds = %for.body180, %_ZN4llvh9StringRefC2EPKc.exit347

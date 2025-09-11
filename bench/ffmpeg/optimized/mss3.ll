@@ -540,80 +540,81 @@ define internal fastcc void @init_coders(ptr noundef captures(none) %0) unnamed_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80720
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %25
-  %indvars.iv36 = phi i64 [ 0, %1 ], [ %indvars.iv.next37, %25 ]
-  %5 = getelementptr inbounds nuw %struct.BlockTypeContext, ptr %0, i64 %indvars.iv36, i32 1, i64 0, i32 0, i64 14
-  br label %6
+.preheader:                                       ; preds = %1, %26
+  %indvars.iv36 = phi i64 [ 0, %1 ], [ %indvars.iv.next37, %26 ]
+  %5 = getelementptr inbounds nuw %struct.BlockTypeContext, ptr %0, i64 %indvars.iv36
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  br label %7
 
-6:                                                ; preds = %.preheader, %6
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.Model, ptr %5, i64 %indvars.iv
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i32 5, ptr %8, align 4, !tbaa !73
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 140
-  store i32 88, ptr %9, align 4, !tbaa !74
-  tail call fastcc void @model_reset(ptr noundef nonnull %7)
+7:                                                ; preds = %.preheader, %7
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
+  %8 = getelementptr inbounds nuw %struct.Model, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  store i32 5, ptr %9, align 4, !tbaa !73
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 140
+  store i32 88, ptr %10, align 4, !tbaa !74
+  tail call fastcc void @model_reset(ptr noundef nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %10, label %6, !llvm.loop !75
+  br i1 %exitcond.not, label %11, label %7, !llvm.loop !75
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw %struct.FillBlockCoder, ptr %0, i64 %indvars.iv36
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 2292
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 2420
-  store i32 12, ptr %13, align 4, !tbaa !73
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 2432
-  store i32 144, ptr %14, align 4, !tbaa !74
-  tail call fastcc void @model_reset(ptr noundef nonnull %12)
-  %15 = getelementptr inbounds nuw %struct.ImageBlockCoder, ptr %2, i64 %indvars.iv36
-  tail call fastcc void @model256_init(ptr noundef nonnull %15) #10
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2340
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw %struct.FillBlockCoder, ptr %0, i64 %indvars.iv36
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2292
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 2420
+  store i32 12, ptr %14, align 4, !tbaa !73
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 2432
+  store i32 144, ptr %15, align 4, !tbaa !74
+  tail call fastcc void @model_reset(ptr noundef nonnull %13)
+  %16 = getelementptr inbounds nuw %struct.ImageBlockCoder, ptr %2, i64 %indvars.iv36
   tail call fastcc void @model256_init(ptr noundef nonnull %16) #10
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4680
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 4808
-  store i32 3, ptr %18, align 4, !tbaa !73
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4820
-  store i32 72, ptr %19, align 4, !tbaa !74
-  tail call fastcc void @model_reset(ptr noundef nonnull %17)
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 4828
-  br label %21
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2340
+  tail call fastcc void @model256_init(ptr noundef nonnull %17) #10
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4680
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4808
+  store i32 3, ptr %19, align 4, !tbaa !73
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 4820
+  store i32 72, ptr %20, align 4, !tbaa !74
+  tail call fastcc void @model_reset(ptr noundef nonnull %18)
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 4828
+  br label %22
 
-21:                                               ; preds = %10, %21
-  %indvars.iv32 = phi i64 [ 0, %10 ], [ %indvars.iv.next33, %21 ]
-  %22 = getelementptr inbounds nuw %struct.Model, ptr %20, i64 %indvars.iv32
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  store i32 5, ptr %23, align 4, !tbaa !73
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 140
-  store i32 88, ptr %24, align 4, !tbaa !74
-  tail call fastcc void @model_reset(ptr noundef nonnull %22)
+22:                                               ; preds = %11, %22
+  %indvars.iv32 = phi i64 [ 0, %11 ], [ %indvars.iv.next33, %22 ]
+  %23 = getelementptr inbounds nuw %struct.Model, ptr %21, i64 %indvars.iv32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  store i32 5, ptr %24, align 4, !tbaa !73
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 140
+  store i32 88, ptr %25, align 4, !tbaa !74
+  tail call fastcc void @model_reset(ptr noundef nonnull %23)
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 125
-  br i1 %exitcond35.not, label %25, label %21, !llvm.loop !76
+  br i1 %exitcond35.not, label %26, label %22, !llvm.loop !76
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw %struct.DCTBlockCoder, ptr %3, i64 %indvars.iv36
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 152
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 280
-  store i32 12, ptr %28, align 4, !tbaa !73
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 292
-  store i32 144, ptr %29, align 4, !tbaa !74
-  tail call fastcc void @model_reset(ptr noundef nonnull %27)
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 324
-  tail call fastcc void @model256_init(ptr noundef nonnull %30) #10
-  %31 = getelementptr inbounds nuw %struct.HaarBlockCoder, ptr %4, i64 %indvars.iv36
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 2348
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 2476
-  store i32 12, ptr %33, align 4, !tbaa !73
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 2488
-  store i32 144, ptr %34, align 4, !tbaa !74
-  tail call fastcc void @model_reset(ptr noundef nonnull %32)
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  tail call fastcc void @model256_init(ptr noundef nonnull %35) #10
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw %struct.DCTBlockCoder, ptr %3, i64 %indvars.iv36
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 152
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 280
+  store i32 12, ptr %29, align 4, !tbaa !73
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 292
+  store i32 144, ptr %30, align 4, !tbaa !74
+  tail call fastcc void @model_reset(ptr noundef nonnull %28)
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 324
+  tail call fastcc void @model256_init(ptr noundef nonnull %31) #10
+  %32 = getelementptr inbounds nuw %struct.HaarBlockCoder, ptr %4, i64 %indvars.iv36
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2348
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 2476
+  store i32 12, ptr %34, align 4, !tbaa !73
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 2488
+  store i32 144, ptr %35, align 4, !tbaa !74
+  tail call fastcc void @model_reset(ptr noundef nonnull %33)
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  tail call fastcc void @model256_init(ptr noundef nonnull %36) #10
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 3
-  br i1 %exitcond39.not, label %36, label %.preheader, !llvm.loop !77
+  br i1 %exitcond39.not, label %37, label %.preheader, !llvm.loop !77
 
-36:                                               ; preds = %25
+37:                                               ; preds = %26
   ret void
 }
 

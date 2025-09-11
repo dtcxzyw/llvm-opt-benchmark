@@ -206,16 +206,17 @@ blas_quickdivide.exit:                            ; preds = %74, %83
   br i1 %113, label %.lr.ph141, label %._crit_edge
 
 .lr.ph141:                                        ; preds = %.loopexit, %.lr.ph141
-  %.2120140 = phi i64 [ %117, %.lr.ph141 ], [ 1, %.loopexit ]
-  %114 = getelementptr inbounds nuw %struct.blas_queue, ptr %14, i64 %.2120140, i32 7
-  %115 = load ptr, ptr %114, align 8, !tbaa !32
-  %116 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef 1.000000e+00, ptr noundef %115, i64 noundef 1, ptr noundef %9, i64 noundef 1, ptr noundef null, i64 noundef 0) #7
-  %117 = add nuw i64 %.2120140, 1
-  %exitcond.not = icmp eq i64 %117, %.1122
+  %.2120140 = phi i64 [ %118, %.lr.ph141 ], [ 1, %.loopexit ]
+  %114 = getelementptr inbounds nuw %struct.blas_queue, ptr %14, i64 %.2120140
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
+  %116 = load ptr, ptr %115, align 8, !tbaa !32
+  %117 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef 1.000000e+00, ptr noundef %116, i64 noundef 1, ptr noundef %9, i64 noundef 1, ptr noundef null, i64 noundef 0) #7
+  %118 = add nuw i64 %.2120140, 1
+  %exitcond.not = icmp eq i64 %118, %.1122
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph141, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph141, %29, %70, %.loopexit
-  %118 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef %2, ptr noundef %9, i64 noundef 1, ptr noundef %7, i64 noundef %8, ptr noundef null, i64 noundef 0) #7
+  %119 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef %2, ptr noundef %9, i64 noundef 1, ptr noundef %7, i64 noundef %8, ptr noundef null, i64 noundef 0) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

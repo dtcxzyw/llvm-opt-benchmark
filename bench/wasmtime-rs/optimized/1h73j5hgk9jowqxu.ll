@@ -1647,40 +1647,42 @@ define void @"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$$RF$str$C$cranelift_codeg
   br label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit"
 
 "_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit": ; preds = %4, %2
-  %.0 = phi i64 [ 0, %2 ], [ %5, %4 ]
+  %.0 = phi i64 [ 0, %2 ], [ %6, %4 ]
   %3 = icmp eq i64 %.0, %1
-  br i1 %3, label %7, label %4
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit"
-  %5 = add i64 %.0, 1
-  %6 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %0, i64 %.0, i32 1
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %6)
-          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit" unwind label %9
+  %5 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %0, i64 %.0
+  %6 = add i64 %.0, 1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %7)
+          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit" unwind label %10
 
-7:                                                ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit"
+8:                                                ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit"
   ret void
 
-"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7": ; preds = %11, %9
-  %.1 = phi i64 [ %5, %9 ], [ %12, %11 ]
-  %8 = icmp eq i64 %.1, %1
-  br i1 %8, label %14, label %11
+"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7": ; preds = %12, %10
+  %.1 = phi i64 [ %6, %10 ], [ %14, %12 ]
+  %9 = icmp eq i64 %.1, %1
+  br i1 %9, label %16, label %12
 
-9:                                                ; preds = %4
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %4
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7"
 
-11:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7"
-  %12 = add i64 %.1, 1
-  %13 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %0, i64 %.1, i32 1
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %13)
-          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7" unwind label %15
+12:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7"
+  %13 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %0, i64 %.1
+  %14 = add i64 %.1, 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %15)
+          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7" unwind label %17
 
-14:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7"
-  resume { ptr, i32 } %10
+16:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7"
+  resume { ptr, i32 } %11
 
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %12
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
@@ -2127,69 +2129,71 @@ define void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$str$C$c
   br label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i.i"
 
 "_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i.i": ; preds = %8, %1
-  %.0.i.i = phi i64 [ 0, %1 ], [ %9, %8 ]
+  %.0.i.i = phi i64 [ 0, %1 ], [ %10, %8 ]
   %7 = icmp eq i64 %.0.i.i, %6
   br i1 %7, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h49d0b7df6fe5616fE.exit", label %8
 
 8:                                                ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i.i"
-  %9 = add i64 %.0.i.i, 1
-  %10 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %4, i64 %.0.i.i, i32 1
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %10)
-          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i.i" unwind label %12
+  %9 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %4, i64 %.0.i.i
+  %10 = add i64 %.0.i.i, 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %11)
+          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i.i" unwind label %13
 
-"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i.i": ; preds = %14, %12
-  %.1.i.i = phi i64 [ %9, %12 ], [ %15, %14 ]
-  %11 = icmp eq i64 %.1.i.i, %6
-  br i1 %11, label %.body, label %14
+"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i.i": ; preds = %15, %13
+  %.1.i.i = phi i64 [ %10, %13 ], [ %17, %15 ]
+  %12 = icmp eq i64 %.1.i.i, %6
+  br i1 %12, label %.body, label %15
 
-12:                                               ; preds = %8
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %8
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i.i"
 
-14:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i.i"
-  %15 = add i64 %.1.i.i, 1
-  %16 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %4, i64 %.1.i.i, i32 1
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %16)
-          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i.i" unwind label %17
+15:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i.i"
+  %16 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %4, i64 %.1.i.i
+  %17 = add i64 %.1.i.i, 1
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %18)
+          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i.i" unwind label %19
 
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %15
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i.i"
   invoke void @"_ZN4core3ptr126drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$17h7fa75efbbf9921beE"(ptr align 8 %0) #12
-          to label %27 unwind label %25
+          to label %29 unwind label %27
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h49d0b7df6fe5616fE.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3d7e9ca026715851E"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr align 8 %0)
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load i64, ptr %19, align 8, !range !4, !noundef !3
-  %.not.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i, label %"_ZN4core3ptr126drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$17h7fa75efbbf9921beE.exit", label %21
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %22 = load i64, ptr %21, align 8, !range !4, !noundef !3
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %"_ZN4core3ptr126drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$17h7fa75efbbf9921beE.exit", label %23
 
-21:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h49d0b7df6fe5616fE.exit"
-  %22 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %24 = load i64, ptr %23, align 8, !noundef !3
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h41f97975e87ba1fbE"(ptr nonnull align 1 %5, ptr nonnull %22, i64 %20, i64 %24)
+23:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h49d0b7df6fe5616fE.exit"
+  %24 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %26 = load i64, ptr %25, align 8, !noundef !3
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h41f97975e87ba1fbE"(ptr nonnull align 1 %5, ptr nonnull %24, i64 %22, i64 %26)
   br label %"_ZN4core3ptr126drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$17h7fa75efbbf9921beE.exit"
 
-"_ZN4core3ptr126drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$17h7fa75efbbf9921beE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h49d0b7df6fe5616fE.exit", %21
+"_ZN4core3ptr126drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$17h7fa75efbbf9921beE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h49d0b7df6fe5616fE.exit", %23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-25:                                               ; preds = %.body
-  %26 = landingpad { ptr, i32 }
+27:                                               ; preds = %.body
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-27:                                               ; preds = %.body
-  resume { ptr, i32 } %13
+29:                                               ; preds = %.body
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12909,37 +12913,39 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   br label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i"
 
 "_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i": ; preds = %7, %1
-  %.0.i = phi i64 [ 0, %1 ], [ %8, %7 ]
+  %.0.i = phi i64 [ 0, %1 ], [ %9, %7 ]
   %6 = icmp eq i64 %.0.i, %5
   br i1 %6, label %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$u5d$$GT$17hf75290eb6364fd29E.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i"
-  %8 = add i64 %.0.i, 1
-  %9 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %3, i64 %.0.i, i32 1
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %9)
-          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i" unwind label %11
+  %8 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %3, i64 %.0.i
+  %9 = add i64 %.0.i, 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %10)
+          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i" unwind label %12
 
-"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i": ; preds = %13, %11
-  %.1.i = phi i64 [ %8, %11 ], [ %14, %13 ]
-  %10 = icmp eq i64 %.1.i, %5
-  br i1 %10, label %16, label %13
+"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i": ; preds = %14, %12
+  %.1.i = phi i64 [ %9, %12 ], [ %16, %14 ]
+  %11 = icmp eq i64 %.1.i, %5
+  br i1 %11, label %18, label %14
 
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i"
 
-13:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i"
-  %14 = add i64 %.1.i, 1
-  %15 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %3, i64 %.1.i, i32 1
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %15)
-          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i" unwind label %17
+14:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i"
+  %15 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %3, i64 %.1.i
+  %16 = add i64 %.1.i, 1
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %17)
+          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i" unwind label %19
 
-16:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i"
-  resume { ptr, i32 } %12
+18:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i"
+  resume { ptr, i32 } %13
 
-17:                                               ; preds = %13
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
@@ -14598,9 +14604,9 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   br label %.body
 
 .body:                                            ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i", %6
-  %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i" ]
+  %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %18, %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i" ]
   invoke void @"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$C$alloc..alloc..Global$GT$$GT$17h018c95277a8049d4E"(ptr nonnull align 8 %4) #12
-          to label %36 unwind label %34
+          to label %38 unwind label %36
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -14608,73 +14614,75 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   br label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i"
 
 "_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i": ; preds = %12, %8
-  %.0.i = phi i64 [ 0, %8 ], [ %13, %12 ]
+  %.0.i = phi i64 [ 0, %8 ], [ %14, %12 ]
   %11 = icmp eq i64 %.0.i, %10
   br i1 %11, label %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$u5d$$GT$17hf75290eb6364fd29E.exit", label %12
 
 12:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i"
-  %13 = add i64 %.0.i, 1
-  %14 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %9, i64 %.0.i, i32 1
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %14)
-          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i" unwind label %16
+  %13 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %9, i64 %.0.i
+  %14 = add i64 %.0.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %15)
+          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i" unwind label %17
 
-"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i": ; preds = %18, %16
-  %.1.i = phi i64 [ %13, %16 ], [ %19, %18 ]
-  %15 = icmp eq i64 %.1.i, %10
-  br i1 %15, label %.body, label %18
+"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i": ; preds = %19, %17
+  %.1.i = phi i64 [ %14, %17 ], [ %21, %19 ]
+  %16 = icmp eq i64 %.1.i, %10
+  br i1 %16, label %.body, label %19
 
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %12
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i"
 
-18:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i"
-  %19 = add i64 %.1.i, 1
-  %20 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %9, i64 %.1.i, i32 1
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %20)
-          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i" unwind label %21
+19:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i"
+  %20 = getelementptr inbounds { { ptr, i64 }, { i64, [6 x i64] } }, ptr %9, i64 %.1.i
+  %21 = add i64 %.1.i, 1
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE"(ptr nonnull align 8 %22)
+          to label %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit7.i" unwind label %23
 
-21:                                               ; preds = %18
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %19
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
 "_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$u5d$$GT$17hf75290eb6364fd29E.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$17ha575884f31af4aafE.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %23 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8, !noundef !3
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %23, ptr %26, align 8
-  store i64 %25, ptr %3, align 8
+  %25 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load i64, ptr %26, align 8, !noundef !3
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %25, ptr %28, align 8
+  store i64 %27, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3d7e9ca026715851E"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %3)
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = load i64, ptr %27, align 8, !range !4, !noundef !3
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$C$alloc..alloc..Global$GT$$GT$17h018c95277a8049d4E.exit", label %29
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %30 = load i64, ptr %29, align 8, !range !4, !noundef !3
+  %.not.i.i.i.i = icmp eq i64 %30, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$C$alloc..alloc..Global$GT$$GT$17h018c95277a8049d4E.exit", label %31
 
-29:                                               ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$u5d$$GT$17hf75290eb6364fd29E.exit"
-  %30 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %32 = load i64, ptr %31, align 8, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h41f97975e87ba1fbE"(ptr nonnull align 1 %33, ptr nonnull %30, i64 %28, i64 %32)
+31:                                               ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$u5d$$GT$17hf75290eb6364fd29E.exit"
+  %32 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %34 = load i64, ptr %33, align 8, !noundef !3
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h41f97975e87ba1fbE"(ptr nonnull align 1 %35, ptr nonnull %32, i64 %30, i64 %34)
   br label %"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$C$alloc..alloc..Global$GT$$GT$17h018c95277a8049d4E.exit"
 
-"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$C$alloc..alloc..Global$GT$$GT$17h018c95277a8049d4E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$u5d$$GT$17hf75290eb6364fd29E.exit", %29
+"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$C$alloc..alloc..Global$GT$$GT$17h018c95277a8049d4E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$u5d$$GT$17hf75290eb6364fd29E.exit", %31
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-34:                                               ; preds = %.body
-  %35 = landingpad { ptr, i32 }
+36:                                               ; preds = %.body
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-36:                                               ; preds = %.body
+38:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

@@ -5074,7 +5074,8 @@ define dso_local void @io_req_defer_failed(ptr noundef %0, i32 noundef %1) local
   store i32 %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %19, ptr %21, align 4
-  %22 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %5, i32 4
+  %.split = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %5
+  %22 = getelementptr i8, ptr %.split, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %25
@@ -6068,7 +6069,8 @@ define internal void @io_req_task_cancel(ptr noundef %0, ptr noundef captures(no
   store i32 %11, ptr %10, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %14, i32 4
+  %.split = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %14
+  %30 = getelementptr i8, ptr %.split, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %34, label %33
@@ -6633,7 +6635,8 @@ define dso_local i32 @io_req_prep_async(ptr noundef %0) local_unnamed_addr #1 al
   br label %21
 
 21:                                               ; preds = %17, %14, %9, %1
-  %22 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %4, i32 2
+  %.split = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %4
+  %22 = getelementptr i8, ptr %.split, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %52, label %25
@@ -11398,7 +11401,8 @@ define internal fastcc void @io_clean_op(ptr noundef %0) unnamed_addr #1 align 1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load i8, ptr %49, align 8
   %51 = zext i8 %50 to i64
-  %52 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %51, i32 3
+  %.split = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %51
+  %52 = getelementptr i8, ptr %.split, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %56, label %55
@@ -11697,7 +11701,8 @@ define internal fastcc void @io_queue_async(ptr noundef %0, i32 noundef range(i3
   store i32 %1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %23, ptr %25, align 4
-  %26 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %10, i32 4
+  %.split = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %10
+  %26 = getelementptr i8, ptr %.split, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %30, label %29

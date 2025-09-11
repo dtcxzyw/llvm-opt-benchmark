@@ -455,7 +455,7 @@ define dso_local void @_ZN7ConvexHC2Eiii(ptr noundef nonnull align 8 dereference
   %19 = zext nneg i32 %1 to i64
   %20 = shl nuw nsw i64 %19, 4
   %21 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %20, i32 noundef 16)
-          to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i unwind label %74
+          to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i unwind label %75
 
 _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %18
   %.pre.i = load i32, ptr %7, align 4, !tbaa !20
@@ -486,7 +486,7 @@ _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %23, %_ZN
 
 30:                                               ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %27)
-          to label %.lr.ph.i unwind label %74
+          to label %.lr.ph.i unwind label %75
 
 .lr.ph.i:                                         ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i, %30
   store i8 1, ptr %5, align 8, !tbaa !12
@@ -512,7 +512,7 @@ _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %23, %_ZN
   %37 = sext i32 %2 to i64
   %38 = shl nsw i64 %37, 2
   %39 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %38, i32 noundef 16)
-          to label %.noexc27 unwind label %76
+          to label %.noexc27 unwind label %77
 
 .noexc27:                                         ; preds = %36
   %.pre.i18 = load i32, ptr %11, align 4, !tbaa !27
@@ -549,7 +549,7 @@ _ZNK20btAlignedObjectArrayIN7ConvexH8HalfEdgeEE4copyEiiPS1_.exit.i.i: ; preds = 
 
 50:                                               ; preds = %_ZNK20btAlignedObjectArrayIN7ConvexH8HalfEdgeEE4copyEiiPS1_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %47)
-          to label %_ZN20btAlignedObjectArrayIN7ConvexH8HalfEdgeEE10deallocateEv.exit.i.i unwind label %76
+          to label %_ZN20btAlignedObjectArrayIN7ConvexH8HalfEdgeEE10deallocateEv.exit.i.i unwind label %77
 
 _ZN20btAlignedObjectArrayIN7ConvexH8HalfEdgeEE10deallocateEv.exit.i.i: ; preds = %50, %_ZNK20btAlignedObjectArrayIN7ConvexH8HalfEdgeEE4copyEiiPS1_.exit.i.i
   store i8 1, ptr %9, align 8, !tbaa !22
@@ -580,7 +580,7 @@ _ZN20btAlignedObjectArrayIN7ConvexH8HalfEdgeEE10deallocateEv.exit.i.i: ; preds =
   %58 = sext i32 %3 to i64
   %59 = mul nsw i64 %58, 20
   %60 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %59, i32 noundef 16)
-          to label %.noexc44 unwind label %78
+          to label %.noexc44 unwind label %79
 
 .noexc44:                                         ; preds = %57
   %.pre.i35 = load i32, ptr %15, align 4, !tbaa !34
@@ -616,7 +616,7 @@ _ZNK20btAlignedObjectArrayI7btPlaneE4copyEiiPS0_.exit.i.i: ; preds = %63, %_ZN20
 
 70:                                               ; preds = %_ZNK20btAlignedObjectArrayI7btPlaneE4copyEiiPS0_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %67)
-          to label %_ZN20btAlignedObjectArrayI7btPlaneE10deallocateEv.exit.i.i unwind label %78
+          to label %_ZN20btAlignedObjectArrayI7btPlaneE10deallocateEv.exit.i.i unwind label %79
 
 _ZN20btAlignedObjectArrayI7btPlaneE10deallocateEv.exit.i.i: ; preds = %70, %_ZNK20btAlignedObjectArrayI7btPlaneE4copyEiiPS0_.exit.i.i
   store i8 1, ptr %13, align 8, !tbaa !29
@@ -632,7 +632,8 @@ _ZN20btAlignedObjectArrayI7btPlaneE10deallocateEv.exit.i.i: ; preds = %70, %_ZNK
 
 73:                                               ; preds = %73, %.lr.ph.i29
   %indvars.iv.i31 = phi i64 [ %72, %.lr.ph.i29 ], [ %indvars.iv.next.i32, %73 ]
-  %.sroa.4.0..sroa_idx = getelementptr inbounds %class.btPlane, ptr %71, i64 %indvars.iv.i31, i32 1
+  %74 = getelementptr inbounds %class.btPlane, ptr %71, i64 %indvars.iv.i31
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 16
   store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !4
   %indvars.iv.next.i32 = add nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i30
@@ -642,27 +643,27 @@ _ZN20btAlignedObjectArrayI7btPlaneE10deallocateEv.exit.i.i: ; preds = %70, %_ZNK
   store i32 %3, ptr %15, align 4, !tbaa !34
   ret void
 
-74:                                               ; preds = %30, %18
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %30, %18
+  %76 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %81
 
-76:                                               ; preds = %50, %36
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %50, %36
+  %78 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %81
 
-78:                                               ; preds = %70, %57
-  %79 = landingpad { ptr, i32 }
+79:                                               ; preds = %70, %57
+  %80 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %81
 
-80:                                               ; preds = %78, %76, %74
-  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ], [ %75, %74 ]
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN20btAlignedObjectArrayI7btPlaneED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %81) #21
-  tail call void @_ZN20btAlignedObjectArrayIN7ConvexH8HalfEdgeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %82) #21
+81:                                               ; preds = %79, %77, %75
+  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ], [ %76, %75 ]
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN20btAlignedObjectArrayI7btPlaneED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %82) #21
+  tail call void @_ZN20btAlignedObjectArrayIN7ConvexH8HalfEdgeEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %83) #21
   tail call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) #21
   resume { ptr, i32 } %.pn
 }

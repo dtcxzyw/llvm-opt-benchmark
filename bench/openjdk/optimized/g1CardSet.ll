@@ -1097,9 +1097,10 @@ define hidden noundef ptr @_ZN9G1CardSet19allocate_mem_objectEm(ptr noundef nonn
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = and i64 %1, 4294967295
-  %8 = getelementptr inbounds nuw %class.G1CardSetAllocator, ptr %6, i64 %7, i32 1
-  %9 = tail call noundef ptr @_ZN17FreeListAllocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(568) %8) #19
-  ret ptr %9
+  %8 = getelementptr inbounds nuw %class.G1CardSetAllocator, ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %10 = tail call noundef ptr @_ZN17FreeListAllocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(568) %9) #19
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

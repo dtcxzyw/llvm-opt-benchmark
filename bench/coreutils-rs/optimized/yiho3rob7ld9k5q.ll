@@ -33424,7 +33424,7 @@ define internal fastcc void @_ZN5uu_ls12display_size17hc96231304a60dcf2E(ptr noa
   switch i8 %.153.val, label %default.unreachable [
     i8 0, label %11
     i8 1, label %26
-    i8 2, label %38
+    i8 2, label %37
   ]
 
 default.unreachable:                              ; preds = %2
@@ -33483,7 +33483,7 @@ default.unreachable:                              ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !8723
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !8718
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !8718
-  br label %50
+  br label %48
 
 26:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -33505,63 +33505,61 @@ default.unreachable:                              ; preds = %2
   br i1 %or.cond.i, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %33 = getelementptr i8, ptr %5, i64 %30
-  %34 = getelementptr i8, ptr %33, i64 -1
-  %35 = load i8, ptr %34, align 1, !range !8665, !noalias !8724, !noundef !4
-  %36 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 %35, ptr %36, align 1, !alias.scope !8724
+  %33 = getelementptr i8, ptr %5, i64 %.017.i
+  %34 = load i8, ptr %33, align 1, !range !8665, !noalias !8724, !noundef !4
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i8 %34, ptr %35, align 1, !alias.scope !8724
   br label %"_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17hc5041b18f9d5c850E.exit"
 
 "_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17hc5041b18f9d5c850E.exit": ; preds = %26, %._crit_edge.i
   %.1.lcssa22.i = phi double [ %29, %._crit_edge.i ], [ %27, %26 ]
   %storemerge.i = phi i8 [ 1, %._crit_edge.i ], [ 0, %26 ]
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double %.1.lcssa22.i, ptr %37, align 8, !alias.scope !8724
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store double %.1.lcssa22.i, ptr %36, align 8, !alias.scope !8724
   store i8 %storemerge.i, ptr %9, align 8, !alias.scope !8724
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call fastcc void @_ZN5uu_ls15format_prefixed17hc3b68370028cf7e0E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %50
+  br label %48
 
-38:                                               ; preds = %2
+37:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %39 = uitofp i64 %1 to double
+  %38 = uitofp i64 %1 to double
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8727)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 506097522914230528, ptr %4, align 8, !noalias !8727
-  %40 = icmp ult i64 %1, 1000
-  br i1 %40, label %"_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17hc5041b18f9d5c850E.exit16", label %.lr.ph.i9
+  %39 = icmp ult i64 %1, 1000
+  br i1 %39, label %"_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17hc5041b18f9d5c850E.exit16", label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %38, %.lr.ph.i9
-  %.017.i10 = phi i64 [ %42, %.lr.ph.i9 ], [ 0, %38 ]
-  %.116.i11 = phi double [ %41, %.lr.ph.i9 ], [ %39, %38 ]
-  %41 = fdiv double %.116.i11, 1.000000e+03
-  %42 = add nuw nsw i64 %.017.i10, 1
-  %43 = fcmp oge double %41, 1.000000e+03
-  %44 = icmp samesign ult i64 %.017.i10, 7
-  %or.cond.i12 = select i1 %43, i1 %44, i1 false
+.lr.ph.i9:                                        ; preds = %37, %.lr.ph.i9
+  %.017.i10 = phi i64 [ %41, %.lr.ph.i9 ], [ 0, %37 ]
+  %.116.i11 = phi double [ %40, %.lr.ph.i9 ], [ %38, %37 ]
+  %40 = fdiv double %.116.i11, 1.000000e+03
+  %41 = add nuw nsw i64 %.017.i10, 1
+  %42 = fcmp oge double %40, 1.000000e+03
+  %43 = icmp samesign ult i64 %.017.i10, 7
+  %or.cond.i12 = select i1 %42, i1 %43, i1 false
   br i1 %or.cond.i12, label %.lr.ph.i9, label %._crit_edge.i13
 
 ._crit_edge.i13:                                  ; preds = %.lr.ph.i9
-  %45 = getelementptr i8, ptr %4, i64 %42
-  %46 = getelementptr i8, ptr %45, i64 -1
-  %47 = load i8, ptr %46, align 1, !range !8665, !noalias !8727, !noundef !4
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %47, ptr %48, align 1, !alias.scope !8727
+  %44 = getelementptr i8, ptr %4, i64 %.017.i10
+  %45 = load i8, ptr %44, align 1, !range !8665, !noalias !8727, !noundef !4
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %45, ptr %46, align 1, !alias.scope !8727
   br label %"_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17hc5041b18f9d5c850E.exit16"
 
-"_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17hc5041b18f9d5c850E.exit16": ; preds = %38, %._crit_edge.i13
-  %.1.lcssa22.i14 = phi double [ %41, %._crit_edge.i13 ], [ %39, %38 ]
-  %storemerge.i15 = phi i8 [ 1, %._crit_edge.i13 ], [ 0, %38 ]
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %.1.lcssa22.i14, ptr %49, align 8, !alias.scope !8727
+"_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17hc5041b18f9d5c850E.exit16": ; preds = %37, %._crit_edge.i13
+  %.1.lcssa22.i14 = phi double [ %40, %._crit_edge.i13 ], [ %38, %37 ]
+  %storemerge.i15 = phi i8 [ 1, %._crit_edge.i13 ], [ 0, %37 ]
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %.1.lcssa22.i14, ptr %47, align 8, !alias.scope !8727
   store i8 %storemerge.i15, ptr %8, align 8, !alias.scope !8727
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call fastcc void @_ZN5uu_ls15format_prefixed17hc3b68370028cf7e0E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %50
+  br label %48
 
-50:                                               ; preds = %"_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17hc5041b18f9d5c850E.exit16", %"_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17hc5041b18f9d5c850E.exit", %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17he76dc9947bb31470E.exit"
+48:                                               ; preds = %"_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17hc5041b18f9d5c850E.exit16", %"_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17hc5041b18f9d5c850E.exit", %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17he76dc9947bb31470E.exit"
   ret void
 }
 

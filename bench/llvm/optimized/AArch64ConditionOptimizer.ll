@@ -1301,37 +1301,38 @@ _ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET
   %73 = and i32 %70, 2147483647
   %74 = zext nneg i32 %73 to i64
   %75 = load ptr, ptr %72, align 8
-  %76 = getelementptr inbounds nuw %"struct.std::pair", ptr %75, i64 %74, i32 1
-  %77 = getelementptr inbounds nuw i8, ptr %68, i64 296
-  %78 = zext nneg i32 %70 to i64
-  %79 = load ptr, ptr %77, align 8
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %78
-  %.0.in.i.i.i = select i1 %71, ptr %76, ptr %80
+  %76 = getelementptr inbounds nuw %"struct.std::pair", ptr %75, i64 %74
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %68, i64 296
+  %79 = zext nneg i32 %70 to i64
+  %80 = load ptr, ptr %78, align 8
+  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %79
+  %.0.in.i.i.i = select i1 %71, ptr %77, ptr %81
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !265
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48, label %81
+  br i1 %.not.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48, label %82
 
-81:                                               ; preds = %66
-  %82 = load i32, ptr %.0.i.i.i, align 8
-  %83 = and i32 %82, -2130706432
-  %or.cond.not.i.i.i = icmp eq i32 %83, 0
+82:                                               ; preds = %66
+  %83 = load i32, ptr %.0.i.i.i, align 8
+  %84 = and i32 %83, -2130706432
+  %or.cond.not.i.i.i = icmp eq i32 %84, 0
   br i1 %or.cond.not.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48, label %.critedge2.i.i.i.i
 
-.critedge2.i.i.i.i:                               ; preds = %81, %84
-  %.pn.i.i.i.i = phi ptr [ %storemerge.i.i.i.i, %84 ], [ %.0.i.i.i, %81 ]
+.critedge2.i.i.i.i:                               ; preds = %82, %85
+  %.pn.i.i.i.i = phi ptr [ %storemerge.i.i.i.i, %85 ], [ %.0.i.i.i, %82 ]
   %storemerge.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 24
   %storemerge.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i, align 8, !tbaa !202
   %.not.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48, label %84
+  br i1 %.not.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48, label %85
 
-84:                                               ; preds = %.critedge2.i.i.i.i
-  %85 = load i32, ptr %storemerge.i.i.i.i, align 8
-  %86 = and i32 %85, -2130706432
-  %or.cond.not.i.i.i.i = icmp eq i32 %86, 0
+85:                                               ; preds = %.critedge2.i.i.i.i
+  %86 = load i32, ptr %storemerge.i.i.i.i, align 8
+  %87 = and i32 %86, -2130706432
+  %or.cond.not.i.i.i.i = icmp eq i32 %87, 0
   br i1 %or.cond.not.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48, label %.critedge2.i.i.i.i, !llvm.loop !266
 
-_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48: ; preds = %.lr.ph, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, %_ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %.critedge2.i.i.i.i, %84, %58, %51, %66, %81, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %.sroa.03.0.lcssa.i.i, %66 ], [ null, %81 ], [ null, %58 ], [ null, %51 ], [ null, %84 ], [ %.sroa.03.0.lcssa.i.i, %.critedge2.i.i.i.i ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %_ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit ], [ null, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit ], [ null, %.lr.ph ]
+_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread48: ; preds = %.lr.ph, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, %_ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %.critedge2.i.i.i.i, %85, %58, %51, %66, %82, %6, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %.sroa.03.0.lcssa.i.i, %66 ], [ null, %82 ], [ null, %58 ], [ null, %51 ], [ null, %85 ], [ %.sroa.03.0.lcssa.i.i, %.critedge2.i.i.i.i ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %48 ], [ null, %_ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit ], [ null, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 

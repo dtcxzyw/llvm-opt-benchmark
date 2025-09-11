@@ -3068,90 +3068,93 @@ define internal range(i32 -12, 1) i32 @cbs_apv_assemble_fragment(ptr readnone ca
   br label %11
 
 ._crit_edge:                                      ; preds = %11, %2
-  %.037.lcssa = phi i64 [ 4, %2 ], [ %15, %11 ]
+  %.037.lcssa = phi i64 [ 4, %2 ], [ %16, %11 ]
   %8 = add i64 %.037.lcssa, 64
   %9 = tail call ptr @av_buffer_alloc(i64 noundef %8) #7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %9, ptr %10, align 8, !tbaa !28
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %52, label %16
+  br i1 %.not, label %55, label %17
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %.03740 = phi i64 [ 4, %.lr.ph ], [ %15, %11 ]
-  %12 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %7, i64 %indvars.iv, i32 2
-  %13 = load i64, ptr %12, align 8, !tbaa !31
-  %14 = add i64 %.03740, 4
-  %15 = add i64 %14, %13
+  %.03740 = phi i64 [ 4, %.lr.ph ], [ %16, %11 ]
+  %12 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load i64, ptr %13, align 8, !tbaa !31
+  %15 = add i64 %.03740, 4
+  %16 = add i64 %15, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !158
 
-16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !103
-  store ptr %18, ptr %1, align 8, !tbaa !4
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.037.lcssa
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %19, i8 0, i64 64, i1 false)
-  %20 = load ptr, ptr %1, align 8, !tbaa !4
-  store i32 829837409, ptr %20, align 1, !tbaa !19
-  %21 = load i32, ptr %3, align 8, !tbaa !156
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph45, label %._crit_edge46
+17:                                               ; preds = %._crit_edge
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !103
+  store ptr %19, ptr %1, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.037.lcssa
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %20, i8 0, i64 64, i1 false)
+  %21 = load ptr, ptr %1, align 8, !tbaa !4
+  store i32 829837409, ptr %21, align 1, !tbaa !19
+  %22 = load i32, ptr %3, align 8, !tbaa !156
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %.lr.ph45, label %._crit_edge46
 
-.lr.ph45:                                         ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.pre = load ptr, ptr %23, align 8, !tbaa !157
-  br label %25
+.lr.ph45:                                         ; preds = %17
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.pre = load ptr, ptr %24, align 8, !tbaa !157
+  br label %26
 
-._crit_edge46:                                    ; preds = %25, %16
-  %.036.lcssa = phi i64 [ 4, %16 ], [ %45, %25 ]
-  %24 = icmp eq i64 %.036.lcssa, %.037.lcssa
-  br i1 %24, label %50, label %49
+._crit_edge46:                                    ; preds = %26, %17
+  %.036.lcssa = phi i64 [ 4, %17 ], [ %48, %26 ]
+  %25 = icmp eq i64 %.036.lcssa, %.037.lcssa
+  br i1 %25, label %53, label %52
 
-25:                                               ; preds = %.lr.ph45, %25
-  %26 = phi ptr [ %.pre, %.lr.ph45 ], [ %42, %25 ]
-  %indvars.iv50 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next51, %25 ]
-  %.03642 = phi i64 [ 4, %.lr.ph45 ], [ %45, %25 ]
-  %27 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %26, i64 %indvars.iv50, i32 2
-  %28 = load i64, ptr %27, align 8, !tbaa !31
-  %29 = trunc i64 %28 to i32
-  %30 = tail call i32 @llvm.bswap.i32(i32 %29)
-  %31 = load ptr, ptr %1, align 8, !tbaa !4
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.03642
-  store i32 %30, ptr %32, align 1, !tbaa !19
-  %33 = add i64 %.03642, 4
-  %34 = load ptr, ptr %1, align 8, !tbaa !4
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
-  %36 = load ptr, ptr %23, align 8, !tbaa !157
-  %37 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %36, i64 %indvars.iv50
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !29
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %41 = load i64, ptr %40, align 8, !tbaa !31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %39, i64 %41, i1 false)
-  %42 = load ptr, ptr %23, align 8, !tbaa !157
-  %43 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %42, i64 %indvars.iv50, i32 2
-  %44 = load i64, ptr %43, align 8, !tbaa !31
-  %45 = add i64 %44, %33
+26:                                               ; preds = %.lr.ph45, %26
+  %27 = phi ptr [ %.pre, %.lr.ph45 ], [ %44, %26 ]
+  %indvars.iv50 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next51, %26 ]
+  %.03642 = phi i64 [ 4, %.lr.ph45 ], [ %48, %26 ]
+  %28 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %27, i64 %indvars.iv50
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load i64, ptr %29, align 8, !tbaa !31
+  %31 = trunc i64 %30 to i32
+  %32 = tail call i32 @llvm.bswap.i32(i32 %31)
+  %33 = load ptr, ptr %1, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.03642
+  store i32 %32, ptr %34, align 1, !tbaa !19
+  %35 = add i64 %.03642, 4
+  %36 = load ptr, ptr %1, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %35
+  %38 = load ptr, ptr %24, align 8, !tbaa !157
+  %39 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %38, i64 %indvars.iv50
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !29
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 1 %41, i64 %43, i1 false)
+  %44 = load ptr, ptr %24, align 8, !tbaa !157
+  %45 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %44, i64 %indvars.iv50
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load i64, ptr %46, align 8, !tbaa !31
+  %48 = add i64 %47, %35
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %46 = load i32, ptr %3, align 8, !tbaa !156
-  %47 = sext i32 %46 to i64
-  %48 = icmp slt i64 %indvars.iv.next51, %47
-  br i1 %48, label %25, label %._crit_edge46, !llvm.loop !159
+  %49 = load i32, ptr %3, align 8, !tbaa !156
+  %50 = sext i32 %49 to i64
+  %51 = icmp slt i64 %indvars.iv.next51, %50
+  br i1 %51, label %26, label %._crit_edge46, !llvm.loop !159
 
-49:                                               ; preds = %._crit_edge46
+52:                                               ; preds = %._crit_edge46
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.3, i32 noundef 387) #7
   tail call void @abort() #8
   unreachable
 
-50:                                               ; preds = %._crit_edge46
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.037.lcssa, ptr %51, align 8, !tbaa !14
-  br label %52
+53:                                               ; preds = %._crit_edge46
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.037.lcssa, ptr %54, align 8, !tbaa !14
+  br label %55
 
-52:                                               ; preds = %._crit_edge, %50
-  %.038 = phi i32 [ 0, %50 ], [ -12, %._crit_edge ]
+55:                                               ; preds = %._crit_edge, %53
+  %.038 = phi i32 [ 0, %53 ], [ -12, %._crit_edge ]
   ret i32 %.038
 }
 

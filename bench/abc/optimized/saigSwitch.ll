@@ -24,7 +24,7 @@ define noalias noundef ptr @Saig_ManCreateMan(ptr noundef readonly captures(none
   br i1 %7, label %.lr.ph, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %1
-  %.pre50 = sext i32 %.val32.val to i64
+  %.pre51 = sext i32 %.val32.val to i64
   br label %.critedge
 
 .lr.ph:                                           ; preds = %1
@@ -140,17 +140,19 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %Saig_ObjIsLo.exit.t
 
 .critedge.loopexit:                               ; preds = %Saig_ObjIsLo.exit.thread
   %.phi.trans.insert = zext nneg i32 %.val32.val to i64
-  %.phi.trans.insert49 = getelementptr inbounds nuw %struct.Saig_SimObj_t_, ptr %6, i64 %.phi.trans.insert, i32 2
-  %.pre = load i32, ptr %.phi.trans.insert49, align 4
+  %.phi.trans.insert49 = getelementptr inbounds nuw %struct.Saig_SimObj_t_, ptr %6, i64 %.phi.trans.insert
+  %.phi.trans.insert50 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert49, i64 8
+  %.pre = load i32, ptr %.phi.trans.insert50, align 4
   %67 = and i32 %.pre, -256
   %68 = or disjoint i32 %67, 7
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %.critedge.loopexit
-  %.pre-phi = phi i64 [ %.pre50, %..critedge_crit_edge ], [ %.phi.trans.insert, %.critedge.loopexit ]
+  %.pre-phi = phi i64 [ %.pre51, %..critedge_crit_edge ], [ %.phi.trans.insert, %.critedge.loopexit ]
   %69 = phi i32 [ 7, %..critedge_crit_edge ], [ %68, %.critedge.loopexit ]
-  %70 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %6, i64 %.pre-phi, i32 2
-  store i32 %69, ptr %70, align 4
+  %70 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %6, i64 %.pre-phi
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store i32 %69, ptr %71, align 4
   ret ptr %6
 }
 
@@ -162,22 +164,22 @@ define void @Saig_ManSimulateFrames(ptr noundef captures(none) %0, i32 noundef %
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.preheader, label %._crit_edge
 
-.preheader:                                       ; preds = %3, %70
-  %.033 = phi i32 [ %71, %70 ], [ 0, %3 ]
+.preheader:                                       ; preds = %3, %74
+  %.033 = phi i32 [ %75, %74 ], [ 0, %3 ]
   %.not26 = icmp eq i32 %.033, 0
   %.not27 = icmp slt i32 %.033, %2
   br label %5
 
-5:                                                ; preds = %.preheader, %68
-  %.024 = phi ptr [ %69, %68 ], [ %0, %.preheader ]
+5:                                                ; preds = %.preheader, %72
+  %.024 = phi ptr [ %73, %72 ], [ %0, %.preheader ]
   %6 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %7 = load i32, ptr %6, align 4
   %trunc = trunc i32 %7 to i8
-  switch i8 %trunc, label %42 [
-    i8 7, label %70
+  switch i8 %trunc, label %46 [
+    i8 7, label %74
     i8 5, label %8
-    i8 3, label %23
-    i8 2, label %29
+    i8 3, label %25
+    i8 2, label %32
     i8 1, label %.sink.split
   ]
 
@@ -185,103 +187,107 @@ define void @Saig_ManSimulateFrames(ptr noundef captures(none) %0, i32 noundef %
   %.val.i = load i32, ptr %.024, align 4, !tbaa !30
   %9 = ashr i32 %.val.i, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr i8, ptr %.024, i64 4
-  %.val12.i = load i32, ptr %11, align 4, !tbaa !34
-  %12 = ashr i32 %.val12.i, 1
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %10, i32 3
-  %15 = load i32, ptr %14, align 4, !tbaa !37
-  %16 = and i32 %.val.i, 1
-  %sext.i = sub nsw i32 0, %16
-  %17 = xor i32 %15, %sext.i
-  %18 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %13, i32 3
-  %19 = load i32, ptr %18, align 4, !tbaa !37
-  %20 = and i32 %.val12.i, 1
-  %sext15.i = sub nsw i32 0, %20
-  %21 = xor i32 %19, %sext15.i
-  %22 = and i32 %21, %17
+  %11 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %10
+  %12 = getelementptr i8, ptr %.024, i64 4
+  %.val12.i = load i32, ptr %12, align 4, !tbaa !34
+  %13 = ashr i32 %.val12.i, 1
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %17 = load i32, ptr %16, align 4, !tbaa !37
+  %18 = and i32 %.val.i, 1
+  %sext.i = sub nsw i32 0, %18
+  %19 = xor i32 %17, %sext.i
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %21 = load i32, ptr %20, align 4, !tbaa !37
+  %22 = and i32 %.val12.i, 1
+  %sext15.i = sub nsw i32 0, %22
+  %23 = xor i32 %21, %sext15.i
+  %24 = and i32 %23, %19
   br label %.sink.split
 
-23:                                               ; preds = %5
+25:                                               ; preds = %5
   %.val.i28 = load i32, ptr %.024, align 4, !tbaa !30
-  %24 = ashr i32 %.val.i28, 1
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %25, i32 3
-  %27 = load i32, ptr %26, align 4, !tbaa !37
-  %28 = and i32 %.val.i28, 1
-  %sext.i29 = sub nsw i32 0, %28
-  %.sink.i = xor i32 %27, %sext.i29
+  %26 = ashr i32 %.val.i28, 1
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  %30 = load i32, ptr %29, align 4, !tbaa !37
+  %31 = and i32 %.val.i28, 1
+  %sext.i29 = sub nsw i32 0, %31
+  %.sink.i = xor i32 %30, %sext.i29
   br label %.sink.split
 
-29:                                               ; preds = %5
-  %30 = load i32, ptr %.024, align 4, !tbaa !30
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %34
+32:                                               ; preds = %5
+  %33 = load i32, ptr %.024, align 4, !tbaa !30
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %37
 
-32:                                               ; preds = %29
-  %33 = tail call i32 @Aig_ManRandom(i32 noundef 0) #19
+35:                                               ; preds = %32
+  %36 = tail call i32 @Aig_ManRandom(i32 noundef 0) #19
   br label %.sink.split
 
-34:                                               ; preds = %29
-  br i1 %.not26, label %42, label %35
+37:                                               ; preds = %32
+  br i1 %.not26, label %46, label %38
 
-35:                                               ; preds = %34
-  %36 = ashr i32 %30, 1
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %37, i32 3
-  %39 = load i32, ptr %38, align 4, !tbaa !37
-  %40 = and i32 %30, 1
-  %sext.i31 = sub nsw i32 0, %40
-  %.sink.i32 = xor i32 %39, %sext.i31
+38:                                               ; preds = %37
+  %39 = ashr i32 %33, 1
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds %struct.Saig_SimObj_t_, ptr %0, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  %43 = load i32, ptr %42, align 4, !tbaa !37
+  %44 = and i32 %33, 1
+  %sext.i31 = sub nsw i32 0, %44
+  %.sink.i32 = xor i32 %43, %sext.i31
   br label %.sink.split
 
-.sink.split:                                      ; preds = %5, %8, %35, %32, %23
-  %.sink.i.sink = phi i32 [ %.sink.i, %23 ], [ %33, %32 ], [ %.sink.i32, %35 ], [ %22, %8 ], [ -1, %5 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.024, i64 12
-  store i32 %.sink.i.sink, ptr %41, align 4, !tbaa !37
-  br label %42
+.sink.split:                                      ; preds = %5, %8, %38, %35, %25
+  %.sink.i.sink = phi i32 [ %.sink.i, %25 ], [ %36, %35 ], [ %.sink.i32, %38 ], [ %24, %8 ], [ -1, %5 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.024, i64 12
+  store i32 %.sink.i.sink, ptr %45, align 4, !tbaa !37
+  br label %46
 
-42:                                               ; preds = %.sink.split, %5, %34
-  br i1 %.not27, label %68, label %43
+46:                                               ; preds = %.sink.split, %5, %37
+  br i1 %.not27, label %72, label %47
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %.024, i64 12
-  %45 = load i32, ptr %44, align 4, !tbaa !37
-  %46 = and i32 %45, 1431655765
-  %47 = lshr i32 %45, 1
-  %48 = and i32 %47, 1431655765
-  %49 = add nuw i32 %48, %46
-  %50 = and i32 %49, 858993459
-  %51 = lshr i32 %49, 2
-  %52 = and i32 %51, 858993459
-  %53 = add nuw nsw i32 %52, %50
-  %54 = and i32 %53, 117901063
-  %55 = lshr i32 %53, 4
-  %56 = and i32 %55, 117901063
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds nuw i8, ptr %.024, i64 12
+  %49 = load i32, ptr %48, align 4, !tbaa !37
+  %50 = and i32 %49, 1431655765
+  %51 = lshr i32 %49, 1
+  %52 = and i32 %51, 1431655765
+  %53 = add nuw i32 %52, %50
+  %54 = and i32 %53, 858993459
+  %55 = lshr i32 %53, 2
+  %56 = and i32 %55, 858993459
   %57 = add nuw nsw i32 %56, %54
-  %58 = and i32 %57, 983055
-  %59 = lshr i32 %57, 8
-  %60 = and i32 %59, 983055
+  %58 = and i32 %57, 117901063
+  %59 = lshr i32 %57, 4
+  %60 = and i32 %59, 117901063
   %61 = add nuw nsw i32 %60, %58
-  %62 = and i32 %61, 31
-  %63 = lshr i32 %61, 16
-  %64 = add nuw nsw i32 %62, %63
-  %65 = load i32, ptr %6, align 4
-  %66 = shl nuw nsw i32 %64, 8
-  %67 = add i32 %66, %65
-  store i32 %67, ptr %6, align 4
-  br label %68
+  %62 = and i32 %61, 983055
+  %63 = lshr i32 %61, 8
+  %64 = and i32 %63, 983055
+  %65 = add nuw nsw i32 %64, %62
+  %66 = and i32 %65, 31
+  %67 = lshr i32 %65, 16
+  %68 = add nuw nsw i32 %66, %67
+  %69 = load i32, ptr %6, align 4
+  %70 = shl nuw nsw i32 %68, 8
+  %71 = add i32 %70, %69
+  store i32 %71, ptr %6, align 4
+  br label %72
 
-68:                                               ; preds = %42, %43
-  %69 = getelementptr inbounds nuw i8, ptr %.024, i64 16
+72:                                               ; preds = %46, %47
+  %73 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   br label %5, !llvm.loop !38
 
-70:                                               ; preds = %5
-  %71 = add nuw nsw i32 %.033, 1
-  %exitcond.not = icmp eq i32 %71, %1
+74:                                               ; preds = %5
+  %75 = add nuw nsw i32 %.033, 1
+  %exitcond.not = icmp eq i32 %75, %1
   br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %70, %3
+._crit_edge:                                      ; preds = %74, %3
   ret void
 }
 

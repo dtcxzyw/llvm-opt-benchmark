@@ -3076,7 +3076,8 @@ define dso_local void @setup_kmalloc_cache_index_table() local_unnamed_addr #13 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @new_kmalloc_cache(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 section ".init.text" align 16 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr %struct.kmalloc_info_struct, ptr @kmalloc_info, i64 %4, i32 1
+  %.split = getelementptr %struct.kmalloc_info_struct, ptr @kmalloc_info, i64 %4
+  %5 = getelementptr i8, ptr %.split, i64 24
   %6 = load i32, ptr %5, align 8
   switch i32 %1, label %11 [
     i32 1, label %7
@@ -3094,21 +3095,20 @@ define dso_local void @new_kmalloc_cache(i32 noundef %0, i32 noundef %1, i32 nou
 11:                                               ; preds = %9, %7, %3
   %12 = phi i32 [ %8, %7 ], [ %10, %9 ], [ %2, %3 ]
   %13 = zext i32 %1 to i64
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13
-  %14 = getelementptr ptr, ptr %.split, i64 %4
+  %.split1 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13
+  %14 = getelementptr ptr, ptr %.split1, i64 %4
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %21
 
 17:                                               ; preds = %11
-  %18 = getelementptr %struct.kmalloc_info_struct, ptr @kmalloc_info, i64 %4
-  %19 = getelementptr ptr, ptr %18, i64 %13
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call fastcc ptr @create_kmalloc_cache(ptr noundef %20, i32 noundef %6, i32 noundef %12) #27
-  store ptr %21, ptr %14, align 8
-  br label %22
+  %18 = getelementptr ptr, ptr %.split, i64 %13
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call fastcc ptr @create_kmalloc_cache(ptr noundef %19, i32 noundef %6, i32 noundef %12) #27
+  store ptr %20, ptr %14, align 8
+  br label %21
 
-22:                                               ; preds = %17, %11
+21:                                               ; preds = %17, %11
   ret void
 }
 

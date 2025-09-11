@@ -184,45 +184,46 @@ declare void @llvm.va_end.p0(ptr) #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @advice_enabled(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %2, i32 1
-  %4 = load i32, ptr %3, align 8, !tbaa !18
-  %5 = icmp ne i32 %4, 1
-  %6 = load i32, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %10
+  %3 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load i32, ptr %4, align 8, !tbaa !18
+  %6 = icmp ne i32 %5, 1
+  %7 = load i32, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %11
 
-8:                                                ; preds = %1
-  %9 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.1, i32 noundef 1) #13
-  store i32 %9, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
-  br label %10
+9:                                                ; preds = %1
+  %10 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.1, i32 noundef 1) #13
+  store i32 %10, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
+  br label %11
 
-10:                                               ; preds = %8, %1
-  %.pr = phi i32 [ %9, %8 ], [ %6, %1 ]
+11:                                               ; preds = %9, %1
+  %.pr = phi i32 [ %10, %9 ], [ %7, %1 ]
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %advice_enabled.exit, label %11
+  br i1 %.not, label %advice_enabled.exit, label %12
 
-11:                                               ; preds = %10
-  %12 = icmp eq i32 %0, 25
-  %brmerge.not = select i1 %12, i1 %5, i1 false
-  %not. = xor i1 %12, true
-  %narrow = select i1 %not., i1 %5, i1 false
-  br i1 %brmerge.not, label %13, label %advice_enabled.exit
+12:                                               ; preds = %11
+  %13 = icmp eq i32 %0, 25
+  %brmerge.not = select i1 %13, i1 %6, i1 false
+  %not. = xor i1 %13, true
+  %narrow = select i1 %not., i1 %6, i1 false
+  br i1 %brmerge.not, label %14, label %advice_enabled.exit
 
-13:                                               ; preds = %11
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 424), align 8, !tbaa !18
-  %15 = icmp ne i32 %14, 1
-  %16 = icmp slt i32 %.pr, 0
-  br i1 %16, label %17, label %advice_enabled.exit
+14:                                               ; preds = %12
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 424), align 8, !tbaa !18
+  %16 = icmp ne i32 %15, 1
+  %17 = icmp slt i32 %.pr, 0
+  br i1 %17, label %18, label %advice_enabled.exit
 
-17:                                               ; preds = %13
-  %18 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.1, i32 noundef 1) #13
-  store i32 %18, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
-  %19 = icmp ne i32 %18, 0
-  %20 = select i1 %19, i1 %15, i1 false
+18:                                               ; preds = %14
+  %19 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.1, i32 noundef 1) #13
+  store i32 %19, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
+  %20 = icmp ne i32 %19, 0
+  %21 = select i1 %20, i1 %16, i1 false
   br label %advice_enabled.exit
 
-advice_enabled.exit:                              ; preds = %17, %13, %11, %10
-  %.0.shrunk = phi i1 [ false, %10 ], [ %narrow, %11 ], [ %20, %17 ], [ %15, %13 ]
+advice_enabled.exit:                              ; preds = %18, %14, %12, %11
+  %.0.shrunk = phi i1 [ false, %11 ], [ %narrow, %12 ], [ %21, %18 ], [ %16, %14 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -234,60 +235,59 @@ define dso_local void @advise_if_enabled(i32 noundef %0, ptr noundef %1, ...) lo
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %4, i32 1
-  %6 = load i32, ptr %5, align 8, !tbaa !18
-  %7 = icmp ne i32 %6, 1
-  %8 = load i32, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
-  %9 = icmp slt i32 %8, 0
-  br i1 %9, label %10, label %12
+  %5 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i32, ptr %6, align 8, !tbaa !18
+  %8 = icmp ne i32 %7, 1
+  %9 = load i32, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %11, label %13
 
-10:                                               ; preds = %2
-  %11 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.1, i32 noundef 1) #13
-  store i32 %11, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
-  br label %12
+11:                                               ; preds = %2
+  %12 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.1, i32 noundef 1) #13
+  store i32 %12, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
+  br label %13
 
-12:                                               ; preds = %10, %2
-  %.pr.i = phi i32 [ %11, %10 ], [ %8, %2 ]
+13:                                               ; preds = %11, %2
+  %.pr.i = phi i32 [ %12, %11 ], [ %9, %2 ]
   %.not.i = icmp eq i32 %.pr.i, 0
-  br i1 %.not.i, label %advice_enabled.exit.thread, label %13
+  br i1 %.not.i, label %advice_enabled.exit.thread, label %14
 
-13:                                               ; preds = %12
-  %14 = icmp eq i32 %0, 25
-  %brmerge.not.i = select i1 %14, i1 %7, i1 false
-  %not..i = xor i1 %14, true
-  %narrow.i = select i1 %not..i, i1 %7, i1 false
-  br i1 %brmerge.not.i, label %15, label %advice_enabled.exit
+14:                                               ; preds = %13
+  %15 = icmp eq i32 %0, 25
+  %brmerge.not.i = select i1 %15, i1 %8, i1 false
+  %not..i = xor i1 %15, true
+  %narrow.i = select i1 %not..i, i1 %8, i1 false
+  br i1 %brmerge.not.i, label %16, label %advice_enabled.exit
 
-15:                                               ; preds = %13
-  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 424), align 8, !tbaa !18
-  %17 = icmp ne i32 %16, 1
-  %18 = icmp slt i32 %.pr.i, 0
-  br i1 %18, label %19, label %advice_enabled.exit
+16:                                               ; preds = %14
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 424), align 8, !tbaa !18
+  %18 = icmp ne i32 %17, 1
+  %19 = icmp slt i32 %.pr.i, 0
+  br i1 %19, label %20, label %advice_enabled.exit
 
-19:                                               ; preds = %15
-  %20 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.1, i32 noundef 1) #13
-  store i32 %20, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
-  %21 = icmp ne i32 %20, 0
-  %22 = select i1 %21, i1 %17, i1 false
-  br i1 %22, label %23, label %advice_enabled.exit.thread
+20:                                               ; preds = %16
+  %21 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.1, i32 noundef 1) #13
+  store i32 %21, ptr @advice_enabled.globally_enabled, align 4, !tbaa !14
+  %22 = icmp ne i32 %21, 0
+  %23 = select i1 %22, i1 %18, i1 false
+  br i1 %23, label %24, label %advice_enabled.exit.thread
 
-advice_enabled.exit:                              ; preds = %13, %15
-  %.0.shrunk.i = phi i1 [ %narrow.i, %13 ], [ %17, %15 ]
-  br i1 %.0.shrunk.i, label %23, label %advice_enabled.exit.thread
+advice_enabled.exit:                              ; preds = %14, %16
+  %.0.shrunk.i = phi i1 [ %narrow.i, %14 ], [ %18, %16 ]
+  br i1 %.0.shrunk.i, label %24, label %advice_enabled.exit.thread
 
-23:                                               ; preds = %19, %advice_enabled.exit
+24:                                               ; preds = %20, %advice_enabled.exit
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %24 = getelementptr inbounds nuw %struct.anon, ptr @advice_setting, i64 %4
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !18
-  %.not3 = icmp eq i32 %26, 0
-  %27 = zext i1 %.not3 to i32
-  %28 = load ptr, ptr %24, align 16, !tbaa !20
-  call fastcc void @vadvise(ptr noundef %1, i32 noundef %27, ptr noundef %28, ptr noundef %3)
+  %25 = load i32, ptr %6, align 8, !tbaa !18
+  %.not3 = icmp eq i32 %25, 0
+  %26 = zext i1 %.not3 to i32
+  %27 = load ptr, ptr %5, align 16, !tbaa !20
+  call fastcc void @vadvise(ptr noundef %1, i32 noundef %26, ptr noundef %27, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %advice_enabled.exit.thread
 
-advice_enabled.exit.thread:                       ; preds = %19, %12, %advice_enabled.exit, %23
+advice_enabled.exit.thread:                       ; preds = %20, %13, %advice_enabled.exit, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

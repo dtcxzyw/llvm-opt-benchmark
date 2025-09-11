@@ -203,12 +203,13 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_inet_error(ptr readn
   %30 = mul nsw i64 %29, -56
   %31 = getelementptr i8, ptr %24, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -16
-  %33 = getelementptr %struct.nf_conntrack_tuple_hash, ptr %31, i64 %29, i32 1, i32 1
+  %.split = getelementptr %struct.nf_conntrack_tuple_hash, ptr %31, i64 %29
+  %33 = getelementptr i8, ptr %.split, i64 36
   %34 = load i64, ptr %5, align 8
   %35 = load i64, ptr %33, align 8
   %36 = getelementptr i8, ptr %5, i64 8
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr i8, ptr %33, i64 8
+  %38 = getelementptr i8, ptr %.split, i64 44
   %39 = load i64, ptr %38, align 8
   %40 = icmp ne i64 %34, %35
   %41 = icmp ne i64 %37, %39

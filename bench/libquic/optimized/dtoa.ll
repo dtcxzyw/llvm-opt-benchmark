@@ -371,7 +371,7 @@ define noundef double @_ZN6dmg_fp6strtodEPKcPPc(ptr noundef %0, ptr noundef writ
   %136 = mul nuw nsw i32 %.0338, 10
   %137 = add nuw nsw i32 %136, %132
   %138 = add nsw i32 %137, -48
-  %139 = icmp sgt i32 %137, 356
+  %139 = icmp samesign ugt i32 %137, 356
   br i1 %139, label %140, label %128, !llvm.loop !16
 
 140:                                              ; preds = %135, %128

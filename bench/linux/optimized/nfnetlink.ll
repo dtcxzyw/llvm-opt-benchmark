@@ -122,7 +122,8 @@ define dso_local noundef range(i32 -22, 1) i32 @nfnetlink_subsys_register(ptr no
 
 11:                                               ; preds = %9, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %5 ]
-  %12 = getelementptr %struct.nfnl_callback, ptr %7, i64 %indvars.iv, i32 3
+  %.split = getelementptr %struct.nfnl_callback, ptr %7, i64 %indvars.iv
+  %12 = getelementptr i8, ptr %.split, i64 20
   %13 = load i16, ptr %12, align 4
   %14 = icmp ugt i16 %13, 32
   br i1 %14, label %15, label %9, !prof !8
@@ -131,7 +132,7 @@ define dso_local noundef range(i32 -22, 1) i32 @nfnetlink_subsys_register(ptr no
   tail call void asm sideeffect "694: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 694b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 694) #9, !srcloc !9
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 122, i32 2305, i64 12) #9, !srcloc !10
   tail call void asm sideeffect "695: nop\0A\09.pushsection .discard.instr_end\0A\09.long 695b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 695) #9, !srcloc !11
-  br label %34
+  br label %33
 
 .loopexit:                                        ; preds = %9, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -141,31 +142,32 @@ define dso_local noundef range(i32 -22, 1) i32 @nfnetlink_subsys_register(ptr no
   tail call void @mutex_lock(ptr noundef %19) #9
   %20 = load i8, ptr %16, align 8
   %21 = zext i8 %20 to i64
-  %22 = getelementptr %struct.anon, ptr @table, i64 %21, i32 1
+  %.split2 = getelementptr %struct.anon, ptr @table, i64 %21
+  %22 = getelementptr i8, ptr %.split2, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %27, label %25
+  br i1 %24, label %26, label %25
 
 25:                                               ; preds = %.loopexit
-  %26 = getelementptr %struct.anon, ptr @table, i64 %21
-  tail call void @mutex_unlock(ptr noundef %26) #9
-  br label %34
+  tail call void @mutex_unlock(ptr noundef %.split2) #9
+  br label %33
 
-27:                                               ; preds = %.loopexit
+26:                                               ; preds = %.loopexit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
-  %28 = load i8, ptr %16, align 8
-  %29 = zext i8 %28 to i64
-  %30 = getelementptr %struct.anon, ptr @table, i64 %29, i32 1
-  store volatile ptr %0, ptr %30, align 8
-  %31 = load i8, ptr %16, align 8
-  %32 = zext i8 %31 to i64
-  %33 = getelementptr %struct.anon, ptr @table, i64 %32
-  tail call void @mutex_unlock(ptr noundef %33) #9
-  br label %34
+  %27 = load i8, ptr %16, align 8
+  %28 = zext i8 %27 to i64
+  %.split3 = getelementptr %struct.anon, ptr @table, i64 %28
+  %29 = getelementptr i8, ptr %.split3, i64 32
+  store volatile ptr %0, ptr %29, align 8
+  %30 = load i8, ptr %16, align 8
+  %31 = zext i8 %30 to i64
+  %32 = getelementptr %struct.anon, ptr @table, i64 %31
+  tail call void @mutex_unlock(ptr noundef %32) #9
+  br label %33
 
-34:                                               ; preds = %27, %25, %15
-  %35 = phi i32 [ -16, %25 ], [ 0, %27 ], [ -22, %15 ]
-  ret i32 %35
+33:                                               ; preds = %26, %25, %15
+  %34 = phi i32 [ -16, %25 ], [ 0, %26 ], [ -22, %15 ]
+  ret i32 %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -177,7 +179,8 @@ define dso_local noundef i32 @nfnetlink_subsys_unregister(ptr noundef readonly c
   tail call void @mutex_lock(ptr noundef %5) #9
   %6 = load i8, ptr %2, align 8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr %struct.anon, ptr @table, i64 %7, i32 1
+  %.split = getelementptr %struct.anon, ptr @table, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 32
   store ptr null, ptr %8, align 8
   %9 = load i8, ptr %2, align 8
   %10 = zext i8 %9 to i64
@@ -472,7 +475,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %63 = zext nneg i16 %52 to i64
   %64 = getelementptr %struct.anon, ptr @table, i64 %63
-  %65 = getelementptr %struct.anon, ptr @table, i64 %63, i32 1
+  %65 = getelementptr i8, ptr %64, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %56, i64 2536
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1036,7 +1039,8 @@ define internal noundef i32 @nfnetlink_bind(ptr readnone captures(none) %0, i32 
 11:                                               ; preds = %5
   %12 = and i32 %8, 15
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr %struct.anon, ptr @table, i64 %13, i32 1
+  %.split = getelementptr %struct.anon, ptr @table, i64 %13
+  %14 = getelementptr i8, ptr %.split, i64 32
   %15 = load volatile ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   tail call void @__rcu_read_unlock() #9
@@ -1084,13 +1088,14 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i16, ptr %14, align 4
-  %.fr14 = freeze i16 %15
-  %16 = icmp ugt i16 %.fr14, 3327
-  %17 = lshr i16 %.fr14, 8
+  %.fr15 = freeze i16 %15
+  %16 = icmp ugt i16 %.fr15, 3327
+  %17 = lshr i16 %.fr15, 8
   %18 = zext nneg i16 %17 to i64
-  %19 = getelementptr %struct.anon, ptr @table, i64 %18, i32 1
+  %.split = getelementptr %struct.anon, ptr @table, i64 %18
+  %19 = getelementptr i8, ptr %.split, i64 32
   %20 = zext nneg i16 %17 to i32
-  %21 = and i16 %.fr14, 255
+  %21 = and i16 %.fr15, 255
   %22 = zext nneg i16 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 2536
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1099,160 +1104,159 @@ define internal i32 @nfnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %27 = getelementptr i8, ptr %1, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %29 = getelementptr i8, ptr %1, i64 20
-  %30 = getelementptr %struct.anon, ptr @table, i64 %18
-  br i1 %16, label %.split.us, label %.split.preheader
+  br i1 %16, label %.split14.us, label %.split14.preheader
 
-.split.preheader:                                 ; preds = %13
-  %31 = trunc i16 %.fr14 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %.split
+.split14.preheader:                               ; preds = %13
+  %30 = trunc i16 %.fr15 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %.split14
 
-.split.us:                                        ; preds = %13
+.split14.us:                                      ; preds = %13
   tail call void @__rcu_read_lock() #9
   tail call void @__rcu_read_unlock() #9
-  %33 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef %20) #9
+  %32 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef %20) #9
   tail call void @__rcu_read_lock() #9
   br label %.thread6
 
-.split:                                           ; preds = %.split.preheader, %93
+.split14:                                         ; preds = %.split14.preheader, %92
   call void @__rcu_read_lock() #9
-  %34 = load volatile ptr, ptr %19, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread, label %39
+  %33 = load volatile ptr, ptr %19, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %.thread, label %38
 
-.thread:                                          ; preds = %.split
+.thread:                                          ; preds = %.split14
   call void @__rcu_read_unlock() #9
-  %36 = call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef %20) #9
+  %35 = call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef %20) #9
   call void @__rcu_read_lock() #9
-  %37 = load volatile ptr, ptr %19, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread6, label %39
+  %36 = load volatile ptr, ptr %19, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %.thread6, label %38
 
-39:                                               ; preds = %.thread, %.split
-  %40 = phi ptr [ %34, %.split ], [ %37, %.thread ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 9
-  %42 = load i8, ptr %41, align 1
-  %43 = icmp ugt i8 %42, %31
-  br i1 %43, label %44, label %.thread6
+38:                                               ; preds = %.thread, %.split14
+  %39 = phi ptr [ %33, %.split14 ], [ %36, %.thread ]
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 9
+  %41 = load i8, ptr %40, align 1
+  %42 = icmp ugt i8 %41, %30
+  br i1 %42, label %43, label %.thread6
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr %struct.nfnl_callback, ptr %46, i64 %22
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread6, label %49
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr %struct.nfnl_callback, ptr %45, i64 %22
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %.thread6, label %48
 
-49:                                               ; preds = %44
-  %50 = load i32, ptr @nfnetlink_pernet_id, align 4
+48:                                               ; preds = %43
+  %49 = load i32, ptr @nfnetlink_pernet_id, align 4
   call void @__rcu_read_lock() #9
-  %51 = load volatile ptr, ptr %23, align 8
-  %52 = zext i32 %50 to i64
-  %53 = getelementptr ptr, ptr %51, i64 %52
-  %54 = load ptr, ptr %53, align 8
+  %50 = load volatile ptr, ptr %23, align 8
+  %51 = zext i32 %49 to i64
+  %52 = getelementptr ptr, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8
   call void @__rcu_read_unlock() #9
-  %55 = load i16, ptr %14, align 4
+  %54 = load i16, ptr %14, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %4, i8 0, i64 264, i1 false), !annotation !15
-  %56 = load i32, ptr %1, align 4
+  %55 = load i32, ptr %1, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false), !annotation !15
   store ptr %9, ptr %5, align 8
-  %57 = load ptr, ptr %54, align 8
-  store ptr %57, ptr %24, align 8
+  %56 = load ptr, ptr %53, align 8
+  store ptr %56, ptr %24, align 8
   store ptr %1, ptr %25, align 8
   store ptr %27, ptr %26, align 8
   store ptr %2, ptr %28, align 8
-  %58 = load ptr, ptr %45, align 8
-  %59 = and i16 %55, 255
-  %60 = zext nneg i16 %59 to i64
-  %61 = getelementptr %struct.nfnl_callback, ptr %58, i64 %60
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 20
-  %63 = load i16, ptr %62, align 4
-  %64 = icmp ugt i16 %63, 32
-  br i1 %64, label %.thread8, label %65
+  %57 = load ptr, ptr %44, align 8
+  %58 = and i16 %54, 255
+  %59 = zext nneg i16 %58 to i64
+  %60 = getelementptr %struct.nfnl_callback, ptr %57, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 20
+  %62 = load i16, ptr %61, align 4
+  %63 = icmp ugt i16 %62, 32
+  br i1 %63, label %.thread8, label %64
 
-65:                                               ; preds = %49
-  %66 = zext nneg i16 %63 to i32
-  %67 = add i32 %56, -20
-  %68 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef %66, ptr noundef %29, i32 noundef %67, ptr noundef %69, i32 noundef 0, ptr noundef %2) #9
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %.thread8, label %72
+64:                                               ; preds = %48
+  %65 = zext nneg i16 %62 to i32
+  %66 = add i32 %55, -20
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef %65, ptr noundef %29, i32 noundef %66, ptr noundef %68, i32 noundef 0, ptr noundef %2) #9
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %.thread8, label %71
 
-72:                                               ; preds = %65
-  %73 = load ptr, ptr %47, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread8, label %75
+71:                                               ; preds = %64
+  %72 = load ptr, ptr %46, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %.thread8, label %74
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %77 = load i32, ptr %76, align 8
-  switch i32 %77, label %.thread9 [
-    i32 2, label %78
-    i32 1, label %80
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %76 = load i32, ptr %75, align 8
+  switch i32 %76, label %.thread9 [
+    i32 2, label %77
+    i32 1, label %79
   ]
 
-78:                                               ; preds = %75
-  %79 = call i32 %73(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
+77:                                               ; preds = %74
+  %78 = call i32 %72(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
   call void @__rcu_read_unlock() #9
-  br label %93
+  br label %92
 
-80:                                               ; preds = %75
+79:                                               ; preds = %74
   call void @__rcu_read_unlock() #9
-  call void @mutex_lock(ptr noundef %30) #9
-  %81 = load ptr, ptr %19, align 8
-  %82 = icmp eq ptr %81, %40
-  br i1 %82, label %83, label %.critedge
+  call void @mutex_lock(ptr noundef %.split) #9
+  %80 = load ptr, ptr %19, align 8
+  %81 = icmp eq ptr %80, %39
+  br i1 %81, label %82, label %.critedge
 
-83:                                               ; preds = %80
-  %84 = load i8, ptr %41, align 1
-  %85 = zext i8 %84 to i16
-  %86 = icmp samesign ult i16 %21, %85
-  br i1 %86, label %87, label %.critedge
+82:                                               ; preds = %79
+  %83 = load i8, ptr %40, align 1
+  %84 = zext i8 %83 to i16
+  %85 = icmp samesign ult i16 %21, %84
+  br i1 %85, label %86, label %.critedge
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr %45, align 8
-  %89 = icmp eq ptr %88, %46
-  br i1 %89, label %90, label %.critedge
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %44, align 8
+  %88 = icmp eq ptr %87, %45
+  br i1 %88, label %89, label %.critedge
 
-.critedge:                                        ; preds = %83, %87, %80
-  call void @mutex_unlock(ptr noundef %30) #9
-  br label %93
+.critedge:                                        ; preds = %82, %86, %79
+  call void @mutex_unlock(ptr noundef %.split) #9
+  br label %92
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %47, align 8
-  %92 = call i32 %91(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
-  call void @mutex_unlock(ptr noundef %30) #9
-  br label %93
+89:                                               ; preds = %86
+  %90 = load ptr, ptr %46, align 8
+  %91 = call i32 %90(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
+  call void @mutex_unlock(ptr noundef %.split) #9
+  br label %92
 
-.thread9:                                         ; preds = %75
-  call void @__rcu_read_unlock() #9
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit
-
-.thread8:                                         ; preds = %72, %65, %49
-  %.ph = phi i32 [ -12, %49 ], [ %70, %65 ], [ -22, %72 ]
+.thread9:                                         ; preds = %74
   call void @__rcu_read_unlock() #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-93:                                               ; preds = %78, %.critedge, %90
-  %94 = phi i32 [ -11, %.critedge ], [ %92, %90 ], [ %79, %78 ]
-  %95 = icmp eq i32 %94, -11
+.thread8:                                         ; preds = %71, %64, %48
+  %.ph = phi i32 [ -12, %48 ], [ %69, %64 ], [ -22, %71 ]
+  call void @__rcu_read_unlock() #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %95, label %.split, label %.loopexit
+  br label %.loopexit
 
-.thread6:                                         ; preds = %39, %44, %.thread, %.split.us
+92:                                               ; preds = %77, %.critedge, %89
+  %93 = phi i32 [ -11, %.critedge ], [ %91, %89 ], [ %78, %77 ]
+  %94 = icmp eq i32 %93, -11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br i1 %94, label %.split14, label %.loopexit
+
+.thread6:                                         ; preds = %38, %43, %.thread, %.split14.us
   call void @__rcu_read_unlock() #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %93, %.thread9, %.thread8, %.thread6, %3
-  %96 = phi i32 [ 0, %3 ], [ -22, %.thread6 ], [ %.ph, %.thread8 ], [ -22, %.thread9 ], [ %94, %93 ]
-  ret i32 %96
+.loopexit:                                        ; preds = %92, %.thread9, %.thread8, %.thread6, %3
+  %95 = phi i32 [ 0, %3 ], [ -22, %.thread6 ], [ %.ph, %.thread8 ], [ -22, %.thread9 ], [ %93, %92 ]
+  ret i32 %95
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -178,13 +178,14 @@ define noundef i64 @_ZNK5faiss19OnDiskInvertedLists9list_sizeEm(ptr noundef nonn
 define noundef ptr @_ZNK5faiss19OnDiskInvertedLists9get_codesEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(156) %0, i64 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  %5 = getelementptr inbounds nuw %"struct.faiss::OnDiskOneList", ptr %4, i64 %1, i32 2
-  %6 = load i64, ptr %5, align 8, !tbaa !13
-  %7 = icmp eq i64 %6, -1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %6
-  %.0 = select i1 %7, ptr null, ptr %10
+  %5 = getelementptr inbounds nuw %"struct.faiss::OnDiskOneList", ptr %4, i64 %1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load i64, ptr %6, align 8, !tbaa !13
+  %8 = icmp eq i64 %7, -1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %7
+  %.0 = select i1 %8, ptr null, ptr %11
   ret ptr %.0
 }
 

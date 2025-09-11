@@ -522,9 +522,9 @@ define range(i32 -34, 1) i32 @av_packet_add_side_data(ptr noundef captures(none)
   %25 = sext i32 %6 to i64
   %26 = getelementptr inbounds %struct.AVPacketSideData, ptr %23, i64 %25
   store ptr %2, ptr %26, align 8, !tbaa !37
-  %27 = getelementptr inbounds %struct.AVPacketSideData, ptr %23, i64 %25, i32 1
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %3, ptr %27, align 8, !tbaa !38
-  %28 = getelementptr inbounds %struct.AVPacketSideData, ptr %23, i64 %25, i32 2
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 %1, ptr %28, align 8, !tbaa !35
   %29 = load i32, ptr %5, align 8, !tbaa !22
   %30 = add nsw i32 %29, 1
@@ -606,9 +606,9 @@ define ptr @av_packet_new_side_data(ptr noundef captures(none) %0, i32 noundef %
   %30 = sext i32 %11 to i64
   %31 = getelementptr inbounds %struct.AVPacketSideData, ptr %28, i64 %30
   store ptr %8, ptr %31, align 8, !tbaa !37
-  %32 = getelementptr inbounds %struct.AVPacketSideData, ptr %28, i64 %30, i32 1
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %2, ptr %32, align 8, !tbaa !38
-  %33 = getelementptr inbounds %struct.AVPacketSideData, ptr %28, i64 %30, i32 2
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 %1, ptr %33, align 8, !tbaa !35
   %34 = load i32, ptr %10, align 8, !tbaa !22
   %35 = add nsw i32 %34, 1

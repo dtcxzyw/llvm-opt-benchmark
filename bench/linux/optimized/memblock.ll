@@ -861,7 +861,8 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_setclr_flag(ptr n
 20:                                               ; preds = %20, %14
   %21 = phi i64 [ %18, %14 ], [ %28, %20 ]
   %22 = load ptr, ptr %15, align 8
-  %23 = getelementptr %struct.memblock_region, ptr %22, i64 %21, i32 2
+  %.split = getelementptr %struct.memblock_region, ptr %22, i64 %21
+  %23 = getelementptr i8, ptr %.split, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, %17
   %26 = or i32 %24, %4
@@ -1704,7 +1705,8 @@ define dso_local noundef range(i32 -12, 1) i32 @memblock_set_node(i64 noundef %0
 17:                                               ; preds = %17, %13
   %18 = phi i64 [ %15, %13 ], [ %21, %17 ]
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr %struct.memblock_region, ptr %19, i64 %18, i32 3
+  %.split = getelementptr %struct.memblock_region, ptr %19, i64 %18
+  %20 = getelementptr i8, ptr %.split, i64 20
   store i32 %3, ptr %20, align 4
   %21 = add nsw i64 %18, 1
   %22 = icmp eq i64 %21, %16
@@ -2299,17 +2301,18 @@ define dso_local void @memblock_cap_memory_range(i64 noundef %0, i64 noundef %1)
   %19 = load i32, ptr %4, align 4
   %20 = add i32 %18, -1
   %21 = icmp slt i32 %20, %19
-  br i1 %21, label %.loopexit4, label %.preheader.preheader
+  br i1 %21, label %.loopexit5, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %16
-  %.pre5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 40), align 8
+  %.pre6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 40), align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %30
-  %22 = phi ptr [ %31, %30 ], [ %.pre5, %.preheader.preheader ]
+  %22 = phi ptr [ %31, %30 ], [ %.pre6, %.preheader.preheader ]
   %23 = phi i32 [ %32, %30 ], [ %20, %.preheader.preheader ]
   %24 = sext i32 %23 to i64
-  %25 = getelementptr %struct.memblock_region, ptr %22, i64 %24, i32 2
+  %.split = getelementptr %struct.memblock_region, ptr %22, i64 %24
+  %25 = getelementptr i8, ptr %.split, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 4
   %28 = icmp eq i32 %27, 0
@@ -2324,23 +2327,24 @@ define dso_local void @memblock_cap_memory_range(i64 noundef %0, i64 noundef %1)
   %31 = phi ptr [ %.pre, %29 ], [ %22, %.preheader ]
   %32 = add i32 %23, -1
   %33 = icmp slt i32 %32, %19
-  br i1 %33, label %.loopexit4, label %.preheader, !llvm.loop !61
+  br i1 %33, label %.loopexit5, label %.preheader, !llvm.loop !61
 
-.loopexit4:                                       ; preds = %30, %16
+.loopexit5:                                       ; preds = %30, %16
   %34 = load i32, ptr %3, align 4
   %35 = add i32 %34, -1
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %37, label %.loopexit
 
-37:                                               ; preds = %.loopexit4
+37:                                               ; preds = %.loopexit5
   %38 = zext nneg i32 %35 to i64
-  %.pre7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 40), align 8
+  %.pre8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 40), align 8
   br label %39
 
 39:                                               ; preds = %47, %37
-  %40 = phi ptr [ %.pre7, %37 ], [ %48, %47 ]
+  %40 = phi ptr [ %.pre8, %37 ], [ %48, %47 ]
   %41 = phi i64 [ %38, %37 ], [ %49, %47 ]
-  %42 = getelementptr %struct.memblock_region, ptr %40, i64 %41, i32 2
+  %.split4 = getelementptr %struct.memblock_region, ptr %40, i64 %41
+  %42 = getelementptr i8, ptr %.split4, i64 16
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 4
   %45 = icmp eq i32 %44, 0
@@ -2348,16 +2352,16 @@ define dso_local void @memblock_cap_memory_range(i64 noundef %0, i64 noundef %1)
 
 46:                                               ; preds = %39
   tail call fastcc void @memblock_remove_region(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @memblock, i64 16), i64 noundef %41) #22
-  %.pre6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 40), align 8
+  %.pre7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 40), align 8
   br label %47
 
 47:                                               ; preds = %46, %39
-  %48 = phi ptr [ %.pre6, %46 ], [ %40, %39 ]
+  %48 = phi ptr [ %.pre7, %46 ], [ %40, %39 ]
   %49 = add nsw i64 %41, -1
   %50 = icmp sgt i64 %41, 0
   br i1 %50, label %39, label %.loopexit, !llvm.loop !62
 
-.loopexit:                                        ; preds = %47, %.loopexit4
+.loopexit:                                        ; preds = %47, %.loopexit5
   %51 = tail call fastcc i32 @memblock_remove_range(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @memblock, i64 56), i64 noundef 0, i64 noundef %0) #22, !range !10
   %52 = add i64 %1, %0
   %53 = tail call fastcc i32 @memblock_remove_range(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @memblock, i64 56), i64 noundef %52, i64 noundef -1) #22, !range !10
@@ -2373,52 +2377,52 @@ define dso_local void @memblock_cap_memory_range(i64 noundef %0, i64 noundef %1)
 define internal fastcc void @memblock_remove_region(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #3 section ".meminit.text" align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr %struct.memblock_region, ptr %4, i64 %1, i32 1
+  %.split = getelementptr %struct.memblock_region, ptr %4, i64 %1
+  %5 = getelementptr i8, ptr %.split, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %8, %6
   store i64 %9, ptr %7, align 8
-  %10 = getelementptr %struct.memblock_region, ptr %4, i64 %1
-  %11 = add nsw i64 %1, 1
-  %12 = getelementptr %struct.memblock_region, ptr %4, i64 %11
-  %13 = load i64, ptr %0, align 8
-  %14 = sub i64 %13, %11
-  %15 = mul i64 %14, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %10, ptr align 8 %12, i64 %15, i1 false)
-  %16 = load i64, ptr %0, align 8
-  %17 = add i64 %16, -1
-  store i64 %17, ptr %0, align 8
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %31
+  %10 = add nsw i64 %1, 1
+  %11 = getelementptr %struct.memblock_region, ptr %4, i64 %10
+  %12 = load i64, ptr %0, align 8
+  %13 = sub i64 %12, %10
+  %14 = mul i64 %13, 24
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.split, ptr align 8 %11, i64 %14, i1 false)
+  %15 = load i64, ptr %0, align 8
+  %16 = add i64 %15, -1
+  store i64 %16, ptr %0, align 8
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %18, label %30
 
-19:                                               ; preds = %2
-  %20 = load i64, ptr %7, align 8
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %23, label %22, !prof !11
+18:                                               ; preds = %2
+  %19 = load i64, ptr %7, align 8
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %22, label %21, !prof !11
 
-22:                                               ; preds = %19
+21:                                               ; preds = %18
   tail call void asm sideeffect "432: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 432b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 432) #20, !srcloc !63
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 358, i32 2305, i64 12) #20, !srcloc !64
   tail call void asm sideeffect "433: nop\0A\09.pushsection .discard.instr_end\0A\09.long 433b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 433) #20, !srcloc !65
-  br label %23
+  br label %22
 
-23:                                               ; preds = %22, %19
+22:                                               ; preds = %21, %18
   store i64 1, ptr %0, align 8
+  %23 = load ptr, ptr %3, align 8
+  store i64 0, ptr %23, align 8
   %24 = load ptr, ptr %3, align 8
-  store i64 0, ptr %24, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 0, ptr %26, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i32 0, ptr %28, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
-  store i32 64, ptr %30, align 4
-  br label %31
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 0, ptr %25, align 8
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store i32 0, ptr %27, align 8
+  %28 = load ptr, ptr %3, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 20
+  store i32 64, ptr %29, align 4
+  br label %30
 
-31:                                               ; preds = %23, %2
+30:                                               ; preds = %22, %2
   ret void
 }
 
@@ -2578,7 +2582,7 @@ define dso_local zeroext i1 @memblock_is_map_memory(i64 noundef %0) local_unname
   br i1 %22, label %5, label %.thread6, !llvm.loop !66
 
 23:                                               ; preds = %14
-  %24 = getelementptr %struct.memblock_region, ptr %4, i64 %10, i32 2
+  %24 = getelementptr i8, ptr %11, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 4
   %27 = icmp eq i32 %26, 0
@@ -2637,7 +2641,8 @@ define dso_local i32 @memblock_search_pfn_nid(i64 noundef %0, ptr noundef writeo
   %34 = lshr i64 %33, 12
   store i64 %34, ptr %2, align 8
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 40), align 8
-  %36 = getelementptr %struct.memblock_region, ptr %35, i64 %13, i32 3
+  %.split = getelementptr %struct.memblock_region, ptr %35, i64 %13
+  %36 = getelementptr i8, ptr %.split, i64 20
   %37 = load i32, ptr %36, align 4
   br label %.thread6
 

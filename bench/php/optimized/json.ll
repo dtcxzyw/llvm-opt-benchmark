@@ -833,9 +833,7 @@ switch.lookup:                                    ; preds = %22
   %switch.shiftamt = zext nneg i8 %28 to i24
   %switch.downshift = lshr i24 65536, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
-  %switch.cast147 = trunc nuw i8 %switch.tableidx to i3
-  %switch.downshift149 = lshr i3 1, %switch.cast147
-  %switch.masked150 = trunc nuw i3 %switch.downshift149 to i1
+  %switch.masked150 = icmp eq i8 %switch.tableidx, 0
   store i8 %switch.masked, ptr %4, align 1, !tbaa !79
   br label %zend_parse_arg_bool_ex.exit.thread
 

@@ -539,9 +539,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %376 = icmp ult i8 %372, 4
   %switch.idx.cast = trunc i8 %372 to i1
   %switch.offset = xor i1 %switch.idx.cast, true
-  %switch.cast = trunc nuw nsw i8 %372 to i4
-  %switch.downshift = lshr i4 3, %switch.cast
-  %switch.masked = trunc i4 %switch.downshift to i1
+  %switch.masked = icmp ult i8 %372, 2
   %.not109 = select i1 %376, i1 %switch.offset, i1 true
   %.not110 = select i1 %376, i1 %switch.masked, i1 true
   br i1 %.not106, label %377, label %390

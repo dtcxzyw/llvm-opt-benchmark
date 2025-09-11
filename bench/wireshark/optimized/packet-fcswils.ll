@@ -1206,74 +1206,80 @@ define internal void @dissect_swils_efp(ptr noundef %0, ptr noundef %1, ptr noun
   %7 = zext i8 %5 to i32
   %8 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %7)
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
-  %10 = zext i16 %9 to i32
-  %11 = icmp ult i16 %9, 16
-  %12 = load i32, ptr @hf_swils_efp_payload_len, align 4
-  br i1 %11, label %13, label %15
+  %10 = icmp ult i16 %9, 16
+  br i1 %10, label %11, label %15
 
-13:                                               ; preds = %4
-  %14 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %10, ptr noundef nonnull @.str.426, i32 noundef %10, i32 noundef 16)
+11:                                               ; preds = %4
+  %12 = zext nneg i16 %9 to i32
+  %13 = load i32, ptr @hf_swils_efp_payload_len, align 4
+  %14 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %12, ptr noundef nonnull @.str.426, i32 noundef %12, i32 noundef 16)
   br label %.loopexit
 
 15:                                               ; preds = %4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
-  %17 = load i32, ptr @hf_swils_efp_pswitch_pri, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
-  %19 = load i32, ptr @hf_swils_efp_pswitch_name, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0)
-  %21 = icmp eq i8 %5, 0
-  br i1 %21, label %22, label %24
+  %16 = load i32, ptr @hf_swils_efp_payload_len, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  %18 = load i32, ptr @hf_swils_efp_pswitch_pri, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
+  %20 = load i32, ptr @hf_swils_efp_pswitch_name, align 4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0)
+  %22 = icmp eq i8 %5, 0
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %15
-  %23 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %8, ptr noundef nonnull @ei_swils_efp_record_len)
+23:                                               ; preds = %15
+  %24 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %8, ptr noundef nonnull @ei_swils_efp_record_len)
   br label %.loopexit
 
-24:                                               ; preds = %15
+25:                                               ; preds = %15
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.loopexit, label %25
+  br i1 %.not, label %.loopexit, label %26
 
-25:                                               ; preds = %24
-  %26 = add nsw i32 %10, -16
-  %27 = udiv i32 %26, %7
-  %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph, label %.loopexit
+26:                                               ; preds = %25
+  %.lhs.trunc = add i16 %9, -16
+  %.rhs.trunc = zext i8 %5 to i16
+  %.not60 = icmp ult i16 %.lhs.trunc, %.rhs.trunc
+  br i1 %.not60, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %25, %44
-  %.in = phi i32 [ %29, %44 ], [ %27, %25 ]
-  %.05559 = phi i32 [ %45, %44 ], [ 16, %25 ]
-  %29 = add nsw i32 %.in, -1
-  %30 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.05559)
-  %31 = load i32, ptr @ett_fcswils_efplist, align 4
-  %32 = zext i8 %30 to i32
-  %33 = tail call ptr @val_to_str(i32 noundef %32, ptr noundef nonnull @fcswils_rectype_val, ptr noundef nonnull @.str.427)
-  %34 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %.05559, i32 noundef -1, i32 noundef %31, ptr noundef null, ptr noundef %33)
-  %35 = load i32, ptr @hf_swils_efp_rec_type, align 4
-  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %.05559, i32 noundef 1, i32 noundef %32)
-  switch i8 %30, label %44 [
-    i8 1, label %37
+.lr.ph.preheader:                                 ; preds = %26
+  %27 = udiv i16 %.lhs.trunc, %.rhs.trunc
+  %.zext = zext i16 %27 to i32
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %.in = phi i32 [ %28, %43 ], [ %.zext, %.lr.ph.preheader ]
+  %.05559 = phi i32 [ %44, %43 ], [ 16, %.lr.ph.preheader ]
+  %28 = add nsw i32 %.in, -1
+  %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.05559)
+  %30 = load i32, ptr @ett_fcswils_efplist, align 4
+  %31 = zext i8 %29 to i32
+  %32 = tail call ptr @val_to_str(i32 noundef %31, ptr noundef nonnull @fcswils_rectype_val, ptr noundef nonnull @.str.427)
+  %33 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %.05559, i32 noundef -1, i32 noundef %30, ptr noundef null, ptr noundef %32)
+  %34 = load i32, ptr @hf_swils_efp_rec_type, align 4
+  %35 = tail call ptr @proto_tree_add_uint(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.05559, i32 noundef 1, i32 noundef %31)
+  switch i8 %29, label %43 [
+    i8 1, label %36
     i8 2, label %.sink.split
   ]
 
-37:                                               ; preds = %.lr.ph
-  %38 = load i32, ptr @hf_swils_efp_dom_id, align 4
-  %39 = add i32 %.05559, 1
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0)
+36:                                               ; preds = %.lr.ph
+  %37 = load i32, ptr @hf_swils_efp_dom_id, align 4
+  %38 = add nuw nsw i32 %.05559, 1
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph, %37
-  %hf_swils_efp_mcast_grpno.sink = phi ptr [ @hf_swils_efp_switch_name, %37 ], [ @hf_swils_efp_mcast_grpno, %.lr.ph ]
-  %.sink63 = phi i32 [ 8, %37 ], [ 1, %.lr.ph ]
-  %41 = load i32, ptr %hf_swils_efp_mcast_grpno.sink, align 4
-  %42 = add i32 %.05559, %.sink63
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef %.sink63, i32 noundef 0)
-  br label %44
+.sink.split:                                      ; preds = %.lr.ph, %36
+  %hf_swils_efp_mcast_grpno.sink = phi ptr [ @hf_swils_efp_switch_name, %36 ], [ @hf_swils_efp_mcast_grpno, %.lr.ph ]
+  %.sink65 = phi i32 [ 8, %36 ], [ 1, %.lr.ph ]
+  %40 = load i32, ptr %hf_swils_efp_mcast_grpno.sink, align 4
+  %41 = add nuw nsw i32 %.05559, %.sink65
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef %.sink65, i32 noundef 0)
+  br label %43
 
-44:                                               ; preds = %.sink.split, %.lr.ph
-  %45 = add i32 %.05559, %7
-  %46 = icmp samesign ugt i32 %.in, 1
-  br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !6
+43:                                               ; preds = %.sink.split, %.lr.ph
+  %44 = add nuw nsw i32 %.05559, %7
+  %45 = icmp samesign ugt i32 %.in, 1
+  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %44, %25, %24, %22, %13
+.loopexit:                                        ; preds = %43, %26, %25, %23, %11
   ret void
 }
 

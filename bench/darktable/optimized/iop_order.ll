@@ -608,7 +608,7 @@ define range(i32 0, 2) i32 @_check_iop_list_equal(ptr noundef readonly captures(
   br i1 %.not2548, label %.preheader.preheader, label %.thread
 
 .preheader.preheader:                             ; preds = %.lr.ph.preheader, %.lr.ph
-  %7 = phi ptr [ %15, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %7 = phi ptr [ %16, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %.0213450 = phi ptr [ %9, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %indvars.iv49 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   br label %.preheader
@@ -630,10 +630,11 @@ define range(i32 0, 2) i32 @_check_iop_list_equal(ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv49, 1
   %14 = load ptr, ptr %9, align 8, !tbaa !54
-  %15 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %1, i64 %indvars.iv.next, i32 1
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %16) #18
-  %.not25 = icmp eq i32 %17, 0
+  %15 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %1, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %17) #18
+  %.not25 = icmp eq i32 %18, 0
   br i1 %.not25, label %.preheader.preheader, label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.preheader, %.lr.ph.preheader, %2
@@ -661,7 +662,7 @@ define i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef readonly captures(addre
   br i1 %.not25.i13, label %.preheader.i.preheader, label %_check_iop_list_equal.exit
 
 .preheader.i.preheader:                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %8 = phi ptr [ %15, %.lr.ph.i ], [ %6, %.lr.ph.i.preheader ]
+  %8 = phi ptr [ %16, %.lr.ph.i ], [ %6, %.lr.ph.i.preheader ]
   %.02134.i15 = phi ptr [ %10, %.lr.ph.i ], [ %0, %.lr.ph.i.preheader ]
   %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   br label %.preheader.i
@@ -682,9 +683,10 @@ define i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef readonly captures(addre
 
 .lr.ph.i:                                         ; preds = %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i14, 1
-  %15 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %5, i64 %indvars.iv.next.i, i32 1
-  %16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %13) #18
-  %.not25.i = icmp eq i32 %16, 0
+  %15 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %5, i64 %indvars.iv.next.i
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %13) #18
+  %.not25.i = icmp eq i32 %17, 0
   br i1 %.not25.i, label %.preheader.i.preheader, label %_check_iop_list_equal.exit
 
 _check_iop_list_equal.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i.preheader
@@ -693,11 +695,11 @@ _check_iop_list_equal.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %exitcond, label %_check_iop_list_equal.exit.thread, label %.lr.ph.i.preheader
 
 _check_iop_list_equal.exit.thread.loopexit:       ; preds = %.preheader.i
-  %17 = trunc nuw nsw i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_check_iop_list_equal.exit.thread
 
 _check_iop_list_equal.exit.thread:                ; preds = %_check_iop_list_equal.exit, %1, %_check_iop_list_equal.exit.thread.loopexit
-  %spec.select = phi i32 [ %17, %_check_iop_list_equal.exit.thread.loopexit ], [ 1, %1 ], [ 0, %_check_iop_list_equal.exit ]
+  %spec.select = phi i32 [ %18, %_check_iop_list_equal.exit.thread.loopexit ], [ 1, %1 ], [ 0, %_check_iop_list_equal.exit ]
   ret i32 %spec.select
 }
 
@@ -1509,7 +1511,7 @@ _insert_before.exit179.thread196:                 ; preds = %.critedge.preheader
   store i32 0, ptr %248, align 4, !tbaa !57
   store i32 0, ptr %245, align 8, !tbaa !59
   %249 = call ptr @g_list_insert_before(ptr noundef nonnull %43, ptr noundef nonnull %.02839.i173, ptr noundef nonnull %245) #15
-  br label %272
+  br label %273
 
 .critedge.i175:                                   ; preds = %.critedge.preheader.i172
   %250 = getelementptr inbounds nuw i8, ptr %.02839.i173, i64 8
@@ -1519,7 +1521,7 @@ _insert_before.exit179.thread196:                 ; preds = %.critedge.preheader
 
 252:                                              ; preds = %32
   %253 = icmp ult i32 %34, 6
-  br i1 %253, label %254, label %271
+  br i1 %253, label %254, label %272
 
 254:                                              ; preds = %252
   %255 = zext nneg i32 %34 to i64
@@ -1532,7 +1534,7 @@ _insert_before.exit179.thread196:                 ; preds = %.critedge.preheader
 
 .lr.ph.i:                                         ; preds = %254, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %254 ]
-  %260 = phi ptr [ %268, %.lr.ph.i ], [ %258, %254 ]
+  %260 = phi ptr [ %269, %.lr.ph.i ], [ %258, %254 ]
   %.015.i = phi ptr [ %267, %.lr.ph.i ], [ null, %254 ]
   %261 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %257, i64 %indvars.iv.i
   %262 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
@@ -1544,97 +1546,99 @@ _insert_before.exit179.thread196:                 ; preds = %.critedge.preheader
   store double %266, ptr %262, align 8, !tbaa !59
   %267 = call ptr @g_list_prepend(ptr noundef %.015.i, ptr noundef nonnull %262) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %268 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %257, i64 %indvars.iv.next.i, i32 1
-  %269 = load i8, ptr %268, align 8, !tbaa !59
-  %.not.i180 = icmp eq i8 %269, 0
+  %268 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %257, i64 %indvars.iv.next.i
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load i8, ptr %269, align 8, !tbaa !59
+  %.not.i180 = icmp eq i8 %270, 0
   br i1 %.not.i180, label %_table_to_list.exit, label %.lr.ph.i
 
 _table_to_list.exit:                              ; preds = %.lr.ph.i, %254
   %.0.lcssa.i = phi ptr [ null, %254 ], [ %267, %.lr.ph.i ]
-  %270 = call ptr @g_list_reverse(ptr noundef %.0.lcssa.i) #15
+  %271 = call ptr @g_list_reverse(ptr noundef %.0.lcssa.i) #15
   br label %_insert_before.exit179
 
-271:                                              ; preds = %252
+272:                                              ; preds = %252
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.41, i32 noundef %34, i32 noundef %0) #15
   br label %.thread203
 
 _insert_before.exit179:                           ; preds = %_insert_before.exit168, %.critedge.i175, %_table_to_list.exit
-  %.3 = phi ptr [ %270, %_table_to_list.exit ], [ %43, %.critedge.i175 ], [ %43, %_insert_before.exit168 ]
+  %.3 = phi ptr [ %271, %_table_to_list.exit ], [ %43, %.critedge.i175 ], [ %43, %_insert_before.exit168 ]
   %.not45 = icmp eq ptr %.3, null
-  br i1 %.not45, label %.thread203, label %272
+  br i1 %.not45, label %.thread203, label %273
 
-272:                                              ; preds = %_insert_before.exit179.thread196, %_insert_before.exit179
+273:                                              ; preds = %_insert_before.exit179.thread196, %_insert_before.exit179
   %.3199 = phi ptr [ %43, %_insert_before.exit179.thread196 ], [ %.3, %_insert_before.exit179 ]
   br label %.lr.ph.i181
 
-.lr.ph.i181:                                      ; preds = %272, %.lr.ph.i181
-  %.010.i = phi i32 [ %274, %.lr.ph.i181 ], [ 100, %272 ]
-  %.079.i = phi ptr [ %276, %.lr.ph.i181 ], [ %.3199, %272 ]
-  %273 = load ptr, ptr %.079.i, align 8, !tbaa !54
-  store i32 %.010.i, ptr %273, align 8, !tbaa !59
-  %274 = add nuw nsw i32 %.010.i, 100
-  %275 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
-  %276 = load ptr, ptr %275, align 8, !tbaa !56
-  %.not.i182 = icmp eq ptr %276, null
-  br i1 %.not.i182, label %279, label %.lr.ph.i181
+.lr.ph.i181:                                      ; preds = %273, %.lr.ph.i181
+  %.010.i = phi i32 [ %275, %.lr.ph.i181 ], [ 100, %273 ]
+  %.079.i = phi ptr [ %277, %.lr.ph.i181 ], [ %.3199, %273 ]
+  %274 = load ptr, ptr %.079.i, align 8, !tbaa !54
+  store i32 %.010.i, ptr %274, align 8, !tbaa !59
+  %275 = add nuw nsw i32 %.010.i, 100
+  %276 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
+  %277 = load ptr, ptr %276, align 8, !tbaa !56
+  %.not.i182 = icmp eq ptr %277, null
+  br i1 %.not.i182, label %280, label %.lr.ph.i181
 
-.thread203:                                       ; preds = %28, %_insert_before.exit179, %271, %.thread
-  %277 = load ptr, ptr %3, align 8, !tbaa !52
-  %278 = call i32 @sqlite3_finalize(ptr noundef %277) #15
+.thread203:                                       ; preds = %28, %_insert_before.exit179, %272, %.thread
+  %278 = load ptr, ptr %3, align 8, !tbaa !52
+  %279 = call i32 @sqlite3_finalize(ptr noundef %278) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread200
 
-279:                                              ; preds = %.lr.ph.i181
-  %280 = load ptr, ptr %3, align 8, !tbaa !52
-  %281 = call i32 @sqlite3_finalize(ptr noundef %280) #15
+280:                                              ; preds = %.lr.ph.i181
+  %281 = load ptr, ptr %3, align 8, !tbaa !52
+  %282 = call i32 @sqlite3_finalize(ptr noundef %281) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %299
+  br label %301
 
 .thread200:                                       ; preds = %2, %.thread203
-  %282 = call i32 @_ioppr_get_default_iop_order_version(i32 noundef %0)
-  %283 = zext nneg i32 %282 to i64
-  %284 = getelementptr inbounds nuw ptr, ptr @_iop_order_tables, i64 %283
-  %285 = load ptr, ptr %284, align 8, !tbaa !60
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
-  %287 = load i8, ptr %286, align 8, !tbaa !59
-  %.not13.i183 = icmp eq i8 %287, 0
+  %283 = call i32 @_ioppr_get_default_iop_order_version(i32 noundef %0)
+  %284 = zext nneg i32 %283 to i64
+  %285 = getelementptr inbounds nuw ptr, ptr @_iop_order_tables, i64 %284
+  %286 = load ptr, ptr %285, align 8, !tbaa !60
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  %288 = load i8, ptr %287, align 8, !tbaa !59
+  %.not13.i183 = icmp eq i8 %288, 0
   br i1 %.not13.i183, label %_table_to_list.exit190, label %.lr.ph.i184
 
 .lr.ph.i184:                                      ; preds = %.thread200, %.lr.ph.i184
   %indvars.iv.i185 = phi i64 [ %indvars.iv.next.i187, %.lr.ph.i184 ], [ 0, %.thread200 ]
-  %288 = phi ptr [ %296, %.lr.ph.i184 ], [ %286, %.thread200 ]
-  %.015.i186 = phi ptr [ %295, %.lr.ph.i184 ], [ null, %.thread200 ]
-  %289 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %285, i64 %indvars.iv.i185
-  %290 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
-  %291 = getelementptr inbounds nuw i8, ptr %290, i64 8
-  %292 = call i64 @g_strlcpy(ptr noundef nonnull %291, ptr noundef nonnull %288, i64 noundef 20) #15
-  %293 = getelementptr inbounds nuw i8, ptr %290, i64 28
-  store i32 0, ptr %293, align 4, !tbaa !57
-  %294 = load double, ptr %289, align 8, !tbaa !59
-  store double %294, ptr %290, align 8, !tbaa !59
-  %295 = call ptr @g_list_prepend(ptr noundef %.015.i186, ptr noundef nonnull %290) #15
+  %289 = phi ptr [ %298, %.lr.ph.i184 ], [ %287, %.thread200 ]
+  %.015.i186 = phi ptr [ %296, %.lr.ph.i184 ], [ null, %.thread200 ]
+  %290 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %286, i64 %indvars.iv.i185
+  %291 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
+  %293 = call i64 @g_strlcpy(ptr noundef nonnull %292, ptr noundef nonnull %289, i64 noundef 20) #15
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 28
+  store i32 0, ptr %294, align 4, !tbaa !57
+  %295 = load double, ptr %290, align 8, !tbaa !59
+  store double %295, ptr %291, align 8, !tbaa !59
+  %296 = call ptr @g_list_prepend(ptr noundef %.015.i186, ptr noundef nonnull %291) #15
   %indvars.iv.next.i187 = add nuw nsw i64 %indvars.iv.i185, 1
-  %296 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %285, i64 %indvars.iv.next.i187, i32 1
-  %297 = load i8, ptr %296, align 8, !tbaa !59
-  %.not.i188 = icmp eq i8 %297, 0
+  %297 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %286, i64 %indvars.iv.next.i187
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  %299 = load i8, ptr %298, align 8, !tbaa !59
+  %.not.i188 = icmp eq i8 %299, 0
   br i1 %.not.i188, label %_table_to_list.exit190, label %.lr.ph.i184
 
 _table_to_list.exit190:                           ; preds = %.lr.ph.i184, %.thread200
-  %.0.lcssa.i189 = phi ptr [ null, %.thread200 ], [ %295, %.lr.ph.i184 ]
-  %298 = call ptr @g_list_reverse(ptr noundef %.0.lcssa.i189) #15
-  br label %299
+  %.0.lcssa.i189 = phi ptr [ null, %.thread200 ], [ %296, %.lr.ph.i184 ]
+  %300 = call ptr @g_list_reverse(ptr noundef %.0.lcssa.i189) #15
+  br label %301
 
-299:                                              ; preds = %279, %_table_to_list.exit190
-  %.4 = phi ptr [ %.3199, %279 ], [ %298, %_table_to_list.exit190 ]
+301:                                              ; preds = %280, %_table_to_list.exit190
+  %.4 = phi ptr [ %.3199, %280 ], [ %300, %_table_to_list.exit190 ]
   %.not47 = icmp eq i32 %1, 0
-  br i1 %.not47, label %302, label %300
+  br i1 %.not47, label %304, label %302
 
-300:                                              ; preds = %299
-  %301 = call ptr @g_list_sort(ptr noundef %.4, ptr noundef nonnull @dt_sort_iop_list_by_order) #15
-  br label %302
+302:                                              ; preds = %301
+  %303 = call ptr @g_list_sort(ptr noundef %.4, ptr noundef nonnull @dt_sort_iop_list_by_order) #15
+  br label %304
 
-302:                                              ; preds = %300, %299
-  %.5 = phi ptr [ %301, %300 ], [ %.4, %299 ]
+304:                                              ; preds = %302, %301
+  %.5 = phi ptr [ %303, %302 ], [ %.4, %301 ]
   ret ptr %.5
 }
 
@@ -1955,7 +1959,7 @@ define range(i32 0, 2) i32 @dt_ioppr_write_iop_order_list(ptr noundef %0, i32 no
   br i1 %.not25.i13.i, label %.preheader.i.preheader.i, label %_check_iop_list_equal.exit.i
 
 .preheader.i.preheader.i:                         ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i
-  %9 = phi ptr [ %16, %.lr.ph.i.i ], [ %7, %.lr.ph.i.preheader.i ]
+  %9 = phi ptr [ %17, %.lr.ph.i.i ], [ %7, %.lr.ph.i.preheader.i ]
   %.02134.i15.i = phi ptr [ %11, %.lr.ph.i.i ], [ %0, %.lr.ph.i.preheader.i ]
   %indvars.iv.i14.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   br label %.preheader.i.i
@@ -1976,9 +1980,10 @@ define range(i32 0, 2) i32 @dt_ioppr_write_iop_order_list(ptr noundef %0, i32 no
 
 .lr.ph.i.i:                                       ; preds = %12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i14.i, 1
-  %16 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %6, i64 %indvars.iv.next.i.i, i32 1
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %14) #18
-  %.not25.i.i = icmp eq i32 %17, 0
+  %16 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %6, i64 %indvars.iv.next.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %14) #18
+  %.not25.i.i = icmp eq i32 %18, 0
   br i1 %.not25.i.i, label %.preheader.i.preheader.i, label %_check_iop_list_equal.exit.i
 
 _check_iop_list_equal.exit.i:                     ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
@@ -1987,13 +1992,13 @@ _check_iop_list_equal.exit.i:                     ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %exitcond.i, label %dt_ioppr_get_iop_order_list_kind.exit, label %.lr.ph.i.preheader.i
 
 _check_iop_list_equal.exit.thread.loopexit.i:     ; preds = %.preheader.i.i
-  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %dt_ioppr_get_iop_order_list_kind.exit
 
 dt_ioppr_get_iop_order_list_kind.exit:            ; preds = %_check_iop_list_equal.exit.i, %2, %_check_iop_list_equal.exit.thread.loopexit.i
-  %spec.select.i = phi i32 [ %18, %_check_iop_list_equal.exit.thread.loopexit.i ], [ 1, %2 ], [ 0, %_check_iop_list_equal.exit.i ]
-  %19 = tail call i32 @dt_ioppr_write_iop_order(i32 noundef %spec.select.i, ptr noundef %0, i32 noundef %1)
-  ret i32 %19
+  %spec.select.i = phi i32 [ %19, %_check_iop_list_equal.exit.thread.loopexit.i ], [ 1, %2 ], [ 0, %_check_iop_list_equal.exit.i ]
+  %20 = tail call i32 @dt_ioppr_write_iop_order(i32 noundef %spec.select.i, ptr noundef %0, i32 noundef %1)
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2005,7 +2010,7 @@ define ptr @_table_to_list(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %4 = phi ptr [ %12, %.lr.ph ], [ %2, %1 ]
+  %4 = phi ptr [ %13, %.lr.ph ], [ %2, %1 ]
   %.015 = phi ptr [ %11, %.lr.ph ], [ null, %1 ]
   %5 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %0, i64 %indvars.iv
   %6 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
@@ -2017,22 +2022,23 @@ define ptr @_table_to_list(ptr noundef %0) local_unnamed_addr #1 {
   store double %10, ptr %6, align 8, !tbaa !59
   %11 = tail call ptr @g_list_prepend(ptr noundef %.015, ptr noundef nonnull %6) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %0, i64 %indvars.iv.next, i32 1
-  %13 = load i8, ptr %12, align 8, !tbaa !59
-  %.not = icmp eq i8 %13, 0
+  %12 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %0, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load i8, ptr %13, align 8, !tbaa !59
+  %.not = icmp eq i8 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %11, %.lr.ph ]
-  %14 = tail call ptr @g_list_reverse(ptr noundef %.0.lcssa) #15
-  ret ptr %14
+  %15 = tail call ptr @g_list_reverse(ptr noundef %.0.lcssa) #15
+  ret ptr %15
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_ioppr_get_iop_order_list_version(i32 noundef %0) local_unnamed_addr #1 {
   %2 = add i32 %0, -1
   %or.cond = icmp ult i32 %2, 5
-  br i1 %or.cond, label %3, label %20
+  br i1 %or.cond, label %3, label %21
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
@@ -2045,7 +2051,7 @@ define ptr @dt_ioppr_get_iop_order_list_version(i32 noundef %0) local_unnamed_ad
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %3 ]
-  %9 = phi ptr [ %17, %.lr.ph.i ], [ %7, %3 ]
+  %9 = phi ptr [ %18, %.lr.ph.i ], [ %7, %3 ]
   %.015.i = phi ptr [ %16, %.lr.ph.i ], [ null, %3 ]
   %10 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %6, i64 %indvars.iv.i
   %11 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
@@ -2057,18 +2063,19 @@ define ptr @dt_ioppr_get_iop_order_list_version(i32 noundef %0) local_unnamed_ad
   store double %15, ptr %11, align 8, !tbaa !59
   %16 = tail call ptr @g_list_prepend(ptr noundef %.015.i, ptr noundef nonnull %11) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %17 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %6, i64 %indvars.iv.next.i, i32 1
-  %18 = load i8, ptr %17, align 8, !tbaa !59
-  %.not.i = icmp eq i8 %18, 0
+  %17 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %6, i64 %indvars.iv.next.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i8, ptr %18, align 8, !tbaa !59
+  %.not.i = icmp eq i8 %19, 0
   br i1 %.not.i, label %_table_to_list.exit, label %.lr.ph.i
 
 _table_to_list.exit:                              ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi ptr [ null, %3 ], [ %16, %.lr.ph.i ]
-  %19 = tail call ptr @g_list_reverse(ptr noundef %.0.lcssa.i) #15
-  br label %20
+  %20 = tail call ptr @g_list_reverse(ptr noundef %.0.lcssa.i) #15
+  br label %21
 
-20:                                               ; preds = %1, %_table_to_list.exit
-  %.0 = phi ptr [ %19, %_table_to_list.exit ], [ null, %1 ]
+21:                                               ; preds = %1, %_table_to_list.exit
+  %.0 = phi ptr [ %20, %_table_to_list.exit ], [ null, %1 ]
   ret ptr %.0
 }
 

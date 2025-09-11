@@ -8602,32 +8602,33 @@ define linkonce_odr dso_local void @_ZN13V3DfgPeephole20addSourcesToWorkListEP9D
   br i1 %.not9.i, label %_ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc4
-  %.08.i = phi i64 [ %20, %.noexc4 ], [ 0, %.noexc ]
-  %14 = getelementptr inbounds nuw %class.DfgEdge, ptr %12, i64 %.08.i, i32 2
-  %15 = load ptr, ptr %14, align 8, !tbaa !205
-  %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %.noexc4, label %16
+  %.08.i = phi i64 [ %21, %.noexc4 ], [ 0, %.noexc ]
+  %14 = getelementptr inbounds nuw %class.DfgEdge, ptr %12, i64 %.08.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !205
+  %.not.i = icmp eq ptr %16, null
+  br i1 %.not.i, label %.noexc4, label %17
 
-16:                                               ; preds = %.lr.ph.i
-  %17 = load ptr, ptr %4, align 8, !tbaa !193
-  %.not.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i, label %18, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i
+17:                                               ; preds = %.lr.ph.i
+  %18 = load ptr, ptr %4, align 8, !tbaa !193
+  %.not.i.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i.i, label %19, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i
 
-18:                                               ; preds = %16
+19:                                               ; preds = %17
   invoke void @_ZSt25__throw_bad_function_callv() #27
           to label %.noexc3 unwind label %.loopexit.split-lp
 
-.noexc3:                                          ; preds = %18
+.noexc3:                                          ; preds = %19
   unreachable
 
-_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i:     ; preds = %16
-  %19 = load ptr, ptr %5, align 8, !tbaa !227
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(72) %15)
+_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i:     ; preds = %17
+  %20 = load ptr, ptr %5, align 8, !tbaa !227
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(72) %16)
           to label %.noexc4 unwind label %.loopexit
 
 .noexc4:                                          ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i, %.lr.ph.i
-  %20 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %20, %13
+  %21 = add nuw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %21, %13
   br i1 %exitcond.not.i, label %_ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit, label %.lr.ph.i, !llvm.loop !229
 
 _ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit: ; preds = %.noexc4
@@ -8636,15 +8637,15 @@ _ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit: ; preds = %.noexc4
   br i1 %.not.i5, label %_ZNSt14_Function_baseD2Ev.exit, label %_ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit.thread
 
 _ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit.thread: ; preds = %.noexc, %_ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit
-  %21 = phi ptr [ %.pre, %_ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit ], [ @_ZNSt17_Function_handlerIFvR9DfgVertexEZN13V3DfgPeephole20addSourcesToWorkListEPS0_EUlS1_E_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, %.noexc ]
-  %22 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %23
+  %22 = phi ptr [ %.pre, %_ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit ], [ @_ZNSt17_Function_handlerIFvR9DfgVertexEZN13V3DfgPeephole20addSourcesToWorkListEPS0_EUlS1_E_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, %.noexc ]
+  %23 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %24
 
-23:                                               ; preds = %_ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit.thread
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit.thread
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #26
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #26
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit, %_ZN9DfgVertex13forEachSourceESt8functionIFvRS_EE.exit.thread
@@ -8653,31 +8654,31 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN9DfgVertex13forE
 .loopexit:                                        ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %27
 
-.loopexit.split-lp:                               ; preds = %2, %18
+.loopexit.split-lp:                               ; preds = %2, %19
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %27
 
-26:                                               ; preds = %.loopexit.split-lp, %.loopexit
+27:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %27 = load ptr, ptr %4, align 8, !tbaa !193
-  %.not.i6 = icmp eq ptr %27, null
-  br i1 %.not.i6, label %_ZNSt14_Function_baseD2Ev.exit7, label %28
+  %28 = load ptr, ptr %4, align 8, !tbaa !193
+  %.not.i6 = icmp eq ptr %28, null
+  br i1 %.not.i6, label %_ZNSt14_Function_baseD2Ev.exit7, label %29
 
-28:                                               ; preds = %26
-  %29 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit7 unwind label %30
+29:                                               ; preds = %27
+  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit7 unwind label %31
 
-30:                                               ; preds = %28
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #26
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #26
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit7:                  ; preds = %26, %28
+_ZNSt14_Function_baseD2Ev.exit7:                  ; preds = %27, %29
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -8751,33 +8752,34 @@ define linkonce_odr dso_local void @_ZN9DfgVertex13forEachSourceESt8functionIFvR
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %11
 
-._crit_edge:                                      ; preds = %18, %2
+._crit_edge:                                      ; preds = %19, %2
   ret void
 
-11:                                               ; preds = %.lr.ph, %18
-  %.08 = phi i64 [ 0, %.lr.ph ], [ %19, %18 ]
-  %12 = getelementptr inbounds nuw %class.DfgEdge, ptr %7, i64 %.08, i32 2
-  %13 = load ptr, ptr %12, align 8, !tbaa !205
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %18, label %14
+11:                                               ; preds = %.lr.ph, %19
+  %.08 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
+  %12 = getelementptr inbounds nuw %class.DfgEdge, ptr %7, i64 %.08
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !205
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %19, label %15
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %9, align 8, !tbaa !193
-  %.not.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i, label %16, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %9, align 8, !tbaa !193
+  %.not.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i, label %17, label %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit
 
-16:                                               ; preds = %14
+17:                                               ; preds = %15
   tail call void @_ZSt25__throw_bad_function_callv() #27
   unreachable
 
-_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit:       ; preds = %14
-  %17 = load ptr, ptr %10, align 8, !tbaa !227
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %13)
-  br label %18
+_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit:       ; preds = %15
+  %18 = load ptr, ptr %10, align 8, !tbaa !227
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %14)
+  br label %19
 
-18:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit, %11
-  %19 = add nuw i64 %.08, 1
-  %exitcond.not = icmp eq i64 %19, %8
+19:                                               ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit, %11
+  %20 = add nuw i64 %.08, 1
+  %exitcond.not = icmp eq i64 %20, %8
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !229
 }
 
@@ -14615,13 +14617,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbRK7
   %5 = load ptr, ptr %0, align 8, !tbaa !402
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8, !tbaa !404
-  %8 = getelementptr inbounds nuw %"struct.std::pair.199", ptr %7, i64 %4, i32 1
-  %9 = load i32, ptr %8, align 8, !tbaa !407
-  %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !409
-  %13 = icmp eq i64 %12, %10
-  ret i1 %13
+  %8 = getelementptr inbounds nuw %"struct.std::pair.199", ptr %7, i64 %4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load i32, ptr %9, align 8, !tbaa !407
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load i64, ptr %12, align 8, !tbaa !409
+  %14 = icmp eq i64 %13, %11
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16999,8 +17002,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i.i, 5
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i
+  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -17776,8 +17778,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP5Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i.i, 5
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i
+  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -20642,8 +20643,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i.i, 5
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i
+  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -22474,8 +22474,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i.i, 5
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i
+  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -22896,8 +22895,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i.i, 5
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i
+  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -23318,8 +23316,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i.i, 5
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i
+  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -23831,8 +23828,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %.idx.i.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i.i, 5
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i
+  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1

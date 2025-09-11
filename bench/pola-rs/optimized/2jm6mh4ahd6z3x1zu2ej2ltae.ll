@@ -12508,7 +12508,7 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
   tail call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1007
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h8321d6c63d7089ffE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %16, i1 noundef zeroext false, i64 noundef 8, i64 noundef 16)
-          to label %.noexc unwind label %218
+          to label %.noexc unwind label %219
 
 .noexc:                                           ; preds = %2
   %18 = load i64, ptr %4, align 8, !range !815, !noalias !1007, !noundef !8
@@ -12521,7 +12521,7 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
 23:                                               ; preds = %.noexc
   %24 = load i64, ptr %22, align 8, !noalias !1007
   invoke void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %21, i64 %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.801) #44
-          to label %.noexc4 unwind label %218
+          to label %.noexc4 unwind label %219
 
 .noexc4:                                          ; preds = %23
   unreachable
@@ -12564,9 +12564,9 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
 36:                                               ; preds = %44, %37
   %.pn43.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn43.pn.i.i.i.i, %44 ], [ %38, %37 ]
   invoke void @"_ZN4core3ptr182drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$polars_utils..priority..Priority$LT$core..cmp..Reverse$LT$$RF$polars_stream..morsel..MorselSeq$GT$$C$usize$GT$$GT$$GT$17hd305824ea4fa1718E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #42
-          to label %.body unwind label %185, !noalias !1000
+          to label %.body unwind label %186, !noalias !1000
 
-37:                                               ; preds = %184, %34, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hbef99d6b373999acE.exit.i.i.i.i"
+37:                                               ; preds = %185, %34, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hbef99d6b373999acE.exit.i.i.i.i"
   %38 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
@@ -12587,9 +12587,9 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
 44:                                               ; preds = %54, %45
   %.pn43.pn.i.i.i.i = phi { ptr, i32 } [ %.pn43.i.i.i.i, %54 ], [ %46, %45 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17he182b336c661ae80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #42
-          to label %36 unwind label %185, !noalias !1000
+          to label %36 unwind label %186, !noalias !1000
 
-45:                                               ; preds = %182, %39
+45:                                               ; preds = %183, %39
   %46 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
@@ -12603,10 +12603,10 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
   %51 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %49, i64 %50
   br label %.outer.i.i.i.i
 
-.outer.i.i.i.i:                                   ; preds = %212, %47
-  %.sroa.7.0.ph.i.i.i.i = phi i64 [ %57, %212 ], [ 0, %47 ]
-  %.sroa.0.0.ph.i.i.i.i = phi ptr [ %56, %212 ], [ %49, %47 ]
-  %.sroa.05.0.ph.i.i.i.i = phi i64 [ %217, %212 ], [ 0, %47 ]
+.outer.i.i.i.i:                                   ; preds = %213, %47
+  %.sroa.7.0.ph.i.i.i.i = phi i64 [ %57, %213 ], [ 0, %47 ]
+  %.sroa.0.0.ph.i.i.i.i = phi ptr [ %56, %213 ], [ %49, %47 ]
+  %.sroa.05.0.ph.i.i.i.i = phi i64 [ %218, %213 ], [ 0, %47 ]
   br label %52
 
 52:                                               ; preds = %55, %.outer.i.i.i.i
@@ -12615,12 +12615,12 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
   %53 = icmp eq ptr %.sroa.0.0.i.i.i.i, %51
   br i1 %53, label %60, label %55
 
-54:                                               ; preds = %188, %.thread35.i.i.i.i, %86, %.loopexit.split-lp.i.i.i.i, %.loopexit.i.i.i.i
-  %.pn43.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.pn.ph.i.i.i.i, %188 ], [ %.pn24.i.i.i.i, %86 ], [ %lpad.thr_comm.split-lp.i.i.i.i, %.thread35.i.i.i.i ], [ %lpad.loopexit38.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp39.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
+54:                                               ; preds = %189, %.thread35.i.i.i.i, %86, %.loopexit.split-lp.i.i.i.i, %.loopexit.i.i.i.i
+  %.pn43.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.pn.ph.i.i.i.i, %189 ], [ %.pn24.i.i.i.i, %86 ], [ %lpad.thr_comm.split-lp.i.i.i.i, %.thread35.i.i.i.i ], [ %lpad.loopexit38.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp39.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$polars_utils..cardinality_sketch..CardinalitySketch$GT$17h48be3c8626727189E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11) #42
-          to label %44 unwind label %185, !noalias !1000
+          to label %44 unwind label %186, !noalias !1000
 
-.loopexit.i.i.i.i:                                ; preds = %198, %190
+.loopexit.i.i.i.i:                                ; preds = %199, %191
   %lpad.loopexit38.i.i.i.i = landingpad { ptr, i32 }
           cleanup
           catch ptr null
@@ -12638,7 +12638,7 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 16
   %59 = load i64, ptr %58, align 8, !noalias !1000, !noundef !8
   %.not41.i.i.i.i = icmp eq i64 %59, 0
-  br i1 %.not41.i.i.i.i, label %52, label %190
+  br i1 %.not41.i.i.i.i, label %52, label %191
 
 60:                                               ; preds = %52
   %61 = icmp ne ptr %.sroa.614.0.copyload, null
@@ -12660,7 +12660,7 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
   %71 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  br label %188
+  br label %189
 
 72:                                               ; preds = %66
   %73 = mul i64 %69, 5
@@ -12693,13 +12693,13 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
           to label %88 unwind label %.thread15.i.i.i.i, !noalias !1000
 
 86:                                               ; preds = %.thread19.i.i.i.i
-  br i1 %.sroa.016.323.i.i.i.i, label %187, label %54
+  br i1 %.sroa.016.323.i.i.i.i, label %188, label %54
 
 .thread15.i.i.i.i:                                ; preds = %85
   %87 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  br label %187
+  br label %188
 
 88:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1000
@@ -12716,39 +12716,39 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
   %94 = getelementptr inbounds nuw i8, ptr %68, i64 64
   br label %.outer
 
-.outer:                                           ; preds = %171, %92
-  %.sroa.08.0.i.i.i.i.ph = phi i32 [ %172, %171 ], [ 0, %92 ]
+.outer:                                           ; preds = %172, %92
+  %.sroa.08.0.i.i.i.i.ph = phi i32 [ %173, %172 ], [ 0, %92 ]
   br label %96
 
 95:                                               ; preds = %88
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17heb421b79cdc763b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %.sroa.05.0.ph.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.803)
           to label %92 unwind label %.thread26.loopexit.split-lp.i.i.i.i, !noalias !1000
 
-.thread26.loopexit.i.i.i.i.loopexit:              ; preds = %96, %118, %162, %166
+.thread26.loopexit.i.i.i.i.loopexit:              ; preds = %96, %118, %163, %167
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
           catch ptr null
   br label %.thread19.i.i.i.i
 
-.thread26.loopexit.i.i.i.i.loopexit.split-lp:     ; preds = %168, %170
+.thread26.loopexit.i.i.i.i.loopexit.split-lp:     ; preds = %169, %171
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
           catch ptr null
   br label %.thread19.i.i.i.i
 
-.thread26.loopexit.split-lp.i.i.i.i:              ; preds = %161, %160, %.invoke169.i.i.i.i, %95
+.thread26.loopexit.split-lp.i.i.i.i:              ; preds = %162, %161, %.invoke169.i.i.i.i, %95
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
           catch ptr null
   br label %.thread19.i.i.i.i
 
-.thread35.i.i.i.i:                                ; preds = %183, %181, %175
+.thread35.i.i.i.i:                                ; preds = %184, %182, %176
   %lpad.thr_comm.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
           catch ptr null
   br label %54
 
-96:                                               ; preds = %.outer, %167
+96:                                               ; preds = %.outer, %168
   %97 = invoke { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17hdedcb81fc2d1f4c6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
           to label %98 unwind label %.thread26.loopexit.i.i.i.i.loopexit, !noalias !1000
 
@@ -12788,12 +12788,13 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1000
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !noalias !1000
   invoke void @_ZN11polars_core5frame7builder16DataFrameBuilder6freeze17hb4bd95b50efcf513E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5)
-          to label %175 unwind label %173, !noalias !1000
+          to label %176 unwind label %174, !noalias !1000
 
 118:                                              ; preds = %101
   %119 = load ptr, ptr %112, align 8, !noalias !1000, !nonnull !8, !noundef !8
-  %120 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, i64, { [208 x i8], i8, [7 x i8] } }, ptr %119, i64 %111, i32 1
-  invoke void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17ha31c3b2645be5712E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %120, i64 noundef %100)
+  %120 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, i64, { [208 x i8], i8, [7 x i8] } }, ptr %119, i64 %111
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 48
+  invoke void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17ha31c3b2645be5712E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %121, i64 noundef %100)
           to label %..thread29_crit_edge.i.i.i.i unwind label %.thread26.loopexit.i.i.i.i.loopexit, !noalias !1000
 
 ..thread29_crit_edge.i.i.i.i:                     ; preds = %118
@@ -12801,266 +12802,266 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
   br label %.thread29.i.i.i.i
 
 .thread29.i.i.i.i:                                ; preds = %..thread29_crit_edge.i.i.i.i, %101
-  %121 = phi i64 [ %.pre.i.i.i.i, %..thread29_crit_edge.i.i.i.i ], [ %114, %101 ]
-  %122 = load ptr, ptr %112, align 8, !noalias !1000, !nonnull !8, !noundef !8
-  %123 = icmp ult i64 %110, %121
-  call void @llvm.assume(i1 %123)
-  %124 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, i64, { [208 x i8], i8, [7 x i8] } }, ptr %122, i64 %110
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 56
-  %126 = mul i64 %110, %.sroa.1119.0.copyload
-  %127 = add i64 %126, %.sroa.1018.0.copyload
-  %128 = getelementptr inbounds nuw i8, ptr %105, i64 80
-  %129 = load ptr, ptr %128, align 8, !noalias !1000, !nonnull !8, !noundef !8
-  %130 = getelementptr inbounds nuw i8, ptr %105, i64 88
-  %131 = load i64, ptr %130, align 8, !noalias !1000, !noundef !8
-  %132 = icmp ult i64 %127, %131
-  br i1 %132, label %133, label %.invoke169.i.i.i.i
+  %122 = phi i64 [ %.pre.i.i.i.i, %..thread29_crit_edge.i.i.i.i ], [ %114, %101 ]
+  %123 = load ptr, ptr %112, align 8, !noalias !1000, !nonnull !8, !noundef !8
+  %124 = icmp ult i64 %110, %122
+  call void @llvm.assume(i1 %124)
+  %125 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, i64, { [208 x i8], i8, [7 x i8] } }, ptr %123, i64 %110
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 56
+  %127 = mul i64 %110, %.sroa.1119.0.copyload
+  %128 = add i64 %127, %.sroa.1018.0.copyload
+  %129 = getelementptr inbounds nuw i8, ptr %105, i64 80
+  %130 = load ptr, ptr %129, align 8, !noalias !1000, !nonnull !8, !noundef !8
+  %131 = getelementptr inbounds nuw i8, ptr %105, i64 88
+  %132 = load i64, ptr %131, align 8, !noalias !1000, !noundef !8
+  %133 = icmp ult i64 %128, %132
+  br i1 %133, label %134, label %.invoke169.i.i.i.i
 
-133:                                              ; preds = %.thread29.i.i.i.i
-  %134 = getelementptr inbounds nuw i64, ptr %129, i64 %127
-  %135 = load i64, ptr %134, align 8, !noalias !1000, !noundef !8
-  %136 = mul i64 %111, %.sroa.1119.0.copyload
-  %137 = add i64 %136, %.sroa.1018.0.copyload
-  %138 = icmp ult i64 %137, %131
-  br i1 %138, label %143, label %.invoke169.i.i.i.i
+134:                                              ; preds = %.thread29.i.i.i.i
+  %135 = getelementptr inbounds nuw i64, ptr %130, i64 %128
+  %136 = load i64, ptr %135, align 8, !noalias !1000, !noundef !8
+  %137 = mul i64 %111, %.sroa.1119.0.copyload
+  %138 = add i64 %137, %.sroa.1018.0.copyload
+  %139 = icmp ult i64 %138, %132
+  br i1 %139, label %144, label %.invoke169.i.i.i.i
 
-.invoke169.i.i.i.i:                               ; preds = %143, %133, %.thread29.i.i.i.i
-  %139 = phi i64 [ %127, %.thread29.i.i.i.i ], [ %137, %133 ], [ %.sroa.1018.0.copyload, %143 ]
-  %140 = phi i64 [ %131, %.thread29.i.i.i.i ], [ %131, %133 ], [ %145, %143 ]
-  %141 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.804, %.thread29.i.i.i.i ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.805, %133 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.806, %143 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %139, i64 noundef %140, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %141) #44
+.invoke169.i.i.i.i:                               ; preds = %144, %134, %.thread29.i.i.i.i
+  %140 = phi i64 [ %128, %.thread29.i.i.i.i ], [ %138, %134 ], [ %.sroa.1018.0.copyload, %144 ]
+  %141 = phi i64 [ %132, %.thread29.i.i.i.i ], [ %132, %134 ], [ %146, %144 ]
+  %142 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.804, %.thread29.i.i.i.i ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.805, %134 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.806, %144 ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %140, i64 noundef %141, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %142) #44
           to label %.cont170.i.i.i.i unwind label %.thread26.loopexit.split-lp.i.i.i.i, !noalias !1000
 
 .cont170.i.i.i.i:                                 ; preds = %.invoke169.i.i.i.i
   unreachable
 
-142:                                              ; preds = %183
+143:                                              ; preds = %184
   unreachable
 
-143:                                              ; preds = %133
-  %144 = getelementptr inbounds nuw i8, ptr %105, i64 64
-  %145 = load i64, ptr %144, align 8, !noalias !1000, !noundef !8
-  %146 = icmp ult i64 %.sroa.1018.0.copyload, %145
-  br i1 %146, label %147, label %.invoke169.i.i.i.i
+144:                                              ; preds = %134
+  %145 = getelementptr inbounds nuw i8, ptr %105, i64 64
+  %146 = load i64, ptr %145, align 8, !noalias !1000, !noundef !8
+  %147 = icmp ult i64 %.sroa.1018.0.copyload, %146
+  br i1 %147, label %148, label %.invoke169.i.i.i.i
 
-147:                                              ; preds = %143
-  %148 = getelementptr inbounds nuw i8, ptr %105, i64 56
-  %149 = load ptr, ptr %148, align 8, !noalias !1000, !nonnull !8, !noundef !8
-  %150 = getelementptr inbounds nuw i64, ptr %129, i64 %137
-  %151 = load i64, ptr %150, align 8, !noalias !1000, !noundef !8
-  %152 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %149, i64 %.sroa.1018.0.copyload
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %154 = load ptr, ptr %153, align 8, !noalias !1000, !nonnull !8, !noundef !8
-  %155 = icmp ult i64 %151, %135
-  br i1 %155, label %160, label %156, !prof !43
+148:                                              ; preds = %144
+  %149 = getelementptr inbounds nuw i8, ptr %105, i64 56
+  %150 = load ptr, ptr %149, align 8, !noalias !1000, !nonnull !8, !noundef !8
+  %151 = getelementptr inbounds nuw i64, ptr %130, i64 %138
+  %152 = load i64, ptr %151, align 8, !noalias !1000, !noundef !8
+  %153 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %150, i64 %.sroa.1018.0.copyload
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %155 = load ptr, ptr %154, align 8, !noalias !1000, !nonnull !8, !noundef !8
+  %156 = icmp ult i64 %152, %136
+  br i1 %156, label %161, label %157, !prof !43
 
-156:                                              ; preds = %147
-  %157 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %158 = load i64, ptr %157, align 8, !noalias !1000, !noundef !8
-  %159 = icmp ugt i64 %151, %158
-  br i1 %159, label %161, label %162, !prof !43
+157:                                              ; preds = %148
+  %158 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %159 = load i64, ptr %158, align 8, !noalias !1000, !noundef !8
+  %160 = icmp ugt i64 %152, %159
+  br i1 %160, label %162, label %163, !prof !43
 
-160:                                              ; preds = %147
-  invoke void @_ZN4core5slice5index22slice_index_order_fail17h6e5a6dffd042468aE(i64 noundef %135, i64 noundef %151, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.807) #44
+161:                                              ; preds = %148
+  invoke void @_ZN4core5slice5index22slice_index_order_fail17h6e5a6dffd042468aE(i64 noundef %136, i64 noundef %152, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.807) #44
           to label %.noexc.i.i.i.i unwind label %.thread26.loopexit.split-lp.i.i.i.i, !noalias !1000
 
-.noexc.i.i.i.i:                                   ; preds = %160
+.noexc.i.i.i.i:                                   ; preds = %161
   unreachable
 
-161:                                              ; preds = %156
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h3977c10d2b967b2dE(i64 noundef %151, i64 noundef %158, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.807) #44
+162:                                              ; preds = %157
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h3977c10d2b967b2dE(i64 noundef %152, i64 noundef %159, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.807) #44
           to label %.noexc47.i.i.i.i unwind label %.thread26.loopexit.split-lp.i.i.i.i, !noalias !1000
 
-.noexc47.i.i.i.i:                                 ; preds = %161
+.noexc47.i.i.i.i:                                 ; preds = %162
   unreachable
 
-162:                                              ; preds = %156
-  %163 = sub nuw i64 %151, %135
-  %164 = getelementptr inbounds nuw i32, ptr %154, i64 %135
+163:                                              ; preds = %157
+  %164 = sub nuw i64 %152, %136
+  %165 = getelementptr inbounds nuw i32, ptr %155, i64 %136
   call void @llvm.assume(i1 %93)
-  %165 = load ptr, ptr %94, align 8, !invariant.load !8, !noalias !1000, !nonnull !8
-  invoke void %165(ptr noundef nonnull align 1 %67, ptr noundef nonnull align 8 %125, ptr noalias noundef nonnull readonly align 4 %164, i64 noundef %163, i1 noundef zeroext %91)
-          to label %166 unwind label %.thread26.loopexit.i.i.i.i.loopexit, !noalias !1000
-
-166:                                              ; preds = %162
-  invoke void @_ZN11polars_core5frame7builder16DataFrameBuilder13gather_extend17hd619f13db26a4f74E(ptr noalias noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 %124, ptr noalias noundef nonnull readonly align 4 %164, i64 noundef %163, i1 noundef zeroext false)
+  %166 = load ptr, ptr %94, align 8, !invariant.load !8, !noalias !1000, !nonnull !8
+  invoke void %166(ptr noundef nonnull align 1 %67, ptr noundef nonnull align 8 %126, ptr noalias noundef nonnull readonly align 4 %165, i64 noundef %164, i1 noundef zeroext %91)
           to label %167 unwind label %.thread26.loopexit.i.i.i.i.loopexit, !noalias !1000
 
-167:                                              ; preds = %166
-  br i1 %91, label %168, label %96
+167:                                              ; preds = %163
+  invoke void @_ZN11polars_core5frame7builder16DataFrameBuilder13gather_extend17hd619f13db26a4f74E(ptr noalias noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 %125, ptr noalias noundef nonnull readonly align 4 %165, i64 noundef %164, i1 noundef zeroext false)
+          to label %168 unwind label %.thread26.loopexit.i.i.i.i.loopexit, !noalias !1000
 
 168:                                              ; preds = %167
-  %169 = invoke noundef i64 @_ZN11polars_core5frame7builder16DataFrameBuilder3len17hc838628c4032a5e2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10)
-          to label %170 unwind label %.thread26.loopexit.i.i.i.i.loopexit.split-lp, !noalias !1000
+  br i1 %91, label %169, label %96
 
-170:                                              ; preds = %168
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h471b3abda19ae27bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %169, i32 noundef %.sroa.08.0.i.i.i.i.ph, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.808)
+169:                                              ; preds = %168
+  %170 = invoke noundef i64 @_ZN11polars_core5frame7builder16DataFrameBuilder3len17hc838628c4032a5e2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10)
           to label %171 unwind label %.thread26.loopexit.i.i.i.i.loopexit.split-lp, !noalias !1000
 
-171:                                              ; preds = %170
-  %172 = add i32 %.sroa.08.0.i.i.i.i.ph, 1
+171:                                              ; preds = %169
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h471b3abda19ae27bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %170, i32 noundef %.sroa.08.0.i.i.i.i.ph, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.808)
+          to label %172 unwind label %.thread26.loopexit.i.i.i.i.loopexit.split-lp, !noalias !1000
+
+172:                                              ; preds = %171
+  %173 = add i32 %.sroa.08.0.i.i.i.i.ph, 1
   br label %.outer
 
-173:                                              ; preds = %116
-  %174 = landingpad { ptr, i32 }
+174:                                              ; preds = %116
+  %175 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
   invoke fastcc void @"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_expr..idx_table..IdxTable$GT$$GT$17h24a55bbc5e9da5d2E"(ptr nonnull %67, ptr nonnull %68) #42
-          to label %.thread19.i.i.i.i unwind label %185, !noalias !1000
+          to label %.thread19.i.i.i.i unwind label %186, !noalias !1000
 
-175:                                              ; preds = %116
+176:                                              ; preds = %116
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1000
-  %176 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !1000
-  %177 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr %67, ptr %177, align 8, !noalias !1000
-  %178 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store ptr %68, ptr %178, align 8, !noalias !1000
+  %177 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %177, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !1000
+  %178 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr %67, ptr %178, align 8, !noalias !1000
+  %179 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store ptr %68, ptr %179, align 8, !noalias !1000
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !noalias !1000
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1000
   invoke void @"_ZN12polars_utils15sparse_init_vec22SparseInitVec$LT$T$GT$7try_set17hb5d810066f8bef4dE"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %8, ptr noundef nonnull align 8 %.sroa.917.0.copyload, i64 noundef %.sroa.1018.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %7)
-          to label %179 unwind label %.thread35.i.i.i.i, !noalias !1000
+          to label %180 unwind label %.thread35.i.i.i.i, !noalias !1000
 
-179:                                              ; preds = %175
+180:                                              ; preds = %176
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1000
-  %180 = load i64, ptr %8, align 8, !range !675, !noalias !1000, !noundef !8
-  %.not35.i.i.i.i = icmp eq i64 %180, -9223372036854775808
-  br i1 %.not35.i.i.i.i, label %182, label %181
+  %181 = load i64, ptr %8, align 8, !range !675, !noalias !1000, !noundef !8
+  %.not35.i.i.i.i = icmp eq i64 %181, -9223372036854775808
+  br i1 %.not35.i.i.i.i, label %183, label %182
 
-181:                                              ; preds = %179
+182:                                              ; preds = %180
   invoke void @"_ZN4core3ptr71drop_in_place$LT$polars_stream..nodes..joins..equi_join..ProbeTable$GT$17h3e7f1adbfcf2407cE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8)
-          to label %183 unwind label %.thread35.i.i.i.i, !noalias !1000
+          to label %184 unwind label %.thread35.i.i.i.i, !noalias !1000
 
-182:                                              ; preds = %179
+183:                                              ; preds = %180
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1000
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1000
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1000
   invoke void @"_ZN4core3ptr72drop_in_place$LT$polars_utils..cardinality_sketch..CardinalitySketch$GT$17h48be3c8626727189E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
-          to label %184 unwind label %45, !noalias !1000
-
-183:                                              ; preds = %181
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1000
-  invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.809) #44
-          to label %142 unwind label %.thread35.i.i.i.i, !noalias !1000
+          to label %185 unwind label %45, !noalias !1000
 
 184:                                              ; preds = %182
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1000
+  invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.809) #44
+          to label %143 unwind label %.thread35.i.i.i.i, !noalias !1000
+
+185:                                              ; preds = %183
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1000
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17he182b336c661ae80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
           to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c2feced94861a6bE.exit.i" unwind label %37, !noalias !1000
 
-185:                                              ; preds = %188, %187, %.thread19.i.i.i.i, %173, %54, %44, %36
-  %186 = landingpad { ptr, i32 }
+186:                                              ; preds = %189, %188, %.thread19.i.i.i.i, %174, %54, %44, %36
+  %187 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43, !noalias !1000
   unreachable
 
-.thread19.i.i.i.i:                                ; preds = %.thread26.loopexit.i.i.i.i.loopexit, %.thread26.loopexit.i.i.i.i.loopexit.split-lp, %173, %.thread26.loopexit.split-lp.i.i.i.i
-  %.pn24.i.i.i.i = phi { ptr, i32 } [ %174, %173 ], [ %lpad.loopexit.split-lp.i.i.i.i, %.thread26.loopexit.split-lp.i.i.i.i ], [ %lpad.loopexit, %.thread26.loopexit.i.i.i.i.loopexit ], [ %lpad.loopexit.split-lp, %.thread26.loopexit.i.i.i.i.loopexit.split-lp ]
-  %.sroa.016.323.i.i.i.i = phi i1 [ false, %173 ], [ true, %.thread26.loopexit.split-lp.i.i.i.i ], [ true, %.thread26.loopexit.i.i.i.i.loopexit.split-lp ], [ true, %.thread26.loopexit.i.i.i.i.loopexit ]
+.thread19.i.i.i.i:                                ; preds = %.thread26.loopexit.i.i.i.i.loopexit, %.thread26.loopexit.i.i.i.i.loopexit.split-lp, %174, %.thread26.loopexit.split-lp.i.i.i.i
+  %.pn24.i.i.i.i = phi { ptr, i32 } [ %175, %174 ], [ %lpad.loopexit.split-lp.i.i.i.i, %.thread26.loopexit.split-lp.i.i.i.i ], [ %lpad.loopexit, %.thread26.loopexit.i.i.i.i.loopexit ], [ %lpad.loopexit.split-lp, %.thread26.loopexit.i.i.i.i.loopexit.split-lp ]
+  %.sroa.016.323.i.i.i.i = phi i1 [ false, %174 ], [ true, %.thread26.loopexit.split-lp.i.i.i.i ], [ true, %.thread26.loopexit.i.i.i.i.loopexit.split-lp ], [ true, %.thread26.loopexit.i.i.i.i.loopexit ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h62d4808c060ffe11E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #42
-          to label %86 unwind label %185, !noalias !1000
+          to label %86 unwind label %186, !noalias !1000
 
-187:                                              ; preds = %.thread15.i.i.i.i, %86
+188:                                              ; preds = %.thread15.i.i.i.i, %86
   %.pn.pn18.i.i.i.i = phi { ptr, i32 } [ %87, %.thread15.i.i.i.i ], [ %.pn24.i.i.i.i, %86 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$polars_core..frame..builder..DataFrameBuilder$GT$17hd6fb82e34db3b3afE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #42
-          to label %188 unwind label %185, !noalias !1000
+          to label %189 unwind label %186, !noalias !1000
 
-188:                                              ; preds = %187, %70
-  %.pn.pn.pn.ph.i.i.i.i = phi { ptr, i32 } [ %71, %70 ], [ %.pn.pn18.i.i.i.i, %187 ]
-  %189 = icmp ne ptr %68, null
-  call void @llvm.assume(i1 %189)
+189:                                              ; preds = %188, %70
+  %.pn.pn.pn.ph.i.i.i.i = phi { ptr, i32 } [ %71, %70 ], [ %.pn.pn18.i.i.i.i, %188 ]
+  %190 = icmp ne ptr %68, null
+  call void @llvm.assume(i1 %190)
   invoke fastcc void @"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_expr..idx_table..IdxTable$GT$$GT$17h24a55bbc5e9da5d2E"(ptr %67, ptr nonnull %68) #42
-          to label %54 unwind label %185, !noalias !1000
+          to label %54 unwind label %186, !noalias !1000
 
-190:                                              ; preds = %55
-  %191 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
-  %192 = load ptr, ptr %191, align 8, !noalias !1000, !nonnull !8, !noundef !8
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 48
-  invoke void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17ha31c3b2645be5712E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %193, i64 noundef %.sroa.7.0.i.i.i.i)
-          to label %194 unwind label %.loopexit.i.i.i.i, !noalias !1000
+191:                                              ; preds = %55
+  %192 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
+  %193 = load ptr, ptr %192, align 8, !noalias !1000, !nonnull !8, !noundef !8
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 48
+  invoke void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17ha31c3b2645be5712E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %194, i64 noundef %.sroa.7.0.i.i.i.i)
+          to label %195 unwind label %.loopexit.i.i.i.i, !noalias !1000
 
-194:                                              ; preds = %190
-  %195 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 40
-  %196 = load i64, ptr %195, align 8, !noalias !1000, !noundef !8
-  %197 = icmp ult i64 %.sroa.1018.0.copyload, %196
-  br i1 %197, label %198, label %.invoke.i.i.i.i
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 40
+  %197 = load i64, ptr %196, align 8, !noalias !1000, !noundef !8
+  %198 = icmp ult i64 %.sroa.1018.0.copyload, %197
+  br i1 %198, label %199, label %.invoke.i.i.i.i
 
-198:                                              ; preds = %194
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 32
-  %200 = load ptr, ptr %199, align 8, !noalias !1000, !nonnull !8, !noundef !8
-  %201 = getelementptr inbounds nuw ptr, ptr %200, i64 %.sroa.1018.0.copyload
-  invoke void @_ZN12polars_utils18cardinality_sketch17CardinalitySketch7combine17hceceded63e04bcfdE(ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %201)
-          to label %205 unwind label %.loopexit.i.i.i.i, !noalias !1000
+199:                                              ; preds = %195
+  %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 32
+  %201 = load ptr, ptr %200, align 8, !noalias !1000, !nonnull !8, !noundef !8
+  %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %.sroa.1018.0.copyload
+  invoke void @_ZN12polars_utils18cardinality_sketch17CardinalitySketch7combine17hceceded63e04bcfdE(ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %202)
+          to label %206 unwind label %.loopexit.i.i.i.i, !noalias !1000
 
-.invoke.i.i.i.i:                                  ; preds = %205, %194
-  %202 = phi i64 [ %.sroa.1018.0.copyload, %194 ], [ %210, %205 ]
-  %203 = phi i64 [ %196, %194 ], [ %207, %205 ]
-  %204 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.810, %194 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.811, %205 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %202, i64 noundef %203, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %204) #44
+.invoke.i.i.i.i:                                  ; preds = %206, %195
+  %203 = phi i64 [ %.sroa.1018.0.copyload, %195 ], [ %211, %206 ]
+  %204 = phi i64 [ %197, %195 ], [ %208, %206 ]
+  %205 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.810, %195 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.811, %206 ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %203, i64 noundef %204, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %205) #44
           to label %.cont.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i, !noalias !1000
 
 .cont.i.i.i.i:                                    ; preds = %.invoke.i.i.i.i
   unreachable
 
-205:                                              ; preds = %198
-  %206 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 88
-  %207 = load i64, ptr %206, align 8, !noalias !1000, !noundef !8
-  %208 = icmp ult i64 %207, 1152921504606846976
-  call void @llvm.assume(i1 %208)
-  %209 = sub i64 %207, %.sroa.1119.0.copyload
-  %210 = add i64 %209, %.sroa.1018.0.copyload
-  %211 = icmp ult i64 %210, %207
-  br i1 %211, label %212, label %.invoke.i.i.i.i
+206:                                              ; preds = %199
+  %207 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 88
+  %208 = load i64, ptr %207, align 8, !noalias !1000, !noundef !8
+  %209 = icmp ult i64 %208, 1152921504606846976
+  call void @llvm.assume(i1 %209)
+  %210 = sub i64 %208, %.sroa.1119.0.copyload
+  %211 = add i64 %210, %.sroa.1018.0.copyload
+  %212 = icmp ult i64 %211, %208
+  br i1 %212, label %213, label %.invoke.i.i.i.i
 
-212:                                              ; preds = %205
-  %213 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 80
-  %214 = load ptr, ptr %213, align 8, !noalias !1000, !nonnull !8, !noundef !8
-  %215 = getelementptr inbounds nuw i64, ptr %214, i64 %210
-  %216 = load i64, ptr %215, align 8, !noalias !1000, !noundef !8
-  %217 = add i64 %216, %.sroa.05.0.ph.i.i.i.i
+213:                                              ; preds = %206
+  %214 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 80
+  %215 = load ptr, ptr %214, align 8, !noalias !1000, !nonnull !8, !noundef !8
+  %216 = getelementptr inbounds nuw i64, ptr %215, i64 %211
+  %217 = load i64, ptr %216, align 8, !noalias !1000, !noundef !8
+  %218 = add i64 %217, %.sroa.05.0.ph.i.i.i.i
   br label %.outer.i.i.i.i
 
-"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c2feced94861a6bE.exit.i": ; preds = %184
+"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c2feced94861a6bE.exit.i": ; preds = %185
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1000
   invoke void @"_ZN4core3ptr182drop_in_place$LT$alloc..collections..binary_heap..BinaryHeap$LT$polars_utils..priority..Priority$LT$core..cmp..Reverse$LT$$RF$polars_stream..morsel..MorselSeq$GT$$C$usize$GT$$GT$$GT$17hd305824ea4fa1718E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
-          to label %224 unwind label %218
+          to label %225 unwind label %219
 
-218:                                              ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c2feced94861a6bE.exit.i", %23, %2
-  %219 = landingpad { ptr, i32 }
+219:                                              ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c2feced94861a6bE.exit.i", %23, %2
+  %220 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %36, %218
-  %eh.lpad-body = phi { ptr, i32 } [ %219, %218 ], [ %.pn43.pn.pn.i.i.i.i, %36 ]
-  %220 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %221 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %220)
-          to label %225 unwind label %222
+.body:                                            ; preds = %36, %219
+  %eh.lpad-body = phi { ptr, i32 } [ %220, %219 ], [ %.pn43.pn.pn.i.i.i.i, %36 ]
+  %221 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %222 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17hbc53a709edc464a5E(ptr noundef %221)
+          to label %226 unwind label %223
 
-222:                                              ; preds = %.body
-  %223 = landingpad { ptr, i32 }
+223:                                              ; preds = %.body
+  %224 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking19panic_cannot_unwind17hb9462e518c4acae1E() #43
   unreachable
 
-224:                                              ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c2feced94861a6bE.exit.i"
+225:                                              ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h4c2feced94861a6bE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1000
-  br label %230
+  br label %231
 
-225:                                              ; preds = %.body
-  %226 = extractvalue { ptr, ptr } %221, 0
-  %227 = extractvalue { ptr, ptr } %221, 1
-  %228 = icmp ne ptr %226, null
-  call void @llvm.assume(i1 %228)
+226:                                              ; preds = %.body
+  %227 = extractvalue { ptr, ptr } %222, 0
+  %228 = extractvalue { ptr, ptr } %222, 1
   %229 = icmp ne ptr %227, null
   call void @llvm.assume(i1 %229)
-  call void @_ZN10rayon_core5scope9ScopeBase12job_panicked17h7b5729e18ff7fd3bE(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %226, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %227)
-  br label %230
+  %230 = icmp ne ptr %228, null
+  call void @llvm.assume(i1 %230)
+  call void @_ZN10rayon_core5scope9ScopeBase12job_panicked17h7b5729e18ff7fd3bE(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %227, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %228)
+  br label %231
 
-230:                                              ; preds = %225, %224
-  %231 = phi i1 [ false, %225 ], [ true, %224 ]
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call fastcc void @"_ZN74_$LT$rayon_core..latch..CountLatch$u20$as$u20$rayon_core..latch..Latch$GT$3set17hb7147e3f2f06012dE"(ptr noundef nonnull %232)
-  ret i1 %231
+231:                                              ; preds = %226, %225
+  %232 = phi i1 [ false, %226 ], [ true, %225 ]
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call fastcc void @"_ZN74_$LT$rayon_core..latch..CountLatch$u20$as$u20$rayon_core..latch..Latch$GT$3set17hb7147e3f2f06012dE"(ptr noundef nonnull %233)
+  ret i1 %232
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -84128,32 +84129,33 @@ define hidden noundef i64 @"_ZN13polars_stream16async_primitives19distributor_ch
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !8
   %6 = icmp ult i64 %1, %5
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1, i32 0, i32 1
-  %11 = load atomic i64, ptr %10 seq_cst, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %13 = load i64, ptr %12, align 8, !noundef !8
-  %14 = icmp ult i64 %1, %13
-  br i1 %14, label %16, label %22
+  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load atomic i64, ptr %11 seq_cst, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %14 = load i64, ptr %13, align 8, !noundef !8
+  %15 = icmp ult i64 %1, %14
+  br i1 %15, label %17, label %23
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.613) #44
   unreachable
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %18 = load ptr, ptr %17, align 8, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw { i64 }, ptr %18, i64 %1
-  %20 = load atomic i64, ptr %19 monotonic, align 8
-  %21 = sub i64 %20, %11
-  ret i64 %21
+17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %1
+  %21 = load atomic i64, ptr %20 monotonic, align 8
+  %22 = sub i64 %21, %12
+  ret i64 %22
 
-22:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
+23:                                               ; preds = %7
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
   unreachable
 }
 
@@ -84163,32 +84165,33 @@ define hidden noundef i64 @"_ZN13polars_stream16async_primitives19distributor_ch
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !8
   %6 = icmp ult i64 %1, %5
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1, i32 0, i32 1
-  %11 = load atomic i64, ptr %10 seq_cst, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %13 = load i64, ptr %12, align 8, !noundef !8
-  %14 = icmp ult i64 %1, %13
-  br i1 %14, label %16, label %22
+  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load atomic i64, ptr %11 seq_cst, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %14 = load i64, ptr %13, align 8, !noundef !8
+  %15 = icmp ult i64 %1, %14
+  br i1 %15, label %17, label %23
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.613) #44
   unreachable
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %18 = load ptr, ptr %17, align 8, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw { i64 }, ptr %18, i64 %1
-  %20 = load atomic i64, ptr %19 monotonic, align 8
-  %21 = sub i64 %20, %11
-  ret i64 %21
+17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %1
+  %21 = load atomic i64, ptr %20 monotonic, align 8
+  %22 = sub i64 %21, %12
+  ret i64 %22
 
-22:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
+23:                                               ; preds = %7
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
   unreachable
 }
 
@@ -84198,32 +84201,33 @@ define hidden noundef i64 @"_ZN13polars_stream16async_primitives19distributor_ch
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !8
   %6 = icmp ult i64 %1, %5
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1, i32 0, i32 1
-  %11 = load atomic i64, ptr %10 seq_cst, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %13 = load i64, ptr %12, align 8, !noundef !8
-  %14 = icmp ult i64 %1, %13
-  br i1 %14, label %16, label %22
+  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load atomic i64, ptr %11 seq_cst, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %14 = load i64, ptr %13, align 8, !noundef !8
+  %15 = icmp ult i64 %1, %14
+  br i1 %15, label %17, label %23
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.613) #44
   unreachable
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %18 = load ptr, ptr %17, align 8, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw { i64 }, ptr %18, i64 %1
-  %20 = load atomic i64, ptr %19 monotonic, align 8
-  %21 = sub i64 %20, %11
-  ret i64 %21
+17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %1
+  %21 = load atomic i64, ptr %20 monotonic, align 8
+  %22 = sub i64 %21, %12
+  ret i64 %22
 
-22:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
+23:                                               ; preds = %7
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
   unreachable
 }
 
@@ -84233,32 +84237,33 @@ define hidden noundef i64 @"_ZN13polars_stream16async_primitives19distributor_ch
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !8
   %6 = icmp ult i64 %1, %5
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1, i32 0, i32 1
-  %11 = load atomic i64, ptr %10 seq_cst, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %13 = load i64, ptr %12, align 8, !noundef !8
-  %14 = icmp ult i64 %1, %13
-  br i1 %14, label %16, label %22
+  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load atomic i64, ptr %11 seq_cst, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %14 = load i64, ptr %13, align 8, !noundef !8
+  %15 = icmp ult i64 %1, %14
+  br i1 %15, label %17, label %23
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.613) #44
   unreachable
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %18 = load ptr, ptr %17, align 8, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw { i64 }, ptr %18, i64 %1
-  %20 = load atomic i64, ptr %19 monotonic, align 8
-  %21 = sub i64 %20, %11
-  ret i64 %21
+17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %1
+  %21 = load atomic i64, ptr %20 monotonic, align 8
+  %22 = sub i64 %21, %12
+  ret i64 %22
 
-22:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
+23:                                               ; preds = %7
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
   unreachable
 }
 
@@ -84268,32 +84273,33 @@ define hidden noundef i64 @"_ZN13polars_stream16async_primitives19distributor_ch
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !8
   %6 = icmp ult i64 %1, %5
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1, i32 0, i32 1
-  %11 = load atomic i64, ptr %10 seq_cst, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %13 = load i64, ptr %12, align 8, !noundef !8
-  %14 = icmp ult i64 %1, %13
-  br i1 %14, label %16, label %22
+  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load atomic i64, ptr %11 seq_cst, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %14 = load i64, ptr %13, align 8, !noundef !8
+  %15 = icmp ult i64 %1, %14
+  br i1 %15, label %17, label %23
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.613) #44
   unreachable
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %18 = load ptr, ptr %17, align 8, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw { i64 }, ptr %18, i64 %1
-  %20 = load atomic i64, ptr %19 monotonic, align 8
-  %21 = sub i64 %20, %11
-  ret i64 %21
+17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %1
+  %21 = load atomic i64, ptr %20 monotonic, align 8
+  %22 = sub i64 %21, %12
+  ret i64 %22
 
-22:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
+23:                                               ; preds = %7
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
   unreachable
 }
 
@@ -84303,32 +84309,33 @@ define hidden noundef i64 @"_ZN13polars_stream16async_primitives19distributor_ch
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !8
   %6 = icmp ult i64 %1, %5
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1, i32 0, i32 1
-  %11 = load atomic i64, ptr %10 seq_cst, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %13 = load i64, ptr %12, align 8, !noundef !8
-  %14 = icmp ult i64 %1, %13
-  br i1 %14, label %16, label %22
+  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load atomic i64, ptr %11 seq_cst, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %14 = load i64, ptr %13, align 8, !noundef !8
+  %15 = icmp ult i64 %1, %14
+  br i1 %15, label %17, label %23
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.613) #44
   unreachable
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %18 = load ptr, ptr %17, align 8, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw { i64 }, ptr %18, i64 %1
-  %20 = load atomic i64, ptr %19 monotonic, align 8
-  %21 = sub i64 %20, %11
-  ret i64 %21
+17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %1
+  %21 = load atomic i64, ptr %20 monotonic, align 8
+  %22 = sub i64 %21, %12
+  ret i64 %22
 
-22:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
+23:                                               ; preds = %7
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
   unreachable
 }
 
@@ -84338,32 +84345,33 @@ define hidden noundef i64 @"_ZN13polars_stream16async_primitives19distributor_ch
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !8
   %6 = icmp ult i64 %1, %5
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1, i32 0, i32 1
-  %11 = load atomic i64, ptr %10 seq_cst, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %13 = load i64, ptr %12, align 8, !noundef !8
-  %14 = icmp ult i64 %1, %13
-  br i1 %14, label %16, label %22
+  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load atomic i64, ptr %11 seq_cst, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %14 = load i64, ptr %13, align 8, !noundef !8
+  %15 = icmp ult i64 %1, %14
+  br i1 %15, label %17, label %23
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.613) #44
   unreachable
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %18 = load ptr, ptr %17, align 8, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw { i64 }, ptr %18, i64 %1
-  %20 = load atomic i64, ptr %19 monotonic, align 8
-  %21 = sub i64 %20, %11
-  ret i64 %21
+17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %1
+  %21 = load atomic i64, ptr %20 monotonic, align 8
+  %22 = sub i64 %21, %12
+  ret i64 %22
 
-22:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
+23:                                               ; preds = %7
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
   unreachable
 }
 
@@ -84373,32 +84381,33 @@ define hidden noundef i64 @"_ZN13polars_stream16async_primitives19distributor_ch
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !8
   %6 = icmp ult i64 %1, %5
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1, i32 0, i32 1
-  %11 = load atomic i64, ptr %10 seq_cst, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %13 = load i64, ptr %12, align 8, !noundef !8
-  %14 = icmp ult i64 %1, %13
-  br i1 %14, label %16, label %22
+  %10 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load atomic i64, ptr %11 seq_cst, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %14 = load i64, ptr %13, align 8, !noundef !8
+  %15 = icmp ult i64 %1, %14
+  br i1 %15, label %17, label %23
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.613) #44
   unreachable
 
-16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %18 = load ptr, ptr %17, align 8, !nonnull !8, !noundef !8
-  %19 = getelementptr inbounds nuw { i64 }, ptr %18, i64 %1
-  %20 = load atomic i64, ptr %19 monotonic, align 8
-  %21 = sub i64 %20, %11
-  ret i64 %21
+17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
+  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %1
+  %21 = load atomic i64, ptr %20 monotonic, align 8
+  %22 = sub i64 %21, %12
+  ret i64 %22
 
-22:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
+23:                                               ; preds = %7
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.614) #44
   unreachable
 }
 
@@ -84413,112 +84422,115 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel15
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2, i32 0, i32 1
-  %13 = load atomic i64, ptr %12 seq_cst, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %15 = load i64, ptr %14, align 8, !noundef !8
-  %16 = icmp ult i64 %2, %15
-  br i1 %16, label %17, label %.invoke
+  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load atomic i64, ptr %13 seq_cst, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %16 = load i64, ptr %15, align 8, !noundef !8
+  %17 = icmp ult i64 %2, %16
+  br i1 %17, label %18, label %.invoke
 
-17:                                               ; preds = %9
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %2
-  %21 = load atomic i64, ptr %20 monotonic, align 8
-  %22 = sub i64 %21, %13
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %24 = load i64, ptr %23, align 8, !noundef !8
-  %25 = icmp ult i64 %22, %24
-  br i1 %25, label %29, label %26
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %20 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
+  %21 = getelementptr inbounds nuw { i64 }, ptr %20, i64 %2
+  %22 = load atomic i64, ptr %21 monotonic, align 8
+  %23 = sub i64 %22, %14
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %25 = load i64, ptr %24, align 8, !noundef !8
+  %26 = icmp ult i64 %23, %25
+  br i1 %26, label %30, label %27
 
-26:                                               ; preds = %17
-  %27 = load i64, ptr %6, align 8, !noundef !8
-  %28 = icmp ult i64 %2, %27
-  br i1 %28, label %35, label %.invoke
+27:                                               ; preds = %18
+  %28 = load i64, ptr %6, align 8, !noundef !8
+  %29 = icmp ult i64 %2, %28
+  br i1 %29, label %36, label %.invoke
 
-29:                                               ; preds = %17
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %31 = load i64, ptr %30, align 8, !noundef !8
-  %32 = and i64 %31, %21
-  %33 = load i64, ptr %6, align 8, !noundef !8
-  %34 = icmp ult i64 %2, %33
-  br i1 %34, label %41, label %.invoke
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %32 = load i64, ptr %31, align 8, !noundef !8
+  %33 = and i64 %32, %22
+  %34 = load i64, ptr %6, align 8, !noundef !8
+  %35 = icmp ult i64 %2, %34
+  br i1 %35, label %43, label %.invoke
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %37 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %36, i64 %2, i32 0, i32 3
-  %38 = load atomic i8, ptr %37 seq_cst, align 1
-  %39 = icmp ne i8 %38, 0
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %38 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %37, i64 %2
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  %40 = load atomic i8, ptr %39 seq_cst, align 1
+  %41 = icmp ne i8 %40, 0
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
-  %. = zext i1 %39 to i64
-  br label %40
+  %. = zext i1 %41 to i64
+  br label %42
 
-40:                                               ; preds = %35, %62
-  %.sink = phi i64 [ 2, %62 ], [ %., %35 ]
+42:                                               ; preds = %36, %64
+  %.sink = phi i64 [ 2, %64 ], [ %., %36 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %42, i64 %2
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i64, ptr %44, align 8, !noundef !8
-  %46 = icmp ult i64 %32, %45
-  br i1 %46, label %47, label %.invoke
+43:                                               ; preds = %30
+  %44 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %45 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %44, i64 %2
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i64, ptr %46, align 8, !noundef !8
+  %48 = icmp ult i64 %33, %47
+  br i1 %48, label %49, label %.invoke
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %43, align 128, !nonnull !8, !align !674, !noundef !8
-  %49 = getelementptr inbounds nuw { { [10 x i64] } }, ptr %48, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %49, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
-  %50 = load i64, ptr %14, align 8, !noundef !8
-  %51 = icmp ult i64 %2, %50
-  br i1 %51, label %56, label %55
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %45, align 128, !nonnull !8, !align !674, !noundef !8
+  %51 = getelementptr inbounds nuw { { [10 x i64] } }, ptr %50, i64 %33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %51, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
+  %52 = load i64, ptr %15, align 8, !noundef !8
+  %53 = icmp ult i64 %2, %52
+  br i1 %53, label %58, label %57
 
-.invoke:                                          ; preds = %41, %29, %26, %9, %4
-  %52 = phi i64 [ %2, %4 ], [ %2, %9 ], [ %2, %26 ], [ %2, %29 ], [ %32, %41 ]
-  %53 = phi i64 [ %7, %4 ], [ %15, %9 ], [ %27, %26 ], [ %33, %29 ], [ %45, %41 ]
-  %54 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615, %4 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616, %9 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617, %26 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618, %29 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619, %41 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %52, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) %54) #44
-          to label %.cont unwind label %66
+.invoke:                                          ; preds = %43, %30, %27, %9, %4
+  %54 = phi i64 [ %2, %4 ], [ %2, %9 ], [ %2, %27 ], [ %2, %30 ], [ %33, %43 ]
+  %55 = phi i64 [ %7, %4 ], [ %16, %9 ], [ %28, %27 ], [ %34, %30 ], [ %47, %43 ]
+  %56 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615, %4 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616, %9 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617, %27 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618, %30 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619, %43 ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %54, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) %56) #44
+          to label %.cont unwind label %69
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-55:                                               ; preds = %47
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
+57:                                               ; preds = %49
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
   unreachable
 
-56:                                               ; preds = %47
-  %57 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %58 = getelementptr inbounds nuw { i64 }, ptr %57, i64 %2
-  %59 = add i64 %21, 1
-  store atomic i64 %59, ptr %58 seq_cst, align 8
-  %60 = load i64, ptr %6, align 8, !noundef !8
-  %61 = icmp ult i64 %2, %60
-  br i1 %61, label %62, label %65
+58:                                               ; preds = %49
+  %59 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
+  %60 = getelementptr inbounds nuw { i64 }, ptr %59, i64 %2
+  %61 = add i64 %22, 1
+  store atomic i64 %61, ptr %60 seq_cst, align 8
+  %62 = load i64, ptr %6, align 8, !noundef !8
+  %63 = icmp ult i64 %2, %62
+  br i1 %63, label %64, label %68
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %64 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %63, i64 %2, i32 0, i32 2
-  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
-  br label %40
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %66 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %65, i64 %2
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %67)
+  br label %42
 
-65:                                               ; preds = %56
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
+68:                                               ; preds = %58
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
   unreachable
 
-"_ZN4core3ptr64drop_in_place$LT$$LP$polars_stream..morsel..Morsel$C$u32$RP$$GT$17h2c6af210d2ed1796E.exit": ; preds = %66
+"_ZN4core3ptr64drop_in_place$LT$$LP$polars_stream..morsel..Morsel$C$u32$RP$$GT$17h2c6af210d2ed1796E.exit": ; preds = %69
   resume { ptr, i32 } %lpad.thr_comm
 
-66:                                               ; preds = %.invoke
+69:                                               ; preds = %.invoke
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_stream..morsel..Morsel$GT$17h4ba850224907b548E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %3)
-          to label %"_ZN4core3ptr64drop_in_place$LT$$LP$polars_stream..morsel..Morsel$C$u32$RP$$GT$17h2c6af210d2ed1796E.exit" unwind label %67
+          to label %"_ZN4core3ptr64drop_in_place$LT$$LP$polars_stream..morsel..Morsel$C$u32$RP$$GT$17h2c6af210d2ed1796E.exit" unwind label %70
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43
   unreachable
@@ -84530,121 +84542,124 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load i64, ptr %6, align 8, !noundef !8
   %8 = icmp ult i64 %2, %7
-  br i1 %8, label %9, label %17
+  br i1 %8, label %9, label %18
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2, i32 0, i32 1
-  %13 = load atomic i64, ptr %12 seq_cst, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %15 = load i64, ptr %14, align 8, !noundef !8
-  %16 = icmp ult i64 %2, %15
-  br i1 %16, label %18, label %27
+  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load atomic i64, ptr %13 seq_cst, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %16 = load i64, ptr %15, align 8, !noundef !8
+  %17 = icmp ult i64 %2, %16
+  br i1 %17, label %19, label %28
 
-17:                                               ; preds = %4
+18:                                               ; preds = %4
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615) #44
   unreachable
 
-18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %20 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
-  %21 = getelementptr inbounds nuw { i64 }, ptr %20, i64 %2
-  %22 = load atomic i64, ptr %21 monotonic, align 8
-  %23 = sub i64 %22, %13
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %25 = load i64, ptr %24, align 8, !noundef !8
-  %26 = icmp ult i64 %23, %25
-  br i1 %26, label %31, label %28
+19:                                               ; preds = %9
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %21 = load ptr, ptr %20, align 8, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw { i64 }, ptr %21, i64 %2
+  %23 = load atomic i64, ptr %22 monotonic, align 8
+  %24 = sub i64 %23, %14
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %26 = load i64, ptr %25, align 8, !noundef !8
+  %27 = icmp ult i64 %24, %26
+  br i1 %27, label %32, label %29
 
-27:                                               ; preds = %9
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616) #44
+28:                                               ; preds = %9
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616) #44
   unreachable
 
-28:                                               ; preds = %18
-  %29 = load i64, ptr %6, align 8, !noundef !8
-  %30 = icmp ult i64 %2, %29
-  br i1 %30, label %37, label %42
+29:                                               ; preds = %19
+  %30 = load i64, ptr %6, align 8, !noundef !8
+  %31 = icmp ult i64 %2, %30
+  br i1 %31, label %38, label %44
 
-31:                                               ; preds = %18
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %33 = load i64, ptr %32, align 8, !noundef !8
-  %34 = and i64 %33, %22
-  %35 = load i64, ptr %6, align 8, !noundef !8
-  %36 = icmp ult i64 %2, %35
-  br i1 %36, label %46, label %52
+32:                                               ; preds = %19
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %34 = load i64, ptr %33, align 8, !noundef !8
+  %35 = and i64 %34, %23
+  %36 = load i64, ptr %6, align 8, !noundef !8
+  %37 = icmp ult i64 %2, %36
+  br i1 %37, label %48, label %54
 
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %39 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %38, i64 %2, i32 0, i32 3
-  %40 = load atomic i8, ptr %39 seq_cst, align 1
-  %41 = icmp eq i8 %40, 0
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %40 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %39, i64 %2
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  %42 = load atomic i8, ptr %41 seq_cst, align 1
+  %43 = icmp eq i8 %42, 0
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %41, label %43, label %44
+  br i1 %43, label %45, label %46
 
-42:                                               ; preds = %28
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617) #44
+44:                                               ; preds = %29
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617) #44
   unreachable
 
-43:                                               ; preds = %37
+45:                                               ; preds = %38
   store i64 0, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  br label %45
+  br label %47
 
-44:                                               ; preds = %37
+46:                                               ; preds = %38
   store i64 1, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  br label %45
+  br label %47
 
-45:                                               ; preds = %43, %44, %66
+47:                                               ; preds = %45, %46, %68
   ret void
 
-46:                                               ; preds = %31
-  %47 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %48 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %47, i64 %2
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i64, ptr %49, align 8, !noundef !8
-  %51 = icmp ult i64 %34, %50
-  br i1 %51, label %53, label %58
+48:                                               ; preds = %32
+  %49 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %50 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %49, i64 %2
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i64, ptr %51, align 8, !noundef !8
+  %53 = icmp ult i64 %35, %52
+  br i1 %53, label %55, label %60
 
-52:                                               ; preds = %31
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618) #44
+54:                                               ; preds = %32
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618) #44
   unreachable
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %48, align 128, !nonnull !8, !align !674, !noundef !8
-  %55 = getelementptr inbounds nuw { { [7 x i64] } }, ptr %54, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  %56 = load i64, ptr %14, align 8, !noundef !8
-  %57 = icmp ult i64 %2, %56
-  br i1 %57, label %59, label %65
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %50, align 128, !nonnull !8, !align !674, !noundef !8
+  %57 = getelementptr inbounds nuw { { [7 x i64] } }, ptr %56, i64 %35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %57, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
+  %58 = load i64, ptr %15, align 8, !noundef !8
+  %59 = icmp ult i64 %2, %58
+  br i1 %59, label %61, label %67
 
-58:                                               ; preds = %46
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %34, i64 noundef %50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619) #44
+60:                                               ; preds = %48
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %35, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619) #44
   unreachable
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
-  %61 = getelementptr inbounds nuw { i64 }, ptr %60, i64 %2
-  %62 = add i64 %22, 1
-  store atomic i64 %62, ptr %61 seq_cst, align 8
-  %63 = load i64, ptr %6, align 8, !noundef !8
-  %64 = icmp ult i64 %2, %63
-  br i1 %64, label %66, label %69
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %20, align 8, !nonnull !8, !noundef !8
+  %63 = getelementptr inbounds nuw { i64 }, ptr %62, i64 %2
+  %64 = add i64 %23, 1
+  store atomic i64 %64, ptr %63 seq_cst, align 8
+  %65 = load i64, ptr %6, align 8, !noundef !8
+  %66 = icmp ult i64 %2, %65
+  br i1 %66, label %68, label %72
 
-65:                                               ; preds = %53
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %56, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
+67:                                               ; preds = %55
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
   unreachable
 
-66:                                               ; preds = %59
-  %67 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %68 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %67, i64 %2, i32 0, i32 2
-  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %68)
+68:                                               ; preds = %61
+  %69 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %70 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %69, i64 %2
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %71)
   store i64 2, ptr %0, align 8
-  br label %45
+  br label %47
 
-69:                                               ; preds = %59
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %63, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
+72:                                               ; preds = %61
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %65, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
   unreachable
 }
 
@@ -84659,112 +84674,115 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel15
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2, i32 0, i32 1
-  %13 = load atomic i64, ptr %12 seq_cst, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %15 = load i64, ptr %14, align 8, !noundef !8
-  %16 = icmp ult i64 %2, %15
-  br i1 %16, label %17, label %.invoke
+  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load atomic i64, ptr %13 seq_cst, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %16 = load i64, ptr %15, align 8, !noundef !8
+  %17 = icmp ult i64 %2, %16
+  br i1 %17, label %18, label %.invoke
 
-17:                                               ; preds = %9
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %2
-  %21 = load atomic i64, ptr %20 monotonic, align 8
-  %22 = sub i64 %21, %13
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %24 = load i64, ptr %23, align 8, !noundef !8
-  %25 = icmp ult i64 %22, %24
-  br i1 %25, label %29, label %26
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %20 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
+  %21 = getelementptr inbounds nuw { i64 }, ptr %20, i64 %2
+  %22 = load atomic i64, ptr %21 monotonic, align 8
+  %23 = sub i64 %22, %14
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %25 = load i64, ptr %24, align 8, !noundef !8
+  %26 = icmp ult i64 %23, %25
+  br i1 %26, label %30, label %27
 
-26:                                               ; preds = %17
-  %27 = load i64, ptr %6, align 8, !noundef !8
-  %28 = icmp ult i64 %2, %27
-  br i1 %28, label %35, label %.invoke
+27:                                               ; preds = %18
+  %28 = load i64, ptr %6, align 8, !noundef !8
+  %29 = icmp ult i64 %2, %28
+  br i1 %29, label %36, label %.invoke
 
-29:                                               ; preds = %17
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %31 = load i64, ptr %30, align 8, !noundef !8
-  %32 = and i64 %31, %21
-  %33 = load i64, ptr %6, align 8, !noundef !8
-  %34 = icmp ult i64 %2, %33
-  br i1 %34, label %41, label %.invoke
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %32 = load i64, ptr %31, align 8, !noundef !8
+  %33 = and i64 %32, %22
+  %34 = load i64, ptr %6, align 8, !noundef !8
+  %35 = icmp ult i64 %2, %34
+  br i1 %35, label %43, label %.invoke
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %37 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %36, i64 %2, i32 0, i32 3
-  %38 = load atomic i8, ptr %37 seq_cst, align 1
-  %39 = icmp ne i8 %38, 0
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %38 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %37, i64 %2
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  %40 = load atomic i8, ptr %39 seq_cst, align 1
+  %41 = icmp ne i8 %40, 0
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(120) %3, i64 120, i1 false)
-  %. = zext i1 %39 to i64
-  br label %40
+  %. = zext i1 %41 to i64
+  br label %42
 
-40:                                               ; preds = %35, %62
-  %.sink = phi i64 [ 2, %62 ], [ %., %35 ]
+42:                                               ; preds = %36, %64
+  %.sink = phi i64 [ 2, %64 ], [ %., %36 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %42, i64 %2
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i64, ptr %44, align 8, !noundef !8
-  %46 = icmp ult i64 %32, %45
-  br i1 %46, label %47, label %.invoke
+43:                                               ; preds = %30
+  %44 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %45 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %44, i64 %2
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i64, ptr %46, align 8, !noundef !8
+  %48 = icmp ult i64 %33, %47
+  br i1 %48, label %49, label %.invoke
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %43, align 128, !nonnull !8, !align !674, !noundef !8
-  %49 = getelementptr inbounds nuw { { [15 x i64] } }, ptr %48, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %49, ptr noundef nonnull align 8 dereferenceable(120) %3, i64 120, i1 false)
-  %50 = load i64, ptr %14, align 8, !noundef !8
-  %51 = icmp ult i64 %2, %50
-  br i1 %51, label %56, label %55
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %45, align 128, !nonnull !8, !align !674, !noundef !8
+  %51 = getelementptr inbounds nuw { { [15 x i64] } }, ptr %50, i64 %33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %51, ptr noundef nonnull align 8 dereferenceable(120) %3, i64 120, i1 false)
+  %52 = load i64, ptr %15, align 8, !noundef !8
+  %53 = icmp ult i64 %2, %52
+  br i1 %53, label %58, label %57
 
-.invoke:                                          ; preds = %41, %29, %26, %9, %4
-  %52 = phi i64 [ %2, %4 ], [ %2, %9 ], [ %2, %26 ], [ %2, %29 ], [ %32, %41 ]
-  %53 = phi i64 [ %7, %4 ], [ %15, %9 ], [ %27, %26 ], [ %33, %29 ], [ %45, %41 ]
-  %54 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615, %4 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616, %9 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617, %26 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618, %29 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619, %41 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %52, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) %54) #44
-          to label %.cont unwind label %67
+.invoke:                                          ; preds = %43, %30, %27, %9, %4
+  %54 = phi i64 [ %2, %4 ], [ %2, %9 ], [ %2, %27 ], [ %2, %30 ], [ %33, %43 ]
+  %55 = phi i64 [ %7, %4 ], [ %16, %9 ], [ %28, %27 ], [ %34, %30 ], [ %47, %43 ]
+  %56 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615, %4 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616, %9 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617, %27 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618, %30 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619, %43 ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %54, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) %56) #44
+          to label %.cont unwind label %70
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-55:                                               ; preds = %47
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
+57:                                               ; preds = %49
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
   unreachable
 
-56:                                               ; preds = %47
-  %57 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %58 = getelementptr inbounds nuw { i64 }, ptr %57, i64 %2
-  %59 = add i64 %21, 1
-  store atomic i64 %59, ptr %58 seq_cst, align 8
-  %60 = load i64, ptr %6, align 8, !noundef !8
-  %61 = icmp ult i64 %2, %60
-  br i1 %61, label %62, label %65
+58:                                               ; preds = %49
+  %59 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
+  %60 = getelementptr inbounds nuw { i64 }, ptr %59, i64 %2
+  %61 = add i64 %22, 1
+  store atomic i64 %61, ptr %60 seq_cst, align 8
+  %62 = load i64, ptr %6, align 8, !noundef !8
+  %63 = icmp ult i64 %2, %62
+  br i1 %63, label %64, label %68
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %64 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %63, i64 %2, i32 0, i32 2
-  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
-  br label %40
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %66 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %65, i64 %2
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %67)
+  br label %42
 
-65:                                               ; preds = %56
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
+68:                                               ; preds = %58
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
   unreachable
 
-66:                                               ; preds = %67
+69:                                               ; preds = %70
   resume { ptr, i32 } %lpad.thr_comm
 
-67:                                               ; preds = %.invoke
+70:                                               ; preds = %.invoke
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$$LP$polars_stream..morsel..Morsel$C$polars_core..frame..DataFrame$RP$$GT$17h911547afb6b9cf75E"(ptr noalias noundef align 8 dereferenceable(120) %3) #42
-          to label %66 unwind label %68
+          to label %69 unwind label %71
 
-68:                                               ; preds = %67
-  %69 = landingpad { ptr, i32 }
+71:                                               ; preds = %70
+  %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43
   unreachable
@@ -84781,112 +84799,115 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel15
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2, i32 0, i32 1
-  %13 = load atomic i64, ptr %12 seq_cst, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %15 = load i64, ptr %14, align 8, !noundef !8
-  %16 = icmp ult i64 %2, %15
-  br i1 %16, label %17, label %.invoke
+  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load atomic i64, ptr %13 seq_cst, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %16 = load i64, ptr %15, align 8, !noundef !8
+  %17 = icmp ult i64 %2, %16
+  br i1 %17, label %18, label %.invoke
 
-17:                                               ; preds = %9
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %2
-  %21 = load atomic i64, ptr %20 monotonic, align 8
-  %22 = sub i64 %21, %13
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %24 = load i64, ptr %23, align 8, !noundef !8
-  %25 = icmp ult i64 %22, %24
-  br i1 %25, label %29, label %26
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %20 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
+  %21 = getelementptr inbounds nuw { i64 }, ptr %20, i64 %2
+  %22 = load atomic i64, ptr %21 monotonic, align 8
+  %23 = sub i64 %22, %14
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %25 = load i64, ptr %24, align 8, !noundef !8
+  %26 = icmp ult i64 %23, %25
+  br i1 %26, label %30, label %27
 
-26:                                               ; preds = %17
-  %27 = load i64, ptr %6, align 8, !noundef !8
-  %28 = icmp ult i64 %2, %27
-  br i1 %28, label %35, label %.invoke
+27:                                               ; preds = %18
+  %28 = load i64, ptr %6, align 8, !noundef !8
+  %29 = icmp ult i64 %2, %28
+  br i1 %29, label %36, label %.invoke
 
-29:                                               ; preds = %17
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %31 = load i64, ptr %30, align 8, !noundef !8
-  %32 = and i64 %31, %21
-  %33 = load i64, ptr %6, align 8, !noundef !8
-  %34 = icmp ult i64 %2, %33
-  br i1 %34, label %41, label %.invoke
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %32 = load i64, ptr %31, align 8, !noundef !8
+  %33 = and i64 %32, %22
+  %34 = load i64, ptr %6, align 8, !noundef !8
+  %35 = icmp ult i64 %2, %34
+  br i1 %35, label %43, label %.invoke
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %37 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %36, i64 %2, i32 0, i32 3
-  %38 = load atomic i8, ptr %37 seq_cst, align 1
-  %39 = icmp ne i8 %38, 0
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %38 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %37, i64 %2
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  %40 = load atomic i8, ptr %39 seq_cst, align 1
+  %41 = icmp ne i8 %40, 0
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
-  %. = zext i1 %39 to i64
-  br label %40
+  %. = zext i1 %41 to i64
+  br label %42
 
-40:                                               ; preds = %35, %62
-  %.sink = phi i64 [ 2, %62 ], [ %., %35 ]
+42:                                               ; preds = %36, %64
+  %.sink = phi i64 [ 2, %64 ], [ %., %36 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %42, i64 %2
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i64, ptr %44, align 8, !noundef !8
-  %46 = icmp ult i64 %32, %45
-  br i1 %46, label %47, label %.invoke
+43:                                               ; preds = %30
+  %44 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %45 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %44, i64 %2
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i64, ptr %46, align 8, !noundef !8
+  %48 = icmp ult i64 %33, %47
+  br i1 %48, label %49, label %.invoke
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %43, align 128, !nonnull !8, !align !674, !noundef !8
-  %49 = getelementptr inbounds nuw { { [9 x i64] } }, ptr %48, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %49, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
-  %50 = load i64, ptr %14, align 8, !noundef !8
-  %51 = icmp ult i64 %2, %50
-  br i1 %51, label %56, label %55
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %45, align 128, !nonnull !8, !align !674, !noundef !8
+  %51 = getelementptr inbounds nuw { { [9 x i64] } }, ptr %50, i64 %33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
+  %52 = load i64, ptr %15, align 8, !noundef !8
+  %53 = icmp ult i64 %2, %52
+  br i1 %53, label %58, label %57
 
-.invoke:                                          ; preds = %41, %29, %26, %9, %4
-  %52 = phi i64 [ %2, %4 ], [ %2, %9 ], [ %2, %26 ], [ %2, %29 ], [ %32, %41 ]
-  %53 = phi i64 [ %7, %4 ], [ %15, %9 ], [ %27, %26 ], [ %33, %29 ], [ %45, %41 ]
-  %54 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615, %4 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616, %9 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617, %26 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618, %29 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619, %41 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %52, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) %54) #44
-          to label %.cont unwind label %67
+.invoke:                                          ; preds = %43, %30, %27, %9, %4
+  %54 = phi i64 [ %2, %4 ], [ %2, %9 ], [ %2, %27 ], [ %2, %30 ], [ %33, %43 ]
+  %55 = phi i64 [ %7, %4 ], [ %16, %9 ], [ %28, %27 ], [ %34, %30 ], [ %47, %43 ]
+  %56 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615, %4 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616, %9 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617, %27 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618, %30 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619, %43 ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %54, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) %56) #44
+          to label %.cont unwind label %70
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-55:                                               ; preds = %47
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
+57:                                               ; preds = %49
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
   unreachable
 
-56:                                               ; preds = %47
-  %57 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %58 = getelementptr inbounds nuw { i64 }, ptr %57, i64 %2
-  %59 = add i64 %21, 1
-  store atomic i64 %59, ptr %58 seq_cst, align 8
-  %60 = load i64, ptr %6, align 8, !noundef !8
-  %61 = icmp ult i64 %2, %60
-  br i1 %61, label %62, label %65
+58:                                               ; preds = %49
+  %59 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
+  %60 = getelementptr inbounds nuw { i64 }, ptr %59, i64 %2
+  %61 = add i64 %22, 1
+  store atomic i64 %61, ptr %60 seq_cst, align 8
+  %62 = load i64, ptr %6, align 8, !noundef !8
+  %63 = icmp ult i64 %2, %62
+  br i1 %63, label %64, label %68
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %64 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %63, i64 %2, i32 0, i32 2
-  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
-  br label %40
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %66 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %65, i64 %2
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %67)
+  br label %42
 
-65:                                               ; preds = %56
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
+68:                                               ; preds = %58
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
   unreachable
 
-66:                                               ; preds = %67
+69:                                               ; preds = %70
   resume { ptr, i32 } %lpad.thr_comm
 
-67:                                               ; preds = %.invoke
+70:                                               ; preds = %.invoke
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_stream..morsel..Morsel$GT$17h4ba850224907b548E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3) #42
-          to label %66 unwind label %68
+          to label %69 unwind label %71
 
-68:                                               ; preds = %67
-  %69 = landingpad { ptr, i32 }
+71:                                               ; preds = %70
+  %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43
   unreachable
@@ -84898,121 +84919,124 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load i64, ptr %6, align 8, !noundef !8
   %8 = icmp ult i64 %2, %7
-  br i1 %8, label %9, label %17
+  br i1 %8, label %9, label %18
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2, i32 0, i32 1
-  %13 = load atomic i64, ptr %12 seq_cst, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %15 = load i64, ptr %14, align 8, !noundef !8
-  %16 = icmp ult i64 %2, %15
-  br i1 %16, label %18, label %27
+  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load atomic i64, ptr %13 seq_cst, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %16 = load i64, ptr %15, align 8, !noundef !8
+  %17 = icmp ult i64 %2, %16
+  br i1 %17, label %19, label %28
 
-17:                                               ; preds = %4
+18:                                               ; preds = %4
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615) #44
   unreachable
 
-18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %20 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
-  %21 = getelementptr inbounds nuw { i64 }, ptr %20, i64 %2
-  %22 = load atomic i64, ptr %21 monotonic, align 8
-  %23 = sub i64 %22, %13
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %25 = load i64, ptr %24, align 8, !noundef !8
-  %26 = icmp ult i64 %23, %25
-  br i1 %26, label %31, label %28
+19:                                               ; preds = %9
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %21 = load ptr, ptr %20, align 8, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw { i64 }, ptr %21, i64 %2
+  %23 = load atomic i64, ptr %22 monotonic, align 8
+  %24 = sub i64 %23, %14
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %26 = load i64, ptr %25, align 8, !noundef !8
+  %27 = icmp ult i64 %24, %26
+  br i1 %27, label %32, label %29
 
-27:                                               ; preds = %9
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616) #44
+28:                                               ; preds = %9
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616) #44
   unreachable
 
-28:                                               ; preds = %18
-  %29 = load i64, ptr %6, align 8, !noundef !8
-  %30 = icmp ult i64 %2, %29
-  br i1 %30, label %37, label %42
+29:                                               ; preds = %19
+  %30 = load i64, ptr %6, align 8, !noundef !8
+  %31 = icmp ult i64 %2, %30
+  br i1 %31, label %38, label %44
 
-31:                                               ; preds = %18
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %33 = load i64, ptr %32, align 8, !noundef !8
-  %34 = and i64 %33, %22
-  %35 = load i64, ptr %6, align 8, !noundef !8
-  %36 = icmp ult i64 %2, %35
-  br i1 %36, label %46, label %52
+32:                                               ; preds = %19
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %34 = load i64, ptr %33, align 8, !noundef !8
+  %35 = and i64 %34, %23
+  %36 = load i64, ptr %6, align 8, !noundef !8
+  %37 = icmp ult i64 %2, %36
+  br i1 %37, label %48, label %54
 
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %39 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %38, i64 %2, i32 0, i32 3
-  %40 = load atomic i8, ptr %39 seq_cst, align 1
-  %41 = icmp eq i8 %40, 0
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %40 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %39, i64 %2
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  %42 = load atomic i8, ptr %41 seq_cst, align 1
+  %43 = icmp eq i8 %42, 0
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %41, label %43, label %44
+  br i1 %43, label %45, label %46
 
-42:                                               ; preds = %28
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617) #44
+44:                                               ; preds = %29
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617) #44
   unreachable
 
-43:                                               ; preds = %37
+45:                                               ; preds = %38
   store i64 0, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  br label %45
+  br label %47
 
-44:                                               ; preds = %37
+46:                                               ; preds = %38
   store i64 1, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  br label %45
+  br label %47
 
-45:                                               ; preds = %43, %44, %66
+47:                                               ; preds = %45, %46, %68
   ret void
 
-46:                                               ; preds = %31
-  %47 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %48 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %47, i64 %2
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i64, ptr %49, align 8, !noundef !8
-  %51 = icmp ult i64 %34, %50
-  br i1 %51, label %53, label %58
+48:                                               ; preds = %32
+  %49 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %50 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %49, i64 %2
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i64, ptr %51, align 8, !noundef !8
+  %53 = icmp ult i64 %35, %52
+  br i1 %53, label %55, label %60
 
-52:                                               ; preds = %31
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618) #44
+54:                                               ; preds = %32
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618) #44
   unreachable
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %48, align 128, !nonnull !8, !align !674, !noundef !8
-  %55 = getelementptr inbounds nuw { { [6 x i64] } }, ptr %54, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  %56 = load i64, ptr %14, align 8, !noundef !8
-  %57 = icmp ult i64 %2, %56
-  br i1 %57, label %59, label %65
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %50, align 128, !nonnull !8, !align !674, !noundef !8
+  %57 = getelementptr inbounds nuw { { [6 x i64] } }, ptr %56, i64 %35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
+  %58 = load i64, ptr %15, align 8, !noundef !8
+  %59 = icmp ult i64 %2, %58
+  br i1 %59, label %61, label %67
 
-58:                                               ; preds = %46
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %34, i64 noundef %50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619) #44
+60:                                               ; preds = %48
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %35, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619) #44
   unreachable
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
-  %61 = getelementptr inbounds nuw { i64 }, ptr %60, i64 %2
-  %62 = add i64 %22, 1
-  store atomic i64 %62, ptr %61 seq_cst, align 8
-  %63 = load i64, ptr %6, align 8, !noundef !8
-  %64 = icmp ult i64 %2, %63
-  br i1 %64, label %66, label %69
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %20, align 8, !nonnull !8, !noundef !8
+  %63 = getelementptr inbounds nuw { i64 }, ptr %62, i64 %2
+  %64 = add i64 %23, 1
+  store atomic i64 %64, ptr %63 seq_cst, align 8
+  %65 = load i64, ptr %6, align 8, !noundef !8
+  %66 = icmp ult i64 %2, %65
+  br i1 %66, label %68, label %72
 
-65:                                               ; preds = %53
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %56, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
+67:                                               ; preds = %55
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
   unreachable
 
-66:                                               ; preds = %59
-  %67 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %68 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %67, i64 %2, i32 0, i32 2
-  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %68)
+68:                                               ; preds = %61
+  %69 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %70 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %69, i64 %2
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %71)
   store i64 2, ptr %0, align 8
-  br label %45
+  br label %47
 
-69:                                               ; preds = %59
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %63, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
+72:                                               ; preds = %61
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %65, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
   unreachable
 }
 
@@ -85027,112 +85051,115 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel15
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2, i32 0, i32 1
-  %13 = load atomic i64, ptr %12 seq_cst, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %15 = load i64, ptr %14, align 8, !noundef !8
-  %16 = icmp ult i64 %2, %15
-  br i1 %16, label %17, label %.invoke
+  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load atomic i64, ptr %13 seq_cst, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %16 = load i64, ptr %15, align 8, !noundef !8
+  %17 = icmp ult i64 %2, %16
+  br i1 %17, label %18, label %.invoke
 
-17:                                               ; preds = %9
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %2
-  %21 = load atomic i64, ptr %20 monotonic, align 8
-  %22 = sub i64 %21, %13
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %24 = load i64, ptr %23, align 8, !noundef !8
-  %25 = icmp ult i64 %22, %24
-  br i1 %25, label %29, label %26
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %20 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
+  %21 = getelementptr inbounds nuw { i64 }, ptr %20, i64 %2
+  %22 = load atomic i64, ptr %21 monotonic, align 8
+  %23 = sub i64 %22, %14
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %25 = load i64, ptr %24, align 8, !noundef !8
+  %26 = icmp ult i64 %23, %25
+  br i1 %26, label %30, label %27
 
-26:                                               ; preds = %17
-  %27 = load i64, ptr %6, align 8, !noundef !8
-  %28 = icmp ult i64 %2, %27
-  br i1 %28, label %35, label %.invoke
+27:                                               ; preds = %18
+  %28 = load i64, ptr %6, align 8, !noundef !8
+  %29 = icmp ult i64 %2, %28
+  br i1 %29, label %36, label %.invoke
 
-29:                                               ; preds = %17
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %31 = load i64, ptr %30, align 8, !noundef !8
-  %32 = and i64 %31, %21
-  %33 = load i64, ptr %6, align 8, !noundef !8
-  %34 = icmp ult i64 %2, %33
-  br i1 %34, label %41, label %.invoke
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %32 = load i64, ptr %31, align 8, !noundef !8
+  %33 = and i64 %32, %22
+  %34 = load i64, ptr %6, align 8, !noundef !8
+  %35 = icmp ult i64 %2, %34
+  br i1 %35, label %43, label %.invoke
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %37 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %36, i64 %2, i32 0, i32 3
-  %38 = load atomic i8, ptr %37 seq_cst, align 1
-  %39 = icmp ne i8 %38, 0
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %38 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %37, i64 %2
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  %40 = load atomic i8, ptr %39 seq_cst, align 1
+  %41 = icmp ne i8 %40, 0
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %. = zext i1 %39 to i64
-  br label %40
+  %. = zext i1 %41 to i64
+  br label %42
 
-40:                                               ; preds = %35, %62
-  %.sink = phi i64 [ 2, %62 ], [ %., %35 ]
+42:                                               ; preds = %36, %64
+  %.sink = phi i64 [ 2, %64 ], [ %., %36 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %42, i64 %2
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i64, ptr %44, align 8, !noundef !8
-  %46 = icmp ult i64 %32, %45
-  br i1 %46, label %47, label %.invoke
+43:                                               ; preds = %30
+  %44 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %45 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %44, i64 %2
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i64, ptr %46, align 8, !noundef !8
+  %48 = icmp ult i64 %33, %47
+  br i1 %48, label %49, label %.invoke
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %43, align 128, !nonnull !8, !align !674, !noundef !8
-  %49 = getelementptr inbounds nuw { { [3 x i64] } }, ptr %48, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %50 = load i64, ptr %14, align 8, !noundef !8
-  %51 = icmp ult i64 %2, %50
-  br i1 %51, label %56, label %55
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %45, align 128, !nonnull !8, !align !674, !noundef !8
+  %51 = getelementptr inbounds nuw { { [3 x i64] } }, ptr %50, i64 %33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  %52 = load i64, ptr %15, align 8, !noundef !8
+  %53 = icmp ult i64 %2, %52
+  br i1 %53, label %58, label %57
 
-.invoke:                                          ; preds = %41, %29, %26, %9, %4
-  %52 = phi i64 [ %2, %4 ], [ %2, %9 ], [ %2, %26 ], [ %2, %29 ], [ %32, %41 ]
-  %53 = phi i64 [ %7, %4 ], [ %15, %9 ], [ %27, %26 ], [ %33, %29 ], [ %45, %41 ]
-  %54 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615, %4 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616, %9 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617, %26 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618, %29 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619, %41 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %52, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) %54) #44
-          to label %.cont unwind label %67
+.invoke:                                          ; preds = %43, %30, %27, %9, %4
+  %54 = phi i64 [ %2, %4 ], [ %2, %9 ], [ %2, %27 ], [ %2, %30 ], [ %33, %43 ]
+  %55 = phi i64 [ %7, %4 ], [ %16, %9 ], [ %28, %27 ], [ %34, %30 ], [ %47, %43 ]
+  %56 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615, %4 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616, %9 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617, %27 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618, %30 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619, %43 ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %54, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) %56) #44
+          to label %.cont unwind label %70
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-55:                                               ; preds = %47
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
+57:                                               ; preds = %49
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
   unreachable
 
-56:                                               ; preds = %47
-  %57 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %58 = getelementptr inbounds nuw { i64 }, ptr %57, i64 %2
-  %59 = add i64 %21, 1
-  store atomic i64 %59, ptr %58 seq_cst, align 8
-  %60 = load i64, ptr %6, align 8, !noundef !8
-  %61 = icmp ult i64 %2, %60
-  br i1 %61, label %62, label %65
+58:                                               ; preds = %49
+  %59 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
+  %60 = getelementptr inbounds nuw { i64 }, ptr %59, i64 %2
+  %61 = add i64 %22, 1
+  store atomic i64 %61, ptr %60 seq_cst, align 8
+  %62 = load i64, ptr %6, align 8, !noundef !8
+  %63 = icmp ult i64 %2, %62
+  br i1 %63, label %64, label %68
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %64 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %63, i64 %2, i32 0, i32 2
-  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
-  br label %40
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %66 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %65, i64 %2
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %67)
+  br label %42
 
-65:                                               ; preds = %56
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
+68:                                               ; preds = %58
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
   unreachable
 
-66:                                               ; preds = %67
+69:                                               ; preds = %70
   resume { ptr, i32 } %lpad.thr_comm
 
-67:                                               ; preds = %.invoke
+70:                                               ; preds = %.invoke
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr212drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$17hffbed7c47c0de6f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #42
-          to label %66 unwind label %68
+          to label %69 unwind label %71
 
-68:                                               ; preds = %67
-  %69 = landingpad { ptr, i32 }
+71:                                               ; preds = %70
+  %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43
   unreachable
@@ -85144,121 +85171,124 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load i64, ptr %6, align 8, !noundef !8
   %8 = icmp ult i64 %2, %7
-  br i1 %8, label %9, label %17
+  br i1 %8, label %9, label %18
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2, i32 0, i32 1
-  %13 = load atomic i64, ptr %12 seq_cst, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %15 = load i64, ptr %14, align 8, !noundef !8
-  %16 = icmp ult i64 %2, %15
-  br i1 %16, label %18, label %27
+  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load atomic i64, ptr %13 seq_cst, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %16 = load i64, ptr %15, align 8, !noundef !8
+  %17 = icmp ult i64 %2, %16
+  br i1 %17, label %19, label %28
 
-17:                                               ; preds = %4
+18:                                               ; preds = %4
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615) #44
   unreachable
 
-18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %20 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
-  %21 = getelementptr inbounds nuw { i64 }, ptr %20, i64 %2
-  %22 = load atomic i64, ptr %21 monotonic, align 8
-  %23 = sub i64 %22, %13
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %25 = load i64, ptr %24, align 8, !noundef !8
-  %26 = icmp ult i64 %23, %25
-  br i1 %26, label %31, label %28
+19:                                               ; preds = %9
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %21 = load ptr, ptr %20, align 8, !nonnull !8, !noundef !8
+  %22 = getelementptr inbounds nuw { i64 }, ptr %21, i64 %2
+  %23 = load atomic i64, ptr %22 monotonic, align 8
+  %24 = sub i64 %23, %14
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %26 = load i64, ptr %25, align 8, !noundef !8
+  %27 = icmp ult i64 %24, %26
+  br i1 %27, label %32, label %29
 
-27:                                               ; preds = %9
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616) #44
+28:                                               ; preds = %9
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616) #44
   unreachable
 
-28:                                               ; preds = %18
-  %29 = load i64, ptr %6, align 8, !noundef !8
-  %30 = icmp ult i64 %2, %29
-  br i1 %30, label %37, label %42
+29:                                               ; preds = %19
+  %30 = load i64, ptr %6, align 8, !noundef !8
+  %31 = icmp ult i64 %2, %30
+  br i1 %31, label %38, label %44
 
-31:                                               ; preds = %18
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %33 = load i64, ptr %32, align 8, !noundef !8
-  %34 = and i64 %33, %22
-  %35 = load i64, ptr %6, align 8, !noundef !8
-  %36 = icmp ult i64 %2, %35
-  br i1 %36, label %46, label %52
+32:                                               ; preds = %19
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %34 = load i64, ptr %33, align 8, !noundef !8
+  %35 = and i64 %34, %23
+  %36 = load i64, ptr %6, align 8, !noundef !8
+  %37 = icmp ult i64 %2, %36
+  br i1 %37, label %48, label %54
 
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %39 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %38, i64 %2, i32 0, i32 3
-  %40 = load atomic i8, ptr %39 seq_cst, align 1
-  %41 = icmp eq i8 %40, 0
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %40 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %39, i64 %2
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  %42 = load atomic i8, ptr %41 seq_cst, align 1
+  %43 = icmp eq i8 %42, 0
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %41, label %43, label %44
+  br i1 %43, label %45, label %46
 
-42:                                               ; preds = %28
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617) #44
+44:                                               ; preds = %29
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617) #44
   unreachable
 
-43:                                               ; preds = %37
+45:                                               ; preds = %38
   store i64 0, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  br label %45
+  br label %47
 
-44:                                               ; preds = %37
+46:                                               ; preds = %38
   store i64 1, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  br label %45
+  br label %47
 
-45:                                               ; preds = %43, %44, %66
+47:                                               ; preds = %45, %46, %68
   ret void
 
-46:                                               ; preds = %31
-  %47 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %48 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %47, i64 %2
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i64, ptr %49, align 8, !noundef !8
-  %51 = icmp ult i64 %34, %50
-  br i1 %51, label %53, label %58
+48:                                               ; preds = %32
+  %49 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %50 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %49, i64 %2
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i64, ptr %51, align 8, !noundef !8
+  %53 = icmp ult i64 %35, %52
+  br i1 %53, label %55, label %60
 
-52:                                               ; preds = %31
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618) #44
+54:                                               ; preds = %32
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618) #44
   unreachable
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %48, align 128, !nonnull !8, !align !674, !noundef !8
-  %55 = getelementptr inbounds nuw { { [3 x i64] } }, ptr %54, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %56 = load i64, ptr %14, align 8, !noundef !8
-  %57 = icmp ult i64 %2, %56
-  br i1 %57, label %59, label %65
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %50, align 128, !nonnull !8, !align !674, !noundef !8
+  %57 = getelementptr inbounds nuw { { [3 x i64] } }, ptr %56, i64 %35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  %58 = load i64, ptr %15, align 8, !noundef !8
+  %59 = icmp ult i64 %2, %58
+  br i1 %59, label %61, label %67
 
-58:                                               ; preds = %46
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %34, i64 noundef %50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619) #44
+60:                                               ; preds = %48
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %35, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619) #44
   unreachable
 
-59:                                               ; preds = %53
-  %60 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
-  %61 = getelementptr inbounds nuw { i64 }, ptr %60, i64 %2
-  %62 = add i64 %22, 1
-  store atomic i64 %62, ptr %61 seq_cst, align 8
-  %63 = load i64, ptr %6, align 8, !noundef !8
-  %64 = icmp ult i64 %2, %63
-  br i1 %64, label %66, label %69
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %20, align 8, !nonnull !8, !noundef !8
+  %63 = getelementptr inbounds nuw { i64 }, ptr %62, i64 %2
+  %64 = add i64 %23, 1
+  store atomic i64 %64, ptr %63 seq_cst, align 8
+  %65 = load i64, ptr %6, align 8, !noundef !8
+  %66 = icmp ult i64 %2, %65
+  br i1 %66, label %68, label %72
 
-65:                                               ; preds = %53
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %56, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
+67:                                               ; preds = %55
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
   unreachable
 
-66:                                               ; preds = %59
-  %67 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %68 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %67, i64 %2, i32 0, i32 2
-  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %68)
+68:                                               ; preds = %61
+  %69 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %70 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %69, i64 %2
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %71)
   store i64 2, ptr %0, align 8
-  br label %45
+  br label %47
 
-69:                                               ; preds = %59
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %63, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
+72:                                               ; preds = %61
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %65, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
   unreachable
 }
 
@@ -85273,112 +85303,115 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel15
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2, i32 0, i32 1
-  %13 = load atomic i64, ptr %12 seq_cst, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %15 = load i64, ptr %14, align 8, !noundef !8
-  %16 = icmp ult i64 %2, %15
-  br i1 %16, label %17, label %.invoke
+  %12 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %11, i64 %2
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load atomic i64, ptr %13 seq_cst, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %16 = load i64, ptr %15, align 8, !noundef !8
+  %17 = icmp ult i64 %2, %16
+  br i1 %17, label %18, label %.invoke
 
-17:                                               ; preds = %9
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %19 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %20 = getelementptr inbounds nuw { i64 }, ptr %19, i64 %2
-  %21 = load atomic i64, ptr %20 monotonic, align 8
-  %22 = sub i64 %21, %13
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %24 = load i64, ptr %23, align 8, !noundef !8
-  %25 = icmp ult i64 %22, %24
-  br i1 %25, label %29, label %26
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %20 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
+  %21 = getelementptr inbounds nuw { i64 }, ptr %20, i64 %2
+  %22 = load atomic i64, ptr %21 monotonic, align 8
+  %23 = sub i64 %22, %14
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %25 = load i64, ptr %24, align 8, !noundef !8
+  %26 = icmp ult i64 %23, %25
+  br i1 %26, label %30, label %27
 
-26:                                               ; preds = %17
-  %27 = load i64, ptr %6, align 8, !noundef !8
-  %28 = icmp ult i64 %2, %27
-  br i1 %28, label %35, label %.invoke
+27:                                               ; preds = %18
+  %28 = load i64, ptr %6, align 8, !noundef !8
+  %29 = icmp ult i64 %2, %28
+  br i1 %29, label %36, label %.invoke
 
-29:                                               ; preds = %17
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %31 = load i64, ptr %30, align 8, !noundef !8
-  %32 = and i64 %31, %21
-  %33 = load i64, ptr %6, align 8, !noundef !8
-  %34 = icmp ult i64 %2, %33
-  br i1 %34, label %41, label %.invoke
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %32 = load i64, ptr %31, align 8, !noundef !8
+  %33 = and i64 %32, %22
+  %34 = load i64, ptr %6, align 8, !noundef !8
+  %35 = icmp ult i64 %2, %34
+  br i1 %35, label %43, label %.invoke
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %37 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %36, i64 %2, i32 0, i32 3
-  %38 = load atomic i8, ptr %37 seq_cst, align 1
-  %39 = icmp ne i8 %38, 0
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %38 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %37, i64 %2
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  %40 = load atomic i8, ptr %39 seq_cst, align 1
+  %41 = icmp ne i8 %40, 0
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(176) %3, i64 176, i1 false)
-  %. = zext i1 %39 to i128
-  br label %40
+  %. = zext i1 %41 to i128
+  br label %42
 
-40:                                               ; preds = %35, %62
-  %.sink = phi i128 [ 2, %62 ], [ %., %35 ]
+42:                                               ; preds = %36, %64
+  %.sink = phi i128 [ 2, %64 ], [ %., %36 ]
   store i128 %.sink, ptr %0, align 16
   ret void
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %42, i64 %2
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i64, ptr %44, align 8, !noundef !8
-  %46 = icmp ult i64 %32, %45
-  br i1 %46, label %47, label %.invoke
+43:                                               ; preds = %30
+  %44 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %45 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %44, i64 %2
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i64, ptr %46, align 8, !noundef !8
+  %48 = icmp ult i64 %33, %47
+  br i1 %48, label %49, label %.invoke
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %43, align 128, !nonnull !8, !align !8157, !noundef !8
-  %49 = getelementptr inbounds nuw { { [22 x i64] } }, ptr %48, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %49, ptr noundef nonnull align 16 dereferenceable(176) %3, i64 176, i1 false)
-  %50 = load i64, ptr %14, align 8, !noundef !8
-  %51 = icmp ult i64 %2, %50
-  br i1 %51, label %56, label %55
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %45, align 128, !nonnull !8, !align !8157, !noundef !8
+  %51 = getelementptr inbounds nuw { { [22 x i64] } }, ptr %50, i64 %33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %51, ptr noundef nonnull align 16 dereferenceable(176) %3, i64 176, i1 false)
+  %52 = load i64, ptr %15, align 8, !noundef !8
+  %53 = icmp ult i64 %2, %52
+  br i1 %53, label %58, label %57
 
-.invoke:                                          ; preds = %41, %29, %26, %9, %4
-  %52 = phi i64 [ %2, %4 ], [ %2, %9 ], [ %2, %26 ], [ %2, %29 ], [ %32, %41 ]
-  %53 = phi i64 [ %7, %4 ], [ %15, %9 ], [ %27, %26 ], [ %33, %29 ], [ %45, %41 ]
-  %54 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615, %4 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616, %9 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617, %26 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618, %29 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619, %41 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %52, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) %54) #44
-          to label %.cont unwind label %67
+.invoke:                                          ; preds = %43, %30, %27, %9, %4
+  %54 = phi i64 [ %2, %4 ], [ %2, %9 ], [ %2, %27 ], [ %2, %30 ], [ %33, %43 ]
+  %55 = phi i64 [ %7, %4 ], [ %16, %9 ], [ %28, %27 ], [ %34, %30 ], [ %47, %43 ]
+  %56 = phi ptr [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.615, %4 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.616, %9 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.617, %27 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.618, %30 ], [ @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.619, %43 ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %54, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) %56) #44
+          to label %.cont unwind label %70
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-55:                                               ; preds = %47
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
+57:                                               ; preds = %49
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.620) #44
   unreachable
 
-56:                                               ; preds = %47
-  %57 = load ptr, ptr %18, align 8, !nonnull !8, !noundef !8
-  %58 = getelementptr inbounds nuw { i64 }, ptr %57, i64 %2
-  %59 = add i64 %21, 1
-  store atomic i64 %59, ptr %58 seq_cst, align 8
-  %60 = load i64, ptr %6, align 8, !noundef !8
-  %61 = icmp ult i64 %2, %60
-  br i1 %61, label %62, label %65
+58:                                               ; preds = %49
+  %59 = load ptr, ptr %19, align 8, !nonnull !8, !noundef !8
+  %60 = getelementptr inbounds nuw { i64 }, ptr %59, i64 %2
+  %61 = add i64 %22, 1
+  store atomic i64 %61, ptr %60 seq_cst, align 8
+  %62 = load i64, ptr %6, align 8, !noundef !8
+  %63 = icmp ult i64 %2, %62
+  br i1 %63, label %64, label %68
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %64 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %63, i64 %2, i32 0, i32 2
-  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
-  br label %40
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %66 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %65, i64 %2
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %67)
+  br label %42
 
-65:                                               ; preds = %56
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
+68:                                               ; preds = %58
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %2, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.621) #44
   unreachable
 
-66:                                               ; preds = %67
+69:                                               ; preds = %70
   resume { ptr, i32 } %lpad.thr_comm
 
-67:                                               ; preds = %.invoke
+70:                                               ; preds = %.invoke
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$$LP$usize$C$usize$C$polars_core..frame..column..Column$RP$$GT$17h2a2d5905e724c4edE"(ptr noalias noundef align 16 dereferenceable(176) %3) #42
-          to label %66 unwind label %68
+          to label %69 unwind label %71
 
-68:                                               ; preds = %67
-  %69 = landingpad { ptr, i32 }
+71:                                               ; preds = %70
+  %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43
   unreachable
@@ -85461,122 +85494,123 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 112
   br label %12
 
-12:                                               ; preds = %41, %2
+12:                                               ; preds = %42, %2
   %13 = load i64, ptr %7, align 8, !noundef !8
   %14 = icmp ult i64 %6, %13
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6, i32 0, i32 1
-  %18 = load atomic i64, ptr %17 monotonic, align 8
-  %19 = load i64, ptr %9, align 8, !noundef !8
-  %20 = icmp ult i64 %6, %19
-  br i1 %20, label %22, label %26
+  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load atomic i64, ptr %18 monotonic, align 8
+  %20 = load i64, ptr %9, align 8, !noundef !8
+  %21 = icmp ult i64 %6, %20
+  br i1 %21, label %23, label %27
 
-21:                                               ; preds = %12
+22:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.622) #44
   unreachable
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw { i64 }, ptr %23, i64 %6
-  %25 = load atomic i64, ptr %24 seq_cst, align 8
-  %.not = icmp eq i64 %18, %25
-  br i1 %.not, label %27, label %30
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %25 = getelementptr inbounds nuw { i64 }, ptr %24, i64 %6
+  %26 = load atomic i64, ptr %25 seq_cst, align 8
+  %.not = icmp eq i64 %19, %26
+  br i1 %.not, label %28, label %31
 
-26:                                               ; preds = %15
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
+27:                                               ; preds = %15
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
   unreachable
 
-27:                                               ; preds = %22
-  %28 = load atomic i8, ptr %11 seq_cst, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %36, label %38
+28:                                               ; preds = %23
+  %29 = load atomic i8, ptr %11 seq_cst, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %37, label %39
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %32 = load i64, ptr %31, align 8, !noundef !8
-  %33 = and i64 %32, %18
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %33 = load i64, ptr %32, align 8, !noundef !8
+  %34 = and i64 %33, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %34 = load i64, ptr %7, align 8, !noundef !8
-  %35 = icmp ult i64 %6, %34
-  br i1 %35, label %50, label %56
+  %35 = load i64, ptr %7, align 8, !noundef !8
+  %36 = icmp ult i64 %6, %35
+  br i1 %36, label %51, label %57
 
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %37, align 8
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %38, align 8
   store ptr null, ptr %0, align 8
-  br label %49
+  br label %50
 
-38:                                               ; preds = %27
-  %39 = load i64, ptr %9, align 8, !noundef !8
-  %40 = icmp ult i64 %6, %39
-  br i1 %40, label %41, label %46
+39:                                               ; preds = %28
+  %40 = load i64, ptr %9, align 8, !noundef !8
+  %41 = icmp ult i64 %6, %40
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { i64 }, ptr %42, i64 %6
-  %44 = load atomic i64, ptr %43 monotonic, align 8
-  %45 = icmp eq i64 %18, %44
-  br i1 %45, label %47, label %12
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %44 = getelementptr inbounds nuw { i64 }, ptr %43, i64 %6
+  %45 = load atomic i64, ptr %44 monotonic, align 8
+  %46 = icmp eq i64 %19, %45
+  br i1 %46, label %48, label %12
 
-46:                                               ; preds = %38
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
+47:                                               ; preds = %39
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
   unreachable
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %48, align 8
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %49, align 8
   store ptr null, ptr %0, align 8
-  br label %49
+  br label %50
 
-49:                                               ; preds = %36, %47, %64
+50:                                               ; preds = %37, %48, %65
   ret void
 
-50:                                               ; preds = %30
-  %51 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %52 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !8
-  %55 = icmp ult i64 %33, %54
-  br i1 %55, label %58, label %57
+51:                                               ; preds = %31
+  %52 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
+  %53 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %52, i64 %6
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !8
+  %56 = icmp ult i64 %34, %55
+  br i1 %56, label %59, label %58
 
-56:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
+57:                                               ; preds = %31
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
   unreachable
 
-57:                                               ; preds = %50
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %33, i64 noundef %54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
+58:                                               ; preds = %51
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %34, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
   unreachable
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %52, align 128, !nonnull !8, !align !674, !noundef !8
-  %60 = getelementptr inbounds nuw { { [3 x i64] } }, ptr %59, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false)
-  %61 = add i64 %18, 1
-  %62 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6, i32 0, i32 1
-  store atomic i64 %61, ptr %62 seq_cst, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  invoke void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %63)
-          to label %64 unwind label %66
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %53, align 128, !nonnull !8, !align !674, !noundef !8
+  %61 = getelementptr inbounds nuw { { [3 x i64] } }, ptr %60, i64 %34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false)
+  %62 = add i64 %19, 1
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store atomic i64 %62, ptr %63 seq_cst, align 16
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  invoke void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
+          to label %65 unwind label %67
 
-64:                                               ; preds = %58
+65:                                               ; preds = %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %49
+  br label %50
 
-65:                                               ; preds = %66
+66:                                               ; preds = %67
   resume { ptr, i32 } %lpad.thr_comm
 
-66:                                               ; preds = %58
+67:                                               ; preds = %59
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr212drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$17hffbed7c47c0de6f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #42
-          to label %65 unwind label %67
+          to label %66 unwind label %68
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %67
+  %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43
   unreachable
@@ -85595,106 +85629,107 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 112
   br label %12
 
-12:                                               ; preds = %41, %2
+12:                                               ; preds = %42, %2
   %13 = load i64, ptr %7, align 8, !noundef !8
   %14 = icmp ult i64 %6, %13
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6, i32 0, i32 1
-  %18 = load atomic i64, ptr %17 monotonic, align 8
-  %19 = load i64, ptr %9, align 8, !noundef !8
-  %20 = icmp ult i64 %6, %19
-  br i1 %20, label %22, label %26
+  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load atomic i64, ptr %18 monotonic, align 8
+  %20 = load i64, ptr %9, align 8, !noundef !8
+  %21 = icmp ult i64 %6, %20
+  br i1 %21, label %23, label %27
 
-21:                                               ; preds = %12
+22:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.622) #44
   unreachable
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw { i64 }, ptr %23, i64 %6
-  %25 = load atomic i64, ptr %24 seq_cst, align 8
-  %.not = icmp eq i64 %18, %25
-  br i1 %.not, label %27, label %30
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %25 = getelementptr inbounds nuw { i64 }, ptr %24, i64 %6
+  %26 = load atomic i64, ptr %25 seq_cst, align 8
+  %.not = icmp eq i64 %19, %26
+  br i1 %.not, label %28, label %31
 
-26:                                               ; preds = %15
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
+27:                                               ; preds = %15
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
   unreachable
 
-27:                                               ; preds = %22
-  %28 = load atomic i8, ptr %11 seq_cst, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %36, label %38
+28:                                               ; preds = %23
+  %29 = load atomic i8, ptr %11 seq_cst, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %37, label %39
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %32 = load i64, ptr %31, align 8, !noundef !8
-  %33 = and i64 %32, %18
-  %34 = load i64, ptr %7, align 8, !noundef !8
-  %35 = icmp ult i64 %6, %34
-  br i1 %35, label %50, label %56
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %33 = load i64, ptr %32, align 8, !noundef !8
+  %34 = and i64 %33, %19
+  %35 = load i64, ptr %7, align 8, !noundef !8
+  %36 = icmp ult i64 %6, %35
+  br i1 %36, label %51, label %57
 
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %37, align 1
-  br label %49
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 0, ptr %38, align 1
+  br label %50
 
-38:                                               ; preds = %27
-  %39 = load i64, ptr %9, align 8, !noundef !8
-  %40 = icmp ult i64 %6, %39
-  br i1 %40, label %41, label %46
+39:                                               ; preds = %28
+  %40 = load i64, ptr %9, align 8, !noundef !8
+  %41 = icmp ult i64 %6, %40
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { i64 }, ptr %42, i64 %6
-  %44 = load atomic i64, ptr %43 monotonic, align 8
-  %45 = icmp eq i64 %18, %44
-  br i1 %45, label %47, label %12
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %44 = getelementptr inbounds nuw { i64 }, ptr %43, i64 %6
+  %45 = load atomic i64, ptr %44 monotonic, align 8
+  %46 = icmp eq i64 %19, %45
+  br i1 %46, label %48, label %12
 
-46:                                               ; preds = %38
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
+47:                                               ; preds = %39
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
   unreachable
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %48, align 1
-  br label %49
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %49, align 1
+  br label %50
 
-49:                                               ; preds = %36, %47, %58
-  %.sink = phi i8 [ 1, %36 ], [ 1, %47 ], [ 0, %58 ]
+50:                                               ; preds = %37, %48, %59
+  %.sink = phi i8 [ 1, %37 ], [ 1, %48 ], [ 0, %59 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 
-50:                                               ; preds = %30
-  %51 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %52 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !8
-  %55 = icmp ult i64 %33, %54
-  br i1 %55, label %58, label %57
+51:                                               ; preds = %31
+  %52 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
+  %53 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %52, i64 %6
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !8
+  %56 = icmp ult i64 %34, %55
+  br i1 %56, label %59, label %58
 
-56:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
+57:                                               ; preds = %31
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
   unreachable
 
-57:                                               ; preds = %50
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %33, i64 noundef %54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
+58:                                               ; preds = %51
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %34, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
   unreachable
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %52, align 128, !nonnull !8, !align !674, !noundef !8
-  %60 = getelementptr inbounds nuw { { [6 x i64] } }, ptr %59, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %60, i64 48, i1 false)
-  %61 = add i64 %18, 1
-  %62 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6, i32 0, i32 1
-  store atomic i64 %61, ptr %62 seq_cst, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %63)
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  br label %49
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %53, align 128, !nonnull !8, !align !674, !noundef !8
+  %61 = getelementptr inbounds nuw { { [6 x i64] } }, ptr %60, i64 %34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %61, i64 48, i1 false)
+  %62 = add i64 %19, 1
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store atomic i64 %62, ptr %63 seq_cst, align 16
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
+  br label %50
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -85710,122 +85745,123 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 112
   br label %12
 
-12:                                               ; preds = %41, %2
+12:                                               ; preds = %42, %2
   %13 = load i64, ptr %7, align 8, !noundef !8
   %14 = icmp ult i64 %6, %13
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6, i32 0, i32 1
-  %18 = load atomic i64, ptr %17 monotonic, align 8
-  %19 = load i64, ptr %9, align 8, !noundef !8
-  %20 = icmp ult i64 %6, %19
-  br i1 %20, label %22, label %26
+  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load atomic i64, ptr %18 monotonic, align 8
+  %20 = load i64, ptr %9, align 8, !noundef !8
+  %21 = icmp ult i64 %6, %20
+  br i1 %21, label %23, label %27
 
-21:                                               ; preds = %12
+22:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.622) #44
   unreachable
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw { i64 }, ptr %23, i64 %6
-  %25 = load atomic i64, ptr %24 seq_cst, align 8
-  %.not = icmp eq i64 %18, %25
-  br i1 %.not, label %27, label %30
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %25 = getelementptr inbounds nuw { i64 }, ptr %24, i64 %6
+  %26 = load atomic i64, ptr %25 seq_cst, align 8
+  %.not = icmp eq i64 %19, %26
+  br i1 %.not, label %28, label %31
 
-26:                                               ; preds = %15
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
+27:                                               ; preds = %15
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
   unreachable
 
-27:                                               ; preds = %22
-  %28 = load atomic i8, ptr %11 seq_cst, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %36, label %38
+28:                                               ; preds = %23
+  %29 = load atomic i8, ptr %11 seq_cst, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %37, label %39
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %32 = load i64, ptr %31, align 8, !noundef !8
-  %33 = and i64 %32, %18
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %33 = load i64, ptr %32, align 8, !noundef !8
+  %34 = and i64 %33, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %34 = load i64, ptr %7, align 8, !noundef !8
-  %35 = icmp ult i64 %6, %34
-  br i1 %35, label %50, label %56
+  %35 = load i64, ptr %7, align 8, !noundef !8
+  %36 = icmp ult i64 %6, %35
+  br i1 %36, label %51, label %57
 
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %37, align 8
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %38, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %49
+  br label %50
 
-38:                                               ; preds = %27
-  %39 = load i64, ptr %9, align 8, !noundef !8
-  %40 = icmp ult i64 %6, %39
-  br i1 %40, label %41, label %46
+39:                                               ; preds = %28
+  %40 = load i64, ptr %9, align 8, !noundef !8
+  %41 = icmp ult i64 %6, %40
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { i64 }, ptr %42, i64 %6
-  %44 = load atomic i64, ptr %43 monotonic, align 8
-  %45 = icmp eq i64 %18, %44
-  br i1 %45, label %47, label %12
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %44 = getelementptr inbounds nuw { i64 }, ptr %43, i64 %6
+  %45 = load atomic i64, ptr %44 monotonic, align 8
+  %46 = icmp eq i64 %19, %45
+  br i1 %46, label %48, label %12
 
-46:                                               ; preds = %38
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
+47:                                               ; preds = %39
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
   unreachable
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %48, align 8
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %49, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %49
+  br label %50
 
-49:                                               ; preds = %36, %47, %64
+50:                                               ; preds = %37, %48, %65
   ret void
 
-50:                                               ; preds = %30
-  %51 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %52 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !8
-  %55 = icmp ult i64 %33, %54
-  br i1 %55, label %58, label %57
+51:                                               ; preds = %31
+  %52 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
+  %53 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %52, i64 %6
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !8
+  %56 = icmp ult i64 %34, %55
+  br i1 %56, label %59, label %58
 
-56:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
+57:                                               ; preds = %31
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
   unreachable
 
-57:                                               ; preds = %50
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %33, i64 noundef %54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
+58:                                               ; preds = %51
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %34, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
   unreachable
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %52, align 128, !nonnull !8, !align !674, !noundef !8
-  %60 = getelementptr inbounds nuw { { [15 x i64] } }, ptr %59, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(120) %60, i64 120, i1 false)
-  %61 = add i64 %18, 1
-  %62 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6, i32 0, i32 1
-  store atomic i64 %61, ptr %62 seq_cst, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  invoke void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %63)
-          to label %64 unwind label %66
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %53, align 128, !nonnull !8, !align !674, !noundef !8
+  %61 = getelementptr inbounds nuw { { [15 x i64] } }, ptr %60, i64 %34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(120) %61, i64 120, i1 false)
+  %62 = add i64 %19, 1
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store atomic i64 %62, ptr %63 seq_cst, align 16
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  invoke void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
+          to label %65 unwind label %67
 
-64:                                               ; preds = %58
+65:                                               ; preds = %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %3, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %49
+  br label %50
 
-65:                                               ; preds = %66
+66:                                               ; preds = %67
   resume { ptr, i32 } %lpad.thr_comm
 
-66:                                               ; preds = %58
+67:                                               ; preds = %59
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr90drop_in_place$LT$$LP$polars_stream..morsel..Morsel$C$polars_core..frame..DataFrame$RP$$GT$17h911547afb6b9cf75E"(ptr noalias noundef align 8 dereferenceable(120) %3) #42
-          to label %65 unwind label %67
+          to label %66 unwind label %68
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %67
+  %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43
   unreachable
@@ -85844,105 +85880,106 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 112
   br label %12
 
-12:                                               ; preds = %41, %2
+12:                                               ; preds = %42, %2
   %13 = load i64, ptr %7, align 8, !noundef !8
   %14 = icmp ult i64 %6, %13
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6, i32 0, i32 1
-  %18 = load atomic i64, ptr %17 monotonic, align 8
-  %19 = load i64, ptr %9, align 8, !noundef !8
-  %20 = icmp ult i64 %6, %19
-  br i1 %20, label %22, label %26
+  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load atomic i64, ptr %18 monotonic, align 8
+  %20 = load i64, ptr %9, align 8, !noundef !8
+  %21 = icmp ult i64 %6, %20
+  br i1 %21, label %23, label %27
 
-21:                                               ; preds = %12
+22:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.622) #44
   unreachable
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw { i64 }, ptr %23, i64 %6
-  %25 = load atomic i64, ptr %24 seq_cst, align 8
-  %.not = icmp eq i64 %18, %25
-  br i1 %.not, label %27, label %30
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %25 = getelementptr inbounds nuw { i64 }, ptr %24, i64 %6
+  %26 = load atomic i64, ptr %25 seq_cst, align 8
+  %.not = icmp eq i64 %19, %26
+  br i1 %.not, label %28, label %31
 
-26:                                               ; preds = %15
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
+27:                                               ; preds = %15
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
   unreachable
 
-27:                                               ; preds = %22
-  %28 = load atomic i8, ptr %11 seq_cst, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %36, label %38
+28:                                               ; preds = %23
+  %29 = load atomic i8, ptr %11 seq_cst, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %37, label %39
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %32 = load i64, ptr %31, align 8, !noundef !8
-  %33 = and i64 %32, %18
-  %34 = load i64, ptr %7, align 8, !noundef !8
-  %35 = icmp ult i64 %6, %34
-  br i1 %35, label %50, label %56
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %33 = load i64, ptr %32, align 8, !noundef !8
+  %34 = and i64 %33, %19
+  %35 = load i64, ptr %7, align 8, !noundef !8
+  %36 = icmp ult i64 %6, %35
+  br i1 %36, label %51, label %57
 
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %37, align 8
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %38, align 8
   store ptr null, ptr %0, align 8
-  br label %49
+  br label %50
 
-38:                                               ; preds = %27
-  %39 = load i64, ptr %9, align 8, !noundef !8
-  %40 = icmp ult i64 %6, %39
-  br i1 %40, label %41, label %46
+39:                                               ; preds = %28
+  %40 = load i64, ptr %9, align 8, !noundef !8
+  %41 = icmp ult i64 %6, %40
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { i64 }, ptr %42, i64 %6
-  %44 = load atomic i64, ptr %43 monotonic, align 8
-  %45 = icmp eq i64 %18, %44
-  br i1 %45, label %47, label %12
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %44 = getelementptr inbounds nuw { i64 }, ptr %43, i64 %6
+  %45 = load atomic i64, ptr %44 monotonic, align 8
+  %46 = icmp eq i64 %19, %45
+  br i1 %46, label %48, label %12
 
-46:                                               ; preds = %38
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
+47:                                               ; preds = %39
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
   unreachable
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %48, align 8
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %49, align 8
   store ptr null, ptr %0, align 8
-  br label %49
+  br label %50
 
-49:                                               ; preds = %36, %47, %58
+50:                                               ; preds = %37, %48, %59
   ret void
 
-50:                                               ; preds = %30
-  %51 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %52 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !8
-  %55 = icmp ult i64 %33, %54
-  br i1 %55, label %58, label %57
+51:                                               ; preds = %31
+  %52 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
+  %53 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %52, i64 %6
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !8
+  %56 = icmp ult i64 %34, %55
+  br i1 %56, label %59, label %58
 
-56:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
+57:                                               ; preds = %31
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
   unreachable
 
-57:                                               ; preds = %50
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %33, i64 noundef %54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
+58:                                               ; preds = %51
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %34, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
   unreachable
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %52, align 128, !nonnull !8, !align !674, !noundef !8
-  %60 = getelementptr inbounds nuw { { [7 x i64] } }, ptr %59, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %60, i64 56, i1 false)
-  %61 = add i64 %18, 1
-  %62 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6, i32 0, i32 1
-  store atomic i64 %61, ptr %62 seq_cst, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %63)
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %53, align 128, !nonnull !8, !align !674, !noundef !8
+  %61 = getelementptr inbounds nuw { { [7 x i64] } }, ptr %60, i64 %34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %61, i64 56, i1 false)
+  %62 = add i64 %19, 1
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store atomic i64 %62, ptr %63 seq_cst, align 16
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  br label %49
+  br label %50
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -85958,105 +85995,106 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 112
   br label %12
 
-12:                                               ; preds = %41, %2
+12:                                               ; preds = %42, %2
   %13 = load i64, ptr %7, align 8, !noundef !8
   %14 = icmp ult i64 %6, %13
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6, i32 0, i32 1
-  %18 = load atomic i64, ptr %17 monotonic, align 8
-  %19 = load i64, ptr %9, align 8, !noundef !8
-  %20 = icmp ult i64 %6, %19
-  br i1 %20, label %22, label %26
+  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load atomic i64, ptr %18 monotonic, align 8
+  %20 = load i64, ptr %9, align 8, !noundef !8
+  %21 = icmp ult i64 %6, %20
+  br i1 %21, label %23, label %27
 
-21:                                               ; preds = %12
+22:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.622) #44
   unreachable
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw { i64 }, ptr %23, i64 %6
-  %25 = load atomic i64, ptr %24 seq_cst, align 8
-  %.not = icmp eq i64 %18, %25
-  br i1 %.not, label %27, label %30
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %25 = getelementptr inbounds nuw { i64 }, ptr %24, i64 %6
+  %26 = load atomic i64, ptr %25 seq_cst, align 8
+  %.not = icmp eq i64 %19, %26
+  br i1 %.not, label %28, label %31
 
-26:                                               ; preds = %15
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
+27:                                               ; preds = %15
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
   unreachable
 
-27:                                               ; preds = %22
-  %28 = load atomic i8, ptr %11 seq_cst, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %36, label %38
+28:                                               ; preds = %23
+  %29 = load atomic i8, ptr %11 seq_cst, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %37, label %39
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %32 = load i64, ptr %31, align 8, !noundef !8
-  %33 = and i64 %32, %18
-  %34 = load i64, ptr %7, align 8, !noundef !8
-  %35 = icmp ult i64 %6, %34
-  br i1 %35, label %50, label %56
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %33 = load i64, ptr %32, align 8, !noundef !8
+  %34 = and i64 %33, %19
+  %35 = load i64, ptr %7, align 8, !noundef !8
+  %36 = icmp ult i64 %6, %35
+  br i1 %36, label %51, label %57
 
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %37, align 8
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %38, align 8
   store ptr null, ptr %0, align 8
-  br label %49
+  br label %50
 
-38:                                               ; preds = %27
-  %39 = load i64, ptr %9, align 8, !noundef !8
-  %40 = icmp ult i64 %6, %39
-  br i1 %40, label %41, label %46
+39:                                               ; preds = %28
+  %40 = load i64, ptr %9, align 8, !noundef !8
+  %41 = icmp ult i64 %6, %40
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { i64 }, ptr %42, i64 %6
-  %44 = load atomic i64, ptr %43 monotonic, align 8
-  %45 = icmp eq i64 %18, %44
-  br i1 %45, label %47, label %12
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %44 = getelementptr inbounds nuw { i64 }, ptr %43, i64 %6
+  %45 = load atomic i64, ptr %44 monotonic, align 8
+  %46 = icmp eq i64 %19, %45
+  br i1 %46, label %48, label %12
 
-46:                                               ; preds = %38
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
+47:                                               ; preds = %39
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
   unreachable
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %48, align 8
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %49, align 8
   store ptr null, ptr %0, align 8
-  br label %49
+  br label %50
 
-49:                                               ; preds = %36, %47, %58
+50:                                               ; preds = %37, %48, %59
   ret void
 
-50:                                               ; preds = %30
-  %51 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %52 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !8
-  %55 = icmp ult i64 %33, %54
-  br i1 %55, label %58, label %57
+51:                                               ; preds = %31
+  %52 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
+  %53 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %52, i64 %6
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !8
+  %56 = icmp ult i64 %34, %55
+  br i1 %56, label %59, label %58
 
-56:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
+57:                                               ; preds = %31
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
   unreachable
 
-57:                                               ; preds = %50
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %33, i64 noundef %54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
+58:                                               ; preds = %51
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %34, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
   unreachable
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %52, align 128, !nonnull !8, !align !674, !noundef !8
-  %60 = getelementptr inbounds nuw { { [3 x i64] } }, ptr %59, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false)
-  %61 = add i64 %18, 1
-  %62 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6, i32 0, i32 1
-  store atomic i64 %61, ptr %62 seq_cst, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %63)
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %53, align 128, !nonnull !8, !align !674, !noundef !8
+  %61 = getelementptr inbounds nuw { { [3 x i64] } }, ptr %60, i64 %34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false)
+  %62 = add i64 %19, 1
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store atomic i64 %62, ptr %63 seq_cst, align 16
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  tail call void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  br label %49
+  br label %50
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -86072,122 +86110,123 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 112
   br label %12
 
-12:                                               ; preds = %41, %2
+12:                                               ; preds = %42, %2
   %13 = load i64, ptr %7, align 8, !noundef !8
   %14 = icmp ult i64 %6, %13
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6, i32 0, i32 1
-  %18 = load atomic i64, ptr %17 monotonic, align 8
-  %19 = load i64, ptr %9, align 8, !noundef !8
-  %20 = icmp ult i64 %6, %19
-  br i1 %20, label %22, label %26
+  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load atomic i64, ptr %18 monotonic, align 8
+  %20 = load i64, ptr %9, align 8, !noundef !8
+  %21 = icmp ult i64 %6, %20
+  br i1 %21, label %23, label %27
 
-21:                                               ; preds = %12
+22:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.622) #44
   unreachable
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw { i64 }, ptr %23, i64 %6
-  %25 = load atomic i64, ptr %24 seq_cst, align 8
-  %.not = icmp eq i64 %18, %25
-  br i1 %.not, label %27, label %30
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %25 = getelementptr inbounds nuw { i64 }, ptr %24, i64 %6
+  %26 = load atomic i64, ptr %25 seq_cst, align 8
+  %.not = icmp eq i64 %19, %26
+  br i1 %.not, label %28, label %31
 
-26:                                               ; preds = %15
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
+27:                                               ; preds = %15
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
   unreachable
 
-27:                                               ; preds = %22
-  %28 = load atomic i8, ptr %11 seq_cst, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %36, label %38
+28:                                               ; preds = %23
+  %29 = load atomic i8, ptr %11 seq_cst, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %37, label %39
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %32 = load i64, ptr %31, align 8, !noundef !8
-  %33 = and i64 %32, %18
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %33 = load i64, ptr %32, align 8, !noundef !8
+  %34 = and i64 %33, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %34 = load i64, ptr %7, align 8, !noundef !8
-  %35 = icmp ult i64 %6, %34
-  br i1 %35, label %50, label %56
+  %35 = load i64, ptr %7, align 8, !noundef !8
+  %36 = icmp ult i64 %6, %35
+  br i1 %36, label %51, label %57
 
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %37, align 8
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %38, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %49
+  br label %50
 
-38:                                               ; preds = %27
-  %39 = load i64, ptr %9, align 8, !noundef !8
-  %40 = icmp ult i64 %6, %39
-  br i1 %40, label %41, label %46
+39:                                               ; preds = %28
+  %40 = load i64, ptr %9, align 8, !noundef !8
+  %41 = icmp ult i64 %6, %40
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { i64 }, ptr %42, i64 %6
-  %44 = load atomic i64, ptr %43 monotonic, align 8
-  %45 = icmp eq i64 %18, %44
-  br i1 %45, label %47, label %12
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %44 = getelementptr inbounds nuw { i64 }, ptr %43, i64 %6
+  %45 = load atomic i64, ptr %44 monotonic, align 8
+  %46 = icmp eq i64 %19, %45
+  br i1 %46, label %48, label %12
 
-46:                                               ; preds = %38
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
+47:                                               ; preds = %39
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
   unreachable
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %48, align 8
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %49, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %49
+  br label %50
 
-49:                                               ; preds = %36, %47, %64
+50:                                               ; preds = %37, %48, %65
   ret void
 
-50:                                               ; preds = %30
-  %51 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %52 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !8
-  %55 = icmp ult i64 %33, %54
-  br i1 %55, label %58, label %57
+51:                                               ; preds = %31
+  %52 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
+  %53 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %52, i64 %6
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !8
+  %56 = icmp ult i64 %34, %55
+  br i1 %56, label %59, label %58
 
-56:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
+57:                                               ; preds = %31
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
   unreachable
 
-57:                                               ; preds = %50
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %33, i64 noundef %54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
+58:                                               ; preds = %51
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %34, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
   unreachable
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %52, align 128, !nonnull !8, !align !674, !noundef !8
-  %60 = getelementptr inbounds nuw { { [10 x i64] } }, ptr %59, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %60, i64 80, i1 false)
-  %61 = add i64 %18, 1
-  %62 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6, i32 0, i32 1
-  store atomic i64 %61, ptr %62 seq_cst, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  invoke void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %63)
-          to label %64 unwind label %65
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %53, align 128, !nonnull !8, !align !674, !noundef !8
+  %61 = getelementptr inbounds nuw { { [10 x i64] } }, ptr %60, i64 %34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %61, i64 80, i1 false)
+  %62 = add i64 %19, 1
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store atomic i64 %62, ptr %63 seq_cst, align 16
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  invoke void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
+          to label %65 unwind label %66
 
-64:                                               ; preds = %58
+65:                                               ; preds = %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %49
+  br label %50
 
-"_ZN4core3ptr64drop_in_place$LT$$LP$polars_stream..morsel..Morsel$C$u32$RP$$GT$17h2c6af210d2ed1796E.exit": ; preds = %65
+"_ZN4core3ptr64drop_in_place$LT$$LP$polars_stream..morsel..Morsel$C$u32$RP$$GT$17h2c6af210d2ed1796E.exit": ; preds = %66
   resume { ptr, i32 } %lpad.thr_comm
 
-65:                                               ; preds = %58
+66:                                               ; preds = %59
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_stream..morsel..Morsel$GT$17h4ba850224907b548E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %3)
-          to label %"_ZN4core3ptr64drop_in_place$LT$$LP$polars_stream..morsel..Morsel$C$u32$RP$$GT$17h2c6af210d2ed1796E.exit" unwind label %66
+          to label %"_ZN4core3ptr64drop_in_place$LT$$LP$polars_stream..morsel..Morsel$C$u32$RP$$GT$17h2c6af210d2ed1796E.exit" unwind label %67
 
-66:                                               ; preds = %65
-  %67 = landingpad { ptr, i32 }
+67:                                               ; preds = %66
+  %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43
   unreachable
@@ -86206,122 +86245,123 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 112
   br label %12
 
-12:                                               ; preds = %41, %2
+12:                                               ; preds = %42, %2
   %13 = load i64, ptr %7, align 8, !noundef !8
   %14 = icmp ult i64 %6, %13
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6, i32 0, i32 1
-  %18 = load atomic i64, ptr %17 monotonic, align 8
-  %19 = load i64, ptr %9, align 8, !noundef !8
-  %20 = icmp ult i64 %6, %19
-  br i1 %20, label %22, label %26
+  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load atomic i64, ptr %18 monotonic, align 8
+  %20 = load i64, ptr %9, align 8, !noundef !8
+  %21 = icmp ult i64 %6, %20
+  br i1 %21, label %23, label %27
 
-21:                                               ; preds = %12
+22:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.622) #44
   unreachable
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw { i64 }, ptr %23, i64 %6
-  %25 = load atomic i64, ptr %24 seq_cst, align 8
-  %.not = icmp eq i64 %18, %25
-  br i1 %.not, label %27, label %30
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %25 = getelementptr inbounds nuw { i64 }, ptr %24, i64 %6
+  %26 = load atomic i64, ptr %25 seq_cst, align 8
+  %.not = icmp eq i64 %19, %26
+  br i1 %.not, label %28, label %31
 
-26:                                               ; preds = %15
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
+27:                                               ; preds = %15
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
   unreachable
 
-27:                                               ; preds = %22
-  %28 = load atomic i8, ptr %11 seq_cst, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %36, label %38
+28:                                               ; preds = %23
+  %29 = load atomic i8, ptr %11 seq_cst, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %37, label %39
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %32 = load i64, ptr %31, align 8, !noundef !8
-  %33 = and i64 %32, %18
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %33 = load i64, ptr %32, align 8, !noundef !8
+  %34 = and i64 %33, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %34 = load i64, ptr %7, align 8, !noundef !8
-  %35 = icmp ult i64 %6, %34
-  br i1 %35, label %50, label %56
+  %35 = load i64, ptr %7, align 8, !noundef !8
+  %36 = icmp ult i64 %6, %35
+  br i1 %36, label %51, label %57
 
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %37, align 8
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %38, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %49
+  br label %50
 
-38:                                               ; preds = %27
-  %39 = load i64, ptr %9, align 8, !noundef !8
-  %40 = icmp ult i64 %6, %39
-  br i1 %40, label %41, label %46
+39:                                               ; preds = %28
+  %40 = load i64, ptr %9, align 8, !noundef !8
+  %41 = icmp ult i64 %6, %40
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { i64 }, ptr %42, i64 %6
-  %44 = load atomic i64, ptr %43 monotonic, align 8
-  %45 = icmp eq i64 %18, %44
-  br i1 %45, label %47, label %12
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %44 = getelementptr inbounds nuw { i64 }, ptr %43, i64 %6
+  %45 = load atomic i64, ptr %44 monotonic, align 8
+  %46 = icmp eq i64 %19, %45
+  br i1 %46, label %48, label %12
 
-46:                                               ; preds = %38
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
+47:                                               ; preds = %39
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
   unreachable
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %48, align 8
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %49, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %49
+  br label %50
 
-49:                                               ; preds = %36, %47, %64
+50:                                               ; preds = %37, %48, %65
   ret void
 
-50:                                               ; preds = %30
-  %51 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %52 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !8
-  %55 = icmp ult i64 %33, %54
-  br i1 %55, label %58, label %57
+51:                                               ; preds = %31
+  %52 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
+  %53 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %52, i64 %6
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !8
+  %56 = icmp ult i64 %34, %55
+  br i1 %56, label %59, label %58
 
-56:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
+57:                                               ; preds = %31
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
   unreachable
 
-57:                                               ; preds = %50
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %33, i64 noundef %54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
+58:                                               ; preds = %51
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %34, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
   unreachable
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %52, align 128, !nonnull !8, !align !674, !noundef !8
-  %60 = getelementptr inbounds nuw { { [9 x i64] } }, ptr %59, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %60, i64 72, i1 false)
-  %61 = add i64 %18, 1
-  %62 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6, i32 0, i32 1
-  store atomic i64 %61, ptr %62 seq_cst, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  invoke void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %63)
-          to label %64 unwind label %66
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %53, align 128, !nonnull !8, !align !674, !noundef !8
+  %61 = getelementptr inbounds nuw { { [9 x i64] } }, ptr %60, i64 %34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %61, i64 72, i1 false)
+  %62 = add i64 %19, 1
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store atomic i64 %62, ptr %63 seq_cst, align 16
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  invoke void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
+          to label %65 unwind label %67
 
-64:                                               ; preds = %58
+65:                                               ; preds = %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %49
+  br label %50
 
-65:                                               ; preds = %66
+66:                                               ; preds = %67
   resume { ptr, i32 } %lpad.thr_comm
 
-66:                                               ; preds = %58
+67:                                               ; preds = %59
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_stream..morsel..Morsel$GT$17h4ba850224907b548E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3) #42
-          to label %65 unwind label %67
+          to label %66 unwind label %68
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %67
+  %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43
   unreachable
@@ -86340,122 +86380,123 @@ define hidden void @"_ZN13polars_stream16async_primitives19distributor_channel17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 112
   br label %12
 
-12:                                               ; preds = %41, %2
+12:                                               ; preds = %42, %2
   %13 = load i64, ptr %7, align 8, !noundef !8
   %14 = icmp ult i64 %6, %13
-  br i1 %14, label %15, label %21
+  br i1 %14, label %15, label %22
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6, i32 0, i32 1
-  %18 = load atomic i64, ptr %17 monotonic, align 8
-  %19 = load i64, ptr %9, align 8, !noundef !8
-  %20 = icmp ult i64 %6, %19
-  br i1 %20, label %22, label %26
+  %17 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %16, i64 %6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load atomic i64, ptr %18 monotonic, align 8
+  %20 = load i64, ptr %9, align 8, !noundef !8
+  %21 = icmp ult i64 %6, %20
+  br i1 %21, label %23, label %27
 
-21:                                               ; preds = %12
+22:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.622) #44
   unreachable
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %24 = getelementptr inbounds nuw { i64 }, ptr %23, i64 %6
-  %25 = load atomic i64, ptr %24 seq_cst, align 8
-  %.not = icmp eq i64 %18, %25
-  br i1 %.not, label %27, label %30
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %25 = getelementptr inbounds nuw { i64 }, ptr %24, i64 %6
+  %26 = load atomic i64, ptr %25 seq_cst, align 8
+  %.not = icmp eq i64 %19, %26
+  br i1 %.not, label %28, label %31
 
-26:                                               ; preds = %15
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
+27:                                               ; preds = %15
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.623) #44
   unreachable
 
-27:                                               ; preds = %22
-  %28 = load atomic i8, ptr %11 seq_cst, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %36, label %38
+28:                                               ; preds = %23
+  %29 = load atomic i8, ptr %11 seq_cst, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %37, label %39
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %32 = load i64, ptr %31, align 8, !noundef !8
-  %33 = and i64 %32, %18
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %33 = load i64, ptr %32, align 8, !noundef !8
+  %34 = and i64 %33, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %34 = load i64, ptr %7, align 8, !noundef !8
-  %35 = icmp ult i64 %6, %34
-  br i1 %35, label %50, label %56
+  %35 = load i64, ptr %7, align 8, !noundef !8
+  %36 = icmp ult i64 %6, %35
+  br i1 %36, label %51, label %57
 
-36:                                               ; preds = %27
+37:                                               ; preds = %28
   store i8 0, ptr %0, align 16
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 30, ptr %37, align 16
-  br label %49
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 30, ptr %38, align 16
+  br label %50
 
-38:                                               ; preds = %27
-  %39 = load i64, ptr %9, align 8, !noundef !8
-  %40 = icmp ult i64 %6, %39
-  br i1 %40, label %41, label %46
+39:                                               ; preds = %28
+  %40 = load i64, ptr %9, align 8, !noundef !8
+  %41 = icmp ult i64 %6, %40
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %43 = getelementptr inbounds nuw { i64 }, ptr %42, i64 %6
-  %44 = load atomic i64, ptr %43 monotonic, align 8
-  %45 = icmp eq i64 %18, %44
-  br i1 %45, label %47, label %12
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
+  %44 = getelementptr inbounds nuw { i64 }, ptr %43, i64 %6
+  %45 = load atomic i64, ptr %44 monotonic, align 8
+  %46 = icmp eq i64 %19, %45
+  br i1 %46, label %48, label %12
 
-46:                                               ; preds = %38
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
+47:                                               ; preds = %39
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.624) #44
   unreachable
 
-47:                                               ; preds = %41
+48:                                               ; preds = %42
   store i8 1, ptr %0, align 16
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 30, ptr %48, align 16
-  br label %49
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 30, ptr %49, align 16
+  br label %50
 
-49:                                               ; preds = %36, %47, %64
+50:                                               ; preds = %37, %48, %65
   ret void
 
-50:                                               ; preds = %30
-  %51 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
-  %52 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !8
-  %55 = icmp ult i64 %33, %54
-  br i1 %55, label %58, label %57
+51:                                               ; preds = %31
+  %52 = load ptr, ptr %8, align 8, !nonnull !8, !noundef !8
+  %53 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %52, i64 %6
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !8
+  %56 = icmp ult i64 %34, %55
+  br i1 %56, label %59, label %58
 
-56:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
+57:                                               ; preds = %31
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %6, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.625) #44
   unreachable
 
-57:                                               ; preds = %50
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %33, i64 noundef %54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
+58:                                               ; preds = %51
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %34, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.785fe9ff71d36ef3c7acc84b38b5c9ee.626) #44
   unreachable
 
-58:                                               ; preds = %50
-  %59 = load ptr, ptr %52, align 128, !nonnull !8, !align !8157, !noundef !8
-  %60 = getelementptr inbounds nuw { { [22 x i64] } }, ptr %59, i64 %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %3, ptr noundef nonnull align 16 dereferenceable(176) %60, i64 176, i1 false)
-  %61 = add i64 %18, 1
-  %62 = getelementptr inbounds nuw { { { { { { ptr, i64 } }, {} }, {} }, { i64 }, { { { { i8 } }, [7 x i8], { { ptr, [1 x i64] } } }, { i8 }, [7 x i8] }, { i8 }, [7 x i8] }, [8 x i64] }, ptr %51, i64 %6, i32 0, i32 1
-  store atomic i64 %61, ptr %62 seq_cst, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  invoke void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %63)
-          to label %64 unwind label %66
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %53, align 128, !nonnull !8, !align !8157, !noundef !8
+  %61 = getelementptr inbounds nuw { { [22 x i64] } }, ptr %60, i64 %34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %3, ptr noundef nonnull align 16 dereferenceable(176) %61, i64 176, i1 false)
+  %62 = add i64 %19, 1
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store atomic i64 %62, ptr %63 seq_cst, align 16
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  invoke void @_ZN13polars_stream16async_primitives11task_parker10TaskParker6unpark17h559afa5786ec83d0E(ptr noundef nonnull align 8 %64)
+          to label %65 unwind label %67
 
-64:                                               ; preds = %58
+65:                                               ; preds = %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %0, ptr noundef nonnull align 16 dereferenceable(176) %3, i64 176, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %49
+  br label %50
 
-65:                                               ; preds = %66
+66:                                               ; preds = %67
   resume { ptr, i32 } %lpad.thr_comm
 
-66:                                               ; preds = %58
+67:                                               ; preds = %59
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$$LP$usize$C$usize$C$polars_core..frame..column..Column$RP$$GT$17h2a2d5905e724c4edE"(ptr noalias noundef align 16 dereferenceable(176) %3) #42
-          to label %65 unwind label %67
+          to label %66 unwind label %68
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %67
+  %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43
   unreachable

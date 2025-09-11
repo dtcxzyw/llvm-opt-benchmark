@@ -180,71 +180,72 @@ define internal void @_ZL20reorder_marks_hebrewPK18hb_ot_shape_plan_tP11hb_buffe
   %10 = zext i32 %8 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %indvars.iv = phi i64 [ %10, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
+  %indvars.iv = phi i64 [ %10, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
   %11 = trunc nuw i64 %indvars.iv to i32
   %12 = add nuw i64 %indvars.iv, 4294967294
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr %struct.hb_glyph_info_t, ptr %7, i64 %13, i32 4
-  %.val = load i16, ptr %14, align 4
-  %15 = and i16 %.val, 31
-  %16 = zext nneg i16 %15 to i32
-  %17 = shl nuw i32 1, %16
-  %18 = and i32 %17, 7168
-  %.not.i = icmp ne i32 %18, 0
-  %19 = add i32 %11, -1
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 16
-  %.val29 = load i16, ptr %22, align 4
-  %23 = and i16 %.val29, 31
-  %24 = zext nneg i16 %23 to i32
-  %25 = shl nuw i32 1, %24
-  %26 = and i32 %25, 7168
-  %.not.i31 = icmp ne i32 %26, 0
-  %27 = and i16 %.val, -512
-  %or.cond33 = icmp eq i16 %27, 5120
+  %14 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 16
+  %.val = load i16, ptr %15, align 4
+  %16 = and i16 %.val, 31
+  %17 = zext nneg i16 %16 to i32
+  %18 = shl nuw i32 1, %17
+  %19 = and i32 %18, 7168
+  %.not.i = icmp ne i32 %19, 0
+  %20 = add i32 %11, -1
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 16
+  %.val29 = load i16, ptr %23, align 4
+  %24 = and i16 %.val29, 31
+  %25 = zext nneg i16 %24 to i32
+  %26 = shl nuw i32 1, %25
+  %27 = and i32 %26, 7168
+  %.not.i31 = icmp ne i32 %27, 0
+  %28 = and i16 %.val, -512
+  %or.cond33 = icmp eq i16 %28, 5120
   %or.cond = and i1 %or.cond33, %.not.i
-  %28 = and i16 %.val29, -512
-  %or.cond334 = icmp eq i16 %28, 5632
+  %29 = and i16 %.val29, -512
+  %or.cond334 = icmp eq i16 %29, 5632
   %or.cond3 = and i1 %or.cond334, %.not.i31
   %or.cond28 = and i1 %or.cond, %or.cond3
-  br i1 %or.cond28, label %29, label %40
+  br i1 %or.cond28, label %30, label %41
 
-29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %indvars.iv
-  %31 = getelementptr i8, ptr %30, i64 16
-  %.val30 = load i16, ptr %31, align 4
-  %32 = and i16 %.val30, 31
-  %33 = zext nneg i16 %32 to i32
-  %34 = shl nuw i32 1, %33
-  %35 = and i32 %34, 7168
-  %.not.i32 = icmp eq i32 %35, 0
-  %36 = lshr i16 %.val30, 8
-  %37 = trunc nuw i16 %36 to i8
-  %trunc = select i1 %.not.i32, i8 0, i8 %37
-  switch i8 %trunc, label %40 [
-    i8 -36, label %38
-    i8 25, label %38
+30:                                               ; preds = %.lr.ph
+  %31 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %indvars.iv
+  %32 = getelementptr i8, ptr %31, i64 16
+  %.val30 = load i16, ptr %32, align 4
+  %33 = and i16 %.val30, 31
+  %34 = zext nneg i16 %33 to i32
+  %35 = shl nuw i32 1, %34
+  %36 = and i32 %35, 7168
+  %.not.i32 = icmp eq i32 %36, 0
+  %37 = lshr i16 %.val30, 8
+  %38 = trunc nuw i16 %37 to i8
+  %trunc = select i1 %.not.i32, i8 0, i8 %38
+  switch i8 %trunc, label %41 [
+    i8 -36, label %39
+    i8 25, label %39
   ]
 
-38:                                               ; preds = %29, %29
-  %39 = add nuw i32 %11, 1
-  tail call void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull align 8 dereferenceable(220) %1, i32 noundef %19, i32 noundef %39)
+39:                                               ; preds = %30, %30
+  %40 = add nuw i32 %11, 1
+  tail call void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull align 8 dereferenceable(220) %1, i32 noundef %20, i32 noundef %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %21, i64 20, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %21, ptr noundef nonnull align 4 dereferenceable(20) %30, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %30, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %22, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %22, ptr noundef nonnull align 4 dereferenceable(20) %31, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %31, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-40:                                               ; preds = %29, %.lr.ph
+41:                                               ; preds = %30, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %40, %4, %38
+.loopexit:                                        ; preds = %41, %4, %39
   ret void
 }
 

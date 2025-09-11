@@ -865,7 +865,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEPKi.exit: ; preds 
   br i1 %.not.i.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us.preheader, label %.lr.ph.split
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us.preheader: ; preds = %.lr.ph
-  %35 = sext i32 %33 to i64
+  %35 = zext nneg i32 %33 to i64
   %wide.trip.count93 = zext nneg i32 %23 to i64
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us
 
@@ -898,7 +898,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us: ; pr
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
 
 49:                                               ; preds = %44
-  %50 = icmp slt i64 %indvars.iv90, %35
+  %50 = icmp samesign ult i64 %indvars.iv90, %35
   br i1 %50, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.thread.us, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us: ; preds = %49, %45
@@ -961,7 +961,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.preheade
   %.0.i.us52 = sext i16 %sext.i to i32
   %.not72 = icmp eq i16 %34, 0
   %72 = sext i16 %6 to i64
-  %73 = sext i32 %33 to i64
+  %73 = zext nneg i32 %33 to i64
   %wide.trip.count88 = zext nneg i32 %23 to i64
   br i1 %.not72, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44.us
 
@@ -982,7 +982,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us44.us:
   br i1 %or.cond.us49.us, label %80, label %._crit_edge
 
 80:                                               ; preds = %78
-  %81 = icmp slt i64 %indvars.iv80, %73
+  %81 = icmp samesign ult i64 %indvars.iv80, %73
   br i1 %81, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.thread.us53.us, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit.us59.us
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.thread.us53.us: ; preds = %80

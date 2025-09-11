@@ -847,7 +847,8 @@ define internal fastcc zeroext i1 @intel_pstate_platform_pwr_mgmt_exists() unnam
 
 16:                                               ; preds = %13
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr %struct.acpi_platform_list, ptr @plat_info, i64 %17, i32 6
+  %.split = getelementptr %struct.acpi_platform_list, ptr @plat_info, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 48
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %29 [
     i32 0, label %20
@@ -1350,7 +1351,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_energy_performance_
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = sext i16 %39 to i32
   %41 = icmp slt i16 %39, 0
-  br i1 %41, label %.thread7, label %42
+  br i1 %41, label %select.unfold, label %42
 
 42:                                               ; preds = %.thread, %38
   %43 = phi i32 [ %21, %.thread ], [ %40, %38 ]
@@ -1362,22 +1363,22 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_energy_performance_
 47:                                               ; preds = %42
   %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @epp_values, i64 4), align 4
   %49 = icmp eq i32 %48, %43
-  br i1 %49, label %.thread8, label %50
+  br i1 %49, label %.thread9, label %50
 
 50:                                               ; preds = %47
   %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @epp_values, i64 8), align 8
   %52 = icmp eq i32 %51, %43
-  br i1 %52, label %.thread8, label %53
+  br i1 %52, label %.thread9, label %53
 
 53:                                               ; preds = %50
   %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @epp_values, i64 12), align 4
   %55 = icmp eq i32 %54, %43
-  br i1 %55, label %.thread8, label %56
+  br i1 %55, label %.thread9, label %56
 
 56:                                               ; preds = %53
   %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @epp_values, i64 16), align 16
   %58 = icmp eq i32 %57, %43
-  br i1 %58, label %.thread8, label %65
+  br i1 %58, label %.thread9, label %65
 
 59:                                               ; preds = %42
   %60 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
@@ -1385,28 +1386,28 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_energy_performance_
   %62 = icmp eq i64 %61, 0
   %63 = lshr i32 %43, 2
   %64 = add nuw nsw i32 %63, 1
-  br i1 %62, label %.thread7, label %.thread8
+  br i1 %62, label %select.unfold, label %.thread9
 
 65:                                               ; preds = %56
   %66 = icmp eq i32 %43, 0
-  br i1 %66, label %.thread8, label %67
+  br i1 %66, label %.thread9, label %67
 
 67:                                               ; preds = %65
   %68 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %43) #26
-  br label %.thread7
+  br label %select.unfold
 
-.thread8:                                         ; preds = %56, %59, %47, %50, %53, %65
-  %69 = phi i32 [ 0, %65 ], [ %64, %59 ], [ 1, %47 ], [ 2, %50 ], [ 3, %53 ], [ 4, %56 ]
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr ptr, ptr @energy_perf_strings, i64 %70
-  %72 = load ptr, ptr %71, align 8
-  %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %72) #26
-  br label %.thread7
+.thread9:                                         ; preds = %56, %59, %47, %50, %53, %65
+  %.ph512 = phi i32 [ 0, %65 ], [ %64, %59 ], [ 1, %47 ], [ 2, %50 ], [ 3, %53 ], [ 4, %56 ]
+  %69 = zext nneg i32 %.ph512 to i64
+  %70 = getelementptr ptr, ptr @energy_perf_strings, i64 %69
+  %71 = load ptr, ptr %70, align 8
+  %72 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %71) #26
+  br label %select.unfold
 
-.thread7:                                         ; preds = %38, %59, %.thread8, %67
-  %74 = phi i32 [ %68, %67 ], [ %73, %.thread8 ], [ -22, %59 ], [ %40, %38 ]
-  %75 = sext i32 %74 to i64
-  ret i64 %75
+select.unfold:                                    ; preds = %59, %38, %.thread9, %67
+  %73 = phi i32 [ %68, %67 ], [ %72, %.thread9 ], [ %40, %38 ], [ -22, %59 ]
+  %74 = sext i32 %73 to i64
+  ret i64 %74
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1426,7 +1427,7 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   store i32 0, ptr %6, align 4
   %13 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef nonnull %5)
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %15, label %137
+  br i1 %14, label %15, label %136
 
 15:                                               ; preds = %3
   %16 = call i32 @match_string(ptr noundef nonnull @energy_perf_strings, i64 noundef -1, ptr noundef nonnull %5) #26
@@ -1438,7 +1439,7 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   %20 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 96), align 8
   %21 = and i64 %20, 1024
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %137, label %23
+  br i1 %22, label %136, label %23
 
 23:                                               ; preds = %19
   %24 = call i32 @kstrtouint(ptr noundef %1, i32 noundef 10, ptr noundef nonnull %6) #26
@@ -1447,27 +1448,27 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
 
 26:                                               ; preds = %23
   %27 = sext i32 %24 to i64
-  br label %137
+  br label %136
 
 28:                                               ; preds = %23
   %29 = load i32, ptr %6, align 4
   %30 = icmp ugt i32 %29, 255
-  br i1 %30, label %137, label %31
+  br i1 %30, label %136, label %31
 
 31:                                               ; preds = %28, %15
   %32 = phi i64 [ %17, %15 ], [ 0, %28 ]
   %33 = load ptr, ptr @intel_pstate_driver, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %137, label %35
+  br i1 %34, label %136, label %35
 
 35:                                               ; preds = %31
   call void @mutex_lock(ptr noundef nonnull @intel_pstate_limits_lock) #26
   %36 = load ptr, ptr @intel_pstate_driver, align 8
   %37 = icmp eq ptr %36, @intel_pstate
-  br i1 %37, label %38, label %99
+  br i1 %37, label %38, label %98
 
 38:                                               ; preds = %35
-  %39 = trunc nsw i64 %32 to i32
+  %39 = trunc nuw nsw i64 %32 to i32
   %40 = load i32, ptr %6, align 4
   %41 = icmp eq i64 %32, 0
   br i1 %41, label %42, label %46
@@ -1483,169 +1484,168 @@ define internal i64 @store_energy_performance_preference(ptr noundef %0, ptr nou
   %48 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 96), align 8
   %49 = and i64 %48, 1024
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %77, label %51
+  br i1 %50, label %76, label %51
 
 51:                                               ; preds = %46
-  br i1 %18, label %58, label %52
+  br i1 %18, label %57, label %52
 
 52:                                               ; preds = %51
   %53 = icmp eq i32 %47, -22
-  br i1 %53, label %54, label %58
+  br i1 %53, label %54, label %57
 
 54:                                               ; preds = %52
-  %55 = and i64 %32, 4294967295
-  %56 = getelementptr i32, ptr @epp_values, i64 %55
-  %57 = load i32, ptr %56, align 4
-  br label %58
+  %55 = getelementptr i32, ptr @epp_values, i64 %32
+  %56 = load i32, ptr %55, align 4
+  br label %57
 
-58:                                               ; preds = %54, %52, %51
-  %59 = phi i32 [ %57, %54 ], [ %47, %52 ], [ %40, %51 ]
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %61, label %65
+57:                                               ; preds = %54, %52, %51
+  %58 = phi i32 [ %56, %54 ], [ %47, %52 ], [ %40, %51 ]
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %60, label %64
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp eq i32 %63, 2
-  br i1 %64, label %.thread13, label %65
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp eq i32 %62, 2
+  br i1 %63, label %.thread13, label %64
 
-.thread13:                                        ; preds = %61
-  call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
-  br label %137
-
-65:                                               ; preds = %61, %58
-  %66 = getelementptr inbounds nuw i8, ptr %12, i64 312
-  %67 = load volatile i64, ptr %66, align 8
-  %68 = and i64 %67, -4278190081
-  %69 = zext i32 %59 to i64
-  %70 = shl nuw nsw i64 %69, 24
-  %71 = or i64 %68, %70
-  store volatile i64 %71, ptr %66, align 8
-  %72 = load i32, ptr %12, align 8
-  %73 = call i32 @wrmsrl_on_cpu(i32 noundef %72, i32 noundef 1908, i64 noundef %71) #26
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread10, label %133
-
-.thread10:                                        ; preds = %65
-  %75 = trunc i32 %59 to i16
-  %76 = getelementptr inbounds nuw i8, ptr %12, i64 310
-  store i16 %75, ptr %76, align 2
-  br label %.sink.split
-
-77:                                               ; preds = %46
-  %78 = icmp eq i32 %47, -22
-  %79 = shl i32 %39, 2
-  %80 = add i32 %79, 65532
-  %81 = select i1 %78, i32 %80, i32 %47
-  %82 = load i32, ptr %12, align 8
-  %83 = zext i32 %81 to i64
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 0, ptr %4, align 8, !annotation !18
-  %84 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
-  %85 = and i64 %84, 34359738368
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %97, label %87
-
-87:                                               ; preds = %77
-  %88 = call i32 @rdmsrl_on_cpu(i32 noundef %82, i32 noundef 432, ptr noundef nonnull %4) #26
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %97
-
-90:                                               ; preds = %87
-  %91 = load i64, ptr %4, align 8
-  %92 = and i64 %91, -16
-  %93 = shl i64 %83, 48
-  %94 = ashr exact i64 %93, 48
-  %95 = or i64 %92, %94
-  store i64 %95, ptr %4, align 8
-  %96 = call i32 @wrmsrl_on_cpu(i32 noundef %82, i32 noundef 432, i64 noundef %95) #26
-  br label %97
-
-97:                                               ; preds = %90, %87, %77
-  %98 = phi i32 [ 0, %90 ], [ -6, %77 ], [ %88, %87 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %133
-
-99:                                               ; preds = %35
-  br i1 %18, label %._crit_edge, label %100
-
-._crit_edge:                                      ; preds = %99
-  %.pre = load i32, ptr %6, align 4
-  br label %111
-
-100:                                              ; preds = %99
-  %101 = icmp eq i64 %32, 0
-  br i1 %101, label %105, label %102
-
-102:                                              ; preds = %100
-  %103 = getelementptr i32, ptr @epp_values, i64 %32
-  %104 = load i32, ptr %103, align 4
-  br label %109
-
-105:                                              ; preds = %100
-  %106 = getelementptr inbounds nuw i8, ptr %12, i64 308
-  %107 = load i16, ptr %106, align 4
-  %108 = sext i16 %107 to i32
-  br label %109
-
-109:                                              ; preds = %105, %102
-  %110 = phi i32 [ %104, %102 ], [ %108, %105 ]
-  store i32 %110, ptr %6, align 4
-  br label %111
-
-111:                                              ; preds = %._crit_edge, %109
-  %112 = phi i32 [ %.pre, %._crit_edge ], [ %110, %109 ]
-  %113 = getelementptr inbounds nuw i8, ptr %12, i64 310
-  %114 = load i16, ptr %113, align 2
-  %115 = sext i16 %114 to i32
-  %116 = icmp eq i32 %112, %115
-  br i1 %116, label %.sink.split, label %117
-
-117:                                              ; preds = %111
-  call void @cpufreq_stop_governor(ptr noundef %0) #26
-  %118 = load i32, ptr %6, align 4
-  %119 = getelementptr inbounds nuw i8, ptr %12, i64 312
-  %120 = load volatile i64, ptr %119, align 8
-  %121 = and i64 %120, -4278190081
-  %122 = zext i32 %118 to i64
-  %123 = shl nuw nsw i64 %122, 24
-  %124 = or i64 %121, %123
-  store volatile i64 %124, ptr %119, align 8
-  %125 = load i32, ptr %12, align 8
-  %126 = call i32 @wrmsrl_on_cpu(i32 noundef %125, i32 noundef 1908, i64 noundef %124) #26
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %128, label %130
-
-128:                                              ; preds = %117
-  %129 = trunc i32 %118 to i16
-  store i16 %129, ptr %113, align 2
-  br label %130
-
-130:                                              ; preds = %128, %117
-  %131 = call i32 @cpufreq_start_governor(ptr noundef %0) #26
-  %132 = select i1 %127, i32 %131, i32 %126
-  br label %133
-
-133:                                              ; preds = %65, %97, %130
-  %.in = phi i32 [ %132, %130 ], [ %98, %97 ], [ %73, %65 ]
-  %.in.fr = freeze i32 %.in
-  %134 = sext i32 %.in.fr to i64
-  call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
-  %135 = icmp eq i32 %.in.fr, 0
-  br i1 %135, label %136, label %137
-
-.sink.split:                                      ; preds = %111, %.thread10
+.thread13:                                        ; preds = %60
   call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
   br label %136
 
-136:                                              ; preds = %.sink.split, %133
-  br label %137
+64:                                               ; preds = %60, %57
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 312
+  %66 = load volatile i64, ptr %65, align 8
+  %67 = and i64 %66, -4278190081
+  %68 = zext i32 %58 to i64
+  %69 = shl nuw nsw i64 %68, 24
+  %70 = or i64 %67, %69
+  store volatile i64 %70, ptr %65, align 8
+  %71 = load i32, ptr %12, align 8
+  %72 = call i32 @wrmsrl_on_cpu(i32 noundef %71, i32 noundef 1908, i64 noundef %70) #26
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %.thread10, label %132
 
-137:                                              ; preds = %.thread13, %136, %133, %31, %28, %26, %19, %3
-  %138 = phi i64 [ %27, %26 ], [ -22, %3 ], [ %17, %19 ], [ -22, %28 ], [ -11, %31 ], [ %2, %136 ], [ %134, %133 ], [ -16, %.thread13 ]
+.thread10:                                        ; preds = %64
+  %74 = trunc i32 %58 to i16
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 310
+  store i16 %74, ptr %75, align 2
+  br label %.sink.split
+
+76:                                               ; preds = %46
+  %77 = icmp eq i32 %47, -22
+  %78 = shl i32 %39, 2
+  %79 = add i32 %78, 65532
+  %80 = select i1 %77, i32 %79, i32 %47
+  %81 = load i32, ptr %12, align 8
+  %82 = zext i32 %80 to i64
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store i64 0, ptr %4, align 8, !annotation !18
+  %83 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
+  %84 = and i64 %83, 34359738368
+  %85 = icmp eq i64 %84, 0
+  br i1 %85, label %96, label %86
+
+86:                                               ; preds = %76
+  %87 = call i32 @rdmsrl_on_cpu(i32 noundef %81, i32 noundef 432, ptr noundef nonnull %4) #26
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %96
+
+89:                                               ; preds = %86
+  %90 = load i64, ptr %4, align 8
+  %91 = and i64 %90, -16
+  %92 = shl i64 %82, 48
+  %93 = ashr exact i64 %92, 48
+  %94 = or i64 %91, %93
+  store i64 %94, ptr %4, align 8
+  %95 = call i32 @wrmsrl_on_cpu(i32 noundef %81, i32 noundef 432, i64 noundef %94) #26
+  br label %96
+
+96:                                               ; preds = %89, %86, %76
+  %97 = phi i32 [ 0, %89 ], [ -6, %76 ], [ %87, %86 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %132
+
+98:                                               ; preds = %35
+  br i1 %18, label %._crit_edge, label %99
+
+._crit_edge:                                      ; preds = %98
+  %.pre = load i32, ptr %6, align 4
+  br label %110
+
+99:                                               ; preds = %98
+  %100 = icmp eq i64 %32, 0
+  br i1 %100, label %104, label %101
+
+101:                                              ; preds = %99
+  %102 = getelementptr i32, ptr @epp_values, i64 %32
+  %103 = load i32, ptr %102, align 4
+  br label %108
+
+104:                                              ; preds = %99
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 308
+  %106 = load i16, ptr %105, align 4
+  %107 = sext i16 %106 to i32
+  br label %108
+
+108:                                              ; preds = %104, %101
+  %109 = phi i32 [ %103, %101 ], [ %107, %104 ]
+  store i32 %109, ptr %6, align 4
+  br label %110
+
+110:                                              ; preds = %._crit_edge, %108
+  %111 = phi i32 [ %.pre, %._crit_edge ], [ %109, %108 ]
+  %112 = getelementptr inbounds nuw i8, ptr %12, i64 310
+  %113 = load i16, ptr %112, align 2
+  %114 = sext i16 %113 to i32
+  %115 = icmp eq i32 %111, %114
+  br i1 %115, label %.sink.split, label %116
+
+116:                                              ; preds = %110
+  call void @cpufreq_stop_governor(ptr noundef %0) #26
+  %117 = load i32, ptr %6, align 4
+  %118 = getelementptr inbounds nuw i8, ptr %12, i64 312
+  %119 = load volatile i64, ptr %118, align 8
+  %120 = and i64 %119, -4278190081
+  %121 = zext i32 %117 to i64
+  %122 = shl nuw nsw i64 %121, 24
+  %123 = or i64 %120, %122
+  store volatile i64 %123, ptr %118, align 8
+  %124 = load i32, ptr %12, align 8
+  %125 = call i32 @wrmsrl_on_cpu(i32 noundef %124, i32 noundef 1908, i64 noundef %123) #26
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %129
+
+127:                                              ; preds = %116
+  %128 = trunc i32 %117 to i16
+  store i16 %128, ptr %112, align 2
+  br label %129
+
+129:                                              ; preds = %127, %116
+  %130 = call i32 @cpufreq_start_governor(ptr noundef %0) #26
+  %131 = select i1 %126, i32 %130, i32 %125
+  br label %132
+
+132:                                              ; preds = %64, %96, %129
+  %.in = phi i32 [ %131, %129 ], [ %97, %96 ], [ %72, %64 ]
+  %.in.fr = freeze i32 %.in
+  %133 = sext i32 %.in.fr to i64
+  call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
+  %134 = icmp eq i32 %.in.fr, 0
+  br i1 %134, label %135, label %136
+
+.sink.split:                                      ; preds = %110, %.thread10
+  call void @mutex_unlock(ptr noundef nonnull @intel_pstate_limits_lock) #26
+  br label %135
+
+135:                                              ; preds = %.sink.split, %132
+  br label %136
+
+136:                                              ; preds = %.thread13, %135, %132, %31, %28, %26, %19, %3
+  %137 = phi i64 [ %27, %26 ], [ -22, %3 ], [ %17, %19 ], [ -22, %28 ], [ -11, %31 ], [ %2, %135 ], [ %133, %132 ], [ -16, %.thread13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i64 %138
+  ret i64 %137
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

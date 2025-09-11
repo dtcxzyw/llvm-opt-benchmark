@@ -12269,32 +12269,32 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0
   %37 = getelementptr inbounds i8, ptr %35, i64 %.v.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !509, !noalias !504
-  %.not15.not.i.i.i = icmp eq i64 %39, 0
-  br i1 %.not15.not.i.i.i, label %_ZNK3fmt3v117context3argEi.exit.thread, label %.lr.ph.i.i.i
+  %.not14.not.i.i.i = icmp eq i64 %39, 0
+  br i1 %.not14.not.i.i.i, label %_ZNK3fmt3v117context3argEi.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %33
   %40 = load ptr, ptr %37, align 8, !tbaa !512, !noalias !504
-  br label %41
+  br label %43
 
-41:                                               ; preds = %48, %.lr.ph.i.i.i
-  %.01116.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %49, %48 ]
-  %42 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %40, i64 %.01116.i.i.i
-  %43 = load ptr, ptr %42, align 8, !tbaa !513, !noalias !504
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #23, !noalias !504
-  %45 = tail call noundef i64 @llvm.umin.i64(i64 %44, i64 %.sroa.2.0.copyload)
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %43, ptr %.sroa.0.0.copyload, i64 %45), !noalias !504
+41:                                               ; preds = %43
+  %42 = add nuw i64 %.01115.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %42, %39
+  br i1 %exitcond.not.i.i.i, label %_ZNK3fmt3v117context3argEi.exit.thread, label %43, !llvm.loop !513
+
+43:                                               ; preds = %41, %.lr.ph.i.i.i
+  %.01115.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %42, %41 ]
+  %44 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %40, i64 %.01115.i.i.i
+  %45 = load ptr, ptr %44, align 8, !tbaa !514, !noalias !504
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #23, !noalias !504
+  %47 = tail call noundef i64 @llvm.umin.i64(i64 %46, i64 %.sroa.2.0.copyload)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %45, ptr %.sroa.0.0.copyload, i64 %47), !noalias !504
   %.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
-  %46 = icmp eq i64 %44, %.sroa.2.0.copyload
-  %47 = select i1 %.not.i.i.i.i.i, i1 %46, i1 false
-  br i1 %47, label %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i, label %48
+  %48 = icmp eq i64 %46, %.sroa.2.0.copyload
+  %49 = select i1 %.not.i.i.i.i.i, i1 %48, i1 false
+  br i1 %49, label %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i, label %41
 
-48:                                               ; preds = %41
-  %49 = add nuw i64 %.01116.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %49, %39
-  br i1 %exitcond.not.i.i.i, label %_ZNK3fmt3v117context3argEi.exit.thread, label %41, !llvm.loop !515
-
-_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i: ; preds = %41
-  %50 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %40, i64 %.01116.i.i.i, i32 1
+_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i: ; preds = %43
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !516, !noalias !504
   %52 = icmp sgt i32 %51, -1
   br i1 %52, label %53, label %_ZNK3fmt3v117context3argEi.exit.thread
@@ -12329,38 +12329,38 @@ _ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_vie
 _ZNK3fmt3v117context3argEi.exit:                  ; preds = %58, %13
   %storemerge.in = phi ptr [ %60, %58 ], [ %17, %13 ]
   %storemerge = load i128, ptr %storemerge.in, align 16, !tbaa !26
-  %.sroa.012.sroa.0.sroa.0.0.extract.trunc73 = trunc i128 %storemerge to i32
-  %.sroa.012.sroa.0.sroa.11.0.extract.shift88100 = lshr i128 %storemerge, 32
-  %.sroa.012.sroa.0.sroa.11.0.extract.trunc89 = trunc i128 %.sroa.012.sroa.0.sroa.11.0.extract.shift88100 to i32
-  %.sroa.012.sroa.11.0.extract.shift61 = lshr i128 %storemerge, 64
-  %.sroa.012.sroa.11.0.extract.trunc62 = trunc nuw i128 %.sroa.012.sroa.11.0.extract.shift61 to i64
+  %.sroa.012.sroa.0.sroa.0.0.extract.trunc75 = trunc i128 %storemerge to i32
+  %.sroa.012.sroa.0.sroa.11.0.extract.shift90102 = lshr i128 %storemerge, 32
+  %.sroa.012.sroa.0.sroa.11.0.extract.trunc91 = trunc i128 %.sroa.012.sroa.0.sroa.11.0.extract.shift90102 to i32
+  %.sroa.012.sroa.11.0.extract.shift63 = lshr i128 %storemerge, 64
+  %.sroa.012.sroa.11.0.extract.trunc64 = trunc nuw i128 %.sroa.012.sroa.11.0.extract.shift63 to i64
   %.sroa.23.0.in = getelementptr inbounds nuw i8, ptr %storemerge.in, i64 16
   %.sroa.23.0 = load i32, ptr %.sroa.23.0.in, align 16, !tbaa !517
   %.not = icmp eq i32 %.sroa.23.0, 0
   br i1 %.not, label %_ZNK3fmt3v117context3argEi.exit.thread, label %_ZNK3fmt3v117context3argEi.exit.thread39
 
-_ZNK3fmt3v117context3argEi.exit.thread:           ; preds = %48, %29, %33, %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i, %55, %63, %61, %10, %20, %18, %_ZNK3fmt3v117context3argEi.exit
+_ZNK3fmt3v117context3argEi.exit.thread:           ; preds = %41, %29, %33, %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i, %55, %63, %61, %10, %20, %18, %_ZNK3fmt3v117context3argEi.exit
   tail call void @_ZN3fmt3v1112report_errorEPKc(ptr noundef nonnull @.str.136) #25
   unreachable
 
 _ZNK3fmt3v117context3argEi.exit.thread39.sink.split: ; preds = %63, %26
   %.sink = phi i32 [ %6, %26 ], [ %51, %63 ]
-  %.sink105 = phi ptr [ %28, %26 ], [ %35, %63 ]
+  %.sink107 = phi ptr [ %28, %26 ], [ %35, %63 ]
   %.sroa.23.041.ph = phi i32 [ %25, %26 ], [ %68, %63 ]
   %69 = zext nneg i32 %.sink to i64
-  %70 = getelementptr inbounds nuw %"class.fmt::v11::detail::value", ptr %.sink105, i64 %69
+  %70 = getelementptr inbounds nuw %"class.fmt::v11::detail::value", ptr %.sink107, i64 %69
   %.sroa.012.0.copyload28 = load i128, ptr %70, align 16, !tbaa !26
-  %.sroa.012.sroa.0.sroa.0.0.extract.trunc72 = trunc i128 %.sroa.012.0.copyload28 to i32
-  %.sroa.012.sroa.0.sroa.11.0.extract.shift8699 = lshr i128 %.sroa.012.0.copyload28, 32
-  %.sroa.012.sroa.0.sroa.11.0.extract.trunc87 = trunc i128 %.sroa.012.sroa.0.sroa.11.0.extract.shift8699 to i32
-  %.sroa.012.sroa.11.0.extract.shift59 = lshr i128 %.sroa.012.0.copyload28, 64
-  %.sroa.012.sroa.11.0.extract.trunc60 = trunc nuw i128 %.sroa.012.sroa.11.0.extract.shift59 to i64
+  %.sroa.012.sroa.0.sroa.0.0.extract.trunc74 = trunc i128 %.sroa.012.0.copyload28 to i32
+  %.sroa.012.sroa.0.sroa.11.0.extract.shift88101 = lshr i128 %.sroa.012.0.copyload28, 32
+  %.sroa.012.sroa.0.sroa.11.0.extract.trunc89 = trunc i128 %.sroa.012.sroa.0.sroa.11.0.extract.shift88101 to i32
+  %.sroa.012.sroa.11.0.extract.shift61 = lshr i128 %.sroa.012.0.copyload28, 64
+  %.sroa.012.sroa.11.0.extract.trunc62 = trunc nuw i128 %.sroa.012.sroa.11.0.extract.shift61 to i64
   br label %_ZNK3fmt3v117context3argEi.exit.thread39
 
 _ZNK3fmt3v117context3argEi.exit.thread39:         ; preds = %_ZNK3fmt3v117context3argEi.exit.thread39.sink.split, %_ZNK3fmt3v117context3argEi.exit
-  %.sroa.012.sroa.0.sroa.11.0 = phi i32 [ %.sroa.012.sroa.0.sroa.11.0.extract.trunc89, %_ZNK3fmt3v117context3argEi.exit ], [ %.sroa.012.sroa.0.sroa.11.0.extract.trunc87, %_ZNK3fmt3v117context3argEi.exit.thread39.sink.split ]
-  %.sroa.012.sroa.0.sroa.0.0 = phi i32 [ %.sroa.012.sroa.0.sroa.0.0.extract.trunc73, %_ZNK3fmt3v117context3argEi.exit ], [ %.sroa.012.sroa.0.sroa.0.0.extract.trunc72, %_ZNK3fmt3v117context3argEi.exit.thread39.sink.split ]
-  %.sroa.012.sroa.11.0 = phi i64 [ %.sroa.012.sroa.11.0.extract.trunc62, %_ZNK3fmt3v117context3argEi.exit ], [ %.sroa.012.sroa.11.0.extract.trunc60, %_ZNK3fmt3v117context3argEi.exit.thread39.sink.split ]
+  %.sroa.012.sroa.0.sroa.11.0 = phi i32 [ %.sroa.012.sroa.0.sroa.11.0.extract.trunc91, %_ZNK3fmt3v117context3argEi.exit ], [ %.sroa.012.sroa.0.sroa.11.0.extract.trunc89, %_ZNK3fmt3v117context3argEi.exit.thread39.sink.split ]
+  %.sroa.012.sroa.0.sroa.0.0 = phi i32 [ %.sroa.012.sroa.0.sroa.0.0.extract.trunc75, %_ZNK3fmt3v117context3argEi.exit ], [ %.sroa.012.sroa.0.sroa.0.0.extract.trunc74, %_ZNK3fmt3v117context3argEi.exit.thread39.sink.split ]
+  %.sroa.012.sroa.11.0 = phi i64 [ %.sroa.012.sroa.11.0.extract.trunc64, %_ZNK3fmt3v117context3argEi.exit ], [ %.sroa.012.sroa.11.0.extract.trunc62, %_ZNK3fmt3v117context3argEi.exit.thread39.sink.split ]
   %.sroa.23.041 = phi i32 [ %.sroa.23.0, %_ZNK3fmt3v117context3argEi.exit ], [ %.sroa.23.041.ph, %_ZNK3fmt3v117context3argEi.exit.thread39.sink.split ]
   switch i32 %.sroa.23.041, label %90 [
     i32 15, label %89
@@ -12383,18 +12383,18 @@ _ZNK3fmt3v117context3argEi.exit.thread39:         ; preds = %_ZNK3fmt3v117contex
 71:                                               ; preds = %_ZNK3fmt3v117context3argEi.exit.thread39
   %72 = icmp slt i32 %.sroa.012.sroa.0.sroa.0.0, 0
   %73 = zext nneg i32 %.sroa.012.sroa.0.sroa.0.0 to i64
-  br i1 %72, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
+  br i1 %72, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread44
 
 74:                                               ; preds = %_ZNK3fmt3v117context3argEi.exit.thread39
   %75 = zext i32 %.sroa.012.sroa.0.sroa.0.0 to i64
   br label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
 
 76:                                               ; preds = %_ZNK3fmt3v117context3argEi.exit.thread39
-  %.sroa.012.sroa.0.sroa.11.0.insert.ext74 = zext i32 %.sroa.012.sroa.0.sroa.11.0 to i64
-  %.sroa.012.sroa.0.sroa.11.0.insert.shift75 = shl nuw i64 %.sroa.012.sroa.0.sroa.11.0.insert.ext74, 32
-  %.sroa.012.sroa.0.sroa.0.0.insert.ext63 = zext i32 %.sroa.012.sroa.0.sroa.0.0 to i64
-  %.sroa.012.sroa.0.sroa.0.0.insert.insert65 = or disjoint i64 %.sroa.012.sroa.0.sroa.11.0.insert.shift75, %.sroa.012.sroa.0.sroa.0.0.insert.ext63
-  %77 = tail call noundef i64 @llvm.smax.i64(i64 %.sroa.012.sroa.0.sroa.0.0.insert.insert65, i64 -1)
+  %.sroa.012.sroa.0.sroa.11.0.insert.ext76 = zext i32 %.sroa.012.sroa.0.sroa.11.0 to i64
+  %.sroa.012.sroa.0.sroa.11.0.insert.shift77 = shl nuw i64 %.sroa.012.sroa.0.sroa.11.0.insert.ext76, 32
+  %.sroa.012.sroa.0.sroa.0.0.insert.ext65 = zext i32 %.sroa.012.sroa.0.sroa.0.0 to i64
+  %.sroa.012.sroa.0.sroa.0.0.insert.insert67 = or disjoint i64 %.sroa.012.sroa.0.sroa.11.0.insert.shift77, %.sroa.012.sroa.0.sroa.0.0.insert.ext65
+  %77 = tail call noundef i64 @llvm.smax.i64(i64 %.sroa.012.sroa.0.sroa.0.0.insert.insert67, i64 -1)
   br label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
 
 78:                                               ; preds = %_ZNK3fmt3v117context3argEi.exit.thread39
@@ -12405,18 +12405,18 @@ _ZNK3fmt3v117context3argEi.exit.thread39:         ; preds = %_ZNK3fmt3v117contex
   br label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
 
 79:                                               ; preds = %_ZNK3fmt3v117context3argEi.exit.thread39
-  %.sroa.012.sroa.0.sroa.11.0.insert.ext82 = zext i32 %.sroa.012.sroa.0.sroa.11.0 to i64
-  %.sroa.012.sroa.0.sroa.11.0.insert.shift83 = shl nuw i64 %.sroa.012.sroa.0.sroa.11.0.insert.ext82, 32
-  %.sroa.012.sroa.0.sroa.0.0.insert.ext69 = zext i32 %.sroa.012.sroa.0.sroa.0.0 to i64
-  %.sroa.012.sroa.0.sroa.0.0.insert.insert71 = or disjoint i64 %.sroa.012.sroa.0.sroa.11.0.insert.shift83, %.sroa.012.sroa.0.sroa.0.0.insert.ext69
+  %.sroa.012.sroa.0.sroa.11.0.insert.ext84 = zext i32 %.sroa.012.sroa.0.sroa.11.0 to i64
+  %.sroa.012.sroa.0.sroa.11.0.insert.shift85 = shl nuw i64 %.sroa.012.sroa.0.sroa.11.0.insert.ext84, 32
+  %.sroa.012.sroa.0.sroa.0.0.insert.ext71 = zext i32 %.sroa.012.sroa.0.sroa.0.0 to i64
+  %.sroa.012.sroa.0.sroa.0.0.insert.insert73 = or disjoint i64 %.sroa.012.sroa.0.sroa.11.0.insert.shift85, %.sroa.012.sroa.0.sroa.0.0.insert.ext71
   %.inv.i = icmp sgt i64 %.sroa.012.sroa.11.0, -1
   br i1 %.inv.i, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread
 
 80:                                               ; preds = %_ZNK3fmt3v117context3argEi.exit.thread39
-  %.sroa.012.sroa.0.sroa.11.0.insert.ext78 = zext i32 %.sroa.012.sroa.0.sroa.11.0 to i64
-  %.sroa.012.sroa.0.sroa.11.0.insert.shift79 = shl nuw i64 %.sroa.012.sroa.0.sroa.11.0.insert.ext78, 32
-  %.sroa.012.sroa.0.sroa.0.0.insert.ext66 = zext i32 %.sroa.012.sroa.0.sroa.0.0 to i64
-  %.sroa.012.sroa.0.sroa.0.0.insert.insert68 = or disjoint i64 %.sroa.012.sroa.0.sroa.11.0.insert.shift79, %.sroa.012.sroa.0.sroa.0.0.insert.ext66
+  %.sroa.012.sroa.0.sroa.11.0.insert.ext80 = zext i32 %.sroa.012.sroa.0.sroa.11.0 to i64
+  %.sroa.012.sroa.0.sroa.11.0.insert.shift81 = shl nuw i64 %.sroa.012.sroa.0.sroa.11.0.insert.ext80, 32
+  %.sroa.012.sroa.0.sroa.0.0.insert.ext68 = zext i32 %.sroa.012.sroa.0.sroa.0.0 to i64
+  %.sroa.012.sroa.0.sroa.0.0.insert.insert70 = or disjoint i64 %.sroa.012.sroa.0.sroa.11.0.insert.shift81, %.sroa.012.sroa.0.sroa.0.0.insert.ext68
   br label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
 
 81:                                               ; preds = %_ZNK3fmt3v117context3argEi.exit.thread39
@@ -12459,17 +12459,18 @@ _ZNK3fmt3v117context3argEi.exit.thread39:         ; preds = %_ZNK3fmt3v117contex
   tail call void @_ZN3fmt3v1112report_errorEPKc(ptr noundef nonnull @.str.138) #25
   unreachable
 
-_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit: ; preds = %79, %71, %74, %76, %78, %80
-  %.0.i = phi i64 [ %73, %71 ], [ %75, %74 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert68, %80 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert71, %79 ]
+_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit: ; preds = %79, %74, %76, %78, %80
+  %.0.i = phi i64 [ %75, %74 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
   %91 = icmp ugt i64 %.0.i, 2147483647
-  br i1 %91, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread45
+  br i1 %91, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread44
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread: ; preds = %71, %79, %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
   tail call void @_ZN3fmt3v1112report_errorEPKc(ptr noundef nonnull @.str.137) #25
   unreachable
 
-_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread45: ; preds = %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
-  %92 = trunc nuw nsw i64 %.0.i to i32
+_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread44: ; preds = %71, %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
+  %.0.i46 = phi i64 [ %.0.i, %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit ], [ %73, %71 ]
+  %92 = trunc nuw nsw i64 %.0.i46 to i32
   ret i32 %92
 }
 
@@ -14593,10 +14594,10 @@ attributes #27 = { nounwind allocsize(0) }
 !510 = !{!"_ZTSN3fmt3v116detail15named_arg_valueIcEE", !511, i64 0, !9, i64 8}
 !511 = !{!"p1 _ZTSN3fmt3v116detail14named_arg_infoIcEE", !14, i64 0}
 !512 = !{!510, !511, i64 0}
-!513 = !{!514, !43, i64 0}
-!514 = !{!"_ZTSN3fmt3v116detail14named_arg_infoIcEE", !43, i64 0, !16, i64 8}
-!515 = distinct !{!515, !290}
-!516 = !{!514, !16, i64 8}
+!513 = distinct !{!513, !290}
+!514 = !{!515, !43, i64 0}
+!515 = !{!"_ZTSN3fmt3v116detail14named_arg_infoIcEE", !43, i64 0, !16, i64 8}
+!516 = !{!515, !16, i64 8}
 !517 = !{!518, !518, i64 0}
 !518 = !{!"_ZTSN3fmt3v116detail4typeE", !10, i64 0}
 !519 = !{!520}

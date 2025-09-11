@@ -2329,11 +2329,12 @@ define internal range(i32 -1, 1) i32 @zend_weakmap_iterator_valid(ptr noundef re
   tail call void @llvm.assume(i1 %6)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !107
   %8 = zext i32 %.val to i64
-  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8, i32 1
-  %10 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef nonnull %4, ptr noundef nonnull %9) #8
-  %11 = icmp eq i32 %10, 3
-  %12 = sext i1 %11 to i32
-  ret i32 %12
+  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef nonnull %4, ptr noundef nonnull %10) #8
+  %12 = icmp eq i32 %11, 3
+  %13 = sext i1 %12 to i32
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2347,9 +2348,10 @@ define internal ptr @zend_weakmap_iterator_get_current_data(ptr noundef readonly
   tail call void @llvm.assume(i1 %6)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !107
   %8 = zext i32 %.val to i64
-  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8, i32 1
-  %10 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %4, ptr noundef nonnull %9) #8
-  ret ptr %10
+  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %4, ptr noundef nonnull %10) #8
+  ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2365,29 +2367,30 @@ define internal void @zend_weakmap_iterator_get_current_key(ptr noundef readonly
   tail call void @llvm.assume(i1 %9)
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !107
   %11 = zext i32 %.val to i64
-  %12 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %10, i64 %11, i32 1
+  %12 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %13 = call i32 @zend_hash_get_current_key_ex(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %12) #8
-  %14 = icmp eq i32 %13, 3
-  br i1 %14, label %21, label %15
+  %14 = call i32 @zend_hash_get_current_key_ex(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %13) #8
+  %15 = icmp eq i32 %14, 3
+  br i1 %15, label %22, label %16
 
-15:                                               ; preds = %2
-  %.not = icmp eq i32 %13, 2
+16:                                               ; preds = %2
+  %.not = icmp eq i32 %14, 2
   call void @llvm.assume(i1 %.not)
-  %16 = load i64, ptr %4, align 8, !tbaa !82
-  %17 = shl i64 %16, 3
-  %18 = inttoptr i64 %17 to ptr
-  %19 = load i32, ptr %18, align 8, !tbaa !29
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %18, align 8, !tbaa !29
-  store ptr %18, ptr %1, align 8, !tbaa !4
-  br label %21
+  %17 = load i64, ptr %4, align 8, !tbaa !82
+  %18 = shl i64 %17, 3
+  %19 = inttoptr i64 %18 to ptr
+  %20 = load i32, ptr %19, align 8, !tbaa !29
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %19, align 8, !tbaa !29
+  store ptr %19, ptr %1, align 8, !tbaa !4
+  br label %22
 
-21:                                               ; preds = %2, %15
-  %.sink = phi i32 [ 776, %15 ], [ 1, %2 ]
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.sink, ptr %22, align 8, !tbaa !4
+22:                                               ; preds = %2, %16
+  %.sink = phi i32 [ 776, %16 ], [ 1, %2 ]
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %.sink, ptr %23, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -2404,8 +2407,9 @@ define internal void @zend_weakmap_iterator_move_forward(ptr noundef readonly ca
   tail call void @llvm.assume(i1 %6)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !107
   %8 = zext i32 %.val to i64
-  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8, i32 1
-  %10 = tail call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %4, ptr noundef nonnull %9) #8
+  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = tail call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %4, ptr noundef nonnull %10) #8
   ret void
 }
 
@@ -2420,8 +2424,9 @@ define internal void @zend_weakmap_iterator_rewind(ptr noundef readonly captures
   tail call void @llvm.assume(i1 %6)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !107
   %8 = zext i32 %.val to i64
-  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8, i32 1
-  tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %4, ptr noundef nonnull %9) #8
+  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %4, ptr noundef nonnull %10) #8
   ret void
 }
 

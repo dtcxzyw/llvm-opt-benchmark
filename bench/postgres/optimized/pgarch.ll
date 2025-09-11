@@ -821,17 +821,18 @@ define dso_local void @PgArchWakeup() local_unnamed_addr #0 {
   %1 = load ptr, ptr @PgArch, align 8
   %2 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %2, -1
-  br i1 %.not, label %8, label %3
+  br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @ProcGlobal, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds %struct.PGPROC, ptr %5, i64 %6, i32 4
-  tail call void @SetLatch(ptr noundef nonnull %7) #19
-  br label %8
+  %7 = getelementptr inbounds %struct.PGPROC, ptr %5, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  tail call void @SetLatch(ptr noundef nonnull %8) #19
+  br label %9
 
-8:                                                ; preds = %3, %0
+9:                                                ; preds = %3, %0
   ret void
 }
 

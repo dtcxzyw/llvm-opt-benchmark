@@ -336,15 +336,15 @@ zend_accel_blacklist_allocate.exit.i:             ; preds = %91, %85
   %96 = phi i32 [ %88, %85 ], [ %.pre82.i, %91 ]
   %97 = phi ptr [ %.pre81.i, %85 ], [ %95, %91 ]
   %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %97, i64 %98, i32 1
-  store i32 %87, ptr %99, align 8, !tbaa !28
-  %100 = shl i64 %86, 32
-  %sext64.i = add i64 %100, 4294967296
-  %101 = ashr exact i64 %sext64.i, 32
-  %102 = call noalias ptr @malloc(i64 noundef %101) #18
-  %103 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %97, i64 %98
-  store ptr %102, ptr %103, align 8, !tbaa !19
-  %.not65.i = icmp eq ptr %102, null
+  %99 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %97, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store i32 %87, ptr %100, align 8, !tbaa !28
+  %101 = shl i64 %86, 32
+  %sext64.i = add i64 %101, 4294967296
+  %102 = ashr exact i64 %sext64.i, 32
+  %103 = call noalias ptr @malloc(i64 noundef %102) #18
+  store ptr %103, ptr %99, align 8, !tbaa !19
+  %.not65.i = icmp eq ptr %103, null
   br i1 %.not65.i, label %104, label %105
 
 104:                                              ; preds = %zend_accel_blacklist_allocate.exit.i
@@ -352,9 +352,9 @@ zend_accel_blacklist_allocate.exit.i:             ; preds = %91, %85
   unreachable
 
 105:                                              ; preds = %zend_accel_blacklist_allocate.exit.i
-  %106 = getelementptr inbounds nuw i8, ptr %103, i64 12
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 12
   store i32 %96, ptr %106, align 4, !tbaa !29
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr nonnull align 16 %8, i64 %101, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %103, ptr nonnull align 16 %8, i64 %102, i1 false)
   %107 = add nsw i32 %96, 1
   store i32 %107, ptr %15, align 4, !tbaa !4
   br label %108

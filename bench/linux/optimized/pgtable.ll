@@ -316,7 +316,8 @@ define dso_local ptr @pgd_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %31 = select i1 %27, i64 %28, i64 %30
   %32 = add i64 %31, %26
   %33 = lshr i64 %32, 12
-  %34 = getelementptr %struct.page, ptr %25, i64 %33, i32 1, i32 0, i32 2
+  %.split = getelementptr %struct.page, ptr %25, i64 %33
+  %34 = getelementptr i8, ptr %.split, i64 32
   store ptr %0, ptr %34, align 8
   %35 = load i64, ptr @vmemmap_base, align 8
   %36 = inttoptr i64 %35 to ptr
@@ -326,12 +327,13 @@ define dso_local ptr @pgd_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %40 = select i1 %27, i64 %37, i64 %39
   %41 = add i64 %40, %26
   %42 = lshr i64 %41, 12
-  %43 = getelementptr %struct.page, ptr %36, i64 %42, i32 1
+  %.split1 = getelementptr %struct.page, ptr %36, i64 %42
+  %43 = getelementptr i8, ptr %.split1, i64 8
   %44 = load ptr, ptr @pgd_list, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %43, ptr %45, align 8
   store ptr %44, ptr %43, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %46 = getelementptr i8, ptr %.split1, i64 16
   store ptr @pgd_list, ptr %46, align 8
   store volatile ptr %43, ptr @pgd_list, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @pgd_lock) #14
@@ -357,8 +359,9 @@ define dso_local void @pgd_free(ptr noundef readnone captures(none) %0, ptr noun
   %12 = select i1 %8, i64 %9, i64 %11
   %13 = add i64 %7, %12
   %14 = lshr i64 %13, 12
-  %15 = getelementptr %struct.page, ptr %5, i64 %14, i32 1
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.split = getelementptr %struct.page, ptr %5, i64 %14
+  %15 = getelementptr i8, ptr %.split, i64 8
+  %16 = getelementptr i8, ptr %.split, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8

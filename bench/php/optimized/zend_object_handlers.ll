@@ -6453,14 +6453,14 @@ define dso_local void @zend_class_init_statics(ptr noundef captures(none) %0) lo
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %37
 
-37:                                               ; preds = %.lr.ph, %106
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
+37:                                               ; preds = %.lr.ph, %107
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
   %38 = load ptr, ptr %36, align 8, !tbaa !175
   %39 = getelementptr inbounds nuw %struct._zval_struct, ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !37
   %42 = icmp eq i8 %41, 12
-  br i1 %42, label %43, label %82
+  br i1 %42, label %43, label %83
 
 43:                                               ; preds = %37
   %44 = load ptr, ptr %16, align 8, !tbaa !37
@@ -6521,63 +6521,64 @@ define dso_local void @zend_class_init_statics(ptr noundef captures(none) %0) lo
 
 79:                                               ; preds = %69, %75
   %80 = phi ptr [ %78, %75 ], [ %72, %69 ]
-  %81 = getelementptr inbounds nuw %struct._zval_struct, ptr %80, i64 %indvars.iv, i32 1
-  store i32 12, ptr %81, align 8, !tbaa !37
-  br label %106
+  %81 = getelementptr inbounds nuw %struct._zval_struct, ptr %80, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i32 12, ptr %82, align 8, !tbaa !37
+  br label %107
 
-82:                                               ; preds = %37
-  %83 = load ptr, ptr %5, align 8, !tbaa !160
-  %84 = ptrtoint ptr %83 to i64
-  %85 = and i64 %84, 1
-  %.not124 = icmp eq i64 %85, 0
-  br i1 %.not124, label %90, label %86
+83:                                               ; preds = %37
+  %84 = load ptr, ptr %5, align 8, !tbaa !160
+  %85 = ptrtoint ptr %84 to i64
+  %86 = and i64 %85, 1
+  %.not124 = icmp eq i64 %86, 0
+  br i1 %.not124, label %91, label %87
 
-86:                                               ; preds = %82
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !161
-  %88 = getelementptr inbounds i8, ptr %87, i64 %84
-  %89 = load ptr, ptr %88, align 8, !tbaa !98
-  br label %90
+87:                                               ; preds = %83
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !161
+  %89 = getelementptr inbounds i8, ptr %88, i64 %85
+  %90 = load ptr, ptr %89, align 8, !tbaa !98
+  br label %91
 
-90:                                               ; preds = %82, %86
-  %91 = phi ptr [ %89, %86 ], [ %83, %82 ]
-  %92 = getelementptr inbounds nuw %struct._zval_struct, ptr %91, i64 %indvars.iv
-  %93 = load ptr, ptr %39, align 8, !tbaa !37
-  %94 = load i32, ptr %40, align 8, !tbaa !37
-  store ptr %93, ptr %92, align 8, !tbaa !37
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store i32 %94, ptr %95, align 8, !tbaa !37
-  %96 = and i32 %94, 65280
-  %.not125 = icmp eq i32 %96, 0
-  br i1 %.not125, label %106, label %97
+91:                                               ; preds = %83, %87
+  %92 = phi ptr [ %90, %87 ], [ %84, %83 ]
+  %93 = getelementptr inbounds nuw %struct._zval_struct, ptr %92, i64 %indvars.iv
+  %94 = load ptr, ptr %39, align 8, !tbaa !37
+  %95 = load i32, ptr %40, align 8, !tbaa !37
+  store ptr %94, ptr %93, align 8, !tbaa !37
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  store i32 %95, ptr %96, align 8, !tbaa !37
+  %97 = and i32 %95, 65280
+  %.not125 = icmp eq i32 %97, 0
+  br i1 %.not125, label %107, label %98
 
-97:                                               ; preds = %90
-  %98 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !37
-  %100 = and i32 %99, 128
-  %.not126 = icmp eq i32 %100, 0
-  %101 = and i32 %99, 15
-  %102 = icmp eq i32 %101, 8
-  %or.cond = or i1 %.not126, %102
-  br i1 %or.cond, label %.critedge, label %105, !prof !176
+98:                                               ; preds = %91
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %100 = load i32, ptr %99, align 4, !tbaa !37
+  %101 = and i32 %100, 128
+  %.not126 = icmp eq i32 %101, 0
+  %102 = and i32 %100, 15
+  %103 = icmp eq i32 %102, 8
+  %or.cond = or i1 %.not126, %103
+  br i1 %or.cond, label %.critedge, label %106, !prof !176
 
-.critedge:                                        ; preds = %97
-  %103 = load i32, ptr %93, align 4, !tbaa !41
-  %104 = add i32 %103, 1
-  store i32 %104, ptr %93, align 4, !tbaa !41
-  br label %106
+.critedge:                                        ; preds = %98
+  %104 = load i32, ptr %94, align 4, !tbaa !41
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %94, align 4, !tbaa !41
+  br label %107
 
-105:                                              ; preds = %97
-  tail call void @zval_copy_ctor_func(ptr noundef nonnull %92) #18
-  br label %106
+106:                                              ; preds = %98
+  tail call void @zval_copy_ctor_func(ptr noundef nonnull %93) #18
+  br label %107
 
-106:                                              ; preds = %90, %105, %.critedge, %79
+107:                                              ; preds = %91, %106, %.critedge, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %107 = load i32, ptr %2, align 4, !tbaa !159
-  %108 = sext i32 %107 to i64
-  %109 = icmp slt i64 %indvars.iv.next, %108
-  br i1 %109, label %37, label %.loopexit
+  %108 = load i32, ptr %2, align 4, !tbaa !159
+  %109 = sext i32 %108 to i64
+  %110 = icmp slt i64 %indvars.iv.next, %109
+  br i1 %110, label %37, label %.loopexit
 
-.loopexit:                                        ; preds = %106, %33, %13, %1
+.loopexit:                                        ; preds = %107, %33, %13, %1
   ret void
 }
 

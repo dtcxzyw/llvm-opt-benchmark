@@ -77,7 +77,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
 17:                                               ; preds = %2
   %18 = load ptr, ptr @stderr, align 8, !tbaa !26
   %19 = call i64 @fwrite(ptr nonnull @.str, i64 22, i64 1, ptr %18) #14
-  br label %477
+  br label %483
 
 20:                                               ; preds = %2
   call void @XrmInitialize() #13
@@ -171,841 +171,847 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %76 = mul i32 %75, %.2
   %77 = udiv i32 %76, 96
   store i32 %77, ptr %74, align 4, !tbaa !46
-  %78 = getelementptr inbounds %struct.Screen, ptr %68, i64 %27, i32 2
-  %79 = load i64, ptr %78, align 8, !tbaa !47
-  %80 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i64 %79, ptr %80, align 8, !tbaa !48
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1608
-  store i32 0, ptr %81, align 8, !tbaa !49
-  %82 = load ptr, ptr %21, align 8, !tbaa !27
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 232
-  %84 = load ptr, ptr %83, align 8, !tbaa !36
-  %85 = load i32, ptr %24, align 8, !tbaa !35
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %struct.Screen, ptr %84, i64 %86, i32 13
-  %88 = load i64, ptr %87, align 8, !tbaa !50
-  %89 = call i64 @XCreateSimpleWindow(ptr noundef %82, i64 noundef %79, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i64 noundef %88, i64 noundef %88) #13
-  %90 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 %89, ptr %90, align 8, !tbaa !51
-  %91 = load ptr, ptr %21, align 8, !tbaa !27
-  %92 = call i64 @XCreateFontCursor(ptr noundef %91, i32 noundef 52) #13
-  %93 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i64 %92, ptr %93, align 8, !tbaa !52
-  %94 = load ptr, ptr %21, align 8, !tbaa !27
-  %95 = load i64, ptr %90, align 8, !tbaa !51
-  %96 = call i32 @XDefineCursor(ptr noundef %94, i64 noundef %95, i64 noundef %92) #13
-  %97 = load ptr, ptr %21, align 8, !tbaa !27
-  %98 = load i64, ptr %90, align 8, !tbaa !51
-  %99 = call i32 @XSelectInput(ptr noundef %97, i64 noundef %98, i64 noundef 32845) #13
-  %100 = load ptr, ptr %21, align 8, !tbaa !27
-  %101 = load i64, ptr %90, align 8, !tbaa !51
-  %102 = call i32 @XMapWindow(ptr noundef %100, i64 noundef %101) #13
-  %103 = load ptr, ptr %21, align 8, !tbaa !27
-  %104 = load i64, ptr %90, align 8, !tbaa !51
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 232
-  %106 = load ptr, ptr %105, align 8, !tbaa !36
-  %107 = load i32, ptr %24, align 8, !tbaa !35
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds %struct.Screen, ptr %106, i64 %108, i32 10
-  %110 = load ptr, ptr %109, align 8, !tbaa !53
-  %111 = call ptr @cairo_xlib_surface_create(ptr noundef %103, i64 noundef %104, ptr noundef %110, i32 noundef 1, i32 noundef 1) #13
-  %112 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %111, ptr %112, align 8, !tbaa !54
-  %113 = load ptr, ptr %8, align 8, !tbaa !4
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 936
-  %115 = load i32, ptr %114, align 8, !tbaa !45
-  %116 = call ptr @cairo_create(ptr noundef %111) #13
-  %117 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %116, ptr %117, align 8, !tbaa !55
-  %118 = uitofp i32 %115 to double
-  call void @cairo_set_font_size(ptr noundef %116, double noundef %118) #13
-  %119 = load ptr, ptr %8, align 8, !tbaa !4
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 944
-  %121 = load i32, ptr %120, align 8, !tbaa !56
-  %122 = uitofp i32 %121 to double
-  call void @cairo_set_line_width(ptr noundef %116, double noundef %122) #13
-  %123 = load ptr, ptr %8, align 8, !tbaa !4
-  call void @output_draw(ptr noundef %123) #13
-  call void @cairo_show_page(ptr noundef %116) #13
-  call void @cairo_destroy(ptr noundef %116) #13
-  store ptr null, ptr %117, align 8, !tbaa !55
-  %124 = load ptr, ptr %112, align 8, !tbaa !54
-  call void @cairo_surface_destroy(ptr noundef %124) #13
-  %125 = load ptr, ptr %21, align 8, !tbaa !27
-  %126 = load i64, ptr %90, align 8, !tbaa !51
-  %127 = call i32 @XDestroyWindow(ptr noundef %125, i64 noundef %126) #13
-  store i32 1, ptr %81, align 8, !tbaa !49
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 1612
-  %129 = load i32, ptr %128, align 4, !tbaa !57
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 1616
-  %131 = load i32, ptr %130, align 8, !tbaa !58
-  %132 = load ptr, ptr %25, align 8, !tbaa !36
-  %133 = getelementptr inbounds %struct.Screen, ptr %132, i64 %27, i32 13
-  %134 = load i64, ptr %133, align 8, !tbaa !50
-  %135 = call i64 @XCreateSimpleWindow(ptr noundef nonnull %16, i64 noundef %79, i32 noundef 0, i32 noundef 0, i32 noundef %129, i32 noundef %131, i32 noundef 0, i64 noundef %134, i64 noundef %134) #13
-  store i64 %135, ptr %80, align 8, !tbaa !48
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %137 = call i32 @XStoreName(ptr noundef nonnull %16, i64 noundef %135, ptr noundef nonnull %136) #13
-  %138 = call i32 @XSetIconName(ptr noundef nonnull %16, i64 noundef %135, ptr noundef nonnull @.str.3) #13
-  %139 = call ptr @XAllocClassHint() #13
-  %.not302 = icmp eq ptr %139, null
-  br i1 %.not302, label %144, label %140
+  %78 = getelementptr inbounds %struct.Screen, ptr %68, i64 %27
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %80 = load i64, ptr %79, align 8, !tbaa !47
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i64 %80, ptr %81, align 8, !tbaa !48
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1608
+  store i32 0, ptr %82, align 8, !tbaa !49
+  %83 = load ptr, ptr %21, align 8, !tbaa !27
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 232
+  %85 = load ptr, ptr %84, align 8, !tbaa !36
+  %86 = load i32, ptr %24, align 8, !tbaa !35
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds %struct.Screen, ptr %85, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 88
+  %90 = load i64, ptr %89, align 8, !tbaa !50
+  %91 = call i64 @XCreateSimpleWindow(ptr noundef %83, i64 noundef %80, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i64 noundef %90, i64 noundef %90) #13
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store i64 %91, ptr %92, align 8, !tbaa !51
+  %93 = load ptr, ptr %21, align 8, !tbaa !27
+  %94 = call i64 @XCreateFontCursor(ptr noundef %93, i32 noundef 52) #13
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store i64 %94, ptr %95, align 8, !tbaa !52
+  %96 = load ptr, ptr %21, align 8, !tbaa !27
+  %97 = load i64, ptr %92, align 8, !tbaa !51
+  %98 = call i32 @XDefineCursor(ptr noundef %96, i64 noundef %97, i64 noundef %94) #13
+  %99 = load ptr, ptr %21, align 8, !tbaa !27
+  %100 = load i64, ptr %92, align 8, !tbaa !51
+  %101 = call i32 @XSelectInput(ptr noundef %99, i64 noundef %100, i64 noundef 32845) #13
+  %102 = load ptr, ptr %21, align 8, !tbaa !27
+  %103 = load i64, ptr %92, align 8, !tbaa !51
+  %104 = call i32 @XMapWindow(ptr noundef %102, i64 noundef %103) #13
+  %105 = load ptr, ptr %21, align 8, !tbaa !27
+  %106 = load i64, ptr %92, align 8, !tbaa !51
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 232
+  %108 = load ptr, ptr %107, align 8, !tbaa !36
+  %109 = load i32, ptr %24, align 8, !tbaa !35
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds %struct.Screen, ptr %108, i64 %110
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 64
+  %113 = load ptr, ptr %112, align 8, !tbaa !53
+  %114 = call ptr @cairo_xlib_surface_create(ptr noundef %105, i64 noundef %106, ptr noundef %113, i32 noundef 1, i32 noundef 1) #13
+  %115 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %114, ptr %115, align 8, !tbaa !54
+  %116 = load ptr, ptr %8, align 8, !tbaa !4
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 936
+  %118 = load i32, ptr %117, align 8, !tbaa !45
+  %119 = call ptr @cairo_create(ptr noundef %114) #13
+  %120 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %119, ptr %120, align 8, !tbaa !55
+  %121 = uitofp i32 %118 to double
+  call void @cairo_set_font_size(ptr noundef %119, double noundef %121) #13
+  %122 = load ptr, ptr %8, align 8, !tbaa !4
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 944
+  %124 = load i32, ptr %123, align 8, !tbaa !56
+  %125 = uitofp i32 %124 to double
+  call void @cairo_set_line_width(ptr noundef %119, double noundef %125) #13
+  %126 = load ptr, ptr %8, align 8, !tbaa !4
+  call void @output_draw(ptr noundef %126) #13
+  call void @cairo_show_page(ptr noundef %119) #13
+  call void @cairo_destroy(ptr noundef %119) #13
+  store ptr null, ptr %120, align 8, !tbaa !55
+  %127 = load ptr, ptr %115, align 8, !tbaa !54
+  call void @cairo_surface_destroy(ptr noundef %127) #13
+  %128 = load ptr, ptr %21, align 8, !tbaa !27
+  %129 = load i64, ptr %92, align 8, !tbaa !51
+  %130 = call i32 @XDestroyWindow(ptr noundef %128, i64 noundef %129) #13
+  store i32 1, ptr %82, align 8, !tbaa !49
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 1612
+  %132 = load i32, ptr %131, align 4, !tbaa !57
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 1616
+  %134 = load i32, ptr %133, align 8, !tbaa !58
+  %135 = load ptr, ptr %25, align 8, !tbaa !36
+  %136 = getelementptr inbounds %struct.Screen, ptr %135, i64 %27
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 88
+  %138 = load i64, ptr %137, align 8, !tbaa !50
+  %139 = call i64 @XCreateSimpleWindow(ptr noundef nonnull %16, i64 noundef %80, i32 noundef 0, i32 noundef 0, i32 noundef %132, i32 noundef %134, i32 noundef 0, i64 noundef %138, i64 noundef %138) #13
+  store i64 %139, ptr %81, align 8, !tbaa !48
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %141 = call i32 @XStoreName(ptr noundef nonnull %16, i64 noundef %139, ptr noundef nonnull %140) #13
+  %142 = call i32 @XSetIconName(ptr noundef nonnull %16, i64 noundef %139, ptr noundef nonnull @.str.3) #13
+  %143 = call ptr @XAllocClassHint() #13
+  %.not302 = icmp eq ptr %143, null
+  br i1 %.not302, label %148, label %144
 
-140:                                              ; preds = %67
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  store ptr @.str.3, ptr %141, align 8, !tbaa !59
-  store ptr @.str.3, ptr %139, align 8, !tbaa !61
-  %142 = call i32 @XSetClassHint(ptr noundef nonnull %16, i64 noundef %135, ptr noundef nonnull %139) #13
-  %143 = call i32 @XFree(ptr noundef nonnull %139) #13
-  br label %144
+144:                                              ; preds = %67
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  store ptr @.str.3, ptr %145, align 8, !tbaa !59
+  store ptr @.str.3, ptr %143, align 8, !tbaa !61
+  %146 = call i32 @XSetClassHint(ptr noundef nonnull %16, i64 noundef %139, ptr noundef nonnull %143) #13
+  %147 = call i32 @XFree(ptr noundef nonnull %143) #13
+  br label %148
 
-144:                                              ; preds = %140, %67
-  %145 = call i32 @XSelectInput(ptr noundef nonnull %16, i64 noundef %135, i64 noundef 131073) #13
-  %146 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %147 = load i32, ptr %146, align 8, !tbaa !39
-  %spec.select = call i32 @llvm.smin.i32(i32 %129, i32 %147)
-  %148 = getelementptr inbounds nuw i8, ptr %28, i64 28
-  %149 = load i32, ptr %148, align 4, !tbaa !43
-  %.0276 = call i32 @llvm.smin.i32(i32 %131, i32 %149)
-  %150 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i32 0, ptr %150, align 8, !tbaa !62
-  %151 = getelementptr inbounds nuw i8, ptr %8, i64 84
-  store i32 0, ptr %151, align 4, !tbaa !63
-  %152 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i32 %spec.select, ptr %152, align 8, !tbaa !64
-  %153 = getelementptr inbounds nuw i8, ptr %8, i64 76
-  store i32 %.0276, ptr %153, align 4, !tbaa !65
-  %154 = load i32, ptr %128, align 4, !tbaa !57
-  %155 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store i32 %154, ptr %155, align 8, !tbaa !66
-  %156 = load i32, ptr %130, align 8, !tbaa !58
-  %157 = getelementptr inbounds nuw i8, ptr %8, i64 92
-  store i32 %156, ptr %157, align 4, !tbaa !67
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %159 = load i32, ptr %158, align 8, !tbaa !45
-  %160 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i32 %159, ptr %160, align 8, !tbaa !68
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  %162 = load i32, ptr %161, align 4, !tbaa !46
-  %163 = getelementptr inbounds nuw i8, ptr %8, i64 68
-  store i32 %162, ptr %163, align 4, !tbaa !69
-  %164 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store i32 0, ptr %164, align 8, !tbaa !70
-  %165 = getelementptr inbounds nuw i8, ptr %8, i64 100
-  store i32 0, ptr %165, align 4, !tbaa !71
-  %166 = getelementptr inbounds nuw i8, ptr %8, i64 108
-  store float 1.000000e+00, ptr %166, align 4, !tbaa !72
-  %167 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store float 1.000000e+00, ptr %167, align 8, !tbaa !73
-  %168 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store i32 0, ptr %168, align 8, !tbaa !74
-  %169 = getelementptr inbounds nuw i8, ptr %8, i64 116
-  store i32 0, ptr %169, align 4, !tbaa !75
-  %170 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  store i32 1, ptr %170, align 8, !tbaa !76
-  %171 = getelementptr inbounds nuw i8, ptr %8, i64 124
-  store i32 0, ptr %171, align 4, !tbaa !77
-  %172 = load ptr, ptr %21, align 8, !tbaa !27
-  %173 = load i64, ptr %80, align 8, !tbaa !48
-  %174 = getelementptr inbounds nuw i8, ptr %172, i64 232
-  %175 = load ptr, ptr %174, align 8, !tbaa !36
-  %176 = load i32, ptr %24, align 8, !tbaa !35
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds %struct.Screen, ptr %175, i64 %177, i32 13
-  %179 = load i64, ptr %178, align 8, !tbaa !50
-  %180 = call i64 @XCreateSimpleWindow(ptr noundef %172, i64 noundef %173, i32 noundef 0, i32 noundef 0, i32 noundef %154, i32 noundef %156, i32 noundef 0, i64 noundef %179, i64 noundef %179) #13
-  store i64 %180, ptr %90, align 8, !tbaa !51
-  %181 = load ptr, ptr %21, align 8, !tbaa !27
-  %182 = call i64 @XCreateFontCursor(ptr noundef %181, i32 noundef 52) #13
-  store i64 %182, ptr %93, align 8, !tbaa !52
-  %183 = load ptr, ptr %21, align 8, !tbaa !27
-  %184 = load i64, ptr %90, align 8, !tbaa !51
-  %185 = call i32 @XDefineCursor(ptr noundef %183, i64 noundef %184, i64 noundef %182) #13
+148:                                              ; preds = %144, %67
+  %149 = call i32 @XSelectInput(ptr noundef nonnull %16, i64 noundef %139, i64 noundef 131073) #13
+  %150 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %151 = load i32, ptr %150, align 8, !tbaa !39
+  %spec.select = call i32 @llvm.smin.i32(i32 %132, i32 %151)
+  %152 = getelementptr inbounds nuw i8, ptr %28, i64 28
+  %153 = load i32, ptr %152, align 4, !tbaa !43
+  %.0276 = call i32 @llvm.smin.i32(i32 %134, i32 %153)
+  %154 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i32 0, ptr %154, align 8, !tbaa !62
+  %155 = getelementptr inbounds nuw i8, ptr %8, i64 84
+  store i32 0, ptr %155, align 4, !tbaa !63
+  %156 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store i32 %spec.select, ptr %156, align 8, !tbaa !64
+  %157 = getelementptr inbounds nuw i8, ptr %8, i64 76
+  store i32 %.0276, ptr %157, align 4, !tbaa !65
+  %158 = load i32, ptr %131, align 4, !tbaa !57
+  %159 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  store i32 %158, ptr %159, align 8, !tbaa !66
+  %160 = load i32, ptr %133, align 8, !tbaa !58
+  %161 = getelementptr inbounds nuw i8, ptr %8, i64 92
+  store i32 %160, ptr %161, align 4, !tbaa !67
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %163 = load i32, ptr %162, align 8, !tbaa !45
+  %164 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  store i32 %163, ptr %164, align 8, !tbaa !68
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  %166 = load i32, ptr %165, align 4, !tbaa !46
+  %167 = getelementptr inbounds nuw i8, ptr %8, i64 68
+  store i32 %166, ptr %167, align 4, !tbaa !69
+  %168 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  store i32 0, ptr %168, align 8, !tbaa !70
+  %169 = getelementptr inbounds nuw i8, ptr %8, i64 100
+  store i32 0, ptr %169, align 4, !tbaa !71
+  %170 = getelementptr inbounds nuw i8, ptr %8, i64 108
+  store float 1.000000e+00, ptr %170, align 4, !tbaa !72
+  %171 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  store float 1.000000e+00, ptr %171, align 8, !tbaa !73
+  %172 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  store i32 0, ptr %172, align 8, !tbaa !74
+  %173 = getelementptr inbounds nuw i8, ptr %8, i64 116
+  store i32 0, ptr %173, align 4, !tbaa !75
+  %174 = getelementptr inbounds nuw i8, ptr %8, i64 120
+  store i32 1, ptr %174, align 8, !tbaa !76
+  %175 = getelementptr inbounds nuw i8, ptr %8, i64 124
+  store i32 0, ptr %175, align 4, !tbaa !77
+  %176 = load ptr, ptr %21, align 8, !tbaa !27
+  %177 = load i64, ptr %81, align 8, !tbaa !48
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 232
+  %179 = load ptr, ptr %178, align 8, !tbaa !36
+  %180 = load i32, ptr %24, align 8, !tbaa !35
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds %struct.Screen, ptr %179, i64 %181
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 88
+  %184 = load i64, ptr %183, align 8, !tbaa !50
+  %185 = call i64 @XCreateSimpleWindow(ptr noundef %176, i64 noundef %177, i32 noundef 0, i32 noundef 0, i32 noundef %158, i32 noundef %160, i32 noundef 0, i64 noundef %184, i64 noundef %184) #13
+  store i64 %185, ptr %92, align 8, !tbaa !51
   %186 = load ptr, ptr %21, align 8, !tbaa !27
-  %187 = load i64, ptr %90, align 8, !tbaa !51
-  %188 = call i32 @XSelectInput(ptr noundef %186, i64 noundef %187, i64 noundef 32845) #13
-  %189 = load ptr, ptr %21, align 8, !tbaa !27
-  %190 = load i64, ptr %90, align 8, !tbaa !51
-  %191 = call i32 @XMapWindow(ptr noundef %189, i64 noundef %190) #13
-  %192 = load ptr, ptr %21, align 8, !tbaa !27
-  %193 = load i64, ptr %90, align 8, !tbaa !51
-  %194 = getelementptr inbounds nuw i8, ptr %192, i64 232
-  %195 = load ptr, ptr %194, align 8, !tbaa !36
-  %196 = load i32, ptr %24, align 8, !tbaa !35
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds %struct.Screen, ptr %195, i64 %197, i32 10
-  %199 = load ptr, ptr %198, align 8, !tbaa !53
-  %200 = call ptr @cairo_xlib_surface_create(ptr noundef %192, i64 noundef %193, ptr noundef %199, i32 noundef %154, i32 noundef %156) #13
-  store ptr %200, ptr %112, align 8, !tbaa !54
-  %201 = call i32 @XMapWindow(ptr noundef nonnull %16, i64 noundef %135) #13
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %203 = load i32, ptr %202, align 8, !tbaa !78
-  %.not305 = icmp eq i32 %203, 0
-  br i1 %.not305, label %204, label %205
+  %187 = call i64 @XCreateFontCursor(ptr noundef %186, i32 noundef 52) #13
+  store i64 %187, ptr %95, align 8, !tbaa !52
+  %188 = load ptr, ptr %21, align 8, !tbaa !27
+  %189 = load i64, ptr %92, align 8, !tbaa !51
+  %190 = call i32 @XDefineCursor(ptr noundef %188, i64 noundef %189, i64 noundef %187) #13
+  %191 = load ptr, ptr %21, align 8, !tbaa !27
+  %192 = load i64, ptr %92, align 8, !tbaa !51
+  %193 = call i32 @XSelectInput(ptr noundef %191, i64 noundef %192, i64 noundef 32845) #13
+  %194 = load ptr, ptr %21, align 8, !tbaa !27
+  %195 = load i64, ptr %92, align 8, !tbaa !51
+  %196 = call i32 @XMapWindow(ptr noundef %194, i64 noundef %195) #13
+  %197 = load ptr, ptr %21, align 8, !tbaa !27
+  %198 = load i64, ptr %92, align 8, !tbaa !51
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 232
+  %200 = load ptr, ptr %199, align 8, !tbaa !36
+  %201 = load i32, ptr %24, align 8, !tbaa !35
+  %202 = sext i32 %201 to i64
+  %203 = getelementptr inbounds %struct.Screen, ptr %200, i64 %202
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 64
+  %205 = load ptr, ptr %204, align 8, !tbaa !53
+  %206 = call ptr @cairo_xlib_surface_create(ptr noundef %197, i64 noundef %198, ptr noundef %205, i32 noundef %158, i32 noundef %160) #13
+  store ptr %206, ptr %115, align 8, !tbaa !54
+  %207 = call i32 @XMapWindow(ptr noundef nonnull %16, i64 noundef %139) #13
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %209 = load i32, ptr %208, align 8, !tbaa !78
+  %.not305 = icmp eq i32 %209, 0
+  br i1 %.not305, label %210, label %211
 
-204:                                              ; preds = %144
+210:                                              ; preds = %148
   call void @lstopo_show_interactive_help() #13
-  br label %205
+  br label %211
 
-205:                                              ; preds = %204, %144
+211:                                              ; preds = %210, %148
   call void @declare_colors(ptr noundef nonnull %0) #13
   call void @lstopo_prepare_custom_styles(ptr noundef nonnull %0) #13
-  %206 = load i32, ptr %164, align 8, !tbaa !70
-  %207 = load i32, ptr %165, align 4, !tbaa !71
-  %208 = load ptr, ptr %8, align 8, !tbaa !4
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 936
-  %210 = load i32, ptr %209, align 8, !tbaa !45
-  %211 = load ptr, ptr %112, align 8, !tbaa !79
-  %212 = call ptr @cairo_create(ptr noundef %211) #13
-  store ptr %212, ptr %117, align 8, !tbaa !55
-  %213 = uitofp i32 %210 to double
-  call void @cairo_set_font_size(ptr noundef %212, double noundef %213) #13
+  %212 = load i32, ptr %168, align 8, !tbaa !70
+  %213 = load i32, ptr %169, align 4, !tbaa !71
   %214 = load ptr, ptr %8, align 8, !tbaa !4
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 944
-  %216 = load i32, ptr %215, align 8, !tbaa !56
-  %217 = uitofp i32 %216 to double
-  call void @cairo_set_line_width(ptr noundef %212, double noundef %217) #13
-  %218 = load ptr, ptr %8, align 8, !tbaa !4
-  call void @output_draw(ptr noundef %218) #13
-  call void @cairo_show_page(ptr noundef %212) #13
-  call void @cairo_destroy(ptr noundef %212) #13
-  store ptr null, ptr %117, align 8, !tbaa !55
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 1304
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 1292
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 1124
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  %229 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %230 = getelementptr inbounds nuw i8, ptr %11, i64 84
-  %231 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %232 = getelementptr inbounds nuw i8, ptr %11, i64 76
-  %233 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %234 = getelementptr inbounds nuw i8, ptr %11, i64 60
-  %235 = load i32, ptr %219, align 4, !tbaa !80
-  %.not307395398402 = icmp eq i32 %235, 0
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 936
+  %216 = load i32, ptr %215, align 8, !tbaa !45
+  %217 = load ptr, ptr %115, align 8, !tbaa !79
+  %218 = call ptr @cairo_create(ptr noundef %217) #13
+  store ptr %218, ptr %120, align 8, !tbaa !55
+  %219 = uitofp i32 %216 to double
+  call void @cairo_set_font_size(ptr noundef %218, double noundef %219) #13
+  %220 = load ptr, ptr %8, align 8, !tbaa !4
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 944
+  %222 = load i32, ptr %221, align 8, !tbaa !56
+  %223 = uitofp i32 %222 to double
+  call void @cairo_set_line_width(ptr noundef %218, double noundef %223) #13
+  %224 = load ptr, ptr %8, align 8, !tbaa !4
+  call void @output_draw(ptr noundef %224) #13
+  call void @cairo_show_page(ptr noundef %218) #13
+  call void @cairo_destroy(ptr noundef %218) #13
+  store ptr null, ptr %120, align 8, !tbaa !55
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 1328
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 1304
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 1292
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 1124
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %235 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %236 = getelementptr inbounds nuw i8, ptr %11, i64 84
+  %237 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %238 = getelementptr inbounds nuw i8, ptr %11, i64 76
+  %239 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %240 = getelementptr inbounds nuw i8, ptr %11, i64 60
+  %241 = load i32, ptr %225, align 4, !tbaa !80
+  %.not307395398402 = icmp eq i32 %241, 0
   br i1 %.not307395398402, label %.lr.ph.lr.ph, label %.critedge
 
-.lr.ph.lr.ph:                                     ; preds = %205, %.outer.outer.backedge
-  %.0289350.ph.ph407 = phi i32 [ %.0289350.ph.ph.be, %.outer.outer.backedge ], [ 0, %205 ]
-  %.0287351.ph.ph406 = phi i32 [ %.0287351.ph.ph.be, %.outer.outer.backedge ], [ 0, %205 ]
-  %.0285352.ph.ph405 = phi i32 [ %.1286, %.outer.outer.backedge ], [ %206, %205 ]
-  %.0283353.ph.ph404 = phi i32 [ %.1284, %.outer.outer.backedge ], [ %207, %205 ]
-  %.0281354.ph.ph403 = phi i32 [ 1, %.outer.outer.backedge ], [ 0, %205 ]
+.lr.ph.lr.ph:                                     ; preds = %211, %.outer.outer.backedge
+  %.0289350.ph.ph407 = phi i32 [ %.0289350.ph.ph.be, %.outer.outer.backedge ], [ 0, %211 ]
+  %.0287351.ph.ph406 = phi i32 [ %.0287351.ph.ph.be, %.outer.outer.backedge ], [ 0, %211 ]
+  %.0285352.ph.ph405 = phi i32 [ %.1286, %.outer.outer.backedge ], [ %212, %211 ]
+  %.0283353.ph.ph404 = phi i32 [ %.1284, %.outer.outer.backedge ], [ %213, %211 ]
+  %.0281354.ph.ph403 = phi i32 [ 1, %.outer.outer.backedge ], [ 0, %211 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.loopexit
   %.0285352.ph401 = phi i32 [ %.0285352.ph.ph405, %.lr.ph.lr.ph ], [ %.1286, %.loopexit ]
   %.0283353.ph400 = phi i32 [ %.0283353.ph.ph404, %.lr.ph.lr.ph ], [ %.1284, %.loopexit ]
   %.0281354.ph399 = phi i32 [ %.0281354.ph.ph403, %.lr.ph.lr.ph ], [ %.1282, %.loopexit ]
-  br label %236
+  br label %242
 
-236:                                              ; preds = %.lr.ph, %.backedge
+242:                                              ; preds = %.lr.ph, %.backedge
   %.0285352397 = phi i32 [ %.0285352.ph401, %.lr.ph ], [ %.1286, %.backedge ]
   %.0283353396 = phi i32 [ %.0283353.ph400, %.lr.ph ], [ %.1284, %.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %237 = load ptr, ptr %21, align 8, !tbaa !27
-  %238 = call i32 @XEventsQueued(ptr noundef %237, i32 noundef 2) #13
-  %.not308 = icmp eq i32 %238, 0
-  br i1 %.not308, label %239, label %250
-
-239:                                              ; preds = %236
-  %240 = load i32, ptr %164, align 8, !tbaa !70
-  %.not309 = icmp eq i32 %240, %.0285352397
-  %241 = load i32, ptr %165, align 4
-  %.not310 = icmp eq i32 %241, %.0283353396
-  %or.cond340 = select i1 %.not309, i1 %.not310, i1 false
-  br i1 %or.cond340, label %250, label %242
-
-242:                                              ; preds = %239
   %243 = load ptr, ptr %21, align 8, !tbaa !27
-  %244 = load i64, ptr %90, align 8, !tbaa !51
-  %245 = sub nsw i32 0, %240
-  %246 = sub nsw i32 0, %241
-  %247 = call i32 @XMoveWindow(ptr noundef %243, i64 noundef %244, i32 noundef %245, i32 noundef %246) #13
-  %248 = load i32, ptr %164, align 8, !tbaa !70
-  %249 = load i32, ptr %165, align 4, !tbaa !71
-  br label %250
+  %244 = call i32 @XEventsQueued(ptr noundef %243, i32 noundef 2) #13
+  %.not308 = icmp eq i32 %244, 0
+  br i1 %.not308, label %245, label %256
 
-250:                                              ; preds = %239, %242, %236
-  %.1286 = phi i32 [ %.0285352397, %236 ], [ %248, %242 ], [ %.0285352397, %239 ]
-  %.1284 = phi i32 [ %.0283353396, %236 ], [ %249, %242 ], [ %.0283353396, %239 ]
-  %251 = load ptr, ptr %21, align 8, !tbaa !27
-  %252 = call i32 @XNextEvent(ptr noundef %251, ptr noundef nonnull %11) #13
-  %253 = load i32, ptr %11, align 8, !tbaa !81
-  switch i32 %253, label %.loopexit [
-    i32 12, label %254
-    i32 6, label %270
-    i32 22, label %278
-    i32 4, label %329
-    i32 5, label %336
-    i32 34, label %339
-    i32 2, label %341
+245:                                              ; preds = %242
+  %246 = load i32, ptr %168, align 8, !tbaa !70
+  %.not309 = icmp eq i32 %246, %.0285352397
+  %247 = load i32, ptr %169, align 4
+  %.not310 = icmp eq i32 %247, %.0283353396
+  %or.cond340 = select i1 %.not309, i1 %.not310, i1 false
+  br i1 %or.cond340, label %256, label %248
+
+248:                                              ; preds = %245
+  %249 = load ptr, ptr %21, align 8, !tbaa !27
+  %250 = load i64, ptr %92, align 8, !tbaa !51
+  %251 = sub nsw i32 0, %246
+  %252 = sub nsw i32 0, %247
+  %253 = call i32 @XMoveWindow(ptr noundef %249, i64 noundef %250, i32 noundef %251, i32 noundef %252) #13
+  %254 = load i32, ptr %168, align 8, !tbaa !70
+  %255 = load i32, ptr %169, align 4, !tbaa !71
+  br label %256
+
+256:                                              ; preds = %245, %248, %242
+  %.1286 = phi i32 [ %.0285352397, %242 ], [ %254, %248 ], [ %.0285352397, %245 ]
+  %.1284 = phi i32 [ %.0283353396, %242 ], [ %255, %248 ], [ %.0283353396, %245 ]
+  %257 = load ptr, ptr %21, align 8, !tbaa !27
+  %258 = call i32 @XNextEvent(ptr noundef %257, ptr noundef nonnull %11) #13
+  %259 = load i32, ptr %11, align 8, !tbaa !81
+  switch i32 %259, label %.loopexit [
+    i32 12, label %260
+    i32 6, label %276
+    i32 22, label %284
+    i32 4, label %335
+    i32 5, label %342
+    i32 34, label %345
+    i32 2, label %347
   ]
 
-254:                                              ; preds = %250
-  %255 = load i32, ptr %233, align 8, !tbaa !81
-  %256 = icmp slt i32 %255, 1
-  br i1 %256, label %257, label %.loopexit
+260:                                              ; preds = %256
+  %261 = load i32, ptr %239, align 8, !tbaa !81
+  %262 = icmp slt i32 %261, 1
+  br i1 %262, label %263, label %.loopexit
 
-257:                                              ; preds = %254
-  %258 = load ptr, ptr %8, align 8, !tbaa !4
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 936
-  %260 = load i32, ptr %259, align 8, !tbaa !45
-  %261 = load ptr, ptr %112, align 8, !tbaa !79
-  %262 = call ptr @cairo_create(ptr noundef %261) #13
-  store ptr %262, ptr %117, align 8, !tbaa !55
-  %263 = uitofp i32 %260 to double
-  call void @cairo_set_font_size(ptr noundef %262, double noundef %263) #13
+263:                                              ; preds = %260
   %264 = load ptr, ptr %8, align 8, !tbaa !4
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 944
-  %266 = load i32, ptr %265, align 8, !tbaa !56
-  %267 = uitofp i32 %266 to double
-  call void @cairo_set_line_width(ptr noundef %262, double noundef %267) #13
-  %268 = load ptr, ptr %8, align 8, !tbaa !4
-  call void @output_draw(ptr noundef %268) #13
-  call void @cairo_show_page(ptr noundef %262) #13
-  call void @cairo_destroy(ptr noundef %262) #13
-  store ptr null, ptr %117, align 8, !tbaa !55
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 936
+  %266 = load i32, ptr %265, align 8, !tbaa !45
+  %267 = load ptr, ptr %115, align 8, !tbaa !79
+  %268 = call ptr @cairo_create(ptr noundef %267) #13
+  store ptr %268, ptr %120, align 8, !tbaa !55
+  %269 = uitofp i32 %266 to double
+  call void @cairo_set_font_size(ptr noundef %268, double noundef %269) #13
+  %270 = load ptr, ptr %8, align 8, !tbaa !4
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 944
+  %272 = load i32, ptr %271, align 8, !tbaa !56
+  %273 = uitofp i32 %272 to double
+  call void @cairo_set_line_width(ptr noundef %268, double noundef %273) #13
+  %274 = load ptr, ptr %8, align 8, !tbaa !4
+  call void @output_draw(ptr noundef %274) #13
+  call void @cairo_show_page(ptr noundef %268) #13
+  call void @cairo_destroy(ptr noundef %268) #13
+  store ptr null, ptr %120, align 8, !tbaa !55
   br label %.backedge
 
-.backedge:                                        ; preds = %257, %x11_is_maximized.exit, %339, %463
+.backedge:                                        ; preds = %263, %x11_is_maximized.exit, %345, %469
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %269 = load i32, ptr %219, align 4, !tbaa !80
-  %.not307 = icmp eq i32 %269, 0
-  br i1 %.not307, label %236, label %.critedge, !llvm.loop !82
+  %275 = load i32, ptr %225, align 4, !tbaa !80
+  %.not307 = icmp eq i32 %275, 0
+  br i1 %.not307, label %242, label %.critedge, !llvm.loop !82
 
-270:                                              ; preds = %250
+276:                                              ; preds = %256
   %.not337 = icmp eq i32 %.0281354.ph399, 0
-  br i1 %.not337, label %.loopexit, label %271
+  br i1 %.not337, label %.loopexit, label %277
 
-271:                                              ; preds = %270
-  %272 = load i32, ptr %231, align 8, !tbaa !81
-  %.neg338 = sub i32 %.0289350.ph.ph407, %272
-  %273 = load i32, ptr %164, align 8, !tbaa !70
-  %274 = add i32 %.neg338, %273
-  store i32 %274, ptr %164, align 8, !tbaa !70
-  %275 = load i32, ptr %232, align 4, !tbaa !81
-  %.neg339 = sub i32 %.0287351.ph.ph406, %275
-  %276 = load i32, ptr %165, align 4, !tbaa !71
-  %277 = add i32 %.neg339, %276
-  store i32 %277, ptr %165, align 4, !tbaa !71
+277:                                              ; preds = %276
+  %278 = load i32, ptr %237, align 8, !tbaa !81
+  %.neg338 = sub i32 %.0289350.ph.ph407, %278
+  %279 = load i32, ptr %168, align 8, !tbaa !70
+  %280 = add i32 %.neg338, %279
+  store i32 %280, ptr %168, align 8, !tbaa !70
+  %281 = load i32, ptr %238, align 4, !tbaa !81
+  %.neg339 = sub i32 %.0287351.ph.ph406, %281
+  %282 = load i32, ptr %169, align 4, !tbaa !71
+  %283 = add i32 %.neg339, %282
+  store i32 %283, ptr %169, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
   br label %.outer.outer.backedge
 
-278:                                              ; preds = %250
-  %279 = load i32, ptr %233, align 8, !tbaa !81
-  store i32 %279, ptr %152, align 8, !tbaa !64
-  %280 = load i32, ptr %234, align 4, !tbaa !81
-  store i32 %280, ptr %153, align 4, !tbaa !65
-  %281 = load i32, ptr %150, align 8, !tbaa !62
-  %.not333 = icmp eq i32 %279, %281
-  %282 = load i32, ptr %151, align 4
-  %.not334 = icmp eq i32 %280, %282
+284:                                              ; preds = %256
+  %285 = load i32, ptr %239, align 8, !tbaa !81
+  store i32 %285, ptr %156, align 8, !tbaa !64
+  %286 = load i32, ptr %240, align 4, !tbaa !81
+  store i32 %286, ptr %157, align 4, !tbaa !65
+  %287 = load i32, ptr %154, align 8, !tbaa !62
+  %.not333 = icmp eq i32 %285, %287
+  %288 = load i32, ptr %155, align 4
+  %.not334 = icmp eq i32 %286, %288
   %or.cond341 = select i1 %.not333, i1 %.not334, i1 false
-  br i1 %or.cond341, label %297, label %283
+  br i1 %or.cond341, label %303, label %289
 
-283:                                              ; preds = %278
-  %284 = sitofp i32 %279 to float
-  %285 = load i32, ptr %155, align 8, !tbaa !66
-  %286 = sitofp i32 %285 to float
-  %287 = fdiv float %284, %286
-  %288 = sitofp i32 %280 to float
-  %289 = load i32, ptr %157, align 4, !tbaa !67
-  %290 = sitofp i32 %289 to float
-  %291 = fdiv float %288, %290
-  %292 = fcmp ogt float %287, %291
-  %293 = select i1 %292, float %291, float %287
-  %294 = load float, ptr %167, align 8, !tbaa !73
-  %295 = fmul float %294, %293
-  %296 = fcmp olt float %295, 1.000000e+00
-  %storemerge = select i1 %296, float 1.000000e+00, float %295
-  store float %storemerge, ptr %167, align 8, !tbaa !73
+289:                                              ; preds = %284
+  %290 = sitofp i32 %285 to float
+  %291 = load i32, ptr %159, align 8, !tbaa !66
+  %292 = sitofp i32 %291 to float
+  %293 = fdiv float %290, %292
+  %294 = sitofp i32 %286 to float
+  %295 = load i32, ptr %161, align 4, !tbaa !67
+  %296 = sitofp i32 %295 to float
+  %297 = fdiv float %294, %296
+  %298 = fcmp ogt float %293, %297
+  %299 = select i1 %298, float %297, float %293
+  %300 = load float, ptr %171, align 8, !tbaa !73
+  %301 = fmul float %300, %299
+  %302 = fcmp olt float %301, 1.000000e+00
+  %storemerge = select i1 %302, float 1.000000e+00, float %301
+  store float %storemerge, ptr %171, align 8, !tbaa !73
   call fastcc void @move_x11(ptr noundef %8)
-  br label %297
+  br label %303
 
-297:                                              ; preds = %278, %283
-  %298 = load i32, ptr %164, align 8, !tbaa !70
-  %.not335 = icmp eq i32 %298, %.1286
-  %299 = load i32, ptr %165, align 4
-  %.not336 = icmp eq i32 %299, %.1284
+303:                                              ; preds = %284, %289
+  %304 = load i32, ptr %168, align 8, !tbaa !70
+  %.not335 = icmp eq i32 %304, %.1286
+  %305 = load i32, ptr %169, align 4
+  %.not336 = icmp eq i32 %305, %.1284
   %or.cond342 = select i1 %.not335, i1 %.not336, i1 false
-  br i1 %or.cond342, label %306, label %300
+  br i1 %or.cond342, label %312, label %306
 
-300:                                              ; preds = %297
-  %301 = load ptr, ptr %21, align 8, !tbaa !27
-  %302 = load i64, ptr %90, align 8, !tbaa !51
-  %303 = sub nsw i32 0, %298
-  %304 = sub nsw i32 0, %299
-  %305 = call i32 @XMoveWindow(ptr noundef %301, i64 noundef %302, i32 noundef %303, i32 noundef %304) #13
-  br label %306
+306:                                              ; preds = %303
+  %307 = load ptr, ptr %21, align 8, !tbaa !27
+  %308 = load i64, ptr %92, align 8, !tbaa !51
+  %309 = sub nsw i32 0, %304
+  %310 = sub nsw i32 0, %305
+  %311 = call i32 @XMoveWindow(ptr noundef %307, i64 noundef %308, i32 noundef %309, i32 noundef %310) #13
+  br label %312
 
-306:                                              ; preds = %297, %300
+312:                                              ; preds = %303, %306
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %307 = load ptr, ptr %21, align 8, !tbaa !27
-  %308 = call i64 @XInternAtom(ptr noundef %307, ptr noundef nonnull @.str.24, i32 noundef 1) #13
+  %313 = load ptr, ptr %21, align 8, !tbaa !27
+  %314 = call i64 @XInternAtom(ptr noundef %313, ptr noundef nonnull @.str.24, i32 noundef 1) #13
   store ptr null, ptr %5, align 8, !tbaa !84
-  %309 = load ptr, ptr %21, align 8, !tbaa !27
-  %310 = load i64, ptr %80, align 8, !tbaa !48
-  %311 = call i32 @XGetWindowProperty(ptr noundef %309, i64 noundef %310, i64 noundef %308, i64 noundef 0, i64 noundef -1, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #13
-  %312 = icmp eq i32 %311, 0
-  br i1 %312, label %313, label %x11_is_maximized.exit
+  %315 = load ptr, ptr %21, align 8, !tbaa !27
+  %316 = load i64, ptr %81, align 8, !tbaa !48
+  %317 = call i32 @XGetWindowProperty(ptr noundef %315, i64 noundef %316, i64 noundef %314, i64 noundef 0, i64 noundef -1, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #13
+  %318 = icmp eq i32 %317, 0
+  br i1 %318, label %319, label %x11_is_maximized.exit
 
-313:                                              ; preds = %306
-  %314 = load ptr, ptr %21, align 8, !tbaa !27
-  %315 = call i64 @XInternAtom(ptr noundef %314, ptr noundef nonnull @.str.25, i32 noundef 1) #13
-  %316 = load ptr, ptr %21, align 8, !tbaa !27
-  %317 = call i64 @XInternAtom(ptr noundef %316, ptr noundef nonnull @.str.26, i32 noundef 1) #13
-  %318 = load i64, ptr %6, align 8, !tbaa !85
-  %.not.i = icmp eq i64 %318, 0
+319:                                              ; preds = %312
+  %320 = load ptr, ptr %21, align 8, !tbaa !27
+  %321 = call i64 @XInternAtom(ptr noundef %320, ptr noundef nonnull @.str.25, i32 noundef 1) #13
+  %322 = load ptr, ptr %21, align 8, !tbaa !27
+  %323 = call i64 @XInternAtom(ptr noundef %322, ptr noundef nonnull @.str.26, i32 noundef 1) #13
+  %324 = load i64, ptr %6, align 8, !tbaa !85
+  %.not.i = icmp eq i64 %324, 0
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !84
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %313, %.lr.ph.i
-  %.021.i = phi i64 [ %323, %.lr.ph.i ], [ 0, %313 ]
-  %.120.i = phi i32 [ %.2.i, %.lr.ph.i ], [ 0, %313 ]
-  %.11619.i = phi i32 [ %.217.i, %.lr.ph.i ], [ 0, %313 ]
-  %319 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.021.i
-  %320 = load i64, ptr %319, align 8, !tbaa !85
-  %321 = icmp eq i64 %320, %315
-  %322 = icmp eq i64 %320, %317
-  %spec.select.i = select i1 %322, i32 1, i32 %.120.i
-  %.217.i = select i1 %321, i32 1, i32 %.11619.i
-  %.2.i = select i1 %321, i32 %.120.i, i32 %spec.select.i
-  %323 = add nuw i64 %.021.i, 1
-  %exitcond.not.i = icmp eq i64 %323, %318
+.lr.ph.i:                                         ; preds = %319, %.lr.ph.i
+  %.021.i = phi i64 [ %329, %.lr.ph.i ], [ 0, %319 ]
+  %.120.i = phi i32 [ %.2.i, %.lr.ph.i ], [ 0, %319 ]
+  %.11619.i = phi i32 [ %.217.i, %.lr.ph.i ], [ 0, %319 ]
+  %325 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.021.i
+  %326 = load i64, ptr %325, align 8, !tbaa !85
+  %327 = icmp eq i64 %326, %321
+  %328 = icmp eq i64 %326, %323
+  %spec.select.i = select i1 %328, i32 1, i32 %.120.i
+  %.217.i = select i1 %327, i32 1, i32 %.11619.i
+  %.2.i = select i1 %327, i32 %.120.i, i32 %spec.select.i
+  %329 = add nuw i64 %.021.i, 1
+  %exitcond.not.i = icmp eq i64 %329, %324
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !86
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %324 = icmp ne i32 %.217.i, 0
-  %325 = icmp ne i32 %.2.i, 0
-  %326 = select i1 %324, i1 %325, i1 false
-  %327 = zext i1 %326 to i32
+  %330 = icmp ne i32 %.217.i, 0
+  %331 = icmp ne i32 %.2.i, 0
+  %332 = select i1 %330, i1 %331, i1 false
+  %333 = zext i1 %332 to i32
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %313
-  %.116.lcssa.i = phi i32 [ 0, %313 ], [ %327, %._crit_edge.loopexit.i ]
-  %328 = call i32 @XFree(ptr noundef %.pre.i) #13
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %319
+  %.116.lcssa.i = phi i32 [ 0, %319 ], [ %333, %._crit_edge.loopexit.i ]
+  %334 = call i32 @XFree(ptr noundef %.pre.i) #13
   br label %x11_is_maximized.exit
 
-x11_is_maximized.exit:                            ; preds = %306, %._crit_edge.i
-  %.015.i = phi i32 [ %.116.lcssa.i, %._crit_edge.i ], [ 0, %306 ]
+x11_is_maximized.exit:                            ; preds = %312, %._crit_edge.i
+  %.015.i = phi i32 [ %.116.lcssa.i, %._crit_edge.i ], [ 0, %312 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store i32 %.015.i, ptr %171, align 4, !tbaa !77
+  store i32 %.015.i, ptr %175, align 4, !tbaa !77
   br label %.backedge
 
-329:                                              ; preds = %250
-  %330 = load i32, ptr %230, align 4, !tbaa !81
-  %331 = icmp eq i32 %330, 1
-  br i1 %331, label %332, label %.loopexit
+335:                                              ; preds = %256
+  %336 = load i32, ptr %236, align 4, !tbaa !81
+  %337 = icmp eq i32 %336, 1
+  br i1 %337, label %338, label %.loopexit
 
-332:                                              ; preds = %329
-  %333 = load i32, ptr %231, align 8, !tbaa !81
-  %334 = load i32, ptr %232, align 4, !tbaa !81
+338:                                              ; preds = %335
+  %339 = load i32, ptr %237, align 8, !tbaa !81
+  %340 = load i32, ptr %238, align 4, !tbaa !81
   br label %.outer.outer.backedge
 
-.outer.outer.backedge:                            ; preds = %332, %271
-  %.0287351.ph.ph.be = phi i32 [ %275, %271 ], [ %334, %332 ]
-  %.0289350.ph.ph.be = phi i32 [ %272, %271 ], [ %333, %332 ]
+.outer.outer.backedge:                            ; preds = %338, %277
+  %.0287351.ph.ph.be = phi i32 [ %281, %277 ], [ %340, %338 ]
+  %.0289350.ph.ph.be = phi i32 [ %278, %277 ], [ %339, %338 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %335 = load i32, ptr %219, align 4, !tbaa !80
-  %.not307395398 = icmp eq i32 %335, 0
+  %341 = load i32, ptr %225, align 4, !tbaa !80
+  %.not307395398 = icmp eq i32 %341, 0
   br i1 %.not307395398, label %.lr.ph.lr.ph, label %.critedge, !llvm.loop !82
 
-336:                                              ; preds = %250
-  %337 = load i32, ptr %230, align 4, !tbaa !81
-  %338 = icmp eq i32 %337, 1
-  %spec.select343 = select i1 %338, i32 0, i32 %.0281354.ph399
+342:                                              ; preds = %256
+  %343 = load i32, ptr %236, align 4, !tbaa !81
+  %344 = icmp eq i32 %343, 1
+  %spec.select343 = select i1 %344, i32 0, i32 %.0281354.ph399
   br label %.loopexit
 
-339:                                              ; preds = %250
-  %340 = call i32 @XRefreshKeyboardMapping(ptr noundef nonnull %11) #13
+345:                                              ; preds = %256
+  %346 = call i32 @XRefreshKeyboardMapping(ptr noundef nonnull %11) #13
   br label %.backedge
 
-341:                                              ; preds = %250
+347:                                              ; preds = %256
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %342 = call i32 @XLookupString(ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, ptr noundef nonnull %12, ptr noundef null) #13
-  %343 = load i64, ptr %12, align 8, !tbaa !85
-  switch i64 %343, label %463 [
+  %348 = call i32 @XLookupString(ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, ptr noundef nonnull %12, ptr noundef null) #13
+  %349 = load i64, ptr %12, align 8, !tbaa !85
+  switch i64 %349, label %469 [
     i64 113, label %.thread361
     i64 81, label %.thread361
     i64 65307, label %.thread361
-    i64 65474, label %344
-    i64 65361, label %345
-    i64 65363, label %349
-    i64 65362, label %354
-    i64 65364, label %358
-    i64 65365, label %363
-    i64 65366, label %374
-    i64 65360, label %385
-    i64 65367, label %386
-    i64 70, label %387
-    i64 43, label %402
-    i64 65451, label %402
-    i64 45, label %405
-    i64 65453, label %405
-    i64 49, label %408
-    i64 65457, label %408
-    i64 114, label %409
-    i64 82, label %410
-    i64 104, label %415
-    i64 72, label %415
-    i64 63, label %415
-    i64 97, label %416
-    i64 116, label %421
-    i64 105, label %426
-    i64 98, label %432
-    i64 100, label %437
-    i64 107, label %442
-    i64 102, label %447
-    i64 108, label %456
-    i64 69, label %462
+    i64 65474, label %350
+    i64 65361, label %351
+    i64 65363, label %355
+    i64 65362, label %360
+    i64 65364, label %364
+    i64 65365, label %369
+    i64 65366, label %380
+    i64 65360, label %391
+    i64 65367, label %392
+    i64 70, label %393
+    i64 43, label %408
+    i64 65451, label %408
+    i64 45, label %411
+    i64 65453, label %411
+    i64 49, label %414
+    i64 65457, label %414
+    i64 114, label %415
+    i64 82, label %416
+    i64 104, label %421
+    i64 72, label %421
+    i64 63, label %421
+    i64 97, label %422
+    i64 116, label %427
+    i64 105, label %432
+    i64 98, label %438
+    i64 100, label %443
+    i64 107, label %448
+    i64 102, label %453
+    i64 108, label %462
+    i64 69, label %468
   ]
 
-.thread361:                                       ; preds = %341, %341, %341
+.thread361:                                       ; preds = %347, %347, %347
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge
 
-344:                                              ; preds = %341
-  store i32 1, ptr %219, align 4, !tbaa !80
-  br label %463
+350:                                              ; preds = %347
+  store i32 1, ptr %225, align 4, !tbaa !80
+  br label %469
 
-345:                                              ; preds = %341
-  %346 = load i32, ptr %152, align 8, !tbaa !64
-  %.neg332 = sdiv i32 %346, -10
-  %347 = load i32, ptr %164, align 8, !tbaa !70
-  %348 = add i32 %.neg332, %347
-  store i32 %348, ptr %164, align 8, !tbaa !70
+351:                                              ; preds = %347
+  %352 = load i32, ptr %156, align 8, !tbaa !64
+  %.neg332 = sdiv i32 %352, -10
+  %353 = load i32, ptr %168, align 8, !tbaa !70
+  %354 = add i32 %.neg332, %353
+  store i32 %354, ptr %168, align 8, !tbaa !70
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-349:                                              ; preds = %341
-  %350 = load i32, ptr %152, align 8, !tbaa !64
-  %351 = sdiv i32 %350, 10
-  %352 = load i32, ptr %164, align 8, !tbaa !70
-  %353 = add nsw i32 %352, %351
-  store i32 %353, ptr %164, align 8, !tbaa !70
+355:                                              ; preds = %347
+  %356 = load i32, ptr %156, align 8, !tbaa !64
+  %357 = sdiv i32 %356, 10
+  %358 = load i32, ptr %168, align 8, !tbaa !70
+  %359 = add nsw i32 %358, %357
+  store i32 %359, ptr %168, align 8, !tbaa !70
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-354:                                              ; preds = %341
-  %355 = load i32, ptr %153, align 4, !tbaa !65
-  %.neg = sdiv i32 %355, -10
-  %356 = load i32, ptr %165, align 4, !tbaa !71
-  %357 = add i32 %.neg, %356
-  store i32 %357, ptr %165, align 4, !tbaa !71
+360:                                              ; preds = %347
+  %361 = load i32, ptr %157, align 4, !tbaa !65
+  %.neg = sdiv i32 %361, -10
+  %362 = load i32, ptr %169, align 4, !tbaa !71
+  %363 = add i32 %.neg, %362
+  store i32 %363, ptr %169, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-358:                                              ; preds = %341
-  %359 = load i32, ptr %153, align 4, !tbaa !65
-  %360 = sdiv i32 %359, 10
-  %361 = load i32, ptr %165, align 4, !tbaa !71
-  %362 = add nsw i32 %361, %360
-  store i32 %362, ptr %165, align 4, !tbaa !71
+364:                                              ; preds = %347
+  %365 = load i32, ptr %157, align 4, !tbaa !65
+  %366 = sdiv i32 %365, 10
+  %367 = load i32, ptr %169, align 4, !tbaa !71
+  %368 = add nsw i32 %367, %366
+  store i32 %368, ptr %169, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-363:                                              ; preds = %341
-  %364 = load i32, ptr %229, align 8, !tbaa !81
-  %365 = and i32 %364, 4
-  %.not331 = icmp eq i32 %365, 0
-  br i1 %.not331, label %370, label %366
+369:                                              ; preds = %347
+  %370 = load i32, ptr %235, align 8, !tbaa !81
+  %371 = and i32 %370, 4
+  %.not331 = icmp eq i32 %371, 0
+  br i1 %.not331, label %376, label %372
 
-366:                                              ; preds = %363
-  %367 = load i32, ptr %152, align 8, !tbaa !64
-  %368 = load i32, ptr %164, align 8, !tbaa !70
-  %369 = sub nsw i32 %368, %367
-  store i32 %369, ptr %164, align 8, !tbaa !70
+372:                                              ; preds = %369
+  %373 = load i32, ptr %156, align 8, !tbaa !64
+  %374 = load i32, ptr %168, align 8, !tbaa !70
+  %375 = sub nsw i32 %374, %373
+  store i32 %375, ptr %168, align 8, !tbaa !70
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-370:                                              ; preds = %363
-  %371 = load i32, ptr %153, align 4, !tbaa !65
-  %372 = load i32, ptr %165, align 4, !tbaa !71
-  %373 = sub nsw i32 %372, %371
-  store i32 %373, ptr %165, align 4, !tbaa !71
+376:                                              ; preds = %369
+  %377 = load i32, ptr %157, align 4, !tbaa !65
+  %378 = load i32, ptr %169, align 4, !tbaa !71
+  %379 = sub nsw i32 %378, %377
+  store i32 %379, ptr %169, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-374:                                              ; preds = %341
-  %375 = load i32, ptr %229, align 8, !tbaa !81
-  %376 = and i32 %375, 4
-  %.not330 = icmp eq i32 %376, 0
-  br i1 %.not330, label %381, label %377
+380:                                              ; preds = %347
+  %381 = load i32, ptr %235, align 8, !tbaa !81
+  %382 = and i32 %381, 4
+  %.not330 = icmp eq i32 %382, 0
+  br i1 %.not330, label %387, label %383
 
-377:                                              ; preds = %374
-  %378 = load i32, ptr %152, align 8, !tbaa !64
-  %379 = load i32, ptr %164, align 8, !tbaa !70
-  %380 = add nsw i32 %379, %378
-  store i32 %380, ptr %164, align 8, !tbaa !70
+383:                                              ; preds = %380
+  %384 = load i32, ptr %156, align 8, !tbaa !64
+  %385 = load i32, ptr %168, align 8, !tbaa !70
+  %386 = add nsw i32 %385, %384
+  store i32 %386, ptr %168, align 8, !tbaa !70
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-381:                                              ; preds = %374
-  %382 = load i32, ptr %153, align 4, !tbaa !65
-  %383 = load i32, ptr %165, align 4, !tbaa !71
-  %384 = add nsw i32 %383, %382
-  store i32 %384, ptr %165, align 4, !tbaa !71
+387:                                              ; preds = %380
+  %388 = load i32, ptr %157, align 4, !tbaa !65
+  %389 = load i32, ptr %169, align 4, !tbaa !71
+  %390 = add nsw i32 %389, %388
+  store i32 %390, ptr %169, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-385:                                              ; preds = %341
-  store i32 0, ptr %164, align 8, !tbaa !70
-  store i32 0, ptr %165, align 4, !tbaa !71
+391:                                              ; preds = %347
+  store i32 0, ptr %168, align 8, !tbaa !70
+  store i32 0, ptr %169, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-386:                                              ; preds = %341
-  store i32 2147483647, ptr %164, align 8, !tbaa !70
-  store i32 2147483647, ptr %165, align 4, !tbaa !71
+392:                                              ; preds = %347
+  store i32 2147483647, ptr %168, align 8, !tbaa !70
+  store i32 2147483647, ptr %169, align 4, !tbaa !71
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-387:                                              ; preds = %341
-  %388 = load i32, ptr %152, align 8, !tbaa !64
-  %389 = sitofp i32 %388 to float
-  %390 = load i32, ptr %155, align 8, !tbaa !66
-  %391 = sitofp i32 %390 to float
-  %392 = fdiv float %389, %391
-  %393 = load i32, ptr %153, align 4, !tbaa !65
-  %394 = sitofp i32 %393 to float
-  %395 = load i32, ptr %157, align 4, !tbaa !67
-  %396 = sitofp i32 %395 to float
-  %397 = fdiv float %394, %396
-  %398 = fcmp ogt float %392, %397
-  %399 = select i1 %398, float %397, float %392
-  %400 = load float, ptr %167, align 8, !tbaa !73
-  %401 = fmul float %400, %399
-  store float %401, ptr %167, align 8, !tbaa !73
+393:                                              ; preds = %347
+  %394 = load i32, ptr %156, align 8, !tbaa !64
+  %395 = sitofp i32 %394 to float
+  %396 = load i32, ptr %159, align 8, !tbaa !66
+  %397 = sitofp i32 %396 to float
+  %398 = fdiv float %395, %397
+  %399 = load i32, ptr %157, align 4, !tbaa !65
+  %400 = sitofp i32 %399 to float
+  %401 = load i32, ptr %161, align 4, !tbaa !67
+  %402 = sitofp i32 %401 to float
+  %403 = fdiv float %400, %402
+  %404 = fcmp ogt float %398, %403
+  %405 = select i1 %404, float %403, float %398
+  %406 = load float, ptr %171, align 8, !tbaa !73
+  %407 = fmul float %406, %405
+  store float %407, ptr %171, align 8, !tbaa !73
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-402:                                              ; preds = %341, %341
-  %403 = load float, ptr %167, align 8, !tbaa !73
-  %404 = fmul float %403, 0x3FF3333340000000
-  store float %404, ptr %167, align 8, !tbaa !73
-  store i32 1, ptr %169, align 4, !tbaa !75
+408:                                              ; preds = %347, %347
+  %409 = load float, ptr %171, align 8, !tbaa !73
+  %410 = fmul float %409, 0x3FF3333340000000
+  store float %410, ptr %171, align 8, !tbaa !73
+  store i32 1, ptr %173, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-405:                                              ; preds = %341, %341
-  %406 = load float, ptr %167, align 8, !tbaa !73
-  %407 = fdiv float %406, 0x3FF3333340000000
-  store float %407, ptr %167, align 8, !tbaa !73
-  store i32 1, ptr %169, align 4, !tbaa !75
+411:                                              ; preds = %347, %347
+  %412 = load float, ptr %171, align 8, !tbaa !73
+  %413 = fdiv float %412, 0x3FF3333340000000
+  store float %413, ptr %171, align 8, !tbaa !73
+  store i32 1, ptr %173, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-408:                                              ; preds = %341, %341
-  store float 1.000000e+00, ptr %167, align 8, !tbaa !73
-  store i32 1, ptr %169, align 4, !tbaa !75
+414:                                              ; preds = %347, %347
+  store float 1.000000e+00, ptr %171, align 8, !tbaa !73
+  store i32 1, ptr %173, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-409:                                              ; preds = %341
-  store i32 2, ptr %169, align 4, !tbaa !75
+415:                                              ; preds = %347
+  store i32 2, ptr %173, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-410:                                              ; preds = %341
-  %411 = load i32, ptr %170, align 8, !tbaa !76
-  %412 = xor i32 %411, 1
-  store i32 %412, ptr %170, align 8, !tbaa !76
-  %.not329 = icmp eq i32 %411, 1
-  %413 = select i1 %.not329, ptr @.str.6, ptr @.str.5
-  %414 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %413)
-  store i32 1, ptr %169, align 4, !tbaa !75
-  call fastcc void @move_x11(ptr noundef %8)
-  br label %463
-
-415:                                              ; preds = %341, %341, %341
-  call void @lstopo_show_interactive_help() #13
-  br label %463
-
-416:                                              ; preds = %341
-  %417 = load i32, ptr %228, align 8, !tbaa !87
+416:                                              ; preds = %347
+  %417 = load i32, ptr %174, align 8, !tbaa !76
   %418 = xor i32 %417, 1
-  store i32 %418, ptr %228, align 8, !tbaa !87
-  %.not328 = icmp eq i32 %417, 1
-  %419 = select i1 %.not328, ptr @.str.6, ptr @.str.5
-  %420 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %419)
-  store i32 1, ptr %168, align 8, !tbaa !74
-  store i32 1, ptr %169, align 4, !tbaa !75
+  store i32 %418, ptr %174, align 8, !tbaa !76
+  %.not329 = icmp eq i32 %417, 1
+  %419 = select i1 %.not329, ptr @.str.6, ptr @.str.5
+  %420 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %419)
+  store i32 1, ptr %173, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-421:                                              ; preds = %341
-  %422 = load i32, ptr %227, align 4, !tbaa !88
-  %423 = xor i32 %422, 1
-  store i32 %423, ptr %227, align 4, !tbaa !88
-  %.not327 = icmp eq i32 %422, 1
-  %424 = select i1 %.not327, ptr @.str.6, ptr @.str.5
-  %425 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %424)
-  store i32 1, ptr %168, align 8, !tbaa !74
-  store i32 1, ptr %169, align 4, !tbaa !75
+421:                                              ; preds = %347, %347, %347
+  call void @lstopo_show_interactive_help() #13
+  br label %469
+
+422:                                              ; preds = %347
+  %423 = load i32, ptr %234, align 8, !tbaa !87
+  %424 = xor i32 %423, 1
+  store i32 %424, ptr %234, align 8, !tbaa !87
+  %.not328 = icmp eq i32 %423, 1
+  %425 = select i1 %.not328, ptr @.str.6, ptr @.str.5
+  %426 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %425)
+  store i32 1, ptr %172, align 8, !tbaa !74
+  store i32 1, ptr %173, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-426:                                              ; preds = %341
-  %427 = load i32, ptr %226, align 4, !tbaa !89
-  %428 = icmp ult i32 %427, 4
-  br i1 %428, label %switch.lookup, label %429
+427:                                              ; preds = %347
+  %428 = load i32, ptr %233, align 4, !tbaa !88
+  %429 = xor i32 %428, 1
+  store i32 %429, ptr %233, align 4, !tbaa !88
+  %.not327 = icmp eq i32 %428, 1
+  %430 = select i1 %.not327, ptr @.str.6, ptr @.str.5
+  %431 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %430)
+  store i32 1, ptr %172, align 8, !tbaa !74
+  store i32 1, ptr %173, align 4, !tbaa !75
+  call fastcc void @move_x11(ptr noundef %8)
+  br label %469
 
-429:                                              ; preds = %426
+432:                                              ; preds = %347
+  %433 = load i32, ptr %232, align 4, !tbaa !89
+  %434 = icmp ult i32 %433, 4
+  br i1 %434, label %switch.lookup, label %435
+
+435:                                              ; preds = %432
   call void @abort() #16
   unreachable
 
-switch.lookup:                                    ; preds = %426
-  %430 = zext nneg i32 %427 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.output_x11, i64 %430
+switch.lookup:                                    ; preds = %432
+  %436 = zext nneg i32 %433 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.output_x11, i64 %436
   %switch.load = load i32, ptr %switch.gep, align 4
-  %431 = zext nneg i32 %427 to i64
-  %switch.gep408 = getelementptr inbounds nuw ptr, ptr @switch.table.output_x11.11, i64 %431
+  %437 = zext nneg i32 %433 to i64
+  %switch.gep408 = getelementptr inbounds nuw ptr, ptr @switch.table.output_x11.11, i64 %437
   %switch.load409 = load ptr, ptr %switch.gep408, align 8
-  store i32 %switch.load, ptr %226, align 4, !tbaa !89
+  store i32 %switch.load, ptr %232, align 4, !tbaa !89
   %puts325 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load409)
-  store i32 1, ptr %168, align 8, !tbaa !74
-  store i32 1, ptr %169, align 4, !tbaa !75
+  store i32 1, ptr %172, align 8, !tbaa !74
+  store i32 1, ptr %173, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-432:                                              ; preds = %341
-  %433 = load i32, ptr %225, align 4, !tbaa !90
-  %434 = xor i32 %433, 1
-  store i32 %434, ptr %225, align 4, !tbaa !90
-  %.not322 = icmp eq i32 %433, 1
-  %435 = select i1 %.not322, ptr @.str.6, ptr @.str.5
-  %436 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %435)
-  store i32 1, ptr %168, align 8, !tbaa !74
+438:                                              ; preds = %347
+  %439 = load i32, ptr %231, align 4, !tbaa !90
+  %440 = xor i32 %439, 1
+  store i32 %440, ptr %231, align 4, !tbaa !90
+  %.not322 = icmp eq i32 %439, 1
+  %441 = select i1 %.not322, ptr @.str.6, ptr @.str.5
+  %442 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %441)
+  store i32 1, ptr %172, align 8, !tbaa !74
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-437:                                              ; preds = %341
-  %438 = load i32, ptr %224, align 8, !tbaa !91
-  %439 = xor i32 %438, 1
-  store i32 %439, ptr %224, align 8, !tbaa !91
-  %.not321 = icmp eq i32 %438, 1
-  %440 = select i1 %.not321, ptr @.str.6, ptr @.str.5
-  %441 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %440)
-  store i32 1, ptr %168, align 8, !tbaa !74
+443:                                              ; preds = %347
+  %444 = load i32, ptr %230, align 8, !tbaa !91
+  %445 = xor i32 %444, 1
+  store i32 %445, ptr %230, align 8, !tbaa !91
+  %.not321 = icmp eq i32 %444, 1
+  %446 = select i1 %.not321, ptr @.str.6, ptr @.str.5
+  %447 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %446)
+  store i32 1, ptr %172, align 8, !tbaa !74
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-442:                                              ; preds = %341
-  %443 = load i32, ptr %223, align 8, !tbaa !92
-  %444 = xor i32 %443, 1
-  store i32 %444, ptr %223, align 8, !tbaa !92
-  %.not320 = icmp eq i32 %443, 1
-  %445 = select i1 %.not320, ptr @.str.6, ptr @.str.5
-  %446 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %445)
-  store i32 1, ptr %168, align 8, !tbaa !74
+448:                                              ; preds = %347
+  %449 = load i32, ptr %229, align 8, !tbaa !92
+  %450 = xor i32 %449, 1
+  store i32 %450, ptr %229, align 8, !tbaa !92
+  %.not320 = icmp eq i32 %449, 1
+  %451 = select i1 %.not320, ptr @.str.6, ptr @.str.5
+  %452 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %451)
+  store i32 1, ptr %172, align 8, !tbaa !74
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-447:                                              ; preds = %341
-  %448 = load i32, ptr %221, align 8, !tbaa !93
-  %.not313 = icmp eq i32 %448, 0
-  %449 = load i32, ptr %222, align 4, !tbaa !94
-  %.not316 = icmp eq i32 %449, 0
-  br i1 %.not313, label %452, label %450
+453:                                              ; preds = %347
+  %454 = load i32, ptr %227, align 8, !tbaa !93
+  %.not313 = icmp eq i32 %454, 0
+  %455 = load i32, ptr %228, align 4, !tbaa !94
+  %.not316 = icmp eq i32 %455, 0
+  br i1 %.not313, label %458, label %456
 
-450:                                              ; preds = %447
-  br i1 %.not316, label %454, label %451
+456:                                              ; preds = %453
+  br i1 %.not316, label %460, label %457
 
-451:                                              ; preds = %450
-  store i32 0, ptr %221, align 8, !tbaa !93
-  br label %455
+457:                                              ; preds = %456
+  store i32 0, ptr %227, align 8, !tbaa !93
+  br label %461
 
-452:                                              ; preds = %447
-  br i1 %.not316, label %454, label %453
+458:                                              ; preds = %453
+  br i1 %.not316, label %460, label %459
 
-453:                                              ; preds = %452
-  store i32 0, ptr %222, align 4, !tbaa !94
-  br label %455
+459:                                              ; preds = %458
+  store i32 0, ptr %228, align 4, !tbaa !94
+  br label %461
 
-454:                                              ; preds = %450, %452
-  store i32 1, ptr %221, align 8, !tbaa !93
-  store i32 1, ptr %222, align 4, !tbaa !94
-  br label %455
+460:                                              ; preds = %456, %458
+  store i32 1, ptr %227, align 8, !tbaa !93
+  store i32 1, ptr %228, align 4, !tbaa !94
+  br label %461
 
-455:                                              ; preds = %453, %454, %451
-  %str.3.sink = phi ptr [ @str.3, %453 ], [ @str.4, %454 ], [ @str.5, %451 ]
+461:                                              ; preds = %459, %460, %457
+  %str.3.sink = phi ptr [ @str.3, %459 ], [ @str.4, %460 ], [ @str.5, %457 ]
   %puts317 = call i32 @puts(ptr nonnull dereferenceable(1) %str.3.sink)
-  store i32 1, ptr %168, align 8, !tbaa !74
-  store i32 1, ptr %169, align 4, !tbaa !75
+  store i32 1, ptr %172, align 8, !tbaa !74
+  store i32 1, ptr %173, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-456:                                              ; preds = %341
-  %457 = load i32, ptr %220, align 8, !tbaa !95
-  %458 = icmp ult i32 %457, 3
-  br i1 %458, label %switch.lookup410, label %459
+462:                                              ; preds = %347
+  %463 = load i32, ptr %226, align 8, !tbaa !95
+  %464 = icmp ult i32 %463, 3
+  br i1 %464, label %switch.lookup410, label %465
 
-459:                                              ; preds = %456
+465:                                              ; preds = %462
   call void @abort() #16
   unreachable
 
-switch.lookup410:                                 ; preds = %456
-  %460 = zext nneg i32 %457 to i64
-  %switch.gep411 = getelementptr inbounds nuw i32, ptr @switch.table.output_x11.12, i64 %460
+switch.lookup410:                                 ; preds = %462
+  %466 = zext nneg i32 %463 to i64
+  %switch.gep411 = getelementptr inbounds nuw i32, ptr @switch.table.output_x11.12, i64 %466
   %switch.load412 = load i32, ptr %switch.gep411, align 4
-  %461 = zext nneg i32 %457 to i64
-  %switch.gep413 = getelementptr inbounds nuw ptr, ptr @switch.table.output_x11.13, i64 %461
+  %467 = zext nneg i32 %463 to i64
+  %switch.gep413 = getelementptr inbounds nuw ptr, ptr @switch.table.output_x11.13, i64 %467
   %switch.load414 = load ptr, ptr %switch.gep413, align 8
-  store i32 %switch.load412, ptr %220, align 8, !tbaa !95
+  store i32 %switch.load412, ptr %226, align 8, !tbaa !95
   %puts311 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load414)
-  store i32 1, ptr %168, align 8, !tbaa !74
-  store i32 1, ptr %169, align 4, !tbaa !75
+  store i32 1, ptr %172, align 8, !tbaa !74
+  store i32 1, ptr %173, align 4, !tbaa !75
   call fastcc void @move_x11(ptr noundef %8)
-  br label %463
+  br label %469
 
-462:                                              ; preds = %341
+468:                                              ; preds = %347
   call void @lstopo_show_interactive_cli_options(ptr noundef nonnull %0) #13
-  br label %463
+  br label %469
 
-463:                                              ; preds = %377, %381, %366, %370, %462, %switch.lookup410, %455, %442, %437, %432, %switch.lookup, %421, %416, %415, %410, %409, %408, %405, %402, %387, %386, %385, %358, %354, %349, %345, %344, %341
+469:                                              ; preds = %383, %387, %372, %376, %468, %switch.lookup410, %461, %448, %443, %438, %switch.lookup, %427, %422, %421, %416, %415, %414, %411, %408, %393, %392, %391, %364, %360, %355, %351, %350, %347
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.backedge
 
-.loopexit:                                        ; preds = %254, %250, %336, %329, %270
-  %.1282 = phi i32 [ 0, %270 ], [ %.0281354.ph399, %329 ], [ %spec.select343, %336 ], [ %.0281354.ph399, %250 ], [ %.0281354.ph399, %254 ]
+.loopexit:                                        ; preds = %260, %256, %342, %335, %276
+  %.1282 = phi i32 [ 0, %276 ], [ %.0281354.ph399, %335 ], [ %spec.select343, %342 ], [ %.0281354.ph399, %256 ], [ %.0281354.ph399, %260 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %464 = load i32, ptr %219, align 4, !tbaa !80
-  %.not307395 = icmp eq i32 %464, 0
+  %470 = load i32, ptr %225, align 4, !tbaa !80
+  %.not307395 = icmp eq i32 %470, 0
   br i1 %.not307395, label %.lr.ph, label %.critedge, !llvm.loop !82
 
-.critedge:                                        ; preds = %.outer.outer.backedge, %.loopexit, %.backedge, %205, %.thread361
-  %465 = load ptr, ptr %112, align 8, !tbaa !54
-  call void @cairo_surface_destroy(ptr noundef %465) #13
-  %466 = load ptr, ptr %21, align 8, !tbaa !27
-  %467 = load i64, ptr %90, align 8, !tbaa !51
-  %468 = call i32 @XDestroyWindow(ptr noundef %466, i64 noundef %467) #13
-  %469 = load ptr, ptr %21, align 8, !tbaa !27
-  %470 = load i64, ptr %80, align 8, !tbaa !48
-  %471 = call i32 @XDestroyWindow(ptr noundef %469, i64 noundef %470) #13
+.critedge:                                        ; preds = %.outer.outer.backedge, %.loopexit, %.backedge, %211, %.thread361
+  %471 = load ptr, ptr %115, align 8, !tbaa !54
+  call void @cairo_surface_destroy(ptr noundef %471) #13
   %472 = load ptr, ptr %21, align 8, !tbaa !27
-  %473 = load i64, ptr %93, align 8, !tbaa !52
-  %474 = call i32 @XFreeCursor(ptr noundef %472, i64 noundef %473) #13
+  %473 = load i64, ptr %92, align 8, !tbaa !51
+  %474 = call i32 @XDestroyWindow(ptr noundef %472, i64 noundef %473) #13
   %475 = load ptr, ptr %21, align 8, !tbaa !27
-  %476 = call i32 @XCloseDisplay(ptr noundef %475) #13
+  %476 = load i64, ptr %81, align 8, !tbaa !48
+  %477 = call i32 @XDestroyWindow(ptr noundef %475, i64 noundef %476) #13
+  %478 = load ptr, ptr %21, align 8, !tbaa !27
+  %479 = load i64, ptr %95, align 8, !tbaa !52
+  %480 = call i32 @XFreeCursor(ptr noundef %478, i64 noundef %479) #13
+  %481 = load ptr, ptr %21, align 8, !tbaa !27
+  %482 = call i32 @XCloseDisplay(ptr noundef %481) #13
   call void @destroy_colors(ptr noundef nonnull %0) #13
-  br label %477
+  br label %483
 
-477:                                              ; preds = %.critedge, %17
+483:                                              ; preds = %.critedge, %17
   %.0 = phi i32 [ 0, %.critedge ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -1112,7 +1118,7 @@ define internal fastcc void @move_x11(ptr noundef nonnull %0) unnamed_addr #0 {
 ._crit_edge106:                                   ; preds = %28
   %.phi.trans.insert107 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.pre108 = load i32, ptr %.phi.trans.insert107, align 8, !tbaa !66
-  br label %166
+  br label %170
 
 ._crit_edge:                                      ; preds = %20, %28, %25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1157,228 +1163,232 @@ define internal fastcc void @move_x11(ptr noundef nonnull %0) unnamed_addr #0 {
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %67 = load i32, ptr %66, align 8, !tbaa !35
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.Screen, ptr %65, i64 %68, i32 13
-  %70 = load i64, ptr %69, align 8, !tbaa !50
-  %71 = tail call i64 @XCreateSimpleWindow(ptr noundef %61, i64 noundef %63, i32 noundef 0, i32 noundef 0, i32 noundef %58, i32 noundef %60, i32 noundef 0, i64 noundef %70, i64 noundef %70) #13
-  store i64 %71, ptr %54, align 8, !tbaa !51
-  %72 = load ptr, ptr %52, align 8, !tbaa !27
-  %73 = tail call i64 @XCreateFontCursor(ptr noundef %72, i32 noundef 52) #13
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %73, ptr %74, align 8, !tbaa !52
-  %75 = load ptr, ptr %52, align 8, !tbaa !27
-  %76 = load i64, ptr %54, align 8, !tbaa !51
-  %77 = tail call i32 @XDefineCursor(ptr noundef %75, i64 noundef %76, i64 noundef %73) #13
-  %78 = load ptr, ptr %52, align 8, !tbaa !27
-  %79 = load i64, ptr %54, align 8, !tbaa !51
-  %80 = tail call i32 @XSelectInput(ptr noundef %78, i64 noundef %79, i64 noundef 32845) #13
-  %81 = load ptr, ptr %52, align 8, !tbaa !27
-  %82 = load i64, ptr %54, align 8, !tbaa !51
-  %83 = tail call i32 @XMapWindow(ptr noundef %81, i64 noundef %82) #13
-  %84 = load ptr, ptr %52, align 8, !tbaa !27
-  %85 = load i64, ptr %54, align 8, !tbaa !51
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 232
-  %87 = load ptr, ptr %86, align 8, !tbaa !36
-  %88 = load i32, ptr %66, align 8, !tbaa !35
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds %struct.Screen, ptr %87, i64 %89, i32 10
-  %91 = load ptr, ptr %90, align 8, !tbaa !53
-  %92 = tail call ptr @cairo_xlib_surface_create(ptr noundef %84, i64 noundef %85, ptr noundef %91, i32 noundef %58, i32 noundef %60) #13
-  store ptr %92, ptr %50, align 8, !tbaa !54
-  %93 = getelementptr inbounds nuw i8, ptr %2, i64 1608
-  store i32 0, ptr %93, align 8, !tbaa !49
-  %94 = load ptr, ptr %0, align 8, !tbaa !4
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 936
-  %96 = load i32, ptr %95, align 8, !tbaa !45
-  %97 = tail call ptr @cairo_create(ptr noundef %92) #13
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %97, ptr %98, align 8, !tbaa !55
-  %99 = uitofp i32 %96 to double
-  tail call void @cairo_set_font_size(ptr noundef %97, double noundef %99) #13
-  %100 = load ptr, ptr %0, align 8, !tbaa !4
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 944
-  %102 = load i32, ptr %101, align 8, !tbaa !56
-  %103 = uitofp i32 %102 to double
-  tail call void @cairo_set_line_width(ptr noundef %97, double noundef %103) #13
-  %104 = load ptr, ptr %0, align 8, !tbaa !4
-  tail call void @output_draw(ptr noundef %104) #13
-  tail call void @cairo_show_page(ptr noundef %97) #13
-  tail call void @cairo_destroy(ptr noundef %97) #13
-  store ptr null, ptr %98, align 8, !tbaa !55
-  %105 = getelementptr inbounds nuw i8, ptr %2, i64 1612
-  %106 = load i32, ptr %105, align 4, !tbaa !57
-  %107 = load i32, ptr %57, align 8, !tbaa !66
-  %108 = icmp ugt i32 %106, %107
-  br i1 %108, label %114, label %109
+  %69 = getelementptr inbounds %struct.Screen, ptr %65, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 88
+  %71 = load i64, ptr %70, align 8, !tbaa !50
+  %72 = tail call i64 @XCreateSimpleWindow(ptr noundef %61, i64 noundef %63, i32 noundef 0, i32 noundef 0, i32 noundef %58, i32 noundef %60, i32 noundef 0, i64 noundef %71, i64 noundef %71) #13
+  store i64 %72, ptr %54, align 8, !tbaa !51
+  %73 = load ptr, ptr %52, align 8, !tbaa !27
+  %74 = tail call i64 @XCreateFontCursor(ptr noundef %73, i32 noundef 52) #13
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %74, ptr %75, align 8, !tbaa !52
+  %76 = load ptr, ptr %52, align 8, !tbaa !27
+  %77 = load i64, ptr %54, align 8, !tbaa !51
+  %78 = tail call i32 @XDefineCursor(ptr noundef %76, i64 noundef %77, i64 noundef %74) #13
+  %79 = load ptr, ptr %52, align 8, !tbaa !27
+  %80 = load i64, ptr %54, align 8, !tbaa !51
+  %81 = tail call i32 @XSelectInput(ptr noundef %79, i64 noundef %80, i64 noundef 32845) #13
+  %82 = load ptr, ptr %52, align 8, !tbaa !27
+  %83 = load i64, ptr %54, align 8, !tbaa !51
+  %84 = tail call i32 @XMapWindow(ptr noundef %82, i64 noundef %83) #13
+  %85 = load ptr, ptr %52, align 8, !tbaa !27
+  %86 = load i64, ptr %54, align 8, !tbaa !51
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 232
+  %88 = load ptr, ptr %87, align 8, !tbaa !36
+  %89 = load i32, ptr %66, align 8, !tbaa !35
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds %struct.Screen, ptr %88, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
+  %93 = load ptr, ptr %92, align 8, !tbaa !53
+  %94 = tail call ptr @cairo_xlib_surface_create(ptr noundef %85, i64 noundef %86, ptr noundef %93, i32 noundef %58, i32 noundef %60) #13
+  store ptr %94, ptr %50, align 8, !tbaa !54
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 1608
+  store i32 0, ptr %95, align 8, !tbaa !49
+  %96 = load ptr, ptr %0, align 8, !tbaa !4
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 936
+  %98 = load i32, ptr %97, align 8, !tbaa !45
+  %99 = tail call ptr @cairo_create(ptr noundef %94) #13
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %99, ptr %100, align 8, !tbaa !55
+  %101 = uitofp i32 %98 to double
+  tail call void @cairo_set_font_size(ptr noundef %99, double noundef %101) #13
+  %102 = load ptr, ptr %0, align 8, !tbaa !4
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 944
+  %104 = load i32, ptr %103, align 8, !tbaa !56
+  %105 = uitofp i32 %104 to double
+  tail call void @cairo_set_line_width(ptr noundef %99, double noundef %105) #13
+  %106 = load ptr, ptr %0, align 8, !tbaa !4
+  tail call void @output_draw(ptr noundef %106) #13
+  tail call void @cairo_show_page(ptr noundef %99) #13
+  tail call void @cairo_destroy(ptr noundef %99) #13
+  store ptr null, ptr %100, align 8, !tbaa !55
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 1612
+  %108 = load i32, ptr %107, align 4, !tbaa !57
+  %109 = load i32, ptr %57, align 8, !tbaa !66
+  %110 = icmp ugt i32 %108, %109
+  br i1 %110, label %116, label %111
 
-109:                                              ; preds = %._crit_edge
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 1616
-  %111 = load i32, ptr %110, align 8, !tbaa !58
-  %112 = load i32, ptr %59, align 4, !tbaa !67
-  %113 = icmp ugt i32 %111, %112
-  br i1 %113, label %114, label %._crit_edge104
+111:                                              ; preds = %._crit_edge
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 1616
+  %113 = load i32, ptr %112, align 8, !tbaa !58
+  %114 = load i32, ptr %59, align 4, !tbaa !67
+  %115 = icmp ugt i32 %113, %114
+  br i1 %115, label %116, label %._crit_edge104
 
-._crit_edge104:                                   ; preds = %109
+._crit_edge104:                                   ; preds = %111
   %.pre105 = load ptr, ptr %50, align 8, !tbaa !79
-  br label %151
+  br label %155
 
-114:                                              ; preds = %109, %._crit_edge
-  %115 = load ptr, ptr %50, align 8, !tbaa !54
-  tail call void @cairo_surface_destroy(ptr noundef %115) #13
-  %116 = load ptr, ptr %52, align 8, !tbaa !27
-  %117 = load i64, ptr %54, align 8, !tbaa !51
-  %118 = tail call i32 @XDestroyWindow(ptr noundef %116, i64 noundef %117) #13
-  %119 = load i32, ptr %105, align 4, !tbaa !57
-  %120 = getelementptr inbounds nuw i8, ptr %2, i64 1616
-  %121 = load i32, ptr %120, align 8, !tbaa !58
-  %122 = load ptr, ptr %52, align 8, !tbaa !27
-  %123 = load i64, ptr %62, align 8, !tbaa !48
-  %124 = getelementptr inbounds nuw i8, ptr %122, i64 232
-  %125 = load ptr, ptr %124, align 8, !tbaa !36
-  %126 = load i32, ptr %66, align 8, !tbaa !35
-  %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds %struct.Screen, ptr %125, i64 %127, i32 13
-  %129 = load i64, ptr %128, align 8, !tbaa !50
-  %130 = tail call i64 @XCreateSimpleWindow(ptr noundef %122, i64 noundef %123, i32 noundef 0, i32 noundef 0, i32 noundef %119, i32 noundef %121, i32 noundef 0, i64 noundef %129, i64 noundef %129) #13
-  store i64 %130, ptr %54, align 8, !tbaa !51
-  %131 = load ptr, ptr %52, align 8, !tbaa !27
-  %132 = tail call i64 @XCreateFontCursor(ptr noundef %131, i32 noundef 52) #13
-  store i64 %132, ptr %74, align 8, !tbaa !52
-  %133 = load ptr, ptr %52, align 8, !tbaa !27
-  %134 = load i64, ptr %54, align 8, !tbaa !51
-  %135 = tail call i32 @XDefineCursor(ptr noundef %133, i64 noundef %134, i64 noundef %132) #13
+116:                                              ; preds = %111, %._crit_edge
+  %117 = load ptr, ptr %50, align 8, !tbaa !54
+  tail call void @cairo_surface_destroy(ptr noundef %117) #13
+  %118 = load ptr, ptr %52, align 8, !tbaa !27
+  %119 = load i64, ptr %54, align 8, !tbaa !51
+  %120 = tail call i32 @XDestroyWindow(ptr noundef %118, i64 noundef %119) #13
+  %121 = load i32, ptr %107, align 4, !tbaa !57
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 1616
+  %123 = load i32, ptr %122, align 8, !tbaa !58
+  %124 = load ptr, ptr %52, align 8, !tbaa !27
+  %125 = load i64, ptr %62, align 8, !tbaa !48
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 232
+  %127 = load ptr, ptr %126, align 8, !tbaa !36
+  %128 = load i32, ptr %66, align 8, !tbaa !35
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds %struct.Screen, ptr %127, i64 %129
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 88
+  %132 = load i64, ptr %131, align 8, !tbaa !50
+  %133 = tail call i64 @XCreateSimpleWindow(ptr noundef %124, i64 noundef %125, i32 noundef 0, i32 noundef 0, i32 noundef %121, i32 noundef %123, i32 noundef 0, i64 noundef %132, i64 noundef %132) #13
+  store i64 %133, ptr %54, align 8, !tbaa !51
+  %134 = load ptr, ptr %52, align 8, !tbaa !27
+  %135 = tail call i64 @XCreateFontCursor(ptr noundef %134, i32 noundef 52) #13
+  store i64 %135, ptr %75, align 8, !tbaa !52
   %136 = load ptr, ptr %52, align 8, !tbaa !27
   %137 = load i64, ptr %54, align 8, !tbaa !51
-  %138 = tail call i32 @XSelectInput(ptr noundef %136, i64 noundef %137, i64 noundef 32845) #13
+  %138 = tail call i32 @XDefineCursor(ptr noundef %136, i64 noundef %137, i64 noundef %135) #13
   %139 = load ptr, ptr %52, align 8, !tbaa !27
   %140 = load i64, ptr %54, align 8, !tbaa !51
-  %141 = tail call i32 @XMapWindow(ptr noundef %139, i64 noundef %140) #13
+  %141 = tail call i32 @XSelectInput(ptr noundef %139, i64 noundef %140, i64 noundef 32845) #13
   %142 = load ptr, ptr %52, align 8, !tbaa !27
   %143 = load i64, ptr %54, align 8, !tbaa !51
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 232
-  %145 = load ptr, ptr %144, align 8, !tbaa !36
-  %146 = load i32, ptr %66, align 8, !tbaa !35
-  %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds %struct.Screen, ptr %145, i64 %147, i32 10
-  %149 = load ptr, ptr %148, align 8, !tbaa !53
-  %150 = tail call ptr @cairo_xlib_surface_create(ptr noundef %142, i64 noundef %143, ptr noundef %149, i32 noundef %119, i32 noundef %121) #13
-  store ptr %150, ptr %50, align 8, !tbaa !54
-  br label %151
+  %144 = tail call i32 @XMapWindow(ptr noundef %142, i64 noundef %143) #13
+  %145 = load ptr, ptr %52, align 8, !tbaa !27
+  %146 = load i64, ptr %54, align 8, !tbaa !51
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 232
+  %148 = load ptr, ptr %147, align 8, !tbaa !36
+  %149 = load i32, ptr %66, align 8, !tbaa !35
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds %struct.Screen, ptr %148, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 64
+  %153 = load ptr, ptr %152, align 8, !tbaa !53
+  %154 = tail call ptr @cairo_xlib_surface_create(ptr noundef %145, i64 noundef %146, ptr noundef %153, i32 noundef %121, i32 noundef %123) #13
+  store ptr %154, ptr %50, align 8, !tbaa !54
+  br label %155
 
-151:                                              ; preds = %._crit_edge104, %114
-  %152 = phi ptr [ %.pre105, %._crit_edge104 ], [ %150, %114 ]
-  store i32 1, ptr %93, align 8, !tbaa !49
-  %153 = load ptr, ptr %0, align 8, !tbaa !4
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 936
-  %155 = load i32, ptr %154, align 8, !tbaa !45
-  %156 = tail call ptr @cairo_create(ptr noundef %152) #13
-  store ptr %156, ptr %98, align 8, !tbaa !55
-  %157 = uitofp i32 %155 to double
-  tail call void @cairo_set_font_size(ptr noundef %156, double noundef %157) #13
-  %158 = load ptr, ptr %0, align 8, !tbaa !4
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 944
-  %160 = load i32, ptr %159, align 8, !tbaa !56
-  %161 = uitofp i32 %160 to double
-  tail call void @cairo_set_line_width(ptr noundef %156, double noundef %161) #13
+155:                                              ; preds = %._crit_edge104, %116
+  %156 = phi ptr [ %.pre105, %._crit_edge104 ], [ %154, %116 ]
+  store i32 1, ptr %95, align 8, !tbaa !49
+  %157 = load ptr, ptr %0, align 8, !tbaa !4
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 936
+  %159 = load i32, ptr %158, align 8, !tbaa !45
+  %160 = tail call ptr @cairo_create(ptr noundef %156) #13
+  store ptr %160, ptr %100, align 8, !tbaa !55
+  %161 = uitofp i32 %159 to double
+  tail call void @cairo_set_font_size(ptr noundef %160, double noundef %161) #13
   %162 = load ptr, ptr %0, align 8, !tbaa !4
-  tail call void @output_draw(ptr noundef %162) #13
-  tail call void @cairo_show_page(ptr noundef %156) #13
-  tail call void @cairo_destroy(ptr noundef %156) #13
-  store ptr null, ptr %98, align 8, !tbaa !55
-  %163 = load i32, ptr %105, align 4, !tbaa !57
-  store i32 %163, ptr %57, align 8, !tbaa !66
-  %164 = getelementptr inbounds nuw i8, ptr %2, i64 1616
-  %165 = load i32, ptr %164, align 8, !tbaa !58
-  store i32 %165, ptr %59, align 4, !tbaa !67
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 944
+  %164 = load i32, ptr %163, align 8, !tbaa !56
+  %165 = uitofp i32 %164 to double
+  tail call void @cairo_set_line_width(ptr noundef %160, double noundef %165) #13
+  %166 = load ptr, ptr %0, align 8, !tbaa !4
+  tail call void @output_draw(ptr noundef %166) #13
+  tail call void @cairo_show_page(ptr noundef %160) #13
+  tail call void @cairo_destroy(ptr noundef %160) #13
+  store ptr null, ptr %100, align 8, !tbaa !55
+  %167 = load i32, ptr %107, align 4, !tbaa !57
+  store i32 %167, ptr %57, align 8, !tbaa !66
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 1616
+  %169 = load i32, ptr %168, align 8, !tbaa !58
+  store i32 %169, ptr %59, align 4, !tbaa !67
   store i32 0, ptr %21, align 8, !tbaa !74
   %.pre110 = load i32, ptr %33, align 8, !tbaa !64
-  br label %166
+  br label %170
 
-166:                                              ; preds = %._crit_edge106, %151
-  %167 = phi i32 [ %24, %._crit_edge106 ], [ %.pre110, %151 ]
-  %168 = phi i32 [ %.pre108, %._crit_edge106 ], [ %163, %151 ]
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not97 = icmp sgt i32 %168, %167
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 96
+170:                                              ; preds = %._crit_edge106, %155
+  %171 = phi i32 [ %24, %._crit_edge106 ], [ %.pre110, %155 ]
+  %172 = phi i32 [ %.pre108, %._crit_edge106 ], [ %167, %155 ]
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.not97 = icmp sgt i32 %172, %171
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br i1 %.not97, label %condstore.split, label %.sink.split
 
-condstore.split:                                  ; preds = %166
-  %171 = load i32, ptr %170, align 8, !tbaa !70
-  %172 = tail call i32 @llvm.smax.i32(i32 %171, i32 0)
-  %173 = sub nsw i32 %168, %167
-  %simplifycfg.merge = tail call i32 @llvm.smin.i32(i32 %172, i32 %173)
-  %.not125 = icmp ult i32 %171, %173
-  br i1 %.not125, label %174, label %.sink.split
+condstore.split:                                  ; preds = %170
+  %175 = load i32, ptr %174, align 8, !tbaa !70
+  %176 = tail call i32 @llvm.smax.i32(i32 %175, i32 0)
+  %177 = sub nsw i32 %172, %171
+  %simplifycfg.merge = tail call i32 @llvm.smin.i32(i32 %176, i32 %177)
+  %.not125 = icmp ult i32 %175, %177
+  br i1 %.not125, label %178, label %.sink.split
 
-.sink.split:                                      ; preds = %condstore.split, %166
-  %simplifycfg.merge.sink = phi i32 [ 0, %166 ], [ %simplifycfg.merge, %condstore.split ]
-  store i32 %simplifycfg.merge.sink, ptr %170, align 8, !tbaa !70
-  br label %174
+.sink.split:                                      ; preds = %condstore.split, %170
+  %simplifycfg.merge.sink = phi i32 [ 0, %170 ], [ %simplifycfg.merge, %condstore.split ]
+  store i32 %simplifycfg.merge.sink, ptr %174, align 8, !tbaa !70
+  br label %178
 
-174:                                              ; preds = %.sink.split, %condstore.split
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %176 = load i32, ptr %175, align 4, !tbaa !67
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %178 = load i32, ptr %177, align 4, !tbaa !65
-  %.not99 = icmp sgt i32 %176, %178
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 100
+178:                                              ; preds = %.sink.split, %condstore.split
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %180 = load i32, ptr %179, align 4, !tbaa !67
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %182 = load i32, ptr %181, align 4, !tbaa !65
+  %.not99 = icmp sgt i32 %180, %182
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 100
   br i1 %.not99, label %condstore.split122, label %.sink.split124
 
-condstore.split122:                               ; preds = %174
-  %180 = load i32, ptr %179, align 4, !tbaa !71
-  %181 = tail call i32 @llvm.smax.i32(i32 %180, i32 0)
-  %182 = sub nsw i32 %176, %178
-  %simplifycfg.merge123 = tail call i32 @llvm.smin.i32(i32 %181, i32 %182)
-  %.not126 = icmp ult i32 %180, %182
-  br i1 %.not126, label %183, label %.sink.split124
+condstore.split122:                               ; preds = %178
+  %184 = load i32, ptr %183, align 4, !tbaa !71
+  %185 = tail call i32 @llvm.smax.i32(i32 %184, i32 0)
+  %186 = sub nsw i32 %180, %182
+  %simplifycfg.merge123 = tail call i32 @llvm.smin.i32(i32 %185, i32 %186)
+  %.not126 = icmp ult i32 %184, %186
+  br i1 %.not126, label %187, label %.sink.split124
 
-.sink.split124:                                   ; preds = %condstore.split122, %174
-  %simplifycfg.merge123.sink = phi i32 [ 0, %174 ], [ %simplifycfg.merge123, %condstore.split122 ]
-  store i32 %simplifycfg.merge123.sink, ptr %179, align 4, !tbaa !71
-  br label %183
+.sink.split124:                                   ; preds = %condstore.split122, %178
+  %simplifycfg.merge123.sink = phi i32 [ 0, %178 ], [ %simplifycfg.merge123, %condstore.split122 ]
+  store i32 %simplifycfg.merge123.sink, ptr %183, align 4, !tbaa !71
+  br label %187
 
-183:                                              ; preds = %.sink.split124, %condstore.split122
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %185 = load i32, ptr %184, align 4, !tbaa !75
-  %186 = icmp sgt i32 %185, 0
-  br i1 %186, label %187, label %204
+187:                                              ; preds = %.sink.split124, %condstore.split122
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %189 = load i32, ptr %188, align 4, !tbaa !75
+  %190 = icmp sgt i32 %189, 0
+  br i1 %190, label %191, label %208
 
-187:                                              ; preds = %183
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %189 = load i32, ptr %188, align 4, !tbaa !77
-  %.not101 = icmp eq i32 %189, 0
-  br i1 %.not101, label %190, label %204
+191:                                              ; preds = %187
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %193 = load i32, ptr %192, align 4, !tbaa !77
+  %.not101 = icmp eq i32 %193, 0
+  br i1 %.not101, label %194, label %208
 
-190:                                              ; preds = %187
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %192 = load i32, ptr %191, align 8, !tbaa !76
-  %.not102 = icmp eq i32 %192, 0
-  %.not103 = icmp eq i32 %185, 1
+194:                                              ; preds = %191
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %196 = load i32, ptr %195, align 8, !tbaa !76
+  %.not102 = icmp eq i32 %196, 0
+  %.not103 = icmp eq i32 %189, 1
   %or.cond = and i1 %.not103, %.not102
-  br i1 %or.cond, label %203, label %193
+  br i1 %or.cond, label %207, label %197
 
-193:                                              ; preds = %190
-  store i32 %168, ptr %169, align 8, !tbaa !64
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %168, ptr %194, align 8, !tbaa !62
-  store i32 %176, ptr %177, align 4, !tbaa !65
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %176, ptr %195, align 4, !tbaa !63
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %196, align 8, !tbaa !70
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 0, ptr %197, align 4, !tbaa !71
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %199 = load ptr, ptr %198, align 8, !tbaa !27
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %201 = load i64, ptr %200, align 8, !tbaa !48
-  %202 = tail call i32 @XResizeWindow(ptr noundef %199, i64 noundef %201, i32 noundef %168, i32 noundef %176) #13
-  br label %203
+197:                                              ; preds = %194
+  store i32 %172, ptr %173, align 8, !tbaa !64
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %172, ptr %198, align 8, !tbaa !62
+  store i32 %180, ptr %181, align 4, !tbaa !65
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %180, ptr %199, align 4, !tbaa !63
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 0, ptr %200, align 8, !tbaa !70
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 0, ptr %201, align 4, !tbaa !71
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %203 = load ptr, ptr %202, align 8, !tbaa !27
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %205 = load i64, ptr %204, align 8, !tbaa !48
+  %206 = tail call i32 @XResizeWindow(ptr noundef %203, i64 noundef %205, i32 noundef %172, i32 noundef %180) #13
+  br label %207
 
-203:                                              ; preds = %190, %193
-  store i32 0, ptr %184, align 4, !tbaa !75
-  br label %204
+207:                                              ; preds = %194, %197
+  store i32 0, ptr %188, align 4, !tbaa !75
+  br label %208
 
-204:                                              ; preds = %203, %187, %183
+208:                                              ; preds = %207, %191, %187
   ret void
 }
 

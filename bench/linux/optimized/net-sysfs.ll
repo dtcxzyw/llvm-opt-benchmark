@@ -431,7 +431,8 @@ define dso_local i32 @net_rx_queue_update_kobjects(ptr noundef readonly captures
   %61 = phi i32 [ %54, %56 ], [ %78, %77 ]
   %62 = load ptr, ptr %57, align 8
   %63 = sext i32 %61 to i64
-  %64 = getelementptr %struct.netdev_rx_queue, ptr %62, i64 %63, i32 3
+  %.split = getelementptr %struct.netdev_rx_queue, ptr %62, i64 %63
+  %64 = getelementptr i8, ptr %.split, i64 80
   %65 = load ptr, ptr %58, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 140
   %67 = load volatile i32, ptr %66, align 4
@@ -439,7 +440,7 @@ define dso_local i32 @net_rx_queue_update_kobjects(ptr noundef readonly captures
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %60
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 60
+  %70 = getelementptr i8, ptr %.split, i64 140
   %71 = load i8, ptr %70, align 4
   %72 = or i8 %71, 16
   store i8 %72, ptr %70, align 4
@@ -796,13 +797,13 @@ define dso_local i32 @netdev_change_owner(ptr noundef %0, ptr noundef %1, ptr no
   %11 = load i32, ptr %6, align 4
   %12 = icmp eq i32 %11, %.pre
   %or.cond = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond, label %.thread13, label %13
+  br i1 %or.cond, label %.thread14, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %15 = call i32 @device_change_owner(ptr noundef nonnull %14, i32 %9, i32 %.pre) #10
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %.thread13
+  br i1 %16, label %17, label %.thread14
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %5, align 4
@@ -816,7 +817,7 @@ define dso_local i32 @netdev_change_owner(ptr noundef %0, ptr noundef %1, ptr no
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = call i32 @sysfs_change_owner(ptr noundef nonnull %24, i32 %18, i32 %19) #10
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %.thread13
+  br i1 %26, label %27, label %.thread14
 
 27:                                               ; preds = %23, %17
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 220
@@ -840,10 +841,11 @@ define dso_local i32 @netdev_change_owner(ptr noundef %0, ptr noundef %1, ptr no
 39:                                               ; preds = %.thread, %33
   %40 = phi i64 [ 0, %33 ], [ %37, %.thread ]
   %41 = load ptr, ptr %34, align 8
-  %42 = getelementptr %struct.netdev_rx_queue, ptr %41, i64 %40, i32 3
+  %.split = getelementptr %struct.netdev_rx_queue, ptr %41, i64 %40
+  %42 = getelementptr i8, ptr %.split, i64 80
   %43 = call i32 @sysfs_change_owner(ptr noundef %42, i32 %18, i32 %19) #10
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %.thread13
+  br i1 %44, label %45, label %.thread14
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %35, align 8
@@ -853,11 +855,11 @@ define dso_local i32 @netdev_change_owner(ptr noundef %0, ptr noundef %1, ptr no
 48:                                               ; preds = %45
   %49 = call i32 @sysfs_group_change_owner(ptr noundef %42, ptr noundef nonnull %46, i32 %18, i32 %19) #10
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.thread, label %.thread13
+  br i1 %50, label %.thread, label %.thread14
 
 .loopexit:                                        ; preds = %.thread, %27
   %51 = icmp sgt i32 %31, 0
-  br i1 %51, label %52, label %.thread13
+  br i1 %51, label %52, label %.thread14
 
 52:                                               ; preds = %.loopexit
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -867,22 +869,23 @@ define dso_local i32 @netdev_change_owner(ptr noundef %0, ptr noundef %1, ptr no
 55:                                               ; preds = %64
   %56 = add nuw nsw i64 %59, 1
   %57 = icmp eq i64 %56, %54
-  br i1 %57, label %.thread13, label %58, !llvm.loop !23
+  br i1 %57, label %.thread14, label %58, !llvm.loop !23
 
 58:                                               ; preds = %55, %52
   %59 = phi i64 [ 0, %52 ], [ %56, %55 ]
   %60 = load ptr, ptr %53, align 8
-  %61 = getelementptr %struct.netdev_queue, ptr %60, i64 %59, i32 4
+  %.split13 = getelementptr %struct.netdev_queue, ptr %60, i64 %59
+  %61 = getelementptr i8, ptr %.split13, i64 24
   %62 = call i32 @sysfs_change_owner(ptr noundef %61, i32 %18, i32 %19) #10
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %.thread13
+  br i1 %63, label %64, label %.thread14
 
 64:                                               ; preds = %58
   %65 = call i32 @sysfs_group_change_owner(ptr noundef %61, ptr noundef nonnull @dql_group, i32 %18, i32 %19) #10
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %55, label %.thread13
+  br i1 %66, label %55, label %.thread14
 
-.thread13:                                        ; preds = %39, %48, %58, %64, %55, %3, %.loopexit, %23, %13
+.thread14:                                        ; preds = %39, %48, %58, %64, %55, %3, %.loopexit, %23, %13
   %67 = phi i32 [ %15, %13 ], [ %25, %23 ], [ 0, %.loopexit ], [ 0, %3 ], [ %62, %58 ], [ %65, %64 ], [ 0, %55 ], [ %43, %39 ], [ %49, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1583,7 +1586,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @traffic_class_show(ptr n
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = and i64 %20, 4294967295
-  %30 = getelementptr %struct.netdev_queue, ptr %28, i64 %29, i32 8
+  %.split = getelementptr %struct.netdev_queue, ptr %28, i64 %29
+  %30 = getelementptr i8, ptr %.split, i64 112
   %31 = load ptr, ptr %30, align 16
   %32 = icmp eq ptr %31, null
   %33 = select i1 %32, ptr %3, ptr %31
@@ -1664,7 +1668,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @xps_cpus_show(ptr nounde
 23:                                               ; preds = %17
   %24 = load ptr, ptr %8, align 8
   %25 = and i64 %13, 4294967295
-  %26 = getelementptr %struct.netdev_queue, ptr %24, i64 %25, i32 8
+  %.split = getelementptr %struct.netdev_queue, ptr %24, i64 %25
+  %26 = getelementptr i8, ptr %.split, i64 112
   %27 = load ptr, ptr %26, align 16
   %28 = icmp eq ptr %27, null
   %29 = select i1 %28, ptr %3, ptr %27

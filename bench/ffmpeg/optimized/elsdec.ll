@@ -81,109 +81,109 @@ define range(i32 -541478725, 2) i32 @ff_els_decode_bit(ptr noundef captures(none
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4, !tbaa !15
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %114
+  br i1 %.not, label %5, label %115
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !16
   %8 = load i8, ptr %1, align 1, !tbaa !4
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %9, i32 1
-  %11 = load i8, ptr %10, align 1, !tbaa !19
-  %12 = sext i8 %11 to i32
-  %13 = add nsw i32 %7, %12
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !21
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %18 = load i32, ptr %17, align 4, !tbaa !17
-  %19 = sub nsw i32 %18, %16
-  store i32 %19, ptr %17, align 4, !tbaa !17
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load i32, ptr %20, align 8, !tbaa !18
-  %22 = sub nsw i32 %21, %16
-  store i32 %22, ptr %20, align 8, !tbaa !18
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %24, label %28
+  %10 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %12 = load i8, ptr %11, align 1, !tbaa !19
+  %13 = sext i8 %12 to i32
+  %14 = add nsw i32 %7, %13
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %15
+  %17 = load i32, ptr %16, align 4, !tbaa !21
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %19 = load i32, ptr %18, align 4, !tbaa !17
+  %20 = sub nsw i32 %19, %17
+  store i32 %20, ptr %18, align 4, !tbaa !17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = load i32, ptr %21, align 8, !tbaa !18
+  %23 = sub nsw i32 %22, %17
+  store i32 %23, ptr %21, align 8, !tbaa !18
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %5
-  %25 = load i8, ptr %1, align 1, !tbaa !4
-  %26 = and i8 %25, 1
-  %27 = zext nneg i8 %26 to i32
-  br label %114
+25:                                               ; preds = %5
+  %26 = load i8, ptr %1, align 1, !tbaa !4
+  %27 = and i8 %26, 1
+  %28 = zext nneg i8 %27 to i32
+  br label %115
 
-28:                                               ; preds = %5
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !7
-  %31 = icmp ugt i32 %19, %30
-  br i1 %31, label %32, label %65
+29:                                               ; preds = %5
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load i32, ptr %30, align 8, !tbaa !7
+  %32 = icmp ugt i32 %20, %31
+  br i1 %32, label %33, label %64
 
-32:                                               ; preds = %28
-  %33 = load i8, ptr %1, align 1, !tbaa !4
-  %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %34
-  %36 = load i8, ptr %35, align 4, !tbaa !22
-  %37 = sext i8 %36 to i32
-  %38 = add i32 %7, %37
-  %39 = sext i32 %38 to i64
-  br label %40
+33:                                               ; preds = %29
+  %34 = load i8, ptr %1, align 1, !tbaa !4
+  %35 = zext i8 %34 to i64
+  %36 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %35
+  %37 = load i8, ptr %36, align 4, !tbaa !22
+  %38 = sext i8 %37 to i32
+  %39 = add i32 %7, %38
+  %40 = sext i32 %39 to i64
+  br label %41
 
-40:                                               ; preds = %40, %32
-  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %40 ], [ %39, %32 ]
-  %41 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %indvars.iv82
-  %42 = load i32, ptr %41, align 4, !tbaa !21
-  %43 = icmp ugt i32 %19, %42
+41:                                               ; preds = %41, %33
+  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %41 ], [ %40, %33 ]
+  %42 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %indvars.iv82
+  %43 = load i32, ptr %42, align 4, !tbaa !21
+  %44 = icmp ugt i32 %20, %43
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, 1
-  br i1 %43, label %40, label %44, !llvm.loop !23
+  br i1 %44, label %41, label %45, !llvm.loop !23
 
-44:                                               ; preds = %40
-  %45 = trunc nsw i64 %indvars.iv82 to i32
-  store i32 %45, ptr %6, align 8, !tbaa !16
-  %46 = icmp slt i64 %indvars.iv82, 1
-  br i1 %46, label %47, label %59
+45:                                               ; preds = %41
+  %46 = trunc nsw i64 %indvars.iv82 to i32
+  store i32 %46, ptr %6, align 8, !tbaa !16
+  %47 = icmp slt i64 %indvars.iv82, 1
+  br i1 %47, label %48, label %60
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !14
-  %.not.i = icmp eq i64 %49, 0
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %50 = load i64, ptr %49, align 8, !tbaa !14
+  %.not.i = icmp eq i64 %50, 0
   br i1 %.not.i, label %els_import_byte.exit.thread, label %els_import_byte.exit
 
-els_import_byte.exit.thread:                      ; preds = %47
+els_import_byte.exit.thread:                      ; preds = %48
   store i32 -541478725, ptr %3, align 4, !tbaa !15
-  br label %114
+  br label %115
 
-els_import_byte.exit:                             ; preds = %47
-  %50 = shl i32 %30, 8
-  %51 = load ptr, ptr %0, align 8, !tbaa !13
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  store ptr %52, ptr %0, align 8, !tbaa !13
-  %53 = load i8, ptr %51, align 1, !tbaa !4
-  %54 = zext i8 %53 to i32
-  %55 = or disjoint i32 %50, %54
-  store i32 %55, ptr %29, align 8, !tbaa !7
-  %56 = add i64 %49, -1
-  store i64 %56, ptr %48, align 8, !tbaa !14
-  %57 = add nsw i32 %45, 36
-  store i32 %57, ptr %6, align 8, !tbaa !16
-  %58 = shl i32 %19, 8
-  store i32 %58, ptr %17, align 4, !tbaa !17
-  br label %59
+els_import_byte.exit:                             ; preds = %48
+  %51 = shl i32 %31, 8
+  %52 = load ptr, ptr %0, align 8, !tbaa !13
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  store ptr %53, ptr %0, align 8, !tbaa !13
+  %54 = load i8, ptr %52, align 1, !tbaa !4
+  %55 = zext i8 %54 to i32
+  %56 = or disjoint i32 %51, %55
+  store i32 %56, ptr %30, align 8, !tbaa !7
+  %57 = add i64 %50, -1
+  store i64 %57, ptr %49, align 8, !tbaa !14
+  %58 = add nsw i32 %46, 36
+  store i32 %58, ptr %6, align 8, !tbaa !16
+  %59 = shl i32 %20, 8
+  store i32 %59, ptr %18, align 4, !tbaa !17
+  br label %60
 
-59:                                               ; preds = %els_import_byte.exit, %44
-  %60 = phi i32 [ %58, %els_import_byte.exit ], [ %19, %44 ]
-  %61 = load i8, ptr %1, align 1, !tbaa !4
-  %62 = and i8 %61, 1
-  %63 = zext i8 %61 to i64
-  %64 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %63, i32 2
-  br label %105
+60:                                               ; preds = %els_import_byte.exit, %45
+  %61 = phi i32 [ %59, %els_import_byte.exit ], [ %20, %45 ]
+  %62 = load i8, ptr %1, align 1, !tbaa !4
+  %63 = and i8 %62, 1
+  br label %103
 
-65:                                               ; preds = %28
-  %66 = sub nuw i32 %30, %19
-  store i32 %66, ptr %29, align 8, !tbaa !7
-  store i32 %16, ptr %17, align 4, !tbaa !17
-  %67 = load i8, ptr %1, align 1, !tbaa !4
-  %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %68, i32 1
+64:                                               ; preds = %29
+  %65 = sub nuw i32 %31, %20
+  store i32 %65, ptr %30, align 8, !tbaa !7
+  store i32 %17, ptr %18, align 4, !tbaa !17
+  %66 = load i8, ptr %1, align 1, !tbaa !4
+  %67 = zext i8 %66 to i64
+  %68 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !19
   %71 = sext i8 %70 to i32
   %72 = add nsw i32 %7, %71
@@ -191,7 +191,7 @@ els_import_byte.exit:                             ; preds = %47
   %73 = icmp slt i32 %72, 1
   br i1 %73, label %74, label %.loopexit
 
-74:                                               ; preds = %65
+74:                                               ; preds = %64
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load i64, ptr %75, align 8, !tbaa !14
   %.not.i74 = icmp eq i64 %76, 0
@@ -199,31 +199,31 @@ els_import_byte.exit:                             ; preds = %47
 
 els_import_byte.exit76.thread:                    ; preds = %74
   store i32 -541478725, ptr %3, align 4, !tbaa !15
-  br label %114
+  br label %115
 
 77:                                               ; preds = %74
-  %78 = shl i32 %66, 8
+  %78 = shl i32 %65, 8
   %79 = load ptr, ptr %0, align 8, !tbaa !13
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
   store ptr %80, ptr %0, align 8, !tbaa !13
   %81 = load i8, ptr %79, align 1, !tbaa !4
   %82 = zext i8 %81 to i32
   %83 = or disjoint i32 %78, %82
-  store i32 %83, ptr %29, align 8, !tbaa !7
+  store i32 %83, ptr %30, align 8, !tbaa !7
   %84 = add i64 %76, -1
   store i64 %84, ptr %75, align 8, !tbaa !14
   %85 = add nsw i32 %72, 36
   store i32 %85, ptr %6, align 8, !tbaa !16
-  %86 = shl i32 %16, 8
-  store i32 %86, ptr %17, align 4, !tbaa !17
+  %86 = shl i32 %17, 8
+  store i32 %86, ptr %18, align 4, !tbaa !17
   %87 = icmp slt i32 %72, -35
   br i1 %87, label %88, label %.loopexit
 
 88:                                               ; preds = %77
-  %89 = shl i32 %16, 16
+  %89 = shl i32 %17, 16
   %90 = tail call fastcc i32 @els_import_byte(ptr noundef nonnull %0)
   %91 = icmp slt i32 %90, 0
-  br i1 %91, label %114, label %.preheader
+  br i1 %91, label %115, label %.preheader
 
 .preheader:                                       ; preds = %88
   %.promoted = load i32, ptr %6, align 8, !tbaa !16
@@ -248,36 +248,38 @@ els_import_byte.exit76.thread:                    ; preds = %74
   store i32 %99, ptr %6, align 8, !tbaa !16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %77, %65
-  %.1 = phi i32 [ %86, %77 ], [ %16, %65 ], [ %89, %..loopexit_crit_edge ], [ %89, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %77, %64
+  %.1 = phi i32 [ %86, %77 ], [ %17, %64 ], [ %89, %..loopexit_crit_edge ], [ %89, %.preheader ]
   %100 = load i8, ptr %1, align 1, !tbaa !4
   %101 = and i8 %100, 1
   %102 = xor i8 %101, 1
-  %103 = zext i8 %100 to i64
-  %104 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %103, i32 3
-  br label %105
+  br label %103
 
-105:                                              ; preds = %.loopexit, %59
-  %storemerge.in = phi ptr [ %104, %.loopexit ], [ %64, %59 ]
-  %.062 = phi i32 [ %.1, %.loopexit ], [ %60, %59 ]
-  %.061.in = phi i8 [ %102, %.loopexit ], [ %62, %59 ]
+103:                                              ; preds = %.loopexit, %60
+  %.sink = phi i8 [ %100, %.loopexit ], [ %62, %60 ]
+  %.sink95 = phi i64 [ 3, %.loopexit ], [ 2, %60 ]
+  %.062 = phi i32 [ %.1, %.loopexit ], [ %61, %60 ]
+  %.061.in = phi i8 [ %102, %.loopexit ], [ %63, %60 ]
+  %104 = zext i8 %.sink to i64
+  %105 = getelementptr inbounds nuw %struct.Ladder, ptr @Ladder, i64 %104
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %.sink95
   %.061 = zext nneg i8 %.061.in to i32
-  %storemerge = load i8, ptr %storemerge.in, align 1, !tbaa !4
+  %storemerge = load i8, ptr %106, align 1, !tbaa !4
   store i8 %storemerge, ptr %1, align 1, !tbaa !4
-  %106 = load i32, ptr %29, align 8, !tbaa !7
-  %107 = sub i32 %.062, %106
-  %108 = load i32, ptr %6, align 8, !tbaa !16
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %109
-  %111 = getelementptr i8, ptr %110, i64 -4
-  %112 = load i32, ptr %111, align 4, !tbaa !21
-  %113 = sub i32 %.062, %112
-  %. = tail call i32 @llvm.umin.i32(i32 %107, i32 %113)
-  store i32 %., ptr %20, align 8, !tbaa !18
-  br label %114
+  %107 = load i32, ptr %30, align 8, !tbaa !7
+  %108 = sub i32 %.062, %107
+  %109 = load i32, ptr %6, align 8, !tbaa !16
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @els_exp_tab, i64 432), i64 %110
+  %112 = getelementptr i8, ptr %111, i64 -4
+  %113 = load i32, ptr %112, align 4, !tbaa !21
+  %114 = sub i32 %.062, %113
+  %. = tail call i32 @llvm.umin.i32(i32 %108, i32 %114)
+  store i32 %., ptr %21, align 8, !tbaa !18
+  br label %115
 
-114:                                              ; preds = %els_import_byte.exit76.thread, %els_import_byte.exit.thread, %88, %2, %105, %24
-  %.0 = phi i32 [ %27, %24 ], [ %.061, %105 ], [ 0, %2 ], [ %90, %88 ], [ -541478725, %els_import_byte.exit.thread ], [ -541478725, %els_import_byte.exit76.thread ]
+115:                                              ; preds = %els_import_byte.exit76.thread, %els_import_byte.exit.thread, %88, %2, %103, %25
+  %.0 = phi i32 [ %28, %25 ], [ %.061, %103 ], [ 0, %2 ], [ %90, %88 ], [ -541478725, %els_import_byte.exit.thread ], [ -541478725, %els_import_byte.exit76.thread ]
   ret i32 %.0
 }
 

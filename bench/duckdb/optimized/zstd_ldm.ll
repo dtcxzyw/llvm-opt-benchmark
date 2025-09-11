@@ -405,10 +405,10 @@ define noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstd26ZSTD_ldm_generateSequen
   %.pre = load i64, ptr %17, align 8, !tbaa !37
   br label %32
 
-32:                                               ; preds = %.lr.ph, %412
-  %33 = phi i64 [ %.pre, %.lr.ph ], [ %402, %412 ]
-  %.05588 = phi i64 [ 0, %.lr.ph ], [ %413, %412 ]
-  %.05687 = phi i64 [ 0, %.lr.ph ], [ %.15778, %412 ]
+32:                                               ; preds = %.lr.ph, %413
+  %33 = phi i64 [ %.pre, %.lr.ph ], [ %402, %413 ]
+  %.05588 = phi i64 [ 0, %.lr.ph ], [ %414, %413 ]
+  %.05687 = phi i64 [ 0, %.lr.ph ], [ %.15778, %413 ]
   %34 = load i64, ptr %18, align 8, !tbaa !39
   %35 = icmp ult i64 %33, %34
   br i1 %35, label %36, label %.critedge
@@ -1263,29 +1263,30 @@ _ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13ra
   %402 = phi i64 [ %33, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit.thread ], [ %.pre104, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit._crit_edge ]
   %.0.i69 = phi i64 [ %44, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit.thread ], [ %.pre-phi113, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit._crit_edge ]
   %403 = icmp ult i64 %33, %402
-  br i1 %403, label %404, label %410
+  br i1 %403, label %404, label %411
 
 404:                                              ; preds = %401
   %405 = trunc i64 %.05687 to i32
   %406 = load ptr, ptr %1, align 8, !tbaa !62
-  %407 = getelementptr inbounds nuw %"struct.duckdb_zstd::rawSeq", ptr %406, i64 %33, i32 1
-  %408 = load i32, ptr %407, align 4, !tbaa !63
-  %409 = add i32 %408, %405
-  store i32 %409, ptr %407, align 4, !tbaa !63
-  br label %412
+  %407 = getelementptr inbounds nuw %"struct.duckdb_zstd::rawSeq", ptr %406, i64 %33
+  %408 = getelementptr inbounds nuw i8, ptr %407, i64 4
+  %409 = load i32, ptr %408, align 4, !tbaa !63
+  %410 = add i32 %409, %405
+  store i32 %410, ptr %408, align 4, !tbaa !63
+  br label %413
 
-410:                                              ; preds = %401
-  %411 = add i64 %44, %.05687
-  br label %412
+411:                                              ; preds = %401
+  %412 = add i64 %44, %.05687
+  br label %413
 
-412:                                              ; preds = %404, %410
-  %.15778 = phi i64 [ %.0.i69, %404 ], [ %411, %410 ]
-  %413 = add nuw nsw i64 %.05588, 1
-  %exitcond.not = icmp eq i64 %413, %16
+413:                                              ; preds = %404, %411
+  %.15778 = phi i64 [ %.0.i69, %404 ], [ %412, %411 ]
+  %414 = add nuw nsw i64 %.05588, 1
+  %exitcond.not = icmp eq i64 %414, %16
   br i1 %exitcond.not, label %.critedge, label %32, !llvm.loop !69
 
-.critedge:                                        ; preds = %412, %32, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit, %5, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit.thread72
-  %.2 = phi i64 [ -70, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit.thread72 ], [ 0, %5 ], [ 0, %412 ], [ 0, %32 ], [ %.pre-phi113, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit ]
+.critedge:                                        ; preds = %413, %32, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit, %5, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit.thread72
+  %.2 = phi i64 [ -70, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit.thread72 ], [ 0, %5 ], [ 0, %413 ], [ 0, %32 ], [ %.pre-phi113, %_ZN11duckdb_zstdL35ZSTD_ldm_generateSequences_internalEPNS_10ldmState_tEPNS_13rawSeqStore_tEPKNS_11ldmParams_tEPKvm.exit ]
   ret i64 %.2
 }
 

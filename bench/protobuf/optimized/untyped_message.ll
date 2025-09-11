@@ -655,7 +655,8 @@ cleanup30:                                        ; preds = %if.then.i.i9, %call
   %24 = phi ptr [ %call8, %call.i.i.noexc ], [ null, %if.then.i.i9 ]
   %slots_.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %25 = load ptr, ptr %slots_.i.i.i3.i.i, align 8, !noalias !7
-  %second27 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.274", ptr %25, i64 %21, i32 0, i32 1
+  %add.ptr3.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.274", ptr %25, i64 %21
+  %second27 = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i, i64 32
   %26 = load ptr, ptr %second27, align 8
   %27 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %26, ptr %27, align 8
@@ -1056,7 +1057,8 @@ cleanup30:                                        ; preds = %if.then.i.i9, %call
   %24 = phi ptr [ %call8, %call.i.i.noexc ], [ null, %if.then.i.i9 ]
   %slots_.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %25 = load ptr, ptr %slots_.i.i.i3.i.i, align 8, !noalias !15
-  %second27 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.291", ptr %25, i64 %21, i32 0, i32 1
+  %add.ptr3.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.291", ptr %25, i64 %21
+  %second27 = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i, i64 32
   %26 = load ptr, ptr %second27, align 8
   %27 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %26, ptr %27, align 8
@@ -1146,10 +1148,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %fields_.i.i, ptr %arrayidx.i.i.i.i.i
   %9 = load ptr, ptr %retval.0.i.i.i.i.i, align 8
   %10 = load ptr, ptr %fields_, align 8
-  %raw_20 = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %10, i64 %i.014, i32 1
+  %arrayidx.i8 = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %10, i64 %i.014
+  %raw_20 = getelementptr inbounds nuw i8, ptr %arrayidx.i8, i64 8
   store ptr %9, ptr %raw_20, align 8
   %11 = load ptr, ptr %fields_, align 8
-  %parent_ = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %11, i64 %i.014, i32 2
+  %arrayidx.i9 = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %11, i64 %i.014
+  %parent_ = getelementptr inbounds nuw i8, ptr %arrayidx.i9, i64 16
   store ptr %this, ptr %parent_, align 8
   %inc = add nuw i64 %i.014, 1
   %12 = load i32, ptr %current_size_.i.i.i.i, align 8
@@ -1227,10 +1231,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %fields_.i.i.i, ptr %arrayidx.i.i.i.i.i.i
   %11 = load ptr, ptr %retval.0.i.i.i.i.i.i, align 8
   %12 = load ptr, ptr %fields_.i, align 8
-  %raw_20.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %12, i64 %i.014.i, i32 1
+  %arrayidx.i8.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %12, i64 %i.014.i
+  %raw_20.i = getelementptr inbounds nuw i8, ptr %arrayidx.i8.i, i64 8
   store ptr %11, ptr %raw_20.i, align 8
   %13 = load ptr, ptr %fields_.i, align 8
-  %parent_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %13, i64 %i.014.i, i32 2
+  %arrayidx.i9.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %13, i64 %i.014.i
+  %parent_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i, i64 16
   store ptr %this, ptr %parent_.i, align 8
   %inc.i = add nuw i64 %i.014.i, 1
   %14 = load i32, ptr %current_size_.i.i.i.i, align 8
@@ -1585,10 +1591,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %fields_.i.i.i, ptr %arrayidx.i.i.i.i.i.i
   %10 = load ptr, ptr %retval.0.i.i.i.i.i.i, align 8
   %11 = load ptr, ptr %fields_.i, align 8
-  %raw_20.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %11, i64 %i.014.i, i32 1
+  %arrayidx.i8.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %11, i64 %i.014.i
+  %raw_20.i = getelementptr inbounds nuw i8, ptr %arrayidx.i8.i, i64 8
   store ptr %10, ptr %raw_20.i, align 8
   %12 = load ptr, ptr %fields_.i, align 8
-  %parent_.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %12, i64 %i.014.i, i32 2
+  %arrayidx.i9.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %12, i64 %i.014.i
+  %parent_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i, i64 16
   store ptr %this, ptr %parent_.i, align 8
   %inc.i = add nuw i64 %i.014.i, 1
   %13 = load i32, ptr %current_size_.i.i.i.i, align 8
@@ -4382,8 +4390,8 @@ lpad:                                             ; preds = %if.then5
   br label %eh.resume
 
 if.end9:                                          ; preds = %if.end
-  %second11 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.151", ptr %6, i64 %and.i.i.i.i, i32 0, i32 2
-  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 40
+  %second11 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 8
+  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 48
   %20 = load i8, ptr %_M_index.i.i.i, align 8
   switch i8 %20, label %if.end27 [
     i8 0, label %cond.true.i.i.i.i
@@ -4405,8 +4413,8 @@ cond.true.i.i.i.i:                                ; preds = %if.end9
 
 invoke.cont.i:                                    ; preds = %cond.true.i.i.i.i
   %24 = load ptr, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %call5.i.i.i.i.i.i46, ptr %second11, align 8
   store ptr %incdec.ptr.i.i.i37, ptr %_M_finish.i.i.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i.i.i, align 8
@@ -4435,9 +4443,9 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i
 _ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm9EJSD_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i: ; preds = %.noexc3.i, %if.else.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %call5.i.i.i.i.i.i46, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   store ptr %incdec.ptr.i.i.i37, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %incdec.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
   store i8 9, ptr %_M_index.i.i.i, align 8
   br label %if.end38
@@ -4450,9 +4458,9 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 if.then22:                                        ; preds = %if.end9
-  %_M_finish.i.i57 = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i57 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   %28 = load ptr, ptr %_M_finish.i.i57, align 8
-  %_M_end_of_storage.i.i58 = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i58 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   %29 = load ptr, ptr %_M_end_of_storage.i.i58, align 8
   %cmp.not.i.i59 = icmp eq ptr %28, %29
   br i1 %cmp.not.i.i59, label %if.else.i.i62, label %if.then.i.i60
@@ -4699,8 +4707,8 @@ lpad:                                             ; preds = %if.then5
   br label %eh.resume
 
 if.end9:                                          ; preds = %if.end
-  %second11 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.151", ptr %6, i64 %and.i.i.i.i, i32 0, i32 2
-  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 40
+  %second11 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 8
+  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 48
   %20 = load i8, ptr %_M_index.i.i.i, align 8
   switch i8 %20, label %if.end27 [
     i8 2, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
@@ -4722,8 +4730,8 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.end9
 
 invoke.cont.i:                                    ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
   %24 = load ptr, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %call5.i.i.i.i.i19, ptr %second11, align 8
   store ptr %incdec.ptr.i.i17, ptr %_M_finish.i.i.i.i.i, align 8
   store ptr %incdec.ptr.i.i17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
@@ -4752,9 +4760,9 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i20
 _ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm11EJSH_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i: ; preds = %.noexc3.i, %if.else.i20
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %call5.i.i.i.i.i19, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   store ptr %incdec.ptr.i.i17, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %incdec.ptr.i.i17, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
   store i8 11, ptr %_M_index.i.i.i, align 8
   br label %if.end38
@@ -4767,9 +4775,9 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 if.then22:                                        ; preds = %if.end9
-  %_M_finish.i32 = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i32 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   %28 = load ptr, ptr %_M_finish.i32, align 8
-  %_M_end_of_storage.i33 = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i33 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   %29 = load ptr, ptr %_M_end_of_storage.i33, align 8
   %cmp.not.i34 = icmp eq ptr %28, %29
   br i1 %cmp.not.i34, label %if.else.i37, label %if.then.i35
@@ -5019,8 +5027,8 @@ lpad:                                             ; preds = %if.then5
   br label %eh.resume
 
 if.end9:                                          ; preds = %if.end
-  %second11 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.151", ptr %6, i64 %and.i.i.i.i, i32 0, i32 2
-  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 40
+  %second11 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 8
+  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 48
   %20 = load i8, ptr %_M_index.i.i.i, align 8
   switch i8 %20, label %if.end27 [
     i8 1, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
@@ -5042,8 +5050,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.end9
 
 invoke.cont.i:                                    ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %24 = load ptr, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %call5.i.i.i.i.i.i46, ptr %second11, align 8
   store ptr %incdec.ptr.i.i.i37, ptr %_M_finish.i.i.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i.i.i, align 8
@@ -5072,9 +5080,9 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i
 _ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm10EJSF_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i: ; preds = %.noexc3.i, %if.else.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %call5.i.i.i.i.i.i46, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   store ptr %incdec.ptr.i.i.i37, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %incdec.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
   store i8 10, ptr %_M_index.i.i.i, align 8
   br label %if.end38
@@ -5087,9 +5095,9 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 if.then22:                                        ; preds = %if.end9
-  %_M_finish.i.i57 = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i57 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   %28 = load ptr, ptr %_M_finish.i.i57, align 8
-  %_M_end_of_storage.i.i58 = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i58 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   %29 = load ptr, ptr %_M_end_of_storage.i.i58, align 8
   %cmp.not.i.i59 = icmp eq ptr %28, %29
   br i1 %cmp.not.i.i59, label %if.else.i.i62, label %if.then.i.i60
@@ -5339,8 +5347,8 @@ lpad:                                             ; preds = %if.then5
   br label %eh.resume
 
 if.end9:                                          ; preds = %if.end
-  %second11 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.151", ptr %6, i64 %and.i.i.i.i, i32 0, i32 2
-  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 40
+  %second11 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 8
+  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 48
   %20 = load i8, ptr %_M_index.i.i.i, align 8
   switch i8 %20, label %if.end27 [
     i8 4, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i
@@ -5362,8 +5370,8 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.end9
 
 invoke.cont.i:                                    ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i
   %24 = load ptr, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %call5.i.i.i.i.i19, ptr %second11, align 8
   store ptr %incdec.ptr.i.i17, ptr %_M_finish.i.i.i.i.i, align 8
   store ptr %incdec.ptr.i.i17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
@@ -5392,9 +5400,9 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i20
 _ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm13EJSL_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i: ; preds = %.noexc3.i, %if.else.i20
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %call5.i.i.i.i.i19, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   store ptr %incdec.ptr.i.i17, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %incdec.ptr.i.i17, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
   store i8 13, ptr %_M_index.i.i.i, align 8
   br label %if.end38
@@ -5407,9 +5415,9 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 if.then22:                                        ; preds = %if.end9
-  %_M_finish.i32 = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i32 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   %28 = load ptr, ptr %_M_finish.i32, align 8
-  %_M_end_of_storage.i33 = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i33 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   %29 = load ptr, ptr %_M_end_of_storage.i33, align 8
   %cmp.not.i34 = icmp eq ptr %28, %29
   br i1 %cmp.not.i34, label %if.else.i37, label %if.then.i35
@@ -5659,8 +5667,8 @@ lpad:                                             ; preds = %if.then5
   br label %eh.resume
 
 if.end9:                                          ; preds = %if.end
-  %second11 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.151", ptr %6, i64 %and.i.i.i.i, i32 0, i32 2
-  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 40
+  %second11 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 8
+  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 48
   %20 = load i8, ptr %_M_index.i.i.i, align 8
   switch i8 %20, label %if.end27 [
     i8 3, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i
@@ -5682,8 +5690,8 @@ _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.end9
 
 invoke.cont.i:                                    ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i
   %24 = load ptr, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %call5.i.i.i.i.i.i46, ptr %second11, align 8
   store ptr %incdec.ptr.i.i.i37, ptr %_M_finish.i.i.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i.i.i, align 8
@@ -5712,9 +5720,9 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i
 _ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm12EJSJ_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i: ; preds = %.noexc3.i, %if.else.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %call5.i.i.i.i.i.i46, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   store ptr %incdec.ptr.i.i.i37, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %incdec.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
   store i8 12, ptr %_M_index.i.i.i, align 8
   br label %if.end38
@@ -5727,9 +5735,9 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 if.then22:                                        ; preds = %if.end9
-  %_M_finish.i.i57 = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i57 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   %28 = load ptr, ptr %_M_finish.i.i57, align 8
-  %_M_end_of_storage.i.i58 = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i58 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   %29 = load ptr, ptr %_M_end_of_storage.i.i58, align 8
   %cmp.not.i.i59 = icmp eq ptr %28, %29
   br i1 %cmp.not.i.i59, label %if.else.i.i62, label %if.then.i.i60
@@ -5979,8 +5987,8 @@ lpad:                                             ; preds = %if.then5
   br label %eh.resume
 
 if.end9:                                          ; preds = %if.end
-  %second11 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.151", ptr %6, i64 %and.i.i.i.i, i32 0, i32 2
-  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 40
+  %second11 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 8
+  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 48
   %20 = load i8, ptr %_M_index.i.i.i, align 8
   switch i8 %20, label %if.end27 [
     i8 6, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i
@@ -6002,8 +6010,8 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.end9
 
 invoke.cont.i:                                    ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i
   %24 = load ptr, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %call5.i.i.i.i.i.i46, ptr %second11, align 8
   store ptr %incdec.ptr.i.i.i37, ptr %_M_finish.i.i.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i.i.i, align 8
@@ -6032,9 +6040,9 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i
 _ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm15EJSP_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i: ; preds = %.noexc3.i, %if.else.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %call5.i.i.i.i.i.i46, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   store ptr %incdec.ptr.i.i.i37, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %incdec.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
   store i8 15, ptr %_M_index.i.i.i, align 8
   br label %if.end38
@@ -6047,9 +6055,9 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 if.then22:                                        ; preds = %if.end9
-  %_M_finish.i.i57 = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i57 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   %28 = load ptr, ptr %_M_finish.i.i57, align 8
-  %_M_end_of_storage.i.i58 = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i58 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   %29 = load ptr, ptr %_M_end_of_storage.i.i58, align 8
   %cmp.not.i.i59 = icmp eq ptr %28, %29
   br i1 %cmp.not.i.i59, label %if.else.i.i62, label %if.then.i.i60
@@ -6299,8 +6307,8 @@ lpad:                                             ; preds = %if.then5
   br label %eh.resume
 
 if.end9:                                          ; preds = %if.end
-  %second11 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.151", ptr %6, i64 %and.i.i.i.i, i32 0, i32 2
-  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 40
+  %second11 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 8
+  %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 48
   %20 = load i8, ptr %_M_index.i.i.i, align 8
   switch i8 %20, label %if.end27 [
     i8 5, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i
@@ -6322,8 +6330,8 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.end9
 
 invoke.cont.i:                                    ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i.i
   %24 = load ptr, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %call5.i.i.i.i.i.i46, ptr %second11, align 8
   store ptr %incdec.ptr.i.i.i37, ptr %_M_finish.i.i.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i.i.i, align 8
@@ -6352,9 +6360,9 @@ if.end.i.i.i.i:                                   ; preds = %if.else.i
 _ZNSt7variantIJN6google8protobuf13json_internal14UntypedMessage4BoolEijlmfdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St6vectorIS4_SaIS4_EESB_IiSaIiEESB_IjSaIjEESB_IlSaIlEESB_ImSaImEESB_IfSaIfEESB_IdSaIdEESB_ISA_SaISA_EESB_IS3_SaIS3_EEEE7emplaceILm14EJSN_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_ijlmfdSA_S3_SD_SF_SH_SJ_SL_SN_SP_SR_ST_EE4typeEDpT0_EERSZ_E4typeEDpOS10_.exit.i: ; preds = %.noexc3.i, %if.else.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %call5.i.i.i.i.i.i46, ptr %second11, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   store ptr %incdec.ptr.i.i.i37, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   store ptr %incdec.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
   store i8 14, ptr %_M_index.i.i.i, align 8
   br label %if.end38
@@ -6367,9 +6375,9 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 if.then22:                                        ; preds = %if.end9
-  %_M_finish.i.i57 = getelementptr inbounds nuw i8, ptr %second11, i64 8
+  %_M_finish.i.i57 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 16
   %28 = load ptr, ptr %_M_finish.i.i57, align 8
-  %_M_end_of_storage.i.i58 = getelementptr inbounds nuw i8, ptr %second11, i64 16
+  %_M_end_of_storage.i.i58 = getelementptr inbounds nuw i8, ptr %add.ptr21.i.i.i, i64 24
   %29 = load ptr, ptr %_M_end_of_storage.i.i58, align 8
   %cmp.not.i.i59 = icmp eq ptr %28, %29
   br i1 %cmp.not.i.i59, label %if.else.i.i62, label %if.then.i.i60

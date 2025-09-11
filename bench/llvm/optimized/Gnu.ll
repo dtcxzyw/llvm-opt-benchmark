@@ -8808,7 +8808,7 @@ _ZNK4llvm3opt7ArgList10AddLastArgIJN5clang6driver7options2IDEEEEvRNS_11SmallVect
   %671 = load ptr, ptr %630, align 8, !tbaa !84, !noalias !407
   %672 = getelementptr inbounds nuw ptr, ptr %671, i64 %.sroa.4.0.extract.shift.i.i
   %673 = and i64 %670, 4294967295
-  %674 = getelementptr inbounds nuw ptr, ptr %671, i64 %673
+  %674 = getelementptr ptr, ptr %671, i64 %673
   %.not2428.i.i.i.i = icmp samesign eq i64 %.sroa.4.0.extract.shift.i.i, %673
   br i1 %.not2428.i.i.i.i, label %_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 

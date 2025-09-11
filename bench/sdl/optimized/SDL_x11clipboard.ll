@@ -34,7 +34,7 @@ define hidden i64 @GetWindow(ptr noundef readonly captures(none) %0) local_unnam
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %24
+  br i1 %7, label %8, label %25
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %4, align 8
@@ -43,24 +43,25 @@ define hidden i64 @GetWindow(ptr noundef readonly captures(none) %0) local_unnam
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.Screen, ptr %11, i64 %14, i32 2
-  %16 = load i64, ptr %15, align 8
+  %15 = getelementptr inbounds %struct.Screen, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load i64, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %17 = load ptr, ptr @X11_XCreateWindow, align 8
-  %18 = call i64 %17(ptr noundef %9, i64 noundef %16, i32 noundef -10, i32 noundef -10, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %2) #6
-  store i64 %18, ptr %5, align 8
-  %19 = load ptr, ptr @X11_XSelectInput, align 8
-  %20 = call i32 %19(ptr noundef %9, i64 noundef %18, i64 noundef 4194304) #6
-  %21 = load ptr, ptr @X11_XFlush, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = call i32 %21(ptr noundef %22) #6
+  %18 = load ptr, ptr @X11_XCreateWindow, align 8
+  %19 = call i64 %18(ptr noundef %9, i64 noundef %17, i32 noundef -10, i32 noundef -10, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %2) #6
+  store i64 %19, ptr %5, align 8
+  %20 = load ptr, ptr @X11_XSelectInput, align 8
+  %21 = call i32 %20(ptr noundef %9, i64 noundef %19, i64 noundef 4194304) #6
+  %22 = load ptr, ptr @X11_XFlush, align 8
+  %23 = load ptr, ptr %4, align 8
+  %24 = call i32 %22(ptr noundef %23) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i64, ptr %5, align 8
-  br label %24
+  br label %25
 
-24:                                               ; preds = %8, %1
-  %25 = phi i64 [ %.pre, %8 ], [ %6, %1 ]
-  ret i64 %25
+25:                                               ; preds = %8, %1
+  %26 = phi i64 [ %.pre, %8 ], [ %6, %1 ]
+  ret i64 %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -104,64 +105,65 @@ GetWindow.exit:                                   ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.Screen, ptr %13, i64 %16, i32 2
-  %18 = load i64, ptr %17, align 8
+  %17 = getelementptr inbounds %struct.Screen, ptr %13, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load i64, ptr %18, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %19 = load ptr, ptr @X11_XCreateWindow, align 8
-  %20 = call i64 %19(ptr noundef %8, i64 noundef %18, i32 noundef -10, i32 noundef -10, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7) #6
-  store i64 %20, ptr %9, align 8
-  %21 = load ptr, ptr @X11_XSelectInput, align 8
-  %22 = call i32 %21(ptr noundef %8, i64 noundef %20, i64 noundef 4194304) #6
-  %23 = load ptr, ptr @X11_XFlush, align 8
-  %24 = load ptr, ptr %.1656.val, align 8
-  %25 = call i32 %23(ptr noundef %24) #6
+  %20 = load ptr, ptr @X11_XCreateWindow, align 8
+  %21 = call i64 %20(ptr noundef %8, i64 noundef %19, i32 noundef -10, i32 noundef -10, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7) #6
+  store i64 %21, ptr %9, align 8
+  %22 = load ptr, ptr @X11_XSelectInput, align 8
+  %23 = call i32 %22(ptr noundef %8, i64 noundef %21, i64 noundef 4194304) #6
+  %24 = load ptr, ptr @X11_XFlush, align 8
+  %25 = load ptr, ptr %.1656.val, align 8
+  %26 = call i32 %24(ptr noundef %25) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre.i = load i64, ptr %9, align 8
-  %26 = icmp eq i64 %.pre.i, 0
-  br i1 %26, label %27, label %GetWindow.exit.thread
+  %27 = icmp eq i64 %.pre.i, 0
+  br i1 %27, label %28, label %GetWindow.exit.thread
 
-27:                                               ; preds = %GetWindow.exit
-  %28 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6) #6
-  br label %48
+28:                                               ; preds = %GetWindow.exit
+  %29 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6) #6
+  br label %49
 
 GetWindow.exit.thread:                            ; preds = %6, %GetWindow.exit
-  %29 = phi i64 [ %.pre.i, %GetWindow.exit ], [ %10, %6 ]
-  %30 = icmp eq i64 %0, 1
-  %.0.v = select i1 %30, i64 120, i64 80
+  %30 = phi i64 [ %.pre.i, %GetWindow.exit ], [ %10, %6 ]
+  %31 = icmp eq i64 %0, 1
+  %.0.v = select i1 %31, i64 120, i64 80
   %.0 = getelementptr inbounds nuw i8, ptr %.1656.val, i64 %.0.v
-  %31 = load ptr, ptr @X11_XGetSelectionOwner, align 8
-  %32 = call i64 %31(ptr noundef %8, i64 noundef %0) #6
-  %33 = icmp eq i64 %32, %29
-  br i1 %33, label %34, label %41
+  %32 = load ptr, ptr @X11_XGetSelectionOwner, align 8
+  %33 = call i64 %32(ptr noundef %8, i64 noundef %0) #6
+  %34 = icmp eq i64 %33, %30
+  br i1 %34, label %35, label %42
 
-34:                                               ; preds = %GetWindow.exit.thread
-  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %41
+35:                                               ; preds = %GetWindow.exit.thread
+  %36 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %40 = load ptr, ptr %39, align 8
-  call void @SDL_free_REAL(ptr noundef %40) #6
-  br label %41
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  call void @SDL_free_REAL(ptr noundef %41) #6
+  br label %42
 
-41:                                               ; preds = %38, %34, %GetWindow.exit.thread
+42:                                               ; preds = %39, %35, %GetWindow.exit.thread
   store ptr %1, ptr %.0, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store ptr %2, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store ptr %3, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store i64 %4, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  store i32 %5, ptr %45, align 8
-  %46 = load ptr, ptr @X11_XSetSelectionOwner, align 8
-  %47 = call i32 %46(ptr noundef %8, i64 noundef %0, i64 noundef %29, i64 noundef 0) #6
-  br label %48
+  %43 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store ptr %2, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  store ptr %3, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  store i64 %4, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  store i32 %5, ptr %46, align 8
+  %47 = load ptr, ptr @X11_XSetSelectionOwner, align 8
+  %48 = call i32 %47(ptr noundef %8, i64 noundef %0, i64 noundef %30, i64 noundef 0) #6
+  br label %49
 
-48:                                               ; preds = %41, %27
-  %.026 = phi i1 [ %28, %27 ], [ true, %41 ]
+49:                                               ; preds = %42, %28
+  %.026 = phi i1 [ %29, %28 ], [ true, %42 ]
   ret i1 %.026
 }
 
@@ -208,247 +210,248 @@ define internal fastcc ptr @GetSelectionData(ptr noundef readonly captures(none)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.Screen, ptr %23, i64 %26, i32 2
-  %28 = load i64, ptr %27, align 8
+  %27 = getelementptr inbounds %struct.Screen, ptr %23, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load i64, ptr %28, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %29 = load ptr, ptr @X11_XCreateWindow, align 8
-  %30 = call i64 %29(ptr noundef %21, i64 noundef %28, i32 noundef -10, i32 noundef -10, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5) #6
-  store i64 %30, ptr %17, align 8
-  %31 = load ptr, ptr @X11_XSelectInput, align 8
-  %32 = call i32 %31(ptr noundef %21, i64 noundef %30, i64 noundef 4194304) #6
-  %33 = load ptr, ptr @X11_XFlush, align 8
-  %34 = load ptr, ptr %16, align 8
-  %35 = call i32 %33(ptr noundef %34) #6
+  %30 = load ptr, ptr @X11_XCreateWindow, align 8
+  %31 = call i64 %30(ptr noundef %21, i64 noundef %29, i32 noundef -10, i32 noundef -10, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5) #6
+  store i64 %31, ptr %17, align 8
+  %32 = load ptr, ptr @X11_XSelectInput, align 8
+  %33 = call i32 %32(ptr noundef %21, i64 noundef %31, i64 noundef 4194304) #6
+  %34 = load ptr, ptr @X11_XFlush, align 8
+  %35 = load ptr, ptr %16, align 8
+  %36 = call i32 %34(ptr noundef %35) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre.i = load i64, ptr %17, align 8
   br label %GetWindow.exit
 
 GetWindow.exit:                                   ; preds = %4, %20
-  %36 = phi i64 [ %.pre.i, %20 ], [ %18, %4 ]
-  %37 = load ptr, ptr @X11_XGetSelectionOwner, align 8
-  %38 = call i64 %37(ptr noundef %13, i64 noundef %1) #6
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %CloneDataBuffer.exit, label %40
+  %37 = phi i64 [ %.pre.i, %20 ], [ %18, %4 ]
+  %38 = load ptr, ptr @X11_XGetSelectionOwner, align 8
+  %39 = call i64 %38(ptr noundef %13, i64 noundef %1) #6
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %CloneDataBuffer.exit, label %41
 
-40:                                               ; preds = %GetWindow.exit
-  %41 = icmp eq i64 %38, %36
-  br i1 %41, label %42, label %57
+41:                                               ; preds = %GetWindow.exit
+  %42 = icmp eq i64 %39, %37
+  br i1 %42, label %43, label %58
 
-42:                                               ; preds = %40
-  %43 = icmp eq i64 %1, 1
-  %.0.v = select i1 %43, i64 120, i64 80
+43:                                               ; preds = %41
+  %44 = icmp eq i64 %1, 1
+  %.0.v = select i1 %44, i64 120, i64 80
   %.0 = getelementptr inbounds nuw i8, ptr %12, i64 %.0.v
-  %44 = load ptr, ptr %.0, align 8
-  %.not70 = icmp eq ptr %44, null
-  br i1 %.not70, label %CloneDataBuffer.exit, label %45
+  %45 = load ptr, ptr %.0, align 8
+  %.not70 = icmp eq ptr %45, null
+  br i1 %.not70, label %CloneDataBuffer.exit, label %46
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = call ptr %44(ptr noundef %47, ptr noundef %2, ptr noundef nonnull %3) #6
-  %49 = load i64, ptr %3, align 8
-  %50 = icmp ne i64 %49, 0
-  %51 = icmp ne ptr %48, null
-  %or.cond.i = and i1 %51, %50
-  br i1 %or.cond.i, label %52, label %CloneDataBuffer.exit
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = call ptr %45(ptr noundef %48, ptr noundef %2, ptr noundef nonnull %3) #6
+  %50 = load i64, ptr %3, align 8
+  %51 = icmp ne i64 %50, 0
+  %52 = icmp ne ptr %49, null
+  %or.cond.i = and i1 %52, %51
+  br i1 %or.cond.i, label %53, label %CloneDataBuffer.exit
 
-52:                                               ; preds = %45
-  %53 = add i64 %49, 4
-  %54 = call noalias ptr @SDL_malloc_REAL(i64 noundef %53) #6
-  %.not.i = icmp eq ptr %54, null
-  br i1 %.not.i, label %CloneDataBuffer.exit, label %55
+53:                                               ; preds = %46
+  %54 = add i64 %50, 4
+  %55 = call noalias ptr @SDL_malloc_REAL(i64 noundef %54) #6
+  %.not.i = icmp eq ptr %55, null
+  br i1 %.not.i, label %CloneDataBuffer.exit, label %56
 
-55:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %48, i64 %49, i1 false)
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %49
-  store i32 0, ptr %56, align 1
+56:                                               ; preds = %53
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull readonly align 1 %49, i64 %50, i1 false)
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %50
+  store i32 0, ptr %57, align 1
   br label %CloneDataBuffer.exit
 
-57:                                               ; preds = %40
-  %58 = getelementptr inbounds nuw i8, ptr %12, i64 456
-  %59 = load i64, ptr %58, align 8
-  %60 = load ptr, ptr @X11_XConvertSelection, align 8
-  %61 = call i32 %60(ptr noundef %13, i64 noundef %1, i64 noundef %15, i64 noundef %59, i64 noundef %36, i64 noundef 0) #6
-  %62 = getelementptr inbounds nuw i8, ptr %12, i64 1640
-  %63 = call i64 @SDL_GetTicks_REAL() #6
-  store i8 1, ptr %62, align 8
-  br label %64
+58:                                               ; preds = %41
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 456
+  %60 = load i64, ptr %59, align 8
+  %61 = load ptr, ptr @X11_XConvertSelection, align 8
+  %62 = call i32 %61(ptr noundef %13, i64 noundef %1, i64 noundef %15, i64 noundef %60, i64 noundef %37, i64 noundef 0) #6
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 1640
+  %64 = call i64 @SDL_GetTicks_REAL() #6
+  store i8 1, ptr %63, align 8
+  br label %65
 
-64:                                               ; preds = %67, %57
-  %65 = load i8, ptr %62, align 1, !range !3, !noundef !4
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %67, label %WaitForSelection.exit.thread
+65:                                               ; preds = %68, %58
+  %66 = load i8, ptr %63, align 1, !range !3, !noundef !4
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %68, label %WaitForSelection.exit.thread
 
-67:                                               ; preds = %64
+68:                                               ; preds = %65
   call void @SDL_PumpEvents_REAL() #6
-  %68 = call i64 @SDL_GetTicks_REAL() #6
-  %69 = sub i64 %68, %63
-  %70 = icmp ugt i64 %69, 1000
-  br i1 %70, label %71, label %64, !llvm.loop !5
+  %69 = call i64 @SDL_GetTicks_REAL() #6
+  %70 = sub i64 %69, %64
+  %71 = icmp ugt i64 %70, 1000
+  br i1 %71, label %72, label %65, !llvm.loop !5
 
-71:                                               ; preds = %67
-  store i8 0, ptr %62, align 1
-  %72 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #6
+72:                                               ; preds = %68
+  store i8 0, ptr %63, align 1
+  %73 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #6
   %.val.i = load ptr, ptr %11, align 8
-  %73 = call fastcc zeroext i1 @SetSelectionData(ptr %.val.i, i64 noundef %1, ptr noundef nonnull @SDL_ClipboardTextCallback, ptr noundef null, ptr noundef nonnull @text_mime_types, i64 noundef 5, i32 noundef 0)
+  %74 = call fastcc zeroext i1 @SetSelectionData(ptr %.val.i, i64 noundef %1, ptr noundef nonnull @SDL_ClipboardTextCallback, ptr noundef null, ptr noundef nonnull @text_mime_types, i64 noundef 5, i32 noundef 0)
   store i64 0, ptr %3, align 8
   br label %WaitForSelection.exit.thread
 
-WaitForSelection.exit.thread:                     ; preds = %64, %71
-  %74 = load ptr, ptr @X11_XGetWindowProperty, align 8
-  %75 = call i32 %74(ptr noundef %13, i64 noundef %36, i64 noundef %59, i64 noundef 0, i64 noundef 536870911, i32 noundef 0, i64 noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %CloneDataBuffer.exit
+WaitForSelection.exit.thread:                     ; preds = %65, %72
+  %75 = load ptr, ptr @X11_XGetWindowProperty, align 8
+  %76 = call i32 %75(ptr noundef %13, i64 noundef %37, i64 noundef %60, i64 noundef 0, i64 noundef 536870911, i32 noundef 0, i64 noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %CloneDataBuffer.exit
 
-77:                                               ; preds = %WaitForSelection.exit.thread
-  %78 = load i64, ptr %6, align 8
-  %79 = icmp eq i64 %78, %15
-  br i1 %79, label %80, label %90
+78:                                               ; preds = %WaitForSelection.exit.thread
+  %79 = load i64, ptr %6, align 8
+  %80 = icmp eq i64 %79, %15
+  br i1 %80, label %81, label %91
 
-80:                                               ; preds = %77
-  %81 = load i64, ptr %8, align 8
-  store i64 %81, ptr %3, align 8
-  %82 = load ptr, ptr %10, align 8
-  %83 = icmp ne i64 %81, 0
-  %84 = icmp ne ptr %82, null
-  %or.cond.i72 = and i1 %83, %84
-  br i1 %or.cond.i72, label %85, label %CloneDataBuffer.exit75
+81:                                               ; preds = %78
+  %82 = load i64, ptr %8, align 8
+  store i64 %82, ptr %3, align 8
+  %83 = load ptr, ptr %10, align 8
+  %84 = icmp ne i64 %82, 0
+  %85 = icmp ne ptr %83, null
+  %or.cond.i72 = and i1 %84, %85
+  br i1 %or.cond.i72, label %86, label %CloneDataBuffer.exit75
 
-85:                                               ; preds = %80
-  %86 = add i64 %81, 4
-  %87 = call noalias ptr @SDL_malloc_REAL(i64 noundef %86) #6
-  %.not.i74 = icmp eq ptr %87, null
-  br i1 %.not.i74, label %CloneDataBuffer.exit75, label %88
+86:                                               ; preds = %81
+  %87 = add i64 %82, 4
+  %88 = call noalias ptr @SDL_malloc_REAL(i64 noundef %87) #6
+  %.not.i74 = icmp eq ptr %88, null
+  br i1 %.not.i74, label %CloneDataBuffer.exit75, label %89
 
-88:                                               ; preds = %85
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull readonly align 1 %82, i64 %81, i1 false)
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 %81
-  store i32 0, ptr %89, align 1
+89:                                               ; preds = %86
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull readonly align 1 %83, i64 %82, i1 false)
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 %82
+  store i32 0, ptr %90, align 1
   br label %CloneDataBuffer.exit75
 
-90:                                               ; preds = %77
-  %91 = getelementptr inbounds nuw i8, ptr %12, i64 448
-  %92 = load i64, ptr %91, align 8
-  %93 = icmp eq i64 %78, %92
-  br i1 %93, label %.preheader, label %CloneDataBuffer.exit75
+91:                                               ; preds = %78
+  %92 = getelementptr inbounds nuw i8, ptr %12, i64 448
+  %93 = load i64, ptr %92, align 8
+  %94 = icmp eq i64 %79, %93
+  br i1 %94, label %.preheader, label %CloneDataBuffer.exit75
 
-.preheader:                                       ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %12, i64 1641
-  br label %95
+.preheader:                                       ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %12, i64 1641
+  br label %96
 
-95:                                               ; preds = %.preheader, %CloneDataBuffer.exit82
+96:                                               ; preds = %.preheader, %CloneDataBuffer.exit82
   %.3 = phi ptr [ %.5, %CloneDataBuffer.exit82 ], [ null, %.preheader ]
-  %96 = load ptr, ptr @X11_XDeleteProperty, align 8
-  %97 = call i32 %96(ptr noundef %13, i64 noundef %36, i64 noundef %59) #6
-  %98 = load ptr, ptr @X11_XFlush, align 8
-  %99 = call i32 %98(ptr noundef %13) #6
-  %100 = call i64 @SDL_GetTicks_REAL() #6
-  store i8 1, ptr %94, align 1
-  br label %101
+  %97 = load ptr, ptr @X11_XDeleteProperty, align 8
+  %98 = call i32 %97(ptr noundef %13, i64 noundef %37, i64 noundef %60) #6
+  %99 = load ptr, ptr @X11_XFlush, align 8
+  %100 = call i32 %99(ptr noundef %13) #6
+  %101 = call i64 @SDL_GetTicks_REAL() #6
+  store i8 1, ptr %95, align 1
+  br label %102
 
-101:                                              ; preds = %104, %95
-  %102 = load i8, ptr %94, align 1, !range !3, !noundef !4
-  %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %104, label %110
+102:                                              ; preds = %105, %96
+  %103 = load i8, ptr %95, align 1, !range !3, !noundef !4
+  %104 = trunc nuw i8 %103 to i1
+  br i1 %104, label %105, label %111
 
-104:                                              ; preds = %101
+105:                                              ; preds = %102
   call void @SDL_PumpEvents_REAL() #6
-  %105 = call i64 @SDL_GetTicks_REAL() #6
-  %106 = sub i64 %105, %100
-  %107 = icmp ugt i64 %106, 1000
-  br i1 %107, label %WaitForSelection.exit78, label %101, !llvm.loop !5
+  %106 = call i64 @SDL_GetTicks_REAL() #6
+  %107 = sub i64 %106, %101
+  %108 = icmp ugt i64 %107, 1000
+  br i1 %108, label %WaitForSelection.exit78, label %102, !llvm.loop !5
 
-WaitForSelection.exit78:                          ; preds = %104
-  store i8 0, ptr %94, align 1
-  %108 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #6
+WaitForSelection.exit78:                          ; preds = %105
+  store i8 0, ptr %95, align 1
+  %109 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #6
   %.val.i77 = load ptr, ptr %11, align 8
-  %109 = call fastcc zeroext i1 @SetSelectionData(ptr %.val.i77, i64 noundef %1, ptr noundef nonnull @SDL_ClipboardTextCallback, ptr noundef null, ptr noundef nonnull @text_mime_types, i64 noundef 5, i32 noundef 0)
+  %110 = call fastcc zeroext i1 @SetSelectionData(ptr %.val.i77, i64 noundef %1, ptr noundef nonnull @SDL_ClipboardTextCallback, ptr noundef null, ptr noundef nonnull @text_mime_types, i64 noundef 5, i32 noundef 0)
   br label %CloneDataBuffer.exit82.thread
 
-110:                                              ; preds = %101
-  %111 = load ptr, ptr @X11_XFree, align 8
-  %112 = load ptr, ptr %10, align 8
-  %113 = call i32 %111(ptr noundef %112) #6
-  %114 = load ptr, ptr @X11_XGetWindowProperty, align 8
-  %115 = call i32 %114(ptr noundef %13, i64 noundef %36, i64 noundef %59, i64 noundef 0, i64 noundef 536870911, i32 noundef 0, i64 noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
-  %.not = icmp eq i32 %115, 0
-  br i1 %.not, label %116, label %CloneDataBuffer.exit82.thread
+111:                                              ; preds = %102
+  %112 = load ptr, ptr @X11_XFree, align 8
+  %113 = load ptr, ptr %10, align 8
+  %114 = call i32 %112(ptr noundef %113) #6
+  %115 = load ptr, ptr @X11_XGetWindowProperty, align 8
+  %116 = call i32 %115(ptr noundef %13, i64 noundef %37, i64 noundef %60, i64 noundef 0, i64 noundef 536870911, i32 noundef 0, i64 noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
+  %.not = icmp eq i32 %116, 0
+  br i1 %.not, label %117, label %CloneDataBuffer.exit82.thread
 
-116:                                              ; preds = %110
-  %117 = load i64, ptr %8, align 8
-  %118 = icmp eq i64 %117, 0
-  br i1 %118, label %CloneDataBuffer.exit75, label %119
+117:                                              ; preds = %111
+  %118 = load i64, ptr %8, align 8
+  %119 = icmp eq i64 %118, 0
+  br i1 %119, label %CloneDataBuffer.exit75, label %120
 
-119:                                              ; preds = %116
-  %120 = load i64, ptr %3, align 8
-  %121 = icmp eq i64 %120, 0
-  br i1 %121, label %122, label %129
+120:                                              ; preds = %117
+  %121 = load i64, ptr %3, align 8
+  %122 = icmp eq i64 %121, 0
+  br i1 %122, label %123, label %130
 
-122:                                              ; preds = %119
-  store i64 %117, ptr %3, align 8
-  %123 = load ptr, ptr %10, align 8
-  %.not90 = icmp eq ptr %123, null
-  br i1 %.not90, label %CloneDataBuffer.exit82.thread, label %124
+123:                                              ; preds = %120
+  store i64 %118, ptr %3, align 8
+  %124 = load ptr, ptr %10, align 8
+  %.not90 = icmp eq ptr %124, null
+  br i1 %.not90, label %CloneDataBuffer.exit82.thread, label %125
 
-124:                                              ; preds = %122
-  %125 = add i64 %117, 4
-  %126 = call noalias ptr @SDL_malloc_REAL(i64 noundef %125) #6
-  %.not.i81 = icmp eq ptr %126, null
-  br i1 %.not.i81, label %CloneDataBuffer.exit82.thread, label %127
+125:                                              ; preds = %123
+  %126 = add i64 %118, 4
+  %127 = call noalias ptr @SDL_malloc_REAL(i64 noundef %126) #6
+  %.not.i81 = icmp eq ptr %127, null
+  br i1 %.not.i81, label %CloneDataBuffer.exit82.thread, label %128
 
-127:                                              ; preds = %124
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %126, ptr nonnull readonly align 1 %123, i64 %117, i1 false)
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 %117
-  store i32 0, ptr %128, align 1
+128:                                              ; preds = %125
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr nonnull readonly align 1 %124, i64 %118, i1 false)
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 %118
+  store i32 0, ptr %129, align 1
   br label %CloneDataBuffer.exit82
 
-129:                                              ; preds = %119
-  %130 = load ptr, ptr %10, align 8
-  %.not.i83 = icmp eq ptr %130, null
-  br i1 %.not.i83, label %AppendDataBuffer.exit, label %131
+130:                                              ; preds = %120
+  %131 = load ptr, ptr %10, align 8
+  %.not.i83 = icmp eq ptr %131, null
+  br i1 %.not.i83, label %AppendDataBuffer.exit, label %132
 
-131:                                              ; preds = %129
-  %132 = add i64 %117, 4
-  %133 = add i64 %132, %120
-  %134 = call ptr @SDL_realloc_REAL(ptr noundef %.3, i64 noundef %133) #7
-  %.not19.i = icmp eq ptr %134, null
-  br i1 %.not19.i, label %AppendDataBuffer.exit, label %135
+132:                                              ; preds = %130
+  %133 = add i64 %118, 4
+  %134 = add i64 %133, %121
+  %135 = call ptr @SDL_realloc_REAL(ptr noundef %.3, i64 noundef %134) #7
+  %.not19.i = icmp eq ptr %135, null
+  br i1 %.not19.i, label %AppendDataBuffer.exit, label %136
 
-135:                                              ; preds = %131
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %136, ptr noundef nonnull readonly align 1 dereferenceable(1) %130, i64 range(i64 1, 0) %117, i1 false)
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %117
-  store i32 0, ptr %137, align 1
+136:                                              ; preds = %132
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %137, ptr noundef nonnull readonly align 1 dereferenceable(1) %131, i64 range(i64 1, 0) %118, i1 false)
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %118
+  store i32 0, ptr %138, align 1
   br label %AppendDataBuffer.exit
 
-AppendDataBuffer.exit:                            ; preds = %129, %131, %135
-  %.0.i84 = phi ptr [ %134, %135 ], [ null, %131 ], [ %.3, %129 ]
-  %138 = load i64, ptr %8, align 8
-  %139 = load i64, ptr %3, align 8
-  %140 = add i64 %139, %138
-  store i64 %140, ptr %3, align 8
+AppendDataBuffer.exit:                            ; preds = %130, %132, %136
+  %.0.i84 = phi ptr [ %135, %136 ], [ null, %132 ], [ %.3, %130 ]
+  %139 = load i64, ptr %8, align 8
+  %140 = load i64, ptr %3, align 8
+  %141 = add i64 %140, %139
+  store i64 %141, ptr %3, align 8
   br label %CloneDataBuffer.exit82
 
-CloneDataBuffer.exit82:                           ; preds = %127, %AppendDataBuffer.exit
-  %.5 = phi ptr [ %.0.i84, %AppendDataBuffer.exit ], [ %126, %127 ]
-  %141 = icmp eq ptr %.5, null
-  br i1 %141, label %CloneDataBuffer.exit82.thread, label %95
+CloneDataBuffer.exit82:                           ; preds = %128, %AppendDataBuffer.exit
+  %.5 = phi ptr [ %.0.i84, %AppendDataBuffer.exit ], [ %127, %128 ]
+  %142 = icmp eq ptr %.5, null
+  br i1 %142, label %CloneDataBuffer.exit82.thread, label %96
 
-CloneDataBuffer.exit82.thread:                    ; preds = %122, %124, %110, %CloneDataBuffer.exit82, %WaitForSelection.exit78
-  %.4.ph = phi ptr [ %.3, %WaitForSelection.exit78 ], [ null, %122 ], [ null, %124 ], [ %.3, %110 ], [ null, %CloneDataBuffer.exit82 ]
+CloneDataBuffer.exit82.thread:                    ; preds = %123, %125, %111, %CloneDataBuffer.exit82, %WaitForSelection.exit78
+  %.4.ph = phi ptr [ %.3, %WaitForSelection.exit78 ], [ null, %123 ], [ null, %125 ], [ %.3, %111 ], [ null, %CloneDataBuffer.exit82 ]
   call void @SDL_free_REAL(ptr noundef %.4.ph) #6
   store i64 0, ptr %3, align 8
   br label %CloneDataBuffer.exit75
 
-CloneDataBuffer.exit75:                           ; preds = %116, %88, %85, %80, %90, %CloneDataBuffer.exit82.thread
-  %.2 = phi ptr [ null, %CloneDataBuffer.exit82.thread ], [ null, %90 ], [ %87, %88 ], [ null, %85 ], [ null, %80 ], [ %.3, %116 ]
-  %142 = load ptr, ptr @X11_XFree, align 8
-  %143 = load ptr, ptr %10, align 8
-  %144 = call i32 %142(ptr noundef %143) #6
+CloneDataBuffer.exit75:                           ; preds = %117, %89, %86, %81, %91, %CloneDataBuffer.exit82.thread
+  %.2 = phi ptr [ null, %CloneDataBuffer.exit82.thread ], [ null, %91 ], [ %88, %89 ], [ null, %86 ], [ null, %81 ], [ %.3, %117 ]
+  %143 = load ptr, ptr @X11_XFree, align 8
+  %144 = load ptr, ptr %10, align 8
+  %145 = call i32 %143(ptr noundef %144) #6
   br label %CloneDataBuffer.exit
 
-CloneDataBuffer.exit:                             ; preds = %55, %52, %45, %GetWindow.exit, %42, %CloneDataBuffer.exit75, %WaitForSelection.exit.thread
-  %.062 = phi ptr [ null, %42 ], [ %.2, %CloneDataBuffer.exit75 ], [ null, %WaitForSelection.exit.thread ], [ null, %GetWindow.exit ], [ %54, %55 ], [ null, %52 ], [ null, %45 ]
+CloneDataBuffer.exit:                             ; preds = %56, %53, %46, %GetWindow.exit, %43, %CloneDataBuffer.exit75, %WaitForSelection.exit.thread
+  %.062 = phi ptr [ null, %43 ], [ %.2, %CloneDataBuffer.exit75 ], [ null, %WaitForSelection.exit.thread ], [ null, %GetWindow.exit ], [ %55, %56 ], [ null, %53 ], [ null, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

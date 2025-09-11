@@ -4689,7 +4689,7 @@ _ZNSt6vectorIN6Assimp11ObjExporter4FaceESaIS2_EE6resizeEm.exit: ; preds = %143, 
   ret void
 
 common.resume:                                    ; preds = %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i176, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i188, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %490, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i ], [ %727, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i188 ], [ %863, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i ], [ %985, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i176 ]
+  %common.resume.op = phi { ptr, i32 } [ %490, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i ], [ %727, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i188 ], [ %863, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i ], [ %986, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i176 ]
   resume { ptr, i32 } %common.resume.op
 
 189:                                              ; preds = %.lr.ph215, %._crit_edge
@@ -4701,9 +4701,9 @@ common.resume:                                    ; preds = %_ZNSt8_Rb_treeI10ai
   %194 = load i32, ptr %191, align 8
   %switch.selectcmp = icmp eq i32 %194, 2
   %switch.select = select i1 %switch.selectcmp, i8 108, i8 102
-  %switch.selectcmp440 = icmp eq i32 %194, 1
-  %switch.select441 = select i1 %switch.selectcmp440, i8 112, i8 %switch.select
-  store i8 %switch.select441, ptr %193, align 8
+  %switch.selectcmp442 = icmp eq i32 %194, 1
+  %switch.select443 = select i1 %switch.selectcmp442, i8 112, i8 %switch.select
+  store i8 %switch.select443, ptr %193, align 8
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %196 = load i32, ptr %191, align 8
   %197 = zext i32 %196 to i64
@@ -5986,273 +5986,275 @@ _ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_
 _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit: ; preds = %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE8getIndexERKS2_.exit, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i
   %.sink434 = phi i32 [ %794, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i ], [ %865, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i ], [ 0, %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE8getIndexERKS2_.exit ]
   %867 = load ptr, ptr %195, align 8
-  %868 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::FaceVertex", ptr %867, i64 %indvars.iv, i32 1
-  store i32 %.sink434, ptr %868, align 4
-  %869 = load ptr, ptr %183, align 8
-  %.not72 = icmp eq ptr %869, null
-  br i1 %.not72, label %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit130, label %870
+  %868 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::FaceVertex", ptr %867, i64 %indvars.iv
+  %869 = getelementptr inbounds nuw i8, ptr %868, i64 4
+  store i32 %.sink434, ptr %869, align 4
+  %870 = load ptr, ptr %183, align 8
+  %.not72 = icmp eq ptr %870, null
+  br i1 %.not72, label %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit130, label %871
 
-870:                                              ; preds = %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit
-  %871 = getelementptr inbounds nuw %class.aiVector3t, ptr %869, i64 %224
-  %872 = load ptr, ptr %186, align 8
-  %.not14.i.i.i.i98 = icmp eq ptr %872, null
+871:                                              ; preds = %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit
+  %872 = getelementptr inbounds nuw %class.aiVector3t, ptr %870, i64 %224
+  %873 = load ptr, ptr %186, align 8
+  %.not14.i.i.i.i98 = icmp eq ptr %873, null
   br i1 %.not14.i.i.i.i98, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.thread.i129, label %.lr.ph.i.i.i.i99
 
-_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.thread.i129: ; preds = %870
-  %873 = load i32, ptr %184, align 8
-  %874 = add nsw i32 %873, 1
-  store i32 %874, ptr %184, align 8
+_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.thread.i129: ; preds = %871
+  %874 = load i32, ptr %184, align 8
+  %875 = add nsw i32 %874, 1
+  store i32 %875, ptr %184, align 8
   br label %.critedge.i.i124
 
-.lr.ph.i.i.i.i99:                                 ; preds = %870
-  %875 = load float, ptr %871, align 4
-  %876 = getelementptr inbounds nuw i8, ptr %871, i64 4
-  %877 = load float, ptr %876, align 4
-  %878 = getelementptr inbounds nuw i8, ptr %871, i64 8
-  %879 = load float, ptr %878, align 4
-  br label %880
+.lr.ph.i.i.i.i99:                                 ; preds = %871
+  %876 = load float, ptr %872, align 4
+  %877 = getelementptr inbounds nuw i8, ptr %872, i64 4
+  %878 = load float, ptr %877, align 4
+  %879 = getelementptr inbounds nuw i8, ptr %872, i64 8
+  %880 = load float, ptr %879, align 4
+  br label %881
 
-880:                                              ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103, %.lr.ph.i.i.i.i99
-  %.016.i.i.i.i100 = phi ptr [ %872, %.lr.ph.i.i.i.i99 ], [ %.1.i.i.i.i106, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103 ]
+881:                                              ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103, %.lr.ph.i.i.i.i99
+  %.016.i.i.i.i100 = phi ptr [ %873, %.lr.ph.i.i.i.i99 ], [ %.1.i.i.i.i106, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103 ]
   %.0815.i.i.i.i101 = phi ptr [ %187, %.lr.ph.i.i.i.i99 ], [ %.19.i.i.i.i105, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103 ]
-  %881 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i100, i64 32
-  %882 = load float, ptr %881, align 4
-  %883 = fcmp olt float %882, %875
-  br i1 %883, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128, label %884
+  %882 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i100, i64 32
+  %883 = load float, ptr %882, align 4
+  %884 = fcmp olt float %883, %876
+  br i1 %884, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128, label %885
 
-884:                                              ; preds = %880
-  %885 = fcmp ogt float %882, %875
-  br i1 %885, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103, label %886
+885:                                              ; preds = %881
+  %886 = fcmp ogt float %883, %876
+  br i1 %886, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103, label %887
 
-886:                                              ; preds = %884
-  %887 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i100, i64 36
-  %888 = load float, ptr %887, align 4
-  %889 = fcmp olt float %888, %877
-  br i1 %889, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128, label %890
+887:                                              ; preds = %885
+  %888 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i100, i64 36
+  %889 = load float, ptr %888, align 4
+  %890 = fcmp olt float %889, %878
+  br i1 %890, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128, label %891
 
-890:                                              ; preds = %886
-  %891 = fcmp ogt float %888, %877
-  br i1 %891, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102
+891:                                              ; preds = %887
+  %892 = fcmp ogt float %889, %878
+  br i1 %892, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102: ; preds = %890
-  %892 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i100, i64 40
-  %893 = load float, ptr %892, align 4
-  %894 = fcmp olt float %893, %879
-  br i1 %894, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102: ; preds = %891
+  %893 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i100, i64 40
+  %894 = load float, ptr %893, align 4
+  %895 = fcmp olt float %894, %880
+  br i1 %895, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102, %886, %880
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102, %887, %881
   br label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102, %890, %884
-  %.sink.i.i.i.i104 = phi i64 [ 24, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128 ], [ 16, %890 ], [ 16, %884 ], [ 16, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102 ]
-  %.19.i.i.i.i105 = phi ptr [ %.0815.i.i.i.i101, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128 ], [ %.016.i.i.i.i100, %890 ], [ %.016.i.i.i.i100, %884 ], [ %.016.i.i.i.i100, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102 ]
-  %895 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i100, i64 %.sink.i.i.i.i104
-  %.1.i.i.i.i106 = load ptr, ptr %895, align 8
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102, %891, %885
+  %.sink.i.i.i.i104 = phi i64 [ 24, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128 ], [ 16, %891 ], [ 16, %885 ], [ 16, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102 ]
+  %.19.i.i.i.i105 = phi ptr [ %.0815.i.i.i.i101, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i128 ], [ %.016.i.i.i.i100, %891 ], [ %.016.i.i.i.i100, %885 ], [ %.016.i.i.i.i100, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i102 ]
+  %896 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i100, i64 %.sink.i.i.i.i104
+  %.1.i.i.i.i106 = load ptr, ptr %896, align 8
   %.not.i.i.i.i107 = icmp eq ptr %.1.i.i.i.i106, null
-  br i1 %.not.i.i.i.i107, label %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i108, label %880, !llvm.loop !49
+  br i1 %.not.i.i.i.i107, label %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i108, label %881, !llvm.loop !49
 
 _ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i108: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i103
-  %896 = icmp eq ptr %.19.i.i.i.i105, %187
-  br i1 %896, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110, label %897
+  %897 = icmp eq ptr %.19.i.i.i.i105, %187
+  br i1 %897, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110, label %898
 
-897:                                              ; preds = %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i108
-  %898 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i105, i64 32
-  %899 = load float, ptr %898, align 4
-  %900 = fcmp olt float %875, %899
-  br i1 %900, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110, label %901
+898:                                              ; preds = %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i108
+  %899 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i105, i64 32
+  %900 = load float, ptr %899, align 4
+  %901 = fcmp olt float %876, %900
+  br i1 %901, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110, label %902
 
-901:                                              ; preds = %897
-  %902 = fcmp ogt float %875, %899
-  br i1 %902, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127, label %903
+902:                                              ; preds = %898
+  %903 = fcmp ogt float %876, %900
+  br i1 %903, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127, label %904
 
-903:                                              ; preds = %901
-  %904 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i105, i64 36
-  %905 = load float, ptr %904, align 4
-  %906 = fcmp olt float %877, %905
-  br i1 %906, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110, label %907
+904:                                              ; preds = %902
+  %905 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i105, i64 36
+  %906 = load float, ptr %905, align 4
+  %907 = fcmp olt float %878, %906
+  br i1 %907, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110, label %908
 
-907:                                              ; preds = %903
-  %908 = fcmp ogt float %877, %905
-  br i1 %908, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i109
+908:                                              ; preds = %904
+  %909 = fcmp ogt float %878, %906
+  br i1 %909, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i109
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i109: ; preds = %907
-  %909 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i105, i64 40
-  %910 = load float, ptr %909, align 4
-  %911 = fcmp uge float %879, %910
-  br i1 %911, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i109: ; preds = %908
+  %910 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i105, i64 40
+  %911 = load float, ptr %910, align 4
+  %912 = fcmp uge float %880, %911
+  br i1 %912, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110
 
-_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i109, %907, %901
-  %912 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i105, i64 44
-  %913 = load i32, ptr %912, align 4
+_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i109, %908, %902
+  %913 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i105, i64 44
+  %914 = load i32, ptr %913, align 4
   br label %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit130
 
-_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i109, %903, %897, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i108
-  %914 = load i32, ptr %184, align 8
-  %915 = add nsw i32 %914, 1
-  store i32 %915, ptr %184, align 8
-  %916 = load float, ptr %871, align 4
-  %917 = load float, ptr %876, align 4
-  %918 = load float, ptr %878, align 4
-  br label %919
+_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i109, %904, %898, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i108
+  %915 = load i32, ptr %184, align 8
+  %916 = add nsw i32 %915, 1
+  store i32 %916, ptr %184, align 8
+  %917 = load float, ptr %872, align 4
+  %918 = load float, ptr %877, align 4
+  %919 = load float, ptr %879, align 4
+  br label %920
 
-919:                                              ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110
-  %.016.i.i.i.i.i111 = phi ptr [ %872, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110 ], [ %.1.i.i.i.i.i117, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114 ]
+920:                                              ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110
+  %.016.i.i.i.i.i111 = phi ptr [ %873, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110 ], [ %.1.i.i.i.i.i117, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114 ]
   %.0815.i.i.i.i.i112 = phi ptr [ %187, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.i110 ], [ %.19.i.i.i.i.i116, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114 ]
-  %920 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i111, i64 32
-  %921 = load float, ptr %920, align 4
-  %922 = fcmp olt float %921, %916
-  br i1 %922, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126, label %923
+  %921 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i111, i64 32
+  %922 = load float, ptr %921, align 4
+  %923 = fcmp olt float %922, %917
+  br i1 %923, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126, label %924
 
-923:                                              ; preds = %919
-  %924 = fcmp ogt float %921, %916
-  br i1 %924, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114, label %925
+924:                                              ; preds = %920
+  %925 = fcmp ogt float %922, %917
+  br i1 %925, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114, label %926
 
-925:                                              ; preds = %923
-  %926 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i111, i64 36
-  %927 = load float, ptr %926, align 4
-  %928 = fcmp olt float %927, %917
-  br i1 %928, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126, label %929
+926:                                              ; preds = %924
+  %927 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i111, i64 36
+  %928 = load float, ptr %927, align 4
+  %929 = fcmp olt float %928, %918
+  br i1 %929, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126, label %930
 
-929:                                              ; preds = %925
-  %930 = fcmp ogt float %927, %917
-  br i1 %930, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113
+930:                                              ; preds = %926
+  %931 = fcmp ogt float %928, %918
+  br i1 %931, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113: ; preds = %929
-  %931 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i111, i64 40
-  %932 = load float, ptr %931, align 4
-  %933 = fcmp olt float %932, %918
-  br i1 %933, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113: ; preds = %930
+  %932 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i111, i64 40
+  %933 = load float, ptr %932, align 4
+  %934 = fcmp olt float %933, %919
+  br i1 %934, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113, %925, %919
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113, %926, %920
   br label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113, %929, %923
-  %.sink.i.i.i.i.i115 = phi i64 [ 24, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126 ], [ 16, %929 ], [ 16, %923 ], [ 16, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113 ]
-  %.19.i.i.i.i.i116 = phi ptr [ %.0815.i.i.i.i.i112, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126 ], [ %.016.i.i.i.i.i111, %929 ], [ %.016.i.i.i.i.i111, %923 ], [ %.016.i.i.i.i.i111, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113 ]
-  %934 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i111, i64 %.sink.i.i.i.i.i115
-  %.1.i.i.i.i.i117 = load ptr, ptr %934, align 8
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113, %930, %924
+  %.sink.i.i.i.i.i115 = phi i64 [ 24, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126 ], [ 16, %930 ], [ 16, %924 ], [ 16, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113 ]
+  %.19.i.i.i.i.i116 = phi ptr [ %.0815.i.i.i.i.i112, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread.i.i.i.i.i126 ], [ %.016.i.i.i.i.i111, %930 ], [ %.016.i.i.i.i.i111, %924 ], [ %.016.i.i.i.i.i111, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i113 ]
+  %935 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i111, i64 %.sink.i.i.i.i.i115
+  %.1.i.i.i.i.i117 = load ptr, ptr %935, align 8
   %.not.i.i.i.i.i118 = icmp eq ptr %.1.i.i.i.i.i117, null
-  br i1 %.not.i.i.i.i.i118, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i119, label %919, !llvm.loop !49
+  br i1 %.not.i.i.i.i.i118, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i119, label %920, !llvm.loop !49
 
 _ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i119: ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.thread12.i.i.i.i.i114
-  %935 = icmp eq ptr %.19.i.i.i.i.i116, %187
-  br i1 %935, label %.critedge.i.i124, label %936
+  %936 = icmp eq ptr %.19.i.i.i.i.i116, %187
+  br i1 %936, label %.critedge.i.i124, label %937
 
-936:                                              ; preds = %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i119
-  %937 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i116, i64 32
-  %938 = load float, ptr %937, align 4
-  %939 = fcmp olt float %916, %938
-  br i1 %939, label %.critedge.i.i124, label %940
+937:                                              ; preds = %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i119
+  %938 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i116, i64 32
+  %939 = load float, ptr %938, align 4
+  %940 = fcmp olt float %917, %939
+  br i1 %940, label %.critedge.i.i124, label %941
 
-940:                                              ; preds = %936
-  %941 = fcmp ogt float %916, %938
-  br i1 %941, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121, label %942
+941:                                              ; preds = %937
+  %942 = fcmp ogt float %917, %939
+  br i1 %942, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121, label %943
 
-942:                                              ; preds = %940
-  %943 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i116, i64 36
-  %944 = load float, ptr %943, align 4
-  %945 = fcmp olt float %917, %944
-  br i1 %945, label %.critedge.i.i124, label %946
+943:                                              ; preds = %941
+  %944 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i116, i64 36
+  %945 = load float, ptr %944, align 4
+  %946 = fcmp olt float %918, %945
+  br i1 %946, label %.critedge.i.i124, label %947
 
-946:                                              ; preds = %942
-  %947 = fcmp ogt float %917, %944
-  br i1 %947, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120
+947:                                              ; preds = %943
+  %948 = fcmp ogt float %918, %945
+  br i1 %948, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120: ; preds = %946
-  %948 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i116, i64 40
-  %949 = load float, ptr %948, align 4
-  %950 = fcmp olt float %918, %949
-  br i1 %950, label %.critedge.i.i124, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120: ; preds = %947
+  %949 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i116, i64 40
+  %950 = load float, ptr %949, align 4
+  %951 = fcmp olt float %919, %950
+  br i1 %951, label %.critedge.i.i124, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121
 
-.critedge.i.i124:                                 ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120, %942, %936, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i119, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.thread.i129
-  %951 = phi i32 [ %914, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120 ], [ %914, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i119 ], [ %914, %936 ], [ %914, %942 ], [ %873, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.thread.i129 ]
-  %.08.lcssa.i.i.i11.i.i125 = phi ptr [ %.19.i.i.i.i.i116, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120 ], [ %.19.i.i.i.i.i116, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i119 ], [ %.19.i.i.i.i.i116, %936 ], [ %.19.i.i.i.i.i116, %942 ], [ %187, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.thread.i129 ]
-  %952 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
-  %953 = getelementptr inbounds nuw i8, ptr %952, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %953, ptr noundef nonnull align 4 dereferenceable(12) %871, i64 12, i1 false)
-  %954 = getelementptr inbounds nuw i8, ptr %952, i64 44
-  store i32 0, ptr %954, align 4
-  %955 = invoke { ptr, ptr } @_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %185, ptr %.08.lcssa.i.i.i11.i.i125, ptr noundef nonnull align 4 dereferenceable(12) %953)
-          to label %956 unwind label %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i176
+.critedge.i.i124:                                 ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120, %943, %937, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i119, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.thread.i129
+  %952 = phi i32 [ %915, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120 ], [ %915, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i119 ], [ %915, %937 ], [ %915, %943 ], [ %874, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.thread.i129 ]
+  %.08.lcssa.i.i.i11.i.i125 = phi ptr [ %.19.i.i.i.i.i116, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120 ], [ %.19.i.i.i.i.i116, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i119 ], [ %.19.i.i.i.i.i116, %937 ], [ %.19.i.i.i.i.i116, %943 ], [ %187, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.thread.thread.i129 ]
+  %953 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
+  %954 = getelementptr inbounds nuw i8, ptr %953, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %954, ptr noundef nonnull align 4 dereferenceable(12) %872, i64 12, i1 false)
+  %955 = getelementptr inbounds nuw i8, ptr %953, i64 44
+  store i32 0, ptr %955, align 4
+  %956 = invoke { ptr, ptr } @_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %185, ptr %.08.lcssa.i.i.i11.i.i125, ptr noundef nonnull align 4 dereferenceable(12) %954)
+          to label %957 unwind label %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i176
 
-956:                                              ; preds = %.critedge.i.i124
-  %957 = extractvalue { ptr, ptr } %955, 0
-  %958 = extractvalue { ptr, ptr } %955, 1
-  %.not.i177 = icmp eq ptr %958, null
-  br i1 %.not.i177, label %986, label %959
+957:                                              ; preds = %.critedge.i.i124
+  %958 = extractvalue { ptr, ptr } %956, 0
+  %959 = extractvalue { ptr, ptr } %956, 1
+  %.not.i177 = icmp eq ptr %959, null
+  br i1 %.not.i177, label %987, label %960
 
-959:                                              ; preds = %956
-  %.not.i.i.i178 = icmp ne ptr %957, null
-  %960 = icmp eq ptr %958, %187
-  %or.cond.i.i.i179 = select i1 %.not.i.i.i178, i1 true, i1 %960
-  br i1 %or.cond.i.i.i179, label %.thread.i180, label %961
+960:                                              ; preds = %957
+  %.not.i.i.i178 = icmp ne ptr %958, null
+  %961 = icmp eq ptr %959, %187
+  %or.cond.i.i.i179 = select i1 %.not.i.i.i178, i1 true, i1 %961
+  br i1 %or.cond.i.i.i179, label %.thread.i180, label %962
 
-961:                                              ; preds = %959
-  %962 = getelementptr inbounds nuw i8, ptr %958, i64 32
-  %963 = load float, ptr %953, align 4
-  %964 = load float, ptr %962, align 4
-  %965 = fcmp olt float %963, %964
-  br i1 %965, label %.thread.i180, label %966
+962:                                              ; preds = %960
+  %963 = getelementptr inbounds nuw i8, ptr %959, i64 32
+  %964 = load float, ptr %954, align 4
+  %965 = load float, ptr %963, align 4
+  %966 = fcmp olt float %964, %965
+  br i1 %966, label %.thread.i180, label %967
 
-966:                                              ; preds = %961
-  %967 = fcmp ogt float %963, %964
-  br i1 %967, label %.thread.i180, label %968
+967:                                              ; preds = %962
+  %968 = fcmp ogt float %964, %965
+  br i1 %968, label %.thread.i180, label %969
 
-968:                                              ; preds = %966
-  %969 = getelementptr inbounds nuw i8, ptr %952, i64 36
-  %970 = load float, ptr %969, align 4
-  %971 = getelementptr inbounds nuw i8, ptr %958, i64 36
-  %972 = load float, ptr %971, align 4
-  %973 = fcmp olt float %970, %972
-  br i1 %973, label %.thread.i180, label %974
+969:                                              ; preds = %967
+  %970 = getelementptr inbounds nuw i8, ptr %953, i64 36
+  %971 = load float, ptr %970, align 4
+  %972 = getelementptr inbounds nuw i8, ptr %959, i64 36
+  %973 = load float, ptr %972, align 4
+  %974 = fcmp olt float %971, %973
+  br i1 %974, label %.thread.i180, label %975
 
-974:                                              ; preds = %968
-  %975 = fcmp ogt float %970, %972
-  br i1 %975, label %.thread.i180, label %976
+975:                                              ; preds = %969
+  %976 = fcmp ogt float %971, %973
+  br i1 %976, label %.thread.i180, label %977
 
-976:                                              ; preds = %974
-  %977 = getelementptr inbounds nuw i8, ptr %952, i64 40
-  %978 = load float, ptr %977, align 4
-  %979 = getelementptr inbounds nuw i8, ptr %958, i64 40
-  %980 = load float, ptr %979, align 4
-  %981 = fcmp olt float %978, %980
+977:                                              ; preds = %975
+  %978 = getelementptr inbounds nuw i8, ptr %953, i64 40
+  %979 = load float, ptr %978, align 4
+  %980 = getelementptr inbounds nuw i8, ptr %959, i64 40
+  %981 = load float, ptr %980, align 4
+  %982 = fcmp olt float %979, %981
   br label %.thread.i180
 
-.thread.i180:                                     ; preds = %976, %974, %968, %966, %961, %959
-  %982 = phi i1 [ true, %959 ], [ true, %961 ], [ false, %966 ], [ true, %968 ], [ false, %974 ], [ %981, %976 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %982, ptr noundef nonnull %952, ptr noundef nonnull %958, ptr noundef nonnull align 8 dereferenceable(32) %187) #24
-  %983 = load i64, ptr %188, align 8
-  %984 = add i64 %983, 1
-  store i64 %984, ptr %188, align 8
+.thread.i180:                                     ; preds = %977, %975, %969, %967, %962, %960
+  %983 = phi i1 [ true, %960 ], [ true, %962 ], [ false, %967 ], [ true, %969 ], [ false, %975 ], [ %982, %977 ]
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %983, ptr noundef nonnull %953, ptr noundef nonnull %959, ptr noundef nonnull align 8 dereferenceable(32) %187) #24
+  %984 = load i64, ptr %188, align 8
+  %985 = add i64 %984, 1
+  store i64 %985, ptr %188, align 8
   br label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121
 
 _ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i176: ; preds = %.critedge.i.i124
-  %985 = landingpad { ptr, i32 }
+  %986 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %952, i64 noundef 48) #26
+  call void @_ZdlPvm(ptr noundef nonnull %953, i64 noundef 48) #26
   br label %common.resume
 
-986:                                              ; preds = %956
-  call void @_ZdlPvm(ptr noundef nonnull %952, i64 noundef 48) #26
+987:                                              ; preds = %957
+  call void @_ZdlPvm(ptr noundef nonnull %953, i64 noundef 48) #26
   br label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121
 
-_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121: ; preds = %986, %.thread.i180, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120, %946, %940
-  %987 = phi i32 [ %914, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120 ], [ %914, %940 ], [ %914, %946 ], [ %951, %.thread.i180 ], [ %951, %986 ]
-  %.sroa.06.0.i.i122 = phi ptr [ %.19.i.i.i.i.i116, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120 ], [ %.19.i.i.i.i.i116, %940 ], [ %.19.i.i.i.i.i116, %946 ], [ %952, %.thread.i180 ], [ %957, %986 ]
-  %988 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i122, i64 44
-  store i32 %987, ptr %988, align 4
+_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121: ; preds = %987, %.thread.i180, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120, %947, %941
+  %988 = phi i32 [ %915, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120 ], [ %915, %941 ], [ %915, %947 ], [ %952, %.thread.i180 ], [ %952, %987 ]
+  %.sroa.06.0.i.i122 = phi ptr [ %.19.i.i.i.i.i116, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i120 ], [ %.19.i.i.i.i.i116, %941 ], [ %.19.i.i.i.i.i116, %947 ], [ %953, %.thread.i180 ], [ %958, %987 ]
+  %989 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i122, i64 44
+  store i32 %988, ptr %989, align 4
   br label %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit130
 
 _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit130: ; preds = %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127
-  %.sink437 = phi i32 [ %913, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127 ], [ %987, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121 ], [ 0, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit ]
-  %989 = load ptr, ptr %195, align 8
-  %990 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::FaceVertex", ptr %989, i64 %indvars.iv, i32 2
-  store i32 %.sink437, ptr %990, align 4
+  %.sink438 = phi i32 [ %914, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE4findERS6_.exit.i127 ], [ %988, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i121 ], [ 0, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE8getIndexERKS3_.exit ]
+  %990 = load ptr, ptr %195, align 8
+  %991 = getelementptr inbounds nuw %"struct.Assimp::ObjExporter::FaceVertex", ptr %990, i64 %indvars.iv
+  %992 = getelementptr inbounds nuw i8, ptr %991, i64 8
+  store i32 %.sink438, ptr %992, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %991 = load i32, ptr %191, align 8
-  %992 = zext i32 %991 to i64
-  %993 = icmp samesign ult i64 %indvars.iv.next, %992
-  br i1 %993, label %218, label %._crit_edge, !llvm.loop !50
+  %993 = load i32, ptr %191, align 8
+  %994 = zext i32 %993 to i64
+  %995 = icmp samesign ult i64 %indvars.iv.next, %994
+  br i1 %995, label %218, label %._crit_edge, !llvm.loop !50
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -8481,204 +8481,208 @@ define void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull readonly ali
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = sext i32 %1 to i64
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct.TextureInfo, ptr %13, i64 %12, i32 1
-  tail call void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %14)
-  %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.TextureInfo, ptr %17, i64 %12, i32 4
-  %19 = load i16, ptr %18, align 8
-  %20 = sext i16 %19 to i32
-  tail call void @glEnable(i32 noundef %20)
+  %14 = getelementptr inbounds %struct.TextureInfo, ptr %13, i64 %12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  tail call void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %15)
+  %16 = load ptr, ptr %9, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds %struct.TextureInfo, ptr %18, i64 %12
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load i16, ptr %20, align 8
+  %22 = sext i16 %21 to i32
+  tail call void @glEnable(i32 noundef %22)
   call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
-  %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.TextureInfo, ptr %23, i64 %12
-  %25 = invoke noundef zeroext i1 @_ZN6QImage4loadERK7QStringPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef null)
-          to label %26 unwind label %138
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds %struct.TextureInfo, ptr %25, i64 %12
+  %27 = invoke noundef zeroext i1 @_ZN6QImage4loadERK7QStringPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef null)
+          to label %28 unwind label %142
 
-26:                                               ; preds = %2
-  %27 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %28 unwind label %138
+28:                                               ; preds = %2
+  %29 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %30 unwind label %142
 
-28:                                               ; preds = %26
-  %29 = sitofp i32 %27 to double
-  %30 = call double @log(double noundef %29) #24
-  %31 = fdiv double %30, 0x3FE62E42FEFA39EF
-  %32 = call double @llvm.floor.f64(double %31)
-  %exp2 = call double @exp2(double %32)
-  %33 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %34 unwind label %138
+30:                                               ; preds = %28
+  %31 = sitofp i32 %29 to double
+  %32 = call double @log(double noundef %31) #24
+  %33 = fdiv double %32, 0x3FE62E42FEFA39EF
+  %34 = call double @llvm.floor.f64(double %33)
+  %exp2 = call double @exp2(double %34)
+  %35 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+          to label %36 unwind label %142
 
-34:                                               ; preds = %28
-  %35 = fptosi double %exp2 to i32
-  %36 = sitofp i32 %33 to double
-  %37 = call double @log(double noundef %36) #24
-  %38 = fdiv double %37, 0x3FE62E42FEFA39EF
-  %39 = call double @llvm.floor.f64(double %38)
-  %exp221 = call double @exp2(double %39)
-  %40 = fptosi double %exp221 to i32
+36:                                               ; preds = %30
+  %37 = fptosi double %exp2 to i32
+  %38 = sitofp i32 %35 to double
+  %39 = call double @log(double noundef %38) #24
+  %40 = fdiv double %39, 0x3FE62E42FEFA39EF
+  %41 = call double @llvm.floor.f64(double %40)
+  %exp221 = call double @exp2(double %41)
+  %42 = fptosi double %exp221 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 %35, ptr %3, align 4, !noalias !59
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %40, ptr %41, align 4, !noalias !59
+  store i32 %37, ptr %3, align 4, !noalias !59
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %42, ptr %43, align 4, !noalias !59
   invoke void @_ZNK6QImage6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef 0, i32 noundef 1)
-          to label %42 unwind label %138
+          to label %44 unwind label %142
 
-42:                                               ; preds = %34
+44:                                               ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %45 = load ptr, ptr %43, align 8
-  %46 = load ptr, ptr %44, align 8
-  store ptr %46, ptr %43, align 8
-  store ptr %45, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %47 = load ptr, ptr %45, align 8
+  %48 = load ptr, ptr %46, align 8
+  store ptr %48, ptr %45, align 8
+  store ptr %47, ptr %46, align 8
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   invoke void @_ZN9QGLWidget17convertToGLFormatERK6QImage(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %47 unwind label %138
+          to label %49 unwind label %142
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %50 = load ptr, ptr %48, align 8
-  %51 = load ptr, ptr %49, align 8
-  store ptr %51, ptr %48, align 8
-  store ptr %50, ptr %49, align 8
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %52 = load ptr, ptr %50, align 8
+  %53 = load ptr, ptr %51, align 8
+  store ptr %53, ptr %50, align 8
+  store ptr %52, ptr %51, align 8
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
-  %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 112
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.TextureInfo, ptr %54, i64 %12, i32 1
-  invoke void @glGenTextures(i32 noundef 1, ptr noundef nonnull %55)
-          to label %56 unwind label %138
+  %54 = load ptr, ptr %9, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 112
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds %struct.TextureInfo, ptr %56, i64 %12
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  invoke void @glGenTextures(i32 noundef 1, ptr noundef nonnull %58)
+          to label %59 unwind label %142
 
-56:                                               ; preds = %47
-  %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 112
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct.TextureInfo, ptr %59, i64 %12
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %62 = load i16, ptr %61, align 8
-  %63 = sext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %65 = load i32, ptr %64, align 8
-  invoke void @glBindTexture(i32 noundef %63, i32 noundef %65)
-          to label %66 unwind label %138
+59:                                               ; preds = %49
+  %60 = load ptr, ptr %9, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 112
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds %struct.TextureInfo, ptr %62, i64 %12
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load i16, ptr %64, align 8
+  %66 = sext i16 %65 to i32
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %68 = load i32, ptr %67, align 8
+  invoke void @glBindTexture(i32 noundef %66, i32 noundef %68)
+          to label %69 unwind label %142
 
-66:                                               ; preds = %56
-  %67 = load ptr, ptr %9, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 112
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.TextureInfo, ptr %69, i64 %12, i32 4
-  %71 = load i16, ptr %70, align 8
-  %72 = sext i16 %71 to i32
-  %73 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %74 unwind label %138
+69:                                               ; preds = %59
+  %70 = load ptr, ptr %9, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 112
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds %struct.TextureInfo, ptr %72, i64 %12
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load i16, ptr %74, align 8
+  %76 = sext i16 %75 to i32
+  %77 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %78 unwind label %142
 
-74:                                               ; preds = %66
-  %75 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %76 unwind label %138
+78:                                               ; preds = %69
+  %79 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %80 unwind label %142
 
-76:                                               ; preds = %74
-  %77 = invoke noundef ptr @_ZN6QImage4bitsEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %78 unwind label %138
+80:                                               ; preds = %78
+  %81 = invoke noundef ptr @_ZN6QImage4bitsEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %82 unwind label %142
 
-78:                                               ; preds = %76
-  invoke void @glTexImage2D(i32 noundef %72, i32 noundef 0, i32 noundef 3, i32 noundef %73, i32 noundef %75, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef %77)
-          to label %79 unwind label %138
+82:                                               ; preds = %80
+  invoke void @glTexImage2D(i32 noundef %76, i32 noundef 0, i32 noundef 3, i32 noundef %77, i32 noundef %79, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef %81)
+          to label %83 unwind label %142
 
-79:                                               ; preds = %78
-  %80 = load ptr, ptr %9, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 112
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds %struct.TextureInfo, ptr %82, i64 %12
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %85 = load i16, ptr %84, align 8
-  %86 = sext i16 %85 to i32
-  %87 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  %88 = load i16, ptr %87, align 4
-  %89 = sext i16 %88 to i32
-  invoke void @glTexParameteri(i32 noundef %86, i32 noundef 10241, i32 noundef %89)
-          to label %90 unwind label %138
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %9, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 112
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds %struct.TextureInfo, ptr %86, i64 %12
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %89 = load i16, ptr %88, align 8
+  %90 = sext i16 %89 to i32
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 12
+  %92 = load i16, ptr %91, align 4
+  %93 = sext i16 %92 to i32
+  invoke void @glTexParameteri(i32 noundef %90, i32 noundef 10241, i32 noundef %93)
+          to label %94 unwind label %142
 
-90:                                               ; preds = %79
-  %91 = load ptr, ptr %9, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 112
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %struct.TextureInfo, ptr %93, i64 %12
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %96 = load i16, ptr %95, align 8
-  %97 = sext i16 %96 to i32
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 14
-  %99 = load i16, ptr %98, align 2
-  %100 = sext i16 %99 to i32
-  invoke void @glTexParameteri(i32 noundef %97, i32 noundef 10240, i32 noundef %100)
-          to label %101 unwind label %138
+94:                                               ; preds = %83
+  %95 = load ptr, ptr %9, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 112
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds %struct.TextureInfo, ptr %97, i64 %12
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %100 = load i16, ptr %99, align 8
+  %101 = sext i16 %100 to i32
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 14
+  %103 = load i16, ptr %102, align 2
+  %104 = sext i16 %103 to i32
+  invoke void @glTexParameteri(i32 noundef %101, i32 noundef 10240, i32 noundef %104)
+          to label %105 unwind label %142
 
-101:                                              ; preds = %90
-  %102 = load ptr, ptr %9, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 112
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds %struct.TextureInfo, ptr %104, i64 %12
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = load i16, ptr %106, align 8
-  %108 = sext i16 %107 to i32
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 18
-  %110 = load i16, ptr %109, align 2
-  %111 = sext i16 %110 to i32
-  invoke void @glTexParameteri(i32 noundef %108, i32 noundef 10242, i32 noundef %111)
-          to label %112 unwind label %138
+105:                                              ; preds = %94
+  %106 = load ptr, ptr %9, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 112
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds %struct.TextureInfo, ptr %108, i64 %12
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %111 = load i16, ptr %110, align 8
+  %112 = sext i16 %111 to i32
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 18
+  %114 = load i16, ptr %113, align 2
+  %115 = sext i16 %114 to i32
+  invoke void @glTexParameteri(i32 noundef %112, i32 noundef 10242, i32 noundef %115)
+          to label %116 unwind label %142
 
-112:                                              ; preds = %101
-  %113 = load ptr, ptr %9, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 112
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds %struct.TextureInfo, ptr %115, i64 %12
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %118 = load i16, ptr %117, align 8
-  %119 = sext i16 %118 to i32
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 20
-  %121 = load i16, ptr %120, align 4
-  %122 = sext i16 %121 to i32
-  invoke void @glTexParameteri(i32 noundef %119, i32 noundef 10243, i32 noundef %122)
-          to label %123 unwind label %138
+116:                                              ; preds = %105
+  %117 = load ptr, ptr %9, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 112
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds %struct.TextureInfo, ptr %119, i64 %12
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  %122 = load i16, ptr %121, align 8
+  %123 = sext i16 %122 to i32
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 20
+  %125 = load i16, ptr %124, align 4
+  %126 = sext i16 %125 to i32
+  invoke void @glTexParameteri(i32 noundef %123, i32 noundef 10243, i32 noundef %126)
+          to label %127 unwind label %142
 
-123:                                              ; preds = %112
-  %124 = load ptr, ptr %9, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 112
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds %struct.TextureInfo, ptr %126, i64 %12
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %129 = load i16, ptr %128, align 8
-  %130 = sext i16 %129 to i32
-  %131 = getelementptr inbounds nuw i8, ptr %127, i64 22
-  %132 = load i16, ptr %131, align 2
-  %133 = sext i16 %132 to i32
-  invoke void @glTexParameteri(i32 noundef %130, i32 noundef 32882, i32 noundef %133)
-          to label %134 unwind label %138
+127:                                              ; preds = %116
+  %128 = load ptr, ptr %9, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 112
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds %struct.TextureInfo, ptr %130, i64 %12
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  %133 = load i16, ptr %132, align 8
+  %134 = sext i16 %133 to i32
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 22
+  %136 = load i16, ptr %135, align 2
+  %137 = sext i16 %136 to i32
+  invoke void @glTexParameteri(i32 noundef %134, i32 noundef 32882, i32 noundef %137)
+          to label %138 unwind label %142
 
-134:                                              ; preds = %123
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %136 = load ptr, ptr %135, align 8
-  invoke void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %136)
-          to label %137 unwind label %138
+138:                                              ; preds = %127
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %140 = load ptr, ptr %139, align 8
+  invoke void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %140)
+          to label %141 unwind label %142
 
-137:                                              ; preds = %134
+141:                                              ; preds = %138
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   ret void
 
-138:                                              ; preds = %34, %134, %123, %112, %101, %90, %79, %78, %76, %74, %66, %56, %47, %42, %28, %26, %2
-  %139 = landingpad { ptr, i32 }
+142:                                              ; preds = %36, %138, %127, %116, %105, %94, %83, %82, %80, %78, %69, %59, %49, %44, %30, %28, %2
+  %143 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
-  resume { ptr, i32 } %139
+  resume { ptr, i32 } %143
 }
 
 ; Function Attrs: mustprogress uwtable

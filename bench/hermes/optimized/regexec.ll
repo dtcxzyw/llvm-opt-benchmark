@@ -428,7 +428,8 @@ for.cond84.preheader.i:                           ; preds = %if.then73.i, %if.en
 for.body89.i:                                     ; preds = %for.cond84.preheader.i, %for.body89.i
   %i.0169.i = phi i64 [ %inc.i, %for.body89.i ], [ 1, %for.cond84.preheader.i ]
   %43 = load ptr, ptr %pmatch37.i, align 8
-  %rm_eo92.i = getelementptr inbounds %struct.llvm_regmatch_t, ptr %43, i64 %i.0169.i, i32 1
+  %arrayidx91.i = getelementptr inbounds %struct.llvm_regmatch_t, ptr %43, i64 %i.0169.i
+  %rm_eo92.i = getelementptr inbounds nuw i8, ptr %arrayidx91.i, i64 8
   store i64 -1, ptr %rm_eo92.i, align 8
   %44 = load ptr, ptr %pmatch37.i, align 8
   %arrayidx94.i = getelementptr inbounds %struct.llvm_regmatch_t, ptr %44, i64 %i.0169.i
@@ -1006,7 +1007,8 @@ if.then110.i:                                     ; preds = %if.end106.i
 for.body128.i:                                    ; preds = %for.cond123.preheader.i, %for.body128.i
   %i.0188.i = phi i64 [ %inc136.i, %for.body128.i ], [ 1, %for.cond123.preheader.i ]
   %118 = load ptr, ptr %pmatch37.i38, align 8
-  %rm_eo131.i = getelementptr inbounds %struct.llvm_regmatch_t, ptr %118, i64 %i.0188.i, i32 1
+  %arrayidx130.i = getelementptr inbounds %struct.llvm_regmatch_t, ptr %118, i64 %i.0188.i
+  %rm_eo131.i = getelementptr inbounds nuw i8, ptr %arrayidx130.i, i64 8
   store i64 -1, ptr %rm_eo131.i, align 8
   %119 = load ptr, ptr %pmatch37.i38, align 8
   %arrayidx133.i = getelementptr inbounds %struct.llvm_regmatch_t, ptr %119, i64 %i.0188.i
@@ -1587,7 +1589,8 @@ sw.bb105:                                         ; preds = %sw.epilog
   %sub.ptr.rhs.cast113 = ptrtoint ptr %12 to i64
   %sub.ptr.sub114 = sub i64 %sub.ptr.lhs.cast112, %sub.ptr.rhs.cast113
   %13 = load ptr, ptr %pmatch, align 8
-  %rm_eo = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %13, i64 %conv110, i32 1
+  %arrayidx117 = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %13, i64 %conv110
+  %rm_eo = getelementptr inbounds nuw i8, ptr %arrayidx117, i64 8
   store i64 %sub.ptr.sub114, ptr %rm_eo, align 8
   br label %for.inc
 
@@ -2084,7 +2087,8 @@ if.end356:                                        ; preds = %sw.bb339
 sw.bb361:                                         ; preds = %if.end209
   %conv363 = and i64 %50, 134217727
   %70 = load ptr, ptr %pmatch, align 8
-  %rm_eo367 = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %70, i64 %conv363, i32 1
+  %arrayidx366 = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %70, i64 %conv363
+  %rm_eo367 = getelementptr inbounds nuw i8, ptr %arrayidx366, i64 8
   %71 = load i64, ptr %rm_eo367, align 8
   %72 = load ptr, ptr %offp, align 8
   %sub.ptr.lhs.cast369 = ptrtoint ptr %sp.0279 to i64
@@ -2097,7 +2101,8 @@ sw.bb361:                                         ; preds = %if.end209
 
 if.end381:                                        ; preds = %sw.bb361
   %73 = load ptr, ptr %pmatch, align 8
-  %rm_eo385 = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %73, i64 %conv363, i32 1
+  %arrayidx384 = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %73, i64 %conv363
+  %rm_eo385 = getelementptr inbounds nuw i8, ptr %arrayidx384, i64 8
   store i64 %71, ptr %rm_eo385, align 8
   br label %return
 
@@ -2820,7 +2825,8 @@ sw.bb105:                                         ; preds = %sw.epilog
   %sub.ptr.rhs.cast113 = ptrtoint ptr %17 to i64
   %sub.ptr.sub114 = sub i64 %sub.ptr.lhs.cast112, %sub.ptr.rhs.cast113
   %18 = load ptr, ptr %pmatch, align 8
-  %rm_eo = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %18, i64 %conv110, i32 1
+  %arrayidx117 = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %18, i64 %conv110
+  %rm_eo = getelementptr inbounds nuw i8, ptr %arrayidx117, i64 8
   store i64 %sub.ptr.sub114, ptr %rm_eo, align 8
   br label %for.inc
 
@@ -3317,7 +3323,8 @@ if.end356:                                        ; preds = %sw.bb339
 sw.bb361:                                         ; preds = %if.end209
   %conv363 = and i64 %50, 134217727
   %70 = load ptr, ptr %pmatch, align 8
-  %rm_eo367 = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %70, i64 %conv363, i32 1
+  %arrayidx366 = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %70, i64 %conv363
+  %rm_eo367 = getelementptr inbounds nuw i8, ptr %arrayidx366, i64 8
   %71 = load i64, ptr %rm_eo367, align 8
   %72 = load ptr, ptr %offp, align 8
   %sub.ptr.lhs.cast369 = ptrtoint ptr %sp.0279 to i64
@@ -3330,7 +3337,8 @@ sw.bb361:                                         ; preds = %if.end209
 
 if.end381:                                        ; preds = %sw.bb361
   %73 = load ptr, ptr %pmatch, align 8
-  %rm_eo385 = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %73, i64 %conv363, i32 1
+  %arrayidx384 = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %73, i64 %conv363
+  %rm_eo385 = getelementptr inbounds nuw i8, ptr %arrayidx384, i64 8
   store i64 %71, ptr %rm_eo385, align 8
   br label %return
 

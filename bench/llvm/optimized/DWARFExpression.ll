@@ -2628,15 +2628,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DWARFExpression9Operation6verifyE
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 296
   br label %11
 
-11:                                               ; preds = %.lr.ph, %53
-  %12 = phi i64 [ %4, %.lr.ph ], [ %54, %53 ]
-  %13 = phi i64 [ 0, %.lr.ph ], [ %56, %53 ]
-  %.01930 = phi i32 [ 0, %.lr.ph ], [ %55, %53 ]
+11:                                               ; preds = %.lr.ph, %54
+  %12 = phi i64 [ %4, %.lr.ph ], [ %55, %54 ]
+  %13 = phi i64 [ 0, %.lr.ph ], [ %57, %54 ]
+  %.01930 = phi i32 [ 0, %.lr.ph ], [ %56, %54 ]
   %14 = load ptr, ptr %6, align 8, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %13
   %16 = load i8, ptr %15, align 1, !tbaa !47
   %17 = icmp eq i8 %16, 8
-  br i1 %17, label %18, label %53
+  br i1 %17, label %18, label %54
 
 18:                                               ; preds = %11
   %19 = load i8, ptr %0, align 8, !tbaa !26
@@ -2646,7 +2646,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DWARFExpression9Operation6verifyE
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = icmp eq i64 %22, 0
   %or.cond46 = select i1 %20, i1 %23, i1 false
-  br i1 %or.cond46, label %53, label %._crit_edge
+  br i1 %or.cond46, label %54, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18
   %24 = load i64, ptr %8, align 8, !tbaa !94
@@ -2696,30 +2696,31 @@ _ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARF
   %46 = sub i64 %45, %29
   %47 = sdiv exact i64 %46, 24
   %48 = and i64 %47, 4294967295
-  %49 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %26, i64 %48, i32 3
-  %50 = load ptr, ptr %49, align 8, !tbaa !109
-  %.not.i = icmp eq ptr %50, null
+  %49 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %26, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !109
+  %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %.critedge, label %_ZNK4llvm8DWARFDie6getTagEv.exit
 
 _ZNK4llvm8DWARFDie6getTagEv.exit:                 ; preds = %44
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %52 = load i16, ptr %51, align 4, !tbaa !110
-  %.not = icmp eq i16 %52, 36
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %53 = load i16, ptr %52, align 4, !tbaa !110
+  %.not = icmp eq i16 %53, 36
   br i1 %.not, label %_ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge, label %.critedge
 
 _ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge:      ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit
   %.pre39 = load i64, ptr %3, align 8, !tbaa !41
-  br label %53
+  br label %54
 
-53:                                               ; preds = %18, %_ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge, %11
-  %54 = phi i64 [ %.pre39, %_ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge ], [ %12, %11 ], [ %12, %18 ]
-  %55 = add i32 %.01930, 1
-  %56 = zext i32 %55 to i64
-  %.not37 = icmp ugt i64 %54, %56
+54:                                               ; preds = %18, %_ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge, %11
+  %55 = phi i64 [ %.pre39, %_ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge ], [ %12, %11 ], [ %12, %18 ]
+  %56 = add i32 %.01930, 1
+  %57 = zext i32 %56 to i64
+  %.not37 = icmp ugt i64 %55, %57
   br i1 %.not37, label %11, label %.critedge, !llvm.loop !184
 
-.critedge:                                        ; preds = %53, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i, %41, %44, %2
-  %.lcssa = phi i1 [ true, %2 ], [ false, %44 ], [ false, %41 ], [ false, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ], [ false, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ true, %53 ]
+.critedge:                                        ; preds = %54, %_ZNK4llvm8DWARFDie6getTagEv.exit, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i, %41, %44, %2
+  %.lcssa = phi i1 [ true, %2 ], [ false, %44 ], [ false, %41 ], [ false, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ], [ false, %_ZNK4llvm8DWARFDie6getTagEv.exit ], [ true, %54 ]
   ret i1 %.lcssa
 }
 
@@ -2826,21 +2827,21 @@ _ZNK4llvm15DWARFExpression5beginEv.exit:          ; preds = %2, %20
   br label %53
 
 53:                                               ; preds = %.lr.ph, %_ZN4llvm15DWARFExpression8iteratorppEv.exit
-  %54 = phi ptr [ %30, %.lr.ph ], [ %115, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ]
-  %55 = phi i8 [ %31, %.lr.ph ], [ %116, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ]
+  %54 = phi ptr [ %30, %.lr.ph ], [ %116, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ]
+  %55 = phi i8 [ %31, %.lr.ph ], [ %117, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ]
   %56 = load i64, ptr %9, align 8, !tbaa !41
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %53, %99
-  %58 = phi i64 [ %100, %99 ], [ %56, %53 ]
-  %59 = phi i64 [ %102, %99 ], [ 0, %53 ]
-  %.01930.i = phi i32 [ %101, %99 ], [ 0, %53 ]
+.lr.ph.i:                                         ; preds = %53, %100
+  %58 = phi i64 [ %101, %100 ], [ %56, %53 ]
+  %59 = phi i64 [ %103, %100 ], [ 0, %53 ]
+  %.01930.i = phi i32 [ %102, %100 ], [ 0, %53 ]
   %60 = load ptr, ptr %7, align 8, !tbaa !40
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
   %62 = load i8, ptr %61, align 1, !tbaa !47
   %63 = icmp eq i8 %62, 8
-  br i1 %63, label %64, label %99
+  br i1 %63, label %64, label %100
 
 64:                                               ; preds = %.lr.ph.i
   %65 = load i8, ptr %48, align 8, !tbaa !26
@@ -2850,7 +2851,7 @@ _ZNK4llvm15DWARFExpression5beginEv.exit:          ; preds = %2, %20
   %68 = load i64, ptr %67, align 8, !tbaa !3
   %69 = icmp eq i64 %68, 0
   %or.cond46.i = select i1 %66, i1 %69, i1 false
-  br i1 %or.cond46.i, label %99, label %._crit_edge.i
+  br i1 %or.cond46.i, label %100, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %64
   %70 = load i64, ptr %49, align 8, !tbaa !94
@@ -2900,126 +2901,127 @@ _ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARF
   %92 = sub i64 %91, %75
   %93 = sdiv exact i64 %92, 24
   %94 = and i64 %93, 4294967295
-  %95 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %72, i64 %94, i32 3
-  %96 = load ptr, ptr %95, align 8, !tbaa !109
-  %.not.i.i = icmp eq ptr %96, null
+  %95 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %72, i64 %94
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %97 = load ptr, ptr %96, align 8, !tbaa !109
+  %.not.i.i = icmp eq ptr %97, null
   br i1 %.not.i.i, label %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.thread, label %_ZNK4llvm8DWARFDie6getTagEv.exit.i
 
 _ZNK4llvm8DWARFDie6getTagEv.exit.i:               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %98 = load i16, ptr %97, align 4, !tbaa !110
-  %.not.i = icmp eq i16 %98, 36
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  %99 = load i16, ptr %98, align 4, !tbaa !110
+  %.not.i = icmp eq i16 %99, 36
   br i1 %.not.i, label %_ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge.i, label %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.thread
 
 _ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge.i:    ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit.i
   %.pre39.i = load i64, ptr %9, align 8, !tbaa !41
-  br label %99
+  br label %100
 
-99:                                               ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge.i, %64, %.lr.ph.i
-  %100 = phi i64 [ %.pre39.i, %_ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge.i ], [ %58, %.lr.ph.i ], [ %58, %64 ]
-  %101 = add i32 %.01930.i, 1
-  %102 = zext i32 %101 to i64
-  %.not37.i = icmp ugt i64 %100, %102
+100:                                              ; preds = %_ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge.i, %64, %.lr.ph.i
+  %101 = phi i64 [ %.pre39.i, %_ZNK4llvm8DWARFDie6getTagEv.exit._crit_edge.i ], [ %58, %.lr.ph.i ], [ %58, %64 ]
+  %102 = add i32 %.01930.i, 1
+  %103 = zext i32 %102 to i64
+  %.not37.i = icmp ugt i64 %101, %103
   br i1 %.not37.i, label %.lr.ph.i, label %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.loopexit, !llvm.loop !184
 
-_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.loopexit: ; preds = %99
+_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.loopexit: ; preds = %100
   %.pre24 = load i8, ptr %11, align 8, !tbaa !142, !range !68
   %.pre25 = load ptr, ptr %3, align 8
   br label %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit
 
 _ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit: ; preds = %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.loopexit, %53
-  %103 = phi ptr [ %.pre25, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.loopexit ], [ %54, %53 ]
-  %104 = phi i8 [ %.pre24, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.loopexit ], [ %55, %53 ]
-  %105 = trunc nuw i8 %104 to i1
-  %.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %.in.i = select i1 %105, ptr %.sroa.2.0..sroa_idx.i.i9, ptr %52
-  %106 = load i64, ptr %.in.i, align 8, !tbaa !3
-  store i64 %106, ptr %5, align 8, !tbaa !167
+  %104 = phi ptr [ %.pre25, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.loopexit ], [ %54, %53 ]
+  %105 = phi i8 [ %.pre24, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.loopexit ], [ %55, %53 ]
+  %106 = trunc nuw i8 %105 to i1
+  %.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %.in.i = select i1 %106, ptr %.sroa.2.0..sroa_idx.i.i9, ptr %52
+  %107 = load i64, ptr %.in.i, align 8, !tbaa !3
+  store i64 %107, ptr %5, align 8, !tbaa !167
   %.sroa.2.0.copyload.i3.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9, align 8, !tbaa !3
-  %.not.i10 = icmp ult i64 %106, %.sroa.2.0.copyload.i3.i
-  br i1 %.not.i10, label %107, label %_ZN4llvm15DWARFExpression8iteratorppEv.exit
+  %.not.i10 = icmp ult i64 %107, %.sroa.2.0.copyload.i3.i
+  br i1 %.not.i10, label %108, label %_ZN4llvm15DWARFExpression8iteratorppEv.exit
 
-107:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit
-  %108 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %109 = load i8, ptr %108, align 8, !tbaa !168
-  %110 = getelementptr inbounds nuw i8, ptr %103, i64 25
-  %.sroa.0.0.copyload.i = load i16, ptr %110, align 1
-  %111 = call noundef zeroext i1 @_ZN4llvm15DWARFExpression9Operation7extractENS_13DataExtractorEhmSt8optionalINS_5dwarf11DwarfFormatEE(ptr noundef nonnull align 8 dereferenceable(224) %48, ptr noundef nonnull byval(%"class.llvm::DataExtractor") align 8 %103, i8 noundef zeroext %109, i64 noundef %106, i16 %.sroa.0.0.copyload.i)
-  %112 = xor i1 %111, true
-  %113 = zext i1 %112 to i8
+108:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %110 = load i8, ptr %109, align 8, !tbaa !168
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 25
+  %.sroa.0.0.copyload.i = load i16, ptr %111, align 1
+  %112 = call noundef zeroext i1 @_ZN4llvm15DWARFExpression9Operation7extractENS_13DataExtractorEhmSt8optionalINS_5dwarf11DwarfFormatEE(ptr noundef nonnull align 8 dereferenceable(224) %48, ptr noundef nonnull byval(%"class.llvm::DataExtractor") align 8 %104, i8 noundef zeroext %110, i64 noundef %107, i16 %.sroa.0.0.copyload.i)
+  %113 = xor i1 %112, true
+  %114 = zext i1 %113 to i8
   %.pre26 = load ptr, ptr %3, align 8, !tbaa !164
   %.pre27 = load i64, ptr %5, align 8
   br label %_ZN4llvm15DWARFExpression8iteratorppEv.exit
 
-_ZN4llvm15DWARFExpression8iteratorppEv.exit:      ; preds = %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit, %107
-  %114 = phi i64 [ %106, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit ], [ %.pre27, %107 ]
-  %115 = phi ptr [ %103, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit ], [ %.pre26, %107 ]
-  %116 = phi i8 [ 1, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit ], [ %113, %107 ]
-  store i8 %116, ptr %11, align 8, !tbaa !179
-  %117 = load ptr, ptr %4, align 8, !tbaa !164
-  %118 = icmp eq ptr %115, %117
-  %119 = load i64, ptr %32, align 8
-  %120 = icmp eq i64 %114, %119
-  %.not3.i.not = select i1 %118, i1 %120, i1 false
+_ZN4llvm15DWARFExpression8iteratorppEv.exit:      ; preds = %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit, %108
+  %115 = phi i64 [ %107, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit ], [ %.pre27, %108 ]
+  %116 = phi ptr [ %104, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit ], [ %.pre26, %108 ]
+  %117 = phi i8 [ 1, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit ], [ %114, %108 ]
+  store i8 %117, ptr %11, align 8, !tbaa !179
+  %118 = load ptr, ptr %4, align 8, !tbaa !164
+  %119 = icmp eq ptr %116, %118
+  %120 = load i64, ptr %32, align 8
+  %121 = icmp eq i64 %115, %120
+  %.not3.i.not = select i1 %119, i1 %121, i1 false
   br i1 %.not3.i.not, label %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.thread, label %53
 
 _ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.thread: ; preds = %_ZN4llvm15DWARFExpression8iteratorppEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit.i, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i, %87, %90, %_ZNK4llvm15DWARFExpression5beginEv.exit
   %.not3.i.not18 = phi i1 [ true, %_ZNK4llvm15DWARFExpression5beginEv.exit ], [ false, %90 ], [ false, %87 ], [ false, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i ], [ false, %_ZNK4llvm8DWARFDie6getTagEv.exit.i ], [ true, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ]
-  %121 = load ptr, ptr %43, align 8, !tbaa !46
-  %122 = icmp eq ptr %121, %44
-  br i1 %122, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i, label %123
+  %122 = load ptr, ptr %43, align 8, !tbaa !46
+  %123 = icmp eq ptr %122, %44
+  br i1 %123, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i, label %124
 
-123:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.thread
-  call void @free(ptr noundef %121) #20
+124:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.thread
+  call void @free(ptr noundef %122) #20
   br label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i
 
-_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i:        ; preds = %123, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.thread
-  %124 = load ptr, ptr %39, align 8, !tbaa !46
-  %125 = icmp eq ptr %124, %40
-  br i1 %125, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i, label %126
+_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i:        ; preds = %124, %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.thread
+  %125 = load ptr, ptr %39, align 8, !tbaa !46
+  %126 = icmp eq ptr %125, %40
+  br i1 %126, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i, label %127
 
-126:                                              ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i
-  call void @free(ptr noundef %124) #20
+127:                                              ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i
+  call void @free(ptr noundef %125) #20
   br label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i
 
-_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i:       ; preds = %126, %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i
-  %127 = load ptr, ptr %34, align 8, !tbaa !40
-  %128 = icmp eq ptr %127, %35
-  br i1 %128, label %_ZN4llvm15DWARFExpression8iteratorD2Ev.exit, label %129
+_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i:       ; preds = %127, %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i
+  %128 = load ptr, ptr %34, align 8, !tbaa !40
+  %129 = icmp eq ptr %128, %35
+  br i1 %129, label %_ZN4llvm15DWARFExpression8iteratorD2Ev.exit, label %130
 
-129:                                              ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i
-  call void @free(ptr noundef %127) #20
+130:                                              ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i
+  call void @free(ptr noundef %128) #20
   br label %_ZN4llvm15DWARFExpression8iteratorD2Ev.exit
 
-_ZN4llvm15DWARFExpression8iteratorD2Ev.exit:      ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i, %129
+_ZN4llvm15DWARFExpression8iteratorD2Ev.exit:      ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i, %130
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %130 = load ptr, ptr %16, align 8, !tbaa !46
-  %131 = icmp eq ptr %130, %17
-  br i1 %131, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i11, label %132
+  %131 = load ptr, ptr %16, align 8, !tbaa !46
+  %132 = icmp eq ptr %131, %17
+  br i1 %132, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i11, label %133
 
-132:                                              ; preds = %_ZN4llvm15DWARFExpression8iteratorD2Ev.exit
-  call void @free(ptr noundef %130) #20
+133:                                              ; preds = %_ZN4llvm15DWARFExpression8iteratorD2Ev.exit
+  call void @free(ptr noundef %131) #20
   br label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i11
 
-_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i11:      ; preds = %132, %_ZN4llvm15DWARFExpression8iteratorD2Ev.exit
-  %133 = load ptr, ptr %12, align 8, !tbaa !46
-  %134 = icmp eq ptr %133, %13
-  br i1 %134, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i12, label %135
+_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i11:      ; preds = %133, %_ZN4llvm15DWARFExpression8iteratorD2Ev.exit
+  %134 = load ptr, ptr %12, align 8, !tbaa !46
+  %135 = icmp eq ptr %134, %13
+  br i1 %135, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i12, label %136
 
-135:                                              ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i11
-  call void @free(ptr noundef %133) #20
+136:                                              ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i11
+  call void @free(ptr noundef %134) #20
   br label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i12
 
-_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i12:     ; preds = %135, %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i11
-  %136 = load ptr, ptr %7, align 8, !tbaa !40
-  %137 = icmp eq ptr %136, %8
-  br i1 %137, label %_ZN4llvm15DWARFExpression8iteratorD2Ev.exit13, label %138
+_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i12:     ; preds = %136, %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i11
+  %137 = load ptr, ptr %7, align 8, !tbaa !40
+  %138 = icmp eq ptr %137, %8
+  br i1 %138, label %_ZN4llvm15DWARFExpression8iteratorD2Ev.exit13, label %139
 
-138:                                              ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i12
-  call void @free(ptr noundef %136) #20
+139:                                              ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i12
+  call void @free(ptr noundef %137) #20
   br label %_ZN4llvm15DWARFExpression8iteratorD2Ev.exit13
 
-_ZN4llvm15DWARFExpression8iteratorD2Ev.exit13:    ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i12, %138
+_ZN4llvm15DWARFExpression8iteratorD2Ev.exit13:    ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit1.i.i12, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.not3.i.not18
 }

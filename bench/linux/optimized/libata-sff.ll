@@ -4604,7 +4604,8 @@ define dso_local noundef i32 @ata_bmdma_qc_prep(ptr noundef readonly captures(no
 
 52:                                               ; preds = %49, %6
   %53 = phi i64 [ 4294967295, %6 ], [ %51, %49 ]
-  %54 = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %53, i32 1
+  %.split = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %53
+  %54 = getelementptr i8, ptr %.split, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = or i32 %55, -2147483648
   store i32 %56, ptr %54, align 4
@@ -5483,7 +5484,8 @@ define dso_local noundef i32 @ata_bmdma_dumb_qc_prep(ptr noundef readonly captur
   %.pre-phi = phi i64 [ %44, %40 ], [ %37, %27 ]
   %47 = phi i32 [ %43, %40 ], [ %30, %27 ]
   %48 = phi i32 [ 32768, %40 ], [ %36, %27 ]
-  %49 = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %.pre-phi, i32 1
+  %.split = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %.pre-phi
+  %49 = getelementptr i8, ptr %.split, i64 4
   store i32 %48, ptr %49, align 4
   %50 = add i32 %47, 1
   %51 = sub i32 %28, %35
@@ -5506,7 +5508,8 @@ define dso_local noundef i32 @ata_bmdma_dumb_qc_prep(ptr noundef readonly captur
 
 62:                                               ; preds = %59, %6
   %63 = phi i64 [ 4294967295, %6 ], [ %61, %59 ]
-  %64 = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %63, i32 1
+  %.split4 = getelementptr %struct.ata_bmdma_prd, ptr %9, i64 %63
+  %64 = getelementptr i8, ptr %.split4, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = or i32 %65, -2147483648
   store i32 %66, ptr %64, align 4

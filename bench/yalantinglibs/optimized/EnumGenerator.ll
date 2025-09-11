@@ -3299,7 +3299,8 @@ invoke.cont14:                                    ; preds = %for.body
   %13 = load ptr, ptr %d_, align 8
   %values_.i5 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %14 = load ptr, ptr %values_.i5, align 8
-  %number_.i = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %14, i64 %indvars.iv, i32 2
+  %add.ptr.i7 = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %14, i64 %indvars.iv
+  %number_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7, i64 16
   %15 = load i32, ptr %number_.i, align 8
   store i32 %15, ptr %number, align 4
   invoke void @_ZNK9struct_pb8compiler9FormatterclIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(56) %format, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 4 dereferenceable(4) %number)

@@ -3517,11 +3517,11 @@ _ZNK5clang7CodeGen14EHCleanupScope18getNumBranchAftersEv.exit376: ; preds = %488
   %493 = load ptr, ptr %84, align 8, !tbaa !680
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 56
   %495 = load ptr, ptr %494, align 8, !tbaa !681
-  %496 = getelementptr inbounds nuw %"struct.std::pair.716", ptr %495, i64 %indvars.iv, i32 1
-  %497 = load ptr, ptr %496, align 8, !tbaa !766
-  %498 = getelementptr inbounds nuw %"struct.std::pair.716", ptr %495, i64 %indvars.iv
-  %499 = load ptr, ptr %498, align 8, !tbaa !759
-  call void @_ZN4llvm10SwitchInst7addCaseEPNS_11ConstantIntEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(76) %454, ptr noundef %497, ptr noundef %499) #20
+  %496 = getelementptr inbounds nuw %"struct.std::pair.716", ptr %495, i64 %indvars.iv
+  %497 = getelementptr inbounds nuw i8, ptr %496, i64 8
+  %498 = load ptr, ptr %497, align 8, !tbaa !766
+  %499 = load ptr, ptr %496, align 8, !tbaa !759
+  call void @_ZN4llvm10SwitchInst7addCaseEPNS_11ConstantIntEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(76) %454, ptr noundef %498, ptr noundef %499) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not262 = icmp eq i64 %indvars.iv.next, %492
   br i1 %.not262, label %._crit_edge, label %.lr.ph, !llvm.loop !767

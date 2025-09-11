@@ -5452,8 +5452,8 @@ define noundef i32 @_ZN10open_spiel5tarok10CardPointsERKSt6vectorIlSaIlEERKSt5ar
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit
-  %.015 = phi float [ %12, %_ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit ], [ 0.000000e+00, %2 ]
-  %.sroa.09.014 = phi ptr [ %13, %_ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit ], [ %3, %2 ]
+  %.015 = phi float [ %13, %_ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit ], [ 0.000000e+00, %2 ]
+  %.sroa.09.014 = phi ptr [ %14, %_ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit ], [ %3, %2 ]
   %6 = load i64, ptr %.sroa.09.014, align 8
   %7 = icmp ult i64 %6, 54
   br i1 %7, label %_ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit, label %8
@@ -5463,26 +5463,27 @@ define noundef i32 @_ZN10open_spiel5tarok10CardPointsERKSt6vectorIlSaIlEERKSt5ar
   unreachable
 
 _ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit: ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw %"struct.open_spiel::tarok::Card", ptr %1, i64 %6, i32 2
-  %10 = load i32, ptr %9, align 8
-  %11 = sitofp i32 %10 to float
-  %12 = fadd float %.015, %11
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 8
-  %.not = icmp eq ptr %13, %5
+  %9 = getelementptr inbounds nuw %"struct.open_spiel::tarok::Card", ptr %1, i64 %6
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i32, ptr %10, align 8
+  %12 = sitofp i32 %11 to float
+  %13 = fadd float %.015, %12
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 8
+  %.not = icmp eq ptr %14, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit, %2
-  %.0.lcssa = phi float [ 0.000000e+00, %2 ], [ %12, %_ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit ]
-  %14 = ptrtoint ptr %5 to i64
-  %15 = ptrtoint ptr %3 to i64
-  %16 = sub i64 %14, %15
-  %17 = ashr exact i64 %16, 3
-  %18 = uitofp i64 %17 to float
-  %19 = fneg float %18
-  %20 = tail call float @llvm.fmuladd.f32(float %19, float 0x3FE54FDF40000000, float %.0.lcssa)
-  %21 = tail call float @llvm.round.f32(float %20)
-  %22 = fptosi float %21 to i32
-  ret i32 %22
+  %.0.lcssa = phi float [ 0.000000e+00, %2 ], [ %13, %_ZNKSt5arrayIN10open_spiel5tarok4CardELm54EE2atEm.exit ]
+  %15 = ptrtoint ptr %5 to i64
+  %16 = ptrtoint ptr %3 to i64
+  %17 = sub i64 %15, %16
+  %18 = ashr exact i64 %17, 3
+  %19 = uitofp i64 %18 to float
+  %20 = fneg float %19
+  %21 = tail call float @llvm.fmuladd.f32(float %20, float 0x3FE54FDF40000000, float %.0.lcssa)
+  %22 = tail call float @llvm.round.f32(float %21)
+  %23 = fptosi float %22 to i32
+  ret i32 %23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

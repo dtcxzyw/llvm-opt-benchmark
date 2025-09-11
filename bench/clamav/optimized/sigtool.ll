@@ -1843,7 +1843,7 @@ define internal fastcc range(i32 -1, 1) i32 @htmlnorm(ptr noundef nonnull %0) un
   %73 = tail call i32 @close(i32 noundef %5) #24
   %74 = load ptr, ptr %46, align 8, !tbaa !67
   %.not30.i = icmp eq ptr %74, null
-  br i1 %.not30.i, label %103, label %.preheader.i
+  br i1 %.not30.i, label %105, label %.preheader.i
 
 .preheader.i:                                     ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %33, i64 92
@@ -1851,91 +1851,93 @@ define internal fastcc range(i32 -1, 1) i32 @htmlnorm(ptr noundef nonnull %0) un
   %.not3137.i = icmp eq i32 %76, 0
   br i1 %.not3137.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %89
-  %77 = phi ptr [ %91, %89 ], [ %74, %.preheader.i ]
-  %78 = phi i32 [ %92, %89 ], [ %76, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %91
+  %77 = phi ptr [ %93, %91 ], [ %74, %.preheader.i ]
+  %78 = phi i32 [ %94, %91 ], [ %76, %.preheader.i ]
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %77, i64 %79, i32 2
-  %81 = load ptr, ptr %80, align 8, !tbaa !68
-  %.not36.i = icmp eq ptr %81, null
-  br i1 %.not36.i, label %89, label %82
+  %80 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %77, i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !68
+  %.not36.i = icmp eq ptr %82, null
+  br i1 %.not36.i, label %91, label %83
 
-82:                                               ; preds = %.lr.ph.i
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 96
-  %84 = load ptr, ptr %83, align 8, !tbaa !76
-  tail call void %84(ptr noundef nonnull %81) #24
-  %85 = load ptr, ptr %46, align 8, !tbaa !67
-  %86 = load i32, ptr %75, align 4, !tbaa !84
-  %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %85, i64 %87, i32 2
-  store ptr null, ptr %88, align 8, !tbaa !68
-  br label %89
+83:                                               ; preds = %.lr.ph.i
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 96
+  %85 = load ptr, ptr %84, align 8, !tbaa !76
+  tail call void %85(ptr noundef nonnull %82) #24
+  %86 = load ptr, ptr %46, align 8, !tbaa !67
+  %87 = load i32, ptr %75, align 4, !tbaa !84
+  %88 = zext i32 %87 to i64
+  %89 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %86, i64 %88
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  store ptr null, ptr %90, align 8, !tbaa !68
+  br label %91
 
-89:                                               ; preds = %82, %.lr.ph.i
-  %90 = phi i32 [ %86, %82 ], [ %78, %.lr.ph.i ]
-  %91 = phi ptr [ %85, %82 ], [ %77, %.lr.ph.i ]
-  %92 = add i32 %90, -1
-  store i32 %92, ptr %75, align 4, !tbaa !84
-  %.not31.i = icmp eq i32 %92, 0
+91:                                               ; preds = %83, %.lr.ph.i
+  %92 = phi i32 [ %87, %83 ], [ %78, %.lr.ph.i ]
+  %93 = phi ptr [ %86, %83 ], [ %77, %.lr.ph.i ]
+  %94 = add i32 %92, -1
+  store i32 %94, ptr %75, align 4, !tbaa !84
+  %.not31.i = icmp eq i32 %94, 0
   br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %89, %.preheader.i
-  %93 = phi ptr [ %74, %.preheader.i ], [ %91, %89 ]
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !68
-  %.not32.i = icmp eq ptr %95, null
-  br i1 %.not32.i, label %101, label %96
+._crit_edge.i:                                    ; preds = %91, %.preheader.i
+  %95 = phi ptr [ %74, %.preheader.i ], [ %93, %91 ]
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %97 = load ptr, ptr %96, align 8, !tbaa !68
+  %.not32.i = icmp eq ptr %97, null
+  br i1 %.not32.i, label %103, label %98
 
-96:                                               ; preds = %._crit_edge.i
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 96
-  %98 = load ptr, ptr %97, align 8, !tbaa !76
-  tail call void %98(ptr noundef nonnull %95) #24
-  %99 = load ptr, ptr %46, align 8, !tbaa !67
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  store ptr null, ptr %100, align 8, !tbaa !68
-  br label %101
-
-101:                                              ; preds = %96, %._crit_edge.i
-  %102 = phi ptr [ %99, %96 ], [ %93, %._crit_edge.i ]
-  tail call void @free(ptr noundef nonnull %102) #24
-  store ptr null, ptr %46, align 8, !tbaa !67
+98:                                               ; preds = %._crit_edge.i
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 96
+  %100 = load ptr, ptr %99, align 8, !tbaa !76
+  tail call void %100(ptr noundef nonnull %97) #24
+  %101 = load ptr, ptr %46, align 8, !tbaa !67
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  store ptr null, ptr %102, align 8, !tbaa !68
   br label %103
 
-103:                                              ; preds = %101, %67
-  %104 = load ptr, ptr %35, align 8, !tbaa !47
-  %.not33.i = icmp eq ptr %104, null
-  br i1 %.not33.i, label %107, label %105
+103:                                              ; preds = %98, %._crit_edge.i
+  %104 = phi ptr [ %101, %98 ], [ %95, %._crit_edge.i ]
+  tail call void @free(ptr noundef nonnull %104) #24
+  store ptr null, ptr %46, align 8, !tbaa !67
+  br label %105
 
-105:                                              ; preds = %103
-  %106 = tail call i32 @cl_engine_free(ptr noundef nonnull %104) #24
+105:                                              ; preds = %103, %67
+  %106 = load ptr, ptr %35, align 8, !tbaa !47
+  %.not33.i = icmp eq ptr %106, null
+  br i1 %.not33.i, label %109, label %107
+
+107:                                              ; preds = %105
+  %108 = tail call i32 @cl_engine_free(ptr noundef nonnull %106) #24
   store ptr null, ptr %35, align 8, !tbaa !47
-  br label %107
+  br label %109
 
-107:                                              ; preds = %105, %103
-  %108 = load ptr, ptr %56, align 8, !tbaa !60
-  %.not34.i = icmp eq ptr %108, null
-  br i1 %.not34.i, label %110, label %109
+109:                                              ; preds = %107, %105
+  %110 = load ptr, ptr %56, align 8, !tbaa !60
+  %.not34.i = icmp eq ptr %110, null
+  br i1 %.not34.i, label %112, label %111
 
-109:                                              ; preds = %107
-  tail call void @free(ptr noundef nonnull %108) #24
+111:                                              ; preds = %109
+  tail call void @free(ptr noundef nonnull %110) #24
   store ptr null, ptr %56, align 8, !tbaa !60
-  br label %110
+  br label %112
 
-110:                                              ; preds = %109, %107
-  %111 = load ptr, ptr %37, align 8, !tbaa !59
-  %.not35.i = icmp eq ptr %111, null
-  br i1 %.not35.i, label %113, label %112
+112:                                              ; preds = %111, %109
+  %113 = load ptr, ptr %37, align 8, !tbaa !59
+  %.not35.i = icmp eq ptr %113, null
+  br i1 %.not35.i, label %115, label %114
 
-112:                                              ; preds = %110
-  tail call void @evidence_free(ptr noundef nonnull %111) #24
-  br label %113
+114:                                              ; preds = %112
+  tail call void @evidence_free(ptr noundef nonnull %113) #24
+  br label %115
 
-113:                                              ; preds = %112, %110
+115:                                              ; preds = %114, %112
   tail call void @free(ptr noundef nonnull %33) #24
   br label %destroy_ctx.exit
 
-destroy_ctx.exit:                                 ; preds = %113, %.thread, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %.thread ], [ 0, %113 ]
+destroy_ctx.exit:                                 ; preds = %115, %.thread, %7
+  %.0 = phi i32 [ -1, %7 ], [ 0, %.thread ], [ 0, %115 ]
   ret i32 %.0
 }
 

@@ -118,7 +118,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   br label %49
 
 49:                                               ; preds = %.lr.ph140, %findwrd.exit.thread
-  %50 = phi ptr [ %46, %.lr.ph140 ], [ %137, %findwrd.exit.thread ]
+  %50 = phi ptr [ %46, %.lr.ph140 ], [ %140, %findwrd.exit.thread ]
   %.060139 = phi i32 [ 0, %.lr.ph140 ], [ %.161, %findwrd.exit.thread ]
   %51 = load i8, ptr %50, align 1
   %.not38.i = icmp eq i8 %51, 0
@@ -279,42 +279,45 @@ findwrd.exit89:                                   ; preds = %100, %97
   br label %127
 
 127:                                              ; preds = %119, %113
-  %.sink183 = phi i64 [ %123, %119 ], [ %116, %113 ]
+  %.sink184 = phi i64 [ %123, %119 ], [ %116, %113 ]
   %.sink180 = phi ptr [ %126, %119 ], [ %118, %113 ]
   %128 = load ptr, ptr %47, align 8
-  %129 = getelementptr inbounds %struct.Syn, ptr %128, i64 %.sink183, i32 1
-  store ptr %.sink180, ptr %129, align 8
-  %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i75) #8
-  %131 = trunc i64 %130 to i32
-  %132 = load ptr, ptr %47, align 8
-  %133 = getelementptr inbounds %struct.Syn, ptr %132, i64 %.sink183, i32 2
-  store i32 %131, ptr %133, align 8
-  %134 = load ptr, ptr %47, align 8
-  %135 = getelementptr inbounds %struct.Syn, ptr %134, i64 %.sink183, i32 3
-  store i16 %.2, ptr %135, align 4
-  %136 = add i32 %.060139, 1
+  %129 = getelementptr inbounds %struct.Syn, ptr %128, i64 %.sink184
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  store ptr %.sink180, ptr %130, align 8
+  %131 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i75) #8
+  %132 = trunc i64 %131 to i32
+  %133 = load ptr, ptr %47, align 8
+  %134 = getelementptr inbounds %struct.Syn, ptr %133, i64 %.sink184
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  store i32 %132, ptr %135, align 8
+  %136 = load ptr, ptr %47, align 8
+  %137 = getelementptr inbounds %struct.Syn, ptr %136, i64 %.sink184
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 20
+  store i16 %.2, ptr %138, align 4
+  %139 = add i32 %.060139, 1
   br label %findwrd.exit.thread
 
 findwrd.exit.thread:                              ; preds = %60, %.critedge.i, %82, %.critedge2.i, %49, %127
-  %.161 = phi i32 [ %136, %127 ], [ %.060139, %49 ], [ %.060139, %.critedge2.i ], [ %.060139, %82 ], [ %.060139, %.critedge.i ], [ %.060139, %60 ]
+  %.161 = phi i32 [ %139, %127 ], [ %.060139, %49 ], [ %.060139, %.critedge2.i ], [ %.060139, %82 ], [ %.060139, %.critedge.i ], [ %.060139, %60 ]
   call void @pfree(ptr noundef nonnull %50) #9
-  %137 = call ptr @tsearch_readline(ptr noundef nonnull %2) #9
-  %.not69 = icmp eq ptr %137, null
+  %140 = call ptr @tsearch_readline(ptr noundef nonnull %2) #9
+  %.not69 = icmp eq ptr %140, null
   br i1 %.not69, label %._crit_edge, label %49, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %findwrd.exit.thread, %44
   %.060.lcssa = phi i32 [ 0, %44 ], [ %.161, %findwrd.exit.thread ]
   call void @tsearch_readline_end(ptr noundef nonnull %2) #9
   store i32 %.060.lcssa, ptr %45, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = sext i32 %.060.lcssa to i64
-  call void @pg_qsort(ptr noundef %139, i64 noundef %140, i64 noundef 24, ptr noundef nonnull @compareSyn) #9
-  %141 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i8 %.159, ptr %141, align 8
-  %142 = ptrtoint ptr %45 to i64
+  %141 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %142 = load ptr, ptr %141, align 8
+  %143 = sext i32 %.060.lcssa to i64
+  call void @pg_qsort(ptr noundef %142, i64 noundef %143, i64 noundef 24, ptr noundef nonnull @compareSyn) #9
+  %144 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store i8 %.159, ptr %144, align 8
+  %145 = ptrtoint ptr %45 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %142
+  ret i64 %145
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

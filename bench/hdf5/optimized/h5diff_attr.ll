@@ -1521,13 +1521,13 @@ define i64 @diff_attr(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr nounde
 
 185:                                              ; preds = %181
   %186 = load ptr, ptr %67, align 8, !tbaa !41
-  %187 = getelementptr inbounds nuw %struct.table_attr_t, ptr %186, i64 %182, i32 1
-  store i32 1, ptr %187, align 8, !tbaa !14
-  %188 = getelementptr inbounds nuw %struct.table_attr_t, ptr %186, i64 %182, i32 1, i64 1
-  store i32 1, ptr %188, align 4, !tbaa !14
-  %189 = call noalias ptr @strdup(ptr noundef nonnull readonly %8) #15
-  %190 = getelementptr inbounds nuw %struct.table_attr_t, ptr %186, i64 %182
-  store ptr %189, ptr %190, align 8, !tbaa !42
+  %187 = getelementptr inbounds nuw %struct.table_attr_t, ptr %186, i64 %182
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  store i32 1, ptr %188, align 8, !tbaa !14
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 12
+  store i32 1, ptr %189, align 4, !tbaa !14
+  %190 = call noalias ptr @strdup(ptr noundef nonnull readonly %8) #15
+  store ptr %190, ptr %187, align 8, !tbaa !42
   %191 = add nuw i64 %182, 1
   store i64 %191, ptr %66, align 8, !tbaa !37
   br label %table_attr_mark_exist.exit.i
@@ -1569,13 +1569,13 @@ table_attr_mark_exist.exit.i:                     ; preds = %185, %181
 
 210:                                              ; preds = %206
   %211 = load ptr, ptr %67, align 8, !tbaa !41
-  %212 = getelementptr inbounds nuw %struct.table_attr_t, ptr %211, i64 %207, i32 1
-  store i32 1, ptr %212, align 8, !tbaa !14
-  %213 = getelementptr inbounds nuw %struct.table_attr_t, ptr %211, i64 %207, i32 1, i64 1
-  store i32 0, ptr %213, align 4, !tbaa !14
-  %214 = call noalias ptr @strdup(ptr noundef nonnull readonly %8) #15
-  %215 = getelementptr inbounds nuw %struct.table_attr_t, ptr %211, i64 %207
-  store ptr %214, ptr %215, align 8, !tbaa !42
+  %212 = getelementptr inbounds nuw %struct.table_attr_t, ptr %211, i64 %207
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  store i32 1, ptr %213, align 8, !tbaa !14
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 12
+  store i32 0, ptr %214, align 4, !tbaa !14
+  %215 = call noalias ptr @strdup(ptr noundef nonnull readonly %8) #15
+  store ptr %215, ptr %212, align 8, !tbaa !42
   %216 = add nuw i64 %207, 1
   store i64 %216, ptr %66, align 8, !tbaa !37
   br label %table_attr_mark_exist.exit128.i
@@ -1612,13 +1612,13 @@ table_attr_mark_exist.exit128.i:                  ; preds = %210, %206
 
 231:                                              ; preds = %227
   %232 = load ptr, ptr %67, align 8, !tbaa !41
-  %233 = getelementptr inbounds nuw %struct.table_attr_t, ptr %232, i64 %228, i32 1
-  store i32 0, ptr %233, align 8, !tbaa !14
-  %234 = getelementptr inbounds nuw %struct.table_attr_t, ptr %232, i64 %228, i32 1, i64 1
-  store i32 1, ptr %234, align 4, !tbaa !14
-  %235 = call noalias ptr @strdup(ptr noundef nonnull readonly %9) #15
-  %236 = getelementptr inbounds nuw %struct.table_attr_t, ptr %232, i64 %228
-  store ptr %235, ptr %236, align 8, !tbaa !42
+  %233 = getelementptr inbounds nuw %struct.table_attr_t, ptr %232, i64 %228
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
+  store i32 0, ptr %234, align 8, !tbaa !14
+  %235 = getelementptr inbounds nuw i8, ptr %233, i64 12
+  store i32 1, ptr %235, align 4, !tbaa !14
+  %236 = call noalias ptr @strdup(ptr noundef nonnull readonly %9) #15
+  store ptr %236, ptr %233, align 8, !tbaa !42
   %237 = add nuw i64 %228, 1
   store i64 %237, ptr %66, align 8, !tbaa !37
   br label %table_attr_mark_exist.exit131.i
@@ -1748,13 +1748,13 @@ table_attr_mark_exist.exit131.i:                  ; preds = %231, %227
 
 306:                                              ; preds = %302
   %307 = load ptr, ptr %90, align 8, !tbaa !41
-  %308 = getelementptr inbounds nuw %struct.table_attr_t, ptr %307, i64 %303, i32 1
-  store i32 1, ptr %308, align 8, !tbaa !14
-  %309 = getelementptr inbounds nuw %struct.table_attr_t, ptr %307, i64 %303, i32 1, i64 1
-  store i32 0, ptr %309, align 4, !tbaa !14
-  %310 = call noalias ptr @strdup(ptr noundef nonnull readonly %8) #15
-  %311 = getelementptr inbounds nuw %struct.table_attr_t, ptr %307, i64 %303
-  store ptr %310, ptr %311, align 8, !tbaa !42
+  %308 = getelementptr inbounds nuw %struct.table_attr_t, ptr %307, i64 %303
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
+  store i32 1, ptr %309, align 8, !tbaa !14
+  %310 = getelementptr inbounds nuw i8, ptr %308, i64 12
+  store i32 0, ptr %310, align 4, !tbaa !14
+  %311 = call noalias ptr @strdup(ptr noundef nonnull readonly %8) #15
+  store ptr %311, ptr %308, align 8, !tbaa !42
   %312 = add nuw i64 %303, 1
   store i64 %312, ptr %89, align 8, !tbaa !37
   br label %table_attr_mark_exist.exit134.i
@@ -1860,13 +1860,13 @@ table_attr_mark_exist.exit134.i:                  ; preds = %306, %302
 
 371:                                              ; preds = %367
   %372 = load ptr, ptr %252, align 8, !tbaa !41
-  %373 = getelementptr inbounds nuw %struct.table_attr_t, ptr %372, i64 %368, i32 1
-  store i32 0, ptr %373, align 8, !tbaa !14
-  %374 = getelementptr inbounds nuw %struct.table_attr_t, ptr %372, i64 %368, i32 1, i64 1
-  store i32 1, ptr %374, align 4, !tbaa !14
-  %375 = call noalias ptr @strdup(ptr noundef nonnull readonly %9) #15
-  %376 = getelementptr inbounds nuw %struct.table_attr_t, ptr %372, i64 %368
-  store ptr %375, ptr %376, align 8, !tbaa !42
+  %373 = getelementptr inbounds nuw %struct.table_attr_t, ptr %372, i64 %368
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
+  store i32 0, ptr %374, align 8, !tbaa !14
+  %375 = getelementptr inbounds nuw i8, ptr %373, i64 12
+  store i32 1, ptr %375, align 4, !tbaa !14
+  %376 = call noalias ptr @strdup(ptr noundef nonnull readonly %9) #15
+  store ptr %376, ptr %373, align 8, !tbaa !42
   %377 = add nuw i64 %368, 1
   store i64 %377, ptr %251, align 8, !tbaa !37
   br label %table_attr_mark_exist.exit137.i

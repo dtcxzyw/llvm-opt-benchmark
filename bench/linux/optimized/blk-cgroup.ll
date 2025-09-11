@@ -718,7 +718,8 @@ define internal fastcc noundef ptr @blkg_alloc(ptr noundef %0, ptr noundef %1, i
 14:                                               ; preds = %10, %3
   %15 = phi i64 [ 0, %3 ], [ %13, %10 ]
   %16 = or i32 %2, 256
-  %17 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %15, i64 9
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %15
+  %17 = getelementptr i8, ptr %.split, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias noundef align 8 dereferenceable_or_null(344) ptr @kmalloc_node_trace(ptr noundef %18, i32 noundef %16, i32 noundef %7, i64 noundef 344) #19
   %20 = icmp eq ptr %19, null

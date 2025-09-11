@@ -141,14 +141,14 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(6144) @range_state, i8 0, i64 6144, i1 false)
   %22 = load i32, ptr @num_var_ranges, align 4
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.thread16, label %.preheader18
+  br i1 %23, label %.thread17, label %.preheader19
 
-24:                                               ; preds = %.preheader18
+24:                                               ; preds = %.preheader19
   %25 = icmp eq i32 %38, 0
-  br i1 %25, label %.thread16, label %.preheader17
+  br i1 %25, label %.thread17, label %.preheader18
 
-.preheader18:                                     ; preds = %21, %.preheader18
-  %26 = phi i64 [ %37, %.preheader18 ], [ 0, %21 ]
+.preheader19:                                     ; preds = %21, %.preheader19
+  %26 = phi i64 [ %37, %.preheader19 ], [ 0, %21 ]
   %27 = load ptr, ptr @mtrr_if, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
@@ -167,9 +167,9 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %38 = load i32, ptr @num_var_ranges, align 4
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %37, %39
-  br i1 %40, label %.preheader18, label %24, !llvm.loop !10
+  br i1 %40, label %.preheader19, label %24, !llvm.loop !10
 
-.preheader17:                                     ; preds = %24, %53
+.preheader18:                                     ; preds = %24, %53
   %41 = phi i64 [ %55, %53 ], [ 0, %24 ]
   %42 = phi i64 [ %54, %53 ], [ 0, %24 ]
   %43 = getelementptr %struct.var_mtrr_range_state, ptr @range_state, i64 %41
@@ -178,7 +178,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %46 = icmp eq i8 %45, 6
   br i1 %46, label %47, label %53
 
-47:                                               ; preds = %.preheader17
+47:                                               ; preds = %.preheader18
   %48 = load i64, ptr %43, align 8
   store i64 %48, ptr %2, align 8
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -188,18 +188,18 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %52 = call i64 @llvm.umax.i64(i64 %42, i64 %51)
   br label %53
 
-53:                                               ; preds = %47, %.preheader17
-  %54 = phi i64 [ %42, %.preheader17 ], [ %52, %47 ]
+53:                                               ; preds = %47, %.preheader18
+  %54 = phi i64 [ %42, %.preheader18 ], [ %52, %47 ]
   %55 = add nuw nsw i64 %41, 1
   %56 = icmp eq i64 %55, %39
-  br i1 %56, label %57, label %.preheader17, !llvm.loop !13
+  br i1 %56, label %57, label %.preheader18, !llvm.loop !13
 
 57:                                               ; preds = %53
   store i8 %45, ptr %4, align 1
   %58 = icmp eq i64 %54, 0
-  br i1 %58, label %.thread16, label %60
+  br i1 %58, label %.thread17, label %60
 
-.thread16:                                        ; preds = %21, %57, %24
+.thread17:                                        ; preds = %21, %57, %24
   %59 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #9
   br label %.thread
 
@@ -288,7 +288,8 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %108 = phi i32 [ %124, %123 ], [ %105, %104 ]
   %109 = phi i64 [ %113, %123 ], [ 0, %104 ]
   %110 = phi i64 [ %125, %123 ], [ %106, %104 ]
-  %111 = getelementptr %struct.range, ptr @range, i64 %109, i32 1
+  %.split = getelementptr %struct.range, ptr @range, i64 %109
+  %111 = getelementptr i8, ptr %.split, i64 8
   %112 = load i64, ptr %111, align 8
   %113 = add nuw i64 %109, 1
   %114 = getelementptr %struct.range, ptr @range, i64 %113
@@ -302,11 +303,11 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %120 = shl i64 %119, 12
   %121 = call i64 @e820__range_update(i64 noundef %118, i64 noundef %120, i32 noundef 1, i32 noundef 2) #8
   %122 = add i64 %121, %110
-  %.pre31 = load i32, ptr @nr_range, align 4
+  %.pre32 = load i32, ptr @nr_range, align 4
   br label %123
 
 123:                                              ; preds = %117, %.preheader
-  %124 = phi i32 [ %.pre31, %117 ], [ %108, %.preheader ]
+  %124 = phi i32 [ %.pre32, %117 ], [ %108, %.preheader ]
   %125 = phi i64 [ %122, %117 ], [ %110, %.preheader ]
   %126 = add i32 %124, -1
   %127 = sext i32 %126 to i64
@@ -316,7 +317,8 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
 .loopexit:                                        ; preds = %123, %104
   %129 = phi i64 [ %106, %104 ], [ %125, %123 ]
   %130 = phi i64 [ 0, %104 ], [ %127, %123 ]
-  %131 = getelementptr %struct.range, ptr @range, i64 %130, i32 1
+  %.split16 = getelementptr %struct.range, ptr @range, i64 %130
+  %131 = getelementptr i8, ptr %.split16, i64 8
   %132 = load i64, ptr %131, align 8
   %133 = icmp ult i64 %132, %0
   br i1 %133, label %134, label %140
@@ -352,8 +354,8 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   call void @e820__update_table_print() #8
   br label %.thread
 
-.thread:                                          ; preds = %8, %149, %140, %84, %80, %.thread16, %18, %9, %1
-  %151 = phi i32 [ 1, %149 ], [ 0, %.thread16 ], [ 0, %1 ], [ 0, %9 ], [ 0, %18 ], [ 0, %80 ], [ 0, %84 ], [ 0, %140 ], [ 0, %8 ]
+.thread:                                          ; preds = %8, %149, %140, %84, %80, %.thread17, %18, %9, %1
+  %151 = phi i32 [ 1, %149 ], [ 0, %.thread17 ], [ 0, %1 ], [ 0, %9 ], [ 0, %18 ], [ 0, %80 ], [ 0, %84 ], [ 0, %140 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -85,13 +85,13 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i8, ptr %10, align 2, !tbaa !41, !range !29, !noundef !30
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %194, label %13
+  br i1 %12, label %195, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !44, !range !29, !noundef !30
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %194, label %17
+  br i1 %16, label %195, label %17
 
 17:                                               ; preds = %13
   %18 = tail call { i64, i64 } @tvnow() #7
@@ -112,7 +112,7 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
 27:                                               ; preds = %24, %17
   %28 = icmp sgt i64 %23, 500
   %or.cond = select i1 %2, i1 true, i1 %28
-  br i1 %or.cond, label %29, label %194
+  br i1 %or.cond, label %29, label %195
 
 29:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -255,204 +255,205 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
 
 90:                                               ; preds = %82
   %.b9395.pr = load i1, ptr @indexwrapped, align 1
-  br i1 %.b9395.pr, label %91, label %107
+  br i1 %.b9395.pr, label %91, label %108
 
 91:                                               ; preds = %.thread, %90
   %92 = phi i32 [ 0, %.thread ], [ %88, %90 ]
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw %struct.speedcount, ptr @speedstore, i64 %93, i32 2
-  %95 = load i64, ptr %94, align 16
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %97 = load i64, ptr %96, align 8
-  %98 = call i64 @tvdiff(i64 %19, i64 %20, i64 %95, i64 %97) #7
-  %99 = load i32, ptr @speedindex, align 4, !tbaa !53
-  %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw %struct.speedcount, ptr @speedstore, i64 %100
-  %102 = load i64, ptr %101, align 16, !tbaa !54
-  %103 = sub nsw i64 %.077.lcssa, %102
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %105 = load i64, ptr %104, align 8, !tbaa !56
-  %106 = sub nsw i64 %.081.lcssa, %105
-  br label %111
+  %94 = getelementptr inbounds nuw %struct.speedcount, ptr @speedstore, i64 %93
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %96 = load i64, ptr %95, align 16
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %98 = load i64, ptr %97, align 8
+  %99 = call i64 @tvdiff(i64 %19, i64 %20, i64 %96, i64 %98) #7
+  %100 = load i32, ptr @speedindex, align 4, !tbaa !53
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds nuw %struct.speedcount, ptr @speedstore, i64 %101
+  %103 = load i64, ptr %102, align 16, !tbaa !54
+  %104 = sub nsw i64 %.077.lcssa, %103
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %106 = load i64, ptr %105, align 8, !tbaa !56
+  %107 = sub nsw i64 %.081.lcssa, %106
+  br label %112
 
-107:                                              ; preds = %90
-  %108 = load i64, ptr %1, align 8
-  %109 = load i64, ptr %31, align 8
-  %110 = call i64 @tvdiff(i64 %19, i64 %20, i64 %108, i64 %109) #7
-  br label %111
+108:                                              ; preds = %90
+  %109 = load i64, ptr %1, align 8
+  %110 = load i64, ptr %31, align 8
+  %111 = call i64 @tvdiff(i64 %19, i64 %20, i64 %109, i64 %110) #7
+  br label %112
 
-111:                                              ; preds = %107, %91
-  %.080 = phi i64 [ %98, %91 ], [ %110, %107 ]
-  %.079 = phi i64 [ %103, %91 ], [ %.077.lcssa, %107 ]
-  %.078 = phi i64 [ %106, %91 ], [ %.081.lcssa, %107 ]
+112:                                              ; preds = %108, %91
+  %.080 = phi i64 [ %99, %91 ], [ %111, %108 ]
+  %.079 = phi i64 [ %104, %91 ], [ %.077.lcssa, %108 ]
+  %.078 = phi i64 [ %107, %91 ], [ %.081.lcssa, %108 ]
   %spec.select99 = call i64 @llvm.umax.i64(i64 %.080, i64 1)
-  %112 = sitofp i64 %.079 to double
-  %113 = sitofp i64 %spec.select99 to double
-  %114 = fdiv double %113, 1.000000e+03
-  %115 = fdiv double %112, %114
-  %116 = fptosi double %115 to i64
-  %117 = sitofp i64 %.078 to double
-  %118 = fdiv double %117, %114
-  %119 = fptosi double %118 to i64
-  %120 = call i64 @llvm.smax.i64(i64 %116, i64 %119)
-  %121 = icmp ne i64 %120, 0
-  %or.cond7 = select i1 %.086.lcssa, i1 %121, i1 false
-  br i1 %or.cond7, label %122, label %165
+  %113 = sitofp i64 %.079 to double
+  %114 = sitofp i64 %spec.select99 to double
+  %115 = fdiv double %114, 1.000000e+03
+  %116 = fdiv double %113, %115
+  %117 = fptosi double %116 to i64
+  %118 = sitofp i64 %.078 to double
+  %119 = fdiv double %118, %115
+  %120 = fptosi double %119 to i64
+  %121 = call i64 @llvm.smax.i64(i64 %117, i64 %120)
+  %122 = icmp ne i64 %121, 0
+  %or.cond7 = select i1 %.086.lcssa, i1 %122, i1 false
+  br i1 %or.cond7, label %123, label %166
 
-122:                                              ; preds = %111
-  %123 = load i64, ptr @all_dltotal, align 8, !tbaa !46
-  %124 = sdiv i64 %123, %120
-  %125 = sub nsw i64 %123, %.077.lcssa
-  %126 = sdiv i64 %125, %120
-  %127 = icmp slt i64 %126, 1
-  br i1 %127, label %128, label %129
+123:                                              ; preds = %112
+  %124 = load i64, ptr @all_dltotal, align 8, !tbaa !46
+  %125 = sdiv i64 %124, %121
+  %126 = sub nsw i64 %124, %.077.lcssa
+  %127 = sdiv i64 %126, %121
+  %128 = icmp slt i64 %127, 1
+  br i1 %128, label %129, label %130
 
-128:                                              ; preds = %122
+129:                                              ; preds = %123
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %4, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #7
   br label %time2str.exit
 
-129:                                              ; preds = %122
-  %130 = icmp samesign ult i64 %126, 360000
-  br i1 %130, label %131, label %137
+130:                                              ; preds = %123
+  %131 = icmp samesign ult i64 %127, 360000
+  br i1 %131, label %132, label %138
 
-131:                                              ; preds = %129
-  %.lhs.trunc.i = trunc nuw nsw i64 %126 to i32
-  %132 = udiv i32 %.lhs.trunc.i, 3600
-  %.zext.i = zext nneg i32 %132 to i64
+132:                                              ; preds = %130
+  %.lhs.trunc.i = trunc nuw nsw i64 %127 to i32
+  %133 = udiv i32 %.lhs.trunc.i, 3600
+  %.zext.i = zext nneg i32 %133 to i64
   %.neg23.i = mul nsw i64 %.zext.i, -3600
-  %133 = add nsw i64 %.neg23.i, %126
-  %.lhs.trunc25.i = trunc nsw i64 %133 to i32
-  %134 = sdiv i32 %.lhs.trunc25.i, 60
-  %.sext.i = sext i32 %134 to i64
+  %134 = add nsw i64 %.neg23.i, %127
+  %.lhs.trunc25.i = trunc nsw i64 %134 to i32
+  %135 = sdiv i32 %.lhs.trunc25.i, 60
+  %.sext.i = sext i32 %135 to i64
   %.neg24.i = mul nsw i64 %.sext.i, -60
-  %135 = add nsw i64 %.neg24.i, %133
-  %136 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %4, i64 noundef 9, ptr noundef nonnull @.str.6, i64 noundef %.zext.i, i64 noundef %.sext.i, i64 noundef %135) #7
+  %136 = add nsw i64 %.neg24.i, %134
+  %137 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %4, i64 noundef 9, ptr noundef nonnull @.str.6, i64 noundef %.zext.i, i64 noundef %.sext.i, i64 noundef %136) #7
   br label %time2str.exit
 
-137:                                              ; preds = %129
-  %138 = udiv i64 %126, 86400
-  %139 = icmp samesign ult i64 %126, 86400000
-  br i1 %139, label %140, label %144
+138:                                              ; preds = %130
+  %139 = udiv i64 %127, 86400
+  %140 = icmp samesign ult i64 %127, 86400000
+  br i1 %140, label %141, label %145
 
-140:                                              ; preds = %137
-  %.neg.i = mul nsw i64 %138, -86400
-  %141 = add nsw i64 %.neg.i, %126
-  %142 = sdiv i64 %141, 3600
-  %143 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %4, i64 noundef 9, ptr noundef nonnull @.str.7, i64 noundef %138, i64 noundef %142) #7
+141:                                              ; preds = %138
+  %.neg.i = mul nsw i64 %139, -86400
+  %142 = add nsw i64 %.neg.i, %127
+  %143 = sdiv i64 %142, 3600
+  %144 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %4, i64 noundef 9, ptr noundef nonnull @.str.7, i64 noundef %139, i64 noundef %143) #7
   br label %time2str.exit
 
-144:                                              ; preds = %137
-  %145 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %4, i64 noundef 9, ptr noundef nonnull @.str.8, i64 noundef %138) #7
+145:                                              ; preds = %138
+  %146 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %4, i64 noundef 9, ptr noundef nonnull @.str.8, i64 noundef %139) #7
   br label %time2str.exit
 
-time2str.exit:                                    ; preds = %128, %131, %140, %144
-  %146 = icmp slt i64 %124, 1
-  br i1 %146, label %147, label %148
-
-147:                                              ; preds = %time2str.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #7
-  br label %time2str.exit107
+time2str.exit:                                    ; preds = %129, %132, %141, %145
+  %147 = icmp slt i64 %125, 1
+  br i1 %147, label %148, label %149
 
 148:                                              ; preds = %time2str.exit
-  %149 = icmp samesign ult i64 %124, 360000
-  br i1 %149, label %150, label %156
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #7
+  br label %time2str.exit107
 
-150:                                              ; preds = %148
-  %.lhs.trunc.i101 = trunc nuw nsw i64 %124 to i32
-  %151 = udiv i32 %.lhs.trunc.i101, 3600
-  %.zext.i102 = zext nneg i32 %151 to i64
+149:                                              ; preds = %time2str.exit
+  %150 = icmp samesign ult i64 %125, 360000
+  br i1 %150, label %151, label %157
+
+151:                                              ; preds = %149
+  %.lhs.trunc.i101 = trunc nuw nsw i64 %125 to i32
+  %152 = udiv i32 %.lhs.trunc.i101, 3600
+  %.zext.i102 = zext nneg i32 %152 to i64
   %.neg23.i103 = mul nsw i64 %.zext.i102, -3600
-  %152 = add nsw i64 %.neg23.i103, %124
-  %.lhs.trunc25.i104 = trunc nsw i64 %152 to i32
-  %153 = sdiv i32 %.lhs.trunc25.i104, 60
-  %.sext.i105 = sext i32 %153 to i64
+  %153 = add nsw i64 %.neg23.i103, %125
+  %.lhs.trunc25.i104 = trunc nsw i64 %153 to i32
+  %154 = sdiv i32 %.lhs.trunc25.i104, 60
+  %.sext.i105 = sext i32 %154 to i64
   %.neg24.i106 = mul nsw i64 %.sext.i105, -60
-  %154 = add nsw i64 %.neg24.i106, %152
-  %155 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %5, i64 noundef 9, ptr noundef nonnull @.str.6, i64 noundef %.zext.i102, i64 noundef %.sext.i105, i64 noundef %154) #7
+  %155 = add nsw i64 %.neg24.i106, %153
+  %156 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %5, i64 noundef 9, ptr noundef nonnull @.str.6, i64 noundef %.zext.i102, i64 noundef %.sext.i105, i64 noundef %155) #7
   br label %time2str.exit107
 
-156:                                              ; preds = %148
-  %157 = udiv i64 %124, 86400
-  %158 = icmp samesign ult i64 %124, 86400000
-  br i1 %158, label %159, label %163
+157:                                              ; preds = %149
+  %158 = udiv i64 %125, 86400
+  %159 = icmp samesign ult i64 %125, 86400000
+  br i1 %159, label %160, label %164
 
-159:                                              ; preds = %156
-  %.neg.i100 = mul nsw i64 %157, -86400
-  %160 = add nsw i64 %.neg.i100, %124
-  %161 = sdiv i64 %160, 3600
-  %162 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %5, i64 noundef 9, ptr noundef nonnull @.str.7, i64 noundef %157, i64 noundef %161) #7
+160:                                              ; preds = %157
+  %.neg.i100 = mul nsw i64 %158, -86400
+  %161 = add nsw i64 %.neg.i100, %125
+  %162 = sdiv i64 %161, 3600
+  %163 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %5, i64 noundef 9, ptr noundef nonnull @.str.7, i64 noundef %158, i64 noundef %162) #7
   br label %time2str.exit107
 
-163:                                              ; preds = %156
-  %164 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %5, i64 noundef 9, ptr noundef nonnull @.str.8, i64 noundef %157) #7
+164:                                              ; preds = %157
+  %165 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %5, i64 noundef 9, ptr noundef nonnull @.str.8, i64 noundef %158) #7
   br label %time2str.exit107
 
-165:                                              ; preds = %111
+166:                                              ; preds = %112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %4, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #7
   br label %time2str.exit107
 
-time2str.exit107:                                 ; preds = %163, %159, %150, %147, %165
-  %166 = icmp slt i64 %33, 1000
-  br i1 %166, label %167, label %168
+time2str.exit107:                                 ; preds = %164, %160, %151, %148, %166
+  %167 = icmp slt i64 %33, 1000
+  br i1 %167, label %168, label %169
 
-167:                                              ; preds = %time2str.exit107
+168:                                              ; preds = %time2str.exit107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false) #7
   br label %time2str.exit115
 
-168:                                              ; preds = %time2str.exit107
-  %169 = icmp samesign ult i64 %34, 360000
-  br i1 %169, label %170, label %176
+169:                                              ; preds = %time2str.exit107
+  %170 = icmp samesign ult i64 %34, 360000
+  br i1 %170, label %171, label %177
 
-170:                                              ; preds = %168
+171:                                              ; preds = %169
   %.lhs.trunc.i109 = trunc nuw nsw i64 %34 to i32
-  %171 = udiv i32 %.lhs.trunc.i109, 3600
-  %.zext.i110 = zext nneg i32 %171 to i64
+  %172 = udiv i32 %.lhs.trunc.i109, 3600
+  %.zext.i110 = zext nneg i32 %172 to i64
   %.neg23.i111 = mul nsw i64 %.zext.i110, -3600
-  %172 = add nsw i64 %.neg23.i111, %34
-  %.lhs.trunc25.i112 = trunc nsw i64 %172 to i32
-  %173 = sdiv i32 %.lhs.trunc25.i112, 60
-  %.sext.i113 = sext i32 %173 to i64
+  %173 = add nsw i64 %.neg23.i111, %34
+  %.lhs.trunc25.i112 = trunc nsw i64 %173 to i32
+  %174 = sdiv i32 %.lhs.trunc25.i112, 60
+  %.sext.i113 = sext i32 %174 to i64
   %.neg24.i114 = mul nsw i64 %.sext.i113, -60
-  %174 = add nsw i64 %.neg24.i114, %172
-  %175 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 9, ptr noundef nonnull @.str.6, i64 noundef %.zext.i110, i64 noundef %.sext.i113, i64 noundef %174) #7
+  %175 = add nsw i64 %.neg24.i114, %173
+  %176 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 9, ptr noundef nonnull @.str.6, i64 noundef %.zext.i110, i64 noundef %.sext.i113, i64 noundef %175) #7
   br label %time2str.exit115
 
-176:                                              ; preds = %168
-  %177 = udiv i64 %34, 86400
-  %178 = icmp samesign ult i64 %34, 86400000
-  br i1 %178, label %179, label %183
+177:                                              ; preds = %169
+  %178 = udiv i64 %34, 86400
+  %179 = icmp samesign ult i64 %34, 86400000
+  br i1 %179, label %180, label %184
 
-179:                                              ; preds = %176
-  %.neg.i108 = mul nsw i64 %177, -86400
-  %180 = add nsw i64 %.neg.i108, %34
-  %181 = sdiv i64 %180, 3600
-  %182 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 9, ptr noundef nonnull @.str.7, i64 noundef %177, i64 noundef %181) #7
+180:                                              ; preds = %177
+  %.neg.i108 = mul nsw i64 %178, -86400
+  %181 = add nsw i64 %.neg.i108, %34
+  %182 = sdiv i64 %181, 3600
+  %183 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 9, ptr noundef nonnull @.str.7, i64 noundef %178, i64 noundef %182) #7
   br label %time2str.exit115
 
-183:                                              ; preds = %176
-  %184 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 9, ptr noundef nonnull @.str.8, i64 noundef %177) #7
+184:                                              ; preds = %177
+  %185 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 9, ptr noundef nonnull @.str.8, i64 noundef %178) #7
   br label %time2str.exit115
 
-time2str.exit115:                                 ; preds = %167, %170, %179, %183
-  %185 = load ptr, ptr @tool_stderr, align 8, !tbaa !45
-  %186 = call fastcc ptr @max5data(i64 noundef %.077.lcssa, ptr noundef %7)
-  %187 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  %188 = call fastcc ptr @max5data(i64 noundef %.081.lcssa, ptr noundef %187)
-  %189 = load i64, ptr @all_xfers, align 8, !tbaa !46
-  %190 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %191 = call fastcc ptr @max5data(i64 noundef %120, ptr noundef %190)
-  %192 = select i1 %2, ptr @.str.3, ptr @.str.4
-  %193 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %185, ptr noundef nonnull @.str.2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %187, i64 noundef %189, i64 noundef %.082.lcssa, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %190, ptr noundef nonnull %192) #7
+time2str.exit115:                                 ; preds = %168, %171, %180, %184
+  %186 = load ptr, ptr @tool_stderr, align 8, !tbaa !45
+  %187 = call fastcc ptr @max5data(i64 noundef %.077.lcssa, ptr noundef %7)
+  %188 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  %189 = call fastcc ptr @max5data(i64 noundef %.081.lcssa, ptr noundef %188)
+  %190 = load i64, ptr @all_xfers, align 8, !tbaa !46
+  %191 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %192 = call fastcc ptr @max5data(i64 noundef %121, ptr noundef %191)
+  %193 = select i1 %2, ptr @.str.3, ptr @.str.4
+  %194 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %186, ptr noundef nonnull @.str.2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %188, i64 noundef %190, i64 noundef %.082.lcssa, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %191, ptr noundef nonnull %193) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %194
+  br label %195
 
-194:                                              ; preds = %27, %3, %13, %time2str.exit115
+195:                                              ; preds = %27, %3, %13, %time2str.exit115
   %.0 = phi i1 [ true, %time2str.exit115 ], [ false, %13 ], [ false, %3 ], [ false, %27 ]
   ret i1 %.0
 }

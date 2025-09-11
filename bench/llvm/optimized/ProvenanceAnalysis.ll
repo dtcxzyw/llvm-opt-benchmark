@@ -1136,12 +1136,12 @@ define linkonce_odr hidden void @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5Valu
 
 .loopexit:                                        ; preds = %21, %8
   %28 = phi i64 [ %15, %8 ], [ %24, %21 ]
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.35", ptr %4, i64 %28, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.35", ptr %4, i64 %28
   store i64 4, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %30, align 8, !tbaa !127
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !100
   store ptr %33, ptr %31, align 8, !tbaa !100
   %magicptr.i.i.i = ptrtoint ptr %33 to i64
@@ -1152,47 +1152,48 @@ define linkonce_odr hidden void @_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5Valu
   ]
 
 34:                                               ; preds = %.loopexit
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %29, align 8
-  %35 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %36 = inttoptr i64 %35 to ptr
-  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %36) #9
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %35, align 8
+  %36 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
+  %37 = inttoptr i64 %36 to ptr
+  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %37) #9
   br label %_ZN4llvm6WeakVHC2ERKS0_.exit.i
 
 _ZN4llvm6WeakVHC2ERKS0_.exit.i:                   ; preds = %34, %.loopexit, %.loopexit, %.loopexit
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 6, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %38, align 8, !tbaa !127
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !100
-  store ptr %41, ptr %39, align 8, !tbaa !100
-  %magicptr.i.i3.i = ptrtoint ptr %41 to i64
-  switch i64 %magicptr.i.i3.i, label %42 [
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 6, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %39, align 8, !tbaa !127
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %42 = load ptr, ptr %41, align 8, !tbaa !100
+  store ptr %42, ptr %40, align 8, !tbaa !100
+  %magicptr.i.i3.i = ptrtoint ptr %42 to i64
+  switch i64 %magicptr.i.i3.i, label %43 [
     i64 0, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueESt4pairINS_6WeakVHENS_14WeakTrackingVHEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E6doFindIS4_EEPKSD_RKT_.exit
     i64 -4096, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueESt4pairINS_6WeakVHENS_14WeakTrackingVHEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E6doFindIS4_EEPKSD_RKT_.exit
     i64 -8192, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueESt4pairINS_6WeakVHENS_14WeakTrackingVHEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E6doFindIS4_EEPKSD_RKT_.exit
   ]
 
-42:                                               ; preds = %_ZN4llvm6WeakVHC2ERKS0_.exit.i
-  %43 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %.0.copyload.i.i.i.i.i.i4.i = load i64, ptr %43, align 8
-  %44 = and i64 %.0.copyload.i.i.i.i.i.i4.i, -8
-  %45 = inttoptr i64 %44 to ptr
-  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef %45) #9
+43:                                               ; preds = %_ZN4llvm6WeakVHC2ERKS0_.exit.i
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %.0.copyload.i.i.i.i.i.i4.i = load i64, ptr %44, align 8
+  %45 = and i64 %.0.copyload.i.i.i.i.i.i4.i, -8
+  %46 = inttoptr i64 %45 to ptr
+  tail call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef %46) #9
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueESt4pairINS_6WeakVHENS_14WeakTrackingVHEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E6doFindIS4_EEPKSD_RKT_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueESt4pairINS_6WeakVHENS_14WeakTrackingVHEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E6doFindIS4_EEPKSD_RKT_.exit.thread10: ; preds = %.lr.ph.i.i, %3
   store i64 4, ptr %0, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 6, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 6, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueESt4pairINS_6WeakVHENS_14WeakTrackingVHEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E6doFindIS4_EEPKSD_RKT_.exit
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueESt4pairINS_6WeakVHENS_14WeakTrackingVHEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E6doFindIS4_EEPKSD_RKT_.exit: ; preds = %_ZN4llvm6WeakVHC2ERKS0_.exit.i, %_ZN4llvm6WeakVHC2ERKS0_.exit.i, %_ZN4llvm6WeakVHC2ERKS0_.exit.i, %42, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueESt4pairINS_6WeakVHENS_14WeakTrackingVHEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E6doFindIS4_EEPKSD_RKT_.exit.thread10
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueESt4pairINS_6WeakVHENS_14WeakTrackingVHEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E6doFindIS4_EEPKSD_RKT_.exit: ; preds = %_ZN4llvm6WeakVHC2ERKS0_.exit.i, %_ZN4llvm6WeakVHC2ERKS0_.exit.i, %_ZN4llvm6WeakVHC2ERKS0_.exit.i, %43, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueESt4pairINS_6WeakVHENS_14WeakTrackingVHEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E6doFindIS4_EEPKSD_RKT_.exit.thread10
   ret void
 }
 

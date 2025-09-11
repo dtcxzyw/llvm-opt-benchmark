@@ -65,8 +65,8 @@ define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captu
   br label %14
 
 14:                                               ; preds = %.lr.ph, %validate_context.exit
-  %.02439 = phi ptr [ %2, %.lr.ph ], [ %44, %validate_context.exit ]
-  %.02937 = phi i64 [ 0, %.lr.ph ], [ %43, %validate_context.exit ]
+  %.02439 = phi ptr [ %2, %.lr.ph ], [ %45, %validate_context.exit ]
+  %.02937 = phi i64 [ 0, %.lr.ph ], [ %44, %validate_context.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.02439, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !75
   %.not32 = icmp eq i32 %16, 0
@@ -74,60 +74,61 @@ define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captu
 
 17:                                               ; preds = %14
   %18 = icmp ult i64 %.02937, 29
-  br i1 %18, label %19, label %21
+  br i1 %18, label %19, label %22
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw %struct.extensions_definition_st, ptr @ext_defs, i64 %.02937, i32 1
-  br label %29
+  %20 = getelementptr inbounds nuw %struct.extensions_definition_st, ptr @ext_defs, i64 %.02937
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  br label %30
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %8, align 8, !tbaa !9
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  %24 = getelementptr inbounds nuw i8, ptr %.02439, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !78
-  %26 = call ptr @custom_ext_find(ptr noundef nonnull %23, i32 noundef %.022, i32 noundef %25, ptr noundef nonnull %4) #8
-  %.not33.not = icmp eq ptr %26, null
-  br i1 %.not33.not, label %.critedge, label %27, !prof !79
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %8, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %.02439, i64 24
+  %26 = load i32, ptr %25, align 8, !tbaa !78
+  %27 = call ptr @custom_ext_find(ptr noundef nonnull %24, i32 noundef %.022, i32 noundef %26, ptr noundef nonnull %4) #8
+  %.not33.not = icmp eq ptr %27, null
+  br i1 %.not33.not, label %.critedge, label %28, !prof !79
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  br label %29
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  br label %30
 
-29:                                               ; preds = %27, %19
-  %.2.in = phi ptr [ %20, %19 ], [ %28, %27 ]
+30:                                               ; preds = %28, %19
+  %.2.in = phi ptr [ %21, %19 ], [ %29, %28 ]
   %.2 = load i32, ptr %.2.in, align 4, !tbaa !80
-  %30 = and i32 %.2, %1
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.critedge, label %32
+  %31 = and i32 %.2, %1
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %.critedge, label %33
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %13, align 8, !tbaa !81
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 216
-  %35 = load ptr, ptr %34, align 8, !tbaa !82
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  %37 = load i32, ptr %36, align 8, !tbaa !85
-  %38 = and i32 %37, 8
-  %.not.i = icmp eq i32 %38, 0
-  br i1 %.not.i, label %41, label %39
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %13, align 8, !tbaa !81
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 216
+  %36 = load ptr, ptr %35, align 8, !tbaa !82
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
+  %38 = load i32, ptr %37, align 8, !tbaa !85
+  %39 = and i32 %38, 8
+  %.not.i = icmp eq i32 %39, 0
+  br i1 %.not.i, label %42, label %40
 
-39:                                               ; preds = %32
-  %40 = and i32 %.2, 1
-  %.not6.i = icmp eq i32 %40, 0
+40:                                               ; preds = %33
+  %41 = and i32 %.2, 1
+  %.not6.i = icmp eq i32 %41, 0
   br i1 %.not6.i, label %validate_context.exit, label %.critedge
 
-41:                                               ; preds = %32
-  %42 = and i32 %.2, 2
-  %.not5.i = icmp eq i32 %42, 0
+42:                                               ; preds = %33
+  %43 = and i32 %.2, 2
+  %.not5.i = icmp eq i32 %43, 0
   br i1 %.not5.i, label %validate_context.exit, label %.critedge
 
-validate_context.exit:                            ; preds = %41, %39, %14
-  %43 = add nuw i64 %.02937, 1
-  %44 = getelementptr inbounds nuw i8, ptr %.02439, i64 40
-  %exitcond.not = icmp eq i64 %43, %12
+validate_context.exit:                            ; preds = %42, %40, %14
+  %44 = add nuw i64 %.02937, 1
+  %45 = getelementptr inbounds nuw i8, ptr %.02439, i64 40
+  %exitcond.not = icmp eq i64 %44, %12
   br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !87
 
-.critedge:                                        ; preds = %validate_context.exit, %21, %29, %39, %41, %3
-  %.4 = phi i32 [ 1, %3 ], [ 0, %41 ], [ 0, %39 ], [ 0, %29 ], [ 0, %21 ], [ 1, %validate_context.exit ]
+.critedge:                                        ; preds = %validate_context.exit, %22, %30, %40, %42, %3
+  %.4 = phi i32 [ 1, %3 ], [ 0, %42 ], [ 0, %40 ], [ 0, %30 ], [ 0, %22 ], [ 1, %validate_context.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.4
 }
@@ -765,36 +766,37 @@ define range(i32 0, 2) i32 @tls_parse_all_extensions(ptr noundef %0, i32 noundef
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge, %26
-  %.033 = phi ptr [ %28, %26 ], [ @ext_defs, %._crit_edge ]
-  %.132 = phi i64 [ %27, %26 ], [ 0, %._crit_edge ]
+.preheader:                                       ; preds = %._crit_edge, %27
+  %.033 = phi ptr [ %29, %27 ], [ @ext_defs, %._crit_edge ]
+  %.132 = phi i64 [ %28, %27 ], [ 0, %._crit_edge ]
   %16 = getelementptr inbounds nuw i8, ptr %.033, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !114
   %.not26 = icmp eq ptr %17, null
-  br i1 %.not26, label %26, label %18
+  br i1 %.not26, label %27, label %18
 
 18:                                               ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %.033, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !99
   %21 = and i32 %20, %1
   %.not27 = icmp eq i32 %21, 0
-  br i1 %.not27, label %26, label %22
+  br i1 %.not27, label %27, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw %struct.raw_extension_st, ptr %2, i64 %.132, i32 1
-  %24 = load i32, ptr %23, align 8, !tbaa !75
-  %25 = tail call i32 %17(ptr noundef %0, i32 noundef %1, i32 noundef %24) #8
-  %.not28 = icmp eq i32 %25, 0
-  br i1 %.not28, label %.loopexit, label %26
+  %23 = getelementptr inbounds nuw %struct.raw_extension_st, ptr %2, i64 %.132
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load i32, ptr %24, align 8, !tbaa !75
+  %26 = tail call i32 %17(ptr noundef %0, i32 noundef %1, i32 noundef %25) #8
+  %.not28 = icmp eq i32 %26, 0
+  br i1 %.not28, label %.loopexit, label %27
 
-26:                                               ; preds = %.preheader, %18, %22
-  %27 = add nuw nsw i64 %.132, 1
-  %28 = getelementptr inbounds nuw i8, ptr %.033, i64 56
-  %exitcond36.not = icmp eq i64 %27, 29
+27:                                               ; preds = %.preheader, %18, %22
+  %28 = add nuw nsw i64 %.132, 1
+  %29 = getelementptr inbounds nuw i8, ptr %.033, i64 56
+  %exitcond36.not = icmp eq i64 %28, 29
   br i1 %exitcond36.not, label %.loopexit, label %.preheader, !llvm.loop !115
 
-.loopexit:                                        ; preds = %.lr.ph, %26, %22, %._crit_edge
-  %.024 = phi i32 [ 1, %._crit_edge ], [ 1, %26 ], [ 0, %22 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %27, %22, %._crit_edge
+  %.024 = phi i32 [ 1, %._crit_edge ], [ 1, %27 ], [ 0, %22 ], [ 0, %.lr.ph ]
   ret i32 %.024
 }
 

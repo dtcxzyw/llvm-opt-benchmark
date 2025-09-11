@@ -309,7 +309,7 @@ InternalRead.exit:                                ; preds = %45, %47
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %69, ptr %70, align 8
   %.not38 = icmp sgt i8 %58, -1
-  br i1 %.not38, label %119, label %71
+  br i1 %.not38, label %121, label %71
 
 71:                                               ; preds = %57
   %72 = and i8 %58, 7
@@ -378,28 +378,30 @@ InternalRead.exit47:                              ; preds = %88, %90
   %106 = load ptr, ptr %76, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw %struct.GifColorType, ptr %108, i64 %indvars.iv, i32 1
-  store i8 %105, ptr %109, align 1
-  %110 = load i8, ptr %68, align 1
-  %111 = load ptr, ptr %76, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds nuw %struct.GifColorType, ptr %113, i64 %indvars.iv, i32 2
-  store i8 %110, ptr %114, align 1
+  %109 = getelementptr inbounds nuw %struct.GifColorType, ptr %108, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1
+  store i8 %105, ptr %110, align 1
+  %111 = load i8, ptr %68, align 1
+  %112 = load ptr, ptr %76, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds nuw %struct.GifColorType, ptr %114, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 2
+  store i8 %111, ptr %116, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %115 = load ptr, ptr %76, align 8
-  %116 = load i32, ptr %115, align 8
-  %117 = sext i32 %116 to i64
-  %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  %117 = load ptr, ptr %76, align 8
+  %118 = load i32, ptr %117, align 8
+  %119 = sext i32 %118 to i64
+  %120 = icmp slt i64 %indvars.iv.next, %119
+  br i1 %120, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
-119:                                              ; preds = %57
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %120, align 8
+121:                                              ; preds = %57
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %122, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %99, %80, %DGifGetWord.exit44.thread, %DGifGetWord.exit.thread, %119, %96, %78, %53, %9
-  %.034 = phi i32 [ 0, %53 ], [ 0, %78 ], [ 0, %96 ], [ 0, %9 ], [ 1, %119 ], [ 0, %DGifGetWord.exit.thread ], [ 0, %DGifGetWord.exit44.thread ], [ 1, %80 ], [ 1, %99 ]
+.loopexit:                                        ; preds = %99, %80, %DGifGetWord.exit44.thread, %DGifGetWord.exit.thread, %121, %96, %78, %53, %9
+  %.034 = phi i32 [ 0, %53 ], [ 0, %78 ], [ 0, %96 ], [ 0, %9 ], [ 1, %121 ], [ 0, %DGifGetWord.exit.thread ], [ 0, %DGifGetWord.exit44.thread ], [ 1, %80 ], [ 1, %99 ]
   ret i32 %.034
 }
 
@@ -630,7 +632,7 @@ define hidden range(i32 0, 2) i32 @DGifGetImageHeader(ptr noundef %0) local_unna
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 111, ptr %13, align 8
-  br label %191
+  br label %193
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -660,7 +662,7 @@ DGifGetWord.exit.thread:                          ; preds = %InternalRead.exit.i
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %26, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %191
+  br label %193
 
 27:                                               ; preds = %InternalRead.exit.i
   %28 = load i16, ptr %6, align 2
@@ -695,7 +697,7 @@ DGifGetWord.exit50.thread:                        ; preds = %InternalRead.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %42, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %191
+  br label %193
 
 43:                                               ; preds = %InternalRead.exit.i47
   %44 = load i16, ptr %5, align 2
@@ -730,7 +732,7 @@ DGifGetWord.exit55.thread:                        ; preds = %InternalRead.exit.i
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %58, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %191
+  br label %193
 
 59:                                               ; preds = %InternalRead.exit.i52
   %60 = load i16, ptr %4, align 2
@@ -765,7 +767,7 @@ DGifGetWord.exit60.thread:                        ; preds = %InternalRead.exit.i
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %74, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %191
+  br label %193
 
 75:                                               ; preds = %InternalRead.exit.i57
   %76 = load i16, ptr %3, align 2
@@ -801,7 +803,7 @@ InternalRead.exit:                                ; preds = %81, %83
   %92 = load ptr, ptr %91, align 8
   call void @GifFreeMapObject(ptr noundef %92) #14
   store ptr null, ptr %91, align 8
-  br label %191
+  br label %193
 
 93:                                               ; preds = %InternalRead.exit
   %94 = load i8, ptr %7, align 1
@@ -848,7 +850,7 @@ InternalRead.exit:                                ; preds = %81, %83
 111:                                              ; preds = %104
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 109, ptr %112, align 8
-  br label %191
+  br label %193
 
 113:                                              ; preds = %.lr.ph, %128
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %128 ]
@@ -880,7 +882,7 @@ InternalRead.exit63:                              ; preds = %117, %119
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 102, ptr %127, align 8
   store ptr null, ptr %99, align 8
-  br label %191
+  br label %193
 
 128:                                              ; preds = %InternalRead.exit63
   %129 = load i8, ptr %7, align 1
@@ -893,108 +895,110 @@ InternalRead.exit63:                              ; preds = %117, %119
   %135 = load ptr, ptr %99, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds nuw %struct.GifColorType, ptr %137, i64 %indvars.iv, i32 1
-  store i8 %134, ptr %138, align 1
-  %139 = load i8, ptr %110, align 1
-  %140 = load ptr, ptr %99, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw %struct.GifColorType, ptr %142, i64 %indvars.iv, i32 2
-  store i8 %139, ptr %143, align 1
+  %138 = getelementptr inbounds nuw %struct.GifColorType, ptr %137, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 1
+  store i8 %134, ptr %139, align 1
+  %140 = load i8, ptr %110, align 1
+  %141 = load ptr, ptr %99, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw %struct.GifColorType, ptr %143, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 2
+  store i8 %140, ptr %145, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %144 = load ptr, ptr %99, align 8
-  %145 = load i32, ptr %144, align 8
-  %146 = zext i32 %145 to i64
-  %147 = icmp samesign ult i64 %indvars.iv.next, %146
-  br i1 %147, label %113, label %.loopexit, !llvm.loop !8
+  %146 = load ptr, ptr %99, align 8
+  %147 = load i32, ptr %146, align 8
+  %148 = zext i32 %147 to i64
+  %149 = icmp samesign ult i64 %indvars.iv.next, %148
+  br i1 %149, label %113, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %128, %.preheader, %102
-  %148 = load i32, ptr %46, align 8
-  %149 = sext i32 %148 to i64
-  %150 = load i32, ptr %62, align 4
+  %150 = load i32, ptr %46, align 8
   %151 = sext i32 %150 to i64
-  %152 = mul nsw i64 %151, %149
-  %153 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i64 %152, ptr %153, align 8
+  %152 = load i32, ptr %62, align 4
+  %153 = sext i32 %152 to i64
+  %154 = mul nsw i64 %153, %151
+  %155 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store i64 %154, ptr %155, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %154 = load ptr, ptr %8, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 72
-  %156 = load ptr, ptr %155, align 8
-  %.not.i.i64 = icmp eq ptr %156, null
-  br i1 %.not.i.i64, label %159, label %157
-
-157:                                              ; preds = %.loopexit
-  %158 = call i32 %156(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #14
-  br label %InternalRead.exit.i65
+  %156 = load ptr, ptr %8, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 72
+  %158 = load ptr, ptr %157, align 8
+  %.not.i.i64 = icmp eq ptr %158, null
+  br i1 %.not.i.i64, label %161, label %159
 
 159:                                              ; preds = %.loopexit
-  %160 = getelementptr inbounds nuw i8, ptr %154, i64 64
-  %161 = load ptr, ptr %160, align 8
-  %162 = call i64 @fread(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 1, ptr noundef %161)
-  %163 = trunc i64 %162 to i32
+  %160 = call i32 %158(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #14
   br label %InternalRead.exit.i65
 
-InternalRead.exit.i65:                            ; preds = %159, %157
-  %164 = phi i32 [ %158, %157 ], [ %163, %159 ]
-  %165 = icmp slt i32 %164, 1
-  br i1 %165, label %.loopexit.sink.split.i, label %166
+161:                                              ; preds = %.loopexit
+  %162 = getelementptr inbounds nuw i8, ptr %156, i64 64
+  %163 = load ptr, ptr %162, align 8
+  %164 = call i64 @fread(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 1, ptr noundef %163)
+  %165 = trunc i64 %164 to i32
+  br label %InternalRead.exit.i65
 
-166:                                              ; preds = %InternalRead.exit.i65
-  %167 = load i8, ptr %2, align 1
-  %168 = icmp ugt i8 %167, 8
-  br i1 %168, label %.loopexit.sink.split.i, label %169
+InternalRead.exit.i65:                            ; preds = %161, %159
+  %166 = phi i32 [ %160, %159 ], [ %165, %161 ]
+  %167 = icmp slt i32 %166, 1
+  br i1 %167, label %.loopexit.sink.split.i, label %168
 
-169:                                              ; preds = %166
-  %170 = zext nneg i8 %167 to i32
-  %171 = getelementptr inbounds nuw i8, ptr %154, i64 88
-  store i8 0, ptr %171, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  store i32 %170, ptr %172, align 8
-  %173 = shl nuw nsw i32 1, %170
-  %174 = getelementptr inbounds nuw i8, ptr %154, i64 12
-  store i32 %173, ptr %174, align 4
-  %175 = add nuw nsw i32 %173, 1
-  %176 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  store i32 %175, ptr %176, align 8
-  %177 = add nuw nsw i32 %173, 2
-  %178 = getelementptr inbounds nuw i8, ptr %154, i64 20
-  store i32 %177, ptr %178, align 4
-  %179 = add nuw nsw i32 %170, 1
-  %180 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  store i32 %179, ptr %180, align 8
-  %181 = shl nuw nsw i32 2, %170
-  %182 = getelementptr inbounds nuw i8, ptr %154, i64 28
-  store i32 %181, ptr %182, align 4
-  %183 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  store i32 0, ptr %183, align 8
-  %184 = getelementptr inbounds nuw i8, ptr %154, i64 32
-  store i32 4098, ptr %184, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %154, i64 44
-  store i32 0, ptr %185, align 4
-  %186 = getelementptr inbounds nuw i8, ptr %154, i64 48
-  store i64 0, ptr %186, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %154, i64 8536
-  br label %188
+168:                                              ; preds = %InternalRead.exit.i65
+  %169 = load i8, ptr %2, align 1
+  %170 = icmp ugt i8 %169, 8
+  br i1 %170, label %.loopexit.sink.split.i, label %171
 
-188:                                              ; preds = %188, %169
-  %indvars.iv.i = phi i64 [ 0, %169 ], [ %indvars.iv.next.i, %188 ]
-  %189 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv.i
-  store i32 4098, ptr %189, align 4
+171:                                              ; preds = %168
+  %172 = zext nneg i8 %169 to i32
+  %173 = getelementptr inbounds nuw i8, ptr %156, i64 88
+  store i8 0, ptr %173, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  store i32 %172, ptr %174, align 8
+  %175 = shl nuw nsw i32 1, %172
+  %176 = getelementptr inbounds nuw i8, ptr %156, i64 12
+  store i32 %175, ptr %176, align 4
+  %177 = add nuw nsw i32 %175, 1
+  %178 = getelementptr inbounds nuw i8, ptr %156, i64 16
+  store i32 %177, ptr %178, align 8
+  %179 = add nuw nsw i32 %175, 2
+  %180 = getelementptr inbounds nuw i8, ptr %156, i64 20
+  store i32 %179, ptr %180, align 4
+  %181 = add nuw nsw i32 %172, 1
+  %182 = getelementptr inbounds nuw i8, ptr %156, i64 24
+  store i32 %181, ptr %182, align 8
+  %183 = shl nuw nsw i32 2, %172
+  %184 = getelementptr inbounds nuw i8, ptr %156, i64 28
+  store i32 %183, ptr %184, align 4
+  %185 = getelementptr inbounds nuw i8, ptr %156, i64 40
+  store i32 0, ptr %185, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %156, i64 32
+  store i32 4098, ptr %186, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %156, i64 44
+  store i32 0, ptr %187, align 4
+  %188 = getelementptr inbounds nuw i8, ptr %156, i64 48
+  store i64 0, ptr %188, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %156, i64 8536
+  br label %190
+
+190:                                              ; preds = %190, %171
+  %indvars.iv.i = phi i64 [ 0, %171 ], [ %indvars.iv.next.i, %190 ]
+  %191 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv.i
+  store i32 4098, ptr %191, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
-  br i1 %exitcond.not.i, label %DGifSetupDecompress.exit, label %188, !llvm.loop !9
+  br i1 %exitcond.not.i, label %DGifSetupDecompress.exit, label %190, !llvm.loop !9
 
-.loopexit.sink.split.i:                           ; preds = %166, %InternalRead.exit.i65
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 102, ptr %190, align 8
+.loopexit.sink.split.i:                           ; preds = %168, %InternalRead.exit.i65
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 102, ptr %192, align 8
   br label %DGifSetupDecompress.exit
 
-DGifSetupDecompress.exit:                         ; preds = %188, %.loopexit.sink.split.i
-  %.0.i66 = phi i32 [ 0, %.loopexit.sink.split.i ], [ 1, %188 ]
+DGifSetupDecompress.exit:                         ; preds = %190, %.loopexit.sink.split.i
+  %.0.i66 = phi i32 [ 0, %.loopexit.sink.split.i ], [ 1, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %191
+  br label %193
 
-191:                                              ; preds = %DGifGetWord.exit60.thread, %DGifGetWord.exit55.thread, %DGifGetWord.exit50.thread, %DGifGetWord.exit.thread, %DGifSetupDecompress.exit, %125, %111, %89, %12
+193:                                              ; preds = %DGifGetWord.exit60.thread, %DGifGetWord.exit55.thread, %DGifGetWord.exit50.thread, %DGifGetWord.exit.thread, %DGifSetupDecompress.exit, %125, %111, %89, %12
   %.040 = phi i32 [ 0, %89 ], [ 0, %111 ], [ 0, %125 ], [ %.0.i66, %DGifSetupDecompress.exit ], [ 0, %12 ], [ 0, %DGifGetWord.exit.thread ], [ 0, %DGifGetWord.exit50.thread ], [ 0, %DGifGetWord.exit55.thread ], [ 0, %DGifGetWord.exit60.thread ]
   ret i32 %.040
 }
@@ -2713,30 +2717,31 @@ define hidden void @DGifDecreaseImageCounter(ptr noundef captures(none) %0) loca
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %4 to i64
-  %8 = getelementptr inbounds %struct.SavedImage, ptr %6, i64 %7, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %11, label %10
+  %8 = getelementptr inbounds %struct.SavedImage, ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %10 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %12, label %11
 
-10:                                               ; preds = %1
-  tail call void @free(ptr noundef nonnull %9) #14
+11:                                               ; preds = %1
+  tail call void @free(ptr noundef nonnull %10) #14
   %.pre = load ptr, ptr %5, align 8
   %.pre12 = load i32, ptr %2, align 8
   %.pre13 = sext i32 %.pre12 to i64
-  br label %11
+  br label %12
 
-11:                                               ; preds = %10, %1
-  %.pre-phi = phi i64 [ %.pre13, %10 ], [ %7, %1 ]
-  %12 = phi ptr [ %.pre, %10 ], [ %6, %1 ]
-  %13 = tail call ptr @openbsd_reallocarray(ptr noundef %12, i64 noundef %.pre-phi, i64 noundef 56) #14
-  %.not11 = icmp eq ptr %13, null
-  br i1 %.not11, label %15, label %14
+12:                                               ; preds = %11, %1
+  %.pre-phi = phi i64 [ %.pre13, %11 ], [ %7, %1 ]
+  %13 = phi ptr [ %.pre, %11 ], [ %6, %1 ]
+  %14 = tail call ptr @openbsd_reallocarray(ptr noundef %13, i64 noundef %.pre-phi, i64 noundef 56) #14
+  %.not11 = icmp eq ptr %14, null
+  br i1 %.not11, label %16, label %15
 
-14:                                               ; preds = %11
-  store ptr %13, ptr %5, align 8
-  br label %15
+15:                                               ; preds = %12
+  store ptr %14, ptr %5, align 8
+  br label %16
 
-15:                                               ; preds = %14, %11
+16:                                               ; preds = %15, %12
   ret void
 }
 
@@ -2763,8 +2768,8 @@ define hidden range(i32 0, 2) i32 @DGifSlurp(ptr noundef initializes((80, 84), (
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
-14:                                               ; preds = %.lr.ph119, %158
-  %15 = phi ptr [ %9, %.lr.ph119 ], [ %159, %158 ]
+14:                                               ; preds = %.lr.ph119, %160
+  %15 = phi ptr [ %9, %.lr.ph119 ], [ %161, %160 ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
@@ -2790,12 +2795,12 @@ InternalRead.exit.i:                              ; preds = %20, %18
   %27 = load i8, ptr %3, align 1
   switch i8 %27, label %DGifGetRecordType.exit.thread [
     i8 44, label %29
-    i8 33, label %108
-    i8 59, label %162
+    i8 33, label %110
+    i8 59, label %164
   ]
 
-DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.exit.i, %158, %1
-  %.sink = phi i32 [ 111, %1 ], [ 111, %158 ], [ 102, %InternalRead.exit.i ], [ 107, %26 ]
+DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.exit.i, %160, %1
+  %.sink = phi i32 [ 111, %1 ], [ 111, %160 ], [ 102, %InternalRead.exit.i ], [ 107, %26 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %.sink, ptr %28, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2826,269 +2831,271 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
 44:                                               ; preds = %40
   %45 = udiv i32 2147483647, %42
   %46 = icmp samesign ugt i32 %38, %45
-  br i1 %46, label %47, label %57
+  br i1 %46, label %47, label %58
 
 47:                                               ; preds = %44, %40, %32
   %48 = add nsw i32 %34, -1
   store i32 %48, ptr %13, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.SavedImage, ptr %33, i64 %49, i32 1
-  %51 = load ptr, ptr %50, align 8
-  %.not.i62 = icmp eq ptr %51, null
-  br i1 %.not.i62, label %53, label %52
+  %50 = getelementptr inbounds %struct.SavedImage, ptr %33, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %52 = load ptr, ptr %51, align 8
+  %.not.i62 = icmp eq ptr %52, null
+  br i1 %.not.i62, label %54, label %53
 
-52:                                               ; preds = %47
-  call void @free(ptr noundef nonnull %51) #14
+53:                                               ; preds = %47
+  call void @free(ptr noundef nonnull %52) #14
   %.pre.i = load ptr, ptr %12, align 8
   %.pre12.i = load i32, ptr %13, align 8
   %.pre13.i = sext i32 %.pre12.i to i64
-  br label %53
+  br label %54
 
-53:                                               ; preds = %52, %47
-  %.pre-phi.i = phi i64 [ %.pre13.i, %52 ], [ %49, %47 ]
-  %54 = phi ptr [ %.pre.i, %52 ], [ %33, %47 ]
-  %55 = call ptr @openbsd_reallocarray(ptr noundef %54, i64 noundef %.pre-phi.i, i64 noundef 56) #14
-  %.not11.i = icmp eq ptr %55, null
-  br i1 %.not11.i, label %DGifDecreaseImageCounter.exit, label %56
+54:                                               ; preds = %53, %47
+  %.pre-phi.i = phi i64 [ %.pre13.i, %53 ], [ %49, %47 ]
+  %55 = phi ptr [ %.pre.i, %53 ], [ %33, %47 ]
+  %56 = call ptr @openbsd_reallocarray(ptr noundef %55, i64 noundef %.pre-phi.i, i64 noundef 56) #14
+  %.not11.i = icmp eq ptr %56, null
+  br i1 %.not11.i, label %DGifDecreaseImageCounter.exit, label %57
 
-56:                                               ; preds = %53
-  store ptr %55, ptr %12, align 8
+57:                                               ; preds = %54
+  store ptr %56, ptr %12, align 8
   br label %DGifDecreaseImageCounter.exit
 
-57:                                               ; preds = %44
-  %58 = mul nuw nsw i32 %42, %38
-  %59 = zext nneg i32 %58 to i64
-  %60 = call ptr @openbsd_reallocarray(ptr noundef null, i64 noundef %59, i64 noundef 1) #14
-  %61 = getelementptr i8, ptr %36, i64 -24
-  store ptr %60, ptr %61, align 8
-  %62 = icmp eq ptr %60, null
-  br i1 %62, label %63, label %64
+58:                                               ; preds = %44
+  %59 = mul nuw nsw i32 %42, %38
+  %60 = zext nneg i32 %59 to i64
+  %61 = call ptr @openbsd_reallocarray(ptr noundef null, i64 noundef %60, i64 noundef 1) #14
+  %62 = getelementptr i8, ptr %36, i64 -24
+  store ptr %61, ptr %62, align 8
+  %63 = icmp eq ptr %61, null
+  br i1 %63, label %64, label %65
 
-63:                                               ; preds = %57
+64:                                               ; preds = %58
   call void @DGifDecreaseImageCounter(ptr noundef nonnull %0)
   br label %DGifDecreaseImageCounter.exit
 
-64:                                               ; preds = %57
-  %65 = getelementptr i8, ptr %36, i64 -40
-  %66 = load i8, ptr %65, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %.preheader.preheader, label %99
+65:                                               ; preds = %58
+  %66 = getelementptr i8, ptr %36, i64 -40
+  %67 = load i8, ptr %66, align 8
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %.preheader.preheader, label %101
 
-.preheader.preheader:                             ; preds = %64
+.preheader.preheader:                             ; preds = %65
   %.pre = load i32, ptr %41, align 4
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %68 = phi i32 [ %.pre, %.preheader.preheader ], [ %98, %._crit_edge ]
+  %69 = phi i32 [ %.pre, %.preheader.preheader ], [ %100, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %69 = getelementptr inbounds nuw i32, ptr @DGifSlurp.InterlacedOffset, i64 %indvars.iv
-  %70 = load i32, ptr %69, align 4
-  %71 = icmp slt i32 %70, %68
-  br i1 %71, label %.lr.ph, label %._crit_edge
+  %70 = getelementptr inbounds nuw i32, ptr @DGifSlurp.InterlacedOffset, i64 %indvars.iv
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp slt i32 %71, %69
+  br i1 %72, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %72 = getelementptr inbounds nuw i32, ptr @DGifSlurp.InterlacedJumps, i64 %indvars.iv
-  br label %73
+  %73 = getelementptr inbounds nuw i32, ptr @DGifSlurp.InterlacedJumps, i64 %indvars.iv
+  br label %74
 
-73:                                               ; preds = %.lr.ph, %93
-  %.0115 = phi i32 [ %70, %.lr.ph ], [ %95, %93 ]
-  %74 = load ptr, ptr %61, align 8
-  %75 = load i32, ptr %37, align 8
-  %76 = mul nsw i32 %75, %.0115
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %74, i64 %77
-  %79 = call i32 @DGifGetLine(ptr noundef nonnull %0, ptr noundef %78, i32 noundef %75)
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %93
+74:                                               ; preds = %.lr.ph, %95
+  %.0115 = phi i32 [ %71, %.lr.ph ], [ %97, %95 ]
+  %75 = load ptr, ptr %62, align 8
+  %76 = load i32, ptr %37, align 8
+  %77 = mul nsw i32 %76, %.0115
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i8, ptr %75, i64 %78
+  %80 = call i32 @DGifGetLine(ptr noundef nonnull %0, ptr noundef %79, i32 noundef %76)
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %95
 
-81:                                               ; preds = %73
-  %82 = load i32, ptr %13, align 8
-  %83 = add nsw i32 %82, -1
-  store i32 %83, ptr %13, align 8
-  %84 = load ptr, ptr %12, align 8
-  %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds %struct.SavedImage, ptr %84, i64 %85, i32 1
-  %87 = load ptr, ptr %86, align 8
-  %.not.i63 = icmp eq ptr %87, null
-  br i1 %.not.i63, label %89, label %88
+82:                                               ; preds = %74
+  %83 = load i32, ptr %13, align 8
+  %84 = add nsw i32 %83, -1
+  store i32 %84, ptr %13, align 8
+  %85 = load ptr, ptr %12, align 8
+  %86 = sext i32 %84 to i64
+  %87 = getelementptr inbounds %struct.SavedImage, ptr %85, i64 %86
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  %89 = load ptr, ptr %88, align 8
+  %.not.i63 = icmp eq ptr %89, null
+  br i1 %.not.i63, label %91, label %90
 
-88:                                               ; preds = %81
-  call void @free(ptr noundef nonnull %87) #14
+90:                                               ; preds = %82
+  call void @free(ptr noundef nonnull %89) #14
   %.pre.i64 = load ptr, ptr %12, align 8
   %.pre12.i65 = load i32, ptr %13, align 8
   %.pre13.i66 = sext i32 %.pre12.i65 to i64
-  br label %89
+  br label %91
 
-89:                                               ; preds = %88, %81
-  %.pre-phi.i67 = phi i64 [ %.pre13.i66, %88 ], [ %85, %81 ]
-  %90 = phi ptr [ %.pre.i64, %88 ], [ %84, %81 ]
-  %91 = call ptr @openbsd_reallocarray(ptr noundef %90, i64 noundef %.pre-phi.i67, i64 noundef 56) #14
-  %.not11.i68 = icmp eq ptr %91, null
-  br i1 %.not11.i68, label %DGifDecreaseImageCounter.exit, label %92
+91:                                               ; preds = %90, %82
+  %.pre-phi.i67 = phi i64 [ %.pre13.i66, %90 ], [ %86, %82 ]
+  %92 = phi ptr [ %.pre.i64, %90 ], [ %85, %82 ]
+  %93 = call ptr @openbsd_reallocarray(ptr noundef %92, i64 noundef %.pre-phi.i67, i64 noundef 56) #14
+  %.not11.i68 = icmp eq ptr %93, null
+  br i1 %.not11.i68, label %DGifDecreaseImageCounter.exit, label %94
 
-92:                                               ; preds = %89
-  store ptr %91, ptr %12, align 8
+94:                                               ; preds = %91
+  store ptr %93, ptr %12, align 8
   br label %DGifDecreaseImageCounter.exit
 
-93:                                               ; preds = %73
-  %94 = load i32, ptr %72, align 4
-  %95 = add nsw i32 %94, %.0115
-  %96 = load i32, ptr %41, align 4
-  %97 = icmp slt i32 %95, %96
-  br i1 %97, label %73, label %._crit_edge, !llvm.loop !21
+95:                                               ; preds = %74
+  %96 = load i32, ptr %73, align 4
+  %97 = add nsw i32 %96, %.0115
+  %98 = load i32, ptr %41, align 4
+  %99 = icmp slt i32 %97, %98
+  br i1 %99, label %74, label %._crit_edge, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %93, %.preheader
-  %98 = phi i32 [ %68, %.preheader ], [ %96, %93 ]
+._crit_edge:                                      ; preds = %95, %.preheader
+  %100 = phi i32 [ %69, %.preheader ], [ %98, %95 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !22
 
-99:                                               ; preds = %64
-  %100 = call i32 @DGifGetLine(ptr noundef nonnull %0, ptr noundef nonnull %60, i32 noundef %58)
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %.loopexit
+101:                                              ; preds = %65
+  %102 = call i32 @DGifGetLine(ptr noundef nonnull %0, ptr noundef nonnull %61, i32 noundef %59)
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %104, label %.loopexit
 
-102:                                              ; preds = %99
+104:                                              ; preds = %101
   call void @DGifDecreaseImageCounter(ptr noundef nonnull %0)
   br label %DGifDecreaseImageCounter.exit
 
-.loopexit:                                        ; preds = %._crit_edge, %99
-  %103 = load ptr, ptr %6, align 8
-  %.not60 = icmp eq ptr %103, null
-  br i1 %.not60, label %158, label %104
+.loopexit:                                        ; preds = %._crit_edge, %101
+  %105 = load ptr, ptr %6, align 8
+  %.not60 = icmp eq ptr %105, null
+  br i1 %.not60, label %160, label %106
 
-104:                                              ; preds = %.loopexit
-  %105 = getelementptr i8, ptr %36, i64 -8
-  store ptr %103, ptr %105, align 8
-  %106 = load i32, ptr %7, align 8
-  %107 = getelementptr i8, ptr %36, i64 -16
-  store i32 %106, ptr %107, align 8
+106:                                              ; preds = %.loopexit
+  %107 = getelementptr i8, ptr %36, i64 -8
+  store ptr %105, ptr %107, align 8
+  %108 = load i32, ptr %7, align 8
+  %109 = getelementptr i8, ptr %36, i64 -16
+  store i32 %108, ptr %109, align 8
   store ptr null, ptr %6, align 8
   store i32 0, ptr %7, align 8
-  br label %158
+  br label %160
 
-108:                                              ; preds = %26
+110:                                              ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %109 = call i32 @DGifGetExtension(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %DGifDecreaseImageCounter.exit, label %111
+  %111 = call i32 @DGifGetExtension(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %DGifDecreaseImageCounter.exit, label %113
 
-111:                                              ; preds = %108
-  %112 = load ptr, ptr %4, align 8
-  %.not = icmp eq ptr %112, null
-  br i1 %.not, label %.preheader171, label %113
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %4, align 8
+  %.not = icmp eq ptr %114, null
+  br i1 %.not, label %.preheader171, label %115
 
-113:                                              ; preds = %111
-  %114 = load i32, ptr %5, align 4
-  %115 = load i8, ptr %112, align 1
-  %116 = zext i8 %115 to i32
-  %117 = getelementptr inbounds nuw i8, ptr %112, i64 1
-  %118 = call i32 @GifAddExtensionBlock(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %114, i32 noundef %116, ptr noundef nonnull %117) #14
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %DGifDecreaseImageCounter.exit, label %.preheader171
+115:                                              ; preds = %113
+  %116 = load i32, ptr %5, align 4
+  %117 = load i8, ptr %114, align 1
+  %118 = zext i8 %117 to i32
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 1
+  %120 = call i32 @GifAddExtensionBlock(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %116, i32 noundef %118, ptr noundef nonnull %119) #14
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %DGifDecreaseImageCounter.exit, label %.preheader171
 
-.preheader171:                                    ; preds = %113, %111
-  br label %120
+.preheader171:                                    ; preds = %115, %113
+  br label %122
 
-120:                                              ; preds = %.preheader171, %153
+122:                                              ; preds = %.preheader171, %155
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %121 = load ptr, ptr %8, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 72
-  %123 = load ptr, ptr %122, align 8
-  %.not.i.i70 = icmp eq ptr %123, null
-  br i1 %.not.i.i70, label %126, label %124
+  %123 = load ptr, ptr %8, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 72
+  %125 = load ptr, ptr %124, align 8
+  %.not.i.i70 = icmp eq ptr %125, null
+  br i1 %.not.i.i70, label %128, label %126
 
-124:                                              ; preds = %120
-  %125 = call i32 %123(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #14
+126:                                              ; preds = %122
+  %127 = call i32 %125(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #14
   br label %InternalRead.exit.i71
 
-126:                                              ; preds = %120
-  %127 = getelementptr inbounds nuw i8, ptr %121, i64 64
-  %128 = load ptr, ptr %127, align 8
-  %129 = call i64 @fread(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 1, ptr noundef %128)
-  %130 = trunc i64 %129 to i32
+128:                                              ; preds = %122
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 64
+  %130 = load ptr, ptr %129, align 8
+  %131 = call i64 @fread(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 1, ptr noundef %130)
+  %132 = trunc i64 %131 to i32
   br label %InternalRead.exit.i71
 
-InternalRead.exit.i71:                            ; preds = %126, %124
-  %131 = phi i32 [ %125, %124 ], [ %130, %126 ]
-  %.not.i72 = icmp eq i32 %131, 1
-  br i1 %.not.i72, label %132, label %DGifGetExtensionNext.exit.thread
+InternalRead.exit.i71:                            ; preds = %128, %126
+  %133 = phi i32 [ %127, %126 ], [ %132, %128 ]
+  %.not.i72 = icmp eq i32 %133, 1
+  br i1 %.not.i72, label %134, label %DGifGetExtensionNext.exit.thread
 
-132:                                              ; preds = %InternalRead.exit.i71
-  %133 = load i8, ptr %2, align 1
-  %.not10.i74 = icmp eq i8 %133, 0
-  br i1 %.not10.i74, label %.thread88, label %134
+134:                                              ; preds = %InternalRead.exit.i71
+  %135 = load i8, ptr %2, align 1
+  %.not10.i74 = icmp eq i8 %135, 0
+  br i1 %.not10.i74, label %.thread88, label %136
 
-134:                                              ; preds = %132
-  %135 = getelementptr inbounds nuw i8, ptr %121, i64 88
-  store i8 %133, ptr %135, align 1
-  %136 = getelementptr inbounds nuw i8, ptr %121, i64 89
-  %137 = load ptr, ptr %8, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 72
-  %139 = load ptr, ptr %138, align 8
-  %.not.i12.i = icmp eq ptr %139, null
-  br i1 %.not.i12.i, label %143, label %140
+136:                                              ; preds = %134
+  %137 = getelementptr inbounds nuw i8, ptr %123, i64 88
+  store i8 %135, ptr %137, align 1
+  %138 = getelementptr inbounds nuw i8, ptr %123, i64 89
+  %139 = load ptr, ptr %8, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 72
+  %141 = load ptr, ptr %140, align 8
+  %.not.i12.i = icmp eq ptr %141, null
+  br i1 %.not.i12.i, label %145, label %142
 
-140:                                              ; preds = %134
-  %141 = zext i8 %133 to i32
-  %142 = call i32 %139(ptr noundef nonnull %0, ptr noundef nonnull %136, i32 noundef range(i32 0, 256) %141) #14
+142:                                              ; preds = %136
+  %143 = zext i8 %135 to i32
+  %144 = call i32 %141(ptr noundef nonnull %0, ptr noundef nonnull %138, i32 noundef range(i32 0, 256) %143) #14
   br label %InternalRead.exit13.i
 
-143:                                              ; preds = %134
-  %144 = zext i8 %133 to i64
-  %145 = getelementptr inbounds nuw i8, ptr %137, i64 64
-  %146 = load ptr, ptr %145, align 8
-  %147 = call i64 @fread(ptr noundef nonnull %136, i64 noundef 1, i64 noundef %144, ptr noundef %146)
-  %148 = trunc i64 %147 to i32
+145:                                              ; preds = %136
+  %146 = zext i8 %135 to i64
+  %147 = getelementptr inbounds nuw i8, ptr %139, i64 64
+  %148 = load ptr, ptr %147, align 8
+  %149 = call i64 @fread(ptr noundef nonnull %138, i64 noundef 1, i64 noundef %146, ptr noundef %148)
+  %150 = trunc i64 %149 to i32
   br label %InternalRead.exit13.i
 
-InternalRead.exit13.i:                            ; preds = %143, %140
-  %149 = phi i32 [ %142, %140 ], [ %148, %143 ]
-  %150 = load i8, ptr %2, align 1
-  %151 = zext i8 %150 to i32
-  %.not11.i75 = icmp eq i32 %149, %151
-  br i1 %.not11.i75, label %153, label %DGifGetExtensionNext.exit.thread
+InternalRead.exit13.i:                            ; preds = %145, %142
+  %151 = phi i32 [ %144, %142 ], [ %150, %145 ]
+  %152 = load i8, ptr %2, align 1
+  %153 = zext i8 %152 to i32
+  %.not11.i75 = icmp eq i32 %151, %153
+  br i1 %.not11.i75, label %155, label %DGifGetExtensionNext.exit.thread
 
-.thread88:                                        ; preds = %132
+.thread88:                                        ; preds = %134
   store ptr null, ptr %4, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %158
+  br label %160
 
 DGifGetExtensionNext.exit.thread:                 ; preds = %InternalRead.exit13.i, %InternalRead.exit.i71
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 102, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 102, ptr %154, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %DGifDecreaseImageCounter.exit
 
-153:                                              ; preds = %InternalRead.exit13.i
+155:                                              ; preds = %InternalRead.exit13.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %154 = load i8, ptr %135, align 1
-  %155 = zext i8 %154 to i32
-  %156 = call i32 @GifAddExtensionBlock(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %155, ptr noundef nonnull %136) #14
-  %157 = icmp eq i32 %156, 0
-  br i1 %157, label %DGifDecreaseImageCounter.exit, label %120
+  %156 = load i8, ptr %137, align 1
+  %157 = zext i8 %156 to i32
+  %158 = call i32 @GifAddExtensionBlock(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %157, ptr noundef nonnull %138) #14
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %DGifDecreaseImageCounter.exit, label %122
 
-158:                                              ; preds = %.thread88, %104, %.loopexit
+160:                                              ; preds = %.thread88, %106, %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %159 = load ptr, ptr %8, align 8
-  %160 = load i32, ptr %159, align 8
-  %161 = and i32 %160, 8
-  %.not.i = icmp eq i32 %161, 0
+  %161 = load ptr, ptr %8, align 8
+  %162 = load i32, ptr %161, align 8
+  %163 = and i32 %162, 8
+  %.not.i = icmp eq i32 %163, 0
   br i1 %.not.i, label %DGifGetRecordType.exit.thread, label %14, !llvm.loop !23
 
-162:                                              ; preds = %26
+164:                                              ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %163 = load i32, ptr %13, align 8
-  %164 = icmp eq i32 %163, 0
-  br i1 %164, label %165, label %DGifDecreaseImageCounter.exit
+  %165 = load i32, ptr %13, align 8
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %167, label %DGifDecreaseImageCounter.exit
 
-165:                                              ; preds = %162
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 105, ptr %166, align 8
+167:                                              ; preds = %164
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 105, ptr %168, align 8
   br label %DGifDecreaseImageCounter.exit
 
-DGifDecreaseImageCounter.exit:                    ; preds = %113, %108, %29, %153, %DGifGetExtensionNext.exit.thread, %92, %89, %56, %53, %DGifGetRecordType.exit.thread, %162, %165, %102, %63
-  %.053 = phi i32 [ 0, %165 ], [ 0, %63 ], [ 0, %102 ], [ 1, %162 ], [ 0, %DGifGetRecordType.exit.thread ], [ 0, %53 ], [ 0, %56 ], [ 0, %89 ], [ 0, %92 ], [ 0, %DGifGetExtensionNext.exit.thread ], [ 0, %153 ], [ 0, %29 ], [ 0, %108 ], [ 0, %113 ]
+DGifDecreaseImageCounter.exit:                    ; preds = %115, %110, %29, %155, %DGifGetExtensionNext.exit.thread, %94, %91, %57, %54, %DGifGetRecordType.exit.thread, %164, %167, %104, %64
+  %.053 = phi i32 [ 0, %167 ], [ 0, %64 ], [ 0, %104 ], [ 1, %164 ], [ 0, %DGifGetRecordType.exit.thread ], [ 0, %54 ], [ 0, %57 ], [ 0, %91 ], [ 0, %94 ], [ 0, %DGifGetExtensionNext.exit.thread ], [ 0, %155 ], [ 0, %29 ], [ 0, %110 ], [ 0, %115 ]
   ret i32 %.053
 }
 

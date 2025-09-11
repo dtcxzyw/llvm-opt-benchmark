@@ -10461,7 +10461,7 @@ _ZN7xgboost9predictor17ColumnSplitHelper11GetNextNodeERKNS_7RegTree4NodeEm.exit.
   br i1 %538, label %_ZN7xgboost9predictor17ColumnSplitHelper14PredictOneTreeILb0EEEfmm.exit.loopexit.us.i77, label %510, !llvm.loop !392
 
 _ZN7xgboost9predictor17ColumnSplitHelper14PredictOneTreeILb0EEEfmm.exit.loopexit.us.i77: ; preds = %_ZN7xgboost9predictor17ColumnSplitHelper11GetNextNodeERKNS_7RegTree4NodeEm.exit.i.i.us.i75
-  %539 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %501, i64 %534, i32 4
+  %539 = getelementptr inbounds nuw i8, ptr %535, i64 16
   %540 = load float, ptr %539, align 4, !tbaa !23
   %541 = add i64 %.01617.us22.i71, %492
   %542 = mul i64 %541, %481
@@ -10735,7 +10735,7 @@ _ZN7xgboost9predictor17ColumnSplitHelper11GetNextNodeERKNS_7RegTree4NodeEm.exit.
   br i1 %657, label %_ZN7xgboost9predictor17ColumnSplitHelper14PredictOneTreeILb0EEEfmm.exit.loopexit.us.i.us, label %629, !llvm.loop !392
 
 _ZN7xgboost9predictor17ColumnSplitHelper14PredictOneTreeILb0EEEfmm.exit.loopexit.us.i.us: ; preds = %_ZN7xgboost9predictor17ColumnSplitHelper11GetNextNodeERKNS_7RegTree4NodeEm.exit.i.i.us.i.us
-  %658 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %611, i64 %653, i32 4
+  %658 = getelementptr inbounds nuw i8, ptr %654, i64 16
   %659 = load float, ptr %658, align 4, !tbaa !23
   %660 = add i64 %.01617.us22.i.us, %603
   %661 = mul i64 %660, %591
@@ -15513,7 +15513,7 @@ define internal fastcc void @_ZN7xgboost9predictor12_GLOBAL__N_117PredictByAllTr
   ret void
 
 33:                                               ; preds = %.lr.ph224, %.loopexit
-  %.055223 = phi i32 [ %1, %.lr.ph224 ], [ %567, %.loopexit ]
+  %.055223 = phi i32 [ %1, %.lr.ph224 ], [ %569, %.loopexit ]
   %34 = zext i32 %.055223 to i64
   %35 = load ptr, ptr %16, align 8, !tbaa !100
   %36 = load ptr, ptr %15, align 8, !tbaa !103
@@ -16064,10 +16064,10 @@ _ZN7xgboost9predictor5multi18PredValueByOneTreeILb0EEEvRKNS_7RegTree4FVecERKNS_1
   %334 = sext i32 %313 to i64
   %335 = mul i64 %20, %334
   %invariant.gep221 = getelementptr float, ptr %32, i64 %335
-  br label %504
+  br label %505
 
 336:                                              ; preds = %.lr.ph218, %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb1EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit
-  %.052217 = phi i64 [ 0, %.lr.ph218 ], [ %503, %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb1EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit ]
+  %.052217 = phi i64 [ 0, %.lr.ph218 ], [ %504, %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb1EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit ]
   %337 = getelementptr %"struct.xgboost::RegTree::FVec", ptr %315, i64 %.052217
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 24
   %339 = load i8, ptr %338, align 8, !tbaa !372, !range !533, !noundef !534
@@ -16354,116 +16354,118 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 _ZN7xgboost9predictor6scalar18PredValueByOneTreeILb1EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit: ; preds = %.noexc10.i, %.lr.ph.i8.i79.us, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i, %341, %413
   %495 = phi i32 [ 0, %341 ], [ 0, %413 ], [ %.0.i.i.i, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i ], [ %427, %.lr.ph.i8.i79.us ], [ %489, %.noexc10.i ]
   %496 = sext i32 %495 to i64
-  %497 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %317, i64 %496, i32 4
-  %498 = load float, ptr %497, align 4, !tbaa !23
-  %499 = add i64 %.052217, %3
-  %500 = mul i64 %323, %499
-  %gep = getelementptr float, ptr %invariant.gep, i64 %500
-  %501 = load float, ptr %gep, align 4, !tbaa !171
-  %502 = fadd float %498, %501
-  store float %502, ptr %gep, align 4, !tbaa !171
-  %503 = add nuw i64 %.052217, 1
-  %exitcond295.not = icmp eq i64 %503, %6
+  %497 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %317, i64 %496
+  %498 = getelementptr inbounds nuw i8, ptr %497, i64 16
+  %499 = load float, ptr %498, align 4, !tbaa !23
+  %500 = add i64 %.052217, %3
+  %501 = mul i64 %323, %500
+  %gep = getelementptr float, ptr %invariant.gep, i64 %501
+  %502 = load float, ptr %gep, align 4, !tbaa !171
+  %503 = fadd float %499, %502
+  store float %503, ptr %gep, align 4, !tbaa !171
+  %504 = add nuw i64 %.052217, 1
+  %exitcond295.not = icmp eq i64 %504, %6
   br i1 %exitcond295.not, label %.loopexit, label %336, !llvm.loop !588
 
-504:                                              ; preds = %.lr.ph220, %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit
-  %.0219 = phi i64 [ 0, %.lr.ph220 ], [ %566, %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit ]
-  %505 = getelementptr %"struct.xgboost::RegTree::FVec", ptr %327, i64 %.0219
-  %506 = getelementptr inbounds nuw i8, ptr %505, i64 24
-  %507 = load i8, ptr %506, align 8, !tbaa !372, !range !533, !noundef !534
-  %508 = trunc nuw i8 %507 to i1
-  br i1 %508, label %509, label %537
+505:                                              ; preds = %.lr.ph220, %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit
+  %.0219 = phi i64 [ 0, %.lr.ph220 ], [ %568, %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit ]
+  %506 = getelementptr %"struct.xgboost::RegTree::FVec", ptr %327, i64 %.0219
+  %507 = getelementptr inbounds nuw i8, ptr %506, i64 24
+  %508 = load i8, ptr %507, align 8, !tbaa !372, !range !533, !noundef !534
+  %509 = trunc nuw i8 %508 to i1
+  br i1 %509, label %510, label %538
 
-509:                                              ; preds = %504
+510:                                              ; preds = %505
   br i1 %332, label %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit, label %.lr.ph.i.i82
 
-.lr.ph.i.i82:                                     ; preds = %509
-  %510 = load ptr, ptr %505, align 8, !tbaa !108
-  br label %511
+.lr.ph.i.i82:                                     ; preds = %510
+  %511 = load ptr, ptr %506, align 8, !tbaa !108
+  br label %512
 
-511:                                              ; preds = %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i, %.lr.ph.i.i82
-  %512 = phi i32 [ %331, %.lr.ph.i.i82 ], [ %535, %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i ]
-  %513 = phi ptr [ %329, %.lr.ph.i.i82 ], [ %533, %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i ]
-  %514 = getelementptr inbounds nuw i8, ptr %513, i64 12
-  %515 = load i32, ptr %514, align 4, !tbaa !391
-  %516 = and i32 %515, 2147483647
-  %517 = zext nneg i32 %516 to i64
-  %518 = getelementptr inbounds nuw float, ptr %510, i64 %517
-  %519 = load float, ptr %518, align 4, !tbaa !171
-  %520 = fcmp uno float %519, 0.000000e+00
-  br i1 %520, label %521, label %526
+512:                                              ; preds = %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i, %.lr.ph.i.i82
+  %513 = phi i32 [ %331, %.lr.ph.i.i82 ], [ %536, %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i ]
+  %514 = phi ptr [ %329, %.lr.ph.i.i82 ], [ %534, %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i ]
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 12
+  %516 = load i32, ptr %515, align 4, !tbaa !391
+  %517 = and i32 %516, 2147483647
+  %518 = zext nneg i32 %517 to i64
+  %519 = getelementptr inbounds nuw float, ptr %511, i64 %518
+  %520 = load float, ptr %519, align 4, !tbaa !171
+  %521 = fcmp uno float %520, 0.000000e+00
+  br i1 %521, label %522, label %527
 
-521:                                              ; preds = %511
-  %522 = icmp slt i32 %515, 0
-  %523 = getelementptr inbounds nuw i8, ptr %513, i64 8
-  %524 = load i32, ptr %523, align 4
-  %525 = select i1 %522, i32 %512, i32 %524
+522:                                              ; preds = %512
+  %523 = icmp slt i32 %516, 0
+  %524 = getelementptr inbounds nuw i8, ptr %514, i64 8
+  %525 = load i32, ptr %524, align 4
+  %526 = select i1 %523, i32 %513, i32 %525
   br label %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i
 
-526:                                              ; preds = %511
-  %527 = getelementptr inbounds nuw i8, ptr %513, i64 16
-  %528 = load float, ptr %527, align 4, !tbaa !23
-  %529 = fcmp uge float %519, %528
-  %530 = zext i1 %529 to i32
-  %531 = add nuw nsw i32 %512, %530
+527:                                              ; preds = %512
+  %528 = getelementptr inbounds nuw i8, ptr %514, i64 16
+  %529 = load float, ptr %528, align 4, !tbaa !23
+  %530 = fcmp uge float %520, %529
+  %531 = zext i1 %530 to i32
+  %532 = add nuw nsw i32 %513, %531
   br label %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i
 
-_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i: ; preds = %526, %521
-  %.0.i.i.i83 = phi i32 [ %525, %521 ], [ %531, %526 ]
-  %532 = sext i32 %.0.i.i.i83 to i64
-  %533 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %329, i64 %532
-  %534 = getelementptr inbounds nuw i8, ptr %533, i64 4
-  %535 = load i32, ptr %534, align 4, !tbaa !389
-  %536 = icmp eq i32 %535, -1
-  br i1 %536, label %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit, label %511, !llvm.loop !589
+_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i: ; preds = %527, %522
+  %.0.i.i.i83 = phi i32 [ %526, %522 ], [ %532, %527 ]
+  %533 = sext i32 %.0.i.i.i83 to i64
+  %534 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %329, i64 %533
+  %535 = getelementptr inbounds nuw i8, ptr %534, i64 4
+  %536 = load i32, ptr %535, align 4, !tbaa !389
+  %537 = icmp eq i32 %536, -1
+  br i1 %537, label %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit, label %512, !llvm.loop !589
 
-537:                                              ; preds = %504
+538:                                              ; preds = %505
   br i1 %332, label %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit, label %.lr.ph.i8.i81
 
-.lr.ph.i8.i81:                                    ; preds = %537
-  %538 = load ptr, ptr %505, align 8, !tbaa !108
-  br label %539
+.lr.ph.i8.i81:                                    ; preds = %538
+  %539 = load ptr, ptr %506, align 8, !tbaa !108
+  br label %540
 
-539:                                              ; preds = %539, %.lr.ph.i8.i81
-  %540 = phi i32 [ %331, %.lr.ph.i8.i81 ], [ %556, %539 ]
-  %541 = phi ptr [ %329, %.lr.ph.i8.i81 ], [ %554, %539 ]
-  %542 = getelementptr inbounds nuw i8, ptr %541, i64 12
-  %543 = load i32, ptr %542, align 4, !tbaa !391
-  %544 = and i32 %543, 2147483647
-  %545 = zext nneg i32 %544 to i64
-  %546 = getelementptr inbounds nuw float, ptr %538, i64 %545
-  %547 = load float, ptr %546, align 4, !tbaa !171
-  %548 = getelementptr inbounds nuw i8, ptr %541, i64 16
-  %549 = load float, ptr %548, align 4, !tbaa !23
-  %550 = fcmp uge float %547, %549
-  %551 = zext i1 %550 to i32
-  %552 = add nuw nsw i32 %540, %551
-  %553 = sext i32 %552 to i64
-  %554 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %329, i64 %553
-  %555 = getelementptr inbounds nuw i8, ptr %554, i64 4
-  %556 = load i32, ptr %555, align 4, !tbaa !389
-  %557 = icmp eq i32 %556, -1
-  br i1 %557, label %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit, label %539, !llvm.loop !590
+540:                                              ; preds = %540, %.lr.ph.i8.i81
+  %541 = phi i32 [ %331, %.lr.ph.i8.i81 ], [ %557, %540 ]
+  %542 = phi ptr [ %329, %.lr.ph.i8.i81 ], [ %555, %540 ]
+  %543 = getelementptr inbounds nuw i8, ptr %542, i64 12
+  %544 = load i32, ptr %543, align 4, !tbaa !391
+  %545 = and i32 %544, 2147483647
+  %546 = zext nneg i32 %545 to i64
+  %547 = getelementptr inbounds nuw float, ptr %539, i64 %546
+  %548 = load float, ptr %547, align 4, !tbaa !171
+  %549 = getelementptr inbounds nuw i8, ptr %542, i64 16
+  %550 = load float, ptr %549, align 4, !tbaa !23
+  %551 = fcmp uge float %548, %550
+  %552 = zext i1 %551 to i32
+  %553 = add nuw nsw i32 %541, %552
+  %554 = sext i32 %553 to i64
+  %555 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %329, i64 %554
+  %556 = getelementptr inbounds nuw i8, ptr %555, i64 4
+  %557 = load i32, ptr %556, align 4, !tbaa !389
+  %558 = icmp eq i32 %557, -1
+  br i1 %558, label %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit, label %540, !llvm.loop !590
 
-_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit: ; preds = %539, %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i, %509, %537
-  %558 = phi i32 [ 0, %509 ], [ 0, %537 ], [ %.0.i.i.i83, %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i ], [ %552, %539 ]
-  %559 = sext i32 %558 to i64
-  %560 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %329, i64 %559, i32 4
-  %561 = load float, ptr %560, align 4, !tbaa !23
-  %562 = add i64 %.0219, %3
-  %563 = mul i64 %333, %562
-  %gep222 = getelementptr float, ptr %invariant.gep221, i64 %563
-  %564 = load float, ptr %gep222, align 4, !tbaa !171
-  %565 = fadd float %561, %564
-  store float %565, ptr %gep222, align 4, !tbaa !171
-  %566 = add nuw i64 %.0219, 1
-  %exitcond296.not = icmp eq i64 %566, %6
-  br i1 %exitcond296.not, label %.loopexit, label %504, !llvm.loop !591
+_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit: ; preds = %540, %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i, %510, %538
+  %559 = phi i32 [ 0, %510 ], [ 0, %538 ], [ %.0.i.i.i83, %_ZN7xgboost9predictor11GetNextNodeILb1ELb0EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit.i.i ], [ %553, %540 ]
+  %560 = sext i32 %559 to i64
+  %561 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %329, i64 %560
+  %562 = getelementptr inbounds nuw i8, ptr %561, i64 16
+  %563 = load float, ptr %562, align 4, !tbaa !23
+  %564 = add i64 %.0219, %3
+  %565 = mul i64 %333, %564
+  %gep222 = getelementptr float, ptr %invariant.gep221, i64 %565
+  %566 = load float, ptr %gep222, align 4, !tbaa !171
+  %567 = fadd float %563, %566
+  store float %567, ptr %gep222, align 4, !tbaa !171
+  %568 = add nuw i64 %.0219, 1
+  %exitcond296.not = icmp eq i64 %568, %6
+  br i1 %exitcond296.not, label %.loopexit, label %505, !llvm.loop !591
 
 .loopexit:                                        ; preds = %_ZN7xgboost9predictor5multi18PredValueByOneTreeILb1EEEvRKNS_7RegTree4FVecERKNS_15MultiTargetTreeERKNS3_22CategoricalSplitMatrixENS_6linalg10TensorViewIfLi1EEE.exit, %_ZN7xgboost9predictor5multi18PredValueByOneTreeILb0EEEvRKNS_7RegTree4FVecERKNS_15MultiTargetTreeERKNS3_22CategoricalSplitMatrixENS_6linalg10TensorViewIfLi1EEE.exit, %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb1EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit, %_ZN7xgboost9predictor6scalar18PredValueByOneTreeILb0EEEfRKNS_7RegTree4FVecERKS3_RKNS3_22CategoricalSplitMatrixE.exit, %.preheader159, %.preheader157, %.preheader155, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %567 = add nuw i32 %.055223, 1
-  %exitcond297.not = icmp eq i32 %567, %2
+  %569 = add nuw i32 %.055223, 1
+  %exitcond297.not = icmp eq i32 %569, %2
   br i1 %exitcond297.not, label %._crit_edge, label %33, !llvm.loop !592
 }
 
@@ -30354,7 +30356,7 @@ define internal fastcc noundef float @_ZN7xgboost9predictor12_GLOBAL__N_118FillN
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load float, ptr %12, align 4, !tbaa !23
-  br label %35
+  br label %38
 
 14:                                               ; preds = %3
   %15 = tail call fastcc noundef float @_ZN7xgboost9predictor12_GLOBAL__N_118FillNodeMeanValuesEPKNS_7RegTreeEiPSt6vectorIfSaIfEE(ptr noundef nonnull %0, i32 noundef %9, ptr noundef %2)
@@ -30362,28 +30364,31 @@ define internal fastcc noundef float @_ZN7xgboost9predictor12_GLOBAL__N_118FillN
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %18 = sext i32 %16 to i64
   %19 = load ptr, ptr %17, align 8, !tbaa !1014
-  %20 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %19, i64 %18, i32 1
-  %21 = load float, ptr %20, align 4, !tbaa !1015
-  %22 = fmul float %15, %21
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %24 = load i32, ptr %23, align 4, !tbaa !1017
-  %25 = tail call fastcc noundef float @_ZN7xgboost9predictor12_GLOBAL__N_118FillNodeMeanValuesEPKNS_7RegTreeEiPSt6vectorIfSaIfEE(ptr noundef nonnull %0, i32 noundef %24, ptr noundef %2)
-  %26 = load i32, ptr %23, align 4, !tbaa !1017
-  %27 = sext i32 %26 to i64
-  %28 = load ptr, ptr %17, align 8, !tbaa !1014
-  %29 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %28, i64 %27, i32 1
-  %30 = load float, ptr %29, align 4, !tbaa !1015
-  %31 = tail call float @llvm.fmuladd.f32(float %25, float %30, float %22)
-  %32 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %28, i64 %5, i32 1
-  %33 = load float, ptr %32, align 4, !tbaa !1015
-  %34 = fdiv float %31, %33
-  br label %35
+  %20 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %19, i64 %18
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %22 = load float, ptr %21, align 4, !tbaa !1015
+  %23 = fmul float %15, %22
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %25 = load i32, ptr %24, align 4, !tbaa !1017
+  %26 = tail call fastcc noundef float @_ZN7xgboost9predictor12_GLOBAL__N_118FillNodeMeanValuesEPKNS_7RegTreeEiPSt6vectorIfSaIfEE(ptr noundef nonnull %0, i32 noundef %25, ptr noundef %2)
+  %27 = load i32, ptr %24, align 4, !tbaa !1017
+  %28 = sext i32 %27 to i64
+  %29 = load ptr, ptr %17, align 8, !tbaa !1014
+  %30 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %29, i64 %28
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %32 = load float, ptr %31, align 4, !tbaa !1015
+  %33 = tail call float @llvm.fmuladd.f32(float %26, float %32, float %23)
+  %34 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %29, i64 %5
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %36 = load float, ptr %35, align 4, !tbaa !1015
+  %37 = fdiv float %33, %36
+  br label %38
 
-35:                                               ; preds = %14, %11
-  %.0 = phi float [ %13, %11 ], [ %34, %14 ]
-  %36 = load ptr, ptr %2, align 8, !tbaa !108
-  %37 = getelementptr inbounds nuw float, ptr %36, i64 %5
-  store float %.0, ptr %37, align 4, !tbaa !171
+38:                                               ; preds = %14, %11
+  %.0 = phi float [ %13, %11 ], [ %37, %14 ]
+  %39 = load ptr, ptr %2, align 8, !tbaa !108
+  %40 = getelementptr inbounds nuw float, ptr %39, i64 %5
+  store float %.0, ptr %40, align 4, !tbaa !171
   ret float %.0
 }
 

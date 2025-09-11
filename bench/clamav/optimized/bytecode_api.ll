@@ -1836,19 +1836,20 @@ get_hashset.exit.thread:                          ; preds = %2, %4, %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %11 = load ptr, ptr %10, align 8, !tbaa !34
   tail call void @cli_event_error_str(ptr noundef %11, ptr noundef nonnull @.str.134) #28
-  br label %16
+  br label %17
 
 get_hashset.exit:                                 ; preds = %7
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.cli_hashset, ptr %9, i64 %12, i32 5
-  %14 = load i32, ptr %13, align 8, !tbaa !105
-  %.not3 = icmp eq i32 %14, 0
-  %15 = zext i1 %.not3 to i32
-  br label %16
+  %13 = getelementptr inbounds nuw %struct.cli_hashset, ptr %9, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %15 = load i32, ptr %14, align 8, !tbaa !105
+  %.not3 = icmp eq i32 %15, 0
+  %16 = zext i1 %.not3 to i32
+  br label %17
 
-16:                                               ; preds = %get_hashset.exit.thread, %get_hashset.exit
-  %17 = phi i32 [ %15, %get_hashset.exit ], [ 1, %get_hashset.exit.thread ]
-  ret i32 %17
+17:                                               ; preds = %get_hashset.exit.thread, %get_hashset.exit
+  %18 = phi i32 [ %16, %get_hashset.exit ], [ 1, %get_hashset.exit.thread ]
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable

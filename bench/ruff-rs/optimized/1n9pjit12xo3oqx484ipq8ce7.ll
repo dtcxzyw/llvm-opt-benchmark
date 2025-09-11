@@ -5018,58 +5018,60 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$salsa..active_query..Backtra
   br i1 %3, label %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$$u5b$salsa..active_query..CapturedQuery$u5d$$GT$$GT$17h72d6bcdd812e24b5E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit.i.i"
-  %.sroa.0.09.i.i = phi i64 [ %4, %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit.i.i" ], [ 0, %1 ]
-  %4 = add nuw i64 %.sroa.0.09.i.i, 1
-  %5 = getelementptr inbounds nuw { { i32, i32 }, i64, { { ptr, {} } }, i32, i8, [3 x i8] }, ptr %.val, i64 %.sroa.0.09.i.i, i32 2
-  %6 = load ptr, ptr %5, align 8, !alias.scope !735, !nonnull !9, !noundef !9
-  %7 = icmp eq ptr %6, @_ZN8thin_vec12EMPTY_HEADER17hca833968f79bb846E
-  br i1 %7, label %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit.i.i", label %8, !prof !152
+  %.sroa.0.09.i.i = phi i64 [ %5, %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit.i.i" ], [ 0, %1 ]
+  %4 = getelementptr inbounds nuw { { i32, i32 }, i64, { { ptr, {} } }, i32, i8, [3 x i8] }, ptr %.val, i64 %.sroa.0.09.i.i
+  %5 = add nuw i64 %.sroa.0.09.i.i, 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %7 = load ptr, ptr %6, align 8, !alias.scope !735, !nonnull !9, !noundef !9
+  %8 = icmp eq ptr %7, @_ZN8thin_vec12EMPTY_HEADER17hca833968f79bb846E
+  br i1 %8, label %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit.i.i", label %9, !prof !152
 
-8:                                                ; preds = %.lr.ph.i.i
-  invoke void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop18drop_non_singleton17h8724f18ec301398cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit.i.i" unwind label %10
+9:                                                ; preds = %.lr.ph.i.i
+  invoke void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop18drop_non_singleton17h8724f18ec301398cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+          to label %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit.i.i" unwind label %11
 
-"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit.i.i": ; preds = %8, %.lr.ph.i.i
-  %9 = icmp eq i64 %4, %.val1
-  br i1 %9, label %"_ZN4core3ptr65drop_in_place$LT$$u5b$salsa..active_query..CapturedQuery$u5d$$GT$17hadae78aef0a54876E.exit.i", label %.lr.ph.i.i
+"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit.i.i": ; preds = %9, %.lr.ph.i.i
+  %10 = icmp eq i64 %5, %.val1
+  br i1 %10, label %"_ZN4core3ptr65drop_in_place$LT$$u5b$salsa..active_query..CapturedQuery$u5d$$GT$17hadae78aef0a54876E.exit.i", label %.lr.ph.i.i
 
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = icmp eq i64 %4, %.val1
-  br i1 %12, label %.loopexit.i, label %.lr.ph12.i.i
+  %13 = icmp eq i64 %5, %.val1
+  br i1 %13, label %.loopexit.i, label %.lr.ph12.i.i
 
-.lr.ph12.i.i:                                     ; preds = %10, %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i"
-  %.sroa.0.110.i.i = phi i64 [ %13, %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i" ], [ %4, %10 ]
-  %13 = add i64 %.sroa.0.110.i.i, 1
-  %14 = getelementptr inbounds nuw { { i32, i32 }, i64, { { ptr, {} } }, i32, i8, [3 x i8] }, ptr %.val, i64 %.sroa.0.110.i.i, i32 2
-  %15 = load ptr, ptr %14, align 8, !alias.scope !746, !nonnull !9, !noundef !9
-  %16 = icmp eq ptr %15, @_ZN8thin_vec12EMPTY_HEADER17hca833968f79bb846E
-  br i1 %16, label %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i", label %17, !prof !152
+.lr.ph12.i.i:                                     ; preds = %11, %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i"
+  %.sroa.0.110.i.i = phi i64 [ %15, %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i" ], [ %5, %11 ]
+  %14 = getelementptr inbounds nuw { { i32, i32 }, i64, { { ptr, {} } }, i32, i8, [3 x i8] }, ptr %.val, i64 %.sroa.0.110.i.i
+  %15 = add i64 %.sroa.0.110.i.i, 1
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %17 = load ptr, ptr %16, align 8, !alias.scope !746, !nonnull !9, !noundef !9
+  %18 = icmp eq ptr %17, @_ZN8thin_vec12EMPTY_HEADER17hca833968f79bb846E
+  br i1 %18, label %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i", label %19, !prof !152
 
-17:                                               ; preds = %.lr.ph12.i.i
-  invoke void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop18drop_non_singleton17h8724f18ec301398cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
-          to label %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i" unwind label %19
+19:                                               ; preds = %.lr.ph12.i.i
+  invoke void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop18drop_non_singleton17h8724f18ec301398cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
+          to label %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i" unwind label %21
 
-"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i": ; preds = %17, %.lr.ph12.i.i
-  %18 = icmp eq i64 %13, %.val1
-  br i1 %18, label %.loopexit.i, label %.lr.ph12.i.i
+"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i": ; preds = %19, %.lr.ph12.i.i
+  %20 = icmp eq i64 %15, %.val1
+  br i1 %20, label %.loopexit.i, label %.lr.ph12.i.i
 
-19:                                               ; preds = %17
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #16
   unreachable
 
 "_ZN4core3ptr65drop_in_place$LT$$u5b$salsa..active_query..CapturedQuery$u5d$$GT$17hadae78aef0a54876E.exit.i": ; preds = %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit.i.i"
-  %21 = shl nuw nsw i64 %.val1, 5
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, 0) %21, i64 noundef 8) #17
+  %23 = shl nuw nsw i64 %.val1, 5
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, 0) %23, i64 noundef 8) #17
   br label %"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$$u5b$salsa..active_query..CapturedQuery$u5d$$GT$$GT$17h72d6bcdd812e24b5E.exit"
 
-.loopexit.i:                                      ; preds = %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i", %10
-  %22 = shl nuw nsw i64 %.val1, 5
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, 0) %22, i64 noundef 8) #17
-  resume { ptr, i32 } %11
+.loopexit.i:                                      ; preds = %"_ZN4core3ptr55drop_in_place$LT$salsa..active_query..CapturedQuery$GT$17h1fde225c4b57865fE.exit8.i.i", %11
+  %24 = shl nuw nsw i64 %.val1, 5
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, 0) %24, i64 noundef 8) #17
+  resume { ptr, i32 } %12
 
 "_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$LT$$u5b$salsa..active_query..CapturedQuery$u5d$$GT$$GT$17h72d6bcdd812e24b5E.exit": ; preds = %1, %"_ZN4core3ptr65drop_in_place$LT$$u5b$salsa..active_query..CapturedQuery$u5d$$GT$17hadae78aef0a54876E.exit.i"
   ret void

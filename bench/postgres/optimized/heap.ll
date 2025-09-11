@@ -322,138 +322,138 @@ define dso_local void @CheckAttributeNamesTypes(ptr noundef %0, i8 noundef signe
   unreachable
 
 9:                                                ; preds = %3
-  switch i8 %1, label %.preheader45 [
+  switch i8 %1, label %.preheader44 [
     i8 118, label %.loopexit
     i8 99, label %.loopexit
   ]
 
-.preheader45:                                     ; preds = %9
+.preheader44:                                     ; preds = %9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader45
+.lr.ph:                                           ; preds = %.preheader44
   %10 = shl nuw nsw i32 %4, 4
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr i8, ptr %0, i64 %11
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %13
 
-13:                                               ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %14 = getelementptr %struct.FormData_pg_attribute, ptr %12, i64 %indvars.iv, i32 1, i32 0, i64 24
-  br label %16
+13:                                               ; preds = %.lr.ph, %25
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+  %14 = getelementptr %struct.FormData_pg_attribute, ptr %12, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %14, i64 28
+  br label %17
 
-15:                                               ; preds = %16
+16:                                               ; preds = %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %24, label %16, !llvm.loop !4
+  br i1 %exitcond.not.i, label %25, label %17, !llvm.loop !4
 
-16:                                               ; preds = %15, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %15 ]
-  %17 = getelementptr inbounds nuw ptr, ptr @SysAtt, i64 %indvars.iv.i
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %14) #12
-  %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %SystemAttributeByName.exit, label %15
+17:                                               ; preds = %16, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %16 ]
+  %18 = getelementptr inbounds nuw ptr, ptr @SysAtt, i64 %indvars.iv.i
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %15) #12
+  %.not.i = icmp eq i32 %21, 0
+  br i1 %.not.i, label %SystemAttributeByName.exit, label %16
 
-SystemAttributeByName.exit:                       ; preds = %16
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 16806020) #11
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %14) #11
+SystemAttributeByName.exit:                       ; preds = %17
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %22)
+  %23 = tail call i32 @errcode(i32 noundef 16806020) #11
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %15) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 481, ptr noundef nonnull @__func__.CheckAttributeNamesTypes) #11
   unreachable
 
-24:                                               ; preds = %15
+25:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !6
 
-.loopexit:                                        ; preds = %24, %9, %9
-  %25 = icmp sgt i32 %4, 1
-  br i1 %25, label %.preheader44.lr.ph, label %.preheader
+.loopexit:                                        ; preds = %25, %9, %9
+  %26 = icmp sgt i32 %4, 1
+  br i1 %26, label %.preheader43.lr.ph, label %.preheader
 
-.preheader44.lr.ph:                               ; preds = %.loopexit
-  %26 = shl nuw nsw i32 %4, 4
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr i8, ptr %0, i64 %27
-  %29 = getelementptr i8, ptr %28, i64 24
-  %wide.trip.count65 = zext nneg i32 %4 to i64
-  br label %.preheader44
+.preheader43.lr.ph:                               ; preds = %.loopexit
+  %27 = shl nuw nsw i32 %4, 4
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr i8, ptr %0, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 24
+  %wide.trip.count64 = zext nneg i32 %4 to i64
+  br label %.preheader43
 
-.preheader44:                                     ; preds = %.preheader44.lr.ph, %47
-  %indvars.iv62 = phi i64 [ 1, %.preheader44.lr.ph ], [ %indvars.iv.next63, %47 ]
-  %.idx43 = mul nuw nsw i64 %indvars.iv62, 100
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx43
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  br label %33
+.preheader43:                                     ; preds = %.preheader43.lr.ph, %49
+  %indvars.iv61 = phi i64 [ 1, %.preheader43.lr.ph ], [ %indvars.iv.next62, %49 ]
+  %31 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %30, i64 %indvars.iv61
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  br label %34
 
-.preheader:                                       ; preds = %47, %.loopexit
-  %.not52 = icmp eq i32 %4, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph51.preheader
+.preheader:                                       ; preds = %49, %.loopexit
+  %.not51 = icmp eq i32 %4, 0
+  br i1 %.not51, label %._crit_edge, label %.lr.ph50.preheader
 
-.lr.ph51.preheader:                               ; preds = %.preheader
+.lr.ph50.preheader:                               ; preds = %.preheader
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count70 = zext nneg i32 %smax to i64
-  br label %.lr.ph51
+  %wide.trip.count69 = zext nneg i32 %smax to i64
+  br label %.lr.ph50
 
-32:                                               ; preds = %33
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %indvars.iv62
-  br i1 %exitcond61.not, label %47, label %33, !llvm.loop !7
+33:                                               ; preds = %34
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %indvars.iv61
+  br i1 %exitcond60.not, label %49, label %34, !llvm.loop !7
 
-33:                                               ; preds = %.preheader44, %32
-  %indvars.iv57 = phi i64 [ 0, %.preheader44 ], [ %indvars.iv.next58, %32 ]
-  %.idx = mul nuw nsw i64 %indvars.iv57, 100
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %31) #12
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %32
+34:                                               ; preds = %.preheader43, %33
+  %indvars.iv56 = phi i64 [ 0, %.preheader43 ], [ %indvars.iv.next57, %33 ]
+  %35 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %30, i64 %indvars.iv56
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %32) #12
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %33
 
-38:                                               ; preds = %33
-  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 @errcode(i32 noundef 16806020) #11
-  %41 = load i32, ptr %0, align 8
-  %42 = sext i32 %41 to i64
-  %43 = shl nsw i64 %42, 4
-  %44 = getelementptr i8, ptr %0, i64 %43
-  %45 = getelementptr %struct.FormData_pg_attribute, ptr %44, i64 %indvars.iv57, i32 1, i32 0, i64 24
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %45) #11
+39:                                               ; preds = %34
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %40)
+  %41 = tail call i32 @errcode(i32 noundef 16806020) #11
+  %42 = load i32, ptr %0, align 8
+  %43 = sext i32 %42 to i64
+  %44 = shl nsw i64 %43, 4
+  %45 = getelementptr i8, ptr %0, i64 %44
+  %46 = getelementptr %struct.FormData_pg_attribute, ptr %45, i64 %indvars.iv56
+  %47 = getelementptr i8, ptr %46, i64 28
+  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %47) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__func__.CheckAttributeNamesTypes) #11
   unreachable
 
-47:                                               ; preds = %32
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %.preheader, label %.preheader44, !llvm.loop !8
+49:                                               ; preds = %33
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
+  br i1 %exitcond65.not, label %.preheader, label %.preheader43, !llvm.loop !8
 
-.lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next68, %.lr.ph51 ]
-  %48 = load i32, ptr %0, align 8
-  %49 = sext i32 %48 to i64
-  %50 = shl nsw i64 %49, 4
-  %51 = getelementptr i8, ptr %0, i64 %50
-  %52 = getelementptr i8, ptr %51, i64 24
-  %53 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %52, i64 %indvars.iv67
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 68
-  %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 96
+.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next67, %.lr.ph50 ]
+  %50 = load i32, ptr %0, align 8
+  %51 = sext i32 %50 to i64
+  %52 = shl nsw i64 %51, 4
+  %53 = getelementptr i8, ptr %0, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 24
+  %55 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %54, i64 %indvars.iv66
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 68
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %53, i64 90
-  %60 = load i8, ptr %59, align 2
-  %61 = icmp eq i8 %60, 118
-  %62 = select i1 %61, i32 8, i32 0
-  %63 = or i32 %62, %2
-  tail call void @CheckAttributeType(ptr noundef nonnull %54, i32 noundef %56, i32 noundef %58, ptr noundef null, i32 noundef %63)
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph51, !llvm.loop !9
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 96
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 90
+  %62 = load i8, ptr %61, align 2
+  %63 = icmp eq i8 %62, 118
+  %64 = select i1 %63, i32 8, i32 0
+  %65 = or i32 %64, %2
+  tail call void @CheckAttributeType(ptr noundef nonnull %56, i32 noundef %58, i32 noundef %60, ptr noundef null, i32 noundef %65)
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
+  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph50, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph51, %.preheader45, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph50, %.preheader44, %.preheader
   ret void
 }
 

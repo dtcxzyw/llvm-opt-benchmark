@@ -1805,89 +1805,93 @@ get_message_config.exit:                          ; preds = %4, %13
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-29:                                               ; preds = %.lr.ph, %78
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
+29:                                               ; preds = %.lr.ph, %82
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
   %30 = load ptr, ptr %25, align 8
-  %31 = getelementptr %struct._ipdum_message_item, ptr %30, i64 %indvars.iv, i32 5
-  %32 = load i32, ptr %31, align 8
-  %.not = icmp eq i32 %32, 65535
-  br i1 %.not, label %.critedge, label %33
+  %31 = getelementptr %struct._ipdum_message_item, ptr %30, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %33 = load i32, ptr %32, align 8
+  %.not = icmp eq i32 %33, 65535
+  br i1 %.not, label %.critedge, label %34
 
-33:                                               ; preds = %29
-  %34 = lshr i32 %32, 3
-  %35 = and i32 %32, 7
-  %36 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %34)
-  %37 = zext i8 %36 to i32
-  %38 = lshr i32 %37, %35
-  %39 = trunc i32 %38 to i1
-  br i1 %39, label %..critedge_crit_edge, label %78
+34:                                               ; preds = %29
+  %35 = lshr i32 %33, 3
+  %36 = and i32 %33, 7
+  %37 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %35)
+  %38 = zext i8 %37 to i32
+  %39 = lshr i32 %38, %36
+  %40 = trunc i32 %39 to i1
+  br i1 %40, label %..critedge_crit_edge, label %82
 
-..critedge_crit_edge:                             ; preds = %33
+..critedge_crit_edge:                             ; preds = %34
   %.pre = load ptr, ptr %25, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %29
-  %40 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %30, %29 ]
-  %41 = getelementptr %struct._ipdum_message_item, ptr %40, i64 %indvars.iv
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load i32, ptr %42, align 8
-  %44 = lshr i32 %43, 3
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 20
-  %46 = load i32, ptr %45, align 4
-  %47 = add i32 %46, %43
-  %48 = lshr i32 %47, 3
-  %49 = and i32 %47, 7
-  %.not88 = icmp ne i32 %49, 0
-  %50 = zext i1 %.not88 to i32
-  %spec.select = sub nsw i32 %48, %44
-  %51 = add nsw i32 %spec.select, %50
-  %52 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %44)
-  %53 = icmp sgt i32 %51, %52
-  br i1 %53, label %54, label %56
+  %41 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %30, %29 ]
+  %42 = getelementptr %struct._ipdum_message_item, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load i32, ptr %43, align 8
+  %45 = lshr i32 %44, 3
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 20
+  %47 = load i32, ptr %46, align 4
+  %48 = add i32 %47, %44
+  %49 = lshr i32 %48, 3
+  %50 = and i32 %48, 7
+  %.not88 = icmp ne i32 %50, 0
+  %51 = zext i1 %.not88 to i32
+  %spec.select = sub nsw i32 %49, %45
+  %52 = add nsw i32 %spec.select, %51
+  %53 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %45)
+  %54 = icmp sgt i32 %52, %53
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %.critedge
-  %55 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %44)
-  br label %56
+55:                                               ; preds = %.critedge
+  %56 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %45)
+  br label %57
 
-56:                                               ; preds = %54, %.critedge
-  %.081 = phi i32 [ %55, %54 ], [ %51, %.critedge ]
-  %57 = load i32, ptr @hf_pdu, align 4
-  %58 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %57, ptr noundef %0, i32 noundef %44, i32 noundef %.081, i32 noundef 0)
-  %59 = load i32, ptr @ett_ipdum_pdu, align 4
-  %60 = call ptr @proto_item_add_subtree(ptr noundef %58, i32 noundef %59)
-  %61 = load i32, ptr @hf_pdu_name, align 4
-  %62 = load ptr, ptr %25, align 8
-  %63 = getelementptr %struct._ipdum_message_item, ptr %62, i64 %indvars.iv, i32 2
-  %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @proto_tree_add_string(ptr noundef %60, i32 noundef %61, ptr noundef %0, i32 noundef %44, i32 noundef %.081, ptr noundef %64)
-  %66 = load i32, ptr @hf_pdu_id, align 4
-  %67 = load ptr, ptr %25, align 8
-  %68 = getelementptr %struct._ipdum_message_item, ptr %67, i64 %indvars.iv, i32 1
-  %69 = load i32, ptr %68, align 4
-  %70 = call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %66, ptr noundef %0, i32 noundef %44, i32 noundef %.081, i32 noundef %69)
-  %71 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %44, i32 noundef %.081)
-  %.not89 = icmp eq ptr %71, null
-  br i1 %.not89, label %78, label %72
+57:                                               ; preds = %55, %.critedge
+  %.081 = phi i32 [ %56, %55 ], [ %52, %.critedge ]
+  %58 = load i32, ptr @hf_pdu, align 4
+  %59 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %58, ptr noundef %0, i32 noundef %45, i32 noundef %.081, i32 noundef 0)
+  %60 = load i32, ptr @ett_ipdum_pdu, align 4
+  %61 = call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %60)
+  %62 = load i32, ptr @hf_pdu_name, align 4
+  %63 = load ptr, ptr %25, align 8
+  %64 = getelementptr %struct._ipdum_message_item, ptr %63, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = call ptr @proto_tree_add_string(ptr noundef %61, i32 noundef %62, ptr noundef %0, i32 noundef %45, i32 noundef %.081, ptr noundef %66)
+  %68 = load i32, ptr @hf_pdu_id, align 4
+  %69 = load ptr, ptr %25, align 8
+  %70 = getelementptr %struct._ipdum_message_item, ptr %69, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %72 = load i32, ptr %71, align 4
+  %73 = call ptr @proto_tree_add_uint(ptr noundef %61, i32 noundef %68, ptr noundef %0, i32 noundef %45, i32 noundef %.081, i32 noundef %72)
+  %74 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %45, i32 noundef %.081)
+  %.not89 = icmp eq ptr %74, null
+  br i1 %.not89, label %82, label %75
 
-72:                                               ; preds = %56
+75:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %73 = load ptr, ptr %25, align 8
-  %74 = getelementptr %struct._ipdum_message_item, ptr %73, i64 %indvars.iv, i32 1
-  %75 = load i32, ptr %74, align 4
-  store i32 %75, ptr %5, align 4
-  %76 = load ptr, ptr @subdissector_table, align 8
-  %77 = call i32 @dissector_try_uint_with_data(ptr noundef %76, i32 noundef %75, ptr noundef nonnull %71, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull %5)
+  %76 = load ptr, ptr %25, align 8
+  %77 = getelementptr %struct._ipdum_message_item, ptr %76, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  %79 = load i32, ptr %78, align 4
+  store i32 %79, ptr %5, align 4
+  %80 = load ptr, ptr @subdissector_table, align 8
+  %81 = call i32 @dissector_try_uint_with_data(ptr noundef %80, i32 noundef %79, ptr noundef nonnull %74, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %78
+  br label %82
 
-78:                                               ; preds = %56, %72, %33
+82:                                               ; preds = %57, %75, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = load i32, ptr %22, align 4
-  %80 = zext i32 %79 to i64
-  %81 = icmp samesign ult i64 %indvars.iv.next, %80
-  br i1 %81, label %29, label %.loopexit, !llvm.loop !15
+  %83 = load i32, ptr %22, align 4
+  %84 = zext i32 %83 to i64
+  %85 = icmp samesign ult i64 %indvars.iv.next, %84
+  br i1 %85, label %29, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %78, %26
+.loopexit:                                        ; preds = %82, %26
   ret i32 %6
 }
 

@@ -4064,7 +4064,7 @@ define internal fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_116GetOptimalAct
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   invoke void %13(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(60) %10)
-          to label %14 unwind label %43
+          to label %14 unwind label %44
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %3, align 8
@@ -4078,18 +4078,18 @@ define internal fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_116GetOptimalAct
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %20
 
-20:                                               ; preds = %.lr.ph, %49
-  %.01331 = phi i64 [ -1, %.lr.ph ], [ %.114, %49 ]
-  %.01530 = phi double [ -1.000000e+00, %.lr.ph ], [ %.116, %49 ]
-  %.sroa.022.029 = phi ptr [ %15, %.lr.ph ], [ %50, %49 ]
+20:                                               ; preds = %.lr.ph, %50
+  %.01331 = phi i64 [ -1, %.lr.ph ], [ %.114, %50 ]
+  %.01530 = phi double [ -1.000000e+00, %.lr.ph ], [ %.116, %50 ]
+  %.sroa.022.029 = phi ptr [ %15, %.lr.ph ], [ %51, %50 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %21 unwind label %45
+          to label %21 unwind label %46
 
 21:                                               ; preds = %20
   %22 = load i64, ptr %.sroa.022.029, align 8
   store i64 %22, ptr %18, align 8
   %23 = invoke { i64, i8 } @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdEENS0_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEE22find_or_prepare_insertISB_EES4_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5)
-          to label %.noexc unwind label %47
+          to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %21
   %.fca.0.extract.i.i.i = extractvalue { i64, i8 } %23, 0
@@ -4121,79 +4121,80 @@ define internal fastcc noundef i64 @_ZN10open_spiel12_GLOBAL__N_116GetOptimalAct
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %19, align 8, !noalias !40
-  %38 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %37, i64 %.fca.0.extract.i.i.i, i32 0, i32 1
-  %39 = load double, ptr %38, align 8
+  %38 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %37, i64 %.fca.0.extract.i.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %40 = load double, ptr %39, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
-  %40 = fcmp ult double %39, %.01530
-  br i1 %40, label %49, label %41
+  %41 = fcmp ult double %40, %.01530
+  br i1 %41, label %50, label %42
 
-41:                                               ; preds = %36
-  %42 = load i64, ptr %.sroa.022.029, align 8
-  br label %49
+42:                                               ; preds = %36
+  %43 = load i64, ptr %.sroa.022.029, align 8
+  br label %50
 
-43:                                               ; preds = %2
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %2
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  br label %60
+
+46:                                               ; preds = %20
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %59
 
-45:                                               ; preds = %20
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  br label %58
-
-47:                                               ; preds = %21
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %21
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
-  br label %58
+  br label %59
 
-49:                                               ; preds = %36, %41
-  %.116 = phi double [ %39, %41 ], [ %.01530, %36 ]
-  %.114 = phi i64 [ %42, %41 ], [ %.01331, %36 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.022.029, i64 8
-  %.not = icmp eq ptr %50, %17
+50:                                               ; preds = %36, %42
+  %.116 = phi double [ %40, %42 ], [ %.01530, %36 ]
+  %.114 = phi i64 [ %43, %42 ], [ %.01331, %36 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.022.029, i64 8
+  %.not = icmp eq ptr %51, %17
   br i1 %.not, label %._crit_edge, label %20
 
-._crit_edge:                                      ; preds = %49, %14
-  %.013.lcssa = phi i64 [ -1, %14 ], [ %.114, %49 ]
+._crit_edge:                                      ; preds = %50, %14
+  %.013.lcssa = phi i64 [ -1, %14 ], [ %.114, %50 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
-  %51 = load ptr, ptr %3, align 8
-  %.not.i.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %52
+  %52 = load ptr, ptr %3, align 8
+  %.not.i.i.i = icmp eq ptr %52, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %53
 
-52:                                               ; preds = %._crit_edge
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = ptrtoint ptr %54 to i64
-  %56 = ptrtoint ptr %51 to i64
-  %57 = sub i64 %55, %56
-  call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %57) #21
+53:                                               ; preds = %._crit_edge
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %52 to i64
+  %58 = sub i64 %56, %57
+  call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %58) #21
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %52
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge, %53
   ret i64 %.013.lcssa
 
-58:                                               ; preds = %47, %45
-  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
+59:                                               ; preds = %48, %46
+  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
-  br label %59
+  br label %60
 
-59:                                               ; preds = %58, %43
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %58 ], [ %44, %43 ]
-  %60 = load ptr, ptr %3, align 8
-  %.not.i.i.i20 = icmp eq ptr %60, null
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIlSaIlEED2Ev.exit21, label %61
+60:                                               ; preds = %59, %44
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %59 ], [ %45, %44 ]
+  %61 = load ptr, ptr %3, align 8
+  %.not.i.i.i20 = icmp eq ptr %61, null
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorIlSaIlEED2Ev.exit21, label %62
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = ptrtoint ptr %60 to i64
-  %66 = sub i64 %64, %65
-  call void @_ZdlPvm(ptr noundef nonnull %60, i64 noundef %66) #21
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = ptrtoint ptr %64 to i64
+  %66 = ptrtoint ptr %61 to i64
+  %67 = sub i64 %65, %66
+  call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %67) #21
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit21
 
-_ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %59, %61
+_ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %60, %62
   resume { ptr, i32 } %.pn.pn
 }
 

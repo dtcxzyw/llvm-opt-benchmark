@@ -5514,8 +5514,8 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
     i64 0, label %.loopexit73
     i64 2, label %.loopexit73
     i64 1, label %77
-    i64 3, label %88
-    i64 4, label %91
+    i64 3, label %90
+    i64 4, label %93
   ]
 
 77:                                               ; preds = %74
@@ -5529,68 +5529,72 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
 80:                                               ; preds = %77, %80
   %.175 = phi i64 [ 0, %77 ], [ %81, %80 ]
   %81 = add nuw nsw i64 %.175, 1
-  %82 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %3, i64 %81, i32 1
-  %83 = load i64, ptr %82, align 16, !tbaa !116
-  %84 = or i64 %83, 128
-  store i64 %84, ptr %82, align 16, !tbaa !116
-  %85 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %4, i64 %81, i32 2
-  %86 = load i64, ptr %85, align 8, !tbaa !119
-  %87 = or i64 %86, 128
-  store i64 %87, ptr %85, align 8, !tbaa !119
+  %82 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %3, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = load i64, ptr %83, align 16, !tbaa !116
+  %85 = or i64 %84, 128
+  store i64 %85, ptr %83, align 16, !tbaa !116
+  %86 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %4, i64 %81
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %88 = load i64, ptr %87, align 8, !tbaa !119
+  %89 = or i64 %88, 128
+  store i64 %89, ptr %87, align 8, !tbaa !119
   %exitcond77.not = icmp eq i64 %81, 4
   br i1 %exitcond77.not, label %.loopexit73, label %80, !llvm.loop !121
 
-88:                                               ; preds = %74
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i64 64, ptr %89, align 8, !tbaa !119
+90:                                               ; preds = %74
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store i64 64, ptr %91, align 8, !tbaa !119
   store i64 10, ptr %7, align 8, !tbaa !122
-  %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %90, align 8, !tbaa !124
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 0, ptr %92, align 8, !tbaa !124
   br label %.loopexit73
 
-91:                                               ; preds = %74
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  store i64 256, ptr %92, align 16, !tbaa !116
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store i64 256, ptr %93, align 8, !tbaa !119
+93:                                               ; preds = %74
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  store i64 256, ptr %94, align 16, !tbaa !116
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 184
+  store i64 256, ptr %95, align 8, !tbaa !119
   br label %.loopexit73
 
-.loopexit73:                                      ; preds = %80, %74, %74, %91, %88
-  %.037 = phi i64 [ 1, %88 ], [ 1, %91 ], [ 0, %74 ], [ 0, %74 ], [ 5, %80 ]
-  %.036 = phi ptr [ %7, %88 ], [ %6, %91 ], [ %6, %74 ], [ %6, %74 ], [ %6, %80 ]
+.loopexit73:                                      ; preds = %80, %74, %74, %93, %90
+  %.037 = phi i64 [ 1, %90 ], [ 1, %93 ], [ 0, %74 ], [ 0, %74 ], [ 5, %80 ]
+  %.036 = phi ptr [ %7, %90 ], [ %6, %93 ], [ %6, %74 ], [ %6, %74 ], [ %6, %80 ]
   store i64 -1, ptr %5, align 8, !tbaa !82
-  %94 = tail call i64 @ossl_time_now() #12
-  %95 = call i32 @SSL_poll(ptr noundef nonnull %3, i64 noundef 6, i64 noundef 32, ptr noundef nonnull %.036, i64 noundef 0, ptr noundef nonnull %5) #12
-  %96 = icmp ne i32 %95, 0
-  %97 = zext i1 %96 to i32
-  %98 = call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 137, ptr noundef nonnull @.str.188, i32 noundef %97) #12
-  %.not43 = icmp eq i32 %98, 0
-  br i1 %.not43, label %.loopexit, label %99
+  %96 = tail call i64 @ossl_time_now() #12
+  %97 = call i32 @SSL_poll(ptr noundef nonnull %3, i64 noundef 6, i64 noundef 32, ptr noundef nonnull %.036, i64 noundef 0, ptr noundef nonnull %5) #12
+  %98 = icmp ne i32 %97, 0
+  %99 = zext i1 %98 to i32
+  %100 = call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 137, ptr noundef nonnull @.str.188, i32 noundef %99) #12
+  %.not43 = icmp eq i32 %100, 0
+  br i1 %.not43, label %.loopexit, label %101
 
-99:                                               ; preds = %.loopexit73
-  %100 = call i64 @ossl_time_now() #12
-  %101 = load i64, ptr %5, align 8, !tbaa !82
-  %102 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.23, i32 noundef 141, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.190, i64 noundef %101, i64 noundef %.037) #12
-  %.not44 = icmp eq i32 %102, 0
+101:                                              ; preds = %.loopexit73
+  %102 = call i64 @ossl_time_now() #12
+  %103 = load i64, ptr %5, align 8, !tbaa !82
+  %104 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.23, i32 noundef 141, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.190, i64 noundef %103, i64 noundef %.037) #12
+  %.not44 = icmp eq i32 %104, 0
   br i1 %.not44, label %.loopexit, label %.preheader
 
-103:                                              ; preds = %.preheader
-  %104 = add nuw nsw i64 %.276, 1
-  %exitcond78.not = icmp eq i64 %104, 6
+105:                                              ; preds = %.preheader
+  %106 = add nuw nsw i64 %.276, 1
+  %exitcond78.not = icmp eq i64 %106, 6
   br i1 %exitcond78.not, label %.loopexit, label %.preheader, !llvm.loop !125
 
-.preheader:                                       ; preds = %99, %103
-  %.276 = phi i64 [ %104, %103 ], [ 0, %99 ]
-  %105 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %3, i64 %.276, i32 2
-  %106 = load i64, ptr %105, align 8, !tbaa !119
-  %107 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %4, i64 %.276, i32 2
-  %108 = load i64, ptr %107, align 8, !tbaa !119
-  %109 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.23, i32 noundef 145, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, i64 noundef %106, i64 noundef %108) #12
-  %.not45 = icmp eq i32 %109, 0
-  br i1 %.not45, label %.loopexit, label %103
+.preheader:                                       ; preds = %101, %105
+  %.276 = phi i64 [ %106, %105 ], [ 0, %101 ]
+  %107 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %3, i64 %.276
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  %109 = load i64, ptr %108, align 8, !tbaa !119
+  %110 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %4, i64 %.276
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %112 = load i64, ptr %111, align 8, !tbaa !119
+  %113 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.23, i32 noundef 145, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, i64 noundef %109, i64 noundef %112) #12
+  %.not45 = icmp eq i32 %113, 0
+  br i1 %.not45, label %.loopexit, label %105
 
-.loopexit:                                        ; preds = %103, %.preheader, %99, %.loopexit73, %74, %expect_slot_ssl.exit67, %expect_slot_ssl.exit62, %expect_slot_ssl.exit57, %expect_slot_ssl.exit52, %expect_slot_ssl.exit, %TERP_stk_pop.exit
-  %.0 = phi i32 [ 0, %74 ], [ 0, %99 ], [ 0, %.loopexit73 ], [ 0, %expect_slot_ssl.exit67 ], [ 0, %expect_slot_ssl.exit62 ], [ 0, %expect_slot_ssl.exit57 ], [ 0, %expect_slot_ssl.exit52 ], [ 0, %expect_slot_ssl.exit ], [ 0, %TERP_stk_pop.exit ], [ 1, %103 ], [ 0, %.preheader ]
+.loopexit:                                        ; preds = %105, %.preheader, %101, %.loopexit73, %74, %expect_slot_ssl.exit67, %expect_slot_ssl.exit62, %expect_slot_ssl.exit57, %expect_slot_ssl.exit52, %expect_slot_ssl.exit, %TERP_stk_pop.exit
+  %.0 = phi i32 [ 0, %74 ], [ 0, %101 ], [ 0, %.loopexit73 ], [ 0, %expect_slot_ssl.exit67 ], [ 0, %expect_slot_ssl.exit62 ], [ 0, %expect_slot_ssl.exit57 ], [ 0, %expect_slot_ssl.exit52 ], [ 0, %expect_slot_ssl.exit ], [ 0, %TERP_stk_pop.exit ], [ 1, %105 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

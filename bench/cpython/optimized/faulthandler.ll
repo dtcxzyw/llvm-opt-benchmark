@@ -1353,41 +1353,42 @@ define internal i32 @faulthandler_traverse(ptr readnone captures(none) %0, ptr n
   %.not30 = icmp eq ptr %8, null
   br i1 %.not30, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %7, %14
-  %9 = phi ptr [ %15, %14 ], [ %8, %7 ]
-  %.02442 = phi i64 [ %16, %14 ], [ 0, %7 ]
-  %10 = getelementptr %struct.faulthandler_user_signal, ptr %9, i64 %.02442, i32 1
-  %11 = load ptr, ptr %10, align 8, !tbaa !199
-  %.not31 = icmp eq ptr %11, null
-  br i1 %.not31, label %14, label %12
+.preheader:                                       ; preds = %7, %15
+  %9 = phi ptr [ %16, %15 ], [ %8, %7 ]
+  %.02442 = phi i64 [ %17, %15 ], [ 0, %7 ]
+  %10 = getelementptr %struct.faulthandler_user_signal, ptr %9, i64 %.02442
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !199
+  %.not31 = icmp eq ptr %12, null
+  br i1 %.not31, label %15, label %13
 
-12:                                               ; preds = %.preheader
-  %13 = tail call i32 %1(ptr noundef nonnull %11, ptr noundef %2) #16
-  %.not32 = icmp eq i32 %13, 0
+13:                                               ; preds = %.preheader
+  %14 = tail call i32 %1(ptr noundef nonnull %12, ptr noundef %2) #16
+  %.not32 = icmp eq i32 %14, 0
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10096), align 8, !tbaa !183
-  br i1 %.not32, label %14, label %.loopexit
+  br i1 %.not32, label %15, label %.loopexit
 
-14:                                               ; preds = %.preheader, %12
-  %15 = phi ptr [ %9, %.preheader ], [ %.pre, %12 ]
-  %16 = add nuw nsw i64 %.02442, 1
-  %exitcond.not = icmp eq i64 %16, 65
+15:                                               ; preds = %.preheader, %13
+  %16 = phi ptr [ %9, %.preheader ], [ %.pre, %13 ]
+  %17 = add nuw nsw i64 %.02442, 1
+  %exitcond.not = icmp eq i64 %17, 65
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !200
 
-.thread:                                          ; preds = %14, %7
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 9992), align 8, !tbaa !201
-  %.not33 = icmp eq ptr %17, null
-  br i1 %.not33, label %20, label %18
+.thread:                                          ; preds = %15, %7
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 9992), align 8, !tbaa !201
+  %.not33 = icmp eq ptr %18, null
+  br i1 %.not33, label %21, label %19
 
-18:                                               ; preds = %.thread
-  %19 = tail call i32 %1(ptr noundef nonnull %17, ptr noundef %2) #16
-  %.not34.not = icmp eq i32 %19, 0
-  br i1 %.not34.not, label %20, label %.loopexit
+19:                                               ; preds = %.thread
+  %20 = tail call i32 %1(ptr noundef nonnull %18, ptr noundef %2) #16
+  %.not34.not = icmp eq i32 %20, 0
+  br i1 %.not34.not, label %21, label %.loopexit
 
-20:                                               ; preds = %18, %.thread
+21:                                               ; preds = %19, %.thread
   br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %18, %5, %20
-  %.1 = phi i32 [ 0, %20 ], [ %19, %18 ], [ %6, %5 ], [ %13, %12 ]
+.loopexit:                                        ; preds = %13, %19, %5, %21
+  %.1 = phi i32 [ 0, %21 ], [ %20, %19 ], [ %6, %5 ], [ %14, %13 ]
   ret i32 %.1
 }
 

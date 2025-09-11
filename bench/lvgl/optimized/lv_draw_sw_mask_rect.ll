@@ -19,7 +19,7 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %9 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #4
-  br i1 %9, label %10, label %107
+  br i1 %9, label %10, label %108
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -106,7 +106,7 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not71, label %.lr.ph69.split, label %.lr.ph69.split.us
 
 .lr.ph69.split.us:                                ; preds = %.lr.ph69, %..loopexit_crit_edge.us
-  %.06268.us = phi i32 [ %91, %..loopexit_crit_edge.us ], [ %64, %.lr.ph69 ]
+  %.06268.us = phi i32 [ %92, %..loopexit_crit_edge.us ], [ %64, %.lr.ph69 ]
   call void @lv_memset(ptr noundef %62, i8 noundef zeroext -1, i64 noundef %61) #4
   %68 = load i32, ptr %3, align 4, !tbaa !25
   %69 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %62, i32 noundef %68, i32 noundef %.06268.us, i32 noundef %.fr70) #4
@@ -121,67 +121,68 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   %76 = sub nsw i32 %.06268.us, %75
   %77 = call ptr @lv_draw_layer_go_to_xy(ptr noundef nonnull %12, i32 noundef %74, i32 noundef %76) #4
   %78 = icmp eq i32 %69, 0
-  br i1 %78, label %90, label %.preheader.us
+  br i1 %78, label %91, label %.preheader.us
 
-.preheader.us:                                    ; preds = %71, %89
-  %indvars.iv = phi i64 [ %indvars.iv.next, %89 ], [ 0, %71 ]
+.preheader.us:                                    ; preds = %71, %90
+  %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %71 ]
   %79 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv
   %80 = load i8, ptr %79, align 1, !tbaa !34
   %.not65.us = icmp eq i8 %80, -1
-  br i1 %.not65.us, label %89, label %81
+  br i1 %.not65.us, label %90, label %81
 
 81:                                               ; preds = %.preheader.us
   %82 = zext i8 %80 to i16
-  %83 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %77, i64 %indvars.iv, i32 3
-  %84 = load i8, ptr %83, align 1, !tbaa !35
-  %85 = zext i8 %84 to i16
-  %86 = mul nuw i16 %85, %82
-  %87 = lshr i16 %86, 8
-  %88 = trunc nuw i16 %87 to i8
-  store i8 %88, ptr %83, align 1, !tbaa !35
-  br label %89
+  %83 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %77, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 3
+  %85 = load i8, ptr %84, align 1, !tbaa !35
+  %86 = zext i8 %85 to i16
+  %87 = mul nuw i16 %86, %82
+  %88 = lshr i16 %87, 8
+  %89 = trunc nuw i16 %88 to i8
+  store i8 %89, ptr %84, align 1, !tbaa !35
+  br label %90
 
-89:                                               ; preds = %81, %.preheader.us
+90:                                               ; preds = %81, %.preheader.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %61
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !37
 
-90:                                               ; preds = %71
+91:                                               ; preds = %71
   call void @lv_memset(ptr noundef %77, i8 noundef zeroext 0, i64 noundef range(i64 0, 17179869181) %67) #4
   br label %..loopexit_crit_edge.us
 
-..loopexit_crit_edge.us:                          ; preds = %89, %90, %.lr.ph69.split.us
-  %91 = add nsw i32 %.06268.us, 1
-  %92 = load i32, ptr %65, align 4, !tbaa !33
-  %.not.us.not = icmp slt i32 %.06268.us, %92
+..loopexit_crit_edge.us:                          ; preds = %90, %91, %.lr.ph69.split.us
+  %92 = add nsw i32 %.06268.us, 1
+  %93 = load i32, ptr %65, align 4, !tbaa !33
+  %.not.us.not = icmp slt i32 %.06268.us, %93
   br i1 %.not.us.not, label %.lr.ph69.split.us, label %._crit_edge, !llvm.loop !39
 
 .lr.ph69.split:                                   ; preds = %.lr.ph69, %.preheader
-  %.06268 = phi i32 [ %105, %.preheader ], [ %64, %.lr.ph69 ]
+  %.06268 = phi i32 [ %106, %.preheader ], [ %64, %.lr.ph69 ]
   call void @lv_memset(ptr noundef %62, i8 noundef zeroext -1, i64 noundef %61) #4
-  %93 = load i32, ptr %3, align 4, !tbaa !25
-  %94 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %62, i32 noundef %93, i32 noundef %.06268, i32 noundef 0) #4
-  %95 = icmp eq i32 %94, 1
-  br i1 %95, label %.preheader, label %96
+  %94 = load i32, ptr %3, align 4, !tbaa !25
+  %95 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %62, i32 noundef %94, i32 noundef %.06268, i32 noundef 0) #4
+  %96 = icmp eq i32 %95, 1
+  br i1 %96, label %.preheader, label %97
 
-96:                                               ; preds = %.lr.ph69.split
-  %97 = load i32, ptr %3, align 4, !tbaa !25
-  %98 = load i32, ptr %13, align 4, !tbaa !25
-  %99 = sub nsw i32 %97, %98
-  %100 = load i32, ptr %25, align 4, !tbaa !26
-  %101 = sub nsw i32 %.06268, %100
-  %102 = call ptr @lv_draw_layer_go_to_xy(ptr noundef nonnull %12, i32 noundef %99, i32 noundef %101) #4
-  %103 = icmp eq i32 %94, 0
-  br i1 %103, label %104, label %.preheader
+97:                                               ; preds = %.lr.ph69.split
+  %98 = load i32, ptr %3, align 4, !tbaa !25
+  %99 = load i32, ptr %13, align 4, !tbaa !25
+  %100 = sub nsw i32 %98, %99
+  %101 = load i32, ptr %25, align 4, !tbaa !26
+  %102 = sub nsw i32 %.06268, %101
+  %103 = call ptr @lv_draw_layer_go_to_xy(ptr noundef nonnull %12, i32 noundef %100, i32 noundef %102) #4
+  %104 = icmp eq i32 %95, 0
+  br i1 %104, label %105, label %.preheader
 
-104:                                              ; preds = %96
-  call void @lv_memset(ptr noundef %102, i8 noundef zeroext 0, i64 noundef range(i64 0, 17179869181) %67) #4
+105:                                              ; preds = %97
+  call void @lv_memset(ptr noundef %103, i8 noundef zeroext 0, i64 noundef range(i64 0, 17179869181) %67) #4
   br label %.preheader
 
-.preheader:                                       ; preds = %96, %104, %.lr.ph69.split
-  %105 = add nsw i32 %.06268, 1
-  %106 = load i32, ptr %65, align 4, !tbaa !33
-  %.not.not = icmp slt i32 %.06268, %106
+.preheader:                                       ; preds = %97, %105, %.lr.ph69.split
+  %106 = add nsw i32 %.06268, 1
+  %107 = load i32, ptr %65, align 4, !tbaa !33
+  %.not.not = icmp slt i32 %.06268, %107
   br i1 %.not.not, label %.lr.ph69.split, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.preheader, %10
@@ -190,9 +191,9 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %107
+  br label %108
 
-107:                                              ; preds = %2, %._crit_edge
+108:                                              ; preds = %2, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

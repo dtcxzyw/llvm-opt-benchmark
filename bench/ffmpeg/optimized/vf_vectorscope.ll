@@ -3354,7 +3354,7 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
   br i1 %.not, label %720, label %375
 
 375:                                              ; preds = %371
-  %376 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %10, i64 12
+  %376 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %377 = getelementptr inbounds i16, ptr %376, i64 %12
   %378 = load i16, ptr %377, align 2, !tbaa !58
   %379 = getelementptr inbounds i16, ptr %376, i64 %13
@@ -3758,7 +3758,7 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
   br i1 %.not128, label %1068, label %723
 
 723:                                              ; preds = %720
-  %724 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %10, i64 13
+  %724 = getelementptr inbounds nuw i8, ptr %11, i64 78
   %725 = getelementptr inbounds i16, ptr %724, i64 %12
   %726 = load i16, ptr %725, align 2, !tbaa !58
   %727 = getelementptr inbounds i16, ptr %724, i64 %13
@@ -4740,7 +4740,7 @@ define internal void @color_graticule(ptr noundef readonly captures(none) %0, pt
   br i1 %.not, label %737, label %384
 
 384:                                              ; preds = %380
-  %385 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %10, i64 12
+  %385 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %386 = getelementptr inbounds i16, ptr %385, i64 %12
   %387 = load i16, ptr %386, align 2, !tbaa !58
   %388 = getelementptr inbounds i16, ptr %385, i64 %13
@@ -5787,7 +5787,7 @@ define internal void @invert_graticule(ptr noundef readonly captures(none) %0, p
   br i1 %.not, label %94, label %61
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %9, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %63 = getelementptr inbounds i16, ptr %62, i64 %11
   %64 = load i16, ptr %63, align 2, !tbaa !58
   %65 = getelementptr inbounds i16, ptr %62, i64 %12
@@ -5835,7 +5835,7 @@ define internal void @invert_graticule(ptr noundef readonly captures(none) %0, p
   br i1 %.not155, label %130, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %9, i64 13
+  %98 = getelementptr inbounds nuw i8, ptr %10, i64 78
   %99 = getelementptr inbounds i16, ptr %98, i64 %11
   %100 = load i16, ptr %99, align 2, !tbaa !58
   %101 = getelementptr inbounds i16, ptr %98, i64 %12
@@ -6462,7 +6462,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   br i1 %.not, label %738, label %388
 
 388:                                              ; preds = %384
-  %389 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %15, i64 12
+  %389 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %390 = getelementptr inbounds i16, ptr %389, i64 %17
   %391 = load i16, ptr %390, align 2, !tbaa !58
   %392 = zext i16 %391 to i64
@@ -6870,7 +6870,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   br i1 %.not140, label %1090, label %740
 
 740:                                              ; preds = %738
-  %741 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %15, i64 13
+  %741 = getelementptr inbounds nuw i8, ptr %16, i64 78
   %742 = getelementptr inbounds i16, ptr %741, i64 %17
   %743 = load i16, ptr %742, align 2, !tbaa !58
   %744 = zext i16 %743 to i64
@@ -7874,7 +7874,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   br i1 %.not, label %751, label %393
 
 393:                                              ; preds = %389
-  %394 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %13, i64 12
+  %394 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %395 = getelementptr inbounds i16, ptr %394, i64 %15
   %396 = load i16, ptr %395, align 2, !tbaa !58
   %397 = zext i16 %396 to i64
@@ -8290,7 +8290,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   br i1 %.not187, label %1111, label %753
 
 753:                                              ; preds = %751
-  %754 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %13, i64 13
+  %754 = getelementptr inbounds nuw i8, ptr %14, i64 78
   %755 = getelementptr inbounds i16, ptr %754, i64 %15
   %756 = load i16, ptr %755, align 2, !tbaa !58
   %757 = zext i16 %756 to i64
@@ -9029,7 +9029,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   br i1 %.not, label %267, label %151
 
 151:                                              ; preds = %147
-  %152 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %13, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %153 = getelementptr inbounds i16, ptr %152, i64 %15
   %154 = load i16, ptr %153, align 2, !tbaa !58
   %155 = zext i16 %154 to i64
@@ -9171,7 +9171,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   br i1 %.not174, label %386, label %270
 
 270:                                              ; preds = %267
-  %271 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %13, i64 13
+  %271 = getelementptr inbounds nuw i8, ptr %14, i64 78
   %272 = getelementptr inbounds i16, ptr %271, i64 %15
   %273 = load i16, ptr %272, align 2, !tbaa !58
   %274 = zext i16 %273 to i64

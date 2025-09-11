@@ -1958,25 +1958,25 @@ define internal fastcc range(i32 0, 2) i32 @passes_filter(ptr noundef readonly c
   ]
 
 .preheader:                                       ; preds = %12
-  %15 = getelementptr inbounds nuw %struct.Argument, ptr %7, i64 %indvars.iv88, i32 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !32
   %.not73 = icmp eq i32 %16, 0
   br i1 %.not73, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !32
   %wide.trip.count = zext i32 %16 to i64
   br label %39
 
 19:                                               ; preds = %12, %12
-  %20 = getelementptr inbounds nuw %struct.Argument, ptr %7, i64 %indvars.iv88, i32 1
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !32
   %.not74 = icmp eq i32 %21, 0
   br i1 %.not74, label %.loopexit, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !32
   %24 = load i32, ptr %1, align 8, !tbaa !28
   %.fr = freeze i32 %24

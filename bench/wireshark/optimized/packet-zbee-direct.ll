@@ -689,11 +689,11 @@ define internal void @uat_key_record_post_update() #0 {
   %27 = getelementptr %struct.uat_key_record_s, ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = call fastcc zeroext i1 @zbd_parse_uat_hexline(ptr noundef %28, ptr noundef nonnull %2, i32 noundef 8)
-  %30 = getelementptr %struct.uat_key_record_s, ptr %26, i64 %indvars.iv, i32 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = call fastcc zeroext i1 @zbd_parse_uat_hexline(ptr noundef %31, ptr noundef nonnull %3, i32 noundef 8)
   %33 = or i1 %29, %32
-  %34 = getelementptr %struct.uat_key_record_s, ptr %26, i64 %indvars.iv, i32 2
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = call fastcc zeroext i1 @zbd_parse_uat_hexline(ptr noundef %35, ptr noundef nonnull %4, i32 noundef 16)
   %37 = or i1 %33, %36
@@ -701,7 +701,7 @@ define internal void @uat_key_record_post_update() #0 {
 
 38:                                               ; preds = %24
   store i32 0, ptr %1, align 8
-  %39 = getelementptr %struct.uat_key_record_s, ptr %26, i64 %indvars.iv, i32 3
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = call noalias ptr @g_strdup(ptr noundef %40)
   store ptr %41, ptr %14, align 8
@@ -2145,7 +2145,7 @@ zb_direct_encryption_disable.exit:                ; preds = %proto_item_set_gene
   %53 = tail call i32 @dissect_zbee_tlvs(ptr noundef %13, ptr noundef %1, ptr noundef %11, i32 noundef %25, ptr noundef %3, i8 noundef zeroext 4, i32 noundef %4)
   %54 = add i8 %22, -1
   %or.cond = icmp ult i8 %54, 4
-  br i1 %or.cond, label %55, label %63
+  br i1 %or.cond, label %55, label %64
 
 55:                                               ; preds = %zb_direct_encryption_disable.exit.thread, %zb_direct_encryption_disable.exit
   %56 = phi i32 [ %52, %zb_direct_encryption_disable.exit.thread ], [ %53, %zb_direct_encryption_disable.exit ]
@@ -2153,21 +2153,22 @@ zb_direct_encryption_disable.exit:                ; preds = %proto_item_set_gene
   %58 = and i64 %57, 4294967295
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr %struct._value_string, ptr @msg_type_str, i64 %58, i32 1
-  %62 = load ptr, ptr %61, align 8
-  tail call void @col_set_str(ptr noundef %60, i32 noundef 25, ptr noundef %62)
-  br label %68
+  %61 = getelementptr %struct._value_string, ptr @msg_type_str, i64 %58
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8
+  tail call void @col_set_str(ptr noundef %60, i32 noundef 25, ptr noundef %63)
+  br label %69
 
-63:                                               ; preds = %zb_direct_encryption_disable.exit
-  %64 = load i32, ptr @hf_zb_direct_unrecognized_msg, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %64, ptr noundef %13, i32 noundef 0, i32 noundef %7, i32 noundef 0)
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %67 = load ptr, ptr %66, align 8
-  tail call void @col_set_str(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.126)
-  br label %68
+64:                                               ; preds = %zb_direct_encryption_disable.exit
+  %65 = load i32, ptr @hf_zb_direct_unrecognized_msg, align 4
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %65, ptr noundef %13, i32 noundef 0, i32 noundef %7, i32 noundef 0)
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %68 = load ptr, ptr %67, align 8
+  tail call void @col_set_str(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.126)
+  br label %69
 
-68:                                               ; preds = %63, %55
-  %.0 = phi i32 [ %56, %55 ], [ %7, %63 ]
+69:                                               ; preds = %64, %55
+  %.0 = phi i32 [ %56, %55 ], [ %7, %64 ]
   ret i32 %.0
 }
 

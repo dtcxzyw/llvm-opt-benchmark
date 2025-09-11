@@ -165,7 +165,8 @@ define internal range(i32 -1, 2) i32 @orc_sort_cmp(ptr noundef %0, ptr noundef %
   %17 = ptrtoint ptr %16 to i64
   %18 = sub i64 %3, %17
   %19 = ashr exact i64 %18, 2
-  %20 = getelementptr %struct.orc_entry, ptr %15, i64 %19, i32 2
+  %.split = getelementptr %struct.orc_entry, ptr %15, i64 %19
+  %20 = getelementptr i8, ptr %.split, i64 4
   %21 = load i16, ptr %20, align 1
   %22 = and i16 %21, 1792
   %23 = icmp eq i16 %22, 0

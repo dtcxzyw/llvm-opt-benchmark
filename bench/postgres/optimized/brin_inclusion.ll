@@ -555,7 +555,7 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef readonly
   %21 = getelementptr i8, ptr %19, i64 160
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %54
+  br i1 %23, label %24, label %55
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -570,35 +570,36 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef readonly
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 4
   %36 = getelementptr i8, ptr %32, i64 %35
-  %37 = zext i32 %30 to i64
-  %38 = getelementptr %struct.FormData_pg_attribute, ptr %36, i64 %7, i32 17
-  %39 = load i32, ptr %38, align 4
-  %40 = zext i32 %39 to i64
-  %41 = zext i32 %2 to i64
-  %42 = sext i16 %3 to i64
-  %43 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %37, i64 noundef %40, i64 noundef %41, i64 noundef %42) #4
-  %.not35 = icmp eq ptr %43, null
-  br i1 %.not35, label %44, label %49
+  %37 = getelementptr %struct.FormData_pg_attribute, ptr %36, i64 %7
+  %38 = zext i32 %30 to i64
+  %39 = getelementptr i8, ptr %37, i64 92
+  %40 = load i32, ptr %39, align 4
+  %41 = zext i32 %40 to i64
+  %42 = zext i32 %2 to i64
+  %43 = sext i16 %3 to i64
+  %44 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %38, i64 noundef %41, i64 noundef %42, i64 noundef %43) #4
+  %.not35 = icmp eq ptr %44, null
+  br i1 %.not35, label %45, label %50
 
-44:                                               ; preds = %24
-  %45 = zext i16 %3 to i32
-  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %46)
-  %47 = load i32, ptr %38, align 4
-  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %45, i32 noundef %47, i32 noundef %2, i32 noundef %30) #4
+45:                                               ; preds = %24
+  %46 = zext i16 %3 to i32
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  tail call void @llvm.assume(i1 %47)
+  %48 = load i32, ptr %39, align 4
+  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %46, i32 noundef %48, i32 noundef %2, i32 noundef %30) #4
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 643, ptr noundef nonnull @__func__.inclusion_get_strategy_procinfo) #4
   unreachable
 
-49:                                               ; preds = %24
-  %50 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %43, i16 noundef signext 7) #4
-  %51 = trunc i64 %50 to i32
-  tail call void @ReleaseSysCache(ptr noundef nonnull %43) #4
-  %52 = tail call i32 @get_opcode(i32 noundef %51) #4
-  %53 = load ptr, ptr %0, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %52, ptr noundef %20, ptr noundef %53) #4
-  br label %54
+50:                                               ; preds = %24
+  %51 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %44, i16 noundef signext 7) #4
+  %52 = trunc i64 %51 to i32
+  tail call void @ReleaseSysCache(ptr noundef nonnull %44) #4
+  %53 = tail call i32 @get_opcode(i32 noundef %52) #4
+  %54 = load ptr, ptr %0, align 8
+  tail call void @fmgr_info_cxt(i32 noundef %53, ptr noundef %20, ptr noundef %54) #4
+  br label %55
 
-54:                                               ; preds = %49, %17
+55:                                               ; preds = %50, %17
   ret ptr %20
 }
 

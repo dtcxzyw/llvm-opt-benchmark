@@ -209,22 +209,22 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.split.us, label %109
+  br i1 %54, label %.split20.us, label %109
 
 .thread:                                          ; preds = %20
   store i8 0, ptr %6, align 1
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %56 = load i32, ptr %55, align 8
   %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.split.preheader, label %109
+  br i1 %57, label %.split20.preheader, label %109
 
-.split.preheader:                                 ; preds = %.thread
+.split20.preheader:                               ; preds = %.thread
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %59 = select i1 %49, i32 -65, i32 -1
   %60 = select i1 %50, i32 -33, i32 %59
-  br label %.split
+  br label %.split20
 
-.split.us:                                        ; preds = %51
+.split20.us:                                      ; preds = %51
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %62 = select i1 %49, i32 -65, i32 -1
   %63 = select i1 %50, i32 -33, i32 %62
@@ -232,10 +232,10 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   %65 = zext nneg i32 %53 to i64
   br label %66
 
-66:                                               ; preds = %66, %.split.us
-  %67 = phi i64 [ 0, %.split.us ], [ %80, %66 ]
-  %68 = phi i32 [ 0, %.split.us ], [ %79, %66 ]
-  %69 = phi i32 [ 0, %.split.us ], [ %77, %66 ]
+66:                                               ; preds = %66, %.split20.us
+  %67 = phi i64 [ 0, %.split20.us ], [ %80, %66 ]
+  %68 = phi i32 [ 0, %.split20.us ], [ %79, %66 ]
+  %69 = phi i32 [ 0, %.split20.us ], [ %77, %66 ]
   %70 = getelementptr %struct.ieee80211_rate, ptr %64, i64 %67
   %71 = load i32, ptr %70, align 4
   %72 = or i32 %71, %63
@@ -248,14 +248,14 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   %79 = add i32 %68, %78
   %80 = add nuw nsw i64 %67, 1
   %exitcond.not = icmp eq i64 %80, %65
-  br i1 %exitcond.not, label %.split20.us, label %66, !llvm.loop !10
+  br i1 %exitcond.not, label %.split22.us, label %66, !llvm.loop !10
 
-.split:                                           ; preds = %.split.preheader, %100
-  %.pre34 = phi i32 [ %.pre35, %100 ], [ %56, %.split.preheader ]
-  %81 = phi i32 [ %101, %100 ], [ %56, %.split.preheader ]
-  %82 = phi i64 [ %104, %100 ], [ 0, %.split.preheader ]
-  %83 = phi i32 [ %103, %100 ], [ 0, %.split.preheader ]
-  %84 = phi i32 [ %102, %100 ], [ 0, %.split.preheader ]
+.split20:                                         ; preds = %.split20.preheader, %100
+  %.pre36 = phi i32 [ %.pre37, %100 ], [ %56, %.split20.preheader ]
+  %81 = phi i32 [ %101, %100 ], [ %56, %.split20.preheader ]
+  %82 = phi i64 [ %104, %100 ], [ 0, %.split20.preheader ]
+  %83 = phi i32 [ %103, %100 ], [ 0, %.split20.preheader ]
+  %84 = phi i32 [ %102, %100 ], [ 0, %.split20.preheader ]
   %85 = load ptr, ptr %58, align 8
   %86 = getelementptr %struct.ieee80211_rate, ptr %85, i64 %82
   %87 = load i32, ptr %86, align 4
@@ -263,7 +263,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   %89 = icmp eq i32 %88, -1
   br i1 %89, label %90, label %100
 
-90:                                               ; preds = %.split
+90:                                               ; preds = %.split20
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %92 = load i16, ptr %91, align 4
   %93 = icmp ugt i16 %92, 110
@@ -275,34 +275,34 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   br label %95
 
 95:                                               ; preds = %94, %90
-  %.pre = phi i32 [ %.pre.pre, %94 ], [ %.pre34, %90 ]
+  %.pre = phi i32 [ %.pre.pre, %94 ], [ %.pre36, %90 ]
   %96 = shl nuw i64 1, %82
   %97 = trunc i64 %96 to i32
   %98 = or i32 %84, %97
   %99 = add i32 %83, 1
   br label %100
 
-100:                                              ; preds = %95, %.split
-  %.pre35 = phi i32 [ %.pre34, %.split ], [ %.pre, %95 ]
-  %101 = phi i32 [ %81, %.split ], [ %.pre, %95 ]
-  %102 = phi i32 [ %84, %.split ], [ %98, %95 ]
-  %103 = phi i32 [ %83, %.split ], [ %99, %95 ]
+100:                                              ; preds = %95, %.split20
+  %.pre37 = phi i32 [ %.pre36, %.split20 ], [ %.pre, %95 ]
+  %101 = phi i32 [ %81, %.split20 ], [ %.pre, %95 ]
+  %102 = phi i32 [ %84, %.split20 ], [ %98, %95 ]
+  %103 = phi i32 [ %83, %.split20 ], [ %99, %95 ]
   %104 = add nuw nsw i64 %82, 1
   %105 = sext i32 %101 to i64
   %106 = icmp slt i64 %104, %105
-  br i1 %106, label %.split, label %.split20.us, !llvm.loop !10
+  br i1 %106, label %.split20, label %.split22.us, !llvm.loop !10
 
-.split20.us:                                      ; preds = %100, %66
+.split22.us:                                      ; preds = %100, %66
   %107 = phi ptr [ %52, %66 ], [ %55, %100 ]
   %.us-phi = phi i32 [ %77, %66 ], [ %102, %100 ]
-  %.us-phi21 = phi i32 [ %79, %66 ], [ %103, %100 ]
+  %.us-phi23 = phi i32 [ %79, %66 ], [ %103, %100 ]
   %108 = zext i32 %.us-phi to i64
   br label %109
 
-109:                                              ; preds = %.thread, %.split20.us, %51
-  %110 = phi ptr [ %52, %51 ], [ %107, %.split20.us ], [ %55, %.thread ]
-  %111 = phi i64 [ 0, %51 ], [ %108, %.split20.us ], [ 0, %.thread ]
-  %112 = phi i32 [ 0, %51 ], [ %.us-phi21, %.split20.us ], [ 0, %.thread ]
+109:                                              ; preds = %.thread, %.split22.us, %51
+  %110 = phi ptr [ %52, %51 ], [ %107, %.split22.us ], [ %55, %.thread ]
+  %111 = phi i64 [ 0, %51 ], [ %108, %.split22.us ], [ 0, %.thread ]
+  %112 = phi i32 [ 0, %51 ], [ %.us-phi23, %.split22.us ], [ 0, %.thread ]
   %113 = getelementptr i8, ptr %38, i64 1
   store i8 1, ptr %38, align 1
   %114 = icmp sgt i32 %112, 8
@@ -312,7 +312,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   store i8 %116, ptr %113, align 1
   %118 = load i32, ptr %110, align 8
   %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %120, label %.loopexit12
+  br i1 %119, label %120, label %.loopexit13
 
 120:                                              ; preds = %109
   %121 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -322,7 +322,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
 123:                                              ; preds = %148, %120
   %124 = phi i32 [ %149, %148 ], [ %118, %120 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %148 ], [ 0, %120 ]
-  %125 = phi i32 [ %.ph11, %148 ], [ 0, %120 ]
+  %125 = phi i32 [ %.ph12, %148 ], [ 0, %120 ]
   %126 = phi ptr [ %.ph, %148 ], [ %117, %120 ]
   %127 = shl nuw i64 1, %indvars.iv
   %128 = and i64 %127, %111
@@ -331,7 +331,8 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
 
 130:                                              ; preds = %123
   %131 = load ptr, ptr %121, align 8
-  %132 = getelementptr %struct.ieee80211_rate, ptr %131, i64 %indvars.iv, i32 1
+  %.split = getelementptr %struct.ieee80211_rate, ptr %131, i64 %indvars.iv
+  %132 = getelementptr i8, ptr %.split, i64 4
   %133 = load i16, ptr %132, align 4
   %134 = zext i16 %133 to i32
   %135 = add nuw nsw i32 %134, 4
@@ -348,36 +349,36 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   br i1 %144, label %145, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %130
-  %.pre32 = load i32, ptr %110, align 8
+  %.pre34 = load i32, ptr %110, align 8
   br label %148
 
 145:                                              ; preds = %130
   %146 = trunc nuw nsw i64 %indvars.iv to i32
   %147 = add nuw nsw i32 %146, 1
-  br label %.loopexit12
+  br label %.loopexit13
 
 148:                                              ; preds = %._crit_edge, %123
-  %149 = phi i32 [ %.pre32, %._crit_edge ], [ %124, %123 ]
+  %149 = phi i32 [ %.pre34, %._crit_edge ], [ %124, %123 ]
   %.ph = phi ptr [ %142, %._crit_edge ], [ %126, %123 ]
-  %.ph11 = phi i32 [ %143, %._crit_edge ], [ %125, %123 ]
+  %.ph12 = phi i32 [ %143, %._crit_edge ], [ %125, %123 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %indvars.iv.next, %150
-  br i1 %151, label %123, label %.loopexit12.loopexit, !llvm.loop !13
+  br i1 %151, label %123, label %.loopexit13.loopexit, !llvm.loop !13
 
-.loopexit12.loopexit:                             ; preds = %148
+.loopexit13.loopexit:                             ; preds = %148
   %152 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.loopexit12
+  br label %.loopexit13
 
-.loopexit12:                                      ; preds = %.loopexit12.loopexit, %145, %109
-  %153 = phi i32 [ 0, %109 ], [ %147, %145 ], [ %152, %.loopexit12.loopexit ]
-  %154 = phi ptr [ %117, %109 ], [ %142, %145 ], [ %.ph, %.loopexit12.loopexit ]
+.loopexit13:                                      ; preds = %.loopexit13.loopexit, %145, %109
+  %153 = phi i32 [ 0, %109 ], [ %147, %145 ], [ %152, %.loopexit13.loopexit ]
+  %154 = phi ptr [ %117, %109 ], [ %142, %145 ], [ %.ph, %.loopexit13.loopexit ]
   %155 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %156 = load i32, ptr %155, align 8
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %168
 
-158:                                              ; preds = %.loopexit12
+158:                                              ; preds = %.loopexit13
   %159 = getelementptr i8, ptr %154, i64 1
   store i8 3, ptr %154, align 1
   %160 = getelementptr i8, ptr %154, i64 2
@@ -392,8 +393,8 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   store i8 %166, ptr %160, align 1
   br label %168
 
-168:                                              ; preds = %158, %.loopexit12
-  %169 = phi ptr [ %167, %158 ], [ %154, %.loopexit12 ]
+168:                                              ; preds = %158, %.loopexit13
+  %169 = phi ptr [ %167, %158 ], [ %154, %.loopexit13 ]
   %170 = getelementptr i8, ptr %169, i64 1
   store i8 6, ptr %169, align 1
   %171 = getelementptr i8, ptr %169, i64 2
@@ -469,7 +470,8 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
 
 218:                                              ; preds = %211
   %219 = load ptr, ptr %208, align 8
-  %220 = getelementptr %struct.ieee80211_rate, ptr %219, i64 %213, i32 1
+  %.split11 = getelementptr %struct.ieee80211_rate, ptr %219, i64 %213
+  %220 = getelementptr i8, ptr %.split11, i64 4
   %221 = load i16, ptr %220, align 4
   %222 = zext i16 %221 to i32
   %223 = add nuw nsw i32 %222, 4
@@ -481,11 +483,11 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   %229 = trunc i32 %228 to i8
   %230 = getelementptr i8, ptr %214, i64 1
   store i8 %229, ptr %214, align 1
-  %.pre33 = load i32, ptr %110, align 8
+  %.pre35 = load i32, ptr %110, align 8
   br label %231
 
 231:                                              ; preds = %218, %211
-  %232 = phi i32 [ %.pre33, %218 ], [ %212, %211 ]
+  %232 = phi i32 [ %.pre35, %218 ], [ %212, %211 ]
   %233 = phi ptr [ %230, %218 ], [ %214, %211 ]
   %234 = add nuw nsw i64 %213, 1
   %235 = sext i32 %232 to i64

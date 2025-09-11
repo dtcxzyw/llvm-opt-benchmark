@@ -788,53 +788,55 @@ define weak_odr void @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorit
   %65 = call noundef ptr @_ZN3gmx10EnergyData8ekindataEv(ptr noundef nonnull align 8 dereferenceable(552) %64)
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8, !tbaa !224
-  %68 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %67, i64 %indvars.iv, i32 2
-  %69 = load ptr, ptr %51, align 8, !tbaa !222
-  %70 = call noundef ptr @_ZN3gmx10EnergyData8ekindataEv(ptr noundef nonnull align 8 dereferenceable(552) %69)
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !224
-  %73 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %72, i64 %indvars.iv, i32 3
-  %74 = load float, ptr %68, align 4, !tbaa !227
-  store float %74, ptr %73, align 4, !tbaa !227
-  %75 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %76 = load float, ptr %75, align 4, !tbaa !227
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  store float %76, ptr %77, align 4, !tbaa !227
-  %78 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %79 = load float, ptr %78, align 4, !tbaa !227
-  %80 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store float %79, ptr %80, align 4, !tbaa !227
-  %81 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  %82 = getelementptr inbounds nuw i8, ptr %73, i64 12
-  %83 = load float, ptr %81, align 4, !tbaa !227
-  store float %83, ptr %82, align 4, !tbaa !227
-  %84 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %85 = load float, ptr %84, align 4, !tbaa !227
-  %86 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store float %85, ptr %86, align 4, !tbaa !227
-  %87 = getelementptr inbounds nuw i8, ptr %68, i64 20
-  %88 = load float, ptr %87, align 4, !tbaa !227
-  %89 = getelementptr inbounds nuw i8, ptr %73, i64 20
-  store float %88, ptr %89, align 4, !tbaa !227
-  %90 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %91 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %92 = load float, ptr %90, align 4, !tbaa !227
-  store float %92, ptr %91, align 4, !tbaa !227
-  %93 = getelementptr inbounds nuw i8, ptr %68, i64 28
-  %94 = load float, ptr %93, align 4, !tbaa !227
-  %95 = getelementptr inbounds nuw i8, ptr %73, i64 28
-  store float %94, ptr %95, align 4, !tbaa !227
-  %96 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %97 = load float, ptr %96, align 4, !tbaa !227
-  %98 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  store float %97, ptr %98, align 4, !tbaa !227
+  %68 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %67, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load ptr, ptr %51, align 8, !tbaa !222
+  %71 = call noundef ptr @_ZN3gmx10EnergyData8ekindataEv(ptr noundef nonnull align 8 dereferenceable(552) %70)
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %73 = load ptr, ptr %72, align 8, !tbaa !224
+  %74 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %73, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 44
+  %76 = load float, ptr %69, align 4, !tbaa !227
+  store float %76, ptr %75, align 4, !tbaa !227
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  %78 = load float, ptr %77, align 4, !tbaa !227
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 48
+  store float %78, ptr %79, align 4, !tbaa !227
+  %80 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %81 = load float, ptr %80, align 4, !tbaa !227
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 52
+  store float %81, ptr %82, align 4, !tbaa !227
+  %83 = getelementptr inbounds nuw i8, ptr %68, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %74, i64 56
+  %85 = load float, ptr %83, align 4, !tbaa !227
+  store float %85, ptr %84, align 4, !tbaa !227
+  %86 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %87 = load float, ptr %86, align 4, !tbaa !227
+  %88 = getelementptr inbounds nuw i8, ptr %74, i64 60
+  store float %87, ptr %88, align 4, !tbaa !227
+  %89 = getelementptr inbounds nuw i8, ptr %68, i64 28
+  %90 = load float, ptr %89, align 4, !tbaa !227
+  %91 = getelementptr inbounds nuw i8, ptr %74, i64 64
+  store float %90, ptr %91, align 4, !tbaa !227
+  %92 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %74, i64 68
+  %94 = load float, ptr %92, align 4, !tbaa !227
+  store float %94, ptr %93, align 4, !tbaa !227
+  %95 = getelementptr inbounds nuw i8, ptr %68, i64 36
+  %96 = load float, ptr %95, align 4, !tbaa !227
+  %97 = getelementptr inbounds nuw i8, ptr %74, i64 72
+  store float %96, ptr %97, align 4, !tbaa !227
+  %98 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %99 = load float, ptr %98, align 4, !tbaa !227
+  %100 = getelementptr inbounds nuw i8, ptr %74, i64 76
+  store float %99, ptr %100, align 4, !tbaa !227
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = load ptr, ptr %57, align 8, !tbaa !69
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 744
-  %101 = load i32, ptr %100, align 8, !tbaa !223
-  %102 = sext i32 %101 to i64
-  %103 = icmp slt i64 %indvars.iv.next, %102
-  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !228
+  %101 = load ptr, ptr %57, align 8, !tbaa !69
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 744
+  %103 = load i32, ptr %102, align 8, !tbaa !223
+  %104 = sext i32 %103 to i64
+  %105 = icmp slt i64 %indvars.iv.next, %104
+  br i1 %105, label %.lr.ph, label %._crit_edge, !llvm.loop !228
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1415,53 +1417,55 @@ define weak_odr void @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorit
   %65 = call noundef ptr @_ZN3gmx10EnergyData8ekindataEv(ptr noundef nonnull align 8 dereferenceable(552) %64)
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8, !tbaa !224
-  %68 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %67, i64 %indvars.iv, i32 2
-  %69 = load ptr, ptr %51, align 8, !tbaa !267
-  %70 = call noundef ptr @_ZN3gmx10EnergyData8ekindataEv(ptr noundef nonnull align 8 dereferenceable(552) %69)
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !224
-  %73 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %72, i64 %indvars.iv, i32 3
-  %74 = load float, ptr %68, align 4, !tbaa !227
-  store float %74, ptr %73, align 4, !tbaa !227
-  %75 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %76 = load float, ptr %75, align 4, !tbaa !227
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  store float %76, ptr %77, align 4, !tbaa !227
-  %78 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %79 = load float, ptr %78, align 4, !tbaa !227
-  %80 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store float %79, ptr %80, align 4, !tbaa !227
-  %81 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  %82 = getelementptr inbounds nuw i8, ptr %73, i64 12
-  %83 = load float, ptr %81, align 4, !tbaa !227
-  store float %83, ptr %82, align 4, !tbaa !227
-  %84 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %85 = load float, ptr %84, align 4, !tbaa !227
-  %86 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store float %85, ptr %86, align 4, !tbaa !227
-  %87 = getelementptr inbounds nuw i8, ptr %68, i64 20
-  %88 = load float, ptr %87, align 4, !tbaa !227
-  %89 = getelementptr inbounds nuw i8, ptr %73, i64 20
-  store float %88, ptr %89, align 4, !tbaa !227
-  %90 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %91 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %92 = load float, ptr %90, align 4, !tbaa !227
-  store float %92, ptr %91, align 4, !tbaa !227
-  %93 = getelementptr inbounds nuw i8, ptr %68, i64 28
-  %94 = load float, ptr %93, align 4, !tbaa !227
-  %95 = getelementptr inbounds nuw i8, ptr %73, i64 28
-  store float %94, ptr %95, align 4, !tbaa !227
-  %96 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %97 = load float, ptr %96, align 4, !tbaa !227
-  %98 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  store float %97, ptr %98, align 4, !tbaa !227
+  %68 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %67, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load ptr, ptr %51, align 8, !tbaa !267
+  %71 = call noundef ptr @_ZN3gmx10EnergyData8ekindataEv(ptr noundef nonnull align 8 dereferenceable(552) %70)
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %73 = load ptr, ptr %72, align 8, !tbaa !224
+  %74 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %73, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 44
+  %76 = load float, ptr %69, align 4, !tbaa !227
+  store float %76, ptr %75, align 4, !tbaa !227
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  %78 = load float, ptr %77, align 4, !tbaa !227
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 48
+  store float %78, ptr %79, align 4, !tbaa !227
+  %80 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %81 = load float, ptr %80, align 4, !tbaa !227
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 52
+  store float %81, ptr %82, align 4, !tbaa !227
+  %83 = getelementptr inbounds nuw i8, ptr %68, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %74, i64 56
+  %85 = load float, ptr %83, align 4, !tbaa !227
+  store float %85, ptr %84, align 4, !tbaa !227
+  %86 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %87 = load float, ptr %86, align 4, !tbaa !227
+  %88 = getelementptr inbounds nuw i8, ptr %74, i64 60
+  store float %87, ptr %88, align 4, !tbaa !227
+  %89 = getelementptr inbounds nuw i8, ptr %68, i64 28
+  %90 = load float, ptr %89, align 4, !tbaa !227
+  %91 = getelementptr inbounds nuw i8, ptr %74, i64 64
+  store float %90, ptr %91, align 4, !tbaa !227
+  %92 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %74, i64 68
+  %94 = load float, ptr %92, align 4, !tbaa !227
+  store float %94, ptr %93, align 4, !tbaa !227
+  %95 = getelementptr inbounds nuw i8, ptr %68, i64 36
+  %96 = load float, ptr %95, align 4, !tbaa !227
+  %97 = getelementptr inbounds nuw i8, ptr %74, i64 72
+  store float %96, ptr %97, align 4, !tbaa !227
+  %98 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %99 = load float, ptr %98, align 4, !tbaa !227
+  %100 = getelementptr inbounds nuw i8, ptr %74, i64 76
+  store float %99, ptr %100, align 4, !tbaa !227
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = load ptr, ptr %57, align 8, !tbaa !247
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 744
-  %101 = load i32, ptr %100, align 8, !tbaa !223
-  %102 = sext i32 %101 to i64
-  %103 = icmp slt i64 %indvars.iv.next, %102
-  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !268
+  %101 = load ptr, ptr %57, align 8, !tbaa !247
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 744
+  %103 = load i32, ptr %102, align 8, !tbaa !223
+  %104 = sext i32 %103 to i64
+  %105 = icmp slt i64 %indvars.iv.next, %104
+  br i1 %105, label %.lr.ph, label %._crit_edge, !llvm.loop !268
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

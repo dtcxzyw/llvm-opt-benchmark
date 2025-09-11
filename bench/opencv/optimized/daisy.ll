@@ -9145,8 +9145,8 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d10DAISY_Impl18compute_histog
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %24
 
-._crit_edge:                                      ; preds = %66, %.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %68, %66 ]
+._crit_edge:                                      ; preds = %67, %.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %69, %67 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %19 = load ptr, ptr %18, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw %"class.cv::Mat", ptr %19, i64 %.pre-phi
@@ -9158,8 +9158,8 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d10DAISY_Impl18compute_histog
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #29
   ret void
 
-24:                                               ; preds = %.lr.ph, %66
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
+24:                                               ; preds = %.lr.ph, %67
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %25 = load ptr, ptr %10, align 8, !tbaa !35
   %26 = load ptr, ptr %9, align 8, !tbaa !36
   %27 = ptrtoint ptr %25 to i64
@@ -9238,8 +9238,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE2atEm.exit22:       ; preds = %24
 .noexc.i:                                         ; preds = %59
   unreachable
 
-common.resume:                                    ; preds = %73, %60
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %.pn, %73 ]
+common.resume:                                    ; preds = %74, %60
+  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %.pn, %74 ]
   resume { ptr, i32 } %common.resume.op
 
 60:                                               ; preds = %59
@@ -9249,51 +9249,52 @@ common.resume:                                    ; preds = %73, %60
   br label %common.resume
 
 _ZN2cv11xfeatures2d24ComputeHistogramsInvokerC2EPSt6vectorINS_3MatESaIS3_EEi.exit: ; preds = %50
-  %62 = getelementptr inbounds nuw %"class.cv::Mat", ptr %54, i64 %indvars.iv, i32 10
-  %63 = load ptr, ptr %62, align 8, !tbaa !37
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load i32, ptr %64, align 4, !tbaa !38
-  store i32 %65, ptr %17, align 4, !tbaa !231
+  %62 = getelementptr inbounds nuw %"class.cv::Mat", ptr %54, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
+  %64 = load ptr, ptr %63, align 8, !tbaa !37
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load i32, ptr %65, align 4, !tbaa !38
+  store i32 %66, ptr %17, align 4, !tbaa !231
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef -1.000000e+00)
-          to label %66 unwind label %71
+          to label %67 unwind label %72
 
-66:                                               ; preds = %_ZN2cv11xfeatures2d24ComputeHistogramsInvokerC2EPSt6vectorINS_3MatESaIS3_EEi.exit
+67:                                               ; preds = %_ZN2cv11xfeatures2d24ComputeHistogramsInvokerC2EPSt6vectorINS_3MatESaIS3_EEi.exit
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = load i32, ptr %6, align 4, !tbaa !87
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %24, label %._crit_edge, !llvm.loop !232
+  %68 = load i32, ptr %6, align 4, !tbaa !87
+  %69 = sext i32 %68 to i64
+  %70 = icmp slt i64 %indvars.iv.next, %69
+  br i1 %70, label %24, label %._crit_edge, !llvm.loop !232
 
 .loopexit:                                        ; preds = %47
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
 .loopexit.split-lp:                               ; preds = %46
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
-70:                                               ; preds = %.loopexit.split-lp, %.loopexit
+71:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %73
+  br label %74
 
-71:                                               ; preds = %_ZN2cv11xfeatures2d24ComputeHistogramsInvokerC2EPSt6vectorINS_3MatESaIS3_EEi.exit
-  %72 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZN2cv11xfeatures2d24ComputeHistogramsInvokerC2EPSt6vectorINS_3MatESaIS3_EEi.exit
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %73
+  br label %74
 
-73:                                               ; preds = %71, %70
-  %.pn = phi { ptr, i32 } [ %72, %71 ], [ %lpad.phi, %70 ]
+74:                                               ; preds = %72, %71
+  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %lpad.phi, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
 }

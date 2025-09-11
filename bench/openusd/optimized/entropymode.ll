@@ -753,9 +753,10 @@ get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_map_i
 19:                                               ; preds = %.preheader, %19
   %indvars.iv22 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next23, %19 ]
   %20 = load ptr, ptr %10, align 16
-  %21 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %20, i64 %indvars.iv22, i32 22, i32 0, i64 0, i64 10, i64 2
-  %22 = load ptr, ptr %4, align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %21, ptr noundef nonnull align 4 dereferenceable(21264) %22, i64 21264, i1 false)
+  %21 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %20, i64 %indvars.iv22
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1616
+  %23 = load ptr, ptr %4, align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %22, ptr noundef nonnull align 4 dereferenceable(21264) %23, i64 21264, i1 false)
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 16
   br i1 %exitcond25.not, label %.loopexit, label %19, !llvm.loop !15
@@ -992,9 +993,10 @@ get_ref_frame_buf.exit.thread.i:                  ; preds = %109, %get_ref_frame
 112:                                              ; preds = %112, %.preheader.i
   %indvars.iv22.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next23.i, %112 ]
   %113 = load ptr, ptr %103, align 16
-  %114 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %113, i64 %indvars.iv22.i, i32 22, i32 0, i64 0, i64 10, i64 2
-  %115 = load ptr, ptr %39, align 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %114, ptr noundef nonnull align 4 dereferenceable(21264) %115, i64 21264, i1 false)
+  %114 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %113, i64 %indvars.iv22.i
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 1616
+  %116 = load ptr, ptr %39, align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %115, ptr noundef nonnull align 4 dereferenceable(21264) %116, i64 21264, i1 false)
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, 16
   br i1 %exitcond25.not.i, label %av1_setup_frame_contexts.exit, label %112, !llvm.loop !15

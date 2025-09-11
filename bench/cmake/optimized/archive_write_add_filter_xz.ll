@@ -325,8 +325,9 @@ define internal range(i32 -30, 1) i32 @archive_compressor_xz_open(ptr noundef ca
   br i1 %.not, label %21, label %18
 
 18:                                               ; preds = %17
-  %19 = urem i64 65536, %15
-  %20 = sub nuw nsw i64 65536, %19
+  %19 = urem i32 65536, %14
+  %narrow = sub nuw nsw i32 65536, %19
+  %20 = zext nneg i32 %narrow to i64
   br label %21
 
 21:                                               ; preds = %13, %18, %17, %8

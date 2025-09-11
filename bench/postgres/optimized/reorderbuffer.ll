@@ -8006,92 +8006,93 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1,
   %.val.val = load i16, ptr %6, align 4
   %7 = and i16 %.val.val, 1
   %.not.i = icmp eq i16 %7, 0
-  br i1 %.not.i, label %8, label %45
+  br i1 %.not.i, label %8, label %46
 
 8:                                                ; preds = %4
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr %struct.CompactAttribute, ptr %2, i64 %9, i32 4
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %13, label %43
+  %10 = getelementptr %struct.CompactAttribute, ptr %2, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 8
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp sgt i32 %12, -1
+  br i1 %13, label %14, label %44
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %15 = load i8, ptr %14, align 2
-  %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 %16
-  %18 = zext nneg i32 %11 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  %21 = load i8, ptr %20, align 2, !range !6, !noundef !7
-  %22 = trunc nuw i8 %21 to i1
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %24 = load i16, ptr %23, align 4
-  br i1 %22, label %25, label %41
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %16 = load i8, ptr %15, align 2
+  %17 = zext i8 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %.val, i64 %17
+  %19 = zext nneg i32 %12 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %10, i64 14
+  %22 = load i8, ptr %21, align 2, !range !6, !noundef !7
+  %23 = trunc nuw i8 %22 to i1
+  %24 = getelementptr i8, ptr %10, i64 12
+  %25 = load i16, ptr %24, align 4
+  br i1 %23, label %26, label %42
 
-25:                                               ; preds = %13
-  switch i16 %24, label %37 [
-    i16 1, label %26
-    i16 2, label %29
-    i16 4, label %32
-    i16 8, label %35
+26:                                               ; preds = %14
+  switch i16 %25, label %38 [
+    i16 1, label %27
+    i16 2, label %30
+    i16 4, label %33
+    i16 8, label %36
   ]
 
-26:                                               ; preds = %25
-  %27 = load i8, ptr %19, align 1
-  %28 = sext i8 %27 to i64
+27:                                               ; preds = %26
+  %28 = load i8, ptr %20, align 1
+  %29 = sext i8 %28 to i64
   br label %fetch_att.exit
 
-29:                                               ; preds = %25
-  %30 = load i16, ptr %19, align 2
-  %31 = sext i16 %30 to i64
+30:                                               ; preds = %26
+  %31 = load i16, ptr %20, align 2
+  %32 = sext i16 %31 to i64
   br label %fetch_att.exit
 
-32:                                               ; preds = %25
-  %33 = load i32, ptr %19, align 4
-  %34 = sext i32 %33 to i64
+33:                                               ; preds = %26
+  %34 = load i32, ptr %20, align 4
+  %35 = sext i32 %34 to i64
   br label %fetch_att.exit
 
-35:                                               ; preds = %25
-  %36 = load i64, ptr %19, align 8
+36:                                               ; preds = %26
+  %37 = load i64, ptr %20, align 8
   br label %fetch_att.exit
 
-37:                                               ; preds = %25
-  %38 = sext i16 %24 to i32
-  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef range(i32 -32768, 32768) %38) #19
+38:                                               ; preds = %26
+  %39 = sext i16 %25 to i32
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
+  tail call void @llvm.assume(i1 %40)
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef range(i32 -32768, 32768) %39) #19
   tail call void @errfinish(ptr noundef nonnull @.str.28, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #19
   unreachable
 
-41:                                               ; preds = %13
-  %42 = ptrtoint ptr %19 to i64
+42:                                               ; preds = %14
+  %43 = ptrtoint ptr %20 to i64
   br label %fetch_att.exit
 
-43:                                               ; preds = %8
-  %44 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #19
+44:                                               ; preds = %8
+  %45 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #19
   br label %fetch_att.exit
 
-45:                                               ; preds = %4
-  %46 = add nsw i32 %1, -1
-  %47 = getelementptr inbounds nuw i8, ptr %.val, i64 23
-  %.val20 = load i8, ptr %47, align 1
-  %48 = zext i8 %.val20 to i32
-  %49 = shl nuw nsw i32 1, %46
-  %50 = and i32 %49, %48
-  %.not.i21 = icmp eq i32 %50, 0
-  br i1 %.not.i21, label %51, label %52
+46:                                               ; preds = %4
+  %47 = add nsw i32 %1, -1
+  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 23
+  %.val20 = load i8, ptr %48, align 1
+  %49 = zext i8 %.val20 to i32
+  %50 = shl nuw nsw i32 1, %47
+  %51 = and i32 %50, %49
+  %.not.i21 = icmp eq i32 %51, 0
+  br i1 %.not.i21, label %52, label %53
 
-51:                                               ; preds = %45
+52:                                               ; preds = %46
   store i8 1, ptr %3, align 1
   br label %fetch_att.exit
 
-52:                                               ; preds = %45
-  %53 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #19
+53:                                               ; preds = %46
+  %54 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #19
   br label %fetch_att.exit
 
-fetch_att.exit:                                   ; preds = %41, %35, %32, %29, %26, %43, %52, %51
-  %.1 = phi i64 [ 0, %51 ], [ %53, %52 ], [ %44, %43 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ], [ %42, %41 ]
+fetch_att.exit:                                   ; preds = %42, %36, %33, %30, %27, %44, %53, %52
+  %.1 = phi i64 [ 0, %52 ], [ %54, %53 ], [ %45, %44 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %37, %36 ], [ %43, %42 ]
   ret i64 %.1
 }
 

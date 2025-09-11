@@ -1388,264 +1388,267 @@ thread-pre-split:                                 ; preds = %118, %122, %126, %1
   br label %.thread
 
 239:                                              ; preds = %.lr.ph469
-  %240 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %230, i64 %indvars.iv489, i32 1
-  %241 = load ptr, ptr %240, align 8, !tbaa !107
-  %.not407 = icmp eq ptr %241, null
+  %240 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %230, i64 %indvars.iv489
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  %242 = load ptr, ptr %241, align 8, !tbaa !107
+  %.not407 = icmp eq ptr %242, null
   br i1 %.not407, label %.thread427, label %.critedge10
 
 .thread427:                                       ; preds = %229, %239
-  %242 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0349, ptr noundef nonnull %38, ptr noundef nonnull @.str.38)
-  %.sroa.023.0..sroa.023.0..cast = inttoptr i64 %242 to ptr
-  %.not408 = icmp eq i64 %242, 0
-  br i1 %.not408, label %261, label %.critedge10
+  %243 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0349, ptr noundef nonnull %38, ptr noundef nonnull @.str.38)
+  %.sroa.023.0..sroa.023.0..cast = inttoptr i64 %243 to ptr
+  %.not408 = icmp eq i64 %243, 0
+  br i1 %.not408, label %262, label %.critedge10
 
 .critedge10:                                      ; preds = %239, %.thread427
-  %.1351 = phi ptr [ %.sroa.023.0..sroa.023.0..cast, %.thread427 ], [ %241, %239 ]
+  %.1351 = phi ptr [ %.sroa.023.0..sroa.023.0..cast, %.thread427 ], [ %242, %239 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.1351, ptr %5, align 8, !tbaa !50
-  %243 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef %.1351, ptr noundef nonnull %5)
-  %244 = getelementptr inbounds nuw i8, ptr %75, i64 496
-  store double %243, ptr %244, align 8, !tbaa !108
-  %245 = load ptr, ptr %5, align 8, !tbaa !50
-  %246 = load i8, ptr %245, align 1, !tbaa !3
-  %247 = icmp eq i8 %246, 47
-  br i1 %247, label %248, label %254
+  %244 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef %.1351, ptr noundef nonnull %5)
+  %245 = getelementptr inbounds nuw i8, ptr %75, i64 496
+  store double %244, ptr %245, align 8, !tbaa !108
+  %246 = load ptr, ptr %5, align 8, !tbaa !50
+  %247 = load i8, ptr %246, align 1, !tbaa !3
+  %248 = icmp eq i8 %247, 47
+  br i1 %248, label %249, label %255
 
-248:                                              ; preds = %.critedge10
-  %249 = getelementptr inbounds nuw i8, ptr %245, i64 1
-  %250 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef nonnull %249, ptr noundef null)
-  %251 = fcmp une double %250, 0.000000e+00
-  br i1 %251, label %.thread430, label %.thread433
+249:                                              ; preds = %.critedge10
+  %250 = getelementptr inbounds nuw i8, ptr %246, i64 1
+  %251 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef nonnull %250, ptr noundef null)
+  %252 = fcmp une double %251, 0.000000e+00
+  br i1 %252, label %.thread430, label %.thread433
 
-.thread430:                                       ; preds = %248
-  %252 = load double, ptr %244, align 8, !tbaa !108
-  %253 = fdiv double %252, %250
-  store double %253, ptr %244, align 8, !tbaa !108
-  br label %254
+.thread430:                                       ; preds = %249
+  %253 = load double, ptr %245, align 8, !tbaa !108
+  %254 = fdiv double %253, %251
+  store double %254, ptr %245, align 8, !tbaa !108
+  br label %255
 
-254:                                              ; preds = %.thread430, %.critedge10
-  %255 = phi double [ %253, %.thread430 ], [ %243, %.critedge10 ]
-  %256 = fcmp ugt double %255, 0.000000e+00
-  br i1 %256, label %258, label %.thread433
+255:                                              ; preds = %.thread430, %.critedge10
+  %256 = phi double [ %254, %.thread430 ], [ %244, %.critedge10 ]
+  %257 = fcmp ugt double %256, 0.000000e+00
+  br i1 %257, label %259, label %.thread433
 
-.thread433:                                       ; preds = %254, %248
-  %.str.40.sink = phi ptr [ @.str.39, %248 ], [ @.str.40, %254 ]
+.thread433:                                       ; preds = %255, %249
+  %.str.40.sink = phi ptr [ @.str.39, %249 ], [ @.str.40, %255 ]
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull %.str.40.sink)
-  %257 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
+  %258 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
-258:                                              ; preds = %254
-  %259 = fdiv double 1.000000e+00, %255
-  %260 = getelementptr inbounds nuw i8, ptr %75, i64 504
-  store double %259, ptr %260, align 8, !tbaa !109
+259:                                              ; preds = %255
+  %260 = fdiv double 1.000000e+00, %256
+  %261 = getelementptr inbounds nuw i8, ptr %75, i64 504
+  store double %260, ptr %261, align 8, !tbaa !109
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %264
+  br label %265
 
-261:                                              ; preds = %.thread427
-  %262 = getelementptr inbounds nuw i8, ptr %75, i64 504
-  store double 1.000000e+00, ptr %262, align 8, !tbaa !109
-  %263 = getelementptr inbounds nuw i8, ptr %75, i64 496
-  store double 1.000000e+00, ptr %263, align 8, !tbaa !108
-  br label %264
+262:                                              ; preds = %.thread427
+  %263 = getelementptr inbounds nuw i8, ptr %75, i64 504
+  store double 1.000000e+00, ptr %263, align 8, !tbaa !109
+  %264 = getelementptr inbounds nuw i8, ptr %75, i64 496
+  store double 1.000000e+00, ptr %264, align 8, !tbaa !108
+  br label %265
 
-264:                                              ; preds = %258, %261
-  %265 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0349, ptr noundef nonnull %38, ptr noundef nonnull @.str.41)
-  %.sroa.020.0..sroa.020.0..cast = inttoptr i64 %265 to ptr
-  %.not409 = icmp eq i64 %265, 0
+265:                                              ; preds = %259, %262
+  %266 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0349, ptr noundef nonnull %38, ptr noundef nonnull @.str.41)
+  %.sroa.020.0..sroa.020.0..cast = inttoptr i64 %266 to ptr
+  %.not409 = icmp eq i64 %266, 0
   br i1 %.not409, label %.thread436, label %.preheader
 
-.preheader:                                       ; preds = %264
-  %266 = load ptr, ptr %230, align 8, !tbaa !104
-  %.not410470 = icmp eq ptr %266, null
+.preheader:                                       ; preds = %265
+  %267 = load ptr, ptr %230, align 8, !tbaa !104
+  %.not410470 = icmp eq ptr %267, null
   br i1 %.not410470, label %.critedge424, label %.lr.ph472
 
-267:                                              ; preds = %.lr.ph472
+268:                                              ; preds = %.lr.ph472
   %indvars.iv.next493 = add nuw nsw i64 %indvars.iv492, 1
-  %268 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %230, i64 %indvars.iv.next493
-  %269 = load ptr, ptr %268, align 8, !tbaa !104
-  %.not410 = icmp eq ptr %269, null
+  %269 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %230, i64 %indvars.iv.next493
+  %270 = load ptr, ptr %269, align 8, !tbaa !104
+  %.not410 = icmp eq ptr %270, null
   br i1 %.not410, label %.critedge424, label %.lr.ph472, !llvm.loop !110
 
-.lr.ph472:                                        ; preds = %.preheader, %267
-  %indvars.iv492 = phi i64 [ %indvars.iv.next493, %267 ], [ 0, %.preheader ]
-  %270 = phi ptr [ %269, %267 ], [ %266, %.preheader ]
-  %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.020.0..sroa.020.0..cast, ptr noundef nonnull dereferenceable(1) %270) #13
-  %.not411 = icmp eq i32 %271, 0
-  br i1 %.not411, label %273, label %267
+.lr.ph472:                                        ; preds = %.preheader, %268
+  %indvars.iv492 = phi i64 [ %indvars.iv.next493, %268 ], [ 0, %.preheader ]
+  %271 = phi ptr [ %270, %268 ], [ %267, %.preheader ]
+  %272 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.020.0..sroa.020.0..cast, ptr noundef nonnull dereferenceable(1) %271) #13
+  %.not411 = icmp eq i32 %272, 0
+  br i1 %.not411, label %274, label %268
 
-.critedge424:                                     ; preds = %267, %.preheader
+.critedge424:                                     ; preds = %268, %.preheader
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.42)
-  %272 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
+  %273 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
   br label %.thread
 
-273:                                              ; preds = %.lr.ph472
-  %274 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %230, i64 %indvars.iv492, i32 1
-  %275 = load ptr, ptr %274, align 8, !tbaa !107
-  %.not412 = icmp eq ptr %275, null
+274:                                              ; preds = %.lr.ph472
+  %275 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %230, i64 %indvars.iv492
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
+  %277 = load ptr, ptr %276, align 8, !tbaa !107
+  %.not412 = icmp eq ptr %277, null
   br i1 %.not412, label %.thread436, label %.critedge14
 
-.thread436:                                       ; preds = %264, %273
-  %276 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0349, ptr noundef nonnull %38, ptr noundef nonnull @.str.43)
-  %.sroa.019.0..sroa.019.0..cast = inttoptr i64 %276 to ptr
-  %.not413 = icmp eq i64 %276, 0
-  br i1 %.not413, label %295, label %.critedge14
+.thread436:                                       ; preds = %265, %274
+  %278 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0349, ptr noundef nonnull %38, ptr noundef nonnull @.str.43)
+  %.sroa.019.0..sroa.019.0..cast = inttoptr i64 %278 to ptr
+  %.not413 = icmp eq i64 %278, 0
+  br i1 %.not413, label %297, label %.critedge14
 
-.critedge14:                                      ; preds = %273, %.thread436
-  %.3353 = phi ptr [ %.sroa.019.0..sroa.019.0..cast, %.thread436 ], [ %275, %273 ]
+.critedge14:                                      ; preds = %274, %.thread436
+  %.3353 = phi ptr [ %.sroa.019.0..sroa.019.0..cast, %.thread436 ], [ %277, %274 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.3353, ptr %6, align 8, !tbaa !50
-  %277 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef %.3353, ptr noundef nonnull %6)
-  %278 = getelementptr inbounds nuw i8, ptr %75, i64 512
-  store double %277, ptr %278, align 8, !tbaa !111
-  %279 = load ptr, ptr %6, align 8, !tbaa !50
-  %280 = load i8, ptr %279, align 1, !tbaa !3
-  %281 = icmp eq i8 %280, 47
-  br i1 %281, label %282, label %288
+  %279 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef %.3353, ptr noundef nonnull %6)
+  %280 = getelementptr inbounds nuw i8, ptr %75, i64 512
+  store double %279, ptr %280, align 8, !tbaa !111
+  %281 = load ptr, ptr %6, align 8, !tbaa !50
+  %282 = load i8, ptr %281, align 1, !tbaa !3
+  %283 = icmp eq i8 %282, 47
+  br i1 %283, label %284, label %290
 
-282:                                              ; preds = %.critedge14
-  %283 = getelementptr inbounds nuw i8, ptr %279, i64 1
-  %284 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef nonnull %283, ptr noundef null)
-  %285 = fcmp une double %284, 0.000000e+00
-  br i1 %285, label %.thread439, label %.thread442
+284:                                              ; preds = %.critedge14
+  %285 = getelementptr inbounds nuw i8, ptr %281, i64 1
+  %286 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef nonnull %285, ptr noundef null)
+  %287 = fcmp une double %286, 0.000000e+00
+  br i1 %287, label %.thread439, label %.thread442
 
-.thread439:                                       ; preds = %282
-  %286 = load double, ptr %278, align 8, !tbaa !111
-  %287 = fdiv double %286, %284
-  store double %287, ptr %278, align 8, !tbaa !111
-  br label %288
+.thread439:                                       ; preds = %284
+  %288 = load double, ptr %280, align 8, !tbaa !111
+  %289 = fdiv double %288, %286
+  store double %289, ptr %280, align 8, !tbaa !111
+  br label %290
 
-288:                                              ; preds = %.thread439, %.critedge14
-  %289 = phi double [ %287, %.thread439 ], [ %277, %.critedge14 ]
-  %290 = fcmp ugt double %289, 0.000000e+00
-  br i1 %290, label %292, label %.thread442
+290:                                              ; preds = %.thread439, %.critedge14
+  %291 = phi double [ %289, %.thread439 ], [ %279, %.critedge14 ]
+  %292 = fcmp ugt double %291, 0.000000e+00
+  br i1 %292, label %294, label %.thread442
 
-.thread442:                                       ; preds = %288, %282
-  %.str.45.sink = phi ptr [ @.str.44, %282 ], [ @.str.45, %288 ]
+.thread442:                                       ; preds = %290, %284
+  %.str.45.sink = phi ptr [ @.str.44, %284 ], [ @.str.45, %290 ]
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull %.str.45.sink)
-  %291 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
+  %293 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
-292:                                              ; preds = %288
-  %293 = fdiv double 1.000000e+00, %289
-  %294 = getelementptr inbounds nuw i8, ptr %75, i64 520
-  store double %293, ptr %294, align 8, !tbaa !112
+294:                                              ; preds = %290
+  %295 = fdiv double 1.000000e+00, %291
+  %296 = getelementptr inbounds nuw i8, ptr %75, i64 520
+  store double %295, ptr %296, align 8, !tbaa !112
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %302
+  br label %304
 
-295:                                              ; preds = %.thread436
-  %296 = getelementptr inbounds nuw i8, ptr %75, i64 496
-  %297 = load double, ptr %296, align 8, !tbaa !108
-  %298 = getelementptr inbounds nuw i8, ptr %75, i64 512
-  store double %297, ptr %298, align 8, !tbaa !111
-  %299 = getelementptr inbounds nuw i8, ptr %75, i64 504
-  %300 = load double, ptr %299, align 8, !tbaa !109
-  %301 = getelementptr inbounds nuw i8, ptr %75, i64 520
-  store double %300, ptr %301, align 8, !tbaa !112
-  br label %302
+297:                                              ; preds = %.thread436
+  %298 = getelementptr inbounds nuw i8, ptr %75, i64 496
+  %299 = load double, ptr %298, align 8, !tbaa !108
+  %300 = getelementptr inbounds nuw i8, ptr %75, i64 512
+  store double %299, ptr %300, align 8, !tbaa !111
+  %301 = getelementptr inbounds nuw i8, ptr %75, i64 504
+  %302 = load double, ptr %301, align 8, !tbaa !109
+  %303 = getelementptr inbounds nuw i8, ptr %75, i64 520
+  store double %302, ptr %303, align 8, !tbaa !112
+  br label %304
 
-302:                                              ; preds = %292, %295
-  %303 = call ptr @proj_list_prime_meridians()
-  %304 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0349, ptr noundef nonnull %38, ptr noundef nonnull @.str.46)
-  %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %304 to ptr
-  %.not414 = icmp eq i64 %304, 0
-  br i1 %.not414, label %329, label %305
+304:                                              ; preds = %294, %297
+  %305 = call ptr @proj_list_prime_meridians()
+  %306 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0349, ptr noundef nonnull %38, ptr noundef nonnull @.str.46)
+  %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %306 to ptr
+  %.not414 = icmp eq i64 %306, 0
+  br i1 %.not414, label %332, label %307
 
-305:                                              ; preds = %302
+307:                                              ; preds = %304
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !50
-  %306 = load ptr, ptr %303, align 8, !tbaa !113
-  %.not415473 = icmp eq ptr %306, null
+  %308 = load ptr, ptr %305, align 8, !tbaa !113
+  %.not415473 = icmp eq ptr %308, null
   br i1 %.not415473, label %.thread445, label %.lr.ph476
 
-307:                                              ; preds = %.lr.ph476
+309:                                              ; preds = %.lr.ph476
   %indvars.iv.next496 = add nuw nsw i64 %indvars.iv495, 1
-  %308 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %303, i64 %indvars.iv.next496
-  %309 = load ptr, ptr %308, align 8, !tbaa !113
-  %.not415 = icmp eq ptr %309, null
+  %310 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %305, i64 %indvars.iv.next496
+  %311 = load ptr, ptr %310, align 8, !tbaa !113
+  %.not415 = icmp eq ptr %311, null
   br i1 %.not415, label %.thread445, label %.lr.ph476, !llvm.loop !115
 
-.lr.ph476:                                        ; preds = %305, %307
-  %indvars.iv495 = phi i64 [ %indvars.iv.next496, %307 ], [ 0, %305 ]
-  %310 = phi ptr [ %309, %307 ], [ %306, %305 ]
-  %311 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(1) %310) #13
-  %312 = icmp eq i32 %311, 0
-  br i1 %312, label %313, label %307
+.lr.ph476:                                        ; preds = %307, %309
+  %indvars.iv495 = phi i64 [ %indvars.iv.next496, %309 ], [ 0, %307 ]
+  %312 = phi ptr [ %311, %309 ], [ %308, %307 ]
+  %313 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(1) %312) #13
+  %314 = icmp eq i32 %313, 0
+  br i1 %314, label %315, label %309
 
-313:                                              ; preds = %.lr.ph476
-  %314 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %303, i64 %indvars.iv495, i32 1
-  %315 = load ptr, ptr %314, align 8, !tbaa !116
-  %316 = icmp eq ptr %315, null
-  br i1 %316, label %.thread445, label %select.unfold
+315:                                              ; preds = %.lr.ph476
+  %316 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %305, i64 %indvars.iv495
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
+  %318 = load ptr, ptr %317, align 8, !tbaa !116
+  %319 = icmp eq ptr %318, null
+  br i1 %319, label %.thread445, label %select.unfold
 
-.thread445:                                       ; preds = %307, %305, %313
-  %317 = call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef nonnull %.0349, ptr noundef nonnull %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull %7)
-  %318 = fcmp une double %317, 0.000000e+00
-  br i1 %318, label %322, label %319
+.thread445:                                       ; preds = %309, %307, %315
+  %320 = call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef nonnull %.0349, ptr noundef nonnull %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull %7)
+  %321 = fcmp une double %320, 0.000000e+00
+  br i1 %321, label %325, label %322
 
-319:                                              ; preds = %.thread445
-  %320 = load i8, ptr %.sroa.0.0..sroa.0.0..cast, align 1, !tbaa !3
-  %321 = icmp eq i8 %320, 48
-  br i1 %321, label %322, label %.thread453
+322:                                              ; preds = %.thread445
+  %323 = load i8, ptr %.sroa.0.0..sroa.0.0..cast, align 1, !tbaa !3
+  %324 = icmp eq i8 %323, 48
+  br i1 %324, label %325, label %.thread453
 
-322:                                              ; preds = %319, %.thread445
-  %323 = load ptr, ptr %7, align 8, !tbaa !50
-  %324 = load i8, ptr %323, align 1, !tbaa !3
-  %325 = icmp eq i8 %324, 0
-  br i1 %325, label %select.unfold, label %.thread453
+325:                                              ; preds = %322, %.thread445
+  %326 = load ptr, ptr %7, align 8, !tbaa !50
+  %327 = load i8, ptr %326, align 1, !tbaa !3
+  %328 = icmp eq i8 %327, 0
+  br i1 %328, label %select.unfold, label %.thread453
 
-.thread453:                                       ; preds = %322, %319
+.thread453:                                       ; preds = %325, %322
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %75, ptr noundef nonnull @.str.47)
-  %326 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
+  %329 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 1027)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
-select.unfold:                                    ; preds = %322, %313
-  %.1 = phi ptr [ %315, %313 ], [ %.sroa.0.0..sroa.0.0..cast, %322 ]
-  %327 = call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef nonnull %.0349, ptr noundef nonnull %.1, ptr noundef null)
-  %328 = getelementptr inbounds nuw i8, ptr %75, i64 616
-  store double %327, ptr %328, align 8, !tbaa !117
+select.unfold:                                    ; preds = %325, %315
+  %.1 = phi ptr [ %318, %315 ], [ %.sroa.0.0..sroa.0.0..cast, %325 ]
+  %330 = call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef nonnull %.0349, ptr noundef nonnull %.1, ptr noundef null)
+  %331 = getelementptr inbounds nuw i8, ptr %75, i64 616
+  store double %330, ptr %331, align 8, !tbaa !117
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %331
+  br label %334
 
-329:                                              ; preds = %302
-  %330 = getelementptr inbounds nuw i8, ptr %75, i64 616
-  store double 0.000000e+00, ptr %330, align 8, !tbaa !117
-  br label %331
+332:                                              ; preds = %304
+  %333 = getelementptr inbounds nuw i8, ptr %75, i64 616
+  store double 0.000000e+00, ptr %333, align 8, !tbaa !117
+  br label %334
 
-331:                                              ; preds = %select.unfold, %329
-  %332 = call noalias dereferenceable_or_null(408) ptr @calloc(i64 noundef 1, i64 noundef 408) #15
-  %333 = getelementptr inbounds nuw i8, ptr %75, i64 80
-  store ptr %332, ptr %333, align 8, !tbaa !118
-  %334 = icmp eq ptr %332, null
-  br i1 %334, label %335, label %337
+334:                                              ; preds = %select.unfold, %332
+  %335 = call noalias dereferenceable_or_null(408) ptr @calloc(i64 noundef 1, i64 noundef 408) #15
+  %336 = getelementptr inbounds nuw i8, ptr %75, i64 80
+  store ptr %335, ptr %336, align 8, !tbaa !118
+  %337 = icmp eq ptr %335, null
+  br i1 %337, label %338, label %340
 
-335:                                              ; preds = %331
-  %336 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 4096)
+338:                                              ; preds = %334
+  %339 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %75, i32 noundef 4096)
   br label %.thread
 
-337:                                              ; preds = %331
-  %338 = load double, ptr %111, align 8, !tbaa !86
-  %339 = getelementptr inbounds nuw i8, ptr %75, i64 272
-  %340 = load double, ptr %339, align 8, !tbaa !89
-  call void @geod_init(ptr noundef nonnull %332, double noundef %338, double noundef %340)
-  %341 = call i32 @proj_errno_reset(ptr noundef nonnull %75)
-  %342 = call noundef ptr %70(ptr noundef nonnull %75)
-  %343 = call i32 @proj_errno(ptr noundef %342)
-  %.not417 = icmp eq i32 %343, 0
-  br i1 %.not417, label %346, label %344
+340:                                              ; preds = %334
+  %341 = load double, ptr %111, align 8, !tbaa !86
+  %342 = getelementptr inbounds nuw i8, ptr %75, i64 272
+  %343 = load double, ptr %342, align 8, !tbaa !89
+  call void @geod_init(ptr noundef nonnull %335, double noundef %341, double noundef %343)
+  %344 = call i32 @proj_errno_reset(ptr noundef nonnull %75)
+  %345 = call noundef ptr %70(ptr noundef nonnull %75)
+  %346 = call i32 @proj_errno(ptr noundef %345)
+  %.not417 = icmp eq i32 %346, 0
+  br i1 %.not417, label %349, label %347
 
-344:                                              ; preds = %337
-  %345 = call ptr @proj_destroy(ptr noundef %342)
+347:                                              ; preds = %340
+  %348 = call ptr @proj_destroy(ptr noundef %345)
   br label %.thread
 
-346:                                              ; preds = %337
-  %347 = call i32 @proj_errno_restore(ptr noundef %342, i32 noundef %341)
+349:                                              ; preds = %340
+  %350 = call i32 @proj_errno_restore(ptr noundef %345, i32 noundef %344)
   br label %.thread
 
-.thread:                                          ; preds = %193, %177, %.thread453, %.thread442, %.thread433, %346, %344, %335, %.critedge424, %.critedge423, %227, %205, %170, %116, %96, %88, %77, %72, %66, %60, %55, %51, %45, %39, %35, %31, %14
-  %.0347 = phi ptr [ null, %14 ], [ null, %31 ], [ null, %35 ], [ null, %45 ], [ null, %55 ], [ null, %60 ], [ null, %66 ], [ null, %72 ], [ null, %77 ], [ %90, %88 ], [ %98, %96 ], [ %117, %116 ], [ %206, %205 ], [ %228, %227 ], [ %336, %335 ], [ null, %344 ], [ %342, %346 ], [ %272, %.critedge424 ], [ %238, %.critedge423 ], [ %171, %170 ], [ null, %51 ], [ null, %39 ], [ %257, %.thread433 ], [ %291, %.thread442 ], [ %326, %.thread453 ], [ %194, %193 ], [ %178, %177 ]
+.thread:                                          ; preds = %193, %177, %.thread453, %.thread442, %.thread433, %349, %347, %338, %.critedge424, %.critedge423, %227, %205, %170, %116, %96, %88, %77, %72, %66, %60, %55, %51, %45, %39, %35, %31, %14
+  %.0347 = phi ptr [ null, %14 ], [ null, %31 ], [ null, %35 ], [ null, %45 ], [ null, %55 ], [ null, %60 ], [ null, %66 ], [ null, %72 ], [ null, %77 ], [ %90, %88 ], [ %98, %96 ], [ %117, %116 ], [ %206, %205 ], [ %228, %227 ], [ %339, %338 ], [ null, %347 ], [ %345, %349 ], [ %273, %.critedge424 ], [ %238, %.critedge423 ], [ %171, %170 ], [ null, %51 ], [ null, %39 ], [ %258, %.thread433 ], [ %293, %.thread442 ], [ %329, %.thread453 ], [ %194, %193 ], [ %178, %177 ]
   ret ptr %.0347
 }
 
@@ -1692,12 +1695,13 @@ define internal fastcc noundef ptr @_ZL18locate_constructorPKc(ptr noundef nonnu
   br i1 %.not10, label %.critedge, label %4
 
 .critedge:                                        ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw %struct.PJ_LIST, ptr %2, i64 %indvars.iv, i32 1
-  %10 = load ptr, ptr %9, align 8, !tbaa !122
+  %9 = getelementptr inbounds nuw %struct.PJ_LIST, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !122
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %1, %.critedge
-  %.0 = phi ptr [ %10, %.critedge ], [ null, %1 ], [ null, %4 ]
+  %.0 = phi ptr [ %11, %.critedge ], [ null, %1 ], [ null, %4 ]
   ret ptr %.0
 }
 

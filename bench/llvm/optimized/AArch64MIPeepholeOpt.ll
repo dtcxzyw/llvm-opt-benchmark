@@ -3041,176 +3041,179 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120AArch64MIPeepholeO
 
 _ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit: ; preds = %26, %13
   %33 = phi i64 [ %20, %13 ], [ %29, %26 ]
-  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %33, i32 0, i32 1
-  %35 = load ptr, ptr %34, align 8, !tbaa !336
-  %.not = icmp eq ptr %35, null
-  br i1 %.not, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, label %36
+  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !336
+  %.not = icmp eq ptr %36, null
+  br i1 %.not, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, label %37
 
-36:                                               ; preds = %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit
-  %37 = tail call noundef zeroext i1 @_ZNK4llvm11MachineLoop15isLoopInvariantERNS_12MachineInstrENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 0) #16
-  br i1 %37, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50
+37:                                               ; preds = %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit
+  %38 = tail call noundef zeroext i1 @_ZNK4llvm11MachineLoop15isLoopInvariantERNS_12MachineInstrENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(144) %36, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 0) #16
+  br i1 %38, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50
 
-_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %4, %36, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %39 = load ptr, ptr %38, align 8, !tbaa !160
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !185
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 68
-  %43 = load i32, ptr %42, align 4, !tbaa !186
-  %44 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %39, i32 %43) #16
-  store ptr %44, ptr %2, align 8, !tbaa !326
-  %.not27 = icmp eq ptr %44, null
-  br i1 %.not27, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %45
+_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %4, %37, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %40 = load ptr, ptr %39, align 8, !tbaa !160
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %42 = load ptr, ptr %41, align 8, !tbaa !185
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 68
+  %44 = load i32, ptr %43, align 4, !tbaa !186
+  %45 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %40, i32 %44) #16
+  store ptr %45, ptr %2, align 8, !tbaa !326
+  %.not27 = icmp eq ptr %45, null
+  br i1 %.not27, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %46
 
-45:                                               ; preds = %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread
+46:                                               ; preds = %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread
   store ptr null, ptr %3, align 8, !tbaa !326
-  %46 = load ptr, ptr %2, align 8, !tbaa !326
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 68
-  %48 = load i16, ptr %47, align 4, !tbaa !169
-  %49 = icmp eq i16 %48, 12
-  br i1 %49, label %50, label %58
+  %47 = load ptr, ptr %2, align 8, !tbaa !326
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 68
+  %49 = load i16, ptr %48, align 4, !tbaa !169
+  %50 = icmp eq i16 %49, 12
+  br i1 %50, label %51, label %59
 
-50:                                               ; preds = %45
-  store ptr %46, ptr %3, align 8, !tbaa !326
-  %51 = load ptr, ptr %38, align 8, !tbaa !160
-  %52 = load ptr, ptr %2, align 8, !tbaa !326
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %54 = load ptr, ptr %53, align 8, !tbaa !185
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 68
-  %56 = load i32, ptr %55, align 4, !tbaa !186
-  %57 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %51, i32 %56) #16
-  store ptr %57, ptr %2, align 8, !tbaa !326
-  %.not28 = icmp eq ptr %57, null
+51:                                               ; preds = %46
+  store ptr %47, ptr %3, align 8, !tbaa !326
+  %52 = load ptr, ptr %39, align 8, !tbaa !160
+  %53 = load ptr, ptr %2, align 8, !tbaa !326
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %55 = load ptr, ptr %54, align 8, !tbaa !185
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 68
+  %57 = load i32, ptr %56, align 4, !tbaa !186
+  %58 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %52, i32 %57) #16
+  store ptr %58, ptr %2, align 8, !tbaa !326
+  %.not28 = icmp eq ptr %58, null
   br i1 %.not28, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %._crit_edge
 
-._crit_edge:                                      ; preds = %50
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %57, i64 68
+._crit_edge:                                      ; preds = %51
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %58, i64 68
   %.pre = load i16, ptr %.phi.trans.insert, align 4, !tbaa !169
-  br label %58
+  br label %59
 
-58:                                               ; preds = %._crit_edge, %45
-  %59 = phi i16 [ %.pre, %._crit_edge ], [ %48, %45 ]
-  %60 = phi ptr [ %57, %._crit_edge ], [ %46, %45 ]
-  %61 = and i16 %59, -2
-  %switch = icmp eq i16 %61, 1012
-  br i1 %switch, label %62, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50
+59:                                               ; preds = %._crit_edge, %46
+  %60 = phi i16 [ %.pre, %._crit_edge ], [ %49, %46 ]
+  %61 = phi ptr [ %58, %._crit_edge ], [ %47, %46 ]
+  %62 = and i16 %60, -2
+  %switch = icmp eq i16 %62, 1012
+  br i1 %switch, label %63, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %38, align 8, !tbaa !160
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %65 = load ptr, ptr %64, align 8, !tbaa !185
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !186
-  %68 = icmp slt i32 %67, 0
-  %69 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %70 = and i32 %67, 2147483647
-  %71 = zext nneg i32 %70 to i64
-  %72 = load ptr, ptr %69, align 8
-  %73 = getelementptr inbounds nuw %"struct.std::pair", ptr %72, i64 %71, i32 1
-  %74 = getelementptr inbounds nuw i8, ptr %63, i64 296
-  %75 = zext nneg i32 %67 to i64
-  %76 = load ptr, ptr %74, align 8
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %75
-  %.0.in.i.i.i.i = select i1 %68, ptr %73, ptr %77
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %39, align 8, !tbaa !160
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %66 = load ptr, ptr %65, align 8, !tbaa !185
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  %68 = load i32, ptr %67, align 4, !tbaa !186
+  %69 = icmp slt i32 %68, 0
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 48
+  %71 = and i32 %68, 2147483647
+  %72 = zext nneg i32 %71 to i64
+  %73 = load ptr, ptr %70, align 8
+  %74 = getelementptr inbounds nuw %"struct.std::pair", ptr %73, i64 %72
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %64, i64 296
+  %77 = zext nneg i32 %68 to i64
+  %78 = load ptr, ptr %76, align 8
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %77
+  %.0.in.i.i.i.i = select i1 %69, ptr %75, ptr %79
   %.0.i.i.i.i = load ptr, ptr %.0.in.i.i.i.i, align 8, !tbaa !338
   %.not.i.i.i.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %78
+  br i1 %.not.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %80
 
-78:                                               ; preds = %62
-  %79 = load i32, ptr %.0.i.i.i.i, align 8
-  %80 = and i32 %79, 16777216
-  %.not4.i.i.i.i = icmp eq i32 %80, 0
+80:                                               ; preds = %63
+  %81 = load i32, ptr %.0.i.i.i.i, align 8
+  %82 = and i32 %81, 16777216
+  %.not4.i.i.i.i = icmp eq i32 %82, 0
   br i1 %.not4.i.i.i.i, label %.lr.ph.i.i.i.preheader.i.i.preheader, label %.preheader.i.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %78, %81
-  %.pn.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i, %81 ], [ %.0.i.i.i.i, %78 ]
+.preheader.i.i.i.i:                               ; preds = %80, %83
+  %.pn.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i, %83 ], [ %.0.i.i.i.i, %80 ]
   %storemerge.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i, align 8, !tbaa !186
   %.not.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %81
+  br i1 %.not.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %83
 
-81:                                               ; preds = %.preheader.i.i.i.i
-  %82 = load i32, ptr %storemerge.i.i.i.i.i, align 8
-  %83 = and i32 %82, 16777216
-  %.not1.i.i.i.i.i = icmp eq i32 %83, 0
+83:                                               ; preds = %.preheader.i.i.i.i
+  %84 = load i32, ptr %storemerge.i.i.i.i.i, align 8
+  %85 = and i32 %84, 16777216
+  %.not1.i.i.i.i.i = icmp eq i32 %85, 0
   br i1 %.not1.i.i.i.i.i, label %.lr.ph.i.i.i.preheader.i.i.preheader, label %.preheader.i.i.i.i, !llvm.loop !339
 
-.lr.ph.i.i.i.preheader.i.i.preheader:             ; preds = %81, %78
-  %.pn.i.i.i.i.i.i.i.ph = phi ptr [ %.0.i.i.i.i, %78 ], [ %storemerge.i.i.i.i.i, %81 ]
+.lr.ph.i.i.i.preheader.i.i.preheader:             ; preds = %83, %80
+  %.pn.i.i.i.i.i.i.i.ph = phi ptr [ %.0.i.i.i.i, %80 ], [ %storemerge.i.i.i.i.i, %83 ]
   br label %.lr.ph.i.i.i.preheader.i.i
 
-.lr.ph.i.i.i.preheader.i.i:                       ; preds = %.lr.ph.i.i.i.preheader.i.i.preheader, %84
-  %.pn.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i, %84 ], [ %.pn.i.i.i.i.i.i.i.ph, %.lr.ph.i.i.i.preheader.i.i.preheader ]
+.lr.ph.i.i.i.preheader.i.i:                       ; preds = %.lr.ph.i.i.i.preheader.i.i.preheader, %86
+  %.pn.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i, %86 ], [ %.pn.i.i.i.i.i.i.i.ph, %.lr.ph.i.i.i.preheader.i.i.preheader ]
   %storemerge.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i, align 8, !tbaa !186
   %.not.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit, label %84
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit, label %86
 
-84:                                               ; preds = %.lr.ph.i.i.i.preheader.i.i
-  %85 = load i32, ptr %storemerge.i.i.i.i.i.i.i, align 8
-  %86 = and i32 %85, 16777216
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %86, 0
+86:                                               ; preds = %.lr.ph.i.i.i.preheader.i.i
+  %87 = load i32, ptr %storemerge.i.i.i.i.i.i.i, align 8
+  %88 = and i32 %87, 16777216
+  %.not1.i.i.i.i.i.i.i = icmp eq i32 %88, 0
   br i1 %.not1.i.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %.lr.ph.i.i.i.preheader.i.i, !llvm.loop !339
 
 _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit: ; preds = %.lr.ph.i.i.i.preheader.i.i
-  %87 = load ptr, ptr %3, align 8, !tbaa !326
-  %.not31 = icmp eq ptr %87, null
-  br i1 %.not31, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %88
+  %89 = load ptr, ptr %3, align 8, !tbaa !326
+  %.not31 = icmp eq ptr %89, null
+  br i1 %.not31, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %90
 
-88:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %90 = load ptr, ptr %89, align 8, !tbaa !185
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  %92 = load i32, ptr %91, align 4, !tbaa !186
-  %93 = icmp slt i32 %92, 0
-  %94 = and i32 %92, 2147483647
-  %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw %"struct.std::pair", ptr %72, i64 %95, i32 1
-  %97 = zext nneg i32 %92 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %76, i64 %97
-  %.0.in.i.i.i.i32 = select i1 %93, ptr %96, ptr %98
+90:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 32
+  %92 = load ptr, ptr %91, align 8, !tbaa !185
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %94 = load i32, ptr %93, align 4, !tbaa !186
+  %95 = icmp slt i32 %94, 0
+  %96 = and i32 %94, 2147483647
+  %97 = zext nneg i32 %96 to i64
+  %98 = getelementptr inbounds nuw %"struct.std::pair", ptr %73, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %100 = zext nneg i32 %94 to i64
+  %101 = getelementptr inbounds nuw ptr, ptr %78, i64 %100
+  %.0.in.i.i.i.i32 = select i1 %95, ptr %99, ptr %101
   %.0.i.i.i.i33 = load ptr, ptr %.0.in.i.i.i.i32, align 8, !tbaa !338
   %.not.i.i.i.i34 = icmp eq ptr %.0.i.i.i.i33, null
-  br i1 %.not.i.i.i.i34, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %99
+  br i1 %.not.i.i.i.i34, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %102
 
-99:                                               ; preds = %88
-  %100 = load i32, ptr %.0.i.i.i.i33, align 8
-  %101 = and i32 %100, 16777216
-  %.not4.i.i.i.i35 = icmp eq i32 %101, 0
+102:                                              ; preds = %90
+  %103 = load i32, ptr %.0.i.i.i.i33, align 8
+  %104 = and i32 %103, 16777216
+  %.not4.i.i.i.i35 = icmp eq i32 %104, 0
   br i1 %.not4.i.i.i.i35, label %.lr.ph.i.i.i.preheader.i.i44.preheader, label %.preheader.i.i.i.i36
 
-.preheader.i.i.i.i36:                             ; preds = %99, %102
-  %.pn.i.i.i.i.i37 = phi ptr [ %storemerge.i.i.i.i.i39, %102 ], [ %.0.i.i.i.i33, %99 ]
+.preheader.i.i.i.i36:                             ; preds = %102, %105
+  %.pn.i.i.i.i.i37 = phi ptr [ %storemerge.i.i.i.i.i39, %105 ], [ %.0.i.i.i.i33, %102 ]
   %storemerge.in.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i37, i64 24
   %storemerge.i.i.i.i.i39 = load ptr, ptr %storemerge.in.i.i.i.i.i38, align 8, !tbaa !186
   %.not.i.i.i.i.i40 = icmp eq ptr %storemerge.i.i.i.i.i39, null
-  br i1 %.not.i.i.i.i.i40, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %102
+  br i1 %.not.i.i.i.i.i40, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %105
 
-102:                                              ; preds = %.preheader.i.i.i.i36
-  %103 = load i32, ptr %storemerge.i.i.i.i.i39, align 8
-  %104 = and i32 %103, 16777216
-  %.not1.i.i.i.i.i41 = icmp eq i32 %104, 0
+105:                                              ; preds = %.preheader.i.i.i.i36
+  %106 = load i32, ptr %storemerge.i.i.i.i.i39, align 8
+  %107 = and i32 %106, 16777216
+  %.not1.i.i.i.i.i41 = icmp eq i32 %107, 0
   br i1 %.not1.i.i.i.i.i41, label %.lr.ph.i.i.i.preheader.i.i44.preheader, label %.preheader.i.i.i.i36, !llvm.loop !339
 
-.lr.ph.i.i.i.preheader.i.i44.preheader:           ; preds = %102, %99
-  %.pn.i.i.i.i.i.i.i45.ph = phi ptr [ %.0.i.i.i.i33, %99 ], [ %storemerge.i.i.i.i.i39, %102 ]
+.lr.ph.i.i.i.preheader.i.i44.preheader:           ; preds = %105, %102
+  %.pn.i.i.i.i.i.i.i45.ph = phi ptr [ %.0.i.i.i.i33, %102 ], [ %storemerge.i.i.i.i.i39, %105 ]
   br label %.lr.ph.i.i.i.preheader.i.i44
 
-.lr.ph.i.i.i.preheader.i.i44:                     ; preds = %.lr.ph.i.i.i.preheader.i.i44.preheader, %105
-  %.pn.i.i.i.i.i.i.i45 = phi ptr [ %storemerge.i.i.i.i.i.i.i47, %105 ], [ %.pn.i.i.i.i.i.i.i45.ph, %.lr.ph.i.i.i.preheader.i.i44.preheader ]
+.lr.ph.i.i.i.preheader.i.i44:                     ; preds = %.lr.ph.i.i.i.preheader.i.i44.preheader, %108
+  %.pn.i.i.i.i.i.i.i45 = phi ptr [ %storemerge.i.i.i.i.i.i.i47, %108 ], [ %.pn.i.i.i.i.i.i.i45.ph, %.lr.ph.i.i.i.preheader.i.i44.preheader ]
   %storemerge.in.i.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i45, i64 24
   %storemerge.i.i.i.i.i.i.i47 = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i46, align 8, !tbaa !186
   %.not.i.i.i.i.i.i.i48 = icmp eq ptr %storemerge.i.i.i.i.i.i.i47, null
-  br i1 %.not.i.i.i.i.i.i.i48, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %105
+  br i1 %.not.i.i.i.i.i.i.i48, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %108
 
-105:                                              ; preds = %.lr.ph.i.i.i.preheader.i.i44
-  %106 = load i32, ptr %storemerge.i.i.i.i.i.i.i47, align 8
-  %107 = and i32 %106, 16777216
-  %.not1.i.i.i.i.i.i.i49 = icmp eq i32 %107, 0
+108:                                              ; preds = %.lr.ph.i.i.i.preheader.i.i44
+  %109 = load i32, ptr %storemerge.i.i.i.i.i.i.i47, align 8
+  %110 = and i32 %109, 16777216
+  %.not1.i.i.i.i.i.i.i49 = icmp eq i32 %110, 0
   br i1 %.not1.i.i.i.i.i.i.i49, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %.lr.ph.i.i.i.preheader.i.i44, !llvm.loop !339
 
-_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50: ; preds = %.preheader.i.i.i.i, %84, %.preheader.i.i.i.i36, %105, %.lr.ph.i.i.i.preheader.i.i44, %58, %88, %62, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit, %50, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, %36
-  %.0 = phi i1 [ false, %36 ], [ false, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread ], [ false, %50 ], [ true, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit ], [ false, %62 ], [ false, %88 ], [ false, %58 ], [ %.not.i.i.i.i.i.i.i48, %.lr.ph.i.i.i.preheader.i.i44 ], [ %.not.i.i.i.i.i.i.i48, %105 ], [ false, %.preheader.i.i.i.i36 ], [ false, %84 ], [ false, %.preheader.i.i.i.i ]
+_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50: ; preds = %.preheader.i.i.i.i, %86, %.preheader.i.i.i.i36, %108, %.lr.ph.i.i.i.preheader.i.i44, %59, %90, %63, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit, %51, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, %37
+  %.0 = phi i1 [ false, %37 ], [ false, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread ], [ false, %51 ], [ true, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit ], [ false, %63 ], [ false, %90 ], [ false, %59 ], [ %.not.i.i.i.i.i.i.i48, %.lr.ph.i.i.i.preheader.i.i44 ], [ %.not.i.i.i.i.i.i.i48, %108 ], [ false, %.preheader.i.i.i.i36 ], [ false, %86 ], [ false, %.preheader.i.i.i.i ]
   ret i1 %.0
 }
 

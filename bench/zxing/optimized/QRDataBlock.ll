@@ -141,156 +141,160 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
   %indvars.iv124 = phi i64 [ %67, %66 ], [ %47, %30 ]
   %64 = trunc nuw i64 %indvars.iv124 to i32
   %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %66, label %77
+  br i1 %65, label %66, label %78
 
 66:                                               ; preds = %63
   %67 = add nsw i64 %indvars.iv124, -1
-  %68 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %31, i64 %67, i32 1
+  %68 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %31, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !3
-  %71 = load ptr, ptr %68, align 8, !tbaa !9
-  %72 = ptrtoint ptr %70 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %71 = load ptr, ptr %70, align 8, !tbaa !3
+  %72 = load ptr, ptr %69, align 8, !tbaa !9
   %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = trunc i64 %74 to i32
-  %76 = icmp eq i32 %75, %39
-  br i1 %76, label %77, label %63
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = trunc i64 %75 to i32
+  %77 = icmp eq i32 %76, %39
+  br i1 %77, label %78, label %63
 
-77:                                               ; preds = %66, %63
+78:                                               ; preds = %66, %63
   %.075.in.lcssa = phi i32 [ %64, %66 ], [ %smin, %63 ]
-  %78 = load i32, ptr %18, align 4, !tbaa !33
-  %79 = sub nsw i32 %39, %78
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %.preheader89.lr.ph, label %.preheader88
+  %79 = load i32, ptr %18, align 4, !tbaa !33
+  %80 = sub nsw i32 %39, %79
+  %81 = icmp sgt i32 %80, 0
+  br i1 %81, label %.preheader89.lr.ph, label %.preheader88
 
-.preheader89.lr.ph:                               ; preds = %77
-  %81 = icmp sgt i32 %.179.lcssa, 0
-  %82 = zext nneg i32 %79 to i64
+.preheader89.lr.ph:                               ; preds = %78
+  %82 = icmp sgt i32 %.179.lcssa, 0
+  %83 = zext nneg i32 %80 to i64
   %wide.trip.count = zext nneg i32 %.179.lcssa to i64
   br label %.preheader89
 
 .preheader89:                                     ; preds = %.preheader89.lr.ph, %._crit_edge102
   %indvars.iv136 = phi i64 [ 0, %.preheader89.lr.ph ], [ %indvars.iv.next137, %._crit_edge102 ]
   %.072104 = phi i32 [ 0, %.preheader89.lr.ph ], [ %.1.lcssa, %._crit_edge102 ]
-  br i1 %81, label %.lr.ph101, label %._crit_edge102
+  br i1 %82, label %.lr.ph101, label %._crit_edge102
 
 .lr.ph101:                                        ; preds = %.preheader89
-  %83 = sext i32 %.072104 to i64
-  br label %90
+  %84 = sext i32 %.072104 to i64
+  br label %91
 
-.preheader88:                                     ; preds = %._crit_edge102, %77
-  %.072.lcssa = phi i32 [ 0, %77 ], [ %.1.lcssa, %._crit_edge102 ]
-  %84 = icmp slt i32 %.075.in.lcssa, %.179.lcssa
-  br i1 %84, label %.lr.ph110, label %._crit_edge111
+.preheader88:                                     ; preds = %._crit_edge102, %78
+  %.072.lcssa = phi i32 [ 0, %78 ], [ %.1.lcssa, %._crit_edge102 ]
+  %85 = icmp slt i32 %.075.in.lcssa, %.179.lcssa
+  br i1 %85, label %.lr.ph110, label %._crit_edge111
 
 .lr.ph110:                                        ; preds = %.preheader88
-  %85 = sext i32 %79 to i64
-  %86 = sext i32 %.075.in.lcssa to i64
-  %87 = sext i32 %.072.lcssa to i64
+  %86 = sext i32 %80 to i64
+  %87 = sext i32 %.075.in.lcssa to i64
+  %88 = sext i32 %.072.lcssa to i64
   %wide.trip.count147 = sext i32 %.179.lcssa to i64
-  br label %111
+  br label %113
 
-._crit_edge102.loopexit:                          ; preds = %90
-  %88 = trunc nsw i64 %indvars.iv.next131 to i32
+._crit_edge102.loopexit:                          ; preds = %91
+  %89 = trunc nsw i64 %indvars.iv.next131 to i32
   br label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %._crit_edge102.loopexit, %.preheader89
-  %.1.lcssa = phi i32 [ %.072104, %.preheader89 ], [ %88, %._crit_edge102.loopexit ]
+  %.1.lcssa = phi i32 [ %.072104, %.preheader89 ], [ %89, %._crit_edge102.loopexit ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %89 = icmp samesign ult i64 %indvars.iv.next137, %82
-  br i1 %89, label %.preheader89, label %.preheader88, !llvm.loop !38
+  %90 = icmp samesign ult i64 %indvars.iv.next137, %83
+  br i1 %90, label %.preheader89, label %.preheader88, !llvm.loop !38
 
-90:                                               ; preds = %.lr.ph101, %90
-  %indvars.iv130 = phi i64 [ %83, %.lr.ph101 ], [ %indvars.iv.next131, %90 ]
-  %indvars.iv128 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next129, %90 ]
+91:                                               ; preds = %.lr.ph101, %91
+  %indvars.iv130 = phi i64 [ %84, %.lr.ph101 ], [ %indvars.iv.next131, %91 ]
+  %indvars.iv128 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next129, %91 ]
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, 1
-  %91 = load ptr, ptr %1, align 8, !tbaa !9
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %indvars.iv130
-  %93 = load i8, ptr %92, align 1, !tbaa !39
-  %94 = load ptr, ptr %0, align 8, !tbaa !22
-  %95 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %94, i64 %indvars.iv128, i32 1
-  %96 = load ptr, ptr %95, align 8, !tbaa !9
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %indvars.iv136
-  store i8 %93, ptr %97, align 1, !tbaa !39
+  %92 = load ptr, ptr %1, align 8, !tbaa !9
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv130
+  %94 = load i8, ptr %93, align 1, !tbaa !39
+  %95 = load ptr, ptr %0, align 8, !tbaa !22
+  %96 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %95, i64 %indvars.iv128
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !9
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv136
+  store i8 %94, ptr %99, align 1, !tbaa !39
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge102.loopexit, label %90, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge102.loopexit, label %91, !llvm.loop !40
 
-._crit_edge111.loopexit:                          ; preds = %111
-  %98 = trunc nsw i64 %indvars.iv.next142 to i32
+._crit_edge111.loopexit:                          ; preds = %113
+  %100 = trunc nsw i64 %indvars.iv.next142 to i32
   br label %._crit_edge111
 
 ._crit_edge111:                                   ; preds = %._crit_edge111.loopexit, %.preheader88
-  %.2.lcssa = phi i32 [ %.072.lcssa, %.preheader88 ], [ %98, %._crit_edge111.loopexit ]
-  %99 = load ptr, ptr %0, align 8, !tbaa !22
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %102 = load ptr, ptr %101, align 8, !tbaa !3
-  %103 = load ptr, ptr %100, align 8, !tbaa !9
-  %104 = ptrtoint ptr %102 to i64
-  %105 = ptrtoint ptr %103 to i64
-  %106 = sub i64 %104, %105
-  %107 = trunc i64 %106 to i32
-  %108 = icmp slt i32 %79, %107
-  br i1 %108, label %.preheader.lr.ph, label %.loopexit
+  %.2.lcssa = phi i32 [ %.072.lcssa, %.preheader88 ], [ %100, %._crit_edge111.loopexit ]
+  %101 = load ptr, ptr %0, align 8, !tbaa !22
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %104 = load ptr, ptr %103, align 8, !tbaa !3
+  %105 = load ptr, ptr %102, align 8, !tbaa !9
+  %106 = ptrtoint ptr %104 to i64
+  %107 = ptrtoint ptr %105 to i64
+  %108 = sub i64 %106, %107
+  %109 = trunc i64 %108 to i32
+  %110 = icmp slt i32 %80, %109
+  br i1 %110, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge111
-  %109 = icmp sgt i32 %.179.lcssa, 0
-  %110 = sext i32 %.075.in.lcssa to i64
+  %111 = icmp sgt i32 %.179.lcssa, 0
+  %112 = sext i32 %.075.in.lcssa to i64
   %wide.trip.count157 = zext nneg i32 %.179.lcssa to i64
   br label %.preheader
 
-111:                                              ; preds = %.lr.ph110, %111
-  %indvars.iv141 = phi i64 [ %87, %.lr.ph110 ], [ %indvars.iv.next142, %111 ]
-  %indvars.iv139 = phi i64 [ %86, %.lr.ph110 ], [ %indvars.iv.next140, %111 ]
+113:                                              ; preds = %.lr.ph110, %113
+  %indvars.iv141 = phi i64 [ %88, %.lr.ph110 ], [ %indvars.iv.next142, %113 ]
+  %indvars.iv139 = phi i64 [ %87, %.lr.ph110 ], [ %indvars.iv.next140, %113 ]
   %indvars.iv.next142 = add nsw i64 %indvars.iv141, 1
-  %112 = load ptr, ptr %1, align 8, !tbaa !9
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv141
-  %114 = load i8, ptr %113, align 1, !tbaa !39
-  %115 = load ptr, ptr %0, align 8, !tbaa !22
-  %116 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %115, i64 %indvars.iv139, i32 1
-  %117 = load ptr, ptr %116, align 8, !tbaa !9
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 %85
-  store i8 %114, ptr %118, align 1, !tbaa !39
+  %114 = load ptr, ptr %1, align 8, !tbaa !9
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 %indvars.iv141
+  %116 = load i8, ptr %115, align 1, !tbaa !39
+  %117 = load ptr, ptr %0, align 8, !tbaa !22
+  %118 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %117, i64 %indvars.iv139
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %120 = load ptr, ptr %119, align 8, !tbaa !9
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %86
+  store i8 %116, ptr %121, align 1, !tbaa !39
   %indvars.iv.next140 = add nsw i64 %indvars.iv139, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count147
-  br i1 %exitcond148.not, label %._crit_edge111.loopexit, label %111, !llvm.loop !41
+  br i1 %exitcond148.not, label %._crit_edge111.loopexit, label %113, !llvm.loop !41
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge116
-  %.068119 = phi i32 [ %79, %.preheader.lr.ph ], [ %121, %._crit_edge116 ]
+  %.068119 = phi i32 [ %80, %.preheader.lr.ph ], [ %124, %._crit_edge116 ]
   %.3118 = phi i32 [ %.2.lcssa, %.preheader.lr.ph ], [ %.4.lcssa, %._crit_edge116 ]
-  br i1 %109, label %.lr.ph115.preheader, label %._crit_edge116
+  br i1 %111, label %.lr.ph115.preheader, label %._crit_edge116
 
 .lr.ph115.preheader:                              ; preds = %.preheader
-  %119 = sext i32 %.3118 to i64
+  %122 = sext i32 %.3118 to i64
   br label %.lr.ph115
 
 ._crit_edge116.loopexit:                          ; preds = %.lr.ph115
-  %120 = trunc nsw i64 %indvars.iv.next152 to i32
+  %123 = trunc nsw i64 %indvars.iv.next152 to i32
   br label %._crit_edge116
 
 ._crit_edge116:                                   ; preds = %._crit_edge116.loopexit, %.preheader
-  %.4.lcssa = phi i32 [ %.3118, %.preheader ], [ %120, %._crit_edge116.loopexit ]
-  %121 = add nsw i32 %.068119, 1
-  %122 = icmp slt i32 %121, %107
-  br i1 %122, label %.preheader, label %.loopexit, !llvm.loop !42
+  %.4.lcssa = phi i32 [ %.3118, %.preheader ], [ %123, %._crit_edge116.loopexit ]
+  %124 = add nsw i32 %.068119, 1
+  %125 = icmp slt i32 %124, %109
+  br i1 %125, label %.preheader, label %.loopexit, !llvm.loop !42
 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %.lr.ph115
-  %indvars.iv151 = phi i64 [ %119, %.lr.ph115.preheader ], [ %indvars.iv.next152, %.lr.ph115 ]
+  %indvars.iv151 = phi i64 [ %122, %.lr.ph115.preheader ], [ %indvars.iv.next152, %.lr.ph115 ]
   %indvars.iv149 = phi i64 [ 0, %.lr.ph115.preheader ], [ %indvars.iv.next150, %.lr.ph115 ]
-  %.not85 = icmp sge i64 %indvars.iv149, %110
-  %123 = zext i1 %.not85 to i32
-  %124 = add nsw i32 %.068119, %123
+  %.not85 = icmp sge i64 %indvars.iv149, %112
+  %126 = zext i1 %.not85 to i32
+  %127 = add nsw i32 %.068119, %126
   %indvars.iv.next152 = add nsw i64 %indvars.iv151, 1
-  %125 = load ptr, ptr %1, align 8, !tbaa !9
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %indvars.iv151
-  %127 = load i8, ptr %126, align 1, !tbaa !39
-  %128 = load ptr, ptr %0, align 8, !tbaa !22
-  %129 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %128, i64 %indvars.iv149, i32 1
-  %130 = sext i32 %124 to i64
-  %131 = load ptr, ptr %129, align 8, !tbaa !9
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %130
-  store i8 %127, ptr %132, align 1, !tbaa !39
+  %128 = load ptr, ptr %1, align 8, !tbaa !9
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %indvars.iv151
+  %130 = load i8, ptr %129, align 1, !tbaa !39
+  %131 = load ptr, ptr %0, align 8, !tbaa !22
+  %132 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %131, i64 %indvars.iv149
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %134 = sext i32 %127 to i64
+  %135 = load ptr, ptr %133, align 8, !tbaa !9
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 %134
+  store i8 %130, ptr %136, align 1, !tbaa !39
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count157
   br i1 %exitcond158.not, label %._crit_edge116.loopexit, label %.lr.ph115, !llvm.loop !43

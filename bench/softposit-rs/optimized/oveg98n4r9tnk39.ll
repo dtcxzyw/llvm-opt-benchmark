@@ -421,7 +421,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %185 = add nuw nsw i32 %.sroa.6.0.extract.trunc, 17
   %186 = lshr i32 %182, %185
   %187 = trunc nuw nsw i32 %186 to i16
-  %188 = shl nuw i32 65536, %.sroa.6.0.extract.trunc
+  %188 = shl nuw nsw i32 65536, %.sroa.6.0.extract.trunc
   %189 = and i32 %188, %182
   %190 = icmp ne i32 %189, 0
   br label %193

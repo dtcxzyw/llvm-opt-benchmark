@@ -3002,63 +3002,64 @@ define dso_local i32 @data_dict_for_each_const(ptr noundef %0, ptr noundef reado
 
 7:                                                ; preds = %6, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i, i32 1
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i32 %9, %5
-  br i1 %10, label %data_get_type.exit, label %6
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, %5
+  br i1 %11, label %data_get_type.exit, label %6
 
 data_get_type.exit:                               ; preds = %7
   %.not23 = icmp eq i64 %indvars.iv.i, 2
-  br i1 %.not23, label %12, label %data_get_type.exit.thread
+  br i1 %.not23, label %13, label %data_get_type.exit.thread
 
 data_get_type.exit.thread:                        ; preds = %6, %data_get_type.exit
-  %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.data_dict_for_each_const, ptr noundef nonnull %0) #16
+  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.data_dict_for_each_const, ptr noundef nonnull %0) #16
   br label %.loopexit
 
-12:                                               ; preds = %data_get_type.exit
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %.not2435 = icmp eq ptr %16, null
+13:                                               ; preds = %data_get_type.exit
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %.not2435 = icmp eq ptr %17, null
   br i1 %.not2435, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %12, %.thread
-  %.01837 = phi ptr [ %28, %.thread ], [ %16, %12 ]
-  %.01936 = phi i32 [ %22, %.thread ], [ 0, %12 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.01837, i64 24
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %.01837, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %1(ptr noundef %18, ptr noundef %20, ptr noundef %2) #16
-  %22 = add nuw nsw i32 %.01936, 1
-  switch i32 %21, label %26 [
+.lr.ph:                                           ; preds = %13, %.thread
+  %.01837 = phi ptr [ %29, %.thread ], [ %17, %13 ]
+  %.01936 = phi i32 [ %23, %.thread ], [ 0, %13 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.01837, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %.01837, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 %1(ptr noundef %19, ptr noundef %21, ptr noundef %2) #16
+  %23 = add nuw nsw i32 %.01936, 1
+  switch i32 %22, label %27 [
     i32 1, label %.thread
-    i32 2, label %23
-    i32 4, label %24
+    i32 2, label %24
+    i32 4, label %25
     i32 3, label %.loopexit
   ]
 
-23:                                               ; preds = %.lr.ph
+24:                                               ; preds = %.lr.ph
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.data_dict_for_each_const) #18
   unreachable
 
-24:                                               ; preds = %.lr.ph
-  %25 = xor i32 %.01936, -1
+25:                                               ; preds = %.lr.ph
+  %26 = xor i32 %.01936, -1
   br label %.loopexit
 
-26:                                               ; preds = %.lr.ph
+27:                                               ; preds = %.lr.ph
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.data_dict_for_each_const) #18
   unreachable
 
 .thread:                                          ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %.01837, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %.not24 = icmp eq ptr %28, null
+  %28 = getelementptr inbounds nuw i8, ptr %.01837, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %.not24 = icmp eq ptr %29, null
   br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
-.loopexit:                                        ; preds = %.lr.ph, %.thread, %24, %12, %3, %data_get_type.exit.thread
-  %.0 = phi i32 [ -1, %data_get_type.exit.thread ], [ 0, %3 ], [ 0, %12 ], [ %25, %24 ], [ %22, %.thread ], [ %22, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.thread, %25, %13, %3, %data_get_type.exit.thread
+  %.0 = phi i32 [ -1, %data_get_type.exit.thread ], [ 0, %3 ], [ 0, %13 ], [ %26, %25 ], [ %23, %.thread ], [ %23, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -3079,70 +3080,71 @@ define dso_local i32 @data_dict_for_each(ptr noundef %0, ptr noundef readonly ca
 
 7:                                                ; preds = %6, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i, i32 1
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i32 %9, %5
-  br i1 %10, label %data_get_type.exit, label %6
+  %8 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, %5
+  br i1 %11, label %data_get_type.exit, label %6
 
 data_get_type.exit:                               ; preds = %7
   %.not27 = icmp eq i64 %indvars.iv.i, 2
-  br i1 %.not27, label %12, label %data_get_type.exit.thread
+  br i1 %.not27, label %13, label %data_get_type.exit.thread
 
 data_get_type.exit.thread:                        ; preds = %6, %data_get_type.exit
-  %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.data_dict_for_each, ptr noundef nonnull %0) #16
+  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.data_dict_for_each, ptr noundef nonnull %0) #16
   br label %.loopexit
 
-12:                                               ; preds = %data_get_type.exit
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %.not2833 = icmp eq ptr %16, null
+13:                                               ; preds = %data_get_type.exit
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %.not2833 = icmp eq ptr %17, null
   br i1 %.not2833, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %12, %33
-  %.02335 = phi i32 [ %22, %33 ], [ 0, %12 ]
-  %.02434 = phi ptr [ %.125, %33 ], [ %16, %12 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.02434, i64 24
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %.02434, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %1(ptr noundef %18, ptr noundef %20, ptr noundef %2) #16
-  %22 = add nuw nsw i32 %.02335, 1
-  switch i32 %21, label %32 [
-    i32 1, label %23
-    i32 2, label %26
-    i32 4, label %30
+.lr.ph:                                           ; preds = %13, %34
+  %.02335 = phi i32 [ %23, %34 ], [ 0, %13 ]
+  %.02434 = phi ptr [ %.125, %34 ], [ %17, %13 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.02434, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %.02434, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 %1(ptr noundef %19, ptr noundef %21, ptr noundef %2) #16
+  %23 = add nuw nsw i32 %.02335, 1
+  switch i32 %22, label %33 [
+    i32 1, label %24
+    i32 2, label %27
+    i32 4, label %31
     i32 3, label %.loopexit
   ]
 
-23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds nuw i8, ptr %.02434, i64 8
-  %25 = load ptr, ptr %24, align 8
-  br label %33
+24:                                               ; preds = %.lr.ph
+  %25 = getelementptr inbounds nuw i8, ptr %.02434, i64 8
+  %26 = load ptr, ptr %25, align 8
+  br label %34
 
-26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %.02434, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %13, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %29, ptr noundef %.02434)
-  br label %33
+27:                                               ; preds = %.lr.ph
+  %28 = getelementptr inbounds nuw i8, ptr %.02434, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %14, align 8
+  tail call fastcc void @_release_data_list_node(ptr noundef %30, ptr noundef %.02434)
+  br label %34
 
-30:                                               ; preds = %.lr.ph
-  %31 = xor i32 %.02335, -1
+31:                                               ; preds = %.lr.ph
+  %32 = xor i32 %.02335, -1
   br label %.loopexit
 
-32:                                               ; preds = %.lr.ph
+33:                                               ; preds = %.lr.ph
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.data_dict_for_each) #18
   unreachable
 
-33:                                               ; preds = %23, %26
-  %.125 = phi ptr [ %25, %23 ], [ %28, %26 ]
+34:                                               ; preds = %24, %27
+  %.125 = phi ptr [ %26, %24 ], [ %29, %27 ]
   %.not28 = icmp eq ptr %.125, null
   br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.lr.ph, %33, %30, %12, %3, %data_get_type.exit.thread
-  %.0 = phi i32 [ -1, %data_get_type.exit.thread ], [ 0, %3 ], [ 0, %12 ], [ %31, %30 ], [ %22, %33 ], [ %22, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %34, %31, %13, %3, %data_get_type.exit.thread
+  %.0 = phi i32 [ -1, %data_get_type.exit.thread ], [ 0, %3 ], [ 0, %13 ], [ %32, %31 ], [ %23, %34 ], [ %23, %.lr.ph ]
   ret i32 %.0
 }
 

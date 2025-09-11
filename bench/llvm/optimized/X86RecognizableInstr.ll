@@ -1297,8 +1297,8 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr24emitInstruc
   %wide.trip.count = and i64 %20, 4294967295
   br label %28
 
-._crit_edge:                                      ; preds = %52, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.2, %52 ]
+._crit_edge:                                      ; preds = %53, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %.2, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !152
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1310,519 +1310,520 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr24emitInstruc
   %26 = load i8, ptr %25, align 1, !range !99
   %27 = trunc nuw i8 %26 to i1
   %or.cond = select i1 %24, i1 %27, i1 false
-  br i1 %or.cond, label %53, label %57
+  br i1 %or.cond, label %54, label %58
 
-28:                                               ; preds = %.lr.ph, %52
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %.0142 = phi i32 [ 0, %.lr.ph ], [ %.2, %52 ]
-  %29 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %16, i64 %indvars.iv, i32 10
-  %30 = load ptr, ptr %29, align 8, !tbaa !153
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !153
-  %33 = icmp eq ptr %30, %32
-  br i1 %33, label %48, label %34
+28:                                               ; preds = %.lr.ph, %53
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
+  %.0142 = phi i32 [ 0, %.lr.ph ], [ %.2, %53 ]
+  %29 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %16, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 240
+  %31 = load ptr, ptr %30, align 8, !tbaa !153
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 248
+  %33 = load ptr, ptr %32, align 8, !tbaa !153
+  %34 = icmp eq ptr %31, %33
+  br i1 %34, label %49, label %35
 
-34:                                               ; preds = %28
-  %35 = load i32, ptr %30, align 4, !tbaa !155
-  %36 = icmp eq i32 %35, 2
-  br i1 %36, label %37, label %44
+35:                                               ; preds = %28
+  %36 = load i32, ptr %31, align 4, !tbaa !155
+  %37 = icmp eq i32 %36, 2
+  br i1 %37, label %38, label %45
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %39 = trunc nuw i64 %indvars.iv to i32
-  store i32 %39, ptr %38, align 4, !tbaa !152
-  %40 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %41 = load i32, ptr %40, align 4, !tbaa !158
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %2, i64 %42
-  store i32 %39, ptr %43, align 4, !tbaa !152
-  br label %52
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %40 = trunc nuw i64 %indvars.iv to i32
+  store i32 %40, ptr %39, align 4, !tbaa !152
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %42 = load i32, ptr %41, align 4, !tbaa !158
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw i32, ptr %2, i64 %43
+  store i32 %40, ptr %44, align 4, !tbaa !152
+  br label %53
 
-44:                                               ; preds = %34
-  %45 = add i32 %.0142, 1
-  %46 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %47 = trunc nuw i64 %indvars.iv to i32
-  store i32 %47, ptr %46, align 4, !tbaa !152
-  br label %52
+45:                                               ; preds = %35
+  %46 = add i32 %.0142, 1
+  %47 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %48 = trunc nuw i64 %indvars.iv to i32
+  store i32 %48, ptr %47, align 4, !tbaa !152
+  br label %53
 
-48:                                               ; preds = %28
-  %49 = add i32 %.0142, 1
-  %50 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %51 = trunc nuw i64 %indvars.iv to i32
-  store i32 %51, ptr %50, align 4, !tbaa !152
-  br label %52
+49:                                               ; preds = %28
+  %50 = add i32 %.0142, 1
+  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %52 = trunc nuw i64 %indvars.iv to i32
+  store i32 %52, ptr %51, align 4, !tbaa !152
+  br label %53
 
-52:                                               ; preds = %37, %44, %48
-  %.2 = phi i32 [ %49, %48 ], [ %.0142, %37 ], [ %45, %44 ]
+53:                                               ; preds = %38, %45, %49
+  %.2 = phi i32 [ %50, %49 ], [ %.0142, %38 ], [ %46, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !159
 
-53:                                               ; preds = %._crit_edge
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = load i8, ptr %54, align 8, !tbaa !111, !range !99, !noundef !100
-  %56 = trunc nuw i8 %55 to i1
-  br label %57
+54:                                               ; preds = %._crit_edge
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = load i8, ptr %55, align 8, !tbaa !111, !range !99, !noundef !100
+  %57 = trunc nuw i8 %56 to i1
+  br label %58
 
-57:                                               ; preds = %53, %._crit_edge
-  %58 = phi i1 [ false, %._crit_edge ], [ %56, %53 ]
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %60 = load i8, ptr %59, align 1, !tbaa !106
-  switch i8 %60, label %61 [
-    i8 10, label %162
-    i8 4, label %62
-    i8 5, label %63
-    i8 6, label %64
-    i8 1, label %65
-    i8 3, label %66
-    i8 2, label %67
-    i8 9, label %68
-    i8 18, label %69
-    i8 40, label %70
-    i8 19, label %83
-    i8 20, label %84
-    i8 24, label %85
-    i8 23, label %85
-    i8 41, label %98
-    i8 42, label %111
-    i8 43, label %112
-    i8 44, label %113
-    i8 25, label %116
-    i8 22, label %116
-    i8 26, label %129
-    i8 27, label %130
-    i8 28, label %131
-    i8 46, label %134
-    i8 21, label %135
-    i8 47, label %136
-    i8 48, label %136
-    i8 49, label %136
-    i8 50, label %136
-    i8 51, label %136
-    i8 52, label %136
-    i8 53, label %136
-    i8 54, label %136
-    i8 55, label %136
-    i8 30, label %147
-    i8 31, label %148
-    i8 32, label %148
-    i8 33, label %148
-    i8 34, label %148
-    i8 35, label %148
-    i8 36, label %148
-    i8 37, label %148
-    i8 38, label %148
-    i8 39, label %148
-    i8 7, label %159
-    i8 8, label %160
-    i8 56, label %161
-    i8 57, label %161
-    i8 58, label %161
-    i8 59, label %161
-    i8 60, label %161
-    i8 61, label %161
-    i8 62, label %161
-    i8 63, label %161
-    i8 64, label %161
-    i8 65, label %161
-    i8 66, label %161
-    i8 67, label %161
-    i8 68, label %161
-    i8 69, label %161
-    i8 70, label %161
-    i8 71, label %161
-    i8 72, label %161
-    i8 73, label %161
-    i8 74, label %161
-    i8 75, label %161
-    i8 76, label %161
-    i8 77, label %161
-    i8 78, label %161
-    i8 79, label %161
-    i8 80, label %161
-    i8 81, label %161
-    i8 82, label %161
-    i8 83, label %161
-    i8 84, label %161
-    i8 85, label %161
-    i8 86, label %161
-    i8 87, label %161
-    i8 88, label %161
-    i8 89, label %161
-    i8 90, label %161
-    i8 91, label %161
-    i8 92, label %161
-    i8 93, label %161
-    i8 94, label %161
-    i8 95, label %161
-    i8 96, label %161
-    i8 97, label %161
-    i8 98, label %161
-    i8 99, label %161
-    i8 100, label %161
-    i8 101, label %161
-    i8 102, label %161
-    i8 103, label %161
-    i8 104, label %161
-    i8 105, label %161
-    i8 106, label %161
-    i8 107, label %161
-    i8 108, label %161
-    i8 109, label %161
-    i8 110, label %161
-    i8 111, label %161
-    i8 112, label %161
-    i8 113, label %161
-    i8 114, label %161
-    i8 115, label %161
-    i8 116, label %161
-    i8 117, label %161
-    i8 118, label %161
-    i8 119, label %161
-    i8 120, label %161
-    i8 121, label %161
-    i8 122, label %161
-    i8 123, label %161
-    i8 124, label %161
-    i8 125, label %161
-    i8 126, label %161
-    i8 127, label %161
+58:                                               ; preds = %54, %._crit_edge
+  %59 = phi i1 [ false, %._crit_edge ], [ %57, %54 ]
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %61 = load i8, ptr %60, align 1, !tbaa !106
+  switch i8 %61, label %62 [
+    i8 10, label %163
+    i8 4, label %63
+    i8 5, label %64
+    i8 6, label %65
+    i8 1, label %66
+    i8 3, label %67
+    i8 2, label %68
+    i8 9, label %69
+    i8 18, label %70
+    i8 40, label %71
+    i8 19, label %84
+    i8 20, label %85
+    i8 24, label %86
+    i8 23, label %86
+    i8 41, label %99
+    i8 42, label %112
+    i8 43, label %113
+    i8 44, label %114
+    i8 25, label %117
+    i8 22, label %117
+    i8 26, label %130
+    i8 27, label %131
+    i8 28, label %132
+    i8 46, label %135
+    i8 21, label %136
+    i8 47, label %137
+    i8 48, label %137
+    i8 49, label %137
+    i8 50, label %137
+    i8 51, label %137
+    i8 52, label %137
+    i8 53, label %137
+    i8 54, label %137
+    i8 55, label %137
+    i8 30, label %148
+    i8 31, label %149
+    i8 32, label %149
+    i8 33, label %149
+    i8 34, label %149
+    i8 35, label %149
+    i8 36, label %149
+    i8 37, label %149
+    i8 38, label %149
+    i8 39, label %149
+    i8 7, label %160
+    i8 8, label %161
+    i8 56, label %162
+    i8 57, label %162
+    i8 58, label %162
+    i8 59, label %162
+    i8 60, label %162
+    i8 61, label %162
+    i8 62, label %162
+    i8 63, label %162
+    i8 64, label %162
+    i8 65, label %162
+    i8 66, label %162
+    i8 67, label %162
+    i8 68, label %162
+    i8 69, label %162
+    i8 70, label %162
+    i8 71, label %162
+    i8 72, label %162
+    i8 73, label %162
+    i8 74, label %162
+    i8 75, label %162
+    i8 76, label %162
+    i8 77, label %162
+    i8 78, label %162
+    i8 79, label %162
+    i8 80, label %162
+    i8 81, label %162
+    i8 82, label %162
+    i8 83, label %162
+    i8 84, label %162
+    i8 85, label %162
+    i8 86, label %162
+    i8 87, label %162
+    i8 88, label %162
+    i8 89, label %162
+    i8 90, label %162
+    i8 91, label %162
+    i8 92, label %162
+    i8 93, label %162
+    i8 94, label %162
+    i8 95, label %162
+    i8 96, label %162
+    i8 97, label %162
+    i8 98, label %162
+    i8 99, label %162
+    i8 100, label %162
+    i8 101, label %162
+    i8 102, label %162
+    i8 103, label %162
+    i8 104, label %162
+    i8 105, label %162
+    i8 106, label %162
+    i8 107, label %162
+    i8 108, label %162
+    i8 109, label %162
+    i8 110, label %162
+    i8 111, label %162
+    i8 112, label %162
+    i8 113, label %162
+    i8 114, label %162
+    i8 115, label %162
+    i8 116, label %162
+    i8 117, label %162
+    i8 118, label %162
+    i8 119, label %162
+    i8 120, label %162
+    i8 121, label %162
+    i8 122, label %162
+    i8 123, label %162
+    i8 124, label %162
+    i8 125, label %162
+    i8 126, label %162
+    i8 127, label %162
   ]
 
-61:                                               ; preds = %57
+62:                                               ; preds = %58
   unreachable
 
-62:                                               ; preds = %57
+63:                                               ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-63:                                               ; preds = %57
+64:                                               ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-64:                                               ; preds = %57
+65:                                               ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-65:                                               ; preds = %57
+66:                                               ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-66:                                               ; preds = %57
+67:                                               ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-67:                                               ; preds = %57
+68:                                               ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-68:                                               ; preds = %57
+69:                                               ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-69:                                               ; preds = %57
+70:                                               ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-70:                                               ; preds = %57
-  br i1 %58, label %71, label %72
+71:                                               ; preds = %58
+  br i1 %59, label %72, label %73
 
-71:                                               ; preds = %70
+72:                                               ; preds = %71
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %72
+  br label %73
 
-72:                                               ; preds = %71, %70
+73:                                               ; preds = %72, %71
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %74 = load i8, ptr %73, align 1, !tbaa !115, !range !99, !noundef !100
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %76, label %77
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %75 = load i8, ptr %74, align 1, !tbaa !115, !range !99, !noundef !100
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %72
+77:                                               ; preds = %73
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %77
+  br label %78
 
-77:                                               ; preds = %76, %72
-  %.not = xor i1 %58, true
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %79 = load i8, ptr %78, align 8, !range !99
-  %80 = trunc nuw i8 %79 to i1
-  %or.cond128 = select i1 %.not, i1 %80, i1 false
-  br i1 %or.cond128, label %81, label %82
+78:                                               ; preds = %77, %73
+  %.not = xor i1 %59, true
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %80 = load i8, ptr %79, align 8, !range !99
+  %81 = trunc nuw i8 %80 to i1
+  %or.cond128 = select i1 %.not, i1 %81, i1 false
+  br i1 %or.cond128, label %82, label %83
 
-81:                                               ; preds = %77
+82:                                               ; preds = %78
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %82
+  br label %83
 
-82:                                               ; preds = %81, %77
+83:                                               ; preds = %82, %78
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-83:                                               ; preds = %57
+84:                                               ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-84:                                               ; preds = %57
+85:                                               ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-85:                                               ; preds = %57, %57
-  br i1 %58, label %86, label %87
+86:                                               ; preds = %58, %58
+  br i1 %59, label %87, label %88
 
-86:                                               ; preds = %85
+87:                                               ; preds = %86
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %87
+  br label %88
 
-87:                                               ; preds = %86, %85
+88:                                               ; preds = %87, %86
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %89 = load i8, ptr %88, align 1, !tbaa !115, !range !99, !noundef !100
-  %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %91, label %92
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %90 = load i8, ptr %89, align 1, !tbaa !115, !range !99, !noundef !100
+  %91 = trunc nuw i8 %90 to i1
+  br i1 %91, label %92, label %93
 
-91:                                               ; preds = %87
+92:                                               ; preds = %88
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %92
+  br label %93
 
-92:                                               ; preds = %91, %87
-  %.not129 = xor i1 %58, true
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %94 = load i8, ptr %93, align 8, !range !99
-  %95 = trunc nuw i8 %94 to i1
-  %or.cond132 = select i1 %.not129, i1 %95, i1 false
-  br i1 %or.cond132, label %96, label %97
+93:                                               ; preds = %92, %88
+  %.not129 = xor i1 %59, true
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %95 = load i8, ptr %94, align 8, !range !99
+  %96 = trunc nuw i8 %95 to i1
+  %or.cond132 = select i1 %.not129, i1 %96, i1 false
+  br i1 %or.cond132, label %97, label %98
 
-96:                                               ; preds = %92
+97:                                               ; preds = %93
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %97
+  br label %98
 
-97:                                               ; preds = %96, %92
+98:                                               ; preds = %97, %93
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-98:                                               ; preds = %57
-  br i1 %58, label %99, label %100
+99:                                               ; preds = %58
+  br i1 %59, label %100, label %101
 
-99:                                               ; preds = %98
+100:                                              ; preds = %99
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %100
+  br label %101
 
-100:                                              ; preds = %99, %98
+101:                                              ; preds = %100, %99
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %102 = load i8, ptr %101, align 1, !tbaa !115, !range !99, !noundef !100
-  %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %104, label %105
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %103 = load i8, ptr %102, align 1, !tbaa !115, !range !99, !noundef !100
+  %104 = trunc nuw i8 %103 to i1
+  br i1 %104, label %105, label %106
 
-104:                                              ; preds = %100
+105:                                              ; preds = %101
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %105
+  br label %106
 
-105:                                              ; preds = %104, %100
-  %.not133 = xor i1 %58, true
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %107 = load i8, ptr %106, align 8, !range !99
-  %108 = trunc nuw i8 %107 to i1
-  %or.cond136 = select i1 %.not133, i1 %108, i1 false
-  br i1 %or.cond136, label %109, label %110
+106:                                              ; preds = %105, %101
+  %.not133 = xor i1 %59, true
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %108 = load i8, ptr %107, align 8, !range !99
+  %109 = trunc nuw i8 %108 to i1
+  %or.cond136 = select i1 %.not133, i1 %109, i1 false
+  br i1 %or.cond136, label %110, label %111
 
-109:                                              ; preds = %105
+110:                                              ; preds = %106
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %110
+  br label %111
 
-110:                                              ; preds = %109, %105
+111:                                              ; preds = %110, %106
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-111:                                              ; preds = %57
+112:                                              ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-112:                                              ; preds = %57
+113:                                              ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-113:                                              ; preds = %57
-  br i1 %58, label %114, label %115
+114:                                              ; preds = %58
+  br i1 %59, label %115, label %116
 
-114:                                              ; preds = %113
+115:                                              ; preds = %114
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %115
+  br label %116
 
-115:                                              ; preds = %114, %113
+116:                                              ; preds = %115, %114
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-116:                                              ; preds = %57, %57
-  br i1 %58, label %117, label %118
+117:                                              ; preds = %58, %58
+  br i1 %59, label %118, label %119
 
-117:                                              ; preds = %116
+118:                                              ; preds = %117
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %118
+  br label %119
 
-118:                                              ; preds = %117, %116
+119:                                              ; preds = %118, %117
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %120 = load i8, ptr %119, align 1, !tbaa !115, !range !99, !noundef !100
-  %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %122, label %123
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %121 = load i8, ptr %120, align 1, !tbaa !115, !range !99, !noundef !100
+  %122 = trunc nuw i8 %121 to i1
+  br i1 %122, label %123, label %124
 
-122:                                              ; preds = %118
+123:                                              ; preds = %119
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %123
+  br label %124
 
-123:                                              ; preds = %122, %118
-  %.not137 = xor i1 %58, true
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %125 = load i8, ptr %124, align 8, !range !99
-  %126 = trunc nuw i8 %125 to i1
-  %or.cond140 = select i1 %.not137, i1 %126, i1 false
-  br i1 %or.cond140, label %127, label %128
+124:                                              ; preds = %123, %119
+  %.not137 = xor i1 %59, true
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %126 = load i8, ptr %125, align 8, !range !99
+  %127 = trunc nuw i8 %126 to i1
+  %or.cond140 = select i1 %.not137, i1 %127, i1 false
+  br i1 %or.cond140, label %128, label %129
 
-127:                                              ; preds = %123
+128:                                              ; preds = %124
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %128
+  br label %129
 
-128:                                              ; preds = %127, %123
+129:                                              ; preds = %128, %124
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-129:                                              ; preds = %57
+130:                                              ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-130:                                              ; preds = %57
+131:                                              ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-131:                                              ; preds = %57
-  br i1 %58, label %132, label %133
+132:                                              ; preds = %58
+  br i1 %59, label %133, label %134
 
-132:                                              ; preds = %131
+133:                                              ; preds = %132
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %133
+  br label %134
 
-133:                                              ; preds = %132, %131
+134:                                              ; preds = %133, %132
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-134:                                              ; preds = %57
+135:                                              ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-135:                                              ; preds = %57
+136:                                              ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-136:                                              ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %57
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %138 = load i8, ptr %137, align 8, !tbaa !111, !range !99, !noundef !100
-  %139 = trunc nuw i8 %138 to i1
-  br i1 %139, label %140, label %141
+137:                                              ; preds = %58, %58, %58, %58, %58, %58, %58, %58, %58
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %139 = load i8, ptr %138, align 8, !tbaa !111, !range !99, !noundef !100
+  %140 = trunc nuw i8 %139 to i1
+  br i1 %140, label %141, label %142
 
-140:                                              ; preds = %136
+141:                                              ; preds = %137
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %141
+  br label %142
 
-141:                                              ; preds = %140, %136
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %143 = load i8, ptr %142, align 1, !tbaa !115, !range !99, !noundef !100
-  %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %145, label %146
+142:                                              ; preds = %141, %137
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %144 = load i8, ptr %143, align 1, !tbaa !115, !range !99, !noundef !100
+  %145 = trunc nuw i8 %144 to i1
+  br i1 %145, label %146, label %147
 
-145:                                              ; preds = %141
+146:                                              ; preds = %142
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %146
+  br label %147
 
-146:                                              ; preds = %145, %141
+147:                                              ; preds = %146, %142
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-147:                                              ; preds = %57
+148:                                              ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-148:                                              ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %57
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %150 = load i8, ptr %149, align 8, !tbaa !111, !range !99, !noundef !100
-  %151 = trunc nuw i8 %150 to i1
-  br i1 %151, label %152, label %153
+149:                                              ; preds = %58, %58, %58, %58, %58, %58, %58, %58, %58
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %151 = load i8, ptr %150, align 8, !tbaa !111, !range !99, !noundef !100
+  %152 = trunc nuw i8 %151 to i1
+  br i1 %152, label %153, label %154
 
-152:                                              ; preds = %148
+153:                                              ; preds = %149
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %153
+  br label %154
 
-153:                                              ; preds = %152, %148
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %155 = load i8, ptr %154, align 1, !tbaa !115, !range !99, !noundef !100
-  %156 = trunc nuw i8 %155 to i1
-  br i1 %156, label %157, label %158
+154:                                              ; preds = %153, %149
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %156 = load i8, ptr %155, align 1, !tbaa !115, !range !99, !noundef !100
+  %157 = trunc nuw i8 %156 to i1
+  br i1 %157, label %158, label %159
 
-157:                                              ; preds = %153
+158:                                              ; preds = %154
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %158
+  br label %159
 
-158:                                              ; preds = %157, %153
+159:                                              ; preds = %158, %154
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-159:                                              ; preds = %57
+160:                                              ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-160:                                              ; preds = %57
+161:                                              ; preds = %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-161:                                              ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57
+162:                                              ; preds = %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %162
+  br label %163
 
-162:                                              ; preds = %65, %66, %67, %68, %69, %82, %83, %84, %97, %110, %111, %112, %115, %128, %129, %130, %133, %134, %135, %146, %147, %158, %159, %160, %161, %57, %64, %63, %62
+163:                                              ; preds = %66, %67, %68, %69, %70, %83, %84, %85, %98, %111, %112, %113, %116, %129, %130, %131, %134, %135, %136, %147, %148, %159, %160, %161, %162, %58, %65, %64, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3361,7 +3362,7 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOpera
   %12 = load i32, ptr %3, align 4
   %.not = icmp uge i32 %12, %4
   %or.cond.not = select i1 %1, i1 %.not, i1 false
-  br i1 %or.cond.not, label %111, label %.preheader
+  br i1 %or.cond.not, label %112, label %.preheader
 
 .preheader:                                       ; preds = %7
   %.promoted = load i32, ptr %2, align 4, !tbaa !152
@@ -3384,7 +3385,7 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOpera
   store i8 34, ptr %22, align 2, !tbaa !203
   %23 = trunc i32 %19 to i8
   %24 = add i8 %23, 31
-  %25 = getelementptr inbounds nuw %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %17, i64 %20, i32 1
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 %24, ptr %25, align 1, !tbaa !205
   %26 = add i32 %21, 1
   store i32 %26, ptr %2, align 4, !tbaa !152
@@ -3551,36 +3552,37 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %97 = load ptr, ptr %74, align 8, !tbaa !143
   %98 = load i32, ptr %2, align 4, !tbaa !152
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %97, i64 %99, i32 1
-  store i8 %96, ptr %100, align 1, !tbaa !205
-  %101 = load ptr, ptr %11, align 8, !tbaa !3
-  %102 = icmp eq ptr %101, %79
-  br i1 %102, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
+  %100 = getelementptr inbounds nuw %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %97, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
+  store i8 %96, ptr %101, align 1, !tbaa !205
+  %102 = load ptr, ptr %11, align 8, !tbaa !3
+  %103 = icmp eq ptr %102, %79
+  br i1 %103, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit21
-  %103 = load i64, ptr %88, align 8, !tbaa !11
-  %104 = icmp ult i64 %103, 16
-  call void @llvm.assume(i1 %104)
+  %104 = load i64, ptr %88, align 8, !tbaa !11
+  %105 = icmp ult i64 %104, 16
+  call void @llvm.assume(i1 %105)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit21
-  %105 = load i64, ptr %79, align 8, !tbaa !12
-  %106 = add i64 %105, 1
-  call void @_ZdlPvm(ptr noundef %101, i64 noundef %106) #18
+  %106 = load i64, ptr %79, align 8, !tbaa !12
+  %107 = add i64 %106, 1
+  call void @_ZdlPvm(ptr noundef %102, i64 noundef %107) #18
   %.pre = load i32, ptr %2, align 4, !tbaa !152
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
-  %107 = phi i32 [ %98, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23 ], [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22 ]
+  %108 = phi i32 [ %98, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23 ], [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %108 = add i32 %107, 1
-  store i32 %108, ptr %2, align 4, !tbaa !152
-  %109 = load i32, ptr %3, align 4, !tbaa !152
-  %110 = add i32 %109, 1
-  store i32 %110, ptr %3, align 4, !tbaa !152
-  br label %111
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %2, align 4, !tbaa !152
+  %110 = load i32, ptr %3, align 4, !tbaa !152
+  %111 = add i32 %110, 1
+  store i32 %111, ptr %3, align 4, !tbaa !152
+  br label %112
 
-111:                                              ; preds = %7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
+112:                                              ; preds = %7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
   ret void
 }
 

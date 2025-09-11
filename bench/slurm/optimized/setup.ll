@@ -1473,36 +1473,37 @@ define internal noalias noundef ptr @_task_launch_detection(ptr readnone capture
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %4, i64 %indvars.iv.i, i32 2
-  %9 = load i32, ptr %8, align 8
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %_tasks_launched.exit, label %7
+  %8 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %4, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %_tasks_launched.exit, label %7
 
 _tasks_launched.exit:                             ; preds = %.lr.ph.i
-  %11 = tail call i32 @usleep(i32 noundef 50000) #13
-  %12 = tail call i64 @time(ptr noundef null) #13
-  %13 = sub nsw i64 %12, %2
-  %14 = icmp sgt i64 %13, 600
-  br i1 %14, label %_tasks_launched.exit.thread, label %3, !llvm.loop !25
+  %12 = tail call i32 @usleep(i32 noundef 50000) #13
+  %13 = tail call i64 @time(ptr noundef null) #13
+  %14 = sub nsw i64 %13, %2
+  %15 = icmp sgt i64 %14, 600
+  br i1 %15, label %_tasks_launched.exit.thread, label %3, !llvm.loop !25
 
 _tasks_launched.exit.thread:                      ; preds = %.preheader.i, %3, %_tasks_launched.exit, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %.preheader.i ], [ 0, %3 ], [ 1, %_tasks_launched.exit ]
-  %15 = tail call ptr @spawn_resp_new() #13
-  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 56), align 8
-  store i32 %16, ptr %15, align 8
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 80), align 8
-  %18 = tail call ptr @slurm_xstrdup(ptr noundef %17) #13
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 %.0, ptr %21, align 4
-  %22 = load i16, ptr getelementptr inbounds nuw (i8, ptr @tree_info, i64 32), align 8
-  %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i16 %22, ptr %23, align 8
-  %24 = tail call i32 @spawn_resp_send_to_srun(ptr noundef nonnull %15) #13
-  tail call void @spawn_resp_free(ptr noundef nonnull %15) #13
+  %16 = tail call ptr @spawn_resp_new() #13
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 56), align 8
+  store i32 %17, ptr %16, align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 80), align 8
+  %19 = tail call ptr @slurm_xstrdup(ptr noundef %18) #13
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %19, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  store i32 0, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 %.0, ptr %22, align 4
+  %23 = load i16, ptr getelementptr inbounds nuw (i8, ptr @tree_info, i64 32), align 8
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i16 %23, ptr %24, align 8
+  %25 = tail call i32 @spawn_resp_send_to_srun(ptr noundef nonnull %16) #13
+  tail call void @spawn_resp_free(ptr noundef nonnull %16) #13
   ret ptr null
 }
 

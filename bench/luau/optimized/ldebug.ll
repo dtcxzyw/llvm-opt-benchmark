@@ -1157,18 +1157,19 @@ define hidden noundef range(i32 0, 2) i32 @_Z13luaG_isnativeP9lua_Statei(ptr nou
   %10 = sdiv exact i64 %9, 40
   %11 = trunc i64 %10 to i32
   %.not = icmp ult i32 %1, %11
-  br i1 %.not, label %12, label %18
+  br i1 %.not, label %12, label %19
 
 12:                                               ; preds = %2
   %13 = sext i32 %1 to i64
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds %struct.CallInfo, ptr %4, i64 %14, i32 5
-  %16 = load i32, ptr %15, align 4, !tbaa !20
-  %17 = lshr i32 %16, 2
-  %.lobit = and i32 %17, 1
-  br label %18
+  %15 = getelementptr inbounds %struct.CallInfo, ptr %4, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 36
+  %17 = load i32, ptr %16, align 4, !tbaa !20
+  %18 = lshr i32 %17, 2
+  %.lobit = and i32 %18, 1
+  br label %19
 
-18:                                               ; preds = %2, %12
+19:                                               ; preds = %2, %12
   %.0 = phi i32 [ %.lobit, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -1190,35 +1191,36 @@ define hidden noundef range(i32 0, 2) i32 @_Z14luaG_hasnativeP9lua_Statei(ptr no
 12:                                               ; preds = %2
   %13 = sext i32 %1 to i64
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr %struct.CallInfo, ptr %4, i64 %14, i32 1
-  %.val = load ptr, ptr %15, align 8, !tbaa !23
-  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !24
-  %18 = icmp eq i32 %17, 7
-  br i1 %18, label %19, label %_ZL11getluaprotoP8CallInfo.exit.thread
+  %15 = getelementptr inbounds %struct.CallInfo, ptr %4, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 8
+  %.val = load ptr, ptr %16, align 8, !tbaa !23
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 12
+  %18 = load i32, ptr %17, align 4, !tbaa !24
+  %19 = icmp eq i32 %18, 7
+  br i1 %19, label %20, label %_ZL11getluaprotoP8CallInfo.exit.thread
 
-19:                                               ; preds = %12
-  %20 = load ptr, ptr %.val, align 8, !tbaa !26
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 3
-  %22 = load i8, ptr %21, align 1, !tbaa !27
-  %.not.i = icmp eq i8 %22, 0
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %.val, align 8, !tbaa !26
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 3
+  %23 = load i8, ptr %22, align 1, !tbaa !27
+  %.not.i = icmp eq i8 %23, 0
   br i1 %.not.i, label %_ZL11getluaprotoP8CallInfo.exit, label %_ZL11getluaprotoP8CallInfo.exit.thread
 
-_ZL11getluaprotoP8CallInfo.exit:                  ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !26
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %_ZL11getluaprotoP8CallInfo.exit.thread, label %26
+_ZL11getluaprotoP8CallInfo.exit:                  ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %_ZL11getluaprotoP8CallInfo.exit.thread, label %27
 
-26:                                               ; preds = %_ZL11getluaprotoP8CallInfo.exit
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !83
-  %29 = icmp ne ptr %28, null
-  %30 = zext i1 %29 to i32
+27:                                               ; preds = %_ZL11getluaprotoP8CallInfo.exit
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %29 = load ptr, ptr %28, align 8, !tbaa !83
+  %30 = icmp ne ptr %29, null
+  %31 = zext i1 %30 to i32
   br label %_ZL11getluaprotoP8CallInfo.exit.thread
 
-_ZL11getluaprotoP8CallInfo.exit.thread:           ; preds = %12, %19, %26, %_ZL11getluaprotoP8CallInfo.exit, %2
-  %.0 = phi i32 [ 0, %2 ], [ %30, %26 ], [ 0, %_ZL11getluaprotoP8CallInfo.exit ], [ 0, %19 ], [ 0, %12 ]
+_ZL11getluaprotoP8CallInfo.exit.thread:           ; preds = %12, %20, %27, %_ZL11getluaprotoP8CallInfo.exit, %2
+  %.0 = phi i32 [ 0, %2 ], [ %31, %27 ], [ 0, %_ZL11getluaprotoP8CallInfo.exit ], [ 0, %20 ], [ 0, %12 ]
   ret i32 %.0
 }
 

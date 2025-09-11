@@ -744,7 +744,7 @@ define noundef ptr @_Z11new_clustidi(i32 noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw %struct.t_clustid, ptr %3, i64 %indvars.iv
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %6, ptr %5, align 4, !tbaa !53
-  %7 = getelementptr inbounds nuw %struct.t_clustid, ptr %3, i64 %indvars.iv, i32 1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %6, ptr %7, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

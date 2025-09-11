@@ -4651,7 +4651,7 @@ define internal noundef ptr @build_simple_avp(ptr noundef readonly captures(none
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %24, label %9
+  br i1 %.not, label %25, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4667,47 +4667,48 @@ define internal noundef ptr @build_simple_avp(ptr noundef readonly captures(none
 13:                                               ; preds = %9
   %14 = tail call ptr @ftype_name(i32 noundef %11)
   tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef %14)
-  br label %35
+  br label %36
 
 switch.lookup:                                    ; preds = %9, %switch.lookup
-  %.0 = phi i32 [ %18, %switch.lookup ], [ 0, %9 ]
+  %.0 = phi i32 [ %19, %switch.lookup ], [ 0, %9 ]
   %15 = zext i32 %.0 to i64
-  %16 = getelementptr %struct._value_string, ptr %4, i64 %15, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %.not30 = icmp eq ptr %17, null
-  %18 = add i32 %.0, 1
-  br i1 %.not30, label %19, label %switch.lookup, !llvm.loop !20
+  %16 = getelementptr %struct._value_string, ptr %4, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %.not30 = icmp eq ptr %18, null
+  %19 = add i32 %.0, 1
+  br i1 %.not30, label %20, label %switch.lookup, !llvm.loop !20
 
-19:                                               ; preds = %switch.lookup
-  %20 = tail call ptr @wmem_epan_scope()
-  %21 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %20, ptr noundef %3, ptr noundef nonnull @.str.118, ptr noundef null)
-  %22 = tail call ptr @value_string_ext_new(ptr noundef nonnull %4, i32 noundef %18, ptr noundef %21)
-  %23 = or i32 %8, 512
-  br label %24
+20:                                               ; preds = %switch.lookup
+  %21 = tail call ptr @wmem_epan_scope()
+  %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %21, ptr noundef %3, ptr noundef nonnull @.str.118, ptr noundef null)
+  %23 = tail call ptr @value_string_ext_new(ptr noundef nonnull %4, i32 noundef %19, ptr noundef %22)
+  %24 = or i32 %8, 512
+  br label %25
 
-24:                                               ; preds = %19, %6
-  %.027 = phi ptr [ %22, %19 ], [ null, %6 ]
-  %.026 = phi i32 [ %23, %19 ], [ %8, %6 ]
-  %25 = tail call ptr @wmem_epan_scope()
-  %26 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %25, i64 noundef 40) #15
-  store i32 %1, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %2, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store i32 -1, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 28
-  store i32 -1, ptr %32, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i32, ptr %33, align 8
-  tail call fastcc void @basic_avp_reginfo(ptr noundef %26, ptr noundef %3, i32 noundef %34, i32 noundef %.026, ptr noundef %.027)
-  br label %35
+25:                                               ; preds = %20, %6
+  %.027 = phi ptr [ %23, %20 ], [ null, %6 ]
+  %.026 = phi i32 [ %24, %20 ], [ %8, %6 ]
+  %26 = tail call ptr @wmem_epan_scope()
+  %27 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %26, i64 noundef 40) #15
+  store i32 %1, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %2, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store ptr %30, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store i32 -1, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  store i32 -1, ptr %33, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = load i32, ptr %34, align 8
+  tail call fastcc void @basic_avp_reginfo(ptr noundef %27, ptr noundef %3, i32 noundef %35, i32 noundef %.026, ptr noundef %.027)
+  br label %36
 
-35:                                               ; preds = %24, %13
-  %.028 = phi ptr [ null, %13 ], [ %26, %24 ]
+36:                                               ; preds = %25, %13
+  %.028 = phi ptr [ null, %13 ], [ %27, %25 ]
   ret ptr %.028
 }
 

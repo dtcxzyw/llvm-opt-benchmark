@@ -249,7 +249,7 @@ define range(i32 -2, 2) i32 @ossl_quic_demux_pump(ptr noundef captures(none) %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.val = load ptr, ptr %4, align 8, !tbaa !17
   %5 = icmp eq ptr %.val, null
-  br i1 %5, label %6, label %116
+  br i1 %5, label %6, label %117
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -420,89 +420,90 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
   br label %83
 
 83:                                               ; preds = %ossl_list_urxe_insert_tail.exit.i10, %.lr.ph.i8
-  %.166.i = phi i64 [ 0, %.lr.ph.i8 ], [ %115, %ossl_list_urxe_insert_tail.exit.i10 ]
+  %.166.i = phi i64 [ 0, %.lr.ph.i8 ], [ %116, %ossl_list_urxe_insert_tail.exit.i10 ]
   %.14765.i = phi ptr [ %.val.i, %.lr.ph.i8 ], [ %.147.val.i, %ossl_list_urxe_insert_tail.exit.i10 ]
   %.147.val.i = load ptr, ptr %.14765.i, align 8, !tbaa !18
-  %84 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %2, i64 %.166.i, i32 1
-  %85 = load i64, ptr %84, align 8, !tbaa !38
-  %86 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 16
-  store i64 %85, ptr %86, align 8, !tbaa !30
-  %87 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 280
-  store i64 %.sroa.02.0.i, ptr %87, align 8, !tbaa !42
-  %88 = load i64, ptr %79, align 8, !tbaa !43
-  %89 = add i64 %88, 1
-  store i64 %89, ptr %79, align 8, !tbaa !43
-  %90 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 48
-  store i64 %88, ptr %90, align 8, !tbaa !44
-  %91 = load ptr, ptr %8, align 8, !tbaa !17
-  %92 = icmp eq ptr %91, %.14765.i
-  br i1 %92, label %93, label %94
+  %84 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %2, i64 %.166.i
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load i64, ptr %85, align 8, !tbaa !38
+  %87 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 16
+  store i64 %86, ptr %87, align 8, !tbaa !30
+  %88 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 280
+  store i64 %.sroa.02.0.i, ptr %88, align 8, !tbaa !42
+  %89 = load i64, ptr %79, align 8, !tbaa !43
+  %90 = add i64 %89, 1
+  store i64 %90, ptr %79, align 8, !tbaa !43
+  %91 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 48
+  store i64 %89, ptr %91, align 8, !tbaa !44
+  %92 = load ptr, ptr %8, align 8, !tbaa !17
+  %93 = icmp eq ptr %92, %.14765.i
+  br i1 %93, label %94, label %95
 
-93:                                               ; preds = %83
+94:                                               ; preds = %83
   store ptr %.147.val.i, ptr %8, align 8, !tbaa !17
-  br label %94
+  br label %95
 
-94:                                               ; preds = %93, %83
-  %95 = load ptr, ptr %80, align 8, !tbaa !22
-  %96 = icmp eq ptr %95, %.14765.i
-  %97 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !23
-  br i1 %96, label %99, label %._crit_edge.i.i
+95:                                               ; preds = %94, %83
+  %96 = load ptr, ptr %80, align 8, !tbaa !22
+  %97 = icmp eq ptr %96, %.14765.i
+  %98 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !23
+  br i1 %97, label %100, label %._crit_edge.i.i
 
-99:                                               ; preds = %94
-  store ptr %98, ptr %80, align 8, !tbaa !22
+100:                                              ; preds = %95
+  store ptr %99, ptr %80, align 8, !tbaa !22
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %99, %94
-  %.not.i.i9 = icmp eq ptr %98, null
-  br i1 %.not.i.i9, label %101, label %100
+._crit_edge.i.i:                                  ; preds = %100, %95
+  %.not.i.i9 = icmp eq ptr %99, null
+  br i1 %.not.i.i9, label %102, label %101
 
-100:                                              ; preds = %._crit_edge.i.i
-  store ptr %.147.val.i, ptr %98, align 8, !tbaa !18
-  br label %101
+101:                                              ; preds = %._crit_edge.i.i
+  store ptr %.147.val.i, ptr %99, align 8, !tbaa !18
+  br label %102
 
-101:                                              ; preds = %100, %._crit_edge.i.i
+102:                                              ; preds = %101, %._crit_edge.i.i
   %.not18.i.i = icmp eq ptr %.147.val.i, null
-  br i1 %.not18.i.i, label %ossl_list_urxe_remove.exit.i, label %102
+  br i1 %.not18.i.i, label %ossl_list_urxe_remove.exit.i, label %103
 
-102:                                              ; preds = %101
-  %103 = getelementptr inbounds nuw i8, ptr %.147.val.i, i64 8
-  store ptr %98, ptr %103, align 8, !tbaa !23
+103:                                              ; preds = %102
+  %104 = getelementptr inbounds nuw i8, ptr %.147.val.i, i64 8
+  store ptr %99, ptr %104, align 8, !tbaa !23
   br label %ossl_list_urxe_remove.exit.i
 
-ossl_list_urxe_remove.exit.i:                     ; preds = %102, %101
-  %104 = load i64, ptr %9, align 8, !tbaa !24
-  %105 = add i64 %104, -1
-  store i64 %105, ptr %9, align 8, !tbaa !24
+ossl_list_urxe_remove.exit.i:                     ; preds = %103, %102
+  %105 = load i64, ptr %9, align 8, !tbaa !24
+  %106 = add i64 %105, -1
+  store i64 %106, ptr %9, align 8, !tbaa !24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.14765.i, i8 0, i64 16, i1 false)
-  %106 = load ptr, ptr %81, align 8, !tbaa !22
-  %.not.i56.i = icmp eq ptr %106, null
-  br i1 %.not.i56.i, label %108, label %107
+  %107 = load ptr, ptr %81, align 8, !tbaa !22
+  %.not.i56.i = icmp eq ptr %107, null
+  br i1 %.not.i56.i, label %109, label %108
 
-107:                                              ; preds = %ossl_list_urxe_remove.exit.i
-  store ptr %.14765.i, ptr %106, align 8, !tbaa !18
-  br label %108
+108:                                              ; preds = %ossl_list_urxe_remove.exit.i
+  store ptr %.14765.i, ptr %107, align 8, !tbaa !18
+  br label %109
 
-108:                                              ; preds = %107, %ossl_list_urxe_remove.exit.i
-  store ptr %106, ptr %97, align 8, !tbaa !23
+109:                                              ; preds = %108, %ossl_list_urxe_remove.exit.i
+  store ptr %107, ptr %98, align 8, !tbaa !23
   store ptr null, ptr %.14765.i, align 8, !tbaa !18
   store ptr %.14765.i, ptr %81, align 8, !tbaa !22
-  %109 = load ptr, ptr %4, align 8, !tbaa !17
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %111, label %ossl_list_urxe_insert_tail.exit.i10
+  %110 = load ptr, ptr %4, align 8, !tbaa !17
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %112, label %ossl_list_urxe_insert_tail.exit.i10
 
-111:                                              ; preds = %108
+112:                                              ; preds = %109
   store ptr %.14765.i, ptr %4, align 8, !tbaa !17
   br label %ossl_list_urxe_insert_tail.exit.i10
 
-ossl_list_urxe_insert_tail.exit.i10:              ; preds = %111, %108
-  %112 = load i64, ptr %82, align 8, !tbaa !24
-  %113 = add i64 %112, 1
-  store i64 %113, ptr %82, align 8, !tbaa !24
-  %114 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 289
-  store i8 1, ptr %114, align 1, !tbaa !31
-  %115 = add nuw i64 %.166.i, 1
-  %exitcond71.not.i = icmp eq i64 %115, %78
+ossl_list_urxe_insert_tail.exit.i10:              ; preds = %112, %109
+  %113 = load i64, ptr %82, align 8, !tbaa !24
+  %114 = add i64 %113, 1
+  store i64 %114, ptr %82, align 8, !tbaa !24
+  %115 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 289
+  store i8 1, ptr %115, align 1, !tbaa !31
+  %116 = add nuw i64 %.166.i, 1
+  %exitcond71.not.i = icmp eq i64 %116, %78
   br i1 %exitcond71.not.i, label %demux_recv.exit, label %83, !llvm.loop !45
 
 demux_recv.exit.thread:                           ; preds = %39, %65, %67, %demux_ensure_free_urxe.exit, %38
@@ -514,16 +515,16 @@ demux_recv.exit.thread:                           ; preds = %39, %65, %67, %demu
 demux_recv.exit:                                  ; preds = %ossl_list_urxe_insert_tail.exit.i10, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %116
+  br label %117
 
-116:                                              ; preds = %demux_recv.exit, %1
-  %117 = call fastcc i32 @demux_process_pending_urxl(ptr noundef nonnull %0)
-  %118 = icmp slt i32 %117, 1
-  %. = select i1 %118, i32 -2, i32 1
+117:                                              ; preds = %demux_recv.exit, %1
+  %118 = call fastcc i32 @demux_process_pending_urxl(ptr noundef nonnull %0)
+  %119 = icmp slt i32 %118, 1
+  %. = select i1 %119, i32 -2, i32 1
   br label %demux_ensure_free_urxe.exit.thread
 
-demux_ensure_free_urxe.exit.thread:               ; preds = %12, %15, %demux_recv.exit.thread, %116
-  %.0 = phi i32 [ %., %116 ], [ %.0.i11.ph, %demux_recv.exit.thread ], [ -2, %15 ], [ -2, %12 ]
+demux_ensure_free_urxe.exit.thread:               ; preds = %12, %15, %demux_recv.exit.thread, %117
+  %.0 = phi i32 [ %., %117 ], [ %.0.i11.ph, %demux_recv.exit.thread ], [ -2, %15 ], [ -2, %12 ]
   ret i32 %.0
 }
 

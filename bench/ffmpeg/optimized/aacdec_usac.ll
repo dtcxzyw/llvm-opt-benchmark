@@ -11,16 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.anon.1 = type { i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.anon.2 = type { i32, i8, i32, i32, ptr }
-%struct.AVChannelCustom = type { i32, [16 x i8], ptr }
-%struct.AACUSACLoudnessInfo = type <{ i16, %struct.anon.4, %struct.anon.5, i8, [16 x %struct.anon.6], i8 }>
-%struct.anon.4 = type { i16 }
-%struct.anon.5 = type { i32 }
-%struct.anon.6 = type { i8, i8, i8 }
-%struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.MPEG4AudioConfig = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.AVChannelLayout = type { i32, i32, %union.anon, ptr }
-%union.anon = type { i64 }
-%struct.AACArith = type { i16, i16, i16 }
 %struct.SingleChannelElement = type { %struct.IndividualChannelStream, %struct.AACUsacElemData, %struct.TemporalNoiseShaping, [128 x i32], [128 x i32], %union.anon.12, [12 x i8], %union.anon.13, %union.anon.14, %union.anon.15, %union.anon.16, %union.anon.17, %union.anon.18, %union.anon.19 }
 %struct.IndividualChannelStream = type { i8, [2 x i32], [2 x i8], i32, i32, [8 x i8], %struct.LongTermPrediction, ptr, i32, i32, i32, i32, i32, i32, [41 x i8], [8 x i8] }
 %struct.LongTermPrediction = type { i8, i16, %union.anon.7, [40 x i8] }
@@ -40,6 +30,16 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.17 = type { [3072 x i32] }
 %union.anon.18 = type { ptr }
 %union.anon.19 = type { ptr }
+%struct.AVChannelCustom = type { i32, [16 x i8], ptr }
+%struct.AACUSACLoudnessInfo = type <{ i16, %struct.anon.4, %struct.anon.5, i8, [16 x %struct.anon.6], i8 }>
+%struct.anon.4 = type { i16 }
+%struct.anon.5 = type { i32 }
+%struct.anon.6 = type { i8, i8, i8 }
+%struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
+%struct.MPEG4AudioConfig = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
+%struct.AVChannelLayout = type { i32, i32, %union.anon, ptr }
+%union.anon = type { i64 }
+%struct.AACArith = type { i16, i16, i16 }
 
 @ff_aac_usac_samplerate = external local_unnamed_addr constant [32 x i32], align 16
 @.str = private unnamed_addr constant [23 x i8] c"Too many elements: %i\0A\00", align 1
@@ -144,8 +144,7 @@ define noundef i32 @ff_aac_usac_reset_state(ptr noundef %0, ptr noundef %1) loca
 
 .lr.ph:                                           ; preds = %18, %22
   %24 = zext nneg i32 %.231 to i64
-  %.idx = mul nuw nsw i64 %24, 40352
-  %25 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
+  %25 = getelementptr inbounds nuw %struct.SingleChannelElement, ptr %17, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 312
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 40692
   br label %28
@@ -2850,14 +2849,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_usac_core_coder(ptr
 73:                                               ; preds = %47
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 96976
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %74, i8 0, i64 8192, i1 false)
-  br i1 %71, label %.loopexit.i, label %..thread.i_crit_edge
+  br i1 %71, label %.loopexit.i, label %..thread_crit_edge.i
 
-..thread.i_crit_edge:                             ; preds = %73
-  %.pre = load ptr, ptr %4, align 8, !tbaa !37
+..thread_crit_edge.i:                             ; preds = %73
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !37
   br label %.thread.i
 
-.thread.i:                                        ; preds = %..thread.i_crit_edge, %47
-  %75 = phi ptr [ %.pre, %..thread.i_crit_edge ], [ %49, %47 ]
+.thread.i:                                        ; preds = %..thread_crit_edge.i, %47
+  %75 = phi ptr [ %.pre.i, %..thread_crit_edge.i ], [ %49, %47 ]
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 148
   %77 = load i32, ptr %76, align 4, !tbaa !39
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 152
@@ -2912,22 +2911,22 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_usac_core_coder(ptr
   %116 = load i32, ptr %78, align 4, !tbaa !39
   %.not152.i = icmp eq i32 %116, 2
   %117 = xor i1 %115, %.not152.i
-  br i1 %117, label %122, label %.thread174.i
+  br i1 %117, label %122, label %.thread176.i
 
-.thread174.i:                                     ; preds = %.thread.i
+.thread176.i:                                     ; preds = %.thread.i
   %118 = load i32, ptr %79, align 4, !tbaa !39
   %119 = icmp eq i32 %118, 2
   %120 = load i32, ptr %81, align 4, !tbaa !39
   %.not154.i = icmp eq i32 %120, 2
   %121 = xor i1 %119, %.not154.i
-  br i1 %121, label %122, label %.thread178.i
+  br i1 %121, label %122, label %.thread180.i
 
-122:                                              ; preds = %.thread174.i, %.thread.i
+122:                                              ; preds = %.thread176.i, %.thread.i
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 96976
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %123, i8 0, i64 8192, i1 false)
-  br label %.thread178.i
+  br label %.thread180.i
 
-.thread178.i:                                     ; preds = %122, %.thread174.i
+.thread180.i:                                     ; preds = %122, %.thread176.i
   %124 = load i32, ptr %12, align 8, !tbaa !34
   %125 = load i32, ptr %14, align 8, !tbaa !36
   %126 = load ptr, ptr %4, align 8, !tbaa !37
@@ -2940,7 +2939,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_usac_core_coder(ptr
   %133 = shl i32 %131, %132
   br i1 %115, label %134, label %152
 
-134:                                              ; preds = %.thread178.i
+134:                                              ; preds = %.thread180.i
   %135 = lshr i32 %133, 28
   %136 = add i32 %124, 4
   %137 = tail call i32 @llvm.umin.i32(i32 %125, i32 %136)
@@ -2965,7 +2964,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_usac_core_coder(ptr
   store i8 %149, ptr %151, align 1, !tbaa !148
   br label %157
 
-152:                                              ; preds = %.thread178.i
+152:                                              ; preds = %.thread180.i
   %153 = lshr i32 %133, 26
   %154 = add i32 %124, 6
   %155 = tail call i32 @llvm.umin.i32(i32 %125, i32 %154)
@@ -3002,10 +3001,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_usac_core_coder(ptr
   %174 = tail call i32 @llvm.bswap.i32(i32 %173)
   %175 = and i32 %spec.select.i166.i, 7
   %176 = shl i32 %174, %175
-  %.200.i = select i1 %169, i32 28, i32 26
-  %.201.i = select i1 %169, i32 4, i32 6
-  %177 = lshr i32 %176, %.200.i
-  %178 = add i32 %.201.i, %spec.select.i166.i
+  %.202.i = select i1 %169, i32 28, i32 26
+  %.203.i = select i1 %169, i32 4, i32 6
+  %177 = lshr i32 %176, %.202.i
+  %178 = add i32 %.203.i, %spec.select.i166.i
   %179 = tail call i32 @llvm.umin.i32(i32 %125, i32 %178)
   store i32 %179, ptr %12, align 8, !tbaa !34
   %180 = trunc nuw nsw i32 %177 to i8
@@ -3052,27 +3051,27 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_usac_core_coder(ptr
   %207 = getelementptr inbounds nuw i8, ptr %3, i64 5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %207, i8 0, i64 128, i1 false)
   switch i32 %202, label %default.unreachable [
-    i32 1, label %.preheader182.i
+    i32 1, label %.preheader184.i
     i32 2, label %231
     i32 3, label %232
     i32 0, label %.loopexit.i
   ]
 
-.preheader182.i:                                  ; preds = %188
+.preheader184.i:                                  ; preds = %188
   %208 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %209 = load i32, ptr %208, align 8, !tbaa !151
   %210 = icmp slt i32 %209, 1
-  %.not185.i = icmp eq i8 %..i, 0
-  %or.cond199.i = select i1 %210, i1 true, i1 %.not185.i
-  br i1 %or.cond199.i, label %.loopexit.i, label %.preheader.us.preheader.i
+  %.not187.i = icmp eq i8 %..i, 0
+  %or.cond201.i = select i1 %210, i1 true, i1 %.not187.i
+  br i1 %or.cond201.i, label %.loopexit.i, label %.preheader.us.preheader.i
 
-.preheader.us.preheader.i:                        ; preds = %.preheader182.i
+.preheader.us.preheader.i:                        ; preds = %.preheader184.i
   %211 = zext i8 %..i to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %indvars.iv188.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next189.i, %._crit_edge.us.i ]
-  %212 = mul nuw nsw i64 %indvars.iv188.i, %211
+  %indvars.iv190.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next191.i, %._crit_edge.us.i ]
+  %212 = mul nuw nsw i64 %indvars.iv190.i, %211
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %207, i64 %212
   br label %213
 
@@ -3101,10 +3100,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_usac_core_coder(ptr
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %213, !llvm.loop !152
 
 ._crit_edge.us.i:                                 ; preds = %213
-  %indvars.iv.next189.i = add nuw nsw i64 %indvars.iv188.i, 1
+  %indvars.iv.next191.i = add nuw nsw i64 %indvars.iv190.i, 1
   %228 = load i32, ptr %208, align 8, !tbaa !151
   %229 = sext i32 %228 to i64
-  %230 = icmp slt i64 %indvars.iv.next189.i, %229
+  %230 = icmp slt i64 %indvars.iv.next191.i, %229
   br i1 %230, label %.preheader.us.i, label %.loopexit.i, !llvm.loop !153
 
 231:                                              ; preds = %188
@@ -3127,7 +3126,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_usac_core_coder(ptr
 default.unreachable:                              ; preds = %188
   unreachable
 
-.loopexit.i:                                      ; preds = %._crit_edge.us.i, %234, %232, %231, %.preheader182.i, %188, %73
+.loopexit.i:                                      ; preds = %._crit_edge.us.i, %234, %232, %231, %.preheader184.i, %188, %73
   %239 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %240 = load i8, ptr %239, align 4
   %241 = and i8 %240, 1
@@ -3298,27 +3297,27 @@ default.unreachable:                              ; preds = %188
   br i1 %342, label %decode_usac_stereo_info.exit, label %select.unfold236
 
 343:                                              ; preds = %336
-  br i1 %329, label %._crit_edge282, label %344
+  br i1 %329, label %._crit_edge281, label %344
 
-._crit_edge282:                                   ; preds = %343
-  %.pre283 = load i32, ptr %12, align 8, !tbaa !34
-  %.pre285 = load ptr, ptr %4, align 8, !tbaa !37
-  %.pre287 = load i32, ptr %14, align 8, !tbaa !36
+._crit_edge281:                                   ; preds = %343
+  %.pre282 = load i32, ptr %12, align 8, !tbaa !34
+  %.pre = load ptr, ptr %4, align 8, !tbaa !37
+  %.pre285 = load i32, ptr %14, align 8, !tbaa !36
   br label %347
 
 344:                                              ; preds = %343
   %345 = load i8, ptr %330, align 8, !tbaa !156
   %346 = load i8, ptr %331, align 8, !tbaa !156
   %.not184 = icmp eq i8 %345, %346
-  %.pre284 = load i32, ptr %12, align 8, !tbaa !34
-  %.pre286 = load ptr, ptr %4, align 8, !tbaa !37
-  %.pre288 = load i32, ptr %14, align 8, !tbaa !36
+  %.pre283 = load i32, ptr %12, align 8, !tbaa !34
+  %.pre284 = load ptr, ptr %4, align 8, !tbaa !37
+  %.pre286 = load i32, ptr %14, align 8, !tbaa !36
   br i1 %.not184, label %._crit_edge, label %347
 
-347:                                              ; preds = %._crit_edge282, %344
-  %348 = phi i32 [ %.pre287, %._crit_edge282 ], [ %.pre288, %344 ]
-  %349 = phi ptr [ %.pre285, %._crit_edge282 ], [ %.pre286, %344 ]
-  %350 = phi i32 [ %.pre283, %._crit_edge282 ], [ %.pre284, %344 ]
+347:                                              ; preds = %._crit_edge281, %344
+  %348 = phi i32 [ %.pre285, %._crit_edge281 ], [ %.pre286, %344 ]
+  %349 = phi ptr [ %.pre, %._crit_edge281 ], [ %.pre284, %344 ]
+  %350 = phi i32 [ %.pre282, %._crit_edge281 ], [ %.pre283, %344 ]
   %351 = lshr i32 %350, 3
   %352 = zext nneg i32 %351 to i64
   %353 = getelementptr inbounds nuw i8, ptr %349, i64 %352
@@ -3337,9 +3336,9 @@ default.unreachable:                              ; preds = %188
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %344, %347
-  %363 = phi ptr [ %349, %347 ], [ %.pre286, %344 ]
-  %364 = phi i32 [ %348, %347 ], [ %.pre288, %344 ]
-  %365 = phi i32 [ %spec.select.i197, %347 ], [ %.pre284, %344 ]
+  %363 = phi ptr [ %349, %347 ], [ %.pre284, %344 ]
+  %364 = phi i32 [ %348, %347 ], [ %.pre286, %344 ]
+  %365 = phi i32 [ %spec.select.i197, %347 ], [ %.pre283, %344 ]
   %366 = lshr i32 %365, 3
   %367 = zext nneg i32 %366 to i64
   %368 = getelementptr inbounds nuw i8, ptr %363, i64 %367

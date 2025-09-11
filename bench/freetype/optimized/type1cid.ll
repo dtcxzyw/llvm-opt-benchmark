@@ -1155,7 +1155,7 @@ cid_face_open.exit:                               ; preds = %.thread.i, %353
 ; Function Attrs: nounwind uwtable
 define internal void @cid_face_done(ptr noundef captures(address_is_null) %0) #2 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %46, label %2
+  br i1 %.not, label %47, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1165,7 +1165,7 @@ define internal void @cid_face_done(ptr noundef captures(address_is_null) %0) #2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %8 = load ptr, ptr %7, align 8, !tbaa !158
   %.not58 = icmp eq ptr %8, null
-  br i1 %.not58, label %23, label %.preheader
+  br i1 %.not58, label %24, label %.preheader
 
 .preheader:                                       ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -1173,92 +1173,93 @@ define internal void @cid_face_done(ptr noundef captures(address_is_null) %0) #2
   %.not61 = icmp eq i32 %10, 0
   br i1 %.not61, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %18
-  %11 = phi i32 [ %19, %18 ], [ %10, %.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %19
+  %11 = phi i32 [ %20, %19 ], [ %10, %.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
   %12 = load ptr, ptr %7, align 8, !tbaa !158
-  %13 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %12, i64 %indvars.iv, i32 1
-  %14 = load ptr, ptr %13, align 8, !tbaa !159
-  %.not59 = icmp eq ptr %14, null
-  br i1 %.not59, label %18, label %15
+  %13 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !159
+  %.not59 = icmp eq ptr %15, null
+  br i1 %.not59, label %19, label %16
 
-15:                                               ; preds = %.lr.ph
-  %16 = load ptr, ptr %14, align 8, !tbaa !106
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %16) #13
-  %17 = load ptr, ptr %13, align 8, !tbaa !159
-  store ptr null, ptr %17, align 8, !tbaa !106
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef nonnull %17) #13
-  store ptr null, ptr %13, align 8, !tbaa !159
+16:                                               ; preds = %.lr.ph
+  %17 = load ptr, ptr %15, align 8, !tbaa !106
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %17) #13
+  %18 = load ptr, ptr %14, align 8, !tbaa !159
+  store ptr null, ptr %18, align 8, !tbaa !106
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef nonnull %18) #13
+  store ptr null, ptr %14, align 8, !tbaa !159
   %.pre = load i32, ptr %9, align 8, !tbaa !95
-  br label %18
+  br label %19
 
-18:                                               ; preds = %15, %.lr.ph
-  %19 = phi i32 [ %.pre, %15 ], [ %11, %.lr.ph ]
+19:                                               ; preds = %16, %.lr.ph
+  %20 = phi i32 [ %.pre, %16 ], [ %11, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = zext i32 %19 to i64
-  %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !162
+  %21 = zext i32 %20 to i64
+  %22 = icmp samesign ult i64 %indvars.iv.next, %21
+  br i1 %22, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !162
 
-._crit_edge.loopexit:                             ; preds = %18
+._crit_edge.loopexit:                             ; preds = %19
   %.pre63 = load ptr, ptr %7, align 8, !tbaa !158
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %22 = phi ptr [ %.pre63, %._crit_edge.loopexit ], [ %8, %.preheader ]
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %22) #13
+  %23 = phi ptr [ %.pre63, %._crit_edge.loopexit ], [ %8, %.preheader ]
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %23) #13
   store ptr null, ptr %7, align 8, !tbaa !158
-  br label %23
+  br label %24
 
-23:                                               ; preds = %2, %._crit_edge
-  %24 = load ptr, ptr %4, align 8, !tbaa !163
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %24) #13
+24:                                               ; preds = %2, %._crit_edge
+  %25 = load ptr, ptr %4, align 8, !tbaa !163
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %25) #13
   store ptr null, ptr %4, align 8, !tbaa !163
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %26 = load ptr, ptr %25, align 8, !tbaa !164
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %26) #13
-  store ptr null, ptr %25, align 8, !tbaa !164
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %28 = load ptr, ptr %27, align 8, !tbaa !133
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %28) #13
-  store ptr null, ptr %27, align 8, !tbaa !133
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %30 = load ptr, ptr %29, align 8, !tbaa !130
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %30) #13
-  store ptr null, ptr %29, align 8, !tbaa !130
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %32 = load ptr, ptr %31, align 8, !tbaa !137
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %32) #13
-  store ptr null, ptr %31, align 8, !tbaa !137
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %34 = load ptr, ptr %33, align 8, !tbaa !96
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %34) #13
-  store ptr null, ptr %33, align 8, !tbaa !96
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store i32 0, ptr %35, align 8, !tbaa !95
-  %36 = load ptr, ptr %3, align 8, !tbaa !135
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %36) #13
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %27 = load ptr, ptr %26, align 8, !tbaa !164
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %27) #13
+  store ptr null, ptr %26, align 8, !tbaa !164
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %29 = load ptr, ptr %28, align 8, !tbaa !133
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %29) #13
+  store ptr null, ptr %28, align 8, !tbaa !133
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %31 = load ptr, ptr %30, align 8, !tbaa !130
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %31) #13
+  store ptr null, ptr %30, align 8, !tbaa !130
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %33 = load ptr, ptr %32, align 8, !tbaa !137
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %33) #13
+  store ptr null, ptr %32, align 8, !tbaa !137
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %35 = load ptr, ptr %34, align 8, !tbaa !96
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %35) #13
+  store ptr null, ptr %34, align 8, !tbaa !96
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  store i32 0, ptr %36, align 8, !tbaa !95
+  %37 = load ptr, ptr %3, align 8, !tbaa !135
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %37) #13
   store ptr null, ptr %3, align 8, !tbaa !135
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %38 = load ptr, ptr %37, align 8, !tbaa !165
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %38) #13
-  store ptr null, ptr %37, align 8, !tbaa !165
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %40 = load ptr, ptr %39, align 8, !tbaa !166
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %40) #13
-  store ptr null, ptr %39, align 8, !tbaa !166
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  %43 = load ptr, ptr %42, align 8, !tbaa !103
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %43) #13
-  store ptr null, ptr %42, align 8, !tbaa !103
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %45 = load ptr, ptr %44, align 8, !tbaa !102
-  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %45) #13
-  store ptr null, ptr %44, align 8, !tbaa !102
-  br label %46
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %39 = load ptr, ptr %38, align 8, !tbaa !165
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %39) #13
+  store ptr null, ptr %38, align 8, !tbaa !165
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %41 = load ptr, ptr %40, align 8, !tbaa !166
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %41) #13
+  store ptr null, ptr %40, align 8, !tbaa !166
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  %44 = load ptr, ptr %43, align 8, !tbaa !103
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %44) #13
+  store ptr null, ptr %43, align 8, !tbaa !103
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %46 = load ptr, ptr %45, align 8, !tbaa !102
+  tail call void @ft_mem_free(ptr noundef %6, ptr noundef %46) #13
+  store ptr null, ptr %45, align 8, !tbaa !102
+  br label %47
 
-46:                                               ; preds = %1, %23
+47:                                               ; preds = %1, %24
   ret void
 }
 
@@ -2483,38 +2484,41 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   %.not197 = icmp eq i32 %124, 0
   br i1 %.not197, label %._crit_edge195, label %.lr.ph194
 
-.lr.ph194:                                        ; preds = %.preheader, %133
-  %125 = phi ptr [ %135, %133 ], [ %123, %.preheader ]
-  %indvars.iv224 = phi i64 [ %indvars.iv.next225, %133 ], [ 0, %.preheader ]
-  %126 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %125, i64 %indvars.iv224, i32 1
-  %127 = load ptr, ptr %126, align 8, !tbaa !159
-  %.not148 = icmp eq ptr %127, null
-  br i1 %.not148, label %133, label %128
+.lr.ph194:                                        ; preds = %.preheader, %135
+  %125 = phi ptr [ %137, %135 ], [ %123, %.preheader ]
+  %indvars.iv224 = phi i64 [ %indvars.iv.next225, %135 ], [ 0, %.preheader ]
+  %126 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %125, i64 %indvars.iv224
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load ptr, ptr %127, align 8, !tbaa !159
+  %.not148 = icmp eq ptr %128, null
+  br i1 %.not148, label %135, label %129
 
-128:                                              ; preds = %.lr.ph194
-  %129 = load ptr, ptr %127, align 8, !tbaa !106
-  call void @ft_mem_free(ptr noundef %4, ptr noundef %129) #13
-  %130 = load ptr, ptr %13, align 8, !tbaa !158
-  %131 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %130, i64 %indvars.iv224, i32 1
-  %132 = load ptr, ptr %131, align 8, !tbaa !159
-  store ptr null, ptr %132, align 8, !tbaa !106
-  br label %133
+129:                                              ; preds = %.lr.ph194
+  %130 = load ptr, ptr %128, align 8, !tbaa !106
+  call void @ft_mem_free(ptr noundef %4, ptr noundef %130) #13
+  %131 = load ptr, ptr %13, align 8, !tbaa !158
+  %132 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %131, i64 %indvars.iv224
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %134 = load ptr, ptr %133, align 8, !tbaa !159
+  store ptr null, ptr %134, align 8, !tbaa !106
+  br label %135
 
-133:                                              ; preds = %.lr.ph194, %128
-  %134 = phi ptr [ null, %.lr.ph194 ], [ %132, %128 ]
-  call void @ft_mem_free(ptr noundef %4, ptr noundef %134) #13
-  %135 = load ptr, ptr %13, align 8, !tbaa !158
-  %136 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %135, i64 %indvars.iv224, i32 1
-  store ptr null, ptr %136, align 8, !tbaa !159
+135:                                              ; preds = %.lr.ph194, %129
+  %136 = phi ptr [ null, %.lr.ph194 ], [ %134, %129 ]
+  call void @ft_mem_free(ptr noundef %4, ptr noundef %136) #13
+  %137 = load ptr, ptr %13, align 8, !tbaa !158
+  %138 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %137, i64 %indvars.iv224
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  store ptr null, ptr %139, align 8, !tbaa !159
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %137 = load i32, ptr %9, align 8, !tbaa !95
-  %138 = zext i32 %137 to i64
-  %139 = icmp samesign ult i64 %indvars.iv.next225, %138
-  br i1 %139, label %.lr.ph194, label %._crit_edge195, !llvm.loop !269
+  %140 = load i32, ptr %9, align 8, !tbaa !95
+  %141 = zext i32 %140 to i64
+  %142 = icmp samesign ult i64 %indvars.iv.next225, %141
+  br i1 %142, label %.lr.ph194, label %._crit_edge195, !llvm.loop !269
 
-._crit_edge195:                                   ; preds = %133, %.preheader
-  %140 = phi ptr [ %123, %.preheader ], [ %135, %133 ]
-  call void @ft_mem_free(ptr noundef %4, ptr noundef nonnull %140) #13
+._crit_edge195:                                   ; preds = %135, %.preheader
+  %143 = phi ptr [ %123, %.preheader ], [ %137, %135 ]
+  call void @ft_mem_free(ptr noundef %4, ptr noundef nonnull %143) #13
   store ptr null, ptr %13, align 8, !tbaa !158
   br label %.loopexit171
 }

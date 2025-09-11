@@ -560,7 +560,7 @@ Insert_Field_By_Position.exit:                    ; preds = %93, %.critedge2.i
   %121 = load ptr, ptr %120, align 8, !tbaa !49
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 34
   %123 = load i16, ptr %122, align 2, !tbaa !47
-  %124 = getelementptr inbounds nuw %struct._PAGE, ptr %22, i64 %indvars.iv126, i32 3
+  %124 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %123, ptr %124, align 2, !tbaa !54
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129

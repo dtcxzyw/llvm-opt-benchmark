@@ -604,7 +604,7 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory14commit_segmentEim(ptr no
 
 14:                                               ; preds = %3
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %25, label %15
+  br i1 %.not, label %26, label %15
 
 15:                                               ; preds = %14
   %16 = add nsw i32 %1, 1
@@ -627,11 +627,12 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory14commit_segmentEim(ptr no
 
 .sink.split:                                      ; preds = %3, %15
   %24 = phi ptr [ %20, %15 ], [ %6, %3 ]
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %24, i64 %7, i32 2
+  %25 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %24, i64 %7
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 1, ptr %.sroa.3.0..sroa_idx.i, align 8
-  br label %25
+  br label %26
 
-25:                                               ; preds = %.sink.split, %14
+26:                                               ; preds = %.sink.split, %14
   ret i1 %13
 }
 
@@ -651,7 +652,7 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory16uncommit_segmentEim(ptr 
 
 14:                                               ; preds = %3
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %25, label %15
+  br i1 %.not, label %26, label %15
 
 15:                                               ; preds = %14
   %16 = add nsw i32 %1, 1
@@ -674,11 +675,12 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory16uncommit_segmentEim(ptr 
 
 .sink.split:                                      ; preds = %3, %15
   %24 = phi ptr [ %20, %15 ], [ %6, %3 ]
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %24, i64 %7, i32 2
+  %25 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %24, i64 %7
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 0, ptr %.sroa.3.0..sroa_idx.i, align 8
-  br label %25
+  br label %26
 
-25:                                               ; preds = %.sink.split, %14
+26:                                               ; preds = %.sink.split, %14
   ret i1 %13
 }
 
@@ -987,7 +989,7 @@ define hidden void @_ZN22XPhysicalMemoryManager19try_enable_uncommitEmm(ptr noun
   br i1 %47, label %_ZN15XPhysicalMemory14commit_segmentEim.exit.thread13.i, label %48
 
 _ZN15XPhysicalMemory14commit_segmentEim.exit.thread13.i: ; preds = %35
-  %.sroa.3.0..sroa_idx.i.i14.i = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %41, i64 %indvars.iv.i, i32 2
+  %.sroa.3.0..sroa_idx.i.i14.i = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i8 1, ptr %.sroa.3.0..sroa_idx.i.i14.i, align 8
   %.pre.i = load i32, ptr %10, align 8
   br label %54
@@ -1047,7 +1049,7 @@ _ZN15XPhysicalMemory14commit_segmentEim.exit.i:   ; preds = %48
   br i1 %76, label %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.thread13.i, label %77
 
 _ZN15XPhysicalMemory16uncommit_segmentEim.exit.thread13.i: ; preds = %64
-  %.sroa.3.0..sroa_idx.i.i14.i18 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %70, i64 %indvars.iv.i12, i32 2
+  %.sroa.3.0..sroa_idx.i.i14.i18 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i8 0, ptr %.sroa.3.0..sroa_idx.i.i14.i18, align 8
   %.pre.i19 = load i32, ptr %10, align 8
   br label %83
@@ -1078,16 +1080,16 @@ _ZN15XPhysicalMemory16uncommit_segmentEim.exit.i: ; preds = %77
   br i1 %.not.i14, label %.lr.ph.i11, label %.thread, !llvm.loop !17
 
 _ZN22XPhysicalMemoryManager6commitER15XPhysicalMemory.exit.sink.split: ; preds = %_ZN15XPhysicalMemory14commit_segmentEim.exit.i, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i
-  %indvars.iv.i12.lcssa.sink53 = phi i64 [ %indvars.iv.i12, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i ], [ %indvars.iv.i, %_ZN15XPhysicalMemory14commit_segmentEim.exit.i ]
+  %indvars.iv.i12.lcssa.sink = phi i64 [ %indvars.iv.i12, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i ], [ %indvars.iv.i, %_ZN15XPhysicalMemory14commit_segmentEim.exit.i ]
   %.lcssa41.sink = phi i64 [ %69, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i ], [ %40, %_ZN15XPhysicalMemory14commit_segmentEim.exit.i ]
   %.sink = phi i8 [ 0, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i ], [ 1, %_ZN15XPhysicalMemory14commit_segmentEim.exit.i ]
   %86 = load ptr, ptr %27, align 8
-  %87 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %86, i64 %indvars.iv.i12.lcssa.sink53
+  %87 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %86, i64 %indvars.iv.i12.lcssa.sink
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, %.lcssa41.sink
   %.sroa.2.0..sroa_idx.i.i.i16 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 %89, ptr %.sroa.2.0..sroa_idx.i.i.i16, align 8
-  %.sroa.3.0..sroa_idx.i.i.i17 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %86, i64 %indvars.iv.i12.lcssa.sink53, i32 2
+  %.sroa.3.0..sroa_idx.i.i.i17 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store i8 %.sink, ptr %.sroa.3.0..sroa_idx.i.i.i17, align 8
   br label %_ZN22XPhysicalMemoryManager6commitER15XPhysicalMemory.exit
 
@@ -1185,7 +1187,7 @@ define hidden noundef zeroext i1 @_ZN22XPhysicalMemoryManager6commitER15XPhysica
   br i1 %26, label %_ZN15XPhysicalMemory14commit_segmentEim.exit.thread13, label %27
 
 _ZN15XPhysicalMemory14commit_segmentEim.exit.thread13: ; preds = %14
-  %.sroa.3.0..sroa_idx.i.i14 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %20, i64 %indvars.iv, i32 2
+  %.sroa.3.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i8 1, ptr %.sroa.3.0..sroa_idx.i.i14, align 8
   %.pre = load i32, ptr %1, align 8
   br label %37
@@ -1212,7 +1214,7 @@ _ZN15XPhysicalMemory14commit_segmentEim.exit:     ; preds = %27
   %36 = add i64 %35, %19
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %36, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %33, i64 %indvars.iv, i32 2
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i8 1, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   br label %_ZN15XPhysicalMemory14commit_segmentEim.exit.thread
 
@@ -1265,7 +1267,7 @@ define hidden noundef zeroext i1 @_ZN22XPhysicalMemoryManager8uncommitER15XPhysi
   br i1 %26, label %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.thread13, label %27
 
 _ZN15XPhysicalMemory16uncommit_segmentEim.exit.thread13: ; preds = %14
-  %.sroa.3.0..sroa_idx.i.i14 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %20, i64 %indvars.iv, i32 2
+  %.sroa.3.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i8 0, ptr %.sroa.3.0..sroa_idx.i.i14, align 8
   %.pre = load i32, ptr %1, align 8
   br label %37
@@ -1292,7 +1294,7 @@ _ZN15XPhysicalMemory16uncommit_segmentEim.exit:   ; preds = %27
   %36 = add i64 %35, %19
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %36, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %33, i64 %indvars.iv, i32 2
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i8 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   br label %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.thread
 

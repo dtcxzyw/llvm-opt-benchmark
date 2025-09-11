@@ -2173,13 +2173,14 @@ invoke.cont:                                      ; preds = %if.end33, %invoke.c
   %10 = load ptr, ptr %this, align 8, !tbaa !66
   %conv17 = sext i32 %9 to i64
   %11 = load ptr, ptr %10, align 8, !tbaa !80
-  %centroid = getelementptr inbounds %class.MeshTriangle, ptr %11, i64 %conv17, i32 4
+  %centroid.split = getelementptr inbounds %class.MeshTriangle, ptr %11, i64 %conv17
+  %centroid = getelementptr inbounds nuw i8, ptr %centroid.split, i64 16
   %12 = load float, ptr %centroid, align 4, !tbaa !85
   %sub.i = fsub nsz float %12, %1
-  %Y.i210 = getelementptr inbounds nuw i8, ptr %centroid, i64 4
+  %Y.i210 = getelementptr inbounds nuw i8, ptr %centroid.split, i64 20
   %13 = load float, ptr %Y.i210, align 4, !tbaa !87
   %sub4.i = fsub nsz float %13, %0
-  %Z.i211 = getelementptr inbounds nuw i8, ptr %centroid, i64 8
+  %Z.i211 = getelementptr inbounds nuw i8, ptr %centroid.split, i64 24
   %14 = load float, ptr %Z.i211, align 4, !tbaa !88
   %sub6.i = fsub nsz float %14, %origin.coerce1
   %mul4.i = fmul nsz float %2, %sub4.i
@@ -2437,10 +2438,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %32 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i ], [ %37, %for.body.i ]
   %33 = load i32, ptr %__begin1.sroa.0.012.i, align 4, !tbaa !43
   %conv.i = sext i32 %33 to i64
-  %centroid.i = getelementptr inbounds %class.MeshTriangle, ptr %.val201, i64 %conv.i, i32 4
+  %centroid.i.split = getelementptr inbounds %class.MeshTriangle, ptr %.val201, i64 %conv.i
+  %centroid.i = getelementptr inbounds nuw i8, ptr %centroid.i.split, i64 16
   %34 = load <2 x float>, ptr %centroid.i, align 4, !tbaa !37
   %35 = fdiv nsz <2 x float> %34, %26
-  %Z.i59.i = getelementptr inbounds nuw i8, ptr %centroid.i, i64 8
+  %Z.i59.i = getelementptr inbounds nuw i8, ptr %centroid.i.split, i64 24
   %36 = load float, ptr %Z.i59.i, align 4, !tbaa !88
   %div3.i.i = fdiv nsz float %36, %conv7.i
   %37 = fadd nsz <2 x float> %32, %35
@@ -2649,10 +2651,11 @@ for.body.i343:                                    ; preds = %for.body.i343, %for
   %108 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i337 ], [ %113, %for.body.i343 ]
   %109 = load i32, ptr %__begin1.sroa.0.012.i347, align 4, !tbaa !43
   %conv.i348 = sext i32 %109 to i64
-  %centroid.i349 = getelementptr inbounds %class.MeshTriangle, ptr %.val, i64 %conv.i348, i32 4
+  %centroid.i349.split = getelementptr inbounds %class.MeshTriangle, ptr %.val, i64 %conv.i348
+  %centroid.i349 = getelementptr inbounds nuw i8, ptr %centroid.i349.split, i64 16
   %110 = load <2 x float>, ptr %centroid.i349, align 4, !tbaa !37
   %111 = fdiv nsz <2 x float> %110, %102
-  %Z.i59.i353 = getelementptr inbounds nuw i8, ptr %centroid.i349, i64 8
+  %Z.i59.i353 = getelementptr inbounds nuw i8, ptr %centroid.i349.split, i64 24
   %112 = load float, ptr %Z.i59.i353, align 4, !tbaa !88
   %div3.i.i354 = fdiv nsz float %112, %conv7.i342
   %113 = fadd nsz <2 x float> %108, %111
@@ -5028,7 +5031,8 @@ for.cond.cleanup310.for.cond.cleanup310.if.end342_crit_edge_crit_edge: ; preds =
 for.body311:                                      ; preds = %if.then303, %if.end324
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end324 ], [ 0, %if.then303 ]
   %228 = load ptr, ptr %vertices, align 8, !tbaa !363
-  %Color = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %228, i64 %indvars.iv, i32 2
+  %Color.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %228, i64 %indvars.iv
+  %Color = getelementptr inbounds nuw i8, ptr %Color.split, i64 24
   %229 = load i32, ptr %Color, align 4, !tbaa !43
   %shr.i = lshr i32 %229, 24
   %cmp318 = icmp ult i32 %229, 16777216
@@ -7636,7 +7640,8 @@ for.body157:                                      ; preds = %for.body131, %_Z17f
   %_M_storage.i.i259 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.0291, i64 32
   %79 = load i32, ptr %_M_storage.i.i259, align 4, !tbaa !365
   %idxprom160 = zext i32 %79 to i64
-  %Color = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %call148, i64 %idxprom160, i32 2
+  %Color.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %call148, i64 %idxprom160
+  %Color = getelementptr inbounds nuw i8, ptr %Color.split, i64 24
   %second162 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.0291, i64 36
   %80 = load atomic i8, ptr @_ZGVZ17final_color_blendPN3irr5video6SColorERKS1_RKNS0_7SColorfEE15artificialColor acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %80, 0
@@ -12606,7 +12611,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !363
-  %Normal = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 1
+  %Normal.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %Normal = getelementptr inbounds nuw i8, ptr %Normal.split, i64 12
   ret ptr %Normal
 }
 
@@ -12616,7 +12622,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !363
-  %Normal = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 1
+  %Normal.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %Normal = getelementptr inbounds nuw i8, ptr %Normal.split, i64 12
   ret ptr %Normal
 }
 
@@ -12626,7 +12633,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !363
-  %TCoords = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 3
+  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %TCoords = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 28
   ret ptr %TCoords
 }
 
@@ -12636,7 +12644,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !363
-  %TCoords = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 3
+  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %TCoords = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 28
   ret ptr %TCoords
 }
 

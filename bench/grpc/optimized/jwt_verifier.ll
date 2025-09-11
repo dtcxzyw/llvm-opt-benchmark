@@ -4965,15 +4965,16 @@ _ZL20verifier_get_mappingP17grpc_jwt_verifierPKc.exit: ; preds = %8, %.lr.ph.i, 
   %28 = tail call ptr @gpr_strdup(ptr noundef %2)
   %29 = load ptr, ptr %0, align 8, !tbaa !132
   %30 = load i64, ptr %15, align 8, !tbaa !135
-  %31 = getelementptr inbounds nuw %struct.email_key_mapping, ptr %29, i64 %30, i32 1
-  store ptr %28, ptr %31, align 8, !tbaa !139
-  %32 = add i64 %30, 1
-  store i64 %32, ptr %15, align 8, !tbaa !135
-  %33 = load i64, ptr %16, align 8, !tbaa !158
-  %.not25 = icmp ugt i64 %32, %33
-  br i1 %.not25, label %34, label %.critedge27, !prof !7
+  %31 = getelementptr inbounds nuw %struct.email_key_mapping, ptr %29, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %28, ptr %32, align 8, !tbaa !139
+  %33 = add i64 %30, 1
+  store i64 %33, ptr %15, align 8, !tbaa !135
+  %34 = load i64, ptr %16, align 8, !tbaa !158
+  %.not25 = icmp ugt i64 %33, %34
+  br i1 %.not25, label %35, label %.critedge27, !prof !7
 
-34:                                               ; preds = %23
+35:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.16, i32 noundef 802, i64 40, ptr nonnull @.str.92) #39
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #35
@@ -4986,12 +4987,12 @@ _ZL20verifier_get_mappingP17grpc_jwt_verifierPKc.exit: ; preds = %8, %.lr.ph.i, 
 ; Function Attrs: mustprogress uwtable
 define void @_Z25grpc_jwt_verifier_destroyP17grpc_jwt_verifier(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %18, label %3
+  br i1 %2, label %19, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8, !tbaa !132
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %17, label %.preheader
+  br i1 %.not, label %18, label %.preheader
 
 .preheader:                                       ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5000,34 +5001,35 @@ define void @_Z25grpc_jwt_verifier_destroyP17grpc_jwt_verifier(ptr noundef %0) l
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.011 = phi i64 [ %13, %.lr.ph ], [ 0, %.preheader ]
+  %.011 = phi i64 [ %14, %.lr.ph ], [ 0, %.preheader ]
   %7 = load ptr, ptr %0, align 8, !tbaa !132
   %8 = getelementptr inbounds nuw %struct.email_key_mapping, ptr %7, i64 %.011
   %9 = load ptr, ptr %8, align 8, !tbaa !137
   tail call void @gpr_free(ptr noundef %9)
   %10 = load ptr, ptr %0, align 8, !tbaa !132
-  %11 = getelementptr inbounds nuw %struct.email_key_mapping, ptr %10, i64 %.011, i32 1
-  %12 = load ptr, ptr %11, align 8, !tbaa !139
-  tail call void @gpr_free(ptr noundef %12)
-  %13 = add nuw i64 %.011, 1
-  %14 = load i64, ptr %5, align 8, !tbaa !135
-  %15 = icmp ult i64 %13, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !163
+  %11 = getelementptr inbounds nuw %struct.email_key_mapping, ptr %10, i64 %.011
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !139
+  tail call void @gpr_free(ptr noundef %13)
+  %14 = add nuw i64 %.011, 1
+  %15 = load i64, ptr %5, align 8, !tbaa !135
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !163
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %0, align 8, !tbaa !132
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %16 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %4, %.preheader ]
-  tail call void @gpr_free(ptr noundef %16)
-  br label %17
-
-17:                                               ; preds = %._crit_edge, %3
-  tail call void @gpr_free(ptr noundef nonnull %0)
+  %17 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %4, %.preheader ]
+  tail call void @gpr_free(ptr noundef %17)
   br label %18
 
-18:                                               ; preds = %1, %17
+18:                                               ; preds = %._crit_edge, %3
+  tail call void @gpr_free(ptr noundef nonnull %0)
+  br label %19
+
+19:                                               ; preds = %1, %18
   ret void
 }
 

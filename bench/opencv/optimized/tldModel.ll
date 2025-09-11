@@ -1654,110 +1654,112 @@ _ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit._crit_edge:   ; preds = %_ZN2cv4Mat_IhEC2ENS
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %78
+  br label %80
 
 20:                                               ; preds = %.lr.ph30, %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit
   %indvars.iv32 = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next33, %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit ]
-  %21 = phi ptr [ %10, %.lr.ph30 ], [ %70, %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit ]
+  %21 = phi ptr [ %10, %.lr.ph30 ], [ %72, %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit ]
   %22 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %21, i64 %indvars.iv32
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 33
   %24 = load i8, ptr %23, align 1, !tbaa !157, !range !160, !noundef !161
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %33
+  br i1 %25, label %26, label %34
 
 26:                                               ; preds = %20
   invoke void @_ZN2cv8tracking4impl3tld8resampleERKNS_3MatERKNS_5Rect_IdEERNS_4Mat_IhEE(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(96) %5)
-          to label %.invoke unwind label %31
+          to label %.invoke unwind label %32
 
 .invoke:                                          ; preds = %26
   %27 = load ptr, ptr %3, align 8, !tbaa !156
-  %28 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %27, i64 %indvars.iv32, i32 1
-  %29 = load i8, ptr %28, align 8, !tbaa !162, !range !160, !noundef !161
-  %30 = trunc nuw i8 %29 to i1
-  invoke void @_ZN2cv8tracking4impl3tld15TrackerTLDModel13pushIntoModelERKNS_4Mat_IhEEb(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(96) %5, i1 noundef zeroext %30)
-          to label %33 unwind label %31
+  %28 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %27, i64 %indvars.iv32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %30 = load i8, ptr %29, align 8, !tbaa !162, !range !160, !noundef !161
+  %31 = trunc nuw i8 %30 to i1
+  invoke void @_ZN2cv8tracking4impl3tld15TrackerTLDModel13pushIntoModelERKNS_4Mat_IhEEb(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(96) %5, i1 noundef zeroext %31)
+          to label %34 unwind label %32
 
-31:                                               ; preds = %.invoke, %39, %26
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %.invoke, %40, %26
+  %33 = landingpad { ptr, i32 }
           cleanup
-  br label %77
+  br label %79
 
-33:                                               ; preds = %.invoke, %20
-  %34 = load ptr, ptr %3, align 8, !tbaa !156
-  %35 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %34, i64 %indvars.iv32
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 33
-  %37 = load i8, ptr %36, align 1, !tbaa !157, !range !160, !noundef !161
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit
+34:                                               ; preds = %.invoke, %20
+  %35 = load ptr, ptr %3, align 8, !tbaa !156
+  %36 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %35, i64 %indvars.iv32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 33
+  %38 = load i8, ptr %37, align 1, !tbaa !157, !range !160, !noundef !161
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit
 
-39:                                               ; preds = %33
-  invoke void @_ZN2cv8tracking4impl3tld8resampleERKNS_3MatERKNS_5Rect_IdEERNS_4Mat_IhEE(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(96) %6)
-          to label %.preheader unwind label %31
+40:                                               ; preds = %34
+  invoke void @_ZN2cv8tracking4impl3tld8resampleERKNS_3MatERKNS_5Rect_IdEERNS_4Mat_IhEE(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(96) %6)
+          to label %.preheader unwind label %32
 
-.preheader:                                       ; preds = %39
-  %40 = load ptr, ptr %17, align 8, !tbaa !21
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !139
-  %43 = load ptr, ptr %40, align 8, !tbaa !140
-  %44 = ptrtoint ptr %42 to i64
+.preheader:                                       ; preds = %40
+  %41 = load ptr, ptr %17, align 8, !tbaa !21
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !139
+  %44 = load ptr, ptr %41, align 8, !tbaa !140
   %45 = ptrtoint ptr %43 to i64
-  %46 = sub i64 %44, %45
-  %47 = sdiv exact i64 %46, 80
-  %48 = trunc i64 %47 to i32
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.lr.ph, label %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %48 = sdiv exact i64 %47, 80
+  %49 = trunc i64 %48 to i32
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %.lr.ph, label %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit
 
-.lr.ph:                                           ; preds = %.preheader, %56
-  %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.preheader ]
-  %50 = phi ptr [ %60, %56 ], [ %43, %.preheader ]
-  %51 = getelementptr inbounds nuw %"class.cv::tracking::impl::tld::TLDEnsembleClassifier", ptr %50, i64 %indvars.iv
-  %52 = load ptr, ptr %3, align 8, !tbaa !156
-  %53 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %52, i64 %indvars.iv32, i32 1
-  %54 = load i8, ptr %53, align 8, !tbaa !162, !range !160, !noundef !161
-  %55 = trunc nuw i8 %54 to i1
-  invoke void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier9integrateERKNS_4Mat_IhEEb(ptr noundef nonnull align 8 dereferenceable(76) %51, ptr noundef nonnull align 8 dereferenceable(96) %6, i1 noundef zeroext %55)
-          to label %56 unwind label %67
+.lr.ph:                                           ; preds = %.preheader, %58
+  %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.preheader ]
+  %51 = phi ptr [ %62, %58 ], [ %44, %.preheader ]
+  %52 = getelementptr inbounds nuw %"class.cv::tracking::impl::tld::TLDEnsembleClassifier", ptr %51, i64 %indvars.iv
+  %53 = load ptr, ptr %3, align 8, !tbaa !156
+  %54 = getelementptr inbounds nuw %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %53, i64 %indvars.iv32
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %56 = load i8, ptr %55, align 8, !tbaa !162, !range !160, !noundef !161
+  %57 = trunc nuw i8 %56 to i1
+  invoke void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier9integrateERKNS_4Mat_IhEEb(ptr noundef nonnull align 8 dereferenceable(76) %52, ptr noundef nonnull align 8 dereferenceable(96) %6, i1 noundef zeroext %57)
+          to label %58 unwind label %69
 
-56:                                               ; preds = %.lr.ph
+58:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = load ptr, ptr %17, align 8, !tbaa !21
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !139
-  %60 = load ptr, ptr %57, align 8, !tbaa !140
-  %61 = ptrtoint ptr %59 to i64
-  %62 = ptrtoint ptr %60 to i64
-  %63 = sub i64 %61, %62
-  %64 = sdiv exact i64 %63, 80
-  %sext = shl i64 %64, 32
-  %65 = ashr exact i64 %sext, 32
-  %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %.lr.ph, label %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit, !llvm.loop !163
+  %59 = load ptr, ptr %17, align 8, !tbaa !21
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !139
+  %62 = load ptr, ptr %59, align 8, !tbaa !140
+  %63 = ptrtoint ptr %61 to i64
+  %64 = ptrtoint ptr %62 to i64
+  %65 = sub i64 %63, %64
+  %66 = sdiv exact i64 %65, 80
+  %sext = shl i64 %66, 32
+  %67 = ashr exact i64 %sext, 32
+  %68 = icmp slt i64 %indvars.iv.next, %67
+  br i1 %68, label %.lr.ph, label %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit, !llvm.loop !163
 
-67:                                               ; preds = %.lr.ph
-  %68 = landingpad { ptr, i32 }
+69:                                               ; preds = %.lr.ph
+  %70 = landingpad { ptr, i32 }
           cleanup
-  br label %77
+  br label %79
 
-_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit:              ; preds = %56, %.preheader, %33
+_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit:              ; preds = %58, %.preheader, %34
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %69 = load ptr, ptr %8, align 8, !tbaa !153
-  %70 = load ptr, ptr %3, align 8, !tbaa !156
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = sdiv exact i64 %73, 40
-  %sext35 = shl i64 %74, 32
-  %75 = ashr exact i64 %sext35, 32
-  %76 = icmp slt i64 %indvars.iv.next33, %75
-  br i1 %76, label %20, label %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit._crit_edge, !llvm.loop !164
+  %71 = load ptr, ptr %8, align 8, !tbaa !153
+  %72 = load ptr, ptr %3, align 8, !tbaa !156
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = sdiv exact i64 %75, 40
+  %sext35 = shl i64 %76, 32
+  %77 = ashr exact i64 %sext35, 32
+  %78 = icmp slt i64 %indvars.iv.next33, %77
+  br i1 %78, label %20, label %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit._crit_edge, !llvm.loop !164
 
-77:                                               ; preds = %67, %31
-  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %32, %31 ]
+79:                                               ; preds = %69, %32
+  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %33, %32 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #24
-  br label %78
+  br label %80
 
-78:                                               ; preds = %77, %18
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %77 ], [ %19, %18 ]
+80:                                               ; preds = %79, %18
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %79 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

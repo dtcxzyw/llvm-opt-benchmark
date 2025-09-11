@@ -697,8 +697,7 @@ define internal i32 @cook_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %57 = load i8, ptr %56, align 1, !tbaa !40
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 1
-  %.idx = mul nuw nsw i64 %indvars.iv, 8456
-  %60 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
+  %60 = getelementptr inbounds nuw %struct.COOKSubpacket, ptr %30, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %59, ptr %61, align 4, !tbaa !86
   %.neg = xor i32 %59, -1

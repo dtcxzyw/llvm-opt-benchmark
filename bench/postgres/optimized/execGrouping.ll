@@ -995,27 +995,28 @@ define dso_local void @tuplehash_start_iterate(ptr noundef readonly captures(non
   %5 = load ptr, ptr %4, align 8
   br label %6
 
-6:                                                ; preds = %.lr.ph, %10
-  %7 = phi i64 [ 0, %.lr.ph ], [ %12, %10 ]
-  %.01315 = phi i32 [ 0, %.lr.ph ], [ %11, %10 ]
-  %8 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %5, i64 %7, i32 2
-  %9 = load i32, ptr %8, align 8
-  %.not = icmp eq i32 %9, 1
-  br i1 %.not, label %10, label %._crit_edge
+6:                                                ; preds = %.lr.ph, %11
+  %7 = phi i64 [ 0, %.lr.ph ], [ %13, %11 ]
+  %.01315 = phi i32 [ 0, %.lr.ph ], [ %12, %11 ]
+  %8 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %5, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load i32, ptr %9, align 8
+  %.not = icmp eq i32 %10, 1
+  br i1 %.not, label %11, label %._crit_edge
 
-10:                                               ; preds = %6
-  %11 = add i32 %.01315, 1
-  %12 = zext i32 %11 to i64
-  %13 = icmp ugt i64 %3, %12
-  br i1 %13, label %6, label %._crit_edge, !llvm.loop !10
+11:                                               ; preds = %6
+  %12 = add i32 %.01315, 1
+  %13 = zext i32 %12 to i64
+  %14 = icmp ugt i64 %3, %13
+  br i1 %14, label %6, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %6, %10, %2
-  %.1 = phi i32 [ -1, %2 ], [ -1, %10 ], [ %.01315, %6 ]
+._crit_edge:                                      ; preds = %6, %11, %2
+  %.1 = phi i32 [ -1, %2 ], [ -1, %11 ], [ %.01315, %6 ]
   store i32 %.1, ptr %1, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %.1, ptr %14, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 0, ptr %15, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %.1, ptr %15, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 0, ptr %16, align 4
   ret void
 }
 

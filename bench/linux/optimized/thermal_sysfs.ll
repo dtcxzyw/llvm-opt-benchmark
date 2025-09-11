@@ -120,9 +120,9 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %31 = sext i32 %30 to i64
   %32 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %31, i64 56)
   %33 = extractvalue { i64, i1 } %32, 1
-  br i1 %33, label %.thread6, label %35, !prof !5
+  br i1 %33, label %.thread18, label %35, !prof !5
 
-.thread6:                                         ; preds = %29
+.thread18:                                        ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store ptr null, ptr %34, align 8
   br label %40
@@ -135,7 +135,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %39 = icmp eq ptr %37, null
   br i1 %39, label %40, label %43
 
-40:                                               ; preds = %.thread6, %35
+40:                                               ; preds = %.thread18, %35
   %41 = load ptr, ptr %16, align 8
   tail call void @kfree(ptr noundef %41) #15
   %42 = load ptr, ptr %27, align 8
@@ -146,14 +146,14 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %45 = mul i32 %44, 3
   %46 = add i32 %45, 1
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %.thread7, label %48, !prof !5
+  br i1 %47, label %.thread19, label %48, !prof !5
 
 48:                                               ; preds = %43
   %49 = zext nneg i32 %46 to i64
   %50 = shl nuw nsw i64 %49, 3
   %51 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %50, i32 noundef 3520) #14
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread7, label %53
+  br i1 %52, label %.thread19, label %53
 
 53:                                               ; preds = %48
   %54 = load i32, ptr %7, align 8
@@ -164,7 +164,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 928
   br label %61
 
-.thread7:                                         ; preds = %43, %48
+.thread19:                                        ; preds = %43, %48
   %58 = load ptr, ptr %16, align 8
   tail call void @kfree(ptr noundef %58) #15
   %59 = load ptr, ptr %27, align 8
@@ -175,7 +175,8 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
 61:                                               ; preds = %125, %56
   %62 = phi i64 [ 0, %56 ], [ %133, %125 ]
   %63 = load ptr, ptr %16, align 8
-  %64 = getelementptr %struct.thermal_attr, ptr %63, i64 %62, i32 1
+  %.split = getelementptr %struct.thermal_attr, ptr %63, i64 %62
+  %64 = getelementptr i8, ptr %.split, i64 32
   %65 = trunc i64 %62 to i32
   %66 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %64, i64 noundef 20, ptr noundef nonnull @.str.20, i32 noundef %65) #15
   %67 = load ptr, ptr %16, align 8
@@ -183,27 +184,32 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store ptr %69, ptr %68, align 8
   %70 = load ptr, ptr %16, align 8
-  %71 = getelementptr %struct.thermal_attr, ptr %70, i64 %62, i32 0, i32 0, i32 1
+  %.split6 = getelementptr %struct.thermal_attr, ptr %70, i64 %62
+  %71 = getelementptr i8, ptr %.split6, i64 8
   store i16 292, ptr %71, align 8
   %72 = load ptr, ptr %16, align 8
-  %73 = getelementptr %struct.thermal_attr, ptr %72, i64 %62, i32 0, i32 1
+  %.split7 = getelementptr %struct.thermal_attr, ptr %72, i64 %62
+  %73 = getelementptr i8, ptr %.split7, i64 16
   store ptr @trip_point_type_show, ptr %73, align 8
   %74 = load ptr, ptr %16, align 8
   %75 = getelementptr %struct.thermal_attr, ptr %74, i64 %62
   %76 = getelementptr ptr, ptr %51, i64 %62
   store ptr %75, ptr %76, align 8
   %77 = load ptr, ptr %27, align 8
-  %78 = getelementptr %struct.thermal_attr, ptr %77, i64 %62, i32 1
+  %.split8 = getelementptr %struct.thermal_attr, ptr %77, i64 %62
+  %78 = getelementptr i8, ptr %.split8, i64 32
   %79 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %78, i64 noundef 20, ptr noundef nonnull @.str.21, i32 noundef %65) #15
   %80 = load ptr, ptr %27, align 8
   %81 = getelementptr %struct.thermal_attr, ptr %80, i64 %62
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store ptr %82, ptr %81, align 8
   %83 = load ptr, ptr %27, align 8
-  %84 = getelementptr %struct.thermal_attr, ptr %83, i64 %62, i32 0, i32 0, i32 1
+  %.split9 = getelementptr %struct.thermal_attr, ptr %83, i64 %62
+  %84 = getelementptr i8, ptr %.split9, i64 8
   store i16 292, ptr %84, align 8
   %85 = load ptr, ptr %27, align 8
-  %86 = getelementptr %struct.thermal_attr, ptr %85, i64 %62, i32 0, i32 1
+  %.split10 = getelementptr %struct.thermal_attr, ptr %85, i64 %62
+  %86 = getelementptr i8, ptr %.split10, i64 16
   store ptr @trip_point_temp_show, ptr %86, align 8
   %87 = shl nuw i32 1, %65
   %88 = and i32 %87, %1
@@ -212,12 +218,14 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
 
 90:                                               ; preds = %61
   %91 = load ptr, ptr %27, align 8
-  %92 = getelementptr %struct.thermal_attr, ptr %91, i64 %62, i32 0, i32 0, i32 1
+  %.split11 = getelementptr %struct.thermal_attr, ptr %91, i64 %62
+  %92 = getelementptr i8, ptr %.split11, i64 8
   %93 = load i16, ptr %92, align 8
   %94 = or i16 %93, 128
   store i16 %94, ptr %92, align 8
   %95 = load ptr, ptr %27, align 8
-  %96 = getelementptr %struct.thermal_attr, ptr %95, i64 %62, i32 0, i32 2
+  %.split12 = getelementptr %struct.thermal_attr, ptr %95, i64 %62
+  %96 = getelementptr i8, ptr %.split12, i64 24
   store ptr @trip_point_temp_store, ptr %96, align 8
   br label %97
 
@@ -230,17 +238,20 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %103 = getelementptr ptr, ptr %51, i64 %102
   store ptr %99, ptr %103, align 8
   %104 = load ptr, ptr %38, align 8
-  %105 = getelementptr %struct.thermal_attr, ptr %104, i64 %62, i32 1
+  %.split13 = getelementptr %struct.thermal_attr, ptr %104, i64 %62
+  %105 = getelementptr i8, ptr %.split13, i64 32
   %106 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %105, i64 noundef 20, ptr noundef nonnull @.str.22, i32 noundef %65) #15
   %107 = load ptr, ptr %38, align 8
   %108 = getelementptr %struct.thermal_attr, ptr %107, i64 %62
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
   store ptr %109, ptr %108, align 8
   %110 = load ptr, ptr %38, align 8
-  %111 = getelementptr %struct.thermal_attr, ptr %110, i64 %62, i32 0, i32 0, i32 1
+  %.split14 = getelementptr %struct.thermal_attr, ptr %110, i64 %62
+  %111 = getelementptr i8, ptr %.split14, i64 8
   store i16 292, ptr %111, align 8
   %112 = load ptr, ptr %38, align 8
-  %113 = getelementptr %struct.thermal_attr, ptr %112, i64 %62, i32 0, i32 1
+  %.split15 = getelementptr %struct.thermal_attr, ptr %112, i64 %62
+  %113 = getelementptr i8, ptr %.split15, i64 16
   store ptr @trip_point_hyst_show, ptr %113, align 8
   %114 = load ptr, ptr %57, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 48
@@ -250,12 +261,14 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
 
 118:                                              ; preds = %97
   %119 = load ptr, ptr %38, align 8
-  %120 = getelementptr %struct.thermal_attr, ptr %119, i64 %62, i32 0, i32 0, i32 1
+  %.split16 = getelementptr %struct.thermal_attr, ptr %119, i64 %62
+  %120 = getelementptr i8, ptr %.split16, i64 8
   %121 = load i16, ptr %120, align 8
   %122 = or i16 %121, 128
   store i16 %122, ptr %120, align 8
   %123 = load ptr, ptr %38, align 8
-  %124 = getelementptr %struct.thermal_attr, ptr %123, i64 %62, i32 0, i32 2
+  %.split17 = getelementptr %struct.thermal_attr, ptr %123, i64 %62
+  %124 = getelementptr i8, ptr %.split17, i64 24
   store ptr @trip_point_hyst_store, ptr %124, align 8
   br label %125
 
@@ -273,8 +286,8 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_create_device_group
   %135 = icmp slt i64 %133, %134
   br i1 %135, label %61, label %.loopexit, !llvm.loop !6
 
-.sink.split:                                      ; preds = %.thread, %._crit_edge, %40, %.thread7
-  %.sink = phi ptr [ %60, %.thread7 ], [ %42, %40 ], [ %.pre, %._crit_edge ], [ %15, %.thread ]
+.sink.split:                                      ; preds = %.thread, %._crit_edge, %40, %.thread19
+  %.sink = phi ptr [ %60, %.thread19 ], [ %42, %40 ], [ %.pre, %._crit_edge ], [ %15, %.thread ]
   tail call void @kfree(ptr noundef %.sink) #15
   br label %136
 
@@ -974,7 +987,8 @@ define internal noundef range(i64 -22, 10) i64 @trip_point_type_show(ptr noundef
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %4, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr %struct.thermal_trip, ptr %10, i64 %12, i32 3
+  %.split = getelementptr %struct.thermal_trip, ptr %10, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 12
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %19 [
     i32 3, label %15
@@ -1122,7 +1136,8 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @trip_point_hyst_
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %4, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr %struct.thermal_trip, ptr %10, i64 %12, i32 1
+  %.split = getelementptr %struct.thermal_trip, ptr %10, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14) #15
   %16 = sext i32 %15 to i64

@@ -183,22 +183,20 @@ define void @_Z16SolveChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
   br i1 %.not, label %.lr.ph._crit_edge, label %8
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.pre12 = shl i64 %7, 32
-  %.pre13 = ashr exact i64 %.pre12, 32
+  %.pre11 = shl i64 %7, 32
+  %.pre12 = ashr exact i64 %.pre11, 32
   br label %27
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %sext = shl i64 %7, 32
   %10 = ashr exact i64 %sext, 32
-  %.idx = mul nsw i64 %10, 96
-  %11 = getelementptr i8, ptr %9, i64 %.idx
-  %12 = getelementptr i8, ptr %11, i64 4
+  %11 = getelementptr inbounds %struct.deal, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = ashr i64 %7, 32
-  %.idx10 = mul nsw i64 %14, 96
-  %15 = getelementptr i8, ptr %9, i64 %.idx10
-  %16 = getelementptr i8, ptr %15, i64 4
+  %15 = getelementptr inbounds %struct.deal, ptr %9, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %13, %17
   br i1 %18, label %19, label %27
@@ -218,7 +216,7 @@ define void @_Z16SolveChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
   br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 27:                                               ; preds = %.lr.ph._crit_edge, %8
-  %.pre-phi = phi i64 [ %.pre13, %.lr.ph._crit_edge ], [ %10, %8 ]
+  %.pre-phi = phi i64 [ %.pre12, %.lr.ph._crit_edge ], [ %10, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
@@ -264,7 +262,7 @@ define noundef i32 @_Z15SolveAllBoardsNR6boardsR12solvedBoards(ptr noundef nonnu
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @param, i64 24), align 8
   %3 = load i32, ptr %0, align 4
   %4 = icmp sgt i32 %3, 200
-  br i1 %4, label %14, label %5
+  br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @param, i64 8), align 8
@@ -276,26 +274,27 @@ define noundef i32 @_Z15SolveAllBoardsNR6boardsR12solvedBoards(ptr noundef nonnu
 
 7:                                                ; preds = %5, %7
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw %struct.futureTricks, ptr %1, i64 %indvars.iv, i32 2
-  store i32 0, ptr %8, align 4
+  %8 = getelementptr inbounds nuw %struct.futureTricks, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 0, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 200
-  br i1 %exitcond.not, label %9, label %7, !llvm.loop !7
+  br i1 %exitcond.not, label %10, label %7, !llvm.loop !7
 
-9:                                                ; preds = %7
-  %10 = tail call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
-  %.not = icmp eq i32 %10, 1
-  br i1 %.not, label %11, label %14
+10:                                               ; preds = %7
+  %11 = tail call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
+  %.not = icmp eq i32 %11, 1
+  br i1 %.not, label %12, label %15
 
-11:                                               ; preds = %9
-  %12 = load i32, ptr @param, align 8
-  store i32 %12, ptr %1, align 4
-  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @param, i64 24), align 8
-  %. = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
-  br label %14
+12:                                               ; preds = %10
+  %13 = load i32, ptr @param, align 8
+  store i32 %13, ptr %1, align 4
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @param, i64 24), align 8
+  %. = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
+  br label %15
 
-14:                                               ; preds = %11, %9, %2
-  %.0 = phi i32 [ -101, %2 ], [ %10, %9 ], [ %., %11 ]
+15:                                               ; preds = %12, %10, %2
+  %.0 = phi i32 [ -101, %2 ], [ %11, %10 ], [ %., %12 ]
   ret i32 %.0
 }
 
@@ -449,26 +448,27 @@ define i32 @SolveAllBoards(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3
 
 54:                                               ; preds = %54, %51
   %indvars.iv.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i, %54 ]
-  %55 = getelementptr inbounds nuw %struct.futureTricks, ptr %1, i64 %indvars.iv.i, i32 2
-  store i32 0, ptr %55, align 4
+  %55 = getelementptr inbounds nuw %struct.futureTricks, ptr %1, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i32 0, ptr %56, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
-  br i1 %exitcond.not.i, label %56, label %54, !llvm.loop !7
+  br i1 %exitcond.not.i, label %57, label %54, !llvm.loop !7
 
-56:                                               ; preds = %54
-  %57 = call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
-  %.not.i = icmp eq i32 %57, 1
-  br i1 %.not.i, label %58, label %_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit
+57:                                               ; preds = %54
+  %58 = call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
+  %.not.i = icmp eq i32 %58, 1
+  br i1 %.not.i, label %59, label %_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit
 
-58:                                               ; preds = %56
-  %59 = load i32, ptr @param, align 8
-  store i32 %59, ptr %1, align 4
-  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @param, i64 24), align 8
-  %..i = call i32 @llvm.umax.i32(i32 %60, i32 1)
+59:                                               ; preds = %57
+  %60 = load i32, ptr @param, align 8
+  store i32 %60, ptr %1, align 4
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @param, i64 24), align 8
+  %..i = call i32 @llvm.umax.i32(i32 %61, i32 1)
   br label %_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit
 
-_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit:  ; preds = %46, %58, %56, %._crit_edge, %2
-  %.0 = phi i32 [ -101, %2 ], [ -101, %._crit_edge ], [ %57, %56 ], [ %..i, %58 ], [ -99, %46 ]
+_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit:  ; preds = %46, %59, %57, %._crit_edge, %2
+  %.0 = phi i32 [ -101, %2 ], [ -101, %._crit_edge ], [ %58, %57 ], [ %..i, %59 ], [ -99, %46 ]
   ret i32 %.0
 }
 
@@ -521,26 +521,27 @@ define i32 @SolveAllChunksBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 
 10:                                               ; preds = %10, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw %struct.futureTricks, ptr %1, i64 %indvars.iv.i, i32 2
-  store i32 0, ptr %11, align 4
+  %11 = getelementptr inbounds nuw %struct.futureTricks, ptr %1, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 0, ptr %12, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
-  br i1 %exitcond.not.i, label %12, label %10, !llvm.loop !7
+  br i1 %exitcond.not.i, label %13, label %10, !llvm.loop !7
 
-12:                                               ; preds = %10
-  %13 = tail call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
-  %.not.i = icmp eq i32 %13, 1
-  br i1 %.not.i, label %14, label %_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit
+13:                                               ; preds = %10
+  %14 = tail call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
+  %.not.i = icmp eq i32 %14, 1
+  br i1 %.not.i, label %15, label %_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit
 
-14:                                               ; preds = %12
-  %15 = load i32, ptr @param, align 8
-  store i32 %15, ptr %1, align 4
-  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @param, i64 24), align 8
-  %..i = tail call i32 @llvm.umax.i32(i32 %16, i32 1)
+15:                                               ; preds = %13
+  %16 = load i32, ptr @param, align 8
+  store i32 %16, ptr %1, align 4
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @param, i64 24), align 8
+  %..i = tail call i32 @llvm.umax.i32(i32 %17, i32 1)
   br label %_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit
 
-_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit:  ; preds = %14, %12, %5, %3
-  %.0 = phi i32 [ -301, %3 ], [ -101, %5 ], [ %13, %12 ], [ %..i, %14 ]
+_Z15SolveAllBoardsNR6boardsR12solvedBoards.exit:  ; preds = %15, %13, %5, %3
+  %.0 = phi i32 [ -301, %3 ], [ -101, %5 ], [ %14, %13 ], [ %..i, %15 ]
   ret i32 %.0
 }
 
@@ -690,124 +691,120 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %39, %_ZNSt6vectorIi
   br i1 %65, label %.lr.ph36, label %.loopexit
 
 .lr.ph36:                                         ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
-  %.idx.i = mul nuw nsw i64 %indvars.iv49, 96
-  %66 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i
+  %66 = getelementptr inbounds nuw %struct.deal, ptr %26, i64 %indvars.iv49
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv49
   %69 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv49
   %70 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv49
-  %71 = getelementptr inbounds nuw %struct.deal, ptr %26, i64 %indvars.iv49
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 20
-  %75 = trunc nuw i64 %indvars.iv49 to i32
-  br label %76
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 20
+  %74 = trunc nuw i64 %indvars.iv49 to i32
+  br label %75
 
-76:                                               ; preds = %.lr.ph36, %_Z9SameBoardRK6boardsjj.exit.thread
+75:                                               ; preds = %.lr.ph36, %_Z9SameBoardRK6boardsjj.exit.thread
   %indvars.iv45 = phi i64 [ %indvars.iv43, %.lr.ph36 ], [ %indvars.iv.next46, %_Z9SameBoardRK6boardsjj.exit.thread ]
-  %.idx55.i = mul nuw nsw i64 %indvars.iv45, 96
-  %77 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx55.i
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  br label %.preheader57.i
+  %76 = getelementptr inbounds nuw %struct.deal, ptr %26, i64 %indvars.iv45
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  br label %.preheader56.i
 
-.preheader57.i:                                   ; preds = %87, %76
-  %indvars.iv64.i = phi i64 [ 0, %76 ], [ %indvars.iv.next65.i, %87 ]
-  %79 = getelementptr inbounds nuw [4 x i32], ptr %67, i64 %indvars.iv64.i
-  %80 = getelementptr inbounds nuw [4 x i32], ptr %78, i64 %indvars.iv64.i
-  br label %82
+.preheader56.i:                                   ; preds = %86, %75
+  %indvars.iv63.i = phi i64 [ 0, %75 ], [ %indvars.iv.next64.i, %86 ]
+  %78 = getelementptr inbounds nuw [4 x i32], ptr %67, i64 %indvars.iv63.i
+  %79 = getelementptr inbounds nuw [4 x i32], ptr %77, i64 %indvars.iv63.i
+  br label %81
 
-81:                                               ; preds = %82
+80:                                               ; preds = %81
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %87, label %82, !llvm.loop !12
+  br i1 %exitcond.not.i, label %86, label %81, !llvm.loop !12
 
-82:                                               ; preds = %81, %.preheader57.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader57.i ], [ %indvars.iv.next.i, %81 ]
-  %83 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i
-  %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i
-  %86 = load i32, ptr %85, align 4
-  %.not56.i = icmp eq i32 %84, %86
-  br i1 %.not56.i, label %81, label %_Z9SameBoardRK6boardsjj.exit.thread
+81:                                               ; preds = %80, %.preheader56.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader56.i ], [ %indvars.iv.next.i, %80 ]
+  %82 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv.i
+  %83 = load i32, ptr %82, align 4
+  %84 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i
+  %85 = load i32, ptr %84, align 4
+  %.not55.i = icmp eq i32 %83, %85
+  br i1 %.not55.i, label %80, label %_Z9SameBoardRK6boardsjj.exit.thread
 
-87:                                               ; preds = %81
-  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 4
-  br i1 %exitcond67.not.i, label %88, label %.preheader57.i, !llvm.loop !13
+86:                                               ; preds = %80
+  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
+  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 4
+  br i1 %exitcond66.not.i, label %87, label %.preheader56.i, !llvm.loop !13
 
-88:                                               ; preds = %87
-  %89 = load i32, ptr %68, align 4
-  %90 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv45
-  %91 = load i32, ptr %90, align 4
-  %.not.i = icmp eq i32 %89, %91
-  br i1 %.not.i, label %92, label %_Z9SameBoardRK6boardsjj.exit.thread
+87:                                               ; preds = %86
+  %88 = load i32, ptr %68, align 4
+  %89 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv45
+  %90 = load i32, ptr %89, align 4
+  %.not.i = icmp eq i32 %88, %90
+  br i1 %.not.i, label %91, label %_Z9SameBoardRK6boardsjj.exit.thread
 
-92:                                               ; preds = %88
-  %93 = load i32, ptr %69, align 4
-  %94 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv45
-  %95 = load i32, ptr %94, align 4
-  %.not49.i = icmp eq i32 %93, %95
-  br i1 %.not49.i, label %96, label %_Z9SameBoardRK6boardsjj.exit.thread
+91:                                               ; preds = %87
+  %92 = load i32, ptr %69, align 4
+  %93 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv45
+  %94 = load i32, ptr %93, align 4
+  %.not49.i = icmp eq i32 %92, %94
+  br i1 %.not49.i, label %95, label %_Z9SameBoardRK6boardsjj.exit.thread
 
-96:                                               ; preds = %92
-  %97 = load i32, ptr %70, align 4
-  %98 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv45
-  %99 = load i32, ptr %98, align 4
-  %.not50.i = icmp eq i32 %97, %99
-  br i1 %.not50.i, label %100, label %_Z9SameBoardRK6boardsjj.exit.thread
+95:                                               ; preds = %91
+  %96 = load i32, ptr %70, align 4
+  %97 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv45
+  %98 = load i32, ptr %97, align 4
+  %.not50.i = icmp eq i32 %96, %98
+  br i1 %.not50.i, label %99, label %_Z9SameBoardRK6boardsjj.exit.thread
 
-100:                                              ; preds = %96
-  %101 = load i32, ptr %72, align 4
-  %102 = getelementptr inbounds nuw %struct.deal, ptr %26, i64 %indvars.iv45
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
-  %104 = load i32, ptr %103, align 4
-  %.not51.i = icmp eq i32 %101, %104
-  br i1 %.not51.i, label %105, label %_Z9SameBoardRK6boardsjj.exit.thread
+99:                                               ; preds = %95
+  %100 = load i32, ptr %71, align 4
+  %101 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %102 = load i32, ptr %101, align 4
+  %.not51.i = icmp eq i32 %100, %102
+  br i1 %.not51.i, label %103, label %_Z9SameBoardRK6boardsjj.exit.thread
 
-105:                                              ; preds = %100
-  %106 = load i32, ptr %71, align 4
-  %107 = load i32, ptr %102, align 4
-  %.not52.i = icmp eq i32 %106, %107
+103:                                              ; preds = %99
+  %104 = load i32, ptr %66, align 4
+  %105 = load i32, ptr %76, align 4
+  %.not52.i = icmp eq i32 %104, %105
   br i1 %.not52.i, label %.preheader.i, label %_Z9SameBoardRK6boardsjj.exit.thread
 
-.preheader.i:                                     ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %109 = getelementptr inbounds nuw i8, ptr %102, i64 20
-  br label %111
+.preheader.i:                                     ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %76, i64 20
+  br label %109
 
-110:                                              ; preds = %116
-  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, 3
-  br i1 %exitcond71.not.i, label %_Z9SameBoardRK6boardsjj.exit, label %111, !llvm.loop !14
+108:                                              ; preds = %114
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, 3
+  br i1 %exitcond70.not.i, label %_Z9SameBoardRK6boardsjj.exit, label %109, !llvm.loop !14
 
-111:                                              ; preds = %110, %.preheader.i
-  %indvars.iv68.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next69.i, %110 ]
-  %112 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv68.i
+109:                                              ; preds = %108, %.preheader.i
+  %indvars.iv67.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next68.i, %108 ]
+  %110 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv67.i
+  %111 = load i32, ptr %110, align 4
+  %112 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv67.i
   %113 = load i32, ptr %112, align 4
-  %114 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv68.i
-  %115 = load i32, ptr %114, align 4
-  %.not53.i = icmp eq i32 %113, %115
-  br i1 %.not53.i, label %116, label %_Z9SameBoardRK6boardsjj.exit.thread
+  %.not53.i = icmp eq i32 %111, %113
+  br i1 %.not53.i, label %114, label %_Z9SameBoardRK6boardsjj.exit.thread
 
-116:                                              ; preds = %111
-  %117 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv68.i
+114:                                              ; preds = %109
+  %115 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv67.i
+  %116 = load i32, ptr %115, align 4
+  %117 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv67.i
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv68.i
-  %120 = load i32, ptr %119, align 4
-  %.not54.i = icmp eq i32 %118, %120
-  br i1 %.not54.i, label %110, label %_Z9SameBoardRK6boardsjj.exit.thread
+  %.not54.i = icmp eq i32 %116, %118
+  br i1 %.not54.i, label %108, label %_Z9SameBoardRK6boardsjj.exit.thread
 
-_Z9SameBoardRK6boardsjj.exit:                     ; preds = %110
-  %121 = load ptr, ptr %2, align 8
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv45
-  store i32 %75, ptr %122, align 4
+_Z9SameBoardRK6boardsjj.exit:                     ; preds = %108
+  %119 = load ptr, ptr %2, align 8
+  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv45
+  store i32 %74, ptr %120, align 4
   br label %_Z9SameBoardRK6boardsjj.exit.thread
 
-_Z9SameBoardRK6boardsjj.exit.thread:              ; preds = %111, %116, %82, %105, %100, %96, %92, %88, %_Z9SameBoardRK6boardsjj.exit
+_Z9SameBoardRK6boardsjj.exit.thread:              ; preds = %109, %114, %81, %103, %99, %95, %91, %87, %_Z9SameBoardRK6boardsjj.exit
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next46 to i32
   %exitcond48.not = icmp eq i32 %4, %lftr.wideiv
-  br i1 %exitcond48.not, label %.loopexit, label %76, !llvm.loop !15
+  br i1 %exitcond48.not, label %.loopexit, label %75, !llvm.loop !15
 
 .loopexit:                                        ; preds = %_Z9SameBoardRK6boardsjj.exit.thread, %..loopexit_crit_edge, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   %indvars.iv.next50.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %64, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %64, %_Z9SameBoardRK6boardsjj.exit.thread ]
@@ -823,19 +820,17 @@ _Z9SameBoardRK6boardsjj.exit.thread:              ; preds = %111, %116, %82, %10
 define noundef zeroext i1 @_Z9SameBoardRK6boardsjj(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21604) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = zext i32 %1 to i64
-  %.idx = mul nuw nsw i64 %5, 96
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
+  %6 = getelementptr inbounds nuw %struct.deal, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = zext i32 %2 to i64
-  %.idx55 = mul nuw nsw i64 %8, 96
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx55
+  %9 = getelementptr inbounds nuw %struct.deal, ptr %4, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  br label %.preheader57
+  br label %.preheader56
 
-.preheader57:                                     ; preds = %3, %19
-  %indvars.iv64 = phi i64 [ 0, %3 ], [ %indvars.iv.next65, %19 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 %indvars.iv64
-  %12 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 %indvars.iv64
+.preheader56:                                     ; preds = %3, %19
+  %indvars.iv63 = phi i64 [ 0, %3 ], [ %indvars.iv.next64, %19 ]
+  %11 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 %indvars.iv63
+  %12 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 %indvars.iv63
   br label %14
 
 13:                                               ; preds = %14
@@ -843,19 +838,19 @@ define noundef zeroext i1 @_Z9SameBoardRK6boardsjj(ptr noundef nonnull readonly 
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %19, label %14, !llvm.loop !12
 
-14:                                               ; preds = %.preheader57, %13
-  %indvars.iv = phi i64 [ 0, %.preheader57 ], [ %indvars.iv.next, %13 ]
+14:                                               ; preds = %.preheader56, %13
+  %indvars.iv = phi i64 [ 0, %.preheader56 ], [ %indvars.iv.next, %13 ]
   %15 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
-  %.not56 = icmp eq i32 %16, %18
-  br i1 %.not56, label %13, label %.loopexit
+  %.not55 = icmp eq i32 %16, %18
+  br i1 %.not55, label %13, label %.loopexit
 
 19:                                               ; preds = %13
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next65, 4
-  br i1 %exitcond67.not, label %20, label %.preheader57, !llvm.loop !13
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond66.not = icmp eq i64 %indvars.iv.next64, 4
+  br i1 %exitcond66.not, label %20, label %.preheader56, !llvm.loop !13
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20804
@@ -885,52 +880,50 @@ define noundef zeroext i1 @_Z9SameBoardRK6boardsjj(ptr noundef nonnull readonly 
   br i1 %.not50, label %38, label %.loopexit
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw %struct.deal, ptr %4, i64 %5
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds nuw %struct.deal, ptr %4, i64 %8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %44 = load i32, ptr %43, align 4
-  %.not51 = icmp eq i32 %41, %44
-  br i1 %.not51, label %45, label %.loopexit
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %42 = load i32, ptr %41, align 4
+  %.not51 = icmp eq i32 %40, %42
+  br i1 %.not51, label %43, label %.loopexit
 
-45:                                               ; preds = %38
-  %46 = load i32, ptr %39, align 4
-  %47 = load i32, ptr %42, align 4
-  %.not52 = icmp eq i32 %46, %47
+43:                                               ; preds = %38
+  %44 = load i32, ptr %6, align 4
+  %45 = load i32, ptr %9, align 4
+  %.not52 = icmp eq i32 %44, %45
   br i1 %.not52, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %39, i64 20
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %42, i64 20
-  br label %53
+.preheader:                                       ; preds = %43
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  br label %51
 
-52:                                               ; preds = %58
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next69, 3
-  br i1 %exitcond71.not, label %.loopexit, label %53, !llvm.loop !14
+50:                                               ; preds = %56
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next68, 3
+  br i1 %exitcond70.not, label %.loopexit, label %51, !llvm.loop !14
 
-53:                                               ; preds = %.preheader, %52
-  %indvars.iv68 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next69, %52 ]
-  %54 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv68
+51:                                               ; preds = %.preheader, %50
+  %indvars.iv67 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next68, %50 ]
+  %52 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv67
+  %53 = load i32, ptr %52, align 4
+  %54 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv67
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv68
-  %57 = load i32, ptr %56, align 4
-  %.not53 = icmp eq i32 %55, %57
-  br i1 %.not53, label %58, label %.loopexit
+  %.not53 = icmp eq i32 %53, %55
+  br i1 %.not53, label %56, label %.loopexit
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv68
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv67
+  %58 = load i32, ptr %57, align 4
+  %59 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv67
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv68
-  %62 = load i32, ptr %61, align 4
-  %.not54 = icmp eq i32 %60, %62
-  br i1 %.not54, label %52, label %.loopexit
+  %.not54 = icmp eq i32 %58, %60
+  br i1 %.not54, label %50, label %.loopexit
 
-.loopexit:                                        ; preds = %14, %52, %58, %53, %45, %38, %32, %26, %20
-  %.048 = phi i1 [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %45 ], [ true, %52 ], [ false, %58 ], [ false, %53 ], [ false, %14 ]
+.loopexit:                                        ; preds = %14, %50, %56, %51, %43, %38, %32, %26, %20
+  %.048 = phi i1 [ false, %20 ], [ false, %26 ], [ false, %32 ], [ false, %38 ], [ false, %43 ], [ true, %50 ], [ false, %56 ], [ false, %51 ], [ false, %14 ]
   ret i1 %.048
 }
 

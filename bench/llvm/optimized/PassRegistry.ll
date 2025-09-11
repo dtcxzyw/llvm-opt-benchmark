@@ -247,14 +247,15 @@ _ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit: ; preds = %3
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E6doFindIS3_EEPKSB_RKT_.exit.i: ; preds = %24, %11
   %31 = phi i64 [ %18, %11 ], [ %27, %24 ]
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %31, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8, !tbaa !19
+  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !19
   br label %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEED2Ev.exit
 
 _ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEED2Ev.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E6doFindIS3_EEPKSB_RKT_.exit.i
-  %34 = phi ptr [ %33, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E6doFindIS3_EEPKSB_RKT_.exit.i ], [ null, %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit ], [ null, %.lr.ph.i.i.i ]
-  %35 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #15
-  ret ptr %34
+  %35 = phi ptr [ %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E6doFindIS3_EEPKSB_RKT_.exit.i ], [ null, %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit ], [ null, %.lr.ph.i.i.i ]
+  %36 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(64) %0) #15
+  ret ptr %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

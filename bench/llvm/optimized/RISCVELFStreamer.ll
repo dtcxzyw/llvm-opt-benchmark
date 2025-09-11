@@ -552,13 +552,14 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit: ; preds = %3, %10
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionENS_16RISCVELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i: ; preds = %34, %21
   %41 = phi i64 [ %28, %21 ], [ %37, %34 ]
-  %42 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %17, i64 %41, i32 0, i32 1
-  %43 = load i32, ptr %42, align 4, !tbaa !155
+  %42 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %17, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load i32, ptr %43, align 4, !tbaa !155
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionENS_16RISCVELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionENS_16RISCVELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionENS_16RISCVELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i
-  %44 = phi i32 [ %43, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionENS_16RISCVELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i ], [ 0, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit ], [ 0, %.lr.ph.i.i.i ]
-  store i32 %44, ptr %5, align 8, !tbaa !150
+  %45 = phi i32 [ %44, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionENS_16RISCVELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i ], [ 0, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit ], [ 0, %.lr.ph.i.i.i ]
+  store i32 %45, ptr %5, align 8, !tbaa !150
   call void @_ZN4llvm13MCELFStreamer13changeSectionEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(6609) %0, ptr noundef %1, i32 noundef %2) #16
   ret void
 }

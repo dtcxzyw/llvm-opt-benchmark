@@ -1157,7 +1157,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   br label %36
 
 ._crit_edge:                                      ; preds = %36, %2
-  %.093.lcssa = phi i64 [ 0, %2 ], [ %40, %36 ]
+  %.093.lcssa = phi i64 [ 0, %2 ], [ %41, %36 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %15 = load i16, ptr %14, align 2, !tbaa !74
   %16 = and i16 %15, 1
@@ -1241,49 +1241,50 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.093136 = phi i64 [ 0, %.lr.ph ], [ %40, %36 ]
-  %37 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %13, i64 %indvars.iv, i32 6
-  %38 = load i8, ptr %37, align 1, !tbaa !51
-  %39 = sext i8 %38 to i64
-  %40 = add i64 %.093136, %39
+  %.093136 = phi i64 [ 0, %.lr.ph ], [ %41, %36 ]
+  %37 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %13, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 25
+  %39 = load i8, ptr %38, align 1, !tbaa !51
+  %40 = sext i8 %39 to i64
+  %41 = add i64 %.093136, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !87
 
 .thread114:                                       ; preds = %._crit_edge142.us, %.preheader123
   %.082134 = phi i64 [ 0, %.preheader123 ], [ %26, %._crit_edge142.us ]
-  %41 = icmp ugt i64 %.082134, 2147483646
-  br i1 %41, label %.thread114.thread, label %42
+  %42 = icmp ugt i64 %.082134, 2147483646
+  br i1 %42, label %.thread114.thread, label %43
 
-42:                                               ; preds = %.thread114
-  %43 = trunc nuw nsw i64 %.082134 to i32
-  %44 = mul nsw i32 %6, %4
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %8, i64 %45
-  store i32 %43, ptr %46, align 4, !tbaa !40
-  br label %48
+43:                                               ; preds = %.thread114
+  %44 = trunc nuw nsw i64 %.082134 to i32
+  %45 = mul nsw i32 %6, %4
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i32, ptr %8, i64 %46
+  store i32 %44, ptr %47, align 4, !tbaa !40
+  br label %49
 
 .thread119:                                       ; preds = %._crit_edge159.us, %.preheader
   %.486129 = phi i64 [ 0, %.preheader ], [ %35, %._crit_edge159.us ]
-  %47 = icmp ugt i64 %.486129, 2147483646
-  br i1 %47, label %.thread114.thread, label %48
+  %48 = icmp ugt i64 %.486129, 2147483646
+  br i1 %48, label %.thread114.thread, label %49
 
-48:                                               ; preds = %.thread119, %42
-  %.385 = phi i64 [ %.082134, %42 ], [ %.486129, %.thread119 ]
-  %49 = mul i64 %.385, %.093.lcssa
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %51 = load i64, ptr %50, align 8, !tbaa !81
-  %52 = icmp ugt i64 %49, %51
-  br i1 %52, label %53, label %.thread114.thread
+49:                                               ; preds = %.thread119, %43
+  %.385 = phi i64 [ %.082134, %43 ], [ %.486129, %.thread119 ]
+  %50 = mul i64 %.385, %.093.lcssa
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %52 = load i64, ptr %51, align 8, !tbaa !81
+  %53 = icmp ugt i64 %50, %52
+  br i1 %53, label %54, label %.thread114.thread
 
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %55 = load ptr, ptr %54, align 8, !tbaa !62
-  %56 = tail call i32 %55(ptr noundef nonnull %0, i32 noundef 31, ptr noundef nonnull @.str.14) #5
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %56 = load ptr, ptr %55, align 8, !tbaa !62
+  %57 = tail call i32 %56(ptr noundef nonnull %0, i32 noundef 31, ptr noundef nonnull @.str.14) #5
   br label %.thread114.thread
 
-.thread114.thread:                                ; preds = %20, %31, %48, %53, %.thread114, %.thread119
-  %.5 = phi i32 [ 31, %.thread114 ], [ 31, %.thread119 ], [ %56, %53 ], [ 0, %48 ], [ 31, %31 ], [ 31, %20 ]
+.thread114.thread:                                ; preds = %20, %31, %49, %54, %.thread114, %.thread119
+  %.5 = phi i32 [ 31, %.thread114 ], [ 31, %.thread119 ], [ %57, %54 ], [ 0, %49 ], [ 31, %31 ], [ 31, %20 ]
   ret i32 %.5
 }
 

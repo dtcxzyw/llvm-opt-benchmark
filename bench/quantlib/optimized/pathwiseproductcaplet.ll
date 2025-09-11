@@ -5266,7 +5266,8 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 
 invoke.cont19:                                    ; preds = %invoke.cont14
   %11 = load ptr, ptr %startsAndEnds_, align 8, !tbaa !37
-  %second23 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %j.0238, i32 1
+  %add.ptr.i54 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %j.0238
+  %second23 = getelementptr inbounds nuw i8, ptr %add.ptr.i54, i64 8
   %12 = load i64, ptr %second23, align 8, !tbaa !70
   %call.i55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i52, i64 noundef %12)
           to label %invoke.cont24 unwind label %lpad11
@@ -5456,7 +5457,8 @@ invoke.cont62:                                    ; preds = %invoke.cont60
 
 invoke.cont67:                                    ; preds = %invoke.cont62
   %37 = load ptr, ptr %startsAndEnds_, align 8, !tbaa !37
-  %second71 = getelementptr inbounds nuw %"struct.std::pair", ptr %37, i64 %j.0238, i32 1
+  %add.ptr.i86 = getelementptr inbounds nuw %"struct.std::pair", ptr %37, i64 %j.0238
+  %second71 = getelementptr inbounds nuw i8, ptr %add.ptr.i86, i64 8
   %38 = load i64, ptr %second71, align 8, !tbaa !70
   %call.i87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i84, i64 noundef %38)
           to label %invoke.cont72 unwind label %lpad59

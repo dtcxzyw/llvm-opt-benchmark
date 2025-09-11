@@ -1013,12 +1013,12 @@ define hidden noundef i32 @phpdbg_do_info_literal(ptr readnone captures(none) %0
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1360), align 8
   %11 = icmp ne ptr %10, null
   %or.cond3 = select i1 %9, i1 true, i1 %11
-  br i1 %or.cond3, label %13, label %63
+  br i1 %or.cond3, label %13, label %64
 
 .thread:                                          ; preds = %1
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1360), align 8
   %.not34 = icmp eq ptr %12, null
-  br i1 %.not34, label %63, label %.thread33
+  br i1 %.not34, label %64, label %.thread33
 
 13:                                               ; preds = %6
   %spec.select = select i1 %9, ptr %8, ptr %10
@@ -1078,40 +1078,41 @@ define hidden noundef i32 @phpdbg_do_info_literal(ptr readnone captures(none) %0
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 192
   br label %45
 
-45:                                               ; preds = %.lr.ph, %59
-  %46 = phi i32 [ %42, %.lr.ph ], [ %60, %59 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
+45:                                               ; preds = %.lr.ph, %60
+  %46 = phi i32 [ %42, %.lr.ph ], [ %61, %60 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %47 = load ptr, ptr %44, align 8, !tbaa !117
-  %48 = getelementptr inbounds nuw %struct._zval_struct, ptr %47, i64 %indvars.iv, i32 1
-  %49 = load i8, ptr %48, align 8, !tbaa !41
-  %.not31 = icmp eq i8 %49, 1
-  br i1 %.not31, label %59, label %50
+  %48 = getelementptr inbounds nuw %struct._zval_struct, ptr %47, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load i8, ptr %49, align 8, !tbaa !41
+  %.not31 = icmp eq i8 %50, 1
+  br i1 %.not31, label %60, label %51
 
-50:                                               ; preds = %45
-  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !38
-  %52 = trunc nuw nsw i64 %indvars.iv to i32
-  %53 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 4, i32 noundef %51, ptr noundef nonnull @.str.40, i32 noundef %52) #6
-  %54 = load ptr, ptr %44, align 8, !tbaa !117
-  %55 = getelementptr inbounds nuw %struct._zval_struct, ptr %54, i64 %indvars.iv
-  %56 = tail call i64 @zend_print_zval(ptr noundef %55, i32 noundef 0) #6
-  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !38
-  %58 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %57, ptr noundef nonnull @.str.41) #6
+51:                                               ; preds = %45
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !38
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
+  %54 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 4, i32 noundef %52, ptr noundef nonnull @.str.40, i32 noundef %53) #6
+  %55 = load ptr, ptr %44, align 8, !tbaa !117
+  %56 = getelementptr inbounds nuw %struct._zval_struct, ptr %55, i64 %indvars.iv
+  %57 = tail call i64 @zend_print_zval(ptr noundef %56, i32 noundef 0) #6
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !38
+  %59 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %58, ptr noundef nonnull @.str.41) #6
   %.pre = load i32, ptr %15, align 8, !tbaa !115
-  br label %59
+  br label %60
 
-59:                                               ; preds = %50, %45
-  %60 = phi i32 [ %.pre, %50 ], [ %46, %45 ]
+60:                                               ; preds = %51, %45
+  %61 = phi i32 [ %.pre, %51 ], [ %46, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = sext i32 %60 to i64
-  %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %45, label %.loopexit
+  %62 = sext i32 %61 to i64
+  %63 = icmp slt i64 %indvars.iv.next, %62
+  br i1 %63, label %45, label %.loopexit
 
-63:                                               ; preds = %.thread, %6
-  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !38
-  %65 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %64, ptr noundef nonnull @.str.42) #6
+64:                                               ; preds = %.thread, %6
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !38
+  %66 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %65, ptr noundef nonnull @.str.42) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %41, %63
+.loopexit:                                        ; preds = %60, %41, %64
   ret i32 0
 }
 

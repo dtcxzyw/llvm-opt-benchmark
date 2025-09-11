@@ -2164,7 +2164,7 @@ unicode_find_name.exit:                           ; preds = %15
   %47 = zext i8 %46 to i32
   %48 = add nsw i32 %44, -7335840
   %49 = add nuw nsw i32 %48, %47
-  %50 = add nsw i32 %49, %45
+  %50 = add nuw nsw i32 %49, %45
   br label %51
 
 51:                                               ; preds = %39, %43, %30

@@ -177,7 +177,7 @@ define void @prte_odls_base_start_threads(ptr noundef readonly captures(none) %0
   fence release
   %11 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 496)) #13
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 456)) #13
-  br label %72
+  br label %73
 
 13:                                               ; preds = %._crit_edge
   %14 = load i8, ptr @prte_persistent, align 1, !tbaa !34, !range !22, !noundef !23
@@ -252,56 +252,57 @@ define void @prte_odls_base_start_threads(ptr noundef readonly captures(none) %0
   %44 = phi i32 [ 1, %.thread11 ], [ %33, %32 ]
   %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_base_framework, i64 76), align 4, !tbaa !48
   %or.cond = icmp ult i32 %45, 64
-  br i1 %or.cond, label %46, label %52
+  br i1 %or.cond, label %46, label %53
 
 46:                                               ; preds = %43
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %47, i32 2
-  %49 = load i32, ptr %48, align 4, !tbaa !51
-  %50 = icmp sgt i32 %49, 4
-  br i1 %50, label %51, label %52
+  %48 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %50 = load i32, ptr %49, align 4, !tbaa !51
+  %51 = icmp sgt i32 %50, 4
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %46
+52:                                               ; preds = %46
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %45, ptr noundef nonnull @.str, i32 noundef %44) #13
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
-  br label %52
+  br label %53
 
-52:                                               ; preds = %51, %46, %43
-  %53 = phi i32 [ %.pre, %51 ], [ %44, %46 ], [ %44, %43 ]
-  %54 = sext i32 %53 to i64
-  %55 = shl nsw i64 %54, 3
-  %56 = tail call noalias ptr @malloc(i64 noundef %55) #14
-  store ptr %56, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 304), align 8, !tbaa !30
-  %57 = icmp sgt i32 %53, 0
-  br i1 %57, label %.lr.ph14, label %.loopexit
+53:                                               ; preds = %52, %46, %43
+  %54 = phi i32 [ %.pre, %52 ], [ %44, %46 ], [ %44, %43 ]
+  %55 = sext i32 %54 to i64
+  %56 = shl nsw i64 %55, 3
+  %57 = tail call noalias ptr @malloc(i64 noundef %56) #14
+  store ptr %57, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 304), align 8, !tbaa !30
+  %58 = icmp sgt i32 %54, 0
+  br i1 %58, label %.lr.ph14, label %.loopexit
 
-.lr.ph14:                                         ; preds = %52, %.lr.ph14
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph14 ], [ 0, %52 ]
-  %58 = trunc nuw nsw i64 %indvars.iv to i32
-  %59 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef %58) #13
-  %60 = load ptr, ptr %2, align 8, !tbaa !28
-  %61 = call ptr @prte_progress_thread_init(ptr noundef %60) #13
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 304), align 8, !tbaa !30
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
-  store ptr %61, ptr %63, align 8, !tbaa !31
-  %64 = load ptr, ptr %2, align 8, !tbaa !28
-  %65 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 312), ptr noundef %64) #13
-  %66 = load ptr, ptr %2, align 8, !tbaa !28
-  call void @free(ptr noundef %66) #13
+.lr.ph14:                                         ; preds = %53, %.lr.ph14
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph14 ], [ 0, %53 ]
+  %59 = trunc nuw nsw i64 %indvars.iv to i32
+  %60 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef %59) #13
+  %61 = load ptr, ptr %2, align 8, !tbaa !28
+  %62 = call ptr @prte_progress_thread_init(ptr noundef %61) #13
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 304), align 8, !tbaa !30
+  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
+  store ptr %62, ptr %64, align 8, !tbaa !31
+  %65 = load ptr, ptr %2, align 8, !tbaa !28
+  %66 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 312), ptr noundef %65) #13
+  %67 = load ptr, ptr %2, align 8, !tbaa !28
+  call void @free(ptr noundef %67) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph14, label %.loopexit, !llvm.loop !53
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
+  %69 = sext i32 %68 to i64
+  %70 = icmp slt i64 %indvars.iv.next, %69
+  br i1 %70, label %.lr.ph14, label %.loopexit, !llvm.loop !53
 
-.loopexit:                                        ; preds = %.lr.ph14, %52, %41
+.loopexit:                                        ; preds = %.lr.ph14, %53, %41
   store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 544), align 8, !tbaa !3
   fence release
-  %70 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 496)) #13
-  %71 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 456)) #13
-  br label %72
+  %71 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 496)) #13
+  %72 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 456)) #13
+  br label %73
 
-72:                                               ; preds = %.loopexit, %10
+73:                                               ; preds = %.loopexit, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

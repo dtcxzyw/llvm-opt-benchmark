@@ -16819,7 +16819,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang5Lexer19isNextPPTokenLPar
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8, !tbaa !758
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %20, label %5
+  br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -16830,87 +16830,88 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang5Lexer19isNextPPTokenLPar
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !761
   %13 = icmp eq i64 %12, %8
-  br i1 %13, label %56, label %14
+  br i1 %13, label %57, label %14
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr %10, align 8, !tbaa !764
-  %16 = getelementptr inbounds nuw %"struct.clang::dependency_directives_scan::Token", ptr %15, i64 %8, i32 2
-  %17 = load i16, ptr %16, align 4, !tbaa !765
-  %18 = icmp eq i16 %17, 22
-  %19 = zext i1 %18 to i32
-  br label %56
+  %16 = getelementptr inbounds nuw %"struct.clang::dependency_directives_scan::Token", ptr %15, i64 %8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load i16, ptr %17, align 4, !tbaa !765
+  %19 = icmp eq i16 %18, 22
+  %20 = zext i1 %19 to i32
+  br label %57
 
-20:                                               ; preds = %1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i8 1, ptr %21, align 2, !tbaa !43
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %23 = load ptr, ptr %22, align 8, !tbaa !33
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i8, ptr %24, align 8, !tbaa !41, !range !375, !noundef !393
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %27 = load i8, ptr %26, align 8, !tbaa !37, !range !375, !noundef !393
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  %29 = load i8, ptr %28, align 1, !tbaa !38, !range !375, !noundef !393
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 162
-  %31 = load i8, ptr %30, align 2, !tbaa !39, !range !375, !noundef !393
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  store i8 1, ptr %22, align 2, !tbaa !43
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %24 = load ptr, ptr %23, align 8, !tbaa !33
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %26 = load i8, ptr %25, align 8, !tbaa !41, !range !375, !noundef !393
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %28 = load i8, ptr %27, align 8, !tbaa !37, !range !375, !noundef !393
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 161
+  %30 = load i8, ptr %29, align 1, !tbaa !38, !range !375, !noundef !393
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 162
+  %32 = load i8, ptr %31, align 2, !tbaa !39, !range !375, !noundef !393
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  %32 = trunc nuw i8 %27 to i1
-  br i1 %32, label %33, label %35
+  %33 = trunc nuw i8 %28 to i1
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %20
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 1, ptr %34, align 2, !tbaa !394
-  store i8 0, ptr %26, align 8, !tbaa !37
-  br label %35
+34:                                               ; preds = %21
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  store i16 1, ptr %35, align 2, !tbaa !394
+  store i8 0, ptr %27, align 8, !tbaa !37
+  br label %36
 
-35:                                               ; preds = %33, %20
-  %36 = phi i16 [ 1, %33 ], [ 0, %20 ]
-  %37 = trunc nuw i8 %31 to i1
-  br i1 %37, label %38, label %41
+36:                                               ; preds = %34, %21
+  %37 = phi i16 [ 1, %34 ], [ 0, %21 ]
+  %38 = trunc nuw i8 %32 to i1
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %40 = or disjoint i16 %36, 2
-  store i16 %40, ptr %39, align 2, !tbaa !394
-  store i8 0, ptr %30, align 2, !tbaa !39
-  br label %41
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %41 = or disjoint i16 %37, 2
+  store i16 %41, ptr %40, align 2, !tbaa !394
+  store i8 0, ptr %31, align 2, !tbaa !39
+  br label %42
 
-41:                                               ; preds = %38, %35
-  %42 = phi i16 [ %40, %38 ], [ %36, %35 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 163
-  %44 = load i8, ptr %43, align 1, !tbaa !40, !range !375, !noundef !393
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %_ZN5clang5Lexer3LexERNS_5TokenE.exit
+42:                                               ; preds = %39, %36
+  %43 = phi i16 [ %41, %39 ], [ %37, %36 ]
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 163
+  %45 = load i8, ptr %44, align 1, !tbaa !40, !range !375, !noundef !393
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %47, label %_ZN5clang5Lexer3LexERNS_5TokenE.exit
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %48 = or i16 %42, 16
-  store i16 %48, ptr %47, align 2, !tbaa !394
-  store i8 0, ptr %43, align 1, !tbaa !40
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %49 = or i16 %43, 16
+  store i16 %49, ptr %48, align 2, !tbaa !394
+  store i8 0, ptr %44, align 1, !tbaa !40
   br label %_ZN5clang5Lexer3LexERNS_5TokenE.exit
 
-_ZN5clang5Lexer3LexERNS_5TokenE.exit:             ; preds = %41, %46
-  %49 = trunc nuw i8 %29 to i1
-  store i8 0, ptr %28, align 1, !tbaa !38
-  %50 = call noundef zeroext i1 @_ZN5clang5Lexer16LexTokenInternalERNS_5TokenEb(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(20) %2, i1 noundef zeroext %49)
-  store ptr %23, ptr %22, align 8, !tbaa !33
-  store i8 %25, ptr %24, align 8, !tbaa !41
-  store i8 %31, ptr %30, align 2, !tbaa !39
-  store i8 %27, ptr %26, align 8, !tbaa !37
-  store i8 %29, ptr %28, align 1, !tbaa !38
-  store i8 0, ptr %21, align 2, !tbaa !43
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %52 = load i16, ptr %51, align 8, !tbaa !3
-  %53 = icmp eq i16 %52, 1
-  %54 = icmp eq i16 %52, 22
-  %55 = zext i1 %54 to i32
-  %.1 = select i1 %53, i32 2, i32 %55
+_ZN5clang5Lexer3LexERNS_5TokenE.exit:             ; preds = %42, %47
+  %50 = trunc nuw i8 %30 to i1
+  store i8 0, ptr %29, align 1, !tbaa !38
+  %51 = call noundef zeroext i1 @_ZN5clang5Lexer16LexTokenInternalERNS_5TokenEb(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(20) %2, i1 noundef zeroext %50)
+  store ptr %24, ptr %23, align 8, !tbaa !33
+  store i8 %26, ptr %25, align 8, !tbaa !41
+  store i8 %32, ptr %31, align 2, !tbaa !39
+  store i8 %28, ptr %27, align 8, !tbaa !37
+  store i8 %30, ptr %29, align 1, !tbaa !38
+  store i8 0, ptr %22, align 2, !tbaa !43
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %53 = load i16, ptr %52, align 8, !tbaa !3
+  %54 = icmp eq i16 %53, 1
+  %55 = icmp eq i16 %53, 22
+  %56 = zext i1 %55 to i32
+  %.1 = select i1 %54, i32 2, i32 %56
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %56
+  br label %57
 
-56:                                               ; preds = %5, %_ZN5clang5Lexer3LexERNS_5TokenE.exit, %14
-  %.0 = phi i32 [ %19, %14 ], [ %.1, %_ZN5clang5Lexer3LexERNS_5TokenE.exit ], [ 2, %5 ]
+57:                                               ; preds = %5, %_ZN5clang5Lexer3LexERNS_5TokenE.exit, %14
+  %.0 = phi i32 [ %20, %14 ], [ %.1, %_ZN5clang5Lexer3LexERNS_5TokenE.exit ], [ 2, %5 ]
   ret i32 %.0
 }
 

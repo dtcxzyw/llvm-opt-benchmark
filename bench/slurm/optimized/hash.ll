@@ -311,18 +311,19 @@ define dso_local i32 @hash_g_compute(ptr noundef %0, i32 noundef %1, ptr noundef
 13:                                               ; preds = %8, %5
   %14 = zext i8 %6 to i32
   %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.hash_g_compute, i32 noundef %14) #8
-  br label %22
+  br label %23
 
 16:                                               ; preds = %8
   %17 = load ptr, ptr @ops, align 8
   %18 = zext i8 %11 to i64
-  %19 = getelementptr inbounds nuw %struct.slurm_ops, ptr %17, i64 %18, i32 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4) #8
-  br label %22
+  %19 = getelementptr inbounds nuw %struct.slurm_ops, ptr %17, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 %21(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4) #8
+  br label %23
 
-22:                                               ; preds = %16, %13
-  %.0 = phi i32 [ -1, %13 ], [ %21, %16 ]
+23:                                               ; preds = %16, %13
+  %.0 = phi i32 [ -1, %13 ], [ %22, %16 ]
   ret i32 %.0
 }
 

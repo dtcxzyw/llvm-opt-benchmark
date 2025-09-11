@@ -2350,8 +2350,9 @@ define dso_local void @ProcSendSignal(i32 noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %3
   %11 = load ptr, ptr %4, align 8
   %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr inbounds nuw %struct.PGPROC, ptr %11, i64 %12, i32 4
-  tail call void @SetLatch(ptr noundef nonnull %13) #14
+  %13 = getelementptr inbounds nuw %struct.PGPROC, ptr %11, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 36
+  tail call void @SetLatch(ptr noundef nonnull %14) #14
   ret void
 }
 

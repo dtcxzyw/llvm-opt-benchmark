@@ -1268,7 +1268,7 @@ mbedtls_gcm_crypt_and_tag.exit219:                ; preds = %69
   br i1 %.not181, label %91, label %.thread243
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds [64 x i8], ptr @pt_test_data, i64 %46, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %93 = call i32 @mbedtls_gcm_update(ptr noundef nonnull %4, ptr noundef nonnull %92, i64 noundef %87, ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull %7)
   %.not182 = icmp eq i32 %93, 0
   br i1 %.not182, label %94, label %.thread247

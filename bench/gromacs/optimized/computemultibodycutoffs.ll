@@ -126,31 +126,31 @@ define void @_Z21dd_bonded_cg_distanceRKN3gmx8MDLoggerERK10gmx_mtop_tRK10t_input
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %79
 
-._crit_edge578:                                   ; preds = %521, %30
-  %.sroa.14.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.14.1, %521 ]
-  %.sroa.11.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.11.1, %521 ]
-  %.sroa.8.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.8.1, %521 ]
-  %.sroa.0224.0.lcssa = phi float [ 0.000000e+00, %30 ], [ %.sroa.0224.1, %521 ]
-  %.sroa.0239.0.lcssa = phi float [ 0.000000e+00, %30 ], [ %.sroa.0239.1, %521 ]
-  %.sroa.9241.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.9241.1, %521 ]
-  %.sroa.12242.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.12242.1, %521 ]
-  %.sroa.15.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.15.1, %521 ]
+._crit_edge578:                                   ; preds = %524, %30
+  %.sroa.14.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.14.1, %524 ]
+  %.sroa.11.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.11.1, %524 ]
+  %.sroa.8.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.8.1, %524 ]
+  %.sroa.0224.0.lcssa = phi float [ 0.000000e+00, %30 ], [ %.sroa.0224.1, %524 ]
+  %.sroa.0239.0.lcssa = phi float [ 0.000000e+00, %30 ], [ %.sroa.0239.1, %524 ]
+  %.sroa.9241.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.9241.1, %524 ]
+  %.sroa.12242.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.12242.1, %524 ]
+  %.sroa.15.0.lcssa = phi i32 [ -1, %30 ], [ %.sroa.15.1, %524 ]
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %77 = load i8, ptr %76, align 8, !tbaa !108, !range !102, !noundef !103
   %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %523, label %621
+  br i1 %78, label %526, label %625
 
-79:                                               ; preds = %.lr.ph577, %521
-  %.064575 = phi i32 [ 0, %.lr.ph577 ], [ %.165, %521 ]
-  %.sroa.15.0574 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.15.1, %521 ]
-  %.sroa.12242.0573 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.12242.1, %521 ]
-  %.sroa.9241.0572 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.9241.1, %521 ]
-  %.sroa.0239.0571 = phi float [ 0.000000e+00, %.lr.ph577 ], [ %.sroa.0239.1, %521 ]
-  %.sroa.0224.0570 = phi float [ 0.000000e+00, %.lr.ph577 ], [ %.sroa.0224.1, %521 ]
-  %.sroa.8.0569 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.8.1, %521 ]
-  %.sroa.11.0568 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.11.1, %521 ]
-  %.sroa.14.0567 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.14.1, %521 ]
-  %.sroa.0214.0566 = phi ptr [ %32, %.lr.ph577 ], [ %522, %521 ]
+79:                                               ; preds = %.lr.ph577, %524
+  %.064575 = phi i32 [ 0, %.lr.ph577 ], [ %.165, %524 ]
+  %.sroa.15.0574 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.15.1, %524 ]
+  %.sroa.12242.0573 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.12242.1, %524 ]
+  %.sroa.9241.0572 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.9241.1, %524 ]
+  %.sroa.0239.0571 = phi float [ 0.000000e+00, %.lr.ph577 ], [ %.sroa.0239.1, %524 ]
+  %.sroa.0224.0570 = phi float [ 0.000000e+00, %.lr.ph577 ], [ %.sroa.0224.1, %524 ]
+  %.sroa.8.0569 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.8.1, %524 ]
+  %.sroa.11.0568 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.11.1, %524 ]
+  %.sroa.14.0567 = phi i32 [ -1, %.lr.ph577 ], [ %.sroa.14.1, %524 ]
+  %.sroa.0214.0566 = phi ptr [ %32, %.lr.ph577 ], [ %525, %524 ]
   %80 = load i32, ptr %.sroa.0214.0566, align 8, !tbaa !159
   %81 = sext i32 %80 to i64
   %82 = load ptr, ptr %35, align 8, !tbaa !161
@@ -170,7 +170,7 @@ define void @_Z21dd_bonded_cg_distanceRKN3gmx8MDLoggerERK10gmx_mtop_tRK10t_input
   %89 = phi i32 [ 0, %87 ], [ %.pre632, %79 ]
   %90 = mul nsw i32 %89, %85
   %91 = add nsw i32 %90, %.064575
-  br label %521
+  br label %524
 
 92:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -388,7 +388,7 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
   %.sroa.9241.2.lcssa = phi i32 [ %.sroa.9241.0572, %168 ], [ %.sroa.9241.4, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
   %.sroa.12242.2.lcssa = phi i32 [ %.sroa.12242.0573, %168 ], [ %.sroa.12242.4, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
   %.sroa.15.2.lcssa = phi i32 [ %.sroa.15.0574, %168 ], [ %.sroa.15.4, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
-  %.266.lcssa = phi i32 [ %.064575, %168 ], [ %516, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
+  %.266.lcssa = phi i32 [ %.064575, %168 ], [ %519, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
   %.not.i.i.i = icmp eq ptr %169, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit, label %176
 
@@ -451,7 +451,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i79:              ; preds = %190, %_ZNSt6vectorI
 
 _ZN7t_graphD2Ev.exit81:                           ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i79, %196
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %521
+  br label %524
 
 .loopexit367:                                     ; preds = %_ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i
   %lpad.loopexit369 = landingpad { ptr, i32 }
@@ -464,9 +464,9 @@ _ZN7t_graphD2Ev.exit81:                           ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112
 
 201:                                              ; preds = %.lr.ph, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110
-  %202 = phi i32 [ %.pre, %.lr.ph ], [ %515, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
-  %.0556 = phi i32 [ 0, %.lr.ph ], [ %517, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
-  %.266555 = phi i32 [ %.064575, %.lr.ph ], [ %516, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
+  %202 = phi i32 [ %.pre, %.lr.ph ], [ %518, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
+  %.0556 = phi i32 [ 0, %.lr.ph ], [ %520, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
+  %.266555 = phi i32 [ %.064575, %.lr.ph ], [ %519, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
   %.sroa.15.2554 = phi i32 [ %.sroa.15.0574, %.lr.ph ], [ %.sroa.15.4, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
   %.sroa.12242.2553 = phi i32 [ %.sroa.12242.0573, %.lr.ph ], [ %.sroa.12242.4, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
   %.sroa.9241.2552 = phi i32 [ %.sroa.9241.0572, %.lr.ph ], [ %.sroa.9241.4, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110 ]
@@ -479,7 +479,7 @@ _ZN7t_graphD2Ev.exit81:                           ; preds = %_ZNSt6vectorIiSaIiE
   %204 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %203
   %205 = load i8, ptr %24, align 4, !tbaa !4, !range !102, !noundef !103
   %206 = trunc nuw i8 %205 to i1
-  br i1 %206, label %373, label %207
+  br i1 %206, label %375, label %207
 
 207:                                              ; preds = %201
   %208 = load i32, ptr %41, align 8, !tbaa !104
@@ -527,54 +527,55 @@ _ZN7t_graphD2Ev.exit81:                           ; preds = %_ZNSt6vectorIiSaIiE
 .loopexit.i.preheader:                            ; preds = %211, %.noexc83, %.preheader.i
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.i.preheader, %230
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %230 ], [ 0, %.loopexit.i.preheader ]
-  %.056.i.i = phi i1 [ %.1.i.i, %230 ], [ false, %.loopexit.i.preheader ]
-  %221 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv.i.i, i32 5
-  %222 = load i32, ptr %221, align 4, !tbaa !195
-  %223 = and i32 %222, 2
-  %.not.i.i = icmp eq i32 %223, 0
-  br i1 %.not.i.i, label %230, label %224
+.loopexit.i:                                      ; preds = %.loopexit.i.preheader, %231
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %231 ], [ 0, %.loopexit.i.preheader ]
+  %.056.i.i = phi i1 [ %.1.i.i, %231 ], [ false, %.loopexit.i.preheader ]
+  %221 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv.i.i
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 28
+  %223 = load i32, ptr %222, align 4, !tbaa !195
+  %224 = and i32 %223, 2
+  %.not.i.i = icmp eq i32 %224, 0
+  br i1 %.not.i.i, label %231, label %225
 
-224:                                              ; preds = %.loopexit.i
-  %225 = getelementptr inbounds nuw %struct.InteractionList, ptr %172, i64 %indvars.iv.i.i
-  %226 = load ptr, ptr %225, align 8, !tbaa !198
-  %227 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  %228 = load ptr, ptr %227, align 8, !tbaa !198
-  %229 = icmp ne ptr %226, %228
-  %spec.select.i.i = select i1 %229, i1 true, i1 %.056.i.i
-  br label %230
+225:                                              ; preds = %.loopexit.i
+  %226 = getelementptr inbounds nuw %struct.InteractionList, ptr %172, i64 %indvars.iv.i.i
+  %227 = load ptr, ptr %226, align 8, !tbaa !198
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %229 = load ptr, ptr %228, align 8, !tbaa !198
+  %230 = icmp ne ptr %227, %229
+  %spec.select.i.i = select i1 %230, i1 true, i1 %.056.i.i
+  br label %231
 
-230:                                              ; preds = %224, %.loopexit.i
-  %.1.i.i = phi i1 [ %.056.i.i, %.loopexit.i ], [ %spec.select.i.i, %224 ]
+231:                                              ; preds = %225, %.loopexit.i
+  %.1.i.i = phi i1 [ %.056.i.i, %.loopexit.i ], [ %spec.select.i.i, %225 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 95
   br i1 %exitcond.not.i.i, label %_ZL15moltypeHasVsiteRK13gmx_moltype_t.exit.i, label %.loopexit.i, !llvm.loop !199
 
-_ZL15moltypeHasVsiteRK13gmx_moltype_t.exit.i:     ; preds = %230
-  br i1 %.1.i.i, label %231, label %_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit
+_ZL15moltypeHasVsiteRK13gmx_moltype_t.exit.i:     ; preds = %231
+  br i1 %.1.i.i, label %232, label %_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit
 
-231:                                              ; preds = %_ZL15moltypeHasVsiteRK13gmx_moltype_t.exit.i
-  %232 = load ptr, ptr %65, align 8, !tbaa !200
-  %233 = load ptr, ptr %66, align 8, !tbaa !201
-  %234 = ptrtoint ptr %233 to i64
-  %235 = ptrtoint ptr %232 to i64
-  %236 = sub i64 %234, %235
-  %237 = getelementptr inbounds nuw i8, ptr %232, i64 %236
-  invoke void @_ZN3gmx21constructVirtualSitesENS_8ArrayRefINS_11BasicVectorIfEEEENS0_IK9t_iparamsEENS0_IK15InteractionListEE(ptr %169, ptr %scevgep.i.i.i.i.i, ptr %232, ptr %237, ptr nonnull %172, ptr nonnull %173)
+232:                                              ; preds = %_ZL15moltypeHasVsiteRK13gmx_moltype_t.exit.i
+  %233 = load ptr, ptr %65, align 8, !tbaa !200
+  %234 = load ptr, ptr %66, align 8, !tbaa !201
+  %235 = ptrtoint ptr %234 to i64
+  %236 = ptrtoint ptr %233 to i64
+  %237 = sub i64 %235, %236
+  %238 = getelementptr inbounds nuw i8, ptr %233, i64 %237
+  invoke void @_ZN3gmx21constructVirtualSitesENS_8ArrayRefINS_11BasicVectorIfEEEENS0_IK9t_iparamsEENS0_IK15InteractionListEE(ptr %169, ptr %scevgep.i.i.i.i.i, ptr %233, ptr %238, ptr nonnull %172, ptr nonnull %173)
           to label %_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit: ; preds = %_ZL15moltypeHasVsiteRK13gmx_moltype_t.exit.i, %231
+_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit: ; preds = %_ZL15moltypeHasVsiteRK13gmx_moltype_t.exit.i, %232
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 %67, ptr %16, align 1, !tbaa !202
   store i8 0, ptr %68, align 1, !tbaa !205
   store i8 0, ptr %69, align 1, !tbaa !206
-  br label %239
+  br label %240
 
-238:                                              ; preds = %.loopexit10.i
-  br i1 %23, label %325, label %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit
+239:                                              ; preds = %.loopexit10.i
+  br i1 %23, label %327, label %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit
 
-239:                                              ; preds = %.loopexit10.i, %_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit
+240:                                              ; preds = %.loopexit10.i, %_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit
   %.sroa.13202.1 = phi i32 [ -1, %_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit ], [ %.sroa.13202.2, %.loopexit10.i ]
   %.sroa.0199.1 = phi float [ 0.000000e+00, %_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit ], [ %.sroa.0199.2, %.loopexit10.i ]
   %.sroa.0174.1 = phi float [ 0.000000e+00, %_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit ], [ %.sroa.0174.2, %.loopexit10.i ]
@@ -584,39 +585,40 @@ _ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_g
   %.sroa.18.1 = phi i32 [ -1, %_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit ], [ %.sroa.18.2, %.loopexit10.i ]
   %.sroa.23.1 = phi i32 [ -1, %_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit ], [ %.sroa.23.2, %.loopexit10.i ]
   %indvars.iv35.i = phi i64 [ 0, %_ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_graphPA3_KfN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEENSC_ISE_EE.exit ], [ %indvars.iv.next36.i, %.loopexit10.i ]
-  %240 = trunc nuw nsw i64 %indvars.iv35.i to i32
-  %241 = invoke noundef zeroext i1 @_Z14dd_check_ftypeiRK17ReverseTopOptions(i32 noundef %240, ptr noundef nonnull align 1 dereferenceable(3) %16)
+  %241 = trunc nuw nsw i64 %indvars.iv35.i to i32
+  %242 = invoke noundef zeroext i1 @_Z14dd_check_ftypeiRK17ReverseTopOptions(i32 noundef %241, ptr noundef nonnull align 1 dereferenceable(3) %16)
           to label %.noexc92 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc92:                                         ; preds = %239
-  br i1 %241, label %242, label %.loopexit10.i
+.noexc92:                                         ; preds = %240
+  br i1 %242, label %243, label %.loopexit10.i
 
-242:                                              ; preds = %.noexc92
-  %243 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv35.i, i32 2
-  %244 = load i32, ptr %243, align 16, !tbaa !207
-  %.fr612 = freeze i32 %244
-  %245 = icmp sgt i32 %.fr612, 1
-  br i1 %245, label %.preheader9.i, label %.loopexit10.i
+243:                                              ; preds = %.noexc92
+  %244 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv35.i
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
+  %246 = load i32, ptr %245, align 16, !tbaa !207
+  %.fr612 = freeze i32 %246
+  %247 = icmp sgt i32 %.fr612, 1
+  br i1 %247, label %.preheader9.i, label %.loopexit10.i
 
-.preheader9.i:                                    ; preds = %242
-  %246 = getelementptr inbounds nuw %struct.InteractionList, ptr %172, i64 %indvars.iv35.i
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  %248 = load ptr, ptr %247, align 8, !tbaa !173
-  %249 = load ptr, ptr %246, align 8, !tbaa !171
-  %250 = ptrtoint ptr %248 to i64
-  %251 = ptrtoint ptr %249 to i64
-  %252 = sub i64 %250, %251
-  %253 = lshr exact i64 %252, 2
-  %254 = trunc i64 %253 to i32
-  %255 = icmp sgt i32 %254, 0
-  br i1 %255, label %.preheader.us.preheader.i, label %.loopexit10.i
+.preheader9.i:                                    ; preds = %243
+  %248 = getelementptr inbounds nuw %struct.InteractionList, ptr %172, i64 %indvars.iv35.i
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  %250 = load ptr, ptr %249, align 8, !tbaa !173
+  %251 = load ptr, ptr %248, align 8, !tbaa !171
+  %252 = ptrtoint ptr %250 to i64
+  %253 = ptrtoint ptr %251 to i64
+  %254 = sub i64 %252, %253
+  %255 = lshr exact i64 %254, 2
+  %256 = trunc i64 %255 to i32
+  %257 = icmp sgt i32 %256, 0
+  br i1 %257, label %.preheader.us.preheader.i, label %.loopexit10.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader9.i
-  %256 = icmp eq i32 %.fr612, 2
-  %257 = add nuw i32 %.fr612, 1
-  %258 = zext nneg i32 %.fr612 to i64
-  %259 = zext i32 %257 to i64
-  br i1 %256, label %.preheader.us.i.us, label %.preheader.us.i
+  %258 = icmp eq i32 %.fr612, 2
+  %259 = add nuw i32 %.fr612, 1
+  %260 = zext nneg i32 %.fr612 to i64
+  %261 = zext i32 %259 to i64
+  br i1 %258, label %.preheader.us.i.us, label %.preheader.us.i
 
 .preheader.us.i.us:                               ; preds = %.preheader.us.preheader.i, %._crit_edge.us.i.split.us.us
   %.sroa.13202.7.us = phi i32 [ %.sroa.13202.9.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.13202.1, %.preheader.us.preheader.i ]
@@ -624,11 +626,11 @@ _ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_g
   %.sroa.18.7.us = phi i32 [ %.sroa.18.9.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.18.1, %.preheader.us.preheader.i ]
   %.sroa.23.7.us = phi i32 [ %.sroa.23.9.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.23.1, %.preheader.us.preheader.i ]
   %indvars.iv32.i.us = phi i64 [ %indvars.iv.next33.i.us, %._crit_edge.us.i.split.us.us ], [ 0, %.preheader.us.preheader.i ]
-  %260 = getelementptr inbounds nuw i32, ptr %249, i64 %indvars.iv32.i.us
-  %invariant.gep49.i.us = getelementptr inbounds nuw i8, ptr %260, i64 4
-  br label %261
+  %262 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv32.i.us
+  %invariant.gep49.i.us = getelementptr inbounds nuw i8, ptr %262, i64 4
+  br label %263
 
-261:                                              ; preds = %.loopexit8.us.i.us.us, %.preheader.us.i.us
+263:                                              ; preds = %.loopexit8.us.i.us.us, %.preheader.us.i.us
   %.sroa.13202.8.us.us = phi i32 [ %.sroa.13202.7.us, %.preheader.us.i.us ], [ %.sroa.13202.9.us.us, %.loopexit8.us.i.us.us ]
   %.sroa.0199.8.us.us = phi float [ %.sroa.0199.7.us, %.preheader.us.i.us ], [ %.sroa.0199.9.us.us, %.loopexit8.us.i.us.us ]
   %.sroa.18.8.us.us = phi i32 [ %.sroa.18.7.us, %.preheader.us.i.us ], [ %.sroa.18.9.us.us, %.loopexit8.us.i.us.us ]
@@ -636,77 +638,77 @@ _ZL27getWholeMoleculeCoordinatesPK13gmx_moltype_tPK14gmx_ffparams_t7PbcTypeP7t_g
   %indvars.iv27.i.us.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next28.i.us.us, %.loopexit8.us.i.us.us ]
   %indvars.iv.i89.us.us = phi i64 [ 1, %.preheader.us.i.us ], [ %indvars.iv.next.i90.us.us, %.loopexit8.us.i.us.us ]
   %gep50.i.us.us = getelementptr inbounds nuw i32, ptr %invariant.gep49.i.us, i64 %indvars.iv27.i.us.us
-  %262 = load i32, ptr %gep50.i.us.us, align 4, !tbaa !208
+  %264 = load i32, ptr %gep50.i.us.us, align 4, !tbaa !208
   %indvars.iv.next28.i.us.us = add nuw nsw i64 %indvars.iv27.i.us.us, 1
-  %263 = icmp samesign ult i64 %indvars.iv.next28.i.us.us, %258
-  br i1 %263, label %.lr.ph.us.i.us.us, label %.loopexit8.us.i.us.us
+  %265 = icmp samesign ult i64 %indvars.iv.next28.i.us.us, %260
+  br i1 %265, label %.lr.ph.us.i.us.us, label %.loopexit8.us.i.us.us
 
-.lr.ph.us.i.us.us:                                ; preds = %261
-  %264 = sext i32 %262 to i64
-  %265 = getelementptr inbounds %"class.gmx::BasicVector", ptr %169, i64 %264
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 4
-  %267 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  br label %268
+.lr.ph.us.i.us.us:                                ; preds = %263
+  %266 = sext i32 %264 to i64
+  %267 = getelementptr inbounds %"class.gmx::BasicVector", ptr %169, i64 %266
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 4
+  %269 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  br label %270
 
-.loopexit8.us.i.us.us:                            ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us, %261
-  %.sroa.13202.9.us.us = phi i32 [ %.sroa.13202.8.us.us, %261 ], [ %.sroa.13202.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
-  %.sroa.0199.9.us.us = phi float [ %.sroa.0199.8.us.us, %261 ], [ %.sroa.0199.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
-  %.sroa.18.9.us.us = phi i32 [ %.sroa.18.8.us.us, %261 ], [ %.sroa.18.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
-  %.sroa.23.9.us.us = phi i32 [ %.sroa.23.8.us.us, %261 ], [ %.sroa.23.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
+.loopexit8.us.i.us.us:                            ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us, %263
+  %.sroa.13202.9.us.us = phi i32 [ %.sroa.13202.8.us.us, %263 ], [ %.sroa.13202.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
+  %.sroa.0199.9.us.us = phi float [ %.sroa.0199.8.us.us, %263 ], [ %.sroa.0199.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
+  %.sroa.18.9.us.us = phi i32 [ %.sroa.18.8.us.us, %263 ], [ %.sroa.18.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
+  %.sroa.23.9.us.us = phi i32 [ %.sroa.23.8.us.us, %263 ], [ %.sroa.23.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
   %indvars.iv.next.i90.us.us = add nuw nsw i64 %indvars.iv.i89.us.us, 1
-  %exitcond31.not.i.us.us = icmp eq i64 %indvars.iv.next28.i.us.us, %258
-  br i1 %exitcond31.not.i.us.us, label %._crit_edge.us.i.split.us.us, label %261, !llvm.loop !209
+  %exitcond31.not.i.us.us = icmp eq i64 %indvars.iv.next28.i.us.us, %260
+  br i1 %exitcond31.not.i.us.us, label %._crit_edge.us.i.split.us.us, label %263, !llvm.loop !209
 
-268:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us, %.lr.ph.us.i.us.us
+270:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us, %.lr.ph.us.i.us.us
   %.sroa.13202.10.us.us.us = phi i32 [ %.sroa.13202.8.us.us, %.lr.ph.us.i.us.us ], [ %.sroa.13202.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
   %.sroa.0199.10.us.us.us = phi float [ %.sroa.0199.8.us.us, %.lr.ph.us.i.us.us ], [ %.sroa.0199.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
   %.sroa.18.10.us.us.us = phi i32 [ %.sroa.18.8.us.us, %.lr.ph.us.i.us.us ], [ %.sroa.18.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
   %.sroa.23.10.us.us.us = phi i32 [ %.sroa.23.8.us.us, %.lr.ph.us.i.us.us ], [ %.sroa.23.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
   %indvars.iv24.i.us.us.us = phi i64 [ %indvars.iv.i89.us.us, %.lr.ph.us.i.us.us ], [ %indvars.iv.next25.i.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us ]
   %gep.i.us.us.us = getelementptr inbounds nuw i32, ptr %invariant.gep49.i.us, i64 %indvars.iv24.i.us.us.us
-  %269 = load i32, ptr %gep.i.us.us.us, align 4, !tbaa !208
-  %.not64.us.i.us.us.us = icmp eq i32 %262, %269
-  br i1 %.not64.us.i.us.us.us, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us, label %270
+  %271 = load i32, ptr %gep.i.us.us.us, align 4, !tbaa !208
+  %.not64.us.i.us.us.us = icmp eq i32 %264, %271
+  br i1 %.not64.us.i.us.us.us, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us, label %272
 
-270:                                              ; preds = %268
-  %271 = sext i32 %269 to i64
-  %272 = getelementptr inbounds %"class.gmx::BasicVector", ptr %169, i64 %271
-  %273 = load float, ptr %272, align 4, !tbaa !105
-  %274 = load float, ptr %265, align 4, !tbaa !105
-  %275 = fsub float %273, %274
-  %276 = fmul float %275, %275
-  %277 = getelementptr inbounds nuw i8, ptr %272, i64 4
-  %278 = load float, ptr %277, align 4, !tbaa !105
-  %279 = load float, ptr %266, align 4, !tbaa !105
-  %280 = fsub float %278, %279
-  %281 = fmul float %280, %280
-  %282 = fadd float %276, %281
-  %283 = getelementptr inbounds nuw i8, ptr %272, i64 8
-  %284 = load float, ptr %283, align 4, !tbaa !105
-  %285 = load float, ptr %267, align 4, !tbaa !105
-  %286 = fsub float %284, %285
-  %287 = fmul float %286, %286
-  %288 = fadd float %282, %287
-  %289 = fcmp ogt float %288, %.sroa.0199.10.us.us.us
-  br i1 %289, label %290, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us
+272:                                              ; preds = %270
+  %273 = sext i32 %271 to i64
+  %274 = getelementptr inbounds %"class.gmx::BasicVector", ptr %169, i64 %273
+  %275 = load float, ptr %274, align 4, !tbaa !105
+  %276 = load float, ptr %267, align 4, !tbaa !105
+  %277 = fsub float %275, %276
+  %278 = fmul float %277, %277
+  %279 = getelementptr inbounds nuw i8, ptr %274, i64 4
+  %280 = load float, ptr %279, align 4, !tbaa !105
+  %281 = load float, ptr %268, align 4, !tbaa !105
+  %282 = fsub float %280, %281
+  %283 = fmul float %282, %282
+  %284 = fadd float %278, %283
+  %285 = getelementptr inbounds nuw i8, ptr %274, i64 8
+  %286 = load float, ptr %285, align 4, !tbaa !105
+  %287 = load float, ptr %269, align 4, !tbaa !105
+  %288 = fsub float %286, %287
+  %289 = fmul float %288, %288
+  %290 = fadd float %284, %289
+  %291 = fcmp ogt float %290, %.sroa.0199.10.us.us.us
+  br i1 %291, label %292, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us
 
-290:                                              ; preds = %270
+292:                                              ; preds = %272
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us
 
-_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us: ; preds = %290, %270, %268
-  %.sroa.13202.11.us.us.us = phi i32 [ %.sroa.13202.10.us.us.us, %268 ], [ %.sroa.13202.10.us.us.us, %270 ], [ %240, %290 ]
-  %.sroa.0199.11.us.us.us = phi float [ %.sroa.0199.10.us.us.us, %268 ], [ %.sroa.0199.10.us.us.us, %270 ], [ %288, %290 ]
-  %.sroa.18.11.us.us.us = phi i32 [ %.sroa.18.10.us.us.us, %268 ], [ %.sroa.18.10.us.us.us, %270 ], [ %262, %290 ]
-  %.sroa.23.11.us.us.us = phi i32 [ %.sroa.23.10.us.us.us, %268 ], [ %.sroa.23.10.us.us.us, %270 ], [ %269, %290 ]
+_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us: ; preds = %292, %272, %270
+  %.sroa.13202.11.us.us.us = phi i32 [ %.sroa.13202.10.us.us.us, %270 ], [ %.sroa.13202.10.us.us.us, %272 ], [ %241, %292 ]
+  %.sroa.0199.11.us.us.us = phi float [ %.sroa.0199.10.us.us.us, %270 ], [ %.sroa.0199.10.us.us.us, %272 ], [ %290, %292 ]
+  %.sroa.18.11.us.us.us = phi i32 [ %.sroa.18.10.us.us.us, %270 ], [ %.sroa.18.10.us.us.us, %272 ], [ %264, %292 ]
+  %.sroa.23.11.us.us.us = phi i32 [ %.sroa.23.10.us.us.us, %270 ], [ %.sroa.23.10.us.us.us, %272 ], [ %271, %292 ]
   %indvars.iv.next25.i.us.us.us = add nuw nsw i64 %indvars.iv24.i.us.us.us, 1
-  %exitcond.not.i91.us.us.us = icmp eq i64 %indvars.iv.next25.i.us.us.us, %258
-  br i1 %exitcond.not.i91.us.us.us, label %.loopexit8.us.i.us.us, label %268, !llvm.loop !210
+  %exitcond.not.i91.us.us.us = icmp eq i64 %indvars.iv.next25.i.us.us.us, %260
+  br i1 %exitcond.not.i91.us.us.us, label %.loopexit8.us.i.us.us, label %270, !llvm.loop !210
 
 ._crit_edge.us.i.split.us.us:                     ; preds = %.loopexit8.us.i.us.us
-  %indvars.iv.next33.i.us = add nuw nsw i64 %indvars.iv32.i.us, %259
-  %291 = trunc nuw i64 %indvars.iv.next33.i.us to i32
-  %292 = icmp slt i32 %291, %254
-  br i1 %292, label %.preheader.us.i.us, label %.loopexit10.i, !llvm.loop !211
+  %indvars.iv.next33.i.us = add nuw nsw i64 %indvars.iv32.i.us, %261
+  %293 = trunc nuw i64 %indvars.iv.next33.i.us to i32
+  %294 = icmp slt i32 %293, %256
+  br i1 %294, label %.preheader.us.i.us, label %.loopexit10.i, !llvm.loop !211
 
 .preheader.us.i:                                  ; preds = %.preheader.us.preheader.i, %._crit_edge.us.i.split
   %.sroa.0174.3 = phi float [ %.sroa.0174.5, %._crit_edge.us.i.split ], [ %.sroa.0174.1, %.preheader.us.preheader.i ]
@@ -714,11 +716,11 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us: ; pr
   %.sroa.10.3 = phi i32 [ %.sroa.10.5, %._crit_edge.us.i.split ], [ %.sroa.10.1, %.preheader.us.preheader.i ]
   %.sroa.13.3 = phi i32 [ %.sroa.13.5, %._crit_edge.us.i.split ], [ %.sroa.13.1, %.preheader.us.preheader.i ]
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %._crit_edge.us.i.split ], [ 0, %.preheader.us.preheader.i ]
-  %293 = getelementptr inbounds nuw i32, ptr %249, i64 %indvars.iv32.i
-  %invariant.gep49.i = getelementptr inbounds nuw i8, ptr %293, i64 4
-  br label %294
+  %295 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv32.i
+  %invariant.gep49.i = getelementptr inbounds nuw i8, ptr %295, i64 4
+  br label %296
 
-294:                                              ; preds = %.loopexit8.us.i, %.preheader.us.i
+296:                                              ; preds = %.loopexit8.us.i, %.preheader.us.i
   %.sroa.0174.4 = phi float [ %.sroa.0174.3, %.preheader.us.i ], [ %.sroa.0174.5, %.loopexit8.us.i ]
   %.sroa.7.4 = phi i32 [ %.sroa.7.3, %.preheader.us.i ], [ %.sroa.7.5, %.loopexit8.us.i ]
   %.sroa.10.4 = phi i32 [ %.sroa.10.3, %.preheader.us.i ], [ %.sroa.10.5, %.loopexit8.us.i ]
@@ -726,212 +728,212 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i.us.us.us: ; pr
   %indvars.iv27.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next28.i, %.loopexit8.us.i ]
   %indvars.iv.i89 = phi i64 [ 1, %.preheader.us.i ], [ %indvars.iv.next.i90, %.loopexit8.us.i ]
   %gep50.i = getelementptr inbounds nuw i32, ptr %invariant.gep49.i, i64 %indvars.iv27.i
-  %295 = load i32, ptr %gep50.i, align 4, !tbaa !208
+  %297 = load i32, ptr %gep50.i, align 4, !tbaa !208
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %296 = icmp samesign ult i64 %indvars.iv.next28.i, %258
-  br i1 %296, label %.lr.ph.us.i, label %.loopexit8.us.i
+  %298 = icmp samesign ult i64 %indvars.iv.next28.i, %260
+  br i1 %298, label %.lr.ph.us.i, label %.loopexit8.us.i
 
-297:                                              ; preds = %.lr.ph.us.i, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i
+299:                                              ; preds = %.lr.ph.us.i, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i
   %.sroa.0174.6 = phi float [ %.sroa.0174.4, %.lr.ph.us.i ], [ %.sroa.0174.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
   %.sroa.7.6 = phi i32 [ %.sroa.7.4, %.lr.ph.us.i ], [ %.sroa.7.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
   %.sroa.10.6 = phi i32 [ %.sroa.10.4, %.lr.ph.us.i ], [ %.sroa.10.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
   %.sroa.13.6 = phi i32 [ %.sroa.13.4, %.lr.ph.us.i ], [ %.sroa.13.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
   %indvars.iv24.i = phi i64 [ %indvars.iv.i89, %.lr.ph.us.i ], [ %indvars.iv.next25.i, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
   %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep49.i, i64 %indvars.iv24.i
-  %298 = load i32, ptr %gep.i, align 4, !tbaa !208
-  %.not64.us.i = icmp eq i32 %295, %298
-  br i1 %.not64.us.i, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i, label %299
+  %300 = load i32, ptr %gep.i, align 4, !tbaa !208
+  %.not64.us.i = icmp eq i32 %297, %300
+  br i1 %.not64.us.i, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i, label %301
 
-299:                                              ; preds = %297
-  %300 = sext i32 %298 to i64
-  %301 = getelementptr inbounds %"class.gmx::BasicVector", ptr %169, i64 %300
-  %302 = load float, ptr %301, align 4, !tbaa !105
-  %303 = load float, ptr %320, align 4, !tbaa !105
-  %304 = fsub float %302, %303
-  %305 = fmul float %304, %304
-  %306 = getelementptr inbounds nuw i8, ptr %301, i64 4
-  %307 = load float, ptr %306, align 4, !tbaa !105
-  %308 = load float, ptr %321, align 4, !tbaa !105
-  %309 = fsub float %307, %308
-  %310 = fmul float %309, %309
-  %311 = fadd float %305, %310
-  %312 = getelementptr inbounds nuw i8, ptr %301, i64 8
-  %313 = load float, ptr %312, align 4, !tbaa !105
-  %314 = load float, ptr %322, align 4, !tbaa !105
-  %315 = fsub float %313, %314
-  %316 = fmul float %315, %315
-  %317 = fadd float %311, %316
-  %318 = fcmp ogt float %317, %.sroa.0174.6
-  br i1 %318, label %.else177, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i
+301:                                              ; preds = %299
+  %302 = sext i32 %300 to i64
+  %303 = getelementptr inbounds %"class.gmx::BasicVector", ptr %169, i64 %302
+  %304 = load float, ptr %303, align 4, !tbaa !105
+  %305 = load float, ptr %322, align 4, !tbaa !105
+  %306 = fsub float %304, %305
+  %307 = fmul float %306, %306
+  %308 = getelementptr inbounds nuw i8, ptr %303, i64 4
+  %309 = load float, ptr %308, align 4, !tbaa !105
+  %310 = load float, ptr %323, align 4, !tbaa !105
+  %311 = fsub float %309, %310
+  %312 = fmul float %311, %311
+  %313 = fadd float %307, %312
+  %314 = getelementptr inbounds nuw i8, ptr %303, i64 8
+  %315 = load float, ptr %314, align 4, !tbaa !105
+  %316 = load float, ptr %324, align 4, !tbaa !105
+  %317 = fsub float %315, %316
+  %318 = fmul float %317, %317
+  %319 = fadd float %313, %318
+  %320 = fcmp ogt float %319, %.sroa.0174.6
+  br i1 %320, label %.else177, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i
 
-.else177:                                         ; preds = %299
+.else177:                                         ; preds = %301
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i
 
-_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i: ; preds = %.else177, %299, %297
-  %.sroa.0174.7 = phi float [ %.sroa.0174.6, %297 ], [ %.sroa.0174.6, %299 ], [ %317, %.else177 ]
-  %.sroa.7.7 = phi i32 [ %.sroa.7.6, %297 ], [ %.sroa.7.6, %299 ], [ %240, %.else177 ]
-  %.sroa.10.7 = phi i32 [ %.sroa.10.6, %297 ], [ %.sroa.10.6, %299 ], [ %295, %.else177 ]
-  %.sroa.13.7 = phi i32 [ %.sroa.13.6, %297 ], [ %.sroa.13.6, %299 ], [ %298, %.else177 ]
+_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i: ; preds = %.else177, %301, %299
+  %.sroa.0174.7 = phi float [ %.sroa.0174.6, %299 ], [ %.sroa.0174.6, %301 ], [ %319, %.else177 ]
+  %.sroa.7.7 = phi i32 [ %.sroa.7.6, %299 ], [ %.sroa.7.6, %301 ], [ %241, %.else177 ]
+  %.sroa.10.7 = phi i32 [ %.sroa.10.6, %299 ], [ %.sroa.10.6, %301 ], [ %297, %.else177 ]
+  %.sroa.13.7 = phi i32 [ %.sroa.13.6, %299 ], [ %.sroa.13.6, %301 ], [ %300, %.else177 ]
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %exitcond.not.i91 = icmp eq i64 %indvars.iv.next25.i, %258
-  br i1 %exitcond.not.i91, label %.loopexit8.us.i, label %297, !llvm.loop !210
+  %exitcond.not.i91 = icmp eq i64 %indvars.iv.next25.i, %260
+  br i1 %exitcond.not.i91, label %.loopexit8.us.i, label %299, !llvm.loop !210
 
-.loopexit8.us.i:                                  ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i, %294
-  %.sroa.0174.5 = phi float [ %.sroa.0174.4, %294 ], [ %.sroa.0174.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
-  %.sroa.7.5 = phi i32 [ %.sroa.7.4, %294 ], [ %.sroa.7.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
-  %.sroa.10.5 = phi i32 [ %.sroa.10.4, %294 ], [ %.sroa.10.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
-  %.sroa.13.5 = phi i32 [ %.sroa.13.4, %294 ], [ %.sroa.13.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
+.loopexit8.us.i:                                  ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i, %296
+  %.sroa.0174.5 = phi float [ %.sroa.0174.4, %296 ], [ %.sroa.0174.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
+  %.sroa.7.5 = phi i32 [ %.sroa.7.4, %296 ], [ %.sroa.7.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
+  %.sroa.10.5 = phi i32 [ %.sroa.10.4, %296 ], [ %.sroa.10.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
+  %.sroa.13.5 = phi i32 [ %.sroa.13.4, %296 ], [ %.sroa.13.7, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i ]
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
-  %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %258
-  br i1 %exitcond31.not.i, label %._crit_edge.us.i.split, label %294, !llvm.loop !209
+  %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %260
+  br i1 %exitcond31.not.i, label %._crit_edge.us.i.split, label %296, !llvm.loop !209
 
-.lr.ph.us.i:                                      ; preds = %294
-  %319 = sext i32 %295 to i64
-  %320 = getelementptr inbounds %"class.gmx::BasicVector", ptr %169, i64 %319
-  %321 = getelementptr inbounds nuw i8, ptr %320, i64 4
-  %322 = getelementptr inbounds nuw i8, ptr %320, i64 8
-  br label %297
+.lr.ph.us.i:                                      ; preds = %296
+  %321 = sext i32 %297 to i64
+  %322 = getelementptr inbounds %"class.gmx::BasicVector", ptr %169, i64 %321
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 4
+  %324 = getelementptr inbounds nuw i8, ptr %322, i64 8
+  br label %299
 
 ._crit_edge.us.i.split:                           ; preds = %.loopexit8.us.i
-  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, %259
-  %323 = trunc nuw i64 %indvars.iv.next33.i to i32
-  %324 = icmp slt i32 %323, %254
-  br i1 %324, label %.preheader.us.i, label %.loopexit10.i, !llvm.loop !211
+  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, %261
+  %325 = trunc nuw i64 %indvars.iv.next33.i to i32
+  %326 = icmp slt i32 %325, %256
+  br i1 %326, label %.preheader.us.i, label %.loopexit10.i, !llvm.loop !211
 
-.loopexit10.i:                                    ; preds = %._crit_edge.us.i.split, %._crit_edge.us.i.split.us.us, %.preheader9.i, %242, %.noexc92
-  %.sroa.13202.2 = phi i32 [ %.sroa.13202.1, %.preheader9.i ], [ %.sroa.13202.1, %242 ], [ %.sroa.13202.1, %.noexc92 ], [ %.sroa.13202.9.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.13202.1, %._crit_edge.us.i.split ]
-  %.sroa.0199.2 = phi float [ %.sroa.0199.1, %.preheader9.i ], [ %.sroa.0199.1, %242 ], [ %.sroa.0199.1, %.noexc92 ], [ %.sroa.0199.9.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.0199.1, %._crit_edge.us.i.split ]
-  %.sroa.0174.2 = phi float [ %.sroa.0174.1, %.preheader9.i ], [ %.sroa.0174.1, %242 ], [ %.sroa.0174.1, %.noexc92 ], [ %.sroa.0174.1, %._crit_edge.us.i.split.us.us ], [ %.sroa.0174.5, %._crit_edge.us.i.split ]
-  %.sroa.7.2 = phi i32 [ %.sroa.7.1, %.preheader9.i ], [ %.sroa.7.1, %242 ], [ %.sroa.7.1, %.noexc92 ], [ %.sroa.7.1, %._crit_edge.us.i.split.us.us ], [ %.sroa.7.5, %._crit_edge.us.i.split ]
-  %.sroa.10.2 = phi i32 [ %.sroa.10.1, %.preheader9.i ], [ %.sroa.10.1, %242 ], [ %.sroa.10.1, %.noexc92 ], [ %.sroa.10.1, %._crit_edge.us.i.split.us.us ], [ %.sroa.10.5, %._crit_edge.us.i.split ]
-  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %.preheader9.i ], [ %.sroa.13.1, %242 ], [ %.sroa.13.1, %.noexc92 ], [ %.sroa.13.1, %._crit_edge.us.i.split.us.us ], [ %.sroa.13.5, %._crit_edge.us.i.split ]
-  %.sroa.18.2 = phi i32 [ %.sroa.18.1, %.preheader9.i ], [ %.sroa.18.1, %242 ], [ %.sroa.18.1, %.noexc92 ], [ %.sroa.18.9.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.18.1, %._crit_edge.us.i.split ]
-  %.sroa.23.2 = phi i32 [ %.sroa.23.1, %.preheader9.i ], [ %.sroa.23.1, %242 ], [ %.sroa.23.1, %.noexc92 ], [ %.sroa.23.9.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.23.1, %._crit_edge.us.i.split ]
+.loopexit10.i:                                    ; preds = %._crit_edge.us.i.split, %._crit_edge.us.i.split.us.us, %.preheader9.i, %243, %.noexc92
+  %.sroa.13202.2 = phi i32 [ %.sroa.13202.1, %.preheader9.i ], [ %.sroa.13202.1, %243 ], [ %.sroa.13202.1, %.noexc92 ], [ %.sroa.13202.9.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.13202.1, %._crit_edge.us.i.split ]
+  %.sroa.0199.2 = phi float [ %.sroa.0199.1, %.preheader9.i ], [ %.sroa.0199.1, %243 ], [ %.sroa.0199.1, %.noexc92 ], [ %.sroa.0199.9.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.0199.1, %._crit_edge.us.i.split ]
+  %.sroa.0174.2 = phi float [ %.sroa.0174.1, %.preheader9.i ], [ %.sroa.0174.1, %243 ], [ %.sroa.0174.1, %.noexc92 ], [ %.sroa.0174.1, %._crit_edge.us.i.split.us.us ], [ %.sroa.0174.5, %._crit_edge.us.i.split ]
+  %.sroa.7.2 = phi i32 [ %.sroa.7.1, %.preheader9.i ], [ %.sroa.7.1, %243 ], [ %.sroa.7.1, %.noexc92 ], [ %.sroa.7.1, %._crit_edge.us.i.split.us.us ], [ %.sroa.7.5, %._crit_edge.us.i.split ]
+  %.sroa.10.2 = phi i32 [ %.sroa.10.1, %.preheader9.i ], [ %.sroa.10.1, %243 ], [ %.sroa.10.1, %.noexc92 ], [ %.sroa.10.1, %._crit_edge.us.i.split.us.us ], [ %.sroa.10.5, %._crit_edge.us.i.split ]
+  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %.preheader9.i ], [ %.sroa.13.1, %243 ], [ %.sroa.13.1, %.noexc92 ], [ %.sroa.13.1, %._crit_edge.us.i.split.us.us ], [ %.sroa.13.5, %._crit_edge.us.i.split ]
+  %.sroa.18.2 = phi i32 [ %.sroa.18.1, %.preheader9.i ], [ %.sroa.18.1, %243 ], [ %.sroa.18.1, %.noexc92 ], [ %.sroa.18.9.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.18.1, %._crit_edge.us.i.split ]
+  %.sroa.23.2 = phi i32 [ %.sroa.23.1, %.preheader9.i ], [ %.sroa.23.1, %243 ], [ %.sroa.23.1, %.noexc92 ], [ %.sroa.23.9.us.us, %._crit_edge.us.i.split.us.us ], [ %.sroa.23.1, %._crit_edge.us.i.split ]
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 95
-  br i1 %exitcond38.not.i, label %238, label %239, !llvm.loop !212
+  br i1 %exitcond38.not.i, label %239, label %240, !llvm.loop !212
 
-325:                                              ; preds = %238
-  %326 = load ptr, ptr %174, align 8, !tbaa !173
-  %327 = load ptr, ptr %173, align 8, !tbaa !171
-  %328 = ptrtoint ptr %326 to i64
-  %329 = ptrtoint ptr %327 to i64
-  %330 = sub i64 %328, %329
-  %331 = ashr exact i64 %330, 2
-  %332 = icmp sgt i64 %331, 1
-  br i1 %332, label %.lr.ph22.i, label %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit
+327:                                              ; preds = %239
+  %328 = load ptr, ptr %174, align 8, !tbaa !173
+  %329 = load ptr, ptr %173, align 8, !tbaa !171
+  %330 = ptrtoint ptr %328 to i64
+  %331 = ptrtoint ptr %329 to i64
+  %332 = sub i64 %330, %331
+  %333 = ashr exact i64 %332, 2
+  %334 = icmp sgt i64 %333, 1
+  br i1 %334, label %.lr.ph22.i, label %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit
 
-.lr.ph22.i:                                       ; preds = %325
-  %333 = load ptr, ptr %175, align 8, !tbaa !171
-  %334 = add nsw i64 %331, -2
-  br label %335
+.lr.ph22.i:                                       ; preds = %327
+  %335 = load ptr, ptr %175, align 8, !tbaa !171
+  %336 = add nsw i64 %333, -2
+  br label %337
 
-335:                                              ; preds = %._crit_edge.i, %.lr.ph22.i
+337:                                              ; preds = %._crit_edge.i, %.lr.ph22.i
   %.sroa.13202.3 = phi i32 [ %.sroa.13202.2, %.lr.ph22.i ], [ %.sroa.13202.6, %._crit_edge.i ]
   %.sroa.0199.3 = phi float [ %.sroa.0199.2, %.lr.ph22.i ], [ %.sroa.0199.6, %._crit_edge.i ]
   %.sroa.18.3 = phi i32 [ %.sroa.18.2, %.lr.ph22.i ], [ %.sroa.18.6, %._crit_edge.i ]
   %.sroa.23.3 = phi i32 [ %.sroa.23.2, %.lr.ph22.i ], [ %.sroa.23.6, %._crit_edge.i ]
-  %.05920.i = phi i64 [ 0, %.lr.ph22.i ], [ %348, %._crit_edge.i ]
-  %336 = getelementptr i32, ptr %327, i64 %.05920.i
-  %337 = load i32, ptr %336, align 4, !tbaa !208
-  %338 = getelementptr i8, ptr %336, i64 4
+  %.05920.i = phi i64 [ 0, %.lr.ph22.i ], [ %350, %._crit_edge.i ]
+  %338 = getelementptr i32, ptr %329, i64 %.05920.i
   %339 = load i32, ptr %338, align 4, !tbaa !208
-  %340 = sext i32 %339 to i64
-  %341 = getelementptr inbounds i32, ptr %333, i64 %340
-  %.not718.i = icmp eq i32 %337, %339
+  %340 = getelementptr i8, ptr %338, i64 4
+  %341 = load i32, ptr %340, align 4, !tbaa !208
+  %342 = sext i32 %341 to i64
+  %343 = getelementptr inbounds i32, ptr %335, i64 %342
+  %.not718.i = icmp eq i32 %339, %341
   br i1 %.not718.i, label %._crit_edge.i, label %.lr.ph.i87
 
-.lr.ph.i87:                                       ; preds = %335
-  %342 = sext i32 %337 to i64
-  %343 = getelementptr inbounds i32, ptr %333, i64 %342
-  %344 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %169, i64 %.05920.i
-  %345 = getelementptr inbounds nuw i8, ptr %344, i64 4
-  %346 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  %347 = trunc i64 %.05920.i to i32
-  br label %349
+.lr.ph.i87:                                       ; preds = %337
+  %344 = sext i32 %339 to i64
+  %345 = getelementptr inbounds i32, ptr %335, i64 %344
+  %346 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %169, i64 %.05920.i
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 4
+  %348 = getelementptr inbounds nuw i8, ptr %346, i64 8
+  %349 = trunc i64 %.05920.i to i32
+  br label %351
 
-._crit_edge.i:                                    ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i, %335
-  %.sroa.13202.6 = phi i32 [ %.sroa.13202.3, %335 ], [ %.sroa.13202.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
-  %.sroa.0199.6 = phi float [ %.sroa.0199.3, %335 ], [ %.sroa.0199.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
-  %.sroa.18.6 = phi i32 [ %.sroa.18.3, %335 ], [ %.sroa.18.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
-  %.sroa.23.6 = phi i32 [ %.sroa.23.3, %335 ], [ %.sroa.23.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
-  %348 = add nuw nsw i64 %.05920.i, 1
-  %exitcond39.not.i = icmp eq i64 %.05920.i, %334
-  br i1 %exitcond39.not.i, label %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit, label %335, !llvm.loop !213
+._crit_edge.i:                                    ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i, %337
+  %.sroa.13202.6 = phi i32 [ %.sroa.13202.3, %337 ], [ %.sroa.13202.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
+  %.sroa.0199.6 = phi float [ %.sroa.0199.3, %337 ], [ %.sroa.0199.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
+  %.sroa.18.6 = phi i32 [ %.sroa.18.3, %337 ], [ %.sroa.18.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
+  %.sroa.23.6 = phi i32 [ %.sroa.23.3, %337 ], [ %.sroa.23.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
+  %350 = add nuw nsw i64 %.05920.i, 1
+  %exitcond39.not.i = icmp eq i64 %.05920.i, %336
+  br i1 %exitcond39.not.i, label %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit, label %337, !llvm.loop !213
 
-349:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i, %.lr.ph.i87
+351:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i, %.lr.ph.i87
   %.sroa.13202.4 = phi i32 [ %.sroa.13202.3, %.lr.ph.i87 ], [ %.sroa.13202.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
   %.sroa.0199.4 = phi float [ %.sroa.0199.3, %.lr.ph.i87 ], [ %.sroa.0199.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
   %.sroa.18.4 = phi i32 [ %.sroa.18.3, %.lr.ph.i87 ], [ %.sroa.18.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
   %.sroa.23.4 = phi i32 [ %.sroa.23.3, %.lr.ph.i87 ], [ %.sroa.23.5, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
-  %.sroa.0.019.i = phi ptr [ %343, %.lr.ph.i87 ], [ %372, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
-  %350 = load i32, ptr %.sroa.0.019.i, align 4, !tbaa !208
-  %351 = sext i32 %350 to i64
-  %.not.i88 = icmp eq i64 %.05920.i, %351
-  br i1 %.not.i88, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i, label %352
+  %.sroa.0.019.i = phi ptr [ %345, %.lr.ph.i87 ], [ %374, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i ]
+  %352 = load i32, ptr %.sroa.0.019.i, align 4, !tbaa !208
+  %353 = sext i32 %352 to i64
+  %.not.i88 = icmp eq i64 %.05920.i, %353
+  br i1 %.not.i88, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i, label %354
 
-352:                                              ; preds = %349
-  %353 = getelementptr inbounds %"class.gmx::BasicVector", ptr %169, i64 %351
-  %354 = load float, ptr %353, align 4, !tbaa !105
-  %355 = load float, ptr %344, align 4, !tbaa !105
-  %356 = fsub float %354, %355
-  %357 = fmul float %356, %356
-  %358 = getelementptr inbounds nuw i8, ptr %353, i64 4
-  %359 = load float, ptr %358, align 4, !tbaa !105
-  %360 = load float, ptr %345, align 4, !tbaa !105
-  %361 = fsub float %359, %360
-  %362 = fmul float %361, %361
-  %363 = fadd float %357, %362
-  %364 = getelementptr inbounds nuw i8, ptr %353, i64 8
-  %365 = load float, ptr %364, align 4, !tbaa !105
-  %366 = load float, ptr %346, align 4, !tbaa !105
-  %367 = fsub float %365, %366
-  %368 = fmul float %367, %367
-  %369 = fadd float %363, %368
-  %370 = fcmp ogt float %369, %.sroa.0199.4
-  br i1 %370, label %371, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i
+354:                                              ; preds = %351
+  %355 = getelementptr inbounds %"class.gmx::BasicVector", ptr %169, i64 %353
+  %356 = load float, ptr %355, align 4, !tbaa !105
+  %357 = load float, ptr %346, align 4, !tbaa !105
+  %358 = fsub float %356, %357
+  %359 = fmul float %358, %358
+  %360 = getelementptr inbounds nuw i8, ptr %355, i64 4
+  %361 = load float, ptr %360, align 4, !tbaa !105
+  %362 = load float, ptr %347, align 4, !tbaa !105
+  %363 = fsub float %361, %362
+  %364 = fmul float %363, %363
+  %365 = fadd float %359, %364
+  %366 = getelementptr inbounds nuw i8, ptr %355, i64 8
+  %367 = load float, ptr %366, align 4, !tbaa !105
+  %368 = load float, ptr %348, align 4, !tbaa !105
+  %369 = fsub float %367, %368
+  %370 = fmul float %369, %369
+  %371 = fadd float %365, %370
+  %372 = fcmp ogt float %371, %.sroa.0199.4
+  br i1 %372, label %373, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i
 
-371:                                              ; preds = %352
+373:                                              ; preds = %354
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i
 
-_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i: ; preds = %371, %352, %349
-  %.sroa.13202.5 = phi i32 [ %.sroa.13202.4, %349 ], [ -1, %371 ], [ %.sroa.13202.4, %352 ]
-  %.sroa.0199.5 = phi float [ %.sroa.0199.4, %349 ], [ %369, %371 ], [ %.sroa.0199.4, %352 ]
-  %.sroa.18.5 = phi i32 [ %.sroa.18.4, %349 ], [ %347, %371 ], [ %.sroa.18.4, %352 ]
-  %.sroa.23.5 = phi i32 [ %.sroa.23.4, %349 ], [ %350, %371 ], [ %.sroa.23.4, %352 ]
-  %372 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 4
-  %.not7.i = icmp eq ptr %372, %341
-  br i1 %.not7.i, label %._crit_edge.i, label %349
+_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i: ; preds = %373, %354, %351
+  %.sroa.13202.5 = phi i32 [ %.sroa.13202.4, %351 ], [ -1, %373 ], [ %.sroa.13202.4, %354 ]
+  %.sroa.0199.5 = phi float [ %.sroa.0199.4, %351 ], [ %371, %373 ], [ %.sroa.0199.4, %354 ]
+  %.sroa.18.5 = phi i32 [ %.sroa.18.4, %351 ], [ %349, %373 ], [ %.sroa.18.4, %354 ]
+  %.sroa.23.5 = phi i32 [ %.sroa.23.4, %351 ], [ %352, %373 ], [ %.sroa.23.4, %354 ]
+  %374 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 4
+  %.not7.i = icmp eq ptr %374, %343
+  br i1 %.not7.i, label %._crit_edge.i, label %351
 
-_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit: ; preds = %._crit_edge.i, %238, %325
-  %.sroa.13202.12 = phi i32 [ %.sroa.13202.2, %325 ], [ %.sroa.13202.2, %238 ], [ %.sroa.13202.6, %._crit_edge.i ]
-  %.sroa.0199.12 = phi float [ %.sroa.0199.2, %325 ], [ %.sroa.0199.2, %238 ], [ %.sroa.0199.6, %._crit_edge.i ]
-  %.sroa.18.12 = phi i32 [ %.sroa.18.2, %325 ], [ %.sroa.18.2, %238 ], [ %.sroa.18.6, %._crit_edge.i ]
-  %.sroa.23.12 = phi i32 [ %.sroa.23.2, %325 ], [ %.sroa.23.2, %238 ], [ %.sroa.23.6, %._crit_edge.i ]
+_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit: ; preds = %._crit_edge.i, %239, %327
+  %.sroa.13202.12 = phi i32 [ %.sroa.13202.2, %327 ], [ %.sroa.13202.2, %239 ], [ %.sroa.13202.6, %._crit_edge.i ]
+  %.sroa.0199.12 = phi float [ %.sroa.0199.2, %327 ], [ %.sroa.0199.2, %239 ], [ %.sroa.0199.6, %._crit_edge.i ]
+  %.sroa.18.12 = phi i32 [ %.sroa.18.2, %327 ], [ %.sroa.18.2, %239 ], [ %.sroa.18.6, %._crit_edge.i ]
+  %.sroa.23.12 = phi i32 [ %.sroa.23.2, %327 ], [ %.sroa.23.2, %239 ], [ %.sroa.23.6, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %506
+  br label %509
 
-.loopexit.split:                                  ; preds = %442
+.loopexit.split:                                  ; preds = %445
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.loopexit.split-lp.loopexit:                      ; preds = %495
+.loopexit.split-lp.loopexit:                      ; preds = %498
   %lpad.loopexit359 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %375
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %377
   %lpad.loopexit362 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %239
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %240
   %lpad.loopexit364 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %231, %.noexc83, %.noexc82, %210
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %232, %.noexc83, %.noexc82, %210
   %lpad.loopexit.split-lp365 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -939,61 +941,62 @@ _ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t
 .loopexit:                                        ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split, %.loopexit.split.us.split.us.split.us
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us.us.us, %.loopexit.split.us.split.us.split.us ], [ %lpad.loopexit359, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit362, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit364, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp365, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i111 = icmp eq ptr %169, null
-  br i1 %.not.i.i.i111, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112, label %520
+  br i1 %.not.i.i.i111, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112, label %523
 
-373:                                              ; preds = %201
+375:                                              ; preds = %201
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 %67, ptr %15, align 1, !tbaa !202
   store i8 0, ptr %70, align 1, !tbaa !205
   store i8 0, ptr %71, align 1, !tbaa !206
-  br label %375
+  br label %377
 
-374:                                              ; preds = %.loopexit76.i
-  br i1 %23, label %463, label %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit
+376:                                              ; preds = %.loopexit76.i
+  br i1 %23, label %466, label %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit
 
-375:                                              ; preds = %.loopexit76.i, %373
-  %.sroa.13202.13 = phi i32 [ -1, %373 ], [ %.sroa.13202.14, %.loopexit76.i ]
-  %.sroa.0199.13 = phi float [ 0.000000e+00, %373 ], [ %.sroa.0199.14, %.loopexit76.i ]
-  %.sroa.0174.8 = phi float [ 0.000000e+00, %373 ], [ %.sroa.0174.9, %.loopexit76.i ]
-  %.sroa.7.8 = phi i32 [ -1, %373 ], [ %.sroa.7.9, %.loopexit76.i ]
-  %.sroa.10.8 = phi i32 [ -1, %373 ], [ %.sroa.10.9, %.loopexit76.i ]
-  %.sroa.13.8 = phi i32 [ -1, %373 ], [ %.sroa.13.9, %.loopexit76.i ]
-  %.sroa.18.13 = phi i32 [ -1, %373 ], [ %.sroa.18.14, %.loopexit76.i ]
-  %.sroa.23.13 = phi i32 [ -1, %373 ], [ %.sroa.23.14, %.loopexit76.i ]
-  %indvars.iv101.i = phi i64 [ 0, %373 ], [ %indvars.iv.next102.i, %.loopexit76.i ]
-  %376 = trunc nuw nsw i64 %indvars.iv101.i to i32
-  %377 = invoke noundef zeroext i1 @_Z14dd_check_ftypeiRK17ReverseTopOptions(i32 noundef %376, ptr noundef nonnull align 1 dereferenceable(3) %15)
+377:                                              ; preds = %.loopexit76.i, %375
+  %.sroa.13202.13 = phi i32 [ -1, %375 ], [ %.sroa.13202.14, %.loopexit76.i ]
+  %.sroa.0199.13 = phi float [ 0.000000e+00, %375 ], [ %.sroa.0199.14, %.loopexit76.i ]
+  %.sroa.0174.8 = phi float [ 0.000000e+00, %375 ], [ %.sroa.0174.9, %.loopexit76.i ]
+  %.sroa.7.8 = phi i32 [ -1, %375 ], [ %.sroa.7.9, %.loopexit76.i ]
+  %.sroa.10.8 = phi i32 [ -1, %375 ], [ %.sroa.10.9, %.loopexit76.i ]
+  %.sroa.13.8 = phi i32 [ -1, %375 ], [ %.sroa.13.9, %.loopexit76.i ]
+  %.sroa.18.13 = phi i32 [ -1, %375 ], [ %.sroa.18.14, %.loopexit76.i ]
+  %.sroa.23.13 = phi i32 [ -1, %375 ], [ %.sroa.23.14, %.loopexit76.i ]
+  %indvars.iv101.i = phi i64 [ 0, %375 ], [ %indvars.iv.next102.i, %.loopexit76.i ]
+  %378 = trunc nuw nsw i64 %indvars.iv101.i to i32
+  %379 = invoke noundef zeroext i1 @_Z14dd_check_ftypeiRK17ReverseTopOptions(i32 noundef %378, ptr noundef nonnull align 1 dereferenceable(3) %15)
           to label %.noexc107 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc107:                                        ; preds = %375
-  br i1 %377, label %378, label %.loopexit76.i
+.noexc107:                                        ; preds = %377
+  br i1 %379, label %380, label %.loopexit76.i
 
-378:                                              ; preds = %.noexc107
-  %379 = getelementptr inbounds nuw %struct.InteractionList, ptr %172, i64 %indvars.iv101.i
-  %380 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv101.i, i32 2
-  %381 = load i32, ptr %380, align 16, !tbaa !207
-  %.fr = freeze i32 %381
-  %382 = icmp sgt i32 %.fr, 1
-  br i1 %382, label %.preheader75.i, label %.loopexit76.i
+380:                                              ; preds = %.noexc107
+  %381 = getelementptr inbounds nuw %struct.InteractionList, ptr %172, i64 %indvars.iv101.i
+  %382 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv101.i
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 16
+  %384 = load i32, ptr %383, align 16, !tbaa !207
+  %.fr = freeze i32 %384
+  %385 = icmp sgt i32 %.fr, 1
+  br i1 %385, label %.preheader75.i, label %.loopexit76.i
 
-.preheader75.i:                                   ; preds = %378
-  %383 = getelementptr inbounds nuw i8, ptr %379, i64 8
-  %384 = load ptr, ptr %383, align 8, !tbaa !173
-  %385 = load ptr, ptr %379, align 8, !tbaa !171
-  %386 = ptrtoint ptr %384 to i64
-  %387 = ptrtoint ptr %385 to i64
-  %388 = sub i64 %386, %387
-  %389 = lshr exact i64 %388, 2
-  %390 = trunc i64 %389 to i32
-  %391 = icmp sgt i32 %390, 0
-  br i1 %391, label %.preheader.us.preheader.i98, label %.loopexit76.i
+.preheader75.i:                                   ; preds = %380
+  %386 = getelementptr inbounds nuw i8, ptr %381, i64 8
+  %387 = load ptr, ptr %386, align 8, !tbaa !173
+  %388 = load ptr, ptr %381, align 8, !tbaa !171
+  %389 = ptrtoint ptr %387 to i64
+  %390 = ptrtoint ptr %388 to i64
+  %391 = sub i64 %389, %390
+  %392 = lshr exact i64 %391, 2
+  %393 = trunc i64 %392 to i32
+  %394 = icmp sgt i32 %393, 0
+  br i1 %394, label %.preheader.us.preheader.i98, label %.loopexit76.i
 
 .preheader.us.preheader.i98:                      ; preds = %.preheader75.i
-  %392 = icmp eq i32 %.fr, 2
-  %393 = add nuw i32 %.fr, 1
-  %394 = zext nneg i32 %.fr to i64
-  %395 = zext i32 %393 to i64
-  br i1 %392, label %.preheader.us.i99.us, label %.preheader.us.i99
+  %395 = icmp eq i32 %.fr, 2
+  %396 = add nuw i32 %.fr, 1
+  %397 = zext nneg i32 %.fr to i64
+  %398 = zext i32 %396 to i64
+  br i1 %395, label %.preheader.us.i99.us, label %.preheader.us.i99
 
 .preheader.us.i99.us:                             ; preds = %.preheader.us.preheader.i98, %._crit_edge.us.i102.split.us.us
   %.sroa.13202.19.us = phi i32 [ %.sroa.13202.21.us.us, %._crit_edge.us.i102.split.us.us ], [ %.sroa.13202.13, %.preheader.us.preheader.i98 ]
@@ -1001,95 +1004,95 @@ _ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t
   %.sroa.18.19.us = phi i32 [ %.sroa.18.21.us.us, %._crit_edge.us.i102.split.us.us ], [ %.sroa.18.13, %.preheader.us.preheader.i98 ]
   %.sroa.23.19.us = phi i32 [ %.sroa.23.21.us.us, %._crit_edge.us.i102.split.us.us ], [ %.sroa.23.13, %.preheader.us.preheader.i98 ]
   %indvars.iv98.i.us = phi i64 [ %indvars.iv.next99.i.us, %._crit_edge.us.i102.split.us.us ], [ 0, %.preheader.us.preheader.i98 ]
-  %396 = add nuw nsw i64 %indvars.iv98.i.us, 1
-  br label %397
+  %399 = add nuw nsw i64 %indvars.iv98.i.us, 1
+  br label %400
 
-397:                                              ; preds = %.loopexit74.us.i.us.us, %.preheader.us.i99.us
+400:                                              ; preds = %.loopexit74.us.i.us.us, %.preheader.us.i99.us
   %.sroa.13202.20.us.us = phi i32 [ %.sroa.13202.19.us, %.preheader.us.i99.us ], [ %.sroa.13202.21.us.us, %.loopexit74.us.i.us.us ]
   %.sroa.0199.20.us.us = phi float [ %.sroa.0199.19.us, %.preheader.us.i99.us ], [ %.sroa.0199.21.us.us, %.loopexit74.us.i.us.us ]
   %.sroa.18.20.us.us = phi i32 [ %.sroa.18.19.us, %.preheader.us.i99.us ], [ %.sroa.18.21.us.us, %.loopexit74.us.i.us.us ]
   %.sroa.23.20.us.us = phi i32 [ %.sroa.23.19.us, %.preheader.us.i99.us ], [ %.sroa.23.21.us.us, %.loopexit74.us.i.us.us ]
   %indvars.iv93.i.us.us = phi i64 [ 0, %.preheader.us.i99.us ], [ %indvars.iv.next94.i.us.us, %.loopexit74.us.i.us.us ]
   %indvars.iv.i100.us.us = phi i64 [ 1, %.preheader.us.i99.us ], [ %indvars.iv.next.i101.us.us, %.loopexit74.us.i.us.us ]
-  %398 = load ptr, ptr %379, align 8, !tbaa !171
-  %399 = getelementptr inbounds nuw i32, ptr %398, i64 %indvars.iv93.i.us.us
-  %400 = getelementptr inbounds nuw i32, ptr %399, i64 %396
-  %401 = load i32, ptr %400, align 4, !tbaa !208
+  %401 = load ptr, ptr %381, align 8, !tbaa !171
+  %402 = getelementptr inbounds nuw i32, ptr %401, i64 %indvars.iv93.i.us.us
+  %403 = getelementptr inbounds nuw i32, ptr %402, i64 %399
+  %404 = load i32, ptr %403, align 4, !tbaa !208
   %indvars.iv.next94.i.us.us = add nuw nsw i64 %indvars.iv93.i.us.us, 1
-  %402 = icmp samesign ult i64 %indvars.iv.next94.i.us.us, %394
-  br i1 %402, label %.lr.ph.us.i103.us.us, label %.loopexit74.us.i.us.us
+  %405 = icmp samesign ult i64 %indvars.iv.next94.i.us.us, %397
+  br i1 %405, label %.lr.ph.us.i103.us.us, label %.loopexit74.us.i.us.us
 
-.lr.ph.us.i103.us.us:                             ; preds = %397
-  %403 = sext i32 %401 to i64
-  %404 = getelementptr inbounds %"class.gmx::BasicVector", ptr %204, i64 %403
-  br label %405
+.lr.ph.us.i103.us.us:                             ; preds = %400
+  %406 = sext i32 %404 to i64
+  %407 = getelementptr inbounds %"class.gmx::BasicVector", ptr %204, i64 %406
+  br label %408
 
-.loopexit74.us.i.us.us:                           ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us, %397
-  %.sroa.13202.21.us.us = phi i32 [ %.sroa.13202.20.us.us, %397 ], [ %.sroa.13202.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
-  %.sroa.0199.21.us.us = phi float [ %.sroa.0199.20.us.us, %397 ], [ %.sroa.0199.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
-  %.sroa.18.21.us.us = phi i32 [ %.sroa.18.20.us.us, %397 ], [ %.sroa.18.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
-  %.sroa.23.21.us.us = phi i32 [ %.sroa.23.20.us.us, %397 ], [ %.sroa.23.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
+.loopexit74.us.i.us.us:                           ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us, %400
+  %.sroa.13202.21.us.us = phi i32 [ %.sroa.13202.20.us.us, %400 ], [ %.sroa.13202.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
+  %.sroa.0199.21.us.us = phi float [ %.sroa.0199.20.us.us, %400 ], [ %.sroa.0199.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
+  %.sroa.18.21.us.us = phi i32 [ %.sroa.18.20.us.us, %400 ], [ %.sroa.18.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
+  %.sroa.23.21.us.us = phi i32 [ %.sroa.23.20.us.us, %400 ], [ %.sroa.23.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
   %indvars.iv.next.i101.us.us = add nuw nsw i64 %indvars.iv.i100.us.us, 1
-  %exitcond97.not.i.us.us = icmp eq i64 %indvars.iv.next94.i.us.us, %394
-  br i1 %exitcond97.not.i.us.us, label %._crit_edge.us.i102.split.us.us, label %397, !llvm.loop !214
+  %exitcond97.not.i.us.us = icmp eq i64 %indvars.iv.next94.i.us.us, %397
+  br i1 %exitcond97.not.i.us.us, label %._crit_edge.us.i102.split.us.us, label %400, !llvm.loop !214
 
-405:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us, %.lr.ph.us.i103.us.us
+408:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us, %.lr.ph.us.i103.us.us
   %.sroa.13202.22.us.us.us = phi i32 [ %.sroa.13202.20.us.us, %.lr.ph.us.i103.us.us ], [ %.sroa.13202.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
   %.sroa.0199.22.us.us.us = phi float [ %.sroa.0199.20.us.us, %.lr.ph.us.i103.us.us ], [ %.sroa.0199.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
   %.sroa.18.22.us.us.us = phi i32 [ %.sroa.18.20.us.us, %.lr.ph.us.i103.us.us ], [ %.sroa.18.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
   %.sroa.23.22.us.us.us = phi i32 [ %.sroa.23.20.us.us, %.lr.ph.us.i103.us.us ], [ %.sroa.23.23.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
   %indvars.iv90.i.us.us.us = phi i64 [ %indvars.iv.i100.us.us, %.lr.ph.us.i103.us.us ], [ %indvars.iv.next91.i.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us ]
-  %406 = load ptr, ptr %379, align 8, !tbaa !171
-  %407 = getelementptr inbounds nuw i32, ptr %406, i64 %indvars.iv90.i.us.us.us
-  %408 = getelementptr inbounds nuw i32, ptr %407, i64 %396
-  %409 = load i32, ptr %408, align 4, !tbaa !208
-  %.not64.us.i104.us.us.us = icmp eq i32 %401, %409
-  br i1 %.not64.us.i104.us.us.us, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us, label %410
+  %409 = load ptr, ptr %381, align 8, !tbaa !171
+  %410 = getelementptr inbounds nuw i32, ptr %409, i64 %indvars.iv90.i.us.us.us
+  %411 = getelementptr inbounds nuw i32, ptr %410, i64 %399
+  %412 = load i32, ptr %411, align 4, !tbaa !208
+  %.not64.us.i104.us.us.us = icmp eq i32 %404, %412
+  br i1 %.not64.us.i104.us.us.us, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us, label %413
 
-410:                                              ; preds = %405
-  %411 = sext i32 %409 to i64
-  %412 = getelementptr inbounds %"class.gmx::BasicVector", ptr %204, i64 %411
+413:                                              ; preds = %408
+  %414 = sext i32 %412 to i64
+  %415 = getelementptr inbounds %"class.gmx::BasicVector", ptr %204, i64 %414
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(12) %404, ptr noundef nonnull align 4 dereferenceable(12) %412, ptr noundef nonnull %14)
+  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(12) %407, ptr noundef nonnull align 4 dereferenceable(12) %415, ptr noundef nonnull %14)
           to label %.noexc108.us.us.us unwind label %.loopexit.split.us.split.us.split.us
 
-.noexc108.us.us.us:                               ; preds = %410
-  %413 = load float, ptr %14, align 4, !tbaa !105
-  %414 = load float, ptr %72, align 4, !tbaa !105
-  %415 = fmul float %414, %414
-  %416 = call float @llvm.fmuladd.f32(float %413, float %413, float %415)
-  %417 = load float, ptr %73, align 4, !tbaa !105
-  %418 = call noundef float @llvm.fmuladd.f32(float %417, float %417, float %416)
+.noexc108.us.us.us:                               ; preds = %413
+  %416 = load float, ptr %14, align 4, !tbaa !105
+  %417 = load float, ptr %72, align 4, !tbaa !105
+  %418 = fmul float %417, %417
+  %419 = call float @llvm.fmuladd.f32(float %416, float %416, float %418)
+  %420 = load float, ptr %73, align 4, !tbaa !105
+  %421 = call noundef float @llvm.fmuladd.f32(float %420, float %420, float %419)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %419 = fcmp ogt float %418, %.sroa.0199.22.us.us.us
-  br i1 %419, label %420, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us
+  %422 = fcmp ogt float %421, %.sroa.0199.22.us.us.us
+  br i1 %422, label %423, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us
 
-420:                                              ; preds = %.noexc108.us.us.us
+423:                                              ; preds = %.noexc108.us.us.us
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us
 
-_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us: ; preds = %420, %.noexc108.us.us.us, %405
-  %.sroa.13202.23.us.us.us = phi i32 [ %.sroa.13202.22.us.us.us, %405 ], [ %.sroa.13202.22.us.us.us, %.noexc108.us.us.us ], [ %376, %420 ]
-  %.sroa.0199.23.us.us.us = phi float [ %.sroa.0199.22.us.us.us, %405 ], [ %.sroa.0199.22.us.us.us, %.noexc108.us.us.us ], [ %418, %420 ]
-  %.sroa.18.23.us.us.us = phi i32 [ %.sroa.18.22.us.us.us, %405 ], [ %.sroa.18.22.us.us.us, %.noexc108.us.us.us ], [ %401, %420 ]
-  %.sroa.23.23.us.us.us = phi i32 [ %.sroa.23.22.us.us.us, %405 ], [ %.sroa.23.22.us.us.us, %.noexc108.us.us.us ], [ %409, %420 ]
+_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us: ; preds = %423, %.noexc108.us.us.us, %408
+  %.sroa.13202.23.us.us.us = phi i32 [ %.sroa.13202.22.us.us.us, %408 ], [ %.sroa.13202.22.us.us.us, %.noexc108.us.us.us ], [ %378, %423 ]
+  %.sroa.0199.23.us.us.us = phi float [ %.sroa.0199.22.us.us.us, %408 ], [ %.sroa.0199.22.us.us.us, %.noexc108.us.us.us ], [ %421, %423 ]
+  %.sroa.18.23.us.us.us = phi i32 [ %.sroa.18.22.us.us.us, %408 ], [ %.sroa.18.22.us.us.us, %.noexc108.us.us.us ], [ %404, %423 ]
+  %.sroa.23.23.us.us.us = phi i32 [ %.sroa.23.22.us.us.us, %408 ], [ %.sroa.23.22.us.us.us, %.noexc108.us.us.us ], [ %412, %423 ]
   %indvars.iv.next91.i.us.us.us = add nuw nsw i64 %indvars.iv90.i.us.us.us, 1
-  %exitcond.not.i106.us.us.us = icmp eq i64 %indvars.iv.next91.i.us.us.us, %394
-  br i1 %exitcond.not.i106.us.us.us, label %.loopexit74.us.i.us.us, label %405, !llvm.loop !215
+  %exitcond.not.i106.us.us.us = icmp eq i64 %indvars.iv.next91.i.us.us.us, %397
+  br i1 %exitcond.not.i106.us.us.us, label %.loopexit74.us.i.us.us, label %408, !llvm.loop !215
 
 ._crit_edge.us.i102.split.us.us:                  ; preds = %.loopexit74.us.i.us.us
-  %indvars.iv.next99.i.us = add nuw nsw i64 %indvars.iv98.i.us, %395
-  %421 = load ptr, ptr %383, align 8, !tbaa !173
-  %422 = load ptr, ptr %379, align 8, !tbaa !171
-  %423 = ptrtoint ptr %421 to i64
-  %424 = ptrtoint ptr %422 to i64
-  %425 = sub i64 %423, %424
-  %426 = lshr exact i64 %425, 2
-  %427 = trunc i64 %426 to i32
-  %428 = trunc nuw i64 %indvars.iv.next99.i.us to i32
-  %429 = icmp slt i32 %428, %427
-  br i1 %429, label %.preheader.us.i99.us, label %.loopexit76.i, !llvm.loop !216
+  %indvars.iv.next99.i.us = add nuw nsw i64 %indvars.iv98.i.us, %398
+  %424 = load ptr, ptr %386, align 8, !tbaa !173
+  %425 = load ptr, ptr %381, align 8, !tbaa !171
+  %426 = ptrtoint ptr %424 to i64
+  %427 = ptrtoint ptr %425 to i64
+  %428 = sub i64 %426, %427
+  %429 = lshr exact i64 %428, 2
+  %430 = trunc i64 %429 to i32
+  %431 = trunc nuw i64 %indvars.iv.next99.i.us to i32
+  %432 = icmp slt i32 %431, %430
+  br i1 %432, label %.preheader.us.i99.us, label %.loopexit76.i, !llvm.loop !216
 
-.loopexit.split.us.split.us.split.us:             ; preds = %410
+.loopexit.split.us.split.us.split.us:             ; preds = %413
   %lpad.loopexit.us.us.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -1100,140 +1103,140 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105.us.us.us: ;
   %.sroa.10.10 = phi i32 [ %.sroa.10.12, %._crit_edge.us.i102.split ], [ %.sroa.10.8, %.preheader.us.preheader.i98 ]
   %.sroa.13.10 = phi i32 [ %.sroa.13.12, %._crit_edge.us.i102.split ], [ %.sroa.13.8, %.preheader.us.preheader.i98 ]
   %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %._crit_edge.us.i102.split ], [ 0, %.preheader.us.preheader.i98 ]
-  %430 = add nuw nsw i64 %indvars.iv98.i, 1
-  br label %431
+  %433 = add nuw nsw i64 %indvars.iv98.i, 1
+  br label %434
 
-431:                                              ; preds = %.loopexit74.us.i, %.preheader.us.i99
+434:                                              ; preds = %.loopexit74.us.i, %.preheader.us.i99
   %.sroa.0174.11 = phi float [ %.sroa.0174.10, %.preheader.us.i99 ], [ %.sroa.0174.12, %.loopexit74.us.i ]
   %.sroa.7.11 = phi i32 [ %.sroa.7.10, %.preheader.us.i99 ], [ %.sroa.7.12, %.loopexit74.us.i ]
   %.sroa.10.11 = phi i32 [ %.sroa.10.10, %.preheader.us.i99 ], [ %.sroa.10.12, %.loopexit74.us.i ]
   %.sroa.13.11 = phi i32 [ %.sroa.13.10, %.preheader.us.i99 ], [ %.sroa.13.12, %.loopexit74.us.i ]
   %indvars.iv93.i = phi i64 [ 0, %.preheader.us.i99 ], [ %indvars.iv.next94.i, %.loopexit74.us.i ]
   %indvars.iv.i100 = phi i64 [ 1, %.preheader.us.i99 ], [ %indvars.iv.next.i101, %.loopexit74.us.i ]
-  %432 = load ptr, ptr %379, align 8, !tbaa !171
-  %433 = getelementptr inbounds nuw i32, ptr %432, i64 %indvars.iv93.i
-  %434 = getelementptr inbounds nuw i32, ptr %433, i64 %430
-  %435 = load i32, ptr %434, align 4, !tbaa !208
+  %435 = load ptr, ptr %381, align 8, !tbaa !171
+  %436 = getelementptr inbounds nuw i32, ptr %435, i64 %indvars.iv93.i
+  %437 = getelementptr inbounds nuw i32, ptr %436, i64 %433
+  %438 = load i32, ptr %437, align 4, !tbaa !208
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
-  %436 = icmp samesign ult i64 %indvars.iv.next94.i, %394
-  br i1 %436, label %.lr.ph.us.i103, label %.loopexit74.us.i
+  %439 = icmp samesign ult i64 %indvars.iv.next94.i, %397
+  br i1 %439, label %.lr.ph.us.i103, label %.loopexit74.us.i
 
-437:                                              ; preds = %.lr.ph.us.i103, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105
+440:                                              ; preds = %.lr.ph.us.i103, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105
   %.sroa.0174.13 = phi float [ %.sroa.0174.11, %.lr.ph.us.i103 ], [ %.sroa.0174.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
   %.sroa.7.13 = phi i32 [ %.sroa.7.11, %.lr.ph.us.i103 ], [ %.sroa.7.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
   %.sroa.10.13 = phi i32 [ %.sroa.10.11, %.lr.ph.us.i103 ], [ %.sroa.10.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
   %.sroa.13.13 = phi i32 [ %.sroa.13.11, %.lr.ph.us.i103 ], [ %.sroa.13.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
   %indvars.iv90.i = phi i64 [ %indvars.iv.i100, %.lr.ph.us.i103 ], [ %indvars.iv.next91.i, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
-  %438 = load ptr, ptr %379, align 8, !tbaa !171
-  %439 = getelementptr inbounds nuw i32, ptr %438, i64 %indvars.iv90.i
-  %440 = getelementptr inbounds nuw i32, ptr %439, i64 %430
-  %441 = load i32, ptr %440, align 4, !tbaa !208
-  %.not64.us.i104 = icmp eq i32 %435, %441
-  br i1 %.not64.us.i104, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105, label %442
+  %441 = load ptr, ptr %381, align 8, !tbaa !171
+  %442 = getelementptr inbounds nuw i32, ptr %441, i64 %indvars.iv90.i
+  %443 = getelementptr inbounds nuw i32, ptr %442, i64 %433
+  %444 = load i32, ptr %443, align 4, !tbaa !208
+  %.not64.us.i104 = icmp eq i32 %438, %444
+  br i1 %.not64.us.i104, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105, label %445
 
-442:                                              ; preds = %437
-  %443 = sext i32 %441 to i64
-  %444 = getelementptr inbounds %"class.gmx::BasicVector", ptr %204, i64 %443
+445:                                              ; preds = %440
+  %446 = sext i32 %444 to i64
+  %447 = getelementptr inbounds %"class.gmx::BasicVector", ptr %204, i64 %446
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(12) %453, ptr noundef nonnull align 4 dereferenceable(12) %444, ptr noundef nonnull %14)
+  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(12) %456, ptr noundef nonnull align 4 dereferenceable(12) %447, ptr noundef nonnull %14)
           to label %.noexc108 unwind label %.loopexit.split
 
-.noexc108:                                        ; preds = %442
-  %445 = load float, ptr %14, align 4, !tbaa !105
-  %446 = load float, ptr %72, align 4, !tbaa !105
-  %447 = fmul float %446, %446
-  %448 = call float @llvm.fmuladd.f32(float %445, float %445, float %447)
-  %449 = load float, ptr %73, align 4, !tbaa !105
-  %450 = call noundef float @llvm.fmuladd.f32(float %449, float %449, float %448)
+.noexc108:                                        ; preds = %445
+  %448 = load float, ptr %14, align 4, !tbaa !105
+  %449 = load float, ptr %72, align 4, !tbaa !105
+  %450 = fmul float %449, %449
+  %451 = call float @llvm.fmuladd.f32(float %448, float %448, float %450)
+  %452 = load float, ptr %73, align 4, !tbaa !105
+  %453 = call noundef float @llvm.fmuladd.f32(float %452, float %452, float %451)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %451 = fcmp ogt float %450, %.sroa.0174.13
-  br i1 %451, label %.else, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105
+  %454 = fcmp ogt float %453, %.sroa.0174.13
+  br i1 %454, label %.else, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105
 
 .else:                                            ; preds = %.noexc108
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105
 
-_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105: ; preds = %.else, %.noexc108, %437
-  %.sroa.0174.14 = phi float [ %.sroa.0174.13, %437 ], [ %.sroa.0174.13, %.noexc108 ], [ %450, %.else ]
-  %.sroa.7.14 = phi i32 [ %.sroa.7.13, %437 ], [ %.sroa.7.13, %.noexc108 ], [ %376, %.else ]
-  %.sroa.10.14 = phi i32 [ %.sroa.10.13, %437 ], [ %.sroa.10.13, %.noexc108 ], [ %435, %.else ]
-  %.sroa.13.14 = phi i32 [ %.sroa.13.13, %437 ], [ %.sroa.13.13, %.noexc108 ], [ %441, %.else ]
+_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105: ; preds = %.else, %.noexc108, %440
+  %.sroa.0174.14 = phi float [ %.sroa.0174.13, %440 ], [ %.sroa.0174.13, %.noexc108 ], [ %453, %.else ]
+  %.sroa.7.14 = phi i32 [ %.sroa.7.13, %440 ], [ %.sroa.7.13, %.noexc108 ], [ %378, %.else ]
+  %.sroa.10.14 = phi i32 [ %.sroa.10.13, %440 ], [ %.sroa.10.13, %.noexc108 ], [ %438, %.else ]
+  %.sroa.13.14 = phi i32 [ %.sroa.13.13, %440 ], [ %.sroa.13.13, %.noexc108 ], [ %444, %.else ]
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
-  %exitcond.not.i106 = icmp eq i64 %indvars.iv.next91.i, %394
-  br i1 %exitcond.not.i106, label %.loopexit74.us.i, label %437, !llvm.loop !215
+  %exitcond.not.i106 = icmp eq i64 %indvars.iv.next91.i, %397
+  br i1 %exitcond.not.i106, label %.loopexit74.us.i, label %440, !llvm.loop !215
 
-.loopexit74.us.i:                                 ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105, %431
-  %.sroa.0174.12 = phi float [ %.sroa.0174.11, %431 ], [ %.sroa.0174.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
-  %.sroa.7.12 = phi i32 [ %.sroa.7.11, %431 ], [ %.sroa.7.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
-  %.sroa.10.12 = phi i32 [ %.sroa.10.11, %431 ], [ %.sroa.10.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
-  %.sroa.13.12 = phi i32 [ %.sroa.13.11, %431 ], [ %.sroa.13.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
+.loopexit74.us.i:                                 ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105, %434
+  %.sroa.0174.12 = phi float [ %.sroa.0174.11, %434 ], [ %.sroa.0174.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
+  %.sroa.7.12 = phi i32 [ %.sroa.7.11, %434 ], [ %.sroa.7.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
+  %.sroa.10.12 = phi i32 [ %.sroa.10.11, %434 ], [ %.sroa.10.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
+  %.sroa.13.12 = phi i32 [ %.sroa.13.11, %434 ], [ %.sroa.13.14, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105 ]
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i100, 1
-  %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %394
-  br i1 %exitcond97.not.i, label %._crit_edge.us.i102.split, label %431, !llvm.loop !214
+  %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %397
+  br i1 %exitcond97.not.i, label %._crit_edge.us.i102.split, label %434, !llvm.loop !214
 
-.lr.ph.us.i103:                                   ; preds = %431
-  %452 = sext i32 %435 to i64
-  %453 = getelementptr inbounds %"class.gmx::BasicVector", ptr %204, i64 %452
-  br label %437
+.lr.ph.us.i103:                                   ; preds = %434
+  %455 = sext i32 %438 to i64
+  %456 = getelementptr inbounds %"class.gmx::BasicVector", ptr %204, i64 %455
+  br label %440
 
 ._crit_edge.us.i102.split:                        ; preds = %.loopexit74.us.i
-  %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, %395
-  %454 = load ptr, ptr %383, align 8, !tbaa !173
-  %455 = load ptr, ptr %379, align 8, !tbaa !171
-  %456 = ptrtoint ptr %454 to i64
-  %457 = ptrtoint ptr %455 to i64
-  %458 = sub i64 %456, %457
-  %459 = lshr exact i64 %458, 2
-  %460 = trunc i64 %459 to i32
-  %461 = trunc nuw i64 %indvars.iv.next99.i to i32
-  %462 = icmp slt i32 %461, %460
-  br i1 %462, label %.preheader.us.i99, label %.loopexit76.i, !llvm.loop !216
+  %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, %398
+  %457 = load ptr, ptr %386, align 8, !tbaa !173
+  %458 = load ptr, ptr %381, align 8, !tbaa !171
+  %459 = ptrtoint ptr %457 to i64
+  %460 = ptrtoint ptr %458 to i64
+  %461 = sub i64 %459, %460
+  %462 = lshr exact i64 %461, 2
+  %463 = trunc i64 %462 to i32
+  %464 = trunc nuw i64 %indvars.iv.next99.i to i32
+  %465 = icmp slt i32 %464, %463
+  br i1 %465, label %.preheader.us.i99, label %.loopexit76.i, !llvm.loop !216
 
-.loopexit76.i:                                    ; preds = %._crit_edge.us.i102.split, %._crit_edge.us.i102.split.us.us, %.preheader75.i, %378, %.noexc107
-  %.sroa.13202.14 = phi i32 [ %.sroa.13202.13, %.preheader75.i ], [ %.sroa.13202.13, %378 ], [ %.sroa.13202.13, %.noexc107 ], [ %.sroa.13202.21.us.us, %._crit_edge.us.i102.split.us.us ], [ %.sroa.13202.13, %._crit_edge.us.i102.split ]
-  %.sroa.0199.14 = phi float [ %.sroa.0199.13, %.preheader75.i ], [ %.sroa.0199.13, %378 ], [ %.sroa.0199.13, %.noexc107 ], [ %.sroa.0199.21.us.us, %._crit_edge.us.i102.split.us.us ], [ %.sroa.0199.13, %._crit_edge.us.i102.split ]
-  %.sroa.0174.9 = phi float [ %.sroa.0174.8, %.preheader75.i ], [ %.sroa.0174.8, %378 ], [ %.sroa.0174.8, %.noexc107 ], [ %.sroa.0174.8, %._crit_edge.us.i102.split.us.us ], [ %.sroa.0174.12, %._crit_edge.us.i102.split ]
-  %.sroa.7.9 = phi i32 [ %.sroa.7.8, %.preheader75.i ], [ %.sroa.7.8, %378 ], [ %.sroa.7.8, %.noexc107 ], [ %.sroa.7.8, %._crit_edge.us.i102.split.us.us ], [ %.sroa.7.12, %._crit_edge.us.i102.split ]
-  %.sroa.10.9 = phi i32 [ %.sroa.10.8, %.preheader75.i ], [ %.sroa.10.8, %378 ], [ %.sroa.10.8, %.noexc107 ], [ %.sroa.10.8, %._crit_edge.us.i102.split.us.us ], [ %.sroa.10.12, %._crit_edge.us.i102.split ]
-  %.sroa.13.9 = phi i32 [ %.sroa.13.8, %.preheader75.i ], [ %.sroa.13.8, %378 ], [ %.sroa.13.8, %.noexc107 ], [ %.sroa.13.8, %._crit_edge.us.i102.split.us.us ], [ %.sroa.13.12, %._crit_edge.us.i102.split ]
-  %.sroa.18.14 = phi i32 [ %.sroa.18.13, %.preheader75.i ], [ %.sroa.18.13, %378 ], [ %.sroa.18.13, %.noexc107 ], [ %.sroa.18.21.us.us, %._crit_edge.us.i102.split.us.us ], [ %.sroa.18.13, %._crit_edge.us.i102.split ]
-  %.sroa.23.14 = phi i32 [ %.sroa.23.13, %.preheader75.i ], [ %.sroa.23.13, %378 ], [ %.sroa.23.13, %.noexc107 ], [ %.sroa.23.21.us.us, %._crit_edge.us.i102.split.us.us ], [ %.sroa.23.13, %._crit_edge.us.i102.split ]
+.loopexit76.i:                                    ; preds = %._crit_edge.us.i102.split, %._crit_edge.us.i102.split.us.us, %.preheader75.i, %380, %.noexc107
+  %.sroa.13202.14 = phi i32 [ %.sroa.13202.13, %.preheader75.i ], [ %.sroa.13202.13, %380 ], [ %.sroa.13202.13, %.noexc107 ], [ %.sroa.13202.21.us.us, %._crit_edge.us.i102.split.us.us ], [ %.sroa.13202.13, %._crit_edge.us.i102.split ]
+  %.sroa.0199.14 = phi float [ %.sroa.0199.13, %.preheader75.i ], [ %.sroa.0199.13, %380 ], [ %.sroa.0199.13, %.noexc107 ], [ %.sroa.0199.21.us.us, %._crit_edge.us.i102.split.us.us ], [ %.sroa.0199.13, %._crit_edge.us.i102.split ]
+  %.sroa.0174.9 = phi float [ %.sroa.0174.8, %.preheader75.i ], [ %.sroa.0174.8, %380 ], [ %.sroa.0174.8, %.noexc107 ], [ %.sroa.0174.8, %._crit_edge.us.i102.split.us.us ], [ %.sroa.0174.12, %._crit_edge.us.i102.split ]
+  %.sroa.7.9 = phi i32 [ %.sroa.7.8, %.preheader75.i ], [ %.sroa.7.8, %380 ], [ %.sroa.7.8, %.noexc107 ], [ %.sroa.7.8, %._crit_edge.us.i102.split.us.us ], [ %.sroa.7.12, %._crit_edge.us.i102.split ]
+  %.sroa.10.9 = phi i32 [ %.sroa.10.8, %.preheader75.i ], [ %.sroa.10.8, %380 ], [ %.sroa.10.8, %.noexc107 ], [ %.sroa.10.8, %._crit_edge.us.i102.split.us.us ], [ %.sroa.10.12, %._crit_edge.us.i102.split ]
+  %.sroa.13.9 = phi i32 [ %.sroa.13.8, %.preheader75.i ], [ %.sroa.13.8, %380 ], [ %.sroa.13.8, %.noexc107 ], [ %.sroa.13.8, %._crit_edge.us.i102.split.us.us ], [ %.sroa.13.12, %._crit_edge.us.i102.split ]
+  %.sroa.18.14 = phi i32 [ %.sroa.18.13, %.preheader75.i ], [ %.sroa.18.13, %380 ], [ %.sroa.18.13, %.noexc107 ], [ %.sroa.18.21.us.us, %._crit_edge.us.i102.split.us.us ], [ %.sroa.18.13, %._crit_edge.us.i102.split ]
+  %.sroa.23.14 = phi i32 [ %.sroa.23.13, %.preheader75.i ], [ %.sroa.23.13, %380 ], [ %.sroa.23.13, %.noexc107 ], [ %.sroa.23.21.us.us, %._crit_edge.us.i102.split.us.us ], [ %.sroa.23.13, %._crit_edge.us.i102.split ]
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond104.not.i = icmp eq i64 %indvars.iv.next102.i, 95
-  br i1 %exitcond104.not.i, label %374, label %375, !llvm.loop !217
+  br i1 %exitcond104.not.i, label %376, label %377, !llvm.loop !217
 
-463:                                              ; preds = %374
-  %464 = load ptr, ptr %174, align 8, !tbaa !173
-  %465 = load ptr, ptr %173, align 8, !tbaa !171
-  %466 = ptrtoint ptr %464 to i64
-  %467 = ptrtoint ptr %465 to i64
-  %468 = sub i64 %466, %467
-  %469 = icmp sgt i64 %468, 4
-  br i1 %469, label %.lr.ph88.i, label %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit
+466:                                              ; preds = %376
+  %467 = load ptr, ptr %174, align 8, !tbaa !173
+  %468 = load ptr, ptr %173, align 8, !tbaa !171
+  %469 = ptrtoint ptr %467 to i64
+  %470 = ptrtoint ptr %468 to i64
+  %471 = sub i64 %469, %470
+  %472 = icmp sgt i64 %471, 4
+  br i1 %472, label %.lr.ph88.i, label %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit
 
-.lr.ph88.i:                                       ; preds = %463, %._crit_edge.i97
-  %.sroa.13202.15 = phi i32 [ %.sroa.13202.18, %._crit_edge.i97 ], [ %.sroa.13202.14, %463 ]
-  %.sroa.0199.15 = phi float [ %.sroa.0199.18, %._crit_edge.i97 ], [ %.sroa.0199.14, %463 ]
-  %.sroa.18.15 = phi i32 [ %.sroa.18.18, %._crit_edge.i97 ], [ %.sroa.18.14, %463 ]
-  %.sroa.23.15 = phi i32 [ %.sroa.23.18, %._crit_edge.i97 ], [ %.sroa.23.14, %463 ]
-  %470 = phi ptr [ %483, %._crit_edge.i97 ], [ %465, %463 ]
-  %471 = phi ptr [ %484, %._crit_edge.i97 ], [ %464, %463 ]
-  %.05986.i = phi i64 [ %485, %._crit_edge.i97 ], [ 0, %463 ]
-  %472 = load ptr, ptr %175, align 8, !tbaa !171
-  %473 = getelementptr i32, ptr %470, i64 %.05986.i
-  %474 = load i32, ptr %473, align 4, !tbaa !208
-  %475 = getelementptr i8, ptr %473, i64 4
-  %476 = load i32, ptr %475, align 4, !tbaa !208
-  %477 = sext i32 %476 to i64
-  %478 = getelementptr inbounds i32, ptr %472, i64 %477
-  %.not7384.i = icmp eq i32 %474, %476
+.lr.ph88.i:                                       ; preds = %466, %._crit_edge.i97
+  %.sroa.13202.15 = phi i32 [ %.sroa.13202.18, %._crit_edge.i97 ], [ %.sroa.13202.14, %466 ]
+  %.sroa.0199.15 = phi float [ %.sroa.0199.18, %._crit_edge.i97 ], [ %.sroa.0199.14, %466 ]
+  %.sroa.18.15 = phi i32 [ %.sroa.18.18, %._crit_edge.i97 ], [ %.sroa.18.14, %466 ]
+  %.sroa.23.15 = phi i32 [ %.sroa.23.18, %._crit_edge.i97 ], [ %.sroa.23.14, %466 ]
+  %473 = phi ptr [ %486, %._crit_edge.i97 ], [ %468, %466 ]
+  %474 = phi ptr [ %487, %._crit_edge.i97 ], [ %467, %466 ]
+  %.05986.i = phi i64 [ %488, %._crit_edge.i97 ], [ 0, %466 ]
+  %475 = load ptr, ptr %175, align 8, !tbaa !171
+  %476 = getelementptr i32, ptr %473, i64 %.05986.i
+  %477 = load i32, ptr %476, align 4, !tbaa !208
+  %478 = getelementptr i8, ptr %476, i64 4
+  %479 = load i32, ptr %478, align 4, !tbaa !208
+  %480 = sext i32 %479 to i64
+  %481 = getelementptr inbounds i32, ptr %475, i64 %480
+  %.not7384.i = icmp eq i32 %477, %479
   br i1 %.not7384.i, label %._crit_edge.i97, label %.lr.ph.i94
 
 .lr.ph.i94:                                       ; preds = %.lr.ph88.i
-  %479 = sext i32 %474 to i64
-  %480 = getelementptr inbounds i32, ptr %472, i64 %479
-  %481 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %204, i64 %.05986.i
-  %482 = trunc i64 %.05986.i to i32
-  br label %492
+  %482 = sext i32 %477 to i64
+  %483 = getelementptr inbounds i32, ptr %475, i64 %482
+  %484 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %204, i64 %.05986.i
+  %485 = trunc i64 %.05986.i to i32
+  br label %495
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96
   %.pre.i = load ptr, ptr %174, align 8, !tbaa !173
@@ -1245,66 +1248,66 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i105: ; preds = 
   %.sroa.0199.18 = phi float [ %.sroa.0199.15, %.lr.ph88.i ], [ %.sroa.0199.17, %._crit_edge.loopexit.i ]
   %.sroa.18.18 = phi i32 [ %.sroa.18.15, %.lr.ph88.i ], [ %.sroa.18.17, %._crit_edge.loopexit.i ]
   %.sroa.23.18 = phi i32 [ %.sroa.23.15, %.lr.ph88.i ], [ %.sroa.23.17, %._crit_edge.loopexit.i ]
-  %483 = phi ptr [ %470, %.lr.ph88.i ], [ %.pre105.i, %._crit_edge.loopexit.i ]
-  %484 = phi ptr [ %471, %.lr.ph88.i ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %485 = add nuw nsw i64 %.05986.i, 1
-  %486 = ptrtoint ptr %484 to i64
-  %487 = ptrtoint ptr %483 to i64
-  %488 = sub i64 %486, %487
-  %489 = ashr exact i64 %488, 2
-  %490 = add nsw i64 %489, -1
-  %491 = icmp slt i64 %485, %490
-  br i1 %491, label %.lr.ph88.i, label %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit, !llvm.loop !218
+  %486 = phi ptr [ %473, %.lr.ph88.i ], [ %.pre105.i, %._crit_edge.loopexit.i ]
+  %487 = phi ptr [ %474, %.lr.ph88.i ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %488 = add nuw nsw i64 %.05986.i, 1
+  %489 = ptrtoint ptr %487 to i64
+  %490 = ptrtoint ptr %486 to i64
+  %491 = sub i64 %489, %490
+  %492 = ashr exact i64 %491, 2
+  %493 = add nsw i64 %492, -1
+  %494 = icmp slt i64 %488, %493
+  br i1 %494, label %.lr.ph88.i, label %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit, !llvm.loop !218
 
-492:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96, %.lr.ph.i94
+495:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96, %.lr.ph.i94
   %.sroa.13202.16 = phi i32 [ %.sroa.13202.15, %.lr.ph.i94 ], [ %.sroa.13202.17, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96 ]
   %.sroa.0199.16 = phi float [ %.sroa.0199.15, %.lr.ph.i94 ], [ %.sroa.0199.17, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96 ]
   %.sroa.18.16 = phi i32 [ %.sroa.18.15, %.lr.ph.i94 ], [ %.sroa.18.17, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96 ]
   %.sroa.23.16 = phi i32 [ %.sroa.23.15, %.lr.ph.i94 ], [ %.sroa.23.17, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96 ]
-  %.sroa.0.085.i = phi ptr [ %480, %.lr.ph.i94 ], [ %505, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96 ]
-  %493 = load i32, ptr %.sroa.0.085.i, align 4, !tbaa !208
-  %494 = sext i32 %493 to i64
-  %.not.i95 = icmp eq i64 %.05986.i, %494
-  br i1 %.not.i95, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96, label %495
+  %.sroa.0.085.i = phi ptr [ %483, %.lr.ph.i94 ], [ %508, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96 ]
+  %496 = load i32, ptr %.sroa.0.085.i, align 4, !tbaa !208
+  %497 = sext i32 %496 to i64
+  %.not.i95 = icmp eq i64 %.05986.i, %497
+  br i1 %.not.i95, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96, label %498
 
-495:                                              ; preds = %492
-  %496 = getelementptr inbounds %"class.gmx::BasicVector", ptr %204, i64 %494
+498:                                              ; preds = %495
+  %499 = getelementptr inbounds %"class.gmx::BasicVector", ptr %204, i64 %497
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(12) %481, ptr noundef nonnull align 4 dereferenceable(12) %496, ptr noundef nonnull %13)
+  invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %17, ptr noundef nonnull align 4 dereferenceable(12) %484, ptr noundef nonnull align 4 dereferenceable(12) %499, ptr noundef nonnull %13)
           to label %.noexc109 unwind label %.loopexit.split-lp.loopexit
 
-.noexc109:                                        ; preds = %495
-  %497 = load float, ptr %13, align 4, !tbaa !105
-  %498 = load float, ptr %74, align 4, !tbaa !105
-  %499 = fmul float %498, %498
-  %500 = call float @llvm.fmuladd.f32(float %497, float %497, float %499)
-  %501 = load float, ptr %75, align 4, !tbaa !105
-  %502 = call noundef float @llvm.fmuladd.f32(float %501, float %501, float %500)
+.noexc109:                                        ; preds = %498
+  %500 = load float, ptr %13, align 4, !tbaa !105
+  %501 = load float, ptr %74, align 4, !tbaa !105
+  %502 = fmul float %501, %501
+  %503 = call float @llvm.fmuladd.f32(float %500, float %500, float %502)
+  %504 = load float, ptr %75, align 4, !tbaa !105
+  %505 = call noundef float @llvm.fmuladd.f32(float %504, float %504, float %503)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %503 = fcmp ogt float %502, %.sroa.0199.16
-  br i1 %503, label %504, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96
+  %506 = fcmp ogt float %505, %.sroa.0199.16
+  br i1 %506, label %507, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96
 
-504:                                              ; preds = %.noexc109
+507:                                              ; preds = %.noexc109
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96
 
-_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96: ; preds = %504, %.noexc109, %492
-  %.sroa.13202.17 = phi i32 [ %.sroa.13202.16, %492 ], [ -1, %504 ], [ %.sroa.13202.16, %.noexc109 ]
-  %.sroa.0199.17 = phi float [ %.sroa.0199.16, %492 ], [ %502, %504 ], [ %.sroa.0199.16, %.noexc109 ]
-  %.sroa.18.17 = phi i32 [ %.sroa.18.16, %492 ], [ %482, %504 ], [ %.sroa.18.16, %.noexc109 ]
-  %.sroa.23.17 = phi i32 [ %.sroa.23.16, %492 ], [ %493, %504 ], [ %.sroa.23.16, %.noexc109 ]
-  %505 = getelementptr inbounds nuw i8, ptr %.sroa.0.085.i, i64 4
-  %.not73.i = icmp eq ptr %505, %478
-  br i1 %.not73.i, label %._crit_edge.loopexit.i, label %492
+_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit66.i96: ; preds = %507, %.noexc109, %495
+  %.sroa.13202.17 = phi i32 [ %.sroa.13202.16, %495 ], [ -1, %507 ], [ %.sroa.13202.16, %.noexc109 ]
+  %.sroa.0199.17 = phi float [ %.sroa.0199.16, %495 ], [ %505, %507 ], [ %.sroa.0199.16, %.noexc109 ]
+  %.sroa.18.17 = phi i32 [ %.sroa.18.16, %495 ], [ %485, %507 ], [ %.sroa.18.16, %.noexc109 ]
+  %.sroa.23.17 = phi i32 [ %.sroa.23.16, %495 ], [ %496, %507 ], [ %.sroa.23.16, %.noexc109 ]
+  %508 = getelementptr inbounds nuw i8, ptr %.sroa.0.085.i, i64 4
+  %.not73.i = icmp eq ptr %508, %481
+  br i1 %.not73.i, label %._crit_edge.loopexit.i, label %495
 
-_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit: ; preds = %._crit_edge.i97, %374, %463
-  %.sroa.13202.24 = phi i32 [ %.sroa.13202.14, %463 ], [ %.sroa.13202.14, %374 ], [ %.sroa.13202.18, %._crit_edge.i97 ]
-  %.sroa.0199.24 = phi float [ %.sroa.0199.14, %463 ], [ %.sroa.0199.14, %374 ], [ %.sroa.0199.18, %._crit_edge.i97 ]
-  %.sroa.18.24 = phi i32 [ %.sroa.18.14, %463 ], [ %.sroa.18.14, %374 ], [ %.sroa.18.18, %._crit_edge.i97 ]
-  %.sroa.23.24 = phi i32 [ %.sroa.23.14, %463 ], [ %.sroa.23.14, %374 ], [ %.sroa.23.18, %._crit_edge.i97 ]
+_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit: ; preds = %._crit_edge.i97, %376, %466
+  %.sroa.13202.24 = phi i32 [ %.sroa.13202.14, %466 ], [ %.sroa.13202.14, %376 ], [ %.sroa.13202.18, %._crit_edge.i97 ]
+  %.sroa.0199.24 = phi float [ %.sroa.0199.14, %466 ], [ %.sroa.0199.14, %376 ], [ %.sroa.0199.18, %._crit_edge.i97 ]
+  %.sroa.18.24 = phi i32 [ %.sroa.18.14, %466 ], [ %.sroa.18.14, %376 ], [ %.sroa.18.18, %._crit_edge.i97 ]
+  %.sroa.23.24 = phi i32 [ %.sroa.23.14, %466 ], [ %.sroa.23.14, %376 ], [ %.sroa.23.18, %._crit_edge.i97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %506
+  br label %509
 
-506:                                              ; preds = %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit, %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit
+509:                                              ; preds = %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit, %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit
   %.sroa.13202.0 = phi i32 [ %.sroa.13202.24, %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ], [ %.sroa.13202.12, %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ]
   %.sroa.0199.0 = phi float [ %.sroa.0199.24, %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ], [ %.sroa.0199.12, %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ]
   %.sroa.0174.0 = phi float [ %.sroa.0174.9, %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ], [ %.sroa.0174.2, %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ]
@@ -1313,51 +1316,51 @@ _ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t
   %.sroa.13.0 = phi i32 [ %.sroa.13.9, %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ], [ %.sroa.13.2, %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ]
   %.sroa.18.0 = phi i32 [ %.sroa.18.24, %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ], [ %.sroa.18.12, %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ]
   %.sroa.23.0 = phi i32 [ %.sroa.23.24, %_ZL22bonded_cg_distance_molILb1EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ], [ %.sroa.23.12, %_ZL22bonded_cg_distance_molILb0EEvPK13gmx_moltype_tN3gmx16DDBondedCheckingEbPK5t_pbcNS3_8ArrayRefIKNS3_11BasicVectorIfEEEEP17bonded_distance_tSE_.exit ]
-  %507 = fcmp ogt float %.sroa.0199.0, %.sroa.0239.2551
-  br i1 %507, label %508, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit
+  %510 = fcmp ogt float %.sroa.0199.0, %.sroa.0239.2551
+  br i1 %510, label %511, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit
 
-508:                                              ; preds = %506
-  %509 = add nsw i32 %.sroa.23.0, %.266555
-  %510 = add nsw i32 %.sroa.18.0, %.266555
+511:                                              ; preds = %509
+  %512 = add nsw i32 %.sroa.23.0, %.266555
+  %513 = add nsw i32 %.sroa.18.0, %.266555
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit
 
-_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit: ; preds = %506, %508
-  %.sroa.0239.4 = phi float [ %.sroa.0199.0, %508 ], [ %.sroa.0239.2551, %506 ]
-  %.sroa.9241.4 = phi i32 [ %.sroa.13202.0, %508 ], [ %.sroa.9241.2552, %506 ]
-  %.sroa.12242.4 = phi i32 [ %510, %508 ], [ %.sroa.12242.2553, %506 ]
-  %.sroa.15.4 = phi i32 [ %509, %508 ], [ %.sroa.15.2554, %506 ]
-  %511 = fcmp ogt float %.sroa.0174.0, %.sroa.0224.2550
-  br i1 %511, label %512, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110
+_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit: ; preds = %509, %511
+  %.sroa.0239.4 = phi float [ %.sroa.0199.0, %511 ], [ %.sroa.0239.2551, %509 ]
+  %.sroa.9241.4 = phi i32 [ %.sroa.13202.0, %511 ], [ %.sroa.9241.2552, %509 ]
+  %.sroa.12242.4 = phi i32 [ %513, %511 ], [ %.sroa.12242.2553, %509 ]
+  %.sroa.15.4 = phi i32 [ %512, %511 ], [ %.sroa.15.2554, %509 ]
+  %514 = fcmp ogt float %.sroa.0174.0, %.sroa.0224.2550
+  br i1 %514, label %515, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110
 
-512:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit
-  %513 = add nsw i32 %.sroa.13.0, %.266555
-  %514 = add nsw i32 %.sroa.10.0, %.266555
+515:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit
+  %516 = add nsw i32 %.sroa.13.0, %.266555
+  %517 = add nsw i32 %.sroa.10.0, %.266555
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110
 
-_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110: ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit, %512
-  %.sroa.14.4 = phi i32 [ %513, %512 ], [ %.sroa.14.2547, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
-  %.sroa.11.4 = phi i32 [ %514, %512 ], [ %.sroa.11.2548, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
-  %.sroa.8.4 = phi i32 [ %.sroa.7.0, %512 ], [ %.sroa.8.2549, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
-  %.sroa.0224.4 = phi float [ %.sroa.0174.0, %512 ], [ %.sroa.0224.2550, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
-  %515 = load i32, ptr %84, align 8, !tbaa !162
-  %516 = add nsw i32 %515, %.266555
-  %517 = add nuw nsw i32 %.0556, 1
-  %518 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !170
-  %519 = icmp slt i32 %517, %518
-  br i1 %519, label %201, label %._crit_edge, !llvm.loop !219
+_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit110: ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit, %515
+  %.sroa.14.4 = phi i32 [ %516, %515 ], [ %.sroa.14.2547, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
+  %.sroa.11.4 = phi i32 [ %517, %515 ], [ %.sroa.11.2548, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
+  %.sroa.8.4 = phi i32 [ %.sroa.7.0, %515 ], [ %.sroa.8.2549, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
+  %.sroa.0224.4 = phi float [ %.sroa.0174.0, %515 ], [ %.sroa.0224.2550, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit ]
+  %518 = load i32, ptr %84, align 8, !tbaa !162
+  %519 = add nsw i32 %518, %.266555
+  %520 = add nuw nsw i32 %.0556, 1
+  %521 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !170
+  %522 = icmp slt i32 %520, %521
+  br i1 %522, label %201, label %._crit_edge, !llvm.loop !219
 
-520:                                              ; preds = %.loopexit
+523:                                              ; preds = %.loopexit
   %.idx358 = mul nuw nsw i64 %163, 12
   call void @_ZdlPvm(ptr noundef nonnull %169, i64 noundef %.idx358) #13
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112
 
-_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112: ; preds = %.loopexit367, %.loopexit.split-lp368, %.loopexit, %520, %159
-  %.pn.pn.pn = phi { ptr, i32 } [ %160, %159 ], [ %lpad.phi, %.loopexit ], [ %lpad.phi, %520 ], [ %lpad.loopexit369, %.loopexit367 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp368 ]
+_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112: ; preds = %.loopexit367, %.loopexit.split-lp368, %.loopexit, %523, %159
+  %.pn.pn.pn = phi { ptr, i32 } [ %160, %159 ], [ %lpad.phi, %.loopexit ], [ %lpad.phi, %523 ], [ %lpad.loopexit369, %.loopexit367 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp368 ]
   call void @_ZN7t_graphD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %18) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %730
+  br label %736
 
-521:                                              ; preds = %_ZN7t_graphD2Ev.exit81, %._crit_edge631
+524:                                              ; preds = %_ZN7t_graphD2Ev.exit81, %._crit_edge631
   %.sroa.14.1 = phi i32 [ %.sroa.14.0567, %._crit_edge631 ], [ %.sroa.14.2.lcssa, %_ZN7t_graphD2Ev.exit81 ]
   %.sroa.11.1 = phi i32 [ %.sroa.11.0568, %._crit_edge631 ], [ %.sroa.11.2.lcssa, %_ZN7t_graphD2Ev.exit81 ]
   %.sroa.8.1 = phi i32 [ %.sroa.8.0569, %._crit_edge631 ], [ %.sroa.8.2.lcssa, %_ZN7t_graphD2Ev.exit81 ]
@@ -1367,74 +1370,75 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112: ; preds = %.loopexit367
   %.sroa.12242.1 = phi i32 [ %.sroa.12242.0573, %._crit_edge631 ], [ %.sroa.12242.2.lcssa, %_ZN7t_graphD2Ev.exit81 ]
   %.sroa.15.1 = phi i32 [ %.sroa.15.0574, %._crit_edge631 ], [ %.sroa.15.2.lcssa, %_ZN7t_graphD2Ev.exit81 ]
   %.165 = phi i32 [ %91, %._crit_edge631 ], [ %.266.lcssa, %_ZN7t_graphD2Ev.exit81 ]
-  %522 = getelementptr inbounds nuw i8, ptr %.sroa.0214.0566, i64 56
-  %.not356 = icmp eq ptr %522, %34
+  %525 = getelementptr inbounds nuw i8, ptr %.sroa.0214.0566, i64 56
+  %.not356 = icmp eq ptr %525, %34
   br i1 %.not356, label %._crit_edge578, label %79
 
-523:                                              ; preds = %._crit_edge578
-  %524 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %525 = load ptr, ptr %524, align 8, !tbaa !220
-  %.not357 = icmp eq ptr %525, null
-  br i1 %.not357, label %526, label %527
+526:                                              ; preds = %._crit_edge578
+  %527 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %528 = load ptr, ptr %527, align 8, !tbaa !220
+  %.not357 = icmp eq ptr %528, null
+  br i1 %.not357, label %529, label %530
 
-526:                                              ; preds = %523
+529:                                              ; preds = %526
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ21dd_bonded_cg_distanceRKN3gmx8MDLoggerERK10gmx_mtop_tRK10t_inputrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_KfNS_16DDBondedCheckingEPfSI_ENK3$_0clEv", ptr noundef nonnull @.str.7, i32 noundef 359) #14
   unreachable
 
-527:                                              ; preds = %523
-  %528 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %529 = load i32, ptr %528, align 8, !tbaa !104
+530:                                              ; preds = %526
+  %531 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %532 = load i32, ptr %531, align 8, !tbaa !104
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr noundef nonnull %10, i32 noundef %529, ptr noundef %5)
+  call void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr noundef nonnull %10, i32 noundef %532, ptr noundef %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %530 = zext i1 %6 to i8
-  store i8 %530, ptr %11, align 1, !tbaa !202
-  %531 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i8 0, ptr %531, align 1, !tbaa !205
-  %532 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  store i8 0, ptr %532, align 1, !tbaa !206
-  %533 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %534 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  br label %535
+  %533 = zext i1 %6 to i8
+  store i8 %533, ptr %11, align 1, !tbaa !202
+  %534 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store i8 0, ptr %534, align 1, !tbaa !205
+  %535 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  store i8 0, ptr %535, align 1, !tbaa !206
+  %536 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %537 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  br label %538
 
-535:                                              ; preds = %.loopexit39.i, %527
-  %.sroa.14.5 = phi i32 [ %.sroa.14.0.lcssa, %527 ], [ %.sroa.14.6, %.loopexit39.i ]
-  %.sroa.11.5 = phi i32 [ %.sroa.11.0.lcssa, %527 ], [ %.sroa.11.6, %.loopexit39.i ]
-  %.sroa.8.5 = phi i32 [ %.sroa.8.0.lcssa, %527 ], [ %.sroa.8.6, %.loopexit39.i ]
-  %.sroa.0224.5 = phi float [ %.sroa.0224.0.lcssa, %527 ], [ %.sroa.0224.6, %.loopexit39.i ]
-  %.sroa.0239.5 = phi float [ %.sroa.0239.0.lcssa, %527 ], [ %.sroa.0239.6, %.loopexit39.i ]
-  %.sroa.9241.5 = phi i32 [ %.sroa.9241.0.lcssa, %527 ], [ %.sroa.9241.6, %.loopexit39.i ]
-  %.sroa.12242.5 = phi i32 [ %.sroa.12242.0.lcssa, %527 ], [ %.sroa.12242.6, %.loopexit39.i ]
-  %.sroa.15.5 = phi i32 [ %.sroa.15.0.lcssa, %527 ], [ %.sroa.15.6, %.loopexit39.i ]
-  %indvars.iv59.i = phi i64 [ 0, %527 ], [ %indvars.iv.next60.i, %.loopexit39.i ]
-  %536 = trunc nuw nsw i64 %indvars.iv59.i to i32
-  %537 = call noundef zeroext i1 @_Z14dd_check_ftypeiRK17ReverseTopOptions(i32 noundef %536, ptr noundef nonnull align 1 dereferenceable(3) %11)
-  br i1 %537, label %538, label %.loopexit39.i
+538:                                              ; preds = %.loopexit39.i, %530
+  %.sroa.14.5 = phi i32 [ %.sroa.14.0.lcssa, %530 ], [ %.sroa.14.6, %.loopexit39.i ]
+  %.sroa.11.5 = phi i32 [ %.sroa.11.0.lcssa, %530 ], [ %.sroa.11.6, %.loopexit39.i ]
+  %.sroa.8.5 = phi i32 [ %.sroa.8.0.lcssa, %530 ], [ %.sroa.8.6, %.loopexit39.i ]
+  %.sroa.0224.5 = phi float [ %.sroa.0224.0.lcssa, %530 ], [ %.sroa.0224.6, %.loopexit39.i ]
+  %.sroa.0239.5 = phi float [ %.sroa.0239.0.lcssa, %530 ], [ %.sroa.0239.6, %.loopexit39.i ]
+  %.sroa.9241.5 = phi i32 [ %.sroa.9241.0.lcssa, %530 ], [ %.sroa.9241.6, %.loopexit39.i ]
+  %.sroa.12242.5 = phi i32 [ %.sroa.12242.0.lcssa, %530 ], [ %.sroa.12242.6, %.loopexit39.i ]
+  %.sroa.15.5 = phi i32 [ %.sroa.15.0.lcssa, %530 ], [ %.sroa.15.6, %.loopexit39.i ]
+  %indvars.iv59.i = phi i64 [ 0, %530 ], [ %indvars.iv.next60.i, %.loopexit39.i ]
+  %539 = trunc nuw nsw i64 %indvars.iv59.i to i32
+  %540 = call noundef zeroext i1 @_Z14dd_check_ftypeiRK17ReverseTopOptions(i32 noundef %539, ptr noundef nonnull align 1 dereferenceable(3) %11)
+  br i1 %540, label %541, label %.loopexit39.i
 
-538:                                              ; preds = %535
-  %539 = getelementptr inbounds nuw %struct.InteractionList, ptr %525, i64 %indvars.iv59.i
-  %540 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv59.i, i32 2
-  %541 = load i32, ptr %540, align 16, !tbaa !207
-  %.fr613 = freeze i32 %541
-  %542 = getelementptr inbounds nuw i8, ptr %539, i64 8
-  %543 = load ptr, ptr %542, align 8, !tbaa !173
-  %544 = load ptr, ptr %539, align 8, !tbaa !171
-  %545 = ptrtoint ptr %543 to i64
-  %546 = ptrtoint ptr %544 to i64
-  %547 = sub i64 %545, %546
-  %548 = lshr exact i64 %547, 2
-  %549 = trunc i64 %548 to i32
-  %550 = icmp sgt i32 %549, 0
-  %551 = icmp sgt i32 %.fr613, 0
-  %or.cond720 = and i1 %550, %551
+541:                                              ; preds = %538
+  %542 = getelementptr inbounds nuw %struct.InteractionList, ptr %528, i64 %indvars.iv59.i
+  %543 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv59.i
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 16
+  %545 = load i32, ptr %544, align 16, !tbaa !207
+  %.fr613 = freeze i32 %545
+  %546 = getelementptr inbounds nuw i8, ptr %542, i64 8
+  %547 = load ptr, ptr %546, align 8, !tbaa !173
+  %548 = load ptr, ptr %542, align 8, !tbaa !171
+  %549 = ptrtoint ptr %547 to i64
+  %550 = ptrtoint ptr %548 to i64
+  %551 = sub i64 %549, %550
+  %552 = lshr exact i64 %551, 2
+  %553 = trunc i64 %552 to i32
+  %554 = icmp sgt i32 %553, 0
+  %555 = icmp sgt i32 %.fr613, 0
+  %or.cond720 = and i1 %554, %555
   br i1 %or.cond720, label %.preheader.us.preheader.i113, label %.loopexit39.i
 
-.preheader.us.preheader.i113:                     ; preds = %538
-  %552 = icmp eq i32 %.fr613, 2
-  %553 = add nuw i32 %.fr613, 1
-  %554 = zext nneg i32 %.fr613 to i64
-  %555 = zext i32 %553 to i64
-  br i1 %552, label %.preheader.us.i114.us, label %.preheader.us.i114
+.preheader.us.preheader.i113:                     ; preds = %541
+  %556 = icmp eq i32 %.fr613, 2
+  %557 = add nuw i32 %.fr613, 1
+  %558 = zext nneg i32 %.fr613 to i64
+  %559 = zext i32 %557 to i64
+  br i1 %556, label %.preheader.us.i114.us, label %.preheader.us.i114
 
 .preheader.us.i114.us:                            ; preds = %.preheader.us.preheader.i113, %._crit_edge.us.i117.split.us.us
   %.sroa.0239.7.us = phi float [ %.sroa.0239.9.us.us, %._crit_edge.us.i117.split.us.us ], [ %.sroa.0239.5, %.preheader.us.preheader.i113 ]
@@ -1442,86 +1446,86 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112: ; preds = %.loopexit367
   %.sroa.12242.7.us = phi i32 [ %.sroa.12242.9.us.us, %._crit_edge.us.i117.split.us.us ], [ %.sroa.12242.5, %.preheader.us.preheader.i113 ]
   %.sroa.15.7.us = phi i32 [ %.sroa.15.9.us.us, %._crit_edge.us.i117.split.us.us ], [ %.sroa.15.5, %.preheader.us.preheader.i113 ]
   %indvars.iv56.i.us = phi i64 [ %indvars.iv.next57.i.us, %._crit_edge.us.i117.split.us.us ], [ 0, %.preheader.us.preheader.i113 ]
-  %556 = add nuw nsw i64 %indvars.iv56.i.us, 1
-  br label %557
+  %560 = add nuw nsw i64 %indvars.iv56.i.us, 1
+  br label %561
 
-557:                                              ; preds = %.loopexit.us.i.us.us, %.preheader.us.i114.us
+561:                                              ; preds = %.loopexit.us.i.us.us, %.preheader.us.i114.us
   %.sroa.0239.8.us.us = phi float [ %.sroa.0239.7.us, %.preheader.us.i114.us ], [ %.sroa.0239.9.us.us, %.loopexit.us.i.us.us ]
   %.sroa.9241.8.us.us = phi i32 [ %.sroa.9241.7.us, %.preheader.us.i114.us ], [ %.sroa.9241.9.us.us, %.loopexit.us.i.us.us ]
   %.sroa.12242.8.us.us = phi i32 [ %.sroa.12242.7.us, %.preheader.us.i114.us ], [ %.sroa.12242.9.us.us, %.loopexit.us.i.us.us ]
   %.sroa.15.8.us.us = phi i32 [ %.sroa.15.7.us, %.preheader.us.i114.us ], [ %.sroa.15.9.us.us, %.loopexit.us.i.us.us ]
   %indvars.iv51.i.us.us = phi i64 [ 0, %.preheader.us.i114.us ], [ %indvars.iv.next52.i.us.us, %.loopexit.us.i.us.us ]
   %indvars.iv.i115.us.us = phi i64 [ 1, %.preheader.us.i114.us ], [ %indvars.iv.next.i116.us.us, %.loopexit.us.i.us.us ]
-  %558 = load ptr, ptr %539, align 8, !tbaa !171
-  %559 = getelementptr inbounds nuw i32, ptr %558, i64 %indvars.iv51.i.us.us
-  %560 = getelementptr inbounds nuw i32, ptr %559, i64 %556
-  %561 = load i32, ptr %560, align 4, !tbaa !208
+  %562 = load ptr, ptr %542, align 8, !tbaa !171
+  %563 = getelementptr inbounds nuw i32, ptr %562, i64 %indvars.iv51.i.us.us
+  %564 = getelementptr inbounds nuw i32, ptr %563, i64 %560
+  %565 = load i32, ptr %564, align 4, !tbaa !208
   %indvars.iv.next52.i.us.us = add nuw nsw i64 %indvars.iv51.i.us.us, 1
-  %562 = icmp samesign ult i64 %indvars.iv.next52.i.us.us, %554
-  br i1 %562, label %.lr.ph.us.i118.us.us, label %.loopexit.us.i.us.us
+  %566 = icmp samesign ult i64 %indvars.iv.next52.i.us.us, %558
+  br i1 %566, label %.lr.ph.us.i118.us.us, label %.loopexit.us.i.us.us
 
-.lr.ph.us.i118.us.us:                             ; preds = %557
-  %563 = sext i32 %561 to i64
-  %564 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %563
-  br label %565
+.lr.ph.us.i118.us.us:                             ; preds = %561
+  %567 = sext i32 %565 to i64
+  %568 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %567
+  br label %569
 
-.loopexit.us.i.us.us:                             ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us, %557
-  %.sroa.0239.9.us.us = phi float [ %.sroa.0239.8.us.us, %557 ], [ %.sroa.0239.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
-  %.sroa.9241.9.us.us = phi i32 [ %.sroa.9241.8.us.us, %557 ], [ %.sroa.9241.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
-  %.sroa.12242.9.us.us = phi i32 [ %.sroa.12242.8.us.us, %557 ], [ %.sroa.12242.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
-  %.sroa.15.9.us.us = phi i32 [ %.sroa.15.8.us.us, %557 ], [ %.sroa.15.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
+.loopexit.us.i.us.us:                             ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us, %561
+  %.sroa.0239.9.us.us = phi float [ %.sroa.0239.8.us.us, %561 ], [ %.sroa.0239.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
+  %.sroa.9241.9.us.us = phi i32 [ %.sroa.9241.8.us.us, %561 ], [ %.sroa.9241.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
+  %.sroa.12242.9.us.us = phi i32 [ %.sroa.12242.8.us.us, %561 ], [ %.sroa.12242.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
+  %.sroa.15.9.us.us = phi i32 [ %.sroa.15.8.us.us, %561 ], [ %.sroa.15.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
   %indvars.iv.next.i116.us.us = add nuw nsw i64 %indvars.iv.i115.us.us, 1
-  %exitcond55.not.i.us.us = icmp eq i64 %indvars.iv.next52.i.us.us, %554
-  br i1 %exitcond55.not.i.us.us, label %._crit_edge.us.i117.split.us.us, label %557, !llvm.loop !221
+  %exitcond55.not.i.us.us = icmp eq i64 %indvars.iv.next52.i.us.us, %558
+  br i1 %exitcond55.not.i.us.us, label %._crit_edge.us.i117.split.us.us, label %561, !llvm.loop !221
 
-565:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us, %.lr.ph.us.i118.us.us
+569:                                              ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us, %.lr.ph.us.i118.us.us
   %.sroa.0239.10.us.us.us = phi float [ %.sroa.0239.8.us.us, %.lr.ph.us.i118.us.us ], [ %.sroa.0239.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
   %.sroa.9241.10.us.us.us = phi i32 [ %.sroa.9241.8.us.us, %.lr.ph.us.i118.us.us ], [ %.sroa.9241.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
   %.sroa.12242.10.us.us.us = phi i32 [ %.sroa.12242.8.us.us, %.lr.ph.us.i118.us.us ], [ %.sroa.12242.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
   %.sroa.15.10.us.us.us = phi i32 [ %.sroa.15.8.us.us, %.lr.ph.us.i118.us.us ], [ %.sroa.15.11.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
   %indvars.iv48.i.us.us.us = phi i64 [ %indvars.iv.i115.us.us, %.lr.ph.us.i118.us.us ], [ %indvars.iv.next49.i.us.us.us, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %566 = load ptr, ptr %539, align 8, !tbaa !171
-  %567 = getelementptr inbounds nuw i32, ptr %566, i64 %indvars.iv48.i.us.us.us
-  %568 = getelementptr inbounds nuw i32, ptr %567, i64 %556
-  %569 = load i32, ptr %568, align 4, !tbaa !208
-  %570 = sext i32 %569 to i64
-  %571 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %570
-  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %10, ptr noundef nonnull %564, ptr noundef nonnull %571, ptr noundef nonnull %12)
-  %572 = load float, ptr %12, align 4, !tbaa !105
-  %573 = load float, ptr %533, align 4, !tbaa !105
-  %574 = fmul float %573, %573
-  %575 = call float @llvm.fmuladd.f32(float %572, float %572, float %574)
-  %576 = load float, ptr %534, align 4, !tbaa !105
-  %577 = call noundef float @llvm.fmuladd.f32(float %576, float %576, float %575)
-  %578 = fcmp ogt float %577, %.sroa.0239.10.us.us.us
-  br i1 %578, label %579, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us
+  %570 = load ptr, ptr %542, align 8, !tbaa !171
+  %571 = getelementptr inbounds nuw i32, ptr %570, i64 %indvars.iv48.i.us.us.us
+  %572 = getelementptr inbounds nuw i32, ptr %571, i64 %560
+  %573 = load i32, ptr %572, align 4, !tbaa !208
+  %574 = sext i32 %573 to i64
+  %575 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %574
+  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %10, ptr noundef nonnull %568, ptr noundef nonnull %575, ptr noundef nonnull %12)
+  %576 = load float, ptr %12, align 4, !tbaa !105
+  %577 = load float, ptr %536, align 4, !tbaa !105
+  %578 = fmul float %577, %577
+  %579 = call float @llvm.fmuladd.f32(float %576, float %576, float %578)
+  %580 = load float, ptr %537, align 4, !tbaa !105
+  %581 = call noundef float @llvm.fmuladd.f32(float %580, float %580, float %579)
+  %582 = fcmp ogt float %581, %.sroa.0239.10.us.us.us
+  br i1 %582, label %583, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us
 
-579:                                              ; preds = %565
+583:                                              ; preds = %569
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us
 
-_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us: ; preds = %579, %565
-  %.sroa.0239.11.us.us.us = phi float [ %.sroa.0239.10.us.us.us, %565 ], [ %577, %579 ]
-  %.sroa.9241.11.us.us.us = phi i32 [ %.sroa.9241.10.us.us.us, %565 ], [ %536, %579 ]
-  %.sroa.12242.11.us.us.us = phi i32 [ %.sroa.12242.10.us.us.us, %565 ], [ %561, %579 ]
-  %.sroa.15.11.us.us.us = phi i32 [ %.sroa.15.10.us.us.us, %565 ], [ %569, %579 ]
+_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us: ; preds = %583, %569
+  %.sroa.0239.11.us.us.us = phi float [ %.sroa.0239.10.us.us.us, %569 ], [ %581, %583 ]
+  %.sroa.9241.11.us.us.us = phi i32 [ %.sroa.9241.10.us.us.us, %569 ], [ %539, %583 ]
+  %.sroa.12242.11.us.us.us = phi i32 [ %.sroa.12242.10.us.us.us, %569 ], [ %565, %583 ]
+  %.sroa.15.11.us.us.us = phi i32 [ %.sroa.15.10.us.us.us, %569 ], [ %573, %583 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next49.i.us.us.us = add nuw nsw i64 %indvars.iv48.i.us.us.us, 1
-  %exitcond.not.i120.us.us.us = icmp eq i64 %indvars.iv.next49.i.us.us.us, %554
-  br i1 %exitcond.not.i120.us.us.us, label %.loopexit.us.i.us.us, label %565, !llvm.loop !222
+  %exitcond.not.i120.us.us.us = icmp eq i64 %indvars.iv.next49.i.us.us.us, %558
+  br i1 %exitcond.not.i120.us.us.us, label %.loopexit.us.i.us.us, label %569, !llvm.loop !222
 
 ._crit_edge.us.i117.split.us.us:                  ; preds = %.loopexit.us.i.us.us
-  %indvars.iv.next57.i.us = add nuw nsw i64 %indvars.iv56.i.us, %555
-  %580 = load ptr, ptr %542, align 8, !tbaa !173
-  %581 = load ptr, ptr %539, align 8, !tbaa !171
-  %582 = ptrtoint ptr %580 to i64
-  %583 = ptrtoint ptr %581 to i64
-  %584 = sub i64 %582, %583
-  %585 = lshr exact i64 %584, 2
-  %586 = trunc i64 %585 to i32
-  %587 = trunc nuw i64 %indvars.iv.next57.i.us to i32
-  %588 = icmp slt i32 %587, %586
-  br i1 %588, label %.preheader.us.i114.us, label %.loopexit39.i, !llvm.loop !223
+  %indvars.iv.next57.i.us = add nuw nsw i64 %indvars.iv56.i.us, %559
+  %584 = load ptr, ptr %546, align 8, !tbaa !173
+  %585 = load ptr, ptr %542, align 8, !tbaa !171
+  %586 = ptrtoint ptr %584 to i64
+  %587 = ptrtoint ptr %585 to i64
+  %588 = sub i64 %586, %587
+  %589 = lshr exact i64 %588, 2
+  %590 = trunc i64 %589 to i32
+  %591 = trunc nuw i64 %indvars.iv.next57.i.us to i32
+  %592 = icmp slt i32 %591, %590
+  br i1 %592, label %.preheader.us.i114.us, label %.loopexit39.i, !llvm.loop !223
 
 .preheader.us.i114:                               ; preds = %.preheader.us.preheader.i113, %._crit_edge.us.i117.split
   %.sroa.14.7 = phi i32 [ %.sroa.14.9, %._crit_edge.us.i117.split ], [ %.sroa.14.5, %.preheader.us.preheader.i113 ]
@@ -1529,106 +1533,106 @@ _ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119.us.us.us: ;
   %.sroa.8.7 = phi i32 [ %.sroa.8.9, %._crit_edge.us.i117.split ], [ %.sroa.8.5, %.preheader.us.preheader.i113 ]
   %.sroa.0224.7 = phi float [ %.sroa.0224.9, %._crit_edge.us.i117.split ], [ %.sroa.0224.5, %.preheader.us.preheader.i113 ]
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %._crit_edge.us.i117.split ], [ 0, %.preheader.us.preheader.i113 ]
-  %589 = add nuw nsw i64 %indvars.iv56.i, 1
-  br label %590
+  %593 = add nuw nsw i64 %indvars.iv56.i, 1
+  br label %594
 
-590:                                              ; preds = %.loopexit.us.i, %.preheader.us.i114
+594:                                              ; preds = %.loopexit.us.i, %.preheader.us.i114
   %.sroa.14.8 = phi i32 [ %.sroa.14.7, %.preheader.us.i114 ], [ %.sroa.14.9, %.loopexit.us.i ]
   %.sroa.11.8 = phi i32 [ %.sroa.11.7, %.preheader.us.i114 ], [ %.sroa.11.9, %.loopexit.us.i ]
   %.sroa.8.8 = phi i32 [ %.sroa.8.7, %.preheader.us.i114 ], [ %.sroa.8.9, %.loopexit.us.i ]
   %.sroa.0224.8 = phi float [ %.sroa.0224.7, %.preheader.us.i114 ], [ %.sroa.0224.9, %.loopexit.us.i ]
   %indvars.iv51.i = phi i64 [ 0, %.preheader.us.i114 ], [ %indvars.iv.next52.i, %.loopexit.us.i ]
   %indvars.iv.i115 = phi i64 [ 1, %.preheader.us.i114 ], [ %indvars.iv.next.i116, %.loopexit.us.i ]
-  %591 = load ptr, ptr %539, align 8, !tbaa !171
-  %592 = getelementptr inbounds nuw i32, ptr %591, i64 %indvars.iv51.i
-  %593 = getelementptr inbounds nuw i32, ptr %592, i64 %589
-  %594 = load i32, ptr %593, align 4, !tbaa !208
+  %595 = load ptr, ptr %542, align 8, !tbaa !171
+  %596 = getelementptr inbounds nuw i32, ptr %595, i64 %indvars.iv51.i
+  %597 = getelementptr inbounds nuw i32, ptr %596, i64 %593
+  %598 = load i32, ptr %597, align 4, !tbaa !208
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
-  %595 = icmp samesign ult i64 %indvars.iv.next52.i, %554
-  br i1 %595, label %.lr.ph.us.i118, label %.loopexit.us.i
+  %599 = icmp samesign ult i64 %indvars.iv.next52.i, %558
+  br i1 %599, label %.lr.ph.us.i118, label %.loopexit.us.i
 
-596:                                              ; preds = %.lr.ph.us.i118, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119
+600:                                              ; preds = %.lr.ph.us.i118, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119
   %.sroa.14.10 = phi i32 [ %.sroa.14.8, %.lr.ph.us.i118 ], [ %.sroa.14.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
   %.sroa.11.10 = phi i32 [ %.sroa.11.8, %.lr.ph.us.i118 ], [ %.sroa.11.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
   %.sroa.8.10 = phi i32 [ %.sroa.8.8, %.lr.ph.us.i118 ], [ %.sroa.8.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
   %.sroa.0224.10 = phi float [ %.sroa.0224.8, %.lr.ph.us.i118 ], [ %.sroa.0224.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
   %indvars.iv48.i = phi i64 [ %indvars.iv.i115, %.lr.ph.us.i118 ], [ %indvars.iv.next49.i, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %597 = load ptr, ptr %539, align 8, !tbaa !171
-  %598 = getelementptr inbounds nuw i32, ptr %597, i64 %indvars.iv48.i
-  %599 = getelementptr inbounds nuw i32, ptr %598, i64 %589
-  %600 = load i32, ptr %599, align 4, !tbaa !208
-  %601 = sext i32 %600 to i64
-  %602 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %601
-  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %10, ptr noundef nonnull %611, ptr noundef nonnull %602, ptr noundef nonnull %12)
-  %603 = load float, ptr %12, align 4, !tbaa !105
-  %604 = load float, ptr %533, align 4, !tbaa !105
-  %605 = fmul float %604, %604
-  %606 = call float @llvm.fmuladd.f32(float %603, float %603, float %605)
-  %607 = load float, ptr %534, align 4, !tbaa !105
-  %608 = call noundef float @llvm.fmuladd.f32(float %607, float %607, float %606)
-  %609 = fcmp ogt float %608, %.sroa.0224.10
-  br i1 %609, label %.else228, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119
+  %601 = load ptr, ptr %542, align 8, !tbaa !171
+  %602 = getelementptr inbounds nuw i32, ptr %601, i64 %indvars.iv48.i
+  %603 = getelementptr inbounds nuw i32, ptr %602, i64 %593
+  %604 = load i32, ptr %603, align 4, !tbaa !208
+  %605 = sext i32 %604 to i64
+  %606 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %605
+  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %10, ptr noundef nonnull %615, ptr noundef nonnull %606, ptr noundef nonnull %12)
+  %607 = load float, ptr %12, align 4, !tbaa !105
+  %608 = load float, ptr %536, align 4, !tbaa !105
+  %609 = fmul float %608, %608
+  %610 = call float @llvm.fmuladd.f32(float %607, float %607, float %609)
+  %611 = load float, ptr %537, align 4, !tbaa !105
+  %612 = call noundef float @llvm.fmuladd.f32(float %611, float %611, float %610)
+  %613 = fcmp ogt float %612, %.sroa.0224.10
+  br i1 %613, label %.else228, label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119
 
-.else228:                                         ; preds = %596
+.else228:                                         ; preds = %600
   br label %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119
 
-_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119: ; preds = %.else228, %596
-  %.sroa.14.11 = phi i32 [ %.sroa.14.10, %596 ], [ %600, %.else228 ]
-  %.sroa.11.11 = phi i32 [ %.sroa.11.10, %596 ], [ %594, %.else228 ]
-  %.sroa.8.11 = phi i32 [ %.sroa.8.10, %596 ], [ %536, %.else228 ]
-  %.sroa.0224.11 = phi float [ %.sroa.0224.10, %596 ], [ %608, %.else228 ]
+_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119: ; preds = %.else228, %600
+  %.sroa.14.11 = phi i32 [ %.sroa.14.10, %600 ], [ %604, %.else228 ]
+  %.sroa.11.11 = phi i32 [ %.sroa.11.10, %600 ], [ %598, %.else228 ]
+  %.sroa.8.11 = phi i32 [ %.sroa.8.10, %600 ], [ %539, %.else228 ]
+  %.sroa.0224.11 = phi float [ %.sroa.0224.10, %600 ], [ %612, %.else228 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
-  %exitcond.not.i120 = icmp eq i64 %indvars.iv.next49.i, %554
-  br i1 %exitcond.not.i120, label %.loopexit.us.i, label %596, !llvm.loop !222
+  %exitcond.not.i120 = icmp eq i64 %indvars.iv.next49.i, %558
+  br i1 %exitcond.not.i120, label %.loopexit.us.i, label %600, !llvm.loop !222
 
-.loopexit.us.i:                                   ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119, %590
-  %.sroa.14.9 = phi i32 [ %.sroa.14.8, %590 ], [ %.sroa.14.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
-  %.sroa.11.9 = phi i32 [ %.sroa.11.8, %590 ], [ %.sroa.11.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
-  %.sroa.8.9 = phi i32 [ %.sroa.8.8, %590 ], [ %.sroa.8.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
-  %.sroa.0224.9 = phi float [ %.sroa.0224.8, %590 ], [ %.sroa.0224.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
+.loopexit.us.i:                                   ; preds = %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119, %594
+  %.sroa.14.9 = phi i32 [ %.sroa.14.8, %594 ], [ %.sroa.14.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
+  %.sroa.11.9 = phi i32 [ %.sroa.11.8, %594 ], [ %.sroa.11.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
+  %.sroa.8.9 = phi i32 [ %.sroa.8.8, %594 ], [ %.sroa.8.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
+  %.sroa.0224.9 = phi float [ %.sroa.0224.8, %594 ], [ %.sroa.0224.11, %_ZL26update_max_bonded_distancefiiiP17bonded_distance_t.exit.us.i119 ]
   %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i115, 1
-  %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %554
-  br i1 %exitcond55.not.i, label %._crit_edge.us.i117.split, label %590, !llvm.loop !221
+  %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %558
+  br i1 %exitcond55.not.i, label %._crit_edge.us.i117.split, label %594, !llvm.loop !221
 
-.lr.ph.us.i118:                                   ; preds = %590
-  %610 = sext i32 %594 to i64
-  %611 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %610
-  br label %596
+.lr.ph.us.i118:                                   ; preds = %594
+  %614 = sext i32 %598 to i64
+  %615 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %614
+  br label %600
 
 ._crit_edge.us.i117.split:                        ; preds = %.loopexit.us.i
-  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, %555
-  %612 = load ptr, ptr %542, align 8, !tbaa !173
-  %613 = load ptr, ptr %539, align 8, !tbaa !171
-  %614 = ptrtoint ptr %612 to i64
-  %615 = ptrtoint ptr %613 to i64
-  %616 = sub i64 %614, %615
-  %617 = lshr exact i64 %616, 2
-  %618 = trunc i64 %617 to i32
-  %619 = trunc nuw i64 %indvars.iv.next57.i to i32
-  %620 = icmp slt i32 %619, %618
-  br i1 %620, label %.preheader.us.i114, label %.loopexit39.i, !llvm.loop !223
+  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, %559
+  %616 = load ptr, ptr %546, align 8, !tbaa !173
+  %617 = load ptr, ptr %542, align 8, !tbaa !171
+  %618 = ptrtoint ptr %616 to i64
+  %619 = ptrtoint ptr %617 to i64
+  %620 = sub i64 %618, %619
+  %621 = lshr exact i64 %620, 2
+  %622 = trunc i64 %621 to i32
+  %623 = trunc nuw i64 %indvars.iv.next57.i to i32
+  %624 = icmp slt i32 %623, %622
+  br i1 %624, label %.preheader.us.i114, label %.loopexit39.i, !llvm.loop !223
 
-.loopexit39.i:                                    ; preds = %._crit_edge.us.i117.split, %._crit_edge.us.i117.split.us.us, %538, %535
-  %.sroa.14.6 = phi i32 [ %.sroa.14.5, %538 ], [ %.sroa.14.5, %535 ], [ %.sroa.14.5, %._crit_edge.us.i117.split.us.us ], [ %.sroa.14.9, %._crit_edge.us.i117.split ]
-  %.sroa.11.6 = phi i32 [ %.sroa.11.5, %538 ], [ %.sroa.11.5, %535 ], [ %.sroa.11.5, %._crit_edge.us.i117.split.us.us ], [ %.sroa.11.9, %._crit_edge.us.i117.split ]
-  %.sroa.8.6 = phi i32 [ %.sroa.8.5, %538 ], [ %.sroa.8.5, %535 ], [ %.sroa.8.5, %._crit_edge.us.i117.split.us.us ], [ %.sroa.8.9, %._crit_edge.us.i117.split ]
-  %.sroa.0224.6 = phi float [ %.sroa.0224.5, %538 ], [ %.sroa.0224.5, %535 ], [ %.sroa.0224.5, %._crit_edge.us.i117.split.us.us ], [ %.sroa.0224.9, %._crit_edge.us.i117.split ]
-  %.sroa.0239.6 = phi float [ %.sroa.0239.5, %538 ], [ %.sroa.0239.5, %535 ], [ %.sroa.0239.9.us.us, %._crit_edge.us.i117.split.us.us ], [ %.sroa.0239.5, %._crit_edge.us.i117.split ]
-  %.sroa.9241.6 = phi i32 [ %.sroa.9241.5, %538 ], [ %.sroa.9241.5, %535 ], [ %.sroa.9241.9.us.us, %._crit_edge.us.i117.split.us.us ], [ %.sroa.9241.5, %._crit_edge.us.i117.split ]
-  %.sroa.12242.6 = phi i32 [ %.sroa.12242.5, %538 ], [ %.sroa.12242.5, %535 ], [ %.sroa.12242.9.us.us, %._crit_edge.us.i117.split.us.us ], [ %.sroa.12242.5, %._crit_edge.us.i117.split ]
-  %.sroa.15.6 = phi i32 [ %.sroa.15.5, %538 ], [ %.sroa.15.5, %535 ], [ %.sroa.15.9.us.us, %._crit_edge.us.i117.split.us.us ], [ %.sroa.15.5, %._crit_edge.us.i117.split ]
+.loopexit39.i:                                    ; preds = %._crit_edge.us.i117.split, %._crit_edge.us.i117.split.us.us, %541, %538
+  %.sroa.14.6 = phi i32 [ %.sroa.14.5, %541 ], [ %.sroa.14.5, %538 ], [ %.sroa.14.5, %._crit_edge.us.i117.split.us.us ], [ %.sroa.14.9, %._crit_edge.us.i117.split ]
+  %.sroa.11.6 = phi i32 [ %.sroa.11.5, %541 ], [ %.sroa.11.5, %538 ], [ %.sroa.11.5, %._crit_edge.us.i117.split.us.us ], [ %.sroa.11.9, %._crit_edge.us.i117.split ]
+  %.sroa.8.6 = phi i32 [ %.sroa.8.5, %541 ], [ %.sroa.8.5, %538 ], [ %.sroa.8.5, %._crit_edge.us.i117.split.us.us ], [ %.sroa.8.9, %._crit_edge.us.i117.split ]
+  %.sroa.0224.6 = phi float [ %.sroa.0224.5, %541 ], [ %.sroa.0224.5, %538 ], [ %.sroa.0224.5, %._crit_edge.us.i117.split.us.us ], [ %.sroa.0224.9, %._crit_edge.us.i117.split ]
+  %.sroa.0239.6 = phi float [ %.sroa.0239.5, %541 ], [ %.sroa.0239.5, %538 ], [ %.sroa.0239.9.us.us, %._crit_edge.us.i117.split.us.us ], [ %.sroa.0239.5, %._crit_edge.us.i117.split ]
+  %.sroa.9241.6 = phi i32 [ %.sroa.9241.5, %541 ], [ %.sroa.9241.5, %538 ], [ %.sroa.9241.9.us.us, %._crit_edge.us.i117.split.us.us ], [ %.sroa.9241.5, %._crit_edge.us.i117.split ]
+  %.sroa.12242.6 = phi i32 [ %.sroa.12242.5, %541 ], [ %.sroa.12242.5, %538 ], [ %.sroa.12242.9.us.us, %._crit_edge.us.i117.split.us.us ], [ %.sroa.12242.5, %._crit_edge.us.i117.split ]
+  %.sroa.15.6 = phi i32 [ %.sroa.15.5, %541 ], [ %.sroa.15.5, %538 ], [ %.sroa.15.9.us.us, %._crit_edge.us.i117.split.us.us ], [ %.sroa.15.5, %._crit_edge.us.i117.split ]
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, 95
-  br i1 %exitcond62.not.i, label %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit, label %535, !llvm.loop !224
+  br i1 %exitcond62.not.i, label %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit, label %538, !llvm.loop !224
 
 _ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit: ; preds = %.loopexit39.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %621
+  br label %625
 
-621:                                              ; preds = %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit, %._crit_edge578
+625:                                              ; preds = %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit, %._crit_edge578
   %.sroa.14.3 = phi i32 [ %.sroa.14.6, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.14.0.lcssa, %._crit_edge578 ]
   %.sroa.11.3 = phi i32 [ %.sroa.11.6, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.11.0.lcssa, %._crit_edge578 ]
   %.sroa.8.3 = phi i32 [ %.sroa.8.6, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.8.0.lcssa, %._crit_edge578 ]
@@ -1637,261 +1641,263 @@ _ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCh
   %.sroa.9241.3 = phi i32 [ %.sroa.9241.6, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.9241.0.lcssa, %._crit_edge578 ]
   %.sroa.12242.3 = phi i32 [ %.sroa.12242.6, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.12242.0.lcssa, %._crit_edge578 ]
   %.sroa.15.3 = phi i32 [ %.sroa.15.6, %_ZL24bonded_distance_intermolRKSt5arrayI15InteractionListLm95EEN3gmx16DDBondedCheckingENS4_8ArrayRefIKNS4_11BasicVectorIfEEEE7PbcTypePA3_KfP17bonded_distance_tSG_.exit ], [ %.sroa.15.0.lcssa, %._crit_edge578 ]
-  %622 = call noundef float @sqrtf(float noundef %.sroa.0239.3) #15, !tbaa !208
-  store float %622, ptr %7, align 4, !tbaa !105
-  %623 = call noundef float @sqrtf(float noundef %.sroa.0224.3) #15, !tbaa !208
-  store float %623, ptr %8, align 4, !tbaa !105
-  %624 = load float, ptr %7, align 4, !tbaa !105
-  %625 = fcmp ogt float %624, 0.000000e+00
-  %626 = fcmp ogt float %623, 0.000000e+00
-  %or.cond = or i1 %626, %625
-  br i1 %or.cond, label %627, label %729
+  %626 = call noundef float @sqrtf(float noundef %.sroa.0239.3) #15, !tbaa !208
+  store float %626, ptr %7, align 4, !tbaa !105
+  %627 = call noundef float @sqrtf(float noundef %.sroa.0224.3) #15, !tbaa !208
+  store float %627, ptr %8, align 4, !tbaa !105
+  %628 = load float, ptr %7, align 4, !tbaa !105
+  %629 = fcmp ogt float %628, 0.000000e+00
+  %630 = fcmp ogt float %627, 0.000000e+00
+  %or.cond = or i1 %630, %629
+  br i1 %or.cond, label %631, label %735
 
-627:                                              ; preds = %621
-  %628 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %629 = load ptr, ptr %628, align 8, !tbaa !225
-  %630 = icmp eq ptr %629, null
-  br i1 %630, label %653, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
+631:                                              ; preds = %625
+  %632 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %633 = load ptr, ptr %632, align 8, !tbaa !225
+  %634 = icmp eq ptr %633, null
+  br i1 %634, label %657, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %627
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %631
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %631 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %631, i8 0, i64 24, i1 false)
-  %632 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %632, ptr %20, align 8, !tbaa !228
-  %633 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 0, ptr %633, align 8, !tbaa !230
-  %634 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store i8 0, ptr %634, align 8, !tbaa !232
-  %635 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull @.str, i64 noundef 49)
-          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit unwind label %645
+  %635 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %635, i8 0, i64 24, i1 false)
+  %636 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr %636, ptr %20, align 8, !tbaa !228
+  %637 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i64 0, ptr %637, align 8, !tbaa !230
+  %638 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store i8 0, ptr %638, align 8, !tbaa !232
+  %639 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull @.str, i64 noundef 49)
+          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit unwind label %649
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit:     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
-  %636 = load ptr, ptr %629, align 8, !tbaa !234
-  %637 = getelementptr inbounds nuw i8, ptr %636, i64 16
-  %638 = load ptr, ptr %637, align 8
-  invoke void %638(ptr noundef nonnull align 8 dereferenceable(8) %629, ptr noundef nonnull align 8 dereferenceable(40) %20)
-          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit unwind label %645
+  %640 = load ptr, ptr %633, align 8, !tbaa !234
+  %641 = getelementptr inbounds nuw i8, ptr %640, i64 16
+  %642 = load ptr, ptr %641, align 8
+  invoke void %642(ptr noundef nonnull align 8 dereferenceable(8) %633, ptr noundef nonnull align 8 dereferenceable(40) %20)
+          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit unwind label %649
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit
-  %639 = load ptr, ptr %20, align 8, !tbaa !236
-  %640 = icmp eq ptr %639, %632
-  br i1 %640, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+  %643 = load ptr, ptr %20, align 8, !tbaa !236
+  %644 = icmp eq ptr %643, %636
+  br i1 %644, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit
-  %641 = load i64, ptr %633, align 8, !tbaa !230
-  %642 = icmp ult i64 %641, 16
-  call void @llvm.assume(i1 %642)
+  %645 = load i64, ptr %637, align 8, !tbaa !230
+  %646 = icmp ult i64 %645, 16
+  call void @llvm.assume(i1 %646)
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit
-  %643 = load i64, ptr %632, align 8, !tbaa !237
-  %644 = add i64 %643, 1
-  call void @_ZdlPvm(ptr noundef %639, i64 noundef %644) #13
+  %647 = load i64, ptr %636, align 8, !tbaa !237
+  %648 = add i64 %647, 1
+  call void @_ZdlPvm(ptr noundef %643, i64 noundef %648) #13
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit
 
 _ZN3gmx14LogEntryWriterD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.pre633 = load float, ptr %7, align 4, !tbaa !105
-  br label %653
+  br label %657
 
-645:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
-  %646 = landingpad { ptr, i32 }
+649:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
+  %650 = landingpad { ptr, i32 }
           cleanup
-  %647 = load ptr, ptr %20, align 8, !tbaa !236
-  %648 = icmp eq ptr %647, %632
-  br i1 %648, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i125, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i124
+  %651 = load ptr, ptr %20, align 8, !tbaa !236
+  %652 = icmp eq ptr %651, %636
+  br i1 %652, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i125, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i124
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i125: ; preds = %645
-  %649 = load i64, ptr %633, align 8, !tbaa !230
-  %650 = icmp ult i64 %649, 16
-  call void @llvm.assume(i1 %650)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i125: ; preds = %649
+  %653 = load i64, ptr %637, align 8, !tbaa !230
+  %654 = icmp ult i64 %653, 16
+  call void @llvm.assume(i1 %654)
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit126
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i124: ; preds = %645
-  %651 = load i64, ptr %632, align 8, !tbaa !237
-  %652 = add i64 %651, 1
-  call void @_ZdlPvm(ptr noundef %647, i64 noundef %652) #13
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i124: ; preds = %649
+  %655 = load i64, ptr %636, align 8, !tbaa !237
+  %656 = add i64 %655, 1
+  call void @_ZdlPvm(ptr noundef %651, i64 noundef %656) #13
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit126
 
 _ZN3gmx14LogEntryWriterD2Ev.exit126:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i124
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %730
+  br label %736
 
-653:                                              ; preds = %627, %_ZN3gmx14LogEntryWriterD2Ev.exit
-  %654 = phi float [ %624, %627 ], [ %.pre633, %_ZN3gmx14LogEntryWriterD2Ev.exit ]
-  %655 = fcmp ogt float %654, 0.000000e+00
-  br i1 %655, label %656, label %693
+657:                                              ; preds = %631, %_ZN3gmx14LogEntryWriterD2Ev.exit
+  %658 = phi float [ %628, %631 ], [ %.pre633, %_ZN3gmx14LogEntryWriterD2Ev.exit ]
+  %659 = fcmp ogt float %658, 0.000000e+00
+  br i1 %659, label %660, label %698
 
-656:                                              ; preds = %653
-  %657 = load ptr, ptr %628, align 8, !tbaa !225
-  %658 = icmp eq ptr %657, null
-  br i1 %658, label %693, label %659
+660:                                              ; preds = %657
+  %661 = load ptr, ptr %632, align 8, !tbaa !225
+  %662 = icmp eq ptr %661, null
+  br i1 %662, label %698, label %663
 
-659:                                              ; preds = %656
+663:                                              ; preds = %660
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %660 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %660, i8 0, i64 24, i1 false)
-  %661 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %661, ptr %21, align 8, !tbaa !228
-  %662 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 0, ptr %662, align 8, !tbaa !230
-  %663 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i8 0, ptr %663, align 8, !tbaa !232
-  %664 = fpext float %654 to double
-  %665 = icmp sgt i32 %.sroa.9241.3, -1
-  br i1 %665, label %666, label %670
+  %664 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %664, i8 0, i64 24, i1 false)
+  %665 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store ptr %665, ptr %21, align 8, !tbaa !228
+  %666 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 0, ptr %666, align 8, !tbaa !230
+  %667 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store i8 0, ptr %667, align 8, !tbaa !232
+  %668 = fpext float %658 to double
+  %669 = icmp sgt i32 %.sroa.9241.3, -1
+  br i1 %669, label %670, label %675
 
-666:                                              ; preds = %659
-  %667 = zext nneg i32 %.sroa.9241.3 to i64
-  %668 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %667, i32 1
-  %669 = load ptr, ptr %668, align 8, !tbaa !238
-  br label %670
+670:                                              ; preds = %663
+  %671 = zext nneg i32 %.sroa.9241.3 to i64
+  %672 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %671
+  %673 = getelementptr inbounds nuw i8, ptr %672, i64 8
+  %674 = load ptr, ptr %673, align 8, !tbaa !238
+  br label %675
 
-670:                                              ; preds = %659, %666
-  %671 = phi ptr [ %669, %666 ], [ @.str.2, %659 ]
-  %672 = add nsw i32 %.sroa.12242.3, 1
-  %673 = add nsw i32 %.sroa.15.3, 1
-  %674 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull @.str.1, double noundef %664, ptr noundef %671, i32 noundef %672, i32 noundef %673)
-          to label %675 unwind label %685
+675:                                              ; preds = %663, %670
+  %676 = phi ptr [ %674, %670 ], [ @.str.2, %663 ]
+  %677 = add nsw i32 %.sroa.12242.3, 1
+  %678 = add nsw i32 %.sroa.15.3, 1
+  %679 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull @.str.1, double noundef %668, ptr noundef %676, i32 noundef %677, i32 noundef %678)
+          to label %680 unwind label %690
 
-675:                                              ; preds = %670
-  %676 = load ptr, ptr %657, align 8, !tbaa !234
-  %677 = getelementptr inbounds nuw i8, ptr %676, i64 16
-  %678 = load ptr, ptr %677, align 8
-  invoke void %678(ptr noundef nonnull align 8 dereferenceable(8) %657, ptr noundef nonnull align 8 dereferenceable(40) %674)
-          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128 unwind label %685
+680:                                              ; preds = %675
+  %681 = load ptr, ptr %661, align 8, !tbaa !234
+  %682 = getelementptr inbounds nuw i8, ptr %681, i64 16
+  %683 = load ptr, ptr %682, align 8
+  invoke void %683(ptr noundef nonnull align 8 dereferenceable(8) %661, ptr noundef nonnull align 8 dereferenceable(40) %679)
+          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128 unwind label %690
 
-_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128: ; preds = %675
-  %679 = load ptr, ptr %21, align 8, !tbaa !236
-  %680 = icmp eq ptr %679, %661
-  br i1 %680, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i130, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i129
+_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128: ; preds = %680
+  %684 = load ptr, ptr %21, align 8, !tbaa !236
+  %685 = icmp eq ptr %684, %665
+  br i1 %685, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i130, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i129
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i130: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128
-  %681 = load i64, ptr %662, align 8, !tbaa !230
-  %682 = icmp ult i64 %681, 16
-  call void @llvm.assume(i1 %682)
+  %686 = load i64, ptr %666, align 8, !tbaa !230
+  %687 = icmp ult i64 %686, 16
+  call void @llvm.assume(i1 %687)
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit131
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i129: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128
-  %683 = load i64, ptr %661, align 8, !tbaa !237
-  %684 = add i64 %683, 1
-  call void @_ZdlPvm(ptr noundef %679, i64 noundef %684) #13
+  %688 = load i64, ptr %665, align 8, !tbaa !237
+  %689 = add i64 %688, 1
+  call void @_ZdlPvm(ptr noundef %684, i64 noundef %689) #13
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit131
 
 _ZN3gmx14LogEntryWriterD2Ev.exit131:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i130, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i129
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %693
+  br label %698
 
-685:                                              ; preds = %675, %670
-  %686 = landingpad { ptr, i32 }
+690:                                              ; preds = %680, %675
+  %691 = landingpad { ptr, i32 }
           cleanup
-  %687 = load ptr, ptr %21, align 8, !tbaa !236
-  %688 = icmp eq ptr %687, %661
-  br i1 %688, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i133, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i132
+  %692 = load ptr, ptr %21, align 8, !tbaa !236
+  %693 = icmp eq ptr %692, %665
+  br i1 %693, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i133, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i132
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i133: ; preds = %685
-  %689 = load i64, ptr %662, align 8, !tbaa !230
-  %690 = icmp ult i64 %689, 16
-  call void @llvm.assume(i1 %690)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i133: ; preds = %690
+  %694 = load i64, ptr %666, align 8, !tbaa !230
+  %695 = icmp ult i64 %694, 16
+  call void @llvm.assume(i1 %695)
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit134
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i132: ; preds = %685
-  %691 = load i64, ptr %661, align 8, !tbaa !237
-  %692 = add i64 %691, 1
-  call void @_ZdlPvm(ptr noundef %687, i64 noundef %692) #13
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i132: ; preds = %690
+  %696 = load i64, ptr %665, align 8, !tbaa !237
+  %697 = add i64 %696, 1
+  call void @_ZdlPvm(ptr noundef %692, i64 noundef %697) #13
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit134
 
 _ZN3gmx14LogEntryWriterD2Ev.exit134:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i133, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i132
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %730
+  br label %736
 
-693:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit131, %656, %653
-  %694 = load float, ptr %8, align 4, !tbaa !105
-  %695 = fcmp ogt float %694, 0.000000e+00
-  br i1 %695, label %696, label %729
+698:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit131, %660, %657
+  %699 = load float, ptr %8, align 4, !tbaa !105
+  %700 = fcmp ogt float %699, 0.000000e+00
+  br i1 %700, label %701, label %735
 
-696:                                              ; preds = %693
-  %697 = load ptr, ptr %628, align 8, !tbaa !225
-  %698 = icmp eq ptr %697, null
-  br i1 %698, label %729, label %699
+701:                                              ; preds = %698
+  %702 = load ptr, ptr %632, align 8, !tbaa !225
+  %703 = icmp eq ptr %702, null
+  br i1 %703, label %735, label %704
 
-699:                                              ; preds = %696
+704:                                              ; preds = %701
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %700 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %700, i8 0, i64 24, i1 false)
-  %701 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %701, ptr %22, align 8, !tbaa !228
-  %702 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 0, ptr %702, align 8, !tbaa !230
-  %703 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store i8 0, ptr %703, align 8, !tbaa !232
-  %704 = fpext float %694 to double
-  %705 = sext i32 %.sroa.8.3 to i64
-  %706 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %705, i32 1
-  %707 = load ptr, ptr %706, align 8, !tbaa !238
-  %708 = add nsw i32 %.sroa.11.3, 1
-  %709 = add nsw i32 %.sroa.14.3, 1
-  %710 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull @.str.3, double noundef %704, ptr noundef %707, i32 noundef %708, i32 noundef %709)
-          to label %711 unwind label %721
+  %705 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %705, i8 0, i64 24, i1 false)
+  %706 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %706, ptr %22, align 8, !tbaa !228
+  %707 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i64 0, ptr %707, align 8, !tbaa !230
+  %708 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store i8 0, ptr %708, align 8, !tbaa !232
+  %709 = fpext float %699 to double
+  %710 = sext i32 %.sroa.8.3 to i64
+  %711 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %710
+  %712 = getelementptr inbounds nuw i8, ptr %711, i64 8
+  %713 = load ptr, ptr %712, align 8, !tbaa !238
+  %714 = add nsw i32 %.sroa.11.3, 1
+  %715 = add nsw i32 %.sroa.14.3, 1
+  %716 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull @.str.3, double noundef %709, ptr noundef %713, i32 noundef %714, i32 noundef %715)
+          to label %717 unwind label %727
 
-711:                                              ; preds = %699
-  %712 = load ptr, ptr %697, align 8, !tbaa !234
-  %713 = getelementptr inbounds nuw i8, ptr %712, i64 16
-  %714 = load ptr, ptr %713, align 8
-  invoke void %714(ptr noundef nonnull align 8 dereferenceable(8) %697, ptr noundef nonnull align 8 dereferenceable(40) %710)
-          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit136 unwind label %721
+717:                                              ; preds = %704
+  %718 = load ptr, ptr %702, align 8, !tbaa !234
+  %719 = getelementptr inbounds nuw i8, ptr %718, i64 16
+  %720 = load ptr, ptr %719, align 8
+  invoke void %720(ptr noundef nonnull align 8 dereferenceable(8) %702, ptr noundef nonnull align 8 dereferenceable(40) %716)
+          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit136 unwind label %727
 
-_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit136: ; preds = %711
-  %715 = load ptr, ptr %22, align 8, !tbaa !236
-  %716 = icmp eq ptr %715, %701
-  br i1 %716, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i138, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i137
+_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit136: ; preds = %717
+  %721 = load ptr, ptr %22, align 8, !tbaa !236
+  %722 = icmp eq ptr %721, %706
+  br i1 %722, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i138, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i137
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i138: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit136
-  %717 = load i64, ptr %702, align 8, !tbaa !230
-  %718 = icmp ult i64 %717, 16
-  call void @llvm.assume(i1 %718)
+  %723 = load i64, ptr %707, align 8, !tbaa !230
+  %724 = icmp ult i64 %723, 16
+  call void @llvm.assume(i1 %724)
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit139
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i137: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit136
-  %719 = load i64, ptr %701, align 8, !tbaa !237
-  %720 = add i64 %719, 1
-  call void @_ZdlPvm(ptr noundef %715, i64 noundef %720) #13
+  %725 = load i64, ptr %706, align 8, !tbaa !237
+  %726 = add i64 %725, 1
+  call void @_ZdlPvm(ptr noundef %721, i64 noundef %726) #13
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit139
 
 _ZN3gmx14LogEntryWriterD2Ev.exit139:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i137
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %729
+  br label %735
 
-721:                                              ; preds = %711, %699
-  %722 = landingpad { ptr, i32 }
+727:                                              ; preds = %717, %704
+  %728 = landingpad { ptr, i32 }
           cleanup
-  %723 = load ptr, ptr %22, align 8, !tbaa !236
-  %724 = icmp eq ptr %723, %701
-  br i1 %724, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i141, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i140
+  %729 = load ptr, ptr %22, align 8, !tbaa !236
+  %730 = icmp eq ptr %729, %706
+  br i1 %730, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i141, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i140
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i141: ; preds = %721
-  %725 = load i64, ptr %702, align 8, !tbaa !230
-  %726 = icmp ult i64 %725, 16
-  call void @llvm.assume(i1 %726)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i141: ; preds = %727
+  %731 = load i64, ptr %707, align 8, !tbaa !230
+  %732 = icmp ult i64 %731, 16
+  call void @llvm.assume(i1 %732)
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit142
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i140: ; preds = %721
-  %727 = load i64, ptr %701, align 8, !tbaa !237
-  %728 = add i64 %727, 1
-  call void @_ZdlPvm(ptr noundef %723, i64 noundef %728) #13
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i140: ; preds = %727
+  %733 = load i64, ptr %706, align 8, !tbaa !237
+  %734 = add i64 %733, 1
+  call void @_ZdlPvm(ptr noundef %729, i64 noundef %734) #13
   br label %_ZN3gmx14LogEntryWriterD2Ev.exit142
 
 _ZN3gmx14LogEntryWriterD2Ev.exit142:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i140
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %730
+  br label %736
 
-729:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit139, %696, %621, %693
+735:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit139, %701, %625, %698
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
 
-730:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit142, %_ZN3gmx14LogEntryWriterD2Ev.exit134, %_ZN3gmx14LogEntryWriterD2Ev.exit126, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112 ], [ %722, %_ZN3gmx14LogEntryWriterD2Ev.exit142 ], [ %686, %_ZN3gmx14LogEntryWriterD2Ev.exit134 ], [ %646, %_ZN3gmx14LogEntryWriterD2Ev.exit126 ]
+736:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit142, %_ZN3gmx14LogEntryWriterD2Ev.exit134, %_ZN3gmx14LogEntryWriterD2Ev.exit126, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit112 ], [ %728, %_ZN3gmx14LogEntryWriterD2Ev.exit142 ], [ %691, %_ZN3gmx14LogEntryWriterD2Ev.exit134 ], [ %650, %_ZN3gmx14LogEntryWriterD2Ev.exit126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }

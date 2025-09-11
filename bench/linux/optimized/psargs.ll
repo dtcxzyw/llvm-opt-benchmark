@@ -516,9 +516,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %54, label %switch.lookup, label %57
 
 switch.lookup:                                    ; preds = %.preheader
-  %switch.cast = trunc nuw i8 %53 to i4
-  %switch.downshift = lshr exact i4 -8, %switch.cast
-  %switch.masked = trunc i4 %switch.downshift to i1
+  %switch.masked = icmp eq i8 %53, 3
   %55 = shl nuw nsw i8 %53, 4
   %switch.shiftamt91 = zext nneg i8 %55 to i64
   %switch.downshift92 = lshr i64 16044314193952817, %switch.shiftamt91

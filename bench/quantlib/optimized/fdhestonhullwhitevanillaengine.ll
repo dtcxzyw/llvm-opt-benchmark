@@ -4953,7 +4953,8 @@ lpad475:                                          ; preds = %if.then.i, %cond.fa
 for.body512:                                      ; preds = %for.body512.lr.ph, %invoke.cont578
   %i.01348 = phi i64 [ 0, %for.body512.lr.ph ], [ %inc, %invoke.cont578 ]
   %414 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !225
-  %exercise518 = getelementptr inbounds nuw %"struct.std::pair", ptr %414, i64 %i.01348, i32 0, i32 2
+  %add.ptr.i768 = getelementptr inbounds nuw %"struct.std::pair", ptr %414, i64 %i.01348
+  %exercise518 = getelementptr inbounds nuw i8, ptr %add.ptr.i768, i64 24
   %415 = load ptr, ptr %exercise104, align 8, !tbaa !43
   %416 = load ptr, ptr %pn3.i.i769, align 8, !tbaa !42
   %cmp.not.i.i.i770 = icmp eq ptr %416, null
@@ -4966,7 +4967,7 @@ if.then.i.i.i771:                                 ; preds = %for.body512
 
 _ZN5boost10shared_ptrIN8QuantLib8ExerciseEEC2ERKS3_.exit.i: ; preds = %if.then.i.i.i771, %for.body512
   store ptr %415, ptr %exercise518, align 8, !tbaa !3
-  %pn3.i2.i773 = getelementptr inbounds nuw i8, ptr %exercise518, i64 8
+  %pn3.i2.i773 = getelementptr inbounds nuw i8, ptr %add.ptr.i768, i64 32
   %418 = load ptr, ptr %pn3.i2.i773, align 8, !tbaa !42
   store ptr %416, ptr %pn3.i2.i773, align 8, !tbaa !42
   %cmp.not.i.i4.i = icmp eq ptr %418, null
@@ -5032,12 +5033,13 @@ invoke.cont523:                                   ; preds = %.noexc788, %_ZN5boo
 
 invoke.cont529:                                   ; preds = %invoke.cont523
   %429 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !225
-  %payoff533 = getelementptr inbounds nuw %"struct.std::pair", ptr %429, i64 %i.01348, i32 0, i32 1
+  %add.ptr.i792 = getelementptr inbounds nuw %"struct.std::pair", ptr %429, i64 %i.01348
+  %payoff533 = getelementptr inbounds nuw i8, ptr %add.ptr.i792, i64 8
   %430 = load ptr, ptr %ref.tmp520, align 8, !tbaa !126
   %431 = load ptr, ptr %pn3.i.i793, align 8, !tbaa !42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp520, i8 0, i64 16, i1 false)
   store ptr %430, ptr %payoff533, align 8, !tbaa !3
-  %pn3.i2.i794 = getelementptr inbounds nuw i8, ptr %payoff533, i64 8
+  %pn3.i2.i794 = getelementptr inbounds nuw i8, ptr %add.ptr.i792, i64 16
   %432 = load ptr, ptr %pn3.i2.i794, align 8, !tbaa !42
   store ptr %431, ptr %pn3.i2.i794, align 8, !tbaa !42
   %cmp.not.i.i.i795 = icmp eq ptr %432, null
@@ -5995,7 +5997,8 @@ _ZN5boost10shared_ptrIN8QuantLib13PricingEngineEED2Ev.exit1047: ; preds = %invok
 invoke.cont701:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib13PricingEngineEED2Ev.exit1047
   %sub703 = fsub double %call694, %call702
   %578 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !225
-  %value707 = getelementptr inbounds nuw %"struct.std::pair", ptr %578, i64 %i666.01354, i32 1, i32 0, i32 1
+  %add.ptr.i1048 = getelementptr inbounds nuw %"struct.std::pair", ptr %578, i64 %i666.01354
+  %value707 = getelementptr inbounds nuw i8, ptr %add.ptr.i1048, i64 48
   %579 = load double, ptr %value707, align 8, !tbaa !218
   %add708 = fadd double %sub703, %579
   store double %add708, ptr %value707, align 8, !tbaa !218

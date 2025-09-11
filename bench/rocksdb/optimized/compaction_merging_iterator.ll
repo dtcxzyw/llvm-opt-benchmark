@@ -2389,7 +2389,7 @@ _ZNSt6vectorIN7rocksdb25CompactionMergingIterator8HeapItemESaIS2_EE6resizeEm.exi
 38:                                               ; preds = %76, %30
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %119
+  br label %120
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE3SetEPNS_20InternalIteratorBaseIS1_EE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE3SetEPNS_20InternalIteratorBaseIS1_EE.exit ]
@@ -2450,7 +2450,7 @@ _ZN7rocksdb19IteratorWrapperBaseINS_5SliceEE3SetEPNS_20InternalIteratorBaseIS1_E
 66:                                               ; preds = %55, %48
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %119
+  br label %120
 
 ._crit_edge64:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit, %._crit_edge
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2543,72 +2543,73 @@ _ZNSt6vectorISt10unique_ptrIN7rocksdb25TruncatedRangeDelIteratorESt14default_del
 102:                                              ; preds = %100
   %103 = landingpad { ptr, i32 }
           cleanup
-  br label %119
+  br label %120
 
-._crit_edge67:                                    ; preds = %111, %_ZNSt6vectorIN7rocksdb25CompactionMergingIterator8HeapItemESaIS2_EE6resizeEm.exit50
+._crit_edge67:                                    ; preds = %112, %_ZNSt6vectorIN7rocksdb25CompactionMergingIterator8HeapItemESaIS2_EE6resizeEm.exit50
   %104 = load ptr, ptr %27, align 8, !tbaa !192
   %.not = icmp eq ptr %104, null
-  br i1 %.not, label %118, label %115
+  br i1 %.not, label %119, label %116
 
-105:                                              ; preds = %.lr.ph66, %111
-  %indvars.iv69 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next70, %111 ]
-  %106 = getelementptr inbounds nuw %"struct.std::pair", ptr %92, i64 %indvars.iv69, i32 1
-  %107 = load ptr, ptr %106, align 8, !tbaa !203
-  %.not36 = icmp eq ptr %107, null
-  br i1 %.not36, label %111, label %108
+105:                                              ; preds = %.lr.ph66, %112
+  %indvars.iv69 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next70, %112 ]
+  %106 = getelementptr inbounds nuw %"struct.std::pair", ptr %92, i64 %indvars.iv69
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load ptr, ptr %107, align 8, !tbaa !203
+  %.not36 = icmp eq ptr %108, null
+  br i1 %.not36, label %112, label %109
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr %14, align 8, !tbaa !38
-  %110 = getelementptr inbounds nuw %"class.std::unique_ptr.20", ptr %109, i64 %indvars.iv69
-  store ptr %110, ptr %107, align 8, !tbaa !212
-  br label %111
+109:                                              ; preds = %105
+  %110 = load ptr, ptr %14, align 8, !tbaa !38
+  %111 = getelementptr inbounds nuw %"class.std::unique_ptr.20", ptr %110, i64 %indvars.iv69
+  store ptr %111, ptr %108, align 8, !tbaa !212
+  br label %112
 
-111:                                              ; preds = %108, %105
-  %112 = getelementptr inbounds nuw %"struct.rocksdb::CompactionMergingIterator::HeapItem", ptr %93, i64 %indvars.iv69
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
-  store i64 %indvars.iv69, ptr %113, align 8, !tbaa !144
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 80
-  store i32 1, ptr %114, align 8, !tbaa !138
+112:                                              ; preds = %109, %105
+  %113 = getelementptr inbounds nuw %"struct.rocksdb::CompactionMergingIterator::HeapItem", ptr %93, i64 %indvars.iv69
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
+  store i64 %indvars.iv69, ptr %114, align 8, !tbaa !144
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 80
+  store i32 1, ptr %115, align 8, !tbaa !138
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %._crit_edge67, label %105, !llvm.loop !213
 
-115:                                              ; preds = %._crit_edge67
+116:                                              ; preds = %._crit_edge67
   store i64 %29, ptr %28, align 8, !tbaa !193
-  %116 = getelementptr inbounds nuw i8, ptr %104, i64 1960
-  %117 = atomicrmw add ptr %116, i64 %29 monotonic, align 8
-  br label %118
+  %117 = getelementptr inbounds nuw i8, ptr %104, i64 1960
+  %118 = atomicrmw add ptr %117, i64 %29 monotonic, align 8
+  br label %119
 
-118:                                              ; preds = %115, %._crit_edge67
+119:                                              ; preds = %116, %._crit_edge67
   ret void
 
-119:                                              ; preds = %102, %66, %38
+120:                                              ; preds = %102, %66, %38
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %103, %102 ], [ %39, %38 ]
   tail call void @_ZN7rocksdb10BinaryHeapIPNS_25CompactionMergingIterator8HeapItemENS1_28CompactionHeapItemComparatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %20) #23
-  %120 = load ptr, ptr %19, align 8, !tbaa !32
-  %.not.i.i53 = icmp eq ptr %120, null
+  %121 = load ptr, ptr %19, align 8, !tbaa !32
+  %.not.i.i53 = icmp eq ptr %121, null
   br i1 %.not.i.i53, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %119
-  tail call void @_ZdaPv(ptr noundef nonnull %120) #20
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %120
+  tail call void @_ZdaPv(ptr noundef nonnull %121) #20
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
-_ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %119, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
+_ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %120, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %19, align 8, !tbaa !32
-  %121 = load ptr, ptr %15, align 8, !tbaa !11
-  %122 = icmp eq ptr %121, %16
-  br i1 %122, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %122 = load ptr, ptr %15, align 8, !tbaa !11
+  %123 = icmp eq ptr %122, %16
+  br i1 %123, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit
-  %123 = load i64, ptr %17, align 8, !tbaa !16
-  %124 = icmp ult i64 %123, 16
-  tail call void @llvm.assume(i1 %124)
+  %124 = load i64, ptr %17, align 8, !tbaa !16
+  %125 = icmp ult i64 %124, 16
+  tail call void @llvm.assume(i1 %125)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit
-  %125 = load i64, ptr %16, align 8, !tbaa !17
-  %126 = add i64 %125, 1
-  tail call void @_ZdlPvm(ptr noundef %121, i64 noundef %126) #20
+  %126 = load i64, ptr %16, align 8, !tbaa !17
+  %127 = add i64 %126, 1
+  tail call void @_ZdlPvm(ptr noundef %122, i64 noundef %127) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

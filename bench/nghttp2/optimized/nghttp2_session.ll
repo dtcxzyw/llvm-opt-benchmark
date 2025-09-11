@@ -10340,17 +10340,17 @@ inbound_frame_set_settings_entry.exit:            ; preds = %990, %1011, %1014, 
   unreachable
 
 1039:                                             ; preds = %.lr.ph.i963
-  %1040 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre.i962, i64 %.039.i, i32 1
-  %1041 = load i32, ptr %1040, align 4, !tbaa !180
-  %.not34.i = icmp eq i32 %.sroa.4.0.copyload.i, %1041
-  br i1 %.not34.i, label %session_process_settings_frame.exit, label %1042
+  %1040 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre.i962, i64 %.039.i
+  %1041 = getelementptr inbounds nuw i8, ptr %1040, i64 4
+  %1042 = load i32, ptr %1041, align 4, !tbaa !180
+  %.not34.i = icmp eq i32 %.sroa.4.0.copyload.i, %1042
+  br i1 %.not34.i, label %session_process_settings_frame.exit, label %1043
 
-1042:                                             ; preds = %1039
-  %1043 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre.i962, i64 %.039.i
+1043:                                             ; preds = %1039
   %1044 = add i64 %1033, 1
   store i64 %1044, ptr %59, align 8, !tbaa !248
   %1045 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre.i962, i64 %1033
-  %1046 = load i64, ptr %1043, align 4
+  %1046 = load i64, ptr %1040, align 4
   store i64 %1046, ptr %1045, align 4
   %1047 = load ptr, ptr %60, align 8, !tbaa !114
   %1048 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %1047, i64 %.039.i
@@ -10359,8 +10359,8 @@ inbound_frame_set_settings_entry.exit:            ; preds = %990, %1011, %1014, 
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx2.i, align 4, !tbaa !94
   br label %session_process_settings_frame.exit
 
-session_process_settings_frame.exit:              ; preds = %1028, %1030, %1039, %1042
-  %1049 = phi ptr [ %.pre.i962, %1030 ], [ %1047, %1042 ], [ %.pre.i962, %1039 ], [ %.pre.i962, %1028 ]
+session_process_settings_frame.exit:              ; preds = %1028, %1030, %1039, %1043
+  %1049 = phi ptr [ %.pre.i962, %1030 ], [ %1047, %1043 ], [ %.pre.i962, %1039 ], [ %.pre.i962, %1028 ]
   %1050 = load i64, ptr %59, align 8, !tbaa !248
   call void @nghttp2_frame_unpack_settings_payload(ptr noundef nonnull %9, ptr noundef %1049, i64 noundef %1050) #16
   store ptr null, ptr %60, align 8, !tbaa !114

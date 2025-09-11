@@ -8327,9 +8327,7 @@ define noundef zeroext i1 @_ZNK6casadi8Variable9has_startEv(ptr noundef nonnull 
   br label %13
 
 switch.lookup:                                    ; preds = %1
-  %switch.cast = trunc nuw i32 %3 to i3
-  %switch.downshift = lshr i3 3, %switch.cast
-  %switch.masked = trunc i3 %switch.downshift to i1
+  %switch.masked = icmp ne i32 %3, 2
   br label %13
 
 13:                                               ; preds = %switch.lookup, %9, %5, %5, %8

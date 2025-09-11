@@ -431,7 +431,7 @@ define hidden void @"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$9split_off17hd5be9af
   call void @_ZN4core3ptr19swap_nonoverlapping17h93a20e6c534d4445E.llvm.10107124358432276917(ptr noundef nonnull align 1 %23, ptr noundef nonnull align 1 %13, i64 noundef %22), !noalias !89
   %24 = trunc nuw nsw i64 %22 to i16
   store i16 %24, ptr %5, align 2
-  %25 = trunc nuw i64 %18 to i16
+  %25 = trunc nuw nsw i64 %18 to i16
   store i16 %25, ptr %1, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %0, ptr noundef nonnull align 2 dereferenceable(30) %5, i64 30, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1933,7 +1933,7 @@ define hidden void @_ZN15ockam_multiaddr9split_off17hbc66e5754c724a50E(ptr noali
   call void @_ZN4core3ptr19swap_nonoverlapping17h93a20e6c534d4445E.llvm.10107124358432276917(ptr noundef nonnull align 1 %36, ptr noundef nonnull align 1 %20, i64 noundef %35), !noalias !563
   %37 = trunc nuw nsw i64 %35 to i16
   store i16 %37, ptr %8, align 2, !noalias !548
-  %38 = trunc nuw i64 %23 to i16
+  %38 = trunc nuw nsw i64 %23 to i16
   store i16 %38, ptr %15, align 2, !alias.scope !545, !noalias !550
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %12, ptr noundef nonnull align 2 dereferenceable(30) %8, i64 30, i1 false), !noalias !545
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !548

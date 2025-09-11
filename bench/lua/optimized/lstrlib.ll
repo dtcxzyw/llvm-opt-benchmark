@@ -386,9 +386,9 @@ getformat.exit:                                   ; preds = %53, %57
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %32, i64 %55, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %14, i64 %55
   store i8 0, ptr %59, align 1, !tbaa !9
-  %60 = getelementptr inbounds nuw i8, ptr %32, i64 %55
-  %61 = getelementptr inbounds i8, ptr %32, i64 %54
-  %62 = load i8, ptr %61, align 1, !tbaa !9
+  %60 = getelementptr inbounds i8, ptr %32, i64 %54
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1
+  %62 = load i8, ptr %60, align 1, !tbaa !9
   switch i8 %62, label %443 [
     i8 99, label %63
     i8 100, label %92
@@ -1144,7 +1144,7 @@ checkformat.exit156:                              ; preds = %get2digits.exit18.i
   br label %449
 
 449:                                              ; preds = %445, %41, %24
-  %.171 = phi ptr [ %27, %24 ], [ %44, %41 ], [ %60, %445 ]
+  %.171 = phi ptr [ %27, %24 ], [ %44, %41 ], [ %61, %445 ]
   %.169 = phi i32 [ %.068163, %24 ], [ %.068163, %41 ], [ %50, %445 ]
   %450 = icmp ult ptr %.171, %11
   br i1 %450, label %16, label %._crit_edge

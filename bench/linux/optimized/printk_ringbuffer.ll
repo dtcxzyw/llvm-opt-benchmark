@@ -54,11 +54,12 @@ define dso_local noundef zeroext i1 @prb_reserve_in_last(ptr noundef captures(no
 
 .thread:                                          ; preds = %5
   store volatile i64 %23, ptr %6, align 8
-  br label %.thread9
+  br label %.thread10
 
 28:                                               ; preds = %5
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
-  %29 = getelementptr %struct.printk_info, ptr %14, i64 %19, i32 5
+  %.split9 = getelementptr %struct.printk_info, ptr %14, i64 %19
+  %29 = getelementptr i8, ptr %.split9, i64 20
   %30 = load i32, ptr %29, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %31 = load volatile i64, ptr %22, align 8
@@ -70,7 +71,7 @@ define dso_local noundef zeroext i1 @prb_reserve_in_last(ptr noundef captures(no
   %35 = and i1 %33, %34
   %36 = icmp eq i32 %30, %3
   %37 = select i1 %35, i1 %36, i1 false
-  br i1 %37, label %38, label %.thread9
+  br i1 %37, label %38, label %.thread10
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %20, align 8
@@ -86,9 +87,9 @@ define dso_local noundef zeroext i1 @prb_reserve_in_last(ptr noundef captures(no
   %49 = icmp ult i8 %48, 2
   call void @llvm.assume(i1 %49)
   %50 = icmp eq i8 %48, 0
-  br i1 %50, label %.thread9, label %51
+  br i1 %50, label %.thread10, label %51
 
-.thread9:                                         ; preds = %28, %.thread, %38
+.thread10:                                        ; preds = %28, %.thread, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %53
 
@@ -97,7 +98,7 @@ define dso_local noundef zeroext i1 @prb_reserve_in_last(ptr noundef captures(no
   %52 = icmp eq ptr %45, null
   br i1 %52, label %53, label %58
 
-53:                                               ; preds = %.thread9, %51
+53:                                               ; preds = %.thread10, %51
   %54 = load i64, ptr %10, align 8
   %55 = and i64 %54, 512
   %56 = icmp eq i64 %55, 0
@@ -398,9 +399,9 @@ data_alloc.exit.thread:                           ; preds = %215, %251, %153
   br label %258
 
 data_alloc.exit.sink.split:                       ; preds = %127, %.split, %91
-  %.sink33 = phi i64 [ 3, %91 ], [ 1, %.split ], [ 1, %127 ]
-  store i64 %.sink33, ptr %71, align 8
-  store i64 %.sink33, ptr %76, align 8
+  %.sink34 = phi i64 [ 3, %91 ], [ 1, %.split ], [ 1, %127 ]
+  store i64 %.sink34, ptr %71, align 8
+  store i64 %.sink34, ptr %76, align 8
   br label %data_alloc.exit
 
 data_alloc.exit:                                  ; preds = %data_alloc.exit.sink.split, %225, %222, %189
@@ -1012,7 +1013,8 @@ select.unfold:                                    ; preds = %53, %37
 
 193:                                              ; preds = %179, %174
   %194 = load i32, ptr %7, align 8
-  %195 = getelementptr %struct.prb_desc, ptr %156, i64 %161, i32 1
+  %.split = getelementptr %struct.prb_desc, ptr %156, i64 %161
+  %195 = getelementptr i8, ptr %.split, i64 8
   %196 = icmp eq i32 %194, 0
   br i1 %196, label %._crit_edge, label %197
 
@@ -1085,7 +1087,7 @@ select.unfold:                                    ; preds = %53, %37
 .thread10:                                        ; preds = %235, %247
   %249 = phi ptr [ %248, %247 ], [ %241, %235 ]
   store i64 %216, ptr %195, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %250 = getelementptr i8, ptr %.split, i64 16
   store i64 %215, ptr %250, align 8
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %252 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1095,7 +1097,7 @@ select.unfold:                                    ; preds = %53, %37
 ._crit_edge:                                      ; preds = %223, %197, %193
   %.sink54 = phi i64 [ 3, %193 ], [ 1, %197 ], [ 1, %223 ]
   store i64 %.sink54, ptr %195, align 8
-  %253 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %253 = getelementptr i8, ptr %.split, i64 16
   store i64 %.sink54, ptr %253, align 8
   %254 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %254, align 8
@@ -1165,7 +1167,7 @@ select.unfold:                                    ; preds = %53, %37
   %296 = load i64, ptr %195, align 8
   %297 = and i64 %296, 1
   %298 = icmp eq i64 %297, 0
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %.phi.trans.insert = getelementptr i8, ptr %.split, i64 16
   %.pre35 = load i64, ptr %.phi.trans.insert, align 8
   %299 = and i64 %.pre35, 1
   %300 = icmp eq i64 %299, 0

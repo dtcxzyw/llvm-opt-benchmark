@@ -92,233 +92,234 @@ GetBufferFromRing.exit:                           ; preds = %15
 
 25:                                               ; preds = %GetBufferFromRing.exit
   store i8 1, ptr %2, align 1
-  br label %142
+  br label %143
 
 GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferFromRing.exit, %3
   %26 = load ptr, ptr @StrategyControl, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load volatile i32, ptr %27, align 4
   %.not46 = icmp eq i32 %28, -1
-  br i1 %.not46, label %34, label %29
+  br i1 %.not46, label %35, label %29
 
 29:                                               ; preds = %GetBufferFromRing.exit.thread
   store i32 -1, ptr %27, align 4
   %30 = load ptr, ptr @ProcGlobal, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %28 to i64
-  %33 = getelementptr inbounds %struct.PGPROC, ptr %31, i64 %32, i32 4
-  tail call void @SetLatch(ptr noundef nonnull %33) #9
+  %33 = getelementptr inbounds %struct.PGPROC, ptr %31, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 36
+  tail call void @SetLatch(ptr noundef nonnull %34) #9
   %.pre = load ptr, ptr @StrategyControl, align 8
-  br label %34
+  br label %35
 
-34:                                               ; preds = %29, %GetBufferFromRing.exit.thread
-  %35 = phi ptr [ %.pre, %29 ], [ %26, %GetBufferFromRing.exit.thread ]
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 20
-  %37 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %36, i32 1, ptr nonnull elementtype(i32) %36) #9, !srcloc !5
-  %38 = load ptr, ptr @StrategyControl, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.preheader, label %76
+35:                                               ; preds = %29, %GetBufferFromRing.exit.thread
+  %36 = phi ptr [ %.pre, %29 ], [ %26, %GetBufferFromRing.exit.thread ]
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 20
+  %38 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %37, i32 1, ptr nonnull elementtype(i32) %37) #9, !srcloc !5
+  %39 = load ptr, ptr @StrategyControl, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp sgt i32 %41, -1
+  br i1 %42, label %.preheader, label %77
 
-.preheader:                                       ; preds = %34, %73
-  %42 = phi ptr [ %.pre64, %73 ], [ %38, %34 ]
-  %43 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %42, i8 1, ptr elementtype(i8) %42) #9, !srcloc !6
-  %.not47 = icmp eq i8 %43, 0
-  br i1 %.not47, label %47, label %44
+.preheader:                                       ; preds = %35, %74
+  %43 = phi ptr [ %.pre64, %74 ], [ %39, %35 ]
+  %44 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %43, i8 1, ptr elementtype(i8) %43) #9, !srcloc !6
+  %.not47 = icmp eq i8 %44, 0
+  br i1 %.not47, label %48, label %45
 
-44:                                               ; preds = %.preheader
-  %45 = load ptr, ptr @StrategyControl, align 8
-  %46 = tail call i32 @s_lock(ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 273, ptr noundef nonnull @__func__.StrategyGetBuffer) #9
-  br label %47
+45:                                               ; preds = %.preheader
+  %46 = load ptr, ptr @StrategyControl, align 8
+  %47 = tail call i32 @s_lock(ptr noundef %46, ptr noundef nonnull @.str, i32 noundef 273, ptr noundef nonnull @__func__.StrategyGetBuffer) #9
+  br label %48
 
-47:                                               ; preds = %.preheader, %44
-  %48 = load ptr, ptr @StrategyControl, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %54
+48:                                               ; preds = %.preheader, %45
+  %49 = load ptr, ptr @StrategyControl, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %53, label %55
 
-52:                                               ; preds = %47
+53:                                               ; preds = %48
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  %53 = load ptr, ptr @StrategyControl, align 8
-  store i8 0, ptr %53, align 4
-  br label %76
+  %54 = load ptr, ptr @StrategyControl, align 8
+  store i8 0, ptr %54, align 4
+  br label %77
 
-54:                                               ; preds = %47
-  %55 = load ptr, ptr @BufferDescriptors, align 8
-  %56 = zext nneg i32 %50 to i64
-  %57 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %55, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %59 = load i32, ptr %58, align 4
-  store i32 %59, ptr %49, align 4
-  store i32 -2, ptr %58, align 4
+55:                                               ; preds = %48
+  %56 = load ptr, ptr @BufferDescriptors, align 8
+  %57 = zext nneg i32 %51 to i64
+  %58 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %56, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %60 = load i32, ptr %59, align 4
+  store i32 %60, ptr %50, align 4
+  store i32 -2, ptr %59, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
-  %60 = load ptr, ptr @StrategyControl, align 8
-  store i8 0, ptr %60, align 4
-  %61 = tail call i32 @LockBufHdr(ptr noundef %57) #9
-  %62 = and i32 %61, 4194303
-  %or.cond = icmp eq i32 %62, 0
-  br i1 %or.cond, label %63, label %73
+  %61 = load ptr, ptr @StrategyControl, align 8
+  store i8 0, ptr %61, align 4
+  %62 = tail call i32 @LockBufHdr(ptr noundef %58) #9
+  %63 = and i32 %62, 4194303
+  %or.cond = icmp eq i32 %63, 0
+  br i1 %or.cond, label %64, label %74
 
-63:                                               ; preds = %54
-  br i1 %.not, label %72, label %64
+64:                                               ; preds = %55
+  br i1 %.not, label %73, label %65
 
-64:                                               ; preds = %63
-  %65 = getelementptr i8, ptr %57, i64 20
-  %.val = load i32, ptr %65, align 4
-  %66 = add i32 %.val, 1
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %69 = load i32, ptr %68, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %67, i64 %70
-  store i32 %66, ptr %71, align 4
-  br label %72
+65:                                               ; preds = %64
+  %66 = getelementptr i8, ptr %58, i64 20
+  %.val = load i32, ptr %66, align 4
+  %67 = add i32 %.val, 1
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %70 = load i32, ptr %69, align 4
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %68, i64 %71
+  store i32 %67, ptr %72, align 4
+  br label %73
 
-72:                                               ; preds = %64, %63
-  store i32 %61, ptr %1, align 4
-  br label %142
+73:                                               ; preds = %65, %64
+  store i32 %62, ptr %1, align 4
+  br label %143
 
-73:                                               ; preds = %54
+74:                                               ; preds = %55
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !4
-  %74 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %75 = and i32 %61, -4194305
-  store volatile i32 %75, ptr %74, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %76 = and i32 %62, -4194305
+  store volatile i32 %76, ptr %75, align 4
   %.pre64 = load ptr, ptr @StrategyControl, align 8
   br label %.preheader
 
-76:                                               ; preds = %52, %34
-  %77 = phi ptr [ %53, %52 ], [ %38, %34 ]
-  %78 = load i32, ptr @NBuffers, align 4
-  br label %79
+77:                                               ; preds = %53, %35
+  %78 = phi ptr [ %54, %53 ], [ %39, %35 ]
+  %79 = load i32, ptr @NBuffers, align 4
+  br label %80
 
-79:                                               ; preds = %139, %76
-  %80 = phi ptr [ %77, %76 ], [ %.pre65, %139 ]
-  %.037 = phi i32 [ %78, %76 ], [ %.1, %139 ]
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %82 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %81, i32 1, ptr nonnull elementtype(i32) %81) #9, !srcloc !5
-  %83 = load i32, ptr @NBuffers, align 4
-  %.not.i51 = icmp ult i32 %82, %83
-  br i1 %.not.i51, label %ClockSweepTick.exit, label %84
+80:                                               ; preds = %140, %77
+  %81 = phi ptr [ %78, %77 ], [ %.pre65, %140 ]
+  %.037 = phi i32 [ %79, %77 ], [ %.1, %140 ]
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %83 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %82, i32 1, ptr nonnull elementtype(i32) %82) #9, !srcloc !5
+  %84 = load i32, ptr @NBuffers, align 4
+  %.not.i51 = icmp ult i32 %83, %84
+  br i1 %.not.i51, label %ClockSweepTick.exit, label %85
 
-84:                                               ; preds = %79
-  %85 = urem i32 %82, %83
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %ClockSweepTick.exit
+85:                                               ; preds = %80
+  %86 = urem i32 %83, %84
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %ClockSweepTick.exit
 
-87:                                               ; preds = %84
-  %88 = add i32 %82, 1
+88:                                               ; preds = %85
+  %89 = add i32 %83, 1
   %.pre.i = load ptr, ptr @StrategyControl, align 8
-  br label %91
+  br label %92
 
-.critedge.i:                                      ; preds = %97
-  %89 = extractvalue { i32, i8 } %102, 0
+.critedge.i:                                      ; preds = %98
+  %90 = extractvalue { i32, i8 } %103, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
-  %90 = load ptr, ptr @StrategyControl, align 8
-  store i8 0, ptr %90, align 4
-  br label %91
+  %91 = load ptr, ptr @StrategyControl, align 8
+  store i8 0, ptr %91, align 4
+  br label %92
 
-91:                                               ; preds = %.critedge.i, %87
-  %92 = phi ptr [ %.pre.i, %87 ], [ %90, %.critedge.i ]
-  %.01415.i = phi i32 [ %88, %87 ], [ %89, %.critedge.i ]
-  %93 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %92, i8 1, ptr elementtype(i8) %92) #9, !srcloc !6
-  %.not12.i = icmp eq i8 %93, 0
-  br i1 %.not12.i, label %97, label %94
+92:                                               ; preds = %.critedge.i, %88
+  %93 = phi ptr [ %.pre.i, %88 ], [ %91, %.critedge.i ]
+  %.01415.i = phi i32 [ %89, %88 ], [ %90, %.critedge.i ]
+  %94 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %93, i8 1, ptr elementtype(i8) %93) #9, !srcloc !6
+  %.not12.i = icmp eq i8 %94, 0
+  br i1 %.not12.i, label %98, label %95
 
-94:                                               ; preds = %91
-  %95 = load ptr, ptr @StrategyControl, align 8
-  %96 = tail call i32 @s_lock(ptr noundef %95, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.ClockSweepTick) #9
-  br label %97
+95:                                               ; preds = %92
+  %96 = load ptr, ptr @StrategyControl, align 8
+  %97 = tail call i32 @s_lock(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.ClockSweepTick) #9
+  br label %98
 
-97:                                               ; preds = %94, %91
-  %98 = load i32, ptr @NBuffers, align 4
-  %99 = urem i32 %.01415.i, %98
-  %100 = load ptr, ptr @StrategyControl, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %102 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %101, i32 %.01415.i, i32 %99, ptr nonnull elementtype(i32) %101) #9, !srcloc !10
-  %103 = extractvalue { i32, i8 } %102, 1
-  %.not16.i = icmp eq i8 %103, 0
-  br i1 %.not16.i, label %.critedge.i, label %104
+98:                                               ; preds = %95, %92
+  %99 = load i32, ptr @NBuffers, align 4
+  %100 = urem i32 %.01415.i, %99
+  %101 = load ptr, ptr @StrategyControl, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
+  %103 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %102, i32 %.01415.i, i32 %100, ptr nonnull elementtype(i32) %102) #9, !srcloc !10
+  %104 = extractvalue { i32, i8 } %103, 1
+  %.not16.i = icmp eq i8 %104, 0
+  br i1 %.not16.i, label %.critedge.i, label %105
 
-104:                                              ; preds = %97
-  %105 = load ptr, ptr @StrategyControl, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = load i32, ptr %106, align 4
-  %108 = add i32 %107, 1
-  store i32 %108, ptr %106, align 4
+105:                                              ; preds = %98
+  %106 = load ptr, ptr @StrategyControl, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %108 = load i32, ptr %107, align 4
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %107, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
-  %109 = load ptr, ptr @StrategyControl, align 8
-  store i8 0, ptr %109, align 4
+  %110 = load ptr, ptr @StrategyControl, align 8
+  store i8 0, ptr %110, align 4
   br label %ClockSweepTick.exit, !llvm.loop !11
 
-ClockSweepTick.exit:                              ; preds = %79, %84, %104
-  %.09.i = phi i32 [ %82, %79 ], [ %85, %84 ], [ 0, %104 ]
-  %110 = load ptr, ptr @BufferDescriptors, align 8
-  %111 = zext i32 %.09.i to i64
-  %112 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %110, i64 %111
-  %113 = tail call i32 @LockBufHdr(ptr noundef %112) #9
-  %114 = and i32 %113, 262143
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %131
+ClockSweepTick.exit:                              ; preds = %80, %85, %105
+  %.09.i = phi i32 [ %83, %80 ], [ %86, %85 ], [ 0, %105 ]
+  %111 = load ptr, ptr @BufferDescriptors, align 8
+  %112 = zext i32 %.09.i to i64
+  %113 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %111, i64 %112
+  %114 = tail call i32 @LockBufHdr(ptr noundef %113) #9
+  %115 = and i32 %114, 262143
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %132
 
-116:                                              ; preds = %ClockSweepTick.exit
-  %117 = and i32 %113, 3932160
-  %.not48 = icmp eq i32 %117, 0
-  br i1 %.not48, label %121, label %118
+117:                                              ; preds = %ClockSweepTick.exit
+  %118 = and i32 %114, 3932160
+  %.not48 = icmp eq i32 %118, 0
+  br i1 %.not48, label %122, label %119
 
-118:                                              ; preds = %116
-  %119 = add i32 %113, -262144
-  %120 = load i32, ptr @NBuffers, align 4
-  br label %139
+119:                                              ; preds = %117
+  %120 = add i32 %114, -262144
+  %121 = load i32, ptr @NBuffers, align 4
+  br label %140
 
-121:                                              ; preds = %116
-  br i1 %.not, label %130, label %122
+122:                                              ; preds = %117
+  br i1 %.not, label %131, label %123
 
-122:                                              ; preds = %121
-  %123 = getelementptr i8, ptr %112, i64 20
-  %.val50 = load i32, ptr %123, align 4
-  %124 = add i32 %.val50, 1
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %127 = load i32, ptr %126, align 4
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds i32, ptr %125, i64 %128
-  store i32 %124, ptr %129, align 4
-  br label %130
+123:                                              ; preds = %122
+  %124 = getelementptr i8, ptr %113, i64 20
+  %.val50 = load i32, ptr %124, align 4
+  %125 = add i32 %.val50, 1
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %128 = load i32, ptr %127, align 4
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds i32, ptr %126, i64 %129
+  store i32 %125, ptr %130, align 4
+  br label %131
 
-130:                                              ; preds = %122, %121
-  store i32 %113, ptr %1, align 4
-  br label %142
+131:                                              ; preds = %123, %122
+  store i32 %114, ptr %1, align 4
+  br label %143
 
-131:                                              ; preds = %ClockSweepTick.exit
-  %132 = add i32 %.037, -1
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %139
+132:                                              ; preds = %ClockSweepTick.exit
+  %133 = add i32 %.037, -1
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %135, label %140
 
-134:                                              ; preds = %131
+135:                                              ; preds = %132
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !4
-  %135 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %136 = and i32 %113, -4194305
-  store volatile i32 %136, ptr %135, align 4
-  %137 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %137)
-  %138 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #9
+  %136 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %137 = and i32 %114, -4194305
+  store volatile i32 %137, ptr %136, align 4
+  %138 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %138)
+  %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #9
   tail call void @errfinish(ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @__func__.StrategyGetBuffer) #9
   unreachable
 
-139:                                              ; preds = %131, %118
-  %.1 = phi i32 [ %120, %118 ], [ %132, %131 ]
-  %.0 = phi i32 [ %119, %118 ], [ %113, %131 ]
+140:                                              ; preds = %132, %119
+  %.1 = phi i32 [ %121, %119 ], [ %133, %132 ]
+  %.0 = phi i32 [ %120, %119 ], [ %114, %132 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !4
-  %140 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %141 = and i32 %.0, -4194305
-  store volatile i32 %141, ptr %140, align 4
+  %141 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %142 = and i32 %.0, -4194305
+  store volatile i32 %142, ptr %141, align 4
   %.pre65 = load ptr, ptr @StrategyControl, align 8
-  br label %79
+  br label %80
 
-142:                                              ; preds = %130, %72, %25
-  %.038 = phi ptr [ %19, %25 ], [ %112, %130 ], [ %57, %72 ]
+143:                                              ; preds = %131, %73, %25
+  %.038 = phi ptr [ %19, %25 ], [ %113, %131 ], [ %58, %73 ]
   ret ptr %.038
 }
 

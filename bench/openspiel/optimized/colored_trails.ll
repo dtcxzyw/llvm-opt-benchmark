@@ -9605,7 +9605,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %39 = load ptr, ptr %25, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
   invoke fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_128GenerateLegalActionsForChipsEPKNS0_17ColoredTrailsGameERKNS0_5BoardERKSt6vectorIiSaIiEESC_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(112) %40, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %41 unwind label %70
+          to label %41 unwind label %71
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9632,7 +9632,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %41, %49
   %.pre = load ptr, ptr %25, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.pre, i64 456
   %54 = invoke { i64, i8 } @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEE22find_or_prepare_insertIS9_EESH_ImbERKT_(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %.noexc unwind label %70
+          to label %.noexc unwind label %71
 
 .noexc:                                           ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
   %.fca.0.extract.i.i.i.i = extractvalue { i64, i8 } %54, 0
@@ -9645,7 +9645,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %41, %49
   %58 = load ptr, ptr %57, align 8, !noalias !97
   %59 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.150", ptr %58, i64 %.fca.0.extract.i.i.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %.noexc16 unwind label %70
+          to label %.noexc16 unwind label %71
 
 .noexc16:                                         ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
@@ -9666,33 +9666,34 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %41, %49
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i: ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %.pre, i64 464
   %67 = load ptr, ptr %66, align 8, !noalias !97
-  %68 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.150", ptr %67, i64 %.fca.0.extract.i.i.i.i, i32 0, i32 1
-  %69 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIlSaIlEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %0)
-          to label %_ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit unwind label %70
+  %68 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.150", ptr %67, i64 %.fca.0.extract.i.i.i.i
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %70 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIlSaIlEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) %0)
+          to label %_ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit unwind label %71
 
-70:                                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i, %56, %_ZNSt6vectorIlSaIlEED2Ev.exit, %38
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i, %56, %_ZNSt6vectorIlSaIlEED2Ev.exit, %38
+  %72 = landingpad { ptr, i32 }
           cleanup
-  %72 = load ptr, ptr %0, align 8
-  %.not.i.i.i18 = icmp eq ptr %72, null
-  br i1 %.not.i.i.i18, label %_ZNSt6vectorIlSaIlEED2Ev.exit19, label %73
+  %73 = load ptr, ptr %0, align 8
+  %.not.i.i.i18 = icmp eq ptr %73, null
+  br i1 %.not.i.i.i18, label %_ZNSt6vectorIlSaIlEED2Ev.exit19, label %74
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %75 = load ptr, ptr %74, align 8
-  %76 = ptrtoint ptr %75 to i64
-  %77 = ptrtoint ptr %72 to i64
-  %78 = sub i64 %76, %77
-  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #31
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %76 = load ptr, ptr %75, align 8
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %73 to i64
+  %79 = sub i64 %77, %78
+  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %79) #31
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit19
 
 _ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit: ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i, %27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   ret void
 
-_ZNSt6vectorIlSaIlEED2Ev.exit19:                  ; preds = %36, %70, %73, %32, %34
-  %.sink = phi ptr [ %7, %34 ], [ %7, %32 ], [ %5, %73 ], [ %5, %70 ], [ %5, %36 ]
-  %.pn12.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ], [ %71, %73 ], [ %71, %70 ], [ %37, %36 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit19:                  ; preds = %36, %71, %74, %32, %34
+  %.sink = phi ptr [ %7, %34 ], [ %7, %32 ], [ %5, %74 ], [ %5, %71 ], [ %5, %36 ]
+  %.pn12.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ], [ %72, %74 ], [ %72, %71 ], [ %37, %36 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #28
   resume { ptr, i32 } %.pn12.pn
 }
@@ -10615,8 +10616,9 @@ define void @_ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCac
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit: ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %18 = load ptr, ptr %17, align 8, !noalias !107
-  %19 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.150", ptr %18, i64 %.fca.0.extract.i.i.i, i32 0, i32 1
-  %20 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIlSaIlEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %19 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.150", ptr %18, i64 %.fca.0.extract.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %21 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIlSaIlEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %2)
   ret void
 }
 
@@ -16979,12 +16981,12 @@ _ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
 .loopexit95:                                      ; preds = %._crit_edge113, %._crit_edge
   %lpad.loopexit97 = landingpad { ptr, i32 }
           cleanup
-  br label %412
+  br label %413
 
 .loopexit.split-lp96:                             ; preds = %291, %296
   %lpad.loopexit.split-lp98 = landingpad { ptr, i32 }
           cleanup
-  br label %412
+  br label %413
 
 ._crit_edge113:                                   ; preds = %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit41, %.loopexit94
   %286 = invoke noundef zeroext i1 @_ZN10open_spiel14colored_trails21CheckBoardForProposerERKNS0_5BoardEi(ptr noundef nonnull align 8 dereferenceable(112) %7, i32 noundef %4)
@@ -17017,7 +17019,7 @@ _ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
   %295 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
-  br label %412
+  br label %413
 
 296:                                              ; preds = %289
   %297 = load ptr, ptr %30, align 8
@@ -17045,7 +17047,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %306 = load ptr, ptr %30, align 8
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 48
   invoke void @_ZN10open_spiel14colored_trails13ComboToStringB5cxx11ERKSt6vectorIiSaIiEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %307)
-          to label %308 unwind label %353
+          to label %308 unwind label %354
 
 308:                                              ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
   %309 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #28
@@ -17062,13 +17064,13 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %313 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %310, ptr %313, align 8
   invoke void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %16)
-          to label %314 unwind label %355
+          to label %314 unwind label %356
 
 314:                                              ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit42
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #28
   invoke void @_ZNK10open_spiel14colored_trails17ColoredTrailsGame17LookupTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.71") align 8 %18, ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %315 unwind label %358
+          to label %315 unwind label %359
 
 315:                                              ; preds = %314
   %316 = load ptr, ptr %18, align 8
@@ -17143,8 +17145,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %332, %324
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i: ; preds = %344
   %349 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %350 = load ptr, ptr %349, align 8, !noalias !154
-  %351 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.150", ptr %350, i64 %.fca.0.extract.i.i.i.i, i32 0, i32 1
-  %352 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIlSaIlEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %351, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  %351 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.150", ptr %350, i64 %.fca.0.extract.i.i.i.i
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 32
+  %353 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIlSaIlEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %352, ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i._ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit_crit_edge unwind label %.loopexit.split-lp
 
 _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i._ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit_crit_edge: ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i
@@ -17152,152 +17155,152 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7_
   %.pre122 = load ptr, ptr %18, align 8
   br label %_ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit
 
-353:                                              ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
-  %354 = landingpad { ptr, i32 }
+354:                                              ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
+  %355 = landingpad { ptr, i32 }
           cleanup
-  br label %357
+  br label %358
 
-355:                                              ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit42
-  %356 = landingpad { ptr, i32 }
+356:                                              ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit42
+  %357 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #28
-  br label %357
+  br label %358
 
-357:                                              ; preds = %355, %353
-  %.pn = phi { ptr, i32 } [ %356, %355 ], [ %354, %353 ]
+358:                                              ; preds = %356, %354
+  %.pn = phi { ptr, i32 } [ %357, %356 ], [ %355, %354 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #28
-  br label %412
+  br label %413
 
-358:                                              ; preds = %314
-  %359 = landingpad { ptr, i32 }
+359:                                              ; preds = %314
+  %360 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit47
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i55
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %360
+  br label %361
 
-.loopexit.split-lp:                               ; preds = %320, %_ZNSt6vectorIlSaIlEED2Ev.exit, %339, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i, %378, %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit59
+.loopexit.split-lp:                               ; preds = %320, %_ZNSt6vectorIlSaIlEED2Ev.exit, %339, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i, %379, %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit59
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %360
+  br label %361
 
-360:                                              ; preds = %.loopexit.split-lp, %.loopexit
+361:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %361 = load ptr, ptr %18, align 8
-  %.not.i.i.i46 = icmp eq ptr %361, null
-  br i1 %.not.i.i.i46, label %_ZNSt6vectorIlSaIlEED2Ev.exit47, label %362
+  %362 = load ptr, ptr %18, align 8
+  %.not.i.i.i46 = icmp eq ptr %362, null
+  br i1 %.not.i.i.i46, label %_ZNSt6vectorIlSaIlEED2Ev.exit47, label %363
 
-362:                                              ; preds = %360
-  %363 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %364 = load ptr, ptr %363, align 8
-  %365 = ptrtoint ptr %364 to i64
-  %366 = ptrtoint ptr %361 to i64
-  %367 = sub i64 %365, %366
-  call void @_ZdlPvm(ptr noundef nonnull %361, i64 noundef %367) #31
+363:                                              ; preds = %361
+  %364 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %365 = load ptr, ptr %364, align 8
+  %366 = ptrtoint ptr %365 to i64
+  %367 = ptrtoint ptr %362 to i64
+  %368 = sub i64 %366, %367
+  call void @_ZdlPvm(ptr noundef nonnull %362, i64 noundef %368) #31
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit47
 
 _ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit: ; preds = %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i._ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit_crit_edge, %315
-  %368 = phi ptr [ %.pre122, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i._ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit_crit_edge ], [ %316, %315 ]
-  %369 = phi ptr [ %.pre121, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i._ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit_crit_edge ], [ %318, %315 ]
-  %370 = ptrtoint ptr %369 to i64
-  %371 = ptrtoint ptr %368 to i64
-  %372 = sub i64 %370, %371
-  %373 = lshr exact i64 %372, 3
-  %374 = trunc i64 %373 to i32
-  %375 = icmp ne i32 %374, -2147483648
-  %376 = sext i1 %375 to i32
-  %377 = add nsw i32 %376, %374
-  %.not.i48 = icmp slt i32 %377, 0
-  br i1 %.not.i48, label %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit59, label %378
+  %369 = phi ptr [ %.pre122, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i._ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit_crit_edge ], [ %316, %315 ]
+  %370 = phi ptr [ %.pre121, %_ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIlSaIlEEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEixIS9_SD_EEDTclsrT0_5valueclL_ZSt9addressofISJ_EPT_RSP_EclL_ZSt7declvalIRSJ_EDTcl9__declvalISP_ELi0EEEvEEEEERKSP_.exit.i._ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit_crit_edge ], [ %318, %315 ]
+  %371 = ptrtoint ptr %370 to i64
+  %372 = ptrtoint ptr %369 to i64
+  %373 = sub i64 %371, %372
+  %374 = lshr exact i64 %373, 3
+  %375 = trunc i64 %374 to i32
+  %376 = icmp ne i32 %375, -2147483648
+  %377 = sext i1 %376 to i32
+  %378 = add nsw i32 %377, %375
+  %.not.i48 = icmp slt i32 %378, 0
+  br i1 %.not.i48, label %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit59, label %379
 
-378:                                              ; preds = %_ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit
-  %379 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %6)
+379:                                              ; preds = %_ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit
+  %380 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %6)
           to label %.noexc57 unwind label %.loopexit.split-lp
 
-.noexc57:                                         ; preds = %378
-  %380 = add nuw i32 %377, 1
-  %381 = and i32 %380, %377
-  %382 = icmp eq i32 %381, 0
-  br i1 %382, label %383, label %385
+.noexc57:                                         ; preds = %379
+  %381 = add nuw i32 %378, 1
+  %382 = and i32 %381, %378
+  %383 = icmp eq i32 %382, 0
+  br i1 %383, label %384, label %386
 
-383:                                              ; preds = %.noexc57
-  %.sroa.2.0.insert.ext.i.i.i56 = zext nneg i32 %377 to i64
-  %384 = and i64 %379, %.sroa.2.0.insert.ext.i.i.i56
+384:                                              ; preds = %.noexc57
+  %.sroa.2.0.insert.ext.i.i.i56 = zext nneg i32 %378 to i64
+  %385 = and i64 %380, %.sroa.2.0.insert.ext.i.i.i56
   br label %_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i51
 
-385:                                              ; preds = %.noexc57
-  %386 = and i64 %379, 4294967295
-  %387 = zext i32 %380 to i64
-  %388 = mul nuw nsw i64 %386, %387
-  %389 = trunc i64 %388 to i32
-  %.not = icmp ult i32 %377, %389
-  br i1 %.not, label %.loopexit.i.i.i.i.i.i49, label %390
+386:                                              ; preds = %.noexc57
+  %387 = and i64 %380, 4294967295
+  %388 = zext i32 %381 to i64
+  %389 = mul nuw nsw i64 %387, %388
+  %390 = trunc i64 %389 to i32
+  %.not = icmp ult i32 %378, %390
+  br i1 %.not, label %.loopexit.i.i.i.i.i.i49, label %391
 
-390:                                              ; preds = %385
-  %391 = xor i32 %377, -1
-  %392 = urem i32 %391, %380
-  %393 = icmp samesign ugt i32 %392, %389
-  br i1 %393, label %.lr.ph.i.i.i.i.i.i55, label %.loopexit.i.i.i.i.i.i49
+391:                                              ; preds = %386
+  %392 = xor i32 %378, -1
+  %393 = urem i32 %392, %381
+  %394 = icmp samesign ugt i32 %393, %390
+  br i1 %394, label %.lr.ph.i.i.i.i.i.i55, label %.loopexit.i.i.i.i.i.i49
 
-.lr.ph.i.i.i.i.i.i55:                             ; preds = %390, %.noexc58
-  %394 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %6)
+.lr.ph.i.i.i.i.i.i55:                             ; preds = %391, %.noexc58
+  %395 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %6)
           to label %.noexc58 unwind label %.loopexit
 
 .noexc58:                                         ; preds = %.lr.ph.i.i.i.i.i.i55
-  %395 = and i64 %394, 4294967295
-  %396 = mul nuw nsw i64 %395, %387
-  %397 = trunc i64 %396 to i32
-  %398 = icmp ugt i32 %392, %397
-  br i1 %398, label %.lr.ph.i.i.i.i.i.i55, label %.loopexit.i.i.i.i.i.i49, !llvm.loop !151
+  %396 = and i64 %395, 4294967295
+  %397 = mul nuw nsw i64 %396, %388
+  %398 = trunc i64 %397 to i32
+  %399 = icmp ugt i32 %393, %398
+  br i1 %399, label %.lr.ph.i.i.i.i.i.i55, label %.loopexit.i.i.i.i.i.i49, !llvm.loop !151
 
-.loopexit.i.i.i.i.i.i49:                          ; preds = %.noexc58, %390, %385
-  %.018.i.i.i.i.i.i50 = phi i64 [ %388, %385 ], [ %388, %390 ], [ %396, %.noexc58 ]
-  %399 = lshr i64 %.018.i.i.i.i.i.i50, 32
+.loopexit.i.i.i.i.i.i49:                          ; preds = %.noexc58, %391, %386
+  %.018.i.i.i.i.i.i50 = phi i64 [ %389, %386 ], [ %389, %391 ], [ %397, %.noexc58 ]
+  %400 = lshr i64 %.018.i.i.i.i.i.i50, 32
   br label %_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i51
 
-_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i51: ; preds = %.loopexit.i.i.i.i.i.i49, %383
-  %.0.i.i.in.i.i.i.i52 = phi i64 [ %384, %383 ], [ %399, %.loopexit.i.i.i.i.i.i49 ]
+_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i51: ; preds = %.loopexit.i.i.i.i.i.i49, %384
+  %.0.i.i.in.i.i.i.i52 = phi i64 [ %385, %384 ], [ %400, %.loopexit.i.i.i.i.i.i49 ]
   %.pre123 = load ptr, ptr %18, align 8
   br label %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit59
 
 _ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit59: ; preds = %_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i51, %_ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit
-  %400 = phi ptr [ %.pre123, %_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i51 ], [ %368, %_ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit ]
+  %401 = phi ptr [ %.pre123, %_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i51 ], [ %369, %_ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit ]
   %.0.i54 = phi i64 [ %.0.i.i.in.i.i.i.i52, %_ZN4absl7debian215random_internal18DistributionCallerISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE4CallINS1_26UniformDistributionWrapperIiEEJRiS9_EEENT_11result_typeEPS4_DpOT0_.exit.i51 ], [ 0, %_ZNK10open_spiel14colored_trails17ColoredTrailsGame16AddToTradesCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIlSaIlEE.exit ]
-  %401 = getelementptr inbounds nuw i64, ptr %400, i64 %.0.i54
-  %402 = load i64, ptr %401, align 8
+  %402 = getelementptr inbounds nuw i64, ptr %401, i64 %.0.i54
+  %403 = load i64, ptr %402, align 8
   invoke void @_ZN10open_spiel14colored_trails5BoardC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(112) %7)
-          to label %403 unwind label %.loopexit.split-lp
+          to label %404 unwind label %.loopexit.split-lp
 
-403:                                              ; preds = %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit59
-  %404 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %402, ptr %404, align 8
-  %405 = load ptr, ptr %18, align 8
-  %.not.i.i.i61 = icmp eq ptr %405, null
-  br i1 %.not.i.i.i61, label %_ZNSt6vectorIlSaIlEED2Ev.exit62, label %406
+404:                                              ; preds = %_ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeEOT0_S6_S6_.exit59
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %403, ptr %405, align 8
+  %406 = load ptr, ptr %18, align 8
+  %.not.i.i.i61 = icmp eq ptr %406, null
+  br i1 %.not.i.i.i61, label %_ZNSt6vectorIlSaIlEED2Ev.exit62, label %407
 
-406:                                              ; preds = %403
-  %407 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %408 = load ptr, ptr %407, align 8
-  %409 = ptrtoint ptr %408 to i64
-  %410 = ptrtoint ptr %405 to i64
-  %411 = sub i64 %409, %410
-  call void @_ZdlPvm(ptr noundef nonnull %405, i64 noundef %411) #31
+407:                                              ; preds = %404
+  %408 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %409 = load ptr, ptr %408, align 8
+  %410 = ptrtoint ptr %409 to i64
+  %411 = ptrtoint ptr %406 to i64
+  %412 = sub i64 %410, %411
+  call void @_ZdlPvm(ptr noundef nonnull %406, i64 noundef %412) #31
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit62
 
-_ZNSt6vectorIlSaIlEED2Ev.exit62:                  ; preds = %403, %406
+_ZNSt6vectorIlSaIlEED2Ev.exit62:                  ; preds = %404, %407
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #28
   call void @_ZN10open_spiel14colored_trails5BoardD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #28
   ret void
 
-_ZNSt6vectorIlSaIlEED2Ev.exit47:                  ; preds = %362, %360, %358
-  %.pn31 = phi { ptr, i32 } [ %359, %358 ], [ %lpad.phi, %360 ], [ %lpad.phi, %362 ]
+_ZNSt6vectorIlSaIlEED2Ev.exit47:                  ; preds = %363, %361, %359
+  %.pn31 = phi { ptr, i32 } [ %360, %359 ], [ %lpad.phi, %361 ], [ %lpad.phi, %363 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #28
-  br label %412
+  br label %413
 
-412:                                              ; preds = %.loopexit95, %.loopexit.split-lp96, %_ZNSt6vectorIlSaIlEED2Ev.exit47, %357, %294
-  %.pn33 = phi { ptr, i32 } [ %.pn31, %_ZNSt6vectorIlSaIlEED2Ev.exit47 ], [ %.pn, %357 ], [ %295, %294 ], [ %lpad.loopexit97, %.loopexit95 ], [ %lpad.loopexit.split-lp98, %.loopexit.split-lp96 ]
+413:                                              ; preds = %.loopexit95, %.loopexit.split-lp96, %_ZNSt6vectorIlSaIlEED2Ev.exit47, %358, %294
+  %.pn33 = phi { ptr, i32 } [ %.pn31, %_ZNSt6vectorIlSaIlEED2Ev.exit47 ], [ %.pn, %358 ], [ %295, %294 ], [ %lpad.loopexit97, %.loopexit95 ], [ %lpad.loopexit.split-lp98, %.loopexit.split-lp96 ]
   call void @_ZN10open_spiel14colored_trails5BoardD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #28
   resume { ptr, i32 } %.pn33
 }

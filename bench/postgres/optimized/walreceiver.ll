@@ -2328,17 +2328,18 @@ define dso_local void @WalRcvForceReply() local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2226
   store i8 0, ptr %13, align 2
   %.not2 = icmp eq i32 %11, -1
-  br i1 %.not2, label %19, label %14
+  br i1 %.not2, label %20, label %14
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr @ProcGlobal, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %11 to i64
-  %18 = getelementptr inbounds %struct.PGPROC, ptr %16, i64 %17, i32 4
-  tail call void @SetLatch(ptr noundef nonnull %18) #16
-  br label %19
+  %18 = getelementptr inbounds %struct.PGPROC, ptr %16, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
+  tail call void @SetLatch(ptr noundef nonnull %19) #16
+  br label %20
 
-19:                                               ; preds = %14, %9
+20:                                               ; preds = %14, %9
   ret void
 }
 

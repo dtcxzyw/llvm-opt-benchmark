@@ -303,7 +303,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner17assembleFarLevelsEv(pt
   %25 = lshr exact i64 %24, 3
   %26 = trunc i64 %25 to i32
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %63, label %27
+  br i1 %.not, label %67, label %27
 
 27:                                               ; preds = %1
   %28 = load ptr, ptr %21, align 8
@@ -324,47 +324,51 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner17assembleFarLevelsEv(pt
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %36, i64 %indvars.iv, i32 1
-  store ptr %35, ptr %37, align 8
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %41, i64 %indvars.iv
-  store ptr %40, ptr %42, align 8
-  %43 = load ptr, ptr %18, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %46, i64 %indvars.iv, i32 2
-  store ptr %45, ptr %47, align 8
+  %37 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %35, ptr %38, align 8
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %42, i64 %indvars.iv
+  store ptr %41, ptr %43, align 8
+  %44 = load ptr, ptr %18, align 8
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %2, align 8
+  %48 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %47, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store ptr %46, ptr %49, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
-  %48 = shl i64 %24, 29
-  %sext = add i64 %48, -4294967296
-  %49 = load ptr, ptr %18, align 8
-  %50 = ashr exact i64 %sext, 29
-  %51 = getelementptr inbounds i8, ptr %49, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  %53 = ashr exact i64 %48, 32
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %54, i64 %53, i32 1
-  store ptr %52, ptr %55, align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %53
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %59, i64 %53
-  store ptr %58, ptr %60, align 8
-  %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %61, i64 %53, i32 2
-  store ptr null, ptr %62, align 8
-  br label %63
+  %50 = shl i64 %24, 29
+  %sext = add i64 %50, -4294967296
+  %51 = load ptr, ptr %18, align 8
+  %52 = ashr exact i64 %sext, 29
+  %53 = getelementptr inbounds i8, ptr %51, i64 %52
+  %54 = load ptr, ptr %53, align 8
+  %55 = ashr exact i64 %50, 32
+  %56 = load ptr, ptr %2, align 8
+  %57 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %56, i64 %55
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store ptr %54, ptr %58, align 8
+  %59 = load ptr, ptr %3, align 8
+  %60 = getelementptr inbounds ptr, ptr %59, i64 %55
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %2, align 8
+  %63 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %62, i64 %55
+  store ptr %61, ptr %63, align 8
+  %64 = load ptr, ptr %2, align 8
+  %65 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::TopologyLevel", ptr %64, i64 %55
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store ptr null, ptr %66, align 8
+  br label %67
 
-63:                                               ; preds = %._crit_edge, %1
+67:                                               ; preds = %._crit_edge, %1
   ret void
 }
 

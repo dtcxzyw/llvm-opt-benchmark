@@ -10050,14 +10050,14 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   br i1 %41, label %42, label %.invoke
 
 42:                                               ; preds = %.lr.ph.i.i
-  %43 = getelementptr inbounds { { i64, [21 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, i64 }, ptr %10, i64 %.val.i.i.i, i32 1
-  %44 = getelementptr i8, ptr %43, i64 16
+  %43 = getelementptr inbounds { { i64, [21 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, i64 }, ptr %10, i64 %.val.i.i.i
+  %44 = getelementptr i8, ptr %43, i64 192
   %.val4.i.i.i.i = load i64, ptr %44, align 8, !noalias !2338, !noundef !8
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.val2.i.i.i.i, %.val4.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %45, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h88e7db202e63e4a3E.exit.backedge.i.i"
 
 45:                                               ; preds = %42
-  %46 = getelementptr i8, ptr %43, i64 8
+  %46 = getelementptr i8, ptr %43, i64 184
   %.val3.i.i.i.i = load ptr, ptr %46, align 8, !noalias !2338, !nonnull !8, !noundef !8
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i.i.i, ptr nonnull readonly align 1 %.val3.i.i.i.i, i64 %.val2.i.i.i.i), !alias.scope !2341, !noalias !2338
   %47 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0

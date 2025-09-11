@@ -270,50 +270,53 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %6, i32 2
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp ugt i32 %2, %8
-  br i1 %9, label %.loopexit, label %.lr.ph
+  %7 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp ugt i32 %2, %9
+  br i1 %10, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %24
-  %10 = phi i64 [ %27, %24 ], [ %6, %3 ]
-  %11 = phi i32 [ %26, %24 ], [ %5, %3 ]
-  %.01621 = phi ptr [ %25, %24 ], [ %1, %3 ]
-  %12 = icmp eq ptr %.01621, null
-  br i1 %12, label %.critedge, label %13
+.lr.ph:                                           ; preds = %3, %26
+  %11 = phi i64 [ %29, %26 ], [ %6, %3 ]
+  %12 = phi i32 [ %28, %26 ], [ %5, %3 ]
+  %.01621 = phi ptr [ %27, %26 ], [ %1, %3 ]
+  %13 = icmp eq ptr %.01621, null
+  br i1 %13, label %.critedge, label %14
 
-13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
-  %15 = load i16, ptr %14, align 8
-  %16 = and i16 %15, 255
-  %.not = icmp eq i16 %16, 0
+14:                                               ; preds = %.lr.ph
+  %15 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
+  %16 = load i16, ptr %15, align 8
+  %17 = and i16 %16, 255
+  %.not = icmp eq i16 %17, 0
   br i1 %.not, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %13
-  %17 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %10, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %.not18 = icmp eq ptr %18, null
-  br i1 %.not18, label %19, label %24
+.critedge:                                        ; preds = %.lr.ph, %14
+  %18 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %11
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %.not18 = icmp eq ptr %20, null
+  br i1 %.not18, label %21, label %26
 
-19:                                               ; preds = %.critedge
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = tail call ptr @token_type_to_string(i32 noundef %11) #8
-  %22 = load i64, ptr %20, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %22, ptr noundef nonnull @.str.1, ptr noundef %21) #8
-  %23 = load ptr, ptr @poisoned_expr, align 8
+21:                                               ; preds = %.critedge
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %23 = tail call ptr @token_type_to_string(i32 noundef %12) #8
+  %24 = load i64, ptr %22, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %24, ptr noundef nonnull @.str.1, ptr noundef %23) #8
+  %25 = load ptr, ptr @poisoned_expr, align 8
   br label %.loopexit
 
-24:                                               ; preds = %.critedge
-  %25 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %.01621) #8
-  %26 = load i32, ptr %4, align 8
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %27, i32 2
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp ugt i32 %2, %29
-  br i1 %30, label %.loopexit, label %.lr.ph
+26:                                               ; preds = %.critedge
+  %27 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %.01621) #8
+  %28 = load i32, ptr %4, align 8
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp ugt i32 %2, %32
+  br i1 %33, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %13, %24, %3, %19
-  %.0 = phi ptr [ %23, %19 ], [ %1, %3 ], [ %.01621, %13 ], [ %25, %24 ]
+.loopexit:                                        ; preds = %14, %26, %3, %21
+  %.0 = phi ptr [ %25, %21 ], [ %1, %3 ], [ %.01621, %14 ], [ %27, %26 ]
   ret ptr %.0
 }
 
@@ -1197,107 +1200,113 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
 12:                                               ; preds = %2
   %13 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef null) #8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.split12, label %41
+  br i1 %14, label %.split12, label %44
 
 .split12:                                         ; preds = %12
   %15 = load i32, ptr %3, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %16, i32 2
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp ugt i32 %1, %18
-  br i1 %19, label %.critedge, label %.lr.ph.i
+  %17 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ugt i32 %1, %19
+  br i1 %20, label %.critedge, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.split12, %34
-  %20 = phi i64 [ %37, %34 ], [ %16, %.split12 ]
-  %21 = phi i32 [ %36, %34 ], [ %15, %.split12 ]
-  %.01621.i = phi ptr [ %35, %34 ], [ null, %.split12 ]
-  %22 = icmp eq ptr %.01621.i, null
-  br i1 %22, label %.critedge.i, label %23
+.lr.ph.i:                                         ; preds = %.split12, %36
+  %21 = phi i64 [ %39, %36 ], [ %16, %.split12 ]
+  %22 = phi i32 [ %38, %36 ], [ %15, %.split12 ]
+  %.01621.i = phi ptr [ %37, %36 ], [ null, %.split12 ]
+  %23 = icmp eq ptr %.01621.i, null
+  br i1 %23, label %.critedge.i, label %24
 
-23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds nuw i8, ptr %.01621.i, i64 16
-  %25 = load i16, ptr %24, align 8
-  %26 = and i16 %25, 255
-  %.not.i = icmp eq i16 %26, 0
+24:                                               ; preds = %.lr.ph.i
+  %25 = getelementptr inbounds nuw i8, ptr %.01621.i, i64 16
+  %26 = load i16, ptr %25, align 8
+  %27 = and i16 %26, 255
+  %.not.i = icmp eq i16 %27, 0
   br i1 %.not.i, label %.critedge, label %.critedge.i
 
-.critedge.i:                                      ; preds = %23, %.lr.ph.i
-  %27 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %20, i32 1
-  %28 = load ptr, ptr %27, align 8
-  %.not18.i = icmp eq ptr %28, null
-  br i1 %.not18.i, label %29, label %34
+.critedge.i:                                      ; preds = %24, %.lr.ph.i
+  %28 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %21
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %.not18.i = icmp eq ptr %30, null
+  br i1 %.not18.i, label %31, label %36
 
-29:                                               ; preds = %.critedge.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %31 = tail call ptr @token_type_to_string(i32 noundef %21) #8
-  %32 = load i64, ptr %30, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %32, ptr noundef nonnull @.str.1, ptr noundef %31) #8
-  %33 = load ptr, ptr @poisoned_expr, align 8
+31:                                               ; preds = %.critedge.i
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %33 = tail call ptr @token_type_to_string(i32 noundef %22) #8
+  %34 = load i64, ptr %32, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.1, ptr noundef %33) #8
+  %35 = load ptr, ptr @poisoned_expr, align 8
   br label %.critedge
 
-34:                                               ; preds = %.critedge.i
-  %35 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %.01621.i) #8
-  %36 = load i32, ptr %3, align 8
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %37, i32 2
-  %39 = load i32, ptr %38, align 8
-  %40 = icmp ugt i32 %1, %39
-  br i1 %40, label %.critedge, label %.lr.ph.i
+36:                                               ; preds = %.critedge.i
+  %37 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %.01621.i) #8
+  %38 = load i32, ptr %3, align 8
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp ugt i32 %1, %42
+  br i1 %43, label %.critedge, label %.lr.ph.i
 
-41:                                               ; preds = %12
-  %42 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %43 = load i16, ptr %42, align 8
-  %44 = and i16 %43, 255
-  %.not15 = icmp eq i16 %44, 0
+44:                                               ; preds = %12
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %46 = load i16, ptr %45, align 8
+  %47 = and i16 %46, 255
+  %.not15 = icmp eq i16 %47, 0
   br i1 %.not15, label %.critedge, label %.split
 
-.split:                                           ; preds = %41
-  %45 = load i32, ptr %3, align 8
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %46, i32 2
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp ugt i32 %1, %48
-  br i1 %49, label %.critedge, label %.lr.ph.i16
+.split:                                           ; preds = %44
+  %48 = load i32, ptr %3, align 8
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp ugt i32 %1, %52
+  br i1 %53, label %.critedge, label %.lr.ph.i16
 
-.lr.ph.i16:                                       ; preds = %.split, %64
-  %50 = phi i64 [ %67, %64 ], [ %46, %.split ]
-  %51 = phi i32 [ %66, %64 ], [ %45, %.split ]
-  %.01621.i17 = phi ptr [ %65, %64 ], [ %13, %.split ]
-  %52 = icmp eq ptr %.01621.i17, null
-  br i1 %52, label %.critedge.i19, label %53
+.lr.ph.i16:                                       ; preds = %.split, %69
+  %54 = phi i64 [ %72, %69 ], [ %49, %.split ]
+  %55 = phi i32 [ %71, %69 ], [ %48, %.split ]
+  %.01621.i17 = phi ptr [ %70, %69 ], [ %13, %.split ]
+  %56 = icmp eq ptr %.01621.i17, null
+  br i1 %56, label %.critedge.i19, label %57
 
-53:                                               ; preds = %.lr.ph.i16
-  %54 = getelementptr inbounds nuw i8, ptr %.01621.i17, i64 16
-  %55 = load i16, ptr %54, align 8
-  %56 = and i16 %55, 255
-  %.not.i18 = icmp eq i16 %56, 0
+57:                                               ; preds = %.lr.ph.i16
+  %58 = getelementptr inbounds nuw i8, ptr %.01621.i17, i64 16
+  %59 = load i16, ptr %58, align 8
+  %60 = and i16 %59, 255
+  %.not.i18 = icmp eq i16 %60, 0
   br i1 %.not.i18, label %.critedge, label %.critedge.i19
 
-.critedge.i19:                                    ; preds = %53, %.lr.ph.i16
-  %57 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %50, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %.not18.i20 = icmp eq ptr %58, null
-  br i1 %.not18.i20, label %59, label %64
-
-59:                                               ; preds = %.critedge.i19
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %61 = tail call ptr @token_type_to_string(i32 noundef %51) #8
-  %62 = load i64, ptr %60, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %62, ptr noundef nonnull @.str.1, ptr noundef %61) #8
-  %63 = load ptr, ptr @poisoned_expr, align 8
-  br label %.critedge
+.critedge.i19:                                    ; preds = %57, %.lr.ph.i16
+  %61 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %54
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %.not18.i20 = icmp eq ptr %63, null
+  br i1 %.not18.i20, label %64, label %69
 
 64:                                               ; preds = %.critedge.i19
-  %65 = tail call ptr %58(ptr noundef nonnull %0, ptr noundef %.01621.i17) #8
-  %66 = load i32, ptr %3, align 8
-  %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %67, i32 2
-  %69 = load i32, ptr %68, align 8
-  %70 = icmp ugt i32 %1, %69
-  br i1 %70, label %.critedge, label %.lr.ph.i16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %66 = tail call ptr @token_type_to_string(i32 noundef %55) #8
+  %67 = load i64, ptr %65, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %67, ptr noundef nonnull @.str.1, ptr noundef %66) #8
+  %68 = load ptr, ptr @poisoned_expr, align 8
+  br label %.critedge
 
-.critedge:                                        ; preds = %64, %53, %34, %23, %59, %.split, %29, %.split12, %41, %8
-  %.0 = phi ptr [ %11, %8 ], [ %13, %41 ], [ %33, %29 ], [ null, %.split12 ], [ %63, %59 ], [ %13, %.split ], [ %35, %34 ], [ %.01621.i, %23 ], [ %65, %64 ], [ %.01621.i17, %53 ]
+69:                                               ; preds = %.critedge.i19
+  %70 = tail call ptr %63(ptr noundef nonnull %0, ptr noundef %.01621.i17) #8
+  %71 = load i32, ptr %3, align 8
+  %72 = zext i32 %71 to i64
+  %73 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp ugt i32 %1, %75
+  br i1 %76, label %.critedge, label %.lr.ph.i16
+
+.critedge:                                        ; preds = %69, %57, %36, %24, %64, %.split, %31, %.split12, %44, %8
+  %.0 = phi ptr [ %11, %8 ], [ %13, %44 ], [ %35, %31 ], [ null, %.split12 ], [ %68, %64 ], [ %13, %.split ], [ %37, %36 ], [ %.01621.i, %24 ], [ %70, %69 ], [ %.01621.i17, %57 ]
   ret ptr %.0
 }
 
@@ -3698,101 +3707,102 @@ define internal ptr @parse_binary(ptr noundef %0, ptr noundef %1) #1 {
   %4 = load i32, ptr %3, align 8
   tail call void @advance(ptr noundef %0) #8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %5, i32 2
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, 1
-  br i1 %8, label %9, label %18
+  %6 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp eq i32 %8, 1
+  br i1 %9, label %10, label %19
 
-9:                                                ; preds = %2
-  %10 = tail call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 1)
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %.critedge, label %12
+10:                                               ; preds = %2
+  %11 = tail call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 1)
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %.critedge, label %13
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %14 = load i16, ptr %13, align 8
-  %15 = and i16 %14, 255
-  %.not33 = icmp eq i16 %15, 0
-  br i1 %.not33, label %16, label %.critedge
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %15 = load i16, ptr %14, align 8
+  %16 = and i16 %15, 255
+  %.not33 = icmp eq i16 %16, 0
+  br i1 %.not33, label %17, label %.critedge
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr @poisoned_expr, align 8
-  br label %60
+17:                                               ; preds = %13
+  %18 = load ptr, ptr @poisoned_expr, align 8
+  br label %61
 
-18:                                               ; preds = %2
-  %19 = add i32 %7, 1
-  %20 = tail call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef %19)
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %.critedge, label %22
+19:                                               ; preds = %2
+  %20 = add i32 %8, 1
+  %21 = tail call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef %20)
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %.critedge, label %23
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %24 = load i16, ptr %23, align 8
-  %25 = and i16 %24, 255
-  %.not = icmp eq i16 %25, 0
-  br i1 %.not, label %26, label %.critedge
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %25 = load i16, ptr %24, align 8
+  %26 = and i16 %25, 255
+  %.not = icmp eq i16 %26, 0
+  br i1 %.not, label %27, label %.critedge
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr @poisoned_expr, align 8
-  br label %60
+27:                                               ; preds = %23
+  %28 = load ptr, ptr @poisoned_expr, align 8
+  br label %61
 
-.critedge:                                        ; preds = %22, %18, %12, %9
-  %.029 = phi ptr [ null, %9 ], [ %10, %12 ], [ null, %18 ], [ %20, %22 ]
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load i64, ptr %28, align 8
-  %30 = tail call ptr @expr_new(i32 noundef 3, i64 %29) #8
-  %31 = tail call i32 @binaryop_from_token(i32 noundef %4) #8
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %34 = trunc i32 %31 to i8
-  store i8 %34, ptr %33, align 8
-  %35 = load ptr, ptr @expr_arena, align 8
-  %36 = ptrtoint ptr %1 to i64
-  %37 = ptrtoint ptr %35 to i64
-  %38 = sub i64 %36, %37
-  %39 = sdiv exact i64 %38, 56
-  %40 = trunc i64 %39 to i32
-  store i32 %40, ptr %32, align 8
-  %41 = ptrtoint ptr %.029 to i64
-  %42 = sub i64 %41, %37
-  %43 = sdiv exact i64 %42, 56
-  %44 = trunc i64 %43 to i32
-  %45 = getelementptr inbounds nuw i8, ptr %30, i64 28
-  store i32 %44, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %48 = load i64, ptr %46, align 8
+.critedge:                                        ; preds = %23, %19, %13, %10
+  %.029 = phi ptr [ null, %10 ], [ %11, %13 ], [ null, %19 ], [ %21, %23 ]
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = load i64, ptr %29, align 8
+  %31 = tail call ptr @expr_new(i32 noundef 3, i64 %30) #8
+  %32 = tail call i32 @binaryop_from_token(i32 noundef %4) #8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %35 = trunc i32 %32 to i8
+  store i8 %35, ptr %34, align 8
+  %36 = load ptr, ptr @expr_arena, align 8
+  %37 = ptrtoint ptr %1 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = sdiv exact i64 %39, 56
+  %41 = trunc i64 %40 to i32
+  store i32 %41, ptr %33, align 8
+  %42 = ptrtoint ptr %.029 to i64
+  %43 = sub i64 %42, %38
+  %44 = sdiv exact i64 %43, 56
+  %45 = trunc i64 %44 to i32
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 28
+  store i32 %45, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load i64, ptr %47, align 8
-  %.not.unshifted.i = xor i64 %49, %48
+  %50 = load i64, ptr %48, align 8
+  %.not.unshifted.i = xor i64 %50, %49
   %.not.i = icmp ult i64 %.not.unshifted.i, 4294967296
-  br i1 %.not.i, label %51, label %50
-
-50:                                               ; preds = %.critedge
-  %.sroa.33.0.extract.shift.i = lshr i64 %48, 16
-  br label %extend_span_with_token.exit
+  br i1 %.not.i, label %52, label %51
 
 51:                                               ; preds = %.critedge
-  %.sroa.4.0.extract.shift.i = lshr i64 %48, 24
-  %52 = trunc i64 %49 to i32
-  %53 = lshr i32 %52, 24
-  %54 = lshr i32 %52, 16
-  %55 = trunc i64 %.sroa.4.0.extract.shift.i to i32
-  %56 = sub i32 %54, %55
-  %57 = add i32 %56, %53
-  %58 = zext i32 %57 to i64
+  %.sroa.33.0.extract.shift.i = lshr i64 %49, 16
   br label %extend_span_with_token.exit
 
-extend_span_with_token.exit:                      ; preds = %50, %51
-  %.sroa.311.0.i = phi i64 [ %.sroa.33.0.extract.shift.i, %50 ], [ %58, %51 ]
+52:                                               ; preds = %.critedge
+  %.sroa.4.0.extract.shift.i = lshr i64 %49, 24
+  %53 = trunc i64 %50 to i32
+  %54 = lshr i32 %53, 24
+  %55 = lshr i32 %53, 16
+  %56 = trunc i64 %.sroa.4.0.extract.shift.i to i32
+  %57 = sub i32 %55, %56
+  %58 = add i32 %57, %54
+  %59 = zext i32 %58 to i64
+  br label %extend_span_with_token.exit
+
+extend_span_with_token.exit:                      ; preds = %51, %52
+  %.sroa.311.0.i = phi i64 [ %.sroa.33.0.extract.shift.i, %51 ], [ %59, %52 ]
   %.sroa.311.0.insert.ext.i = shl nuw i64 %.sroa.311.0.i, 16
   %.sroa.311.0.insert.shift.i = and i64 %.sroa.311.0.insert.ext.i, 16711680
-  %59 = and i64 %48, -16711681
-  %.sroa.010.0.insert.insert.i = or disjoint i64 %.sroa.311.0.insert.shift.i, %59
-  store i64 %.sroa.010.0.insert.insert.i, ptr %46, align 8
-  br label %60
+  %60 = and i64 %49, -16711681
+  %.sroa.010.0.insert.insert.i = or disjoint i64 %.sroa.311.0.insert.shift.i, %60
+  store i64 %.sroa.010.0.insert.insert.i, ptr %47, align 8
+  br label %61
 
-60:                                               ; preds = %extend_span_with_token.exit, %26, %16
-  %.0 = phi ptr [ %30, %extend_span_with_token.exit ], [ %17, %16 ], [ %27, %26 ]
+61:                                               ; preds = %extend_span_with_token.exit, %27, %17
+  %.0 = phi ptr [ %31, %extend_span_with_token.exit ], [ %18, %17 ], [ %28, %27 ]
   ret ptr %.0
 }
 

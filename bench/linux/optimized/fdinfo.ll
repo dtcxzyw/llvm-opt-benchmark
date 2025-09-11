@@ -413,7 +413,8 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   br i1 %114, label %.thread13, label %230
 
 230:                                              ; preds = %.loopexit18
-  %231 = getelementptr %struct.io_hash_bucket, ptr %207, i64 %205, i32 1
+  %.split = getelementptr %struct.io_hash_bucket, ptr %207, i64 %205
+  %231 = getelementptr i8, ptr %.split, i64 8
   %232 = load ptr, ptr %231, align 8
   %233 = icmp eq ptr %232, null
   %234 = getelementptr i8, ptr %232, i64 -160

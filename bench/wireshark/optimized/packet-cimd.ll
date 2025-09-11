@@ -648,17 +648,18 @@ define internal void @dissect_cimd_parameter(ptr noundef %0, ptr noundef %1, i32
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %14)
-  %16 = load i32, ptr @hf_cimd_pcode_indicator, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0)
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %19, align 4
-  %21 = add i32 %3, 5
-  %22 = sub i32 %4, %21
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef %22, i32 noundef 0)
+  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %15)
+  %17 = load i32, ptr @hf_cimd_pcode_indicator, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0)
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %20, align 4
+  %22 = add i32 %3, 5
+  %23 = sub i32 %4, %22
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef 0)
   ret void
 }
 
@@ -671,65 +672,66 @@ define internal void @dissect_cimd_dcs(ptr noundef %0, ptr noundef %1, i32 nound
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %14)
-  %16 = load i32, ptr @hf_cimd_pcode_indicator, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0)
-  %18 = add i32 %3, 5
-  %19 = tail call ptr @wmem_packet_scope()
-  %20 = sub i32 %4, %18
-  %21 = tail call ptr @tvb_get_string_enc(ptr noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef %20, i32 noundef 0)
-  %22 = tail call i64 @strtoul(ptr noundef captures(none) %21, ptr noundef null, i32 noundef 10) #4
-  %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %25, align 4
-  %27 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %26, ptr noundef %0, i32 noundef %18, i32 noundef %20, i32 noundef %23)
-  %28 = lshr i32 %23, 4
-  %29 = and i32 %28, 15
-  %30 = icmp samesign ult i32 %29, 8
-  br i1 %30, label %31, label %41
+  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %15)
+  %17 = load i32, ptr @hf_cimd_pcode_indicator, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0)
+  %19 = add i32 %3, 5
+  %20 = tail call ptr @wmem_packet_scope()
+  %21 = sub i32 %4, %19
+  %22 = tail call ptr @tvb_get_string_enc(ptr noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef %21, i32 noundef 0)
+  %23 = tail call i64 @strtoul(ptr noundef captures(none) %22, ptr noundef null, i32 noundef 10) #4
+  %24 = trunc i64 %23 to i32
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i32, ptr %26, align 4
+  %28 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %27, ptr noundef %0, i32 noundef %19, i32 noundef %21, i32 noundef %24)
+  %29 = lshr i32 %24, 4
+  %30 = and i32 %29, 15
+  %31 = icmp samesign ult i32 %30, 8
+  br i1 %31, label %32, label %42
 
-31:                                               ; preds = %5
-  %32 = load i32, ptr @hf_cimd_dcs_coding_group_indicatorC0, align 4
-  %33 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %32, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef %23)
-  %34 = load i32, ptr @hf_cimd_dcs_compressed_indicator, align 4
-  %35 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %34, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef %23)
-  %36 = load i32, ptr @hf_cimd_dcs_message_class_meaning_indicator, align 4
-  %37 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %36, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef %23)
-  %38 = load i32, ptr @hf_cimd_dcs_character_set_indicator0C, align 4
-  %39 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %38, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef %23)
-  %40 = and i32 %23, 16
-  %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %52, label %.sink.split
+32:                                               ; preds = %5
+  %33 = load i32, ptr @hf_cimd_dcs_coding_group_indicatorC0, align 4
+  %34 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %33, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef %24)
+  %35 = load i32, ptr @hf_cimd_dcs_compressed_indicator, align 4
+  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %35, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef %24)
+  %37 = load i32, ptr @hf_cimd_dcs_message_class_meaning_indicator, align 4
+  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %37, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef %24)
+  %39 = load i32, ptr @hf_cimd_dcs_character_set_indicator0C, align 4
+  %40 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %39, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef %24)
+  %41 = and i32 %24, 16
+  %.not = icmp eq i32 %41, 0
+  br i1 %.not, label %53, label %.sink.split
 
-41:                                               ; preds = %5
-  %42 = load i32, ptr @hf_cimd_dcs_coding_group_indicatorF0, align 4
-  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %42, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef %23)
-  %44 = icmp samesign ugt i32 %29, 11
-  %45 = icmp ne i32 %29, 15
-  %or.cond = and i1 %44, %45
-  br i1 %or.cond, label %.sink.split.sink.split, label %46
+42:                                               ; preds = %5
+  %43 = load i32, ptr @hf_cimd_dcs_coding_group_indicatorF0, align 4
+  %44 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %43, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef %24)
+  %45 = icmp samesign ugt i32 %30, 11
+  %46 = icmp ne i32 %30, 15
+  %or.cond = and i1 %45, %46
+  br i1 %or.cond, label %.sink.split.sink.split, label %47
 
-46:                                               ; preds = %41
-  %47 = icmp eq i32 %29, 15
-  br i1 %47, label %.sink.split.sink.split, label %52
+47:                                               ; preds = %42
+  %48 = icmp eq i32 %30, 15
+  br i1 %48, label %.sink.split.sink.split, label %53
 
-.sink.split.sink.split:                           ; preds = %46, %41
-  %hf_cimd_dcs_character_set_indicator04.sink = phi ptr [ @hf_cimd_dcs_indication_sense, %41 ], [ @hf_cimd_dcs_character_set_indicator04, %46 ]
-  %hf_cimd_dcs_indication_type.sink.ph = phi ptr [ @hf_cimd_dcs_indication_type, %41 ], [ @hf_cimd_dcs_message_class_indicator, %46 ]
-  %48 = load i32, ptr %hf_cimd_dcs_character_set_indicator04.sink, align 4
-  %49 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %48, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef %23)
+.sink.split.sink.split:                           ; preds = %47, %42
+  %hf_cimd_dcs_character_set_indicator04.sink = phi ptr [ @hf_cimd_dcs_indication_sense, %42 ], [ @hf_cimd_dcs_character_set_indicator04, %47 ]
+  %hf_cimd_dcs_indication_type.sink.ph = phi ptr [ @hf_cimd_dcs_indication_type, %42 ], [ @hf_cimd_dcs_message_class_indicator, %47 ]
+  %49 = load i32, ptr %hf_cimd_dcs_character_set_indicator04.sink, align 4
+  %50 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %49, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef %24)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %31
-  %hf_cimd_dcs_indication_type.sink = phi ptr [ @hf_cimd_dcs_message_class_indicator, %31 ], [ %hf_cimd_dcs_indication_type.sink.ph, %.sink.split.sink.split ]
-  %50 = load i32, ptr %hf_cimd_dcs_indication_type.sink, align 4
-  %51 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %50, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef %23)
-  br label %52
+.sink.split:                                      ; preds = %.sink.split.sink.split, %32
+  %hf_cimd_dcs_indication_type.sink = phi ptr [ @hf_cimd_dcs_message_class_indicator, %32 ], [ %hf_cimd_dcs_indication_type.sink.ph, %.sink.split.sink.split ]
+  %51 = load i32, ptr %hf_cimd_dcs_indication_type.sink, align 4
+  %52 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %51, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef %24)
+  br label %53
 
-52:                                               ; preds = %.sink.split, %46, %31
+53:                                               ; preds = %.sink.split, %47, %32
   ret void
 }
 
@@ -744,80 +746,81 @@ define internal void @dissect_cimd_ud(ptr noundef %0, ptr noundef %1, i32 nounde
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %9, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %13, ptr noundef null, ptr noundef %15)
-  %17 = load i32, ptr @hf_cimd_pcode_indicator, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %7, i32 noundef 3, i32 noundef 0)
-  %19 = add i32 %3, 5
-  %20 = sub i32 %4, %19
-  %21 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %19, i32 noundef %20)
-  %22 = tail call ptr @wmem_packet_scope()
-  %23 = add i32 %20, 1
-  %24 = sext i32 %23 to i64
-  %25 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %22, i64 noundef %24)
-  %26 = icmp sgt i32 %20, 0
-  br i1 %26, label %.lr.ph, label %._crit_edge
+  %14 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %9
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %13, ptr noundef null, ptr noundef %16)
+  %18 = load i32, ptr @hf_cimd_pcode_indicator, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef %7, i32 noundef 3, i32 noundef 0)
+  %20 = add i32 %3, 5
+  %21 = sub i32 %4, %20
+  %22 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %20, i32 noundef %21)
+  %23 = tail call ptr @wmem_packet_scope()
+  %24 = add i32 %21, 1
+  %25 = sext i32 %24 to i64
+  %26 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %23, i64 noundef %25)
+  %27 = icmp sgt i32 %21, 0
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %27 = add nsw i32 %20, -2
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  br label %31
+  %28 = add nsw i32 %21, -2
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  br label %32
 
-31:                                               ; preds = %.lr.ph, %51
-  %.045 = phi i32 [ 0, %.lr.ph ], [ %52, %51 ]
-  %32 = sext i32 %.045 to i64
-  %33 = getelementptr i8, ptr %21, i64 %32
-  %34 = load i8, ptr %33, align 1
-  %35 = icmp eq i8 %34, 95
-  br i1 %35, label %36, label %47
+32:                                               ; preds = %.lr.ph, %52
+  %.045 = phi i32 [ 0, %.lr.ph ], [ %53, %52 ]
+  %33 = sext i32 %.045 to i64
+  %34 = getelementptr i8, ptr %22, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp eq i8 %35, 95
+  br i1 %36, label %37, label %48
 
-36:                                               ; preds = %31
-  %37 = icmp slt i32 %.045, %27
-  br i1 %37, label %38, label %51
+37:                                               ; preds = %32
+  %38 = icmp slt i32 %.045, %28
+  br i1 %38, label %39, label %52
 
-38:                                               ; preds = %36
+39:                                               ; preds = %37
   store i8 95, ptr %6, align 1
-  %39 = add nsw i32 %.045, 2
-  %40 = getelementptr i8, ptr %33, i64 1
-  %41 = load i8, ptr %40, align 1
-  store i8 %41, ptr %28, align 1
-  %42 = sext i32 %39 to i64
-  %43 = getelementptr i8, ptr %21, i64 %42
-  %44 = load i8, ptr %43, align 1
-  store i8 %44, ptr %29, align 1
-  store i8 0, ptr %30, align 1
-  %45 = call i32 @str_to_val(ptr noundef nonnull %6, ptr noundef nonnull @dissect_cimd_ud.combining_mapping, i32 noundef 255)
-  %46 = trunc i32 %45 to i8
-  br label %51
+  %40 = add nsw i32 %.045, 2
+  %41 = getelementptr i8, ptr %34, i64 1
+  %42 = load i8, ptr %41, align 1
+  store i8 %42, ptr %29, align 1
+  %43 = sext i32 %40 to i64
+  %44 = getelementptr i8, ptr %22, i64 %43
+  %45 = load i8, ptr %44, align 1
+  store i8 %45, ptr %30, align 1
+  store i8 0, ptr %31, align 1
+  %46 = call i32 @str_to_val(ptr noundef nonnull %6, ptr noundef nonnull @dissect_cimd_ud.combining_mapping, i32 noundef 255)
+  %47 = trunc i32 %46 to i8
+  br label %52
 
-47:                                               ; preds = %31
-  %48 = zext i8 %34 to i64
-  %49 = getelementptr i8, ptr @dissect_cimd_ud.latin_mapping, i64 %48
-  %50 = load i8, ptr %49, align 1
-  br label %51
+48:                                               ; preds = %32
+  %49 = zext i8 %35 to i64
+  %50 = getelementptr i8, ptr @dissect_cimd_ud.latin_mapping, i64 %49
+  %51 = load i8, ptr %50, align 1
+  br label %52
 
-51:                                               ; preds = %36, %47, %38
-  %.sink = phi i8 [ %50, %47 ], [ %46, %38 ], [ -1, %36 ]
-  %.1 = phi i32 [ %.045, %47 ], [ %39, %38 ], [ %.045, %36 ]
-  call void @wmem_strbuf_append_c(ptr noundef %25, i8 noundef signext %.sink)
-  %52 = add i32 %.1, 1
-  %53 = icmp slt i32 %52, %20
-  br i1 %53, label %31, label %._crit_edge, !llvm.loop !10
+52:                                               ; preds = %37, %48, %39
+  %.sink = phi i8 [ %51, %48 ], [ %47, %39 ], [ -1, %37 ]
+  %.1 = phi i32 [ %.045, %48 ], [ %40, %39 ], [ %.045, %37 ]
+  call void @wmem_strbuf_append_c(ptr noundef %26, i8 noundef signext %.sink)
+  %53 = add i32 %.1, 1
+  %54 = icmp slt i32 %53, %21
+  br i1 %54, label %32, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %51, %5
-  %54 = call ptr @wmem_packet_scope()
-  %55 = call ptr @wmem_strbuf_get_str(ptr noundef %25)
-  %56 = call i64 @wmem_strbuf_get_len(ptr noundef %25)
-  %57 = trunc i64 %56 to i32
-  %58 = call ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %54, ptr noundef %55, i32 noundef %57)
-  call void @wmem_strbuf_destroy(ptr noundef %25)
-  %59 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = load i32, ptr %60, align 4
-  %62 = call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %61, ptr noundef %0, i32 noundef %19, i32 noundef %20, ptr noundef %58)
+._crit_edge:                                      ; preds = %52, %5
+  %55 = call ptr @wmem_packet_scope()
+  %56 = call ptr @wmem_strbuf_get_str(ptr noundef %26)
+  %57 = call i64 @wmem_strbuf_get_len(ptr noundef %26)
+  %58 = trunc i64 %57 to i32
+  %59 = call ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %55, ptr noundef %56, i32 noundef %58)
+  call void @wmem_strbuf_destroy(ptr noundef %26)
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = load i32, ptr %61, align 4
+  %63 = call ptr @proto_tree_add_string(ptr noundef %17, i32 noundef %62, ptr noundef %0, i32 noundef %20, i32 noundef %21, ptr noundef %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -831,21 +834,22 @@ define internal void @dissect_cimd_error_code(ptr noundef %0, ptr noundef %1, i3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %14)
-  %16 = load i32, ptr @hf_cimd_pcode_indicator, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0)
-  %18 = tail call ptr @wmem_packet_scope()
-  %19 = add i32 %3, 5
-  %20 = sub i32 %4, %19
-  %21 = tail call ptr @tvb_get_string_enc(ptr noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %20, i32 noundef 0)
-  %22 = tail call i64 @strtoul(ptr noundef captures(none) %21, ptr noundef null, i32 noundef 10) #4
-  %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %25, align 4
-  %27 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %26, ptr noundef %0, i32 noundef %19, i32 noundef %20, i32 noundef %23)
+  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %15)
+  %17 = load i32, ptr @hf_cimd_pcode_indicator, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0)
+  %19 = tail call ptr @wmem_packet_scope()
+  %20 = add i32 %3, 5
+  %21 = sub i32 %4, %20
+  %22 = tail call ptr @tvb_get_string_enc(ptr noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef %21, i32 noundef 0)
+  %23 = tail call i64 @strtoul(ptr noundef captures(none) %22, ptr noundef null, i32 noundef 10) #4
+  %24 = trunc i64 %23 to i32
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i32, ptr %26, align 4
+  %28 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %27, ptr noundef %0, i32 noundef %20, i32 noundef %21, i32 noundef %24)
   ret void
 }
 

@@ -115,125 +115,126 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %15
 
-15:                                               ; preds = %.lr.ph, %23
-  %.05582 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
-  %.06181 = phi i64 [ 0, %.lr.ph ], [ %.162, %23 ]
+15:                                               ; preds = %.lr.ph, %24
+  %.05582 = phi i64 [ 0, %.lr.ph ], [ %25, %24 ]
+  %.06181 = phi i64 [ 0, %.lr.ph ], [ %.162, %24 ]
   %16 = icmp eq i64 %.05582, 0
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
   %18 = load i64, ptr %14, align 8, !tbaa !9
-  br label %23
+  br label %24
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.05582, i32 1
-  %21 = load i64, ptr %20, align 8, !tbaa !9
-  %22 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %21, i64 noundef %.06181) #4
-  %.not73 = icmp eq i32 %22, 0
-  br i1 %.not73, label %.loopexit, label %23
+  %20 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.05582
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !9
+  %23 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %22, i64 noundef %.06181) #4
+  %.not73 = icmp eq i32 %23, 0
+  br i1 %.not73, label %.loopexit, label %24
 
-23:                                               ; preds = %17, %19
+24:                                               ; preds = %17, %19
   %.162 = phi i64 [ %18, %17 ], [ %.06181, %19 ]
-  %24 = add nuw i64 %.05582, 1
-  %exitcond.not = icmp eq i64 %24, %3
+  %25 = add nuw i64 %.05582, 1
+  %exitcond.not = icmp eq i64 %25, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %23, %.preheader78
-  %25 = tail call i32 @BIO_recvmmsg(ptr noundef %9, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #4
-  %.not68 = icmp eq i32 %25, 0
-  br i1 %.not68, label %.loopexit, label %26
+._crit_edge:                                      ; preds = %24, %.preheader78
+  %26 = tail call i32 @BIO_recvmmsg(ptr noundef %9, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #4
+  %.not68 = icmp eq i32 %26, 0
+  br i1 %.not68, label %.loopexit, label %27
 
-26:                                               ; preds = %._crit_edge
-  %27 = load i64, ptr %5, align 8, !tbaa !15
-  %28 = icmp eq i64 %27, %3
-  br i1 %28, label %.loopexit, label %.preheader76
+27:                                               ; preds = %._crit_edge
+  %28 = load i64, ptr %5, align 8, !tbaa !15
+  %29 = icmp eq i64 %28, %3
+  br i1 %29, label %.loopexit, label %.preheader76
 
-.preheader76:                                     ; preds = %26
-  %.not92 = icmp eq i64 %27, 0
+.preheader76:                                     ; preds = %27
+  %.not92 = icmp eq i64 %28, 0
   br i1 %.not92, label %._crit_edge90, label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.preheader76
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br label %30
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br label %31
 
-30:                                               ; preds = %.lr.ph89, %55
-  %.15688 = phi i64 [ 0, %.lr.ph89 ], [ %56, %55 ]
-  %.05787 = phi ptr [ %1, %.lr.ph89 ], [ %57, %55 ]
-  %.05886 = phi i64 [ %27, %.lr.ph89 ], [ %.159, %55 ]
+31:                                               ; preds = %.lr.ph89, %56
+  %.15688 = phi i64 [ 0, %.lr.ph89 ], [ %57, %56 ]
+  %.05787 = phi ptr [ %1, %.lr.ph89 ], [ %58, %56 ]
+  %.05886 = phi i64 [ %28, %.lr.ph89 ], [ %.159, %56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %31 = getelementptr inbounds nuw i8, ptr %.05787, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !9
-  %33 = icmp slt i64 %32, 0
-  br i1 %33, label %.critedge, label %34
+  %32 = getelementptr inbounds nuw i8, ptr %.05787, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !9
+  %34 = icmp slt i64 %33, 0
+  br i1 %34, label %.critedge, label %35
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %.05787, align 8, !tbaa !16
-  store ptr %35, ptr %8, align 8, !tbaa !17
-  store i64 %32, ptr %29, align 8, !tbaa !20
-  %36 = load i64, ptr %10, align 8, !tbaa !21
-  %37 = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %8, i64 noundef %36, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #4
-  %.not70 = icmp eq i32 %37, 1
-  br i1 %.not70, label %38, label %.critedge
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %.05787, align 8, !tbaa !16
+  store ptr %36, ptr %8, align 8, !tbaa !17
+  store i64 %33, ptr %30, align 8, !tbaa !20
+  %37 = load i64, ptr %10, align 8, !tbaa !21
+  %38 = call i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef nonnull %8, i64 noundef %37, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null, ptr noundef null) #4
+  %.not70 = icmp eq i32 %38, 1
+  br i1 %.not70, label %39, label %.critedge
 
-38:                                               ; preds = %34
-  %.val = load i64, ptr %29, align 8, !tbaa !20
+39:                                               ; preds = %35
+  %.val = load i64, ptr %30, align 8, !tbaa !20
   %.not71 = icmp eq i64 %.val, 0
-  br i1 %.not71, label %55, label %.preheader
+  br i1 %.not71, label %56, label %.preheader
 
-.preheader:                                       ; preds = %38
-  %39 = icmp ugt i64 %.05886, %.15688
-  br i1 %39, label %.lr.ph84, label %._crit_edge85
+.preheader:                                       ; preds = %39
+  %40 = icmp ugt i64 %.05886, %.15688
+  br i1 %40, label %.lr.ph84, label %._crit_edge85
 
-40:                                               ; preds = %.lr.ph84
-  %41 = add i64 %.06383, -1
-  %42 = icmp ugt i64 %41, %.15688
-  br i1 %42, label %.lr.ph84, label %._crit_edge85, !llvm.loop !24
+41:                                               ; preds = %.lr.ph84
+  %42 = add i64 %.06383, -1
+  %43 = icmp ugt i64 %42, %.15688
+  br i1 %43, label %.lr.ph84, label %._crit_edge85, !llvm.loop !24
 
-.lr.ph84:                                         ; preds = %.preheader, %40
-  %.06383 = phi i64 [ %41, %40 ], [ %.05886, %.preheader ]
-  %43 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.06383
-  %44 = getelementptr i8, ptr %43, i64 -40
-  %45 = call i32 @bio_msg_copy(ptr noundef nonnull %43, ptr noundef %44) #4
-  %.not72 = icmp eq i32 %45, 0
-  br i1 %.not72, label %.critedge, label %40
+.lr.ph84:                                         ; preds = %.preheader, %41
+  %.06383 = phi i64 [ %42, %41 ], [ %.05886, %.preheader ]
+  %44 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.06383
+  %45 = getelementptr i8, ptr %44, i64 -40
+  %46 = call i32 @bio_msg_copy(ptr noundef nonnull %44, ptr noundef %45) #4
+  %.not72 = icmp eq i32 %46, 0
+  br i1 %.not72, label %.critedge, label %41
 
-._crit_edge85:                                    ; preds = %40, %.preheader
-  %46 = load i64, ptr %31, align 8, !tbaa !9
-  %47 = sub i64 %46, %.val
-  store i64 %47, ptr %31, align 8, !tbaa !9
-  %48 = getelementptr %struct.bio_msg_st, ptr %1, i64 %.15688
-  %49 = getelementptr i8, ptr %48, i64 40
-  %50 = getelementptr i8, ptr %48, i64 48
-  store i64 %.val, ptr %50, align 8, !tbaa !9
-  %51 = load ptr, ptr %49, align 8, !tbaa !16
-  %52 = load i64, ptr %31, align 8, !tbaa !9
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 %52
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %51, ptr align 1 %53, i64 %.val, i1 false)
-  %54 = add i64 %.05886, 1
-  br label %55
+._crit_edge85:                                    ; preds = %41, %.preheader
+  %47 = load i64, ptr %32, align 8, !tbaa !9
+  %48 = sub i64 %47, %.val
+  store i64 %48, ptr %32, align 8, !tbaa !9
+  %49 = getelementptr %struct.bio_msg_st, ptr %1, i64 %.15688
+  %50 = getelementptr i8, ptr %49, i64 40
+  %51 = getelementptr i8, ptr %49, i64 48
+  store i64 %.val, ptr %51, align 8, !tbaa !9
+  %52 = load ptr, ptr %50, align 8, !tbaa !16
+  %53 = load i64, ptr %32, align 8, !tbaa !9
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %52, ptr align 1 %54, i64 %.val, i1 false)
+  %55 = add i64 %.05886, 1
+  br label %56
 
-55:                                               ; preds = %38, %._crit_edge85
-  %.159 = phi i64 [ %54, %._crit_edge85 ], [ %.05886, %38 ]
+56:                                               ; preds = %39, %._crit_edge85
+  %.159 = phi i64 [ %55, %._crit_edge85 ], [ %.05886, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %56 = add nuw i64 %.15688, 1
-  %57 = getelementptr inbounds nuw i8, ptr %.05787, i64 40
-  %58 = icmp ult i64 %56, %.159
-  br i1 %58, label %30, label %._crit_edge90, !llvm.loop !25
+  %57 = add nuw i64 %.15688, 1
+  %58 = getelementptr inbounds nuw i8, ptr %.05787, i64 40
+  %59 = icmp ult i64 %57, %.159
+  br i1 %59, label %31, label %._crit_edge90, !llvm.loop !25
 
-._crit_edge90:                                    ; preds = %55, %.preheader76
-  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %.159, %55 ]
+._crit_edge90:                                    ; preds = %56, %.preheader76
+  %.058.lcssa = phi i64 [ 0, %.preheader76 ], [ %.159, %56 ]
   store i64 %.058.lcssa, ptr %5, align 8, !tbaa !15
   br label %.loopexit
 
-.critedge:                                        ; preds = %30, %34, %.lr.ph84
+.critedge:                                        ; preds = %31, %35, %.lr.ph84
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %.critedge, %26, %._crit_edge, %6, %12, %._crit_edge90
-  %.0 = phi i32 [ 1, %._crit_edge90 ], [ 0, %12 ], [ 0, %6 ], [ 0, %._crit_edge ], [ 1, %26 ], [ 0, %.critedge ], [ 0, %19 ]
+.loopexit:                                        ; preds = %19, %.critedge, %27, %._crit_edge, %6, %12, %._crit_edge90
+  %.0 = phi i32 [ 1, %._crit_edge90 ], [ 0, %12 ], [ 0, %6 ], [ 0, %._crit_edge ], [ 1, %27 ], [ 0, %.critedge ], [ 0, %19 ]
   ret i32 %.0
 }
 

@@ -1164,7 +1164,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   %3 = phi ptr [ %21, %for.inc ], [ %1, %for.cond.preheader ]
   %4 = phi ptr [ %22, %for.inc ], [ %0, %for.cond.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %Mesh = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv, i32 1
+  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv
+  %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %5 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %cmp4 = icmp eq ptr %5, %mesh
   br i1 %cmp4, label %if.then14, label %lor.lhs.false
@@ -1183,7 +1184,8 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   br i1 %cmp13, label %land.lhs.true.if.then14_crit_edge, label %land.lhs.true.for.inc_crit_edge
 
 land.lhs.true.if.then14_crit_edge:                ; preds = %land.lhs.true
-  %Mesh17.phi.trans.insert = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %.pre52, i64 %indvars.iv, i32 1
+  %Mesh17.split.phi.trans.insert = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %.pre52, i64 %indvars.iv
+  %Mesh17.phi.trans.insert = getelementptr inbounds nuw i8, ptr %Mesh17.split.phi.trans.insert, i64 64
   %.pre6 = load ptr, ptr %Mesh17.phi.trans.insert, align 8, !tbaa !34
   br label %if.then14
 
@@ -1343,7 +1345,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %3 = phi ptr [ %7, %for.inc ], [ %1, %entry ]
   %4 = phi ptr [ %8, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %Mesh = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv, i32 1
+  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv
+  %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %5 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %cmp4 = icmp eq ptr %5, %mesh
   br i1 %cmp4, label %cleanup.loopexit.split.loop.exit, label %lor.lhs.false
@@ -1407,7 +1410,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv.i5 = zext i32 %number to i64
-  %Mesh = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %1, i64 %conv.i5, i32 1
+  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %1, i64 %conv.i5
+  %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %2 = load ptr, ptr %Mesh, align 8, !tbaa !34
   br label %return
 
@@ -1973,7 +1977,8 @@ _ZN3irr5scene10CMeshCache9MeshEntryC2ERKNS_4core6stringIcEE.exit: ; preds = %for
 cond.true:                                        ; preds = %_ZN3irr5scene10CMeshCache9MeshEntryC2ERKNS_4core6stringIcEE.exit
   %conv.i = zext i32 %call to i64
   %65 = load ptr, ptr %Meshes, align 8, !tbaa !13
-  %Mesh = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %65, i64 %conv.i, i32 1
+  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %65, i64 %conv.i
+  %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %66 = load ptr, ptr %Mesh, align 8, !tbaa !34
   br label %cond.end
 
@@ -2118,7 +2123,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   %3 = phi ptr [ %8, %for.inc ], [ %1, %for.cond.preheader ]
   %4 = phi ptr [ %9, %for.inc ], [ %0, %for.cond.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %Mesh = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv, i32 1
+  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv
+  %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %5 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %cmp4 = icmp eq ptr %5, %mesh
   br i1 %cmp4, label %if.then14, label %lor.lhs.false
@@ -2819,7 +2825,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %3 = phi ptr [ %12, %for.inc ], [ %1, %entry ]
   %4 = phi ptr [ %13, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %Mesh = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv, i32 1
+  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %indvars.iv
+  %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %5 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %cmp4 = icmp eq ptr %5, %mesh
   br i1 %cmp4, label %if.then, label %lor.lhs.false
@@ -2997,7 +3004,8 @@ for.body:                                         ; preds = %entry, %_ZNK3irr17I
   %9 = phi ptr [ %14, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %1, %entry ]
   %10 = phi ptr [ %15, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ 0, %entry ]
-  %Mesh = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %9, i64 %indvars.iv, i32 1
+  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %9, i64 %indvars.iv
+  %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %11 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %vtable = load ptr, ptr %11, align 8, !tbaa !11
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -3055,7 +3063,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %4 = phi ptr [ %19, %for.inc ], [ %0, %entry ]
   %i.031 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
   %conv.i20 = zext i32 %i.031 to i64
-  %Mesh = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %conv.i20, i32 1
+  %Mesh.split = getelementptr inbounds nuw %"struct.irr::scene::CMeshCache::MeshEntry", ptr %3, i64 %conv.i20
+  %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 64
   %5 = load ptr, ptr %Mesh, align 8, !tbaa !34
   %vtable = load ptr, ptr %5, align 8, !tbaa !11
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24

@@ -1368,7 +1368,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %125
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -63438848, 4456448) i32 @_ZL22ucnv_getNextUChar_UTF8P23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
+define internal noundef range(i32 -12582912, 1572864) i32 @_ZL22ucnv_getNextUChar_UTF8P23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1577,7 +1577,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   store ptr %112, ptr %5, align 8, !tbaa !38
   %113 = zext i8 %87 to i32
   %114 = add nsw i32 %86, -12416
-  %115 = add nsw i32 %114, %113
+  %115 = add nuw nsw i32 %114, %113
   br label %154
 
 116:                                              ; preds = %85

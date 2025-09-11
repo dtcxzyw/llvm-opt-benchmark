@@ -6168,135 +6168,137 @@ define internal fastcc zeroext i1 @HIDAPI_DriverSwitch_ActuallyRumbleJoystick(pt
   br i1 %.not.i, label %5, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw [2 x i16], ptr @__const.EncodeRumbleHighAmplitude.hfa, i64 %indvars.iv.i, i64 1
-  %11 = load i16, ptr %10, align 2
-  %12 = trunc i16 %11 to i8
+  %10 = getelementptr inbounds nuw [2 x i16], ptr @__const.EncodeRumbleHighAmplitude.hfa, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %12 = load i16, ptr %11, align 2
+  %13 = trunc i16 %12 to i8
   br label %EncodeRumbleHighAmplitude.exit
 
 EncodeRumbleHighAmplitude.exit:                   ; preds = %5, %9
-  %.06.i = phi i8 [ %12, %9 ], [ -56, %5 ]
-  br label %14
+  %.06.i = phi i8 [ %13, %9 ], [ -56, %5 ]
+  br label %15
 
-13:                                               ; preds = %14
+14:                                               ; preds = %15
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 101
-  br i1 %exitcond.not.i22, label %EncodeRumbleLowAmplitude.exit, label %14, !llvm.loop !17
+  br i1 %exitcond.not.i22, label %EncodeRumbleLowAmplitude.exit, label %15, !llvm.loop !17
 
-14:                                               ; preds = %13, %EncodeRumbleHighAmplitude.exit
-  %indvars.iv.i18 = phi i64 [ 0, %EncodeRumbleHighAmplitude.exit ], [ %indvars.iv.next.i21, %13 ]
-  %15 = getelementptr inbounds nuw [2 x i16], ptr @__const.EncodeRumbleLowAmplitude.lfa, i64 %indvars.iv.i18
-  %16 = load i16, ptr %15, align 4
-  %.not.i19 = icmp ugt i16 %1, %16
-  br i1 %.not.i19, label %13, label %17
+15:                                               ; preds = %14, %EncodeRumbleHighAmplitude.exit
+  %indvars.iv.i18 = phi i64 [ 0, %EncodeRumbleHighAmplitude.exit ], [ %indvars.iv.next.i21, %14 ]
+  %16 = getelementptr inbounds nuw [2 x i16], ptr @__const.EncodeRumbleLowAmplitude.lfa, i64 %indvars.iv.i18
+  %17 = load i16, ptr %16, align 4
+  %.not.i19 = icmp ugt i16 %1, %17
+  br i1 %.not.i19, label %14, label %18
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw [2 x i16], ptr @__const.EncodeRumbleLowAmplitude.lfa, i64 %indvars.iv.i18, i64 1
-  %19 = load i16, ptr %18, align 2
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw [2 x i16], ptr @__const.EncodeRumbleLowAmplitude.lfa, i64 %indvars.iv.i18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  %21 = load i16, ptr %20, align 2
   br label %EncodeRumbleLowAmplitude.exit
 
-EncodeRumbleLowAmplitude.exit:                    ; preds = %13, %17
-  %.06.i20 = phi i16 [ %19, %17 ], [ 114, %13 ]
-  %20 = or i16 %2, %1
-  %or.cond = icmp ne i16 %20, 0
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  br i1 %or.cond, label %22, label %EncodeRumble.exit28
+EncodeRumbleLowAmplitude.exit:                    ; preds = %14, %18
+  %.06.i20 = phi i16 [ %21, %18 ], [ 114, %14 ]
+  %22 = or i16 %2, %1
+  %or.cond = icmp ne i16 %22, 0
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  br i1 %or.cond, label %24, label %EncodeRumble.exit28
 
-22:                                               ; preds = %EncodeRumbleLowAmplitude.exit
-  %23 = icmp ne i8 %.06.i, 0
-  %24 = icmp ne i16 %.06.i20, 0
-  %or.cond.i = or i1 %23, %24
-  br i1 %or.cond.i, label %25, label %EncodeRumble.exit28
+24:                                               ; preds = %EncodeRumbleLowAmplitude.exit
+  %25 = icmp ne i8 %.06.i, 0
+  %26 = icmp ne i16 %.06.i20, 0
+  %or.cond.i = or i1 %25, %26
+  br i1 %or.cond.i, label %27, label %EncodeRumble.exit28
 
-25:                                               ; preds = %22
-  %26 = lshr i16 %.06.i20, 8
-  %27 = trunc nuw i16 %26 to i8
-  %28 = and i8 %27, -128
-  %29 = or disjoint i8 %28, 61
-  %30 = trunc i16 %.06.i20 to i8
+27:                                               ; preds = %24
+  %28 = lshr i16 %.06.i20, 8
+  %29 = trunc nuw i16 %28 to i8
+  %30 = and i8 %29, -128
+  %31 = or disjoint i8 %30, 61
+  %32 = trunc i16 %.06.i20 to i8
   br label %EncodeRumble.exit28
 
-EncodeRumble.exit28:                              ; preds = %EncodeRumbleLowAmplitude.exit, %25, %22
-  %.sink58 = phi i8 [ 116, %25 ], [ 0, %22 ], [ 0, %EncodeRumbleLowAmplitude.exit ]
-  %.sink56 = phi i8 [ %.06.i, %25 ], [ 1, %22 ], [ 1, %EncodeRumbleLowAmplitude.exit ]
-  %.sink54 = phi i8 [ %29, %25 ], [ 64, %22 ], [ 64, %EncodeRumbleLowAmplitude.exit ]
-  %.sink52 = phi i8 [ %30, %25 ], [ 64, %22 ], [ 64, %EncodeRumbleLowAmplitude.exit ]
-  store i8 %.sink58, ptr %21, align 1
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 %.sink56, ptr %31, align 1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 58
-  store i8 %.sink54, ptr %32, align 1
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 59
-  store i8 %.sink52, ptr %33, align 1
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 %.sink58, ptr %34, align 1
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 61
-  store i8 %.sink56, ptr %35, align 1
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  store i8 %.sink54, ptr %36, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 63
-  store i8 %.sink52, ptr %37, align 1
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %39 = zext i1 %or.cond to i8
-  store i8 %39, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  store i8 16, ptr %40, align 2
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %42 = load i8, ptr %41, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 55
-  store i8 %42, ptr %43, align 1
-  %44 = add i8 %42, 1
-  %45 = and i8 %44, 15
-  store i8 %45, ptr %41, align 4
-  %46 = tail call i64 @SDL_GetTicks_REAL() #9
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %46, ptr %47, align 8
+EncodeRumble.exit28:                              ; preds = %EncodeRumbleLowAmplitude.exit, %27, %24
+  %.sink60 = phi i8 [ 116, %27 ], [ 0, %24 ], [ 0, %EncodeRumbleLowAmplitude.exit ]
+  %.sink58 = phi i8 [ %.06.i, %27 ], [ 1, %24 ], [ 1, %EncodeRumbleLowAmplitude.exit ]
+  %.sink56 = phi i8 [ %31, %27 ], [ 64, %24 ], [ 64, %EncodeRumbleLowAmplitude.exit ]
+  %.sink54 = phi i8 [ %32, %27 ], [ 64, %24 ], [ 64, %EncodeRumbleLowAmplitude.exit ]
+  store i8 %.sink60, ptr %23, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 57
+  store i8 %.sink58, ptr %33, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 58
+  store i8 %.sink56, ptr %34, align 1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 59
+  store i8 %.sink54, ptr %35, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 %.sink60, ptr %36, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 61
+  store i8 %.sink58, ptr %37, align 1
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 62
+  store i8 %.sink56, ptr %38, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 63
+  store i8 %.sink54, ptr %39, align 1
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %41 = zext i1 %or.cond to i8
+  store i8 %41, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 54
+  store i8 16, ptr %42, align 2
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %44 = load i8, ptr %43, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 55
+  store i8 %44, ptr %45, align 1
+  %46 = add i8 %44, 1
+  %47 = and i8 %46, 15
+  store i8 %47, ptr %43, align 4
+  %48 = tail call i64 @SDL_GetTicks_REAL() #9
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i64 %48, ptr %49, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 84
-  %50 = load i8, ptr %49, align 4, !range !3, !noundef !4
-  %51 = trunc nuw i8 %50 to i1
-  %52 = select i1 %51, i64 49, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %4, ptr noundef nonnull align 1 dereferenceable(10) %40, i64 10, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %54 = add nsw i64 %52, -10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %53, i8 0, i64 %54, i1 false)
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %56 = load i8, ptr %55, align 8, !range !3, !noundef !4
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %58, label %62
+  %50 = load ptr, ptr %0, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 84
+  %52 = load i8, ptr %51, align 4, !range !3, !noundef !4
+  %53 = trunc nuw i8 %52 to i1
+  %54 = select i1 %53, i64 49, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %4, ptr noundef nonnull align 1 dereferenceable(10) %42, i64 10, i1 false)
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %56 = add nsw i64 %54, -10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %55, i8 0, i64 %56, i1 false)
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %58 = load i8, ptr %57, align 8, !range !3, !noundef !4
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %59, label %60, label %64
 
-58:                                               ; preds = %EncodeRumble.exit28
-  %59 = getelementptr inbounds nuw i8, ptr %48, i64 128
-  %60 = load ptr, ptr %59, align 8
-  %61 = call i32 @SDL_hid_write_REAL(ptr noundef %60, ptr noundef nonnull %4, i64 noundef %52) #9
+60:                                               ; preds = %EncodeRumble.exit28
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 128
+  %62 = load ptr, ptr %61, align 8
+  %63 = call i32 @SDL_hid_write_REAL(ptr noundef %62, ptr noundef nonnull %4, i64 noundef %54) #9
   br label %WriteRumble.exit
 
-62:                                               ; preds = %EncodeRumble.exit28
-  %63 = tail call zeroext i1 @SDL_HIDAPI_LockRumble() #9
-  br i1 %63, label %64, label %WriteRumble.exit.thread
+64:                                               ; preds = %EncodeRumble.exit28
+  %65 = tail call zeroext i1 @SDL_HIDAPI_LockRumble() #9
+  br i1 %65, label %66, label %WriteRumble.exit.thread
 
-WriteRumble.exit.thread:                          ; preds = %62
+WriteRumble.exit.thread:                          ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %68
-
-64:                                               ; preds = %62
-  %65 = trunc nuw nsw i64 %52 to i32
-  %66 = load ptr, ptr %0, align 8
-  %67 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %66, ptr noundef nonnull %4, i32 noundef range(i32 10, 65) %65) #9
-  br label %WriteRumble.exit
-
-WriteRumble.exit:                                 ; preds = %58, %64
-  %.0.in.i.i = phi i32 [ %61, %58 ], [ %67, %64 ]
-  %.0.i.i = icmp sgt i32 %.0.in.i.i, -1
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0.i.i, label %70, label %68
-
-68:                                               ; preds = %WriteRumble.exit.thread, %WriteRumble.exit
-  %69 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.17) #9
   br label %70
 
-70:                                               ; preds = %WriteRumble.exit, %68
-  %.0 = phi i1 [ %69, %68 ], [ true, %WriteRumble.exit ]
+66:                                               ; preds = %64
+  %67 = trunc nuw nsw i64 %54 to i32
+  %68 = load ptr, ptr %0, align 8
+  %69 = call i32 @SDL_HIDAPI_SendRumbleAndUnlock(ptr noundef %68, ptr noundef nonnull %4, i32 noundef range(i32 10, 65) %67) #9
+  br label %WriteRumble.exit
+
+WriteRumble.exit:                                 ; preds = %60, %66
+  %.0.in.i.i = phi i32 [ %63, %60 ], [ %69, %66 ]
+  %.0.i.i = icmp sgt i32 %.0.in.i.i, -1
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br i1 %.0.i.i, label %72, label %70
+
+70:                                               ; preds = %WriteRumble.exit.thread, %WriteRumble.exit
+  %71 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.17) #9
+  br label %72
+
+72:                                               ; preds = %WriteRumble.exit, %70
+  %.0 = phi i1 [ %71, %70 ], [ true, %WriteRumble.exit ]
   ret i1 %.0
 }
 

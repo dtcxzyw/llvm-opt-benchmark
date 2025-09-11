@@ -1210,18 +1210,18 @@ define i16 @_ZN14cranelift_isle4sema4Rule5visit17hfe0e81d7e799b37eE(ptr align 16
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %36 = load ptr, ptr %35, align 8, !nonnull !3, !noundef !3
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %38 = load i64, ptr %37, align 16, !noundef !3
-  %39 = getelementptr inbounds { i64, [5 x i64] }, ptr %36, i64 %38
-  %40 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %34, i64 %27, i32 2
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %35 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %34, i64 %27
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %37 = load ptr, ptr %36, align 8, !nonnull !3, !noundef !3
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %39 = load i64, ptr %38, align 16, !noundef !3
+  %40 = getelementptr inbounds { i64, [5 x i64] }, ptr %37, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 200
   %42 = load ptr, ptr %41, align 8, !nonnull !3, !noundef !3
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 208
   %44 = load i64, ptr %43, align 16, !noundef !3
   %45 = getelementptr inbounds i64, ptr %42, i64 %44
-  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17ha44805652263579bE(ptr nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %20, ptr nonnull %36, ptr nonnull %39, ptr nonnull %42, ptr nonnull %45)
+  invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17ha44805652263579bE(ptr nonnull sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 %20, ptr nonnull %37, ptr nonnull %40, ptr nonnull %42, ptr nonnull %45)
           to label %48 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 46:                                               ; preds = %28

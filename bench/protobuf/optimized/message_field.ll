@@ -810,7 +810,8 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i) #29
   br label %for.inc.i.i.i.i
 
@@ -821,8 +822,8 @@ for.inc.i.i.i.i:                                  ; preds = %if.then.i.i.i.i, %f
 
 invoke.cont13.i.i.i:                              ; preds = %for.inc.i.i.i.i
   %4 = load ptr, ptr %variables_, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i) #30
+  %add.ptr.i3.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i) #30
   br label %_ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEENS0_18container_internal10StringHashENSA_8StringEqESaISt4pairIKS5_S9_EEED2Ev.exit
 
 _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS4_SaIcEEENS0_18container_internal10StringHashENSA_8StringEqESaISt4pairIKS5_S9_EEED2Ev.exit: ; preds = %entry, %invoke.cont13.i.i.i
@@ -853,7 +854,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i) #29
   br label %for.inc.i.i.i.i.i
 
@@ -864,8 +866,8 @@ for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i, 
 
 invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   %4 = load ptr, ptr %variables_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i) #30
+  %add.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i) #30
   br label %_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseD2Ev.exit
 
 _ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseD2Ev.exit: ; preds = %entry, %invoke.cont13.i.i.i.i
@@ -896,7 +898,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i) #29
   br label %for.inc.i.i.i.i.i.i
 
@@ -907,8 +910,8 @@ for.inc.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont13.i.i.i.i.i:                          ; preds = %for.inc.i.i.i.i.i.i
   %4 = load ptr, ptr %variables_.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i) #30
+  %add.ptr.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i.i) #30
   br label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_115SingularMessageD2Ev.exit
 
 _ZN6google8protobuf8compiler3cpp12_GLOBAL__N_115SingularMessageD2Ev.exit: ; preds = %entry, %invoke.cont13.i.i.i.i.i
@@ -2575,7 +2578,8 @@ if.then.i147:                                     ; preds = %for.end.i.i144
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrINS5_8compiler11SCCAnalyzerINSA_3cpp18MessageSCCAnalyzer13DepsGeneratorEE8NodeDataESt14default_deleteISG_EEEENS1_6HashEqIS8_vE4HashENSM_2EqESaISt4pairIKS8_SJ_EEE16try_emplace_implIRSQ_JEEESP_INS1_12raw_hash_setISK_SN_SO_SS_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i133, %if.then.i147
   %71 = phi ptr [ %.pre20.i151, %if.then.i147 ], [ %63, %for.body.i.i133 ]
   %retval.sroa.0.0.i15.i153 = phi i64 [ %call38.i.i, %if.then.i147 ], [ %and.i.i.i137, %for.body.i.i133 ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %71, i64 %retval.sroa.0.0.i15.i153, i32 0, i32 1
+  %add.ptr3.i.i155 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %71, i64 %retval.sroa.0.0.i15.i153
+  %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i155, i64 8
   %72 = load ptr, ptr %second.i.i, align 8
   store ptr %call55, ptr %72, align 8
   %cmp63 = icmp eq ptr %51, %descriptor
@@ -10653,7 +10657,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i) #29
   br label %for.inc.i.i.i.i.i
 
@@ -10664,8 +10669,8 @@ for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i, 
 
 invoke.cont13.i.i.i.i:                            ; preds = %for.inc.i.i.i.i.i
   %4 = load ptr, ptr %variables_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i) #30
+  %add.ptr.i3.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i) #30
   br label %_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseD2Ev.exit
 
 _ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseD2Ev.exit: ; preds = %entry, %invoke.cont13.i.i.i.i
@@ -10696,7 +10701,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i) #29
   br label %for.inc.i.i.i.i.i.i
 
@@ -10707,8 +10713,8 @@ for.inc.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont13.i.i.i.i.i:                          ; preds = %for.inc.i.i.i.i.i.i
   %4 = load ptr, ptr %variables_.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i) #30
+  %add.ptr.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i.i) #30
   br label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_115RepeatedMessageD2Ev.exit
 
 _ZN6google8protobuf8compiler3cpp12_GLOBAL__N_115RepeatedMessageD2Ev.exit: ; preds = %entry, %invoke.cont13.i.i.i.i.i
@@ -11921,7 +11927,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i) #29
   br label %for.inc.i.i.i.i.i.i
 
@@ -11932,8 +11939,8 @@ for.inc.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont13.i.i.i.i.i:                          ; preds = %for.inc.i.i.i.i.i.i
   %4 = load ptr, ptr %variables_.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i) #30
+  %add.ptr.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i.i) #30
   br label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_115SingularMessageD2Ev.exit
 
 _ZN6google8protobuf8compiler3cpp12_GLOBAL__N_115SingularMessageD2Ev.exit: ; preds = %entry, %invoke.cont13.i.i.i.i.i
@@ -11964,7 +11971,8 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.inc.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
-  %second.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i.i.i, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.152", ptr %2, i64 %i.05.i.i.i.i.i.i.i
+  %second.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i) #29
   br label %for.inc.i.i.i.i.i.i.i
 
@@ -11975,8 +11983,8 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont13.i.i.i.i.i.i:                        ; preds = %for.inc.i.i.i.i.i.i.i
   %4 = load ptr, ptr %variables_.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i) #30
+  %add.ptr.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
+  tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i3.i.i.i.i.i.i) #30
   br label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_112OneofMessageD2Ev.exit
 
 _ZN6google8protobuf8compiler3cpp12_GLOBAL__N_112OneofMessageD2Ev.exit: ; preds = %entry, %invoke.cont13.i.i.i.i.i.i

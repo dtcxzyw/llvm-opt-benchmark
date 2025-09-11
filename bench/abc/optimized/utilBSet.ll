@@ -3424,7 +3424,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %56
   %72 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next154
   %73 = load i32, ptr %72, align 4, !tbaa !7
   %74 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %73)
-  %75 = icmp sgt i64 %indvars.iv153, 1
+  %75 = icmp samesign ugt i64 %indvars.iv153, 1
   br i1 %75, label %.lr.ph134, label %._crit_edge135, !llvm.loop !87
 
 ._crit_edge135:                                   ; preds = %.lr.ph134, %._crit_edge131

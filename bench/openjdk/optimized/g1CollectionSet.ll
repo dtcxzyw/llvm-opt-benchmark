@@ -1703,11 +1703,12 @@ define hidden void @_ZN15G1CollectionSet31abandon_optional_collection_setEP23G1P
   %33 = load volatile i64, ptr %32, align 8
   %34 = icmp ne i64 %33, 0
   %35 = load ptr, ptr %26, align 8
-  %36 = zext i1 %34 to i8
-  %37 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %35, i64 %31, i32 2
-  store i8 %36, ptr %37, align 1
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store i32 -1, ptr %38, align 8
+  %36 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %35, i64 %31
+  %37 = zext i1 %34 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 2
+  store i8 %37, ptr %38, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  store i32 -1, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %.not, label %._crit_edge, label %7

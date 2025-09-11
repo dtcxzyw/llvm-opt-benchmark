@@ -804,36 +804,37 @@ define void @ossl_quic_sstream_adjust_iov(i64 noundef %0, ptr noundef captures(n
   %.not21 = icmp eq i64 %2, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %12
-  %.020 = phi i64 [ %.pre-phi, %12 ], [ 0, %3 ]
-  %.01719 = phi i64 [ %13, %12 ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %1, i64 %.01719, i32 1
-  %5 = load i64, ptr %4, align 8, !tbaa !32
+.lr.ph:                                           ; preds = %3, %13
+  %.020 = phi i64 [ %.pre-phi, %13 ], [ 0, %3 ]
+  %.01719 = phi i64 [ %14, %13 ], [ 0, %3 ]
+  %4 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %1, i64 %.01719
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load i64, ptr %5, align 8, !tbaa !32
   %.not = icmp ult i64 %.020, %0
-  br i1 %.not, label %7, label %6
-
-6:                                                ; preds = %.lr.ph
-  store i64 0, ptr %4, align 8, !tbaa !32
-  %.pre = add i64 %5, %.020
-  br label %12
+  br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = add i64 %5, %.020
-  %9 = icmp ugt i64 %8, %0
-  br i1 %9, label %10, label %12
+  store i64 0, ptr %5, align 8, !tbaa !32
+  %.pre = add i64 %6, %.020
+  br label %13
 
-10:                                               ; preds = %7
-  %11 = sub i64 %0, %.020
-  store i64 %11, ptr %4, align 8, !tbaa !32
-  br label %12
+8:                                                ; preds = %.lr.ph
+  %9 = add i64 %6, %.020
+  %10 = icmp ugt i64 %9, %0
+  br i1 %10, label %11, label %13
 
-12:                                               ; preds = %7, %10, %6
-  %.pre-phi = phi i64 [ %8, %7 ], [ %8, %10 ], [ %.pre, %6 ]
-  %13 = add nuw i64 %.01719, 1
-  %exitcond.not = icmp eq i64 %13, %2
+11:                                               ; preds = %8
+  %12 = sub i64 %0, %.020
+  store i64 %12, ptr %5, align 8, !tbaa !32
+  br label %13
+
+13:                                               ; preds = %8, %11, %7
+  %.pre-phi = phi i64 [ %9, %8 ], [ %9, %11 ], [ %.pre, %7 ]
+  %14 = add nuw i64 %.01719, 1
+  %exitcond.not = icmp eq i64 %14, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %12, %3
+._crit_edge:                                      ; preds = %13, %3
   ret void
 }
 

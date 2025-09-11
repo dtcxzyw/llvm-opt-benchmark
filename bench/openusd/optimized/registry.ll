@@ -4605,33 +4605,34 @@ _ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakP
   br i1 %.not.i7, label %._crit_edge.i, label %.lr.ph.i8
 
 .lr.ph.i8:                                        ; preds = %_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EEE29number_of_elements_in_segmentEm.exit.i, %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i
-  %.08.i = phi i64 [ %43, %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ 0, %_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EEE29number_of_elements_in_segmentEm.exit.i ]
-  %34 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.27", ptr %22, i64 %.08.i, i32 1
-  %35 = load ptr, ptr %34, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
+  %.08.i = phi i64 [ %44, %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ 0, %_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EEE29number_of_elements_in_segmentEm.exit.i ]
+  %34 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.27", ptr %22, i64 %.08.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = atomicrmw sub ptr %36, i32 1 release, align 4
-  %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = atomicrmw sub ptr %37, i32 1 release, align 4
+  %39 = icmp eq i32 %38, 1
+  br i1 %39, label %40, label %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i
 
-39:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i
-  %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(12) %35) #15
+40:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i
+  %41 = load ptr, ptr %36, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(12) %36) #15
   br label %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i
 
-_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i: ; preds = %39, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i, %.lr.ph.i8
-  %43 = add nuw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %43, %.012.i.i
+_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i: ; preds = %40, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i, %.lr.ph.i8
+  %44 = add nuw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %44, %.012.i.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i8, !llvm.loop !74
 
 ._crit_edge.i:                                    ; preds = %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS4_10PlugPluginEEEEEE7destroyIS7_EEvRS8_PT_.exit.i, %_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EEE29number_of_elements_in_segmentEm.exit.i, %27
-  %44 = load atomic i64, ptr %7 monotonic, align 8
-  %.not.i.i = icmp uge i64 %1, %44
+  %45 = load atomic i64, ptr %7 monotonic, align 8
+  %.not.i.i = icmp uge i64 %1, %45
   %or.cond.i.i = or i1 %25, %.not.i.i
   br i1 %or.cond.i.i, label %.sink.split.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS3_10PlugPluginEEENS1_23cache_aligned_allocatorIS6_EEE15destroy_segmentEPS6_m.exit
 

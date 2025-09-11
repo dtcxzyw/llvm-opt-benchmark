@@ -8230,11 +8230,10 @@ define hidden void @_ZN8language6buffer6Buffer4edit17hc5cb62a9449feda3E.llvm.649
   br label %59
 
 59:                                               ; preds = %"_ZN4core3ptr89drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$alloc..string..String$RP$$GT$17h41c19152482db66fE.llvm.7158062694720984747.exit.i.i.i", %.lr.ph.i.i.i
-  %.sroa.0.07.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %60, %"_ZN4core3ptr89drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$alloc..string..String$RP$$GT$17h41c19152482db66fE.llvm.7158062694720984747.exit.i.i.i" ]
-  %60 = add nuw i64 %.sroa.0.07.i.i.i, 1
-  %.idx = mul nsw i64 %.sroa.0.07.i.i.i, 40
-  %61 = getelementptr i8, ptr %55, i64 %.idx
-  %62 = getelementptr i8, ptr %61, i64 16
+  %.sroa.0.07.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %61, %"_ZN4core3ptr89drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$alloc..string..String$RP$$GT$17h41c19152482db66fE.llvm.7158062694720984747.exit.i.i.i" ]
+  %60 = getelementptr inbounds { { i64, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %55, i64 %.sroa.0.07.i.i.i
+  %61 = add nuw i64 %.sroa.0.07.i.i.i, 1
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1643
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb7c478c38395f3e8E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %62)
           to label %.noexc.i.i.i unwind label %73
@@ -8256,11 +8255,11 @@ define hidden void @_ZN8language6buffer6Buffer4edit17hc5cb62a9449feda3E.llvm.649
 
 "_ZN4core3ptr89drop_in_place$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$alloc..string..String$RP$$GT$17h41c19152482db66fE.llvm.7158062694720984747.exit.i.i.i": ; preds = %68, %65, %.noexc.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1643
-  %70 = icmp eq i64 %60, %54
+  %70 = icmp eq i64 %61, %54
   br i1 %70, label %"_ZN4core3ptr134drop_in_place$LT$core..array..iter..IntoIter$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$alloc..string..String$RP$$C$1_usize$GT$$GT$17hbc8d2fc7cb295391E.exit", label %59
 
 71:                                               ; preds = %75, %73
-  %.sroa.0.1.i.i.i = phi i64 [ %60, %73 ], [ %77, %75 ]
+  %.sroa.0.1.i.i.i = phi i64 [ %61, %73 ], [ %77, %75 ]
   %72 = icmp eq i64 %.sroa.0.1.i.i.i, %54
   br i1 %72, label %.body97, label %75
 

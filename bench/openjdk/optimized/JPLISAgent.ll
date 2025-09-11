@@ -1799,38 +1799,39 @@ define hidden void @redefineClasses(ptr noundef %0, ptr noundef readonly capture
   %wide.trip.count165 = zext i32 %.0116154 to i64
   br label %.lr.ph158
 
-.lr.ph158:                                        ; preds = %.lr.ph158.preheader, %109
-  %indvars.iv163 = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next164, %109 ]
-  %.6156 = phi i8 [ %.5, %.lr.ph158.preheader ], [ %.7, %109 ]
-  %98 = getelementptr inbounds nuw %struct.jvmtiClassDefinition, ptr %40, i64 %indvars.iv163, i32 2
-  %99 = load ptr, ptr %98, align 8
-  %.not146 = icmp eq ptr %99, null
-  br i1 %.not146, label %109, label %100
+.lr.ph158:                                        ; preds = %.lr.ph158.preheader, %110
+  %indvars.iv163 = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next164, %110 ]
+  %.6156 = phi i8 [ %.5, %.lr.ph158.preheader ], [ %.7, %110 ]
+  %98 = getelementptr inbounds nuw %struct.jvmtiClassDefinition, ptr %40, i64 %indvars.iv163
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %100 = load ptr, ptr %99, align 8
+  %.not146 = icmp eq ptr %100, null
+  br i1 %.not146, label %110, label %101
 
-100:                                              ; preds = %.lr.ph158
-  %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1536
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv163
-  %105 = load ptr, ptr %104, align 8
-  tail call void %103(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %99, i32 noundef 0) #10
+101:                                              ; preds = %.lr.ph158
+  %102 = load ptr, ptr %0, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1536
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv163
+  %106 = load ptr, ptr %105, align 8
+  tail call void %104(ptr noundef nonnull %0, ptr noundef %106, ptr noundef nonnull %100, i32 noundef 0) #10
   %.not147 = icmp eq i8 %.6156, 0
-  br i1 %.not147, label %106, label %109
+  br i1 %.not147, label %107, label %110
 
-106:                                              ; preds = %100
-  %107 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
-  %.not148 = icmp eq i8 %107, 0
-  %108 = zext i1 %.not148 to i8
-  tail call void @JPLISAssertCondition(i8 noundef zeroext %108, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.1, i32 noundef 1370) #10
-  br label %109
+107:                                              ; preds = %101
+  %108 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
+  %.not148 = icmp eq i8 %108, 0
+  %109 = zext i1 %.not148 to i8
+  tail call void @JPLISAssertCondition(i8 noundef zeroext %109, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.1, i32 noundef 1370) #10
+  br label %110
 
-109:                                              ; preds = %.lr.ph158, %106, %100
-  %.7 = phi i8 [ %.6156, %100 ], [ %107, %106 ], [ %.6156, %.lr.ph158 ]
+110:                                              ; preds = %.lr.ph158, %107, %101
+  %.7 = phi i8 [ %.6156, %101 ], [ %108, %107 ], [ %.6156, %.lr.ph158 ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count165
   br i1 %exitcond166.not, label %._crit_edge159, label %.lr.ph158, !llvm.loop !10
 
-._crit_edge159:                                   ; preds = %109, %.thread
+._crit_edge159:                                   ; preds = %110, %.thread
   tail call void @deallocate(ptr noundef %5, ptr noundef nonnull %46) #10
   tail call void @deallocate(ptr noundef %5, ptr noundef nonnull %40) #10
   br label %.critedge

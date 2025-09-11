@@ -147,132 +147,125 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %91 = select i1 %90, ptr %18, ptr %9
   %92 = sub i64 0, %7
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %99
+  br label %98
 
 94:                                               ; preds = %80
   %95 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %83
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 %82, ptr %81, align 8
   store i32 0, ptr %95, align 8
-  %.idx109.i = mul nuw nsw i64 %83, 24
-  %96 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx109.i
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i64 %2, ptr %97, align 8
-  %98 = load ptr, ptr %19, align 8
-  store i8 %23, ptr %98, align 1
+  store i64 %2, ptr %96, align 8
+  %97 = load ptr, ptr %19, align 8
+  store i8 %23, ptr %97, align 1
   br label %nfaExecGough8_Q2i.exit
 
-99:                                               ; preds = %.preheader, %156
-  %100 = phi i32 [ %157, %156 ], [ %87, %.preheader ]
-  %.097.i = phi i64 [ %.0.i, %156 ], [ %86, %.preheader ]
-  %.091.i = phi ptr [ %spec.select.i, %156 ], [ %91, %.preheader ]
-  %101 = zext i32 %100 to i64
-  %.idx.i = mul nuw nsw i64 %101, 24
-  %102 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %104 = load i64, ptr %103, align 8
-  %105 = tail call i64 @llvm.smin.i64(i64 %104, i64 %2)
-  %106 = icmp slt i64 %.097.i, 0
-  %107 = tail call i64 @llvm.smin.i64(i64 %105, i64 0)
-  %.0.i = select i1 %106, i64 %107, i64 %105
+98:                                               ; preds = %.preheader, %153
+  %99 = phi i32 [ %154, %153 ], [ %87, %.preheader ]
+  %.097.i = phi i64 [ %.0.i, %153 ], [ %86, %.preheader ]
+  %.091.i = phi ptr [ %spec.select.i, %153 ], [ %91, %.preheader ]
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %100
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load i64, ptr %102, align 8
+  %104 = tail call i64 @llvm.smin.i64(i64 %103, i64 %2)
+  %105 = icmp slt i64 %.097.i, 0
+  %106 = tail call i64 @llvm.smin.i64(i64 %104, i64 0)
+  %.0.i = select i1 %105, i64 %106, i64 %104
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %108 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
-  %109 = sub nsw i64 %.0.i, %.097.i
-  %110 = add i64 %.097.i, %7
-  %111 = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef %4, ptr noundef %108, i64 noundef %109, i64 noundef %110, ptr noundef %11, ptr noundef %13, ptr noundef %5, i32 noundef 0)
-  %112 = icmp eq i8 %111, 0
-  br i1 %112, label %113, label %115
+  %107 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
+  %108 = sub nsw i64 %.0.i, %.097.i
+  %109 = add i64 %.097.i, %7
+  %110 = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef %4, ptr noundef %107, i64 noundef %108, i64 noundef %109, ptr noundef %11, ptr noundef %13, ptr noundef %5, i32 noundef 0)
+  %111 = icmp eq i8 %110, 0
+  br i1 %111, label %112, label %114
 
-113:                                              ; preds = %99
-  %114 = load ptr, ptr %19, align 8
-  store i8 0, ptr %114, align 1
+112:                                              ; preds = %98
+  %113 = load ptr, ptr %19, align 8
+  store i8 0, ptr %113, align 1
   br label %.thread
 
-115:                                              ; preds = %99
-  %116 = load i32, ptr %81, align 8
-  %117 = zext i32 %116 to i64
-  %.idx104.i = mul nuw nsw i64 %117, 24
-  %118 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx104.i
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load i64, ptr %119, align 8
-  %121 = icmp sgt i64 %120, %2
-  br i1 %121, label %122, label %130
+114:                                              ; preds = %98
+  %115 = load i32, ptr %81, align 8
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %119 = load i64, ptr %118, align 8
+  %120 = icmp sgt i64 %119, %2
+  br i1 %120, label %121, label %128
 
-122:                                              ; preds = %115
-  %123 = add i32 %116, -1
-  store i32 %123, ptr %81, align 8
-  %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %124
-  store i32 0, ptr %125, align 8
-  %.idx107.i = mul nuw nsw i64 %124, 24
-  %126 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx107.i
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store i64 %2, ptr %127, align 8
-  %128 = load i8, ptr %4, align 1
-  %129 = load ptr, ptr %19, align 8
-  store i8 %128, ptr %129, align 1
+121:                                              ; preds = %114
+  %122 = add i32 %115, -1
+  store i32 %122, ptr %81, align 8
+  %123 = zext i32 %122 to i64
+  %124 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %123
+  store i32 0, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  store i64 %2, ptr %125, align 8
+  %126 = load i8, ptr %4, align 1
+  %127 = load ptr, ptr %19, align 8
+  store i8 %126, ptr %127, align 1
   br label %.thread
 
-130:                                              ; preds = %115
-  %131 = icmp eq i64 %.0.i, 0
-  %spec.select.i = select i1 %131, ptr %9, ptr %.091.i
-  %.not105.i = icmp eq i64 %.0.i, %105
-  br i1 %.not105.i, label %132, label %156
+128:                                              ; preds = %114
+  %129 = icmp eq i64 %.0.i, 0
+  %spec.select.i = select i1 %129, ptr %9, ptr %.091.i
+  %.not104.i = icmp eq i64 %.0.i, %104
+  br i1 %.not104.i, label %130, label %153
 
-132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %117
-  %134 = load i32, ptr %133, align 8
-  switch i32 %134, label %153 [
-    i32 2, label %135
-    i32 1, label %147
+130:                                              ; preds = %128
+  %131 = load i32, ptr %117, align 8
+  switch i32 %131, label %150 [
+    i32 2, label %132
+    i32 1, label %144
   ]
 
-135:                                              ; preds = %132
-  %136 = icmp eq i64 %105, %92
-  br i1 %136, label %137, label %140
+132:                                              ; preds = %130
+  %133 = icmp eq i64 %104, %92
+  br i1 %133, label %134, label %137
 
-137:                                              ; preds = %135
-  %138 = load i16, ptr %93, align 4
-  %139 = trunc i16 %138 to i8
-  store i8 %139, ptr %4, align 1
-  br label %153
+134:                                              ; preds = %132
+  %135 = load i16, ptr %93, align 4
+  %136 = trunc i16 %135 to i8
+  store i8 %136, ptr %4, align 1
+  br label %150
 
-140:                                              ; preds = %135
-  %141 = load i8, ptr %4, align 1
-  %142 = zext i8 %141 to i16
-  %143 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %144 = load i64, ptr %143, align 8
-  %145 = tail call fastcc zeroext i16 @goughEnableStarts(ptr noundef nonnull %22, i16 noundef zeroext %142, i64 noundef %144, ptr noundef nonnull %21)
-  %146 = trunc i16 %145 to i8
-  store i8 %146, ptr %4, align 1
+137:                                              ; preds = %132
+  %138 = load i8, ptr %4, align 1
+  %139 = zext i8 %138 to i16
+  %140 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %141 = load i64, ptr %140, align 8
+  %142 = tail call fastcc zeroext i16 @goughEnableStarts(ptr noundef nonnull %22, i16 noundef zeroext %139, i64 noundef %141, ptr noundef nonnull %21)
+  %143 = trunc i16 %142 to i8
+  store i8 %143, ptr %4, align 1
   %.pre = load i32, ptr %81, align 8
-  br label %153
+  br label %150
 
-147:                                              ; preds = %132
-  %148 = load i8, ptr %4, align 1
-  %149 = load ptr, ptr %19, align 8
-  store i8 %148, ptr %149, align 1
-  %150 = load i32, ptr %81, align 8
-  %151 = add i32 %150, 1
-  store i32 %151, ptr %81, align 8
-  %.not106.i = icmp ne i8 %148, 0
-  %152 = zext i1 %.not106.i to i8
+144:                                              ; preds = %130
+  %145 = load i8, ptr %4, align 1
+  %146 = load ptr, ptr %19, align 8
+  store i8 %145, ptr %146, align 1
+  %147 = load i32, ptr %81, align 8
+  %148 = add i32 %147, 1
+  store i32 %148, ptr %81, align 8
+  %.not105.i = icmp ne i8 %145, 0
+  %149 = zext i1 %.not105.i to i8
   br label %.thread
 
-153:                                              ; preds = %140, %137, %132
-  %154 = phi i32 [ %.pre, %140 ], [ %116, %137 ], [ %116, %132 ]
-  %155 = add i32 %154, 1
-  store i32 %155, ptr %81, align 8
-  br label %156
+150:                                              ; preds = %137, %134, %130
+  %151 = phi i32 [ %.pre, %137 ], [ %115, %134 ], [ %115, %130 ]
+  %152 = add i32 %151, 1
+  store i32 %152, ptr %81, align 8
+  br label %153
 
-.thread:                                          ; preds = %113, %122, %147
-  %.5.i.ph = phi i8 [ %152, %147 ], [ 1, %122 ], [ 0, %113 ]
+.thread:                                          ; preds = %112, %121, %144
+  %.5.i.ph = phi i8 [ %149, %144 ], [ 1, %121 ], [ 0, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecGough8_Q2i.exit
 
-156:                                              ; preds = %153, %130
-  %157 = phi i32 [ %155, %153 ], [ %116, %130 ]
+153:                                              ; preds = %150, %128
+  %154 = phi i32 [ %152, %150 ], [ %115, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %99
+  br label %98
 
 nfaExecGough8_Q2i.exit:                           ; preds = %.thread, %doReports.exit.thread, %94
   %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
@@ -420,129 +413,122 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %91 = select i1 %90, ptr %18, ptr %9
   %92 = sub i64 0, %7
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %99
+  br label %98
 
 94:                                               ; preds = %80
   %95 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %83
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 %82, ptr %81, align 8
   store i32 0, ptr %95, align 8
-  %.idx109.i = mul nuw nsw i64 %83, 24
-  %96 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx109.i
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i64 %2, ptr %97, align 8
-  %98 = load ptr, ptr %19, align 8
-  store i16 %23, ptr %98, align 2
+  store i64 %2, ptr %96, align 8
+  %97 = load ptr, ptr %19, align 8
+  store i16 %23, ptr %97, align 2
   br label %nfaExecGough16_Q2i.exit
 
-99:                                               ; preds = %.preheader, %153
-  %100 = phi i32 [ %154, %153 ], [ %87, %.preheader ]
-  %.097.i = phi i64 [ %.0.i, %153 ], [ %86, %.preheader ]
-  %.091.i = phi ptr [ %spec.select.i, %153 ], [ %91, %.preheader ]
-  %101 = zext i32 %100 to i64
-  %.idx.i = mul nuw nsw i64 %101, 24
-  %102 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %104 = load i64, ptr %103, align 8
-  %105 = tail call i64 @llvm.smin.i64(i64 %104, i64 %2)
-  %106 = icmp slt i64 %.097.i, 0
-  %107 = tail call i64 @llvm.smin.i64(i64 %105, i64 0)
-  %.0.i = select i1 %106, i64 %107, i64 %105
+98:                                               ; preds = %.preheader, %150
+  %99 = phi i32 [ %151, %150 ], [ %87, %.preheader ]
+  %.097.i = phi i64 [ %.0.i, %150 ], [ %86, %.preheader ]
+  %.091.i = phi ptr [ %spec.select.i, %150 ], [ %91, %.preheader ]
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %100
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load i64, ptr %102, align 8
+  %104 = tail call i64 @llvm.smin.i64(i64 %103, i64 %2)
+  %105 = icmp slt i64 %.097.i, 0
+  %106 = tail call i64 @llvm.smin.i64(i64 %104, i64 0)
+  %.0.i = select i1 %105, i64 %106, i64 %104
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %108 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
-  %109 = sub nsw i64 %.0.i, %.097.i
-  %110 = add i64 %.097.i, %7
-  %111 = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef %4, ptr noundef %108, i64 noundef %109, i64 noundef %110, ptr noundef %11, ptr noundef %13, ptr noundef %5, i32 noundef 0)
-  %112 = icmp eq i8 %111, 0
-  br i1 %112, label %113, label %115
+  %107 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
+  %108 = sub nsw i64 %.0.i, %.097.i
+  %109 = add i64 %.097.i, %7
+  %110 = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef %4, ptr noundef %107, i64 noundef %108, i64 noundef %109, ptr noundef %11, ptr noundef %13, ptr noundef %5, i32 noundef 0)
+  %111 = icmp eq i8 %110, 0
+  br i1 %111, label %112, label %114
 
-113:                                              ; preds = %99
-  %114 = load ptr, ptr %19, align 8
-  store i16 0, ptr %114, align 2
+112:                                              ; preds = %98
+  %113 = load ptr, ptr %19, align 8
+  store i16 0, ptr %113, align 2
   br label %.thread
 
-115:                                              ; preds = %99
-  %116 = load i32, ptr %81, align 8
-  %117 = zext i32 %116 to i64
-  %.idx104.i = mul nuw nsw i64 %117, 24
-  %118 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx104.i
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load i64, ptr %119, align 8
-  %121 = icmp sgt i64 %120, %2
-  br i1 %121, label %122, label %130
+114:                                              ; preds = %98
+  %115 = load i32, ptr %81, align 8
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %119 = load i64, ptr %118, align 8
+  %120 = icmp sgt i64 %119, %2
+  br i1 %120, label %121, label %128
 
-122:                                              ; preds = %115
-  %123 = add i32 %116, -1
-  store i32 %123, ptr %81, align 8
-  %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %124
-  store i32 0, ptr %125, align 8
-  %.idx107.i = mul nuw nsw i64 %124, 24
-  %126 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx107.i
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store i64 %2, ptr %127, align 8
-  %128 = load i16, ptr %4, align 2
-  %129 = load ptr, ptr %19, align 8
-  store i16 %128, ptr %129, align 2
+121:                                              ; preds = %114
+  %122 = add i32 %115, -1
+  store i32 %122, ptr %81, align 8
+  %123 = zext i32 %122 to i64
+  %124 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %123
+  store i32 0, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  store i64 %2, ptr %125, align 8
+  %126 = load i16, ptr %4, align 2
+  %127 = load ptr, ptr %19, align 8
+  store i16 %126, ptr %127, align 2
   br label %.thread
 
-130:                                              ; preds = %115
-  %131 = icmp eq i64 %.0.i, 0
-  %spec.select.i = select i1 %131, ptr %9, ptr %.091.i
-  %.not105.i = icmp eq i64 %.0.i, %105
-  br i1 %.not105.i, label %132, label %153
+128:                                              ; preds = %114
+  %129 = icmp eq i64 %.0.i, 0
+  %spec.select.i = select i1 %129, ptr %9, ptr %.091.i
+  %.not104.i = icmp eq i64 %.0.i, %104
+  br i1 %.not104.i, label %130, label %150
 
-132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %117
-  %134 = load i32, ptr %133, align 8
-  switch i32 %134, label %150 [
-    i32 2, label %135
-    i32 1, label %144
+130:                                              ; preds = %128
+  %131 = load i32, ptr %117, align 8
+  switch i32 %131, label %147 [
+    i32 2, label %132
+    i32 1, label %141
   ]
 
-135:                                              ; preds = %132
-  %136 = icmp eq i64 %105, %92
-  br i1 %136, label %137, label %139
+132:                                              ; preds = %130
+  %133 = icmp eq i64 %104, %92
+  br i1 %133, label %134, label %136
 
-137:                                              ; preds = %135
-  %138 = load i16, ptr %93, align 4
-  store i16 %138, ptr %4, align 2
-  br label %150
+134:                                              ; preds = %132
+  %135 = load i16, ptr %93, align 4
+  store i16 %135, ptr %4, align 2
+  br label %147
 
-139:                                              ; preds = %135
-  %140 = load i16, ptr %4, align 2
-  %141 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %142 = load i64, ptr %141, align 8
-  %143 = tail call fastcc zeroext i16 @goughEnableStarts(ptr noundef nonnull %22, i16 noundef zeroext %140, i64 noundef %142, ptr noundef nonnull %21)
-  store i16 %143, ptr %4, align 2
+136:                                              ; preds = %132
+  %137 = load i16, ptr %4, align 2
+  %138 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %139 = load i64, ptr %138, align 8
+  %140 = tail call fastcc zeroext i16 @goughEnableStarts(ptr noundef nonnull %22, i16 noundef zeroext %137, i64 noundef %139, ptr noundef nonnull %21)
+  store i16 %140, ptr %4, align 2
   %.pre = load i32, ptr %81, align 8
-  br label %150
+  br label %147
 
-144:                                              ; preds = %132
-  %145 = load i16, ptr %4, align 2
-  %146 = load ptr, ptr %19, align 8
-  store i16 %145, ptr %146, align 2
-  %147 = load i32, ptr %81, align 8
-  %148 = add i32 %147, 1
-  store i32 %148, ptr %81, align 8
-  %.not106.i = icmp ne i16 %145, 0
-  %149 = zext i1 %.not106.i to i8
+141:                                              ; preds = %130
+  %142 = load i16, ptr %4, align 2
+  %143 = load ptr, ptr %19, align 8
+  store i16 %142, ptr %143, align 2
+  %144 = load i32, ptr %81, align 8
+  %145 = add i32 %144, 1
+  store i32 %145, ptr %81, align 8
+  %.not105.i = icmp ne i16 %142, 0
+  %146 = zext i1 %.not105.i to i8
   br label %.thread
 
-150:                                              ; preds = %139, %137, %132
-  %151 = phi i32 [ %.pre, %139 ], [ %116, %137 ], [ %116, %132 ]
-  %152 = add i32 %151, 1
-  store i32 %152, ptr %81, align 8
-  br label %153
+147:                                              ; preds = %136, %134, %130
+  %148 = phi i32 [ %.pre, %136 ], [ %115, %134 ], [ %115, %130 ]
+  %149 = add i32 %148, 1
+  store i32 %149, ptr %81, align 8
+  br label %150
 
-.thread:                                          ; preds = %113, %122, %144
-  %.5.i.ph = phi i8 [ %149, %144 ], [ 1, %122 ], [ 0, %113 ]
+.thread:                                          ; preds = %112, %121, %141
+  %.5.i.ph = phi i8 [ %146, %141 ], [ 1, %121 ], [ 0, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecGough16_Q2i.exit
 
-153:                                              ; preds = %150, %130
-  %154 = phi i32 [ %152, %150 ], [ %116, %130 ]
+150:                                              ; preds = %147, %128
+  %151 = phi i32 [ %149, %147 ], [ %115, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %99
+  br label %98
 
 nfaExecGough16_Q2i.exit:                          ; preds = %.thread, %doReports.exit.thread, %94
   %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
@@ -690,157 +676,148 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %91 = select i1 %90, ptr %18, ptr %9
   %92 = sub i64 0, %7
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %99
+  br label %98
 
 94:                                               ; preds = %80
   %95 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %83
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 %82, ptr %81, align 8
   store i32 0, ptr %95, align 8
-  %.idx109.i = mul nuw nsw i64 %83, 24
-  %96 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx109.i
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i64 %2, ptr %97, align 8
-  %98 = load ptr, ptr %19, align 8
-  store i8 %23, ptr %98, align 1
+  store i64 %2, ptr %96, align 8
+  %97 = load ptr, ptr %19, align 8
+  store i8 %23, ptr %97, align 1
   br label %nfaExecGough8_Q2i.exit
 
-99:                                               ; preds = %.preheader, %170
-  %100 = phi i32 [ %171, %170 ], [ %87, %.preheader ]
-  %.097.i = phi i64 [ %.0.i, %170 ], [ %86, %.preheader ]
-  %.091.i = phi ptr [ %spec.select.i, %170 ], [ %91, %.preheader ]
-  %101 = zext i32 %100 to i64
-  %.idx.i = mul nuw nsw i64 %101, 24
-  %102 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %104 = load i64, ptr %103, align 8
-  %105 = tail call i64 @llvm.smin.i64(i64 %104, i64 %2)
-  %106 = icmp slt i64 %.097.i, 0
-  %107 = tail call i64 @llvm.smin.i64(i64 %105, i64 0)
-  %.0.i = select i1 %106, i64 %107, i64 %105
+98:                                               ; preds = %.preheader, %166
+  %99 = phi i32 [ %167, %166 ], [ %87, %.preheader ]
+  %.097.i = phi i64 [ %.0.i, %166 ], [ %86, %.preheader ]
+  %.091.i = phi ptr [ %spec.select.i, %166 ], [ %91, %.preheader ]
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %100
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load i64, ptr %102, align 8
+  %104 = tail call i64 @llvm.smin.i64(i64 %103, i64 %2)
+  %105 = icmp slt i64 %.097.i, 0
+  %106 = tail call i64 @llvm.smin.i64(i64 %104, i64 0)
+  %.0.i = select i1 %105, i64 %106, i64 %104
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %108 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
-  %109 = sub nsw i64 %.0.i, %.097.i
-  %110 = add i64 %.097.i, %7
-  %111 = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef %4, ptr noundef %108, i64 noundef %109, i64 noundef %110, ptr noundef %11, ptr noundef %13, ptr noundef %5, i32 noundef 1)
-  %112 = icmp eq i8 %111, 0
-  br i1 %112, label %113, label %115
+  %107 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
+  %108 = sub nsw i64 %.0.i, %.097.i
+  %109 = add i64 %.097.i, %7
+  %110 = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef %4, ptr noundef %107, i64 noundef %108, i64 noundef %109, ptr noundef %11, ptr noundef %13, ptr noundef %5, i32 noundef 1)
+  %111 = icmp eq i8 %110, 0
+  br i1 %111, label %112, label %114
 
-113:                                              ; preds = %99
-  %114 = load ptr, ptr %19, align 8
-  store i8 0, ptr %114, align 1
+112:                                              ; preds = %98
+  %113 = load ptr, ptr %19, align 8
+  store i8 0, ptr %113, align 1
   br label %.thread
 
-115:                                              ; preds = %99
-  %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr inbounds i8, ptr %.091.i, i64 %.0.i
-  %.not103.i = icmp eq ptr %116, %117
-  %118 = load i32, ptr %81, align 8
-  br i1 %.not103.i, label %130, label %119
+114:                                              ; preds = %98
+  %115 = load ptr, ptr %5, align 8
+  %116 = getelementptr inbounds i8, ptr %.091.i, i64 %.0.i
+  %.not103.i = icmp eq ptr %115, %116
+  %117 = load i32, ptr %81, align 8
+  br i1 %.not103.i, label %128, label %118
 
-119:                                              ; preds = %115
-  %120 = add i32 %118, -1
-  store i32 %120, ptr %81, align 8
-  %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %121
-  store i32 0, ptr %122, align 8
-  %123 = ptrtoint ptr %116 to i64
-  %124 = ptrtoint ptr %.091.i to i64
-  %reass.sub = sub i64 %123, %124
-  %125 = add i64 %reass.sub, 1
-  %.idx108.i = mul nuw nsw i64 %121, 24
-  %126 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx108.i
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store i64 %125, ptr %127, align 8
-  %128 = load i8, ptr %4, align 1
-  %129 = load ptr, ptr %19, align 8
-  store i8 %128, ptr %129, align 1
+118:                                              ; preds = %114
+  %119 = add i32 %117, -1
+  store i32 %119, ptr %81, align 8
+  %120 = zext i32 %119 to i64
+  %121 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %120
+  store i32 0, ptr %121, align 8
+  %122 = ptrtoint ptr %115 to i64
+  %123 = ptrtoint ptr %.091.i to i64
+  %reass.sub = sub i64 %122, %123
+  %124 = add i64 %reass.sub, 1
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  store i64 %124, ptr %125, align 8
+  %126 = load i8, ptr %4, align 1
+  %127 = load ptr, ptr %19, align 8
+  store i8 %126, ptr %127, align 1
   br label %.thread
 
-130:                                              ; preds = %115
-  %131 = zext i32 %118 to i64
-  %.idx104.i = mul nuw nsw i64 %131, 24
-  %132 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx104.i
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %134 = load i64, ptr %133, align 8
-  %135 = icmp sgt i64 %134, %2
-  br i1 %135, label %136, label %144
+128:                                              ; preds = %114
+  %129 = zext i32 %117 to i64
+  %130 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %129
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load i64, ptr %131, align 8
+  %133 = icmp sgt i64 %132, %2
+  br i1 %133, label %134, label %141
 
-136:                                              ; preds = %130
-  %137 = add i32 %118, -1
-  store i32 %137, ptr %81, align 8
-  %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %138
-  store i32 0, ptr %139, align 8
-  %.idx107.i = mul nuw nsw i64 %138, 24
-  %140 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx107.i
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  store i64 %2, ptr %141, align 8
-  %142 = load i8, ptr %4, align 1
-  %143 = load ptr, ptr %19, align 8
-  store i8 %142, ptr %143, align 1
+134:                                              ; preds = %128
+  %135 = add i32 %117, -1
+  store i32 %135, ptr %81, align 8
+  %136 = zext i32 %135 to i64
+  %137 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %136
+  store i32 0, ptr %137, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  store i64 %2, ptr %138, align 8
+  %139 = load i8, ptr %4, align 1
+  %140 = load ptr, ptr %19, align 8
+  store i8 %139, ptr %140, align 1
   br label %.thread
 
-144:                                              ; preds = %130
-  %145 = icmp eq i64 %.0.i, 0
-  %spec.select.i = select i1 %145, ptr %9, ptr %.091.i
-  %.not105.i = icmp eq i64 %.0.i, %105
-  br i1 %.not105.i, label %146, label %170
+141:                                              ; preds = %128
+  %142 = icmp eq i64 %.0.i, 0
+  %spec.select.i = select i1 %142, ptr %9, ptr %.091.i
+  %.not104.i = icmp eq i64 %.0.i, %104
+  br i1 %.not104.i, label %143, label %166
 
-146:                                              ; preds = %144
-  %147 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %131
-  %148 = load i32, ptr %147, align 8
-  switch i32 %148, label %167 [
-    i32 2, label %149
-    i32 1, label %161
+143:                                              ; preds = %141
+  %144 = load i32, ptr %130, align 8
+  switch i32 %144, label %163 [
+    i32 2, label %145
+    i32 1, label %157
   ]
 
-149:                                              ; preds = %146
-  %150 = icmp eq i64 %105, %92
-  br i1 %150, label %151, label %154
+145:                                              ; preds = %143
+  %146 = icmp eq i64 %104, %92
+  br i1 %146, label %147, label %150
 
-151:                                              ; preds = %149
-  %152 = load i16, ptr %93, align 4
-  %153 = trunc i16 %152 to i8
-  store i8 %153, ptr %4, align 1
-  br label %167
+147:                                              ; preds = %145
+  %148 = load i16, ptr %93, align 4
+  %149 = trunc i16 %148 to i8
+  store i8 %149, ptr %4, align 1
+  br label %163
 
-154:                                              ; preds = %149
-  %155 = load i8, ptr %4, align 1
-  %156 = zext i8 %155 to i16
-  %157 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %158 = load i64, ptr %157, align 8
-  %159 = tail call fastcc zeroext i16 @goughEnableStarts(ptr noundef nonnull %22, i16 noundef zeroext %156, i64 noundef %158, ptr noundef nonnull %21)
-  %160 = trunc i16 %159 to i8
-  store i8 %160, ptr %4, align 1
+150:                                              ; preds = %145
+  %151 = load i8, ptr %4, align 1
+  %152 = zext i8 %151 to i16
+  %153 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %154 = load i64, ptr %153, align 8
+  %155 = tail call fastcc zeroext i16 @goughEnableStarts(ptr noundef nonnull %22, i16 noundef zeroext %152, i64 noundef %154, ptr noundef nonnull %21)
+  %156 = trunc i16 %155 to i8
+  store i8 %156, ptr %4, align 1
   %.pre = load i32, ptr %81, align 8
-  br label %167
+  br label %163
 
-161:                                              ; preds = %146
-  %162 = load i8, ptr %4, align 1
-  %163 = load ptr, ptr %19, align 8
-  store i8 %162, ptr %163, align 1
-  %164 = load i32, ptr %81, align 8
-  %165 = add i32 %164, 1
-  store i32 %165, ptr %81, align 8
-  %.not106.i = icmp ne i8 %162, 0
-  %166 = zext i1 %.not106.i to i8
+157:                                              ; preds = %143
+  %158 = load i8, ptr %4, align 1
+  %159 = load ptr, ptr %19, align 8
+  store i8 %158, ptr %159, align 1
+  %160 = load i32, ptr %81, align 8
+  %161 = add i32 %160, 1
+  store i32 %161, ptr %81, align 8
+  %.not105.i = icmp ne i8 %158, 0
+  %162 = zext i1 %.not105.i to i8
   br label %.thread
 
-167:                                              ; preds = %154, %151, %146
-  %168 = phi i32 [ %.pre, %154 ], [ %118, %151 ], [ %118, %146 ]
-  %169 = add i32 %168, 1
-  store i32 %169, ptr %81, align 8
-  br label %170
+163:                                              ; preds = %150, %147, %143
+  %164 = phi i32 [ %.pre, %150 ], [ %117, %147 ], [ %117, %143 ]
+  %165 = add i32 %164, 1
+  store i32 %165, ptr %81, align 8
+  br label %166
 
-.thread:                                          ; preds = %113, %119, %136, %161
-  %.5.i.ph = phi i8 [ %166, %161 ], [ 1, %136 ], [ 2, %119 ], [ 0, %113 ]
+.thread:                                          ; preds = %112, %118, %134, %157
+  %.5.i.ph = phi i8 [ %162, %157 ], [ 1, %134 ], [ 2, %118 ], [ 0, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecGough8_Q2i.exit
 
-170:                                              ; preds = %167, %144
-  %171 = phi i32 [ %169, %167 ], [ %118, %144 ]
+166:                                              ; preds = %163, %141
+  %167 = phi i32 [ %165, %163 ], [ %117, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %99
+  br label %98
 
 nfaExecGough8_Q2i.exit:                           ; preds = %.thread, %doReports.exit.thread, %94
   %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
@@ -988,154 +965,145 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %91 = select i1 %90, ptr %18, ptr %9
   %92 = sub i64 0, %7
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %99
+  br label %98
 
 94:                                               ; preds = %80
   %95 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %83
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 %82, ptr %81, align 8
   store i32 0, ptr %95, align 8
-  %.idx109.i = mul nuw nsw i64 %83, 24
-  %96 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx109.i
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i64 %2, ptr %97, align 8
-  %98 = load ptr, ptr %19, align 8
-  store i16 %23, ptr %98, align 2
+  store i64 %2, ptr %96, align 8
+  %97 = load ptr, ptr %19, align 8
+  store i16 %23, ptr %97, align 2
   br label %nfaExecGough16_Q2i.exit
 
-99:                                               ; preds = %.preheader, %167
-  %100 = phi i32 [ %168, %167 ], [ %87, %.preheader ]
-  %.097.i = phi i64 [ %.0.i, %167 ], [ %86, %.preheader ]
-  %.091.i = phi ptr [ %spec.select.i, %167 ], [ %91, %.preheader ]
-  %101 = zext i32 %100 to i64
-  %.idx.i = mul nuw nsw i64 %101, 24
-  %102 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %104 = load i64, ptr %103, align 8
-  %105 = tail call i64 @llvm.smin.i64(i64 %104, i64 %2)
-  %106 = icmp slt i64 %.097.i, 0
-  %107 = tail call i64 @llvm.smin.i64(i64 %105, i64 0)
-  %.0.i = select i1 %106, i64 %107, i64 %105
+98:                                               ; preds = %.preheader, %163
+  %99 = phi i32 [ %164, %163 ], [ %87, %.preheader ]
+  %.097.i = phi i64 [ %.0.i, %163 ], [ %86, %.preheader ]
+  %.091.i = phi ptr [ %spec.select.i, %163 ], [ %91, %.preheader ]
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %100
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load i64, ptr %102, align 8
+  %104 = tail call i64 @llvm.smin.i64(i64 %103, i64 %2)
+  %105 = icmp slt i64 %.097.i, 0
+  %106 = tail call i64 @llvm.smin.i64(i64 %104, i64 0)
+  %.0.i = select i1 %105, i64 %106, i64 %104
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %108 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
-  %109 = sub nsw i64 %.0.i, %.097.i
-  %110 = add i64 %.097.i, %7
-  %111 = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef %4, ptr noundef %108, i64 noundef %109, i64 noundef %110, ptr noundef %11, ptr noundef %13, ptr noundef %5, i32 noundef 1)
-  %112 = icmp eq i8 %111, 0
-  br i1 %112, label %113, label %115
+  %107 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
+  %108 = sub nsw i64 %.0.i, %.097.i
+  %109 = add i64 %.097.i, %7
+  %110 = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %22, ptr noundef nonnull %21, ptr noundef %4, ptr noundef %107, i64 noundef %108, i64 noundef %109, ptr noundef %11, ptr noundef %13, ptr noundef %5, i32 noundef 1)
+  %111 = icmp eq i8 %110, 0
+  br i1 %111, label %112, label %114
 
-113:                                              ; preds = %99
-  %114 = load ptr, ptr %19, align 8
-  store i16 0, ptr %114, align 2
+112:                                              ; preds = %98
+  %113 = load ptr, ptr %19, align 8
+  store i16 0, ptr %113, align 2
   br label %.thread
 
-115:                                              ; preds = %99
-  %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr inbounds i8, ptr %.091.i, i64 %.0.i
-  %.not103.i = icmp eq ptr %116, %117
-  %118 = load i32, ptr %81, align 8
-  br i1 %.not103.i, label %130, label %119
+114:                                              ; preds = %98
+  %115 = load ptr, ptr %5, align 8
+  %116 = getelementptr inbounds i8, ptr %.091.i, i64 %.0.i
+  %.not103.i = icmp eq ptr %115, %116
+  %117 = load i32, ptr %81, align 8
+  br i1 %.not103.i, label %128, label %118
 
-119:                                              ; preds = %115
-  %120 = add i32 %118, -1
-  store i32 %120, ptr %81, align 8
-  %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %121
-  store i32 0, ptr %122, align 8
-  %123 = ptrtoint ptr %116 to i64
-  %124 = ptrtoint ptr %.091.i to i64
-  %reass.sub = sub i64 %123, %124
-  %125 = add i64 %reass.sub, 1
-  %.idx108.i = mul nuw nsw i64 %121, 24
-  %126 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx108.i
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store i64 %125, ptr %127, align 8
-  %128 = load i16, ptr %4, align 2
-  %129 = load ptr, ptr %19, align 8
-  store i16 %128, ptr %129, align 2
+118:                                              ; preds = %114
+  %119 = add i32 %117, -1
+  store i32 %119, ptr %81, align 8
+  %120 = zext i32 %119 to i64
+  %121 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %120
+  store i32 0, ptr %121, align 8
+  %122 = ptrtoint ptr %115 to i64
+  %123 = ptrtoint ptr %.091.i to i64
+  %reass.sub = sub i64 %122, %123
+  %124 = add i64 %reass.sub, 1
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  store i64 %124, ptr %125, align 8
+  %126 = load i16, ptr %4, align 2
+  %127 = load ptr, ptr %19, align 8
+  store i16 %126, ptr %127, align 2
   br label %.thread
 
-130:                                              ; preds = %115
-  %131 = zext i32 %118 to i64
-  %.idx104.i = mul nuw nsw i64 %131, 24
-  %132 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx104.i
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %134 = load i64, ptr %133, align 8
-  %135 = icmp sgt i64 %134, %2
-  br i1 %135, label %136, label %144
+128:                                              ; preds = %114
+  %129 = zext i32 %117 to i64
+  %130 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %129
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load i64, ptr %131, align 8
+  %133 = icmp sgt i64 %132, %2
+  br i1 %133, label %134, label %141
 
-136:                                              ; preds = %130
-  %137 = add i32 %118, -1
-  store i32 %137, ptr %81, align 8
-  %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %138
-  store i32 0, ptr %139, align 8
-  %.idx107.i = mul nuw nsw i64 %138, 24
-  %140 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx107.i
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  store i64 %2, ptr %141, align 8
-  %142 = load i16, ptr %4, align 2
-  %143 = load ptr, ptr %19, align 8
-  store i16 %142, ptr %143, align 2
+134:                                              ; preds = %128
+  %135 = add i32 %117, -1
+  store i32 %135, ptr %81, align 8
+  %136 = zext i32 %135 to i64
+  %137 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %136
+  store i32 0, ptr %137, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  store i64 %2, ptr %138, align 8
+  %139 = load i16, ptr %4, align 2
+  %140 = load ptr, ptr %19, align 8
+  store i16 %139, ptr %140, align 2
   br label %.thread
 
-144:                                              ; preds = %130
-  %145 = icmp eq i64 %.0.i, 0
-  %spec.select.i = select i1 %145, ptr %9, ptr %.091.i
-  %.not105.i = icmp eq i64 %.0.i, %105
-  br i1 %.not105.i, label %146, label %167
+141:                                              ; preds = %128
+  %142 = icmp eq i64 %.0.i, 0
+  %spec.select.i = select i1 %142, ptr %9, ptr %.091.i
+  %.not104.i = icmp eq i64 %.0.i, %104
+  br i1 %.not104.i, label %143, label %163
 
-146:                                              ; preds = %144
-  %147 = getelementptr inbounds nuw %struct.mq_item, ptr %88, i64 %131
-  %148 = load i32, ptr %147, align 8
-  switch i32 %148, label %164 [
-    i32 2, label %149
-    i32 1, label %158
+143:                                              ; preds = %141
+  %144 = load i32, ptr %130, align 8
+  switch i32 %144, label %160 [
+    i32 2, label %145
+    i32 1, label %154
   ]
 
-149:                                              ; preds = %146
-  %150 = icmp eq i64 %105, %92
-  br i1 %150, label %151, label %153
+145:                                              ; preds = %143
+  %146 = icmp eq i64 %104, %92
+  br i1 %146, label %147, label %149
 
-151:                                              ; preds = %149
-  %152 = load i16, ptr %93, align 4
-  store i16 %152, ptr %4, align 2
-  br label %164
+147:                                              ; preds = %145
+  %148 = load i16, ptr %93, align 4
+  store i16 %148, ptr %4, align 2
+  br label %160
 
-153:                                              ; preds = %149
-  %154 = load i16, ptr %4, align 2
-  %155 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %156 = load i64, ptr %155, align 8
-  %157 = tail call fastcc zeroext i16 @goughEnableStarts(ptr noundef nonnull %22, i16 noundef zeroext %154, i64 noundef %156, ptr noundef nonnull %21)
-  store i16 %157, ptr %4, align 2
+149:                                              ; preds = %145
+  %150 = load i16, ptr %4, align 2
+  %151 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %152 = load i64, ptr %151, align 8
+  %153 = tail call fastcc zeroext i16 @goughEnableStarts(ptr noundef nonnull %22, i16 noundef zeroext %150, i64 noundef %152, ptr noundef nonnull %21)
+  store i16 %153, ptr %4, align 2
   %.pre = load i32, ptr %81, align 8
-  br label %164
+  br label %160
 
-158:                                              ; preds = %146
-  %159 = load i16, ptr %4, align 2
-  %160 = load ptr, ptr %19, align 8
-  store i16 %159, ptr %160, align 2
-  %161 = load i32, ptr %81, align 8
-  %162 = add i32 %161, 1
-  store i32 %162, ptr %81, align 8
-  %.not106.i = icmp ne i16 %159, 0
-  %163 = zext i1 %.not106.i to i8
+154:                                              ; preds = %143
+  %155 = load i16, ptr %4, align 2
+  %156 = load ptr, ptr %19, align 8
+  store i16 %155, ptr %156, align 2
+  %157 = load i32, ptr %81, align 8
+  %158 = add i32 %157, 1
+  store i32 %158, ptr %81, align 8
+  %.not105.i = icmp ne i16 %155, 0
+  %159 = zext i1 %.not105.i to i8
   br label %.thread
 
-164:                                              ; preds = %153, %151, %146
-  %165 = phi i32 [ %.pre, %153 ], [ %118, %151 ], [ %118, %146 ]
-  %166 = add i32 %165, 1
-  store i32 %166, ptr %81, align 8
-  br label %167
+160:                                              ; preds = %149, %147, %143
+  %161 = phi i32 [ %.pre, %149 ], [ %117, %147 ], [ %117, %143 ]
+  %162 = add i32 %161, 1
+  store i32 %162, ptr %81, align 8
+  br label %163
 
-.thread:                                          ; preds = %113, %119, %136, %158
-  %.5.i.ph = phi i8 [ %163, %158 ], [ 1, %136 ], [ 2, %119 ], [ 0, %113 ]
+.thread:                                          ; preds = %112, %118, %134, %154
+  %.5.i.ph = phi i8 [ %159, %154 ], [ 1, %134 ], [ 2, %118 ], [ 0, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecGough16_Q2i.exit
 
-167:                                              ; preds = %164, %144
-  %168 = phi i32 [ %166, %164 ], [ %118, %144 ]
+163:                                              ; preds = %160, %141
+  %164 = phi i32 [ %162, %160 ], [ %117, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %99
+  br label %98
 
 nfaExecGough16_Q2i.exit:                          ; preds = %.thread, %doReports.exit.thread, %94
   %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
@@ -1287,8 +1255,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %.097.i = phi i64 [ %86, %80 ], [ %.0.i, %128 ]
   %.091.i = phi ptr [ %89, %80 ], [ %spec.select.i, %128 ]
   %95 = zext i32 %94 to i64
-  %.idx.i = mul nuw nsw i64 %95, 24
-  %96 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i
+  %96 = getelementptr inbounds nuw %struct.mq_item, ptr %90, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i64, ptr %97, align 8
   %99 = icmp slt i64 %.097.i, 0
@@ -1312,9 +1279,9 @@ nfaExecGough8_Q2i.exit.thread35:                  ; preds = %93
 107:                                              ; preds = %93
   %108 = icmp eq i64 %.0.i, 0
   %spec.select.i = select i1 %108, ptr %9, ptr %.091.i
-  %.not105.i = icmp eq i64 %.0.i, %98
+  %.not104.i = icmp eq i64 %.0.i, %98
   %.pre.pre = load i32, ptr %81, align 8
-  br i1 %.not105.i, label %109, label %128
+  br i1 %.not104.i, label %109, label %128
 
 109:                                              ; preds = %107
   %110 = zext i32 %.pre.pre to i64
@@ -1364,10 +1331,10 @@ nfaExecGough8_Q2i.exit:                           ; preds = %109
   %131 = load i32, ptr %81, align 8
   %132 = add i32 %131, 1
   store i32 %132, ptr %81, align 8
-  %.not106.i.not = icmp eq i8 %129, 0
+  %.not105.i.not = icmp eq i8 %129, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not106.i.not, label %135, label %133
+  br i1 %.not105.i.not, label %135, label %133
 
 133:                                              ; preds = %nfaExecGough8_Q2i.exit
   %134 = tail call signext i8 @nfaExecMcClellan8_inAccept(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %1) #14
@@ -1526,8 +1493,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %.097.i = phi i64 [ %86, %80 ], [ %.0.i, %125 ]
   %.091.i = phi ptr [ %89, %80 ], [ %spec.select.i, %125 ]
   %95 = zext i32 %94 to i64
-  %.idx.i = mul nuw nsw i64 %95, 24
-  %96 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i
+  %96 = getelementptr inbounds nuw %struct.mq_item, ptr %90, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i64, ptr %97, align 8
   %99 = icmp slt i64 %.097.i, 0
@@ -1551,9 +1517,9 @@ nfaExecGough16_Q2i.exit.thread35:                 ; preds = %93
 107:                                              ; preds = %93
   %108 = icmp eq i64 %.0.i, 0
   %spec.select.i = select i1 %108, ptr %9, ptr %.091.i
-  %.not105.i = icmp eq i64 %.0.i, %98
+  %.not104.i = icmp eq i64 %.0.i, %98
   %.pre.pre = load i32, ptr %81, align 8
-  br i1 %.not105.i, label %109, label %125
+  br i1 %.not104.i, label %109, label %125
 
 109:                                              ; preds = %107
   %110 = zext i32 %.pre.pre to i64
@@ -1600,10 +1566,10 @@ nfaExecGough16_Q2i.exit:                          ; preds = %109
   %128 = load i32, ptr %81, align 8
   %129 = add i32 %128, 1
   store i32 %129, ptr %81, align 8
-  %.not106.i.not = icmp eq i16 %126, 0
+  %.not105.i.not = icmp eq i16 %126, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not106.i.not, label %132, label %130
+  br i1 %.not105.i.not, label %132, label %130
 
 130:                                              ; preds = %nfaExecGough16_Q2i.exit
   %131 = tail call signext i8 @nfaExecMcClellan16_inAccept(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %1) #14
@@ -1908,53 +1874,54 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough8_testEOD(ptr noundef reado
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %13 = zext i8 %8 to i64
-  %14 = getelementptr inbounds nuw %struct.mstate_aux, ptr %12, i64 %13, i32 1
-  %15 = load i32, ptr %14, align 4
-  %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %goughCheckEOD.exit, label %16
+  %14 = getelementptr inbounds nuw %struct.mstate_aux, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load i32, ptr %15, align 4
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %goughCheckEOD.exit, label %17
 
-16:                                               ; preds = %6
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 -64
-  %21 = load i32, ptr %20, align 4
-  %.not64.i10.i = icmp eq i32 %21, 0
+17:                                               ; preds = %6
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %19 = zext i32 %16 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 -64
+  %22 = load i32, ptr %21, align 4
+  %.not64.i10.i = icmp eq i32 %22, 0
   br i1 %.not64.i10.i, label %goughCheckEOD.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %19, i64 -60
-  %wide.trip.count.i = zext i32 %21 to i64
-  br label %24
+.lr.ph.i:                                         ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %20, i64 -60
+  %wide.trip.count.i = zext i32 %22 to i64
+  br label %25
 
-23:                                               ; preds = %33
+24:                                               ; preds = %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %goughCheckEOD.exit, label %24
+  br i1 %exitcond.not.i, label %goughCheckEOD.exit, label %25
 
-24:                                               ; preds = %23, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %25 = getelementptr inbounds nuw %struct.gough_report, ptr %22, i64 %indvars.iv.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, -1
-  br i1 %28, label %33, label %29
+25:                                               ; preds = %24, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
+  %26 = getelementptr inbounds nuw %struct.gough_report, ptr %23, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp eq i32 %28, -1
+  br i1 %29, label %34, label %30
 
-29:                                               ; preds = %24
-  %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw i64, ptr %7, i64 %30
-  %32 = load i64, ptr %31, align 8
-  br label %33
+30:                                               ; preds = %25
+  %31 = zext i32 %28 to i64
+  %32 = getelementptr inbounds nuw i64, ptr %7, i64 %31
+  %33 = load i64, ptr %32, align 8
+  br label %34
 
-33:                                               ; preds = %29, %24
-  %34 = phi i64 [ %32, %29 ], [ %3, %24 ]
-  %35 = load i32, ptr %25, align 4
-  %36 = tail call i32 %4(i64 noundef %34, i64 noundef %3, i32 noundef %35, ptr noundef %5) #14
-  %.not63.i.i = icmp eq i32 %36, 0
-  br i1 %.not63.i.i, label %goughCheckEOD.exit, label %23
+34:                                               ; preds = %30, %25
+  %35 = phi i64 [ %33, %30 ], [ %3, %25 ]
+  %36 = load i32, ptr %26, align 4
+  %37 = tail call i32 %4(i64 noundef %35, i64 noundef %3, i32 noundef %36, ptr noundef %5) #14
+  %.not63.i.i = icmp eq i32 %37, 0
+  br i1 %.not63.i.i, label %goughCheckEOD.exit, label %24
 
-goughCheckEOD.exit:                               ; preds = %23, %33, %6, %16
-  %.0.i = phi i8 [ 1, %6 ], [ 1, %16 ], [ 0, %33 ], [ 1, %23 ]
+goughCheckEOD.exit:                               ; preds = %24, %34, %6, %17
+  %.0.i = phi i8 [ 1, %6 ], [ 1, %17 ], [ 0, %34 ], [ 1, %24 ]
   ret i8 %.0.i
 }
 
@@ -1967,53 +1934,54 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough16_testEOD(ptr noundef read
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %13 = zext i16 %8 to i64
-  %14 = getelementptr inbounds nuw %struct.mstate_aux, ptr %12, i64 %13, i32 1
-  %15 = load i32, ptr %14, align 4
-  %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %goughCheckEOD.exit, label %16
+  %14 = getelementptr inbounds nuw %struct.mstate_aux, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load i32, ptr %15, align 4
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %goughCheckEOD.exit, label %17
 
-16:                                               ; preds = %6
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 -64
-  %21 = load i32, ptr %20, align 4
-  %.not64.i10.i = icmp eq i32 %21, 0
+17:                                               ; preds = %6
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %19 = zext i32 %16 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 -64
+  %22 = load i32, ptr %21, align 4
+  %.not64.i10.i = icmp eq i32 %22, 0
   br i1 %.not64.i10.i, label %goughCheckEOD.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %19, i64 -60
-  %wide.trip.count.i = zext i32 %21 to i64
-  br label %24
+.lr.ph.i:                                         ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %20, i64 -60
+  %wide.trip.count.i = zext i32 %22 to i64
+  br label %25
 
-23:                                               ; preds = %33
+24:                                               ; preds = %34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %goughCheckEOD.exit, label %24
+  br i1 %exitcond.not.i, label %goughCheckEOD.exit, label %25
 
-24:                                               ; preds = %23, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %25 = getelementptr inbounds nuw %struct.gough_report, ptr %22, i64 %indvars.iv.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, -1
-  br i1 %28, label %33, label %29
+25:                                               ; preds = %24, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
+  %26 = getelementptr inbounds nuw %struct.gough_report, ptr %23, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp eq i32 %28, -1
+  br i1 %29, label %34, label %30
 
-29:                                               ; preds = %24
-  %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw i64, ptr %7, i64 %30
-  %32 = load i64, ptr %31, align 8
-  br label %33
+30:                                               ; preds = %25
+  %31 = zext i32 %28 to i64
+  %32 = getelementptr inbounds nuw i64, ptr %7, i64 %31
+  %33 = load i64, ptr %32, align 8
+  br label %34
 
-33:                                               ; preds = %29, %24
-  %34 = phi i64 [ %32, %29 ], [ %3, %24 ]
-  %35 = load i32, ptr %25, align 4
-  %36 = tail call i32 %4(i64 noundef %34, i64 noundef %3, i32 noundef %35, ptr noundef %5) #14
-  %.not63.i.i = icmp eq i32 %36, 0
-  br i1 %.not63.i.i, label %goughCheckEOD.exit, label %23
+34:                                               ; preds = %30, %25
+  %35 = phi i64 [ %33, %30 ], [ %3, %25 ]
+  %36 = load i32, ptr %26, align 4
+  %37 = tail call i32 %4(i64 noundef %35, i64 noundef %3, i32 noundef %36, ptr noundef %5) #14
+  %.not63.i.i = icmp eq i32 %37, 0
+  br i1 %.not63.i.i, label %goughCheckEOD.exit, label %24
 
-goughCheckEOD.exit:                               ; preds = %23, %33, %6, %16
-  %.0.i = phi i8 [ 1, %6 ], [ 1, %16 ], [ 0, %33 ], [ 1, %23 ]
+goughCheckEOD.exit:                               ; preds = %24, %34, %6, %17
+  %.0.i = phi i8 [ 1, %6 ], [ 1, %17 ], [ 0, %34 ], [ 1, %24 ]
   ret i8 %.0.i
 }
 
@@ -2443,11 +2411,11 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %0
   %.pre224 = sub i64 %.pre, %.pre221
   br label %.loopexit83
 
-.loopexit.loopexit:                               ; preds = %375, %379, %382
+.loopexit.loopexit:                               ; preds = %376, %380, %383
   %35 = getelementptr inbounds nuw i8, ptr %.1134.i, i64 4
-  %36 = icmp ult ptr %378, %35
+  %36 = icmp ult ptr %379, %35
   %.4137.i.v = select i1 %36, i64 32, i64 8
-  %.4137.i = getelementptr inbounds nuw i8, ptr %378, i64 %.4137.i.v
+  %.4137.i = getelementptr inbounds nuw i8, ptr %379, i64 %.4137.i.v
   %.not159.i = icmp ult ptr %.4137.i, %260
   %.5138.i = select i1 %.not159.i, ptr %.4137.i, ptr %12
   br label %.loopexit
@@ -2457,7 +2425,7 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %0
   %.434 = phi i16 [ 0, %10 ], [ %.131394, %.loopexit.loopexit ]
   %.4 = phi i32 [ 0, %10 ], [ %.1395, %.loopexit.loopexit ]
   %.0133.i = phi ptr [ %12, %10 ], [ %.5138.i, %.loopexit.loopexit ]
-  %.0128.i = phi ptr [ %3, %10 ], [ %378, %.loopexit.loopexit ]
+  %.0128.i = phi ptr [ %3, %10 ], [ %379, %.loopexit.loopexit ]
   %.0124.i = phi i8 [ %11, %10 ], [ %313, %.loopexit.loopexit ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %38 = ptrtoint ptr %3 to i64
@@ -3068,38 +3036,39 @@ run_prog.exit11:                                  ; preds = %281, %.lr.ph398
 
 371:                                              ; preds = %315
   %372 = zext i8 %313 to i64
-  %373 = getelementptr inbounds nuw %struct.mstate_aux, ptr %21, i64 %372, i32 3
-  %374 = load i32, ptr %373, align 4
-  %.not156.i = icmp eq i32 %374, 0
-  br i1 %.not156.i, label %doReports.exit.i, label %375
+  %373 = getelementptr inbounds nuw %struct.mstate_aux, ptr %21, i64 %372
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 12
+  %375 = load i32, ptr %374, align 4
+  %.not156.i = icmp eq i32 %375, 0
+  br i1 %.not156.i, label %doReports.exit.i, label %376
 
-375:                                              ; preds = %371
-  %376 = zext i32 %374 to i64
-  %377 = getelementptr inbounds nuw i8, ptr %0, i64 %376
-  %378 = tail call ptr @run_accel(ptr noundef nonnull %377, ptr noundef nonnull %265, ptr noundef nonnull %12) #14
-  %.not157.i = icmp eq ptr %378, %265
-  br i1 %.not157.i, label %.loopexit.loopexit, label %379
+376:                                              ; preds = %371
+  %377 = zext i32 %375 to i64
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 %377
+  %379 = tail call ptr @run_accel(ptr noundef nonnull %378, ptr noundef nonnull %265, ptr noundef nonnull %12) #14
+  %.not157.i = icmp eq ptr %379, %265
+  br i1 %.not157.i, label %.loopexit.loopexit, label %380
 
-379:                                              ; preds = %375
-  %380 = getelementptr inbounds nuw i8, ptr %377, i64 84
-  %381 = load i32, ptr %380, align 4
-  %.not158.i = icmp eq i32 %381, 0
-  br i1 %.not158.i, label %.loopexit.loopexit, label %382
+380:                                              ; preds = %376
+  %381 = getelementptr inbounds nuw i8, ptr %378, i64 84
+  %382 = load i32, ptr %381, align 4
+  %.not158.i = icmp eq i32 %382, 0
+  br i1 %.not158.i, label %.loopexit.loopexit, label %383
 
-382:                                              ; preds = %379
-  %383 = getelementptr i8, ptr %377, i64 80
-  %.val = load i8, ptr %383, align 16
-  tail call fastcc void @run_accel_prog(ptr noundef nonnull %17, i8 %.val, i32 %381, ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull %265, ptr noundef %378, ptr noundef %1)
+383:                                              ; preds = %380
+  %384 = getelementptr i8, ptr %378, i64 80
+  %.val = load i8, ptr %384, align 16
+  tail call fastcc void @run_accel_prog(ptr noundef nonnull %17, i8 %.val, i32 %382, ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull %265, ptr noundef %379, ptr noundef %1)
   br label %.loopexit.loopexit
 
 doReports.exit.i:                                 ; preds = %357, %331, %327, %353, %371, %run_prog.exit11
   %.341 = phi i32 [ %.139393, %run_prog.exit11 ], [ %.139393, %371 ], [ %.139393, %327 ], [ %345, %353 ], [ %.139393, %331 ], [ %.139393, %357 ]
   %.333 = phi i16 [ %.131394, %run_prog.exit11 ], [ %.131394, %371 ], [ %.131394, %327 ], [ %314, %353 ], [ %.131394, %331 ], [ %.131394, %357 ]
   %.3 = phi i32 [ %.1395, %run_prog.exit11 ], [ %.1395, %371 ], [ %.1395, %327 ], [ %347, %353 ], [ %.1395, %331 ], [ %.1395, %357 ]
-  %384 = icmp ult ptr %265, %12
-  %385 = icmp ne i8 %313, 0
-  %386 = and i1 %384, %385
-  br i1 %386, label %.lr.ph398, label %._crit_edge
+  %385 = icmp ult ptr %265, %12
+  %386 = icmp ne i8 %313, 0
+  %387 = and i1 %385, %386
+  br i1 %387, label %.lr.ph398, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %doReports.exit.i, %.loopexit83
   %.3127.i.lcssa = phi i8 [ %.1125.i, %.loopexit83 ], [ %313, %doReports.exit.i ]
@@ -3214,7 +3183,8 @@ run_prog_i.exit:                                  ; preds = %22, %.run_prog_i.ex
   %.pre-phi = phi i64 [ %.pre, %.run_prog_i.exit_crit_edge ], [ %16, %13 ], [ %16, %22 ]
   %52 = zext i32 %7 to i64
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 %52
-  %.0.in = getelementptr inbounds nuw %struct.mstate_aux, ptr %53, i64 %.pre-phi, i32 2
+  %54 = getelementptr inbounds nuw %struct.mstate_aux, ptr %53, i64 %.pre-phi
+  %.0.in = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.0 = load i16, ptr %.0.in, align 4
   ret i16 %.0
 }
@@ -3492,11 +3462,11 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %
   %or.cond.i = or i1 %33, %32
   br i1 %or.cond.i, label %.loopexit, label %.loopexit102
 
-.loopexit.loopexit:                               ; preds = %347, %358, %361
+.loopexit.loopexit:                               ; preds = %347, %359, %362
   %34 = getelementptr inbounds nuw i8, ptr %.1158.i, i64 4
-  %35 = icmp ult ptr %357, %34
+  %35 = icmp ult ptr %358, %34
   %.4161.i.v = select i1 %35, i64 32, i64 8
-  %.4161.i = getelementptr inbounds nuw i8, ptr %357, i64 %.4161.i.v
+  %.4161.i = getelementptr inbounds nuw i8, ptr %358, i64 %.4161.i.v
   %.not182.i = icmp ult ptr %.4161.i, %197
   %.5162.i = select i1 %.not182.i, ptr %.4161.i, ptr %13
   %36 = trunc nuw nsw i32 %348 to i16
@@ -3507,7 +3477,7 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %
   %.530 = phi i16 [ 0, %10 ], [ %.126304, %.loopexit.loopexit ]
   %.5 = phi i32 [ 0, %10 ], [ %.1305, %.loopexit.loopexit ]
   %.0157.i = phi ptr [ %13, %10 ], [ %.5162.i, %.loopexit.loopexit ]
-  %.0152.i = phi ptr [ %3, %10 ], [ %357, %.loopexit.loopexit ]
+  %.0152.i = phi ptr [ %3, %10 ], [ %358, %.loopexit.loopexit ]
   %.0144.i = phi i16 [ %24, %10 ], [ %36, %.loopexit.loopexit ]
   %37 = icmp ult ptr %.0152.i, %.0157.i
   %38 = icmp ne i16 %.0144.i, 0
@@ -4082,24 +4052,25 @@ doSherman16.exit16:                               ; preds = %.thread69, %271, %2
   %350 = zext i32 %349 to i64
   %351 = getelementptr inbounds nuw i8, ptr %12, i64 %350
   %352 = zext nneg i32 %348 to i64
-  %353 = getelementptr inbounds nuw %struct.mstate_aux, ptr %351, i64 %352, i32 3
-  %354 = load i32, ptr %353, align 4
-  %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds nuw i8, ptr %0, i64 %355
-  %357 = tail call ptr @run_accel(ptr noundef %356, ptr noundef nonnull %202, ptr noundef nonnull %13) #14
-  %.not180.i = icmp eq ptr %357, %202
-  br i1 %.not180.i, label %.loopexit.loopexit, label %358
+  %353 = getelementptr inbounds nuw %struct.mstate_aux, ptr %351, i64 %352
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 12
+  %355 = load i32, ptr %354, align 4
+  %356 = zext i32 %355 to i64
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 %356
+  %358 = tail call ptr @run_accel(ptr noundef %357, ptr noundef nonnull %202, ptr noundef nonnull %13) #14
+  %.not180.i = icmp eq ptr %358, %202
+  br i1 %.not180.i, label %.loopexit.loopexit, label %359
 
-358:                                              ; preds = %347
-  %359 = getelementptr inbounds nuw i8, ptr %356, i64 84
-  %360 = load i32, ptr %359, align 4
-  %.not181.i = icmp eq i32 %360, 0
-  br i1 %.not181.i, label %.loopexit.loopexit, label %361
+359:                                              ; preds = %347
+  %360 = getelementptr inbounds nuw i8, ptr %357, i64 84
+  %361 = load i32, ptr %360, align 4
+  %.not181.i = icmp eq i32 %361, 0
+  br i1 %.not181.i, label %.loopexit.loopexit, label %362
 
-361:                                              ; preds = %358
-  %362 = getelementptr i8, ptr %356, i64 80
-  %.val = load i8, ptr %362, align 16
-  tail call fastcc void @run_accel_prog(ptr noundef nonnull %12, i8 %.val, i32 %360, ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull %202, ptr noundef %357, ptr noundef %1)
+362:                                              ; preds = %359
+  %363 = getelementptr i8, ptr %357, i64 80
+  %.val = load i8, ptr %363, align 16
+  tail call fastcc void @run_accel_prog(ptr noundef nonnull %12, i8 %.val, i32 %361, ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull %202, ptr noundef %358, ptr noundef %1)
   br label %.loopexit.loopexit
 
 doReports.exit.i:                                 ; preds = %330, %304, %326, %300, %.doReports.exit.i_crit_edge
@@ -4107,25 +4078,25 @@ doReports.exit.i:                                 ; preds = %330, %304, %326, %3
   %.429 = phi i16 [ %.126304, %.doReports.exit.i_crit_edge ], [ %.126304, %300 ], [ %292, %326 ], [ %.126304, %304 ], [ %.126304, %330 ]
   %.4 = phi i32 [ %.1305, %.doReports.exit.i_crit_edge ], [ %.1305, %300 ], [ %320, %326 ], [ %.1305, %304 ], [ %.1305, %330 ]
   %.7151.i = phi i16 [ %.pre182, %.doReports.exit.i_crit_edge ], [ %292, %300 ], [ %292, %326 ], [ %292, %304 ], [ %292, %330 ]
-  %363 = icmp ult ptr %202, %13
-  %364 = icmp ne i16 %.7151.i, 0
-  %365 = select i1 %363, i1 %364, i1 false
-  br i1 %365, label %.lr.ph308, label %._crit_edge
+  %364 = icmp ult ptr %202, %13
+  %365 = icmp ne i16 %.7151.i, 0
+  %366 = select i1 %364, i1 %365, i1 false
+  br i1 %366, label %.lr.ph308, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %doReports.exit.i, %.loopexit102
   %.5149.i.lcssa = phi i16 [ %.1145.i, %.loopexit102 ], [ %.7151.i, %doReports.exit.i ]
-  br i1 %195, label %366, label %367
+  br i1 %195, label %367, label %368
 
-366:                                              ; preds = %._crit_edge
+367:                                              ; preds = %._crit_edge
   store ptr %13, ptr %8, align 8
-  br label %367
+  br label %368
 
-367:                                              ; preds = %366, %._crit_edge
+368:                                              ; preds = %367, %._crit_edge
   store i16 %.5149.i.lcssa, ptr %2, align 2
   br label %goughExec16_i.exit
 
-goughExec16_i.exit:                               ; preds = %171, %145, %185, %326, %300, %340, %287, %132, %367
-  %.6.i = phi i8 [ 1, %367 ], [ 1, %132 ], [ 1, %287 ], [ 0, %340 ], [ 0, %300 ], [ 0, %326 ], [ 0, %185 ], [ 0, %145 ], [ 0, %171 ]
+goughExec16_i.exit:                               ; preds = %171, %145, %185, %326, %300, %340, %287, %132, %368
+  %.6.i = phi i8 [ 1, %368 ], [ 1, %132 ], [ 1, %287 ], [ 0, %340 ], [ 0, %300 ], [ 0, %326 ], [ 0, %185 ], [ 0, %145 ], [ 0, %171 ]
   ret i8 %.6.i
 }
 

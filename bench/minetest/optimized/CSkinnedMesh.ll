@@ -1079,7 +1079,8 @@ if.then51:                                        ; preds = %if.then51.sink.spli
 
 if.then54:                                        ; preds = %if.then51
   %conv.i453 = zext i32 %foundPositionIndex.2.ph to i64
-  %position56 = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SPositionKey", ptr %2, i64 %conv.i453, i32 1
+  %position56.split = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SPositionKey", ptr %2, i64 %conv.i453
+  %position56 = getelementptr inbounds nuw i8, ptr %position56.split, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %position, ptr noundef nonnull align 4 dereferenceable(12) %position56, i64 12, i1 false), !tbaa.struct !82
   br label %if.end87
 
@@ -1214,7 +1215,8 @@ if.then146:                                       ; preds = %if.then146.sink.spl
 
 if.then153:                                       ; preds = %if.then146
   %conv.i513 = zext i32 %foundScaleIndex.2.ph to i64
-  %scale155 = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SScaleKey", ptr %25, i64 %conv.i513, i32 1
+  %scale155.split = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SScaleKey", ptr %25, i64 %conv.i513
+  %scale155 = getelementptr inbounds nuw i8, ptr %scale155.split, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scale, ptr noundef nonnull align 4 dereferenceable(12) %scale155, i64 12, i1 false), !tbaa.struct !82
   br label %if.end192
 
@@ -1349,7 +1351,8 @@ if.then251:                                       ; preds = %if.then251.sink.spl
 
 if.then258:                                       ; preds = %if.then251
   %conv.i593 = zext i32 %foundRotationIndex.2.ph to i64
-  %rotation260 = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SRotationKey", ptr %48, i64 %conv.i593, i32 1
+  %rotation260.split = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SRotationKey", ptr %48, i64 %conv.i593
+  %rotation260 = getelementptr inbounds nuw i8, ptr %rotation260.split, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %rotation, ptr noundef nonnull align 4 dereferenceable(16) %rotation260, i64 16, i1 false), !tbaa.struct !80
   br label %if.end287
 
@@ -3396,7 +3399,8 @@ for.body217:                                      ; preds = %for.body209, %for.b
   %92 = load ptr, ptr %vfn236, align 8
   %call237 = tail call noundef ptr %92(ptr noundef nonnull align 8 dereferenceable(441) %91, i32 noundef %87) #31
   %93 = load ptr, ptr %Weights214, align 8, !tbaa !57
-  %StaticPos = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %93, i64 %indvars.iv572, i32 4
+  %StaticPos.split = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %93, i64 %indvars.iv572
+  %StaticPos = getelementptr inbounds nuw i8, ptr %StaticPos.split, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %StaticPos, ptr noundef nonnull align 4 dereferenceable(12) %call237, i64 12, i1 false), !tbaa.struct !82
   %94 = load ptr, ptr %LocalBuffers, align 8, !tbaa !47
   %add.ptr.i.i491 = getelementptr inbounds nuw ptr, ptr %94, i64 %conv.i480
@@ -3407,7 +3411,8 @@ for.body217:                                      ; preds = %for.body209, %for.b
   %call245 = tail call noundef ptr %96(ptr noundef nonnull align 8 dereferenceable(441) %95, i32 noundef %87) #31
   %Normal = getelementptr inbounds nuw i8, ptr %call245, i64 12
   %97 = load ptr, ptr %Weights214, align 8, !tbaa !57
-  %StaticNormal = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %97, i64 %indvars.iv572, i32 5
+  %StaticNormal.split = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %97, i64 %indvars.iv572
+  %StaticNormal = getelementptr inbounds nuw i8, ptr %StaticNormal.split, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %StaticNormal, ptr noundef nonnull align 4 dereferenceable(12) %Normal, i64 12, i1 false), !tbaa.struct !82
   %indvars.iv.next573 = add nuw nsw i64 %indvars.iv572, 1
   %98 = load ptr, ptr %_M_finish.i.i470, align 8, !tbaa !147
@@ -3567,7 +3572,8 @@ for.body13:                                       ; preds = %for.body, %for.body
   %call24 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(441) %17, i32 noundef %15) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call24, ptr noundef nonnull align 8 dereferenceable(12) %StaticPos, i64 12, i1 false), !tbaa.struct !82
   %19 = load ptr, ptr %Weights, align 8, !tbaa !57
-  %StaticNormal = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %19, i64 %indvars.iv, i32 5
+  %StaticNormal.split = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %19, i64 %indvars.iv
+  %StaticNormal = getelementptr inbounds nuw i8, ptr %StaticNormal.split, i64 36
   %20 = load ptr, ptr %LocalBuffers, align 8, !tbaa !47
   %add.ptr.i.i79 = getelementptr inbounds nuw ptr, ptr %20, i64 %conv.i74
   %21 = load ptr, ptr %add.ptr.i.i79, align 8, !tbaa !48
@@ -3675,7 +3681,8 @@ for.body8:                                        ; preds = %for.body, %for.body
   %17 = load ptr, ptr %vfn, align 8
   %call16 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(441) %16, i32 noundef %14) #31
   %18 = load ptr, ptr %Weights, align 8, !tbaa !57
-  %StaticPos = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %18, i64 %indvars.iv, i32 4
+  %StaticPos.split = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %18, i64 %indvars.iv
+  %StaticPos = getelementptr inbounds nuw i8, ptr %StaticPos.split, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %StaticPos, ptr noundef nonnull align 4 dereferenceable(12) %call16, i64 12, i1 false), !tbaa.struct !82
   %19 = load ptr, ptr %LocalBuffers, align 8, !tbaa !47
   %add.ptr.i.i59 = getelementptr inbounds nuw ptr, ptr %19, i64 %conv.i54
@@ -3686,7 +3693,8 @@ for.body8:                                        ; preds = %for.body, %for.body
   %call24 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(441) %20, i32 noundef %14) #31
   %Normal = getelementptr inbounds nuw i8, ptr %call24, i64 12
   %22 = load ptr, ptr %Weights, align 8, !tbaa !57
-  %StaticNormal = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %22, i64 %indvars.iv, i32 5
+  %StaticNormal.split = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %22, i64 %indvars.iv
+  %StaticNormal = getelementptr inbounds nuw i8, ptr %StaticNormal.split, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %StaticNormal, ptr noundef nonnull align 4 dereferenceable(12) %Normal, i64 12, i1 false), !tbaa.struct !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load ptr, ptr %_M_finish.i.i44, align 8, !tbaa !147
@@ -3778,7 +3786,8 @@ for.body8:                                        ; preds = %for.body, %for.body
   %call18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(441) %16, i32 noundef %14) #31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %call18, ptr noundef nonnull align 8 dereferenceable(12) %StaticPos, i64 12, i1 false), !tbaa.struct !82
   %18 = load ptr, ptr %Weights, align 8, !tbaa !57
-  %StaticNormal = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %18, i64 %indvars.iv, i32 5
+  %StaticNormal.split = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %18, i64 %indvars.iv
+  %StaticNormal = getelementptr inbounds nuw i8, ptr %StaticNormal.split, i64 36
   %19 = load ptr, ptr %LocalBuffers, align 8, !tbaa !47
   %add.ptr.i.i61 = getelementptr inbounds nuw ptr, ptr %19, i64 %conv.i56
   %20 = load ptr, ptr %add.ptr.i.i61, align 8, !tbaa !48
@@ -11359,24 +11368,25 @@ entry:
 sw.bb:                                            ; preds = %entry
   %Vertices_2TCoords = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %Vertices_2TCoords, align 8, !tbaa !391
-  %Normal = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %1, i64 %conv.i11, i32 0, i32 1
+  %Normal.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %1, i64 %conv.i11
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %Vertices_Tangents = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %Vertices_Tangents, align 8, !tbaa !401
-  %Normal4 = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %2, i64 %conv.i11, i32 0, i32 1
+  %Normal4.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %2, i64 %conv.i11
   br label %return
 
 sw.default:                                       ; preds = %entry
   %Vertices_Standard = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %Vertices_Standard, align 8, !tbaa !393
-  %Normal6 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %3, i64 %conv.i11, i32 1
+  %Normal6.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %3, i64 %conv.i11
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb2, %sw.bb
-  %retval.0 = phi ptr [ %Normal6, %sw.default ], [ %Normal4, %sw.bb2 ], [ %Normal, %sw.bb ]
-  ret ptr %retval.0
+  %Normal6.split.sink = phi ptr [ %Normal6.split, %sw.default ], [ %Normal4.split, %sw.bb2 ], [ %Normal.split, %sw.bb ]
+  %Normal6 = getelementptr inbounds nuw i8, ptr %Normal6.split.sink, i64 12
+  ret ptr %Normal6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11393,24 +11403,25 @@ entry:
 sw.bb:                                            ; preds = %entry
   %Vertices_2TCoords = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %Vertices_2TCoords, align 8, !tbaa !391
-  %Normal = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %1, i64 %conv.i11, i32 0, i32 1
+  %Normal.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %1, i64 %conv.i11
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %Vertices_Tangents = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %Vertices_Tangents, align 8, !tbaa !401
-  %Normal4 = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %2, i64 %conv.i11, i32 0, i32 1
+  %Normal4.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %2, i64 %conv.i11
   br label %return
 
 sw.default:                                       ; preds = %entry
   %Vertices_Standard = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %Vertices_Standard, align 8, !tbaa !393
-  %Normal6 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %3, i64 %conv.i11, i32 1
+  %Normal6.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %3, i64 %conv.i11
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb2, %sw.bb
-  %retval.0 = phi ptr [ %Normal6, %sw.default ], [ %Normal4, %sw.bb2 ], [ %Normal, %sw.bb ]
-  ret ptr %retval.0
+  %Normal6.split.sink = phi ptr [ %Normal6.split, %sw.default ], [ %Normal4.split, %sw.bb2 ], [ %Normal.split, %sw.bb ]
+  %Normal6 = getelementptr inbounds nuw i8, ptr %Normal6.split.sink, i64 12
+  ret ptr %Normal6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11427,24 +11438,25 @@ entry:
 sw.bb:                                            ; preds = %entry
   %Vertices_2TCoords = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %Vertices_2TCoords, align 8, !tbaa !391
-  %TCoords = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %1, i64 %conv.i11, i32 0, i32 3
+  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %1, i64 %conv.i11
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %Vertices_Tangents = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %Vertices_Tangents, align 8, !tbaa !401
-  %TCoords4 = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %2, i64 %conv.i11, i32 0, i32 3
+  %TCoords4.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %2, i64 %conv.i11
   br label %return
 
 sw.default:                                       ; preds = %entry
   %Vertices_Standard = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %Vertices_Standard, align 8, !tbaa !393
-  %TCoords6 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %3, i64 %conv.i11, i32 3
+  %TCoords6.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %3, i64 %conv.i11
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb2, %sw.bb
-  %retval.0 = phi ptr [ %TCoords6, %sw.default ], [ %TCoords4, %sw.bb2 ], [ %TCoords, %sw.bb ]
-  ret ptr %retval.0
+  %TCoords6.split.sink = phi ptr [ %TCoords6.split, %sw.default ], [ %TCoords4.split, %sw.bb2 ], [ %TCoords.split, %sw.bb ]
+  %TCoords6 = getelementptr inbounds nuw i8, ptr %TCoords6.split.sink, i64 28
+  ret ptr %TCoords6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11461,24 +11473,25 @@ entry:
 sw.bb:                                            ; preds = %entry
   %Vertices_2TCoords = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %Vertices_2TCoords, align 8, !tbaa !391
-  %TCoords = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %1, i64 %conv.i11, i32 0, i32 3
+  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %1, i64 %conv.i11
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %Vertices_Tangents = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %Vertices_Tangents, align 8, !tbaa !401
-  %TCoords4 = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %2, i64 %conv.i11, i32 0, i32 3
+  %TCoords4.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %2, i64 %conv.i11
   br label %return
 
 sw.default:                                       ; preds = %entry
   %Vertices_Standard = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %Vertices_Standard, align 8, !tbaa !393
-  %TCoords6 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %3, i64 %conv.i11, i32 3
+  %TCoords6.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %3, i64 %conv.i11
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb2, %sw.bb
-  %retval.0 = phi ptr [ %TCoords6, %sw.default ], [ %TCoords4, %sw.bb2 ], [ %TCoords, %sw.bb ]
-  ret ptr %retval.0
+  %TCoords6.split.sink = phi ptr [ %TCoords6.split, %sw.default ], [ %TCoords4.split, %sw.bb2 ], [ %TCoords.split, %sw.bb ]
+  %TCoords6 = getelementptr inbounds nuw i8, ptr %TCoords6.split.sink, i64 28
+  ret ptr %TCoords6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

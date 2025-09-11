@@ -7366,7 +7366,7 @@ define hidden void @_ZN3sat8aig_cuts11on_node_delEjRKNS0_4nodeE(ptr noundef nonn
 define hidden { i64, i64 } @_ZNK3sat8aig_cuts4evalERKNS0_4nodeERK7svectorINS_7cut_valEjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !80
-  switch i32 %5, label %90 [
+  switch i32 %5, label %92 [
     i32 0, label %20
     i32 1, label %.preheader
     i32 3, label %.preheader61
@@ -7416,13 +7416,13 @@ define hidden { i64, i64 } @_ZNK3sat8aig_cuts4evalERKNS0_4nodeERK7svectorINS_7cu
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw %"class.sat::literal", ptr %18, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !50
-  %27 = and i32 %26, 1
-  %.not60 = icmp eq i32 %27, 0
-  %28 = lshr i32 %26, 1
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %19, i64 %29, i32 1
-  %31 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %19, i64 %29
-  %.in41 = select i1 %.not60, ptr %31, ptr %30
+  %27 = lshr i32 %26, 1
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %19, i64 %28
+  %30 = shl i32 %26, 3
+  %31 = and i32 %30, 8
+  %.in41.idx = zext nneg i32 %31 to i64
+  %.in41 = getelementptr inbounds nuw i8, ptr %29, i64 %.in41.idx
   %32 = load i64, ptr %.in41, align 8, !tbaa !87
   %33 = and i64 %32, %.166
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
@@ -7437,13 +7437,13 @@ define hidden { i64, i64 } @_ZNK3sat8aig_cuts4evalERKNS0_4nodeERK7svectorINS_7cu
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw %"class.sat::literal", ptr %11, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !50
-  %40 = and i32 %39, 1
-  %.not59 = icmp eq i32 %40, 0
-  %41 = lshr i32 %39, 1
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %12, i64 %42, i32 1
-  %44 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %12, i64 %42
-  %.in40 = select i1 %.not59, ptr %44, ptr %43
+  %40 = lshr i32 %39, 1
+  %41 = zext nneg i32 %40 to i64
+  %42 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %12, i64 %41
+  %43 = shl i32 %39, 3
+  %44 = and i32 %43, 8
+  %.in40.idx = zext nneg i32 %44 to i64
+  %.in40 = getelementptr inbounds nuw i8, ptr %42, i64 %.in40.idx
   %45 = load i64, ptr %.in40, align 8, !tbaa !87
   %46 = xor i64 %45, %.264
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7466,55 +7466,57 @@ define hidden { i64, i64 } @_ZNK3sat8aig_cuts4evalERKNS0_4nodeERK7svectorINS_7cu
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds nuw %"class.sat::literal", ptr %51, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !50
-  %63 = and i32 %54, 1
-  %.not = icmp eq i32 %63, 0
-  %64 = lshr i32 %54, 1
-  %65 = load ptr, ptr %2, align 8, !tbaa !133
-  %66 = zext nneg i32 %64 to i64
-  %67 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %65, i64 %66, i32 1
-  %68 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %65, i64 %66
-  %.in = select i1 %.not, ptr %68, ptr %67
+  %63 = lshr i32 %54, 1
+  %64 = load ptr, ptr %2, align 8, !tbaa !133
+  %65 = zext nneg i32 %63 to i64
+  %66 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %64, i64 %65
+  %67 = shl i32 %54, 3
+  %68 = and i32 %67, 8
+  %.in.idx = zext nneg i32 %68 to i64
+  %.in = getelementptr inbounds nuw i8, ptr %66, i64 %.in.idx
   %69 = load i64, ptr %.in, align 8, !tbaa !87
   %70 = and i32 %58, 1
   %.not57 = icmp eq i32 %70, 0
   %71 = lshr i32 %58, 1
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %65, i64 %72, i32 1
-  %74 = lshr exact i32 %58, 1
-  %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %65, i64 %75
-  %.in38 = select i1 %.not57, ptr %76, ptr %73
-  %77 = load i64, ptr %.in38, align 8, !tbaa !87
-  %78 = and i32 %62, 1
-  %.not58 = icmp eq i32 %78, 0
-  %79 = lshr i32 %62, 1
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %65, i64 %80, i32 1
-  %82 = lshr exact i32 %62, 1
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %65, i64 %83
-  %.in39 = select i1 %.not58, ptr %84, ptr %81
-  %85 = load i64, ptr %.in39, align 8, !tbaa !87
-  %86 = and i64 %77, %69
-  %87 = xor i64 %69, -1
-  %88 = and i64 %85, %87
-  %89 = or i64 %88, %86
+  %73 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %64, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = lshr exact i32 %58, 1
+  %76 = zext nneg i32 %75 to i64
+  %77 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %64, i64 %76
+  %.in38 = select i1 %.not57, ptr %77, ptr %74
+  %78 = load i64, ptr %.in38, align 8, !tbaa !87
+  %79 = and i32 %62, 1
+  %.not58 = icmp eq i32 %79, 0
+  %80 = lshr i32 %62, 1
+  %81 = zext nneg i32 %80 to i64
+  %82 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %64, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %84 = lshr exact i32 %62, 1
+  %85 = zext nneg i32 %84 to i64
+  %86 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %64, i64 %85
+  %.in39 = select i1 %.not58, ptr %86, ptr %83
+  %87 = load i64, ptr %.in39, align 8, !tbaa !87
+  %88 = and i64 %78, %69
+  %89 = xor i64 %69, -1
+  %90 = and i64 %87, %89
+  %91 = or i64 %90, %88
   br label %.loopexit
 
-90:                                               ; preds = %3
+92:                                               ; preds = %3
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 569, ptr noundef nonnull @.str.24)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %21, %.preheader61, %.preheader, %90, %47, %20
-  %.0 = phi i64 [ 0, %90 ], [ 0, %20 ], [ %89, %47 ], [ -1, %.preheader ], [ 0, %.preheader61 ], [ %33, %21 ], [ %46, %34 ]
-  %91 = load i8, ptr %1, align 8, !tbaa !108, !range !57, !noundef !58
-  %92 = zext nneg i8 %91 to i64
-  %93 = sub nsw i64 0, %92
-  %spec.select = xor i64 %.0, %93
-  %94 = xor i64 %spec.select, -1
+.loopexit:                                        ; preds = %34, %21, %.preheader61, %.preheader, %92, %47, %20
+  %.0 = phi i64 [ 0, %92 ], [ 0, %20 ], [ %91, %47 ], [ -1, %.preheader ], [ 0, %.preheader61 ], [ %33, %21 ], [ %46, %34 ]
+  %93 = load i8, ptr %1, align 8, !tbaa !108, !range !57, !noundef !58
+  %94 = zext nneg i8 %93 to i64
+  %95 = sub nsw i64 0, %94
+  %spec.select = xor i64 %.0, %95
+  %96 = xor i64 %spec.select, -1
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %spec.select, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %94, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %96, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

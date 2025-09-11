@@ -3075,18 +3075,19 @@ pg_johab_mblen.exit.i:                            ; preds = %.lr.ph
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_encoding_mblen(i32 noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 42
-  br i1 %or.cond, label %3, label %8
+  br i1 %or.cond, label %3, label %9
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4, i32 2
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %1) #10
-  br label %8
+  %5 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i32 %7(ptr noundef %1) #10
+  br label %9
 
-8:                                                ; preds = %2, %3
-  %9 = phi i32 [ %7, %3 ], [ 1, %2 ]
-  ret i32 %9
+9:                                                ; preds = %2, %3
+  %10 = phi i32 [ %8, %3 ], [ 1, %2 ]
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3096,17 +3097,18 @@ define dso_local i32 @pg_encoding_mblen_bounded(i32 noundef %0, ptr noundef %1) 
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4, i32 2
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %1) #10
-  %8 = sext i32 %7 to i64
+  %5 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i32 %7(ptr noundef %1) #10
+  %9 = sext i32 %8 to i64
   br label %pg_encoding_mblen.exit
 
 pg_encoding_mblen.exit:                           ; preds = %2, %3
-  %9 = phi i64 [ %8, %3 ], [ 1, %2 ]
-  %10 = tail call i64 @strnlen(ptr noundef %1, i64 noundef %9) #9
-  %11 = trunc i64 %10 to i32
-  ret i32 %11
+  %10 = phi i64 [ %9, %3 ], [ 1, %2 ]
+  %11 = tail call i64 @strnlen(ptr noundef %1, i64 noundef %10) #9
+  %12 = trunc i64 %11 to i32
+  ret i32 %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -3115,89 +3117,93 @@ declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_encoding_dsplen(i32 noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 42
-  br i1 %or.cond, label %3, label %8
+  br i1 %or.cond, label %3, label %9
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4, i32 3
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %1) #10
-  br label %13
+  %5 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i32 %7(ptr noundef %1) #10
+  br label %14
 
-8:                                                ; preds = %2
-  %9 = load i8, ptr %1, align 1
-  %10 = icmp eq i8 %9, 0
-  %11 = icmp ult i8 %9, 32
-  %12 = icmp eq i8 %9, 127
-  %or.cond.i = or i1 %11, %12
+9:                                                ; preds = %2
+  %10 = load i8, ptr %1, align 1
+  %11 = icmp eq i8 %10, 0
+  %12 = icmp ult i8 %10, 32
+  %13 = icmp eq i8 %10, 127
+  %or.cond.i = or i1 %12, %13
   %spec.select.i = select i1 %or.cond.i, i32 -1, i32 1
-  %.0.i = select i1 %10, i32 0, i32 %spec.select.i
-  br label %13
+  %.0.i = select i1 %11, i32 0, i32 %spec.select.i
+  br label %14
 
-13:                                               ; preds = %8, %3
-  %14 = phi i32 [ %7, %3 ], [ %.0.i, %8 ]
-  ret i32 %14
+14:                                               ; preds = %9, %3
+  %15 = phi i32 [ %8, %3 ], [ %.0.i, %9 ]
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_encoding_verifymbchar(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 42
-  br i1 %or.cond, label %4, label %9
+  br i1 %or.cond, label %4, label %10
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5, i32 4
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #10
-  br label %9
+  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 %8(ptr noundef %1, i32 noundef %2) #10
+  br label %10
 
-9:                                                ; preds = %3, %4
-  %10 = phi i32 [ %8, %4 ], [ 1, %3 ]
-  ret i32 %10
+10:                                               ; preds = %3, %4
+  %11 = phi i32 [ %9, %4 ], [ 1, %3 ]
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_encoding_verifymbstr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %or.cond = icmp ult i32 %0, 42
-  br i1 %or.cond, label %4, label %9
+  br i1 %or.cond, label %4, label %10
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5, i32 5
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #10
-  br label %17
+  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 %8(ptr noundef %1, i32 noundef %2) #10
+  br label %18
 
-9:                                                ; preds = %3
-  %10 = sext i32 %2 to i64
-  %11 = tail call ptr @memchr(ptr noundef %1, i32 noundef 0, i64 noundef %10) #9
-  %12 = icmp eq ptr %11, null
-  %13 = ptrtoint ptr %11 to i64
-  %14 = ptrtoint ptr %1 to i64
-  %15 = sub i64 %13, %14
-  %16 = trunc i64 %15 to i32
-  %.0.i = select i1 %12, i32 %2, i32 %16
-  br label %17
+10:                                               ; preds = %3
+  %11 = sext i32 %2 to i64
+  %12 = tail call ptr @memchr(ptr noundef %1, i32 noundef 0, i64 noundef %11) #9
+  %13 = icmp eq ptr %12, null
+  %14 = ptrtoint ptr %12 to i64
+  %15 = ptrtoint ptr %1 to i64
+  %16 = sub i64 %14, %15
+  %17 = trunc i64 %16 to i32
+  %.0.i = select i1 %13, i32 %2, i32 %17
+  br label %18
 
-17:                                               ; preds = %9, %4
-  %18 = phi i32 [ %8, %4 ], [ %.0.i, %9 ]
-  ret i32 %18
+18:                                               ; preds = %10, %4
+  %19 = phi i32 [ %9, %4 ], [ %.0.i, %10 ]
+  ret i32 %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local i32 @pg_encoding_max_length(i32 noundef %0) local_unnamed_addr #3 {
   %or.cond = icmp ult i32 %0, 42
-  br i1 %or.cond, label %2, label %6
+  br i1 %or.cond, label %2, label %7
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %3, i32 6
-  %5 = load i32, ptr %4, align 8
-  br label %6
+  %4 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %6 = load i32, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1, %2
-  %7 = phi i32 [ %5, %2 ], [ 1, %1 ]
-  ret i32 %7
+7:                                                ; preds = %1, %2
+  %8 = phi i32 [ %6, %2 ], [ 1, %1 ]
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

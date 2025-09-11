@@ -2149,7 +2149,8 @@ define dso_local noundef zeroext i1 @ieee80211_parse_tx_radiotap(ptr noundef %0,
 
 270:                                              ; preds = %276, %265
   %indvars.iv = phi i64 [ %indvars.iv.next, %276 ], [ 0, %265 ]
-  %271 = getelementptr %struct.ieee80211_rate, ptr %268, i64 %indvars.iv, i32 1
+  %.split = getelementptr %struct.ieee80211_rate, ptr %268, i64 %indvars.iv
+  %271 = getelementptr i8, ptr %.split, i64 4
   %272 = load i16, ptr %271, align 4
   %273 = icmp eq i16 %266, %272
   br i1 %273, label %274, label %276

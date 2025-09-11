@@ -2715,8 +2715,8 @@ define void @_Z36ComputeWedgeTexCoordStorageAttributeR4Mesh(ptr noundef nonnull 
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %32
-  %.sroa.014.021 = phi ptr [ %4, %.preheader.lr.ph ], [ %33, %32 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %33
+  %.sroa.014.021 = phi ptr [ %4, %.preheader.lr.ph ], [ %34, %33 ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.021, i64 96
   %11 = ptrtoint ptr %.sroa.014.021 to i64
   br label %12
@@ -2742,18 +2742,19 @@ define void @_Z36ComputeWedgeTexCoordStorageAttributeR4Mesh(ptr noundef nonnull 
   %28 = load ptr, ptr %8, align 8
   %29 = sdiv exact i64 %27, 3
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
-  %31 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %30, i64 %indvars.iv, i32 1
-  store i16 %23, ptr %31, align 2
+  %31 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %30, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store i16 %23, ptr %32, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %32, label %12, !llvm.loop !37
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !37
 
-32:                                               ; preds = %12
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.014.021, i64 216
-  %.not = icmp eq ptr %33, %6
+33:                                               ; preds = %12
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.021, i64 216
+  %.not = icmp eq ptr %34, %6
   br i1 %.not, label %._crit_edge, label %.preheader
 
-._crit_edge:                                      ; preds = %32, %1
+._crit_edge:                                      ; preds = %33, %1
   ret void
 }
 

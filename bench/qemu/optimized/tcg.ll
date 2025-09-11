@@ -2466,7 +2466,7 @@ tcg_target_init.exit.i:                           ; preds = %9, %7
   %.pr.i.i = phi i8 [ %28, %24 ], [ %.pr.pre.i.i, %55 ]
   %.0210.i.i = phi ptr [ %26, %24 ], [ %60, %55 ]
   %104 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i
-  %105 = getelementptr inbounds nuw %struct.TCGArgConstraint, ptr %12, i64 %indvars.iv.i.i, i32 1
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   br label %106
 
 106:                                              ; preds = %163, %103

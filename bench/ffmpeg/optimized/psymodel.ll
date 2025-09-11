@@ -74,9 +74,9 @@ define i32 @ff_psy_init(ptr noundef initializes((0, 8), (16, 32), (36, 56)) %0, 
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv66
   %38 = load i8, ptr %37, align 1, !tbaa !41
   %39 = add i8 %38, 1
-  %40 = getelementptr inbounds nuw %struct.FFPsyChannelGroup, ptr %35, i64 %indvars.iv66, i32 1
-  store i8 %39, ptr %40, align 8, !tbaa !42
-  %41 = getelementptr inbounds nuw %struct.FFPsyChannelGroup, ptr %35, i64 %indvars.iv66
+  %40 = getelementptr inbounds nuw %struct.FFPsyChannelGroup, ptr %35, i64 %indvars.iv66
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 160
+  store i8 %39, ptr %41, align 8, !tbaa !42
   %.not60 = icmp eq i8 %39, 0
   br i1 %.not60, label %._crit_edge, label %.lr.ph.preheader
 
@@ -92,7 +92,7 @@ define i32 @ff_psy_init(ptr noundef initializes((0, 8), (16, 32), (36, 56)) %0, 
   %44 = load ptr, ptr %12, align 8, !tbaa !35
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %45 = getelementptr inbounds %struct.FFPsyChannel, ptr %44, i64 %indvars.iv
-  %46 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv61
+  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv61
   store ptr %45, ptr %46, align 8, !tbaa !44
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
@@ -185,24 +185,25 @@ define ptr @ff_psy_find_group(ptr noundef readonly captures(none) %0, i32 nounde
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %.09 = phi i32 [ %6, %.lr.ph ], [ 0, %2 ]
+  %.09 = phi i32 [ %7, %.lr.ph ], [ 0, %2 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = getelementptr inbounds nuw %struct.FFPsyChannelGroup, ptr %.pre, i64 %indvars.iv, i32 1
-  %4 = load i8, ptr %3, align 8, !tbaa !42
-  %5 = zext i8 %4 to i32
-  %6 = add nuw nsw i32 %.09, %5
-  %.not = icmp sgt i32 %6, %1
+  %3 = getelementptr inbounds nuw %struct.FFPsyChannelGroup, ptr %.pre, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %5 = load i8, ptr %4, align 8, !tbaa !42
+  %6 = zext i8 %5 to i32
+  %7 = add nuw nsw i32 %.09, %6
+  %.not = icmp sgt i32 %7, %1
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %7 = and i64 %indvars.iv.next, 4294967295
+  %8 = and i64 %indvars.iv.next, 4294967295
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2, %._crit_edge.loopexit
-  %.06.lcssa = phi i64 [ %7, %._crit_edge.loopexit ], [ 0, %2 ]
-  %8 = getelementptr %struct.FFPsyChannelGroup, ptr %.pre, i64 %.06.lcssa
-  %9 = getelementptr i8, ptr %8, i64 -296
-  ret ptr %9
+  %.06.lcssa = phi i64 [ %8, %._crit_edge.loopexit ], [ 0, %2 ]
+  %9 = getelementptr %struct.FFPsyChannelGroup, ptr %.pre, i64 %.06.lcssa
+  %10 = getelementptr i8, ptr %9, i64 -296
+  ret ptr %10
 }
 
 declare void @av_freep(ptr noundef) local_unnamed_addr #1

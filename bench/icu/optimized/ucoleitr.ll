@@ -143,9 +143,9 @@ define void @_ZN6icu_779RCEBuffer3putEjiiR10UErrorCode(ptr noundef nonnull align
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds %struct.RCEI, ptr %31, i64 %32
   store i32 %1, ptr %33, align 4, !tbaa !14
-  %34 = getelementptr inbounds %struct.RCEI, ptr %31, i64 %32, i32 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 %2, ptr %34, align 4, !tbaa !16
-  %35 = getelementptr inbounds %struct.RCEI, ptr %31, i64 %32, i32 2
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %3, ptr %35, align 4, !tbaa !17
   %36 = add nsw i32 %30, 1
   store i32 %36, ptr %9, align 8, !tbaa !10
@@ -291,9 +291,9 @@ define void @_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode(ptr noundef nonnull align
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %31, i64 %32
   store i64 %1, ptr %33, align 8, !tbaa !23
-  %34 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %31, i64 %32, i32 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %2, ptr %34, align 8, !tbaa !26
-  %35 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %31, i64 %32, i32 2
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 %3, ptr %35, align 4, !tbaa !27
   %36 = add nsw i32 %30, 1
   store i32 %36, ptr %9, align 8, !tbaa !21
@@ -1017,9 +1017,9 @@ _ZN6icu_779RCEBuffer3putEjiiR10UErrorCode.exit:   ; preds = %._crit_edge.i, %.th
   %60 = sext i32 %58 to i64
   %61 = getelementptr inbounds %struct.RCEI, ptr %59, i64 %60
   store i32 %27, ptr %61, align 4, !tbaa !14
-  %62 = getelementptr inbounds %struct.RCEI, ptr %59, i64 %60, i32 1
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 %30, ptr %62, align 4, !tbaa !16
-  %63 = getelementptr inbounds %struct.RCEI, ptr %59, i64 %60, i32 2
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 %24, ptr %63, align 4, !tbaa !17
   %64 = add nsw i32 %58, 1
   store i32 %64, ptr %12, align 8, !tbaa !10
@@ -1179,9 +1179,9 @@ _ZN6icu_7713UCollationPCE9processCEEj.exit:       ; preds = %102, %104
   %135 = sext i32 %133 to i64
   %136 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %134, i64 %135
   store i64 %110, ptr %136, align 8, !tbaa !23
-  %137 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %134, i64 %135, i32 1
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i32 %113, ptr %137, align 8, !tbaa !26
-  %138 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %134, i64 %135, i32 2
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 12
   store i32 %115, ptr %138, align 4, !tbaa !27
   %139 = add nsw i32 %133, 1
   store i32 %139, ptr %8, align 8, !tbaa !21

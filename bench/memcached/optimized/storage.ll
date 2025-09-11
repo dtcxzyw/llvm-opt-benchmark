@@ -218,7 +218,7 @@ define dso_local void @process_extstore_stats(ptr noundef readonly captures(none
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr @ext_storage, align 8, !tbaa !14
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %42, label %8
+  br i1 %7, label %45, label %8
 
 8:                                                ; preds = %2
   call void @extstore_get_stats(ptr noundef nonnull %6, ptr noundef nonnull %5) #21
@@ -244,36 +244,39 @@ define dso_local void @process_extstore_stats(ptr noundef readonly captures(none
   call void %0(ptr noundef nonnull %3, i16 noundef zeroext %20, ptr noundef nonnull %4, i32 noundef %19, ptr noundef %1) #21
   %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef nonnull @.str.3) #21
   %22 = load ptr, ptr %12, align 8, !tbaa !20
-  %23 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %22, i64 %indvars.iv, i32 1
-  %24 = load i64, ptr %23, align 8, !tbaa !24
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.2, i64 noundef %24) #21
-  %26 = trunc i32 %21 to i16
-  call void %0(ptr noundef nonnull %3, i16 noundef zeroext %26, ptr noundef nonnull %4, i32 noundef %25, ptr noundef %1) #21
-  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef nonnull @.str.4) #21
-  %28 = load ptr, ptr %12, align 8, !tbaa !20
-  %29 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %28, i64 %indvars.iv, i32 2
-  %30 = load i32, ptr %29, align 8, !tbaa !25
-  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.5, i32 noundef %30) #21
-  %32 = trunc i32 %27 to i16
-  call void %0(ptr noundef nonnull %3, i16 noundef zeroext %32, ptr noundef nonnull %4, i32 noundef %31, ptr noundef %1) #21
-  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef nonnull @.str.6) #21
-  %34 = load ptr, ptr %12, align 8, !tbaa !20
-  %35 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %34, i64 %indvars.iv, i32 3
-  %36 = load i32, ptr %35, align 4, !tbaa !26
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.5, i32 noundef %36) #21
-  %38 = trunc i32 %33 to i16
-  call void %0(ptr noundef nonnull %3, i16 noundef zeroext %38, ptr noundef nonnull %4, i32 noundef %37, ptr noundef %1) #21
+  %23 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load i64, ptr %24, align 8, !tbaa !24
+  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.2, i64 noundef %25) #21
+  %27 = trunc i32 %21 to i16
+  call void %0(ptr noundef nonnull %3, i16 noundef zeroext %27, ptr noundef nonnull %4, i32 noundef %26, ptr noundef %1) #21
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef nonnull @.str.4) #21
+  %29 = load ptr, ptr %12, align 8, !tbaa !20
+  %30 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load i32, ptr %31, align 8, !tbaa !25
+  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.5, i32 noundef %32) #21
+  %34 = trunc i32 %28 to i16
+  call void %0(ptr noundef nonnull %3, i16 noundef zeroext %34, ptr noundef nonnull %4, i32 noundef %33, ptr noundef %1) #21
+  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef nonnull @.str.6) #21
+  %36 = load ptr, ptr %12, align 8, !tbaa !20
+  %37 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %39 = load i32, ptr %38, align 4, !tbaa !26
+  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.5, i32 noundef %39) #21
+  %41 = trunc i32 %35 to i16
+  call void %0(ptr noundef nonnull %3, i16 noundef zeroext %41, ptr noundef nonnull %4, i32 noundef %40, ptr noundef %1) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = load i64, ptr %9, align 8, !tbaa !16
-  %40 = icmp ugt i64 %39, %indvars.iv.next
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  %42 = load i64, ptr %9, align 8, !tbaa !16
+  %43 = icmp ugt i64 %42, %indvars.iv.next
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  %41 = load ptr, ptr %12, align 8, !tbaa !20
-  call void @free(ptr noundef %41) #21
-  br label %42
+  %44 = load ptr, ptr %12, align 8, !tbaa !20
+  call void @free(ptr noundef %44) #21
+  br label %45
 
-42:                                               ; preds = %2, %._crit_edge
+45:                                               ; preds = %2, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -580,7 +583,7 @@ define dso_local range(i32 -1, 1) i32 @storage_get_item(ptr noundef %0, ptr noun
   %136 = load i32, ptr %135, align 8, !tbaa !13
   %137 = sext i32 %136 to i64
   %.0135. = tail call i64 @llvm.umin.i64(i64 %.0135156, i64 %137)
-  %138 = getelementptr inbounds nuw %struct.iovec, ptr %133, i64 %indvars.iv, i32 1
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store i64 %.0135., ptr %138, align 8, !tbaa !106
   %139 = trunc i64 %.0135. to i32
   %140 = getelementptr inbounds nuw i8, ptr %123, i64 28
@@ -1028,23 +1031,23 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load i32, ptr %27, align 8, !tbaa !108
   %29 = icmp ugt i32 %28, 1
-  br i1 %29, label %.lr.ph, label %.loopexit88
+  br i1 %29, label %.lr.ph, label %.loopexit86
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %18 ]
-  %.07690 = phi i32 [ %36, %.lr.ph ], [ %24, %18 ]
+  %.07688 = phi i32 [ %36, %.lr.ph ], [ %24, %18 ]
   %30 = load ptr, ptr @crc32c, align 8, !tbaa !14
   %31 = load ptr, ptr %15, align 8, !tbaa !103
   %32 = getelementptr inbounds nuw %struct.iovec, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !104
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !106
-  %36 = tail call i32 %30(i32 noundef %.07690, ptr noundef %33, i64 noundef %35) #21
+  %36 = tail call i32 %30(i32 noundef %.07688, ptr noundef %33, i64 noundef %35) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %27, align 8, !tbaa !108
   %38 = zext i32 %37 to i64
   %39 = icmp samesign ult i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph, label %.loopexit88, !llvm.loop !146
+  br i1 %39, label %.lr.ph, label %.loopexit86, !llvm.loop !146
 
 40:                                               ; preds = %12
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -1053,14 +1056,14 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   %44 = zext i32 %43 to i64
   %45 = add nsw i64 %44, -32
   %46 = tail call i32 %17(i32 noundef 0, ptr noundef nonnull %41, i64 noundef %45) #21
-  br label %.loopexit88
+  br label %.loopexit86
 
-.loopexit88:                                      ; preds = %.lr.ph, %18, %40
+.loopexit86:                                      ; preds = %.lr.ph, %18, %40
   %.177 = phi i32 [ %46, %40 ], [ %24, %18 ], [ %36, %.lr.ph ]
   %.not80.not = icmp eq i32 %14, %.177
-  br i1 %.not80.not, label %.critedge87, label %47
+  br i1 %.not80.not, label %.critedge85, label %47
 
-47:                                               ; preds = %.loopexit88
+47:                                               ; preds = %.loopexit86
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 134
   store i8 1, ptr %48, align 2, !tbaa !91
   br label %.critedge
@@ -1092,8 +1095,7 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %66 = load i32, ptr %65, align 8, !tbaa !111
   %67 = zext i32 %66 to i64
-  %.idx = shl nuw nsw i64 %67, 4
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx
+  %68 = getelementptr inbounds nuw %struct.iovec, ptr %64, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i64, ptr %69, align 8, !tbaa !106
   %71 = zext i8 %63 to i64
@@ -1111,14 +1113,12 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   store i32 %79, ptr %59, align 8, !tbaa !4
   %80 = load i32, ptr %65, align 8, !tbaa !111
   %81 = zext i32 %80 to i64
-  %.idx84 = shl nuw nsw i64 %81, 4
-  %82 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx84
+  %82 = getelementptr inbounds nuw %struct.iovec, ptr %64, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 0, ptr %83, align 8, !tbaa !106
   %84 = add i32 %80, -1
   %85 = zext i32 %84 to i64
-  %.idx85 = shl nuw nsw i64 %85, 4
-  %86 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx85
+  %86 = getelementptr inbounds nuw %struct.iovec, ptr %64, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 0, ptr %87, align 8, !tbaa !106
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 117
@@ -1157,15 +1157,15 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   br label %105
 
 105:                                              ; preds = %100, %105
-  %indvars.iv94 = phi i64 [ 0, %100 ], [ %indvars.iv.next95, %105 ]
+  %indvars.iv92 = phi i64 [ 0, %100 ], [ %indvars.iv.next93, %105 ]
   %106 = phi i32 [ %.promoted, %100 ], [ %111, %105 ]
-  %107 = getelementptr inbounds nuw %struct.iovec, ptr %90, i64 %indvars.iv94
+  %107 = getelementptr inbounds nuw %struct.iovec, ptr %90, i64 %indvars.iv92
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i64, ptr %108, align 8, !tbaa !106
   %110 = trunc i64 %109 to i32
   %111 = sub i32 %106, %110
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, i8 0, i64 16, i1 false)
   br i1 %exitcond.not, label %.loopexit, label %105, !llvm.loop !150
 
@@ -1180,7 +1180,7 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   store i8 0, ptr %114, align 1, !tbaa !149
   br label %139
 
-.critedge87:                                      ; preds = %.loopexit88
+.critedge85:                                      ; preds = %.loopexit86
   %115 = getelementptr inbounds nuw i8, ptr %10, i64 38
   %116 = load i16, ptr %115, align 2, !tbaa !7
   %117 = zext i16 %116 to i32
@@ -1188,7 +1188,7 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %139
 
-120:                                              ; preds = %.critedge87
+120:                                              ; preds = %.critedge85
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 41
   %122 = load i8, ptr %121, align 1, !tbaa !4
   %123 = zext i8 %122 to i64
@@ -1210,8 +1210,8 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   store ptr %133, ptr %138, align 8, !tbaa !104
   br label %139
 
-139:                                              ; preds = %.critedge87, %120, %52, %112, %58
-  %.sink = phi i8 [ 1, %58 ], [ 1, %112 ], [ 1, %52 ], [ 0, %120 ], [ 0, %.critedge87 ]
+139:                                              ; preds = %.critedge85, %120, %52, %112, %58
+  %.sink = phi i8 [ 1, %58 ], [ 1, %112 ], [ 1, %52 ], [ 0, %120 ], [ 0, %.critedge85 ]
   %140 = getelementptr inbounds nuw i8, ptr %4, i64 133
   store i8 %.sink, ptr %140, align 1, !tbaa !138
   %141 = getelementptr inbounds nuw i8, ptr %4, i64 135
@@ -1925,51 +1925,51 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
 
 .lr.ph.i:                                         ; preds = %70, %117
   %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %117 ], [ 0, %70 ]
-  %75 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %.pre136.i, i64 %indvars.iv128.i, i32 3
-  %76 = load i32, ptr %75, align 4, !tbaa !26
-  %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw %struct.__storage_buk, ptr %4, i64 %77
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  %80 = load i32, ptr %79, align 8, !tbaa !188
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %79, align 8, !tbaa !188
-  %82 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %.pre136.i, i64 %indvars.iv128.i
-  %83 = load i64, ptr %82, align 8, !tbaa !21
+  %75 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %.pre136.i, i64 %indvars.iv128.i
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 20
+  %77 = load i32, ptr %76, align 4, !tbaa !26
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds nuw %struct.__storage_buk, ptr %4, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
+  %81 = load i32, ptr %80, align 8, !tbaa !188
+  %82 = add i32 %81, 1
+  store i32 %82, ptr %80, align 8, !tbaa !188
+  %83 = load i64, ptr %75, align 8, !tbaa !21
   %84 = icmp eq i64 %83, 0
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %.lr.ph.i
-  %86 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %87 = load i32, ptr %86, align 8, !tbaa !190
   %88 = add i32 %87, 1
   store i32 %88, ptr %86, align 8, !tbaa !190
   br label %117
 
 89:                                               ; preds = %.lr.ph.i
-  %90 = getelementptr inbounds nuw i8, ptr %78, i64 36
+  %90 = getelementptr inbounds nuw i8, ptr %79, i64 36
   %91 = load i32, ptr %90, align 4, !tbaa !191
   %92 = add i32 %91, 1
   store i32 %92, ptr %90, align 4, !tbaa !191
-  %93 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %94 = load i8, ptr %93, align 8, !tbaa !192, !range !93, !noundef !94
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %117, label %96
 
 96:                                               ; preds = %89
-  %97 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %98 = load i64, ptr %97, align 8, !tbaa !193
   %99 = icmp ult i64 %83, %98
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %102 = trunc nuw nsw i64 %indvars.iv128.i to i32
   store i32 %102, ptr %101, align 8, !tbaa !194
   store i64 %83, ptr %97, align 8, !tbaa !193
   br label %103
 
 103:                                              ; preds = %100, %96
-  %104 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %.pre136.i, i64 %indvars.iv128.i, i32 1
+  %104 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %105 = load i64, ptr %104, align 8, !tbaa !24
   %106 = sub i64 %.pre.i, %105
   %107 = trunc i64 %106 to i32
@@ -1977,16 +1977,16 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
   br i1 %108, label %109, label %117
 
 109:                                              ; preds = %103
-  %110 = getelementptr inbounds nuw i8, ptr %78, i64 44
+  %110 = getelementptr inbounds nuw i8, ptr %79, i64 44
   %111 = load i32, ptr %110, align 4, !tbaa !195
   %112 = icmp ult i32 %111, %107
   br i1 %112, label %113, label %117
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %115 = trunc nuw nsw i64 %indvars.iv128.i to i32
   store i32 %115, ptr %114, align 4, !tbaa !196
-  %116 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store i64 %83, ptr %116, align 8, !tbaa !197
   store i32 %107, ptr %110, align 4, !tbaa !195
   br label %117

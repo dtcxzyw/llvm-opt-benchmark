@@ -8969,9 +8969,10 @@ while.cond79:                                     ; preds = %while.cond79, %whil
 
 if.then.i74:                                      ; preds = %while.cond79
   %31 = load ptr, ptr %this, align 8
+  %add.ptr88 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %31, i64 %i.0
   %conv90 = zext i8 %30 to i64
   %sub91 = add nsw i64 %conv90, -1
-  %rawItems_.i.i.i66 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %31, i64 %i.0, i32 3
+  %rawItems_.i.i.i66 = getelementptr inbounds nuw i8, ptr %add.ptr88, i64 16
   %arrayidx.i.i.i.i.i67 = getelementptr inbounds nuw %"union.std::aligned_storage<1, 1>::type", ptr %rawItems_.i.i.i66, i64 %sub91
   %conv2.i70 = and i64 %sub91, 240
   %cmp.i.i71 = icmp eq i64 %conv2.i70, 0
@@ -15771,9 +15772,10 @@ while.cond78:                                     ; preds = %while.cond78, %whil
 
 if.then.i84:                                      ; preds = %while.cond78
   %29 = load ptr, ptr %this, align 8
+  %add.ptr87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.294", ptr %29, i64 %i.0
   %conv89 = zext nneg i8 %28 to i64
   %sub90 = add nsw i64 %conv89, -1
-  %rawItems_.i.i.i74 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.294", ptr %29, i64 %i.0, i32 3
+  %rawItems_.i.i.i74 = getelementptr inbounds nuw i8, ptr %add.ptr87, i64 16
   %arrayidx.i.i.i.i.i75 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i.i74, i64 %sub90
   %shr.i.i79 = lshr i64 %sub90, 2
   %cmp.i.i80 = icmp ult i8 %28, 17
@@ -18947,9 +18949,10 @@ while.cond78:                                     ; preds = %while.cond78, %whil
 
 if.then.i73:                                      ; preds = %while.cond78
   %30 = load ptr, ptr %this, align 8
+  %add.ptr87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.346", ptr %30, i64 %i.0
   %conv89 = zext i8 %29 to i64
   %sub90 = add nsw i64 %conv89, -1
-  %rawItems_.i.i.i65 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.346", ptr %30, i64 %i.0, i32 3
+  %rawItems_.i.i.i65 = getelementptr inbounds nuw i8, ptr %add.ptr87, i64 16
   %arrayidx.i.i.i.i.i66 = getelementptr inbounds nuw %"union.std::aligned_storage<1, 1>::type", ptr %rawItems_.i.i.i65, i64 %sub90
   %conv2.i69 = and i64 %sub90, 240
   %cmp.i.i70 = icmp eq i64 %conv2.i69, 0
@@ -22128,9 +22131,10 @@ while.cond78:                                     ; preds = %while.cond78, %whil
 
 if.then.i77:                                      ; preds = %while.cond78
   %30 = load ptr, ptr %this, align 8
+  %add.ptr87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.396", ptr %30, i64 %i.0
   %conv89 = zext nneg i8 %29 to i64
   %sub90 = add nsw i64 %conv89, -1
-  %rawItems_.i.i.i67 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.396", ptr %30, i64 %i.0, i32 3
+  %rawItems_.i.i.i67 = getelementptr inbounds nuw i8, ptr %add.ptr87, i64 16
   %arrayidx.i.i.i.i.i68 = getelementptr inbounds nuw %"union.std::aligned_storage<2, 2>::type", ptr %rawItems_.i.i.i67, i64 %sub90
   %shr.i.i72 = lshr i64 %sub90, 3
   %cmp.i.i73 = icmp ult i8 %29, 17
@@ -25310,9 +25314,10 @@ while.cond78:                                     ; preds = %while.cond78, %whil
 
 if.then.i77:                                      ; preds = %while.cond78
   %30 = load ptr, ptr %this, align 8
+  %add.ptr87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.448", ptr %30, i64 %i.0
   %conv89 = zext nneg i8 %29 to i64
   %sub90 = add nsw i64 %conv89, -1
-  %rawItems_.i.i.i67 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.448", ptr %30, i64 %i.0, i32 3
+  %rawItems_.i.i.i67 = getelementptr inbounds nuw i8, ptr %add.ptr87, i64 16
   %arrayidx.i.i.i.i.i68 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i67, i64 %sub90
   %shr.i.i72 = lshr i64 %sub90, 1
   %cmp.i.i73 = icmp ult i8 %29, 17
@@ -28487,10 +28492,10 @@ while.cond78:                                     ; preds = %while.cond78, %whil
 
 if.then.i76:                                      ; preds = %while.cond78
   %30 = load ptr, ptr %this, align 8
+  %add.ptr87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.499", ptr %30, i64 %i.0
   %conv89 = zext nneg i8 %29 to i64
   %sub90 = add nsw i64 %conv89, -1
-  %rawItems_.i.i.i67 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.499", ptr %30, i64 %i.0, i32 3
-  %arrayidx.i.i.i.i.i68 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 16>::type", ptr %rawItems_.i.i.i67, i64 %sub90
+  %arrayidx.i.i.i.i.i68 = getelementptr %"union.std::aligned_storage<16, 16>::type", ptr %add.ptr87, i64 %conv89
   %cmp.i.i72 = icmp ult i8 %29, 17
   call void @llvm.assume(i1 %cmp.i.i72)
   %31 = ptrtoint ptr %arrayidx.i.i.i.i.i68 to i64
@@ -31720,9 +31725,10 @@ while.cond78:                                     ; preds = %while.cond78, %whil
 
 if.then.i84:                                      ; preds = %while.cond78
   %31 = load ptr, ptr %this, align 8
+  %add.ptr87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.550", ptr %31, i64 %i.0
   %conv89 = zext nneg i8 %30 to i64
   %sub90 = add nsw i64 %conv89, -1
-  %rawItems_.i.i.i74 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.550", ptr %31, i64 %i.0, i32 3
+  %rawItems_.i.i.i74 = getelementptr inbounds nuw i8, ptr %add.ptr87, i64 16
   %arrayidx.i.i.i.i.i75 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i.i74, i64 %sub90
   %shr.i.i79 = lshr i64 %sub90, 2
   %cmp.i.i80 = icmp ult i8 %30, 17
@@ -34942,9 +34948,10 @@ while.cond78:                                     ; preds = %while.cond78, %whil
 
 if.then.i78:                                      ; preds = %while.cond78
   %32 = load ptr, ptr %this, align 8
+  %add.ptr87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.600", ptr %32, i64 %i.0
   %conv89 = zext nneg i8 %31 to i64
   %sub90 = add nsw i64 %conv89, -1
-  %rawItems_.i.i.i68 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.600", ptr %32, i64 %i.0, i32 3
+  %rawItems_.i.i.i68 = getelementptr inbounds nuw i8, ptr %add.ptr87, i64 16
   %arrayidx.i.i.i.i.i69 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i68, i64 %sub90
   %shr.i.i73 = lshr i64 %sub90, 1
   %cmp.i.i74 = icmp ult i8 %31, 17
@@ -38277,10 +38284,10 @@ while.cond78:                                     ; preds = %while.cond78, %whil
 
 if.then.i77:                                      ; preds = %while.cond78
   %30 = load ptr, ptr %this, align 8
+  %add.ptr87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.650", ptr %30, i64 %i.0
   %conv89 = zext nneg i8 %29 to i64
   %sub90 = add nsw i64 %conv89, -1
-  %rawItems_.i.i.i68 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.650", ptr %30, i64 %i.0, i32 3
-  %arrayidx.i.i.i.i.i69 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %rawItems_.i.i.i68, i64 %sub90
+  %arrayidx.i.i.i.i.i69 = getelementptr %"union.std::aligned_storage<16, 8>::type", ptr %add.ptr87, i64 %conv89
   %cmp.i.i73 = icmp ult i8 %29, 17
   call void @llvm.assume(i1 %cmp.i.i73)
   %31 = ptrtoint ptr %arrayidx.i.i.i.i.i69 to i64
@@ -41482,10 +41489,10 @@ while.cond78:                                     ; preds = %while.cond78, %whil
 
 if.then.i76:                                      ; preds = %while.cond78
   %28 = load ptr, ptr %this, align 8
+  %add.ptr87 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.701", ptr %28, i64 %i.0
   %conv89 = zext nneg i8 %27 to i64
   %sub90 = add nsw i64 %conv89, -1
-  %rawItems_.i.i.i67 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.701", ptr %28, i64 %i.0, i32 3
-  %arrayidx.i.i.i.i.i68 = getelementptr inbounds nuw %"union.std::aligned_storage<16, 8>::type", ptr %rawItems_.i.i.i67, i64 %sub90
+  %arrayidx.i.i.i.i.i68 = getelementptr %"union.std::aligned_storage<16, 8>::type", ptr %add.ptr87, i64 %conv89
   %cmp.i.i72 = icmp ult i8 %27, 17
   call void @llvm.assume(i1 %cmp.i.i72)
   %29 = ptrtoint ptr %arrayidx.i.i.i.i.i68 to i64

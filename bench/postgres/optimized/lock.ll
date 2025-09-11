@@ -3619,7 +3619,7 @@ define dso_local void @LockReassignCurrentOwner(ptr noundef readonly captures(ad
   br i1 %.not24, label %._crit_edge, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %9, %LockReassignOwner.exit
-  %12 = phi ptr [ %47, %LockReassignOwner.exit ], [ %11, %9 ]
+  %12 = phi ptr [ %48, %LockReassignOwner.exit ], [ %11, %9 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -3662,36 +3662,37 @@ define dso_local void @LockReassignCurrentOwner(ptr noundef readonly captures(ad
 31:                                               ; preds = %27
   store ptr %5, ptr %30, align 8
   call void @ResourceOwnerRememberLock(ptr noundef %5, ptr noundef nonnull %12) #17
-  br label %45
+  br label %46
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = zext nneg i32 %.1.i to i64
-  %36 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %14, i64 %35, i32 1
-  %37 = load i64, ptr %36, align 8
-  %38 = add i64 %37, %34
-  store i64 %38, ptr %36, align 8
-  %39 = load i32, ptr %15, align 8
-  %40 = add i32 %39, -1
-  store i32 %40, ptr %15, align 8
-  %41 = icmp slt i32 %.130.i, %40
-  br i1 %41, label %42, label %45
+  %36 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %14, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load i64, ptr %37, align 8
+  %39 = add i64 %38, %34
+  store i64 %39, ptr %37, align 8
+  %40 = load i32, ptr %15, align 8
+  %41 = add i32 %40, -1
+  store i32 %41, ptr %15, align 8
+  %42 = icmp slt i32 %.130.i, %41
+  br i1 %42, label %43, label %46
 
-42:                                               ; preds = %32
-  %43 = zext nneg i32 %40 to i64
-  %44 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %14, i64 %43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
-  br label %45
+43:                                               ; preds = %32
+  %44 = zext nneg i32 %41 to i64
+  %45 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %14, i64 %44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
+  br label %46
 
-45:                                               ; preds = %42, %32, %31
-  %46 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerForgetLock(ptr noundef %46, ptr noundef nonnull %12) #17
+46:                                               ; preds = %43, %32, %31
+  %47 = load ptr, ptr @CurrentResourceOwner, align 8
+  call void @ResourceOwnerForgetLock(ptr noundef %47, ptr noundef nonnull %12) #17
   br label %LockReassignOwner.exit
 
-LockReassignOwner.exit:                           ; preds = %.lr.ph25, %._crit_edge.i, %45
-  %47 = call ptr @hash_seq_search(ptr noundef nonnull %3) #17
-  %.not = icmp eq ptr %47, null
+LockReassignOwner.exit:                           ; preds = %.lr.ph25, %._crit_edge.i, %46
+  %48 = call ptr @hash_seq_search(ptr noundef nonnull %3) #17
+  %.not = icmp eq ptr %48, null
   br i1 %.not, label %._crit_edge, label %.lr.ph25, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %LockReassignOwner.exit, %9
@@ -3700,81 +3701,82 @@ LockReassignOwner.exit:                           ; preds = %.lr.ph25, %._crit_e
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %LockReassignOwner.exit21
   %indvars.iv = phi i64 [ %8, %.lr.ph.preheader ], [ %indvars.iv.next, %LockReassignOwner.exit21 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  %53 = load i32, ptr %52, align 8
-  %.03134.i10 = add i32 %53, -1
-  %54 = icmp sgt i32 %.03134.i10, -1
-  br i1 %54, label %.lr.ph.i11, label %LockReassignOwner.exit21
+  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  %54 = load i32, ptr %53, align 8
+  %.03134.i10 = add i32 %54, -1
+  %55 = icmp sgt i32 %.03134.i10, -1
+  br i1 %55, label %.lr.ph.i11, label %LockReassignOwner.exit21
 
 .lr.ph.i11:                                       ; preds = %.lr.ph
-  %55 = load ptr, ptr @CurrentResourceOwner, align 8
-  %56 = zext nneg i32 %.03134.i10 to i64
-  br label %57
+  %56 = load ptr, ptr @CurrentResourceOwner, align 8
+  %57 = zext nneg i32 %.03134.i10 to i64
+  br label %58
 
-57:                                               ; preds = %57, %.lr.ph.i11
-  %indvars.iv.i12 = phi i64 [ %56, %.lr.ph.i11 ], [ %indvars.iv.next.i18, %57 ]
-  %.036.i13 = phi i32 [ -1, %.lr.ph.i11 ], [ %.1.i17, %57 ]
-  %.02935.i14 = phi i32 [ -1, %.lr.ph.i11 ], [ %.130.i16, %57 ]
-  %58 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %51, i64 %indvars.iv.i12
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, %55
-  %61 = icmp eq ptr %59, %5
-  %62 = trunc nuw nsw i64 %indvars.iv.i12 to i32
-  %spec.select.i15 = select i1 %61, i32 %62, i32 %.036.i13
-  %.130.i16 = select i1 %60, i32 %62, i32 %.02935.i14
-  %.1.i17 = select i1 %60, i32 %.036.i13, i32 %spec.select.i15
+58:                                               ; preds = %58, %.lr.ph.i11
+  %indvars.iv.i12 = phi i64 [ %57, %.lr.ph.i11 ], [ %indvars.iv.next.i18, %58 ]
+  %.036.i13 = phi i32 [ -1, %.lr.ph.i11 ], [ %.1.i17, %58 ]
+  %.02935.i14 = phi i32 [ -1, %.lr.ph.i11 ], [ %.130.i16, %58 ]
+  %59 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %52, i64 %indvars.iv.i12
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, %56
+  %62 = icmp eq ptr %60, %5
+  %63 = trunc nuw nsw i64 %indvars.iv.i12 to i32
+  %spec.select.i15 = select i1 %62, i32 %63, i32 %.036.i13
+  %.130.i16 = select i1 %61, i32 %63, i32 %.02935.i14
+  %.1.i17 = select i1 %61, i32 %.036.i13, i32 %spec.select.i15
   %indvars.iv.next.i18 = add nsw i64 %indvars.iv.i12, -1
   %.not.i19 = icmp eq i64 %indvars.iv.i12, 0
-  br i1 %.not.i19, label %._crit_edge.i20, label %57, !llvm.loop !34
+  br i1 %.not.i19, label %._crit_edge.i20, label %58, !llvm.loop !34
 
-._crit_edge.i20:                                  ; preds = %57
-  %63 = icmp slt i32 %.130.i16, 0
-  br i1 %63, label %LockReassignOwner.exit21, label %64
+._crit_edge.i20:                                  ; preds = %58
+  %64 = icmp slt i32 %.130.i16, 0
+  br i1 %64, label %LockReassignOwner.exit21, label %65
 
-64:                                               ; preds = %._crit_edge.i20
-  %65 = icmp slt i32 %.1.i17, 0
-  %66 = zext nneg i32 %.130.i16 to i64
-  %67 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %51, i64 %66
-  br i1 %65, label %68, label %69
+65:                                               ; preds = %._crit_edge.i20
+  %66 = icmp slt i32 %.1.i17, 0
+  %67 = zext nneg i32 %.130.i16 to i64
+  %68 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %52, i64 %67
+  br i1 %66, label %69, label %70
 
-68:                                               ; preds = %64
-  store ptr %5, ptr %67, align 8
-  tail call void @ResourceOwnerRememberLock(ptr noundef %5, ptr noundef nonnull %49) #17
-  br label %82
+69:                                               ; preds = %65
+  store ptr %5, ptr %68, align 8
+  tail call void @ResourceOwnerRememberLock(ptr noundef %5, ptr noundef nonnull %50) #17
+  br label %84
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %71 = load i64, ptr %70, align 8
-  %72 = zext nneg i32 %.1.i17 to i64
-  %73 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %51, i64 %72, i32 1
-  %74 = load i64, ptr %73, align 8
-  %75 = add i64 %74, %71
-  store i64 %75, ptr %73, align 8
-  %76 = load i32, ptr %52, align 8
-  %77 = add i32 %76, -1
-  store i32 %77, ptr %52, align 8
-  %78 = icmp slt i32 %.130.i16, %77
-  br i1 %78, label %79, label %82
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %72 = load i64, ptr %71, align 8
+  %73 = zext nneg i32 %.1.i17 to i64
+  %74 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %52, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = load i64, ptr %75, align 8
+  %77 = add i64 %76, %72
+  store i64 %77, ptr %75, align 8
+  %78 = load i32, ptr %53, align 8
+  %79 = add i32 %78, -1
+  store i32 %79, ptr %53, align 8
+  %80 = icmp slt i32 %.130.i16, %79
+  br i1 %80, label %81, label %84
 
-79:                                               ; preds = %69
-  %80 = zext nneg i32 %77 to i64
-  %81 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %51, i64 %80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false)
-  br label %82
+81:                                               ; preds = %70
+  %82 = zext nneg i32 %79 to i64
+  %83 = getelementptr inbounds nuw %struct.LOCALLOCKOWNER, ptr %52, i64 %82
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %83, i64 16, i1 false)
+  br label %84
 
-82:                                               ; preds = %79, %69, %68
-  %83 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerForgetLock(ptr noundef %83, ptr noundef nonnull %49) #17
+84:                                               ; preds = %81, %70, %69
+  %85 = load ptr, ptr @CurrentResourceOwner, align 8
+  tail call void @ResourceOwnerForgetLock(ptr noundef %85, ptr noundef nonnull %50) #17
   br label %LockReassignOwner.exit21
 
-LockReassignOwner.exit21:                         ; preds = %.lr.ph, %._crit_edge.i20, %82
+LockReassignOwner.exit21:                         ; preds = %.lr.ph, %._crit_edge.i20, %84
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %84 = icmp sgt i64 %indvars.iv, 0
-  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !36
+  %86 = icmp sgt i64 %indvars.iv, 0
+  br i1 %86, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %LockReassignOwner.exit21, %.preheader, %._crit_edge
   ret void
@@ -4005,7 +4007,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   %135 = sext i32 %.092 to i64
   %136 = getelementptr inbounds %struct.VirtualTransactionId, ptr %134, i64 %135
   store i32 -1, ptr %136, align 4
-  %137 = getelementptr inbounds %struct.VirtualTransactionId, ptr %134, i64 %135, i32 1
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store i32 0, ptr %137, align 4
   %.not107 = icmp eq ptr %2, null
   br i1 %.not107, label %198, label %.sink.split161
@@ -4147,7 +4149,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
   %195 = sext i32 %.7.lcssa to i64
   %196 = getelementptr inbounds %struct.VirtualTransactionId, ptr %194, i64 %195
   store i32 -1, ptr %196, align 4
-  %197 = getelementptr inbounds %struct.VirtualTransactionId, ptr %194, i64 %195, i32 1
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
   store i32 0, ptr %197, align 4
   %.not110 = icmp eq ptr %2, null
   br i1 %.not110, label %198, label %.sink.split161

@@ -912,25 +912,25 @@ spl_array_set_refcount.exit:                      ; preds = %26, %32
   %.0.i = phi i32 [ %33, %32 ], [ 0, %26 ]
   %34 = load ptr, ptr %4, align 8, !tbaa !63
   %.not44 = icmp eq ptr %34, null
-  br i1 %.not44, label %92, label %35
+  br i1 %.not44, label %93, label %35
 
 35:                                               ; preds = %spl_array_set_refcount.exit
   %36 = call ptr @zend_hash_find(ptr noundef %28, ptr noundef nonnull %34) #13
   %.not45 = icmp eq ptr %36, null
-  br i1 %.not45, label %79, label %37
+  br i1 %.not45, label %80, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i8, ptr %38, align 8, !tbaa !4
   %40 = icmp eq i8 %39, 12
-  br i1 %40, label %41, label %76
+  br i1 %40, label %41, label %77
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %36, align 8, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i8, ptr %43, align 8, !tbaa !4
   %.not46 = icmp eq i8 %44, 0
-  br i1 %.not46, label %79, label %45
+  br i1 %.not46, label %80, label %45
 
 45:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -958,98 +958,99 @@ spl_array_get_pos_ptr.exit:                       ; preds = %45, %55
   %56 = phi i32 [ %53, %45 ], [ %.pre, %55 ]
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %57, i64 %58, i32 1
-  %60 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %28, ptr noundef nonnull %59) #13
-  %61 = getelementptr inbounds i8, ptr %1, i64 -68
-  %62 = load i32, ptr %61, align 4, !tbaa !75
-  %63 = and i32 %62, 33554432
-  %.not5.i = icmp eq i32 %63, 0
+  %59 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %57, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %28, ptr noundef nonnull %60) #13
+  %62 = getelementptr inbounds i8, ptr %1, i64 -68
+  %63 = load i32, ptr %62, align 4, !tbaa !75
+  %64 = and i32 %63, 33554432
+  %.not5.i = icmp eq i32 %64, 0
   br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %spl_array_get_pos_ptr.exit, %.lr.ph.i
-  %.06.i = phi ptr [ %65, %.lr.ph.i ], [ %6, %spl_array_get_pos_ptr.exit ]
-  %64 = load ptr, ptr %.06.i, align 8, !tbaa !4
-  %65 = getelementptr inbounds i8, ptr %64, i64 -96
-  %66 = getelementptr inbounds i8, ptr %64, i64 -68
-  %67 = load i32, ptr %66, align 4, !tbaa !75
-  %68 = and i32 %67, 33554432
-  %.not.i = icmp eq i32 %68, 0
+  %.06.i = phi ptr [ %66, %.lr.ph.i ], [ %6, %spl_array_get_pos_ptr.exit ]
+  %65 = load ptr, ptr %.06.i, align 8, !tbaa !4
+  %66 = getelementptr inbounds i8, ptr %65, i64 -96
+  %67 = getelementptr inbounds i8, ptr %65, i64 -68
+  %68 = load i32, ptr %67, align 4, !tbaa !75
+  %69 = and i32 %68, 33554432
+  %.not.i = icmp eq i32 %69, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %spl_array_get_pos_ptr.exit
-  %69 = phi ptr [ %1, %spl_array_get_pos_ptr.exit ], [ %64, %.lr.ph.i ]
-  %.lcssa.i = phi i32 [ %62, %spl_array_get_pos_ptr.exit ], [ %67, %.lr.ph.i ]
-  %70 = and i32 %.lcssa.i, 16777216
-  %.not4.i = icmp eq i32 %70, 0
+  %70 = phi ptr [ %1, %spl_array_get_pos_ptr.exit ], [ %65, %.lr.ph.i ]
+  %.lcssa.i = phi i32 [ %63, %spl_array_get_pos_ptr.exit ], [ %68, %.lr.ph.i ]
+  %71 = and i32 %.lcssa.i, 16777216
+  %.not4.i = icmp eq i32 %71, 0
   br i1 %.not4.i, label %spl_array_is_object.exit, label %spl_array_is_object.exit.thread
 
 spl_array_is_object.exit:                         ; preds = %._crit_edge.i
-  %71 = getelementptr inbounds i8, ptr %69, i64 -88
-  %72 = load i8, ptr %71, align 8, !tbaa !4
-  %73 = icmp eq i8 %72, 8
-  br i1 %73, label %spl_array_is_object.exit.thread, label %75
+  %72 = getelementptr inbounds i8, ptr %70, i64 -88
+  %73 = load i8, ptr %72, align 8, !tbaa !4
+  %74 = icmp eq i8 %73, 8
+  br i1 %74, label %spl_array_is_object.exit.thread, label %76
 
 spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl_array_is_object.exit
-  %74 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %6, ptr noundef nonnull %28)
-  br label %75
+  %75 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %6, ptr noundef nonnull %28)
+  br label %76
 
-75:                                               ; preds = %spl_array_is_object.exit.thread, %spl_array_is_object.exit
+76:                                               ; preds = %spl_array_is_object.exit.thread, %spl_array_is_object.exit
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %79
+  br label %80
 
-76:                                               ; preds = %37
-  %77 = load ptr, ptr %4, align 8, !tbaa !63
-  %78 = call i32 @zend_hash_del(ptr noundef %28, ptr noundef %77) #13
-  br label %79
+77:                                               ; preds = %37
+  %78 = load ptr, ptr %4, align 8, !tbaa !63
+  %79 = call i32 @zend_hash_del(ptr noundef %28, ptr noundef %78) #13
+  br label %80
 
-79:                                               ; preds = %76, %75, %41, %35
+80:                                               ; preds = %77, %76, %41, %35
   %.val = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.val48 = load i8, ptr %80, align 8, !tbaa !65, !range !66, !noundef !67
-  %81 = trunc nuw i8 %.val48 to i1
-  br i1 %81, label %82, label %spl_hash_key_release.exit
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.val48 = load i8, ptr %81, align 8, !tbaa !65, !range !66, !noundef !67
+  %82 = trunc nuw i8 %.val48 to i1
+  br i1 %82, label %83, label %spl_hash_key_release.exit
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %84 = load i32, ptr %83, align 4, !tbaa !4
-  %85 = and i32 %84, 64
-  %.not.i.i = icmp eq i32 %85, 0
-  br i1 %.not.i.i, label %86, label %spl_hash_key_release.exit
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %85 = load i32, ptr %84, align 4, !tbaa !4
+  %86 = and i32 %85, 64
+  %.not.i.i = icmp eq i32 %86, 0
+  br i1 %.not.i.i, label %87, label %spl_hash_key_release.exit
 
-86:                                               ; preds = %82
-  %87 = load i32, ptr %.val, align 4, !tbaa !68
-  %88 = icmp ne i32 %87, 0
-  call void @llvm.assume(i1 %88)
-  %89 = add i32 %87, -1
-  store i32 %89, ptr %.val, align 4, !tbaa !68
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %spl_hash_key_release.exit
+87:                                               ; preds = %83
+  %88 = load i32, ptr %.val, align 4, !tbaa !68
+  %89 = icmp ne i32 %88, 0
+  call void @llvm.assume(i1 %89)
+  %90 = add i32 %88, -1
+  store i32 %90, ptr %.val, align 4, !tbaa !68
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %92, label %spl_hash_key_release.exit
 
-91:                                               ; preds = %86
+92:                                               ; preds = %87
   call void @_efree(ptr noundef nonnull %.val) #13
   br label %spl_hash_key_release.exit
 
-92:                                               ; preds = %spl_array_set_refcount.exit
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %94 = load i64, ptr %93, align 8, !tbaa !69
-  %95 = call i32 @zend_hash_index_del(ptr noundef %28, i64 noundef %94) #13
+93:                                               ; preds = %spl_array_set_refcount.exit
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %95 = load i64, ptr %94, align 8, !tbaa !69
+  %96 = call i32 @zend_hash_index_del(ptr noundef %28, i64 noundef %95) #13
   br label %spl_hash_key_release.exit
 
-spl_hash_key_release.exit:                        ; preds = %91, %86, %82, %79, %92
+spl_hash_key_release.exit:                        ; preds = %92, %87, %83, %80, %93
   %.not47 = icmp eq i32 %.0.i, 0
-  br i1 %.not47, label %spl_array_set_refcount.exit50, label %96
+  br i1 %.not47, label %spl_array_set_refcount.exit50, label %97
 
-96:                                               ; preds = %spl_hash_key_release.exit
-  %97 = load i8, ptr %29, align 1, !tbaa !74, !range !66, !noundef !67
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %spl_array_set_refcount.exit50
+97:                                               ; preds = %spl_hash_key_release.exit
+  %98 = load i8, ptr %29, align 1, !tbaa !74, !range !66, !noundef !67
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %spl_array_set_refcount.exit50
 
-99:                                               ; preds = %96
+100:                                              ; preds = %97
   store i32 %.0.i, ptr %28, align 4, !tbaa !68
   br label %spl_array_set_refcount.exit50
 
-spl_array_set_refcount.exit50:                    ; preds = %99, %96, %spl_hash_key_release.exit, %21, %17, %10
+spl_array_set_refcount.exit50:                    ; preds = %100, %97, %spl_hash_key_release.exit, %21, %17, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -3206,9 +3207,10 @@ spl_array_get_pos_ptr.exit.i:                     ; preds = %.critedge
 spl_array_get_pos_ptr.exit9.i:                    ; preds = %.critedge
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %16, i64 %17, i32 1
-  tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %12, ptr noundef nonnull %18) #13
-  %19 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %12)
+  %18 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %16, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %12, ptr noundef nonnull %19) #13
+  %20 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %12)
   br label %spl_array_rewind.exit
 
 spl_array_rewind.exit:                            ; preds = %spl_array_get_pos_ptr.exit9.i, %spl_array_get_pos_ptr.exit.i, %8
@@ -3234,7 +3236,7 @@ define hidden void @zim_ArrayIterator_seek(ptr noundef readonly captures(none) %
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !7
   %15 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %15)
-  br label %73
+  br label %76
 
 16:                                               ; preds = %2
   %17 = load i64, ptr %3, align 8, !tbaa !80
@@ -3256,108 +3258,111 @@ spl_array_get_pos_ptr.exit.i:                     ; preds = %19
 spl_array_get_pos_ptr.exit9.i:                    ; preds = %19
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %25, i64 %26, i32 1
-  call void @zend_hash_internal_pointer_reset_ex(ptr noundef %21, ptr noundef nonnull %27) #13
-  %28 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %6, ptr noundef %21)
+  %27 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  call void @zend_hash_internal_pointer_reset_ex(ptr noundef %21, ptr noundef nonnull %28) #13
+  %29 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %6, ptr noundef %21)
   br label %spl_array_rewind.exit
 
 spl_array_rewind.exit:                            ; preds = %spl_array_get_pos_ptr.exit.i, %spl_array_get_pos_ptr.exit9.i
-  %29 = getelementptr inbounds i8, ptr %5, i64 -68
-  br label %30
+  %30 = getelementptr inbounds i8, ptr %5, i64 -68
+  br label %31
 
-30:                                               ; preds = %spl_array_next.exit, %spl_array_rewind.exit
-  %31 = load i64, ptr %3, align 8, !tbaa !80
-  %32 = add nsw i64 %31, -1
-  store i64 %32, ptr %3, align 8, !tbaa !80
-  %33 = icmp slt i64 %31, 1
-  br i1 %33, label %.critedge12, label %34
+31:                                               ; preds = %spl_array_next.exit, %spl_array_rewind.exit
+  %32 = load i64, ptr %3, align 8, !tbaa !80
+  %33 = add nsw i64 %32, -1
+  store i64 %33, ptr %3, align 8, !tbaa !80
+  %34 = icmp slt i64 %32, 1
+  br i1 %34, label %.critedge12, label %35
 
-34:                                               ; preds = %30
-  %35 = call fastcc ptr @spl_array_get_hash_table_ptr(ptr noundef nonnull %6)
-  %36 = load ptr, ptr %35, align 8, !tbaa !52
-  %37 = load i32, ptr %22, align 8, !tbaa !77
-  %38 = icmp eq i32 %37, -1
-  br i1 %38, label %39, label %spl_array_get_pos_ptr.exit.i.i, !prof !70
+35:                                               ; preds = %31
+  %36 = call fastcc ptr @spl_array_get_hash_table_ptr(ptr noundef nonnull %6)
+  %37 = load ptr, ptr %36, align 8, !tbaa !52
+  %38 = load i32, ptr %22, align 8, !tbaa !77
+  %39 = icmp eq i32 %38, -1
+  br i1 %39, label %40, label %spl_array_get_pos_ptr.exit.i.i, !prof !70
 
-39:                                               ; preds = %34
-  call fastcc void @spl_array_create_ht_iter(ptr noundef %36, ptr noundef nonnull %6)
+40:                                               ; preds = %35
+  call fastcc void @spl_array_create_ht_iter(ptr noundef %37, ptr noundef nonnull %6)
   %.pre.i.i = load i32, ptr %22, align 8, !tbaa !77
   br label %spl_array_get_pos_ptr.exit.i.i
 
-spl_array_get_pos_ptr.exit.i.i:                   ; preds = %39, %34
-  %40 = phi i32 [ %37, %34 ], [ %.pre.i.i, %39 ]
-  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
-  %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %41, i64 %42, i32 1
-  %44 = call i32 @zend_hash_move_forward_ex(ptr noundef %36, ptr noundef nonnull %43) #13
-  %45 = load i32, ptr %29, align 4, !tbaa !75
-  %46 = and i32 %45, 33554432
-  %.not5.i.i.i = icmp eq i32 %46, 0
+spl_array_get_pos_ptr.exit.i.i:                   ; preds = %40, %35
+  %41 = phi i32 [ %38, %35 ], [ %.pre.i.i, %40 ]
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
+  %43 = zext i32 %41 to i64
+  %44 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %42, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = call i32 @zend_hash_move_forward_ex(ptr noundef %37, ptr noundef nonnull %45) #13
+  %47 = load i32, ptr %30, align 4, !tbaa !75
+  %48 = and i32 %47, 33554432
+  %.not5.i.i.i = icmp eq i32 %48, 0
   br i1 %.not5.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %spl_array_get_pos_ptr.exit.i.i, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %6, %spl_array_get_pos_ptr.exit.i.i ]
-  %47 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !4
-  %48 = getelementptr inbounds i8, ptr %47, i64 -96
-  %49 = getelementptr inbounds i8, ptr %47, i64 -68
-  %50 = load i32, ptr %49, align 4, !tbaa !75
-  %51 = and i32 %50, 33554432
-  %.not.i.i.i = icmp eq i32 %51, 0
+  %.06.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i ], [ %6, %spl_array_get_pos_ptr.exit.i.i ]
+  %49 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !4
+  %50 = getelementptr inbounds i8, ptr %49, i64 -96
+  %51 = getelementptr inbounds i8, ptr %49, i64 -68
+  %52 = load i32, ptr %51, align 4, !tbaa !75
+  %53 = and i32 %52, 33554432
+  %.not.i.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %spl_array_get_pos_ptr.exit.i.i
-  %52 = phi ptr [ %5, %spl_array_get_pos_ptr.exit.i.i ], [ %47, %.lr.ph.i.i.i ]
-  %.lcssa.i.i.i = phi i32 [ %45, %spl_array_get_pos_ptr.exit.i.i ], [ %50, %.lr.ph.i.i.i ]
-  %53 = and i32 %.lcssa.i.i.i, 16777216
-  %.not4.i.i.i = icmp eq i32 %53, 0
+  %54 = phi ptr [ %5, %spl_array_get_pos_ptr.exit.i.i ], [ %49, %.lr.ph.i.i.i ]
+  %.lcssa.i.i.i = phi i32 [ %47, %spl_array_get_pos_ptr.exit.i.i ], [ %52, %.lr.ph.i.i.i ]
+  %55 = and i32 %.lcssa.i.i.i, 16777216
+  %.not4.i.i.i = icmp eq i32 %55, 0
   br i1 %.not4.i.i.i, label %spl_array_is_object.exit.i.i, label %spl_array_is_object.exit.thread.i.i
 
 spl_array_is_object.exit.i.i:                     ; preds = %._crit_edge.i.i.i
-  %54 = getelementptr inbounds i8, ptr %52, i64 -88
-  %55 = load i8, ptr %54, align 8, !tbaa !4
-  %56 = icmp eq i8 %55, 8
-  br i1 %56, label %spl_array_is_object.exit.thread.i.i, label %58
+  %56 = getelementptr inbounds i8, ptr %54, i64 -88
+  %57 = load i8, ptr %56, align 8, !tbaa !4
+  %58 = icmp eq i8 %57, 8
+  br i1 %58, label %spl_array_is_object.exit.thread.i.i, label %60
 
 spl_array_is_object.exit.thread.i.i:              ; preds = %spl_array_is_object.exit.i.i, %._crit_edge.i.i.i
-  %57 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %6, ptr noundef %36)
+  %59 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %6, ptr noundef %37)
   br label %spl_array_next.exit
 
-58:                                               ; preds = %spl_array_is_object.exit.i.i
-  %59 = call i32 @zend_hash_get_current_key_type_ex(ptr noundef %36, ptr noundef nonnull %43) #13
-  %60 = icmp eq i32 %59, 3
-  %61 = sext i1 %60 to i32
+60:                                               ; preds = %spl_array_is_object.exit.i.i
+  %61 = call i32 @zend_hash_get_current_key_type_ex(ptr noundef %37, ptr noundef nonnull %45) #13
+  %62 = icmp eq i32 %61, 3
+  %63 = sext i1 %62 to i32
   br label %spl_array_next.exit
 
-spl_array_next.exit:                              ; preds = %spl_array_is_object.exit.thread.i.i, %58
-  %.0.i.i = phi i32 [ %57, %spl_array_is_object.exit.thread.i.i ], [ %61, %58 ]
-  %62 = icmp eq i32 %.0.i.i, 0
-  br i1 %62, label %30, label %.critedge
+spl_array_next.exit:                              ; preds = %spl_array_is_object.exit.thread.i.i, %60
+  %.0.i.i = phi i32 [ %59, %spl_array_is_object.exit.thread.i.i ], [ %63, %60 ]
+  %64 = icmp eq i32 %.0.i.i, 0
+  br i1 %64, label %31, label %.critedge
 
-.critedge12:                                      ; preds = %30
-  %63 = load i32, ptr %22, align 8, !tbaa !77
-  %64 = icmp eq i32 %63, -1
-  br i1 %64, label %65, label %spl_array_get_pos_ptr.exit, !prof !70
+.critedge12:                                      ; preds = %31
+  %65 = load i32, ptr %22, align 8, !tbaa !77
+  %66 = icmp eq i32 %65, -1
+  br i1 %66, label %67, label %spl_array_get_pos_ptr.exit, !prof !70
 
-65:                                               ; preds = %.critedge12
+67:                                               ; preds = %.critedge12
   call fastcc void @spl_array_create_ht_iter(ptr noundef %8, ptr noundef nonnull %6)
   %.pre = load i32, ptr %22, align 8, !tbaa !77
   br label %spl_array_get_pos_ptr.exit
 
-spl_array_get_pos_ptr.exit:                       ; preds = %.critedge12, %65
-  %66 = phi i32 [ %63, %.critedge12 ], [ %.pre, %65 ]
-  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
-  %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %67, i64 %68, i32 1
-  %70 = call i32 @zend_hash_get_current_key_type_ex(ptr noundef %8, ptr noundef nonnull %69) #13
-  %.not = icmp eq i32 %70, 3
-  br i1 %.not, label %.critedge, label %73
+spl_array_get_pos_ptr.exit:                       ; preds = %.critedge12, %67
+  %68 = phi i32 [ %65, %.critedge12 ], [ %.pre, %67 ]
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
+  %70 = zext i32 %68 to i64
+  %71 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %69, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = call i32 @zend_hash_get_current_key_type_ex(ptr noundef %8, ptr noundef nonnull %72) #13
+  %.not = icmp eq i32 %73, 3
+  br i1 %.not, label %.critedge, label %76
 
 .critedge:                                        ; preds = %spl_array_next.exit, %spl_array_get_pos_ptr.exit, %16
-  %71 = load ptr, ptr @spl_ce_OutOfBoundsException, align 8, !tbaa !81
-  %72 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %71, i64 noundef 0, ptr noundef nonnull @.str.23, i64 noundef %17) #13
-  br label %73
+  %74 = load ptr, ptr @spl_ce_OutOfBoundsException, align 8, !tbaa !81
+  %75 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %74, i64 noundef 0, ptr noundef nonnull @.str.23, i64 noundef %17) #13
+  br label %76
 
-73:                                               ; preds = %spl_array_get_pos_ptr.exit, %.critedge, %13
+76:                                               ; preds = %spl_array_get_pos_ptr.exit, %.critedge, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3379,7 +3384,7 @@ define hidden void @zim_ArrayIterator_current(ptr noundef readonly captures(none
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !7
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
-  br label %58
+  br label %59
 
 .critedge:                                        ; preds = %2
   %13 = getelementptr inbounds i8, ptr %4, i64 -72
@@ -3396,79 +3401,80 @@ spl_array_get_pos_ptr.exit:                       ; preds = %.critedge, %16
   %17 = phi i32 [ %14, %.critedge ], [ %.pre, %16 ]
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %18, i64 %19, i32 1
-  %21 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %7, ptr noundef nonnull %20) #13
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %25
+  %20 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %7, ptr noundef nonnull %21) #13
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %spl_array_get_pos_ptr.exit
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %24, align 8, !tbaa !4
-  br label %58
+24:                                               ; preds = %spl_array_get_pos_ptr.exit
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 1, ptr %25, align 8, !tbaa !4
+  br label %59
 
-25:                                               ; preds = %spl_array_get_pos_ptr.exit
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %27 = load i8, ptr %26, align 8, !tbaa !4
-  %28 = icmp eq i8 %27, 12
-  br i1 %28, label %29, label %36
+26:                                               ; preds = %spl_array_get_pos_ptr.exit
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %28 = load i8, ptr %27, align 8, !tbaa !4
+  %29 = icmp eq i8 %28, 12
+  br i1 %29, label %30, label %37
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %21, align 8, !tbaa !4
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i8, ptr %31, align 8, !tbaa !4
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %34, label %36
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %22, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load i8, ptr %32, align 8, !tbaa !4
+  %34 = icmp eq i8 %33, 0
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %35, align 8, !tbaa !4
-  br label %58
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 1, ptr %36, align 8, !tbaa !4
+  br label %59
 
-36:                                               ; preds = %29, %25
-  %.0 = phi ptr [ %30, %29 ], [ %21, %25 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = and i32 %38, 65280
-  %.not28 = icmp eq i32 %39, 0
-  br i1 %.not28, label %53, label %40
+37:                                               ; preds = %30, %26
+  %.0 = phi ptr [ %31, %30 ], [ %22, %26 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %39 = load i32, ptr %38, align 8
+  %40 = and i32 %39, 65280
+  %.not28 = icmp eq i32 %40, 0
+  br i1 %.not28, label %54, label %41
 
-40:                                               ; preds = %36
-  %41 = and i32 %38, 255
-  %42 = icmp eq i32 %41, 10
-  br i1 %42, label %43, label %.sink.split, !prof !70
+41:                                               ; preds = %37
+  %42 = and i32 %39, 255
+  %43 = icmp eq i32 %42, 10
+  br i1 %43, label %44, label %.sink.split, !prof !70
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %.0, align 8, !tbaa !4
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %47 = load i32, ptr %46, align 8
-  %48 = and i32 %47, 65280
-  %.not29 = icmp eq i32 %48, 0
-  br i1 %.not29, label %53, label %.sink.split
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %.0, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %48 = load i32, ptr %47, align 8
+  %49 = and i32 %48, 65280
+  %.not29 = icmp eq i32 %49, 0
+  br i1 %.not29, label %54, label %.sink.split
 
-.sink.split:                                      ; preds = %40, %43
-  %.sink36 = phi i32 [ %47, %43 ], [ %38, %40 ]
-  %.sink.in = phi ptr [ %45, %43 ], [ %.0, %40 ]
-  %49 = and i32 %.sink36, 65280
-  %50 = icmp ne i32 %49, 0
-  tail call void @llvm.assume(i1 %50)
+.sink.split:                                      ; preds = %41, %44
+  %.sink36 = phi i32 [ %48, %44 ], [ %39, %41 ]
+  %.sink.in = phi ptr [ %46, %44 ], [ %.0, %41 ]
+  %50 = and i32 %.sink36, 65280
+  %51 = icmp ne i32 %50, 0
+  tail call void @llvm.assume(i1 %51)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4
-  %51 = load i32, ptr %.sink, align 4, !tbaa !68
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %.sink, align 4, !tbaa !68
-  br label %53
+  %52 = load i32, ptr %.sink, align 4, !tbaa !68
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %.sink, align 4, !tbaa !68
+  br label %54
 
-53:                                               ; preds = %.sink.split, %36, %43
-  %.026 = phi ptr [ %45, %43 ], [ %.0, %36 ], [ %.sink.in, %.sink.split ]
-  %54 = load ptr, ptr %.026, align 8, !tbaa !4
-  %55 = getelementptr inbounds nuw i8, ptr %.026, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !4
-  store ptr %54, ptr %1, align 8, !tbaa !4
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %56, ptr %57, align 8, !tbaa !4
-  br label %58
+54:                                               ; preds = %.sink.split, %37, %44
+  %.026 = phi ptr [ %46, %44 ], [ %.0, %37 ], [ %.sink.in, %.sink.split ]
+  %55 = load ptr, ptr %.026, align 8, !tbaa !4
+  %56 = getelementptr inbounds nuw i8, ptr %.026, i64 8
+  %57 = load i32, ptr %56, align 8, !tbaa !4
+  store ptr %55, ptr %1, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %57, ptr %58, align 8, !tbaa !4
+  br label %59
 
-58:                                               ; preds = %53, %34, %23, %10
+59:                                               ; preds = %54, %35, %24, %10
   ret void
 }
 
@@ -3494,8 +3500,9 @@ spl_array_get_pos_ptr.exit:                       ; preds = %2, %10
   %11 = phi i32 [ %8, %2 ], [ %.pre, %10 ]
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %12, i64 %13, i32 1
-  tail call void @zend_hash_get_current_key_zval_ex(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %14) #13
+  %14 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  tail call void @zend_hash_get_current_key_zval_ex(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %15) #13
   ret void
 }
 
@@ -3513,7 +3520,7 @@ define hidden void @zim_ArrayIterator_key(ptr noundef readonly captures(none) %0
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !7
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %21
+  br label %22
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3535,11 +3542,12 @@ spl_array_iterator_key.exit:                      ; preds = %.critedge, %16
   %17 = phi i32 [ %14, %.critedge ], [ %.pre.i, %16 ]
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %18, i64 %19, i32 1
-  tail call void @zend_hash_get_current_key_zval_ex(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %20) #13
-  br label %21
+  %20 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  tail call void @zend_hash_get_current_key_zval_ex(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %21) #13
+  br label %22
 
-21:                                               ; preds = %spl_array_iterator_key.exit, %5
+22:                                               ; preds = %spl_array_iterator_key.exit, %5
   ret void
 }
 
@@ -3577,46 +3585,47 @@ spl_array_get_pos_ptr.exit.i:                     ; preds = %16, %.critedge
   %17 = phi i32 [ %14, %.critedge ], [ %.pre.i, %16 ]
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %18, i64 %19, i32 1
-  %21 = tail call i32 @zend_hash_move_forward_ex(ptr noundef %7, ptr noundef nonnull %20) #13
-  %22 = getelementptr inbounds i8, ptr %4, i64 -68
-  %23 = load i32, ptr %22, align 4, !tbaa !75
-  %24 = and i32 %23, 33554432
-  %.not5.i.i = icmp eq i32 %24, 0
+  %20 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = tail call i32 @zend_hash_move_forward_ex(ptr noundef %7, ptr noundef nonnull %21) #13
+  %23 = getelementptr inbounds i8, ptr %4, i64 -68
+  %24 = load i32, ptr %23, align 4, !tbaa !75
+  %25 = and i32 %24, 33554432
+  %.not5.i.i = icmp eq i32 %25, 0
   br i1 %.not5.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %spl_array_get_pos_ptr.exit.i, %.lr.ph.i.i
-  %.06.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %5, %spl_array_get_pos_ptr.exit.i ]
-  %25 = load ptr, ptr %.06.i.i, align 8, !tbaa !4
-  %26 = getelementptr inbounds i8, ptr %25, i64 -96
-  %27 = getelementptr inbounds i8, ptr %25, i64 -68
-  %28 = load i32, ptr %27, align 4, !tbaa !75
-  %29 = and i32 %28, 33554432
-  %.not.i.i = icmp eq i32 %29, 0
+  %.06.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %5, %spl_array_get_pos_ptr.exit.i ]
+  %26 = load ptr, ptr %.06.i.i, align 8, !tbaa !4
+  %27 = getelementptr inbounds i8, ptr %26, i64 -96
+  %28 = getelementptr inbounds i8, ptr %26, i64 -68
+  %29 = load i32, ptr %28, align 4, !tbaa !75
+  %30 = and i32 %29, 33554432
+  %.not.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %spl_array_get_pos_ptr.exit.i
-  %30 = phi ptr [ %4, %spl_array_get_pos_ptr.exit.i ], [ %25, %.lr.ph.i.i ]
-  %.lcssa.i.i = phi i32 [ %23, %spl_array_get_pos_ptr.exit.i ], [ %28, %.lr.ph.i.i ]
-  %31 = and i32 %.lcssa.i.i, 16777216
-  %.not4.i.i = icmp eq i32 %31, 0
+  %31 = phi ptr [ %4, %spl_array_get_pos_ptr.exit.i ], [ %26, %.lr.ph.i.i ]
+  %.lcssa.i.i = phi i32 [ %24, %spl_array_get_pos_ptr.exit.i ], [ %29, %.lr.ph.i.i ]
+  %32 = and i32 %.lcssa.i.i, 16777216
+  %.not4.i.i = icmp eq i32 %32, 0
   br i1 %.not4.i.i, label %spl_array_is_object.exit.i, label %spl_array_is_object.exit.thread.i
 
 spl_array_is_object.exit.i:                       ; preds = %._crit_edge.i.i
-  %32 = getelementptr inbounds i8, ptr %30, i64 -88
-  %33 = load i8, ptr %32, align 8, !tbaa !4
-  %34 = icmp eq i8 %33, 8
-  br i1 %34, label %spl_array_is_object.exit.thread.i, label %36
+  %33 = getelementptr inbounds i8, ptr %31, i64 -88
+  %34 = load i8, ptr %33, align 8, !tbaa !4
+  %35 = icmp eq i8 %34, 8
+  br i1 %35, label %spl_array_is_object.exit.thread.i, label %37
 
 spl_array_is_object.exit.thread.i:                ; preds = %spl_array_is_object.exit.i, %._crit_edge.i.i
-  %35 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %7)
+  %36 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %7)
   br label %spl_array_next_ex.exit
 
-36:                                               ; preds = %spl_array_is_object.exit.i
-  %37 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %7, ptr noundef nonnull %20) #13
+37:                                               ; preds = %spl_array_is_object.exit.i
+  %38 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %7, ptr noundef nonnull %21) #13
   br label %spl_array_next_ex.exit
 
-spl_array_next_ex.exit:                           ; preds = %36, %spl_array_is_object.exit.thread.i, %10
+spl_array_next_ex.exit:                           ; preds = %37, %spl_array_is_object.exit.thread.i, %10
   ret void
 }
 
@@ -3637,7 +3646,7 @@ define hidden void @zim_ArrayIterator_valid(ptr noundef readonly captures(none) 
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !7
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
-  br label %24
+  br label %25
 
 .critedge:                                        ; preds = %2
   %13 = getelementptr inbounds i8, ptr %4, i64 -72
@@ -3654,15 +3663,16 @@ spl_array_get_pos_ptr.exit:                       ; preds = %.critedge, %16
   %17 = phi i32 [ %14, %.critedge ], [ %.pre, %16 ]
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %18, i64 %19, i32 1
-  %21 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %7, ptr noundef nonnull %20) #13
-  %.not8 = icmp eq i32 %21, 3
-  %22 = select i1 %.not8, i32 2, i32 3
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %22, ptr %23, align 8, !tbaa !4
-  br label %24
+  %20 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %7, ptr noundef nonnull %21) #13
+  %.not8 = icmp eq i32 %22, 3
+  %23 = select i1 %.not8, i32 2, i32 3
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %23, ptr %24, align 8, !tbaa !4
+  br label %25
 
-24:                                               ; preds = %spl_array_get_pos_ptr.exit, %10
+25:                                               ; preds = %spl_array_get_pos_ptr.exit, %10
   ret void
 }
 
@@ -3683,7 +3693,7 @@ define hidden void @zim_RecursiveArrayIterator_hasChildren(ptr noundef readonly 
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !7
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
-  br label %47
+  br label %48
 
 .critedge:                                        ; preds = %2
   %13 = getelementptr inbounds i8, ptr %4, i64 -72
@@ -3700,65 +3710,66 @@ spl_array_get_pos_ptr.exit:                       ; preds = %.critedge, %16
   %17 = phi i32 [ %14, %.critedge ], [ %.pre, %16 ]
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %18, i64 %19, i32 1
-  %21 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %7, ptr noundef nonnull %20) #13
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %25
+  %20 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %7, ptr noundef nonnull %21) #13
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %spl_array_get_pos_ptr.exit
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %24, align 8, !tbaa !4
-  br label %47
+24:                                               ; preds = %spl_array_get_pos_ptr.exit
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %25, align 8, !tbaa !4
+  br label %48
 
-25:                                               ; preds = %spl_array_get_pos_ptr.exit
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %27 = load i8, ptr %26, align 8, !tbaa !4
-  %28 = icmp eq i8 %27, 12
-  br i1 %28, label %29, label %31
+26:                                               ; preds = %spl_array_get_pos_ptr.exit
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %28 = load i8, ptr %27, align 8, !tbaa !4
+  %29 = icmp eq i8 %28, 12
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %21, align 8, !tbaa !4
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %30, i64 8
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %22, align 8, !tbaa !4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.pre17 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !4
-  br label %31
+  br label %32
 
-31:                                               ; preds = %25, %29
-  %32 = phi i8 [ %.pre17, %29 ], [ %27, %25 ]
-  %.0 = phi ptr [ %30, %29 ], [ %21, %25 ]
-  %33 = icmp eq i8 %32, 10
-  br i1 %33, label %34, label %36, !prof !70
+32:                                               ; preds = %26, %30
+  %33 = phi i8 [ %.pre17, %30 ], [ %28, %26 ]
+  %.0 = phi ptr [ %31, %30 ], [ %22, %26 ]
+  %34 = icmp eq i8 %33, 10
+  br i1 %34, label %35, label %37, !prof !70
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %.0, align 8, !tbaa !4
-  %.phi.trans.insert18 = getelementptr inbounds nuw i8, ptr %35, i64 16
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %.0, align 8, !tbaa !4
+  %.phi.trans.insert18 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.pre19 = load i8, ptr %.phi.trans.insert18, align 8, !tbaa !4
-  br label %36
+  br label %37
 
-36:                                               ; preds = %34, %31
-  %37 = phi i8 [ %.pre19, %34 ], [ %32, %31 ]
-  switch i8 %37, label %.fold.split [
-    i8 7, label %44
-    i8 8, label %38
+37:                                               ; preds = %35, %32
+  %38 = phi i8 [ %.pre19, %35 ], [ %33, %32 ]
+  switch i8 %38, label %.fold.split [
+    i8 7, label %45
+    i8 8, label %39
   ]
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %4, i64 -68
-  %40 = load i32, ptr %39, align 4, !tbaa !75
-  %41 = and i32 %40, 4
-  %42 = icmp eq i32 %41, 0
-  %43 = select i1 %42, i32 3, i32 2
-  br label %44
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds i8, ptr %4, i64 -68
+  %41 = load i32, ptr %40, align 4, !tbaa !75
+  %42 = and i32 %41, 4
+  %43 = icmp eq i32 %42, 0
+  %44 = select i1 %43, i32 3, i32 2
+  br label %45
 
-.fold.split:                                      ; preds = %36
-  br label %44
+.fold.split:                                      ; preds = %37
+  br label %45
 
-44:                                               ; preds = %36, %.fold.split, %38
-  %45 = phi i32 [ 3, %36 ], [ %43, %38 ], [ 2, %.fold.split ]
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %45, ptr %46, align 8, !tbaa !4
-  br label %47
+45:                                               ; preds = %37, %.fold.split, %39
+  %46 = phi i32 [ 3, %37 ], [ %44, %39 ], [ 2, %.fold.split ]
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %46, ptr %47, align 8, !tbaa !4
+  br label %48
 
-47:                                               ; preds = %44, %23, %10
+48:                                               ; preds = %45, %24, %10
   ret void
 }
 
@@ -3781,7 +3792,7 @@ define hidden void @zim_RecursiveArrayIterator_getChildren(ptr noundef readonly 
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !7
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
-  br label %75
+  br label %76
 
 .critedge:                                        ; preds = %2
   %14 = getelementptr inbounds i8, ptr %5, i64 -72
@@ -3798,110 +3809,111 @@ spl_array_get_pos_ptr.exit:                       ; preds = %.critedge, %17
   %18 = phi i32 [ %15, %.critedge ], [ %.pre, %17 ]
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %19, i64 %20, i32 1
-  %22 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %8, ptr noundef nonnull %21) #13
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %26
+  %21 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %19, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %8, ptr noundef nonnull %22) #13
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %spl_array_get_pos_ptr.exit
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %25, align 8, !tbaa !4
-  br label %75
+25:                                               ; preds = %spl_array_get_pos_ptr.exit
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 1, ptr %26, align 8, !tbaa !4
+  br label %76
 
-26:                                               ; preds = %spl_array_get_pos_ptr.exit
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %28 = load i8, ptr %27, align 8, !tbaa !4
-  %29 = icmp eq i8 %28, 12
-  br i1 %29, label %30, label %32
+27:                                               ; preds = %spl_array_get_pos_ptr.exit
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %29 = load i8, ptr %28, align 8, !tbaa !4
+  %30 = icmp eq i8 %29, 12
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %22, align 8, !tbaa !4
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %31, i64 8
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %23, align 8, !tbaa !4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.pre31 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !4
-  br label %32
+  br label %33
 
-32:                                               ; preds = %26, %30
-  %33 = phi i8 [ %.pre31, %30 ], [ %28, %26 ]
-  %.0 = phi ptr [ %31, %30 ], [ %22, %26 ]
-  %34 = icmp eq i8 %33, 10
-  br i1 %34, label %35, label %38, !prof !70
+33:                                               ; preds = %27, %31
+  %34 = phi i8 [ %.pre31, %31 ], [ %29, %27 ]
+  %.0 = phi ptr [ %32, %31 ], [ %23, %27 ]
+  %35 = icmp eq i8 %34, 10
+  br i1 %35, label %36, label %39, !prof !70
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %.0, align 8, !tbaa !4
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %36, i64 16
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %.0, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %.pre33 = load i8, ptr %.phi.trans.insert32, align 8, !tbaa !4
-  br label %38
+  br label %39
 
-38:                                               ; preds = %35, %32
-  %39 = phi i8 [ %.pre33, %35 ], [ %33, %32 ]
-  %.1 = phi ptr [ %37, %35 ], [ %.0, %32 ]
-  %40 = icmp eq i8 %39, 8
-  br i1 %40, label %41, label %60
+39:                                               ; preds = %36, %33
+  %40 = phi i8 [ %.pre33, %36 ], [ %34, %33 ]
+  %.1 = phi ptr [ %38, %36 ], [ %.0, %33 ]
+  %41 = icmp eq i8 %40, 8
+  br i1 %41, label %42, label %61
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %5, i64 -68
-  %43 = load i32, ptr %42, align 4, !tbaa !75
-  %44 = and i32 %43, 4
-  %.not30 = icmp eq i32 %44, 0
-  br i1 %.not30, label %47, label %45
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds i8, ptr %5, i64 -68
+  %44 = load i32, ptr %43, align 4, !tbaa !75
+  %45 = and i32 %44, 4
+  %.not30 = icmp eq i32 %45, 0
+  br i1 %.not30, label %48, label %46
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %46, align 8, !tbaa !4
-  br label %75
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 1, ptr %47, align 8, !tbaa !4
+  br label %76
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %.1, align 8, !tbaa !4
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !50
-  %51 = load ptr, ptr %4, align 8, !tbaa !4
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !50
-  %54 = icmp eq ptr %50, %53
-  br i1 %54, label %instanceof_function.exit.thread, label %instanceof_function.exit
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %.1, align 8, !tbaa !4
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !50
+  %52 = load ptr, ptr %4, align 8, !tbaa !4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !50
+  %55 = icmp eq ptr %51, %54
+  br i1 %55, label %instanceof_function.exit.thread, label %instanceof_function.exit
 
-instanceof_function.exit:                         ; preds = %47
-  %55 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %50, ptr noundef %53) #13
-  br i1 %55, label %instanceof_function.exit.instanceof_function.exit.thread_crit_edge, label %60
+instanceof_function.exit:                         ; preds = %48
+  %56 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %51, ptr noundef %54) #13
+  br i1 %56, label %instanceof_function.exit.instanceof_function.exit.thread_crit_edge, label %61
 
 instanceof_function.exit.instanceof_function.exit.thread_crit_edge: ; preds = %instanceof_function.exit
   %.pre34 = load ptr, ptr %.1, align 8, !tbaa !4
   br label %instanceof_function.exit.thread
 
-instanceof_function.exit.thread:                  ; preds = %instanceof_function.exit.instanceof_function.exit.thread_crit_edge, %47
-  %56 = phi ptr [ %.pre34, %instanceof_function.exit.instanceof_function.exit.thread_crit_edge ], [ %48, %47 ]
-  %57 = load i32, ptr %56, align 4, !tbaa !68
-  %58 = add i32 %57, 1
-  store i32 %58, ptr %56, align 4, !tbaa !68
-  store ptr %56, ptr %1, align 8, !tbaa !4
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 776, ptr %59, align 8, !tbaa !4
-  br label %75
+instanceof_function.exit.thread:                  ; preds = %instanceof_function.exit.instanceof_function.exit.thread_crit_edge, %48
+  %57 = phi ptr [ %.pre34, %instanceof_function.exit.instanceof_function.exit.thread_crit_edge ], [ %49, %48 ]
+  %58 = load i32, ptr %57, align 4, !tbaa !68
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 4, !tbaa !68
+  store ptr %57, ptr %1, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 776, ptr %60, align 8, !tbaa !4
+  br label %76
 
-60:                                               ; preds = %38, %instanceof_function.exit
-  %61 = getelementptr inbounds i8, ptr %5, i64 -68
-  %62 = load i32, ptr %61, align 4, !tbaa !75
-  %63 = sext i32 %62 to i64
-  store i64 %63, ptr %3, align 8, !tbaa !4
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 4, ptr %64, align 8, !tbaa !4
-  %65 = load ptr, ptr %4, align 8, !tbaa !4
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !50
-  %68 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %67) #13
-  %69 = load ptr, ptr %1, align 8, !tbaa !4
-  %70 = getelementptr inbounds i8, ptr %69, i64 -63
-  store i8 1, ptr %70, align 1, !tbaa !74
-  %71 = getelementptr inbounds i8, ptr %69, i64 -56
-  store ptr %.1, ptr %71, align 8, !tbaa !83
-  %72 = getelementptr inbounds nuw i8, ptr %67, i64 256
-  %73 = load ptr, ptr %72, align 8, !tbaa !116
-  %74 = load ptr, ptr %1, align 8, !tbaa !4
-  call void @zend_call_known_instance_method_with_2_params(ptr noundef %73, ptr noundef %74, ptr noundef null, ptr noundef nonnull %.1, ptr noundef nonnull %3) #13
-  br label %75
+61:                                               ; preds = %39, %instanceof_function.exit
+  %62 = getelementptr inbounds i8, ptr %5, i64 -68
+  %63 = load i32, ptr %62, align 4, !tbaa !75
+  %64 = sext i32 %63 to i64
+  store i64 %64, ptr %3, align 8, !tbaa !4
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 4, ptr %65, align 8, !tbaa !4
+  %66 = load ptr, ptr %4, align 8, !tbaa !4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %68 = load ptr, ptr %67, align 8, !tbaa !50
+  %69 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %68) #13
+  %70 = load ptr, ptr %1, align 8, !tbaa !4
+  %71 = getelementptr inbounds i8, ptr %70, i64 -63
+  store i8 1, ptr %71, align 1, !tbaa !74
+  %72 = getelementptr inbounds i8, ptr %70, i64 -56
+  store ptr %.1, ptr %72, align 8, !tbaa !83
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 256
+  %74 = load ptr, ptr %73, align 8, !tbaa !116
+  %75 = load ptr, ptr %1, align 8, !tbaa !4
+  call void @zend_call_known_instance_method_with_2_params(ptr noundef %74, ptr noundef %75, ptr noundef null, ptr noundef nonnull %.1, ptr noundef nonnull %3) #13
+  br label %76
 
-75:                                               ; preds = %60, %instanceof_function.exit.thread, %45, %24, %11
+76:                                               ; preds = %61, %instanceof_function.exit.thread, %46, %25, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -5275,55 +5287,56 @@ spl_array_get_pos_ptr.exit:                       ; preds = %spl_array_is_object
   %21 = phi i32 [ %18, %spl_array_is_object.exit.thread ], [ %.pre, %20 ]
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %22, i64 %23, i32 1
-  %25 = call i32 @zend_hash_get_current_key_ex(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %24) #13
-  %26 = icmp eq i32 %25, 1
-  br i1 %26, label %.lr.ph, label %.loopexit
+  %24 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = call i32 @zend_hash_get_current_key_ex(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %25) #13
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %spl_array_get_pos_ptr.exit, %46
-  %27 = call ptr @zend_hash_get_current_data_ex(ptr noundef %1, ptr noundef nonnull %24) #13
-  %.not = icmp eq ptr %27, null
-  br i1 %.not, label %37, label %28
+.lr.ph:                                           ; preds = %spl_array_get_pos_ptr.exit, %47
+  %28 = call ptr @zend_hash_get_current_data_ex(ptr noundef %1, ptr noundef nonnull %25) #13
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %38, label %29
 
-28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %30 = load i8, ptr %29, align 8, !tbaa !4
-  %31 = icmp eq i8 %30, 12
-  br i1 %31, label %32, label %37
+29:                                               ; preds = %.lr.ph
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %31 = load i8, ptr %30, align 8, !tbaa !4
+  %32 = icmp eq i8 %31, 12
+  br i1 %32, label %33, label %38
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %27, align 8, !tbaa !4
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i8, ptr %34, align 8, !tbaa !4
-  %36 = icmp eq i8 %35, 0
-  br i1 %36, label %44, label %37
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %28, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load i8, ptr %35, align 8, !tbaa !4
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %45, label %38
 
-37:                                               ; preds = %32, %28, %.lr.ph
-  %38 = load ptr, ptr %3, align 8, !tbaa !95
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load i64, ptr %39, align 8, !tbaa !104
-  %.not16 = icmp eq i64 %40, 0
-  br i1 %.not16, label %.loopexit, label %41
+38:                                               ; preds = %33, %29, %.lr.ph
+  %39 = load ptr, ptr %3, align 8, !tbaa !95
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = load i64, ptr %40, align 8, !tbaa !104
+  %.not16 = icmp eq i64 %41, 0
+  br i1 %.not16, label %.loopexit, label %42
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %43 = load i8, ptr %42, align 8, !tbaa !4
-  %.not17 = icmp eq i8 %43, 0
-  br i1 %.not17, label %44, label %.loopexit
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %44 = load i8, ptr %43, align 8, !tbaa !4
+  %.not17 = icmp eq i8 %44, 0
+  br i1 %.not17, label %45, label %.loopexit
 
-44:                                               ; preds = %32, %41
-  %45 = call i32 @zend_hash_get_current_key_type_ex(ptr noundef %1, ptr noundef nonnull %24) #13
-  %.not19 = icmp eq i32 %45, 3
-  br i1 %.not19, label %.loopexit, label %46
+45:                                               ; preds = %33, %42
+  %46 = call i32 @zend_hash_get_current_key_type_ex(ptr noundef %1, ptr noundef nonnull %25) #13
+  %.not19 = icmp eq i32 %46, 3
+  br i1 %.not19, label %.loopexit, label %47
 
-46:                                               ; preds = %44
-  %47 = call i32 @zend_hash_move_forward_ex(ptr noundef %1, ptr noundef nonnull %24) #13
-  %48 = call i32 @zend_hash_get_current_key_ex(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %24) #13
-  %49 = icmp eq i32 %48, 1
-  br i1 %49, label %.lr.ph, label %.loopexit
+47:                                               ; preds = %45
+  %48 = call i32 @zend_hash_move_forward_ex(ptr noundef %1, ptr noundef nonnull %25) #13
+  %49 = call i32 @zend_hash_get_current_key_ex(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %25) #13
+  %50 = icmp eq i32 %49, 1
+  br i1 %50, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %44, %46, %37, %41, %spl_array_get_pos_ptr.exit, %spl_array_is_object.exit
-  %.1 = phi i32 [ -1, %spl_array_is_object.exit ], [ 0, %spl_array_get_pos_ptr.exit ], [ -1, %44 ], [ 0, %46 ], [ 0, %37 ], [ 0, %41 ]
+.loopexit:                                        ; preds = %45, %47, %38, %42, %spl_array_get_pos_ptr.exit, %spl_array_is_object.exit
+  %.1 = phi i32 [ -1, %spl_array_is_object.exit ], [ 0, %spl_array_get_pos_ptr.exit ], [ -1, %45 ], [ 0, %47 ], [ 0, %38 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
@@ -5515,9 +5528,10 @@ define internal fastcc void @spl_array_create_ht_iter(ptr noundef %0, ptr nounde
   store i32 %4, ptr %5, align 8, !tbaa !77
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %7 = zext i32 %4 to i64
-  %8 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %6, i64 %7, i32 1
-  tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %0, ptr noundef nonnull %8) #13
-  %9 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef %1, ptr noundef %0)
+  %8 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %0, ptr noundef nonnull %9) #13
+  %10 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef %1, ptr noundef %0)
   ret void
 }
 
@@ -5587,11 +5601,12 @@ spl_array_get_pos_ptr.exit:                       ; preds = %1, %10
   %11 = phi i32 [ %8, %1 ], [ %.pre, %10 ]
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %12, i64 %13, i32 1
-  %15 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %6, ptr noundef nonnull %14) #13
-  %16 = icmp eq i32 %15, 3
-  %17 = sext i1 %16 to i32
-  ret i32 %17
+  %14 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %6, ptr noundef nonnull %15) #13
+  %17 = icmp eq i32 %16, 3
+  %18 = sext i1 %17 to i32
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5616,124 +5631,126 @@ spl_array_get_pos_ptr.exit50:                     ; preds = %1, %11
   %12 = phi i32 [ %9, %1 ], [ %.pre, %11 ]
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %13, i64 %14, i32 1
-  %16 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %7, ptr noundef nonnull %15) #13
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %23, label %17
+  %15 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %7, ptr noundef nonnull %16) #13
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %24, label %18
 
-17:                                               ; preds = %spl_array_get_pos_ptr.exit50
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %19 = load i8, ptr %18, align 8, !tbaa !4
-  %20 = icmp eq i8 %19, 12
-  br i1 %20, label %21, label %23
+18:                                               ; preds = %spl_array_get_pos_ptr.exit50
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = load i8, ptr %19, align 8, !tbaa !4
+  %21 = icmp eq i8 %20, 12
+  br i1 %21, label %22, label %24
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %16, align 8, !tbaa !4
-  br label %23
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %17, align 8, !tbaa !4
+  br label %24
 
-23:                                               ; preds = %21, %17, %spl_array_get_pos_ptr.exit50
-  %.041 = phi ptr [ %22, %21 ], [ %16, %17 ], [ null, %spl_array_get_pos_ptr.exit50 ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %25 = load i8, ptr %24, align 8, !tbaa !146, !range !66, !noundef !67
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %27, label %76
+24:                                               ; preds = %22, %18, %spl_array_get_pos_ptr.exit50
+  %.041 = phi ptr [ %23, %22 ], [ %17, %18 ], [ null, %spl_array_get_pos_ptr.exit50 ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %26 = load i8, ptr %25, align 8, !tbaa !146, !range !66, !noundef !67
+  %27 = trunc nuw i8 %26 to i1
+  br i1 %27, label %28, label %78
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %.041, i64 8
-  %29 = load i8, ptr %28, align 8, !tbaa !4
-  %.not45 = icmp eq i8 %29, 10
-  br i1 %.not45, label %76, label %30
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %.041, i64 8
+  %30 = load i8, ptr %29, align 8, !tbaa !4
+  %.not45 = icmp eq i8 %30, 10
+  br i1 %.not45, label %78, label %31
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %4, i64 -88
-  %32 = load i8, ptr %31, align 8, !tbaa !4
-  %33 = icmp eq i8 %32, 8
-  br i1 %33, label %34, label %76
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %4, i64 -88
+  %33 = load i8, ptr %32, align 8, !tbaa !4
+  %34 = icmp eq i8 %33, 8
+  br i1 %34, label %35, label %78
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %4, i64 -68
-  %36 = load i32, ptr %35, align 4, !tbaa !75
-  %37 = and i32 %36, 50331648
-  %.not46 = icmp eq i32 %37, 0
-  br i1 %.not46, label %38, label %76
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %4, i64 -68
+  %37 = load i32, ptr %36, align 4, !tbaa !75
+  %38 = and i32 %37, 50331648
+  %.not46 = icmp eq i32 %38, 0
+  br i1 %.not46, label %39, label %78
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %39 = load i32, ptr %8, align 8, !tbaa !77
-  %40 = icmp eq i32 %39, -1
-  br i1 %40, label %41, label %spl_array_get_pos_ptr.exit, !prof !70
+  %40 = load i32, ptr %8, align 8, !tbaa !77
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %42, label %spl_array_get_pos_ptr.exit, !prof !70
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   tail call fastcc void @spl_array_create_ht_iter(ptr noundef %7, ptr noundef nonnull %5)
   %.pre51 = load i32, ptr %8, align 8, !tbaa !77
   br label %spl_array_get_pos_ptr.exit
 
-spl_array_get_pos_ptr.exit:                       ; preds = %38, %41
-  %42 = phi i32 [ %39, %38 ], [ %.pre51, %41 ]
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
-  %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %43, i64 %44, i32 1
-  %46 = call i32 @zend_hash_get_current_key_ex(ptr noundef %7, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %45) #13
-  %47 = load ptr, ptr %5, align 8, !tbaa !4
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !50
-  %50 = load ptr, ptr %2, align 8, !tbaa !95
-  %51 = call ptr @zend_get_property_info(ptr noundef %49, ptr noundef %50, i32 noundef 1) #13
-  %52 = icmp ne ptr %51, inttoptr (i64 -1 to ptr)
-  call void @llvm.assume(i1 %52)
-  %.not47 = icmp eq ptr %51, null
-  br i1 %.not47, label %.sink.split, label %53, !prof !70
+spl_array_get_pos_ptr.exit:                       ; preds = %39, %42
+  %43 = phi i32 [ %40, %39 ], [ %.pre51, %42 ]
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
+  %45 = zext i32 %43 to i64
+  %46 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %44, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = call i32 @zend_hash_get_current_key_ex(ptr noundef %7, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %47) #13
+  %49 = load ptr, ptr %5, align 8, !tbaa !4
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !50
+  %52 = load ptr, ptr %2, align 8, !tbaa !95
+  %53 = call ptr @zend_get_property_info(ptr noundef %51, ptr noundef %52, i32 noundef 1) #13
+  %54 = icmp ne ptr %53, inttoptr (i64 -1 to ptr)
+  call void @llvm.assume(i1 %54)
+  %.not47 = icmp eq ptr %53, null
+  br i1 %.not47, label %.sink.split, label %55, !prof !70
 
-53:                                               ; preds = %spl_array_get_pos_ptr.exit
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  %55 = load i32, ptr %54, align 8, !tbaa !149
-  %56 = and i32 %55, 33554431
-  %.not48 = icmp eq i32 %56, 0
-  br i1 %.not48, label %.sink.split, label %57
+55:                                               ; preds = %spl_array_get_pos_ptr.exit
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %57 = load i32, ptr %56, align 8, !tbaa !149
+  %58 = and i32 %57, 33554431
+  %.not48 = icmp eq i32 %58, 0
+  br i1 %.not48, label %.sink.split, label %59
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !153
-  %60 = and i32 %59, 128
-  %.not49 = icmp eq i32 %60, 0
-  br i1 %.not49, label %68, label %.critedge
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %61 = load i32, ptr %60, align 4, !tbaa !153
+  %62 = and i32 %61, 128
+  %.not49 = icmp eq i32 %62, 0
+  br i1 %.not49, label %70, label %.critedge
 
-.critedge:                                        ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !154
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !53
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = load ptr, ptr %2, align 8, !tbaa !95
+.critedge:                                        ; preds = %59
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %64 = load ptr, ptr %63, align 8, !tbaa !154
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !53
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.99, ptr noundef nonnull %65, ptr noundef nonnull %67) #13
+  %68 = load ptr, ptr %2, align 8, !tbaa !95
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.99, ptr noundef nonnull %67, ptr noundef nonnull %69) #13
   br label %.sink.split
 
-68:                                               ; preds = %57
-  %69 = call noalias ptr @_emalloc_32() #13
-  store i32 1, ptr %69, align 4, !tbaa !68
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  store i32 26, ptr %70, align 4, !tbaa !4
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %72 = load ptr, ptr %.041, align 8, !tbaa !4
-  %73 = load i32, ptr %28, align 8, !tbaa !4
-  store ptr %72, ptr %71, align 8, !tbaa !4
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store i32 %73, ptr %74, align 8, !tbaa !4
-  %75 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store ptr null, ptr %75, align 8, !tbaa !4
-  store ptr %69, ptr %.041, align 8, !tbaa !4
-  store i32 778, ptr %28, align 8, !tbaa !4
-  call void @zend_ref_add_type_source(ptr noundef nonnull %75, ptr noundef nonnull %51) #13
+70:                                               ; preds = %59
+  %71 = call noalias ptr @_emalloc_32() #13
+  store i32 1, ptr %71, align 4, !tbaa !68
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
+  store i32 26, ptr %72, align 4, !tbaa !4
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %74 = load ptr, ptr %.041, align 8, !tbaa !4
+  %75 = load i32, ptr %29, align 8, !tbaa !4
+  store ptr %74, ptr %73, align 8, !tbaa !4
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  store i32 %75, ptr %76, align 8, !tbaa !4
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  store ptr null, ptr %77, align 8, !tbaa !4
+  store ptr %71, ptr %.041, align 8, !tbaa !4
+  store i32 778, ptr %29, align 8, !tbaa !4
+  call void @zend_ref_add_type_source(ptr noundef nonnull %77, ptr noundef nonnull %53) #13
   br label %.sink.split
 
-.sink.split:                                      ; preds = %68, %53, %spl_array_get_pos_ptr.exit, %.critedge
-  %.1.ph = phi ptr [ null, %.critedge ], [ %.041, %spl_array_get_pos_ptr.exit ], [ %.041, %53 ], [ %.041, %68 ]
+.sink.split:                                      ; preds = %70, %55, %spl_array_get_pos_ptr.exit, %.critedge
+  %.1.ph = phi ptr [ null, %.critedge ], [ %.041, %spl_array_get_pos_ptr.exit ], [ %.041, %55 ], [ %.041, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %76
+  br label %78
 
-76:                                               ; preds = %.sink.split, %23, %27, %30, %34
-  %.1 = phi ptr [ %.041, %34 ], [ %.041, %30 ], [ %.041, %27 ], [ %.041, %23 ], [ %.1.ph, %.sink.split ]
+78:                                               ; preds = %.sink.split, %24, %28, %31, %35
+  %.1 = phi ptr [ %.041, %35 ], [ %.041, %31 ], [ %.041, %28 ], [ %.041, %24 ], [ %.1.ph, %.sink.split ]
   ret ptr %.1
 }
 
@@ -5758,8 +5775,9 @@ spl_array_get_pos_ptr.exit:                       ; preds = %2, %11
   %12 = phi i32 [ %9, %2 ], [ %.pre, %11 ]
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %13, i64 %14, i32 1
-  tail call void @zend_hash_get_current_key_zval_ex(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %15) #13
+  %15 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  tail call void @zend_hash_get_current_key_zval_ex(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %16) #13
   ret void
 }
 
@@ -5784,46 +5802,47 @@ spl_array_get_pos_ptr.exit.i:                     ; preds = %10, %1
   %11 = phi i32 [ %8, %1 ], [ %.pre.i, %10 ]
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %12, i64 %13, i32 1
-  %15 = tail call i32 @zend_hash_move_forward_ex(ptr noundef %6, ptr noundef nonnull %14) #13
-  %16 = getelementptr inbounds i8, ptr %3, i64 -68
-  %17 = load i32, ptr %16, align 4, !tbaa !75
-  %18 = and i32 %17, 33554432
-  %.not5.i.i = icmp eq i32 %18, 0
+  %14 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = tail call i32 @zend_hash_move_forward_ex(ptr noundef %6, ptr noundef nonnull %15) #13
+  %17 = getelementptr inbounds i8, ptr %3, i64 -68
+  %18 = load i32, ptr %17, align 4, !tbaa !75
+  %19 = and i32 %18, 33554432
+  %.not5.i.i = icmp eq i32 %19, 0
   br i1 %.not5.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %spl_array_get_pos_ptr.exit.i, %.lr.ph.i.i
-  %.06.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %4, %spl_array_get_pos_ptr.exit.i ]
-  %19 = load ptr, ptr %.06.i.i, align 8, !tbaa !4
-  %20 = getelementptr inbounds i8, ptr %19, i64 -96
-  %21 = getelementptr inbounds i8, ptr %19, i64 -68
-  %22 = load i32, ptr %21, align 4, !tbaa !75
-  %23 = and i32 %22, 33554432
-  %.not.i.i = icmp eq i32 %23, 0
+  %.06.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %4, %spl_array_get_pos_ptr.exit.i ]
+  %20 = load ptr, ptr %.06.i.i, align 8, !tbaa !4
+  %21 = getelementptr inbounds i8, ptr %20, i64 -96
+  %22 = getelementptr inbounds i8, ptr %20, i64 -68
+  %23 = load i32, ptr %22, align 4, !tbaa !75
+  %24 = and i32 %23, 33554432
+  %.not.i.i = icmp eq i32 %24, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %spl_array_get_pos_ptr.exit.i
-  %24 = phi ptr [ %3, %spl_array_get_pos_ptr.exit.i ], [ %19, %.lr.ph.i.i ]
-  %.lcssa.i.i = phi i32 [ %17, %spl_array_get_pos_ptr.exit.i ], [ %22, %.lr.ph.i.i ]
-  %25 = and i32 %.lcssa.i.i, 16777216
-  %.not4.i.i = icmp eq i32 %25, 0
+  %25 = phi ptr [ %3, %spl_array_get_pos_ptr.exit.i ], [ %20, %.lr.ph.i.i ]
+  %.lcssa.i.i = phi i32 [ %18, %spl_array_get_pos_ptr.exit.i ], [ %23, %.lr.ph.i.i ]
+  %26 = and i32 %.lcssa.i.i, 16777216
+  %.not4.i.i = icmp eq i32 %26, 0
   br i1 %.not4.i.i, label %spl_array_is_object.exit.i, label %spl_array_is_object.exit.thread.i
 
 spl_array_is_object.exit.i:                       ; preds = %._crit_edge.i.i
-  %26 = getelementptr inbounds i8, ptr %24, i64 -88
-  %27 = load i8, ptr %26, align 8, !tbaa !4
-  %28 = icmp eq i8 %27, 8
-  br i1 %28, label %spl_array_is_object.exit.thread.i, label %30
+  %27 = getelementptr inbounds i8, ptr %25, i64 -88
+  %28 = load i8, ptr %27, align 8, !tbaa !4
+  %29 = icmp eq i8 %28, 8
+  br i1 %29, label %spl_array_is_object.exit.thread.i, label %31
 
 spl_array_is_object.exit.thread.i:                ; preds = %spl_array_is_object.exit.i, %._crit_edge.i.i
-  %29 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %4, ptr noundef %6)
+  %30 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %4, ptr noundef %6)
   br label %spl_array_next_ex.exit
 
-30:                                               ; preds = %spl_array_is_object.exit.i
-  %31 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %6, ptr noundef nonnull %14) #13
+31:                                               ; preds = %spl_array_is_object.exit.i
+  %32 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %6, ptr noundef nonnull %15) #13
   br label %spl_array_next_ex.exit
 
-spl_array_next_ex.exit:                           ; preds = %spl_array_is_object.exit.thread.i, %30
+spl_array_next_ex.exit:                           ; preds = %spl_array_is_object.exit.thread.i, %31
   ret void
 }
 
@@ -5846,9 +5865,10 @@ spl_array_get_pos_ptr.exit.i:                     ; preds = %1
 spl_array_get_pos_ptr.exit9.i:                    ; preds = %1
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !78
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %10, i64 %11, i32 1
-  tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %6, ptr noundef nonnull %12) #13
-  %13 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %4, ptr noundef %6)
+  %12 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %6, ptr noundef nonnull %13) #13
+  %14 = tail call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %4, ptr noundef %6)
   br label %spl_array_rewind.exit
 
 spl_array_rewind.exit:                            ; preds = %spl_array_get_pos_ptr.exit.i, %spl_array_get_pos_ptr.exit9.i

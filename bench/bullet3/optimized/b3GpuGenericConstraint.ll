@@ -39,16 +39,16 @@ define dso_local void @_Z19getInfo2Point2PointP22b3GpuGenericConstraintP20b3GpuC
   %11 = getelementptr inbounds %struct.b3RigidBodyData, ptr %2, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !15
-  %13 = getelementptr inbounds %struct.b3RigidBodyData, ptr %2, i64 %10, i32 1
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load float, ptr %13, align 16, !tbaa !16
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %16 = load float, ptr %15, align 4, !tbaa !16
   %17 = fmul float %16, %16
   %18 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %17)
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %20 = load float, ptr %19, align 8, !tbaa !16
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %20, float %18)
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %23 = load float, ptr %22, align 4, !tbaa !16
   %24 = tail call noundef float @llvm.fmuladd.f32(float %23, float %23, float %21)
   %25 = fdiv float 2.000000e+00, %24
@@ -83,16 +83,16 @@ define dso_local void @_Z19getInfo2Point2PointP22b3GpuGenericConstraintP20b3GpuC
   %53 = getelementptr inbounds %struct.b3RigidBodyData, ptr %2, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %54, ptr noundef nonnull align 16 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !15
-  %55 = getelementptr inbounds %struct.b3RigidBodyData, ptr %2, i64 %52, i32 1
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load float, ptr %55, align 16, !tbaa !16
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %58 = load float, ptr %57, align 4, !tbaa !16
   %59 = fmul float %58, %58
   %60 = tail call float @llvm.fmuladd.f32(float %56, float %56, float %59)
-  %61 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %62 = load float, ptr %61, align 8, !tbaa !16
   %63 = tail call float @llvm.fmuladd.f32(float %62, float %62, float %60)
-  %64 = getelementptr inbounds nuw i8, ptr %55, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 28
   %65 = load float, ptr %64, align 4, !tbaa !16
   %66 = tail call noundef float @llvm.fmuladd.f32(float %65, float %65, float %63)
   %67 = fdiv float 2.000000e+00, %66

@@ -162,7 +162,7 @@ define void @Java_sun_awt_X11GraphicsEnvironment_initNativeData(ptr noundef %0, 
   store i32 0, ptr @usingXinerama, align 4
   %4 = load ptr, ptr @x11Screens, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %21, label %.preheader21
+  br i1 %.not, label %24, label %.preheader21
 
 .preheader21:                                     ; preds = %2
   %5 = load i32, ptr @awt_numScreens, align 4
@@ -172,139 +172,144 @@ define void @Java_sun_awt_X11GraphicsEnvironment_initNativeData(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.preheader21, %resetNativeData.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %resetNativeData.exit ], [ 0, %.preheader21 ]
   %7 = load ptr, ptr @x11Screens, align 8
-  %8 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %7, i64 %indvars.iv, i32 5
-  %9 = load ptr, ptr %8, align 8
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %resetNativeData.exit, label %10
+  %8 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %10 = load ptr, ptr %9, align 8
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %resetNativeData.exit, label %11
 
-10:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %9) #17
-  %11 = load ptr, ptr @x11Screens, align 8
-  %12 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %11, i64 %indvars.iv, i32 5
-  store ptr null, ptr %12, align 8
+11:                                               ; preds = %.lr.ph
+  tail call void @free(ptr noundef nonnull %10) #17
+  %12 = load ptr, ptr @x11Screens, align 8
+  %13 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store ptr null, ptr %14, align 8
   %.pre.i = load ptr, ptr @x11Screens, align 8
   br label %resetNativeData.exit
 
-resetNativeData.exit:                             ; preds = %.lr.ph, %10
-  %13 = phi ptr [ %.pre.i, %10 ], [ %7, %.lr.ph ]
-  %14 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %13, i64 %indvars.iv, i32 4
-  store ptr null, ptr %14, align 8
-  %15 = load ptr, ptr @x11Screens, align 8
+resetNativeData.exit:                             ; preds = %.lr.ph, %11
+  %15 = phi ptr [ %.pre.i, %11 ], [ %7, %.lr.ph ]
   %16 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %15, i64 %indvars.iv
-  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store ptr null, ptr %17, align 8
+  %18 = load ptr, ptr @x11Screens, align 8
+  %19 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %18, i64 %indvars.iv
+  store i32 0, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr @awt_numScreens, align 4
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
+  %20 = load i32, ptr @awt_numScreens, align 4
+  %21 = sext i32 %20 to i64
+  %22 = icmp slt i64 %indvars.iv.next, %21
+  br i1 %22, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %resetNativeData.exit
   %.pre = load ptr, ptr @x11Screens, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader21
-  %20 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %4, %.preheader21 ]
-  tail call void @free(ptr noundef %20) #17
+  %23 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %4, %.preheader21 ]
+  tail call void @free(ptr noundef %23) #17
   store ptr null, ptr @x11Screens, align 8
   store i32 0, ptr @awt_numScreens, align 4
-  br label %21
+  br label %24
 
-21:                                               ; preds = %._crit_edge, %2
-  %22 = load ptr, ptr @XineramaQueryScreens, align 8
-  %.not16 = icmp eq ptr %22, null
-  br i1 %.not16, label %35, label %23
+24:                                               ; preds = %._crit_edge, %2
+  %25 = load ptr, ptr @XineramaQueryScreens, align 8
+  %.not16 = icmp eq ptr %25, null
+  br i1 %.not16, label %38, label %26
 
-23:                                               ; preds = %21
+26:                                               ; preds = %24
   store i32 0, ptr %3, align 4
-  %24 = load ptr, ptr @awt_display, align 8
-  %25 = call ptr %22(ptr noundef %24, ptr noundef nonnull %3) #17
-  %.not17 = icmp eq ptr %25, null
-  br i1 %.not17, label %35, label %26
+  %27 = load ptr, ptr @awt_display, align 8
+  %28 = call ptr %25(ptr noundef %27, ptr noundef nonnull %3) #17
+  %.not17 = icmp eq ptr %28, null
+  br i1 %.not17, label %38, label %29
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %3, align 4
-  %28 = load ptr, ptr @awt_display, align 8
-  %29 = call i32 @XScreenCount(ptr noundef %28) #17
-  %30 = icmp sgt i32 %27, %29
-  br i1 %30, label %31, label %33
+29:                                               ; preds = %26
+  %30 = load i32, ptr %3, align 4
+  %31 = load ptr, ptr @awt_display, align 8
+  %32 = call i32 @XScreenCount(ptr noundef %31) #17
+  %33 = icmp sgt i32 %30, %32
+  br i1 %33, label %34, label %36
 
-31:                                               ; preds = %26
+34:                                               ; preds = %29
   store i32 1, ptr @usingXinerama, align 4
-  %32 = load i32, ptr %3, align 4
-  store i32 %32, ptr @awt_numScreens, align 4
-  br label %33
+  %35 = load i32, ptr %3, align 4
+  store i32 %35, ptr @awt_numScreens, align 4
+  br label %36
 
-33:                                               ; preds = %26, %31
-  %34 = call i32 @XFree(ptr noundef nonnull %25) #17
-  br label %35
+36:                                               ; preds = %29, %34
+  %37 = call i32 @XFree(ptr noundef nonnull %28) #17
+  br label %38
 
-35:                                               ; preds = %33, %23, %21
-  %36 = load i32, ptr @usingXinerama, align 4
-  %.not18 = icmp eq i32 %36, 0
-  br i1 %.not18, label %37, label %._crit_edge30
+38:                                               ; preds = %36, %26, %24
+  %39 = load i32, ptr @usingXinerama, align 4
+  %.not18 = icmp eq i32 %39, 0
+  br i1 %.not18, label %40, label %._crit_edge30
 
-._crit_edge30:                                    ; preds = %35
+._crit_edge30:                                    ; preds = %38
   %.pre31 = load i32, ptr @awt_numScreens, align 4
-  br label %40
+  br label %43
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr @awt_display, align 8
-  %39 = call i32 @XScreenCount(ptr noundef %38) #17
-  store i32 %39, ptr @awt_numScreens, align 4
-  br label %40
+40:                                               ; preds = %38
+  %41 = load ptr, ptr @awt_display, align 8
+  %42 = call i32 @XScreenCount(ptr noundef %41) #17
+  store i32 %42, ptr @awt_numScreens, align 4
+  br label %43
 
-40:                                               ; preds = %._crit_edge30, %37
-  %41 = phi i32 [ %.pre31, %._crit_edge30 ], [ %39, %37 ]
-  %42 = sext i32 %41 to i64
-  %43 = call noalias ptr @calloc(i64 noundef %42, i64 noundef 48) #18
-  store ptr %43, ptr @x11Screens, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %46, label %.preheader
+43:                                               ; preds = %._crit_edge30, %40
+  %44 = phi i32 [ %.pre31, %._crit_edge30 ], [ %42, %40 ]
+  %45 = sext i32 %44 to i64
+  %46 = call noalias ptr @calloc(i64 noundef %45, i64 noundef 48) #18
+  store ptr %46, ptr @x11Screens, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %49, label %.preheader
 
-.preheader:                                       ; preds = %40
-  %45 = icmp sgt i32 %41, 0
-  br i1 %45, label %.lr.ph24, label %.loopexit
+.preheader:                                       ; preds = %43
+  %48 = icmp sgt i32 %44, 0
+  br i1 %48, label %.lr.ph24, label %.loopexit
 
-46:                                               ; preds = %40
-  %47 = load ptr, ptr @jvm, align 8
-  %48 = call ptr @JNU_GetEnv(ptr noundef %47, i32 noundef 65538) #17
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %48, ptr noundef null) #17
+49:                                               ; preds = %43
+  %50 = load ptr, ptr @jvm, align 8
+  %51 = call ptr @JNU_GetEnv(ptr noundef %50, i32 noundef 65538) #17
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %51, ptr noundef null) #17
   br label %.loopexit
 
-49:                                               ; preds = %.lr.ph24
+52:                                               ; preds = %.lr.ph24
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %50 = load i32, ptr @awt_numScreens, align 4
-  %51 = sext i32 %50 to i64
-  %52 = icmp slt i64 %indvars.iv.next28, %51
-  br i1 %52, label %.lr.ph24, label %.loopexit, !llvm.loop !8
+  %53 = load i32, ptr @awt_numScreens, align 4
+  %54 = sext i32 %53 to i64
+  %55 = icmp slt i64 %indvars.iv.next28, %54
+  br i1 %55, label %.lr.ph24, label %.loopexit, !llvm.loop !8
 
-.lr.ph24:                                         ; preds = %.preheader, %49
-  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %49 ], [ 0, %.preheader ]
-  %53 = load i32, ptr @usingXinerama, align 4
-  %.not19 = icmp eq i32 %53, 0
-  %54 = load ptr, ptr @awt_display, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 232
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr @x11Screens, align 8
-  %58 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %57, i64 %indvars.iv27, i32 1
-  %59 = getelementptr inbounds nuw %struct.Screen, ptr %56, i64 %indvars.iv27, i32 2
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %.sink.in = select i1 %.not19, ptr %59, ptr %60
-  %.sink = load i64, ptr %.sink.in, align 8
-  store i64 %.sink, ptr %58, align 8
-  %61 = trunc nuw nsw i64 %indvars.iv27 to i32
-  %62 = call fastcc ptr @makeDefaultConfig(ptr noundef %0, i32 noundef %61)
-  %63 = load ptr, ptr @x11Screens, align 8
-  %64 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %63, i64 %indvars.iv27, i32 4
-  store ptr %62, ptr %64, align 8
-  %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1824
-  %67 = load ptr, ptr %66, align 8
-  %68 = call zeroext i8 %67(ptr noundef nonnull %0) #17
-  %.not20 = icmp eq i8 %68, 0
-  br i1 %.not20, label %49, label %.loopexit
+.lr.ph24:                                         ; preds = %.preheader, %52
+  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %52 ], [ 0, %.preheader ]
+  %56 = load i32, ptr @usingXinerama, align 4
+  %.not19 = icmp eq i32 %56, 0
+  %57 = load ptr, ptr @awt_display, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 232
+  %59 = load ptr, ptr %58, align 8
+  %.sink.idx = select i1 %.not19, i64 %indvars.iv27, i64 0
+  %.sink = getelementptr inbounds nuw %struct.Screen, ptr %59, i64 %.sink.idx
+  %60 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
+  %61 = load i64, ptr %60, align 8
+  %62 = load ptr, ptr @x11Screens, align 8
+  %63 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %62, i64 %indvars.iv27
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i64 %61, ptr %64, align 8
+  %65 = trunc nuw nsw i64 %indvars.iv27 to i32
+  %66 = call fastcc ptr @makeDefaultConfig(ptr noundef %0, i32 noundef %65)
+  %67 = load ptr, ptr @x11Screens, align 8
+  %68 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %67, i64 %indvars.iv27
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  store ptr %66, ptr %69, align 8
+  %70 = load ptr, ptr %0, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1824
+  %72 = load ptr, ptr %71, align 8
+  %73 = call zeroext i8 %72(ptr noundef nonnull %0) #17
+  %.not20 = icmp eq i8 %73, 0
+  br i1 %.not20, label %52, label %.loopexit
 
-.loopexit:                                        ; preds = %49, %.lr.ph24, %.preheader, %46
+.loopexit:                                        ; preds = %52, %.lr.ph24, %.preheader, %49
   ret void
 }
 
@@ -334,98 +339,99 @@ define internal fastcc noundef ptr @makeDefaultConfig(ptr noundef %0, i32 nounde
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds %struct.Screen, ptr %9, i64 %10, i32 10
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i64 @XVisualIDFromVisual(ptr noundef %12) #17
+  %11 = getelementptr inbounds %struct.Screen, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call i64 @XVisualIDFromVisual(ptr noundef %13) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %6, ptr %14, align 8
-  %15 = tail call ptr @getenv(ptr noundef nonnull @.str.39) #17
-  %.not35 = icmp eq ptr %15, null
-  br i1 %.not35, label %24, label %16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 %6, ptr %15, align 8
+  %16 = tail call ptr @getenv(ptr noundef nonnull @.str.39) #17
+  %.not35 = icmp eq ptr %16, null
+  br i1 %.not35, label %25, label %17
 
-16:                                               ; preds = %2
-  %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %15, ptr noundef nonnull @.str.40, ptr noundef nonnull %3) #17
-  %18 = icmp sgt i32 %17, 0
-  %19 = load i64, ptr %3, align 8
-  %20 = icmp ne i64 %19, 0
-  %or.cond = select i1 %18, i1 %20, i1 false
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br i1 %or.cond, label %22, label %23
+17:                                               ; preds = %2
+  %18 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %16, ptr noundef nonnull @.str.40, ptr noundef nonnull %3) #17
+  %19 = icmp sgt i32 %18, 0
+  %20 = load i64, ptr %3, align 8
+  %21 = icmp ne i64 %20, 0
+  %or.cond = select i1 %19, i1 %21, i1 false
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br i1 %or.cond, label %23, label %24
 
-22:                                               ; preds = %16
-  store i64 %19, ptr %21, align 8
-  br label %33
+23:                                               ; preds = %17
+  store i64 %20, ptr %22, align 8
+  br label %34
 
-23:                                               ; preds = %16
-  store i64 %13, ptr %21, align 8
-  br label %33
+24:                                               ; preds = %17
+  store i64 %14, ptr %22, align 8
+  br label %34
 
-24:                                               ; preds = %2
-  %25 = load i8, ptr @glxRequested, align 1
-  %.not36 = icmp eq i8 %25, 0
-  br i1 %.not36, label %30, label %26
+25:                                               ; preds = %2
+  %26 = load i8, ptr @glxRequested, align 1
+  %.not36 = icmp eq i8 %26, 0
+  br i1 %.not36, label %31, label %27
 
-26:                                               ; preds = %24
-  %27 = tail call i64 @GLXGC_FindBestVisual(ptr noundef %0, i32 noundef %6) #17
-  %.not37 = icmp eq i64 %27, 0
-  br i1 %.not37, label %30, label %28
+27:                                               ; preds = %25
+  %28 = tail call i64 @GLXGC_FindBestVisual(ptr noundef %0, i32 noundef %6) #17
+  %.not37 = icmp eq i64 %28, 0
+  br i1 %.not37, label %31, label %29
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %27, ptr %29, align 8
-  br label %33
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %28, ptr %30, align 8
+  br label %34
 
-30:                                               ; preds = %26, %24
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 24, ptr %31, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 4, ptr %32, align 8
-  br label %33
+31:                                               ; preds = %27, %25
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 24, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 4, ptr %33, align 8
+  br label %34
 
-33:                                               ; preds = %28, %30, %22, %23
-  %.026 = phi i64 [ 3, %22 ], [ 3, %23 ], [ 3, %28 ], [ 14, %30 ]
-  %34 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef %.026)
-  %.not38 = icmp eq ptr %34, null
-  br i1 %.not38, label %35, label %49
+34:                                               ; preds = %29, %31, %23, %24
+  %.026 = phi i64 [ 3, %23 ], [ 3, %24 ], [ 3, %29 ], [ 14, %31 ]
+  %35 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef %.026)
+  %.not38 = icmp eq ptr %35, null
+  br i1 %.not38, label %36, label %50
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %13, ptr %36, align 8
-  %37 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 3)
-  %.not39 = icmp eq ptr %37, null
-  br i1 %.not39, label %38, label %49
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %14, ptr %37, align 8
+  %38 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 3)
+  %.not39 = icmp eq ptr %38, null
+  br i1 %.not39, label %39, label %50
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 4, ptr %39, align 8
-  %40 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 10)
-  %.not40 = icmp eq ptr %40, null
-  br i1 %.not40, label %41, label %49
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 4, ptr %40, align 8
+  %41 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 10)
+  %.not40 = icmp eq ptr %41, null
+  br i1 %.not40, label %42, label %50
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 8, ptr %42, align 4
-  store i32 3, ptr %39, align 8
-  %43 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 14)
-  %.not41 = icmp eq ptr %43, null
-  br i1 %.not41, label %44, label %49
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 8, ptr %43, align 4
+  store i32 3, ptr %40, align 8
+  %44 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 14)
+  %.not41 = icmp eq ptr %44, null
+  br i1 %.not41, label %45, label %50
 
-44:                                               ; preds = %41
-  store i32 8, ptr %42, align 4
-  %45 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 6)
-  %.not42 = icmp eq ptr %45, null
-  br i1 %.not42, label %46, label %49
+45:                                               ; preds = %42
+  store i32 8, ptr %43, align 4
+  %46 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 6)
+  %.not42 = icmp eq ptr %46, null
+  br i1 %.not42, label %47, label %50
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   call void @JNU_ThrowInternalError(ptr noundef %0, ptr noundef nonnull @.str.41) #17
-  %47 = load ptr, ptr @awt_display, align 8
-  %48 = call i32 @XCloseDisplay(ptr noundef %47) #17
+  %48 = load ptr, ptr @awt_display, align 8
+  %49 = call i32 @XCloseDisplay(ptr noundef %48) #17
   store ptr null, ptr @awt_display, align 8
-  br label %49
+  br label %50
 
-49:                                               ; preds = %44, %41, %38, %35, %33, %46
-  %.0 = phi ptr [ null, %46 ], [ %34, %33 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %45, %44 ]
+50:                                               ; preds = %45, %42, %39, %36, %34, %47
+  %.0 = phi ptr [ null, %47 ], [ %35, %34 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %46, %45 ]
   ret ptr %.0
 }
 
@@ -649,9 +655,10 @@ define hidden ptr @getDefaultConfig(i32 noundef %0) local_unnamed_addr #0 {
 
 ensureConfigsInited.exit:                         ; preds = %1, %7
   %11 = phi ptr [ %2, %1 ], [ %.pre, %7 ]
-  %12 = getelementptr inbounds %struct._AwtScreenData, ptr %11, i64 %3, i32 4
-  %13 = load ptr, ptr %12, align 8
-  ret ptr %13
+  %12 = getelementptr inbounds %struct._AwtScreenData, ptr %11, i64 %3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %14 = load ptr, ptr %13, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1290,26 +1297,27 @@ define i32 @Java_sun_awt_X11GraphicsDevice_getConfigVisualId(ptr noundef %0, ptr
 ensureConfigsInited.exit:                         ; preds = %4, %15
   %18 = icmp eq i32 %2, 0
   %19 = load ptr, ptr @x11Screens, align 8
-  br i1 %18, label %20, label %22
+  %20 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6
+  br i1 %18, label %21, label %23
 
-20:                                               ; preds = %ensureConfigsInited.exit
-  %21 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6, i32 4
-  br label %27
+21:                                               ; preds = %ensureConfigsInited.exit
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  br label %28
 
-22:                                               ; preds = %ensureConfigsInited.exit
-  %23 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6, i32 5
-  %24 = load ptr, ptr %23, align 8
-  %25 = sext i32 %2 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
-  br label %27
+23:                                               ; preds = %ensureConfigsInited.exit
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = sext i32 %2 to i64
+  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  br label %28
 
-27:                                               ; preds = %22, %20
-  %.in = phi ptr [ %21, %20 ], [ %26, %22 ]
-  %28 = load ptr, ptr %.in, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = load i64, ptr %29, align 8
-  %31 = trunc i64 %30 to i32
-  ret i32 %31
+28:                                               ; preds = %23, %21
+  %.in = phi ptr [ %22, %21 ], [ %27, %23 ]
+  %29 = load ptr, ptr %.in, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %31 = load i64, ptr %30, align 8
+  %32 = trunc i64 %31 to i32
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1341,25 +1349,26 @@ define i32 @Java_sun_awt_X11GraphicsDevice_getConfigDepth(ptr noundef %0, ptr no
 ensureConfigsInited.exit:                         ; preds = %4, %15
   %18 = icmp eq i32 %2, 0
   %19 = load ptr, ptr @x11Screens, align 8
-  br i1 %18, label %20, label %22
+  %20 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6
+  br i1 %18, label %21, label %23
 
-20:                                               ; preds = %ensureConfigsInited.exit
-  %21 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6, i32 4
-  br label %27
+21:                                               ; preds = %ensureConfigsInited.exit
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  br label %28
 
-22:                                               ; preds = %ensureConfigsInited.exit
-  %23 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6, i32 5
-  %24 = load ptr, ptr %23, align 8
-  %25 = sext i32 %2 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
-  br label %27
+23:                                               ; preds = %ensureConfigsInited.exit
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = sext i32 %2 to i64
+  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  br label %28
 
-27:                                               ; preds = %22, %20
-  %.in = phi ptr [ %21, %20 ], [ %26, %22 ]
-  %28 = load ptr, ptr %.in, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
-  %30 = load i32, ptr %29, align 4
-  ret i32 %30
+28:                                               ; preds = %23, %21
+  %.in = phi ptr [ %22, %21 ], [ %27, %23 ]
+  %29 = load ptr, ptr %.in, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
+  %31 = load i32, ptr %30, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1391,26 +1400,27 @@ define i32 @Java_sun_awt_X11GraphicsDevice_getConfigColormap(ptr noundef %0, ptr
 ensureConfigsInited.exit:                         ; preds = %4, %15
   %18 = icmp eq i32 %2, 0
   %19 = load ptr, ptr @x11Screens, align 8
-  br i1 %18, label %20, label %22
+  %20 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6
+  br i1 %18, label %21, label %23
 
-20:                                               ; preds = %ensureConfigsInited.exit
-  %21 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6, i32 4
-  br label %27
+21:                                               ; preds = %ensureConfigsInited.exit
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  br label %28
 
-22:                                               ; preds = %ensureConfigsInited.exit
-  %23 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6, i32 5
-  %24 = load ptr, ptr %23, align 8
-  %25 = sext i32 %2 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
-  br label %27
+23:                                               ; preds = %ensureConfigsInited.exit
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = sext i32 %2 to i64
+  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  br label %28
 
-27:                                               ; preds = %22, %20
-  %.in = phi ptr [ %21, %20 ], [ %26, %22 ]
-  %28 = load ptr, ptr %.in, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = trunc i64 %30 to i32
-  ret i32 %31
+28:                                               ; preds = %23, %21
+  %.in = phi ptr [ %22, %21 ], [ %27, %23 ]
+  %29 = load ptr, ptr %.in, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i64, ptr %30, align 8
+  %32 = trunc i64 %31 to i32
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2382,7 +2392,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nounde
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #17
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %182, label %11
+  br i1 %10, label %183, label %11
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
@@ -2390,7 +2400,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nounde
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #17
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %182, label %16
+  br i1 %.not, label %183, label %16
 
 16:                                               ; preds = %11
   %17 = load i32, ptr @usingXinerama, align 4
@@ -2534,7 +2544,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nounde
   %108 = call ptr (ptr, ptr, ptr, ...) %93(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %15, i32 noundef %98, i32 noundef %101, i32 noundef %104, i32 noundef %107) #17
   %109 = call i32 @XFree(ptr noundef nonnull %48) #17
   %.not105 = icmp eq ptr %108, null
-  br i1 %.not105, label %.thread, label %177
+  br i1 %.not105, label %.thread, label %178
 
 .thread:                                          ; preds = %16, %81, %85, %77, %90
   %.088116 = phi i32 [ %spec.store.select, %90 ], [ %2, %77 ], [ %2, %85 ], [ %2, %81 ], [ %2, %16 ]
@@ -2579,78 +2589,79 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nounde
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 232
   %135 = load ptr, ptr %134, align 8
   %136 = sext i32 %.088116 to i64
-  %137 = getelementptr inbounds %struct.Screen, ptr %135, i64 %136, i32 2
-  %138 = load i64, ptr %137, align 8
-  %139 = call i32 @XGetWindowAttributes(ptr noundef %133, i64 noundef %138, ptr noundef nonnull %5) #17
+  %137 = getelementptr inbounds %struct.Screen, ptr %135, i64 %136
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %139 = load i64, ptr %138, align 8
+  %140 = call i32 @XGetWindowAttributes(ptr noundef %133, i64 noundef %139, ptr noundef nonnull %5) #17
   call void (...) @awt_output_flush() #17
-  %140 = load ptr, ptr %0, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 120
-  %142 = load ptr, ptr %141, align 8
-  %143 = call ptr %142(ptr noundef nonnull %0) #17
-  %.not108 = icmp eq ptr %143, null
-  br i1 %.not108, label %148, label %144
+  %141 = load ptr, ptr %0, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 120
+  %143 = load ptr, ptr %142, align 8
+  %144 = call ptr %143(ptr noundef nonnull %0) #17
+  %.not108 = icmp eq ptr %144, null
+  br i1 %.not108, label %149, label %145
 
-144:                                              ; preds = %132
-  %145 = load ptr, ptr %0, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 136
-  %147 = load ptr, ptr %146, align 8
-  call void %147(ptr noundef nonnull %0) #17
-  br label %148
+145:                                              ; preds = %132
+  %146 = load ptr, ptr %0, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 136
+  %148 = load ptr, ptr %147, align 8
+  call void %148(ptr noundef nonnull %0) #17
+  br label %149
 
-148:                                              ; preds = %144, %132
-  %149 = load ptr, ptr %0, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 1128
-  %151 = load ptr, ptr %150, align 8
-  %152 = load ptr, ptr @tkClass, align 8
-  %153 = load ptr, ptr @awtUnlockMID, align 8
-  call void (ptr, ptr, ptr, ...) %151(ptr noundef nonnull %0, ptr noundef %152, ptr noundef %153) #17
-  %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 1824
-  %156 = load ptr, ptr %155, align 8
-  %157 = call zeroext i8 %156(ptr noundef nonnull %0) #17
-  %.not109 = icmp eq i8 %157, 0
-  br i1 %.not109, label %162, label %158
+149:                                              ; preds = %145, %132
+  %150 = load ptr, ptr %0, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 1128
+  %152 = load ptr, ptr %151, align 8
+  %153 = load ptr, ptr @tkClass, align 8
+  %154 = load ptr, ptr @awtUnlockMID, align 8
+  call void (ptr, ptr, ptr, ...) %152(ptr noundef nonnull %0, ptr noundef %153, ptr noundef %154) #17
+  %155 = load ptr, ptr %0, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1824
+  %157 = load ptr, ptr %156, align 8
+  %158 = call zeroext i8 %157(ptr noundef nonnull %0) #17
+  %.not109 = icmp eq i8 %158, 0
+  br i1 %.not109, label %163, label %159
 
-158:                                              ; preds = %148
-  %159 = load ptr, ptr %0, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 136
-  %161 = load ptr, ptr %160, align 8
-  call void %161(ptr noundef nonnull %0) #17
-  br label %162
+159:                                              ; preds = %149
+  %160 = load ptr, ptr %0, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 136
+  %162 = load ptr, ptr %161, align 8
+  call void %162(ptr noundef nonnull %0) #17
+  br label %163
 
-162:                                              ; preds = %158, %148
-  br i1 %.not108, label %168, label %163
+163:                                              ; preds = %159, %149
+  br i1 %.not108, label %169, label %164
 
-163:                                              ; preds = %162
-  %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 104
-  %166 = load ptr, ptr %165, align 8
-  %167 = call i32 %166(ptr noundef nonnull %0, ptr noundef nonnull %143) #17
-  br label %168
+164:                                              ; preds = %163
+  %165 = load ptr, ptr %0, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 104
+  %167 = load ptr, ptr %166, align 8
+  %168 = call i32 %167(ptr noundef nonnull %0, ptr noundef nonnull %144) #17
+  br label %169
 
-168:                                              ; preds = %163, %162
-  %169 = load ptr, ptr %0, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 224
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %173 = load i32, ptr %172, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %175 = load i32, ptr %174, align 4
-  %176 = call ptr (ptr, ptr, ptr, ...) %171(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, i32 noundef %173, i32 noundef %175) #17
-  br label %177
+169:                                              ; preds = %164, %163
+  %170 = load ptr, ptr %0, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 224
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %174 = load i32, ptr %173, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %176 = load i32, ptr %175, align 4
+  %177 = call ptr (ptr, ptr, ptr, ...) %172(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, i32 noundef %174, i32 noundef %176) #17
+  br label %178
 
-177:                                              ; preds = %168, %90
-  %.2 = phi ptr [ %108, %90 ], [ %176, %168 ]
-  %178 = load ptr, ptr %0, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 120
-  %180 = load ptr, ptr %179, align 8
-  %181 = call ptr %180(ptr noundef nonnull %0) #17
-  %.not110 = icmp eq ptr %181, null
+178:                                              ; preds = %169, %90
+  %.2 = phi ptr [ %108, %90 ], [ %177, %169 ]
+  %179 = load ptr, ptr %0, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 120
+  %181 = load ptr, ptr %180, align 8
+  %182 = call ptr %181(ptr noundef nonnull %0) #17
+  %.not110 = icmp eq ptr %182, null
   %spec.select = select i1 %.not110, ptr %.2, ptr null
-  br label %182
+  br label %183
 
-182:                                              ; preds = %177, %11, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %11 ], [ %spec.select, %177 ]
+183:                                              ; preds = %178, %11, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %11 ], [ %spec.select, %178 ]
   ret ptr %.0
 }
 
@@ -3148,7 +3159,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35) #17
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %168, label %16
+  br i1 %15, label %169, label %16
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %0, align 8
@@ -3190,216 +3201,217 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
   %40 = load ptr, ptr @awt_display, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 232
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.Screen, ptr %42, i64 %.085, i32 2
-  %44 = load i64, ptr %43, align 8
-  store i64 %44, ptr %4, align 8
-  %45 = call ptr @XdbeGetVisualInfo(ptr noundef %40, ptr noundef nonnull %4, ptr noundef nonnull %5) #17
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %71
+  %43 = getelementptr inbounds %struct.Screen, ptr %42, i64 %.085
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load i64, ptr %44, align 8
+  store i64 %45, ptr %4, align 8
+  %46 = call ptr @XdbeGetVisualInfo(ptr noundef %40, ptr noundef nonnull %4, ptr noundef nonnull %5) #17
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %72
 
-47:                                               ; preds = %39
+48:                                               ; preds = %39
   call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.36) #17
   call void (...) @awt_output_flush() #17
-  %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 120
-  %50 = load ptr, ptr %49, align 8
-  %51 = call ptr %50(ptr noundef nonnull %0) #17
-  %.not100 = icmp eq ptr %51, null
-  br i1 %.not100, label %56, label %52
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 120
+  %51 = load ptr, ptr %50, align 8
+  %52 = call ptr %51(ptr noundef nonnull %0) #17
+  %.not100 = icmp eq ptr %52, null
+  br i1 %.not100, label %57, label %53
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull %0) #17
-  br label %56
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 136
+  %56 = load ptr, ptr %55, align 8
+  call void %56(ptr noundef nonnull %0) #17
+  br label %57
 
-56:                                               ; preds = %52, %47
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1128
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr @tkClass, align 8
-  %61 = load ptr, ptr @awtUnlockMID, align 8
-  call void (ptr, ptr, ptr, ...) %59(ptr noundef nonnull %0, ptr noundef %60, ptr noundef %61) #17
-  %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1824
-  %64 = load ptr, ptr %63, align 8
-  %65 = call zeroext i8 %64(ptr noundef nonnull %0) #17
-  %.not101 = icmp eq i8 %65, 0
-  br i1 %.not101, label %70, label %66
+57:                                               ; preds = %53, %48
+  %58 = load ptr, ptr %0, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1128
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr @tkClass, align 8
+  %62 = load ptr, ptr @awtUnlockMID, align 8
+  call void (ptr, ptr, ptr, ...) %60(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %62) #17
+  %63 = load ptr, ptr %0, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1824
+  %65 = load ptr, ptr %64, align 8
+  %66 = call zeroext i8 %65(ptr noundef nonnull %0) #17
+  %.not101 = icmp eq i8 %66, 0
+  br i1 %.not101, label %71, label %67
 
-66:                                               ; preds = %56
-  %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 136
-  %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull %0) #17
-  br label %70
+67:                                               ; preds = %57
+  %68 = load ptr, ptr %0, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 136
+  %70 = load ptr, ptr %69, align 8
+  call void %70(ptr noundef nonnull %0) #17
+  br label %71
 
-70:                                               ; preds = %66, %56
-  br i1 %.not100, label %168, label %.sink.split
+71:                                               ; preds = %67, %57
+  br i1 %.not100, label %169, label %.sink.split
 
-71:                                               ; preds = %39
+72:                                               ; preds = %39
   call void (...) @awt_output_flush() #17
-  %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 120
-  %74 = load ptr, ptr %73, align 8
-  %75 = call ptr %74(ptr noundef nonnull %0) #17
-  %.not93 = icmp eq ptr %75, null
-  br i1 %.not93, label %80, label %76
+  %73 = load ptr, ptr %0, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 120
+  %75 = load ptr, ptr %74, align 8
+  %76 = call ptr %75(ptr noundef nonnull %0) #17
+  %.not93 = icmp eq ptr %76, null
+  br i1 %.not93, label %81, label %77
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 136
-  %79 = load ptr, ptr %78, align 8
-  call void %79(ptr noundef nonnull %0) #17
-  br label %80
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %0, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 136
+  %80 = load ptr, ptr %79, align 8
+  call void %80(ptr noundef nonnull %0) #17
+  br label %81
 
-80:                                               ; preds = %76, %71
-  %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1128
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr @tkClass, align 8
-  %85 = load ptr, ptr @awtUnlockMID, align 8
-  call void (ptr, ptr, ptr, ...) %83(ptr noundef nonnull %0, ptr noundef %84, ptr noundef %85) #17
-  %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1824
-  %88 = load ptr, ptr %87, align 8
-  %89 = call zeroext i8 %88(ptr noundef nonnull %0) #17
-  %.not94 = icmp eq i8 %89, 0
-  br i1 %.not94, label %94, label %90
+81:                                               ; preds = %77, %72
+  %82 = load ptr, ptr %0, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1128
+  %84 = load ptr, ptr %83, align 8
+  %85 = load ptr, ptr @tkClass, align 8
+  %86 = load ptr, ptr @awtUnlockMID, align 8
+  call void (ptr, ptr, ptr, ...) %84(ptr noundef nonnull %0, ptr noundef %85, ptr noundef %86) #17
+  %87 = load ptr, ptr %0, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1824
+  %89 = load ptr, ptr %88, align 8
+  %90 = call zeroext i8 %89(ptr noundef nonnull %0) #17
+  %.not94 = icmp eq i8 %90, 0
+  br i1 %.not94, label %95, label %91
 
-90:                                               ; preds = %80
-  %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 136
-  %93 = load ptr, ptr %92, align 8
-  call void %93(ptr noundef nonnull %0) #17
-  br label %94
+91:                                               ; preds = %81
+  %92 = load ptr, ptr %0, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 136
+  %94 = load ptr, ptr %93, align 8
+  call void %94(ptr noundef nonnull %0) #17
+  br label %95
 
-94:                                               ; preds = %90, %80
-  br i1 %.not93, label %100, label %95
+95:                                               ; preds = %91, %81
+  br i1 %.not93, label %101, label %96
 
-95:                                               ; preds = %94
-  %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 104
-  %98 = load ptr, ptr %97, align 8
-  %99 = call i32 %98(ptr noundef nonnull %0, ptr noundef nonnull %75) #17
-  br label %100
+96:                                               ; preds = %95
+  %97 = load ptr, ptr %0, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 104
+  %99 = load ptr, ptr %98, align 8
+  %100 = call i32 %99(ptr noundef nonnull %0, ptr noundef nonnull %76) #17
+  br label %101
 
-100:                                              ; preds = %95, %94
-  %101 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %102 = load i32, ptr %45, align 8
-  %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph, label %._crit_edge
+101:                                              ; preds = %96, %95
+  %102 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %103 = load i32, ptr %46, align 8
+  %104 = icmp sgt i32 %103, 0
+  br i1 %104, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %100, %109
-  %indvars.iv = phi i64 [ %indvars.iv.next, %109 ], [ 0, %100 ]
-  %104 = load ptr, ptr %101, align 8
-  %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1824
-  %107 = load ptr, ptr %106, align 8
-  %108 = call zeroext i8 %107(ptr noundef nonnull %0) #17
-  %.not95 = icmp eq i8 %108, 0
-  br i1 %.not95, label %109, label %._crit_edge
+.lr.ph:                                           ; preds = %101, %110
+  %indvars.iv = phi i64 [ %indvars.iv.next, %110 ], [ 0, %101 ]
+  %105 = load ptr, ptr %102, align 8
+  %106 = load ptr, ptr %0, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1824
+  %108 = load ptr, ptr %107, align 8
+  %109 = call zeroext i8 %108(ptr noundef nonnull %0) #17
+  %.not95 = icmp eq i8 %109, 0
+  br i1 %.not95, label %110, label %._crit_edge
 
-109:                                              ; preds = %.lr.ph
-  %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 488
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds nuw %struct.XdbeVisualInfo, ptr %104, i64 %indvars.iv
-  %114 = load i64, ptr %113, align 8
-  call void (ptr, ptr, ptr, ...) %112(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %14, i64 noundef %114) #17
+110:                                              ; preds = %.lr.ph
+  %111 = load ptr, ptr %0, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 488
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds nuw %struct.XdbeVisualInfo, ptr %105, i64 %indvars.iv
+  %115 = load i64, ptr %114, align 8
+  call void (ptr, ptr, ptr, ...) %113(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %14, i64 noundef %115) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %115 = load i32, ptr %45, align 8
-  %116 = sext i32 %115 to i64
-  %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  %116 = load i32, ptr %46, align 8
+  %117 = sext i32 %116 to i64
+  %118 = icmp slt i64 %indvars.iv.next, %117
+  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %.lr.ph, %109, %100
-  %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 1824
-  %120 = load ptr, ptr %119, align 8
-  %121 = call zeroext i8 %120(ptr noundef nonnull %0) #17
-  %.not96 = icmp eq i8 %121, 0
-  br i1 %.not96, label %126, label %122
+._crit_edge:                                      ; preds = %.lr.ph, %110, %101
+  %119 = load ptr, ptr %0, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1824
+  %121 = load ptr, ptr %120, align 8
+  %122 = call zeroext i8 %121(ptr noundef nonnull %0) #17
+  %.not96 = icmp eq i8 %122, 0
+  br i1 %.not96, label %127, label %123
 
-122:                                              ; preds = %._crit_edge
-  %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 136
-  %125 = load ptr, ptr %124, align 8
-  call void %125(ptr noundef nonnull %0) #17
-  br label %126
+123:                                              ; preds = %._crit_edge
+  %124 = load ptr, ptr %0, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 136
+  %126 = load ptr, ptr %125, align 8
+  call void %126(ptr noundef nonnull %0) #17
+  br label %127
 
-126:                                              ; preds = %122, %._crit_edge
-  %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1128
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr @tkClass, align 8
-  %131 = load ptr, ptr @awtLockMID, align 8
-  call void (ptr, ptr, ptr, ...) %129(ptr noundef nonnull %0, ptr noundef %130, ptr noundef %131) #17
-  %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 1824
-  %134 = load ptr, ptr %133, align 8
-  %135 = call zeroext i8 %134(ptr noundef nonnull %0) #17
-  %.not97 = icmp eq i8 %135, 0
-  br i1 %.not97, label %140, label %136
+127:                                              ; preds = %123, %._crit_edge
+  %128 = load ptr, ptr %0, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 1128
+  %130 = load ptr, ptr %129, align 8
+  %131 = load ptr, ptr @tkClass, align 8
+  %132 = load ptr, ptr @awtLockMID, align 8
+  call void (ptr, ptr, ptr, ...) %130(ptr noundef nonnull %0, ptr noundef %131, ptr noundef %132) #17
+  %133 = load ptr, ptr %0, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 1824
+  %135 = load ptr, ptr %134, align 8
+  %136 = call zeroext i8 %135(ptr noundef nonnull %0) #17
+  %.not97 = icmp eq i8 %136, 0
+  br i1 %.not97, label %141, label %137
 
-136:                                              ; preds = %126
-  %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 136
-  %139 = load ptr, ptr %138, align 8
-  call void %139(ptr noundef nonnull %0) #17
-  br label %140
+137:                                              ; preds = %127
+  %138 = load ptr, ptr %0, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 136
+  %140 = load ptr, ptr %139, align 8
+  call void %140(ptr noundef nonnull %0) #17
+  br label %141
 
-140:                                              ; preds = %126, %136
-  call void @XdbeFreeVisualInfo(ptr noundef nonnull %45) #17
+141:                                              ; preds = %127, %137
+  call void @XdbeFreeVisualInfo(ptr noundef nonnull %46) #17
   call void (...) @awt_output_flush() #17
-  %141 = load ptr, ptr %0, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 120
-  %143 = load ptr, ptr %142, align 8
-  %144 = call ptr %143(ptr noundef nonnull %0) #17
-  %.not98 = icmp eq ptr %144, null
-  br i1 %.not98, label %149, label %145
+  %142 = load ptr, ptr %0, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 120
+  %144 = load ptr, ptr %143, align 8
+  %145 = call ptr %144(ptr noundef nonnull %0) #17
+  %.not98 = icmp eq ptr %145, null
+  br i1 %.not98, label %150, label %146
 
-145:                                              ; preds = %140
-  %146 = load ptr, ptr %0, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 136
-  %148 = load ptr, ptr %147, align 8
-  call void %148(ptr noundef nonnull %0) #17
-  br label %149
+146:                                              ; preds = %141
+  %147 = load ptr, ptr %0, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 136
+  %149 = load ptr, ptr %148, align 8
+  call void %149(ptr noundef nonnull %0) #17
+  br label %150
 
-149:                                              ; preds = %145, %140
-  %150 = load ptr, ptr %0, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 1128
-  %152 = load ptr, ptr %151, align 8
-  %153 = load ptr, ptr @tkClass, align 8
-  %154 = load ptr, ptr @awtUnlockMID, align 8
-  call void (ptr, ptr, ptr, ...) %152(ptr noundef nonnull %0, ptr noundef %153, ptr noundef %154) #17
-  %155 = load ptr, ptr %0, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1824
-  %157 = load ptr, ptr %156, align 8
-  %158 = call zeroext i8 %157(ptr noundef nonnull %0) #17
-  %.not99 = icmp eq i8 %158, 0
-  br i1 %.not99, label %163, label %159
+150:                                              ; preds = %146, %141
+  %151 = load ptr, ptr %0, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1128
+  %153 = load ptr, ptr %152, align 8
+  %154 = load ptr, ptr @tkClass, align 8
+  %155 = load ptr, ptr @awtUnlockMID, align 8
+  call void (ptr, ptr, ptr, ...) %153(ptr noundef nonnull %0, ptr noundef %154, ptr noundef %155) #17
+  %156 = load ptr, ptr %0, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 1824
+  %158 = load ptr, ptr %157, align 8
+  %159 = call zeroext i8 %158(ptr noundef nonnull %0) #17
+  %.not99 = icmp eq i8 %159, 0
+  br i1 %.not99, label %164, label %160
 
-159:                                              ; preds = %149
-  %160 = load ptr, ptr %0, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 136
-  %162 = load ptr, ptr %161, align 8
-  call void %162(ptr noundef nonnull %0) #17
-  br label %163
+160:                                              ; preds = %150
+  %161 = load ptr, ptr %0, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 136
+  %163 = load ptr, ptr %162, align 8
+  call void %163(ptr noundef nonnull %0) #17
+  br label %164
 
-163:                                              ; preds = %159, %149
-  br i1 %.not98, label %168, label %.sink.split
+164:                                              ; preds = %160, %150
+  br i1 %.not98, label %169, label %.sink.split
 
-.sink.split:                                      ; preds = %163, %70
-  %.sink = phi ptr [ %51, %70 ], [ %144, %163 ]
-  %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 104
-  %166 = load ptr, ptr %165, align 8
-  %167 = call i32 %166(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #17
-  br label %168
+.sink.split:                                      ; preds = %164, %71
+  %.sink = phi ptr [ %52, %71 ], [ %145, %164 ]
+  %165 = load ptr, ptr %0, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 104
+  %167 = load ptr, ptr %166, align 8
+  %168 = call i32 %167(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #17
+  br label %169
 
-168:                                              ; preds = %.sink.split, %163, %70, %3
+169:                                              ; preds = %.sink.split, %164, %71, %3
   ret void
 }
 
@@ -3798,120 +3810,121 @@ define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0,
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 228
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %2, %31
-  br i1 %32, label %33, label %73
+  br i1 %32, label %33, label %74
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr @awt_XRRGetScreenInfo, align 8
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 232
   %36 = load ptr, ptr %35, align 8
   %37 = sext i32 %2 to i64
-  %38 = getelementptr inbounds %struct.Screen, ptr %36, i64 %37, i32 2
-  %39 = load i64, ptr %38, align 8
-  %40 = tail call ptr %34(ptr noundef nonnull %29, i64 noundef %39) #17
-  %.not42 = icmp eq ptr %40, null
-  br i1 %.not42, label %73, label %41
+  %38 = getelementptr inbounds %struct.Screen, ptr %36, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load i64, ptr %39, align 8
+  %41 = tail call ptr %34(ptr noundef nonnull %29, i64 noundef %40) #17
+  %.not42 = icmp eq ptr %41, null
+  br i1 %.not42, label %74, label %42
 
-41:                                               ; preds = %33
-  %42 = load ptr, ptr @awt_XRRConfigCurrentConfiguration, align 8
-  %43 = call zeroext i16 %42(ptr noundef nonnull %40, ptr noundef nonnull %4) #17
-  %44 = load ptr, ptr @awt_XRRConfigSizes, align 8
-  %45 = call ptr %44(ptr noundef nonnull %40, ptr noundef nonnull %5) #17
-  %46 = load ptr, ptr @awt_XRRConfigCurrentRate, align 8
-  %47 = call signext i16 %46(ptr noundef nonnull %40) #17
-  %.not43 = icmp eq ptr %45, null
-  br i1 %.not43, label %X11GD_CreateDisplayMode.exit, label %48
+42:                                               ; preds = %33
+  %43 = load ptr, ptr @awt_XRRConfigCurrentConfiguration, align 8
+  %44 = call zeroext i16 %43(ptr noundef nonnull %41, ptr noundef nonnull %4) #17
+  %45 = load ptr, ptr @awt_XRRConfigSizes, align 8
+  %46 = call ptr %45(ptr noundef nonnull %41, ptr noundef nonnull %5) #17
+  %47 = load ptr, ptr @awt_XRRConfigCurrentRate, align 8
+  %48 = call signext i16 %47(ptr noundef nonnull %41) #17
+  %.not43 = icmp eq ptr %46, null
+  br i1 %.not43, label %X11GD_CreateDisplayMode.exit, label %49
 
-48:                                               ; preds = %41
-  %49 = zext i16 %43 to i32
-  %50 = load i32, ptr %5, align 4
-  %51 = icmp sgt i32 %50, %49
-  br i1 %51, label %52, label %X11GD_CreateDisplayMode.exit
+49:                                               ; preds = %42
+  %50 = zext i16 %44 to i32
+  %51 = load i32, ptr %5, align 4
+  %52 = icmp sgt i32 %51, %50
+  br i1 %52, label %53, label %X11GD_CreateDisplayMode.exit
 
-52:                                               ; preds = %48
-  %53 = zext i16 %43 to i64
-  %54 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %45, i64 %53
-  %.sroa.0.0.copyload = load i32, ptr %54, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 4
+53:                                               ; preds = %49
+  %54 = zext i16 %44 to i64
+  %55 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %46, i64 %54
+  %.sroa.0.0.copyload = load i32, ptr %55, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  %57 = load ptr, ptr %56, align 8
-  %58 = call ptr %57(ptr noundef nonnull %0, ptr noundef nonnull @.str.74) #17
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %X11GD_CreateDisplayMode.exit, label %60
+  %56 = load ptr, ptr %0, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  %58 = load ptr, ptr %57, align 8
+  %59 = call ptr %58(ptr noundef nonnull %0, ptr noundef nonnull @.str.74) #17
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %X11GD_CreateDisplayMode.exit, label %61
 
-60:                                               ; preds = %52
-  %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 264
-  %63 = load ptr, ptr %62, align 8
-  %64 = call ptr %63(ptr noundef nonnull %0, ptr noundef nonnull %58, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #17
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %X11GD_CreateDisplayMode.exit, label %66
+61:                                               ; preds = %53
+  %62 = load ptr, ptr %0, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 264
+  %64 = load ptr, ptr %63, align 8
+  %65 = call ptr %64(ptr noundef nonnull %0, ptr noundef nonnull %59, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #17
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %X11GD_CreateDisplayMode.exit, label %67
 
-66:                                               ; preds = %60
-  %67 = call i16 @llvm.smax.i16(i16 %47, i16 0)
-  %spec.store.select.i = zext nneg i16 %67 to i32
-  %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 224
-  %70 = load ptr, ptr %69, align 8
-  %71 = call ptr (ptr, ptr, ptr, ...) %70(ptr noundef nonnull %0, ptr noundef nonnull %58, ptr noundef nonnull %64, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef -1, i32 noundef %spec.store.select.i) #17
+67:                                               ; preds = %61
+  %68 = call i16 @llvm.smax.i16(i16 %48, i16 0)
+  %spec.store.select.i = zext nneg i16 %68 to i32
+  %69 = load ptr, ptr %0, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 224
+  %71 = load ptr, ptr %70, align 8
+  %72 = call ptr (ptr, ptr, ptr, ...) %71(ptr noundef nonnull %0, ptr noundef nonnull %59, ptr noundef nonnull %65, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef -1, i32 noundef %spec.store.select.i) #17
   br label %X11GD_CreateDisplayMode.exit
 
-X11GD_CreateDisplayMode.exit:                     ; preds = %66, %60, %52, %48, %41
-  %.0 = phi ptr [ null, %48 ], [ null, %41 ], [ %71, %66 ], [ null, %52 ], [ null, %60 ]
-  %72 = load ptr, ptr @awt_XRRFreeScreenConfigInfo, align 8
-  call void %72(ptr noundef nonnull %40) #17
-  br label %73
+X11GD_CreateDisplayMode.exit:                     ; preds = %67, %61, %53, %49, %42
+  %.0 = phi ptr [ null, %49 ], [ null, %42 ], [ %72, %67 ], [ null, %53 ], [ null, %61 ]
+  %73 = load ptr, ptr @awt_XRRFreeScreenConfigInfo, align 8
+  call void %73(ptr noundef nonnull %41) #17
+  br label %74
 
-73:                                               ; preds = %28, %X11GD_CreateDisplayMode.exit, %33
+74:                                               ; preds = %28, %X11GD_CreateDisplayMode.exit, %33
   %.1 = phi ptr [ %.0, %X11GD_CreateDisplayMode.exit ], [ null, %33 ], [ null, %28 ]
   call void (...) @awt_output_flush() #17
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 120
-  %76 = load ptr, ptr %75, align 8
-  %77 = call ptr %76(ptr noundef nonnull %0) #17
-  %.not44 = icmp eq ptr %77, null
-  br i1 %.not44, label %82, label %78
+  %75 = load ptr, ptr %0, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 120
+  %77 = load ptr, ptr %76, align 8
+  %78 = call ptr %77(ptr noundef nonnull %0) #17
+  %.not44 = icmp eq ptr %78, null
+  br i1 %.not44, label %83, label %79
 
-78:                                               ; preds = %73
-  %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 136
-  %81 = load ptr, ptr %80, align 8
-  call void %81(ptr noundef nonnull %0) #17
-  br label %82
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %0, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 136
+  %82 = load ptr, ptr %81, align 8
+  call void %82(ptr noundef nonnull %0) #17
+  br label %83
 
-82:                                               ; preds = %78, %73
-  %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1128
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr @tkClass, align 8
-  %87 = load ptr, ptr @awtUnlockMID, align 8
-  call void (ptr, ptr, ptr, ...) %85(ptr noundef nonnull %0, ptr noundef %86, ptr noundef %87) #17
-  %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1824
-  %90 = load ptr, ptr %89, align 8
-  %91 = call zeroext i8 %90(ptr noundef nonnull %0) #17
-  %.not45 = icmp eq i8 %91, 0
-  br i1 %.not45, label %96, label %92
+83:                                               ; preds = %79, %74
+  %84 = load ptr, ptr %0, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1128
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr @tkClass, align 8
+  %88 = load ptr, ptr @awtUnlockMID, align 8
+  call void (ptr, ptr, ptr, ...) %86(ptr noundef nonnull %0, ptr noundef %87, ptr noundef %88) #17
+  %89 = load ptr, ptr %0, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1824
+  %91 = load ptr, ptr %90, align 8
+  %92 = call zeroext i8 %91(ptr noundef nonnull %0) #17
+  %.not45 = icmp eq i8 %92, 0
+  br i1 %.not45, label %97, label %93
 
-92:                                               ; preds = %82
-  %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 136
-  %95 = load ptr, ptr %94, align 8
-  call void %95(ptr noundef nonnull %0) #17
-  br label %96
+93:                                               ; preds = %83
+  %94 = load ptr, ptr %0, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 136
+  %96 = load ptr, ptr %95, align 8
+  call void %96(ptr noundef nonnull %0) #17
+  br label %97
 
-96:                                               ; preds = %92, %82
-  br i1 %.not44, label %102, label %97
+97:                                               ; preds = %93, %83
+  br i1 %.not44, label %103, label %98
 
-97:                                               ; preds = %96
-  %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 104
-  %100 = load ptr, ptr %99, align 8
-  %101 = call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %77) #17
-  br label %102
+98:                                               ; preds = %97
+  %99 = load ptr, ptr %0, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 104
+  %101 = load ptr, ptr %100, align 8
+  %102 = call i32 %101(ptr noundef nonnull %0, ptr noundef nonnull %78) #17
+  br label %103
 
-102:                                              ; preds = %97, %96
+103:                                              ; preds = %98, %97
   ret ptr %.1
 }
 
@@ -3958,7 +3971,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
   %30 = load ptr, ptr @awt_display, align 8
   %31 = tail call i32 @XScreenCount(ptr noundef %30) #17
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %105
+  br i1 %32, label %33, label %106
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr @awt_XRRGetScreenInfo, align 8
@@ -3966,169 +3979,170 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 232
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %2 to i64
-  %39 = getelementptr inbounds %struct.Screen, ptr %37, i64 %38, i32 2
-  %40 = load i64, ptr %39, align 8
-  %41 = tail call ptr %34(ptr noundef %35, i64 noundef %40) #17
-  %.not47 = icmp eq ptr %41, null
-  br i1 %.not47, label %105, label %42
+  %39 = getelementptr inbounds %struct.Screen, ptr %37, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = load i64, ptr %40, align 8
+  %42 = tail call ptr %34(ptr noundef %35, i64 noundef %41) #17
+  %.not47 = icmp eq ptr %42, null
+  br i1 %.not47, label %106, label %43
 
-42:                                               ; preds = %33
-  %43 = load ptr, ptr @awt_XRRConfigSizes, align 8
-  %44 = call ptr %43(ptr noundef nonnull %41, ptr noundef nonnull %5) #17
-  %.not48 = icmp ne ptr %44, null
-  %45 = load i32, ptr %5, align 4
-  %46 = icmp sgt i32 %45, 0
-  %or.cond = select i1 %.not48, i1 %46, i1 false
+43:                                               ; preds = %33
+  %44 = load ptr, ptr @awt_XRRConfigSizes, align 8
+  %45 = call ptr %44(ptr noundef nonnull %42, ptr noundef nonnull %5) #17
+  %.not48 = icmp ne ptr %45, null
+  %46 = load i32, ptr %5, align 4
+  %47 = icmp sgt i32 %46, 0
+  %or.cond = select i1 %.not48, i1 %47, i1 false
   br i1 %or.cond, label %.lr.ph55, label %.loopexit
 
-.lr.ph55:                                         ; preds = %42, %._crit_edge
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %._crit_edge ], [ 0, %42 ]
-  %47 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %44, i64 %indvars.iv59
-  %.sroa.0.0.copyload = load i32, ptr %47, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 4
+.lr.ph55:                                         ; preds = %43, %._crit_edge
+  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %._crit_edge ], [ 0, %43 ]
+  %48 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %45, i64 %indvars.iv59
+  %.sroa.0.0.copyload = load i32, ptr %48, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %48 = load ptr, ptr @awt_XRRConfigRates, align 8
-  %49 = trunc nuw nsw i64 %indvars.iv59 to i32
-  %50 = call ptr %48(ptr noundef nonnull %41, i32 noundef %49, ptr noundef nonnull %6) #17
-  %51 = load i32, ptr %6, align 4
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph, label %._crit_edge
+  %49 = load ptr, ptr @awt_XRRConfigRates, align 8
+  %50 = trunc nuw nsw i64 %indvars.iv59 to i32
+  %51 = call ptr %49(ptr noundef nonnull %42, i32 noundef %50, ptr noundef nonnull %6) #17
+  %52 = load i32, ptr %6, align 4
+  %53 = icmp sgt i32 %52, 0
+  br i1 %53, label %.lr.ph, label %._crit_edge
 
-53:                                               ; preds = %X11GD_AddDisplayMode.exit
+54:                                               ; preds = %X11GD_AddDisplayMode.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %54 = load i32, ptr %6, align 4
-  %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  %55 = load i32, ptr %6, align 4
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv.next, %56
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
-.lr.ph:                                           ; preds = %.lr.ph55, %53
-  %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph55 ]
-  %57 = getelementptr inbounds nuw i16, ptr %50, i64 %indvars.iv
-  %58 = load i16, ptr %57, align 2
-  %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
-  %61 = load ptr, ptr %60, align 8
-  %62 = call ptr %61(ptr noundef nonnull %0, ptr noundef nonnull @.str.74) #17
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %X11GD_AddDisplayMode.exit, label %64
+.lr.ph:                                           ; preds = %.lr.ph55, %54
+  %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph55 ]
+  %58 = getelementptr inbounds nuw i16, ptr %51, i64 %indvars.iv
+  %59 = load i16, ptr %58, align 2
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
+  %62 = load ptr, ptr %61, align 8
+  %63 = call ptr %62(ptr noundef nonnull %0, ptr noundef nonnull @.str.74) #17
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %X11GD_AddDisplayMode.exit, label %65
 
-64:                                               ; preds = %.lr.ph
-  %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 264
-  %67 = load ptr, ptr %66, align 8
-  %68 = call ptr %67(ptr noundef nonnull %0, ptr noundef nonnull %62, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #17
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %X11GD_AddDisplayMode.exit, label %X11GD_CreateDisplayMode.exit.i
+65:                                               ; preds = %.lr.ph
+  %66 = load ptr, ptr %0, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 264
+  %68 = load ptr, ptr %67, align 8
+  %69 = call ptr %68(ptr noundef nonnull %0, ptr noundef nonnull %63, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #17
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %X11GD_AddDisplayMode.exit, label %X11GD_CreateDisplayMode.exit.i
 
-X11GD_CreateDisplayMode.exit.i:                   ; preds = %64
-  %70 = call i16 @llvm.smax.i16(i16 %58, i16 0)
-  %spec.store.select.i.i = zext nneg i16 %70 to i32
-  %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 224
-  %73 = load ptr, ptr %72, align 8
-  %74 = call ptr (ptr, ptr, ptr, ...) %73(ptr noundef nonnull %0, ptr noundef nonnull %62, ptr noundef nonnull %68, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef -1, i32 noundef %spec.store.select.i.i) #17
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %X11GD_AddDisplayMode.exit, label %76
+X11GD_CreateDisplayMode.exit.i:                   ; preds = %65
+  %71 = call i16 @llvm.smax.i16(i16 %59, i16 0)
+  %spec.store.select.i.i = zext nneg i16 %71 to i32
+  %72 = load ptr, ptr %0, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 224
+  %74 = load ptr, ptr %73, align 8
+  %75 = call ptr (ptr, ptr, ptr, ...) %74(ptr noundef nonnull %0, ptr noundef nonnull %63, ptr noundef nonnull %69, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef -1, i32 noundef %spec.store.select.i.i) #17
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %X11GD_AddDisplayMode.exit, label %77
 
-76:                                               ; preds = %X11GD_CreateDisplayMode.exit.i
-  %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 248
-  %79 = load ptr, ptr %78, align 8
-  %80 = call ptr %79(ptr noundef nonnull %0, ptr noundef %3) #17
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %82, label %83
+77:                                               ; preds = %X11GD_CreateDisplayMode.exit.i
+  %78 = load ptr, ptr %0, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 248
+  %80 = load ptr, ptr %79, align 8
+  %81 = call ptr %80(ptr noundef nonnull %0, ptr noundef %3) #17
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %84
 
-82:                                               ; preds = %76
+83:                                               ; preds = %77
   call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.77) #17
   br label %X11GD_AddDisplayMode.exit
 
-83:                                               ; preds = %76
-  %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 264
-  %86 = load ptr, ptr %85, align 8
-  %87 = call ptr %86(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79) #17
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %X11GD_AddDisplayMode.exit, label %89
+84:                                               ; preds = %77
+  %85 = load ptr, ptr %0, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 264
+  %87 = load ptr, ptr %86, align 8
+  %88 = call ptr %87(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79) #17
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %X11GD_AddDisplayMode.exit, label %90
 
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 272
-  %92 = load ptr, ptr %91, align 8
-  %93 = call ptr (ptr, ptr, ptr, ...) %92(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %87, ptr noundef nonnull %74) #17
-  %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 184
-  %96 = load ptr, ptr %95, align 8
-  call void %96(ptr noundef nonnull %0, ptr noundef nonnull %74) #17
+90:                                               ; preds = %84
+  %91 = load ptr, ptr %0, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 272
+  %93 = load ptr, ptr %92, align 8
+  %94 = call ptr (ptr, ptr, ptr, ...) %93(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %88, ptr noundef nonnull %75) #17
+  %95 = load ptr, ptr %0, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 184
+  %97 = load ptr, ptr %96, align 8
+  call void %97(ptr noundef nonnull %0, ptr noundef nonnull %75) #17
   br label %X11GD_AddDisplayMode.exit
 
-X11GD_AddDisplayMode.exit:                        ; preds = %.lr.ph, %64, %X11GD_CreateDisplayMode.exit.i, %82, %83, %89
-  %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1824
-  %99 = load ptr, ptr %98, align 8
-  %100 = call zeroext i8 %99(ptr noundef nonnull %0) #17
-  %.not49 = icmp eq i8 %100, 0
-  br i1 %.not49, label %53, label %.loopexit
+X11GD_AddDisplayMode.exit:                        ; preds = %.lr.ph, %65, %X11GD_CreateDisplayMode.exit.i, %83, %84, %90
+  %98 = load ptr, ptr %0, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1824
+  %100 = load ptr, ptr %99, align 8
+  %101 = call zeroext i8 %100(ptr noundef nonnull %0) #17
+  %.not49 = icmp eq i8 %101, 0
+  br i1 %.not49, label %54, label %.loopexit
 
-._crit_edge:                                      ; preds = %53, %.lr.ph55
+._crit_edge:                                      ; preds = %54, %.lr.ph55
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %101 = load i32, ptr %5, align 4
-  %102 = sext i32 %101 to i64
-  %103 = icmp slt i64 %indvars.iv.next60, %102
-  br i1 %103, label %.lr.ph55, label %.loopexit, !llvm.loop !19
+  %102 = load i32, ptr %5, align 4
+  %103 = sext i32 %102 to i64
+  %104 = icmp slt i64 %indvars.iv.next60, %103
+  br i1 %104, label %.lr.ph55, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %._crit_edge, %X11GD_AddDisplayMode.exit, %42
-  %104 = load ptr, ptr @awt_XRRFreeScreenConfigInfo, align 8
-  call void %104(ptr noundef nonnull %41) #17
-  br label %105
+.loopexit:                                        ; preds = %._crit_edge, %X11GD_AddDisplayMode.exit, %43
+  %105 = load ptr, ptr @awt_XRRFreeScreenConfigInfo, align 8
+  call void %105(ptr noundef nonnull %42) #17
+  br label %106
 
-105:                                              ; preds = %29, %.loopexit, %33
+106:                                              ; preds = %29, %.loopexit, %33
   call void (...) @awt_output_flush() #17
-  %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 120
-  %108 = load ptr, ptr %107, align 8
-  %109 = call ptr %108(ptr noundef nonnull %0) #17
-  %.not50 = icmp eq ptr %109, null
-  br i1 %.not50, label %114, label %110
+  %107 = load ptr, ptr %0, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 120
+  %109 = load ptr, ptr %108, align 8
+  %110 = call ptr %109(ptr noundef nonnull %0) #17
+  %.not50 = icmp eq ptr %110, null
+  br i1 %.not50, label %115, label %111
 
-110:                                              ; preds = %105
-  %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 136
-  %113 = load ptr, ptr %112, align 8
-  call void %113(ptr noundef nonnull %0) #17
-  br label %114
+111:                                              ; preds = %106
+  %112 = load ptr, ptr %0, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 136
+  %114 = load ptr, ptr %113, align 8
+  call void %114(ptr noundef nonnull %0) #17
+  br label %115
 
-114:                                              ; preds = %110, %105
-  %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 1128
-  %117 = load ptr, ptr %116, align 8
-  %118 = load ptr, ptr @tkClass, align 8
-  %119 = load ptr, ptr @awtUnlockMID, align 8
-  call void (ptr, ptr, ptr, ...) %117(ptr noundef nonnull %0, ptr noundef %118, ptr noundef %119) #17
-  %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1824
-  %122 = load ptr, ptr %121, align 8
-  %123 = call zeroext i8 %122(ptr noundef nonnull %0) #17
-  %.not51 = icmp eq i8 %123, 0
-  br i1 %.not51, label %128, label %124
+115:                                              ; preds = %111, %106
+  %116 = load ptr, ptr %0, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 1128
+  %118 = load ptr, ptr %117, align 8
+  %119 = load ptr, ptr @tkClass, align 8
+  %120 = load ptr, ptr @awtUnlockMID, align 8
+  call void (ptr, ptr, ptr, ...) %118(ptr noundef nonnull %0, ptr noundef %119, ptr noundef %120) #17
+  %121 = load ptr, ptr %0, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 1824
+  %123 = load ptr, ptr %122, align 8
+  %124 = call zeroext i8 %123(ptr noundef nonnull %0) #17
+  %.not51 = icmp eq i8 %124, 0
+  br i1 %.not51, label %129, label %125
 
-124:                                              ; preds = %114
-  %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 136
-  %127 = load ptr, ptr %126, align 8
-  call void %127(ptr noundef nonnull %0) #17
-  br label %128
+125:                                              ; preds = %115
+  %126 = load ptr, ptr %0, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 136
+  %128 = load ptr, ptr %127, align 8
+  call void %128(ptr noundef nonnull %0) #17
+  br label %129
 
-128:                                              ; preds = %124, %114
-  br i1 %.not50, label %134, label %129
+129:                                              ; preds = %125, %115
+  br i1 %.not50, label %135, label %130
 
-129:                                              ; preds = %128
-  %130 = load ptr, ptr %0, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 104
-  %132 = load ptr, ptr %131, align 8
-  %133 = call i32 %132(ptr noundef nonnull %0, ptr noundef nonnull %109) #17
-  br label %134
+130:                                              ; preds = %129
+  %131 = load ptr, ptr %0, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 104
+  %133 = load ptr, ptr %132, align 8
+  %134 = call i32 %133(ptr noundef nonnull %0, ptr noundef nonnull %110) #17
+  br label %135
 
-134:                                              ; preds = %129, %128
+135:                                              ; preds = %130, %129
   ret void
 }
 
@@ -4178,153 +4192,154 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 232
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %2 to i64
-  %37 = getelementptr inbounds %struct.Screen, ptr %35, i64 %36, i32 2
-  %38 = load i64, ptr %37, align 8
-  %39 = load ptr, ptr @awt_XRRGetScreenInfo, align 8
-  %40 = tail call ptr %39(ptr noundef %33, i64 noundef %38) #17
-  %.not65 = icmp eq ptr %40, null
-  br i1 %.not65, label %74, label %41
+  %37 = getelementptr inbounds %struct.Screen, ptr %35, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = load i64, ptr %38, align 8
+  %40 = load ptr, ptr @awt_XRRGetScreenInfo, align 8
+  %41 = tail call ptr %40(ptr noundef %33, i64 noundef %39) #17
+  %.not65 = icmp eq ptr %41, null
+  br i1 %.not65, label %75, label %42
 
-41:                                               ; preds = %32
-  %42 = load ptr, ptr @awt_XRRConfigSizes, align 8
-  %43 = call ptr %42(ptr noundef nonnull %40, ptr noundef nonnull %8) #17
-  %44 = load ptr, ptr @awt_XRRConfigRotations, align 8
-  %45 = call zeroext i16 %44(ptr noundef nonnull %40, ptr noundef nonnull %7) #17
-  %.not66 = icmp eq ptr %43, null
+42:                                               ; preds = %32
+  %43 = load ptr, ptr @awt_XRRConfigSizes, align 8
+  %44 = call ptr %43(ptr noundef nonnull %41, ptr noundef nonnull %8) #17
+  %45 = load ptr, ptr @awt_XRRConfigRotations, align 8
+  %46 = call zeroext i16 %45(ptr noundef nonnull %41, ptr noundef nonnull %7) #17
+  %.not66 = icmp eq ptr %44, null
   br i1 %.not66, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %41
-  %46 = load i32, ptr %8, align 4
-  %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.lr.ph.preheader, label %.critedge
+.preheader:                                       ; preds = %42
+  %47 = load i32, ptr %8, align 4
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %46 to i64
+  %wide.trip.count = zext nneg i32 %47 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %63
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
-  %48 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %43, i64 %indvars.iv
-  %.sroa.0.0.copyload = load i32, ptr %48, align 4
-  %49 = icmp eq i32 %.sroa.0.0.copyload, %3
-  br i1 %49, label %50, label %63
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
+  %49 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %44, i64 %indvars.iv
+  %.sroa.0.0.copyload = load i32, ptr %49, align 4
+  %50 = icmp eq i32 %.sroa.0.0.copyload, %3
+  br i1 %50, label %51, label %64
 
-50:                                               ; preds = %.lr.ph
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 4
+51:                                               ; preds = %.lr.ph
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %51 = icmp eq i32 %.sroa.2.0.copyload, %4
-  br i1 %51, label %52, label %63
+  %52 = icmp eq i32 %.sroa.2.0.copyload, %4
+  br i1 %52, label %53, label %64
 
-52:                                               ; preds = %50
-  %53 = trunc nuw nsw i64 %indvars.iv to i32
-  %54 = load ptr, ptr @awt_XRRConfigRates, align 8
-  %55 = call ptr %54(ptr noundef nonnull %40, i32 noundef %53, ptr noundef nonnull %9) #17
-  %56 = load i32, ptr %9, align 4
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph76.preheader, label %.critedge
+53:                                               ; preds = %51
+  %54 = trunc nuw nsw i64 %indvars.iv to i32
+  %55 = load ptr, ptr @awt_XRRConfigRates, align 8
+  %56 = call ptr %55(ptr noundef nonnull %41, i32 noundef %54, ptr noundef nonnull %9) #17
+  %57 = load i32, ptr %9, align 4
+  %58 = icmp sgt i32 %57, 0
+  br i1 %58, label %.lr.ph76.preheader, label %.critedge
 
-.lr.ph76.preheader:                               ; preds = %52
-  %wide.trip.count84 = zext nneg i32 %56 to i64
+.lr.ph76.preheader:                               ; preds = %53
+  %wide.trip.count84 = zext nneg i32 %57 to i64
   br label %.lr.ph76
 
-58:                                               ; preds = %.lr.ph76
+59:                                               ; preds = %.lr.ph76
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
   br i1 %exitcond85.not, label %.critedge, label %.lr.ph76, !llvm.loop !20
 
-.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %58
-  %indvars.iv81 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next82, %58 ]
-  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv81
-  %60 = load i16, ptr %59, align 2
-  %61 = sext i16 %60 to i32
-  %62 = icmp eq i32 %5, %61
-  br i1 %62, label %64, label %58
+.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %59
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next82, %59 ]
+  %60 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv81
+  %61 = load i16, ptr %60, align 2
+  %62 = sext i16 %61 to i32
+  %63 = icmp eq i32 %5, %62
+  br i1 %63, label %65, label %59
 
-63:                                               ; preds = %.lr.ph, %50
+64:                                               ; preds = %.lr.ph, %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !21
 
-64:                                               ; preds = %.lr.ph76
-  %65 = load ptr, ptr @awt_XRRSetScreenConfigAndRate, align 8
-  %66 = load ptr, ptr @awt_display, align 8
-  %67 = load i16, ptr %7, align 2
-  %68 = call i32 %65(ptr noundef %66, ptr noundef nonnull %40, i64 noundef %38, i32 noundef %53, i16 noundef zeroext %67, i16 noundef signext %60, i64 noundef 0) #17
-  %69 = load ptr, ptr @awt_display, align 8
-  %70 = call i32 @XSync(ptr noundef %69, i32 noundef 0) #17
-  %71 = icmp ne i32 %68, 0
+65:                                               ; preds = %.lr.ph76
+  %66 = load ptr, ptr @awt_XRRSetScreenConfigAndRate, align 8
+  %67 = load ptr, ptr @awt_display, align 8
+  %68 = load i16, ptr %7, align 2
+  %69 = call i32 %66(ptr noundef %67, ptr noundef nonnull %41, i64 noundef %39, i32 noundef %54, i16 noundef zeroext %68, i16 noundef signext %61, i64 noundef 0) #17
+  %70 = load ptr, ptr @awt_display, align 8
+  %71 = call i32 @XSync(ptr noundef %70, i32 noundef 0) #17
+  %72 = icmp ne i32 %69, 0
   br label %.critedge
 
-.critedge:                                        ; preds = %63, %58, %.preheader, %52, %64, %41
-  %72 = phi i1 [ %71, %64 ], [ true, %41 ], [ true, %52 ], [ true, %.preheader ], [ true, %58 ], [ true, %63 ]
-  %73 = load ptr, ptr @awt_XRRFreeScreenConfigInfo, align 8
-  call void %73(ptr noundef nonnull %40) #17
-  br label %74
+.critedge:                                        ; preds = %64, %59, %.preheader, %53, %65, %42
+  %73 = phi i1 [ %72, %65 ], [ true, %42 ], [ true, %53 ], [ true, %.preheader ], [ true, %59 ], [ true, %64 ]
+  %74 = load ptr, ptr @awt_XRRFreeScreenConfigInfo, align 8
+  call void %74(ptr noundef nonnull %41) #17
+  br label %75
 
-74:                                               ; preds = %32, %.critedge
-  %.1 = phi i1 [ %72, %.critedge ], [ true, %32 ]
+75:                                               ; preds = %32, %.critedge
+  %.1 = phi i1 [ %73, %.critedge ], [ true, %32 ]
   call void (...) @awt_output_flush() #17
-  %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 120
-  %77 = load ptr, ptr %76, align 8
-  %78 = call ptr %77(ptr noundef nonnull %0) #17
-  %.not68 = icmp eq ptr %78, null
-  br i1 %.not68, label %83, label %79
+  %76 = load ptr, ptr %0, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 120
+  %78 = load ptr, ptr %77, align 8
+  %79 = call ptr %78(ptr noundef nonnull %0) #17
+  %.not68 = icmp eq ptr %79, null
+  br i1 %.not68, label %84, label %80
 
-79:                                               ; preds = %74
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 136
-  %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef nonnull %0) #17
-  br label %83
+80:                                               ; preds = %75
+  %81 = load ptr, ptr %0, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 136
+  %83 = load ptr, ptr %82, align 8
+  call void %83(ptr noundef nonnull %0) #17
+  br label %84
 
-83:                                               ; preds = %79, %74
-  %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1128
-  %86 = load ptr, ptr %85, align 8
-  %87 = load ptr, ptr @tkClass, align 8
-  %88 = load ptr, ptr @awtUnlockMID, align 8
-  call void (ptr, ptr, ptr, ...) %86(ptr noundef nonnull %0, ptr noundef %87, ptr noundef %88) #17
-  %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1824
-  %91 = load ptr, ptr %90, align 8
-  %92 = call zeroext i8 %91(ptr noundef nonnull %0) #17
-  %.not69 = icmp eq i8 %92, 0
-  br i1 %.not69, label %97, label %93
+84:                                               ; preds = %80, %75
+  %85 = load ptr, ptr %0, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1128
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr @tkClass, align 8
+  %89 = load ptr, ptr @awtUnlockMID, align 8
+  call void (ptr, ptr, ptr, ...) %87(ptr noundef nonnull %0, ptr noundef %88, ptr noundef %89) #17
+  %90 = load ptr, ptr %0, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1824
+  %92 = load ptr, ptr %91, align 8
+  %93 = call zeroext i8 %92(ptr noundef nonnull %0) #17
+  %.not69 = icmp eq i8 %93, 0
+  br i1 %.not69, label %98, label %94
 
-93:                                               ; preds = %83
-  %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 136
-  %96 = load ptr, ptr %95, align 8
-  call void %96(ptr noundef nonnull %0) #17
-  br label %97
+94:                                               ; preds = %84
+  %95 = load ptr, ptr %0, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 136
+  %97 = load ptr, ptr %96, align 8
+  call void %97(ptr noundef nonnull %0) #17
+  br label %98
 
-97:                                               ; preds = %93, %83
-  br i1 %.not68, label %103, label %98
+98:                                               ; preds = %94, %84
+  br i1 %.not68, label %104, label %99
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 104
-  %101 = load ptr, ptr %100, align 8
-  %102 = call i32 %101(ptr noundef nonnull %0, ptr noundef nonnull %78) #17
-  br label %103
+99:                                               ; preds = %98
+  %100 = load ptr, ptr %0, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 104
+  %102 = load ptr, ptr %101, align 8
+  %103 = call i32 %102(ptr noundef nonnull %0, ptr noundef nonnull %79) #17
+  br label %104
 
-103:                                              ; preds = %98, %97
-  br i1 %.1, label %104, label %110
+104:                                              ; preds = %99, %98
+  br i1 %.1, label %105, label %111
 
-104:                                              ; preds = %103
-  %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1824
-  %107 = load ptr, ptr %106, align 8
-  %108 = call zeroext i8 %107(ptr noundef nonnull %0) #17
-  %.not71 = icmp eq i8 %108, 0
-  br i1 %.not71, label %109, label %110
+105:                                              ; preds = %104
+  %106 = load ptr, ptr %0, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1824
+  %108 = load ptr, ptr %107, align 8
+  %109 = call zeroext i8 %108(ptr noundef nonnull %0) #17
+  %.not71 = icmp eq i8 %109, 0
+  br i1 %.not71, label %110, label %111
 
-109:                                              ; preds = %104
+110:                                              ; preds = %105
   call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.38) #17
-  br label %110
+  br label %111
 
-110:                                              ; preds = %109, %104, %103
+111:                                              ; preds = %110, %105, %104
   ret void
 }
 
@@ -4577,7 +4592,7 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
   %5 = load ptr, ptr @awt_display, align 8
   %6 = call ptr @XGetVisualInfo(ptr noundef %5, i64 noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %4) #17
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %70, label %7
+  br i1 %.not, label %73, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @awt_display, align 8
@@ -4586,117 +4601,120 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.Screen, ptr %10, i64 %13, i32 10
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i64 @XVisualIDFromVisual(ptr noundef %15) #17
-  %17 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %22, label %.preheader
+  %14 = getelementptr inbounds %struct.Screen, ptr %10, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i64 @XVisualIDFromVisual(ptr noundef %16) #17
+  %18 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %23, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %19 = load i32, ptr %4, align 4
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph, label %._crit_edge.thread
+  %20 = load i32, ptr %4, align 4
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  br label %24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  br label %25
 
-22:                                               ; preds = %7
-  %23 = call i32 @XFree(ptr noundef nonnull %6) #17
-  br label %70
+23:                                               ; preds = %7
+  %24 = call i32 @XFree(ptr noundef nonnull %6) #17
+  br label %73
 
-24:                                               ; preds = %.lr.ph, %36
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.03850 = phi i32 [ -1, %.lr.ph ], [ %.2, %36 ]
-  %25 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %6, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %25, i64 64, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
-  %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr %17, align 8
-  %28 = call i32 @awtCreateX11Colormap(ptr noundef nonnull %17) #17
-  %.not42 = icmp eq i32 %28, 0
-  br i1 %.not42, label %36, label %29
+25:                                               ; preds = %.lr.ph, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+  %.03850 = phi i32 [ -1, %.lr.ph ], [ %.2, %37 ]
+  %26 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %6, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 64, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
+  %28 = load i32, ptr %27, align 4
+  store i32 %28, ptr %18, align 8
+  %29 = call i32 @awtCreateX11Colormap(ptr noundef nonnull %18) #17
+  %.not42 = icmp eq i32 %29, 0
+  br i1 %.not42, label %37, label %30
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %31 = load i64, ptr %30, align 8
-  %32 = icmp eq i64 %31, %16
-  br i1 %32, label %.thread.loopexit, label %33
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %32 = load i64, ptr %31, align 8
+  %33 = icmp eq i64 %32, %17
+  br i1 %33, label %.thread.loopexit, label %34
 
-33:                                               ; preds = %29
-  %34 = icmp eq i32 %.03850, -1
-  %35 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %34, i32 %35, i32 %.03850
-  br label %36
+34:                                               ; preds = %30
+  %35 = icmp eq i32 %.03850, -1
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %35, i32 %36, i32 %.03850
+  br label %37
 
-36:                                               ; preds = %33, %24
-  %.2 = phi i32 [ %.03850, %24 ], [ %spec.select, %33 ]
+37:                                               ; preds = %34, %25
+  %.2 = phi i32 [ %.03850, %25 ], [ %spec.select, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = load i32, ptr %4, align 4
-  %38 = sext i32 %37 to i64
-  %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %24, label %._crit_edge, !llvm.loop !22
+  %38 = load i32, ptr %4, align 4
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next, %39
+  br i1 %40, label %25, label %._crit_edge, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %36
+._crit_edge:                                      ; preds = %37
   %.not43 = icmp eq i32 %.2, -1
   br i1 %.not43, label %._crit_edge.thread, label %.thread
 
-.thread.loopexit:                                 ; preds = %29
-  %40 = trunc nuw nsw i64 %indvars.iv to i32
+.thread.loopexit:                                 ; preds = %30
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %._crit_edge
-  %.146 = phi i32 [ %.2, %._crit_edge ], [ %40, %.thread.loopexit ]
-  %41 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %42 = sext i32 %.146 to i64
-  %43 = getelementptr inbounds %struct.XVisualInfo, ptr %6, i64 %42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %43, i64 64, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 20
-  %45 = load i32, ptr %44, align 4
-  store i32 %45, ptr %17, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  store i8 7, ptr %46, align 2
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i16 0, ptr %47, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  store i16 0, ptr %48, align 2
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i16 0, ptr %49, align 8
-  %50 = load ptr, ptr @awt_display, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %52 = load i64, ptr %51, align 8
-  %53 = call i32 @XAllocColor(ptr noundef %50, i64 noundef %52, ptr noundef nonnull %3) #17
-  %54 = load i64, ptr %3, align 8
-  %55 = load ptr, ptr @x11Screens, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %57 = load i32, ptr %56, align 8
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds %struct._AwtScreenData, ptr %55, i64 %58, i32 3
-  store i64 %54, ptr %59, align 8
-  store i8 7, ptr %46, align 2
-  store i16 -1, ptr %47, align 4
-  store i16 -1, ptr %48, align 2
-  store i16 -1, ptr %49, align 8
-  %60 = load ptr, ptr @awt_display, align 8
-  %61 = load i64, ptr %51, align 8
-  %62 = call i32 @XAllocColor(ptr noundef %60, i64 noundef %61, ptr noundef nonnull %3) #17
-  %63 = load i64, ptr %3, align 8
-  %64 = load ptr, ptr @x11Screens, align 8
-  %65 = load i32, ptr %56, align 8
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds %struct._AwtScreenData, ptr %64, i64 %66, i32 2
-  store i64 %63, ptr %67, align 8
-  %68 = call i32 @XFree(ptr noundef nonnull %6) #17
-  br label %70
+  %.146 = phi i32 [ %.2, %._crit_edge ], [ %41, %.thread.loopexit ]
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %43 = sext i32 %.146 to i64
+  %44 = getelementptr inbounds %struct.XVisualInfo, ptr %6, i64 %43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(64) %44, i64 64, i1 false)
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
+  %46 = load i32, ptr %45, align 4
+  store i32 %46, ptr %18, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 7, ptr %47, align 2
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i16 0, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i16 0, ptr %49, align 2
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i16 0, ptr %50, align 8
+  %51 = load ptr, ptr @awt_display, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %53 = load i64, ptr %52, align 8
+  %54 = call i32 @XAllocColor(ptr noundef %51, i64 noundef %53, ptr noundef nonnull %3) #17
+  %55 = load i64, ptr %3, align 8
+  %56 = load ptr, ptr @x11Screens, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds %struct._AwtScreenData, ptr %56, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  store i64 %55, ptr %61, align 8
+  store i8 7, ptr %47, align 2
+  store i16 -1, ptr %48, align 4
+  store i16 -1, ptr %49, align 2
+  store i16 -1, ptr %50, align 8
+  %62 = load ptr, ptr @awt_display, align 8
+  %63 = load i64, ptr %52, align 8
+  %64 = call i32 @XAllocColor(ptr noundef %62, i64 noundef %63, ptr noundef nonnull %3) #17
+  %65 = load i64, ptr %3, align 8
+  %66 = load ptr, ptr @x11Screens, align 8
+  %67 = load i32, ptr %57, align 8
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds %struct._AwtScreenData, ptr %66, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  store i64 %65, ptr %70, align 8
+  %71 = call i32 @XFree(ptr noundef nonnull %6) #17
+  br label %73
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %69 = call i32 @XFree(ptr noundef nonnull %6) #17
-  call void @free(ptr noundef %17) #17
-  br label %70
+  %72 = call i32 @XFree(ptr noundef nonnull %6) #17
+  call void @free(ptr noundef %18) #17
+  br label %73
 
-70:                                               ; preds = %2, %._crit_edge.thread, %.thread, %22
-  %.0 = phi ptr [ null, %22 ], [ %17, %.thread ], [ null, %._crit_edge.thread ], [ null, %2 ]
+73:                                               ; preds = %2, %._crit_edge.thread, %.thread, %23
+  %.0 = phi ptr [ null, %23 ], [ %18, %.thread ], [ null, %._crit_edge.thread ], [ null, %2 ]
   ret ptr %.0
 }
 

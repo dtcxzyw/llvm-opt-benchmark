@@ -2634,7 +2634,8 @@ define dso_local void @svc_xprt_destroy_all(ptr noundef %0, ptr noundef readnone
   %49 = load ptr, ptr %8, align 8
   %50 = sext i32 %48 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %51 = getelementptr %struct.svc_pool, ptr %49, i64 %50, i32 1
+  %.split = getelementptr %struct.svc_pool, ptr %49, i64 %50
+  %51 = getelementptr i8, ptr %.split, i64 8
   %52 = tail call ptr @lwq_dequeue_all(ptr noundef %51) #18
   store ptr %52, ptr %3, align 8
   %53 = icmp eq ptr %52, null
@@ -2680,12 +2681,12 @@ define dso_local void @svc_xprt_destroy_all(ptr noundef %0, ptr noundef readnone
 
 69:                                               ; preds = %._crit_edge
   %70 = tail call ptr @llist_reverse_order(ptr noundef nonnull %.0..0..0..0..pr) #18
-  %71 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %72 = tail call zeroext i1 @llist_add_batch(ptr noundef %70, ptr noundef nonnull %.0..0..0..0..pr, ptr noundef nonnull %71) #18
+  %71 = getelementptr i8, ptr %.split, i64 24
+  %72 = tail call zeroext i1 @llist_add_batch(ptr noundef %70, ptr noundef nonnull %.0..0..0..0..pr, ptr noundef %71) #18
   br i1 %72, label %73, label %._crit_edge.thread
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %74 = getelementptr i8, ptr %.split, i64 16
   %75 = load volatile ptr, ptr %74, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !111
   br label %._crit_edge.thread

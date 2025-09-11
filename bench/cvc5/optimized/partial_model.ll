@@ -1236,36 +1236,37 @@ define hidden void @_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNod
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = zext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !92
-  %7 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %6, i64 %5, i32 9
-  %8 = load ptr, ptr %7, align 8, !tbaa !99
-  store ptr %8, ptr %0, align 8, !tbaa !99
-  %9 = load i64, ptr %8, align 8
-  %10 = lshr i64 %9, 40
-  %11 = trunc nuw nsw i64 %10 to i32
-  %12 = and i32 %11, 1048575
-  %13 = icmp samesign ult i32 %12, 1048574
-  br i1 %13, label %14, label %20, !prof !101
+  %7 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %6, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %9 = load ptr, ptr %8, align 8, !tbaa !99
+  store ptr %9, ptr %0, align 8, !tbaa !99
+  %10 = load i64, ptr %9, align 8
+  %11 = lshr i64 %10, 40
+  %12 = trunc nuw nsw i64 %11 to i32
+  %13 = and i32 %12, 1048575
+  %14 = icmp samesign ult i32 %13, 1048574
+  br i1 %14, label %15, label %21, !prof !101
 
-14:                                               ; preds = %3
-  %15 = add nuw nsw i32 %12, 1
-  %16 = zext nneg i32 %15 to i64
-  %17 = shl nuw nsw i64 %16, 40
-  %18 = and i64 %9, -1152920405095219201
-  %19 = or i64 %17, %18
-  store i64 %19, ptr %8, align 8
+15:                                               ; preds = %3
+  %16 = add nuw nsw i32 %13, 1
+  %17 = zext nneg i32 %16 to i64
+  %18 = shl nuw nsw i64 %17, 40
+  %19 = and i64 %10, -1152920405095219201
+  %20 = or i64 %18, %19
+  store i64 %20, ptr %9, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
-20:                                               ; preds = %3
-  %21 = icmp eq i32 %12, 1048574
-  br i1 %21, label %22, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !102
+21:                                               ; preds = %3
+  %22 = icmp eq i32 %13, 1048574
+  br i1 %22, label %23, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !102
 
-22:                                               ; preds = %20
-  %23 = or i64 %9, 1152920405095219200
-  store i64 %23, ptr %8, align 8
-  tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+23:                                               ; preds = %21
+  %24 = or i64 %10, 1152920405095219200
+  store i64 %24, ptr %9, align 8
+  tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
-_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %14, %20, %22
+_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %15, %21, %23
   ret void
 }
 
@@ -1471,10 +1472,11 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithV
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 8
-  %7 = load i32, ptr %6, align 4, !tbaa !126
-  %8 = icmp sgt i32 %7, 1
-  ret i1 %8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 100
+  %8 = load i32, ptr %7, align 4, !tbaa !126
+  %9 = icmp sgt i32 %8, 1
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
@@ -1482,14 +1484,14 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithV
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 2
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !127
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %11, i64 noundef 1) #32
   %13 = icmp eq i32 %12, 0
   br label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
@@ -1504,8 +1506,9 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58interna
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 2
-  ret ptr %6
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1513,10 +1516,11 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithV
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 10
-  %7 = load i8, ptr %6, align 8, !tbaa !131, !range !73, !noundef !74
-  %8 = trunc nuw i8 %7 to i1
-  ret i1 %8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %8 = load i8, ptr %7, align 8, !tbaa !131, !range !73, !noundef !74
+  %9 = trunc nuw i8 %8 to i1
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1524,21 +1528,22 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithV
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 8
-  %7 = load i32, ptr %6, align 4, !tbaa !126
-  %8 = icmp sgt i32 %7, 1
-  br i1 %8, label %9, label %14
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 100
+  %8 = load i32, ptr %7, align 4, !tbaa !126
+  %9 = icmp sgt i32 %8, 1
+  br i1 %9, label %10, label %15
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 10
-  %11 = load i8, ptr %10, align 8, !tbaa !131, !range !73, !noundef !74
-  %12 = trunc nuw i8 %11 to i1
-  %13 = xor i1 %12, true
-  br label %14
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %12 = load i8, ptr %11, align 8, !tbaa !131, !range !73, !noundef !74
+  %13 = trunc nuw i8 %12 to i1
+  %14 = xor i1 %13, true
+  br label %15
 
-14:                                               ; preds = %9, %2
-  %15 = phi i1 [ false, %2 ], [ %13, %9 ]
-  ret i1 %15
+15:                                               ; preds = %10, %2
+  %16 = phi i1 [ false, %2 ], [ %14, %10 ]
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3336,10 +3341,11 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithV
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 7
-  %7 = load i32, ptr %6, align 8, !tbaa !134
-  %8 = icmp eq i32 %7, 0
-  ret i1 %8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %8 = load i32, ptr %7, align 8, !tbaa !134
+  %9 = icmp eq i32 %8, 0
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3363,88 +3369,89 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables24attem
   br label %14
 
 14:                                               ; preds = %.lr.ph, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %.012 = phi i64 [ 0, %.lr.ph ], [ %51, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.012 = phi i64 [ 0, %.lr.ph ], [ %52, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %.0711 = phi i64 [ 0, %.lr.ph ], [ %.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %15 = load ptr, ptr %2, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %.012
   %17 = load i32, ptr %16, align 4, !tbaa !111
   %18 = zext i32 %17 to i64
   %19 = load ptr, ptr %10, align 8, !tbaa !92
-  %20 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %19, i64 %18, i32 7
-  %21 = load i32, ptr %20, align 8, !tbaa !134
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %48
+  %20 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %19, i64 %18
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
+  %22 = load i32, ptr %21, align 8, !tbaa !134
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %49
 
-23:                                               ; preds = %14
-  %24 = load ptr, ptr %12, align 8, !tbaa !110
-  %25 = load ptr, ptr %13, align 8, !tbaa !72
-  %.not.i = icmp eq ptr %24, %25
-  br i1 %.not.i, label %28, label %26
+24:                                               ; preds = %14
+  %25 = load ptr, ptr %12, align 8, !tbaa !110
+  %26 = load ptr, ptr %13, align 8, !tbaa !72
+  %.not.i = icmp eq ptr %25, %26
+  br i1 %.not.i, label %29, label %27
 
-26:                                               ; preds = %23
-  store i32 %17, ptr %24, align 4, !tbaa !111
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store ptr %27, ptr %12, align 8, !tbaa !110
+27:                                               ; preds = %24
+  store i32 %17, ptr %25, align 4, !tbaa !111
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store ptr %28, ptr %12, align 8, !tbaa !110
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %11, align 8, !tbaa !71
-  %30 = ptrtoint ptr %24 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = icmp eq i64 %32, 9223372036854775804
-  br i1 %33, label %34, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %11, align 8, !tbaa !71
+  %31 = ptrtoint ptr %25 to i64
+  %32 = ptrtoint ptr %30 to i64
+  %33 = sub i64 %31, %32
+  %34 = icmp eq i64 %33, 9223372036854775804
+  br i1 %34, label %35, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
 
-34:                                               ; preds = %28
+35:                                               ; preds = %29
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #34
   unreachable
 
-_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %28
-  %35 = ashr exact i64 %32, 2
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %35, i64 1)
-  %36 = add nsw i64 %.sroa.speculated.i.i.i, %35
-  %37 = icmp ult i64 %36, %35
-  %38 = tail call i64 @llvm.umin.i64(i64 %36, i64 2305843009213693951)
-  %39 = select i1 %37, i64 2305843009213693951, i64 %38
-  %.not.i.i.i = icmp ne i64 %39, 0
+_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %29
+  %36 = ashr exact i64 %33, 2
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
+  %37 = add nsw i64 %.sroa.speculated.i.i.i, %36
+  %38 = icmp ult i64 %37, %36
+  %39 = tail call i64 @llvm.umin.i64(i64 %37, i64 2305843009213693951)
+  %40 = select i1 %38, i64 2305843009213693951, i64 %39
+  %.not.i.i.i = icmp ne i64 %40, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
-  %40 = shl nuw nsw i64 %39, 2
-  %41 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #33
-  %42 = getelementptr inbounds i8, ptr %41, i64 %32
-  store i32 %17, ptr %42, align 4, !tbaa !111
-  %43 = icmp sgt i64 %32, 0
-  br i1 %43, label %44, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
+  %41 = shl nuw nsw i64 %40, 2
+  %42 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #33
+  %43 = getelementptr inbounds i8, ptr %42, i64 %33
+  store i32 %17, ptr %43, align 4, !tbaa !111
+  %44 = icmp sgt i64 %33, 0
+  br i1 %44, label %45, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
 
-44:                                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %41, ptr align 4 %29, i64 %32, i1 false)
+45:                                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %42, ptr align 4 %30, i64 %33, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
 
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %44, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %.not.i17.i.i = icmp eq ptr %29, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %46
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %45, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %.not.i17.i.i = icmp eq ptr %30, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %47
 
-46:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef %32) #30
+47:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %33) #30
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
-_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  store ptr %41, ptr %11, align 8, !tbaa !71
-  store ptr %45, ptr %12, align 8, !tbaa !110
-  %47 = getelementptr inbounds nuw i32, ptr %41, i64 %39
-  store ptr %47, ptr %13, align 8, !tbaa !72
+_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %47, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
+  store ptr %42, ptr %11, align 8, !tbaa !71
+  store ptr %46, ptr %12, align 8, !tbaa !110
+  %48 = getelementptr inbounds nuw i32, ptr %42, i64 %40
+  store ptr %48, ptr %13, align 8, !tbaa !72
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
-48:                                               ; preds = %14
-  %49 = getelementptr inbounds nuw i32, ptr %15, i64 %.0711
-  store i32 %17, ptr %49, align 4, !tbaa !111
-  %50 = add i64 %.0711, 1
+49:                                               ; preds = %14
+  %50 = getelementptr inbounds nuw i32, ptr %15, i64 %.0711
+  store i32 %17, ptr %50, align 4, !tbaa !111
+  %51 = add i64 %.0711, 1
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
-_ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %26, %48
-  %.1 = phi i64 [ %50, %48 ], [ %.0711, %26 ], [ %.0711, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
-  %51 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %51, %9
+_ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %27, %49
+  %.1 = phi i64 [ %51, %49 ], [ %.0711, %27 ], [ %.0711, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
+  %52 = add nuw i64 %.012, 1
+  %exitcond.not = icmp eq i64 %52, %9
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
@@ -3454,32 +3461,32 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %.pre15 = ptrtoint ptr %.pre13 to i64
   %.pre17 = sub i64 %.pre14, %.pre15
   %.pre19 = ashr exact i64 %.pre17, 2
-  %52 = icmp ugt i64 %.1, %.pre19
-  br i1 %52, label %53, label %._crit_edge.thread
+  %53 = icmp ugt i64 %.1, %.pre19
+  br i1 %53, label %54, label %._crit_edge.thread
 
-53:                                               ; preds = %._crit_edge
-  %54 = sub nuw i64 %.1, %.pre19
-  tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %54)
+54:                                               ; preds = %._crit_edge
+  %55 = sub nuw i64 %.1, %.pre19
+  tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %55)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
   %.07.lcssa31 = phi i64 [ %.1, %._crit_edge ], [ 0, %1 ]
-  %55 = phi ptr [ %.pre, %._crit_edge ], [ %4, %1 ]
-  %56 = phi ptr [ %.pre13, %._crit_edge ], [ %5, %1 ]
+  %56 = phi ptr [ %.pre, %._crit_edge ], [ %4, %1 ]
+  %57 = phi ptr [ %.pre13, %._crit_edge ], [ %5, %1 ]
   %.pre-phi2030 = phi i64 [ %.pre19, %._crit_edge ], [ 0, %1 ]
-  %57 = icmp ult i64 %.07.lcssa31, %.pre-phi2030
-  br i1 %57, label %58, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+  %58 = icmp ult i64 %.07.lcssa31, %.pre-phi2030
+  br i1 %58, label %59, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
-58:                                               ; preds = %._crit_edge.thread
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %.07.lcssa31
-  %.not.i.i = icmp eq ptr %55, %59
-  br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %60
+59:                                               ; preds = %._crit_edge.thread
+  %60 = getelementptr inbounds nuw i32, ptr %57, i64 %.07.lcssa31
+  %.not.i.i = icmp eq ptr %56, %60
+  br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %61
 
-60:                                               ; preds = %58
-  store ptr %59, ptr %3, align 8, !tbaa !110
+61:                                               ; preds = %59
+  store ptr %60, ptr %3, align 8, !tbaa !110
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
-_ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %53, %._crit_edge.thread, %58, %60
+_ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %54, %._crit_edge.thread, %59, %61
   ret void
 }
 
@@ -3906,33 +3913,34 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithV
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 3
-  %7 = load ptr, ptr %6, align 8, !tbaa !162
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %8 = load ptr, ptr %7, align 8, !tbaa !162
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %9
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 4
-  %10 = load ptr, ptr %9, align 8, !tbaa !161
-  %.not5 = icmp eq ptr %10, null
-  br i1 %.not5, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %11
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %11 = load ptr, ptr %10, align 8, !tbaa !161
+  %.not5 = icmp eq ptr %11, null
+  br i1 %.not5, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %12
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %14 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13) #32
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %15
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %15 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14) #32
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %16
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %18 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %16) #32
-  %19 = icmp ne i32 %18, 0
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %19 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %17) #32
+  %20 = icmp ne i32 %19, 0
   br label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit
 
-_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit:   ; preds = %15, %11, %2, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %2 ], [ false, %11 ], [ %19, %15 ]
+_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit:   ; preds = %16, %12, %2, %9
+  %.0 = phi i1 [ false, %9 ], [ false, %2 ], [ false, %12 ], [ %20, %16 ]
   ret i1 %.0
 }
 
@@ -3941,10 +3949,11 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58interna
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 4
-  %7 = load ptr, ptr %6, align 8, !tbaa !161
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  ret ptr %8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %8 = load ptr, ptr %7, align 8, !tbaa !161
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -3952,10 +3961,11 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58interna
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 3
-  %7 = load ptr, ptr %6, align 8, !tbaa !162
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  ret ptr %8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %8 = load ptr, ptr %7, align 8, !tbaa !162
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -3963,26 +3973,27 @@ define hidden { ptr, ptr } @_ZNK4cvc58internal6theory5arith6linear14ArithVariabl
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 3
-  %7 = load ptr, ptr %6, align 8, !tbaa !162
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !164
-  %10 = icmp eq i32 %9, 1
-  br i1 %10, label %17, label %11
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %8 = load ptr, ptr %7, align 8, !tbaa !162
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !164
+  %11 = icmp eq i32 %10, 1
+  br i1 %11, label %18, label %12
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 4
-  %13 = load ptr, ptr %12, align 8, !tbaa !161
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !164
-  %16 = icmp eq i32 %15, 1
-  %. = select i1 %16, ptr %13, ptr %7
-  %.15 = select i1 %16, ptr null, ptr %13
-  br label %17
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %14 = load ptr, ptr %13, align 8, !tbaa !161
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !164
+  %17 = icmp eq i32 %16, 1
+  %. = select i1 %17, ptr %14, ptr %8
+  %.15 = select i1 %17, ptr null, ptr %14
+  br label %18
 
-17:                                               ; preds = %11, %2
-  %.pn14 = phi ptr [ %7, %2 ], [ %., %11 ]
-  %.pn12 = phi ptr [ null, %2 ], [ %.15, %11 ]
+18:                                               ; preds = %12, %2
+  %.pn14 = phi ptr [ %8, %2 ], [ %., %12 ]
+  %.pn12 = phi ptr [ null, %2 ], [ %.15, %12 ]
   %.fca.0.insert.i.pn = insertvalue { ptr, ptr } poison, ptr %.pn14, 0
   %.pn = insertvalue { ptr, ptr } %.fca.0.insert.i.pn, ptr %.pn12, 1
   ret { ptr, ptr } %.pn
@@ -4501,16 +4512,17 @@ _ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load ptr, ptr %15, align 8, !tbaa !88
   %17 = getelementptr inbounds nuw %"class.cvc5::internal::DeltaRational", ptr %16, i64 %3
-  br label %21
+  br label %22
 
 _ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit.thread: ; preds = %2, %_ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !92
-  %20 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %19, i64 %3, i32 2
-  br label %21
+  %20 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %19, i64 %3
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  br label %22
 
-21:                                               ; preds = %_ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit.thread, %14
-  %.0 = phi ptr [ %17, %14 ], [ %20, %_ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit.thread ]
+22:                                               ; preds = %_ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit.thread, %14
+  %.0 = phi ptr [ %17, %14 ], [ %21, %_ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit.thread ]
   ret ptr %.0
 }
 
@@ -4541,16 +4553,17 @@ _ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit: ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = load ptr, ptr %17, align 8, !tbaa !88
   %19 = getelementptr inbounds nuw %"class.cvc5::internal::DeltaRational", ptr %18, i64 %4
-  br label %23
+  br label %24
 
 _ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit.thread: ; preds = %3, %5, %_ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !92
-  %22 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %21, i64 %4, i32 2
-  br label %23
+  %22 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %21, i64 %4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  br label %24
 
-23:                                               ; preds = %_ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit.thread, %16
-  %.0 = phi ptr [ %19, %16 ], [ %22, %_ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit.thread ]
+24:                                               ; preds = %_ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit.thread, %16
+  %.0 = phi ptr [ %19, %16 ], [ %23, %_ZNK4cvc58internal8DenseMapINS0_13DeltaRationalEE5isKeyEj.exit.thread ]
   ret ptr %.0
 }
 
@@ -4827,25 +4840,26 @@ define hidden noundef i32 @_ZNK4cvc58internal6theory5arith6linear14ArithVariable
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !92
-  %7 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %6, i64 %5, i32 3
-  %8 = load ptr, ptr %7, align 8, !tbaa !162
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit, label %9
+  %7 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %6, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %9 = load ptr, ptr %8, align 8, !tbaa !162
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit, label %10
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %10) #32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %11) #32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %16 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #32
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %17 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16) #32
   br label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit
 
-_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit: ; preds = %13, %9, %3
-  %.0 = phi i32 [ 1, %3 ], [ %16, %13 ], [ %11, %9 ]
+_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit: ; preds = %14, %10, %3
+  %.0 = phi i32 [ 1, %3 ], [ %17, %14 ], [ %12, %10 ]
   ret i32 %.0
 }
 
@@ -4854,25 +4868,26 @@ define hidden noundef i32 @_ZNK4cvc58internal6theory5arith6linear14ArithVariable
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !92
-  %7 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %6, i64 %5, i32 4
-  %8 = load ptr, ptr %7, align 8, !tbaa !161
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit, label %9
+  %7 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %6, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %9 = load ptr, ptr %8, align 8, !tbaa !161
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit, label %10
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %10) #32
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %11) #32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %16 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #32
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %17 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16) #32
   br label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit
 
-_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit: ; preds = %13, %9, %3
-  %.0 = phi i32 [ -1, %3 ], [ %16, %13 ], [ %11, %9 ]
+_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit: ; preds = %14, %10, %3
+  %.0 = phi i32 [ -1, %3 ], [ %17, %14 ], [ %12, %10 ]
   ret i32 %.0
 }
 
@@ -4881,26 +4896,27 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear14ArithVa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !92
-  %7 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %6, i64 %5, i32 3
-  %8 = load ptr, ptr %7, align 8, !tbaa !162
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %9
+  %7 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %6, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %9 = load ptr, ptr %8, align 8, !tbaa !162
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %10
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %12 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #32
-  %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %13
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %13 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12) #32
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %14
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %14) #32
-  %16 = icmp ne i32 %15, 0
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %16 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %15) #32
+  %17 = icmp ne i32 %16, 0
   br label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit
 
-_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit:   ; preds = %13, %9, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %9 ], [ %16, %13 ]
+_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit:   ; preds = %14, %10, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %10 ], [ %17, %14 ]
   ret i1 %.0
 }
 
@@ -4909,26 +4925,27 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear14ArithVa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !92
-  %7 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %6, i64 %5, i32 4
-  %8 = load ptr, ptr %7, align 8, !tbaa !161
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %9
+  %7 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %6, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %9 = load ptr, ptr %8, align 8, !tbaa !161
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %10
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %12 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #32
-  %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %13
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %13 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12) #32
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit, label %14
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %14) #32
-  %16 = icmp ne i32 %15, 0
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %16 = tail call i32 @__gmpq_equal(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %15) #32
+  %17 = icmp ne i32 %16, 0
   br label %_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit
 
-_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit:   ; preds = %13, %9, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %9 ], [ %16, %13 ]
+_ZNK4cvc58internal13DeltaRationaleqERKS1_.exit:   ; preds = %14, %10, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %10 ], [ %17, %14 ]
   ret i1 %.0
 }
 
@@ -4937,20 +4954,21 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithV
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 3
-  %7 = load ptr, ptr %6, align 8, !tbaa !162
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %12
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %8 = load ptr, ptr %7, align 8, !tbaa !162
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %9, label %13
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 4
-  %10 = load ptr, ptr %9, align 8, !tbaa !161
-  %11 = icmp ne ptr %10, null
-  br label %12
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %11 = load ptr, ptr %10, align 8, !tbaa !161
+  %12 = icmp ne ptr %11, null
+  br label %13
 
-12:                                               ; preds = %8, %2
-  %13 = phi i1 [ true, %2 ], [ %11, %8 ]
-  ret i1 %13
+13:                                               ; preds = %9, %2
+  %14 = phi i1 [ true, %2 ], [ %12, %9 ]
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -4958,10 +4976,11 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithV
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 6
-  %7 = load i32, ptr %6, align 4, !tbaa !133
-  %8 = icmp slt i32 %7, 0
-  ret i1 %8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 92
+  %8 = load i32, ptr %7, align 4, !tbaa !133
+  %9 = icmp slt i32 %8, 0
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -4969,10 +4988,11 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithV
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 5
-  %7 = load i32, ptr %6, align 8, !tbaa !132
-  %8 = icmp sgt i32 %7, 0
-  ret i1 %8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %8 = load i32, ptr %7, align 8, !tbaa !132
+  %9 = icmp sgt i32 %8, 0
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -5267,26 +5287,27 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear14ArithVa
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 3
-  %7 = load ptr, ptr %6, align 8, !tbaa !162
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, label %8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %8 = load ptr, ptr %7, align 8, !tbaa !162
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, label %9
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !127
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %11 = load i32, ptr %10, align 4, !tbaa !127
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %14 = load i32, ptr %13, align 4, !tbaa !127
-  %15 = icmp eq i32 %14, 0
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %15 = load i32, ptr %14, align 4, !tbaa !127
+  %16 = icmp eq i32 %15, 0
   br label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
 
-_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %12, %8, %2
-  %16 = phi i1 [ false, %2 ], [ %15, %12 ], [ false, %8 ]
-  ret i1 %16
+_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %13, %9, %2
+  %17 = phi i1 [ false, %2 ], [ %16, %13 ], [ false, %9 ]
+  ret i1 %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -5294,26 +5315,27 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear14ArithVa
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !92
-  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 4
-  %7 = load ptr, ptr %6, align 8, !tbaa !161
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, label %8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %8 = load ptr, ptr %7, align 8, !tbaa !161
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit, label %9
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !127
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %11 = load i32, ptr %10, align 4, !tbaa !127
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %14 = load i32, ptr %13, align 4, !tbaa !127
-  %15 = icmp eq i32 %14, 0
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %15 = load i32, ptr %14, align 4, !tbaa !127
+  %16 = icmp eq i32 %15, 0
   br label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
 
-_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %12, %8, %2
-  %16 = phi i1 [ false, %2 ], [ %15, %12 ], [ false, %8 ]
-  ret i1 %16
+_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %13, %9, %2
+  %17 = phi i1 [ false, %2 ], [ %16, %13 ], [ false, %9 ]
+  ret i1 %17
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5478,228 +5500,234 @@ define hidden void @_ZNK4cvc58internal6theory5arith6linear14ArithVariables10prin
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !92, !noalias !194
-  %11 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %10, i64 %6, i32 9
-  %12 = load ptr, ptr %11, align 8, !tbaa !99, !noalias !194
-  store ptr %12, ptr %4, align 8, !tbaa !99, !alias.scope !194
-  %13 = load i64, ptr %12, align 8, !noalias !194
-  %14 = lshr i64 %13, 40
-  %15 = trunc nuw nsw i64 %14 to i32
-  %16 = and i32 %15, 1048575
-  %17 = icmp samesign ult i32 %16, 1048574
-  br i1 %17, label %18, label %24, !prof !101
+  %11 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %10, i64 %6
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
+  %13 = load ptr, ptr %12, align 8, !tbaa !99, !noalias !194
+  store ptr %13, ptr %4, align 8, !tbaa !99, !alias.scope !194
+  %14 = load i64, ptr %13, align 8, !noalias !194
+  %15 = lshr i64 %14, 40
+  %16 = trunc nuw nsw i64 %15 to i32
+  %17 = and i32 %16, 1048575
+  %18 = icmp samesign ult i32 %17, 1048574
+  br i1 %18, label %19, label %25, !prof !101
 
-18:                                               ; preds = %3
-  %19 = add nuw nsw i32 %16, 1
-  %20 = zext nneg i32 %19 to i64
-  %21 = shl nuw nsw i64 %20, 40
-  %22 = and i64 %13, -1152920405095219201
-  %23 = or i64 %21, %22
-  store i64 %23, ptr %12, align 8, !noalias !194
+19:                                               ; preds = %3
+  %20 = add nuw nsw i32 %17, 1
+  %21 = zext nneg i32 %20 to i64
+  %22 = shl nuw nsw i64 %21, 40
+  %23 = and i64 %14, -1152920405095219201
+  %24 = or i64 %22, %23
+  store i64 %24, ptr %13, align 8, !noalias !194
   br label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNodeEj.exit
 
-24:                                               ; preds = %3
-  %25 = icmp eq i32 %16, 1048574
-  br i1 %25, label %26, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNodeEj.exit, !prof !102
+25:                                               ; preds = %3
+  %26 = icmp eq i32 %17, 1048574
+  br i1 %26, label %27, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNodeEj.exit, !prof !102
 
-26:                                               ; preds = %24
-  %27 = or i64 %13, 1152920405095219200
-  store i64 %27, ptr %12, align 8, !noalias !194
-  tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %12), !noalias !194
+27:                                               ; preds = %25
+  %28 = or i64 %14, 1152920405095219200
+  store i64 %28, ptr %13, align 8, !noalias !194
+  tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %13), !noalias !194
   br label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNodeEj.exit
 
-_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNodeEj.exit: ; preds = %18, %24, %26
-  invoke void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit unwind label %52
+_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNodeEj.exit: ; preds = %19, %25, %27
+  invoke void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit unwind label %55
 
 _ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit: ; preds = %_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNodeEj.exit
-  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.10, i64 noundef 1)
-          to label %29 unwind label %52
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.10, i64 noundef 1)
+          to label %30 unwind label %55
 
-29:                                               ; preds = %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit
-  %30 = load ptr, ptr %9, align 8, !tbaa !92
-  %31 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %30, i64 %6, i32 2
-  %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(64) %31)
-          to label %33 unwind label %52
+30:                                               ; preds = %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit
+  %31 = load ptr, ptr %9, align 8, !tbaa !92
+  %32 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %31, i64 %6
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(64) %33)
+          to label %35 unwind label %55
 
-33:                                               ; preds = %29
-  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.10, i64 noundef 1)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22 unwind label %52
+35:                                               ; preds = %30
+  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @.str.10, i64 noundef 1)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22 unwind label %55
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %33
-  %35 = load i64, ptr %12, align 8
-  %36 = and i64 %35, 1152920405095219200
-  %.not.i.i = icmp eq i64 %36, 1152920405095219200
-  br i1 %.not.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %37, !prof !102
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %35
+  %37 = load i64, ptr %13, align 8
+  %38 = and i64 %37, 1152920405095219200
+  %.not.i.i = icmp eq i64 %38, 1152920405095219200
+  br i1 %.not.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %39, !prof !102
 
-37:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22
-  %38 = add i64 %35, 1152920405095219200
-  %39 = and i64 %38, 1152920405095219200
-  %40 = and i64 %35, -1152920405095219201
-  %41 = or disjoint i64 %39, %40
-  store i64 %41, ptr %12, align 8
-  %42 = icmp eq i64 %39, 0
-  br i1 %42, label %43, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !prof !102
+39:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22
+  %40 = add i64 %37, 1152920405095219200
+  %41 = and i64 %40, 1152920405095219200
+  %42 = and i64 %37, -1152920405095219201
+  %43 = or disjoint i64 %41, %42
+  store i64 %43, ptr %13, align 8
+  %44 = icmp eq i64 %41, 0
+  br i1 %44, label %45, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !prof !102
 
-43:                                               ; preds = %37
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit unwind label %44
+45:                                               ; preds = %39
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit unwind label %46
 
-44:                                               ; preds = %43
-  %45 = landingpad { ptr, i32 }
+46:                                               ; preds = %45
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #31
+  %48 = extractvalue { ptr, i32 } %47, 0
+  tail call void @__clang_call_terminate(ptr %48) #31
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22, %37, %43
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22, %39, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %47 = load ptr, ptr %9, align 8, !tbaa !92
-  %48 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %47, i64 %6, i32 3
-  %49 = load ptr, ptr %48, align 8, !tbaa !162
-  %.not = icmp eq ptr %49, null
-  br i1 %.not, label %50, label %54
+  %49 = load ptr, ptr %9, align 8, !tbaa !92
+  %50 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %49, i64 %6
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 72
+  %52 = load ptr, ptr %51, align 8, !tbaa !162
+  %.not = icmp eq ptr %52, null
+  br i1 %.not, label %53, label %57
 
-50:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.11, i64 noundef 6)
-  br label %63
+53:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+  %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.11, i64 noundef 6)
+  br label %67
 
-52:                                               ; preds = %33, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit, %_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNodeEj.exit, %29
-  %53 = landingpad { ptr, i32 }
+55:                                               ; preds = %35, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit, %_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNodeEj.exit, %30
+  %56 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %53
+  resume { ptr, i32 } %56
 
-54:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(64) %55)
-  %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull @.str.10, i64 noundef 1)
-  %58 = load ptr, ptr %9, align 8, !tbaa !92
-  %59 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %58, i64 %6, i32 3
-  %60 = load ptr, ptr %59, align 8, !tbaa !162
-  %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory5arith6linearlsERSoPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %60)
-  %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull @.str.10, i64 noundef 1)
-  br label %63
+57:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(64) %58)
+  %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull @.str.10, i64 noundef 1)
+  %61 = load ptr, ptr %9, align 8, !tbaa !92
+  %62 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %61, i64 %6
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 72
+  %64 = load ptr, ptr %63, align 8, !tbaa !162
+  %65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory5arith6linearlsERSoPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %64)
+  %66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull @.str.10, i64 noundef 1)
+  br label %67
 
-63:                                               ; preds = %54, %50
-  %64 = load ptr, ptr %9, align 8, !tbaa !92
-  %65 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %64, i64 %6, i32 4
-  %66 = load ptr, ptr %65, align 8, !tbaa !161
-  %.not29 = icmp eq ptr %66, null
-  br i1 %.not29, label %67, label %69
+67:                                               ; preds = %57, %53
+  %68 = load ptr, ptr %9, align 8, !tbaa !92
+  %69 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %68, i64 %6
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 80
+  %71 = load ptr, ptr %70, align 8, !tbaa !161
+  %.not29 = icmp eq ptr %71, null
+  br i1 %.not29, label %72, label %74
 
-67:                                               ; preds = %63
-  %68 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.12, i64 noundef 6)
-  br label %78
+72:                                               ; preds = %67
+  %73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.12, i64 noundef 6)
+  br label %84
 
-69:                                               ; preds = %63
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(64) %70)
-  %72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.10, i64 noundef 1)
-  %73 = load ptr, ptr %9, align 8, !tbaa !92
-  %74 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %73, i64 %6, i32 4
-  %75 = load ptr, ptr %74, align 8, !tbaa !161
-  %76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory5arith6linearlsERSoPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %75)
+74:                                               ; preds = %67
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(64) %75)
   %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull @.str.10, i64 noundef 1)
-  br label %78
+  %78 = load ptr, ptr %9, align 8, !tbaa !92
+  %79 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %78, i64 %6
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 80
+  %81 = load ptr, ptr %80, align 8, !tbaa !161
+  %82 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory5arith6linearlsERSoPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %81)
+  %83 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull @.str.10, i64 noundef 1)
+  br label %84
 
-78:                                               ; preds = %69, %67
-  %79 = load ptr, ptr %9, align 8, !tbaa !92
-  %80 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %79, i64 %6, i32 8
-  %81 = load i32, ptr %80, align 4, !tbaa !126
-  %82 = icmp sgt i32 %81, 1
-  br i1 %82, label %83, label %111
+84:                                               ; preds = %74, %72
+  %85 = load ptr, ptr %9, align 8, !tbaa !92
+  %86 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %85, i64 %6
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 100
+  %88 = load i32, ptr %87, align 4, !tbaa !126
+  %89 = icmp sgt i32 %88, 1
+  br i1 %89, label %90, label %117
 
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %79, i64 %6, i32 2
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 36
-  %86 = load i32, ptr %85, align 4, !tbaa !127
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 44
+  %92 = load i32, ptr %91, align 4, !tbaa !127
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
 
-_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit: ; preds = %83
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %89 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %88, i64 noundef 1) #32
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %111, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
+_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit: ; preds = %90
+  %94 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %95 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %94, i64 noundef 1) #32
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %117, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
 
-_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread: ; preds = %83, %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit
-  %91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.13, i64 noundef 16)
-  %92 = load ptr, ptr %2, align 8, !tbaa !63
-  %93 = getelementptr i8, ptr %92, i64 -24
-  %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %2, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 240
-  %97 = load ptr, ptr %96, align 8, !tbaa !173
-  %.not.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i.i, label %98, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread: ; preds = %90, %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit
+  %97 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.13, i64 noundef 16)
+  %98 = load ptr, ptr %2, align 8, !tbaa !63
+  %99 = getelementptr i8, ptr %98, i64 -24
+  %100 = load i64, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %2, i64 %100
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 240
+  %103 = load ptr, ptr %102, align 8, !tbaa !173
+  %.not.i.i.i = icmp eq ptr %103, null
+  br i1 %.not.i.i.i, label %104, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
-98:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
+104:                                              ; preds = %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
   tail call void @_ZSt16__throw_bad_castv() #34
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 56
-  %100 = load i8, ptr %99, align 8, !tbaa !188
-  %.not.i1.i.i = icmp eq i8 %100, 0
-  br i1 %.not.i1.i.i, label %104, label %101
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 56
+  %106 = load i8, ptr %105, align 8, !tbaa !188
+  %.not.i1.i.i = icmp eq i8 %106, 0
+  br i1 %.not.i1.i.i, label %110, label %107
 
-101:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 67
-  %103 = load i8, ptr %102, align 1, !tbaa !157
+107:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 67
+  %109 = load i8, ptr %108, align 1, !tbaa !157
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
-104:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %97)
-  %105 = load ptr, ptr %97, align 8, !tbaa !63
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
-  %107 = load ptr, ptr %106, align 8
-  %108 = tail call noundef signext i8 %107(ptr noundef nonnull align 8 dereferenceable(570) %97, i8 noundef signext 10)
+110:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %103)
+  %111 = load ptr, ptr %103, align 8, !tbaa !63
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 48
+  %113 = load ptr, ptr %112, align 8
+  %114 = tail call noundef signext i8 %113(ptr noundef nonnull align 8 dereferenceable(570) %103, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %101, %104
-  %.0.i.i.i = phi i8 [ %103, %101 ], [ %108, %104 ]
-  %109 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef signext %.0.i.i.i)
-  %110 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %109)
-  br label %111
+_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %107, %110
+  %.0.i.i.i = phi i8 [ %109, %107 ], [ %114, %110 ]
+  %115 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef signext %.0.i.i.i)
+  %116 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %115)
+  br label %117
 
-111:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit, %78
-  %112 = load ptr, ptr %2, align 8, !tbaa !63
-  %113 = getelementptr i8, ptr %112, i64 -24
-  %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %2, i64 %114
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 240
-  %117 = load ptr, ptr %116, align 8, !tbaa !173
-  %.not.i.i.i23 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i23, label %118, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
+117:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit, %84
+  %118 = load ptr, ptr %2, align 8, !tbaa !63
+  %119 = getelementptr i8, ptr %118, i64 -24
+  %120 = load i64, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %2, i64 %120
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 240
+  %123 = load ptr, ptr %122, align 8, !tbaa !173
+  %.not.i.i.i23 = icmp eq ptr %123, null
+  br i1 %.not.i.i.i23, label %124, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
 
-118:                                              ; preds = %111
+124:                                              ; preds = %117
   tail call void @_ZSt16__throw_bad_castv() #34
   unreachable
 
-_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24: ; preds = %111
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 56
-  %120 = load i8, ptr %119, align 8, !tbaa !188
-  %.not.i1.i.i25 = icmp eq i8 %120, 0
-  br i1 %.not.i1.i.i25, label %124, label %121
+_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24: ; preds = %117
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 56
+  %126 = load i8, ptr %125, align 8, !tbaa !188
+  %.not.i1.i.i25 = icmp eq i8 %126, 0
+  br i1 %.not.i1.i.i25, label %130, label %127
 
-121:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
-  %122 = getelementptr inbounds nuw i8, ptr %117, i64 67
-  %123 = load i8, ptr %122, align 1, !tbaa !157
+127:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 67
+  %129 = load i8, ptr %128, align 1, !tbaa !157
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27
 
-124:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
-  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %117)
-  %125 = load ptr, ptr %117, align 8, !tbaa !63
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 48
-  %127 = load ptr, ptr %126, align 8
-  %128 = tail call noundef signext i8 %127(ptr noundef nonnull align 8 dereferenceable(570) %117, i8 noundef signext 10)
+130:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
+  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %123)
+  %131 = load ptr, ptr %123, align 8, !tbaa !63
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 48
+  %133 = load ptr, ptr %132, align 8
+  %134 = tail call noundef signext i8 %133(ptr noundef nonnull align 8 dereferenceable(570) %123, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27
 
-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27: ; preds = %121, %124
-  %.0.i.i.i26 = phi i8 [ %123, %121 ], [ %128, %124 ]
-  %129 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef signext %.0.i.i.i26)
-  %130 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %129)
+_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27: ; preds = %127, %130
+  %.0.i.i.i26 = phi i8 [ %129, %127 ], [ %134, %130 ]
+  %135 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef signext %.0.i.i.i26)
+  %136 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %135)
   ret void
 }
 

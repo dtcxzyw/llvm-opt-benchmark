@@ -995,7 +995,7 @@ CopyCurrentCanvas.exit:                           ; preds = %75, %79
   store i32 0, ptr %101, align 4, !tbaa !85
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store i32 0, ptr %102, align 8, !tbaa !86
-  br label %164
+  br label %165
 
 103:                                              ; preds = %CopyCurrentCanvas.exit
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 1140
@@ -1026,7 +1026,7 @@ CopyCurrentCanvas.exit:                           ; preds = %75, %79
   store i64 %116, ptr %117, align 8, !tbaa !84
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store i32 0, ptr %118, align 8, !tbaa !86
-  br label %164
+  br label %165
 
 119:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1037,7 +1037,7 @@ CopyCurrentCanvas.exit:                           ; preds = %75, %79
 121:                                              ; preds = %119
   %122 = load i32, ptr %5, align 4, !tbaa !16
   %.not93.i = icmp eq i32 %122, 0
-  br i1 %.not93.i, label %123, label %160
+  br i1 %.not93.i, label %123, label %161
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -1055,165 +1055,166 @@ CopyCurrentCanvas.exit:                           ; preds = %75, %79
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %131 = load i64, ptr %130, align 8, !tbaa !36
   %.not95.i = icmp sgt i64 %129, %131
-  br i1 %.not95.i, label %146, label %132
+  br i1 %.not95.i, label %147, label %132
 
 132:                                              ; preds = %126
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %134 = load i32, ptr %133, align 8, !tbaa !37
   %.not96.i = icmp eq i32 %134, -1
-  br i1 %.not96.i, label %139, label %135
+  br i1 %.not96.i, label %140, label %135
 
 135:                                              ; preds = %132
   %136 = sext i32 %134 to i64
   %.val106.i = load ptr, ptr %90, align 8, !tbaa !41
   %.val107.i = load i64, ptr %91, align 8, !tbaa !80
   %137 = getelementptr %struct.EncodedFrame, ptr %.val106.i, i64 %.val107.i
-  %138 = getelementptr %struct.EncodedFrame, ptr %137, i64 %136, i32 2
-  store i32 0, ptr %138, align 8, !tbaa !81
-  br label %139
+  %138 = getelementptr %struct.EncodedFrame, ptr %137, i64 %136
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 96
+  store i32 0, ptr %139, align 8, !tbaa !81
+  br label %140
 
-139:                                              ; preds = %135, %132
-  %140 = getelementptr inbounds nuw i8, ptr %93, i64 96
-  store i32 1, ptr %140, align 8, !tbaa !81
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  store i32 1, ptr %141, align 8, !tbaa !86
-  %142 = trunc i64 %89 to i32
-  store i32 %142, ptr %133, align 8, !tbaa !37
+140:                                              ; preds = %135, %132
+  %141 = getelementptr inbounds nuw i8, ptr %93, i64 96
+  store i32 1, ptr %141, align 8, !tbaa !81
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  store i32 1, ptr %142, align 8, !tbaa !86
+  %143 = trunc i64 %89 to i32
+  store i32 %143, ptr %133, align 8, !tbaa !37
   store i64 %129, ptr %130, align 8, !tbaa !36
-  %143 = load i64, ptr %88, align 8, !tbaa !67
-  %144 = add i64 %143, -1
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  store i64 %144, ptr %145, align 8, !tbaa !84
-  br label %149
+  %144 = load i64, ptr %88, align 8, !tbaa !67
+  %145 = add i64 %144, -1
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  store i64 %145, ptr %146, align 8, !tbaa !84
+  br label %150
 
-146:                                              ; preds = %126
-  %147 = getelementptr inbounds nuw i8, ptr %93, i64 96
-  store i32 0, ptr %147, align 8, !tbaa !81
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  store i32 0, ptr %148, align 8, !tbaa !86
-  br label %149
+147:                                              ; preds = %126
+  %148 = getelementptr inbounds nuw i8, ptr %93, i64 96
+  store i32 0, ptr %148, align 8, !tbaa !81
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  store i32 0, ptr %149, align 8, !tbaa !86
+  br label %150
 
-149:                                              ; preds = %146, %139
-  %150 = load i32, ptr %104, align 4, !tbaa !85
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %152 = load i32, ptr %151, align 8, !tbaa !38
-  %.not97.i = icmp slt i32 %150, %152
-  br i1 %.not97.i, label %158, label %153
+150:                                              ; preds = %147, %140
+  %151 = load i32, ptr %104, align 4, !tbaa !85
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %153 = load i32, ptr %152, align 8, !tbaa !38
+  %.not97.i = icmp slt i32 %151, %153
+  br i1 %.not97.i, label %159, label %154
 
-153:                                              ; preds = %149
-  %154 = load i64, ptr %88, align 8, !tbaa !67
-  %155 = add i64 %154, -1
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  store i64 %155, ptr %156, align 8, !tbaa !84
+154:                                              ; preds = %150
+  %155 = load i64, ptr %88, align 8, !tbaa !67
+  %156 = add i64 %155, -1
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  store i64 %156, ptr %157, align 8, !tbaa !84
   store i32 0, ptr %104, align 4, !tbaa !85
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 1136
-  store i32 -1, ptr %157, align 8, !tbaa !37
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 1136
+  store i32 -1, ptr %158, align 8, !tbaa !37
   store i64 4294967296, ptr %130, align 8, !tbaa !36
-  br label %158
+  br label %159
 
-158:                                              ; preds = %153, %149
-  br i1 %.not95.i, label %159, label %.thread.i
+159:                                              ; preds = %154, %150
+  br i1 %.not95.i, label %160, label %.thread.i
 
-159:                                              ; preds = %158
+160:                                              ; preds = %159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %124, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !87
   br label %.thread.i
 
-.thread.i:                                        ; preds = %159, %158
+.thread.i:                                        ; preds = %160, %159
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %164
+  br label %165
 
 .thread113.i:                                     ; preds = %123, %119
   %.3.ph.i = phi i32 [ %125, %123 ], [ %120, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread117.i
 
-160:                                              ; preds = %121
+161:                                              ; preds = %121
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread134.i
 
-.thread134.i:                                     ; preds = %160, %111
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  %162 = load i64, ptr %161, align 8, !tbaa !90
-  %163 = add i64 %162, 1
-  store i64 %163, ptr %161, align 8, !tbaa !90
+.thread134.i:                                     ; preds = %161, %111
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 1168
+  %163 = load i64, ptr %162, align 8, !tbaa !90
+  %164 = add i64 %163, 1
+  store i64 %164, ptr %162, align 8, !tbaa !90
   br label %.thread117.i
 
-164:                                              ; preds = %.thread.i, %113, %98
-  %165 = load ptr, ptr %76, align 8, !tbaa !75
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  call void @WebPCopyPixels(ptr noundef %165, ptr noundef nonnull %166) #14
+165:                                              ; preds = %.thread.i, %113, %98
+  %166 = load ptr, ptr %76, align 8, !tbaa !75
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  call void @WebPCopyPixels(ptr noundef %166, ptr noundef nonnull %167) #14
   store i32 0, ptr %11, align 4, !tbaa !43
   %.pre.i = load i32, ptr %5, align 4
-  %167 = icmp eq i32 %.pre.i, 0
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  %169 = load i64, ptr %168, align 8, !tbaa !90
-  %170 = add i64 %169, 1
-  store i64 %170, ptr %168, align 8, !tbaa !90
-  br i1 %167, label %CacheFrame.exit.thread, label %.thread117.i
+  %168 = icmp eq i32 %.pre.i, 0
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 1168
+  %170 = load i64, ptr %169, align 8, !tbaa !90
+  %171 = add i64 %170, 1
+  store i64 %171, ptr %169, align 8, !tbaa !90
+  br i1 %168, label %CacheFrame.exit.thread, label %.thread117.i
 
-.thread117.i:                                     ; preds = %164, %.thread134.i, %.thread113.i, %109, %96
-  %171 = phi i1 [ false, %164 ], [ true, %96 ], [ true, %109 ], [ true, %.thread113.i ], [ false, %.thread134.i ]
-  %.080122.i = phi i32 [ 0, %164 ], [ %97, %96 ], [ %110, %109 ], [ %.3.ph.i, %.thread113.i ], [ 0, %.thread134.i ]
+.thread117.i:                                     ; preds = %165, %.thread134.i, %.thread113.i, %109, %96
+  %172 = phi i1 [ false, %165 ], [ true, %96 ], [ true, %109 ], [ true, %.thread113.i ], [ false, %.thread134.i ]
+  %.080122.i = phi i32 [ 0, %165 ], [ %97, %96 ], [ %110, %109 ], [ %.3.ph.i, %.thread113.i ], [ 0, %.thread134.i ]
   %.not.i.i = icmp eq ptr %93, null
-  br i1 %.not.i.i, label %FrameRelease.exit.i, label %172
+  br i1 %.not.i.i, label %FrameRelease.exit.i, label %173
 
-172:                                              ; preds = %.thread117.i
-  %173 = load ptr, ptr %93, align 8, !tbaa !55
-  call void @WebPFree(ptr noundef %173) #14
+173:                                              ; preds = %.thread117.i
+  %174 = load ptr, ptr %93, align 8, !tbaa !55
+  call void @WebPFree(ptr noundef %174) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
-  %174 = getelementptr inbounds nuw i8, ptr %93, i64 48
-  %175 = load ptr, ptr %174, align 8, !tbaa !55
-  call void @WebPFree(ptr noundef %175) #14
+  %175 = getelementptr inbounds nuw i8, ptr %93, i64 48
+  %176 = load ptr, ptr %175, align 8, !tbaa !55
+  call void @WebPFree(ptr noundef %176) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %93, i8 0, i64 104, i1 false)
   br label %FrameRelease.exit.i
 
-FrameRelease.exit.i:                              ; preds = %172, %.thread117.i
-  %176 = load i64, ptr %88, align 8, !tbaa !67
-  %177 = add i64 %176, -1
-  store i64 %177, ptr %88, align 8, !tbaa !67
-  %178 = load i32, ptr %11, align 4, !tbaa !43
-  %.not103.i = icmp eq i32 %178, 0
-  br i1 %.not103.i, label %179, label %183
+FrameRelease.exit.i:                              ; preds = %173, %.thread117.i
+  %177 = load i64, ptr %88, align 8, !tbaa !67
+  %178 = add i64 %177, -1
+  store i64 %178, ptr %88, align 8, !tbaa !67
+  %179 = load i32, ptr %11, align 4, !tbaa !43
+  %.not103.i = icmp eq i32 %179, 0
+  br i1 %.not103.i, label %180, label %184
 
-179:                                              ; preds = %FrameRelease.exit.i
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 1140
-  %181 = load i32, ptr %180, align 4, !tbaa !85
-  %182 = add nsw i32 %181, -1
-  store i32 %182, ptr %180, align 4, !tbaa !85
-  br label %183
+180:                                              ; preds = %FrameRelease.exit.i
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 1140
+  %182 = load i32, ptr %181, align 4, !tbaa !85
+  %183 = add nsw i32 %182, -1
+  store i32 %183, ptr %181, align 4, !tbaa !85
+  br label %184
 
-183:                                              ; preds = %179, %FrameRelease.exit.i
-  br i1 %171, label %CacheFrame.exit, label %CacheFrame.exit.thread
+184:                                              ; preds = %180, %FrameRelease.exit.i
+  br i1 %172, label %CacheFrame.exit, label %CacheFrame.exit.thread
 
-CacheFrame.exit:                                  ; preds = %183
-  %184 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 100, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, i32 noundef %.080122.i) #14
-  %185 = load ptr, ptr %76, align 8, !tbaa !75
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 136
-  store i32 %.080122.i, ptr %186, align 8, !tbaa !66
+CacheFrame.exit:                                  ; preds = %184
+  %185 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 100, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, i32 noundef %.080122.i) #14
+  %186 = load ptr, ptr %76, align 8, !tbaa !75
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 136
+  store i32 %.080122.i, ptr %187, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr null, ptr %76, align 8, !tbaa !75
   store i32 1, ptr %77, align 8, !tbaa !35
   br label %.critedge
 
-CacheFrame.exit.thread:                           ; preds = %183, %164
-  %.080122.i.sink = phi i32 [ 0, %164 ], [ %.080122.i, %183 ]
-  %187 = load ptr, ptr %76, align 8, !tbaa !75
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 136
-  store i32 %.080122.i.sink, ptr %188, align 8, !tbaa !66
+CacheFrame.exit.thread:                           ; preds = %184, %165
+  %.080122.i.sink = phi i32 [ 0, %165 ], [ %.080122.i, %184 ]
+  %188 = load ptr, ptr %76, align 8, !tbaa !75
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 136
+  store i32 %.080122.i.sink, ptr %189, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %189 = call fastcc i32 @FlushFrames(ptr noundef %0)
-  %.not68 = icmp eq i32 %189, 0
+  %190 = call fastcc i32 @FlushFrames(ptr noundef %0)
+  %.not68 = icmp eq i32 %190, 0
   store ptr null, ptr %76, align 8, !tbaa !75
   store i32 1, ptr %77, align 8, !tbaa !35
-  br i1 %.not68, label %.critedge, label %190
+  br i1 %.not68, label %.critedge, label %191
 
-190:                                              ; preds = %CacheFrame.exit.thread
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 1148
-  store i32 %2, ptr %191, align 4, !tbaa !65
+191:                                              ; preds = %CacheFrame.exit.thread
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 1148
+  store i32 %2, ptr %192, align 4, !tbaa !65
   br label %.critedge
 
-.critedge:                                        ; preds = %CacheFrame.exit, %21, %23, %31, %CacheFrame.exit.thread, %190, %4, %72, %67, %62, %49, %37
-  %.0 = phi i32 [ 1, %37 ], [ 0, %49 ], [ 0, %67 ], [ 0, %72 ], [ 0, %62 ], [ 0, %4 ], [ 1, %190 ], [ 0, %CacheFrame.exit.thread ], [ 0, %31 ], [ 0, %23 ], [ 0, %21 ], [ 0, %CacheFrame.exit ]
+.critedge:                                        ; preds = %CacheFrame.exit, %21, %23, %31, %CacheFrame.exit.thread, %191, %4, %72, %67, %62, %49, %37
+  %.0 = phi i32 [ 1, %37 ], [ 0, %49 ], [ 0, %67 ], [ 0, %72 ], [ 0, %62 ], [ 0, %4 ], [ 1, %191 ], [ 0, %CacheFrame.exit.thread ], [ 0, %31 ], [ 0, %23 ], [ 0, %21 ], [ 0, %CacheFrame.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

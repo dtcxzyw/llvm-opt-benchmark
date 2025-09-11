@@ -1918,40 +1918,41 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   %19 = trunc i32 %8 to i16
   %20 = add i16 %19, 1
   store i16 %20, ptr %15, align 2
-  br label %31
+  br label %33
 
 21:                                               ; preds = %13
   %22 = sext i16 %16 to i64
   br label %23
 
 23:                                               ; preds = %23, %21
-  %.0.in = phi i64 [ %22, %21 ], [ %27, %23 ]
-  %.0 = add nsw i64 %.0.in, -1
-  %24 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %.0, i32 1
-  %25 = load i16, ptr %24, align 2
-  %26 = icmp sgt i16 %25, 0
-  %27 = zext nneg i16 %25 to i64
-  br i1 %26, label %23, label %28, !llvm.loop !16
+  %.0.in = phi i64 [ %22, %21 ], [ %28, %23 ]
+  %24 = getelementptr %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %.0.in
+  %25 = getelementptr i8, ptr %24, i64 -22
+  %26 = load i16, ptr %25, align 2
+  %27 = icmp sgt i16 %26, 0
+  %28 = zext nneg i16 %26 to i64
+  br i1 %27, label %23, label %29, !llvm.loop !16
 
-28:                                               ; preds = %23
-  %29 = trunc i32 %8 to i16
-  %30 = add i16 %29, 1
-  store i16 %30, ptr %24, align 2
-  br label %31
+29:                                               ; preds = %23
+  %30 = getelementptr i8, ptr %24, i64 -22
+  %31 = trunc i32 %8 to i16
+  %32 = add i16 %31, 1
+  store i16 %32, ptr %30, align 2
+  br label %33
 
-31:                                               ; preds = %28, %18
-  %32 = trunc nuw nsw i32 %0 to i16
-  %33 = sext i32 %8 to i64
-  %34 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %33
-  store i16 %32, ptr %34, align 8
-  %35 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %33, i32 1
-  store i16 0, ptr %35, align 2
-  %36 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %33, i32 2
-  store ptr %1, ptr %36, align 8
-  %37 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %33, i32 3
-  store i64 %2, ptr %37, align 8
-  %38 = add nsw i32 %8, 1
-  store i32 %38, ptr @syscache_callback_count, align 4
+33:                                               ; preds = %29, %18
+  %34 = trunc nuw nsw i32 %0 to i16
+  %35 = sext i32 %8 to i64
+  %36 = getelementptr inbounds %struct.SYSCACHECALLBACK, ptr @syscache_callback_list, i64 %35
+  store i16 %34, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 2
+  store i16 0, ptr %37, align 2
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %1, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store i64 %2, ptr %39, align 8
+  %40 = add nsw i32 %8, 1
+  store i32 %40, ptr @syscache_callback_count, align 4
   ret void
 }
 
@@ -1972,7 +1973,7 @@ define dso_local void @CacheRegisterRelcacheCallback(ptr noundef %0, i64 noundef
   %9 = sext i32 %3 to i64
   %10 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr @relcache_callback_list, i64 %9
   store ptr %0, ptr %10, align 16
-  %11 = getelementptr inbounds %struct.RELCACHECALLBACK, ptr @relcache_callback_list, i64 %9, i32 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %1, ptr %11, align 8
   %12 = add nsw i32 %3, 1
   store i32 %12, ptr @relcache_callback_count, align 4

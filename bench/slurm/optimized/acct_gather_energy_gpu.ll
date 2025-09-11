@@ -202,13 +202,13 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
   unreachable
 
 6:                                                ; preds = %2
-  switch i32 %0, label %140 [
+  switch i32 %0, label %146 [
     i32 7, label %9
-    i32 6, label %91
-    i32 4, label %112
-    i32 5, label %121
+    i32 6, label %94
+    i32 4, label %116
+    i32 5, label %125
     i32 1, label %.preheader
-    i32 0, label %126
+    i32 0, label %131
   ]
 
 .preheader:                                       ; preds = %6
@@ -219,11 +219,11 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
 .lr.ph55:                                         ; preds = %.preheader
   %8 = load ptr, ptr @gpus, align 8
   %wide.trip.count64 = zext i16 %7 to i64
-  br label %123
+  br label %127
 
 9:                                                ; preds = %6
   %10 = tail call zeroext i1 @slurm_running_in_slurmd() #11
-  br i1 %10, label %11, label %37
+  br i1 %10, label %11, label %38
 
 11:                                               ; preds = %9
   %12 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @gpu_cond) #11
@@ -246,282 +246,288 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %16 ]
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %19 = load ptr, ptr @gpus, align 8
-  %20 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %19, i64 %indvars.iv.i, i32 3
-  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %20, i32 noundef %18)
+  %20 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %19, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %21, i32 noundef %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %21 = load i16, ptr @gpus_len, align 2
-  %22 = zext i16 %21 to i64
-  %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
-  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  %22 = load i16, ptr @gpus_len, align 2
+  %23 = zext i16 %22 to i64
+  %24 = icmp samesign ult i64 %indvars.iv.next.i, %23
+  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %16
-  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %25 = and i64 %24, 262144
-  %.not.i = icmp eq i64 %25, 0
-  br i1 %.not.i, label %_get_node_energy.exit, label %26
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %26 = and i64 %25, 262144
+  %.not.i = icmp eq i64 %26, 0
+  br i1 %.not.i, label %_get_node_energy.exit, label %27
 
-26:                                               ; preds = %._crit_edge.i
-  %27 = tail call i32 @slurm_get_log_level() #11
-  %28 = icmp sgt i32 %27, 3
-  br i1 %28, label %29, label %_get_node_energy.exit
+27:                                               ; preds = %._crit_edge.i
+  %28 = tail call i32 @slurm_get_log_level() #11
+  %29 = icmp sgt i32 %28, 3
+  br i1 %29, label %30, label %_get_node_energy.exit
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load i64, ptr %34, align 8
-  %36 = load i32, ptr %1, align 8
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_node_energy, i32 noundef %31, i64 noundef %33, i64 noundef %35, i32 noundef %36) #11
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %36 = load i64, ptr %35, align 8
+  %37 = load i32, ptr %1, align 8
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_node_energy, i32 noundef %32, i64 noundef %34, i64 noundef %36, i32 noundef %37) #11
   br label %_get_node_energy.exit
 
-37:                                               ; preds = %9
+38:                                               ; preds = %9
   tail call fastcc void @_get_joules_task(i16 noundef zeroext 10)
-  %38 = load ptr, ptr @saved_usable_gpus, align 8
-  %.not.i39 = icmp eq ptr %38, null
-  br i1 %.not.i39, label %_get_node_energy.exit, label %39
+  %39 = load ptr, ptr @saved_usable_gpus, align 8
+  %.not.i39 = icmp eq ptr %39, null
+  br i1 %.not.i39, label %_get_node_energy.exit, label %40
 
-39:                                               ; preds = %37
-  %40 = tail call i32 @slurm_cgroup_conf_init() #11
-  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 64), align 8, !range !11, !noundef !12
-  %42 = trunc nuw i8 %41 to i1
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1416), align 8
-  %44 = tail call ptr @slurm_xstrstr(ptr noundef %43, ptr noundef nonnull @.str.23) #11
-  %.not18.i = icmp ne ptr %44, null
-  %or.cond.i = and i1 %.not18.i, %42
-  %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %46 = and i64 %45, 262144
-  %.not20.i = icmp eq i64 %46, 0
-  br i1 %or.cond.i, label %47, label %51
+40:                                               ; preds = %38
+  %41 = tail call i32 @slurm_cgroup_conf_init() #11
+  %42 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 64), align 8, !range !11, !noundef !12
+  %43 = trunc nuw i8 %42 to i1
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1416), align 8
+  %45 = tail call ptr @slurm_xstrstr(ptr noundef %44, ptr noundef nonnull @.str.23) #11
+  %.not18.i = icmp ne ptr %45, null
+  %or.cond.i = and i1 %.not18.i, %43
+  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %47 = and i64 %46, 262144
+  %.not20.i = icmp eq i64 %47, 0
+  br i1 %or.cond.i, label %48, label %52
 
-47:                                               ; preds = %39
-  br i1 %.not20.i, label %55, label %48
+48:                                               ; preds = %40
+  br i1 %.not20.i, label %56, label %49
 
-48:                                               ; preds = %47
-  %49 = tail call i32 @slurm_get_log_level() #11
-  %50 = icmp sgt i32 %49, 3
-  br i1 %50, label %.sink.split.i, label %55
+49:                                               ; preds = %48
+  %50 = tail call i32 @slurm_get_log_level() #11
+  %51 = icmp sgt i32 %50, 3
+  br i1 %51, label %.sink.split.i, label %56
 
-51:                                               ; preds = %39
-  br i1 %.not20.i, label %55, label %52
+52:                                               ; preds = %40
+  br i1 %.not20.i, label %56, label %53
 
-52:                                               ; preds = %51
-  %53 = tail call i32 @slurm_get_log_level() #11
-  %54 = icmp sgt i32 %53, 3
-  br i1 %54, label %.sink.split.i, label %55
+53:                                               ; preds = %52
+  %54 = tail call i32 @slurm_get_log_level() #11
+  %55 = icmp sgt i32 %54, 3
+  br i1 %55, label %.sink.split.i, label %56
 
-.sink.split.i:                                    ; preds = %52, %48
-  %.str.25.sink.i = phi ptr [ @.str.24, %48 ], [ @.str.25, %52 ]
+.sink.split.i:                                    ; preds = %53, %49
+  %.str.25.sink.i = phi ptr [ @.str.24, %49 ], [ @.str.25, %53 ]
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull %.str.25.sink.i, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_node_energy_up) #11
-  br label %55
+  br label %56
 
-55:                                               ; preds = %.sink.split.i, %52, %51, %48, %47
+56:                                               ; preds = %.sink.split.i, %53, %52, %49, %48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  %56 = load i16, ptr @gpus_len, align 2
-  %.not25.i = icmp eq i16 %56, 0
+  %57 = load i16, ptr @gpus_len, align 2
+  %.not25.i = icmp eq i16 %57, 0
   br i1 %.not25.i, label %._crit_edge.i43, label %.lr.ph.i40
 
-.lr.ph.i40:                                       ; preds = %55
+.lr.ph.i40:                                       ; preds = %56
   br i1 %or.cond.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i40, %69
-  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %69 ], [ 0, %.lr.ph.i40 ]
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i40, %71
+  %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %71 ], [ 0, %.lr.ph.i40 ]
   %indvars67 = trunc nuw nsw i64 %indvars.iv27.i to i32
-  %57 = load ptr, ptr @saved_usable_gpus, align 8
-  %58 = tail call i32 @slurm_bit_test(ptr noundef %57, i64 noundef %indvars.iv27.i) #11
-  %.not22.us.i = icmp eq i32 %58, 0
-  br i1 %.not22.us.i, label %62, label %59
+  %58 = load ptr, ptr @saved_usable_gpus, align 8
+  %59 = tail call i32 @slurm_bit_test(ptr noundef %58, i64 noundef %indvars.iv27.i) #11
+  %.not22.us.i = icmp eq i32 %59, 0
+  br i1 %.not22.us.i, label %64, label %60
 
-59:                                               ; preds = %.lr.ph.split.us.i
-  %60 = load ptr, ptr @gpus, align 8
-  %61 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %60, i64 %indvars.iv27.i, i32 3
-  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %61, i32 noundef %indvars67)
-  br label %69
+60:                                               ; preds = %.lr.ph.split.us.i
+  %61 = load ptr, ptr @gpus, align 8
+  %62 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %61, i64 %indvars.iv27.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %63, i32 noundef %indvars67)
+  br label %71
 
-62:                                               ; preds = %.lr.ph.split.us.i
-  %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %64 = and i64 %63, 262144
-  %.not23.us.i = icmp eq i64 %64, 0
-  br i1 %.not23.us.i, label %69, label %65
+64:                                               ; preds = %.lr.ph.split.us.i
+  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %66 = and i64 %65, 262144
+  %.not23.us.i = icmp eq i64 %66, 0
+  br i1 %.not23.us.i, label %71, label %67
 
-65:                                               ; preds = %62
-  %66 = tail call i32 @slurm_get_log_level() #11
-  %67 = icmp sgt i32 %66, 3
-  br i1 %67, label %68, label %69
+67:                                               ; preds = %64
+  %68 = tail call i32 @slurm_get_log_level() #11
+  %69 = icmp sgt i32 %68, 3
+  br i1 %69, label %70, label %71
 
-68:                                               ; preds = %65
+70:                                               ; preds = %67
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_node_energy_up, i32 noundef %indvars67) #11
-  br label %69
+  br label %71
 
-69:                                               ; preds = %68, %65, %62, %59
+71:                                               ; preds = %70, %67, %64, %60
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %70 = load i16, ptr @gpus_len, align 2
-  %71 = zext i16 %70 to i64
-  %72 = icmp samesign ult i64 %indvars.iv.next28.i, %71
-  br i1 %72, label %.lr.ph.split.us.i, label %._crit_edge.i43, !llvm.loop !13
+  %72 = load i16, ptr @gpus_len, align 2
+  %73 = zext i16 %72 to i64
+  %74 = icmp samesign ult i64 %indvars.iv.next28.i, %73
+  br i1 %74, label %.lr.ph.split.us.i, label %._crit_edge.i43, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i40, %.lr.ph.split.i
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %.lr.ph.split.i ], [ 0, %.lr.ph.i40 ]
   %indvars66 = trunc nuw nsw i64 %indvars.iv.i41 to i32
-  %73 = load ptr, ptr @gpus, align 8
-  %74 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %73, i64 %indvars.iv.i41, i32 3
-  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %74, i32 noundef %indvars66)
+  %75 = load ptr, ptr @gpus, align 8
+  %76 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %75, i64 %indvars.iv.i41
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %77, i32 noundef %indvars66)
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
-  %75 = load i16, ptr @gpus_len, align 2
-  %76 = zext i16 %75 to i64
-  %77 = icmp samesign ult i64 %indvars.iv.next.i42, %76
-  br i1 %77, label %.lr.ph.split.i, label %._crit_edge.i43, !llvm.loop !13
+  %78 = load i16, ptr @gpus_len, align 2
+  %79 = zext i16 %78 to i64
+  %80 = icmp samesign ult i64 %indvars.iv.next.i42, %79
+  br i1 %80, label %.lr.ph.split.i, label %._crit_edge.i43, !llvm.loop !13
 
-._crit_edge.i43:                                  ; preds = %.lr.ph.split.i, %69, %55
-  %78 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %79 = and i64 %78, 262144
-  %.not21.i = icmp eq i64 %79, 0
-  br i1 %.not21.i, label %_get_node_energy.exit, label %80
+._crit_edge.i43:                                  ; preds = %.lr.ph.split.i, %71, %56
+  %81 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %82 = and i64 %81, 262144
+  %.not21.i = icmp eq i64 %82, 0
+  br i1 %.not21.i, label %_get_node_energy.exit, label %83
 
-80:                                               ; preds = %._crit_edge.i43
-  %81 = tail call i32 @slurm_get_log_level() #11
-  %82 = icmp sgt i32 %81, 3
-  br i1 %82, label %83, label %_get_node_energy.exit
+83:                                               ; preds = %._crit_edge.i43
+  %84 = tail call i32 @slurm_get_log_level() #11
+  %85 = icmp sgt i32 %84, 3
+  br i1 %85, label %86, label %_get_node_energy.exit
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %85 = load i32, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %89 = load i64, ptr %88, align 8
-  %90 = load i32, ptr %1, align 8
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_node_energy_up, i32 noundef %85, i64 noundef %87, i64 noundef %89, i32 noundef %90) #11
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %88 = load i32, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %92 = load i64, ptr %91, align 8
+  %93 = load i32, ptr %1, align 8
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_node_energy_up, i32 noundef %88, i64 noundef %90, i64 noundef %92, i32 noundef %93) #11
   br label %_get_node_energy.exit
 
-91:                                               ; preds = %6
+94:                                               ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
-  %92 = load i16, ptr @gpus_len, align 2
-  %.not11.i44 = icmp eq i16 %92, 0
+  %95 = load i16, ptr @gpus_len, align 2
+  %.not11.i44 = icmp eq i16 %95, 0
   br i1 %.not11.i44, label %._crit_edge.i48, label %.lr.ph.i45
 
-.lr.ph.i45:                                       ; preds = %91, %.lr.ph.i45
-  %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i47, %.lr.ph.i45 ], [ 0, %91 ]
-  %93 = trunc nuw nsw i64 %indvars.iv.i46 to i32
-  %94 = load ptr, ptr @gpus, align 8
-  %95 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %94, i64 %indvars.iv.i46, i32 3
-  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %95, i32 noundef %93)
+.lr.ph.i45:                                       ; preds = %94, %.lr.ph.i45
+  %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i47, %.lr.ph.i45 ], [ 0, %94 ]
+  %96 = trunc nuw nsw i64 %indvars.iv.i46 to i32
+  %97 = load ptr, ptr @gpus, align 8
+  %98 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %97, i64 %indvars.iv.i46
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %99, i32 noundef %96)
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
-  %96 = load i16, ptr @gpus_len, align 2
-  %97 = zext i16 %96 to i64
-  %98 = icmp samesign ult i64 %indvars.iv.next.i47, %97
-  br i1 %98, label %.lr.ph.i45, label %._crit_edge.i48, !llvm.loop !8
+  %100 = load i16, ptr @gpus_len, align 2
+  %101 = zext i16 %100 to i64
+  %102 = icmp samesign ult i64 %indvars.iv.next.i47, %101
+  br i1 %102, label %.lr.ph.i45, label %._crit_edge.i48, !llvm.loop !8
 
-._crit_edge.i48:                                  ; preds = %.lr.ph.i45, %91
-  %99 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %100 = and i64 %99, 262144
-  %.not.i49 = icmp eq i64 %100, 0
-  br i1 %.not.i49, label %_get_node_energy.exit, label %101
+._crit_edge.i48:                                  ; preds = %.lr.ph.i45, %94
+  %103 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %104 = and i64 %103, 262144
+  %.not.i49 = icmp eq i64 %104, 0
+  br i1 %.not.i49, label %_get_node_energy.exit, label %105
 
-101:                                              ; preds = %._crit_edge.i48
-  %102 = tail call i32 @slurm_get_log_level() #11
-  %103 = icmp sgt i32 %102, 3
-  br i1 %103, label %104, label %_get_node_energy.exit
+105:                                              ; preds = %._crit_edge.i48
+  %106 = tail call i32 @slurm_get_log_level() #11
+  %107 = icmp sgt i32 %106, 3
+  br i1 %107, label %108, label %_get_node_energy.exit
 
-104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %106 = load i32, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %110 = load i64, ptr %109, align 8
-  %111 = load i32, ptr %1, align 8
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_node_energy, i32 noundef %106, i64 noundef %108, i64 noundef %110, i32 noundef %111) #11
+108:                                              ; preds = %105
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %110 = load i32, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %112 = load i64, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %114 = load i64, ptr %113, align 8
+  %115 = load i32, ptr %1, align 8
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_node_energy, i32 noundef %110, i64 noundef %112, i64 noundef %114, i32 noundef %115) #11
   br label %_get_node_energy.exit
 
-112:                                              ; preds = %6
-  %113 = load ptr, ptr @gpus, align 8
-  %.not36 = icmp eq ptr %113, null
-  br i1 %.not36, label %120, label %114
+116:                                              ; preds = %6
+  %117 = load ptr, ptr @gpus, align 8
+  %.not36 = icmp eq ptr %117, null
+  br i1 %.not36, label %124, label %118
 
-114:                                              ; preds = %112
-  %115 = load i16, ptr @gpus_len, align 2
-  %116 = zext i16 %115 to i64
-  %117 = getelementptr %struct.gpu_status_t, ptr %113, i64 %116
-  %118 = getelementptr i8, ptr %117, i64 -72
-  %119 = load i64, ptr %118, align 8
-  store i64 %119, ptr %1, align 8
+118:                                              ; preds = %116
+  %119 = load i16, ptr @gpus_len, align 2
+  %120 = zext i16 %119 to i64
+  %121 = getelementptr %struct.gpu_status_t, ptr %117, i64 %120
+  %122 = getelementptr i8, ptr %121, i64 -72
+  %123 = load i64, ptr %122, align 8
+  store i64 %123, ptr %1, align 8
   br label %_get_node_energy.exit
 
-120:                                              ; preds = %112
+124:                                              ; preds = %116
   store i64 0, ptr %1, align 8
   br label %_get_node_energy.exit
 
-121:                                              ; preds = %6
-  %122 = load i16, ptr @gpus_len, align 2
-  store i16 %122, ptr %1, align 2
+125:                                              ; preds = %6
+  %126 = load i16, ptr @gpus_len, align 2
+  store i16 %126, ptr %1, align 2
   br label %_get_node_energy.exit
 
-123:                                              ; preds = %.lr.ph55, %123
-  %indvars.iv61 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next62, %123 ]
-  %124 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %1, i64 %indvars.iv61
-  %125 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %8, i64 %indvars.iv61, i32 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %124, ptr noundef nonnull align 8 dereferenceable(56) %125, i64 56, i1 false)
+127:                                              ; preds = %.lr.ph55, %127
+  %indvars.iv61 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next62, %127 ]
+  %128 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %1, i64 %indvars.iv61
+  %129 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %8, i64 %indvars.iv61
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %128, ptr noundef nonnull align 8 dereferenceable(56) %130, i64 56, i1 false)
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %_get_node_energy.exit, label %123, !llvm.loop !14
+  br i1 %exitcond65.not, label %_get_node_energy.exit, label %127, !llvm.loop !14
 
-126:                                              ; preds = %6
-  %127 = tail call zeroext i1 @slurm_running_in_slurmd() #11
-  br i1 %127, label %128, label %133
+131:                                              ; preds = %6
+  %132 = tail call zeroext i1 @slurm_running_in_slurmd() #11
+  br i1 %132, label %133, label %138
 
-128:                                              ; preds = %126
-  %129 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @gpu_cond) #11
-  %.not35 = icmp eq i32 %129, 0
-  br i1 %.not35, label %134, label %130
+133:                                              ; preds = %131
+  %134 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @gpu_cond) #11
+  %.not35 = icmp eq i32 %134, 0
+  br i1 %.not35, label %139, label %135
 
-130:                                              ; preds = %128
-  %131 = tail call ptr @__errno_location() #12
-  store i32 %129, ptr %131, align 4
-  %132 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 576, ptr noundef nonnull @__func__.acct_gather_energy_p_get_data) #11
-  br label %134
+135:                                              ; preds = %133
+  %136 = tail call ptr @__errno_location() #12
+  store i32 %134, ptr %136, align 4
+  %137 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 576, ptr noundef nonnull @__func__.acct_gather_energy_p_get_data) #11
+  br label %139
 
-133:                                              ; preds = %126
+138:                                              ; preds = %131
   tail call fastcc void @_get_joules_task(i16 noundef zeroext 10)
-  br label %134
+  br label %139
 
-134:                                              ; preds = %128, %130, %133
-  %135 = load i16, ptr @gpus_len, align 2
-  %.not56 = icmp eq i16 %135, 0
+139:                                              ; preds = %133, %135, %138
+  %140 = load i16, ptr @gpus_len, align 2
+  %.not56 = icmp eq i16 %140, 0
   br i1 %.not56, label %_get_node_energy.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %134
-  %136 = load ptr, ptr @gpus, align 8
-  %wide.trip.count = zext i16 %135 to i64
-  br label %137
+.lr.ph:                                           ; preds = %139
+  %141 = load ptr, ptr @gpus, align 8
+  %wide.trip.count = zext i16 %140 to i64
+  br label %142
 
-137:                                              ; preds = %.lr.ph, %137
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
-  %138 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %1, i64 %indvars.iv
-  %139 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %136, i64 %indvars.iv, i32 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %138, ptr noundef nonnull align 8 dereferenceable(56) %139, i64 56, i1 false)
+142:                                              ; preds = %.lr.ph, %142
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %142 ]
+  %143 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %1, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %141, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %143, ptr noundef nonnull align 8 dereferenceable(56) %145, i64 56, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_get_node_energy.exit, label %137, !llvm.loop !15
+  br i1 %exitcond.not, label %_get_node_energy.exit, label %142, !llvm.loop !15
 
-140:                                              ; preds = %6
-  %141 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.acct_gather_energy_p_get_data, i32 noundef %0) #11
+146:                                              ; preds = %6
+  %147 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.acct_gather_energy_p_get_data, i32 noundef %0) #11
   br label %_get_node_energy.exit
 
-_get_node_energy.exit:                            ; preds = %137, %123, %134, %.preheader, %104, %101, %._crit_edge.i48, %83, %80, %._crit_edge.i43, %37, %29, %26, %._crit_edge.i, %121, %140, %120, %114
-  %.029 = phi i32 [ -1, %140 ], [ 0, %114 ], [ 0, %120 ], [ 0, %121 ], [ 0, %._crit_edge.i ], [ 0, %26 ], [ 0, %29 ], [ 0, %37 ], [ 0, %._crit_edge.i43 ], [ 0, %80 ], [ 0, %83 ], [ 0, %._crit_edge.i48 ], [ 0, %101 ], [ 0, %104 ], [ 0, %.preheader ], [ 0, %134 ], [ 0, %123 ], [ 0, %137 ]
-  %142 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @gpu_mutex) #11
-  %.not38 = icmp eq i32 %142, 0
-  br i1 %.not38, label %145, label %143
+_get_node_energy.exit:                            ; preds = %142, %127, %139, %.preheader, %108, %105, %._crit_edge.i48, %86, %83, %._crit_edge.i43, %38, %30, %27, %._crit_edge.i, %125, %146, %124, %118
+  %.029 = phi i32 [ -1, %146 ], [ 0, %118 ], [ 0, %124 ], [ 0, %125 ], [ 0, %._crit_edge.i ], [ 0, %27 ], [ 0, %30 ], [ 0, %38 ], [ 0, %._crit_edge.i43 ], [ 0, %83 ], [ 0, %86 ], [ 0, %._crit_edge.i48 ], [ 0, %105 ], [ 0, %108 ], [ 0, %.preheader ], [ 0, %139 ], [ 0, %127 ], [ 0, %142 ]
+  %148 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @gpu_mutex) #11
+  %.not38 = icmp eq i32 %148, 0
+  br i1 %.not38, label %151, label %149
 
-143:                                              ; preds = %_get_node_energy.exit
-  %144 = tail call ptr @__errno_location() #12
-  store i32 %142, ptr %144, align 4
+149:                                              ; preds = %_get_node_energy.exit
+  %150 = tail call ptr @__errno_location() #12
+  store i32 %148, ptr %150, align 4
   tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_energy_p_get_data) #13
   unreachable
 
-145:                                              ; preds = %_get_node_energy.exit
+151:                                              ; preds = %_get_node_energy.exit
   ret i32 %.029
 }
 
@@ -538,7 +544,7 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
   store i16 0, ptr %3, align 2
   %5 = tail call i32 @gres_get_gres_cnt() #11
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %100, label %6
+  br i1 %.not, label %101, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @conf, align 8
@@ -560,25 +566,25 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
   %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %19 = and i64 %18, 262144
   %.not44 = icmp eq i64 %19, 0
-  br i1 %.not44, label %100, label %20
+  br i1 %.not44, label %101, label %20
 
 20:                                               ; preds = %17
   %21 = call i32 @slurm_get_log_level() #11
   %22 = icmp sgt i32 %21, 3
-  br i1 %22, label %23, label %100
+  br i1 %22, label %23, label %101
 
 23:                                               ; preds = %20
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.19, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_joules_task) #11
-  br label %100
+  br label %101
 
 24:                                               ; preds = %13
   %25 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__._get_joules_task) #11
-  br label %100
+  br label %101
 
 26:                                               ; preds = %6
   %27 = load i16, ptr %3, align 2
   %.not41 = icmp eq i16 %27, 0
-  br i1 %.not41, label %100, label %28
+  br i1 %.not41, label %101, label %28
 
 28:                                               ; preds = %26
   %.b39 = load i1, ptr @_get_joules_task.stepd_first, align 1
@@ -612,104 +618,105 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
   %41 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__._get_joules_task, i32 noundef %40, i32 noundef %39) #11
   %42 = load ptr, ptr %2, align 8
   call void @acct_gather_energy_destroy(ptr noundef %42) #11
-  br label %100
+  br label %101
 
-.lr.ph:                                           ; preds = %.preheader, %95
-  %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %96
+  %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ 0, %.preheader ]
   %43 = load ptr, ptr %2, align 8
   %44 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr @gpus, align 8
-  %46 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %45, i64 %indvars.iv, i32 3
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store i64 %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %53 = load i32, ptr %52, align 8
-  %54 = sub nsw i64 %4, %51
-  %55 = shl i32 %53, 1
-  %56 = zext i32 %55 to i64
-  %57 = mul nsw i64 %54, %56
-  %58 = ashr exact i64 %57, 1
+  %46 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %45, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store i64 %49, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %54 = load i32, ptr %53, align 8
+  %55 = sub nsw i64 %4, %52
+  %56 = shl i32 %54, 1
+  %57 = zext i32 %56 to i64
+  %58 = mul nsw i64 %55, %57
+  %59 = ashr exact i64 %58, 1
   %.b = load i1, ptr @_get_joules_task.stepd_first, align 1
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %60 = load i64, ptr %59, align 8
-  br i1 %.b, label %61, label %75
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %61 = load i64, ptr %60, align 8
+  br i1 %.b, label %62, label %76
 
-61:                                               ; preds = %.lr.ph
-  %62 = icmp ugt i64 %48, %60
-  br i1 %62, label %63, label %66
+62:                                               ; preds = %.lr.ph
+  %63 = icmp ugt i64 %49, %61
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %61
-  %64 = add i64 %60, %58
-  %65 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i64 %64, ptr %65, align 8
-  br label %80
+64:                                               ; preds = %62
+  %65 = add i64 %61, %59
+  %66 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i64 %65, ptr %66, align 8
+  br label %81
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr @start_current_energies, align 8
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %indvars.iv
-  %69 = load i64, ptr %68, align 8
-  %70 = sub i64 %60, %69
-  store i64 %70, ptr %59, align 8
-  %71 = load i64, ptr %47, align 8
-  %72 = add i64 %70, %58
-  %73 = sub i64 %72, %71
-  %74 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i64 %73, ptr %74, align 8
-  br label %80
+67:                                               ; preds = %62
+  %68 = load ptr, ptr @start_current_energies, align 8
+  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv
+  %70 = load i64, ptr %69, align 8
+  %71 = sub i64 %61, %70
+  store i64 %71, ptr %60, align 8
+  %72 = load i64, ptr %48, align 8
+  %73 = add i64 %71, %59
+  %74 = sub i64 %73, %72
+  %75 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i64 %74, ptr %75, align 8
+  br label %81
 
-75:                                               ; preds = %.lr.ph
-  %76 = add i64 %60, %58
-  %77 = load ptr, ptr @start_current_energies, align 8
-  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %indvars.iv
-  store i64 %76, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i64 0, ptr %79, align 8
-  %.pre48 = load i64, ptr %49, align 8
-  br label %80
+76:                                               ; preds = %.lr.ph
+  %77 = add i64 %61, %59
+  %78 = load ptr, ptr @start_current_energies, align 8
+  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv
+  store i64 %77, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i64 0, ptr %80, align 8
+  %.pre48 = load i64, ptr %50, align 8
+  br label %81
 
-80:                                               ; preds = %63, %66, %75
-  %81 = phi i64 [ %64, %63 ], [ %73, %66 ], [ 0, %75 ]
-  %82 = phi i64 [ %48, %63 ], [ %48, %66 ], [ %.pre48, %75 ]
-  %83 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %84 = add i64 %81, %82
-  %85 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i64 %84, ptr %85, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false)
-  %86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %87 = and i64 %86, 262144
-  %.not43 = icmp eq i64 %87, 0
-  br i1 %.not43, label %95, label %88
+81:                                               ; preds = %64, %67, %76
+  %82 = phi i64 [ %65, %64 ], [ %74, %67 ], [ 0, %76 ]
+  %83 = phi i64 [ %49, %64 ], [ %49, %67 ], [ %.pre48, %76 ]
+  %84 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %85 = add i64 %82, %83
+  %86 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store i64 %85, ptr %86, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false)
+  %87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %88 = and i64 %87, 262144
+  %.not43 = icmp eq i64 %88, 0
+  br i1 %.not43, label %96, label %89
 
-88:                                               ; preds = %80
-  %89 = call i32 @slurm_get_log_level() #11
-  %90 = icmp sgt i32 %89, 3
-  br i1 %90, label %91, label %95
+89:                                               ; preds = %81
+  %90 = call i32 @slurm_get_log_level() #11
+  %91 = icmp sgt i32 %90, 3
+  br i1 %91, label %92, label %96
 
-91:                                               ; preds = %88
-  %92 = load i64, ptr %85, align 8
-  %93 = load i64, ptr %83, align 8
-  %94 = load i32, ptr %52, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.22, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_joules_task, i64 noundef %92, i64 noundef %93, i32 noundef %94) #11
-  br label %95
+92:                                               ; preds = %89
+  %93 = load i64, ptr %86, align 8
+  %94 = load i64, ptr %84, align 8
+  %95 = load i32, ptr %53, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.22, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_joules_task, i64 noundef %93, i64 noundef %94, i32 noundef %95) #11
+  br label %96
 
-95:                                               ; preds = %80, %91, %88
+96:                                               ; preds = %81, %92, %89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %96 = load i16, ptr %3, align 2
-  %97 = zext i16 %96 to i64
-  %98 = icmp samesign ult i64 %indvars.iv.next, %97
-  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  %97 = load i16, ptr %3, align 2
+  %98 = zext i16 %97 to i64
+  %99 = icmp samesign ult i64 %indvars.iv.next, %98
+  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %95, %.preheader
-  %99 = load ptr, ptr %2, align 8
-  call void @acct_gather_energy_destroy(ptr noundef %99) #11
+._crit_edge:                                      ; preds = %96, %.preheader
+  %100 = load ptr, ptr %2, align 8
+  call void @acct_gather_energy_destroy(ptr noundef %100) #11
   store i1 true, ptr @_get_joules_task.stepd_first, align 1
-  br label %100
+  br label %101
 
-100:                                              ; preds = %26, %24, %20, %23, %17, %1, %._crit_edge, %38
+101:                                              ; preds = %26, %24, %20, %23, %17, %1, %._crit_edge, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -830,16 +837,16 @@ _running_profile.exit.thread:                     ; preds = %10
 
 _running_profile.exit:                            ; preds = %0, %10
   %.b1.i.pr = load i1, ptr @_running_profile.run, align 1
-  br i1 %.b1.i.pr, label %14, label %77
+  br i1 %.b1.i.pr, label %14, label %78
 
 14:                                               ; preds = %_running_profile.exit.thread, %_running_profile.exit
   %15 = load i32, ptr @dataset_id, align 4
   %16 = icmp slt i32 %15, 0
-  %.pre59 = load i16, ptr @gpus_len, align 2
+  %.pre58 = load i16, ptr @gpus_len, align 2
   br i1 %16, label %17, label %49
 
 17:                                               ; preds = %14
-  %18 = zext i16 %.pre59 to i64
+  %18 = zext i16 %.pre58 to i64
   %19 = add nuw nsw i64 %18, 1
   %20 = tail call ptr @llvm.stacksave.p0()
   %21 = alloca %struct.acct_gather_profile_dataset_t, i64 %19, align 16
@@ -870,17 +877,17 @@ _running_profile.exit:                            ; preds = %0, %10
   %32 = call i32 @acct_gather_profile_g_create_dataset(ptr noundef nonnull @.str.28, i64 noundef -1, ptr noundef nonnull %21) #11
   store i32 %32, ptr @dataset_id, align 4
   %33 = load i16, ptr @gpus_len, align 2
-  %.not47 = icmp eq i16 %33, 0
-  br i1 %.not47, label %._crit_edge36, label %.lr.ph35
+  %.not46 = icmp eq i16 %33, 0
+  br i1 %.not46, label %._crit_edge36, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %._crit_edge, %.lr.ph35
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.lr.ph35 ], [ 0, %._crit_edge ]
-  %34 = getelementptr inbounds nuw %struct.acct_gather_profile_dataset_t, ptr %21, i64 %indvars.iv51
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph35 ], [ 0, %._crit_edge ]
+  %34 = getelementptr inbounds nuw %struct.acct_gather_profile_dataset_t, ptr %21, i64 %indvars.iv50
   call void @slurm_xfree(ptr noundef nonnull %34) #11
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %35 = load i16, ptr @gpus_len, align 2
   %36 = zext i16 %35 to i64
-  %37 = icmp samesign ult i64 %indvars.iv.next52, %36
+  %37 = icmp samesign ult i64 %indvars.iv.next51, %36
   br i1 %37, label %.lr.ph35, label %._crit_edge36, !llvm.loop !18
 
 ._crit_edge36:                                    ; preds = %.lr.ph35, %._crit_edge
@@ -907,7 +914,7 @@ _running_profile.exit:                            ; preds = %0, %10
 47:                                               ; preds = %45
   %48 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.30) #11
   call void @llvm.stackrestore.p0(ptr %20)
-  br label %77
+  br label %78
 
 .critedge:                                        ; preds = %45
   call void @llvm.stackrestore.p0(ptr %20)
@@ -916,11 +923,11 @@ _running_profile.exit:                            ; preds = %0, %10
 
 49:                                               ; preds = %.critedge, %14
   %50 = phi i32 [ %46, %.critedge ], [ %15, %14 ]
-  %51 = phi i16 [ %.pre, %.critedge ], [ %.pre59, %14 ]
+  %51 = phi i16 [ %.pre, %.critedge ], [ %.pre58, %14 ]
   %52 = shl nuw nsw i64 %2, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 0, i64 %52, i1 false)
-  %.not48 = icmp eq i16 %51, 0
-  br i1 %.not48, label %.loopexit, label %.lr.ph39
+  %.not47 = icmp eq i16 %51, 0
+  br i1 %.not47, label %.loopexit, label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %49
   %53 = load ptr, ptr @gpus, align 8
@@ -928,56 +935,57 @@ _running_profile.exit:                            ; preds = %0, %10
   br label %54
 
 54:                                               ; preds = %.lr.ph39, %54
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next55, %54 ]
-  %55 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %53, i64 %indvars.iv54, i32 3, i32 3
-  %56 = load i32, ptr %55, align 8
-  %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv54
-  store i64 %57, ptr %58, align 8
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond.not, label %59, label %54, !llvm.loop !19
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next54, %54 ]
+  %55 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %53, i64 %indvars.iv53
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
+  %57 = load i32, ptr %56, align 8
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv53
+  store i64 %58, ptr %59, align 8
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
+  br i1 %exitcond.not, label %60, label %54, !llvm.loop !19
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %53, i64 %indvars.iv54, i32 3, i32 5
-  %61 = load i64, ptr %60, align 8
-  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %63 = and i64 %62, 2097152
-  %.not31.not = icmp eq i64 %63, 0
-  br i1 %.not31.not, label %.loopexit, label %.lr.ph45
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 64
+  %62 = load i64, ptr %61, align 8
+  %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %64 = and i64 %63, 2097152
+  %.not31.not = icmp eq i64 %64, 0
+  br i1 %.not31.not, label %.loopexit, label %.lr.ph44
 
-.lr.ph45:                                         ; preds = %59, %70
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %70 ], [ 0, %59 ]
-  %64 = phi i32 [ %71, %70 ], [ 0, %59 ]
-  %65 = call i32 @slurm_get_log_level() #11
-  %66 = icmp sgt i32 %65, 2
-  br i1 %66, label %67, label %70
+.lr.ph44:                                         ; preds = %60, %71
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %71 ], [ 0, %60 ]
+  %65 = phi i32 [ %72, %71 ], [ 0, %60 ]
+  %66 = call i32 @slurm_get_log_level() #11
+  %67 = icmp sgt i32 %66, 2
+  br i1 %67, label %68, label %71
 
-67:                                               ; preds = %.lr.ph45
-  %68 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv57
-  %69 = load i64, ptr %68, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._send_profile, i32 noundef %64, i64 noundef %69) #11
-  br label %70
+68:                                               ; preds = %.lr.ph44
+  %69 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv56
+  %70 = load i64, ptr %69, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._send_profile, i32 noundef %65, i64 noundef %70) #11
+  br label %71
 
-70:                                               ; preds = %.lr.ph45, %67
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %71 = trunc nuw nsw i64 %indvars.iv.next58 to i32
-  %72 = load i16, ptr @gpus_len, align 2
-  %73 = zext i16 %72 to i64
-  %74 = icmp samesign ult i64 %indvars.iv.next58, %73
-  br i1 %74, label %.lr.ph45, label %.loopexit.loopexit, !llvm.loop !20
+71:                                               ; preds = %.lr.ph44, %68
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %72 = trunc nuw nsw i64 %indvars.iv.next57 to i32
+  %73 = load i16, ptr @gpus_len, align 2
+  %74 = zext i16 %73 to i64
+  %75 = icmp samesign ult i64 %indvars.iv.next57, %74
+  br i1 %75, label %.lr.ph44, label %.loopexit.loopexit, !llvm.loop !20
 
-.loopexit.loopexit:                               ; preds = %70
-  %.pre60 = load i32, ptr @dataset_id, align 4
+.loopexit.loopexit:                               ; preds = %71
+  %.pre59 = load i32, ptr @dataset_id, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %49, %.loopexit.loopexit, %59
-  %.026.lcssa68 = phi i64 [ %61, %.loopexit.loopexit ], [ %61, %59 ], [ %7, %49 ]
-  %75 = phi i32 [ %.pre60, %.loopexit.loopexit ], [ %50, %59 ], [ %50, %49 ]
-  %76 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %75, ptr noundef nonnull %3, i64 noundef %.026.lcssa68) #11
-  br label %77
+.loopexit:                                        ; preds = %49, %.loopexit.loopexit, %60
+  %.026.lcssa67 = phi i64 [ %62, %.loopexit.loopexit ], [ %62, %60 ], [ %7, %49 ]
+  %76 = phi i32 [ %.pre59, %.loopexit.loopexit ], [ %50, %60 ], [ %50, %49 ]
+  %77 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %76, ptr noundef nonnull %3, i64 noundef %.026.lcssa67) #11
+  br label %78
 
-77:                                               ; preds = %47, %_running_profile.exit, %.loopexit
+78:                                               ; preds = %47, %_running_profile.exit, %.loopexit
   ret void
 }
 
@@ -1200,7 +1208,7 @@ define internal noalias noundef ptr @_thread_gpu_run(ptr readnone captures(none)
 27:                                               ; preds = %19, %26, %23
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @gpu_mutex) #11
   %.not23 = icmp eq i32 %28, 0
-  br i1 %.not23, label %131, label %29
+  br i1 %.not23, label %132, label %29
 
 29:                                               ; preds = %27
   %30 = tail call ptr @__errno_location() #12
@@ -1242,7 +1250,7 @@ define internal noalias noundef ptr @_thread_gpu_run(ptr readnone captures(none)
   tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__._thread_gpu_run) #13
   unreachable
 
-.lr.ph:                                           ; preds = %.preheader, %120
+.lr.ph:                                           ; preds = %.preheader, %121
   %45 = load i16, ptr @gpus_len, align 2
   %.not21.i = icmp eq i16 %45, 0
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1340,84 +1348,85 @@ _update_energy.exit.i:                            ; preds = %82, %76
   %or.cond.i = and i1 %92, %.not.i
   br i1 %or.cond.i, label %.lr.ph19.i, label %_thread_update_node_energy.exit
 
-.lr.ph19.i:                                       ; preds = %._crit_edge.i, %109
-  %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %109 ], [ 0, %._crit_edge.i ]
+.lr.ph19.i:                                       ; preds = %._crit_edge.i, %110
+  %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %110 ], [ 0, %._crit_edge.i ]
   %97 = call i32 @slurm_get_log_level() #11
   %98 = icmp sgt i32 %97, 2
-  br i1 %98, label %99, label %109
+  br i1 %98, label %99, label %110
 
 99:                                               ; preds = %.lr.ph19.i
   %indvars32 = trunc nuw nsw i64 %indvars.iv23.i to i32
   %100 = load ptr, ptr @gpus, align 8
-  %101 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %100, i64 %indvars.iv23.i, i32 3
+  %101 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %100, i64 %indvars.iv23.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %107 = load i64, ptr %106, align 8
-  %108 = load i32, ptr %101, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._thread_update_node_energy, i32 noundef %indvars32, i32 noundef %103, i64 noundef %105, i64 noundef %107, i32 noundef %108) #11
-  br label %109
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 48
+  %104 = load i32, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 40
+  %106 = load i64, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %101, i64 32
+  %108 = load i64, ptr %107, align 8
+  %109 = load i32, ptr %102, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._thread_update_node_energy, i32 noundef %indvars32, i32 noundef %104, i64 noundef %106, i64 noundef %108, i32 noundef %109) #11
+  br label %110
 
-109:                                              ; preds = %99, %.lr.ph19.i
+110:                                              ; preds = %99, %.lr.ph19.i
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
-  %110 = load i16, ptr @gpus_len, align 2
-  %111 = zext i16 %110 to i64
-  %112 = icmp samesign ult i64 %indvars.iv.next24.i, %111
-  br i1 %112, label %.lr.ph19.i, label %_thread_update_node_energy.exit, !llvm.loop !22
+  %111 = load i16, ptr @gpus_len, align 2
+  %112 = zext i16 %111 to i64
+  %113 = icmp samesign ult i64 %indvars.iv.next24.i, %112
+  br i1 %113, label %.lr.ph19.i, label %_thread_update_node_energy.exit, !llvm.loop !22
 
-_thread_update_node_energy.exit:                  ; preds = %109, %._crit_edge.i
+_thread_update_node_energy.exit:                  ; preds = %110, %._crit_edge.i
   %.b30 = load i1, ptr @flag_energy_accounting_shutdown, align 1
-  br i1 %.b30, label %._crit_edge, label %113
+  br i1 %.b30, label %._crit_edge, label %114
 
-113:                                              ; preds = %_thread_update_node_energy.exit
-  %114 = load i64, ptr %3, align 8
-  %115 = add nsw i64 %114, 30
-  store i64 %115, ptr %3, align 8
-  %116 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @gpu_cond, ptr noundef nonnull @gpu_mutex, ptr noundef nonnull %3) #11
-  switch i32 %116, label %117 [
-    i32 110, label %120
-    i32 0, label %120
+114:                                              ; preds = %_thread_update_node_energy.exit
+  %115 = load i64, ptr %3, align 8
+  %116 = add nsw i64 %115, 30
+  store i64 %116, ptr %3, align 8
+  %117 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @gpu_cond, ptr noundef nonnull @gpu_mutex, ptr noundef nonnull %3) #11
+  switch i32 %117, label %118 [
+    i32 110, label %121
+    i32 0, label %121
   ]
 
-117:                                              ; preds = %113
-  %118 = tail call ptr @__errno_location() #12
-  store i32 %116, ptr %118, align 4
-  %119 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.2, i32 noundef 292, ptr noundef nonnull @__func__._thread_gpu_run) #11
-  br label %120
+118:                                              ; preds = %114
+  %119 = tail call ptr @__errno_location() #12
+  store i32 %117, ptr %119, align 4
+  %120 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.2, i32 noundef 292, ptr noundef nonnull @__func__._thread_gpu_run) #11
+  br label %121
 
-120:                                              ; preds = %117, %113, %113
+121:                                              ; preds = %118, %114, %114
   %.b2127.pr = load i1, ptr @flag_energy_accounting_shutdown, align 1
   br i1 %.b2127.pr, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %_thread_update_node_energy.exit, %120, %.preheader
-  %121 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gpu_mutex) #11
-  %.not28 = icmp eq i32 %121, 0
-  br i1 %.not28, label %124, label %122
+._crit_edge:                                      ; preds = %_thread_update_node_energy.exit, %121, %.preheader
+  %122 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gpu_mutex) #11
+  %.not28 = icmp eq i32 %122, 0
+  br i1 %.not28, label %125, label %123
 
-122:                                              ; preds = %._crit_edge
-  %123 = tail call ptr @__errno_location() #12
-  store i32 %121, ptr %123, align 4
+123:                                              ; preds = %._crit_edge
+  %124 = tail call ptr @__errno_location() #12
+  store i32 %122, ptr %124, align 4
   call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._thread_gpu_run) #13
   unreachable
 
-124:                                              ; preds = %._crit_edge
-  %125 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %126 = and i64 %125, 262144
-  %.not29 = icmp eq i64 %126, 0
-  br i1 %.not29, label %131, label %127
+125:                                              ; preds = %._crit_edge
+  %126 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %127 = and i64 %126, 262144
+  %.not29 = icmp eq i64 %127, 0
+  br i1 %.not29, label %132, label %128
 
-127:                                              ; preds = %124
-  %128 = call i32 @slurm_get_log_level() #11
-  %129 = icmp sgt i32 %128, 3
-  br i1 %129, label %130, label %131
+128:                                              ; preds = %125
+  %129 = call i32 @slurm_get_log_level() #11
+  %130 = icmp sgt i32 %129, 3
+  br i1 %130, label %131, label %132
 
-130:                                              ; preds = %127
+131:                                              ; preds = %128
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.36, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._thread_gpu_run) #11
-  br label %131
+  br label %132
 
-131:                                              ; preds = %124, %130, %127, %27
+132:                                              ; preds = %125, %131, %128, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr null

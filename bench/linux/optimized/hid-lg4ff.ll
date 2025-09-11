@@ -2016,7 +2016,8 @@ define internal noundef i64 @lg4ff_alternate_modes_store(ptr noundef %0, ptr rea
 78:                                               ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr %struct.lg4ff_alternate_mode, ptr @lg4ff_alternate_modes, i64 %54, i32 2
+  %.split = getelementptr %struct.lg4ff_alternate_mode, ptr @lg4ff_alternate_modes, i64 %54
+  %81 = getelementptr i8, ptr %.split, i64 16
   %82 = load ptr, ptr %81, align 8
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %80, ptr noundef %82) #14
   br label %104

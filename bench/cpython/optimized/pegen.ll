@@ -333,7 +333,7 @@ define hidden i32 @_PyPegen_fill_token(ptr noundef %0) local_unnamed_addr #1 {
   %36 = phi ptr [ %31, %.thread.i ], [ %.pre.i, %20 ]
   %37 = getelementptr %struct.anon.2, ptr %36, i64 %35
   store i32 %26, ptr %37, align 8, !tbaa !54
-  %38 = getelementptr %struct.anon.2, ptr %36, i64 %35, i32 1
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %18, ptr %38, align 8, !tbaa !56
   %39 = add i64 %35, 1
   store i64 %39, ptr %10, align 8, !tbaa !51
@@ -1806,9 +1806,9 @@ Py_XDECREF.exit:                                  ; preds = %1, %4, %6, %9
 
 .lr.ph:                                           ; preds = %Py_XDECREF.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %28
+  br label %29
 
-._crit_edge:                                      ; preds = %28, %Py_XDECREF.exit
+._crit_edge:                                      ; preds = %29, %Py_XDECREF.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !35
   tail call void @PyMem_Free(ptr noundef %15) #13
@@ -1819,35 +1819,36 @@ Py_XDECREF.exit:                                  ; preds = %1, %4, %6, %9
   br i1 %.not.i8, label %growable_comment_array_deallocate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
-  %19 = phi i64 [ %24, %.lr.ph.i ], [ 0, %._crit_edge ]
-  %.06.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %._crit_edge ]
+  %19 = phi i64 [ %25, %.lr.ph.i ], [ 0, %._crit_edge ]
+  %.06.i = phi i32 [ %24, %.lr.ph.i ], [ 0, %._crit_edge ]
   %20 = load ptr, ptr %16, align 8, !tbaa !53
-  %21 = getelementptr %struct.anon.2, ptr %20, i64 %19, i32 1
-  %22 = load ptr, ptr %21, align 8, !tbaa !56
-  tail call void @PyMem_Free(ptr noundef %22) #13
-  %23 = add i32 %.06.i, 1
-  %24 = zext i32 %23 to i64
-  %25 = load i64, ptr %17, align 8, !tbaa !51
-  %26 = icmp ugt i64 %25, %24
-  br i1 %26, label %.lr.ph.i, label %growable_comment_array_deallocate.exit, !llvm.loop !116
+  %21 = getelementptr %struct.anon.2, ptr %20, i64 %19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !56
+  tail call void @PyMem_Free(ptr noundef %23) #13
+  %24 = add i32 %.06.i, 1
+  %25 = zext i32 %24 to i64
+  %26 = load i64, ptr %17, align 8, !tbaa !51
+  %27 = icmp ugt i64 %26, %25
+  br i1 %27, label %.lr.ph.i, label %growable_comment_array_deallocate.exit, !llvm.loop !116
 
 growable_comment_array_deallocate.exit:           ; preds = %.lr.ph.i, %._crit_edge
-  %27 = load ptr, ptr %16, align 8, !tbaa !53
-  tail call void @PyMem_Free(ptr noundef %27) #13
+  %28 = load ptr, ptr %16, align 8, !tbaa !53
+  tail call void @PyMem_Free(ptr noundef %28) #13
   tail call void @PyMem_Free(ptr noundef nonnull %0) #13
   ret void
 
-28:                                               ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = load ptr, ptr %13, align 8, !tbaa !35
-  %30 = getelementptr ptr, ptr %29, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8, !tbaa !36
-  tail call void @PyMem_Free(ptr noundef %31) #13
+29:                                               ; preds = %.lr.ph, %29
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
+  %30 = load ptr, ptr %13, align 8, !tbaa !35
+  %31 = getelementptr ptr, ptr %30, i64 %indvars.iv
+  %32 = load ptr, ptr %31, align 8, !tbaa !36
+  tail call void @PyMem_Free(ptr noundef %32) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = load i32, ptr %10, align 8, !tbaa !63
-  %33 = sext i32 %32 to i64
-  %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %28, label %._crit_edge, !llvm.loop !117
+  %33 = load i32, ptr %10, align 8, !tbaa !63
+  %34 = sext i32 %33 to i64
+  %35 = icmp slt i64 %indvars.iv.next, %34
+  br i1 %35, label %29, label %._crit_edge, !llvm.loop !117
 }
 
 ; Function Attrs: nounwind uwtable

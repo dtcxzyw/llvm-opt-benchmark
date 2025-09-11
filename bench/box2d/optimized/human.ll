@@ -968,46 +968,47 @@ declare i64 @b2CreatePolygonShape(i64, ptr noundef, ptr noundef) local_unnamed_a
 define void @DestroyHuman(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   br label %2
 
-2:                                                ; preds = %1, %8
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %3 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv, i32 1
-  %4 = load i32, ptr %3, align 4, !tbaa !57
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %8, label %6
+2:                                                ; preds = %1, %9
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
+  %3 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load i32, ptr %4, align 4, !tbaa !57
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %9, label %7
 
-6:                                                ; preds = %2
-  %7 = load i64, ptr %3, align 4
-  tail call void @b2DestroyJoint(i64 %7) #6
-  store i64 0, ptr %3, align 4
-  br label %8
+7:                                                ; preds = %2
+  %8 = load i64, ptr %4, align 4
+  tail call void @b2DestroyJoint(i64 %8) #6
+  store i64 0, ptr %4, align 4
+  br label %9
 
-8:                                                ; preds = %2, %6
+9:                                                ; preds = %2, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
   br i1 %exitcond.not, label %.preheader, label %2, !llvm.loop !58
 
-9:                                                ; preds = %16
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store i8 0, ptr %10, align 4, !tbaa !56
+10:                                               ; preds = %17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  store i8 0, ptr %11, align 4, !tbaa !56
   ret void
 
-.preheader:                                       ; preds = %8, %16
-  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %16 ], [ 0, %8 ]
-  %11 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv20
-  %12 = load i32, ptr %11, align 4, !tbaa !59
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %16, label %14
+.preheader:                                       ; preds = %9, %17
+  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %17 ], [ 0, %9 ]
+  %12 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv20
+  %13 = load i32, ptr %12, align 4, !tbaa !59
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %17, label %15
 
-14:                                               ; preds = %.preheader
-  %15 = load i64, ptr %11, align 4
-  tail call void @b2DestroyBody(i64 %15) #6
-  store i64 0, ptr %11, align 4
-  br label %16
+15:                                               ; preds = %.preheader
+  %16 = load i64, ptr %12, align 4
+  tail call void @b2DestroyBody(i64 %16) #6
+  store i64 0, ptr %12, align 4
+  br label %17
 
-16:                                               ; preds = %.preheader, %14
+17:                                               ; preds = %.preheader, %15
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 11
-  br i1 %exitcond23.not, label %9, label %.preheader, !llvm.loop !60
+  br i1 %exitcond23.not, label %10, label %.preheader, !llvm.loop !60
 }
 
 declare void @b2DestroyJoint(i64) local_unnamed_addr #2
@@ -1077,35 +1078,36 @@ define void @Human_SetJointFrictionTorque(ptr noundef readonly captures(none) %0
 
 .preheader17:                                     ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  br label %7
+  br label %8
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.preheader ], [ 1, %2 ]
-  %5 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv23, i32 1
-  %6 = load i64, ptr %5, align 4
-  tail call void @b2RevoluteJoint_EnableMotor(i64 %6, i1 noundef zeroext false) #6
+  %5 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv23
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i64, ptr %6, align 4
+  tail call void @b2RevoluteJoint_EnableMotor(i64 %7, i1 noundef zeroext false) #6
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 11
   br i1 %exitcond26.not, label %.loopexit, label %.preheader, !llvm.loop !62
 
-7:                                                ; preds = %.preheader17, %7
-  %indvars.iv = phi i64 [ 1, %.preheader17 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 4
-  tail call void @b2RevoluteJoint_EnableMotor(i64 %10, i1 noundef zeroext true) #6
-  %11 = load float, ptr %4, align 4, !tbaa !3
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %13 = load float, ptr %12, align 4, !tbaa !31
-  %14 = fmul float %11, %13
-  %15 = fmul float %1, %14
-  %16 = load i64, ptr %9, align 4
-  tail call void @b2RevoluteJoint_SetMaxMotorTorque(i64 %16, float noundef %15) #6
+8:                                                ; preds = %.preheader17, %8
+  %indvars.iv = phi i64 [ 1, %.preheader17 ], [ %indvars.iv.next, %8 ]
+  %9 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i64, ptr %10, align 4
+  tail call void @b2RevoluteJoint_EnableMotor(i64 %11, i1 noundef zeroext true) #6
+  %12 = load float, ptr %4, align 4, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %14 = load float, ptr %13, align 4, !tbaa !31
+  %15 = fmul float %12, %14
+  %16 = fmul float %1, %15
+  %17 = load i64, ptr %10, align 4
+  tail call void @b2RevoluteJoint_SetMaxMotorTorque(i64 %17, float noundef %16) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !63
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !63
 
-.loopexit:                                        ; preds = %7, %.preheader
+.loopexit:                                        ; preds = %8, %.preheader
   ret void
 }
 
@@ -1120,20 +1122,22 @@ define void @Human_SetJointSpringHertz(ptr noundef readonly captures(none) %0, f
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %.preheader ], [ 1, %2 ]
-  %4 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv19, i32 1
-  %5 = load i64, ptr %4, align 4
-  tail call void @b2RevoluteJoint_EnableSpring(i64 %5, i1 noundef zeroext false) #6
+  %4 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv19
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load i64, ptr %5, align 4
+  tail call void @b2RevoluteJoint_EnableSpring(i64 %6, i1 noundef zeroext false) #6
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 11
   br i1 %exitcond22.not, label %.loopexit, label %.preheader, !llvm.loop !64
 
 .preheader13:                                     ; preds = %2, %.preheader13
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader13 ], [ 1, %2 ]
-  %6 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv, i32 1
-  %7 = load i64, ptr %6, align 4
-  tail call void @b2RevoluteJoint_EnableSpring(i64 %7, i1 noundef zeroext true) #6
-  %8 = load i64, ptr %6, align 4
-  tail call void @b2RevoluteJoint_SetSpringHertz(i64 %8, float noundef %1) #6
+  %7 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load i64, ptr %8, align 4
+  tail call void @b2RevoluteJoint_EnableSpring(i64 %9, i1 noundef zeroext true) #6
+  %10 = load i64, ptr %8, align 4
+  tail call void @b2RevoluteJoint_SetSpringHertz(i64 %10, float noundef %1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
   br i1 %exitcond.not, label %.loopexit, label %.preheader13, !llvm.loop !65
@@ -1155,9 +1159,10 @@ define void @Human_SetJointDampingRatio(ptr noundef readonly captures(none) %0, 
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv, i32 1
-  %6 = load i64, ptr %5, align 4
-  tail call void @b2RevoluteJoint_SetSpringDampingRatio(i64 %6, float noundef %1) #6
+  %5 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i64, ptr %6, align 4
+  tail call void @b2RevoluteJoint_SetSpringDampingRatio(i64 %7, float noundef %1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
   br i1 %exitcond.not, label %3, label %4, !llvm.loop !66

@@ -8891,7 +8891,7 @@ define hidden void @_ZN6Assimp11XFileParser26ParseDataObjectSkinWeightsEPNS_5XFi
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %175, label %7
+  br i1 %6, label %176, label %7
 
 7:                                                ; preds = %2
   tail call void @_ZN6Assimp11XFileParser20readHeadOfDataObjectEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef null)
@@ -9015,17 +9015,17 @@ _ZNSt6vectorIN6Assimp5XFile10BoneWeightESaIS2_EE7reserveEm.exit: ; preds = %33, 
 56:                                               ; preds = %28, %7
   %57 = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  br label %177
 
 58:                                               ; preds = %_ZNSt6vectorIN6Assimp5XFile4BoneESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
   %59 = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  br label %177
 
-60:                                               ; preds = %168, %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit, %158, %148, %_ZNSt12_Vector_baseIN6Assimp5XFile10BoneWeightESaIS2_EE11_M_allocateEm.exit.i, %140, %137, %134, %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
+60:                                               ; preds = %169, %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit, %159, %149, %_ZNSt12_Vector_baseIN6Assimp5XFile10BoneWeightESaIS2_EE11_M_allocateEm.exit.i, %141, %138, %135, %132, %129, %126, %123, %120, %117, %114, %111, %108, %105, %102, %99, %._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  br label %177
 
 62:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN6Assimp5XFile10BoneWeightESaIS2_EE9push_backERKS2_.exit
   %.03369 = phi i32 [ 0, %.lr.ph ], [ %90, %_ZNSt6vectorIN6Assimp5XFile10BoneWeightESaIS2_EE9push_backERKS2_.exit ]
@@ -9109,247 +9109,248 @@ _ZNSt6vectorIN6Assimp5XFile10BoneWeightESaIS2_EE9push_backERKS2_.exit: ; preds =
 .loopexit:                                        ; preds = %62, %_ZNKSt6vectorIN6Assimp5XFile10BoneWeightESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  br label %177
 
 .loopexit.split-lp:                               ; preds = %76
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  br label %177
 
 ._crit_edge:                                      ; preds = %93, %_ZNSt6vectorIN6Assimp5XFile10BoneWeightESaIS2_EE7reserveEm.exit
   %91 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %98 unwind label %60
+          to label %99 unwind label %60
 
 .lr.ph71:                                         ; preds = %_ZNSt6vectorIN6Assimp5XFile10BoneWeightESaIS2_EE9push_backERKS2_.exit, %93
   %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 0, %_ZNSt6vectorIN6Assimp5XFile10BoneWeightESaIS2_EE9push_backERKS2_.exit ]
   %92 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %93 unwind label %96
+          to label %93 unwind label %97
 
 93:                                               ; preds = %.lr.ph71
   %94 = load ptr, ptr %34, align 8
-  %95 = getelementptr inbounds nuw %"struct.Assimp::XFile::BoneWeight", ptr %94, i64 %indvars.iv, i32 1
-  store float %92, ptr %95, align 4
+  %95 = getelementptr inbounds nuw %"struct.Assimp::XFile::BoneWeight", ptr %94, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
+  store float %92, ptr %96, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next, %35
   br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph71, !llvm.loop !32
 
-96:                                               ; preds = %.lr.ph71
-  %97 = landingpad { ptr, i32 }
+97:                                               ; preds = %.lr.ph71
+  %98 = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  br label %177
 
-98:                                               ; preds = %._crit_edge
-  %99 = getelementptr inbounds i8, ptr %30, i64 -64
-  store float %91, ptr %99, align 8
-  %100 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %101 unwind label %60
+99:                                               ; preds = %._crit_edge
+  %100 = getelementptr inbounds i8, ptr %30, i64 -64
+  store float %91, ptr %100, align 8
+  %101 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %102 unwind label %60
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %30, i64 -48
-  store float %100, ptr %102, align 8
-  %103 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %104 unwind label %60
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds i8, ptr %30, i64 -48
+  store float %101, ptr %103, align 8
+  %104 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %105 unwind label %60
 
-104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %30, i64 -32
-  store float %103, ptr %105, align 8
-  %106 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %107 unwind label %60
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds i8, ptr %30, i64 -32
+  store float %104, ptr %106, align 8
+  %107 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %108 unwind label %60
 
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %30, i64 -16
-  store float %106, ptr %108, align 8
-  %109 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %110 unwind label %60
+108:                                              ; preds = %105
+  %109 = getelementptr inbounds i8, ptr %30, i64 -16
+  store float %107, ptr %109, align 8
+  %110 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %111 unwind label %60
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %30, i64 -60
-  store float %109, ptr %111, align 4
-  %112 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %113 unwind label %60
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds i8, ptr %30, i64 -60
+  store float %110, ptr %112, align 4
+  %113 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %114 unwind label %60
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %30, i64 -44
-  store float %112, ptr %114, align 4
-  %115 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %116 unwind label %60
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds i8, ptr %30, i64 -44
+  store float %113, ptr %115, align 4
+  %116 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %117 unwind label %60
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %30, i64 -28
-  store float %115, ptr %117, align 4
-  %118 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %119 unwind label %60
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds i8, ptr %30, i64 -28
+  store float %116, ptr %118, align 4
+  %119 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %120 unwind label %60
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %30, i64 -12
-  store float %118, ptr %120, align 4
-  %121 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %122 unwind label %60
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds i8, ptr %30, i64 -12
+  store float %119, ptr %121, align 4
+  %122 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %123 unwind label %60
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %30, i64 -56
-  store float %121, ptr %123, align 8
-  %124 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %125 unwind label %60
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds i8, ptr %30, i64 -56
+  store float %122, ptr %124, align 8
+  %125 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %126 unwind label %60
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %30, i64 -40
-  store float %124, ptr %126, align 8
-  %127 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %128 unwind label %60
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds i8, ptr %30, i64 -40
+  store float %125, ptr %127, align 8
+  %128 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %129 unwind label %60
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %30, i64 -24
-  store float %127, ptr %129, align 8
-  %130 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %131 unwind label %60
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %30, i64 -24
+  store float %128, ptr %130, align 8
+  %131 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %132 unwind label %60
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %30, i64 -8
-  store float %130, ptr %132, align 8
-  %133 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %134 unwind label %60
+132:                                              ; preds = %129
+  %133 = getelementptr inbounds i8, ptr %30, i64 -8
+  store float %131, ptr %133, align 8
+  %134 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %135 unwind label %60
 
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %30, i64 -52
-  store float %133, ptr %135, align 4
-  %136 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %137 unwind label %60
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds i8, ptr %30, i64 -52
+  store float %134, ptr %136, align 4
+  %137 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %138 unwind label %60
 
-137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %30, i64 -36
-  store float %136, ptr %138, align 4
-  %139 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %140 unwind label %60
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds i8, ptr %30, i64 -36
+  store float %137, ptr %139, align 4
+  %140 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %141 unwind label %60
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %30, i64 -20
-  store float %139, ptr %141, align 4
-  %142 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %143 unwind label %60
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds i8, ptr %30, i64 -20
+  store float %140, ptr %142, align 4
+  %143 = invoke noundef float @_ZN6Assimp11XFileParser9ReadFloatEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %144 unwind label %60
 
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %30, i64 -4
-  store float %142, ptr %144, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %146 = load i8, ptr %145, align 8, !range !5, !noundef !6
-  %147 = trunc nuw i8 %146 to i1
-  br i1 %147, label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit, label %148
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds i8, ptr %30, i64 -4
+  store float %143, ptr %145, align 4
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %147 = load i8, ptr %146, align 8, !range !5, !noundef !6
+  %148 = trunc nuw i8 %147 to i1
+  br i1 %148, label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit, label %149
 
-148:                                              ; preds = %143
+149:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN6Assimp11XFileParser12GetNextTokenB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %.noexc49 unwind label %60
 
-.noexc49:                                         ; preds = %148
-  %149 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.46) #29
-  %.not.i48 = icmp eq i32 %149, 0
-  %150 = load ptr, ptr %4, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %152 = icmp eq ptr %150, %151
-  br i1 %152, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+.noexc49:                                         ; preds = %149
+  %150 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.46) #29
+  %.not.i48 = icmp eq i32 %150, 0
+  %151 = load ptr, ptr %4, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %153 = icmp eq ptr %151, %152
+  br i1 %153, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %.noexc49
-  %153 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %154 = load i64, ptr %153, align 8
-  %155 = icmp ult i64 %154, 16
-  call void @llvm.assume(i1 %155)
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %155 = load i64, ptr %154, align 8
+  %156 = icmp ult i64 %155, 16
+  call void @llvm.assume(i1 %156)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %.noexc49
-  %156 = load i64, ptr %151, align 8
-  %157 = add i64 %156, 1
-  call void @_ZdlPvm(ptr noundef %150, i64 noundef %157) #32
+  %157 = load i64, ptr %152, align 8
+  %158 = add i64 %157, 1
+  call void @_ZdlPvm(ptr noundef %151, i64 noundef %158) #32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not.i48, label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit, label %158
+  br i1 %.not.i48, label %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit, label %159
 
-158:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+159:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   invoke void @_ZN6Assimp11XFileParser14ThrowExceptionIJRA20_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 dereferenceable(20) @.str.72) #30
           to label %.noexc50 unwind label %60
 
-.noexc50:                                         ; preds = %158
+.noexc50:                                         ; preds = %159
   unreachable
 
-_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %143
+_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %144
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN6Assimp11XFileParser12GetNextTokenB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %.noexc55 unwind label %60
 
 .noexc55:                                         ; preds = %_ZN6Assimp11XFileParser17CheckForSemicolonEv.exit
-  %159 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.20) #29
-  %.not.i51 = icmp eq i32 %159, 0
-  %160 = load ptr, ptr %3, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %162 = icmp eq ptr %160, %161
-  br i1 %162, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i52
+  %160 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.20) #29
+  %.not.i51 = icmp eq i32 %160, 0
+  %161 = load ptr, ptr %3, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %163 = icmp eq ptr %161, %162
+  br i1 %163, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i52
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i54: ; preds = %.noexc55
-  %163 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %164 = load i64, ptr %163, align 8
-  %165 = icmp ult i64 %164, 16
-  call void @llvm.assume(i1 %165)
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %165 = load i64, ptr %164, align 8
+  %166 = icmp ult i64 %165, 16
+  call void @llvm.assume(i1 %166)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i53
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i52: ; preds = %.noexc55
-  %166 = load i64, ptr %161, align 8
-  %167 = add i64 %166, 1
-  call void @_ZdlPvm(ptr noundef %160, i64 noundef %167) #32
+  %167 = load i64, ptr %162, align 8
+  %168 = add i64 %167, 1
+  call void @_ZdlPvm(ptr noundef %161, i64 noundef %168) #32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i53
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i53: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i54
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not.i51, label %_ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit, label %168
+  br i1 %.not.i51, label %_ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit, label %169
 
-168:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i53
+169:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i53
   invoke void @_ZN6Assimp11XFileParser14ThrowExceptionIJRA24_KcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 dereferenceable(24) @.str.71) #30
           to label %.noexc56 unwind label %60
 
-.noexc56:                                         ; preds = %168
+.noexc56:                                         ; preds = %169
   unreachable
 
 _ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i53
-  %169 = load ptr, ptr %5, align 8
-  %170 = icmp eq ptr %169, %8
-  br i1 %170, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %170 = load ptr, ptr %5, align 8
+  %171 = icmp eq ptr %170, %8
+  br i1 %171, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit
-  %171 = load i64, ptr %9, align 8
-  %172 = icmp ult i64 %171, 16
-  call void @llvm.assume(i1 %172)
+  %172 = load i64, ptr %9, align 8
+  %173 = icmp ult i64 %172, 16
+  call void @llvm.assume(i1 %173)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN6Assimp11XFileParser20CheckForClosingBraceEv.exit
-  %173 = load i64, ptr %8, align 8
-  %174 = add i64 %173, 1
-  call void @_ZdlPvm(ptr noundef %169, i64 noundef %174) #32
+  %174 = load i64, ptr %8, align 8
+  %175 = add i64 %174, 1
+  call void @_ZdlPvm(ptr noundef %170, i64 noundef %175) #32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %175
+  br label %176
 
-175:                                              ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+176:                                              ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret void
 
-176:                                              ; preds = %.loopexit, %.loopexit.split-lp, %58, %96, %60, %56
-  %.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %59, %58 ], [ %97, %96 ], [ %61, %60 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %177 = load ptr, ptr %5, align 8
-  %178 = icmp eq ptr %177, %8
-  br i1 %178, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
+177:                                              ; preds = %.loopexit, %.loopexit.split-lp, %58, %97, %60, %56
+  %.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %59, %58 ], [ %98, %97 ], [ %61, %60 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %178 = load ptr, ptr %5, align 8
+  %179 = icmp eq ptr %178, %8
+  br i1 %179, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i58: ; preds = %176
-  %179 = load i64, ptr %9, align 8
-  %180 = icmp ult i64 %179, 16
-  call void @llvm.assume(i1 %180)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i58: ; preds = %177
+  %180 = load i64, ptr %9, align 8
+  %181 = icmp ult i64 %180, 16
+  call void @llvm.assume(i1 %181)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57: ; preds = %176
-  %181 = load i64, ptr %8, align 8
-  %182 = add i64 %181, 1
-  call void @_ZdlPvm(ptr noundef %177, i64 noundef %182) #32
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57: ; preds = %177
+  %182 = load i64, ptr %8, align 8
+  %183 = add i64 %182, 1
+  call void @_ZdlPvm(ptr noundef %178, i64 noundef %183) #32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57

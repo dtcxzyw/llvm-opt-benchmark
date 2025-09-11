@@ -4688,13 +4688,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffma
   %wide.trip.count101 = zext nneg i32 %2 to i64
   br label %37
 
-37:                                               ; preds = %.lr.ph86, %74
-  %indvars.iv98 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next99, %74 ]
+37:                                               ; preds = %.lr.ph86, %72
+  %indvars.iv98 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next99, %72 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv98
   %39 = load i8, ptr %38, align 1, !tbaa !5
   %40 = zext i8 %39 to i32
   %.not = icmp eq i8 %39, 0
-  br i1 %.not, label %74, label %41
+  br i1 %.not, label %72, label %41
 
 41:                                               ; preds = %37
   %42 = zext i8 %39 to i64
@@ -4719,43 +4719,39 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL14zbuild_huffmanP8zhuffma
   %60 = getelementptr inbounds i16, ptr %36, i64 %57
   store i16 %59, ptr %60, align 2, !tbaa !33
   %61 = icmp ult i8 %39, 10
-  br i1 %61, label %62, label %.loopexit
+  br i1 %61, label %.lr.ph83, label %.loopexit
 
-62:                                               ; preds = %41
+.lr.ph83:                                         ; preds = %41
   %trunc.i = trunc i32 %44 to i16
   %rev.i = tail call i16 @llvm.bitreverse.i16(i16 %trunc.i)
-  %63 = zext i16 %rev.i to i32
-  %64 = sub nuw nsw i32 16, %40
-  %65 = lshr i32 %63, %64
-  %66 = icmp samesign ult i32 %65, 512
-  br i1 %66, label %.lr.ph83, label %.loopexit
+  %62 = zext i16 %rev.i to i32
+  %63 = sub nuw nsw i32 16, %40
+  %64 = lshr i32 %62, %63
+  %65 = shl nuw nsw i32 1, %40
+  %66 = zext nneg i32 %64 to i64
+  %67 = zext nneg i32 %65 to i64
+  br label %68
 
-.lr.ph83:                                         ; preds = %62
-  %67 = shl nuw nsw i32 1, %40
-  %68 = zext nneg i32 %65 to i64
-  %69 = zext nneg i32 %67 to i64
-  br label %70
+68:                                               ; preds = %.lr.ph83, %68
+  %indvars.iv95 = phi i64 [ %66, %.lr.ph83 ], [ %indvars.iv.next96, %68 ]
+  %69 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv95
+  store i16 %56, ptr %69, align 2, !tbaa !33
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, %67
+  %70 = icmp samesign ult i64 %indvars.iv.next96, 512
+  br i1 %70, label %68, label %.loopexit, !llvm.loop !44
 
-70:                                               ; preds = %.lr.ph83, %70
-  %indvars.iv95 = phi i64 [ %68, %.lr.ph83 ], [ %indvars.iv.next96, %70 ]
-  %71 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv95
-  store i16 %56, ptr %71, align 2, !tbaa !33
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, %69
-  %72 = icmp samesign ult i64 %indvars.iv.next96, 512
-  br i1 %72, label %70, label %.loopexit, !llvm.loop !44
+.loopexit:                                        ; preds = %68, %41
+  %71 = add nsw i32 %44, 1
+  store i32 %71, ptr %43, align 4, !tbaa !10
+  br label %72
 
-.loopexit:                                        ; preds = %70, %62, %41
-  %73 = add nsw i32 %44, 1
-  store i32 %73, ptr %43, align 4, !tbaa !10
-  br label %74
-
-74:                                               ; preds = %.loopexit, %37
+72:                                               ; preds = %.loopexit, %37
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
   br i1 %exitcond102.not, label %.loopexit72, label %37, !llvm.loop !45
 
-.loopexit72:                                      ; preds = %15, %74, %33
-  %.064 = phi i32 [ 1, %33 ], [ 1, %74 ], [ 0, %15 ]
+.loopexit72:                                      ; preds = %15, %72, %33
+  %.064 = phi i32 [ 1, %33 ], [ 1, %72 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.064

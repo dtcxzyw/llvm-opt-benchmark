@@ -107,7 +107,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %6 = tail call ptr @av_refstruct_alloc_ext_c(i64 noundef 6128, i32 noundef 0, ptr null, ptr noundef null) #11
   store ptr %6, ptr %5, align 8, !tbaa !14
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %618, label %7
+  br i1 %.not, label %619, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -243,7 +243,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 103:                                              ; preds = %30
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %101) #11
-  br label %617
+  br label %618
 
 104:                                              ; preds = %30
   %105 = tail call i32 @llvm.bswap.i32(i32 %83)
@@ -351,7 +351,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 179:                                              ; preds = %157
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef %176) #11
-  br label %617
+  br label %618
 
 180:                                              ; preds = %157
   %181 = icmp eq i8 %175, 3
@@ -378,7 +378,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 195:                                              ; preds = %182
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.3) #11
-  br label %617
+  br label %618
 
 196:                                              ; preds = %180, %182
   %197 = phi i32 [ %..i224, %180 ], [ %spec.select.i225, %182 ]
@@ -429,7 +429,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 234:                                              ; preds = %196
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %1, ptr noundef nonnull @.str.4) #11
-  br label %617
+  br label %618
 
 235:                                              ; preds = %196
   %236 = icmp ugt i8 %212, 6
@@ -437,7 +437,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 237:                                              ; preds = %235
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %214, i32 noundef %232) #11
-  br label %617
+  br label %618
 
 238:                                              ; preds = %235
   %239 = lshr i32 %..i227, 3
@@ -471,7 +471,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %262 = getelementptr inbounds nuw i8, ptr %6, i64 1224
   %263 = tail call fastcc i32 @decode_scaling_matrices(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null, i32 noundef 1, i32 noundef %261, ptr noundef nonnull %262, ptr noundef nonnull %153, ptr noundef nonnull %154)
   %264 = icmp slt i32 %263, 0
-  br i1 %264, label %617, label %265
+  br i1 %264, label %618, label %265
 
 265:                                              ; preds = %238
   %266 = load i32, ptr %155, align 4, !tbaa !36
@@ -515,7 +515,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 293:                                              ; preds = %272
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %291) #11
-  br label %617
+  br label %618
 
 294:                                              ; preds = %272
   %295 = add nuw nsw i32 %291, 4
@@ -560,7 +560,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 319:                                              ; preds = %314
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %315) #11
-  br label %617
+  br label %618
 
 320:                                              ; preds = %294
   %321 = lshr i32 %..i231, 3
@@ -592,7 +592,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 340:                                              ; preds = %320
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.8) #11
-  br label %617
+  br label %618
 
 341:                                              ; preds = %320
   %342 = tail call fastcc i32 @get_ue_golomb(ptr noundef nonnull %0)
@@ -611,7 +611,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 346:                                              ; preds = %341
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.9, i32 noundef %342) #11
-  br label %617
+  br label %618
 
 347:                                              ; preds = %351
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -630,11 +630,11 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 355:                                              ; preds = %351
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.10) #11
-  br label %617
+  br label %618
 
 356:                                              ; preds = %294
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %312) #11
-  br label %617
+  br label %618
 
 .loopexit247:                                     ; preds = %347, %.preheader, %.thread, %294
   %357 = tail call fastcc i32 @get_ue_golomb_31(ptr noundef nonnull %0)
@@ -657,7 +657,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 366:                                              ; preds = %363
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %364) #11
-  br label %617
+  br label %618
 
 367:                                              ; preds = %363
   %368 = load i32, ptr %31, align 8, !tbaa !28
@@ -709,7 +709,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 405:                                              ; preds = %367
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull @.str.13) #11
-  br label %617
+  br label %618
 
 406:                                              ; preds = %367
   %407 = sub nuw nsw i32 2, %402
@@ -751,7 +751,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 429:                                              ; preds = %425, %421
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull @.str.14) #11
-  br label %617
+  br label %618
 
 430:                                              ; preds = %425
   %431 = load i32, ptr %31, align 8, !tbaa !28
@@ -864,7 +864,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 503:                                              ; preds = %492, %489, %485, %472
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull @.str.16, i32 noundef %459, i32 noundef %460, i32 noundef %461, i32 noundef %462, i32 noundef %464, i32 noundef %466) #11
-  br label %617
+  br label %618
 
 504:                                              ; preds = %430
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %457, i8 0, i64 20, i1 false)
@@ -895,7 +895,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 520:                                              ; preds = %.thread244
   %521 = tail call fastcc i32 @decode_vui_parameters(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
   %522 = icmp slt i32 %521, 0
-  br i1 %522, label %617, label %._crit_edge
+  br i1 %522, label %618, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %520
   %.val.pre = load i32, ptr %31, align 8, !tbaa !28
@@ -919,7 +919,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %532 = select i1 %.not198, ptr @.str.19, ptr @.str.18
   %533 = sub nsw i32 0, %524
   tail call void (ptr, i32, i32, ptr, ptr, ...) @av_log_once(ptr noundef nonnull %1, i32 noundef %527, i32 noundef 48, ptr noundef nonnull %531, ptr noundef nonnull @.str.17, ptr noundef nonnull %532, i32 noundef %533) #11
-  br i1 %.not197, label %617, label %534
+  br i1 %.not197, label %618, label %534
 
 534:                                              ; preds = %526, %523
   %535 = getelementptr inbounds nuw i8, ptr %6, i64 1208
@@ -957,126 +957,127 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   br i1 %550, label %551, label %546
 
 551:                                              ; preds = %547
-  %552 = getelementptr inbounds nuw [2 x i32], ptr @level_max_dpb_mbs, i64 %indvars.iv253, i64 1
-  %553 = load i32, ptr %552, align 4, !tbaa !51
-  %554 = load i32, ptr %385, align 8, !tbaa !70
-  %555 = load i32, ptr %388, align 4, !tbaa !71
-  %556 = mul nsw i32 %555, %554
-  %557 = sdiv i32 %553, %556
-  %. = tail call i32 @llvm.smin.i32(i32 %557, i32 15)
+  %552 = getelementptr inbounds nuw [2 x i32], ptr @level_max_dpb_mbs, i64 %indvars.iv253
+  %553 = getelementptr inbounds nuw i8, ptr %552, i64 4
+  %554 = load i32, ptr %553, align 4, !tbaa !51
+  %555 = load i32, ptr %385, align 8, !tbaa !70
+  %556 = load i32, ptr %388, align 4, !tbaa !71
+  %557 = mul nsw i32 %556, %555
+  %558 = sdiv i32 %554, %557
+  %. = tail call i32 @llvm.smin.i32(i32 %558, i32 15)
   store i32 %., ptr %544, align 4, !tbaa !84
   br label %.loopexit
 
 .loopexit:                                        ; preds = %546, %551, %539, %534
-  %558 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %559 = load i32, ptr %558, align 4, !tbaa !86
-  %.not201 = icmp eq i32 %559, 0
-  br i1 %.not201, label %560, label %561
+  %559 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %560 = load i32, ptr %559, align 4, !tbaa !86
+  %.not201 = icmp eq i32 %560, 0
+  br i1 %.not201, label %561, label %562
 
-560:                                              ; preds = %.loopexit
-  store i32 1, ptr %558, align 4, !tbaa !86
-  br label %561
+561:                                              ; preds = %.loopexit
+  store i32 1, ptr %559, align 4, !tbaa !86
+  br label %562
 
-561:                                              ; preds = %560, %.loopexit
-  %562 = getelementptr inbounds nuw i8, ptr %1, i64 524
-  %563 = load i32, ptr %562, align 4, !tbaa !87
-  %564 = and i32 %563, 1
-  %.not202 = icmp eq i32 %564, 0
-  br i1 %.not202, label %610, label %565
+562:                                              ; preds = %561, %.loopexit
+  %563 = getelementptr inbounds nuw i8, ptr %1, i64 524
+  %564 = load i32, ptr %563, align 4, !tbaa !87
+  %565 = and i32 %564, 1
+  %.not202 = icmp eq i32 %565, 0
+  br i1 %.not202, label %611, label %566
 
-565:                                              ; preds = %561
-  %566 = load i32, ptr %149, align 4, !tbaa !32
-  %567 = load i32, ptr %151, align 8, !tbaa !34
-  %568 = load i32, ptr %313, align 8, !tbaa !44
-  %569 = load i32, ptr %358, align 8, !tbaa !52
-  %570 = load i32, ptr %385, align 8, !tbaa !70
-  %571 = load i32, ptr %388, align 4, !tbaa !71
-  %572 = load i32, ptr %403, align 8, !tbaa !72
-  %.not203 = icmp eq i32 %572, 0
-  br i1 %.not203, label %573, label %576
+566:                                              ; preds = %562
+  %567 = load i32, ptr %149, align 4, !tbaa !32
+  %568 = load i32, ptr %151, align 8, !tbaa !34
+  %569 = load i32, ptr %313, align 8, !tbaa !44
+  %570 = load i32, ptr %358, align 8, !tbaa !52
+  %571 = load i32, ptr %385, align 8, !tbaa !70
+  %572 = load i32, ptr %388, align 4, !tbaa !71
+  %573 = load i32, ptr %403, align 8, !tbaa !72
+  %.not203 = icmp eq i32 %573, 0
+  br i1 %.not203, label %574, label %577
 
-573:                                              ; preds = %565
-  %574 = load i32, ptr %422, align 4, !tbaa !73
-  %.not204 = icmp eq i32 %574, 0
-  %575 = select i1 %.not204, ptr @.str.23, ptr @.str.22
-  br label %576
+574:                                              ; preds = %566
+  %575 = load i32, ptr %422, align 4, !tbaa !73
+  %.not204 = icmp eq i32 %575, 0
+  %576 = select i1 %.not204, ptr @.str.23, ptr @.str.22
+  br label %577
 
-576:                                              ; preds = %565, %573
-  %577 = phi ptr [ %575, %573 ], [ @.str.21, %565 ]
-  %578 = load i32, ptr %445, align 8, !tbaa !74
-  %.not205 = icmp eq i32 %578, 0
-  %579 = select i1 %.not205, ptr @.str.25, ptr @.str.24
-  %580 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %581 = load i32, ptr %580, align 8, !tbaa !77
-  %582 = getelementptr inbounds nuw i8, ptr %6, i64 84
-  %583 = load i32, ptr %582, align 4, !tbaa !78
-  %584 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %585 = load i32, ptr %584, align 8, !tbaa !79
-  %586 = getelementptr inbounds nuw i8, ptr %6, i64 92
-  %587 = load i32, ptr %586, align 4, !tbaa !80
-  %588 = load i32, ptr %519, align 8, !tbaa !81
-  %.not206 = icmp eq i32 %588, 0
-  %589 = select i1 %.not206, ptr @.str.25, ptr @.str.18
-  %590 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %591 = load i32, ptr %590, align 4, !tbaa !38
-  %592 = sext i32 %591 to i64
-  %593 = getelementptr inbounds [5 x i8], ptr @ff_h264_decode_seq_parameter_set.csp, i64 %592
-  %594 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %595 = load i32, ptr %594, align 8, !tbaa !88
-  %.not207 = icmp eq i32 %595, 0
-  br i1 %.not207, label %.thread246, label %596
+577:                                              ; preds = %566, %574
+  %578 = phi ptr [ %576, %574 ], [ @.str.21, %566 ]
+  %579 = load i32, ptr %445, align 8, !tbaa !74
+  %.not205 = icmp eq i32 %579, 0
+  %580 = select i1 %.not205, ptr @.str.25, ptr @.str.24
+  %581 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %582 = load i32, ptr %581, align 8, !tbaa !77
+  %583 = getelementptr inbounds nuw i8, ptr %6, i64 84
+  %584 = load i32, ptr %583, align 4, !tbaa !78
+  %585 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %586 = load i32, ptr %585, align 8, !tbaa !79
+  %587 = getelementptr inbounds nuw i8, ptr %6, i64 92
+  %588 = load i32, ptr %587, align 4, !tbaa !80
+  %589 = load i32, ptr %519, align 8, !tbaa !81
+  %.not206 = icmp eq i32 %589, 0
+  %590 = select i1 %.not206, ptr @.str.25, ptr @.str.18
+  %591 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %592 = load i32, ptr %591, align 4, !tbaa !38
+  %593 = sext i32 %592 to i64
+  %594 = getelementptr inbounds [5 x i8], ptr @ff_h264_decode_seq_parameter_set.csp, i64 %593
+  %595 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %596 = load i32, ptr %595, align 8, !tbaa !88
+  %.not207 = icmp eq i32 %596, 0
+  br i1 %.not207, label %.thread246, label %597
 
-596:                                              ; preds = %576
-  %597 = getelementptr inbounds nuw i8, ptr %6, i64 172
-  %598 = load i32, ptr %597, align 4, !tbaa !89
-  %599 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %600 = load i32, ptr %599, align 8, !tbaa !90
+597:                                              ; preds = %577
+  %598 = getelementptr inbounds nuw i8, ptr %6, i64 172
+  %599 = load i32, ptr %598, align 4, !tbaa !89
+  %600 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %601 = load i32, ptr %600, align 8, !tbaa !90
   br label %.thread246
 
-.thread246:                                       ; preds = %576, %596
-  %601 = phi i32 [ %598, %596 ], [ 0, %576 ]
-  %602 = phi i32 [ %600, %596 ], [ 0, %576 ]
-  %603 = getelementptr inbounds nuw i8, ptr %6, i64 2004
-  %604 = load i32, ptr %603, align 4, !tbaa !40
-  br i1 %.not199, label %608, label %605
+.thread246:                                       ; preds = %577, %597
+  %602 = phi i32 [ %599, %597 ], [ 0, %577 ]
+  %603 = phi i32 [ %601, %597 ], [ 0, %577 ]
+  %604 = getelementptr inbounds nuw i8, ptr %6, i64 2004
+  %605 = load i32, ptr %604, align 4, !tbaa !40
+  br i1 %.not199, label %609, label %606
 
-605:                                              ; preds = %.thread246
-  %606 = getelementptr inbounds nuw i8, ptr %6, i64 1212
-  %607 = load i32, ptr %606, align 4, !tbaa !84
-  br label %608
+606:                                              ; preds = %.thread246
+  %607 = getelementptr inbounds nuw i8, ptr %6, i64 1212
+  %608 = load i32, ptr %607, align 4, !tbaa !84
+  br label %609
 
-608:                                              ; preds = %.thread246, %605
-  %609 = phi i32 [ %607, %605 ], [ -1, %.thread246 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 48, ptr noundef nonnull @.str.20, i32 noundef %101, i32 noundef %566, i32 noundef %567, i32 noundef %568, i32 noundef %569, i32 noundef %570, i32 noundef %571, ptr noundef nonnull %577, ptr noundef nonnull %579, i32 noundef %581, i32 noundef %583, i32 noundef %585, i32 noundef %587, ptr noundef nonnull %589, ptr noundef nonnull %593, i32 noundef %601, i32 noundef %602, i32 noundef %604, i32 noundef %609) #11
-  br label %610
+609:                                              ; preds = %.thread246, %606
+  %610 = phi i32 [ %608, %606 ], [ -1, %.thread246 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 48, ptr noundef nonnull @.str.20, i32 noundef %101, i32 noundef %567, i32 noundef %568, i32 noundef %569, i32 noundef %570, i32 noundef %571, i32 noundef %572, ptr noundef nonnull %578, ptr noundef nonnull %580, i32 noundef %582, i32 noundef %584, i32 noundef %586, i32 noundef %588, ptr noundef nonnull %590, ptr noundef nonnull %594, i32 noundef %602, i32 noundef %603, i32 noundef %605, i32 noundef %610) #11
+  br label %611
 
-610:                                              ; preds = %608, %561
-  %611 = zext nneg i8 %100 to i64
-  %612 = getelementptr inbounds nuw ptr, ptr %2, i64 %611
-  %613 = load ptr, ptr %612, align 8, !tbaa !14
-  %.not210 = icmp eq ptr %613, null
-  br i1 %.not210, label %616, label %614
+611:                                              ; preds = %609, %562
+  %612 = zext nneg i8 %100 to i64
+  %613 = getelementptr inbounds nuw ptr, ptr %2, i64 %612
+  %614 = load ptr, ptr %613, align 8, !tbaa !14
+  %.not210 = icmp eq ptr %614, null
+  br i1 %.not210, label %617, label %615
 
-614:                                              ; preds = %610
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6128) %613, ptr noundef nonnull dereferenceable(6128) %6, i64 6128)
+615:                                              ; preds = %611
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6128) %614, ptr noundef nonnull dereferenceable(6128) %6, i64 6128)
   %.not211 = icmp eq i32 %bcmp, 0
-  br i1 %.not211, label %615, label %616
+  br i1 %.not211, label %616, label %617
 
-615:                                              ; preds = %614
+616:                                              ; preds = %615
   call void @av_refstruct_unref(ptr noundef nonnull %5) #11
-  br label %618
+  br label %619
 
-616:                                              ; preds = %614, %610
-  tail call void @av_refstruct_unref(ptr noundef nonnull %612) #11
-  store ptr %6, ptr %612, align 8, !tbaa !14
-  br label %618
+617:                                              ; preds = %615, %611
+  tail call void @av_refstruct_unref(ptr noundef nonnull %613) #11
+  store ptr %6, ptr %613, align 8, !tbaa !14
+  br label %619
 
-617:                                              ; preds = %503, %319, %526, %520, %238, %429, %405, %366, %356, %355, %346, %340, %293, %237, %234, %195, %179, %103
+618:                                              ; preds = %503, %319, %526, %520, %238, %429, %405, %366, %356, %355, %346, %340, %293, %237, %234, %195, %179, %103
   call void @av_refstruct_unref(ptr noundef nonnull %5) #11
-  br label %618
+  br label %619
 
-618:                                              ; preds = %615, %616, %4, %617
-  %.0 = phi i32 [ -1094995529, %617 ], [ -12, %4 ], [ 0, %616 ], [ 0, %615 ]
+619:                                              ; preds = %616, %617, %4, %618
+  %.0 = phi i32 [ -1094995529, %618 ], [ -12, %4 ], [ 0, %617 ], [ 0, %616 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

@@ -5523,7 +5523,7 @@ define internal fastcc void @lookup_rlc_bearer_from_lcid(i16 noundef zeroext %0,
   store i8 0, ptr %6, align 1
   %8 = load i32, ptr @global_mac_nr_lcid_drb_source, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.preheader, label %25
+  br i1 %9, label %.preheader, label %26
 
 .preheader:                                       ; preds = %7
   %10 = load i32, ptr @num_lcid_drb_mappings, align 4
@@ -5562,80 +5562,81 @@ get_rlc_seqnum_length.exit:                       ; preds = %14
   %.0.i = select i1 %19, i8 %switch.masked, i8 0
   store i8 %.0.i, ptr %4, align 1
   %20 = load ptr, ptr @lcid_drb_mappings, align 8
-  %21 = getelementptr %struct.lcid_drb_mapping_t, ptr %20, i64 %indvars.iv, i32 1
-  %22 = load i32, ptr %21, align 4
-  store i32 %22, ptr %5, align 4
-  br label %47
+  %21 = getelementptr %struct.lcid_drb_mapping_t, ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i32, ptr %22, align 4
+  store i32 %23, ptr %5, align 4
+  br label %48
 
 ._crit_edge:                                      ; preds = %13, %.preheader
-  %23 = add nsw i8 %1, -3
-  %or.cond = icmp ult i8 %23, 2
-  br i1 %or.cond, label %24, label %47
+  %24 = add nsw i8 %1, -3
+  %or.cond = icmp ult i8 %24, 2
+  br i1 %or.cond, label %25, label %48
 
-24:                                               ; preds = %._crit_edge
+25:                                               ; preds = %._crit_edge
   store i8 1, ptr %6, align 1
-  br label %47
+  br label %48
 
-25:                                               ; preds = %7
-  %26 = load ptr, ptr @mac_nr_ue_bearers_hash, align 8
-  %27 = zext i16 %0 to i64
-  %28 = inttoptr i64 %27 to ptr
-  %29 = tail call ptr @g_hash_table_lookup(ptr noundef %26, ptr noundef %28)
-  %.not = icmp eq ptr %29, null
-  br i1 %.not, label %30, label %33
+26:                                               ; preds = %7
+  %27 = load ptr, ptr @mac_nr_ue_bearers_hash, align 8
+  %28 = zext i16 %0 to i64
+  %29 = inttoptr i64 %28 to ptr
+  %30 = tail call ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef %29)
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %31, label %34
 
-30:                                               ; preds = %25
-  %31 = add nsw i8 %1, -3
-  %or.cond5 = icmp ult i8 %31, 2
-  br i1 %or.cond5, label %32, label %47
+31:                                               ; preds = %26
+  %32 = add nsw i8 %1, -3
+  %or.cond5 = icmp ult i8 %32, 2
+  br i1 %or.cond5, label %33, label %48
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   store i8 1, ptr %6, align 1
-  br label %47
+  br label %48
 
-33:                                               ; preds = %25
-  switch i8 %1, label %36 [
+34:                                               ; preds = %26
+  switch i8 %1, label %37 [
     i8 3, label %.sink.split
-    i8 4, label %34
+    i8 4, label %35
   ]
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %29, i64 1
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %33, %34
-  %.sink.in = phi ptr [ %35, %34 ], [ %29, %33 ]
+.sink.split:                                      ; preds = %34, %35
+  %.sink.in = phi ptr [ %36, %35 ], [ %30, %34 ]
   %.sink = load i8, ptr %.sink.in, align 1, !range !8, !noundef !9
   store i8 %.sink, ptr %6, align 1
-  br label %36
+  br label %37
 
-36:                                               ; preds = %.sink.split, %33
-  %37 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %38 = zext nneg i8 %1 to i64
-  %39 = getelementptr %struct.dynamic_lcid_drb_mapping_t, ptr %37, i64 %38
-  %40 = load i8, ptr %39, align 4, !range !8, !noundef !9
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %get_rlc_seqnum_length.exit52, label %47
+37:                                               ; preds = %.sink.split, %34
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %39 = zext nneg i8 %1 to i64
+  %40 = getelementptr %struct.dynamic_lcid_drb_mapping_t, ptr %38, i64 %39
+  %41 = load i8, ptr %40, align 4, !range !8, !noundef !9
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %get_rlc_seqnum_length.exit52, label %48
 
-get_rlc_seqnum_length.exit52:                     ; preds = %36
-  %42 = icmp eq i8 %2, 0
-  %.in.v = select i1 %42, i64 8, i64 12
-  %.in = getelementptr inbounds nuw i8, ptr %39, i64 %.in.v
-  %43 = load i32, ptr %.in, align 4
-  store i32 %43, ptr %3, align 4
-  %44 = icmp ult i32 %43, 6
-  %switch.cast4 = zext i32 %43 to i48
+get_rlc_seqnum_length.exit52:                     ; preds = %37
+  %43 = icmp eq i8 %2, 0
+  %.in.v = select i1 %43, i64 8, i64 12
+  %.in = getelementptr inbounds nuw i8, ptr %40, i64 %.in.v
+  %44 = load i32, ptr %.in, align 4
+  store i32 %44, ptr %3, align 4
+  %45 = icmp ult i32 %44, 6
+  %switch.cast4 = zext i32 %44 to i48
   %switch.shiftamt5 = shl nuw nsw i48 %switch.cast4, 3
   %switch.downshift6 = lshr i48 19842950627328, %switch.shiftamt5
   %switch.masked7 = trunc i48 %switch.downshift6 to i8
-  %.0.i51 = select i1 %44, i8 %switch.masked7, i8 0
+  %.0.i51 = select i1 %45, i8 %switch.masked7, i8 0
   store i8 %.0.i51, ptr %4, align 1
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %46 = load i32, ptr %45, align 4
-  store i32 %46, ptr %5, align 4
-  br label %47
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %47 = load i32, ptr %46, align 4
+  store i32 %47, ptr %5, align 4
+  br label %48
 
-47:                                               ; preds = %get_rlc_seqnum_length.exit52, %30, %32, %36, %get_rlc_seqnum_length.exit, %._crit_edge, %24
+48:                                               ; preds = %get_rlc_seqnum_length.exit52, %31, %33, %37, %get_rlc_seqnum_length.exit, %._crit_edge, %25
   ret void
 }
 

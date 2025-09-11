@@ -210,7 +210,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %78 = load i32, ptr %77, align 4, !tbaa !34
   %79 = add nsw i32 %78, 1
   store i32 %79, ptr %77, align 4, !tbaa !34
-  %80 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %59, i64 %60, i32 0, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %81 = load ptr, ptr %80, align 8, !tbaa !16
   %82 = ptrtoint ptr %81 to i64
   %83 = trunc i64 %82 to i32
@@ -497,7 +497,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa !16
   %254 = sext i32 %.0123 to i64
   %255 = inttoptr i64 %254 to ptr
-  %256 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %252, i64 %60, i32 0, i64 4
+  %256 = getelementptr inbounds nuw i8, ptr %253, i64 32
   store ptr %255, ptr %256, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

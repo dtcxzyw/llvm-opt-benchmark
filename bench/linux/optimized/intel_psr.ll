@@ -3941,7 +3941,8 @@ define dso_local i32 @intel_psr2_sel_fetch_update(ptr noundef %0, ptr noundef %1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr %struct.__drm_crtcs_state, ptr %8, i64 %11, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %8, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1411
   %15 = load i8, ptr %14, align 1, !range !5, !noundef !6
@@ -4640,9 +4641,10 @@ define dso_local void @intel_psr_pre_plane_update(ptr noundef readonly captures(
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 2
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %12 = getelementptr i8, ptr %.split, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 2624
   %15 = load ptr, ptr %14, align 8
@@ -4910,7 +4912,8 @@ define dso_local void @intel_psr_post_plane_update(ptr noundef readonly captures
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr %struct.__drm_crtcs_state, ptr %9, i64 %12, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %9, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1409
   %16 = load i8, ptr %15, align 1, !range !5, !noundef !6
@@ -6004,7 +6007,7 @@ define dso_local i32 @intel_psr_debug_set(ptr noundef %0, i64 noundef %1) local_
   %39 = add i32 %38, 8
   %40 = shl i32 4, %39
   %41 = select i1 %37, i32 4, i32 %40
-  %42 = icmp ult i32 %7, 16
+  %42 = icmp samesign ult i32 %7, 16
   %43 = shl i32 3, %39
   %44 = select i1 %37, i32 3, i32 %43
   %45 = select i1 %42, i32 0, i32 %44
@@ -6015,7 +6018,7 @@ define dso_local i32 @intel_psr_debug_set(ptr noundef %0, i64 noundef %1) local_
   br label %psr_irq_control.exit
 
 49:                                               ; preds = %30
-  %50 = icmp ult i32 %7, 16
+  %50 = icmp samesign ult i32 %7, 16
   %spec.select.i = select i1 %50, i32 4, i32 7
   %51 = getelementptr inbounds nuw i8, ptr %31, i64 2624
   %52 = load ptr, ptr %51, align 8

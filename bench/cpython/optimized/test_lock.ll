@@ -229,21 +229,22 @@ define internal noundef nonnull ptr @test_lock_counter(ptr readnone captures(non
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !18
   %12 = icmp eq i64 %11, 50000
-  br i1 %12, label %16, label %15
+  br i1 %12, label %17, label %16
 
 .preheader:                                       ; preds = %5, %.preheader
-  %.09 = phi i64 [ %14, %.preheader ], [ 0, %5 ]
-  %13 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.09, i32 1
-  call void @PyEvent_Wait(ptr noundef %13) #6
-  %14 = add nuw nsw i64 %.09, 1
-  %exitcond10.not = icmp eq i64 %14, 5
+  %.09 = phi i64 [ %15, %.preheader ], [ 0, %5 ]
+  %13 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.09
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @PyEvent_Wait(ptr noundef nonnull %14) #6
+  %15 = add nuw nsw i64 %.09, 1
+  %exitcond10.not = icmp eq i64 %15, 5
   br i1 %exitcond10.not, label %9, label %.preheader, !llvm.loop !21
 
-15:                                               ; preds = %9
+16:                                               ; preds = %9
   call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.11, i32 noundef 146, ptr noundef nonnull @__PRETTY_FUNCTION__.test_lock_counter) #7
   unreachable
 
-16:                                               ; preds = %9
+17:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr @_Py_NoneStruct
@@ -272,21 +273,22 @@ define internal noundef nonnull ptr @test_lock_counter_slow(ptr readnone capture
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !18
   %12 = icmp eq i64 %11, 500
-  br i1 %12, label %16, label %15
+  br i1 %12, label %17, label %16
 
 .preheader:                                       ; preds = %5, %.preheader
-  %.09 = phi i64 [ %14, %.preheader ], [ 0, %5 ]
-  %13 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.09, i32 1
-  call void @PyEvent_Wait(ptr noundef %13) #6
-  %14 = add nuw nsw i64 %.09, 1
-  %exitcond10.not = icmp eq i64 %14, 5
+  %.09 = phi i64 [ %15, %.preheader ], [ 0, %5 ]
+  %13 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.09
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @PyEvent_Wait(ptr noundef nonnull %14) #6
+  %15 = add nuw nsw i64 %.09, 1
+  %exitcond10.not = icmp eq i64 %15, 5
   br i1 %exitcond10.not, label %9, label %.preheader, !llvm.loop !23
 
-15:                                               ; preds = %9
+16:                                               ; preds = %9
   call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.11, i32 noundef 189, ptr noundef nonnull @__PRETTY_FUNCTION__.test_lock_counter_slow) #7
   unreachable
 
-16:                                               ; preds = %9
+17:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr @_Py_NoneStruct
@@ -956,99 +958,101 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
   %42 = getelementptr i8, ptr %21, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  br label %47
+  br label %48
 
 .lr.ph8:                                          ; preds = %.lr.ph8.preheader, %.lr.ph8
-  %.0396 = phi i64 [ %46, %.lr.ph8 ], [ 0, %.lr.ph8.preheader ]
-  %45 = getelementptr %struct.bench_thread_data, ptr %16, i64 %.0396, i32 2
-  call void @PyEvent_Wait(ptr noundef %45) #6
-  %46 = add nuw nsw i64 %.0396, 1
-  %exitcond13.not = icmp eq i64 %46, %0
+  %.0396 = phi i64 [ %47, %.lr.ph8 ], [ 0, %.lr.ph8.preheader ]
+  %45 = getelementptr %struct.bench_thread_data, ptr %16, i64 %.0396
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  call void @PyEvent_Wait(ptr noundef nonnull %46) #6
+  %47 = add nuw nsw i64 %.0396, 1
+  %exitcond13.not = icmp eq i64 %47, %0
   br i1 %exitcond13.not, label %._crit_edge9, label %.lr.ph8, !llvm.loop !49
 
-47:                                               ; preds = %.lr.ph11, %59
-  %.03710 = phi i64 [ 0, %.lr.ph11 ], [ %62, %59 ]
-  %48 = getelementptr %struct.bench_thread_data, ptr %16, i64 %.03710, i32 1
-  %49 = load i64, ptr %48, align 8, !tbaa !50
-  %50 = call ptr @PyLong_FromSsize_t(i64 noundef %49) #6
-  %.not = icmp eq ptr %50, null
-  br i1 %.not, label %.loopexit, label %51
+48:                                               ; preds = %.lr.ph11, %61
+  %.03710 = phi i64 [ 0, %.lr.ph11 ], [ %64, %61 ]
+  %49 = getelementptr %struct.bench_thread_data, ptr %16, i64 %.03710
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i64, ptr %50, align 8, !tbaa !50
+  %52 = call ptr @PyLong_FromSsize_t(i64 noundef %51) #6
+  %.not = icmp eq ptr %52, null
+  br i1 %.not, label %.loopexit, label %53
 
-51:                                               ; preds = %47
+53:                                               ; preds = %48
   %.val.i = load ptr, ptr %42, align 8, !tbaa !51
-  %52 = getelementptr i8, ptr %.val.i, i64 168
-  %.val7.i = load i64, ptr %52, align 8, !tbaa !54
-  %53 = and i64 %.val7.i, 33554432
-  %.not.i = icmp eq i64 %53, 0
-  br i1 %.not.i, label %54, label %55
+  %54 = getelementptr i8, ptr %.val.i, i64 168
+  %.val7.i = load i64, ptr %54, align 8, !tbaa !54
+  %55 = and i64 %.val7.i, 33554432
+  %.not.i = icmp eq i64 %55, 0
+  br i1 %.not.i, label %56, label %57
 
-54:                                               ; preds = %51
+56:                                               ; preds = %53
   call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 44, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_SET_ITEM) #7
   unreachable
 
-55:                                               ; preds = %51
-  %56 = load i64, ptr %43, align 8, !tbaa !62
-  %57 = icmp slt i64 %.03710, %56
-  br i1 %57, label %59, label %58
+57:                                               ; preds = %53
+  %58 = load i64, ptr %43, align 8, !tbaa !62
+  %59 = icmp slt i64 %.03710, %58
+  br i1 %59, label %61, label %60
 
-58:                                               ; preds = %55
+60:                                               ; preds = %57
   call void @__assert_fail(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.24, i32 noundef 46, ptr noundef nonnull @__PRETTY_FUNCTION__.PyList_SET_ITEM) #7
   unreachable
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %44, align 8, !tbaa !65
-  %61 = getelementptr ptr, ptr %60, i64 %.03710
-  store ptr %50, ptr %61, align 8, !tbaa !24
-  %62 = add nuw nsw i64 %.03710, 1
-  %exitcond14.not = icmp eq i64 %62, %0
-  br i1 %exitcond14.not, label %._crit_edge12, label %47, !llvm.loop !66
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %44, align 8, !tbaa !65
+  %63 = getelementptr ptr, ptr %62, i64 %.03710
+  store ptr %52, ptr %63, align 8, !tbaa !24
+  %64 = add nuw nsw i64 %.03710, 1
+  %exitcond14.not = icmp eq i64 %64, %0
+  br i1 %exitcond14.not, label %._crit_edge12, label %48, !llvm.loop !66
 
-._crit_edge12:                                    ; preds = %59, %._crit_edge9.thread
-  %63 = phi i64 [ %39, %._crit_edge9.thread ], [ %33, %59 ]
-  %64 = load i64, ptr %7, align 8, !tbaa !67
-  %65 = load i64, ptr %6, align 8, !tbaa !67
-  %.not50 = icmp eq i64 %64, %65
-  br i1 %.not50, label %66, label %67
+._crit_edge12:                                    ; preds = %61, %._crit_edge9.thread
+  %65 = phi i64 [ %39, %._crit_edge9.thread ], [ %33, %61 ]
+  %66 = load i64, ptr %7, align 8, !tbaa !67
+  %67 = load i64, ptr %6, align 8, !tbaa !67
+  %.not50 = icmp eq i64 %66, %67
+  br i1 %.not50, label %68, label %69
 
-66:                                               ; preds = %._crit_edge12
+68:                                               ; preds = %._crit_edge12
   call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.11, i32 noundef 327, ptr noundef nonnull @__PRETTY_FUNCTION__._testinternalcapi_benchmark_locks_impl) #7
   unreachable
 
-67:                                               ; preds = %._crit_edge12
-  %68 = sitofp i64 %63 to double
-  %69 = fmul double %68, 1.000000e+09
-  %70 = sub i64 %64, %65
-  %71 = sitofp i64 %70 to double
-  %72 = fdiv double %69, %71
-  %73 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.22, double noundef %72, ptr noundef nonnull %21) #6
+69:                                               ; preds = %._crit_edge12
+  %70 = sitofp i64 %65 to double
+  %71 = fmul double %70, 1.000000e+09
+  %72 = sub i64 %66, %67
+  %73 = sitofp i64 %72 to double
+  %74 = fdiv double %71, %73
+  %75 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.22, double noundef %74, ptr noundef nonnull %21) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %47, %._crit_edge9.thread, %._crit_edge9, %23, %20, %67, %18
-  %.038 = phi ptr [ null, %18 ], [ null, %20 ], [ null, %23 ], [ null, %._crit_edge9 ], [ %73, %67 ], [ null, %._crit_edge9.thread ], [ null, %47 ]
-  %.036 = phi ptr [ null, %18 ], [ null, %20 ], [ %21, %23 ], [ %21, %._crit_edge9 ], [ %21, %67 ], [ %21, %._crit_edge9.thread ], [ %21, %47 ]
-  %74 = load ptr, ptr %11, align 8, !tbaa !43
-  call void @PyThread_free_lock(ptr noundef %74) #6
+.loopexit:                                        ; preds = %48, %._crit_edge9.thread, %._crit_edge9, %23, %20, %69, %18
+  %.038 = phi ptr [ null, %18 ], [ null, %20 ], [ null, %23 ], [ null, %._crit_edge9 ], [ %75, %69 ], [ null, %._crit_edge9.thread ], [ null, %48 ]
+  %.036 = phi ptr [ null, %18 ], [ null, %20 ], [ %21, %23 ], [ %21, %._crit_edge9 ], [ %21, %69 ], [ %21, %._crit_edge9.thread ], [ %21, %48 ]
+  %76 = load ptr, ptr %11, align 8, !tbaa !43
+  call void @PyThread_free_lock(ptr noundef %76) #6
   call void @PyMem_Free(ptr noundef %16) #6
   %.not.i51 = icmp eq ptr %.036, null
-  br i1 %.not.i51, label %Py_XDECREF.exit, label %75
+  br i1 %.not.i51, label %Py_XDECREF.exit, label %77
 
-75:                                               ; preds = %.loopexit
-  %76 = load i32, ptr %.036, align 8, !tbaa !26
-  %.not.i.i = icmp sgt i32 %76, -1
-  br i1 %.not.i.i, label %77, label %Py_XDECREF.exit
+77:                                               ; preds = %.loopexit
+  %78 = load i32, ptr %.036, align 8, !tbaa !26
+  %.not.i.i = icmp sgt i32 %78, -1
+  br i1 %.not.i.i, label %79, label %Py_XDECREF.exit
 
-77:                                               ; preds = %75
-  %78 = add nsw i32 %76, -1
-  store i32 %78, ptr %.036, align 8, !tbaa !26
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %Py_XDECREF.exit
+79:                                               ; preds = %77
+  %80 = add nsw i32 %78, -1
+  store i32 %80, ptr %.036, align 8, !tbaa !26
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %Py_XDECREF.exit
 
-80:                                               ; preds = %77
+82:                                               ; preds = %79
   call void @_Py_Dealloc(ptr noundef nonnull %.036) #6
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %80, %77, %75, %.loopexit, %13
-  %.0 = phi ptr [ %14, %13 ], [ %.038, %.loopexit ], [ %.038, %75 ], [ %.038, %77 ], [ %.038, %80 ]
+Py_XDECREF.exit:                                  ; preds = %82, %79, %77, %.loopexit, %13
+  %.0 = phi ptr [ %14, %13 ], [ %.038, %.loopexit ], [ %.038, %77 ], [ %.038, %79 ], [ %.038, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

@@ -63,8 +63,9 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr noundef readonly ca
   br i1 %34, label %35, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31
-  %.phi.trans.insert = getelementptr %struct.acpi_table_desc, ptr %24, i64 %26, i32 1
-  %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
+  %.split2.phi.trans.insert = getelementptr %struct.acpi_table_desc, ptr %24, i64 %26
+  %.phi.trans.insert = getelementptr i8, ptr %.split2.phi.trans.insert, i64 8
+  %.pre5 = load ptr, ptr %.phi.trans.insert, align 8
   br label %43
 
 35:                                               ; preds = %31
@@ -74,13 +75,14 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr noundef readonly ca
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %40 = getelementptr %struct.acpi_table_desc, ptr %39, i64 %26, i32 1
+  %.split = getelementptr %struct.acpi_table_desc, ptr %39, i64 %26
+  %40 = getelementptr i8, ptr %.split, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %64, label %43
 
 43:                                               ; preds = %._crit_edge, %38
-  %44 = phi ptr [ %41, %38 ], [ %.pre4, %._crit_edge ]
+  %44 = phi ptr [ %41, %38 ], [ %.pre5, %._crit_edge ]
   %45 = phi ptr [ %39, %38 ], [ %24, %._crit_edge ]
   %46 = call i32 @bcmp(ptr noundef dereferenceable(4) %44, ptr noundef nonnull dereferenceable(4) %5, i64 4)
   %47 = icmp eq i32 %46, 0

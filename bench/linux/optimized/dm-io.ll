@@ -452,7 +452,8 @@ define internal void @bio_next_page(ptr noundef captures(none) %0) #0 align 16 {
   %24 = phi i32 [ %31, %30 ], [ %22, %17 ]
   %25 = phi i32 [ %32, %30 ], [ %8, %17 ]
   %26 = zext i32 %25 to i64
-  %27 = getelementptr %struct.bio_vec, ptr %6, i64 %26, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %6, i64 %26
+  %27 = getelementptr i8, ptr %.split, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp ult i32 %24, %28
   br i1 %29, label %.loopexit, label %30

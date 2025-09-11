@@ -884,7 +884,8 @@ define dso_local void @rpcb_getport_async(ptr noundef %0) #0 align 16 {
 126:                                              ; preds = %122, %118
   %127 = phi i64 [ 0, %118 ], [ %125, %122 ]
   %128 = or i32 %119, 256
-  %129 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %127, i64 6
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %127
+  %129 = getelementptr i8, ptr %.split, i64 48
   %130 = load ptr, ptr %129, align 16
   %131 = call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %130, i32 noundef %128, i64 noundef 56) #12
   %132 = icmp eq ptr %131, null

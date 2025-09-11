@@ -2037,7 +2037,8 @@ define dso_local i32 @nfs4_do_close(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 39:                                               ; preds = %35, %3
   %40 = phi i64 [ 0, %3 ], [ %38, %35 ]
-  %41 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %40, i64 10
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %40
+  %41 = getelementptr i8, ptr %.split, i64 80
   %42 = load ptr, ptr %41, align 16
   %43 = call noalias align 8 dereferenceable_or_null(608) ptr @kmalloc_trace(ptr noundef %42, i32 noundef %32, i64 noundef 608) #25
   %44 = icmp eq ptr %43, null
@@ -8938,7 +8939,8 @@ define internal fastcc noundef ptr @nfs4_opendata_alloc(ptr noundef %0, ptr noun
 
 22:                                               ; preds = %18, %7
   %23 = phi i64 [ 0, %7 ], [ %21, %18 ]
-  %24 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %23, i64 10
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %23
+  %24 = getelementptr i8, ptr %.split, i64 80
   %25 = load ptr, ptr %24, align 16
   %26 = tail call noalias align 8 dereferenceable_or_null(1000) ptr @kmalloc_trace(ptr noundef %25, i32 noundef %15, i64 noundef 1000) #25
   %27 = icmp eq ptr %26, null

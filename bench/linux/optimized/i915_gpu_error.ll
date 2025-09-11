@@ -2025,7 +2025,8 @@ define dso_local noundef ptr @intel_engine_coredump_alloc(ptr noundef %0, i32 no
 
 12:                                               ; preds = %8, %3
   %13 = phi i64 [ 0, %3 ], [ %11, %8 ]
-  %14 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13, i64 11
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13
+  %14 = getelementptr i8, ptr %.split, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(1896) ptr @kmalloc_trace(ptr noundef %15, i32 noundef %5, i64 noundef 1896) #16
   %17 = icmp eq ptr %16, null
@@ -2880,7 +2881,8 @@ define internal fastcc noundef ptr @capture_vma_snapshot(ptr noundef %0, ptr nou
 
 13:                                               ; preds = %9, %6
   %14 = phi i64 [ 0, %6 ], [ %12, %9 ]
-  %15 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %14, i64 6
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %14
+  %15 = getelementptr i8, ptr %.split, i64 48
   %16 = load ptr, ptr %15, align 16
   %17 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %16, i32 noundef %2, i64 noundef 40) #16
   %18 = icmp eq ptr %17, null
@@ -3529,11 +3531,12 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonl
   %315 = select i1 %312, i64 %313, i64 %314
   %316 = add i64 %311, %315
   %317 = lshr i64 %316, 12
-  %318 = getelementptr %struct.page, ptr %310, i64 %317, i32 1
+  %.split = getelementptr %struct.page, ptr %310, i64 %317
+  %318 = getelementptr i8, ptr %.split, i64 8
   %319 = load ptr, ptr %31, align 8
   store ptr %318, ptr %31, align 8
   store ptr %30, ptr %318, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %318, i64 8
+  %320 = getelementptr i8, ptr %.split, i64 16
   store ptr %319, ptr %320, align 8
   store volatile ptr %318, ptr %319, align 8
   store ptr %309, ptr %284, align 8
@@ -3695,7 +3698,8 @@ define dso_local noundef ptr @i915_gpu_coredump_alloc(ptr noundef %0, i32 nounde
 
 14:                                               ; preds = %10, %6
   %15 = phi i64 [ 0, %6 ], [ %13, %10 ]
-  %16 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %15, i64 10
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %15
+  %16 = getelementptr i8, ptr %.split, i64 80
   %17 = load ptr, ptr %16, align 16
   %18 = tail call noalias align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %17, i32 noundef %7, i64 noundef 688) #16
   %19 = icmp eq ptr %18, null
@@ -3808,7 +3812,8 @@ define dso_local noalias noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i3
 
 11:                                               ; preds = %7, %3
   %12 = phi i64 [ 0, %3 ], [ %10, %7 ]
-  %13 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %12, i64 10
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 80
   %14 = load ptr, ptr %13, align 16
   %15 = tail call noalias align 8 dereferenceable_or_null(640) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %4, i64 noundef 640) #16
   %16 = icmp eq ptr %15, null
@@ -5863,7 +5868,7 @@ define internal fastcc void @intel_gpu_error_print_vma(ptr noundef captures(none
   %64 = load i32, ptr %40, align 4
   %65 = sub i32 4096, %64
   %66 = sext i32 %65 to i64
-  %67 = add nsw i64 %66, 3
+  %67 = add nuw nsw i64 %66, 3
   %68 = sdiv i64 %67, 4
   %69 = icmp sgt i32 %65, 0
   br i1 %69, label %.thread, label %.loopexit7
@@ -6296,11 +6301,12 @@ define internal fastcc range(i32 -4095, 1) i32 @compress_page(ptr noundef nonnul
   %51 = select i1 %48, i64 %49, i64 %50
   %52 = add i64 %47, %51
   %53 = lshr i64 %52, 12
-  %54 = getelementptr %struct.page, ptr %46, i64 %53, i32 1
+  %.split = getelementptr %struct.page, ptr %46, i64 %53
+  %54 = getelementptr i8, ptr %.split, i64 8
   %55 = load ptr, ptr %19, align 8
   store ptr %54, ptr %19, align 8
   store ptr %18, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = getelementptr i8, ptr %.split, i64 16
   store ptr %55, ptr %56, align 8
   store volatile ptr %54, ptr %55, align 8
   store ptr %45, ptr %20, align 8

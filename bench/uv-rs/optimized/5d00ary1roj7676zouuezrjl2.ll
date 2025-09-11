@@ -3187,8 +3187,8 @@ define noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extra
     i8 2, label %13
     i8 3, label %21
     i8 4, label %29
-    i8 5, label %36
-    i8 6, label %43
+    i8 5, label %37
+    i8 6, label %45
   ]
 
 11:                                               ; preds = %3
@@ -3260,14 +3260,15 @@ define noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extra
 .noexc9:                                          ; preds = %.noexc9, %29
   %31 = phi i64 [ 0, %29 ], [ %32, %.noexc9 ]
   %32 = add nuw nsw i64 %31, 1
-  %33 = getelementptr inbounds nuw { [2 x i64] }, ptr %5, i64 %31, i32 0, i64 1
-  %34 = load i64, ptr %33, align 8, !alias.scope !493, !noundef !4
-  %35 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extras17hff280f9fbd366cfeE(i64 noundef %34, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2)
+  %33 = getelementptr inbounds nuw { [2 x i64] }, ptr %5, i64 %31
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load i64, ptr %34, align 8, !alias.scope !493, !noundef !4
+  %36 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extras17hff280f9fbd366cfeE(i64 noundef %35, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2)
   %.not.i23.not = icmp eq i64 %32, 2
-  %or.cond = select i1 %35, i1 true, i1 %.not.i23.not
-  br i1 %or.cond, label %51, label %.noexc9
+  %or.cond = select i1 %36, i1 true, i1 %.not.i23.not
+  br i1 %or.cond, label %53, label %.noexc9
 
-36:                                               ; preds = %3
+37:                                               ; preds = %3
   %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.331.0.copyload = load i64, ptr %.sroa.331.0..sroa_idx, align 8
   %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -3277,54 +3278,55 @@ define noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extra
   store i64 %.sroa.331.0.copyload, ptr %.sroa.55.0..sroa_idx.i10, align 8, !alias.scope !496, !noalias !499
   %.sroa.8.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.432.0.copyload, ptr %.sroa.8.0..sroa_idx.i12, align 8, !alias.scope !496, !noalias !499
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i64 2, ptr %37, align 8, !alias.scope !496, !noalias !499
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i64 2, ptr %38, align 8, !alias.scope !496, !noalias !499
   br label %.noexc15
 
-.noexc15:                                         ; preds = %.noexc15, %36
-  %38 = phi i64 [ 0, %36 ], [ %39, %.noexc15 ]
-  %39 = add nuw nsw i64 %38, 1
-  %40 = getelementptr inbounds nuw { [2 x i64] }, ptr %4, i64 %38, i32 0, i64 1
-  %41 = load i64, ptr %40, align 8, !alias.scope !501, !noundef !4
-  %42 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extras17hff280f9fbd366cfeE(i64 noundef %41, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2)
-  %.not.i26.not = icmp eq i64 %39, 2
-  %or.cond80 = select i1 %42, i1 true, i1 %.not.i26.not
-  br i1 %or.cond80, label %52, label %.noexc15
+.noexc15:                                         ; preds = %.noexc15, %37
+  %39 = phi i64 [ 0, %37 ], [ %40, %.noexc15 ]
+  %40 = add nuw nsw i64 %39, 1
+  %41 = getelementptr inbounds nuw { [2 x i64] }, ptr %4, i64 %39
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load i64, ptr %42, align 8, !alias.scope !501, !noundef !4
+  %44 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extras17hff280f9fbd366cfeE(i64 noundef %43, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2)
+  %.not.i26.not = icmp eq i64 %40, 2
+  %or.cond80 = select i1 %44, i1 true, i1 %.not.i26.not
+  br i1 %or.cond80, label %54, label %.noexc15
 
-43:                                               ; preds = %3
+45:                                               ; preds = %3
   %.sroa.035.0.copyload = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.436.0.copyload = load i64, ptr %.sroa.436.0..sroa_idx, align 8
   %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.537.0.copyload = load i64, ptr %.sroa.537.0..sroa_idx, align 8
-  %44 = getelementptr inbounds ptr, ptr %1, i64 %2
-  br label %45
+  %46 = getelementptr inbounds ptr, ptr %1, i64 %2
+  br label %47
 
-45:                                               ; preds = %47, %43
-  %46 = phi ptr [ %48, %47 ], [ %1, %43 ]
-  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %46, %44
-  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit", label %47
+47:                                               ; preds = %49, %45
+  %48 = phi ptr [ %50, %49 ], [ %1, %45 ]
+  %.not.not.not.i.not.not.not.i.not = icmp eq ptr %48, %46
+  br i1 %.not.not.not.i.not.not.not.i.not, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit", label %49
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %49 = tail call noundef zeroext i1 @"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.13172722887856092680"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.035.0.copyload), !noalias !504
-  br i1 %49, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit", label %45
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %51 = tail call noundef zeroext i1 @"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.13172722887856092680"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.035.0.copyload), !noalias !504
+  br i1 %51, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit", label %47
 
-"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit": ; preds = %45, %47
-  %.sroa.0.0.i.sroa.speculated = phi i64 [ %.sroa.537.0.copyload, %45 ], [ %.sroa.436.0.copyload, %47 ]
-  %50 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extras17hff280f9fbd366cfeE(i64 noundef %.sroa.0.0.i.sroa.speculated, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2)
+"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit": ; preds = %47, %49
+  %.sroa.0.0.i.sroa.speculated = phi i64 [ %.sroa.537.0.copyload, %47 ], [ %.sroa.436.0.copyload, %49 ]
+  %52 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extras17hff280f9fbd366cfeE(i64 noundef %.sroa.0.0.i.sroa.speculated, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2)
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0f6619e5c16faed1E.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h0f6619e5c16faed1E.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit", %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit", %16, %3, %52, %51, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit", %12
-  %.sroa.0.0.shrunk = phi i1 [ false, %12 ], [ %35, %51 ], [ %42, %52 ], [ %50, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit" ], [ true, %3 ], [ %.not87.not, %16 ], [ %.not87.not, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit" ], [ %.not.not, %24 ], [ %.not.not, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit" ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h0f6619e5c16faed1E.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit", %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit", %16, %3, %54, %53, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit", %12
+  %.sroa.0.0.shrunk = phi i1 [ false, %12 ], [ %36, %53 ], [ %44, %54 ], [ %52, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit" ], [ true, %3 ], [ %.not87.not, %16 ], [ %.not87.not, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit" ], [ %.not.not, %24 ], [ %.not.not, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb68ee0f5da58d5eE.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.sroa.0.0.shrunk
 
-51:                                               ; preds = %.noexc9
+53:                                               ; preds = %.noexc9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0f6619e5c16faed1E.exit
 
-52:                                               ; preds = %.noexc15
+54:                                               ; preds = %.noexc15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0f6619e5c16faed1E.exit
 }

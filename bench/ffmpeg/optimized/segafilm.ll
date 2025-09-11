@@ -362,14 +362,14 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   %172 = add i32 %171, %12
   %173 = zext i32 %172 to i64
   %174 = load ptr, ptr %7, align 8, !tbaa !28
-  %175 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 2
-  store i64 %173, ptr %175, align 8, !tbaa !80
-  %176 = load i32, ptr %10, align 4, !tbaa !11
-  %177 = call i32 @llvm.bswap.i32(i32 %176)
-  %178 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 1
-  store i32 %177, ptr %178, align 4, !tbaa !82
-  %179 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187
-  %180 = icmp ugt i32 %177, 536870911
+  %175 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  store i64 %173, ptr %176, align 8, !tbaa !80
+  %177 = load i32, ptr %10, align 4, !tbaa !11
+  %178 = call i32 @llvm.bswap.i32(i32 %177)
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 4
+  store i32 %178, ptr %179, align 4, !tbaa !82
+  %180 = icmp ugt i32 %178, 536870911
   br i1 %180, label %.loopexit, label %181
 
 181:                                              ; preds = %169
@@ -379,9 +379,9 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
 
 184:                                              ; preds = %181
   %185 = load i32, ptr %148, align 4, !tbaa !54
-  store i32 %185, ptr %179, align 8, !tbaa !83
+  store i32 %185, ptr %175, align 8, !tbaa !83
   %186 = zext i32 %.0144180 to i64
-  %187 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 3
+  %187 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store i64 %186, ptr %187, align 8, !tbaa !84
   %188 = load i32, ptr %93, align 8, !tbaa !32
   switch i32 %188, label %195 [
@@ -390,7 +390,7 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   ]
 
 189:                                              ; preds = %184
-  %190 = shl i32 %177, 5
+  %190 = shl i32 %178, 5
   %191 = load i32, ptr %149, align 4, !tbaa !34
   %192 = mul i32 %191, 18
   %193 = udiv i32 %190, %192
@@ -402,29 +402,29 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   %197 = load i32, ptr %150, align 8, !tbaa !35
   %198 = mul i32 %197, %196
   %199 = lshr i32 %198, 3
-  %200 = udiv i32 %177, %199
+  %200 = udiv i32 %178, %199
   %201 = add i32 %200, %.0144180
   br label %202
 
 202:                                              ; preds = %184, %195, %189
   %.1145 = phi i32 [ %194, %189 ], [ %201, %195 ], [ %.0144180, %184 ]
-  %203 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 4
+  %203 = getelementptr inbounds nuw i8, ptr %175, i64 24
   store i32 1, ptr %203, align 8, !tbaa !85
   br label %222
 
 204:                                              ; preds = %181
   %205 = load i32, ptr %4, align 8, !tbaa !44
-  store i32 %205, ptr %179, align 8, !tbaa !83
+  store i32 %205, ptr %175, align 8, !tbaa !83
   %206 = load i32, ptr %13, align 8, !tbaa !11
   %207 = and i32 %206, -129
   %208 = call i32 @llvm.bswap.i32(i32 %207)
   %209 = zext nneg i32 %208 to i64
-  %210 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 3
+  %210 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store i64 %209, ptr %210, align 8, !tbaa !84
   %211 = load i8, ptr %13, align 8, !tbaa !11
   %.not170 = icmp sgt i8 %211, -1
   %212 = zext i1 %.not170 to i32
-  %213 = getelementptr inbounds nuw %struct.film_sample, ptr %174, i64 %indvars.iv187, i32 4
+  %213 = getelementptr inbounds nuw i8, ptr %175, i64 24
   store i32 %212, ptr %213, align 8, !tbaa !85
   %214 = add i32 %.0181, 1
   %215 = load i32, ptr %92, align 8, !tbaa !36
@@ -436,7 +436,7 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   %218 = sext i32 %205 to i64
   %219 = getelementptr inbounds ptr, ptr %217, i64 %218
   %220 = load ptr, ptr %219, align 8, !tbaa !76
-  %221 = call i32 @av_add_index_entry(ptr noundef %220, i64 noundef %173, i64 noundef %209, i32 noundef %177, i32 noundef 0, i32 noundef %212) #5
+  %221 = call i32 @av_add_index_entry(ptr noundef %220, i64 noundef %173, i64 noundef %209, i32 noundef %178, i32 noundef 0, i32 noundef %212) #5
   br label %222
 
 222:                                              ; preds = %202, %216, %204

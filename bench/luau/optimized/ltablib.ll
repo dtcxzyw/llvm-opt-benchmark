@@ -310,54 +310,55 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
   %15 = load ptr, ptr %14, align 8, !tbaa !36
   %smax = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
   %wide.trip.count33 = zext nneg i32 %smax to i64
-  br label %22
+  br label %23
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.024 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %16 ]
-  %17 = getelementptr inbounds nuw %struct.lua_TValue, ptr %9, i64 %indvars.iv, i32 2
-  %18 = load i32, ptr %17, align 4, !tbaa !37
-  %19 = icmp eq i32 %18, 0
+  %17 = getelementptr inbounds nuw %struct.lua_TValue, ptr %9, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %19 = load i32, ptr %18, align 4, !tbaa !37
+  %20 = icmp eq i32 %19, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %21 = uitofp nneg i32 %20 to double
-  %.1 = select i1 %19, double %.024, double %21
+  %21 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %22 = uitofp nneg i32 %21 to double
+  %.1 = select i1 %20, double %.024, double %22
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %16, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %36, %.preheader
-  %.2.lcssa = phi double [ %.0.lcssa, %.preheader ], [ %.3, %36 ]
+._crit_edge:                                      ; preds = %37, %.preheader
+  %.2.lcssa = phi double [ %.0.lcssa, %.preheader ], [ %.3, %37 ]
   tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %.2.lcssa)
   ret i32 1
 
-22:                                               ; preds = %.lr.ph27, %36
-  %indvars.iv30 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next31, %36 ]
-  %.226 = phi double [ %.0.lcssa, %.lr.ph27 ], [ %.3, %36 ]
-  %23 = getelementptr inbounds nuw %struct.LuaNode, ptr %15, i64 %indvars.iv30
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !40
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %36, label %27
+23:                                               ; preds = %.lr.ph27, %37
+  %indvars.iv30 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next31, %37 ]
+  %.226 = phi double [ %.0.lcssa, %.lr.ph27 ], [ %.3, %37 ]
+  %24 = getelementptr inbounds nuw %struct.LuaNode, ptr %15, i64 %indvars.iv30
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %26 = load i32, ptr %25, align 4, !tbaa !40
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %37, label %28
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 28
-  %29 = load i32, ptr %28, align 4
-  %30 = and i32 %29, 15
-  %31 = icmp eq i32 %30, 3
-  br i1 %31, label %32, label %36
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 28
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 15
+  %32 = icmp eq i32 %31, 3
+  br i1 %32, label %33, label %37
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %34 = load double, ptr %33, align 8, !tbaa !19
-  %35 = fcmp ogt double %34, %.226
-  %.4 = select i1 %35, double %34, double %.226
-  br label %36
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %35 = load double, ptr %34, align 8, !tbaa !19
+  %36 = fcmp ogt double %35, %.226
+  %.4 = select i1 %36, double %35, double %.226
+  br label %37
 
-36:                                               ; preds = %32, %27, %22
-  %.3 = phi double [ %.226, %22 ], [ %.4, %32 ], [ %.226, %27 ]
+37:                                               ; preds = %33, %28, %23
+  %.3 = phi double [ %.226, %23 ], [ %.4, %33 ], [ %.226, %28 ]
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %._crit_edge, label %22, !llvm.loop !43
+  br i1 %exitcond34.not, label %._crit_edge, label %23, !llvm.loop !43
 }
 
 ; Function Attrs: mustprogress uwtable

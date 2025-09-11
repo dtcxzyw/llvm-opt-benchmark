@@ -1371,7 +1371,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114parallel_mergeImEEvPKT_PS2_RNS0_8
   %13 = alloca i32, align 4
   %14 = load i32, ptr %2, align 4, !tbaa !23
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %16, label %65
+  br i1 %15, label %16, label %66
 
 16:                                               ; preds = %9
   %17 = add nsw i32 %14, -1
@@ -1405,8 +1405,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_114parallel_mergeImEEvPKT_PS2_RNS0_8
   %28 = add nsw i32 %20, 1
   br label %29
 
-29:                                               ; preds = %.lr.ph57, %64
-  %indvars.iv = phi i64 [ %27, %.lr.ph57 ], [ %indvars.iv.next, %64 ]
+29:                                               ; preds = %.lr.ph57, %65
+  %indvars.iv = phi i64 [ %27, %.lr.ph57 ], [ %indvars.iv.next, %65 ]
   %30 = load i64, ptr %4, align 8, !tbaa !45
   %.val51 = load i64, ptr %22, align 8, !tbaa !47
   %31 = sub i64 %.val51, %30
@@ -1424,7 +1424,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114parallel_mergeImEEvPKT_PS2_RNS0_8
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %40, ptr %41, align 8, !tbaa !47
   %42 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %42, label %43, label %64
+  br i1 %42, label %43, label %65
 
 43:                                               ; preds = %29
   %44 = load i64, ptr %6, align 8, !tbaa !45
@@ -1460,24 +1460,25 @@ define internal void @_ZN5faiss12_GLOBAL__N_114parallel_mergeImEEvPKT_PS2_RNS0_8
   %.040.lcssa = phi i64 [ %45, %43 ], [ %..040, %52 ]
   %62 = getelementptr inbounds nuw %"struct.faiss::(anonymous namespace)::SegmentS", ptr %.val44, i64 %indvars.iv.next
   store i64 %.040.lcssa, ptr %62, align 8, !tbaa !45
-  %63 = getelementptr inbounds nuw %"struct.faiss::(anonymous namespace)::SegmentS", ptr %.val44, i64 %indvars.iv, i32 1
-  store i64 %.040.lcssa, ptr %63, align 8, !tbaa !47
-  br label %64
+  %63 = getelementptr inbounds nuw %"struct.faiss::(anonymous namespace)::SegmentS", ptr %.val44, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i64 %.040.lcssa, ptr %64, align 8, !tbaa !47
+  br label %65
 
-64:                                               ; preds = %._crit_edge, %29
+65:                                               ; preds = %._crit_edge, %29
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %28, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge58, label %29
 
-._crit_edge58:                                    ; preds = %64, %16
+._crit_edge58:                                    ; preds = %65, %16
   call void @__kmpc_for_static_fini(ptr nonnull @2, i32 %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %65
+  br label %66
 
-65:                                               ; preds = %._crit_edge58, %9
+66:                                               ; preds = %._crit_edge58, %9
   ret void
 }
 
@@ -7172,7 +7173,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc20
   store ptr %54, ptr %55, align 8, !tbaa !131
   store i64 0, ptr %52, align 8, !tbaa !4
   %56 = getelementptr i8, ptr %52, i64 8
-  %.idx.i.i.i.i.i.i.i24 = shl nuw i64 8, %45
+  %.idx.i.i.i.i.i.i.i24 = shl nuw nsw i64 8, %45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %56, i8 0, i64 %.idx.i.i.i.i.i.i.i24, i1 false), !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i.i.i.i.i.i24
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 8

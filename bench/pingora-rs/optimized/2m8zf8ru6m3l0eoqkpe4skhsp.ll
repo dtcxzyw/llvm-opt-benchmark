@@ -520,65 +520,67 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$rustls_pe
   br i1 %4, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4595fb014c28306E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i"
-  %.sroa.0.011.i.i = phi i64 [ %5, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i" ], [ 0, %1 ]
-  %5 = add nuw i64 %.sroa.0.011.i.i, 1
-  %6 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val, i64 %.sroa.0.011.i.i, i32 1
-  %7 = load i64, ptr %6, align 8, !range !18, !alias.scope !76, !noundef !4
-  %.not.i.i.i.i.i.i = icmp eq i64 %7, -9223372036854775808
+  %.sroa.0.011.i.i = phi i64 [ %6, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i" ], [ 0, %1 ]
+  %5 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val, i64 %.sroa.0.011.i.i
+  %6 = add nuw i64 %.sroa.0.011.i.i, 1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = load i64, ptr %7, align 8, !range !18, !alias.scope !76, !noundef !4
+  %.not.i.i.i.i.i.i = icmp eq i64 %8, -9223372036854775808
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i", label %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i.i.i"
 
 "_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i.i.i": ; preds = %.lr.ph.i.i
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i" unwind label %9
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i" unwind label %10
 
 "_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i": ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i.i.i", %.lr.ph.i.i
-  %8 = icmp eq i64 %5, %.val1
-  br i1 %8, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4595fb014c28306E.exit", label %.lr.ph.i.i
+  %9 = icmp eq i64 %6, %.val1
+  br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4595fb014c28306E.exit", label %.lr.ph.i.i
 
-9:                                                ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i.i.i"
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i.i.i"
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = icmp eq i64 %5, %.val1
-  br i1 %11, label %.body, label %.lr.ph14.i.i
+  %12 = icmp eq i64 %6, %.val1
+  br i1 %12, label %.body, label %.lr.ph14.i.i
 
-.lr.ph14.i.i:                                     ; preds = %9, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i"
-  %.sroa.0.112.i.i = phi i64 [ %12, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i" ], [ %5, %9 ]
-  %12 = add i64 %.sroa.0.112.i.i, 1
-  %13 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val, i64 %.sroa.0.112.i.i, i32 1
-  %14 = load i64, ptr %13, align 8, !range !18, !alias.scope !81, !noundef !4
-  %.not.i.i.i.i7.i.i = icmp eq i64 %14, -9223372036854775808
+.lr.ph14.i.i:                                     ; preds = %10, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i"
+  %.sroa.0.112.i.i = phi i64 [ %14, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i" ], [ %6, %10 ]
+  %13 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val, i64 %.sroa.0.112.i.i
+  %14 = add i64 %.sroa.0.112.i.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load i64, ptr %15, align 8, !range !18, !alias.scope !81, !noundef !4
+  %.not.i.i.i.i7.i.i = icmp eq i64 %16, -9223372036854775808
   br i1 %.not.i.i.i.i7.i.i, label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i", label %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i8.i.i"
 
 "_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i8.i.i": ; preds = %.lr.ph14.i.i
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i" unwind label %16
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i" unwind label %18
 
 "_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i": ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i8.i.i", %.lr.ph14.i.i
-  %15 = icmp eq i64 %12, %.val1
-  br i1 %15, label %.body, label %.lr.ph14.i.i
+  %17 = icmp eq i64 %14, %.val1
+  br i1 %17, label %.body, label %.lr.ph14.i.i
 
-16:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i8.i.i"
-  %17 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #9
-  unreachable
-
-.body:                                            ; preds = %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i", %9
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 32)
-          to label %"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$rustls_pemfile..pemfile..Item$GT$$GT$17h07bc15c52f1b2d4dE.exit" unwind label %18
-
-"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4595fb014c28306E.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i", %1
-  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 32)
-  ret void
-
-18:                                               ; preds = %.body
+18:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i8.i.i"
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #9
   unreachable
 
+.body:                                            ; preds = %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i", %10
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 32)
+          to label %"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$rustls_pemfile..pemfile..Item$GT$$GT$17h07bc15c52f1b2d4dE.exit" unwind label %20
+
+"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4595fb014c28306E.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i", %1
+  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 32)
+  ret void
+
+20:                                               ; preds = %.body
+  %21 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #9
+  unreachable
+
 "_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$rustls_pemfile..pemfile..Item$GT$$GT$17h07bc15c52f1b2d4dE.exit": ; preds = %.body
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -928,7 +930,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..into_it
   %11 = icmp eq ptr %.val2.i, %5
   br i1 %11, label %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h471b9216a1b382f7E.exit", label %.lr.ph.i.i
 
-.body.i:                                          ; preds = %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i", %20
+.body.i:                                          ; preds = %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i", %21
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !131
   %12 = load ptr, ptr %0, align 8, !alias.scope !131, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -937,70 +939,72 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..into_it
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %12, ptr %15, align 8, !noalias !131
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 8, i64 noundef 32)
-          to label %31 unwind label %29, !noalias !131
+          to label %33 unwind label %31, !noalias !131
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i"
-  %.sroa.0.011.i.i = phi i64 [ %16, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i" ], [ 0, %1 ]
-  %16 = add nuw i64 %.sroa.0.011.i.i, 1
-  %17 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %5, i64 %.sroa.0.011.i.i, i32 1
-  %18 = load i64, ptr %17, align 8, !range !18, !alias.scope !134, !noalias !131, !noundef !4
-  %.not.i.i.i.i.i.i = icmp eq i64 %18, -9223372036854775808
+  %.sroa.0.011.i.i = phi i64 [ %17, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i" ], [ 0, %1 ]
+  %16 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %5, i64 %.sroa.0.011.i.i
+  %17 = add nuw i64 %.sroa.0.011.i.i, 1
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = load i64, ptr %18, align 8, !range !18, !alias.scope !134, !noalias !131, !noundef !4
+  %.not.i.i.i.i.i.i = icmp eq i64 %19, -9223372036854775808
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i", label %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i.i.i"
 
 "_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i.i.i": ; preds = %.lr.ph.i.i
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i" unwind label %20, !noalias !131
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i" unwind label %21, !noalias !131
 
 "_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i": ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i.i.i", %.lr.ph.i.i
-  %19 = icmp eq i64 %16, %10
-  br i1 %19, label %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h471b9216a1b382f7E.exit", label %.lr.ph.i.i
+  %20 = icmp eq i64 %17, %10
+  br i1 %20, label %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h471b9216a1b382f7E.exit", label %.lr.ph.i.i
 
-20:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i.i.i"
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i.i.i"
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = icmp eq i64 %16, %10
-  br i1 %22, label %.body.i, label %.lr.ph14.i.i
+  %23 = icmp eq i64 %17, %10
+  br i1 %23, label %.body.i, label %.lr.ph14.i.i
 
-.lr.ph14.i.i:                                     ; preds = %20, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i"
-  %.sroa.0.112.i.i = phi i64 [ %23, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i" ], [ %16, %20 ]
-  %23 = add i64 %.sroa.0.112.i.i, 1
-  %24 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %5, i64 %.sroa.0.112.i.i, i32 1
-  %25 = load i64, ptr %24, align 8, !range !18, !alias.scope !139, !noalias !131, !noundef !4
-  %.not.i.i.i.i7.i.i = icmp eq i64 %25, -9223372036854775808
+.lr.ph14.i.i:                                     ; preds = %21, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i"
+  %.sroa.0.112.i.i = phi i64 [ %25, %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i" ], [ %17, %21 ]
+  %24 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %5, i64 %.sroa.0.112.i.i
+  %25 = add i64 %.sroa.0.112.i.i, 1
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %27 = load i64, ptr %26, align 8, !range !18, !alias.scope !139, !noalias !131, !noundef !4
+  %.not.i.i.i.i7.i.i = icmp eq i64 %27, -9223372036854775808
   br i1 %.not.i.i.i.i7.i.i, label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i", label %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i8.i.i"
 
 "_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i8.i.i": ; preds = %.lr.ph14.i.i
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i" unwind label %27, !noalias !131
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i" unwind label %29, !noalias !131
 
 "_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit10.i.i": ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i8.i.i", %.lr.ph14.i.i
-  %26 = icmp eq i64 %23, %10
-  br i1 %26, label %.body.i, label %.lr.ph14.i.i
+  %28 = icmp eq i64 %25, %10
+  br i1 %28, label %.body.i, label %.lr.ph14.i.i
 
-27:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i8.i.i"
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustls_pki_types..CertificateSigningRequestDer$GT$17hbe02bed0835d91b1E.exit.sink.split.i8.i.i"
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #9, !noalias !131
   unreachable
 
-29:                                               ; preds = %.body.i
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %.body.i
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #9, !noalias !131
   unreachable
 
-31:                                               ; preds = %.body.i
+33:                                               ; preds = %.body.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !131
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %22
 
 "_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h471b9216a1b382f7E.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$rustls_pemfile..pemfile..Item$GT$17ha8008b96cbf01b4eE.exit.i.i", %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !131
-  %32 = load ptr, ptr %0, align 8, !alias.scope !131, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i64, ptr %33, align 8, !alias.scope !131, !noundef !4
-  store i64 %34, ptr %2, align 8, !noalias !131
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %32, ptr %35, align 8, !noalias !131
+  %34 = load ptr, ptr %0, align 8, !alias.scope !131, !nonnull !4, !noundef !4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %36 = load i64, ptr %35, align 8, !alias.scope !131, !noundef !4
+  store i64 %36, ptr %2, align 8, !noalias !131
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %34, ptr %37, align 8, !noalias !131
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hde1f15ce4fe8ae6aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 8, i64 noundef 32), !noalias !131
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !131
   ret void

@@ -14338,81 +14338,82 @@ define void @"_ZN118_$LT$extensions_ui..extension_version_selector..ExtensionVer
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = icmp ult i64 %16, %7
-  br i1 %17, label %18, label %26
+  br i1 %17, label %18, label %27
 
-"_ZN118_$LT$extensions_ui..extension_version_selector..ExtensionVersionSelectorDelegate$u20$as$u20$picker..PickerDelegate$GT$9dismissed17h0e8b2662b1c5a319E.exit": ; preds = %13, %9, %27, %"_ZN4core3ptr82drop_in_place$LT$gpui..app..entity_map..Model$LT$extension..ExtensionStore$GT$$GT$17h6dade3b4f5a48066E.exit"
+"_ZN118_$LT$extensions_ui..extension_version_selector..ExtensionVersionSelectorDelegate$u20$as$u20$picker..PickerDelegate$GT$9dismissed17h0e8b2662b1c5a319E.exit": ; preds = %13, %9, %28, %"_ZN4core3ptr82drop_in_place$LT$gpui..app..entity_map..Model$LT$extension..ExtensionStore$GT$$GT$17h6dade3b4f5a48066E.exit"
   ret void
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %20, i64 %16, i32 2
-  %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = icmp ult i64 %22, %24
-  br i1 %25, label %27, label %34
+  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %20, i64 %16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %23 = load i64, ptr %22, align 8, !noundef !4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8, !noundef !4
+  %26 = icmp ult i64 %23, %25
+  br i1 %26, label %28, label %35
 
-26:                                               ; preds = %14
+27:                                               ; preds = %14
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %16, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.861f5f7cb78117a4ec6a459232069be7.148.llvm.14828969249010433255) #37
   unreachable
 
-27:                                               ; preds = %18
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} } }, { { { ptr, i64 } }, {}, {} }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }, ptr %29, i64 %22
-  %31 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-  %32 = tail call noundef i8 @_ZN15release_channel14ReleaseChannel6global17h2a517e00fda070c1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %31), !range !761
-  %33 = tail call noundef zeroext i1 @_ZN9extension21is_version_compatible17hc41e2a123ee806d5E(i8 noundef %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %30)
-  br i1 %33, label %35, label %"_ZN118_$LT$extensions_ui..extension_version_selector..ExtensionVersionSelectorDelegate$u20$as$u20$picker..PickerDelegate$GT$9dismissed17h0e8b2662b1c5a319E.exit"
+28:                                               ; preds = %18
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
+  %31 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} } }, { { { ptr, i64 } }, {}, {} }, i64, { { i32, { i32, i32 } }, {} }, [1 x i32] }, ptr %30, i64 %23
+  %32 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  %33 = tail call noundef i8 @_ZN15release_channel14ReleaseChannel6global17h2a517e00fda070c1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %32), !range !761
+  %34 = tail call noundef zeroext i1 @_ZN9extension21is_version_compatible17hc41e2a123ee806d5E(i8 noundef %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %31)
+  br i1 %34, label %36, label %"_ZN118_$LT$extensions_ui..extension_version_selector..ExtensionVersionSelectorDelegate$u20$as$u20$picker..PickerDelegate$GT$9dismissed17h0e8b2662b1c5a319E.exit"
 
-34:                                               ; preds = %18
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %22, i64 noundef %24, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.861f5f7cb78117a4ec6a459232069be7.149.llvm.14828969249010433255) #37
+35:                                               ; preds = %18
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %23, i64 noundef %25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.861f5f7cb78117a4ec6a459232069be7.149.llvm.14828969249010433255) #37
   unreachable
 
-35:                                               ; preds = %27
+36:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %36 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-  call void @_ZN9extension14ExtensionStore6global17h425ad028c8b2c635E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %36)
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  invoke void @"_ZN61_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Context$GT$12update_model17h720537e598215aabE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37)
-          to label %40 unwind label %38
+  %37 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
+  call void @_ZN9extension14ExtensionStore6global17h425ad028c8b2c635E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %37)
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  invoke void @"_ZN61_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Context$GT$12update_model17h720537e598215aabE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %38)
+          to label %41 unwind label %39
 
-38:                                               ; preds = %35
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %36
+  %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..app..entity_map..Model$LT$extension..ExtensionStore$GT$$GT$17h6dade3b4f5a48066E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #35
-          to label %common.resume unwind label %47
+          to label %common.resume unwind label %48
 
-40:                                               ; preds = %35
+41:                                               ; preds = %36
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZN4core3ptr82drop_in_place$LT$gpui..app..entity_map..Model$LT$extension..ExtensionStore$GT$$GT$17h6dade3b4f5a48066E.exit" unwind label %41
+          to label %"_ZN4core3ptr82drop_in_place$LT$gpui..app..entity_map..Model$LT$extension..ExtensionStore$GT$$GT$17h6dade3b4f5a48066E.exit" unwind label %42
 
-41:                                               ; preds = %40
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %41
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h77fbd71f0569cab8E.llvm.3586677198336180132"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43)
-          to label %common.resume unwind label %44
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h77fbd71f0569cab8E.llvm.3586677198336180132"(ptr noalias noundef nonnull align 8 dereferenceable(8) %44)
+          to label %common.resume unwind label %45
 
-44:                                               ; preds = %41
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %42
+  %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #36
   unreachable
 
-common.resume:                                    ; preds = %38, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %39, %38 ]
+common.resume:                                    ; preds = %39, %42
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %40, %39 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr82drop_in_place$LT$gpui..app..entity_map..Model$LT$extension..ExtensionStore$GT$$GT$17h6dade3b4f5a48066E.exit": ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h77fbd71f0569cab8E.llvm.3586677198336180132"(ptr noalias noundef nonnull align 8 dereferenceable(8) %46)
+"_ZN4core3ptr82drop_in_place$LT$gpui..app..entity_map..Model$LT$extension..ExtensionStore$GT$$GT$17h6dade3b4f5a48066E.exit": ; preds = %41
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h77fbd71f0569cab8E.llvm.3586677198336180132"(ptr noalias noundef nonnull align 8 dereferenceable(8) %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZN118_$LT$extensions_ui..extension_version_selector..ExtensionVersionSelectorDelegate$u20$as$u20$picker..PickerDelegate$GT$9dismissed17h0e8b2662b1c5a319E.exit"
 
-47:                                               ; preds = %38
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %39
+  %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #36
   unreachable

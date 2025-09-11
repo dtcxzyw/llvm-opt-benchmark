@@ -12902,43 +12902,44 @@ define internal void @_ZN12_GLOBAL__N_114HostBufferImpl3mapERKN3ade4util9DynMdSp
   br i1 %.not3132.i, label %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
-  %.035.i = phi i64 [ %36, %.lr.ph.i ], [ %20, %12 ]
-  %.01934.i = phi i64 [ %27, %.lr.ph.i ], [ 0, %12 ]
-  %.sroa.022.033.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %12 ]
-  %21 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %5, i64 %.sroa.022.033.i, i32 1
-  %22 = load i32, ptr %21, align 4, !tbaa !311, !noalias !486
-  %23 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %2, i64 %.sroa.022.033.i
-  %24 = load i32, ptr %23, align 8, !tbaa !317, !noalias !486
-  %25 = mul nsw i32 %24, %22
-  %26 = sext i32 %25 to i64
-  %27 = add i64 %.01934.i, %26
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !315, !noalias !486
-  %30 = sub nsw i32 %29, %24
-  %31 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %0, i64 %.sroa.022.033.i
-  store i32 %30, ptr %31, align 8, !tbaa !309, !alias.scope !486
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 %22, ptr %32, align 4, !tbaa !311, !alias.scope !486
-  %33 = add nsw i32 %30, -1
-  %34 = mul nsw i32 %33, %22
-  %35 = sext i32 %34 to i64
-  %36 = add i64 %.035.i, %35
-  %37 = add nuw i64 %.sroa.022.033.i, 1
-  %.not31.i = icmp eq i64 %37, %16
+  %.035.i = phi i64 [ %37, %.lr.ph.i ], [ %20, %12 ]
+  %.01934.i = phi i64 [ %28, %.lr.ph.i ], [ 0, %12 ]
+  %.sroa.022.033.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %12 ]
+  %21 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %5, i64 %.sroa.022.033.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !311, !noalias !486
+  %24 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %2, i64 %.sroa.022.033.i
+  %25 = load i32, ptr %24, align 8, !tbaa !317, !noalias !486
+  %26 = mul nsw i32 %25, %23
+  %27 = sext i32 %26 to i64
+  %28 = add i64 %.01934.i, %27
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %30 = load i32, ptr %29, align 4, !tbaa !315, !noalias !486
+  %31 = sub nsw i32 %30, %25
+  %32 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %0, i64 %.sroa.022.033.i
+  store i32 %31, ptr %32, align 8, !tbaa !309, !alias.scope !486
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  store i32 %23, ptr %33, align 4, !tbaa !311, !alias.scope !486
+  %34 = add nsw i32 %31, -1
+  %35 = mul nsw i32 %34, %23
+  %36 = sext i32 %35 to i64
+  %37 = add i64 %.035.i, %36
+  %38 = add nuw i64 %.sroa.022.033.i, 1
+  %.not31.i = icmp eq i64 %38, %16
   br i1 %.not31.i, label %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit, label %.lr.ph.i
 
 _ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit: ; preds = %.lr.ph.i, %12
-  %.019.lcssa.i = phi i64 [ 0, %12 ], [ %27, %.lr.ph.i ]
-  %.0.lcssa.i = phi i64 [ %20, %12 ], [ %36, %.lr.ph.i ]
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %39 = load ptr, ptr %38, align 8, !tbaa !298, !noalias !486
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.019.lcssa.i
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %40, ptr %41, align 8, !tbaa !63, !alias.scope !486
+  %.019.lcssa.i = phi i64 [ 0, %12 ], [ %28, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %20, %12 ], [ %37, %.lr.ph.i ]
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %40 = load ptr, ptr %39, align 8, !tbaa !298, !noalias !486
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.019.lcssa.i
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %41, ptr %42, align 8, !tbaa !63, !alias.scope !486
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.0.lcssa.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !123, !alias.scope !486
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 0, ptr %42, align 8, !tbaa !489
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 0, ptr %43, align 8, !tbaa !489
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

@@ -3486,8 +3486,8 @@ define internal fastcc void @validateDomainNotNullConstraint(i32 noundef %0) unn
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph88, label %.critedge
 
-.lr.ph88:                                         ; preds = %.lr.ph44, %79
-  %indvars.iv5987 = phi i64 [ %indvars.iv.next60, %79 ], [ 0, %.lr.ph44 ]
+.lr.ph88:                                         ; preds = %.lr.ph44, %80
+  %indvars.iv5987 = phi i64 [ %indvars.iv.next60, %80 ], [ 0, %.lr.ph44 ]
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv5987
   %9 = load ptr, ptr %8, align 8
@@ -3521,7 +3521,7 @@ table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph88
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 32
   br label %table_scan_getnextslot.exit
 
-.critedge:                                        ; preds = %79, %.lr.ph44, %1
+.critedge:                                        ; preds = %80, %.lr.ph44, %1
   ret void
 
 .loopexit:                                        ; preds = %50, %.preheader
@@ -3550,7 +3550,7 @@ table_scan_getnextslot.exit:                      ; preds = %table_scan_getnexts
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = tail call zeroext i1 %46(ptr noundef nonnull %19, i32 noundef 1, ptr noundef nonnull %20) #8
-  br i1 %47, label %.preheader, label %79
+  br i1 %47, label %.preheader, label %80
 
 .preheader:                                       ; preds = %table_scan_getnextslot.exit
   %48 = load i32, ptr %29, align 8
@@ -3592,33 +3592,34 @@ slot_attisnull.exit:                              ; preds = %.lr.ph, %slot_getso
   %68 = sext i32 %58 to i64
   %69 = shl nsw i64 %68, 4
   %70 = getelementptr i8, ptr %12, i64 %69
-  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %71)
-  %72 = tail call i32 @errcode(i32 noundef 33575106) #8
-  %73 = getelementptr %struct.FormData_pg_attribute, ptr %70, i64 %59, i32 1, i32 0, i64 24
-  %74 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.134, ptr noundef nonnull %73, ptr noundef nonnull %76) #8
-  %78 = tail call i32 @errtablecol(ptr noundef %10, i32 noundef %56) #8
+  %71 = getelementptr %struct.FormData_pg_attribute, ptr %70, i64 %59
+  %72 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %72)
+  %73 = tail call i32 @errcode(i32 noundef 33575106) #8
+  %74 = getelementptr i8, ptr %71, i64 28
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %78 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.134, ptr noundef nonnull %74, ptr noundef nonnull %77) #8
+  %79 = tail call i32 @errtablecol(ptr noundef %10, i32 noundef %56) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3166, ptr noundef nonnull @__func__.validateDomainNotNullConstraint) #8
   unreachable
 
-79:                                               ; preds = %table_scan_getnextslot.exit
+80:                                               ; preds = %table_scan_getnextslot.exit
   tail call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %20) #8
-  %80 = load ptr, ptr %19, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 320
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull %19) #8
+  %81 = load ptr, ptr %19, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 320
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %85 = load ptr, ptr %84, align 8
+  tail call void %85(ptr noundef nonnull %19) #8
   tail call void @UnregisterSnapshot(ptr noundef %14) #8
   tail call void @table_close(ptr noundef %10, i32 noundef 0) #8
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv5987, 1
-  %85 = load i32, ptr %3, align 4
-  %86 = sext i32 %85 to i64
-  %87 = icmp slt i64 %indvars.iv.next60, %86
-  br i1 %87, label %.lr.ph88, label %.critedge
+  %86 = load i32, ptr %3, align 4
+  %87 = sext i32 %86 to i64
+  %88 = icmp slt i64 %indvars.iv.next60, %87
+  br i1 %88, label %.lr.ph88, label %.critedge
 }
 
 declare ptr @findDomainNotNullConstraint(i32 noundef) local_unnamed_addr #1
@@ -3891,8 +3892,8 @@ define internal fastcc void @validateDomainCheckConstraint(i32 noundef %0, ptr n
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph106, label %.critedge
 
-.lr.ph106:                                        ; preds = %.lr.ph61, %105
-  %indvars.iv76105 = phi i64 [ %indvars.iv.next77, %105 ], [ 0, %.lr.ph61 ]
+.lr.ph106:                                        ; preds = %.lr.ph61, %106
+  %indvars.iv76105 = phi i64 [ %indvars.iv.next77, %106 ], [ 0, %.lr.ph61 ]
   %22 = load ptr, ptr %15, align 8
   %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv76105
   %24 = load ptr, ptr %23, align 8
@@ -3927,7 +3928,7 @@ table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph106
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 24
   br label %table_scan_getnextslot.exit
 
-.critedge:                                        ; preds = %105, %.lr.ph61, %10
+.critedge:                                        ; preds = %106, %.lr.ph61, %10
   call void @FreeExecutorState(ptr noundef nonnull %5) #8
   ret void
 
@@ -3945,15 +3946,15 @@ table_scan_getnextslot.exit:                      ; preds = %table_scan_getnexts
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = call zeroext i1 %55(ptr noundef nonnull %34, i32 noundef 1, ptr noundef nonnull %35) #8
-  br i1 %56, label %.preheader, label %105
+  br i1 %56, label %.preheader, label %106
 
 .preheader:                                       ; preds = %table_scan_getnextslot.exit
   %57 = load i32, ptr %44, align 8
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %93
-  %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %94
+  %indvars.iv = phi i64 [ %indvars.iv.next, %94 ], [ 0, %.preheader ]
   %59 = load ptr, ptr %45, align 8
   %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
@@ -3990,61 +3991,62 @@ slot_getattr.exit:                                ; preds = %.lr.ph, %slot_getso
   %79 = trunc nuw i8 %78 to i1
   %80 = icmp ne i64 %77, 0
   %or.cond = select i1 %79, i1 true, i1 %80
-  br i1 %or.cond, label %93, label %81
+  br i1 %or.cond, label %94, label %81
 
 81:                                               ; preds = %slot_getattr.exit
   %82 = sext i32 %63 to i64
   %83 = shl nsw i64 %82, 4
   %84 = getelementptr i8, ptr %27, i64 %83
-  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %85)
-  %86 = call i32 @errcode(i32 noundef 67391682) #8
-  %87 = getelementptr %struct.FormData_pg_attribute, ptr %84, i64 %64, i32 1, i32 0, i64 24
-  %88 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  %91 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.137, ptr noundef nonnull %87, ptr noundef nonnull %90) #8
-  %92 = call i32 @errtablecol(ptr noundef %25, i32 noundef %61) #8
+  %85 = getelementptr %struct.FormData_pg_attribute, ptr %84, i64 %64
+  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %86)
+  %87 = call i32 @errcode(i32 noundef 67391682) #8
+  %88 = getelementptr i8, ptr %85, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %92 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.137, ptr noundef nonnull %88, ptr noundef nonnull %91) #8
+  %93 = call i32 @errtablecol(ptr noundef %25, i32 noundef %61) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3255, ptr noundef nonnull @__func__.validateDomainCheckConstraint) #8
   unreachable
 
-93:                                               ; preds = %slot_getattr.exit
+94:                                               ; preds = %slot_getattr.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %94 = load i32, ptr %44, align 8
-  %95 = sext i32 %94 to i64
-  %96 = icmp slt i64 %indvars.iv.next, %95
-  br i1 %96, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  %95 = load i32, ptr %44, align 8
+  %96 = sext i32 %95 to i64
+  %97 = icmp slt i64 %indvars.iv.next, %96
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %93, %.preheader
-  %97 = load ptr, ptr %18, align 8
-  call void @MemoryContextReset(ptr noundef %97) #8
-  %98 = load ptr, ptr %34, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 72
-  %100 = load i32, ptr %99, align 8
-  store i32 %100, ptr %36, align 8
-  %101 = load i32, ptr @CheckXidAlive, align 4
-  %102 = icmp eq i32 %101, 0
-  %103 = load i8, ptr @bsysscan, align 1, !range !6
-  %104 = trunc nuw i8 %103 to i1
-  %.not5.i = select i1 %102, i1 true, i1 %104
+._crit_edge:                                      ; preds = %94, %.preheader
+  %98 = load ptr, ptr %18, align 8
+  call void @MemoryContextReset(ptr noundef %98) #8
+  %99 = load ptr, ptr %34, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 72
+  %101 = load i32, ptr %100, align 8
+  store i32 %101, ptr %36, align 8
+  %102 = load i32, ptr @CheckXidAlive, align 4
+  %103 = icmp eq i32 %102, 0
+  %104 = load i8, ptr @bsysscan, align 1, !range !6
+  %105 = trunc nuw i8 %104 to i1
+  %.not5.i = select i1 %103, i1 true, i1 %105
   br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge57, !prof !10, !llvm.loop !14
 
-105:                                              ; preds = %table_scan_getnextslot.exit
+106:                                              ; preds = %table_scan_getnextslot.exit
   call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %35) #8
-  %106 = load ptr, ptr %34, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 320
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %110 = load ptr, ptr %109, align 8
-  call void %110(ptr noundef nonnull %34) #8
+  %107 = load ptr, ptr %34, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 320
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %111 = load ptr, ptr %110, align 8
+  call void %111(ptr noundef nonnull %34) #8
   call void @UnregisterSnapshot(ptr noundef %29) #8
   call void @table_close(ptr noundef %25, i32 noundef 0) #8
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76105, 1
-  %111 = load i32, ptr %14, align 4
-  %112 = sext i32 %111 to i64
-  %113 = icmp slt i64 %indvars.iv.next77, %112
-  br i1 %113, label %.lr.ph106, label %.critedge
+  %112 = load i32, ptr %14, align 4
+  %113 = sext i32 %112 to i64
+  %114 = icmp slt i64 %indvars.iv.next77, %113
+  br i1 %114, label %.lr.ph106, label %.critedge
 }
 
 ; Function Attrs: nounwind uwtable

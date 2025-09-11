@@ -4729,7 +4729,7 @@ _ZNKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
 60:                                               ; preds = %31
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %247
+  br label %248
 
 62:                                               ; preds = %36
   %63 = landingpad { ptr, i32 }
@@ -4838,7 +4838,7 @@ _ZNKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %244
+  br label %245
 
 115:                                              ; preds = %.noexc, %._crit_edge116
   %116 = landingpad { ptr, i32 }
@@ -4850,7 +4850,7 @@ _ZNKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
 117:                                              ; preds = %115, %107, %83, %62
   %.pn67 = phi { ptr, i32 } [ %84, %83 ], [ %108, %107 ], [ %116, %115 ], [ %63, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %247
+  br label %248
 
 .critedge:                                        ; preds = %2, %_ZNKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE4findERKS5_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -4927,19 +4927,19 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %244
+  br label %245
 
 145:                                              ; preds = %.critedge.i
   %146 = landingpad { ptr, i32 }
           cleanup
-  br label %247
+  br label %248
 
 147:                                              ; preds = %.noexc73, %140
   %148 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %247
+  br label %248
 
 149:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -4963,14 +4963,14 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %244
+  br label %245
 
 153:                                              ; preds = %.noexc76, %149
   %154 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %247
+  br label %248
 
 155:                                              ; preds = %.critedge.i
   store i32 %133, ptr %134, align 4, !tbaa !4
@@ -5004,18 +5004,18 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %170 = load i8, ptr %169, align 8, !tbaa !265, !range !114, !noundef !115
   %171 = trunc nuw i8 %170 to i1
-  br i1 %171, label %207, label %238
+  br i1 %171, label %208, label %239
 
 172:                                              ; preds = %155
   %173 = landingpad { ptr, i32 }
           cleanup
-  br label %243
+  br label %244
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %195
   %174 = phi ptr [ %162, %.lr.ph.preheader ], [ %197, %195 ]
-  %175 = phi i32 [ %167, %.lr.ph.preheader ], [ %200, %195 ]
+  %175 = phi i32 [ %167, %.lr.ph.preheader ], [ %201, %195 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %195 ]
-  %.sroa.096.0109 = phi ptr [ %165, %.lr.ph.preheader ], [ %202, %195 ]
+  %.sroa.096.0109 = phi ptr [ %165, %.lr.ph.preheader ], [ %203, %195 ]
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.096.0109, i64 32
   store i32 %175, ptr %24, align 8, !tbaa !4
   %177 = load ptr, ptr %159, align 8, !tbaa !8
@@ -5024,7 +5024,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   %180 = load i64, ptr %179, align 8, !tbaa !133
   %181 = add i64 %180, 1
   %182 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %177, i64 noundef %181)
-          to label %183 unwind label %203
+          to label %183 unwind label %204
 
 183:                                              ; preds = %.lr.ph
   %184 = getelementptr inbounds nuw i8, ptr %.sroa.096.0109, i64 64
@@ -5035,7 +5035,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   %187 = ptrtoint ptr %182 to i64
   store i64 %187, ptr %186, align 8, !tbaa !127
   %188 = invoke noundef ptr @_ZNK4Luau8Property4typeEv(ptr noundef nonnull align 8 dereferenceable(176) %184)
-          to label %189 unwind label %203
+          to label %189 unwind label %204
 
 189:                                              ; preds = %183
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5045,127 +5045,128 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   %193 = load ptr, ptr %192, align 8, !tbaa !32
   %194 = getelementptr inbounds nuw i8, ptr %188, i64 8
   invoke void %193(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %194)
-          to label %195 unwind label %203
+          to label %195 unwind label %204
 
 195:                                              ; preds = %189
   %196 = load ptr, ptr %5, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %197 = load ptr, ptr %22, align 8, !tbaa !264
-  %198 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %197, i64 %indvars.iv, i32 2
-  store ptr %196, ptr %198, align 8, !tbaa !267
-  %199 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %197, i64 %indvars.iv, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, i8 0, i64 16, i1 false)
+  %198 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %197, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
+  store ptr %196, ptr %199, align 8, !tbaa !267
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %200, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %200 = load i32, ptr %24, align 8, !tbaa !4
-  %201 = add nsw i32 %200, -1
-  store i32 %201, ptr %24, align 8, !tbaa !4
-  %202 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.096.0109) #25
-  %.not = icmp eq ptr %202, %166
+  %201 = load i32, ptr %24, align 8, !tbaa !4
+  %202 = add nsw i32 %201, -1
+  store i32 %202, ptr %24, align 8, !tbaa !4
+  %203 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.096.0109) #25
+  %.not = icmp eq ptr %203, %166
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-203:                                              ; preds = %189, %.lr.ph, %183
-  %204 = landingpad { ptr, i32 }
+204:                                              ; preds = %189, %.lr.ph, %183
+  %205 = landingpad { ptr, i32 }
           cleanup
-  %205 = load i32, ptr %24, align 8, !tbaa !4
-  %206 = add nsw i32 %205, -1
-  store i32 %206, ptr %24, align 8, !tbaa !4
-  br label %243
+  %206 = load i32, ptr %24, align 8, !tbaa !4
+  %207 = add nsw i32 %206, -1
+  store i32 %207, ptr %24, align 8, !tbaa !4
+  br label %244
 
-207:                                              ; preds = %._crit_edge
-  %208 = load i32, ptr %24, align 8, !tbaa !4
-  %209 = add nsw i32 %208, 1
-  store i32 %209, ptr %24, align 8, !tbaa !4
-  %210 = load ptr, ptr %159, align 8, !tbaa !8
-  %211 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %210, i64 noundef 56)
-          to label %212 unwind label %234
+208:                                              ; preds = %._crit_edge
+  %209 = load i32, ptr %24, align 8, !tbaa !4
+  %210 = add nsw i32 %209, 1
+  store i32 %210, ptr %24, align 8, !tbaa !4
+  %211 = load ptr, ptr %159, align 8, !tbaa !8
+  %212 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %211, i64 noundef 56)
+          to label %213 unwind label %235
 
-212:                                              ; preds = %207
-  %213 = getelementptr inbounds nuw i8, ptr %211, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %211, i8 0, i64 56, i1 false)
-  store i32 3, ptr %213, align 8, !tbaa !276
-  %214 = load ptr, ptr %168, align 8, !tbaa !278
+213:                                              ; preds = %208
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %212, i8 0, i64 56, i1 false)
+  store i32 3, ptr %214, align 8, !tbaa !276
+  %215 = load ptr, ptr %168, align 8, !tbaa !278
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %215 = load i32, ptr %214, align 8, !tbaa !104
-  %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %216
-  %218 = load ptr, ptr %217, align 8, !tbaa !32
-  %219 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  invoke void %218(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %219)
-          to label %220 unwind label %234
+  %216 = load i32, ptr %215, align 8, !tbaa !104
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %217
+  %219 = load ptr, ptr %218, align 8, !tbaa !32
+  %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  invoke void %219(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %220)
+          to label %221 unwind label %235
 
-220:                                              ; preds = %212
-  %221 = load ptr, ptr %4, align 8, !tbaa !106
+221:                                              ; preds = %213
+  %222 = load ptr, ptr %4, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store ptr %221, ptr %211, align 8, !tbaa !280
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %223 = load ptr, ptr %222, align 8, !tbaa !281
+  store ptr %222, ptr %212, align 8, !tbaa !280
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %224 = load ptr, ptr %223, align 8, !tbaa !281
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %224 = load i32, ptr %223, align 8, !tbaa !104
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %225
-  %227 = load ptr, ptr %226, align 8, !tbaa !32
-  %228 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  invoke void %227(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %228)
-          to label %229 unwind label %234
+  %225 = load i32, ptr %224, align 8, !tbaa !104
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %226
+  %228 = load ptr, ptr %227, align 8, !tbaa !32
+  %229 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  invoke void %228(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %229)
+          to label %230 unwind label %235
 
-229:                                              ; preds = %220
-  %230 = load ptr, ptr %3, align 8, !tbaa !106
+230:                                              ; preds = %221
+  %231 = load ptr, ptr %3, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %231 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  store ptr %230, ptr %231, align 8, !tbaa !282
-  %232 = load i32, ptr %24, align 8, !tbaa !4
-  %233 = add nsw i32 %232, -1
-  store i32 %233, ptr %24, align 8, !tbaa !4
-  br label %238
+  %232 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  store ptr %231, ptr %232, align 8, !tbaa !282
+  %233 = load i32, ptr %24, align 8, !tbaa !4
+  %234 = add nsw i32 %233, -1
+  store i32 %234, ptr %24, align 8, !tbaa !4
+  br label %239
 
-234:                                              ; preds = %220, %212, %207
-  %235 = landingpad { ptr, i32 }
+235:                                              ; preds = %221, %213, %208
+  %236 = landingpad { ptr, i32 }
           cleanup
-  %236 = load i32, ptr %24, align 8, !tbaa !4
-  %237 = add nsw i32 %236, -1
-  store i32 %237, ptr %24, align 8, !tbaa !4
-  br label %243
+  %237 = load i32, ptr %24, align 8, !tbaa !4
+  %238 = add nsw i32 %237, -1
+  store i32 %238, ptr %24, align 8, !tbaa !4
+  br label %244
 
-238:                                              ; preds = %._crit_edge, %229
-  %.0106 = phi ptr [ %211, %229 ], [ null, %._crit_edge ]
-  %239 = load ptr, ptr %159, align 8, !tbaa !8
+239:                                              ; preds = %._crit_edge, %230
+  %.0106 = phi ptr [ %212, %230 ], [ null, %._crit_edge ]
+  %240 = load ptr, ptr %159, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %240 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %239, i64 noundef 56)
-          to label %.noexc87 unwind label %241
+  %241 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %240, i64 noundef 56)
+          to label %.noexc87 unwind label %242
 
-.noexc87:                                         ; preds = %238
-  invoke void @_ZN4Luau12AstTypeTableC1ERKNS_8LocationERKNS_8AstArrayINS_12AstTablePropEEEPNS_15AstTableIndexerE(ptr noundef nonnull align 8 dereferenceable(56) %240, ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %.0106)
-          to label %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit unwind label %241
+.noexc87:                                         ; preds = %239
+  invoke void @_ZN4Luau12AstTypeTableC1ERKNS_8LocationERKNS_8AstArrayINS_12AstTablePropEEEPNS_15AstTableIndexerE(ptr noundef nonnull align 8 dereferenceable(56) %241, ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %.0106)
+          to label %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit unwind label %242
 
 _ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit: ; preds = %.noexc87
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %244
+  br label %245
 
-241:                                              ; preds = %.noexc87, %238
-  %242 = landingpad { ptr, i32 }
+242:                                              ; preds = %.noexc87, %239
+  %243 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %243
+  br label %244
 
-243:                                              ; preds = %234, %241, %203, %172
-  %.pn56.pn.pn = phi { ptr, i32 } [ %173, %172 ], [ %204, %203 ], [ %242, %241 ], [ %235, %234 ]
+244:                                              ; preds = %235, %242, %204, %172
+  %.pn56.pn.pn = phi { ptr, i32 } [ %173, %172 ], [ %205, %204 ], [ %243, %242 ], [ %236, %235 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %247
+  br label %248
 
-244:                                              ; preds = %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit, %152, %144, %114
-  %.0 = phi ptr [ %111, %114 ], [ %142, %144 ], [ %150, %152 ], [ %240, %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit ]
-  %245 = load i32, ptr %24, align 8, !tbaa !4
-  %246 = add nsw i32 %245, -1
-  store i32 %246, ptr %24, align 8, !tbaa !4
+245:                                              ; preds = %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit, %152, %144, %114
+  %.0 = phi ptr [ %111, %114 ], [ %142, %144 ], [ %150, %152 ], [ %241, %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit ]
+  %246 = load i32, ptr %24, align 8, !tbaa !4
+  %247 = add nsw i32 %246, -1
+  store i32 %247, ptr %24, align 8, !tbaa !4
   ret ptr %.0
 
-247:                                              ; preds = %243, %153, %147, %145, %117, %60
-  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %117 ], [ %148, %147 ], [ %154, %153 ], [ %.pn56.pn.pn, %243 ], [ %146, %145 ], [ %61, %60 ]
-  %248 = load i32, ptr %24, align 8, !tbaa !4
-  %249 = add nsw i32 %248, -1
-  store i32 %249, ptr %24, align 8, !tbaa !4
+248:                                              ; preds = %244, %153, %147, %145, %117, %60
+  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %117 ], [ %148, %147 ], [ %154, %153 ], [ %.pn56.pn.pn, %244 ], [ %146, %145 ], [ %61, %60 ]
+  %249 = load i32, ptr %24, align 8, !tbaa !4
+  %250 = add nsw i32 %249, -1
+  store i32 %250, ptr %24, align 8, !tbaa !4
   resume { ptr, i32 } %.pn67.pn
 }
 
@@ -5438,19 +5439,19 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %142
+  br label %143
 
 56:                                               ; preds = %.critedge.i, %2
   %57 = landingpad { ptr, i32 }
           cleanup
-  br label %145
+  br label %146
 
 58:                                               ; preds = %.noexc41, %51
   %59 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %145
+  br label %146
 
 60:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -5476,17 +5477,17 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %73 = load i8, ptr %72, align 8, !tbaa !265, !range !114, !noundef !115
   %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %105, label %136
+  br i1 %74, label %106, label %137
 
 75:                                               ; preds = %60
   %76 = landingpad { ptr, i32 }
           cleanup
-  br label %141
+  br label %142
 
 .lr.ph:                                           ; preds = %67, %97
   %77 = phi ptr [ %99, %97 ], [ %66, %67 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ 0, %67 ]
-  %.sroa.060.070 = phi ptr [ %102, %97 ], [ %69, %67 ]
+  %.sroa.060.070 = phi ptr [ %103, %97 ], [ %69, %67 ]
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.060.070, i64 32
   %79 = load ptr, ptr %16, align 8, !tbaa !8
   %80 = load ptr, ptr %78, align 8, !tbaa !120
@@ -5494,7 +5495,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   %82 = load i64, ptr %81, align 8, !tbaa !133
   %83 = add i64 %82, 1
   %84 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %79, i64 noundef %83)
-          to label %85 unwind label %103
+          to label %85 unwind label %104
 
 85:                                               ; preds = %.lr.ph
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.060.070, i64 64
@@ -5505,7 +5506,7 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   %89 = ptrtoint ptr %84 to i64
   store i64 %89, ptr %88, align 8, !tbaa !127
   %90 = invoke noundef ptr @_ZNK4Luau8Property4typeEv(ptr noundef nonnull align 8 dereferenceable(176) %86)
-          to label %91 unwind label %103
+          to label %91 unwind label %104
 
 91:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5515,121 +5516,122 @@ _ZNSt3mapIPviSt4lessIS0_ESaISt4pairIKS0_iEEE4findERS4_.exit.i: ; preds = %_ZNSt8
   %95 = load ptr, ptr %94, align 8, !tbaa !32
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 8
   invoke void %95(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %96)
-          to label %97 unwind label %103
+          to label %97 unwind label %104
 
 97:                                               ; preds = %91
   %98 = load ptr, ptr %5, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %99 = load ptr, ptr %11, align 8, !tbaa !264
-  %100 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %99, i64 %indvars.iv, i32 2
-  store ptr %98, ptr %100, align 8, !tbaa !267
-  %101 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %99, i64 %indvars.iv, i32 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
+  %100 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %99, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  store ptr %98, ptr %101, align 8, !tbaa !267
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %102 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.060.070) #25
-  %.not = icmp eq ptr %102, %70
+  %103 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.060.070) #25
+  %.not = icmp eq ptr %103, %70
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-103:                                              ; preds = %91, %.lr.ph, %85
-  %104 = landingpad { ptr, i32 }
+104:                                              ; preds = %91, %.lr.ph, %85
+  %105 = landingpad { ptr, i32 }
           cleanup
-  br label %141
+  br label %142
 
-105:                                              ; preds = %._crit_edge
-  %106 = load i32, ptr %13, align 8, !tbaa !4
-  %107 = add nsw i32 %106, 1
-  store i32 %107, ptr %13, align 8, !tbaa !4
-  %108 = load ptr, ptr %16, align 8, !tbaa !8
-  %109 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %108, i64 noundef 56)
-          to label %110 unwind label %132
+106:                                              ; preds = %._crit_edge
+  %107 = load i32, ptr %13, align 8, !tbaa !4
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr %13, align 8, !tbaa !4
+  %109 = load ptr, ptr %16, align 8, !tbaa !8
+  %110 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %109, i64 noundef 56)
+          to label %111 unwind label %133
 
-110:                                              ; preds = %105
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %109, i8 0, i64 56, i1 false)
-  store i32 3, ptr %111, align 8, !tbaa !276
-  %112 = load ptr, ptr %71, align 8, !tbaa !278
+111:                                              ; preds = %106
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, i8 0, i64 56, i1 false)
+  store i32 3, ptr %112, align 8, !tbaa !276
+  %113 = load ptr, ptr %71, align 8, !tbaa !278
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %113 = load i32, ptr %112, align 8, !tbaa !104
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %114
-  %116 = load ptr, ptr %115, align 8, !tbaa !32
-  %117 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  invoke void %116(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %117)
-          to label %118 unwind label %132
+  %114 = load i32, ptr %113, align 8, !tbaa !104
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %115
+  %117 = load ptr, ptr %116, align 8, !tbaa !32
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  invoke void %117(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %118)
+          to label %119 unwind label %133
 
-118:                                              ; preds = %110
-  %119 = load ptr, ptr %4, align 8, !tbaa !106
+119:                                              ; preds = %111
+  %120 = load ptr, ptr %4, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store ptr %119, ptr %109, align 8, !tbaa !280
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %121 = load ptr, ptr %120, align 8, !tbaa !281
+  store ptr %120, ptr %110, align 8, !tbaa !280
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %122 = load ptr, ptr %121, align 8, !tbaa !281
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %122 = load i32, ptr %121, align 8, !tbaa !104
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %123
-  %125 = load ptr, ptr %124, align 8, !tbaa !32
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  invoke void %125(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %126)
-          to label %127 unwind label %132
+  %123 = load i32, ptr %122, align 8, !tbaa !104
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds ptr, ptr @_ZZN4Luau5visitIRNS_22TypeRehydrationVisitorEJNS_9Unifiable5BoundIPKNS_4TypeEEENS3_5ErrorIS7_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEEEDaOT_RKNS_7VariantIJDpT0_EEEE10tableVisit_0, i64 %124
+  %126 = load ptr, ptr %125, align 8, !tbaa !32
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  invoke void %126(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %127)
+          to label %128 unwind label %133
 
-127:                                              ; preds = %118
-  %128 = load ptr, ptr %3, align 8, !tbaa !106
+128:                                              ; preds = %119
+  %129 = load ptr, ptr %3, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %129 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store ptr %128, ptr %129, align 8, !tbaa !282
-  %130 = load i32, ptr %13, align 8, !tbaa !4
-  %131 = add nsw i32 %130, -1
-  store i32 %131, ptr %13, align 8, !tbaa !4
-  br label %136
+  %130 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  store ptr %129, ptr %130, align 8, !tbaa !282
+  %131 = load i32, ptr %13, align 8, !tbaa !4
+  %132 = add nsw i32 %131, -1
+  store i32 %132, ptr %13, align 8, !tbaa !4
+  br label %137
 
-132:                                              ; preds = %118, %110, %105
-  %133 = landingpad { ptr, i32 }
+133:                                              ; preds = %119, %111, %106
+  %134 = landingpad { ptr, i32 }
           cleanup
-  %134 = load i32, ptr %13, align 8, !tbaa !4
-  %135 = add nsw i32 %134, -1
-  store i32 %135, ptr %13, align 8, !tbaa !4
-  br label %141
+  %135 = load i32, ptr %13, align 8, !tbaa !4
+  %136 = add nsw i32 %135, -1
+  store i32 %136, ptr %13, align 8, !tbaa !4
+  br label %142
 
-136:                                              ; preds = %._crit_edge, %127
-  %.066 = phi ptr [ %109, %127 ], [ null, %._crit_edge ]
-  %137 = load ptr, ptr %16, align 8, !tbaa !8
+137:                                              ; preds = %._crit_edge, %128
+  %.066 = phi ptr [ %110, %128 ], [ null, %._crit_edge ]
+  %138 = load ptr, ptr %16, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %138 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %137, i64 noundef 56)
-          to label %.noexc53 unwind label %139
+  %139 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %138, i64 noundef 56)
+          to label %.noexc53 unwind label %140
 
-.noexc53:                                         ; preds = %136
-  invoke void @_ZN4Luau12AstTypeTableC1ERKNS_8LocationERKNS_8AstArrayINS_12AstTablePropEEEPNS_15AstTableIndexerE(ptr noundef nonnull align 8 dereferenceable(56) %138, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %.066)
-          to label %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit unwind label %139
+.noexc53:                                         ; preds = %137
+  invoke void @_ZN4Luau12AstTypeTableC1ERKNS_8LocationERKNS_8AstArrayINS_12AstTablePropEEEPNS_15AstTableIndexerE(ptr noundef nonnull align 8 dereferenceable(56) %139, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %.066)
+          to label %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit unwind label %140
 
 _ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit: ; preds = %.noexc53
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %142
+  br label %143
 
-139:                                              ; preds = %.noexc53, %136
-  %140 = landingpad { ptr, i32 }
+140:                                              ; preds = %.noexc53, %137
+  %141 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %141
+  br label %142
 
-141:                                              ; preds = %132, %139, %103, %75
-  %.pn33.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %104, %103 ], [ %140, %139 ], [ %133, %132 ]
+142:                                              ; preds = %133, %140, %104, %75
+  %.pn33.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %105, %104 ], [ %141, %140 ], [ %134, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %145
+  br label %146
 
-142:                                              ; preds = %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit, %55
-  %.0 = phi ptr [ %53, %55 ], [ %138, %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit ]
-  %143 = load i32, ptr %13, align 8, !tbaa !4
-  %144 = add nsw i32 %143, -1
-  store i32 %144, ptr %13, align 8, !tbaa !4
+143:                                              ; preds = %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit, %55
+  %.0 = phi ptr [ %53, %55 ], [ %139, %_ZN4Luau9Allocator5allocINS_12AstTypeTableEJNS_8LocationERNS_8AstArrayINS_12AstTablePropEEERPNS_15AstTableIndexerEEEEPT_DpOT0_.exit ]
+  %144 = load i32, ptr %13, align 8, !tbaa !4
+  %145 = add nsw i32 %144, -1
+  store i32 %145, ptr %13, align 8, !tbaa !4
   ret ptr %.0
 
-145:                                              ; preds = %141, %58, %56
-  %.pn37.pn = phi { ptr, i32 } [ %59, %58 ], [ %.pn33.pn.pn, %141 ], [ %57, %56 ]
-  %146 = load i32, ptr %13, align 8, !tbaa !4
-  %147 = add nsw i32 %146, -1
-  store i32 %147, ptr %13, align 8, !tbaa !4
+146:                                              ; preds = %142, %58, %56
+  %.pn37.pn = phi { ptr, i32 } [ %59, %58 ], [ %.pn33.pn.pn, %142 ], [ %57, %56 ]
+  %147 = load i32, ptr %13, align 8, !tbaa !4
+  %148 = add nsw i32 %147, -1
+  store i32 %148, ptr %13, align 8, !tbaa !4
   resume { ptr, i32 } %.pn37.pn
 }
 

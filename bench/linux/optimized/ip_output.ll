@@ -2991,7 +2991,8 @@ define internal fastcc noundef range(i32 -105, 1) i32 @ip_setup_cork(ptr noundef
 
 50:                                               ; preds = %46, %41
   %51 = phi i64 [ 0, %41 ], [ %49, %46 ]
-  %52 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %51, i64 6
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %51
+  %52 = getelementptr i8, ptr %.split, i64 48
   %53 = load ptr, ptr %52, align 16
   %54 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %53, i32 noundef %43, i64 noundef 56) #15
   store ptr %54, ptr %38, align 8
@@ -3792,8 +3793,8 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
   %497 = zext i32 %496 to i64
   %498 = getelementptr i8, ptr %495, i64 %497
   %499 = add nsw i32 %477, -1
-  %500 = sext i32 %499 to i64
-  %.idx.us = shl nsw i64 %500, 4
+  %500 = zext nneg i32 %499 to i64
+  %.idx.us = shl nuw nsw i64 %500, 4
   %501 = getelementptr i8, ptr %498, i64 56
   %502 = getelementptr i8, ptr %501, i64 %.idx.us
   %503 = load i32, ptr %502, align 8

@@ -1792,65 +1792,71 @@ define dso_local void @clear_pathspec(ptr noundef captures(none) %0) local_unnam
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
 
-5:                                                ; preds = %.lr.ph27, %33
-  %indvars.iv30 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next31, %33 ]
+5:                                                ; preds = %.lr.ph27, %39
+  %indvars.iv30 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next31, %39 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw %struct.pathspec_item, ptr %6, i64 %indvars.iv30
   %8 = load ptr, ptr %7, align 8, !tbaa !64
   tail call void @free(ptr noundef %8) #17
   %9 = load ptr, ptr %4, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw %struct.pathspec_item, ptr %9, i64 %indvars.iv30, i32 1
-  %11 = load ptr, ptr %10, align 8, !tbaa !68
-  tail call void @free(ptr noundef %11) #17
-  %12 = load ptr, ptr %4, align 8, !tbaa !63
-  %13 = getelementptr inbounds nuw %struct.pathspec_item, ptr %12, i64 %indvars.iv30, i32 7
-  %14 = load i32, ptr %13, align 4, !tbaa !83
-  %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge
+  %10 = getelementptr inbounds nuw %struct.pathspec_item, ptr %9, i64 %indvars.iv30
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !68
+  tail call void @free(ptr noundef %12) #17
+  %13 = load ptr, ptr %4, align 8, !tbaa !63
+  %14 = getelementptr inbounds nuw %struct.pathspec_item, ptr %13, i64 %indvars.iv30
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  %16 = load i32, ptr %15, align 4, !tbaa !83
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
-  %16 = phi ptr [ %21, %.lr.ph ], [ %12, %5 ]
-  %17 = getelementptr inbounds nuw %struct.pathspec_item, ptr %16, i64 %indvars.iv30, i32 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !78
-  %19 = getelementptr inbounds nuw %struct.attr_match, ptr %18, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !89
-  tail call void @free(ptr noundef %20) #17
+  %18 = phi ptr [ %24, %.lr.ph ], [ %13, %5 ]
+  %19 = getelementptr inbounds nuw %struct.pathspec_item, ptr %18, i64 %indvars.iv30
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %21 = load ptr, ptr %20, align 8, !tbaa !78
+  %22 = getelementptr inbounds nuw %struct.attr_match, ptr %21, i64 %indvars.iv
+  %23 = load ptr, ptr %22, align 8, !tbaa !89
+  tail call void @free(ptr noundef %23) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = load ptr, ptr %4, align 8, !tbaa !63
-  %22 = getelementptr inbounds nuw %struct.pathspec_item, ptr %21, i64 %indvars.iv30, i32 7
-  %23 = load i32, ptr %22, align 4, !tbaa !83
-  %24 = sext i32 %23 to i64
-  %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !112
+  %24 = load ptr, ptr %4, align 8, !tbaa !63
+  %25 = getelementptr inbounds nuw %struct.pathspec_item, ptr %24, i64 %indvars.iv30
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 36
+  %27 = load i32, ptr %26, align 4, !tbaa !83
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next, %28
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %26 = phi ptr [ %12, %5 ], [ %21, %.lr.ph ]
-  %27 = getelementptr inbounds nuw %struct.pathspec_item, ptr %26, i64 %indvars.iv30, i32 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !78
-  tail call void @free(ptr noundef %28) #17
-  %29 = load ptr, ptr %4, align 8, !tbaa !63
-  %30 = getelementptr inbounds nuw %struct.pathspec_item, ptr %29, i64 %indvars.iv30, i32 9
-  %31 = load ptr, ptr %30, align 8, !tbaa !77
-  %.not = icmp eq ptr %31, null
-  br i1 %.not, label %33, label %32
+  %30 = phi ptr [ %13, %5 ], [ %24, %.lr.ph ]
+  %31 = getelementptr inbounds nuw %struct.pathspec_item, ptr %30, i64 %indvars.iv30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %33 = load ptr, ptr %32, align 8, !tbaa !78
+  tail call void @free(ptr noundef %33) #17
+  %34 = load ptr, ptr %4, align 8, !tbaa !63
+  %35 = getelementptr inbounds nuw %struct.pathspec_item, ptr %34, i64 %indvars.iv30
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  %37 = load ptr, ptr %36, align 8, !tbaa !77
+  %.not = icmp eq ptr %37, null
+  br i1 %.not, label %39, label %38
 
-32:                                               ; preds = %._crit_edge
-  tail call void @attr_check_free(ptr noundef nonnull %31) #17
-  br label %33
+38:                                               ; preds = %._crit_edge
+  tail call void @attr_check_free(ptr noundef nonnull %37) #17
+  br label %39
 
-33:                                               ; preds = %._crit_edge, %32
+39:                                               ; preds = %._crit_edge, %38
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %34 = load i32, ptr %0, align 8, !tbaa !4
-  %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %indvars.iv.next31, %35
-  br i1 %36, label %5, label %._crit_edge28, !llvm.loop !113
+  %40 = load i32, ptr %0, align 8, !tbaa !4
+  %41 = sext i32 %40 to i64
+  %42 = icmp slt i64 %indvars.iv.next31, %41
+  br i1 %42, label %5, label %._crit_edge28, !llvm.loop !113
 
-._crit_edge28:                                    ; preds = %33, %1
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !63
-  tail call void @free(ptr noundef %38) #17
-  store ptr null, ptr %37, align 8, !tbaa !63
+._crit_edge28:                                    ; preds = %39, %1
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !63
+  tail call void @free(ptr noundef %44) #17
+  store ptr null, ptr %43, align 8, !tbaa !63
   store i32 0, ptr %0, align 8, !tbaa !4
   ret void
 }
@@ -1893,53 +1899,54 @@ define dso_local range(i32 0, 2) i32 @match_pathspec_attrs(ptr noundef %0, ptr n
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph, %40
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %22 = getelementptr inbounds nuw %struct.attr_check_item, ptr %18, i64 %indvars.iv, i32 1
-  %23 = load ptr, ptr %22, align 8, !tbaa !115
-  %24 = getelementptr inbounds nuw %struct.attr_match, ptr %20, i64 %indvars.iv
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !86
-  %27 = icmp eq ptr %23, @git_attr__true
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %21
-  %.not37 = icmp eq i32 %26, 0
-  br i1 %.not37, label %40, label %.critedge
+21:                                               ; preds = %.lr.ph, %41
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
+  %22 = getelementptr inbounds nuw %struct.attr_check_item, ptr %18, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !115
+  %25 = getelementptr inbounds nuw %struct.attr_match, ptr %20, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load i32, ptr %26, align 8, !tbaa !86
+  %28 = icmp eq ptr %24, @git_attr__true
+  br i1 %28, label %29, label %30
 
 29:                                               ; preds = %21
-  %30 = icmp eq ptr %23, @git_attr__false
-  br i1 %30, label %31, label %32
+  %.not37 = icmp eq i32 %27, 0
+  br i1 %.not37, label %41, label %.critedge
 
-31:                                               ; preds = %29
-  %.not36 = icmp eq i32 %26, 1
-  br i1 %.not36, label %40, label %.critedge
+30:                                               ; preds = %21
+  %31 = icmp eq ptr %24, @git_attr__false
+  br i1 %31, label %32, label %33
 
-32:                                               ; preds = %29
-  %33 = icmp eq ptr %23, null
-  br i1 %33, label %34, label %35
+32:                                               ; preds = %30
+  %.not36 = icmp eq i32 %27, 1
+  br i1 %.not36, label %41, label %.critedge
 
-34:                                               ; preds = %32
-  %.not35 = icmp eq i32 %26, 3
-  br i1 %.not35, label %40, label %.critedge
+33:                                               ; preds = %30
+  %34 = icmp eq ptr %24, null
+  br i1 %34, label %35, label %36
 
-35:                                               ; preds = %32
-  %36 = icmp eq i32 %26, 2
-  br i1 %36, label %37, label %.critedge
+35:                                               ; preds = %33
+  %.not35 = icmp eq i32 %27, 3
+  br i1 %.not35, label %41, label %.critedge
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %24, align 8, !tbaa !89
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %23) #19
-  %.not33.not = icmp eq i32 %39, 0
-  br i1 %.not33.not, label %40, label %.critedge
+36:                                               ; preds = %33
+  %37 = icmp eq i32 %27, 2
+  br i1 %37, label %38, label %.critedge
 
-40:                                               ; preds = %34, %31, %28, %37
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %25, align 8, !tbaa !89
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %24) #19
+  %.not33.not = icmp eq i32 %40, 0
+  br i1 %.not33.not, label %41, label %.critedge
+
+41:                                               ; preds = %35, %32, %29, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %21, !llvm.loop !118
 
-.critedge:                                        ; preds = %37, %40, %35, %28, %31, %34, %10
-  %.2 = phi i32 [ 1, %10 ], [ 0, %34 ], [ 0, %31 ], [ 0, %28 ], [ 0, %35 ], [ 1, %40 ], [ 0, %37 ]
+.critedge:                                        ; preds = %38, %41, %36, %29, %32, %35, %10
+  %.2 = phi i32 [ 1, %10 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %36 ], [ 1, %41 ], [ 0, %38 ]
   ret i32 %.2
 }
 

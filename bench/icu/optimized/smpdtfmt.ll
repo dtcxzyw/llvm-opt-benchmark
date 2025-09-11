@@ -10016,7 +10016,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 215:                                              ; preds = %214
   %216 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L15gFieldRangeBiasE, i64 %57
   %217 = load i32, ptr %216, align 4, !tbaa !12
-  %218 = shl nuw i64 1, %57
+  %218 = shl nuw nsw i64 1, %57
   %219 = and i64 %218, 100663500
   %.not848 = icmp eq i64 %219, 0
   br i1 %.not848, label %.thread960, label %220

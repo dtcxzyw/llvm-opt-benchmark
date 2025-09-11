@@ -1531,28 +1531,27 @@ _ZNK8facebook5velox6memory10Allocation5emptyEv.exit: ; preds = %if.end.i.i
   br i1 %3, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %_ZNK8facebook5velox6memory10Allocation5emptyEv.exit
-  %sub.ptr.lhs.cast.i.i41 = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i.i42 = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i41, %sub.ptr.rhs.cast.i.i42
-  %5 = and i64 %sub.ptr.sub.i.i43, 34359738360
-  %cmp46.not = icmp eq i64 %5, 0
-  br i1 %cmp46.not, label %for.end, label %for.body.lr.ph
+  %sub.ptr.lhs.cast.i.i40 = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i.i41 = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i.i42 = sub i64 %sub.ptr.lhs.cast.i.i40, %sub.ptr.rhs.cast.i.i41
+  %5 = and i64 %sub.ptr.sub.i.i42, 34359738360
+  %cmp45.not = icmp eq i64 %5, 0
+  br i1 %cmp45.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %mallocsMutex_ = getelementptr inbounds nuw i8, ptr %this, i64 904
   %mallocs_ = getelementptr inbounds nuw i8, ptr %this, i64 944
-  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_finish.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit"
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
   %6 = phi ptr [ %1, %for.body.lr.ph ], [ %22, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
-  %numFreed.048 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
+  %numFreed.047 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
   %add.ptr.i.i = getelementptr inbounds nuw %"class.facebook::velox::memory::Allocation::PageRun", ptr %6, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i64, ptr %add.ptr.i.i, align 8
   %shr.i = lshr i64 %retval.sroa.0.0.copyload.i, 48
-  %add = add i64 %shr.i, %numFreed.048
+  %add = add i64 %shr.i, %numFreed.047
   %and.i = and i64 %retval.sroa.0.0.copyload.i, 281474976710655
   %7 = inttoptr i64 %and.i to ptr
   store ptr %7, ptr %ptr, align 8
@@ -1610,14 +1609,13 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   %14 = trunc nuw nsw i64 %13 to i32
   %15 = xor i32 %14, 63
   %16 = call i32 @llvm.umin.i32(i32 %15, i32 19)
-  %narrow = mul nuw nsw i32 %16, 40
-  %narrow33 = add nuw nsw i32 %narrow, 16
-  %17 = zext nneg i32 %narrow33 to i64
+  %17 = zext nneg i32 %16 to i64
   br label %_ZN8facebook5velox10ClockTimerD2Ev.exit.i
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit.i:        ; preds = %if.end.i.i.i, %if.then.i
-  %retval.0.i.i = phi i64 [ 16, %if.then.i ], [ %17, %if.end.i.i.i ]
-  %freeClocks.i = getelementptr inbounds nuw i8, ptr %stats_, i64 %retval.0.i.i
+  %retval.0.i.i = phi i64 [ 0, %if.then.i ], [ %17, %if.end.i.i.i ]
+  %arrayidx.i.i.i = getelementptr %"struct.facebook::velox::memory::SizeClassStats", ptr %this, i64 %retval.0.i.i
+  %freeClocks.i = getelementptr i8, ptr %arrayidx.i.i.i, i64 88
   %18 = call noundef i64 @llvm.x86.rdtsc()
   %op.val.val.i = load ptr, ptr %ptr, align 8
   call void @free(ptr noundef %op.val.val.i) #21
@@ -1680,7 +1678,6 @@ return:                                           ; preds = %_ZNK8facebook5velox
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox6memory15MallocAllocator14freeContiguousERNS1_20ContiguousAllocationE(ptr noundef nonnull align 8 dereferenceable(1016) %this, ptr noundef nonnull align 8 dereferenceable(32) %allocation) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %size_.i = getelementptr inbounds nuw i8, ptr %allocation, i64 16
   %0 = load i64, ptr %size_.i, align 8
   %1 = load i8, ptr @_ZN3fLB28FLAGS_velox_time_allocationsE, align 1
@@ -1707,14 +1704,13 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i
   %4 = trunc nuw nsw i64 %3 to i32
   %5 = sub nuw nsw i32 63, %4
   %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 19)
-  %narrow = mul nuw nsw i32 %6, 40
-  %narrow2 = add nuw nsw i32 %narrow, 16
-  %7 = zext nneg i32 %narrow2 to i64
+  %7 = zext nneg i32 %6 to i64
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i: ; preds = %if.end.i.i.i, %if.end.i.i, %if.then.i
-  %retval.0.i.i = phi i64 [ 16, %if.then.i ], [ -24, %if.end.i.i ], [ %7, %if.end.i.i.i ]
-  %freeClocks.i = getelementptr inbounds i8, ptr %stats_, i64 %retval.0.i.i
+  %retval.0.i.i = phi i64 [ 0, %if.then.i ], [ -1, %if.end.i.i ], [ %7, %if.end.i.i.i ]
+  %arrayidx.i.i.i = getelementptr %"struct.facebook::velox::memory::SizeClassStats", ptr %this, i64 %retval.0.i.i
+  %freeClocks.i = getelementptr i8, ptr %arrayidx.i.i.i, i64 88
   %8 = tail call noundef i64 @llvm.x86.rdtsc()
   invoke void @_ZN8facebook5velox6memory15MallocAllocator18freeContiguousImplERNS1_20ContiguousAllocationE(ptr noundef nonnull align 8 dereferenceable(1016) %this, ptr noundef nonnull align 8 dereferenceable(32) %allocation)
           to label %_ZN8facebook5velox10ClockTimerD2Ev.exit.i unwind label %_ZN8facebook5velox10ClockTimerD2Ev.exit15.i

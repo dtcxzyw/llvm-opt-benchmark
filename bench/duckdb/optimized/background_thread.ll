@@ -665,16 +665,17 @@ define void @duckdb_je_background_thread_prefork1(ptr noundef %0) local_unnamed_
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %3 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
-  %.04 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
+  %3 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
+  %.04 = phi i32 [ %7, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !17
-  %5 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %4, i64 %3, i32 2
-  tail call void @duckdb_je_malloc_mutex_prefork(ptr noundef %0, ptr noundef nonnull %5) #12
-  %6 = add i32 %.04, 1
-  %7 = zext i32 %6 to i64
-  %8 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
-  %9 = icmp ugt i64 %8, %7
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %5 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %4, i64 %3
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  tail call void @duckdb_je_malloc_mutex_prefork(ptr noundef %0, ptr noundef nonnull %6) #12
+  %7 = add i32 %.04, 1
+  %8 = zext i32 %7 to i64
+  %9 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
+  %10 = icmp ugt i64 %9, %8
+  br i1 %10, label %.lr.ph, label %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
@@ -688,16 +689,17 @@ define void @duckdb_je_background_thread_postfork_parent(ptr noundef %0) local_u
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %3 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
-  %.05 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
+  %3 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
+  %.05 = phi i32 [ %7, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !17
-  %5 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %4, i64 %3, i32 2
-  tail call void @duckdb_je_malloc_mutex_postfork_parent(ptr noundef %0, ptr noundef nonnull %5) #12
-  %6 = add i32 %.05, 1
-  %7 = zext i32 %6 to i64
-  %8 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
-  %9 = icmp ugt i64 %8, %7
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %5 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %4, i64 %3
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  tail call void @duckdb_je_malloc_mutex_postfork_parent(ptr noundef %0, ptr noundef nonnull %6) #12
+  %7 = add i32 %.05, 1
+  %8 = zext i32 %7 to i64
+  %9 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
+  %10 = icmp ugt i64 %9, %8
+  br i1 %10, label %.lr.ph, label %._crit_edge
 }
 
 declare void @duckdb_je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -712,115 +714,116 @@ define void @duckdb_je_background_thread_postfork_child(ptr noundef %0) local_un
   tail call void @duckdb_je_malloc_mutex_postfork_child(ptr noundef %0, ptr noundef nonnull @duckdb_je_background_thread_lock) #12
   %3 = load i8, ptr @background_thread_enabled_at_fork, align 1, !tbaa !25, !range !26, !noundef !27
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %12, label %53
+  br i1 %4, label %13, label %54
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %5 = phi i64 [ %9, %.lr.ph ], [ 0, %1 ]
-  %.027 = phi i32 [ %8, %.lr.ph ], [ 0, %1 ]
+  %5 = phi i64 [ %10, %.lr.ph ], [ 0, %1 ]
+  %.027 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
   %6 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !17
-  %7 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %6, i64 %5, i32 2
-  tail call void @duckdb_je_malloc_mutex_postfork_child(ptr noundef %0, ptr noundef nonnull %7) #12
-  %8 = add i32 %.027, 1
-  %9 = zext i32 %8 to i64
-  %10 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
-  %11 = icmp ugt i64 %10, %9
-  br i1 %11, label %.lr.ph, label %._crit_edge
+  %7 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %6, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  tail call void @duckdb_je_malloc_mutex_postfork_child(ptr noundef %0, ptr noundef nonnull %8) #12
+  %9 = add i32 %.027, 1
+  %10 = zext i32 %9 to i64
+  %11 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
+  %12 = icmp ugt i64 %11, %10
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
-12:                                               ; preds = %._crit_edge
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 72)) #12
-  %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %14, label %atomic_store_b.exit.i
+13:                                               ; preds = %._crit_edge
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 72)) #12
+  %.not.i = icmp eq i32 %14, 0
+  br i1 %.not.i, label %15, label %atomic_store_b.exit.i
 
-atomic_store_b.exit.i:                            ; preds = %12
+atomic_store_b.exit.i:                            ; preds = %13
   tail call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull @duckdb_je_background_thread_lock) #12
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 64) monotonic, align 8
-  br label %14
+  br label %15
 
-14:                                               ; preds = %atomic_store_b.exit.i, %12
-  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 56), align 8, !tbaa !4
-  %16 = add i64 %15, 1
-  store i64 %16, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 56), align 8, !tbaa !4
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 48), align 8, !tbaa !14
-  %.not.i.i = icmp eq ptr %17, %0
-  br i1 %.not.i.i, label %atomic_store_b.exit, label %18
+15:                                               ; preds = %atomic_store_b.exit.i, %13
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 56), align 8, !tbaa !4
+  %17 = add i64 %16, 1
+  store i64 %17, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 56), align 8, !tbaa !4
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 48), align 8, !tbaa !14
+  %.not.i.i = icmp eq ptr %18, %0
+  br i1 %.not.i.i, label %atomic_store_b.exit, label %19
 
-18:                                               ; preds = %14
+19:                                               ; preds = %15
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 48), align 8, !tbaa !14
-  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 40), align 8, !tbaa !15
-  %20 = add i64 %19, 1
-  store i64 %20, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 40), align 8, !tbaa !15
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 40), align 8, !tbaa !15
+  %21 = add i64 %20, 1
+  store i64 %21, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 40), align 8, !tbaa !15
   br label %atomic_store_b.exit
 
-atomic_store_b.exit:                              ; preds = %14, %18
+atomic_store_b.exit:                              ; preds = %15, %19
   store i64 0, ptr @duckdb_je_n_background_threads, align 8, !tbaa !16
   store atomic i8 0, ptr @duckdb_je_background_thread_enabled_state monotonic, align 1
-  %21 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
-  %.not31 = icmp eq i64 %21, 0
+  %22 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
+  %.not31 = icmp eq i64 %22, 0
   br i1 %.not31, label %._crit_edge30, label %.lr.ph29
 
 ._crit_edge30:                                    ; preds = %malloc_mutex_lock.exit25, %atomic_store_b.exit
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 64) monotonic, align 8
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 72)) #12
-  br label %53
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_background_thread_lock, i64 72)) #12
+  br label %54
 
 .lr.ph29:                                         ; preds = %atomic_store_b.exit, %malloc_mutex_lock.exit25
-  %23 = phi i64 [ %50, %malloc_mutex_lock.exit25 ], [ 0, %atomic_store_b.exit ]
-  %.01828 = phi i32 [ %49, %malloc_mutex_lock.exit25 ], [ 0, %atomic_store_b.exit ]
-  %24 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !17
-  %25 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %24, i64 %23
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %27 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %26) #12
-  %.not.i22 = icmp eq i32 %27, 0
-  br i1 %.not.i22, label %30, label %atomic_store_b.exit.i23
+  %24 = phi i64 [ %51, %malloc_mutex_lock.exit25 ], [ 0, %atomic_store_b.exit ]
+  %.01828 = phi i32 [ %50, %malloc_mutex_lock.exit25 ], [ 0, %atomic_store_b.exit ]
+  %25 = load ptr, ptr @duckdb_je_background_thread_info, align 8, !tbaa !17
+  %26 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %25, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
+  %28 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %27) #12
+  %.not.i22 = icmp eq i32 %28, 0
+  br i1 %.not.i22, label %31, label %atomic_store_b.exit.i23
 
 atomic_store_b.exit.i23:                          ; preds = %.lr.ph29
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  tail call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull %28) #12
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 120
-  store atomic i8 1, ptr %29 monotonic, align 1
-  br label %30
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 56
+  tail call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull %29) #12
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 120
+  store atomic i8 1, ptr %30 monotonic, align 1
+  br label %31
 
-30:                                               ; preds = %atomic_store_b.exit.i23, %.lr.ph29
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 112
-  %32 = load i64, ptr %31, align 8, !tbaa !4
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %31, align 8, !tbaa !4
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 104
-  %35 = load ptr, ptr %34, align 8, !tbaa !14
-  %.not.i.i24 = icmp eq ptr %35, %0
-  br i1 %.not.i.i24, label %malloc_mutex_lock.exit25, label %36
+31:                                               ; preds = %atomic_store_b.exit.i23, %.lr.ph29
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 112
+  %33 = load i64, ptr %32, align 8, !tbaa !4
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %32, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 104
+  %36 = load ptr, ptr %35, align 8, !tbaa !14
+  %.not.i.i24 = icmp eq ptr %36, %0
+  br i1 %.not.i.i24, label %malloc_mutex_lock.exit25, label %37
 
-36:                                               ; preds = %30
-  store ptr %0, ptr %34, align 8, !tbaa !14
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 96
-  %38 = load i64, ptr %37, align 8, !tbaa !15
-  %39 = add i64 %38, 1
-  store i64 %39, ptr %37, align 8, !tbaa !15
+37:                                               ; preds = %31
+  store ptr %0, ptr %35, align 8, !tbaa !14
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 96
+  %39 = load i64, ptr %38, align 8, !tbaa !15
+  %40 = add i64 %39, 1
+  store i64 %40, ptr %38, align 8, !tbaa !15
   br label %malloc_mutex_lock.exit25
 
-malloc_mutex_lock.exit25:                         ; preds = %30, %36
-  %40 = getelementptr inbounds nuw i8, ptr %25, i64 168
-  store i32 0, ptr %40, align 8, !tbaa !19
-  %41 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %42 = tail call i32 @pthread_cond_init(ptr noundef nonnull %41, ptr noundef null) #12
-  %43 = getelementptr inbounds nuw i8, ptr %25, i64 172
-  store atomic i8 0, ptr %43 release, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %25, i64 176
-  tail call void @duckdb_je_nstime_init(ptr noundef nonnull %44, i64 noundef 0) #12
-  %45 = getelementptr inbounds nuw i8, ptr %25, i64 184
-  %46 = getelementptr inbounds nuw i8, ptr %25, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
-  tail call void @duckdb_je_nstime_copy(ptr noundef nonnull %46, ptr noundef nonnull @nstime_zero) #12
-  %47 = getelementptr inbounds nuw i8, ptr %25, i64 120
-  store atomic i8 0, ptr %47 monotonic, align 8
-  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #12
-  %49 = add i32 %.01828, 1
-  %50 = zext i32 %49 to i64
-  %51 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
-  %52 = icmp ugt i64 %51, %50
-  br i1 %52, label %.lr.ph29, label %._crit_edge30
+malloc_mutex_lock.exit25:                         ; preds = %31, %37
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 168
+  store i32 0, ptr %41, align 8, !tbaa !19
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %43 = tail call i32 @pthread_cond_init(ptr noundef nonnull %42, ptr noundef null) #12
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 172
+  store atomic i8 0, ptr %44 release, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %26, i64 176
+  tail call void @duckdb_je_nstime_init(ptr noundef nonnull %45, i64 noundef 0) #12
+  %46 = getelementptr inbounds nuw i8, ptr %26, i64 184
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 200
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
+  tail call void @duckdb_je_nstime_copy(ptr noundef nonnull %47, ptr noundef nonnull @nstime_zero) #12
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 120
+  store atomic i8 0, ptr %48 monotonic, align 8
+  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %27) #12
+  %50 = add i32 %.01828, 1
+  %51 = zext i32 %50 to i64
+  %52 = load i64, ptr @duckdb_je_max_background_threads, align 8, !tbaa !16
+  %53 = icmp ugt i64 %52, %51
+  br i1 %53, label %.lr.ph29, label %._crit_edge30
 
-53:                                               ; preds = %._crit_edge, %._crit_edge30
+54:                                               ; preds = %._crit_edge, %._crit_edge30
   ret void
 }
 

@@ -6102,15 +6102,15 @@ define dso_local void @_ZN4llvm7DIEHash13hashBlockDataERKNS_14iterator_rangeINS_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %9
 
-._crit_edge:                                      ; preds = %51, %2
+._crit_edge:                                      ; preds = %52, %2
   ret void
 
-9:                                                ; preds = %.lr.ph, %51
-  %.sroa.012.017 = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %55, %51 ]
+9:                                                ; preds = %.lr.ph, %52
+  %.sroa.012.017 = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph ], [ %56, %52 ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !59
   %12 = icmp eq i32 %11, 5
-  br i1 %12, label %13, label %47
+  br i1 %12, label %13, label %48
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %8, align 8, !tbaa !88
@@ -6120,113 +6120,114 @@ define dso_local void @_ZN4llvm7DIEHash13hashBlockDataERKNS_14iterator_rangeINS_
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !94
   %20 = load ptr, ptr %15, align 8, !tbaa !96
-  %21 = getelementptr inbounds nuw %"struct.llvm::DwarfCompileUnit::BaseTypeRef", ptr %20, i64 %19, i32 2
-  %22 = load ptr, ptr %21, align 8, !tbaa !99
-  %23 = getelementptr i8, ptr %22, i64 8
-  %.val = load ptr, ptr %23, align 8, !tbaa !48
+  %21 = getelementptr inbounds nuw %"struct.llvm::DwarfCompileUnit::BaseTypeRef", ptr %20, i64 %19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !99
+  %24 = getelementptr i8, ptr %23, i64 8
+  %.val = load ptr, ptr %24, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq ptr %.val, null
   br i1 %.not.i.i.i.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, label %_ZNK4llvm12DIEValueList6valuesEv.exit.i
 
 _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %13
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.val, align 8
-  %24 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %.not1113.i = icmp eq i64 %24, 0
+  %25 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
+  %.not1113.i = icmp eq i64 %25, 0
   br i1 %.not1113.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %.critedge.i
-  %.sroa.01.014.in.i = phi i64 [ %38, %.critedge.i ], [ %24, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
+  %.sroa.01.014.in.i = phi i64 [ %39, %.critedge.i ], [ %25, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
   %.sroa.01.014.i = inttoptr i64 %.sroa.01.014.in.i to ptr
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 12
-  %26 = load i16, ptr %25, align 4, !tbaa !49
-  %.not.i = icmp eq i16 %26, 3
-  br i1 %.not.i, label %27, label %.critedge.i
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 12
+  %27 = load i16, ptr %26, align 4, !tbaa !49
+  %.not.i = icmp eq i16 %27, 3
+  br i1 %.not.i, label %28, label %.critedge.i
 
-27:                                               ; preds = %.lr.ph.i
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %28, align 8
-  %29 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
-  %30 = icmp eq i64 %29, 0
-  %31 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
-  %32 = inttoptr i64 %31 to ptr
-  br i1 %30, label %33, label %35
+28:                                               ; preds = %.lr.ph.i
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
+  %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
+  %31 = icmp eq i64 %30, 0
+  %32 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
+  %33 = inttoptr i64 %32 to ptr
+  br i1 %31, label %34, label %36
 
-33:                                               ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  br label %39
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  br label %40
 
-35:                                               ; preds = %27
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %36, align 8, !tbaa !55
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 32
-  br label %39
+36:                                               ; preds = %28
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %37, align 8, !tbaa !55
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 32
+  br label %40
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.014.i, align 8
-  %37 = and i64 %.0.copyload.i.i.i.i.i.i8.i, 4
-  %.not.i.i.i9.i = icmp ne i64 %37, 0
-  %38 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
-  %.not1119.i = icmp eq i64 %38, 0
+  %38 = and i64 %.0.copyload.i.i.i.i.i.i8.i, 4
+  %.not.i.i.i9.i = icmp ne i64 %38, 0
+  %39 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
+  %.not1119.i = icmp eq i64 %39, 0
   %.not11.i = or i1 %.not.i.i.i9.i, %.not1119.i
   br i1 %.not11.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, label %.lr.ph.i
 
-39:                                               ; preds = %35, %33
-  %.pn4.i.i.i = phi ptr [ %34, %33 ], [ %.sroa.0.0.copyload.i.i.i, %35 ]
-  %.pn.in.i.i.i = phi ptr [ %32, %33 ], [ %.sroa.3.0..sroa_idx.i.i.i, %35 ]
+40:                                               ; preds = %36, %34
+  %.pn4.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.0.0.copyload.i.i.i, %36 ]
+  %.pn.in.i.i.i = phi ptr [ %33, %34 ], [ %.sroa.3.0..sroa_idx.i.i.i, %36 ]
   %.pn.i.i.i = load i64, ptr %.pn.in.i.i.i, align 8, !tbaa !57
   br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
 
-_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %.critedge.i, %13, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %39
-  %.sroa.05.1.i = phi ptr [ %.pn4.i.i.i, %39 ], [ @.str, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ], [ @.str, %13 ], [ @.str, %.critedge.i ]
-  %.sroa.3.1.i = phi i64 [ %.pn.i.i.i, %39 ], [ 0, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ], [ 0, %13 ], [ 0, %.critedge.i ]
+_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %.critedge.i, %13, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %40
+  %.sroa.05.1.i = phi ptr [ %.pn4.i.i.i, %40 ], [ @.str, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ], [ @.str, %13 ], [ @.str, %.critedge.i ]
+  %.sroa.3.1.i = phi i64 [ %.pn.i.i.i, %40 ], [ 0, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ], [ 0, %13 ], [ 0, %.critedge.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 83, ptr %5, align 1, !tbaa !3
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %5, i64 1) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %40 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  %41 = load i16, ptr %40, align 4, !tbaa !30
-  %42 = zext i16 %41 to i64
-  br label %43
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 28
+  %42 = load i16, ptr %41, align 4, !tbaa !30
+  %43 = zext i16 %42 to i64
+  br label %44
 
-43:                                               ; preds = %43, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
-  %.0.i4.i = phi i64 [ %42, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit ], [ %46, %43 ]
+44:                                               ; preds = %44, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
+  %.0.i4.i = phi i64 [ %43, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit ], [ %47, %44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %44 = trunc i64 %.0.i4.i to i8
-  %45 = and i8 %44, 127
-  %46 = lshr i64 %.0.i4.i, 7
+  %45 = trunc i64 %.0.i4.i to i8
+  %46 = and i8 %45, 127
+  %47 = lshr i64 %.0.i4.i, 7
   %.not.i5.i = icmp samesign ult i64 %.0.i4.i, 128
   %masksel.i6.i = select i1 %.not.i5.i, i8 0, i8 -128
-  %storemerge.i7.i = or disjoint i8 %45, %masksel.i6.i
+  %storemerge.i7.i = or disjoint i8 %46, %masksel.i6.i
   store i8 %storemerge.i7.i, ptr %4, align 1, !tbaa !3
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %4, i64 1) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not.i5.i, label %_ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit, label %43, !llvm.loop !6
+  br i1 %.not.i5.i, label %_ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit, label %44, !llvm.loop !6
 
-_ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit: ; preds = %43
+_ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit: ; preds = %44
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %.sroa.05.1.i, i64 %.sroa.3.1.i) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !3
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nonnull %3, i64 1) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %51
+  br label %52
 
-47:                                               ; preds = %9
+48:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !102
-  %50 = trunc i64 %49 to i8
-  store i8 %50, ptr %6, align 1, !tbaa !3
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 16
+  %50 = load i64, ptr %49, align 8, !tbaa !102
+  %51 = trunc i64 %50 to i8
+  store i8 %51, ptr %6, align 1, !tbaa !3
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %6, i64 1) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %51
+  br label %52
 
-51:                                               ; preds = %47, %_ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit
+52:                                               ; preds = %48, %_ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.012.017, align 8
-  %52 = and i64 %.0.copyload.i.i.i.i.i.i, 4
-  %.not.i.i.i = icmp eq i64 %52, 0
-  %53 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %54 = inttoptr i64 %53 to ptr
-  %55 = select i1 %.not.i.i.i, ptr %54, ptr null
-  %.not = icmp eq ptr %55, %.sroa.0.0.copyload.i10
+  %53 = and i64 %.0.copyload.i.i.i.i.i.i, 4
+  %.not.i.i.i = icmp eq i64 %53, 0
+  %54 = and i64 %.0.copyload.i.i.i.i.i.i, -8
+  %55 = inttoptr i64 %54 to ptr
+  %56 = select i1 %.not.i.i.i, ptr %55, ptr null
+  %.not = icmp eq ptr %56, %.sroa.0.0.copyload.i10
   br i1 %.not, label %._crit_edge, label %9
 }
 
@@ -6301,29 +6302,31 @@ define dso_local void @_ZN4llvm7DIEHash11hashLocListERKNS_10DIELocListE(ptr noun
   br label %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::List", ptr %11, i64 %17, i32 2
-  %28 = load i64, ptr %27, align 8, !tbaa !222
+  %27 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::List", ptr %11, i64 %17
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load i64, ptr %28, align 8, !tbaa !222
   br label %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit
 
 _ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit: ; preds = %22, %26
-  %.sink.i.i = phi i64 [ %28, %26 ], [ %25, %22 ]
-  %29 = sub i64 %.sink.i.i, %16
-  %30 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::Entry", ptr %14, i64 %16
-  %.idx = shl nuw nsw i64 %29, 5
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
-  %.not16 = icmp eq i64 %.sink.i.i, %16
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %.sink.i.i = phi i64 [ %29, %26 ], [ %25, %22 ]
+  %30 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::Entry", ptr %14, i64 %.sink.i.i
+  %.not16 = icmp samesign eq i64 %16, %.sink.i.i
+  br i1 %.not16, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit
+  %31 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::Entry", ptr %14, i64 %16
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-.lr.ph:                                           ; preds = %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit, %.lr.ph
-  %.017 = phi ptr [ %33, %.lr.ph ], [ %30, %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.017 = phi ptr [ %33, %.lr.ph ], [ %31, %.lr.ph.preheader ]
   %32 = load ptr, ptr %12, align 8, !tbaa !224
   call void @_ZN4llvm10DwarfDebug17emitDebugLocEntryERNS_12ByteStreamerERKNS_14DebugLocStream5EntryEPKNS_16DwarfCompileUnitE(ptr noundef nonnull align 8 dereferenceable(5876) %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %.017, ptr noundef %32) #10
   %33 = getelementptr inbounds nuw i8, ptr %.017, i64 32
-  %.not = icmp eq ptr %33, %31
+  %.not = icmp eq ptr %33, %30
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
@@ -6735,25 +6738,27 @@ _ZNK4llvm12DIEValueList6valuesEv.exit103:         ; preds = %_ZN4llvm7DIEHash10a
   br label %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit.i
 
 150:                                              ; preds = %127
-  %151 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::List", ptr %135, i64 %141, i32 2
-  %152 = load i64, ptr %151, align 8, !tbaa !222
+  %151 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::List", ptr %135, i64 %141
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  %153 = load i64, ptr %152, align 8, !tbaa !222
   br label %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit.i
 
 _ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit.i: ; preds = %150, %146
-  %.sink.i.i.i = phi i64 [ %152, %150 ], [ %149, %146 ]
-  %153 = sub i64 %.sink.i.i.i, %140
-  %154 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::Entry", ptr %138, i64 %140
-  %.idx.i = shl nuw nsw i64 %153, 5
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 %.idx.i
-  %.not16.i = icmp eq i64 %.sink.i.i.i, %140
-  br i1 %.not16.i, label %_ZN4llvm7DIEHash11hashLocListERKNS_10DIELocListE.exit, label %.lr.ph.i104
+  %.sink.i.i.i = phi i64 [ %153, %150 ], [ %149, %146 ]
+  %154 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::Entry", ptr %138, i64 %.sink.i.i.i
+  %.not16.i = icmp samesign eq i64 %140, %.sink.i.i.i
+  br i1 %.not16.i, label %_ZN4llvm7DIEHash11hashLocListERKNS_10DIELocListE.exit, label %.lr.ph.preheader.i
 
-.lr.ph.i104:                                      ; preds = %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit.i, %.lr.ph.i104
-  %.017.i = phi ptr [ %157, %.lr.ph.i104 ], [ %154, %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit.i ]
+.lr.ph.preheader.i:                               ; preds = %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit.i
+  %155 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::Entry", ptr %138, i64 %140
+  br label %.lr.ph.i104
+
+.lr.ph.i104:                                      ; preds = %.lr.ph.i104, %.lr.ph.preheader.i
+  %.017.i = phi ptr [ %157, %.lr.ph.i104 ], [ %155, %.lr.ph.preheader.i ]
   %156 = load ptr, ptr %136, align 8, !tbaa !224
   call void @_ZN4llvm10DwarfDebug17emitDebugLocEntryERNS_12ByteStreamerERKNS_14DebugLocStream5EntryEPKNS_16DwarfCompileUnitE(ptr noundef nonnull align 8 dereferenceable(5876) %132, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %.017.i, ptr noundef %156) #10
   %157 = getelementptr inbounds nuw i8, ptr %.017.i, i64 32
-  %.not.i105 = icmp eq ptr %157, %155
+  %.not.i105 = icmp eq ptr %157, %154
   br i1 %.not.i105, label %_ZN4llvm7DIEHash11hashLocListERKNS_10DIELocListE.exit, label %.lr.ph.i104
 
 _ZN4llvm7DIEHash11hashLocListERKNS_10DIELocListE.exit: ; preds = %.lr.ph.i104, %_ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit.i

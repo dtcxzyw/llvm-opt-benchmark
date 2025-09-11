@@ -2059,16 +2059,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
   %63 = zext i16 %62 to i32
   %64 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %51, i64 %indvars.iv169
   store i32 %63, ptr %64, align 4, !tbaa !165
-  %65 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %51, i64 %indvars.iv169, i64 0, i32 1
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 50000, ptr %65, align 4, !tbaa !166
   %66 = add i16 %62, -5
   %narrow163 = icmp ult i16 %66, -28540
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %68 = load i16, ptr %67, align 2, !tbaa !67
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %51, i64 %indvars.iv169, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 %69, ptr %70, align 4, !tbaa !165
-  %71 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %51, i64 %indvars.iv169, i64 1, i32 1
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 50000, ptr %71, align 4, !tbaa !166
   %72 = add i16 %68, -5
   %narrow164 = icmp ult i16 %72, -23540

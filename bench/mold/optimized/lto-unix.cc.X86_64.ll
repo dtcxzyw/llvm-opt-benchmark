@@ -8370,74 +8370,77 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %49 = load ptr, ptr %48, align 8, !tbaa !712
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !85
-  br label %53
+  br label %54
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %52 = getelementptr inbounds nuw %"struct.mold::PluginSymbol", ptr %2, i64 %indvars.iv.i, i32 9
-  store i32 4, ptr %52, align 8, !tbaa !713
+  %52 = getelementptr inbounds nuw %"struct.mold::PluginSymbol", ptr %2, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  store i32 4, ptr %53, align 8, !tbaa !713
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit, label %.lr.ph.i, !llvm.loop !714
 
-53:                                               ; preds = %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, %.lr.ph29.i
-  %.02028.i = phi i64 [ 0, %.lr.ph29.i ], [ %54, %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i ]
-  %54 = add nuw nsw i64 %.02028.i, 1
-  %55 = getelementptr inbounds nuw ptr, ptr %51, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !84
-  %57 = getelementptr %"struct.mold::ElfSym", ptr %49, i64 %54, i32 3
-  %.val22.i = load i16, ptr %57, align 1
-  %.val23.i = load ptr, ptr %56, align 8, !tbaa !715
-  %58 = getelementptr i8, ptr %56, i64 49
-  %.val24.i = load i16, ptr %58, align 1
+54:                                               ; preds = %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, %.lr.ph29.i
+  %.02028.i = phi i64 [ 0, %.lr.ph29.i ], [ %55, %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i ]
+  %55 = add nuw nsw i64 %.02028.i, 1
+  %56 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %49, i64 %55
+  %57 = getelementptr inbounds nuw ptr, ptr %51, i64 %55
+  %58 = load ptr, ptr %57, align 8, !tbaa !84
+  %59 = getelementptr i8, ptr %56, i64 6
+  %.val22.i = load i16, ptr %59, align 1
+  %.val23.i = load ptr, ptr %58, align 8, !tbaa !715
+  %60 = getelementptr i8, ptr %58, i64 49
+  %.val24.i = load i16, ptr %60, align 1
   %.not.i.i = icmp eq ptr %.val23.i, null
-  br i1 %.not.i.i, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, label %59
+  br i1 %.not.i.i, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, label %61
 
-59:                                               ; preds = %53
-  %60 = icmp eq ptr %.val23.i, %0
-  br i1 %60, label %61, label %65
-
-61:                                               ; preds = %59
-  %62 = and i16 %.val24.i, 2048
-  %.not12.i.i = icmp eq i16 %62, 0
-  br i1 %.not12.i.i, label %63, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i
+61:                                               ; preds = %54
+  %62 = icmp eq ptr %.val23.i, %0
+  br i1 %62, label %63, label %67
 
 63:                                               ; preds = %61
-  %64 = and i16 %.val24.i, 32
-  %.not13.i.i = icmp eq i16 %64, 0
+  %64 = and i16 %.val24.i, 2048
+  %.not12.i.i = icmp eq i16 %64, 0
+  br i1 %.not12.i.i, label %65, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i
+
+65:                                               ; preds = %63
+  %66 = and i16 %.val24.i, 32
+  %.not13.i.i = icmp eq i16 %66, 0
   %spec.select.i = select i1 %.not13.i.i, i32 3, i32 2
   br label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 112
-  %67 = load i8, ptr %66, align 8, !tbaa !21, !range !436, !noundef !437
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, label %69
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 112
+  %69 = load i8, ptr %68, align 8, !tbaa !21, !range !436, !noundef !437
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, label %71
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 593
-  %71 = load i8, ptr %70, align 1, !tbaa !87, !range !436, !noundef !437
-  %72 = trunc nuw i8 %71 to i1
-  %73 = and i16 %.val24.i, 8
-  %.not11.i.i = icmp eq i16 %73, 0
-  %or.cond.i.i = select i1 %72, i1 %.not11.i.i, i1 false
-  %74 = icmp eq i16 %.val22.i, 0
-  br i1 %or.cond.i.i, label %75, label %77
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 593
+  %73 = load i8, ptr %72, align 1, !tbaa !87, !range !436, !noundef !437
+  %74 = trunc nuw i8 %73 to i1
+  %75 = and i16 %.val24.i, 8
+  %.not11.i.i = icmp eq i16 %75, 0
+  %or.cond.i.i = select i1 %74, i1 %.not11.i.i, i1 false
+  %76 = icmp eq i16 %.val22.i, 0
+  br i1 %or.cond.i.i, label %77, label %79
 
-75:                                               ; preds = %69
-  %76 = select i1 %74, i32 6, i32 5
+77:                                               ; preds = %71
+  %78 = select i1 %76, i32 6, i32 5
   br label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i
 
-77:                                               ; preds = %69
-  %78 = select i1 %74, i32 7, i32 4
+79:                                               ; preds = %71
+  %80 = select i1 %76, i32 7, i32 4
   br label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i
 
-_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i: ; preds = %77, %75, %65, %63, %61, %53
-  %.0.i.i = phi i32 [ %78, %77 ], [ %76, %75 ], [ 1, %53 ], [ 2, %61 ], [ 8, %65 ], [ %spec.select.i, %63 ]
-  %79 = getelementptr inbounds nuw %"struct.mold::PluginSymbol", ptr %2, i64 %.02028.i, i32 9
-  store i32 %.0.i.i, ptr %79, align 8, !tbaa !713
-  %exitcond32.not.i = icmp eq i64 %54, %46
-  br i1 %exitcond32.not.i, label %_ZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit, label %53, !llvm.loop !716
+_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i: ; preds = %79, %77, %67, %65, %63, %54
+  %.0.i.i = phi i32 [ %80, %79 ], [ %78, %77 ], [ 1, %54 ], [ 2, %63 ], [ 8, %67 ], [ %spec.select.i, %65 ]
+  %81 = getelementptr inbounds nuw %"struct.mold::PluginSymbol", ptr %2, i64 %.02028.i
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  store i32 %.0.i.i, ptr %82, align 8, !tbaa !713
+  %exitcond32.not.i = icmp eq i64 %55, %46
+  br i1 %exitcond32.not.i, label %_ZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit, label %54, !llvm.loop !716
 
 _ZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit: ; preds = %.lr.ph.i, %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, %.preheader25.i, %.preheader.i
   %.0.i = phi i32 [ 0, %.preheader.i ], [ 1, %.preheader25.i ], [ 0, %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i ], [ 1, %.lr.ph.i ]
@@ -8710,74 +8713,77 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %49 = load ptr, ptr %48, align 8, !tbaa !712
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !85
-  br label %53
+  br label %54
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %52 = getelementptr inbounds nuw %"struct.mold::PluginSymbol", ptr %2, i64 %indvars.iv.i, i32 9
-  store i32 4, ptr %52, align 8, !tbaa !713
+  %52 = getelementptr inbounds nuw %"struct.mold::PluginSymbol", ptr %2, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  store i32 4, ptr %53, align 8, !tbaa !713
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit, label %.lr.ph.i, !llvm.loop !714
 
-53:                                               ; preds = %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, %.lr.ph29.i
-  %.02028.i = phi i64 [ 0, %.lr.ph29.i ], [ %54, %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i ]
-  %54 = add nuw nsw i64 %.02028.i, 1
-  %55 = getelementptr inbounds nuw ptr, ptr %51, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !84
-  %57 = getelementptr %"struct.mold::ElfSym", ptr %49, i64 %54, i32 3
-  %.val22.i = load i16, ptr %57, align 1
-  %.val23.i = load ptr, ptr %56, align 8, !tbaa !715
-  %58 = getelementptr i8, ptr %56, i64 49
-  %.val24.i = load i16, ptr %58, align 1
+54:                                               ; preds = %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, %.lr.ph29.i
+  %.02028.i = phi i64 [ 0, %.lr.ph29.i ], [ %55, %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i ]
+  %55 = add nuw nsw i64 %.02028.i, 1
+  %56 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %49, i64 %55
+  %57 = getelementptr inbounds nuw ptr, ptr %51, i64 %55
+  %58 = load ptr, ptr %57, align 8, !tbaa !84
+  %59 = getelementptr i8, ptr %56, i64 6
+  %.val22.i = load i16, ptr %59, align 1
+  %.val23.i = load ptr, ptr %58, align 8, !tbaa !715
+  %60 = getelementptr i8, ptr %58, i64 49
+  %.val24.i = load i16, ptr %60, align 1
   %.not.i.i = icmp eq ptr %.val23.i, null
-  br i1 %.not.i.i, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, label %59
+  br i1 %.not.i.i, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, label %61
 
-59:                                               ; preds = %53
-  %60 = icmp eq ptr %.val23.i, %0
-  br i1 %60, label %61, label %65
-
-61:                                               ; preds = %59
-  %62 = and i16 %.val24.i, 2048
-  %.not12.i.i = icmp eq i16 %62, 0
-  br i1 %.not12.i.i, label %63, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i
+61:                                               ; preds = %54
+  %62 = icmp eq ptr %.val23.i, %0
+  br i1 %62, label %63, label %67
 
 63:                                               ; preds = %61
-  %64 = and i16 %.val24.i, 32
-  %.not13.i.i = icmp eq i16 %64, 0
+  %64 = and i16 %.val24.i, 2048
+  %.not12.i.i = icmp eq i16 %64, 0
+  br i1 %.not12.i.i, label %65, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i
+
+65:                                               ; preds = %63
+  %66 = and i16 %.val24.i, 32
+  %.not13.i.i = icmp eq i16 %66, 0
   %spec.select.i = select i1 %.not13.i.i, i32 3, i32 9
   br label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i
 
-65:                                               ; preds = %59
-  %66 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 112
-  %67 = load i8, ptr %66, align 8, !tbaa !21, !range !436, !noundef !437
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, label %69
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 112
+  %69 = load i8, ptr %68, align 8, !tbaa !21, !range !436, !noundef !437
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, label %71
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 593
-  %71 = load i8, ptr %70, align 1, !tbaa !87, !range !436, !noundef !437
-  %72 = trunc nuw i8 %71 to i1
-  %73 = and i16 %.val24.i, 8
-  %.not11.i.i = icmp eq i16 %73, 0
-  %or.cond.i.i = select i1 %72, i1 %.not11.i.i, i1 false
-  %74 = icmp eq i16 %.val22.i, 0
-  br i1 %or.cond.i.i, label %75, label %77
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 593
+  %73 = load i8, ptr %72, align 1, !tbaa !87, !range !436, !noundef !437
+  %74 = trunc nuw i8 %73 to i1
+  %75 = and i16 %.val24.i, 8
+  %.not11.i.i = icmp eq i16 %75, 0
+  %or.cond.i.i = select i1 %74, i1 %.not11.i.i, i1 false
+  %76 = icmp eq i16 %.val22.i, 0
+  br i1 %or.cond.i.i, label %77, label %79
 
-75:                                               ; preds = %69
-  %76 = select i1 %74, i32 6, i32 5
+77:                                               ; preds = %71
+  %78 = select i1 %76, i32 6, i32 5
   br label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i
 
-77:                                               ; preds = %69
-  %78 = select i1 %74, i32 7, i32 4
+79:                                               ; preds = %71
+  %80 = select i1 %76, i32 7, i32 4
   br label %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i
 
-_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i: ; preds = %77, %75, %65, %63, %61, %53
-  %.0.i.i = phi i32 [ %78, %77 ], [ %76, %75 ], [ 1, %53 ], [ 2, %61 ], [ 8, %65 ], [ %spec.select.i, %63 ]
-  %79 = getelementptr inbounds nuw %"struct.mold::PluginSymbol", ptr %2, i64 %.02028.i, i32 9
-  store i32 %.0.i.i, ptr %79, align 8, !tbaa !713
-  %exitcond32.not.i = icmp eq i64 %54, %46
-  br i1 %exitcond32.not.i, label %_ZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit, label %53, !llvm.loop !716
+_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i: ; preds = %79, %77, %67, %65, %63, %54
+  %.0.i.i = phi i32 [ %80, %79 ], [ %78, %77 ], [ 1, %54 ], [ 2, %63 ], [ 8, %67 ], [ %spec.select.i, %65 ]
+  %81 = getelementptr inbounds nuw %"struct.mold::PluginSymbol", ptr %2, i64 %.02028.i
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  store i32 %.0.i.i, ptr %82, align 8, !tbaa !713
+  %exitcond32.not.i = icmp eq i64 %55, %46
+  br i1 %exitcond32.not.i, label %_ZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit, label %54, !llvm.loop !716
 
 _ZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.exit: ; preds = %.lr.ph.i, %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i, %.preheader25.i, %.preheader.i
   %.0.i = phi i32 [ 0, %.preheader.i ], [ 1, %.preheader25.i ], [ 0, %_ZZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEbENKUlRNS_6ElfSymIS1_EERNS_6SymbolIS1_EEE_clES9_SC_.exit.i ], [ 1, %.lr.ph.i ]

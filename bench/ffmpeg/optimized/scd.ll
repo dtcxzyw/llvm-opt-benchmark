@@ -574,8 +574,9 @@ define internal range(i32 -22, 1) i32 @scd_seek(ptr noundef readonly captures(no
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %struct.SCDTrackHeader, ptr %10, i64 %indvars.iv, i32 9
-  store i32 0, ptr %12, align 4, !tbaa !62
+  %12 = getelementptr inbounds nuw %struct.SCDTrackHeader, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 36
+  store i32 0, ptr %13, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !103

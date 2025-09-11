@@ -894,18 +894,19 @@ _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %94
   %109 = load ptr, ptr %4, align 8, !tbaa !26, !noalias !137
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !137
   %110 = load ptr, ptr %1, align 8, !tbaa !15
-  %111 = getelementptr inbounds nuw %"struct.std::pair", ptr %110, i64 %96, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %111, ptr noundef nonnull align 2 dereferenceable(40) %109, i64 40, i1 false), !tbaa.struct !140
-  %112 = load i32, ptr %73, align 8, !tbaa !122
-  %113 = add i32 %112, 1
-  store i32 %113, ptr %73, align 8, !tbaa !122
-  %114 = load i64, ptr %74, align 8, !tbaa !124
-  %115 = lshr i64 %114, 1
-  store i64 %115, ptr %74, align 8, !tbaa !124
+  %111 = getelementptr inbounds nuw %"struct.std::pair", ptr %110, i64 %96
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %112, ptr noundef nonnull align 2 dereferenceable(40) %109, i64 40, i1 false), !tbaa.struct !140
+  %113 = load i32, ptr %73, align 8, !tbaa !122
+  %114 = add i32 %113, 1
+  store i32 %114, ptr %73, align 8, !tbaa !122
+  %115 = load i64, ptr %74, align 8, !tbaa !124
+  %116 = lshr i64 %115, 1
+  store i64 %116, ptr %74, align 8, !tbaa !124
   call void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %116 = load i8, ptr %11, align 8, !tbaa !121, !range !143, !noundef !144
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %_ZN4llvm5ErrorD2Ev.exit57, label %94
+  %117 = load i8, ptr %11, align 8, !tbaa !121, !range !143, !noundef !144
+  %118 = trunc nuw i8 %117 to i1
+  br i1 %118, label %_ZN4llvm5ErrorD2Ev.exit57, label %94
 
 .critedge42:                                      ; preds = %.critedge41, %_ZN4llvm18BinaryStreamReader11readIntegerIjEENS_5ErrorERT_.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

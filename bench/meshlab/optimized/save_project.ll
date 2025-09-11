@@ -8127,7 +8127,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9ALNParser7SaveALNIfEEbPKcRSt6vectorI
 
 5:                                                ; preds = %3
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, ptr noundef %0)
-  br label %95
+  br label %98
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8151,7 +8151,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9ALNParser7SaveALNIfEEbPKcRSt6vectorI
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %7 ]
-  %25 = phi ptr [ %87, %.lr.ph ], [ %18, %7 ]
+  %25 = phi ptr [ %90, %.lr.ph ], [ %18, %7 ]
   %26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %25, i64 %indvars.iv
   %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #24
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.52, ptr noundef %27) #24
@@ -8171,64 +8171,67 @@ define linkonce_odr noundef zeroext i1 @_ZN9ALNParser7SaveALNIfEEbPKcRSt6vectorI
   %42 = fpext float %41 to double
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.54, double noundef %33, double noundef %36, double noundef %39, double noundef %42) #24
   %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %44, i64 %indvars.iv, i32 0, i32 0, i64 4
-  %46 = load float, ptr %45, align 4
-  %47 = fpext float %46 to double
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %49 = load float, ptr %48, align 4
-  %50 = fpext float %49 to double
-  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %52 = load float, ptr %51, align 4
-  %53 = fpext float %52 to double
-  %54 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  %55 = load float, ptr %54, align 4
-  %56 = fpext float %55 to double
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.54, double noundef %47, double noundef %50, double noundef %53, double noundef %56) #24
-  %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %58, i64 %indvars.iv, i32 0, i32 0, i64 8
-  %60 = load float, ptr %59, align 4
-  %61 = fpext float %60 to double
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %63 = load float, ptr %62, align 4
-  %64 = fpext float %63 to double
-  %65 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %66 = load float, ptr %65, align 4
-  %67 = fpext float %66 to double
-  %68 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %69 = load float, ptr %68, align 4
-  %70 = fpext float %69 to double
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.54, double noundef %61, double noundef %64, double noundef %67, double noundef %70) #24
-  %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %72, i64 %indvars.iv, i32 0, i32 0, i64 12
-  %74 = load float, ptr %73, align 4
-  %75 = fpext float %74 to double
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %45 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %44, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load float, ptr %46, align 4
+  %48 = fpext float %47 to double
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 20
+  %50 = load float, ptr %49, align 4
+  %51 = fpext float %50 to double
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %53 = load float, ptr %52, align 4
+  %54 = fpext float %53 to double
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 28
+  %56 = load float, ptr %55, align 4
+  %57 = fpext float %56 to double
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.54, double noundef %48, double noundef %51, double noundef %54, double noundef %57) #24
+  %59 = load ptr, ptr %2, align 8
+  %60 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %62 = load float, ptr %61, align 4
+  %63 = fpext float %62 to double
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 36
+  %65 = load float, ptr %64, align 4
+  %66 = fpext float %65 to double
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 40
+  %68 = load float, ptr %67, align 4
+  %69 = fpext float %68 to double
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 44
+  %71 = load float, ptr %70, align 4
+  %72 = fpext float %71 to double
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.54, double noundef %63, double noundef %66, double noundef %69, double noundef %72) #24
+  %74 = load ptr, ptr %2, align 8
+  %75 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %74, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %77 = load float, ptr %76, align 4
   %78 = fpext float %77 to double
-  %79 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 52
   %80 = load float, ptr %79, align 4
   %81 = fpext float %80 to double
-  %82 = getelementptr inbounds nuw i8, ptr %73, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 56
   %83 = load float, ptr %82, align 4
   %84 = fpext float %83 to double
-  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.54, double noundef %75, double noundef %78, double noundef %81, double noundef %84) #24
+  %85 = getelementptr inbounds nuw i8, ptr %75, i64 60
+  %86 = load float, ptr %85, align 4
+  %87 = fpext float %86 to double
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.54, double noundef %78, double noundef %81, double noundef %84, double noundef %87) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = load ptr, ptr %8, align 8
-  %87 = load ptr, ptr %1, align 8
-  %88 = ptrtoint ptr %86 to i64
-  %89 = ptrtoint ptr %87 to i64
-  %90 = sub i64 %88, %89
-  %sext = shl i64 %90, 27
-  %91 = ashr i64 %sext, 32
-  %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+  %89 = load ptr, ptr %8, align 8
+  %90 = load ptr, ptr %1, align 8
+  %91 = ptrtoint ptr %89 to i64
+  %92 = ptrtoint ptr %90 to i64
+  %93 = sub i64 %91, %92
+  %sext = shl i64 %93, 27
+  %94 = ashr i64 %sext, 32
+  %95 = icmp slt i64 %indvars.iv.next, %94
+  br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %93 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 2, i64 1, ptr nonnull %4)
-  %94 = tail call i32 @fclose(ptr noundef nonnull %4)
-  br label %95
+  %96 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 2, i64 1, ptr nonnull %4)
+  %97 = tail call i32 @fclose(ptr noundef nonnull %4)
+  br label %98
 
-95:                                               ; preds = %._crit_edge, %5
+98:                                               ; preds = %._crit_edge, %5
   ret i1 %.not
 }
 

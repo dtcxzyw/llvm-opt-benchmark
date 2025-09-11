@@ -1766,13 +1766,13 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread: ; preds = %5, %10
   store i8 3, ptr %13, align 8, !tbaa !206
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr %.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(34) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %25
+  br label %26
 
 _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !257
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %25, label %17
+  br i1 %.not, label %26, label %17
 
 17:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1781,11 +1781,12 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %1
   %21 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %19, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %23 = load i64, ptr %22, align 8, !tbaa !290
-  %24 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %16, i64 %23, i32 14
-  store i8 1, ptr %24, align 8, !tbaa !293
-  br label %25
+  %24 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %16, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
+  store i8 1, ptr %25, align 8, !tbaa !293
+  br label %26
 
-25:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit, %17
+26:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit, %17
   ret void
 }
 
@@ -1870,13 +1871,13 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread: ; preds = %5, %10
   store i8 3, ptr %13, align 8, !tbaa !206
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr %.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(34) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %25
+  br label %26
 
 _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !257
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %25, label %17
+  br i1 %.not, label %26, label %17
 
 17:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1885,11 +1886,12 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %1
   %21 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %19, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %23 = load i64, ptr %22, align 8, !tbaa !290
-  %24 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %16, i64 %23, i32 15
-  store i8 1, ptr %24, align 1, !tbaa !294
-  br label %25
+  %24 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %16, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 89
+  store i8 1, ptr %25, align 1, !tbaa !294
+  br label %26
 
-25:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit, %17
+26:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit, %17
   ret void
 }
 
@@ -3231,10 +3233,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %3
   %35 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %33, i64 %34
   %36 = getelementptr inbounds i8, ptr %35, i64 -16
   %37 = load i64, ptr %36, align 8, !tbaa !290
-  %38 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %30, i64 %37, i32 4
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %38 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %30, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !260
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !265
   %.not.i.i4 = icmp eq ptr %40, %42
   br i1 %.not.i.i4, label %65, label %43
@@ -3288,41 +3290,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 65:                                               ; preds = %31
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr %40, ptr noundef nonnull align 8 dereferenceable(104) %5)
+  %66 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr %40, ptr noundef nonnull align 8 dereferenceable(104) %5)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %65, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %66 = load ptr, ptr %13, align 8, !tbaa !214
-  %67 = icmp eq ptr %66, %14
-  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %67 = load ptr, ptr %13, align 8, !tbaa !214
+  %68 = icmp eq ptr %67, %14
+  br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %68 = load i64, ptr %15, align 8, !tbaa !215
-  %69 = icmp ult i64 %68, 16
-  call void @llvm.assume(i1 %69)
+  %69 = load i64, ptr %15, align 8, !tbaa !215
+  %70 = icmp ult i64 %69, 16
+  call void @llvm.assume(i1 %70)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %70 = load i64, ptr %14, align 8, !tbaa !210
-  %71 = add i64 %70, 1
-  call void @_ZdlPvm(ptr noundef %66, i64 noundef %71) #26
+  %71 = load i64, ptr %14, align 8, !tbaa !210
+  %72 = add i64 %71, 1
+  call void @_ZdlPvm(ptr noundef %67, i64 noundef %72) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %72 = load ptr, ptr %12, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %73
+  %73 = load ptr, ptr %12, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %73, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %74
 
-73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %75 = load ptr, ptr %74, align 8, !tbaa !263
-  %76 = ptrtoint ptr %75 to i64
-  %77 = ptrtoint ptr %72 to i64
-  %78 = sub i64 %76, %77
-  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #26
+74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %76 = load ptr, ptr %75, align 8, !tbaa !263
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %73 to i64
+  %79 = sub i64 %77, %78
+  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %79) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %73
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -3396,10 +3399,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %3
   %35 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %33, i64 %34
   %36 = getelementptr inbounds i8, ptr %35, i64 -16
   %37 = load i64, ptr %36, align 8, !tbaa !290
-  %38 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %30, i64 %37, i32 4
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %38 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %30, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !260
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !265
   %.not.i.i5 = icmp eq ptr %40, %42
   br i1 %.not.i.i5, label %65, label %43
@@ -3453,41 +3456,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 65:                                               ; preds = %31
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr %40, ptr noundef nonnull align 8 dereferenceable(104) %5)
+  %66 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr %40, ptr noundef nonnull align 8 dereferenceable(104) %5)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %65, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %66 = load ptr, ptr %13, align 8, !tbaa !214
-  %67 = icmp eq ptr %66, %14
-  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %67 = load ptr, ptr %13, align 8, !tbaa !214
+  %68 = icmp eq ptr %67, %14
+  br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %68 = load i64, ptr %15, align 8, !tbaa !215
-  %69 = icmp ult i64 %68, 16
-  call void @llvm.assume(i1 %69)
+  %69 = load i64, ptr %15, align 8, !tbaa !215
+  %70 = icmp ult i64 %69, 16
+  call void @llvm.assume(i1 %70)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %70 = load i64, ptr %14, align 8, !tbaa !210
-  %71 = add i64 %70, 1
-  call void @_ZdlPvm(ptr noundef %66, i64 noundef %71) #26
+  %71 = load i64, ptr %14, align 8, !tbaa !210
+  %72 = add i64 %71, 1
+  call void @_ZdlPvm(ptr noundef %67, i64 noundef %72) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %72 = load ptr, ptr %12, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %73
+  %73 = load ptr, ptr %12, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %73, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %74
 
-73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %75 = load ptr, ptr %74, align 8, !tbaa !263
-  %76 = ptrtoint ptr %75 to i64
-  %77 = ptrtoint ptr %72 to i64
-  %78 = sub i64 %76, %77
-  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #26
+74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %76 = load ptr, ptr %75, align 8, !tbaa !263
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %73 to i64
+  %79 = sub i64 %77, %78
+  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %79) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %73
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -3909,10 +3913,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %4
   %37 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %35, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 -16
   %39 = load i64, ptr %38, align 8, !tbaa !290
-  %40 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %32, i64 %39, i32 4
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %40 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %32, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !260
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !265
   %.not.i.i6 = icmp eq ptr %42, %44
   br i1 %.not.i.i6, label %67, label %45
@@ -3966,41 +3970,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 67:                                               ; preds = %33
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr %42, ptr noundef nonnull align 8 dereferenceable(104) %6)
+  %68 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr %42, ptr noundef nonnull align 8 dereferenceable(104) %6)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %67, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %68 = load ptr, ptr %15, align 8, !tbaa !214
-  %69 = icmp eq ptr %68, %16
-  br i1 %69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %69 = load ptr, ptr %15, align 8, !tbaa !214
+  %70 = icmp eq ptr %69, %16
+  br i1 %70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %70 = load i64, ptr %17, align 8, !tbaa !215
-  %71 = icmp ult i64 %70, 16
-  call void @llvm.assume(i1 %71)
+  %71 = load i64, ptr %17, align 8, !tbaa !215
+  %72 = icmp ult i64 %71, 16
+  call void @llvm.assume(i1 %72)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %72 = load i64, ptr %16, align 8, !tbaa !210
-  %73 = add i64 %72, 1
-  call void @_ZdlPvm(ptr noundef %68, i64 noundef %73) #26
+  %73 = load i64, ptr %16, align 8, !tbaa !210
+  %74 = add i64 %73, 1
+  call void @_ZdlPvm(ptr noundef %69, i64 noundef %74) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %74 = load ptr, ptr %14, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %75
+  %75 = load ptr, ptr %14, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %76
 
-75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %77 = load ptr, ptr %76, align 8, !tbaa !263
-  %78 = ptrtoint ptr %77 to i64
-  %79 = ptrtoint ptr %74 to i64
-  %80 = sub i64 %78, %79
-  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %80) #26
+76:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %78 = load ptr, ptr %77, align 8, !tbaa !263
+  %79 = ptrtoint ptr %78 to i64
+  %80 = ptrtoint ptr %75 to i64
+  %81 = sub i64 %79, %80
+  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %75
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -4075,10 +4080,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %4
   %37 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %35, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 -16
   %39 = load i64, ptr %38, align 8, !tbaa !290
-  %40 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %32, i64 %39, i32 4
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %40 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %32, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !260
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !265
   %.not.i.i6 = icmp eq ptr %42, %44
   br i1 %.not.i.i6, label %67, label %45
@@ -4132,41 +4137,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 67:                                               ; preds = %33
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr %42, ptr noundef nonnull align 8 dereferenceable(104) %6)
+  %68 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr %42, ptr noundef nonnull align 8 dereferenceable(104) %6)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %67, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %68 = load ptr, ptr %15, align 8, !tbaa !214
-  %69 = icmp eq ptr %68, %16
-  br i1 %69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %69 = load ptr, ptr %15, align 8, !tbaa !214
+  %70 = icmp eq ptr %69, %16
+  br i1 %70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %70 = load i64, ptr %17, align 8, !tbaa !215
-  %71 = icmp ult i64 %70, 16
-  call void @llvm.assume(i1 %71)
+  %71 = load i64, ptr %17, align 8, !tbaa !215
+  %72 = icmp ult i64 %71, 16
+  call void @llvm.assume(i1 %72)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %72 = load i64, ptr %16, align 8, !tbaa !210
-  %73 = add i64 %72, 1
-  call void @_ZdlPvm(ptr noundef %68, i64 noundef %73) #26
+  %73 = load i64, ptr %16, align 8, !tbaa !210
+  %74 = add i64 %73, 1
+  call void @_ZdlPvm(ptr noundef %69, i64 noundef %74) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %74 = load ptr, ptr %14, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %75
+  %75 = load ptr, ptr %14, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %76
 
-75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %77 = load ptr, ptr %76, align 8, !tbaa !263
-  %78 = ptrtoint ptr %77 to i64
-  %79 = ptrtoint ptr %74 to i64
-  %80 = sub i64 %78, %79
-  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %80) #26
+76:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %78 = load ptr, ptr %77, align 8, !tbaa !263
+  %79 = ptrtoint ptr %78 to i64
+  %80 = ptrtoint ptr %75 to i64
+  %81 = sub i64 %79, %80
+  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %75
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -4354,10 +4360,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %2
   %34 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -16
   %36 = load i64, ptr %35, align 8, !tbaa !290
-  %37 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %29, i64 %36, i32 4
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %37 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %29, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !260
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !265
   %.not.i.i5 = icmp eq ptr %39, %41
   br i1 %.not.i.i5, label %64, label %42
@@ -4411,41 +4417,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 64:                                               ; preds = %30
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr %39, ptr noundef nonnull align 8 dereferenceable(104) %4)
+  %65 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr %39, ptr noundef nonnull align 8 dereferenceable(104) %4)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %64, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %65 = load ptr, ptr %12, align 8, !tbaa !214
-  %66 = icmp eq ptr %65, %13
-  br i1 %66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %66 = load ptr, ptr %12, align 8, !tbaa !214
+  %67 = icmp eq ptr %66, %13
+  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %67 = load i64, ptr %14, align 8, !tbaa !215
-  %68 = icmp ult i64 %67, 16
-  call void @llvm.assume(i1 %68)
+  %68 = load i64, ptr %14, align 8, !tbaa !215
+  %69 = icmp ult i64 %68, 16
+  call void @llvm.assume(i1 %69)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %69 = load i64, ptr %13, align 8, !tbaa !210
-  %70 = add i64 %69, 1
-  call void @_ZdlPvm(ptr noundef %65, i64 noundef %70) #26
+  %70 = load i64, ptr %13, align 8, !tbaa !210
+  %71 = add i64 %70, 1
+  call void @_ZdlPvm(ptr noundef %66, i64 noundef %71) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %71 = load ptr, ptr %11, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %72
+  %72 = load ptr, ptr %11, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %72, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %73
 
-72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %74 = load ptr, ptr %73, align 8, !tbaa !263
-  %75 = ptrtoint ptr %74 to i64
-  %76 = ptrtoint ptr %71 to i64
-  %77 = sub i64 %75, %76
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #26
+73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %75 = load ptr, ptr %74, align 8, !tbaa !263
+  %76 = ptrtoint ptr %75 to i64
+  %77 = ptrtoint ptr %72 to i64
+  %78 = sub i64 %76, %77
+  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %72
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -4519,10 +4526,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %2
   %34 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -16
   %36 = load i64, ptr %35, align 8, !tbaa !290
-  %37 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %29, i64 %36, i32 4
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %37 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %29, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !260
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !265
   %.not.i.i5 = icmp eq ptr %39, %41
   br i1 %.not.i.i5, label %64, label %42
@@ -4576,41 +4583,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 64:                                               ; preds = %30
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr %39, ptr noundef nonnull align 8 dereferenceable(104) %4)
+  %65 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr %39, ptr noundef nonnull align 8 dereferenceable(104) %4)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %64, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %65 = load ptr, ptr %12, align 8, !tbaa !214
-  %66 = icmp eq ptr %65, %13
-  br i1 %66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %66 = load ptr, ptr %12, align 8, !tbaa !214
+  %67 = icmp eq ptr %66, %13
+  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %67 = load i64, ptr %14, align 8, !tbaa !215
-  %68 = icmp ult i64 %67, 16
-  call void @llvm.assume(i1 %68)
+  %68 = load i64, ptr %14, align 8, !tbaa !215
+  %69 = icmp ult i64 %68, 16
+  call void @llvm.assume(i1 %69)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %69 = load i64, ptr %13, align 8, !tbaa !210
-  %70 = add i64 %69, 1
-  call void @_ZdlPvm(ptr noundef %65, i64 noundef %70) #26
+  %70 = load i64, ptr %13, align 8, !tbaa !210
+  %71 = add i64 %70, 1
+  call void @_ZdlPvm(ptr noundef %66, i64 noundef %71) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %71 = load ptr, ptr %11, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %72
+  %72 = load ptr, ptr %11, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %72, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %73
 
-72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %74 = load ptr, ptr %73, align 8, !tbaa !263
-  %75 = ptrtoint ptr %74 to i64
-  %76 = ptrtoint ptr %71 to i64
-  %77 = sub i64 %75, %76
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #26
+73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %75 = load ptr, ptr %74, align 8, !tbaa !263
+  %76 = ptrtoint ptr %75 to i64
+  %77 = ptrtoint ptr %72 to i64
+  %78 = sub i64 %76, %77
+  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %72
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -4685,10 +4693,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %3
   %36 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %34, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -16
   %38 = load i64, ptr %37, align 8, !tbaa !290
-  %39 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %31, i64 %38, i32 4
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %39 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %31, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !260
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !265
   %.not.i.i5 = icmp eq ptr %41, %43
   br i1 %.not.i.i5, label %66, label %44
@@ -4742,41 +4750,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 66:                                               ; preds = %32
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr %41, ptr noundef nonnull align 8 dereferenceable(104) %5)
+  %67 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr %41, ptr noundef nonnull align 8 dereferenceable(104) %5)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %66, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %67 = load ptr, ptr %14, align 8, !tbaa !214
-  %68 = icmp eq ptr %67, %15
-  br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %68 = load ptr, ptr %14, align 8, !tbaa !214
+  %69 = icmp eq ptr %68, %15
+  br i1 %69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %69 = load i64, ptr %16, align 8, !tbaa !215
-  %70 = icmp ult i64 %69, 16
-  call void @llvm.assume(i1 %70)
+  %70 = load i64, ptr %16, align 8, !tbaa !215
+  %71 = icmp ult i64 %70, 16
+  call void @llvm.assume(i1 %71)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %71 = load i64, ptr %15, align 8, !tbaa !210
-  %72 = add i64 %71, 1
-  call void @_ZdlPvm(ptr noundef %67, i64 noundef %72) #26
+  %72 = load i64, ptr %15, align 8, !tbaa !210
+  %73 = add i64 %72, 1
+  call void @_ZdlPvm(ptr noundef %68, i64 noundef %73) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %73 = load ptr, ptr %13, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %74
+  %74 = load ptr, ptr %13, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %74, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %75
 
-74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %76 = load ptr, ptr %75, align 8, !tbaa !263
-  %77 = ptrtoint ptr %76 to i64
-  %78 = ptrtoint ptr %73 to i64
-  %79 = sub i64 %77, %78
-  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %79) #26
+75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %77 = load ptr, ptr %76, align 8, !tbaa !263
+  %78 = ptrtoint ptr %77 to i64
+  %79 = ptrtoint ptr %74 to i64
+  %80 = sub i64 %78, %79
+  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %80) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %74
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -4851,10 +4860,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %3
   %36 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %34, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -16
   %38 = load i64, ptr %37, align 8, !tbaa !290
-  %39 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %31, i64 %38, i32 4
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %39 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %31, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !260
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !265
   %.not.i.i5 = icmp eq ptr %41, %43
   br i1 %.not.i.i5, label %66, label %44
@@ -4908,41 +4917,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 66:                                               ; preds = %32
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr %41, ptr noundef nonnull align 8 dereferenceable(104) %5)
+  %67 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr %41, ptr noundef nonnull align 8 dereferenceable(104) %5)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %66, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %67 = load ptr, ptr %14, align 8, !tbaa !214
-  %68 = icmp eq ptr %67, %15
-  br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %68 = load ptr, ptr %14, align 8, !tbaa !214
+  %69 = icmp eq ptr %68, %15
+  br i1 %69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %69 = load i64, ptr %16, align 8, !tbaa !215
-  %70 = icmp ult i64 %69, 16
-  call void @llvm.assume(i1 %70)
+  %70 = load i64, ptr %16, align 8, !tbaa !215
+  %71 = icmp ult i64 %70, 16
+  call void @llvm.assume(i1 %71)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %71 = load i64, ptr %15, align 8, !tbaa !210
-  %72 = add i64 %71, 1
-  call void @_ZdlPvm(ptr noundef %67, i64 noundef %72) #26
+  %72 = load i64, ptr %15, align 8, !tbaa !210
+  %73 = add i64 %72, 1
+  call void @_ZdlPvm(ptr noundef %68, i64 noundef %73) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %73 = load ptr, ptr %13, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %74
+  %74 = load ptr, ptr %13, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %74, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %75
 
-74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %76 = load ptr, ptr %75, align 8, !tbaa !263
-  %77 = ptrtoint ptr %76 to i64
-  %78 = ptrtoint ptr %73 to i64
-  %79 = sub i64 %77, %78
-  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %79) #26
+75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %77 = load ptr, ptr %76, align 8, !tbaa !263
+  %78 = ptrtoint ptr %77 to i64
+  %79 = ptrtoint ptr %74 to i64
+  %80 = sub i64 %78, %79
+  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %80) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %74
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -5004,10 +5014,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %4
   %31 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %29, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 -16
   %33 = load i64, ptr %32, align 8, !tbaa !290
-  %34 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %26, i64 %33, i32 4
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %34 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %26, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !260
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !265
   %.not.i.i8 = icmp eq ptr %36, %38
   br i1 %.not.i.i8, label %66, label %39
@@ -5067,45 +5077,46 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 66:                                               ; preds = %27
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr %36, ptr noundef nonnull align 8 dereferenceable(104) %6)
+  %67 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr %36, ptr noundef nonnull align 8 dereferenceable(104) %6)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %66, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %68 = load ptr, ptr %67, align 8, !tbaa !214
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %70 = icmp eq ptr %68, %69
-  br i1 %70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %69 = load ptr, ptr %68, align 8, !tbaa !214
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %71 = icmp eq ptr %69, %70
+  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %71 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %72 = load i64, ptr %71, align 8, !tbaa !215
-  %73 = icmp ult i64 %72, 16
-  call void @llvm.assume(i1 %73)
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %73 = load i64, ptr %72, align 8, !tbaa !215
+  %74 = icmp ult i64 %73, 16
+  call void @llvm.assume(i1 %74)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %74 = load i64, ptr %69, align 8, !tbaa !210
-  %75 = add i64 %74, 1
-  call void @_ZdlPvm(ptr noundef %68, i64 noundef %75) #26
+  %75 = load i64, ptr %70, align 8, !tbaa !210
+  %76 = add i64 %75, 1
+  call void @_ZdlPvm(ptr noundef %69, i64 noundef %76) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %77 = load ptr, ptr %76, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %78
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %78 = load ptr, ptr %77, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %78, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %79
 
-78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %80 = load ptr, ptr %79, align 8, !tbaa !263
-  %81 = ptrtoint ptr %80 to i64
-  %82 = ptrtoint ptr %77 to i64
-  %83 = sub i64 %81, %82
-  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #26
+79:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %81 = load ptr, ptr %80, align 8, !tbaa !263
+  %82 = ptrtoint ptr %81 to i64
+  %83 = ptrtoint ptr %78 to i64
+  %84 = sub i64 %82, %83
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %84) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %78
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -5272,10 +5283,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %3
   %35 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %33, i64 %34
   %36 = getelementptr inbounds i8, ptr %35, i64 -16
   %37 = load i64, ptr %36, align 8, !tbaa !290
-  %38 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %30, i64 %37, i32 4
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %38 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %30, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !260
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !265
   %.not.i.i5 = icmp eq ptr %40, %42
   br i1 %.not.i.i5, label %65, label %43
@@ -5329,41 +5340,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 65:                                               ; preds = %31
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr %40, ptr noundef nonnull align 8 dereferenceable(104) %5)
+  %66 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr %40, ptr noundef nonnull align 8 dereferenceable(104) %5)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %65, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %66 = load ptr, ptr %13, align 8, !tbaa !214
-  %67 = icmp eq ptr %66, %14
-  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %67 = load ptr, ptr %13, align 8, !tbaa !214
+  %68 = icmp eq ptr %67, %14
+  br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %68 = load i64, ptr %15, align 8, !tbaa !215
-  %69 = icmp ult i64 %68, 16
-  call void @llvm.assume(i1 %69)
+  %69 = load i64, ptr %15, align 8, !tbaa !215
+  %70 = icmp ult i64 %69, 16
+  call void @llvm.assume(i1 %70)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %70 = load i64, ptr %14, align 8, !tbaa !210
-  %71 = add i64 %70, 1
-  call void @_ZdlPvm(ptr noundef %66, i64 noundef %71) #26
+  %71 = load i64, ptr %14, align 8, !tbaa !210
+  %72 = add i64 %71, 1
+  call void @_ZdlPvm(ptr noundef %67, i64 noundef %72) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %72 = load ptr, ptr %12, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %73
+  %73 = load ptr, ptr %12, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %73, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %74
 
-73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %75 = load ptr, ptr %74, align 8, !tbaa !263
-  %76 = ptrtoint ptr %75 to i64
-  %77 = ptrtoint ptr %72 to i64
-  %78 = sub i64 %76, %77
-  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #26
+74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %76 = load ptr, ptr %75, align 8, !tbaa !263
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %73 to i64
+  %79 = sub i64 %77, %78
+  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %79) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %73
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -5399,13 +5411,13 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread: ; preds = %5, %10
   store i8 3, ptr %13, align 8, !tbaa !206
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr %.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(34) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %25
+  br label %26
 
 _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !257
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %25, label %17
+  br i1 %.not, label %26, label %17
 
 17:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5414,11 +5426,12 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %1
   %21 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %19, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
   %23 = load i64, ptr %22, align 8, !tbaa !290
-  %24 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %16, i64 %23, i32 10
-  store i8 1, ptr %24, align 8, !tbaa !371
-  br label %25
+  %24 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %16, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  store i8 1, ptr %25, align 8, !tbaa !371
+  br label %26
 
-25:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit, %17
+26:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit, %17
   ret void
 }
 
@@ -5492,10 +5505,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %3
   %36 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %34, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -16
   %38 = load i64, ptr %37, align 8, !tbaa !290
-  %39 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %31, i64 %38, i32 4
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %39 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %31, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !260
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !265
   %.not.i.i5 = icmp eq ptr %41, %43
   br i1 %.not.i.i5, label %66, label %44
@@ -5549,41 +5562,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 66:                                               ; preds = %32
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr %41, ptr noundef nonnull align 8 dereferenceable(104) %5)
+  %67 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr %41, ptr noundef nonnull align 8 dereferenceable(104) %5)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %66, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %67 = load ptr, ptr %14, align 8, !tbaa !214
-  %68 = icmp eq ptr %67, %15
-  br i1 %68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %68 = load ptr, ptr %14, align 8, !tbaa !214
+  %69 = icmp eq ptr %68, %15
+  br i1 %69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %69 = load i64, ptr %16, align 8, !tbaa !215
-  %70 = icmp ult i64 %69, 16
-  call void @llvm.assume(i1 %70)
+  %70 = load i64, ptr %16, align 8, !tbaa !215
+  %71 = icmp ult i64 %70, 16
+  call void @llvm.assume(i1 %71)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %71 = load i64, ptr %15, align 8, !tbaa !210
-  %72 = add i64 %71, 1
-  call void @_ZdlPvm(ptr noundef %67, i64 noundef %72) #26
+  %72 = load i64, ptr %15, align 8, !tbaa !210
+  %73 = add i64 %72, 1
+  call void @_ZdlPvm(ptr noundef %68, i64 noundef %73) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %73 = load ptr, ptr %13, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %74
+  %74 = load ptr, ptr %13, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %74, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %75
 
-74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %76 = load ptr, ptr %75, align 8, !tbaa !263
-  %77 = ptrtoint ptr %76 to i64
-  %78 = ptrtoint ptr %73 to i64
-  %79 = sub i64 %77, %78
-  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %79) #26
+75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %77 = load ptr, ptr %76, align 8, !tbaa !263
+  %78 = ptrtoint ptr %77 to i64
+  %79 = ptrtoint ptr %74 to i64
+  %80 = sub i64 %78, %79
+  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %80) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %74
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -5659,10 +5673,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %4
   %38 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %36, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -16
   %40 = load i64, ptr %39, align 8, !tbaa !290
-  %41 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %33, i64 %40, i32 4
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %41 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %33, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !260
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %45 = load ptr, ptr %44, align 8, !tbaa !265
   %.not.i.i6 = icmp eq ptr %43, %45
   br i1 %.not.i.i6, label %68, label %46
@@ -5716,41 +5730,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 68:                                               ; preds = %34
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr %43, ptr noundef nonnull align 8 dereferenceable(104) %6)
+  %69 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr %43, ptr noundef nonnull align 8 dereferenceable(104) %6)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %68, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %69 = load ptr, ptr %16, align 8, !tbaa !214
-  %70 = icmp eq ptr %69, %17
-  br i1 %70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %70 = load ptr, ptr %16, align 8, !tbaa !214
+  %71 = icmp eq ptr %70, %17
+  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %71 = load i64, ptr %18, align 8, !tbaa !215
-  %72 = icmp ult i64 %71, 16
-  call void @llvm.assume(i1 %72)
+  %72 = load i64, ptr %18, align 8, !tbaa !215
+  %73 = icmp ult i64 %72, 16
+  call void @llvm.assume(i1 %73)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %73 = load i64, ptr %17, align 8, !tbaa !210
-  %74 = add i64 %73, 1
-  call void @_ZdlPvm(ptr noundef %69, i64 noundef %74) #26
+  %74 = load i64, ptr %17, align 8, !tbaa !210
+  %75 = add i64 %74, 1
+  call void @_ZdlPvm(ptr noundef %70, i64 noundef %75) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %75 = load ptr, ptr %15, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %75, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %76
+  %76 = load ptr, ptr %15, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %76, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %77
 
-76:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %78 = load ptr, ptr %77, align 8, !tbaa !263
-  %79 = ptrtoint ptr %78 to i64
-  %80 = ptrtoint ptr %75 to i64
-  %81 = sub i64 %79, %80
-  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #26
+77:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %79 = load ptr, ptr %78, align 8, !tbaa !263
+  %80 = ptrtoint ptr %79 to i64
+  %81 = ptrtoint ptr %76 to i64
+  %82 = sub i64 %80, %81
+  call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef %82) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %76
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -5824,10 +5839,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %2
   %34 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -16
   %36 = load i64, ptr %35, align 8, !tbaa !290
-  %37 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %29, i64 %36, i32 4
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %37 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %29, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !260
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !265
   %.not.i.i5 = icmp eq ptr %39, %41
   br i1 %.not.i.i5, label %64, label %42
@@ -5881,41 +5896,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 64:                                               ; preds = %30
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr %39, ptr noundef nonnull align 8 dereferenceable(104) %4)
+  %65 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr %39, ptr noundef nonnull align 8 dereferenceable(104) %4)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %64, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %65 = load ptr, ptr %12, align 8, !tbaa !214
-  %66 = icmp eq ptr %65, %13
-  br i1 %66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %66 = load ptr, ptr %12, align 8, !tbaa !214
+  %67 = icmp eq ptr %66, %13
+  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %67 = load i64, ptr %14, align 8, !tbaa !215
-  %68 = icmp ult i64 %67, 16
-  call void @llvm.assume(i1 %68)
+  %68 = load i64, ptr %14, align 8, !tbaa !215
+  %69 = icmp ult i64 %68, 16
+  call void @llvm.assume(i1 %69)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %69 = load i64, ptr %13, align 8, !tbaa !210
-  %70 = add i64 %69, 1
-  call void @_ZdlPvm(ptr noundef %65, i64 noundef %70) #26
+  %70 = load i64, ptr %13, align 8, !tbaa !210
+  %71 = add i64 %70, 1
+  call void @_ZdlPvm(ptr noundef %66, i64 noundef %71) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %71 = load ptr, ptr %11, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %72
+  %72 = load ptr, ptr %11, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %72, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %73
 
-72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %74 = load ptr, ptr %73, align 8, !tbaa !263
-  %75 = ptrtoint ptr %74 to i64
-  %76 = ptrtoint ptr %71 to i64
-  %77 = sub i64 %75, %76
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #26
+73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %75 = load ptr, ptr %74, align 8, !tbaa !263
+  %76 = ptrtoint ptr %75 to i64
+  %77 = ptrtoint ptr %72 to i64
+  %78 = sub i64 %76, %77
+  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %72
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -5989,10 +6005,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %2
   %34 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -16
   %36 = load i64, ptr %35, align 8, !tbaa !290
-  %37 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %29, i64 %36, i32 4
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %37 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %29, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !260
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !265
   %.not.i.i5 = icmp eq ptr %39, %41
   br i1 %.not.i.i5, label %64, label %42
@@ -6046,41 +6062,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 64:                                               ; preds = %30
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr %39, ptr noundef nonnull align 8 dereferenceable(104) %4)
+  %65 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr %39, ptr noundef nonnull align 8 dereferenceable(104) %4)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %64, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %65 = load ptr, ptr %12, align 8, !tbaa !214
-  %66 = icmp eq ptr %65, %13
-  br i1 %66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %66 = load ptr, ptr %12, align 8, !tbaa !214
+  %67 = icmp eq ptr %66, %13
+  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %67 = load i64, ptr %14, align 8, !tbaa !215
-  %68 = icmp ult i64 %67, 16
-  call void @llvm.assume(i1 %68)
+  %68 = load i64, ptr %14, align 8, !tbaa !215
+  %69 = icmp ult i64 %68, 16
+  call void @llvm.assume(i1 %69)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %69 = load i64, ptr %13, align 8, !tbaa !210
-  %70 = add i64 %69, 1
-  call void @_ZdlPvm(ptr noundef %65, i64 noundef %70) #26
+  %70 = load i64, ptr %13, align 8, !tbaa !210
+  %71 = add i64 %70, 1
+  call void @_ZdlPvm(ptr noundef %66, i64 noundef %71) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %71 = load ptr, ptr %11, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %72
+  %72 = load ptr, ptr %11, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %72, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %73
 
-72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %74 = load ptr, ptr %73, align 8, !tbaa !263
-  %75 = ptrtoint ptr %74 to i64
-  %76 = ptrtoint ptr %71 to i64
-  %77 = sub i64 %75, %76
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #26
+73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %75 = load ptr, ptr %74, align 8, !tbaa !263
+  %76 = ptrtoint ptr %75 to i64
+  %77 = ptrtoint ptr %72 to i64
+  %78 = sub i64 %76, %77
+  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %72
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -6154,10 +6171,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %2
   %34 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -16
   %36 = load i64, ptr %35, align 8, !tbaa !290
-  %37 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %29, i64 %36, i32 4
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %37 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %29, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !260
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !265
   %.not.i.i5 = icmp eq ptr %39, %41
   br i1 %.not.i.i5, label %64, label %42
@@ -6211,41 +6228,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 64:                                               ; preds = %30
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr %39, ptr noundef nonnull align 8 dereferenceable(104) %4)
+  %65 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr %39, ptr noundef nonnull align 8 dereferenceable(104) %4)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %64, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %65 = load ptr, ptr %12, align 8, !tbaa !214
-  %66 = icmp eq ptr %65, %13
-  br i1 %66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %66 = load ptr, ptr %12, align 8, !tbaa !214
+  %67 = icmp eq ptr %66, %13
+  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %67 = load i64, ptr %14, align 8, !tbaa !215
-  %68 = icmp ult i64 %67, 16
-  call void @llvm.assume(i1 %68)
+  %68 = load i64, ptr %14, align 8, !tbaa !215
+  %69 = icmp ult i64 %68, 16
+  call void @llvm.assume(i1 %69)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %69 = load i64, ptr %13, align 8, !tbaa !210
-  %70 = add i64 %69, 1
-  call void @_ZdlPvm(ptr noundef %65, i64 noundef %70) #26
+  %70 = load i64, ptr %13, align 8, !tbaa !210
+  %71 = add i64 %70, 1
+  call void @_ZdlPvm(ptr noundef %66, i64 noundef %71) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %71 = load ptr, ptr %11, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %72
+  %72 = load ptr, ptr %11, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %72, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %73
 
-72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %74 = load ptr, ptr %73, align 8, !tbaa !263
-  %75 = ptrtoint ptr %74 to i64
-  %76 = ptrtoint ptr %71 to i64
-  %77 = sub i64 %75, %76
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #26
+73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %75 = load ptr, ptr %74, align 8, !tbaa !263
+  %76 = ptrtoint ptr %75 to i64
+  %77 = ptrtoint ptr %72 to i64
+  %78 = sub i64 %76, %77
+  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %72
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -6281,13 +6299,13 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread: ; preds = %6, %11
   store i8 3, ptr %14, align 8, !tbaa !206
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %8, ptr %.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(34) %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %27
+  br label %28
 
 _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !257
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %27, label %18
+  br i1 %.not, label %28, label %18
 
 18:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6296,12 +6314,13 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %2
   %22 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   %24 = load i64, ptr %23, align 8, !tbaa !290
-  %25 = trunc i64 %1 to i32
-  %26 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %17, i64 %24, i32 13
-  store i32 %25, ptr %26, align 4, !tbaa !372
-  br label %27
+  %25 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %17, i64 %24
+  %26 = trunc i64 %1 to i32
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 84
+  store i32 %26, ptr %27, align 4, !tbaa !372
+  br label %28
 
-27:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit, %18
+28:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit, %18
   ret void
 }
 
@@ -6353,13 +6372,13 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread: ; preds = %20, %24
   store i8 3, ptr %27, align 8, !tbaa !206
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %21, ptr %.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(34) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %84
+  br label %85
 
 _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !257
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %84, label %31
+  br i1 %.not, label %85, label %31
 
 31:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6368,7 +6387,7 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %4
   %35 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %33, i64 %34
   %36 = getelementptr inbounds i8, ptr %35, i64 -16
   %37 = load i64, ptr %36, align 8, !tbaa !290
-  %38 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %30, i64 %37, i32 4
+  %38 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %30, i64 %37
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %11, ptr %7, align 8, !tbaa !400, !alias.scope !460
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -6385,9 +6404,9 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %4
   store i8 0, ptr %43, align 8, !tbaa !210, !alias.scope !460
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %45, align 8, !tbaa !210, !alias.scope !460
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !260
-  %48 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !265
   %.not.i.i6 = icmp eq ptr %47, %49
   br i1 %.not.i.i6, label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit, label %50
@@ -6441,42 +6460,43 @@ _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit.thread: ; pre
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %31
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr %47, ptr noundef nonnull align 8 dereferenceable(104) %7)
+  %72 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr %47, ptr noundef nonnull align 8 dereferenceable(104) %7)
   %.pre9 = load ptr, ptr %42, align 8, !tbaa !214
-  %72 = icmp eq ptr %.pre9, %43
-  br i1 %72, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %73 = icmp eq ptr %.pre9, %43
+  br i1 %73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit.thread, %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %73 = load i64, ptr %44, align 8, !tbaa !215
-  %74 = icmp ult i64 %73, 16
-  call void @llvm.assume(i1 %74)
+  %74 = load i64, ptr %44, align 8, !tbaa !215
+  %75 = icmp ult i64 %74, 16
+  call void @llvm.assume(i1 %75)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %75 = load i64, ptr %43, align 8, !tbaa !210
-  %76 = add i64 %75, 1
-  call void @_ZdlPvm(ptr noundef %.pre9, i64 noundef %76) #26
+  %76 = load i64, ptr %43, align 8, !tbaa !210
+  %77 = add i64 %76, 1
+  call void @_ZdlPvm(ptr noundef %.pre9, i64 noundef %77) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %77 = load ptr, ptr %41, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %77, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %78
+  %78 = load ptr, ptr %41, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %78, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %79
 
-78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %80 = load ptr, ptr %79, align 8, !tbaa !263
-  %81 = ptrtoint ptr %80 to i64
-  %82 = ptrtoint ptr %77 to i64
-  %83 = sub i64 %81, %82
-  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #26
+79:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %81 = load ptr, ptr %80, align 8, !tbaa !263
+  %82 = ptrtoint ptr %81 to i64
+  %83 = ptrtoint ptr %78 to i64
+  %84 = sub i64 %82, %83
+  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %84) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %78
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %84
+  br label %85
 
-84:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm16MCCFIInstructionD2Ev.exit, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
+85:                                               ; preds = %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm16MCCFIInstructionD2Ev.exit, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
   ret void
 }
 
@@ -6550,10 +6570,10 @@ _ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit: ; preds = %4
   %37 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %35, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 -16
   %39 = load i64, ptr %38, align 8, !tbaa !290
-  %40 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %32, i64 %39, i32 4
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %40 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFrameInfo", ptr %32, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !260
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !265
   %.not.i.i6 = icmp eq ptr %42, %44
   br i1 %.not.i.i6, label %67, label %45
@@ -6607,41 +6627,42 @@ _ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 67:                                               ; preds = %33
-  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr %42, ptr noundef nonnull align 8 dereferenceable(104) %6)
+  %68 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  call void @_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr %42, ptr noundef nonnull align 8 dereferenceable(104) %6)
   br label %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit: ; preds = %67, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit.thread, %_ZN4llvm10MCStreamer24getCurrentDwarfFrameInfoEv.exit
-  %68 = load ptr, ptr %15, align 8, !tbaa !214
-  %69 = icmp eq ptr %68, %16
-  br i1 %69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %69 = load ptr, ptr %15, align 8, !tbaa !214
+  %70 = icmp eq ptr %69, %16
+  br i1 %70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %70 = load i64, ptr %17, align 8, !tbaa !215
-  %71 = icmp ult i64 %70, 16
-  call void @llvm.assume(i1 %71)
+  %71 = load i64, ptr %17, align 8, !tbaa !215
+  %72 = icmp ult i64 %71, 16
+  call void @llvm.assume(i1 %72)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN4llvm16MCCFIInstructionESaIS1_EE9push_backEOS1_.exit
-  %72 = load i64, ptr %16, align 8, !tbaa !210
-  %73 = add i64 %72, 1
-  call void @_ZdlPvm(ptr noundef %68, i64 noundef %73) #26
+  %73 = load i64, ptr %16, align 8, !tbaa !210
+  %74 = add i64 %73, 1
+  call void @_ZdlPvm(ptr noundef %69, i64 noundef %74) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %74 = load ptr, ptr %14, align 8, !tbaa !261
-  %.not.i.i.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %75
+  %75 = load ptr, ptr %14, align 8, !tbaa !261
+  %.not.i.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %76
 
-75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %77 = load ptr, ptr %76, align 8, !tbaa !263
-  %78 = ptrtoint ptr %77 to i64
-  %79 = ptrtoint ptr %74 to i64
-  %80 = sub i64 %78, %79
-  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %80) #26
+76:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %78 = load ptr, ptr %77, align 8, !tbaa !263
+  %79 = ptrtoint ptr %78 to i64
+  %80 = ptrtoint ptr %75 to i64
+  %81 = sub i64 %79, %80
+  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #26
   br label %_ZN4llvm16MCCFIInstructionD2Ev.exit
 
-_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %75
+_ZN4llvm16MCCFIInstructionD2Ev.exit:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -9149,10 +9170,11 @@ _ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit:         ; preds = %52, %_ZN4llvm23Smal
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = zext i32 %60 to i64
   %63 = load ptr, ptr %61, align 8, !tbaa !243
-  %64 = getelementptr inbounds nuw %"struct.std::pair.414", ptr %63, i64 %62, i32 1
+  %64 = getelementptr inbounds nuw %"struct.std::pair.414", ptr %63, i64 %62
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %64
+  ret ptr %65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -11995,10 +12017,11 @@ _ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit: ; preds = %49, %_ZN4llv
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = zext i32 %57 to i64
   %60 = load ptr, ptr %58, align 8, !tbaa !243
-  %61 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %60, i64 %59, i32 1
+  %61 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %60, i64 %59
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %61
+  ret ptr %62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -431,7 +431,8 @@ invoke.cont42.us:                                 ; preds = %for.cond36.preheade
   br i1 %tobool.i.not.us, label %for.inc.us, label %invoke.cont50.us
 
 invoke.cont50.us:                                 ; preds = %invoke.cont42.us
-  %values_.i.us = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %1, i64 %j.0132.us, i32 1
+  %add.ptr.i.i58.us = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %1, i64 %j.0132.us
+  %values_.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i58.us, i64 72
   %29 = load ptr, ptr %values_.i.us, align 8, !tbaa !30
   %arrayidx.i.i.us = getelementptr inbounds nuw double, ptr %29, i64 %i.0136.us
   %30 = load double, ptr %arrayidx.i.i.us, align 8, !tbaa !31

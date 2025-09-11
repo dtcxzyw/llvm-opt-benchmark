@@ -257,25 +257,25 @@ define void @_ZN3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23AnalysisData
   %20 = phi ptr [ %30, %29 ], [ %13, %10 ]
   %.sroa.0.0.copyload.i.i.i14 = phi ptr [ %.sroa.0.0.copyload.i.i.i, %29 ], [ %.sroa.0.0.copyload.i.i.i11, %10 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %10 ]
-  %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i14, i64 %indvars.iv, i32 2
-  %22 = load i64, ptr %21, align 8, !tbaa !57
-  %23 = and i64 %22, 4
-  %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %29, label %24
+  %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i14, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load i64, ptr %22, align 8, !tbaa !57
+  %24 = and i64 %23, 4
+  %.not = icmp eq i64 %24, 0
+  br i1 %.not, label %29, label %25
 
-24:                                               ; preds = %.lr.ph
-  %25 = load ptr, ptr %3, align 8, !tbaa !33
-  %26 = load ptr, ptr %25, align 8, !tbaa !43
-  %27 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i14, i64 %indvars.iv
-  %28 = load float, ptr %27, align 8, !tbaa !60
-  tail call void @_ZN3gmx25AnalysisDataFrameAverager8addValueEif(ptr noundef nonnull align 8 dereferenceable(25) %26, i32 noundef %9, float noundef %28)
+25:                                               ; preds = %.lr.ph
+  %26 = load ptr, ptr %3, align 8, !tbaa !33
+  %27 = load ptr, ptr %26, align 8, !tbaa !43
+  %28 = load float, ptr %21, align 8, !tbaa !60
+  tail call void @_ZN3gmx25AnalysisDataFrameAverager8addValueEif(ptr noundef nonnull align 8 dereferenceable(25) %27, i32 noundef %9, float noundef %28)
   %.sroa.0.0.copyload.i.i.i.pre = load ptr, ptr %11, align 8
   %.pre = load ptr, ptr %12, align 8, !tbaa !56
   br label %29
 
-29:                                               ; preds = %.lr.ph, %24
-  %30 = phi ptr [ %20, %.lr.ph ], [ %.pre, %24 ]
-  %.sroa.0.0.copyload.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i14, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i.pre, %24 ]
+29:                                               ; preds = %.lr.ph, %25
+  %30 = phi ptr [ %20, %.lr.ph ], [ %.pre, %25 ]
+  %.sroa.0.0.copyload.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i14, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i.pre, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i to i64
@@ -499,25 +499,25 @@ define void @_ZThn104_N3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23Analy
   %20 = phi ptr [ %30, %29 ], [ %13, %10 ]
   %.sroa.0.0.copyload.i.i.i14.i = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %29 ], [ %.sroa.0.0.copyload.i.i.i11.i, %10 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ 0, %10 ]
-  %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i14.i, i64 %indvars.iv.i, i32 2
-  %22 = load i64, ptr %21, align 8, !tbaa !57
-  %23 = and i64 %22, 4
-  %.not.i = icmp eq i64 %23, 0
-  br i1 %.not.i, label %29, label %24
+  %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i14.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load i64, ptr %22, align 8, !tbaa !57
+  %24 = and i64 %23, 4
+  %.not.i = icmp eq i64 %24, 0
+  br i1 %.not.i, label %29, label %25
 
-24:                                               ; preds = %.lr.ph.i
-  %25 = load ptr, ptr %3, align 8, !tbaa !33
-  %26 = load ptr, ptr %25, align 8, !tbaa !43
-  %27 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i14.i, i64 %indvars.iv.i
-  %28 = load float, ptr %27, align 8, !tbaa !60
-  tail call void @_ZN3gmx25AnalysisDataFrameAverager8addValueEif(ptr noundef nonnull align 8 dereferenceable(25) %26, i32 noundef %9, float noundef %28)
+25:                                               ; preds = %.lr.ph.i
+  %26 = load ptr, ptr %3, align 8, !tbaa !33
+  %27 = load ptr, ptr %26, align 8, !tbaa !43
+  %28 = load float, ptr %21, align 8, !tbaa !60
+  tail call void @_ZN3gmx25AnalysisDataFrameAverager8addValueEif(ptr noundef nonnull align 8 dereferenceable(25) %27, i32 noundef %9, float noundef %28)
   %.sroa.0.0.copyload.i.i.i.pre.i = load ptr, ptr %11, align 8
   %.pre.i = load ptr, ptr %12, align 8, !tbaa !56
   br label %29
 
-29:                                               ; preds = %24, %.lr.ph.i
-  %30 = phi ptr [ %20, %.lr.ph.i ], [ %.pre.i, %24 ]
-  %.sroa.0.0.copyload.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i14.i, %.lr.ph.i ], [ %.sroa.0.0.copyload.i.i.i.pre.i, %24 ]
+29:                                               ; preds = %25, %.lr.ph.i
+  %30 = phi ptr [ %20, %.lr.ph.i ], [ %.pre.i, %25 ]
+  %.sroa.0.0.copyload.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i14.i, %.lr.ph.i ], [ %.sroa.0.0.copyload.i.i.i.pre.i, %25 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i.i to i64
@@ -714,15 +714,15 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23Analysi
 24:                                               ; preds = %.lr.ph, %49
   %.sroa.0.0.copyload.i.i.i20 = phi ptr [ %.sroa.0.0.copyload.i.i.i17, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i, %49 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %25 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i20, i64 %indvars.iv, i32 2
-  %26 = load i64, ptr %25, align 8, !tbaa !57
-  %27 = and i64 %26, 4
-  %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %49, label %28
+  %25 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i20, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !57
+  %28 = and i64 %27, 4
+  %.not = icmp eq i64 %28, 0
+  br i1 %.not, label %49, label %29
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i20, i64 %indvars.iv
-  %30 = load float, ptr %29, align 8, !tbaa !60
+29:                                               ; preds = %24
+  %30 = load float, ptr %25, align 8, !tbaa !60
   %31 = load i32, ptr %19, align 4, !tbaa !82
   %32 = add nsw i32 %31, %4
   %33 = sext i32 %32 to i64
@@ -746,8 +746,8 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23Analysi
   %.sroa.0.0.copyload.i.i.i.pre = load ptr, ptr %9, align 8
   br label %49
 
-49:                                               ; preds = %24, %28
-  %.sroa.0.0.copyload.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i20, %24 ], [ %.sroa.0.0.copyload.i.i.i.pre, %28 ]
+49:                                               ; preds = %24, %29
+  %.sroa.0.0.copyload.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i20, %24 ], [ %.sroa.0.0.copyload.i.i.i.pre, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i to i64
   %51 = sub i64 %12, %50
@@ -878,15 +878,15 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23A
 24:                                               ; preds = %49, %.lr.ph.i
   %.sroa.0.0.copyload.i.i.i20.i = phi ptr [ %.sroa.0.0.copyload.i.i.i17.i, %.lr.ph.i ], [ %.sroa.0.0.copyload.i.i.i.i, %49 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
-  %25 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i20.i, i64 %indvars.iv.i, i32 2
-  %26 = load i64, ptr %25, align 8, !tbaa !57
-  %27 = and i64 %26, 4
-  %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %49, label %28
+  %25 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i20.i, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !57
+  %28 = and i64 %27, 4
+  %.not.i = icmp eq i64 %28, 0
+  br i1 %.not.i, label %49, label %29
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i20.i, i64 %indvars.iv.i
-  %30 = load float, ptr %29, align 8, !tbaa !60
+29:                                               ; preds = %24
+  %30 = load float, ptr %25, align 8, !tbaa !60
   %31 = load i32, ptr %19, align 4, !tbaa !82
   %32 = add nsw i32 %31, %4
   %33 = sext i32 %32 to i64
@@ -910,8 +910,8 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23A
   %.sroa.0.0.copyload.i.i.i.pre.i = load ptr, ptr %9, align 8
   br label %49
 
-49:                                               ; preds = %28, %24
-  %.sroa.0.0.copyload.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i20.i, %24 ], [ %.sroa.0.0.copyload.i.i.i.pre.i, %28 ]
+49:                                               ; preds = %29, %24
+  %.sroa.0.0.copyload.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i20.i, %24 ], [ %.sroa.0.0.copyload.i.i.i.pre.i, %29 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i.i to i64
   %51 = sub i64 %12, %50
@@ -1231,9 +1231,10 @@ define noundef float @_ZNK3gmx25AnalysisDataAverageModule17standardDeviationEii(
   %12 = add nsw i32 %11, %spec.select
   %13 = sext i32 %12 to i64
   %14 = load ptr, ptr %9, align 8, !tbaa !65
-  %15 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %14, i64 %13, i32 1
-  %16 = load float, ptr %15, align 4, !tbaa !72
-  ret float %16
+  %15 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %14, i64 %13
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load float, ptr %16, align 4, !tbaa !72
+  ret float %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1250,9 +1251,10 @@ define noundef i32 @_ZNK3gmx25AnalysisDataAverageModule11sampleCountEii(ptr noun
   %11 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %10, i64 %9
   %12 = sext i32 %spec.select5 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !44
-  %14 = getelementptr inbounds nuw %"struct.gmx::AnalysisDataFrameAverager::AverageItem", ptr %13, i64 %12, i32 2
-  %15 = load i32, ptr %14, align 8, !tbaa !69
-  ret i32 %15
+  %14 = getelementptr inbounds nuw %"struct.gmx::AnalysisDataFrameAverager::AverageItem", ptr %13, i64 %12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load i32, ptr %15, align 8, !tbaa !69
+  ret i32 %16
 }
 
 ; Function Attrs: mustprogress uwtable

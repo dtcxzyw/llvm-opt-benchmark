@@ -19865,7 +19865,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %21
   %37 = load i64, ptr %35, align 8, !tbaa !7
   %38 = and i64 %37, -4161537
   store i64 %38, ptr %35, align 8, !tbaa !7
-  %39 = shl nsw i64 %7, 15
+  %39 = shl nuw nsw i64 %7, 15
   %.0..0..0..0.63 = load volatile i64, ptr %4, align 8, !tbaa !13
   %40 = inttoptr i64 %.0..0..0..0.63 to ptr
   %41 = load i64, ptr %40, align 8, !tbaa !7

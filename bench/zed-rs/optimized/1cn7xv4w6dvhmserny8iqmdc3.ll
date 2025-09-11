@@ -732,7 +732,7 @@ define internal fastcc noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$1
   br label %19
 
 19:                                               ; preds = %.lr.ph, %tailrecurse.backedge
-  %.tr2950 = phi i32 [ %3, %.lr.ph ], [ %69, %tailrecurse.backedge ]
+  %.tr2950 = phi i32 [ %3, %.lr.ph ], [ %71, %tailrecurse.backedge ]
   %.tr2749 = phi i64 [ %1, %.lr.ph ], [ %.tr27.be, %tailrecurse.backedge ]
   %20 = getelementptr inbounds { i32, [9 x i32] }, ptr %6, i64 %.tr2749
   %21 = load i32, ptr %20, align 8, !range !85, !noundef !4
@@ -814,26 +814,28 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %64 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %65 = load i64, ptr %64, align 8, !noundef !4
   %66 = icmp ult i64 %65, %8
-  br i1 %66, label %tailrecurse.backedge, label %71
+  br i1 %66, label %tailrecurse.backedge, label %73
 
 67:                                               ; preds = %59
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %61, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4124a00d859aaef46b4b357ba03cc7eb.20) #31
   unreachable
 
 tailrecurse.backedge:                             ; preds = %63
-  %.sroa.07.0.in = getelementptr inbounds { i32, [9 x i32] }, ptr %6, i64 %61, i32 1
+  %68 = getelementptr inbounds { i32, [9 x i32] }, ptr %6, i64 %61
+  %.sroa.07.0.in = getelementptr inbounds nuw i8, ptr %68, i64 4
   %.sroa.07.0 = load i32, ptr %.sroa.07.0.in, align 4, !noundef !4
-  %.sroa.08.0.in = getelementptr inbounds { i32, [9 x i32] }, ptr %6, i64 %65, i32 1
+  %69 = getelementptr inbounds { i32, [9 x i32] }, ptr %6, i64 %65
+  %.sroa.08.0.in = getelementptr inbounds nuw i8, ptr %69, i64 4
   %.sroa.08.0 = load i32, ptr %.sroa.08.0.in, align 4, !noundef !4
-  %68 = icmp ugt i32 %.sroa.07.0, %.sroa.08.0
-  %spec.select = select i1 %68, i64 %61, i64 %65
-  %spec.select83 = select i1 %68, ptr %64, ptr %60
-  %69 = tail call fastcc noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$17find_max_ordering17hb58b47e7101ce5f4E"(ptr noalias noundef readonly align 8 dereferenceable(64) %0, i64 noundef %spec.select, ptr noalias noundef readonly align 4 dereferenceable(16) %2, i32 noundef %.tr2950)
+  %70 = icmp ugt i32 %.sroa.07.0, %.sroa.08.0
+  %spec.select = select i1 %70, i64 %61, i64 %65
+  %spec.select83 = select i1 %70, ptr %64, ptr %60
+  %71 = tail call fastcc noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$17find_max_ordering17hb58b47e7101ce5f4E"(ptr noalias noundef readonly align 8 dereferenceable(64) %0, i64 noundef %spec.select, ptr noalias noundef readonly align 4 dereferenceable(16) %2, i32 noundef %.tr2950)
   %.tr27.be = load i64, ptr %spec.select83, align 8, !noundef !4
-  %70 = icmp ult i64 %.tr27.be, %8
-  br i1 %70, label %19, label %tailrecurse._crit_edge
+  %72 = icmp ult i64 %.tr27.be, %8
+  br i1 %72, label %19, label %tailrecurse._crit_edge
 
-71:                                               ; preds = %63
+73:                                               ; preds = %63
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %65, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4124a00d859aaef46b4b357ba03cc7eb.21) #31
   unreachable
 }

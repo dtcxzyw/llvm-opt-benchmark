@@ -5203,15 +5203,16 @@ define hidden noundef nonnull align 8 dereferenceable(72) ptr @"_ZN8indexmap3map
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !9
   %9 = icmp ult i64 %6, %8
-  br i1 %9, label %10, label %14
+  br i1 %9, label %10, label %15
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !9, !noundef !9
-  %13 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %12, i64 %6, i32 1
-  ret ptr %13
+  %13 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %12, i64 %6
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  ret ptr %14
 
-14:                                               ; preds = %1
+15:                                               ; preds = %1
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %6, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b887b066c3756edb254221bda503b978.172.llvm.13569294421708396703) #30
   unreachable
 }

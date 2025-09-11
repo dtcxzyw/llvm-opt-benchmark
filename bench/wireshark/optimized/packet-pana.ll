@@ -224,7 +224,7 @@ define internal i32 @dissect_pana(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not48, label %.critedge, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ult i32 %22, 8
+  %24 = icmp samesign ult i32 %22, 8
   %25 = icmp ult i32 %5, 24
   %or.cond51 = or i1 %25, %24
   br i1 %or.cond51, label %38, label %26
@@ -247,7 +247,7 @@ define internal i32 @dissect_pana(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %33 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 20)
   %34 = zext i16 %33 to i32
   %35 = add nuw nsw i32 %., %34
-  %36 = icmp ugt i32 %35, %22
+  %36 = icmp samesign ugt i32 %35, %22
   br i1 %36, label %38, label %.critedge
 
 .critedge:                                        ; preds = %32, %21

@@ -2996,8 +2996,9 @@ define dso_local noundef i32 @errcode(i32 noundef %0) local_unnamed_addr #3 {
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8, i32 10
-  store i32 %0, ptr %9, align 8
+  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store i32 %0, ptr %10, align 8
   ret i32 0
 }
 
@@ -3975,10 +3976,11 @@ define dso_local noundef i32 @set_errcontext_domain(ptr noundef %0) local_unname
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
+  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
   %.not = icmp eq ptr %0, null
-  %9 = select i1 %.not, ptr @.str.3, ptr %0
-  %10 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8, i32 9
-  store ptr %9, ptr %10, align 8
+  %10 = select i1 %.not, ptr @.str.3, ptr %0
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store ptr %10, ptr %11, align 8
   ret i32 0
 }
 
@@ -3998,9 +4000,10 @@ define dso_local noundef i32 @errhidestmt(i1 noundef zeroext %0) local_unnamed_a
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %9 = zext i1 %0 to i8
-  %10 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8, i32 3
-  store i8 %9, ptr %10, align 2
+  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
+  %10 = zext i1 %0 to i8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  store i8 %10, ptr %11, align 2
   ret i32 0
 }
 
@@ -4020,9 +4023,10 @@ define dso_local noundef i32 @errhidecontext(i1 noundef zeroext %0) local_unname
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %9 = zext i1 %0 to i8
-  %10 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8, i32 4
-  store i8 %9, ptr %10, align 1
+  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
+  %10 = zext i1 %0 to i8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 7
+  store i8 %10, ptr %11, align 1
   ret i32 0
 }
 
@@ -4042,8 +4046,9 @@ define dso_local noundef i32 @errposition(i32 noundef %0) local_unnamed_addr #3 
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8, i32 23
-  store i32 %0, ptr %9, align 8
+  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 152
+  store i32 %0, ptr %10, align 8
   ret i32 0
 }
 
@@ -4063,8 +4068,9 @@ define dso_local noundef i32 @internalerrposition(i32 noundef %0) local_unnamed_
 
 7:                                                ; preds = %1
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8, i32 24
-  store i32 %0, ptr %9, align 4
+  %9 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 156
+  store i32 %0, ptr %10, align 4
   ret i32 0
 }
 
@@ -4182,9 +4188,10 @@ define dso_local i32 @geterrcode() local_unnamed_addr #3 {
 
 6:                                                ; preds = %0
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7, i32 10
-  %9 = load i32, ptr %8, align 8
-  ret i32 %9
+  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %10 = load i32, ptr %9, align 8
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4224,9 +4231,10 @@ define dso_local i32 @geterrposition() local_unnamed_addr #3 {
 
 6:                                                ; preds = %0
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7, i32 23
-  %9 = load i32, ptr %8, align 8
-  ret i32 %9
+  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
+  %10 = load i32, ptr %9, align 8
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4245,9 +4253,10 @@ define dso_local i32 @getinternalerrposition() local_unnamed_addr #3 {
 
 6:                                                ; preds = %0
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7, i32 24
-  %9 = load i32, ptr %8, align 4
-  ret i32 %9
+  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 156
+  %10 = load i32, ptr %9, align 4
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable

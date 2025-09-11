@@ -4734,7 +4734,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_
 
 _ZN5clang6markup6GetFIDERKN4llvm8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEERKNS_13SourceManagerENS_14SourceLocationE.exit: ; preds = %171, %165, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.i.i.i
   %.pn.i.i = phi i64 [ %177, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.i.i.i ], [ %167, %165 ], [ %174, %171 ]
-  %178 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %161, i64 %.pn.i.i, i32 0, i32 1
+  %.sroa.0.1.i.i.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %161, i64 %.pn.i.i
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 4
   %179 = load i32, ptr %178, align 4, !tbaa !428
   %180 = zext i32 %179 to i64
   %181 = load ptr, ptr %23, align 8, !tbaa !356

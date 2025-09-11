@@ -869,7 +869,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %21, %23, %25, %27
   ret void
 
 31:                                               ; preds = %.lr.ph, %_ZN4llvm21ResourcePriorityQueue18initNumRegDefsLeftEPNS_5SUnitE.exit
-  %.sroa.07.011 = phi ptr [ %29, %.lr.ph ], [ %75, %_ZN4llvm21ResourcePriorityQueue18initNumRegDefsLeftEPNS_5SUnitE.exit ]
+  %.sroa.07.011 = phi ptr [ %29, %.lr.ph ], [ %76, %_ZN4llvm21ResourcePriorityQueue18initNumRegDefsLeftEPNS_5SUnitE.exit ]
   %32 = load ptr, ptr %.sroa.07.011, align 8, !tbaa !279
   %.not21.i = icmp eq ptr %32, null
   br i1 %.not21.i, label %_ZN4llvm21ResourcePriorityQueue18initNumRegDefsLeftEPNS_5SUnitE.exit, label %.lr.ph.i
@@ -879,13 +879,13 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %21, %23, %25, %27
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   br label %_ZNK4llvm6SDNode12getGluedNodeEv.exit.i
 
-_ZNK4llvm6SDNode12getGluedNodeEv.exit.i:          ; preds = %58, %.lr.ph.i
-  %.023.i = phi i32 [ 0, %.lr.ph.i ], [ %.3.i, %58 ]
-  %.01522.i = phi ptr [ %32, %.lr.ph.i ], [ %65, %58 ]
+_ZNK4llvm6SDNode12getGluedNodeEv.exit.i:          ; preds = %59, %.lr.ph.i
+  %.023.i = phi i32 [ 0, %.lr.ph.i ], [ %.3.i, %59 ]
+  %.01522.i = phi ptr [ %32, %.lr.ph.i ], [ %66, %59 ]
   %35 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !280
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %50
+  br i1 %37, label %38, label %51
 
 38:                                               ; preds = %_ZNK4llvm6SDNode12getGluedNodeEv.exit.i
   %.not16.i = icmp eq i32 %36, -11
@@ -896,68 +896,69 @@ _ZNK4llvm6SDNode12getGluedNodeEv.exit.i:          ; preds = %58, %.lr.ph.i
   %41 = load ptr, ptr %34, align 8, !tbaa !311
   %42 = zext nneg i32 %40 to i64
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 66
-  %45 = load i16, ptr %44, align 2, !tbaa !292
-  %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %41, i64 %43, i32 2
-  %48 = load i8, ptr %47, align 4, !tbaa !314
-  %49 = zext i8 %48 to i32
-  %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %49, i32 %46)
-  br label %55
+  %44 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %41, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 66
+  %46 = load i16, ptr %45, align 2, !tbaa !292
+  %47 = zext i16 %46 to i32
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %49 = load i8, ptr %48, align 4, !tbaa !314
+  %50 = zext i8 %49 to i32
+  %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %50, i32 %47)
+  br label %56
 
-50:                                               ; preds = %_ZNK4llvm6SDNode12getGluedNodeEv.exit.i
-  switch i32 %36, label %55 [
-    i32 50, label %51
-    i32 305, label %53
-    i32 306, label %53
+51:                                               ; preds = %_ZNK4llvm6SDNode12getGluedNodeEv.exit.i
+  switch i32 %36, label %56 [
+    i32 50, label %52
+    i32 305, label %54
+    i32 306, label %54
   ]
 
-51:                                               ; preds = %50
-  %52 = add i32 %.023.i, 1
-  br label %55
+52:                                               ; preds = %51
+  %53 = add i32 %.023.i, 1
+  br label %56
 
-53:                                               ; preds = %50, %50
-  %54 = add i32 %.023.i, 1
-  br label %55
+54:                                               ; preds = %51, %51
+  %55 = add i32 %.023.i, 1
+  br label %56
 
-55:                                               ; preds = %53, %51, %50, %39
-  %.3.i = phi i32 [ %.sroa.speculated.i, %39 ], [ %.023.i, %50 ], [ %52, %51 ], [ %54, %53 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 64
-  %57 = load i16, ptr %56, align 8, !tbaa !298
-  %.not.i.i6 = icmp eq i16 %57, 0
-  br i1 %.not.i.i6, label %.thread.loopexit.i, label %58
+56:                                               ; preds = %54, %52, %51, %39
+  %.3.i = phi i32 [ %.sroa.speculated.i, %39 ], [ %.023.i, %51 ], [ %53, %52 ], [ %55, %54 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 64
+  %58 = load i16, ptr %57, align 8, !tbaa !298
+  %.not.i.i6 = icmp eq i16 %58, 0
+  br i1 %.not.i.i6, label %.thread.loopexit.i, label %59
 
-58:                                               ; preds = %55
-  %59 = zext i16 %57 to i64
-  %60 = add nuw nsw i64 %59, 4294967295
-  %61 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 40
-  %62 = load ptr, ptr %61, align 8, !tbaa !299
-  %63 = and i64 %60, 4294967295
-  %64 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %62, i64 %63
-  %65 = load ptr, ptr %64, align 8, !tbaa !300
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !303
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %69 = load ptr, ptr %68, align 8, !tbaa !293
-  %70 = zext i32 %67 to i64
-  %71 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %69, i64 %70
-  %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %71, align 8, !tbaa !294
+59:                                               ; preds = %56
+  %60 = zext i16 %58 to i64
+  %61 = add nuw nsw i64 %60, 4294967295
+  %62 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 40
+  %63 = load ptr, ptr %62, align 8, !tbaa !299
+  %64 = and i64 %61, 4294967295
+  %65 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %63, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !300
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %68 = load i32, ptr %67, align 8, !tbaa !303
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 48
+  %70 = load ptr, ptr %69, align 8, !tbaa !293
+  %71 = zext i32 %68 to i64
+  %72 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %70, i64 %71
+  %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %72, align 8, !tbaa !294
   %.not.i.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 224
   br i1 %.not.i.i.i.i, label %_ZNK4llvm6SDNode12getGluedNodeEv.exit.i, label %.thread.loopexit.i, !llvm.loop !316
 
-.thread.loopexit.i:                               ; preds = %58, %55, %38
-  %.1.ph.i = phi i32 [ 0, %38 ], [ %.3.i, %55 ], [ %.3.i, %58 ]
-  %72 = trunc i32 %.1.ph.i to i16
+.thread.loopexit.i:                               ; preds = %59, %56, %38
+  %.1.ph.i = phi i32 [ 0, %38 ], [ %.3.i, %56 ], [ %.3.i, %59 ]
+  %73 = trunc i32 %.1.ph.i to i16
   br label %_ZN4llvm21ResourcePriorityQueue18initNumRegDefsLeftEPNS_5SUnitE.exit
 
 _ZN4llvm21ResourcePriorityQueue18initNumRegDefsLeftEPNS_5SUnitE.exit: ; preds = %31, %.thread.loopexit.i
-  %.1.i = phi i16 [ 0, %31 ], [ %72, %.thread.loopexit.i ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 250
-  store i16 %.1.i, ptr %73, align 2, !tbaa !317
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 204
-  store i32 0, ptr %74, align 4, !tbaa !326
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 256
-  %.not = icmp eq ptr %75, %28
+  %.1.i = phi i16 [ 0, %31 ], [ %73, %.thread.loopexit.i ]
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 250
+  store i16 %.1.i, ptr %74, align 2, !tbaa !317
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 204
+  store i32 0, ptr %75, align 4, !tbaa !326
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 256
+  %.not = icmp eq ptr %76, %28
   br i1 %.not, label %._crit_edge, label %31
 }
 
@@ -973,13 +974,13 @@ define dso_local void @_ZN4llvm21ResourcePriorityQueue18initNumRegDefsLeftEPNS_5
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %_ZNK4llvm6SDNode12getGluedNodeEv.exit
 
-_ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %30, %.lr.ph
-  %.023 = phi i32 [ 0, %.lr.ph ], [ %.3, %30 ]
-  %.01522 = phi ptr [ %3, %.lr.ph ], [ %37, %30 ]
+_ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %31, %.lr.ph
+  %.023 = phi i32 [ 0, %.lr.ph ], [ %.3, %31 ]
+  %.01522 = phi ptr [ %3, %.lr.ph ], [ %38, %31 ]
   %7 = getelementptr inbounds nuw i8, ptr %.01522, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !280
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %10, label %22
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %_ZNK4llvm6SDNode12getGluedNodeEv.exit
   %.not16 = icmp eq i32 %8, -11
@@ -990,64 +991,65 @@ _ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %30, %.lr.ph
   %13 = load ptr, ptr %6, align 8, !tbaa !311
   %14 = zext nneg i32 %12 to i64
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds nuw i8, ptr %.01522, i64 66
-  %17 = load i16, ptr %16, align 2, !tbaa !292
-  %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %13, i64 %15, i32 2
-  %20 = load i8, ptr %19, align 4, !tbaa !314
-  %21 = zext i8 %20 to i32
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %21, i32 %18)
-  br label %27
+  %16 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %13, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %.01522, i64 66
+  %18 = load i16, ptr %17, align 2, !tbaa !292
+  %19 = zext i16 %18 to i32
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %21 = load i8, ptr %20, align 4, !tbaa !314
+  %22 = zext i8 %21 to i32
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %22, i32 %19)
+  br label %28
 
-22:                                               ; preds = %_ZNK4llvm6SDNode12getGluedNodeEv.exit
-  switch i32 %8, label %27 [
-    i32 50, label %23
-    i32 305, label %25
-    i32 306, label %25
+23:                                               ; preds = %_ZNK4llvm6SDNode12getGluedNodeEv.exit
+  switch i32 %8, label %28 [
+    i32 50, label %24
+    i32 305, label %26
+    i32 306, label %26
   ]
 
-23:                                               ; preds = %22
-  %24 = add i32 %.023, 1
-  br label %27
+24:                                               ; preds = %23
+  %25 = add i32 %.023, 1
+  br label %28
 
-25:                                               ; preds = %22, %22
-  %26 = add i32 %.023, 1
-  br label %27
+26:                                               ; preds = %23, %23
+  %27 = add i32 %.023, 1
+  br label %28
 
-27:                                               ; preds = %11, %22, %25, %23
-  %.3 = phi i32 [ %.sroa.speculated, %11 ], [ %.023, %22 ], [ %24, %23 ], [ %26, %25 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.01522, i64 64
-  %29 = load i16, ptr %28, align 8, !tbaa !298
-  %.not.i = icmp eq i16 %29, 0
-  br i1 %.not.i, label %.thread.loopexit, label %30
+28:                                               ; preds = %11, %23, %26, %24
+  %.3 = phi i32 [ %.sroa.speculated, %11 ], [ %.023, %23 ], [ %25, %24 ], [ %27, %26 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.01522, i64 64
+  %30 = load i16, ptr %29, align 8, !tbaa !298
+  %.not.i = icmp eq i16 %30, 0
+  br i1 %.not.i, label %.thread.loopexit, label %31
 
-30:                                               ; preds = %27
-  %31 = zext i16 %29 to i64
-  %32 = add nuw nsw i64 %31, 4294967295
-  %33 = getelementptr inbounds nuw i8, ptr %.01522, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !299
-  %35 = and i64 %32, 4294967295
-  %36 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %34, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !300
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !303
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !293
-  %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %41, i64 %42
-  %.sroa.0.0.copyload.i.i.i = load i16, ptr %43, align 8, !tbaa !294
+31:                                               ; preds = %28
+  %32 = zext i16 %30 to i64
+  %33 = add nuw nsw i64 %32, 4294967295
+  %34 = getelementptr inbounds nuw i8, ptr %.01522, i64 40
+  %35 = load ptr, ptr %34, align 8, !tbaa !299
+  %36 = and i64 %33, 4294967295
+  %37 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %35, i64 %36
+  %38 = load ptr, ptr %37, align 8, !tbaa !300
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %40 = load i32, ptr %39, align 8, !tbaa !303
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %42 = load ptr, ptr %41, align 8, !tbaa !293
+  %43 = zext i32 %40 to i64
+  %44 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %42, i64 %43
+  %.sroa.0.0.copyload.i.i.i = load i16, ptr %44, align 8, !tbaa !294
   %.not.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 224
   br i1 %.not.i.i.i, label %_ZNK4llvm6SDNode12getGluedNodeEv.exit, label %.thread.loopexit, !llvm.loop !316
 
-.thread.loopexit:                                 ; preds = %30, %27, %10
-  %.1.ph = phi i32 [ 0, %10 ], [ %.3, %27 ], [ %.3, %30 ]
-  %44 = trunc i32 %.1.ph to i16
+.thread.loopexit:                                 ; preds = %31, %28, %10
+  %.1.ph = phi i32 [ 0, %10 ], [ %.3, %28 ], [ %.3, %31 ]
+  %45 = trunc i32 %.1.ph to i16
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %2
-  %.1 = phi i16 [ 0, %2 ], [ %44, %.thread.loopexit ]
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 250
-  store i16 %.1, ptr %45, align 2, !tbaa !317
+  %.1 = phi i16 [ 0, %2 ], [ %45, %.thread.loopexit ]
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 250
+  store i16 %.1, ptr %46, align 2, !tbaa !317
   ret void
 }
 
@@ -2240,78 +2242,79 @@ _ZNK4llvm5SUnit9getHeightEv.exit40:               ; preds = %46, %47
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   br label %_ZNK4llvm6SDNode12getGluedNodeEv.exit
 
-_ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %93, %.lr.ph
-  %.03146 = phi ptr [ %63, %.lr.ph ], [ %100, %93 ]
-  %.445 = phi i32 [ %.2, %.lr.ph ], [ %.6, %93 ]
+_ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %94, %.lr.ph
+  %.03146 = phi ptr [ %63, %.lr.ph ], [ %101, %94 ]
+  %.445 = phi i32 [ %.2, %.lr.ph ], [ %.6, %94 ]
   %67 = getelementptr inbounds nuw i8, ptr %.03146, i64 24
   %68 = load i32, ptr %67, align 8, !tbaa !280
   %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %85
+  br i1 %69, label %70, label %86
 
 70:                                               ; preds = %_ZNK4llvm6SDNode12getGluedNodeEv.exit
   %71 = xor i32 %68, -1
   %72 = load ptr, ptr %66, align 8, !tbaa !311
   %73 = zext nneg i32 %71 to i64
   %74 = sub nsw i64 0, %73
-  %75 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %72, i64 %74, i32 9
-  %76 = load i64, ptr %75, align 8, !tbaa !353
-  %77 = and i64 %76, 128
-  %.not43 = icmp eq i64 %77, 0
-  br i1 %.not43, label %90, label %78
+  %75 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %72, i64 %74
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %77 = load i64, ptr %76, align 8, !tbaa !353
+  %78 = and i64 %77, 128
+  %.not43 = icmp eq i64 %78, 0
+  br i1 %.not43, label %91, label %79
 
-78:                                               ; preds = %70
-  %79 = getelementptr inbounds nuw i8, ptr %.03146, i64 66
-  %80 = load i16, ptr %79, align 2, !tbaa !292
-  %81 = zext i16 %80 to i32
-  %82 = mul nuw nsw i32 %81, 5
-  %83 = add i32 %.445, 50
-  %84 = add i32 %83, %82
-  br label %90
+79:                                               ; preds = %70
+  %80 = getelementptr inbounds nuw i8, ptr %.03146, i64 66
+  %81 = load i16, ptr %80, align 2, !tbaa !292
+  %82 = zext i16 %81 to i32
+  %83 = mul nuw nsw i32 %82, 5
+  %84 = add i32 %.445, 50
+  %85 = add i32 %84, %83
+  br label %91
 
-85:                                               ; preds = %_ZNK4llvm6SDNode12getGluedNodeEv.exit
-  switch i32 %68, label %90 [
-    i32 2, label %86
-    i32 50, label %86
-    i32 49, label %86
-    i32 305, label %88
-    i32 306, label %88
+86:                                               ; preds = %_ZNK4llvm6SDNode12getGluedNodeEv.exit
+  switch i32 %68, label %91 [
+    i32 2, label %87
+    i32 50, label %87
+    i32 49, label %87
+    i32 305, label %89
+    i32 306, label %89
   ]
 
-86:                                               ; preds = %85, %85, %85
-  %87 = add i32 %.445, 5
-  br label %90
+87:                                               ; preds = %86, %86, %86
+  %88 = add i32 %.445, 5
+  br label %91
 
-88:                                               ; preds = %85, %85
-  %89 = add i32 %.445, 15
-  br label %90
+89:                                               ; preds = %86, %86
+  %90 = add i32 %.445, 15
+  br label %91
 
-90:                                               ; preds = %70, %78, %85, %88, %86
-  %.6 = phi i32 [ %.445, %85 ], [ %87, %86 ], [ %89, %88 ], [ %84, %78 ], [ %.445, %70 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.03146, i64 64
-  %92 = load i16, ptr %91, align 8, !tbaa !298
-  %.not.i41 = icmp eq i16 %92, 0
-  br i1 %.not.i41, label %.loopexit, label %93
+91:                                               ; preds = %70, %79, %86, %89, %87
+  %.6 = phi i32 [ %.445, %86 ], [ %88, %87 ], [ %90, %89 ], [ %85, %79 ], [ %.445, %70 ]
+  %92 = getelementptr inbounds nuw i8, ptr %.03146, i64 64
+  %93 = load i16, ptr %92, align 8, !tbaa !298
+  %.not.i41 = icmp eq i16 %93, 0
+  br i1 %.not.i41, label %.loopexit, label %94
 
-93:                                               ; preds = %90
-  %94 = zext i16 %92 to i64
-  %95 = add nuw nsw i64 %94, 4294967295
-  %96 = getelementptr inbounds nuw i8, ptr %.03146, i64 40
-  %97 = load ptr, ptr %96, align 8, !tbaa !299
-  %98 = and i64 %95, 4294967295
-  %99 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %97, i64 %98
-  %100 = load ptr, ptr %99, align 8, !tbaa !300
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %102 = load i32, ptr %101, align 8, !tbaa !303
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 48
-  %104 = load ptr, ptr %103, align 8, !tbaa !293
-  %105 = zext i32 %102 to i64
-  %106 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %104, i64 %105
-  %.sroa.0.0.copyload.i.i.i = load i16, ptr %106, align 8, !tbaa !294
+94:                                               ; preds = %91
+  %95 = zext i16 %93 to i64
+  %96 = add nuw nsw i64 %95, 4294967295
+  %97 = getelementptr inbounds nuw i8, ptr %.03146, i64 40
+  %98 = load ptr, ptr %97, align 8, !tbaa !299
+  %99 = and i64 %96, 4294967295
+  %100 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %98, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !300
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %103 = load i32, ptr %102, align 8, !tbaa !303
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 48
+  %105 = load ptr, ptr %104, align 8, !tbaa !293
+  %106 = zext i32 %103 to i64
+  %107 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %105, i64 %106
+  %.sroa.0.0.copyload.i.i.i = load i16, ptr %107, align 8, !tbaa !294
   %.not.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 224
   br i1 %.not.i.i.i, label %_ZNK4llvm6SDNode12getGluedNodeEv.exit, label %.loopexit, !llvm.loop !354
 
-.loopexit:                                        ; preds = %93, %90, %62, %2
-  %.0 = phi i32 [ 1, %2 ], [ %.2, %62 ], [ %.6, %90 ], [ %.6, %93 ]
+.loopexit:                                        ; preds = %94, %91, %62, %2
+  %.0 = phi i32 [ 1, %2 ], [ %.2, %62 ], [ %.6, %91 ], [ %.6, %94 ]
   ret i32 %.0
 }
 

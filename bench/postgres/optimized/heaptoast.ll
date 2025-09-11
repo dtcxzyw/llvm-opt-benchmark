@@ -123,7 +123,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %43
 
-43:                                               ; preds = %.lr.ph, %71
+43:                                               ; preds = %.lr.ph, %73
   %44 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext false) #8
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %.thread107, label %46
@@ -142,167 +142,169 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
 
 56:                                               ; preds = %46
   call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %44) #8
-  br label %61
+  br label %62
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %9, i64 %51, i32 2
-  %59 = load i8, ptr %58, align 4
-  %60 = or i8 %59, 32
-  store i8 %60, ptr %58, align 4
-  br label %61
+  %58 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %9, i64 %51
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %60 = load i8, ptr %59, align 4
+  %61 = or i8 %60, 32
+  store i8 %61, ptr %59, align 4
+  br label %62
 
-61:                                               ; preds = %57, %56
-  %62 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %9, i64 %51, i32 1
-  %63 = load i32, ptr %62, align 8
-  %64 = sext i32 %63 to i64
-  %65 = icmp ult i64 %39, %64
-  br i1 %65, label %66, label %71
+62:                                               ; preds = %57, %56
+  %63 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %9, i64 %51
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load i32, ptr %64, align 8
+  %66 = sext i32 %65 to i64
+  %67 = icmp ult i64 %39, %66
+  br i1 %67, label %68, label %73
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr %42, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 108
-  %69 = load i32, ptr %68, align 4
-  %.not94 = icmp eq i32 %69, 0
-  br i1 %.not94, label %71, label %70
+68:                                               ; preds = %62
+  %69 = load ptr, ptr %42, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 108
+  %71 = load i32, ptr %70, align 4
+  %.not94 = icmp eq i32 %71, 0
+  br i1 %.not94, label %73, label %72
 
-70:                                               ; preds = %66
+72:                                               ; preds = %68
   call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %44, i32 noundef %11) #8
-  br label %71
+  br label %73
 
-71:                                               ; preds = %61, %66, %70
-  %72 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %73 = icmp ugt i64 %72, %39
-  br i1 %73, label %43, label %.thread107
+73:                                               ; preds = %62, %68, %72
+  %74 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %75 = icmp ugt i64 %74, %39
+  br i1 %75, label %43, label %.thread107
 
-.thread107:                                       ; preds = %71, %43, %37
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %75 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %76 = icmp ugt i64 %75, %39
-  br i1 %76, label %.lr.ph120, label %.critedge
+.thread107:                                       ; preds = %73, %43, %37
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %77 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %78 = icmp ugt i64 %77, %39
+  br i1 %78, label %.lr.ph120, label %.critedge
 
-.lr.ph120:                                        ; preds = %.thread107, %83
-  %77 = load ptr, ptr %74, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 108
-  %79 = load i32, ptr %78, align 4
-  %.not95 = icmp eq i32 %79, 0
-  br i1 %.not95, label %.critedge, label %80
+.lr.ph120:                                        ; preds = %.thread107, %85
+  %79 = load ptr, ptr %76, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 108
+  %81 = load i32, ptr %80, align 4
+  %.not95 = icmp eq i32 %81, 0
+  br i1 %.not95, label %.critedge, label %82
 
-80:                                               ; preds = %.lr.ph120
-  %81 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  %82 = icmp slt i32 %81, 0
-  br i1 %82, label %.critedge, label %83
+82:                                               ; preds = %.lr.ph120
+  %83 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false) #8
+  %84 = icmp slt i32 %83, 0
+  br i1 %84, label %.critedge, label %85
 
-83:                                               ; preds = %80
-  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %81, i32 noundef %11) #8
-  %84 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %85 = icmp ugt i64 %84, %39
-  br i1 %85, label %.lr.ph120, label %.critedge
-
-.critedge:                                        ; preds = %.lr.ph120, %83, %80, %.thread107
+85:                                               ; preds = %82
+  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %83, i32 noundef %11) #8
   %86 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
   %87 = icmp ugt i64 %86, %39
-  br i1 %87, label %.lr.ph123, label %.thread113
+  br i1 %87, label %.lr.ph120, label %.critedge
 
-.lr.ph123:                                        ; preds = %.critedge, %90
-  %88 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext true) #8
-  %89 = icmp slt i32 %88, 0
-  br i1 %89, label %.thread113, label %90
+.critedge:                                        ; preds = %.lr.ph120, %85, %82, %.thread107
+  %88 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %89 = icmp ugt i64 %88, %39
+  br i1 %89, label %.lr.ph123, label %.thread113
 
-90:                                               ; preds = %.lr.ph123
-  call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %88) #8
-  %91 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %92 = icmp ugt i64 %91, %39
-  br i1 %92, label %.lr.ph123, label %.thread113
+.lr.ph123:                                        ; preds = %.critedge, %92
+  %90 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext true) #8
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %.thread113, label %92
 
-.thread113:                                       ; preds = %90, %.lr.ph123, %.critedge
-  %93 = sub nsw i64 8160, %.083
-  %94 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %95 = icmp ugt i64 %94, %93
-  br i1 %95, label %.lr.ph125, label %.critedge2
+92:                                               ; preds = %.lr.ph123
+  call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %90) #8
+  %93 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %94 = icmp ugt i64 %93, %39
+  br i1 %94, label %.lr.ph123, label %.thread113
 
-.lr.ph125:                                        ; preds = %.thread113, %102
-  %96 = load ptr, ptr %74, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 108
-  %98 = load i32, ptr %97, align 4
-  %.not96 = icmp eq i32 %98, 0
-  br i1 %.not96, label %.critedge2, label %99
+.thread113:                                       ; preds = %92, %.lr.ph123, %.critedge
+  %95 = sub nsw i64 8160, %.083
+  %96 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %97 = icmp ugt i64 %96, %95
+  br i1 %97, label %.lr.ph125, label %.critedge2
 
-99:                                               ; preds = %.lr.ph125
-  %100 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext true) #8
-  %101 = icmp slt i32 %100, 0
-  br i1 %101, label %.critedge2, label %102
+.lr.ph125:                                        ; preds = %.thread113, %104
+  %98 = load ptr, ptr %76, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 108
+  %100 = load i32, ptr %99, align 4
+  %.not96 = icmp eq i32 %100, 0
+  br i1 %.not96, label %.critedge2, label %101
 
-102:                                              ; preds = %99
-  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %100, i32 noundef %11) #8
-  %103 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %104 = icmp ugt i64 %103, %93
-  br i1 %104, label %.lr.ph125, label %.critedge2
+101:                                              ; preds = %.lr.ph125
+  %102 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext true) #8
+  %103 = icmp slt i32 %102, 0
+  br i1 %103, label %.critedge2, label %104
 
-.critedge2:                                       ; preds = %.lr.ph125, %102, %99, %.thread113
-  %105 = load i8, ptr %22, align 8
-  %106 = zext i8 %105 to i32
-  %107 = and i32 %106, 8
-  %.not97 = icmp eq i32 %107, 0
-  br i1 %.not97, label %145, label %108
+104:                                              ; preds = %101
+  call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %102, i32 noundef %11) #8
+  %105 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %106 = icmp ugt i64 %105, %95
+  br i1 %106, label %.lr.ph125, label %.critedge2
 
-108:                                              ; preds = %.critedge2
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %110 = load ptr, ptr %109, align 8
-  %111 = and i32 %106, 4
-  %.not98 = icmp eq i32 %111, 0
-  br i1 %.not98, label %116, label %112
+.critedge2:                                       ; preds = %.lr.ph125, %104, %101, %.thread113
+  %107 = load i8, ptr %22, align 8
+  %108 = zext i8 %107 to i32
+  %109 = and i32 %108, 8
+  %.not97 = icmp eq i32 %109, 0
+  br i1 %.not97, label %147, label %110
 
-112:                                              ; preds = %108
-  %113 = add i32 %14, 7
-  %114 = sdiv i32 %113, 8
-  %narrow99 = add nsw i32 %114, 30
-  %115 = and i32 %narrow99, -8
-  br label %116
+110:                                              ; preds = %.critedge2
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %112 = load ptr, ptr %111, align 8
+  %113 = and i32 %108, 4
+  %.not98 = icmp eq i32 %113, 0
+  br i1 %.not98, label %118, label %114
 
-116:                                              ; preds = %112, %108
-  %.082 = phi i32 [ %115, %112 ], [ 24, %108 ]
-  %117 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
-  %118 = trunc i64 %117 to i32
-  %119 = add i32 %.082, %118
-  %120 = sext i32 %119 to i64
-  %121 = add nsw i64 %120, 24
-  %122 = call ptr @palloc0(i64 noundef %121) #8
-  store i32 %119, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %123, ptr noundef nonnull align 4 dereferenceable(6) %124, i64 6, i1 false)
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %126 = load i32, ptr %125, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %122, i64 12
-  store i32 %126, ptr %127, align 4
-  %128 = getelementptr inbounds nuw i8, ptr %122, i64 24
-  %129 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  store ptr %128, ptr %129, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %128, ptr noundef nonnull align 4 dereferenceable(23) %110, i64 23, i1 false)
-  %130 = getelementptr inbounds nuw i8, ptr %122, i64 42
-  %131 = load i16, ptr %130, align 2
-  %132 = and i16 %131, -2048
-  %133 = trunc i32 %14 to i16
-  %134 = or i16 %132, %133
-  store i16 %134, ptr %130, align 2
-  %135 = trunc i32 %.082 to i8
-  %136 = getelementptr inbounds nuw i8, ptr %122, i64 46
-  store i8 %135, ptr %136, align 2
-  %137 = sext i32 %.082 to i64
-  %138 = getelementptr inbounds i8, ptr %128, i64 %137
-  %sext = shl i64 %117, 32
-  %139 = ashr exact i64 %sext, 32
-  %140 = getelementptr inbounds nuw i8, ptr %122, i64 44
-  %141 = load i8, ptr %22, align 8
-  %142 = and i8 %141, 4
-  %.not100 = icmp eq i8 %142, 0
-  %143 = getelementptr inbounds nuw i8, ptr %122, i64 47
-  %144 = select i1 %.not100, ptr null, ptr %143
-  call void @heap_fill_tuple(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %138, i64 noundef %139, ptr noundef nonnull %140, ptr noundef %144) #8
-  br label %145
+114:                                              ; preds = %110
+  %115 = add i32 %14, 7
+  %116 = sdiv i32 %115, 8
+  %narrow99 = add nsw i32 %116, 30
+  %117 = and i32 %narrow99, -8
+  br label %118
 
-145:                                              ; preds = %.critedge2, %116
-  %.0 = phi ptr [ %122, %116 ], [ %1, %.critedge2 ]
+118:                                              ; preds = %114, %110
+  %.082 = phi i32 [ %117, %114 ], [ 24, %110 ]
+  %119 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
+  %120 = trunc i64 %119 to i32
+  %121 = add i32 %.082, %120
+  %122 = sext i32 %121 to i64
+  %123 = add nsw i64 %122, 24
+  %124 = call ptr @palloc0(i64 noundef %123) #8
+  store i32 %121, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %125, ptr noundef nonnull align 4 dereferenceable(6) %126, i64 6, i1 false)
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %128 = load i32, ptr %127, align 4
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 12
+  store i32 %128, ptr %129, align 4
+  %130 = getelementptr inbounds nuw i8, ptr %124, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  store ptr %130, ptr %131, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %130, ptr noundef nonnull align 4 dereferenceable(23) %112, i64 23, i1 false)
+  %132 = getelementptr inbounds nuw i8, ptr %124, i64 42
+  %133 = load i16, ptr %132, align 2
+  %134 = and i16 %133, -2048
+  %135 = trunc i32 %14 to i16
+  %136 = or i16 %134, %135
+  store i16 %136, ptr %132, align 2
+  %137 = trunc i32 %.082 to i8
+  %138 = getelementptr inbounds nuw i8, ptr %124, i64 46
+  store i8 %137, ptr %138, align 2
+  %139 = sext i32 %.082 to i64
+  %140 = getelementptr inbounds i8, ptr %130, i64 %139
+  %sext = shl i64 %119, 32
+  %141 = ashr exact i64 %sext, 32
+  %142 = getelementptr inbounds nuw i8, ptr %124, i64 44
+  %143 = load i8, ptr %22, align 8
+  %144 = and i8 %143, 4
+  %.not100 = icmp eq i8 %144, 0
+  %145 = getelementptr inbounds nuw i8, ptr %124, i64 47
+  %146 = select i1 %.not100, ptr null, ptr %145
+  call void @heap_fill_tuple(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %140, i64 noundef %141, ptr noundef nonnull %142, ptr noundef %146) #8
+  br label %147
+
+147:                                              ; preds = %.critedge2, %118
+  %.0 = phi ptr [ %124, %118 ], [ %1, %.critedge2 ]
   call void @toast_tuple_cleanup(ptr noundef nonnull %10) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -947,92 +949,93 @@ define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef rang
   %.val.val = load i16, ptr %6, align 4
   %7 = and i16 %.val.val, 1
   %.not.i = icmp eq i16 %7, 0
-  br i1 %.not.i, label %8, label %45
+  br i1 %.not.i, label %8, label %46
 
 8:                                                ; preds = %4
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr %struct.CompactAttribute, ptr %2, i64 %9, i32 4
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %13, label %43
+  %10 = getelementptr %struct.CompactAttribute, ptr %2, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 8
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp sgt i32 %12, -1
+  br i1 %13, label %14, label %44
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %15 = load i8, ptr %14, align 2
-  %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 %16
-  %18 = zext nneg i32 %11 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  %21 = load i8, ptr %20, align 2, !range !4, !noundef !5
-  %22 = trunc nuw i8 %21 to i1
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %24 = load i16, ptr %23, align 4
-  br i1 %22, label %25, label %41
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %16 = load i8, ptr %15, align 2
+  %17 = zext i8 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %.val, i64 %17
+  %19 = zext nneg i32 %12 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %10, i64 14
+  %22 = load i8, ptr %21, align 2, !range !4, !noundef !5
+  %23 = trunc nuw i8 %22 to i1
+  %24 = getelementptr i8, ptr %10, i64 12
+  %25 = load i16, ptr %24, align 4
+  br i1 %23, label %26, label %42
 
-25:                                               ; preds = %13
-  switch i16 %24, label %37 [
-    i16 1, label %26
-    i16 2, label %29
-    i16 4, label %32
-    i16 8, label %35
+26:                                               ; preds = %14
+  switch i16 %25, label %38 [
+    i16 1, label %27
+    i16 2, label %30
+    i16 4, label %33
+    i16 8, label %36
   ]
 
-26:                                               ; preds = %25
-  %27 = load i8, ptr %19, align 1
-  %28 = sext i8 %27 to i64
+27:                                               ; preds = %26
+  %28 = load i8, ptr %20, align 1
+  %29 = sext i8 %28 to i64
   br label %fetch_att.exit
 
-29:                                               ; preds = %25
-  %30 = load i16, ptr %19, align 2
-  %31 = sext i16 %30 to i64
+30:                                               ; preds = %26
+  %31 = load i16, ptr %20, align 2
+  %32 = sext i16 %31 to i64
   br label %fetch_att.exit
 
-32:                                               ; preds = %25
-  %33 = load i32, ptr %19, align 4
-  %34 = sext i32 %33 to i64
+33:                                               ; preds = %26
+  %34 = load i32, ptr %20, align 4
+  %35 = sext i32 %34 to i64
   br label %fetch_att.exit
 
-35:                                               ; preds = %25
-  %36 = load i64, ptr %19, align 8
+36:                                               ; preds = %26
+  %37 = load i64, ptr %20, align 8
   br label %fetch_att.exit
 
-37:                                               ; preds = %25
-  %38 = sext i16 %24 to i32
-  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %38) #8
+38:                                               ; preds = %26
+  %39 = sext i16 %25 to i32
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %40)
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %39) #8
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 
-41:                                               ; preds = %13
-  %42 = ptrtoint ptr %19 to i64
+42:                                               ; preds = %14
+  %43 = ptrtoint ptr %20 to i64
   br label %fetch_att.exit
 
-43:                                               ; preds = %8
-  %44 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #8
+44:                                               ; preds = %8
+  %45 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #8
   br label %fetch_att.exit
 
-45:                                               ; preds = %4
-  %46 = add nsw i32 %1, -1
-  %47 = getelementptr inbounds nuw i8, ptr %.val, i64 23
-  %.val20 = load i8, ptr %47, align 1
-  %48 = zext i8 %.val20 to i32
-  %49 = shl nuw nsw i32 1, %46
-  %50 = and i32 %49, %48
-  %.not.i21 = icmp eq i32 %50, 0
-  br i1 %.not.i21, label %51, label %52
+46:                                               ; preds = %4
+  %47 = add nsw i32 %1, -1
+  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 23
+  %.val20 = load i8, ptr %48, align 1
+  %49 = zext i8 %.val20 to i32
+  %50 = shl nuw nsw i32 1, %47
+  %51 = and i32 %50, %49
+  %.not.i21 = icmp eq i32 %51, 0
+  br i1 %.not.i21, label %52, label %53
 
-51:                                               ; preds = %45
+52:                                               ; preds = %46
   store i8 1, ptr %3, align 1
   br label %fetch_att.exit
 
-52:                                               ; preds = %45
-  %53 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #8
+53:                                               ; preds = %46
+  %54 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #8
   br label %fetch_att.exit
 
-fetch_att.exit:                                   ; preds = %41, %35, %32, %29, %26, %43, %52, %51
-  %.1 = phi i64 [ 0, %51 ], [ %53, %52 ], [ %44, %43 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %36, %35 ], [ %42, %41 ]
+fetch_att.exit:                                   ; preds = %42, %36, %33, %30, %27, %44, %53, %52
+  %.1 = phi i64 [ 0, %52 ], [ %54, %53 ], [ %45, %44 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %37, %36 ], [ %43, %42 ]
   ret i64 %.1
 }
 

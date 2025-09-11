@@ -922,8 +922,9 @@ define internal void @decode_flush(ptr noundef readonly captures(none) %0) #2 {
 
 5:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.ChannelContext, ptr %3, i64 %indvars.iv, i32 4, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false)
+  %6 = getelementptr inbounds nuw %struct.ChannelContext, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2064
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %7, i8 0, i64 512, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %4, label %5, !llvm.loop !87

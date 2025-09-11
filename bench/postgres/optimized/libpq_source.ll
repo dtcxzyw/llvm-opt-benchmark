@@ -373,8 +373,8 @@ define internal void @libpq_queue_fetch_file(ptr noundef %0, ptr noundef %1, i64
   %23 = sub nuw nsw i64 1048576, %14
   store i64 1048576, ptr %13, align 8
   %24 = sub nuw i64 %4, %23
-  %.not48.i = icmp eq i64 %24, 0
-  br i1 %.not48.i, label %libpq_queue_fetch_range.exit, label %.lr.ph.i
+  %.not47.i = icmp eq i64 %24, 0
+  br i1 %.not47.i, label %libpq_queue_fetch_range.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %18, %3, %22
   %.0.i8 = phi i64 [ %23, %22 ], [ 0, %3 ], [ 0, %18 ], [ 0, %8 ]
@@ -383,9 +383,9 @@ define internal void @libpq_queue_fetch_file(ptr noundef %0, ptr noundef %1, i64
   br label %26
 
 26:                                               ; preds = %30, %.lr.ph.i
-  %27 = phi i32 [ %6, %.lr.ph.i ], [ %39, %30 ]
-  %.250.i = phi i64 [ %.0.i8, %.lr.ph.i ], [ %40, %30 ]
-  %.24049.i = phi i64 [ %.038.i7, %.lr.ph.i ], [ %41, %30 ]
+  %27 = phi i32 [ %6, %.lr.ph.i ], [ %38, %30 ]
+  %.249.i = phi i64 [ %.0.i8, %.lr.ph.i ], [ %39, %30 ]
+  %.24048.i = phi i64 [ %.038.i7, %.lr.ph.i ], [ %40, %30 ]
   %28 = icmp eq i32 %27, 1000
   br i1 %28, label %29, label %30
 
@@ -396,22 +396,20 @@ define internal void @libpq_queue_fetch_file(ptr noundef %0, ptr noundef %1, i64
 
 30:                                               ; preds = %29, %26
   %31 = phi i32 [ %.pre.i, %29 ], [ %27, %26 ]
-  %32 = tail call i64 @llvm.umin.i64(i64 %.24049.i, i64 1048576)
+  %32 = tail call i64 @llvm.umin.i64(i64 %.24048.i, i64 1048576)
   %33 = sext i32 %31 to i64
   %34 = getelementptr inbounds %struct.fetch_range_request, ptr %25, i64 %33
   store ptr %1, ptr %34, align 8
-  %.idx.i = mul nsw i64 %33, 24
-  %35 = getelementptr i8, ptr %25, i64 %.idx.i
-  %36 = getelementptr i8, ptr %35, i64 8
-  store i64 %.250.i, ptr %36, align 8
-  %37 = getelementptr i8, ptr %35, i64 16
-  store i64 %32, ptr %37, align 8
-  %38 = load i32, ptr %5, align 8
-  %39 = add i32 %38, 1
-  store i32 %39, ptr %5, align 8
-  %40 = add i64 %32, %.250.i
-  %41 = sub i64 %.24049.i, %32
-  %.not.i = icmp eq i64 %41, 0
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i64 %.249.i, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store i64 %32, ptr %36, align 8
+  %37 = load i32, ptr %5, align 8
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %5, align 8
+  %39 = add i64 %32, %.249.i
+  %40 = sub i64 %.24048.i, %32
+  %.not.i = icmp eq i64 %40, 0
   br i1 %.not.i, label %libpq_queue_fetch_range.exit, label %26, !llvm.loop !7
 
 libpq_queue_fetch_range.exit:                     ; preds = %30, %22
@@ -456,17 +454,17 @@ define internal void @libpq_queue_fetch_range(ptr noundef %0, ptr noundef %1, i6
 27:                                               ; preds = %8, %18, %22, %4
   %.038 = phi i64 [ %3, %4 ], [ %26, %22 ], [ %3, %18 ], [ %3, %8 ]
   %.0 = phi i64 [ %2, %4 ], [ %25, %22 ], [ %2, %18 ], [ %2, %8 ]
-  %.not48 = icmp eq i64 %.038, 0
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not47 = icmp eq i64 %.038, 0
+  br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %29
 
 29:                                               ; preds = %.lr.ph, %33
-  %30 = phi i32 [ %6, %.lr.ph ], [ %42, %33 ]
-  %.250 = phi i64 [ %.0, %.lr.ph ], [ %43, %33 ]
-  %.24049 = phi i64 [ %.038, %.lr.ph ], [ %44, %33 ]
+  %30 = phi i32 [ %6, %.lr.ph ], [ %41, %33 ]
+  %.249 = phi i64 [ %.0, %.lr.ph ], [ %42, %33 ]
+  %.24048 = phi i64 [ %.038, %.lr.ph ], [ %43, %33 ]
   %31 = icmp eq i32 %30, 1000
   br i1 %31, label %32, label %33
 
@@ -477,22 +475,20 @@ define internal void @libpq_queue_fetch_range(ptr noundef %0, ptr noundef %1, i6
 
 33:                                               ; preds = %32, %29
   %34 = phi i32 [ %.pre, %32 ], [ %30, %29 ]
-  %35 = tail call i64 @llvm.umin.i64(i64 %.24049, i64 1048576)
+  %35 = tail call i64 @llvm.umin.i64(i64 %.24048, i64 1048576)
   %36 = sext i32 %34 to i64
   %37 = getelementptr inbounds %struct.fetch_range_request, ptr %28, i64 %36
   store ptr %1, ptr %37, align 8
-  %.idx = mul nsw i64 %36, 24
-  %38 = getelementptr i8, ptr %28, i64 %.idx
-  %39 = getelementptr i8, ptr %38, i64 8
-  store i64 %.250, ptr %39, align 8
-  %40 = getelementptr i8, ptr %38, i64 16
-  store i64 %35, ptr %40, align 8
-  %41 = load i32, ptr %5, align 8
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %5, align 8
-  %43 = add i64 %.250, %35
-  %44 = sub i64 %.24049, %35
-  %.not = icmp eq i64 %44, 0
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i64 %.249, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i64 %35, ptr %39, align 8
+  %40 = load i32, ptr %5, align 8
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %5, align 8
+  %42 = add i64 %.249, %35
+  %43 = sub i64 %.24048, %35
+  %.not = icmp eq i64 %43, 0
   br i1 %.not, label %._crit_edge, label %29, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %33, %27

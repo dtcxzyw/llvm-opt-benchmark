@@ -3825,7 +3825,8 @@ define internal fastcc noundef range(i32 0, 6) i32 @input_handle_abs_event(ptr n
   %47 = load i32, ptr %43, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %49 = zext nneg i32 %1 to i64
-  %50 = getelementptr %struct.input_absinfo, ptr %45, i64 %49, i32 3
+  %.split = getelementptr %struct.input_absinfo, ptr %45, i64 %49
+  %50 = getelementptr i8, ptr %.split, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %80, label %53

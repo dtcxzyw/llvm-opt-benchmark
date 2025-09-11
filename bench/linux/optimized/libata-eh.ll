@@ -512,7 +512,7 @@ define dso_local i32 @ata_internal_cmd_timeout(ptr noundef readonly captures(non
 .loopexit:                                        ; preds = %.preheader, %6
   %4 = add nuw nsw i64 %7, 1
   %5 = icmp eq i64 %4, 8
-  br i1 %5, label %.thread6, label %6, !llvm.loop !11
+  br i1 %5, label %.thread7, label %6, !llvm.loop !11
 
 6:                                                ; preds = %.loopexit, %2
   %7 = phi i64 [ 0, %2 ], [ %4, %.loopexit ]
@@ -524,7 +524,7 @@ define dso_local i32 @ata_internal_cmd_timeout(ptr noundef readonly captures(non
 
 12:                                               ; preds = %6
   %13 = icmp eq i8 %10, %1
-  br i1 %13, label %.loopexit7, label %.preheader
+  br i1 %13, label %.loopexit8, label %.preheader
 
 .preheader:                                       ; preds = %12, %18
   %14 = phi ptr [ %15, %18 ], [ %9, %12 ]
@@ -535,14 +535,14 @@ define dso_local i32 @ata_internal_cmd_timeout(ptr noundef readonly captures(non
 
 18:                                               ; preds = %.preheader
   %19 = icmp eq i8 %16, %1
-  br i1 %19, label %.loopexit7, label %.preheader, !llvm.loop !14
+  br i1 %19, label %.loopexit8, label %.preheader, !llvm.loop !14
 
-.loopexit7:                                       ; preds = %12, %18
+.loopexit8:                                       ; preds = %12, %18
   %20 = and i64 %7, 2147483648
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %21, label %.thread6
+  br i1 %.not, label %21, label %.thread7
 
-21:                                               ; preds = %.loopexit7
+21:                                               ; preds = %.loopexit8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 1024
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
@@ -551,15 +551,16 @@ define dso_local i32 @ata_internal_cmd_timeout(ptr noundef readonly captures(non
   %.split = getelementptr [8 x i32], ptr %22, i64 %25
   %27 = getelementptr i32, ptr %.split, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr %struct.ata_eh_cmd_timeout_ent, ptr @ata_eh_cmd_timeout_table, i64 %26, i32 1
+  %.split6 = getelementptr %struct.ata_eh_cmd_timeout_ent, ptr @ata_eh_cmd_timeout_table, i64 %26
+  %29 = getelementptr i8, ptr %.split6, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %28 to i64
   %32 = getelementptr i32, ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4
-  br label %.thread6
+  br label %.thread7
 
-.thread6:                                         ; preds = %.loopexit, %21, %.loopexit7
-  %34 = phi i32 [ %33, %21 ], [ 5000, %.loopexit7 ], [ 5000, %.loopexit ]
+.thread7:                                         ; preds = %.loopexit, %21, %.loopexit8
+  %34 = phi i32 [ %33, %21 ], [ 5000, %.loopexit8 ], [ 5000, %.loopexit ]
   ret i32 %34
 }
 
@@ -571,7 +572,7 @@ define dso_local void @ata_internal_cmd_timed_out(ptr noundef readonly captures(
 .loopexit:                                        ; preds = %.preheader, %6
   %4 = add nuw nsw i64 %7, 1
   %5 = icmp eq i64 %4, 8
-  br i1 %5, label %.thread6, label %6, !llvm.loop !11
+  br i1 %5, label %.thread7, label %6, !llvm.loop !11
 
 6:                                                ; preds = %.loopexit, %2
   %7 = phi i64 [ 0, %2 ], [ %4, %.loopexit ]
@@ -583,7 +584,7 @@ define dso_local void @ata_internal_cmd_timed_out(ptr noundef readonly captures(
 
 12:                                               ; preds = %6
   %13 = icmp eq i8 %10, %1
-  br i1 %13, label %.loopexit7, label %.preheader
+  br i1 %13, label %.loopexit8, label %.preheader
 
 .preheader:                                       ; preds = %12, %18
   %14 = phi ptr [ %15, %18 ], [ %9, %12 ]
@@ -594,14 +595,14 @@ define dso_local void @ata_internal_cmd_timed_out(ptr noundef readonly captures(
 
 18:                                               ; preds = %.preheader
   %19 = icmp eq i8 %16, %1
-  br i1 %19, label %.loopexit7, label %.preheader, !llvm.loop !14
+  br i1 %19, label %.loopexit8, label %.preheader, !llvm.loop !14
 
-.loopexit7:                                       ; preds = %12, %18
+.loopexit8:                                       ; preds = %12, %18
   %20 = and i64 %7, 2147483648
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %21, label %.thread6
+  br i1 %.not, label %21, label %.thread7
 
-21:                                               ; preds = %.loopexit7
+21:                                               ; preds = %.loopexit8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 1024
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
@@ -610,20 +611,21 @@ define dso_local void @ata_internal_cmd_timed_out(ptr noundef readonly captures(
   %.split = getelementptr [8 x i32], ptr %22, i64 %25
   %27 = getelementptr i32, ptr %.split, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr %struct.ata_eh_cmd_timeout_ent, ptr @ata_eh_cmd_timeout_table, i64 %26, i32 1
+  %.split6 = getelementptr %struct.ata_eh_cmd_timeout_ent, ptr @ata_eh_cmd_timeout_table, i64 %26
+  %29 = getelementptr i8, ptr %.split6, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = add i32 %28, 1
   %32 = sext i32 %31 to i64
   %33 = getelementptr i32, ptr %30, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, -1
-  br i1 %35, label %.thread6, label %36
+  br i1 %35, label %.thread7, label %36
 
 36:                                               ; preds = %21
   store i32 %31, ptr %27, align 4
-  br label %.thread6
+  br label %.thread7
 
-.thread6:                                         ; preds = %.loopexit, %36, %21, %.loopexit7
+.thread7:                                         ; preds = %.loopexit, %36, %21, %.loopexit8
   ret void
 }
 

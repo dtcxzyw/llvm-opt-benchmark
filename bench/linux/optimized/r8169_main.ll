@@ -3118,27 +3118,29 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
   %52 = getelementptr ptr, ptr %20, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread13, label %55
+  br i1 %54, label %.thread16, label %55
 
 55:                                               ; preds = %.loopexit
   %56 = load ptr, ptr %3, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 184
   %58 = load ptr, ptr %14, align 8
-  %59 = getelementptr %struct.RxDesc, ptr %58, i64 %51, i32 2
+  %.split = getelementptr %struct.RxDesc, ptr %58, i64 %51
+  %59 = getelementptr i8, ptr %.split, i64 8
   %60 = load i64, ptr %59, align 8
   tail call void @dma_unmap_page_attrs(ptr noundef nonnull %57, i64 noundef %60, i64 noundef 16383, i32 noundef 2, i64 noundef 0) #19
   %61 = load ptr, ptr %52, align 8
   tail call void @__free_pages(ptr noundef %61, i32 noundef 2) #19
   store ptr null, ptr %52, align 8
   %62 = load ptr, ptr %14, align 8
-  %63 = getelementptr %struct.RxDesc, ptr %62, i64 %51, i32 2
+  %.split12 = getelementptr %struct.RxDesc, ptr %62, i64 %51
+  %63 = getelementptr i8, ptr %.split12, i64 8
   store i64 0, ptr %63, align 8
   %64 = load ptr, ptr %14, align 8
   %65 = getelementptr %struct.RxDesc, ptr %64, i64 %51
   store i32 0, ptr %65, align 8
   %66 = add nuw nsw i64 %51, 1
   %67 = icmp eq i64 %66, 256
-  br i1 %67, label %.thread13, label %.loopexit, !llvm.loop !40
+  br i1 %67, label %.thread16, label %.loopexit, !llvm.loop !40
 
 68:                                               ; preds = %22
   %69 = load ptr, ptr %14, align 8
@@ -3321,29 +3323,31 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
   %176 = getelementptr ptr, ptr %20, i64 %175
   %177 = load ptr, ptr %176, align 8
   %178 = icmp eq ptr %177, null
-  br i1 %178, label %.thread13, label %179
+  br i1 %178, label %.thread16, label %179
 
 179:                                              ; preds = %174
   %180 = load ptr, ptr %3, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 184
   %182 = load ptr, ptr %14, align 8
-  %183 = getelementptr %struct.RxDesc, ptr %182, i64 %175, i32 2
+  %.split13 = getelementptr %struct.RxDesc, ptr %182, i64 %175
+  %183 = getelementptr i8, ptr %.split13, i64 8
   %184 = load i64, ptr %183, align 8
   tail call void @dma_unmap_page_attrs(ptr noundef nonnull %181, i64 noundef %184, i64 noundef 16383, i32 noundef 2, i64 noundef 0) #19
   %185 = load ptr, ptr %176, align 8
   tail call void @__free_pages(ptr noundef %185, i32 noundef 2) #19
   store ptr null, ptr %176, align 8
   %186 = load ptr, ptr %14, align 8
-  %187 = getelementptr %struct.RxDesc, ptr %186, i64 %175, i32 2
+  %.split14 = getelementptr %struct.RxDesc, ptr %186, i64 %175
+  %187 = getelementptr i8, ptr %.split14, i64 8
   store i64 0, ptr %187, align 8
   %188 = load ptr, ptr %14, align 8
   %189 = getelementptr %struct.RxDesc, ptr %188, i64 %175
   store i32 0, ptr %189, align 8
   %190 = add nuw nsw i64 %175, 1
   %191 = icmp eq i64 %190, 256
-  br i1 %191, label %.thread13, label %174, !llvm.loop !40
+  br i1 %191, label %.thread16, label %174, !llvm.loop !40
 
-.thread13:                                        ; preds = %179, %174, %55, %.loopexit
+.thread16:                                        ; preds = %179, %174, %55, %.loopexit
   %192 = phi i32 [ -12, %.loopexit ], [ -12, %55 ], [ %169, %174 ], [ %169, %179 ]
   %193 = load ptr, ptr %14, align 8
   %194 = load i64, ptr %12, align 8
@@ -3351,8 +3355,8 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
   store ptr null, ptr %14, align 8
   br label %195
 
-195:                                              ; preds = %.thread13, %11
-  %196 = phi i32 [ %192, %.thread13 ], [ -12, %11 ]
+195:                                              ; preds = %.thread16, %11
+  %196 = phi i32 [ %192, %.thread16 ], [ -12, %11 ]
   %197 = load ptr, ptr %9, align 8
   %198 = load i64, ptr %7, align 8
   tail call void @dma_free_attrs(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef %197, i64 noundef %198, i64 noundef 0) #19
@@ -3387,14 +3391,16 @@ define internal noundef i32 @rtl8169_close(ptr noundef initializes((8960, 8968))
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 184
   %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr %struct.RxDesc, ptr %20, i64 %13, i32 2
+  %.split = getelementptr %struct.RxDesc, ptr %20, i64 %13
+  %21 = getelementptr i8, ptr %.split, i64 8
   %22 = load i64, ptr %21, align 8
   tail call void @dma_unmap_page_attrs(ptr noundef nonnull %19, i64 noundef %22, i64 noundef 16383, i32 noundef 2, i64 noundef 0) #19
   %23 = load ptr, ptr %14, align 8
   tail call void @__free_pages(ptr noundef %23, i32 noundef 2) #19
   store ptr null, ptr %14, align 8
   %24 = load ptr, ptr %11, align 8
-  %25 = getelementptr %struct.RxDesc, ptr %24, i64 %13, i32 2
+  %.split1 = getelementptr %struct.RxDesc, ptr %24, i64 %13
+  %25 = getelementptr i8, ptr %.split1, i64 8
   store i64 0, ptr %25, align 8
   %26 = load ptr, ptr %11, align 8
   %27 = getelementptr %struct.RxDesc, ptr %26, i64 %13

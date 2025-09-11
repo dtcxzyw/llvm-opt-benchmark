@@ -734,8 +734,8 @@ define internal fastcc double @eval_expr(ptr noundef nonnull %0, ptr noundef rea
   %22 = fmul nsz double %14, %21
   br label %common.ret535
 
-common.ret535:                                    ; preds = %638, %635, %627, %624, %619, %614, %600, %596, %591, %583, %578, %573, %567, %561, %555, %549, %543, %537, %531, %523, %512, %504, %208, %.loopexit, %split, %ff_sfc64_init.exit400, %ff_sfc64_init.exit, %271, %247, %205, %188, %12, %9, %.preheader, %388, %250, %222, %165, %157, %143, %135, %127, %119, %111, %101, %92, %77, %68, %60, %45, %33, %23
-  %common.ret535.op = phi double [ %32, %23 ], [ %44, %33 ], [ %59, %45 ], [ %67, %60 ], [ %76, %68 ], [ %91, %77 ], [ %100, %92 ], [ %110, %101 ], [ %118, %111 ], [ %126, %119 ], [ %134, %127 ], [ %142, %135 ], [ %156, %143 ], [ %164, %157 ], [ %173, %165 ], [ %230, %222 ], [ %261, %250 ], [ %11, %9 ], [ %22, %12 ], [ %190, %188 ], [ %207, %205 ], [ %249, %247 ], [ %265, %271 ], [ %325, %ff_sfc64_init.exit ], [ %387, %ff_sfc64_init.exit400 ], [ %.1358, %split ], [ %503, %.loopexit ], [ 0x7FF8000000000000, %208 ], [ 0x7FF8000000000000, %504 ], [ 0x7FF8000000000000, %635 ], [ %645, %638 ], [ 0x7FF8000000000000, %624 ], [ %634, %627 ], [ %623, %619 ], [ %618, %614 ], [ %613, %600 ], [ %599, %596 ], [ %595, %591 ], [ %590, %583 ], [ %582, %578 ], [ %577, %573 ], [ %572, %567 ], [ %566, %561 ], [ %560, %555 ], [ %554, %549 ], [ %548, %543 ], [ %542, %537 ], [ %536, %531 ], [ %530, %523 ], [ %522, %512 ], [ 0x7FF8000000000000, %.preheader ], [ %390, %388 ]
+common.ret535:                                    ; preds = %639, %636, %628, %625, %620, %615, %600, %596, %591, %583, %578, %573, %567, %561, %555, %549, %543, %537, %531, %523, %512, %504, %208, %.loopexit, %split, %ff_sfc64_init.exit400, %ff_sfc64_init.exit, %271, %247, %205, %188, %12, %9, %.preheader, %388, %250, %222, %165, %157, %143, %135, %127, %119, %111, %101, %92, %77, %68, %60, %45, %33, %23
+  %common.ret535.op = phi double [ %32, %23 ], [ %44, %33 ], [ %59, %45 ], [ %67, %60 ], [ %76, %68 ], [ %91, %77 ], [ %100, %92 ], [ %110, %101 ], [ %118, %111 ], [ %126, %119 ], [ %134, %127 ], [ %142, %135 ], [ %156, %143 ], [ %164, %157 ], [ %173, %165 ], [ %230, %222 ], [ %261, %250 ], [ %11, %9 ], [ %22, %12 ], [ %190, %188 ], [ %207, %205 ], [ %249, %247 ], [ %265, %271 ], [ %325, %ff_sfc64_init.exit ], [ %387, %ff_sfc64_init.exit400 ], [ %.1358, %split ], [ %503, %.loopexit ], [ 0x7FF8000000000000, %208 ], [ 0x7FF8000000000000, %504 ], [ 0x7FF8000000000000, %636 ], [ %646, %639 ], [ 0x7FF8000000000000, %625 ], [ %635, %628 ], [ %624, %620 ], [ %619, %615 ], [ %614, %600 ], [ %599, %596 ], [ %595, %591 ], [ %590, %583 ], [ %582, %578 ], [ %577, %573 ], [ %572, %567 ], [ %566, %561 ], [ %560, %555 ], [ %554, %549 ], [ %548, %543 ], [ %542, %537 ], [ %536, %531 ], [ %530, %523 ], [ %522, %512 ], [ 0x7FF8000000000000, %.preheader ], [ %390, %388 ]
   ret double %common.ret535.op
 
 23:                                               ; preds = %2
@@ -1479,10 +1479,10 @@ split:                                            ; preds = %413, %._crit_edge
     i32 21, label %591
     i32 22, label %596
     i32 23, label %600
-    i32 34, label %614
-    i32 43, label %619
-    i32 39, label %624
-    i32 40, label %635
+    i32 34, label %615
+    i32 43, label %620
+    i32 39, label %625
+    i32 40, label %636
   ]
 
 512:                                              ; preds = %504
@@ -1608,61 +1608,62 @@ split:                                            ; preds = %413, %._crit_edge
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %605 = load ptr, ptr %604, align 8, !tbaa !47
   %606 = zext nneg i32 %603 to i64
-  %607 = getelementptr inbounds nuw %struct.FFSFC64, ptr %605, i64 %606, i32 3
-  store i64 0, ptr %607, align 8, !tbaa !49
-  %608 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %609 = load double, ptr %608, align 8, !tbaa !39
-  %610 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %611 = load ptr, ptr %610, align 8, !tbaa !46
-  %612 = getelementptr inbounds nuw double, ptr %611, i64 %606
-  store double %510, ptr %612, align 8, !tbaa !48
-  %613 = fmul nsz double %510, %609
+  %607 = getelementptr inbounds nuw %struct.FFSFC64, ptr %605, i64 %606
+  %608 = getelementptr inbounds nuw i8, ptr %607, i64 24
+  store i64 0, ptr %608, align 8, !tbaa !49
+  %609 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %610 = load double, ptr %609, align 8, !tbaa !39
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %612 = load ptr, ptr %611, align 8, !tbaa !46
+  %613 = getelementptr inbounds nuw double, ptr %612, i64 %606
+  store double %510, ptr %613, align 8, !tbaa !48
+  %614 = fmul nsz double %510, %610
   br label %common.ret535
 
-614:                                              ; preds = %504
-  %615 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %616 = load double, ptr %615, align 8, !tbaa !39
-  %617 = tail call nsz double @hypot(double noundef %507, double noundef %510) #17
-  %618 = fmul nsz double %616, %617
+615:                                              ; preds = %504
+  %616 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %617 = load double, ptr %616, align 8, !tbaa !39
+  %618 = tail call nsz double @hypot(double noundef %507, double noundef %510) #17
+  %619 = fmul nsz double %617, %618
   br label %common.ret535
 
-619:                                              ; preds = %504
-  %620 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %621 = load double, ptr %620, align 8, !tbaa !39
-  %622 = tail call nsz double @llvm.atan2.f64(double %507, double %510)
-  %623 = fmul nsz double %622, %621
+620:                                              ; preds = %504
+  %621 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %622 = load double, ptr %621, align 8, !tbaa !39
+  %623 = tail call nsz double @llvm.atan2.f64(double %507, double %510)
+  %624 = fmul nsz double %623, %622
   br label %common.ret535
 
-624:                                              ; preds = %504
-  %625 = fcmp uno double %507, 0.000000e+00
-  %626 = fcmp uno double %510, 0.000000e+00
-  %or.cond385 = select i1 %625, i1 true, i1 %626
-  br i1 %or.cond385, label %common.ret535, label %627
+625:                                              ; preds = %504
+  %626 = fcmp uno double %507, 0.000000e+00
+  %627 = fcmp uno double %510, 0.000000e+00
+  %or.cond385 = select i1 %626, i1 true, i1 %627
+  br i1 %or.cond385, label %common.ret535, label %628
 
-627:                                              ; preds = %624
-  %628 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %629 = load double, ptr %628, align 8, !tbaa !39
-  %630 = fptosi double %507 to i64
-  %631 = fptosi double %510 to i64
-  %632 = and i64 %631, %630
-  %633 = sitofp i64 %632 to double
-  %634 = fmul nsz double %629, %633
+628:                                              ; preds = %625
+  %629 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %630 = load double, ptr %629, align 8, !tbaa !39
+  %631 = fptosi double %507 to i64
+  %632 = fptosi double %510 to i64
+  %633 = and i64 %632, %631
+  %634 = sitofp i64 %633 to double
+  %635 = fmul nsz double %630, %634
   br label %common.ret535
 
-635:                                              ; preds = %504
-  %636 = fcmp uno double %507, 0.000000e+00
-  %637 = fcmp uno double %510, 0.000000e+00
-  %or.cond386 = select i1 %636, i1 true, i1 %637
-  br i1 %or.cond386, label %common.ret535, label %638
+636:                                              ; preds = %504
+  %637 = fcmp uno double %507, 0.000000e+00
+  %638 = fcmp uno double %510, 0.000000e+00
+  %or.cond386 = select i1 %637, i1 true, i1 %638
+  br i1 %or.cond386, label %common.ret535, label %639
 
-638:                                              ; preds = %635
-  %639 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %640 = load double, ptr %639, align 8, !tbaa !39
-  %641 = fptosi double %507 to i64
-  %642 = fptosi double %510 to i64
-  %643 = or i64 %642, %641
-  %644 = sitofp i64 %643 to double
-  %645 = fmul nsz double %640, %644
+639:                                              ; preds = %636
+  %640 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %641 = load double, ptr %640, align 8, !tbaa !39
+  %642 = fptosi double %507 to i64
+  %643 = fptosi double %510 to i64
+  %644 = or i64 %643, %642
+  %645 = sitofp i64 %644 to double
+  %646 = fmul nsz double %641, %645
   br label %common.ret535
 }
 

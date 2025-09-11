@@ -12638,7 +12638,8 @@ define internal i64 @reset_method_show(ptr noundef readonly captures(none) %0, p
   %13 = icmp eq i64 %7, 0
   %14 = select i1 %13, ptr @.str.24, ptr @.str.87
   %15 = zext i8 %9 to i64
-  %16 = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %15, i32 1
+  %.split = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %15
+  %16 = getelementptr i8, ptr %.split, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %12, ptr noundef nonnull @.str.86, ptr noundef nonnull %14, ptr noundef %17) #27
   %19 = sext i32 %18 to i64
@@ -12747,7 +12748,8 @@ define internal noundef i64 @reset_method_store(ptr noundef %0, ptr readnone cap
 
 46:                                               ; preds = %51, %44
   %47 = phi i64 [ 1, %44 ], [ %52, %51 ]
-  %48 = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %47, i32 1
+  %.split = getelementptr %struct.pci_reset_fn_method, ptr @pci_reset_fn_methods, i64 %47
+  %48 = getelementptr i8, ptr %.split, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = call zeroext i1 @sysfs_streq(ptr noundef %45, ptr noundef %49) #27
   br i1 %50, label %54, label %51

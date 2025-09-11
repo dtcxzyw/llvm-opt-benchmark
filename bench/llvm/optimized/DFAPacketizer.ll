@@ -449,7 +449,7 @@ _ZNSt3mapISt4pairImmES0_ImjESt4lessIS1_ESaIS0_IKS1_S2_EEE4findERS5_.exit.i: ; pr
   %44 = load i8, ptr %43, align 8, !range !54
   %45 = trunc nuw i8 %44 to i1
   %or.cond.i = select i1 %42, i1 %45, i1 false
-  br i1 %or.cond.i, label %46, label %59
+  br i1 %or.cond.i, label %46, label %60
 
 46:                                               ; preds = %_ZNSt3mapISt4pairImmES0_ImjESt4lessIS1_ESaIS0_IKS1_S2_EEE4findERS5_.exit.i
   %47 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 56
@@ -458,29 +458,30 @@ _ZNSt3mapISt4pairImmES0_ImjESt4lessIS1_ESaIS0_IKS1_S2_EEE4findERS5_.exit.i: ; pr
   br label %50
 
 50:                                               ; preds = %50, %46
-  %.0.i.i = phi i32 [ %48, %46 ], [ %54, %50 ]
+  %.0.i.i = phi i32 [ %48, %46 ], [ %55, %50 ]
   %51 = zext i32 %.0.i.i to i64
-  %52 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %49, i64 %51, i32 1
-  %53 = load i64, ptr %52, align 8, !tbaa !85
-  %.not.i.i = icmp eq i64 %53, 0
-  %54 = add i32 %.0.i.i, 1
+  %52 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %49, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load i64, ptr %53, align 8, !tbaa !85
+  %.not.i.i = icmp eq i64 %54, 0
+  %55 = add i32 %.0.i.i, 1
   br i1 %.not.i.i, label %_ZN4llvm8internal14NfaTranscriber10transitionEj.exit.i, label %50, !llvm.loop !87
 
 _ZN4llvm8internal14NfaTranscriber10transitionEj.exit.i: ; preds = %50
-  %55 = zext i32 %48 to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %49, i64 %55
-  %57 = sub i32 %.0.i.i, %48
-  %58 = zext i32 %57 to i64
-  tail call void @_ZN4llvm8internal14NfaTranscriber10transitionENS_8ArrayRefINS_12NfaStatePairEEE(ptr noundef nonnull align 8 dereferenceable(400) %41, ptr %56, i64 %58)
-  br label %59
+  %56 = zext i32 %48 to i64
+  %57 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %49, i64 %56
+  %58 = sub i32 %.0.i.i, %48
+  %59 = zext i32 %58 to i64
+  tail call void @_ZN4llvm8internal14NfaTranscriber10transitionENS_8ArrayRefINS_12NfaStatePairEEE(ptr noundef nonnull align 8 dereferenceable(400) %41, ptr %57, i64 %59)
+  br label %60
 
-59:                                               ; preds = %_ZN4llvm8internal14NfaTranscriber10transitionEj.exit.i, %_ZNSt3mapISt4pairImmES0_ImjESt4lessIS1_ESaIS0_IKS1_S2_EEE4findERS5_.exit.i
-  %60 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
-  %61 = load i64, ptr %60, align 8, !tbaa !88
-  store i64 %61, ptr %16, align 8, !tbaa !89
+60:                                               ; preds = %_ZN4llvm8internal14NfaTranscriber10transitionEj.exit.i, %_ZNSt3mapISt4pairImmES0_ImjESt4lessIS1_ESaIS0_IKS1_S2_EEE4findERS5_.exit.i
+  %61 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
+  %62 = load i64, ptr %61, align 8, !tbaa !88
+  store i64 %62, ptr %16, align 8, !tbaa !89
   br label %_ZN4llvm9AutomatonImE3addERKm.exit
 
-_ZN4llvm9AutomatonImE3addERKm.exit:               ; preds = %59, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i.i.i, %31, %_ZNSt8_Rb_treeISt4pairImmES0_IKS1_S0_ImjEESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %12, %2
+_ZN4llvm9AutomatonImE3addERKm.exit:               ; preds = %60, %_ZNKSt4lessISt4pairImmEEclERKS1_S4_.exit.i.i.i, %31, %_ZNSt8_Rb_treeISt4pairImmES0_IKS1_S0_ImjEESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %12, %2
   ret void
 }
 

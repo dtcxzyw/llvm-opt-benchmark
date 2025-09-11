@@ -2982,7 +2982,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   br i1 %or.cond3, label %348, label %319
 
 319:                                              ; preds = %317
-  %320 = icmp ult i32 %.5, 65536
+  %320 = icmp samesign ult i32 %.5, 65536
   br i1 %320, label %.thread478, label %326
 
 .thread478:                                       ; preds = %306, %302, %297, %288, %286, %274, %271, %256, %251, %319
@@ -2998,8 +2998,8 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
 
 326:                                              ; preds = %319
   %327 = lshr i32 %.5, 10
-  %328 = trunc i32 %327 to i16
-  %329 = add i16 %328, -10304
+  %328 = trunc nuw nsw i32 %327 to i16
+  %329 = add nuw nsw i16 %328, -10304
   %330 = sext i32 %.0413 to i64
   %331 = getelementptr inbounds i16, ptr %222, i64 %330
   store i16 %329, ptr %331, align 2, !tbaa !18

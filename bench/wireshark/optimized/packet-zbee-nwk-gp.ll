@@ -802,27 +802,29 @@ define internal void @gp_init_zbee_security() #1 {
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = phi ptr [ %2, %.lr.ph ], [ %19, %9 ]
+  %10 = phi ptr [ %2, %.lr.ph ], [ %21, %9 ]
   store i32 0, ptr %1, align 8
-  %11 = getelementptr %struct.uat_key_record_t, ptr %10, i64 %indvars.iv, i32 2
-  %12 = load ptr, ptr %11, align 8
-  %13 = call noalias ptr @g_strdup(ptr noundef %12)
-  store ptr %13, ptr %7, align 8
-  %14 = load ptr, ptr @gp_uat_key_records, align 8
-  %15 = getelementptr %struct.uat_key_record_t, ptr %14, i64 %indvars.iv, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef align 1 dereferenceable(16) %15, i64 noundef 16, i1 noundef false) #12
-  %16 = load ptr, ptr @zbee_gp_keyring, align 8
-  %17 = call dereferenceable_or_null(32) ptr @g_memdup2(ptr noundef nonnull %1, i64 noundef 32) #13
-  %18 = call ptr @g_slist_prepend(ptr noundef %16, ptr noundef %17)
-  store ptr %18, ptr @zbee_gp_keyring, align 8
+  %11 = getelementptr %struct.uat_key_record_t, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = call noalias ptr @g_strdup(ptr noundef %13)
+  store ptr %14, ptr %7, align 8
+  %15 = load ptr, ptr @gp_uat_key_records, align 8
+  %16 = getelementptr %struct.uat_key_record_t, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 noundef 16, i1 noundef false) #12
+  %18 = load ptr, ptr @zbee_gp_keyring, align 8
+  %19 = call dereferenceable_or_null(32) ptr @g_memdup2(ptr noundef nonnull %1, i64 noundef 32) #13
+  %20 = call ptr @g_slist_prepend(ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr @zbee_gp_keyring, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load ptr, ptr @gp_uat_key_records, align 8
-  %20 = icmp ne ptr %19, null
-  %21 = load i32, ptr @num_uat_key_records, align 4
-  %22 = zext i32 %21 to i64
-  %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  %24 = select i1 %20, i1 %23, i1 false
-  br i1 %24, label %9, label %._crit_edge, !llvm.loop !10
+  %21 = load ptr, ptr @gp_uat_key_records, align 8
+  %22 = icmp ne ptr %21, null
+  %23 = load i32, ptr @num_uat_key_records, align 4
+  %24 = zext i32 %23 to i64
+  %25 = icmp samesign ult i64 %indvars.iv.next, %24
+  %26 = select i1 %22, i1 %25, i1 false
+  br i1 %26, label %9, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %9, %0
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

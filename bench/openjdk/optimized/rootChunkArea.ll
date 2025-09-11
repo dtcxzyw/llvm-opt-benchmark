@@ -1032,50 +1032,51 @@ define hidden void @_ZN9metaspace16RootChunkAreaLUTD2Ev(ptr noundef nonnull read
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZN9metaspace13RootChunkAreaD2Ev.exit
-  %11 = phi i32 [ %3, %.lr.ph ], [ %25, %_ZN9metaspace13RootChunkAreaD2Ev.exit ]
+  %11 = phi i32 [ %3, %.lr.ph ], [ %26, %_ZN9metaspace13RootChunkAreaD2Ev.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN9metaspace13RootChunkAreaD2Ev.exit ]
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds nuw %"class.metaspace::RootChunkArea", ptr %12, i64 %indvars.iv, i32 1
-  %14 = load ptr, ptr %13, align 8
-  %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %_ZN9metaspace13RootChunkAreaD2Ev.exit, label %15
+  %13 = getelementptr inbounds nuw %"class.metaspace::RootChunkArea", ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %.not.i = icmp eq ptr %15, null
+  br i1 %.not.i, label %_ZN9metaspace13RootChunkAreaD2Ev.exit, label %16
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 25
-  store i8 2, ptr %16, align 1
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr %17, ptr %18, align 8
-  %.not.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i, label %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit.i, label %19
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 25
+  store i8 2, ptr %17, align 1
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store ptr %18, ptr %19, align 8
+  %.not.i.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i.i, label %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit.i, label %20
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store ptr %14, ptr %20, align 8
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  store ptr %15, ptr %21, align 8
   br label %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit.i
 
-_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit.i: ; preds = %19, %15
-  store ptr %14, ptr %7, align 8
-  %21 = load i32, ptr %8, align 8
-  %22 = add i32 %21, 1
-  store i32 %22, ptr %8, align 8
-  %23 = load i32, ptr %9, align 8
-  %24 = add i32 %23, -1
-  store i32 %24, ptr %9, align 8
+_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit.i: ; preds = %20, %16
+  store ptr %15, ptr %7, align 8
+  %22 = load i32, ptr %8, align 8
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %8, align 8
+  %24 = load i32, ptr %9, align 8
+  %25 = add i32 %24, -1
+  store i32 %25, ptr %9, align 8
   %.pre = load i32, ptr %2, align 8
   br label %_ZN9metaspace13RootChunkAreaD2Ev.exit
 
 _ZN9metaspace13RootChunkAreaD2Ev.exit:            ; preds = %10, %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit.i
-  %25 = phi i32 [ %11, %10 ], [ %.pre, %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit.i ]
+  %26 = phi i32 [ %11, %10 ], [ %.pre, %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %10, label %._crit_edge, !llvm.loop !11
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next, %27
+  br i1 %28, label %10, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN9metaspace13RootChunkAreaD2Ev.exit, %1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8
-  tail call void @_Z8FreeHeapPv(ptr noundef %29) #8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load ptr, ptr %29, align 8
+  tail call void @_Z8FreeHeapPv(ptr noundef %30) #8
   ret void
 }
 

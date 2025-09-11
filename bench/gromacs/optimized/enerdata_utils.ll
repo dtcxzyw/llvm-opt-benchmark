@@ -1587,10 +1587,11 @@ define void @_ZN18ForeignLambdaTerms17accumulateKineticEidd(ptr noundef nonnull 
   store double %10, ptr %8, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !28
-  %13 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.5", ptr %12, i64 %6, i32 0, i64 1
-  %14 = load double, ptr %13, align 8, !tbaa !26
-  %15 = fadd double %3, %14
-  store double %15, ptr %13, align 8, !tbaa !26
+  %13 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.5", ptr %12, i64 %6
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load double, ptr %14, align 8, !tbaa !26
+  %16 = fadd double %3, %15
+  store double %16, ptr %14, align 8, !tbaa !26
   ret void
 }
 
@@ -1670,20 +1671,21 @@ _ZN18ForeignLambdaTerms15addConstantDhdlE34FreeEnergyPerturbationCouplingTyped.e
   %54 = load double, ptr %53, align 8, !tbaa !26
   %55 = fadd double %54, %52
   store double %55, ptr %53, align 8, !tbaa !26
-  %56 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.5", ptr %9, i64 %indvars.iv.next, i32 0, i64 1
-  %57 = load double, ptr %56, align 8, !tbaa !26
-  %58 = fadd double %57, %18
-  store double %58, ptr %56, align 8, !tbaa !26
-  %59 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv
-  %60 = load double, ptr %59, align 8, !tbaa !26
-  %61 = fsub double %60, %47
-  %62 = fmul double %3, %61
-  %63 = load double, ptr %53, align 8, !tbaa !26
-  %64 = fadd double %63, %62
-  store double %64, ptr %53, align 8, !tbaa !26
-  %65 = load double, ptr %56, align 8, !tbaa !26
-  %66 = fadd double %3, %65
-  store double %66, ptr %56, align 8, !tbaa !26
+  %56 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.5", ptr %9, i64 %indvars.iv.next
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load double, ptr %57, align 8, !tbaa !26
+  %59 = fadd double %58, %18
+  store double %59, ptr %57, align 8, !tbaa !26
+  %60 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv
+  %61 = load double, ptr %60, align 8, !tbaa !26
+  %62 = fsub double %61, %47
+  %63 = fmul double %3, %62
+  %64 = load double, ptr %53, align 8, !tbaa !26
+  %65 = fadd double %64, %63
+  store double %65, ptr %53, align 8, !tbaa !26
+  %66 = load double, ptr %57, align 8, !tbaa !26
+  %67 = fadd double %3, %66
+  store double %67, ptr %57, align 8, !tbaa !26
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !85
 }
@@ -1773,20 +1775,21 @@ _ZN18ForeignLambdaTerms15addConstantDhdlE34FreeEnergyPerturbationCouplingTyped.e
   %60 = load double, ptr %59, align 8, !tbaa !26
   %61 = fadd double %60, %58
   store double %61, ptr %59, align 8, !tbaa !26
-  %62 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.5", ptr %16, i64 %indvars.iv.next.i, i32 0, i64 1
-  %63 = load double, ptr %62, align 8, !tbaa !26
-  %64 = fadd double %63, %25
-  store double %64, ptr %62, align 8, !tbaa !26
-  %65 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv.i
-  %66 = load double, ptr %65, align 8, !tbaa !26
-  %67 = fsub double %66, %53
-  %68 = fmul double %14, %67
-  %69 = load double, ptr %59, align 8, !tbaa !26
-  %70 = fadd double %69, %68
-  store double %70, ptr %59, align 8, !tbaa !26
-  %71 = load double, ptr %62, align 8, !tbaa !26
-  %72 = fadd double %14, %71
-  store double %72, ptr %62, align 8, !tbaa !26
+  %62 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.5", ptr %16, i64 %indvars.iv.next.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load double, ptr %63, align 8, !tbaa !26
+  %65 = fadd double %64, %25
+  store double %65, ptr %63, align 8, !tbaa !26
+  %66 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv.i
+  %67 = load double, ptr %66, align 8, !tbaa !26
+  %68 = fsub double %67, %53
+  %69 = fmul double %14, %68
+  %70 = load double, ptr %59, align 8, !tbaa !26
+  %71 = fadd double %70, %69
+  store double %71, ptr %59, align 8, !tbaa !26
+  %72 = load double, ptr %63, align 8, !tbaa !26
+  %73 = fadd double %14, %72
+  store double %73, ptr %63, align 8, !tbaa !26
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN18ForeignLambdaTerms28finalizeKineticContributionsEN3gmx8ArrayRefIKfEEdS3_RK8t_lambda.exit, label %54, !llvm.loop !85
 

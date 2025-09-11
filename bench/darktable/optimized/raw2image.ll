@@ -746,7 +746,7 @@ define noundef i32 @_ZN6LibRaw9raw2imageEv(ptr noundef nonnull align 8 dereferen
   br label %.preheader.us
 
 368:                                              ; preds = %370
-  %369 = getelementptr inbounds nuw [4 x i16], ptr %367, i64 %indvars.iv178, i64 3
+  %369 = getelementptr inbounds nuw i8, ptr %377, i64 6
   store i16 0, ptr %369, align 2, !tbaa !98
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count
@@ -2020,7 +2020,7 @@ _ZN6LibRaw3FCFEii.exit:                           ; preds = %314, %317
   br label %.preheader.us
 
 434:                                              ; preds = %436
-  %435 = getelementptr inbounds nuw [4 x i16], ptr %433, i64 %indvars.iv241, i64 3
+  %435 = getelementptr inbounds nuw i8, ptr %443, i64 6
   store i16 0, ptr %435, align 2, !tbaa !98
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count

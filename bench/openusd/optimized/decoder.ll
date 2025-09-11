@@ -196,7 +196,7 @@ declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %84, label %2
+  br i1 %.not, label %85, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 458592
@@ -304,65 +304,66 @@ define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
 54:                                               ; preds = %.lr.ph55, %54
   %indvars.iv61 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next62, %54 ]
   %55 = load ptr, ptr %53, align 32
-  %56 = getelementptr inbounds nuw %struct.TileDataDec, ptr %55, i64 %indvars.iv61, i32 4
-  tail call void @av1_dec_row_mt_dealloc(ptr noundef nonnull %56) #10
+  %56 = getelementptr inbounds nuw %struct.TileDataDec, ptr %55, i64 %indvars.iv61
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 21360
+  tail call void @av1_dec_row_mt_dealloc(ptr noundef nonnull %57) #10
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %57 = load i32, ptr %50, align 8
-  %58 = sext i32 %57 to i64
-  %59 = icmp slt i64 %indvars.iv.next62, %58
-  br i1 %59, label %54, label %._crit_edge56, !llvm.loop !8
+  %58 = load i32, ptr %50, align 8
+  %59 = sext i32 %58 to i64
+  %60 = icmp slt i64 %indvars.iv.next62, %59
+  br i1 %60, label %54, label %._crit_edge56, !llvm.loop !8
 
 ._crit_edge56:                                    ; preds = %54, %49
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 366208
-  %61 = load ptr, ptr %60, align 32
-  tail call void @aom_free(ptr noundef %61) #10
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 76408
-  %63 = load ptr, ptr %62, align 8
-  tail call void @aom_free(ptr noundef %63) #10
-  %64 = load i32, ptr %25, align 32
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %66, label %77
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 366208
+  %62 = load ptr, ptr %61, align 32
+  tail call void @aom_free(ptr noundef %62) #10
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 76408
+  %64 = load ptr, ptr %63, align 8
+  tail call void @aom_free(ptr noundef %64) #10
+  %65 = load i32, ptr %25, align 32
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %67, label %78
 
-66:                                               ; preds = %._crit_edge56
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 75928
-  tail call void @av1_loop_filter_dealloc(ptr noundef nonnull %67) #10
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 76048
-  %69 = load i32, ptr %25, align 32
-  tail call void @av1_loop_restoration_dealloc(ptr noundef nonnull %68, i32 noundef %69) #10
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 431760
-  %71 = load ptr, ptr %70, align 16
-  %.not7.i = icmp eq ptr %71, null
-  br i1 %.not7.i, label %av1_dealloc_dec_jobs.exit, label %72
+67:                                               ; preds = %._crit_edge56
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 75928
+  tail call void @av1_loop_filter_dealloc(ptr noundef nonnull %68) #10
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 76048
+  %70 = load i32, ptr %25, align 32
+  tail call void @av1_loop_restoration_dealloc(ptr noundef nonnull %69, i32 noundef %70) #10
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 431760
+  %72 = load ptr, ptr %71, align 16
+  %.not7.i = icmp eq ptr %72, null
+  br i1 %.not7.i, label %av1_dealloc_dec_jobs.exit, label %73
 
-72:                                               ; preds = %66
-  %73 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %71) #10
-  %74 = load ptr, ptr %70, align 8
-  tail call void @aom_free(ptr noundef %74) #10
+73:                                               ; preds = %67
+  %74 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %72) #10
+  %75 = load ptr, ptr %71, align 8
+  tail call void @aom_free(ptr noundef %75) #10
   br label %av1_dealloc_dec_jobs.exit
 
-av1_dealloc_dec_jobs.exit:                        ; preds = %66, %72
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 431768
-  %76 = load ptr, ptr %75, align 8
-  tail call void @aom_free(ptr noundef %76) #10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 32, i1 false)
-  br label %77
+av1_dealloc_dec_jobs.exit:                        ; preds = %67, %73
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 431768
+  %77 = load ptr, ptr %76, align 8
+  tail call void @aom_free(ptr noundef %77) #10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 32, i1 false)
+  br label %78
 
-77:                                               ; preds = %av1_dealloc_dec_jobs.exit, %._crit_edge56
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 458800
-  %79 = load ptr, ptr %78, align 16
-  tail call void @aom_free(ptr noundef %79) #10
-  store ptr null, ptr %78, align 16
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 458808
-  store i32 0, ptr %80, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 76448
-  tail call void @av1_free_mc_tmp_buf(ptr noundef nonnull %81) #10
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 458872
-  %83 = load ptr, ptr %82, align 8
-  tail call void @aom_img_metadata_array_free(ptr noundef %83) #10
+78:                                               ; preds = %av1_dealloc_dec_jobs.exit, %._crit_edge56
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 458800
+  %80 = load ptr, ptr %79, align 16
+  tail call void @aom_free(ptr noundef %80) #10
+  store ptr null, ptr %79, align 16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 458808
+  store i32 0, ptr %81, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 76448
+  tail call void @av1_free_mc_tmp_buf(ptr noundef nonnull %82) #10
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 458872
+  %84 = load ptr, ptr %83, align 8
+  tail call void @aom_img_metadata_array_free(ptr noundef %84) #10
   tail call void @aom_free(ptr noundef nonnull %0) #10
-  br label %84
+  br label %85
 
-84:                                               ; preds = %1, %77
+85:                                               ; preds = %1, %78
   ret void
 }
 

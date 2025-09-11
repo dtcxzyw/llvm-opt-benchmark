@@ -730,23 +730,24 @@ _msg_thr_destroy.exit:                            ; preds = %295, %297
   %301 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %300, i64 %indvars.iv.i48
   call void @slurm_xfree(ptr noundef %301) #14
   %302 = load ptr, ptr @MPIR_proctable, align 8
-  %303 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %302, i64 %indvars.iv.i48, i32 1
-  call void @slurm_xfree(ptr noundef nonnull %303) #14
+  %303 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %302, i64 %indvars.iv.i48
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
+  call void @slurm_xfree(ptr noundef nonnull %304) #14
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
-  %304 = load i32, ptr @MPIR_proctable_size, align 4
-  %305 = sext i32 %304 to i64
-  %306 = icmp slt i64 %indvars.iv.next.i49, %305
-  br i1 %306, label %.lr.ph.i47, label %_mpir_cleanup.exit, !llvm.loop !17
+  %305 = load i32, ptr @MPIR_proctable_size, align 4
+  %306 = sext i32 %305 to i64
+  %307 = icmp slt i64 %indvars.iv.next.i49, %306
+  br i1 %307, label %.lr.ph.i47, label %_mpir_cleanup.exit, !llvm.loop !17
 
 _mpir_cleanup.exit:                               ; preds = %.lr.ph.i47, %_msg_thr_destroy.exit
   call void @slurm_xfree(ptr noundef nonnull @MPIR_proctable) #14
   call void @slurm_xfree(ptr noundef nonnull %11) #14
   call void @log_fini() #14
   call void @slurm_fini() #14
-  %307 = load i32, ptr @global_rc, align 4
+  %308 = load i32, ptr @global_rc, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  ret i32 %307
+  ret i32 %308
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

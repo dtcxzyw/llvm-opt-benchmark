@@ -617,7 +617,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(ptr noundef
   %16 = load i8, ptr %5, align 1, !tbaa !12
   %17 = zext i8 %16 to i64
   %18 = icmp slt i8 %16, 0
-  br i1 %18, label %19, label %35
+  br i1 %18, label %19, label %34
 
 19:                                               ; preds = %15
   %20 = add nsw i64 %17, -127
@@ -628,124 +628,126 @@ define range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(ptr noundef
 
 23:                                               ; preds = %19
   %.not90.i.i = icmp ult i64 %20, %1
-  br i1 %.not90.i.i, label %24, label %HUF_readStats_body_default.exit
+  br i1 %.not90.i.i, label %.lr.ph.preheader.i, label %HUF_readStats_body_default.exit
 
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %.loopexit.thread.i, label %.lr.ph.i
+.lr.ph.preheader.i:                               ; preds = %23
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  br label %.lr.ph.i
 
-.loopexit.thread.i:                               ; preds = %24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
-  br label %HUF_readStats_body_default.exit
-
-.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %24 ]
-  %26 = lshr exact i64 %indvars.iv.i, 1
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !12
-  %29 = lshr i8 %28, 4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %29, ptr %30, align 1, !tbaa !12
-  %31 = load i8, ptr %27, align 1, !tbaa !12
-  %32 = and i8 %31, 15
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  store i8 %32, ptr %33, align 1, !tbaa !12
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %25 = lshr exact i64 %indvars.iv.i, 1
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !12
+  %28 = lshr i8 %27, 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
+  store i8 %28, ptr %29, align 1, !tbaa !12
+  %30 = load i8, ptr %26, align 1, !tbaa !12
+  %31 = and i8 %30, 15
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  store i8 %31, ptr %32, align 1, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %34 = icmp ult i64 %indvars.iv.next.i, %20
-  br i1 %34, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !13
+  %33 = icmp samesign ult i64 %indvars.iv.next.i, %20
+  br i1 %33, label %.lr.ph.i, label %.loopexit.thread.i, !llvm.loop !13
 
-35:                                               ; preds = %15
-  %.not87.i.i = icmp ugt i64 %6, %17
-  br i1 %.not87.i.i, label %36, label %HUF_readStats_body_default.exit
-
-36:                                               ; preds = %35
-  %37 = add i64 %1, -1
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %39 = tail call i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %37, ptr noundef nonnull %38, i64 noundef %17, i32 noundef 6, ptr noundef %7, i64 noundef %8, i32 noundef 0) #10
-  %40 = icmp ult i64 %39, -119
-  br i1 %40, label %.loopexit.i, label %HUF_readStats_body_default.exit
-
-.loopexit.i:                                      ; preds = %.lr.ph.i, %36
-  %.074.i.i = phi i64 [ %39, %36 ], [ %20, %.lr.ph.i ]
-  %.073.i.i = phi i64 [ %17, %36 ], [ %22, %.lr.ph.i ]
+.loopexit.thread.i:                               ; preds = %.lr.ph.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
-  %.not91.i10.not.i = icmp eq i64 %.074.i.i, 0
-  br i1 %.not91.i10.not.i, label %HUF_readStats_body_default.exit, label %.lr.ph13.i
+  br label %.lr.ph13.preheader.i
 
-.lr.ph13.i:                                       ; preds = %.loopexit.i, %45
-  %41 = phi i64 [ %56, %45 ], [ 0, %.loopexit.i ]
-  %.072.i12.i = phi i32 [ %54, %45 ], [ 0, %.loopexit.i ]
-  %.075.i11.i = phi i32 [ %55, %45 ], [ 0, %.loopexit.i ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %41
-  %43 = load i8, ptr %42, align 1, !tbaa !12
-  %44 = icmp ugt i8 %43, 12
-  br i1 %44, label %HUF_readStats_body_default.exit, label %45
+34:                                               ; preds = %15
+  %.not87.i.i = icmp ugt i64 %6, %17
+  br i1 %.not87.i.i, label %35, label %HUF_readStats_body_default.exit
 
-45:                                               ; preds = %.lr.ph13.i
-  %46 = zext nneg i8 %43 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %2, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !3
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %47, align 4, !tbaa !3
-  %50 = load i8, ptr %42, align 1, !tbaa !12
-  %51 = zext nneg i8 %50 to i32
-  %52 = shl nuw i32 1, %51
-  %53 = ashr i32 %52, 1
-  %54 = add i32 %53, %.072.i12.i
-  %55 = add i32 %.075.i11.i, 1
-  %56 = zext i32 %55 to i64
-  %.not91.i.i = icmp ugt i64 %.074.i.i, %56
+35:                                               ; preds = %34
+  %36 = add i64 %1, -1
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %38 = tail call i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %36, ptr noundef nonnull %37, i64 noundef %17, i32 noundef 6, ptr noundef %7, i64 noundef %8, i32 noundef 0) #10
+  %39 = icmp ult i64 %38, -119
+  br i1 %39, label %.loopexit.i, label %HUF_readStats_body_default.exit
+
+.loopexit.i:                                      ; preds = %35
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
+  %.not91.i10.not.i = icmp eq i64 %38, 0
+  br i1 %.not91.i10.not.i, label %HUF_readStats_body_default.exit, label %.lr.ph13.preheader.i
+
+.lr.ph13.preheader.i:                             ; preds = %.loopexit.i, %.loopexit.thread.i
+  %.073.i27.i = phi i64 [ %22, %.loopexit.thread.i ], [ %17, %.loopexit.i ]
+  %.074.i25.i = phi i64 [ %20, %.loopexit.thread.i ], [ %38, %.loopexit.i ]
+  br label %.lr.ph13.i
+
+.lr.ph13.i:                                       ; preds = %44, %.lr.ph13.preheader.i
+  %40 = phi i64 [ %55, %44 ], [ 0, %.lr.ph13.preheader.i ]
+  %.072.i12.i = phi i32 [ %53, %44 ], [ 0, %.lr.ph13.preheader.i ]
+  %.075.i11.i = phi i32 [ %54, %44 ], [ 0, %.lr.ph13.preheader.i ]
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
+  %42 = load i8, ptr %41, align 1, !tbaa !12
+  %43 = icmp ugt i8 %42, 12
+  br i1 %43, label %HUF_readStats_body_default.exit, label %44
+
+44:                                               ; preds = %.lr.ph13.i
+  %45 = zext nneg i8 %42 to i64
+  %46 = getelementptr inbounds nuw i32, ptr %2, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !3
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %46, align 4, !tbaa !3
+  %49 = load i8, ptr %41, align 1, !tbaa !12
+  %50 = zext nneg i8 %49 to i32
+  %51 = shl nuw i32 1, %50
+  %52 = ashr i32 %51, 1
+  %53 = add i32 %52, %.072.i12.i
+  %54 = add i32 %.075.i11.i, 1
+  %55 = zext i32 %54 to i64
+  %.not91.i.i = icmp ugt i64 %.074.i25.i, %55
   br i1 %.not91.i.i, label %.lr.ph13.i, label %.critedge.i.i, !llvm.loop !14
 
-.critedge.i.i:                                    ; preds = %45
-  %.old.i.i = icmp eq i32 %54, 0
-  br i1 %.old.i.i, label %HUF_readStats_body_default.exit, label %57
+.critedge.i.i:                                    ; preds = %44
+  %.old.i.i = icmp eq i32 %53, 0
+  br i1 %.old.i.i, label %HUF_readStats_body_default.exit, label %56
 
-57:                                               ; preds = %.critedge.i.i
-  %58 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %54, i1 true)
-  %59 = xor i32 %58, 31
-  %60 = icmp samesign ugt i32 %59, 11
-  br i1 %60, label %HUF_readStats_body_default.exit, label %61
+56:                                               ; preds = %.critedge.i.i
+  %57 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %53, i1 true)
+  %58 = xor i32 %57, 31
+  %59 = icmp samesign ugt i32 %58, 11
+  br i1 %59, label %HUF_readStats_body_default.exit, label %60
 
-61:                                               ; preds = %57
-  %62 = sub nuw nsw i32 32, %58
-  store i32 %62, ptr %4, align 4, !tbaa !3
-  %63 = shl nuw nsw i32 2, %59
-  %64 = sub i32 %63, %54
-  %65 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %64, i1 true)
-  %66 = xor i32 %65, 31
-  %67 = shl nuw i32 1, %66
-  %.not92.i.i = icmp eq i32 %67, %64
-  br i1 %.not92.i.i, label %68, label %HUF_readStats_body_default.exit
+60:                                               ; preds = %56
+  %61 = sub nuw nsw i32 32, %57
+  store i32 %61, ptr %4, align 4, !tbaa !3
+  %62 = shl nuw nsw i32 2, %58
+  %63 = sub i32 %62, %53
+  %64 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %63, i1 true)
+  %65 = xor i32 %64, 31
+  %66 = shl nuw i32 1, %65
+  %.not92.i.i = icmp eq i32 %66, %63
+  br i1 %.not92.i.i, label %67, label %HUF_readStats_body_default.exit
 
-68:                                               ; preds = %61
-  %69 = sub nuw nsw i32 32, %65
-  %70 = trunc nuw nsw i32 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %.074.i.i
-  store i8 %70, ptr %71, align 1, !tbaa !12
-  %72 = zext nneg i32 %69 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %2, i64 %72
-  %74 = load i32, ptr %73, align 4, !tbaa !3
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %73, align 4, !tbaa !3
-  %76 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !3
-  %78 = icmp ugt i32 %77, 1
-  %79 = and i32 %77, 1
-  %.not93.i.i = icmp eq i32 %79, 0
-  %or.cond.i.i = and i1 %78, %.not93.i.i
-  br i1 %or.cond.i.i, label %80, label %HUF_readStats_body_default.exit
+67:                                               ; preds = %60
+  %68 = sub nuw nsw i32 32, %64
+  %69 = trunc nuw nsw i32 %68 to i8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.074.i25.i
+  store i8 %69, ptr %70, align 1, !tbaa !12
+  %71 = zext nneg i32 %68 to i64
+  %72 = getelementptr inbounds nuw i32, ptr %2, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !3
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %72, align 4, !tbaa !3
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !3
+  %77 = icmp ugt i32 %76, 1
+  %78 = and i32 %76, 1
+  %.not93.i.i = icmp eq i32 %78, 0
+  %or.cond.i.i = and i1 %77, %.not93.i.i
+  br i1 %or.cond.i.i, label %79, label %HUF_readStats_body_default.exit
 
-80:                                               ; preds = %68
-  %81 = trunc nuw i64 %.074.i.i to i32
-  %82 = add i32 %81, 1
-  store i32 %82, ptr %3, align 4, !tbaa !3
-  %83 = add nuw nsw i64 %.073.i.i, 1
+79:                                               ; preds = %67
+  %80 = trunc nuw i64 %.074.i25.i to i32
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %3, align 4, !tbaa !3
+  %82 = add nuw nsw i64 %.073.i27.i, 1
   br label %HUF_readStats_body_default.exit
 
-HUF_readStats_body_default.exit:                  ; preds = %.lr.ph13.i, %80, %68, %61, %57, %.critedge.i.i, %.loopexit.i, %36, %35, %.loopexit.thread.i, %23, %19, %14, %12
-  %.0 = phi i64 [ %13, %12 ], [ %83, %80 ], [ -72, %14 ], [ -72, %19 ], [ -20, %23 ], [ -72, %35 ], [ %39, %36 ], [ -20, %.critedge.i.i ], [ -20, %68 ], [ -20, %57 ], [ -20, %61 ], [ -20, %.loopexit.i ], [ -20, %.loopexit.thread.i ], [ -20, %.lr.ph13.i ]
+HUF_readStats_body_default.exit:                  ; preds = %.lr.ph13.i, %79, %67, %60, %56, %.critedge.i.i, %.loopexit.i, %35, %34, %23, %19, %14, %12
+  %.0 = phi i64 [ %13, %12 ], [ %82, %79 ], [ -72, %14 ], [ -72, %19 ], [ -20, %23 ], [ -72, %34 ], [ %38, %35 ], [ -20, %.critedge.i.i ], [ -20, %67 ], [ -20, %56 ], [ -20, %60 ], [ -20, %.loopexit.i ], [ -20, %.lr.ph13.i ]
   ret i64 %.0
 }
 
@@ -758,7 +760,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   %11 = load i8, ptr %5, align 1, !tbaa !12
   %12 = zext i8 %11 to i64
   %13 = icmp slt i8 %11, 0
-  br i1 %13, label %14, label %32
+  br i1 %13, label %14, label %31
 
 14:                                               ; preds = %10
   %15 = add nsw i64 %12, -127
@@ -769,130 +771,129 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
 
 18:                                               ; preds = %14
   %.not90.i = icmp ult i64 %15, %1
-  br i1 %.not90.i, label %19, label %HUF_readStats_body.exit
+  br i1 %.not90.i, label %.lr.ph.preheader, label %HUF_readStats_body.exit
 
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %.loopexit.thread, label %.lr.ph.preheader
-
-.loopexit.thread:                                 ; preds = %19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
-  br label %HUF_readStats_body.exit
-
-.lr.ph.preheader:                                 ; preds = %19
-  %21 = trunc nuw nsw i64 %15 to i32
+.lr.ph.preheader:                                 ; preds = %18
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %20 = trunc nuw nsw i64 %15 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = lshr exact i64 %indvars.iv, 1
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !12
-  %25 = lshr i8 %24, 4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %25, ptr %26, align 1, !tbaa !12
-  %27 = load i8, ptr %23, align 1, !tbaa !12
-  %28 = and i8 %27, 15
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store i8 %28, ptr %30, align 1, !tbaa !12
+  %21 = lshr exact i64 %indvars.iv, 1
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
+  %23 = load i8, ptr %22, align 1, !tbaa !12
+  %24 = lshr i8 %23, 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %24, ptr %25, align 1, !tbaa !12
+  %26 = load i8, ptr %22, align 1, !tbaa !12
+  %27 = and i8 %26, 15
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  store i8 %27, ptr %29, align 1, !tbaa !12
   %indvars.iv.next = add nuw i64 %indvars.iv, 2
   %indvars = trunc i64 %indvars.iv.next to i32
-  %31 = icmp ugt i32 %21, %indvars
-  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  %30 = icmp ugt i32 %20, %indvars
+  br i1 %30, label %.lr.ph, label %.loopexit.thread, !llvm.loop !13
 
-32:                                               ; preds = %10
-  %.not87.i = icmp ugt i64 %6, %12
-  br i1 %.not87.i, label %33, label %HUF_readStats_body.exit
-
-33:                                               ; preds = %32
-  %34 = add i64 %1, -1
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %36 = tail call i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %34, ptr noundef nonnull %35, i64 noundef %12, i32 noundef 6, ptr noundef %7, i64 noundef %8, i32 noundef 1) #10
-  %37 = icmp ult i64 %36, -119
-  br i1 %37, label %.loopexit, label %HUF_readStats_body.exit
-
-.loopexit:                                        ; preds = %.lr.ph, %33
-  %.074.i = phi i64 [ %36, %33 ], [ %15, %.lr.ph ]
-  %.073.i = phi i64 [ %12, %33 ], [ %17, %.lr.ph ]
+.loopexit.thread:                                 ; preds = %.lr.ph
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
-  %.not91.i10.not = icmp eq i64 %.074.i, 0
-  br i1 %.not91.i10.not, label %HUF_readStats_body.exit, label %.lr.ph13
+  br label %.lr.ph13.preheader
 
-.lr.ph13:                                         ; preds = %.loopexit, %42
-  %38 = phi i64 [ %53, %42 ], [ 0, %.loopexit ]
-  %.072.i12 = phi i32 [ %51, %42 ], [ 0, %.loopexit ]
-  %.075.i11 = phi i32 [ %52, %42 ], [ 0, %.loopexit ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !12
-  %41 = icmp ugt i8 %40, 12
-  br i1 %41, label %HUF_readStats_body.exit, label %42
+31:                                               ; preds = %10
+  %.not87.i = icmp ugt i64 %6, %12
+  br i1 %.not87.i, label %32, label %HUF_readStats_body.exit
 
-42:                                               ; preds = %.lr.ph13
-  %43 = zext nneg i8 %40 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %2, i64 %43
-  %45 = load i32, ptr %44, align 4, !tbaa !3
-  %46 = add i32 %45, 1
-  store i32 %46, ptr %44, align 4, !tbaa !3
-  %47 = load i8, ptr %39, align 1, !tbaa !12
-  %48 = zext nneg i8 %47 to i32
-  %49 = shl nuw i32 1, %48
-  %50 = ashr i32 %49, 1
-  %51 = add i32 %50, %.072.i12
-  %52 = add i32 %.075.i11, 1
-  %53 = zext i32 %52 to i64
-  %.not91.i = icmp ugt i64 %.074.i, %53
+32:                                               ; preds = %31
+  %33 = add i64 %1, -1
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %35 = tail call i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %33, ptr noundef nonnull %34, i64 noundef %12, i32 noundef 6, ptr noundef %7, i64 noundef %8, i32 noundef 1) #10
+  %36 = icmp ult i64 %35, -119
+  br i1 %36, label %.loopexit, label %HUF_readStats_body.exit
+
+.loopexit:                                        ; preds = %32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
+  %.not91.i10.not = icmp eq i64 %35, 0
+  br i1 %.not91.i10.not, label %HUF_readStats_body.exit, label %.lr.ph13.preheader
+
+.lr.ph13.preheader:                               ; preds = %.loopexit.thread, %.loopexit
+  %.073.i27 = phi i64 [ %17, %.loopexit.thread ], [ %12, %.loopexit ]
+  %.074.i25 = phi i64 [ %15, %.loopexit.thread ], [ %35, %.loopexit ]
+  br label %.lr.ph13
+
+.lr.ph13:                                         ; preds = %.lr.ph13.preheader, %41
+  %37 = phi i64 [ %52, %41 ], [ 0, %.lr.ph13.preheader ]
+  %.072.i12 = phi i32 [ %50, %41 ], [ 0, %.lr.ph13.preheader ]
+  %.075.i11 = phi i32 [ %51, %41 ], [ 0, %.lr.ph13.preheader ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
+  %39 = load i8, ptr %38, align 1, !tbaa !12
+  %40 = icmp ugt i8 %39, 12
+  br i1 %40, label %HUF_readStats_body.exit, label %41
+
+41:                                               ; preds = %.lr.ph13
+  %42 = zext nneg i8 %39 to i64
+  %43 = getelementptr inbounds nuw i32, ptr %2, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !3
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %43, align 4, !tbaa !3
+  %46 = load i8, ptr %38, align 1, !tbaa !12
+  %47 = zext nneg i8 %46 to i32
+  %48 = shl nuw i32 1, %47
+  %49 = ashr i32 %48, 1
+  %50 = add i32 %49, %.072.i12
+  %51 = add i32 %.075.i11, 1
+  %52 = zext i32 %51 to i64
+  %.not91.i = icmp ugt i64 %.074.i25, %52
   br i1 %.not91.i, label %.lr.ph13, label %.critedge.i, !llvm.loop !14
 
-.critedge.i:                                      ; preds = %42
-  %.old.i = icmp eq i32 %51, 0
-  br i1 %.old.i, label %HUF_readStats_body.exit, label %54
+.critedge.i:                                      ; preds = %41
+  %.old.i = icmp eq i32 %50, 0
+  br i1 %.old.i, label %HUF_readStats_body.exit, label %53
 
-54:                                               ; preds = %.critedge.i
-  %55 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %51, i1 true)
-  %56 = xor i32 %55, 31
-  %57 = icmp samesign ugt i32 %56, 11
-  br i1 %57, label %HUF_readStats_body.exit, label %58
+53:                                               ; preds = %.critedge.i
+  %54 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %50, i1 true)
+  %55 = xor i32 %54, 31
+  %56 = icmp samesign ugt i32 %55, 11
+  br i1 %56, label %HUF_readStats_body.exit, label %57
 
-58:                                               ; preds = %54
-  %59 = sub nuw nsw i32 32, %55
-  store i32 %59, ptr %4, align 4, !tbaa !3
-  %60 = shl nuw nsw i32 2, %56
-  %61 = sub i32 %60, %51
-  %62 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %61, i1 true)
-  %63 = xor i32 %62, 31
-  %64 = shl nuw i32 1, %63
-  %.not92.i = icmp eq i32 %64, %61
-  br i1 %.not92.i, label %65, label %HUF_readStats_body.exit
+57:                                               ; preds = %53
+  %58 = sub nuw nsw i32 32, %54
+  store i32 %58, ptr %4, align 4, !tbaa !3
+  %59 = shl nuw nsw i32 2, %55
+  %60 = sub i32 %59, %50
+  %61 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %60, i1 true)
+  %62 = xor i32 %61, 31
+  %63 = shl nuw i32 1, %62
+  %.not92.i = icmp eq i32 %63, %60
+  br i1 %.not92.i, label %64, label %HUF_readStats_body.exit
 
-65:                                               ; preds = %58
-  %66 = sub nuw nsw i32 32, %62
-  %67 = trunc nuw nsw i32 %66 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %.074.i
-  store i8 %67, ptr %68, align 1, !tbaa !12
-  %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %2, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !3
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %70, align 4, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %74 = load i32, ptr %73, align 4, !tbaa !3
-  %75 = icmp ugt i32 %74, 1
-  %76 = and i32 %74, 1
-  %.not93.i = icmp eq i32 %76, 0
-  %or.cond.i = and i1 %75, %.not93.i
-  br i1 %or.cond.i, label %77, label %HUF_readStats_body.exit
+64:                                               ; preds = %57
+  %65 = sub nuw nsw i32 32, %61
+  %66 = trunc nuw nsw i32 %65 to i8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.074.i25
+  store i8 %66, ptr %67, align 1, !tbaa !12
+  %68 = zext nneg i32 %65 to i64
+  %69 = getelementptr inbounds nuw i32, ptr %2, i64 %68
+  %70 = load i32, ptr %69, align 4, !tbaa !3
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %69, align 4, !tbaa !3
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %73 = load i32, ptr %72, align 4, !tbaa !3
+  %74 = icmp ugt i32 %73, 1
+  %75 = and i32 %73, 1
+  %.not93.i = icmp eq i32 %75, 0
+  %or.cond.i = and i1 %74, %.not93.i
+  br i1 %or.cond.i, label %76, label %HUF_readStats_body.exit
 
-77:                                               ; preds = %65
-  %78 = trunc nuw i64 %.074.i to i32
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %3, align 4, !tbaa !3
-  %80 = add nuw nsw i64 %.073.i, 1
+76:                                               ; preds = %64
+  %77 = trunc nuw i64 %.074.i25 to i32
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %3, align 4, !tbaa !3
+  %79 = add nuw nsw i64 %.073.i27, 1
   br label %HUF_readStats_body.exit
 
-HUF_readStats_body.exit:                          ; preds = %.lr.ph13, %.loopexit.thread, %.loopexit, %9, %14, %18, %32, %33, %.critedge.i, %54, %58, %65, %77
-  %.0.i = phi i64 [ %80, %77 ], [ -72, %9 ], [ -72, %14 ], [ -20, %18 ], [ -72, %32 ], [ %36, %33 ], [ -20, %.critedge.i ], [ -20, %65 ], [ -20, %54 ], [ -20, %58 ], [ -20, %.loopexit ], [ -20, %.loopexit.thread ], [ -20, %.lr.ph13 ]
+HUF_readStats_body.exit:                          ; preds = %.lr.ph13, %.loopexit, %9, %14, %18, %31, %32, %.critedge.i, %53, %57, %64, %76
+  %.0.i = phi i64 [ %79, %76 ], [ -72, %9 ], [ -72, %14 ], [ -20, %18 ], [ -72, %31 ], [ %35, %32 ], [ -20, %.critedge.i ], [ -20, %64 ], [ -20, %53 ], [ -20, %57 ], [ -20, %.loopexit ], [ -20, %.lr.ph13 ]
   ret i64 %.0.i
 }
 

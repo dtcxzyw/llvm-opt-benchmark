@@ -128,7 +128,7 @@ X11_CreateXCursorCursor.exit:                     ; preds = %7
   %35 = load ptr, ptr @X11_XcursorImageDestroy, align 8
   tail call void %35(ptr noundef nonnull %17) #5
   %36 = icmp eq i64 %34, 0
-  br i1 %36, label %X11_CreateXCursorCursor.exit.thread, label %160
+  br i1 %36, label %X11_CreateXCursorCursor.exit.thread, label %162
 
 X11_CreateXCursorCursor.exit.thread:              ; preds = %18, %3, %X11_CreateXCursorCursor.exit
   %37 = tail call ptr @SDL_GetVideoDevice() #5
@@ -335,57 +335,59 @@ X11_CreateXCursorCursor.exit.thread:              ; preds = %18, %3, %X11_Create
   %139 = getelementptr inbounds nuw i8, ptr %40, i64 224
   %140 = load i32, ptr %139, align 8
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds %struct.Screen, ptr %138, i64 %141, i32 2
-  %143 = load i64, ptr %142, align 8
-  %144 = tail call i64 %136(ptr noundef %40, i64 noundef %143, ptr noundef nonnull %50, i32 noundef %.pre.pre, i32 noundef %56) #5
-  %145 = load ptr, ptr @X11_XCreateBitmapFromData, align 8
-  %146 = load ptr, ptr %137, align 8
-  %147 = load i32, ptr %139, align 8
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %struct.Screen, ptr %146, i64 %148, i32 2
-  %150 = load i64, ptr %149, align 8
-  %151 = load i32, ptr %41, align 8
-  %152 = load i32, ptr %46, align 4
-  %153 = tail call i64 %145(ptr noundef %40, i64 noundef %150, ptr noundef nonnull %55, i32 noundef %151, i32 noundef %152) #5
-  %154 = load ptr, ptr @X11_XCreatePixmapCursor, align 8
-  %155 = call i64 %154(ptr noundef %40, i64 noundef %144, i64 noundef %153, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2) #5
-  %156 = load ptr, ptr @X11_XFreePixmap, align 8
-  %157 = call i32 %156(ptr noundef %40, i64 noundef %144) #5
+  %142 = getelementptr inbounds %struct.Screen, ptr %138, i64 %141
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  %144 = load i64, ptr %143, align 8
+  %145 = tail call i64 %136(ptr noundef %40, i64 noundef %144, ptr noundef nonnull %50, i32 noundef %.pre.pre, i32 noundef %56) #5
+  %146 = load ptr, ptr @X11_XCreateBitmapFromData, align 8
+  %147 = load ptr, ptr %137, align 8
+  %148 = load i32, ptr %139, align 8
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr inbounds %struct.Screen, ptr %147, i64 %149
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %152 = load i64, ptr %151, align 8
+  %153 = load i32, ptr %41, align 8
+  %154 = load i32, ptr %46, align 4
+  %155 = tail call i64 %146(ptr noundef %40, i64 noundef %152, ptr noundef nonnull %55, i32 noundef %153, i32 noundef %154) #5
+  %156 = load ptr, ptr @X11_XCreatePixmapCursor, align 8
+  %157 = call i64 %156(ptr noundef %40, i64 noundef %145, i64 noundef %155, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2) #5
   %158 = load ptr, ptr @X11_XFreePixmap, align 8
-  %159 = call i32 %158(ptr noundef %40, i64 noundef %153) #5
+  %159 = call i32 %158(ptr noundef %40, i64 noundef %145) #5
+  %160 = load ptr, ptr @X11_XFreePixmap, align 8
+  %161 = call i32 %160(ptr noundef %40, i64 noundef %155) #5
   call void @SDL_free_REAL(ptr noundef nonnull %50) #5
   call void @SDL_free_REAL(ptr noundef nonnull %55) #5
   br label %X11_CreatePixmapCursor.exit
 
 X11_CreatePixmapCursor.exit:                      ; preds = %X11_CreateXCursorCursor.exit.thread, %104, %132
-  %.0.i8 = phi i64 [ %155, %132 ], [ 0, %104 ], [ 0, %X11_CreateXCursorCursor.exit.thread ]
+  %.0.i8 = phi i64 [ %157, %132 ], [ 0, %104 ], [ 0, %X11_CreateXCursorCursor.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %160
+  br label %162
 
-160:                                              ; preds = %X11_CreatePixmapCursor.exit, %X11_CreateXCursorCursor.exit
+162:                                              ; preds = %X11_CreatePixmapCursor.exit, %X11_CreateXCursorCursor.exit
   %.1 = phi i64 [ %.0.i8, %X11_CreatePixmapCursor.exit ], [ %34, %X11_CreateXCursorCursor.exit ]
-  %161 = call noalias dereferenceable_or_null(16) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 16) #6
-  %.not.i9 = icmp eq ptr %161, null
-  br i1 %.not.i9, label %X11_CreateCursorAndData.exit, label %162
-
-162:                                              ; preds = %160
-  %163 = call noalias dereferenceable_or_null(8) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 8) #6
-  %.not12.not.i = icmp eq ptr %163, null
-  br i1 %.not12.not.i, label %.thread.i10, label %164
-
-.thread.i10:                                      ; preds = %162
-  call void @SDL_free_REAL(ptr noundef nonnull %161) #5
-  br label %X11_CreateCursorAndData.exit
+  %163 = call noalias dereferenceable_or_null(16) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 16) #6
+  %.not.i9 = icmp eq ptr %163, null
+  br i1 %.not.i9, label %X11_CreateCursorAndData.exit, label %164
 
 164:                                              ; preds = %162
-  store i64 %.1, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  store ptr %163, ptr %165, align 8
+  %165 = call noalias dereferenceable_or_null(8) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 8) #6
+  %.not12.not.i = icmp eq ptr %165, null
+  br i1 %.not12.not.i, label %.thread.i10, label %166
+
+.thread.i10:                                      ; preds = %164
+  call void @SDL_free_REAL(ptr noundef nonnull %163) #5
   br label %X11_CreateCursorAndData.exit
 
-X11_CreateCursorAndData.exit:                     ; preds = %160, %.thread.i10, %164
-  %.1.i = phi ptr [ null, %.thread.i10 ], [ %161, %164 ], [ null, %160 ]
+166:                                              ; preds = %164
+  store i64 %.1, ptr %165, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  store ptr %165, ptr %167, align 8
+  br label %X11_CreateCursorAndData.exit
+
+X11_CreateCursorAndData.exit:                     ; preds = %162, %.thread.i10, %166
+  %.1.i = phi ptr [ null, %.thread.i10 ], [ %163, %166 ], [ null, %162 ]
   ret ptr %.1.i
 }
 
@@ -487,38 +489,39 @@ define internal noundef zeroext i1 @X11_ShowCursor(ptr noundef readonly captures
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 224
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %struct.Screen, ptr %22, i64 %25, i32 2
-  %27 = load i64, ptr %26, align 8
-  %28 = call i64 %20(ptr noundef %16, i64 noundef %27, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 1) #5
-  %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %34, label %29
+  %26 = getelementptr inbounds %struct.Screen, ptr %22, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = call i64 %20(ptr noundef %16, i64 noundef %28, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 1) #5
+  %.not.i = icmp eq i64 %29, 0
+  br i1 %.not.i, label %35, label %30
 
-29:                                               ; preds = %12
-  %30 = load ptr, ptr @X11_XCreatePixmapCursor, align 8
-  %31 = call i64 %30(ptr noundef nonnull %16, i64 noundef %28, i64 noundef %28, ptr noundef nonnull %3, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0) #5
-  store i64 %31, ptr @x11_empty_cursor, align 8
-  %32 = load ptr, ptr @X11_XFreePixmap, align 8
-  %33 = call i32 %32(ptr noundef nonnull %16, i64 noundef %28) #5
-  br label %34
+30:                                               ; preds = %12
+  %31 = load ptr, ptr @X11_XCreatePixmapCursor, align 8
+  %32 = call i64 %31(ptr noundef nonnull %16, i64 noundef %29, i64 noundef %29, ptr noundef nonnull %3, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0) #5
+  store i64 %32, ptr @x11_empty_cursor, align 8
+  %33 = load ptr, ptr @X11_XFreePixmap, align 8
+  %34 = call i32 %33(ptr noundef nonnull %16, i64 noundef %29) #5
+  br label %35
 
-34:                                               ; preds = %29, %12
+35:                                               ; preds = %30, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre.i = load i64, ptr @x11_empty_cursor, align 8
   br label %X11_CreateEmptyCursor.exit
 
-X11_CreateEmptyCursor.exit:                       ; preds = %34, %9, %5
-  %.0 = phi i64 [ %8, %5 ], [ %.pre.i, %34 ], [ %10, %9 ]
+X11_CreateEmptyCursor.exit:                       ; preds = %35, %9, %5
+  %.0 = phi i64 [ %8, %5 ], [ %.pre.i, %35 ], [ %10, %9 ]
   %.0.fr = freeze i64 %.0
-  %35 = call ptr @SDL_GetVideoDevice() #5
   %36 = call ptr @SDL_GetVideoDevice() #5
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1656
-  %38 = load ptr, ptr %37, align 8
+  %37 = call ptr @SDL_GetVideoDevice() #5
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1656
   %39 = load ptr, ptr %38, align 8
-  %40 = zext i1 %4 to i8
-  store i8 %40, ptr @x11_cursor_visible, align 1
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 832
-  %.01419 = load ptr, ptr %41, align 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = zext i1 %4 to i8
+  store i8 %41, ptr @x11_cursor_visible, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 832
+  %.01419 = load ptr, ptr %42, align 8
   %.not20 = icmp eq ptr %.01419, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -526,49 +529,49 @@ X11_CreateEmptyCursor.exit:                       ; preds = %34, %9, %5
   %.not18 = icmp eq i64 %.0.fr, 0
   br i1 %.not18, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %49
-  %.01421.us = phi ptr [ %.014.us, %49 ], [ %.01419, %.lr.ph ]
-  %42 = getelementptr inbounds nuw i8, ptr %.01421.us, i64 392
-  %43 = load ptr, ptr %42, align 8
-  %.not17.us = icmp eq ptr %43, null
-  br i1 %.not17.us, label %49, label %44
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %50
+  %.01421.us = phi ptr [ %.014.us, %50 ], [ %.01419, %.lr.ph ]
+  %43 = getelementptr inbounds nuw i8, ptr %.01421.us, i64 392
+  %44 = load ptr, ptr %43, align 8
+  %.not17.us = icmp eq ptr %44, null
+  br i1 %.not17.us, label %50, label %45
 
-44:                                               ; preds = %.lr.ph.split.us
-  %45 = load ptr, ptr @X11_XUndefineCursor, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = load i64, ptr %46, align 8
-  %48 = call i32 %45(ptr noundef %39, i64 noundef %47) #5
-  br label %49
+45:                                               ; preds = %.lr.ph.split.us
+  %46 = load ptr, ptr @X11_XUndefineCursor, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %48 = load i64, ptr %47, align 8
+  %49 = call i32 %46(ptr noundef %40, i64 noundef %48) #5
+  br label %50
 
-49:                                               ; preds = %44, %.lr.ph.split.us
-  %50 = getelementptr inbounds nuw i8, ptr %.01421.us, i64 416
-  %.014.us = load ptr, ptr %50, align 8
+50:                                               ; preds = %45, %.lr.ph.split.us
+  %51 = getelementptr inbounds nuw i8, ptr %.01421.us, i64 416
+  %.014.us = load ptr, ptr %51, align 8
   %.not.us = icmp eq ptr %.014.us, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %58
-  %.01421 = phi ptr [ %.014, %58 ], [ %.01419, %.lr.ph ]
-  %51 = getelementptr inbounds nuw i8, ptr %.01421, i64 392
-  %52 = load ptr, ptr %51, align 8
-  %.not17 = icmp eq ptr %52, null
-  br i1 %.not17, label %58, label %53
+.lr.ph.split:                                     ; preds = %.lr.ph, %59
+  %.01421 = phi ptr [ %.014, %59 ], [ %.01419, %.lr.ph ]
+  %52 = getelementptr inbounds nuw i8, ptr %.01421, i64 392
+  %53 = load ptr, ptr %52, align 8
+  %.not17 = icmp eq ptr %53, null
+  br i1 %.not17, label %59, label %54
 
-53:                                               ; preds = %.lr.ph.split
-  %54 = load ptr, ptr @X11_XDefineCursor, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %56 = load i64, ptr %55, align 8
-  %57 = call i32 %54(ptr noundef %39, i64 noundef %56, i64 noundef %.0.fr) #5
-  br label %58
+54:                                               ; preds = %.lr.ph.split
+  %55 = load ptr, ptr @X11_XDefineCursor, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %57 = load i64, ptr %56, align 8
+  %58 = call i32 %55(ptr noundef %40, i64 noundef %57, i64 noundef %.0.fr) #5
+  br label %59
 
-58:                                               ; preds = %53, %.lr.ph.split
-  %59 = getelementptr inbounds nuw i8, ptr %.01421, i64 416
-  %.014 = load ptr, ptr %59, align 8
+59:                                               ; preds = %54, %.lr.ph.split
+  %60 = getelementptr inbounds nuw i8, ptr %.01421, i64 416
+  %.014 = load ptr, ptr %60, align 8
   %.not = icmp eq ptr %.014, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %58, %49, %X11_CreateEmptyCursor.exit
-  %60 = load ptr, ptr @X11_XFlush, align 8
-  %61 = call i32 %60(ptr noundef %39) #5
+._crit_edge:                                      ; preds = %59, %50, %X11_CreateEmptyCursor.exit
+  %61 = load ptr, ptr @X11_XFlush, align 8
+  %62 = call i32 %61(ptr noundef %40) #5
   ret i1 true
 }
 
@@ -625,7 +628,7 @@ define internal noundef zeroext i1 @X11_WarpMouse(ptr noundef %0, float noundef 
 define internal noundef zeroext i1 @X11_WarpMouseGlobal(float noundef %0, float noundef %1) #0 {
   %3 = tail call ptr @SDL_GetVideoDevice() #5
   %4 = tail call zeroext i1 @X11_WarpMouseXTest(ptr noundef %3, ptr noundef null, float noundef %0, float noundef %1) #5
-  br i1 %4, label %21, label %5
+  br i1 %4, label %22, label %5
 
 5:                                                ; preds = %2
   %6 = tail call ptr @SDL_GetVideoDevice() #5
@@ -641,12 +644,13 @@ define internal noundef zeroext i1 @X11_WarpMouseGlobal(float noundef %0, float 
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.Screen, ptr %11, i64 %18, i32 2
-  %20 = load i64, ptr %19, align 8
-  tail call fastcc void @X11_WarpMouseInternal(i64 noundef %20, float noundef %0, float noundef %1)
-  br label %21
+  %19 = getelementptr inbounds %struct.Screen, ptr %11, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load i64, ptr %20, align 8
+  tail call fastcc void @X11_WarpMouseInternal(i64 noundef %21, float noundef %0, float noundef %1)
+  br label %22
 
-21:                                               ; preds = %2, %5
+22:                                               ; preds = %2, %5
   ret i1 true
 }
 
@@ -783,13 +787,13 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
 19:                                               ; preds = %2
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !8
   %20 = trunc nuw i8 %.pre to i1
-  br i1 %20, label %21, label %60
+  br i1 %20, label %21, label %61
 
 21:                                               ; preds = %.thread49, %19
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 1656
   %23 = tail call ptr @SDL_GetDisplays_REAL(ptr noundef null) #5
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %60, label %.preheader
+  br i1 %.not, label %61, label %.preheader
 
 .preheader:                                       ; preds = %21
   %24 = load i32, ptr %23, align 4
@@ -800,12 +804,12 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 232
   br label %26
 
-26:                                               ; preds = %.lr.ph, %57
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %27 = phi i32 [ %24, %.lr.ph ], [ %59, %57 ]
+26:                                               ; preds = %.lr.ph, %58
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
+  %27 = phi i32 [ %24, %.lr.ph ], [ %60, %58 ]
   %28 = call ptr @SDL_GetDisplayDriverData(i32 noundef %27) #5
   %.not34 = icmp eq ptr %28, null
-  br i1 %.not34, label %57, label %29
+  br i1 %.not34, label %58, label %29
 
 29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -819,11 +823,12 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   %31 = load ptr, ptr %25, align 8
   %32 = load i32, ptr %28, align 8
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct.Screen, ptr %31, i64 %33, i32 2
-  %35 = load i64, ptr %34, align 8
-  %36 = call i32 %30(ptr noundef %17, i64 noundef %35, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
-  %.not35 = icmp eq i32 %36, 0
-  br i1 %.not35, label %.thread, label %37
+  %34 = getelementptr inbounds %struct.Screen, ptr %31, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load i64, ptr %35, align 8
+  %37 = call i32 %30(ptr noundef %17, i64 noundef %36, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
+  %.not35 = icmp eq i32 %37, 0
+  br i1 %.not35, label %.thread, label %38
 
 .thread:                                          ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -833,32 +838,32 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %57
+  br label %58
 
-37:                                               ; preds = %29
+38:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %38 = load i32, ptr %9, align 4
-  %39 = lshr i32 %38, 8
-  %40 = and i32 %39, 7
-  %41 = call i32 @SDL_GetMouseState_REAL(ptr noundef null, ptr noundef null) #5
-  %42 = and i32 %41, 24
-  %43 = or disjoint i32 %40, %42
-  %44 = load ptr, ptr @X11_XGetWindowAttributes, align 8
-  %45 = load i64, ptr %3, align 8
-  %46 = call i32 %44(ptr noundef nonnull %17, i64 noundef %45, ptr noundef nonnull %10) #5
-  %47 = load i32, ptr %10, align 8
-  %48 = load i32, ptr %5, align 4
-  %49 = add nsw i32 %48, %47
-  %50 = getelementptr inbounds nuw i8, ptr %13, i64 1660
-  store i32 %49, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %52 = load i32, ptr %51, align 4
-  %53 = load i32, ptr %6, align 4
-  %54 = add nsw i32 %53, %52
-  %55 = getelementptr inbounds nuw i8, ptr %13, i64 1664
-  store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %13, i64 1668
-  store i32 %43, ptr %56, align 4
+  %39 = load i32, ptr %9, align 4
+  %40 = lshr i32 %39, 8
+  %41 = and i32 %40, 7
+  %42 = call i32 @SDL_GetMouseState_REAL(ptr noundef null, ptr noundef null) #5
+  %43 = and i32 %42, 24
+  %44 = or disjoint i32 %41, %43
+  %45 = load ptr, ptr @X11_XGetWindowAttributes, align 8
+  %46 = load i64, ptr %3, align 8
+  %47 = call i32 %45(ptr noundef nonnull %17, i64 noundef %46, ptr noundef nonnull %10) #5
+  %48 = load i32, ptr %10, align 8
+  %49 = load i32, ptr %5, align 4
+  %50 = add nsw i32 %49, %48
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 1660
+  store i32 %50, ptr %51, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = load i32, ptr %6, align 4
+  %55 = add nsw i32 %54, %53
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 1664
+  store i32 %55, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 1668
+  store i32 %44, ptr %57, align 4
   store i8 0, ptr %22, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -870,29 +875,29 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-57:                                               ; preds = %.thread, %26
+58:                                               ; preds = %.thread, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.next
-  %59 = load i32, ptr %58, align 4
-  %.not33 = icmp eq i32 %59, 0
+  %59 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.next
+  %60 = load i32, ptr %59, align 4
+  %.not33 = icmp eq i32 %60, 0
   br i1 %.not33, label %.loopexit, label %26, !llvm.loop !10
 
-.loopexit:                                        ; preds = %57, %.preheader, %37
+.loopexit:                                        ; preds = %58, %.preheader, %38
   call void @SDL_free_REAL(ptr noundef nonnull %23) #5
-  br label %60
+  br label %61
 
-60:                                               ; preds = %19, %.loopexit, %21
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 1660
-  %62 = load i32, ptr %61, align 4
-  %63 = sitofp i32 %62 to float
-  store float %63, ptr %0, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %13, i64 1664
-  %65 = load i32, ptr %64, align 4
-  %66 = sitofp i32 %65 to float
-  store float %66, ptr %1, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 1668
-  %68 = load i32, ptr %67, align 4
-  ret i32 %68
+61:                                               ; preds = %19, %.loopexit, %21
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 1660
+  %63 = load i32, ptr %62, align 4
+  %64 = sitofp i32 %63 to float
+  store float %64, ptr %0, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 1664
+  %66 = load i32, ptr %65, align 4
+  %67 = sitofp i32 %66 to float
+  store float %67, ptr %1, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 1668
+  %69 = load i32, ptr %68, align 4
+  ret i32 %69
 }
 
 declare void @SDL_SetDefaultCursor(ptr noundef) local_unnamed_addr #1

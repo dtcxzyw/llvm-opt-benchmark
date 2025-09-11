@@ -1002,7 +1002,8 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setbit(ptr noundef
 34:                                               ; preds = %30, %.loopexit
   %35 = phi i64 [ 0, %.loopexit ], [ %33, %30 ]
   %36 = or i32 %2, 256
-  %37 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %35, i64 6
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %35
+  %37 = getelementptr i8, ptr %.split, i64 48
   %38 = load ptr, ptr %37, align 16
   %39 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %38, i32 noundef %36, i64 noundef 48) #14
   %40 = icmp eq ptr %39, null
@@ -1112,7 +1113,8 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setrng(ptr noundef
 
 45:                                               ; preds = %44, %.loopexit.i
   %46 = phi i64 [ 0, %.loopexit.i ], [ %10, %44 ]
-  %47 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %46, i64 6
+  %.split.i = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %46
+  %47 = getelementptr i8, ptr %.split.i, i64 48
   %48 = load ptr, ptr %47, align 16
   %49 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %48, i32 noundef %11, i64 noundef 48) #14
   %50 = icmp eq ptr %49, null
@@ -1200,7 +1202,8 @@ netlbl_catmap_setlong.exit:                       ; preds = %45, %58
 
 99:                                               ; preds = %98, %.loopexit.i5
   %100 = phi i64 [ 0, %.loopexit.i5 ], [ %10, %98 ]
-  %101 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %100, i64 6
+  %.split.i6 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %100
+  %101 = getelementptr i8, ptr %.split.i6, i64 48
   %102 = load ptr, ptr %101, align 16
   %103 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %102, i32 noundef %11, i64 noundef 48) #14
   %104 = icmp eq ptr %103, null
@@ -1216,11 +1219,11 @@ netlbl_catmap_setlong.exit:                       ; preds = %45, %58
   %111 = getelementptr inbounds nuw i8, ptr %103, i64 40
   store ptr %110, ptr %111, align 8
   store ptr %103, ptr %109, align 8
-  %.pre.i6 = load i32, ptr %103, align 8
+  %.pre.i7 = load i32, ptr %103, align 8
   br label %112
 
 112:                                              ; preds = %105, %.loopexit6.i3
-  %113 = phi i32 [ %.pre.i6, %105 ], [ %95, %.loopexit6.i3 ]
+  %113 = phi i32 [ %.pre.i7, %105 ], [ %95, %.loopexit6.i3 ]
   %.ph.i4 = phi ptr [ %103, %105 ], [ %94, %.loopexit6.i3 ]
   %114 = sub i32 %13, %113
   %115 = lshr i32 %114, 6
@@ -1307,7 +1310,8 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_setlong(ptr nounde
 38:                                               ; preds = %34, %.loopexit
   %39 = phi i64 [ 0, %.loopexit ], [ %37, %34 ]
   %40 = or i32 %3, 256
-  %41 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %39, i64 6
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %39
+  %41 = getelementptr i8, ptr %.split, i64 48
   %42 = load ptr, ptr %41, align 16
   %43 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %42, i32 noundef %40, i64 noundef 48) #14
   %44 = icmp eq ptr %43, null

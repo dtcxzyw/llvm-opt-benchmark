@@ -10831,7 +10831,7 @@ define internal fastcc ptr @make_tuple_from_row(ptr noundef readonly captures(no
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %6, %8
-  br i1 %.not, label %9, label %54
+  br i1 %.not, label %9, label %55
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -10889,15 +10889,16 @@ define internal fastcc ptr @make_tuple_from_row(ptr noundef readonly captures(no
   %47 = sext i32 %46 to i64
   %48 = shl nsw i64 %47, 4
   %49 = getelementptr i8, ptr %2, i64 %48
-  %50 = getelementptr %struct.FormData_pg_attribute, ptr %49, i64 %indvars.iv, i32 17
-  %51 = load i32, ptr %50, align 4
-  %.not32 = icmp eq i32 %45, %51
-  br i1 %.not32, label %select.unfold, label %52
+  %50 = getelementptr %struct.FormData_pg_attribute, ptr %49, i64 %indvars.iv
+  %51 = getelementptr i8, ptr %50, i64 92
+  %52 = load i32, ptr %51, align 4
+  %.not32 = icmp eq i32 %45, %52
+  br i1 %.not32, label %select.unfold, label %53
 
-52:                                               ; preds = %35
+53:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %54
+  br label %55
 
 select.unfold:                                    ; preds = %35, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -10907,11 +10908,11 @@ select.unfold:                                    ; preds = %35, %33
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %select.unfold, %9
-  %53 = tail call ptr @heap_form_tuple(ptr noundef nonnull %2, ptr noundef %16, ptr noundef %20) #12
-  br label %54
+  %54 = tail call ptr @heap_form_tuple(ptr noundef nonnull %2, ptr noundef %16, ptr noundef %20) #12
+  br label %55
 
-54:                                               ; preds = %52, %3, %._crit_edge
-  %.030 = phi ptr [ null, %52 ], [ %53, %._crit_edge ], [ null, %3 ]
+55:                                               ; preds = %53, %3, %._crit_edge
+  %.030 = phi ptr [ null, %53 ], [ %54, %._crit_edge ], [ null, %3 ]
   ret ptr %.030
 }
 

@@ -332,23 +332,24 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 define dso_local range(i32 0, 3) i32 @hash_algo_by_id(i32 noundef %0) local_unnamed_addr #7 {
   br label %2
 
-2:                                                ; preds = %1, %6
-  %exitcond.not = phi i1 [ false, %1 ], [ true, %6 ]
-  %indvars.iv = phi i64 [ 1, %1 ], [ 2, %6 ]
-  %3 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %indvars.iv, i32 1
-  %4 = load i32, ptr %3, align 8, !tbaa !39
-  %5 = icmp eq i32 %0, %4
-  br i1 %5, label %.split.loop.exit9, label %6
+2:                                                ; preds = %1, %7
+  %exitcond.not = phi i1 [ false, %1 ], [ true, %7 ]
+  %indvars.iv = phi i64 [ 1, %1 ], [ 2, %7 ]
+  %3 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load i32, ptr %4, align 8, !tbaa !39
+  %6 = icmp eq i32 %0, %5
+  br i1 %6, label %.split.loop.exit9, label %7
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !40
 
 .split.loop.exit9:                                ; preds = %2
-  %7 = trunc nuw nsw i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %6, %.split.loop.exit9
-  %.06 = phi i32 [ %7, %.split.loop.exit9 ], [ 0, %6 ]
+.split.loop.exit:                                 ; preds = %7, %.split.loop.exit9
+  %.06 = phi i32 [ %8, %.split.loop.exit9 ], [ 0, %7 ]
   ret i32 %.06
 }
 
@@ -357,23 +358,24 @@ define dso_local range(i32 0, 3) i32 @hash_algo_by_length(i32 noundef %0) local_
   %2 = sext i32 %0 to i64
   br label %3
 
-3:                                                ; preds = %1, %7
-  %exitcond.not = phi i1 [ false, %1 ], [ true, %7 ]
-  %indvars.iv = phi i64 [ 1, %1 ], [ 2, %7 ]
-  %4 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %indvars.iv, i32 2
-  %5 = load i64, ptr %4, align 16, !tbaa !41
-  %6 = icmp eq i64 %5, %2
-  br i1 %6, label %.split.loop.exit9, label %7
+3:                                                ; preds = %1, %8
+  %exitcond.not = phi i1 [ false, %1 ], [ true, %8 ]
+  %indvars.iv = phi i64 [ 1, %1 ], [ 2, %8 ]
+  %4 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load i64, ptr %5, align 16, !tbaa !41
+  %7 = icmp eq i64 %6, %2
+  br i1 %7, label %.split.loop.exit9, label %8
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   br i1 %exitcond.not, label %.split.loop.exit, label %3, !llvm.loop !42
 
 .split.loop.exit9:                                ; preds = %3
-  %8 = trunc nuw nsw i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %7, %.split.loop.exit9
-  %.06 = phi i32 [ %8, %.split.loop.exit9 ], [ 0, %7 ]
+.split.loop.exit:                                 ; preds = %8, %.split.loop.exit9
+  %.06 = phi i32 [ %9, %.split.loop.exit9 ], [ 0, %8 ]
   ret i32 %.06
 }
 

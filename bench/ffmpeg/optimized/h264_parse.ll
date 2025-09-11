@@ -74,7 +74,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_pred_weight_table(ptr noundef capt
 
 33:                                               ; preds = %32, %7
   %34 = phi i32 [ 0, %32 ], [ %29, %7 ]
-  %35 = shl nuw i32 1, %34
+  %35 = shl nuw nsw i32 1, %34
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %37 = load i32, ptr %36, align 4, !tbaa !18
   %.not = icmp eq i32 %37, 0
@@ -114,7 +114,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_pred_weight_table(ptr noundef capt
 
 61:                                               ; preds = %60, %38
   %62 = phi i32 [ 0, %60 ], [ %57, %38 ]
-  %63 = shl nuw i32 1, %62
+  %63 = shl nuw nsw i32 1, %62
   br label %64
 
 64:                                               ; preds = %61, %33

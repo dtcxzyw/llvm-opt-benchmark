@@ -67,21 +67,22 @@ _ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit: ; preds = %6, %12
 18:                                               ; preds = %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit, %18
   %indvars.iv = phi i64 [ 0, %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit ], [ %indvars.iv.next, %18 ]
   %19 = getelementptr inbounds nuw %class.VirtualMemory, ptr %17, i64 %indvars.iv
-  %20 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %8, i64 %indvars.iv, i32 1
-  %21 = load i64, ptr %20, align 8
-  %22 = load i64, ptr %19, align 8
-  %23 = add i64 %22, %21
-  store i64 %23, ptr %19, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, %21
-  store i64 %26, ptr %24, align 8
-  call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %26) #10
+  %20 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %8, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = load i64, ptr %19, align 8
+  %24 = add i64 %23, %22
+  store i64 %24, ptr %19, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, %22
+  store i64 %27, ptr %25, align 8
+  call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %27) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %27, label %18, !llvm.loop !6
+  br i1 %exitcond.not, label %28, label %18, !llvm.loop !6
 
-27:                                               ; preds = %18
+28:                                               ; preds = %18
   ret void
 }
 
@@ -97,21 +98,22 @@ define hidden void @_ZN17MemoryFileTracker11free_memoryEPNS_10MemoryFileEmm(ptr 
 9:                                                ; preds = %4, %9
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr inbounds nuw %class.VirtualMemory, ptr %8, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %5, i64 %indvars.iv, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = load i64, ptr %10, align 8
-  %14 = add i64 %13, %12
-  store i64 %14, ptr %10, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = add i64 %16, %12
-  store i64 %17, ptr %15, align 8
-  call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %17) #10
+  %11 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %5, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load i64, ptr %12, align 8
+  %14 = load i64, ptr %10, align 8
+  %15 = add i64 %14, %13
+  store i64 %15, ptr %10, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = add i64 %17, %13
+  store i64 %18, ptr %16, align 8
+  call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %18) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %18, label %9, !llvm.loop !8
+  br i1 %exitcond.not, label %19, label %9, !llvm.loop !8
 
-18:                                               ; preds = %9
+19:                                               ; preds = %9
   ret void
 }
 
@@ -134,7 +136,7 @@ define hidden void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP1
 
 .preheader.i.i:                                   ; preds = %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i", %.preheader.i.preheader.i
   %.0 = phi ptr [ null, %.preheader.i.preheader.i ], [ %47, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
-  %storemerge34.i.i = phi ptr [ %.val, %.preheader.i.preheader.i ], [ %77, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
+  %storemerge34.i.i = phi ptr [ %.val, %.preheader.i.preheader.i ], [ %78, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
   %.sroa.16.033.i.i = phi ptr [ null, %.preheader.i.preheader.i ], [ %.sroa.16.1.lcssa.i.i, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
   %.sroa.10.032.i.i = phi i32 [ 0, %.preheader.i.preheader.i ], [ %.sroa.10.1.lcssa.i.i, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
   %.sroa.0.031.i.i = phi i32 [ 0, %.preheader.i.preheader.i ], [ %44, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
@@ -253,37 +255,38 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %62 = getelementptr inbounds nuw i8, ptr %.0, i64 25
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %64, i32 1
-  %66 = load ptr, ptr %65, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.5, i64 noundef %56, i64 noundef %57, i64 noundef %60, ptr noundef %61, ptr noundef %66) #10
-  %67 = load i32, ptr %11, align 8
-  %68 = add nsw i32 %67, 4
-  store i32 %68, ptr %11, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %.0, i64 28
-  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %69, align 4
-  %70 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i, -1
-  %71 = load ptr, ptr %9, align 8
-  %72 = sext i32 %.sroa.0.0.copyload.i.i.i.i to i64
-  %73 = getelementptr inbounds %class.NativeCallStack, ptr %71, i64 %72
-  %.0.i.i.i.i = select i1 %70, ptr %8, ptr %73
+  %65 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = load ptr, ptr %66, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.5, i64 noundef %56, i64 noundef %57, i64 noundef %60, ptr noundef %61, ptr noundef %67) #10
+  %68 = load i32, ptr %11, align 8
+  %69 = add nsw i32 %68, 4
+  store i32 %69, ptr %11, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %.0, i64 28
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %70, align 4
+  %71 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i, -1
+  %72 = load ptr, ptr %9, align 8
+  %73 = sext i32 %.sroa.0.0.copyload.i.i.i.i to i64
+  %74 = getelementptr inbounds %class.NativeCallStack, ptr %72, i64 %73
+  %.0.i.i.i.i = select i1 %71, ptr %8, ptr %74
   tail call void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i, ptr noundef nonnull %2) #10
-  %74 = load i32, ptr %11, align 8
-  %75 = add nsw i32 %74, -4
-  store i32 %75, ptr %11, align 8
+  %75 = load i32, ptr %11, align 8
+  %76 = add nsw i32 %75, -4
+  store i32 %76, ptr %11, align 8
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #10
   br label %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i"
 
 "_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i": ; preds = %53, %49, %._crit_edge.i.i
-  %76 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq i32 %44, 0
-  %79 = icmp eq ptr %77, null
-  %.not1.i.i = select i1 %78, i1 %79, i1 false
+  %77 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp eq i32 %44, 0
+  %80 = icmp eq ptr %78, null
+  %.not1.i.i = select i1 %79, i1 %80, i1 false
   br i1 %.not1.i.i, label %._crit_edge35.i.i, label %.preheader.i.i, !llvm.loop !11
 
 ._crit_edge35.i.i:                                ; preds = %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i"
-  %80 = icmp eq i32 %.sroa.10.1.lcssa.i.i, 0
-  br i1 %80, label %"_ZNK7VMATree14visit_in_orderIZN17MemoryFileTracker15print_report_onEPKNS1_10MemoryFileEP12outputStreammE3$_0EEvT_.exit", label %.loopexit.thread.i.i.i.i.i
+  %81 = icmp eq i32 %.sroa.10.1.lcssa.i.i, 0
+  br i1 %81, label %"_ZNK7VMATree14visit_in_orderIZN17MemoryFileTracker15print_report_onEPKNS1_10MemoryFileEP12outputStreammE3$_0EEvT_.exit", label %.loopexit.thread.i.i.i.i.i
 
 .loopexit.thread.i.i.i.i.i:                       ; preds = %._crit_edge35.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.16.1.lcssa.i.i) #10
@@ -469,16 +472,17 @@ _ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i: ; preds = %12, %5
 18:                                               ; preds = %18, %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i ], [ %indvars.iv.next.i, %18 ]
   %19 = getelementptr inbounds nuw %class.VirtualMemory, ptr %17, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %7, i64 %indvars.iv.i, i32 1
-  %21 = load i64, ptr %20, align 8
-  %22 = load i64, ptr %19, align 8
-  %23 = add i64 %22, %21
-  store i64 %23, ptr %19, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, %21
-  store i64 %26, ptr %24, align 8
-  call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %26) #10
+  %20 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %7, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load i64, ptr %21, align 8
+  %23 = load i64, ptr %19, align 8
+  %24 = add i64 %23, %22
+  store i64 %24, ptr %19, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, %22
+  store i64 %27, ptr %25, align 8
+  call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %27) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28
   br i1 %exitcond.not.i, label %_ZN17MemoryFileTracker15allocate_memoryEPNS_10MemoryFileEmmRK15NativeCallStack8MEMFLAGS.exit, label %18, !llvm.loop !6
@@ -502,16 +506,17 @@ define hidden void @_ZN17MemoryFileTracker8Instance11free_memoryEPNS_10MemoryFil
 8:                                                ; preds = %8, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %8 ]
   %9 = getelementptr inbounds nuw %class.VirtualMemory, ptr %7, i64 %indvars.iv.i
-  %10 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %4, i64 %indvars.iv.i, i32 1
-  %11 = load i64, ptr %10, align 8
-  %12 = load i64, ptr %9, align 8
-  %13 = add i64 %12, %11
-  store i64 %13, ptr %9, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = add i64 %15, %11
-  store i64 %16, ptr %14, align 8
-  call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %16) #10
+  %10 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %4, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = load i64, ptr %9, align 8
+  %14 = add i64 %13, %12
+  store i64 %14, ptr %9, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = add i64 %16, %12
+  store i64 %17, ptr %15, align 8
+  call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %17) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28
   br i1 %exitcond.not.i, label %_ZN17MemoryFileTracker11free_memoryEPNS_10MemoryFileEmm.exit, label %8, !llvm.loop !8
@@ -688,8 +693,8 @@ define hidden void @_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySn
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %7
 
-7:                                                ; preds = %.lr.ph, %18
-  %indvars.iv15 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next16, %18 ]
+7:                                                ; preds = %.lr.ph, %19
+  %indvars.iv15 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next16, %19 ]
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv15
   %10 = load ptr, ptr %9, align 8
@@ -698,25 +703,26 @@ define hidden void @_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySn
 11:                                               ; preds = %7, %11
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw %class.VirtualMemory, ptr %1, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw %class.VirtualMemory, ptr %10, i64 %indvars.iv, i32 2
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = add i64 %16, %14
-  store i64 %17, ptr %15, align 8
-  tail call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %17) #10
+  %13 = getelementptr inbounds nuw %class.VirtualMemory, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = add i64 %17, %15
+  store i64 %18, ptr %16, align 8
+  tail call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %18) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %18, label %11, !llvm.loop !15
+  br i1 %exitcond.not, label %19, label %11, !llvm.loop !15
 
-18:                                               ; preds = %11
+19:                                               ; preds = %11
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
-  %19 = load i32, ptr %3, align 8
-  %20 = sext i32 %19 to i64
-  %21 = icmp slt i64 %indvars.iv.next16, %20
-  br i1 %21, label %7, label %._crit_edge, !llvm.loop !16
+  %20 = load i32, ptr %3, align 8
+  %21 = sext i32 %20 to i64
+  %22 = icmp slt i64 %indvars.iv.next16, %21
+  br i1 %22, label %7, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %18, %2
+._crit_edge:                                      ; preds = %19, %2
   ret void
 }
 
@@ -732,8 +738,8 @@ define hidden void @_ZN17MemoryFileTracker8Instance16summary_snapshotEP21Virtual
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
   br label %7
 
-7:                                                ; preds = %18, %.lr.ph.i
-  %indvars.iv15.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next16.i, %18 ]
+7:                                                ; preds = %19, %.lr.ph.i
+  %indvars.iv15.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next16.i, %19 ]
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv15.i
   %10 = load ptr, ptr %9, align 8
@@ -742,25 +748,26 @@ define hidden void @_ZN17MemoryFileTracker8Instance16summary_snapshotEP21Virtual
 11:                                               ; preds = %11, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %11 ]
   %12 = getelementptr inbounds nuw %class.VirtualMemory, ptr %0, i64 %indvars.iv.i
-  %13 = getelementptr inbounds nuw %class.VirtualMemory, ptr %10, i64 %indvars.iv.i, i32 2
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = add i64 %16, %14
-  store i64 %17, ptr %15, align 8
-  tail call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %17) #10
+  %13 = getelementptr inbounds nuw %class.VirtualMemory, ptr %10, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = add i64 %17, %15
+  store i64 %18, ptr %16, align 8
+  tail call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %18) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28
-  br i1 %exitcond.not.i, label %18, label %11, !llvm.loop !15
+  br i1 %exitcond.not.i, label %19, label %11, !llvm.loop !15
 
-18:                                               ; preds = %11
+19:                                               ; preds = %11
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
-  %19 = load i32, ptr %3, align 4
-  %20 = sext i32 %19 to i64
-  %21 = icmp slt i64 %indvars.iv.next16.i, %20
-  br i1 %21, label %7, label %_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySnapshot.exit, !llvm.loop !16
+  %20 = load i32, ptr %3, align 4
+  %21 = sext i32 %20 to i64
+  %22 = icmp slt i64 %indvars.iv.next16.i, %21
+  br i1 %22, label %7, label %_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySnapshot.exit, !llvm.loop !16
 
-_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySnapshot.exit: ; preds = %18, %1
+_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySnapshot.exit: ; preds = %19, %1
   ret void
 }
 

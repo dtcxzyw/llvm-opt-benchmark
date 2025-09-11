@@ -197,128 +197,128 @@ gpg_interface_lazy_init.exit:                     ; preds = %3, %6
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %gpg_interface_lazy_init.exit
-  %.01018.i = phi i64 [ 0, %gpg_interface_lazy_init.exit ], [ %19, %._crit_edge.i ]
-  %10 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01018.i, i32 3
-  %11 = load ptr, ptr %10, align 8, !tbaa !22
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
-  %.not16.i = icmp eq ptr %12, null
-  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
+  %.01019.i = phi i64 [ 0, %gpg_interface_lazy_init.exit ], [ %20, %._crit_edge.i ]
+  %10 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01019.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %.not17.i = icmp eq ptr %13, null
+  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
-13:                                               ; preds = %.lr.ph.i
+14:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %14 = load ptr, ptr %10, align 8, !tbaa !22
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next.i
-  %16 = load ptr, ptr %15, align 8, !tbaa !25
-  %.not.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %11, align 8, !tbaa !22
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next.i
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %13
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %13 ], [ 0, %.preheader.i ]
-  %17 = phi ptr [ %16, %13 ], [ %12, %.preheader.i ]
-  %18 = tail call i32 @starts_with(ptr noundef %1, ptr noundef nonnull %17) #15
-  %.not14.i = icmp eq i32 %18, 0
-  br i1 %.not14.i, label %13, label %22
+.lr.ph.i:                                         ; preds = %.preheader.i, %14
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.preheader.i ]
+  %18 = phi ptr [ %17, %14 ], [ %13, %.preheader.i ]
+  %19 = tail call i32 @starts_with(ptr noundef %1, ptr noundef nonnull %18) #15
+  %.not14.i = icmp eq i32 %19, 0
+  br i1 %.not14.i, label %14, label %get_format_by_sig.exit
 
-._crit_edge.i:                                    ; preds = %13, %.preheader.i
-  %19 = add nuw nsw i64 %.01018.i, 1
-  %exitcond.i = icmp eq i64 %19, 3
-  br i1 %exitcond.i, label %20, label %.preheader.i, !llvm.loop !28
+._crit_edge.i:                                    ; preds = %14, %.preheader.i
+  %20 = add nuw nsw i64 %.01019.i, 1
+  %exitcond.i = icmp eq i64 %20, 3
+  br i1 %exitcond.i, label %21, label %.preheader.i, !llvm.loop !28
 
-20:                                               ; preds = %._crit_edge.i
-  %21 = tail call fastcc ptr @_(ptr noundef nonnull @.str)
-  tail call void (ptr, ...) @die(ptr noundef %21, ptr noundef %1) #16
+21:                                               ; preds = %._crit_edge.i
+  %22 = tail call fastcc ptr @_(ptr noundef nonnull @.str)
+  tail call void (ptr, ...) @die(ptr noundef %22, ptr noundef %1) #16
   unreachable
 
-22:                                               ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01018.i
+get_format_by_sig.exit:                           ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !29
-  switch i32 %25, label %27 [
-    i32 1, label %28
-    i32 2, label %26
-    i32 0, label %49
-    i32 3, label %49
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load i32, ptr %23, align 8, !tbaa !29
+  switch i32 %24, label %26 [
+    i32 1, label %27
+    i32 2, label %25
+    i32 0, label %48
+    i32 3, label %48
   ]
 
-26:                                               ; preds = %22
-  br label %28
+25:                                               ; preds = %get_format_by_sig.exit
+  br label %27
 
-27:                                               ; preds = %22
+26:                                               ; preds = %get_format_by_sig.exit
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 632, ptr noundef nonnull @.str.95) #16
   unreachable
 
-28:                                               ; preds = %26, %22
-  %.0.i = phi ptr [ @.str.94, %26 ], [ @.str.93, %22 ]
-  %29 = load ptr, ptr %0, align 8, !tbaa !4
-  %30 = call ptr @find_commit_header(ptr noundef %29, ptr noundef nonnull %.0.i, ptr noundef nonnull %4) #15
-  %31 = icmp ne ptr %30, null
-  %32 = load i64, ptr %4, align 8
-  %33 = icmp ne i64 %32, 0
-  %or.cond.i = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond.i, label %34, label %parse_payload_metadata.exit
+27:                                               ; preds = %25, %get_format_by_sig.exit
+  %.0.i = phi ptr [ @.str.94, %25 ], [ @.str.93, %get_format_by_sig.exit ]
+  %28 = load ptr, ptr %0, align 8, !tbaa !4
+  %29 = call ptr @find_commit_header(ptr noundef %28, ptr noundef nonnull %.0.i, ptr noundef nonnull %4) #15
+  %30 = icmp ne ptr %29, null
+  %31 = load i64, ptr %4, align 8
+  %32 = icmp ne i64 %31, 0
+  %or.cond.i = select i1 %30, i1 %32, i1 false
+  br i1 %or.cond.i, label %33, label %parse_payload_metadata.exit
 
-34:                                               ; preds = %28
-  %35 = trunc i64 %32 to i32
-  %36 = call i32 @split_ident_line(ptr noundef nonnull %5, ptr noundef nonnull %30, i32 noundef %35) #15
-  %.not.i23 = icmp eq i32 %36, 0
-  br i1 %.not.i23, label %37, label %parse_payload_metadata.exit
+33:                                               ; preds = %27
+  %34 = trunc i64 %31 to i32
+  %35 = call i32 @split_ident_line(ptr noundef nonnull %5, ptr noundef nonnull %29, i32 noundef %34) #15
+  %.not.i23 = icmp eq i32 %35, 0
+  br i1 %.not.i23, label %36, label %parse_payload_metadata.exit
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load i64, ptr %38, align 8, !tbaa !30
-  %40 = icmp eq i64 %39, 0
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp ne ptr %42, null
-  %or.cond4.i = select i1 %40, i1 %43, i1 false
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp ne ptr %45, null
-  %or.cond7.i = select i1 %or.cond4.i, i1 %46, i1 false
-  br i1 %or.cond7.i, label %47, label %49
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %38 = load i64, ptr %37, align 8, !tbaa !30
+  %39 = icmp eq i64 %38, 0
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp ne ptr %41, null
+  %or.cond4.i = select i1 %39, i1 %42, i1 false
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp ne ptr %44, null
+  %or.cond7.i = select i1 %or.cond4.i, i1 %45, i1 false
+  br i1 %or.cond7.i, label %46, label %48
 
-47:                                               ; preds = %37
-  %48 = call i64 @strtoumax(ptr noundef nonnull %42, ptr noundef null, i32 noundef 10) #15
-  store i64 %48, ptr %38, align 8, !tbaa !30
-  br label %49
+46:                                               ; preds = %36
+  %47 = call i64 @strtoumax(ptr noundef nonnull %41, ptr noundef null, i32 noundef 10) #15
+  store i64 %47, ptr %37, align 8, !tbaa !30
+  br label %48
 
-parse_payload_metadata.exit:                      ; preds = %28, %34
+parse_payload_metadata.exit:                      ; preds = %27, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %67
+  br label %66
 
-49:                                               ; preds = %22, %22, %47, %37
+48:                                               ; preds = %get_format_by_sig.exit, %get_format_by_sig.exit, %46, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %50 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %51 = load ptr, ptr %50, align 16, !tbaa !31
-  %52 = call i32 %51(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef %1, i64 noundef %2) #15
-  %.not21 = icmp eq i32 %52, 0
-  br i1 %.not21, label %56, label %53
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %50 = load ptr, ptr %49, align 8, !tbaa !31
+  %51 = call i32 %50(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2) #15
+  %.not21 = icmp eq i32 %51, 0
+  br i1 %.not21, label %55, label %52
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !12
-  %.not22 = icmp eq ptr %55, null
-  br i1 %.not22, label %67, label %56
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %54 = load ptr, ptr %53, align 8, !tbaa !12
+  %.not22 = icmp eq ptr %54, null
+  br i1 %.not22, label %66, label %55
 
-56:                                               ; preds = %53, %49
-  %57 = load i8, ptr %8, align 8, !tbaa !20
-  %58 = icmp ne i8 %57, 71
-  %59 = load i32, ptr %9, align 8, !tbaa !21
-  %60 = load i32, ptr @configured_min_trust_level, align 4, !tbaa !32
-  %61 = icmp ult i32 %59, %60
-  %62 = or i1 %58, %61
-  %63 = zext i1 %62 to i32
-  %64 = or i32 %52, %63
-  %65 = icmp ne i32 %64, 0
-  %66 = zext i1 %65 to i32
-  br label %67
+55:                                               ; preds = %52, %48
+  %56 = load i8, ptr %8, align 8, !tbaa !20
+  %57 = icmp ne i8 %56, 71
+  %58 = load i32, ptr %9, align 8, !tbaa !21
+  %59 = load i32, ptr @configured_min_trust_level, align 4, !tbaa !32
+  %60 = icmp ult i32 %58, %59
+  %61 = or i1 %57, %60
+  %62 = zext i1 %61 to i32
+  %63 = or i32 %51, %62
+  %64 = icmp ne i32 %63, 0
+  %65 = zext i1 %64 to i32
+  br label %66
 
-67:                                               ; preds = %parse_payload_metadata.exit, %53, %56
-  %.0 = phi i32 [ %66, %56 ], [ 1, %parse_payload_metadata.exit ], [ 1, %53 ]
+66:                                               ; preds = %parse_payload_metadata.exit, %52, %55
+  %.0 = phi i32 [ %65, %55 ], [ 1, %parse_payload_metadata.exit ], [ 1, %52 ]
   ret i32 %.0
 }
 
@@ -393,52 +393,53 @@ define dso_local i64 @parse_signed_buffer(ptr noundef %0, i64 noundef %1) local_
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %get_format_by_sig.exit
-  %.023 = phi i64 [ %20, %get_format_by_sig.exit ], [ 0, %2 ]
+  %.023 = phi i64 [ %21, %get_format_by_sig.exit ], [ 0, %2 ]
   %.01722 = phi i64 [ %spec.select.i, %get_format_by_sig.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.023
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.lr.ph
-  %.01018.i = phi i64 [ 0, %.lr.ph ], [ %13, %._crit_edge.i ]
-  %4 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01018.i, i32 3
-  %5 = load ptr, ptr %4, align 8, !tbaa !22
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
-  %.not16.i = icmp eq ptr %6, null
-  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
+  %.01019.i = phi i64 [ 0, %.lr.ph ], [ %14, %._crit_edge.i ]
+  %4 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01019.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  %.not17.i = icmp eq ptr %7, null
+  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
-7:                                                ; preds = %.lr.ph.i
+8:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %8 = load ptr, ptr %4, align 8, !tbaa !22
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next.i
-  %10 = load ptr, ptr %9, align 8, !tbaa !25
-  %.not.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %5, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next.i
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %7
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %7 ], [ 0, %.preheader.i ]
-  %11 = phi ptr [ %10, %7 ], [ %6, %.preheader.i ]
-  %12 = tail call i32 @starts_with(ptr noundef %3, ptr noundef nonnull %11) #15
-  %.not14.i = icmp eq i32 %12, 0
-  br i1 %.not14.i, label %7, label %get_format_by_sig.exit
+.lr.ph.i:                                         ; preds = %.preheader.i, %8
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %.preheader.i ]
+  %12 = phi ptr [ %11, %8 ], [ %7, %.preheader.i ]
+  %13 = tail call i32 @starts_with(ptr noundef %3, ptr noundef nonnull %12) #15
+  %.not14.i = icmp eq i32 %13, 0
+  br i1 %.not14.i, label %8, label %get_format_by_sig.exit
 
-._crit_edge.i:                                    ; preds = %7, %.preheader.i
-  %13 = add nuw nsw i64 %.01018.i, 1
-  %exitcond.i = icmp eq i64 %13, 3
+._crit_edge.i:                                    ; preds = %8, %.preheader.i
+  %14 = add nuw nsw i64 %.01019.i, 1
+  %exitcond.i = icmp eq i64 %14, 3
   br i1 %exitcond.i, label %get_format_by_sig.exit, label %.preheader.i, !llvm.loop !28
 
 get_format_by_sig.exit:                           ; preds = %._crit_edge.i, %.lr.ph.i
   %spec.select.i = phi i64 [ %.023, %.lr.ph.i ], [ %.01722, %._crit_edge.i ]
-  %14 = sub i64 %1, %.023
-  %15 = tail call ptr @memchr(ptr noundef %3, i32 noundef 10, i64 noundef %14) #18
-  %.not20 = icmp eq ptr %15, null
-  %16 = ptrtoint ptr %15 to i64
-  %17 = ptrtoint ptr %3 to i64
-  %reass.sub = sub i64 %16, %17
-  %18 = add i64 %reass.sub, 1
-  %19 = select i1 %.not20, i64 %14, i64 %18
-  %20 = add i64 %19, %.023
-  %21 = icmp ult i64 %20, %1
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  %15 = sub i64 %1, %.023
+  %16 = tail call ptr @memchr(ptr noundef %3, i32 noundef 10, i64 noundef %15) #18
+  %.not20 = icmp eq ptr %16, null
+  %17 = ptrtoint ptr %16 to i64
+  %18 = ptrtoint ptr %3 to i64
+  %reass.sub = sub i64 %17, %18
+  %19 = add i64 %reass.sub, 1
+  %20 = select i1 %.not20, i64 %15, i64 %19
+  %21 = add i64 %20, %.023
+  %22 = icmp ult i64 %21, %1
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %get_format_by_sig.exit, %2
   %.017.lcssa = phi i64 [ 0, %2 ], [ %spec.select.i, %get_format_by_sig.exit ]
@@ -454,68 +455,69 @@ define dso_local range(i32 0, 2) i32 @parse_signature(ptr noundef %0, i64 nounde
   br i1 %.not.i, label %parse_signed_buffer.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %get_format_by_sig.exit.i
-  %.023.i = phi i64 [ %22, %get_format_by_sig.exit.i ], [ 0, %4 ]
+  %.023.i = phi i64 [ %23, %get_format_by_sig.exit.i ], [ 0, %4 ]
   %.01722.i = phi i64 [ %spec.select.i.i, %get_format_by_sig.exit.i ], [ %1, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.023.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i, %.lr.ph.i
-  %.01018.i.i = phi i64 [ 0, %.lr.ph.i ], [ %15, %._crit_edge.i.i ]
-  %6 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01018.i.i, i32 3
-  %7 = load ptr, ptr %6, align 8, !tbaa !22
-  %8 = load ptr, ptr %7, align 8, !tbaa !25
-  %.not16.i.i = icmp eq ptr %8, null
-  br i1 %.not16.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.01019.i.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %._crit_edge.i.i ]
+  %6 = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %.01019.i.i
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !22
+  %9 = load ptr, ptr %8, align 8, !tbaa !25
+  %.not17.i.i = icmp eq ptr %9, null
+  br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-9:                                                ; preds = %.lr.ph.i.i
+10:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = load ptr, ptr %6, align 8, !tbaa !22
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next.i.i
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
-  %.not.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %7, align 8, !tbaa !22
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.next.i.i
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !26
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %9
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 0, %.preheader.i.i ]
-  %13 = phi ptr [ %12, %9 ], [ %8, %.preheader.i.i ]
-  %14 = tail call i32 @starts_with(ptr noundef %5, ptr noundef nonnull %13) #15
-  %.not14.i.i = icmp eq i32 %14, 0
-  br i1 %.not14.i.i, label %9, label %get_format_by_sig.exit.i
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %10
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %10 ], [ 0, %.preheader.i.i ]
+  %14 = phi ptr [ %13, %10 ], [ %9, %.preheader.i.i ]
+  %15 = tail call i32 @starts_with(ptr noundef %5, ptr noundef nonnull %14) #15
+  %.not14.i.i = icmp eq i32 %15, 0
+  br i1 %.not14.i.i, label %10, label %get_format_by_sig.exit.i
 
-._crit_edge.i.i:                                  ; preds = %9, %.preheader.i.i
-  %15 = add nuw nsw i64 %.01018.i.i, 1
-  %exitcond.i.i = icmp eq i64 %15, 3
+._crit_edge.i.i:                                  ; preds = %10, %.preheader.i.i
+  %16 = add nuw nsw i64 %.01019.i.i, 1
+  %exitcond.i.i = icmp eq i64 %16, 3
   br i1 %exitcond.i.i, label %get_format_by_sig.exit.i, label %.preheader.i.i, !llvm.loop !28
 
 get_format_by_sig.exit.i:                         ; preds = %._crit_edge.i.i, %.lr.ph.i.i
   %spec.select.i.i = phi i64 [ %.023.i, %.lr.ph.i.i ], [ %.01722.i, %._crit_edge.i.i ]
-  %16 = sub i64 %1, %.023.i
-  %17 = tail call ptr @memchr(ptr noundef %5, i32 noundef 10, i64 noundef %16) #18
-  %.not20.i = icmp eq ptr %17, null
-  %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %5 to i64
-  %reass.sub = sub i64 %18, %19
-  %20 = add i64 %reass.sub, 1
-  %21 = select i1 %.not20.i, i64 %16, i64 %20
-  %22 = add i64 %21, %.023.i
-  %23 = icmp ult i64 %22, %1
-  br i1 %23, label %.lr.ph.i, label %parse_signed_buffer.exit, !llvm.loop !37
+  %17 = sub i64 %1, %.023.i
+  %18 = tail call ptr @memchr(ptr noundef %5, i32 noundef 10, i64 noundef %17) #18
+  %.not20.i = icmp eq ptr %18, null
+  %19 = ptrtoint ptr %18 to i64
+  %20 = ptrtoint ptr %5 to i64
+  %reass.sub = sub i64 %19, %20
+  %21 = add i64 %reass.sub, 1
+  %22 = select i1 %.not20.i, i64 %17, i64 %21
+  %23 = add i64 %22, %.023.i
+  %24 = icmp ult i64 %23, %1
+  br i1 %24, label %.lr.ph.i, label %parse_signed_buffer.exit, !llvm.loop !37
 
 parse_signed_buffer.exit:                         ; preds = %get_format_by_sig.exit.i, %4
   %.017.lcssa.i = phi i64 [ 0, %4 ], [ %spec.select.i.i, %get_format_by_sig.exit.i ]
   %.not = icmp eq i64 %.017.lcssa.i, %1
-  br i1 %.not, label %28, label %24
+  br i1 %.not, label %29, label %25
 
-24:                                               ; preds = %parse_signed_buffer.exit
+25:                                               ; preds = %parse_signed_buffer.exit
   tail call void @strbuf_add(ptr noundef %2, ptr noundef %0, i64 noundef %.017.lcssa.i) #15
-  %25 = tail call i32 @remove_signature(ptr noundef %2) #15
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.017.lcssa.i
-  %27 = sub i64 %1, %.017.lcssa.i
-  tail call void @strbuf_add(ptr noundef %3, ptr noundef %26, i64 noundef %27) #15
-  br label %28
+  %26 = tail call i32 @remove_signature(ptr noundef %2) #15
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %.017.lcssa.i
+  %28 = sub i64 %1, %.017.lcssa.i
+  tail call void @strbuf_add(ptr noundef %3, ptr noundef %27, i64 noundef %28) #15
+  br label %29
 
-28:                                               ; preds = %parse_signed_buffer.exit, %24
-  %.0 = phi i32 [ 1, %24 ], [ 0, %parse_signed_buffer.exit ]
+29:                                               ; preds = %parse_signed_buffer.exit, %25
+  %.0 = phi i32 [ 1, %25 ], [ 0, %parse_signed_buffer.exit ]
   ret i32 %.0
 }
 

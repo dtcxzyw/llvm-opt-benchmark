@@ -74,9 +74,9 @@ define void @_ZN6LibRaw19parseSigmaMakernoteEiij(ptr noundef nonnull align 8 der
   %9 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %10 = add i16 %9, -1001
   %or.cond = icmp ult i16 %10, -1000
-  br i1 %or.cond, label %.loopexit18, label %.lr.ph21
+  br i1 %or.cond, label %.loopexit16, label %.lr.ph19
 
-.lr.ph21:                                         ; preds = %4
+.lr.ph19:                                         ; preds = %4
   %11 = zext nneg i16 %9 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 187092
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1464
@@ -87,8 +87,8 @@ define void @_ZN6LibRaw19parseSigmaMakernoteEiij(ptr noundef nonnull align 8 der
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   br label %19
 
-19:                                               ; preds = %.lr.ph21, %.loopexit
-  %.in = phi i32 [ %11, %.lr.ph21 ], [ %20, %.loopexit ]
+19:                                               ; preds = %.lr.ph19, %.loopexit
+  %.in = phi i32 [ %11, %.lr.ph19 ], [ %20, %.loopexit ]
   %20 = add nsw i32 %.in, -1
   call void @_ZN6LibRaw8tiff_getEjPjS0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %21 = load i32, ptr %5, align 4, !tbaa !6
@@ -133,8 +133,8 @@ define void @_ZN6LibRaw19parseSigmaMakernoteEiij(ptr noundef nonnull align 8 der
   %42 = icmp eq i32 %41, 0
   %43 = add i32 %40, -10
   %44 = icmp ult i32 %43, 23
-  %or.cond16 = and i1 %44, %42
-  br i1 %or.cond16, label %.lr.ph, label %.loopexit
+  %or.cond14 = and i1 %44, %42
+  br i1 %or.cond14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %39, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %39 ]
@@ -151,37 +151,35 @@ define void @_ZN6LibRaw19parseSigmaMakernoteEiij(ptr noundef nonnull align 8 der
   %54 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %53)
   %55 = fmul reassoc nsz arcp contract afn double %54, 1.000000e+04
   %56 = fptosi double %55 to i32
-  %.idx = shl nuw nsw i64 %51, 4
-  %57 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 12
+  store i32 %56, ptr %57, align 8, !tbaa !6
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %56, ptr %58, align 8, !tbaa !6
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i32 %56, ptr %59, align 8, !tbaa !6
-  %60 = load i32, ptr %6, align 4, !tbaa !6
-  %61 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %60)
-  %62 = fmul reassoc nsz arcp contract afn double %61, 1.000000e+04
-  %63 = fptosi double %62 to i32
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i32 %63, ptr %64, align 4, !tbaa !6
+  %59 = load i32, ptr %6, align 4, !tbaa !6
+  %60 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %59)
+  %61 = fmul reassoc nsz arcp contract afn double %60, 1.000000e+04
+  %62 = fptosi double %61 to i32
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store i32 %62, ptr %63, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = load i32, ptr %7, align 4, !tbaa !6
-  %66 = udiv i32 %65, 3
-  %67 = zext nneg i32 %66 to i64
-  %68 = icmp samesign ult i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !76
+  %64 = load i32, ptr %7, align 4, !tbaa !6
+  %65 = udiv i32 %64, 3
+  %66 = zext nneg i32 %65 to i64
+  %67 = icmp samesign ult i64 %indvars.iv.next, %66
+  br i1 %67, label %.lr.ph, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph, %39, %19, %25, %32, %22
-  %69 = load ptr, ptr %18, align 8, !tbaa !78
-  %70 = load i32, ptr %8, align 4, !tbaa !6
-  %71 = zext i32 %70 to i64
-  %72 = load ptr, ptr %69, align 8, !tbaa !79
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %75 = call noundef i32 %74(ptr noundef nonnull align 8 dereferenceable(8) %69, i64 noundef %71, i32 noundef 0)
+  %68 = load ptr, ptr %18, align 8, !tbaa !78
+  %69 = load i32, ptr %8, align 4, !tbaa !6
+  %70 = zext i32 %69 to i64
+  %71 = load ptr, ptr %68, align 8, !tbaa !79
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %74 = call noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(8) %68, i64 noundef %70, i32 noundef 0)
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %.loopexit18, label %19, !llvm.loop !81
+  br i1 %.not, label %.loopexit16, label %19, !llvm.loop !81
 
-.loopexit18:                                      ; preds = %.loopexit, %4
+.loopexit16:                                      ; preds = %.loopexit, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

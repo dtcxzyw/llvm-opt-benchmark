@@ -2781,8 +2781,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
 
 1862:                                             ; preds = %.thread.us, %1838
   %1863 = phi reassoc nsz arcp contract afn float [ %1860, %1838 ], [ 0.000000e+00, %.thread.us ]
-  %.idx.us = shl nuw nsw i64 %1816, 3
-  %1864 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.us
+  %1864 = getelementptr inbounds nuw %struct.s_hv, ptr %39, i64 %1816
   %1865 = getelementptr inbounds nuw i8, ptr %1864, i64 4
   store float %1863, ptr %1865, align 4, !tbaa !65
   %indvars.iv.next4262 = add nuw nsw i64 %indvars.iv4261, 2

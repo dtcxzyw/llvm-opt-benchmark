@@ -3624,10 +3624,11 @@ _ZN6vectorIN3smt8qi_queue5scopeELb0EjE6shrinkEj.exit: ; preds = %_ZN6vectorIN3sm
   %64 = load i32, ptr %63, align 4, !tbaa !555
   %65 = load ptr, ptr %20, align 8, !tbaa !567
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %"struct.smt::qi_queue::entry", ptr %65, i64 %66, i32 2
-  %68 = load i32, ptr %67, align 4
-  %69 = and i32 %68, 2147483647
-  store i32 %69, ptr %67, align 4
+  %67 = getelementptr inbounds nuw %"struct.smt::qi_queue::entry", ptr %65, i64 %66
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 12
+  %69 = load i32, ptr %68, align 4
+  %70 = and i32 %69, 2147483647
+  store i32 %70, ptr %68, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !716

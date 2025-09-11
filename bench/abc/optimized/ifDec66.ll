@@ -927,7 +927,7 @@ define range(i32 0, 2) i32 @If_CluCheckXXExt(ptr noundef readnone captures(none)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = call i32 @acdXX_decompose(ptr noundef %1, i32 noundef %4, i32 noundef %2, ptr noundef nonnull %10) #17
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %106
+  br i1 %.not, label %12, label %105
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 2
@@ -944,53 +944,52 @@ define range(i32 0, 2) i32 @If_CluCheckXXExt(ptr noundef readnone captures(none)
   %scevgep = getelementptr i8, ptr %6, i64 2
   %18 = zext i8 %15 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr nonnull align 1 %14, i64 %18, i1 false), !tbaa !24
-  %19 = add nsw i32 %16, -1
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr i8, ptr %10, i64 %20
-  %scevgep88 = getelementptr i8, ptr %21, i64 4
-  %22 = icmp ult i8 %15, 4
-  %23 = add nsw i32 %16, -3
-  %24 = shl nuw i32 1, %23
-  %25 = select i1 %22, i32 1, i32 %24
+  %19 = zext i8 %15 to i64
+  %20 = getelementptr i8, ptr %10, i64 %19
+  %scevgep88 = getelementptr i8, ptr %20, i64 3
+  %21 = icmp ult i8 %15, 4
+  %22 = add nsw i32 %16, -3
+  %23 = shl nuw i32 1, %22
+  %24 = select i1 %21, i32 1, i32 %23
   store i64 0, ptr %8, align 8, !tbaa !67
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph68, label %._crit_edge69
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %.lr.ph68, label %._crit_edge69
 
 .lr.ph68:                                         ; preds = %12, %._crit_edge
-  %27 = phi i32 [ %25, %._crit_edge ], [ 1, %12 ]
-  %28 = phi i1 [ %22, %._crit_edge ], [ true, %12 ]
+  %26 = phi i32 [ %24, %._crit_edge ], [ 1, %12 ]
+  %27 = phi i1 [ %21, %._crit_edge ], [ true, %12 ]
   %.048.lcssa107 = phi ptr [ %scevgep88, %._crit_edge ], [ %14, %12 ]
-  %wide.trip.count = zext nneg i32 %27 to i64
-  br label %29
+  %wide.trip.count = zext nneg i32 %26 to i64
+  br label %28
 
-29:                                               ; preds = %.lr.ph68, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next, %29 ]
-  %30 = phi i64 [ 0, %.lr.ph68 ], [ %36, %29 ]
-  %.14965 = phi ptr [ %.048.lcssa107, %.lr.ph68 ], [ %31, %29 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.14965, i64 1
-  %32 = load i8, ptr %.14965, align 1, !tbaa !24
-  %33 = zext i8 %32 to i64
-  %34 = shl nsw i64 %indvars.iv, 3
-  %35 = shl i64 %33, %34
-  %36 = or i64 %35, %30
+28:                                               ; preds = %.lr.ph68, %28
+  %indvars.iv = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next, %28 ]
+  %29 = phi i64 [ 0, %.lr.ph68 ], [ %35, %28 ]
+  %.14965 = phi ptr [ %.048.lcssa107, %.lr.ph68 ], [ %30, %28 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.14965, i64 1
+  %31 = load i8, ptr %.14965, align 1, !tbaa !24
+  %32 = zext i8 %31 to i64
+  %33 = shl nsw i64 %indvars.iv, 3
+  %34 = shl i64 %32, %33
+  %35 = or i64 %34, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge69.loopexit, label %29, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge69.loopexit, label %28, !llvm.loop !69
 
-._crit_edge69.loopexit:                           ; preds = %29
-  store i64 %36, ptr %8, align 8, !tbaa !67
+._crit_edge69.loopexit:                           ; preds = %28
+  store i64 %35, ptr %8, align 8, !tbaa !67
   br label %._crit_edge69
 
 ._crit_edge69:                                    ; preds = %._crit_edge69.loopexit, %._crit_edge
-  %37 = phi i1 [ %22, %._crit_edge ], [ %28, %._crit_edge69.loopexit ]
-  %.149.lcssa = phi ptr [ %scevgep88, %._crit_edge ], [ %31, %._crit_edge69.loopexit ]
-  %38 = load i8, ptr %.149.lcssa, align 1, !tbaa !24
-  %39 = zext i8 %38 to i32
-  store i8 %38, ptr %5, align 1, !tbaa !24
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 0, ptr %40, align 1, !tbaa !24
+  %36 = phi i1 [ %21, %._crit_edge ], [ %27, %._crit_edge69.loopexit ]
+  %.149.lcssa = phi ptr [ %scevgep88, %._crit_edge ], [ %30, %._crit_edge69.loopexit ]
+  %37 = load i8, ptr %.149.lcssa, align 1, !tbaa !24
+  %38 = zext i8 %37 to i32
+  store i8 %37, ptr %5, align 1, !tbaa !24
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 0, ptr %39, align 1, !tbaa !24
   %.25071 = getelementptr inbounds nuw i8, ptr %.149.lcssa, i64 1
-  %.not85 = icmp eq i8 %38, 0
+  %.not85 = icmp eq i8 %37, 0
   br i1 %.not85, label %._crit_edge76.thread, label %.lr.ph75.preheader
 
 ._crit_edge76.thread:                             ; preds = %._crit_edge69
@@ -998,131 +997,131 @@ define range(i32 0, 2) i32 @If_CluCheckXXExt(ptr noundef readnone captures(none)
   br label %.lr.ph81
 
 .lr.ph75.preheader:                               ; preds = %._crit_edge69
-  %wide.trip.count95 = zext i8 %38 to i64
+  %wide.trip.count95 = zext i8 %37 to i64
   br label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.lr.ph75
   %indvars.iv92 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next93, %.lr.ph75 ]
   %.25073 = phi ptr [ %.25071, %.lr.ph75.preheader ], [ %.250, %.lr.ph75 ]
-  %41 = load i8, ptr %.25073, align 1, !tbaa !24
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv92
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  store i8 %41, ptr %43, align 1, !tbaa !24
+  %40 = load i8, ptr %.25073, align 1, !tbaa !24
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv92
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
+  store i8 %40, ptr %42, align 1, !tbaa !24
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %.250 = getelementptr inbounds nuw i8, ptr %.25073, i64 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
   br i1 %exitcond96.not, label %._crit_edge76, label %.lr.ph75, !llvm.loop !70
 
 ._crit_edge76:                                    ; preds = %.lr.ph75
-  %44 = icmp ult i8 %38, 4
-  %45 = add nsw i32 %39, -3
-  %46 = shl nuw i32 1, %45
-  %47 = select i1 %44, i32 1, i32 %46
+  %43 = icmp ult i8 %37, 4
+  %44 = add nsw i32 %38, -3
+  %45 = shl nuw i32 1, %44
+  %46 = select i1 %43, i32 1, i32 %45
   store i64 0, ptr %7, align 8, !tbaa !67
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph81, label %._crit_edge82
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %.lr.ph81, label %._crit_edge82
 
 .lr.ph81:                                         ; preds = %._crit_edge76.thread, %._crit_edge76
-  %49 = phi i32 [ 1, %._crit_edge76.thread ], [ %47, %._crit_edge76 ]
-  %50 = phi i1 [ true, %._crit_edge76.thread ], [ %44, %._crit_edge76 ]
+  %48 = phi i32 [ 1, %._crit_edge76.thread ], [ %46, %._crit_edge76 ]
+  %49 = phi i1 [ true, %._crit_edge76.thread ], [ %43, %._crit_edge76 ]
   %.250.lcssa109 = phi ptr [ %.25071, %._crit_edge76.thread ], [ %.250, %._crit_edge76 ]
-  %wide.trip.count100 = zext nneg i32 %49 to i64
-  br label %51
+  %wide.trip.count100 = zext nneg i32 %48 to i64
+  br label %50
 
-51:                                               ; preds = %.lr.ph81, %51
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next98, %51 ]
-  %52 = phi i64 [ 0, %.lr.ph81 ], [ %58, %51 ]
-  %.35178 = phi ptr [ %.250.lcssa109, %.lr.ph81 ], [ %53, %51 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.35178, i64 1
-  %54 = load i8, ptr %.35178, align 1, !tbaa !24
-  %55 = zext i8 %54 to i64
-  %56 = shl nsw i64 %indvars.iv97, 3
-  %57 = shl i64 %55, %56
-  %58 = or i64 %57, %52
-  store i64 %58, ptr %7, align 8, !tbaa !67
+50:                                               ; preds = %.lr.ph81, %50
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next98, %50 ]
+  %51 = phi i64 [ 0, %.lr.ph81 ], [ %57, %50 ]
+  %.35178 = phi ptr [ %.250.lcssa109, %.lr.ph81 ], [ %52, %50 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.35178, i64 1
+  %53 = load i8, ptr %.35178, align 1, !tbaa !24
+  %54 = zext i8 %53 to i64
+  %55 = shl nsw i64 %indvars.iv97, 3
+  %56 = shl i64 %54, %55
+  %57 = or i64 %56, %51
+  store i64 %57, ptr %7, align 8, !tbaa !67
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %._crit_edge82, label %51, !llvm.loop !71
+  br i1 %exitcond101.not, label %._crit_edge82, label %50, !llvm.loop !71
 
-._crit_edge82:                                    ; preds = %51, %._crit_edge76
-  %59 = phi i1 [ %44, %._crit_edge76 ], [ %50, %51 ]
-  %60 = load i64, ptr %8, align 8, !tbaa !67
-  %61 = icmp eq i8 %15, 6
-  br i1 %61, label %If_CluAdjust2.exit, label %62
+._crit_edge82:                                    ; preds = %50, %._crit_edge76
+  %58 = phi i1 [ %43, %._crit_edge76 ], [ %49, %50 ]
+  %59 = load i64, ptr %8, align 8, !tbaa !67
+  %60 = icmp eq i8 %15, 6
+  br i1 %60, label %If_CluAdjust2.exit, label %61
 
-62:                                               ; preds = %._crit_edge82
-  %63 = shl nuw i32 1, %16
-  %64 = zext i32 %63 to i64
-  %notmask.i = shl nsw i64 -1, %64
-  %65 = xor i64 %notmask.i, -1
-  %66 = and i64 %60, %65
-  %67 = shl nuw nsw i64 %66, %64
-  %68 = select i1 %.not84, i64 %67, i64 0
-  %.030.i = or i64 %68, %66
-  %69 = icmp ult i8 %15, 2
-  %70 = shl i64 %.030.i, 2
-  %71 = select i1 %69, i64 %70, i64 0
-  %.131.i = or i64 %71, %.030.i
-  %72 = icmp ult i8 %15, 3
-  %73 = shl i64 %.131.i, 4
-  %74 = select i1 %72, i64 %73, i64 0
-  %.232.i = or i64 %74, %.131.i
-  %75 = shl i64 %.232.i, 8
-  %76 = select i1 %37, i64 %75, i64 0
-  %.333.i = or i64 %76, %.232.i
-  %77 = icmp ult i8 %15, 5
-  %78 = shl i64 %.333.i, 16
-  %79 = select i1 %77, i64 %78, i64 0
-  %.434.i = or i64 %79, %.333.i
-  %80 = icmp ult i8 %15, 6
-  %81 = shl i64 %.434.i, 32
-  %82 = select i1 %80, i64 %81, i64 0
-  %.5.i = or i64 %82, %.434.i
+61:                                               ; preds = %._crit_edge82
+  %62 = shl nuw i32 1, %16
+  %63 = zext i32 %62 to i64
+  %notmask.i = shl nsw i64 -1, %63
+  %64 = xor i64 %notmask.i, -1
+  %65 = and i64 %59, %64
+  %66 = shl nuw nsw i64 %65, %63
+  %67 = select i1 %.not84, i64 %66, i64 0
+  %.030.i = or i64 %67, %65
+  %68 = icmp ult i8 %15, 2
+  %69 = shl i64 %.030.i, 2
+  %70 = select i1 %68, i64 %69, i64 0
+  %.131.i = or i64 %70, %.030.i
+  %71 = icmp ult i8 %15, 3
+  %72 = shl i64 %.131.i, 4
+  %73 = select i1 %71, i64 %72, i64 0
+  %.232.i = or i64 %73, %.131.i
+  %74 = shl i64 %.232.i, 8
+  %75 = select i1 %36, i64 %74, i64 0
+  %.333.i = or i64 %75, %.232.i
+  %76 = icmp ult i8 %15, 5
+  %77 = shl i64 %.333.i, 16
+  %78 = select i1 %76, i64 %77, i64 0
+  %.434.i = or i64 %78, %.333.i
+  %79 = icmp ult i8 %15, 6
+  %80 = shl i64 %.434.i, 32
+  %81 = select i1 %79, i64 %80, i64 0
+  %.5.i = or i64 %81, %.434.i
   br label %If_CluAdjust2.exit
 
-If_CluAdjust2.exit:                               ; preds = %._crit_edge82, %62
-  %.035.i = phi i64 [ %.5.i, %62 ], [ %60, %._crit_edge82 ]
+If_CluAdjust2.exit:                               ; preds = %._crit_edge82, %61
+  %.035.i = phi i64 [ %.5.i, %61 ], [ %59, %._crit_edge82 ]
   store i64 %.035.i, ptr %8, align 8, !tbaa !67
-  %83 = load i64, ptr %7, align 8, !tbaa !67
-  %84 = icmp eq i8 %38, 6
-  br i1 %84, label %If_CluAdjust2.exit62, label %85
+  %82 = load i64, ptr %7, align 8, !tbaa !67
+  %83 = icmp eq i8 %37, 6
+  br i1 %83, label %If_CluAdjust2.exit62, label %84
 
-85:                                               ; preds = %If_CluAdjust2.exit
-  %86 = shl nuw i32 1, %39
-  %87 = zext i32 %86 to i64
-  %notmask.i54 = shl nsw i64 -1, %87
-  %88 = xor i64 %notmask.i54, -1
-  %89 = and i64 %83, %88
-  %90 = shl nuw nsw i64 %89, %87
-  %91 = select i1 %.not85, i64 %90, i64 0
-  %.030.i55 = or i64 %91, %89
-  %92 = icmp ult i8 %38, 2
-  %93 = shl i64 %.030.i55, 2
-  %94 = select i1 %92, i64 %93, i64 0
-  %.131.i56 = or i64 %94, %.030.i55
-  %95 = icmp ult i8 %38, 3
-  %96 = shl i64 %.131.i56, 4
-  %97 = select i1 %95, i64 %96, i64 0
-  %.232.i57 = or i64 %97, %.131.i56
-  %98 = shl i64 %.232.i57, 8
-  %99 = select i1 %59, i64 %98, i64 0
-  %.333.i58 = or i64 %99, %.232.i57
-  %100 = icmp ult i8 %38, 5
-  %101 = shl i64 %.333.i58, 16
-  %102 = select i1 %100, i64 %101, i64 0
-  %.434.i59 = or i64 %102, %.333.i58
-  %103 = icmp ult i8 %38, 6
-  %104 = shl i64 %.434.i59, 32
-  %105 = select i1 %103, i64 %104, i64 0
-  %.5.i60 = or i64 %105, %.434.i59
+84:                                               ; preds = %If_CluAdjust2.exit
+  %85 = shl nuw i32 1, %38
+  %86 = zext i32 %85 to i64
+  %notmask.i54 = shl nsw i64 -1, %86
+  %87 = xor i64 %notmask.i54, -1
+  %88 = and i64 %82, %87
+  %89 = shl nuw nsw i64 %88, %86
+  %90 = select i1 %.not85, i64 %89, i64 0
+  %.030.i55 = or i64 %90, %88
+  %91 = icmp ult i8 %37, 2
+  %92 = shl i64 %.030.i55, 2
+  %93 = select i1 %91, i64 %92, i64 0
+  %.131.i56 = or i64 %93, %.030.i55
+  %94 = icmp ult i8 %37, 3
+  %95 = shl i64 %.131.i56, 4
+  %96 = select i1 %94, i64 %95, i64 0
+  %.232.i57 = or i64 %96, %.131.i56
+  %97 = shl i64 %.232.i57, 8
+  %98 = select i1 %58, i64 %97, i64 0
+  %.333.i58 = or i64 %98, %.232.i57
+  %99 = icmp ult i8 %37, 5
+  %100 = shl i64 %.333.i58, 16
+  %101 = select i1 %99, i64 %100, i64 0
+  %.434.i59 = or i64 %101, %.333.i58
+  %102 = icmp ult i8 %37, 6
+  %103 = shl i64 %.434.i59, 32
+  %104 = select i1 %102, i64 %103, i64 0
+  %.5.i60 = or i64 %104, %.434.i59
   br label %If_CluAdjust2.exit62
 
-If_CluAdjust2.exit62:                             ; preds = %If_CluAdjust2.exit, %85
-  %.035.i61 = phi i64 [ %.5.i60, %85 ], [ %83, %If_CluAdjust2.exit ]
+If_CluAdjust2.exit62:                             ; preds = %If_CluAdjust2.exit, %84
+  %.035.i61 = phi i64 [ %.5.i60, %84 ], [ %82, %If_CluAdjust2.exit ]
   store i64 %.035.i61, ptr %7, align 8, !tbaa !67
-  br label %106
+  br label %105
 
-106:                                              ; preds = %9, %If_CluAdjust2.exit62
+105:                                              ; preds = %9, %If_CluAdjust2.exit62
   %.0 = phi i32 [ 1, %If_CluAdjust2.exit62 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0

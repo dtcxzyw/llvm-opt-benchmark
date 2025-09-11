@@ -1019,8 +1019,8 @@ inflate_flush.exit835:                            ; preds = %389
   br i1 %443, label %.lr.ph1282.preheader, label %._crit_edge1283
 
 .lr.ph1282.preheader:                             ; preds = %439
-  %444 = zext i32 %.sroa.130.16.lcssa to i64
-  %445 = zext i32 %442 to i64
+  %444 = zext nneg i32 %.sroa.130.16.lcssa to i64
+  %445 = zext nneg i32 %442 to i64
   br label %.lr.ph1282
 
 .lr.ph1282:                                       ; preds = %.lr.ph1282.preheader, %474

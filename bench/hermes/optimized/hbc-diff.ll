@@ -1565,7 +1565,8 @@ _ZNK6hermes3hbc20BCProviderFromBuffer11getBytecodeEj.exit496.i: ; preds = %if.el
 
 for.end.loopexit.i:                               ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer11getBytecodeEj.exit496.i
   %idxprom.i.phi.trans.insert.i = zext i32 %spec.select.i to i64
-  %flags.i.phi.trans.insert.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %122, i64 %idxprom.i.phi.trans.insert.i, i32 1
+  %arrayidx.i.phi.trans.insert.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %122, i64 %idxprom.i.phi.trans.insert.i
+  %flags.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.phi.trans.insert.i, i64 15
   %bf.load.i.pre.i = load i8, ptr %flags.i.phi.trans.insert.i, align 1
   %.pre1090.i = and i8 %bf.load.i.pre.i, 32
   br label %for.end.i
@@ -4305,9 +4306,10 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6ve
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread30.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i, %lor.rhs.i.i.i
   %5 = phi i32 [ %2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i ], [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i ], [ %1, %lor.rhs.i.i.i ]
   %6 = phi i64 [ %sub3.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i ], [ %mul.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i ], [ %mul.i, %lor.rhs.i.i.i ]
+  %add.ptr.i18.i = getelementptr inbounds %"struct.std::pair.75", ptr %__first.coerce, i64 %6
   %add.ptr.i19.i = getelementptr inbounds %"struct.std::pair.75", ptr %__first.coerce, i64 %__holeIndex.addr.034.i
   store i32 %5, ptr %add.ptr.i19.i, align 4
-  %second.i.i = getelementptr inbounds %"struct.std::pair.75", ptr %__first.coerce, i64 %6, i32 1
+  %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i18.i, i64 4
   %7 = load i32, ptr %second.i.i, align 4
   %second3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i19.i, i64 4
   store i32 %7, ptr %second3.i.i, align 4
@@ -4431,9 +4433,10 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6ve
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread30.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i, %lor.rhs.i.i.i
   %6 = phi i32 [ %3, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i ], [ %2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i ], [ %2, %lor.rhs.i.i.i ]
   %7 = phi i64 [ %sub3.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i ], [ %mul.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i ], [ %mul.i, %lor.rhs.i.i.i ]
+  %add.ptr.i18.i = getelementptr inbounds %"struct.std::pair.75", ptr %__first.coerce, i64 %7
   %add.ptr.i19.i = getelementptr inbounds %"struct.std::pair.75", ptr %__first.coerce, i64 %__holeIndex.addr.034.i
   store i32 %6, ptr %add.ptr.i19.i, align 4
-  %second.i.i = getelementptr inbounds %"struct.std::pair.75", ptr %__first.coerce, i64 %7, i32 1
+  %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i18.i, i64 4
   %8 = load i32, ptr %second.i.i, align 4
   %second3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i19.i, i64 4
   store i32 %8, ptr %second3.i.i, align 4

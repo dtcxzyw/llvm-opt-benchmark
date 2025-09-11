@@ -14778,13 +14778,13 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %8
   br i1 %20, label %21, label %"_ZZN20eliminate_predicates14init_injectiveERKNS_6clauseEENK3$_1clEP4exprRj.exit"
 
 21:                                               ; preds = %13
-  %22 = load ptr, ptr %4, align 8, !tbaa !25
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !25
-  %spec.select = select i1 %19, ptr %22, ptr %24
-  %spec.select65 = select i1 %19, ptr %24, ptr %22
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %23 = load ptr, ptr %4, align 8, !tbaa !25
+  %24 = load ptr, ptr %22, align 8, !tbaa !25
+  %spec.select = select i1 %19, ptr %23, ptr %24
+  %spec.select65 = select i1 %19, ptr %24, ptr %23
   %.040 = select i1 %16, ptr %24, ptr %spec.select
-  %.0 = select i1 %16, ptr %22, ptr %spec.select65
+  %.0 = select i1 %16, ptr %23, ptr %spec.select65
   %25 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 65535

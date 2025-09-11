@@ -1531,9 +1531,8 @@ heap_prune_record_prunable.exit:                  ; preds = %80, %78, %61, %59, 
   %101 = add i32 %100, 1
   store i32 %101, ptr %94, align 4
   %102 = sext i32 %100 to i64
-  %.idx = mul nsw i64 %102, 12
-  %103 = getelementptr i8, ptr %93, i64 %.idx
-  %104 = getelementptr i8, ptr %103, i64 10
+  %103 = getelementptr inbounds %struct.HeapTupleFreeze, ptr %93, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 10
   store i16 %2, ptr %104, align 2
   br label %105
 

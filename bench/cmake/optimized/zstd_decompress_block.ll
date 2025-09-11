@@ -616,8 +616,7 @@ define dso_local void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr nou
 21:                                               ; preds = %17
   %22 = add i32 %.0.i11.i, -1
   %23 = zext i32 %.0.i11.i to i64
-  %.idx132.i.i = shl nuw nsw i64 %23, 3
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx132.i.i
+  %24 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %10, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = trunc nuw i64 %indvars.iv.i to i32
   store i32 %26, ptr %25, align 4, !tbaa !38
@@ -695,8 +694,7 @@ define dso_local void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr nou
   %51 = and i64 %.0124.i33.i, %36
   %52 = load i8, ptr %50, align 1, !tbaa !8
   %53 = zext i8 %52 to i32
-  %.idx131.i.i = shl nuw nsw i64 %51, 3
-  %54 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx131.i.i
+  %54 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %10, i64 %51
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 %53, ptr %55, align 4, !tbaa !38
   %56 = add nuw nsw i64 %.0124.i33.i, %37
@@ -704,8 +702,7 @@ define dso_local void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr nou
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !8
   %60 = zext i8 %59 to i32
-  %.idx131.i.i.c = shl nuw nsw i64 %57, 3
-  %61 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx131.i.i.c
+  %61 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %10, i64 %57
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 %60, ptr %62, align 4, !tbaa !38
   %63 = add nuw nsw i64 %.0124.i33.i, %39
@@ -738,8 +735,7 @@ define dso_local void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr nou
   %.0114.i14.i = phi i32 [ %84, %83 ], [ 0, %.lr.ph16.preheader.i ]
   %.1116.i13.i = phi i32 [ %.2.i.i, %83 ], [ %.0115.i20.i, %.lr.ph16.preheader.i ]
   %78 = zext nneg i32 %.1116.i13.i to i64
-  %.idx.i.i = shl nuw nsw i64 %78, 3
-  %79 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
+  %79 = getelementptr inbounds nuw %struct.ZSTD_seqSymbol, ptr %10, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store i32 %77, ptr %80, align 4, !tbaa !38
   br label %81

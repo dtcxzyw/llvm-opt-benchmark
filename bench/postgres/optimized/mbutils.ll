@@ -378,105 +378,107 @@ define dso_local ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, 
 
 8:                                                ; preds = %4
   %9 = icmp eq i32 %2, 0
-  br i1 %9, label %10, label %19
+  br i1 %9, label %10, label %20
 
 10:                                               ; preds = %8
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %11, i32 5
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %0, i32 noundef %1) #13
-  %.not.i = icmp eq i32 %14, %1
-  br i1 %.not.i, label %pg_verify_mbstr.exit, label %15
+  %12 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 %14(ptr noundef %0, i32 noundef %1) #13
+  %.not.i = icmp eq i32 %15, %1
+  br i1 %.not.i, label %pg_verify_mbstr.exit, label %16
 
-15:                                               ; preds = %10
-  %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds i8, ptr %0, i64 %16
-  %18 = sub i32 %1, %14
-  tail call void @report_invalid_encoding(i32 noundef %3, ptr noundef %17, i32 noundef %18) #15
+16:                                               ; preds = %10
+  %17 = sext i32 %15 to i64
+  %18 = getelementptr inbounds i8, ptr %0, i64 %17
+  %19 = sub i32 %1, %15
+  tail call void @report_invalid_encoding(i32 noundef %3, ptr noundef %18, i32 noundef %19) #15
   unreachable
 
-19:                                               ; preds = %8
-  %20 = tail call zeroext i1 @IsTransactionState() #13
-  br i1 %20, label %24, label %21
+20:                                               ; preds = %8
+  %21 = tail call zeroext i1 @IsTransactionState() #13
+  br i1 %21, label %25, label %22
 
-21:                                               ; preds = %19
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #13
+22:                                               ; preds = %20
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %23)
+  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 379, ptr noundef nonnull @__func__.pg_do_encoding_conversion) #13
   unreachable
 
-24:                                               ; preds = %19
-  %25 = tail call i32 @FindDefaultConversionProc(i32 noundef %2, i32 noundef %3) #13
-  %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %26, label %32
+25:                                               ; preds = %20
+  %26 = tail call i32 @FindDefaultConversionProc(i32 noundef %2, i32 noundef %3) #13
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %27, label %33
 
-26:                                               ; preds = %24
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 52461700) #13
-  %29 = tail call ptr @pg_encoding_to_char_private(i32 noundef %2) #13
-  %30 = tail call ptr @pg_encoding_to_char_private(i32 noundef %3) #13
-  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %29, ptr noundef %30) #13
+27:                                               ; preds = %25
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %28)
+  %29 = tail call i32 @errcode(i32 noundef 52461700) #13
+  %30 = tail call ptr @pg_encoding_to_char_private(i32 noundef %2) #13
+  %31 = tail call ptr @pg_encoding_to_char_private(i32 noundef %3) #13
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %30, ptr noundef %31) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__func__.pg_do_encoding_conversion) #13
   unreachable
 
-32:                                               ; preds = %24
-  %33 = zext nneg i32 %1 to i64
-  %34 = load ptr, ptr @CurrentMemoryContext, align 8
-  %35 = shl nuw nsw i64 %33, 2
-  %36 = or disjoint i64 %35, 1
-  %37 = tail call ptr @MemoryContextAllocHuge(ptr noundef %34, i64 noundef %36) #13
-  %38 = sext i32 %2 to i64
-  %39 = sext i32 %3 to i64
-  %40 = ptrtoint ptr %0 to i64
-  %41 = ptrtoint ptr %37 to i64
-  %42 = tail call i64 @OidFunctionCall6Coll(i32 noundef %25, i32 noundef 0, i64 noundef %38, i64 noundef %39, i64 noundef %40, i64 noundef %41, i64 noundef %33, i64 noundef 0) #13
-  %43 = icmp samesign ugt i32 %1, 1000000
-  br i1 %43, label %44, label %pg_verify_mbstr.exit
+33:                                               ; preds = %25
+  %34 = zext nneg i32 %1 to i64
+  %35 = load ptr, ptr @CurrentMemoryContext, align 8
+  %36 = shl nuw nsw i64 %34, 2
+  %37 = or disjoint i64 %36, 1
+  %38 = tail call ptr @MemoryContextAllocHuge(ptr noundef %35, i64 noundef %37) #13
+  %39 = sext i32 %2 to i64
+  %40 = sext i32 %3 to i64
+  %41 = ptrtoint ptr %0 to i64
+  %42 = ptrtoint ptr %38 to i64
+  %43 = tail call i64 @OidFunctionCall6Coll(i32 noundef %26, i32 noundef 0, i64 noundef %39, i64 noundef %40, i64 noundef %41, i64 noundef %42, i64 noundef %34, i64 noundef 0) #13
+  %44 = icmp samesign ugt i32 %1, 1000000
+  br i1 %44, label %45, label %pg_verify_mbstr.exit
 
-44:                                               ; preds = %32
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16
-  %46 = icmp ugt i64 %45, 1073741822
-  br i1 %46, label %47, label %52
+45:                                               ; preds = %33
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #16
+  %47 = icmp ugt i64 %46, 1073741822
+  br i1 %47, label %48, label %53
 
-47:                                               ; preds = %44
-  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %48)
-  %49 = tail call i32 @errcode(i32 noundef 261) #13
-  %50 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #13
-  %51 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5, i32 noundef %1) #13
+48:                                               ; preds = %45
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %49)
+  %50 = tail call i32 @errcode(i32 noundef 261) #13
+  %51 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #13
+  %52 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5, i32 noundef %1) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 431, ptr noundef nonnull @__func__.pg_do_encoding_conversion) #13
   unreachable
 
-52:                                               ; preds = %44
-  %53 = add nuw nsw i64 %45, 1
-  %54 = tail call ptr @repalloc(ptr noundef nonnull %37, i64 noundef %53) #13
+53:                                               ; preds = %45
+  %54 = add nuw nsw i64 %46, 1
+  %55 = tail call ptr @repalloc(ptr noundef nonnull %38, i64 noundef %54) #13
   br label %pg_verify_mbstr.exit
 
-pg_verify_mbstr.exit:                             ; preds = %10, %32, %52, %4
-  %.0 = phi ptr [ %0, %4 ], [ %54, %52 ], [ %37, %32 ], [ %0, %10 ]
+pg_verify_mbstr.exit:                             ; preds = %10, %33, %53, %4
+  %.0 = phi ptr [ %0, %4 ], [ %55, %53 ], [ %38, %33 ], [ %0, %10 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @pg_verify_mbstr(i32 noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5, i32 5
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %1, i32 noundef %2) #13
-  %.not = icmp eq i32 %8, %2
+  %6 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 %8(ptr noundef %1, i32 noundef %2) #13
+  %.not = icmp eq i32 %9, %2
   %brmerge = or i1 %3, %.not
-  br i1 %brmerge, label %13, label %9
+  br i1 %brmerge, label %14, label %10
 
-9:                                                ; preds = %4
-  %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds i8, ptr %1, i64 %10
-  %12 = sub i32 %2, %8
-  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef %11, i32 noundef %12) #15
+10:                                               ; preds = %4
+  %11 = sext i32 %9 to i64
+  %12 = getelementptr inbounds i8, ptr %1, i64 %11
+  %13 = sub i32 %2, %9
+  tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef %12, i32 noundef %13) #15
   unreachable
 
-13:                                               ; preds = %4
+14:                                               ; preds = %4
   ret i1 %.not
 }
 
@@ -611,48 +613,49 @@ define dso_local i64 @pg_convert(ptr noundef readonly captures(none) %0) #0 {
   %.v = select i1 %.not47, i64 4, i64 1
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %49 = zext nneg i32 %9 to i64
-  %50 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %49, i32 5
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 %51(ptr noundef nonnull %48, i32 noundef %46) #13
-  %.not.i = icmp eq i32 %52, %46
-  br i1 %.not.i, label %pg_verify_mbstr.exit, label %53
+  %50 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call i32 %52(ptr noundef nonnull %48, i32 noundef %46) #13
+  %.not.i = icmp eq i32 %53, %46
+  br i1 %.not.i, label %pg_verify_mbstr.exit, label %54
 
-53:                                               ; preds = %45
-  %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds i8, ptr %48, i64 %54
-  %56 = sub i32 %46, %52
-  tail call void @report_invalid_encoding(i32 noundef %9, ptr noundef nonnull %55, i32 noundef %56) #15
+54:                                               ; preds = %45
+  %55 = sext i32 %53 to i64
+  %56 = getelementptr inbounds i8, ptr %48, i64 %55
+  %57 = sub i32 %46, %53
+  tail call void @report_invalid_encoding(i32 noundef %9, ptr noundef nonnull %56, i32 noundef %57) #15
   unreachable
 
 pg_verify_mbstr.exit:                             ; preds = %45
-  %57 = tail call ptr @pg_do_encoding_conversion(ptr noundef nonnull %48, i32 noundef %46, i32 noundef %9, i32 noundef %13)
-  %58 = icmp eq ptr %57, %48
-  br i1 %58, label %71, label %59
+  %58 = tail call ptr @pg_do_encoding_conversion(ptr noundef nonnull %48, i32 noundef %46, i32 noundef %9, i32 noundef %13)
+  %59 = icmp eq ptr %58, %48
+  br i1 %59, label %72, label %60
 
-59:                                               ; preds = %pg_verify_mbstr.exit
-  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #16
-  %61 = trunc i64 %60 to i32
-  %62 = add i32 %61, 4
-  %63 = sext i32 %62 to i64
-  %64 = tail call ptr @palloc(i64 noundef %63) #13
-  %65 = shl i32 %62, 2
-  store i32 %65, ptr %64, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %sext = shl i64 %60, 32
-  %67 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %66, ptr nonnull align 1 %57, i64 %67, i1 false)
-  tail call void @pfree(ptr noundef nonnull %57) #13
-  %68 = load i64, ptr %2, align 8
-  %69 = inttoptr i64 %68 to ptr
-  %.not48 = icmp eq ptr %5, %69
-  br i1 %.not48, label %71, label %70
+60:                                               ; preds = %pg_verify_mbstr.exit
+  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #16
+  %62 = trunc i64 %61 to i32
+  %63 = add i32 %62, 4
+  %64 = sext i32 %63 to i64
+  %65 = tail call ptr @palloc(i64 noundef %64) #13
+  %66 = shl i32 %63, 2
+  store i32 %66, ptr %65, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %sext = shl i64 %61, 32
+  %68 = ashr exact i64 %sext, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %67, ptr nonnull align 1 %58, i64 %68, i1 false)
+  tail call void @pfree(ptr noundef nonnull %58) #13
+  %69 = load i64, ptr %2, align 8
+  %70 = inttoptr i64 %69 to ptr
+  %.not48 = icmp eq ptr %5, %70
+  br i1 %.not48, label %72, label %71
 
-70:                                               ; preds = %59
+71:                                               ; preds = %60
   tail call void @pfree(ptr noundef nonnull %5) #13
-  br label %71
+  br label %72
 
-71:                                               ; preds = %59, %70, %pg_verify_mbstr.exit
-  %.0.in = phi ptr [ %5, %pg_verify_mbstr.exit ], [ %64, %70 ], [ %64, %59 ]
+72:                                               ; preds = %60, %71, %pg_verify_mbstr.exit
+  %.0.in = phi ptr [ %5, %pg_verify_mbstr.exit ], [ %65, %71 ], [ %65, %60 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -764,62 +767,63 @@ define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 no
 
 12:                                               ; preds = %4
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %13, i32 4
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp sgt i32 %2, 0
-  br i1 %16, label %.lr.ph, label %.thread
+  %14 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp sgt i32 %2, 0
+  br i1 %17, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %12, %33
-  %.03556 = phi ptr [ %.136, %33 ], [ %1, %12 ]
-  %.03755 = phi i32 [ %.138, %33 ], [ 0, %12 ]
-  %.03954 = phi i32 [ %.140, %33 ], [ %2, %12 ]
-  %17 = load i8, ptr %.03556, align 1
-  %.not = icmp sgt i8 %17, -1
-  br i1 %.not, label %18, label %24
+.lr.ph:                                           ; preds = %12, %34
+  %.03556 = phi ptr [ %.136, %34 ], [ %1, %12 ]
+  %.03755 = phi i32 [ %.138, %34 ], [ 0, %12 ]
+  %.03954 = phi i32 [ %.140, %34 ], [ %2, %12 ]
+  %18 = load i8, ptr %.03556, align 1
+  %.not = icmp sgt i8 %18, -1
+  br i1 %.not, label %19, label %25
 
-18:                                               ; preds = %.lr.ph
-  %.not43 = icmp eq i8 %17, 0
-  br i1 %.not43, label %22, label %19
+19:                                               ; preds = %.lr.ph
+  %.not43 = icmp eq i8 %18, 0
+  br i1 %.not43, label %23, label %20
 
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %.03556, i64 1
-  %21 = add nsw i32 %.03954, -1
-  br label %33, !llvm.loop !6
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %.03556, i64 1
+  %22 = add nsw i32 %.03954, -1
+  br label %34, !llvm.loop !6
 
-22:                                               ; preds = %18
-  br i1 %3, label %.thread, label %23
+23:                                               ; preds = %19
+  br i1 %3, label %.thread, label %24
 
-23:                                               ; preds = %22
+24:                                               ; preds = %23
   tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %.03556, i32 noundef %.03954) #15
   unreachable
 
-24:                                               ; preds = %.lr.ph
-  %25 = tail call i32 %15(ptr noundef nonnull %.03556, i32 noundef %.03954) #13
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %29
+25:                                               ; preds = %.lr.ph
+  %26 = tail call i32 %16(ptr noundef nonnull %.03556, i32 noundef %.03954) #13
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %24
-  br i1 %3, label %.thread, label %28
+28:                                               ; preds = %25
+  br i1 %3, label %.thread, label %29
 
-28:                                               ; preds = %27
+29:                                               ; preds = %28
   tail call void @report_invalid_encoding(i32 noundef %0, ptr noundef nonnull %.03556, i32 noundef %.03954) #15
   unreachable
 
-29:                                               ; preds = %24
-  %30 = zext nneg i32 %25 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %.03556, i64 %30
-  %32 = sub nsw i32 %.03954, %25
-  br label %33
+30:                                               ; preds = %25
+  %31 = zext nneg i32 %26 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %.03556, i64 %31
+  %33 = sub nsw i32 %.03954, %26
+  br label %34
 
-33:                                               ; preds = %29, %19
-  %.140 = phi i32 [ %32, %29 ], [ %21, %19 ]
-  %.136 = phi ptr [ %31, %29 ], [ %20, %19 ]
+34:                                               ; preds = %30, %20
+  %.140 = phi i32 [ %33, %30 ], [ %22, %20 ]
+  %.136 = phi ptr [ %32, %30 ], [ %21, %20 ]
   %.138 = add i32 %.03755, 1
-  %34 = icmp sgt i32 %.140, 0
-  br i1 %34, label %.lr.ph, label %.thread
+  %35 = icmp sgt i32 %.140, 0
+  br i1 %35, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %33, %12, %27, %22, %7
-  %.1 = phi i32 [ %.mux, %7 ], [ -1, %22 ], [ -1, %27 ], [ 0, %12 ], [ %.138, %33 ]
+.thread:                                          ; preds = %34, %12, %28, %23, %7
+  %.1 = phi i32 [ %.mux, %7 ], [ -1, %23 ], [ -1, %28 ], [ 0, %12 ], [ %.138, %34 ]
   ret i32 %.1
 }
 
@@ -829,22 +833,23 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_encoding_max_length_
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %or.cond = icmp ult i32 %4, 42
-  br i1 %or.cond, label %5, label %10
+  br i1 %or.cond, label %5, label %11
 
 5:                                                ; preds = %1
   %6 = and i64 %3, 63
-  %7 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %6, i32 6
-  %8 = load i32, ptr %7, align 8
-  %9 = sext i32 %8 to i64
-  br label %12
+  %7 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %9 = load i32, ptr %8, align 8
+  %10 = sext i32 %9 to i64
+  br label %13
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %11, align 4
-  br label %12
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %12, align 4
+  br label %13
 
-12:                                               ; preds = %10, %5
-  %.0 = phi i64 [ %9, %5 ], [ 0, %10 ]
+13:                                               ; preds = %11, %5
+  %.0 = phi i64 [ %10, %5 ], [ 0, %11 ]
   ret i64 %.0
 }
 
@@ -869,91 +874,93 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
   %9 = icmp eq i32 %2, %8
   %10 = icmp eq i32 %2, 0
   %or.cond = or i1 %10, %9
-  br i1 %or.cond, label %11, label %20
+  br i1 %or.cond, label %11, label %21
 
 11:                                               ; preds = %5
   %12 = sext i32 %8 to i64
-  %13 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %12, i32 5
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %0, i32 noundef %1) #13
-  %.not.i = icmp eq i32 %15, %1
-  br i1 %.not.i, label %pg_verify_mbstr.exit, label %16
+  %13 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 %15(ptr noundef %0, i32 noundef %1) #13
+  %.not.i = icmp eq i32 %16, %1
+  br i1 %.not.i, label %pg_verify_mbstr.exit, label %17
 
-16:                                               ; preds = %11
-  %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
-  %19 = sub i32 %1, %15
-  tail call void @report_invalid_encoding(i32 noundef %8, ptr noundef %18, i32 noundef %19) #15
+17:                                               ; preds = %11
+  %18 = sext i32 %16 to i64
+  %19 = getelementptr inbounds i8, ptr %0, i64 %18
+  %20 = sub i32 %1, %16
+  tail call void @report_invalid_encoding(i32 noundef %8, ptr noundef %19, i32 noundef %20) #15
   unreachable
 
-20:                                               ; preds = %5
-  %21 = icmp eq i32 %8, 0
-  br i1 %21, label %22, label %43
+21:                                               ; preds = %5
+  %22 = icmp eq i32 %8, 0
+  br i1 %22, label %23, label %45
 
-22:                                               ; preds = %20
+23:                                               ; preds = %21
   %or.cond3 = icmp ult i32 %2, 35
-  br i1 %or.cond3, label %23, label %.lr.ph.preheader
+  br i1 %or.cond3, label %24, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %22
+.lr.ph.preheader:                                 ; preds = %23
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-23:                                               ; preds = %22
-  %24 = zext nneg i32 %2 to i64
-  %25 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %24, i32 5
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef %0, i32 noundef %1) #13
-  %.not.i36 = icmp eq i32 %27, %1
-  br i1 %.not.i36, label %pg_verify_mbstr.exit, label %28
+24:                                               ; preds = %23
+  %25 = zext nneg i32 %2 to i64
+  %26 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call i32 %28(ptr noundef %0, i32 noundef %1) #13
+  %.not.i36 = icmp eq i32 %29, %1
+  br i1 %.not.i36, label %pg_verify_mbstr.exit, label %30
 
-28:                                               ; preds = %23
-  %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds i8, ptr %0, i64 %29
-  %31 = sub i32 %1, %27
-  tail call void @report_invalid_encoding(i32 noundef %2, ptr noundef %30, i32 noundef %31) #15
+30:                                               ; preds = %24
+  %31 = sext i32 %29 to i64
+  %32 = getelementptr inbounds i8, ptr %0, i64 %31
+  %33 = sub i32 %1, %29
+  tail call void @report_invalid_encoding(i32 noundef %2, ptr noundef %32, i32 noundef %33) #15
   unreachable
 
-32:                                               ; preds = %.lr.ph
+34:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %pg_verify_mbstr.exit, label %.lr.ph, !llvm.loop !7
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %32
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %34 = load i8, ptr %33, align 1
-  %or.cond35 = icmp sgt i8 %34, 0
-  br i1 %or.cond35, label %32, label %35
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %34
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %36 = load i8, ptr %35, align 1
+  %or.cond35 = icmp sgt i8 %36, 0
+  br i1 %or.cond35, label %34, label %37
 
-35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 @errcode(i32 noundef 17301634) #13
-  %39 = load ptr, ptr @pg_enc2name_tbl, align 8
-  %40 = load i8, ptr %36, align 1
-  %41 = zext i8 %40 to i32
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %39, i32 noundef %41) #13
+37:                                               ; preds = %.lr.ph
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %39)
+  %40 = tail call i32 @errcode(i32 noundef 17301634) #13
+  %41 = load ptr, ptr @pg_enc2name_tbl, align 8
+  %42 = load i8, ptr %38, align 1
+  %43 = zext i8 %42 to i32
+  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %41, i32 noundef %43) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 715, ptr noundef nonnull @__func__.pg_any_to_server) #13
   unreachable
 
-43:                                               ; preds = %20
-  %44 = load ptr, ptr @ClientEncoding, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp eq i32 %2, %46
-  br i1 %47, label %48, label %50
+45:                                               ; preds = %21
+  %46 = load ptr, ptr @ClientEncoding, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp eq i32 %2, %48
+  br i1 %49, label %50, label %52
 
-48:                                               ; preds = %43
-  %49 = tail call fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, i32 noundef %1, i1 noundef zeroext true)
+50:                                               ; preds = %45
+  %51 = tail call fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, i32 noundef %1, i1 noundef zeroext true)
   br label %pg_verify_mbstr.exit
 
-50:                                               ; preds = %43
-  %51 = tail call ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %8)
+52:                                               ; preds = %45
+  %53 = tail call ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %8)
   br label %pg_verify_mbstr.exit
 
-pg_verify_mbstr.exit:                             ; preds = %32, %23, %11, %3, %50, %48
-  %.0 = phi ptr [ %49, %48 ], [ %51, %50 ], [ %0, %3 ], [ %0, %11 ], [ %0, %23 ], [ %0, %32 ]
+pg_verify_mbstr.exit:                             ; preds = %34, %24, %11, %3, %52, %50
+  %.0 = phi ptr [ %51, %50 ], [ %53, %52 ], [ %0, %3 ], [ %0, %11 ], [ %0, %24 ], [ %0, %34 ]
   ret ptr %.0
 }
 
@@ -1030,29 +1037,30 @@ define dso_local ptr @pg_server_to_client(ptr noundef %0, i32 noundef %1) local_
 
 13:                                               ; preds = %7
   %14 = icmp eq i32 %10, 0
-  br i1 %14, label %15, label %24
+  br i1 %14, label %15, label %25
 
 15:                                               ; preds = %13
   %16 = sext i32 %5 to i64
-  %17 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %16, i32 5
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef %0, i32 noundef %1) #13
-  %.not.i.i = icmp eq i32 %19, %1
-  br i1 %.not.i.i, label %pg_server_to_any.exit, label %20
+  %17 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call i32 %19(ptr noundef %0, i32 noundef %1) #13
+  %.not.i.i = icmp eq i32 %20, %1
+  br i1 %.not.i.i, label %pg_server_to_any.exit, label %21
 
-20:                                               ; preds = %15
-  %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 %21
-  %23 = sub i32 %1, %19
-  tail call void @report_invalid_encoding(i32 noundef %5, ptr noundef %22, i32 noundef %23) #15
+21:                                               ; preds = %15
+  %22 = sext i32 %20 to i64
+  %23 = getelementptr inbounds i8, ptr %0, i64 %22
+  %24 = sub i32 %1, %20
+  tail call void @report_invalid_encoding(i32 noundef %5, ptr noundef %23, i32 noundef %24) #15
   unreachable
 
-24:                                               ; preds = %13
-  %25 = tail call fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false)
+25:                                               ; preds = %13
+  %26 = tail call fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false)
   br label %pg_server_to_any.exit
 
-pg_server_to_any.exit:                            ; preds = %2, %7, %15, %24
-  %.0.i = phi ptr [ %25, %24 ], [ %0, %2 ], [ %0, %7 ], [ %0, %15 ]
+pg_server_to_any.exit:                            ; preds = %2, %7, %15, %25
+  %.0.i = phi ptr [ %26, %25 ], [ %0, %2 ], [ %0, %7 ], [ %0, %15 ]
   ret ptr %.0.i
 }
 
@@ -1072,40 +1080,41 @@ define dso_local ptr @pg_server_to_any(ptr noundef %0, i32 noundef %1, i32 nound
 
 11:                                               ; preds = %5
   %12 = icmp eq i32 %8, 0
-  br i1 %12, label %13, label %22
+  br i1 %12, label %13, label %23
 
 13:                                               ; preds = %11
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %14, i32 5
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, i32 noundef %1) #13
-  %.not.i = icmp eq i32 %17, %1
-  br i1 %.not.i, label %pg_verify_mbstr.exit, label %18
+  %15 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 %17(ptr noundef %0, i32 noundef %1) #13
+  %.not.i = icmp eq i32 %18, %1
+  br i1 %.not.i, label %pg_verify_mbstr.exit, label %19
 
-18:                                               ; preds = %13
-  %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 %19
-  %21 = sub i32 %1, %17
-  tail call void @report_invalid_encoding(i32 noundef %2, ptr noundef %20, i32 noundef %21) #15
+19:                                               ; preds = %13
+  %20 = sext i32 %18 to i64
+  %21 = getelementptr inbounds i8, ptr %0, i64 %20
+  %22 = sub i32 %1, %18
+  tail call void @report_invalid_encoding(i32 noundef %2, ptr noundef %21, i32 noundef %22) #15
   unreachable
 
-22:                                               ; preds = %11
-  %23 = load ptr, ptr @ClientEncoding, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %2, %25
-  br i1 %26, label %27, label %29
+23:                                               ; preds = %11
+  %24 = load ptr, ptr @ClientEncoding, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp eq i32 %2, %26
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %22
-  %28 = tail call fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false)
+28:                                               ; preds = %23
+  %29 = tail call fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false)
   br label %pg_verify_mbstr.exit
 
-29:                                               ; preds = %22
-  %30 = tail call ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, i32 noundef %8, i32 noundef %2)
+30:                                               ; preds = %23
+  %31 = tail call ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, i32 noundef %8, i32 noundef %2)
   br label %pg_verify_mbstr.exit
 
-pg_verify_mbstr.exit:                             ; preds = %13, %5, %3, %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %0, %3 ], [ %0, %5 ], [ %0, %13 ]
+pg_verify_mbstr.exit:                             ; preds = %13, %5, %3, %30, %28
+  %.0 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %0, %3 ], [ %0, %5 ], [ %0, %13 ]
   ret ptr %.0
 }
 
@@ -1494,12 +1503,13 @@ define dso_local i32 @pg_wchar2mb(ptr noundef %0, ptr noundef %1) local_unnamed_
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %6, i32 1
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @pg_wchar_strlen(ptr noundef %0) #13
-  %10 = trunc i64 %9 to i32
-  %11 = tail call i32 %8(ptr noundef %0, ptr noundef %1, i32 noundef %10) #13
-  ret i32 %11
+  %7 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call i64 @pg_wchar_strlen(ptr noundef %0) #13
+  %11 = trunc i64 %10 to i32
+  %12 = tail call i32 %9(ptr noundef %0, ptr noundef %1, i32 noundef %11) #13
+  ret i32 %12
 }
 
 declare i64 @pg_wchar_strlen(ptr noundef) local_unnamed_addr #2
@@ -1510,19 +1520,21 @@ define dso_local i32 @pg_wchar2mb_with_len(ptr noundef %0, ptr noundef %1, i32 n
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %7, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, i32 noundef %2) #13
-  ret i32 %10
+  %8 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #13
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_encoding_wchar2mb_with_len(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5, i32 1
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %1, ptr noundef %2, i32 noundef %3) #13
-  ret i32 %8
+  %6 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 %8(ptr noundef %1, ptr noundef %2, i32 noundef %3) #13
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1531,10 +1543,11 @@ define dso_local i32 @pg_mblen(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %0) #13
-  ret i32 %8
+  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 %8(ptr noundef %0) #13
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1543,10 +1556,11 @@ define dso_local i32 @pg_dsplen(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5, i32 3
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %0) #13
-  ret i32 %8
+  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 %8(ptr noundef %0) #13
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1555,40 +1569,42 @@ define dso_local i32 @pg_mbstrlen(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5, i32 6
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, 1
-  br i1 %8, label %10, label %.preheader
+  %6 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %8 = load i32, ptr %7, align 8
+  %9 = icmp eq i32 %8, 1
+  br i1 %9, label %11, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %9 = load i8, ptr %0, align 1
-  %.not8 = icmp eq i8 %9, 0
+  %10 = load i8, ptr %0, align 1
+  %.not8 = icmp eq i8 %10, 0
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
-10:                                               ; preds = %1
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
-  %12 = trunc i64 %11 to i32
+11:                                               ; preds = %1
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
+  %13 = trunc i64 %12 to i32
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.010 = phi i32 [ %22, %.lr.ph ], [ 0, %.preheader ]
-  %.069 = phi ptr [ %21, %.lr.ph ], [ %0, %.preheader ]
-  %13 = load ptr, ptr @DatabaseEncoding, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i32, ptr %14, align 8
-  %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %16, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef nonnull %.069) #13
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %.069, i64 %20
-  %22 = add i32 %.010, 1
-  %23 = load i8, ptr %21, align 1
-  %.not = icmp eq i8 %23, 0
+  %.010 = phi i32 [ %24, %.lr.ph ], [ 0, %.preheader ]
+  %.069 = phi ptr [ %23, %.lr.ph ], [ %0, %.preheader ]
+  %14 = load ptr, ptr @DatabaseEncoding, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load i32, ptr %15, align 8
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 %20(ptr noundef nonnull %.069) #13
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i8, ptr %.069, i64 %22
+  %24 = add i32 %.010, 1
+  %25 = load i8, ptr %23, align 1
+  %.not = icmp eq i8 %25, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %10
-  %.07 = phi i32 [ %12, %10 ], [ 0, %.preheader ], [ %22, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %11
+  %.07 = phi i32 [ %13, %11 ], [ 0, %.preheader ], [ %24, %.lr.ph ]
   ret i32 %.07
 }
 
@@ -1598,9 +1614,10 @@ define dso_local i32 @pg_database_encoding_max_length() local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4, i32 6
-  %6 = load i32, ptr %5, align 8
-  ret i32 %6
+  %5 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %7 = load i32, ptr %6, align 8
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1609,40 +1626,42 @@ define dso_local i32 @pg_mbstrlen_with_len(ptr noundef %0, i32 noundef %1) local
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %6, i32 6
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, 1
-  br i1 %9, label %.critedge, label %.preheader
+  %7 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 1
+  br i1 %10, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %10 = icmp sgt i32 %1, 0
-  br i1 %10, label %.lr.ph, label %.critedge
+  %11 = icmp sgt i32 %1, 0
+  br i1 %11, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.preheader, %12
-  %.01015 = phi i32 [ %23, %12 ], [ 0, %.preheader ]
-  %.01114 = phi i32 [ %20, %12 ], [ %1, %.preheader ]
-  %.01213 = phi ptr [ %22, %12 ], [ %0, %.preheader ]
-  %11 = load i8, ptr %.01213, align 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %.critedge, label %12
+.lr.ph:                                           ; preds = %.preheader, %13
+  %.01015 = phi i32 [ %25, %13 ], [ 0, %.preheader ]
+  %.01114 = phi i32 [ %22, %13 ], [ %1, %.preheader ]
+  %.01213 = phi ptr [ %24, %13 ], [ %0, %.preheader ]
+  %12 = load i8, ptr %.01213, align 1
+  %.not = icmp eq i8 %12, 0
+  br i1 %.not, label %.critedge, label %13
 
-12:                                               ; preds = %.lr.ph
-  %13 = load ptr, ptr @DatabaseEncoding, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i32, ptr %14, align 8
-  %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %16, i32 2
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef nonnull %.01213) #13
-  %20 = sub i32 %.01114, %19
-  %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i8, ptr %.01213, i64 %21
-  %23 = add i32 %.01015, 1
-  %24 = icmp sgt i32 %20, 0
-  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !9
+13:                                               ; preds = %.lr.ph
+  %14 = load ptr, ptr @DatabaseEncoding, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load i32, ptr %15, align 8
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 %20(ptr noundef nonnull %.01213) #13
+  %22 = sub i32 %.01114, %21
+  %23 = sext i32 %21 to i64
+  %24 = getelementptr inbounds i8, ptr %.01213, i64 %23
+  %25 = add i32 %.01015, 1
+  %26 = icmp sgt i32 %22, 0
+  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !9
 
-.critedge:                                        ; preds = %12, %.lr.ph, %.preheader, %2
-  %.0 = phi i32 [ %1, %2 ], [ 0, %.preheader ], [ %23, %12 ], [ %.01015, %.lr.ph ]
+.critedge:                                        ; preds = %13, %.lr.ph, %.preheader, %2
+  %.0 = phi i32 [ %1, %2 ], [ 0, %.preheader ], [ %25, %13 ], [ %.01015, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1682,38 +1701,39 @@ define dso_local i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 16:                                               ; preds = %3
   %17 = sext i32 %6 to i64
-  %18 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %17, i32 2
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp sgt i32 %1, 0
-  br i1 %20, label %.lr.ph.i, label %pg_encoding_mbcliplen.exit
+  %18 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp sgt i32 %1, 0
+  br i1 %21, label %.lr.ph.i, label %pg_encoding_mbcliplen.exit
 
-.lr.ph.i:                                         ; preds = %16, %28
-  %.02130.i = phi i32 [ %24, %28 ], [ 0, %16 ]
-  %.02229.i = phi ptr [ %31, %28 ], [ %0, %16 ]
-  %.02328.i = phi i32 [ %29, %28 ], [ %1, %16 ]
-  %21 = load i8, ptr %.02229.i, align 1
-  %.not.i = icmp eq i8 %21, 0
-  br i1 %.not.i, label %pg_encoding_mbcliplen.exit, label %22
+.lr.ph.i:                                         ; preds = %16, %29
+  %.02130.i = phi i32 [ %25, %29 ], [ 0, %16 ]
+  %.02229.i = phi ptr [ %32, %29 ], [ %0, %16 ]
+  %.02328.i = phi i32 [ %30, %29 ], [ %1, %16 ]
+  %22 = load i8, ptr %.02229.i, align 1
+  %.not.i = icmp eq i8 %22, 0
+  br i1 %.not.i, label %pg_encoding_mbcliplen.exit, label %23
 
-22:                                               ; preds = %.lr.ph.i
-  %23 = tail call i32 %19(ptr noundef nonnull %.02229.i) #13
-  %24 = add i32 %23, %.02130.i
-  %25 = icmp sgt i32 %24, %2
-  br i1 %25, label %pg_encoding_mbcliplen.exit, label %26
+23:                                               ; preds = %.lr.ph.i
+  %24 = tail call i32 %20(ptr noundef nonnull %.02229.i) #13
+  %25 = add i32 %24, %.02130.i
+  %26 = icmp sgt i32 %25, %2
+  br i1 %26, label %pg_encoding_mbcliplen.exit, label %27
 
-26:                                               ; preds = %22
-  %27 = icmp eq i32 %24, %2
-  br i1 %27, label %pg_encoding_mbcliplen.exit, label %28
+27:                                               ; preds = %23
+  %28 = icmp eq i32 %25, %2
+  br i1 %28, label %pg_encoding_mbcliplen.exit, label %29
 
-28:                                               ; preds = %26
-  %29 = sub i32 %.02328.i, %23
-  %30 = sext i32 %23 to i64
-  %31 = getelementptr inbounds i8, ptr %.02229.i, i64 %30
-  %32 = icmp sgt i32 %29, 0
-  br i1 %32, label %.lr.ph.i, label %pg_encoding_mbcliplen.exit, !llvm.loop !11
+29:                                               ; preds = %27
+  %30 = sub i32 %.02328.i, %24
+  %31 = sext i32 %24 to i64
+  %32 = getelementptr inbounds i8, ptr %.02229.i, i64 %31
+  %33 = icmp sgt i32 %30, 0
+  br i1 %33, label %.lr.ph.i, label %pg_encoding_mbcliplen.exit, !llvm.loop !11
 
-pg_encoding_mbcliplen.exit:                       ; preds = %.lr.ph.i, %22, %26, %28, %14, %9, %.critedge.loopexit.split.loop.exit13.i.i, %16
-  %.0.i = phi i32 [ 0, %9 ], [ %15, %.critedge.loopexit.split.loop.exit13.i.i ], [ 0, %16 ], [ %10, %14 ], [ %.02130.i, %.lr.ph.i ], [ %.02130.i, %22 ], [ %2, %26 ], [ %24, %28 ]
+pg_encoding_mbcliplen.exit:                       ; preds = %.lr.ph.i, %23, %27, %29, %14, %9, %.critedge.loopexit.split.loop.exit13.i.i, %16
+  %.0.i = phi i32 [ 0, %9 ], [ %15, %.critedge.loopexit.split.loop.exit13.i.i ], [ 0, %16 ], [ %10, %14 ], [ %.02130.i, %.lr.ph.i ], [ %.02130.i, %23 ], [ %2, %27 ], [ %25, %29 ]
   ret i32 %.0.i
 }
 
@@ -1750,38 +1770,39 @@ define dso_local i32 @pg_encoding_mbcliplen(i32 noundef %0, ptr noundef %1, i32 
 
 14:                                               ; preds = %4
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %15, i32 2
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp sgt i32 %2, 0
-  br i1 %18, label %.lr.ph, label %.critedge
+  %16 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp sgt i32 %2, 0
+  br i1 %19, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %14, %26
-  %.02130 = phi i32 [ %22, %26 ], [ 0, %14 ]
-  %.02229 = phi ptr [ %29, %26 ], [ %1, %14 ]
-  %.02328 = phi i32 [ %27, %26 ], [ %2, %14 ]
-  %19 = load i8, ptr %.02229, align 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %.critedge, label %20
+.lr.ph:                                           ; preds = %14, %27
+  %.02130 = phi i32 [ %23, %27 ], [ 0, %14 ]
+  %.02229 = phi ptr [ %30, %27 ], [ %1, %14 ]
+  %.02328 = phi i32 [ %28, %27 ], [ %2, %14 ]
+  %20 = load i8, ptr %.02229, align 1
+  %.not = icmp eq i8 %20, 0
+  br i1 %.not, label %.critedge, label %21
 
-20:                                               ; preds = %.lr.ph
-  %21 = tail call i32 %17(ptr noundef nonnull %.02229) #13
-  %22 = add i32 %21, %.02130
-  %23 = icmp sgt i32 %22, %3
-  br i1 %23, label %.critedge, label %24
+21:                                               ; preds = %.lr.ph
+  %22 = tail call i32 %18(ptr noundef nonnull %.02229) #13
+  %23 = add i32 %22, %.02130
+  %24 = icmp sgt i32 %23, %3
+  br i1 %24, label %.critedge, label %25
 
-24:                                               ; preds = %20
-  %25 = icmp eq i32 %22, %3
-  br i1 %25, label %.critedge, label %26
+25:                                               ; preds = %21
+  %26 = icmp eq i32 %23, %3
+  br i1 %26, label %.critedge, label %27
 
-26:                                               ; preds = %24
-  %27 = sub i32 %.02328, %21
-  %28 = sext i32 %21 to i64
-  %29 = getelementptr inbounds i8, ptr %.02229, i64 %28
-  %30 = icmp sgt i32 %27, 0
-  br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !11
+27:                                               ; preds = %25
+  %28 = sub i32 %.02328, %22
+  %29 = sext i32 %22 to i64
+  %30 = getelementptr inbounds i8, ptr %.02229, i64 %29
+  %31 = icmp sgt i32 %28, 0
+  br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !11
 
-.critedge:                                        ; preds = %26, %24, %20, %.lr.ph, %12, %14, %.critedge.loopexit.split.loop.exit13.i, %7
-  %.0 = phi i32 [ 0, %7 ], [ %13, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %14 ], [ %8, %12 ], [ %22, %26 ], [ %3, %24 ], [ %.02130, %20 ], [ %.02130, %.lr.ph ]
+.critedge:                                        ; preds = %27, %25, %21, %.lr.ph, %12, %14, %.critedge.loopexit.split.loop.exit13.i, %7
+  %.0 = phi i32 [ 0, %7 ], [ %13, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %14 ], [ %8, %12 ], [ %23, %27 ], [ %3, %25 ], [ %.02130, %21 ], [ %.02130, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1793,71 +1814,73 @@ define dso_local i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %1, i32 nound
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %7, i32 6
-  %9 = load i32, ptr %8, align 8
-  %10 = icmp eq i32 %9, 1
-  br i1 %10, label %12, label %.preheader
+  %8 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %10, 1
+  br i1 %11, label %13, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %11 = icmp sgt i32 %1, 0
-  br i1 %11, label %.lr.ph, label %.critedge
+  %12 = icmp sgt i32 %1, 0
+  br i1 %12, label %.lr.ph, label %.critedge
 
-12:                                               ; preds = %3
-  %13 = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
-  %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph.preheader.i, label %.critedge
+13:                                               ; preds = %3
+  %14 = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph.preheader.i, label %.critedge
 
-.lr.ph.preheader.i:                               ; preds = %12
-  %wide.trip.count.i = zext nneg i32 %13 to i64
+.lr.ph.preheader.i:                               ; preds = %13
+  %wide.trip.count.i = zext nneg i32 %14 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %17, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %17 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  %16 = load i8, ptr %15, align 1
-  %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %.critedge.loopexit.split.loop.exit13.i, label %17
+.lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
+  %17 = load i8, ptr %16, align 1
+  %.not.i = icmp eq i8 %17, 0
+  br i1 %.not.i, label %.critedge.loopexit.split.loop.exit13.i, label %18
 
-17:                                               ; preds = %.lr.ph.i
+18:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit13.i:           ; preds = %.lr.ph.i
-  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge
 
-.lr.ph:                                           ; preds = %.preheader, %30
-  %.01626 = phi i32 [ %28, %30 ], [ 0, %.preheader ]
-  %.01725 = phi i32 [ %31, %30 ], [ 0, %.preheader ]
-  %.01824 = phi ptr [ %34, %30 ], [ %0, %.preheader ]
-  %.01923 = phi i32 [ %32, %30 ], [ %1, %.preheader ]
-  %19 = load i8, ptr %.01824, align 1
-  %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %.critedge, label %20
+.lr.ph:                                           ; preds = %.preheader, %32
+  %.01626 = phi i32 [ %30, %32 ], [ 0, %.preheader ]
+  %.01725 = phi i32 [ %33, %32 ], [ 0, %.preheader ]
+  %.01824 = phi ptr [ %36, %32 ], [ %0, %.preheader ]
+  %.01923 = phi i32 [ %34, %32 ], [ %1, %.preheader ]
+  %20 = load i8, ptr %.01824, align 1
+  %.not = icmp eq i8 %20, 0
+  br i1 %.not, label %.critedge, label %21
 
-20:                                               ; preds = %.lr.ph
-  %21 = load ptr, ptr @DatabaseEncoding, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i32, ptr %22, align 8
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %24, i32 2
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef nonnull %.01824) #13
-  %28 = add i32 %.01626, 1
-  %29 = icmp sgt i32 %28, %2
-  br i1 %29, label %.critedge, label %30
+21:                                               ; preds = %.lr.ph
+  %22 = load ptr, ptr @DatabaseEncoding, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load i32, ptr %23, align 8
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call i32 %28(ptr noundef nonnull %.01824) #13
+  %30 = add i32 %.01626, 1
+  %31 = icmp sgt i32 %30, %2
+  br i1 %31, label %.critedge, label %32
 
-30:                                               ; preds = %20
-  %31 = add i32 %27, %.01725
-  %32 = sub i32 %.01923, %27
-  %33 = sext i32 %27 to i64
-  %34 = getelementptr inbounds i8, ptr %.01824, i64 %33
-  %35 = icmp sgt i32 %32, 0
-  br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !12
+32:                                               ; preds = %21
+  %33 = add i32 %29, %.01725
+  %34 = sub i32 %.01923, %29
+  %35 = sext i32 %29 to i64
+  %36 = getelementptr inbounds i8, ptr %.01824, i64 %35
+  %37 = icmp sgt i32 %34, 0
+  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !12
 
-.critedge:                                        ; preds = %30, %20, %.lr.ph, %17, %.preheader, %.critedge.loopexit.split.loop.exit13.i, %12
-  %.0 = phi i32 [ 0, %12 ], [ %18, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %.preheader ], [ %13, %17 ], [ %31, %30 ], [ %.01725, %20 ], [ %.01725, %.lr.ph ]
+.critedge:                                        ; preds = %32, %21, %.lr.ph, %18, %.preheader, %.critedge.loopexit.split.loop.exit13.i, %13
+  %.0 = phi i32 [ 0, %13 ], [ %19, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %.preheader ], [ %14, %18 ], [ %33, %32 ], [ %.01725, %21 ], [ %.01725, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2145,23 +2168,24 @@ define internal noundef zeroext i1 @pg_generic_charinc(ptr noundef %0, i32 nound
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %9, i32 4
-  %11 = load ptr, ptr %10, align 8
-  br label %12
+  %10 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %12 = load ptr, ptr %11, align 8
+  br label %13
 
-12:                                               ; preds = %14, %2
-  %13 = load i8, ptr %5, align 1
-  %.not.not.not.not.not.not = icmp ne i8 %13, -1
-  br i1 %.not.not.not.not.not.not, label %14, label %18
+13:                                               ; preds = %15, %2
+  %14 = load i8, ptr %5, align 1
+  %.not.not.not.not.not.not = icmp ne i8 %14, -1
+  br i1 %.not.not.not.not.not.not, label %15, label %19
 
-14:                                               ; preds = %12
-  %15 = add nuw i8 %13, 1
-  store i8 %15, ptr %5, align 1
-  %16 = tail call i32 %11(ptr noundef nonnull %0, i32 noundef %1) #13
-  %17 = icmp eq i32 %16, %1
-  br i1 %17, label %18, label %12, !llvm.loop !15
+15:                                               ; preds = %13
+  %16 = add nuw i8 %14, 1
+  store i8 %16, ptr %5, align 1
+  %17 = tail call i32 %12(ptr noundef nonnull %0, i32 noundef %1) #13
+  %18 = icmp eq i32 %17, %1
+  br i1 %18, label %19, label %13, !llvm.loop !15
 
-18:                                               ; preds = %12, %14
+19:                                               ; preds = %13, %15
   ret i1 %.not.not.not.not.not.not
 }
 
@@ -2171,18 +2195,19 @@ define dso_local zeroext i1 @pg_verifymbstr(ptr noundef %0, i32 noundef %1, i1 n
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %7, i32 5
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %0, i32 noundef %1) #13
-  %.not.i = icmp eq i32 %10, %1
+  %8 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #13
+  %.not.i = icmp eq i32 %11, %1
   %brmerge.i = or i1 %2, %.not.i
-  br i1 %brmerge.i, label %pg_verify_mbstr.exit, label %11
+  br i1 %brmerge.i, label %pg_verify_mbstr.exit, label %12
 
-11:                                               ; preds = %3
-  %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 %12
-  %14 = sub i32 %1, %10
-  tail call void @report_invalid_encoding(i32 noundef %6, ptr noundef %13, i32 noundef %14) #15
+12:                                               ; preds = %3
+  %13 = sext i32 %11 to i64
+  %14 = getelementptr inbounds i8, ptr %0, i64 %13
+  %15 = sub i32 %1, %11
+  tail call void @report_invalid_encoding(i32 noundef %6, ptr noundef %14, i32 noundef %15) #15
   unreachable
 
 pg_verify_mbstr.exit:                             ; preds = %3

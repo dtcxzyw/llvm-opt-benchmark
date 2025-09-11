@@ -127,8 +127,8 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
   %.085 = phi ptr [ null, %2 ], [ %.085.be, %.backedge ]
   %10 = call i32 @opt_next() #5
   switch i32 %10, label %.backedge [
-    i32 0, label %112
-    i32 1602, label %110
+    i32 0, label %113
+    i32 1602, label %111
     i32 -1, label %.loopexit
     i32 1, label %13
     i32 3, label %14
@@ -139,19 +139,19 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
     i32 8, label %21
     i32 9, label %21
     i32 10, label %21
-    i32 11, label %33
-    i32 12, label %45
-    i32 13, label %58
-    i32 14, label %74
-    i32 15, label %90
-    i32 2, label %105
-    i32 16, label %108
-    i32 1603, label %110
-    i32 1604, label %110
-    i32 1601, label %110
+    i32 11, label %34
+    i32 12, label %46
+    i32 13, label %59
+    i32 14, label %75
+    i32 15, label %91
+    i32 2, label %106
+    i32 16, label %109
+    i32 1603, label %111
+    i32 1604, label %111
+    i32 1601, label %111
   ]
 
-.loopexit:                                        ; preds = %9, %114, %112
+.loopexit:                                        ; preds = %9, %115, %113
   %11 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %12 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %11, ptr noundef nonnull @.str.50, ptr noundef %8) #5
   br label %.loopexit159
@@ -199,307 +199,308 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !16
 
 30:                                               ; preds = %.preheader
-  %31 = getelementptr inbounds nuw %struct.anon, ptr @storeutl_main.map, i64 %.082437, i32 1
-  %32 = load i32, ptr %31, align 4, !tbaa !18
+  %31 = getelementptr inbounds nuw %struct.anon, ptr @storeutl_main.map, i64 %.082437
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !18
   br label %.backedge
 
-.backedge:                                        ; preds = %30, %.thread156, %9, %110, %98, %67, %54, %41, %108, %105, %20, %19, %18, %16, %14
-  %.0120.be = phi i32 [ %.0120, %14 ], [ %.0120, %16 ], [ 1, %18 ], [ %.0120, %19 ], [ %.0120, %20 ], [ %.0120, %41 ], [ %.0120, %54 ], [ %.0120, %67 ], [ %.0120, %98 ], [ %.0120, %105 ], [ %.0120, %108 ], [ %.0120, %110 ], [ %.0120, %9 ], [ %.0120, %30 ], [ %.0120, %.thread156 ]
-  %.0118.be = phi i32 [ %.0118, %14 ], [ %.0118, %16 ], [ %.0118, %18 ], [ 1, %19 ], [ %.0118, %20 ], [ %.0118, %41 ], [ %.0118, %54 ], [ %.0118, %67 ], [ %.0118, %98 ], [ %.0118, %105 ], [ %.0118, %108 ], [ %.0118, %110 ], [ %.0118, %9 ], [ %.0118, %30 ], [ %.0118, %.thread156 ]
-  %.0116.be = phi i32 [ %.0116, %14 ], [ %.0116, %16 ], [ %.0116, %18 ], [ %.0116, %19 ], [ 1, %20 ], [ %.0116, %41 ], [ %.0116, %54 ], [ %.0116, %67 ], [ %.0116, %98 ], [ %.0116, %105 ], [ %.0116, %108 ], [ %.0116, %110 ], [ %.0116, %9 ], [ %.0116, %30 ], [ %.0116, %.thread156 ]
-  %.0114.be = phi ptr [ %15, %14 ], [ %.0114, %16 ], [ %.0114, %18 ], [ %.0114, %19 ], [ %.0114, %20 ], [ %.0114, %41 ], [ %.0114, %54 ], [ %.0114, %67 ], [ %.0114, %98 ], [ %.0114, %105 ], [ %.0114, %108 ], [ %.0114, %110 ], [ %.0114, %9 ], [ %.0114, %30 ], [ %.0114, %.thread156 ]
-  %.0112.be = phi ptr [ %.0112, %14 ], [ %17, %16 ], [ %.0112, %18 ], [ %.0112, %19 ], [ %.0112, %20 ], [ %.0112, %41 ], [ %.0112, %54 ], [ %.0112, %67 ], [ %.0112, %98 ], [ %.0112, %105 ], [ %.0112, %108 ], [ %.0112, %110 ], [ %.0112, %9 ], [ %.0112, %30 ], [ %.0112, %.thread156 ]
-  %.0110.be = phi ptr [ %.0110, %14 ], [ %.0110, %16 ], [ %.0110, %18 ], [ %.0110, %19 ], [ %.0110, %20 ], [ %.0110, %41 ], [ %.0110, %54 ], [ %.0110, %67 ], [ %.0110, %98 ], [ %107, %105 ], [ %.0110, %108 ], [ %.0110, %110 ], [ %.0110, %9 ], [ %.0110, %30 ], [ %.0110, %.thread156 ]
-  %.0106.be = phi i32 [ %.0106, %14 ], [ %.0106, %16 ], [ %.0106, %18 ], [ %.0106, %19 ], [ %.0106, %20 ], [ %.0106, %41 ], [ %.0106, %54 ], [ %.0106, %67 ], [ %.0106, %98 ], [ %.0106, %105 ], [ %.0106, %108 ], [ %.0106, %110 ], [ %.0106, %9 ], [ %32, %30 ], [ %.0106, %.thread156 ]
-  %.0104.be = phi i32 [ %.0104, %14 ], [ %.0104, %16 ], [ %.0104, %18 ], [ %.0104, %19 ], [ %.0104, %20 ], [ 1, %41 ], [ 2, %54 ], [ 2, %67 ], [ 4, %98 ], [ %.0104, %105 ], [ %.0104, %108 ], [ %.0104, %110 ], [ %.0104, %9 ], [ %.0104, %30 ], [ 3, %.thread156 ]
-  %.0101.be = phi ptr [ %.0101, %14 ], [ %.0101, %16 ], [ %.0101, %18 ], [ %.0101, %19 ], [ %.0101, %20 ], [ %43, %41 ], [ %.0101, %54 ], [ %.0101, %67 ], [ %.0101, %98 ], [ %.0101, %105 ], [ %.0101, %108 ], [ %.0101, %110 ], [ %.0101, %9 ], [ %.0101, %30 ], [ %.0101, %.thread156 ]
-  %.098.be = phi ptr [ %.098, %14 ], [ %.098, %16 ], [ %.098, %18 ], [ %.098, %19 ], [ %.098, %20 ], [ %.098, %41 ], [ %56, %54 ], [ %.098, %67 ], [ %.098, %98 ], [ %.098, %105 ], [ %.098, %108 ], [ %.098, %110 ], [ %.098, %9 ], [ %.098, %30 ], [ %.098, %.thread156 ]
-  %.095.be = phi ptr [ %.095, %14 ], [ %.095, %16 ], [ %.095, %18 ], [ %.095, %19 ], [ %.095, %20 ], [ %.095, %41 ], [ %.095, %54 ], [ %69, %67 ], [ %.095, %98 ], [ %.095, %105 ], [ %.095, %108 ], [ %.095, %110 ], [ %.095, %9 ], [ %.095, %30 ], [ %.095, %.thread156 ]
-  %.092.be = phi ptr [ %.092, %14 ], [ %.092, %16 ], [ %.092, %18 ], [ %.092, %19 ], [ %.092, %20 ], [ %.092, %41 ], [ %.092, %54 ], [ %.092, %67 ], [ %.092, %98 ], [ %.092, %105 ], [ %.092, %108 ], [ %.092, %110 ], [ %.092, %9 ], [ %.092, %30 ], [ %84, %.thread156 ]
-  %.089.be = phi i64 [ %.089, %14 ], [ %.089, %16 ], [ %.089, %18 ], [ %.089, %19 ], [ %.089, %20 ], [ %.089, %41 ], [ %.089, %54 ], [ %.089, %67 ], [ %.089, %98 ], [ %.089, %105 ], [ %.089, %108 ], [ %.089, %110 ], [ %.089, %9 ], [ %.089, %30 ], [ %86, %.thread156 ]
-  %.087.be = phi ptr [ %.087, %14 ], [ %.087, %16 ], [ %.087, %18 ], [ %.087, %19 ], [ %.087, %20 ], [ %.087, %41 ], [ %.087, %54 ], [ %.087, %67 ], [ %100, %98 ], [ %.087, %105 ], [ %.087, %108 ], [ %.087, %110 ], [ %.087, %9 ], [ %.087, %30 ], [ %.087, %.thread156 ]
-  %.085.be = phi ptr [ %.085, %14 ], [ %.085, %16 ], [ %.085, %18 ], [ %.085, %19 ], [ %.085, %20 ], [ %.085, %41 ], [ %.085, %54 ], [ %.085, %67 ], [ %.085, %98 ], [ %.085, %105 ], [ %109, %108 ], [ %.085, %110 ], [ %.085, %9 ], [ %.085, %30 ], [ %.085, %.thread156 ]
+.backedge:                                        ; preds = %30, %.thread156, %9, %111, %99, %68, %55, %42, %109, %106, %20, %19, %18, %16, %14
+  %.0120.be = phi i32 [ %.0120, %14 ], [ %.0120, %16 ], [ 1, %18 ], [ %.0120, %19 ], [ %.0120, %20 ], [ %.0120, %42 ], [ %.0120, %55 ], [ %.0120, %68 ], [ %.0120, %99 ], [ %.0120, %106 ], [ %.0120, %109 ], [ %.0120, %111 ], [ %.0120, %9 ], [ %.0120, %30 ], [ %.0120, %.thread156 ]
+  %.0118.be = phi i32 [ %.0118, %14 ], [ %.0118, %16 ], [ %.0118, %18 ], [ 1, %19 ], [ %.0118, %20 ], [ %.0118, %42 ], [ %.0118, %55 ], [ %.0118, %68 ], [ %.0118, %99 ], [ %.0118, %106 ], [ %.0118, %109 ], [ %.0118, %111 ], [ %.0118, %9 ], [ %.0118, %30 ], [ %.0118, %.thread156 ]
+  %.0116.be = phi i32 [ %.0116, %14 ], [ %.0116, %16 ], [ %.0116, %18 ], [ %.0116, %19 ], [ 1, %20 ], [ %.0116, %42 ], [ %.0116, %55 ], [ %.0116, %68 ], [ %.0116, %99 ], [ %.0116, %106 ], [ %.0116, %109 ], [ %.0116, %111 ], [ %.0116, %9 ], [ %.0116, %30 ], [ %.0116, %.thread156 ]
+  %.0114.be = phi ptr [ %15, %14 ], [ %.0114, %16 ], [ %.0114, %18 ], [ %.0114, %19 ], [ %.0114, %20 ], [ %.0114, %42 ], [ %.0114, %55 ], [ %.0114, %68 ], [ %.0114, %99 ], [ %.0114, %106 ], [ %.0114, %109 ], [ %.0114, %111 ], [ %.0114, %9 ], [ %.0114, %30 ], [ %.0114, %.thread156 ]
+  %.0112.be = phi ptr [ %.0112, %14 ], [ %17, %16 ], [ %.0112, %18 ], [ %.0112, %19 ], [ %.0112, %20 ], [ %.0112, %42 ], [ %.0112, %55 ], [ %.0112, %68 ], [ %.0112, %99 ], [ %.0112, %106 ], [ %.0112, %109 ], [ %.0112, %111 ], [ %.0112, %9 ], [ %.0112, %30 ], [ %.0112, %.thread156 ]
+  %.0110.be = phi ptr [ %.0110, %14 ], [ %.0110, %16 ], [ %.0110, %18 ], [ %.0110, %19 ], [ %.0110, %20 ], [ %.0110, %42 ], [ %.0110, %55 ], [ %.0110, %68 ], [ %.0110, %99 ], [ %108, %106 ], [ %.0110, %109 ], [ %.0110, %111 ], [ %.0110, %9 ], [ %.0110, %30 ], [ %.0110, %.thread156 ]
+  %.0106.be = phi i32 [ %.0106, %14 ], [ %.0106, %16 ], [ %.0106, %18 ], [ %.0106, %19 ], [ %.0106, %20 ], [ %.0106, %42 ], [ %.0106, %55 ], [ %.0106, %68 ], [ %.0106, %99 ], [ %.0106, %106 ], [ %.0106, %109 ], [ %.0106, %111 ], [ %.0106, %9 ], [ %33, %30 ], [ %.0106, %.thread156 ]
+  %.0104.be = phi i32 [ %.0104, %14 ], [ %.0104, %16 ], [ %.0104, %18 ], [ %.0104, %19 ], [ %.0104, %20 ], [ 1, %42 ], [ 2, %55 ], [ 2, %68 ], [ 4, %99 ], [ %.0104, %106 ], [ %.0104, %109 ], [ %.0104, %111 ], [ %.0104, %9 ], [ %.0104, %30 ], [ 3, %.thread156 ]
+  %.0101.be = phi ptr [ %.0101, %14 ], [ %.0101, %16 ], [ %.0101, %18 ], [ %.0101, %19 ], [ %.0101, %20 ], [ %44, %42 ], [ %.0101, %55 ], [ %.0101, %68 ], [ %.0101, %99 ], [ %.0101, %106 ], [ %.0101, %109 ], [ %.0101, %111 ], [ %.0101, %9 ], [ %.0101, %30 ], [ %.0101, %.thread156 ]
+  %.098.be = phi ptr [ %.098, %14 ], [ %.098, %16 ], [ %.098, %18 ], [ %.098, %19 ], [ %.098, %20 ], [ %.098, %42 ], [ %57, %55 ], [ %.098, %68 ], [ %.098, %99 ], [ %.098, %106 ], [ %.098, %109 ], [ %.098, %111 ], [ %.098, %9 ], [ %.098, %30 ], [ %.098, %.thread156 ]
+  %.095.be = phi ptr [ %.095, %14 ], [ %.095, %16 ], [ %.095, %18 ], [ %.095, %19 ], [ %.095, %20 ], [ %.095, %42 ], [ %.095, %55 ], [ %70, %68 ], [ %.095, %99 ], [ %.095, %106 ], [ %.095, %109 ], [ %.095, %111 ], [ %.095, %9 ], [ %.095, %30 ], [ %.095, %.thread156 ]
+  %.092.be = phi ptr [ %.092, %14 ], [ %.092, %16 ], [ %.092, %18 ], [ %.092, %19 ], [ %.092, %20 ], [ %.092, %42 ], [ %.092, %55 ], [ %.092, %68 ], [ %.092, %99 ], [ %.092, %106 ], [ %.092, %109 ], [ %.092, %111 ], [ %.092, %9 ], [ %.092, %30 ], [ %85, %.thread156 ]
+  %.089.be = phi i64 [ %.089, %14 ], [ %.089, %16 ], [ %.089, %18 ], [ %.089, %19 ], [ %.089, %20 ], [ %.089, %42 ], [ %.089, %55 ], [ %.089, %68 ], [ %.089, %99 ], [ %.089, %106 ], [ %.089, %109 ], [ %.089, %111 ], [ %.089, %9 ], [ %.089, %30 ], [ %87, %.thread156 ]
+  %.087.be = phi ptr [ %.087, %14 ], [ %.087, %16 ], [ %.087, %18 ], [ %.087, %19 ], [ %.087, %20 ], [ %.087, %42 ], [ %.087, %55 ], [ %.087, %68 ], [ %101, %99 ], [ %.087, %106 ], [ %.087, %109 ], [ %.087, %111 ], [ %.087, %9 ], [ %.087, %30 ], [ %.087, %.thread156 ]
+  %.085.be = phi ptr [ %.085, %14 ], [ %.085, %16 ], [ %.085, %18 ], [ %.085, %19 ], [ %.085, %20 ], [ %.085, %42 ], [ %.085, %55 ], [ %.085, %68 ], [ %.085, %99 ], [ %.085, %106 ], [ %110, %109 ], [ %.085, %111 ], [ %.085, %9 ], [ %.085, %30 ], [ %.085, %.thread156 ]
   br label %9, !llvm.loop !19
 
 .thread:                                          ; preds = %28
   call void @OPENSSL_die(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 148) #6
   unreachable
 
-33:                                               ; preds = %9
+34:                                               ; preds = %9
   %.not150 = icmp eq i32 %.0104, 0
-  br i1 %.not150, label %37, label %34
+  br i1 %.not150, label %38, label %35
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %36 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.54, ptr noundef %8) #5
+35:                                               ; preds = %34
+  %36 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %37 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %36, ptr noundef nonnull @.str.54, ptr noundef %8) #5
   br label %.loopexit159
 
-37:                                               ; preds = %33
+38:                                               ; preds = %34
   %.not151 = icmp eq ptr %.0101, null
-  br i1 %.not151, label %41, label %38
+  br i1 %.not151, label %42, label %39
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %40 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %39, ptr noundef nonnull @.str.55, ptr noundef %8) #5
+39:                                               ; preds = %38
+  %40 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %41 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %40, ptr noundef nonnull @.str.55, ptr noundef %8) #5
   br label %.loopexit159
 
-41:                                               ; preds = %37
-  %42 = call ptr @opt_arg() #5
-  %43 = call ptr @parse_name(ptr noundef %42, i32 noundef 4096, i32 noundef 1, ptr noundef nonnull @.str.15) #5
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %.loopexit159, label %.backedge
+42:                                               ; preds = %38
+  %43 = call ptr @opt_arg() #5
+  %44 = call ptr @parse_name(ptr noundef %43, i32 noundef 4096, i32 noundef 1, ptr noundef nonnull @.str.15) #5
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.loopexit159, label %.backedge
 
-45:                                               ; preds = %9
-  %46 = and i32 %.0104, 5
-  %or.cond.not = icmp eq i32 %46, 0
-  br i1 %or.cond.not, label %50, label %47
+46:                                               ; preds = %9
+  %47 = and i32 %.0104, 5
+  %or.cond.not = icmp eq i32 %47, 0
+  br i1 %or.cond.not, label %51, label %48
 
-47:                                               ; preds = %45
-  %48 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %49 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %48, ptr noundef nonnull @.str.54, ptr noundef %8) #5
+48:                                               ; preds = %46
+  %49 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %50 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %49, ptr noundef nonnull @.str.54, ptr noundef %8) #5
   br label %.loopexit159
 
-50:                                               ; preds = %45
+51:                                               ; preds = %46
   %.not149 = icmp eq ptr %.098, null
-  br i1 %.not149, label %54, label %51
+  br i1 %.not149, label %55, label %52
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %53 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %52, ptr noundef nonnull @.str.56, ptr noundef %8) #5
+52:                                               ; preds = %51
+  %53 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %54 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %53, ptr noundef nonnull @.str.56, ptr noundef %8) #5
   br label %.loopexit159
 
-54:                                               ; preds = %50
-  %55 = call ptr @opt_arg() #5
-  %56 = call ptr @parse_name(ptr noundef %55, i32 noundef 4096, i32 noundef 1, ptr noundef nonnull @.str.17) #5
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %.loopexit159, label %.backedge
+55:                                               ; preds = %51
+  %56 = call ptr @opt_arg() #5
+  %57 = call ptr @parse_name(ptr noundef %56, i32 noundef 4096, i32 noundef 1, ptr noundef nonnull @.str.17) #5
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %.loopexit159, label %.backedge
 
-58:                                               ; preds = %9
-  %59 = and i32 %.0104, 5
-  %or.cond3.not = icmp eq i32 %59, 0
-  br i1 %or.cond3.not, label %63, label %60
+59:                                               ; preds = %9
+  %60 = and i32 %.0104, 5
+  %or.cond3.not = icmp eq i32 %60, 0
+  br i1 %or.cond3.not, label %64, label %61
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %62 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %61, ptr noundef nonnull @.str.54, ptr noundef %8) #5
+61:                                               ; preds = %59
+  %62 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %63 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %62, ptr noundef nonnull @.str.54, ptr noundef %8) #5
   br label %.loopexit159
 
-63:                                               ; preds = %58
+64:                                               ; preds = %59
   %.not148 = icmp eq ptr %.095, null
-  br i1 %.not148, label %67, label %64
+  br i1 %.not148, label %68, label %65
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %66 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %65, ptr noundef nonnull @.str.57, ptr noundef %8) #5
+65:                                               ; preds = %64
+  %66 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %67 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %66, ptr noundef nonnull @.str.57, ptr noundef %8) #5
   br label %.loopexit159
 
-67:                                               ; preds = %63
-  %68 = call ptr @opt_arg() #5
-  %69 = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %68) #5
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %.backedge
+68:                                               ; preds = %64
+  %69 = call ptr @opt_arg() #5
+  %70 = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %69) #5
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %72, label %.backedge
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %73 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %72, ptr noundef nonnull @.str.58, ptr noundef %8) #5
+72:                                               ; preds = %68
+  %73 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %74 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %73, ptr noundef nonnull @.str.58, ptr noundef %8) #5
   br label %.loopexit159
 
-74:                                               ; preds = %9
+75:                                               ; preds = %9
   %.not146 = icmp eq i32 %.0104, 0
-  br i1 %.not146, label %78, label %75
+  br i1 %.not146, label %79, label %76
 
-75:                                               ; preds = %74
-  %76 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %77 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %76, ptr noundef nonnull @.str.54, ptr noundef %8) #5
+76:                                               ; preds = %75
+  %77 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %78 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %77, ptr noundef nonnull @.str.54, ptr noundef %8) #5
   br label %.loopexit159
 
-78:                                               ; preds = %74
+79:                                               ; preds = %75
   %.not147 = icmp eq ptr %.092, null
-  br i1 %.not147, label %82, label %79
+  br i1 %.not147, label %83, label %80
 
-79:                                               ; preds = %78
-  %80 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %81 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %80, ptr noundef nonnull @.str.59, ptr noundef %8) #5
+80:                                               ; preds = %79
+  %81 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %82 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %81, ptr noundef nonnull @.str.59, ptr noundef %8) #5
   br label %.loopexit159
 
-82:                                               ; preds = %78
+83:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !20
-  %83 = call ptr @opt_arg() #5
-  %84 = call ptr @OPENSSL_hexstr2buf(ptr noundef %83, ptr noundef nonnull %6) #5
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %87, label %.thread156
+  %84 = call ptr @opt_arg() #5
+  %85 = call ptr @OPENSSL_hexstr2buf(ptr noundef %84, ptr noundef nonnull %6) #5
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %88, label %.thread156
 
-.thread156:                                       ; preds = %82
-  %86 = load i64, ptr %6, align 8, !tbaa !20
+.thread156:                                       ; preds = %83
+  %87 = load i64, ptr %6, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.backedge
 
-87:                                               ; preds = %82
-  %88 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %89 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %88, ptr noundef nonnull @.str.60, ptr noundef %8) #5
+88:                                               ; preds = %83
+  %89 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %90 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %89, ptr noundef nonnull @.str.60, ptr noundef %8) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit159
 
-90:                                               ; preds = %9
+91:                                               ; preds = %9
   %.not144 = icmp eq i32 %.0104, 0
-  br i1 %.not144, label %94, label %91
+  br i1 %.not144, label %95, label %92
 
-91:                                               ; preds = %90
-  %92 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %93 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %92, ptr noundef nonnull @.str.54, ptr noundef %8) #5
+92:                                               ; preds = %91
+  %93 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %94 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %93, ptr noundef nonnull @.str.54, ptr noundef %8) #5
   br label %.loopexit159
 
-94:                                               ; preds = %90
+95:                                               ; preds = %91
   %.not145 = icmp eq ptr %.087, null
-  br i1 %.not145, label %98, label %95
+  br i1 %.not145, label %99, label %96
 
-95:                                               ; preds = %94
-  %96 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %97 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %96, ptr noundef nonnull @.str.61, ptr noundef %8) #5
+96:                                               ; preds = %95
+  %97 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %98 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %97, ptr noundef nonnull @.str.61, ptr noundef %8) #5
   br label %.loopexit159
 
-98:                                               ; preds = %94
-  %99 = call ptr @opt_arg() #5
-  %100 = call noalias ptr @CRYPTO_strdup(ptr noundef %99, ptr noundef nonnull @.str.53, i32 noundef 242) #5
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %102, label %.backedge
+99:                                               ; preds = %95
+  %100 = call ptr @opt_arg() #5
+  %101 = call noalias ptr @CRYPTO_strdup(ptr noundef %100, ptr noundef nonnull @.str.53, i32 noundef 242) #5
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %103, label %.backedge
 
-102:                                              ; preds = %98
-  %103 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %104 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %103, ptr noundef nonnull @.str.62, ptr noundef %8) #5
+103:                                              ; preds = %99
+  %104 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %105 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %104, ptr noundef nonnull @.str.62, ptr noundef %8) #5
   br label %.loopexit159
 
-105:                                              ; preds = %9
-  %106 = call ptr @opt_arg() #5
-  %107 = call ptr @setup_engine_methods(ptr noundef %106, i32 noundef -1, i32 noundef 0) #5
+106:                                              ; preds = %9
+  %107 = call ptr @opt_arg() #5
+  %108 = call ptr @setup_engine_methods(ptr noundef %107, i32 noundef -1, i32 noundef 0) #5
   br label %.backedge
 
-108:                                              ; preds = %9
-  %109 = call ptr @opt_unknown() #5
+109:                                              ; preds = %9
+  %110 = call ptr @opt_unknown() #5
   br label %.backedge
 
-110:                                              ; preds = %9, %9, %9, %9
-  %111 = call i32 @opt_provider(i32 noundef %10) #5
-  %.not143 = icmp eq i32 %111, 0
+111:                                              ; preds = %9, %9, %9, %9
+  %112 = call i32 @opt_provider(i32 noundef %10) #5
+  %.not143 = icmp eq i32 %112, 0
   br i1 %.not143, label %.loopexit159, label %.backedge
 
-112:                                              ; preds = %9
-  %113 = call i32 @opt_check_rest_arg(ptr noundef nonnull @.str.63) #5
-  %.not139 = icmp eq i32 %113, 0
-  br i1 %.not139, label %.loopexit, label %114
+113:                                              ; preds = %9
+  %114 = call i32 @opt_check_rest_arg(ptr noundef nonnull @.str.63) #5
+  %.not139 = icmp eq i32 %114, 0
+  br i1 %.not139, label %.loopexit, label %115
 
-114:                                              ; preds = %112
-  %115 = call ptr @opt_rest() #5
-  %116 = call i32 @opt_md(ptr noundef %.085, ptr noundef nonnull %5) #5
-  %.not140 = icmp eq i32 %116, 0
-  br i1 %.not140, label %.loopexit, label %117
+115:                                              ; preds = %113
+  %116 = call ptr @opt_rest() #5
+  %117 = call i32 @opt_md(ptr noundef %.085, ptr noundef nonnull %5) #5
+  %.not140 = icmp eq i32 %117, 0
+  br i1 %.not140, label %.loopexit, label %118
 
-117:                                              ; preds = %114
+118:                                              ; preds = %115
   switch i32 %.0104, label %default.unreachable725 [
-    i32 0, label %145
-    i32 1, label %118
-    i32 2, label %123
-    i32 3, label %134
-    i32 4, label %140
+    i32 0, label %146
+    i32 1, label %119
+    i32 2, label %124
+    i32 3, label %135
+    i32 4, label %141
   ]
 
-118:                                              ; preds = %117
-  %119 = call ptr @OSSL_STORE_SEARCH_by_name(ptr noundef %.0101) #5
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %121, label %145
+119:                                              ; preds = %118
+  %120 = call ptr @OSSL_STORE_SEARCH_by_name(ptr noundef %.0101) #5
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %122, label %146
 
-121:                                              ; preds = %118
-  %122 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  call void @ERR_print_errors(ptr noundef %122) #5
+122:                                              ; preds = %119
+  %123 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  call void @ERR_print_errors(ptr noundef %123) #5
   br label %.loopexit159
 
-123:                                              ; preds = %117
-  %124 = icmp eq ptr %.098, null
-  %125 = icmp eq ptr %.095, null
-  %or.cond7 = or i1 %124, %125
-  br i1 %or.cond7, label %126, label %129
+124:                                              ; preds = %118
+  %125 = icmp eq ptr %.098, null
+  %126 = icmp eq ptr %.095, null
+  %or.cond7 = or i1 %125, %126
+  br i1 %or.cond7, label %127, label %130
 
-126:                                              ; preds = %123
-  %127 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %128 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %127, ptr noundef nonnull @.str.64, ptr noundef %8) #5
+127:                                              ; preds = %124
+  %128 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %129 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %128, ptr noundef nonnull @.str.64, ptr noundef %8) #5
   br label %.loopexit159
 
-129:                                              ; preds = %123
-  %130 = call ptr @OSSL_STORE_SEARCH_by_issuer_serial(ptr noundef nonnull %.098, ptr noundef nonnull %.095) #5
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %132, label %145
+130:                                              ; preds = %124
+  %131 = call ptr @OSSL_STORE_SEARCH_by_issuer_serial(ptr noundef nonnull %.098, ptr noundef nonnull %.095) #5
+  %132 = icmp eq ptr %131, null
+  br i1 %132, label %133, label %146
 
-132:                                              ; preds = %129
-  %133 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  call void @ERR_print_errors(ptr noundef %133) #5
+133:                                              ; preds = %130
+  %134 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  call void @ERR_print_errors(ptr noundef %134) #5
   br label %.loopexit159
 
-134:                                              ; preds = %117
-  %135 = load ptr, ptr %5, align 8, !tbaa !9
-  %136 = call ptr @OSSL_STORE_SEARCH_by_key_fingerprint(ptr noundef %135, ptr noundef %.092, i64 noundef %.089) #5
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %138, label %145
+135:                                              ; preds = %118
+  %136 = load ptr, ptr %5, align 8, !tbaa !9
+  %137 = call ptr @OSSL_STORE_SEARCH_by_key_fingerprint(ptr noundef %136, ptr noundef %.092, i64 noundef %.089) #5
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %139, label %146
 
-138:                                              ; preds = %134
-  %139 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  call void @ERR_print_errors(ptr noundef %139) #5
+139:                                              ; preds = %135
+  %140 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  call void @ERR_print_errors(ptr noundef %140) #5
   br label %.loopexit159
 
-140:                                              ; preds = %117
-  %141 = call ptr @OSSL_STORE_SEARCH_by_alias(ptr noundef %.087) #5
-  %142 = icmp eq ptr %141, null
-  br i1 %142, label %143, label %145
+141:                                              ; preds = %118
+  %142 = call ptr @OSSL_STORE_SEARCH_by_alias(ptr noundef %.087) #5
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %144, label %146
 
-143:                                              ; preds = %140
-  %144 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  call void @ERR_print_errors(ptr noundef %144) #5
+144:                                              ; preds = %141
+  %145 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  call void @ERR_print_errors(ptr noundef %145) #5
   br label %.loopexit159
 
-default.unreachable725:                           ; preds = %117
+default.unreachable725:                           ; preds = %118
   unreachable
 
-145:                                              ; preds = %117, %118, %129, %134, %140
-  %.1 = phi ptr [ %119, %118 ], [ %130, %129 ], [ %136, %134 ], [ %141, %140 ], [ null, %117 ]
-  %146 = call i32 @app_passwd(ptr noundef %.0112, ptr noundef null, ptr noundef nonnull %3, ptr noundef null) #5
-  %.not142 = icmp eq i32 %146, 0
-  br i1 %.not142, label %147, label %150
+146:                                              ; preds = %118, %119, %130, %135, %141
+  %.1 = phi ptr [ %120, %119 ], [ %131, %130 ], [ %137, %135 ], [ %142, %141 ], [ null, %118 ]
+  %147 = call i32 @app_passwd(ptr noundef %.0112, ptr noundef null, ptr noundef nonnull %3, ptr noundef null) #5
+  %.not142 = icmp eq i32 %147, 0
+  br i1 %.not142, label %148, label %151
 
-147:                                              ; preds = %145
-  %148 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %149 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %148, ptr noundef nonnull @.str.65) #5
+148:                                              ; preds = %146
+  %149 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %150 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %149, ptr noundef nonnull @.str.65) #5
   br label %.loopexit159
 
-150:                                              ; preds = %145
-  %151 = load ptr, ptr %3, align 8, !tbaa !4
-  store ptr %151, ptr %4, align 8, !tbaa !22
-  %152 = load ptr, ptr %115, align 8, !tbaa !4
-  %153 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %152, ptr %153, align 8, !tbaa !24
-  %154 = call ptr @get_ui_method() #5
-  %155 = call fastcc i32 @process(ptr noundef %152, ptr noundef %154, ptr noundef %4, i32 noundef %.0106, i32 noundef %.0104, ptr noundef %.1, i32 noundef %.0118, i32 noundef %.0120, i32 noundef %.0116, i32 noundef 0, ptr noundef %.0114, ptr noundef %8, ptr noundef %7)
+151:                                              ; preds = %146
+  %152 = load ptr, ptr %3, align 8, !tbaa !4
+  store ptr %152, ptr %4, align 8, !tbaa !22
+  %153 = load ptr, ptr %116, align 8, !tbaa !4
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %153, ptr %154, align 8, !tbaa !24
+  %155 = call ptr @get_ui_method() #5
+  %156 = call fastcc i32 @process(ptr noundef %153, ptr noundef %155, ptr noundef %4, i32 noundef %.0106, i32 noundef %.0104, ptr noundef %.1, i32 noundef %.0118, i32 noundef %.0120, i32 noundef %.0116, i32 noundef 0, ptr noundef %.0114, ptr noundef %8, ptr noundef %7)
   br label %.loopexit159
 
-.loopexit159:                                     ; preds = %41, %54, %110, %.loopexit, %13, %22, %34, %38, %47, %51, %60, %64, %71, %75, %79, %91, %95, %102, %121, %126, %132, %138, %143, %147, %150, %87
-  %.0109 = phi i32 [ 1, %.loopexit ], [ 0, %13 ], [ 1, %22 ], [ 1, %34 ], [ 1, %38 ], [ 1, %47 ], [ 1, %51 ], [ 1, %60 ], [ 1, %64 ], [ 1, %71 ], [ 1, %75 ], [ 1, %79 ], [ 1, %87 ], [ 1, %91 ], [ 1, %95 ], [ 1, %102 ], [ %155, %150 ], [ 1, %147 ], [ 1, %121 ], [ 1, %126 ], [ 1, %132 ], [ 1, %138 ], [ 1, %143 ], [ 1, %110 ], [ 1, %54 ], [ 1, %41 ]
-  %.2103 = phi ptr [ %.0101, %.loopexit ], [ %.0101, %13 ], [ %.0101, %22 ], [ %.0101, %34 ], [ %.0101, %38 ], [ %.0101, %47 ], [ %.0101, %51 ], [ %.0101, %60 ], [ %.0101, %64 ], [ %.0101, %71 ], [ %.0101, %75 ], [ %.0101, %79 ], [ %.0101, %87 ], [ %.0101, %91 ], [ %.0101, %95 ], [ %.0101, %102 ], [ %.0101, %150 ], [ %.0101, %147 ], [ %.0101, %121 ], [ %.0101, %126 ], [ %.0101, %132 ], [ %.0101, %138 ], [ %.0101, %143 ], [ null, %41 ], [ %.0101, %54 ], [ %.0101, %110 ]
-  %.2100 = phi ptr [ %.098, %.loopexit ], [ %.098, %13 ], [ %.098, %22 ], [ %.098, %34 ], [ %.098, %38 ], [ %.098, %47 ], [ %.098, %51 ], [ %.098, %60 ], [ %.098, %64 ], [ %.098, %71 ], [ %.098, %75 ], [ %.098, %79 ], [ %.098, %87 ], [ %.098, %91 ], [ %.098, %95 ], [ %.098, %102 ], [ %.098, %150 ], [ %.098, %147 ], [ %.098, %121 ], [ %.098, %126 ], [ %.098, %132 ], [ %.098, %138 ], [ %.098, %143 ], [ %.098, %41 ], [ null, %54 ], [ %.098, %110 ]
-  %.297 = phi ptr [ %.095, %.loopexit ], [ %.095, %13 ], [ %.095, %22 ], [ %.095, %34 ], [ %.095, %38 ], [ %.095, %47 ], [ %.095, %51 ], [ %.095, %60 ], [ %.095, %64 ], [ null, %71 ], [ %.095, %75 ], [ %.095, %79 ], [ %.095, %87 ], [ %.095, %91 ], [ %.095, %95 ], [ %.095, %102 ], [ %.095, %150 ], [ %.095, %147 ], [ %.095, %121 ], [ %.095, %126 ], [ %.095, %132 ], [ %.095, %138 ], [ %.095, %143 ], [ %.095, %110 ], [ %.095, %54 ], [ %.095, %41 ]
-  %.294 = phi ptr [ %.092, %.loopexit ], [ %.092, %13 ], [ %.092, %22 ], [ %.092, %34 ], [ %.092, %38 ], [ %.092, %47 ], [ %.092, %51 ], [ %.092, %60 ], [ %.092, %64 ], [ %.092, %71 ], [ %.092, %75 ], [ %.092, %79 ], [ null, %87 ], [ %.092, %91 ], [ %.092, %95 ], [ %.092, %102 ], [ %.092, %150 ], [ %.092, %147 ], [ %.092, %121 ], [ %.092, %126 ], [ %.092, %132 ], [ %.092, %138 ], [ %.092, %143 ], [ %.092, %110 ], [ %.092, %54 ], [ %.092, %41 ]
-  %.2 = phi ptr [ %.087, %.loopexit ], [ %.087, %13 ], [ %.087, %22 ], [ %.087, %34 ], [ %.087, %38 ], [ %.087, %47 ], [ %.087, %51 ], [ %.087, %60 ], [ %.087, %64 ], [ %.087, %71 ], [ %.087, %75 ], [ %.087, %79 ], [ %.087, %87 ], [ %.087, %91 ], [ %.087, %95 ], [ null, %102 ], [ %.087, %150 ], [ %.087, %147 ], [ %.087, %121 ], [ %.087, %126 ], [ %.087, %132 ], [ %.087, %138 ], [ %.087, %143 ], [ %.087, %110 ], [ %.087, %54 ], [ %.087, %41 ]
-  %.084 = phi ptr [ null, %.loopexit ], [ null, %13 ], [ null, %22 ], [ null, %34 ], [ null, %38 ], [ null, %47 ], [ null, %51 ], [ null, %60 ], [ null, %64 ], [ null, %71 ], [ null, %75 ], [ null, %79 ], [ null, %87 ], [ null, %91 ], [ null, %95 ], [ null, %102 ], [ %.1, %150 ], [ %.1, %147 ], [ null, %121 ], [ null, %126 ], [ null, %132 ], [ null, %138 ], [ null, %143 ], [ null, %110 ], [ null, %54 ], [ null, %41 ]
-  %156 = load ptr, ptr %5, align 8, !tbaa !9
-  call void @EVP_MD_free(ptr noundef %156) #5
+.loopexit159:                                     ; preds = %42, %55, %111, %.loopexit, %13, %22, %35, %39, %48, %52, %61, %65, %72, %76, %80, %92, %96, %103, %122, %127, %133, %139, %144, %148, %151, %88
+  %.0109 = phi i32 [ 1, %.loopexit ], [ 0, %13 ], [ 1, %22 ], [ 1, %35 ], [ 1, %39 ], [ 1, %48 ], [ 1, %52 ], [ 1, %61 ], [ 1, %65 ], [ 1, %72 ], [ 1, %76 ], [ 1, %80 ], [ 1, %88 ], [ 1, %92 ], [ 1, %96 ], [ 1, %103 ], [ %156, %151 ], [ 1, %148 ], [ 1, %122 ], [ 1, %127 ], [ 1, %133 ], [ 1, %139 ], [ 1, %144 ], [ 1, %111 ], [ 1, %55 ], [ 1, %42 ]
+  %.2103 = phi ptr [ %.0101, %.loopexit ], [ %.0101, %13 ], [ %.0101, %22 ], [ %.0101, %35 ], [ %.0101, %39 ], [ %.0101, %48 ], [ %.0101, %52 ], [ %.0101, %61 ], [ %.0101, %65 ], [ %.0101, %72 ], [ %.0101, %76 ], [ %.0101, %80 ], [ %.0101, %88 ], [ %.0101, %92 ], [ %.0101, %96 ], [ %.0101, %103 ], [ %.0101, %151 ], [ %.0101, %148 ], [ %.0101, %122 ], [ %.0101, %127 ], [ %.0101, %133 ], [ %.0101, %139 ], [ %.0101, %144 ], [ null, %42 ], [ %.0101, %55 ], [ %.0101, %111 ]
+  %.2100 = phi ptr [ %.098, %.loopexit ], [ %.098, %13 ], [ %.098, %22 ], [ %.098, %35 ], [ %.098, %39 ], [ %.098, %48 ], [ %.098, %52 ], [ %.098, %61 ], [ %.098, %65 ], [ %.098, %72 ], [ %.098, %76 ], [ %.098, %80 ], [ %.098, %88 ], [ %.098, %92 ], [ %.098, %96 ], [ %.098, %103 ], [ %.098, %151 ], [ %.098, %148 ], [ %.098, %122 ], [ %.098, %127 ], [ %.098, %133 ], [ %.098, %139 ], [ %.098, %144 ], [ %.098, %42 ], [ null, %55 ], [ %.098, %111 ]
+  %.297 = phi ptr [ %.095, %.loopexit ], [ %.095, %13 ], [ %.095, %22 ], [ %.095, %35 ], [ %.095, %39 ], [ %.095, %48 ], [ %.095, %52 ], [ %.095, %61 ], [ %.095, %65 ], [ null, %72 ], [ %.095, %76 ], [ %.095, %80 ], [ %.095, %88 ], [ %.095, %92 ], [ %.095, %96 ], [ %.095, %103 ], [ %.095, %151 ], [ %.095, %148 ], [ %.095, %122 ], [ %.095, %127 ], [ %.095, %133 ], [ %.095, %139 ], [ %.095, %144 ], [ %.095, %111 ], [ %.095, %55 ], [ %.095, %42 ]
+  %.294 = phi ptr [ %.092, %.loopexit ], [ %.092, %13 ], [ %.092, %22 ], [ %.092, %35 ], [ %.092, %39 ], [ %.092, %48 ], [ %.092, %52 ], [ %.092, %61 ], [ %.092, %65 ], [ %.092, %72 ], [ %.092, %76 ], [ %.092, %80 ], [ null, %88 ], [ %.092, %92 ], [ %.092, %96 ], [ %.092, %103 ], [ %.092, %151 ], [ %.092, %148 ], [ %.092, %122 ], [ %.092, %127 ], [ %.092, %133 ], [ %.092, %139 ], [ %.092, %144 ], [ %.092, %111 ], [ %.092, %55 ], [ %.092, %42 ]
+  %.2 = phi ptr [ %.087, %.loopexit ], [ %.087, %13 ], [ %.087, %22 ], [ %.087, %35 ], [ %.087, %39 ], [ %.087, %48 ], [ %.087, %52 ], [ %.087, %61 ], [ %.087, %65 ], [ %.087, %72 ], [ %.087, %76 ], [ %.087, %80 ], [ %.087, %88 ], [ %.087, %92 ], [ %.087, %96 ], [ null, %103 ], [ %.087, %151 ], [ %.087, %148 ], [ %.087, %122 ], [ %.087, %127 ], [ %.087, %133 ], [ %.087, %139 ], [ %.087, %144 ], [ %.087, %111 ], [ %.087, %55 ], [ %.087, %42 ]
+  %.084 = phi ptr [ null, %.loopexit ], [ null, %13 ], [ null, %22 ], [ null, %35 ], [ null, %39 ], [ null, %48 ], [ null, %52 ], [ null, %61 ], [ null, %65 ], [ null, %72 ], [ null, %76 ], [ null, %80 ], [ null, %88 ], [ null, %92 ], [ null, %96 ], [ null, %103 ], [ %.1, %151 ], [ %.1, %148 ], [ null, %122 ], [ null, %127 ], [ null, %133 ], [ null, %139 ], [ null, %144 ], [ null, %111 ], [ null, %55 ], [ null, %42 ]
+  %157 = load ptr, ptr %5, align 8, !tbaa !9
+  call void @EVP_MD_free(ptr noundef %157) #5
   call void @CRYPTO_free(ptr noundef %.294, ptr noundef nonnull @.str.53, i32 noundef 321) #5
   call void @CRYPTO_free(ptr noundef %.2, ptr noundef nonnull @.str.53, i32 noundef 322) #5
   call void @ASN1_INTEGER_free(ptr noundef %.297) #5
   call void @X509_NAME_free(ptr noundef %.2103) #5
   call void @X509_NAME_free(ptr noundef %.2100) #5
   call void @OSSL_STORE_SEARCH_free(ptr noundef %.084) #5
-  %157 = load ptr, ptr @out, align 8, !tbaa !11
-  call void @BIO_free_all(ptr noundef %157) #5
-  %158 = load ptr, ptr %3, align 8, !tbaa !4
-  call void @CRYPTO_free(ptr noundef %158, ptr noundef nonnull @.str.53, i32 noundef 328) #5
+  %158 = load ptr, ptr @out, align 8, !tbaa !11
+  call void @BIO_free_all(ptr noundef %158) #5
+  %159 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @CRYPTO_free(ptr noundef %159, ptr noundef nonnull @.str.53, i32 noundef 328) #5
   call void @release_engine(ptr noundef %.0110) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -243,9 +243,9 @@ define void @ff_mpeg1_init_uni_ac_vlc(ptr noundef readonly captures(none) %0, pt
   br label %34
 
 26:                                               ; preds = %19
-  %27 = add nsw i32 %23, -1
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [2 x i16], ptr %2, i64 %28, i64 1
+  %27 = sext i32 %23 to i64
+  %28 = getelementptr [2 x i16], ptr %2, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -2
   %30 = load i16, ptr %29, align 2, !tbaa !7
   %31 = add i16 %30, 1
   br label %39

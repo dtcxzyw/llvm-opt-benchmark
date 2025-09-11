@@ -3539,17 +3539,17 @@ define internal fastcc i32 @_get_job_time(ptr noundef nonnull %0) unnamed_addr #
 
 14:                                               ; preds = %8
   %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.182, ptr noundef nonnull %0) #13
-  br label %86
+  br label %83
 
 16:                                               ; preds = %1
   %17 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.182, ptr noundef nonnull %0) #13
-  br label %86
+  br label %83
 
 18:                                               ; preds = %1, %8
   %.034 = phi i32 [ %11, %8 ], [ -2, %1 ]
   %19 = call i32 @slurm_load_job(ptr noundef nonnull %3, i32 noundef %5, i16 noundef zeroext 1) #13
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %84
+  br i1 %20, label %21, label %81
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %3, align 8
@@ -3564,7 +3564,7 @@ define internal fastcc i32 @_get_job_time(ptr noundef nonnull %0) unnamed_addr #
   %26 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.183, ptr noundef nonnull %0) #13
   %27 = load ptr, ptr %3, align 8
   call void @slurm_free_job_info_msg(ptr noundef %27) #13
-  br label %86
+  br label %83
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -3572,7 +3572,7 @@ define internal fastcc i32 @_get_job_time(ptr noundef nonnull %0) unnamed_addr #
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 848
   %32 = load i32, ptr %31, align 8
   call void @slurm_free_job_info_msg(ptr noundef nonnull %22) #13
-  br label %86
+  br label %83
 
 33:                                               ; preds = %21
   %34 = icmp eq i32 %.034, -2
@@ -3586,102 +3586,98 @@ define internal fastcc i32 @_get_job_time(ptr noundef nonnull %0) unnamed_addr #
   %37 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.184) #13
   %38 = load ptr, ptr %3, align 8
   call void @slurm_free_job_info_msg(ptr noundef %38) #13
-  br label %86
+  br label %83
 
-39:                                               ; preds = %.lr.ph, %77
-  %40 = phi ptr [ %22, %.lr.ph ], [ %78, %77 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
+39:                                               ; preds = %.lr.ph, %70
+  %40 = phi ptr [ %22, %.lr.ph ], [ %71, %70 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw %struct.job_info, ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 412
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %5
-  br i1 %46, label %47, label %58
+  br i1 %46, label %47, label %55
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 52
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, -2
-  br i1 %50, label %51, label %58
+  br i1 %50, label %51, label %55
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %58
+  br i1 %54, label %.loopexit.sink.split, label %55
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %43, i64 848
+55:                                               ; preds = %51, %47, %39
+  %56 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %57 = load i32, ptr %56, align 8
-  br label %.loopexit
+  %.not42 = icmp eq i32 %57, %5
+  br i1 %.not42, label %58, label %70
 
-58:                                               ; preds = %51, %47, %39
-  %59 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  %60 = load i32, ptr %59, align 8
-  %.not42 = icmp eq i32 %60, %5
-  br i1 %.not42, label %61, label %77
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %43, i64 52
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp eq i32 %62, %.034
+  br i1 %63, label %.loopexit.sink.split, label %64
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %43, i64 52
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp eq i32 %65, %.034
-  br i1 %66, label %split, label %67
+64:                                               ; preds = %58
+  %.not43 = icmp eq ptr %60, null
+  br i1 %.not43, label %70, label %65
 
-67:                                               ; preds = %61
-  %.not43 = icmp eq ptr %63, null
-  br i1 %.not43, label %77, label %68
+65:                                               ; preds = %64
+  %66 = call i64 @bit_size(ptr noundef nonnull %60) #13
+  %67 = icmp sgt i64 %66, %35
+  br i1 %67, label %68, label %._crit_edge56
 
-68:                                               ; preds = %67
-  %69 = call i64 @bit_size(ptr noundef nonnull %63) #13
-  %70 = icmp sgt i64 %69, %35
-  br i1 %70, label %71, label %._crit_edge56
-
-._crit_edge56:                                    ; preds = %68
+._crit_edge56:                                    ; preds = %65
   %.pre57 = load ptr, ptr %3, align 8
-  br label %77
+  br label %70
 
-71:                                               ; preds = %68
-  %72 = call i32 @slurm_bit_test(ptr noundef nonnull %63, i64 noundef %35) #13
-  %.not44 = icmp eq i32 %72, 0
+68:                                               ; preds = %65
+  %69 = call i32 @slurm_bit_test(ptr noundef nonnull %60, i64 noundef %35) #13
+  %.not44 = icmp eq i32 %69, 0
   %.pre58 = load ptr, ptr %3, align 8
-  br i1 %.not44, label %77, label %._crit_edge
+  br i1 %.not44, label %70, label %._crit_edge
 
-._crit_edge:                                      ; preds = %71
+._crit_edge:                                      ; preds = %68
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre58, i64 24
   %.pre55 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %split
+  br label %.loopexit.sink.split
 
-split:                                            ; preds = %61, %._crit_edge
-  %73 = phi ptr [ %.pre55, %._crit_edge ], [ %42, %61 ]
-  %74 = phi ptr [ %.pre58, %._crit_edge ], [ %40, %61 ]
-  %75 = getelementptr inbounds nuw %struct.job_info, ptr %73, i64 %indvars.iv, i32 123
-  %76 = load i32, ptr %75, align 8
+70:                                               ; preds = %._crit_edge56, %64, %68, %55
+  %71 = phi ptr [ %.pre57, %._crit_edge56 ], [ %40, %64 ], [ %.pre58, %68 ], [ %40, %55 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %73 = load i32, ptr %72, align 8
+  %74 = zext i32 %73 to i64
+  %75 = icmp samesign ult i64 %indvars.iv.next, %74
+  br i1 %75, label %39, label %.loopexit, !llvm.loop !26
+
+.loopexit.sink.split:                             ; preds = %51, %58, %._crit_edge
+  %76 = phi ptr [ %.pre55, %._crit_edge ], [ %42, %58 ], [ %42, %51 ]
+  %.ph = phi ptr [ %.pre58, %._crit_edge ], [ %40, %58 ], [ %40, %51 ]
+  %77 = getelementptr inbounds nuw %struct.job_info, ptr %76, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 848
+  %79 = load i32, ptr %78, align 8
   br label %.loopexit
 
-77:                                               ; preds = %._crit_edge56, %67, %71, %58
-  %78 = phi ptr [ %.pre57, %._crit_edge56 ], [ %40, %67 ], [ %.pre58, %71 ], [ %40, %58 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %80 = load i32, ptr %79, align 8
-  %81 = zext i32 %80 to i64
-  %82 = icmp samesign ult i64 %indvars.iv.next, %81
-  br i1 %82, label %39, label %.loopexit, !llvm.loop !26
+.loopexit:                                        ; preds = %70, %.loopexit.sink.split
+  %80 = phi ptr [ %.ph, %.loopexit.sink.split ], [ %71, %70 ]
+  %.036 = phi i32 [ %79, %.loopexit.sink.split ], [ -2, %70 ]
+  call void @slurm_free_job_info_msg(ptr noundef nonnull %80) #13
+  br label %83
 
-.loopexit:                                        ; preds = %77, %split, %55
-  %83 = phi ptr [ %40, %55 ], [ %74, %split ], [ %78, %77 ]
-  %.036 = phi i32 [ %57, %55 ], [ %76, %split ], [ -2, %77 ]
-  call void @slurm_free_job_info_msg(ptr noundef nonnull %83) #13
-  br label %86
+81:                                               ; preds = %18
+  %82 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.185, ptr noundef nonnull %0) #13
+  br label %83
 
-84:                                               ; preds = %18
-  %85 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.185, ptr noundef nonnull %0) #13
-  br label %86
-
-86:                                               ; preds = %.loopexit, %84, %36, %28, %25, %16, %14
-  %.0 = phi i32 [ -2, %14 ], [ -2, %25 ], [ %32, %28 ], [ -2, %36 ], [ -2, %16 ], [ %.036, %.loopexit ], [ -2, %84 ]
+83:                                               ; preds = %.loopexit, %81, %36, %28, %25, %16, %14
+  %.0 = phi i32 [ -2, %14 ], [ -2, %25 ], [ %32, %28 ], [ -2, %36 ], [ -2, %16 ], [ %.036, %.loopexit ], [ -2, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

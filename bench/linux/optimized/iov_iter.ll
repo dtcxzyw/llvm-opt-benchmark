@@ -4824,7 +4824,8 @@ define internal fastcc noundef zeroext i1 @iov_iter_aligned_bvec(ptr noundef rea
   %18 = phi i32 [ 0, %7 ], [ %37, %34 ]
   %19 = phi i32 [ %10, %7 ], [ 0, %34 ]
   %20 = phi i64 [ %12, %7 ], [ %35, %34 ]
-  %21 = getelementptr %struct.bio_vec, ptr %14, i64 %17, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %14, i64 %17
+  %21 = getelementptr i8, ptr %.split, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sub i32 %22, %19
   %24 = zext i32 %23 to i64
@@ -4834,7 +4835,7 @@ define internal fastcc noundef zeroext i1 @iov_iter_aligned_bvec(ptr noundef rea
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %16
-  %29 = getelementptr %struct.bio_vec, ptr %14, i64 %17, i32 2
+  %29 = getelementptr i8, ptr %.split, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, %19
   %32 = and i32 %31, %1

@@ -1752,19 +1752,20 @@ Seg_ManCollectObjEdges.exit:                      ; preds = %Seg_ManCollectObjEd
   %300 = zext nneg i32 %298 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %304
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %304 ], [ 0, %.lr.ph.i.i.preheader ]
-  %301 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i.pre, i64 %indvars.iv.i.i, i32 2
-  %302 = load ptr, ptr %301, align 8, !tbaa !11
-  %.not15.i.i = icmp eq ptr %302, null
-  br i1 %.not15.i.i, label %304, label %303
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %305
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %305 ], [ 0, %.lr.ph.i.i.preheader ]
+  %301 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i.pre, i64 %indvars.iv.i.i
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
+  %303 = load ptr, ptr %302, align 8, !tbaa !11
+  %.not15.i.i = icmp eq ptr %303, null
+  br i1 %.not15.i.i, label %305, label %304
 
-303:                                              ; preds = %.lr.ph.i.i
-  call void @free(ptr noundef nonnull %302) #17
-  store ptr null, ptr %301, align 8, !tbaa !11
-  br label %304
+304:                                              ; preds = %.lr.ph.i.i
+  call void @free(ptr noundef nonnull %303) #17
+  store ptr null, ptr %302, align 8, !tbaa !11
+  br label %305
 
-304:                                              ; preds = %303, %.lr.ph.i.i
+305:                                              ; preds = %304, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond375.not = icmp eq i64 %indvars.iv.next.i.i, %300
   br i1 %exitcond375.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !105
@@ -1773,73 +1774,73 @@ Seg_ManCollectObjEdges.exit:                      ; preds = %Seg_ManCollectObjEd
   %.not.i.i = icmp eq ptr %.pre.i.i.pre, null
   br i1 %.not.i.i, label %Vec_WecFree.exit, label %._crit_edge.thread.i.i
 
-._crit_edge.thread.i.i:                           ; preds = %304, %._crit_edge.i.i
+._crit_edge.thread.i.i:                           ; preds = %305, %._crit_edge.i.i
   call void @free(ptr noundef nonnull %.pre.i.i.pre) #17
   br label %Vec_WecFree.exit
 
 Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %._crit_edge.thread.i.i
   call void @free(ptr noundef nonnull %220) #17
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %306 = load ptr, ptr %305, align 8, !tbaa !56
-  %307 = getelementptr i8, ptr %306, i64 4
-  %.val256330 = load i32, ptr %307, align 4, !tbaa !3
-  %308 = icmp sgt i32 %.val256330, 0
-  br i1 %308, label %.lr.ph332, label %.critedge17
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %307 = load ptr, ptr %306, align 8, !tbaa !56
+  %308 = getelementptr i8, ptr %307, i64 4
+  %.val256330 = load i32, ptr %308, align 4, !tbaa !3
+  %309 = icmp sgt i32 %.val256330, 0
+  br i1 %309, label %.lr.ph332, label %.critedge17
 
 .lr.ph332:                                        ; preds = %Vec_WecFree.exit
-  %309 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  br label %310
+  %310 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  br label %311
 
-310:                                              ; preds = %.lr.ph332, %310
-  %indvars.iv376 = phi i64 [ 0, %.lr.ph332 ], [ %indvars.iv.next377, %310 ]
-  %311 = phi ptr [ %306, %.lr.ph332 ], [ %319, %310 ]
-  %312 = getelementptr i8, ptr %311, i64 8
-  %.val233 = load ptr, ptr %312, align 8, !tbaa !11
-  %313 = getelementptr inbounds nuw i32, ptr %.val233, i64 %indvars.iv376
-  %314 = load i32, ptr %313, align 4, !tbaa !32
-  %315 = shl nsw i32 %314, 1
-  %316 = or disjoint i32 %315, 1
-  store i32 %316, ptr %6, align 4, !tbaa !32
-  %317 = load ptr, ptr %0, align 8, !tbaa !61
-  %318 = call i32 @sat_solver_addclause(ptr noundef %317, ptr noundef nonnull %6, ptr noundef nonnull %309) #17
+311:                                              ; preds = %.lr.ph332, %311
+  %indvars.iv376 = phi i64 [ 0, %.lr.ph332 ], [ %indvars.iv.next377, %311 ]
+  %312 = phi ptr [ %307, %.lr.ph332 ], [ %320, %311 ]
+  %313 = getelementptr i8, ptr %312, i64 8
+  %.val233 = load ptr, ptr %313, align 8, !tbaa !11
+  %314 = getelementptr inbounds nuw i32, ptr %.val233, i64 %indvars.iv376
+  %315 = load i32, ptr %314, align 4, !tbaa !32
+  %316 = shl nsw i32 %315, 1
+  %317 = or disjoint i32 %316, 1
+  store i32 %317, ptr %6, align 4, !tbaa !32
+  %318 = load ptr, ptr %0, align 8, !tbaa !61
+  %319 = call i32 @sat_solver_addclause(ptr noundef %318, ptr noundef nonnull %6, ptr noundef nonnull %310) #17
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
-  %319 = load ptr, ptr %305, align 8, !tbaa !56
-  %320 = getelementptr i8, ptr %319, i64 4
-  %.val256 = load i32, ptr %320, align 4, !tbaa !3
-  %321 = sext i32 %.val256 to i64
-  %322 = icmp slt i64 %indvars.iv.next377, %321
-  br i1 %322, label %310, label %.critedge17, !llvm.loop !106
+  %320 = load ptr, ptr %306, align 8, !tbaa !56
+  %321 = getelementptr i8, ptr %320, i64 4
+  %.val256 = load i32, ptr %321, align 4, !tbaa !3
+  %322 = sext i32 %.val256 to i64
+  %323 = icmp slt i64 %indvars.iv.next377, %322
+  br i1 %323, label %311, label %.critedge17, !llvm.loop !106
 
-.critedge17:                                      ; preds = %310, %Vec_WecFree.exit
-  br i1 %.not221, label %.critedge232, label %323
+.critedge17:                                      ; preds = %311, %Vec_WecFree.exit
+  br i1 %.not221, label %.critedge232, label %324
 
-323:                                              ; preds = %.critedge17
-  %324 = load ptr, ptr %0, align 8, !tbaa !61
-  %325 = call i32 @sat_solver_nclauses(ptr noundef %324) #17
-  %326 = sub nsw i32 %325, %215
-  %327 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %326)
+324:                                              ; preds = %.critedge17
+  %325 = load ptr, ptr %0, align 8, !tbaa !61
+  %326 = call i32 @sat_solver_nclauses(ptr noundef %325) #17
+  %327 = sub nsw i32 %326, %215
+  %328 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %327)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %328 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #17
-  %329 = icmp slt i32 %328, 0
-  br i1 %329, label %Abc_Clock.exit280, label %330
+  %329 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #17
+  %330 = icmp slt i32 %329, 0
+  br i1 %330, label %Abc_Clock.exit280, label %331
 
-330:                                              ; preds = %323
-  %331 = load i64, ptr %4, align 8, !tbaa !86
-  %332 = mul nsw i64 %331, 1000000
-  %333 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %334 = load i64, ptr %333, align 8, !tbaa !88
-  %335 = sdiv i64 %334, 1000
-  %336 = add nsw i64 %335, %332
+331:                                              ; preds = %324
+  %332 = load i64, ptr %4, align 8, !tbaa !86
+  %333 = mul nsw i64 %332, 1000000
+  %334 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %335 = load i64, ptr %334, align 8, !tbaa !88
+  %336 = sdiv i64 %335, 1000
+  %337 = add nsw i64 %336, %333
   br label %Abc_Clock.exit280
 
-Abc_Clock.exit280:                                ; preds = %323, %330
-  %.0.i279 = phi i64 [ %336, %330 ], [ -1, %323 ]
+Abc_Clock.exit280:                                ; preds = %324, %331
+  %.0.i279 = phi i64 [ %337, %331 ], [ -1, %324 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %337 = add i64 %.0.i279, %.0.i.neg
+  %338 = add i64 %.0.i279, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2)
-  %338 = sitofp i64 %337 to double
-  %339 = fdiv double %338, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %339)
+  %339 = sitofp i64 %338 to double
+  %340 = fdiv double %339, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %340)
   br label %.critedge232
 
 .critedge232:                                     ; preds = %.critedge17, %Abc_Clock.exit280

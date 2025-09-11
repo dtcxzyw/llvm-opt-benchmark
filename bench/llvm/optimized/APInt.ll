@@ -10613,23 +10613,23 @@ define dso_local void @_ZN4llvm5APInt6divideEPKmjS2_jPmS3_(ptr noundef readonly 
   store i32 %251, ptr %252, align 4, !tbaa !52
   %253 = shl i32 %249, %246
   %indvars.iv.next224.i = add nsw i64 %indvars.iv223.i, -1
-  %254 = icmp sgt i64 %indvars.iv223.i, 0
-  br i1 %254, label %247, label %_ZL8KnuthDivPjS_S_S_jj.exit, !llvm.loop !176
+  %.not247.i = icmp eq i64 %indvars.iv223.i, 0
+  br i1 %.not247.i, label %_ZL8KnuthDivPjS_S_S_jj.exit, label %247, !llvm.loop !176
 
 .lr.ph197.i:                                      ; preds = %.preheader.i, %.lr.ph197.i
   %indvars.iv226.i = phi i64 [ %indvars.iv.next227.i, %.lr.ph197.i ], [ %122, %.preheader.i ]
-  %255 = getelementptr inbounds nuw i32, ptr %.0145, i64 %indvars.iv226.i
-  %256 = load i32, ptr %255, align 4, !tbaa !52
-  %257 = getelementptr inbounds nuw i32, ptr %.0149, i64 %indvars.iv226.i
-  store i32 %256, ptr %257, align 4, !tbaa !52
+  %254 = getelementptr inbounds nuw i32, ptr %.0145, i64 %indvars.iv226.i
+  %255 = load i32, ptr %254, align 4, !tbaa !52
+  %256 = getelementptr inbounds nuw i32, ptr %.0149, i64 %indvars.iv226.i
+  store i32 %255, ptr %256, align 4, !tbaa !52
   %indvars.iv.next227.i = add nsw i64 %indvars.iv226.i, -1
-  %258 = icmp sgt i64 %indvars.iv226.i, 0
-  br i1 %258, label %.lr.ph197.i, label %_ZL8KnuthDivPjS_S_S_jj.exit, !llvm.loop !177
+  %.not248.i = icmp eq i64 %indvars.iv226.i, 0
+  br i1 %.not248.i, label %_ZL8KnuthDivPjS_S_S_jj.exit, label %.lr.ph197.i, !llvm.loop !177
 
 _ZL8KnuthDivPjS_S_S_jj.exit:                      ; preds = %247, %.lr.ph197.i, %.preheader.i, %.preheader173.i, %243, %._crit_edge195, %119
   %.not160 = icmp ne ptr %4, null
-  %259 = icmp ne i32 %1, 0
-  %or.cond = and i1 %.not160, %259
+  %257 = icmp ne i32 %1, 0
+  %or.cond = and i1 %.not160, %257
   br i1 %or.cond, label %.lr.ph198.preheader, label %.loopexit164
 
 .lr.ph198.preheader:                              ; preds = %_ZL8KnuthDivPjS_S_S_jj.exit
@@ -10638,28 +10638,28 @@ _ZL8KnuthDivPjS_S_S_jj.exit:                      ; preds = %247, %.lr.ph197.i, 
 
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %.lr.ph198
   %indvars.iv225 = phi i64 [ 0, %.lr.ph198.preheader ], [ %indvars.iv.next226, %.lr.ph198 ]
-  %260 = trunc nuw i64 %indvars.iv225 to i32
-  %261 = shl i32 %260, 1
-  %262 = or disjoint i32 %261, 1
-  %263 = zext i32 %262 to i64
-  %264 = getelementptr inbounds nuw i32, ptr %.0150, i64 %263
-  %265 = load i32, ptr %264, align 4, !tbaa !52
-  %266 = zext i32 %261 to i64
-  %267 = getelementptr inbounds nuw i32, ptr %.0150, i64 %266
-  %268 = load i32, ptr %267, align 4, !tbaa !52
-  %269 = zext i32 %265 to i64
-  %270 = shl nuw i64 %269, 32
-  %271 = zext i32 %268 to i64
-  %272 = or disjoint i64 %270, %271
-  %273 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv225
-  store i64 %272, ptr %273, align 8, !tbaa !9
+  %258 = trunc nuw i64 %indvars.iv225 to i32
+  %259 = shl i32 %258, 1
+  %260 = or disjoint i32 %259, 1
+  %261 = zext i32 %260 to i64
+  %262 = getelementptr inbounds nuw i32, ptr %.0150, i64 %261
+  %263 = load i32, ptr %262, align 4, !tbaa !52
+  %264 = zext i32 %259 to i64
+  %265 = getelementptr inbounds nuw i32, ptr %.0150, i64 %264
+  %266 = load i32, ptr %265, align 4, !tbaa !52
+  %267 = zext i32 %263 to i64
+  %268 = shl nuw i64 %267, 32
+  %269 = zext i32 %266 to i64
+  %270 = or disjoint i64 %268, %269
+  %271 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv225
+  store i64 %270, ptr %271, align 8, !tbaa !9
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
   br i1 %exitcond229.not, label %.loopexit164, label %.lr.ph198, !llvm.loop !178
 
 .loopexit164:                                     ; preds = %.lr.ph198, %_ZL8KnuthDivPjS_S_S_jj.exit
-  %274 = icmp ne i32 %3, 0
-  %or.cond201 = and i1 %.not, %274
+  %272 = icmp ne i32 %3, 0
+  %or.cond201 = and i1 %.not, %272
   br i1 %or.cond201, label %.lr.ph200.preheader, label %.loopexit
 
 .lr.ph200.preheader:                              ; preds = %.loopexit164
@@ -10668,41 +10668,41 @@ _ZL8KnuthDivPjS_S_S_jj.exit:                      ; preds = %247, %.lr.ph197.i, 
 
 .lr.ph200:                                        ; preds = %.lr.ph200.preheader, %.lr.ph200
   %indvars.iv230 = phi i64 [ 0, %.lr.ph200.preheader ], [ %indvars.iv.next231, %.lr.ph200 ]
-  %275 = trunc nuw i64 %indvars.iv230 to i32
-  %276 = shl i32 %275, 1
-  %277 = or disjoint i32 %276, 1
-  %278 = zext i32 %277 to i64
-  %279 = getelementptr inbounds nuw i32, ptr %.0149, i64 %278
-  %280 = load i32, ptr %279, align 4, !tbaa !52
-  %281 = zext i32 %276 to i64
-  %282 = getelementptr inbounds nuw i32, ptr %.0149, i64 %281
-  %283 = load i32, ptr %282, align 4, !tbaa !52
-  %284 = zext i32 %280 to i64
-  %285 = shl nuw i64 %284, 32
-  %286 = zext i32 %283 to i64
-  %287 = or disjoint i64 %285, %286
-  %288 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv230
-  store i64 %287, ptr %288, align 8, !tbaa !9
+  %273 = trunc nuw i64 %indvars.iv230 to i32
+  %274 = shl i32 %273, 1
+  %275 = or disjoint i32 %274, 1
+  %276 = zext i32 %275 to i64
+  %277 = getelementptr inbounds nuw i32, ptr %.0149, i64 %276
+  %278 = load i32, ptr %277, align 4, !tbaa !52
+  %279 = zext i32 %274 to i64
+  %280 = getelementptr inbounds nuw i32, ptr %.0149, i64 %279
+  %281 = load i32, ptr %280, align 4, !tbaa !52
+  %282 = zext i32 %278 to i64
+  %283 = shl nuw i64 %282, 32
+  %284 = zext i32 %281 to i64
+  %285 = or disjoint i64 %283, %284
+  %286 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv230
+  store i64 %285, ptr %286, align 8, !tbaa !9
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
   br i1 %exitcond234.not, label %.loopexit, label %.lr.ph200, !llvm.loop !179
 
 .loopexit:                                        ; preds = %.lr.ph200, %.loopexit164
   %.not161 = icmp eq ptr %.0145, %7
-  br i1 %.not161, label %292, label %289
+  br i1 %.not161, label %290, label %287
 
-289:                                              ; preds = %.loopexit
+287:                                              ; preds = %.loopexit
   call void @_ZdaPv(ptr noundef nonnull %.0145) #23
   call void @_ZdaPv(ptr noundef %.0147) #23
   call void @_ZdaPv(ptr noundef %.0150) #23
-  %290 = icmp eq ptr %.0149, null
-  br i1 %290, label %292, label %291
+  %288 = icmp eq ptr %.0149, null
+  br i1 %288, label %290, label %289
 
-291:                                              ; preds = %289
+289:                                              ; preds = %287
   call void @_ZdaPv(ptr noundef nonnull %.0149) #23
-  br label %292
+  br label %290
 
-292:                                              ; preds = %289, %291, %.loopexit
+290:                                              ; preds = %287, %289, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

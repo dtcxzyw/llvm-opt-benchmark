@@ -2745,30 +2745,31 @@ define i32 @cli_map_getvalue_size(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !47
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %17
+  br i1 %.not, label %4, label %18
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !49
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %17, label %8
+  br i1 %7, label %18, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !50
   %.not9 = icmp ult i32 %6, %10
-  br i1 %.not9, label %11, label %17
+  br i1 %.not9, label %11, label %18
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = zext nneg i32 %6 to i64
-  %15 = getelementptr inbounds nuw %struct.cli_map_value, ptr %13, i64 %14, i32 1
-  %16 = load i32, ptr %15, align 8, !tbaa !53
-  br label %17
+  %15 = getelementptr inbounds nuw %struct.cli_map_value, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i32, ptr %16, align 8, !tbaa !53
+  br label %18
 
-17:                                               ; preds = %4, %8, %1, %11
-  %.0 = phi i32 [ %16, %11 ], [ %3, %1 ], [ -1, %8 ], [ -1, %4 ]
+18:                                               ; preds = %4, %8, %1, %11
+  %.0 = phi i32 [ %17, %11 ], [ %3, %1 ], [ -1, %8 ], [ -1, %4 ]
   ret i32 %.0
 }
 

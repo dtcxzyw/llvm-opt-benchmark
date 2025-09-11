@@ -357,43 +357,44 @@ define internal fastcc void @draw_items_for_severity(ptr noundef readonly captur
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %.02021 = phi i32 [ 0, %.preheader ], [ %10, %7 ]
-  %8 = getelementptr %struct.expert_entry, ptr %6, i64 %indvars.iv, i32 1
-  %9 = load i32, ptr %8, align 4
-  %10 = add i32 %9, %.02021
+  %.02021 = phi i32 [ 0, %.preheader ], [ %11, %7 ]
+  %8 = getelementptr %struct.expert_entry, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %10 = load i32, ptr %9, align 4
+  %11 = add i32 %10, %.02021
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %11, label %7, !llvm.loop !12
+  br i1 %exitcond.not, label %12, label %7, !llvm.loop !12
 
-11:                                               ; preds = %7
-  %12 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef %1, i32 noundef %10)
-  %13 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.17)
-  %14 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.18)
-  %15 = load i32, ptr %3, align 8
-  %.not = icmp eq i32 %15, 0
+12:                                               ; preds = %7
+  %13 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef %1, i32 noundef %11)
+  %14 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.17)
+  %15 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.18)
+  %16 = load i32, ptr %3, align 8
+  %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11, %.lr.ph
-  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.lr.ph ], [ 0, %11 ]
-  %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr %struct.expert_entry, ptr %16, i64 %indvars.iv25
-  %18 = load i32, ptr %17, align 8
-  %19 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %18, ptr noundef nonnull @expert_group_vals, ptr noundef nonnull @.str.19)
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %21, ptr noundef %19, ptr noundef %23, ptr noundef %25)
-  tail call void @wmem_free(ptr noundef null, ptr noundef %19)
+.lr.ph:                                           ; preds = %12, %.lr.ph
+  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.lr.ph ], [ 0, %12 ]
+  %17 = load ptr, ptr %0, align 8
+  %18 = getelementptr %struct.expert_entry, ptr %17, i64 %indvars.iv25
+  %19 = load i32, ptr %18, align 8
+  %20 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %19, ptr noundef nonnull @expert_group_vals, ptr noundef nonnull @.str.19)
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %22, ptr noundef %20, ptr noundef %24, ptr noundef %26)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %20)
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %27 = load i32, ptr %3, align 8
-  %28 = zext i32 %27 to i64
-  %29 = icmp samesign ult i64 %indvars.iv.next26, %28
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  %28 = load i32, ptr %3, align 8
+  %29 = zext i32 %28 to i64
+  %30 = icmp samesign ult i64 %indvars.iv.next26, %29
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %.lr.ph, %11, %2
+.loopexit:                                        ; preds = %.lr.ph, %12, %2
   ret void
 }
 

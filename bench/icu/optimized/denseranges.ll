@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -2147483646, -2147483647) i32 @uprv_makeDenseRanges(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %"class.(anonymous namespace)::LargestGaps", align 8
   %7 = icmp slt i32 %1, 3
-  br i1 %7, label %116, label %8
+  br i1 %7, label %119, label %8
 
 8:                                                ; preds = %5
   %9 = load i32, ptr %0, align 4, !tbaa !3
@@ -31,11 +31,11 @@ define range(i32 -2147483646, -2147483647) i32 @uprv_makeDenseRanges(ptr noundef
   store i32 %9, ptr %3, align 4, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %13, ptr %22, align 4, !tbaa !3
-  br label %116
+  br label %119
 
 23:                                               ; preds = %8
   %24 = icmp samesign ult i32 %1, 5
-  br i1 %24, label %116, label %25
+  br i1 %24, label %119, label %25
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -200,7 +200,7 @@ _ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit:   ; preds = %83, %85
 
 .lr.ph.i74.us:                                    ; preds = %.lr.ph.i74.us.preheader, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us
   %indvars.iv108 = phi i64 [ 0, %.lr.ph.i74.us.preheader ], [ %indvars.iv.next109, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us ]
-  %.05788.us = phi i32 [ %9, %.lr.ph.i74.us.preheader ], [ %105, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us ]
+  %.05788.us = phi i32 [ %9, %.lr.ph.i74.us.preheader ], [ %106, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us ]
   br label %88
 
 88:                                               ; preds = %96, %.lr.ph.i74.us
@@ -233,49 +233,52 @@ _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us: ; preds = %96
   %98 = getelementptr inbounds i32, ptr %29, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !3
   %100 = add nsw i32 %99, -1
-  %101 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv108, i64 1
-  store i32 %100, ptr %101, align 4, !tbaa !3
-  %102 = getelementptr inbounds i64, ptr %30, i64 %97
-  %103 = load i64, ptr %102, align 8, !tbaa !10
-  %104 = trunc i64 %103 to i32
-  %105 = add i32 %99, %104
+  %101 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv108
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
+  store i32 %100, ptr %102, align 4, !tbaa !3
+  %103 = getelementptr inbounds i64, ptr %30, i64 %97
+  %104 = load i64, ptr %103, align 8, !tbaa !10
+  %105 = trunc i64 %104 to i32
+  %106 = add i32 %99, %105
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %106 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv.next109
-  store i32 %105, ptr %106, align 4, !tbaa !3
+  %107 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv.next109
+  store i32 %106, ptr %107, align 4, !tbaa !3
   %exitcond114.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count113
   br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph.i74.us, !llvm.loop !18
 
 .lr.ph89.split:                                   ; preds = %.lr.ph89
-  %107 = add nsw i32 %86, -1
-  %108 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %109 = load i64, ptr %108, align 8, !tbaa !10
-  %110 = trunc i64 %109 to i32
-  %111 = add i32 %86, %110
+  %108 = add nsw i32 %86, -1
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %110 = load i64, ptr %109, align 8, !tbaa !10
+  %111 = trunc i64 %110 to i32
+  %112 = add i32 %86, %111
   %wide.trip.count106 = zext nneg i32 %indvars.iv103 to i64
   br label %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit
 
 _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit: ; preds = %.lr.ph89.split, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit
   %indvars.iv100 = phi i64 [ 0, %.lr.ph89.split ], [ %indvars.iv.next101, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit ]
-  %112 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv100, i64 1
-  store i32 %107, ptr %112, align 4, !tbaa !3
+  %113 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv100
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
+  store i32 %108, ptr %114, align 4, !tbaa !3
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %113 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv.next101
-  store i32 %111, ptr %113, align 4, !tbaa !3
+  %115 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv.next101
+  store i32 %112, ptr %115, align 4, !tbaa !3
   %exitcond107.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count106
   br i1 %exitcond107.not, label %._crit_edge, label %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us, %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit
-  %114 = sext i32 %84 to i64
-  %115 = getelementptr inbounds [2 x i32], ptr %3, i64 %114, i64 1
-  store i32 %13, ptr %115, align 4, !tbaa !3
+  %116 = sext i32 %84 to i64
+  %117 = getelementptr inbounds [2 x i32], ptr %3, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
+  store i32 %13, ptr %118, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %81, %.preheader, %._crit_edge
   %.2 = phi i32 [ %.05885, %._crit_edge ], [ 0, %.preheader ], [ 0, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %116
+  br label %119
 
-116:                                              ; preds = %21, %.loopexit, %23, %5
+119:                                              ; preds = %21, %.loopexit, %23, %5
   %.0 = phi i32 [ 0, %5 ], [ 1, %21 ], [ %.2, %.loopexit ], [ 0, %23 ]
   ret i32 %.0
 }

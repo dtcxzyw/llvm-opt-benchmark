@@ -220,9 +220,9 @@ zend_string_alloc.exit:                           ; preds = %2
   %25 = sext i32 %1 to i64
   %26 = getelementptr inbounds %struct.pdo_column_data, ptr %24, i64 %25
   store ptr %17, ptr %26, align 8, !tbaa !41
-  %27 = getelementptr inbounds %struct.pdo_column_data, ptr %24, i64 %25, i32 1
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 -1, ptr %27, align 8, !tbaa !43
-  %28 = getelementptr inbounds %struct.pdo_column_data, ptr %24, i64 %25, i32 2
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 0, ptr %28, align 8, !tbaa !44
   br label %29
 

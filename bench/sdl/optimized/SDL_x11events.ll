@@ -155,10 +155,11 @@ define hidden void @X11_ReconcileKeyboardState(ptr noundef readonly captures(non
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 224
   %40 = load i32, ptr %39, align 8
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.Screen, ptr %38, i64 %41, i32 2
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 1712
-  %45 = call i32 %35(ptr noundef %36, i64 noundef %43, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %44) #12
+  %42 = getelementptr inbounds %struct.Screen, ptr %38, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 1712
+  %46 = call i32 %35(ptr noundef %36, i64 noundef %44, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %45) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -177,8 +178,8 @@ define internal fastcc void @X11_HandleModifierKeys(ptr noundef %0, i32 noundef 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call i32 @SDL_GetKeyFromScancode_REAL(i32 noundef %1, i16 noundef zeroext 0, i1 noundef zeroext false) #12
-  switch i32 %8, label %46 [
-    i32 1073742049, label %47
+  switch i32 %8, label %47 [
+    i32 1073742049, label %48
     i32 1073742053, label %9
     i32 1073742048, label %10
     i32 1073742052, label %11
@@ -194,31 +195,31 @@ define internal fastcc void @X11_HandleModifierKeys(ptr noundef %0, i32 noundef 
   ]
 
 9:                                                ; preds = %4
-  br label %47
+  br label %48
 
 10:                                               ; preds = %4
-  br label %47
+  br label %48
 
 11:                                               ; preds = %4
-  br label %47
+  br label %48
 
 12:                                               ; preds = %4
-  br label %47
+  br label %48
 
 13:                                               ; preds = %4
-  br label %47
+  br label %48
 
 14:                                               ; preds = %4
-  br label %47
+  br label %48
 
 15:                                               ; preds = %4
-  br label %47
+  br label %48
 
 16:                                               ; preds = %4
-  br label %47
+  br label %48
 
 17:                                               ; preds = %4
-  br label %47
+  br label %48
 
 18:                                               ; preds = %4, %4, %4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1712
@@ -233,62 +234,63 @@ define internal fastcc void @X11_HandleModifierKeys(ptr noundef %0, i32 noundef 
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 224
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.Screen, ptr %24, i64 %27, i32 2
-  %29 = load i64, ptr %28, align 8
-  %30 = call i32 %21(ptr noundef %22, i64 noundef %29, ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %19) #12
+  %28 = getelementptr inbounds %struct.Screen, ptr %24, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load i64, ptr %29, align 8
+  %31 = call i32 %21(ptr noundef %22, i64 noundef %30, ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %19) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %31 = load i32, ptr %19, align 8
-  %32 = and i32 %31, 2
-  %33 = and i32 %20, -3
-  %.0 = or disjoint i32 %32, %33
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1720
-  %35 = load i32, ptr %34, align 8
-  %36 = and i32 %35, %31
-  %.not31 = icmp eq i32 %36, 0
-  %37 = or i32 %.0, %35
-  %38 = xor i32 %35, -1
-  %39 = and i32 %.0, %38
-  %.1 = select i1 %.not31, i32 %39, i32 %37
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, %31
-  %.not32 = icmp eq i32 %42, 0
-  %43 = or i32 %.1, %41
-  %44 = xor i32 %41, -1
-  %45 = and i32 %.1, %44
-  %.2 = select i1 %.not32, i32 %45, i32 %43
+  %32 = load i32, ptr %19, align 8
+  %33 = and i32 %32, 2
+  %34 = and i32 %20, -3
+  %.0 = or disjoint i32 %33, %34
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1720
+  %36 = load i32, ptr %35, align 8
+  %37 = and i32 %36, %32
+  %.not31 = icmp eq i32 %37, 0
+  %38 = or i32 %.0, %36
+  %39 = xor i32 %36, -1
+  %40 = and i32 %.0, %39
+  %.1 = select i1 %.not31, i32 %40, i32 %38
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %42 = load i32, ptr %41, align 4
+  %43 = and i32 %42, %32
+  %.not32 = icmp eq i32 %43, 0
+  %44 = or i32 %.1, %42
+  %45 = xor i32 %42, -1
+  %46 = and i32 %.1, %45
+  %.2 = select i1 %.not32, i32 %46, i32 %44
   store i32 %.2, ptr %19, align 8
-  br label %46
-
-46:                                               ; preds = %18, %4
   br label %47
 
-47:                                               ; preds = %4, %46, %17, %16, %15, %14, %13, %12, %11, %10, %9
-  %.030 = phi i16 [ 0, %46 ], [ 2, %9 ], [ 64, %10 ], [ 128, %11 ], [ 256, %12 ], [ 512, %13 ], [ 1024, %14 ], [ 2048, %15 ], [ 16384, %16 ], [ 4, %17 ], [ 1, %4 ]
-  %.029 = phi i1 [ true, %46 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ false, %17 ], [ false, %4 ]
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1716
-  %49 = load i16, ptr %48, align 4
-  %50 = xor i16 %.030, -1
-  %51 = and i16 %49, %50
-  %52 = or i16 %49, %.030
-  %.sink = select i1 %2, i16 %52, i16 %51
-  store i16 %.sink, ptr %48, align 4
-  br i1 %3, label %53, label %56
+47:                                               ; preds = %18, %4
+  br label %48
 
-53:                                               ; preds = %47
-  br i1 %.029, label %54, label %55
+48:                                               ; preds = %4, %47, %17, %16, %15, %14, %13, %12, %11, %10, %9
+  %.030 = phi i16 [ 0, %47 ], [ 2, %9 ], [ 64, %10 ], [ 128, %11 ], [ 256, %12 ], [ 512, %13 ], [ 1024, %14 ], [ 2048, %15 ], [ 16384, %16 ], [ 4, %17 ], [ 1, %4 ]
+  %.029 = phi i1 [ true, %47 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ false, %17 ], [ false, %4 ]
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1716
+  %50 = load i16, ptr %49, align 4
+  %51 = xor i16 %.030, -1
+  %52 = and i16 %50, %51
+  %53 = or i16 %50, %.030
+  %.sink = select i1 %2, i16 %53, i16 %52
+  store i16 %.sink, ptr %49, align 4
+  br i1 %3, label %54, label %57
 
-54:                                               ; preds = %53
+54:                                               ; preds = %48
+  br i1 %.029, label %55, label %56
+
+55:                                               ; preds = %54
   call fastcc void @X11_ReconcileModifiers(ptr noundef nonnull %0)
-  br label %56
+  br label %57
 
-55:                                               ; preds = %53
+56:                                               ; preds = %54
   call void @SDL_SetModState_REAL(i16 noundef zeroext %.sink) #12
-  br label %56
+  br label %57
 
-56:                                               ; preds = %54, %55, %47
+57:                                               ; preds = %55, %56, %48
   ret void
 }
 
@@ -450,23 +452,23 @@ define hidden noundef zeroext i1 @X11_TriggerHitTestAction(ptr noundef readonly 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 352
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %108, label %10
+  br i1 %.not, label %110, label %10
 
 10:                                               ; preds = %4
   %11 = fptosi float %2 to i32
   %12 = fptosi float %3 to i32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %14 = load i32, ptr %13, align 8
-  switch i32 %14, label %108 [
+  switch i32 %14, label %110 [
     i32 1, label %15
-    i32 2, label %62
-    i32 3, label %62
-    i32 4, label %62
-    i32 5, label %62
-    i32 6, label %62
-    i32 7, label %62
-    i32 8, label %62
-    i32 9, label %62
+    i32 2, label %63
+    i32 3, label %63
+    i32 4, label %63
+    i32 5, label %63
+    i32 6, label %63
+    i32 7, label %63
+    i32 8, label %63
+    i32 9, label %63
   ]
 
 15:                                               ; preds = %10
@@ -474,7 +476,7 @@ define hidden noundef zeroext i1 @X11_TriggerHitTestAction(ptr noundef readonly 
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 512
   %.not14 = icmp eq i64 %18, 0
-  br i1 %.not14, label %59, label %19
+  br i1 %.not14, label %60, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr i8, ptr %0, i64 1656
@@ -522,93 +524,95 @@ define hidden noundef zeroext i1 @X11_TriggerHitTestAction(ptr noundef readonly 
   %51 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %struct.Screen, ptr %50, i64 %53, i32 2
-  %55 = load i64, ptr %54, align 8
-  %56 = call i32 %48(ptr noundef %21, i64 noundef %55, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %6) #12
-  %57 = load ptr, ptr @X11_XSync, align 8
-  %58 = call i32 %57(ptr noundef %21, i32 noundef 0) #12
+  %54 = getelementptr inbounds %struct.Screen, ptr %50, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %56 = load i64, ptr %55, align 8
+  %57 = call i32 %48(ptr noundef %21, i64 noundef %56, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %6) #12
+  %58 = load ptr, ptr @X11_XSync, align 8
+  %59 = call i32 %58(ptr noundef %21, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %108
+  br label %110
 
-59:                                               ; preds = %15
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i8 1, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 148
+60:                                               ; preds = %15
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  store i8 1, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %.sroa.6.0.insert.ext = zext i32 %12 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %11 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %.sroa.0.0.insert.ext
-  store i64 %.sroa.0.0.insert.insert, ptr %61, align 4
-  br label %108
+  store i64 %.sroa.0.0.insert.insert, ptr %62, align 4
+  br label %110
 
-62:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10
-  %63 = zext nneg i32 %14 to i64
-  %64 = getelementptr i32, ptr @X11_TriggerHitTestAction.directions, i64 %63
-  %65 = getelementptr i8, ptr %64, i64 -8
-  %66 = load i32, ptr %65, align 4
-  %67 = getelementptr i8, ptr %0, i64 1656
-  %.val15 = load ptr, ptr %67, align 8
-  %68 = load ptr, ptr %.val15, align 8
+63:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10
+  %64 = zext nneg i32 %14 to i64
+  %65 = getelementptr i32, ptr @X11_TriggerHitTestAction.directions, i64 %64
+  %66 = getelementptr i8, ptr %65, i64 -8
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr i8, ptr %0, i64 1656
+  %.val15 = load ptr, ptr %68, align 8
+  %69 = load ptr, ptr %.val15, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %or.cond.i = icmp ugt i32 %66, 7
-  br i1 %or.cond.i, label %InitiateWindowResize.exit, label %69
+  %or.cond.i = icmp ugt i32 %67, 7
+  br i1 %or.cond.i, label %InitiateWindowResize.exit, label %70
 
-69:                                               ; preds = %62
-  %70 = load ptr, ptr @X11_XUngrabPointer, align 8
-  %71 = tail call i32 %70(ptr noundef %68, i64 noundef 0) #12
-  %72 = load ptr, ptr @X11_XFlush, align 8
-  %73 = tail call i32 %72(ptr noundef %68) #12
+70:                                               ; preds = %63
+  %71 = load ptr, ptr @X11_XUngrabPointer, align 8
+  %72 = tail call i32 %71(ptr noundef %69, i64 noundef 0) #12
+  %73 = load ptr, ptr @X11_XFlush, align 8
+  %74 = tail call i32 %73(ptr noundef %69) #12
   store i32 33, ptr %5, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %75, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.val15, i64 312
-  %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 %78, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 32, ptr %80, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %82 = load i32, ptr %81, align 8
-  %83 = sext i32 %82 to i64
-  %84 = sext i32 %11 to i64
-  %85 = add nsw i64 %83, %84
-  %86 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 %85, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %88 = load i32, ptr %87, align 4
-  %89 = sext i32 %88 to i64
-  %90 = sext i32 %12 to i64
-  %91 = add nsw i64 %89, %90
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %91, ptr %92, align 8
-  %93 = zext nneg i32 %66 to i64
-  %94 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i64 %93, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i64 1, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i64 0, ptr %96, align 8
-  %97 = load ptr, ptr @X11_XSendEvent, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %68, i64 232
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %68, i64 224
-  %101 = load i32, ptr %100, align 8
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds %struct.Screen, ptr %99, i64 %102, i32 2
-  %104 = load i64, ptr %103, align 8
-  %105 = call i32 %97(ptr noundef %68, i64 noundef %104, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %5) #12
-  %106 = load ptr, ptr @X11_XSync, align 8
-  %107 = call i32 %106(ptr noundef %68, i32 noundef 0) #12
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %76, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %.val15, i64 312
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 %79, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 32, ptr %81, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %83 = load i32, ptr %82, align 8
+  %84 = sext i32 %83 to i64
+  %85 = sext i32 %11 to i64
+  %86 = add nsw i64 %84, %85
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 %86, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %89 = load i32, ptr %88, align 4
+  %90 = sext i32 %89 to i64
+  %91 = sext i32 %12 to i64
+  %92 = add nsw i64 %90, %91
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 %92, ptr %93, align 8
+  %94 = zext nneg i32 %67 to i64
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store i64 %94, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i64 1, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store i64 0, ptr %97, align 8
+  %98 = load ptr, ptr @X11_XSendEvent, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %69, i64 232
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %69, i64 224
+  %102 = load i32, ptr %101, align 8
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds %struct.Screen, ptr %100, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %106 = load i64, ptr %105, align 8
+  %107 = call i32 %98(ptr noundef %69, i64 noundef %106, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %5) #12
+  %108 = load ptr, ptr @X11_XSync, align 8
+  %109 = call i32 %108(ptr noundef %69, i32 noundef 0) #12
   br label %InitiateWindowResize.exit
 
-InitiateWindowResize.exit:                        ; preds = %62, %69
+InitiateWindowResize.exit:                        ; preds = %63, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %108
+  br label %110
 
-108:                                              ; preds = %InitiateWindowResize.exit, %59, %19, %10, %4
-  %.1 = phi i1 [ false, %4 ], [ true, %InitiateWindowResize.exit ], [ true, %59 ], [ true, %19 ], [ false, %10 ]
+110:                                              ; preds = %InitiateWindowResize.exit, %60, %19, %10, %4
+  %.1 = phi i1 [ false, %4 ], [ true, %InitiateWindowResize.exit ], [ true, %60 ], [ true, %19 ], [ false, %10 ]
   ret i1 %.1
 }
 
@@ -662,11 +666,12 @@ define internal fastcc void @DispatchWindowMove(ptr readonly captures(none) %.16
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %39 = load i32, ptr %38, align 8
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.Screen, ptr %37, i64 %40, i32 2
-  %42 = load i64, ptr %41, align 8
-  %43 = call i32 %35(ptr noundef %5, i64 noundef %42, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %3) #12
-  %44 = load ptr, ptr @X11_XSync, align 8
-  %45 = call i32 %44(ptr noundef %5, i32 noundef 0) #12
+  %41 = getelementptr inbounds %struct.Screen, ptr %37, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i64, ptr %42, align 8
+  %44 = call i32 %35(ptr noundef %5, i64 noundef %43, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %3) #12
+  %45 = load ptr, ptr @X11_XSync, align 8
+  %46 = call i32 %45(ptr noundef %5, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2127,15 +2132,15 @@ X11_FindWindow.exit:                              ; preds = %292
     i32 18, label %488
     i32 19, label %503
     i32 22, label %511
-    i32 33, label %555
-    i32 12, label %727
-    i32 2, label %730
-    i32 3, label %730
-    i32 6, label %735
-    i32 4, label %761
-    i32 5, label %776
-    i32 28, label %783
-    i32 31, label %1020
+    i32 33, label %556
+    i32 12, label %730
+    i32 2, label %733
+    i32 3, label %733
+    i32 6, label %738
+    i32 4, label %764
+    i32 5, label %779
+    i32 28, label %786
+    i32 31, label %1023
   ]
 
 375:                                              ; preds = %X11_FindWindow.exit
@@ -2394,7 +2399,7 @@ X11_FindWindow.exit:                              ; preds = %292
   %512 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %513 = load i32, ptr %512, align 8
   %.not514 = icmp eq i32 %513, 0
-  br i1 %.not514, label %514, label %538
+  br i1 %.not514, label %514, label %539
 
 514:                                              ; preds = %511
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -2418,937 +2423,940 @@ X11_FindWindow.exit:                              ; preds = %292
   %528 = getelementptr inbounds nuw i8, ptr %524, i64 224
   %529 = load i32, ptr %528, align 8
   %530 = sext i32 %529 to i64
-  %531 = getelementptr inbounds %struct.Screen, ptr %527, i64 %530, i32 2
-  %532 = load i64, ptr %531, align 8
-  %533 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %534 = load i32, ptr %533, align 8
-  %535 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %536 = load i32, ptr %535, align 4
-  %537 = call i32 %522(ptr noundef %524, i64 noundef %525, i64 noundef %532, i32 noundef %534, i32 noundef %536, ptr noundef nonnull %533, ptr noundef nonnull %535, ptr noundef nonnull %15) #12
+  %531 = getelementptr inbounds %struct.Screen, ptr %527, i64 %530
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 16
+  %533 = load i64, ptr %532, align 8
+  %534 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %535 = load i32, ptr %534, align 8
+  %536 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %537 = load i32, ptr %536, align 4
+  %538 = call i32 %522(ptr noundef %524, i64 noundef %525, i64 noundef %533, i32 noundef %535, i32 noundef %537, ptr noundef nonnull %534, ptr noundef nonnull %536, ptr noundef nonnull %15) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.pre577 = load i64, ptr %282, align 8
-  br label %538
+  br label %539
 
-538:                                              ; preds = %514, %511
-  %539 = phi i64 [ %.pre577, %514 ], [ %.pre, %511 ]
-  %540 = load ptr, ptr %291, align 8
-  %541 = call i32 @X11_GetNetWMState(ptr noundef %0, ptr noundef %540, i64 noundef %539) #12
-  %542 = load ptr, ptr %291, align 8
-  %543 = getelementptr inbounds nuw i8, ptr %542, i64 72
-  %544 = load i64, ptr %543, align 8
-  %545 = trunc i64 %544 to i32
-  %546 = xor i32 %541, %545
-  %547 = and i32 %546, 129
-  %.not515 = icmp eq i32 %547, 0
-  br i1 %.not515, label %550, label %.thread615
+539:                                              ; preds = %514, %511
+  %540 = phi i64 [ %.pre577, %514 ], [ %.pre, %511 ]
+  %541 = load ptr, ptr %291, align 8
+  %542 = call i32 @X11_GetNetWMState(ptr noundef %0, ptr noundef %541, i64 noundef %540) #12
+  %543 = load ptr, ptr %291, align 8
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 72
+  %545 = load i64, ptr %544, align 8
+  %546 = trunc i64 %545 to i32
+  %547 = xor i32 %542, %546
+  %548 = and i32 %547, 129
+  %.not515 = icmp eq i32 %548, 0
+  br i1 %.not515, label %551, label %.thread615
 
-.thread615:                                       ; preds = %538
-  %548 = getelementptr inbounds nuw i8, ptr %291, i64 248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %548, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
-  %549 = getelementptr inbounds nuw i8, ptr %291, i64 543
-  store i8 1, ptr %549, align 1
-  br label %553
+.thread615:                                       ; preds = %539
+  %549 = getelementptr inbounds nuw i8, ptr %291, i64 248
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %549, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
+  %550 = getelementptr inbounds nuw i8, ptr %291, i64 543
+  store i8 1, ptr %550, align 1
+  br label %554
 
-550:                                              ; preds = %538
+551:                                              ; preds = %539
   %.phi.trans.insert579 = getelementptr inbounds nuw i8, ptr %291, i64 543
   %.pre580 = load i8, ptr %.phi.trans.insert579, align 1, !range !3
-  %551 = trunc nuw i8 %.pre580 to i1
-  br i1 %551, label %553, label %552
+  %552 = trunc nuw i8 %.pre580 to i1
+  br i1 %552, label %554, label %553
 
-552:                                              ; preds = %550
+553:                                              ; preds = %551
   call void @X11_EmitConfigureNotifyEvents(ptr noundef nonnull %291, ptr noundef nonnull %1)
   %.pre581 = load ptr, ptr %291, align 8
-  br label %553
+  br label %554
 
-553:                                              ; preds = %.thread615, %552, %550
-  %554 = phi ptr [ %.pre581, %552 ], [ %542, %550 ], [ %542, %.thread615 ]
-  call void @X11_HandleConfigure(ptr noundef %554, ptr noundef nonnull %1) #12
+554:                                              ; preds = %.thread615, %553, %551
+  %555 = phi ptr [ %.pre581, %553 ], [ %543, %551 ], [ %543, %.thread615 ]
+  call void @X11_HandleConfigure(ptr noundef %555, ptr noundef nonnull %1) #12
   br label %X11_HandleGenericEvent.exit
 
-555:                                              ; preds = %X11_FindWindow.exit
-  %556 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %557 = load i64, ptr %556, align 8
-  %558 = getelementptr inbounds nuw i8, ptr %26, i64 192
-  %559 = getelementptr inbounds nuw i8, ptr %26, i64 488
-  %560 = load i64, ptr %559, align 8
-  %561 = icmp eq i64 %557, %560
-  br i1 %561, label %562, label %591
+556:                                              ; preds = %X11_FindWindow.exit
+  %557 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %558 = load i64, ptr %557, align 8
+  %559 = getelementptr inbounds nuw i8, ptr %26, i64 192
+  %560 = getelementptr inbounds nuw i8, ptr %26, i64 488
+  %561 = load i64, ptr %560, align 8
+  %562 = icmp eq i64 %558, %561
+  br i1 %562, label %563, label %592
 
-562:                                              ; preds = %555
-  %563 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %564 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %565 = load i64, ptr %564, align 8
-  %566 = and i64 %565, 1
-  %.not513 = icmp eq i64 %566, 0
-  %567 = load i64, ptr %563, align 8
-  %568 = getelementptr inbounds nuw i8, ptr %291, i64 360
-  store i64 %567, ptr %568, align 8
-  %569 = load i64, ptr %564, align 8
-  %570 = lshr i64 %569, 24
-  %571 = trunc i64 %570 to i32
-  store i32 %571, ptr @X11_DispatchEvent.xdnd_version, align 4
-  br i1 %.not513, label %582, label %572
+563:                                              ; preds = %556
+  %564 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %565 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %566 = load i64, ptr %565, align 8
+  %567 = and i64 %566, 1
+  %.not513 = icmp eq i64 %567, 0
+  %568 = load i64, ptr %564, align 8
+  %569 = getelementptr inbounds nuw i8, ptr %291, i64 360
+  store i64 %568, ptr %569, align 8
+  %570 = load i64, ptr %565, align 8
+  %571 = lshr i64 %570, 24
+  %572 = trunc i64 %571 to i32
+  store i32 %572, ptr @X11_DispatchEvent.xdnd_version, align 4
+  br i1 %.not513, label %583, label %573
 
-572:                                              ; preds = %562
+573:                                              ; preds = %563
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %573 = getelementptr inbounds nuw i8, ptr %26, i64 520
-  %574 = load i64, ptr %573, align 8
-  call fastcc void @X11_ReadProperty(ptr noundef %19, ptr noundef %27, i64 noundef %567, i64 noundef %574)
-  %575 = load ptr, ptr %19, align 8
-  %576 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %577 = load i32, ptr %576, align 4
-  %578 = tail call fastcc i64 @X11_PickTarget(ptr noundef %27, ptr noundef %575, i32 noundef %577)
-  %579 = getelementptr inbounds nuw i8, ptr %291, i64 352
-  store i64 %578, ptr %579, align 8
-  %580 = load ptr, ptr @X11_XFree, align 8
-  %581 = tail call i32 %580(ptr noundef %575) #12
+  %574 = getelementptr inbounds nuw i8, ptr %26, i64 520
+  %575 = load i64, ptr %574, align 8
+  call fastcc void @X11_ReadProperty(ptr noundef %19, ptr noundef %27, i64 noundef %568, i64 noundef %575)
+  %576 = load ptr, ptr %19, align 8
+  %577 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %578 = load i32, ptr %577, align 4
+  %579 = tail call fastcc i64 @X11_PickTarget(ptr noundef %27, ptr noundef %576, i32 noundef %578)
+  %580 = getelementptr inbounds nuw i8, ptr %291, i64 352
+  store i64 %579, ptr %580, align 8
+  %581 = load ptr, ptr @X11_XFree, align 8
+  %582 = tail call i32 %581(ptr noundef %576) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %X11_HandleGenericEvent.exit
 
-582:                                              ; preds = %562
-  %583 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %584 = load i64, ptr %583, align 8
-  %585 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %586 = load i64, ptr %585, align 8
-  %587 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %588 = load i64, ptr %587, align 8
-  %589 = tail call fastcc i64 @X11_PickTargetFromAtoms(ptr noundef %27, i64 noundef %584, i64 noundef %586, i64 noundef %588)
-  %590 = getelementptr inbounds nuw i8, ptr %291, i64 352
-  store i64 %589, ptr %590, align 8
+583:                                              ; preds = %563
+  %584 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %585 = load i64, ptr %584, align 8
+  %586 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %587 = load i64, ptr %586, align 8
+  %588 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %589 = load i64, ptr %588, align 8
+  %590 = tail call fastcc i64 @X11_PickTargetFromAtoms(ptr noundef %27, i64 noundef %585, i64 noundef %587, i64 noundef %589)
+  %591 = getelementptr inbounds nuw i8, ptr %291, i64 352
+  store i64 %590, ptr %591, align 8
   br label %X11_HandleGenericEvent.exit
 
-591:                                              ; preds = %555
-  %592 = getelementptr inbounds nuw i8, ptr %26, i64 496
-  %593 = load i64, ptr %592, align 8
-  %594 = icmp eq i64 %557, %593
-  br i1 %594, label %595, label %598
+592:                                              ; preds = %556
+  %593 = getelementptr inbounds nuw i8, ptr %26, i64 496
+  %594 = load i64, ptr %593, align 8
+  %595 = icmp eq i64 %558, %594
+  br i1 %595, label %596, label %599
 
-595:                                              ; preds = %591
-  %596 = load ptr, ptr %291, align 8
-  %597 = tail call zeroext i1 @SDL_SendDropComplete(ptr noundef %596) #12
+596:                                              ; preds = %592
+  %597 = load ptr, ptr %291, align 8
+  %598 = tail call zeroext i1 @SDL_SendDropComplete(ptr noundef %597) #12
   br label %X11_HandleGenericEvent.exit
 
-598:                                              ; preds = %591
-  %599 = getelementptr inbounds nuw i8, ptr %26, i64 504
-  %600 = load i64, ptr %599, align 8
-  %601 = icmp eq i64 %557, %600
-  br i1 %601, label %602, label %649
+599:                                              ; preds = %592
+  %600 = getelementptr inbounds nuw i8, ptr %26, i64 504
+  %601 = load i64, ptr %600, align 8
+  %602 = icmp eq i64 %558, %601
+  br i1 %602, label %603, label %651
 
-602:                                              ; preds = %598
+603:                                              ; preds = %599
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %603 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %604 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %605 = load i64, ptr %604, align 8
-  %606 = lshr i64 %605, 16
-  %607 = trunc i64 %606 to i32
-  %608 = trunc i64 %605 to i32
-  %609 = and i32 %608, 65535
-  %610 = load ptr, ptr @X11_XTranslateCoordinates, align 8
-  %611 = getelementptr inbounds nuw i8, ptr %27, i64 232
-  %612 = load ptr, ptr %611, align 8
-  %613 = getelementptr inbounds nuw i8, ptr %27, i64 224
-  %614 = load i32, ptr %613, align 8
-  %615 = sext i32 %614 to i64
-  %616 = getelementptr inbounds %struct.Screen, ptr %612, i64 %615, i32 2
-  %617 = load i64, ptr %616, align 8
-  %618 = call i32 %610(ptr noundef %27, i64 noundef %617, i64 noundef %.pre, i32 noundef %607, i32 noundef %609, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22) #12
-  %619 = load ptr, ptr %291, align 8
-  %620 = load i32, ptr %20, align 4
-  %621 = sitofp i32 %620 to float
-  %622 = load i32, ptr %21, align 4
+  %604 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %605 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %606 = load i64, ptr %605, align 8
+  %607 = lshr i64 %606, 16
+  %608 = trunc i64 %607 to i32
+  %609 = trunc i64 %606 to i32
+  %610 = and i32 %609, 65535
+  %611 = load ptr, ptr @X11_XTranslateCoordinates, align 8
+  %612 = getelementptr inbounds nuw i8, ptr %27, i64 232
+  %613 = load ptr, ptr %612, align 8
+  %614 = getelementptr inbounds nuw i8, ptr %27, i64 224
+  %615 = load i32, ptr %614, align 8
+  %616 = sext i32 %615 to i64
+  %617 = getelementptr inbounds %struct.Screen, ptr %613, i64 %616
+  %618 = getelementptr inbounds nuw i8, ptr %617, i64 16
+  %619 = load i64, ptr %618, align 8
+  %620 = call i32 %611(ptr noundef %27, i64 noundef %619, i64 noundef %.pre, i32 noundef %608, i32 noundef %610, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22) #12
+  %621 = load ptr, ptr %291, align 8
+  %622 = load i32, ptr %20, align 4
   %623 = sitofp i32 %622 to float
-  %624 = call zeroext i1 @SDL_SendDropPosition(ptr noundef %619, float noundef %621, float noundef %623) #12
+  %624 = load i32, ptr %21, align 4
+  %625 = sitofp i32 %624 to float
+  %626 = call zeroext i1 @SDL_SendDropPosition(ptr noundef %621, float noundef %623, float noundef %625) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, i8 0, i64 96, i1 false)
   store i32 33, ptr %10, align 8
-  %625 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %626 = load ptr, ptr %625, align 8
-  %627 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %626, ptr %627, align 8
-  %628 = load i64, ptr %603, align 8
-  %629 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i64 %628, ptr %629, align 8
-  %630 = getelementptr inbounds nuw i8, ptr %26, i64 512
-  %631 = load i64, ptr %630, align 8
-  %632 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i64 %631, ptr %632, align 8
-  %633 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i32 32, ptr %633, align 8
-  %634 = load i64, ptr %373, align 8
-  %635 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i64 %634, ptr %635, align 8
-  %636 = getelementptr inbounds nuw i8, ptr %291, i64 352
-  %637 = load i64, ptr %636, align 8
-  %638 = icmp ne i64 %637, 0
-  %639 = zext i1 %638 to i64
-  %640 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store i64 %639, ptr %640, align 8
-  %641 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %642 = getelementptr inbounds nuw i8, ptr %26, i64 528
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %641, i8 0, i64 16, i1 false)
-  %643 = load i64, ptr %642, align 8
-  %644 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  store i64 %643, ptr %644, align 8
-  %645 = load ptr, ptr @X11_XSendEvent, align 8
-  %646 = call i32 %645(ptr noundef %27, i64 noundef %628, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %10) #12
-  %647 = load ptr, ptr @X11_XFlush, align 8
-  %648 = call i32 %647(ptr noundef %27) #12
+  %627 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %628 = load ptr, ptr %627, align 8
+  %629 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %628, ptr %629, align 8
+  %630 = load i64, ptr %604, align 8
+  %631 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i64 %630, ptr %631, align 8
+  %632 = getelementptr inbounds nuw i8, ptr %26, i64 512
+  %633 = load i64, ptr %632, align 8
+  %634 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store i64 %633, ptr %634, align 8
+  %635 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store i32 32, ptr %635, align 8
+  %636 = load i64, ptr %373, align 8
+  %637 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  store i64 %636, ptr %637, align 8
+  %638 = getelementptr inbounds nuw i8, ptr %291, i64 352
+  %639 = load i64, ptr %638, align 8
+  %640 = icmp ne i64 %639, 0
+  %641 = zext i1 %640 to i64
+  %642 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  store i64 %641, ptr %642, align 8
+  %643 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %644 = getelementptr inbounds nuw i8, ptr %26, i64 528
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %643, i8 0, i64 16, i1 false)
+  %645 = load i64, ptr %644, align 8
+  %646 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  store i64 %645, ptr %646, align 8
+  %647 = load ptr, ptr @X11_XSendEvent, align 8
+  %648 = call i32 %647(ptr noundef %27, i64 noundef %630, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %10) #12
+  %649 = load ptr, ptr @X11_XFlush, align 8
+  %650 = call i32 %649(ptr noundef %27) #12
   br label %X11_HandleGenericEvent.exit
 
-649:                                              ; preds = %598
-  %650 = getelementptr inbounds nuw i8, ptr %26, i64 536
-  %651 = load i64, ptr %650, align 8
-  %652 = icmp eq i64 %557, %651
-  br i1 %652, label %653, label %687
+651:                                              ; preds = %599
+  %652 = getelementptr inbounds nuw i8, ptr %26, i64 536
+  %653 = load i64, ptr %652, align 8
+  %654 = icmp eq i64 %558, %653
+  br i1 %654, label %655, label %689
 
-653:                                              ; preds = %649
-  %654 = getelementptr inbounds nuw i8, ptr %291, i64 352
-  %655 = load i64, ptr %654, align 8
-  %656 = icmp eq i64 %655, 0
-  br i1 %656, label %657, label %673
+655:                                              ; preds = %651
+  %656 = getelementptr inbounds nuw i8, ptr %291, i64 352
+  %657 = load i64, ptr %656, align 8
+  %658 = icmp eq i64 %657, 0
+  br i1 %658, label %659, label %675
 
-657:                                              ; preds = %653
+659:                                              ; preds = %655
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, i8 0, i64 96, i1 false)
   store i32 33, ptr %10, align 8
-  %658 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %659 = load ptr, ptr %658, align 8
-  %660 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %659, ptr %660, align 8
-  %661 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %662 = load i64, ptr %661, align 8
-  %663 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i64 %662, ptr %663, align 8
-  %664 = getelementptr inbounds nuw i8, ptr %26, i64 544
-  %665 = load i64, ptr %664, align 8
-  %666 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i64 %665, ptr %666, align 8
-  %667 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i32 32, ptr %667, align 8
-  %668 = load i64, ptr %373, align 8
-  %669 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i64 %668, ptr %669, align 8
-  %670 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %670, i8 0, i64 16, i1 false)
-  %671 = load ptr, ptr @X11_XSendEvent, align 8
-  %672 = call i32 %671(ptr noundef %27, i64 noundef %662, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %10) #12
+  %660 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %661 = load ptr, ptr %660, align 8
+  %662 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %661, ptr %662, align 8
+  %663 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %664 = load i64, ptr %663, align 8
+  %665 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i64 %664, ptr %665, align 8
+  %666 = getelementptr inbounds nuw i8, ptr %26, i64 544
+  %667 = load i64, ptr %666, align 8
+  %668 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store i64 %667, ptr %668, align 8
+  %669 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store i32 32, ptr %669, align 8
+  %670 = load i64, ptr %373, align 8
+  %671 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  store i64 %670, ptr %671, align 8
+  %672 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %672, i8 0, i64 16, i1 false)
+  %673 = load ptr, ptr @X11_XSendEvent, align 8
+  %674 = call i32 %673(ptr noundef %27, i64 noundef %664, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %10) #12
   br label %X11_HandleGenericEvent.exit
 
-673:                                              ; preds = %653
-  %674 = load i32, ptr @X11_DispatchEvent.xdnd_version, align 4
-  %675 = icmp sgt i32 %674, 0
-  %676 = load ptr, ptr @X11_XConvertSelection, align 8
-  %677 = getelementptr inbounds nuw i8, ptr %26, i64 552
-  %678 = load i64, ptr %677, align 8
-  %679 = getelementptr inbounds nuw i8, ptr %26, i64 432
+675:                                              ; preds = %655
+  %676 = load i32, ptr @X11_DispatchEvent.xdnd_version, align 4
+  %677 = icmp sgt i32 %676, 0
+  %678 = load ptr, ptr @X11_XConvertSelection, align 8
+  %679 = getelementptr inbounds nuw i8, ptr %26, i64 552
   %680 = load i64, ptr %679, align 8
-  br i1 %675, label %681, label %685
+  %681 = getelementptr inbounds nuw i8, ptr %26, i64 432
+  %682 = load i64, ptr %681, align 8
+  br i1 %677, label %683, label %687
 
-681:                                              ; preds = %673
-  %682 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %683 = load i64, ptr %682, align 8
-  %684 = tail call i32 %676(ptr noundef %27, i64 noundef %678, i64 noundef %655, i64 noundef %680, i64 noundef %.pre, i64 noundef %683) #12
+683:                                              ; preds = %675
+  %684 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %685 = load i64, ptr %684, align 8
+  %686 = tail call i32 %678(ptr noundef %27, i64 noundef %680, i64 noundef %657, i64 noundef %682, i64 noundef %.pre, i64 noundef %685) #12
   br label %X11_HandleGenericEvent.exit
 
-685:                                              ; preds = %673
-  %686 = tail call i32 %676(ptr noundef %27, i64 noundef %678, i64 noundef %655, i64 noundef %680, i64 noundef %.pre, i64 noundef 0) #12
+687:                                              ; preds = %675
+  %688 = tail call i32 %678(ptr noundef %27, i64 noundef %680, i64 noundef %657, i64 noundef %682, i64 noundef %.pre, i64 noundef 0) #12
   br label %X11_HandleGenericEvent.exit
 
-687:                                              ; preds = %649
-  %688 = load i64, ptr %558, align 8
-  %689 = icmp eq i64 %557, %688
-  br i1 %689, label %690, label %X11_HandleGenericEvent.exit
+689:                                              ; preds = %651
+  %690 = load i64, ptr %559, align 8
+  %691 = icmp eq i64 %558, %690
+  br i1 %691, label %692, label %X11_HandleGenericEvent.exit
 
-690:                                              ; preds = %687
-  %691 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %692 = load i32, ptr %691, align 8
-  %693 = icmp eq i32 %692, 32
-  br i1 %693, label %694, label %X11_HandleGenericEvent.exit
+692:                                              ; preds = %689
+  %693 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %694 = load i32, ptr %693, align 8
+  %695 = icmp eq i32 %694, 32
+  br i1 %695, label %696, label %X11_HandleGenericEvent.exit
 
-694:                                              ; preds = %690
-  %695 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %696 = load i64, ptr %695, align 8
-  %697 = getelementptr inbounds nuw i8, ptr %26, i64 360
+696:                                              ; preds = %692
+  %697 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %698 = load i64, ptr %697, align 8
-  %699 = icmp eq i64 %696, %698
-  br i1 %699, label %700, label %710
+  %699 = getelementptr inbounds nuw i8, ptr %26, i64 360
+  %700 = load i64, ptr %699, align 8
+  %701 = icmp eq i64 %698, %700
+  br i1 %701, label %702, label %713
 
-700:                                              ; preds = %694
-  %701 = getelementptr inbounds nuw i8, ptr %27, i64 232
-  %702 = load ptr, ptr %701, align 8
-  %703 = getelementptr inbounds nuw i8, ptr %27, i64 224
-  %704 = load i32, ptr %703, align 8
-  %705 = sext i32 %704 to i64
-  %706 = getelementptr inbounds %struct.Screen, ptr %702, i64 %705, i32 2
-  %707 = load i64, ptr %706, align 8
-  store i64 %707, ptr %282, align 8
-  %708 = load ptr, ptr @X11_XSendEvent, align 8
-  %709 = tail call i32 %708(ptr noundef %27, i64 noundef %707, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %1) #12
+702:                                              ; preds = %696
+  %703 = getelementptr inbounds nuw i8, ptr %27, i64 232
+  %704 = load ptr, ptr %703, align 8
+  %705 = getelementptr inbounds nuw i8, ptr %27, i64 224
+  %706 = load i32, ptr %705, align 8
+  %707 = sext i32 %706 to i64
+  %708 = getelementptr inbounds %struct.Screen, ptr %704, i64 %707
+  %709 = getelementptr inbounds nuw i8, ptr %708, i64 16
+  %710 = load i64, ptr %709, align 8
+  store i64 %710, ptr %282, align 8
+  %711 = load ptr, ptr @X11_XSendEvent, align 8
+  %712 = tail call i32 %711(ptr noundef %27, i64 noundef %710, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %1) #12
   br label %X11_HandleGenericEvent.exit
 
-710:                                              ; preds = %694
-  %711 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %712 = load i64, ptr %711, align 8
-  %713 = getelementptr inbounds nuw i8, ptr %26, i64 200
-  %714 = load i64, ptr %713, align 8
-  %715 = icmp eq i64 %712, %714
-  br i1 %715, label %716, label %719
+713:                                              ; preds = %696
+  %714 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %715 = load i64, ptr %714, align 8
+  %716 = getelementptr inbounds nuw i8, ptr %26, i64 200
+  %717 = load i64, ptr %716, align 8
+  %718 = icmp eq i64 %715, %717
+  br i1 %718, label %719, label %722
 
-716:                                              ; preds = %710
-  %717 = load ptr, ptr %291, align 8
-  %718 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %717, i32 noundef 528, i32 noundef 0, i32 noundef 0) #12
+719:                                              ; preds = %713
+  %720 = load ptr, ptr %291, align 8
+  %721 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %720, i32 noundef 528, i32 noundef 0, i32 noundef 0) #12
   br label %X11_HandleGenericEvent.exit
 
-719:                                              ; preds = %710
-  %720 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %721 = load i64, ptr %720, align 8
-  %722 = getelementptr inbounds nuw i8, ptr %26, i64 368
-  %723 = load i64, ptr %722, align 8
-  %724 = icmp eq i64 %721, %723
-  br i1 %724, label %725, label %X11_HandleGenericEvent.exit
+722:                                              ; preds = %713
+  %723 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %724 = load i64, ptr %723, align 8
+  %725 = getelementptr inbounds nuw i8, ptr %26, i64 368
+  %726 = load i64, ptr %725, align 8
+  %727 = icmp eq i64 %724, %726
+  br i1 %727, label %728, label %X11_HandleGenericEvent.exit
 
-725:                                              ; preds = %719
-  %726 = load ptr, ptr %291, align 8
-  tail call void @X11_HandleSyncRequest(ptr noundef %726, ptr noundef nonnull %1) #12
+728:                                              ; preds = %722
+  %729 = load ptr, ptr %291, align 8
+  tail call void @X11_HandleSyncRequest(ptr noundef %729, ptr noundef nonnull %1) #12
   br label %X11_HandleGenericEvent.exit
 
-727:                                              ; preds = %X11_FindWindow.exit
-  %728 = load ptr, ptr %291, align 8
-  %729 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %728, i32 noundef 516, i32 noundef 0, i32 noundef 0) #12
+730:                                              ; preds = %X11_FindWindow.exit
+  %731 = load ptr, ptr %291, align 8
+  %732 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %731, i32 noundef 516, i32 noundef 0, i32 noundef 0) #12
   br label %X11_HandleGenericEvent.exit
 
-730:                                              ; preds = %X11_FindWindow.exit, %X11_FindWindow.exit
-  %731 = getelementptr inbounds nuw i8, ptr %291, i64 117
-  %732 = load i8, ptr %731, align 1, !range !3, !noundef !4
-  %733 = trunc nuw i8 %732 to i1
-  br i1 %733, label %X11_HandleGenericEvent.exit, label %734
+733:                                              ; preds = %X11_FindWindow.exit, %X11_FindWindow.exit
+  %734 = getelementptr inbounds nuw i8, ptr %291, i64 117
+  %735 = load i8, ptr %734, align 1, !range !3, !noundef !4
+  %736 = trunc nuw i8 %735 to i1
+  br i1 %736, label %X11_HandleGenericEvent.exit, label %737
 
-734:                                              ; preds = %730
+737:                                              ; preds = %733
   tail call void @X11_HandleKeyEvent(ptr noundef %0, ptr noundef nonnull %291, i32 noundef 0, ptr noundef nonnull %1)
   br label %X11_HandleGenericEvent.exit
 
-735:                                              ; preds = %X11_FindWindow.exit
-  %736 = getelementptr inbounds nuw i8, ptr %291, i64 116
-  %737 = load i8, ptr %736, align 4, !range !3, !noundef !4
-  %738 = trunc nuw i8 %737 to i1
-  br i1 %738, label %739, label %743
+738:                                              ; preds = %X11_FindWindow.exit
+  %739 = getelementptr inbounds nuw i8, ptr %291, i64 116
+  %740 = load i8, ptr %739, align 4, !range !3, !noundef !4
+  %741 = trunc nuw i8 %740 to i1
+  br i1 %741, label %742, label %746
 
-739:                                              ; preds = %735
-  %740 = getelementptr inbounds nuw i8, ptr %291, i64 118
-  %741 = load i8, ptr %740, align 2, !range !3, !noundef !4
-  %742 = trunc nuw i8 %741 to i1
-  br i1 %742, label %743, label %X11_HandleGenericEvent.exit
+742:                                              ; preds = %738
+  %743 = getelementptr inbounds nuw i8, ptr %291, i64 118
+  %744 = load i8, ptr %743, align 2, !range !3, !noundef !4
+  %745 = trunc nuw i8 %744 to i1
+  br i1 %745, label %746, label %X11_HandleGenericEvent.exit
 
-743:                                              ; preds = %739, %735
-  %744 = tail call ptr @SDL_GetMouse() #12
-  %745 = getelementptr inbounds nuw i8, ptr %744, i64 185
-  %746 = load i8, ptr %745, align 1, !range !3, !noundef !4
-  %747 = trunc nuw i8 %746 to i1
-  br i1 %747, label %X11_HandleGenericEvent.exit, label %748
+746:                                              ; preds = %742, %738
+  %747 = tail call ptr @SDL_GetMouse() #12
+  %748 = getelementptr inbounds nuw i8, ptr %747, i64 185
+  %749 = load i8, ptr %748, align 1, !range !3, !noundef !4
+  %750 = trunc nuw i8 %749 to i1
+  br i1 %750, label %X11_HandleGenericEvent.exit, label %751
 
-748:                                              ; preds = %743
-  %749 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %750 = load i32, ptr %749, align 8
-  %751 = sitofp i32 %750 to float
-  %752 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %753 = load i32, ptr %752, align 4
+751:                                              ; preds = %746
+  %752 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %753 = load i32, ptr %752, align 8
   %754 = sitofp i32 %753 to float
-  %755 = tail call zeroext i1 @X11_ProcessHitTest(ptr poison, ptr noundef nonnull %291, float noundef %751, float noundef %754, i1 noundef zeroext false)
-  %756 = load ptr, ptr %291, align 8
-  %757 = load i32, ptr %749, align 8
-  %758 = sitofp i32 %757 to float
-  %759 = load i32, ptr %752, align 4
-  %760 = sitofp i32 %759 to float
-  tail call void @SDL_SendMouseMotion(i64 noundef 0, ptr noundef %756, i32 noundef 0, i1 noundef zeroext false, float noundef %758, float noundef %760) #12
+  %755 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %756 = load i32, ptr %755, align 4
+  %757 = sitofp i32 %756 to float
+  %758 = tail call zeroext i1 @X11_ProcessHitTest(ptr poison, ptr noundef nonnull %291, float noundef %754, float noundef %757, i1 noundef zeroext false)
+  %759 = load ptr, ptr %291, align 8
+  %760 = load i32, ptr %752, align 8
+  %761 = sitofp i32 %760 to float
+  %762 = load i32, ptr %755, align 4
+  %763 = sitofp i32 %762 to float
+  tail call void @SDL_SendMouseMotion(i64 noundef 0, ptr noundef %759, i32 noundef 0, i1 noundef zeroext false, float noundef %761, float noundef %763) #12
   br label %X11_HandleGenericEvent.exit
 
-761:                                              ; preds = %X11_FindWindow.exit
-  %762 = getelementptr inbounds nuw i8, ptr %291, i64 116
-  %763 = load i8, ptr %762, align 4, !range !3, !noundef !4
-  %764 = trunc nuw i8 %763 to i1
-  br i1 %764, label %X11_HandleGenericEvent.exit, label %765
+764:                                              ; preds = %X11_FindWindow.exit
+  %765 = getelementptr inbounds nuw i8, ptr %291, i64 116
+  %766 = load i8, ptr %765, align 4, !range !3, !noundef !4
+  %767 = trunc nuw i8 %766 to i1
+  br i1 %767, label %X11_HandleGenericEvent.exit, label %768
 
-765:                                              ; preds = %761
-  %766 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %767 = load i32, ptr %766, align 4
-  %768 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %769 = load i32, ptr %768, align 8
-  %770 = sitofp i32 %769 to float
-  %771 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %772 = load i32, ptr %771, align 4
+768:                                              ; preds = %764
+  %769 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %770 = load i32, ptr %769, align 4
+  %771 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %772 = load i32, ptr %771, align 8
   %773 = sitofp i32 %772 to float
-  %774 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %775 = load i64, ptr %774, align 8
-  tail call void @X11_HandleButtonPress(ptr noundef %0, ptr noundef nonnull %291, i32 noundef 0, i32 noundef %767, float noundef %770, float noundef %773, i64 noundef %775)
+  %774 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %775 = load i32, ptr %774, align 4
+  %776 = sitofp i32 %775 to float
+  %777 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %778 = load i64, ptr %777, align 8
+  tail call void @X11_HandleButtonPress(ptr noundef %0, ptr noundef nonnull %291, i32 noundef 0, i32 noundef %770, float noundef %773, float noundef %776, i64 noundef %778)
   br label %X11_HandleGenericEvent.exit
 
-776:                                              ; preds = %X11_FindWindow.exit
-  %777 = getelementptr inbounds nuw i8, ptr %291, i64 116
-  %778 = load i8, ptr %777, align 4, !range !3, !noundef !4
-  %779 = trunc nuw i8 %778 to i1
-  br i1 %779, label %X11_HandleGenericEvent.exit, label %780
+779:                                              ; preds = %X11_FindWindow.exit
+  %780 = getelementptr inbounds nuw i8, ptr %291, i64 116
+  %781 = load i8, ptr %780, align 4, !range !3, !noundef !4
+  %782 = trunc nuw i8 %781 to i1
+  br i1 %782, label %X11_HandleGenericEvent.exit, label %783
 
-780:                                              ; preds = %776
-  %781 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %782 = load i32, ptr %781, align 4
-  tail call void @X11_HandleButtonRelease(ptr poison, ptr noundef nonnull %291, i32 noundef 0, i32 noundef %782, i64 poison)
+783:                                              ; preds = %779
+  %784 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %785 = load i32, ptr %784, align 4
+  tail call void @X11_HandleButtonRelease(ptr poison, ptr noundef nonnull %291, i32 noundef 0, i32 noundef %785, i64 poison)
   br label %X11_HandleGenericEvent.exit
 
-783:                                              ; preds = %X11_FindWindow.exit
-  %784 = getelementptr inbounds nuw i8, ptr %291, i64 344
-  %785 = load i64, ptr %784, align 8
-  %.not481 = icmp eq i64 %785, 0
-  br i1 %.not481, label %786, label %789
-
-786:                                              ; preds = %783
-  %787 = getelementptr inbounds nuw i8, ptr %1, i64 48
+786:                                              ; preds = %X11_FindWindow.exit
+  %787 = getelementptr inbounds nuw i8, ptr %291, i64 344
   %788 = load i64, ptr %787, align 8
-  store i64 %788, ptr %784, align 8
-  br label %789
+  %.not481 = icmp eq i64 %788, 0
+  br i1 %.not481, label %789, label %792
 
-789:                                              ; preds = %786, %783
-  %790 = getelementptr inbounds nuw i8, ptr %1, i64 40
+789:                                              ; preds = %786
+  %790 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %791 = load i64, ptr %790, align 8
-  %792 = getelementptr inbounds nuw i8, ptr %291, i64 336
-  %793 = load ptr, ptr %792, align 8
-  %794 = getelementptr inbounds nuw i8, ptr %793, i64 232
-  %795 = load i64, ptr %794, align 8
-  %796 = icmp eq i64 %791, %795
-  br i1 %796, label %797, label %994
+  store i64 %791, ptr %787, align 8
+  br label %792
 
-797:                                              ; preds = %789
-  %798 = load ptr, ptr %291, align 8
-  %799 = load i64, ptr %282, align 8
-  %800 = tail call i32 @X11_GetNetWMState(ptr noundef %0, ptr noundef %798, i64 noundef %799) #12
-  %801 = zext i32 %800 to i64
-  %802 = load ptr, ptr %291, align 8
-  %803 = getelementptr inbounds nuw i8, ptr %802, i64 72
-  %804 = load i64, ptr %803, align 8
-  %805 = xor i64 %804, %801
-  %806 = and i64 %805, 8
-  %.not485 = icmp ne i64 %806, 0
-  %807 = and i64 %801, 8
-  %.not486 = icmp eq i64 %807, 0
+792:                                              ; preds = %789, %786
+  %793 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %794 = load i64, ptr %793, align 8
+  %795 = getelementptr inbounds nuw i8, ptr %291, i64 336
+  %796 = load ptr, ptr %795, align 8
+  %797 = getelementptr inbounds nuw i8, ptr %796, i64 232
+  %798 = load i64, ptr %797, align 8
+  %799 = icmp eq i64 %794, %798
+  br i1 %799, label %800, label %997
+
+800:                                              ; preds = %792
+  %801 = load ptr, ptr %291, align 8
+  %802 = load i64, ptr %282, align 8
+  %803 = tail call i32 @X11_GetNetWMState(ptr noundef %0, ptr noundef %801, i64 noundef %802) #12
+  %804 = zext i32 %803 to i64
+  %805 = load ptr, ptr %291, align 8
+  %806 = getelementptr inbounds nuw i8, ptr %805, i64 72
+  %807 = load i64, ptr %806, align 8
+  %808 = xor i64 %807, %804
+  %809 = and i64 %808, 8
+  %.not485 = icmp ne i64 %809, 0
+  %810 = and i64 %804, 8
+  %.not486 = icmp eq i64 %810, 0
   %or.cond526 = and i1 %.not486, %.not485
-  br i1 %or.cond526, label %808, label %809
+  br i1 %or.cond526, label %811, label %812
 
-808:                                              ; preds = %797
+811:                                              ; preds = %800
   tail call fastcc void @X11_DispatchMapNotify(ptr noundef %291)
   %.pre572 = load ptr, ptr %291, align 8
   %.phi.trans.insert573 = getelementptr inbounds nuw i8, ptr %.pre572, i64 72
   %.pre574 = load i64, ptr %.phi.trans.insert573, align 8
-  br label %809
+  br label %812
 
-809:                                              ; preds = %808, %797
-  %810 = phi i64 [ %.pre574, %808 ], [ %804, %797 ]
-  %811 = phi ptr [ %.pre572, %808 ], [ %802, %797 ]
-  %812 = and i64 %810, 786432
-  %.not487 = icmp eq i64 %812, 0
-  br i1 %.not487, label %813, label %987
+812:                                              ; preds = %811, %800
+  %813 = phi i64 [ %.pre574, %811 ], [ %807, %800 ]
+  %814 = phi ptr [ %.pre572, %811 ], [ %805, %800 ]
+  %815 = and i64 %813, 786432
+  %.not487 = icmp eq i64 %815, 0
+  br i1 %.not487, label %816, label %990
 
-813:                                              ; preds = %809
-  %814 = and i64 %805, 1
-  %.not488 = icmp eq i64 %814, 0
-  br i1 %.not488, label %901, label %815
+816:                                              ; preds = %812
+  %817 = and i64 %808, 1
+  %.not488 = icmp eq i64 %817, 0
+  br i1 %.not488, label %904, label %818
 
-815:                                              ; preds = %813
-  %816 = getelementptr inbounds nuw i8, ptr %291, i64 528
-  %817 = load i32, ptr %816, align 8
-  %818 = and i32 %817, -9
-  store i32 %818, ptr %816, align 8
-  %819 = and i64 %801, 1
-  %.not489 = icmp eq i64 %819, 0
-  br i1 %.not489, label %838, label %820
+818:                                              ; preds = %816
+  %819 = getelementptr inbounds nuw i8, ptr %291, i64 528
+  %820 = load i32, ptr %819, align 8
+  %821 = and i32 %820, -9
+  store i32 %821, ptr %819, align 8
+  %822 = and i64 %804, 1
+  %.not489 = icmp eq i64 %822, 0
+  br i1 %.not489, label %841, label %823
 
-820:                                              ; preds = %815
-  %821 = and i64 %801, 64
-  %.not490 = icmp eq i64 %821, 0
-  br i1 %.not490, label %822, label %851
+823:                                              ; preds = %818
+  %824 = and i64 %804, 64
+  %.not490 = icmp eq i64 %824, 0
+  br i1 %.not490, label %825, label %854
 
-822:                                              ; preds = %820
-  %823 = getelementptr inbounds nuw i8, ptr %811, i64 200
-  %824 = getelementptr inbounds nuw i8, ptr %291, i64 488
-  %825 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %823, ptr noundef nonnull %824, i64 noundef 40) #12
-  %.not491 = icmp eq i32 %825, 0
-  %826 = load ptr, ptr %291, align 8
-  %827 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %826, i32 noundef 523, i32 noundef 0, i32 noundef 0) #12
-  %828 = load ptr, ptr %291, align 8
-  %829 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %828, i32 noundef 535, i32 noundef 0, i32 noundef 0) #12
-  %830 = load ptr, ptr %291, align 8
-  br i1 %.not491, label %836, label %831
+825:                                              ; preds = %823
+  %826 = getelementptr inbounds nuw i8, ptr %814, i64 200
+  %827 = getelementptr inbounds nuw i8, ptr %291, i64 488
+  %828 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %826, ptr noundef nonnull %827, i64 noundef 40) #12
+  %.not491 = icmp eq i32 %828, 0
+  %829 = load ptr, ptr %291, align 8
+  %830 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %829, i32 noundef 523, i32 noundef 0, i32 noundef 0) #12
+  %831 = load ptr, ptr %291, align 8
+  %832 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %831, i32 noundef 535, i32 noundef 0, i32 noundef 0) #12
+  %833 = load ptr, ptr %291, align 8
+  br i1 %.not491, label %839, label %834
 
-831:                                              ; preds = %822
-  %832 = getelementptr inbounds nuw i8, ptr %830, i64 200
-  %833 = getelementptr inbounds nuw i8, ptr %830, i64 160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %832, ptr noundef nonnull align 8 dereferenceable(40) %833, i64 40, i1 false)
-  %834 = load ptr, ptr %291, align 8
-  %835 = tail call zeroext i1 @SDL_UpdateFullscreenMode(ptr noundef %834, i32 noundef 2, i1 noundef zeroext true) #12
-  br label %851
+834:                                              ; preds = %825
+  %835 = getelementptr inbounds nuw i8, ptr %833, i64 200
+  %836 = getelementptr inbounds nuw i8, ptr %833, i64 160
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %835, ptr noundef nonnull align 8 dereferenceable(40) %836, i64 40, i1 false)
+  %837 = load ptr, ptr %291, align 8
+  %838 = tail call zeroext i1 @SDL_UpdateFullscreenMode(ptr noundef %837, i32 noundef 2, i1 noundef zeroext true) #12
+  br label %854
 
-836:                                              ; preds = %822
-  %837 = tail call zeroext i1 @SDL_UpdateFullscreenMode(ptr noundef %830, i32 noundef 1, i1 noundef zeroext false) #12
-  br label %851
+839:                                              ; preds = %825
+  %840 = tail call zeroext i1 @SDL_UpdateFullscreenMode(ptr noundef %833, i32 noundef 1, i1 noundef zeroext false) #12
+  br label %854
 
-838:                                              ; preds = %815
-  %839 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef nonnull %811, i32 noundef 536, i32 noundef 0, i32 noundef 0) #12
-  %840 = load ptr, ptr %291, align 8
-  %841 = tail call zeroext i1 @SDL_UpdateFullscreenMode(ptr noundef %840, i32 noundef 0, i1 noundef zeroext false) #12
-  %842 = getelementptr inbounds nuw i8, ptr %291, i64 488
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %842, i8 0, i64 40, i1 false)
+841:                                              ; preds = %818
+  %842 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef nonnull %814, i32 noundef 536, i32 noundef 0, i32 noundef 0) #12
   %843 = load ptr, ptr %291, align 8
-  %844 = and i64 %801, 128
-  %845 = icmp ne i64 %844, 0
-  tail call void @X11_SetWindowMinMax(ptr noundef %843, i1 noundef zeroext %845) #12
-  %846 = getelementptr inbounds nuw i8, ptr %291, i64 541
-  %847 = load i8, ptr %846, align 1, !range !3, !noundef !4
-  %848 = trunc nuw i8 %847 to i1
-  br i1 %848, label %849, label %.critedge
+  %844 = tail call zeroext i1 @SDL_UpdateFullscreenMode(ptr noundef %843, i32 noundef 0, i1 noundef zeroext false) #12
+  %845 = getelementptr inbounds nuw i8, ptr %291, i64 488
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %845, i8 0, i64 40, i1 false)
+  %846 = load ptr, ptr %291, align 8
+  %847 = and i64 %804, 128
+  %848 = icmp ne i64 %847, 0
+  tail call void @X11_SetWindowMinMax(ptr noundef %846, i1 noundef zeroext %848) #12
+  %849 = getelementptr inbounds nuw i8, ptr %291, i64 541
+  %850 = load i8, ptr %849, align 1, !range !3, !noundef !4
+  %851 = trunc nuw i8 %850 to i1
+  br i1 %851, label %852, label %.critedge
 
-849:                                              ; preds = %838
-  %850 = getelementptr inbounds nuw i8, ptr %291, i64 540
-  store i8 1, ptr %850, align 4
-  store i8 0, ptr %846, align 1
+852:                                              ; preds = %841
+  %853 = getelementptr inbounds nuw i8, ptr %291, i64 540
+  store i8 1, ptr %853, align 4
+  store i8 0, ptr %849, align 1
   br label %.critedge
 
-851:                                              ; preds = %831, %836, %820
-  %852 = getelementptr inbounds nuw i8, ptr %291, i64 108
-  %853 = load i32, ptr %852, align 4
-  %.not492 = icmp eq i32 %853, 0
-  br i1 %.not492, label %854, label %863
-
-854:                                              ; preds = %851
-  %855 = getelementptr inbounds nuw i8, ptr %291, i64 100
+854:                                              ; preds = %834, %839, %823
+  %855 = getelementptr inbounds nuw i8, ptr %291, i64 108
   %856 = load i32, ptr %855, align 4
-  %.not493 = icmp eq i32 %856, 0
-  br i1 %.not493, label %857, label %863
+  %.not492 = icmp eq i32 %856, 0
+  br i1 %.not492, label %857, label %866
 
 857:                                              ; preds = %854
-  %858 = getelementptr inbounds nuw i8, ptr %291, i64 112
-  %859 = load i32, ptr %858, align 8
-  %.not494 = icmp eq i32 %859, 0
-  br i1 %.not494, label %860, label %863
+  %858 = getelementptr inbounds nuw i8, ptr %291, i64 100
+  %859 = load i32, ptr %858, align 4
+  %.not493 = icmp eq i32 %859, 0
+  br i1 %.not493, label %860, label %866
 
 860:                                              ; preds = %857
-  %861 = getelementptr inbounds nuw i8, ptr %291, i64 104
+  %861 = getelementptr inbounds nuw i8, ptr %291, i64 112
   %862 = load i32, ptr %861, align 8
-  %.not495 = icmp eq i32 %862, 0
-  br i1 %.not495, label %887, label %863
+  %.not494 = icmp eq i32 %862, 0
+  br i1 %.not494, label %863, label %866
 
-863:                                              ; preds = %860, %857, %854, %851
-  %864 = getelementptr inbounds nuw i8, ptr %291, i64 532
-  %865 = load i32, ptr %864, align 4
-  %866 = or i32 %865, 2
-  store i32 %866, ptr %864, align 4
-  %867 = getelementptr inbounds nuw i8, ptr %291, i64 539
-  store i8 1, ptr %867, align 1
-  br label %901
+863:                                              ; preds = %860
+  %864 = getelementptr inbounds nuw i8, ptr %291, i64 104
+  %865 = load i32, ptr %864, align 8
+  %.not495 = icmp eq i32 %865, 0
+  br i1 %.not495, label %890, label %866
 
-.critedge:                                        ; preds = %849, %838
-  %868 = getelementptr inbounds nuw i8, ptr %291, i64 539
-  %869 = load i8, ptr %868, align 1, !range !3, !noundef !4
-  %870 = trunc nuw i8 %869 to i1
-  br i1 %870, label %871, label %887
+866:                                              ; preds = %863, %860, %857, %854
+  %867 = getelementptr inbounds nuw i8, ptr %291, i64 532
+  %868 = load i32, ptr %867, align 4
+  %869 = or i32 %868, 2
+  store i32 %869, ptr %867, align 4
+  %870 = getelementptr inbounds nuw i8, ptr %291, i64 539
+  store i8 1, ptr %870, align 1
+  br label %904
 
-871:                                              ; preds = %.critedge
-  %872 = getelementptr inbounds nuw i8, ptr %291, i64 108
-  %873 = load i32, ptr %872, align 4
-  %.not496 = icmp eq i32 %873, 0
-  br i1 %.not496, label %874, label %887
+.critedge:                                        ; preds = %852, %841
+  %871 = getelementptr inbounds nuw i8, ptr %291, i64 539
+  %872 = load i8, ptr %871, align 1, !range !3, !noundef !4
+  %873 = trunc nuw i8 %872 to i1
+  br i1 %873, label %874, label %890
 
-874:                                              ; preds = %871
-  %875 = getelementptr inbounds nuw i8, ptr %291, i64 100
+874:                                              ; preds = %.critedge
+  %875 = getelementptr inbounds nuw i8, ptr %291, i64 108
   %876 = load i32, ptr %875, align 4
-  %.not497 = icmp eq i32 %876, 0
-  br i1 %.not497, label %877, label %887
+  %.not496 = icmp eq i32 %876, 0
+  br i1 %.not496, label %877, label %890
 
 877:                                              ; preds = %874
-  %878 = getelementptr inbounds nuw i8, ptr %291, i64 112
-  %879 = load i32, ptr %878, align 8
-  %.not498 = icmp eq i32 %879, 0
-  br i1 %.not498, label %880, label %887
+  %878 = getelementptr inbounds nuw i8, ptr %291, i64 100
+  %879 = load i32, ptr %878, align 4
+  %.not497 = icmp eq i32 %879, 0
+  br i1 %.not497, label %880, label %890
 
 880:                                              ; preds = %877
-  %881 = getelementptr inbounds nuw i8, ptr %291, i64 104
+  %881 = getelementptr inbounds nuw i8, ptr %291, i64 112
   %882 = load i32, ptr %881, align 8
-  %.not499 = icmp eq i32 %882, 0
-  br i1 %.not499, label %883, label %887
+  %.not498 = icmp eq i32 %882, 0
+  br i1 %.not498, label %883, label %890
 
 883:                                              ; preds = %880
-  %884 = getelementptr inbounds nuw i8, ptr %291, i64 532
-  %885 = load i32, ptr %884, align 4
-  %886 = or i32 %885, 2
-  store i32 %886, ptr %884, align 4
-  store i8 0, ptr %868, align 1
-  br label %901
+  %884 = getelementptr inbounds nuw i8, ptr %291, i64 104
+  %885 = load i32, ptr %884, align 8
+  %.not499 = icmp eq i32 %885, 0
+  br i1 %.not499, label %886, label %890
 
-887:                                              ; preds = %860, %880, %877, %874, %871, %.critedge
-  %888 = getelementptr inbounds nuw i8, ptr %291, i64 532
-  store i32 0, ptr %888, align 4
-  %889 = getelementptr inbounds nuw i8, ptr %291, i64 539
-  store i8 0, ptr %889, align 1
-  %890 = load ptr, ptr %291, align 8
-  %891 = getelementptr inbounds nuw i8, ptr %890, i64 72
-  %892 = load i64, ptr %891, align 8
-  %893 = and i64 %892, 1
-  %.not500 = icmp eq i64 %893, 0
-  br i1 %.not500, label %894, label %901
+886:                                              ; preds = %883
+  %887 = getelementptr inbounds nuw i8, ptr %291, i64 532
+  %888 = load i32, ptr %887, align 4
+  %889 = or i32 %888, 2
+  store i32 %889, ptr %887, align 4
+  store i8 0, ptr %871, align 1
+  br label %904
 
-894:                                              ; preds = %887
-  %895 = getelementptr inbounds nuw i8, ptr %291, i64 540
-  %896 = load i8, ptr %895, align 4, !range !3, !noundef !4
-  %897 = trunc nuw i8 %896 to i1
-  br i1 %897, label %898, label %901
+890:                                              ; preds = %863, %883, %880, %877, %874, %.critedge
+  %891 = getelementptr inbounds nuw i8, ptr %291, i64 532
+  store i32 0, ptr %891, align 4
+  %892 = getelementptr inbounds nuw i8, ptr %291, i64 539
+  store i8 0, ptr %892, align 1
+  %893 = load ptr, ptr %291, align 8
+  %894 = getelementptr inbounds nuw i8, ptr %893, i64 72
+  %895 = load i64, ptr %894, align 8
+  %896 = and i64 %895, 1
+  %.not500 = icmp eq i64 %896, 0
+  br i1 %.not500, label %897, label %904
 
-898:                                              ; preds = %894
-  store i8 0, ptr %895, align 4
-  %899 = load i64, ptr %891, align 8
-  %900 = and i64 %899, 16
-  %.not501 = icmp eq i64 %900, 0
-  tail call void @X11_SetWindowBordered(ptr noundef %0, ptr noundef nonnull %890, i1 noundef zeroext %.not501) #12
-  br label %901
+897:                                              ; preds = %890
+  %898 = getelementptr inbounds nuw i8, ptr %291, i64 540
+  %899 = load i8, ptr %898, align 4, !range !3, !noundef !4
+  %900 = trunc nuw i8 %899 to i1
+  br i1 %900, label %901, label %904
 
-901:                                              ; preds = %863, %887, %894, %898, %883, %813
-  %902 = and i64 %801, 128
-  %903 = and i64 %902, %805
-  %or.cond527.not553 = icmp ne i64 %903, 0
-  %904 = and i64 %801, 64
-  %.not504 = icmp eq i64 %904, 0
+901:                                              ; preds = %897
+  store i8 0, ptr %898, align 4
+  %902 = load i64, ptr %894, align 8
+  %903 = and i64 %902, 16
+  %.not501 = icmp eq i64 %903, 0
+  tail call void @X11_SetWindowBordered(ptr noundef %0, ptr noundef nonnull %893, i1 noundef zeroext %.not501) #12
+  br label %904
+
+904:                                              ; preds = %866, %890, %897, %901, %886, %816
+  %905 = and i64 %804, 128
+  %906 = and i64 %905, %808
+  %or.cond527.not553 = icmp ne i64 %906, 0
+  %907 = and i64 %804, 64
+  %.not504 = icmp eq i64 %907, 0
   %or.cond528 = and i1 %.not504, %or.cond527.not553
-  br i1 %or.cond528, label %905, label %915
+  br i1 %or.cond528, label %908, label %918
 
-905:                                              ; preds = %901
-  %906 = getelementptr inbounds nuw i8, ptr %291, i64 528
-  %907 = load i32, ptr %906, align 8
-  %908 = and i32 %907, -5
-  store i32 %908, ptr %906, align 8
-  %909 = and i64 %804, 64
-  %.not505 = icmp eq i64 %909, 0
+908:                                              ; preds = %904
+  %909 = getelementptr inbounds nuw i8, ptr %291, i64 528
+  %910 = load i32, ptr %909, align 8
+  %911 = and i32 %910, -5
+  store i32 %911, ptr %909, align 8
+  %912 = and i64 %807, 64
+  %.not505 = icmp eq i64 %912, 0
   %.pre576 = load ptr, ptr %291, align 8
-  br i1 %.not505, label %.thread550, label %910
+  br i1 %.not505, label %.thread550, label %913
 
-910:                                              ; preds = %905
-  %911 = and i32 %907, -6
-  store i32 %911, ptr %906, align 8
-  %912 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %.pre576, i32 noundef 523, i32 noundef 0, i32 noundef 0) #12
+913:                                              ; preds = %908
+  %914 = and i32 %910, -6
+  store i32 %914, ptr %909, align 8
+  %915 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %.pre576, i32 noundef 523, i32 noundef 0, i32 noundef 0) #12
   %.pre575 = load ptr, ptr %291, align 8
   br label %.thread550
 
-.thread550:                                       ; preds = %905, %910
-  %913 = phi ptr [ %.pre576, %905 ], [ %.pre575, %910 ]
-  %914 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %913, i32 noundef 522, i32 noundef 0, i32 noundef 0) #12
-  br label %923
+.thread550:                                       ; preds = %908, %913
+  %916 = phi ptr [ %.pre576, %908 ], [ %.pre575, %913 ]
+  %917 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %916, i32 noundef 522, i32 noundef 0, i32 noundef 0) #12
+  br label %926
 
-915:                                              ; preds = %901
-  %916 = and i64 %904, %805
-  %or.cond529.not.not = icmp eq i64 %916, 0
-  br i1 %or.cond529.not.not, label %923, label %917
+918:                                              ; preds = %904
+  %919 = and i64 %907, %808
+  %or.cond529.not.not = icmp eq i64 %919, 0
+  br i1 %or.cond529.not.not, label %926, label %920
 
-917:                                              ; preds = %915
-  %918 = getelementptr inbounds nuw i8, ptr %291, i64 528
-  %919 = load i32, ptr %918, align 8
-  %920 = and i32 %919, -3
-  store i32 %920, ptr %918, align 8
-  %921 = load ptr, ptr %291, align 8
-  %922 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %921, i32 noundef 521, i32 noundef 0, i32 noundef 0) #12
-  br label %923
+920:                                              ; preds = %918
+  %921 = getelementptr inbounds nuw i8, ptr %291, i64 528
+  %922 = load i32, ptr %921, align 8
+  %923 = and i32 %922, -3
+  store i32 %923, ptr %921, align 8
+  %924 = load ptr, ptr %291, align 8
+  %925 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %924, i32 noundef 521, i32 noundef 0, i32 noundef 0) #12
+  br label %926
 
-923:                                              ; preds = %.thread550, %917, %915
-  %924 = and i64 %801, 192
-  %.not508 = icmp eq i64 %924, 0
-  br i1 %.not508, label %925, label %973
+926:                                              ; preds = %.thread550, %920, %918
+  %927 = and i64 %804, 192
+  %.not508 = icmp eq i64 %927, 0
+  br i1 %.not508, label %928, label %976
 
-925:                                              ; preds = %923
-  %926 = getelementptr inbounds nuw i8, ptr %291, i64 528
-  %927 = load i32, ptr %926, align 8
-  %928 = and i32 %927, -2
-  store i32 %928, ptr %926, align 8
-  %929 = load ptr, ptr %291, align 8
-  %930 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %929, i32 noundef 523, i32 noundef 0, i32 noundef 0) #12
-  %931 = and i64 %801, 1
-  %.not509 = icmp eq i64 %931, 0
-  br i1 %.not509, label %932, label %973
+928:                                              ; preds = %926
+  %929 = getelementptr inbounds nuw i8, ptr %291, i64 528
+  %930 = load i32, ptr %929, align 8
+  %931 = and i32 %930, -2
+  store i32 %931, ptr %929, align 8
+  %932 = load ptr, ptr %291, align 8
+  %933 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %932, i32 noundef 523, i32 noundef 0, i32 noundef 0) #12
+  %934 = and i64 %804, 1
+  %.not509 = icmp eq i64 %934, 0
+  br i1 %.not509, label %935, label %976
 
-932:                                              ; preds = %925
-  %933 = getelementptr inbounds nuw i8, ptr %291, i64 537
-  %934 = load i8, ptr %933, align 1, !range !3, !noundef !4
-  %935 = trunc nuw i8 %934 to i1
-  br i1 %935, label %936, label %955
+935:                                              ; preds = %928
+  %936 = getelementptr inbounds nuw i8, ptr %291, i64 537
+  %937 = load i8, ptr %936, align 1, !range !3, !noundef !4
+  %938 = trunc nuw i8 %937 to i1
+  br i1 %938, label %939, label %958
 
-936:                                              ; preds = %932
-  store i8 0, ptr %933, align 1
-  %937 = load i32, ptr %926, align 8
-  %938 = or i32 %937, 16
-  store i32 %938, ptr %926, align 8
-  %939 = load ptr, ptr %291, align 8
-  %940 = getelementptr inbounds nuw i8, ptr %939, i64 136
-  %941 = load i32, ptr %940, align 8
-  %942 = getelementptr inbounds nuw i8, ptr %291, i64 100
-  %943 = load i32, ptr %942, align 4
-  %944 = sub nsw i32 %941, %943
-  %945 = getelementptr inbounds nuw i8, ptr %291, i64 468
-  store i32 %944, ptr %945, align 4
-  %946 = getelementptr inbounds nuw i8, ptr %939, i64 140
-  %947 = load i32, ptr %946, align 4
-  %948 = getelementptr inbounds nuw i8, ptr %291, i64 108
-  %949 = load i32, ptr %948, align 4
-  %950 = sub nsw i32 %947, %949
-  %951 = getelementptr inbounds nuw i8, ptr %291, i64 472
-  store i32 %950, ptr %951, align 8
-  %952 = load ptr, ptr @X11_XMoveWindow, align 8
-  %953 = load i64, ptr %373, align 8
-  %954 = tail call i32 %952(ptr noundef %27, i64 noundef %953, i32 noundef %944, i32 noundef %950) #12
-  br label %955
+939:                                              ; preds = %935
+  store i8 0, ptr %936, align 1
+  %940 = load i32, ptr %929, align 8
+  %941 = or i32 %940, 16
+  store i32 %941, ptr %929, align 8
+  %942 = load ptr, ptr %291, align 8
+  %943 = getelementptr inbounds nuw i8, ptr %942, i64 136
+  %944 = load i32, ptr %943, align 8
+  %945 = getelementptr inbounds nuw i8, ptr %291, i64 100
+  %946 = load i32, ptr %945, align 4
+  %947 = sub nsw i32 %944, %946
+  %948 = getelementptr inbounds nuw i8, ptr %291, i64 468
+  store i32 %947, ptr %948, align 4
+  %949 = getelementptr inbounds nuw i8, ptr %942, i64 140
+  %950 = load i32, ptr %949, align 4
+  %951 = getelementptr inbounds nuw i8, ptr %291, i64 108
+  %952 = load i32, ptr %951, align 4
+  %953 = sub nsw i32 %950, %952
+  %954 = getelementptr inbounds nuw i8, ptr %291, i64 472
+  store i32 %953, ptr %954, align 8
+  %955 = load ptr, ptr @X11_XMoveWindow, align 8
+  %956 = load i64, ptr %373, align 8
+  %957 = tail call i32 %955(ptr noundef %27, i64 noundef %956, i32 noundef %947, i32 noundef %953) #12
+  br label %958
 
-955:                                              ; preds = %936, %932
-  %956 = getelementptr inbounds nuw i8, ptr %291, i64 536
-  %957 = load i8, ptr %956, align 8, !range !3, !noundef !4
-  %958 = trunc nuw i8 %957 to i1
-  br i1 %958, label %959, label %973
+958:                                              ; preds = %939, %935
+  %959 = getelementptr inbounds nuw i8, ptr %291, i64 536
+  %960 = load i8, ptr %959, align 8, !range !3, !noundef !4
+  %961 = trunc nuw i8 %960 to i1
+  br i1 %961, label %962, label %976
 
-959:                                              ; preds = %955
-  store i8 0, ptr %956, align 8
-  %960 = load i32, ptr %926, align 8
-  %961 = or i32 %960, 32
-  store i32 %961, ptr %926, align 8
-  %962 = load ptr, ptr %291, align 8
-  %963 = getelementptr inbounds nuw i8, ptr %962, i64 144
-  %964 = load i32, ptr %963, align 8
-  %965 = getelementptr inbounds nuw i8, ptr %291, i64 476
-  store i32 %964, ptr %965, align 4
-  %966 = getelementptr inbounds nuw i8, ptr %962, i64 148
-  %967 = load i32, ptr %966, align 4
-  %968 = getelementptr inbounds nuw i8, ptr %291, i64 480
-  store i32 %967, ptr %968, align 8
-  %969 = load ptr, ptr @X11_XResizeWindow, align 8
-  %970 = load i64, ptr %373, align 8
-  %971 = load i32, ptr %963, align 8
-  %972 = tail call i32 %969(ptr noundef %27, i64 noundef %970, i32 noundef %971, i32 noundef %967) #12
-  br label %973
+962:                                              ; preds = %958
+  store i8 0, ptr %959, align 8
+  %963 = load i32, ptr %929, align 8
+  %964 = or i32 %963, 32
+  store i32 %964, ptr %929, align 8
+  %965 = load ptr, ptr %291, align 8
+  %966 = getelementptr inbounds nuw i8, ptr %965, i64 144
+  %967 = load i32, ptr %966, align 8
+  %968 = getelementptr inbounds nuw i8, ptr %291, i64 476
+  store i32 %967, ptr %968, align 4
+  %969 = getelementptr inbounds nuw i8, ptr %965, i64 148
+  %970 = load i32, ptr %969, align 4
+  %971 = getelementptr inbounds nuw i8, ptr %291, i64 480
+  store i32 %970, ptr %971, align 8
+  %972 = load ptr, ptr @X11_XResizeWindow, align 8
+  %973 = load i64, ptr %373, align 8
+  %974 = load i32, ptr %966, align 8
+  %975 = tail call i32 %972(ptr noundef %27, i64 noundef %973, i32 noundef %974, i32 noundef %970) #12
+  br label %976
 
-973:                                              ; preds = %925, %959, %955, %923
-  %974 = getelementptr inbounds nuw i8, ptr %291, i64 543
-  %975 = load i8, ptr %974, align 1, !range !3, !noundef !4
-  %976 = trunc nuw i8 %975 to i1
-  br i1 %976, label %977, label %979
+976:                                              ; preds = %928, %962, %958, %926
+  %977 = getelementptr inbounds nuw i8, ptr %291, i64 543
+  %978 = load i8, ptr %977, align 1, !range !3, !noundef !4
+  %979 = trunc nuw i8 %978 to i1
+  br i1 %979, label %980, label %982
 
-977:                                              ; preds = %973
-  %978 = getelementptr inbounds nuw i8, ptr %291, i64 248
-  tail call void @X11_EmitConfigureNotifyEvents(ptr noundef nonnull %291, ptr noundef nonnull %978)
-  store i8 0, ptr %974, align 1
-  br label %979
+980:                                              ; preds = %976
+  %981 = getelementptr inbounds nuw i8, ptr %291, i64 248
+  tail call void @X11_EmitConfigureNotifyEvents(ptr noundef nonnull %291, ptr noundef nonnull %981)
+  store i8 0, ptr %977, align 1
+  br label %982
 
-979:                                              ; preds = %977, %973
-  %980 = and i64 %801, 512
-  %.not510 = icmp eq i64 %980, 0
-  br i1 %.not510, label %987, label %981
+982:                                              ; preds = %980, %976
+  %983 = and i64 %804, 512
+  %.not510 = icmp eq i64 %983, 0
+  br i1 %.not510, label %990, label %984
 
-981:                                              ; preds = %979
-  %982 = getelementptr inbounds nuw i8, ptr %291, i64 144
-  %983 = load i8, ptr %982, align 8, !range !3, !noundef !4
-  %984 = trunc nuw i8 %983 to i1
-  br i1 %984, label %985, label %987
+984:                                              ; preds = %982
+  %985 = getelementptr inbounds nuw i8, ptr %291, i64 144
+  %986 = load i8, ptr %985, align 8, !range !3, !noundef !4
+  %987 = trunc nuw i8 %986 to i1
+  br i1 %987, label %988, label %990
 
-985:                                              ; preds = %981
-  %986 = getelementptr inbounds nuw i8, ptr %291, i64 148
+988:                                              ; preds = %984
+  %989 = getelementptr inbounds nuw i8, ptr %291, i64 148
   %.val = load ptr, ptr %25, align 8
-  tail call fastcc void @DispatchWindowMove(ptr %.val, ptr noundef nonnull %291, ptr noundef %986)
-  store i8 0, ptr %982, align 8
-  br label %987
+  tail call fastcc void @DispatchWindowMove(ptr %.val, ptr noundef nonnull %291, ptr noundef %989)
+  store i8 0, ptr %985, align 8
+  br label %990
 
-987:                                              ; preds = %979, %985, %981, %809
-  %988 = and i64 %805, 4
-  %.not511 = icmp eq i64 %988, 0
-  br i1 %.not511, label %X11_HandleGenericEvent.exit, label %989
+990:                                              ; preds = %982, %988, %984, %812
+  %991 = and i64 %808, 4
+  %.not511 = icmp eq i64 %991, 0
+  br i1 %.not511, label %X11_HandleGenericEvent.exit, label %992
 
-989:                                              ; preds = %987
-  %990 = load ptr, ptr %291, align 8
-  %991 = and i64 %801, 4
-  %.not512 = icmp eq i64 %991, 0
-  %992 = select i1 %.not512, i32 516, i32 534
-  %993 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %990, i32 noundef %992, i32 noundef 0, i32 noundef 0) #12
+992:                                              ; preds = %990
+  %993 = load ptr, ptr %291, align 8
+  %994 = and i64 %804, 4
+  %.not512 = icmp eq i64 %994, 0
+  %995 = select i1 %.not512, i32 516, i32 534
+  %996 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %993, i32 noundef %995, i32 noundef 0, i32 noundef 0) #12
   br label %X11_HandleGenericEvent.exit
 
-994:                                              ; preds = %789
-  %995 = getelementptr inbounds nuw i8, ptr %26, i64 560
-  %996 = load i64, ptr %995, align 8
-  %997 = icmp eq i64 %791, %996
-  br i1 %997, label %998, label %999
+997:                                              ; preds = %792
+  %998 = getelementptr inbounds nuw i8, ptr %26, i64 560
+  %999 = load i64, ptr %998, align 8
+  %1000 = icmp eq i64 %794, %999
+  br i1 %1000, label %1001, label %1002
 
-998:                                              ; preds = %994
+1001:                                             ; preds = %997
   tail call void @X11_UpdateKeymap(ptr noundef %0, i1 noundef zeroext true) #12
   br label %X11_HandleGenericEvent.exit
 
-999:                                              ; preds = %994
-  %1000 = getelementptr inbounds nuw i8, ptr %26, i64 408
-  %1001 = load i64, ptr %1000, align 8
-  %1002 = icmp eq i64 %791, %1001
-  br i1 %1002, label %1003, label %X11_HandleGenericEvent.exit
+1002:                                             ; preds = %997
+  %1003 = getelementptr inbounds nuw i8, ptr %26, i64 408
+  %1004 = load i64, ptr %1003, align 8
+  %1005 = icmp eq i64 %794, %1004
+  br i1 %1005, label %1006, label %X11_HandleGenericEvent.exit
 
-1003:                                             ; preds = %999
-  %1004 = getelementptr inbounds nuw i8, ptr %291, i64 532
-  %1005 = load i32, ptr %1004, align 4
-  %.not482 = icmp eq i32 %1005, 0
-  br i1 %.not482, label %1008, label %1006
+1006:                                             ; preds = %1002
+  %1007 = getelementptr inbounds nuw i8, ptr %291, i64 532
+  %1008 = load i32, ptr %1007, align 4
+  %.not482 = icmp eq i32 %1008, 0
+  br i1 %.not482, label %1011, label %1009
 
-1006:                                             ; preds = %1003
-  %1007 = and i32 %1005, -3
-  store i32 %1007, ptr %1004, align 4
+1009:                                             ; preds = %1006
+  %1010 = and i32 %1008, -3
+  store i32 %1010, ptr %1007, align 4
   tail call void @X11_GetBorderValues(ptr noundef nonnull %291)
-  br label %1008
+  br label %1011
 
-1008:                                             ; preds = %1006, %1003
-  %1009 = load ptr, ptr %291, align 8
-  %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 72
-  %1011 = load i64, ptr %1010, align 8
-  %1012 = and i64 %1011, 1
-  %.not483 = icmp eq i64 %1012, 0
-  br i1 %.not483, label %1013, label %X11_HandleGenericEvent.exit
+1011:                                             ; preds = %1009, %1006
+  %1012 = load ptr, ptr %291, align 8
+  %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 72
+  %1014 = load i64, ptr %1013, align 8
+  %1015 = and i64 %1014, 1
+  %.not483 = icmp eq i64 %1015, 0
+  br i1 %.not483, label %1016, label %X11_HandleGenericEvent.exit
 
-1013:                                             ; preds = %1008
-  %1014 = getelementptr inbounds nuw i8, ptr %291, i64 540
-  %1015 = load i8, ptr %1014, align 4, !range !3, !noundef !4
-  %1016 = trunc nuw i8 %1015 to i1
-  br i1 %1016, label %1017, label %X11_HandleGenericEvent.exit
+1016:                                             ; preds = %1011
+  %1017 = getelementptr inbounds nuw i8, ptr %291, i64 540
+  %1018 = load i8, ptr %1017, align 4, !range !3, !noundef !4
+  %1019 = trunc nuw i8 %1018 to i1
+  br i1 %1019, label %1020, label %X11_HandleGenericEvent.exit
 
-1017:                                             ; preds = %1013
-  store i8 0, ptr %1014, align 4
-  %1018 = load i64, ptr %1010, align 8
-  %1019 = and i64 %1018, 16
-  %.not484 = icmp eq i64 %1019, 0
-  tail call void @X11_SetWindowBordered(ptr noundef %0, ptr noundef nonnull %1009, i1 noundef zeroext %.not484) #12
+1020:                                             ; preds = %1016
+  store i8 0, ptr %1017, align 4
+  %1021 = load i64, ptr %1013, align 8
+  %1022 = and i64 %1021, 16
+  %.not484 = icmp eq i64 %1022, 0
+  tail call void @X11_SetWindowBordered(ptr noundef %0, ptr noundef nonnull %1012, i1 noundef zeroext %.not484) #12
   br label %X11_HandleGenericEvent.exit
 
-1020:                                             ; preds = %X11_FindWindow.exit
-  %1021 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %1022 = load i64, ptr %1021, align 8
-  %1023 = getelementptr inbounds nuw i8, ptr %291, i64 352
-  %1024 = load i64, ptr %1023, align 8
-  %1025 = icmp eq i64 %1022, %1024
-  br i1 %1025, label %1026, label %X11_HandleGenericEvent.exit
+1023:                                             ; preds = %X11_FindWindow.exit
+  %1024 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %1025 = load i64, ptr %1024, align 8
+  %1026 = getelementptr inbounds nuw i8, ptr %291, i64 352
+  %1027 = load i64, ptr %1026, align 8
+  %1028 = icmp eq i64 %1025, %1027
+  br i1 %1028, label %1029, label %X11_HandleGenericEvent.exit
 
-1026:                                             ; preds = %1020
+1029:                                             ; preds = %1023
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %1027 = getelementptr inbounds nuw i8, ptr %26, i64 432
-  %1028 = load i64, ptr %1027, align 8
-  call fastcc void @X11_ReadProperty(ptr noundef %23, ptr noundef %27, i64 noundef %.pre, i64 noundef %1028)
-  %1029 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %1030 = load i32, ptr %1029, align 8
-  %1031 = icmp eq i32 %1030, 8
-  br i1 %1031, label %1032, label %1068
+  %1030 = getelementptr inbounds nuw i8, ptr %26, i64 432
+  %1031 = load i64, ptr %1030, align 8
+  call fastcc void @X11_ReadProperty(ptr noundef %23, ptr noundef %27, i64 noundef %.pre, i64 noundef %1031)
+  %1032 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %1033 = load i32, ptr %1032, align 8
+  %1034 = icmp eq i32 %1033, 8
+  br i1 %1034, label %1035, label %1071
 
-1032:                                             ; preds = %1026
+1035:                                             ; preds = %1029
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr null, ptr %24, align 8
-  %1033 = load ptr, ptr @X11_XGetAtomName, align 8
-  %1034 = tail call ptr %1033(ptr noundef %27, i64 noundef %1022) #12
-  %.not479 = icmp eq ptr %1034, null
-  br i1 %.not479, label %1065, label %1035
+  %1036 = load ptr, ptr @X11_XGetAtomName, align 8
+  %1037 = tail call ptr %1036(ptr noundef %27, i64 noundef %1025) #12
+  %.not479 = icmp eq ptr %1037, null
+  br i1 %.not479, label %1068, label %1038
 
-1035:                                             ; preds = %1032
-  %1036 = load ptr, ptr %23, align 8
-  %1037 = call ptr @SDL_strtok_r_REAL(ptr noundef %1036, ptr noundef nonnull @.str.7, ptr noundef nonnull %24) #12
-  %.not480559 = icmp eq ptr %1037, null
+1038:                                             ; preds = %1035
+  %1039 = load ptr, ptr %23, align 8
+  %1040 = call ptr @SDL_strtok_r_REAL(ptr noundef %1039, ptr noundef nonnull @.str.7, ptr noundef nonnull %24) #12
+  %.not480559 = icmp eq ptr %1040, null
   br i1 %.not480559, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1035, %1061
-  %.0560 = phi ptr [ %1062, %1061 ], [ %1037, %1035 ]
-  %1038 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull %1034) #12
-  %1039 = icmp eq i32 %1038, 0
-  br i1 %1039, label %1049, label %1040
-
-1040:                                             ; preds = %.lr.ph
-  %1041 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.9, ptr noundef nonnull %1034) #12
+.lr.ph:                                           ; preds = %1038, %1064
+  %.0560 = phi ptr [ %1065, %1064 ], [ %1040, %1038 ]
+  %1041 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull %1037) #12
   %1042 = icmp eq i32 %1041, 0
-  br i1 %1042, label %1049, label %1043
+  br i1 %1042, label %1052, label %1043
 
-1043:                                             ; preds = %1040
-  %1044 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.10, ptr noundef nonnull %1034) #12
+1043:                                             ; preds = %.lr.ph
+  %1044 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.9, ptr noundef nonnull %1037) #12
   %1045 = icmp eq i32 %1044, 0
-  br i1 %1045, label %1049, label %1046
+  br i1 %1045, label %1052, label %1046
 
 1046:                                             ; preds = %1043
-  %1047 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.11, ptr noundef nonnull %1034) #12
+  %1047 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.10, ptr noundef nonnull %1037) #12
   %1048 = icmp eq i32 %1047, 0
-  br i1 %1048, label %1049, label %1052
+  br i1 %1048, label %1052, label %1049
 
-1049:                                             ; preds = %1046, %1043, %1040, %.lr.ph
-  %1050 = load ptr, ptr %291, align 8
-  %1051 = call zeroext i1 @SDL_SendDropText(ptr noundef %1050, ptr noundef nonnull %.0560) #12
-  br label %1061
+1049:                                             ; preds = %1046
+  %1050 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.11, ptr noundef nonnull %1037) #12
+  %1051 = icmp eq i32 %1050, 0
+  br i1 %1051, label %1052, label %1055
 
-1052:                                             ; preds = %1046
-  %1053 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.12, ptr noundef nonnull %1034) #12
-  %1054 = icmp eq i32 %1053, 0
-  br i1 %1054, label %1055, label %1061
+1052:                                             ; preds = %1049, %1046, %1043, %.lr.ph
+  %1053 = load ptr, ptr %291, align 8
+  %1054 = call zeroext i1 @SDL_SendDropText(ptr noundef %1053, ptr noundef nonnull %.0560) #12
+  br label %1064
 
-1055:                                             ; preds = %1052
-  %1056 = call i32 @SDL_URIToLocal(ptr noundef nonnull %.0560, ptr noundef nonnull %.0560) #12
-  %1057 = icmp sgt i32 %1056, -1
-  br i1 %1057, label %1058, label %1061
+1055:                                             ; preds = %1049
+  %1056 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.12, ptr noundef nonnull %1037) #12
+  %1057 = icmp eq i32 %1056, 0
+  br i1 %1057, label %1058, label %1064
 
 1058:                                             ; preds = %1055
-  %1059 = load ptr, ptr %291, align 8
-  %1060 = call zeroext i1 @SDL_SendDropFile(ptr noundef %1059, ptr noundef null, ptr noundef nonnull %.0560) #12
-  br label %1061
+  %1059 = call i32 @SDL_URIToLocal(ptr noundef nonnull %.0560, ptr noundef nonnull %.0560) #12
+  %1060 = icmp sgt i32 %1059, -1
+  br i1 %1060, label %1061, label %1064
 
-1061:                                             ; preds = %1052, %1058, %1055, %1049
-  %1062 = call ptr @SDL_strtok_r_REAL(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %24) #12
-  %.not480 = icmp eq ptr %1062, null
+1061:                                             ; preds = %1058
+  %1062 = load ptr, ptr %291, align 8
+  %1063 = call zeroext i1 @SDL_SendDropFile(ptr noundef %1062, ptr noundef null, ptr noundef nonnull %.0560) #12
+  br label %1064
+
+1064:                                             ; preds = %1055, %1061, %1058, %1052
+  %1065 = call ptr @SDL_strtok_r_REAL(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %24) #12
+  %.not480 = icmp eq ptr %1065, null
   br i1 %.not480, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %1061, %1035
-  %1063 = load ptr, ptr @X11_XFree, align 8
-  %1064 = call i32 %1063(ptr noundef nonnull %1034) #12
-  br label %1065
-
-1065:                                             ; preds = %._crit_edge, %1032
-  %1066 = load ptr, ptr %291, align 8
-  %1067 = call zeroext i1 @SDL_SendDropComplete(ptr noundef %1066) #12
-  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+._crit_edge:                                      ; preds = %1064, %1038
+  %1066 = load ptr, ptr @X11_XFree, align 8
+  %1067 = call i32 %1066(ptr noundef nonnull %1037) #12
   br label %1068
 
-1068:                                             ; preds = %1065, %1026
-  %1069 = load ptr, ptr @X11_XFree, align 8
-  %1070 = load ptr, ptr %23, align 8
-  %1071 = call i32 %1069(ptr noundef %1070) #12
+1068:                                             ; preds = %._crit_edge, %1035
+  %1069 = load ptr, ptr %291, align 8
+  %1070 = call zeroext i1 @SDL_SendDropComplete(ptr noundef %1069) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  br label %1071
+
+1071:                                             ; preds = %1068, %1029
+  %1072 = load ptr, ptr @X11_XFree, align 8
+  %1073 = load ptr, ptr %23, align 8
+  %1074 = call i32 %1072(ptr noundef %1073) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, i8 0, i64 96, i1 false)
   store i32 33, ptr %10, align 8
-  %1072 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %27, ptr %1072, align 8
-  %1073 = getelementptr inbounds nuw i8, ptr %291, i64 360
-  %1074 = load i64, ptr %1073, align 8
-  %1075 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i64 %1074, ptr %1075, align 8
-  %1076 = getelementptr inbounds nuw i8, ptr %26, i64 544
+  %1075 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %27, ptr %1075, align 8
+  %1076 = getelementptr inbounds nuw i8, ptr %291, i64 360
   %1077 = load i64, ptr %1076, align 8
-  %1078 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %1078 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 %1077, ptr %1078, align 8
-  %1079 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i32 32, ptr %1079, align 8
-  %1080 = load i64, ptr %373, align 8
-  %1081 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %1079 = getelementptr inbounds nuw i8, ptr %26, i64 544
+  %1080 = load i64, ptr %1079, align 8
+  %1081 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 %1080, ptr %1081, align 8
-  %1082 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store i64 1, ptr %1082, align 8
-  %1083 = getelementptr inbounds nuw i8, ptr %26, i64 528
-  %1084 = load i64, ptr %1083, align 8
-  %1085 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store i64 %1084, ptr %1085, align 8
-  %1086 = load ptr, ptr @X11_XSendEvent, align 8
-  %1087 = call i32 %1086(ptr noundef %27, i64 noundef %1074, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %10) #12
-  %1088 = load ptr, ptr @X11_XSync, align 8
-  %1089 = call i32 %1088(ptr noundef %27, i32 noundef 0) #12
+  %1082 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store i32 32, ptr %1082, align 8
+  %1083 = load i64, ptr %373, align 8
+  %1084 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  store i64 %1083, ptr %1084, align 8
+  %1085 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  store i64 1, ptr %1085, align 8
+  %1086 = getelementptr inbounds nuw i8, ptr %26, i64 528
+  %1087 = load i64, ptr %1086, align 8
+  %1088 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  store i64 %1087, ptr %1088, align 8
+  %1089 = load ptr, ptr @X11_XSendEvent, align 8
+  %1090 = call i32 %1089(ptr noundef %27, i64 noundef %1077, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %10) #12
+  %1091 = load ptr, ptr @X11_XSync, align 8
+  %1092 = call i32 %1091(ptr noundef %27, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %X11_HandleGenericEvent.exit
 
-X11_HandleGenericEvent.exit:                      ; preds = %690, %687, %274, %273, %259, %250, %241, %239, %.thread.i, %98, %46, %35, %465, %446, %432, %415, %462, %502, %553, %700, %716, %725, %727, %734, %765, %780, %445, %435, %485, %481, %507, %503, %595, %681, %685, %657, %719, %602, %730, %739, %761, %776, %998, %1008, %1013, %1017, %999, %X11_FindWindow.exit, %449, %449, %468, %468, %582, %572, %748, %743, %989, %987, %1068, %1020, %315, %298, %322, %321, %.loopexit, %370, %369, %71, %76, %82, %67, %50, %30, %281
+X11_HandleGenericEvent.exit:                      ; preds = %692, %689, %274, %273, %259, %250, %241, %239, %.thread.i, %98, %46, %35, %465, %446, %432, %415, %462, %502, %554, %702, %719, %728, %730, %737, %768, %783, %445, %435, %485, %481, %507, %503, %596, %683, %687, %659, %722, %603, %733, %742, %764, %779, %1001, %1011, %1016, %1020, %1002, %X11_FindWindow.exit, %449, %449, %468, %468, %583, %573, %751, %746, %992, %990, %1071, %1023, %315, %298, %322, %321, %.loopexit, %370, %369, %71, %76, %82, %67, %50, %30, %281
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }

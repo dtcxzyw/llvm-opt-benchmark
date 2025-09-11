@@ -827,7 +827,8 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %total.06 = phi i64 [ %add, %for.body ], [ 0, %for.cond.preheader ]
-  %size = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %0, i64 %indvars.iv, i32 1
+  %add.ptr.i = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %0, i64 %indvars.iv
+  %size = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %2 = load i32, ptr %size, align 8
   %conv7 = sext i32 %2 to i64
   %add = add i64 %total.06, %conv7
@@ -1882,7 +1883,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %5 = phi ptr [ %0, %for.body.lr.ph ], [ %15, %if.end ]
   %sub = add nsw i64 %sub.ptr.div.i33, -1
   %cmp5 = icmp eq i64 %sub, %indvars.iv
-  %size = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %5, i64 %indvars.iv, i32 1
+  %add.ptr.i = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %5, i64 %indvars.iv
+  %size = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %cond.in = select i1 %cmp5, ptr %lastRangeEnd_, ptr %size
   %cond = load i32, ptr %cond.in, align 8
   %6 = load i8, ptr %isBits_, align 8
@@ -1901,8 +1903,7 @@ cond.end13:                                       ; preds = %for.body
   br i1 %or.cond8, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end13
-  %add.ptr.i15 = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %5, i64 %indvars.iv
-  %9 = load ptr, ptr %add.ptr.i15, align 8
+  %9 = load ptr, ptr %add.ptr.i, align 8
   %cmp15.i = icmp sgt i32 %add.i.i, 7
   br i1 %cmp15.i, label %for.body.preheader.i, label %if.end
 

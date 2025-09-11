@@ -1262,7 +1262,8 @@ for.cond.cleanup85.loopexit:                      ; preds = %for.body80
   %add.ptr.i.i647 = getelementptr inbounds nuw i32, ptr %67, i64 %conv.i646
   %71 = load i32, ptr %add.ptr.i.i647, align 4, !tbaa !110
   %conv.i648 = zext i32 %71 to i64
-  %Color = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %68, i64 %conv.i648, i32 2
+  %Color.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %68, i64 %conv.i648
+  %Color = getelementptr inbounds nuw i8, ptr %Color.split, i64 24
   %72 = load i32, ptr %DiffuseColor92, align 8, !tbaa !110
   store i32 %72, ptr %Color, align 4, !tbaa !110
   %inc97 = add nuw i32 %mul, 1
@@ -1275,7 +1276,8 @@ for.cond.cleanup85.loopexit:                      ; preds = %for.body80
   %add.ptr.i.i647.1 = getelementptr inbounds nuw i32, ptr %67, i64 %conv.i646.1
   %75 = load i32, ptr %add.ptr.i.i647.1, align 4, !tbaa !110
   %conv.i648.1 = zext i32 %75 to i64
-  %Color.1 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %68, i64 %conv.i648.1, i32 2
+  %Color.1.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %68, i64 %conv.i648.1
+  %Color.1 = getelementptr inbounds nuw i8, ptr %Color.1.split, i64 24
   %76 = load i32, ptr %DiffuseColor92.1, align 8, !tbaa !110
   store i32 %76, ptr %Color.1, align 4, !tbaa !110
   %77 = load i32, ptr %add.ptr.i.i643, align 4, !tbaa !110
@@ -1287,7 +1289,8 @@ for.cond.cleanup85.loopexit:                      ; preds = %for.body80
   %add.ptr.i.i647.2 = getelementptr inbounds nuw i32, ptr %67, i64 %conv.i646.2
   %79 = load i32, ptr %add.ptr.i.i647.2, align 4, !tbaa !110
   %conv.i648.2 = zext i32 %79 to i64
-  %Color.2 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %68, i64 %conv.i648.2, i32 2
+  %Color.2.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %68, i64 %conv.i648.2
+  %Color.2 = getelementptr inbounds nuw i8, ptr %Color.2.split, i64 24
   %80 = load i32, ptr %DiffuseColor92.2, align 8, !tbaa !110
   store i32 %80, ptr %Color.2, align 4, !tbaa !110
   br label %for.cond.cleanup85
@@ -2087,7 +2090,8 @@ cond.true:                                        ; preds = %_ZN3irr4core5arrayI
 
 cond.false:                                       ; preds = %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backEOS3_.exit
   %177 = load ptr, ptr %Vertices103, align 8, !tbaa !116
-  %TCoords = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %177, i64 %indvars.iv1390, i32 3
+  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %177, i64 %indvars.iv1390
+  %TCoords = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 28
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -6237,13 +6241,14 @@ for.body302:                                      ; preds = %if.end338, %for.bod
   br i1 %or.cond486, label %if.then308, label %if.end314
 
 if.then308:                                       ; preds = %for.body302
-  %Normal311 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %178, i64 %indvars.iv1034, i32 1
+  %Normal311.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %178, i64 %indvars.iv1034
+  %Normal311 = getelementptr inbounds nuw i8, ptr %Normal311.split, i64 12
   %add.ptr = getelementptr inbounds i8, ptr %dataptr.0989, i64 %idx.ext
   %180 = load <2 x float>, ptr %add.ptr, align 4, !tbaa !57
   store <2 x float> %180, ptr %Normal311, align 4, !tbaa !57
   %Z.i799 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %181 = load float, ptr %Z.i799, align 4, !tbaa !225
-  %Z4.i = getelementptr inbounds nuw i8, ptr %Normal311, i64 8
+  %Z4.i = getelementptr inbounds nuw i8, ptr %Normal311.split, i64 20
   store float %181, ptr %Z4.i, align 4, !tbaa !225
   br label %if.end314
 
@@ -6251,7 +6256,8 @@ if.end314:                                        ; preds = %if.then308, %for.bo
   br i1 %or.cond487, label %if.then320, label %if.end327
 
 if.then320:                                       ; preds = %if.end314
-  %TCoords = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %178, i64 %indvars.iv1034, i32 3
+  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %178, i64 %indvars.iv1034
+  %TCoords = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 28
   %add.ptr325 = getelementptr inbounds i8, ptr %dataptr.0989, i64 %idx.ext324
   %182 = load <2 x float>, ptr %add.ptr325, align 4, !tbaa !57
   store <2 x float> %182, ptr %TCoords, align 4, !tbaa !57
@@ -9001,13 +9007,14 @@ _ZN3irr5scene16CXMeshFileLoader7readIntEv.exit:   ; preds = %_ZN3irr5scene16CXMe
   %73 = load i32, ptr %add.ptr.i.i178, align 4, !tbaa !110
   %conv.i179 = zext i32 %73 to i64
   %74 = load ptr, ptr %Vertices59, align 8, !tbaa !116
-  %Normal = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %74, i64 %conv.i179, i32 1
+  %Normal.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %74, i64 %conv.i179
+  %Normal = getelementptr inbounds nuw i8, ptr %Normal.split, i64 12
   %add.ptr.i.i182 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %normals.sroa.0.0505, i64 %retval.0.i
   %75 = load <2 x float>, ptr %add.ptr.i.i182, align 4, !tbaa !57
   store <2 x float> %75, ptr %Normal, align 4, !tbaa !57
   %Z.i184 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i182, i64 8
   %76 = load float, ptr %Z.i184, align 4, !tbaa !225
-  %Z4.i = getelementptr inbounds nuw i8, ptr %Normal, i64 8
+  %Z4.i = getelementptr inbounds nuw i8, ptr %Normal.split, i64 20
   store float %76, ptr %Z4.i, align 4, !tbaa !225
   br i1 %tobool.not.i, label %while.cond.preheader.i.i.1, label %if.then.i.1
 
@@ -9171,14 +9178,15 @@ _ZN3irr5scene16CXMeshFileLoader7readIntEv.exit.1: ; preds = %_ZN3irr4core9strtou
   %add.ptr.i.i178.1 = getelementptr inbounds nuw i32, ptr %97, i64 %conv.i177.1
   %98 = load i32, ptr %add.ptr.i.i178.1, align 4, !tbaa !110
   %conv.i179.1 = zext i32 %98 to i64
-  %Normal.1 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %96, i64 %conv.i179.1, i32 1
+  %Normal.1.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %96, i64 %conv.i179.1
+  %Normal.1 = getelementptr inbounds nuw i8, ptr %Normal.1.split, i64 12
   %conv.i181.1 = zext i32 %retval.0.i.1 to i64
   %add.ptr.i.i182.1 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %normals.sroa.0.0505, i64 %conv.i181.1
   %99 = load <2 x float>, ptr %add.ptr.i.i182.1, align 4, !tbaa !57
   store <2 x float> %99, ptr %Normal.1, align 4, !tbaa !57
   %Z.i184.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i182.1, i64 8
   %100 = load float, ptr %Z.i184.1, align 4, !tbaa !225
-  %Z4.i.1 = getelementptr inbounds nuw i8, ptr %Normal.1, i64 8
+  %Z4.i.1 = getelementptr inbounds nuw i8, ptr %Normal.1.split, i64 20
   store float %100, ptr %Z4.i.1, align 4, !tbaa !225
   br i1 %tobool.not.i, label %while.cond.preheader.i.i.2, label %if.then.i.2
 
@@ -9335,14 +9343,15 @@ _ZN3irr5scene16CXMeshFileLoader7readIntEv.exit.2: ; preds = %_ZN3irr4core9strtou
   %add.ptr.i.i178.2 = getelementptr inbounds nuw i32, ptr %121, i64 %conv.i177.2
   %122 = load i32, ptr %add.ptr.i.i178.2, align 4, !tbaa !110
   %conv.i179.2 = zext i32 %122 to i64
-  %Normal.2 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %120, i64 %conv.i179.2, i32 1
+  %Normal.2.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %120, i64 %conv.i179.2
+  %Normal.2 = getelementptr inbounds nuw i8, ptr %Normal.2.split, i64 12
   %conv.i181.2 = zext i32 %retval.0.i.2 to i64
   %add.ptr.i.i182.2 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %normals.sroa.0.0505, i64 %conv.i181.2
   %123 = load <2 x float>, ptr %add.ptr.i.i182.2, align 4, !tbaa !57
   store <2 x float> %123, ptr %Normal.2, align 4, !tbaa !57
   %Z.i184.2 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i182.2, i64 8
   %124 = load float, ptr %Z.i184.2, align 4, !tbaa !225
-  %Z4.i.2 = getelementptr inbounds nuw i8, ptr %Normal.2, i64 8
+  %Z4.i.2 = getelementptr inbounds nuw i8, ptr %Normal.2.split, i64 20
   store float %124, ptr %Z4.i.2, align 4, !tbaa !225
   br label %cleanup
 
@@ -9623,16 +9632,18 @@ for.body58:                                       ; preds = %for.body58, %for.bo
   %add.ptr.i.i283 = getelementptr inbounds nuw i32, ptr %144, i64 %conv.i282
   %153 = load i32, ptr %add.ptr.i.i283, align 4, !tbaa !110
   %conv.i284 = zext i32 %153 to i64
-  %Normal64 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %145, i64 %conv.i284, i32 1
+  %Normal64.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %145, i64 %conv.i284
+  %Normal64 = getelementptr inbounds nuw i8, ptr %Normal64.split, i64 12
   store <2 x float> %147, ptr %Normal64, align 4, !tbaa !57
-  %Z4.i291 = getelementptr inbounds nuw i8, ptr %Normal64, i64 8
+  %Z4.i291 = getelementptr inbounds nuw i8, ptr %Normal64.split, i64 20
   store float %.pre499, ptr %Z4.i291, align 4, !tbaa !225
   %inc70 = add i32 %normalidx.2445, 2
   %conv.i292 = zext i32 %inc61 to i64
   %add.ptr.i.i293 = getelementptr inbounds nuw i32, ptr %144, i64 %conv.i292
   %154 = load i32, ptr %add.ptr.i.i293, align 4, !tbaa !110
   %conv.i294 = zext i32 %154 to i64
-  %Normal73 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %145, i64 %conv.i294, i32 1
+  %Normal73.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %145, i64 %conv.i294
+  %Normal73 = getelementptr inbounds nuw i8, ptr %Normal73.split, i64 12
   %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
   %add.ptr.i.i297 = getelementptr inbounds nuw i32, ptr %polygonfaces.sroa.0.2, i64 %indvars.iv.next488
   %155 = load i32, ptr %add.ptr.i.i297, align 4, !tbaa !110
@@ -9642,14 +9653,15 @@ for.body58:                                       ; preds = %for.body58, %for.bo
   store <2 x float> %156, ptr %Normal73, align 4, !tbaa !57
   %Z.i302 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i299, i64 8
   %157 = load float, ptr %Z.i302, align 4, !tbaa !225
-  %Z4.i303 = getelementptr inbounds nuw i8, ptr %Normal73, i64 8
+  %Z4.i303 = getelementptr inbounds nuw i8, ptr %Normal73.split, i64 20
   store float %157, ptr %Z4.i303, align 4, !tbaa !225
   %inc79 = add i32 %normalidx.2445, 3
   %conv.i304 = zext i32 %inc70 to i64
   %add.ptr.i.i305 = getelementptr inbounds nuw i32, ptr %144, i64 %conv.i304
   %158 = load i32, ptr %add.ptr.i.i305, align 4, !tbaa !110
   %conv.i306 = zext i32 %158 to i64
-  %Normal82 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %145, i64 %conv.i306, i32 1
+  %Normal82.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %145, i64 %conv.i306
+  %Normal82 = getelementptr inbounds nuw i8, ptr %Normal82.split, i64 12
   %add83 = add nuw i64 %indvars.iv487, 2
   %conv.i308 = and i64 %add83, 4294967295
   %add.ptr.i.i309 = getelementptr inbounds nuw i32, ptr %polygonfaces.sroa.0.2, i64 %conv.i308
@@ -9660,7 +9672,7 @@ for.body58:                                       ; preds = %for.body58, %for.bo
   store <2 x float> %160, ptr %Normal82, align 4, !tbaa !57
   %Z.i314 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i311, i64 8
   %161 = load float, ptr %Z.i314, align 4, !tbaa !225
-  %Z4.i315 = getelementptr inbounds nuw i8, ptr %Normal82, i64 8
+  %Z4.i315 = getelementptr inbounds nuw i8, ptr %Normal82.split, i64 20
   store float %161, ptr %Z4.i315, align 4, !tbaa !225
   %exitcond491.not = icmp eq i64 %indvars.iv.next488, %wide.trip.count490
   br i1 %exitcond491.not, label %cleanup, label %for.body58, !llvm.loop !268
@@ -10078,11 +10090,12 @@ _ZN3irr4core6stringIcED2Ev.exit.i15:              ; preds = %if.then.i.i.i.i14, 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %34 = load ptr, ptr %Vertices, align 8, !tbaa !116
-  %TCoords = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %34, i64 %indvars.iv, i32 3
+  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %34, i64 %indvars.iv
+  %TCoords = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 28
   %call.i = tail call noundef float @_ZN3irr5scene16CXMeshFileLoader9readFloatEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
   store float %call.i, ptr %TCoords, align 4, !tbaa !270
   %call2.i = tail call noundef float @_ZN3irr5scene16CXMeshFileLoader9readFloatEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
-  %Y.i = getelementptr inbounds nuw i8, ptr %TCoords, i64 4
+  %Y.i = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 32
   store float %call2.i, ptr %Y.i, align 4, !tbaa !272
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -10363,7 +10376,8 @@ if.then.i.i.i41:                                  ; preds = %if.then7
 
 if.end14:                                         ; preds = %for.body
   %conv.i46 = zext i32 %call4 to i64
-  %Color = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %22, i64 %conv.i46, i32 2
+  %Color.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %22, i64 %conv.i46
+  %Color = getelementptr inbounds nuw i8, ptr %Color.split, i64 24
   %call17 = call noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader8readRGBAERNS_5video6SColorE(ptr noundef nonnull align 8 dereferenceable(138) %this, ptr noundef nonnull align 4 dereferenceable(4) %Color)
   %28 = load i8, ptr %BinaryFormat.i, align 8, !tbaa !200, !range !42, !noundef !43
   %tobool.not.i = icmp eq i8 %28, 0
@@ -12362,7 +12376,8 @@ for.body63:                                       ; preds = %for.body63, %for.bo
   %indvars.iv = phi i64 [ %58, %for.body63.preheader ], [ %indvars.iv.next, %for.body63 ]
   %call64 = call noundef float @_ZN3irr5scene16CXMeshFileLoader9readFloatEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
   %71 = load ptr, ptr %Weights, align 8, !tbaa !187
-  %strength = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %71, i64 %indvars.iv, i32 2
+  %strength.split = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SWeight", ptr %71, i64 %indvars.iv
+  %strength = getelementptr inbounds nuw i8, ptr %strength.split, i64 8
   store float %call64, ptr %strength, align 8, !tbaa !191
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32

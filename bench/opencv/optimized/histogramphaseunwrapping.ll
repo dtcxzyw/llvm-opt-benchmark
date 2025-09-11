@@ -2191,10 +2191,10 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %61 = load i8, ptr %60, align 4, !tbaa !31, !range !32, !noundef !33
   %62 = trunc nuw i8 %61 to i1
-  br i1 %57, label %63, label %107
+  br i1 %57, label %63, label %109
 
 63:                                               ; preds = %48
-  br i1 %62, label %64, label %88
+  br i1 %62, label %64, label %89
 
 64:                                               ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 12
@@ -2223,199 +2223,204 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE
   %81 = phi i64 [ %53, %76 ], [ %58, %72 ]
   %.sink224 = phi i32 [ %79, %76 ], [ %75, %72 ]
   %.sink = phi i32 [ %52, %76 ], [ %50, %72 ]
-  %.sink227.in = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %81, i32 7
+  %82 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %81
+  %.sink227.in = getelementptr inbounds nuw i8, ptr %82, i64 24
   %.sink227 = load i32, ptr %.sink227.in, align 4, !tbaa !30
-  %82 = getelementptr inbounds nuw i8, ptr %.sink229, i64 24
-  store i32 %.sink227, ptr %82, align 4, !tbaa !30
-  %83 = getelementptr inbounds nuw i8, ptr %.sink229, i64 16
-  store i32 %.sink224, ptr %83, align 4, !tbaa !28
-  %84 = sext i32 %.sink227 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %.sroa.0164.0, i64 %84
-  store i32 %.sink, ptr %85, align 4, !tbaa !16
-  %86 = getelementptr inbounds nuw i8, ptr %54, i64 20
-  store i32 2, ptr %86, align 4, !tbaa !29
-  %87 = getelementptr inbounds nuw i8, ptr %59, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %.sink229, i64 24
+  store i32 %.sink227, ptr %83, align 4, !tbaa !30
+  %84 = getelementptr inbounds nuw i8, ptr %.sink229, i64 16
+  store i32 %.sink224, ptr %84, align 4, !tbaa !28
+  %85 = sext i32 %.sink227 to i64
+  %86 = getelementptr inbounds nuw i32, ptr %.sroa.0164.0, i64 %85
+  store i32 %.sink, ptr %86, align 4, !tbaa !16
+  %87 = getelementptr inbounds nuw i8, ptr %54, i64 20
   store i32 2, ptr %87, align 4, !tbaa !29
+  %88 = getelementptr inbounds nuw i8, ptr %59, i64 20
+  store i32 2, ptr %88, align 4, !tbaa !29
   store i8 0, ptr %55, align 4, !tbaa !31
   store i8 0, ptr %60, align 4, !tbaa !31
   br label %.loopexit
 
-88:                                               ; preds = %63
-  %89 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %90 = load i32, ptr %89, align 4, !tbaa !30
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %.sroa.0164.0, i64 %91
-  %93 = load i32, ptr %92, align 4, !tbaa !16
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %94, i32 6
-  %96 = load i32, ptr %95, align 4, !tbaa !29
-  %97 = add nsw i32 %96, 1
-  %98 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %99 = load i32, ptr %98, align 4, !tbaa !28
-  %100 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %101 = load i32, ptr %100, align 4, !tbaa !37
-  %102 = add nsw i32 %101, %99
-  %103 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store i32 %90, ptr %103, align 4, !tbaa !30
-  %104 = getelementptr inbounds nuw i8, ptr %54, i64 20
-  store i32 %97, ptr %104, align 4, !tbaa !29
-  %105 = getelementptr inbounds nuw i8, ptr %59, i64 20
-  store i32 %97, ptr %105, align 4, !tbaa !29
-  %106 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i32 %102, ptr %106, align 4, !tbaa !28
+89:                                               ; preds = %63
+  %90 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %91 = load i32, ptr %90, align 4, !tbaa !30
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds nuw i32, ptr %.sroa.0164.0, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !16
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 20
+  %98 = load i32, ptr %97, align 4, !tbaa !29
+  %99 = add nsw i32 %98, 1
+  %100 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %101 = load i32, ptr %100, align 4, !tbaa !28
+  %102 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %103 = load i32, ptr %102, align 4, !tbaa !37
+  %104 = add nsw i32 %103, %101
+  %105 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  store i32 %91, ptr %105, align 4, !tbaa !30
+  %106 = getelementptr inbounds nuw i8, ptr %54, i64 20
+  store i32 %99, ptr %106, align 4, !tbaa !29
+  %107 = getelementptr inbounds nuw i8, ptr %59, i64 20
+  store i32 %99, ptr %107, align 4, !tbaa !29
+  %108 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store i32 %104, ptr %108, align 4, !tbaa !28
   store i8 0, ptr %55, align 4, !tbaa !31
-  store i32 %50, ptr %92, align 4, !tbaa !16
+  store i32 %50, ptr %93, align 4, !tbaa !16
   br label %.loopexit
 
-107:                                              ; preds = %48
-  %108 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %109 = load i32, ptr %108, align 4, !tbaa !30
-  br i1 %62, label %110, label %.thread179
+109:                                              ; preds = %48
+  %110 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %111 = load i32, ptr %110, align 4, !tbaa !30
+  br i1 %62, label %112, label %.thread179
 
-110:                                              ; preds = %107
-  %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds nuw i32, ptr %.sroa.0164.0, i64 %111
-  %113 = load i32, ptr %112, align 4, !tbaa !16
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %114, i32 6
-  %116 = load i32, ptr %115, align 4, !tbaa !29
-  %117 = add nsw i32 %116, 1
-  %118 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %119 = load i32, ptr %118, align 4, !tbaa !28
-  %120 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %121 = load i32, ptr %120, align 4, !tbaa !37
-  %122 = sub nsw i32 %119, %121
-  %123 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i32 %109, ptr %123, align 4, !tbaa !30
-  %124 = getelementptr inbounds nuw i8, ptr %59, i64 20
-  store i32 %117, ptr %124, align 4, !tbaa !29
-  %125 = getelementptr inbounds nuw i8, ptr %54, i64 20
-  store i32 %117, ptr %125, align 4, !tbaa !29
-  %126 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i32 %122, ptr %126, align 4, !tbaa !28
+112:                                              ; preds = %109
+  %113 = sext i32 %111 to i64
+  %114 = getelementptr inbounds nuw i32, ptr %.sroa.0164.0, i64 %113
+  %115 = load i32, ptr %114, align 4, !tbaa !16
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 20
+  %119 = load i32, ptr %118, align 4, !tbaa !29
+  %120 = add nsw i32 %119, 1
+  %121 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %122 = load i32, ptr %121, align 4, !tbaa !28
+  %123 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %124 = load i32, ptr %123, align 4, !tbaa !37
+  %125 = sub nsw i32 %122, %124
+  %126 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  store i32 %111, ptr %126, align 4, !tbaa !30
+  %127 = getelementptr inbounds nuw i8, ptr %59, i64 20
+  store i32 %120, ptr %127, align 4, !tbaa !29
+  %128 = getelementptr inbounds nuw i8, ptr %54, i64 20
+  store i32 %120, ptr %128, align 4, !tbaa !29
+  %129 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store i32 %125, ptr %129, align 4, !tbaa !28
   store i8 0, ptr %60, align 4, !tbaa !31
-  store i32 %52, ptr %112, align 4, !tbaa !16
+  store i32 %52, ptr %114, align 4, !tbaa !16
   br label %.loopexit
 
-.thread179:                                       ; preds = %107
-  %127 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %58
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %129 = load i32, ptr %128, align 4, !tbaa !30
-  %.not = icmp eq i32 %109, %129
-  br i1 %.not, label %.loopexit, label %130
+.thread179:                                       ; preds = %109
+  %130 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %58
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
+  %132 = load i32, ptr %131, align 4, !tbaa !30
+  %.not = icmp eq i32 %111, %132
+  br i1 %.not, label %.loopexit, label %133
 
-130:                                              ; preds = %.thread179
-  %131 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  %132 = load float, ptr %131, align 4, !tbaa !27
-  %133 = getelementptr inbounds nuw i8, ptr %127, i64 12
-  %134 = load float, ptr %133, align 4, !tbaa !27
-  %135 = sext i32 %109 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %.sroa.0164.0, i64 %135
-  %137 = load i32, ptr %136, align 4, !tbaa !16
-  %138 = sext i32 %129 to i64
+133:                                              ; preds = %.thread179
+  %134 = getelementptr inbounds nuw i8, ptr %54, i64 12
+  %135 = load float, ptr %134, align 4, !tbaa !27
+  %136 = getelementptr inbounds nuw i8, ptr %130, i64 12
+  %137 = load float, ptr %136, align 4, !tbaa !27
+  %138 = sext i32 %111 to i64
   %139 = getelementptr inbounds nuw i32, ptr %.sroa.0164.0, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !16
-  %141 = sext i32 %137 to i64
-  %142 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %141, i32 6
-  %143 = load i32, ptr %142, align 4, !tbaa !29
+  %141 = sext i32 %132 to i64
+  %142 = getelementptr inbounds nuw i32, ptr %.sroa.0164.0, i64 %141
+  %143 = load i32, ptr %142, align 4, !tbaa !16
   %144 = sext i32 %140 to i64
-  %145 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %144, i32 6
-  %146 = load i32, ptr %145, align 4, !tbaa !29
-  %147 = add nsw i32 %146, %143
-  %148 = icmp slt i32 %143, %146
-  br i1 %148, label %152, label %149
+  %145 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %144
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 20
+  %147 = load i32, ptr %146, align 4, !tbaa !29
+  %148 = sext i32 %143 to i64
+  %149 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %148
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 20
+  %151 = load i32, ptr %150, align 4, !tbaa !29
+  %152 = add nsw i32 %151, %147
+  %153 = icmp slt i32 %147, %151
+  br i1 %153, label %157, label %154
 
-149:                                              ; preds = %130
-  %150 = icmp eq i32 %143, %146
-  %151 = fcmp oge float %132, %134
-  %or.cond.not = and i1 %151, %150
-  br i1 %or.cond.not, label %152, label %172
+154:                                              ; preds = %133
+  %155 = icmp eq i32 %147, %151
+  %156 = fcmp oge float %135, %137
+  %or.cond.not = and i1 %156, %155
+  br i1 %or.cond.not, label %157, label %177
 
-152:                                              ; preds = %149, %130
-  %153 = getelementptr inbounds nuw i8, ptr %127, i64 20
-  store i32 %147, ptr %153, align 4, !tbaa !29
-  %154 = getelementptr inbounds nuw i8, ptr %54, i64 20
-  store i32 %147, ptr %154, align 4, !tbaa !29
-  %155 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %156 = load i32, ptr %155, align 4, !tbaa !28
-  %157 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %158 = load i32, ptr %157, align 4, !tbaa !37
-  %159 = add nsw i32 %158, %156
-  %160 = getelementptr inbounds nuw i8, ptr %54, i64 16
+157:                                              ; preds = %154, %133
+  %158 = getelementptr inbounds nuw i8, ptr %130, i64 20
+  store i32 %152, ptr %158, align 4, !tbaa !29
+  %159 = getelementptr inbounds nuw i8, ptr %54, i64 20
+  store i32 %152, ptr %159, align 4, !tbaa !29
+  %160 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %161 = load i32, ptr %160, align 4, !tbaa !28
-  %162 = sub i32 %159, %161
-  store i32 %50, ptr %139, align 4, !tbaa !16
+  %162 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %163 = load i32, ptr %162, align 4, !tbaa !37
+  %164 = add nsw i32 %163, %161
+  %165 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %166 = load i32, ptr %165, align 4, !tbaa !28
+  %167 = sub i32 %164, %166
+  store i32 %50, ptr %142, align 4, !tbaa !16
   br i1 %19, label %.lr.ph189, label %.loopexit
 
-.lr.ph189:                                        ; preds = %152, %171
-  %indvars.iv197 = phi i64 [ %indvars.iv.next198, %171 ], [ 0, %152 ]
-  %163 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %indvars.iv197
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  %165 = load i32, ptr %164, align 4, !tbaa !30
-  %166 = icmp eq i32 %165, %109
-  br i1 %166, label %167, label %171
+.lr.ph189:                                        ; preds = %157, %176
+  %indvars.iv197 = phi i64 [ %indvars.iv.next198, %176 ], [ 0, %157 ]
+  %168 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %indvars.iv197
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
+  %170 = load i32, ptr %169, align 4, !tbaa !30
+  %171 = icmp eq i32 %170, %111
+  br i1 %171, label %172, label %176
 
-167:                                              ; preds = %.lr.ph189
-  store i32 %129, ptr %164, align 4, !tbaa !30
-  %168 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  %169 = load i32, ptr %168, align 4, !tbaa !28
-  %170 = add nsw i32 %162, %169
-  store i32 %170, ptr %168, align 4, !tbaa !28
-  br label %171
+172:                                              ; preds = %.lr.ph189
+  store i32 %132, ptr %169, align 4, !tbaa !30
+  %173 = getelementptr inbounds nuw i8, ptr %168, i64 16
+  %174 = load i32, ptr %173, align 4, !tbaa !28
+  %175 = add nsw i32 %167, %174
+  store i32 %175, ptr %173, align 4, !tbaa !28
+  br label %176
 
-171:                                              ; preds = %.lr.ph189, %167
+176:                                              ; preds = %.lr.ph189, %172
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
   br i1 %exitcond201.not, label %.loopexit, label %.lr.ph189, !llvm.loop !155
 
-172:                                              ; preds = %149
-  %173 = icmp sgt i32 %143, %146
-  %174 = fcmp ogt float %134, %132
-  %or.cond146 = and i1 %174, %150
-  %or.cond147 = or i1 %173, %or.cond146
-  br i1 %or.cond147, label %175, label %.loopexit
+177:                                              ; preds = %154
+  %178 = icmp sgt i32 %147, %151
+  %179 = fcmp ogt float %137, %135
+  %or.cond146 = and i1 %179, %155
+  %or.cond147 = or i1 %178, %or.cond146
+  br i1 %or.cond147, label %180, label %.loopexit
 
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds nuw i8, ptr %54, i64 20
-  store i32 %147, ptr %176, align 4, !tbaa !29
-  %177 = getelementptr inbounds nuw i8, ptr %127, i64 20
-  store i32 %147, ptr %177, align 4, !tbaa !29
-  %178 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %179 = load i32, ptr %178, align 4, !tbaa !28
-  %180 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %181 = load i32, ptr %180, align 4, !tbaa !37
-  %182 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %183 = load i32, ptr %182, align 4, !tbaa !28
-  store i32 %52, ptr %136, align 4, !tbaa !16
+180:                                              ; preds = %177
+  %181 = getelementptr inbounds nuw i8, ptr %54, i64 20
+  store i32 %152, ptr %181, align 4, !tbaa !29
+  %182 = getelementptr inbounds nuw i8, ptr %130, i64 20
+  store i32 %152, ptr %182, align 4, !tbaa !29
+  %183 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %184 = load i32, ptr %183, align 4, !tbaa !28
+  %185 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %186 = load i32, ptr %185, align 4, !tbaa !37
+  %187 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %188 = load i32, ptr %187, align 4, !tbaa !28
+  store i32 %52, ptr %139, align 4, !tbaa !16
   br i1 %19, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %175
-  %184 = add i32 %181, %183
-  %185 = sub i32 %179, %184
-  br label %186
+.lr.ph:                                           ; preds = %180
+  %189 = add i32 %186, %188
+  %190 = sub i32 %184, %189
+  br label %191
 
-186:                                              ; preds = %.lr.ph, %195
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %195 ]
-  %187 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %indvars.iv
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
-  %189 = load i32, ptr %188, align 4, !tbaa !30
-  %190 = icmp eq i32 %189, %129
-  br i1 %190, label %191, label %195
+191:                                              ; preds = %.lr.ph, %200
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %200 ]
+  %192 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %44, i64 %indvars.iv
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
+  %194 = load i32, ptr %193, align 4, !tbaa !30
+  %195 = icmp eq i32 %194, %132
+  br i1 %195, label %196, label %200
 
-191:                                              ; preds = %186
-  store i32 %109, ptr %188, align 4, !tbaa !30
-  %192 = getelementptr inbounds nuw i8, ptr %187, i64 16
-  %193 = load i32, ptr %192, align 4, !tbaa !28
-  %194 = add nsw i32 %185, %193
-  store i32 %194, ptr %192, align 4, !tbaa !28
-  br label %195
+196:                                              ; preds = %191
+  store i32 %111, ptr %193, align 4, !tbaa !30
+  %197 = getelementptr inbounds nuw i8, ptr %192, i64 16
+  %198 = load i32, ptr %197, align 4, !tbaa !28
+  %199 = add nsw i32 %190, %198
+  store i32 %199, ptr %197, align 4, !tbaa !28
+  br label %200
 
-195:                                              ; preds = %186, %191
+200:                                              ; preds = %191, %196
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %186, !llvm.loop !156
+  br i1 %exitcond.not, label %.loopexit, label %191, !llvm.loop !156
 
-.loopexit:                                        ; preds = %195, %171, %175, %152, %172, %88, %.thread179, %110, %80
+.loopexit:                                        ; preds = %200, %176, %180, %157, %177, %89, %.thread179, %112, %80
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
   br i1 %exitcond206.not, label %._crit_edge, label %48, !llvm.loop !157
@@ -2809,15 +2814,16 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24getInverse
   %22 = mul nuw nsw i64 %indvars.iv25, %21
   %23 = mul i64 %20, %indvars.iv25
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 %23
+  %invariant.gep = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %15, i64 %22
   br label %25
 
 25:                                               ; preds = %.preheader.us, %25
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %25 ]
-  %26 = add nuw nsw i64 %indvars.iv, %22
-  %27 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %15, i64 %26, i32 4
-  %28 = load float, ptr %27, align 4, !tbaa !27
-  %29 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
-  store float %28, ptr %29, align 4, !tbaa !17
+  %gep = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", ptr %invariant.gep, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %gep, i64 12
+  %27 = load float, ptr %26, align 4, !tbaa !27
+  %28 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  store float %27, ptr %28, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21
   br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !167

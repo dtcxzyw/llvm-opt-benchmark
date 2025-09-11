@@ -2621,15 +2621,15 @@ define internal void @trace_event_raw_event_g4x_wm(ptr noundef %0, ptr noundef %
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %20, label %.thread2
+  br i1 %.not, label %20, label %.thread3
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %17, align 8
   %22 = icmp eq ptr %21, null
   %spec.select = select i1 %22, ptr @.str, ptr %21
-  br label %.thread2
+  br label %.thread3
 
-.thread2:                                         ; preds = %20, %14
+.thread3:                                         ; preds = %20, %14
   %23 = phi ptr [ %19, %14 ], [ %spec.select, %20 ]
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #9
   %25 = trunc i64 %24 to i32
@@ -2640,7 +2640,7 @@ define internal void @trace_event_raw_event_g4x_wm(ptr noundef %0, ptr noundef %
   %30 = icmp eq ptr %29, null
   br i1 %30, label %95, label %31
 
-31:                                               ; preds = %.thread2
+31:                                               ; preds = %.thread3
   %32 = shl i32 %26, 16
   %33 = or disjoint i32 %32, 45
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -2651,17 +2651,17 @@ define internal void @trace_event_raw_event_g4x_wm(ptr noundef %0, ptr noundef %
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %40 = load ptr, ptr %39, align 8
-  %.not8 = icmp eq ptr %40, null
-  br i1 %.not8, label %41, label %.thread6
+  %.not9 = icmp eq ptr %40, null
+  br i1 %.not9, label %41, label %.thread7
 
 41:                                               ; preds = %31
   %42 = load ptr, ptr %38, align 8
   %43 = icmp eq ptr %42, null
-  %spec.select13 = select i1 %43, ptr @.str, ptr %42
-  br label %.thread6
+  %spec.select14 = select i1 %43, ptr @.str, ptr %42
+  br label %.thread7
 
-.thread6:                                         ; preds = %41, %31
-  %44 = phi ptr [ %40, %31 ], [ %spec.select13, %41 ]
+.thread7:                                         ; preds = %41, %31
+  %44 = phi ptr [ %40, %31 ], [ %spec.select14, %41 ]
   %45 = call ptr @strcpy(ptr noundef %35, ptr noundef nonnull dereferenceable(1) %44) #9
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %47 = load i32, ptr %46, align 8
@@ -2681,13 +2681,15 @@ define internal void @trace_event_raw_event_g4x_wm(ptr noundef %0, ptr noundef %
   store i16 %56, ptr %57, align 4
   %58 = load i32, ptr %46, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %59, i32 0, i64 1
+  %.split = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %59
+  %60 = getelementptr i8, ptr %.split, i64 2
   %61 = load i16, ptr %60, align 2
   %62 = getelementptr inbounds nuw i8, ptr %29, i64 26
   store i16 %61, ptr %62, align 2
   %63 = load i32, ptr %46, align 8
   %64 = sext i32 %63 to i64
-  %65 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %64, i32 0, i64 7
+  %.split1 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %64
+  %65 = getelementptr i8, ptr %.split1, i64 14
   %66 = load i16, ptr %65, align 2
   %67 = getelementptr inbounds nuw i8, ptr %29, i64 28
   store i16 %66, ptr %67, align 4
@@ -2730,7 +2732,7 @@ define internal void @trace_event_raw_event_g4x_wm(ptr noundef %0, ptr noundef %
   call void @trace_event_buffer_commit(ptr noundef nonnull %4) #9
   br label %95
 
-95:                                               ; preds = %.thread6, %.thread2, %12
+95:                                               ; preds = %.thread7, %.thread3, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -2748,15 +2750,15 @@ define internal void @perf_trace_g4x_wm(ptr noundef %0, ptr noundef %1, ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %.thread2
+  br i1 %.not, label %11, label %.thread3
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %8, align 8
   %13 = icmp eq ptr %12, null
   %spec.select = select i1 %13, ptr @.str, ptr %12
-  br label %.thread2
+  br label %.thread3
 
-.thread2:                                         ; preds = %11, %3
+.thread3:                                         ; preds = %11, %3
   %14 = phi ptr [ %10, %3 ], [ %spec.select, %11 ]
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #9
   %16 = trunc i64 %15 to i32
@@ -2771,12 +2773,12 @@ define internal void @perf_trace_g4x_wm(ptr noundef %0, ptr noundef %1, ptr noun
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %29
 
-26:                                               ; preds = %.thread2
+26:                                               ; preds = %.thread3
   %27 = load volatile ptr, ptr %22, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %108, label %29
 
-29:                                               ; preds = %26, %.thread2
+29:                                               ; preds = %26, %.thread3
   store i32 0, ptr %5, align 4, !annotation !31
   %30 = add i32 %16, 60
   %31 = and i32 %30, -8
@@ -2807,17 +2809,17 @@ define internal void @perf_trace_g4x_wm(ptr noundef %0, ptr noundef %1, ptr noun
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 80
   %51 = load ptr, ptr %50, align 8
-  %.not8 = icmp eq ptr %51, null
-  br i1 %.not8, label %52, label %.thread6
+  %.not9 = icmp eq ptr %51, null
+  br i1 %.not9, label %52, label %.thread7
 
 52:                                               ; preds = %35
   %53 = load ptr, ptr %49, align 8
   %54 = icmp eq ptr %53, null
-  %spec.select13 = select i1 %54, ptr @.str, ptr %53
-  br label %.thread6
+  %spec.select14 = select i1 %54, ptr @.str, ptr %53
+  br label %.thread7
 
-.thread6:                                         ; preds = %52, %35
-  %55 = phi ptr [ %51, %35 ], [ %spec.select13, %52 ]
+.thread7:                                         ; preds = %52, %35
+  %55 = phi ptr [ %51, %35 ], [ %spec.select14, %52 ]
   %56 = call ptr @strcpy(ptr noundef %46, ptr noundef nonnull dereferenceable(1) %55) #9
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %58 = load i32, ptr %57, align 8
@@ -2837,13 +2839,15 @@ define internal void @perf_trace_g4x_wm(ptr noundef %0, ptr noundef %1, ptr noun
   store i16 %67, ptr %68, align 4
   %69 = load i32, ptr %57, align 8
   %70 = sext i32 %69 to i64
-  %71 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %70, i32 0, i64 1
+  %.split = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %70
+  %71 = getelementptr i8, ptr %.split, i64 2
   %72 = load i16, ptr %71, align 2
   %73 = getelementptr inbounds nuw i8, ptr %33, i64 26
   store i16 %72, ptr %73, align 2
   %74 = load i32, ptr %57, align 8
   %75 = sext i32 %74 to i64
-  %76 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %75, i32 0, i64 7
+  %.split1 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %75
+  %76 = getelementptr i8, ptr %.split1, i64 14
   %77 = load i16, ptr %76, align 2
   %78 = getelementptr inbounds nuw i8, ptr %33, i64 28
   store i16 %77, ptr %78, align 4
@@ -2888,7 +2892,7 @@ define internal void @perf_trace_g4x_wm(ptr noundef %0, ptr noundef %1, ptr noun
   call void @perf_trace_run_bpf_submit(ptr noundef nonnull %33, i32 noundef %32, i32 noundef %106, ptr noundef %0, i64 noundef 1, ptr noundef %107, ptr noundef %22, ptr noundef null) #9
   br label %108
 
-108:                                              ; preds = %.thread6, %29, %26
+108:                                              ; preds = %.thread7, %29, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -2921,15 +2925,15 @@ define internal void @trace_event_raw_event_vlv_wm(ptr noundef %0, ptr noundef %
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %20, label %.thread2
+  br i1 %.not, label %20, label %.thread4
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %17, align 8
   %22 = icmp eq ptr %21, null
   %spec.select = select i1 %22, ptr @.str, ptr %21
-  br label %.thread2
+  br label %.thread4
 
-.thread2:                                         ; preds = %20, %14
+.thread4:                                         ; preds = %20, %14
   %23 = phi ptr [ %19, %14 ], [ %spec.select, %20 ]
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #9
   %25 = trunc i64 %24 to i32
@@ -2940,7 +2944,7 @@ define internal void @trace_event_raw_event_vlv_wm(ptr noundef %0, ptr noundef %
   %30 = icmp eq ptr %29, null
   br i1 %30, label %93, label %31
 
-31:                                               ; preds = %.thread2
+31:                                               ; preds = %.thread4
   %32 = shl i32 %26, 16
   %33 = or disjoint i32 %32, 56
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -2951,17 +2955,17 @@ define internal void @trace_event_raw_event_vlv_wm(ptr noundef %0, ptr noundef %
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %40 = load ptr, ptr %39, align 8
-  %.not8 = icmp eq ptr %40, null
-  br i1 %.not8, label %41, label %.thread6
+  %.not10 = icmp eq ptr %40, null
+  br i1 %.not10, label %41, label %.thread8
 
 41:                                               ; preds = %31
   %42 = load ptr, ptr %38, align 8
   %43 = icmp eq ptr %42, null
-  %spec.select13 = select i1 %43, ptr @.str, ptr %42
-  br label %.thread6
+  %spec.select15 = select i1 %43, ptr @.str, ptr %42
+  br label %.thread8
 
-.thread6:                                         ; preds = %41, %31
-  %44 = phi ptr [ %40, %31 ], [ %spec.select13, %41 ]
+.thread8:                                         ; preds = %41, %31
+  %44 = phi ptr [ %40, %31 ], [ %spec.select15, %41 ]
   %45 = call ptr @strcpy(ptr noundef %35, ptr noundef nonnull dereferenceable(1) %44) #9
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %47 = load i32, ptr %46, align 8
@@ -2992,21 +2996,24 @@ define internal void @trace_event_raw_event_vlv_wm(ptr noundef %0, ptr noundef %
   store i32 %65, ptr %66, align 4
   %67 = load i32, ptr %46, align 8
   %68 = sext i32 %67 to i64
-  %69 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %68, i32 0, i64 1
+  %.split = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %68
+  %69 = getelementptr i8, ptr %.split, i64 2
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %29, i64 36
   store i32 %71, ptr %72, align 4
   %73 = load i32, ptr %46, align 8
   %74 = sext i32 %73 to i64
-  %75 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %74, i32 0, i64 2
+  %.split1 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %74
+  %75 = getelementptr i8, ptr %.split1, i64 4
   %76 = load i16, ptr %75, align 2
   %77 = zext i16 %76 to i32
   %78 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i32 %77, ptr %78, align 4
   %79 = load i32, ptr %46, align 8
   %80 = sext i32 %79 to i64
-  %81 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %80, i32 0, i64 7
+  %.split2 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %80
+  %81 = getelementptr i8, ptr %.split2, i64 14
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
   %84 = getelementptr inbounds nuw i8, ptr %29, i64 44
@@ -3024,7 +3031,7 @@ define internal void @trace_event_raw_event_vlv_wm(ptr noundef %0, ptr noundef %
   call void @trace_event_buffer_commit(ptr noundef nonnull %4) #9
   br label %93
 
-93:                                               ; preds = %.thread6, %.thread2, %12
+93:                                               ; preds = %.thread8, %.thread4, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -3042,15 +3049,15 @@ define internal void @perf_trace_vlv_wm(ptr noundef %0, ptr noundef %1, ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %.thread2
+  br i1 %.not, label %11, label %.thread4
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %8, align 8
   %13 = icmp eq ptr %12, null
   %spec.select = select i1 %13, ptr @.str, ptr %12
-  br label %.thread2
+  br label %.thread4
 
-.thread2:                                         ; preds = %11, %3
+.thread4:                                         ; preds = %11, %3
   %14 = phi ptr [ %10, %3 ], [ %spec.select, %11 ]
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #9
   %16 = trunc i64 %15 to i32
@@ -3065,12 +3072,12 @@ define internal void @perf_trace_vlv_wm(ptr noundef %0, ptr noundef %1, ptr noun
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %29
 
-26:                                               ; preds = %.thread2
+26:                                               ; preds = %.thread4
   %27 = load volatile ptr, ptr %22, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %106, label %29
 
-29:                                               ; preds = %26, %.thread2
+29:                                               ; preds = %26, %.thread4
   store i32 0, ptr %5, align 4, !annotation !31
   %30 = add i32 %16, 68
   %31 = and i32 %30, -8
@@ -3101,17 +3108,17 @@ define internal void @perf_trace_vlv_wm(ptr noundef %0, ptr noundef %1, ptr noun
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 80
   %51 = load ptr, ptr %50, align 8
-  %.not8 = icmp eq ptr %51, null
-  br i1 %.not8, label %52, label %.thread6
+  %.not10 = icmp eq ptr %51, null
+  br i1 %.not10, label %52, label %.thread8
 
 52:                                               ; preds = %35
   %53 = load ptr, ptr %49, align 8
   %54 = icmp eq ptr %53, null
-  %spec.select13 = select i1 %54, ptr @.str, ptr %53
-  br label %.thread6
+  %spec.select15 = select i1 %54, ptr @.str, ptr %53
+  br label %.thread8
 
-.thread6:                                         ; preds = %52, %35
-  %55 = phi ptr [ %51, %35 ], [ %spec.select13, %52 ]
+.thread8:                                         ; preds = %52, %35
+  %55 = phi ptr [ %51, %35 ], [ %spec.select15, %52 ]
   %56 = call ptr @strcpy(ptr noundef %46, ptr noundef nonnull dereferenceable(1) %55) #9
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %58 = load i32, ptr %57, align 8
@@ -3142,21 +3149,24 @@ define internal void @perf_trace_vlv_wm(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %76, ptr %77, align 4
   %78 = load i32, ptr %57, align 8
   %79 = sext i32 %78 to i64
-  %80 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %79, i32 0, i64 1
+  %.split = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %79
+  %80 = getelementptr i8, ptr %.split, i64 2
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %83 = getelementptr inbounds nuw i8, ptr %33, i64 36
   store i32 %82, ptr %83, align 4
   %84 = load i32, ptr %57, align 8
   %85 = sext i32 %84 to i64
-  %86 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %85, i32 0, i64 2
+  %.split1 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %85
+  %86 = getelementptr i8, ptr %.split1, i64 4
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i32
   %89 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store i32 %88, ptr %89, align 4
   %90 = load i32, ptr %57, align 8
   %91 = sext i32 %90 to i64
-  %92 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %91, i32 0, i64 7
+  %.split2 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %91
+  %92 = getelementptr i8, ptr %.split2, i64 14
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %33, i64 44
@@ -3176,7 +3186,7 @@ define internal void @perf_trace_vlv_wm(ptr noundef %0, ptr noundef %1, ptr noun
   call void @perf_trace_run_bpf_submit(ptr noundef nonnull %33, i32 noundef %32, i32 noundef %104, ptr noundef %0, i64 noundef 1, ptr noundef %105, ptr noundef %22, ptr noundef null) #9
   br label %106
 
-106:                                              ; preds = %.thread6, %29, %26
+106:                                              ; preds = %.thread8, %29, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

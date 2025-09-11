@@ -2137,7 +2137,8 @@ define dso_local noundef range(i32 -122, 1) i32 @__dquot_alloc_space(ptr noundef
 
 .preheader14:                                     ; preds = %.preheader14.preheader, %.preheader14
   %37 = phi i64 [ %39, %.preheader14 ], [ 0, %.preheader14.preheader ]
-  %38 = getelementptr %struct.dquot_warn, ptr %4, i64 %37, i32 2
+  %.split = getelementptr %struct.dquot_warn, ptr %4, i64 %37
+  %38 = getelementptr i8, ptr %.split, i64 16
   store i16 0, ptr %38, align 8
   %39 = add nuw nsw i64 %37, 1
   %40 = icmp eq i64 %39, 3
@@ -2153,46 +2154,46 @@ define dso_local noundef range(i32 -122, 1) i32 @__dquot_alloc_space(ptr noundef
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @_raw_spin_lock(ptr noundef nonnull %48) #12
   %49 = icmp eq i32 %5, 0
-  br i1 %49, label %.split.us, label %.split
+  br i1 %49, label %.split17.us, label %.split17
 
-.split.us:                                        ; preds = %41, %58
+.split17.us:                                      ; preds = %41, %58
   %50 = phi i64 [ %59, %58 ], [ 0, %41 ]
   %51 = getelementptr ptr, ptr %46, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %58, label %54
 
-54:                                               ; preds = %.split.us
+54:                                               ; preds = %.split17.us
   %55 = getelementptr %struct.dquot_warn, ptr %4, i64 %50
   %56 = call fastcc i32 @dquot_add_space(ptr noundef nonnull %52, i64 noundef %1, i64 noundef 0, i32 noundef %2, ptr noundef %55), !range !51
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %.split18.us
+  br i1 %57, label %58, label %.split19.us
 
-58:                                               ; preds = %54, %.split.us
+58:                                               ; preds = %54, %.split17.us
   %59 = add nuw nsw i64 %50, 1
   %60 = icmp eq i64 %59, 3
-  br i1 %60, label %.split21.us, label %.split.us, !llvm.loop !52
+  br i1 %60, label %.split22.us, label %.split17.us, !llvm.loop !52
 
-.split:                                           ; preds = %41, %138
+.split17:                                         ; preds = %41, %138
   %61 = phi i64 [ %139, %138 ], [ 0, %41 ]
   %62 = getelementptr ptr, ptr %46, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %138, label %65
 
-65:                                               ; preds = %.split
+65:                                               ; preds = %.split17
   %66 = getelementptr %struct.dquot_warn, ptr %4, i64 %61
   %67 = call fastcc i32 @dquot_add_space(ptr noundef nonnull %63, i64 noundef 0, i64 noundef %1, i32 noundef %2, ptr noundef %66), !range !51
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %138, label %.split18.us
+  br i1 %68, label %138, label %.split19.us
 
-.split18.us:                                      ; preds = %65, %54
+.split19.us:                                      ; preds = %65, %54
   %.us-phi = phi i64 [ %50, %54 ], [ %61, %65 ]
-  %.us-phi19 = phi i32 [ %56, %54 ], [ %67, %65 ]
+  %.us-phi20 = phi i32 [ %56, %54 ], [ %67, %65 ]
   %69 = icmp eq i64 %.us-phi, 0
   br i1 %69, label %.loopexit12.sink.split, label %.preheader
 
-.preheader:                                       ; preds = %.split18.us
+.preheader:                                       ; preds = %.split19.us
   br i1 %49, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %105
@@ -2313,15 +2314,15 @@ define dso_local noundef range(i32 -122, 1) i32 @__dquot_alloc_space(ptr noundef
   %137 = icmp sgt i64 %107, 1
   br i1 %137, label %.preheader.split, label %.loopexit12.sink.split, !llvm.loop !53
 
-138:                                              ; preds = %65, %.split
+138:                                              ; preds = %65, %.split17
   %139 = add nuw nsw i64 %61, 1
   %140 = icmp eq i64 %139, 3
-  br i1 %140, label %.split21.us, label %.split, !llvm.loop !52
+  br i1 %140, label %.split22.us, label %.split17, !llvm.loop !52
 
-.split21.us:                                      ; preds = %138, %58
+.split22.us:                                      ; preds = %138, %58
   br i1 %49, label %152, label %141
 
-141:                                              ; preds = %.split21.us
+141:                                              ; preds = %.split22.us
   %142 = load ptr, ptr %11, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 56
   %144 = load ptr, ptr %143, align 8
@@ -2342,7 +2343,7 @@ define dso_local noundef range(i32 -122, 1) i32 @__dquot_alloc_space(ptr noundef
   store i64 %151, ptr %149, align 8
   br label %.loopexit12.sink.split
 
-152:                                              ; preds = %.split21.us
+152:                                              ; preds = %.split22.us
   tail call void @__inode_add_bytes(ptr noundef %0, i64 noundef %1) #12
   tail call void @_raw_spin_unlock(ptr noundef nonnull %48) #12
   br label %153
@@ -2369,8 +2370,8 @@ define dso_local noundef range(i32 -122, 1) i32 @__dquot_alloc_space(ptr noundef
   %168 = icmp eq i64 %167, 3
   br i1 %168, label %.loopexit12, label %153, !llvm.loop !57
 
-.loopexit12.sink.split:                           ; preds = %136, %105, %.split18.us, %.thread
-  %.ph = phi i32 [ 0, %.thread ], [ %.us-phi19, %.split18.us ], [ %.us-phi19, %105 ], [ %.us-phi19, %136 ]
+.loopexit12.sink.split:                           ; preds = %136, %105, %.split19.us, %.thread
+  %.ph = phi i32 [ 0, %.thread ], [ %.us-phi20, %.split19.us ], [ %.us-phi20, %105 ], [ %.us-phi20, %136 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %48) #12
   br label %.loopexit12
 
@@ -2661,7 +2662,8 @@ define dso_local noundef range(i32 -122, 1) i32 @dquot_alloc_inode(ptr noundef %
 
 .preheader12:                                     ; preds = %.preheader12.preheader, %.preheader12
   %17 = phi i64 [ %19, %.preheader12 ], [ 0, %.preheader12.preheader ]
-  %18 = getelementptr %struct.dquot_warn, ptr %2, i64 %17, i32 2
+  %.split = getelementptr %struct.dquot_warn, ptr %2, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 16
   store i16 0, ptr %18, align 8
   %19 = add nuw nsw i64 %17, 1
   %20 = icmp eq i64 %19, 3
@@ -3945,11 +3947,14 @@ define dso_local i32 @__dquot_transfer(ptr noundef %0, ptr noundef captures(none
 
 25:                                               ; preds = %25, %24
   %26 = phi i64 [ %30, %25 ], [ 0, %24 ]
-  %27 = getelementptr %struct.dquot_warn, ptr %6, i64 %26, i32 2
+  %.split = getelementptr %struct.dquot_warn, ptr %6, i64 %26
+  %27 = getelementptr i8, ptr %.split, i64 16
   store i16 0, ptr %27, align 8
-  %28 = getelementptr %struct.dquot_warn, ptr %7, i64 %26, i32 2
+  %.split33 = getelementptr %struct.dquot_warn, ptr %7, i64 %26
+  %28 = getelementptr i8, ptr %.split33, i64 16
   store i16 0, ptr %28, align 8
-  %29 = getelementptr %struct.dquot_warn, ptr %8, i64 %26, i32 2
+  %.split34 = getelementptr %struct.dquot_warn, ptr %8, i64 %26
+  %29 = getelementptr i8, ptr %.split34, i64 16
   store i16 0, ptr %29, align 8
   %30 = add nuw nsw i64 %26, 1
   %31 = icmp eq i64 %30, 3
@@ -4036,7 +4041,7 @@ define dso_local i32 @__dquot_transfer(ptr noundef %0, ptr noundef captures(none
   %88 = getelementptr %struct.dquot_warn, ptr %6, i64 %60
   %89 = call fastcc i32 @dquot_add_inodes(ptr noundef %86, i64 noundef %87, ptr noundef %88), !range !51
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %.loopexit45
+  br i1 %90, label %91, label %.loopexit47
 
 91:                                               ; preds = %76
   %92 = load ptr, ptr %61, align 8
@@ -4090,7 +4095,7 @@ define dso_local i32 @__dquot_transfer(ptr noundef %0, ptr noundef captures(none
   %121 = load ptr, ptr %61, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 96
   call void @_raw_spin_unlock(ptr noundef nonnull %122) #12
-  br label %.loopexit45
+  br label %.loopexit47
 
 123:                                              ; preds = %91, %64, %59
   %124 = add nuw nsw i64 %60, 1
@@ -4175,27 +4180,27 @@ select.unfold:                                    ; preds = %161, %158
   %179 = load volatile i64, ptr %138, align 8
   %180 = and i64 %179, 8
   %181 = icmp eq i64 %180, 0
-  br i1 %181, label %182, label %.thread35
+  br i1 %181, label %182, label %.thread37
 
 182:                                              ; preds = %.thread
   %183 = getelementptr inbounds nuw i8, ptr %133, i64 144
   %184 = load i64, ptr %183, align 8
   %185 = icmp sgt i64 %178, %184
-  br i1 %185, label %186, label %.thread35
+  br i1 %185, label %186, label %.thread37
 
 186:                                              ; preds = %182
   %187 = sub i64 %178, %58
   %188 = icmp sgt i64 %187, %184
-  br i1 %188, label %189, label %select.unfold33
+  br i1 %188, label %189, label %select.unfold35
 
 189:                                              ; preds = %186
   %190 = load i64, ptr %173, align 8
   %191 = icmp sge i64 %178, %190
   %192 = icmp slt i64 %187, %190
   %193 = and i1 %191, %192
-  br i1 %193, label %select.unfold33, label %.thread35
+  br i1 %193, label %select.unfold35, label %.thread37
 
-select.unfold33:                                  ; preds = %189, %186
+select.unfold35:                                  ; preds = %189, %186
   %194 = phi i16 [ 10, %186 ], [ 9, %189 ]
   %195 = getelementptr %struct.dquot_warn, ptr %8, i64 %127
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
@@ -4207,9 +4212,9 @@ select.unfold33:                                  ; preds = %189, %186
   %200 = getelementptr inbounds nuw i8, ptr %133, i64 112
   %201 = load i64, ptr %200, align 8
   store i64 %201, ptr %199, align 8
-  br label %.thread35
+  br label %.thread37
 
-.thread35:                                        ; preds = %189, %.thread, %182, %select.unfold33
+.thread37:                                        ; preds = %189, %.thread, %182, %select.unfold35
   %202 = getelementptr inbounds nuw i8, ptr %133, i64 104
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 256
@@ -4219,21 +4224,21 @@ select.unfold33:                                  ; preds = %189, %186
   %208 = getelementptr inbounds nuw i8, ptr %133, i64 184
   %209 = load i64, ptr %208, align 8
   %210 = icmp slt i64 %209, %137
-  %or.cond115 = select i1 %207, i1 %210, i1 false
-  br i1 %or.cond115, label %213, label %.thread35._crit_edge
+  %or.cond117 = select i1 %207, i1 %210, i1 false
+  br i1 %or.cond117, label %213, label %.thread37._crit_edge
 
-.thread35._crit_edge:                             ; preds = %.thread35
+.thread37._crit_edge:                             ; preds = %.thread37
   %211 = getelementptr inbounds nuw i8, ptr %133, i64 184
   %212 = sub i64 %209, %137
   store i64 %212, ptr %211, align 8
   br label %214
 
-213:                                              ; preds = %.thread35
+213:                                              ; preds = %.thread37
   store i64 0, ptr %208, align 8
   br label %214
 
-214:                                              ; preds = %213, %.thread35._crit_edge
-  %215 = phi i64 [ 0, %213 ], [ %212, %.thread35._crit_edge ]
+214:                                              ; preds = %213, %.thread37._crit_edge
+  %215 = phi i64 [ 0, %213 ], [ %212, %.thread37._crit_edge ]
   %216 = getelementptr inbounds nuw i8, ptr %133, i64 176
   %217 = load i64, ptr %216, align 8
   %218 = icmp sgt i64 %215, %217
@@ -4251,11 +4256,11 @@ select.unfold33:                                  ; preds = %189, %186
   %224 = load i32, ptr %223, align 8
   %225 = and i32 %224, 1024
   %226 = icmp eq i32 %225, 0
-  %.pre71 = load i64, ptr %174, align 8
-  %227 = icmp slt i64 %.pre71, %45
-  %or.cond116 = select i1 %226, i1 %227, i1 false
-  %228 = sub i64 %.pre71, %45
-  %229 = select i1 %or.cond116, i64 0, i64 %228
+  %.pre73 = load i64, ptr %174, align 8
+  %227 = icmp slt i64 %.pre73, %45
+  %or.cond118 = select i1 %226, i1 %227, i1 false
+  %228 = sub i64 %.pre73, %45
+  %229 = select i1 %or.cond118, i64 0, i64 %228
   store i64 %229, ptr %174, align 8
   %230 = load i64, ptr %176, align 8
   %231 = add i64 %230, %229
@@ -4347,16 +4352,16 @@ select.unfold33:                                  ; preds = %189, %186
 279:                                              ; preds = %271, %266
   %280 = add nuw nsw i64 %267, 1
   %281 = icmp eq i64 %280, 3
-  br i1 %281, label %.preheader41, label %266, !llvm.loop !57
+  br i1 %281, label %.preheader43, label %266, !llvm.loop !57
 
-.preheader41:                                     ; preds = %279, %294
+.preheader43:                                     ; preds = %279, %294
   %282 = phi i64 [ %295, %294 ], [ 0, %279 ]
   %283 = getelementptr ptr, ptr %1, i64 %282
   %284 = load ptr, ptr %283, align 8
   %285 = icmp eq ptr %284, null
   br i1 %285, label %294, label %286
 
-286:                                              ; preds = %.preheader41
+286:                                              ; preds = %.preheader43
   %287 = getelementptr inbounds nuw i8, ptr %284, i64 104
   %288 = load ptr, ptr %287, align 8
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 56
@@ -4366,12 +4371,12 @@ select.unfold33:                                  ; preds = %189, %186
   %293 = call i32 %292(ptr noundef nonnull %284) #12
   br label %294
 
-294:                                              ; preds = %286, %.preheader41
+294:                                              ; preds = %286, %.preheader43
   %295 = add nuw nsw i64 %282, 1
   %296 = icmp eq i64 %295, 3
-  br i1 %296, label %.preheader40, label %.preheader41, !llvm.loop !57
+  br i1 %296, label %.preheader42, label %.preheader43, !llvm.loop !57
 
-.preheader40:                                     ; preds = %294, %309
+.preheader42:                                     ; preds = %294, %309
   %297 = phi i64 [ %310, %309 ], [ 0, %294 ]
   %298 = getelementptr %struct.dquot_warn, ptr %6, i64 %297
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 16
@@ -4379,7 +4384,7 @@ select.unfold33:                                  ; preds = %189, %186
   %301 = icmp eq i16 %300, 0
   br i1 %301, label %309, label %302
 
-302:                                              ; preds = %.preheader40
+302:                                              ; preds = %.preheader42
   %303 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %304 = load ptr, ptr %298, align 8
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 16
@@ -4389,12 +4394,12 @@ select.unfold33:                                  ; preds = %189, %186
   call void @quota_send_warning(i64 %308, i32 noundef %306, i8 noundef zeroext %307) #12
   br label %309
 
-309:                                              ; preds = %302, %.preheader40
+309:                                              ; preds = %302, %.preheader42
   %310 = add nuw nsw i64 %297, 1
   %311 = icmp eq i64 %310, 3
-  br i1 %311, label %.preheader39, label %.preheader40, !llvm.loop !61
+  br i1 %311, label %.preheader41, label %.preheader42, !llvm.loop !61
 
-.preheader39:                                     ; preds = %309, %324
+.preheader41:                                     ; preds = %309, %324
   %312 = phi i64 [ %325, %324 ], [ 0, %309 ]
   %313 = getelementptr %struct.dquot_warn, ptr %7, i64 %312
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
@@ -4402,7 +4407,7 @@ select.unfold33:                                  ; preds = %189, %186
   %316 = icmp eq i16 %315, 0
   br i1 %316, label %324, label %317
 
-317:                                              ; preds = %.preheader39
+317:                                              ; preds = %.preheader41
   %318 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %319 = load ptr, ptr %313, align 8
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 16
@@ -4412,12 +4417,12 @@ select.unfold33:                                  ; preds = %189, %186
   call void @quota_send_warning(i64 %323, i32 noundef %321, i8 noundef zeroext %322) #12
   br label %324
 
-324:                                              ; preds = %317, %.preheader39
+324:                                              ; preds = %317, %.preheader41
   %325 = add nuw nsw i64 %312, 1
   %326 = icmp eq i64 %325, 3
-  br i1 %326, label %.preheader38, label %.preheader39, !llvm.loop !61
+  br i1 %326, label %.preheader40, label %.preheader41, !llvm.loop !61
 
-.preheader38:                                     ; preds = %324, %339
+.preheader40:                                     ; preds = %324, %339
   %327 = phi i64 [ %340, %339 ], [ 0, %324 ]
   %328 = getelementptr %struct.dquot_warn, ptr %8, i64 %327
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 16
@@ -4425,7 +4430,7 @@ select.unfold33:                                  ; preds = %189, %186
   %331 = icmp eq i16 %330, 0
   br i1 %331, label %339, label %332
 
-332:                                              ; preds = %.preheader38
+332:                                              ; preds = %.preheader40
   %333 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %334 = load ptr, ptr %328, align 8
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 16
@@ -4435,10 +4440,10 @@ select.unfold33:                                  ; preds = %189, %186
   call void @quota_send_warning(i64 %338, i32 noundef %336, i8 noundef zeroext %337) #12
   br label %339
 
-339:                                              ; preds = %332, %.preheader38
+339:                                              ; preds = %332, %.preheader40
   %340 = add nuw nsw i64 %327, 1
   %341 = icmp eq i64 %340, 3
-  br i1 %341, label %.preheader, label %.preheader38, !llvm.loop !61
+  br i1 %341, label %.preheader, label %.preheader40, !llvm.loop !61
 
 .preheader:                                       ; preds = %339, %350
   %342 = phi i64 [ %351, %350 ], [ 0, %339 ]
@@ -4459,20 +4464,20 @@ select.unfold33:                                  ; preds = %189, %186
   %352 = icmp eq i64 %351, 3
   br i1 %352, label %.loopexit, label %.preheader, !llvm.loop !78
 
-.loopexit45:                                      ; preds = %76, %119
+.loopexit47:                                      ; preds = %76, %119
   %353 = phi i32 [ %93, %119 ], [ %89, %76 ]
   %354 = icmp eq i64 %60, 0
-  br i1 %354, label %.loopexit44, label %.preheader43
+  br i1 %354, label %.loopexit46, label %.preheader45
 
-.preheader43:                                     ; preds = %.loopexit45, %433
-  %355 = phi i64 [ %356, %433 ], [ %60, %.loopexit45 ]
+.preheader45:                                     ; preds = %.loopexit47, %433
+  %355 = phi i64 [ %356, %433 ], [ %60, %.loopexit47 ]
   %356 = add nsw i64 %355, -1
   %357 = getelementptr i8, ptr %5, i64 %356
   %358 = load i8, ptr %357, align 1
   %359 = icmp eq i8 %358, 0
   br i1 %359, label %433, label %360
 
-360:                                              ; preds = %.preheader43
+360:                                              ; preds = %.preheader45
   %361 = getelementptr ptr, ptr %1, i64 %356
   %362 = load ptr, ptr %361, align 8
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 96
@@ -4488,10 +4493,10 @@ select.unfold33:                                  ; preds = %189, %186
   %372 = getelementptr inbounds nuw i8, ptr %364, i64 184
   %373 = load i64, ptr %372, align 8
   %374 = icmp slt i64 %373, %365
-  %or.cond117 = select i1 %371, i1 %374, i1 false
-  br i1 %or.cond117, label %377, label %._crit_edge63
+  %or.cond119 = select i1 %371, i1 %374, i1 false
+  br i1 %or.cond119, label %377, label %._crit_edge65
 
-._crit_edge63:                                    ; preds = %360
+._crit_edge65:                                    ; preds = %360
   %375 = getelementptr inbounds nuw i8, ptr %364, i64 184
   %376 = sub i64 %373, %365
   store i64 %376, ptr %375, align 8
@@ -4501,8 +4506,8 @@ select.unfold33:                                  ; preds = %189, %186
   store i64 0, ptr %372, align 8
   br label %378
 
-378:                                              ; preds = %377, %._crit_edge63
-  %379 = phi i64 [ 0, %377 ], [ %376, %._crit_edge63 ]
+378:                                              ; preds = %377, %._crit_edge65
+  %379 = phi i64 [ 0, %377 ], [ %376, %._crit_edge65 ]
   %380 = getelementptr inbounds nuw i8, ptr %364, i64 176
   %381 = load i64, ptr %380, align 8
   %382 = icmp sgt i64 %379, %381
@@ -4526,10 +4531,10 @@ select.unfold33:                                  ; preds = %189, %186
   %394 = getelementptr inbounds nuw i8, ptr %387, i64 152
   %395 = load i64, ptr %394, align 8
   %396 = icmp slt i64 %395, %45
-  %or.cond118 = select i1 %393, i1 %396, i1 false
-  br i1 %or.cond118, label %399, label %._crit_edge66
+  %or.cond120 = select i1 %393, i1 %396, i1 false
+  br i1 %or.cond120, label %399, label %._crit_edge68
 
-._crit_edge66:                                    ; preds = %385
+._crit_edge68:                                    ; preds = %385
   %397 = getelementptr inbounds nuw i8, ptr %387, i64 152
   %398 = sub i64 %395, %45
   store i64 %398, ptr %397, align 8
@@ -4539,8 +4544,8 @@ select.unfold33:                                  ; preds = %189, %186
   store i64 0, ptr %394, align 8
   br label %400
 
-400:                                              ; preds = %399, %._crit_edge66
-  %401 = phi i64 [ 0, %399 ], [ %398, %._crit_edge66 ]
+400:                                              ; preds = %399, %._crit_edge68
+  %401 = phi i64 [ 0, %399 ], [ %398, %._crit_edge68 ]
   %402 = getelementptr inbounds nuw i8, ptr %387, i64 160
   %403 = load i64, ptr %402, align 8
   %404 = add i64 %403, %401
@@ -4597,17 +4602,17 @@ select.unfold33:                                  ; preds = %189, %186
   call void @_raw_spin_unlock(ptr noundef nonnull %432) #12
   br label %433
 
-433:                                              ; preds = %429, %.preheader43
+433:                                              ; preds = %429, %.preheader45
   %434 = icmp sgt i64 %355, 1
-  br i1 %434, label %.preheader43, label %.loopexit44, !llvm.loop !79
+  br i1 %434, label %.preheader45, label %.loopexit46, !llvm.loop !79
 
-.loopexit44:                                      ; preds = %433, %.loopexit45
+.loopexit46:                                      ; preds = %433, %.loopexit47
   call void @_raw_spin_unlock(ptr noundef nonnull %33) #12
   call void @_raw_spin_unlock(ptr noundef nonnull @dq_data_lock) #12
   br label %435
 
-435:                                              ; preds = %448, %.loopexit44
-  %436 = phi i64 [ 0, %.loopexit44 ], [ %449, %448 ]
+435:                                              ; preds = %448, %.loopexit46
+  %436 = phi i64 [ 0, %.loopexit46 ], [ %449, %448 ]
   %437 = getelementptr %struct.dquot_warn, ptr %6, i64 %436
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 16
   %439 = load i16, ptr %438, align 8
@@ -6889,7 +6894,7 @@ define internal noundef i32 @dquot_init() #5 section ".init.text" align 16 {
 
 .preheader:                                       ; preds = %0, %7
   %10 = phi i64 [ %8, %7 ], [ 0, %0 ]
-  %11 = getelementptr %struct.dqstats, ptr @dqstats, i64 0, i32 1, i64 %10
+  %11 = getelementptr %struct.percpu_counter, ptr getelementptr inbounds nuw (i8, ptr @dqstats, i64 64), i64 %10
   %12 = tail call i32 @__percpu_counter_init_many(ptr noundef %11, i64 noundef 0, i32 noundef 3264, i32 noundef 1, ptr noundef nonnull @dquot_init.__key) #12
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %7, label %14
@@ -7334,7 +7339,7 @@ define internal i32 @do_proc_dqstats(ptr noundef %0, i32 noundef %1, ptr noundef
   %9 = sub i64 %8, ptrtoint (ptr @dqstats to i64)
   %10 = lshr exact i64 %9, 3
   %11 = and i64 %10, 4294967295
-  %12 = getelementptr %struct.dqstats, ptr @dqstats, i64 0, i32 1, i64 %11
+  %12 = getelementptr %struct.percpu_counter, ptr getelementptr inbounds nuw (i8, ptr @dqstats, i64 64), i64 %11
   %13 = tail call i64 @__percpu_counter_sum(ptr noundef %12) #12
   %14 = trunc i64 %10 to i32
   %15 = add i32 %14, -5

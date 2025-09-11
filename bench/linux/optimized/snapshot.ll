@@ -676,7 +676,8 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
 
 49:                                               ; preds = %48, %.loopexit98
   %50 = phi i64 [ 0, %.loopexit98 ], [ %23, %48 ]
-  %51 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %50, i64 5
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %50
+  %51 = getelementptr i8, ptr %.split, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %52, i32 noundef %18, i64 noundef 32) #23
   %54 = icmp eq ptr %53, null

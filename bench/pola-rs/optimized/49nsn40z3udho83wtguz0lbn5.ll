@@ -375,14 +375,13 @@ default.unreachable:                              ; preds = %40
   %186 = zext i32 %185 to i64
   %187 = icmp ugt i64 %180, %186
   tail call void @llvm.assume(i1 %187)
-  %188 = getelementptr inbounds nuw i8, ptr %176, i64 12
-  %189 = load i32, ptr %188, align 4, !alias.scope !17, !noalias !22, !noundef !3
-  %190 = zext i32 %189 to i64
-  %.idx33.i = mul nuw nsw i64 %186, 24
-  %191 = getelementptr inbounds nuw i8, ptr %178, i64 24
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %.idx33.i
+  %188 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %178, i64 %186
+  %189 = getelementptr inbounds nuw i8, ptr %176, i64 12
+  %190 = load i32, ptr %189, align 4, !alias.scope !17, !noalias !22, !noundef !3
+  %191 = zext i32 %190 to i64
+  %192 = getelementptr inbounds nuw i8, ptr %188, i64 24
   %193 = load ptr, ptr %192, align 8, !alias.scope !23, !noalias !26, !noundef !3
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 %190
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 %191
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17he9da911d7f955808E.exit.i
 
 195:                                              ; preds = %170
@@ -423,14 +422,13 @@ _ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17he9da911d7f95580
   %215 = zext i32 %214 to i64
   %216 = icmp ugt i64 %209, %215
   tail call void @llvm.assume(i1 %216)
-  %217 = getelementptr inbounds nuw i8, ptr %205, i64 12
-  %218 = load i32, ptr %217, align 4, !alias.scope !27, !noalias !32, !noundef !3
-  %219 = zext i32 %218 to i64
-  %.idx.i = mul nuw nsw i64 %215, 24
-  %220 = getelementptr inbounds nuw i8, ptr %207, i64 24
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %.idx.i
+  %217 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %207, i64 %215
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 12
+  %219 = load i32, ptr %218, align 4, !alias.scope !27, !noalias !32, !noundef !3
+  %220 = zext i32 %219 to i64
+  %221 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %222 = load ptr, ptr %221, align 8, !alias.scope !33, !noalias !36, !noundef !3
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 %219
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 %220
   br label %_ZN12polars_arrow5array7binview4view4View19get_slice_unchecked17he9da911d7f955808E.exit61.i
 
 224:                                              ; preds = %199

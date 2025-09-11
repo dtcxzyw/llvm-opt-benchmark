@@ -102,9 +102,9 @@ st_mult.exit:                                     ; preds = %11
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %20, %st_mult.exit ]
   %24 = getelementptr inbounds nuw %struct.chunk_info, ptr %23, i64 %22
   store i32 %1, ptr %24, align 8, !tbaa !15
-  %25 = getelementptr inbounds nuw %struct.chunk_info, ptr %23, i64 %22, i32 2
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %3, ptr %25, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw %struct.chunk_info, ptr %23, i64 %22, i32 1
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %2, ptr %26, align 8, !tbaa !19
   store i64 %.pre-phi, ptr %5, align 8, !tbaa !13
   ret void
@@ -143,7 +143,7 @@ define dso_local i32 @write_chunkfile(ptr noundef readonly captures(none) %0, pt
 hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_be32.exit
   %19 = phi ptr [ %.pre, %.lr.ph ], [ %26, %hashwrite_be32.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hashwrite_be32.exit ]
-  %.03965 = phi i64 [ %17, %.lr.ph ], [ %29, %hashwrite_be32.exit ]
+  %.03965 = phi i64 [ %17, %.lr.ph ], [ %30, %hashwrite_be32.exit ]
   %20 = load ptr, ptr %0, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw %struct.chunk_info, ptr %19, i64 %indvars.iv
   %22 = load i32, ptr %21, align 8, !tbaa !15
@@ -159,86 +159,88 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   call void @hashwrite(ptr noundef %24, ptr noundef nonnull %5, i32 noundef 8) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = load ptr, ptr %18, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw %struct.chunk_info, ptr %26, i64 %indvars.iv, i32 1
-  %28 = load i64, ptr %27, align 8, !tbaa !19
-  %29 = add i64 %28, %.03965
+  %27 = getelementptr inbounds nuw %struct.chunk_info, ptr %26, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load i64, ptr %28, align 8, !tbaa !19
+  %30 = add i64 %29, %.03965
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i64, ptr %12, align 8, !tbaa !13
-  %31 = icmp ugt i64 %30, %indvars.iv.next
-  br i1 %31, label %hashwrite_be32.exit, label %._crit_edge, !llvm.loop !32
+  %31 = load i64, ptr %12, align 8, !tbaa !13
+  %32 = icmp ugt i64 %31, %indvars.iv.next
+  br i1 %32, label %hashwrite_be32.exit, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %hashwrite_be32.exit, %2
-  %.039.lcssa = phi i64 [ %17, %2 ], [ %29, %hashwrite_be32.exit ]
-  %32 = load ptr, ptr %0, align 8, !tbaa !4
+  %.039.lcssa = phi i64 [ %17, %2 ], [ %30, %hashwrite_be32.exit ]
+  %33 = load ptr, ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !29
-  call void @hashwrite(ptr noundef %32, ptr noundef nonnull %4, i32 noundef 4) #11
+  call void @hashwrite(ptr noundef %33, ptr noundef nonnull %4, i32 noundef 4) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %33 = load ptr, ptr %0, align 8, !tbaa !4
+  %34 = load ptr, ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %34 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.039.lcssa) #13, !srcloc !30
-  store i64 %34, ptr %3, align 8, !tbaa !31
-  call void @hashwrite(ptr noundef %33, ptr noundef nonnull %3, i32 noundef 8) #11
+  %35 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.039.lcssa) #13, !srcloc !30
+  store i64 %35, ptr %3, align 8, !tbaa !31
+  call void @hashwrite(ptr noundef %34, ptr noundef nonnull %3, i32 noundef 8) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %35 = load i64, ptr %12, align 8, !tbaa !13
-  %.not73 = icmp eq i64 %35, 0
+  %36 = load i64, ptr %12, align 8, !tbaa !13
+  %.not73 = icmp eq i64 %36, 0
   br i1 %.not73, label %._crit_edge68, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %._crit_edge
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre81 = load ptr, ptr %0, align 8, !tbaa !4
   %.phi.trans.insert = getelementptr i8, ptr %.pre81, i64 8
   %.val49.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !20
   %.phi.trans.insert83 = getelementptr i8, ptr %.pre81, i64 2416
   %.val50.pre = load i64, ptr %.phi.trans.insert83, align 8, !tbaa !25
-  %.pre85 = load ptr, ptr %36, align 8, !tbaa !12
-  br label %40
+  %.pre85 = load ptr, ptr %37, align 8, !tbaa !12
+  br label %41
 
-37:                                               ; preds = %46
+38:                                               ; preds = %48
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %38 = load i64, ptr %12, align 8, !tbaa !13
-  %39 = icmp ugt i64 %38, %indvars.iv.next79
-  br i1 %39, label %40, label %._crit_edge68, !llvm.loop !34
+  %39 = load i64, ptr %12, align 8, !tbaa !13
+  %40 = icmp ugt i64 %39, %indvars.iv.next79
+  br i1 %40, label %41, label %._crit_edge68, !llvm.loop !34
 
-40:                                               ; preds = %.lr.ph67, %37
-  %41 = phi ptr [ %.pre85, %.lr.ph67 ], [ %55, %37 ]
-  %.val50 = phi i64 [ %.val50.pre, %.lr.ph67 ], [ %.val52, %37 ]
-  %.val49 = phi i32 [ %.val49.pre, %.lr.ph67 ], [ %.val51, %37 ]
-  %42 = phi ptr [ %.pre81, %.lr.ph67 ], [ %48, %37 ]
-  %indvars.iv78 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next79, %37 ]
-  %43 = getelementptr inbounds nuw %struct.chunk_info, ptr %41, i64 %indvars.iv78, i32 2
-  %44 = load ptr, ptr %43, align 8, !tbaa !18
-  %45 = call i32 %44(ptr noundef nonnull %42, ptr noundef %1) #11
-  %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %46, label %._crit_edge68
+41:                                               ; preds = %.lr.ph67, %38
+  %42 = phi ptr [ %.pre85, %.lr.ph67 ], [ %57, %38 ]
+  %.val50 = phi i64 [ %.val50.pre, %.lr.ph67 ], [ %.val52, %38 ]
+  %.val49 = phi i32 [ %.val49.pre, %.lr.ph67 ], [ %.val51, %38 ]
+  %43 = phi ptr [ %.pre81, %.lr.ph67 ], [ %50, %38 ]
+  %indvars.iv78 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next79, %38 ]
+  %44 = getelementptr inbounds nuw %struct.chunk_info, ptr %42, i64 %indvars.iv78
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %46 = load ptr, ptr %45, align 8, !tbaa !18
+  %47 = call i32 %46(ptr noundef nonnull %43, ptr noundef %1) #11
+  %.not = icmp eq i32 %47, 0
+  br i1 %.not, label %48, label %._crit_edge68
 
-46:                                               ; preds = %40
-  %47 = zext i32 %.val49 to i64
-  %48 = load ptr, ptr %0, align 8, !tbaa !4
-  %49 = getelementptr i8, ptr %48, i64 8
-  %.val51 = load i32, ptr %49, align 8, !tbaa !20
-  %50 = getelementptr i8, ptr %48, i64 2416
-  %.val52 = load i64, ptr %50, align 8, !tbaa !25
-  %51 = zext i32 %.val51 to i64
-  %52 = add i64 %.val50, %47
-  %53 = sub i64 %51, %52
-  %54 = add i64 %53, %.val52
-  %55 = load ptr, ptr %36, align 8, !tbaa !12
-  %56 = getelementptr inbounds nuw %struct.chunk_info, ptr %55, i64 %indvars.iv78
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !19
-  %.not46 = icmp eq i64 %54, %58
-  br i1 %.not46, label %37, label %59
+48:                                               ; preds = %41
+  %49 = zext i32 %.val49 to i64
+  %50 = load ptr, ptr %0, align 8, !tbaa !4
+  %51 = getelementptr i8, ptr %50, i64 8
+  %.val51 = load i32, ptr %51, align 8, !tbaa !20
+  %52 = getelementptr i8, ptr %50, i64 2416
+  %.val52 = load i64, ptr %52, align 8, !tbaa !25
+  %53 = zext i32 %.val51 to i64
+  %54 = add i64 %.val50, %49
+  %55 = sub i64 %53, %54
+  %56 = add i64 %55, %.val52
+  %57 = load ptr, ptr %37, align 8, !tbaa !12
+  %58 = getelementptr inbounds nuw %struct.chunk_info, ptr %57, i64 %indvars.iv78
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !19
+  %.not46 = icmp eq i64 %56, %60
+  br i1 %.not46, label %38, label %61
 
-59:                                               ; preds = %46
-  %60 = load i32, ptr %56, align 8, !tbaa !15
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull @.str.3, i64 noundef %58, i32 noundef %60, i64 noundef %54) #12
+61:                                               ; preds = %48
+  %62 = load i32, ptr %58, align 8, !tbaa !15
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull @.str.3, i64 noundef %60, i32 noundef %62, i64 noundef %56) #12
   unreachable
 
-._crit_edge68:                                    ; preds = %37, %40, %._crit_edge
-  %.1 = phi i32 [ 0, %._crit_edge ], [ %45, %40 ], [ 0, %37 ]
-  %61 = load ptr, ptr @the_repository, align 8, !tbaa !26
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %61) #11
+._crit_edge68:                                    ; preds = %38, %41, %._crit_edge
+  %.1 = phi i32 [ 0, %._crit_edge ], [ %47, %41 ], [ 0, %38 ]
+  %63 = load ptr, ptr @the_repository, align 8, !tbaa !26
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %63) #11
   ret i32 %.1
 }
 
@@ -487,10 +489,10 @@ _.exit77:                                         ; preds = %154, %156
   %159 = getelementptr inbounds nuw %struct.chunk_info, ptr %.pre, i64 %144
   store i32 %46, ptr %159, align 8, !tbaa !15
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 %84
-  %161 = getelementptr inbounds nuw %struct.chunk_info, ptr %.pre, i64 %144, i32 3
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 24
   store ptr %160, ptr %161, align 8, !tbaa !57
   %162 = sub i64 %136, %84
-  %163 = getelementptr inbounds nuw %struct.chunk_info, ptr %.pre, i64 %144, i32 1
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store i64 %162, ptr %163, align 8, !tbaa !19
   %164 = add nuw nsw i64 %144, 1
   store i64 %164, ptr %26, align 8, !tbaa !13

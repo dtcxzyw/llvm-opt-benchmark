@@ -1775,7 +1775,7 @@ read16_fft_bin.exit57.i:                          ; preds = %67, %.lr.ph18.i.i
   %86 = tail call nsz double @llvm.sin.f64(double %81)
   %87 = fmul nsz double %86, %80
   %88 = fptrunc nsz double %87 to float
-  %89 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %55, i64 %indvars.iv103.i, i32 1
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store float %88, ptr %89, align 4, !tbaa !113
   %indvars.iv.next106.i = add nsw i64 %indvars.iv105.i, -1
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
@@ -1861,7 +1861,7 @@ read8_fft_bin.exit53.i:                           ; preds = %118, %.lr.ph14.i.i
   %137 = tail call nsz double @llvm.sin.f64(double %132)
   %138 = fmul nsz double %137, %131
   %139 = fptrunc nsz double %138 to float
-  %140 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %106, i64 %indvars.iv94.i, i32 1
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store float %139, ptr %140, align 4, !tbaa !113
   %indvars.iv.next99.i = add nsw i64 %indvars.iv98.i, -1
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
@@ -1957,7 +1957,7 @@ read16_fft_bin.exit.i:                            ; preds = %175, %.lr.ph10.i.i
   %194 = tail call nsz double @llvm.sin.f64(double %189)
   %195 = fmul nsz double %194, %188
   %196 = fptrunc nsz double %195 to float
-  %197 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %166, i64 %indvars.iv87.i, i32 1
+  %197 = getelementptr inbounds nuw i8, ptr %193, i64 4
   store float %196, ptr %197, align 4, !tbaa !113
   %indvars.iv.next90.i = add nsw i64 %indvars.iv89.i, 1
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
@@ -2042,7 +2042,7 @@ read8_fft_bin.exit.i:                             ; preds = %229, %.lr.ph.i.i
   %248 = tail call nsz double @llvm.sin.f64(double %243)
   %249 = fmul nsz double %248, %242
   %250 = fptrunc nsz double %249 to float
-  %251 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %220, i64 %indvars.iv.i, i32 1
+  %251 = getelementptr inbounds nuw i8, ptr %247, i64 4
   store float %250, ptr %251, align 4, !tbaa !113
   %indvars.iv.next83.i = add nsw i64 %indvars.iv82.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2084,10 +2084,10 @@ read_fft_data.exit.i:                             ; preds = %read8_fft_bin.exit.
   %262 = load float, ptr %261, align 4, !tbaa !111
   %263 = getelementptr inbounds %struct.AVComplexFloat, ptr %.pre, i64 %indvars.iv113.i
   store float %262, ptr %263, align 4, !tbaa !111
-  %264 = getelementptr inbounds %struct.AVComplexFloat, ptr %.pre, i64 %indvars.iv.next116.i, i32 1
+  %264 = getelementptr inbounds nuw i8, ptr %261, i64 4
   %265 = load float, ptr %264, align 4, !tbaa !113
   %266 = fneg nsz float %265
-  %267 = getelementptr inbounds %struct.AVComplexFloat, ptr %.pre, i64 %indvars.iv113.i, i32 1
+  %267 = getelementptr inbounds nuw i8, ptr %263, i64 4
   store float %266, ptr %267, align 4, !tbaa !113
   %indvars.iv.next114.i = add nsw i64 %indvars.iv113.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next114.i to i32

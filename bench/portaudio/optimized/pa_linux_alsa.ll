@@ -1194,7 +1194,7 @@ SkipCardDetailsInName.exit:                       ; preds = %.preheader.i, %._cr
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %289
+  br label %290
 
 141:                                              ; preds = %34, %._crit_edge
   %.1165 = phi ptr [ %.2166.lcssa, %._crit_edge ], [ %.0164343, %34 ]
@@ -1241,7 +1241,7 @@ SkipCardDetailsInName.exit:                       ; preds = %.preheader.i, %._cr
 
 158:                                              ; preds = %152, %155
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.47) #25
-  br label %289
+  br label %290
 
 .thread255:                                       ; preds = %..thread255_crit_edge, %._crit_edge348
   %159 = phi ptr [ %.pre, %..thread255_crit_edge ], [ %147, %._crit_edge348 ]
@@ -1266,7 +1266,7 @@ SkipCardDetailsInName.exit:                       ; preds = %.preheader.i, %._cr
   %.4150357 = phi i64 [ %.0146.lcssa, %.lr.ph359 ], [ %.5151, %IgnorePlugin.exit.thread ]
   %.5159356 = phi i64 [ %.0154.lcssa, %.lr.ph359 ], [ %.6160, %IgnorePlugin.exit.thread ]
   %.5169355 = phi ptr [ %.0164.lcssa, %.lr.ph359 ], [ %.6170, %IgnorePlugin.exit.thread ]
-  %.0187354 = phi ptr [ %165, %.lr.ph359 ], [ %248, %IgnorePlugin.exit.thread ]
+  %.0187354 = phi ptr [ %165, %.lr.ph359 ], [ %249, %IgnorePlugin.exit.thread ]
   %.0188353 = phi ptr [ %164, %.lr.ph359 ], [ %.0187354, %IgnorePlugin.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @.str.49, ptr %9, align 8, !tbaa !114
@@ -1426,8 +1426,9 @@ IgnorePlugin.exit:                                ; preds = %195
 
 IgnorePlugin.exit.thread.sink.split:              ; preds = %233, %.loopexit
   %.sink = phi i32 [ 1, %.loopexit ], [ %242, %233 ]
-  %247 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.7171, i64 %.4150357, i32 4
-  store i32 %.sink, ptr %247, align 8, !tbaa !105
+  %247 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.7171, i64 %.4150357
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 24
+  store i32 %.sink, ptr %248, align 8, !tbaa !105
   br label %IgnorePlugin.exit.thread
 
 IgnorePlugin.exit.thread:                         ; preds = %196, %IgnorePlugin.exit.thread.sink.split, %192
@@ -1437,18 +1438,18 @@ IgnorePlugin.exit.thread:                         ; preds = %196, %IgnorePlugin.
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %248 = call ptr @snd_config_iterator_next(ptr noundef %.0187354) #25, !callees !112
-  %249 = load ptr, ptr %4, align 8, !tbaa !74
-  %250 = call ptr @snd_config_iterator_end(ptr noundef %249) #25, !callees !113
-  %.not210 = icmp eq ptr %.0187354, %250
+  %249 = call ptr @snd_config_iterator_next(ptr noundef %.0187354) #25, !callees !112
+  %250 = load ptr, ptr %4, align 8, !tbaa !74
+  %251 = call ptr @snd_config_iterator_end(ptr noundef %250) #25, !callees !113
+  %.not210 = icmp eq ptr %.0187354, %251
   br i1 %.not210, label %.thread277, label %169, !llvm.loop !120
 
 .sink.split:                                      ; preds = %186, %181, %174
   %.lcssa430.sink444 = phi i32 [ %171, %174 ], [ %179, %181 ], [ %184, %186 ]
   %.str.54.sink.ph = phi ptr [ @.str.51, %174 ], [ @.str.52, %181 ], [ @.str.53, %186 ]
-  %251 = sext i32 %.lcssa430.sink444 to i64
-  %252 = call ptr @snd_strerror(i32 noundef %.lcssa430.sink444) #25
-  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 8, i64 noundef %251, ptr noundef %252) #25
+  %252 = sext i32 %.lcssa430.sink444 to i64
+  %253 = call ptr @snd_strerror(i32 noundef %.lcssa430.sink444) #25
+  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 8, i64 noundef %252, ptr noundef %253) #25
   br label %.loopexit445
 
 .loopexit445:                                     ; preds = %220, %206, %IgnorePlugin.exit, %.sink.split, %186, %181, %174
@@ -1458,99 +1459,99 @@ IgnorePlugin.exit.thread:                         ; preds = %196, %IgnorePlugin.
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %289
+  br label %290
 
 .thread277:                                       ; preds = %IgnorePlugin.exit.thread, %162, %.thread255
   %.9173 = phi ptr [ %.0164.lcssa, %.thread255 ], [ %.0164.lcssa, %162 ], [ %.6170, %IgnorePlugin.exit.thread ]
   %.7153 = phi i64 [ %.0146.lcssa, %.thread255 ], [ %.0146.lcssa, %162 ], [ %.5151, %IgnorePlugin.exit.thread ]
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %254 = load ptr, ptr %253, align 8, !tbaa !10
-  %255 = shl i64 %.7153, 3
-  %256 = call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %254, i64 noundef %255) #25
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %256, ptr %257, align 8, !tbaa !36
-  %258 = icmp eq ptr %256, null
-  br i1 %258, label %259, label %260, !prof !9
-
-259:                                              ; preds = %.thread277
-  call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.57) #25
-  br label %289
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %255 = load ptr, ptr %254, align 8, !tbaa !10
+  %256 = shl i64 %.7153, 3
+  %257 = call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %255, i64 noundef %256) #25
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %257, ptr %258, align 8, !tbaa !36
+  %259 = icmp eq ptr %257, null
+  br i1 %259, label %260, label %261, !prof !9
 
 260:                                              ; preds = %.thread277
-  %261 = load ptr, ptr %253, align 8, !tbaa !10
-  %262 = mul i64 %.7153, 96
-  %263 = call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %261, i64 noundef %262) #25
-  %264 = icmp eq ptr %263, null
-  br i1 %264, label %265, label %266, !prof !9
+  call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.57) #25
+  br label %290
 
-265:                                              ; preds = %260
+261:                                              ; preds = %.thread277
+  %262 = load ptr, ptr %254, align 8, !tbaa !10
+  %263 = mul i64 %.7153, 96
+  %264 = call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %262, i64 noundef %263) #25
+  %265 = icmp eq ptr %264, null
+  br i1 %265, label %266, label %267, !prof !9
+
+266:                                              ; preds = %261
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.58) #25
-  br label %289
+  br label %290
 
-266:                                              ; preds = %260
+267:                                              ; preds = %261
   store i32 0, ptr %3, align 4, !tbaa !3
   %.not368 = icmp eq i64 %.7153, 0
   br i1 %.not368, label %._crit_edge367, label %.lr.ph364
 
-.lr.ph364:                                        ; preds = %266, %275
-  %.0162362 = phi i64 [ %276, %275 ], [ 0, %266 ]
-  %267 = getelementptr inbounds nuw %struct.PaAlsaDeviceInfo, ptr %263, i64 %.0162362
-  %268 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.9173, i64 %.0162362
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
-  %270 = load ptr, ptr %269, align 8, !tbaa !102
-  %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %270, ptr noundef nonnull dereferenceable(5) @.str.6) #26
-  %.not220 = icmp eq i32 %271, 0
-  br i1 %.not220, label %275, label %272
+.lr.ph364:                                        ; preds = %267, %276
+  %.0162362 = phi i64 [ %277, %276 ], [ 0, %267 ]
+  %268 = getelementptr inbounds nuw %struct.PaAlsaDeviceInfo, ptr %264, i64 %.0162362
+  %269 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.9173, i64 %.0162362
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
+  %271 = load ptr, ptr %270, align 8, !tbaa !102
+  %272 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %271, ptr noundef nonnull dereferenceable(5) @.str.6) #26
+  %.not220 = icmp eq i32 %272, 0
+  br i1 %.not220, label %276, label %273
 
-272:                                              ; preds = %.lr.ph364
-  %273 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %270, ptr noundef nonnull dereferenceable(8) @.str.59) #26
-  %.not221 = icmp eq i32 %273, 0
-  br i1 %.not221, label %275, label %274
+273:                                              ; preds = %.lr.ph364
+  %274 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %271, ptr noundef nonnull dereferenceable(8) @.str.59) #26
+  %.not221 = icmp eq i32 %274, 0
+  br i1 %.not221, label %276, label %275
 
-274:                                              ; preds = %272
-  call fastcc void @FillInDevInfo(ptr noundef %0, ptr noundef nonnull %268, i32 noundef %.0174, ptr noundef %267, ptr noundef %3)
+275:                                              ; preds = %273
+  call fastcc void @FillInDevInfo(ptr noundef %0, ptr noundef nonnull %269, i32 noundef %.0174, ptr noundef %268, ptr noundef %3)
   store i32 0, ptr @paUtilErr_, align 4, !tbaa !3
-  br label %275
+  br label %276
 
-275:                                              ; preds = %274, %272, %.lr.ph364
-  %276 = add nuw i64 %.0162362, 1
-  %exitcond.not = icmp eq i64 %276, %.7153
+276:                                              ; preds = %275, %273, %.lr.ph364
+  %277 = add nuw i64 %.0162362, 1
+  %exitcond.not = icmp eq i64 %277, %.7153
   br i1 %exitcond.not, label %.lr.ph366, label %.lr.ph364, !llvm.loop !121
 
-.lr.ph366:                                        ; preds = %275, %285
-  %.1163365 = phi i64 [ %286, %285 ], [ 0, %275 ]
-  %277 = getelementptr inbounds nuw %struct.PaAlsaDeviceInfo, ptr %263, i64 %.1163365
-  %278 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.9173, i64 %.1163365
-  %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
-  %280 = load ptr, ptr %279, align 8, !tbaa !102
-  %281 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %280, ptr noundef nonnull dereferenceable(5) @.str.6) #26
-  %.not218 = icmp eq i32 %281, 0
-  br i1 %.not218, label %284, label %282
+.lr.ph366:                                        ; preds = %276, %286
+  %.1163365 = phi i64 [ %287, %286 ], [ 0, %276 ]
+  %278 = getelementptr inbounds nuw %struct.PaAlsaDeviceInfo, ptr %264, i64 %.1163365
+  %279 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.9173, i64 %.1163365
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
+  %281 = load ptr, ptr %280, align 8, !tbaa !102
+  %282 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %281, ptr noundef nonnull dereferenceable(5) @.str.6) #26
+  %.not218 = icmp eq i32 %282, 0
+  br i1 %.not218, label %285, label %283
 
-282:                                              ; preds = %.lr.ph366
-  %283 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %280, ptr noundef nonnull dereferenceable(8) @.str.59) #26
-  %.not219 = icmp eq i32 %283, 0
-  br i1 %.not219, label %284, label %285
+283:                                              ; preds = %.lr.ph366
+  %284 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %281, ptr noundef nonnull dereferenceable(8) @.str.59) #26
+  %.not219 = icmp eq i32 %284, 0
+  br i1 %.not219, label %285, label %286
 
-284:                                              ; preds = %.lr.ph366, %282
-  call fastcc void @FillInDevInfo(ptr noundef %0, ptr noundef nonnull %278, i32 noundef %.0174, ptr noundef %277, ptr noundef %3)
+285:                                              ; preds = %.lr.ph366, %283
+  call fastcc void @FillInDevInfo(ptr noundef %0, ptr noundef nonnull %279, i32 noundef %.0174, ptr noundef %278, ptr noundef %3)
   store i32 0, ptr @paUtilErr_, align 4, !tbaa !3
-  br label %285
+  br label %286
 
-285:                                              ; preds = %284, %282
-  %286 = add nuw i64 %.1163365, 1
-  %exitcond390.not = icmp eq i64 %286, %.7153
+286:                                              ; preds = %285, %283
+  %287 = add nuw i64 %.1163365, 1
+  %exitcond390.not = icmp eq i64 %287, %.7153
   br i1 %exitcond390.not, label %._crit_edge367, label %.lr.ph366, !llvm.loop !122
 
-._crit_edge367:                                   ; preds = %285, %266
+._crit_edge367:                                   ; preds = %286, %267
   call void @free(ptr noundef %.9173) #25
-  %287 = load i32, ptr %3, align 4, !tbaa !3
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %287, ptr %288, align 8, !tbaa !123
-  br label %289
+  %288 = load i32, ptr %3, align 4, !tbaa !3
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %288, ptr %289, align 8, !tbaa !123
+  br label %290
 
-289:                                              ; preds = %.loopexit445, %158, %.thread249, %._crit_edge367, %265, %259
-  %.0 = phi i32 [ -9992, %259 ], [ -9992, %265 ], [ 0, %._crit_edge367 ], [ %.8.ph, %.loopexit445 ], [ -9999, %158 ], [ %.1.ph, %.thread249 ]
+290:                                              ; preds = %.loopexit445, %158, %.thread249, %._crit_edge367, %266, %260
+  %.0 = phi i32 [ -9992, %260 ], [ -9992, %266 ], [ 0, %._crit_edge367 ], [ %.8.ph, %.loopexit445 ], [ -9999, %158 ], [ %.1.ph, %.thread249 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -209,11 +209,11 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 41:                                               ; preds = %39
   %42 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5, i32 noundef 20) #11
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.thread, label %..thread26_crit_edge, !prof !10
+  br i1 %43, label %.thread, label %..thread27_crit_edge, !prof !10
 
-..thread26_crit_edge:                             ; preds = %41
-  %.pre82 = load i32, ptr %34, align 8
-  br label %.thread26
+..thread27_crit_edge:                             ; preds = %41
+  %.pre83 = load i32, ptr %34, align 8
+  br label %.thread27
 
 44:                                               ; preds = %.critedge
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -221,11 +221,11 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %47 = sext i32 %1 to i64
   %48 = getelementptr i8, ptr %46, i64 %47
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread, label %.thread26
+  br i1 %49, label %.thread, label %.thread27
 
-.thread26:                                        ; preds = %..thread26_crit_edge, %44
-  %50 = phi i32 [ %35, %44 ], [ %.pre82, %..thread26_crit_edge ]
-  %51 = phi ptr [ %48, %44 ], [ %5, %..thread26_crit_edge ]
+.thread27:                                        ; preds = %..thread27_crit_edge, %44
+  %50 = phi i32 [ %35, %44 ], [ %.pre83, %..thread27_crit_edge ]
+  %51 = phi ptr [ %48, %44 ], [ %5, %..thread27_crit_edge ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %53 = load i16, ptr %52, align 4
   %54 = lshr i16 %53, 2
@@ -235,7 +235,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %58 = icmp ult i32 %57, %50
   br i1 %58, label %59, label %.thread
 
-59:                                               ; preds = %.thread26
+59:                                               ; preds = %.thread27
   %60 = sub nuw i32 %50, %57
   call void @_raw_spin_lock_bh(ptr noundef nonnull @nf_ftp_lock) #11
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -256,7 +256,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %76 = getelementptr i16, ptr %74, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = icmp eq i16 %77, 0
-  br i1 %78, label %.loopexit45, label %79
+  br i1 %78, label %.loopexit46, label %79
 
 79:                                               ; preds = %59
   %80 = zext i16 %77 to i64
@@ -266,29 +266,29 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 81:                                               ; preds = %84
   %82 = add nuw nsw i64 %85, 1
   %83 = icmp eq i64 %82, %80
-  br i1 %83, label %.loopexit45, label %84, !llvm.loop !11
+  br i1 %83, label %.loopexit46, label %84, !llvm.loop !11
 
 84:                                               ; preds = %81, %79
   %85 = phi i64 [ 0, %79 ], [ %82, %81 ]
   %86 = getelementptr i32, ptr %.split, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, %72
-  br i1 %88, label %.loopexit44, label %81
+  br i1 %88, label %.loopexit45, label %81
 
-.loopexit45:                                      ; preds = %81, %59
+.loopexit46:                                      ; preds = %81, %59
   %89 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %90 = getelementptr i16, ptr %89, i64 %75
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 1
   %93 = icmp eq i16 %92, 0
-  br i1 %93, label %.thread32, label %94, !prof !9
+  br i1 %93, label %.thread33, label %94, !prof !9
 
-94:                                               ; preds = %.loopexit45
+94:                                               ; preds = %.loopexit46
   %95 = and i16 %91, -2
   store i16 %95, ptr %90, align 2
-  br label %.loopexit44
+  br label %.loopexit45
 
-.loopexit44:                                      ; preds = %84, %94
+.loopexit45:                                      ; preds = %84, %94
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 50
   %97 = load i16, ptr %96, align 2
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 18
@@ -301,33 +301,33 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %102 = add nsw i64 %101, -1
   %.split19 = getelementptr [2 x %struct.ftp_search], ptr @search, i64 %75
   %103 = icmp ugt i32 %60, 4
-  br i1 %103, label %.split67.us, label %.split67
+  br i1 %103, label %.split68.us, label %.split68
 
-.split67.us:                                      ; preds = %.loopexit44, %.thread30.us
-  %104 = phi i1 [ false, %.thread30.us ], [ true, %.loopexit44 ]
-  %105 = phi i64 [ 1, %.thread30.us ], [ 0, %.loopexit44 ]
+.split68.us:                                      ; preds = %.loopexit45, %.thread31.us
+  %104 = phi i1 [ false, %.thread31.us ], [ true, %.loopexit45 ]
+  %105 = phi i64 [ 1, %.thread31.us ], [ 0, %.loopexit45 ]
   %106 = getelementptr %struct.ftp_search, ptr %.split19, i64 %105
   %107 = load ptr, ptr %106, align 16
   %108 = call i32 @strncasecmp(ptr noundef %64, ptr noundef %107, i64 noundef 4)
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %.split69.us, label %.thread30.us
+  br i1 %109, label %.split70.us, label %.thread31.us
 
-.thread30.us:                                     ; preds = %.split67.us
-  br i1 %104, label %.split67.us, label %.thread32, !llvm.loop !12
+.thread31.us:                                     ; preds = %.split68.us
+  br i1 %104, label %.split68.us, label %.thread33, !llvm.loop !12
 
-.thread30:                                        ; preds = %.split67
-  br i1 %110, label %.split67, label %.thread32, !llvm.loop !12
+.thread31:                                        ; preds = %.split68
+  br i1 %110, label %.split68, label %.thread33, !llvm.loop !12
 
-.split67:                                         ; preds = %.loopexit44, %.thread30
-  %110 = phi i1 [ false, %.thread30 ], [ true, %.loopexit44 ]
-  %111 = phi i64 [ 1, %.thread30 ], [ 0, %.loopexit44 ]
+.split68:                                         ; preds = %.loopexit45, %.thread31
+  %110 = phi i1 [ false, %.thread31 ], [ true, %.loopexit45 ]
+  %111 = phi i64 [ 1, %.thread31 ], [ 0, %.loopexit45 ]
   %112 = getelementptr %struct.ftp_search, ptr %.split19, i64 %111
   %113 = load ptr, ptr %112, align 16
   %114 = call i32 @strncasecmp(ptr noundef %64, ptr noundef %113, i64 noundef %101)
-  %.not39 = icmp eq i32 %114, 0
-  br i1 %.not39, label %.thread31, label %.thread30
+  %.not40 = icmp eq i32 %114, 0
+  br i1 %.not40, label %.thread32, label %.thread31
 
-.split69.us:                                      ; preds = %.split67.us
+.split70.us:                                      ; preds = %.split68.us
   %115 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %116 = load i8, ptr %115, align 16
   %117 = getelementptr inbounds nuw i8, ptr %106, i64 17
@@ -335,46 +335,46 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %119 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq i8 %116, 0
-  br i1 %121, label %.loopexit42, label %122
+  br i1 %121, label %.loopexit43, label %122
 
-122:                                              ; preds = %.split69.us
+122:                                              ; preds = %.split70.us
   %123 = getelementptr i8, ptr %64, i64 4
   %124 = load i8, ptr %123, align 1
   %125 = icmp eq i8 %124, %116
-  br i1 %125, label %.loopexit42, label %.preheader
+  br i1 %125, label %.loopexit43, label %.preheader
 
 .preheader:                                       ; preds = %122, %128
   %126 = phi i64 [ %129, %128 ], [ 4, %122 ]
   %127 = icmp eq i64 %126, %102
-  br i1 %127, label %.thread31, label %128
+  br i1 %127, label %.thread32, label %128
 
 128:                                              ; preds = %.preheader
   %129 = add i64 %126, 1
   %130 = getelementptr i8, ptr %64, i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = icmp eq i8 %131, %116
-  br i1 %132, label %.loopexit42.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %132, label %.loopexit43.loopexit, label %.preheader, !llvm.loop !13
 
-.loopexit42.loopexit:                             ; preds = %128
+.loopexit43.loopexit:                             ; preds = %128
   %133 = add i64 %126, 2
-  br label %.loopexit42
+  br label %.loopexit43
 
-.loopexit42:                                      ; preds = %122, %.loopexit42.loopexit, %.split69.us
-  %134 = phi i64 [ 4, %.split69.us ], [ 5, %122 ], [ %133, %.loopexit42.loopexit ]
+.loopexit43:                                      ; preds = %122, %.loopexit43.loopexit, %.split70.us
+  %134 = phi i64 [ 4, %.split70.us ], [ 5, %122 ], [ %133, %.loopexit43.loopexit ]
   %135 = trunc i64 %134 to i32
   store i32 %135, ptr %6, align 4
   %136 = getelementptr i8, ptr %64, i64 %134
   %137 = sub i64 %101, %134
   %138 = call i32 %120(ptr noundef %136, i64 noundef %137, ptr noundef nonnull %7, i8 noundef zeroext %118, ptr noundef nonnull %6) #11
   %139 = icmp eq i32 %138, 0
-  br i1 %139, label %.thread31, label %141
+  br i1 %139, label %.thread32, label %141
 
-.thread31:                                        ; preds = %.split67, %.preheader, %.loopexit42
-  %140 = phi ptr [ %107, %.loopexit42 ], [ %107, %.preheader ], [ %113, %.split67 ]
+.thread32:                                        ; preds = %.split68, %.preheader, %.loopexit43
+  %140 = phi ptr [ %107, %.loopexit43 ], [ %107, %.preheader ], [ %113, %.split68 ]
   call void (ptr, ptr, ptr, ...) @nf_ct_helper_log(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %140) #11
   br label %.loopexit
 
-141:                                              ; preds = %.loopexit42
+141:                                              ; preds = %.loopexit43
   %142 = call ptr @nf_ct_expect_alloc(ptr noundef %2) #11
   %143 = icmp eq ptr %142, null
   br i1 %143, label %144, label %145
@@ -419,7 +419,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %167, label %173, label %168
 
 168:                                              ; preds = %163
-  %169 = getelementptr %struct.ftp_search, ptr %.split19, i64 %105, i32 4
+  %169 = getelementptr i8, ptr %106, i64 20
   %170 = load i32, ptr %169, align 4
   %171 = load i32, ptr %6, align 4
   %172 = call i32 %161(ptr noundef %0, i32 noundef %3, i32 noundef %170, i32 noundef %1, i32 noundef %171, i32 noundef %138, ptr noundef nonnull %142) #11
@@ -437,20 +437,20 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 177:                                              ; preds = %176, %173, %168, %154
   %178 = phi i32 [ %172, %168 ], [ 0, %176 ], [ 1, %154 ], [ 1, %173 ]
   call void @nf_ct_expect_put(ptr noundef nonnull %142) #11
-  br label %.thread32
+  br label %.thread33
 
-.thread32:                                        ; preds = %.thread30, %.thread30.us, %177, %.loopexit45
-  %179 = phi i32 [ %178, %177 ], [ 1, %.loopexit45 ], [ 1, %.thread30.us ], [ 1, %.thread30 ]
+.thread33:                                        ; preds = %.thread31, %.thread31.us, %177, %.loopexit46
+  %179 = phi i32 [ %178, %177 ], [ 1, %.loopexit46 ], [ 1, %.thread31.us ], [ 1, %.thread31 ]
   br i1 %69, label %180, label %.loopexit
 
-180:                                              ; preds = %.thread32
+180:                                              ; preds = %.thread33
   %181 = load i16, ptr %76, align 2
   %182 = icmp eq i16 %181, 0
-  br i1 %182, label %.thread38, label %183
+  br i1 %182, label %.thread39, label %183
 
 183:                                              ; preds = %180
   %184 = zext i16 %181 to i64
-  %.split23 = getelementptr [2 x i32], ptr %26, i64 %75
+  %.split24 = getelementptr [2 x i32], ptr %26, i64 %75
   br label %188
 
 185:                                              ; preds = %188
@@ -460,32 +460,32 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 188:                                              ; preds = %185, %183
   %189 = phi i64 [ 0, %183 ], [ %186, %185 ]
-  %190 = getelementptr i32, ptr %.split23, i64 %189
+  %190 = getelementptr i32, ptr %.split24, i64 %189
   %191 = load i32, ptr %190, align 4
   %192 = icmp eq i32 %191, %73
   br i1 %192, label %.loopexit, label %185
 
 193:                                              ; preds = %185
   %194 = icmp eq i16 %181, 1
-  br i1 %194, label %.thread38, label %197
+  br i1 %194, label %.thread39, label %197
 
-.thread38:                                        ; preds = %180, %193
+.thread39:                                        ; preds = %180, %193
   %.pre-phi = phi i64 [ 1, %193 ], [ 0, %180 ]
   %195 = add nuw nsw i16 %181, 1
   store i16 %195, ptr %76, align 2
-  %.split25 = getelementptr [2 x i32], ptr %26, i64 %75
-  %196 = getelementptr i32, ptr %.split25, i64 %.pre-phi
+  %.split26 = getelementptr [2 x i32], ptr %26, i64 %75
+  %196 = getelementptr i32, ptr %.split26, i64 %.pre-phi
   store i32 %73, ptr %196, align 4
   br label %.loopexit
 
 197:                                              ; preds = %193
-  %198 = load i32, ptr %.split23, align 4
-  %199 = getelementptr i8, ptr %.split23, i64 4
+  %198 = load i32, ptr %.split24, align 4
+  %199 = getelementptr i8, ptr %.split24, i64 4
   %200 = load i32, ptr %199, align 4
   %201 = sub i32 %198, %200
   %202 = icmp sgt i32 %201, -1
   %203 = zext i1 %202 to i64
-  %204 = getelementptr i32, ptr %.split23, i64 %203
+  %204 = getelementptr i32, ptr %.split24, i64 %203
   %205 = load i32, ptr %204, align 4
   %206 = sub i32 %205, %73
   %207 = icmp slt i32 %206, 0
@@ -495,13 +495,13 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   store i32 %73, ptr %204, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %188, %208, %197, %.thread38, %.thread32, %144, %.thread31
-  %209 = phi i32 [ 0, %.thread31 ], [ %179, %.thread32 ], [ 0, %144 ], [ %179, %.thread38 ], [ %179, %197 ], [ %179, %208 ], [ %179, %188 ]
+.loopexit:                                        ; preds = %188, %208, %197, %.thread39, %.thread33, %144, %.thread32
+  %209 = phi i32 [ 0, %.thread32 ], [ %179, %.thread33 ], [ 0, %144 ], [ %179, %.thread39 ], [ %179, %197 ], [ %179, %208 ], [ %179, %188 ]
   call void @_raw_spin_unlock_bh(ptr noundef nonnull @nf_ftp_lock) #11
   br label %.thread
 
-.thread:                                          ; preds = %41, %39, %.loopexit, %.thread26, %44, %31, %24
-  %210 = phi i32 [ %209, %.loopexit ], [ 1, %24 ], [ 0, %31 ], [ 1, %44 ], [ 1, %.thread26 ], [ 1, %39 ], [ 1, %41 ]
+.thread:                                          ; preds = %41, %39, %.loopexit, %.thread27, %44, %31, %24
+  %210 = phi i32 [ %209, %.loopexit ], [ 1, %24 ], [ 0, %31 ], [ 1, %44 ], [ 1, %.thread27 ], [ 1, %39 ], [ 1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

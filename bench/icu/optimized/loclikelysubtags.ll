@@ -3998,7 +3998,7 @@ define noundef i32 @_ZNK6icu_7713LikelySubtags13compareLikelyERKNS_3LSRES3_i(ptr
   %6 = load ptr, ptr %2, align 8, !tbaa !90
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #20
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %58
+  br i1 %.not, label %8, label %60
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4007,7 +4007,7 @@ define noundef i32 @_ZNK6icu_7713LikelySubtags13compareLikelyERKNS_3LSRES3_i(ptr
   %12 = load ptr, ptr %11, align 8, !tbaa !91
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %12) #20
   %.not35 = icmp eq i32 %13, 0
-  br i1 %.not35, label %32, label %14
+  br i1 %.not35, label %33, label %14
 
 14:                                               ; preds = %8
   %15 = and i32 %3, -2147483646
@@ -4031,62 +4031,64 @@ define noundef i32 @_ZNK6icu_7713LikelySubtags13compareLikelyERKNS_3LSRES3_i(ptr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %24 = load ptr, ptr %23, align 8, !tbaa !117
   %25 = sext i32 %.032 to i64
-  %26 = getelementptr inbounds %"struct.icu_77::LSR", ptr %24, i64 %25, i32 1
-  %27 = load ptr, ptr %26, align 8, !tbaa !91
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %27) #20
-  %29 = icmp eq i32 %28, 0
-  %30 = or i32 %.030, 1
-  %31 = and i32 %.030, -4
-  %.1 = select i1 %29, i32 %30, i32 %31
-  br label %58
+  %26 = getelementptr inbounds %"struct.icu_77::LSR", ptr %24, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !91
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %28) #20
+  %30 = icmp eq i32 %29, 0
+  %31 = or i32 %.030, 1
+  %32 = and i32 %.030, -4
+  %.1 = select i1 %30, i32 %31, i32 %32
+  br label %60
 
-32:                                               ; preds = %8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !92
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !92
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) %36) #20
-  %.not36 = icmp eq i32 %37, 0
-  br i1 %.not36, label %56, label %38
+33:                                               ; preds = %8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !92
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %37 = load ptr, ptr %36, align 8, !tbaa !92
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %37) #20
+  %.not36 = icmp eq i32 %38, 0
+  br i1 %.not36, label %58, label %39
 
-38:                                               ; preds = %32
-  %39 = and i32 %3, -2147483646
-  %or.cond39.not = icmp eq i32 %39, 2
-  br i1 %or.cond39.not, label %40, label %43
+39:                                               ; preds = %33
+  %40 = and i32 %3, -2147483646
+  %or.cond39.not = icmp eq i32 %40, 2
+  br i1 %or.cond39.not, label %41, label %44
 
-40:                                               ; preds = %38
-  %41 = lshr i32 %3, 2
-  %42 = and i32 %3, 2147483646
-  br label %47
+41:                                               ; preds = %39
+  %42 = lshr i32 %3, 2
+  %43 = and i32 %3, 2147483646
+  br label %48
 
-43:                                               ; preds = %38
-  %44 = tail call noundef i32 @_ZNK6icu_7713LikelySubtags14getLikelyIndexEPKcS2_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull %5, ptr noundef nonnull %34)
-  %45 = shl i32 %44, 2
-  %46 = or disjoint i32 %45, 2
-  %.pre40 = load ptr, ptr %33, align 8, !tbaa !92
-  br label %47
+44:                                               ; preds = %39
+  %45 = tail call noundef i32 @_ZNK6icu_7713LikelySubtags14getLikelyIndexEPKcS2_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull %5, ptr noundef nonnull %35)
+  %46 = shl i32 %45, 2
+  %47 = or disjoint i32 %46, 2
+  %.pre40 = load ptr, ptr %34, align 8, !tbaa !92
+  br label %48
 
-47:                                               ; preds = %43, %40
-  %48 = phi ptr [ %34, %40 ], [ %.pre40, %43 ]
-  %.131 = phi i32 [ %42, %40 ], [ %46, %43 ]
-  %.029 = phi i32 [ %41, %40 ], [ %44, %43 ]
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %50 = load ptr, ptr %49, align 8, !tbaa !117
-  %51 = sext i32 %.029 to i64
-  %52 = getelementptr inbounds %"struct.icu_77::LSR", ptr %50, i64 %51, i32 2
-  %53 = load ptr, ptr %52, align 8, !tbaa !92
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %53) #20
-  %55 = icmp eq i32 %54, 0
-  %masksel = zext i1 %55 to i32
+48:                                               ; preds = %44, %41
+  %49 = phi ptr [ %35, %41 ], [ %.pre40, %44 ]
+  %.131 = phi i32 [ %43, %41 ], [ %47, %44 ]
+  %.029 = phi i32 [ %42, %41 ], [ %45, %44 ]
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %51 = load ptr, ptr %50, align 8, !tbaa !117
+  %52 = sext i32 %.029 to i64
+  %53 = getelementptr inbounds %"struct.icu_77::LSR", ptr %51, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !92
+  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %55) #20
+  %57 = icmp eq i32 %56, 0
+  %masksel = zext i1 %57 to i32
   %.2 = or i32 %.131, %masksel
-  br label %58
+  br label %60
 
-56:                                               ; preds = %32
-  %57 = and i32 %3, -2
-  br label %58
+58:                                               ; preds = %33
+  %59 = and i32 %3, -2
+  br label %60
 
-58:                                               ; preds = %4, %56, %47, %21
-  %.0 = phi i32 [ %.1, %21 ], [ %.2, %47 ], [ %57, %56 ], [ -4, %4 ]
+60:                                               ; preds = %4, %58, %48, %21
+  %.0 = phi i32 [ %.1, %21 ], [ %.2, %48 ], [ %59, %58 ], [ -4, %4 ]
   ret i32 %.0
 }
 

@@ -1106,14 +1106,15 @@ define internal void @vmemmap_remap_pte(ptr noundef %0, i64 noundef %1, ptr noun
   %51 = select i1 %45, i64 -9223372036854775453, i64 %50
   %52 = and i64 %51, %23
   %53 = or disjoint i64 %49, %52
-  %54 = getelementptr %struct.page, ptr %36, i64 %35, i32 1
+  %.split = getelementptr %struct.page, ptr %36, i64 %35
+  %54 = getelementptr i8, ptr %.split, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %54, ptr %58, align 8
   store ptr %57, ptr %54, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %59 = getelementptr i8, ptr %.split, i64 16
   store ptr %56, ptr %59, align 8
   store volatile ptr %54, ptr %56, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

@@ -1549,17 +1549,18 @@ declare ptr @_Py_set_typeparam_default(ptr noundef, ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_PyCompile_GetUnaryIntrinsicName(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 11
-  br i1 %or.cond, label %7, label %2
+  br i1 %or.cond, label %8, label %2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr %struct.intrinsic_func1_info, ptr @_PyIntrinsics_UnaryFunctions, i64 %3, i32 1
-  %5 = load ptr, ptr %4, align 8, !tbaa !41
-  %6 = tail call ptr @PyUnicode_FromString(ptr noundef %5) #4
-  br label %7
+  %4 = getelementptr %struct.intrinsic_func1_info, ptr @_PyIntrinsics_UnaryFunctions, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %7 = tail call ptr @PyUnicode_FromString(ptr noundef %6) #4
+  br label %8
 
-7:                                                ; preds = %1, %2
-  %.0 = phi ptr [ %6, %2 ], [ null, %1 ]
+8:                                                ; preds = %1, %2
+  %.0 = phi ptr [ %7, %2 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -1568,17 +1569,18 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_PyCompile_GetBinaryIntrinsicName(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 5
-  br i1 %or.cond, label %7, label %2
+  br i1 %or.cond, label %8, label %2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr %struct.intrinsic_func2_info, ptr @_PyIntrinsics_BinaryFunctions, i64 %3, i32 1
-  %5 = load ptr, ptr %4, align 8, !tbaa !41
-  %6 = tail call ptr @PyUnicode_FromString(ptr noundef %5) #4
-  br label %7
+  %4 = getelementptr %struct.intrinsic_func2_info, ptr @_PyIntrinsics_BinaryFunctions, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %7 = tail call ptr @PyUnicode_FromString(ptr noundef %6) #4
+  br label %8
 
-7:                                                ; preds = %1, %2
-  %.0 = phi ptr [ %6, %2 ], [ null, %1 ]
+8:                                                ; preds = %1, %2
+  %.0 = phi ptr [ %7, %2 ], [ null, %1 ]
   ret ptr %.0
 }
 

@@ -822,7 +822,7 @@ _ZN4llvm11GlobalIFunc11setResolverEPNS_8ConstantE.exit.i: ; preds = %198, %_ZN4l
   br label %204
 
 204:                                              ; preds = %_ZN12_GLOBAL__N_117DelayedBasicBlockD2Ev.exit.i, %.lr.ph48.i
-  %205 = phi i32 [ %202, %.lr.ph48.i ], [ %219, %_ZN12_GLOBAL__N_117DelayedBasicBlockD2Ev.exit.i ]
+  %205 = phi i32 [ %202, %.lr.ph48.i ], [ %220, %_ZN12_GLOBAL__N_117DelayedBasicBlockD2Ev.exit.i ]
   %.val.i25.i = load ptr, ptr %203, align 8, !tbaa !35, !noalias !91
   %206 = zext i32 %205 to i64
   %207 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DelayedBasicBlock", ptr %.val.i25.i, i64 %206
@@ -835,26 +835,27 @@ _ZN4llvm11GlobalIFunc11setResolverEPNS_8ConstantE.exit.i: ; preds = %198, %_ZN4l
   %213 = add i32 %205, -1
   store i32 %213, ptr %201, align 8, !tbaa !41, !noalias !91
   %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DelayedBasicBlock", ptr %.val.i25.i, i64 %214, i32 1
-  %216 = load ptr, ptr %215, align 8, !tbaa !45, !noalias !91
-  %.not.i.i.i.i26.i = icmp eq ptr %216, null
+  %215 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DelayedBasicBlock", ptr %.val.i25.i, i64 %214
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %217 = load ptr, ptr %216, align 8, !tbaa !45, !noalias !91
+  %.not.i.i.i.i26.i = icmp eq ptr %217, null
   br i1 %.not.i.i.i.i26.i, label %_ZN12_GLOBAL__N_117DelayedBasicBlockD2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm10BasicBlockEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm10BasicBlockEEclEPS1_.exit.i.i.i.i.i: ; preds = %204
-  call void @_ZN4llvm10BasicBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %216) #17, !noalias !91
-  call void @_ZdlPvm(ptr noundef nonnull %216, i64 noundef 80) #18, !noalias !91
+  call void @_ZN4llvm10BasicBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %217) #17, !noalias !91
+  call void @_ZdlPvm(ptr noundef nonnull %217, i64 noundef 80) #18, !noalias !91
   br label %_ZN12_GLOBAL__N_117DelayedBasicBlockD2Ev.exit.i
 
 _ZN12_GLOBAL__N_117DelayedBasicBlockD2Ev.exit.i:  ; preds = %_ZNKSt14default_deleteIN4llvm10BasicBlockEEclEPS1_.exit.i.i.i.i.i, %204
-  store ptr null, ptr %215, align 8, !tbaa !45, !noalias !91
-  %217 = call fastcc noundef ptr @_ZN12_GLOBAL__N_16Mapper8mapValueEPKN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(368) %.0.val, ptr noundef %209)
-  %.not.i = icmp eq ptr %217, null
-  %218 = select i1 %.not.i, ptr %209, ptr %217
-  call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %212, ptr noundef %218) #17
+  store ptr null, ptr %216, align 8, !tbaa !45, !noalias !91
+  %218 = call fastcc noundef ptr @_ZN12_GLOBAL__N_16Mapper8mapValueEPKN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(368) %.0.val, ptr noundef %209)
+  %.not.i = icmp eq ptr %218, null
+  %219 = select i1 %.not.i, ptr %209, ptr %218
+  call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %212, ptr noundef %219) #17
   call void @_ZN4llvm10BasicBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %212) #17
   call void @_ZdlPvm(ptr noundef nonnull %212, i64 noundef 80) #18
-  %219 = load i32, ptr %201, align 8, !tbaa !41
-  %.not.i24.i = icmp eq i32 %219, 0
+  %220 = load i32, ptr %201, align 8, !tbaa !41
+  %.not.i24.i = icmp eq i32 %220, 0
   br i1 %.not.i24.i, label %_ZN12_GLOBAL__N_16Mapper5flushEv.exit, label %204, !llvm.loop !102
 
 _ZN12_GLOBAL__N_16Mapper5flushEv.exit:            ; preds = %_ZN12_GLOBAL__N_117DelayedBasicBlockD2Ev.exit.i, %._crit_edge.i
@@ -942,7 +943,7 @@ _ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys
   br label %common.ret515
 
 47:                                               ; preds = %_ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEE4findERKS3_.exit
-  %48 = getelementptr inbounds nuw %"struct.(anonymous namespace)::MappingContext", ptr %.val202, i64 %11, i32 1
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !118
   %.not = icmp eq ptr %49, null
   br i1 %.not, label %.critedge, label %50

@@ -7460,7 +7460,7 @@ _ZN7CFGLoop16update_succ_freqEP5Blockd.exit65:    ; preds = %128, %132, %_ZN26Gr
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %208 = load i32, ptr %207, align 4
   %.not53 = icmp eq i32 %208, 0
-  br i1 %.not53, label %233, label %.preheader83
+  br i1 %.not53, label %235, label %.preheader83
 
 .preheader83:                                     ; preds = %._crit_edge99
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7476,46 +7476,48 @@ _ZN7CFGLoop16update_succ_freqEP5Blockd.exit65:    ; preds = %128, %132, %_ZN26Gr
 
 .lr.ph104:                                        ; preds = %215
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %219
+  br label %220
 
 215:                                              ; preds = %.lr.ph102, %215
   %indvars.iv117 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next118, %215 ]
-  %.049100 = phi double [ 0.000000e+00, %.lr.ph102 ], [ %218, %215 ]
-  %216 = getelementptr inbounds nuw %class.BlockProbPair, ptr %213, i64 %indvars.iv117, i32 1
-  %217 = load double, ptr %216, align 8
-  %218 = fadd double %.049100, %217
+  %.049100 = phi double [ 0.000000e+00, %.lr.ph102 ], [ %219, %215 ]
+  %216 = getelementptr inbounds nuw %class.BlockProbPair, ptr %213, i64 %indvars.iv117
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %218 = load double, ptr %217, align 8
+  %219 = fadd double %.049100, %218
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph104, label %215, !llvm.loop !76
 
-219:                                              ; preds = %.lr.ph104, %219
-  %indvars.iv120 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next121, %219 ]
-  %220 = load ptr, ptr %214, align 8
-  %221 = getelementptr inbounds nuw %class.BlockProbPair, ptr %220, i64 %indvars.iv120, i32 1
-  %222 = load double, ptr %221, align 8
-  %223 = fcmp ogt double %222, 0.000000e+00
-  %224 = fdiv double %222, %218
-  %225 = fptrunc double %224 to float
-  %226 = fpext float %225 to double
-  %.0 = select i1 %223, double %226, double 0.000000e+00
-  store double %.0, ptr %221, align 8
+220:                                              ; preds = %.lr.ph104, %220
+  %indvars.iv120 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next121, %220 ]
+  %221 = load ptr, ptr %214, align 8
+  %222 = getelementptr inbounds nuw %class.BlockProbPair, ptr %221, i64 %indvars.iv120
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
+  %224 = load double, ptr %223, align 8
+  %225 = fcmp ogt double %224, 0.000000e+00
+  %226 = fdiv double %224, %219
+  %227 = fptrunc double %226 to float
+  %228 = fpext float %227 to double
+  %.0 = select i1 %225, double %228, double 0.000000e+00
+  store double %.0, ptr %223, align 8
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %227 = load i32, ptr %209, align 8
-  %228 = sext i32 %227 to i64
-  %229 = icmp slt i64 %indvars.iv.next121, %228
-  br i1 %229, label %219, label %._crit_edge105, !llvm.loop !77
+  %229 = load i32, ptr %209, align 8
+  %230 = sext i32 %229 to i64
+  %231 = icmp slt i64 %indvars.iv.next121, %230
+  br i1 %231, label %220, label %._crit_edge105, !llvm.loop !77
 
-._crit_edge105:                                   ; preds = %219, %.preheader83
-  %.049.lcssa144 = phi double [ 0.000000e+00, %.preheader83 ], [ %218, %219 ]
-  %230 = fcmp ogt double %.049.lcssa144, 1.000000e+00
-  %.1 = select i1 %230, double 1.000000e+00, double %.049.lcssa144
-  %231 = fcmp olt double %.1, 0x3EB0C6F7A0000000
-  %.2 = select i1 %231, double 0x3EB0C6F7A0000000, double %.1
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store double %.2, ptr %232, align 8
-  br label %233
+._crit_edge105:                                   ; preds = %220, %.preheader83
+  %.049.lcssa144 = phi double [ 0.000000e+00, %.preheader83 ], [ %219, %220 ]
+  %232 = fcmp ogt double %.049.lcssa144, 1.000000e+00
+  %.1 = select i1 %232, double 1.000000e+00, double %.049.lcssa144
+  %233 = fcmp olt double %.1, 0x3EB0C6F7A0000000
+  %.2 = select i1 %233, double 0x3EB0C6F7A0000000, double %.1
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store double %.2, ptr %234, align 8
+  br label %235
 
-233:                                              ; preds = %._crit_edge105, %._crit_edge99
+235:                                              ; preds = %._crit_edge105, %._crit_edge99
   ret void
 }
 

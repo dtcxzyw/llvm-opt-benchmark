@@ -2274,7 +2274,7 @@ rlc_channel_assign.exit.thread.i:                 ; preds = %204, %198, %182
 .thread.i:                                        ; preds = %262, %261, %252, %rlc_channel_assign.exit.thread.i, %175
   %.1122147.i = phi i16 [ %.0121150.i, %252 ], [ %.0121150.i, %rlc_channel_assign.exit.thread.i ], [ %178, %175 ], [ %.1122.i, %262 ], [ %.1122.i, %261 ]
   %.1119.i = phi i8 [ %.0118153.i, %252 ], [ %.0118153.i, %rlc_channel_assign.exit.thread.i ], [ %.0118153.i, %175 ], [ 1, %262 ], [ %.0118153.i, %261 ]
-  %263 = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert.i, i32 1
+  %263 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert160.i, i64 2
   %264 = load i16, ptr %263, align 2
   %265 = add i16 %264, %.1122147.i
   %266 = add i8 %.0120151.i, 1
@@ -2392,7 +2392,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   br i1 %5, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %._crit_edge, %36
-  %indvars.iv215 = phi i64 [ %indvars.iv.next216, %36 ], [ 0, %._crit_edge ]
+  %indvars.iv211 = phi i64 [ %indvars.iv.next212, %36 ], [ 0, %._crit_edge ]
   %.1146.us = phi i32 [ %20, %36 ], [ %7, %._crit_edge ]
   %.1143.us = phi i8 [ %22, %36 ], [ %15, %._crit_edge ]
   %.0139.us = phi i16 [ %.1.us, %36 ], [ 0, %._crit_edge ]
@@ -2404,7 +2404,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   %20 = add nuw nsw i32 %.1146.us, 2
   %21 = trunc i16 %19 to i8
   %22 = and i8 %21, 1
-  %23 = getelementptr %struct.rlc_li, ptr %4, i64 %indvars.iv215
+  %23 = getelementptr %struct.rlc_li, ptr %4, i64 %indvars.iv211
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i8 %22, ptr %24, align 4
   %25 = lshr i16 %19, 1
@@ -2447,13 +2447,13 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
 
 36:                                               ; preds = %.sink.split, %26
   %.1.us = phi i16 [ %.0139.us, %26 ], [ %.1.us.ph, %.sink.split ]
-  %37 = trunc nuw nsw i64 %indvars.iv215 to i8
+  %37 = trunc nuw nsw i64 %indvars.iv211 to i8
   %38 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %23, i8 noundef zeroext %37, i32 noundef %7, i1 noundef zeroext true, ptr noundef %1, ptr noundef %3)
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %38, ptr %39, align 8
-  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %exitcond218 = icmp eq i64 %indvars.iv.next216, 16
-  br i1 %exitcond218, label %.split189.us, label %.split.us, !llvm.loop !12
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
+  %exitcond214 = icmp eq i64 %indvars.iv.next212, 16
+  br i1 %exitcond214, label %.split189.us, label %.split.us, !llvm.loop !12
 
 .split:                                           ; preds = %._crit_edge, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %._crit_edge ]
@@ -2482,18 +2482,18 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   ]
 
 .split181.us:                                     ; preds = %26
-  %48 = trunc nuw nsw i64 %indvars.iv215 to i8
+  %48 = trunc nuw nsw i64 %indvars.iv211 to i8
   %49 = tail call fastcc ptr @tree_add_li(i32 noundef 2, ptr noundef %23, i8 noundef zeroext %48, i32 noundef %7, i1 noundef zeroext true, ptr noundef %1, ptr noundef %3)
   %50 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %49, ptr noundef nonnull @ei_rlc_li_reserved)
-  br label %86
+  br label %84
 
 .split185.us:                                     ; preds = %28
-  %51 = trunc nuw nsw i64 %indvars.iv215 to i8
+  %51 = trunc nuw nsw i64 %indvars.iv211 to i8
   %52 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i16 0, ptr %52, align 2
   %53 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %23, i8 noundef zeroext %51, i32 noundef %7, i1 noundef zeroext true, ptr noundef %1, ptr noundef %3)
   %54 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %53, ptr noundef nonnull @ei_rlc_li_incorrect_warn)
-  br label %86
+  br label %84
 
 55:                                               ; preds = %40, %40, %40
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 2
@@ -2509,7 +2509,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   %60 = trunc nuw nsw i64 %indvars.iv to i8
   %61 = tail call fastcc ptr @tree_add_li(i32 noundef 2, ptr noundef %44, i8 noundef zeroext %60, i32 noundef %7, i1 noundef zeroext false, ptr noundef %1, ptr noundef %3)
   %62 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %61, ptr noundef nonnull @ei_rlc_li_reserved)
-  br label %86
+  br label %84
 
 63:                                               ; preds = %40
   %64 = sub nsw i16 %47, %.0139
@@ -2532,7 +2532,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   %75 = load i16, ptr %44, align 8
   %76 = zext i16 %75 to i32
   %77 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %74, ptr noundef nonnull @ei_rlc_li_incorrect_mal, ptr noundef nonnull @.str.198, i32 noundef %76)
-  br label %86
+  br label %84
 
 78:                                               ; preds = %63, %55, %57
   %.1 = phi i16 [ %.0139, %55 ], [ %.0139, %57 ], [ %47, %63 ]
@@ -2545,19 +2545,18 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   br i1 %exitcond, label %.split189.us, label %.split, !llvm.loop !12
 
 .split189.us:                                     ; preds = %78, %36
-  %82 = getelementptr i8, ptr %4, i64 248
-  %83 = load ptr, ptr %82, align 8
-  %84 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %83, ptr noundef nonnull @ei_rlc_li_too_many)
-  br label %86
+  %.us-phi190 = phi ptr [ %38, %36 ], [ %80, %78 ]
+  %82 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %.us-phi190, ptr noundef nonnull @ei_rlc_li_too_many)
+  br label %84
 
 .split178.us:                                     ; preds = %.split, %.split.us
-  %.us-phi179.in = phi i64 [ %indvars.iv215, %.split.us ], [ %indvars.iv, %.split ]
+  %.us-phi179.in = phi i64 [ %indvars.iv211, %.split.us ], [ %indvars.iv, %.split ]
   %.us-phi179 = trunc i64 %.us-phi179.in to i16
-  %85 = and i16 %.us-phi179, 255
-  br label %86
+  %83 = and i16 %.us-phi179, 255
+  br label %84
 
-86:                                               ; preds = %.split178.us, %.split189.us, %71, %59, %.split185.us, %.split181.us
-  %.0 = phi i16 [ -1, %.split185.us ], [ -1, %.split189.us ], [ -1, %.split181.us ], [ -1, %71 ], [ -1, %59 ], [ %85, %.split178.us ]
+84:                                               ; preds = %.split178.us, %.split189.us, %71, %59, %.split185.us, %.split181.us
+  %.0 = phi i16 [ -1, %.split185.us ], [ -1, %.split189.us ], [ -1, %.split181.us ], [ -1, %71 ], [ -1, %59 ], [ %83, %.split178.us ]
   ret i16 %.0
 }
 
@@ -4887,11 +4886,11 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   br label %68
 
 68:                                               ; preds = %.lr.ph, %.thread
-  %69 = phi i16 [ 0, %.lr.ph ], [ %115, %.thread ]
+  %69 = phi i16 [ 0, %.lr.ph ], [ %116, %.thread ]
   %.0107145 = phi i8 [ 0, %.lr.ph ], [ %.1108, %.thread ]
   %.0110144 = phi i1 [ false, %.lr.ph ], [ %.1111133, %.thread ]
-  %.0112142 = phi i8 [ 0, %.lr.ph ], [ %114, %.thread ]
-  %.0113141 = phi i16 [ %1, %.lr.ph ], [ %113, %.thread ]
+  %.0112142 = phi i8 [ 0, %.lr.ph ], [ %115, %.thread ]
+  %.0113141 = phi i16 [ %1, %.lr.ph ], [ %114, %.thread ]
   %.phi.trans.insert = zext i8 %.0112142 to i64
   %.phi.trans.insert152 = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert152, align 8
@@ -4976,76 +4975,77 @@ rlc_channel_assign.exit.thread:                   ; preds = %37, %17, %51, %13
   %.1111133 = phi i1 [ true, %._crit_edge151 ], [ %.0110144, %101 ], [ %.0110144, %89 ], [ %.0110144, %110 ], [ %.0110144, %104 ], [ true, %68 ]
   %.1114132 = phi i16 [ %.0113141, %._crit_edge151 ], [ %.0113141, %101 ], [ %92, %89 ], [ %.0113141, %110 ], [ %.0113141, %104 ], [ %.0113141, %68 ]
   %.1108 = phi i8 [ %.0107145, %._crit_edge151 ], [ %.0107145, %101 ], [ %.0107145, %89 ], [ 1, %110 ], [ %.0107145, %104 ], [ %.0107145, %68 ]
-  %111 = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert, i32 1
-  %112 = load i16, ptr %111, align 2
-  %113 = add i16 %112, %.1114132
-  %114 = add i8 %.0112142, 1
-  %115 = zext i8 %114 to i16
-  %116 = icmp ugt i16 %9, %115
-  br i1 %116, label %68, label %._crit_edge, !llvm.loop !25
+  %111 = getelementptr %struct.rlc_li, ptr %8, i64 %.phi.trans.insert
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 2
+  %113 = load i16, ptr %112, align 2
+  %114 = add i16 %113, %.1114132
+  %115 = add i8 %.0112142, 1
+  %116 = zext i8 %115 to i16
+  %117 = icmp ugt i16 %9, %116
+  br i1 %117, label %68, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.thread
-  %117 = icmp eq i8 %.1108, 0
-  br i1 %.1111133, label %118, label %._crit_edge.thread
+  %118 = icmp eq i8 %.1108, 0
+  br i1 %.1111133, label %119, label %._crit_edge.thread
 
-118:                                              ; preds = %._crit_edge
-  call fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %113)
-  br i1 %117, label %.sink.split, label %134
+119:                                              ; preds = %._crit_edge
+  call fastcc void @dissect_rlc_status(ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %114)
+  br i1 %118, label %.sink.split, label %135
 
 ._crit_edge.thread:                               ; preds = %rlc_channel_assign.exit.thread, %._crit_edge
-  %.lcssa172 = phi i16 [ %115, %._crit_edge ], [ 0, %rlc_channel_assign.exit.thread ]
-  %.0107.lcssa171 = phi i1 [ %117, %._crit_edge ], [ true, %rlc_channel_assign.exit.thread ]
-  %.0113.lcssa169 = phi i16 [ %113, %._crit_edge ], [ %1, %rlc_channel_assign.exit.thread ]
-  %119 = zext i16 %.0113.lcssa169 to i32
-  %120 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %119)
-  %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %122, label %.thread135
+  %.lcssa172 = phi i16 [ %116, %._crit_edge ], [ 0, %rlc_channel_assign.exit.thread ]
+  %.0107.lcssa171 = phi i1 [ %118, %._crit_edge ], [ true, %rlc_channel_assign.exit.thread ]
+  %.0113.lcssa169 = phi i16 [ %114, %._crit_edge ], [ %1, %rlc_channel_assign.exit.thread ]
+  %120 = zext i16 %.0113.lcssa169 to i32
+  %121 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %120)
+  %122 = icmp sgt i32 %121, 0
+  br i1 %122, label %123, label %.thread135
 
-122:                                              ; preds = %._crit_edge.thread
+123:                                              ; preds = %._crit_edge.thread
   %.not120 = icmp eq ptr %3, null
-  br i1 %.not120, label %126, label %123
+  br i1 %.not120, label %127, label %124
 
-123:                                              ; preds = %122
-  %124 = load i32, ptr @hf_rlc_data, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %124, ptr noundef %0, i32 noundef %119, i32 noundef -1, i32 noundef 0)
-  br label %126
+124:                                              ; preds = %123
+  %125 = load i32, ptr @hf_rlc_data, align 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %125, ptr noundef %0, i32 noundef %120, i32 noundef -1, i32 noundef 0)
+  br label %127
 
-126:                                              ; preds = %123, %122
-  %127 = load i8, ptr @global_rlc_perform_reassemby, align 1, !range !6, !noundef !7
-  %128 = trunc nuw i8 %127 to i1
-  br i1 %128, label %129, label %.thread135
+127:                                              ; preds = %124, %123
+  %128 = load i8, ptr @global_rlc_perform_reassemby, align 1, !range !6, !noundef !7
+  %129 = trunc nuw i8 %128 to i1
+  br i1 %129, label %130, label %.thread135
 
-129:                                              ; preds = %126
-  %130 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %119)
-  %131 = trunc i32 %130 to i16
-  call fastcc void @add_fragment(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %.0113.lcssa169, i16 noundef zeroext %6, i16 noundef zeroext %.lcssa172, i16 noundef zeroext %131, i1 noundef zeroext %10, ptr noundef %12)
-  br i1 %10, label %132, label %.thread135
+130:                                              ; preds = %127
+  %131 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %120)
+  %132 = trunc i32 %131 to i16
+  call fastcc void @add_fragment(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %.0113.lcssa169, i16 noundef zeroext %6, i16 noundef zeroext %.lcssa172, i16 noundef zeroext %132, i1 noundef zeroext %10, ptr noundef %12)
+  br i1 %10, label %133, label %.thread135
 
-132:                                              ; preds = %129
-  %133 = call fastcc ptr @get_reassembled_data(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %6, i16 noundef zeroext %.lcssa172, ptr noundef %12)
-  %.not121 = icmp eq ptr %133, null
+133:                                              ; preds = %130
+  %134 = call fastcc ptr @get_reassembled_data(i32 noundef 2, ptr noundef %0, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %6, i16 noundef zeroext %.lcssa172, ptr noundef %12)
+  %.not121 = icmp eq ptr %134, null
   br i1 %.not121, label %.thread135, label %.thread138
 
-.thread138:                                       ; preds = %132
-  call fastcc void @rlc_call_subdissector(i32 noundef %5, ptr noundef nonnull %133, ptr noundef %2, ptr noundef %4)
-  br label %134
+.thread138:                                       ; preds = %133
+  call fastcc void @rlc_call_subdissector(i32 noundef %5, ptr noundef nonnull %134, ptr noundef %2, ptr noundef %4)
+  br label %135
 
-.thread135:                                       ; preds = %._crit_edge.thread, %126, %129, %132
-  br i1 %.0107.lcssa171, label %.sink.split, label %134
+.thread135:                                       ; preds = %._crit_edge.thread, %127, %130, %133
+  br i1 %.0107.lcssa171, label %.sink.split, label %135
 
-134:                                              ; preds = %118, %.thread138, %.thread135
-  %135 = icmp eq i32 %5, 8
-  br i1 %135, label %.sink.split, label %139
+135:                                              ; preds = %119, %.thread138, %.thread135
+  %136 = icmp eq i32 %5, 8
+  br i1 %136, label %.sink.split, label %140
 
-.sink.split:                                      ; preds = %134, %.thread135, %118
-  %.str.262.sink = phi ptr [ @.str.261, %118 ], [ @.str.261, %.thread135 ], [ @.str.262, %134 ]
-  %136 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = select i1 %7, ptr @.str.228, ptr @.str.229
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %137, i32 noundef 25, ptr noundef nonnull %.str.262.sink, i32 noundef %15, ptr noundef nonnull %138)
-  br label %139
+.sink.split:                                      ; preds = %135, %.thread135, %119
+  %.str.262.sink = phi ptr [ @.str.261, %119 ], [ @.str.261, %.thread135 ], [ @.str.262, %135 ]
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = select i1 %7, ptr @.str.228, ptr @.str.229
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %138, i32 noundef 25, ptr noundef nonnull %.str.262.sink, i32 noundef %15, ptr noundef nonnull %139)
+  br label %140
 
-139:                                              ; preds = %.sink.split, %134
+140:                                              ; preds = %.sink.split, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }

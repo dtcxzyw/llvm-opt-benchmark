@@ -5240,28 +5240,28 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
   %641 = getelementptr inbounds i8, ptr %637, i64 %640
   %642 = load i16, ptr %641, align 2, !tbaa !7
   %643 = icmp ugt i16 %642, 4
-  br i1 %643, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i310, label %.sink.split
+  br i1 %643, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i310, label %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit.thread
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i310: ; preds = %633
   %644 = getelementptr inbounds nuw i8, ptr %641, i64 4
   %645 = load i16, ptr %644, align 2, !tbaa !7
   %.not.i.i311 = icmp eq i16 %645, 0
-  br i1 %.not.i.i311, label %.sink.split, label %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit
+  br i1 %.not.i.i311, label %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit.thread, label %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit
 
 _ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i310
   %646 = zext i16 %645 to i64
   %647 = getelementptr inbounds nuw i8, ptr %637, i64 %646
   %648 = load i8, ptr %647, align 1, !tbaa !52
   %649 = icmp slt i8 %648, 0
-  br i1 %649, label %.sink.split, label %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit
+  br i1 %649, label %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit.thread, label %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit
 
 _ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit: ; preds = %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit
   %650 = zext nneg i8 %648 to i64
   %651 = getelementptr inbounds nuw ptr, ptr @_ZZN13opencv_tflite24EnumNamesBuiltinOperatorEvE5names, i64 %650
   %652 = load ptr, ptr %651, align 8, !tbaa !53
-  br label %.sink.split
+  br label %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit.thread
 
-.sink.split:                                      ; preds = %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i310, %633, %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit
+_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit.thread: ; preds = %633, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i310, %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit, %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit
   %.0.i446 = phi ptr [ %652, %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit ], [ @.str.10, %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit ], [ @.str.42, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i310 ], [ @.str.42, %633 ]
   store ptr %432, ptr %36, align 8, !tbaa !86
   %653 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i446) #29
@@ -5270,7 +5270,7 @@ _ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit: ; preds 
   %654 = icmp ugt i64 %653, 15
   br i1 %654, label %.noexc.i312, label %._crit_edge.i.i
 
-.noexc.i312:                                      ; preds = %.sink.split
+.noexc.i312:                                      ; preds = %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit.thread
   %655 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
           to label %.noexc314 unwind label %.loopexit
 
@@ -5280,8 +5280,8 @@ _ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit: ; preds 
   store i64 %656, ptr %432, align 8, !tbaa !52
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.noexc314, %.sink.split
-  %657 = phi ptr [ %655, %.noexc314 ], [ %432, %.sink.split ]
+._crit_edge.i.i:                                  ; preds = %.noexc314, %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit.thread
+  %657 = phi ptr [ %655, %.noexc314 ], [ %432, %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit.thread ]
   switch i64 %653, label %660 [
     i64 1, label %658
     i64 0, label %661

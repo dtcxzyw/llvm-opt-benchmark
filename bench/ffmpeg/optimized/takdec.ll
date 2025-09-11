@@ -640,11 +640,10 @@ bits_read_bit_le.exit365:                         ; preds = %._crit_edge.i359, %
 
 271:                                              ; preds = %bits_read_bit_le.exit365.thread, %266, %268, %bits_read_bit_le.exit365
   %.2296 = phi i32 [ %267, %266 ], [ %.0294409, %268 ], [ %.0294409, %bits_read_bit_le.exit365 ], [ %.0294409, %bits_read_bit_le.exit365.thread ]
-  %272 = trunc i32 %229 to i8
-  %.idx = shl nuw nsw i64 %indvars.iv463, 2
-  %273 = getelementptr inbounds nuw i8, ptr %227, i64 %.idx
-  %274 = getelementptr inbounds nuw i8, ptr %273, i64 2
-  store i8 %272, ptr %274, align 1, !tbaa !85
+  %272 = getelementptr inbounds nuw %struct.MCDParam, ptr %227, i64 %indvars.iv463
+  %273 = trunc i32 %229 to i8
+  %274 = getelementptr inbounds nuw i8, ptr %272, i64 2
+  store i8 %273, ptr %274, align 1, !tbaa !85
   %275 = or i32 %.2296, %232
   %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 1
   %exitcond467.not = icmp eq i64 %indvars.iv.next464, %wide.trip.count466

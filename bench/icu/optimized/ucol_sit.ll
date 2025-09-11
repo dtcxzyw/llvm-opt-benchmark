@@ -1816,7 +1816,7 @@ define internal noundef nonnull ptr @_ZL22_processCollatorOptionP12CollatorSpecj
 6:                                                ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %14, label %7, !llvm.loop !42
+  br i1 %exitcond.not.i, label %15, label %7, !llvm.loop !42
 
 7:                                                ; preds = %6, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %6 ]
@@ -1826,38 +1826,39 @@ define internal noundef nonnull ptr @_ZL22_processCollatorOptionP12CollatorSpecj
   br i1 %10, label %11, label %6
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw %struct.AttributeConversion, ptr @_ZL11conversions, i64 %indvars.iv.i, i32 1
-  %13 = load i32, ptr %12, align 4, !tbaa !45
+  %12 = getelementptr inbounds nuw %struct.AttributeConversion, ptr @_ZL11conversions, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !45
   br label %_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit
 
-14:                                               ; preds = %6
+15:                                               ; preds = %6
   store i32 1, ptr %3, align 4, !tbaa !13
   br label %_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit
 
-_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit: ; preds = %11, %14
-  %.06.i = phi i32 [ %13, %11 ], [ -1, %14 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %16 = zext i32 %1 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
-  store i32 %.06.i, ptr %17, align 4, !tbaa !25
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %19 = load i8, ptr %18, align 1, !tbaa !22
-  switch i8 %19, label %23 [
-    i8 95, label %20
-    i8 0, label %20
+_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit: ; preds = %11, %15
+  %.06.i = phi i32 [ %14, %11 ], [ -1, %15 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %17 = zext i32 %1 to i64
+  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  store i32 %.06.i, ptr %18, align 4, !tbaa !25
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %20 = load i8, ptr %19, align 1, !tbaa !22
+  switch i8 %20, label %24 [
+    i8 95, label %21
+    i8 0, label %21
   ]
 
-20:                                               ; preds = %_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit, %_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit
-  %21 = load i32, ptr %3, align 4, !tbaa !13
-  %22 = icmp slt i32 %21, 1
-  br i1 %22, label %24, label %23
+21:                                               ; preds = %_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit, %_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit
+  %22 = load i32, ptr %3, align 4, !tbaa !13
+  %23 = icmp slt i32 %22, 1
+  br i1 %23, label %25, label %24
 
-23:                                               ; preds = %_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit, %20
+24:                                               ; preds = %_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit, %21
   store i32 1, ptr %3, align 4, !tbaa !13
-  br label %24
+  br label %25
 
-24:                                               ; preds = %23, %20
-  ret ptr %18
+25:                                               ; preds = %24, %21
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

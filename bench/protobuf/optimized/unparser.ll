@@ -18740,7 +18740,8 @@ for.body.i.i.i:                                   ; preds = %call3.i.i.noexc.i, 
 
 call.i.i.noexc.i.i:                               ; preds = %for.body.i.i.i
   %19 = extractvalue { ptr, i64 } %call.i.i6.i.i, 0
-  %raw_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %19, i64 %i.05.i.i.i, i32 1
+  %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %19, i64 %i.05.i.i.i
+  %raw_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i, i64 8
   %20 = load ptr, ptr %raw_.i.i.i.i.i, align 8, !noalias !645
   %number_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 80
   %21 = load i32, ptr %number_.i.i.i.i.i.i, align 8, !noalias !645
@@ -19004,7 +19005,8 @@ for.body.i.i.i:                                   ; preds = %call3.i.i.noexc.i, 
 
 call.i.i.noexc.i.i:                               ; preds = %for.body.i.i.i
   %37 = extractvalue { ptr, i64 } %call.i.i6.i.i, 0
-  %raw_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %37, i64 %i.05.i.i.i, i32 1
+  %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %37, i64 %i.05.i.i.i
+  %raw_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i, i64 8
   %38 = load ptr, ptr %raw_.i.i.i.i.i, align 8, !noalias !657
   %number_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 80
   %39 = load i32, ptr %number_.i.i.i.i.i.i, align 8, !noalias !657

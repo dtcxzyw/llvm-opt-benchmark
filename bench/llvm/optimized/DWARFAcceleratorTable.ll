@@ -11669,13 +11669,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImPKNS_15DWARFDebugNames9NameIndexENS_12Dense
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapImPKNS_15DWARFDebugNames9NameIndexENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E6doFindImEEPKSA_RKT_.exit.i: ; preds = %231, %218
   %239 = phi i64 [ %225, %218 ], [ %235, %231 ]
-  %240 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %214, i64 %239, i32 0, i32 1
-  %241 = load ptr, ptr %240, align 8, !tbaa !968
+  %240 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %214, i64 %239
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  %242 = load ptr, ptr %241, align 8, !tbaa !968
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPKNS_15DWARFDebugNames9NameIndexENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E6lookupERKm.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapImPKNS_15DWARFDebugNames9NameIndexENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E6lookupERKm.exit: ; preds = %.lr.ph.i.i.i, %.loopexit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPKNS_15DWARFDebugNames9NameIndexENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E6doFindImEEPKSA_RKT_.exit.i
-  %242 = phi ptr [ %241, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPKNS_15DWARFDebugNames9NameIndexENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E6doFindImEEPKSA_RKT_.exit.i ], [ null, %.loopexit ], [ null, %.lr.ph.i.i.i ]
-  ret ptr %242
+  %243 = phi ptr [ %242, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPKNS_15DWARFDebugNames9NameIndexENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E6doFindImEEPKSA_RKT_.exit.i ], [ null, %.loopexit ], [ null, %.lr.ph.i.i.i ]
+  ret ptr %243
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

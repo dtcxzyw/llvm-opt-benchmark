@@ -109,16 +109,17 @@ define hidden noundef zeroext i1 @_ZNK13ReplacedNodes15has_target_nodeEP4Node(pt
 
 8:                                                ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %"class.ReplacedNodes::ReplacedNode", ptr %7, i64 %indvars.iv, i32 1
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, %1
+  %9 = getelementptr inbounds nuw %"class.ReplacedNodes::ReplacedNode", ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %11, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %12, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %._crit_edge, label %8, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %8, %2
-  %.lcssa = phi i1 [ false, %2 ], [ %11, %8 ]
+  %.lcssa = phi i1 [ false, %2 ], [ %12, %8 ]
   ret i1 %.lcssa
 }
 
@@ -246,8 +247,8 @@ _ZN13ReplacedNodes21allocate_if_necessaryEv.exit: ; preds = %8, %11
   br i1 %19, label %.lr.ph, label %_ZNK13ReplacedNodes8is_emptyEv.exit.thread
 
 .lr.ph:                                           ; preds = %_ZN13ReplacedNodes21allocate_if_necessaryEv.exit, %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit
-  %20 = phi i32 [ %67, %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit ], [ %17, %_ZN13ReplacedNodes21allocate_if_necessaryEv.exit ]
-  %21 = phi ptr [ %68, %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit ], [ %18, %_ZN13ReplacedNodes21allocate_if_necessaryEv.exit ]
+  %20 = phi i32 [ %68, %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit ], [ %17, %_ZN13ReplacedNodes21allocate_if_necessaryEv.exit ]
+  %21 = phi ptr [ %69, %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit ], [ %18, %_ZN13ReplacedNodes21allocate_if_necessaryEv.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit ], [ 0, %_ZN13ReplacedNodes21allocate_if_necessaryEv.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -301,53 +302,54 @@ _ZN13ReplacedNodes21allocate_if_necessaryEv.exit: ; preds = %8, %11
 
 .lr.ph.i:                                         ; preds = %39, %46
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %46 ], [ 0, %39 ]
-  %47 = getelementptr inbounds nuw %"class.ReplacedNodes::ReplacedNode", ptr %29, i64 %indvars.iv.i, i32 1
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, %.sroa.0.0.copyload
-  br i1 %49, label %_ZNK13ReplacedNodes15has_target_nodeEP4Node.exit, label %46
+  %47 = getelementptr inbounds nuw %"class.ReplacedNodes::ReplacedNode", ptr %29, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, %.sroa.0.0.copyload
+  br i1 %50, label %_ZNK13ReplacedNodes15has_target_nodeEP4Node.exit, label %46
 
 _ZNK13ReplacedNodes15has_target_nodeEP4Node.exit: ; preds = %.lr.ph.i, %.thread, %39
-  %50 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %26, %51
-  br i1 %52, label %53, label %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit
+  %51 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp eq i32 %26, %52
+  br i1 %53, label %54, label %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit
 
-53:                                               ; preds = %_ZNK13ReplacedNodes15has_target_nodeEP4Node.exit
-  %54 = add nsw i32 %26, 1
-  %55 = icmp sgt i32 %26, -1
-  %56 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %54)
-  %57 = icmp samesign ult i32 %56, 2
-  %or.cond.i.i.i.i.i = select i1 %55, i1 %57, i1 false
-  %58 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %54, i1 true)
-  %59 = sub nuw nsw i32 32, %58
-  %60 = shl nuw i32 1, %59
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %54, i32 %60
+54:                                               ; preds = %_ZNK13ReplacedNodes15has_target_nodeEP4Node.exit
+  %55 = add nsw i32 %26, 1
+  %56 = icmp sgt i32 %26, -1
+  %57 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %55)
+  %58 = icmp samesign ult i32 %57, 2
+  %or.cond.i.i.i.i.i = select i1 %56, i1 %58, i1 false
+  %59 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %55, i1 true)
+  %60 = sub nuw nsw i32 32, %59
+  %61 = shl nuw i32 1, %60
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %55, i32 %61
   tail call void @_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %25, align 8
   br label %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %_ZNK13ReplacedNodes15has_target_nodeEP4Node.exit, %53
-  %61 = phi i32 [ %.pre.i.i, %53 ], [ %26, %_ZNK13ReplacedNodes15has_target_nodeEP4Node.exit ]
-  %62 = add nsw i32 %61, 1
-  store i32 %62, ptr %25, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = sext i32 %61 to i64
-  %66 = getelementptr inbounds %"class.ReplacedNodes::ReplacedNode", ptr %64, i64 %65
-  store ptr %.sroa.0.0.copyload, ptr %66, align 8
-  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %66, i64 8
+_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %_ZNK13ReplacedNodes15has_target_nodeEP4Node.exit, %54
+  %62 = phi i32 [ %.pre.i.i, %54 ], [ %26, %_ZNK13ReplacedNodes15has_target_nodeEP4Node.exit ]
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %25, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = sext i32 %62 to i64
+  %67 = getelementptr inbounds %"class.ReplacedNodes::ReplacedNode", ptr %65, i64 %66
+  store ptr %.sroa.0.0.copyload, ptr %67, align 8
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx10, align 8
   %.pre20 = load ptr, ptr %1, align 8
   %.pre21 = load i32, ptr %.pre20, align 4
   br label %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit
 
 _ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit: ; preds = %30, %46, %.thread, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit
-  %67 = phi i32 [ %20, %.thread ], [ %.pre21, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %20, %46 ], [ %20, %30 ]
-  %68 = phi ptr [ %21, %.thread ], [ %.pre20, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %21, %46 ], [ %21, %30 ]
+  %68 = phi i32 [ %20, %.thread ], [ %.pre21, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %20, %46 ], [ %20, %30 ]
+  %69 = phi ptr [ %21, %.thread ], [ %.pre20, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %21, %46 ], [ %21, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = sext i32 %67 to i64
-  %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph, label %_ZNK13ReplacedNodes8is_emptyEv.exit.thread, !llvm.loop !9
+  %70 = sext i32 %68 to i64
+  %71 = icmp slt i64 %indvars.iv.next, %70
+  br i1 %71, label %.lr.ph, label %_ZNK13ReplacedNodes8is_emptyEv.exit.thread, !llvm.loop !9
 
 _ZNK13ReplacedNodes8is_emptyEv.exit.thread:       ; preds = %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit, %_ZN13ReplacedNodes21allocate_if_necessaryEv.exit, %3, %_ZNK13ReplacedNodes8is_emptyEv.exit
   ret void

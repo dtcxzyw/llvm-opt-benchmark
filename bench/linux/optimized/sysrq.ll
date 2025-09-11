@@ -771,7 +771,8 @@ declare dso_local void @emergency_thaw_all() local_unnamed_addr #3
 define internal void @sysrq_handle_SAK(i8 zeroext %0) #2 align 16 {
   %2 = load i32, ptr @fg_console, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr %struct.vc, ptr @vc_cons, i64 %3, i32 1
+  %.split = getelementptr %struct.vc, ptr @vc_cons, i64 %3
+  %4 = getelementptr i8, ptr %.split, i64 8
   %5 = load ptr, ptr @system_wq, align 8
   %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %5, ptr noundef %4) #18
   ret void

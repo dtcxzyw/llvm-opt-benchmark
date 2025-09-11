@@ -4781,7 +4781,7 @@ declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_u
 define hidden void @phar_request_initialize() local_unnamed_addr #0 {
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 200), align 8, !tbaa !27, !range !16, !noundef !28
   %2 = trunc nuw i8 %1 to i1
-  br i1 %2, label %38, label %3
+  br i1 %2, label %39, label %3
 
 3:                                                ; preds = %0
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 448), align 8, !tbaa !83
@@ -4803,7 +4803,7 @@ define hidden void @phar_request_initialize() local_unnamed_addr #0 {
   tail call void @_zend_hash_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), i32 noundef 5, ptr noundef null, i1 noundef zeroext false) #24
   %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 193), align 1, !tbaa !62, !range !16, !noundef !28
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %37
+  br i1 %11, label %12, label %38
 
 12:                                               ; preds = %3
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 28), align 4, !tbaa !87
@@ -4821,12 +4821,12 @@ define hidden void @phar_request_initialize() local_unnamed_addr #0 {
   %.not1415 = icmp eq i32 %17, 0
   br i1 %.not1415, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %12, %35
-  %.016 = phi ptr [ %36, %35 ], [ %16, %12 ]
+.lr.ph:                                           ; preds = %12, %36
+  %.016 = phi ptr [ %37, %36 ], [ %16, %12 ]
   %22 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %23 = load i8, ptr %22, align 8, !tbaa !29
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %35, label %25, !prof !110
+  br i1 %24, label %36, label %25, !prof !110
 
 25:                                               ; preds = %.lr.ph
   %26 = load ptr, ptr %.016, align 8, !tbaa !29
@@ -4837,27 +4837,28 @@ define hidden void @phar_request_initialize() local_unnamed_addr #0 {
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 312
   %32 = load i32, ptr %31, align 8, !tbaa !65
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %15, i64 %33, i32 2
-  store ptr %30, ptr %34, align 8, !tbaa !130
-  br label %35
+  %34 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %15, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store ptr %30, ptr %35, align 8, !tbaa !130
+  br label %36
 
-35:                                               ; preds = %.lr.ph, %25
-  %36 = getelementptr inbounds nuw i8, ptr %.016, i64 32
-  %.not14 = icmp eq ptr %36, %19
+36:                                               ; preds = %.lr.ph, %25
+  %37 = getelementptr inbounds nuw i8, ptr %.016, i64 32
+  %.not14 = icmp eq ptr %37, %19
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %35, %12
+._crit_edge:                                      ; preds = %36, %12
   store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 112), align 8, !tbaa !133
-  br label %37
+  br label %38
 
-37:                                               ; preds = %._crit_edge, %3
+38:                                               ; preds = %._crit_edge, %3
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 176), align 8, !tbaa !134
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 384), align 8, !tbaa !135
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 392), align 8, !tbaa !136
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 396), align 4, !tbaa !137
-  br label %38
+  br label %39
 
-38:                                               ; preds = %37, %0
+39:                                               ; preds = %38, %0
   ret void
 }
 
@@ -9533,7 +9534,7 @@ define hidden noundef i32 @zm_deactivate_phar(i32 %0, i32 %1) #0 {
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 203), align 1, !tbaa !129
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 200), align 8, !tbaa !27, !range !16, !noundef !28
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %31
+  br i1 %4, label %5, label %33
 
 5:                                                ; preds = %2
   tail call void @phar_release_functions() #24
@@ -9546,14 +9547,14 @@ define hidden noundef i32 @zm_deactivate_phar(i32 %0, i32 %1) #0 {
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 176), align 8, !tbaa !134
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 112), align 8, !tbaa !133
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %27, label %.preheader
+  br i1 %.not, label %29, label %.preheader
 
 .preheader:                                       ; preds = %5
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 28), align 4, !tbaa !87
   %.not14 = icmp eq i32 %7, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %20
+._crit_edge.loopexit:                             ; preds = %21
   %.pre17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 112), align 8, !tbaa !133
   br label %._crit_edge
 
@@ -9561,10 +9562,10 @@ define hidden noundef i32 @zm_deactivate_phar(i32 %0, i32 %1) #0 {
   %8 = phi ptr [ %.pre17, %._crit_edge.loopexit ], [ %6, %.preheader ]
   tail call void @_efree(ptr noundef %8) #24
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 112), align 8, !tbaa !133
-  br label %27
+  br label %29
 
-.lr.ph:                                           ; preds = %.preheader, %20
-  %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %21
+  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader ]
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 112), align 8, !tbaa !133
   %10 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !151
@@ -9578,44 +9579,46 @@ define hidden noundef i32 @zm_deactivate_phar(i32 %0, i32 %1) #0 {
 
 14:                                               ; preds = %12, %.lr.ph
   %15 = phi ptr [ %.pre, %12 ], [ %9, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %15, i64 %indvars.iv, i32 1
-  %17 = load ptr, ptr %16, align 8, !tbaa !167
-  %.not12 = icmp eq ptr %17, null
-  br i1 %.not12, label %20, label %18
+  %16 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !167
+  %.not12 = icmp eq ptr %18, null
+  br i1 %.not12, label %21, label %19
 
-18:                                               ; preds = %14
-  %19 = tail call i32 @_php_stream_free(ptr noundef nonnull %17, i32 noundef 3) #24
+19:                                               ; preds = %14
+  %20 = tail call i32 @_php_stream_free(ptr noundef nonnull %18, i32 noundef 3) #24
   %.pre16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 112), align 8, !tbaa !133
-  br label %20
+  br label %21
 
-20:                                               ; preds = %18, %14
-  %21 = phi ptr [ %.pre16, %18 ], [ %15, %14 ]
-  %22 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %21, i64 %indvars.iv, i32 2
-  %23 = load ptr, ptr %22, align 8, !tbaa !130
-  tail call void @_efree(ptr noundef %23) #24
+21:                                               ; preds = %19, %14
+  %22 = phi ptr [ %.pre16, %19 ], [ %15, %14 ]
+  %23 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load ptr, ptr %24, align 8, !tbaa !130
+  tail call void @_efree(ptr noundef %25) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 28), align 4, !tbaa !87
-  %25 = zext i32 %24 to i64
-  %26 = icmp samesign ult i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge.loopexit
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 28), align 4, !tbaa !87
+  %27 = zext i32 %26 to i64
+  %28 = icmp samesign ult i64 %indvars.iv.next, %27
+  br i1 %28, label %.lr.ph, label %._crit_edge.loopexit
 
-27:                                               ; preds = %._crit_edge, %5
+29:                                               ; preds = %._crit_edge, %5
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 200), align 8, !tbaa !27
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 384), align 8, !tbaa !135
-  %.not10 = icmp eq ptr %28, null
-  br i1 %.not10, label %30, label %29
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 384), align 8, !tbaa !135
+  %.not10 = icmp eq ptr %30, null
+  br i1 %.not10, label %32, label %31
 
-29:                                               ; preds = %27
-  tail call void @_efree(ptr noundef nonnull %28) #24
-  br label %30
+31:                                               ; preds = %29
+  tail call void @_efree(ptr noundef nonnull %30) #24
+  br label %32
 
-30:                                               ; preds = %29, %27
+32:                                               ; preds = %31, %29
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 384), align 8, !tbaa !135
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 392), align 8, !tbaa !136
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 396), align 4, !tbaa !137
-  br label %31
+  br label %33
 
-31:                                               ; preds = %30, %2
+33:                                               ; preds = %32, %2
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 202), align 2, !tbaa !81
   ret i32 0
 }

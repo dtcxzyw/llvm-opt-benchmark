@@ -11291,70 +11291,72 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.038 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %9 = shl i64 %.038, 1
   %10 = add i64 %9, 2
-  %11 = or disjoint i64 %9, 1
-  %12 = getelementptr %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %10, i32 1
-  %.val2.i = load i32, ptr %12, align 8, !tbaa !13
-  %13 = getelementptr %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %11, i32 1
-  %.val3.i = load i32, ptr %13, align 8, !tbaa !13
-  %14 = icmp slt i32 %.val2.i, %.val3.i
-  %spec.select = select i1 %14, i64 %11, i64 %10
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %.038
-  %17 = tail call fastcc noundef nonnull align 8 dereferenceable(656) ptr @_ZN12_GLOBAL__N_117DXILOperationDescaSEOS0_(ptr noundef nonnull align 8 dereferenceable(656) %16, ptr noundef nonnull align 8 dereferenceable(656) %15)
-  %18 = icmp slt i64 %spec.select, %7
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !259
+  %11 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %10
+  %12 = or disjoint i64 %9, 1
+  %13 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %12
+  %14 = getelementptr i8, ptr %11, i64 32
+  %.val2.i = load i32, ptr %14, align 8, !tbaa !13
+  %15 = getelementptr i8, ptr %13, i64 32
+  %.val3.i = load i32, ptr %15, align 8, !tbaa !13
+  %16 = icmp slt i32 %.val2.i, %.val3.i
+  %spec.select = select i1 %16, i64 %12, i64 %10
+  %17 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %spec.select
+  %18 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %.038
+  %19 = tail call fastcc noundef nonnull align 8 dereferenceable(656) ptr @_ZN12_GLOBAL__N_117DXILOperationDescaSEOS0_(ptr noundef nonnull align 8 dereferenceable(656) %18, ptr noundef nonnull align 8 dereferenceable(656) %17)
+  %20 = icmp slt i64 %spec.select, %7
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !259
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %.lr.ph ]
-  %19 = and i64 %2, 1
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %31
+  %21 = and i64 %2, 1
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %33
 
-21:                                               ; preds = %._crit_edge
-  %22 = add nsw i64 %2, -2
-  %23 = ashr exact i64 %22, 1
-  %24 = icmp eq i64 %.0.lcssa, %23
-  br i1 %24, label %25, label %31
+23:                                               ; preds = %._crit_edge
+  %24 = add nsw i64 %2, -2
+  %25 = ashr exact i64 %24, 1
+  %26 = icmp eq i64 %.0.lcssa, %25
+  br i1 %26, label %27, label %33
 
-25:                                               ; preds = %21
-  %26 = shl nsw i64 %.0.lcssa, 1
-  %27 = or disjoint i64 %26, 1
-  %28 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %27
-  %29 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %.0.lcssa
-  %30 = tail call fastcc noundef nonnull align 8 dereferenceable(656) ptr @_ZN12_GLOBAL__N_117DXILOperationDescaSEOS0_(ptr noundef nonnull align 8 dereferenceable(656) %29, ptr noundef nonnull align 8 dereferenceable(656) %28)
-  br label %31
+27:                                               ; preds = %23
+  %28 = shl nsw i64 %.0.lcssa, 1
+  %29 = or disjoint i64 %28, 1
+  %30 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %29
+  %31 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %.0.lcssa
+  %32 = tail call fastcc noundef nonnull align 8 dereferenceable(656) ptr @_ZN12_GLOBAL__N_117DXILOperationDescaSEOS0_(ptr noundef nonnull align 8 dereferenceable(656) %31, ptr noundef nonnull align 8 dereferenceable(656) %30)
+  br label %33
 
-31:                                               ; preds = %25, %21, %._crit_edge
-  %.1 = phi i64 [ %27, %25 ], [ %.0.lcssa, %21 ], [ %.0.lcssa, %._crit_edge ]
+33:                                               ; preds = %27, %23, %._crit_edge
+  %.1 = phi i64 [ %29, %27 ], [ %.0.lcssa, %23 ], [ %.0.lcssa, %._crit_edge ]
   call fastcc void @_ZN12_GLOBAL__N_117DXILOperationDescC2EOS0_(ptr noundef nonnull align 8 dereferenceable(656) %5, ptr noundef nonnull align 8 dereferenceable(656) %3)
-  %32 = icmp sgt i64 %.1, %1
-  br i1 %32, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZL17emitDxilOperationRKN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_RT2_.exit"
+  %34 = icmp sgt i64 %.1, %1
+  br i1 %34, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZL17emitDxilOperationRKN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  br label %34
+.lr.ph.i:                                         ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  br label %36
 
-34:                                               ; preds = %38, %.lr.ph.i
-  %.06.i = phi i64 [ %.1, %.lr.ph.i ], [ %.097.i, %38 ]
+36:                                               ; preds = %40, %.lr.ph.i
+  %.06.i = phi i64 [ %.1, %.lr.ph.i ], [ %.097.i, %40 ]
   %.097.in.i = add nsw i64 %.06.i, -1
   %.097.i = sdiv i64 %.097.in.i, 2
-  %35 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %.097.i
-  %.val16.i = load i32, ptr %33, align 8, !tbaa !13
-  %36 = getelementptr i8, ptr %35, i64 32
-  %.val2.i.i = load i32, ptr %36, align 8, !tbaa !13
-  %37 = icmp slt i32 %.val2.i.i, %.val16.i
-  br i1 %37, label %38, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZL17emitDxilOperationRKN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_RT2_.exit"
+  %37 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %.097.i
+  %.val16.i = load i32, ptr %35, align 8, !tbaa !13
+  %38 = getelementptr i8, ptr %37, i64 32
+  %.val2.i.i = load i32, ptr %38, align 8, !tbaa !13
+  %39 = icmp slt i32 %.val2.i.i, %.val16.i
+  br i1 %39, label %40, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZL17emitDxilOperationRKN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_RT2_.exit"
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %.06.i
-  %40 = call fastcc noundef nonnull align 8 dereferenceable(656) ptr @_ZN12_GLOBAL__N_117DXILOperationDescaSEOS0_(ptr noundef nonnull align 8 dereferenceable(656) %39, ptr noundef nonnull align 8 dereferenceable(656) %35)
-  %41 = icmp sgt i64 %.097.i, %1
-  br i1 %41, label %34, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZL17emitDxilOperationRKN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_RT2_.exit", !llvm.loop !260
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %.06.i
+  %42 = call fastcc noundef nonnull align 8 dereferenceable(656) ptr @_ZN12_GLOBAL__N_117DXILOperationDescaSEOS0_(ptr noundef nonnull align 8 dereferenceable(656) %41, ptr noundef nonnull align 8 dereferenceable(656) %37)
+  %43 = icmp sgt i64 %.097.i, %1
+  br i1 %43, label %36, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZL17emitDxilOperationRKN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_RT2_.exit", !llvm.loop !260
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZL17emitDxilOperationRKN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_RT2_.exit": ; preds = %34, %38, %31
-  %.0.lcssa.i = phi i64 [ %.1, %31 ], [ %.06.i, %34 ], [ %.097.i, %38 ]
-  %42 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %.0.lcssa.i
-  %43 = call fastcc noundef nonnull align 8 dereferenceable(656) ptr @_ZN12_GLOBAL__N_117DXILOperationDescaSEOS0_(ptr noundef nonnull align 8 dereferenceable(656) %42, ptr noundef nonnull align 8 dereferenceable(656) %5)
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117DXILOperationDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZL17emitDxilOperationRKN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SK_T1_RT2_.exit": ; preds = %36, %40, %33
+  %.0.lcssa.i = phi i64 [ %.1, %33 ], [ %.06.i, %36 ], [ %.097.i, %40 ]
+  %44 = getelementptr inbounds %"struct.(anonymous namespace)::DXILOperationDesc", ptr %0, i64 %.0.lcssa.i
+  %45 = call fastcc noundef nonnull align 8 dereferenceable(656) ptr @_ZN12_GLOBAL__N_117DXILOperationDescaSEOS0_(ptr noundef nonnull align 8 dereferenceable(656) %44, ptr noundef nonnull align 8 dereferenceable(656) %5)
   call fastcc void @_ZN12_GLOBAL__N_117DXILOperationDescD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %5) #21
   ret void
 }

@@ -234,95 +234,96 @@ define dso_local void @scontrol_print_node(ptr noundef %0, ptr noundef readonly 
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.lr.ph ]
   %.033.us = phi i32 [ %.2.us, %16 ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw %struct.node_info, ptr %7, i64 %indvars.iv, i32 25
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %16, label %11
+  %8 = getelementptr inbounds nuw %struct.node_info, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %16, label %12
 
-11:                                               ; preds = %.lr.ph.split.us.split
-  %12 = add nsw i32 %.033.us, 1
-  %13 = load ptr, ptr @stdout, align 8
-  %14 = getelementptr inbounds nuw %struct.node_info, ptr %7, i64 %indvars.iv
+12:                                               ; preds = %.lr.ph.split.us.split
+  %13 = add nsw i32 %.033.us, 1
+  %14 = load ptr, ptr @stdout, align 8
   %15 = load i32, ptr @one_liner, align 4
-  tail call void @slurm_print_node_table(ptr noundef %13, ptr noundef %14, i32 noundef %15) #9
+  tail call void @slurm_print_node_table(ptr noundef %14, ptr noundef nonnull %8, i32 noundef %15) #9
   %.pre42 = load i32, ptr %3, align 8
   br label %16
 
-16:                                               ; preds = %11, %.lr.ph.split.us.split
-  %17 = phi i32 [ %.pre42, %11 ], [ %6, %.lr.ph.split.us.split ]
-  %.2.us = phi i32 [ %12, %11 ], [ %.033.us, %.lr.ph.split.us.split ]
+16:                                               ; preds = %12, %.lr.ph.split.us.split
+  %17 = phi i32 [ %.pre42, %12 ], [ %6, %.lr.ph.split.us.split ]
+  %.2.us = phi i32 [ %13, %12 ], [ %.033.us, %.lr.ph.split.us.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !11
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %35
-  %20 = phi i32 [ %36, %35 ], [ %4, %.lr.ph.split.preheader ]
-  %21 = phi i32 [ %37, %35 ], [ %.pre40, %.lr.ph.split.preheader ]
-  %.02132 = phi i32 [ %38, %35 ], [ 0, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %36
+  %20 = phi i32 [ %37, %36 ], [ %4, %.lr.ph.split.preheader ]
+  %21 = phi i32 [ %38, %36 ], [ %.pre40, %.lr.ph.split.preheader ]
+  %.02132 = phi i32 [ %39, %36 ], [ 0, %.lr.ph.split.preheader ]
   %22 = add nsw i32 %21, %.02132
   %23 = urem i32 %22, %20
   %24 = load ptr, ptr %5, align 8
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.node_info, ptr %24, i64 %25, i32 25
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %35, label %29
+  %26 = getelementptr inbounds %struct.node_info, ptr %24, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 176
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %36, label %30
 
-29:                                               ; preds = %.lr.ph.split
-  %30 = tail call i32 @xstrcmp(ptr noundef nonnull %0, ptr noundef nonnull %27) #9
-  %.not27 = icmp eq i32 %30, 0
+30:                                               ; preds = %.lr.ph.split
+  %31 = tail call i32 @xstrcmp(ptr noundef nonnull %0, ptr noundef nonnull %28) #9
+  %.not27 = icmp eq i32 %31, 0
   br i1 %.not27, label %.loopexit.thread49, label %._crit_edge
 
-._crit_edge:                                      ; preds = %29
+._crit_edge:                                      ; preds = %30
   %.pre = load i32, ptr @scontrol_print_node.last_inx, align 4
   %.pre41 = load i32, ptr %3, align 8
-  br label %35
+  br label %36
 
-.loopexit.thread49:                               ; preds = %29
-  %31 = load ptr, ptr @stdout, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.node_info, ptr %32, i64 %25
-  %34 = load i32, ptr @one_liner, align 4
-  tail call void @slurm_print_node_table(ptr noundef %31, ptr noundef %33, i32 noundef %34) #9
+.loopexit.thread49:                               ; preds = %30
+  %32 = load ptr, ptr @stdout, align 8
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds %struct.node_info, ptr %33, i64 %25
+  %35 = load i32, ptr @one_liner, align 4
+  tail call void @slurm_print_node_table(ptr noundef %32, ptr noundef %34, i32 noundef %35) #9
   store i32 %23, ptr @scontrol_print_node.last_inx, align 4
-  br label %48
+  br label %49
 
-35:                                               ; preds = %._crit_edge, %.lr.ph.split
-  %36 = phi i32 [ %20, %.lr.ph.split ], [ %.pre41, %._crit_edge ]
-  %37 = phi i32 [ %21, %.lr.ph.split ], [ %.pre, %._crit_edge ]
-  %38 = add nuw nsw i32 %.02132, 1
-  %39 = icmp ult i32 %38, %36
-  br i1 %39, label %.lr.ph.split, label %.loopexit.thread, !llvm.loop !11
+36:                                               ; preds = %._crit_edge, %.lr.ph.split
+  %37 = phi i32 [ %20, %.lr.ph.split ], [ %.pre41, %._crit_edge ]
+  %38 = phi i32 [ %21, %.lr.ph.split ], [ %.pre, %._crit_edge ]
+  %39 = add nuw nsw i32 %.02132, 1
+  %40 = icmp ult i32 %39, %37
+  br i1 %40, label %.lr.ph.split, label %.loopexit.thread, !llvm.loop !11
 
 .loopexit:                                        ; preds = %16
-  %40 = icmp eq i32 %.2.us, 0
-  br i1 %40, label %.loopexit.thread, label %48
+  %41 = icmp eq i32 %.2.us, 0
+  br i1 %41, label %.loopexit.thread, label %49
 
-.loopexit.thread:                                 ; preds = %35, %2, %.loopexit
+.loopexit.thread:                                 ; preds = %36, %2, %.loopexit
   %.not28 = icmp eq ptr %0, null
-  br i1 %.not28, label %45, label %41
+  br i1 %.not28, label %46, label %42
 
-41:                                               ; preds = %.loopexit.thread
+42:                                               ; preds = %.loopexit.thread
   store i32 1, ptr @exit_code, align 4
-  %42 = load i32, ptr @quiet_flag, align 4
-  %.not30 = icmp eq i32 %42, 1
-  br i1 %.not30, label %48, label %43
+  %43 = load i32, ptr @quiet_flag, align 4
+  %.not30 = icmp eq i32 %43, 1
+  br i1 %.not30, label %49, label %44
 
-43:                                               ; preds = %41
-  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %0)
-  br label %48
+44:                                               ; preds = %42
+  %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %0)
+  br label %49
 
-45:                                               ; preds = %.loopexit.thread
-  %46 = load i32, ptr @quiet_flag, align 4
-  %.not29 = icmp eq i32 %46, 1
-  br i1 %.not29, label %48, label %47
+46:                                               ; preds = %.loopexit.thread
+  %47 = load i32, ptr @quiet_flag, align 4
+  %.not29 = icmp eq i32 %47, 1
+  br i1 %.not29, label %49, label %48
 
-47:                                               ; preds = %45
+48:                                               ; preds = %46
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %48
+  br label %49
 
-48:                                               ; preds = %.loopexit.thread49, %43, %41, %47, %45, %.loopexit
+49:                                               ; preds = %.loopexit.thread49, %44, %42, %48, %46, %.loopexit
   ret void
 }
 
@@ -363,11 +364,11 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
   store i32 1, ptr @exit_code, align 4
   %19 = load i32, ptr @quiet_flag, align 4
   %.not94 = icmp eq i32 %19, 1
-  br i1 %.not94, label %165, label %20
+  br i1 %.not94, label %166, label %20
 
 20:                                               ; preds = %18
   tail call void @slurm_perror(ptr noundef nonnull @.str.6) #9
-  br label %165
+  br label %166
 
 21:                                               ; preds = %3
   %22 = load i32, ptr @quiet_flag, align 4
@@ -393,11 +394,11 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
   store i32 1, ptr @exit_code, align 4
   %32 = load i32, ptr @quiet_flag, align 4
   %.not93 = icmp eq i32 %32, 1
-  br i1 %.not93, label %165, label %33
+  br i1 %.not93, label %166, label %33
 
 33:                                               ; preds = %31
   call void @slurm_perror(ptr noundef nonnull @.str.8) #9
-  br label %165
+  br label %166
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %4, align 8
@@ -472,11 +473,11 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
 
 65:                                               ; preds = %64, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %165
+  br label %166
 
 66:                                               ; preds = %38
   call void @scontrol_print_node(ptr noundef null, ptr noundef %35)
-  br label %165
+  br label %166
 
 67:                                               ; preds = %34
   %68 = call ptr @hostlist_create(ptr noundef nonnull %0) #9
@@ -653,7 +654,7 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
   br label %.loopexit
 
 138:                                              ; preds = %.lr.ph104, %scontrol_print_node.exit
-  %139 = phi ptr [ %83, %.lr.ph104 ], [ %164, %scontrol_print_node.exit ]
+  %139 = phi ptr [ %83, %.lr.ph104 ], [ %165, %scontrol_print_node.exit ]
   %140 = load i32, ptr %84, align 8
   %.not36.i = icmp eq i32 %140, 0
   br i1 %.not36.i, label %.loopexit.thread.i, label %.lr.ph.split.preheader.i
@@ -662,66 +663,67 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
   %.pre40.i = load i32, ptr @scontrol_print_node.last_inx, align 4
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %156, %.lr.ph.split.preheader.i
-  %141 = phi i32 [ %157, %156 ], [ %140, %.lr.ph.split.preheader.i ]
-  %142 = phi i32 [ %158, %156 ], [ %.pre40.i, %.lr.ph.split.preheader.i ]
-  %.02132.i = phi i32 [ %159, %156 ], [ 0, %.lr.ph.split.preheader.i ]
+.lr.ph.split.i:                                   ; preds = %157, %.lr.ph.split.preheader.i
+  %141 = phi i32 [ %158, %157 ], [ %140, %.lr.ph.split.preheader.i ]
+  %142 = phi i32 [ %159, %157 ], [ %.pre40.i, %.lr.ph.split.preheader.i ]
+  %.02132.i = phi i32 [ %160, %157 ], [ 0, %.lr.ph.split.preheader.i ]
   %143 = add nsw i32 %.02132.i, %142
   %144 = urem i32 %143, %141
   %145 = load ptr, ptr %85, align 8
   %146 = sext i32 %144 to i64
-  %147 = getelementptr inbounds %struct.node_info, ptr %145, i64 %146, i32 25
-  %148 = load ptr, ptr %147, align 8
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %156, label %150
+  %147 = getelementptr inbounds %struct.node_info, ptr %145, i64 %146
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 176
+  %149 = load ptr, ptr %148, align 8
+  %150 = icmp eq ptr %149, null
+  br i1 %150, label %157, label %151
 
-150:                                              ; preds = %.lr.ph.split.i
-  %151 = call i32 @xstrcmp(ptr noundef nonnull %139, ptr noundef nonnull %148) #9
-  %.not27.i = icmp eq i32 %151, 0
+151:                                              ; preds = %.lr.ph.split.i
+  %152 = call i32 @xstrcmp(ptr noundef nonnull %139, ptr noundef nonnull %149) #9
+  %.not27.i = icmp eq i32 %152, 0
   br i1 %.not27.i, label %.loopexit.thread49.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %150
+._crit_edge.i:                                    ; preds = %151
   %.pre.i = load i32, ptr @scontrol_print_node.last_inx, align 4
   %.pre41.i = load i32, ptr %84, align 8
-  br label %156
+  br label %157
 
-.loopexit.thread49.i:                             ; preds = %150
-  %152 = load ptr, ptr @stdout, align 8
-  %153 = load ptr, ptr %85, align 8
-  %154 = getelementptr inbounds %struct.node_info, ptr %153, i64 %146
-  %155 = load i32, ptr @one_liner, align 4
-  call void @slurm_print_node_table(ptr noundef %152, ptr noundef %154, i32 noundef %155) #9
+.loopexit.thread49.i:                             ; preds = %151
+  %153 = load ptr, ptr @stdout, align 8
+  %154 = load ptr, ptr %85, align 8
+  %155 = getelementptr inbounds %struct.node_info, ptr %154, i64 %146
+  %156 = load i32, ptr @one_liner, align 4
+  call void @slurm_print_node_table(ptr noundef %153, ptr noundef %155, i32 noundef %156) #9
   store i32 %144, ptr @scontrol_print_node.last_inx, align 4
   br label %scontrol_print_node.exit
 
-156:                                              ; preds = %._crit_edge.i, %.lr.ph.split.i
-  %157 = phi i32 [ %141, %.lr.ph.split.i ], [ %.pre41.i, %._crit_edge.i ]
-  %158 = phi i32 [ %142, %.lr.ph.split.i ], [ %.pre.i, %._crit_edge.i ]
-  %159 = add nuw nsw i32 %.02132.i, 1
-  %160 = icmp ult i32 %159, %157
-  br i1 %160, label %.lr.ph.split.i, label %.loopexit.thread.i, !llvm.loop !11
+157:                                              ; preds = %._crit_edge.i, %.lr.ph.split.i
+  %158 = phi i32 [ %141, %.lr.ph.split.i ], [ %.pre41.i, %._crit_edge.i ]
+  %159 = phi i32 [ %142, %.lr.ph.split.i ], [ %.pre.i, %._crit_edge.i ]
+  %160 = add nuw nsw i32 %.02132.i, 1
+  %161 = icmp ult i32 %160, %158
+  br i1 %161, label %.lr.ph.split.i, label %.loopexit.thread.i, !llvm.loop !11
 
-.loopexit.thread.i:                               ; preds = %156, %138
+.loopexit.thread.i:                               ; preds = %157, %138
   store i32 1, ptr @exit_code, align 4
-  %161 = load i32, ptr @quiet_flag, align 4
-  %.not30.i = icmp eq i32 %161, 1
-  br i1 %.not30.i, label %scontrol_print_node.exit, label %162
+  %162 = load i32, ptr @quiet_flag, align 4
+  %.not30.i = icmp eq i32 %162, 1
+  br i1 %.not30.i, label %scontrol_print_node.exit, label %163
 
-162:                                              ; preds = %.loopexit.thread.i
-  %163 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %139)
+163:                                              ; preds = %.loopexit.thread.i
+  %164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %139)
   br label %scontrol_print_node.exit
 
-scontrol_print_node.exit:                         ; preds = %.loopexit.thread49.i, %.loopexit.thread.i, %162
+scontrol_print_node.exit:                         ; preds = %.loopexit.thread49.i, %.loopexit.thread.i, %163
   call void @free(ptr noundef %139) #9
-  %164 = call ptr @hostlist_shift(ptr noundef %68) #9
-  %.not76 = icmp eq ptr %164, null
+  %165 = call ptr @hostlist_shift(ptr noundef %68) #9
+  %.not76 = icmp eq ptr %165, null
   br i1 %.not76, label %.loopexit, label %138, !llvm.loop !14
 
 .loopexit:                                        ; preds = %scontrol_print_node.exit, %.preheader, %137
   call void @hostlist_destroy(ptr noundef %68) #9
-  br label %165
+  br label %166
 
-165:                                              ; preds = %.loopexit, %66, %65, %31, %33, %18, %20
+166:                                              ; preds = %.loopexit, %66, %65, %31, %33, %18, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -875,95 +877,96 @@ define dso_local void @scontrol_print_front_end(ptr noundef %0, ptr noundef read
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.lr.ph ]
   %.034.us = phi i32 [ %.2.us, %16 ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw %struct.front_end_info, ptr %7, i64 %indvars.iv, i32 5
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %16, label %11
+  %8 = getelementptr inbounds nuw %struct.front_end_info, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %16, label %12
 
-11:                                               ; preds = %.lr.ph.split.us.split
-  %12 = add nsw i32 %.034.us, 1
-  %13 = load ptr, ptr @stdout, align 8
-  %14 = getelementptr inbounds nuw %struct.front_end_info, ptr %7, i64 %indvars.iv
+12:                                               ; preds = %.lr.ph.split.us.split
+  %13 = add nsw i32 %.034.us, 1
+  %14 = load ptr, ptr @stdout, align 8
   %15 = load i32, ptr @one_liner, align 4
-  tail call void @slurm_print_front_end_table(ptr noundef %13, ptr noundef %14, i32 noundef %15) #9
+  tail call void @slurm_print_front_end_table(ptr noundef %14, ptr noundef nonnull %8, i32 noundef %15) #9
   %.pre43 = load i32, ptr %3, align 8
   br label %16
 
-16:                                               ; preds = %11, %.lr.ph.split.us.split
-  %17 = phi i32 [ %.pre43, %11 ], [ %6, %.lr.ph.split.us.split ]
-  %.2.us = phi i32 [ %12, %11 ], [ %.034.us, %.lr.ph.split.us.split ]
+16:                                               ; preds = %12, %.lr.ph.split.us.split
+  %17 = phi i32 [ %.pre43, %12 ], [ %6, %.lr.ph.split.us.split ]
+  %.2.us = phi i32 [ %13, %12 ], [ %.034.us, %.lr.ph.split.us.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !15
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %34
-  %20 = phi i32 [ %35, %34 ], [ %4, %.lr.ph.split.preheader ]
-  %21 = phi i32 [ %36, %34 ], [ %.pre41, %.lr.ph.split.preheader ]
-  %.02133 = phi i32 [ %37, %34 ], [ 0, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %35
+  %20 = phi i32 [ %36, %35 ], [ %4, %.lr.ph.split.preheader ]
+  %21 = phi i32 [ %37, %35 ], [ %.pre41, %.lr.ph.split.preheader ]
+  %.02133 = phi i32 [ %38, %35 ], [ 0, %.lr.ph.split.preheader ]
   %22 = add nsw i32 %21, %.02133
   %23 = urem i32 %22, %20
   %24 = load ptr, ptr %5, align 8
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.front_end_info, ptr %24, i64 %25, i32 5
-  %27 = load ptr, ptr %26, align 8
-  %.not27 = icmp eq ptr %27, null
-  br i1 %.not27, label %34, label %28
+  %26 = getelementptr inbounds %struct.front_end_info, ptr %24, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %28 = load ptr, ptr %27, align 8
+  %.not27 = icmp eq ptr %28, null
+  br i1 %.not27, label %35, label %29
 
-28:                                               ; preds = %.lr.ph.split
-  %29 = tail call i32 @xstrcmp(ptr noundef nonnull %0, ptr noundef nonnull %27) #9
-  %.not28 = icmp eq i32 %29, 0
+29:                                               ; preds = %.lr.ph.split
+  %30 = tail call i32 @xstrcmp(ptr noundef nonnull %0, ptr noundef nonnull %28) #9
+  %.not28 = icmp eq i32 %30, 0
   br i1 %.not28, label %.loopexit.thread50, label %._crit_edge
 
-._crit_edge:                                      ; preds = %28
+._crit_edge:                                      ; preds = %29
   %.pre = load i32, ptr @scontrol_print_front_end.last_inx, align 4
   %.pre42 = load i32, ptr %3, align 8
-  br label %34
+  br label %35
 
-.loopexit.thread50:                               ; preds = %28
-  %30 = load ptr, ptr @stdout, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.front_end_info, ptr %31, i64 %25
-  %33 = load i32, ptr @one_liner, align 4
-  tail call void @slurm_print_front_end_table(ptr noundef %30, ptr noundef %32, i32 noundef %33) #9
+.loopexit.thread50:                               ; preds = %29
+  %31 = load ptr, ptr @stdout, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = getelementptr inbounds %struct.front_end_info, ptr %32, i64 %25
+  %34 = load i32, ptr @one_liner, align 4
+  tail call void @slurm_print_front_end_table(ptr noundef %31, ptr noundef %33, i32 noundef %34) #9
   store i32 %23, ptr @scontrol_print_front_end.last_inx, align 4
-  br label %47
+  br label %48
 
-34:                                               ; preds = %._crit_edge, %.lr.ph.split
-  %35 = phi i32 [ %20, %.lr.ph.split ], [ %.pre42, %._crit_edge ]
-  %36 = phi i32 [ %21, %.lr.ph.split ], [ %.pre, %._crit_edge ]
-  %37 = add nuw nsw i32 %.02133, 1
-  %38 = icmp ult i32 %37, %35
-  br i1 %38, label %.lr.ph.split, label %.loopexit.thread, !llvm.loop !15
+35:                                               ; preds = %._crit_edge, %.lr.ph.split
+  %36 = phi i32 [ %20, %.lr.ph.split ], [ %.pre42, %._crit_edge ]
+  %37 = phi i32 [ %21, %.lr.ph.split ], [ %.pre, %._crit_edge ]
+  %38 = add nuw nsw i32 %.02133, 1
+  %39 = icmp ult i32 %38, %36
+  br i1 %39, label %.lr.ph.split, label %.loopexit.thread, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16
-  %39 = icmp eq i32 %.2.us, 0
-  br i1 %39, label %.loopexit.thread, label %47
+  %40 = icmp eq i32 %.2.us, 0
+  br i1 %40, label %.loopexit.thread, label %48
 
-.loopexit.thread:                                 ; preds = %34, %2, %.loopexit
+.loopexit.thread:                                 ; preds = %35, %2, %.loopexit
   %.not29 = icmp eq ptr %0, null
-  br i1 %.not29, label %44, label %40
+  br i1 %.not29, label %45, label %41
 
-40:                                               ; preds = %.loopexit.thread
+41:                                               ; preds = %.loopexit.thread
   store i32 1, ptr @exit_code, align 4
-  %41 = load i32, ptr @quiet_flag, align 4
-  %.not31 = icmp eq i32 %41, 1
-  br i1 %.not31, label %47, label %42
+  %42 = load i32, ptr @quiet_flag, align 4
+  %.not31 = icmp eq i32 %42, 1
+  br i1 %.not31, label %48, label %43
 
-42:                                               ; preds = %40
-  %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %0)
-  br label %47
+43:                                               ; preds = %41
+  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %0)
+  br label %48
 
-44:                                               ; preds = %.loopexit.thread
-  %45 = load i32, ptr @quiet_flag, align 4
-  %.not30 = icmp eq i32 %45, 1
-  br i1 %.not30, label %47, label %46
+45:                                               ; preds = %.loopexit.thread
+  %46 = load i32, ptr @quiet_flag, align 4
+  %.not30 = icmp eq i32 %46, 1
+  br i1 %.not30, label %48, label %47
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %47
+  br label %48
 
-47:                                               ; preds = %.loopexit.thread50, %42, %40, %46, %44, %.loopexit
+48:                                               ; preds = %.loopexit.thread50, %43, %41, %47, %45, %.loopexit
   ret void
 }
 
@@ -1024,23 +1027,23 @@ define dso_local void @scontrol_print_front_end_list(ptr noundef %0) local_unnam
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %.lr.ph.i ]
   %.034.us.i = phi i32 [ %.2.us.i, %33 ], [ 0, %.lr.ph.i ]
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds nuw %struct.front_end_info, ptr %24, i64 %indvars.iv.i, i32 5
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %33, label %28
+  %25 = getelementptr inbounds nuw %struct.front_end_info, ptr %24, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %33, label %29
 
-28:                                               ; preds = %.lr.ph.split.us.split.i
-  %29 = add nsw i32 %.034.us.i, 1
-  %30 = load ptr, ptr @stdout, align 8
-  %31 = getelementptr inbounds nuw %struct.front_end_info, ptr %24, i64 %indvars.iv.i
+29:                                               ; preds = %.lr.ph.split.us.split.i
+  %30 = add nsw i32 %.034.us.i, 1
+  %31 = load ptr, ptr @stdout, align 8
   %32 = load i32, ptr @one_liner, align 4
-  call void @slurm_print_front_end_table(ptr noundef %30, ptr noundef %31, i32 noundef %32) #9
+  call void @slurm_print_front_end_table(ptr noundef %31, ptr noundef nonnull %25, i32 noundef %32) #9
   %.pre43.i = load i32, ptr %20, align 8
   br label %33
 
-33:                                               ; preds = %28, %.lr.ph.split.us.split.i
-  %34 = phi i32 [ %.pre43.i, %28 ], [ %23, %.lr.ph.split.us.split.i ]
-  %.2.us.i = phi i32 [ %29, %28 ], [ %.034.us.i, %.lr.ph.split.us.split.i ]
+33:                                               ; preds = %29, %.lr.ph.split.us.split.i
+  %34 = phi i32 [ %.pre43.i, %29 ], [ %23, %.lr.ph.split.us.split.i ]
+  %.2.us.i = phi i32 [ %30, %29 ], [ %.034.us.i, %.lr.ph.split.us.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
@@ -1065,7 +1068,7 @@ define dso_local void @scontrol_print_front_end_list(ptr noundef %0) local_unnam
 40:                                               ; preds = %16
   %41 = call ptr @hostlist_create(ptr noundef nonnull %0) #9
   %.not10 = icmp eq ptr %41, null
-  br i1 %.not10, label %72, label %.preheader
+  br i1 %.not10, label %73, label %.preheader
 
 .preheader:                                       ; preds = %40
   %42 = call ptr @hostlist_shift(ptr noundef nonnull %41) #9
@@ -1079,7 +1082,7 @@ define dso_local void @scontrol_print_front_end_list(ptr noundef %0) local_unnam
   br label %46
 
 46:                                               ; preds = %.lr.ph, %scontrol_print_front_end.exit26
-  %47 = phi ptr [ %42, %.lr.ph ], [ %71, %scontrol_print_front_end.exit26 ]
+  %47 = phi ptr [ %42, %.lr.ph ], [ %72, %scontrol_print_front_end.exit26 ]
   %48 = load i32, ptr %44, align 8
   %.not37.i14 = icmp eq i32 %48, 0
   br i1 %.not37.i14, label %.loopexit.thread.i16, label %.lr.ph.split.preheader.i
@@ -1088,94 +1091,95 @@ define dso_local void @scontrol_print_front_end_list(ptr noundef %0) local_unnam
   %.pre41.i = load i32, ptr @scontrol_print_front_end.last_inx, align 4
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %63, %.lr.ph.split.preheader.i
-  %49 = phi i32 [ %64, %63 ], [ %48, %.lr.ph.split.preheader.i ]
-  %50 = phi i32 [ %65, %63 ], [ %.pre41.i, %.lr.ph.split.preheader.i ]
-  %.02133.i = phi i32 [ %66, %63 ], [ 0, %.lr.ph.split.preheader.i ]
+.lr.ph.split.i:                                   ; preds = %64, %.lr.ph.split.preheader.i
+  %49 = phi i32 [ %65, %64 ], [ %48, %.lr.ph.split.preheader.i ]
+  %50 = phi i32 [ %66, %64 ], [ %.pre41.i, %.lr.ph.split.preheader.i ]
+  %.02133.i = phi i32 [ %67, %64 ], [ 0, %.lr.ph.split.preheader.i ]
   %51 = add nsw i32 %.02133.i, %50
   %52 = urem i32 %51, %49
   %53 = load ptr, ptr %45, align 8
   %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds %struct.front_end_info, ptr %53, i64 %54, i32 5
-  %56 = load ptr, ptr %55, align 8
-  %.not27.i = icmp eq ptr %56, null
-  br i1 %.not27.i, label %63, label %57
+  %55 = getelementptr inbounds %struct.front_end_info, ptr %53, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  %57 = load ptr, ptr %56, align 8
+  %.not27.i = icmp eq ptr %57, null
+  br i1 %.not27.i, label %64, label %58
 
-57:                                               ; preds = %.lr.ph.split.i
-  %58 = call i32 @xstrcmp(ptr noundef nonnull %47, ptr noundef nonnull %56) #9
-  %.not28.i = icmp eq i32 %58, 0
+58:                                               ; preds = %.lr.ph.split.i
+  %59 = call i32 @xstrcmp(ptr noundef nonnull %47, ptr noundef nonnull %57) #9
+  %.not28.i = icmp eq i32 %59, 0
   br i1 %.not28.i, label %.loopexit.thread50.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %57
+._crit_edge.i:                                    ; preds = %58
   %.pre.i = load i32, ptr @scontrol_print_front_end.last_inx, align 4
   %.pre42.i = load i32, ptr %44, align 8
-  br label %63
+  br label %64
 
-.loopexit.thread50.i:                             ; preds = %57
-  %59 = load ptr, ptr @stdout, align 8
-  %60 = load ptr, ptr %45, align 8
-  %61 = getelementptr inbounds %struct.front_end_info, ptr %60, i64 %54
-  %62 = load i32, ptr @one_liner, align 4
-  call void @slurm_print_front_end_table(ptr noundef %59, ptr noundef %61, i32 noundef %62) #9
+.loopexit.thread50.i:                             ; preds = %58
+  %60 = load ptr, ptr @stdout, align 8
+  %61 = load ptr, ptr %45, align 8
+  %62 = getelementptr inbounds %struct.front_end_info, ptr %61, i64 %54
+  %63 = load i32, ptr @one_liner, align 4
+  call void @slurm_print_front_end_table(ptr noundef %60, ptr noundef %62, i32 noundef %63) #9
   store i32 %52, ptr @scontrol_print_front_end.last_inx, align 4
   br label %scontrol_print_front_end.exit26
 
-63:                                               ; preds = %._crit_edge.i, %.lr.ph.split.i
-  %64 = phi i32 [ %49, %.lr.ph.split.i ], [ %.pre42.i, %._crit_edge.i ]
-  %65 = phi i32 [ %50, %.lr.ph.split.i ], [ %.pre.i, %._crit_edge.i ]
-  %66 = add nuw nsw i32 %.02133.i, 1
-  %67 = icmp ult i32 %66, %64
-  br i1 %67, label %.lr.ph.split.i, label %.loopexit.thread.i16, !llvm.loop !15
+64:                                               ; preds = %._crit_edge.i, %.lr.ph.split.i
+  %65 = phi i32 [ %49, %.lr.ph.split.i ], [ %.pre42.i, %._crit_edge.i ]
+  %66 = phi i32 [ %50, %.lr.ph.split.i ], [ %.pre.i, %._crit_edge.i ]
+  %67 = add nuw nsw i32 %.02133.i, 1
+  %68 = icmp ult i32 %67, %65
+  br i1 %68, label %.lr.ph.split.i, label %.loopexit.thread.i16, !llvm.loop !15
 
-.loopexit.thread.i16:                             ; preds = %63, %46
+.loopexit.thread.i16:                             ; preds = %64, %46
   store i32 1, ptr @exit_code, align 4
-  %68 = load i32, ptr @quiet_flag, align 4
-  %.not31.i = icmp eq i32 %68, 1
-  br i1 %.not31.i, label %scontrol_print_front_end.exit26, label %69
+  %69 = load i32, ptr @quiet_flag, align 4
+  %.not31.i = icmp eq i32 %69, 1
+  br i1 %.not31.i, label %scontrol_print_front_end.exit26, label %70
 
-69:                                               ; preds = %.loopexit.thread.i16
-  %70 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %47)
+70:                                               ; preds = %.loopexit.thread.i16
+  %71 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %47)
   br label %scontrol_print_front_end.exit26
 
-scontrol_print_front_end.exit26:                  ; preds = %.loopexit.thread50.i, %.loopexit.thread.i16, %69
+scontrol_print_front_end.exit26:                  ; preds = %.loopexit.thread50.i, %.loopexit.thread.i16, %70
   call void @free(ptr noundef %47) #9
-  %71 = call ptr @hostlist_shift(ptr noundef nonnull %41) #9
-  %.not12 = icmp eq ptr %71, null
+  %72 = call ptr @hostlist_shift(ptr noundef nonnull %41) #9
+  %.not12 = icmp eq ptr %72, null
   br i1 %.not12, label %._crit_edge, label %46, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %scontrol_print_front_end.exit26, %.preheader
   call void @hostlist_destroy(ptr noundef nonnull %41) #9
   br label %scontrol_print_front_end.exit
 
-72:                                               ; preds = %40
+73:                                               ; preds = %40
   store i32 1, ptr @exit_code, align 4
-  %73 = load i32, ptr @quiet_flag, align 4
-  %.not11 = icmp eq i32 %73, 1
-  br i1 %.not11, label %scontrol_print_front_end.exit, label %74
+  %74 = load i32, ptr @quiet_flag, align 4
+  %.not11 = icmp eq i32 %74, 1
+  br i1 %.not11, label %scontrol_print_front_end.exit, label %75
 
-74:                                               ; preds = %72
-  %75 = tail call ptr @__errno_location() #10
-  %76 = load i32, ptr %75, align 4
-  switch i32 %76, label %83 [
-    i32 22, label %77
-    i32 34, label %80
+75:                                               ; preds = %73
+  %76 = tail call ptr @__errno_location() #10
+  %77 = load i32, ptr %76, align 4
+  switch i32 %77, label %84 [
+    i32 22, label %78
+    i32 34, label %81
   ]
 
-77:                                               ; preds = %74
-  %78 = load ptr, ptr @stderr, align 8
-  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #11
+78:                                               ; preds = %75
+  %79 = load ptr, ptr @stderr, align 8
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #11
   br label %scontrol_print_front_end.exit
 
-80:                                               ; preds = %74
-  %81 = load ptr, ptr @stderr, align 8
-  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.10, ptr noundef nonnull %0) #11
+81:                                               ; preds = %75
+  %82 = load ptr, ptr @stderr, align 8
+  %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.10, ptr noundef nonnull %0) #11
   br label %scontrol_print_front_end.exit
 
-83:                                               ; preds = %74
+84:                                               ; preds = %75
   call void @perror(ptr noundef nonnull @.str.11) #12
   br label %scontrol_print_front_end.exit
 
-scontrol_print_front_end.exit:                    ; preds = %39, %.loopexit.thread.i, %.loopexit.i, %72, %80, %83, %77, %._crit_edge, %5, %7
+scontrol_print_front_end.exit:                    ; preds = %39, %.loopexit.thread.i, %.loopexit.i, %73, %81, %84, %78, %._crit_edge, %5, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

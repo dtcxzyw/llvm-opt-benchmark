@@ -2521,10 +2521,11 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefES2_ELb1EE9push_backERKS3
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = zext i32 %40 to i64
   %43 = load ptr, ptr %41, align 8, !tbaa !51
-  %44 = getelementptr inbounds nuw %"struct.std::pair", ptr %43, i64 %42, i32 1
+  %44 = getelementptr inbounds nuw %"struct.std::pair", ptr %43, i64 %42
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %44
+  ret ptr %45
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

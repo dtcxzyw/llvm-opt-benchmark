@@ -395,71 +395,73 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
 
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %.03543 = phi ptr [ %31, %.lr.ph ], [ %39, %35 ]
-  %36 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %33, i64 %indvars.iv, i32 1
-  %.sroa.037.0.copyload = load float, ptr %36, align 8
-  %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %.03543 = phi ptr [ %31, %.lr.ph ], [ %40, %35 ]
+  %36 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %.sroa.037.0.copyload = load float, ptr %37, align 8
+  %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 20
   %.sroa.438.0.copyload = load float, ptr %.sroa.438.0..sroa_idx, align 4
-  %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 24
   %.sroa.539.0.copyload = load float, ptr %.sroa.539.0..sroa_idx, align 8
   store float %.sroa.037.0.copyload, ptr %.03543, align 4, !tbaa !48
-  %37 = getelementptr inbounds nuw i8, ptr %.03543, i64 4
-  store float %.sroa.438.0.copyload, ptr %37, align 4, !tbaa !48
-  %38 = getelementptr inbounds nuw i8, ptr %.03543, i64 8
-  store float %.sroa.539.0.copyload, ptr %38, align 4, !tbaa !48
-  %39 = getelementptr inbounds float, ptr %.03543, i64 %34
+  %38 = getelementptr inbounds nuw i8, ptr %.03543, i64 4
+  store float %.sroa.438.0.copyload, ptr %38, align 4, !tbaa !48
+  %39 = getelementptr inbounds nuw i8, ptr %.03543, i64 8
+  store float %.sroa.539.0.copyload, ptr %39, align 4, !tbaa !48
+  %40 = getelementptr inbounds float, ptr %.03543, i64 %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit41, label %35, !llvm.loop !49
 
 .loopexit41:                                      ; preds = %35, %20, %9
-  %40 = load ptr, ptr %2, align 8, !tbaa !12
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(28) %2)
-  br i1 %43, label %44, label %.loopexit
+  %41 = load ptr, ptr %2, align 8, !tbaa !12
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(28) %2)
+  br i1 %44, label %45, label %.loopexit
 
-44:                                               ; preds = %.loopexit41
-  %45 = load ptr, ptr %2, align 8, !tbaa !12
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(28) %2)
-  %49 = load ptr, ptr %2, align 8, !tbaa !12
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(28) %2)
-  %53 = icmp sgt i32 %11, 0
-  br i1 %53, label %.lr.ph46, label %.loopexit
+45:                                               ; preds = %.loopexit41
+  %46 = load ptr, ptr %2, align 8, !tbaa !12
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(28) %2)
+  %50 = load ptr, ptr %2, align 8, !tbaa !12
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(28) %2)
+  %54 = icmp sgt i32 %11, 0
+  br i1 %54, label %.lr.ph46, label %.loopexit
 
-.lr.ph46:                                         ; preds = %44
-  %54 = sext i32 %48 to i64
-  %55 = getelementptr inbounds float, ptr %15, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 944
-  %57 = load ptr, ptr %56, align 8, !tbaa !47
-  %58 = sext i32 %52 to i64
+.lr.ph46:                                         ; preds = %45
+  %55 = sext i32 %49 to i64
+  %56 = getelementptr inbounds float, ptr %15, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 944
+  %58 = load ptr, ptr %57, align 8, !tbaa !47
+  %59 = sext i32 %53 to i64
   %wide.trip.count51 = zext nneg i32 %11 to i64
-  br label %59
+  br label %60
 
-59:                                               ; preds = %.lr.ph46, %59
-  %indvars.iv48 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next49, %59 ]
-  %.03444 = phi ptr [ %55, %.lr.ph46 ], [ %63, %59 ]
-  %60 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %57, i64 %indvars.iv48, i32 6
-  %.sroa.0.0.copyload = load float, ptr %60, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 4
+60:                                               ; preds = %.lr.ph46, %60
+  %indvars.iv48 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next49, %60 ]
+  %.03444 = phi ptr [ %56, %.lr.ph46 ], [ %65, %60 ]
+  %61 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %58, i64 %indvars.iv48
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 96
+  %.sroa.0.0.copyload = load float, ptr %62, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 100
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 104
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 8
   store float %.sroa.0.0.copyload, ptr %.03444, align 4, !tbaa !48
-  %61 = getelementptr inbounds nuw i8, ptr %.03444, i64 4
-  store float %.sroa.4.0.copyload, ptr %61, align 4, !tbaa !48
-  %62 = getelementptr inbounds nuw i8, ptr %.03444, i64 8
-  store float %.sroa.5.0.copyload, ptr %62, align 4, !tbaa !48
-  %63 = getelementptr inbounds float, ptr %.03444, i64 %58
+  %63 = getelementptr inbounds nuw i8, ptr %.03444, i64 4
+  store float %.sroa.4.0.copyload, ptr %63, align 4, !tbaa !48
+  %64 = getelementptr inbounds nuw i8, ptr %.03444, i64 8
+  store float %.sroa.5.0.copyload, ptr %64, align 4, !tbaa !48
+  %65 = getelementptr inbounds float, ptr %.03444, i64 %59
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %.loopexit, label %59, !llvm.loop !50
+  br i1 %exitcond52.not, label %.loopexit, label %60, !llvm.loop !50
 
-.loopexit:                                        ; preds = %59, %44, %.loopexit41, %3
+.loopexit:                                        ; preds = %60, %45, %.loopexit41, %3
   ret void
 }
 

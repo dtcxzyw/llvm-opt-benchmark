@@ -1904,7 +1904,8 @@ define dso_local i32 @serial_core_register_port(ptr noundef readonly captures(no
 
 18:                                               ; preds = %35, %14
   %19 = phi i64 [ 0, %14 ], [ %36, %35 ]
-  %20 = getelementptr %struct.uart_state, ptr %16, i64 %19, i32 5
+  %.split = getelementptr %struct.uart_state, ptr %16, i64 %19
+  %20 = getelementptr i8, ptr %.split, i64 432
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %35, label %23
@@ -2572,7 +2573,8 @@ define dso_local void @serial_core_unregister_port(ptr noundef readonly captures
 
 91:                                               ; preds = %112, %88
   %92 = phi i64 [ 0, %88 ], [ %113, %112 ]
-  %93 = getelementptr %struct.uart_state, ptr %89, i64 %92, i32 5
+  %.split = getelementptr %struct.uart_state, ptr %89, i64 %92
+  %93 = getelementptr i8, ptr %.split, i64 432
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %112, label %96

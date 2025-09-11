@@ -1179,13 +1179,13 @@ _ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exi
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 4
   %.not136 = icmp eq i32 %34, 0
-  br i1 %.not136, label %58, label %35
+  br i1 %.not136, label %59, label %35
 
 35:                                               ; preds = %31
   %36 = call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %22) #12
   %37 = zext i16 %36 to i32
   %.not79 = icmp eq i16 %36, 0
-  br i1 %.not79, label %58, label %38
+  br i1 %.not79, label %59, label %38
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %1, align 8
@@ -1198,303 +1198,304 @@ _ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exi
 43:                                               ; preds = %38, %43
   %indvars.iv = phi i64 [ 0, %38 ], [ %indvars.iv.next, %43 ]
   %.1137 = phi i16 [ 0, %38 ], [ %spec.select, %43 ]
-  %44 = getelementptr inbounds nuw %class.LocalVariableTableElement, ptr %42, i64 %indvars.iv, i32 4
-  %45 = load i16, ptr %44, align 2
-  %.not85 = icmp ne i16 %45, 0
-  %46 = zext i1 %.not85 to i16
-  %spec.select = add i16 %.1137, %46
+  %44 = getelementptr inbounds nuw %class.LocalVariableTableElement, ptr %42, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i16, ptr %45, align 2
+  %.not85 = icmp ne i16 %46, 0
+  %47 = zext i1 %.not85 to i16
+  %spec.select = add i16 %.1137, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %47, label %43, !llvm.loop !11
+  br i1 %exitcond.not, label %48, label %43, !llvm.loop !11
 
-47:                                               ; preds = %43
-  %48 = add nuw nsw i16 %.171, 1
-  %49 = mul nuw nsw i32 %37, 10
-  %50 = add i32 %.168, 8
-  %51 = add i32 %50, %49
+48:                                               ; preds = %43
+  %49 = add nuw nsw i16 %.171, 1
+  %50 = mul nuw nsw i32 %37, 10
+  %51 = add i32 %.168, 8
+  %52 = add i32 %51, %50
   %.not80 = icmp eq i16 %spec.select, 0
-  br i1 %.not80, label %58, label %52
+  br i1 %.not80, label %59, label %53
 
-52:                                               ; preds = %47
-  %53 = zext i16 %spec.select to i32
-  %54 = add nuw nsw i16 %.171, 2
-  %55 = mul nuw nsw i32 %53, 10
-  %56 = add i32 %51, 8
-  %57 = add i32 %56, %55
-  br label %58
+53:                                               ; preds = %48
+  %54 = zext i16 %spec.select to i32
+  %55 = add nuw nsw i16 %.171, 2
+  %56 = mul nuw nsw i32 %54, 10
+  %57 = add i32 %52, 8
+  %58 = add i32 %57, %56
+  br label %59
 
-58:                                               ; preds = %35, %52, %47, %31
-  %.272 = phi i16 [ %54, %52 ], [ %48, %47 ], [ %.171, %35 ], [ %.171, %31 ]
-  %.269 = phi i32 [ %57, %52 ], [ %51, %47 ], [ %.168, %35 ], [ %.168, %31 ]
-  %.066 = phi i16 [ %spec.select, %52 ], [ 0, %47 ], [ 0, %35 ], [ 0, %31 ]
-  %.064 = phi i16 [ %36, %52 ], [ %36, %47 ], [ 0, %35 ], [ 0, %31 ]
-  %59 = load ptr, ptr %1, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 28
-  %63 = load i32, ptr %62, align 4
-  %64 = and i32 %63, 8
-  %.not.i = icmp eq i32 %64, 0
-  br i1 %.not.i, label %_ZN14ExceptionTableC2EPK6Method.exit, label %65
+59:                                               ; preds = %35, %53, %48, %31
+  %.272 = phi i16 [ %55, %53 ], [ %49, %48 ], [ %.171, %35 ], [ %.171, %31 ]
+  %.269 = phi i32 [ %58, %53 ], [ %52, %48 ], [ %.168, %35 ], [ %.168, %31 ]
+  %.066 = phi i16 [ %spec.select, %53 ], [ 0, %48 ], [ 0, %35 ], [ 0, %31 ]
+  %.064 = phi i16 [ %36, %53 ], [ %36, %48 ], [ 0, %35 ], [ 0, %31 ]
+  %60 = load ptr, ptr %1, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
+  %64 = load i32, ptr %63, align 4
+  %65 = and i32 %64, 8
+  %.not.i = icmp eq i32 %65, 0
+  br i1 %.not.i, label %_ZN14ExceptionTableC2EPK6Method.exit, label %66
 
-65:                                               ; preds = %58
-  %66 = call noundef ptr @_ZNK11ConstMethod21exception_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %61) #12
-  %67 = load ptr, ptr %60, align 8
-  %68 = call noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %67) #12
+66:                                               ; preds = %59
+  %67 = call noundef ptr @_ZNK11ConstMethod21exception_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %62) #12
+  %68 = load ptr, ptr %61, align 8
+  %69 = call noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %68) #12
   br label %_ZN14ExceptionTableC2EPK6Method.exit
 
-_ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %58, %65
-  %.sroa.0.0 = phi ptr [ %66, %65 ], [ null, %58 ]
-  %.sink.i = phi i16 [ %68, %65 ], [ 0, %58 ]
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 34
-  %70 = load i16, ptr %69, align 2
-  %71 = zext i16 %70 to i32
-  %72 = zext i16 %.sink.i to i32
-  %73 = shl nuw nsw i32 %72, 3
-  %74 = add i32 %.269, 12
-  %75 = add i32 %74, %71
-  %76 = add i32 %75, %73
+_ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %59, %66
+  %.sroa.0.0 = phi ptr [ %67, %66 ], [ null, %59 ]
+  %.sink.i = phi i16 [ %69, %66 ], [ 0, %59 ]
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 34
+  %71 = load i16, ptr %70, align 2
+  %72 = zext i16 %71 to i32
+  %73 = zext i16 %.sink.i to i32
+  %74 = shl nuw nsw i32 %73, 3
+  %75 = add i32 %.269, 12
+  %76 = add i32 %75, %72
+  %77 = add i32 %76, %74
   call void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_indexEPKc(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull @.str.11)
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %80 = load ptr, ptr %79, align 8
-  %81 = ptrtoint ptr %78 to i64
-  %82 = ptrtoint ptr %80 to i64
-  %83 = sub i64 %81, %82
-  %84 = add i64 %83, 4
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %86 = load i64, ptr %85, align 8
-  %.not.i.i = icmp ult i64 %84, %86
-  br i1 %.not.i.i, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i, label %87
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %81 = load ptr, ptr %80, align 8
+  %82 = ptrtoint ptr %79 to i64
+  %83 = ptrtoint ptr %81 to i64
+  %84 = sub i64 %82, %83
+  %85 = add i64 %84, 4
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %87 = load i64, ptr %86, align 8
+  %.not.i.i = icmp ult i64 %85, %87
+  br i1 %.not.i.i, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i, label %88
 
-87:                                               ; preds = %_ZN14ExceptionTableC2EPK6Method.exit
-  %88 = shl i64 %86, 1
-  %89 = add i64 %88, 5
-  %90 = and i64 %89, -1024
-  %91 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %80, i64 noundef %86, i64 noundef %90, i32 noundef 0) #12
-  store ptr %91, ptr %79, align 8
-  store i64 %90, ptr %85, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 %83
-  %.pre.i = ptrtoint ptr %92 to i64
+88:                                               ; preds = %_ZN14ExceptionTableC2EPK6Method.exit
+  %89 = shl i64 %87, 1
+  %90 = add i64 %89, 5
+  %91 = and i64 %90, -1024
+  %92 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %81, i64 noundef %87, i64 noundef %91, i32 noundef 0) #12
+  store ptr %92, ptr %80, align 8
+  store i64 %91, ptr %86, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 %84
+  %.pre.i = ptrtoint ptr %93 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i: ; preds = %87, %_ZN14ExceptionTableC2EPK6Method.exit
-  %.pre-phi.i = phi i64 [ %81, %_ZN14ExceptionTableC2EPK6Method.exit ], [ %.pre.i, %87 ]
-  %93 = phi ptr [ %78, %_ZN14ExceptionTableC2EPK6Method.exit ], [ %92, %87 ]
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  store ptr %94, ptr %77, align 8
-  %95 = call noundef i32 @llvm.bswap.i32(i32 %76)
-  %96 = and i64 %.pre-phi.i, 3
-  %97 = icmp eq i64 %96, 0
-  br i1 %97, label %98, label %99
-
-98:                                               ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i
-  store i32 %95, ptr %93, align 4
-  br label %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i: ; preds = %88, %_ZN14ExceptionTableC2EPK6Method.exit
+  %.pre-phi.i = phi i64 [ %82, %_ZN14ExceptionTableC2EPK6Method.exit ], [ %.pre.i, %88 ]
+  %94 = phi ptr [ %79, %_ZN14ExceptionTableC2EPK6Method.exit ], [ %93, %88 ]
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  store ptr %95, ptr %78, align 8
+  %96 = call noundef i32 @llvm.bswap.i32(i32 %77)
+  %97 = and i64 %.pre-phi.i, 3
+  %98 = icmp eq i64 %97, 0
+  br i1 %98, label %99, label %100
 
 99:                                               ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i
-  store i32 %95, ptr %93, align 1
+  store i32 %96, ptr %94, align 4
   br label %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
 
-_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %98, %99
-  %100 = load ptr, ptr %1, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 42
-  %104 = load i16, ptr %103, align 2
-  %105 = load ptr, ptr %77, align 8
-  %106 = load ptr, ptr %79, align 8
-  %107 = ptrtoint ptr %105 to i64
-  %108 = ptrtoint ptr %106 to i64
-  %109 = sub i64 %107, %108
-  %110 = add i64 %109, 2
-  %111 = load i64, ptr %85, align 8
-  %.not.i.i86 = icmp ult i64 %110, %111
-  br i1 %.not.i.i86, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i88, label %112
+100:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i
+  store i32 %96, ptr %94, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
 
-112:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
-  %113 = shl i64 %111, 1
-  %114 = add i64 %113, 3
-  %115 = and i64 %114, -1024
-  %116 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %106, i64 noundef %111, i64 noundef %115, i32 noundef 0) #12
-  store ptr %116, ptr %79, align 8
-  store i64 %115, ptr %85, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 %109
-  %.pre.i87 = ptrtoint ptr %117 to i64
+_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %99, %100
+  %101 = load ptr, ptr %1, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 42
+  %105 = load i16, ptr %104, align 2
+  %106 = load ptr, ptr %78, align 8
+  %107 = load ptr, ptr %80, align 8
+  %108 = ptrtoint ptr %106 to i64
+  %109 = ptrtoint ptr %107 to i64
+  %110 = sub i64 %108, %109
+  %111 = add i64 %110, 2
+  %112 = load i64, ptr %86, align 8
+  %.not.i.i86 = icmp ult i64 %111, %112
+  br i1 %.not.i.i86, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i88, label %113
+
+113:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
+  %114 = shl i64 %112, 1
+  %115 = add i64 %114, 3
+  %116 = and i64 %115, -1024
+  %117 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %107, i64 noundef %112, i64 noundef %116, i32 noundef 0) #12
+  store ptr %117, ptr %80, align 8
+  store i64 %116, ptr %86, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 %110
+  %.pre.i87 = ptrtoint ptr %118 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i88
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i88: ; preds = %112, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
-  %.pre-phi.i89 = phi i64 [ %107, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit ], [ %.pre.i87, %112 ]
-  %118 = phi ptr [ %105, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit ], [ %117, %112 ]
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 2
-  store ptr %119, ptr %77, align 8
-  %120 = call noundef i16 @llvm.bswap.i16(i16 %104)
-  %121 = and i64 %.pre-phi.i89, 1
-  %122 = icmp eq i64 %121, 0
-  br i1 %122, label %123, label %124
-
-123:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i88
-  store i16 %120, ptr %118, align 2
-  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i88: ; preds = %113, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
+  %.pre-phi.i89 = phi i64 [ %108, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit ], [ %.pre.i87, %113 ]
+  %119 = phi ptr [ %106, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit ], [ %118, %113 ]
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 2
+  store ptr %120, ptr %78, align 8
+  %121 = call noundef i16 @llvm.bswap.i16(i16 %105)
+  %122 = and i64 %.pre-phi.i89, 1
+  %123 = icmp eq i64 %122, 0
+  br i1 %123, label %124, label %125
 
 124:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i88
-  store i16 %120, ptr %118, align 1
+  store i16 %121, ptr %119, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
 
-_ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %123, %124
-  %125 = load ptr, ptr %1, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 44
-  %129 = load i16, ptr %128, align 4
-  %130 = load ptr, ptr %77, align 8
-  %131 = load ptr, ptr %79, align 8
-  %132 = ptrtoint ptr %130 to i64
-  %133 = ptrtoint ptr %131 to i64
-  %134 = sub i64 %132, %133
-  %135 = add i64 %134, 2
-  %136 = load i64, ptr %85, align 8
-  %.not.i.i90 = icmp ult i64 %135, %136
-  br i1 %.not.i.i90, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i92, label %137
+125:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i88
+  store i16 %121, ptr %119, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
 
-137:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
-  %138 = shl i64 %136, 1
-  %139 = add i64 %138, 3
-  %140 = and i64 %139, -1024
-  %141 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %131, i64 noundef %136, i64 noundef %140, i32 noundef 0) #12
-  store ptr %141, ptr %79, align 8
-  store i64 %140, ptr %85, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 %134
-  %.pre.i91 = ptrtoint ptr %142 to i64
+_ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %124, %125
+  %126 = load ptr, ptr %1, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 44
+  %130 = load i16, ptr %129, align 4
+  %131 = load ptr, ptr %78, align 8
+  %132 = load ptr, ptr %80, align 8
+  %133 = ptrtoint ptr %131 to i64
+  %134 = ptrtoint ptr %132 to i64
+  %135 = sub i64 %133, %134
+  %136 = add i64 %135, 2
+  %137 = load i64, ptr %86, align 8
+  %.not.i.i90 = icmp ult i64 %136, %137
+  br i1 %.not.i.i90, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i92, label %138
+
+138:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
+  %139 = shl i64 %137, 1
+  %140 = add i64 %139, 3
+  %141 = and i64 %140, -1024
+  %142 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %132, i64 noundef %137, i64 noundef %141, i32 noundef 0) #12
+  store ptr %142, ptr %80, align 8
+  store i64 %141, ptr %86, align 8
+  %143 = getelementptr inbounds i8, ptr %142, i64 %135
+  %.pre.i91 = ptrtoint ptr %143 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i92
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i92: ; preds = %137, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
-  %.pre-phi.i93 = phi i64 [ %132, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit ], [ %.pre.i91, %137 ]
-  %143 = phi ptr [ %130, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit ], [ %142, %137 ]
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 2
-  store ptr %144, ptr %77, align 8
-  %145 = call noundef i16 @llvm.bswap.i16(i16 %129)
-  %146 = and i64 %.pre-phi.i93, 1
-  %147 = icmp eq i64 %146, 0
-  br i1 %147, label %148, label %149
-
-148:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i92
-  store i16 %145, ptr %143, align 2
-  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i92: ; preds = %138, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
+  %.pre-phi.i93 = phi i64 [ %133, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit ], [ %.pre.i91, %138 ]
+  %144 = phi ptr [ %131, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit ], [ %143, %138 ]
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 2
+  store ptr %145, ptr %78, align 8
+  %146 = call noundef i16 @llvm.bswap.i16(i16 %130)
+  %147 = and i64 %.pre-phi.i93, 1
+  %148 = icmp eq i64 %147, 0
+  br i1 %148, label %149, label %150
 
 149:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i92
-  store i16 %145, ptr %143, align 1
+  store i16 %146, ptr %144, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94
 
-_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94: ; preds = %148, %149
-  %150 = load ptr, ptr %77, align 8
-  %151 = load ptr, ptr %79, align 8
-  %152 = ptrtoint ptr %150 to i64
-  %153 = ptrtoint ptr %151 to i64
-  %154 = sub i64 %152, %153
-  %155 = add i64 %154, 4
-  %156 = load i64, ptr %85, align 8
-  %.not.i.i95 = icmp ult i64 %155, %156
-  br i1 %.not.i.i95, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i97, label %157
+150:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i92
+  store i16 %146, ptr %144, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94
 
-157:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94
-  %158 = shl i64 %156, 1
-  %159 = add i64 %158, 5
-  %160 = and i64 %159, -1024
-  %161 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %151, i64 noundef %156, i64 noundef %160, i32 noundef 0) #12
-  store ptr %161, ptr %79, align 8
-  store i64 %160, ptr %85, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 %154
-  %.pre.i96 = ptrtoint ptr %162 to i64
+_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94: ; preds = %149, %150
+  %151 = load ptr, ptr %78, align 8
+  %152 = load ptr, ptr %80, align 8
+  %153 = ptrtoint ptr %151 to i64
+  %154 = ptrtoint ptr %152 to i64
+  %155 = sub i64 %153, %154
+  %156 = add i64 %155, 4
+  %157 = load i64, ptr %86, align 8
+  %.not.i.i95 = icmp ult i64 %156, %157
+  br i1 %.not.i.i95, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i97, label %158
+
+158:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94
+  %159 = shl i64 %157, 1
+  %160 = add i64 %159, 5
+  %161 = and i64 %160, -1024
+  %162 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %152, i64 noundef %157, i64 noundef %161, i32 noundef 0) #12
+  store ptr %162, ptr %80, align 8
+  store i64 %161, ptr %86, align 8
+  %163 = getelementptr inbounds i8, ptr %162, i64 %155
+  %.pre.i96 = ptrtoint ptr %163 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i97
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i97: ; preds = %157, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94
-  %.pre-phi.i98 = phi i64 [ %152, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94 ], [ %.pre.i96, %157 ]
-  %163 = phi ptr [ %150, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94 ], [ %162, %157 ]
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  store ptr %164, ptr %77, align 8
-  %165 = call noundef i32 @llvm.bswap.i32(i32 %71)
-  %166 = and i64 %.pre-phi.i98, 3
-  %167 = icmp eq i64 %166, 0
-  br i1 %167, label %168, label %169
-
-168:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i97
-  store i32 %165, ptr %163, align 4
-  br label %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i97: ; preds = %158, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94
+  %.pre-phi.i98 = phi i64 [ %153, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94 ], [ %.pre.i96, %158 ]
+  %164 = phi ptr [ %151, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94 ], [ %163, %158 ]
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
+  store ptr %165, ptr %78, align 8
+  %166 = call noundef i32 @llvm.bswap.i32(i32 %72)
+  %167 = and i64 %.pre-phi.i98, 3
+  %168 = icmp eq i64 %167, 0
+  br i1 %168, label %169, label %170
 
 169:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i97
-  store i32 %165, ptr %163, align 1
+  store i32 %166, ptr %164, align 4
   br label %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99
 
-_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99: ; preds = %168, %169
-  %170 = zext i16 %70 to i64
-  %171 = load ptr, ptr %77, align 8
-  %172 = load ptr, ptr %79, align 8
-  %173 = ptrtoint ptr %171 to i64
-  %174 = ptrtoint ptr %172 to i64
-  %175 = sub i64 %173, %174
-  %176 = add i64 %175, %170
-  %177 = load i64, ptr %85, align 8
-  %.not.i100 = icmp ult i64 %176, %177
-  br i1 %.not.i100, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit, label %178
+170:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i97
+  store i32 %166, ptr %164, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99
 
-178:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99
-  %179 = shl i64 %177, 1
-  %180 = add nuw nsw i64 %170, 1
-  %181 = add i64 %180, %179
-  %182 = and i64 %181, -1024
-  %183 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %172, i64 noundef %177, i64 noundef %182, i32 noundef 0) #12
-  store ptr %183, ptr %79, align 8
-  store i64 %182, ptr %85, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 %175
+_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99: ; preds = %169, %170
+  %171 = zext i16 %71 to i64
+  %172 = load ptr, ptr %78, align 8
+  %173 = load ptr, ptr %80, align 8
+  %174 = ptrtoint ptr %172 to i64
+  %175 = ptrtoint ptr %173 to i64
+  %176 = sub i64 %174, %175
+  %177 = add i64 %176, %171
+  %178 = load i64, ptr %86, align 8
+  %.not.i100 = icmp ult i64 %177, %178
+  br i1 %.not.i100, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit, label %179
+
+179:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99
+  %180 = shl i64 %178, 1
+  %181 = add nuw nsw i64 %171, 1
+  %182 = add i64 %181, %180
+  %183 = and i64 %182, -1024
+  %184 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %173, i64 noundef %178, i64 noundef %183, i32 noundef 0) #12
+  store ptr %184, ptr %80, align 8
+  store i64 %183, ptr %86, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i64 %176
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit: ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99, %178
-  %185 = phi ptr [ %184, %178 ], [ %171, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99 ]
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 %170
-  store ptr %186, ptr %77, align 8
-  call void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodHandlePh(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %185)
-  %187 = load ptr, ptr %77, align 8
-  %188 = load ptr, ptr %79, align 8
-  %189 = ptrtoint ptr %187 to i64
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit: ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99, %179
+  %186 = phi ptr [ %185, %179 ], [ %172, %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit99 ]
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 %171
+  store ptr %187, ptr %78, align 8
+  call void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodHandlePh(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %186)
+  %188 = load ptr, ptr %78, align 8
+  %189 = load ptr, ptr %80, align 8
   %190 = ptrtoint ptr %188 to i64
-  %191 = sub i64 %189, %190
-  %192 = add i64 %191, 2
-  %193 = load i64, ptr %85, align 8
-  %.not.i.i101 = icmp ult i64 %192, %193
-  br i1 %.not.i.i101, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i103, label %194
+  %191 = ptrtoint ptr %189 to i64
+  %192 = sub i64 %190, %191
+  %193 = add i64 %192, 2
+  %194 = load i64, ptr %86, align 8
+  %.not.i.i101 = icmp ult i64 %193, %194
+  br i1 %.not.i.i101, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i103, label %195
 
-194:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit
-  %195 = shl i64 %193, 1
-  %196 = add i64 %195, 3
-  %197 = and i64 %196, -1024
-  %198 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %188, i64 noundef %193, i64 noundef %197, i32 noundef 0) #12
-  store ptr %198, ptr %79, align 8
-  store i64 %197, ptr %85, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 %191
-  %.pre.i102 = ptrtoint ptr %199 to i64
+195:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit
+  %196 = shl i64 %194, 1
+  %197 = add i64 %196, 3
+  %198 = and i64 %197, -1024
+  %199 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %189, i64 noundef %194, i64 noundef %198, i32 noundef 0) #12
+  store ptr %199, ptr %80, align 8
+  store i64 %198, ptr %86, align 8
+  %200 = getelementptr inbounds i8, ptr %199, i64 %192
+  %.pre.i102 = ptrtoint ptr %200 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i103
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i103: ; preds = %194, %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit
-  %.pre-phi.i104 = phi i64 [ %189, %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit ], [ %.pre.i102, %194 ]
-  %200 = phi ptr [ %187, %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit ], [ %199, %194 ]
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 2
-  store ptr %201, ptr %77, align 8
-  %202 = call noundef i16 @llvm.bswap.i16(i16 %.sink.i)
-  %203 = and i64 %.pre-phi.i104, 1
-  %204 = icmp eq i64 %203, 0
-  br i1 %204, label %205, label %206
-
-205:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i103
-  store i16 %202, ptr %200, align 2
-  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit105
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i103: ; preds = %195, %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit
+  %.pre-phi.i104 = phi i64 [ %190, %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit ], [ %.pre.i102, %195 ]
+  %201 = phi ptr [ %188, %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit ], [ %200, %195 ]
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 2
+  store ptr %202, ptr %78, align 8
+  %203 = call noundef i16 @llvm.bswap.i16(i16 %.sink.i)
+  %204 = and i64 %.pre-phi.i104, 1
+  %205 = icmp eq i64 %204, 0
+  br i1 %205, label %206, label %207
 
 206:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i103
-  store i16 %202, ptr %200, align 1
+  store i16 %203, ptr %201, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit105
 
-_ZN27JvmtiClassFileReconstituter8write_u2Et.exit105: ; preds = %205, %206
+207:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i103
+  store i16 %203, ptr %201, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit105
+
+_ZN27JvmtiClassFileReconstituter8write_u2Et.exit105: ; preds = %206, %207
   %.not140 = icmp eq i16 %.sink.i, 0
   br i1 %.not140, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1504,251 +1505,251 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit105: ; preds = %205, %206
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit125
   %indvars.iv141 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next142, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit125 ]
-  %207 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0.0, i64 %indvars.iv141
-  %208 = load i16, ptr %207, align 2
-  %209 = load ptr, ptr %77, align 8
-  %210 = load ptr, ptr %79, align 8
-  %211 = ptrtoint ptr %209 to i64
+  %208 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0.0, i64 %indvars.iv141
+  %209 = load i16, ptr %208, align 2
+  %210 = load ptr, ptr %78, align 8
+  %211 = load ptr, ptr %80, align 8
   %212 = ptrtoint ptr %210 to i64
-  %213 = sub i64 %211, %212
-  %214 = add i64 %213, 2
-  %215 = load i64, ptr %85, align 8
-  %.not.i.i106 = icmp ult i64 %214, %215
-  br i1 %.not.i.i106, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i108, label %216
+  %213 = ptrtoint ptr %211 to i64
+  %214 = sub i64 %212, %213
+  %215 = add i64 %214, 2
+  %216 = load i64, ptr %86, align 8
+  %.not.i.i106 = icmp ult i64 %215, %216
+  br i1 %.not.i.i106, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i108, label %217
 
-216:                                              ; preds = %.lr.ph
-  %217 = shl i64 %215, 1
-  %218 = add i64 %217, 3
-  %219 = and i64 %218, -1024
-  %220 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %210, i64 noundef %215, i64 noundef %219, i32 noundef 0) #12
-  store ptr %220, ptr %79, align 8
-  store i64 %219, ptr %85, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 %213
-  %.pre.i107 = ptrtoint ptr %221 to i64
+217:                                              ; preds = %.lr.ph
+  %218 = shl i64 %216, 1
+  %219 = add i64 %218, 3
+  %220 = and i64 %219, -1024
+  %221 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %211, i64 noundef %216, i64 noundef %220, i32 noundef 0) #12
+  store ptr %221, ptr %80, align 8
+  store i64 %220, ptr %86, align 8
+  %222 = getelementptr inbounds i8, ptr %221, i64 %214
+  %.pre.i107 = ptrtoint ptr %222 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i108
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i108: ; preds = %216, %.lr.ph
-  %.pre-phi.i109 = phi i64 [ %211, %.lr.ph ], [ %.pre.i107, %216 ]
-  %222 = phi ptr [ %209, %.lr.ph ], [ %221, %216 ]
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 2
-  store ptr %223, ptr %77, align 8
-  %224 = call noundef i16 @llvm.bswap.i16(i16 %208)
-  %225 = and i64 %.pre-phi.i109, 1
-  %226 = icmp eq i64 %225, 0
-  br i1 %226, label %227, label %228
-
-227:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i108
-  store i16 %224, ptr %222, align 2
-  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i108: ; preds = %217, %.lr.ph
+  %.pre-phi.i109 = phi i64 [ %212, %.lr.ph ], [ %.pre.i107, %217 ]
+  %223 = phi ptr [ %210, %.lr.ph ], [ %222, %217 ]
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 2
+  store ptr %224, ptr %78, align 8
+  %225 = call noundef i16 @llvm.bswap.i16(i16 %209)
+  %226 = and i64 %.pre-phi.i109, 1
+  %227 = icmp eq i64 %226, 0
+  br i1 %227, label %228, label %229
 
 228:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i108
-  store i16 %224, ptr %222, align 1
+  store i16 %225, ptr %223, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110
 
-_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110: ; preds = %227, %228
-  %229 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0.0, i64 %indvars.iv141, i32 1
-  %230 = load i16, ptr %229, align 2
-  %231 = load ptr, ptr %77, align 8
-  %232 = load ptr, ptr %79, align 8
-  %233 = ptrtoint ptr %231 to i64
-  %234 = ptrtoint ptr %232 to i64
-  %235 = sub i64 %233, %234
-  %236 = add i64 %235, 2
-  %237 = load i64, ptr %85, align 8
-  %.not.i.i111 = icmp ult i64 %236, %237
-  br i1 %.not.i.i111, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i113, label %238
+229:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i108
+  store i16 %225, ptr %223, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110
 
-238:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110
-  %239 = shl i64 %237, 1
-  %240 = add i64 %239, 3
-  %241 = and i64 %240, -1024
-  %242 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %232, i64 noundef %237, i64 noundef %241, i32 noundef 0) #12
-  store ptr %242, ptr %79, align 8
-  store i64 %241, ptr %85, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 %235
-  %.pre.i112 = ptrtoint ptr %243 to i64
+_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110: ; preds = %228, %229
+  %230 = getelementptr inbounds nuw i8, ptr %208, i64 2
+  %231 = load i16, ptr %230, align 2
+  %232 = load ptr, ptr %78, align 8
+  %233 = load ptr, ptr %80, align 8
+  %234 = ptrtoint ptr %232 to i64
+  %235 = ptrtoint ptr %233 to i64
+  %236 = sub i64 %234, %235
+  %237 = add i64 %236, 2
+  %238 = load i64, ptr %86, align 8
+  %.not.i.i111 = icmp ult i64 %237, %238
+  br i1 %.not.i.i111, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i113, label %239
+
+239:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110
+  %240 = shl i64 %238, 1
+  %241 = add i64 %240, 3
+  %242 = and i64 %241, -1024
+  %243 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %233, i64 noundef %238, i64 noundef %242, i32 noundef 0) #12
+  store ptr %243, ptr %80, align 8
+  store i64 %242, ptr %86, align 8
+  %244 = getelementptr inbounds i8, ptr %243, i64 %236
+  %.pre.i112 = ptrtoint ptr %244 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i113
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i113: ; preds = %238, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110
-  %.pre-phi.i114 = phi i64 [ %233, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110 ], [ %.pre.i112, %238 ]
-  %244 = phi ptr [ %231, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110 ], [ %243, %238 ]
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 2
-  store ptr %245, ptr %77, align 8
-  %246 = call noundef i16 @llvm.bswap.i16(i16 %230)
-  %247 = and i64 %.pre-phi.i114, 1
-  %248 = icmp eq i64 %247, 0
-  br i1 %248, label %249, label %250
-
-249:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i113
-  store i16 %246, ptr %244, align 2
-  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i113: ; preds = %239, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110
+  %.pre-phi.i114 = phi i64 [ %234, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110 ], [ %.pre.i112, %239 ]
+  %245 = phi ptr [ %232, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110 ], [ %244, %239 ]
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 2
+  store ptr %246, ptr %78, align 8
+  %247 = call noundef i16 @llvm.bswap.i16(i16 %231)
+  %248 = and i64 %.pre-phi.i114, 1
+  %249 = icmp eq i64 %248, 0
+  br i1 %249, label %250, label %251
 
 250:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i113
-  store i16 %246, ptr %244, align 1
+  store i16 %247, ptr %245, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115
 
-_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115: ; preds = %249, %250
-  %251 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0.0, i64 %indvars.iv141, i32 2
-  %252 = load i16, ptr %251, align 2
-  %253 = load ptr, ptr %77, align 8
-  %254 = load ptr, ptr %79, align 8
-  %255 = ptrtoint ptr %253 to i64
-  %256 = ptrtoint ptr %254 to i64
-  %257 = sub i64 %255, %256
-  %258 = add i64 %257, 2
-  %259 = load i64, ptr %85, align 8
-  %.not.i.i116 = icmp ult i64 %258, %259
-  br i1 %.not.i.i116, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i118, label %260
+251:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i113
+  store i16 %247, ptr %245, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115
 
-260:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115
-  %261 = shl i64 %259, 1
-  %262 = add i64 %261, 3
-  %263 = and i64 %262, -1024
-  %264 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %254, i64 noundef %259, i64 noundef %263, i32 noundef 0) #12
-  store ptr %264, ptr %79, align 8
-  store i64 %263, ptr %85, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 %257
-  %.pre.i117 = ptrtoint ptr %265 to i64
+_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115: ; preds = %250, %251
+  %252 = getelementptr inbounds nuw i8, ptr %208, i64 4
+  %253 = load i16, ptr %252, align 2
+  %254 = load ptr, ptr %78, align 8
+  %255 = load ptr, ptr %80, align 8
+  %256 = ptrtoint ptr %254 to i64
+  %257 = ptrtoint ptr %255 to i64
+  %258 = sub i64 %256, %257
+  %259 = add i64 %258, 2
+  %260 = load i64, ptr %86, align 8
+  %.not.i.i116 = icmp ult i64 %259, %260
+  br i1 %.not.i.i116, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i118, label %261
+
+261:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115
+  %262 = shl i64 %260, 1
+  %263 = add i64 %262, 3
+  %264 = and i64 %263, -1024
+  %265 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %255, i64 noundef %260, i64 noundef %264, i32 noundef 0) #12
+  store ptr %265, ptr %80, align 8
+  store i64 %264, ptr %86, align 8
+  %266 = getelementptr inbounds i8, ptr %265, i64 %258
+  %.pre.i117 = ptrtoint ptr %266 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i118
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i118: ; preds = %260, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115
-  %.pre-phi.i119 = phi i64 [ %255, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115 ], [ %.pre.i117, %260 ]
-  %266 = phi ptr [ %253, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115 ], [ %265, %260 ]
-  %267 = getelementptr inbounds nuw i8, ptr %266, i64 2
-  store ptr %267, ptr %77, align 8
-  %268 = call noundef i16 @llvm.bswap.i16(i16 %252)
-  %269 = and i64 %.pre-phi.i119, 1
-  %270 = icmp eq i64 %269, 0
-  br i1 %270, label %271, label %272
-
-271:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i118
-  store i16 %268, ptr %266, align 2
-  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i118: ; preds = %261, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115
+  %.pre-phi.i119 = phi i64 [ %256, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115 ], [ %.pre.i117, %261 ]
+  %267 = phi ptr [ %254, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115 ], [ %266, %261 ]
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 2
+  store ptr %268, ptr %78, align 8
+  %269 = call noundef i16 @llvm.bswap.i16(i16 %253)
+  %270 = and i64 %.pre-phi.i119, 1
+  %271 = icmp eq i64 %270, 0
+  br i1 %271, label %272, label %273
 
 272:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i118
-  store i16 %268, ptr %266, align 1
+  store i16 %269, ptr %267, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120
 
-_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120: ; preds = %271, %272
-  %273 = getelementptr inbounds nuw %class.ExceptionTableElement, ptr %.sroa.0.0, i64 %indvars.iv141, i32 3
-  %274 = load i16, ptr %273, align 2
-  %275 = load ptr, ptr %77, align 8
-  %276 = load ptr, ptr %79, align 8
-  %277 = ptrtoint ptr %275 to i64
-  %278 = ptrtoint ptr %276 to i64
-  %279 = sub i64 %277, %278
-  %280 = add i64 %279, 2
-  %281 = load i64, ptr %85, align 8
-  %.not.i.i121 = icmp ult i64 %280, %281
-  br i1 %.not.i.i121, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i123, label %282
+273:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i118
+  store i16 %269, ptr %267, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120
 
-282:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120
-  %283 = shl i64 %281, 1
-  %284 = add i64 %283, 3
-  %285 = and i64 %284, -1024
-  %286 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %276, i64 noundef %281, i64 noundef %285, i32 noundef 0) #12
-  store ptr %286, ptr %79, align 8
-  store i64 %285, ptr %85, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 %279
-  %.pre.i122 = ptrtoint ptr %287 to i64
+_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120: ; preds = %272, %273
+  %274 = getelementptr inbounds nuw i8, ptr %208, i64 6
+  %275 = load i16, ptr %274, align 2
+  %276 = load ptr, ptr %78, align 8
+  %277 = load ptr, ptr %80, align 8
+  %278 = ptrtoint ptr %276 to i64
+  %279 = ptrtoint ptr %277 to i64
+  %280 = sub i64 %278, %279
+  %281 = add i64 %280, 2
+  %282 = load i64, ptr %86, align 8
+  %.not.i.i121 = icmp ult i64 %281, %282
+  br i1 %.not.i.i121, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i123, label %283
+
+283:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120
+  %284 = shl i64 %282, 1
+  %285 = add i64 %284, 3
+  %286 = and i64 %285, -1024
+  %287 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %277, i64 noundef %282, i64 noundef %286, i32 noundef 0) #12
+  store ptr %287, ptr %80, align 8
+  store i64 %286, ptr %86, align 8
+  %288 = getelementptr inbounds i8, ptr %287, i64 %280
+  %.pre.i122 = ptrtoint ptr %288 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i123
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i123: ; preds = %282, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120
-  %.pre-phi.i124 = phi i64 [ %277, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120 ], [ %.pre.i122, %282 ]
-  %288 = phi ptr [ %275, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120 ], [ %287, %282 ]
-  %289 = getelementptr inbounds nuw i8, ptr %288, i64 2
-  store ptr %289, ptr %77, align 8
-  %290 = call noundef i16 @llvm.bswap.i16(i16 %274)
-  %291 = and i64 %.pre-phi.i124, 1
-  %292 = icmp eq i64 %291, 0
-  br i1 %292, label %293, label %294
-
-293:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i123
-  store i16 %290, ptr %288, align 2
-  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit125
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i123: ; preds = %283, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120
+  %.pre-phi.i124 = phi i64 [ %278, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120 ], [ %.pre.i122, %283 ]
+  %289 = phi ptr [ %276, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120 ], [ %288, %283 ]
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 2
+  store ptr %290, ptr %78, align 8
+  %291 = call noundef i16 @llvm.bswap.i16(i16 %275)
+  %292 = and i64 %.pre-phi.i124, 1
+  %293 = icmp eq i64 %292, 0
+  br i1 %293, label %294, label %295
 
 294:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i123
-  store i16 %290, ptr %288, align 1
+  store i16 %291, ptr %289, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit125
 
-_ZN27JvmtiClassFileReconstituter8write_u2Et.exit125: ; preds = %293, %294
+295:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i123
+  store i16 %291, ptr %289, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit125
+
+_ZN27JvmtiClassFileReconstituter8write_u2Et.exit125: ; preds = %294, %295
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
   br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit125, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit105
-  %295 = load ptr, ptr %77, align 8
-  %296 = load ptr, ptr %79, align 8
-  %297 = ptrtoint ptr %295 to i64
+  %296 = load ptr, ptr %78, align 8
+  %297 = load ptr, ptr %80, align 8
   %298 = ptrtoint ptr %296 to i64
-  %299 = sub i64 %297, %298
-  %300 = add i64 %299, 2
-  %301 = load i64, ptr %85, align 8
-  %.not.i.i126 = icmp ult i64 %300, %301
-  br i1 %.not.i.i126, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i128, label %302
+  %299 = ptrtoint ptr %297 to i64
+  %300 = sub i64 %298, %299
+  %301 = add i64 %300, 2
+  %302 = load i64, ptr %86, align 8
+  %.not.i.i126 = icmp ult i64 %301, %302
+  br i1 %.not.i.i126, label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i128, label %303
 
-302:                                              ; preds = %._crit_edge
-  %303 = shl i64 %301, 1
-  %304 = add i64 %303, 3
-  %305 = and i64 %304, -1024
-  %306 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %296, i64 noundef %301, i64 noundef %305, i32 noundef 0) #12
-  store ptr %306, ptr %79, align 8
-  store i64 %305, ptr %85, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 %299
-  %.pre.i127 = ptrtoint ptr %307 to i64
+303:                                              ; preds = %._crit_edge
+  %304 = shl i64 %302, 1
+  %305 = add i64 %304, 3
+  %306 = and i64 %305, -1024
+  %307 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %297, i64 noundef %302, i64 noundef %306, i32 noundef 0) #12
+  store ptr %307, ptr %80, align 8
+  store i64 %306, ptr %86, align 8
+  %308 = getelementptr inbounds i8, ptr %307, i64 %300
+  %.pre.i127 = ptrtoint ptr %308 to i64
   br label %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i128
 
-_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i128: ; preds = %302, %._crit_edge
-  %.pre-phi.i129 = phi i64 [ %297, %._crit_edge ], [ %.pre.i127, %302 ]
-  %308 = phi ptr [ %295, %._crit_edge ], [ %307, %302 ]
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 2
-  store ptr %309, ptr %77, align 8
-  %310 = call noundef i16 @llvm.bswap.i16(i16 %.272)
-  %311 = and i64 %.pre-phi.i129, 1
-  %312 = icmp eq i64 %311, 0
-  br i1 %312, label %313, label %314
-
-313:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i128
-  store i16 %310, ptr %308, align 2
-  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit130
+_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i128: ; preds = %303, %._crit_edge
+  %.pre-phi.i129 = phi i64 [ %298, %._crit_edge ], [ %.pre.i127, %303 ]
+  %309 = phi ptr [ %296, %._crit_edge ], [ %308, %303 ]
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 2
+  store ptr %310, ptr %78, align 8
+  %311 = call noundef i16 @llvm.bswap.i16(i16 %.272)
+  %312 = and i64 %.pre-phi.i129, 1
+  %313 = icmp eq i64 %312, 0
+  br i1 %313, label %314, label %315
 
 314:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i128
-  store i16 %310, ptr %308, align 1
+  store i16 %311, ptr %309, align 2
   br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit130
 
-_ZN27JvmtiClassFileReconstituter8write_u2Et.exit130: ; preds = %313, %314
+315:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit.i128
+  store i16 %311, ptr %309, align 1
+  br label %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit130
+
+_ZN27JvmtiClassFileReconstituter8write_u2Et.exit130: ; preds = %314, %315
   %.not81 = icmp eq i16 %.062, 0
-  br i1 %.not81, label %316, label %315
+  br i1 %.not81, label %317, label %316
 
-315:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit130
+316:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit130
   call void @_ZN27JvmtiClassFileReconstituter33write_line_number_table_attributeERK12methodHandlet(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i16 noundef zeroext %.062)
-  br label %316
+  br label %317
 
-316:                                              ; preds = %315, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit130
+317:                                              ; preds = %316, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit130
   %.not82 = icmp eq i32 %.063, 0
-  br i1 %.not82, label %318, label %317
+  br i1 %.not82, label %319, label %318
 
-317:                                              ; preds = %316
+318:                                              ; preds = %317
   call void @_ZN27JvmtiClassFileReconstituter30write_stackmap_table_attributeERK12methodHandlei(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.063)
-  br label %318
+  br label %319
 
-318:                                              ; preds = %317, %316
+319:                                              ; preds = %318, %317
   %.not83 = icmp eq i16 %.064, 0
-  br i1 %.not83, label %320, label %319
+  br i1 %.not83, label %321, label %320
 
-319:                                              ; preds = %318
+320:                                              ; preds = %319
   call void @_ZN27JvmtiClassFileReconstituter36write_local_variable_table_attributeERK12methodHandlet(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i16 noundef zeroext %.064)
-  br label %320
+  br label %321
 
-320:                                              ; preds = %319, %318
+321:                                              ; preds = %320, %319
   %.not84 = icmp eq i16 %.066, 0
-  br i1 %.not84, label %322, label %321
+  br i1 %.not84, label %323, label %322
 
-321:                                              ; preds = %320
+322:                                              ; preds = %321
   call void @_ZN27JvmtiClassFileReconstituter41write_local_variable_type_table_attributeERK12methodHandlet(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i16 noundef zeroext %.066)
-  br label %322
+  br label %323
 
-322:                                              ; preds = %321, %320
+323:                                              ; preds = %322, %321
   ret void
 }
 
@@ -1835,8 +1836,8 @@ _ZN5Bytes11put_Java_u2EPht.exit.us:               ; preds = %33, %.lr.ph.split.u
   br i1 %43, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5Bytes11put_Java_u2EPht.exit
-  %44 = phi i32 [ %156, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %13, %.lr.ph ]
-  %.052 = phi ptr [ %155, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %1, %.lr.ph ]
+  %44 = phi i32 [ %157, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %13, %.lr.ph ]
+  %.052 = phi ptr [ %156, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %1, %.lr.ph ]
   %45 = load ptr, ptr %16, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
@@ -1864,12 +1865,12 @@ _ZN5Bytes11put_Java_u2EPht.exit.us:               ; preds = %33, %.lr.ph.split.u
     i32 179, label %63
     i32 180, label %63
     i32 181, label %63
-    i32 182, label %82
-    i32 183, label %82
-    i32 184, label %82
-    i32 186, label %82
-    i32 185, label %82
-    i32 19, label %113
+    i32 182, label %83
+    i32 183, label %83
+    i32 184, label %83
+    i32 186, label %83
+    i32 185, label %83
+    i32 19, label %114
     i32 18, label %.thread
   ]
 
@@ -1885,148 +1886,149 @@ _ZN5Bytes11put_Java_u2EPht.exit.us:               ; preds = %33, %.lr.ph.split.u
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = load ptr, ptr %71, align 8
   %73 = zext i16 %.0.i.i to i64
-  %74 = getelementptr inbounds nuw %class.ResolvedFieldEntry, ptr %72, i64 %73, i32 8, i64 2
-  %75 = load i16, ptr %74, align 2
-  %76 = call noundef i16 @llvm.bswap.i16(i16 %75)
-  %77 = ptrtoint ptr %59 to i64
-  %78 = and i64 %77, 1
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %80, label %81
-
-80:                                               ; preds = %63
-  store i16 %76, ptr %59, align 2
-  br label %_ZN5Bytes11put_Java_u2EPht.exit
+  %74 = getelementptr inbounds nuw %class.ResolvedFieldEntry, ptr %72, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 22
+  %76 = load i16, ptr %75, align 2
+  %77 = call noundef i16 @llvm.bswap.i16(i16 %76)
+  %78 = ptrtoint ptr %59 to i64
+  %79 = and i64 %78, 1
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %81, label %82
 
 81:                                               ; preds = %63
-  store i16 %76, ptr %59, align 1
+  store i16 %77, ptr %59, align 2
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-82:                                               ; preds = %56, %56, %56, %56, %56
-  %83 = icmp eq i32 %44, 186
-  %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %90 = load ptr, ptr %89, align 8
-  br i1 %83, label %91, label %97
+82:                                               ; preds = %63
+  store i16 %77, ptr %59, align 1
+  br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-91:                                               ; preds = %82
+83:                                               ; preds = %56, %56, %56, %56, %56
+  %84 = icmp eq i32 %44, 186
+  %85 = load ptr, ptr %0, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %91 = load ptr, ptr %90, align 8
+  br i1 %84, label %92, label %98
+
+92:                                               ; preds = %83
   %.0.i.i47 = load i32, ptr %60, align 1
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 40
-  %93 = load ptr, ptr %92, align 8
-  %94 = sext i32 %.0.i.i47 to i64
-  %95 = getelementptr %class.ResolvedIndyEntry, ptr %93, i64 %94
-  %96 = getelementptr i8, ptr %95, i64 18
-  br label %103
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 40
+  %94 = load ptr, ptr %93, align 8
+  %95 = sext i32 %.0.i.i47 to i64
+  %96 = getelementptr %class.ResolvedIndyEntry, ptr %94, i64 %95
+  %97 = getelementptr i8, ptr %96, i64 18
+  br label %104
 
-97:                                               ; preds = %82
+98:                                               ; preds = %83
   %.0.i.i46 = load i16, ptr %60, align 1
-  %98 = getelementptr inbounds nuw i8, ptr %90, i64 56
-  %99 = load ptr, ptr %98, align 8
-  %100 = zext i16 %.0.i.i46 to i64
-  %101 = getelementptr inbounds nuw %class.ResolvedMethodEntry, ptr %99, i64 %100
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  br label %103
+  %99 = getelementptr inbounds nuw i8, ptr %91, i64 56
+  %100 = load ptr, ptr %99, align 8
+  %101 = zext i16 %.0.i.i46 to i64
+  %102 = getelementptr inbounds nuw %class.ResolvedMethodEntry, ptr %100, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  br label %104
 
-103:                                              ; preds = %97, %91
-  %.043.in.in = phi ptr [ %96, %91 ], [ %102, %97 ]
+104:                                              ; preds = %98, %92
+  %.043.in.in = phi ptr [ %97, %92 ], [ %103, %98 ]
   %.043.in = load i16, ptr %.043.in.in, align 2
-  %104 = call noundef i16 @llvm.bswap.i16(i16 %.043.in)
-  %105 = ptrtoint ptr %59 to i64
-  %106 = and i64 %105, 1
-  %107 = icmp eq i64 %106, 0
-  br i1 %107, label %108, label %109
+  %105 = call noundef i16 @llvm.bswap.i16(i16 %.043.in)
+  %106 = ptrtoint ptr %59 to i64
+  %107 = and i64 %106, 1
+  %108 = icmp eq i64 %107, 0
+  br i1 %108, label %109, label %110
 
-108:                                              ; preds = %103
-  store i16 %104, ptr %59, align 2
+109:                                              ; preds = %104
+  store i16 %105, ptr %59, align 2
   br label %_ZN5Bytes11put_Java_u2EPht.exit48
 
-109:                                              ; preds = %103
-  store i16 %104, ptr %59, align 1
+110:                                              ; preds = %104
+  store i16 %105, ptr %59, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit48
 
-_ZN5Bytes11put_Java_u2EPht.exit48:                ; preds = %108, %109
-  br i1 %83, label %110, label %_ZN5Bytes11put_Java_u2EPht.exit
+_ZN5Bytes11put_Java_u2EPht.exit48:                ; preds = %109, %110
+  br i1 %84, label %111, label %_ZN5Bytes11put_Java_u2EPht.exit
 
-110:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit48
-  %111 = getelementptr inbounds nuw i8, ptr %.052, i64 4
-  store i8 0, ptr %111, align 1
-  %112 = getelementptr inbounds nuw i8, ptr %.052, i64 3
+111:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit48
+  %112 = getelementptr inbounds nuw i8, ptr %.052, i64 4
   store i8 0, ptr %112, align 1
+  %113 = getelementptr inbounds nuw i8, ptr %.052, i64 3
+  store i8 0, ptr %113, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-113:                                              ; preds = %56
-  %114 = load i32, ptr %20, align 4
-  %115 = and i32 %114, -2
-  %switch = icmp eq i32 %115, 230
-  br i1 %switch, label %118, label %_ZN5Bytes11put_Java_u2EPht.exit
+114:                                              ; preds = %56
+  %115 = load i32, ptr %20, align 4
+  %116 = and i32 %115, -2
+  %switch = icmp eq i32 %116, 230
+  br i1 %switch, label %119, label %_ZN5Bytes11put_Java_u2EPht.exit
 
 .thread:                                          ; preds = %56
-  %116 = load i32, ptr %20, align 4
-  %117 = and i32 %116, -2
-  %switch59 = icmp eq i32 %117, 230
-  br i1 %switch59, label %138, label %_ZN5Bytes11put_Java_u2EPht.exit
+  %117 = load i32, ptr %20, align 4
+  %118 = and i32 %117, -2
+  %switch59 = icmp eq i32 %118, 230
+  br i1 %switch59, label %139, label %_ZN5Bytes11put_Java_u2EPht.exit
 
-118:                                              ; preds = %113
+119:                                              ; preds = %114
   %.0.i.i49 = load i16, ptr %60, align 1
-  %119 = zext i16 %.0.i.i49 to i64
-  %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %126 = load ptr, ptr %125, align 8, !nonnull !14, !noundef !14
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  %130 = getelementptr inbounds nuw i16, ptr %129, i64 %119
-  %131 = load i16, ptr %130, align 2
-  %132 = call noundef i16 @llvm.bswap.i16(i16 %131)
-  %133 = ptrtoint ptr %59 to i64
-  %134 = and i64 %133, 1
-  %135 = icmp eq i64 %134, 0
-  br i1 %135, label %136, label %137
+  %120 = zext i16 %.0.i.i49 to i64
+  %121 = load ptr, ptr %0, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  %127 = load ptr, ptr %126, align 8, !nonnull !14, !noundef !14
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
+  %131 = getelementptr inbounds nuw i16, ptr %130, i64 %120
+  %132 = load i16, ptr %131, align 2
+  %133 = call noundef i16 @llvm.bswap.i16(i16 %132)
+  %134 = ptrtoint ptr %59 to i64
+  %135 = and i64 %134, 1
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %137, label %138
 
-136:                                              ; preds = %118
-  store i16 %132, ptr %59, align 2
+137:                                              ; preds = %119
+  store i16 %133, ptr %59, align 2
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-137:                                              ; preds = %118
-  store i16 %132, ptr %59, align 1
+138:                                              ; preds = %119
+  store i16 %133, ptr %59, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-138:                                              ; preds = %.thread
-  %139 = load i8, ptr %60, align 1
-  %140 = zext i8 %139 to i64
-  %141 = load ptr, ptr %0, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  %147 = load ptr, ptr %146, align 8, !nonnull !14, !noundef !14
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
-  %151 = getelementptr inbounds nuw i16, ptr %150, i64 %140
-  %152 = load i16, ptr %151, align 2
-  %153 = trunc i16 %152 to i8
-  store i8 %153, ptr %59, align 1
+139:                                              ; preds = %.thread
+  %140 = load i8, ptr %60, align 1
+  %141 = zext i8 %140 to i64
+  %142 = load ptr, ptr %0, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
+  %148 = load ptr, ptr %147, align 8, !nonnull !14, !noundef !14
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
+  %152 = getelementptr inbounds nuw i16, ptr %151, i64 %141
+  %153 = load i16, ptr %152, align 2
+  %154 = trunc i16 %153 to i8
+  store i8 %154, ptr %59, align 1
   br label %_ZN5Bytes11put_Java_u2EPht.exit
 
-_ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %.thread, %113, %.lr.ph.split, %137, %136, %81, %80, %110, %_ZN5Bytes11put_Java_u2EPht.exit48, %138, %56
-  %154 = sext i32 %50 to i64
-  %155 = getelementptr inbounds i8, ptr %.052, i64 %154
-  %156 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
-  %157 = icmp sgt i32 %156, -1
-  br i1 %157, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+_ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %.thread, %114, %.lr.ph.split, %138, %137, %82, %81, %111, %_ZN5Bytes11put_Java_u2EPht.exit48, %139, %56
+  %155 = sext i32 %50 to i64
+  %156 = getelementptr inbounds i8, ptr %.052, i64 %155
+  %157 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %158 = icmp sgt i32 %157, -1
+  br i1 %158, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN5Bytes11put_Java_u2EPht.exit, %_ZN5Bytes11put_Java_u2EPht.exit.us, %2
-  %158 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %158) #12
+  %159 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %159) #12
   ret void
 }
 
@@ -6742,7 +6744,7 @@ define linkonce_odr hidden noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %.not24 = icmp slt i32 %3, %6
-  br i1 %.not24, label %7, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  br i1 %.not24, label %7, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6767,7 +6769,7 @@ _ZN9Bytecodes7code_atEPK6MethodPh.exit:           ; preds = %7, %17
   %21 = getelementptr inbounds i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, 239
-  br i1 %23, label %_ZN9Bytecodes10length_forENS_4CodeE.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  br i1 %23, label %_ZN9Bytecodes10length_forENS_4CodeE.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit
   %24 = zext nneg i32 %22 to i64
@@ -6776,7 +6778,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %_ZN9Bytecodes7code_
   %27 = and i8 %26, 15
   %28 = zext nneg i8 %27 to i32
   %29 = icmp eq i8 %27, 0
-  br i1 %29, label %30, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21
+  br i1 %29, label %30, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
 
 30:                                               ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit
   %31 = load i8, ptr %14, align 1
@@ -6792,7 +6794,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %_ZN9Bytecodes7code_
 _ZN9Bytecodes7code_atEPK6MethodPh.exit.i:         ; preds = %33, %30
   %36 = phi i32 [ %35, %33 ], [ %32, %30 ]
   %37 = icmp ult i32 %36, 239
-  br i1 %37, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i
+  br i1 %37, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit
 
 _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i:     ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i
   %38 = zext nneg i32 %36 to i64
@@ -6801,49 +6803,45 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.i.i:     ; preds = %_ZN9Bytecodes7code_
   %41 = and i8 %40, 15
   %42 = zext nneg i8 %41 to i32
   %.not.i3.i = icmp eq i8 %41, 0
-  br i1 %.not.i3.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit
+  br i1 %.not.i3.i, label %_ZN9Bytecodes9length_atEP6MethodPh.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
 
-_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i: ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i
+_ZN9Bytecodes9length_atEP6MethodPh.exit:          ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i
   %43 = tail call noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 noundef %36, ptr noundef nonnull %14, ptr noundef null) #12
-  br label %_ZN9Bytecodes9length_atEP6MethodPh.exit
+  %44 = icmp slt i32 %43, 1
+  br i1 %44, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
 
-_ZN9Bytecodes9length_atEP6MethodPh.exit:          ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i
-  %.0 = phi i32 [ %43, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i ], [ %42, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i ]
-  %44 = icmp slt i32 %.0, 1
-  br i1 %44, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21
-
-_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21: ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit
-  %.023 = phi i32 [ %.0, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %28, %_ZN9Bytecodes10length_forENS_4CodeE.exit ]
+_ZN9Bytecodes9length_atEP6MethodPh.exit.thread:   ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i, %_ZN9Bytecodes10length_forENS_4CodeE.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit
+  %.021 = phi i32 [ %43, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ %42, %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i ], [ %28, %_ZN9Bytecodes10length_forENS_4CodeE.exit ]
   %45 = load i32, ptr %4, align 8
   %46 = load i32, ptr %5, align 8
-  %47 = sub nsw i32 %46, %.023
+  %47 = sub nsw i32 %46, %.021
   %48 = icmp sgt i32 %45, %47
-  br i1 %48, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread, label %49
+  br i1 %48, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22, label %49
 
-49:                                               ; preds = %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21
-  %50 = sub nsw i32 %45, %.023
+49:                                               ; preds = %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  %50 = sub nsw i32 %45, %.021
   %51 = load i32, ptr %2, align 4
   %.not = icmp slt i32 %50, %51
-  br i1 %.not, label %52, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  br i1 %.not, label %52, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 52:                                               ; preds = %49
-  %53 = add nsw i32 %51, %.023
+  %53 = add nsw i32 %51, %.021
   store i32 %53, ptr %2, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %54, align 8
   %55 = icmp eq i32 %22, 196
-  br i1 %55, label %56, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  br i1 %55, label %56, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   store i8 1, ptr %54, align 8
-  br label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
+  br label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22
 
-_ZN9Bytecodes9length_atEP6MethodPh.exit.thread:   ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21, %49, %1, %56, %52
-  %.015 = phi i32 [ %59, %56 ], [ %22, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
-  %.014 = phi i32 [ %59, %56 ], [ %19, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread21 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+_ZN9Bytecodes9length_atEP6MethodPh.exit.thread22: ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread, %49, %1, %56, %52
+  %.015 = phi i32 [ %59, %56 ], [ %22, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
+  %.014 = phi i32 [ %59, %56 ], [ %19, %52 ], [ -1, %1 ], [ -1, %49 ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread ], [ -1, %_ZN9Bytecodes9length_atEP6MethodPh.exit ], [ -1, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.014, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 44

@@ -6234,7 +6234,7 @@ define internal fastcc i64 @vfs_readv(ptr noundef %0, ptr noundef %1, i64 nounde
   %46 = call i32 @security_file_permission(ptr noundef %0, i32 noundef 4) #12
   %47 = sext i32 %46 to i64
   %48 = icmp slt i32 %46, 0
-  br i1 %48, label %.thread13, label %49
+  br i1 %48, label %.thread16, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -6302,8 +6302,8 @@ define internal fastcc i64 @vfs_readv(ptr noundef %0, ptr noundef %1, i64 nounde
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %.thread13, label %.lr.ph
 
-.thread13:                                        ; preds = %94, %83, %81, %55, %45
-  %97 = phi i64 [ %47, %45 ], [ %56, %55 ], [ %64, %81 ], [ %84, %83 ], [ %84, %94 ]
+.thread13:                                        ; preds = %94, %83, %81, %55
+  %97 = phi i64 [ %56, %55 ], [ %64, %81 ], [ %84, %83 ], [ %84, %94 ]
   %98 = icmp sgt i64 %97, -1
   br i1 %98, label %.thread17, label %.thread16
 
@@ -6355,8 +6355,8 @@ define internal fastcc i64 @vfs_readv(ptr noundef %0, ptr noundef %1, i64 nounde
   %131 = call i32 @fsnotify(i32 noundef %130, ptr noundef nonnull %104, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %108, i32 noundef 0) #12
   br label %.thread16
 
-.thread16:                                        ; preds = %41, %35, %31, %24, %81, %57, %129, %127, %103, %.thread17, %.thread13
-  %132 = phi i64 [ %99, %129 ], [ %99, %127 ], [ %99, %103 ], [ %99, %.thread17 ], [ %97, %.thread13 ], [ -95, %57 ], [ %79, %81 ], [ -22, %24 ], [ -22, %41 ], [ -75, %35 ], [ -22, %31 ]
+.thread16:                                        ; preds = %41, %35, %31, %24, %81, %57, %45, %129, %127, %103, %.thread17, %.thread13
+  %132 = phi i64 [ %99, %129 ], [ %99, %127 ], [ %99, %103 ], [ %99, %.thread17 ], [ %97, %.thread13 ], [ -95, %57 ], [ %47, %45 ], [ %79, %81 ], [ -22, %24 ], [ -22, %41 ], [ -75, %35 ], [ -22, %31 ]
   %133 = load ptr, ptr %7, align 8
   call void @kfree(ptr noundef %133) #12
   br label %134

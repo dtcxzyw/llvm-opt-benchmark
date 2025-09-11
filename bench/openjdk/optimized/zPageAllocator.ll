@@ -941,42 +941,40 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw %struct.anon, ptr %16, i64 %19
   %21 = load i64, ptr %20, align 8
-  %.idx = shl nuw nsw i64 %19, 4
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %19
-  %27 = load volatile i64, ptr %26, align 8
-  %28 = tail call noundef i64 @_ZNK11ZGeneration5freedEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #13
-  %29 = tail call noundef i64 @_ZNK11ZGeneration8promotedEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #13
-  %30 = tail call noundef i64 @_ZNK11ZGeneration9compactedEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #13
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 512
-  %32 = load i64, ptr %31, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %19
+  %26 = load volatile i64, ptr %25, align 8
+  %27 = tail call noundef i64 @_ZNK11ZGeneration5freedEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #13
+  %28 = tail call noundef i64 @_ZNK11ZGeneration8promotedEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #13
+  %29 = tail call noundef i64 @_ZNK11ZGeneration9compactedEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #13
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 512
+  %31 = load i64, ptr %30, align 8
   store i64 %5, ptr %0, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %11, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %13, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %15, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %21, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %24, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %7, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %11, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %13, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %15, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %21, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %23, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %26, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %27, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %28, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %29, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %30, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %32, ptr %43, align 8
-  %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #13
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %31, ptr %42, align 8
+  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #13
   ret void
 }
 

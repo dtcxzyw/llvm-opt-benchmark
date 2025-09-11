@@ -73106,53 +73106,54 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$$u5b$deltalake_core..kernel.
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit"
-  %.08 = phi i64 [ %4, %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit" ], [ 0, %2 ]
-  %4 = add nuw i64 %.08, 1
+  %.08 = phi i64 [ %5, %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit" ], [ 0, %2 ]
+  %4 = getelementptr inbounds { ptr, ptr, ptr, ptr, ptr, ptr, { ptr, [4 x i64] }, i64 }, ptr %0, i64 %.08
+  %5 = add nuw i64 %.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20544)
-  %5 = getelementptr inbounds { ptr, ptr, ptr, ptr, ptr, ptr, { ptr, [4 x i64] }, i64 }, ptr %0, i64 %.08, i32 5
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20547)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20550)
-  %6 = load ptr, ptr %5, align 8, !alias.scope !20553, !nonnull !4, !noundef !4
-  %7 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !20553
-  %8 = icmp eq i64 %7, 1
-  br i1 %8, label %9, label %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit"
+  %7 = load ptr, ptr %6, align 8, !alias.scope !20553, !nonnull !4, !noundef !4
+  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !20553
+  %9 = icmp eq i64 %8, 1
+  br i1 %9, label %10, label %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit"
 
-9:                                                ; preds = %.lr.ph
+10:                                               ; preds = %.lr.ph
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.4057250340930679409(i8 noundef 2)
-          to label %.noexc unwind label %13
+          to label %.noexc unwind label %14
 
-.noexc:                                           ; preds = %9
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h098cbe5ceb9ab885E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit" unwind label %13
+.noexc:                                           ; preds = %10
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h098cbe5ceb9ab885E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+          to label %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit" unwind label %14
 
 "_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit": ; preds = %.noexc, %.lr.ph
-  %10 = icmp eq i64 %4, %1
-  br i1 %10, label %._crit_edge, label %.lr.ph
+  %11 = icmp eq i64 %5, %1
+  br i1 %11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit", %2
   ret void
 
-11:                                               ; preds = %15, %13
-  %.1 = phi i64 [ %4, %13 ], [ %17, %15 ]
-  %12 = icmp eq i64 %.1, %1
-  br i1 %12, label %18, label %15
+12:                                               ; preds = %16, %14
+  %.1 = phi i64 [ %5, %14 ], [ %18, %16 ]
+  %13 = icmp eq i64 %.1, %1
+  br i1 %13, label %19, label %16
 
-13:                                               ; preds = %.noexc, %9
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %.noexc, %10
+  %15 = landingpad { ptr, i32 }
           cleanup
-  br label %11
+  br label %12
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds { ptr, ptr, ptr, ptr, ptr, ptr, { ptr, [4 x i64] }, i64 }, ptr %0, i64 %.1
-  %17 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %16) #53
-          to label %11 unwind label %19
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds { ptr, ptr, ptr, ptr, ptr, ptr, { ptr, [4 x i64] }, i64 }, ptr %0, i64 %.1
+  %18 = add i64 %.1, 1
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %17) #53
+          to label %12 unwind label %20
 
-18:                                               ; preds = %11
-  resume { ptr, i32 } %14
+19:                                               ; preds = %12
+  resume { ptr, i32 } %15
 
-19:                                               ; preds = %15
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %16
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable
@@ -80560,50 +80561,51 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
   br i1 %10, label %"_ZN4core3ptr86drop_in_place$LT$$u5b$deltalake_core..kernel..snapshot..log_data..LogicalFile$u5d$$GT$17h74b758978c016f56E.llvm.18123795597341512700.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$$GT$17ha9d0753369b311ffE.exit", %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit.i"
-  %.08.i = phi i64 [ %11, %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit.i" ], [ 0, %"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$$GT$17ha9d0753369b311ffE.exit" ]
-  %11 = add nuw i64 %.08.i, 1
+  %.08.i = phi i64 [ %12, %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit.i" ], [ 0, %"_ZN4core3ptr106drop_in_place$LT$alloc..raw_vec..RawVec$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$$GT$17ha9d0753369b311ffE.exit" ]
+  %11 = getelementptr inbounds { ptr, ptr, ptr, ptr, ptr, ptr, { ptr, [4 x i64] }, i64 }, ptr %2, i64 %.08.i
+  %12 = add nuw i64 %.08.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23025)
-  %12 = getelementptr inbounds { ptr, ptr, ptr, ptr, ptr, ptr, { ptr, [4 x i64] }, i64 }, ptr %2, i64 %.08.i, i32 5
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23028)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23031)
-  %13 = load ptr, ptr %12, align 8, !alias.scope !23034, !nonnull !4, !noundef !4
-  %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !23037
-  %15 = icmp eq i64 %14, 1
-  br i1 %15, label %16, label %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit.i"
+  %14 = load ptr, ptr %13, align 8, !alias.scope !23034, !nonnull !4, !noundef !4
+  %15 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !23037
+  %16 = icmp eq i64 %15, 1
+  br i1 %16, label %17, label %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit.i"
 
-16:                                               ; preds = %.lr.ph.i
+17:                                               ; preds = %.lr.ph.i
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.4057250340930679409(i8 noundef 2)
-          to label %.noexc.i unwind label %20
+          to label %.noexc.i unwind label %21
 
-.noexc.i:                                         ; preds = %16
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h098cbe5ceb9ab885E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
-          to label %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit.i" unwind label %20
+.noexc.i:                                         ; preds = %17
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h098cbe5ceb9ab885E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
+          to label %"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit.i" unwind label %21
 
 "_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E.exit.i": ; preds = %.noexc.i, %.lr.ph.i
-  %17 = icmp eq i64 %11, %8
-  br i1 %17, label %"_ZN4core3ptr86drop_in_place$LT$$u5b$deltalake_core..kernel..snapshot..log_data..LogicalFile$u5d$$GT$17h74b758978c016f56E.llvm.18123795597341512700.exit", label %.lr.ph.i
+  %18 = icmp eq i64 %12, %8
+  br i1 %18, label %"_ZN4core3ptr86drop_in_place$LT$$u5b$deltalake_core..kernel..snapshot..log_data..LogicalFile$u5d$$GT$17h74b758978c016f56E.llvm.18123795597341512700.exit", label %.lr.ph.i
 
-18:                                               ; preds = %22, %20
-  %.1.i = phi i64 [ %11, %20 ], [ %24, %22 ]
-  %19 = icmp eq i64 %.1.i, %8
-  br i1 %19, label %25, label %22
+19:                                               ; preds = %23, %21
+  %.1.i = phi i64 [ %12, %21 ], [ %25, %23 ]
+  %20 = icmp eq i64 %.1.i, %8
+  br i1 %20, label %26, label %23
 
-20:                                               ; preds = %.noexc.i, %16
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %.noexc.i, %17
+  %22 = landingpad { ptr, i32 }
           cleanup
-  br label %18
+  br label %19
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds { ptr, ptr, ptr, ptr, ptr, ptr, { ptr, [4 x i64] }, i64 }, ptr %2, i64 %.1.i
-  %24 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %23) #53
-          to label %18 unwind label %26
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds { ptr, ptr, ptr, ptr, ptr, ptr, { ptr, [4 x i64] }, i64 }, ptr %2, i64 %.1.i
+  %25 = add i64 %.1.i, 1
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..snapshot..log_data..LogicalFile$GT$17hafb4c01fbaf2c6a4E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %24) #53
+          to label %19 unwind label %27
 
-25:                                               ; preds = %18
-  resume { ptr, i32 } %21
+26:                                               ; preds = %19
+  resume { ptr, i32 } %22
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %23
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable

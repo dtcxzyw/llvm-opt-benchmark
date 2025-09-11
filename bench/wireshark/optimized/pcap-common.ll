@@ -49,12 +49,13 @@ define i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %0) local_unnamed_addr #0 
   br i1 %6, label %7, label %2
 
 7:                                                ; preds = %3
-  %8 = getelementptr %struct.anon, ptr @pcap_to_wtap_map, i64 %indvars.iv, i32 1
-  %9 = load i32, ptr %8, align 4
+  %8 = getelementptr %struct.anon, ptr @pcap_to_wtap_map, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %10 = load i32, ptr %9, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %7
-  %.06 = phi i32 [ %9, %7 ], [ 0, %2 ]
+  %.06 = phi i32 [ %10, %7 ], [ 0, %2 ]
   ret i32 %.06
 }
 

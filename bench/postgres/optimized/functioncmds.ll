@@ -4329,24 +4329,25 @@ define dso_local ptr @CallStmtResultDesc(ptr noundef readonly captures(none) %0)
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = phi i32 [ %14, %.lr.ph ], [ %29, %17 ]
+  %18 = phi i32 [ %14, %.lr.ph ], [ %30, %17 ]
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 4
   %21 = getelementptr i8, ptr %13, i64 %20
-  %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr i8, ptr %22, i64 16
-  %.val = load ptr, ptr %23, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8
+  %22 = getelementptr %struct.FormData_pg_attribute, ptr %21, i64 %indvars.iv
+  %23 = load ptr, ptr %16, align 8
+  %24 = getelementptr i8, ptr %23, i64 16
+  %.val = load ptr, ptr %24, align 8
+  %25 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = trunc i64 %indvars.iv.next to i16
-  %27 = getelementptr %struct.FormData_pg_attribute, ptr %21, i64 %indvars.iv, i32 1, i32 0, i64 24
-  %28 = tail call i32 @exprType(ptr noundef %25) #8
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %13, i16 noundef signext %26, ptr noundef nonnull %27, i32 noundef %28, i32 noundef -1, i32 noundef 0) #8
-  %29 = load i32, ptr %13, align 8
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %17, label %.loopexit, !llvm.loop !11
+  %27 = trunc i64 %indvars.iv.next to i16
+  %28 = getelementptr i8, ptr %22, i64 28
+  %29 = tail call i32 @exprType(ptr noundef %26) #8
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %13, i16 noundef signext %27, ptr noundef nonnull %28, i32 noundef %29, i32 noundef -1, i32 noundef 0) #8
+  %30 = load i32, ptr %13, align 8
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %32, label %17, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %17, %.preheader, %12
   ret ptr %13

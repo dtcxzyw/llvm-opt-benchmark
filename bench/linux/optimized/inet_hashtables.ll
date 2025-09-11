@@ -4315,7 +4315,8 @@ define dso_local void @inet_hashinfo2_init(ptr noundef %0, ptr noundef %1, i64 n
   %16 = add nsw i64 %15, 1073741825
   %17 = inttoptr i64 %16 to ptr
   %18 = load ptr, ptr %9, align 64
-  %19 = getelementptr %struct.inet_listen_hashbucket, ptr %18, i64 %13, i32 1
+  %.split = getelementptr %struct.inet_listen_hashbucket, ptr %18, i64 %13
+  %19 = getelementptr i8, ptr %.split, i64 8
   store ptr %17, ptr %19, align 8
   %20 = add i32 %11, 1
   %21 = load i32, ptr %7, align 4
@@ -4355,7 +4356,8 @@ define dso_local noundef range(i32 -12, 1) i32 @inet_hashinfo2_init_mod(ptr noun
   %14 = add nsw i64 %13, 1073741825
   %15 = inttoptr i64 %14 to ptr
   %16 = load ptr, ptr %4, align 64
-  %17 = getelementptr %struct.inet_listen_hashbucket, ptr %16, i64 %11, i32 1
+  %.split = getelementptr %struct.inet_listen_hashbucket, ptr %16, i64 %11
+  %17 = getelementptr i8, ptr %.split, i64 8
   store ptr %15, ptr %17, align 8
   %18 = add i32 %9, 1
   %19 = load i32, ptr %7, align 4

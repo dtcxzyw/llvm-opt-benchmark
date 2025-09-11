@@ -257,52 +257,53 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %23, %25, %27, %_ZSt
   %.not = icmp eq ptr %30, %31
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %41, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
+._crit_edge:                                      ; preds = %42, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
   %32 = load i8, ptr %0, align 8, !tbaa !3, !range !44, !noundef !45
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %53, label %52
+  br i1 %33, label %54, label %53
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, %41
-  %.07 = phi i64 [ %42, %41 ], [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, %42
+  %.07 = phi i64 [ %43, %42 ], [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
   %34 = load ptr, ptr %10, align 8, !tbaa !23
-  %35 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %.07, i32 1
-  %36 = load ptr, ptr %35, align 8, !tbaa !46
-  invoke void @_ZN2cv6detail8tracking14TrackerFeature7computeERKSt6vectorINS_3MatESaIS4_EERS4_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %37 unwind label %50
+  %35 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %.07
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %37 = load ptr, ptr %36, align 8, !tbaa !46
+  invoke void @_ZN2cv6detail8tracking14TrackerFeature7computeERKSt6vectorINS_3MatESaIS4_EERS4_(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %3)
+          to label %38 unwind label %51
 
-37:                                               ; preds = %.lr.ph
-  %38 = load ptr, ptr %4, align 8, !tbaa !19
-  %39 = getelementptr inbounds nuw %"class.cv::Mat", ptr %38, i64 %.07
-  %40 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %41 unwind label %50
+38:                                               ; preds = %.lr.ph
+  %39 = load ptr, ptr %4, align 8, !tbaa !19
+  %40 = getelementptr inbounds nuw %"class.cv::Mat", ptr %39, i64 %.07
+  %41 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef nonnull align 8 dereferenceable(96) %3)
+          to label %42 unwind label %51
 
-41:                                               ; preds = %37
+42:                                               ; preds = %38
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %42 = add nuw i64 %.07, 1
-  %43 = load ptr, ptr %11, align 8, !tbaa !24
-  %44 = load ptr, ptr %10, align 8, !tbaa !23
-  %45 = ptrtoint ptr %43 to i64
+  %43 = add nuw i64 %.07, 1
+  %44 = load ptr, ptr %11, align 8, !tbaa !24
+  %45 = load ptr, ptr %10, align 8, !tbaa !23
   %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %48 = sdiv exact i64 %47, 48
-  %49 = icmp ult i64 %42, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  %49 = sdiv exact i64 %48, 48
+  %50 = icmp ult i64 %43, %49
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
-50:                                               ; preds = %37, %.lr.ph
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %38, %.lr.ph
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %51
+  resume { ptr, i32 } %52
 
-52:                                               ; preds = %._crit_edge
+53:                                               ; preds = %._crit_edge
   store i8 1, ptr %0, align 8, !tbaa !3
-  br label %53
+  br label %54
 
-53:                                               ; preds = %52, %._crit_edge
+54:                                               ; preds = %53, %._crit_edge
   ret void
 }
 

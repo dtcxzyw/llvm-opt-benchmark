@@ -641,41 +641,42 @@ define internal range(i32 0, 2) i32 @test_property_parse_error(i32 noundef %0) #
   %2 = tail call ptr @ossl_method_store_new(ptr noundef null) #6
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 224, ptr noundef nonnull @.str.70, ptr noundef %2) #6
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %19, label %4
+  br i1 %.not, label %20, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.85, ptr noundef null)
   %.not7 = icmp eq i32 %5, 0
-  br i1 %.not7, label %19, label %6
+  br i1 %.not7, label %20, label %6
 
 6:                                                ; preds = %4
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.anon.0, ptr @parse_error_tests, i64 %7, i32 1
-  %9 = load ptr, ptr %8, align 8, !tbaa !13
-  %10 = shl nuw i64 1, %7
-  %11 = and i64 %10, 40811
-  %.not8.not = icmp eq i64 %11, 0
-  br i1 %.not8.not, label %12, label %15
+  %8 = getelementptr inbounds %struct.anon.0, ptr @parse_error_tests, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !13
+  %11 = shl nuw i64 1, %7
+  %12 = and i64 %11, 40811
+  %.not8.not = icmp eq i64 %12, 0
+  br i1 %.not8.not, label %13, label %16
 
-12:                                               ; preds = %6
-  %13 = tail call ptr @ossl_parse_query(ptr noundef null, ptr noundef %9, i32 noundef 1) #6
-  %14 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.12, i32 noundef 229, ptr noundef nonnull @.str.128, ptr noundef %13) #6
-  %.not10 = icmp eq i32 %14, 0
-  br i1 %.not10, label %19, label %18
+13:                                               ; preds = %6
+  %14 = tail call ptr @ossl_parse_query(ptr noundef null, ptr noundef %10, i32 noundef 1) #6
+  %15 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.12, i32 noundef 229, ptr noundef nonnull @.str.128, ptr noundef %14) #6
+  %.not10 = icmp eq i32 %15, 0
+  br i1 %.not10, label %20, label %19
 
-15:                                               ; preds = %6
-  %16 = tail call ptr @ossl_parse_property(ptr noundef null, ptr noundef %9) #6
-  %17 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.12, i32 noundef 231, ptr noundef nonnull @.str.129, ptr noundef %16) #6
-  %.not9 = icmp eq i32 %17, 0
-  br i1 %.not9, label %19, label %18
+16:                                               ; preds = %6
+  %17 = tail call ptr @ossl_parse_property(ptr noundef null, ptr noundef %10) #6
+  %18 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.12, i32 noundef 231, ptr noundef nonnull @.str.129, ptr noundef %17) #6
+  %.not9 = icmp eq i32 %18, 0
+  br i1 %.not9, label %20, label %19
 
-18:                                               ; preds = %15, %12
-  %.1 = phi ptr [ %13, %12 ], [ %16, %15 ]
-  br label %19
+19:                                               ; preds = %16, %13
+  %.1 = phi ptr [ %14, %13 ], [ %17, %16 ]
+  br label %20
 
-19:                                               ; preds = %15, %12, %1, %4, %18
-  %.06 = phi i32 [ 1, %18 ], [ 0, %12 ], [ 0, %15 ], [ 0, %4 ], [ 0, %1 ]
-  %.0 = phi ptr [ %.1, %18 ], [ %13, %12 ], [ %16, %15 ], [ null, %4 ], [ null, %1 ]
+20:                                               ; preds = %16, %13, %1, %4, %19
+  %.06 = phi i32 [ 1, %19 ], [ 0, %13 ], [ 0, %16 ], [ 0, %4 ], [ 0, %1 ]
+  %.0 = phi ptr [ %.1, %19 ], [ %14, %13 ], [ %17, %16 ], [ null, %4 ], [ null, %1 ]
   tail call void @ossl_property_free(ptr noundef %.0) #6
   tail call void @ossl_method_store_free(ptr noundef %2) #6
   ret i32 %.06
@@ -944,12 +945,12 @@ define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
   %2 = tail call ptr @ossl_method_store_new(ptr noundef null) #6
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 388, ptr noundef nonnull @.str.70, ptr noundef %2) #6
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %42, label %4
+  br i1 %.not, label %43, label %4
 
 4:                                                ; preds = %0
   %5 = tail call i32 (ptr, ...) @add_property_names(ptr noundef nonnull @.str.210, ptr noundef null)
   %.not27 = icmp eq i32 %5, 0
-  br i1 %.not27, label %42, label %.preheader35
+  br i1 %.not27, label %43, label %.preheader35
 
 .preheader35:                                     ; preds = %4, %17
   %.02538 = phi i64 [ %15, %17 ], [ 0, %4 ]
@@ -968,56 +969,57 @@ define internal range(i32 0, 2) i32 @test_register_deregister() #0 {
 
 16:                                               ; preds = %.preheader35
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.212, i64 noundef %15) #6
-  br label %42
+  br label %43
 
 17:                                               ; preds = %.preheader35
   %exitcond.not = icmp eq i64 %15, 4
   br i1 %exitcond.not, label %.preheader, label %.preheader35, !llvm.loop !24
 
-.preheader:                                       ; preds = %17, %35
-  %.139 = phi i64 [ %36, %35 ], [ 0, %17 ]
+.preheader:                                       ; preds = %17, %36
+  %.139 = phi i64 [ %37, %36 ], [ 0, %17 ]
   %18 = mul nuw nsw i64 %.139, 3
   %19 = add nuw nsw i64 %18, 1
   %20 = and i64 %19, 3
-  %21 = getelementptr inbounds nuw %struct.anon.3, ptr @test_register_deregister.impls, i64 %20, i32 2
-  %22 = load ptr, ptr %21, align 8, !tbaa !23
-  %23 = call i32 @ossl_method_store_remove(ptr noundef %2, i32 noundef 6, ptr noundef %22) #6
-  %24 = icmp ne i32 %23, 0
-  %25 = zext i1 %24 to i32
-  %26 = call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 406, ptr noundef nonnull @.str.213, i32 noundef %25) #6
-  %.not29 = icmp eq i32 %26, 0
-  br i1 %.not29, label %32, label %27
+  %21 = getelementptr inbounds nuw %struct.anon.3, ptr @test_register_deregister.impls, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !23
+  %24 = call i32 @ossl_method_store_remove(ptr noundef %2, i32 noundef 6, ptr noundef %23) #6
+  %25 = icmp ne i32 %24, 0
+  %26 = zext i1 %25 to i32
+  %27 = call i32 @test_true(ptr noundef nonnull @.str.12, i32 noundef 406, ptr noundef nonnull @.str.213, i32 noundef %26) #6
+  %.not29 = icmp eq i32 %27, 0
+  br i1 %.not29, label %33, label %28
 
-27:                                               ; preds = %.preheader
-  %28 = call i32 @ossl_method_store_remove(ptr noundef %2, i32 noundef 6, ptr noundef %22) #6
-  %29 = icmp ne i32 %28, 0
-  %30 = zext i1 %29 to i32
-  %31 = call i32 @test_false(ptr noundef nonnull @.str.12, i32 noundef 407, ptr noundef nonnull @.str.213, i32 noundef %30) #6
-  %.not30 = icmp eq i32 %31, 0
-  br i1 %.not30, label %32, label %35
+28:                                               ; preds = %.preheader
+  %29 = call i32 @ossl_method_store_remove(ptr noundef %2, i32 noundef 6, ptr noundef %23) #6
+  %30 = icmp ne i32 %29, 0
+  %31 = zext i1 %30 to i32
+  %32 = call i32 @test_false(ptr noundef nonnull @.str.12, i32 noundef 407, ptr noundef nonnull @.str.213, i32 noundef %31) #6
+  %.not30 = icmp eq i32 %32, 0
+  br i1 %.not30, label %33, label %36
 
-32:                                               ; preds = %.preheader, %27
-  %33 = add nuw nsw i64 %.139, 1
-  %34 = add nuw nsw i64 %20, 1
-  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.214, i64 noundef %33, i64 noundef %34) #6
-  br label %42
+33:                                               ; preds = %.preheader, %28
+  %34 = add nuw nsw i64 %.139, 1
+  %35 = add nuw nsw i64 %20, 1
+  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.214, i64 noundef %34, i64 noundef %35) #6
+  br label %43
 
-35:                                               ; preds = %27
-  %36 = add nuw nsw i64 %.139, 1
-  %exitcond43.not = icmp eq i64 %36, 4
-  br i1 %exitcond43.not, label %37, label %.preheader, !llvm.loop !26
+36:                                               ; preds = %28
+  %37 = add nuw nsw i64 %.139, 1
+  %exitcond43.not = icmp eq i64 %37, 4
+  br i1 %exitcond43.not, label %38, label %.preheader, !llvm.loop !26
 
-37:                                               ; preds = %35
-  %38 = call i32 @ossl_method_store_remove(ptr noundef %2, i32 noundef 6, ptr noundef nonnull @.str.127) #6
-  %39 = icmp ne i32 %38, 0
-  %40 = zext i1 %39 to i32
-  %41 = call i32 @test_false(ptr noundef nonnull @.str.12, i32 noundef 413, ptr noundef nonnull @.str.215, i32 noundef %40) #6
-  %.not28 = icmp ne i32 %41, 0
+38:                                               ; preds = %36
+  %39 = call i32 @ossl_method_store_remove(ptr noundef %2, i32 noundef 6, ptr noundef nonnull @.str.127) #6
+  %40 = icmp ne i32 %39, 0
+  %41 = zext i1 %40 to i32
+  %42 = call i32 @test_false(ptr noundef nonnull @.str.12, i32 noundef 413, ptr noundef nonnull @.str.215, i32 noundef %41) #6
+  %.not28 = icmp ne i32 %42, 0
   %spec.select = zext i1 %.not28 to i32
-  br label %42
+  br label %43
 
-42:                                               ; preds = %32, %37, %0, %4, %16
-  %.026 = phi i32 [ 0, %16 ], [ 0, %32 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %37 ]
+43:                                               ; preds = %33, %38, %0, %4, %16
+  %.026 = phi i32 [ 0, %16 ], [ 0, %33 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %38 ]
   call void @ossl_method_store_free(ptr noundef %2) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.026

@@ -657,16 +657,16 @@ define internal noundef i32 @average_slice8(ptr noundef readonly captures(none) 
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %56 = load ptr, ptr %55, align 8, !tbaa !36
   %57 = sext i32 %2 to i64
-  %58 = getelementptr inbounds [4 x float], ptr %56, i64 %57, i64 2
-  store float %54, ptr %58, align 4, !tbaa !41
-  %59 = getelementptr inbounds [4 x float], ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x float], ptr %56, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store float %54, ptr %59, align 4, !tbaa !41
+  store float %54, ptr %58, align 4, !tbaa !41
   %60 = fmul nsz float %8, %.054.lcssa
   %61 = fdiv nsz float %60, %52
   %62 = fadd nsz float %61, -5.000000e-01
-  %63 = getelementptr inbounds [4 x float], ptr %56, i64 %57, i64 3
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store float %62, ptr %63, align 4, !tbaa !41
-  %64 = getelementptr inbounds [4 x float], ptr %56, i64 %57, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store float %62, ptr %64, align 4, !tbaa !41
   ret i32 0
 }
@@ -760,16 +760,16 @@ define internal noundef i32 @average_slice16(ptr noundef readonly captures(none)
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %58 = load ptr, ptr %57, align 8, !tbaa !36
   %59 = sext i32 %2 to i64
-  %60 = getelementptr inbounds [4 x float], ptr %58, i64 %59, i64 2
-  store float %56, ptr %60, align 4, !tbaa !41
-  %61 = getelementptr inbounds [4 x float], ptr %58, i64 %59
+  %60 = getelementptr inbounds [4 x float], ptr %58, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store float %56, ptr %61, align 4, !tbaa !41
+  store float %56, ptr %60, align 4, !tbaa !41
   %62 = fmul nsz float %8, %.054.lcssa
   %63 = fdiv nsz float %62, %54
   %64 = fadd nsz float %63, -5.000000e-01
-  %65 = getelementptr inbounds [4 x float], ptr %58, i64 %59, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store float %64, ptr %65, align 4, !tbaa !41
-  %66 = getelementptr inbounds [4 x float], ptr %58, i64 %59, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store float %64, ptr %66, align 4, !tbaa !41
   ret i32 0
 }
@@ -869,13 +869,13 @@ define internal noundef i32 @minmax_slice8(ptr noundef readonly captures(none) %
   %56 = getelementptr inbounds [4 x float], ptr %54, i64 %55
   store float %52, ptr %56, align 4, !tbaa !41
   %57 = tail call nsz float @llvm.fmuladd.f32(float %8, float %.073.lcssa, float -5.000000e-01)
-  %58 = getelementptr inbounds [4 x float], ptr %54, i64 %55, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store float %57, ptr %58, align 4, !tbaa !41
   %59 = tail call nsz float @llvm.fmuladd.f32(float %8, float %.071.lcssa, float -5.000000e-01)
-  %60 = getelementptr inbounds [4 x float], ptr %54, i64 %55, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store float %59, ptr %60, align 4, !tbaa !41
   %61 = tail call nsz float @llvm.fmuladd.f32(float %8, float %.070.lcssa, float -5.000000e-01)
-  %62 = getelementptr inbounds [4 x float], ptr %54, i64 %55, i64 3
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 12
   store float %61, ptr %62, align 4, !tbaa !41
   ret i32 0
 }
@@ -977,13 +977,13 @@ define internal noundef i32 @minmax_slice16(ptr noundef readonly captures(none) 
   %58 = getelementptr inbounds [4 x float], ptr %56, i64 %57
   store float %54, ptr %58, align 4, !tbaa !41
   %59 = tail call nsz float @llvm.fmuladd.f32(float %8, float %.073.lcssa, float -5.000000e-01)
-  %60 = getelementptr inbounds [4 x float], ptr %56, i64 %57, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store float %59, ptr %60, align 4, !tbaa !41
   %61 = tail call nsz float @llvm.fmuladd.f32(float %8, float %.071.lcssa, float -5.000000e-01)
-  %62 = getelementptr inbounds [4 x float], ptr %56, i64 %57, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store float %61, ptr %62, align 4, !tbaa !41
   %63 = tail call nsz float @llvm.fmuladd.f32(float %8, float %.070.lcssa, float -5.000000e-01)
-  %64 = getelementptr inbounds [4 x float], ptr %56, i64 %57, i64 3
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store float %63, ptr %64, align 4, !tbaa !41
   ret i32 0
 }

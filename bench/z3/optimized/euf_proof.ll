@@ -8559,117 +8559,118 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt5tupleIJP3appS2_mbEElS3_N9_
   %.031 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.031, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %8
-  %11 = getelementptr %"class.std::tuple", ptr %0, i64 %9, i32 0, i32 0, i32 0, i32 1
-  %.val = load i64, ptr %11, align 8, !tbaa !470
-  %12 = getelementptr i8, ptr %10, i64 40
-  %.val28 = load i64, ptr %12, align 8, !tbaa !470
-  %13 = icmp ult i64 %.val, %.val28
-  %14 = or disjoint i64 %8, 1
-  %spec.select = select i1 %13, i64 %14, i64 %9
-  %15 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.031
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !471
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %18, ptr %19, align 8, !tbaa !471
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !471
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %21, ptr %22, align 8, !tbaa !471
-  %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !470
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %24, ptr %25, align 8, !tbaa !470
-  %26 = load i8, ptr %15, align 8, !tbaa !469, !range !384, !noundef !385
-  store i8 %26, ptr %16, align 8, !tbaa !469
-  %27 = icmp slt i64 %spec.select, %6
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !657
+  %10 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %9
+  %11 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %8
+  %12 = getelementptr i8, ptr %10, i64 8
+  %.val = load i64, ptr %12, align 8, !tbaa !470
+  %13 = getelementptr i8, ptr %11, i64 40
+  %.val28 = load i64, ptr %13, align 8, !tbaa !470
+  %14 = icmp ult i64 %.val, %.val28
+  %15 = or disjoint i64 %8, 1
+  %spec.select = select i1 %14, i64 %15, i64 %9
+  %16 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %spec.select
+  %17 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.031
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !471
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr %19, ptr %20, align 8, !tbaa !471
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !471
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr %22, ptr %23, align 8, !tbaa !471
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %25 = load i64, ptr %24, align 8, !tbaa !470
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 %25, ptr %26, align 8, !tbaa !470
+  %27 = load i8, ptr %16, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %27, ptr %17, align 8, !tbaa !469
+  %28 = icmp slt i64 %spec.select, %6
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !657
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %.lr.ph ]
-  %28 = and i64 %2, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %49
+  %29 = and i64 %2, 1
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %50
 
-30:                                               ; preds = %._crit_edge
-  %31 = add nsw i64 %2, -2
-  %32 = ashr exact i64 %31, 1
-  %33 = icmp eq i64 %.0.lcssa, %32
-  br i1 %33, label %34, label %49
+31:                                               ; preds = %._crit_edge
+  %32 = add nsw i64 %2, -2
+  %33 = ashr exact i64 %32, 1
+  %34 = icmp eq i64 %.0.lcssa, %33
+  br i1 %34, label %35, label %50
 
-34:                                               ; preds = %30
-  %35 = shl nuw nsw i64 %.0.lcssa, 1
-  %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %36
-  %38 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.0.lcssa
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !471
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr %40, ptr %41, align 8, !tbaa !471
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !471
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store ptr %43, ptr %44, align 8, !tbaa !471
-  %45 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !470
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i64 %46, ptr %47, align 8, !tbaa !470
-  %48 = load i8, ptr %37, align 8, !tbaa !469, !range !384, !noundef !385
-  store i8 %48, ptr %38, align 8, !tbaa !469
-  br label %49
+35:                                               ; preds = %31
+  %36 = shl nuw nsw i64 %.0.lcssa, 1
+  %37 = or disjoint i64 %36, 1
+  %38 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %37
+  %39 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.0.lcssa
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %41 = load ptr, ptr %40, align 8, !tbaa !471
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  store ptr %41, ptr %42, align 8, !tbaa !471
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !471
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store ptr %44, ptr %45, align 8, !tbaa !471
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !470
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i64 %47, ptr %48, align 8, !tbaa !470
+  %49 = load i8, ptr %38, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %49, ptr %39, align 8, !tbaa !469
+  br label %50
 
-49:                                               ; preds = %34, %30, %._crit_edge
-  %.127 = phi i64 [ %36, %34 ], [ %.0.lcssa, %30 ], [ %.0.lcssa, %._crit_edge ]
-  %50 = load i8, ptr %3, align 1, !tbaa !469
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %52 = load i64, ptr %51, align 8, !tbaa !470
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !471
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %56 = load i64, ptr %55, align 8, !tbaa !471
-  %57 = icmp samesign ugt i64 %.127, %1
-  br i1 %57, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit"
+50:                                               ; preds = %35, %31, %._crit_edge
+  %.127 = phi i64 [ %37, %35 ], [ %.0.lcssa, %31 ], [ %.0.lcssa, %._crit_edge ]
+  %51 = load i8, ptr %3, align 1, !tbaa !469
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %53 = load i64, ptr %52, align 8, !tbaa !470
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %55 = load i64, ptr %54, align 8, !tbaa !471
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %57 = load i64, ptr %56, align 8, !tbaa !471
+  %58 = icmp samesign ugt i64 %.127, %1
+  br i1 %58, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %49, %61
-  %.0133.i = phi i64 [ %.048.i, %61 ], [ %.127, %49 ]
+.lr.ph.i:                                         ; preds = %50, %62
+  %.0133.i = phi i64 [ %.048.i, %62 ], [ %.127, %50 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.048.i = lshr i64 %.04.in.i, 1
-  %58 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.048.i
-  %59 = getelementptr i8, ptr %58, i64 8
-  %.val.i = load i64, ptr %59, align 8, !tbaa !470
-  %60 = icmp ult i64 %.val.i, %52
-  br i1 %60, label %61, label %"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit"
+  %59 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.048.i
+  %60 = getelementptr i8, ptr %59, i64 8
+  %.val.i = load i64, ptr %60, align 8, !tbaa !470
+  %61 = icmp ult i64 %.val.i, %53
+  br i1 %61, label %62, label %"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
-61:                                               ; preds = %.lr.ph.i
-  %62 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.0133.i
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !471
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store ptr %64, ptr %65, align 8, !tbaa !471
-  %66 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !471
-  %68 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store ptr %67, ptr %68, align 8, !tbaa !471
-  %69 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i64 %.val.i, ptr %69, align 8, !tbaa !470
-  %70 = load i8, ptr %58, align 8, !tbaa !469, !range !384, !noundef !385
-  store i8 %70, ptr %62, align 8, !tbaa !469
-  %71 = icmp samesign ugt i64 %.048.i, %1
-  br i1 %71, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !658
+62:                                               ; preds = %.lr.ph.i
+  %63 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.0133.i
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %65 = load ptr, ptr %64, align 8, !tbaa !471
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  store ptr %65, ptr %66, align 8, !tbaa !471
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %68 = load ptr, ptr %67, align 8, !tbaa !471
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store ptr %68, ptr %69, align 8, !tbaa !471
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i64 %.val.i, ptr %70, align 8, !tbaa !470
+  %71 = load i8, ptr %59, align 8, !tbaa !469, !range !384, !noundef !385
+  store i8 %71, ptr %63, align 8, !tbaa !469
+  %72 = icmp samesign ugt i64 %.048.i, %1
+  br i1 %72, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !658
 
-"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit": ; preds = %.lr.ph.i, %61, %49
-  %.013.lcssa.i = phi i64 [ %.127, %49 ], [ %.0133.i, %.lr.ph.i ], [ %.048.i, %61 ]
-  %72 = inttoptr i64 %56 to ptr
-  %73 = inttoptr i64 %54 to ptr
-  %74 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.013.lcssa.i
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  store ptr %72, ptr %75, align 8, !tbaa !471
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
+"_ZSt11__push_heapIPSt5tupleIJP3appS2_mbEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_T0_SF_T1_RT2_.exit": ; preds = %.lr.ph.i, %62, %50
+  %.013.lcssa.i = phi i64 [ %.127, %50 ], [ %.0133.i, %.lr.ph.i ], [ %.048.i, %62 ]
+  %73 = inttoptr i64 %57 to ptr
+  %74 = inttoptr i64 %55 to ptr
+  %75 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.013.lcssa.i
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store ptr %73, ptr %76, align 8, !tbaa !471
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i64 %52, ptr %77, align 8, !tbaa !470
-  store i8 %50, ptr %74, align 8, !tbaa !469
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  store ptr %74, ptr %77, align 8, !tbaa !471
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store i64 %53, ptr %78, align 8, !tbaa !470
+  store i8 %51, ptr %75, align 8, !tbaa !469
   ret void
 }
 

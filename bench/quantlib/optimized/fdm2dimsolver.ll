@@ -8500,7 +8500,8 @@ for.cond.cleanup:                                 ; preds = %invoke.cont7, %_ZNS
 .noexc14:                                         ; preds = %.noexc14.preheader, %invoke.cont7
   %2 = phi ptr [ %7, %invoke.cont7 ], [ %1, %.noexc14.preheader ]
   %i.070 = phi i64 [ %inc, %invoke.cont7 ], [ 0, %.noexc14.preheader ]
-  %impl_.i = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %2, i64 %i.070, i32 1
+  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %2, i64 %i.070
+  %impl_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %3 = load ptr, ptr %impl_.i, align 8, !tbaa !177
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK5boost10shared_ptrIN8QuantLib13Interpolation4ImplEEptEv.exit.i, !prof !51
@@ -9094,7 +9095,8 @@ for.cond.cleanup:                                 ; preds = %invoke.cont7, %_ZNS
 .noexc14:                                         ; preds = %.noexc14.preheader, %invoke.cont7
   %2 = phi ptr [ %7, %invoke.cont7 ], [ %1, %.noexc14.preheader ]
   %i.058 = phi i64 [ %inc, %invoke.cont7 ], [ 0, %.noexc14.preheader ]
-  %impl_.i = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %2, i64 %i.058, i32 1
+  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %2, i64 %i.058
+  %impl_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %3 = load ptr, ptr %impl_.i, align 8, !tbaa !177
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK5boost10shared_ptrIN8QuantLib13Interpolation4ImplEEptEv.exit.i, !prof !51
@@ -9304,7 +9306,8 @@ for.cond.cleanup:                                 ; preds = %invoke.cont7, %_ZNS
 .noexc14:                                         ; preds = %.noexc14.preheader, %invoke.cont7
   %2 = phi ptr [ %7, %invoke.cont7 ], [ %1, %.noexc14.preheader ]
   %i.058 = phi i64 [ %inc, %invoke.cont7 ], [ 0, %.noexc14.preheader ]
-  %impl_.i = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %2, i64 %i.058, i32 1
+  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %2, i64 %i.058
+  %impl_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %3 = load ptr, ptr %impl_.i, align 8, !tbaa !177
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK5boost10shared_ptrIN8QuantLib13Interpolation4ImplEEptEv.exit.i, !prof !51

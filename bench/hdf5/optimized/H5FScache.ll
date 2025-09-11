@@ -2005,7 +2005,7 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   %28 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %29 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !17
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_sinfo_deserialize, i32 noundef 954, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.21) #7
-  br label %140
+  br label %141
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2019,7 +2019,7 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   %36 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %37 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !17
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_sinfo_deserialize, i32 noundef 959, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.22) #7
-  br label %140
+  br label %141
 
 39:                                               ; preds = %31
   %40 = load ptr, ptr %2, align 8, !tbaa !71
@@ -2038,7 +2038,7 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   %47 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %48 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !17
   %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_sinfo_deserialize, i32 noundef 964, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.23) #7
-  br label %140
+  br label %141
 
 50:                                               ; preds = %42
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 264
@@ -2062,8 +2062,8 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   br label %64
 
 64:                                               ; preds = %._crit_edge139, %53
-  %65 = phi i64 [ %136, %._crit_edge139 ], [ 0, %53 ]
-  %66 = phi ptr [ %135, %._crit_edge139 ], [ %.pre, %53 ]
+  %65 = phi i64 [ %137, %._crit_edge139 ], [ 0, %53 ]
+  %66 = phi ptr [ %136, %._crit_edge139 ], [ %.pre, %53 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %58
   br label %68
 
@@ -2111,8 +2111,8 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   %.not141 = icmp eq i64 %74, 0
   br i1 %.not141, label %._crit_edge139, label %.lr.ph138
 
-.lr.ph138:                                        ; preds = %._crit_edge, %132
-  %.089136 = phi i64 [ %133, %132 ], [ 0, %._crit_edge ]
+.lr.ph138:                                        ; preds = %._crit_edge, %133
+  %.089136 = phi i64 [ %134, %133 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %90 = load i32, ptr %60, align 4, !tbaa !78
   %91 = load ptr, ptr %6, align 8, !tbaa !36
@@ -2156,68 +2156,69 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   %113 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %114 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !17
   %115 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_sinfo_deserialize, i32 noundef 1020, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.24) #7
-  br label %139
+  br label %140
 
 116:                                              ; preds = %._crit_edge134
   %117 = load ptr, ptr %61, align 8, !tbaa !80
-  %118 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %117, i64 %106, i32 1
-  %119 = load i64, ptr %118, align 8, !tbaa !83
-  %120 = load ptr, ptr %6, align 8, !tbaa !36
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %119
-  store ptr %121, ptr %6, align 8, !tbaa !36
-  %122 = load i32, ptr %7, align 4, !tbaa !18
-  %123 = and i32 %122, 1
-  %.not106 = icmp eq i32 %123, 0
-  br i1 %.not106, label %124, label %132
+  %118 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %117, i64 %106
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %120 = load i64, ptr %119, align 8, !tbaa !83
+  %121 = load ptr, ptr %6, align 8, !tbaa !36
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 %120
+  store ptr %122, ptr %6, align 8, !tbaa !36
+  %123 = load i32, ptr %7, align 4, !tbaa !18
+  %124 = and i32 %123, 1
+  %.not106 = icmp eq i32 %124, 0
+  br i1 %.not106, label %125, label %133
 
-124:                                              ; preds = %116
-  %125 = load ptr, ptr %2, align 8, !tbaa !71
-  %126 = call i32 @H5FS_sect_add(ptr noundef %125, ptr noundef nonnull %16, ptr noundef nonnull %110, i32 noundef 1, ptr noundef nonnull %2) #7
-  %127 = icmp slt i32 %126, 0
-  br i1 %127, label %128, label %132
+125:                                              ; preds = %116
+  %126 = load ptr, ptr %2, align 8, !tbaa !71
+  %127 = call i32 @H5FS_sect_add(ptr noundef %126, ptr noundef nonnull %16, ptr noundef nonnull %110, i32 noundef 1, ptr noundef nonnull %2) #7
+  %128 = icmp slt i32 %127, 0
+  br i1 %128, label %129, label %133
 
-128:                                              ; preds = %124
-  %129 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
-  %130 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !17
-  %131 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_sinfo_deserialize, i32 noundef 1029, i64 noundef %129, i64 noundef %130, ptr noundef nonnull @.str.25) #7
-  br label %139
+129:                                              ; preds = %125
+  %130 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
+  %131 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !17
+  %132 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_sinfo_deserialize, i32 noundef 1029, i64 noundef %130, i64 noundef %131, ptr noundef nonnull @.str.25) #7
+  br label %140
 
-132:                                              ; preds = %124, %116
+133:                                              ; preds = %125, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %133 = add nuw i64 %.089136, 1
-  %134 = icmp ult i64 %133, %74
-  br i1 %134, label %.lr.ph138, label %._crit_edge139.loopexit, !llvm.loop !84
+  %134 = add nuw i64 %.089136, 1
+  %135 = icmp ult i64 %134, %74
+  br i1 %135, label %.lr.ph138, label %._crit_edge139.loopexit, !llvm.loop !84
 
-._crit_edge139.loopexit:                          ; preds = %132
+._crit_edge139.loopexit:                          ; preds = %133
   %.pre147 = load i64, ptr %55, align 8, !tbaa !42
   %.pre148 = load ptr, ptr %6, align 8
   br label %._crit_edge139
 
 ._crit_edge139:                                   ; preds = %._crit_edge139.loopexit, %._crit_edge
-  %135 = phi ptr [ %.pre148, %._crit_edge139.loopexit ], [ %89, %._crit_edge ]
-  %136 = phi i64 [ %.pre147, %._crit_edge139.loopexit ], [ %65, %._crit_edge ]
-  %137 = icmp ne i64 %136, %56
-  %138 = icmp ult ptr %135, %63
-  %or.cond123 = select i1 %137, i1 %138, i1 false
+  %136 = phi ptr [ %.pre148, %._crit_edge139.loopexit ], [ %89, %._crit_edge ]
+  %137 = phi i64 [ %.pre147, %._crit_edge139.loopexit ], [ %65, %._crit_edge ]
+  %138 = icmp ne i64 %137, %56
+  %139 = icmp ult ptr %136, %63
+  %or.cond123 = select i1 %138, i1 %139, i1 false
   br i1 %or.cond123, label %64, label %.thread117, !llvm.loop !85
 
-139:                                              ; preds = %112, %128
+140:                                              ; preds = %112, %129
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %140
+  br label %141
 
-140:                                              ; preds = %27, %35, %139, %46
-  %141 = call i32 @H5FS__sinfo_dest(ptr noundef nonnull %18) #7
-  %142 = icmp slt i32 %141, 0
-  br i1 %142, label %143, label %.thread117
+141:                                              ; preds = %27, %35, %140, %46
+  %142 = call i32 @H5FS__sinfo_dest(ptr noundef nonnull %18) #7
+  %143 = icmp slt i32 %142, 0
+  br i1 %143, label %144, label %.thread117
 
-143:                                              ; preds = %140
-  %144 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
-  %145 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !17
-  %146 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_sinfo_deserialize, i32 noundef 1063, i64 noundef %144, i64 noundef %145, ptr noundef nonnull @.str.26) #7
+144:                                              ; preds = %141
+  %145 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
+  %146 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !17
+  %147 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_sinfo_deserialize, i32 noundef 1063, i64 noundef %145, i64 noundef %146, ptr noundef nonnull @.str.26) #7
   br label %.thread117
 
-.thread117:                                       ; preds = %._crit_edge139, %20, %50, %4, %140, %143
-  %.085 = phi ptr [ null, %143 ], [ null, %140 ], [ null, %4 ], [ %18, %50 ], [ null, %20 ], [ %18, %._crit_edge139 ]
+.thread117:                                       ; preds = %._crit_edge139, %20, %50, %4, %141, %144
+  %.085 = phi ptr [ null, %144 ], [ null, %141 ], [ null, %4 ], [ %18, %50 ], [ null, %20 ], [ %18, %._crit_edge139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.085
@@ -2340,7 +2341,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_sinfo_serialize(ptr noundef %0
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   %12 = select i1 %8, i1 true, i1 %11
-  br i1 %12, label %13, label %109, !prof !9
+  br i1 %12, label %13, label %110, !prof !9
 
 13:                                               ; preds = %4
   store i32 1163088710, ptr %1, align 1
@@ -2463,59 +2464,60 @@ H5VM_limit_enc_size.exit:                         ; preds = %28, %34, %40, %46, 
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 248
   br label %82
 
-82:                                               ; preds = %.lr.ph, %94
-  %83 = phi i32 [ %80, %.lr.ph ], [ %95, %94 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %94 ]
+82:                                               ; preds = %.lr.ph, %95
+  %83 = phi i32 [ %80, %.lr.ph ], [ %96, %95 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
   %84 = load ptr, ptr %81, align 8, !tbaa !93
-  %85 = getelementptr inbounds nuw %struct.H5FS_bin_t, ptr %84, i64 %indvars.iv, i32 3
-  %86 = load ptr, ptr %85, align 8, !tbaa !94
-  %.not = icmp eq ptr %86, null
-  br i1 %.not, label %94, label %87
+  %85 = getelementptr inbounds nuw %struct.H5FS_bin_t, ptr %84, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  %87 = load ptr, ptr %86, align 8, !tbaa !94
+  %.not = icmp eq ptr %87, null
+  br i1 %.not, label %95, label %88
 
-87:                                               ; preds = %82
-  %88 = call i32 @H5SL_iterate(ptr noundef nonnull %86, ptr noundef nonnull @H5FS__sinfo_serialize_node_cb, ptr noundef nonnull %5) #7
-  %89 = icmp slt i32 %88, 0
-  br i1 %89, label %90, label %._crit_edge40
+88:                                               ; preds = %82
+  %89 = call i32 @H5SL_iterate(ptr noundef nonnull %87, ptr noundef nonnull @H5FS__sinfo_serialize_node_cb, ptr noundef nonnull %5) #7
+  %90 = icmp slt i32 %89, 0
+  br i1 %90, label %91, label %._crit_edge40
 
-._crit_edge40:                                    ; preds = %87
+._crit_edge40:                                    ; preds = %88
   %.pre = load i32, ptr %79, align 4, !tbaa !92
-  br label %94
+  br label %95
 
-90:                                               ; preds = %87
-  %91 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
-  %92 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !17
-  %93 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_sinfo_serialize, i32 noundef 1234, i64 noundef %91, i64 noundef %92, ptr noundef nonnull @.str.28) #7
-  br label %109
+91:                                               ; preds = %88
+  %92 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
+  %93 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !17
+  %94 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_sinfo_serialize, i32 noundef 1234, i64 noundef %92, i64 noundef %93, ptr noundef nonnull @.str.28) #7
+  br label %110
 
-94:                                               ; preds = %._crit_edge40, %82
-  %95 = phi i32 [ %.pre, %._crit_edge40 ], [ %83, %82 ]
+95:                                               ; preds = %._crit_edge40, %82
+  %96 = phi i32 [ %.pre, %._crit_edge40 ], [ %83, %82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %96 = zext i32 %95 to i64
-  %97 = icmp samesign ult i64 %indvars.iv.next, %96
-  br i1 %97, label %82, label %._crit_edge, !llvm.loop !96
+  %97 = zext i32 %96 to i64
+  %98 = icmp samesign ult i64 %indvars.iv.next, %97
+  br i1 %98, label %82, label %._crit_edge, !llvm.loop !96
 
-._crit_edge:                                      ; preds = %94, %H5VM_limit_enc_size.exit
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %99 = getelementptr inbounds i8, ptr %98, i64 -4
-  %100 = load ptr, ptr %6, align 8, !tbaa !36
-  %101 = ptrtoint ptr %99 to i64
+._crit_edge:                                      ; preds = %95, %H5VM_limit_enc_size.exit
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 %2
+  %100 = getelementptr inbounds i8, ptr %99, i64 -4
+  %101 = load ptr, ptr %6, align 8, !tbaa !36
   %102 = ptrtoint ptr %100 to i64
-  %103 = sub i64 %101, %102
-  %104 = icmp sgt i64 %103, 0
-  br i1 %104, label %105, label %106
+  %103 = ptrtoint ptr %101 to i64
+  %104 = sub i64 %102, %103
+  %105 = icmp sgt i64 %104, 0
+  br i1 %105, label %106, label %107
 
-105:                                              ; preds = %._crit_edge
-  call void @llvm.memset.p0.i64(ptr align 1 %100, i8 0, i64 %103, i1 false)
-  br label %106
+106:                                              ; preds = %._crit_edge
+  call void @llvm.memset.p0.i64(ptr align 1 %101, i8 0, i64 %104, i1 false)
+  br label %107
 
-106:                                              ; preds = %105, %._crit_edge
-  %107 = add nsw i64 %2, -4
-  %108 = call i32 @H5_checksum_metadata(ptr noundef nonnull %1, i64 noundef %107, i32 noundef 0) #7
-  store i32 %108, ptr %99, align 1
-  br label %109
+107:                                              ; preds = %106, %._crit_edge
+  %108 = add nsw i64 %2, -4
+  %109 = call i32 @H5_checksum_metadata(ptr noundef nonnull %1, i64 noundef %108, i32 noundef 0) #7
+  store i32 %109, ptr %100, align 1
+  br label %110
 
-109:                                              ; preds = %90, %106, %4
-  %.0 = phi i32 [ -1, %90 ], [ 0, %106 ], [ 0, %4 ]
+110:                                              ; preds = %91, %107, %4
+  %.0 = phi i32 [ -1, %91 ], [ 0, %107 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

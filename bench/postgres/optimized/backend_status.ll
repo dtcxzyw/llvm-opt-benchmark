@@ -178,159 +178,162 @@ define dso_local void @BackendStatusShmemInit() local_unnamed_addr #0 {
 
 50:                                               ; preds = %.lr.ph109, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next, %50 ]
-  %.088107 = phi ptr [ %28, %.lr.ph109 ], [ %52, %50 ]
-  %51 = getelementptr inbounds nuw %struct.PgBackendStatus, ptr %49, i64 %indvars.iv, i32 16
-  store ptr %.088107, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %.088107, i64 64
+  %.088107 = phi ptr [ %28, %.lr.ph109 ], [ %53, %50 ]
+  %51 = getelementptr inbounds nuw %struct.PgBackendStatus, ptr %49, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 240
+  store ptr %.088107, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %.088107, i64 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr @MaxBackends, align 4
-  %54 = add i32 %53, 6
-  %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %50, label %.loopexit101, !llvm.loop !6
+  %54 = load i32, ptr @MaxBackends, align 4
+  %55 = add i32 %54, 6
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv.next, %56
+  br i1 %57, label %50, label %.loopexit101, !llvm.loop !6
 
 .loopexit101:                                     ; preds = %50, %.loopexit103..loopexit101_crit_edge, %.loopexit102
-  %.pre-phi = phi i32 [ %.pre134, %.loopexit103..loopexit101_crit_edge ], [ %47, %.loopexit102 ], [ %54, %50 ]
-  %57 = sext i32 %.pre-phi to i64
-  %58 = call i64 @mul_size(i64 noundef 64, i64 noundef %57) #11
-  %59 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.2, i64 noundef %58, ptr noundef nonnull %1) #11
-  store ptr %59, ptr @BackendClientHostnameBuffer, align 8
-  %60 = load i8, ptr %1, align 1, !range !4, !noundef !5
-  %61 = trunc nuw i8 %60 to i1
-  br i1 %61, label %.loopexit101..loopexit99_crit_edge, label %62
+  %.pre-phi = phi i32 [ %.pre134, %.loopexit103..loopexit101_crit_edge ], [ %47, %.loopexit102 ], [ %55, %50 ]
+  %58 = sext i32 %.pre-phi to i64
+  %59 = call i64 @mul_size(i64 noundef 64, i64 noundef %58) #11
+  %60 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.2, i64 noundef %59, ptr noundef nonnull %1) #11
+  store ptr %60, ptr @BackendClientHostnameBuffer, align 8
+  %61 = load i8, ptr %1, align 1, !range !4, !noundef !5
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %.loopexit101..loopexit99_crit_edge, label %63
 
 .loopexit101..loopexit99_crit_edge:               ; preds = %.loopexit101
   %.pre133 = load i32, ptr @MaxBackends, align 4
   %.pre135 = add i32 %.pre133, 6
   br label %.loopexit99
 
-62:                                               ; preds = %.loopexit101
-  %63 = ptrtoint ptr %59 to i64
-  %64 = and i64 %63, 7
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %66, label %.loopexit100.sink.split
+63:                                               ; preds = %.loopexit101
+  %64 = ptrtoint ptr %60 to i64
+  %65 = and i64 %64, 7
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %.loopexit100.sink.split
 
-66:                                               ; preds = %62
-  %67 = and i64 %58, 7
-  %68 = icmp eq i64 %67, 0
-  %69 = icmp ult i64 %58, 1025
-  %or.cond11 = and i1 %69, %68
-  br i1 %or.cond11, label %70, label %.loopexit100.sink.split
+67:                                               ; preds = %63
+  %68 = and i64 %59, 7
+  %69 = icmp eq i64 %68, 0
+  %70 = icmp ult i64 %59, 1025
+  %or.cond11 = and i1 %70, %69
+  br i1 %or.cond11, label %71, label %.loopexit100.sink.split
 
-70:                                               ; preds = %66
-  %.not121 = icmp eq i64 %58, 0
+71:                                               ; preds = %67
+  %.not121 = icmp eq i64 %59, 0
   br i1 %.not121, label %.loopexit100, label %.lr.ph111.preheader
 
-.lr.ph111.preheader:                              ; preds = %70
-  %71 = add i64 %58, %63
-  %72 = add i64 %63, 8
-  %umax125 = call i64 @llvm.umax.i64(i64 %71, i64 %72)
-  %73 = xor i64 %63, -1
-  %74 = add i64 %umax125, %73
-  %75 = and i64 %74, -8
-  %76 = add i64 %75, 8
+.lr.ph111.preheader:                              ; preds = %71
+  %72 = add i64 %59, %64
+  %73 = add i64 %64, 8
+  %umax125 = call i64 @llvm.umax.i64(i64 %72, i64 %73)
+  %74 = xor i64 %64, -1
+  %75 = add i64 %umax125, %74
+  %76 = and i64 %75, -8
+  %77 = add i64 %76, 8
   br label %.loopexit100.sink.split
 
-.loopexit100.sink.split:                          ; preds = %62, %66, %.lr.ph111.preheader
-  %.sink144 = phi i64 [ %76, %.lr.ph111.preheader ], [ %58, %66 ], [ %58, %62 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %59, i8 0, i64 %.sink144, i1 false)
+.loopexit100.sink.split:                          ; preds = %63, %67, %.lr.ph111.preheader
+  %.sink144 = phi i64 [ %77, %.lr.ph111.preheader ], [ %59, %67 ], [ %59, %63 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %60, i8 0, i64 %.sink144, i1 false)
   br label %.loopexit100
 
-.loopexit100:                                     ; preds = %.loopexit100.sink.split, %70
-  %77 = load i32, ptr @MaxBackends, align 4
-  %78 = add i32 %77, 6
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph114, label %.loopexit99
+.loopexit100:                                     ; preds = %.loopexit100.sink.split, %71
+  %78 = load i32, ptr @MaxBackends, align 4
+  %79 = add i32 %78, 6
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %.lr.ph114, label %.loopexit99
 
 .lr.ph114:                                        ; preds = %.loopexit100
-  %80 = load ptr, ptr @BackendStatusArray, align 8
-  br label %81
+  %81 = load ptr, ptr @BackendStatusArray, align 8
+  br label %82
 
-81:                                               ; preds = %.lr.ph114, %81
-  %indvars.iv126 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next127, %81 ]
-  %.189112 = phi ptr [ %59, %.lr.ph114 ], [ %83, %81 ]
-  %82 = getelementptr inbounds nuw %struct.PgBackendStatus, ptr %80, i64 %indvars.iv126, i32 10
-  store ptr %.189112, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %.189112, i64 64
+82:                                               ; preds = %.lr.ph114, %82
+  %indvars.iv126 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next127, %82 ]
+  %.189112 = phi ptr [ %60, %.lr.ph114 ], [ %85, %82 ]
+  %83 = getelementptr inbounds nuw %struct.PgBackendStatus, ptr %81, i64 %indvars.iv126
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 192
+  store ptr %.189112, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %.189112, i64 64
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %84 = load i32, ptr @MaxBackends, align 4
-  %85 = add i32 %84, 6
-  %86 = sext i32 %85 to i64
-  %87 = icmp slt i64 %indvars.iv.next127, %86
-  br i1 %87, label %81, label %.loopexit99, !llvm.loop !8
+  %86 = load i32, ptr @MaxBackends, align 4
+  %87 = add i32 %86, 6
+  %88 = sext i32 %87 to i64
+  %89 = icmp slt i64 %indvars.iv.next127, %88
+  br i1 %89, label %82, label %.loopexit99, !llvm.loop !8
 
-.loopexit99:                                      ; preds = %81, %.loopexit101..loopexit99_crit_edge, %.loopexit100
-  %.pre-phi136 = phi i32 [ %.pre135, %.loopexit101..loopexit99_crit_edge ], [ %78, %.loopexit100 ], [ %85, %81 ]
-  %88 = load i32, ptr @pgstat_track_activity_query_size, align 4
-  %89 = sext i32 %88 to i64
-  %90 = sext i32 %.pre-phi136 to i64
-  %91 = call i64 @mul_size(i64 noundef %89, i64 noundef %90) #11
-  store i64 %91, ptr @BackendActivityBufferSize, align 8
-  %92 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.3, i64 noundef %91, ptr noundef nonnull %1) #11
-  store ptr %92, ptr @BackendActivityBuffer, align 8
-  %93 = load i8, ptr %1, align 1, !range !4, !noundef !5
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %.loopexit, label %95
+.loopexit99:                                      ; preds = %82, %.loopexit101..loopexit99_crit_edge, %.loopexit100
+  %.pre-phi136 = phi i32 [ %.pre135, %.loopexit101..loopexit99_crit_edge ], [ %79, %.loopexit100 ], [ %87, %82 ]
+  %90 = load i32, ptr @pgstat_track_activity_query_size, align 4
+  %91 = sext i32 %90 to i64
+  %92 = sext i32 %.pre-phi136 to i64
+  %93 = call i64 @mul_size(i64 noundef %91, i64 noundef %92) #11
+  store i64 %93, ptr @BackendActivityBufferSize, align 8
+  %94 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.3, i64 noundef %93, ptr noundef nonnull %1) #11
+  store ptr %94, ptr @BackendActivityBuffer, align 8
+  %95 = load i8, ptr %1, align 1, !range !4, !noundef !5
+  %96 = trunc nuw i8 %95 to i1
+  br i1 %96, label %.loopexit, label %97
 
-95:                                               ; preds = %.loopexit99
-  %96 = load i64, ptr @BackendActivityBufferSize, align 8
-  %97 = ptrtoint ptr %92 to i64
-  %98 = and i64 %97, 7
-  %99 = icmp eq i64 %98, 0
-  br i1 %99, label %100, label %.loopexit98.sink.split
+97:                                               ; preds = %.loopexit99
+  %98 = load i64, ptr @BackendActivityBufferSize, align 8
+  %99 = ptrtoint ptr %94 to i64
+  %100 = and i64 %99, 7
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %102, label %.loopexit98.sink.split
 
-100:                                              ; preds = %95
-  %101 = and i64 %96, 7
-  %102 = icmp eq i64 %101, 0
-  %103 = icmp ult i64 %96, 1025
-  %or.cond15 = and i1 %103, %102
-  br i1 %or.cond15, label %104, label %.loopexit98.sink.split
+102:                                              ; preds = %97
+  %103 = and i64 %98, 7
+  %104 = icmp eq i64 %103, 0
+  %105 = icmp ult i64 %98, 1025
+  %or.cond15 = and i1 %105, %104
+  br i1 %or.cond15, label %106, label %.loopexit98.sink.split
 
-104:                                              ; preds = %100
-  %.not122 = icmp eq i64 %96, 0
+106:                                              ; preds = %102
+  %.not122 = icmp eq i64 %98, 0
   br i1 %.not122, label %.loopexit98, label %.lr.ph116.preheader
 
-.lr.ph116.preheader:                              ; preds = %104
-  %105 = add i64 %96, %97
-  %106 = add i64 %97, 8
-  %umax129 = call i64 @llvm.umax.i64(i64 %105, i64 %106)
-  %107 = xor i64 %97, -1
-  %108 = add i64 %umax129, %107
-  %109 = and i64 %108, -8
-  %110 = add i64 %109, 8
+.lr.ph116.preheader:                              ; preds = %106
+  %107 = add i64 %98, %99
+  %108 = add i64 %99, 8
+  %umax129 = call i64 @llvm.umax.i64(i64 %107, i64 %108)
+  %109 = xor i64 %99, -1
+  %110 = add i64 %umax129, %109
+  %111 = and i64 %110, -8
+  %112 = add i64 %111, 8
   br label %.loopexit98.sink.split
 
-.loopexit98.sink.split:                           ; preds = %95, %100, %.lr.ph116.preheader
-  %.sink145 = phi i64 [ %110, %.lr.ph116.preheader ], [ %96, %100 ], [ %96, %95 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %92, i8 0, i64 %.sink145, i1 false)
+.loopexit98.sink.split:                           ; preds = %97, %102, %.lr.ph116.preheader
+  %.sink145 = phi i64 [ %112, %.lr.ph116.preheader ], [ %98, %102 ], [ %98, %97 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %94, i8 0, i64 %.sink145, i1 false)
   br label %.loopexit98
 
-.loopexit98:                                      ; preds = %.loopexit98.sink.split, %104
-  %111 = load i32, ptr @MaxBackends, align 4
-  %112 = add i32 %111, 6
-  %113 = icmp sgt i32 %112, 0
-  br i1 %113, label %.lr.ph119, label %.loopexit
+.loopexit98:                                      ; preds = %.loopexit98.sink.split, %106
+  %113 = load i32, ptr @MaxBackends, align 4
+  %114 = add i32 %113, 6
+  %115 = icmp sgt i32 %114, 0
+  br i1 %115, label %.lr.ph119, label %.loopexit
 
 .lr.ph119:                                        ; preds = %.loopexit98
-  %114 = load ptr, ptr @BackendStatusArray, align 8
-  %115 = load i32, ptr @pgstat_track_activity_query_size, align 4
-  %116 = sext i32 %115 to i64
-  br label %117
+  %116 = load ptr, ptr @BackendStatusArray, align 8
+  %117 = load i32, ptr @pgstat_track_activity_query_size, align 4
+  %118 = sext i32 %117 to i64
+  br label %119
 
-117:                                              ; preds = %.lr.ph119, %117
-  %indvars.iv130 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next131, %117 ]
-  %.290117 = phi ptr [ %92, %.lr.ph119 ], [ %119, %117 ]
-  %118 = getelementptr inbounds nuw %struct.PgBackendStatus, ptr %114, i64 %indvars.iv130, i32 17
-  store ptr %.290117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %.290117, i64 %116
+119:                                              ; preds = %.lr.ph119, %119
+  %indvars.iv130 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next131, %119 ]
+  %.290117 = phi ptr [ %94, %.lr.ph119 ], [ %122, %119 ]
+  %120 = getelementptr inbounds nuw %struct.PgBackendStatus, ptr %116, i64 %indvars.iv130
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 248
+  store ptr %.290117, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %.290117, i64 %118
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %120 = load i32, ptr @MaxBackends, align 4
-  %121 = add i32 %120, 6
-  %122 = sext i32 %121 to i64
-  %123 = icmp slt i64 %indvars.iv.next131, %122
-  br i1 %123, label %117, label %.loopexit, !llvm.loop !9
+  %123 = load i32, ptr @MaxBackends, align 4
+  %124 = add i32 %123, 6
+  %125 = sext i32 %124 to i64
+  %126 = icmp slt i64 %indvars.iv.next131, %125
+  br i1 %126, label %119, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %117, %.loopexit98, %.loopexit99
+.loopexit:                                        ; preds = %119, %.loopexit98, %.loopexit99
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
@@ -1087,9 +1090,10 @@ define dso_local i64 @pgstat_get_my_query_id() local_unnamed_addr #6 {
 define dso_local i32 @pgstat_get_backend_type_by_proc_number(i32 noundef %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr @BackendStatusArray, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.PgBackendStatus, ptr %2, i64 %3, i32 2
-  %5 = load volatile i32, ptr %4, align 8
-  ret i32 %5
+  %4 = getelementptr inbounds %struct.PgBackendStatus, ptr %2, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load volatile i32, ptr %5, align 8
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable

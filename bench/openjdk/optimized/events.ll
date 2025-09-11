@@ -890,7 +890,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm256EE6appendEPKcz(ptr nound
 define hidden void @_ZN17UnloadingEventLog3logEP6ThreadP13InstanceKlass(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.stringStream, align 8
   %5 = tail call noundef zeroext i1 @_ZN7VMError17is_error_reportedEv() #10
-  br i1 %5, label %30, label %6
+  br i1 %5, label %32, label %6
 
 6:                                                ; preds = %3
   %7 = tail call noundef double @_ZN2os11elapsedTimeEv() #10
@@ -916,24 +916,26 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE17compute_log_indexEv.exit: ;
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %9 to i64
-  %21 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %19, i64 %20, i32 1
-  store ptr %1, ptr %21, align 8
-  %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %22, i64 %20
-  store double %7, ptr %23, align 8
-  %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %24, i64 %20, i32 2
-  %26 = load ptr, ptr %25, align 8
-  call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %4, ptr noundef %26, i64 noundef 256) #10
-  %27 = ptrtoint ptr %2 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.28, i64 noundef %27) #10
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %29 = load ptr, ptr %28, align 8
-  call void @_ZNK6Symbol14print_value_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull %4) #10
+  %21 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %19, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %1, ptr %22, align 8
+  %23 = load ptr, ptr %18, align 8
+  %24 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %23, i64 %20
+  store double %7, ptr %24, align 8
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %20
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 8
+  call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %4, ptr noundef %28, i64 noundef 256) #10
+  %29 = ptrtoint ptr %2 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.28, i64 noundef %29) #10
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %31 = load ptr, ptr %30, align 8
+  call void @_ZNK6Symbol14print_value_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %31, ptr noundef nonnull %4) #10
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #10
-  br label %30
+  br label %32
 
-30:                                               ; preds = %3, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE17compute_log_indexEv.exit
+32:                                               ; preds = %3, %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE17compute_log_indexEv.exit
   ret void
 }
 
@@ -950,7 +952,7 @@ declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(
 define hidden void @_ZN18ExceptionsEventLog3logEP6Thread6HandlePKcS4_i(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, ptr readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.stringStream, align 8
   %8 = tail call noundef zeroext i1 @_ZN7VMError17is_error_reportedEv() #10
-  br i1 %8, label %36, label %9
+  br i1 %8, label %38, label %9
 
 9:                                                ; preds = %6
   %10 = tail call noundef double @_ZN2os11elapsedTimeEv() #10
@@ -978,29 +980,31 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %9, %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %13 to i64
-  %25 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %23, i64 %24, i32 1
-  store ptr %1, ptr %25, align 8
-  %26 = load ptr, ptr %22, align 8
-  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %26, i64 %24
-  store double %10, ptr %27, align 8
-  %28 = load ptr, ptr %22, align 8
-  %29 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %28, i64 %24, i32 2
-  %30 = load ptr, ptr %29, align 8
-  call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %7, ptr noundef %30, i64 noundef 512) #10
+  %25 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %23, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %1, ptr %26, align 8
+  %27 = load ptr, ptr %22, align 8
+  %28 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %27, i64 %24
+  store double %10, ptr %28, align 8
+  %29 = load ptr, ptr %22, align 8
+  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<512>>::EventRecord", ptr %29, i64 %24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8
+  call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %7, ptr noundef %32, i64 noundef 512) #10
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.29) #10
-  %31 = load ptr, ptr %2, align 8
-  call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %7) #10
+  %33 = load ptr, ptr %2, align 8
+  call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %7) #10
   %.not = icmp eq ptr %3, null
-  %32 = select i1 %.not, ptr @.str.32, ptr @.str.31
-  %33 = select i1 %.not, ptr @.str.32, ptr %3
-  %34 = load ptr, ptr %2, align 8
-  %35 = ptrtoint ptr %34 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.30, ptr noundef nonnull %32, ptr noundef nonnull %33, i64 noundef %35, ptr noundef %4, i32 noundef %5) #10
+  %34 = select i1 %.not, ptr @.str.32, ptr @.str.31
+  %35 = select i1 %.not, ptr @.str.32, ptr %3
+  %36 = load ptr, ptr %2, align 8
+  %37 = ptrtoint ptr %36 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.30, ptr noundef nonnull %34, ptr noundef nonnull %35, i64 noundef %37, ptr noundef %4, i32 noundef %5) #10
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %7) #10
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %11) #10
-  br label %36
+  br label %38
 
-36:                                               ; preds = %6, %_ZN11MutexLockerD2Ev.exit
+38:                                               ; preds = %6, %_ZN11MutexLockerD2Ev.exit
   ret void
 }
 

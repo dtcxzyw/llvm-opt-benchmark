@@ -242,42 +242,44 @@ hash_algo_by_ptr.exit:                            ; preds = %83, %.split.loop.ex
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %67
   br i1 %exitcond139.not, label %.lr.ph113, label %71, !llvm.loop !51
 
-.lr.ph113:                                        ; preds = %hash_algo_by_ptr.exit, %92
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %92 ], [ 0, %hash_algo_by_ptr.exit ]
-  %87 = getelementptr inbounds nuw %struct.anon, ptr %69, i64 %indvars.iv140, i32 1
-  %88 = load ptr, ptr @stdin, align 8, !tbaa !40
-  %89 = call i64 @fread(ptr noundef nonnull %87, i64 noundef 4, i64 noundef 1, ptr noundef %88)
-  %.not81 = icmp eq i64 %89, 1
-  br i1 %.not81, label %92, label %90
+.lr.ph113:                                        ; preds = %hash_algo_by_ptr.exit, %93
+  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %93 ], [ 0, %hash_algo_by_ptr.exit ]
+  %87 = getelementptr inbounds nuw %struct.anon, ptr %69, i64 %indvars.iv140
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 36
+  %89 = load ptr, ptr @stdin, align 8, !tbaa !40
+  %90 = call i64 @fread(ptr noundef nonnull %88, i64 noundef 4, i64 noundef 1, ptr noundef %89)
+  %.not81 = icmp eq i64 %90, 1
+  br i1 %.not81, label %93, label %91
 
-90:                                               ; preds = %.lr.ph113
-  %91 = trunc nuw nsw i64 %indvars.iv140 to i32
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.11, i32 noundef %91, i32 noundef %50) #10
+91:                                               ; preds = %.lr.ph113
+  %92 = trunc nuw nsw i64 %indvars.iv140 to i32
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.11, i32 noundef %92, i32 noundef %50) #10
   unreachable
 
-92:                                               ; preds = %.lr.ph113
+93:                                               ; preds = %.lr.ph113
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next141, %67
   br i1 %exitcond145.not, label %.lr.ph115, label %.lr.ph113, !llvm.loop !52
 
-.lr.ph118:                                        ; preds = %99
-  %93 = getelementptr inbounds nuw i8, ptr %8, i64 4
+.lr.ph118:                                        ; preds = %101
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %git_bswap32.exit89
 
-.lr.ph115:                                        ; preds = %92, %99
-  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %99 ], [ 0, %92 ]
-  %94 = getelementptr inbounds nuw %struct.anon, ptr %69, i64 %indvars.iv146, i32 2
-  %95 = load ptr, ptr @stdin, align 8, !tbaa !40
-  %96 = call i64 @fread(ptr noundef nonnull %94, i64 noundef 4, i64 noundef 1, ptr noundef %95)
-  %.not80 = icmp eq i64 %96, 1
-  br i1 %.not80, label %99, label %97
-
-97:                                               ; preds = %.lr.ph115
-  %98 = trunc nuw nsw i64 %indvars.iv146 to i32
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.12, i32 noundef %98, i32 noundef %50) #10
-  unreachable
+.lr.ph115:                                        ; preds = %93, %101
+  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %101 ], [ 0, %93 ]
+  %95 = getelementptr inbounds nuw %struct.anon, ptr %69, i64 %indvars.iv146
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
+  %97 = load ptr, ptr @stdin, align 8, !tbaa !40
+  %98 = call i64 @fread(ptr noundef nonnull %96, i64 noundef 4, i64 noundef 1, ptr noundef %97)
+  %.not80 = icmp eq i64 %98, 1
+  br i1 %.not80, label %101, label %99
 
 99:                                               ; preds = %.lr.ph115
+  %100 = trunc nuw nsw i64 %indvars.iv146 to i32
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.12, i32 noundef %100, i32 noundef %50) #10
+  unreachable
+
+101:                                              ; preds = %.lr.ph115
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next147, %67
   br i1 %exitcond151.not, label %.lr.ph118, label %.lr.ph115, !llvm.loop !53
@@ -285,58 +287,58 @@ hash_algo_by_ptr.exit:                            ; preds = %83, %.split.loop.ex
 git_bswap32.exit89:                               ; preds = %.lr.ph118, %git_bswap32.exit95
   %indvars.iv152 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next153, %git_bswap32.exit95 ]
   %.065116 = phi i32 [ 0, %.lr.ph118 ], [ %.166, %git_bswap32.exit95 ]
-  %100 = getelementptr inbounds nuw %struct.anon, ptr %69, i64 %indvars.iv152
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
-  %102 = load i32, ptr %101, align 4, !tbaa !54
-  %103 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %102) #11, !srcloc !43
-  %.not77 = icmp sgt i32 %103, -1
-  br i1 %.not77, label %104, label %106
-
-104:                                              ; preds = %git_bswap32.exit89
-  %105 = zext nneg i32 %103 to i64
-  br label %git_bswap32.exit95
+  %102 = getelementptr inbounds nuw %struct.anon, ptr %69, i64 %indvars.iv152
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
+  %104 = load i32, ptr %103, align 4, !tbaa !54
+  %105 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %104) #11, !srcloc !43
+  %.not77 = icmp sgt i32 %105, -1
+  br i1 %.not77, label %106, label %108
 
 106:                                              ; preds = %git_bswap32.exit89
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %107 = and i32 %103, 2147483647
-  %.not78 = icmp eq i32 %107, %.065116
-  br i1 %.not78, label %109, label %108
+  %107 = zext nneg i32 %105 to i64
+  br label %git_bswap32.exit95
 
-108:                                              ; preds = %106
+108:                                              ; preds = %git_bswap32.exit89
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %109 = and i32 %105, 2147483647
+  %.not78 = icmp eq i32 %109, %.065116
+  br i1 %.not78, label %111, label %110
+
+110:                                              ; preds = %108
   call void (ptr, ...) @die(ptr noundef nonnull @.str.13) #10
   unreachable
 
-109:                                              ; preds = %106
-  %110 = load ptr, ptr @stdin, align 8, !tbaa !40
-  %111 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef %110)
-  %.not79 = icmp eq i64 %111, 1
-  br i1 %.not79, label %git_bswap32.exit91, label %112
+111:                                              ; preds = %108
+  %112 = load ptr, ptr @stdin, align 8, !tbaa !40
+  %113 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef %112)
+  %.not79 = icmp eq i64 %113, 1
+  br i1 %.not79, label %git_bswap32.exit91, label %114
 
-112:                                              ; preds = %109
+114:                                              ; preds = %111
   call void (ptr, ...) @die(ptr noundef nonnull @.str.14, i32 noundef %.065116) #10
   unreachable
 
-git_bswap32.exit91:                               ; preds = %109
-  %113 = load i32, ptr %8, align 4, !tbaa !42
-  %114 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %113) #11, !srcloc !43
-  %115 = zext i32 %114 to i64
-  %116 = shl nuw i64 %115, 32
-  %117 = load i32, ptr %93, align 4, !tbaa !42
-  %118 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %117) #11, !srcloc !43
-  %119 = zext i32 %118 to i64
-  %120 = or disjoint i64 %116, %119
-  %121 = add nuw i32 %.065116, 1
+git_bswap32.exit91:                               ; preds = %111
+  %115 = load i32, ptr %8, align 4, !tbaa !42
+  %116 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %115) #11, !srcloc !43
+  %117 = zext i32 %116 to i64
+  %118 = shl nuw i64 %117, 32
+  %119 = load i32, ptr %94, align 4, !tbaa !42
+  %120 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %119) #11, !srcloc !43
+  %121 = zext i32 %120 to i64
+  %122 = or disjoint i64 %118, %121
+  %123 = add nuw i32 %.065116, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %git_bswap32.exit95
 
-git_bswap32.exit95:                               ; preds = %git_bswap32.exit91, %104
-  %.166 = phi i32 [ %121, %git_bswap32.exit91 ], [ %.065116, %104 ]
-  %.063 = phi i64 [ %120, %git_bswap32.exit91 ], [ %105, %104 ]
-  %122 = call ptr @oid_to_hex(ptr noundef nonnull %100) #9
-  %123 = getelementptr inbounds nuw i8, ptr %100, i64 36
-  %124 = load i32, ptr %123, align 4, !tbaa !55
-  %125 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %124) #11, !srcloc !43
-  %126 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i64 noundef %.063, ptr noundef %122, i32 noundef %125)
+git_bswap32.exit95:                               ; preds = %git_bswap32.exit91, %106
+  %.166 = phi i32 [ %123, %git_bswap32.exit91 ], [ %.065116, %106 ]
+  %.063 = phi i64 [ %122, %git_bswap32.exit91 ], [ %107, %106 ]
+  %124 = call ptr @oid_to_hex(ptr noundef nonnull %102) #9
+  %125 = getelementptr inbounds nuw i8, ptr %102, i64 36
+  %126 = load i32, ptr %125, align 4, !tbaa !55
+  %127 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %126) #11, !srcloc !43
+  %128 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i64 noundef %.063, ptr noundef %124, i32 noundef %127)
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next153, %67
   br i1 %exitcond157.not, label %._crit_edge, label %git_bswap32.exit89, !llvm.loop !56

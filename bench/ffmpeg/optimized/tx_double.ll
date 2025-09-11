@@ -9134,7 +9134,7 @@ define internal void @ff_tx_dctIII_double_c(ptr noundef readonly captures(none) 
   %37 = fmul nsz double %21, %36
   %38 = tail call nsz double @llvm.fmuladd.f64(double %35, double %26, double %37)
   store double %38, ptr %20, align 8, !tbaa !27
-  %39 = icmp sgt i64 %indvars.iv, 5
+  %39 = icmp samesign ugt i64 %indvars.iv, 5
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !155
 
 ._crit_edge71:                                    ; preds = %.lr.ph70, %._crit_edge

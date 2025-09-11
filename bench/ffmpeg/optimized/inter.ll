@@ -3854,7 +3854,7 @@ mc_bi_scaled.exit:                                ; preds = %439, %436, %120, %m
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 4048
   %643 = load i16, ptr %642, align 8, !tbaa !175
   %644 = zext i16 %643 to i32
-  br i1 %639, label %645, label %654
+  br i1 %639, label %645, label %655
 
 645:                                              ; preds = %622
   %646 = getelementptr inbounds nuw i8, ptr %623, i64 21576
@@ -3862,56 +3862,58 @@ mc_bi_scaled.exit:                                ; preds = %439, %436, %120, %m
   %648 = mul nsw i32 %59, %644
   %649 = add nsw i32 %648, %62
   %650 = sext i32 %649 to i64
-  %651 = getelementptr inbounds %struct.MvField, ptr %647, i64 %650, i32 4
-  %652 = load i8, ptr %651, align 4, !tbaa !92
-  %653 = icmp eq i8 %652, 0
-  %spec.select.i150 = select i1 %653, i32 2, i32 1
-  br label %654
+  %651 = getelementptr inbounds %struct.MvField, ptr %647, i64 %650
+  %652 = getelementptr inbounds nuw i8, ptr %651, i64 20
+  %653 = load i8, ptr %652, align 4, !tbaa !92
+  %654 = icmp eq i8 %653, 0
+  %spec.select.i150 = select i1 %654, i32 2, i32 1
+  br label %655
 
-654:                                              ; preds = %645, %622
+655:                                              ; preds = %645, %622
   %.0.i = phi i32 [ 1, %622 ], [ %spec.select.i150, %645 ]
-  br i1 %635, label %655, label %ciip_derive_intra_weight.exit
+  br i1 %635, label %656, label %ciip_derive_intra_weight.exit
 
-655:                                              ; preds = %654
-  %656 = getelementptr inbounds nuw i8, ptr %623, i64 21576
-  %657 = load ptr, ptr %656, align 8, !tbaa !198
-  %658 = mul nsw i32 %64, %644
-  %659 = add nsw i32 %658, %65
-  %660 = sext i32 %659 to i64
-  %661 = getelementptr inbounds %struct.MvField, ptr %657, i64 %660, i32 4
-  %662 = load i8, ptr %661, align 4, !tbaa !92
-  %663 = icmp eq i8 %662, 0
-  %664 = zext i1 %663 to i32
-  %spec.select25.i = add nuw nsw i32 %.0.i, %664
+656:                                              ; preds = %655
+  %657 = getelementptr inbounds nuw i8, ptr %623, i64 21576
+  %658 = load ptr, ptr %657, align 8, !tbaa !198
+  %659 = mul nsw i32 %64, %644
+  %660 = add nsw i32 %659, %65
+  %661 = sext i32 %660 to i64
+  %662 = getelementptr inbounds %struct.MvField, ptr %658, i64 %661
+  %663 = getelementptr inbounds nuw i8, ptr %662, i64 20
+  %664 = load i8, ptr %663, align 4, !tbaa !92
+  %665 = icmp eq i8 %664, 0
+  %666 = zext i1 %665 to i32
+  %spec.select25.i = add nuw nsw i32 %.0.i, %666
   br label %ciip_derive_intra_weight.exit
 
-ciip_derive_intra_weight.exit:                    ; preds = %654, %655
-  %.1.i = phi i32 [ %.0.i, %654 ], [ %spec.select25.i, %655 ]
-  %665 = load ptr, ptr %66, align 8, !tbaa !199
-  %666 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void %665(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %666) #6
-  br i1 %.not117, label %667, label %675
+ciip_derive_intra_weight.exit:                    ; preds = %655, %656
+  %.1.i = phi i32 [ %.0.i, %655 ], [ %spec.select25.i, %656 ]
+  %667 = load ptr, ptr %66, align 8, !tbaa !199
+  %668 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void %667(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %668) #6
+  br i1 %.not117, label %669, label %677
 
-667:                                              ; preds = %ciip_derive_intra_weight.exit
-  %668 = load ptr, ptr %25, align 16, !tbaa !94
-  %669 = getelementptr inbounds nuw i8, ptr %668, i64 8
-  %670 = load ptr, ptr %669, align 8, !tbaa !153
-  %671 = getelementptr inbounds nuw i8, ptr %670, i64 1364
-  %672 = load i8, ptr %671, align 4, !tbaa !164
-  %.not123 = icmp eq i8 %672, 0
-  br i1 %.not123, label %675, label %673
+669:                                              ; preds = %ciip_derive_intra_weight.exit
+  %670 = load ptr, ptr %25, align 16, !tbaa !94
+  %671 = getelementptr inbounds nuw i8, ptr %670, i64 8
+  %672 = load ptr, ptr %671, align 8, !tbaa !153
+  %673 = getelementptr inbounds nuw i8, ptr %672, i64 1364
+  %674 = load i8, ptr %673, align 4, !tbaa !164
+  %.not123 = icmp eq i8 %674, 0
+  br i1 %.not123, label %677, label %675
 
-673:                                              ; preds = %667
-  %674 = load ptr, ptr %67, align 8, !tbaa !165
-  tail call void %674(ptr noundef %108, i64 noundef %110, i32 noundef %.fr, i32 noundef %100, ptr noundef nonnull %68) #6
-  br label %675
+675:                                              ; preds = %669
+  %676 = load ptr, ptr %67, align 8, !tbaa !165
+  tail call void %676(ptr noundef %108, i64 noundef %110, i32 noundef %.fr, i32 noundef %100, ptr noundef nonnull %68) #6
+  br label %677
 
-675:                                              ; preds = %673, %667, %ciip_derive_intra_weight.exit
-  %676 = load ptr, ptr %69, align 8, !tbaa !200
-  tail call void %676(ptr noundef %97, i64 noundef %98, i32 noundef %.fr, i32 noundef %100, ptr noundef %108, i64 noundef %110, i32 noundef %.1.i) #6
+677:                                              ; preds = %675, %669, %ciip_derive_intra_weight.exit
+  %678 = load ptr, ptr %69, align 8, !tbaa !200
+  tail call void %678(ptr noundef %97, i64 noundef %98, i32 noundef %.fr, i32 noundef %100, ptr noundef %108, i64 noundef %110, i32 noundef %.1.i) #6
   br label %.critedge
 
-.critedge:                                        ; preds = %675, %mc_bi_scaled.exit
+.critedge:                                        ; preds = %677, %mc_bi_scaled.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not116.not = icmp samesign ult i64 %indvars.iv, %71
   br i1 %.not116.not, label %72, label %.loopexit, !llvm.loop !201

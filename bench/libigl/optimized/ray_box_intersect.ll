@@ -135,29 +135,29 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen
   %20 = load <2 x double>, ptr %19, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %22 = load double, ptr %21, align 8, !tbaa !8
-  %.sroa.10.0.vec.extract92 = extractelement <2 x double> %20, i64 0
-  %.sroa.0.0.vec.extract96 = extractelement <2 x double> %16, i64 0
-  %.sroa.speculated90 = select i1 %10, double %.sroa.0.0.vec.extract96, double %.sroa.10.0.vec.extract92
+  %.sroa.10.0.vec.extract94 = extractelement <2 x double> %20, i64 0
+  %.sroa.0.0.vec.extract98 = extractelement <2 x double> %16, i64 0
+  %.sroa.speculated92 = select i1 %10, double %.sroa.0.0.vec.extract98, double %.sroa.10.0.vec.extract94
   %23 = load double, ptr %0, align 8, !tbaa !8
-  %24 = fsub double %.sroa.speculated90, %23
+  %24 = fsub double %.sroa.speculated92, %23
   %25 = fmul double %9, %24
   store double %25, ptr %6, align 8, !tbaa !8
-  %.sroa.speculated87 = select i1 %10, double %.sroa.10.0.vec.extract92, double %.sroa.0.0.vec.extract96
+  %.sroa.speculated89 = select i1 %10, double %.sroa.10.0.vec.extract94, double %.sroa.0.0.vec.extract98
   %26 = load double, ptr %0, align 8, !tbaa !8
-  %27 = fsub double %.sroa.speculated87, %26
+  %27 = fsub double %.sroa.speculated89, %26
   %28 = load double, ptr %2, align 8, !tbaa !8
   %29 = fmul double %27, %28
   store double %29, ptr %7, align 8, !tbaa !8
   %.sroa.10.8.vec.extract = extractelement <2 x double> %20, i64 1
   %.sroa.0.8.vec.extract = extractelement <2 x double> %16, i64 1
-  %.sroa.speculated84 = select i1 %13, double %.sroa.0.8.vec.extract, double %.sroa.10.8.vec.extract
+  %.sroa.speculated86 = select i1 %13, double %.sroa.0.8.vec.extract, double %.sroa.10.8.vec.extract
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load double, ptr %30, align 8, !tbaa !8
-  %32 = fsub double %.sroa.speculated84, %31
+  %32 = fsub double %.sroa.speculated86, %31
   %33 = load double, ptr %11, align 8, !tbaa !8
   %34 = fmul double %32, %33
-  %.sroa.speculated81 = select i1 %13, double %.sroa.10.8.vec.extract, double %.sroa.0.8.vec.extract
-  %35 = fsub double %.sroa.speculated81, %31
+  %.sroa.speculated83 = select i1 %13, double %.sroa.10.8.vec.extract, double %.sroa.0.8.vec.extract
+  %35 = fsub double %.sroa.speculated83, %31
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load double, ptr %36, align 8, !tbaa !8
   %38 = fmul double %35, %37
@@ -176,10 +176,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen
   %47 = fcmp olt double %46, %38
   %48 = select i1 %47, double %46, double %38
   store double %48, ptr %7, align 8, !tbaa !8
-  %.sroa.speculated78 = select i1 %43, double %18, double %22
+  %.sroa.speculated80 = select i1 %43, double %18, double %22
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load double, ptr %49, align 8, !tbaa !8
-  %51 = fsub double %.sroa.speculated78, %50
+  %51 = fsub double %.sroa.speculated80, %50
   %52 = load double, ptr %14, align 8, !tbaa !8
   %53 = fmul double %51, %52
   %.sroa.speculated = select i1 %43, double %22, double %18
@@ -446,28 +446,28 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen
   %20 = load <2 x double>, ptr %19, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %22 = load double, ptr %21, align 8, !tbaa !8
-  %.sroa.10.0.vec.extract92.i = extractelement <2 x double> %20, i64 0
-  %.sroa.0.0.vec.extract96.i = extractelement <2 x double> %16, i64 0
-  %.sroa.speculated90.i = select i1 %14, double %.sroa.0.0.vec.extract96.i, double %.sroa.10.0.vec.extract92.i
+  %.sroa.10.0.vec.extract94.i = extractelement <2 x double> %20, i64 0
+  %.sroa.0.0.vec.extract98.i = extractelement <2 x double> %16, i64 0
+  %.sroa.speculated92.i = select i1 %14, double %.sroa.0.0.vec.extract98.i, double %.sroa.10.0.vec.extract94.i
   %23 = load double, ptr %0, align 8, !tbaa !8
-  %24 = fsub double %.sroa.speculated90.i, %23
+  %24 = fsub double %.sroa.speculated92.i, %23
   %25 = fmul double %.sroa.07.0.vec.extract, %24
   store double %25, ptr %5, align 8, !tbaa !8
-  %.sroa.speculated87.i = select i1 %14, double %.sroa.10.0.vec.extract92.i, double %.sroa.0.0.vec.extract96.i
+  %.sroa.speculated89.i = select i1 %14, double %.sroa.10.0.vec.extract94.i, double %.sroa.0.0.vec.extract98.i
   %26 = load double, ptr %0, align 8, !tbaa !8
-  %27 = fsub double %.sroa.speculated87.i, %26
+  %27 = fsub double %.sroa.speculated89.i, %26
   %28 = load double, ptr %8, align 16, !tbaa !8
   %29 = fmul double %27, %28
   store double %29, ptr %6, align 8, !tbaa !8
   %.sroa.10.8.vec.extract.i = extractelement <2 x double> %20, i64 1
   %.sroa.0.8.vec.extract.i = extractelement <2 x double> %16, i64 1
-  %.sroa.speculated84.i = select i1 %15, double %.sroa.0.8.vec.extract.i, double %.sroa.10.8.vec.extract.i
+  %.sroa.speculated86.i = select i1 %15, double %.sroa.0.8.vec.extract.i, double %.sroa.10.8.vec.extract.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load double, ptr %30, align 8, !tbaa !8
-  %32 = fsub double %.sroa.speculated84.i, %31
+  %32 = fsub double %.sroa.speculated86.i, %31
   %33 = fmul double %.sroa.07.8.vec.extract, %32
-  %.sroa.speculated81.i = select i1 %15, double %.sroa.10.8.vec.extract.i, double %.sroa.0.8.vec.extract.i
-  %34 = fsub double %.sroa.speculated81.i, %31
+  %.sroa.speculated83.i = select i1 %15, double %.sroa.10.8.vec.extract.i, double %.sroa.0.8.vec.extract.i
+  %34 = fsub double %.sroa.speculated83.i, %31
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %36 = load double, ptr %35, align 8, !tbaa !8
   %37 = fmul double %34, %36
@@ -486,10 +486,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl17ray_box_intersectIN5Eigen
   %46 = fcmp olt double %45, %37
   %47 = select i1 %46, double %45, double %37
   store double %47, ptr %6, align 8, !tbaa !8
-  %.sroa.speculated78.i = select i1 %42, double %18, double %22
+  %.sroa.speculated80.i = select i1 %42, double %18, double %22
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load double, ptr %48, align 8, !tbaa !8
-  %50 = fsub double %.sroa.speculated78.i, %49
+  %50 = fsub double %.sroa.speculated80.i, %49
   %51 = fmul double %13, %50
   %.sroa.speculated.i = select i1 %42, double %22, double %18
   %52 = fsub double %.sroa.speculated.i, %49

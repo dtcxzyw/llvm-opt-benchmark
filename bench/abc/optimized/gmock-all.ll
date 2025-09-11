@@ -5180,12 +5180,12 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit31: ; preds = %_ZN7testing19M
 29:                                               ; preds = %_ZN7testing19MatchResultListenerlsIA30_cEERS0_RKT_.exit47.invoke, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit38, %_ZN7testing19MatchResultListenerlsIA65_cEERS0_RKT_.exit, %40, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA89_cEERS0_RKT_.exit, %21
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %93
 
 31:                                               ; preds = %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit31, %_ZN7testing19MatchResultListenerlsIA5_cEERS0_RKT_.exit
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %93
 
 33:                                               ; preds = %14, %3
   %34 = and i32 %12, 2
@@ -5236,7 +5236,7 @@ _ZN7testing19MatchResultListenerlsIA30_cEERS0_RKT_.exit47.invoke: ; preds = %_ZN
 50:                                               ; preds = %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit44, %_ZN7testing19MatchResultListenerlsIA5_cEERS0_RKT_.exit41
   %51 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %93
 
 52:                                               ; preds = %33
   %53 = icmp ugt i64 %11, 1
@@ -5256,7 +5256,7 @@ _ZN7testing19MatchResultListenerlsIA30_cEERS0_RKT_.exit47.invoke: ; preds = %_ZN
 
 .lr.ph.split:                                     ; preds = %54, %.lr.ph.splitthread-pre-split
   %57 = phi ptr [ %.pr117, %.lr.ph.splitthread-pre-split ], [ %56, %54 ]
-  %.0105 = phi i64 [ %75, %.lr.ph.splitthread-pre-split ], [ 0, %54 ]
+  %.0105 = phi i64 [ %76, %.lr.ph.splitthread-pre-split ], [ 0, %54 ]
   %.068104 = phi ptr [ @.str.35, %.lr.ph.splitthread-pre-split ], [ @.str.43, %54 ]
   %.not.i48 = icmp eq ptr %57, null
   br i1 %.not.i48, label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit60, label %58
@@ -5264,7 +5264,7 @@ _ZN7testing19MatchResultListenerlsIA30_cEERS0_RKT_.exit47.invoke: ; preds = %_ZN
 58:                                               ; preds = %.lr.ph.split
   %59 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.068104) #34
   %60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull %.068104, i64 noundef %59)
-          to label %_ZN7testing19MatchResultListenerlsIPKcEERS0_RKT_.exit unwind label %83
+          to label %_ZN7testing19MatchResultListenerlsIPKcEERS0_RKT_.exit unwind label %84
 
 _ZN7testing19MatchResultListenerlsIPKcEERS0_RKT_.exit: ; preds = %58
   %.pr80 = load ptr, ptr %55, align 8, !tbaa !165
@@ -5273,7 +5273,7 @@ _ZN7testing19MatchResultListenerlsIPKcEERS0_RKT_.exit: ; preds = %58
 
 61:                                               ; preds = %_ZN7testing19MatchResultListenerlsIPKcEERS0_RKT_.exit
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr80, ptr noundef nonnull @.str.21, i64 noundef 12)
-          to label %_ZN7testing19MatchResultListenerlsIA13_cEERS0_RKT_.exit unwind label %83
+          to label %_ZN7testing19MatchResultListenerlsIA13_cEERS0_RKT_.exit unwind label %84
 
 _ZN7testing19MatchResultListenerlsIA13_cEERS0_RKT_.exit: ; preds = %61
   %.pr82 = load ptr, ptr %55, align 8, !tbaa !165
@@ -5285,7 +5285,7 @@ _ZN7testing19MatchResultListenerlsIA13_cEERS0_RKT_.exit: ; preds = %61
   %65 = getelementptr inbounds nuw %"struct.std::pair", ptr %64, i64 %.0105
   %66 = load i64, ptr %65, align 8, !tbaa !85
   %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr82, i64 noundef %66)
-          to label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit55 unwind label %83
+          to label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit55 unwind label %84
 
 _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit55: ; preds = %63
   %.pr84.pr = load ptr, ptr %55, align 8, !tbaa !165
@@ -5294,7 +5294,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit55: ; preds = %63
 
 68:                                               ; preds = %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit55
   %69 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr84.pr, ptr noundef nonnull @.str.44, i64 noundef 24)
-          to label %_ZN7testing19MatchResultListenerlsIA25_cEERS0_RKT_.exit unwind label %83
+          to label %_ZN7testing19MatchResultListenerlsIA25_cEERS0_RKT_.exit unwind label %84
 
 _ZN7testing19MatchResultListenerlsIA25_cEERS0_RKT_.exit: ; preds = %68
   %.pr86 = load ptr, ptr %55, align 8, !tbaa !165
@@ -5303,62 +5303,63 @@ _ZN7testing19MatchResultListenerlsIA25_cEERS0_RKT_.exit: ; preds = %68
 
 70:                                               ; preds = %_ZN7testing19MatchResultListenerlsIA25_cEERS0_RKT_.exit
   %71 = load ptr, ptr %4, align 8, !tbaa !179
-  %72 = getelementptr inbounds nuw %"struct.std::pair", ptr %71, i64 %.0105, i32 1
-  %73 = load i64, ptr %72, align 8, !tbaa !85
-  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr86, i64 noundef %73)
-          to label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit60 unwind label %83
+  %72 = getelementptr inbounds nuw %"struct.std::pair", ptr %71, i64 %.0105
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load i64, ptr %73, align 8, !tbaa !85
+  %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr86, i64 noundef %74)
+          to label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit60 unwind label %84
 
 _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit60: ; preds = %_ZN7testing19MatchResultListenerlsIPKcEERS0_RKT_.exit, %.lr.ph.split, %_ZN7testing19MatchResultListenerlsIA13_cEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit55, %_ZN7testing19MatchResultListenerlsIA25_cEERS0_RKT_.exit, %70
-  %75 = add nuw i64 %.0105, 1
-  %76 = load ptr, ptr %5, align 8, !tbaa !127
-  %77 = load ptr, ptr %4, align 8, !tbaa !179
-  %78 = ptrtoint ptr %76 to i64
+  %76 = add nuw i64 %.0105, 1
+  %77 = load ptr, ptr %5, align 8, !tbaa !127
+  %78 = load ptr, ptr %4, align 8, !tbaa !179
   %79 = ptrtoint ptr %77 to i64
-  %80 = sub i64 %78, %79
-  %81 = ashr exact i64 %80, 4
-  %82 = icmp ult i64 %75, %81
-  br i1 %82, label %.lr.ph.splitthread-pre-split, label %.loopexit, !llvm.loop !181
+  %80 = ptrtoint ptr %78 to i64
+  %81 = sub i64 %79, %80
+  %82 = ashr exact i64 %81, 4
+  %83 = icmp ult i64 %76, %82
+  br i1 %83, label %.lr.ph.splitthread-pre-split, label %.loopexit, !llvm.loop !181
 
-83:                                               ; preds = %70, %68, %63, %61, %58
-  %84 = landingpad { ptr, i32 }
+84:                                               ; preds = %70, %68, %63, %61, %58
+  %85 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %93
 
 .loopexit:                                        ; preds = %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit60, %_ZN7testing19MatchResultListenerlsIA30_cEERS0_RKT_.exit47.invoke, %52, %54, %37, %18
   %.022 = phi i1 [ false, %18 ], [ false, %37 ], [ true, %54 ], [ true, %52 ], [ false, %_ZN7testing19MatchResultListenerlsIA30_cEERS0_RKT_.exit47.invoke ], [ true, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit60 ]
-  %85 = load ptr, ptr %4, align 8, !tbaa !179
-  %.not.i.i.i = icmp eq ptr %85, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit, label %86
+  %86 = load ptr, ptr %4, align 8, !tbaa !179
+  %.not.i.i.i = icmp eq ptr %86, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit, label %87
 
-86:                                               ; preds = %.loopexit
-  %87 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %88 = load ptr, ptr %87, align 8, !tbaa !124
-  %89 = ptrtoint ptr %88 to i64
-  %90 = ptrtoint ptr %85 to i64
-  %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %85, i64 noundef %91) #33
+87:                                               ; preds = %.loopexit
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %89 = load ptr, ptr %88, align 8, !tbaa !124
+  %90 = ptrtoint ptr %89 to i64
+  %91 = ptrtoint ptr %86 to i64
+  %92 = sub i64 %90, %91
+  call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef %92) #33
   br label %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit
 
-_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit:        ; preds = %.loopexit, %86
+_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit:        ; preds = %.loopexit, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.022
 
-92:                                               ; preds = %83, %50, %31, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ], [ %51, %50 ], [ %84, %83 ]
-  %93 = load ptr, ptr %4, align 8, !tbaa !179
-  %.not.i.i.i61 = icmp eq ptr %93, null
-  br i1 %.not.i.i.i61, label %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit62, label %94
+93:                                               ; preds = %84, %50, %31, %29
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ], [ %51, %50 ], [ %85, %84 ]
+  %94 = load ptr, ptr %4, align 8, !tbaa !179
+  %.not.i.i.i61 = icmp eq ptr %94, null
+  br i1 %.not.i.i.i61, label %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit62, label %95
 
-94:                                               ; preds = %92
-  %95 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %96 = load ptr, ptr %95, align 8, !tbaa !124
-  %97 = ptrtoint ptr %96 to i64
-  %98 = ptrtoint ptr %93 to i64
-  %99 = sub i64 %97, %98
-  call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef %99) #33
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %97 = load ptr, ptr %96, align 8, !tbaa !124
+  %98 = ptrtoint ptr %97 to i64
+  %99 = ptrtoint ptr %94 to i64
+  %100 = sub i64 %98, %99
+  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef %100) #33
   br label %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit62
 
-_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit62:      ; preds = %92, %94
+_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit62:      ; preds = %93, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }

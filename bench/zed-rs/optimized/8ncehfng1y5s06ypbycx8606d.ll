@@ -23794,44 +23794,44 @@ define void @"_ZN88_$LT$language_tools..lsp_log..LspLogToolbarItemView$u20$as$u2
   %.not.i.i.i = icmp eq i64 %.val32, 0
   br i1 %.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %62, %70
-  %.sroa.01.020.i.i.i = phi i64 [ %74, %70 ], [ %.val32, %62 ]
-  %.sroa.03.019.i.i.i = phi i64 [ %.sroa.013.0.i.i.i, %70 ], [ 0, %62 ]
-  %.sroa.09.018.i.i.i = phi i64 [ %.sroa.014.0.i.i.i, %70 ], [ %.val32, %62 ]
+.lr.ph.i.i.i:                                     ; preds = %62, %71
+  %.sroa.01.020.i.i.i = phi i64 [ %75, %71 ], [ %.val32, %62 ]
+  %.sroa.03.019.i.i.i = phi i64 [ %.sroa.013.0.i.i.i, %71 ], [ 0, %62 ]
+  %.sroa.09.018.i.i.i = phi i64 [ %.sroa.014.0.i.i.i, %71 ], [ %.val32, %62 ]
   %65 = lshr i64 %.sroa.01.020.i.i.i, 1
   %66 = add i64 %65, %.sroa.03.019.i.i.i
   %67 = icmp ult i64 %66, %.val32
   call void @llvm.assume(i1 %67)
-  %68 = getelementptr { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, i64 } }, i64, i8, i8, i8, [5 x i8] }, ptr %.val, i64 %66, i32 2
-  %.val16.i.i.i = load i64, ptr %68, align 8, !alias.scope !5498, !noalias !5503, !noundef !4
-  %69 = icmp eq i64 %.val16.i.i.i, %60
-  br i1 %69, label %76, label %70
+  %68 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, i64 } }, i64, i8, i8, i8, [5 x i8] }, ptr %.val, i64 %66
+  %69 = getelementptr i8, ptr %68, i64 48
+  %.val16.i.i.i = load i64, ptr %69, align 8, !alias.scope !5498, !noalias !5503, !noundef !4
+  %70 = icmp eq i64 %.val16.i.i.i, %60
+  br i1 %70, label %77, label %71
 
-70:                                               ; preds = %.lr.ph.i.i.i
-  %71 = icmp ugt i64 %.val16.i.i.i, %60
-  %.sroa.014.0.i.i.i = select i1 %71, i64 %66, i64 %.sroa.09.018.i.i.i
-  %72 = icmp ult i64 %.val16.i.i.i, %60
-  %73 = add nuw i64 %66, 1
-  %.sroa.013.0.i.i.i = select i1 %72, i64 %73, i64 %.sroa.03.019.i.i.i
-  %74 = sub i64 %.sroa.014.0.i.i.i, %.sroa.013.0.i.i.i
-  %75 = icmp ult i64 %.sroa.013.0.i.i.i, %.sroa.014.0.i.i.i
-  br i1 %75, label %.lr.ph.i.i.i, label %.loopexit.loopexit.i
+71:                                               ; preds = %.lr.ph.i.i.i
+  %72 = icmp ugt i64 %.val16.i.i.i, %60
+  %.sroa.014.0.i.i.i = select i1 %72, i64 %66, i64 %.sroa.09.018.i.i.i
+  %73 = icmp ult i64 %.val16.i.i.i, %60
+  %74 = add nuw i64 %66, 1
+  %.sroa.013.0.i.i.i = select i1 %73, i64 %74, i64 %.sroa.03.019.i.i.i
+  %75 = sub i64 %.sroa.014.0.i.i.i, %.sroa.013.0.i.i.i
+  %76 = icmp ult i64 %.sroa.013.0.i.i.i, %.sroa.014.0.i.i.i
+  br i1 %76, label %.lr.ph.i.i.i, label %.loopexit.loopexit.i
 
-76:                                               ; preds = %.lr.ph.i.i.i
+77:                                               ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01.i)
-  %77 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, i64 } }, i64, i8, i8, i8, [5 x i8] }, ptr %.val, i64 %66
   call void @llvm.experimental.noalias.scope.decl(metadata !5505)
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !5508
   call void @llvm.experimental.noalias.scope.decl(metadata !5510)
-  %78 = load i64, ptr %77, align 8, !range !768, !alias.scope !5513, !noalias !5514, !noundef !4
+  %78 = load i64, ptr %68, align 8, !range !768, !alias.scope !5513, !noalias !5514, !noundef !4
   %trunc.i.i.i = trunc nuw i64 %78 to i1
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %80 = load ptr, ptr %79, align 8, !alias.scope !5513, !noalias !5514, !nonnull !4, !noundef !4
-  %81 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %82 = load i64, ptr %81, align 8, !alias.scope !5513, !noalias !5514, !noundef !4
   br i1 %trunc.i.i.i, label %84, label %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h345c484302af7346E.exit.i.i"
 
-.loopexit.loopexit.i:                             ; preds = %70
+.loopexit.loopexit.i:                             ; preds = %71
   %83 = icmp ule i64 %.sroa.013.0.i.i.i, %.val32
   br label %.loopexit.i
 
@@ -23841,7 +23841,7 @@ define void @"_ZN88_$LT$language_tools..lsp_log..LspLogToolbarItemView$u20$as$u2
   store i64 2, ptr %44, align 8, !alias.scope !5495
   br label %"_ZN88_$LT$language_tools..lsp_log..LspLogToolbarItemView$u20$as$u20$gpui..element..Render$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17h8c51371e89ecc0e5E.exit"
 
-84:                                               ; preds = %76
+84:                                               ; preds = %77
   %85 = atomicrmw add ptr %80, i64 1 monotonic, align 8, !noalias !5516
   %86 = icmp slt i64 %85, 0
   br i1 %86, label %87, label %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h345c484302af7346E.exit.i.i"
@@ -23850,15 +23850,15 @@ define void @"_ZN88_$LT$language_tools..lsp_log..LspLogToolbarItemView$u20$as$u2
   call void @llvm.trap()
   unreachable
 
-"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h345c484302af7346E.exit.i.i": ; preds = %84, %76
-  %88 = phi i64 [ 1, %84 ], [ 0, %76 ]
+"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h345c484302af7346E.exit.i.i": ; preds = %84, %77
+  %88 = phi i64 [ 1, %84 ], [ 0, %77 ]
   store i64 %88, ptr %20, align 8, !noalias !5508
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %80, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !5508
   %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %82, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !noalias !5508
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !5508
-  %89 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %68, i64 24
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %89)
           to label %"_ZN75_$LT$language_tools..lsp_log..LogMenuItem$u20$as$u20$core..clone..Clone$GT$5clone17h1dcd3fdf41eeadb9E.exit.i" unwind label %90, !noalias !5517
 
@@ -23884,11 +23884,11 @@ define void @"_ZN88_$LT$language_tools..lsp_log..LspLogToolbarItemView$u20$as$u2
   unreachable
 
 "_ZN75_$LT$language_tools..lsp_log..LogMenuItem$u20$as$u20$core..clone..Clone$GT$5clone17h1dcd3fdf41eeadb9E.exit.i": ; preds = %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h345c484302af7346E.exit.i.i"
-  %98 = getelementptr inbounds nuw i8, ptr %77, i64 56
+  %98 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %99 = load i8, ptr %98, align 8, !range !426, !alias.scope !5505, !noalias !5517, !noundef !4
-  %100 = getelementptr inbounds nuw i8, ptr %77, i64 57
+  %100 = getelementptr inbounds nuw i8, ptr %68, i64 57
   %101 = load i8, ptr %100, align 1, !range !3894, !alias.scope !5505, !noalias !5517, !noundef !4
-  %102 = getelementptr inbounds nuw i8, ptr %77, i64 58
+  %102 = getelementptr inbounds nuw i8, ptr %68, i64 58
   %103 = load i8, ptr %102, align 2, !range !3894, !alias.scope !5505, !noalias !5517, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.i, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !5529
   %.sroa.01.24..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.01.i, i64 24

@@ -44,55 +44,56 @@ define dso_local noundef ptr @ExecInitCteScan(ptr noundef %0, ptr noundef %1, i3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.ParamExecData, ptr %23, i64 %26, i32 1
-  %28 = load i64, ptr %27, align 8
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  store ptr %29, ptr %30, align 8
-  %31 = icmp eq i64 %28, 0
-  br i1 %31, label %32, label %38
+  %27 = getelementptr inbounds %struct.ParamExecData, ptr %23, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  store ptr %30, ptr %31, align 8
+  %32 = icmp eq i64 %29, 0
+  br i1 %32, label %33, label %39
 
-32:                                               ; preds = %3
-  %33 = ptrtoint ptr %5 to i64
-  store i64 %33, ptr %27, align 8
-  store ptr %5, ptr %30, align 8
-  %34 = load i32, ptr @work_mem, align 4
-  %35 = tail call ptr @tuplestore_begin_heap(i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %34) #3
-  store ptr %35, ptr %10, align 8
-  %36 = load i32, ptr %9, align 8
-  tail call void @tuplestore_set_eflags(ptr noundef %35, i32 noundef %36) #3
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 228
-  store i32 0, ptr %37, align 4
-  br label %49
+33:                                               ; preds = %3
+  %34 = ptrtoint ptr %5 to i64
+  store i64 %34, ptr %28, align 8
+  store ptr %5, ptr %31, align 8
+  %35 = load i32, ptr @work_mem, align 4
+  %36 = tail call ptr @tuplestore_begin_heap(i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %35) #3
+  store ptr %36, ptr %10, align 8
+  %37 = load i32, ptr %9, align 8
+  tail call void @tuplestore_set_eflags(ptr noundef %36, i32 noundef %37) #3
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 228
+  store i32 0, ptr %38, align 4
+  br label %50
 
-38:                                               ; preds = %3
-  %39 = getelementptr inbounds nuw i8, ptr %29, i64 248
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 @tuplestore_alloc_read_pointer(ptr noundef %40, i32 noundef %4) #3
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 228
-  store i32 %41, ptr %42, align 4
-  %43 = load ptr, ptr %30, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 248
-  %45 = load ptr, ptr %44, align 8
-  tail call void @tuplestore_select_read_pointer(ptr noundef %45, i32 noundef %41) #3
-  %46 = load ptr, ptr %30, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 248
-  %48 = load ptr, ptr %47, align 8
-  tail call void @tuplestore_rescan(ptr noundef %48) #3
-  br label %49
+39:                                               ; preds = %3
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 248
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call i32 @tuplestore_alloc_read_pointer(ptr noundef %41, i32 noundef %4) #3
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 228
+  store i32 %42, ptr %43, align 4
+  %44 = load ptr, ptr %31, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 248
+  %46 = load ptr, ptr %45, align 8
+  tail call void @tuplestore_select_read_pointer(ptr noundef %46, i32 noundef %42) #3
+  %47 = load ptr, ptr %31, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 248
+  %49 = load ptr, ptr %48, align 8
+  tail call void @tuplestore_rescan(ptr noundef %49) #3
+  br label %50
 
-49:                                               ; preds = %38, %32
+50:                                               ; preds = %39, %33
   tail call void @ExecAssignExprContext(ptr noundef nonnull %1, ptr noundef nonnull %5) #3
-  %50 = load ptr, ptr %21, align 8
-  %51 = tail call ptr @ExecGetResultType(ptr noundef %50) #3
-  tail call void @ExecInitScanTupleSlot(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef %51, ptr noundef nonnull @TTSOpsMinimalTuple) #3
+  %51 = load ptr, ptr %21, align 8
+  %52 = tail call ptr @ExecGetResultType(ptr noundef %51) #3
+  tail call void @ExecInitScanTupleSlot(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef %52, ptr noundef nonnull @TTSOpsMinimalTuple) #3
   tail call void @ExecInitResultTypeTL(ptr noundef nonnull %5) #3
   tail call void @ExecAssignScanProjectionInfo(ptr noundef nonnull %5) #3
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr @ExecInitQual(ptr noundef %53, ptr noundef nonnull %5) #3
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %54, ptr %55, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call ptr @ExecInitQual(ptr noundef %54, ptr noundef nonnull %5) #3
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %55, ptr %56, align 8
   ret ptr %5
 }
 

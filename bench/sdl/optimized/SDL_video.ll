@@ -1924,61 +1924,63 @@ SDL_GetDisplayIndex.exit:                         ; preds = %11
   %indvars.iv.i17 = phi i64 [ %31, %.lr.ph.i16 ], [ %indvars.iv.next.i18, %32 ]
   %indvars.iv.next.i18 = add nsw i64 %indvars.iv.i17, -1
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %33, i64 %indvars.iv.next.i18, i32 8
-  %35 = load ptr, ptr %34, align 8
-  tail call void @SDL_free_REAL(ptr noundef %35) #19
-  %36 = load ptr, ptr %30, align 8
-  %37 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %36, i64 %indvars.iv.next.i18, i32 8
-  store ptr null, ptr %37, align 8
+  %34 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %33, i64 %indvars.iv.next.i18
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %36 = load ptr, ptr %35, align 8
+  tail call void @SDL_free_REAL(ptr noundef %36) #19
+  %37 = load ptr, ptr %30, align 8
+  %38 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %37, i64 %indvars.iv.next.i18
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store ptr null, ptr %39, align 8
   %.not.i19 = icmp eq i64 %indvars.iv.next.i18, 0
   br i1 %.not.i19, label %SDL_ResetFullscreenDisplayModes.exit, label %32, !llvm.loop !18
 
 SDL_ResetFullscreenDisplayModes.exit:             ; preds = %32, %23
-  %38 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %39 = load ptr, ptr %38, align 8
-  tail call void @SDL_free_REAL(ptr noundef %39) #19
-  %40 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %41 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %42 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %44 = load ptr, ptr %43, align 8
-  tail call void @SDL_free_REAL(ptr noundef %44) #19
-  store ptr null, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %21, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %41 = load ptr, ptr %40, align 8
+  tail call void @SDL_free_REAL(ptr noundef %41) #19
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  store ptr %43, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %46 = load ptr, ptr %45, align 8
   tail call void @SDL_free_REAL(ptr noundef %46) #19
   store ptr null, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 128
+  %48 = load ptr, ptr %47, align 8
+  tail call void @SDL_free_REAL(ptr noundef %48) #19
+  store ptr null, ptr %47, align 8
   tail call void @SDL_free_REAL(ptr noundef nonnull %21) #19
-  %47 = load ptr, ptr @_this, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 800
-  %49 = load i32, ptr %48, align 8
-  %50 = add nsw i32 %49, -1
-  %51 = icmp sgt i32 %50, %18
-  br i1 %51, label %52, label %61
+  %49 = load ptr, ptr @_this, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 800
+  %51 = load i32, ptr %50, align 8
+  %52 = add nsw i32 %51, -1
+  %53 = icmp sgt i32 %52, %18
+  br i1 %53, label %54, label %63
 
-52:                                               ; preds = %SDL_ResetFullscreenDisplayModes.exit
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 808
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %19
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = xor i32 %18, -1
-  %58 = add i32 %49, %57
-  %59 = sext i32 %58 to i64
-  %60 = shl nsw i64 %59, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %55, ptr nonnull align 8 %56, i64 %60, i1 false)
-  %.pre = load i32, ptr %48, align 8
+54:                                               ; preds = %SDL_ResetFullscreenDisplayModes.exit
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 808
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %19
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = xor i32 %18, -1
+  %60 = add i32 %51, %59
+  %61 = sext i32 %60 to i64
+  %62 = shl nsw i64 %61, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %58, i64 %62, i1 false)
+  %.pre = load i32, ptr %50, align 8
   %.pre24 = add nsw i32 %.pre, -1
-  br label %61
+  br label %63
 
-61:                                               ; preds = %52, %SDL_ResetFullscreenDisplayModes.exit
-  %.pre-phi = phi i32 [ %.pre24, %52 ], [ %50, %SDL_ResetFullscreenDisplayModes.exit ]
-  store i32 %.pre-phi, ptr %48, align 8
+63:                                               ; preds = %54, %SDL_ResetFullscreenDisplayModes.exit
+  %.pre-phi = phi i32 [ %.pre24, %54 ], [ %52, %SDL_ResetFullscreenDisplayModes.exit ]
+  store i32 %.pre-phi, ptr %50, align 8
   tail call void @SDL_UpdateDesktopBounds()
   br label %SDL_GetDisplayIndex.exit.thread
 
-SDL_GetDisplayIndex.exit.thread:                  ; preds = %9, %._crit_edge.i, %61
+SDL_GetDisplayIndex.exit.thread:                  ; preds = %9, %._crit_edge.i, %63
   ret void
 }
 
@@ -2048,24 +2050,26 @@ define hidden void @SDL_ResetFullscreenDisplayModes(ptr noundef %0) local_unname
   %indvars.iv = phi i64 [ %5, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %7, i64 %indvars.iv.next, i32 8
-  %9 = load ptr, ptr %8, align 8
-  tail call void @SDL_free_REAL(ptr noundef %9) #19
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %10, i64 %indvars.iv.next, i32 8
-  store ptr null, ptr %11, align 8
+  %8 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %7, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %10 = load ptr, ptr %9, align 8
+  tail call void @SDL_free_REAL(ptr noundef %10) #19
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %struct.SDL_DisplayMode, ptr %11, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr null, ptr %13, align 8
   %.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %6, %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
-  tail call void @SDL_free_REAL(ptr noundef %13) #19
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store ptr %15, ptr %16, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8
+  tail call void @SDL_free_REAL(ptr noundef %15) #19
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  store ptr %17, ptr %18, align 8
   ret void
 }
 

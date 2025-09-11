@@ -1437,8 +1437,8 @@ _ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i: ; preds = %1
   br label %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.i
 
 _ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.i: ; preds = %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i", %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i
-  %6 = phi i32 [ %4, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %23, %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
-  %7 = phi i32 [ 1, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %24, %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
+  %6 = phi i32 [ %4, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %24, %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
+  %7 = phi i32 [ 1, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %25, %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
   %.0513.i = phi i32 [ 0, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %7, %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
   %8 = load ptr, ptr %2, align 8, !tbaa !19
   %.not.i = icmp eq ptr %8, null
@@ -1452,84 +1452,85 @@ _ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.i: ; preds = %"_ZZN9gr
   %14 = load i32, ptr %5, align 8, !tbaa !16
   %15 = urem i32 %13, %14
   %16 = zext i32 %15 to i64
-  %17 = getelementptr %"struct.grpc_core::HPackTable::Memento", ptr %8, i64 %16, i32 1
-  %.val.i = load i64, ptr %17, align 8, !tbaa !33
-  %18 = and i64 %.val.i, 1
-  %.not.i7.i = icmp eq i64 %18, 0
-  br i1 %.not.i7.i, label %19, label %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i"
+  %17 = getelementptr inbounds nuw %"struct.grpc_core::HPackTable::Memento", ptr %8, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 48
+  %.val.i = load i64, ptr %18, align 8, !tbaa !33
+  %19 = and i64 %.val.i, 1
+  %.not.i7.i = icmp eq i64 %19, 0
+  br i1 %.not.i7.i, label %20, label %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i"
 
-19:                                               ; preds = %9
-  %20 = invoke noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
-          to label %.noexc unwind label %58
+20:                                               ; preds = %9
+  %21 = invoke noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
+          to label %.noexc unwind label %59
 
-.noexc:                                           ; preds = %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 152
-  %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8
+.noexc:                                           ; preds = %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 152
+  %23 = atomicrmw add ptr %22, i64 1 monotonic, align 8
   %.pre.i = load i32, ptr %3, align 4, !tbaa !3
   br label %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i"
 
 "_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i": ; preds = %.noexc, %9
-  %23 = phi i32 [ %.pre.i, %.noexc ], [ %6, %9 ]
-  %24 = add nuw i32 %7, 1
-  %.not.i.i = icmp ult i32 %7, %23
+  %24 = phi i32 [ %.pre.i, %.noexc ], [ %6, %9 ]
+  %25 = add nuw i32 %7, 1
+  %.not.i.i = icmp ult i32 %7, %24
   br i1 %.not.i.i, label %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.i, label %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNS1_D1EvE3$_0EEvT_.exit"
 
 "_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNS1_D1EvE3$_0EEvT_.exit": ; preds = %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i", %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.i, %1
-  %25 = load ptr, ptr %2, align 8, !tbaa !19
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !18
-  %.not4.i.i.i.i = icmp eq ptr %25, %27
+  %26 = load ptr, ptr %2, align 8, !tbaa !19
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = load ptr, ptr %27, align 8, !tbaa !18
+  %.not4.i.i.i.i = icmp eq ptr %26, %28
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNS1_D1EvE3$_0EEvT_.exit", %_ZSt8_DestroyIN9grpc_core10HPackTable7MementoEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %50, %_ZSt8_DestroyIN9grpc_core10HPackTable7MementoEEvPT_.exit.i.i.i.i ], [ %25, %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNS1_D1EvE3$_0EEvT_.exit" ]
-  %28 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 48
-  %29 = load i64, ptr %28, align 8, !tbaa !33
-  %30 = and i64 %29, -2
-  %31 = inttoptr i64 %30 to ptr
-  %32 = icmp eq i64 %30, 0
-  br i1 %32, label %_ZN9grpc_core19UniquePtrWithBitsetINS_16HpackParseResultELm1EED2Ev.exit.i.i.i.i.i.i, label %33
+  %.05.i.i.i.i = phi ptr [ %51, %_ZSt8_DestroyIN9grpc_core10HPackTable7MementoEEvPT_.exit.i.i.i.i ], [ %26, %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNS1_D1EvE3$_0EEvT_.exit" ]
+  %29 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 48
+  %30 = load i64, ptr %29, align 8, !tbaa !33
+  %31 = and i64 %30, -2
+  %32 = inttoptr i64 %31 to ptr
+  %33 = icmp eq i64 %31, 0
+  br i1 %33, label %_ZN9grpc_core19UniquePtrWithBitsetINS_16HpackParseResultELm1EED2Ev.exit.i.i.i.i.i.i, label %34
 
-33:                                               ; preds = %.lr.ph.i.i.i.i
-  %34 = load ptr, ptr %31, align 8, !tbaa !42
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core16HpackParseResultD2Ev.exit.i.i.i.i.i.i.i, label %35
+34:                                               ; preds = %.lr.ph.i.i.i.i
+  %35 = load ptr, ptr %32, align 8, !tbaa !42
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core16HpackParseResultD2Ev.exit.i.i.i.i.i.i.i, label %36
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %37 = atomicrmw sub ptr %36, i64 1 acq_rel, align 8
-  %38 = icmp eq i64 %37, 1
-  br i1 %38, label %39, label %_ZN9grpc_core16HpackParseResultD2Ev.exit.i.i.i.i.i.i.i, !prof !41
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %38 = atomicrmw sub ptr %37, i64 1 acq_rel, align 8
+  %39 = icmp eq i64 %38, 1
+  br i1 %39, label %40, label %_ZN9grpc_core16HpackParseResultD2Ev.exit.i.i.i.i.i.i.i, !prof !41
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %34, align 8, !tbaa !39
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(88) %34) #33
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %35, align 8, !tbaa !39
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(88) %35) #33
   br label %_ZN9grpc_core16HpackParseResultD2Ev.exit.i.i.i.i.i.i.i
 
-_ZN9grpc_core16HpackParseResultD2Ev.exit.i.i.i.i.i.i.i: ; preds = %39, %35, %33
-  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 8) #34
+_ZN9grpc_core16HpackParseResultD2Ev.exit.i.i.i.i.i.i.i: ; preds = %40, %36, %34
+  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef 8) #34
   br label %_ZN9grpc_core19UniquePtrWithBitsetINS_16HpackParseResultELm1EED2Ev.exit.i.i.i.i.i.i
 
 _ZN9grpc_core19UniquePtrWithBitsetINS_16HpackParseResultELm1EED2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN9grpc_core16HpackParseResultD2Ev.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %43 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !26
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !45
-  %46 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  invoke void %45(ptr noundef nonnull align 8 dereferenceable(32) %46)
-          to label %_ZSt8_DestroyIN9grpc_core10HPackTable7MementoEEvPT_.exit.i.i.i.i unwind label %47
+  %44 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !26
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !45
+  %47 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  invoke void %46(ptr noundef nonnull align 8 dereferenceable(32) %47)
+          to label %_ZSt8_DestroyIN9grpc_core10HPackTable7MementoEEvPT_.exit.i.i.i.i unwind label %48
 
-47:                                               ; preds = %_ZN9grpc_core19UniquePtrWithBitsetINS_16HpackParseResultELm1EED2Ev.exit.i.i.i.i.i.i
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %_ZN9grpc_core19UniquePtrWithBitsetINS_16HpackParseResultELm1EED2Ev.exit.i.i.i.i.i.i
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #32
+  %50 = extractvalue { ptr, i32 } %49, 0
+  tail call void @__clang_call_terminate(ptr %50) #32
   unreachable
 
 _ZSt8_DestroyIN9grpc_core10HPackTable7MementoEEvPT_.exit.i.i.i.i: ; preds = %_ZN9grpc_core19UniquePtrWithBitsetINS_16HpackParseResultELm1EED2Ev.exit.i.i.i.i.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 56
-  %.not.i.i.i.i = icmp eq ptr %50, %27
+  %51 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 56
+  %.not.i.i.i.i = icmp eq ptr %51, %28
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !49
 
 _ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN9grpc_core10HPackTable7MementoEEvPT_.exit.i.i.i.i
@@ -1537,27 +1538,27 @@ _ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exitthread-pre
   br label %_ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNS1_D1EvE3$_0EEvT_.exit"
-  %51 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %25, %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNS1_D1EvE3$_0EEvT_.exit" ]
-  %.not.i.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EED2Ev.exit, label %52
+  %52 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %26, %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNS1_D1EvE3$_0EEvT_.exit" ]
+  %.not.i.i.i = icmp eq ptr %52, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EED2Ev.exit, label %53
 
-52:                                               ; preds = %_ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exit.i
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %54 = load ptr, ptr %53, align 8, !tbaa !25
-  %55 = ptrtoint ptr %54 to i64
-  %56 = ptrtoint ptr %51 to i64
-  %57 = sub i64 %55, %56
-  tail call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %57) #34
+53:                                               ; preds = %_ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exit.i
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %55 = load ptr, ptr %54, align 8, !tbaa !25
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %52 to i64
+  %58 = sub i64 %56, %57
+  tail call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %58) #34
   br label %_ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exit.i, %52
+_ZNSt6vectorIN9grpc_core10HPackTable7MementoESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN9grpc_core10HPackTable7MementoES2_EvT_S4_RSaIT0_E.exit.i, %53
   ret void
 
-58:                                               ; preds = %19
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %20
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  tail call void @__clang_call_terminate(ptr %60) #32
+  %61 = extractvalue { ptr, i32 } %60, 0
+  tail call void @__clang_call_terminate(ptr %61) #32
   unreachable
 }
 

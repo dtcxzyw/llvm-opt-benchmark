@@ -196,35 +196,36 @@ _ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %3, %20
   %28 = load i32, ptr %27, align 8, !tbaa !25
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !38
-  %31 = getelementptr inbounds %struct.t_atom, ptr %30, i64 %12, i32 7
-  store i32 %28, ptr %31, align 4, !tbaa !50
-  %32 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %33 = load ptr, ptr %32, align 8, !tbaa !36
-  %.not = icmp eq ptr %33, null
-  br i1 %.not, label %42, label %34
+  %31 = getelementptr inbounds %struct.t_atom, ptr %30, i64 %12
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  store i32 %28, ptr %32, align 4, !tbaa !50
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %34 = load ptr, ptr %33, align 8, !tbaa !36
+  %.not = icmp eq ptr %34, null
+  br i1 %.not, label %43, label %35
 
-34:                                               ; preds = %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %36 = load ptr, ptr %35, align 8, !tbaa !36
-  %.not13 = icmp eq ptr %36, null
-  br i1 %.not13, label %40, label %37
+35:                                               ; preds = %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %37 = load ptr, ptr %36, align 8, !tbaa !36
+  %.not13 = icmp eq ptr %37, null
+  br i1 %.not13, label %41, label %38
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds %struct.t_pdbinfo, ptr %36, i64 %8
-  %39 = getelementptr inbounds %struct.t_pdbinfo, ptr %33, i64 %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %39, ptr noundef nonnull align 4 dereferenceable(52) %38, i64 52, i1 false), !tbaa.struct !52
-  br label %42
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds %struct.t_pdbinfo, ptr %37, i64 %8
+  %40 = getelementptr inbounds %struct.t_pdbinfo, ptr %34, i64 %12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %40, ptr noundef nonnull align 4 dereferenceable(52) %39, i64 52, i1 false), !tbaa.struct !52
+  br label %43
 
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds %struct.t_pdbinfo, ptr %33, i64 %12
-  tail call void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr noundef nonnull %41)
-  br label %42
+41:                                               ; preds = %35
+  %42 = getelementptr inbounds %struct.t_pdbinfo, ptr %34, i64 %12
+  tail call void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr noundef nonnull %42)
+  br label %43
 
-42:                                               ; preds = %37, %40, %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit
-  %43 = load ptr, ptr %0, align 8, !tbaa !4
-  %44 = load i32, ptr %43, align 8, !tbaa !13
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %43, align 8, !tbaa !13
+43:                                               ; preds = %38, %41, %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit
+  %44 = load ptr, ptr %0, align 8, !tbaa !4
+  %45 = load i32, ptr %44, align 8, !tbaa !13
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %44, align 8, !tbaa !13
   ret void
 }
 
@@ -259,38 +260,39 @@ define void @_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo(ptr noundef nonnul
   %18 = load ptr, ptr %0, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !27
-  %21 = getelementptr inbounds %struct.t_resinfo, ptr %20, i64 %15, i32 1
-  store i32 %17, ptr %21, align 8, !tbaa !28
-  %22 = load ptr, ptr %1, align 8, !tbaa !57
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !12
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit, label %25
+  %21 = getelementptr inbounds %struct.t_resinfo, ptr %20, i64 %15
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i32 %17, ptr %22, align 8, !tbaa !28
+  %23 = load ptr, ptr %1, align 8, !tbaa !57
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !12
+  %.not.i = icmp eq ptr %25, null
+  br i1 %.not.i, label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit, label %26
 
-25:                                               ; preds = %9
-  %26 = load ptr, ptr %22, align 8, !tbaa !31
-  %27 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %24, ptr noundef %26)
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %23, align 8, !tbaa !31
+  %28 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %25, ptr noundef %27)
   %.pre = load ptr, ptr %0, align 8, !tbaa !4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre7 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !27
   %.pre8 = load i32, ptr %3, align 4, !tbaa !26
   br label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit
 
-_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %9, %25
-  %28 = phi i32 [ %.pre8, %25 ], [ %17, %9 ]
-  %29 = phi ptr [ %.pre7, %25 ], [ %20, %9 ]
-  %30 = phi ptr [ %.pre, %25 ], [ %18, %9 ]
-  %.0.i = phi ptr [ %27, %25 ], [ %22, %9 ]
-  %31 = getelementptr inbounds %struct.t_resinfo, ptr %29, i64 %15
-  store ptr %.0.i, ptr %31, align 8, !tbaa !57
-  %32 = add nsw i32 %28, 1
-  store i32 %32, ptr %3, align 4, !tbaa !26
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %12, ptr %33, align 8, !tbaa !25
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %35 = load i32, ptr %34, align 8, !tbaa !23
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %34, align 8, !tbaa !23
+_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %9, %26
+  %29 = phi i32 [ %.pre8, %26 ], [ %17, %9 ]
+  %30 = phi ptr [ %.pre7, %26 ], [ %20, %9 ]
+  %31 = phi ptr [ %.pre, %26 ], [ %18, %9 ]
+  %.0.i = phi ptr [ %28, %26 ], [ %23, %9 ]
+  %32 = getelementptr inbounds %struct.t_resinfo, ptr %30, i64 %15
+  store ptr %.0.i, ptr %32, align 8, !tbaa !57
+  %33 = add nsw i32 %29, 1
+  store i32 %33, ptr %3, align 4, !tbaa !26
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %12, ptr %34, align 8, !tbaa !25
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %36 = load i32, ptr %35, align 8, !tbaa !23
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr %35, align 8, !tbaa !23
   ret void
 }
 
@@ -320,45 +322,46 @@ define void @_ZN3gmx12AtomsBuilder13finishResidueERK9t_resinfo(ptr noundef nonnu
   %18 = load ptr, ptr %0, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !27
-  %21 = getelementptr inbounds %struct.t_resinfo, ptr %20, i64 %15, i32 1
-  store i32 %17, ptr %21, align 8, !tbaa !28
-  %22 = load ptr, ptr %1, align 8, !tbaa !57
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !12
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit, label %25
+  %21 = getelementptr inbounds %struct.t_resinfo, ptr %20, i64 %15
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i32 %17, ptr %22, align 8, !tbaa !28
+  %23 = load ptr, ptr %1, align 8, !tbaa !57
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !12
+  %.not.i = icmp eq ptr %25, null
+  br i1 %.not.i, label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit, label %26
 
-25:                                               ; preds = %9
-  %26 = load ptr, ptr %22, align 8, !tbaa !31
-  %27 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %24, ptr noundef %26)
+26:                                               ; preds = %9
+  %27 = load ptr, ptr %23, align 8, !tbaa !31
+  %28 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %25, ptr noundef %27)
   %.pre = load ptr, ptr %0, align 8, !tbaa !4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre8 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !27
   %.pre9 = load i32, ptr %3, align 4, !tbaa !26
   br label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit
 
-_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %9, %25
-  %28 = phi i32 [ %.pre9, %25 ], [ %17, %9 ]
-  %29 = phi ptr [ %.pre8, %25 ], [ %20, %9 ]
-  %30 = phi ptr [ %.pre, %25 ], [ %18, %9 ]
-  %.0.i = phi ptr [ %27, %25 ], [ %22, %9 ]
-  %31 = getelementptr inbounds %struct.t_resinfo, ptr %29, i64 %15
-  store ptr %.0.i, ptr %31, align 8, !tbaa !57
-  %32 = add nsw i32 %28, 1
-  store i32 %32, ptr %3, align 4, !tbaa !26
-  %33 = add nsw i32 %11, 1
-  store i32 %33, ptr %10, align 8, !tbaa !25
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %35 = load i32, ptr %34, align 8, !tbaa !23
-  %.not = icmp slt i32 %11, %35
-  br i1 %.not, label %38, label %36
+_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit:     ; preds = %9, %26
+  %29 = phi i32 [ %.pre9, %26 ], [ %17, %9 ]
+  %30 = phi ptr [ %.pre8, %26 ], [ %20, %9 ]
+  %31 = phi ptr [ %.pre, %26 ], [ %18, %9 ]
+  %.0.i = phi ptr [ %28, %26 ], [ %23, %9 ]
+  %32 = getelementptr inbounds %struct.t_resinfo, ptr %30, i64 %15
+  store ptr %.0.i, ptr %32, align 8, !tbaa !57
+  %33 = add nsw i32 %29, 1
+  store i32 %33, ptr %3, align 4, !tbaa !26
+  %34 = add nsw i32 %11, 1
+  store i32 %34, ptr %10, align 8, !tbaa !25
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %36 = load i32, ptr %35, align 8, !tbaa !23
+  %.not = icmp slt i32 %11, %36
+  br i1 %.not, label %39, label %37
 
-36:                                               ; preds = %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit
-  %37 = add nsw i32 %35, 1
-  store i32 %37, ptr %34, align 8, !tbaa !23
-  br label %38
+37:                                               ; preds = %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit
+  %38 = add nsw i32 %36, 1
+  store i32 %38, ptr %35, align 8, !tbaa !23
+  br label %39
 
-38:                                               ; preds = %36, %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit
+39:                                               ; preds = %37, %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit
   ret void
 }
 
@@ -443,141 +446,144 @@ define void @_ZN3gmx12AtomsBuilder10mergeAtomsERK7t_atoms(ptr noundef nonnull al
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
   %.021 = phi i32 [ -1, %.lr.ph ], [ %.1, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
   %24 = load ptr, ptr %16, align 8, !tbaa !38
-  %25 = getelementptr inbounds nuw %struct.t_atom, ptr %24, i64 %indvars.iv, i32 7
-  %26 = load i32, ptr %25, align 4, !tbaa !50
-  %.not = icmp eq i32 %26, %.021
-  br i1 %.not, label %._crit_edge27, label %27
+  %25 = getelementptr inbounds nuw %struct.t_atom, ptr %24, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = load i32, ptr %26, align 4, !tbaa !50
+  %.not = icmp eq i32 %27, %.021
+  br i1 %.not, label %._crit_edge27, label %28
 
 ._crit_edge27:                                    ; preds = %23
   %.pre28 = load ptr, ptr %0, align 8, !tbaa !4
-  br label %62
+  br label %64
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %17, align 8, !tbaa !27
-  %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds %struct.t_resinfo, ptr %28, i64 %29
-  %31 = load i32, ptr %18, align 4, !tbaa !26
-  %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %36
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %17, align 8, !tbaa !27
+  %30 = sext i32 %27 to i64
+  %31 = getelementptr inbounds %struct.t_resinfo, ptr %29, i64 %30
+  %32 = load i32, ptr %18, align 4, !tbaa !26
+  %33 = icmp eq i32 %32, -1
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !28
-  store i32 %35, ptr %18, align 4, !tbaa !26
-  br label %36
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %36 = load i32, ptr %35, align 8, !tbaa !28
+  store i32 %36, ptr %18, align 4, !tbaa !26
+  br label %37
 
-36:                                               ; preds = %33, %27
-  %37 = load ptr, ptr %0, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !23
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !27
-  %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds %struct.t_resinfo, ptr %41, i64 %42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull readonly align 8 dereferenceable(32) %30, i64 32, i1 false), !tbaa.struct !56
-  %44 = load i32, ptr %18, align 4, !tbaa !26
-  %45 = load ptr, ptr %0, align 8, !tbaa !4
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %47 = load ptr, ptr %46, align 8, !tbaa !27
-  %48 = getelementptr inbounds %struct.t_resinfo, ptr %47, i64 %42, i32 1
-  store i32 %44, ptr %48, align 8, !tbaa !28
-  %49 = load ptr, ptr %30, align 8, !tbaa !57
-  %50 = load ptr, ptr %19, align 8, !tbaa !12
-  %.not.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i, label %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit, label %51
+37:                                               ; preds = %34, %28
+  %38 = load ptr, ptr %0, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %40 = load i32, ptr %39, align 8, !tbaa !23
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %42 = load ptr, ptr %41, align 8, !tbaa !27
+  %43 = sext i32 %40 to i64
+  %44 = getelementptr inbounds %struct.t_resinfo, ptr %42, i64 %43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull readonly align 8 dereferenceable(32) %31, i64 32, i1 false), !tbaa.struct !56
+  %45 = load i32, ptr %18, align 4, !tbaa !26
+  %46 = load ptr, ptr %0, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  %48 = load ptr, ptr %47, align 8, !tbaa !27
+  %49 = getelementptr inbounds %struct.t_resinfo, ptr %48, i64 %43
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i32 %45, ptr %50, align 8, !tbaa !28
+  %51 = load ptr, ptr %31, align 8, !tbaa !57
+  %52 = load ptr, ptr %19, align 8, !tbaa !12
+  %.not.i.i = icmp eq ptr %52, null
+  br i1 %.not.i.i, label %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit, label %53
 
-51:                                               ; preds = %36
-  %52 = load ptr, ptr %49, align 8, !tbaa !31
-  %53 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %50, ptr noundef %52)
+53:                                               ; preds = %37
+  %54 = load ptr, ptr %51, align 8, !tbaa !31
+  %55 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %52, ptr noundef %54)
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !4
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
   %.pre7.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !27
   %.pre8.i = load i32, ptr %18, align 4, !tbaa !26
   br label %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit
 
-_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %36, %51
-  %54 = phi i32 [ %.pre8.i, %51 ], [ %44, %36 ]
-  %55 = phi ptr [ %.pre7.i, %51 ], [ %47, %36 ]
-  %56 = phi ptr [ %.pre.i, %51 ], [ %45, %36 ]
-  %.0.i.i = phi ptr [ %53, %51 ], [ %49, %36 ]
-  %57 = getelementptr inbounds %struct.t_resinfo, ptr %55, i64 %42
-  store ptr %.0.i.i, ptr %57, align 8, !tbaa !57
-  %58 = add nsw i32 %54, 1
-  store i32 %58, ptr %18, align 4, !tbaa !26
-  store i32 %39, ptr %20, align 8, !tbaa !25
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %60 = load i32, ptr %59, align 8, !tbaa !23
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %59, align 8, !tbaa !23
+_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %37, %53
+  %56 = phi i32 [ %.pre8.i, %53 ], [ %45, %37 ]
+  %57 = phi ptr [ %.pre7.i, %53 ], [ %48, %37 ]
+  %58 = phi ptr [ %.pre.i, %53 ], [ %46, %37 ]
+  %.0.i.i = phi ptr [ %55, %53 ], [ %51, %37 ]
+  %59 = getelementptr inbounds %struct.t_resinfo, ptr %57, i64 %43
+  store ptr %.0.i.i, ptr %59, align 8, !tbaa !57
+  %60 = add nsw i32 %56, 1
+  store i32 %60, ptr %18, align 4, !tbaa !26
+  store i32 %40, ptr %20, align 8, !tbaa !25
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %62 = load i32, ptr %61, align 8, !tbaa !23
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %61, align 8, !tbaa !23
   %.pre29 = load ptr, ptr %16, align 8, !tbaa !38
-  br label %62
+  br label %64
 
-62:                                               ; preds = %._crit_edge27, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit
-  %63 = phi ptr [ %.pre29, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ], [ %24, %._crit_edge27 ]
-  %64 = phi ptr [ %56, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ], [ %.pre28, %._crit_edge27 ]
-  %.1 = phi i32 [ %26, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ], [ %.021, %._crit_edge27 ]
-  %65 = load i32, ptr %64, align 8, !tbaa !13
-  %66 = getelementptr inbounds nuw %struct.t_atom, ptr %63, i64 %indvars.iv
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !38
-  %69 = sext i32 %65 to i64
-  %70 = getelementptr inbounds %struct.t_atom, ptr %68, i64 %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %70, ptr noundef nonnull align 4 dereferenceable(36) %66, i64 36, i1 false), !tbaa.struct !39
-  %71 = load ptr, ptr %21, align 8, !tbaa !48
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
-  %73 = load ptr, ptr %72, align 8, !tbaa !49
-  %74 = load ptr, ptr %19, align 8, !tbaa !12
-  %.not.i.i18 = icmp eq ptr %74, null
-  br i1 %.not.i.i18, label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i, label %75
+64:                                               ; preds = %._crit_edge27, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit
+  %65 = phi ptr [ %.pre29, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ], [ %24, %._crit_edge27 ]
+  %66 = phi ptr [ %58, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ], [ %.pre28, %._crit_edge27 ]
+  %.1 = phi i32 [ %27, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ], [ %.021, %._crit_edge27 ]
+  %67 = load i32, ptr %66, align 8, !tbaa !13
+  %68 = getelementptr inbounds nuw %struct.t_atom, ptr %65, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !38
+  %71 = sext i32 %67 to i64
+  %72 = getelementptr inbounds %struct.t_atom, ptr %70, i64 %71
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %72, ptr noundef nonnull align 4 dereferenceable(36) %68, i64 36, i1 false), !tbaa.struct !39
+  %73 = load ptr, ptr %21, align 8, !tbaa !48
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
+  %75 = load ptr, ptr %74, align 8, !tbaa !49
+  %76 = load ptr, ptr %19, align 8, !tbaa !12
+  %.not.i.i18 = icmp eq ptr %76, null
+  br i1 %.not.i.i18, label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i, label %77
 
-75:                                               ; preds = %62
-  %76 = load ptr, ptr %73, align 8, !tbaa !31
-  %77 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %74, ptr noundef %76)
+77:                                               ; preds = %64
+  %78 = load ptr, ptr %75, align 8, !tbaa !31
+  %79 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %76, ptr noundef %78)
   br label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i
 
-_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i:   ; preds = %75, %62
-  %.0.i.i19 = phi ptr [ %77, %75 ], [ %73, %62 ]
-  %78 = load ptr, ptr %0, align 8, !tbaa !4
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !48
-  %81 = getelementptr inbounds ptr, ptr %80, i64 %69
-  store ptr %.0.i.i19, ptr %81, align 8, !tbaa !49
-  %82 = load i32, ptr %20, align 8, !tbaa !25
-  %83 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !38
-  %85 = getelementptr inbounds %struct.t_atom, ptr %84, i64 %69, i32 7
-  store i32 %82, ptr %85, align 4, !tbaa !50
-  %86 = getelementptr inbounds nuw i8, ptr %78, i64 56
-  %87 = load ptr, ptr %86, align 8, !tbaa !36
-  %.not.i = icmp eq ptr %87, null
-  br i1 %.not.i, label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit, label %88
+_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i:   ; preds = %77, %64
+  %.0.i.i19 = phi ptr [ %79, %77 ], [ %75, %64 ]
+  %80 = load ptr, ptr %0, align 8, !tbaa !4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !48
+  %83 = getelementptr inbounds ptr, ptr %82, i64 %71
+  store ptr %.0.i.i19, ptr %83, align 8, !tbaa !49
+  %84 = load i32, ptr %20, align 8, !tbaa !25
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !38
+  %87 = getelementptr inbounds %struct.t_atom, ptr %86, i64 %71
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  store i32 %84, ptr %88, align 4, !tbaa !50
+  %89 = getelementptr inbounds nuw i8, ptr %80, i64 56
+  %90 = load ptr, ptr %89, align 8, !tbaa !36
+  %.not.i = icmp eq ptr %90, null
+  br i1 %.not.i, label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit, label %91
 
-88:                                               ; preds = %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i
-  %89 = load ptr, ptr %22, align 8, !tbaa !36
-  %.not13.i = icmp eq ptr %89, null
-  br i1 %.not13.i, label %93, label %90
+91:                                               ; preds = %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i
+  %92 = load ptr, ptr %22, align 8, !tbaa !36
+  %.not13.i = icmp eq ptr %92, null
+  br i1 %.not13.i, label %96, label %93
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %89, i64 %indvars.iv
-  %92 = getelementptr inbounds %struct.t_pdbinfo, ptr %87, i64 %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %92, ptr noundef nonnull align 4 dereferenceable(52) %91, i64 52, i1 false), !tbaa.struct !52
+93:                                               ; preds = %91
+  %94 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %92, i64 %indvars.iv
+  %95 = getelementptr inbounds %struct.t_pdbinfo, ptr %90, i64 %71
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %95, ptr noundef nonnull align 4 dereferenceable(52) %94, i64 52, i1 false), !tbaa.struct !52
   br label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit
 
-93:                                               ; preds = %88
-  %94 = getelementptr inbounds %struct.t_pdbinfo, ptr %87, i64 %69
-  tail call void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr noundef nonnull %94)
+96:                                               ; preds = %91
+  %97 = getelementptr inbounds %struct.t_pdbinfo, ptr %90, i64 %71
+  tail call void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr noundef nonnull %97)
   br label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit
 
-_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit:   ; preds = %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i, %90, %93
-  %95 = load ptr, ptr %0, align 8, !tbaa !4
-  %96 = load i32, ptr %95, align 8, !tbaa !13
-  %97 = add nsw i32 %96, 1
-  store i32 %97, ptr %95, align 8, !tbaa !13
+_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit:   ; preds = %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i, %93, %96
+  %98 = load ptr, ptr %0, align 8, !tbaa !4
+  %99 = load i32, ptr %98, align 8, !tbaa !13
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %98, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = load i32, ptr %1, align 8, !tbaa !13
-  %99 = sext i32 %98 to i64
-  %100 = icmp slt i64 %indvars.iv.next, %99
-  br i1 %100, label %23, label %._crit_edge, !llvm.loop !60
+  %101 = load i32, ptr %1, align 8, !tbaa !13
+  %102 = sext i32 %101 to i64
+  %103 = icmp slt i64 %indvars.iv.next, %102
+  br i1 %103, label %23, label %._crit_edge, !llvm.loop !60
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -855,55 +861,57 @@ define void @_ZN3gmx12AtomsRemover11markResidueERK7t_atomsib(ptr noundef nonnull
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %struct.t_atom, ptr %6, i64 %7, i32 7
-  %9 = load i32, ptr %8, align 4, !tbaa !50
-  %10 = icmp sgt i32 %2, 0
-  br i1 %10, label %.lr.ph, label %.critedge
+  %8 = getelementptr inbounds %struct.t_atom, ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %10 = load i32, ptr %9, align 4, !tbaa !50
+  %11 = icmp sgt i32 %2, 0
+  br i1 %11, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %4, %16
-  %.017 = phi i32 [ %17, %16 ], [ %2, %4 ]
-  %11 = zext nneg i32 %.017 to i64
-  %12 = getelementptr %struct.t_atom, ptr %6, i64 %11
-  %13 = getelementptr i8, ptr %12, i64 -12
-  %14 = load i32, ptr %13, align 4, !tbaa !50
-  %15 = icmp eq i32 %9, %14
-  br i1 %15, label %16, label %.critedge
+.lr.ph:                                           ; preds = %4, %17
+  %.017 = phi i32 [ %18, %17 ], [ %2, %4 ]
+  %12 = zext nneg i32 %.017 to i64
+  %13 = getelementptr %struct.t_atom, ptr %6, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -12
+  %15 = load i32, ptr %14, align 4, !tbaa !50
+  %16 = icmp eq i32 %10, %15
+  br i1 %16, label %17, label %.critedge
 
-16:                                               ; preds = %.lr.ph
-  %17 = add nsw i32 %.017, -1
-  %18 = icmp sgt i32 %.017, 1
-  br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !65
+17:                                               ; preds = %.lr.ph
+  %18 = add nsw i32 %.017, -1
+  %19 = icmp sgt i32 %.017, 1
+  br i1 %19, label %.lr.ph, label %.critedge, !llvm.loop !65
 
-.critedge:                                        ; preds = %.lr.ph, %16, %4
-  %.0.lcssa = phi i32 [ %2, %4 ], [ 0, %16 ], [ %.017, %.lr.ph ]
-  %19 = load i32, ptr %1, align 8, !tbaa !13
-  %20 = icmp slt i32 %.0.lcssa, %19
-  br i1 %20, label %.lr.ph21, label %.critedge2
+.critedge:                                        ; preds = %.lr.ph, %17, %4
+  %.0.lcssa = phi i32 [ %2, %4 ], [ 0, %17 ], [ %.017, %.lr.ph ]
+  %20 = load i32, ptr %1, align 8, !tbaa !13
+  %21 = icmp slt i32 %.0.lcssa, %20
+  br i1 %21, label %.lr.ph21, label %.critedge2
 
 .lr.ph21:                                         ; preds = %.critedge
-  %21 = zext i1 %3 to i8
-  %22 = sext i32 %.0.lcssa to i64
-  br label %23
+  %22 = zext i1 %3 to i8
+  %23 = sext i32 %.0.lcssa to i64
+  br label %24
 
-23:                                               ; preds = %.lr.ph21, %28
-  %indvars.iv = phi i64 [ %22, %.lr.ph21 ], [ %indvars.iv.next, %28 ]
-  %24 = load ptr, ptr %5, align 8, !tbaa !38
-  %25 = getelementptr inbounds %struct.t_atom, ptr %24, i64 %indvars.iv, i32 7
-  %26 = load i32, ptr %25, align 4, !tbaa !50
-  %27 = icmp eq i32 %9, %26
-  br i1 %27, label %28, label %.critedge2
+24:                                               ; preds = %.lr.ph21, %30
+  %indvars.iv = phi i64 [ %23, %.lr.ph21 ], [ %indvars.iv.next, %30 ]
+  %25 = load ptr, ptr %5, align 8, !tbaa !38
+  %26 = getelementptr inbounds %struct.t_atom, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %28 = load i32, ptr %27, align 4, !tbaa !50
+  %29 = icmp eq i32 %10, %28
+  br i1 %29, label %30, label %.critedge2
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %0, align 8, !tbaa !61
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv
-  store i8 %21, ptr %30, align 1, !tbaa !47
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %0, align 8, !tbaa !61
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv
+  store i8 %22, ptr %32, align 1, !tbaa !47
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %31 = load i32, ptr %1, align 8, !tbaa !13
-  %32 = sext i32 %31 to i64
-  %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %23, label %.critedge2, !llvm.loop !66
+  %33 = load i32, ptr %1, align 8, !tbaa !13
+  %34 = sext i32 %33 to i64
+  %35 = icmp slt i64 %indvars.iv.next, %34
+  br i1 %35, label %24, label %.critedge2, !llvm.loop !66
 
-.critedge2:                                       ; preds = %23, %28, %.critedge
+.critedge2:                                       ; preds = %24, %30, %.critedge
   ret void
 }
 
@@ -1278,177 +1286,180 @@ define void @_ZNK3gmx12AtomsRemover17removeMarkedAtomsEP7t_atoms(ptr noundef non
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %15
 
-._crit_edge:                                      ; preds = %100, %2
+._crit_edge:                                      ; preds = %103, %2
   call void @_ZN3gmx12AtomsBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-15:                                               ; preds = %.lr.ph, %100
-  %16 = phi ptr [ %5, %.lr.ph ], [ %101, %100 ]
-  %17 = phi i32 [ 0, %.lr.ph ], [ %102, %100 ]
-  %18 = phi ptr [ %5, %.lr.ph ], [ %103, %100 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %100 ]
-  %.027 = phi i32 [ -1, %.lr.ph ], [ %.2, %100 ]
+15:                                               ; preds = %.lr.ph, %103
+  %16 = phi ptr [ %5, %.lr.ph ], [ %104, %103 ]
+  %17 = phi i32 [ 0, %.lr.ph ], [ %105, %103 ]
+  %18 = phi ptr [ %5, %.lr.ph ], [ %106, %103 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
+  %.027 = phi i32 [ -1, %.lr.ph ], [ %.2, %103 ]
   %19 = load ptr, ptr %0, align 8, !tbaa !61
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1, !tbaa !47
   %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %22, label %100
+  br i1 %.not, label %22, label %103
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %10, align 8, !tbaa !38
-  %24 = getelementptr inbounds nuw %struct.t_atom, ptr %23, i64 %indvars.iv, i32 7
-  %25 = load i32, ptr %24, align 4, !tbaa !50
-  %.not21 = icmp eq i32 %25, %.027
-  br i1 %.not21, label %62, label %26
+  %24 = getelementptr inbounds nuw %struct.t_atom, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %26 = load i32, ptr %25, align 4, !tbaa !50
+  %.not21 = icmp eq i32 %26, %.027
+  br i1 %.not21, label %64, label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %11, align 8, !tbaa !27
-  %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds %struct.t_resinfo, ptr %27, i64 %28
-  %30 = load i32, ptr %8, align 4, !tbaa !26
-  %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %35
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %11, align 8, !tbaa !27
+  %29 = sext i32 %26 to i64
+  %30 = getelementptr inbounds %struct.t_resinfo, ptr %28, i64 %29
+  %31 = load i32, ptr %8, align 4, !tbaa !26
+  %32 = icmp eq i32 %31, -1
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !28
-  store i32 %34, ptr %8, align 4, !tbaa !26
-  br label %35
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %35 = load i32, ptr %34, align 8, !tbaa !28
+  store i32 %35, ptr %8, align 4, !tbaa !26
+  br label %36
 
-35:                                               ; preds = %32, %26
-  %36 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %37 = load i32, ptr %36, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %39 = load ptr, ptr %38, align 8, !tbaa !27
-  %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds %struct.t_resinfo, ptr %39, i64 %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull readonly align 8 dereferenceable(32) %29, i64 32, i1 false), !tbaa.struct !56
-  %42 = load i32, ptr %8, align 4, !tbaa !26
-  %43 = load ptr, ptr %3, align 8, !tbaa !4
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  %45 = load ptr, ptr %44, align 8, !tbaa !27
-  %46 = getelementptr inbounds %struct.t_resinfo, ptr %45, i64 %40, i32 1
-  store i32 %42, ptr %46, align 8, !tbaa !28
-  %47 = load ptr, ptr %29, align 8, !tbaa !57
-  %48 = load ptr, ptr %12, align 8, !tbaa !12
-  %.not.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i, label %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit, label %49
+36:                                               ; preds = %33, %27
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %38 = load i32, ptr %37, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %40 = load ptr, ptr %39, align 8, !tbaa !27
+  %41 = sext i32 %38 to i64
+  %42 = getelementptr inbounds %struct.t_resinfo, ptr %40, i64 %41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull readonly align 8 dereferenceable(32) %30, i64 32, i1 false), !tbaa.struct !56
+  %43 = load i32, ptr %8, align 4, !tbaa !26
+  %44 = load ptr, ptr %3, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
+  %46 = load ptr, ptr %45, align 8, !tbaa !27
+  %47 = getelementptr inbounds %struct.t_resinfo, ptr %46, i64 %41
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i32 %43, ptr %48, align 8, !tbaa !28
+  %49 = load ptr, ptr %30, align 8, !tbaa !57
+  %50 = load ptr, ptr %12, align 8, !tbaa !12
+  %.not.i.i = icmp eq ptr %50, null
+  br i1 %.not.i.i, label %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit, label %51
 
-49:                                               ; preds = %35
-  %50 = load ptr, ptr %47, align 8, !tbaa !31
-  %51 = invoke noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %48, ptr noundef %50)
-          to label %.noexc unwind label %60
+51:                                               ; preds = %36
+  %52 = load ptr, ptr %49, align 8, !tbaa !31
+  %53 = invoke noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %50, ptr noundef %52)
+          to label %.noexc unwind label %62
 
-.noexc:                                           ; preds = %49
+.noexc:                                           ; preds = %51
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !4
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
   %.pre7.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !27
   %.pre8.i = load i32, ptr %8, align 4, !tbaa !26
   br label %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit
 
-_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %35, %.noexc
-  %52 = phi i32 [ %.pre8.i, %.noexc ], [ %42, %35 ]
-  %53 = phi ptr [ %.pre7.i, %.noexc ], [ %45, %35 ]
-  %54 = phi ptr [ %.pre.i, %.noexc ], [ %43, %35 ]
-  %.0.i.i = phi ptr [ %51, %.noexc ], [ %47, %35 ]
-  %55 = getelementptr inbounds %struct.t_resinfo, ptr %53, i64 %40
-  store ptr %.0.i.i, ptr %55, align 8, !tbaa !57
-  %56 = add nsw i32 %52, 1
-  store i32 %56, ptr %8, align 4, !tbaa !26
-  store i32 %37, ptr %7, align 8, !tbaa !25
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %58 = load i32, ptr %57, align 8, !tbaa !23
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %57, align 8, !tbaa !23
-  %.pre = load i32, ptr %54, align 8, !tbaa !13
+_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit: ; preds = %36, %.noexc
+  %54 = phi i32 [ %.pre8.i, %.noexc ], [ %43, %36 ]
+  %55 = phi ptr [ %.pre7.i, %.noexc ], [ %46, %36 ]
+  %56 = phi ptr [ %.pre.i, %.noexc ], [ %44, %36 ]
+  %.0.i.i = phi ptr [ %53, %.noexc ], [ %49, %36 ]
+  %57 = getelementptr inbounds %struct.t_resinfo, ptr %55, i64 %41
+  store ptr %.0.i.i, ptr %57, align 8, !tbaa !57
+  %58 = add nsw i32 %54, 1
+  store i32 %58, ptr %8, align 4, !tbaa !26
+  store i32 %38, ptr %7, align 8, !tbaa !25
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %60 = load i32, ptr %59, align 8, !tbaa !23
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 8, !tbaa !23
+  %.pre = load i32, ptr %56, align 8, !tbaa !13
   %.pre29 = load ptr, ptr %10, align 8, !tbaa !38
-  br label %62
+  br label %64
 
-60:                                               ; preds = %95, %76, %49
-  %61 = landingpad { ptr, i32 }
+62:                                               ; preds = %98, %78, %51
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx12AtomsBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %61
+  resume { ptr, i32 } %63
 
-62:                                               ; preds = %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit, %22
-  %63 = phi ptr [ %16, %22 ], [ %54, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
-  %64 = phi ptr [ %23, %22 ], [ %.pre29, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
-  %65 = phi i32 [ %17, %22 ], [ %.pre, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
-  %66 = phi ptr [ %18, %22 ], [ %54, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
-  %.1 = phi i32 [ %.027, %22 ], [ %25, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
-  %67 = getelementptr inbounds nuw %struct.t_atom, ptr %64, i64 %indvars.iv
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !38
-  %70 = sext i32 %65 to i64
-  %71 = getelementptr inbounds %struct.t_atom, ptr %69, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %71, ptr noundef nonnull align 4 dereferenceable(36) %67, i64 36, i1 false), !tbaa.struct !39
-  %72 = load ptr, ptr %13, align 8, !tbaa !48
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
-  %74 = load ptr, ptr %73, align 8, !tbaa !49
-  %75 = load ptr, ptr %12, align 8, !tbaa !12
-  %.not.i.i22 = icmp eq ptr %75, null
-  br i1 %.not.i.i22, label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i, label %76
+64:                                               ; preds = %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit, %22
+  %65 = phi ptr [ %16, %22 ], [ %56, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
+  %66 = phi ptr [ %23, %22 ], [ %.pre29, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
+  %67 = phi i32 [ %17, %22 ], [ %.pre, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
+  %68 = phi ptr [ %18, %22 ], [ %56, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
+  %.1 = phi i32 [ %.027, %22 ], [ %26, %_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo.exit ]
+  %69 = getelementptr inbounds nuw %struct.t_atom, ptr %66, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !38
+  %72 = sext i32 %67 to i64
+  %73 = getelementptr inbounds %struct.t_atom, ptr %71, i64 %72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %73, ptr noundef nonnull align 4 dereferenceable(36) %69, i64 36, i1 false), !tbaa.struct !39
+  %74 = load ptr, ptr %13, align 8, !tbaa !48
+  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
+  %76 = load ptr, ptr %75, align 8, !tbaa !49
+  %77 = load ptr, ptr %12, align 8, !tbaa !12
+  %.not.i.i22 = icmp eq ptr %77, null
+  br i1 %.not.i.i22, label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i, label %78
 
-76:                                               ; preds = %62
-  %77 = load ptr, ptr %74, align 8, !tbaa !31
-  %78 = invoke noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %75, ptr noundef %77)
-          to label %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge unwind label %60
+78:                                               ; preds = %64
+  %79 = load ptr, ptr %76, align 8, !tbaa !31
+  %80 = invoke noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef nonnull %77, ptr noundef %79)
+          to label %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge unwind label %62
 
-._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge: ; preds = %76
+._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge: ; preds = %78
   %.pre30 = load ptr, ptr %3, align 8, !tbaa !4
   br label %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i
 
-_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i:   ; preds = %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge, %62
-  %79 = phi ptr [ %63, %62 ], [ %.pre30, %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge ]
-  %80 = phi ptr [ %66, %62 ], [ %.pre30, %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge ]
-  %.0.i.i23 = phi ptr [ %74, %62 ], [ %78, %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge ]
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !48
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %70
-  store ptr %.0.i.i23, ptr %83, align 8, !tbaa !49
-  %84 = load i32, ptr %7, align 8, !tbaa !25
-  %85 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !38
-  %87 = getelementptr inbounds %struct.t_atom, ptr %86, i64 %70, i32 7
-  store i32 %84, ptr %87, align 4, !tbaa !50
-  %88 = getelementptr inbounds nuw i8, ptr %80, i64 56
-  %89 = load ptr, ptr %88, align 8, !tbaa !36
-  %.not.i = icmp eq ptr %89, null
-  br i1 %.not.i, label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit, label %90
+_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i:   ; preds = %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge, %64
+  %81 = phi ptr [ %65, %64 ], [ %.pre30, %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge ]
+  %82 = phi ptr [ %68, %64 ], [ %.pre30, %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge ]
+  %.0.i.i23 = phi ptr [ %76, %64 ], [ %80, %._ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i_crit_edge ]
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = load ptr, ptr %83, align 8, !tbaa !48
+  %85 = getelementptr inbounds ptr, ptr %84, i64 %72
+  store ptr %.0.i.i23, ptr %85, align 8, !tbaa !49
+  %86 = load i32, ptr %7, align 8, !tbaa !25
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %88 = load ptr, ptr %87, align 8, !tbaa !38
+  %89 = getelementptr inbounds %struct.t_atom, ptr %88, i64 %72
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  store i32 %86, ptr %90, align 4, !tbaa !50
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 56
+  %92 = load ptr, ptr %91, align 8, !tbaa !36
+  %.not.i = icmp eq ptr %92, null
+  br i1 %.not.i, label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit, label %93
 
-90:                                               ; preds = %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i
-  %91 = load ptr, ptr %14, align 8, !tbaa !36
-  %.not13.i = icmp eq ptr %91, null
-  br i1 %.not13.i, label %95, label %92
+93:                                               ; preds = %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i
+  %94 = load ptr, ptr %14, align 8, !tbaa !36
+  %.not13.i = icmp eq ptr %94, null
+  br i1 %.not13.i, label %98, label %95
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %91, i64 %indvars.iv
-  %94 = getelementptr inbounds %struct.t_pdbinfo, ptr %89, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %94, ptr noundef nonnull align 4 dereferenceable(52) %93, i64 52, i1 false), !tbaa.struct !52
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %94, i64 %indvars.iv
+  %97 = getelementptr inbounds %struct.t_pdbinfo, ptr %92, i64 %72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %97, ptr noundef nonnull align 4 dereferenceable(52) %96, i64 52, i1 false), !tbaa.struct !52
   br label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit
 
-95:                                               ; preds = %90
-  %96 = getelementptr inbounds %struct.t_pdbinfo, ptr %89, i64 %70
-  invoke void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr noundef nonnull %96)
-          to label %._ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit_crit_edge unwind label %60
+98:                                               ; preds = %93
+  %99 = getelementptr inbounds %struct.t_pdbinfo, ptr %92, i64 %72
+  invoke void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr noundef nonnull %99)
+          to label %._ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit_crit_edge unwind label %62
 
-._ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit_crit_edge: ; preds = %95
+._ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit_crit_edge: ; preds = %98
   %.pre31 = load ptr, ptr %3, align 8, !tbaa !4
   br label %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit
 
-_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit:   ; preds = %._ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit_crit_edge, %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i, %92
-  %97 = phi ptr [ %.pre31, %._ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit_crit_edge ], [ %79, %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i ], [ %79, %92 ]
-  %98 = load i32, ptr %97, align 8, !tbaa !13
-  %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %97, align 8, !tbaa !13
-  br label %100
+_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit:   ; preds = %._ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit_crit_edge, %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i, %95
+  %100 = phi ptr [ %.pre31, %._ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit_crit_edge ], [ %81, %_ZN3gmx12AtomsBuilder12symtabStringEPPc.exit.i ], [ %81, %95 ]
+  %101 = load i32, ptr %100, align 8, !tbaa !13
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %100, align 8, !tbaa !13
+  br label %103
 
-100:                                              ; preds = %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit, %15
-  %101 = phi ptr [ %16, %15 ], [ %97, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
-  %102 = phi i32 [ %17, %15 ], [ %99, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
-  %103 = phi ptr [ %18, %15 ], [ %97, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
+103:                                              ; preds = %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit, %15
+  %104 = phi ptr [ %16, %15 ], [ %100, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
+  %105 = phi i32 [ %17, %15 ], [ %102, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
+  %106 = phi ptr [ %18, %15 ], [ %100, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
   %.2 = phi i32 [ %.027, %15 ], [ %.1, %_ZN3gmx12AtomsBuilder7addAtomERK7t_atomsi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

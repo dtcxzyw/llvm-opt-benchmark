@@ -3876,7 +3876,7 @@ gv_strdup.exit:                                   ; preds = %15
   br i1 %exitcond157, label %.preheader, label %125, !llvm.loop !268
 
 138:                                              ; preds = %.lr.ph, %pos_html_cell.exit
-  %139 = phi ptr [ %121, %.lr.ph ], [ %316, %pos_html_cell.exit ]
+  %139 = phi ptr [ %121, %.lr.ph ], [ %317, %pos_html_cell.exit ]
   %.pn = phi ptr [ %7, %.lr.ph ], [ %140, %pos_html_cell.exit ]
   %140 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %139, i64 108
@@ -4233,32 +4233,33 @@ gv_strdup.exit141:                                ; preds = %184
   %308 = load ptr, ptr %305, align 8, !tbaa !133
   br label %309
 
-309:                                              ; preds = %314, %.lr.ph.i
-  %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %315, %314 ]
-  %310 = getelementptr inbounds nuw %struct.htextspan_t, ptr %308, i64 %.07.i, i32 2
-  %311 = load i8, ptr %310, align 8, !tbaa !135
-  %312 = icmp eq i8 %311, 0
-  br i1 %312, label %313, label %314
+309:                                              ; preds = %315, %.lr.ph.i
+  %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %316, %315 ]
+  %310 = getelementptr inbounds nuw %struct.htextspan_t, ptr %308, i64 %.07.i
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 16
+  %312 = load i8, ptr %311, align 8, !tbaa !135
+  %313 = icmp eq i8 %312, 0
+  br i1 %313, label %314, label %315
 
-313:                                              ; preds = %309
-  store i8 %switch.select85.i, ptr %310, align 8, !tbaa !135
-  br label %314
+314:                                              ; preds = %309
+  store i8 %switch.select85.i, ptr %311, align 8, !tbaa !135
+  br label %315
 
-314:                                              ; preds = %313, %309
-  %315 = add nuw i64 %.07.i, 1
-  %exitcond.not.i = icmp eq i64 %315, %307
+315:                                              ; preds = %314, %309
+  %316 = add nuw i64 %.07.i, 1
+  %exitcond.not.i = icmp eq i64 %316, %307
   br i1 %exitcond.not.i, label %pos_html_cell.exit, label %309, !llvm.loop !270
 
-pos_html_cell.exit:                               ; preds = %314, %301, %249, %271
-  %316 = load ptr, ptr %140, align 8, !tbaa !97
-  %.not137 = icmp eq ptr %316, null
+pos_html_cell.exit:                               ; preds = %315, %301, %249, %271
+  %317 = load ptr, ptr %140, align 8, !tbaa !97
+  %.not137 = icmp eq ptr %317, null
   br i1 %.not137, label %._crit_edge, label %138, !llvm.loop !271
 
 ._crit_edge:                                      ; preds = %pos_html_cell.exit, %.preheader
-  %317 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %318 = getelementptr inbounds nuw i8, ptr %0, i64 63
-  store i8 %2, ptr %318, align 1, !tbaa !272
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %317, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !273
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 63
+  store i8 %2, ptr %319, align 1, !tbaa !272
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %318, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !273
   ret void
 }
 
@@ -4279,7 +4280,7 @@ define internal fastcc void @size_html_txt(ptr noundef %0, ptr noundef captures(
   store i8 1, ptr %9, align 8, !tbaa !134
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store double 0.000000e+00, ptr %10, align 8, !tbaa !129
-  br label %188
+  br label %185
 
 .lr.ph:                                           ; preds = %3
   %11 = load ptr, ptr %1, align 8, !tbaa !133
@@ -4367,10 +4368,10 @@ define internal fastcc void @size_html_txt(ptr noundef %0, ptr noundef captures(
   br i1 %exitcond.not, label %.preheader.lr.ph, label %15, !llvm.loop !274
 
 .preheader.lr.ph:                                 ; preds = %47, %43, %24, %15, %49
-  %.sink8 = phi i8 [ 1, %49 ], [ 0, %15 ], [ 0, %24 ], [ 0, %43 ], [ 0, %47 ]
-  %.lcssa184248 = phi i1 [ true, %49 ], [ false, %15 ], [ false, %24 ], [ false, %43 ], [ false, %47 ]
+  %.sink10 = phi i8 [ 1, %49 ], [ 0, %15 ], [ 0, %24 ], [ 0, %43 ], [ 0, %47 ]
+  %.lcssa184250 = phi i1 [ true, %49 ], [ false, %15 ], [ false, %24 ], [ false, %43 ], [ false, %47 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %.sink8, ptr %51, align 8, !tbaa !134
+  store i8 %.sink10, ptr %51, align 8, !tbaa !134
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -4388,12 +4389,12 @@ define internal fastcc void @size_html_txt(ptr noundef %0, ptr noundef captures(
   %.pre = load ptr, ptr %1, align 8, !tbaa !133
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %177
-  %66 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %72, %177 ]
-  %.0213 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %182, %177 ]
-  %.0150212 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %183, %177 ]
-  %.0152211 = phi i64 [ 0, %.preheader.lr.ph ], [ %184, %177 ]
-  %.0164210 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %180, %177 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %173
+  %66 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %72, %173 ]
+  %.0213 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %179, %173 ]
+  %.0150212 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %180, %173 ]
+  %.0152211 = phi i64 [ 0, %.preheader.lr.ph ], [ %181, %173 ]
+  %.0164210 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %177, %173 ]
   %67 = getelementptr inbounds nuw %struct.htextspan_t, ptr %66, i64 %.0152211
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !139
@@ -4401,33 +4402,34 @@ define internal fastcc void @size_html_txt(ptr noundef %0, ptr noundef captures(
   br i1 %.not221, label %._crit_edge203, label %.lr.ph202.preheader
 
 .lr.ph202.preheader:                              ; preds = %.preheader
-  %.pre229 = load ptr, ptr %67, align 8, !tbaa !140
+  %.pre231 = load ptr, ptr %67, align 8, !tbaa !140
   br label %.lr.ph202
 
-._crit_edge214:                                   ; preds = %177
-  %70 = icmp eq i64 %185, 1
+._crit_edge214:                                   ; preds = %173
+  %70 = icmp eq i64 %182, 1
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store double %182, ptr %71, align 8, !tbaa !129
-  br i1 %70, label %188, label %187
+  store double %179, ptr %71, align 8, !tbaa !129
+  br i1 %70, label %185, label %184
 
-._crit_edge203:                                   ; preds = %123, %.preheader
-  %72 = phi ptr [ %66, %.preheader ], [ %136, %123 ]
-  %.0163.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %154, %123 ]
-  %.0161.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %151, %123 ]
-  %.0160.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %158, %123 ]
-  %.1159.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %156, %123 ]
-  %73 = getelementptr inbounds nuw %struct.htextspan_t, ptr %72, i64 %.0152211, i32 3
+._crit_edge203:                                   ; preds = %125, %.preheader
+  %72 = phi ptr [ %66, %.preheader ], [ %138, %125 ]
+  %.0163.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %156, %125 ]
+  %.0161.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %153, %125 ]
+  %.0160.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %160, %125 ]
+  %.1159.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %158, %125 ]
+  %.lcssa = phi ptr [ %67, %.preheader ], [ %139, %125 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
   store double %.0161.lcssa, ptr %73, align 8, !tbaa !137
   %74 = icmp eq i64 %.0152211, 0
-  br i1 %.lcssa184248, label %163, label %168
+  br i1 %.lcssa184250, label %165, label %166
 
-.lr.ph202:                                        ; preds = %.lr.ph202.preheader, %123
-  %75 = phi ptr [ %138, %123 ], [ %.pre229, %.lr.ph202.preheader ]
-  %.0151201 = phi i64 [ %159, %123 ], [ 0, %.lr.ph202.preheader ]
-  %.1159200 = phi double [ %156, %123 ], [ 0.000000e+00, %.lr.ph202.preheader ]
-  %.0160199 = phi double [ %158, %123 ], [ 0.000000e+00, %.lr.ph202.preheader ]
-  %.0161198 = phi double [ %151, %123 ], [ 0.000000e+00, %.lr.ph202.preheader ]
-  %.0163197 = phi double [ %154, %123 ], [ 0.000000e+00, %.lr.ph202.preheader ]
+.lr.ph202:                                        ; preds = %.lr.ph202.preheader, %125
+  %75 = phi ptr [ %140, %125 ], [ %.pre231, %.lr.ph202.preheader ]
+  %.0151201 = phi i64 [ %161, %125 ], [ 0, %.lr.ph202.preheader ]
+  %.1159200 = phi double [ %158, %125 ], [ 0.000000e+00, %.lr.ph202.preheader ]
+  %.0160199 = phi double [ %160, %125 ], [ 0.000000e+00, %.lr.ph202.preheader ]
+  %.0161198 = phi double [ %153, %125 ], [ 0.000000e+00, %.lr.ph202.preheader ]
+  %.0163197 = phi double [ %156, %125 ], [ 0.000000e+00, %.lr.ph202.preheader ]
   %76 = getelementptr inbounds nuw %struct.textspan_t, ptr %75, i64 %.0151201
   %77 = load ptr, ptr %76, align 8, !tbaa !144
   %78 = load ptr, ptr %52, align 8, !tbaa !193
@@ -4436,185 +4438,179 @@ define internal fastcc void @size_html_txt(ptr noundef %0, ptr noundef captures(
   %80 = load ptr, ptr %1, align 8, !tbaa !133
   %81 = getelementptr inbounds nuw %struct.htextspan_t, ptr %80, i64 %.0152211
   %82 = load ptr, ptr %81, align 8, !tbaa !140
-  %83 = getelementptr inbounds nuw %struct.textspan_t, ptr %82, i64 %.0151201, i32 1
-  %84 = load ptr, ptr %83, align 8, !tbaa !142
-  %.not177 = icmp eq ptr %84, null
-  br i1 %.not177, label %114, label %85
+  %83 = getelementptr inbounds nuw %struct.textspan_t, ptr %82, i64 %.0151201
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !142
+  %.not177 = icmp eq ptr %85, null
+  br i1 %.not177, label %116, label %86
 
-85:                                               ; preds = %.lr.ph202
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %87 = load i32, ptr %86, align 8
-  %88 = and i32 %87, 127
-  %.not178 = icmp eq i32 %88, 0
-  br i1 %.not178, label %89, label %92
+86:                                               ; preds = %.lr.ph202
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %88 = load i32, ptr %87, align 8
+  %89 = and i32 %88, 127
+  %.not178 = icmp eq i32 %89, 0
+  br i1 %.not178, label %90, label %93
 
-89:                                               ; preds = %85
-  %90 = load i32, ptr %54, align 8
-  %91 = and i32 %90, 127
-  br label %92
+90:                                               ; preds = %86
+  %91 = load i32, ptr %54, align 8
+  %92 = and i32 %91, 127
+  br label %93
 
-92:                                               ; preds = %85, %89
-  %.sink11 = phi i32 [ %91, %89 ], [ %88, %85 ]
-  %93 = load i32, ptr %53, align 8
-  %94 = and i32 %93, -128
-  %95 = or disjoint i32 %94, %.sink11
-  store i32 %95, ptr %53, align 8
-  %96 = load ptr, ptr %81, align 8, !tbaa !140
-  %97 = getelementptr inbounds nuw %struct.textspan_t, ptr %96, i64 %.0151201, i32 1
-  %98 = load ptr, ptr %97, align 8, !tbaa !142
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %100 = load double, ptr %99, align 8, !tbaa !89
-  %101 = fcmp ogt double %100, 0.000000e+00
-  br i1 %101, label %104, label %102
+93:                                               ; preds = %86, %90
+  %.sink13 = phi i32 [ %92, %90 ], [ %89, %86 ]
+  %94 = load i32, ptr %53, align 8
+  %95 = and i32 %94, -128
+  %96 = or disjoint i32 %95, %.sink13
+  store i32 %96, ptr %53, align 8
+  %97 = load ptr, ptr %81, align 8, !tbaa !140
+  %98 = getelementptr inbounds nuw %struct.textspan_t, ptr %97, i64 %.0151201
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %100 = load ptr, ptr %99, align 8, !tbaa !142
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  %102 = load double, ptr %101, align 8, !tbaa !89
+  %103 = fcmp ogt double %102, 0.000000e+00
+  br i1 %103, label %106, label %104
 
-102:                                              ; preds = %92
-  %103 = load double, ptr %55, align 8, !tbaa !42
-  br label %104
+104:                                              ; preds = %93
+  %105 = load double, ptr %55, align 8, !tbaa !42
+  br label %106
 
-104:                                              ; preds = %92, %102
-  %storemerge244 = phi double [ %103, %102 ], [ %100, %92 ]
-  store double %storemerge244, ptr %56, align 8, !tbaa !89
-  %105 = load ptr, ptr %98, align 8, !tbaa !87
-  %.not180 = icmp eq ptr %105, null
-  br i1 %.not180, label %106, label %108
+106:                                              ; preds = %93, %104
+  %storemerge246 = phi double [ %105, %104 ], [ %102, %93 ]
+  store double %storemerge246, ptr %56, align 8, !tbaa !89
+  %107 = load ptr, ptr %100, align 8, !tbaa !87
+  %.not180 = icmp eq ptr %107, null
+  br i1 %.not180, label %108, label %110
 
-106:                                              ; preds = %104
-  %107 = load ptr, ptr %57, align 8, !tbaa !40
-  br label %108
+108:                                              ; preds = %106
+  %109 = load ptr, ptr %57, align 8, !tbaa !40
+  br label %110
 
-108:                                              ; preds = %104, %106
-  %storemerge = phi ptr [ %107, %106 ], [ %105, %104 ]
+110:                                              ; preds = %106, %108
+  %storemerge = phi ptr [ %109, %108 ], [ %107, %106 ]
   store ptr %storemerge, ptr %5, align 8, !tbaa !87
-  %109 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %110 = load ptr, ptr %109, align 8, !tbaa !88
-  %.not181 = icmp eq ptr %110, null
-  br i1 %.not181, label %112, label %111
+  %111 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %112 = load ptr, ptr %111, align 8, !tbaa !88
+  %.not181 = icmp eq ptr %112, null
+  br i1 %.not181, label %114, label %113
 
-111:                                              ; preds = %108
-  store ptr %110, ptr %58, align 8, !tbaa !88
-  br label %123
+113:                                              ; preds = %110
+  store ptr %112, ptr %58, align 8, !tbaa !88
+  br label %125
 
-112:                                              ; preds = %108
-  %113 = load ptr, ptr %59, align 8, !tbaa !34
-  store ptr %113, ptr %58, align 8, !tbaa !88
-  br label %123
+114:                                              ; preds = %110
+  %115 = load ptr, ptr %59, align 8, !tbaa !34
+  store ptr %115, ptr %58, align 8, !tbaa !88
+  br label %125
 
-114:                                              ; preds = %.lr.ph202
-  %115 = load double, ptr %55, align 8, !tbaa !42
-  store double %115, ptr %56, align 8, !tbaa !89
-  %116 = load ptr, ptr %57, align 8, !tbaa !40
-  store ptr %116, ptr %5, align 8, !tbaa !87
-  %117 = load ptr, ptr %59, align 8, !tbaa !34
-  store ptr %117, ptr %58, align 8, !tbaa !88
-  %118 = load i32, ptr %54, align 8
-  %119 = and i32 %118, 127
-  %120 = load i32, ptr %53, align 8
-  %121 = and i32 %120, -128
-  %122 = or disjoint i32 %121, %119
-  store i32 %122, ptr %53, align 8
-  br label %123
+116:                                              ; preds = %.lr.ph202
+  %117 = load double, ptr %55, align 8, !tbaa !42
+  store double %117, ptr %56, align 8, !tbaa !89
+  %118 = load ptr, ptr %57, align 8, !tbaa !40
+  store ptr %118, ptr %5, align 8, !tbaa !87
+  %119 = load ptr, ptr %59, align 8, !tbaa !34
+  store ptr %119, ptr %58, align 8, !tbaa !88
+  %120 = load i32, ptr %54, align 8
+  %121 = and i32 %120, 127
+  %122 = load i32, ptr %53, align 8
+  %123 = and i32 %122, -128
+  %124 = or disjoint i32 %123, %121
+  store i32 %124, ptr %53, align 8
+  br label %125
 
-123:                                              ; preds = %111, %112, %114
-  %124 = load ptr, ptr %60, align 8, !tbaa !275
-  %125 = load ptr, ptr %124, align 8, !tbaa !276
-  %126 = call ptr %125(ptr noundef nonnull %124, ptr noundef nonnull %5, i32 noundef 1) #23
-  store ptr %126, ptr %61, align 8, !tbaa !142
-  %127 = call { double, double } @textspan_size(ptr noundef %0, ptr noundef nonnull %4) #23
-  %128 = extractvalue { double, double } %127, 0
-  %129 = extractvalue { double, double } %127, 1
-  %130 = load ptr, ptr %1, align 8, !tbaa !133
-  %131 = getelementptr inbounds nuw %struct.htextspan_t, ptr %130, i64 %.0152211
-  %132 = load ptr, ptr %131, align 8, !tbaa !140
-  %133 = getelementptr inbounds nuw %struct.textspan_t, ptr %132, i64 %.0151201
-  %134 = load ptr, ptr %133, align 8, !tbaa !144
-  call void @free(ptr noundef %134) #23
-  %135 = load ptr, ptr %4, align 8, !tbaa !144
-  %136 = load ptr, ptr %1, align 8, !tbaa !133
-  %137 = getelementptr inbounds nuw %struct.htextspan_t, ptr %136, i64 %.0152211
-  %138 = load ptr, ptr %137, align 8, !tbaa !140
-  %139 = getelementptr inbounds nuw %struct.textspan_t, ptr %138, i64 %.0151201
-  store ptr %135, ptr %139, align 8, !tbaa !144
-  %140 = getelementptr inbounds nuw %struct.textspan_t, ptr %138, i64 %.0151201, i32 6
-  store double %128, ptr %140, align 8, !tbaa !149
-  %141 = load double, ptr %62, align 8, !tbaa !145
-  %142 = getelementptr inbounds nuw %struct.textspan_t, ptr %138, i64 %.0151201, i32 4
-  store double %141, ptr %142, align 8, !tbaa !145
-  %143 = load double, ptr %63, align 8, !tbaa !146
-  %144 = getelementptr inbounds nuw %struct.textspan_t, ptr %138, i64 %.0151201, i32 5
-  store double %143, ptr %144, align 8, !tbaa !146
-  %145 = load ptr, ptr %61, align 8, !tbaa !142
-  %146 = getelementptr inbounds nuw %struct.textspan_t, ptr %138, i64 %.0151201, i32 1
-  store ptr %145, ptr %146, align 8, !tbaa !142
-  %147 = load ptr, ptr %64, align 8, !tbaa !148
-  %148 = getelementptr inbounds nuw %struct.textspan_t, ptr %138, i64 %.0151201, i32 2
-  store ptr %147, ptr %148, align 8, !tbaa !148
-  %149 = load ptr, ptr %65, align 8, !tbaa !161
-  %150 = getelementptr inbounds nuw %struct.textspan_t, ptr %138, i64 %.0151201, i32 3
-  store ptr %149, ptr %150, align 8, !tbaa !161
-  %151 = fadd double %.0161198, %128
-  %152 = load double, ptr %56, align 8, !tbaa !89
-  %153 = fcmp ogt double %152, %.0163197
-  %154 = select i1 %153, double %152, double %.0163197
-  %155 = fcmp ogt double %129, %.1159200
-  %156 = select i1 %155, double %129, double %.1159200
-  %157 = fcmp ogt double %143, %.0160199
-  %158 = select i1 %157, double %143, double %.0160199
-  %159 = add nuw i64 %.0151201, 1
-  %160 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %161 = load i64, ptr %160, align 8, !tbaa !139
-  %162 = icmp ult i64 %159, %161
-  br i1 %162, label %.lr.ph202, label %._crit_edge203, !llvm.loop !280
+125:                                              ; preds = %113, %114, %116
+  %126 = load ptr, ptr %60, align 8, !tbaa !275
+  %127 = load ptr, ptr %126, align 8, !tbaa !276
+  %128 = call ptr %127(ptr noundef nonnull %126, ptr noundef nonnull %5, i32 noundef 1) #23
+  store ptr %128, ptr %61, align 8, !tbaa !142
+  %129 = call { double, double } @textspan_size(ptr noundef %0, ptr noundef nonnull %4) #23
+  %130 = extractvalue { double, double } %129, 0
+  %131 = extractvalue { double, double } %129, 1
+  %132 = load ptr, ptr %1, align 8, !tbaa !133
+  %133 = getelementptr inbounds nuw %struct.htextspan_t, ptr %132, i64 %.0152211
+  %134 = load ptr, ptr %133, align 8, !tbaa !140
+  %135 = getelementptr inbounds nuw %struct.textspan_t, ptr %134, i64 %.0151201
+  %136 = load ptr, ptr %135, align 8, !tbaa !144
+  call void @free(ptr noundef %136) #23
+  %137 = load ptr, ptr %4, align 8, !tbaa !144
+  %138 = load ptr, ptr %1, align 8, !tbaa !133
+  %139 = getelementptr inbounds nuw %struct.htextspan_t, ptr %138, i64 %.0152211
+  %140 = load ptr, ptr %139, align 8, !tbaa !140
+  %141 = getelementptr inbounds nuw %struct.textspan_t, ptr %140, i64 %.0151201
+  store ptr %137, ptr %141, align 8, !tbaa !144
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 48
+  store double %130, ptr %142, align 8, !tbaa !149
+  %143 = load double, ptr %62, align 8, !tbaa !145
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 32
+  store double %143, ptr %144, align 8, !tbaa !145
+  %145 = load double, ptr %63, align 8, !tbaa !146
+  %146 = getelementptr inbounds nuw i8, ptr %141, i64 40
+  store double %145, ptr %146, align 8, !tbaa !146
+  %147 = load ptr, ptr %61, align 8, !tbaa !142
+  %148 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  store ptr %147, ptr %148, align 8, !tbaa !142
+  %149 = load ptr, ptr %64, align 8, !tbaa !148
+  %150 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  store ptr %149, ptr %150, align 8, !tbaa !148
+  %151 = load ptr, ptr %65, align 8, !tbaa !161
+  %152 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  store ptr %151, ptr %152, align 8, !tbaa !161
+  %153 = fadd double %.0161198, %130
+  %154 = load double, ptr %56, align 8, !tbaa !89
+  %155 = fcmp ogt double %154, %.0163197
+  %156 = select i1 %155, double %154, double %.0163197
+  %157 = fcmp ogt double %131, %.1159200
+  %158 = select i1 %157, double %131, double %.1159200
+  %159 = fcmp ogt double %145, %.0160199
+  %160 = select i1 %159, double %145, double %.0160199
+  %161 = add nuw i64 %.0151201, 1
+  %162 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %163 = load i64, ptr %162, align 8, !tbaa !139
+  %164 = icmp ult i64 %161, %163
+  br i1 %164, label %.lr.ph202, label %._crit_edge203, !llvm.loop !280
 
-163:                                              ; preds = %._crit_edge203
-  br i1 %74, label %164, label %166
+165:                                              ; preds = %._crit_edge203
+  %..lcssa = select i1 %74, ptr %72, ptr %.lcssa
+  %.0163.lcssa..1159.lcssa = select i1 %74, double %.0163.lcssa, double %.1159.lcssa
+  br label %173
 
-164:                                              ; preds = %163
-  %165 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  store double %.0163.lcssa, ptr %165, align 8, !tbaa !138
-  br label %177
+166:                                              ; preds = %._crit_edge203
+  br i1 %74, label %167, label %169
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw %struct.htextspan_t, ptr %72, i64 %.0152211, i32 4
-  store double %.1159.lcssa, ptr %167, align 8, !tbaa !138
-  br label %177
+167:                                              ; preds = %166
+  %168 = fsub double %.0163.lcssa, %.0160.lcssa
+  br label %173
 
-168:                                              ; preds = %._crit_edge203
-  br i1 %74, label %169, label %172
+169:                                              ; preds = %166
+  %170 = fadd double %.0150212, %.0163.lcssa
+  %171 = fsub double %170, %.0164210
+  %172 = fsub double %171, %.0160.lcssa
+  br label %173
 
-169:                                              ; preds = %168
-  %170 = fsub double %.0163.lcssa, %.0160.lcssa
-  %171 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  store double %170, ptr %171, align 8, !tbaa !138
-  br label %177
+173:                                              ; preds = %165, %167, %169
+  %.sink268 = phi ptr [ %72, %167 ], [ %.lcssa, %169 ], [ %..lcssa, %165 ]
+  %.sink266 = phi double [ %168, %167 ], [ %172, %169 ], [ %.0163.lcssa..1159.lcssa, %165 ]
+  %.0162 = phi double [ %.0163.lcssa, %167 ], [ %.0163.lcssa, %169 ], [ %.1159.lcssa, %165 ]
+  %174 = getelementptr inbounds nuw i8, ptr %.sink268, i64 32
+  store double %.sink266, ptr %174, align 8, !tbaa !138
+  %175 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
+  %176 = load double, ptr %175, align 8, !tbaa !138
+  %177 = fadd double %.0164210, %176
+  %178 = fcmp ogt double %.0161.lcssa, %.0213
+  %179 = select i1 %178, double %.0161.lcssa, double %.0213
+  %180 = fadd double %.0150212, %.0162
+  %181 = add nuw i64 %.0152211, 1
+  %182 = load i64, ptr %6, align 8, !tbaa !127
+  %183 = icmp ult i64 %181, %182
+  br i1 %183, label %.preheader, label %._crit_edge214, !llvm.loop !281
 
-172:                                              ; preds = %168
-  %173 = fadd double %.0150212, %.0163.lcssa
-  %174 = fsub double %173, %.0164210
-  %175 = fsub double %174, %.0160.lcssa
-  %176 = getelementptr inbounds nuw %struct.htextspan_t, ptr %72, i64 %.0152211, i32 4
-  store double %175, ptr %176, align 8, !tbaa !138
-  br label %177
+184:                                              ; preds = %._crit_edge214
+  br label %185
 
-177:                                              ; preds = %169, %172, %164, %166
-  %.0162 = phi double [ %.1159.lcssa, %164 ], [ %.1159.lcssa, %166 ], [ %.0163.lcssa, %169 ], [ %.0163.lcssa, %172 ]
-  %178 = getelementptr inbounds nuw %struct.htextspan_t, ptr %72, i64 %.0152211, i32 4
-  %179 = load double, ptr %178, align 8, !tbaa !138
-  %180 = fadd double %.0164210, %179
-  %181 = fcmp ogt double %.0161.lcssa, %.0213
-  %182 = select i1 %181, double %.0161.lcssa, double %.0213
-  %183 = fadd double %.0150212, %.0162
-  %184 = add nuw i64 %.0152211, 1
-  %185 = load i64, ptr %6, align 8, !tbaa !127
-  %186 = icmp ult i64 %184, %185
-  br i1 %186, label %.preheader, label %._crit_edge214, !llvm.loop !281
-
-187:                                              ; preds = %._crit_edge214
-  br label %188
-
-188:                                              ; preds = %._crit_edge.thread, %._crit_edge214, %187
-  %.0150.lcssa.sink = phi double [ %.1159.lcssa, %._crit_edge214 ], [ 0.000000e+00, %._crit_edge.thread ], [ %183, %187 ]
-  %189 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store double %.0150.lcssa.sink, ptr %189, align 8, !tbaa !131
+185:                                              ; preds = %._crit_edge.thread, %._crit_edge214, %184
+  %.0150.lcssa.sink = phi double [ %.1159.lcssa, %._crit_edge214 ], [ 0.000000e+00, %._crit_edge.thread ], [ %180, %184 ]
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store double %.0150.lcssa.sink, ptr %186, align 8, !tbaa !131
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

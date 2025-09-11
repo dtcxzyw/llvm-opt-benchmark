@@ -1916,7 +1916,7 @@ define void @_ZN4base22TruncateUTF8ToByteSizeERKNSt7__cxx1112basic_stringIcSt11c
   store i32 %13, ptr %5, align 4, !tbaa !72
   %14 = load ptr, ptr %0, align 8, !tbaa !21
   %15 = icmp sgt i32 %12, 0
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %15, label %.lr.ph.preheader, label %_ZN4base16IsValidCharacterEj.exit.thread.thread
 
 .lr.ph.preheader:                                 ; preds = %11
   %16 = zext nneg i32 %13 to i64
@@ -1927,7 +1927,7 @@ thread-pre-split:                                 ; preds = %33, %_ZN4base16IsVa
   %17 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %17, ptr %5, align 4, !tbaa !72
   %18 = icmp sgt i64 %indvars.iv, 0
-  br i1 %18, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %18, label %.lr.ph, label %_ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %thread-pre-split
   %indvars.iv = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next, %thread-pre-split ]
@@ -1938,7 +1938,7 @@ thread-pre-split:                                 ; preds = %33, %_ZN4base16IsVa
   %22 = load i8, ptr %21, align 1, !tbaa !20
   %23 = sext i8 %22 to i32
   %24 = icmp slt i8 %22, 0
-  br i1 %24, label %25, label %30
+  br i1 %24, label %25, label %_ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit
 
 25:                                               ; preds = %.lr.ph
   %26 = add nsw i8 %22, 64
@@ -1949,8 +1949,8 @@ thread-pre-split:                                 ; preds = %33, %_ZN4base16IsVa
   %29 = call noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef nonnull %14, ptr noundef nonnull %5, i32 noundef %12, i32 noundef %23, i8 noundef signext -1)
   br label %30
 
-30:                                               ; preds = %25, %28, %.lr.ph
-  %.019 = phi i32 [ %29, %28 ], [ %23, %.lr.ph ], [ -1, %25 ]
+30:                                               ; preds = %25, %28
+  %.019 = phi i32 [ %29, %28 ], [ -1, %25 ]
   %31 = icmp ult i32 %.019, 55296
   %32 = add i32 %.019, -57344
   %or.cond.i = icmp ult i32 %32, 7632
@@ -1962,24 +1962,24 @@ thread-pre-split:                                 ; preds = %33, %_ZN4base16IsVa
   %35 = icmp ne i32 %34, 65534
   %36 = add i32 %.019, -65008
   %37 = icmp ult i32 %36, 1049104
-  %or.cond29 = and i1 %37, %35
-  br i1 %or.cond29, label %._crit_edge.loopexit, label %thread-pre-split
+  %or.cond34 = and i1 %37, %35
+  br i1 %or.cond34, label %_ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit, label %thread-pre-split
 
 _ZN4base16IsValidCharacterEj.exit.thread:         ; preds = %30
   %.old = icmp ult i32 %32, 1056768
-  %.old28 = or i1 %31, %.old
-  br i1 %.old28, label %._crit_edge.loopexit, label %thread-pre-split
+  %.old33 = or i1 %31, %.old
+  br i1 %.old33, label %_ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit, label %thread-pre-split
 
-._crit_edge.loopexit:                             ; preds = %33, %_ZN4base16IsValidCharacterEj.exit.thread, %thread-pre-split
+_ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit: ; preds = %33, %.lr.ph, %_ZN4base16IsValidCharacterEj.exit.thread, %thread-pre-split
   %.pre = load i32, ptr %5, align 4, !tbaa !72
-  br label %._crit_edge
+  br label %_ZN4base16IsValidCharacterEj.exit.thread.thread
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %38 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %13, %11 ]
+_ZN4base16IsValidCharacterEj.exit.thread.thread:  ; preds = %_ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit, %11
+  %38 = phi i32 [ %.pre, %_ZN4base16IsValidCharacterEj.exit.thread.thread.loopexit ], [ %13, %11 ]
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %40, label %91
 
-40:                                               ; preds = %._crit_edge
+40:                                               ; preds = %_ZN4base16IsValidCharacterEj.exit.thread.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %41 = zext nneg i32 %38 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
@@ -2126,7 +2126,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %94
 
-91:                                               ; preds = %._crit_edge
+91:                                               ; preds = %_ZN4base16IsValidCharacterEj.exit.thread.thread
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %92, align 8, !tbaa !17
   %93 = load ptr, ptr %2, align 8, !tbaa !21
@@ -2917,8 +2917,8 @@ define noundef zeroext i1 @_ZN4base12IsStringUTF8ERKNS_16BasicStringPieceINSt7__
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %_ZN4base16IsValidCharacterEj.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %_ZN4base16IsValidCharacterEj.exit.backedge
-  %8 = phi i32 [ %27, %_ZN4base16IsValidCharacterEj.exit.backedge ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %.backedge
+  %8 = phi i32 [ %27, %.backedge ], [ 0, %1 ]
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr %2, align 4, !tbaa !72
   %10 = sext i32 %8 to i64
@@ -2926,7 +2926,7 @@ define noundef zeroext i1 @_ZN4base12IsStringUTF8ERKNS_16BasicStringPieceINSt7__
   %12 = load i8, ptr %11, align 1, !tbaa !20
   %13 = sext i8 %12 to i32
   %14 = icmp slt i8 %12, 0
-  br i1 %14, label %15, label %20
+  br i1 %14, label %15, label %.backedge
 
 15:                                               ; preds = %.lr.ph
   %16 = add nsw i8 %12, 64
@@ -2937,13 +2937,13 @@ define noundef zeroext i1 @_ZN4base12IsStringUTF8ERKNS_16BasicStringPieceINSt7__
   %19 = call noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %6, i32 noundef %13, i8 noundef signext -1)
   br label %20
 
-20:                                               ; preds = %15, %18, %.lr.ph
-  %.011 = phi i32 [ %19, %18 ], [ %13, %.lr.ph ], [ -1, %15 ]
+20:                                               ; preds = %15, %18
+  %.011 = phi i32 [ %19, %18 ], [ -1, %15 ]
   %21 = icmp ult i32 %.011, 55296
   %22 = add i32 %.011, -57344
   %or.cond.i = icmp ult i32 %22, 7632
   %or.cond9.i = or i1 %21, %or.cond.i
-  br i1 %or.cond9.i, label %_ZN4base16IsValidCharacterEj.exit.backedge, label %23
+  br i1 %or.cond9.i, label %.backedge, label %23
 
 23:                                               ; preds = %20
   %24 = add i32 %.011, -65008
@@ -2951,15 +2951,15 @@ define noundef zeroext i1 @_ZN4base12IsStringUTF8ERKNS_16BasicStringPieceINSt7__
   %25 = and i32 %.011, 65534
   %26 = icmp ne i32 %25, 65534
   %or.cond = and i1 %or.cond3.i, %26
-  br i1 %or.cond, label %_ZN4base16IsValidCharacterEj.exit.backedge, label %_ZN4base16IsValidCharacterEj.exit.thread
+  br i1 %or.cond, label %.backedge, label %_ZN4base16IsValidCharacterEj.exit.thread
 
-_ZN4base16IsValidCharacterEj.exit.backedge:       ; preds = %23, %20
+.backedge:                                        ; preds = %20, %.lr.ph, %23
   %27 = load i32, ptr %2, align 4, !tbaa !72
   %.not = icmp slt i32 %27, %6
   br i1 %.not, label %.lr.ph, label %_ZN4base16IsValidCharacterEj.exit.thread, !llvm.loop !94
 
-_ZN4base16IsValidCharacterEj.exit.thread:         ; preds = %_ZN4base16IsValidCharacterEj.exit.backedge, %23, %1
-  %.lcssa = phi i1 [ true, %1 ], [ false, %23 ], [ true, %_ZN4base16IsValidCharacterEj.exit.backedge ]
+_ZN4base16IsValidCharacterEj.exit.thread:         ; preds = %.backedge, %23, %1
+  %.lcssa = phi i1 [ true, %1 ], [ false, %23 ], [ true, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.lcssa
 }

@@ -310,7 +310,7 @@ define internal range(i32 -2147483648, 1) i32 @h264_metadata_update_fragment(ptr
   ]
 
 44:                                               ; preds = %41, %41
-  %45 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %40, i64 %indvars.iv45.i, i32 5
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !41
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i8, ptr %47, align 8, !tbaa !42

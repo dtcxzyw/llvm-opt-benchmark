@@ -2514,7 +2514,8 @@ land.rhs:                                         ; preds = %entry
 
 land.rhs.i:                                       ; preds = %land.rhs, %for.inc.i
   %i.06.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %land.rhs ]
-  %len.i = getelementptr inbounds %struct.ngtcp2_vec, ptr %1, i64 %i.06.i, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.ngtcp2_vec, ptr %1, i64 %i.06.i
+  %len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %3 = load i64, ptr %len.i, align 8
   %cmp2.i = icmp eq i64 %3, 0
   br i1 %cmp2.i, label %for.inc.i, label %for.end.loopexit.i
@@ -2662,7 +2663,8 @@ do.body4.i.i:                                     ; preds = %if.then.i1
 for.body.i.i:                                     ; preds = %if.then.i1, %for.body.i.i
   %n.07.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then.i1 ]
   %len.06.i.i = phi i64 [ %add.i.i, %for.body.i.i ], [ 0, %if.then.i1 ]
-  %len7.i.i = getelementptr inbounds %struct.ngtcp2_vec, ptr %1, i64 %n.07.i.i, i32 1
+  %arrayidx.i.i = getelementptr inbounds %struct.ngtcp2_vec, ptr %1, i64 %n.07.i.i
+  %len7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %14 = load i64, ptr %len7.i.i, align 8
   %add.i.i = add i64 %14, %len.06.i.i
   %inc.i.i = add nuw i64 %n.07.i.i, 1

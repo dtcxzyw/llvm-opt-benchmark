@@ -448,7 +448,7 @@ mxg_find_startmarker.exit:                        ; preds = %75, %.lr.ph42.i, %.
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %213 = load ptr, ptr %212, align 8, !tbaa !54
   %214 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %215 = zext i32 %208 to i64
+  %215 = zext nneg i32 %208 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %213, ptr nonnull align 1 %214, i64 %215, i1 false)
   %216 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %217 = load i64, ptr %216, align 1, !tbaa !36

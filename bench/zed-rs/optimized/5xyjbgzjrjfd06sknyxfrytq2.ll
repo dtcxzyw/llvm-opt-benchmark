@@ -43279,30 +43279,30 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   br label %258
 
 "_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h70b5c4b1f682afcbE.exit.i": ; preds = %225
-  %243 = getelementptr inbounds nuw { { ptr, i64 }, { { { i64, [1 x i64] }, { i64, [1 x i64] }, [32 x i8] }, { i64, [2 x i64] } } }, ptr @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.756, i64 %227, i32 1
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 72
+  %243 = getelementptr inbounds nuw i8, ptr %229, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %229, i64 88
   %245 = load ptr, ptr %244, align 8, !alias.scope !12002, !noalias !12005, !nonnull !9, !noundef !9
-  %246 = getelementptr inbounds nuw i8, ptr %243, i64 80
+  %246 = getelementptr inbounds nuw i8, ptr %229, i64 96
   %247 = load i64, ptr %246, align 8, !alias.scope !12002, !noalias !12005, !noundef !9
   %248 = load i64, ptr %243, align 8, !range !11, !noalias !12009, !noundef !9
   %trunc.i = trunc nuw i64 %248 to i1
   br i1 %trunc.i, label %249, label %252
 
 249:                                              ; preds = %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h70b5c4b1f682afcbE.exit.i"
-  %250 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %251 = load i64, ptr %250, align 8, !noalias !12009, !noundef !9
   br label %252
 
 252:                                              ; preds = %249, %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h70b5c4b1f682afcbE.exit.i"
   %.sroa.01.0.i = phi i64 [ 1, %249 ], [ 0, %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h70b5c4b1f682afcbE.exit.i" ]
   %.sroa.52.0.i = phi i64 [ %251, %249 ], [ undef, %"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h70b5c4b1f682afcbE.exit.i" ]
-  %253 = getelementptr inbounds nuw i8, ptr %243, i64 16
+  %253 = getelementptr inbounds nuw i8, ptr %229, i64 32
   %254 = load i64, ptr %253, align 8, !range !11, !noalias !12009, !noundef !9
   %trunc5.i = trunc nuw i64 %254 to i1
   br i1 %trunc5.i, label %255, label %260
 
 255:                                              ; preds = %252
-  %256 = getelementptr inbounds nuw i8, ptr %243, i64 24
+  %256 = getelementptr inbounds nuw i8, ptr %229, i64 40
   %257 = load i64, ptr %256, align 8, !noalias !12009, !noundef !9
   br label %260
 
@@ -43320,7 +43320,7 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
 260:                                              ; preds = %255, %252
   %.sroa.03.0.i = phi i64 [ 1, %255 ], [ 0, %252 ]
   %.sroa.54.0.i = phi i64 [ %257, %255 ], [ undef, %252 ]
-  %261 = getelementptr inbounds nuw i8, ptr %243, i64 32
+  %261 = getelementptr inbounds nuw i8, ptr %229, i64 48
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %261, i64 32, i1 false)
   store i64 %.sroa.01.0.i, ptr %0, align 8

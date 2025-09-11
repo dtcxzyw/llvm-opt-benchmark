@@ -5952,67 +5952,68 @@ define internal fastcc void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT
   br i1 %3, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfb42f0ac042c4718E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E.exit.i.i"
-  %.07.i.i = phi i64 [ %4, %"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E.exit.i.i" ], [ 0, %1 ]
-  %4 = add nuw i64 %.07.i.i, 1
+  %.07.i.i = phi i64 [ %5, %"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E.exit.i.i" ], [ 0, %1 ]
+  %4 = getelementptr inbounds { { ptr, i64 }, { ptr, ptr } }, ptr %.val, i64 %.07.i.i
+  %5 = add nuw i64 %.07.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2651)
-  %5 = getelementptr inbounds { { ptr, i64 }, { ptr, ptr } }, ptr %.val, i64 %.07.i.i, i32 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2654)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2657)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2660)
-  %6 = load ptr, ptr %5, align 8, !alias.scope !2663, !nonnull !4, !noundef !4
-  %7 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !2666
-  %8 = icmp eq i64 %7, 1
-  br i1 %8, label %9, label %"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E.exit.i.i"
+  %7 = load ptr, ptr %6, align 8, !alias.scope !2663, !nonnull !4, !noundef !4
+  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !2666
+  %9 = icmp eq i64 %8, 1
+  br i1 %9, label %10, label %"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E.exit.i.i"
 
-9:                                                ; preds = %.lr.ph.i.i
+10:                                               ; preds = %.lr.ph.i.i
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h367b708d6aafb14dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-          to label %"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E.exit.i.i" unwind label %13
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h367b708d6aafb14dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+          to label %"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E.exit.i.i" unwind label %14
 
-"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E.exit.i.i": ; preds = %9, %.lr.ph.i.i
-  %10 = icmp eq i64 %4, %.val1
-  br i1 %10, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfb42f0ac042c4718E.exit", label %.lr.ph.i.i
+"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E.exit.i.i": ; preds = %10, %.lr.ph.i.i
+  %11 = icmp eq i64 %5, %.val1
+  br i1 %11, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfb42f0ac042c4718E.exit", label %.lr.ph.i.i
 
-11:                                               ; preds = %15, %13
-  %.1.i.i = phi i64 [ %4, %13 ], [ %17, %15 ]
-  %12 = icmp eq i64 %.1.i.i, %.val1
-  br i1 %12, label %.body, label %15
+12:                                               ; preds = %16, %14
+  %.1.i.i = phi i64 [ %5, %14 ], [ %18, %16 ]
+  %13 = icmp eq i64 %.1.i.i, %.val1
+  br i1 %13, label %.body, label %16
 
-13:                                               ; preds = %9
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %10
+  %15 = landingpad { ptr, i32 }
           cleanup
-  br label %11
+  br label %12
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds { { ptr, i64 }, { ptr, ptr } }, ptr %.val, i64 %.1.i.i
-  %17 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E"(ptr noalias noundef align 8 dereferenceable(32) %16) #23
-          to label %11 unwind label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds { { ptr, i64 }, { ptr, ptr } }, ptr %.val, i64 %.1.i.i
+  %18 = add i64 %.1.i.i, 1
+  invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E"(ptr noalias noundef align 8 dereferenceable(32) %17) #23
+          to label %12 unwind label %19
 
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %16
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #24
   unreachable
 
-.body:                                            ; preds = %11
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val3 = load i64, ptr %20, align 8, !alias.scope !2667, !noalias !2670, !noundef !4
+.body:                                            ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val3 = load i64, ptr %21, align 8, !alias.scope !2667, !noalias !2670, !noundef !4
   tail call fastcc void @"_ZN4core3ptr172drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h1f42c40da2bba8c8E"(ptr nonnull %.val, i64 %.val3) #23
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %15
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfb42f0ac042c4718E.exit": ; preds = %"_ZN4core3ptr142drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$17h775aad12ab0f7223E.exit.i.i", %1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val5 = load i64, ptr %21, align 8, !alias.scope !2667, !noalias !2670, !noundef !4
-  %22 = icmp eq i64 %.val5, 0
-  br i1 %22, label %"_ZN4core3ptr172drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h1f42c40da2bba8c8E.exit", label %23
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val5 = load i64, ptr %22, align 8, !alias.scope !2667, !noalias !2670, !noundef !4
+  %23 = icmp eq i64 %.val5, 0
+  br i1 %23, label %"_ZN4core3ptr172drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h1f42c40da2bba8c8E.exit", label %24
 
-23:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfb42f0ac042c4718E.exit"
-  %24 = shl nuw i64 %.val5, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %24, i64 noundef 8) #25
+24:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfb42f0ac042c4718E.exit"
+  %25 = shl nuw i64 %.val5, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %25, i64 noundef 8) #25
   br label %"_ZN4core3ptr172drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h1f42c40da2bba8c8E.exit"
 
-"_ZN4core3ptr172drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h1f42c40da2bba8c8E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfb42f0ac042c4718E.exit", %23
+"_ZN4core3ptr172drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..auth..SharedAuthScheme$GT$$GT$$GT$17h1f42c40da2bba8c8E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfb42f0ac042c4718E.exit", %24
   ret void
 }
 
@@ -7131,70 +7132,71 @@ define internal fastcc void @"_ZN4core3ptr184drop_in_place$LT$alloc..vec..Vec$LT
   br i1 %3, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h48e8a326a4f91a46E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i"
-  %.07.i.i = phi i64 [ %4, %"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i" ], [ 0, %1 ]
-  %4 = add nuw i64 %.07.i.i, 1
+  %.07.i.i = phi i64 [ %5, %"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i" ], [ 0, %1 ]
+  %4 = getelementptr inbounds { { ptr, i64 }, { { ptr, [1 x i64] } } }, ptr %.val, i64 %.07.i.i
+  %5 = add nuw i64 %.07.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2880)
-  %5 = getelementptr inbounds { { ptr, i64 }, { { ptr, [1 x i64] } } }, ptr %.val, i64 %.07.i.i, i32 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2883)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2886)
-  %6 = load ptr, ptr %5, align 8, !alias.scope !2889, !noundef !4
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i", label %8
+  %7 = load ptr, ptr %6, align 8, !alias.scope !2889, !noundef !4
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i", label %9
 
-8:                                                ; preds = %.lr.ph.i.i
-  %9 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !2892
-  %10 = icmp eq i64 %9, 1
-  br i1 %10, label %11, label %"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i"
+9:                                                ; preds = %.lr.ph.i.i
+  %10 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !2892
+  %11 = icmp eq i64 %10, 1
+  br i1 %11, label %12, label %"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i"
 
-11:                                               ; preds = %8
+12:                                               ; preds = %9
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfba25605103891f6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-          to label %"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i" unwind label %15
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfba25605103891f6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+          to label %"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i" unwind label %16
 
-"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i": ; preds = %11, %8, %.lr.ph.i.i
-  %12 = icmp eq i64 %4, %.val1
-  br i1 %12, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h48e8a326a4f91a46E.exit", label %.lr.ph.i.i
+"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i": ; preds = %12, %9, %.lr.ph.i.i
+  %13 = icmp eq i64 %5, %.val1
+  br i1 %13, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h48e8a326a4f91a46E.exit", label %.lr.ph.i.i
 
-13:                                               ; preds = %17, %15
-  %.1.i.i = phi i64 [ %4, %15 ], [ %19, %17 ]
-  %14 = icmp eq i64 %.1.i.i, %.val1
-  br i1 %14, label %.body, label %17
+14:                                               ; preds = %18, %16
+  %.1.i.i = phi i64 [ %5, %16 ], [ %20, %18 ]
+  %15 = icmp eq i64 %.1.i.i, %.val1
+  br i1 %15, label %.body, label %18
 
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %12
+  %17 = landingpad { ptr, i32 }
           cleanup
-  br label %13
+  br label %14
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds { { ptr, i64 }, { { ptr, [1 x i64] } } }, ptr %.val, i64 %.1.i.i
-  %19 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE"(ptr noalias noundef align 8 dereferenceable(32) %18) #23
-          to label %13 unwind label %20
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds { { ptr, i64 }, { { ptr, [1 x i64] } } }, ptr %.val, i64 %.1.i.i
+  %20 = add i64 %.1.i.i, 1
+  invoke fastcc void @"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE"(ptr noalias noundef align 8 dereferenceable(32) %19) #23
+          to label %14 unwind label %21
 
-20:                                               ; preds = %17
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %18
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #24
   unreachable
 
-.body:                                            ; preds = %13
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val3 = load i64, ptr %22, align 8, !alias.scope !2897, !noalias !2900, !noundef !4
+.body:                                            ; preds = %14
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val3 = load i64, ptr %23, align 8, !alias.scope !2897, !noalias !2900, !noundef !4
   tail call fastcc void @"_ZN4core3ptr191drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h0728090d80e9883eE"(ptr nonnull %.val, i64 %.val3) #23
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %17
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h48e8a326a4f91a46E.exit": ; preds = %"_ZN4core3ptr161drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$17h5276f3f520eeabafE.exit.i.i", %1
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val5 = load i64, ptr %23, align 8, !alias.scope !2897, !noalias !2900, !noundef !4
-  %24 = icmp eq i64 %.val5, 0
-  br i1 %24, label %"_ZN4core3ptr191drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h0728090d80e9883eE.exit", label %25
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val5 = load i64, ptr %24, align 8, !alias.scope !2897, !noalias !2900, !noundef !4
+  %25 = icmp eq i64 %.val5, 0
+  br i1 %25, label %"_ZN4core3ptr191drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h0728090d80e9883eE.exit", label %26
 
-25:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h48e8a326a4f91a46E.exit"
-  %26 = shl nuw i64 %.val5, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %26, i64 noundef 8) #25
+26:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h48e8a326a4f91a46E.exit"
+  %27 = shl nuw i64 %.val5, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %27, i64 noundef 8) #25
   br label %"_ZN4core3ptr191drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h0728090d80e9883eE.exit"
 
-"_ZN4core3ptr191drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h0728090d80e9883eE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h48e8a326a4f91a46E.exit", %25
+"_ZN4core3ptr191drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..runtime_components..SharedConfigValidator$GT$$GT$$GT$17h0728090d80e9883eE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h48e8a326a4f91a46E.exit", %26
   ret void
 }
 
@@ -7310,67 +7312,68 @@ define internal fastcc void @"_ZN4core3ptr186drop_in_place$LT$alloc..vec..Vec$LT
   br i1 %3, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93387d7a999c557dE.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE.exit.i.i"
-  %.07.i.i = phi i64 [ %4, %"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE.exit.i.i" ], [ 0, %1 ]
-  %4 = add nuw i64 %.07.i.i, 1
+  %.07.i.i = phi i64 [ %5, %"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE.exit.i.i" ], [ 0, %1 ]
+  %4 = getelementptr inbounds { { ptr, i64 }, { ptr, ptr } }, ptr %.val, i64 %.07.i.i
+  %5 = add nuw i64 %.07.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2914)
-  %5 = getelementptr inbounds { { ptr, i64 }, { ptr, ptr } }, ptr %.val, i64 %.07.i.i, i32 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2917)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2920)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2923)
-  %6 = load ptr, ptr %5, align 8, !alias.scope !2926, !nonnull !4, !noundef !4
-  %7 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !2929
-  %8 = icmp eq i64 %7, 1
-  br i1 %8, label %9, label %"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE.exit.i.i"
+  %7 = load ptr, ptr %6, align 8, !alias.scope !2926, !nonnull !4, !noundef !4
+  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !2929
+  %9 = icmp eq i64 %8, 1
+  br i1 %9, label %10, label %"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE.exit.i.i"
 
-9:                                                ; preds = %.lr.ph.i.i
+10:                                               ; preds = %.lr.ph.i.i
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h16a904a5f86e6ca5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-          to label %"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE.exit.i.i" unwind label %13
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h16a904a5f86e6ca5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
+          to label %"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE.exit.i.i" unwind label %14
 
-"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE.exit.i.i": ; preds = %9, %.lr.ph.i.i
-  %10 = icmp eq i64 %4, %.val1
-  br i1 %10, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93387d7a999c557dE.exit", label %.lr.ph.i.i
+"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE.exit.i.i": ; preds = %10, %.lr.ph.i.i
+  %11 = icmp eq i64 %5, %.val1
+  br i1 %11, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93387d7a999c557dE.exit", label %.lr.ph.i.i
 
-11:                                               ; preds = %15, %13
-  %.1.i.i = phi i64 [ %4, %13 ], [ %17, %15 ]
-  %12 = icmp eq i64 %.1.i.i, %.val1
-  br i1 %12, label %.body, label %15
+12:                                               ; preds = %16, %14
+  %.1.i.i = phi i64 [ %5, %14 ], [ %18, %16 ]
+  %13 = icmp eq i64 %.1.i.i, %.val1
+  br i1 %13, label %.body, label %16
 
-13:                                               ; preds = %9
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %10
+  %15 = landingpad { ptr, i32 }
           cleanup
-  br label %11
+  br label %12
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds { { ptr, i64 }, { ptr, ptr } }, ptr %.val, i64 %.1.i.i
-  %17 = add i64 %.1.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE"(ptr noalias noundef align 8 dereferenceable(32) %16) #23
-          to label %11 unwind label %18
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds { { ptr, i64 }, { ptr, ptr } }, ptr %.val, i64 %.1.i.i
+  %18 = add i64 %.1.i.i, 1
+  invoke fastcc void @"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE"(ptr noalias noundef align 8 dereferenceable(32) %17) #23
+          to label %12 unwind label %19
 
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %16
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #24
   unreachable
 
-.body:                                            ; preds = %11
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val3 = load i64, ptr %20, align 8, !alias.scope !2930, !noalias !2933, !noundef !4
+.body:                                            ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val3 = load i64, ptr %21, align 8, !alias.scope !2930, !noalias !2933, !noundef !4
   tail call fastcc void @"_ZN4core3ptr193drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17hf2c153fb3cdc5db1E"(ptr nonnull %.val, i64 %.val3) #23
-  resume { ptr, i32 } %14
+  resume { ptr, i32 } %15
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93387d7a999c557dE.exit": ; preds = %"_ZN4core3ptr163drop_in_place$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$17h2feec4d10b7d14dcE.exit.i.i", %1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val5 = load i64, ptr %21, align 8, !alias.scope !2930, !noalias !2933, !noundef !4
-  %22 = icmp eq i64 %.val5, 0
-  br i1 %22, label %"_ZN4core3ptr193drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17hf2c153fb3cdc5db1E.exit", label %23
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val5 = load i64, ptr %22, align 8, !alias.scope !2930, !noalias !2933, !noundef !4
+  %23 = icmp eq i64 %.val5, 0
+  br i1 %23, label %"_ZN4core3ptr193drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17hf2c153fb3cdc5db1E.exit", label %24
 
-23:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93387d7a999c557dE.exit"
-  %24 = shl nuw i64 %.val5, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %24, i64 noundef 8) #25
+24:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93387d7a999c557dE.exit"
+  %25 = shl nuw i64 %.val5, 5
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %25, i64 noundef 8) #25
   br label %"_ZN4core3ptr193drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17hf2c153fb3cdc5db1E.exit"
 
-"_ZN4core3ptr193drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17hf2c153fb3cdc5db1E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93387d7a999c557dE.exit", %23
+"_ZN4core3ptr193drop_in_place$LT$alloc..raw_vec..RawVec$LT$aws_smithy_runtime_api..client..runtime_components..Tracked$LT$aws_smithy_runtime_api..client..retries..classifiers..SharedRetryClassifier$GT$$GT$$GT$17hf2c153fb3cdc5db1E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93387d7a999c557dE.exit", %24
   ret void
 }
 

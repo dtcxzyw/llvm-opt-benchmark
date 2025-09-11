@@ -375,7 +375,7 @@ define hidden void @SplashNextFrame(ptr noundef captures(none) %0) local_unnamed
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 10464
   br label %10
 
-thread-pre-split:                                 ; preds = %24
+thread-pre-split:                                 ; preds = %25
   %.pr = load i32, ptr %2, align 4
   %9 = icmp slt i32 %.pr, 0
   br i1 %9, label %SplashIsStillLooping.exit.thread, label %10
@@ -393,36 +393,38 @@ thread-pre-split:                                 ; preds = %24
 SplashIsStillLooping.exit.thread16:               ; preds = %10
   %14 = load ptr, ptr %7, align 8
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %15, i32 1
-  %17 = load i32, ptr %16, align 8
-  %18 = load i32, ptr %8, align 8
-  %19 = add i32 %18, %17
-  store i32 %19, ptr %8, align 8
+  %16 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load i32, ptr %17, align 8
+  %19 = load i32, ptr %8, align 8
+  %20 = add i32 %19, %18
+  store i32 %20, ptr %8, align 8
   store i32 %13, ptr %2, align 4
   %.not13 = icmp slt i32 %13, %.pre
-  br i1 %.not13, label %24, label %20
+  br i1 %.not13, label %25, label %21
 
-20:                                               ; preds = %SplashIsStillLooping.exit.thread16
+21:                                               ; preds = %SplashIsStillLooping.exit.thread16
   store i32 0, ptr %2, align 4
-  %21 = icmp sgt i32 %12, 0
-  br i1 %21, label %22, label %24
+  %22 = icmp sgt i32 %12, 0
+  br i1 %22, label %23, label %25
 
-22:                                               ; preds = %20
-  %23 = add nsw i32 %12, -1
-  store i32 %23, ptr %5, align 8
-  br label %24
+23:                                               ; preds = %21
+  %24 = add nsw i32 %12, -1
+  store i32 %24, ptr %5, align 8
+  br label %25
 
-24:                                               ; preds = %SplashIsStillLooping.exit.thread16, %22, %20
-  %25 = phi i32 [ %13, %SplashIsStillLooping.exit.thread16 ], [ 0, %22 ], [ 0, %20 ]
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %26, i32 1
-  %28 = load i32, ptr %27, align 8
-  %29 = add i32 %28, %19
-  %30 = tail call i32 (...) @SplashTime() #21
-  %31 = icmp eq i32 %29, %30
-  br i1 %31, label %thread-pre-split, label %SplashIsStillLooping.exit.thread, !llvm.loop !8
+25:                                               ; preds = %SplashIsStillLooping.exit.thread16, %23, %21
+  %26 = phi i32 [ %13, %SplashIsStillLooping.exit.thread16 ], [ 0, %23 ], [ 0, %21 ]
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load i32, ptr %29, align 8
+  %31 = add i32 %30, %20
+  %32 = tail call i32 (...) @SplashTime() #21
+  %33 = icmp eq i32 %31, %32
+  br i1 %33, label %thread-pre-split, label %SplashIsStillLooping.exit.thread, !llvm.loop !8
 
-SplashIsStillLooping.exit.thread:                 ; preds = %thread-pre-split, %24, %10, %1
+SplashIsStillLooping.exit.thread:                 ; preds = %thread-pre-split, %25, %10, %1
   ret void
 }
 
@@ -445,7 +447,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none
 10:                                               ; preds = %.lr.ph136, %.loopexit
   %.0135 = phi ptr [ null, %.lr.ph136 ], [ %.1, %.loopexit ]
   %.071134 = phi ptr [ %1, %.lr.ph136 ], [ %.3, %.loopexit ]
-  %.078133 = phi i32 [ 0, %.lr.ph136 ], [ %283, %.loopexit ]
+  %.078133 = phi i32 [ 0, %.lr.ph136 ], [ %284, %.loopexit ]
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %6, align 8
   %13 = mul nsw i32 %12, %.078133
@@ -954,10 +956,11 @@ getRGBA.exit100:                                  ; preds = %202, %206
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph132
   %indvars.iv145 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next146, %.lr.ph132 ]
-  %280 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0135, i64 %indvars.iv145, i32 3
-  %281 = load i16, ptr %280, align 2
-  %282 = add i16 %281, 1
-  store i16 %282, ptr %280, align 2
+  %280 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0135, i64 %indvars.iv145
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 6
+  %282 = load i16, ptr %281, align 2
+  %283 = add i16 %282, 1
+  store i16 %283, ptr %281, align 2
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
   br i1 %exitcond149.not, label %.loopexit, label %.lr.ph132, !llvm.loop !13
@@ -965,19 +968,19 @@ getRGBA.exit100:                                  ; preds = %202, %206
 .loopexit:                                        ; preds = %.lr.ph132, %.critedge4.thread, %.critedge4, %.critedge.thread, %259
   %.3 = phi ptr [ %.273.mux, %.critedge4 ], [ %.273, %259 ], [ %.273, %.critedge.thread ], [ %spec.select, %.critedge4.thread ], [ %.071134, %.lr.ph132 ]
   %.1 = phi ptr [ %.071134.mux, %.critedge4 ], [ %.071134, %259 ], [ %.071134, %.critedge.thread ], [ %.071134, %.critedge4.thread ], [ %.0135, %.lr.ph132 ]
-  %283 = add nuw nsw i32 %.078133, 1
-  %284 = load i32, ptr %0, align 8
-  %285 = icmp slt i32 %283, %284
-  br i1 %285, label %10, label %._crit_edge, !llvm.loop !14
+  %284 = add nuw nsw i32 %.078133, 1
+  %285 = load i32, ptr %0, align 8
+  %286 = icmp slt i32 %284, %285
+  br i1 %286, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %.071.lcssa = phi ptr [ %1, %2 ], [ %.3, %.loopexit ]
-  %286 = ptrtoint ptr %.071.lcssa to i64
-  %287 = ptrtoint ptr %1 to i64
-  %288 = sub i64 %286, %287
-  %289 = lshr exact i64 %288, 3
-  %290 = trunc i64 %289 to i32
-  ret i32 %290
+  %287 = ptrtoint ptr %.071.lcssa to i64
+  %288 = ptrtoint ptr %1 to i64
+  %289 = sub i64 %287, %288
+  %290 = lshr exact i64 %289, 3
+  %291 = trunc i64 %290 to i32
+  ret i32 %291
 }
 
 ; Function Attrs: nounwind uwtable

@@ -130,7 +130,7 @@ define void @createCommonDataFile(ptr noundef %0, ptr noundef %1, ptr noundef %2
 40:                                               ; preds = %38, %.backedge
   %41 = tail call ptr @T_FileStream_readLine(ptr noundef %.0153, ptr noundef nonnull %13, i32 noundef 512)
   %.not189 = icmp eq ptr %41, null
-  br i1 %.not189, label %175, label %..critedge_crit_edge
+  br i1 %.not189, label %176, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %40
   %.pre = load i8, ptr %41, align 1, !tbaa !12
@@ -199,7 +199,7 @@ define void @createCommonDataFile(ptr noundef %0, ptr noundef %1, ptr noundef %2
   unreachable
 
 71:                                               ; preds = %58, %53
-  br i1 %.not.i, label %72, label %138
+  br i1 %.not.i, label %72, label %139
 
 72:                                               ; preds = %71
   %73 = tail call signext i8 @uprv_pathIsAbsolute_77(ptr noundef %54)
@@ -259,12 +259,12 @@ _ZL11allocStringj.exit.i:                         ; preds = %77
   %105 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
   %106 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw %struct.File, ptr %105, i64 %107, i32 1
-  store ptr %102, ptr %108, align 8, !tbaa !16
-  %109 = getelementptr inbounds nuw %struct.File, ptr %105, i64 %107, i32 2
-  store i32 %94, ptr %109, align 8, !tbaa !19
-  %110 = getelementptr inbounds nuw %struct.File, ptr %105, i64 %107
-  store ptr %83, ptr %110, align 8, !tbaa !20
+  %108 = getelementptr inbounds nuw %struct.File, ptr %105, i64 %107
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  store ptr %102, ptr %109, align 8, !tbaa !16
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  store i32 %94, ptr %110, align 8, !tbaa !19
+  store ptr %83, ptr %108, align 8, !tbaa !20
   %111 = load i32, ptr @_ZL13basenameTotal, align 4, !tbaa !10
   %112 = add i32 %111, %94
   store i32 %112, ptr @_ZL13basenameTotal, align 4, !tbaa !10
@@ -313,456 +313,459 @@ _ZL11allocStringj.exit.i:                         ; preds = %77
   %134 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
   %135 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw %struct.File, ptr %134, i64 %136, i32 4
-  store i32 %119, ptr %137, align 8, !tbaa !21
-  br label %172
+  %137 = getelementptr inbounds nuw %struct.File, ptr %134, i64 %136
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
+  store i32 %119, ptr %138, align 8, !tbaa !21
+  br label %173
 
-138:                                              ; preds = %71
-  %139 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #17
-  %140 = add i64 %139, 1
-  %141 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #17
-  %142 = add i64 %140, %141
-  %143 = trunc i64 %142 to i32
-  %144 = add i32 %143, 1
-  %145 = load i32, ptr @_ZL9stringTop, align 4, !tbaa !10
-  %146 = add i32 %144, %145
-  %147 = icmp ugt i32 %146, 200000
-  br i1 %147, label %148, label %_ZL11allocStringj.exit69.i
+139:                                              ; preds = %71
+  %140 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #17
+  %141 = add i64 %140, 1
+  %142 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #17
+  %143 = add i64 %141, %142
+  %144 = trunc i64 %143 to i32
+  %145 = add i32 %144, 1
+  %146 = load i32, ptr @_ZL9stringTop, align 4, !tbaa !10
+  %147 = add i32 %145, %146
+  %148 = icmp ugt i32 %147, 200000
+  br i1 %148, label %149, label %_ZL11allocStringj.exit69.i
 
-148:                                              ; preds = %138
-  %149 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %150 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 22, i64 1, ptr %149) #19
+149:                                              ; preds = %139
+  %150 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %151 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 22, i64 1, ptr %150) #19
   tail call void @exit(i32 noundef 7) #15
   unreachable
 
-_ZL11allocStringj.exit69.i:                       ; preds = %138
-  %151 = zext nneg i32 %145 to i64
-  %152 = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %151
-  store i32 %146, ptr @_ZL9stringTop, align 4, !tbaa !10
-  %153 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #18
-  %strlen65.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %152)
-  %endptr66.i = getelementptr inbounds i8, ptr %152, i64 %strlen65.i
+_ZL11allocStringj.exit69.i:                       ; preds = %139
+  %152 = zext nneg i32 %146 to i64
+  %153 = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %152
+  store i32 %147, ptr @_ZL9stringTop, align 4, !tbaa !10
+  %154 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #18
+  %strlen65.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %153)
+  %endptr66.i = getelementptr inbounds i8, ptr %153, i64 %strlen65.i
   store i16 47, ptr %endptr66.i, align 1
-  %154 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(1) %54) #18
-  %155 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %156 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw %struct.File, ptr %155, i64 %157, i32 1
-  store ptr %152, ptr %158, align 8, !tbaa !16
-  %159 = add i32 %146, %144
-  %160 = icmp ugt i32 %159, 200000
-  br i1 %160, label %161, label %_ZL11allocStringj.exit70.i
+  %155 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(1) %54) #18
+  %156 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %157 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %158 = zext i32 %157 to i64
+  %159 = getelementptr inbounds nuw %struct.File, ptr %156, i64 %158
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  store ptr %153, ptr %160, align 8, !tbaa !16
+  %161 = add i32 %147, %145
+  %162 = icmp ugt i32 %161, 200000
+  br i1 %162, label %163, label %_ZL11allocStringj.exit70.i
 
-161:                                              ; preds = %_ZL11allocStringj.exit69.i
-  %162 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %163 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 22, i64 1, ptr %162) #19
+163:                                              ; preds = %_ZL11allocStringj.exit69.i
+  %164 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %165 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 22, i64 1, ptr %164) #19
   tail call void @exit(i32 noundef 7) #15
   unreachable
 
 _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.exit69.i
-  %164 = zext nneg i32 %146 to i64
-  %165 = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %164
-  store i32 %159, ptr @_ZL9stringTop, align 4, !tbaa !10
-  %166 = getelementptr inbounds nuw %struct.File, ptr %155, i64 %157
-  store ptr %165, ptr %166, align 8, !tbaa !20
-  %.not6771.i = icmp eq i32 %143, 0
+  %166 = zext nneg i32 %147 to i64
+  %167 = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %166
+  store i32 %161, ptr @_ZL9stringTop, align 4, !tbaa !10
+  store ptr %167, ptr %159, align 8, !tbaa !20
+  %.not6771.i = icmp eq i32 %144, 0
   br i1 %.not6771.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZL11allocStringj.exit70.i, %.lr.ph.i
-  %167 = phi i32 [ %171, %.lr.ph.i ], [ %143, %_ZL11allocStringj.exit70.i ]
-  %.073.i = phi ptr [ %170, %.lr.ph.i ], [ %165, %_ZL11allocStringj.exit70.i ]
-  %.05472.i = phi ptr [ %169, %.lr.ph.i ], [ %152, %_ZL11allocStringj.exit70.i ]
-  %168 = load i8, ptr %.05472.i, align 1, !tbaa !12
-  %.off.i = add i8 %168, -45
+  %168 = phi i32 [ %172, %.lr.ph.i ], [ %144, %_ZL11allocStringj.exit70.i ]
+  %.073.i = phi ptr [ %171, %.lr.ph.i ], [ %167, %_ZL11allocStringj.exit70.i ]
+  %.05472.i = phi ptr [ %170, %.lr.ph.i ], [ %153, %_ZL11allocStringj.exit70.i ]
+  %169 = load i8, ptr %.05472.i, align 1, !tbaa !12
+  %.off.i = add i8 %169, -45
   %switch.i = icmp ult i8 %.off.i, 3
-  %spec.select.i = select i1 %switch.i, i8 95, i8 %168
+  %spec.select.i = select i1 %switch.i, i8 95, i8 %169
   store i8 %spec.select.i, ptr %.073.i, align 1, !tbaa !12
-  %169 = getelementptr inbounds nuw i8, ptr %.05472.i, i64 1
-  %170 = getelementptr inbounds nuw i8, ptr %.073.i, i64 1
-  %171 = add i32 %167, -1
-  %.not67.i = icmp eq i32 %171, 0
+  %170 = getelementptr inbounds nuw i8, ptr %.05472.i, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %.073.i, i64 1
+  %172 = add i32 %168, -1
+  %.not67.i = icmp eq i32 %172, 0
   br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZL11allocStringj.exit70.i
-  %.0.lcssa.i = phi ptr [ %165, %_ZL11allocStringj.exit70.i ], [ %170, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %167, %_ZL11allocStringj.exit70.i ], [ %171, %.lr.ph.i ]
   store i8 0, ptr %.0.lcssa.i, align 1, !tbaa !12
-  br label %172
+  br label %173
 
-172:                                              ; preds = %._crit_edge.i, %.critedge.i
-  %173 = phi i32 [ %135, %.critedge.i ], [ %156, %._crit_edge.i ]
-  %174 = add i32 %173, 1
-  store i32 %174, ptr @_ZL9fileCount, align 4, !tbaa !10
+173:                                              ; preds = %._crit_edge.i, %.critedge.i
+  %174 = phi i32 [ %135, %.critedge.i ], [ %157, %._crit_edge.i ]
+  %175 = add i32 %174, 1
+  store i32 %175, ptr @_ZL9fileCount, align 4, !tbaa !10
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %172, %130, %129, %.loopexit
+.backedge.backedge:                               ; preds = %173, %130, %129, %.loopexit
   br label %.backedge, !llvm.loop !23
 
-175:                                              ; preds = %40
+176:                                              ; preds = %40
   tail call void @uprv_free_77(ptr noundef nonnull %13)
-  %176 = tail call ptr @T_FileStream_stdin()
-  %.not190 = icmp eq ptr %.0153, %176
-  br i1 %.not190, label %178, label %177
+  %177 = tail call ptr @T_FileStream_stdin()
+  %.not190 = icmp eq ptr %.0153, %177
+  br i1 %.not190, label %179, label %178
 
-177:                                              ; preds = %175
+178:                                              ; preds = %176
   tail call void @T_FileStream_close(ptr noundef %.0153)
-  br label %178
+  br label %179
 
-178:                                              ; preds = %177, %175
-  %179 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %180 = icmp eq i32 %179, 0
-  br i1 %180, label %181, label %185
+179:                                              ; preds = %178, %176
+  %180 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %181 = icmp eq i32 %180, 0
+  br i1 %181, label %182, label %186
 
-181:                                              ; preds = %178
-  %182 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %183 = select i1 %26, ptr @.str.9, ptr %6
-  %184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.8, ptr noundef nonnull %183) #14
-  br label %375
+182:                                              ; preds = %179
+  %183 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %184 = select i1 %26, ptr @.str.9, ptr %6
+  %185 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef nonnull @.str.8, ptr noundef nonnull %184) #14
+  br label %378
 
-185:                                              ; preds = %178
-  %186 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %187 = zext i32 %179 to i64
-  tail call void @qsort(ptr noundef %186, i64 noundef %187, i64 noundef 32, ptr noundef nonnull @_ZL12compareFilesPKvS0_)
-  br i1 %.not.i, label %188, label %305
+186:                                              ; preds = %179
+  %187 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %188 = zext i32 %180 to i64
+  tail call void @qsort(ptr noundef %187, i64 noundef %188, i64 noundef 32, ptr noundef nonnull @_ZL12compareFilesPKvS0_)
+  br i1 %.not.i, label %189, label %308
 
-188:                                              ; preds = %185
-  %189 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %.not250 = icmp eq i32 %189, 0
+189:                                              ; preds = %186
+  %190 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %.not250 = icmp eq i32 %190, 0
   br i1 %.not250, label %._crit_edge233, label %.lr.ph232
 
-.lr.ph232:                                        ; preds = %188
-  %190 = load i32, ptr @_ZL13basenameTotal, align 4, !tbaa !10
-  %191 = add i32 %190, 15
-  %192 = shl i32 %189, 3
-  %193 = or disjoint i32 %192, 4
-  %194 = add i32 %191, %193
-  %195 = and i32 %194, -16
-  %196 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %wide.trip.count = zext i32 %189 to i64
-  br label %197
+.lr.ph232:                                        ; preds = %189
+  %191 = load i32, ptr @_ZL13basenameTotal, align 4, !tbaa !10
+  %192 = add i32 %191, 15
+  %193 = shl i32 %190, 3
+  %194 = or disjoint i32 %193, 4
+  %195 = add i32 %192, %194
+  %196 = and i32 %195, -16
+  %197 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %wide.trip.count = zext i32 %190 to i64
+  br label %198
 
-197:                                              ; preds = %.lr.ph232, %197
-  %indvars.iv280 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next281, %197 ]
-  %.0156230 = phi i32 [ %193, %.lr.ph232 ], [ %208, %197 ]
-  %.0157229 = phi i32 [ %195, %.lr.ph232 ], [ %204, %197 ]
-  %198 = getelementptr inbounds nuw %struct.File, ptr %196, i64 %indvars.iv280, i32 5
-  store i32 %.0157229, ptr %198, align 4, !tbaa !24
-  %199 = getelementptr inbounds nuw %struct.File, ptr %196, i64 %indvars.iv280
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
-  %201 = load i32, ptr %200, align 8, !tbaa !21
-  %202 = add i32 %201, 15
-  %203 = and i32 %202, -16
-  %204 = add i32 %203, %.0157229
-  %205 = getelementptr inbounds nuw i8, ptr %199, i64 20
-  store i32 %.0156230, ptr %205, align 4, !tbaa !25
-  %206 = getelementptr inbounds nuw %struct.File, ptr %196, i64 %indvars.iv280, i32 2
-  %207 = load i32, ptr %206, align 8, !tbaa !19
-  %208 = add i32 %207, %.0156230
+198:                                              ; preds = %.lr.ph232, %198
+  %indvars.iv280 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next281, %198 ]
+  %.0156230 = phi i32 [ %194, %.lr.ph232 ], [ %209, %198 ]
+  %.0157229 = phi i32 [ %196, %.lr.ph232 ], [ %205, %198 ]
+  %199 = getelementptr inbounds nuw %struct.File, ptr %197, i64 %indvars.iv280
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 28
+  store i32 %.0157229, ptr %200, align 4, !tbaa !24
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 24
+  %202 = load i32, ptr %201, align 8, !tbaa !21
+  %203 = add i32 %202, 15
+  %204 = and i32 %203, -16
+  %205 = add i32 %204, %.0157229
+  %206 = getelementptr inbounds nuw i8, ptr %199, i64 20
+  store i32 %.0156230, ptr %206, align 4, !tbaa !25
+  %207 = getelementptr inbounds nuw i8, ptr %199, i64 16
+  %208 = load i32, ptr %207, align 8, !tbaa !19
+  %209 = add i32 %208, %.0156230
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge233, label %197, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge233, label %198, !llvm.loop !26
 
-._crit_edge233:                                   ; preds = %197, %188
-  %209 = icmp eq ptr %5, null
-  %210 = select i1 %209, ptr @.str.10, ptr %5
-  %211 = call ptr @udata_create(ptr noundef %.0, ptr noundef nonnull %spec.store.select2, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @_ZL8dataInfo, ptr noundef nonnull %210, ptr noundef nonnull %12)
-  %212 = load i32, ptr %12, align 4, !tbaa !3
-  %213 = icmp slt i32 %212, 1
-  br i1 %213, label %219, label %214
+._crit_edge233:                                   ; preds = %198, %189
+  %210 = icmp eq ptr %5, null
+  %211 = select i1 %210, ptr @.str.10, ptr %5
+  %212 = call ptr @udata_create(ptr noundef %.0, ptr noundef nonnull %spec.store.select2, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @_ZL8dataInfo, ptr noundef nonnull %211, ptr noundef nonnull %12)
+  %213 = load i32, ptr %12, align 4, !tbaa !3
+  %214 = icmp slt i32 %213, 1
+  br i1 %214, label %220, label %215
 
-214:                                              ; preds = %._crit_edge233
-  %215 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %216 = call ptr @u_errorName_77(i32 noundef %212)
-  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %215, ptr noundef nonnull @.str.11, ptr noundef %.0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, ptr noundef %216) #14
-  %218 = load i32, ptr %12, align 4, !tbaa !3
-  call void @exit(i32 noundef %218) #20
+215:                                              ; preds = %._crit_edge233
+  %216 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %217 = call ptr @u_errorName_77(i32 noundef %213)
+  %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %216, ptr noundef nonnull @.str.11, ptr noundef %.0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, ptr noundef %217) #14
+  %219 = load i32, ptr %12, align 4, !tbaa !3
+  call void @exit(i32 noundef %219) #20
   unreachable
 
-219:                                              ; preds = %._crit_edge233
-  %220 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  call void @udata_write32(ptr noundef %211, i32 noundef %220)
+220:                                              ; preds = %._crit_edge233
   %221 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %.not251 = icmp eq i32 %221, 0
+  call void @udata_write32(ptr noundef %212, i32 noundef %221)
+  %222 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %.not251 = icmp eq i32 %222, 0
   br i1 %.not251, label %._crit_edge239.thread, label %.lr.ph236
 
 .preheader203:                                    ; preds = %.lr.ph236
-  %222 = icmp eq i32 %229, 0
-  br i1 %222, label %._crit_edge239.thread, label %.lr.ph238
+  %223 = icmp eq i32 %232, 0
+  br i1 %223, label %._crit_edge239.thread, label %.lr.ph238
 
-.lr.ph236:                                        ; preds = %219, %.lr.ph236
-  %indvars.iv283 = phi i64 [ %indvars.iv.next284, %.lr.ph236 ], [ 0, %219 ]
-  %223 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %224 = getelementptr inbounds nuw %struct.File, ptr %223, i64 %indvars.iv283, i32 3
-  %225 = load i32, ptr %224, align 4, !tbaa !25
-  call void @udata_write32(ptr noundef %211, i32 noundef %225)
-  %226 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %227 = getelementptr inbounds nuw %struct.File, ptr %226, i64 %indvars.iv283, i32 5
-  %228 = load i32, ptr %227, align 4, !tbaa !24
-  call void @udata_write32(ptr noundef %211, i32 noundef %228)
+.lr.ph236:                                        ; preds = %220, %.lr.ph236
+  %indvars.iv283 = phi i64 [ %indvars.iv.next284, %.lr.ph236 ], [ 0, %220 ]
+  %224 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %225 = getelementptr inbounds nuw %struct.File, ptr %224, i64 %indvars.iv283
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 20
+  %227 = load i32, ptr %226, align 4, !tbaa !25
+  call void @udata_write32(ptr noundef %212, i32 noundef %227)
+  %228 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %229 = getelementptr inbounds nuw %struct.File, ptr %228, i64 %indvars.iv283
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 28
+  %231 = load i32, ptr %230, align 4, !tbaa !24
+  call void @udata_write32(ptr noundef %212, i32 noundef %231)
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
-  %229 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %230 = zext i32 %229 to i64
-  %231 = icmp samesign ult i64 %indvars.iv.next284, %230
-  br i1 %231, label %.lr.ph236, label %.preheader203, !llvm.loop !27
+  %232 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %233 = zext i32 %232 to i64
+  %234 = icmp samesign ult i64 %indvars.iv.next284, %233
+  br i1 %234, label %.lr.ph236, label %.preheader203, !llvm.loop !27
 
 .lr.ph238:                                        ; preds = %.preheader203, %.lr.ph238
   %indvars.iv286 = phi i64 [ %indvars.iv.next287, %.lr.ph238 ], [ 0, %.preheader203 ]
-  %232 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %233 = getelementptr inbounds nuw %struct.File, ptr %232, i64 %indvars.iv286
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  %235 = load ptr, ptr %234, align 8, !tbaa !16
-  %236 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  %237 = load i32, ptr %236, align 8, !tbaa !19
-  call void @udata_writeString(ptr noundef %211, ptr noundef %235, i32 noundef %237)
+  %235 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %236 = getelementptr inbounds nuw %struct.File, ptr %235, i64 %indvars.iv286
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %238 = load ptr, ptr %237, align 8, !tbaa !16
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 16
+  %240 = load i32, ptr %239, align 8, !tbaa !19
+  call void @udata_writeString(ptr noundef %212, ptr noundef %238, i32 noundef %240)
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
-  %238 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %239 = zext i32 %238 to i64
-  %240 = icmp samesign ult i64 %indvars.iv.next287, %239
-  br i1 %240, label %.lr.ph238, label %._crit_edge239, !llvm.loop !28
+  %241 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %242 = zext i32 %241 to i64
+  %243 = icmp samesign ult i64 %indvars.iv.next287, %242
+  br i1 %243, label %.lr.ph238, label %._crit_edge239, !llvm.loop !28
 
-._crit_edge239.thread:                            ; preds = %.preheader203, %219
-  %241 = load i32, ptr @_ZL13basenameTotal, align 4, !tbaa !10
-  %242 = add i32 %241, 4
+._crit_edge239.thread:                            ; preds = %.preheader203, %220
+  %244 = load i32, ptr @_ZL13basenameTotal, align 4, !tbaa !10
+  %245 = add i32 %244, 4
   br label %._crit_edge248
 
 ._crit_edge239:                                   ; preds = %.lr.ph238
-  %243 = shl i32 %238, 3
-  %244 = or disjoint i32 %243, 4
-  %245 = load i32, ptr @_ZL13basenameTotal, align 4, !tbaa !10
-  %246 = add i32 %244, %245
-  %.not253 = icmp eq i32 %238, 0
+  %246 = shl i32 %241, 3
+  %247 = or disjoint i32 %246, 4
+  %248 = load i32, ptr @_ZL13basenameTotal, align 4, !tbaa !10
+  %249 = add i32 %247, %248
+  %.not253 = icmp eq i32 %241, 0
   br i1 %.not253, label %._crit_edge248, label %.lr.ph247
 
-247:                                              ; preds = %._crit_edge242
-  %248 = add nuw i32 %.3244, 1
-  %249 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %250 = icmp ult i32 %248, %249
-  br i1 %250, label %.lr.ph247, label %._crit_edge248, !llvm.loop !29
+250:                                              ; preds = %._crit_edge242
+  %251 = add nuw i32 %.3244, 1
+  %252 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %253 = icmp ult i32 %251, %252
+  br i1 %253, label %.lr.ph247, label %._crit_edge248, !llvm.loop !29
 
-.lr.ph247:                                        ; preds = %._crit_edge239, %247
-  %.0155245 = phi i32 [ %.0154.lcssa, %247 ], [ %246, %._crit_edge239 ]
-  %.3244 = phi i32 [ %248, %247 ], [ 0, %._crit_edge239 ]
-  %251 = and i32 %.0155245, 15
-  %.not195 = icmp eq i32 %251, 0
-  br i1 %.not195, label %254, label %252
+.lr.ph247:                                        ; preds = %._crit_edge239, %250
+  %.0155245 = phi i32 [ %.0154.lcssa, %250 ], [ %249, %._crit_edge239 ]
+  %.3244 = phi i32 [ %251, %250 ], [ 0, %._crit_edge239 ]
+  %254 = and i32 %.0155245, 15
+  %.not195 = icmp eq i32 %254, 0
+  br i1 %.not195, label %257, label %255
 
-252:                                              ; preds = %.lr.ph247
-  %253 = sub nuw nsw i32 16, %251
-  call void @udata_writePadding(ptr noundef %211, i32 noundef %253)
-  br label %254
+255:                                              ; preds = %.lr.ph247
+  %256 = sub nuw nsw i32 16, %254
+  call void @udata_writePadding(ptr noundef %212, i32 noundef %256)
+  br label %257
 
-254:                                              ; preds = %252, %.lr.ph247
+257:                                              ; preds = %255, %.lr.ph247
   %.pre290 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
   %.pre292 = zext i32 %.3244 to i64
-  br i1 %.not, label %._crit_edge291, label %255
+  br i1 %.not, label %._crit_edge291, label %258
 
-255:                                              ; preds = %254
-  %256 = getelementptr inbounds nuw %struct.File, ptr %.pre290, i64 %.pre292
-  %257 = load ptr, ptr %256, align 8, !tbaa !20
-  %258 = getelementptr inbounds nuw i8, ptr %256, i64 24
-  %259 = load i32, ptr %258, align 8, !tbaa !21
-  %260 = zext i32 %259 to i64
-  %261 = icmp eq i32 %259, 1
-  %262 = select i1 %261, ptr @.str.13, ptr @.str.14
-  %263 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %257, i64 noundef %260, ptr noundef nonnull %262)
+258:                                              ; preds = %257
+  %259 = getelementptr inbounds nuw %struct.File, ptr %.pre290, i64 %.pre292
+  %260 = load ptr, ptr %259, align 8, !tbaa !20
+  %261 = getelementptr inbounds nuw i8, ptr %259, i64 24
+  %262 = load i32, ptr %261, align 8, !tbaa !21
+  %263 = zext i32 %262 to i64
+  %264 = icmp eq i32 %262, 1
+  %265 = select i1 %264, ptr @.str.13, ptr @.str.14
+  %266 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %260, i64 noundef %263, ptr noundef nonnull %265)
   %.pre289 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
   br label %._crit_edge291
 
-._crit_edge291:                                   ; preds = %254, %255
-  %264 = phi ptr [ %.pre289, %255 ], [ %.pre290, %254 ]
-  %265 = getelementptr inbounds nuw %struct.File, ptr %264, i64 %.pre292
-  %266 = load ptr, ptr %265, align 8, !tbaa !20
-  %267 = call ptr @T_FileStream_open(ptr noundef %266, ptr noundef nonnull @.str.15)
-  %268 = icmp eq ptr %267, null
-  br i1 %268, label %271, label %.preheader
+._crit_edge291:                                   ; preds = %257, %258
+  %267 = phi ptr [ %.pre289, %258 ], [ %.pre290, %257 ]
+  %268 = getelementptr inbounds nuw %struct.File, ptr %267, i64 %.pre292
+  %269 = load ptr, ptr %268, align 8, !tbaa !20
+  %270 = call ptr @T_FileStream_open(ptr noundef %269, ptr noundef nonnull @.str.15)
+  %271 = icmp eq ptr %270, null
+  br i1 %271, label %274, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge291
-  %269 = call i32 @T_FileStream_read(ptr noundef nonnull %267, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer, i32 noundef 4096)
-  %270 = icmp eq i32 %269, 0
-  br i1 %270, label %._crit_edge242, label %.lr.ph241
+  %272 = call i32 @T_FileStream_read(ptr noundef nonnull %270, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer, i32 noundef 4096)
+  %273 = icmp eq i32 %272, 0
+  br i1 %273, label %._crit_edge242, label %.lr.ph241
 
-271:                                              ; preds = %._crit_edge291
-  %272 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %273 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %274 = getelementptr inbounds nuw %struct.File, ptr %273, i64 %.pre292
-  %275 = load ptr, ptr %274, align 8, !tbaa !20
-  %276 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %272, ptr noundef nonnull @.str.16, ptr noundef %275) #14
+274:                                              ; preds = %._crit_edge291
+  %275 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %276 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %277 = getelementptr inbounds nuw %struct.File, ptr %276, i64 %.pre292
+  %278 = load ptr, ptr %277, align 8, !tbaa !20
+  %279 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %275, ptr noundef nonnull @.str.16, ptr noundef %278) #14
   call void @exit(i32 noundef 4) #15
   unreachable
 
 .lr.ph241:                                        ; preds = %.preheader, %.lr.ph241
-  %277 = phi i32 [ %279, %.lr.ph241 ], [ %269, %.preheader ]
-  %.0154240 = phi i32 [ %278, %.lr.ph241 ], [ 0, %.preheader ]
-  %278 = add i32 %277, %.0154240
-  call void @udata_writeBlock(ptr noundef %211, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer, i32 noundef %277)
-  %279 = call i32 @T_FileStream_read(ptr noundef nonnull %267, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer, i32 noundef 4096)
-  %280 = icmp eq i32 %279, 0
-  br i1 %280, label %._crit_edge242, label %.lr.ph241, !llvm.loop !30
+  %280 = phi i32 [ %282, %.lr.ph241 ], [ %272, %.preheader ]
+  %.0154240 = phi i32 [ %281, %.lr.ph241 ], [ 0, %.preheader ]
+  %281 = add i32 %280, %.0154240
+  call void @udata_writeBlock(ptr noundef %212, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer, i32 noundef %280)
+  %282 = call i32 @T_FileStream_read(ptr noundef nonnull %270, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer, i32 noundef 4096)
+  %283 = icmp eq i32 %282, 0
+  br i1 %283, label %._crit_edge242, label %.lr.ph241, !llvm.loop !30
 
 ._crit_edge242:                                   ; preds = %.lr.ph241, %.preheader
-  %.0154.lcssa = phi i32 [ 0, %.preheader ], [ %278, %.lr.ph241 ]
-  call void @T_FileStream_close(ptr noundef nonnull %267)
-  %281 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %282 = getelementptr inbounds nuw %struct.File, ptr %281, i64 %.pre292
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 24
-  %284 = load i32, ptr %283, align 8, !tbaa !21
-  %.not196 = icmp eq i32 %.0154.lcssa, %284
-  br i1 %.not196, label %247, label %285
+  %.0154.lcssa = phi i32 [ 0, %.preheader ], [ %281, %.lr.ph241 ]
+  call void @T_FileStream_close(ptr noundef nonnull %270)
+  %284 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %285 = getelementptr inbounds nuw %struct.File, ptr %284, i64 %.pre292
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 24
+  %287 = load i32, ptr %286, align 8, !tbaa !21
+  %.not196 = icmp eq i32 %.0154.lcssa, %287
+  br i1 %.not196, label %250, label %288
 
-285:                                              ; preds = %._crit_edge242
-  %286 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %287 = load ptr, ptr %282, align 8, !tbaa !20
-  %288 = zext i32 %.0154.lcssa to i64
-  %289 = zext i32 %284 to i64
-  %290 = icmp eq i32 %284, 1
-  %291 = select i1 %290, ptr @.str.13, ptr @.str.14
-  %292 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef nonnull @.str.17, ptr noundef %287, i64 noundef %288, i64 noundef %289, ptr noundef nonnull %291) #14
+288:                                              ; preds = %._crit_edge242
+  %289 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %290 = load ptr, ptr %285, align 8, !tbaa !20
+  %291 = zext i32 %.0154.lcssa to i64
+  %292 = zext i32 %287 to i64
+  %293 = icmp eq i32 %287, 1
+  %294 = select i1 %293, ptr @.str.13, ptr @.str.14
+  %295 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %289, ptr noundef nonnull @.str.17, ptr noundef %290, i64 noundef %291, i64 noundef %292, ptr noundef nonnull %294) #14
   call void @exit(i32 noundef 4) #15
   unreachable
 
-._crit_edge248:                                   ; preds = %247, %._crit_edge239.thread, %._crit_edge239
-  %.0155.lcssa = phi i32 [ %246, %._crit_edge239 ], [ %242, %._crit_edge239.thread ], [ %.0154.lcssa, %247 ]
-  %293 = and i32 %.0155.lcssa, 15
-  %.not193 = icmp eq i32 %293, 0
-  br i1 %.not193, label %296, label %294
+._crit_edge248:                                   ; preds = %250, %._crit_edge239.thread, %._crit_edge239
+  %.0155.lcssa = phi i32 [ %249, %._crit_edge239 ], [ %245, %._crit_edge239.thread ], [ %.0154.lcssa, %250 ]
+  %296 = and i32 %.0155.lcssa, 15
+  %.not193 = icmp eq i32 %296, 0
+  br i1 %.not193, label %299, label %297
 
-294:                                              ; preds = %._crit_edge248
-  %295 = sub nuw nsw i32 16, %293
-  call void @udata_writePadding(ptr noundef %211, i32 noundef %295)
-  br label %296
+297:                                              ; preds = %._crit_edge248
+  %298 = sub nuw nsw i32 16, %296
+  call void @udata_writePadding(ptr noundef %212, i32 noundef %298)
+  br label %299
 
-296:                                              ; preds = %294, %._crit_edge248
-  %297 = call i32 @udata_finish(ptr noundef %211, ptr noundef nonnull %12)
-  %298 = load i32, ptr %12, align 4, !tbaa !3
-  %299 = icmp slt i32 %298, 1
-  br i1 %299, label %375, label %300
+299:                                              ; preds = %297, %._crit_edge248
+  %300 = call i32 @udata_finish(ptr noundef %212, ptr noundef nonnull %12)
+  %301 = load i32, ptr %12, align 4, !tbaa !3
+  %302 = icmp slt i32 %301, 1
+  br i1 %302, label %378, label %303
 
-300:                                              ; preds = %296
-  %301 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %302 = call ptr @u_errorName_77(i32 noundef %298)
-  %303 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %301, ptr noundef nonnull @.str.18, ptr noundef %302) #14
-  %304 = load i32, ptr %12, align 4, !tbaa !3
-  call void @exit(i32 noundef %304) #20
+303:                                              ; preds = %299
+  %304 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %305 = call ptr @u_errorName_77(i32 noundef %301)
+  %306 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %304, ptr noundef nonnull @.str.18, ptr noundef %305) #14
+  %307 = load i32, ptr %12, align 4, !tbaa !3
+  call void @exit(i32 noundef %307) #20
   unreachable
 
-305:                                              ; preds = %185
-  %306 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, ptr noundef nonnull dereferenceable(1) %.0) #18
-  %307 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer) #17
-  %308 = getelementptr inbounds nuw i8, ptr @_ZZ20createCommonDataFileE6buffer, i64 %307
-  %.not197 = icmp eq i64 %307, 0
-  br i1 %.not197, label %314, label %309
+308:                                              ; preds = %186
+  %309 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, ptr noundef nonnull dereferenceable(1) %.0) #18
+  %310 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer) #17
+  %311 = getelementptr inbounds nuw i8, ptr @_ZZ20createCommonDataFileE6buffer, i64 %310
+  %.not197 = icmp eq i64 %310, 0
+  br i1 %.not197, label %317, label %312
 
-309:                                              ; preds = %305
-  %310 = getelementptr inbounds i8, ptr %308, i64 -1
-  %311 = load i8, ptr %310, align 1, !tbaa !12
-  %.not198 = icmp eq i8 %311, 47
-  br i1 %.not198, label %314, label %312
+312:                                              ; preds = %308
+  %313 = getelementptr inbounds i8, ptr %311, i64 -1
+  %314 = load i8, ptr %313, align 1, !tbaa !12
+  %.not198 = icmp eq i8 %314, 47
+  br i1 %.not198, label %317, label %315
 
-312:                                              ; preds = %309
-  %313 = getelementptr inbounds nuw i8, ptr %308, i64 1
-  store i8 47, ptr %308, align 1, !tbaa !12
-  br label %314
+315:                                              ; preds = %312
+  %316 = getelementptr inbounds nuw i8, ptr %311, i64 1
+  store i8 47, ptr %311, align 1, !tbaa !12
+  br label %317
 
-314:                                              ; preds = %312, %309, %305
-  %.5164 = phi ptr [ %313, %312 ], [ %308, %309 ], [ %308, %305 ]
-  %315 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.5164, ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
-  %316 = load i8, ptr %spec.store.select2, align 1, !tbaa !12
-  %.not199 = icmp eq i8 %316, 0
-  br i1 %.not199, label %322, label %317
+317:                                              ; preds = %315, %312, %308
+  %.5164 = phi ptr [ %316, %315 ], [ %311, %312 ], [ %311, %308 ]
+  %318 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.5164, ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
+  %319 = load i8, ptr %spec.store.select2, align 1, !tbaa !12
+  %.not199 = icmp eq i8 %319, 0
+  br i1 %.not199, label %325, label %320
 
-317:                                              ; preds = %314
-  %318 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5164) #17
-  %319 = getelementptr inbounds nuw i8, ptr %.5164, i64 %318
-  %320 = getelementptr inbounds nuw i8, ptr %319, i64 1
-  store i8 95, ptr %319, align 1, !tbaa !12
-  %321 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %320, ptr noundef nonnull dereferenceable(1) %spec.store.select2) #18
-  br label %322
+320:                                              ; preds = %317
+  %321 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5164) #17
+  %322 = getelementptr inbounds nuw i8, ptr %.5164, i64 %321
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 1
+  store i8 95, ptr %322, align 1, !tbaa !12
+  %324 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %323, ptr noundef nonnull dereferenceable(1) %spec.store.select2) #18
+  br label %325
 
-322:                                              ; preds = %317, %314
-  %.6 = phi ptr [ %320, %317 ], [ %.5164, %314 ]
-  %323 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.6) #17
-  %324 = getelementptr inbounds nuw i8, ptr %.6, i64 %323
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %324, ptr noundef nonnull align 1 dereferenceable(3) @.str.19, i64 3, i1 false) #18
-  %325 = tail call ptr @T_FileStream_open(ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer, ptr noundef nonnull @.str.20)
+325:                                              ; preds = %320, %317
+  %.6 = phi ptr [ %323, %320 ], [ %.5164, %317 ]
+  %326 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.6) #17
+  %327 = getelementptr inbounds nuw i8, ptr %.6, i64 %326
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %327, ptr noundef nonnull align 1 dereferenceable(3) @.str.19, i64 3, i1 false) #18
+  %328 = tail call ptr @T_FileStream_open(ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer, ptr noundef nonnull @.str.20)
   %.not200 = icmp eq ptr %10, null
-  br i1 %.not200, label %328, label %326
+  br i1 %.not200, label %331, label %329
 
-326:                                              ; preds = %322
-  %327 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer) #18
-  br label %328
+329:                                              ; preds = %325
+  %330 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer) #18
+  br label %331
 
-328:                                              ; preds = %326, %322
-  %329 = icmp eq ptr %325, null
-  br i1 %329, label %330, label %333
+331:                                              ; preds = %329, %325
+  %332 = icmp eq ptr %328, null
+  br i1 %332, label %333, label %336
 
-330:                                              ; preds = %328
-  %331 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %332 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %331, ptr noundef nonnull @.str.21, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer) #14
+333:                                              ; preds = %331
+  %334 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %335 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %334, ptr noundef nonnull @.str.21, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer) #14
   tail call void @exit(i32 noundef 4) #15
   unreachable
 
-333:                                              ; preds = %328
-  %334 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %335 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.22, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, i32 noundef %334) #18
-  %336 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
-  %337 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %338 = load ptr, ptr %337, align 8, !tbaa !20
-  %339 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.13, ptr noundef %338) #18
-  %340 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
-  %341 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %342 = icmp ugt i32 %341, 1
-  br i1 %342, label %.lr.ph, label %._crit_edge
+336:                                              ; preds = %331
+  %337 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %338 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.22, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, i32 noundef %337) #18
+  %339 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %328, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
+  %340 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %341 = load ptr, ptr %340, align 8, !tbaa !20
+  %342 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.13, ptr noundef %341) #18
+  %343 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %328, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
+  %344 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %345 = icmp ugt i32 %344, 1
+  br i1 %345, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %333, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %333 ]
-  %343 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %344 = getelementptr inbounds nuw %struct.File, ptr %343, i64 %indvars.iv
-  %345 = load ptr, ptr %344, align 8, !tbaa !20
-  %346 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.13, ptr noundef %345) #18
-  %347 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
+.lr.ph:                                           ; preds = %336, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %336 ]
+  %346 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %347 = getelementptr inbounds nuw %struct.File, ptr %346, i64 %indvars.iv
+  %348 = load ptr, ptr %347, align 8, !tbaa !20
+  %349 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.13, ptr noundef %348) #18
+  %350 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %328, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %348 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %349 = zext i32 %348 to i64
-  %350 = icmp samesign ult i64 %indvars.iv.next, %349
-  br i1 %350, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  %351 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %352 = zext i32 %351 to i64
+  %353 = icmp samesign ult i64 %indvars.iv.next, %352
+  br i1 %353, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %.lr.ph, %333
-  %351 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @.str.25)
-  %352 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %353 = zext i32 %352 to i64
-  %354 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.26, i64 noundef 8, i64 noundef %353, ptr noundef %2, i64 noundef 20, i32 noundef 0, i32 noundef 0, i32 noundef 2, i64 noundef %353) #18
-  %355 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
-  %356 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  %358 = load ptr, ptr %357, align 8, !tbaa !16
-  %359 = load ptr, ptr %356, align 8, !tbaa !20
-  %360 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.27, ptr noundef %358, ptr noundef nonnull @.str.13, ptr noundef %359) #18
-  %361 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
-  %362 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %363 = icmp ugt i32 %362, 1
-  br i1 %363, label %.lr.ph226, label %._crit_edge227
+._crit_edge:                                      ; preds = %.lr.ph, %336
+  %354 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %328, ptr noundef nonnull @.str.25)
+  %355 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %356 = zext i32 %355 to i64
+  %357 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.26, i64 noundef 8, i64 noundef %356, ptr noundef %2, i64 noundef 20, i32 noundef 0, i32 noundef 0, i32 noundef 2, i64 noundef %356) #18
+  %358 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %328, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
+  %359 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
+  %361 = load ptr, ptr %360, align 8, !tbaa !16
+  %362 = load ptr, ptr %359, align 8, !tbaa !20
+  %363 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.27, ptr noundef %361, ptr noundef nonnull @.str.13, ptr noundef %362) #18
+  %364 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %328, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
+  %365 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %366 = icmp ugt i32 %365, 1
+  br i1 %366, label %.lr.ph226, label %._crit_edge227
 
 .lr.ph226:                                        ; preds = %._crit_edge, %.lr.ph226
   %indvars.iv277 = phi i64 [ %indvars.iv.next278, %.lr.ph226 ], [ 1, %._crit_edge ]
-  %364 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
-  %365 = getelementptr inbounds nuw %struct.File, ptr %364, i64 %indvars.iv277
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 8
-  %367 = load ptr, ptr %366, align 8, !tbaa !16
-  %368 = load ptr, ptr %365, align 8, !tbaa !20
-  %369 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.28, ptr noundef %367, ptr noundef nonnull @.str.13, ptr noundef %368) #18
-  %370 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
+  %367 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
+  %368 = getelementptr inbounds nuw %struct.File, ptr %367, i64 %indvars.iv277
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
+  %370 = load ptr, ptr %369, align 8, !tbaa !16
+  %371 = load ptr, ptr %368, align 8, !tbaa !20
+  %372 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.28, ptr noundef %370, ptr noundef nonnull @.str.13, ptr noundef %371) #18
+  %373 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %328, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
-  %371 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %372 = zext i32 %371 to i64
-  %373 = icmp samesign ult i64 %indvars.iv.next278, %372
-  br i1 %373, label %.lr.ph226, label %._crit_edge227, !llvm.loop !32
+  %374 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
+  %375 = zext i32 %374 to i64
+  %376 = icmp samesign ult i64 %indvars.iv.next278, %375
+  br i1 %376, label %.lr.ph226, label %._crit_edge227, !llvm.loop !32
 
 ._crit_edge227:                                   ; preds = %.lr.ph226, %._crit_edge
-  %374 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @.str.29)
-  tail call void @T_FileStream_close(ptr noundef nonnull %325)
+  %377 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %328, ptr noundef nonnull @.str.29)
+  tail call void @T_FileStream_close(ptr noundef nonnull %328)
   tail call void @uprv_free_77(ptr noundef null)
-  br label %375
+  br label %378
 
-375:                                              ; preds = %._crit_edge227, %296, %181
+378:                                              ; preds = %._crit_edge227, %299, %182
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }

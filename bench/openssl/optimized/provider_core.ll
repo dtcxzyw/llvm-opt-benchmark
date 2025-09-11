@@ -1922,7 +1922,7 @@ get_provider_store.exit.i:                        ; preds = %25
   store i64 %147, ptr %148, align 8, !tbaa !95
   %149 = getelementptr i8, ptr %144, i64 -8
   %150 = load ptr, ptr %149, align 8, !tbaa !98
-  %151 = getelementptr inbounds nuw %struct.ERR_string_data_st, ptr %131, i64 %.0161.i, i32 1
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store ptr %150, ptr %151, align 8, !tbaa !97
   %152 = add nuw i64 %.0161.i, 1
   %exitcond.i = icmp eq i64 %152, %umax.i

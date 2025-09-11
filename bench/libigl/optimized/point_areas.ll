@@ -23444,7 +23444,7 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit
-  %11 = phi i64 [ %70, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit ], [ %9, %5 ]
+  %11 = phi i64 [ %76, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit ], [ %9, %5 ]
   %.031 = phi i64 [ %18, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit ], [ %3, %5 ]
   %.sroa.022.030 = phi ptr [ %.sroa.012.1.i.i..sroa.022.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit ], [ %0, %5 ]
   %.sroa.019.029 = phi ptr [ %.sroa.019.0..sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit ], [ %2, %5 ]
@@ -23468,182 +23468,192 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   %22 = getelementptr inbounds i8, ptr %.sroa.019.029, i64 -8
   %23 = load i64, ptr %21, align 8, !tbaa !46
   %24 = load i64, ptr %20, align 8, !tbaa !46
-  %25 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %23, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %26 = load double, ptr %25, align 8, !tbaa !14
-  %27 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %24, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+  %25 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %23
+  %26 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load double, ptr %27, align 8, !tbaa !14
-  %29 = fcmp olt double %26, %28
-  %30 = load i64, ptr %22, align 8, !tbaa !46
-  %31 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %30, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %32 = load double, ptr %31, align 8, !tbaa !14
-  br i1 %29, label %33, label %42
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %30 = load double, ptr %29, align 8, !tbaa !14
+  %31 = fcmp olt double %28, %30
+  %32 = load i64, ptr %22, align 8, !tbaa !46
+  %33 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load double, ptr %34, align 8, !tbaa !14
+  br i1 %31, label %36, label %45
 
-33:                                               ; preds = %17
-  %34 = fcmp olt double %28, %32
-  br i1 %34, label %35, label %37
+36:                                               ; preds = %17
+  %37 = fcmp olt double %30, %35
+  br i1 %37, label %38, label %40
 
-35:                                               ; preds = %33
-  %36 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %24, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %36, ptr %20, align 8, !tbaa !46
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
-
-37:                                               ; preds = %33
-  %38 = fcmp olt double %26, %32
+38:                                               ; preds = %36
   %39 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
-  br i1 %38, label %40, label %41
-
-40:                                               ; preds = %37
-  store i64 %30, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %39, ptr %22, align 8, !tbaa !46
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
-
-41:                                               ; preds = %37
-  store i64 %23, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %39, ptr %21, align 8, !tbaa !46
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
-
-42:                                               ; preds = %17
-  %43 = fcmp olt double %26, %32
-  br i1 %43, label %44, label %46
-
-44:                                               ; preds = %42
-  %45 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %23, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %45, ptr %21, align 8, !tbaa !46
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
-
-46:                                               ; preds = %42
-  %47 = fcmp olt double %28, %32
-  %48 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
-  br i1 %47, label %49, label %50
-
-49:                                               ; preds = %46
-  store i64 %30, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %48, ptr %22, align 8, !tbaa !46
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
-
-50:                                               ; preds = %46
   store i64 %24, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %48, ptr %20, align 8, !tbaa !46
+  store i64 %39, ptr %20, align 8, !tbaa !46
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader: ; preds = %50, %49, %44, %41, %40, %35
+40:                                               ; preds = %36
+  %41 = fcmp olt double %28, %35
+  %42 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
+  br i1 %41, label %43, label %44
+
+43:                                               ; preds = %40
+  store i64 %32, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %42, ptr %22, align 8, !tbaa !46
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
+
+44:                                               ; preds = %40
+  store i64 %23, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %42, ptr %21, align 8, !tbaa !46
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
+
+45:                                               ; preds = %17
+  %46 = fcmp olt double %28, %35
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %45
+  %48 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %23, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %48, ptr %21, align 8, !tbaa !46
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
+
+49:                                               ; preds = %45
+  %50 = fcmp olt double %30, %35
+  %51 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
+  br i1 %50, label %52, label %53
+
+52:                                               ; preds = %49
+  store i64 %32, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %51, ptr %22, align 8, !tbaa !46
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
+
+53:                                               ; preds = %49
+  store i64 %24, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %51, ptr %20, align 8, !tbaa !46
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
+
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader: ; preds = %53, %52, %47, %44, %43, %38
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader, %66
-  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %66 ], [ %.sroa.019.029, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader ]
-  %.sroa.012.0.i.i = phi ptr [ %59, %66 ], [ %21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader ]
-  %51 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
-  %52 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %51, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %53 = load double, ptr %52, align 8, !tbaa !14
-  br label %54
-
-54:                                               ; preds = %54, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i
-  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i ], [ %59, %54 ]
-  %55 = load i64, ptr %.sroa.012.1.i.i, align 8, !tbaa !46
-  %56 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %55, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader, %72
+  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %72 ], [ %.sroa.019.029, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader ]
+  %.sroa.012.0.i.i = phi ptr [ %64, %72 ], [ %21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader ]
+  %54 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
+  %55 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load double, ptr %56, align 8, !tbaa !14
-  %58 = fcmp olt double %57, %53
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 8
-  br i1 %58, label %54, label %.preheader.i.i, !llvm.loop !1014
+  br label %58
 
-.preheader.i.i:                                   ; preds = %54, %.preheader.i.i
-  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %54 ]
-  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
-  %60 = load i64, ptr %.sroa.09.1.i.i, align 8, !tbaa !46
-  %61 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %60, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+58:                                               ; preds = %58, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i ], [ %64, %58 ]
+  %59 = load i64, ptr %.sroa.012.1.i.i, align 8, !tbaa !46
+  %60 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load double, ptr %61, align 8, !tbaa !14
-  %63 = fcmp olt double %53, %62
-  br i1 %63, label %.preheader.i.i, label %64, !llvm.loop !1015
+  %63 = fcmp olt double %62, %57
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 8
+  br i1 %63, label %58, label %.preheader.i.i, !llvm.loop !1014
 
-64:                                               ; preds = %.preheader.i.i
-  %65 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
-  br i1 %65, label %66, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit
+.preheader.i.i:                                   ; preds = %58, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %58 ]
+  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
+  %65 = load i64, ptr %.sroa.09.1.i.i, align 8, !tbaa !46
+  %66 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load double, ptr %67, align 8, !tbaa !14
+  %69 = fcmp olt double %57, %68
+  br i1 %69, label %.preheader.i.i, label %70, !llvm.loop !1015
 
-66:                                               ; preds = %64
-  store i64 %60, ptr %.sroa.012.1.i.i, align 8, !tbaa !46
-  store i64 %55, ptr %.sroa.09.1.i.i, align 8, !tbaa !46
+70:                                               ; preds = %.preheader.i.i
+  %71 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %71, label %72, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit
+
+72:                                               ; preds = %70
+  store i64 %65, ptr %.sroa.012.1.i.i, align 8, !tbaa !46
+  store i64 %59, ptr %.sroa.09.1.i.i, align 8, !tbaa !46
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_SS_T0_.exit.i, !llvm.loop !1016
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit: ; preds = %64
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit: ; preds = %70
   %.not = icmp ugt ptr %.sroa.012.1.i.i, %1
   %.sroa.019.0..sroa.012.1.i.i = select i1 %.not, ptr %.sroa.012.1.i.i, ptr %.sroa.019.029
   %.sroa.012.1.i.i..sroa.022.0 = select i1 %.not, ptr %.sroa.022.030, ptr %.sroa.012.1.i.i
-  %67 = ptrtoint ptr %.sroa.019.0..sroa.012.1.i.i to i64
-  %68 = ptrtoint ptr %.sroa.012.1.i.i..sroa.022.0 to i64
-  %69 = sub i64 %67, %68
-  %70 = ashr exact i64 %69, 3
-  %71 = icmp sgt i64 %70, 3
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !1017
+  %73 = ptrtoint ptr %.sroa.019.0..sroa.012.1.i.i to i64
+  %74 = ptrtoint ptr %.sroa.012.1.i.i..sroa.022.0 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 3
+  %77 = icmp sgt i64 %76, 3
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !1017
 
 ._crit_edge:                                      ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit, %5
   %.sroa.019.0.lcssa = phi ptr [ %2, %5 ], [ %.sroa.019.0..sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit ]
   %.sroa.022.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.012.1.i.i..sroa.022.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit ]
-  %.lcssa25 = phi i64 [ %7, %5 ], [ %68, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit ]
-  %72 = icmp eq ptr %.sroa.022.0.lcssa, %.sroa.019.0.lcssa
+  %.lcssa25 = phi i64 [ %7, %5 ], [ %74, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEET_SS_SS_T0_.exit ]
+  %78 = icmp eq ptr %.sroa.022.0.lcssa, %.sroa.019.0.lcssa
   %.sroa.0.018.i = getelementptr inbounds nuw i8, ptr %.sroa.022.0.lcssa, i64 8
   %.not19.i = icmp eq ptr %.sroa.0.018.i, %.sroa.019.0.lcssa
-  %or.cond = select i1 %72, i1 true, i1 %.not19.i
+  %or.cond = select i1 %78, i1 true, i1 %.not19.i
   br i1 %or.cond, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
   %.sroa.0.021.i = phi ptr [ %.sroa.0.0.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i ], [ %.sroa.0.018.i, %._crit_edge ]
   %.pn20.i = phi ptr [ %.sroa.0.021.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i ], [ %.sroa.022.0.lcssa, %._crit_edge ]
-  %73 = load i64, ptr %.sroa.0.021.i, align 8, !tbaa !46
-  %74 = load i64, ptr %.sroa.022.0.lcssa, align 8, !tbaa !46
-  %75 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %73, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %76 = load double, ptr %75, align 8, !tbaa !14
-  %77 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %74, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %78 = load double, ptr %77, align 8, !tbaa !14
-  %79 = fcmp olt double %76, %78
-  br i1 %79, label %80, label %93
+  %79 = load i64, ptr %.sroa.0.021.i, align 8, !tbaa !46
+  %80 = load i64, ptr %.sroa.022.0.lcssa, align 8, !tbaa !46
+  %81 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %79
+  %82 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %80
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %84 = load double, ptr %83, align 8, !tbaa !14
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %86 = load double, ptr %85, align 8, !tbaa !14
+  %87 = fcmp olt double %84, %86
+  br i1 %87, label %88, label %101
 
-80:                                               ; preds = %.lr.ph.i
-  %81 = ptrtoint ptr %.sroa.0.021.i to i64
-  %82 = sub i64 %81, %.lcssa25
-  %83 = ashr exact i64 %82, 3
-  %84 = icmp sgt i64 %83, 1
-  br i1 %84, label %85, label %89, !prof !1007
+88:                                               ; preds = %.lr.ph.i
+  %89 = ptrtoint ptr %.sroa.0.021.i to i64
+  %90 = sub i64 %89, %.lcssa25
+  %91 = ashr exact i64 %90, 3
+  %92 = icmp sgt i64 %91, 1
+  br i1 %92, label %93, label %97, !prof !1007
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %.pn20.i, i64 16
-  %87 = sub nsw i64 0, %83
-  %88 = getelementptr inbounds i64, ptr %86, i64 %87
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %88, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.022.0.lcssa, i64 %82, i1 false)
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds nuw i8, ptr %.pn20.i, i64 16
+  %95 = sub nsw i64 0, %91
+  %96 = getelementptr inbounds i64, ptr %94, i64 %95
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %96, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.022.0.lcssa, i64 %90, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
 
-89:                                               ; preds = %80
-  %90 = icmp eq i64 %82, 8
-  br i1 %90, label %91, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
+97:                                               ; preds = %88
+  %98 = icmp eq i64 %90, 8
+  br i1 %98, label %99, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
 
-91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw i8, ptr %.pn20.i, i64 8
-  store i64 %74, ptr %92, align 8, !tbaa !46
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds nuw i8, ptr %.pn20.i, i64 8
+  store i64 %80, ptr %100, align 8, !tbaa !46
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
 
-93:                                               ; preds = %.lr.ph.i
-  %94 = load i64, ptr %.pn20.i, align 8, !tbaa !46
-  %95 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %94, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %96 = load double, ptr %95, align 8, !tbaa !14
-  %97 = fcmp olt double %76, %96
-  br i1 %97, label %.lr.ph.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
+101:                                              ; preds = %.lr.ph.i
+  %102 = load i64, ptr %.pn20.i, align 8, !tbaa !46
+  %103 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %105 = load double, ptr %104, align 8, !tbaa !14
+  %106 = fcmp olt double %84, %105
+  br i1 %106, label %.lr.ph.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %93, %.lr.ph.i.i
-  %98 = phi i64 [ %99, %.lr.ph.i.i ], [ %94, %93 ]
-  %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.pn20.i, %93 ]
-  %.sroa.05.09.i.i = phi ptr [ %.sroa.0.010.i.i, %.lr.ph.i.i ], [ %.sroa.0.021.i, %93 ]
-  store i64 %98, ptr %.sroa.05.09.i.i, align 8, !tbaa !46
+.lr.ph.i.i:                                       ; preds = %101, %.lr.ph.i.i
+  %107 = phi i64 [ %108, %.lr.ph.i.i ], [ %102, %101 ]
+  %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.pn20.i, %101 ]
+  %.sroa.05.09.i.i = phi ptr [ %.sroa.0.010.i.i, %.lr.ph.i.i ], [ %.sroa.0.021.i, %101 ]
+  store i64 %107, ptr %.sroa.05.09.i.i, align 8, !tbaa !46
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.010.i.i, i64 -8
-  %99 = load i64, ptr %.sroa.0.0.i.i, align 8, !tbaa !46
-  %100 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %99, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %101 = load double, ptr %100, align 8, !tbaa !14
-  %102 = fcmp olt double %76, %101
-  br i1 %102, label %.lr.ph.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !1018
+  %108 = load i64, ptr %.sroa.0.0.i.i, align 8, !tbaa !46
+  %109 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = load double, ptr %110, align 8, !tbaa !14
+  %112 = fcmp olt double %84, %111
+  br i1 %112, label %.lr.ph.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !1018
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i, %93, %91, %89, %85
-  %.sink.i = phi ptr [ %.sroa.022.0.lcssa, %85 ], [ %.sroa.022.0.lcssa, %89 ], [ %.sroa.022.0.lcssa, %91 ], [ %.sroa.0.021.i, %93 ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
-  store i64 %73, ptr %.sink.i, align 8, !tbaa !46
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i, %101, %99, %97, %93
+  %.sink.i = phi ptr [ %.sroa.022.0.lcssa, %93 ], [ %.sroa.022.0.lcssa, %97 ], [ %.sroa.022.0.lcssa, %99 ], [ %.sroa.0.021.i, %101 ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
+  store i64 %79, ptr %.sink.i, align 8, !tbaa !46
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 8
   %.not.i = icmp eq ptr %.sroa.0.0.i, %.sroa.019.0.lcssa
   br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_T0_.exit, label %.lr.ph.i, !llvm.loop !1019
@@ -23676,7 +23686,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
   br i1 %16, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %10, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us
-  %.09.i.us = phi i64 [ %52, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us ], [ %12, %10 ]
+  %.09.i.us = phi i64 [ %56, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us ], [ %12, %10 ]
   %20 = getelementptr inbounds i64, ptr %.fr40, i64 %.09.i.us
   %21 = load i64, ptr %20, align 8, !tbaa !46
   %22 = icmp slt i64 %.09.i.us, %14
@@ -23691,320 +23701,340 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
   %27 = getelementptr inbounds i64, ptr %.fr40, i64 %26
   %28 = load i64, ptr %25, align 8, !tbaa !46
   %29 = load i64, ptr %27, align 8, !tbaa !46
-  %30 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %28, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %31 = load double, ptr %30, align 8, !tbaa !14
-  %32 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %29, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+  %30 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %28
+  %31 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %29
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load double, ptr %32, align 8, !tbaa !14
-  %34 = fcmp olt double %31, %33
-  %spec.select.i.i.us = select i1 %34, i64 %26, i64 %24
-  %35 = getelementptr inbounds i64, ptr %.fr40, i64 %spec.select.i.i.us
-  %36 = load i64, ptr %35, align 8, !tbaa !46
-  %37 = getelementptr inbounds i64, ptr %.fr40, i64 %.037.i.i.us
-  store i64 %36, ptr %37, align 8, !tbaa !46
-  %38 = icmp slt i64 %spec.select.i.i.us, %14
-  br i1 %38, label %.lr.ph.i.i.us, label %._crit_edge.i.i.us, !llvm.loop !1020
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %35 = load double, ptr %34, align 8, !tbaa !14
+  %36 = fcmp olt double %33, %35
+  %spec.select.i.i.us = select i1 %36, i64 %26, i64 %24
+  %37 = getelementptr inbounds i64, ptr %.fr40, i64 %spec.select.i.i.us
+  %38 = load i64, ptr %37, align 8, !tbaa !46
+  %39 = getelementptr inbounds i64, ptr %.fr40, i64 %.037.i.i.us
+  store i64 %38, ptr %39, align 8, !tbaa !46
+  %40 = icmp slt i64 %spec.select.i.i.us, %14
+  br i1 %40, label %.lr.ph.i.i.us, label %._crit_edge.i.i.us, !llvm.loop !1020
 
 ._crit_edge.i.i.us:                               ; preds = %.lr.ph.i.i.us
-  %39 = icmp sgt i64 %spec.select.i.i.us, %.09.i.us
-  br i1 %39, label %.lr.ph.i.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us
+  %41 = icmp sgt i64 %spec.select.i.i.us, %.09.i.us
+  br i1 %41, label %.lr.ph.i.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %._crit_edge.i.i.us
-  %40 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %21, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %41 = load double, ptr %40, align 8, !tbaa !14
-  br label %42
+  %42 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %21
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load double, ptr %43, align 8, !tbaa !14
+  br label %45
 
-42:                                               ; preds = %48, %.lr.ph.i.i.i.us
-  %.019.i.i.i.us = phi i64 [ %spec.select.i.i.us, %.lr.ph.i.i.i.us ], [ %.0920.i.i.i.us, %48 ]
+45:                                               ; preds = %52, %.lr.ph.i.i.i.us
+  %.019.i.i.i.us = phi i64 [ %spec.select.i.i.us, %.lr.ph.i.i.i.us ], [ %.0920.i.i.i.us, %52 ]
   %.0920.in.i.i.i.us = add nsw i64 %.019.i.i.i.us, -1
   %.0920.i.i.i.us = sdiv i64 %.0920.in.i.i.i.us, 2
-  %43 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0920.i.i.i.us
-  %44 = load i64, ptr %43, align 8, !tbaa !46
-  %45 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %44, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %46 = load double, ptr %45, align 8, !tbaa !14
-  %47 = fcmp olt double %46, %41
-  br i1 %47, label %48, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us
+  %46 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0920.i.i.i.us
+  %47 = load i64, ptr %46, align 8, !tbaa !46
+  %48 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load double, ptr %49, align 8, !tbaa !14
+  %51 = fcmp olt double %50, %44
+  br i1 %51, label %52, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us
 
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.019.i.i.i.us
-  store i64 %44, ptr %49, align 8, !tbaa !46
-  %50 = icmp sgt i64 %.0920.i.i.i.us, %.09.i.us
-  br i1 %50, label %42, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us, !llvm.loop !1021
+52:                                               ; preds = %45
+  %53 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.019.i.i.i.us
+  store i64 %47, ptr %53, align 8, !tbaa !46
+  %54 = icmp sgt i64 %.0920.i.i.i.us, %.09.i.us
+  br i1 %54, label %45, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us, !llvm.loop !1021
 
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us: ; preds = %42, %48, %.split.us, %._crit_edge.i.i.us
-  %.0.lcssa.i.i.i.us = phi i64 [ %spec.select.i.i.us, %._crit_edge.i.i.us ], [ %.09.i.us, %.split.us ], [ %.019.i.i.i.us, %42 ], [ %.0920.i.i.i.us, %48 ]
-  %51 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0.lcssa.i.i.i.us
-  store i64 %21, ptr %51, align 8, !tbaa !46
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us: ; preds = %45, %52, %.split.us, %._crit_edge.i.i.us
+  %.0.lcssa.i.i.i.us = phi i64 [ %spec.select.i.i.us, %._crit_edge.i.i.us ], [ %.09.i.us, %.split.us ], [ %.019.i.i.i.us, %45 ], [ %.0920.i.i.i.us, %52 ]
+  %55 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0.lcssa.i.i.i.us
+  store i64 %21, ptr %55, align 8, !tbaa !46
   %.not.i.us = icmp eq i64 %.09.i.us, 0
-  %52 = add nsw i64 %.09.i.us, -1
+  %56 = add nsw i64 %.09.i.us, -1
   br i1 %.not.i.us, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_RT0_.exit, label %.split.us, !llvm.loop !1022
 
 .split:                                           ; preds = %10, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i
-  %.09.i = phi i64 [ %89, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i ], [ %12, %10 ]
-  %53 = getelementptr inbounds i64, ptr %.fr40, i64 %.09.i
-  %54 = load i64, ptr %53, align 8, !tbaa !46
-  %55 = icmp slt i64 %.09.i, %14
-  br i1 %55, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.09.i = phi i64 [ %97, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i ], [ %12, %10 ]
+  %57 = getelementptr inbounds i64, ptr %.fr40, i64 %.09.i
+  %58 = load i64, ptr %57, align 8, !tbaa !46
+  %59 = icmp slt i64 %.09.i, %14
+  br i1 %59, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.split, %.lr.ph.i.i
   %.037.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ %.09.i, %.split ]
-  %56 = shl i64 %.037.i.i, 1
-  %57 = add i64 %56, 2
-  %58 = getelementptr inbounds i64, ptr %.fr40, i64 %57
-  %59 = or disjoint i64 %56, 1
-  %60 = getelementptr inbounds i64, ptr %.fr40, i64 %59
-  %61 = load i64, ptr %58, align 8, !tbaa !46
-  %62 = load i64, ptr %60, align 8, !tbaa !46
-  %63 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %61, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %64 = load double, ptr %63, align 8, !tbaa !14
-  %65 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %62, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %66 = load double, ptr %65, align 8, !tbaa !14
-  %67 = fcmp olt double %64, %66
-  %spec.select.i.i = select i1 %67, i64 %59, i64 %57
-  %68 = getelementptr inbounds i64, ptr %.fr40, i64 %spec.select.i.i
-  %69 = load i64, ptr %68, align 8, !tbaa !46
-  %70 = getelementptr inbounds i64, ptr %.fr40, i64 %.037.i.i
-  store i64 %69, ptr %70, align 8, !tbaa !46
-  %71 = icmp slt i64 %spec.select.i.i, %14
-  br i1 %71, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !1020
+  %60 = shl i64 %.037.i.i, 1
+  %61 = add i64 %60, 2
+  %62 = getelementptr inbounds i64, ptr %.fr40, i64 %61
+  %63 = or disjoint i64 %60, 1
+  %64 = getelementptr inbounds i64, ptr %.fr40, i64 %63
+  %65 = load i64, ptr %62, align 8, !tbaa !46
+  %66 = load i64, ptr %64, align 8, !tbaa !46
+  %67 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %65
+  %68 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %66
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %70 = load double, ptr %69, align 8, !tbaa !14
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %72 = load double, ptr %71, align 8, !tbaa !14
+  %73 = fcmp olt double %70, %72
+  %spec.select.i.i = select i1 %73, i64 %63, i64 %61
+  %74 = getelementptr inbounds i64, ptr %.fr40, i64 %spec.select.i.i
+  %75 = load i64, ptr %74, align 8, !tbaa !46
+  %76 = getelementptr inbounds i64, ptr %.fr40, i64 %.037.i.i
+  store i64 %75, ptr %76, align 8, !tbaa !46
+  %77 = icmp slt i64 %spec.select.i.i, %14
+  br i1 %77, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !1020
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.split
   %.0.lcssa.i.i = phi i64 [ %.09.i, %.split ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %72 = icmp eq i64 %.0.lcssa.i.i, %12
-  br i1 %72, label %73, label %75
+  %78 = icmp eq i64 %.0.lcssa.i.i, %12
+  br i1 %78, label %79, label %81
 
-73:                                               ; preds = %._crit_edge.i.i
-  %74 = load i64, ptr %18, align 8, !tbaa !46
-  store i64 %74, ptr %19, align 8, !tbaa !46
-  br label %75
+79:                                               ; preds = %._crit_edge.i.i
+  %80 = load i64, ptr %18, align 8, !tbaa !46
+  store i64 %80, ptr %19, align 8, !tbaa !46
+  br label %81
 
-75:                                               ; preds = %73, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %17, %73 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %76 = icmp sgt i64 %.1.i.i, %.09.i
-  br i1 %76, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i
+81:                                               ; preds = %79, %._crit_edge.i.i
+  %.1.i.i = phi i64 [ %17, %79 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %82 = icmp sgt i64 %.1.i.i, %.09.i
+  br i1 %82, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i
 
-.lr.ph.i.i.i:                                     ; preds = %75
-  %77 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %54, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %78 = load double, ptr %77, align 8, !tbaa !14
-  br label %79
+.lr.ph.i.i.i:                                     ; preds = %81
+  %83 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %58
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %85 = load double, ptr %84, align 8, !tbaa !14
+  br label %86
 
-79:                                               ; preds = %85, %.lr.ph.i.i.i
-  %.019.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.0920.i.i.i, %85 ]
+86:                                               ; preds = %93, %.lr.ph.i.i.i
+  %.019.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.0920.i.i.i, %93 ]
   %.0920.in.i.i.i = add nsw i64 %.019.i.i.i, -1
   %.0920.i.i.i = sdiv i64 %.0920.in.i.i.i, 2
-  %80 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0920.i.i.i
-  %81 = load i64, ptr %80, align 8, !tbaa !46
-  %82 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %81, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %83 = load double, ptr %82, align 8, !tbaa !14
-  %84 = fcmp olt double %83, %78
-  br i1 %84, label %85, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i
+  %87 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0920.i.i.i
+  %88 = load i64, ptr %87, align 8, !tbaa !46
+  %89 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %88
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load double, ptr %90, align 8, !tbaa !14
+  %92 = fcmp olt double %91, %85
+  br i1 %92, label %93, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i
 
-85:                                               ; preds = %79
-  %86 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.019.i.i.i
-  store i64 %81, ptr %86, align 8, !tbaa !46
-  %87 = icmp sgt i64 %.0920.i.i.i, %.09.i
-  br i1 %87, label %79, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i, !llvm.loop !1021
+93:                                               ; preds = %86
+  %94 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.019.i.i.i
+  store i64 %88, ptr %94, align 8, !tbaa !46
+  %95 = icmp sgt i64 %.0920.i.i.i, %.09.i
+  br i1 %95, label %86, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i, !llvm.loop !1021
 
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i: ; preds = %85, %79, %75
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %75 ], [ %.019.i.i.i, %79 ], [ %.0920.i.i.i, %85 ]
-  %88 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0.lcssa.i.i.i
-  store i64 %54, ptr %88, align 8, !tbaa !46
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i: ; preds = %93, %86, %81
+  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %81 ], [ %.019.i.i.i, %86 ], [ %.0920.i.i.i, %93 ]
+  %96 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0.lcssa.i.i.i
+  store i64 %58, ptr %96, align 8, !tbaa !46
   %.not.i = icmp eq i64 %.09.i, 0
-  %89 = add nsw i64 %.09.i, -1
+  %97 = add nsw i64 %.09.i, -1
   br i1 %.not.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_RT0_.exit, label %.split, !llvm.loop !1022
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_RT0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_T0_ST_T1_T2_.exit.i, %4
-  %90 = icmp ult ptr %.fr39, %2
-  br i1 %90, label %.lr.ph, label %._crit_edge
+  %98 = icmp ult ptr %.fr39, %2
+  br i1 %98, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_RT0_.exit
-  %91 = add nsw i64 %8, -1
-  %92 = sdiv i64 %91, 2
-  %93 = icmp sgt i64 %8, 2
-  %94 = and i64 %7, 8
-  %95 = icmp eq i64 %94, 0
-  %96 = add nsw i64 %8, -2
-  %97 = ashr exact i64 %96, 1
-  br i1 %93, label %.lr.ph.split.us.preheader, label %.lr.ph.split
+  %99 = add nsw i64 %8, -1
+  %100 = sdiv i64 %99, 2
+  %101 = icmp sgt i64 %8, 2
+  %102 = and i64 %7, 8
+  %103 = icmp eq i64 %102, 0
+  %104 = add nsw i64 %8, -2
+  %105 = ashr exact i64 %104, 1
+  br i1 %101, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %98 = or disjoint i64 %96, 1
-  %99 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %98
-  %100 = getelementptr inbounds i64, ptr %.fr40, i64 %97
+  %106 = or disjoint i64 %104, 1
+  %107 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %106
+  %108 = getelementptr inbounds i64, ptr %.fr40, i64 %105
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %134
-  %.sroa.0.024.us = phi ptr [ %135, %134 ], [ %.fr39, %.lr.ph.split.us.preheader ]
-  %101 = load i64, ptr %.sroa.0.024.us, align 8, !tbaa !46
-  %102 = load i64, ptr %.fr40, align 8, !tbaa !46
-  %103 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %101, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %104 = load double, ptr %103, align 8, !tbaa !14
-  %105 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %102, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %106 = load double, ptr %105, align 8, !tbaa !14
-  %107 = fcmp olt double %104, %106
-  br i1 %107, label %.lr.ph.i.i18.preheader.us, label %134
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %147
+  %.sroa.0.024.us = phi ptr [ %148, %147 ], [ %.fr39, %.lr.ph.split.us.preheader ]
+  %109 = load i64, ptr %.sroa.0.024.us, align 8, !tbaa !46
+  %110 = load i64, ptr %.fr40, align 8, !tbaa !46
+  %111 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %109
+  %112 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %110
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %114 = load double, ptr %113, align 8, !tbaa !14
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %116 = load double, ptr %115, align 8, !tbaa !14
+  %117 = fcmp olt double %114, %116
+  br i1 %117, label %.lr.ph.i.i18.preheader.us, label %147
 
 .lr.ph.i.i18.preheader.us:                        ; preds = %.lr.ph.split.us
-  store i64 %102, ptr %.sroa.0.024.us, align 8, !tbaa !46
+  store i64 %110, ptr %.sroa.0.024.us, align 8, !tbaa !46
   br label %.lr.ph.i.i18.us
 
 .lr.ph.i.i18.us:                                  ; preds = %.lr.ph.i.i18.preheader.us, %.lr.ph.i.i18.us
   %.037.i.i19.us = phi i64 [ %spec.select.i.i20.us, %.lr.ph.i.i18.us ], [ 0, %.lr.ph.i.i18.preheader.us ]
-  %108 = shl i64 %.037.i.i19.us, 1
-  %109 = add i64 %108, 2
-  %110 = getelementptr inbounds i64, ptr %.fr40, i64 %109
-  %111 = or disjoint i64 %108, 1
-  %112 = getelementptr inbounds i64, ptr %.fr40, i64 %111
-  %113 = load i64, ptr %110, align 8, !tbaa !46
-  %114 = load i64, ptr %112, align 8, !tbaa !46
-  %115 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %113, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %116 = load double, ptr %115, align 8, !tbaa !14
-  %117 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %114, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %118 = load double, ptr %117, align 8, !tbaa !14
-  %119 = fcmp olt double %116, %118
-  %spec.select.i.i20.us = select i1 %119, i64 %111, i64 %109
-  %120 = getelementptr inbounds i64, ptr %.fr40, i64 %spec.select.i.i20.us
-  %121 = load i64, ptr %120, align 8, !tbaa !46
-  %122 = getelementptr inbounds i64, ptr %.fr40, i64 %.037.i.i19.us
-  store i64 %121, ptr %122, align 8, !tbaa !46
-  %123 = icmp slt i64 %spec.select.i.i20.us, %92
-  br i1 %123, label %.lr.ph.i.i18.us, label %._crit_edge.i.i10.loopexit.us, !llvm.loop !1020
+  %118 = shl i64 %.037.i.i19.us, 1
+  %119 = add i64 %118, 2
+  %120 = getelementptr inbounds i64, ptr %.fr40, i64 %119
+  %121 = or disjoint i64 %118, 1
+  %122 = getelementptr inbounds i64, ptr %.fr40, i64 %121
+  %123 = load i64, ptr %120, align 8, !tbaa !46
+  %124 = load i64, ptr %122, align 8, !tbaa !46
+  %125 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %123
+  %126 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %124
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %128 = load double, ptr %127, align 8, !tbaa !14
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %130 = load double, ptr %129, align 8, !tbaa !14
+  %131 = fcmp olt double %128, %130
+  %spec.select.i.i20.us = select i1 %131, i64 %121, i64 %119
+  %132 = getelementptr inbounds i64, ptr %.fr40, i64 %spec.select.i.i20.us
+  %133 = load i64, ptr %132, align 8, !tbaa !46
+  %134 = getelementptr inbounds i64, ptr %.fr40, i64 %.037.i.i19.us
+  store i64 %133, ptr %134, align 8, !tbaa !46
+  %135 = icmp slt i64 %spec.select.i.i20.us, %100
+  br i1 %135, label %.lr.ph.i.i18.us, label %._crit_edge.i.i10.loopexit.us, !llvm.loop !1020
 
-124:                                              ; preds = %._crit_edge.i.i10.loopexit.us
+136:                                              ; preds = %._crit_edge.i.i10.loopexit.us
   %.not.i12.us = icmp eq i64 %spec.select.i.i20.us, 0
   br i1 %.not.i12.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_RT0_.exit.us, label %.lr.ph.i.i.i13.us.preheader
 
 .thread.i.us:                                     ; preds = %._crit_edge.i.i10.loopexit.us
-  %125 = load i64, ptr %99, align 8, !tbaa !46
-  store i64 %125, ptr %100, align 8, !tbaa !46
+  %137 = load i64, ptr %107, align 8, !tbaa !46
+  store i64 %137, ptr %108, align 8, !tbaa !46
   br label %.lr.ph.i.i.i13.us.preheader
 
-.lr.ph.i.i.i13.us.preheader:                      ; preds = %.thread.i.us, %124
-  %.019.i.i.i14.us.ph = phi i64 [ %spec.select.i.i20.us, %124 ], [ %98, %.thread.i.us ]
+.lr.ph.i.i.i13.us.preheader:                      ; preds = %.thread.i.us, %136
+  %.019.i.i.i14.us.ph = phi i64 [ %spec.select.i.i20.us, %136 ], [ %106, %.thread.i.us ]
   br label %.lr.ph.i.i.i13.us
 
-.lr.ph.i.i.i13.us:                                ; preds = %.lr.ph.i.i.i13.us.preheader, %131
-  %.019.i.i.i14.us = phi i64 [ %.0920.i.i89.i.us, %131 ], [ %.019.i.i.i14.us.ph, %.lr.ph.i.i.i13.us.preheader ]
+.lr.ph.i.i.i13.us:                                ; preds = %.lr.ph.i.i.i13.us.preheader, %144
+  %.019.i.i.i14.us = phi i64 [ %.0920.i.i89.i.us, %144 ], [ %.019.i.i.i14.us.ph, %.lr.ph.i.i.i13.us.preheader ]
   %.0920.in.i.i.i15.us = add nsw i64 %.019.i.i.i14.us, -1
   %.0920.i.i89.i.us = lshr i64 %.0920.in.i.i.i15.us, 1
-  %126 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0920.i.i89.i.us
-  %127 = load i64, ptr %126, align 8, !tbaa !46
-  %128 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %127, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %129 = load double, ptr %128, align 8, !tbaa !14
-  %130 = fcmp olt double %129, %104
-  br i1 %130, label %131, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_RT0_.exit.us
+  %138 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0920.i.i89.i.us
+  %139 = load i64, ptr %138, align 8, !tbaa !46
+  %140 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %139
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %142 = load double, ptr %141, align 8, !tbaa !14
+  %143 = fcmp olt double %142, %114
+  br i1 %143, label %144, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_RT0_.exit.us
 
-131:                                              ; preds = %.lr.ph.i.i.i13.us
-  %132 = getelementptr inbounds i64, ptr %.fr40, i64 %.019.i.i.i14.us
-  store i64 %127, ptr %132, align 8, !tbaa !46
+144:                                              ; preds = %.lr.ph.i.i.i13.us
+  %145 = getelementptr inbounds i64, ptr %.fr40, i64 %.019.i.i.i14.us
+  store i64 %139, ptr %145, align 8, !tbaa !46
   %.not10.i.us = icmp ult i64 %.0920.in.i.i.i15.us, 2
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_RT0_.exit.us, label %.lr.ph.i.i.i13.us, !llvm.loop !1021
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_RT0_.exit.us: ; preds = %.lr.ph.i.i.i13.us, %131, %124
-  %.0.lcssa.i.i.i17.us = phi i64 [ 0, %124 ], [ %.019.i.i.i14.us, %.lr.ph.i.i.i13.us ], [ 0, %131 ]
-  %133 = getelementptr inbounds i64, ptr %.fr40, i64 %.0.lcssa.i.i.i17.us
-  store i64 %101, ptr %133, align 8, !tbaa !46
-  br label %134
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_RT0_.exit.us: ; preds = %.lr.ph.i.i.i13.us, %144, %136
+  %.0.lcssa.i.i.i17.us = phi i64 [ 0, %136 ], [ %.019.i.i.i14.us, %.lr.ph.i.i.i13.us ], [ 0, %144 ]
+  %146 = getelementptr inbounds i64, ptr %.fr40, i64 %.0.lcssa.i.i.i17.us
+  store i64 %109, ptr %146, align 8, !tbaa !46
+  br label %147
 
-134:                                              ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_RT0_.exit.us, %.lr.ph.split.us
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.024.us, i64 8
-  %136 = icmp ult ptr %135, %2
-  br i1 %136, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !1023
+147:                                              ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_SS_RT0_.exit.us, %.lr.ph.split.us
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.0.024.us, i64 8
+  %149 = icmp ult ptr %148, %2
+  br i1 %149, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !1023
 
 ._crit_edge.i.i10.loopexit.us:                    ; preds = %.lr.ph.i.i18.us
-  %137 = icmp eq i64 %spec.select.i.i20.us, %97
-  %or.cond = select i1 %95, i1 %137, i1 false
-  br i1 %or.cond, label %.thread.i.us, label %124
+  %150 = icmp eq i64 %spec.select.i.i20.us, %105
+  %or.cond = select i1 %103, i1 %150, i1 false
+  br i1 %or.cond, label %.thread.i.us, label %136
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %138 = getelementptr inbounds nuw i8, ptr %.fr40, i64 8
-  br i1 %95, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
+  %151 = getelementptr inbounds nuw i8, ptr %.fr40, i64 8
+  br i1 %103, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
   %.pre = load i64, ptr %.fr40, align 8, !tbaa !46
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %139 = icmp eq i64 %96, 0
-  br i1 %139, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
+  %152 = icmp eq i64 %104, 0
+  br i1 %152, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
 
 .lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split.split.us
   %.pre45 = load i64, ptr %.fr40, align 8, !tbaa !46
   br label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %152
-  %.sroa.0.024.us26.us = phi ptr [ %153, %152 ], [ %.fr39, %.lr.ph.split.split.us ]
-  %140 = load i64, ptr %.sroa.0.024.us26.us, align 8, !tbaa !46
-  %141 = load i64, ptr %.fr40, align 8, !tbaa !46
-  %142 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %140, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %143 = load double, ptr %142, align 8, !tbaa !14
-  %144 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %141, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %145 = load double, ptr %144, align 8, !tbaa !14
-  %146 = fcmp olt double %143, %145
-  br i1 %146, label %._crit_edge.i.i10.us27.us, label %152
-
-._crit_edge.i.i10.us27.us:                        ; preds = %.lr.ph.split.split.us.split.us
-  store i64 %141, ptr %.sroa.0.024.us26.us, align 8, !tbaa !46
-  %147 = load i64, ptr %138, align 8, !tbaa !46
-  store i64 %147, ptr %.fr40, align 8, !tbaa !46
-  %148 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %147, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %149 = load double, ptr %148, align 8, !tbaa !14
-  %150 = fcmp uge double %149, %143
-  %.0.lcssa.i.i.i17.ph.us36.us = zext i1 %150 to i64
-  %151 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0.lcssa.i.i.i17.ph.us36.us
-  store i64 %140, ptr %151, align 8, !tbaa !46
-  br label %152
-
-152:                                              ; preds = %._crit_edge.i.i10.us27.us, %.lr.ph.split.split.us.split.us
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0.024.us26.us, i64 8
-  %154 = icmp ult ptr %153, %2
-  br i1 %154, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !1023
-
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %162
-  %155 = phi i64 [ %163, %162 ], [ %.pre45, %.lr.ph.split.split.us.split.preheader ]
-  %.sroa.0.024.us26 = phi ptr [ %164, %162 ], [ %.fr39, %.lr.ph.split.split.us.split.preheader ]
-  %156 = load i64, ptr %.sroa.0.024.us26, align 8, !tbaa !46
-  %157 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %156, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %168
+  %.sroa.0.024.us26.us = phi ptr [ %169, %168 ], [ %.fr39, %.lr.ph.split.split.us ]
+  %153 = load i64, ptr %.sroa.0.024.us26.us, align 8, !tbaa !46
+  %154 = load i64, ptr %.fr40, align 8, !tbaa !46
+  %155 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %153
+  %156 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %154
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %158 = load double, ptr %157, align 8, !tbaa !14
-  %159 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %155, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %160 = load double, ptr %159, align 8, !tbaa !14
   %161 = fcmp olt double %158, %160
-  br i1 %161, label %._crit_edge.i.i10.us27, label %162
+  br i1 %161, label %._crit_edge.i.i10.us27.us, label %168
+
+._crit_edge.i.i10.us27.us:                        ; preds = %.lr.ph.split.split.us.split.us
+  store i64 %154, ptr %.sroa.0.024.us26.us, align 8, !tbaa !46
+  %162 = load i64, ptr %151, align 8, !tbaa !46
+  store i64 %162, ptr %.fr40, align 8, !tbaa !46
+  %163 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %162
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %165 = load double, ptr %164, align 8, !tbaa !14
+  %166 = fcmp uge double %165, %158
+  %.0.lcssa.i.i.i17.ph.us36.us = zext i1 %166 to i64
+  %167 = getelementptr inbounds nuw i64, ptr %.fr40, i64 %.0.lcssa.i.i.i17.ph.us36.us
+  store i64 %153, ptr %167, align 8, !tbaa !46
+  br label %168
+
+168:                                              ; preds = %._crit_edge.i.i10.us27.us, %.lr.ph.split.split.us.split.us
+  %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.024.us26.us, i64 8
+  %170 = icmp ult ptr %169, %2
+  br i1 %170, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !1023
+
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %180
+  %171 = phi i64 [ %181, %180 ], [ %.pre45, %.lr.ph.split.split.us.split.preheader ]
+  %.sroa.0.024.us26 = phi ptr [ %182, %180 ], [ %.fr39, %.lr.ph.split.split.us.split.preheader ]
+  %172 = load i64, ptr %.sroa.0.024.us26, align 8, !tbaa !46
+  %173 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %172
+  %174 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %171
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %176 = load double, ptr %175, align 8, !tbaa !14
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %178 = load double, ptr %177, align 8, !tbaa !14
+  %179 = fcmp olt double %176, %178
+  br i1 %179, label %._crit_edge.i.i10.us27, label %180
 
 ._crit_edge.i.i10.us27:                           ; preds = %.lr.ph.split.split.us.split
-  store i64 %155, ptr %.sroa.0.024.us26, align 8, !tbaa !46
-  store i64 %156, ptr %.fr40, align 8, !tbaa !46
-  br label %162
+  store i64 %171, ptr %.sroa.0.024.us26, align 8, !tbaa !46
+  store i64 %172, ptr %.fr40, align 8, !tbaa !46
+  br label %180
 
-162:                                              ; preds = %._crit_edge.i.i10.us27, %.lr.ph.split.split.us.split
-  %163 = phi i64 [ %156, %._crit_edge.i.i10.us27 ], [ %155, %.lr.ph.split.split.us.split ]
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0.024.us26, i64 8
-  %165 = icmp ult ptr %164, %2
-  br i1 %165, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !1023
+180:                                              ; preds = %._crit_edge.i.i10.us27, %.lr.ph.split.split.us.split
+  %181 = phi i64 [ %172, %._crit_edge.i.i10.us27 ], [ %171, %.lr.ph.split.split.us.split ]
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.0.024.us26, i64 8
+  %183 = icmp ult ptr %182, %2
+  br i1 %183, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !1023
 
-._crit_edge:                                      ; preds = %173, %162, %152, %134, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_RT0_.exit
+._crit_edge:                                      ; preds = %193, %180, %168, %147, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb0EEEEEEvT_SS_RT0_.exit
   ret void
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %173
-  %166 = phi i64 [ %174, %173 ], [ %.pre, %.lr.ph.split.split.preheader ]
-  %.sroa.0.024 = phi ptr [ %175, %173 ], [ %.fr39, %.lr.ph.split.split.preheader ]
-  %167 = load i64, ptr %.sroa.0.024, align 8, !tbaa !46
-  %168 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %167, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %169 = load double, ptr %168, align 8, !tbaa !14
-  %170 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %166, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %171 = load double, ptr %170, align 8, !tbaa !14
-  %172 = fcmp olt double %169, %171
-  br i1 %172, label %._crit_edge.i.i10, label %173
+.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %193
+  %184 = phi i64 [ %194, %193 ], [ %.pre, %.lr.ph.split.split.preheader ]
+  %.sroa.0.024 = phi ptr [ %195, %193 ], [ %.fr39, %.lr.ph.split.split.preheader ]
+  %185 = load i64, ptr %.sroa.0.024, align 8, !tbaa !46
+  %186 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %185
+  %187 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %184
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %189 = load double, ptr %188, align 8, !tbaa !14
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  %191 = load double, ptr %190, align 8, !tbaa !14
+  %192 = fcmp olt double %189, %191
+  br i1 %192, label %._crit_edge.i.i10, label %193
 
 ._crit_edge.i.i10:                                ; preds = %.lr.ph.split.split
-  store i64 %166, ptr %.sroa.0.024, align 8, !tbaa !46
-  store i64 %167, ptr %.fr40, align 8, !tbaa !46
-  br label %173
+  store i64 %184, ptr %.sroa.0.024, align 8, !tbaa !46
+  store i64 %185, ptr %.fr40, align 8, !tbaa !46
+  br label %193
 
-173:                                              ; preds = %.lr.ph.split.split, %._crit_edge.i.i10
-  %174 = phi i64 [ %166, %.lr.ph.split.split ], [ %167, %._crit_edge.i.i10 ]
-  %175 = getelementptr inbounds nuw i8, ptr %.sroa.0.024, i64 8
-  %176 = icmp ult ptr %175, %2
-  br i1 %176, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !1023
+193:                                              ; preds = %.lr.ph.split.split, %._crit_edge.i.i10
+  %194 = phi i64 [ %184, %.lr.ph.split.split ], [ %185, %._crit_edge.i.i10 ]
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.0.024, i64 8
+  %196 = icmp ult ptr %195, %2
+  br i1 %196, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !1023
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24017,7 +24047,7 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit
-  %11 = phi i64 [ %70, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit ], [ %9, %5 ]
+  %11 = phi i64 [ %76, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit ], [ %9, %5 ]
   %.031 = phi i64 [ %18, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit ], [ %3, %5 ]
   %.sroa.022.030 = phi ptr [ %.sroa.012.1.i.i..sroa.022.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit ], [ %0, %5 ]
   %.sroa.019.029 = phi ptr [ %.sroa.019.0..sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit ], [ %2, %5 ]
@@ -24041,182 +24071,192 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   %22 = getelementptr inbounds i8, ptr %.sroa.019.029, i64 -8
   %23 = load i64, ptr %20, align 8, !tbaa !46
   %24 = load i64, ptr %21, align 8, !tbaa !46
-  %25 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %23, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %26 = load double, ptr %25, align 8, !tbaa !14
-  %27 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %24, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+  %25 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %23
+  %26 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load double, ptr %27, align 8, !tbaa !14
-  %29 = fcmp olt double %26, %28
-  %30 = load i64, ptr %22, align 8, !tbaa !46
-  %31 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %30, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %32 = load double, ptr %31, align 8, !tbaa !14
-  br i1 %29, label %33, label %42
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %30 = load double, ptr %29, align 8, !tbaa !14
+  %31 = fcmp olt double %28, %30
+  %32 = load i64, ptr %22, align 8, !tbaa !46
+  %33 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load double, ptr %34, align 8, !tbaa !14
+  br i1 %31, label %36, label %45
 
-33:                                               ; preds = %17
-  %34 = fcmp olt double %32, %26
-  br i1 %34, label %35, label %37
+36:                                               ; preds = %17
+  %37 = fcmp olt double %35, %28
+  br i1 %37, label %38, label %40
 
-35:                                               ; preds = %33
-  %36 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %23, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %36, ptr %20, align 8, !tbaa !46
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
-
-37:                                               ; preds = %33
-  %38 = fcmp olt double %32, %28
+38:                                               ; preds = %36
   %39 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
-  br i1 %38, label %40, label %41
-
-40:                                               ; preds = %37
-  store i64 %30, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %39, ptr %22, align 8, !tbaa !46
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
-
-41:                                               ; preds = %37
-  store i64 %24, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %39, ptr %21, align 8, !tbaa !46
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
-
-42:                                               ; preds = %17
-  %43 = fcmp olt double %32, %28
-  br i1 %43, label %44, label %46
-
-44:                                               ; preds = %42
-  %45 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %24, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %45, ptr %21, align 8, !tbaa !46
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
-
-46:                                               ; preds = %42
-  %47 = fcmp olt double %32, %26
-  %48 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
-  br i1 %47, label %49, label %50
-
-49:                                               ; preds = %46
-  store i64 %30, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %48, ptr %22, align 8, !tbaa !46
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
-
-50:                                               ; preds = %46
   store i64 %23, ptr %.sroa.022.030, align 8, !tbaa !46
-  store i64 %48, ptr %20, align 8, !tbaa !46
+  store i64 %39, ptr %20, align 8, !tbaa !46
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader: ; preds = %50, %49, %44, %41, %40, %35
+40:                                               ; preds = %36
+  %41 = fcmp olt double %35, %30
+  %42 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
+  br i1 %41, label %43, label %44
+
+43:                                               ; preds = %40
+  store i64 %32, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %42, ptr %22, align 8, !tbaa !46
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
+
+44:                                               ; preds = %40
+  store i64 %24, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %42, ptr %21, align 8, !tbaa !46
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
+
+45:                                               ; preds = %17
+  %46 = fcmp olt double %35, %30
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %45
+  %48 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %24, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %48, ptr %21, align 8, !tbaa !46
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
+
+49:                                               ; preds = %45
+  %50 = fcmp olt double %35, %28
+  %51 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
+  br i1 %50, label %52, label %53
+
+52:                                               ; preds = %49
+  store i64 %32, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %51, ptr %22, align 8, !tbaa !46
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
+
+53:                                               ; preds = %49
+  store i64 %23, ptr %.sroa.022.030, align 8, !tbaa !46
+  store i64 %51, ptr %20, align 8, !tbaa !46
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader
+
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader: ; preds = %53, %52, %47, %44, %43, %38
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader, %66
-  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %66 ], [ %.sroa.019.029, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader ]
-  %.sroa.012.0.i.i = phi ptr [ %59, %66 ], [ %21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader ]
-  %51 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
-  %52 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %51, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %53 = load double, ptr %52, align 8, !tbaa !14
-  br label %54
-
-54:                                               ; preds = %54, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i
-  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i ], [ %59, %54 ]
-  %55 = load i64, ptr %.sroa.012.1.i.i, align 8, !tbaa !46
-  %56 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %55, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader, %72
+  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %72 ], [ %.sroa.019.029, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader ]
+  %.sroa.012.0.i.i = phi ptr [ %64, %72 ], [ %21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i.preheader ]
+  %54 = load i64, ptr %.sroa.022.030, align 8, !tbaa !46
+  %55 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load double, ptr %56, align 8, !tbaa !14
-  %58 = fcmp olt double %53, %57
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 8
-  br i1 %58, label %54, label %.preheader.i.i, !llvm.loop !1024
+  br label %58
 
-.preheader.i.i:                                   ; preds = %54, %.preheader.i.i
-  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %54 ]
-  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
-  %60 = load i64, ptr %.sroa.09.1.i.i, align 8, !tbaa !46
-  %61 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %60, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+58:                                               ; preds = %58, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i ], [ %64, %58 ]
+  %59 = load i64, ptr %.sroa.012.1.i.i, align 8, !tbaa !46
+  %60 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load double, ptr %61, align 8, !tbaa !14
-  %63 = fcmp olt double %62, %53
-  br i1 %63, label %.preheader.i.i, label %64, !llvm.loop !1025
+  %63 = fcmp olt double %57, %62
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 8
+  br i1 %63, label %58, label %.preheader.i.i, !llvm.loop !1024
 
-64:                                               ; preds = %.preheader.i.i
-  %65 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
-  br i1 %65, label %66, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit
+.preheader.i.i:                                   ; preds = %58, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %58 ]
+  %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -8
+  %65 = load i64, ptr %.sroa.09.1.i.i, align 8, !tbaa !46
+  %66 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load double, ptr %67, align 8, !tbaa !14
+  %69 = fcmp olt double %68, %57
+  br i1 %69, label %.preheader.i.i, label %70, !llvm.loop !1025
 
-66:                                               ; preds = %64
-  store i64 %60, ptr %.sroa.012.1.i.i, align 8, !tbaa !46
-  store i64 %55, ptr %.sroa.09.1.i.i, align 8, !tbaa !46
+70:                                               ; preds = %.preheader.i.i
+  %71 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %71, label %72, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit
+
+72:                                               ; preds = %70
+  store i64 %65, ptr %.sroa.012.1.i.i, align 8, !tbaa !46
+  store i64 %59, ptr %.sroa.09.1.i.i, align 8, !tbaa !46
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_SS_T0_.exit.i, !llvm.loop !1026
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit: ; preds = %64
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit: ; preds = %70
   %.not = icmp ugt ptr %.sroa.012.1.i.i, %1
   %.sroa.019.0..sroa.012.1.i.i = select i1 %.not, ptr %.sroa.012.1.i.i, ptr %.sroa.019.029
   %.sroa.012.1.i.i..sroa.022.0 = select i1 %.not, ptr %.sroa.022.030, ptr %.sroa.012.1.i.i
-  %67 = ptrtoint ptr %.sroa.019.0..sroa.012.1.i.i to i64
-  %68 = ptrtoint ptr %.sroa.012.1.i.i..sroa.022.0 to i64
-  %69 = sub i64 %67, %68
-  %70 = ashr exact i64 %69, 3
-  %71 = icmp sgt i64 %70, 3
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !1027
+  %73 = ptrtoint ptr %.sroa.019.0..sroa.012.1.i.i to i64
+  %74 = ptrtoint ptr %.sroa.012.1.i.i..sroa.022.0 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 3
+  %77 = icmp sgt i64 %76, 3
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !1027
 
 ._crit_edge:                                      ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit, %5
   %.sroa.019.0.lcssa = phi ptr [ %2, %5 ], [ %.sroa.019.0..sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit ]
   %.sroa.022.0.lcssa = phi ptr [ %0, %5 ], [ %.sroa.012.1.i.i..sroa.022.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit ]
-  %.lcssa25 = phi i64 [ %7, %5 ], [ %68, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit ]
-  %72 = icmp eq ptr %.sroa.022.0.lcssa, %.sroa.019.0.lcssa
+  %.lcssa25 = phi i64 [ %7, %5 ], [ %74, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEET_SS_SS_T0_.exit ]
+  %78 = icmp eq ptr %.sroa.022.0.lcssa, %.sroa.019.0.lcssa
   %.sroa.0.018.i = getelementptr inbounds nuw i8, ptr %.sroa.022.0.lcssa, i64 8
   %.not19.i = icmp eq ptr %.sroa.0.018.i, %.sroa.019.0.lcssa
-  %or.cond = select i1 %72, i1 true, i1 %.not19.i
+  %or.cond = select i1 %78, i1 true, i1 %.not19.i
   br i1 %or.cond, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
   %.sroa.0.021.i = phi ptr [ %.sroa.0.0.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i ], [ %.sroa.0.018.i, %._crit_edge ]
   %.pn20.i = phi ptr [ %.sroa.0.021.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i ], [ %.sroa.022.0.lcssa, %._crit_edge ]
-  %73 = load i64, ptr %.sroa.022.0.lcssa, align 8, !tbaa !46
-  %74 = load i64, ptr %.sroa.0.021.i, align 8, !tbaa !46
-  %75 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %73, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %76 = load double, ptr %75, align 8, !tbaa !14
-  %77 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %74, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %78 = load double, ptr %77, align 8, !tbaa !14
-  %79 = fcmp olt double %76, %78
-  br i1 %79, label %80, label %93
+  %79 = load i64, ptr %.sroa.022.0.lcssa, align 8, !tbaa !46
+  %80 = load i64, ptr %.sroa.0.021.i, align 8, !tbaa !46
+  %81 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %79
+  %82 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %80
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %84 = load double, ptr %83, align 8, !tbaa !14
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %86 = load double, ptr %85, align 8, !tbaa !14
+  %87 = fcmp olt double %84, %86
+  br i1 %87, label %88, label %101
 
-80:                                               ; preds = %.lr.ph.i
-  %81 = ptrtoint ptr %.sroa.0.021.i to i64
-  %82 = sub i64 %81, %.lcssa25
-  %83 = ashr exact i64 %82, 3
-  %84 = icmp sgt i64 %83, 1
-  br i1 %84, label %85, label %89, !prof !1007
+88:                                               ; preds = %.lr.ph.i
+  %89 = ptrtoint ptr %.sroa.0.021.i to i64
+  %90 = sub i64 %89, %.lcssa25
+  %91 = ashr exact i64 %90, 3
+  %92 = icmp sgt i64 %91, 1
+  br i1 %92, label %93, label %97, !prof !1007
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %.pn20.i, i64 16
-  %87 = sub nsw i64 0, %83
-  %88 = getelementptr inbounds i64, ptr %86, i64 %87
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %88, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.022.0.lcssa, i64 %82, i1 false)
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds nuw i8, ptr %.pn20.i, i64 16
+  %95 = sub nsw i64 0, %91
+  %96 = getelementptr inbounds i64, ptr %94, i64 %95
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %96, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.022.0.lcssa, i64 %90, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
 
-89:                                               ; preds = %80
-  %90 = icmp eq i64 %82, 8
-  br i1 %90, label %91, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
+97:                                               ; preds = %88
+  %98 = icmp eq i64 %90, 8
+  br i1 %98, label %99, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
 
-91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw i8, ptr %.pn20.i, i64 8
-  store i64 %73, ptr %92, align 8, !tbaa !46
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds nuw i8, ptr %.pn20.i, i64 8
+  store i64 %79, ptr %100, align 8, !tbaa !46
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
 
-93:                                               ; preds = %.lr.ph.i
-  %94 = load i64, ptr %.pn20.i, align 8, !tbaa !46
-  %95 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %94, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %96 = load double, ptr %95, align 8, !tbaa !14
-  %97 = fcmp olt double %96, %78
-  br i1 %97, label %.lr.ph.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
+101:                                              ; preds = %.lr.ph.i
+  %102 = load i64, ptr %.pn20.i, align 8, !tbaa !46
+  %103 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %105 = load double, ptr %104, align 8, !tbaa !14
+  %106 = fcmp olt double %105, %86
+  br i1 %106, label %.lr.ph.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %93, %.lr.ph.i.i
-  %98 = phi i64 [ %99, %.lr.ph.i.i ], [ %94, %93 ]
-  %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.pn20.i, %93 ]
-  %.sroa.05.09.i.i = phi ptr [ %.sroa.0.010.i.i, %.lr.ph.i.i ], [ %.sroa.0.021.i, %93 ]
-  store i64 %98, ptr %.sroa.05.09.i.i, align 8, !tbaa !46
+.lr.ph.i.i:                                       ; preds = %101, %.lr.ph.i.i
+  %107 = phi i64 [ %108, %.lr.ph.i.i ], [ %102, %101 ]
+  %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.pn20.i, %101 ]
+  %.sroa.05.09.i.i = phi ptr [ %.sroa.0.010.i.i, %.lr.ph.i.i ], [ %.sroa.0.021.i, %101 ]
+  store i64 %107, ptr %.sroa.05.09.i.i, align 8, !tbaa !46
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.010.i.i, i64 -8
-  %99 = load i64, ptr %.sroa.0.0.i.i, align 8, !tbaa !46
-  %100 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %99, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %101 = load double, ptr %100, align 8, !tbaa !14
-  %102 = fcmp olt double %101, %78
-  br i1 %102, label %.lr.ph.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !1028
+  %108 = load i64, ptr %.sroa.0.0.i.i, align 8, !tbaa !46
+  %109 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %4, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = load double, ptr %110, align 8, !tbaa !14
+  %112 = fcmp olt double %111, %86
+  br i1 %112, label %.lr.ph.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !1028
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i, %93, %91, %89, %85
-  %.sink.i = phi ptr [ %.sroa.022.0.lcssa, %85 ], [ %.sroa.022.0.lcssa, %89 ], [ %.sroa.022.0.lcssa, %91 ], [ %.sroa.0.021.i, %93 ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
-  store i64 %74, ptr %.sink.i, align 8, !tbaa !46
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i, %101, %99, %97, %93
+  %.sink.i = phi ptr [ %.sroa.022.0.lcssa, %93 ], [ %.sroa.022.0.lcssa, %97 ], [ %.sroa.022.0.lcssa, %99 ], [ %.sroa.0.021.i, %101 ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
+  store i64 %80, ptr %.sink.i, align 8, !tbaa !46
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 8
   %.not.i = icmp eq ptr %.sroa.0.0.i, %.sroa.019.0.lcssa
   br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_T0_.exit, label %.lr.ph.i, !llvm.loop !1029
@@ -24249,7 +24289,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
   br i1 %16, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %10, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us
-  %.09.i.us = phi i64 [ %51, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us ], [ %12, %10 ]
+  %.09.i.us = phi i64 [ %55, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us ], [ %12, %10 ]
   %20 = getelementptr inbounds i64, ptr %.fr42, i64 %.09.i.us
   %21 = load i64, ptr %20, align 8, !tbaa !46
   %22 = icmp slt i64 %.09.i.us, %14
@@ -24264,320 +24304,340 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
   %27 = getelementptr inbounds i64, ptr %.fr42, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !46
   %29 = load i64, ptr %25, align 8, !tbaa !46
-  %30 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %28, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %31 = load double, ptr %30, align 8, !tbaa !14
-  %32 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %29, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+  %30 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %28
+  %31 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %29
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load double, ptr %32, align 8, !tbaa !14
-  %34 = fcmp olt double %31, %33
-  %spec.select.i.i.us = select i1 %34, i64 %26, i64 %24
-  %35 = getelementptr inbounds i64, ptr %.fr42, i64 %spec.select.i.i.us
-  %36 = load i64, ptr %35, align 8, !tbaa !46
-  %37 = getelementptr inbounds i64, ptr %.fr42, i64 %.037.i.i.us
-  store i64 %36, ptr %37, align 8, !tbaa !46
-  %38 = icmp slt i64 %spec.select.i.i.us, %14
-  br i1 %38, label %.lr.ph.i.i.us, label %._crit_edge.i.i.us, !llvm.loop !1030
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %35 = load double, ptr %34, align 8, !tbaa !14
+  %36 = fcmp olt double %33, %35
+  %spec.select.i.i.us = select i1 %36, i64 %26, i64 %24
+  %37 = getelementptr inbounds i64, ptr %.fr42, i64 %spec.select.i.i.us
+  %38 = load i64, ptr %37, align 8, !tbaa !46
+  %39 = getelementptr inbounds i64, ptr %.fr42, i64 %.037.i.i.us
+  store i64 %38, ptr %39, align 8, !tbaa !46
+  %40 = icmp slt i64 %spec.select.i.i.us, %14
+  br i1 %40, label %.lr.ph.i.i.us, label %._crit_edge.i.i.us, !llvm.loop !1030
 
 ._crit_edge.i.i.us:                               ; preds = %.lr.ph.i.i.us
-  %39 = icmp sgt i64 %spec.select.i.i.us, %.09.i.us
-  br i1 %39, label %.lr.ph.i.preheader.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us
+  %41 = icmp sgt i64 %spec.select.i.i.us, %.09.i.us
+  br i1 %41, label %.lr.ph.i.preheader.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us
 
 .lr.ph.i.preheader.i.i.us:                        ; preds = %._crit_edge.i.i.us
-  %40 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %21, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %41 = load double, ptr %40, align 8, !tbaa !14
+  %42 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %21
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load double, ptr %43, align 8, !tbaa !14
   br label %.lr.ph.i.i.i.us
 
-.lr.ph.i.i.i.us:                                  ; preds = %47, %.lr.ph.i.preheader.i.i.us
-  %.019.i.i.i.us = phi i64 [ %.0920.i.i.i.us, %47 ], [ %spec.select.i.i.us, %.lr.ph.i.preheader.i.i.us ]
+.lr.ph.i.i.i.us:                                  ; preds = %51, %.lr.ph.i.preheader.i.i.us
+  %.019.i.i.i.us = phi i64 [ %.0920.i.i.i.us, %51 ], [ %spec.select.i.i.us, %.lr.ph.i.preheader.i.i.us ]
   %.0920.in.i.i.i.us = add nsw i64 %.019.i.i.i.us, -1
   %.0920.i.i.i.us = sdiv i64 %.0920.in.i.i.i.us, 2
-  %42 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0920.i.i.i.us
-  %43 = load i64, ptr %42, align 8, !tbaa !46
-  %44 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %43, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %45 = load double, ptr %44, align 8, !tbaa !14
-  %46 = fcmp olt double %41, %45
-  br i1 %46, label %47, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us
+  %45 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0920.i.i.i.us
+  %46 = load i64, ptr %45, align 8, !tbaa !46
+  %47 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load double, ptr %48, align 8, !tbaa !14
+  %50 = fcmp olt double %44, %49
+  br i1 %50, label %51, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us
 
-47:                                               ; preds = %.lr.ph.i.i.i.us
-  %48 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.019.i.i.i.us
-  store i64 %43, ptr %48, align 8, !tbaa !46
-  %49 = icmp sgt i64 %.0920.i.i.i.us, %.09.i.us
-  br i1 %49, label %.lr.ph.i.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us, !llvm.loop !1031
+51:                                               ; preds = %.lr.ph.i.i.i.us
+  %52 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.019.i.i.i.us
+  store i64 %46, ptr %52, align 8, !tbaa !46
+  %53 = icmp sgt i64 %.0920.i.i.i.us, %.09.i.us
+  br i1 %53, label %.lr.ph.i.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us, !llvm.loop !1031
 
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us: ; preds = %.lr.ph.i.i.i.us, %47, %.split.us, %._crit_edge.i.i.us
-  %.0.lcssa.i.i.i.us = phi i64 [ %spec.select.i.i.us, %._crit_edge.i.i.us ], [ %.09.i.us, %.split.us ], [ %.019.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.0920.i.i.i.us, %47 ]
-  %50 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0.lcssa.i.i.i.us
-  store i64 %21, ptr %50, align 8, !tbaa !46
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us: ; preds = %.lr.ph.i.i.i.us, %51, %.split.us, %._crit_edge.i.i.us
+  %.0.lcssa.i.i.i.us = phi i64 [ %spec.select.i.i.us, %._crit_edge.i.i.us ], [ %.09.i.us, %.split.us ], [ %.019.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.0920.i.i.i.us, %51 ]
+  %54 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0.lcssa.i.i.i.us
+  store i64 %21, ptr %54, align 8, !tbaa !46
   %.not.i.us = icmp eq i64 %.09.i.us, 0
-  %51 = add nsw i64 %.09.i.us, -1
+  %55 = add nsw i64 %.09.i.us, -1
   br i1 %.not.i.us, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_RT0_.exit, label %.split.us, !llvm.loop !1032
 
 .split:                                           ; preds = %10, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i
-  %.09.i = phi i64 [ %87, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i ], [ %12, %10 ]
-  %52 = getelementptr inbounds i64, ptr %.fr42, i64 %.09.i
-  %53 = load i64, ptr %52, align 8, !tbaa !46
-  %54 = icmp slt i64 %.09.i, %14
-  br i1 %54, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.09.i = phi i64 [ %95, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i ], [ %12, %10 ]
+  %56 = getelementptr inbounds i64, ptr %.fr42, i64 %.09.i
+  %57 = load i64, ptr %56, align 8, !tbaa !46
+  %58 = icmp slt i64 %.09.i, %14
+  br i1 %58, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.split, %.lr.ph.i.i
   %.037.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ %.09.i, %.split ]
-  %55 = shl i64 %.037.i.i, 1
-  %56 = add i64 %55, 2
-  %57 = getelementptr inbounds i64, ptr %.fr42, i64 %56
-  %58 = or disjoint i64 %55, 1
-  %59 = getelementptr inbounds i64, ptr %.fr42, i64 %58
-  %60 = load i64, ptr %59, align 8, !tbaa !46
-  %61 = load i64, ptr %57, align 8, !tbaa !46
-  %62 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %60, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %63 = load double, ptr %62, align 8, !tbaa !14
-  %64 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %61, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %65 = load double, ptr %64, align 8, !tbaa !14
-  %66 = fcmp olt double %63, %65
-  %spec.select.i.i = select i1 %66, i64 %58, i64 %56
-  %67 = getelementptr inbounds i64, ptr %.fr42, i64 %spec.select.i.i
-  %68 = load i64, ptr %67, align 8, !tbaa !46
-  %69 = getelementptr inbounds i64, ptr %.fr42, i64 %.037.i.i
-  store i64 %68, ptr %69, align 8, !tbaa !46
-  %70 = icmp slt i64 %spec.select.i.i, %14
-  br i1 %70, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !1030
+  %59 = shl i64 %.037.i.i, 1
+  %60 = add i64 %59, 2
+  %61 = getelementptr inbounds i64, ptr %.fr42, i64 %60
+  %62 = or disjoint i64 %59, 1
+  %63 = getelementptr inbounds i64, ptr %.fr42, i64 %62
+  %64 = load i64, ptr %63, align 8, !tbaa !46
+  %65 = load i64, ptr %61, align 8, !tbaa !46
+  %66 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %64
+  %67 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %65
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %69 = load double, ptr %68, align 8, !tbaa !14
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %71 = load double, ptr %70, align 8, !tbaa !14
+  %72 = fcmp olt double %69, %71
+  %spec.select.i.i = select i1 %72, i64 %62, i64 %60
+  %73 = getelementptr inbounds i64, ptr %.fr42, i64 %spec.select.i.i
+  %74 = load i64, ptr %73, align 8, !tbaa !46
+  %75 = getelementptr inbounds i64, ptr %.fr42, i64 %.037.i.i
+  store i64 %74, ptr %75, align 8, !tbaa !46
+  %76 = icmp slt i64 %spec.select.i.i, %14
+  br i1 %76, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !1030
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.split
   %.0.lcssa.i.i = phi i64 [ %.09.i, %.split ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %71 = icmp eq i64 %.0.lcssa.i.i, %12
-  br i1 %71, label %72, label %74
+  %77 = icmp eq i64 %.0.lcssa.i.i, %12
+  br i1 %77, label %78, label %80
 
-72:                                               ; preds = %._crit_edge.i.i
-  %73 = load i64, ptr %18, align 8, !tbaa !46
-  store i64 %73, ptr %19, align 8, !tbaa !46
-  br label %74
+78:                                               ; preds = %._crit_edge.i.i
+  %79 = load i64, ptr %18, align 8, !tbaa !46
+  store i64 %79, ptr %19, align 8, !tbaa !46
+  br label %80
 
-74:                                               ; preds = %72, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %17, %72 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %75 = icmp sgt i64 %.1.i.i, %.09.i
-  br i1 %75, label %.lr.ph.i.preheader.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i
+80:                                               ; preds = %78, %._crit_edge.i.i
+  %.1.i.i = phi i64 [ %17, %78 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %81 = icmp sgt i64 %.1.i.i, %.09.i
+  br i1 %81, label %.lr.ph.i.preheader.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i
 
-.lr.ph.i.preheader.i.i:                           ; preds = %74
-  %76 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %53, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %77 = load double, ptr %76, align 8, !tbaa !14
+.lr.ph.i.preheader.i.i:                           ; preds = %80
+  %82 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %57
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %84 = load double, ptr %83, align 8, !tbaa !14
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %83, %.lr.ph.i.preheader.i.i
-  %.019.i.i.i = phi i64 [ %.0920.i.i.i, %83 ], [ %.1.i.i, %.lr.ph.i.preheader.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %91, %.lr.ph.i.preheader.i.i
+  %.019.i.i.i = phi i64 [ %.0920.i.i.i, %91 ], [ %.1.i.i, %.lr.ph.i.preheader.i.i ]
   %.0920.in.i.i.i = add nsw i64 %.019.i.i.i, -1
   %.0920.i.i.i = sdiv i64 %.0920.in.i.i.i, 2
-  %78 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0920.i.i.i
-  %79 = load i64, ptr %78, align 8, !tbaa !46
-  %80 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %79, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %81 = load double, ptr %80, align 8, !tbaa !14
-  %82 = fcmp olt double %77, %81
-  br i1 %82, label %83, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i
+  %85 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0920.i.i.i
+  %86 = load i64, ptr %85, align 8, !tbaa !46
+  %87 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %86
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load double, ptr %88, align 8, !tbaa !14
+  %90 = fcmp olt double %84, %89
+  br i1 %90, label %91, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i
 
-83:                                               ; preds = %.lr.ph.i.i.i
-  %84 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.019.i.i.i
-  store i64 %79, ptr %84, align 8, !tbaa !46
-  %85 = icmp sgt i64 %.0920.i.i.i, %.09.i
-  br i1 %85, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i, !llvm.loop !1031
+91:                                               ; preds = %.lr.ph.i.i.i
+  %92 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.019.i.i.i
+  store i64 %86, ptr %92, align 8, !tbaa !46
+  %93 = icmp sgt i64 %.0920.i.i.i, %.09.i
+  br i1 %93, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i, !llvm.loop !1031
 
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i: ; preds = %83, %.lr.ph.i.i.i, %74
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %74 ], [ %.019.i.i.i, %.lr.ph.i.i.i ], [ %.0920.i.i.i, %83 ]
-  %86 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0.lcssa.i.i.i
-  store i64 %53, ptr %86, align 8, !tbaa !46
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i: ; preds = %91, %.lr.ph.i.i.i, %80
+  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %80 ], [ %.019.i.i.i, %.lr.ph.i.i.i ], [ %.0920.i.i.i, %91 ]
+  %94 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0.lcssa.i.i.i
+  store i64 %57, ptr %94, align 8, !tbaa !46
   %.not.i = icmp eq i64 %.09.i, 0
-  %87 = add nsw i64 %.09.i, -1
+  %95 = add nsw i64 %.09.i, -1
   br i1 %.not.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_RT0_.exit, label %.split, !llvm.loop !1032
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_RT0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_T0_ST_T1_T2_.exit.i, %4
-  %88 = icmp ult ptr %.fr41, %2
-  br i1 %88, label %.lr.ph, label %._crit_edge
+  %96 = icmp ult ptr %.fr41, %2
+  br i1 %96, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_RT0_.exit
-  %89 = add nsw i64 %8, -1
-  %90 = sdiv i64 %89, 2
-  %91 = icmp sgt i64 %8, 2
-  %92 = and i64 %7, 8
-  %93 = icmp eq i64 %92, 0
-  %94 = add nsw i64 %8, -2
-  %95 = ashr exact i64 %94, 1
-  br i1 %91, label %.lr.ph.split.us.preheader, label %.lr.ph.split
+  %97 = add nsw i64 %8, -1
+  %98 = sdiv i64 %97, 2
+  %99 = icmp sgt i64 %8, 2
+  %100 = and i64 %7, 8
+  %101 = icmp eq i64 %100, 0
+  %102 = add nsw i64 %8, -2
+  %103 = ashr exact i64 %102, 1
+  br i1 %99, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %96 = or disjoint i64 %94, 1
-  %97 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %96
-  %98 = getelementptr inbounds i64, ptr %.fr42, i64 %95
+  %104 = or disjoint i64 %102, 1
+  %105 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %104
+  %106 = getelementptr inbounds i64, ptr %.fr42, i64 %103
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %132
-  %.sroa.0.025.us = phi ptr [ %133, %132 ], [ %.fr41, %.lr.ph.split.us.preheader ]
-  %99 = load i64, ptr %.fr42, align 8, !tbaa !46
-  %100 = load i64, ptr %.sroa.0.025.us, align 8, !tbaa !46
-  %101 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %99, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %102 = load double, ptr %101, align 8, !tbaa !14
-  %103 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %100, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %104 = load double, ptr %103, align 8, !tbaa !14
-  %105 = fcmp olt double %102, %104
-  br i1 %105, label %.lr.ph.i.i19.preheader.us, label %132
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %145
+  %.sroa.0.025.us = phi ptr [ %146, %145 ], [ %.fr41, %.lr.ph.split.us.preheader ]
+  %107 = load i64, ptr %.fr42, align 8, !tbaa !46
+  %108 = load i64, ptr %.sroa.0.025.us, align 8, !tbaa !46
+  %109 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %107
+  %110 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %108
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %112 = load double, ptr %111, align 8, !tbaa !14
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %114 = load double, ptr %113, align 8, !tbaa !14
+  %115 = fcmp olt double %112, %114
+  br i1 %115, label %.lr.ph.i.i19.preheader.us, label %145
 
 .lr.ph.i.i19.preheader.us:                        ; preds = %.lr.ph.split.us
-  store i64 %99, ptr %.sroa.0.025.us, align 8, !tbaa !46
+  store i64 %107, ptr %.sroa.0.025.us, align 8, !tbaa !46
   br label %.lr.ph.i.i19.us
 
 .lr.ph.i.i19.us:                                  ; preds = %.lr.ph.i.i19.preheader.us, %.lr.ph.i.i19.us
   %.037.i.i20.us = phi i64 [ %spec.select.i.i21.us, %.lr.ph.i.i19.us ], [ 0, %.lr.ph.i.i19.preheader.us ]
-  %106 = shl i64 %.037.i.i20.us, 1
-  %107 = add i64 %106, 2
-  %108 = getelementptr inbounds i64, ptr %.fr42, i64 %107
-  %109 = or disjoint i64 %106, 1
-  %110 = getelementptr inbounds i64, ptr %.fr42, i64 %109
-  %111 = load i64, ptr %110, align 8, !tbaa !46
-  %112 = load i64, ptr %108, align 8, !tbaa !46
-  %113 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %111, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %114 = load double, ptr %113, align 8, !tbaa !14
-  %115 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %112, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %116 = load double, ptr %115, align 8, !tbaa !14
-  %117 = fcmp olt double %114, %116
-  %spec.select.i.i21.us = select i1 %117, i64 %109, i64 %107
-  %118 = getelementptr inbounds i64, ptr %.fr42, i64 %spec.select.i.i21.us
-  %119 = load i64, ptr %118, align 8, !tbaa !46
-  %120 = getelementptr inbounds i64, ptr %.fr42, i64 %.037.i.i20.us
-  store i64 %119, ptr %120, align 8, !tbaa !46
-  %121 = icmp slt i64 %spec.select.i.i21.us, %90
-  br i1 %121, label %.lr.ph.i.i19.us, label %._crit_edge.i.i10.loopexit.us, !llvm.loop !1030
+  %116 = shl i64 %.037.i.i20.us, 1
+  %117 = add i64 %116, 2
+  %118 = getelementptr inbounds i64, ptr %.fr42, i64 %117
+  %119 = or disjoint i64 %116, 1
+  %120 = getelementptr inbounds i64, ptr %.fr42, i64 %119
+  %121 = load i64, ptr %120, align 8, !tbaa !46
+  %122 = load i64, ptr %118, align 8, !tbaa !46
+  %123 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %121
+  %124 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %122
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %126 = load double, ptr %125, align 8, !tbaa !14
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %128 = load double, ptr %127, align 8, !tbaa !14
+  %129 = fcmp olt double %126, %128
+  %spec.select.i.i21.us = select i1 %129, i64 %119, i64 %117
+  %130 = getelementptr inbounds i64, ptr %.fr42, i64 %spec.select.i.i21.us
+  %131 = load i64, ptr %130, align 8, !tbaa !46
+  %132 = getelementptr inbounds i64, ptr %.fr42, i64 %.037.i.i20.us
+  store i64 %131, ptr %132, align 8, !tbaa !46
+  %133 = icmp slt i64 %spec.select.i.i21.us, %98
+  br i1 %133, label %.lr.ph.i.i19.us, label %._crit_edge.i.i10.loopexit.us, !llvm.loop !1030
 
-122:                                              ; preds = %._crit_edge.i.i10.loopexit.us
+134:                                              ; preds = %._crit_edge.i.i10.loopexit.us
   %.not.i12.us = icmp eq i64 %spec.select.i.i21.us, 0
   br i1 %.not.i12.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_RT0_.exit.us, label %.lr.ph.i.i.i14.us.preheader
 
 .thread.i.us:                                     ; preds = %._crit_edge.i.i10.loopexit.us
-  %123 = load i64, ptr %97, align 8, !tbaa !46
-  store i64 %123, ptr %98, align 8, !tbaa !46
+  %135 = load i64, ptr %105, align 8, !tbaa !46
+  store i64 %135, ptr %106, align 8, !tbaa !46
   br label %.lr.ph.i.i.i14.us.preheader
 
-.lr.ph.i.i.i14.us.preheader:                      ; preds = %.thread.i.us, %122
-  %.019.i.i.i15.us.ph = phi i64 [ %spec.select.i.i21.us, %122 ], [ %96, %.thread.i.us ]
+.lr.ph.i.i.i14.us.preheader:                      ; preds = %.thread.i.us, %134
+  %.019.i.i.i15.us.ph = phi i64 [ %spec.select.i.i21.us, %134 ], [ %104, %.thread.i.us ]
   br label %.lr.ph.i.i.i14.us
 
-.lr.ph.i.i.i14.us:                                ; preds = %.lr.ph.i.i.i14.us.preheader, %129
-  %.019.i.i.i15.us = phi i64 [ %.0920.i.i89.i.us, %129 ], [ %.019.i.i.i15.us.ph, %.lr.ph.i.i.i14.us.preheader ]
+.lr.ph.i.i.i14.us:                                ; preds = %.lr.ph.i.i.i14.us.preheader, %142
+  %.019.i.i.i15.us = phi i64 [ %.0920.i.i89.i.us, %142 ], [ %.019.i.i.i15.us.ph, %.lr.ph.i.i.i14.us.preheader ]
   %.0920.in.i.i.i16.us = add nsw i64 %.019.i.i.i15.us, -1
   %.0920.i.i89.i.us = lshr i64 %.0920.in.i.i.i16.us, 1
-  %124 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0920.i.i89.i.us
-  %125 = load i64, ptr %124, align 8, !tbaa !46
-  %126 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %125, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %127 = load double, ptr %126, align 8, !tbaa !14
-  %128 = fcmp olt double %104, %127
-  br i1 %128, label %129, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_RT0_.exit.us
+  %136 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0920.i.i89.i.us
+  %137 = load i64, ptr %136, align 8, !tbaa !46
+  %138 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load double, ptr %139, align 8, !tbaa !14
+  %141 = fcmp olt double %114, %140
+  br i1 %141, label %142, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_RT0_.exit.us
 
-129:                                              ; preds = %.lr.ph.i.i.i14.us
-  %130 = getelementptr inbounds i64, ptr %.fr42, i64 %.019.i.i.i15.us
-  store i64 %125, ptr %130, align 8, !tbaa !46
+142:                                              ; preds = %.lr.ph.i.i.i14.us
+  %143 = getelementptr inbounds i64, ptr %.fr42, i64 %.019.i.i.i15.us
+  store i64 %137, ptr %143, align 8, !tbaa !46
   %.not10.i.us = icmp ult i64 %.0920.in.i.i.i16.us, 2
   br i1 %.not10.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_RT0_.exit.us, label %.lr.ph.i.i.i14.us, !llvm.loop !1031
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_RT0_.exit.us: ; preds = %.lr.ph.i.i.i14.us, %129, %122
-  %.0.lcssa.i.i.i18.us = phi i64 [ 0, %122 ], [ %.019.i.i.i15.us, %.lr.ph.i.i.i14.us ], [ 0, %129 ]
-  %131 = getelementptr inbounds i64, ptr %.fr42, i64 %.0.lcssa.i.i.i18.us
-  store i64 %100, ptr %131, align 8, !tbaa !46
-  br label %132
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_RT0_.exit.us: ; preds = %.lr.ph.i.i.i14.us, %142, %134
+  %.0.lcssa.i.i.i18.us = phi i64 [ 0, %134 ], [ %.019.i.i.i15.us, %.lr.ph.i.i.i14.us ], [ 0, %142 ]
+  %144 = getelementptr inbounds i64, ptr %.fr42, i64 %.0.lcssa.i.i.i18.us
+  store i64 %108, ptr %144, align 8, !tbaa !46
+  br label %145
 
-132:                                              ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_RT0_.exit.us, %.lr.ph.split.us
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.us, i64 8
-  %134 = icmp ult ptr %133, %2
-  br i1 %134, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !1033
+145:                                              ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_SS_RT0_.exit.us, %.lr.ph.split.us
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.us, i64 8
+  %147 = icmp ult ptr %146, %2
+  br i1 %147, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !1033
 
 ._crit_edge.i.i10.loopexit.us:                    ; preds = %.lr.ph.i.i19.us
-  %135 = icmp eq i64 %spec.select.i.i21.us, %95
-  %or.cond = select i1 %93, i1 %135, i1 false
-  br i1 %or.cond, label %.thread.i.us, label %122
+  %148 = icmp eq i64 %spec.select.i.i21.us, %103
+  %or.cond = select i1 %101, i1 %148, i1 false
+  br i1 %or.cond, label %.thread.i.us, label %134
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %136 = getelementptr inbounds nuw i8, ptr %.fr42, i64 8
-  br i1 %93, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
+  %149 = getelementptr inbounds nuw i8, ptr %.fr42, i64 8
+  br i1 %101, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
   %.pre = load i64, ptr %.fr42, align 8, !tbaa !46
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %137 = icmp eq i64 %94, 0
-  br i1 %137, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
+  %150 = icmp eq i64 %102, 0
+  br i1 %150, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
 
 .lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split.split.us
   %.pre47 = load i64, ptr %.fr42, align 8, !tbaa !46
   br label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %150
-  %.sroa.0.025.us27.us = phi ptr [ %151, %150 ], [ %.fr41, %.lr.ph.split.split.us ]
-  %138 = load i64, ptr %.fr42, align 8, !tbaa !46
-  %139 = load i64, ptr %.sroa.0.025.us27.us, align 8, !tbaa !46
-  %140 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %138, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %141 = load double, ptr %140, align 8, !tbaa !14
-  %142 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %139, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %143 = load double, ptr %142, align 8, !tbaa !14
-  %144 = fcmp olt double %141, %143
-  br i1 %144, label %._crit_edge.i.i10.us28.us, label %150
-
-._crit_edge.i.i10.us28.us:                        ; preds = %.lr.ph.split.split.us.split.us
-  store i64 %138, ptr %.sroa.0.025.us27.us, align 8, !tbaa !46
-  %145 = load i64, ptr %136, align 8, !tbaa !46
-  store i64 %145, ptr %.fr42, align 8, !tbaa !46
-  %146 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %145, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %147 = load double, ptr %146, align 8, !tbaa !14
-  %148 = fcmp uge double %143, %147
-  %.0.lcssa.i.i.i18.ph.us38.us = zext i1 %148 to i64
-  %149 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0.lcssa.i.i.i18.ph.us38.us
-  store i64 %139, ptr %149, align 8, !tbaa !46
-  br label %150
-
-150:                                              ; preds = %._crit_edge.i.i10.us28.us, %.lr.ph.split.split.us.split.us
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.us27.us, i64 8
-  %152 = icmp ult ptr %151, %2
-  br i1 %152, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !1033
-
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %160
-  %153 = phi i64 [ %161, %160 ], [ %.pre47, %.lr.ph.split.split.us.split.preheader ]
-  %.sroa.0.025.us27 = phi ptr [ %162, %160 ], [ %.fr41, %.lr.ph.split.split.us.split.preheader ]
-  %154 = load i64, ptr %.sroa.0.025.us27, align 8, !tbaa !46
-  %155 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %153, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %166
+  %.sroa.0.025.us27.us = phi ptr [ %167, %166 ], [ %.fr41, %.lr.ph.split.split.us ]
+  %151 = load i64, ptr %.fr42, align 8, !tbaa !46
+  %152 = load i64, ptr %.sroa.0.025.us27.us, align 8, !tbaa !46
+  %153 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %151
+  %154 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %152
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %156 = load double, ptr %155, align 8, !tbaa !14
-  %157 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %154, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %158 = load double, ptr %157, align 8, !tbaa !14
   %159 = fcmp olt double %156, %158
-  br i1 %159, label %._crit_edge.i.i10.us28, label %160
+  br i1 %159, label %._crit_edge.i.i10.us28.us, label %166
+
+._crit_edge.i.i10.us28.us:                        ; preds = %.lr.ph.split.split.us.split.us
+  store i64 %151, ptr %.sroa.0.025.us27.us, align 8, !tbaa !46
+  %160 = load i64, ptr %149, align 8, !tbaa !46
+  store i64 %160, ptr %.fr42, align 8, !tbaa !46
+  %161 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %160
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %163 = load double, ptr %162, align 8, !tbaa !14
+  %164 = fcmp uge double %158, %163
+  %.0.lcssa.i.i.i18.ph.us38.us = zext i1 %164 to i64
+  %165 = getelementptr inbounds nuw i64, ptr %.fr42, i64 %.0.lcssa.i.i.i18.ph.us38.us
+  store i64 %152, ptr %165, align 8, !tbaa !46
+  br label %166
+
+166:                                              ; preds = %._crit_edge.i.i10.us28.us, %.lr.ph.split.split.us.split.us
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.us27.us, i64 8
+  %168 = icmp ult ptr %167, %2
+  br i1 %168, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !1033
+
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %178
+  %169 = phi i64 [ %179, %178 ], [ %.pre47, %.lr.ph.split.split.us.split.preheader ]
+  %.sroa.0.025.us27 = phi ptr [ %180, %178 ], [ %.fr41, %.lr.ph.split.split.us.split.preheader ]
+  %170 = load i64, ptr %.sroa.0.025.us27, align 8, !tbaa !46
+  %171 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %169
+  %172 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %170
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %174 = load double, ptr %173, align 8, !tbaa !14
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %176 = load double, ptr %175, align 8, !tbaa !14
+  %177 = fcmp olt double %174, %176
+  br i1 %177, label %._crit_edge.i.i10.us28, label %178
 
 ._crit_edge.i.i10.us28:                           ; preds = %.lr.ph.split.split.us.split
-  store i64 %153, ptr %.sroa.0.025.us27, align 8, !tbaa !46
-  store i64 %154, ptr %.fr42, align 8, !tbaa !46
-  br label %160
+  store i64 %169, ptr %.sroa.0.025.us27, align 8, !tbaa !46
+  store i64 %170, ptr %.fr42, align 8, !tbaa !46
+  br label %178
 
-160:                                              ; preds = %._crit_edge.i.i10.us28, %.lr.ph.split.split.us.split
-  %161 = phi i64 [ %154, %._crit_edge.i.i10.us28 ], [ %153, %.lr.ph.split.split.us.split ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.us27, i64 8
-  %163 = icmp ult ptr %162, %2
-  br i1 %163, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !1033
+178:                                              ; preds = %._crit_edge.i.i10.us28, %.lr.ph.split.split.us.split
+  %179 = phi i64 [ %170, %._crit_edge.i.i10.us28 ], [ %169, %.lr.ph.split.split.us.split ]
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.us27, i64 8
+  %181 = icmp ult ptr %180, %2
+  br i1 %181, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !1033
 
-._crit_edge:                                      ; preds = %171, %160, %150, %132, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_RT0_.exit
+._crit_edge:                                      ; preds = %191, %178, %166, %145, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4CGAL21Hilbert_sort_median_2INS9_29Spatial_sort_traits_adapter_2INS9_5EpickEN5boost21iterator_property_mapIPNS9_7Point_2ISC_EENSD_27typed_identity_property_mapImEESG_RSG_EEEENS9_14Sequential_tagEE3CmpILi1ELb1EEEEEEvT_SS_RT0_.exit
   ret void
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %171
-  %164 = phi i64 [ %172, %171 ], [ %.pre, %.lr.ph.split.split.preheader ]
-  %.sroa.0.025 = phi ptr [ %173, %171 ], [ %.fr41, %.lr.ph.split.split.preheader ]
-  %165 = load i64, ptr %.sroa.0.025, align 8, !tbaa !46
-  %166 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %164, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %167 = load double, ptr %166, align 8, !tbaa !14
-  %168 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %165, i32 0, i32 0, i32 0, i32 0, i32 0, i64 1
-  %169 = load double, ptr %168, align 8, !tbaa !14
-  %170 = fcmp olt double %167, %169
-  br i1 %170, label %._crit_edge.i.i10, label %171
+.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %191
+  %182 = phi i64 [ %192, %191 ], [ %.pre, %.lr.ph.split.split.preheader ]
+  %.sroa.0.025 = phi ptr [ %193, %191 ], [ %.fr41, %.lr.ph.split.split.preheader ]
+  %183 = load i64, ptr %.sroa.0.025, align 8, !tbaa !46
+  %184 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %182
+  %185 = getelementptr inbounds nuw %"class.CGAL::Point_2", ptr %3, i64 %183
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %187 = load double, ptr %186, align 8, !tbaa !14
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %189 = load double, ptr %188, align 8, !tbaa !14
+  %190 = fcmp olt double %187, %189
+  br i1 %190, label %._crit_edge.i.i10, label %191
 
 ._crit_edge.i.i10:                                ; preds = %.lr.ph.split.split
-  store i64 %164, ptr %.sroa.0.025, align 8, !tbaa !46
-  store i64 %165, ptr %.fr42, align 8, !tbaa !46
-  br label %171
+  store i64 %182, ptr %.sroa.0.025, align 8, !tbaa !46
+  store i64 %183, ptr %.fr42, align 8, !tbaa !46
+  br label %191
 
-171:                                              ; preds = %.lr.ph.split.split, %._crit_edge.i.i10
-  %172 = phi i64 [ %164, %.lr.ph.split.split ], [ %165, %._crit_edge.i.i10 ]
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0.025, i64 8
-  %174 = icmp ult ptr %173, %2
-  br i1 %174, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !1033
+191:                                              ; preds = %.lr.ph.split.split, %._crit_edge.i.i10
+  %192 = phi i64 [ %182, %.lr.ph.split.split ], [ %183, %._crit_edge.i.i10 ]
+  %193 = getelementptr inbounds nuw i8, ptr %.sroa.0.025, i64 8
+  %194 = icmp ult ptr %193, %2
+  br i1 %194, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !1033
 }
 
 ; Function Attrs: mustprogress uwtable

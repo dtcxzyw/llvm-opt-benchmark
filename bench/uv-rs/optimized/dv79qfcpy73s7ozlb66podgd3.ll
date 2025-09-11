@@ -6854,29 +6854,30 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !1368, !noalias !1370, !nonnull !3, !noundef !3
-  %19 = getelementptr inbounds nuw { ptr, [2 x i32] }, ptr %18, i64 %14, i32 1
-  %.sroa.0.0.copyload.i.i = load i32, ptr %19, align 8, !noalias !1371
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %19 = getelementptr inbounds nuw { ptr, [2 x i32] }, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %.sroa.0.0.copyload.i.i = load i32, ptr %20, align 8, !noalias !1371
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 12
   %.sroa.5.0.copyload.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !noalias !1371
   br label %"_ZN11uv_resolver4lock6export28conflict_marker_reachability28_$u7b$$u7b$closure$u7d$$u7d$17h5ace662bce31b43aE.llvm.14873845497079558340.exit"
 
 "_ZN11uv_resolver4lock6export28conflict_marker_reachability28_$u7b$$u7b$closure$u7d$$u7d$17h5ace662bce31b43aE.llvm.14873845497079558340.exit": ; preds = %2, %16
   %.sroa.5.0.i.i = phi i32 [ %.sroa.5.0.copyload.i.i, %16 ], [ -1, %2 ]
   %.sroa.0.0.i.i = phi i32 [ %.sroa.0.0.copyload.i.i, %16 ], [ -1, %2 ]
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 %7, ptr %20, align 8, !alias.scope !1365, !noalias !1372
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %9, ptr %21, align 8, !alias.scope !1365, !noalias !1372
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %11, ptr %22, align 8, !alias.scope !1365, !noalias !1372
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %.sroa.0.0.i.i, ptr %23, align 8, !alias.scope !1365, !noalias !1372
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 %7, ptr %21, align 8, !alias.scope !1365, !noalias !1372
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %9, ptr %22, align 8, !alias.scope !1365, !noalias !1372
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %11, ptr %23, align 8, !alias.scope !1365, !noalias !1372
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 %.sroa.0.0.i.i, ptr %24, align 8, !alias.scope !1365, !noalias !1372
   %.sroa.5.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %.sroa.5.0.i.i, ptr %.sroa.5.0..sroa_idx2.i.i, align 4, !alias.scope !1365, !noalias !1372
   store i64 1, ptr %3, align 8, !alias.scope !1365, !noalias !1372
   call void @"_ZN105_$LT$petgraph..graph_impl..Edges$LT$E$C$Ty$C$Ix$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86c51d991cb47f8E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(40) %3), !noalias !1364
-  %24 = load ptr, ptr %4, align 8, !noalias !1364, !noundef !3
-  %.not.i = icmp eq ptr %24, null
+  %25 = load ptr, ptr %4, align 8, !noalias !1364, !noundef !3
+  %.not.i = icmp eq ptr %25, null
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1364
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1364
   ret i1 %.not.i
@@ -24485,29 +24486,30 @@ define hidden noundef zeroext i1 @"_ZN11uv_resolver4lock6export28conflict_marker
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !4190, !noalias !4187, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds nuw { ptr, [2 x i32] }, ptr %17, i64 %13, i32 1
-  %.sroa.0.0.copyload.i = load i32, ptr %18, align 8, !noalias !4192
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %18 = getelementptr inbounds nuw { ptr, [2 x i32] }, ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.0.0.copyload.i = load i32, ptr %19, align 8, !noalias !4192
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 12
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !4192
   br label %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$14edges_directed17haeb92022410fb700E.exit"
 
 "_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$14edges_directed17haeb92022410fb700E.exit": ; preds = %2, %15
   %.sroa.5.0.i = phi i32 [ %.sroa.5.0.copyload.i, %15 ], [ -1, %2 ]
   %.sroa.0.0.i = phi i32 [ %.sroa.0.0.copyload.i, %15 ], [ -1, %2 ]
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 %6, ptr %19, align 8, !alias.scope !4187, !noalias !4190
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %8, ptr %20, align 8, !alias.scope !4187, !noalias !4190
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %10, ptr %21, align 8, !alias.scope !4187, !noalias !4190
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %.sroa.0.0.i, ptr %22, align 8, !alias.scope !4187, !noalias !4190
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 %6, ptr %20, align 8, !alias.scope !4187, !noalias !4190
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %8, ptr %21, align 8, !alias.scope !4187, !noalias !4190
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %10, ptr %22, align 8, !alias.scope !4187, !noalias !4190
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 %.sroa.0.0.i, ptr %23, align 8, !alias.scope !4187, !noalias !4190
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx2.i, align 4, !alias.scope !4187, !noalias !4190
   store i64 1, ptr %3, align 8, !alias.scope !4187, !noalias !4190
   call void @"_ZN105_$LT$petgraph..graph_impl..Edges$LT$E$C$Ty$C$Ix$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86c51d991cb47f8E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(40) %3)
-  %23 = load ptr, ptr %4, align 8, !noundef !3
-  %.not = icmp eq ptr %23, null
+  %24 = load ptr, ptr %4, align 8, !noundef !3
+  %.not = icmp eq ptr %24, null
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not

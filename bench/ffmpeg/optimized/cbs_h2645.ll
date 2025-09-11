@@ -1945,7 +1945,7 @@ bytestream2_init.exit214:                         ; preds = %223
 bytestream2_get_byte.exit230.thread:              ; preds = %bytestream2_init.exit214
   %232 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 1, ptr %232, align 4, !tbaa !32
-  br label %288
+  br label %287
 
 bytestream2_get_byte.exit230:                     ; preds = %bytestream2_init.exit214
   %233 = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -1958,7 +1958,7 @@ bytestream2_get_byte.exit230:                     ; preds = %bytestream2_init.ex
   store i32 %238, ptr %239, align 4, !tbaa !32
   %240 = and i32 %235, 1
   %.not205 = icmp eq i32 %240, 0
-  br i1 %.not205, label %288, label %241
+  br i1 %.not205, label %287, label %241
 
 241:                                              ; preds = %bytestream2_get_byte.exit230
   %242 = load i16, ptr %233, align 1, !tbaa !25
@@ -1987,7 +1987,7 @@ bytestream2_get_byte.exit232:                     ; preds = %241, %246
   %254 = add nsw i64 %252, %..i246
   %255 = getelementptr i8, ptr %9, i64 %254
   %256 = icmp samesign ugt i16 %244, 1
-  br i1 %256, label %257, label %274
+  br i1 %256, label %257, label %273
 
 257:                                              ; preds = %bytestream2_get_byte.exit232
   %gepdiff = sub i64 %227, %254
@@ -2015,355 +2015,355 @@ bytestream2_get_byte.exit232:                     ; preds = %241, %246
   %267 = and i32 %266, 1
   %spec.select = add nuw nsw i32 %267, %.0178501
   %268 = add nsw i32 %.0183500, -1
-  %269 = icmp sgt i32 %.0183500, 0
-  br i1 %269, label %264, label %._crit_edge, !llvm.loop !38
+  %.not711 = icmp eq i32 %.0183500, 0
+  br i1 %.not711, label %._crit_edge, label %264, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %264
-  %270 = ptrtoint ptr %.sroa.0.20 to i64
-  %271 = sub i64 %229, %270
-  %272 = zext nneg i32 %spec.select to i64
-  %..i247 = tail call i64 @llvm.smin.i64(i64 %271, i64 %272)
-  %273 = getelementptr inbounds i8, ptr %.sroa.0.20, i64 %..i247
-  br label %274
+  %269 = ptrtoint ptr %.sroa.0.20 to i64
+  %270 = sub i64 %229, %269
+  %271 = zext nneg i32 %spec.select to i64
+  %..i247 = tail call i64 @llvm.smin.i64(i64 %270, i64 %271)
+  %272 = getelementptr inbounds i8, ptr %.sroa.0.20, i64 %..i247
+  br label %273
 
-274:                                              ; preds = %._crit_edge, %bytestream2_get_byte.exit232
-  %.sroa.0.5 = phi ptr [ %273, %._crit_edge ], [ %255, %bytestream2_get_byte.exit232 ]
-  %275 = ptrtoint ptr %.sroa.0.5 to i64
-  %276 = sub i64 %229, %275
-  %277 = icmp slt i64 %276, 1
-  br i1 %277, label %bytestream2_get_byte.exit236, label %278
+273:                                              ; preds = %._crit_edge, %bytestream2_get_byte.exit232
+  %.sroa.0.5 = phi ptr [ %272, %._crit_edge ], [ %255, %bytestream2_get_byte.exit232 ]
+  %274 = ptrtoint ptr %.sroa.0.5 to i64
+  %275 = sub i64 %229, %274
+  %276 = icmp slt i64 %275, 1
+  br i1 %276, label %bytestream2_get_byte.exit236, label %277
 
-278:                                              ; preds = %274
-  %279 = getelementptr inbounds nuw i8, ptr %.sroa.0.5, i64 1
-  %280 = load i8, ptr %.sroa.0.5, align 1, !tbaa !25
-  %281 = zext i8 %280 to i64
-  %282 = shl nuw nsw i64 %281, 2
-  %.pre614 = ptrtoint ptr %279 to i64
+277:                                              ; preds = %273
+  %278 = getelementptr inbounds nuw i8, ptr %.sroa.0.5, i64 1
+  %279 = load i8, ptr %.sroa.0.5, align 1, !tbaa !25
+  %280 = zext i8 %279 to i64
+  %281 = shl nuw nsw i64 %280, 2
+  %.pre614 = ptrtoint ptr %278 to i64
   br label %bytestream2_get_byte.exit236
 
-bytestream2_get_byte.exit236:                     ; preds = %274, %278
-  %.pre-phi615 = phi i64 [ %229, %274 ], [ %.pre614, %278 ]
-  %.sroa.0.21 = phi ptr [ %228, %274 ], [ %279, %278 ]
-  %.0.i235 = phi i64 [ 0, %274 ], [ %282, %278 ]
-  %283 = sub i64 %229, %.pre-phi615
-  %..i248 = tail call i64 @llvm.smin.i64(i64 %283, i64 %.0.i235)
-  %284 = getelementptr inbounds i8, ptr %.sroa.0.21, i64 %..i248
-  %285 = ptrtoint ptr %284 to i64
-  %286 = sub i64 %229, %285
-  %..i249 = tail call i64 @llvm.smin.i64(i64 %286, i64 6)
-  %287 = getelementptr inbounds i8, ptr %284, i64 %..i249
-  br label %288
+bytestream2_get_byte.exit236:                     ; preds = %273, %277
+  %.pre-phi615 = phi i64 [ %229, %273 ], [ %.pre614, %277 ]
+  %.sroa.0.21 = phi ptr [ %228, %273 ], [ %278, %277 ]
+  %.0.i235 = phi i64 [ 0, %273 ], [ %281, %277 ]
+  %282 = sub i64 %229, %.pre-phi615
+  %..i248 = tail call i64 @llvm.smin.i64(i64 %282, i64 %.0.i235)
+  %283 = getelementptr inbounds i8, ptr %.sroa.0.21, i64 %..i248
+  %284 = ptrtoint ptr %283 to i64
+  %285 = sub i64 %229, %284
+  %..i249 = tail call i64 @llvm.smin.i64(i64 %285, i64 6)
+  %286 = getelementptr inbounds i8, ptr %283, i64 %..i249
+  br label %287
 
-288:                                              ; preds = %bytestream2_get_byte.exit230.thread, %bytestream2_get_byte.exit236, %bytestream2_get_byte.exit230
-  %.sroa.0.4 = phi ptr [ %233, %bytestream2_get_byte.exit230 ], [ %287, %bytestream2_get_byte.exit236 ], [ %228, %bytestream2_get_byte.exit230.thread ]
-  %289 = ptrtoint ptr %.sroa.0.4 to i64
-  %290 = sub i64 %229, %289
-  %291 = icmp slt i64 %290, 1
-  br i1 %291, label %.thread, label %bytestream2_get_byte.exit238
+287:                                              ; preds = %bytestream2_get_byte.exit230.thread, %bytestream2_get_byte.exit236, %bytestream2_get_byte.exit230
+  %.sroa.0.4 = phi ptr [ %233, %bytestream2_get_byte.exit230 ], [ %286, %bytestream2_get_byte.exit236 ], [ %228, %bytestream2_get_byte.exit230.thread ]
+  %288 = ptrtoint ptr %.sroa.0.4 to i64
+  %289 = sub i64 %229, %288
+  %290 = icmp slt i64 %289, 1
+  br i1 %290, label %.thread, label %bytestream2_get_byte.exit238
 
-bytestream2_get_byte.exit238:                     ; preds = %288
-  %292 = load i8, ptr %.sroa.0.4, align 1, !tbaa !25
-  %293 = zext i8 %292 to i32
-  %.not206508.not = icmp eq i8 %292, 0
+bytestream2_get_byte.exit238:                     ; preds = %287
+  %291 = load i8, ptr %.sroa.0.4, align 1, !tbaa !25
+  %292 = zext i8 %291 to i32
+  %.not206508.not = icmp eq i8 %291, 0
   br i1 %.not206508.not, label %.thread, label %.lr.ph511
 
 .lr.ph511:                                        ; preds = %bytestream2_get_byte.exit238
-  %294 = getelementptr inbounds nuw i8, ptr %.sroa.0.4, i64 1
-  %295 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %296 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %297 = trunc i64 %17 to i32
+  %293 = getelementptr inbounds nuw i8, ptr %.sroa.0.4, i64 1
+  %294 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %296 = trunc i64 %17 to i32
   %sext670 = and i64 %17, 2147483647
-  br label %298
+  br label %297
 
-298:                                              ; preds = %.lr.ph511, %.loopexit
-  %.0182510 = phi i32 [ 0, %.lr.ph511 ], [ %394, %.loopexit ]
-  %.sroa.0.6509 = phi ptr [ %294, %.lr.ph511 ], [ %.sroa.0.8.lcssa, %.loopexit ]
-  %299 = ptrtoint ptr %.sroa.0.6509 to i64
-  %300 = sub i64 %229, %299
-  %301 = icmp slt i64 %300, 1
-  br i1 %301, label %bytestream2_get_byte.exit240.thread, label %bytestream2_get_byte.exit240
+297:                                              ; preds = %.lr.ph511, %.loopexit
+  %.0182510 = phi i32 [ 0, %.lr.ph511 ], [ %393, %.loopexit ]
+  %.sroa.0.6509 = phi ptr [ %293, %.lr.ph511 ], [ %.sroa.0.8.lcssa, %.loopexit ]
+  %298 = ptrtoint ptr %.sroa.0.6509 to i64
+  %299 = sub i64 %229, %298
+  %300 = icmp slt i64 %299, 1
+  br i1 %300, label %bytestream2_get_byte.exit240.thread, label %bytestream2_get_byte.exit240
 
-bytestream2_get_byte.exit240:                     ; preds = %298
-  %302 = getelementptr inbounds nuw i8, ptr %.sroa.0.6509, i64 1
-  %303 = load i8, ptr %.sroa.0.6509, align 1, !tbaa !25
-  %304 = and i8 %303, 31
-  %305 = zext nneg i8 %304 to i32
-  %306 = add nsw i8 %304, -14
-  %or.cond11 = icmp ult i8 %306, -2
-  %.pre616 = ptrtoint ptr %302 to i64
+bytestream2_get_byte.exit240:                     ; preds = %297
+  %301 = getelementptr inbounds nuw i8, ptr %.sroa.0.6509, i64 1
+  %302 = load i8, ptr %.sroa.0.6509, align 1, !tbaa !25
+  %303 = and i8 %302, 31
+  %304 = zext nneg i8 %303 to i32
+  %305 = add nsw i8 %303, -14
+  %or.cond11 = icmp ult i8 %305, -2
+  %.pre616 = ptrtoint ptr %301 to i64
   br i1 %or.cond11, label %bytestream2_get_byte.exit240.thread, label %bytestream2_get_be16.exit259.thread673
 
 bytestream2_get_be16.exit259.thread673:           ; preds = %bytestream2_get_byte.exit240
-  %307 = sub i64 %.pre616, %230
-  %308 = trunc i64 %307 to i32
-  %sext676 = shl i64 %307, 32
-  %309 = ashr exact i64 %sext676, 32
+  %306 = sub i64 %.pre616, %230
+  %307 = trunc i64 %306 to i32
+  %sext676 = shl i64 %306, 32
+  %308 = ashr exact i64 %sext676, 32
   br label %.lr.ph504.preheader
 
-bytestream2_get_byte.exit240.thread:              ; preds = %bytestream2_get_byte.exit240, %298
-  %.pre-phi617 = phi i64 [ %229, %298 ], [ %.pre616, %bytestream2_get_byte.exit240 ]
-  %310 = phi i32 [ 0, %298 ], [ %305, %bytestream2_get_byte.exit240 ]
-  %.sroa.0.23438 = phi ptr [ %228, %298 ], [ %302, %bytestream2_get_byte.exit240 ]
-  %311 = sub i64 %229, %.pre-phi617
-  %312 = icmp slt i64 %311, 2
-  br i1 %312, label %._crit_edge505, label %bytestream2_get_be16.exit259
+bytestream2_get_byte.exit240.thread:              ; preds = %bytestream2_get_byte.exit240, %297
+  %.pre-phi617 = phi i64 [ %229, %297 ], [ %.pre616, %bytestream2_get_byte.exit240 ]
+  %309 = phi i32 [ 0, %297 ], [ %304, %bytestream2_get_byte.exit240 ]
+  %.sroa.0.23438 = phi ptr [ %228, %297 ], [ %301, %bytestream2_get_byte.exit240 ]
+  %310 = sub i64 %229, %.pre-phi617
+  %311 = icmp slt i64 %310, 2
+  br i1 %311, label %._crit_edge505, label %bytestream2_get_be16.exit259
 
 bytestream2_get_be16.exit259:                     ; preds = %bytestream2_get_byte.exit240.thread
-  %313 = getelementptr inbounds nuw i8, ptr %.sroa.0.23438, i64 2
-  %314 = load i16, ptr %.sroa.0.23438, align 1, !tbaa !25
-  %315 = tail call i16 @llvm.bswap.i16(i16 %314)
-  %316 = zext i16 %315 to i32
-  %317 = ptrtoint ptr %313 to i64
-  %318 = sub i64 %317, %230
-  %319 = trunc i64 %318 to i32
-  %sext = shl i64 %318, 32
-  %320 = ashr exact i64 %sext, 32
-  %.not533 = icmp eq i16 %314, 0
+  %312 = getelementptr inbounds nuw i8, ptr %.sroa.0.23438, i64 2
+  %313 = load i16, ptr %.sroa.0.23438, align 1, !tbaa !25
+  %314 = tail call i16 @llvm.bswap.i16(i16 %313)
+  %315 = zext i16 %314 to i32
+  %316 = ptrtoint ptr %312 to i64
+  %317 = sub i64 %316, %230
+  %318 = trunc i64 %317 to i32
+  %sext = shl i64 %317, 32
+  %319 = ashr exact i64 %sext, 32
+  %.not533 = icmp eq i16 %313, 0
   br i1 %.not533, label %._crit_edge505, label %.lr.ph504.preheader
 
 .lr.ph504.preheader:                              ; preds = %bytestream2_get_be16.exit259.thread673, %bytestream2_get_be16.exit259
-  %321 = phi i64 [ %309, %bytestream2_get_be16.exit259.thread673 ], [ %320, %bytestream2_get_be16.exit259 ]
-  %322 = phi i32 [ %308, %bytestream2_get_be16.exit259.thread673 ], [ %319, %bytestream2_get_be16.exit259 ]
-  %.0172679 = phi i32 [ 1, %bytestream2_get_be16.exit259.thread673 ], [ %316, %bytestream2_get_be16.exit259 ]
-  %.sroa.0.7678 = phi ptr [ %302, %bytestream2_get_be16.exit259.thread673 ], [ %313, %bytestream2_get_be16.exit259 ]
-  %323 = phi i32 [ %305, %bytestream2_get_be16.exit259.thread673 ], [ %310, %bytestream2_get_be16.exit259 ]
+  %320 = phi i64 [ %308, %bytestream2_get_be16.exit259.thread673 ], [ %319, %bytestream2_get_be16.exit259 ]
+  %321 = phi i32 [ %307, %bytestream2_get_be16.exit259.thread673 ], [ %318, %bytestream2_get_be16.exit259 ]
+  %.0172679 = phi i32 [ 1, %bytestream2_get_be16.exit259.thread673 ], [ %315, %bytestream2_get_be16.exit259 ]
+  %.sroa.0.7678 = phi ptr [ %301, %bytestream2_get_be16.exit259.thread673 ], [ %312, %bytestream2_get_be16.exit259 ]
+  %322 = phi i32 [ %304, %bytestream2_get_be16.exit259.thread673 ], [ %309, %bytestream2_get_be16.exit259 ]
   br label %.lr.ph504
 
 .lr.ph504:                                        ; preds = %.lr.ph504.preheader, %bytestream2_get_be16.exit261.thread
-  %.1184503 = phi i32 [ %341, %bytestream2_get_be16.exit261.thread ], [ 0, %.lr.ph504.preheader ]
-  %.sroa.0.8502 = phi ptr [ %340, %bytestream2_get_be16.exit261.thread ], [ %.sroa.0.7678, %.lr.ph504.preheader ]
-  %324 = ptrtoint ptr %.sroa.0.8502 to i64
-  %325 = sub i64 %229, %324
-  %326 = trunc i64 %325 to i32
-  %327 = icmp slt i32 %326, 2
-  br i1 %327, label %.thread, label %328
+  %.1184503 = phi i32 [ %340, %bytestream2_get_be16.exit261.thread ], [ 0, %.lr.ph504.preheader ]
+  %.sroa.0.8502 = phi ptr [ %339, %bytestream2_get_be16.exit261.thread ], [ %.sroa.0.7678, %.lr.ph504.preheader ]
+  %323 = ptrtoint ptr %.sroa.0.8502 to i64
+  %324 = sub i64 %229, %323
+  %325 = trunc i64 %324 to i32
+  %326 = icmp slt i32 %325, 2
+  br i1 %326, label %.thread, label %327
 
-328:                                              ; preds = %.lr.ph504
-  %329 = icmp slt i64 %325, 2
-  br i1 %329, label %bytestream2_get_be16.exit261.thread, label %bytestream2_get_be16.exit261
+327:                                              ; preds = %.lr.ph504
+  %328 = icmp slt i64 %324, 2
+  br i1 %328, label %bytestream2_get_be16.exit261.thread, label %bytestream2_get_be16.exit261
 
-bytestream2_get_be16.exit261:                     ; preds = %328
-  %330 = getelementptr inbounds nuw i8, ptr %.sroa.0.8502, i64 2
-  %331 = load i16, ptr %.sroa.0.8502, align 1, !tbaa !25
-  %332 = tail call i16 @llvm.bswap.i16(i16 %331)
-  %333 = zext i16 %332 to i32
-  %334 = ptrtoint ptr %330 to i64
-  %335 = sub i64 %229, %334
-  %336 = trunc i64 %335 to i32
-  %337 = icmp ult i32 %336, %333
-  br i1 %337, label %.thread, label %bytestream2_get_be16.exit261.thread
+bytestream2_get_be16.exit261:                     ; preds = %327
+  %329 = getelementptr inbounds nuw i8, ptr %.sroa.0.8502, i64 2
+  %330 = load i16, ptr %.sroa.0.8502, align 1, !tbaa !25
+  %331 = tail call i16 @llvm.bswap.i16(i16 %330)
+  %332 = zext i16 %331 to i32
+  %333 = ptrtoint ptr %329 to i64
+  %334 = sub i64 %229, %333
+  %335 = trunc i64 %334 to i32
+  %336 = icmp ult i32 %335, %332
+  br i1 %336, label %.thread, label %bytestream2_get_be16.exit261.thread
 
-bytestream2_get_be16.exit261.thread:              ; preds = %328, %bytestream2_get_be16.exit261
-  %338 = phi i64 [ %335, %bytestream2_get_be16.exit261 ], [ 0, %328 ]
-  %.0.i260442 = phi i32 [ %333, %bytestream2_get_be16.exit261 ], [ 0, %328 ]
-  %.sroa.0.29441 = phi ptr [ %330, %bytestream2_get_be16.exit261 ], [ %228, %328 ]
-  %339 = zext nneg i32 %.0.i260442 to i64
-  %..i250 = tail call i64 @llvm.smin.i64(i64 %338, i64 %339)
-  %340 = getelementptr inbounds i8, ptr %.sroa.0.29441, i64 %..i250
-  %341 = add nuw nsw i32 %.1184503, 1
-  %exitcond.not = icmp eq i32 %341, %.0172679
+bytestream2_get_be16.exit261.thread:              ; preds = %327, %bytestream2_get_be16.exit261
+  %337 = phi i64 [ %334, %bytestream2_get_be16.exit261 ], [ 0, %327 ]
+  %.0.i260442 = phi i32 [ %332, %bytestream2_get_be16.exit261 ], [ 0, %327 ]
+  %.sroa.0.29441 = phi ptr [ %329, %bytestream2_get_be16.exit261 ], [ %228, %327 ]
+  %338 = zext nneg i32 %.0.i260442 to i64
+  %..i250 = tail call i64 @llvm.smin.i64(i64 %337, i64 %338)
+  %339 = getelementptr inbounds i8, ptr %.sroa.0.29441, i64 %..i250
+  %340 = add nuw nsw i32 %.1184503, 1
+  %exitcond.not = icmp eq i32 %340, %.0172679
   br i1 %exitcond.not, label %._crit_edge505.loopexit, label %.lr.ph504, !llvm.loop !39
 
 ._crit_edge505.loopexit:                          ; preds = %bytestream2_get_be16.exit261.thread
-  %.pre606 = ptrtoint ptr %340 to i64
+  %.pre606 = ptrtoint ptr %339 to i64
   %.pre608 = sub i64 %.pre606, %230
   %.pre610 = trunc i64 %.pre608 to i32
   br label %._crit_edge505
 
 ._crit_edge505:                                   ; preds = %bytestream2_get_byte.exit240.thread, %._crit_edge505.loopexit, %bytestream2_get_be16.exit259
-  %342 = phi i64 [ %321, %._crit_edge505.loopexit ], [ %320, %bytestream2_get_be16.exit259 ], [ %sext670, %bytestream2_get_byte.exit240.thread ]
-  %343 = phi i32 [ %322, %._crit_edge505.loopexit ], [ %319, %bytestream2_get_be16.exit259 ], [ %297, %bytestream2_get_byte.exit240.thread ]
+  %341 = phi i64 [ %320, %._crit_edge505.loopexit ], [ %319, %bytestream2_get_be16.exit259 ], [ %sext670, %bytestream2_get_byte.exit240.thread ]
+  %342 = phi i32 [ %321, %._crit_edge505.loopexit ], [ %318, %bytestream2_get_be16.exit259 ], [ %296, %bytestream2_get_byte.exit240.thread ]
   %.0172672 = phi i32 [ %.0172679, %._crit_edge505.loopexit ], [ 0, %bytestream2_get_be16.exit259 ], [ 0, %bytestream2_get_byte.exit240.thread ]
-  %344 = phi i32 [ %323, %._crit_edge505.loopexit ], [ %310, %bytestream2_get_be16.exit259 ], [ %310, %bytestream2_get_byte.exit240.thread ]
-  %.pre-phi611 = phi i32 [ %.pre610, %._crit_edge505.loopexit ], [ %319, %bytestream2_get_be16.exit259 ], [ %297, %bytestream2_get_byte.exit240.thread ]
-  %.sroa.0.8.lcssa = phi ptr [ %340, %._crit_edge505.loopexit ], [ %313, %bytestream2_get_be16.exit259 ], [ %228, %bytestream2_get_byte.exit240.thread ]
-  %345 = load ptr, ptr %1, align 8, !tbaa !19
-  %346 = getelementptr inbounds nuw i8, ptr %345, i64 %342
-  %347 = sub i32 %.pre-phi611, %343
-  %348 = load ptr, ptr %0, align 8, !tbaa !31
-  %349 = tail call i32 @ff_h2645_packet_split(ptr noundef nonnull %295, ptr noundef %346, i32 noundef %347, ptr noundef %348, i32 noundef 2, i32 noundef 196, i32 noundef 7) #11
-  %350 = icmp slt i32 %349, 0
-  br i1 %350, label %351, label %353
+  %343 = phi i32 [ %322, %._crit_edge505.loopexit ], [ %309, %bytestream2_get_be16.exit259 ], [ %309, %bytestream2_get_byte.exit240.thread ]
+  %.pre-phi611 = phi i32 [ %.pre610, %._crit_edge505.loopexit ], [ %318, %bytestream2_get_be16.exit259 ], [ %296, %bytestream2_get_byte.exit240.thread ]
+  %.sroa.0.8.lcssa = phi ptr [ %339, %._crit_edge505.loopexit ], [ %312, %bytestream2_get_be16.exit259 ], [ %228, %bytestream2_get_byte.exit240.thread ]
+  %344 = load ptr, ptr %1, align 8, !tbaa !19
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 %341
+  %346 = sub i32 %.pre-phi611, %342
+  %347 = load ptr, ptr %0, align 8, !tbaa !31
+  %348 = tail call i32 @ff_h2645_packet_split(ptr noundef nonnull %294, ptr noundef %345, i32 noundef %346, ptr noundef %347, i32 noundef 2, i32 noundef 196, i32 noundef 7) #11
+  %349 = icmp slt i32 %348, 0
+  br i1 %349, label %350, label %352
 
-351:                                              ; preds = %._crit_edge505
-  %352 = load ptr, ptr %0, align 8, !tbaa !31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %352, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.0172672, i32 noundef %.0172672, i32 noundef %344) #11
+350:                                              ; preds = %._crit_edge505
+  %351 = load ptr, ptr %0, align 8, !tbaa !31
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %351, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.0172672, i32 noundef %.0172672, i32 noundef %343) #11
   br label %.thread
 
-353:                                              ; preds = %._crit_edge505
-  %354 = load i32, ptr %296, align 8, !tbaa !40
-  %355 = icmp sgt i32 %354, 0
-  br i1 %355, label %.lr.ph43.i, label %.loopexit
+352:                                              ; preds = %._crit_edge505
+  %353 = load i32, ptr %295, align 8, !tbaa !40
+  %354 = icmp sgt i32 %353, 0
+  br i1 %354, label %.lr.ph43.i, label %.loopexit
 
-.lr.ph43.i:                                       ; preds = %353, %390
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %390 ], [ 0, %353 ]
-  %356 = load ptr, ptr %295, align 8, !tbaa !41
-  %357 = getelementptr inbounds nuw %struct.H2645NAL, ptr %356, i64 %indvars.iv.i
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
-  %359 = load i32, ptr %358, align 8, !tbaa !42
-  %360 = sext i32 %359 to i64
-  %361 = load ptr, ptr %4, align 8, !tbaa !4
-  %362 = load i32, ptr %361, align 8, !tbaa !14
-  %363 = icmp eq i32 %362, 173
-  br i1 %363, label %364, label %372
+.lr.ph43.i:                                       ; preds = %352, %389
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %389 ], [ 0, %352 ]
+  %355 = load ptr, ptr %294, align 8, !tbaa !41
+  %356 = getelementptr inbounds nuw %struct.H2645NAL, ptr %355, i64 %indvars.iv.i
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  %358 = load i32, ptr %357, align 8, !tbaa !42
+  %359 = sext i32 %358 to i64
+  %360 = load ptr, ptr %4, align 8, !tbaa !4
+  %361 = load i32, ptr %360, align 8, !tbaa !14
+  %362 = icmp eq i32 %361, 173
+  br i1 %362, label %363, label %371
 
-364:                                              ; preds = %.lr.ph43.i
-  %365 = getelementptr inbounds nuw i8, ptr %357, i64 76
-  %366 = load i32, ptr %365, align 4, !tbaa !45
-  %367 = icmp sgt i32 %366, 0
-  br i1 %367, label %368, label %372
+363:                                              ; preds = %.lr.ph43.i
+  %364 = getelementptr inbounds nuw i8, ptr %356, i64 76
+  %365 = load i32, ptr %364, align 4, !tbaa !45
+  %366 = icmp sgt i32 %365, 0
+  br i1 %366, label %367, label %371
 
-368:                                              ; preds = %364
-  %369 = getelementptr inbounds nuw i8, ptr %357, i64 64
-  %370 = load i32, ptr %369, align 8, !tbaa !46
-  %371 = add i32 %370, -35
-  %or.cond.i = icmp ult i32 %371, -3
-  br i1 %or.cond.i, label %390, label %372
+367:                                              ; preds = %363
+  %368 = getelementptr inbounds nuw i8, ptr %356, i64 64
+  %369 = load i32, ptr %368, align 8, !tbaa !46
+  %370 = add i32 %369, -35
+  %or.cond.i = icmp ult i32 %370, -3
+  br i1 %or.cond.i, label %389, label %371
 
-372:                                              ; preds = %368, %364, %.lr.ph43.i
-  %cond39.i = icmp eq i32 %359, 0
+371:                                              ; preds = %367, %363, %.lr.ph43.i
+  %cond39.i = icmp eq i32 %358, 0
   br i1 %cond39.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %372
-  %373 = load ptr, ptr %357, align 8, !tbaa !47
-  br label %374
+.lr.ph.i:                                         ; preds = %371
+  %372 = load ptr, ptr %356, align 8, !tbaa !47
+  br label %373
 
-374:                                              ; preds = %379, %.lr.ph.i
-  %.03040.i = phi i64 [ %360, %.lr.ph.i ], [ %380, %379 ]
-  %375 = getelementptr i8, ptr %373, i64 %.03040.i
-  %376 = getelementptr i8, ptr %375, i64 -1
-  %377 = load i8, ptr %376, align 1, !tbaa !25
-  %378 = icmp eq i8 %377, 0
-  br i1 %378, label %379, label %.critedge.i
+373:                                              ; preds = %378, %.lr.ph.i
+  %.03040.i = phi i64 [ %359, %.lr.ph.i ], [ %379, %378 ]
+  %374 = getelementptr i8, ptr %372, i64 %.03040.i
+  %375 = getelementptr i8, ptr %374, i64 -1
+  %376 = load i8, ptr %375, align 1, !tbaa !25
+  %377 = icmp eq i8 %376, 0
+  br i1 %377, label %378, label %.critedge.i
 
-379:                                              ; preds = %374
-  %380 = add i64 %.03040.i, -1
-  %cond.i = icmp eq i64 %380, 0
-  br i1 %cond.i, label %._crit_edge.i, label %374, !llvm.loop !48
+378:                                              ; preds = %373
+  %379 = add i64 %.03040.i, -1
+  %cond.i = icmp eq i64 %379, 0
+  br i1 %cond.i, label %._crit_edge.i, label %373, !llvm.loop !48
 
-._crit_edge.i:                                    ; preds = %379, %372
-  %381 = load ptr, ptr %0, align 8, !tbaa !31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %381, i32 noundef 40, ptr noundef nonnull @.str.13) #11
-  br label %390
+._crit_edge.i:                                    ; preds = %378, %371
+  %380 = load ptr, ptr %0, align 8, !tbaa !31
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %380, i32 noundef 40, ptr noundef nonnull @.str.13) #11
+  br label %389
 
-.critedge.i:                                      ; preds = %374
-  %382 = getelementptr inbounds nuw i8, ptr %357, i64 24
-  %383 = load ptr, ptr %382, align 8, !tbaa !49
-  %384 = icmp eq ptr %373, %383
-  %.in.i.v = select i1 %384, ptr %1, ptr %8
+.critedge.i:                                      ; preds = %373
+  %381 = getelementptr inbounds nuw i8, ptr %356, i64 24
+  %382 = load ptr, ptr %381, align 8, !tbaa !49
+  %383 = icmp eq ptr %372, %382
+  %.in.i.v = select i1 %383, ptr %1, ptr %8
   %.in.i = getelementptr inbounds nuw i8, ptr %.in.i.v, i64 24
-  %385 = load ptr, ptr %.in.i, align 8, !tbaa !50
-  %386 = getelementptr inbounds nuw i8, ptr %357, i64 64
-  %387 = load i32, ptr %386, align 8, !tbaa !46
-  %388 = tail call i32 @ff_cbs_append_unit_data(ptr noundef nonnull %1, i32 noundef %387, ptr noundef nonnull %373, i64 noundef %.03040.i, ptr noundef %385) #11
-  %389 = icmp slt i32 %388, 0
-  br i1 %389, label %.thread, label %390
+  %384 = load ptr, ptr %.in.i, align 8, !tbaa !50
+  %385 = getelementptr inbounds nuw i8, ptr %356, i64 64
+  %386 = load i32, ptr %385, align 8, !tbaa !46
+  %387 = tail call i32 @ff_cbs_append_unit_data(ptr noundef nonnull %1, i32 noundef %386, ptr noundef nonnull %372, i64 noundef %.03040.i, ptr noundef %384) #11
+  %388 = icmp slt i32 %387, 0
+  br i1 %388, label %.thread, label %389
 
-390:                                              ; preds = %.critedge.i, %._crit_edge.i, %368
+389:                                              ; preds = %.critedge.i, %._crit_edge.i, %367
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %391 = load i32, ptr %296, align 8, !tbaa !40
-  %392 = sext i32 %391 to i64
-  %393 = icmp slt i64 %indvars.iv.next.i, %392
-  br i1 %393, label %.lr.ph43.i, label %.loopexit, !llvm.loop !51
+  %390 = load i32, ptr %295, align 8, !tbaa !40
+  %391 = sext i32 %390 to i64
+  %392 = icmp slt i64 %indvars.iv.next.i, %391
+  br i1 %392, label %.lr.ph43.i, label %.loopexit, !llvm.loop !51
 
-.loopexit:                                        ; preds = %390, %353
-  %394 = add nuw nsw i32 %.0182510, 1
-  %exitcond573.not = icmp eq i32 %394, %293
-  br i1 %exitcond573.not, label %.thread, label %298, !llvm.loop !52
+.loopexit:                                        ; preds = %389, %352
+  %393 = add nuw nsw i32 %.0182510, 1
+  %exitcond573.not = icmp eq i32 %393, %292
+  br i1 %exitcond573.not, label %.thread, label %297, !llvm.loop !52
 
 .critedge210:                                     ; preds = %19, %.critedge
-  %395 = load i32, ptr %8, align 8, !tbaa !26
-  %396 = icmp ne i32 %395, 0
-  %397 = zext i1 %396 to i32
-  %398 = or disjoint i32 %397, 6
-  %399 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %400 = trunc i64 %17 to i32
-  %401 = load ptr, ptr %0, align 8, !tbaa !31
-  %402 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %403 = load i32, ptr %402, align 4, !tbaa !32
-  %404 = tail call i32 @ff_h2645_packet_split(ptr noundef nonnull %399, ptr noundef nonnull %9, i32 noundef %400, ptr noundef %401, i32 noundef %403, i32 noundef %6, i32 noundef %398) #11
-  %405 = icmp slt i32 %404, 0
-  br i1 %405, label %.thread, label %406
+  %394 = load i32, ptr %8, align 8, !tbaa !26
+  %395 = icmp ne i32 %394, 0
+  %396 = zext i1 %395 to i32
+  %397 = or disjoint i32 %396, 6
+  %398 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %399 = trunc i64 %17 to i32
+  %400 = load ptr, ptr %0, align 8, !tbaa !31
+  %401 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %402 = load i32, ptr %401, align 4, !tbaa !32
+  %403 = tail call i32 @ff_h2645_packet_split(ptr noundef nonnull %398, ptr noundef nonnull %9, i32 noundef %399, ptr noundef %400, i32 noundef %402, i32 noundef %6, i32 noundef %397) #11
+  %404 = icmp slt i32 %403, 0
+  br i1 %404, label %.thread, label %405
 
-406:                                              ; preds = %.critedge210
-  %407 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %408 = load i32, ptr %407, align 8, !tbaa !40
-  %409 = icmp sgt i32 %408, 0
-  br i1 %409, label %.lr.ph43.i263, label %.thread
+405:                                              ; preds = %.critedge210
+  %406 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %407 = load i32, ptr %406, align 8, !tbaa !40
+  %408 = icmp sgt i32 %407, 0
+  br i1 %408, label %.lr.ph43.i263, label %.thread
 
-.lr.ph43.i263:                                    ; preds = %406, %444
-  %indvars.iv.i264 = phi i64 [ %indvars.iv.next.i270, %444 ], [ 0, %406 ]
-  %410 = load ptr, ptr %399, align 8, !tbaa !41
-  %411 = getelementptr inbounds nuw %struct.H2645NAL, ptr %410, i64 %indvars.iv.i264
-  %412 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  %413 = load i32, ptr %412, align 8, !tbaa !42
-  %414 = sext i32 %413 to i64
-  %415 = load ptr, ptr %4, align 8, !tbaa !4
-  %416 = load i32, ptr %415, align 8, !tbaa !14
-  %417 = icmp eq i32 %416, 173
-  br i1 %417, label %418, label %426
+.lr.ph43.i263:                                    ; preds = %405, %443
+  %indvars.iv.i264 = phi i64 [ %indvars.iv.next.i270, %443 ], [ 0, %405 ]
+  %409 = load ptr, ptr %398, align 8, !tbaa !41
+  %410 = getelementptr inbounds nuw %struct.H2645NAL, ptr %409, i64 %indvars.iv.i264
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 8
+  %412 = load i32, ptr %411, align 8, !tbaa !42
+  %413 = sext i32 %412 to i64
+  %414 = load ptr, ptr %4, align 8, !tbaa !4
+  %415 = load i32, ptr %414, align 8, !tbaa !14
+  %416 = icmp eq i32 %415, 173
+  br i1 %416, label %417, label %425
 
-418:                                              ; preds = %.lr.ph43.i263
-  %419 = getelementptr inbounds nuw i8, ptr %411, i64 76
-  %420 = load i32, ptr %419, align 4, !tbaa !45
-  %421 = icmp sgt i32 %420, 0
-  br i1 %421, label %422, label %426
+417:                                              ; preds = %.lr.ph43.i263
+  %418 = getelementptr inbounds nuw i8, ptr %410, i64 76
+  %419 = load i32, ptr %418, align 4, !tbaa !45
+  %420 = icmp sgt i32 %419, 0
+  br i1 %420, label %421, label %425
 
-422:                                              ; preds = %418
-  %423 = getelementptr inbounds nuw i8, ptr %411, i64 64
-  %424 = load i32, ptr %423, align 8, !tbaa !46
-  %425 = add i32 %424, -35
-  %or.cond.i273 = icmp ult i32 %425, -3
-  br i1 %or.cond.i273, label %444, label %426
+421:                                              ; preds = %417
+  %422 = getelementptr inbounds nuw i8, ptr %410, i64 64
+  %423 = load i32, ptr %422, align 8, !tbaa !46
+  %424 = add i32 %423, -35
+  %or.cond.i273 = icmp ult i32 %424, -3
+  br i1 %or.cond.i273, label %443, label %425
 
-426:                                              ; preds = %422, %418, %.lr.ph43.i263
-  %cond39.i265 = icmp eq i32 %413, 0
+425:                                              ; preds = %421, %417, %.lr.ph43.i263
+  %cond39.i265 = icmp eq i32 %412, 0
   br i1 %cond39.i265, label %._crit_edge.i272, label %.lr.ph.i266
 
-.lr.ph.i266:                                      ; preds = %426
-  %427 = load ptr, ptr %411, align 8, !tbaa !47
-  br label %428
+.lr.ph.i266:                                      ; preds = %425
+  %426 = load ptr, ptr %410, align 8, !tbaa !47
+  br label %427
 
-428:                                              ; preds = %433, %.lr.ph.i266
-  %.03040.i267 = phi i64 [ %414, %.lr.ph.i266 ], [ %434, %433 ]
-  %429 = getelementptr i8, ptr %427, i64 %.03040.i267
-  %430 = getelementptr i8, ptr %429, i64 -1
-  %431 = load i8, ptr %430, align 1, !tbaa !25
-  %432 = icmp eq i8 %431, 0
-  br i1 %432, label %433, label %.critedge.i268
+427:                                              ; preds = %432, %.lr.ph.i266
+  %.03040.i267 = phi i64 [ %413, %.lr.ph.i266 ], [ %433, %432 ]
+  %428 = getelementptr i8, ptr %426, i64 %.03040.i267
+  %429 = getelementptr i8, ptr %428, i64 -1
+  %430 = load i8, ptr %429, align 1, !tbaa !25
+  %431 = icmp eq i8 %430, 0
+  br i1 %431, label %432, label %.critedge.i268
 
-433:                                              ; preds = %428
-  %434 = add i64 %.03040.i267, -1
-  %cond.i271 = icmp eq i64 %434, 0
-  br i1 %cond.i271, label %._crit_edge.i272, label %428, !llvm.loop !48
+432:                                              ; preds = %427
+  %433 = add i64 %.03040.i267, -1
+  %cond.i271 = icmp eq i64 %433, 0
+  br i1 %cond.i271, label %._crit_edge.i272, label %427, !llvm.loop !48
 
-._crit_edge.i272:                                 ; preds = %433, %426
-  %435 = load ptr, ptr %0, align 8, !tbaa !31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %435, i32 noundef 40, ptr noundef nonnull @.str.13) #11
-  br label %444
+._crit_edge.i272:                                 ; preds = %432, %425
+  %434 = load ptr, ptr %0, align 8, !tbaa !31
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %434, i32 noundef 40, ptr noundef nonnull @.str.13) #11
+  br label %443
 
-.critedge.i268:                                   ; preds = %428
-  %436 = getelementptr inbounds nuw i8, ptr %411, i64 24
-  %437 = load ptr, ptr %436, align 8, !tbaa !49
-  %438 = icmp eq ptr %427, %437
-  %.in.i269.v = select i1 %438, ptr %1, ptr %8
+.critedge.i268:                                   ; preds = %427
+  %435 = getelementptr inbounds nuw i8, ptr %410, i64 24
+  %436 = load ptr, ptr %435, align 8, !tbaa !49
+  %437 = icmp eq ptr %426, %436
+  %.in.i269.v = select i1 %437, ptr %1, ptr %8
   %.in.i269 = getelementptr inbounds nuw i8, ptr %.in.i269.v, i64 24
-  %439 = load ptr, ptr %.in.i269, align 8, !tbaa !50
-  %440 = getelementptr inbounds nuw i8, ptr %411, i64 64
-  %441 = load i32, ptr %440, align 8, !tbaa !46
-  %442 = tail call i32 @ff_cbs_append_unit_data(ptr noundef nonnull %1, i32 noundef %441, ptr noundef nonnull %427, i64 noundef %.03040.i267, ptr noundef %439) #11
-  %443 = icmp slt i32 %442, 0
-  br i1 %443, label %.thread, label %444
+  %438 = load ptr, ptr %.in.i269, align 8, !tbaa !50
+  %439 = getelementptr inbounds nuw i8, ptr %410, i64 64
+  %440 = load i32, ptr %439, align 8, !tbaa !46
+  %441 = tail call i32 @ff_cbs_append_unit_data(ptr noundef nonnull %1, i32 noundef %440, ptr noundef nonnull %426, i64 noundef %.03040.i267, ptr noundef %438) #11
+  %442 = icmp slt i32 %441, 0
+  br i1 %442, label %.thread, label %443
 
-444:                                              ; preds = %.critedge.i268, %._crit_edge.i272, %422
+443:                                              ; preds = %.critedge.i268, %._crit_edge.i272, %421
   %indvars.iv.next.i270 = add nuw nsw i64 %indvars.iv.i264, 1
-  %445 = load i32, ptr %407, align 8, !tbaa !40
-  %446 = sext i32 %445 to i64
-  %447 = icmp slt i64 %indvars.iv.next.i270, %446
-  br i1 %447, label %.lr.ph43.i263, label %.thread, !llvm.loop !51
+  %444 = load i32, ptr %406, align 8, !tbaa !40
+  %445 = sext i32 %444 to i64
+  %446 = icmp slt i64 %indvars.iv.next.i270, %445
+  br i1 %446, label %.lr.ph43.i263, label %.thread, !llvm.loop !51
 
-.thread:                                          ; preds = %.loopexit, %.lr.ph504, %bytestream2_get_be16.exit261, %.critedge.i, %217, %220, %bytestream2_get_be16.exit257, %.lr.ph514, %bytestream2_get_be16.exit, %.lr.ph525, %bytestream2_get_be16.exit253, %.lr.ph530, %444, %.critedge.i268, %288, %bytestream2_get_byte.exit224, %bytestream2_get_byte.exit238, %bytestream2_get_byte.exit226, %133, %137, %406, %351, %.critedge210, %bytestream2_init.exit213, %215, %bytestream2_get_byte.exit222.thread, %130, %87, %bytestream2_init.exit, %128, %85, %bytestream2_get_byte.exit.thread, %15
-  %.0 = phi i32 [ 0, %15 ], [ %131, %130 ], [ %88, %87 ], [ -1094995529, %bytestream2_init.exit ], [ %126, %128 ], [ %83, %85 ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %bytestream2_init.exit213 ], [ %213, %215 ], [ -1094995529, %bytestream2_get_byte.exit222.thread ], [ %404, %.critedge210 ], [ %349, %351 ], [ 0, %406 ], [ 0, %137 ], [ 0, %133 ], [ 0, %bytestream2_get_byte.exit226 ], [ 0, %bytestream2_get_byte.exit238 ], [ 0, %bytestream2_get_byte.exit224 ], [ 0, %288 ], [ 0, %444 ], [ %442, %.critedge.i268 ], [ -1094995529, %.lr.ph530 ], [ -1094995529, %bytestream2_get_be16.exit253 ], [ -1094995529, %.lr.ph525 ], [ -1094995529, %bytestream2_get_be16.exit ], [ -1094995529, %.lr.ph514 ], [ -1094995529, %bytestream2_get_be16.exit257 ], [ %218, %217 ], [ 0, %220 ], [ %388, %.critedge.i ], [ -1094995529, %bytestream2_get_be16.exit261 ], [ -1094995529, %.lr.ph504 ], [ 0, %.loopexit ]
+.thread:                                          ; preds = %.loopexit, %.lr.ph504, %bytestream2_get_be16.exit261, %.critedge.i, %217, %220, %bytestream2_get_be16.exit257, %.lr.ph514, %bytestream2_get_be16.exit, %.lr.ph525, %bytestream2_get_be16.exit253, %.lr.ph530, %443, %.critedge.i268, %287, %bytestream2_get_byte.exit224, %bytestream2_get_byte.exit238, %bytestream2_get_byte.exit226, %133, %137, %405, %350, %.critedge210, %bytestream2_init.exit213, %215, %bytestream2_get_byte.exit222.thread, %130, %87, %bytestream2_init.exit, %128, %85, %bytestream2_get_byte.exit.thread, %15
+  %.0 = phi i32 [ 0, %15 ], [ %131, %130 ], [ %88, %87 ], [ -1094995529, %bytestream2_init.exit ], [ %126, %128 ], [ %83, %85 ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %bytestream2_init.exit213 ], [ %213, %215 ], [ -1094995529, %bytestream2_get_byte.exit222.thread ], [ %403, %.critedge210 ], [ %348, %350 ], [ 0, %405 ], [ 0, %137 ], [ 0, %133 ], [ 0, %bytestream2_get_byte.exit226 ], [ 0, %bytestream2_get_byte.exit238 ], [ 0, %bytestream2_get_byte.exit224 ], [ 0, %287 ], [ 0, %443 ], [ %441, %.critedge.i268 ], [ -1094995529, %.lr.ph530 ], [ -1094995529, %bytestream2_get_be16.exit253 ], [ -1094995529, %.lr.ph525 ], [ -1094995529, %bytestream2_get_be16.exit ], [ -1094995529, %.lr.ph514 ], [ -1094995529, %bytestream2_get_be16.exit257 ], [ %218, %217 ], [ 0, %220 ], [ %387, %.critedge.i ], [ -1094995529, %bytestream2_get_be16.exit261 ], [ -1094995529, %.lr.ph504 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 
@@ -2521,16 +2521,16 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_nal_unit(ptr nounde
   %137 = load i32, ptr %1, align 8, !tbaa !61
   switch i32 %137, label %.thread [
     i32 7, label %138
-    i32 13, label %477
-    i32 8, label %541
-    i32 1, label %859
-    i32 5, label %859
-    i32 19, label %859
-    i32 9, label %1256
-    i32 6, label %1274
-    i32 12, label %1290
-    i32 10, label %1324
-    i32 11, label %1324
+    i32 13, label %478
+    i32 8, label %542
+    i32 1, label %860
+    i32 5, label %860
+    i32 19, label %860
+    i32 9, label %1257
+    i32 6, label %1275
+    i32 12, label %1291
+    i32 10, label %1325
+    i32 11, label %1325
   ]
 
 138:                                              ; preds = %136
@@ -2691,7 +2691,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_nal_unit(ptr nounde
   store i8 %211, ptr %212, align 1, !tbaa !78
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   %213 = load i8, ptr %149, align 4, !tbaa !64
-  switch i8 %213, label %287 [
+  switch i8 %213, label %288 [
     i8 100, label %214
     i8 110, label %214
     i8 122, label %214
@@ -2816,8 +2816,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_nal_unit(ptr nounde
   %263 = getelementptr inbounds nuw i8, ptr %140, i64 32
   br label %264
 
-264:                                              ; preds = %283, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %283 ]
+264:                                              ; preds = %284, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %284 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   store i32 1, ptr %95, align 4, !tbaa !63
   %265 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -2837,7 +2837,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_nal_unit(ptr nounde
   store i8 %271, ptr %272, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   %.not424.i = icmp eq i8 %271, 0
-  br i1 %.not424.i, label %283, label %273
+  br i1 %.not424.i, label %284, label %273
 
 273:                                              ; preds = %269
   %274 = icmp samesign ult i64 %indvars.iv.i, 6
@@ -2847,1228 +2847,1229 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_nal_unit(ptr nounde
   %276 = getelementptr inbounds nuw %struct.H264RawScalingList, ptr %263, i64 %indvars.iv.i
   %277 = call fastcc i32 @cbs_h264_read_scaling_list(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull %276, i32 noundef 16)
   %278 = icmp slt i32 %277, 0
-  br i1 %278, label %cbs_h264_read_sps.exit.thread, label %283
+  br i1 %278, label %cbs_h264_read_sps.exit.thread, label %284
 
 279:                                              ; preds = %273
-  %280 = getelementptr %struct.H264RawScalingList, ptr %140, i64 %indvars.iv.i, i32 0, i64 32
-  %281 = call fastcc i32 @cbs_h264_read_scaling_list(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %280, i32 noundef 64)
-  %282 = icmp slt i32 %281, 0
-  br i1 %282, label %cbs_h264_read_sps.exit.thread, label %283
+  %280 = getelementptr %struct.H264RawScalingList, ptr %140, i64 %indvars.iv.i
+  %281 = getelementptr i8, ptr %280, i64 32
+  %282 = call fastcc i32 @cbs_h264_read_scaling_list(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %281, i32 noundef 64)
+  %283 = icmp slt i32 %282, 0
+  br i1 %283, label %cbs_h264_read_sps.exit.thread, label %284
 
-283:                                              ; preds = %279, %275, %269
+284:                                              ; preds = %279, %275, %269
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %284 = load i8, ptr %221, align 2, !tbaa !79
-  %.not420.i = icmp eq i8 %284, 3
-  %285 = select i1 %.not420.i, i64 12, i64 8
-  %286 = icmp samesign ult i64 %indvars.iv.next.i, %285
-  br i1 %286, label %264, label %.loopexit529.i, !llvm.loop !85
+  %285 = load i8, ptr %221, align 2, !tbaa !79
+  %.not420.i = icmp eq i8 %285, 3
+  %286 = select i1 %.not420.i, i64 12, i64 8
+  %287 = icmp samesign ult i64 %indvars.iv.next.i, %286
+  br i1 %287, label %264, label %.loopexit529.i, !llvm.loop !85
 
-287:                                              ; preds = %209
-  %288 = icmp ne i8 %213, -73
-  %289 = zext i1 %288 to i8
-  %290 = getelementptr inbounds nuw i8, ptr %140, i64 14
-  store i8 %289, ptr %290, align 2, !tbaa !79
-  %291 = getelementptr inbounds nuw i8, ptr %140, i64 15
-  store i8 0, ptr %291, align 1, !tbaa !80
-  %292 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  store i8 0, ptr %292, align 4, !tbaa !81
-  %293 = getelementptr inbounds nuw i8, ptr %140, i64 17
-  store i8 0, ptr %293, align 1, !tbaa !82
+288:                                              ; preds = %209
+  %289 = icmp ne i8 %213, -73
+  %290 = zext i1 %289 to i8
+  %291 = getelementptr inbounds nuw i8, ptr %140, i64 14
+  store i8 %290, ptr %291, align 2, !tbaa !79
+  %292 = getelementptr inbounds nuw i8, ptr %140, i64 15
+  store i8 0, ptr %292, align 1, !tbaa !80
+  %293 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  store i8 0, ptr %293, align 4, !tbaa !81
+  %294 = getelementptr inbounds nuw i8, ptr %140, i64 17
+  store i8 0, ptr %294, align 1, !tbaa !82
   br label %.loopexit529.i
 
-.loopexit529.i:                                   ; preds = %283, %287, %257
+.loopexit529.i:                                   ; preds = %284, %288, %257
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
-  %294 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef %96, i32 noundef 0, i32 noundef 12)
-  %295 = icmp sgt i32 %294, -1
-  br i1 %295, label %297, label %296
-
-296:                                              ; preds = %.loopexit529.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %96)
-  br label %cbs_h264_read_sps.exit.thread
+  %295 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef %96, i32 noundef 0, i32 noundef 12)
+  %296 = icmp sgt i32 %295, -1
+  br i1 %296, label %298, label %297
 
 297:                                              ; preds = %.loopexit529.i
-  %298 = load i32, ptr %96, align 4, !tbaa !63
-  %299 = trunc i32 %298 to i8
-  %300 = getelementptr inbounds nuw i8, ptr %140, i64 800
-  store i8 %299, ptr %300, align 4, !tbaa !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  br label %cbs_h264_read_sps.exit.thread
+
+298:                                              ; preds = %.loopexit529.i
+  %299 = load i32, ptr %96, align 4, !tbaa !63
+  %300 = trunc i32 %299 to i8
+  %301 = getelementptr inbounds nuw i8, ptr %140, i64 800
+  store i8 %300, ptr %301, align 4, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
-  %301 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef %97, i32 noundef 0, i32 noundef 2)
-  %302 = icmp sgt i32 %301, -1
-  br i1 %302, label %304, label %303
+  %302 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef %97, i32 noundef 0, i32 noundef 2)
+  %303 = icmp sgt i32 %302, -1
+  br i1 %303, label %305, label %304
 
-303:                                              ; preds = %297
+304:                                              ; preds = %298
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %cbs_h264_read_sps.exit.thread
 
-304:                                              ; preds = %297
-  %305 = load i32, ptr %97, align 4, !tbaa !63
-  %306 = trunc i32 %305 to i8
-  %307 = getelementptr inbounds nuw i8, ptr %140, i64 801
-  store i8 %306, ptr %307, align 1, !tbaa !87
+305:                                              ; preds = %298
+  %306 = load i32, ptr %97, align 4, !tbaa !63
+  %307 = trunc i32 %306 to i8
+  %308 = getelementptr inbounds nuw i8, ptr %140, i64 801
+  store i8 %307, ptr %308, align 1, !tbaa !87
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
-  switch i8 %306, label %.loopexit.i [
-    i8 0, label %308
-    i8 1, label %315
+  switch i8 %307, label %.loopexit.i [
+    i8 0, label %309
+    i8 1, label %316
   ]
 
-308:                                              ; preds = %304
+309:                                              ; preds = %305
   call void @llvm.lifetime.start.p0(ptr nonnull %98)
-  %309 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef %98, i32 noundef 0, i32 noundef 12)
-  %310 = icmp sgt i32 %309, -1
-  br i1 %310, label %.thread477.i, label %314
+  %310 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef %98, i32 noundef 0, i32 noundef 12)
+  %311 = icmp sgt i32 %310, -1
+  br i1 %311, label %.thread477.i, label %315
 
-.thread477.i:                                     ; preds = %308
-  %311 = load i32, ptr %98, align 4, !tbaa !63
-  %312 = trunc i32 %311 to i8
-  %313 = getelementptr inbounds nuw i8, ptr %140, i64 802
-  store i8 %312, ptr %313, align 2, !tbaa !88
+.thread477.i:                                     ; preds = %309
+  %312 = load i32, ptr %98, align 4, !tbaa !63
+  %313 = trunc i32 %312 to i8
+  %314 = getelementptr inbounds nuw i8, ptr %140, i64 802
+  store i8 %313, ptr %314, align 2, !tbaa !88
   call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %.loopexit.i
 
-314:                                              ; preds = %308
+315:                                              ; preds = %309
   call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %cbs_h264_read_sps.exit.thread
 
-315:                                              ; preds = %304
+316:                                              ; preds = %305
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
-  %316 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.35, ptr noundef nonnull %99) #11
-  %317 = icmp sgt i32 %316, -1
-  br i1 %317, label %319, label %318
+  %317 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.35, ptr noundef nonnull %99) #11
+  %318 = icmp sgt i32 %317, -1
+  br i1 %318, label %320, label %319
 
-318:                                              ; preds = %315
+319:                                              ; preds = %316
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %cbs_h264_read_sps.exit.thread
 
-319:                                              ; preds = %315
-  %320 = load i32, ptr %99, align 4, !tbaa !63
-  %321 = trunc i32 %320 to i8
-  %322 = getelementptr inbounds nuw i8, ptr %140, i64 803
-  store i8 %321, ptr %322, align 1, !tbaa !89
+320:                                              ; preds = %316
+  %321 = load i32, ptr %99, align 4, !tbaa !63
+  %322 = trunc i32 %321 to i8
+  %323 = getelementptr inbounds nuw i8, ptr %140, i64 803
+  store i8 %322, ptr %323, align 1, !tbaa !89
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
-  %323 = call fastcc i32 @cbs_read_se_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef %100, i32 noundef -2147483647, i32 noundef 2147483647)
-  %324 = icmp sgt i32 %323, -1
-  br i1 %324, label %326, label %325
+  %324 = call fastcc i32 @cbs_read_se_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef %100, i32 noundef -2147483647, i32 noundef 2147483647)
+  %325 = icmp sgt i32 %324, -1
+  br i1 %325, label %327, label %326
 
-325:                                              ; preds = %319
+326:                                              ; preds = %320
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %cbs_h264_read_sps.exit.thread
 
-326:                                              ; preds = %319
-  %327 = load i32, ptr %100, align 4, !tbaa !63
-  %328 = getelementptr inbounds nuw i8, ptr %140, i64 804
-  store i32 %327, ptr %328, align 4, !tbaa !90
+327:                                              ; preds = %320
+  %328 = load i32, ptr %100, align 4, !tbaa !63
+  %329 = getelementptr inbounds nuw i8, ptr %140, i64 804
+  store i32 %328, ptr %329, align 4, !tbaa !90
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
-  %329 = call fastcc i32 @cbs_read_se_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef %101, i32 noundef -2147483647, i32 noundef 2147483647)
-  %330 = icmp sgt i32 %329, -1
-  br i1 %330, label %332, label %331
+  %330 = call fastcc i32 @cbs_read_se_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef %101, i32 noundef -2147483647, i32 noundef 2147483647)
+  %331 = icmp sgt i32 %330, -1
+  br i1 %331, label %333, label %332
 
-331:                                              ; preds = %326
+332:                                              ; preds = %327
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %cbs_h264_read_sps.exit.thread
 
-332:                                              ; preds = %326
-  %333 = load i32, ptr %101, align 4, !tbaa !63
-  %334 = getelementptr inbounds nuw i8, ptr %140, i64 808
-  store i32 %333, ptr %334, align 4, !tbaa !91
+333:                                              ; preds = %327
+  %334 = load i32, ptr %101, align 4, !tbaa !63
+  %335 = getelementptr inbounds nuw i8, ptr %140, i64 808
+  store i32 %334, ptr %335, align 4, !tbaa !91
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
-  %335 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef %102, i32 noundef 0, i32 noundef 255)
-  %336 = icmp sgt i32 %335, -1
-  br i1 %336, label %337, label %.thread488.i
+  %336 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef %102, i32 noundef 0, i32 noundef 255)
+  %337 = icmp sgt i32 %336, -1
+  br i1 %337, label %338, label %.thread488.i
 
-.thread488.i:                                     ; preds = %332
+.thread488.i:                                     ; preds = %333
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
   br label %cbs_h264_read_sps.exit.thread
 
-337:                                              ; preds = %332
-  %338 = load i32, ptr %102, align 4, !tbaa !63
-  %339 = trunc i32 %338 to i8
-  %340 = getelementptr inbounds nuw i8, ptr %140, i64 812
-  store i8 %339, ptr %340, align 4, !tbaa !92
+338:                                              ; preds = %333
+  %339 = load i32, ptr %102, align 4, !tbaa !63
+  %340 = trunc i32 %339 to i8
+  %341 = getelementptr inbounds nuw i8, ptr %140, i64 812
+  store i8 %340, ptr %341, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
-  %341 = and i32 %338, 255
-  %.not536.i = icmp eq i32 %341, 0
+  %342 = and i32 %339, 255
+  %.not536.i = icmp eq i32 %342, 0
   br i1 %.not536.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %337
-  %342 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  %343 = getelementptr inbounds nuw i8, ptr %140, i64 816
-  br label %344
+.lr.ph.i:                                         ; preds = %338
+  %343 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  %344 = getelementptr inbounds nuw i8, ptr %140, i64 816
+  br label %345
 
-344:                                              ; preds = %349, %.lr.ph.i
-  %indvars.iv542.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next543.i, %349 ]
+345:                                              ; preds = %350, %.lr.ph.i
+  %indvars.iv542.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next543.i, %350 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
   store i32 1, ptr %104, align 4, !tbaa !63
-  %345 = trunc nuw nsw i64 %indvars.iv542.i to i32
-  store i32 %345, ptr %342, align 4, !tbaa !63
-  %346 = call fastcc i32 @cbs_read_se_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.39, ptr noundef nonnull %104, ptr noundef %103, i32 noundef -2147483647, i32 noundef 2147483647)
-  %347 = icmp sgt i32 %346, -1
-  br i1 %347, label %349, label %348
+  %346 = trunc nuw nsw i64 %indvars.iv542.i to i32
+  store i32 %346, ptr %343, align 4, !tbaa !63
+  %347 = call fastcc i32 @cbs_read_se_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.39, ptr noundef nonnull %104, ptr noundef %103, i32 noundef -2147483647, i32 noundef 2147483647)
+  %348 = icmp sgt i32 %347, -1
+  br i1 %348, label %350, label %349
 
-348:                                              ; preds = %344
+349:                                              ; preds = %345
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %cbs_h264_read_sps.exit.thread
 
-349:                                              ; preds = %344
-  %350 = load i32, ptr %103, align 4, !tbaa !63
-  %351 = getelementptr inbounds nuw i32, ptr %343, i64 %indvars.iv542.i
-  store i32 %350, ptr %351, align 4, !tbaa !63
+350:                                              ; preds = %345
+  %351 = load i32, ptr %103, align 4, !tbaa !63
+  %352 = getelementptr inbounds nuw i32, ptr %344, i64 %indvars.iv542.i
+  store i32 %351, ptr %352, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   %indvars.iv.next543.i = add nuw nsw i64 %indvars.iv542.i, 1
-  %352 = load i8, ptr %340, align 4, !tbaa !92
-  %353 = zext i8 %352 to i64
-  %354 = icmp samesign ult i64 %indvars.iv.next543.i, %353
-  br i1 %354, label %344, label %.loopexit.i, !llvm.loop !93
+  %353 = load i8, ptr %341, align 4, !tbaa !92
+  %354 = zext i8 %353 to i64
+  %355 = icmp samesign ult i64 %indvars.iv.next543.i, %354
+  br i1 %355, label %345, label %.loopexit.i, !llvm.loop !93
 
-.loopexit.i:                                      ; preds = %349, %337, %.thread477.i, %304
+.loopexit.i:                                      ; preds = %350, %338, %.thread477.i, %305
   call void @llvm.lifetime.start.p0(ptr nonnull %105)
-  %355 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.40, ptr noundef null, ptr noundef %105, i32 noundef 0, i32 noundef 16)
-  %356 = icmp sgt i32 %355, -1
-  br i1 %356, label %358, label %357
-
-357:                                              ; preds = %.loopexit.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %105)
-  br label %cbs_h264_read_sps.exit.thread
+  %356 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.40, ptr noundef null, ptr noundef %105, i32 noundef 0, i32 noundef 16)
+  %357 = icmp sgt i32 %356, -1
+  br i1 %357, label %359, label %358
 
 358:                                              ; preds = %.loopexit.i
-  %359 = load i32, ptr %105, align 4, !tbaa !63
-  %360 = trunc i32 %359 to i8
-  %361 = getelementptr inbounds nuw i8, ptr %140, i64 1840
-  store i8 %360, ptr %361, align 4, !tbaa !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  br label %cbs_h264_read_sps.exit.thread
+
+359:                                              ; preds = %.loopexit.i
+  %360 = load i32, ptr %105, align 4, !tbaa !63
+  %361 = trunc i32 %360 to i8
+  %362 = getelementptr inbounds nuw i8, ptr %140, i64 1840
+  store i8 %361, ptr %362, align 4, !tbaa !94
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
-  %362 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.41, ptr noundef nonnull %106) #11
-  %363 = icmp sgt i32 %362, -1
-  br i1 %363, label %365, label %364
+  %363 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.41, ptr noundef nonnull %106) #11
+  %364 = icmp sgt i32 %363, -1
+  br i1 %364, label %366, label %365
 
-364:                                              ; preds = %358
+365:                                              ; preds = %359
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %cbs_h264_read_sps.exit.thread
 
-365:                                              ; preds = %358
-  %366 = load i32, ptr %106, align 4, !tbaa !63
-  %367 = trunc i32 %366 to i8
-  %368 = getelementptr inbounds nuw i8, ptr %140, i64 1841
-  store i8 %367, ptr %368, align 1, !tbaa !95
+366:                                              ; preds = %359
+  %367 = load i32, ptr %106, align 4, !tbaa !63
+  %368 = trunc i32 %367 to i8
+  %369 = getelementptr inbounds nuw i8, ptr %140, i64 1841
+  store i8 %368, ptr %369, align 1, !tbaa !95
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
-  %369 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef %107, i32 noundef 0, i32 noundef 1055)
-  %370 = icmp sgt i32 %369, -1
-  br i1 %370, label %372, label %371
+  %370 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef %107, i32 noundef 0, i32 noundef 1055)
+  %371 = icmp sgt i32 %370, -1
+  br i1 %371, label %373, label %372
 
-371:                                              ; preds = %365
+372:                                              ; preds = %366
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %cbs_h264_read_sps.exit.thread
 
-372:                                              ; preds = %365
-  %373 = load i32, ptr %107, align 4, !tbaa !63
-  %374 = trunc i32 %373 to i16
-  %375 = getelementptr inbounds nuw i8, ptr %140, i64 1842
-  store i16 %374, ptr %375, align 2, !tbaa !96
+373:                                              ; preds = %366
+  %374 = load i32, ptr %107, align 4, !tbaa !63
+  %375 = trunc i32 %374 to i16
+  %376 = getelementptr inbounds nuw i8, ptr %140, i64 1842
+  store i16 %375, ptr %376, align 2, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
-  %376 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef %108, i32 noundef 0, i32 noundef 1055)
-  %377 = icmp sgt i32 %376, -1
-  br i1 %377, label %379, label %378
+  %377 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef %108, i32 noundef 0, i32 noundef 1055)
+  %378 = icmp sgt i32 %377, -1
+  br i1 %378, label %380, label %379
 
-378:                                              ; preds = %372
+379:                                              ; preds = %373
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %cbs_h264_read_sps.exit.thread
 
-379:                                              ; preds = %372
-  %380 = load i32, ptr %108, align 4, !tbaa !63
-  %381 = trunc i32 %380 to i16
-  %382 = getelementptr inbounds nuw i8, ptr %140, i64 1844
-  store i16 %381, ptr %382, align 4, !tbaa !97
+380:                                              ; preds = %373
+  %381 = load i32, ptr %108, align 4, !tbaa !63
+  %382 = trunc i32 %381 to i16
+  %383 = getelementptr inbounds nuw i8, ptr %140, i64 1844
+  store i16 %382, ptr %383, align 4, !tbaa !97
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   call void @llvm.lifetime.start.p0(ptr nonnull %109)
-  %383 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.44, ptr noundef nonnull %109) #11
-  %384 = icmp sgt i32 %383, -1
-  br i1 %384, label %386, label %385
+  %384 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.44, ptr noundef nonnull %109) #11
+  %385 = icmp sgt i32 %384, -1
+  br i1 %385, label %387, label %386
 
-385:                                              ; preds = %379
+386:                                              ; preds = %380
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
   br label %cbs_h264_read_sps.exit.thread
 
-386:                                              ; preds = %379
-  %387 = load i32, ptr %109, align 4, !tbaa !63
-  %388 = trunc i32 %387 to i8
-  %389 = getelementptr inbounds nuw i8, ptr %140, i64 1846
-  store i8 %388, ptr %389, align 2, !tbaa !98
+387:                                              ; preds = %380
+  %388 = load i32, ptr %109, align 4, !tbaa !63
+  %389 = trunc i32 %388 to i8
+  %390 = getelementptr inbounds nuw i8, ptr %140, i64 1846
+  store i8 %389, ptr %390, align 2, !tbaa !98
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
-  %.not421.i = icmp eq i8 %388, 0
-  br i1 %.not421.i, label %390, label %397
+  %.not421.i = icmp eq i8 %389, 0
+  br i1 %.not421.i, label %391, label %398
 
-390:                                              ; preds = %386
+391:                                              ; preds = %387
   call void @llvm.lifetime.start.p0(ptr nonnull %110)
-  %391 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.45, ptr noundef nonnull %110) #11
-  %392 = icmp sgt i32 %391, -1
-  br i1 %392, label %.thread508.i, label %396
+  %392 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.45, ptr noundef nonnull %110) #11
+  %393 = icmp sgt i32 %392, -1
+  br i1 %393, label %.thread508.i, label %397
 
-.thread508.i:                                     ; preds = %390
-  %393 = load i32, ptr %110, align 4, !tbaa !63
-  %394 = trunc i32 %393 to i8
-  %395 = getelementptr inbounds nuw i8, ptr %140, i64 1847
-  store i8 %394, ptr %395, align 1, !tbaa !99
+.thread508.i:                                     ; preds = %391
+  %394 = load i32, ptr %110, align 4, !tbaa !63
+  %395 = trunc i32 %394 to i8
+  %396 = getelementptr inbounds nuw i8, ptr %140, i64 1847
+  store i8 %395, ptr %396, align 1, !tbaa !99
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
-  br label %397
+  br label %398
 
-396:                                              ; preds = %390
+397:                                              ; preds = %391
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %cbs_h264_read_sps.exit.thread
 
-397:                                              ; preds = %.thread508.i, %386
+398:                                              ; preds = %.thread508.i, %387
   call void @llvm.lifetime.start.p0(ptr nonnull %111)
-  %398 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.46, ptr noundef nonnull %111) #11
-  %399 = icmp sgt i32 %398, -1
-  br i1 %399, label %401, label %400
+  %399 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.46, ptr noundef nonnull %111) #11
+  %400 = icmp sgt i32 %399, -1
+  br i1 %400, label %402, label %401
 
-400:                                              ; preds = %397
+401:                                              ; preds = %398
   call void @llvm.lifetime.end.p0(ptr nonnull %111)
   br label %cbs_h264_read_sps.exit.thread
 
-401:                                              ; preds = %397
-  %402 = load i32, ptr %111, align 4, !tbaa !63
-  %403 = trunc i32 %402 to i8
-  %404 = getelementptr inbounds nuw i8, ptr %140, i64 1848
-  store i8 %403, ptr %404, align 4, !tbaa !100
+402:                                              ; preds = %398
+  %403 = load i32, ptr %111, align 4, !tbaa !63
+  %404 = trunc i32 %403 to i8
+  %405 = getelementptr inbounds nuw i8, ptr %140, i64 1848
+  store i8 %404, ptr %405, align 4, !tbaa !100
   call void @llvm.lifetime.end.p0(ptr nonnull %111)
   call void @llvm.lifetime.start.p0(ptr nonnull %112)
-  %405 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.47, ptr noundef nonnull %112) #11
-  %406 = icmp sgt i32 %405, -1
-  br i1 %406, label %408, label %407
+  %406 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.47, ptr noundef nonnull %112) #11
+  %407 = icmp sgt i32 %406, -1
+  br i1 %407, label %409, label %408
 
-407:                                              ; preds = %401
+408:                                              ; preds = %402
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %cbs_h264_read_sps.exit.thread
 
-408:                                              ; preds = %401
-  %409 = load i32, ptr %112, align 4, !tbaa !63
-  %410 = trunc i32 %409 to i8
-  %411 = getelementptr inbounds nuw i8, ptr %140, i64 1849
-  store i8 %410, ptr %411, align 1, !tbaa !101
+409:                                              ; preds = %402
+  %410 = load i32, ptr %112, align 4, !tbaa !63
+  %411 = trunc i32 %410 to i8
+  %412 = getelementptr inbounds nuw i8, ptr %140, i64 1849
+  store i8 %411, ptr %412, align 1, !tbaa !101
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
-  %.not422.i = icmp eq i8 %410, 0
-  br i1 %.not422.i, label %440, label %412
+  %.not422.i = icmp eq i8 %411, 0
+  br i1 %.not422.i, label %441, label %413
 
-412:                                              ; preds = %408
+413:                                              ; preds = %409
   call void @llvm.lifetime.start.p0(ptr nonnull %113)
-  %413 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.48, ptr noundef null, ptr noundef %113, i32 noundef 0, i32 noundef 16880)
-  %414 = icmp sgt i32 %413, -1
-  br i1 %414, label %416, label %415
+  %414 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.48, ptr noundef null, ptr noundef %113, i32 noundef 0, i32 noundef 16880)
+  %415 = icmp sgt i32 %414, -1
+  br i1 %415, label %417, label %416
 
-415:                                              ; preds = %412
+416:                                              ; preds = %413
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %cbs_h264_read_sps.exit.thread
 
-416:                                              ; preds = %412
-  %417 = load i32, ptr %113, align 4, !tbaa !63
-  %418 = trunc i32 %417 to i16
-  %419 = getelementptr inbounds nuw i8, ptr %140, i64 1850
-  store i16 %418, ptr %419, align 2, !tbaa !102
+417:                                              ; preds = %413
+  %418 = load i32, ptr %113, align 4, !tbaa !63
+  %419 = trunc i32 %418 to i16
+  %420 = getelementptr inbounds nuw i8, ptr %140, i64 1850
+  store i16 %419, ptr %420, align 2, !tbaa !102
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
-  %420 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.49, ptr noundef null, ptr noundef %114, i32 noundef 0, i32 noundef 16880)
-  %421 = icmp sgt i32 %420, -1
-  br i1 %421, label %423, label %422
+  %421 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.49, ptr noundef null, ptr noundef %114, i32 noundef 0, i32 noundef 16880)
+  %422 = icmp sgt i32 %421, -1
+  br i1 %422, label %424, label %423
 
-422:                                              ; preds = %416
+423:                                              ; preds = %417
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %cbs_h264_read_sps.exit.thread
 
-423:                                              ; preds = %416
-  %424 = load i32, ptr %114, align 4, !tbaa !63
-  %425 = trunc i32 %424 to i16
-  %426 = getelementptr inbounds nuw i8, ptr %140, i64 1852
-  store i16 %425, ptr %426, align 4, !tbaa !103
+424:                                              ; preds = %417
+  %425 = load i32, ptr %114, align 4, !tbaa !63
+  %426 = trunc i32 %425 to i16
+  %427 = getelementptr inbounds nuw i8, ptr %140, i64 1852
+  store i16 %426, ptr %427, align 4, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
-  %427 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.50, ptr noundef null, ptr noundef %115, i32 noundef 0, i32 noundef 16880)
-  %428 = icmp sgt i32 %427, -1
-  br i1 %428, label %430, label %429
+  %428 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.50, ptr noundef null, ptr noundef %115, i32 noundef 0, i32 noundef 16880)
+  %429 = icmp sgt i32 %428, -1
+  br i1 %429, label %431, label %430
 
-429:                                              ; preds = %423
+430:                                              ; preds = %424
   call void @llvm.lifetime.end.p0(ptr nonnull %115)
   br label %cbs_h264_read_sps.exit.thread
 
-430:                                              ; preds = %423
-  %431 = load i32, ptr %115, align 4, !tbaa !63
-  %432 = trunc i32 %431 to i16
-  %433 = getelementptr inbounds nuw i8, ptr %140, i64 1854
-  store i16 %432, ptr %433, align 2, !tbaa !104
+431:                                              ; preds = %424
+  %432 = load i32, ptr %115, align 4, !tbaa !63
+  %433 = trunc i32 %432 to i16
+  %434 = getelementptr inbounds nuw i8, ptr %140, i64 1854
+  store i16 %433, ptr %434, align 2, !tbaa !104
   call void @llvm.lifetime.end.p0(ptr nonnull %115)
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
-  %434 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.51, ptr noundef null, ptr noundef %116, i32 noundef 0, i32 noundef 16880)
-  %435 = icmp sgt i32 %434, -1
-  br i1 %435, label %.thread525.i, label %439
+  %435 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.51, ptr noundef null, ptr noundef %116, i32 noundef 0, i32 noundef 16880)
+  %436 = icmp sgt i32 %435, -1
+  br i1 %436, label %.thread525.i, label %440
 
-.thread525.i:                                     ; preds = %430
-  %436 = load i32, ptr %116, align 4, !tbaa !63
-  %437 = trunc i32 %436 to i16
-  %438 = getelementptr inbounds nuw i8, ptr %140, i64 1856
-  store i16 %437, ptr %438, align 4, !tbaa !105
+.thread525.i:                                     ; preds = %431
+  %437 = load i32, ptr %116, align 4, !tbaa !63
+  %438 = trunc i32 %437 to i16
+  %439 = getelementptr inbounds nuw i8, ptr %140, i64 1856
+  store i16 %438, ptr %439, align 4, !tbaa !105
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
-  br label %440
+  br label %441
 
-439:                                              ; preds = %430
+440:                                              ; preds = %431
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %cbs_h264_read_sps.exit.thread
 
-440:                                              ; preds = %.thread525.i, %408
+441:                                              ; preds = %.thread525.i, %409
   call void @llvm.lifetime.start.p0(ptr nonnull %117)
-  %441 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.52, ptr noundef nonnull %117) #11
-  %442 = icmp sgt i32 %441, -1
-  br i1 %442, label %444, label %443
+  %442 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.52, ptr noundef nonnull %117) #11
+  %443 = icmp sgt i32 %442, -1
+  br i1 %443, label %445, label %444
 
-443:                                              ; preds = %440
+444:                                              ; preds = %441
   call void @llvm.lifetime.end.p0(ptr nonnull %117)
   br label %cbs_h264_read_sps.exit.thread
 
-444:                                              ; preds = %440
-  %445 = load i32, ptr %117, align 4, !tbaa !63
-  %446 = trunc i32 %445 to i8
-  %447 = getelementptr inbounds nuw i8, ptr %140, i64 1858
-  store i8 %446, ptr %447, align 2, !tbaa !106
+445:                                              ; preds = %441
+  %446 = load i32, ptr %117, align 4, !tbaa !63
+  %447 = trunc i32 %446 to i8
+  %448 = getelementptr inbounds nuw i8, ptr %140, i64 1858
+  store i8 %447, ptr %448, align 2, !tbaa !106
   call void @llvm.lifetime.end.p0(ptr nonnull %117)
-  %.not423.i = icmp eq i8 %446, 0
-  %448 = getelementptr inbounds nuw i8, ptr %140, i64 1860
-  br i1 %.not423.i, label %452, label %449
+  %.not423.i = icmp eq i8 %447, 0
+  %449 = getelementptr inbounds nuw i8, ptr %140, i64 1860
+  br i1 %.not423.i, label %453, label %450
 
-449:                                              ; preds = %444
-  %450 = call fastcc i32 @cbs_h264_read_vui_parameters(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull %448, ptr noundef nonnull %140)
-  %451 = icmp slt i32 %450, 0
-  br i1 %451, label %cbs_h264_read_sps.exit.thread, label %cbs_h264_read_sps.exit
+450:                                              ; preds = %445
+  %451 = call fastcc i32 @cbs_h264_read_vui_parameters(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull %449, ptr noundef nonnull %140)
+  %452 = icmp slt i32 %451, 0
+  br i1 %452, label %cbs_h264_read_sps.exit.thread, label %cbs_h264_read_sps.exit
 
-452:                                              ; preds = %444
-  call fastcc void @cbs_h264_read_vui_parameters_default(ptr noundef nonnull %448, ptr noundef nonnull %140)
+453:                                              ; preds = %445
+  call fastcc void @cbs_h264_read_vui_parameters_default(ptr noundef nonnull %449, ptr noundef nonnull %140)
   br label %cbs_h264_read_sps.exit
 
 .critedge.i:                                      ; preds = %143
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %cbs_h264_read_sps.exit.thread
 
-cbs_h264_read_sps.exit.thread:                    ; preds = %279, %275, %268, %443, %439, %429, %422, %415, %407, %400, %396, %385, %378, %371, %364, %357, %314, %348, %331, %325, %318, %303, %296, %256, %249, %242, %235, %229, %217, %208, %201, %194, %187, %180, %173, %166, %159, %152, %138, %.critedge.i, %449, %.thread488.i
-  %.0337.i.ph = phi i32 [ %335, %.thread488.i ], [ %450, %449 ], [ %144, %.critedge.i ], [ %141, %138 ], [ %150, %152 ], [ %157, %159 ], [ %164, %166 ], [ %171, %173 ], [ %178, %180 ], [ %185, %187 ], [ %192, %194 ], [ %199, %201 ], [ %206, %208 ], [ %215, %217 ], [ %224, %229 ], [ %233, %235 ], [ %240, %242 ], [ %247, %249 ], [ %254, %256 ], [ %294, %296 ], [ %301, %303 ], [ %316, %318 ], [ %323, %325 ], [ %329, %331 ], [ %346, %348 ], [ %309, %314 ], [ %355, %357 ], [ %362, %364 ], [ %369, %371 ], [ %376, %378 ], [ %383, %385 ], [ %391, %396 ], [ %398, %400 ], [ %405, %407 ], [ %413, %415 ], [ %420, %422 ], [ %427, %429 ], [ %434, %439 ], [ %441, %443 ], [ %266, %268 ], [ %281, %279 ], [ %277, %275 ]
+cbs_h264_read_sps.exit.thread:                    ; preds = %279, %275, %268, %444, %440, %430, %423, %416, %408, %401, %397, %386, %379, %372, %365, %358, %315, %349, %332, %326, %319, %304, %297, %256, %249, %242, %235, %229, %217, %208, %201, %194, %187, %180, %173, %166, %159, %152, %138, %.critedge.i, %450, %.thread488.i
+  %.0337.i.ph = phi i32 [ %336, %.thread488.i ], [ %451, %450 ], [ %144, %.critedge.i ], [ %141, %138 ], [ %150, %152 ], [ %157, %159 ], [ %164, %166 ], [ %171, %173 ], [ %178, %180 ], [ %185, %187 ], [ %192, %194 ], [ %199, %201 ], [ %206, %208 ], [ %215, %217 ], [ %224, %229 ], [ %233, %235 ], [ %240, %242 ], [ %247, %249 ], [ %254, %256 ], [ %295, %297 ], [ %302, %304 ], [ %317, %319 ], [ %324, %326 ], [ %330, %332 ], [ %347, %349 ], [ %310, %315 ], [ %356, %358 ], [ %363, %365 ], [ %370, %372 ], [ %377, %379 ], [ %384, %386 ], [ %392, %397 ], [ %399, %401 ], [ %406, %408 ], [ %414, %416 ], [ %421, %423 ], [ %428, %430 ], [ %435, %440 ], [ %442, %444 ], [ %266, %268 ], [ %282, %279 ], [ %277, %275 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %.thread
 
-cbs_h264_read_sps.exit:                           ; preds = %449, %452
-  %453 = call fastcc i32 @cbs_h264_read_rbsp_trailing_bits(ptr noundef %0, ptr noundef nonnull %118)
+cbs_h264_read_sps.exit:                           ; preds = %450, %453
+  %454 = call fastcc i32 @cbs_h264_read_rbsp_trailing_bits(ptr noundef %0, ptr noundef nonnull %118)
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
-  %454 = icmp slt i32 %453, 0
-  br i1 %454, label %.thread, label %455
+  %455 = icmp slt i32 %454, 0
+  br i1 %455, label %.thread, label %456
 
-455:                                              ; preds = %cbs_h264_read_sps.exit
-  %456 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %457 = load ptr, ptr %456, align 8, !tbaa !18
-  %458 = load ptr, ptr %139, align 8, !tbaa !62
-  %459 = getelementptr inbounds nuw i8, ptr %458, i64 13
-  %460 = load i8, ptr %459, align 1, !tbaa !78
-  %461 = call i32 @ff_cbs_make_unit_refcounted(ptr noundef %0, ptr noundef nonnull %1) #11
-  %462 = icmp slt i32 %461, 0
-  br i1 %462, label %.thread, label %463
+456:                                              ; preds = %cbs_h264_read_sps.exit
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %458 = load ptr, ptr %457, align 8, !tbaa !18
+  %459 = load ptr, ptr %139, align 8, !tbaa !62
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 13
+  %461 = load i8, ptr %460, align 1, !tbaa !78
+  %462 = call i32 @ff_cbs_make_unit_refcounted(ptr noundef %0, ptr noundef nonnull %1) #11
+  %463 = icmp slt i32 %462, 0
+  br i1 %463, label %.thread, label %464
 
-463:                                              ; preds = %455
-  %464 = getelementptr inbounds nuw i8, ptr %457, i64 56
-  %465 = zext i8 %460 to i64
-  %466 = getelementptr inbounds nuw ptr, ptr %464, i64 %465
-  %467 = load ptr, ptr %466, align 8, !tbaa !107
-  %468 = getelementptr inbounds nuw i8, ptr %457, i64 2360
-  %469 = load ptr, ptr %468, align 8, !tbaa !109
-  %470 = icmp eq ptr %467, %469
-  br i1 %470, label %471, label %472
+464:                                              ; preds = %456
+  %465 = getelementptr inbounds nuw i8, ptr %458, i64 56
+  %466 = zext i8 %461 to i64
+  %467 = getelementptr inbounds nuw ptr, ptr %465, i64 %466
+  %468 = load ptr, ptr %467, align 8, !tbaa !107
+  %469 = getelementptr inbounds nuw i8, ptr %458, i64 2360
+  %470 = load ptr, ptr %469, align 8, !tbaa !109
+  %471 = icmp eq ptr %468, %470
+  br i1 %471, label %472, label %473
 
-471:                                              ; preds = %463
-  store ptr null, ptr %468, align 8, !tbaa !109
-  br label %472
+472:                                              ; preds = %464
+  store ptr null, ptr %469, align 8, !tbaa !109
+  br label %473
 
-472:                                              ; preds = %471, %463
-  %473 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %474 = load ptr, ptr %473, align 8, !tbaa !112
-  %.not.i89 = icmp eq ptr %474, null
-  br i1 %.not.i89, label %475, label %476
+473:                                              ; preds = %472, %464
+  %474 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %475 = load ptr, ptr %474, align 8, !tbaa !112
+  %.not.i89 = icmp eq ptr %475, null
+  br i1 %.not.i89, label %476, label %477
 
-475:                                              ; preds = %472
+476:                                              ; preds = %473
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.3, i32 noundef 776) #11
   call void @abort() #12
   unreachable
 
-476:                                              ; preds = %472
-  call void @av_refstruct_replace(ptr noundef nonnull %466, ptr noundef nonnull %474) #11
+477:                                              ; preds = %473
+  call void @av_refstruct_replace(ptr noundef nonnull %467, ptr noundef nonnull %475) #11
   br label %cbs_h264_read_sps_extension.exit
 
-477:                                              ; preds = %136
-  %478 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %479 = load ptr, ptr %478, align 8, !tbaa !62
+478:                                              ; preds = %136
+  %479 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %480 = load ptr, ptr %479, align 8, !tbaa !62
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.115) #11
-  %480 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %479, i32 noundef 8192)
-  %481 = icmp slt i32 %480, 0
-  br i1 %481, label %.thread, label %482
+  %481 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %480, i32 noundef 8192)
+  %482 = icmp slt i32 %481, 0
+  br i1 %482, label %.thread, label %483
 
-482:                                              ; preds = %477
+483:                                              ; preds = %478
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
-  %483 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef %71, i32 noundef 0, i32 noundef 31)
-  %484 = icmp sgt i32 %483, -1
-  br i1 %484, label %485, label %.critedge.i91
+  %484 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef %71, i32 noundef 0, i32 noundef 31)
+  %485 = icmp sgt i32 %484, -1
+  br i1 %485, label %486, label %.critedge.i91
 
-485:                                              ; preds = %482
-  %486 = load i32, ptr %71, align 4, !tbaa !63
-  %487 = trunc i32 %486 to i8
-  %488 = getelementptr inbounds nuw i8, ptr %479, i64 4
-  store i8 %487, ptr %488, align 2, !tbaa !113
+486:                                              ; preds = %483
+  %487 = load i32, ptr %71, align 4, !tbaa !63
+  %488 = trunc i32 %487 to i8
+  %489 = getelementptr inbounds nuw i8, ptr %480, i64 4
+  store i8 %488, ptr %489, align 2, !tbaa !113
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
-  %489 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.116, ptr noundef null, ptr noundef %72, i32 noundef 0, i32 noundef 3)
-  %490 = icmp sgt i32 %489, -1
-  br i1 %490, label %492, label %491
+  %490 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.116, ptr noundef null, ptr noundef %72, i32 noundef 0, i32 noundef 3)
+  %491 = icmp sgt i32 %490, -1
+  br i1 %491, label %493, label %492
 
-491:                                              ; preds = %485
+492:                                              ; preds = %486
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %.thread
 
-492:                                              ; preds = %485
-  %493 = load i32, ptr %72, align 4, !tbaa !63
-  %494 = trunc i32 %493 to i8
-  %495 = getelementptr inbounds nuw i8, ptr %479, i64 5
-  store i8 %494, ptr %495, align 1, !tbaa !115
+493:                                              ; preds = %486
+  %494 = load i32, ptr %72, align 4, !tbaa !63
+  %495 = trunc i32 %494 to i8
+  %496 = getelementptr inbounds nuw i8, ptr %480, i64 5
+  store i8 %495, ptr %496, align 1, !tbaa !115
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
-  %.not.i93 = icmp eq i8 %494, 0
-  br i1 %.not.i93, label %527, label %496
+  %.not.i93 = icmp eq i8 %495, 0
+  br i1 %.not.i93, label %528, label %497
 
-496:                                              ; preds = %492
+497:                                              ; preds = %493
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
-  %497 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.117, ptr noundef null, ptr noundef %73, i32 noundef 0, i32 noundef 4)
-  %498 = icmp sgt i32 %497, -1
-  br i1 %498, label %500, label %499
+  %498 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.117, ptr noundef null, ptr noundef %73, i32 noundef 0, i32 noundef 4)
+  %499 = icmp sgt i32 %498, -1
+  br i1 %499, label %501, label %500
 
-499:                                              ; preds = %496
+500:                                              ; preds = %497
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %.thread
 
-500:                                              ; preds = %496
-  %501 = load i32, ptr %73, align 4, !tbaa !63
-  %502 = trunc i32 %501 to i8
-  %503 = getelementptr inbounds nuw i8, ptr %479, i64 6
-  store i8 %502, ptr %503, align 2, !tbaa !116
+501:                                              ; preds = %497
+  %502 = load i32, ptr %73, align 4, !tbaa !63
+  %503 = trunc i32 %502 to i8
+  %504 = getelementptr inbounds nuw i8, ptr %480, i64 6
+  store i8 %503, ptr %504, align 2, !tbaa !116
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
-  %504 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.118, ptr noundef nonnull %74) #11
-  %505 = icmp sgt i32 %504, -1
-  br i1 %505, label %507, label %506
+  %505 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.118, ptr noundef nonnull %74) #11
+  %506 = icmp sgt i32 %505, -1
+  br i1 %506, label %508, label %507
 
-506:                                              ; preds = %500
+507:                                              ; preds = %501
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %.thread
 
-507:                                              ; preds = %500
-  %508 = load i32, ptr %74, align 4, !tbaa !63
-  %509 = trunc i32 %508 to i8
-  %510 = getelementptr inbounds nuw i8, ptr %479, i64 7
-  store i8 %509, ptr %510, align 1, !tbaa !117
+508:                                              ; preds = %501
+  %509 = load i32, ptr %74, align 4, !tbaa !63
+  %510 = trunc i32 %509 to i8
+  %511 = getelementptr inbounds nuw i8, ptr %480, i64 7
+  store i8 %510, ptr %511, align 1, !tbaa !117
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
-  %511 = load i8, ptr %503, align 2, !tbaa !116
-  %512 = zext i8 %511 to i32
-  %513 = add nuw nsw i32 %512, 9
+  %512 = load i8, ptr %504, align 2, !tbaa !116
+  %513 = zext i8 %512 to i32
+  %514 = add nuw nsw i32 %513, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
-  %514 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef %513, ptr noundef nonnull @.str.119, ptr noundef nonnull %75) #11
-  %515 = icmp sgt i32 %514, -1
-  br i1 %515, label %517, label %516
+  %515 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef %514, ptr noundef nonnull @.str.119, ptr noundef nonnull %75) #11
+  %516 = icmp sgt i32 %515, -1
+  br i1 %516, label %518, label %517
 
-516:                                              ; preds = %507
+517:                                              ; preds = %508
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %.thread
 
-517:                                              ; preds = %507
-  %518 = load i32, ptr %75, align 4, !tbaa !63
-  %519 = trunc i32 %518 to i16
-  %520 = getelementptr inbounds nuw i8, ptr %479, i64 8
-  store i16 %519, ptr %520, align 2, !tbaa !118
+518:                                              ; preds = %508
+  %519 = load i32, ptr %75, align 4, !tbaa !63
+  %520 = trunc i32 %519 to i16
+  %521 = getelementptr inbounds nuw i8, ptr %480, i64 8
+  store i16 %520, ptr %521, align 2, !tbaa !118
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
-  %521 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef %513, ptr noundef nonnull @.str.120, ptr noundef nonnull %76) #11
-  %522 = icmp sgt i32 %521, -1
-  br i1 %522, label %.thread94.i, label %526
+  %522 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef %514, ptr noundef nonnull @.str.120, ptr noundef nonnull %76) #11
+  %523 = icmp sgt i32 %522, -1
+  br i1 %523, label %.thread94.i, label %527
 
-.thread94.i:                                      ; preds = %517
-  %523 = load i32, ptr %76, align 4, !tbaa !63
-  %524 = trunc i32 %523 to i16
-  %525 = getelementptr inbounds nuw i8, ptr %479, i64 10
-  store i16 %524, ptr %525, align 2, !tbaa !119
+.thread94.i:                                      ; preds = %518
+  %524 = load i32, ptr %76, align 4, !tbaa !63
+  %525 = trunc i32 %524 to i16
+  %526 = getelementptr inbounds nuw i8, ptr %480, i64 10
+  store i16 %525, ptr %526, align 2, !tbaa !119
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
-  br label %527
+  br label %528
 
-526:                                              ; preds = %517
+527:                                              ; preds = %518
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %.thread
 
-527:                                              ; preds = %.thread94.i, %492
+528:                                              ; preds = %.thread94.i, %493
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
-  %528 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.121, ptr noundef nonnull %77) #11
-  %529 = icmp sgt i32 %528, -1
-  br i1 %529, label %531, label %530
+  %529 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.121, ptr noundef nonnull %77) #11
+  %530 = icmp sgt i32 %529, -1
+  br i1 %530, label %532, label %531
 
-530:                                              ; preds = %527
+531:                                              ; preds = %528
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %.thread
 
-531:                                              ; preds = %527
-  %532 = load i32, ptr %77, align 4, !tbaa !63
-  %533 = trunc i32 %532 to i8
-  %534 = getelementptr inbounds nuw i8, ptr %479, i64 12
-  store i8 %533, ptr %534, align 2, !tbaa !120
+532:                                              ; preds = %528
+  %533 = load i32, ptr %77, align 4, !tbaa !63
+  %534 = trunc i32 %533 to i8
+  %535 = getelementptr inbounds nuw i8, ptr %480, i64 12
+  store i8 %534, ptr %535, align 2, !tbaa !120
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
-  %535 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef nonnull %69, i32 noundef 1, i32 noundef 1) #11
-  %536 = icmp sgt i32 %535, -1
+  %536 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef nonnull %69, i32 noundef 1, i32 noundef 1) #11
+  %537 = icmp sgt i32 %536, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  br i1 %536, label %.preheader.i.i, label %.thread
+  br i1 %537, label %.preheader.i.i, label %.thread
 
-.preheader.i.i:                                   ; preds = %531, %538
+.preheader.i.i:                                   ; preds = %532, %539
   %.val.i.i = load i32, ptr %132, align 8, !tbaa !60
-  %537 = and i32 %.val.i.i, 7
-  %.not.i.i = icmp eq i32 %537, 0
-  br i1 %.not.i.i, label %cbs_h264_read_sps_extension.exit, label %538
+  %538 = and i32 %.val.i.i, 7
+  %.not.i.i = icmp eq i32 %538, 0
+  br i1 %.not.i.i, label %cbs_h264_read_sps_extension.exit, label %539
 
-538:                                              ; preds = %.preheader.i.i
+539:                                              ; preds = %.preheader.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
-  %539 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, ptr noundef nonnull %70, i32 noundef 0, i32 noundef 0) #11
-  %540 = icmp sgt i32 %539, -1
+  %540 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, ptr noundef nonnull %70, i32 noundef 0, i32 noundef 0) #11
+  %541 = icmp sgt i32 %540, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
-  br i1 %540, label %.preheader.i.i, label %.thread, !llvm.loop !121
+  br i1 %541, label %.preheader.i.i, label %.thread, !llvm.loop !121
 
-.critedge.i91:                                    ; preds = %482
+.critedge.i91:                                    ; preds = %483
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %.thread
 
-541:                                              ; preds = %136
-  %542 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %543 = load ptr, ptr %542, align 8, !tbaa !62
+542:                                              ; preds = %136
+  %543 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %544 = load ptr, ptr %543, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
-  %544 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %545 = load ptr, ptr %544, align 8, !tbaa !18
+  %545 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %546 = load ptr, ptr %545, align 8, !tbaa !18
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.122) #11
-  %546 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %543, i32 noundef 256)
-  %547 = icmp slt i32 %546, 0
-  br i1 %547, label %cbs_h264_read_pps.exit.thread, label %548
+  %547 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %544, i32 noundef 256)
+  %548 = icmp slt i32 %547, 0
+  br i1 %548, label %cbs_h264_read_pps.exit.thread, label %549
 
-548:                                              ; preds = %541
+549:                                              ; preds = %542
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %549 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.123, ptr noundef null, ptr noundef %37, i32 noundef 0, i32 noundef 255)
-  %550 = icmp sgt i32 %549, -1
-  br i1 %550, label %551, label %.critedge.i94
+  %550 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.123, ptr noundef null, ptr noundef %37, i32 noundef 0, i32 noundef 255)
+  %551 = icmp sgt i32 %550, -1
+  br i1 %551, label %552, label %.critedge.i94
 
-551:                                              ; preds = %548
-  %552 = load i32, ptr %37, align 4, !tbaa !63
-  %553 = trunc i32 %552 to i8
-  %554 = getelementptr inbounds nuw i8, ptr %543, i64 4
-  store i8 %553, ptr %554, align 4, !tbaa !122
+552:                                              ; preds = %549
+  %553 = load i32, ptr %37, align 4, !tbaa !63
+  %554 = trunc i32 %553 to i8
+  %555 = getelementptr inbounds nuw i8, ptr %544, i64 4
+  store i8 %554, ptr %555, align 4, !tbaa !122
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %555 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef %38, i32 noundef 0, i32 noundef 31)
-  %556 = icmp sgt i32 %555, -1
-  br i1 %556, label %558, label %557
+  %556 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef %38, i32 noundef 0, i32 noundef 31)
+  %557 = icmp sgt i32 %556, -1
+  br i1 %557, label %559, label %558
 
-557:                                              ; preds = %551
+558:                                              ; preds = %552
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %cbs_h264_read_pps.exit.thread
 
-558:                                              ; preds = %551
-  %559 = load i32, ptr %38, align 4, !tbaa !63
-  %560 = trunc i32 %559 to i8
-  %561 = getelementptr inbounds nuw i8, ptr %543, i64 5
-  store i8 %560, ptr %561, align 1, !tbaa !124
+559:                                              ; preds = %552
+  %560 = load i32, ptr %38, align 4, !tbaa !63
+  %561 = trunc i32 %560 to i8
+  %562 = getelementptr inbounds nuw i8, ptr %544, i64 5
+  store i8 %561, ptr %562, align 1, !tbaa !124
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  %562 = getelementptr inbounds nuw i8, ptr %545, i64 56
-  %.mask.i = and i32 %559, 255
-  %563 = zext nneg i32 %.mask.i to i64
-  %564 = getelementptr inbounds nuw ptr, ptr %562, i64 %563
-  %565 = load ptr, ptr %564, align 8, !tbaa !107
-  %.not.i95 = icmp eq ptr %565, null
-  br i1 %.not.i95, label %566, label %568
+  %563 = getelementptr inbounds nuw i8, ptr %546, i64 56
+  %.mask.i = and i32 %560, 255
+  %564 = zext nneg i32 %.mask.i to i64
+  %565 = getelementptr inbounds nuw ptr, ptr %563, i64 %564
+  %566 = load ptr, ptr %565, align 8, !tbaa !107
+  %.not.i95 = icmp eq ptr %566, null
+  br i1 %.not.i95, label %567, label %569
 
-566:                                              ; preds = %558
-  %567 = load ptr, ptr %0, align 8, !tbaa !31
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %567, i32 noundef 16, ptr noundef nonnull @.str.124, i32 noundef %.mask.i) #11
+567:                                              ; preds = %559
+  %568 = load ptr, ptr %0, align 8, !tbaa !31
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %568, i32 noundef 16, ptr noundef nonnull @.str.124, i32 noundef %.mask.i) #11
   br label %cbs_h264_read_pps.exit.thread
 
-568:                                              ; preds = %558
+569:                                              ; preds = %559
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %569 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.125, ptr noundef nonnull %39) #11
-  %570 = icmp sgt i32 %569, -1
-  br i1 %570, label %572, label %571
+  %570 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.125, ptr noundef nonnull %39) #11
+  %571 = icmp sgt i32 %570, -1
+  br i1 %571, label %573, label %572
 
-571:                                              ; preds = %568
+572:                                              ; preds = %569
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %cbs_h264_read_pps.exit.thread
 
-572:                                              ; preds = %568
-  %573 = load i32, ptr %39, align 4, !tbaa !63
-  %574 = trunc i32 %573 to i8
-  %575 = getelementptr inbounds nuw i8, ptr %543, i64 6
-  store i8 %574, ptr %575, align 2, !tbaa !125
+573:                                              ; preds = %569
+  %574 = load i32, ptr %39, align 4, !tbaa !63
+  %575 = trunc i32 %574 to i8
+  %576 = getelementptr inbounds nuw i8, ptr %544, i64 6
+  store i8 %575, ptr %576, align 2, !tbaa !125
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  %576 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.126, ptr noundef nonnull %40) #11
-  %577 = icmp sgt i32 %576, -1
-  br i1 %577, label %579, label %578
+  %577 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.126, ptr noundef nonnull %40) #11
+  %578 = icmp sgt i32 %577, -1
+  br i1 %578, label %580, label %579
 
-578:                                              ; preds = %572
+579:                                              ; preds = %573
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %cbs_h264_read_pps.exit.thread
 
-579:                                              ; preds = %572
-  %580 = load i32, ptr %40, align 4, !tbaa !63
-  %581 = trunc i32 %580 to i8
-  %582 = getelementptr inbounds nuw i8, ptr %543, i64 7
-  store i8 %581, ptr %582, align 1, !tbaa !126
+580:                                              ; preds = %573
+  %581 = load i32, ptr %40, align 4, !tbaa !63
+  %582 = trunc i32 %581 to i8
+  %583 = getelementptr inbounds nuw i8, ptr %544, i64 7
+  store i8 %582, ptr %583, align 1, !tbaa !126
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  %583 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.127, ptr noundef null, ptr noundef %41, i32 noundef 0, i32 noundef 7)
-  %584 = icmp sgt i32 %583, -1
-  br i1 %584, label %586, label %585
+  %584 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.127, ptr noundef null, ptr noundef %41, i32 noundef 0, i32 noundef 7)
+  %585 = icmp sgt i32 %584, -1
+  br i1 %585, label %587, label %586
 
-585:                                              ; preds = %579
+586:                                              ; preds = %580
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %cbs_h264_read_pps.exit.thread
 
-586:                                              ; preds = %579
-  %587 = load i32, ptr %41, align 4, !tbaa !63
-  %588 = trunc i32 %587 to i8
-  %589 = getelementptr inbounds nuw i8, ptr %543, i64 8
-  store i8 %588, ptr %589, align 8, !tbaa !127
+587:                                              ; preds = %580
+  %588 = load i32, ptr %41, align 4, !tbaa !63
+  %589 = trunc i32 %588 to i8
+  %590 = getelementptr inbounds nuw i8, ptr %544, i64 8
+  store i8 %589, ptr %590, align 8, !tbaa !127
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  %.not341.i = icmp eq i8 %588, 0
-  br i1 %.not341.i, label %.thread386.i, label %590
+  %.not341.i = icmp eq i8 %589, 0
+  br i1 %.not341.i, label %.thread386.i, label %591
 
-590:                                              ; preds = %586
-  %591 = getelementptr inbounds nuw i8, ptr %565, i64 1842
-  %592 = load i16, ptr %591, align 2, !tbaa !96
-  %593 = zext i16 %592 to i32
-  %594 = add nuw nsw i32 %593, 1
-  %595 = getelementptr inbounds nuw i8, ptr %565, i64 1844
-  %596 = load i16, ptr %595, align 4, !tbaa !97
-  %597 = zext i16 %596 to i32
-  %598 = add nuw nsw i32 %597, 1
-  %599 = mul nuw nsw i32 %598, %594
+591:                                              ; preds = %587
+  %592 = getelementptr inbounds nuw i8, ptr %566, i64 1842
+  %593 = load i16, ptr %592, align 2, !tbaa !96
+  %594 = zext i16 %593 to i32
+  %595 = add nuw nsw i32 %594, 1
+  %596 = getelementptr inbounds nuw i8, ptr %566, i64 1844
+  %597 = load i16, ptr %596, align 4, !tbaa !97
+  %598 = zext i16 %597 to i32
+  %599 = add nuw nsw i32 %598, 1
+  %600 = mul nuw nsw i32 %599, %595
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  %600 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.128, ptr noundef null, ptr noundef %42, i32 noundef 0, i32 noundef 6)
-  %601 = icmp sgt i32 %600, -1
-  br i1 %601, label %603, label %602
+  %601 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.128, ptr noundef null, ptr noundef %42, i32 noundef 0, i32 noundef 6)
+  %602 = icmp sgt i32 %601, -1
+  br i1 %602, label %604, label %603
 
-602:                                              ; preds = %590
+603:                                              ; preds = %591
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %cbs_h264_read_pps.exit.thread
 
-603:                                              ; preds = %590
-  %604 = load i32, ptr %42, align 4, !tbaa !63
-  %605 = trunc i32 %604 to i8
-  %606 = getelementptr inbounds nuw i8, ptr %543, i64 9
-  store i8 %605, ptr %606, align 1, !tbaa !128
+604:                                              ; preds = %591
+  %605 = load i32, ptr %42, align 4, !tbaa !63
+  %606 = trunc i32 %605 to i8
+  %607 = getelementptr inbounds nuw i8, ptr %544, i64 9
+  store i8 %606, ptr %607, align 1, !tbaa !128
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  switch i8 %605, label %.thread386.i [
+  switch i8 %606, label %.thread386.i [
     i8 0, label %.preheader433.i
     i8 2, label %.preheader434.i
-    i8 3, label %647
-    i8 4, label %647
-    i8 5, label %647
-    i8 6, label %661
+    i8 3, label %648
+    i8 4, label %648
+    i8 5, label %648
+    i8 6, label %662
   ]
 
-.preheader434.i:                                  ; preds = %603
-  %607 = load i8, ptr %589, align 8, !tbaa !127
-  %.not448.i = icmp eq i8 %607, 0
+.preheader434.i:                                  ; preds = %604
+  %608 = load i8, ptr %590, align 8, !tbaa !127
+  %.not448.i = icmp eq i8 %608, 0
   br i1 %.not448.i, label %.thread386.i, label %.lr.ph.i100
 
 .lr.ph.i100:                                      ; preds = %.preheader434.i
-  %608 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %609 = add nsw i32 %599, -1
-  %610 = getelementptr inbounds nuw i8, ptr %543, i64 26
-  %611 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %612 = getelementptr inbounds nuw i8, ptr %543, i64 42
-  br label %627
+  %609 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %610 = add nsw i32 %600, -1
+  %611 = getelementptr inbounds nuw i8, ptr %544, i64 26
+  %612 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %613 = getelementptr inbounds nuw i8, ptr %544, i64 42
+  br label %628
 
-.preheader433.i:                                  ; preds = %603
-  %613 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %614 = add nsw i32 %599, -1
-  %615 = getelementptr inbounds nuw i8, ptr %543, i64 10
-  br label %616
+.preheader433.i:                                  ; preds = %604
+  %614 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %615 = add nsw i32 %600, -1
+  %616 = getelementptr inbounds nuw i8, ptr %544, i64 10
+  br label %617
 
-616:                                              ; preds = %621, %.preheader433.i
-  %indvars.iv466.i = phi i64 [ 0, %.preheader433.i ], [ %indvars.iv.next467.i, %621 ]
+617:                                              ; preds = %622, %.preheader433.i
+  %indvars.iv466.i = phi i64 [ 0, %.preheader433.i ], [ %indvars.iv.next467.i, %622 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store i32 1, ptr %44, align 4, !tbaa !63
-  %617 = trunc nuw nsw i64 %indvars.iv466.i to i32
-  store i32 %617, ptr %613, align 4, !tbaa !63
-  %618 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.129, ptr noundef nonnull %44, ptr noundef %43, i32 noundef 0, i32 noundef %614)
-  %619 = icmp sgt i32 %618, -1
-  br i1 %619, label %621, label %620
+  %618 = trunc nuw nsw i64 %indvars.iv466.i to i32
+  store i32 %618, ptr %614, align 4, !tbaa !63
+  %619 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.129, ptr noundef nonnull %44, ptr noundef %43, i32 noundef 0, i32 noundef %615)
+  %620 = icmp sgt i32 %619, -1
+  br i1 %620, label %622, label %621
 
-620:                                              ; preds = %616
+621:                                              ; preds = %617
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %cbs_h264_read_pps.exit.thread
 
-621:                                              ; preds = %616
-  %622 = load i32, ptr %43, align 4, !tbaa !63
-  %623 = trunc i32 %622 to i16
-  %624 = getelementptr inbounds nuw i16, ptr %615, i64 %indvars.iv466.i
-  store i16 %623, ptr %624, align 2, !tbaa !129
+622:                                              ; preds = %617
+  %623 = load i32, ptr %43, align 4, !tbaa !63
+  %624 = trunc i32 %623 to i16
+  %625 = getelementptr inbounds nuw i16, ptr %616, i64 %indvars.iv466.i
+  store i16 %624, ptr %625, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %indvars.iv.next467.i = add nuw nsw i64 %indvars.iv466.i, 1
-  %625 = load i8, ptr %589, align 8, !tbaa !127
-  %626 = zext i8 %625 to i64
-  %.not344.not.i = icmp samesign ult i64 %indvars.iv466.i, %626
-  br i1 %.not344.not.i, label %616, label %.thread386.i, !llvm.loop !130
+  %626 = load i8, ptr %590, align 8, !tbaa !127
+  %627 = zext i8 %626 to i64
+  %.not344.not.i = icmp samesign ult i64 %indvars.iv466.i, %627
+  br i1 %.not344.not.i, label %617, label %.thread386.i, !llvm.loop !130
 
-627:                                              ; preds = %640, %.lr.ph.i100
-  %indvars.iv463.i = phi i64 [ 0, %.lr.ph.i100 ], [ %indvars.iv.next464.i, %640 ]
+628:                                              ; preds = %641, %.lr.ph.i100
+  %indvars.iv463.i = phi i64 [ 0, %.lr.ph.i100 ], [ %indvars.iv.next464.i, %641 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i32 1, ptr %46, align 4, !tbaa !63
-  %628 = trunc nuw nsw i64 %indvars.iv463.i to i32
-  store i32 %628, ptr %608, align 4, !tbaa !63
-  %629 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.130, ptr noundef nonnull %46, ptr noundef %45, i32 noundef 0, i32 noundef %609)
-  %630 = icmp sgt i32 %629, -1
-  br i1 %630, label %632, label %631
+  %629 = trunc nuw nsw i64 %indvars.iv463.i to i32
+  store i32 %629, ptr %609, align 4, !tbaa !63
+  %630 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.130, ptr noundef nonnull %46, ptr noundef %45, i32 noundef 0, i32 noundef %610)
+  %631 = icmp sgt i32 %630, -1
+  br i1 %631, label %633, label %632
 
-631:                                              ; preds = %627
+632:                                              ; preds = %628
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %cbs_h264_read_pps.exit.thread
 
-632:                                              ; preds = %627
-  %633 = load i32, ptr %45, align 4, !tbaa !63
-  %634 = trunc i32 %633 to i16
-  %635 = getelementptr inbounds nuw i16, ptr %610, i64 %indvars.iv463.i
-  store i16 %634, ptr %635, align 2, !tbaa !129
+633:                                              ; preds = %628
+  %634 = load i32, ptr %45, align 4, !tbaa !63
+  %635 = trunc i32 %634 to i16
+  %636 = getelementptr inbounds nuw i16, ptr %611, i64 %indvars.iv463.i
+  store i16 %635, ptr %636, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i32 1, ptr %48, align 4, !tbaa !63
-  store i32 %628, ptr %611, align 4, !tbaa !63
-  %636 = and i32 %633, 65535
-  %637 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.131, ptr noundef nonnull %48, ptr noundef %47, i32 noundef %636, i32 noundef %609)
-  %638 = icmp sgt i32 %637, -1
-  br i1 %638, label %640, label %639
+  store i32 %629, ptr %612, align 4, !tbaa !63
+  %637 = and i32 %634, 65535
+  %638 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.131, ptr noundef nonnull %48, ptr noundef %47, i32 noundef %637, i32 noundef %610)
+  %639 = icmp sgt i32 %638, -1
+  br i1 %639, label %641, label %640
 
-639:                                              ; preds = %632
+640:                                              ; preds = %633
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %cbs_h264_read_pps.exit.thread
 
-640:                                              ; preds = %632
-  %641 = load i32, ptr %47, align 4, !tbaa !63
-  %642 = trunc i32 %641 to i16
-  %643 = getelementptr inbounds nuw i16, ptr %612, i64 %indvars.iv463.i
-  store i16 %642, ptr %643, align 2, !tbaa !129
+641:                                              ; preds = %633
+  %642 = load i32, ptr %47, align 4, !tbaa !63
+  %643 = trunc i32 %642 to i16
+  %644 = getelementptr inbounds nuw i16, ptr %613, i64 %indvars.iv463.i
+  store i16 %643, ptr %644, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %indvars.iv.next464.i = add nuw nsw i64 %indvars.iv463.i, 1
-  %644 = load i8, ptr %589, align 8, !tbaa !127
-  %645 = zext i8 %644 to i64
-  %646 = icmp samesign ult i64 %indvars.iv.next464.i, %645
-  br i1 %646, label %627, label %.thread386.i, !llvm.loop !131
+  %645 = load i8, ptr %590, align 8, !tbaa !127
+  %646 = zext i8 %645 to i64
+  %647 = icmp samesign ult i64 %indvars.iv.next464.i, %646
+  br i1 %647, label %628, label %.thread386.i, !llvm.loop !131
 
-647:                                              ; preds = %603, %603, %603
+648:                                              ; preds = %604, %604, %604
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %648 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.132, ptr noundef nonnull %49) #11
-  %649 = icmp sgt i32 %648, -1
-  br i1 %649, label %651, label %650
+  %649 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.132, ptr noundef nonnull %49) #11
+  %650 = icmp sgt i32 %649, -1
+  br i1 %650, label %652, label %651
 
-650:                                              ; preds = %647
+651:                                              ; preds = %648
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %cbs_h264_read_pps.exit.thread
 
-651:                                              ; preds = %647
-  %652 = load i32, ptr %49, align 4, !tbaa !63
-  %653 = trunc i32 %652 to i8
-  %654 = getelementptr inbounds nuw i8, ptr %543, i64 58
-  store i8 %653, ptr %654, align 2, !tbaa !132
+652:                                              ; preds = %648
+  %653 = load i32, ptr %49, align 4, !tbaa !63
+  %654 = trunc i32 %653 to i8
+  %655 = getelementptr inbounds nuw i8, ptr %544, i64 58
+  store i8 %654, ptr %655, align 2, !tbaa !132
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
-  %655 = add nsw i32 %599, -1
-  %656 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.133, ptr noundef null, ptr noundef %50, i32 noundef 0, i32 noundef %655)
-  %657 = icmp sgt i32 %656, -1
-  br i1 %657, label %.thread389.i, label %700
+  %656 = add nsw i32 %600, -1
+  %657 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.133, ptr noundef null, ptr noundef %50, i32 noundef 0, i32 noundef %656)
+  %658 = icmp sgt i32 %657, -1
+  br i1 %658, label %.thread389.i, label %701
 
-.thread389.i:                                     ; preds = %651
-  %658 = load i32, ptr %50, align 4, !tbaa !63
-  %659 = trunc i32 %658 to i16
-  %660 = getelementptr inbounds nuw i8, ptr %543, i64 60
-  store i16 %659, ptr %660, align 4, !tbaa !133
+.thread389.i:                                     ; preds = %652
+  %659 = load i32, ptr %50, align 4, !tbaa !63
+  %660 = trunc i32 %659 to i16
+  %661 = getelementptr inbounds nuw i8, ptr %544, i64 60
+  store i16 %660, ptr %661, align 4, !tbaa !133
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %.thread386.i
 
-661:                                              ; preds = %603
+662:                                              ; preds = %604
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
-  %662 = add nsw i32 %599, -1
-  %663 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.134, ptr noundef null, ptr noundef %51, i32 noundef %662, i32 noundef %662)
-  %664 = icmp sgt i32 %663, -1
-  br i1 %664, label %666, label %665
+  %663 = add nsw i32 %600, -1
+  %664 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.134, ptr noundef null, ptr noundef %51, i32 noundef %663, i32 noundef %663)
+  %665 = icmp sgt i32 %664, -1
+  br i1 %665, label %667, label %666
 
-665:                                              ; preds = %661
+666:                                              ; preds = %662
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %cbs_h264_read_pps.exit.thread
 
-666:                                              ; preds = %661
-  %667 = load i32, ptr %51, align 4, !tbaa !63
-  %668 = trunc i32 %667 to i16
-  %669 = getelementptr inbounds nuw i8, ptr %543, i64 62
-  store i16 %668, ptr %669, align 2, !tbaa !134
+667:                                              ; preds = %662
+  %668 = load i32, ptr %51, align 4, !tbaa !63
+  %669 = trunc i32 %668 to i16
+  %670 = getelementptr inbounds nuw i8, ptr %544, i64 62
+  store i16 %669, ptr %670, align 2, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
-  %.mask432.i = and i32 %667, 65535
+  %.mask432.i = and i32 %668, 65535
   %narrow.i = add nuw nsw i32 %.mask432.i, 65
-  %670 = zext nneg i32 %narrow.i to i64
-  %671 = call ptr @av_buffer_allocz(i64 noundef %670) #11
-  %672 = getelementptr inbounds nuw i8, ptr %543, i64 72
-  store ptr %671, ptr %672, align 8, !tbaa !135
-  %.not342.i = icmp eq ptr %671, null
-  br i1 %.not342.i, label %cbs_h264_read_pps.exit.thread, label %673
+  %671 = zext nneg i32 %narrow.i to i64
+  %672 = call ptr @av_buffer_allocz(i64 noundef %671) #11
+  %673 = getelementptr inbounds nuw i8, ptr %544, i64 72
+  store ptr %672, ptr %673, align 8, !tbaa !135
+  %.not342.i = icmp eq ptr %672, null
+  br i1 %.not342.i, label %cbs_h264_read_pps.exit.thread, label %674
 
-673:                                              ; preds = %666
-  %674 = getelementptr inbounds nuw i8, ptr %671, i64 8
-  %675 = load ptr, ptr %674, align 8, !tbaa !136
-  %676 = getelementptr inbounds nuw i8, ptr %543, i64 64
-  store ptr %675, ptr %676, align 8, !tbaa !139
-  %677 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  br label %678
+674:                                              ; preds = %667
+  %675 = getelementptr inbounds nuw i8, ptr %672, i64 8
+  %676 = load ptr, ptr %675, align 8, !tbaa !136
+  %677 = getelementptr inbounds nuw i8, ptr %544, i64 64
+  store ptr %676, ptr %677, align 8, !tbaa !139
+  %678 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  br label %679
 
-678:                                              ; preds = %693, %673
-  %indvars.iv.i96 = phi i64 [ 0, %673 ], [ %indvars.iv.next.i97, %693 ]
+679:                                              ; preds = %694, %674
+  %indvars.iv.i96 = phi i64 [ 0, %674 ], [ %indvars.iv.next.i97, %694 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  %679 = load i8, ptr %589, align 8, !tbaa !127
-  %680 = zext i8 %679 to i32
-  %681 = shl nuw nsw i32 %680, 1
-  %682 = or disjoint i32 %681, 1
-  %.not11.i.i = icmp sgt i8 %679, -1
+  %680 = load i8, ptr %590, align 8, !tbaa !127
+  %681 = zext i8 %680 to i32
+  %682 = shl nuw nsw i32 %681, 1
+  %683 = or disjoint i32 %682, 1
+  %.not11.i.i = icmp sgt i8 %680, -1
   %.1.i.i = select i1 %.not11.i.i, i32 0, i32 8
-  %683 = zext nneg i32 %682 to i64
-  %684 = select i1 %.not11.i.i, i64 %683, i64 1
-  %685 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %684
-  %686 = load i8, ptr %685, align 1, !tbaa !25
-  %687 = zext i8 %686 to i32
-  %688 = add nuw nsw i32 %.1.i.i, %687
+  %684 = zext nneg i32 %683 to i64
+  %685 = select i1 %.not11.i.i, i64 %684, i64 1
+  %686 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %685
+  %687 = load i8, ptr %686, align 1, !tbaa !25
+  %688 = zext i8 %687 to i32
+  %689 = add nuw nsw i32 %.1.i.i, %688
   store i32 1, ptr %53, align 4, !tbaa !63
-  %689 = trunc nuw nsw i64 %indvars.iv.i96 to i32
-  store i32 %689, ptr %677, align 4, !tbaa !63
-  %690 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef %688, ptr noundef nonnull @.str.135, ptr noundef nonnull %53, ptr noundef nonnull %52, i32 noundef 0, i32 noundef %680) #11
-  %691 = icmp sgt i32 %690, -1
-  br i1 %691, label %693, label %692
+  %690 = trunc nuw nsw i64 %indvars.iv.i96 to i32
+  store i32 %690, ptr %678, align 4, !tbaa !63
+  %691 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef %689, ptr noundef nonnull @.str.135, ptr noundef nonnull %53, ptr noundef nonnull %52, i32 noundef 0, i32 noundef %681) #11
+  %692 = icmp sgt i32 %691, -1
+  br i1 %692, label %694, label %693
 
-692:                                              ; preds = %678
+693:                                              ; preds = %679
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %cbs_h264_read_pps.exit.thread
 
-693:                                              ; preds = %678
-  %694 = load i32, ptr %52, align 4, !tbaa !63
-  %695 = trunc i32 %694 to i8
-  %696 = load ptr, ptr %676, align 8, !tbaa !139
-  %697 = getelementptr inbounds nuw i8, ptr %696, i64 %indvars.iv.i96
-  store i8 %695, ptr %697, align 1, !tbaa !25
+694:                                              ; preds = %679
+  %695 = load i32, ptr %52, align 4, !tbaa !63
+  %696 = trunc i32 %695 to i8
+  %697 = load ptr, ptr %677, align 8, !tbaa !139
+  %698 = getelementptr inbounds nuw i8, ptr %697, i64 %indvars.iv.i96
+  store i8 %696, ptr %698, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i96, 1
-  %698 = load i16, ptr %669, align 2, !tbaa !134
-  %699 = zext i16 %698 to i64
-  %.not343.not.i = icmp samesign ult i64 %indvars.iv.i96, %699
-  br i1 %.not343.not.i, label %678, label %.thread386.i, !llvm.loop !140
+  %699 = load i16, ptr %670, align 2, !tbaa !134
+  %700 = zext i16 %699 to i64
+  %.not343.not.i = icmp samesign ult i64 %indvars.iv.i96, %700
+  br i1 %.not343.not.i, label %679, label %.thread386.i, !llvm.loop !140
 
-700:                                              ; preds = %651
+701:                                              ; preds = %652
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %cbs_h264_read_pps.exit.thread
 
-.thread386.i:                                     ; preds = %693, %640, %621, %.thread389.i, %.preheader434.i, %603, %586
+.thread386.i:                                     ; preds = %694, %641, %622, %.thread389.i, %.preheader434.i, %604, %587
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
-  %701 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.136, ptr noundef null, ptr noundef %54, i32 noundef 0, i32 noundef 31)
-  %702 = icmp sgt i32 %701, -1
-  br i1 %702, label %704, label %703
-
-703:                                              ; preds = %.thread386.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  br label %cbs_h264_read_pps.exit.thread
+  %702 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.136, ptr noundef null, ptr noundef %54, i32 noundef 0, i32 noundef 31)
+  %703 = icmp sgt i32 %702, -1
+  br i1 %703, label %705, label %704
 
 704:                                              ; preds = %.thread386.i
-  %705 = load i32, ptr %54, align 4, !tbaa !63
-  %706 = trunc i32 %705 to i8
-  %707 = getelementptr inbounds nuw i8, ptr %543, i64 80
-  store i8 %706, ptr %707, align 8, !tbaa !141
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  br label %cbs_h264_read_pps.exit.thread
+
+705:                                              ; preds = %.thread386.i
+  %706 = load i32, ptr %54, align 4, !tbaa !63
+  %707 = trunc i32 %706 to i8
+  %708 = getelementptr inbounds nuw i8, ptr %544, i64 80
+  store i8 %707, ptr %708, align 8, !tbaa !141
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  %708 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.137, ptr noundef null, ptr noundef %55, i32 noundef 0, i32 noundef 31)
-  %709 = icmp sgt i32 %708, -1
-  br i1 %709, label %711, label %710
+  %709 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.137, ptr noundef null, ptr noundef %55, i32 noundef 0, i32 noundef 31)
+  %710 = icmp sgt i32 %709, -1
+  br i1 %710, label %712, label %711
 
-710:                                              ; preds = %704
+711:                                              ; preds = %705
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %cbs_h264_read_pps.exit.thread
 
-711:                                              ; preds = %704
-  %712 = load i32, ptr %55, align 4, !tbaa !63
-  %713 = trunc i32 %712 to i8
-  %714 = getelementptr inbounds nuw i8, ptr %543, i64 81
-  store i8 %713, ptr %714, align 1, !tbaa !142
+712:                                              ; preds = %705
+  %713 = load i32, ptr %55, align 4, !tbaa !63
+  %714 = trunc i32 %713 to i8
+  %715 = getelementptr inbounds nuw i8, ptr %544, i64 81
+  store i8 %714, ptr %715, align 1, !tbaa !142
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
-  %715 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.138, ptr noundef nonnull %56) #11
-  %716 = icmp sgt i32 %715, -1
-  br i1 %716, label %718, label %717
+  %716 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.138, ptr noundef nonnull %56) #11
+  %717 = icmp sgt i32 %716, -1
+  br i1 %717, label %719, label %718
 
-717:                                              ; preds = %711
+718:                                              ; preds = %712
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %cbs_h264_read_pps.exit.thread
 
-718:                                              ; preds = %711
-  %719 = load i32, ptr %56, align 4, !tbaa !63
-  %720 = trunc i32 %719 to i8
-  %721 = getelementptr inbounds nuw i8, ptr %543, i64 82
-  store i8 %720, ptr %721, align 2, !tbaa !143
+719:                                              ; preds = %712
+  %720 = load i32, ptr %56, align 4, !tbaa !63
+  %721 = trunc i32 %720 to i8
+  %722 = getelementptr inbounds nuw i8, ptr %544, i64 82
+  store i8 %721, ptr %722, align 2, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
-  %722 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 2, ptr noundef nonnull @.str.139, ptr noundef null, ptr noundef nonnull %57, i32 noundef 0, i32 noundef 2) #11
-  %723 = icmp sgt i32 %722, -1
-  br i1 %723, label %725, label %724
+  %723 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 2, ptr noundef nonnull @.str.139, ptr noundef null, ptr noundef nonnull %57, i32 noundef 0, i32 noundef 2) #11
+  %724 = icmp sgt i32 %723, -1
+  br i1 %724, label %726, label %725
 
-724:                                              ; preds = %718
+725:                                              ; preds = %719
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %cbs_h264_read_pps.exit.thread
 
-725:                                              ; preds = %718
-  %726 = load i32, ptr %57, align 4, !tbaa !63
-  %727 = trunc i32 %726 to i8
-  %728 = getelementptr inbounds nuw i8, ptr %543, i64 83
-  store i8 %727, ptr %728, align 1, !tbaa !144
+726:                                              ; preds = %719
+  %727 = load i32, ptr %57, align 4, !tbaa !63
+  %728 = trunc i32 %727 to i8
+  %729 = getelementptr inbounds nuw i8, ptr %544, i64 83
+  store i8 %728, ptr %729, align 1, !tbaa !144
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
-  %729 = getelementptr inbounds nuw i8, ptr %565, i64 16
-  %730 = load i8, ptr %729, align 4, !tbaa !81
-  %731 = zext i8 %730 to i32
-  %.neg.i = mul nsw i32 %731, -6
-  %732 = add nsw i32 %.neg.i, -26
-  %733 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.140, ptr noundef null, ptr noundef %58, i32 noundef %732, i32 noundef 25)
-  %734 = icmp sgt i32 %733, -1
-  br i1 %734, label %736, label %735
+  %730 = getelementptr inbounds nuw i8, ptr %566, i64 16
+  %731 = load i8, ptr %730, align 4, !tbaa !81
+  %732 = zext i8 %731 to i32
+  %.neg.i = mul nsw i32 %732, -6
+  %733 = add nsw i32 %.neg.i, -26
+  %734 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.140, ptr noundef null, ptr noundef %58, i32 noundef %733, i32 noundef 25)
+  %735 = icmp sgt i32 %734, -1
+  br i1 %735, label %737, label %736
 
-735:                                              ; preds = %725
+736:                                              ; preds = %726
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %cbs_h264_read_pps.exit.thread
 
-736:                                              ; preds = %725
-  %737 = load i32, ptr %58, align 4, !tbaa !63
-  %738 = trunc i32 %737 to i8
-  %739 = getelementptr inbounds nuw i8, ptr %543, i64 84
-  store i8 %738, ptr %739, align 4, !tbaa !145
+737:                                              ; preds = %726
+  %738 = load i32, ptr %58, align 4, !tbaa !63
+  %739 = trunc i32 %738 to i8
+  %740 = getelementptr inbounds nuw i8, ptr %544, i64 84
+  store i8 %739, ptr %740, align 4, !tbaa !145
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  %740 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.141, ptr noundef null, ptr noundef %59, i32 noundef -26, i32 noundef 25)
-  %741 = icmp sgt i32 %740, -1
-  br i1 %741, label %743, label %742
+  %741 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.141, ptr noundef null, ptr noundef %59, i32 noundef -26, i32 noundef 25)
+  %742 = icmp sgt i32 %741, -1
+  br i1 %742, label %744, label %743
 
-742:                                              ; preds = %736
+743:                                              ; preds = %737
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %cbs_h264_read_pps.exit.thread
 
-743:                                              ; preds = %736
-  %744 = load i32, ptr %59, align 4, !tbaa !63
-  %745 = trunc i32 %744 to i8
-  %746 = getelementptr inbounds nuw i8, ptr %543, i64 85
-  store i8 %745, ptr %746, align 1, !tbaa !146
+744:                                              ; preds = %737
+  %745 = load i32, ptr %59, align 4, !tbaa !63
+  %746 = trunc i32 %745 to i8
+  %747 = getelementptr inbounds nuw i8, ptr %544, i64 85
+  store i8 %746, ptr %747, align 1, !tbaa !146
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
-  %747 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.142, ptr noundef null, ptr noundef %60, i32 noundef -12, i32 noundef 12)
-  %748 = icmp sgt i32 %747, -1
-  br i1 %748, label %750, label %749
+  %748 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.142, ptr noundef null, ptr noundef %60, i32 noundef -12, i32 noundef 12)
+  %749 = icmp sgt i32 %748, -1
+  br i1 %749, label %751, label %750
 
-749:                                              ; preds = %743
+750:                                              ; preds = %744
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %cbs_h264_read_pps.exit.thread
 
-750:                                              ; preds = %743
-  %751 = load i32, ptr %60, align 4, !tbaa !63
-  %752 = trunc i32 %751 to i8
-  %753 = getelementptr inbounds nuw i8, ptr %543, i64 86
-  store i8 %752, ptr %753, align 2, !tbaa !147
+751:                                              ; preds = %744
+  %752 = load i32, ptr %60, align 4, !tbaa !63
+  %753 = trunc i32 %752 to i8
+  %754 = getelementptr inbounds nuw i8, ptr %544, i64 86
+  store i8 %753, ptr %754, align 2, !tbaa !147
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
-  %754 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.143, ptr noundef nonnull %61) #11
-  %755 = icmp sgt i32 %754, -1
-  br i1 %755, label %757, label %756
+  %755 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.143, ptr noundef nonnull %61) #11
+  %756 = icmp sgt i32 %755, -1
+  br i1 %756, label %758, label %757
 
-756:                                              ; preds = %750
+757:                                              ; preds = %751
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %cbs_h264_read_pps.exit.thread
 
-757:                                              ; preds = %750
-  %758 = load i32, ptr %61, align 4, !tbaa !63
-  %759 = trunc i32 %758 to i8
-  %760 = getelementptr inbounds nuw i8, ptr %543, i64 87
-  store i8 %759, ptr %760, align 1, !tbaa !148
+758:                                              ; preds = %751
+  %759 = load i32, ptr %61, align 4, !tbaa !63
+  %760 = trunc i32 %759 to i8
+  %761 = getelementptr inbounds nuw i8, ptr %544, i64 87
+  store i8 %760, ptr %761, align 1, !tbaa !148
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
-  %761 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.144, ptr noundef nonnull %62) #11
-  %762 = icmp sgt i32 %761, -1
-  br i1 %762, label %764, label %763
+  %762 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.144, ptr noundef nonnull %62) #11
+  %763 = icmp sgt i32 %762, -1
+  br i1 %763, label %765, label %764
 
-763:                                              ; preds = %757
+764:                                              ; preds = %758
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %cbs_h264_read_pps.exit.thread
 
-764:                                              ; preds = %757
-  %765 = load i32, ptr %62, align 4, !tbaa !63
-  %766 = trunc i32 %765 to i8
-  %767 = getelementptr inbounds nuw i8, ptr %543, i64 88
-  store i8 %766, ptr %767, align 8, !tbaa !149
+765:                                              ; preds = %758
+  %766 = load i32, ptr %62, align 4, !tbaa !63
+  %767 = trunc i32 %766 to i8
+  %768 = getelementptr inbounds nuw i8, ptr %544, i64 88
+  store i8 %767, ptr %768, align 8, !tbaa !149
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
-  %768 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.145, ptr noundef nonnull %63) #11
-  %769 = icmp sgt i32 %768, -1
-  br i1 %769, label %771, label %770
+  %769 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.145, ptr noundef nonnull %63) #11
+  %770 = icmp sgt i32 %769, -1
+  br i1 %770, label %772, label %771
 
-770:                                              ; preds = %764
+771:                                              ; preds = %765
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %cbs_h264_read_pps.exit.thread
 
-771:                                              ; preds = %764
-  %772 = load i32, ptr %63, align 4, !tbaa !63
-  %773 = trunc i32 %772 to i8
-  %774 = getelementptr inbounds nuw i8, ptr %543, i64 90
-  store i8 %773, ptr %774, align 2, !tbaa !150
+772:                                              ; preds = %765
+  %773 = load i32, ptr %63, align 4, !tbaa !63
+  %774 = trunc i32 %773 to i8
+  %775 = getelementptr inbounds nuw i8, ptr %544, i64 90
+  store i8 %774, ptr %775, align 2, !tbaa !150
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
-  %775 = call fastcc i32 @cbs_h2645_read_more_rbsp_data(ptr noundef nonnull %118)
-  %776 = trunc nuw nsw i32 %775 to i8
-  %777 = getelementptr inbounds nuw i8, ptr %543, i64 89
-  store i8 %776, ptr %777, align 1, !tbaa !151
-  %.not345.i = icmp eq i32 %775, 0
-  br i1 %.not345.i, label %831, label %778
+  %776 = call fastcc i32 @cbs_h2645_read_more_rbsp_data(ptr noundef nonnull %118)
+  %777 = trunc nuw nsw i32 %776 to i8
+  %778 = getelementptr inbounds nuw i8, ptr %544, i64 89
+  store i8 %777, ptr %778, align 1, !tbaa !151
+  %.not345.i = icmp eq i32 %776, 0
+  br i1 %.not345.i, label %832, label %779
 
-778:                                              ; preds = %771
+779:                                              ; preds = %772
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
-  %779 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.146, ptr noundef nonnull %64) #11
-  %780 = icmp sgt i32 %779, -1
-  br i1 %780, label %782, label %781
+  %780 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.146, ptr noundef nonnull %64) #11
+  %781 = icmp sgt i32 %780, -1
+  br i1 %781, label %783, label %782
 
-781:                                              ; preds = %778
+782:                                              ; preds = %779
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %cbs_h264_read_pps.exit.thread
 
-782:                                              ; preds = %778
-  %783 = load i32, ptr %64, align 4, !tbaa !63
-  %784 = trunc i32 %783 to i8
-  %785 = getelementptr inbounds nuw i8, ptr %543, i64 91
-  store i8 %784, ptr %785, align 1, !tbaa !152
+783:                                              ; preds = %779
+  %784 = load i32, ptr %64, align 4, !tbaa !63
+  %785 = trunc i32 %784 to i8
+  %786 = getelementptr inbounds nuw i8, ptr %544, i64 91
+  store i8 %785, ptr %786, align 1, !tbaa !152
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
-  %786 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.147, ptr noundef nonnull %65) #11
-  %787 = icmp sgt i32 %786, -1
-  br i1 %787, label %789, label %788
+  %787 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.147, ptr noundef nonnull %65) #11
+  %788 = icmp sgt i32 %787, -1
+  br i1 %788, label %790, label %789
 
-788:                                              ; preds = %782
+789:                                              ; preds = %783
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %cbs_h264_read_pps.exit.thread
 
-789:                                              ; preds = %782
-  %790 = load i32, ptr %65, align 4, !tbaa !63
-  %791 = trunc i32 %790 to i8
-  %792 = getelementptr inbounds nuw i8, ptr %543, i64 92
-  store i8 %791, ptr %792, align 4, !tbaa !153
+790:                                              ; preds = %783
+  %791 = load i32, ptr %65, align 4, !tbaa !63
+  %792 = trunc i32 %791 to i8
+  %793 = getelementptr inbounds nuw i8, ptr %544, i64 92
+  store i8 %792, ptr %793, align 4, !tbaa !153
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  %.not346.i = icmp eq i8 %791, 0
+  %.not346.i = icmp eq i8 %792, 0
   br i1 %.not346.i, label %.loopexit.i99, label %.preheader.i98
 
-.preheader.i98:                                   ; preds = %789
-  %793 = getelementptr inbounds nuw i8, ptr %565, i64 14
-  %794 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %795 = getelementptr inbounds nuw i8, ptr %543, i64 93
-  %796 = getelementptr inbounds nuw i8, ptr %543, i64 105
-  br label %797
+.preheader.i98:                                   ; preds = %790
+  %794 = getelementptr inbounds nuw i8, ptr %566, i64 14
+  %795 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %796 = getelementptr inbounds nuw i8, ptr %544, i64 93
+  %797 = getelementptr inbounds nuw i8, ptr %544, i64 105
+  br label %798
 
-797:                                              ; preds = %817, %.preheader.i98
-  %indvars.iv469.i = phi i64 [ 0, %.preheader.i98 ], [ %indvars.iv.next470.i, %817 ]
+798:                                              ; preds = %818, %.preheader.i98
+  %indvars.iv469.i = phi i64 [ 0, %.preheader.i98 ], [ %indvars.iv.next470.i, %818 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store i32 1, ptr %67, align 4, !tbaa !63
-  %798 = trunc nuw nsw i64 %indvars.iv469.i to i32
-  store i32 %798, ptr %794, align 4, !tbaa !63
-  %799 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.148, ptr noundef nonnull %67, ptr noundef nonnull %66, i32 noundef 0, i32 noundef 1) #11
-  %800 = icmp sgt i32 %799, -1
-  br i1 %800, label %802, label %801
+  %799 = trunc nuw nsw i64 %indvars.iv469.i to i32
+  store i32 %799, ptr %795, align 4, !tbaa !63
+  %800 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.148, ptr noundef nonnull %67, ptr noundef nonnull %66, i32 noundef 0, i32 noundef 1) #11
+  %801 = icmp sgt i32 %800, -1
+  br i1 %801, label %803, label %802
 
-801:                                              ; preds = %797
+802:                                              ; preds = %798
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %cbs_h264_read_pps.exit.thread
 
-802:                                              ; preds = %797
-  %803 = load i32, ptr %66, align 4, !tbaa !63
-  %804 = trunc i32 %803 to i8
-  %805 = getelementptr inbounds nuw i8, ptr %795, i64 %indvars.iv469.i
-  store i8 %804, ptr %805, align 1, !tbaa !25
+803:                                              ; preds = %798
+  %804 = load i32, ptr %66, align 4, !tbaa !63
+  %805 = trunc i32 %804 to i8
+  %806 = getelementptr inbounds nuw i8, ptr %796, i64 %indvars.iv469.i
+  store i8 %805, ptr %806, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
-  %.not348.i = icmp eq i8 %804, 0
-  br i1 %.not348.i, label %817, label %806
+  %.not348.i = icmp eq i8 %805, 0
+  br i1 %.not348.i, label %818, label %807
 
-806:                                              ; preds = %802
-  %807 = icmp samesign ult i64 %indvars.iv469.i, 6
-  br i1 %807, label %808, label %812
+807:                                              ; preds = %803
+  %808 = icmp samesign ult i64 %indvars.iv469.i, 6
+  br i1 %808, label %809, label %813
 
-808:                                              ; preds = %806
-  %809 = getelementptr inbounds nuw %struct.H264RawScalingList, ptr %796, i64 %indvars.iv469.i
-  %810 = call fastcc i32 @cbs_h264_read_scaling_list(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull %809, i32 noundef 16)
-  %811 = icmp slt i32 %810, 0
-  br i1 %811, label %cbs_h264_read_pps.exit.thread, label %817
+809:                                              ; preds = %807
+  %810 = getelementptr inbounds nuw %struct.H264RawScalingList, ptr %797, i64 %indvars.iv469.i
+  %811 = call fastcc i32 @cbs_h264_read_scaling_list(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull %810, i32 noundef 16)
+  %812 = icmp slt i32 %811, 0
+  br i1 %812, label %cbs_h264_read_pps.exit.thread, label %818
 
-812:                                              ; preds = %806
-  %813 = getelementptr %struct.H264RawScalingList, ptr %543, i64 %indvars.iv469.i
-  %814 = getelementptr i8, ptr %813, i64 105
-  %815 = call fastcc i32 @cbs_h264_read_scaling_list(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef %814, i32 noundef 64)
-  %816 = icmp slt i32 %815, 0
-  br i1 %816, label %cbs_h264_read_pps.exit.thread, label %817
+813:                                              ; preds = %807
+  %814 = getelementptr %struct.H264RawScalingList, ptr %544, i64 %indvars.iv469.i
+  %815 = getelementptr i8, ptr %814, i64 105
+  %816 = call fastcc i32 @cbs_h264_read_scaling_list(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef %815, i32 noundef 64)
+  %817 = icmp slt i32 %816, 0
+  br i1 %817, label %cbs_h264_read_pps.exit.thread, label %818
 
-817:                                              ; preds = %812, %808, %802
+818:                                              ; preds = %813, %809, %803
   %indvars.iv.next470.i = add nuw nsw i64 %indvars.iv469.i, 1
-  %818 = load i8, ptr %793, align 2, !tbaa !79
-  %.not347.i = icmp eq i8 %818, 3
-  %819 = select i1 %.not347.i, i64 6, i64 2
-  %820 = load i8, ptr %785, align 1, !tbaa !152
-  %821 = zext i8 %820 to i64
-  %822 = mul nuw nsw i64 %819, %821
-  %823 = add nuw nsw i64 %822, 6
-  %824 = icmp samesign ult i64 %indvars.iv.next470.i, %823
-  br i1 %824, label %797, label %.loopexit.i99, !llvm.loop !154
+  %819 = load i8, ptr %794, align 2, !tbaa !79
+  %.not347.i = icmp eq i8 %819, 3
+  %820 = select i1 %.not347.i, i64 6, i64 2
+  %821 = load i8, ptr %786, align 1, !tbaa !152
+  %822 = zext i8 %821 to i64
+  %823 = mul nuw nsw i64 %820, %822
+  %824 = add nuw nsw i64 %823, 6
+  %825 = icmp samesign ult i64 %indvars.iv.next470.i, %824
+  br i1 %825, label %798, label %.loopexit.i99, !llvm.loop !154
 
-.loopexit.i99:                                    ; preds = %817, %789
+.loopexit.i99:                                    ; preds = %818, %790
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
-  %825 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.149, ptr noundef null, ptr noundef %68, i32 noundef -12, i32 noundef 12)
-  %826 = icmp sgt i32 %825, -1
-  br i1 %826, label %.thread430.i, label %830
+  %826 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.149, ptr noundef null, ptr noundef %68, i32 noundef -12, i32 noundef 12)
+  %827 = icmp sgt i32 %826, -1
+  br i1 %827, label %.thread430.i, label %831
 
 .thread430.i:                                     ; preds = %.loopexit.i99
-  %827 = load i32, ptr %68, align 4, !tbaa !63
-  %828 = trunc i32 %827 to i8
-  %829 = getelementptr inbounds nuw i8, ptr %543, i64 873
-  store i8 %828, ptr %829, align 1, !tbaa !155
+  %828 = load i32, ptr %68, align 4, !tbaa !63
+  %829 = trunc i32 %828 to i8
+  %830 = getelementptr inbounds nuw i8, ptr %544, i64 873
+  store i8 %829, ptr %830, align 1, !tbaa !155
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %cbs_h264_read_pps.exit
 
-830:                                              ; preds = %.loopexit.i99
+831:                                              ; preds = %.loopexit.i99
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %cbs_h264_read_pps.exit.thread
 
-831:                                              ; preds = %771
-  %832 = getelementptr inbounds nuw i8, ptr %543, i64 91
-  store i8 0, ptr %832, align 1, !tbaa !152
-  %833 = getelementptr inbounds nuw i8, ptr %543, i64 92
-  store i8 0, ptr %833, align 4, !tbaa !153
-  %834 = load i8, ptr %753, align 2, !tbaa !147
-  %835 = getelementptr inbounds nuw i8, ptr %543, i64 873
-  store i8 %834, ptr %835, align 1, !tbaa !155
+832:                                              ; preds = %772
+  %833 = getelementptr inbounds nuw i8, ptr %544, i64 91
+  store i8 0, ptr %833, align 1, !tbaa !152
+  %834 = getelementptr inbounds nuw i8, ptr %544, i64 92
+  store i8 0, ptr %834, align 4, !tbaa !153
+  %835 = load i8, ptr %754, align 2, !tbaa !147
+  %836 = getelementptr inbounds nuw i8, ptr %544, i64 873
+  store i8 %835, ptr %836, align 1, !tbaa !155
   br label %cbs_h264_read_pps.exit
 
-.critedge.i94:                                    ; preds = %548
+.critedge.i94:                                    ; preds = %549
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %cbs_h264_read_pps.exit.thread
 
-cbs_h264_read_pps.exit.thread:                    ; preds = %812, %808, %801, %830, %788, %781, %770, %763, %756, %749, %742, %735, %724, %717, %710, %703, %700, %585, %578, %571, %566, %557, %541, %.critedge.i94, %666, %602, %665, %692, %650, %631, %639, %620
-  %.0276.i.ph = phi i32 [ %618, %620 ], [ %637, %639 ], [ %629, %631 ], [ %648, %650 ], [ %690, %692 ], [ %663, %665 ], [ %600, %602 ], [ -12, %666 ], [ %549, %.critedge.i94 ], [ %546, %541 ], [ %555, %557 ], [ -1094995529, %566 ], [ %569, %571 ], [ %576, %578 ], [ %583, %585 ], [ %656, %700 ], [ %701, %703 ], [ %708, %710 ], [ %715, %717 ], [ %722, %724 ], [ %733, %735 ], [ %740, %742 ], [ %747, %749 ], [ %754, %756 ], [ %761, %763 ], [ %768, %770 ], [ %779, %781 ], [ %786, %788 ], [ %825, %830 ], [ %799, %801 ], [ %815, %812 ], [ %810, %808 ]
+cbs_h264_read_pps.exit.thread:                    ; preds = %813, %809, %802, %831, %789, %782, %771, %764, %757, %750, %743, %736, %725, %718, %711, %704, %701, %586, %579, %572, %567, %558, %542, %.critedge.i94, %667, %603, %666, %693, %651, %632, %640, %621
+  %.0276.i.ph = phi i32 [ %619, %621 ], [ %638, %640 ], [ %630, %632 ], [ %649, %651 ], [ %691, %693 ], [ %664, %666 ], [ %601, %603 ], [ -12, %667 ], [ %550, %.critedge.i94 ], [ %547, %542 ], [ %556, %558 ], [ -1094995529, %567 ], [ %570, %572 ], [ %577, %579 ], [ %584, %586 ], [ %657, %701 ], [ %702, %704 ], [ %709, %711 ], [ %716, %718 ], [ %723, %725 ], [ %734, %736 ], [ %741, %743 ], [ %748, %750 ], [ %755, %757 ], [ %762, %764 ], [ %769, %771 ], [ %780, %782 ], [ %787, %789 ], [ %826, %831 ], [ %800, %802 ], [ %816, %813 ], [ %811, %809 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
@@ -4076,1072 +4077,1072 @@ cbs_h264_read_pps.exit.thread:                    ; preds = %812, %808, %801, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %.thread
 
-cbs_h264_read_pps.exit:                           ; preds = %.thread430.i, %831
-  %836 = call fastcc i32 @cbs_h264_read_rbsp_trailing_bits(ptr noundef nonnull %0, ptr noundef nonnull %118)
+cbs_h264_read_pps.exit:                           ; preds = %.thread430.i, %832
+  %837 = call fastcc i32 @cbs_h264_read_rbsp_trailing_bits(ptr noundef nonnull %0, ptr noundef nonnull %118)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
-  %837 = icmp slt i32 %836, 0
-  br i1 %837, label %.thread, label %838
+  %838 = icmp slt i32 %837, 0
+  br i1 %838, label %.thread, label %839
 
-838:                                              ; preds = %cbs_h264_read_pps.exit
-  %839 = load ptr, ptr %544, align 8, !tbaa !18
-  %840 = load ptr, ptr %542, align 8, !tbaa !62
-  %841 = getelementptr inbounds nuw i8, ptr %840, i64 4
-  %842 = load i8, ptr %841, align 4, !tbaa !122
-  %843 = call i32 @ff_cbs_make_unit_refcounted(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
-  %844 = icmp slt i32 %843, 0
-  br i1 %844, label %.thread, label %845
+839:                                              ; preds = %cbs_h264_read_pps.exit
+  %840 = load ptr, ptr %545, align 8, !tbaa !18
+  %841 = load ptr, ptr %543, align 8, !tbaa !62
+  %842 = getelementptr inbounds nuw i8, ptr %841, i64 4
+  %843 = load i8, ptr %842, align 4, !tbaa !122
+  %844 = call i32 @ff_cbs_make_unit_refcounted(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
+  %845 = icmp slt i32 %844, 0
+  br i1 %845, label %.thread, label %846
 
-845:                                              ; preds = %838
-  %846 = getelementptr inbounds nuw i8, ptr %839, i64 312
-  %847 = zext i8 %842 to i64
-  %848 = getelementptr inbounds nuw ptr, ptr %846, i64 %847
-  %849 = load ptr, ptr %848, align 8, !tbaa !156
-  %850 = getelementptr inbounds nuw i8, ptr %839, i64 2368
-  %851 = load ptr, ptr %850, align 8, !tbaa !157
-  %852 = icmp eq ptr %849, %851
-  br i1 %852, label %853, label %854
+846:                                              ; preds = %839
+  %847 = getelementptr inbounds nuw i8, ptr %840, i64 312
+  %848 = zext i8 %843 to i64
+  %849 = getelementptr inbounds nuw ptr, ptr %847, i64 %848
+  %850 = load ptr, ptr %849, align 8, !tbaa !156
+  %851 = getelementptr inbounds nuw i8, ptr %840, i64 2368
+  %852 = load ptr, ptr %851, align 8, !tbaa !157
+  %853 = icmp eq ptr %850, %852
+  br i1 %853, label %854, label %855
 
-853:                                              ; preds = %845
-  store ptr null, ptr %850, align 8, !tbaa !157
-  br label %854
+854:                                              ; preds = %846
+  store ptr null, ptr %851, align 8, !tbaa !157
+  br label %855
 
-854:                                              ; preds = %853, %845
-  %855 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %856 = load ptr, ptr %855, align 8, !tbaa !112
-  %.not.i101 = icmp eq ptr %856, null
-  br i1 %.not.i101, label %857, label %858
+855:                                              ; preds = %854, %846
+  %856 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %857 = load ptr, ptr %856, align 8, !tbaa !112
+  %.not.i101 = icmp eq ptr %857, null
+  br i1 %.not.i101, label %858, label %859
 
-857:                                              ; preds = %854
+858:                                              ; preds = %855
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.3, i32 noundef 777) #11
   call void @abort() #12
   unreachable
 
-858:                                              ; preds = %854
-  call void @av_refstruct_replace(ptr noundef nonnull %848, ptr noundef nonnull %856) #11
+859:                                              ; preds = %855
+  call void @av_refstruct_replace(ptr noundef nonnull %849, ptr noundef nonnull %857) #11
   br label %cbs_h264_read_sps_extension.exit
 
-859:                                              ; preds = %136, %136, %136
-  %860 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %861 = load ptr, ptr %860, align 8, !tbaa !62
-  %862 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %863 = load ptr, ptr %862, align 8, !tbaa !18
+860:                                              ; preds = %136, %136, %136
+  %861 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %862 = load ptr, ptr %861, align 8, !tbaa !62
+  %863 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %864 = load ptr, ptr %863, align 8, !tbaa !18
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.150) #11
-  %864 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %861, i32 noundef 524322)
-  %865 = icmp slt i32 %864, 0
-  br i1 %865, label %.thread, label %866
+  %865 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %862, i32 noundef 524322)
+  %866 = icmp slt i32 %865, 0
+  br i1 %866, label %.thread, label %867
 
-866:                                              ; preds = %859
-  %867 = getelementptr inbounds nuw i8, ptr %861, i64 1
-  %868 = load i8, ptr %867, align 1, !tbaa !158
-  %869 = icmp eq i8 %868, 19
-  br i1 %869, label %870, label %875
+867:                                              ; preds = %860
+  %868 = getelementptr inbounds nuw i8, ptr %862, i64 1
+  %869 = load i8, ptr %868, align 1, !tbaa !158
+  %870 = icmp eq i8 %869, 19
+  br i1 %870, label %871, label %876
 
-870:                                              ; preds = %866
-  %871 = getelementptr inbounds nuw i8, ptr %863, i64 2376
-  %872 = load i8, ptr %871, align 8, !tbaa !160
-  %.not.i109 = icmp eq i8 %872, 0
-  br i1 %.not.i109, label %873, label %875
+871:                                              ; preds = %867
+  %872 = getelementptr inbounds nuw i8, ptr %864, i64 2376
+  %873 = load i8, ptr %872, align 8, !tbaa !160
+  %.not.i109 = icmp eq i8 %873, 0
+  br i1 %.not.i109, label %874, label %876
 
-873:                                              ; preds = %870
-  %874 = load ptr, ptr %0, align 8, !tbaa !31
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %874, i32 noundef 16, ptr noundef nonnull @.str.151) #11
+874:                                              ; preds = %871
+  %875 = load ptr, ptr %0, align 8, !tbaa !31
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %875, i32 noundef 16, ptr noundef nonnull @.str.151) #11
   br label %.thread
 
-875:                                              ; preds = %870, %866
-  %.0326.in.in.i = phi i8 [ %872, %870 ], [ %868, %866 ]
+876:                                              ; preds = %871, %867
+  %.0326.in.in.i = phi i8 [ %873, %871 ], [ %869, %867 ]
   %.0326.in.in.fr.i = freeze i8 %.0326.in.in.i
   %.0326.in.i = icmp eq i8 %.0326.in.in.fr.i, 5
   %.0326.i = zext i1 %.0326.in.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %876 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.152, ptr noundef null, ptr noundef %11, i32 noundef 0, i32 noundef 139263)
-  %877 = icmp sgt i32 %876, -1
-  br i1 %877, label %878, label %.critedge.i103
+  %877 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.152, ptr noundef null, ptr noundef %11, i32 noundef 0, i32 noundef 139263)
+  %878 = icmp sgt i32 %877, -1
+  br i1 %878, label %879, label %.critedge.i103
 
-878:                                              ; preds = %875
-  %879 = load i32, ptr %11, align 4, !tbaa !63
-  %880 = getelementptr inbounds nuw i8, ptr %861, i64 4
-  store i32 %879, ptr %880, align 4, !tbaa !161
+879:                                              ; preds = %876
+  %880 = load i32, ptr %11, align 4, !tbaa !63
+  %881 = getelementptr inbounds nuw i8, ptr %862, i64 4
+  store i32 %880, ptr %881, align 4, !tbaa !161
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %881 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.153, ptr noundef null, ptr noundef %12, i32 noundef 0, i32 noundef 9)
-  %882 = icmp sgt i32 %881, -1
-  br i1 %882, label %884, label %883
+  %882 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.153, ptr noundef null, ptr noundef %12, i32 noundef 0, i32 noundef 9)
+  %883 = icmp sgt i32 %882, -1
+  br i1 %883, label %885, label %884
 
-883:                                              ; preds = %878
+884:                                              ; preds = %879
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
-884:                                              ; preds = %878
-  %885 = load i32, ptr %12, align 4, !tbaa !63
-  %886 = trunc i32 %885 to i8
-  %887 = getelementptr inbounds nuw i8, ptr %861, i64 8
-  store i8 %886, ptr %887, align 4, !tbaa !162
+885:                                              ; preds = %879
+  %886 = load i32, ptr %12, align 4, !tbaa !63
+  %887 = trunc i32 %886 to i8
+  %888 = getelementptr inbounds nuw i8, ptr %862, i64 8
+  store i8 %887, ptr %888, align 4, !tbaa !162
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %888 = and i32 %885, 255
-  %889 = urem i8 %886, 5
-  %890 = icmp eq i8 %889, 1
-  %891 = icmp eq i8 %889, 3
-  br i1 %.0326.in.i, label %switch.early.test.i, label %894
+  %889 = and i32 %886, 255
+  %890 = urem i8 %887, 5
+  %891 = icmp eq i8 %890, 1
+  %892 = icmp eq i8 %890, 3
+  br i1 %.0326.in.i, label %switch.early.test.i, label %895
 
-switch.early.test.i:                              ; preds = %884
-  switch i8 %889, label %892 [
-    i8 4, label %894
-    i8 2, label %894
+switch.early.test.i:                              ; preds = %885
+  switch i8 %890, label %893 [
+    i8 4, label %895
+    i8 2, label %895
   ]
 
-892:                                              ; preds = %switch.early.test.i
-  %893 = load ptr, ptr %0, align 8, !tbaa !31
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %893, i32 noundef 16, ptr noundef nonnull @.str.154, i32 noundef %888) #11
+893:                                              ; preds = %switch.early.test.i
+  %894 = load ptr, ptr %0, align 8, !tbaa !31
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %894, i32 noundef 16, ptr noundef nonnull @.str.154, i32 noundef %889) #11
   br label %.thread
 
-894:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %884
+895:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %885
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %895 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.123, ptr noundef null, ptr noundef %13, i32 noundef 0, i32 noundef 255)
-  %896 = icmp sgt i32 %895, -1
-  br i1 %896, label %898, label %897
+  %896 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.123, ptr noundef null, ptr noundef %13, i32 noundef 0, i32 noundef 255)
+  %897 = icmp sgt i32 %896, -1
+  br i1 %897, label %899, label %898
 
-897:                                              ; preds = %894
+898:                                              ; preds = %895
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread
 
-898:                                              ; preds = %894
-  %899 = load i32, ptr %13, align 4, !tbaa !63
-  %900 = trunc i32 %899 to i8
-  %901 = getelementptr inbounds nuw i8, ptr %861, i64 9
-  store i8 %900, ptr %901, align 1, !tbaa !163
+899:                                              ; preds = %895
+  %900 = load i32, ptr %13, align 4, !tbaa !63
+  %901 = trunc i32 %900 to i8
+  %902 = getelementptr inbounds nuw i8, ptr %862, i64 9
+  store i8 %901, ptr %902, align 1, !tbaa !163
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %902 = getelementptr inbounds nuw i8, ptr %863, i64 312
-  %.mask.i106 = and i32 %899, 255
-  %903 = zext nneg i32 %.mask.i106 to i64
-  %904 = getelementptr inbounds nuw ptr, ptr %902, i64 %903
-  %905 = load ptr, ptr %904, align 8, !tbaa !156
-  %.not389.i = icmp eq ptr %905, null
-  br i1 %.not389.i, label %906, label %908
+  %903 = getelementptr inbounds nuw i8, ptr %864, i64 312
+  %.mask.i106 = and i32 %900, 255
+  %904 = zext nneg i32 %.mask.i106 to i64
+  %905 = getelementptr inbounds nuw ptr, ptr %903, i64 %904
+  %906 = load ptr, ptr %905, align 8, !tbaa !156
+  %.not389.i = icmp eq ptr %906, null
+  br i1 %.not389.i, label %907, label %909
 
-906:                                              ; preds = %898
-  %907 = load ptr, ptr %0, align 8, !tbaa !31
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %907, i32 noundef 16, ptr noundef nonnull @.str.155, i32 noundef %.mask.i106) #11
+907:                                              ; preds = %899
+  %908 = load ptr, ptr %0, align 8, !tbaa !31
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %908, i32 noundef 16, ptr noundef nonnull @.str.155, i32 noundef %.mask.i106) #11
   br label %.thread
 
-908:                                              ; preds = %898
-  %909 = getelementptr inbounds nuw i8, ptr %863, i64 2368
-  store ptr %905, ptr %909, align 8, !tbaa !157
-  %910 = getelementptr inbounds nuw i8, ptr %863, i64 56
-  %911 = getelementptr inbounds nuw i8, ptr %905, i64 5
-  %912 = load i8, ptr %911, align 1, !tbaa !124
-  %913 = zext i8 %912 to i64
-  %914 = getelementptr inbounds nuw ptr, ptr %910, i64 %913
-  %915 = load ptr, ptr %914, align 8, !tbaa !107
-  %.not390.i = icmp eq ptr %915, null
-  br i1 %.not390.i, label %916, label %919
+909:                                              ; preds = %899
+  %910 = getelementptr inbounds nuw i8, ptr %864, i64 2368
+  store ptr %906, ptr %910, align 8, !tbaa !157
+  %911 = getelementptr inbounds nuw i8, ptr %864, i64 56
+  %912 = getelementptr inbounds nuw i8, ptr %906, i64 5
+  %913 = load i8, ptr %912, align 1, !tbaa !124
+  %914 = zext i8 %913 to i64
+  %915 = getelementptr inbounds nuw ptr, ptr %911, i64 %914
+  %916 = load ptr, ptr %915, align 8, !tbaa !107
+  %.not390.i = icmp eq ptr %916, null
+  br i1 %.not390.i, label %917, label %920
 
-916:                                              ; preds = %908
-  %917 = load ptr, ptr %0, align 8, !tbaa !31
-  %918 = zext i8 %912 to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %917, i32 noundef 16, ptr noundef nonnull @.str.124, i32 noundef %918) #11
+917:                                              ; preds = %909
+  %918 = load ptr, ptr %0, align 8, !tbaa !31
+  %919 = zext i8 %913 to i32
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %918, i32 noundef 16, ptr noundef nonnull @.str.124, i32 noundef %919) #11
   br label %.thread
 
-919:                                              ; preds = %908
-  %920 = getelementptr inbounds nuw i8, ptr %863, i64 2360
-  store ptr %915, ptr %920, align 8, !tbaa !109
-  %921 = getelementptr inbounds nuw i8, ptr %915, i64 15
-  %922 = load i8, ptr %921, align 1, !tbaa !80
-  %.not391.i = icmp eq i8 %922, 0
-  br i1 %.not391.i, label %930, label %923
+920:                                              ; preds = %909
+  %921 = getelementptr inbounds nuw i8, ptr %864, i64 2360
+  store ptr %916, ptr %921, align 8, !tbaa !109
+  %922 = getelementptr inbounds nuw i8, ptr %916, i64 15
+  %923 = load i8, ptr %922, align 1, !tbaa !80
+  %.not391.i = icmp eq i8 %923, 0
+  br i1 %.not391.i, label %931, label %924
 
-923:                                              ; preds = %919
+924:                                              ; preds = %920
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %924 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 2, ptr noundef nonnull @.str.156, ptr noundef null, ptr noundef nonnull %14, i32 noundef 0, i32 noundef 2) #11
-  %925 = icmp sgt i32 %924, -1
-  br i1 %925, label %.thread416.i, label %929
+  %925 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 2, ptr noundef nonnull @.str.156, ptr noundef null, ptr noundef nonnull %14, i32 noundef 0, i32 noundef 2) #11
+  %926 = icmp sgt i32 %925, -1
+  br i1 %926, label %.thread416.i, label %930
 
-.thread416.i:                                     ; preds = %923
-  %926 = load i32, ptr %14, align 4, !tbaa !63
-  %927 = trunc i32 %926 to i8
-  %928 = getelementptr inbounds nuw i8, ptr %861, i64 10
-  store i8 %927, ptr %928, align 2, !tbaa !164
+.thread416.i:                                     ; preds = %924
+  %927 = load i32, ptr %14, align 4, !tbaa !63
+  %928 = trunc i32 %927 to i8
+  %929 = getelementptr inbounds nuw i8, ptr %862, i64 10
+  store i8 %928, ptr %929, align 2, !tbaa !164
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %930
+  br label %931
 
-929:                                              ; preds = %923
+930:                                              ; preds = %924
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread
 
-930:                                              ; preds = %.thread416.i, %919
+931:                                              ; preds = %.thread416.i, %920
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %931 = getelementptr inbounds nuw i8, ptr %915, i64 800
-  %932 = load i8, ptr %931, align 4, !tbaa !86
-  %933 = zext i8 %932 to i32
-  %934 = add nuw nsw i32 %933, 4
-  %935 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef %934, ptr noundef nonnull @.str.157, ptr noundef nonnull %15) #11
-  %936 = icmp sgt i32 %935, -1
-  br i1 %936, label %938, label %937
+  %932 = getelementptr inbounds nuw i8, ptr %916, i64 800
+  %933 = load i8, ptr %932, align 4, !tbaa !86
+  %934 = zext i8 %933 to i32
+  %935 = add nuw nsw i32 %934, 4
+  %936 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef %935, ptr noundef nonnull @.str.157, ptr noundef nonnull %15) #11
+  %937 = icmp sgt i32 %936, -1
+  br i1 %937, label %939, label %938
 
-937:                                              ; preds = %930
+938:                                              ; preds = %931
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread
 
-938:                                              ; preds = %930
-  %939 = load i32, ptr %15, align 4, !tbaa !63
-  %940 = trunc i32 %939 to i16
-  %941 = getelementptr inbounds nuw i8, ptr %861, i64 12
-  store i16 %940, ptr %941, align 4, !tbaa !165
+939:                                              ; preds = %931
+  %940 = load i32, ptr %15, align 4, !tbaa !63
+  %941 = trunc i32 %940 to i16
+  %942 = getelementptr inbounds nuw i8, ptr %862, i64 12
+  store i16 %941, ptr %942, align 4, !tbaa !165
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %942 = getelementptr inbounds nuw i8, ptr %915, i64 1846
-  %943 = load i8, ptr %942, align 2, !tbaa !98
-  %.not392.i = icmp eq i8 %943, 0
-  br i1 %.not392.i, label %944, label %961
+  %943 = getelementptr inbounds nuw i8, ptr %916, i64 1846
+  %944 = load i8, ptr %943, align 2, !tbaa !98
+  %.not392.i = icmp eq i8 %944, 0
+  br i1 %.not392.i, label %945, label %962
 
-944:                                              ; preds = %938
+945:                                              ; preds = %939
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %945 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.158, ptr noundef nonnull %16) #11
-  %946 = icmp sgt i32 %945, -1
-  br i1 %946, label %948, label %947
+  %946 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.158, ptr noundef nonnull %16) #11
+  %947 = icmp sgt i32 %946, -1
+  br i1 %947, label %949, label %948
 
-947:                                              ; preds = %944
+948:                                              ; preds = %945
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread
 
-948:                                              ; preds = %944
-  %949 = load i32, ptr %16, align 4, !tbaa !63
-  %950 = trunc i32 %949 to i8
-  %951 = getelementptr inbounds nuw i8, ptr %861, i64 14
-  store i8 %950, ptr %951, align 2, !tbaa !166
+949:                                              ; preds = %945
+  %950 = load i32, ptr %16, align 4, !tbaa !63
+  %951 = trunc i32 %950 to i8
+  %952 = getelementptr inbounds nuw i8, ptr %862, i64 14
+  store i8 %951, ptr %952, align 2, !tbaa !166
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.not393.i = icmp eq i8 %950, 0
-  br i1 %.not393.i, label %959, label %952
+  %.not393.i = icmp eq i8 %951, 0
+  br i1 %.not393.i, label %960, label %953
 
-952:                                              ; preds = %948
+953:                                              ; preds = %949
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %953 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.159, ptr noundef nonnull %17) #11
-  %954 = icmp sgt i32 %953, -1
-  br i1 %954, label %.thread424.i, label %958
+  %954 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.159, ptr noundef nonnull %17) #11
+  %955 = icmp sgt i32 %954, -1
+  br i1 %955, label %.thread424.i, label %959
 
-.thread424.i:                                     ; preds = %952
-  %955 = load i32, ptr %17, align 4, !tbaa !63
-  %956 = trunc i32 %955 to i8
-  %957 = getelementptr inbounds nuw i8, ptr %861, i64 15
-  store i8 %956, ptr %957, align 1, !tbaa !167
+.thread424.i:                                     ; preds = %953
+  %956 = load i32, ptr %17, align 4, !tbaa !63
+  %957 = trunc i32 %956 to i8
+  %958 = getelementptr inbounds nuw i8, ptr %862, i64 15
+  store i8 %957, ptr %958, align 1, !tbaa !167
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %964
+  br label %965
 
-958:                                              ; preds = %952
+959:                                              ; preds = %953
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread
 
-959:                                              ; preds = %948
-  %960 = getelementptr inbounds nuw i8, ptr %861, i64 15
-  store i8 0, ptr %960, align 1, !tbaa !167
-  br label %964
+960:                                              ; preds = %949
+  %961 = getelementptr inbounds nuw i8, ptr %862, i64 15
+  store i8 0, ptr %961, align 1, !tbaa !167
+  br label %965
 
-961:                                              ; preds = %938
-  %962 = getelementptr inbounds nuw i8, ptr %861, i64 14
-  store i8 0, ptr %962, align 2, !tbaa !166
-  %963 = getelementptr inbounds nuw i8, ptr %861, i64 15
-  store i8 0, ptr %963, align 1, !tbaa !167
-  br label %964
+962:                                              ; preds = %939
+  %963 = getelementptr inbounds nuw i8, ptr %862, i64 14
+  store i8 0, ptr %963, align 2, !tbaa !166
+  %964 = getelementptr inbounds nuw i8, ptr %862, i64 15
+  store i8 0, ptr %964, align 1, !tbaa !167
+  br label %965
 
-964:                                              ; preds = %961, %959, %.thread424.i
-  br i1 %.0326.in.i, label %965, label %972
+965:                                              ; preds = %962, %960, %.thread424.i
+  br i1 %.0326.in.i, label %966, label %973
 
-965:                                              ; preds = %964
+966:                                              ; preds = %965
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %966 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef %18, i32 noundef 0, i32 noundef 65535)
-  %967 = icmp sgt i32 %966, -1
-  br i1 %967, label %.thread426.i, label %971
+  %967 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.160, ptr noundef null, ptr noundef %18, i32 noundef 0, i32 noundef 65535)
+  %968 = icmp sgt i32 %967, -1
+  br i1 %968, label %.thread426.i, label %972
 
-.thread426.i:                                     ; preds = %965
-  %968 = load i32, ptr %18, align 4, !tbaa !63
-  %969 = trunc i32 %968 to i16
-  %970 = getelementptr inbounds nuw i8, ptr %861, i64 16
-  store i16 %969, ptr %970, align 4, !tbaa !168
+.thread426.i:                                     ; preds = %966
+  %969 = load i32, ptr %18, align 4, !tbaa !63
+  %970 = trunc i32 %969 to i16
+  %971 = getelementptr inbounds nuw i8, ptr %862, i64 16
+  store i16 %970, ptr %971, align 4, !tbaa !168
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %972
+  br label %973
 
-971:                                              ; preds = %965
+972:                                              ; preds = %966
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread
 
-972:                                              ; preds = %.thread426.i, %964
-  %973 = getelementptr inbounds nuw i8, ptr %915, i64 801
-  %974 = load i8, ptr %973, align 1, !tbaa !87
-  switch i8 %974, label %1024 [
-    i8 0, label %975
-    i8 1, label %998
+973:                                              ; preds = %.thread426.i, %965
+  %974 = getelementptr inbounds nuw i8, ptr %916, i64 801
+  %975 = load i8, ptr %974, align 1, !tbaa !87
+  switch i8 %975, label %1025 [
+    i8 0, label %976
+    i8 1, label %999
   ]
 
-975:                                              ; preds = %972
+976:                                              ; preds = %973
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %976 = getelementptr inbounds nuw i8, ptr %915, i64 802
-  %977 = load i8, ptr %976, align 2, !tbaa !88
-  %978 = zext i8 %977 to i32
-  %979 = add nuw nsw i32 %978, 4
-  %980 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef %979, ptr noundef nonnull @.str.161, ptr noundef nonnull %19) #11
-  %981 = icmp sgt i32 %980, -1
-  br i1 %981, label %983, label %982
+  %977 = getelementptr inbounds nuw i8, ptr %916, i64 802
+  %978 = load i8, ptr %977, align 2, !tbaa !88
+  %979 = zext i8 %978 to i32
+  %980 = add nuw nsw i32 %979, 4
+  %981 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef %980, ptr noundef nonnull @.str.161, ptr noundef nonnull %19) #11
+  %982 = icmp sgt i32 %981, -1
+  br i1 %982, label %984, label %983
 
-982:                                              ; preds = %975
+983:                                              ; preds = %976
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.thread
 
-983:                                              ; preds = %975
-  %984 = load i32, ptr %19, align 4, !tbaa !63
-  %985 = trunc i32 %984 to i16
-  %986 = getelementptr inbounds nuw i8, ptr %861, i64 18
-  store i16 %985, ptr %986, align 2, !tbaa !169
+984:                                              ; preds = %976
+  %985 = load i32, ptr %19, align 4, !tbaa !63
+  %986 = trunc i32 %985 to i16
+  %987 = getelementptr inbounds nuw i8, ptr %862, i64 18
+  store i16 %986, ptr %987, align 2, !tbaa !169
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %987 = getelementptr inbounds nuw i8, ptr %905, i64 7
-  %988 = load i8, ptr %987, align 1, !tbaa !126
-  %.not397.i = icmp eq i8 %988, 0
-  br i1 %.not397.i, label %1024, label %989
+  %988 = getelementptr inbounds nuw i8, ptr %906, i64 7
+  %989 = load i8, ptr %988, align 1, !tbaa !126
+  %.not397.i = icmp eq i8 %989, 0
+  br i1 %.not397.i, label %1025, label %990
 
-989:                                              ; preds = %983
-  %990 = getelementptr inbounds nuw i8, ptr %861, i64 14
-  %991 = load i8, ptr %990, align 2, !tbaa !166
-  %.not398.i = icmp eq i8 %991, 0
-  br i1 %.not398.i, label %992, label %1024
+990:                                              ; preds = %984
+  %991 = getelementptr inbounds nuw i8, ptr %862, i64 14
+  %992 = load i8, ptr %991, align 2, !tbaa !166
+  %.not398.i = icmp eq i8 %992, 0
+  br i1 %.not398.i, label %993, label %1025
 
-992:                                              ; preds = %989
+993:                                              ; preds = %990
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %993 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.162, ptr noundef null, ptr noundef %20, i32 noundef -2147483647, i32 noundef 2147483647)
-  %994 = icmp sgt i32 %993, -1
-  br i1 %994, label %.thread431.i, label %997
+  %994 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.162, ptr noundef null, ptr noundef %20, i32 noundef -2147483647, i32 noundef 2147483647)
+  %995 = icmp sgt i32 %994, -1
+  br i1 %995, label %.thread431.i, label %998
 
-.thread431.i:                                     ; preds = %992
-  %995 = load i32, ptr %20, align 4, !tbaa !63
-  %996 = getelementptr inbounds nuw i8, ptr %861, i64 20
-  store i32 %995, ptr %996, align 4, !tbaa !170
+.thread431.i:                                     ; preds = %993
+  %996 = load i32, ptr %20, align 4, !tbaa !63
+  %997 = getelementptr inbounds nuw i8, ptr %862, i64 20
+  store i32 %996, ptr %997, align 4, !tbaa !170
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %1024
+  br label %1025
 
-997:                                              ; preds = %992
+998:                                              ; preds = %993
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.thread
 
-998:                                              ; preds = %972
-  %999 = getelementptr inbounds nuw i8, ptr %915, i64 803
-  %1000 = load i8, ptr %999, align 1, !tbaa !89
-  %.not394.i = icmp eq i8 %1000, 0
-  br i1 %.not394.i, label %1001, label %1021
+999:                                              ; preds = %973
+  %1000 = getelementptr inbounds nuw i8, ptr %916, i64 803
+  %1001 = load i8, ptr %1000, align 1, !tbaa !89
+  %.not394.i = icmp eq i8 %1001, 0
+  br i1 %.not394.i, label %1002, label %1022
 
-1001:                                             ; preds = %998
+1002:                                             ; preds = %999
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %1002 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef %21, i32 noundef -2147483647, i32 noundef 2147483647)
-  %1003 = icmp sgt i32 %1002, -1
-  br i1 %1003, label %1005, label %1004
+  %1003 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef %21, i32 noundef -2147483647, i32 noundef 2147483647)
+  %1004 = icmp sgt i32 %1003, -1
+  br i1 %1004, label %1006, label %1005
 
-1004:                                             ; preds = %1001
+1005:                                             ; preds = %1002
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.thread
 
-1005:                                             ; preds = %1001
-  %1006 = load i32, ptr %21, align 4, !tbaa !63
-  %1007 = getelementptr inbounds nuw i8, ptr %861, i64 24
-  store i32 %1006, ptr %1007, align 4, !tbaa !63
+1006:                                             ; preds = %1002
+  %1007 = load i32, ptr %21, align 4, !tbaa !63
+  %1008 = getelementptr inbounds nuw i8, ptr %862, i64 24
+  store i32 %1007, ptr %1008, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %1008 = getelementptr inbounds nuw i8, ptr %905, i64 7
-  %1009 = load i8, ptr %1008, align 1, !tbaa !126
-  %.not395.i = icmp eq i8 %1009, 0
-  br i1 %.not395.i, label %1019, label %1010
+  %1009 = getelementptr inbounds nuw i8, ptr %906, i64 7
+  %1010 = load i8, ptr %1009, align 1, !tbaa !126
+  %.not395.i = icmp eq i8 %1010, 0
+  br i1 %.not395.i, label %1020, label %1011
 
-1010:                                             ; preds = %1005
-  %1011 = getelementptr inbounds nuw i8, ptr %861, i64 14
-  %1012 = load i8, ptr %1011, align 2, !tbaa !166
-  %.not396.i = icmp eq i8 %1012, 0
-  br i1 %.not396.i, label %1013, label %1019
+1011:                                             ; preds = %1006
+  %1012 = getelementptr inbounds nuw i8, ptr %862, i64 14
+  %1013 = load i8, ptr %1012, align 2, !tbaa !166
+  %.not396.i = icmp eq i8 %1013, 0
+  br i1 %.not396.i, label %1014, label %1020
 
-1013:                                             ; preds = %1010
+1014:                                             ; preds = %1011
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %1014 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.164, ptr noundef null, ptr noundef %22, i32 noundef -2147483647, i32 noundef 2147483647)
-  %1015 = icmp sgt i32 %1014, -1
-  br i1 %1015, label %.thread436.i, label %1018
+  %1015 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.164, ptr noundef null, ptr noundef %22, i32 noundef -2147483647, i32 noundef 2147483647)
+  %1016 = icmp sgt i32 %1015, -1
+  br i1 %1016, label %.thread436.i, label %1019
 
-.thread436.i:                                     ; preds = %1013
-  %1016 = load i32, ptr %22, align 4, !tbaa !63
-  %1017 = getelementptr inbounds nuw i8, ptr %861, i64 28
-  store i32 %1016, ptr %1017, align 4, !tbaa !63
+.thread436.i:                                     ; preds = %1014
+  %1017 = load i32, ptr %22, align 4, !tbaa !63
+  %1018 = getelementptr inbounds nuw i8, ptr %862, i64 28
+  store i32 %1017, ptr %1018, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %1024
+  br label %1025
 
-1018:                                             ; preds = %1013
+1019:                                             ; preds = %1014
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.thread
 
-1019:                                             ; preds = %1010, %1005
-  %1020 = getelementptr inbounds nuw i8, ptr %861, i64 28
-  store i32 0, ptr %1020, align 4, !tbaa !63
-  br label %1024
+1020:                                             ; preds = %1011, %1006
+  %1021 = getelementptr inbounds nuw i8, ptr %862, i64 28
+  store i32 0, ptr %1021, align 4, !tbaa !63
+  br label %1025
 
-1021:                                             ; preds = %998
-  %1022 = getelementptr inbounds nuw i8, ptr %861, i64 24
-  store i32 0, ptr %1022, align 4, !tbaa !63
-  %1023 = getelementptr inbounds nuw i8, ptr %861, i64 28
+1022:                                             ; preds = %999
+  %1023 = getelementptr inbounds nuw i8, ptr %862, i64 24
   store i32 0, ptr %1023, align 4, !tbaa !63
-  br label %1024
+  %1024 = getelementptr inbounds nuw i8, ptr %862, i64 28
+  store i32 0, ptr %1024, align 4, !tbaa !63
+  br label %1025
 
-1024:                                             ; preds = %1021, %1019, %.thread436.i, %.thread431.i, %989, %983, %972
-  %1025 = getelementptr inbounds nuw i8, ptr %905, i64 90
-  %1026 = load i8, ptr %1025, align 2, !tbaa !150
-  %.not399.i = icmp eq i8 %1026, 0
-  br i1 %.not399.i, label %.thread.i, label %1027
+1025:                                             ; preds = %1022, %1020, %.thread436.i, %.thread431.i, %990, %984, %973
+  %1026 = getelementptr inbounds nuw i8, ptr %906, i64 90
+  %1027 = load i8, ptr %1026, align 2, !tbaa !150
+  %.not399.i = icmp eq i8 %1027, 0
+  br i1 %.not399.i, label %.thread.i, label %1028
 
-1027:                                             ; preds = %1024
+1028:                                             ; preds = %1025
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %1028 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.165, ptr noundef null, ptr noundef %23, i32 noundef 0, i32 noundef 127)
-  %1029 = icmp sgt i32 %1028, -1
-  br i1 %1029, label %1031, label %1030
+  %1029 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.165, ptr noundef null, ptr noundef %23, i32 noundef 0, i32 noundef 127)
+  %1030 = icmp sgt i32 %1029, -1
+  br i1 %1030, label %1032, label %1031
 
-1030:                                             ; preds = %1027
+1031:                                             ; preds = %1028
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.thread
 
-1031:                                             ; preds = %1027
-  %1032 = load i32, ptr %23, align 4, !tbaa !63
-  %1033 = trunc i32 %1032 to i8
-  %1034 = getelementptr inbounds nuw i8, ptr %861, i64 32
-  store i8 %1033, ptr %1034, align 4, !tbaa !171
+1032:                                             ; preds = %1028
+  %1033 = load i32, ptr %23, align 4, !tbaa !63
+  %1034 = trunc i32 %1033 to i8
+  %1035 = getelementptr inbounds nuw i8, ptr %862, i64 32
+  store i8 %1034, ptr %1035, align 4, !tbaa !171
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %1035 = icmp ne i8 %1033, 0
-  %1036 = load i8, ptr %867, align 1, !tbaa !158
-  %.not400.i = icmp eq i8 %1036, 19
-  %brmerge.i = select i1 %.not400.i, i1 true, i1 %1035
-  br i1 %brmerge.i, label %1041, label %.thread509.i
+  %1036 = icmp ne i8 %1034, 0
+  %1037 = load i8, ptr %868, align 1, !tbaa !158
+  %.not400.i = icmp eq i8 %1037, 19
+  %brmerge.i = select i1 %.not400.i, i1 true, i1 %1036
+  br i1 %brmerge.i, label %1042, label %.thread509.i
 
-.thread.i:                                        ; preds = %1024
-  %1037 = getelementptr inbounds nuw i8, ptr %861, i64 32
-  store i8 0, ptr %1037, align 4, !tbaa !171
-  %1038 = load i8, ptr %867, align 1, !tbaa !158
-  %.not400507.i = icmp eq i8 %1038, 19
-  br i1 %.not400507.i, label %1041, label %.thread509.i
+.thread.i:                                        ; preds = %1025
+  %1038 = getelementptr inbounds nuw i8, ptr %862, i64 32
+  store i8 0, ptr %1038, align 4, !tbaa !171
+  %1039 = load i8, ptr %868, align 1, !tbaa !158
+  %.not400507.i = icmp eq i8 %1039, 19
+  br i1 %.not400507.i, label %1042, label %.thread509.i
 
-.thread509.i:                                     ; preds = %.thread.i, %1031
-  %1039 = phi i8 [ %1038, %.thread.i ], [ %1036, %1031 ]
-  %1040 = getelementptr inbounds nuw i8, ptr %863, i64 2376
-  store i8 %1039, ptr %1040, align 8, !tbaa !160
-  br label %1041
+.thread509.i:                                     ; preds = %.thread.i, %1032
+  %1040 = phi i8 [ %1039, %.thread.i ], [ %1037, %1032 ]
+  %1041 = getelementptr inbounds nuw i8, ptr %864, i64 2376
+  store i8 %1040, ptr %1041, align 8, !tbaa !160
+  br label %1042
 
-1041:                                             ; preds = %.thread509.i, %.thread.i, %1031
-  br i1 %890, label %1042, label %1049
+1042:                                             ; preds = %.thread509.i, %.thread.i, %1032
+  br i1 %891, label %1043, label %1050
 
-1042:                                             ; preds = %1041
+1043:                                             ; preds = %1042
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %1043 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.166, ptr noundef nonnull %24) #11
-  %1044 = icmp sgt i32 %1043, -1
-  br i1 %1044, label %.thread442.i, label %1048
+  %1044 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.166, ptr noundef nonnull %24) #11
+  %1045 = icmp sgt i32 %1044, -1
+  br i1 %1045, label %.thread442.i, label %1049
 
-.thread442.i:                                     ; preds = %1042
-  %1045 = load i32, ptr %24, align 4, !tbaa !63
-  %1046 = trunc i32 %1045 to i8
-  %1047 = getelementptr inbounds nuw i8, ptr %861, i64 33
-  store i8 %1046, ptr %1047, align 1, !tbaa !172
+.thread442.i:                                     ; preds = %1043
+  %1046 = load i32, ptr %24, align 4, !tbaa !63
+  %1047 = trunc i32 %1046 to i8
+  %1048 = getelementptr inbounds nuw i8, ptr %862, i64 33
+  store i8 %1047, ptr %1048, align 1, !tbaa !172
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %1050
+  br label %1051
 
-1048:                                             ; preds = %1042
+1049:                                             ; preds = %1043
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.thread
 
-1049:                                             ; preds = %1041
-  switch i8 %889, label %1080 [
-    i8 3, label %1050
-    i8 1, label %1050
-    i8 0, label %1050
+1050:                                             ; preds = %1042
+  switch i8 %890, label %1081 [
+    i8 3, label %1051
+    i8 1, label %1051
+    i8 0, label %1051
   ]
 
-1050:                                             ; preds = %1049, %1049, %1049, %.thread442.i
+1051:                                             ; preds = %1050, %1050, %1050, %.thread442.i
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %1051 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.167, ptr noundef nonnull %25) #11
-  %1052 = icmp sgt i32 %1051, -1
-  br i1 %1052, label %1054, label %1053
+  %1052 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.167, ptr noundef nonnull %25) #11
+  %1053 = icmp sgt i32 %1052, -1
+  br i1 %1053, label %1055, label %1054
 
-1053:                                             ; preds = %1050
+1054:                                             ; preds = %1051
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.thread
 
-1054:                                             ; preds = %1050
-  %1055 = load i32, ptr %25, align 4, !tbaa !63
-  %1056 = trunc i32 %1055 to i8
-  %1057 = getelementptr inbounds nuw i8, ptr %861, i64 34
-  store i8 %1056, ptr %1057, align 2, !tbaa !173
+1055:                                             ; preds = %1051
+  %1056 = load i32, ptr %25, align 4, !tbaa !63
+  %1057 = trunc i32 %1056 to i8
+  %1058 = getelementptr inbounds nuw i8, ptr %862, i64 34
+  store i8 %1057, ptr %1058, align 2, !tbaa !173
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %.not402.i = icmp eq i8 %1056, 0
-  br i1 %.not402.i, label %1073, label %1058
+  %.not402.i = icmp eq i8 %1057, 0
+  br i1 %.not402.i, label %1074, label %1059
 
-1058:                                             ; preds = %1054
+1059:                                             ; preds = %1055
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %1059 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.168, ptr noundef null, ptr noundef %26, i32 noundef 0, i32 noundef 31)
-  %1060 = icmp sgt i32 %1059, -1
-  br i1 %1060, label %1062, label %1061
+  %1060 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.168, ptr noundef null, ptr noundef %26, i32 noundef 0, i32 noundef 31)
+  %1061 = icmp sgt i32 %1060, -1
+  br i1 %1061, label %1063, label %1062
 
-1061:                                             ; preds = %1058
+1062:                                             ; preds = %1059
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.thread
 
-1062:                                             ; preds = %1058
-  %1063 = load i32, ptr %26, align 4, !tbaa !63
-  %1064 = trunc i32 %1063 to i8
-  %1065 = getelementptr inbounds nuw i8, ptr %861, i64 35
-  store i8 %1064, ptr %1065, align 1, !tbaa !174
+1063:                                             ; preds = %1059
+  %1064 = load i32, ptr %26, align 4, !tbaa !63
+  %1065 = trunc i32 %1064 to i8
+  %1066 = getelementptr inbounds nuw i8, ptr %862, i64 35
+  store i8 %1065, ptr %1066, align 1, !tbaa !174
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br i1 %890, label %1066, label %1080
+  br i1 %891, label %1067, label %1081
 
-1066:                                             ; preds = %1062
+1067:                                             ; preds = %1063
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %1067 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.169, ptr noundef null, ptr noundef %27, i32 noundef 0, i32 noundef 31)
-  %1068 = icmp sgt i32 %1067, -1
-  br i1 %1068, label %.thread449.i, label %1072
+  %1068 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.169, ptr noundef null, ptr noundef %27, i32 noundef 0, i32 noundef 31)
+  %1069 = icmp sgt i32 %1068, -1
+  br i1 %1069, label %.thread449.i, label %1073
 
-.thread449.i:                                     ; preds = %1066
-  %1069 = load i32, ptr %27, align 4, !tbaa !63
-  %1070 = trunc i32 %1069 to i8
-  %1071 = getelementptr inbounds nuw i8, ptr %861, i64 36
-  store i8 %1070, ptr %1071, align 4, !tbaa !175
+.thread449.i:                                     ; preds = %1067
+  %1070 = load i32, ptr %27, align 4, !tbaa !63
+  %1071 = trunc i32 %1070 to i8
+  %1072 = getelementptr inbounds nuw i8, ptr %862, i64 36
+  store i8 %1071, ptr %1072, align 4, !tbaa !175
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %1080
+  br label %1081
 
-1072:                                             ; preds = %1066
+1073:                                             ; preds = %1067
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.thread
 
-1073:                                             ; preds = %1054
-  %1074 = getelementptr inbounds nuw i8, ptr %905, i64 80
-  %1075 = load i8, ptr %1074, align 8, !tbaa !141
-  %1076 = getelementptr inbounds nuw i8, ptr %861, i64 35
-  store i8 %1075, ptr %1076, align 1, !tbaa !174
-  %1077 = getelementptr inbounds nuw i8, ptr %905, i64 81
-  %1078 = load i8, ptr %1077, align 1, !tbaa !142
-  %1079 = getelementptr inbounds nuw i8, ptr %861, i64 36
-  store i8 %1078, ptr %1079, align 4, !tbaa !175
-  br label %1080
+1074:                                             ; preds = %1055
+  %1075 = getelementptr inbounds nuw i8, ptr %906, i64 80
+  %1076 = load i8, ptr %1075, align 8, !tbaa !141
+  %1077 = getelementptr inbounds nuw i8, ptr %862, i64 35
+  store i8 %1076, ptr %1077, align 1, !tbaa !174
+  %1078 = getelementptr inbounds nuw i8, ptr %906, i64 81
+  %1079 = load i8, ptr %1078, align 1, !tbaa !142
+  %1080 = getelementptr inbounds nuw i8, ptr %862, i64 36
+  store i8 %1079, ptr %1080, align 4, !tbaa !175
+  br label %1081
 
-1080:                                             ; preds = %1073, %.thread449.i, %1062, %1049
-  %1081 = load i8, ptr %867, align 1, !tbaa !158
-  %1082 = and i8 %1081, -2
-  %switch.i = icmp eq i8 %1082, 20
-  br i1 %switch.i, label %1083, label %1085
+1081:                                             ; preds = %1074, %.thread449.i, %1063, %1050
+  %1082 = load i8, ptr %868, align 1, !tbaa !158
+  %1083 = and i8 %1082, -2
+  %switch.i = icmp eq i8 %1083, 20
+  br i1 %switch.i, label %1084, label %1086
 
-1083:                                             ; preds = %1080
-  %1084 = load ptr, ptr %0, align 8, !tbaa !31
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1084, i32 noundef 16, ptr noundef nonnull @.str.170) #11
+1084:                                             ; preds = %1081
+  %1085 = load ptr, ptr %0, align 8, !tbaa !31
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1085, i32 noundef 16, ptr noundef nonnull @.str.170) #11
   br label %.thread
 
-1085:                                             ; preds = %1080
-  %1086 = call fastcc i32 @cbs_h264_read_ref_pic_list_modification(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull %861)
-  %1087 = icmp slt i32 %1086, 0
-  br i1 %1087, label %.thread, label %1088
+1086:                                             ; preds = %1081
+  %1087 = call fastcc i32 @cbs_h264_read_ref_pic_list_modification(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull %862)
+  %1088 = icmp slt i32 %1087, 0
+  br i1 %1088, label %.thread, label %1089
 
-1088:                                             ; preds = %1085
-  %1089 = getelementptr inbounds nuw i8, ptr %905, i64 82
-  %1090 = load i8, ptr %1089, align 2, !tbaa !143
-  %.not403.i = icmp eq i8 %1090, 0
-  br i1 %.not403.i, label %1092, label %1091
+1089:                                             ; preds = %1086
+  %1090 = getelementptr inbounds nuw i8, ptr %906, i64 82
+  %1091 = load i8, ptr %1090, align 2, !tbaa !143
+  %.not403.i = icmp eq i8 %1091, 0
+  br i1 %.not403.i, label %1093, label %1092
 
-1091:                                             ; preds = %1088
-  switch i8 %889, label %1092 [
-    i8 3, label %1096
-    i8 0, label %1096
+1092:                                             ; preds = %1089
+  switch i8 %890, label %1093 [
+    i8 3, label %1097
+    i8 0, label %1097
   ]
 
-1092:                                             ; preds = %1091, %1088
-  %1093 = getelementptr inbounds nuw i8, ptr %905, i64 83
-  %1094 = load i8, ptr %1093, align 1, !tbaa !144
-  %1095 = icmp eq i8 %1094, 1
-  %or.cond38.i = select i1 %1095, i1 %890, i1 false
-  br i1 %or.cond38.i, label %1096, label %1099
+1093:                                             ; preds = %1092, %1089
+  %1094 = getelementptr inbounds nuw i8, ptr %906, i64 83
+  %1095 = load i8, ptr %1094, align 1, !tbaa !144
+  %1096 = icmp eq i8 %1095, 1
+  %or.cond38.i = select i1 %1096, i1 %891, i1 false
+  br i1 %or.cond38.i, label %1097, label %1100
 
-1096:                                             ; preds = %1092, %1091, %1091
-  %1097 = call fastcc i32 @cbs_h264_read_pred_weight_table(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull %861)
-  %1098 = icmp slt i32 %1097, 0
-  br i1 %1098, label %.thread, label %1099
+1097:                                             ; preds = %1093, %1092, %1092
+  %1098 = call fastcc i32 @cbs_h264_read_pred_weight_table(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull %862)
+  %1099 = icmp slt i32 %1098, 0
+  br i1 %1099, label %.thread, label %1100
 
-1099:                                             ; preds = %1096, %1092
-  %1100 = load i8, ptr %861, align 4, !tbaa !176
-  %.not404.i = icmp eq i8 %1100, 0
-  br i1 %.not404.i, label %1104, label %1101
+1100:                                             ; preds = %1097, %1093
+  %1101 = load i8, ptr %862, align 4, !tbaa !176
+  %.not404.i = icmp eq i8 %1101, 0
+  br i1 %.not404.i, label %1105, label %1102
 
-1101:                                             ; preds = %1099
-  %1102 = call fastcc i32 @cbs_h264_read_dec_ref_pic_marking(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull %861, i32 noundef %.0326.i)
-  %1103 = icmp slt i32 %1102, 0
-  br i1 %1103, label %.thread, label %1104
+1102:                                             ; preds = %1100
+  %1103 = call fastcc i32 @cbs_h264_read_dec_ref_pic_marking(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull %862, i32 noundef %.0326.i)
+  %1104 = icmp slt i32 %1103, 0
+  br i1 %1104, label %.thread, label %1105
 
-1104:                                             ; preds = %1101, %1099
-  %1105 = getelementptr inbounds nuw i8, ptr %905, i64 6
-  %1106 = load i8, ptr %1105, align 2, !tbaa !125
-  %.fr.i = freeze i8 %1106
-  %1107 = icmp eq i8 %.fr.i, 0
-  br i1 %1107, label %1115, label %switch.early.test410.i
+1105:                                             ; preds = %1102, %1100
+  %1106 = getelementptr inbounds nuw i8, ptr %906, i64 6
+  %1107 = load i8, ptr %1106, align 2, !tbaa !125
+  %.fr.i = freeze i8 %1107
+  %1108 = icmp eq i8 %.fr.i, 0
+  br i1 %1108, label %1116, label %switch.early.test410.i
 
-switch.early.test410.i:                           ; preds = %1104
-  switch i8 %889, label %1108 [
-    i8 4, label %1115
-    i8 2, label %1115
+switch.early.test410.i:                           ; preds = %1105
+  switch i8 %890, label %1109 [
+    i8 4, label %1116
+    i8 2, label %1116
   ]
 
-1108:                                             ; preds = %switch.early.test410.i
+1109:                                             ; preds = %switch.early.test410.i
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %1109 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.171, ptr noundef null, ptr noundef %28, i32 noundef 0, i32 noundef 2)
-  %1110 = icmp sgt i32 %1109, -1
-  br i1 %1110, label %.thread451.i, label %1114
+  %1110 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.171, ptr noundef null, ptr noundef %28, i32 noundef 0, i32 noundef 2)
+  %1111 = icmp sgt i32 %1110, -1
+  br i1 %1111, label %.thread451.i, label %1115
 
-.thread451.i:                                     ; preds = %1108
-  %1111 = load i32, ptr %28, align 4, !tbaa !63
-  %1112 = trunc i32 %1111 to i8
-  %1113 = getelementptr inbounds nuw i8, ptr %861, i64 2156
-  store i8 %1112, ptr %1113, align 4, !tbaa !177
+.thread451.i:                                     ; preds = %1109
+  %1112 = load i32, ptr %28, align 4, !tbaa !63
+  %1113 = trunc i32 %1112 to i8
+  %1114 = getelementptr inbounds nuw i8, ptr %862, i64 2156
+  store i8 %1113, ptr %1114, align 4, !tbaa !177
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %1115
+  br label %1116
 
-1114:                                             ; preds = %1108
+1115:                                             ; preds = %1109
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.thread
 
-1115:                                             ; preds = %.thread451.i, %switch.early.test410.i, %switch.early.test410.i, %1104
+1116:                                             ; preds = %.thread451.i, %switch.early.test410.i, %switch.early.test410.i, %1105
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %1116 = getelementptr inbounds nuw i8, ptr %915, i64 16
-  %1117 = load i8, ptr %1116, align 4, !tbaa !81
-  %1118 = zext i8 %1117 to i32
-  %1119 = mul nuw nsw i32 %1118, 6
-  %1120 = sub nuw nsw i32 -51, %1119
-  %1121 = add nuw nsw i32 %1119, 51
-  %1122 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.172, ptr noundef null, ptr noundef %29, i32 noundef %1120, i32 noundef %1121)
-  %1123 = icmp sgt i32 %1122, -1
-  br i1 %1123, label %1125, label %1124
+  %1117 = getelementptr inbounds nuw i8, ptr %916, i64 16
+  %1118 = load i8, ptr %1117, align 4, !tbaa !81
+  %1119 = zext i8 %1118 to i32
+  %1120 = mul nuw nsw i32 %1119, 6
+  %1121 = sub nuw nsw i32 -51, %1120
+  %1122 = add nuw nsw i32 %1120, 51
+  %1123 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.172, ptr noundef null, ptr noundef %29, i32 noundef %1121, i32 noundef %1122)
+  %1124 = icmp sgt i32 %1123, -1
+  br i1 %1124, label %1126, label %1125
 
-1124:                                             ; preds = %1115
+1125:                                             ; preds = %1116
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.thread
 
-1125:                                             ; preds = %1115
-  %1126 = load i32, ptr %29, align 4, !tbaa !63
-  %1127 = trunc i32 %1126 to i8
-  %1128 = getelementptr inbounds nuw i8, ptr %861, i64 2157
-  store i8 %1127, ptr %1128, align 1, !tbaa !178
+1126:                                             ; preds = %1116
+  %1127 = load i32, ptr %29, align 4, !tbaa !63
+  %1128 = trunc i32 %1127 to i8
+  %1129 = getelementptr inbounds nuw i8, ptr %862, i64 2157
+  store i8 %1128, ptr %1129, align 1, !tbaa !178
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  %1129 = add nsw i8 %889, -3
-  %or.cond44.i = icmp ult i8 %1129, 2
-  br i1 %or.cond44.i, label %1130, label %1145
+  %1130 = add nsw i8 %890, -3
+  %or.cond44.i = icmp ult i8 %1130, 2
+  br i1 %or.cond44.i, label %1131, label %1146
 
-1130:                                             ; preds = %1125
-  br i1 %891, label %1131, label %1138
+1131:                                             ; preds = %1126
+  br i1 %892, label %1132, label %1139
 
-1131:                                             ; preds = %1130
+1132:                                             ; preds = %1131
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %1132 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.173, ptr noundef nonnull %30) #11
-  %1133 = icmp sgt i32 %1132, -1
-  br i1 %1133, label %.thread456.i, label %1137
+  %1133 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.173, ptr noundef nonnull %30) #11
+  %1134 = icmp sgt i32 %1133, -1
+  br i1 %1134, label %.thread456.i, label %1138
 
-.thread456.i:                                     ; preds = %1131
-  %1134 = load i32, ptr %30, align 4, !tbaa !63
-  %1135 = trunc i32 %1134 to i8
-  %1136 = getelementptr inbounds nuw i8, ptr %861, i64 2158
-  store i8 %1135, ptr %1136, align 2, !tbaa !179
+.thread456.i:                                     ; preds = %1132
+  %1135 = load i32, ptr %30, align 4, !tbaa !63
+  %1136 = trunc i32 %1135 to i8
+  %1137 = getelementptr inbounds nuw i8, ptr %862, i64 2158
+  store i8 %1136, ptr %1137, align 2, !tbaa !179
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %1138
+  br label %1139
 
-1137:                                             ; preds = %1131
+1138:                                             ; preds = %1132
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %.thread
 
-1138:                                             ; preds = %.thread456.i, %1130
+1139:                                             ; preds = %.thread456.i, %1131
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %1139 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.174, ptr noundef null, ptr noundef %31, i32 noundef -51, i32 noundef 51)
-  %1140 = icmp sgt i32 %1139, -1
-  br i1 %1140, label %.thread458.i, label %1144
+  %1140 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.174, ptr noundef null, ptr noundef %31, i32 noundef -51, i32 noundef 51)
+  %1141 = icmp sgt i32 %1140, -1
+  br i1 %1141, label %.thread458.i, label %1145
 
-.thread458.i:                                     ; preds = %1138
-  %1141 = load i32, ptr %31, align 4, !tbaa !63
-  %1142 = trunc i32 %1141 to i8
-  %1143 = getelementptr inbounds nuw i8, ptr %861, i64 2159
-  store i8 %1142, ptr %1143, align 1, !tbaa !180
+.thread458.i:                                     ; preds = %1139
+  %1142 = load i32, ptr %31, align 4, !tbaa !63
+  %1143 = trunc i32 %1142 to i8
+  %1144 = getelementptr inbounds nuw i8, ptr %862, i64 2159
+  store i8 %1143, ptr %1144, align 1, !tbaa !180
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br label %1145
+  br label %1146
 
-1144:                                             ; preds = %1138
+1145:                                             ; preds = %1139
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.thread
 
-1145:                                             ; preds = %.thread458.i, %1125
-  %1146 = getelementptr inbounds nuw i8, ptr %905, i64 87
-  %1147 = load i8, ptr %1146, align 1, !tbaa !148
-  %.not405.i = icmp eq i8 %1147, 0
-  br i1 %.not405.i, label %1173, label %1148
+1146:                                             ; preds = %.thread458.i, %1126
+  %1147 = getelementptr inbounds nuw i8, ptr %906, i64 87
+  %1148 = load i8, ptr %1147, align 1, !tbaa !148
+  %.not405.i = icmp eq i8 %1148, 0
+  br i1 %.not405.i, label %1174, label %1149
 
-1148:                                             ; preds = %1145
+1149:                                             ; preds = %1146
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %1149 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.175, ptr noundef null, ptr noundef %32, i32 noundef 0, i32 noundef 2)
-  %1150 = icmp sgt i32 %1149, -1
-  br i1 %1150, label %1152, label %1151
+  %1150 = call fastcc i32 @cbs_read_ue_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.175, ptr noundef null, ptr noundef %32, i32 noundef 0, i32 noundef 2)
+  %1151 = icmp sgt i32 %1150, -1
+  br i1 %1151, label %1153, label %1152
 
-1151:                                             ; preds = %1148
+1152:                                             ; preds = %1149
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %.thread
 
-1152:                                             ; preds = %1148
-  %1153 = load i32, ptr %32, align 4, !tbaa !63
-  %1154 = trunc i32 %1153 to i8
-  %1155 = getelementptr inbounds nuw i8, ptr %861, i64 2160
-  store i8 %1154, ptr %1155, align 4, !tbaa !181
+1153:                                             ; preds = %1149
+  %1154 = load i32, ptr %32, align 4, !tbaa !63
+  %1155 = trunc i32 %1154 to i8
+  %1156 = getelementptr inbounds nuw i8, ptr %862, i64 2160
+  store i8 %1155, ptr %1156, align 4, !tbaa !181
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %.not406.i = icmp eq i8 %1154, 1
-  br i1 %.not406.i, label %1170, label %1156
+  %.not406.i = icmp eq i8 %1155, 1
+  br i1 %.not406.i, label %1171, label %1157
 
-1156:                                             ; preds = %1152
+1157:                                             ; preds = %1153
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %1157 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.176, ptr noundef null, ptr noundef %33, i32 noundef -6, i32 noundef 6)
-  %1158 = icmp sgt i32 %1157, -1
-  br i1 %1158, label %1160, label %1159
+  %1158 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.176, ptr noundef null, ptr noundef %33, i32 noundef -6, i32 noundef 6)
+  %1159 = icmp sgt i32 %1158, -1
+  br i1 %1159, label %1161, label %1160
 
-1159:                                             ; preds = %1156
+1160:                                             ; preds = %1157
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %.thread
 
-1160:                                             ; preds = %1156
-  %1161 = load i32, ptr %33, align 4, !tbaa !63
-  %1162 = trunc i32 %1161 to i8
-  %1163 = getelementptr inbounds nuw i8, ptr %861, i64 2161
-  store i8 %1162, ptr %1163, align 1, !tbaa !182
+1161:                                             ; preds = %1157
+  %1162 = load i32, ptr %33, align 4, !tbaa !63
+  %1163 = trunc i32 %1162 to i8
+  %1164 = getelementptr inbounds nuw i8, ptr %862, i64 2161
+  store i8 %1163, ptr %1164, align 1, !tbaa !182
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %1164 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.177, ptr noundef null, ptr noundef %34, i32 noundef -6, i32 noundef 6)
-  %1165 = icmp sgt i32 %1164, -1
-  br i1 %1165, label %.thread466.i, label %1169
+  %1165 = call fastcc i32 @cbs_read_se_golomb(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull @.str.177, ptr noundef null, ptr noundef %34, i32 noundef -6, i32 noundef 6)
+  %1166 = icmp sgt i32 %1165, -1
+  br i1 %1166, label %.thread466.i, label %1170
 
-.thread466.i:                                     ; preds = %1160
-  %1166 = load i32, ptr %34, align 4, !tbaa !63
-  %1167 = trunc i32 %1166 to i8
-  %1168 = getelementptr inbounds nuw i8, ptr %861, i64 2162
-  store i8 %1167, ptr %1168, align 2, !tbaa !183
+.thread466.i:                                     ; preds = %1161
+  %1167 = load i32, ptr %34, align 4, !tbaa !63
+  %1168 = trunc i32 %1167 to i8
+  %1169 = getelementptr inbounds nuw i8, ptr %862, i64 2162
+  store i8 %1168, ptr %1169, align 2, !tbaa !183
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br label %1177
+  br label %1178
 
-1169:                                             ; preds = %1160
+1170:                                             ; preds = %1161
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.thread
 
-1170:                                             ; preds = %1152
-  %1171 = getelementptr inbounds nuw i8, ptr %861, i64 2161
-  store i8 0, ptr %1171, align 1, !tbaa !182
-  %1172 = getelementptr inbounds nuw i8, ptr %861, i64 2162
-  store i8 0, ptr %1172, align 2, !tbaa !183
-  br label %1177
+1171:                                             ; preds = %1153
+  %1172 = getelementptr inbounds nuw i8, ptr %862, i64 2161
+  store i8 0, ptr %1172, align 1, !tbaa !182
+  %1173 = getelementptr inbounds nuw i8, ptr %862, i64 2162
+  store i8 0, ptr %1173, align 2, !tbaa !183
+  br label %1178
 
-1173:                                             ; preds = %1145
-  %1174 = getelementptr inbounds nuw i8, ptr %861, i64 2160
-  store i8 0, ptr %1174, align 4, !tbaa !181
-  %1175 = getelementptr inbounds nuw i8, ptr %861, i64 2161
-  store i8 0, ptr %1175, align 1, !tbaa !182
-  %1176 = getelementptr inbounds nuw i8, ptr %861, i64 2162
-  store i8 0, ptr %1176, align 2, !tbaa !183
-  br label %1177
+1174:                                             ; preds = %1146
+  %1175 = getelementptr inbounds nuw i8, ptr %862, i64 2160
+  store i8 0, ptr %1175, align 4, !tbaa !181
+  %1176 = getelementptr inbounds nuw i8, ptr %862, i64 2161
+  store i8 0, ptr %1176, align 1, !tbaa !182
+  %1177 = getelementptr inbounds nuw i8, ptr %862, i64 2162
+  store i8 0, ptr %1177, align 2, !tbaa !183
+  br label %1178
 
-1177:                                             ; preds = %1173, %1170, %.thread466.i
-  %1178 = getelementptr inbounds nuw i8, ptr %905, i64 8
-  %1179 = load i8, ptr %1178, align 8, !tbaa !127
-  %.not407.i = icmp eq i8 %1179, 0
-  br i1 %.not407.i, label %1215, label %1180
+1178:                                             ; preds = %1174, %1171, %.thread466.i
+  %1179 = getelementptr inbounds nuw i8, ptr %906, i64 8
+  %1180 = load i8, ptr %1179, align 8, !tbaa !127
+  %.not407.i = icmp eq i8 %1180, 0
+  br i1 %.not407.i, label %1216, label %1181
 
-1180:                                             ; preds = %1177
-  %1181 = getelementptr inbounds nuw i8, ptr %905, i64 9
-  %1182 = load i8, ptr %1181, align 1, !tbaa !128
-  %1183 = add i8 %1182, -3
-  %or.cond.i107 = icmp ult i8 %1183, 3
-  br i1 %or.cond.i107, label %1184, label %1215
+1181:                                             ; preds = %1178
+  %1182 = getelementptr inbounds nuw i8, ptr %906, i64 9
+  %1183 = load i8, ptr %1182, align 1, !tbaa !128
+  %1184 = add i8 %1183, -3
+  %or.cond.i107 = icmp ult i8 %1184, 3
+  br i1 %or.cond.i107, label %1185, label %1216
 
-1184:                                             ; preds = %1180
-  %1185 = getelementptr inbounds nuw i8, ptr %915, i64 1842
-  %1186 = load i16, ptr %1185, align 2, !tbaa !96
-  %1187 = zext i16 %1186 to i32
-  %1188 = add nuw nsw i32 %1187, 1
-  %1189 = getelementptr inbounds nuw i8, ptr %915, i64 1844
-  %1190 = load i16, ptr %1189, align 4, !tbaa !97
-  %1191 = zext i16 %1190 to i32
-  %1192 = add nuw nsw i32 %1191, 1
-  %1193 = mul nuw nsw i32 %1192, %1188
-  %1194 = getelementptr inbounds nuw i8, ptr %905, i64 60
-  %1195 = load i16, ptr %1194, align 4, !tbaa !133
-  %1196 = zext i16 %1195 to i32
-  %1197 = add nuw i32 %1193, %1196
-  %1198 = add nuw nsw i32 %1196, 1
-  %1199 = udiv i32 %1197, %1198
-  %1200 = shl i32 %1199, 1
-  %.not.i.i.i = icmp ult i32 %1200, 65536
-  %1201 = lshr i32 %1200, 16
-  %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %1200, i32 %1201
+1185:                                             ; preds = %1181
+  %1186 = getelementptr inbounds nuw i8, ptr %916, i64 1842
+  %1187 = load i16, ptr %1186, align 2, !tbaa !96
+  %1188 = zext i16 %1187 to i32
+  %1189 = add nuw nsw i32 %1188, 1
+  %1190 = getelementptr inbounds nuw i8, ptr %916, i64 1844
+  %1191 = load i16, ptr %1190, align 4, !tbaa !97
+  %1192 = zext i16 %1191 to i32
+  %1193 = add nuw nsw i32 %1192, 1
+  %1194 = mul nuw nsw i32 %1193, %1189
+  %1195 = getelementptr inbounds nuw i8, ptr %906, i64 60
+  %1196 = load i16, ptr %1195, align 4, !tbaa !133
+  %1197 = zext i16 %1196 to i32
+  %1198 = add nuw i32 %1194, %1197
+  %1199 = add nuw nsw i32 %1197, 1
+  %1200 = udiv i32 %1198, %1199
+  %1201 = shl i32 %1200, 1
+  %.not.i.i.i = icmp ult i32 %1201, 65536
+  %1202 = lshr i32 %1201, 16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %1201, i32 %1202
   %spec.select12.i.i.i = select i1 %.not.i.i.i, i32 0, i32 16
   %.not11.i.i.i = icmp samesign ult i32 %spec.select.i.i.i, 256
-  %1202 = lshr i32 %spec.select.i.i.i, 8
-  %1203 = or disjoint i32 %spec.select12.i.i.i, 8
-  %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %1202
-  %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %1203
-  %1204 = zext nneg i32 %.110.i.i.i to i64
-  %1205 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %1204
-  %1206 = load i8, ptr %1205, align 1, !tbaa !25
-  %1207 = zext i8 %1206 to i32
-  %1208 = add nuw nsw i32 %.1.i.i.i, %1207
+  %1203 = lshr i32 %spec.select.i.i.i, 8
+  %1204 = or disjoint i32 %spec.select12.i.i.i, 8
+  %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %1203
+  %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %1204
+  %1205 = zext nneg i32 %.110.i.i.i to i64
+  %1206 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %1205
+  %1207 = load i8, ptr %1206, align 1, !tbaa !25
+  %1208 = zext i8 %1207 to i32
+  %1209 = add nuw nsw i32 %.1.i.i.i, %1208
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %1209 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef %1208, ptr noundef nonnull @.str.178, ptr noundef null, ptr noundef nonnull %35, i32 noundef 0, i32 noundef %1199) #11
-  %1210 = icmp sgt i32 %1209, -1
-  br i1 %1210, label %.thread468.i, label %1214
+  %1210 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef %1209, ptr noundef nonnull @.str.178, ptr noundef null, ptr noundef nonnull %35, i32 noundef 0, i32 noundef %1200) #11
+  %1211 = icmp sgt i32 %1210, -1
+  br i1 %1211, label %.thread468.i, label %1215
 
-.thread468.i:                                     ; preds = %1184
-  %1211 = load i32, ptr %35, align 4, !tbaa !63
-  %1212 = trunc i32 %1211 to i16
-  %1213 = getelementptr inbounds nuw i8, ptr %861, i64 2164
-  store i16 %1212, ptr %1213, align 4, !tbaa !184
+.thread468.i:                                     ; preds = %1185
+  %1212 = load i32, ptr %35, align 4, !tbaa !63
+  %1213 = trunc i32 %1212 to i16
+  %1214 = getelementptr inbounds nuw i8, ptr %862, i64 2164
+  store i16 %1213, ptr %1214, align 4, !tbaa !184
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br label %1215
+  br label %1216
 
-1214:                                             ; preds = %1184
+1215:                                             ; preds = %1185
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %.thread
 
-1215:                                             ; preds = %.thread468.i, %1180, %1177
-  %1216 = load i8, ptr %1105, align 2, !tbaa !125
-  %.not408.i = icmp eq i8 %1216, 0
+1216:                                             ; preds = %.thread468.i, %1181, %1178
+  %1217 = load i8, ptr %1106, align 2, !tbaa !125
+  %.not408.i = icmp eq i8 %1217, 0
   br i1 %.not408.i, label %.cbs_h264_read_slice_header.exit_crit_edge, label %.preheader.i108
 
-.cbs_h264_read_slice_header.exit_crit_edge:       ; preds = %1215
+.cbs_h264_read_slice_header.exit_crit_edge:       ; preds = %1216
   %.val.i110.pre = load i32, ptr %132, align 8, !tbaa !60
   br label %cbs_h264_read_slice_header.exit
 
-.preheader.i108:                                  ; preds = %1215, %1218
+.preheader.i108:                                  ; preds = %1216, %1219
   %.val.i = load i32, ptr %132, align 8, !tbaa !60
-  %1217 = and i32 %.val.i, 7
-  %.not409.i = icmp eq i32 %1217, 0
-  br i1 %.not409.i, label %cbs_h264_read_slice_header.exit, label %1218
+  %1218 = and i32 %.val.i, 7
+  %.not409.i = icmp eq i32 %1218, 0
+  br i1 %.not409.i, label %cbs_h264_read_slice_header.exit, label %1219
 
-1218:                                             ; preds = %.preheader.i108
+1219:                                             ; preds = %.preheader.i108
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %1219 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.179, ptr noundef null, ptr noundef nonnull %36, i32 noundef 1, i32 noundef 1) #11
-  %1220 = icmp sgt i32 %1219, -1
+  %1220 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.179, ptr noundef null, ptr noundef nonnull %36, i32 noundef 1, i32 noundef 1) #11
+  %1221 = icmp sgt i32 %1220, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br i1 %1220, label %.preheader.i108, label %.thread, !llvm.loop !185
+  br i1 %1221, label %.preheader.i108, label %.thread, !llvm.loop !185
 
-.critedge.i103:                                   ; preds = %875
+.critedge.i103:                                   ; preds = %876
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread
 
 cbs_h264_read_slice_header.exit:                  ; preds = %.preheader.i108, %.cbs_h264_read_slice_header.exit_crit_edge
   %.val.i110 = phi i32 [ %.val.i110.pre, %.cbs_h264_read_slice_header.exit_crit_edge ], [ %.val.i, %.preheader.i108 ]
   %.val7.i = load i32, ptr %126, align 4, !tbaa !57
-  %1221 = sub nsw i32 %.val7.i, %.val.i110
-  %1222 = icmp sgt i32 %1221, 8
-  br i1 %1222, label %cbs_h2645_read_more_rbsp_data.exit.thread147, label %1223
+  %1222 = sub nsw i32 %.val7.i, %.val.i110
+  %1223 = icmp sgt i32 %1222, 8
+  br i1 %1223, label %cbs_h2645_read_more_rbsp_data.exit.thread147, label %1224
 
-1223:                                             ; preds = %cbs_h264_read_slice_header.exit
-  %1224 = icmp eq i32 %.val7.i, %.val.i110
-  br i1 %1224, label %.thread, label %cbs_h2645_read_more_rbsp_data.exit
+1224:                                             ; preds = %cbs_h264_read_slice_header.exit
+  %1225 = icmp eq i32 %.val7.i, %.val.i110
+  br i1 %1225, label %.thread, label %cbs_h2645_read_more_rbsp_data.exit
 
-cbs_h2645_read_more_rbsp_data.exit:               ; preds = %1223
+cbs_h2645_read_more_rbsp_data.exit:               ; preds = %1224
   %.val8.i = load ptr, ptr %118, align 8, !tbaa !56
-  %1225 = lshr i32 %.val.i110, 3
-  %1226 = zext nneg i32 %1225 to i64
-  %1227 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 %1226
-  %1228 = load i32, ptr %1227, align 1, !tbaa !25
-  %1229 = call i32 @llvm.bswap.i32(i32 %1228)
-  %1230 = and i32 %.val.i110, 7
-  %1231 = shl i32 %1229, %1230
-  %1232 = sub nsw i32 32, %1221
-  %1233 = lshr i32 %1231, %1232
-  %1234 = zext nneg i32 %1233 to i64
-  %1235 = add nsw i32 %1221, -1
-  %1236 = zext nneg i32 %1235 to i64
-  %notmask.i = shl nsw i64 -1, %1236
-  %1237 = xor i64 %notmask.i, -1
-  %1238 = and i64 %1234, %1237
-  %.not.i111.not = icmp eq i64 %1238, 0
+  %1226 = lshr i32 %.val.i110, 3
+  %1227 = zext nneg i32 %1226 to i64
+  %1228 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 %1227
+  %1229 = load i32, ptr %1228, align 1, !tbaa !25
+  %1230 = call i32 @llvm.bswap.i32(i32 %1229)
+  %1231 = and i32 %.val.i110, 7
+  %1232 = shl i32 %1230, %1231
+  %1233 = sub nsw i32 32, %1222
+  %1234 = lshr i32 %1232, %1233
+  %1235 = zext nneg i32 %1234 to i64
+  %1236 = add nsw i32 %1222, -1
+  %1237 = zext nneg i32 %1236 to i64
+  %notmask.i = shl nsw i64 -1, %1237
+  %1238 = xor i64 %notmask.i, -1
+  %1239 = and i64 %1235, %1238
+  %.not.i111.not = icmp eq i64 %1239, 0
   br i1 %.not.i111.not, label %.thread, label %cbs_h2645_read_more_rbsp_data.exit.thread147
 
 cbs_h2645_read_more_rbsp_data.exit.thread147:     ; preds = %cbs_h264_read_slice_header.exit, %cbs_h2645_read_more_rbsp_data.exit
-  %1239 = load i64, ptr %121, align 8, !tbaa !55
-  %1240 = trunc i64 %1239 to i32
-  %1241 = sdiv i32 %.val.i110, 8
-  %1242 = srem i32 %.val.i110, 8
-  %1243 = sub nsw i32 %1240, %1241
-  %1244 = sext i32 %1243 to i64
-  %1245 = getelementptr inbounds nuw i8, ptr %861, i64 2184
-  store i64 %1244, ptr %1245, align 8, !tbaa !186
-  %1246 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %1247 = load ptr, ptr %1246, align 8, !tbaa !188
-  %1248 = call ptr @av_buffer_ref(ptr noundef %1247) #11
-  %1249 = getelementptr inbounds nuw i8, ptr %861, i64 2176
-  store ptr %1248, ptr %1249, align 8, !tbaa !189
-  %.not85 = icmp eq ptr %1248, null
-  br i1 %.not85, label %.thread, label %1250
+  %1240 = load i64, ptr %121, align 8, !tbaa !55
+  %1241 = trunc i64 %1240 to i32
+  %1242 = sdiv i32 %.val.i110, 8
+  %1243 = srem i32 %.val.i110, 8
+  %1244 = sub nsw i32 %1241, %1242
+  %1245 = sext i32 %1244 to i64
+  %1246 = getelementptr inbounds nuw i8, ptr %862, i64 2184
+  store i64 %1245, ptr %1246, align 8, !tbaa !186
+  %1247 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %1248 = load ptr, ptr %1247, align 8, !tbaa !188
+  %1249 = call ptr @av_buffer_ref(ptr noundef %1248) #11
+  %1250 = getelementptr inbounds nuw i8, ptr %862, i64 2176
+  store ptr %1249, ptr %1250, align 8, !tbaa !189
+  %.not85 = icmp eq ptr %1249, null
+  br i1 %.not85, label %.thread, label %1251
 
-1250:                                             ; preds = %cbs_h2645_read_more_rbsp_data.exit.thread147
-  %1251 = load ptr, ptr %119, align 8, !tbaa !53
-  %1252 = sext i32 %1241 to i64
-  %1253 = getelementptr inbounds i8, ptr %1251, i64 %1252
-  %1254 = getelementptr inbounds nuw i8, ptr %861, i64 2168
-  store ptr %1253, ptr %1254, align 8, !tbaa !190
-  %1255 = getelementptr inbounds nuw i8, ptr %861, i64 2192
-  store i32 %1242, ptr %1255, align 8, !tbaa !191
+1251:                                             ; preds = %cbs_h2645_read_more_rbsp_data.exit.thread147
+  %1252 = load ptr, ptr %119, align 8, !tbaa !53
+  %1253 = sext i32 %1242 to i64
+  %1254 = getelementptr inbounds i8, ptr %1252, i64 %1253
+  %1255 = getelementptr inbounds nuw i8, ptr %862, i64 2168
+  store ptr %1254, ptr %1255, align 8, !tbaa !190
+  %1256 = getelementptr inbounds nuw i8, ptr %862, i64 2192
+  store i32 %1243, ptr %1256, align 8, !tbaa !191
   br label %cbs_h264_read_sps_extension.exit
 
-1256:                                             ; preds = %136
-  %1257 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1258 = load ptr, ptr %1257, align 8, !tbaa !62
+1257:                                             ; preds = %136
+  %1258 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1259 = load ptr, ptr %1258, align 8, !tbaa !62
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.207) #11
-  %1259 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %1258, i32 noundef 512)
-  %1260 = icmp slt i32 %1259, 0
-  br i1 %1260, label %.thread, label %1261
+  %1260 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %1259, i32 noundef 512)
+  %1261 = icmp slt i32 %1260, 0
+  br i1 %1261, label %.thread, label %1262
 
-1261:                                             ; preds = %1256
+1262:                                             ; preds = %1257
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %1262 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 3, ptr noundef nonnull @.str.208, ptr noundef nonnull %10) #11
-  %1263 = icmp sgt i32 %1262, -1
-  br i1 %1263, label %1264, label %.critedge.i113
+  %1263 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 3, ptr noundef nonnull @.str.208, ptr noundef nonnull %10) #11
+  %1264 = icmp sgt i32 %1263, -1
+  br i1 %1264, label %1265, label %.critedge.i113
 
-1264:                                             ; preds = %1261
-  %1265 = load i32, ptr %10, align 4, !tbaa !63
-  %1266 = trunc i32 %1265 to i8
-  %1267 = getelementptr inbounds nuw i8, ptr %1258, i64 4
-  store i8 %1266, ptr %1267, align 1, !tbaa !192
+1265:                                             ; preds = %1262
+  %1266 = load i32, ptr %10, align 4, !tbaa !63
+  %1267 = trunc i32 %1266 to i8
+  %1268 = getelementptr inbounds nuw i8, ptr %1259, i64 4
+  store i8 %1267, ptr %1268, align 1, !tbaa !192
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %1268 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 1) #11
-  %1269 = icmp sgt i32 %1268, -1
+  %1269 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 1) #11
+  %1270 = icmp sgt i32 %1269, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %1269, label %.preheader.i.i114, label %.thread
+  br i1 %1270, label %.preheader.i.i114, label %.thread
 
-.preheader.i.i114:                                ; preds = %1264, %1271
+.preheader.i.i114:                                ; preds = %1265, %1272
   %.val.i.i115 = load i32, ptr %132, align 8, !tbaa !60
-  %1270 = and i32 %.val.i.i115, 7
-  %.not.i.i116 = icmp eq i32 %1270, 0
-  br i1 %.not.i.i116, label %cbs_h264_read_sps_extension.exit, label %1271
+  %1271 = and i32 %.val.i.i115, 7
+  %.not.i.i116 = icmp eq i32 %1271, 0
+  br i1 %.not.i.i116, label %cbs_h264_read_sps_extension.exit, label %1272
 
-1271:                                             ; preds = %.preheader.i.i114
+1272:                                             ; preds = %.preheader.i.i114
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %1272 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0) #11
-  %1273 = icmp sgt i32 %1272, -1
+  %1273 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0) #11
+  %1274 = icmp sgt i32 %1273, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %1273, label %.preheader.i.i114, label %.thread, !llvm.loop !121
+  br i1 %1274, label %.preheader.i.i114, label %.thread, !llvm.loop !121
 
-.critedge.i113:                                   ; preds = %1261
+.critedge.i113:                                   ; preds = %1262
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
-1274:                                             ; preds = %136
-  %1275 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1276 = load ptr, ptr %1275, align 8, !tbaa !62
+1275:                                             ; preds = %136
+  %1276 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1277 = load ptr, ptr %1276, align 8, !tbaa !62
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.209) #11
-  %1277 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %1276, i32 noundef 64)
-  %1278 = icmp slt i32 %1277, 0
-  br i1 %1278, label %.thread, label %1279
+  %1278 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %1277, i32 noundef 64)
+  %1279 = icmp slt i32 %1278, 0
+  br i1 %1279, label %.thread, label %1280
 
-1279:                                             ; preds = %1274
-  %1280 = getelementptr inbounds nuw i8, ptr %1276, i64 8
-  %1281 = call fastcc i32 @cbs_sei_read_message_list(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull %1280)
-  %1282 = icmp slt i32 %1281, 0
-  br i1 %1282, label %.thread, label %1283
+1280:                                             ; preds = %1275
+  %1281 = getelementptr inbounds nuw i8, ptr %1277, i64 8
+  %1282 = call fastcc i32 @cbs_sei_read_message_list(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull %1281)
+  %1283 = icmp slt i32 %1282, 0
+  br i1 %1283, label %.thread, label %1284
 
-1283:                                             ; preds = %1279
+1284:                                             ; preds = %1280
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %1284 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 1) #11
-  %1285 = icmp sgt i32 %1284, -1
+  %1285 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 1) #11
+  %1286 = icmp sgt i32 %1285, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %1285, label %.preheader.i.i118, label %.thread
+  br i1 %1286, label %.preheader.i.i118, label %.thread
 
-.preheader.i.i118:                                ; preds = %1283, %1287
+.preheader.i.i118:                                ; preds = %1284, %1288
   %.val.i.i119 = load i32, ptr %132, align 8, !tbaa !60
-  %1286 = and i32 %.val.i.i119, 7
-  %.not.i.i120 = icmp eq i32 %1286, 0
-  br i1 %.not.i.i120, label %cbs_h264_read_sps_extension.exit, label %1287
+  %1287 = and i32 %.val.i.i119, 7
+  %.not.i.i120 = icmp eq i32 %1287, 0
+  br i1 %.not.i.i120, label %cbs_h264_read_sps_extension.exit, label %1288
 
-1287:                                             ; preds = %.preheader.i.i118
+1288:                                             ; preds = %.preheader.i.i118
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %1288 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0) #11
-  %1289 = icmp sgt i32 %1288, -1
+  %1289 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0) #11
+  %1290 = icmp sgt i32 %1289, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %1289, label %.preheader.i.i118, label %.thread, !llvm.loop !121
+  br i1 %1290, label %.preheader.i.i118, label %.thread, !llvm.loop !121
 
-1290:                                             ; preds = %136
-  %1291 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1292 = load ptr, ptr %1291, align 8, !tbaa !62
+1291:                                             ; preds = %136
+  %1292 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1293 = load ptr, ptr %1292, align 8, !tbaa !62
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.218) #11
-  %1293 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %1292, i32 noundef 4096)
-  %1294 = icmp slt i32 %1293, 0
-  br i1 %1294, label %.thread, label %.preheader.i121
+  %1294 = call fastcc i32 @cbs_h264_read_nal_unit_header(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %1293, i32 noundef 4096)
+  %1295 = icmp slt i32 %1294, 0
+  br i1 %1295, label %.thread, label %.preheader.i121
 
-.preheader.i121:                                  ; preds = %1290
+.preheader.i121:                                  ; preds = %1291
   %.val30.i = load ptr, ptr %118, align 8, !tbaa !56
   %.val2331.i = load i32, ptr %132, align 8, !tbaa !60
-  %1295 = lshr i32 %.val2331.i, 3
-  %1296 = zext nneg i32 %1295 to i64
-  %1297 = getelementptr inbounds nuw i8, ptr %.val30.i, i64 %1296
-  %1298 = load i32, ptr %1297, align 1, !tbaa !25
-  %1299 = call i32 @llvm.bswap.i32(i32 %1298)
-  %1300 = and i32 %.val2331.i, 7
-  %1301 = shl i32 %1299, %1300
-  %1302 = icmp ugt i32 %1301, -16777217
-  br i1 %1302, label %.lr.ph.i125, label %._crit_edge.i
+  %1296 = lshr i32 %.val2331.i, 3
+  %1297 = zext nneg i32 %1296 to i64
+  %1298 = getelementptr inbounds nuw i8, ptr %.val30.i, i64 %1297
+  %1299 = load i32, ptr %1298, align 1, !tbaa !25
+  %1300 = call i32 @llvm.bswap.i32(i32 %1299)
+  %1301 = and i32 %.val2331.i, 7
+  %1302 = shl i32 %1300, %1301
+  %1303 = icmp ugt i32 %1302, -16777217
+  br i1 %1303, label %.lr.ph.i125, label %._crit_edge.i
 
 .lr.ph.i125:                                      ; preds = %.preheader.i121
-  %1303 = getelementptr inbounds nuw i8, ptr %1292, i64 4
-  br label %1304
+  %1304 = getelementptr inbounds nuw i8, ptr %1293, i64 4
+  br label %1305
 
-1304:                                             ; preds = %1307, %.lr.ph.i125
+1305:                                             ; preds = %1308, %.lr.ph.i125
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %1305 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 8, ptr noundef nonnull @.str.210, ptr noundef null, ptr noundef nonnull %5, i32 noundef 255, i32 noundef 255) #11
-  %1306 = icmp sgt i32 %1305, -1
+  %1306 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 8, ptr noundef nonnull @.str.210, ptr noundef null, ptr noundef nonnull %5, i32 noundef 255, i32 noundef 255) #11
+  %1307 = icmp sgt i32 %1306, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %1306, label %1307, label %.thread
+  br i1 %1307, label %1308, label %.thread
 
-1307:                                             ; preds = %1304
-  %1308 = load i32, ptr %1303, align 4, !tbaa !194
-  %1309 = add i32 %1308, 1
-  store i32 %1309, ptr %1303, align 4, !tbaa !194
+1308:                                             ; preds = %1305
+  %1309 = load i32, ptr %1304, align 4, !tbaa !194
+  %1310 = add i32 %1309, 1
+  store i32 %1310, ptr %1304, align 4, !tbaa !194
   %.val.i126 = load ptr, ptr %118, align 8, !tbaa !56
   %.val23.i = load i32, ptr %132, align 8, !tbaa !60
-  %1310 = lshr i32 %.val23.i, 3
-  %1311 = zext nneg i32 %1310 to i64
-  %1312 = getelementptr inbounds nuw i8, ptr %.val.i126, i64 %1311
-  %1313 = load i32, ptr %1312, align 1, !tbaa !25
-  %1314 = call i32 @llvm.bswap.i32(i32 %1313)
-  %1315 = and i32 %.val23.i, 7
-  %1316 = shl i32 %1314, %1315
-  %1317 = icmp ugt i32 %1316, -16777217
-  br i1 %1317, label %1304, label %._crit_edge.i, !llvm.loop !196
+  %1311 = lshr i32 %.val23.i, 3
+  %1312 = zext nneg i32 %1311 to i64
+  %1313 = getelementptr inbounds nuw i8, ptr %.val.i126, i64 %1312
+  %1314 = load i32, ptr %1313, align 1, !tbaa !25
+  %1315 = call i32 @llvm.bswap.i32(i32 %1314)
+  %1316 = and i32 %.val23.i, 7
+  %1317 = shl i32 %1315, %1316
+  %1318 = icmp ugt i32 %1317, -16777217
+  br i1 %1318, label %1305, label %._crit_edge.i, !llvm.loop !196
 
-._crit_edge.i:                                    ; preds = %1307, %.preheader.i121
+._crit_edge.i:                                    ; preds = %1308, %.preheader.i121
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %1318 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 1) #11
-  %1319 = icmp sgt i32 %1318, -1
+  %1319 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 1) #11
+  %1320 = icmp sgt i32 %1319, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %1319, label %.preheader.i.i122, label %.thread
+  br i1 %1320, label %.preheader.i.i122, label %.thread
 
-.preheader.i.i122:                                ; preds = %._crit_edge.i, %1321
+.preheader.i.i122:                                ; preds = %._crit_edge.i, %1322
   %.val.i.i123 = load i32, ptr %132, align 8, !tbaa !60
-  %1320 = and i32 %.val.i.i123, 7
-  %.not.i.i124 = icmp eq i32 %1320, 0
-  br i1 %.not.i.i124, label %cbs_h264_read_sps_extension.exit, label %1321
+  %1321 = and i32 %.val.i.i123, 7
+  %.not.i.i124 = icmp eq i32 %1321, 0
+  br i1 %.not.i.i124, label %cbs_h264_read_sps_extension.exit, label %1322
 
-1321:                                             ; preds = %.preheader.i.i122
+1322:                                             ; preds = %.preheader.i.i122
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %1322 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0) #11
-  %1323 = icmp sgt i32 %1322, -1
+  %1323 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %118, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0) #11
+  %1324 = icmp sgt i32 %1323, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %1323, label %.preheader.i.i122, label %.thread, !llvm.loop !121
+  br i1 %1324, label %.preheader.i.i122, label %.thread, !llvm.loop !121
 
-1324:                                             ; preds = %136, %136
-  %1325 = icmp eq i32 %137, 10
-  %1326 = select i1 %1325, ptr @cbs_h264_read_end_of_sequence, ptr @cbs_h264_read_end_of_stream
-  %1327 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1328 = load ptr, ptr %1327, align 8, !tbaa !62
-  %1329 = call i32 %1326(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %1328) #11, !callees !197
-  %1330 = icmp slt i32 %1329, 0
-  br i1 %1330, label %.thread, label %cbs_h264_read_sps_extension.exit
+1325:                                             ; preds = %136, %136
+  %1326 = icmp eq i32 %137, 10
+  %1327 = select i1 %1326, ptr @cbs_h264_read_end_of_sequence, ptr @cbs_h264_read_end_of_stream
+  %1328 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1329 = load ptr, ptr %1328, align 8, !tbaa !62
+  %1330 = call i32 %1327(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %1329) #11, !callees !197
+  %1331 = icmp slt i32 %1330, 0
+  br i1 %1331, label %.thread, label %cbs_h264_read_sps_extension.exit
 
-cbs_h264_read_sps_extension.exit:                 ; preds = %.preheader.i.i122, %.preheader.i.i118, %.preheader.i.i114, %.preheader.i.i, %1250, %858, %476, %1324
+cbs_h264_read_sps_extension.exit:                 ; preds = %.preheader.i.i122, %.preheader.i.i118, %.preheader.i.i114, %.preheader.i.i, %1251, %859, %477, %1325
   br label %.thread
 
-.thread:                                          ; preds = %1304, %1321, %1287, %1271, %1218, %538, %._crit_edge.i, %1290, %1283, %1279, %1274, %1264, %.critedge.i113, %1256, %1223, %1101, %1096, %1085, %.critedge.i103, %859, %873, %883, %892, %897, %906, %916, %929, %937, %947, %958, %971, %1004, %1018, %982, %997, %1030, %1048, %1053, %1061, %1072, %1114, %1124, %1137, %1144, %1151, %1159, %1169, %1214, %1083, %cbs_h2645_read_more_rbsp_data.exit.thread147, %cbs_h2645_read_more_rbsp_data.exit, %838, %cbs_h264_read_pps.exit.thread, %cbs_h264_read_pps.exit, %516, %506, %499, %531, %.critedge.i91, %477, %491, %526, %530, %455, %cbs_h264_read_sps.exit.thread, %cbs_h264_read_sps.exit, %136, %1324, %133, %2, %cbs_h264_read_sps_extension.exit
-  %.0 = phi i32 [ 0, %cbs_h264_read_sps_extension.exit ], [ -1094995529, %2 ], [ %134, %133 ], [ %1329, %1324 ], [ -38, %136 ], [ %461, %455 ], [ %.0337.i.ph, %cbs_h264_read_sps.exit.thread ], [ %453, %cbs_h264_read_sps.exit ], [ %514, %516 ], [ %504, %506 ], [ %497, %499 ], [ %535, %531 ], [ %483, %.critedge.i91 ], [ %480, %477 ], [ %489, %491 ], [ %521, %526 ], [ %528, %530 ], [ %843, %838 ], [ %.0276.i.ph, %cbs_h264_read_pps.exit.thread ], [ %836, %cbs_h264_read_pps.exit ], [ -12, %cbs_h2645_read_more_rbsp_data.exit.thread147 ], [ -1094995529, %cbs_h2645_read_more_rbsp_data.exit ], [ %1102, %1101 ], [ %1097, %1096 ], [ %1086, %1085 ], [ %876, %.critedge.i103 ], [ %864, %859 ], [ -1094995529, %873 ], [ %881, %883 ], [ -1094995529, %892 ], [ %895, %897 ], [ -1094995529, %906 ], [ -1094995529, %916 ], [ %924, %929 ], [ %935, %937 ], [ %945, %947 ], [ %953, %958 ], [ %966, %971 ], [ %1002, %1004 ], [ %1014, %1018 ], [ %980, %982 ], [ %993, %997 ], [ %1028, %1030 ], [ %1043, %1048 ], [ %1051, %1053 ], [ %1059, %1061 ], [ %1067, %1072 ], [ %1109, %1114 ], [ %1122, %1124 ], [ %1132, %1137 ], [ %1139, %1144 ], [ %1149, %1151 ], [ %1157, %1159 ], [ %1164, %1169 ], [ %1209, %1214 ], [ -1163346256, %1083 ], [ -1094995529, %1223 ], [ %1268, %1264 ], [ %1262, %.critedge.i113 ], [ %1259, %1256 ], [ %1284, %1283 ], [ %1281, %1279 ], [ %1277, %1274 ], [ %1318, %._crit_edge.i ], [ %1293, %1290 ], [ %539, %538 ], [ %1219, %1218 ], [ %1272, %1271 ], [ %1288, %1287 ], [ %1322, %1321 ], [ %1305, %1304 ]
+.thread:                                          ; preds = %1305, %1322, %1288, %1272, %1219, %539, %._crit_edge.i, %1291, %1284, %1280, %1275, %1265, %.critedge.i113, %1257, %1224, %1102, %1097, %1086, %.critedge.i103, %860, %874, %884, %893, %898, %907, %917, %930, %938, %948, %959, %972, %1005, %1019, %983, %998, %1031, %1049, %1054, %1062, %1073, %1115, %1125, %1138, %1145, %1152, %1160, %1170, %1215, %1084, %cbs_h2645_read_more_rbsp_data.exit.thread147, %cbs_h2645_read_more_rbsp_data.exit, %839, %cbs_h264_read_pps.exit.thread, %cbs_h264_read_pps.exit, %517, %507, %500, %532, %.critedge.i91, %478, %492, %527, %531, %456, %cbs_h264_read_sps.exit.thread, %cbs_h264_read_sps.exit, %136, %1325, %133, %2, %cbs_h264_read_sps_extension.exit
+  %.0 = phi i32 [ 0, %cbs_h264_read_sps_extension.exit ], [ -1094995529, %2 ], [ %134, %133 ], [ %1330, %1325 ], [ -38, %136 ], [ %462, %456 ], [ %.0337.i.ph, %cbs_h264_read_sps.exit.thread ], [ %454, %cbs_h264_read_sps.exit ], [ %515, %517 ], [ %505, %507 ], [ %498, %500 ], [ %536, %532 ], [ %484, %.critedge.i91 ], [ %481, %478 ], [ %490, %492 ], [ %522, %527 ], [ %529, %531 ], [ %844, %839 ], [ %.0276.i.ph, %cbs_h264_read_pps.exit.thread ], [ %837, %cbs_h264_read_pps.exit ], [ -12, %cbs_h2645_read_more_rbsp_data.exit.thread147 ], [ -1094995529, %cbs_h2645_read_more_rbsp_data.exit ], [ %1103, %1102 ], [ %1098, %1097 ], [ %1087, %1086 ], [ %877, %.critedge.i103 ], [ %865, %860 ], [ -1094995529, %874 ], [ %882, %884 ], [ -1094995529, %893 ], [ %896, %898 ], [ -1094995529, %907 ], [ -1094995529, %917 ], [ %925, %930 ], [ %936, %938 ], [ %946, %948 ], [ %954, %959 ], [ %967, %972 ], [ %1003, %1005 ], [ %1015, %1019 ], [ %981, %983 ], [ %994, %998 ], [ %1029, %1031 ], [ %1044, %1049 ], [ %1052, %1054 ], [ %1060, %1062 ], [ %1068, %1073 ], [ %1110, %1115 ], [ %1123, %1125 ], [ %1133, %1138 ], [ %1140, %1145 ], [ %1150, %1152 ], [ %1158, %1160 ], [ %1165, %1170 ], [ %1210, %1215 ], [ -1163346256, %1084 ], [ -1094995529, %1224 ], [ %1269, %1265 ], [ %1263, %.critedge.i113 ], [ %1260, %1257 ], [ %1285, %1284 ], [ %1282, %1280 ], [ %1278, %1275 ], [ %1319, %._crit_edge.i ], [ %1294, %1291 ], [ %540, %539 ], [ %1220, %1219 ], [ %1273, %1272 ], [ %1289, %1288 ], [ %1323, %1322 ], [ %1306, %1305 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %118)
   ret i32 %.0
 }
@@ -5156,18 +5157,18 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_nal_unit(ptr nound
   %9 = alloca [2 x i32], align 4
   %10 = alloca [2 x i32], align 4
   %11 = load i32, ptr %1, align 8, !tbaa !61
-  switch i32 %11, label %1190 [
+  switch i32 %11, label %1191 [
     i32 7, label %12
-    i32 13, label %345
-    i32 8, label %407
-    i32 1, label %715
-    i32 5, label %715
-    i32 19, label %715
-    i32 9, label %1119
-    i32 6, label %1140
-    i32 12, label %1159
-    i32 10, label %1180
-    i32 11, label %1185
+    i32 13, label %346
+    i32 8, label %408
+    i32 1, label %716
+    i32 5, label %716
+    i32 19, label %716
+    i32 9, label %1120
+    i32 6, label %1141
+    i32 12, label %1160
+    i32 10, label %1181
+    i32 11, label %1186
   ]
 
 12:                                               ; preds = %3
@@ -5262,7 +5263,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_nal_unit(ptr nound
 
 77:                                               ; preds = %71
   %78 = load i8, ptr %18, align 4, !tbaa !64
-  switch i8 %78, label %150 [
+  switch i8 %78, label %151 [
     i8 100, label %79
     i8 110, label %79
     i8 122, label %79
@@ -5349,8 +5350,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_nal_unit(ptr nound
   %126 = getelementptr inbounds nuw i8, ptr %14, i64 32
   br label %127
 
-127:                                              ; preds = %146, %.preheader483.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader483.i ], [ %indvars.iv.next.i, %146 ]
+127:                                              ; preds = %147, %.preheader483.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader483.i ], [ %indvars.iv.next.i, %147 ]
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 %indvars.iv.i
   %129 = load i8, ptr %128, align 1, !tbaa !25
   %130 = zext i8 %129 to i32
@@ -5364,7 +5365,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_nal_unit(ptr nound
 134:                                              ; preds = %127
   %135 = load i8, ptr %128, align 1, !tbaa !25
   %.not479.i = icmp eq i8 %135, 0
-  br i1 %.not479.i, label %146, label %136
+  br i1 %.not479.i, label %147, label %136
 
 136:                                              ; preds = %134
   %137 = icmp samesign ult i64 %indvars.iv.i, 6
@@ -5374,893 +5375,894 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_nal_unit(ptr nound
   %139 = getelementptr inbounds nuw %struct.H264RawScalingList, ptr %126, i64 %indvars.iv.i
   %140 = call fastcc i32 @cbs_h264_write_scaling_list(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %139, i32 noundef 16)
   %141 = icmp slt i32 %140, 0
-  br i1 %141, label %cbs_h264_write_sps.exit.thread, label %146
+  br i1 %141, label %cbs_h264_write_sps.exit.thread, label %147
 
 142:                                              ; preds = %136
-  %143 = getelementptr %struct.H264RawScalingList, ptr %14, i64 %indvars.iv.i, i32 0, i64 32
-  %144 = call fastcc i32 @cbs_h264_write_scaling_list(ptr noundef %0, ptr noundef %2, ptr noundef %143, i32 noundef 64)
-  %145 = icmp slt i32 %144, 0
-  br i1 %145, label %cbs_h264_write_sps.exit.thread, label %146
+  %143 = getelementptr %struct.H264RawScalingList, ptr %14, i64 %indvars.iv.i
+  %144 = getelementptr i8, ptr %143, i64 32
+  %145 = call fastcc i32 @cbs_h264_write_scaling_list(ptr noundef %0, ptr noundef %2, ptr noundef %144, i32 noundef 64)
+  %146 = icmp slt i32 %145, 0
+  br i1 %146, label %cbs_h264_write_sps.exit.thread, label %147
 
-146:                                              ; preds = %142, %138, %134
+147:                                              ; preds = %142, %138, %134
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %147 = load i8, ptr %80, align 2, !tbaa !79
-  %.not475.i = icmp eq i8 %147, 3
-  %148 = select i1 %.not475.i, i64 12, i64 8
-  %149 = icmp samesign ult i64 %indvars.iv.next.i, %148
-  br i1 %149, label %127, label %.loopexit484.i, !llvm.loop !198
+  %148 = load i8, ptr %80, align 2, !tbaa !79
+  %.not475.i = icmp eq i8 %148, 3
+  %149 = select i1 %.not475.i, i64 12, i64 8
+  %150 = icmp samesign ult i64 %indvars.iv.next.i, %149
+  br i1 %150, label %127, label %.loopexit484.i, !llvm.loop !198
 
-150:                                              ; preds = %77
-  %151 = getelementptr inbounds nuw i8, ptr %14, i64 14
-  %152 = load i8, ptr %151, align 2, !tbaa !79
-  %153 = icmp ne i8 %78, -73
-  %154 = zext i1 %153 to i8
-  %.not.i = icmp eq i8 %152, %154
-  br i1 %.not.i, label %159, label %155
+151:                                              ; preds = %77
+  %152 = getelementptr inbounds nuw i8, ptr %14, i64 14
+  %153 = load i8, ptr %152, align 2, !tbaa !79
+  %154 = icmp ne i8 %78, -73
+  %155 = zext i1 %154 to i8
+  %.not.i = icmp eq i8 %153, %155
+  br i1 %.not.i, label %160, label %156
 
-155:                                              ; preds = %150
-  %156 = load ptr, ptr %0, align 8, !tbaa !31
-  %157 = zext i8 %152 to i64
-  %158 = zext i1 %153 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %156, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.25, i64 noundef %157, i64 noundef %158) #11
+156:                                              ; preds = %151
+  %157 = load ptr, ptr %0, align 8, !tbaa !31
+  %158 = zext i8 %153 to i64
+  %159 = zext i1 %154 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %157, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.25, i64 noundef %158, i64 noundef %159) #11
   br label %cbs_h264_write_sps.exit.thread
 
-159:                                              ; preds = %150
-  %160 = getelementptr inbounds nuw i8, ptr %14, i64 15
-  %161 = load i8, ptr %160, align 1, !tbaa !80
-  %.not470.i = icmp eq i8 %161, 0
-  br i1 %.not470.i, label %165, label %162
+160:                                              ; preds = %151
+  %161 = getelementptr inbounds nuw i8, ptr %14, i64 15
+  %162 = load i8, ptr %161, align 1, !tbaa !80
+  %.not470.i = icmp eq i8 %162, 0
+  br i1 %.not470.i, label %166, label %163
 
-162:                                              ; preds = %159
-  %163 = load ptr, ptr %0, align 8, !tbaa !31
-  %164 = zext i8 %161 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %163, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.26, i64 noundef %164, i64 noundef 0) #11
+163:                                              ; preds = %160
+  %164 = load ptr, ptr %0, align 8, !tbaa !31
+  %165 = zext i8 %162 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %164, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.26, i64 noundef %165, i64 noundef 0) #11
   br label %cbs_h264_write_sps.exit.thread
 
-165:                                              ; preds = %159
-  %166 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %167 = load i8, ptr %166, align 4, !tbaa !81
-  %.not471.i = icmp eq i8 %167, 0
-  br i1 %.not471.i, label %171, label %168
+166:                                              ; preds = %160
+  %167 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %168 = load i8, ptr %167, align 4, !tbaa !81
+  %.not471.i = icmp eq i8 %168, 0
+  br i1 %.not471.i, label %172, label %169
 
-168:                                              ; preds = %165
-  %169 = load ptr, ptr %0, align 8, !tbaa !31
-  %170 = zext i8 %167 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %169, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.27, i64 noundef %170, i64 noundef 0) #11
+169:                                              ; preds = %166
+  %170 = load ptr, ptr %0, align 8, !tbaa !31
+  %171 = zext i8 %168 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %170, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.27, i64 noundef %171, i64 noundef 0) #11
   br label %cbs_h264_write_sps.exit.thread
 
-171:                                              ; preds = %165
-  %172 = getelementptr inbounds nuw i8, ptr %14, i64 17
-  %173 = load i8, ptr %172, align 1, !tbaa !82
-  %.not472.i = icmp eq i8 %173, 0
-  br i1 %.not472.i, label %.loopexit484.i, label %174
+172:                                              ; preds = %166
+  %173 = getelementptr inbounds nuw i8, ptr %14, i64 17
+  %174 = load i8, ptr %173, align 1, !tbaa !82
+  %.not472.i = icmp eq i8 %174, 0
+  br i1 %.not472.i, label %.loopexit484.i, label %175
 
-174:                                              ; preds = %171
-  %175 = load ptr, ptr %0, align 8, !tbaa !31
-  %176 = zext i8 %173 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %175, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.28, i64 noundef %176, i64 noundef 0) #11
+175:                                              ; preds = %172
+  %176 = load ptr, ptr %0, align 8, !tbaa !31
+  %177 = zext i8 %174 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %176, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.28, i64 noundef %177, i64 noundef 0) #11
   br label %cbs_h264_write_sps.exit.thread
 
-.loopexit484.i:                                   ; preds = %146, %171, %122
-  %177 = getelementptr inbounds nuw i8, ptr %14, i64 800
-  %178 = load i8, ptr %177, align 4, !tbaa !86
-  %179 = zext i8 %178 to i32
-  %180 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.32, ptr noundef null, i32 noundef %179, i32 noundef 0, i32 noundef 12)
-  %181 = icmp sgt i32 %180, -1
-  br i1 %181, label %182, label %cbs_h264_write_sps.exit.thread
+.loopexit484.i:                                   ; preds = %147, %172, %122
+  %178 = getelementptr inbounds nuw i8, ptr %14, i64 800
+  %179 = load i8, ptr %178, align 4, !tbaa !86
+  %180 = zext i8 %179 to i32
+  %181 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.32, ptr noundef null, i32 noundef %180, i32 noundef 0, i32 noundef 12)
+  %182 = icmp sgt i32 %181, -1
+  br i1 %182, label %183, label %cbs_h264_write_sps.exit.thread
 
-182:                                              ; preds = %.loopexit484.i
-  %183 = getelementptr inbounds nuw i8, ptr %14, i64 801
-  %184 = load i8, ptr %183, align 1, !tbaa !87
-  %185 = zext i8 %184 to i32
-  %186 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.33, ptr noundef null, i32 noundef %185, i32 noundef 0, i32 noundef 2)
-  %187 = icmp sgt i32 %186, -1
-  br i1 %187, label %188, label %cbs_h264_write_sps.exit.thread
+183:                                              ; preds = %.loopexit484.i
+  %184 = getelementptr inbounds nuw i8, ptr %14, i64 801
+  %185 = load i8, ptr %184, align 1, !tbaa !87
+  %186 = zext i8 %185 to i32
+  %187 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.33, ptr noundef null, i32 noundef %186, i32 noundef 0, i32 noundef 2)
+  %188 = icmp sgt i32 %187, -1
+  br i1 %188, label %189, label %cbs_h264_write_sps.exit.thread
 
-188:                                              ; preds = %182
-  %189 = load i8, ptr %183, align 1, !tbaa !87
-  switch i8 %189, label %.loopexit.i [
-    i8 0, label %190
-    i8 1, label %196
+189:                                              ; preds = %183
+  %190 = load i8, ptr %184, align 1, !tbaa !87
+  switch i8 %190, label %.loopexit.i [
+    i8 0, label %191
+    i8 1, label %197
   ]
 
-190:                                              ; preds = %188
-  %191 = getelementptr inbounds nuw i8, ptr %14, i64 802
-  %192 = load i8, ptr %191, align 2, !tbaa !88
-  %193 = zext i8 %192 to i32
-  %194 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.34, ptr noundef null, i32 noundef %193, i32 noundef 0, i32 noundef 12)
-  %195 = icmp sgt i32 %194, -1
-  br i1 %195, label %.loopexit.i, label %cbs_h264_write_sps.exit.thread
+191:                                              ; preds = %189
+  %192 = getelementptr inbounds nuw i8, ptr %14, i64 802
+  %193 = load i8, ptr %192, align 2, !tbaa !88
+  %194 = zext i8 %193 to i32
+  %195 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.34, ptr noundef null, i32 noundef %194, i32 noundef 0, i32 noundef 12)
+  %196 = icmp sgt i32 %195, -1
+  br i1 %196, label %.loopexit.i, label %cbs_h264_write_sps.exit.thread
 
-196:                                              ; preds = %188
-  %197 = getelementptr inbounds nuw i8, ptr %14, i64 803
-  %198 = load i8, ptr %197, align 1, !tbaa !89
-  %199 = zext i8 %198 to i32
-  %200 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.35, i32 noundef %199) #11
-  %201 = icmp sgt i32 %200, -1
-  br i1 %201, label %202, label %cbs_h264_write_sps.exit.thread
+197:                                              ; preds = %189
+  %198 = getelementptr inbounds nuw i8, ptr %14, i64 803
+  %199 = load i8, ptr %198, align 1, !tbaa !89
+  %200 = zext i8 %199 to i32
+  %201 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.35, i32 noundef %200) #11
+  %202 = icmp sgt i32 %201, -1
+  br i1 %202, label %203, label %cbs_h264_write_sps.exit.thread
 
-202:                                              ; preds = %196
-  %203 = getelementptr inbounds nuw i8, ptr %14, i64 804
-  %204 = load i32, ptr %203, align 4, !tbaa !90
-  %205 = call fastcc i32 @cbs_write_se_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.36, ptr noundef null, i32 noundef %204, i32 noundef -2147483647, i32 noundef 2147483647)
-  %206 = icmp sgt i32 %205, -1
-  br i1 %206, label %207, label %cbs_h264_write_sps.exit.thread
+203:                                              ; preds = %197
+  %204 = getelementptr inbounds nuw i8, ptr %14, i64 804
+  %205 = load i32, ptr %204, align 4, !tbaa !90
+  %206 = call fastcc i32 @cbs_write_se_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.36, ptr noundef null, i32 noundef %205, i32 noundef -2147483647, i32 noundef 2147483647)
+  %207 = icmp sgt i32 %206, -1
+  br i1 %207, label %208, label %cbs_h264_write_sps.exit.thread
 
-207:                                              ; preds = %202
-  %208 = getelementptr inbounds nuw i8, ptr %14, i64 808
-  %209 = load i32, ptr %208, align 4, !tbaa !91
-  %210 = call fastcc i32 @cbs_write_se_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.37, ptr noundef null, i32 noundef %209, i32 noundef -2147483647, i32 noundef 2147483647)
-  %211 = icmp sgt i32 %210, -1
-  br i1 %211, label %212, label %cbs_h264_write_sps.exit.thread
+208:                                              ; preds = %203
+  %209 = getelementptr inbounds nuw i8, ptr %14, i64 808
+  %210 = load i32, ptr %209, align 4, !tbaa !91
+  %211 = call fastcc i32 @cbs_write_se_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.37, ptr noundef null, i32 noundef %210, i32 noundef -2147483647, i32 noundef 2147483647)
+  %212 = icmp sgt i32 %211, -1
+  br i1 %212, label %213, label %cbs_h264_write_sps.exit.thread
 
-212:                                              ; preds = %207
-  %213 = getelementptr inbounds nuw i8, ptr %14, i64 812
-  %214 = load i8, ptr %213, align 4, !tbaa !92
-  %215 = zext i8 %214 to i32
-  %216 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.38, ptr noundef null, i32 noundef %215, i32 noundef 0, i32 noundef 255)
-  %217 = icmp sgt i32 %216, -1
-  br i1 %217, label %.preheader.i, label %cbs_h264_write_sps.exit.thread
+213:                                              ; preds = %208
+  %214 = getelementptr inbounds nuw i8, ptr %14, i64 812
+  %215 = load i8, ptr %214, align 4, !tbaa !92
+  %216 = zext i8 %215 to i32
+  %217 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.38, ptr noundef null, i32 noundef %216, i32 noundef 0, i32 noundef 255)
+  %218 = icmp sgt i32 %217, -1
+  br i1 %218, label %.preheader.i, label %cbs_h264_write_sps.exit.thread
 
-.preheader.i:                                     ; preds = %212
-  %218 = load i8, ptr %213, align 4, !tbaa !92
-  %.not489.i = icmp eq i8 %218, 0
+.preheader.i:                                     ; preds = %213
+  %219 = load i8, ptr %214, align 4, !tbaa !92
+  %.not489.i = icmp eq i8 %219, 0
   br i1 %.not489.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %219 = getelementptr inbounds nuw i8, ptr %14, i64 816
-  %220 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  br label %225
+  %220 = getelementptr inbounds nuw i8, ptr %14, i64 816
+  %221 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  br label %226
 
-221:                                              ; preds = %225
+222:                                              ; preds = %226
   %indvars.iv.next494.i = add nuw nsw i64 %indvars.iv493.i, 1
-  %222 = load i8, ptr %213, align 4, !tbaa !92
-  %223 = zext i8 %222 to i64
-  %224 = icmp samesign ult i64 %indvars.iv.next494.i, %223
-  br i1 %224, label %225, label %.loopexit.i, !llvm.loop !199
+  %223 = load i8, ptr %214, align 4, !tbaa !92
+  %224 = zext i8 %223 to i64
+  %225 = icmp samesign ult i64 %indvars.iv.next494.i, %224
+  br i1 %225, label %226, label %.loopexit.i, !llvm.loop !199
 
-225:                                              ; preds = %221, %.lr.ph.i
-  %indvars.iv493.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next494.i, %221 ]
-  %226 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv493.i
-  %227 = load i32, ptr %226, align 4, !tbaa !63
+226:                                              ; preds = %222, %.lr.ph.i
+  %indvars.iv493.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next494.i, %222 ]
+  %227 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv493.i
+  %228 = load i32, ptr %227, align 4, !tbaa !63
   store i32 1, ptr %10, align 4, !tbaa !63
-  %228 = trunc nuw nsw i64 %indvars.iv493.i to i32
-  store i32 %228, ptr %220, align 4, !tbaa !63
-  %229 = call fastcc i32 @cbs_write_se_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef nonnull %10, i32 noundef %227, i32 noundef -2147483647, i32 noundef 2147483647)
-  %230 = icmp sgt i32 %229, -1
-  br i1 %230, label %221, label %cbs_h264_write_sps.exit.thread
+  %229 = trunc nuw nsw i64 %indvars.iv493.i to i32
+  store i32 %229, ptr %221, align 4, !tbaa !63
+  %230 = call fastcc i32 @cbs_write_se_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef nonnull %10, i32 noundef %228, i32 noundef -2147483647, i32 noundef 2147483647)
+  %231 = icmp sgt i32 %230, -1
+  br i1 %231, label %222, label %cbs_h264_write_sps.exit.thread
 
-.loopexit.i:                                      ; preds = %221, %.preheader.i, %190, %188
-  %231 = getelementptr inbounds nuw i8, ptr %14, i64 1840
-  %232 = load i8, ptr %231, align 4, !tbaa !94
-  %233 = zext i8 %232 to i32
-  %234 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.40, ptr noundef null, i32 noundef %233, i32 noundef 0, i32 noundef 16)
-  %235 = icmp sgt i32 %234, -1
-  br i1 %235, label %236, label %cbs_h264_write_sps.exit.thread
+.loopexit.i:                                      ; preds = %222, %.preheader.i, %191, %189
+  %232 = getelementptr inbounds nuw i8, ptr %14, i64 1840
+  %233 = load i8, ptr %232, align 4, !tbaa !94
+  %234 = zext i8 %233 to i32
+  %235 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.40, ptr noundef null, i32 noundef %234, i32 noundef 0, i32 noundef 16)
+  %236 = icmp sgt i32 %235, -1
+  br i1 %236, label %237, label %cbs_h264_write_sps.exit.thread
 
-236:                                              ; preds = %.loopexit.i
-  %237 = getelementptr inbounds nuw i8, ptr %14, i64 1841
-  %238 = load i8, ptr %237, align 1, !tbaa !95
-  %239 = zext i8 %238 to i32
-  %240 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.41, i32 noundef %239) #11
-  %241 = icmp sgt i32 %240, -1
-  br i1 %241, label %242, label %cbs_h264_write_sps.exit.thread
+237:                                              ; preds = %.loopexit.i
+  %238 = getelementptr inbounds nuw i8, ptr %14, i64 1841
+  %239 = load i8, ptr %238, align 1, !tbaa !95
+  %240 = zext i8 %239 to i32
+  %241 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.41, i32 noundef %240) #11
+  %242 = icmp sgt i32 %241, -1
+  br i1 %242, label %243, label %cbs_h264_write_sps.exit.thread
 
-242:                                              ; preds = %236
-  %243 = getelementptr inbounds nuw i8, ptr %14, i64 1842
-  %244 = load i16, ptr %243, align 2, !tbaa !96
-  %245 = zext i16 %244 to i32
-  %246 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.42, ptr noundef null, i32 noundef %245, i32 noundef 0, i32 noundef 1055)
-  %247 = icmp sgt i32 %246, -1
-  br i1 %247, label %248, label %cbs_h264_write_sps.exit.thread
+243:                                              ; preds = %237
+  %244 = getelementptr inbounds nuw i8, ptr %14, i64 1842
+  %245 = load i16, ptr %244, align 2, !tbaa !96
+  %246 = zext i16 %245 to i32
+  %247 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.42, ptr noundef null, i32 noundef %246, i32 noundef 0, i32 noundef 1055)
+  %248 = icmp sgt i32 %247, -1
+  br i1 %248, label %249, label %cbs_h264_write_sps.exit.thread
 
-248:                                              ; preds = %242
-  %249 = getelementptr inbounds nuw i8, ptr %14, i64 1844
-  %250 = load i16, ptr %249, align 4, !tbaa !97
-  %251 = zext i16 %250 to i32
-  %252 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.43, ptr noundef null, i32 noundef %251, i32 noundef 0, i32 noundef 1055)
-  %253 = icmp sgt i32 %252, -1
-  br i1 %253, label %254, label %cbs_h264_write_sps.exit.thread
+249:                                              ; preds = %243
+  %250 = getelementptr inbounds nuw i8, ptr %14, i64 1844
+  %251 = load i16, ptr %250, align 4, !tbaa !97
+  %252 = zext i16 %251 to i32
+  %253 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.43, ptr noundef null, i32 noundef %252, i32 noundef 0, i32 noundef 1055)
+  %254 = icmp sgt i32 %253, -1
+  br i1 %254, label %255, label %cbs_h264_write_sps.exit.thread
 
-254:                                              ; preds = %248
-  %255 = getelementptr inbounds nuw i8, ptr %14, i64 1846
-  %256 = load i8, ptr %255, align 2, !tbaa !98
-  %257 = zext i8 %256 to i32
-  %258 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.44, i32 noundef %257) #11
-  %259 = icmp sgt i32 %258, -1
-  br i1 %259, label %260, label %cbs_h264_write_sps.exit.thread
+255:                                              ; preds = %249
+  %256 = getelementptr inbounds nuw i8, ptr %14, i64 1846
+  %257 = load i8, ptr %256, align 2, !tbaa !98
+  %258 = zext i8 %257 to i32
+  %259 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.44, i32 noundef %258) #11
+  %260 = icmp sgt i32 %259, -1
+  br i1 %260, label %261, label %cbs_h264_write_sps.exit.thread
 
-260:                                              ; preds = %254
-  %261 = load i8, ptr %255, align 2, !tbaa !98
-  %.not476.i = icmp eq i8 %261, 0
-  br i1 %.not476.i, label %262, label %268
+261:                                              ; preds = %255
+  %262 = load i8, ptr %256, align 2, !tbaa !98
+  %.not476.i = icmp eq i8 %262, 0
+  br i1 %.not476.i, label %263, label %269
 
-262:                                              ; preds = %260
-  %263 = getelementptr inbounds nuw i8, ptr %14, i64 1847
-  %264 = load i8, ptr %263, align 1, !tbaa !99
-  %265 = zext i8 %264 to i32
-  %266 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.45, i32 noundef %265) #11
-  %267 = icmp sgt i32 %266, -1
-  br i1 %267, label %268, label %cbs_h264_write_sps.exit.thread
+263:                                              ; preds = %261
+  %264 = getelementptr inbounds nuw i8, ptr %14, i64 1847
+  %265 = load i8, ptr %264, align 1, !tbaa !99
+  %266 = zext i8 %265 to i32
+  %267 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.45, i32 noundef %266) #11
+  %268 = icmp sgt i32 %267, -1
+  br i1 %268, label %269, label %cbs_h264_write_sps.exit.thread
 
-268:                                              ; preds = %262, %260
-  %269 = getelementptr inbounds nuw i8, ptr %14, i64 1848
-  %270 = load i8, ptr %269, align 4, !tbaa !100
-  %271 = zext i8 %270 to i32
-  %272 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.46, i32 noundef %271) #11
-  %273 = icmp sgt i32 %272, -1
-  br i1 %273, label %274, label %cbs_h264_write_sps.exit.thread
+269:                                              ; preds = %263, %261
+  %270 = getelementptr inbounds nuw i8, ptr %14, i64 1848
+  %271 = load i8, ptr %270, align 4, !tbaa !100
+  %272 = zext i8 %271 to i32
+  %273 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.46, i32 noundef %272) #11
+  %274 = icmp sgt i32 %273, -1
+  br i1 %274, label %275, label %cbs_h264_write_sps.exit.thread
 
-274:                                              ; preds = %268
-  %275 = getelementptr inbounds nuw i8, ptr %14, i64 1849
-  %276 = load i8, ptr %275, align 1, !tbaa !101
-  %277 = zext i8 %276 to i32
-  %278 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.47, i32 noundef %277) #11
-  %279 = icmp sgt i32 %278, -1
-  br i1 %279, label %280, label %cbs_h264_write_sps.exit.thread
+275:                                              ; preds = %269
+  %276 = getelementptr inbounds nuw i8, ptr %14, i64 1849
+  %277 = load i8, ptr %276, align 1, !tbaa !101
+  %278 = zext i8 %277 to i32
+  %279 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.47, i32 noundef %278) #11
+  %280 = icmp sgt i32 %279, -1
+  br i1 %280, label %281, label %cbs_h264_write_sps.exit.thread
 
-280:                                              ; preds = %274
-  %281 = load i8, ptr %275, align 1, !tbaa !101
-  %.not477.i = icmp eq i8 %281, 0
-  br i1 %.not477.i, label %306, label %282
+281:                                              ; preds = %275
+  %282 = load i8, ptr %276, align 1, !tbaa !101
+  %.not477.i = icmp eq i8 %282, 0
+  br i1 %.not477.i, label %307, label %283
 
-282:                                              ; preds = %280
-  %283 = getelementptr inbounds nuw i8, ptr %14, i64 1850
-  %284 = load i16, ptr %283, align 2, !tbaa !102
-  %285 = zext i16 %284 to i32
-  %286 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.48, ptr noundef null, i32 noundef %285, i32 noundef 0, i32 noundef 16880)
-  %287 = icmp sgt i32 %286, -1
-  br i1 %287, label %288, label %cbs_h264_write_sps.exit.thread
+283:                                              ; preds = %281
+  %284 = getelementptr inbounds nuw i8, ptr %14, i64 1850
+  %285 = load i16, ptr %284, align 2, !tbaa !102
+  %286 = zext i16 %285 to i32
+  %287 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.48, ptr noundef null, i32 noundef %286, i32 noundef 0, i32 noundef 16880)
+  %288 = icmp sgt i32 %287, -1
+  br i1 %288, label %289, label %cbs_h264_write_sps.exit.thread
 
-288:                                              ; preds = %282
-  %289 = getelementptr inbounds nuw i8, ptr %14, i64 1852
-  %290 = load i16, ptr %289, align 4, !tbaa !103
-  %291 = zext i16 %290 to i32
-  %292 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.49, ptr noundef null, i32 noundef %291, i32 noundef 0, i32 noundef 16880)
-  %293 = icmp sgt i32 %292, -1
-  br i1 %293, label %294, label %cbs_h264_write_sps.exit.thread
+289:                                              ; preds = %283
+  %290 = getelementptr inbounds nuw i8, ptr %14, i64 1852
+  %291 = load i16, ptr %290, align 4, !tbaa !103
+  %292 = zext i16 %291 to i32
+  %293 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.49, ptr noundef null, i32 noundef %292, i32 noundef 0, i32 noundef 16880)
+  %294 = icmp sgt i32 %293, -1
+  br i1 %294, label %295, label %cbs_h264_write_sps.exit.thread
 
-294:                                              ; preds = %288
-  %295 = getelementptr inbounds nuw i8, ptr %14, i64 1854
-  %296 = load i16, ptr %295, align 2, !tbaa !104
-  %297 = zext i16 %296 to i32
-  %298 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.50, ptr noundef null, i32 noundef %297, i32 noundef 0, i32 noundef 16880)
-  %299 = icmp sgt i32 %298, -1
-  br i1 %299, label %300, label %cbs_h264_write_sps.exit.thread
+295:                                              ; preds = %289
+  %296 = getelementptr inbounds nuw i8, ptr %14, i64 1854
+  %297 = load i16, ptr %296, align 2, !tbaa !104
+  %298 = zext i16 %297 to i32
+  %299 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.50, ptr noundef null, i32 noundef %298, i32 noundef 0, i32 noundef 16880)
+  %300 = icmp sgt i32 %299, -1
+  br i1 %300, label %301, label %cbs_h264_write_sps.exit.thread
 
-300:                                              ; preds = %294
-  %301 = getelementptr inbounds nuw i8, ptr %14, i64 1856
-  %302 = load i16, ptr %301, align 4, !tbaa !105
-  %303 = zext i16 %302 to i32
-  %304 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.51, ptr noundef null, i32 noundef %303, i32 noundef 0, i32 noundef 16880)
-  %305 = icmp sgt i32 %304, -1
-  br i1 %305, label %306, label %cbs_h264_write_sps.exit.thread
+301:                                              ; preds = %295
+  %302 = getelementptr inbounds nuw i8, ptr %14, i64 1856
+  %303 = load i16, ptr %302, align 4, !tbaa !105
+  %304 = zext i16 %303 to i32
+  %305 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.51, ptr noundef null, i32 noundef %304, i32 noundef 0, i32 noundef 16880)
+  %306 = icmp sgt i32 %305, -1
+  br i1 %306, label %307, label %cbs_h264_write_sps.exit.thread
 
-306:                                              ; preds = %300, %280
-  %307 = getelementptr inbounds nuw i8, ptr %14, i64 1858
-  %308 = load i8, ptr %307, align 2, !tbaa !106
-  %309 = zext i8 %308 to i32
-  %310 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.52, i32 noundef %309) #11
-  %311 = icmp sgt i32 %310, -1
-  br i1 %311, label %312, label %cbs_h264_write_sps.exit.thread
+307:                                              ; preds = %301, %281
+  %308 = getelementptr inbounds nuw i8, ptr %14, i64 1858
+  %309 = load i8, ptr %308, align 2, !tbaa !106
+  %310 = zext i8 %309 to i32
+  %311 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.52, i32 noundef %310) #11
+  %312 = icmp sgt i32 %311, -1
+  br i1 %312, label %313, label %cbs_h264_write_sps.exit.thread
 
-312:                                              ; preds = %306
-  %313 = load i8, ptr %307, align 2, !tbaa !106
-  %.not478.i = icmp eq i8 %313, 0
-  %314 = getelementptr inbounds nuw i8, ptr %14, i64 1860
-  br i1 %.not478.i, label %318, label %315
+313:                                              ; preds = %307
+  %314 = load i8, ptr %308, align 2, !tbaa !106
+  %.not478.i = icmp eq i8 %314, 0
+  %315 = getelementptr inbounds nuw i8, ptr %14, i64 1860
+  br i1 %.not478.i, label %319, label %316
 
-315:                                              ; preds = %312
-  %316 = call fastcc i32 @cbs_h264_write_vui_parameters(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %314, ptr noundef nonnull %14)
-  %317 = icmp slt i32 %316, 0
-  br i1 %317, label %cbs_h264_write_sps.exit.thread, label %cbs_h264_write_sps.exit
+316:                                              ; preds = %313
+  %317 = call fastcc i32 @cbs_h264_write_vui_parameters(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %315, ptr noundef nonnull %14)
+  %318 = icmp slt i32 %317, 0
+  br i1 %318, label %cbs_h264_write_sps.exit.thread, label %cbs_h264_write_sps.exit
 
-318:                                              ; preds = %312
-  %319 = call fastcc i32 @cbs_h264_write_vui_parameters_default(ptr noundef %0, ptr noundef nonnull %314, ptr noundef nonnull %14)
-  %320 = icmp slt i32 %319, 0
-  br i1 %320, label %cbs_h264_write_sps.exit.thread, label %cbs_h264_write_sps.exit
+319:                                              ; preds = %313
+  %320 = call fastcc i32 @cbs_h264_write_vui_parameters_default(ptr noundef %0, ptr noundef nonnull %315, ptr noundef nonnull %14)
+  %321 = icmp slt i32 %320, 0
+  br i1 %321, label %cbs_h264_write_sps.exit.thread, label %cbs_h264_write_sps.exit
 
-cbs_h264_write_sps.exit.thread:                   ; preds = %142, %138, %127, %225, %306, %300, %294, %288, %282, %274, %268, %262, %254, %248, %242, %236, %.loopexit.i, %190, %212, %207, %202, %196, %182, %.loopexit484.i, %116, %110, %104, %98, %90, %95, %79, %155, %162, %168, %174, %71, %65, %59, %53, %47, %41, %35, %29, %23, %17, %12, %315, %318
-  %.0.i.ph = phi i32 [ %319, %318 ], [ %316, %315 ], [ %15, %12 ], [ %21, %17 ], [ %27, %23 ], [ %33, %29 ], [ %39, %35 ], [ %45, %41 ], [ %51, %47 ], [ %57, %53 ], [ %63, %59 ], [ %69, %65 ], [ %75, %71 ], [ -1094995529, %174 ], [ -1094995529, %168 ], [ -1094995529, %162 ], [ -1094995529, %155 ], [ %83, %79 ], [ -1094995529, %95 ], [ %92, %90 ], [ %102, %98 ], [ %108, %104 ], [ %114, %110 ], [ %120, %116 ], [ %180, %.loopexit484.i ], [ %186, %182 ], [ %200, %196 ], [ %205, %202 ], [ %210, %207 ], [ %216, %212 ], [ %194, %190 ], [ %234, %.loopexit.i ], [ %240, %236 ], [ %246, %242 ], [ %252, %248 ], [ %258, %254 ], [ %266, %262 ], [ %272, %268 ], [ %278, %274 ], [ %286, %282 ], [ %292, %288 ], [ %298, %294 ], [ %304, %300 ], [ %310, %306 ], [ %229, %225 ], [ %144, %142 ], [ %140, %138 ], [ %132, %127 ]
+cbs_h264_write_sps.exit.thread:                   ; preds = %142, %138, %127, %226, %307, %301, %295, %289, %283, %275, %269, %263, %255, %249, %243, %237, %.loopexit.i, %191, %213, %208, %203, %197, %183, %.loopexit484.i, %116, %110, %104, %98, %90, %95, %79, %156, %163, %169, %175, %71, %65, %59, %53, %47, %41, %35, %29, %23, %17, %12, %316, %319
+  %.0.i.ph = phi i32 [ %320, %319 ], [ %317, %316 ], [ %15, %12 ], [ %21, %17 ], [ %27, %23 ], [ %33, %29 ], [ %39, %35 ], [ %45, %41 ], [ %51, %47 ], [ %57, %53 ], [ %63, %59 ], [ %69, %65 ], [ %75, %71 ], [ -1094995529, %175 ], [ -1094995529, %169 ], [ -1094995529, %163 ], [ -1094995529, %156 ], [ %83, %79 ], [ -1094995529, %95 ], [ %92, %90 ], [ %102, %98 ], [ %108, %104 ], [ %114, %110 ], [ %120, %116 ], [ %181, %.loopexit484.i ], [ %187, %183 ], [ %201, %197 ], [ %206, %203 ], [ %211, %208 ], [ %217, %213 ], [ %195, %191 ], [ %235, %.loopexit.i ], [ %241, %237 ], [ %247, %243 ], [ %253, %249 ], [ %259, %255 ], [ %267, %263 ], [ %273, %269 ], [ %279, %275 ], [ %287, %283 ], [ %293, %289 ], [ %299, %295 ], [ %305, %301 ], [ %311, %307 ], [ %230, %226 ], [ %145, %142 ], [ %140, %138 ], [ %132, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
-cbs_h264_write_sps.exit:                          ; preds = %315, %318
-  %321 = call fastcc i32 @cbs_h264_write_rbsp_trailing_bits(ptr noundef %0, ptr noundef %2)
+cbs_h264_write_sps.exit:                          ; preds = %316, %319
+  %322 = call fastcc i32 @cbs_h264_write_rbsp_trailing_bits(ptr noundef %0, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %322 = icmp slt i32 %321, 0
-  br i1 %322, label %.thread, label %323
+  %323 = icmp slt i32 %322, 0
+  br i1 %323, label %.thread, label %324
 
-323:                                              ; preds = %cbs_h264_write_sps.exit
-  %324 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %325 = load ptr, ptr %324, align 8, !tbaa !18
-  %326 = load ptr, ptr %13, align 8, !tbaa !62
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 13
-  %328 = load i8, ptr %327, align 1, !tbaa !78
-  %329 = call i32 @ff_cbs_make_unit_refcounted(ptr noundef %0, ptr noundef nonnull %1) #11
-  %330 = icmp slt i32 %329, 0
-  br i1 %330, label %.thread, label %331
+324:                                              ; preds = %cbs_h264_write_sps.exit
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %326 = load ptr, ptr %325, align 8, !tbaa !18
+  %327 = load ptr, ptr %13, align 8, !tbaa !62
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 13
+  %329 = load i8, ptr %328, align 1, !tbaa !78
+  %330 = call i32 @ff_cbs_make_unit_refcounted(ptr noundef %0, ptr noundef nonnull %1) #11
+  %331 = icmp slt i32 %330, 0
+  br i1 %331, label %.thread, label %332
 
-331:                                              ; preds = %323
-  %332 = getelementptr inbounds nuw i8, ptr %325, i64 56
-  %333 = zext i8 %328 to i64
-  %334 = getelementptr inbounds nuw ptr, ptr %332, i64 %333
-  %335 = load ptr, ptr %334, align 8, !tbaa !107
-  %336 = getelementptr inbounds nuw i8, ptr %325, i64 2360
-  %337 = load ptr, ptr %336, align 8, !tbaa !109
-  %338 = icmp eq ptr %335, %337
-  br i1 %338, label %339, label %340
+332:                                              ; preds = %324
+  %333 = getelementptr inbounds nuw i8, ptr %326, i64 56
+  %334 = zext i8 %329 to i64
+  %335 = getelementptr inbounds nuw ptr, ptr %333, i64 %334
+  %336 = load ptr, ptr %335, align 8, !tbaa !107
+  %337 = getelementptr inbounds nuw i8, ptr %326, i64 2360
+  %338 = load ptr, ptr %337, align 8, !tbaa !109
+  %339 = icmp eq ptr %336, %338
+  br i1 %339, label %340, label %341
 
-339:                                              ; preds = %331
-  store ptr null, ptr %336, align 8, !tbaa !109
-  br label %340
+340:                                              ; preds = %332
+  store ptr null, ptr %337, align 8, !tbaa !109
+  br label %341
 
-340:                                              ; preds = %339, %331
-  %341 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %342 = load ptr, ptr %341, align 8, !tbaa !112
-  %.not.i94 = icmp eq ptr %342, null
-  br i1 %.not.i94, label %343, label %344
+341:                                              ; preds = %340, %332
+  %342 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %343 = load ptr, ptr %342, align 8, !tbaa !112
+  %.not.i94 = icmp eq ptr %343, null
+  br i1 %.not.i94, label %344, label %345
 
-343:                                              ; preds = %340
+344:                                              ; preds = %341
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.3, i32 noundef 776) #11
   call void @abort() #12
   unreachable
 
-344:                                              ; preds = %340
-  call void @av_refstruct_replace(ptr noundef nonnull %334, ptr noundef nonnull %342) #11
+345:                                              ; preds = %341
+  call void @av_refstruct_replace(ptr noundef nonnull %335, ptr noundef nonnull %343) #11
   br label %cbs_h264_write_sps_extension.exit
 
-345:                                              ; preds = %3
-  %346 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %347 = load ptr, ptr %346, align 8, !tbaa !62
+346:                                              ; preds = %3
+  %347 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %348 = load ptr, ptr %347, align 8, !tbaa !62
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.115) #11
-  %348 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %347, i32 noundef 8192)
-  %349 = icmp slt i32 %348, 0
-  br i1 %349, label %.thread, label %350
+  %349 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %348, i32 noundef 8192)
+  %350 = icmp slt i32 %349, 0
+  br i1 %350, label %.thread, label %351
 
-350:                                              ; preds = %345
-  %351 = getelementptr inbounds nuw i8, ptr %347, i64 4
-  %352 = load i8, ptr %351, align 2, !tbaa !113
-  %353 = zext i8 %352 to i32
-  %354 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.24, ptr noundef null, i32 noundef %353, i32 noundef 0, i32 noundef 31)
-  %355 = icmp sgt i32 %354, -1
-  br i1 %355, label %356, label %.thread
+351:                                              ; preds = %346
+  %352 = getelementptr inbounds nuw i8, ptr %348, i64 4
+  %353 = load i8, ptr %352, align 2, !tbaa !113
+  %354 = zext i8 %353 to i32
+  %355 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.24, ptr noundef null, i32 noundef %354, i32 noundef 0, i32 noundef 31)
+  %356 = icmp sgt i32 %355, -1
+  br i1 %356, label %357, label %.thread
 
-356:                                              ; preds = %350
-  %357 = getelementptr inbounds nuw i8, ptr %347, i64 5
-  %358 = load i8, ptr %357, align 1, !tbaa !115
-  %359 = zext i8 %358 to i32
-  %360 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.116, ptr noundef null, i32 noundef %359, i32 noundef 0, i32 noundef 3)
-  %361 = icmp sgt i32 %360, -1
-  br i1 %361, label %362, label %.thread
+357:                                              ; preds = %351
+  %358 = getelementptr inbounds nuw i8, ptr %348, i64 5
+  %359 = load i8, ptr %358, align 1, !tbaa !115
+  %360 = zext i8 %359 to i32
+  %361 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.116, ptr noundef null, i32 noundef %360, i32 noundef 0, i32 noundef 3)
+  %362 = icmp sgt i32 %361, -1
+  br i1 %362, label %363, label %.thread
 
-362:                                              ; preds = %356
-  %363 = load i8, ptr %357, align 1, !tbaa !115
-  %.not.i97 = icmp eq i8 %363, 0
-  br i1 %.not.i97, label %391, label %364
+363:                                              ; preds = %357
+  %364 = load i8, ptr %358, align 1, !tbaa !115
+  %.not.i97 = icmp eq i8 %364, 0
+  br i1 %.not.i97, label %392, label %365
 
-364:                                              ; preds = %362
-  %365 = getelementptr inbounds nuw i8, ptr %347, i64 6
-  %366 = load i8, ptr %365, align 2, !tbaa !116
-  %367 = zext i8 %366 to i32
-  %368 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.117, ptr noundef null, i32 noundef %367, i32 noundef 0, i32 noundef 4)
-  %369 = icmp sgt i32 %368, -1
-  br i1 %369, label %370, label %.thread
+365:                                              ; preds = %363
+  %366 = getelementptr inbounds nuw i8, ptr %348, i64 6
+  %367 = load i8, ptr %366, align 2, !tbaa !116
+  %368 = zext i8 %367 to i32
+  %369 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str.117, ptr noundef null, i32 noundef %368, i32 noundef 0, i32 noundef 4)
+  %370 = icmp sgt i32 %369, -1
+  br i1 %370, label %371, label %.thread
 
-370:                                              ; preds = %364
-  %371 = getelementptr inbounds nuw i8, ptr %347, i64 7
-  %372 = load i8, ptr %371, align 1, !tbaa !117
-  %373 = zext i8 %372 to i32
-  %374 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.118, i32 noundef %373) #11
-  %375 = icmp sgt i32 %374, -1
-  br i1 %375, label %376, label %.thread
+371:                                              ; preds = %365
+  %372 = getelementptr inbounds nuw i8, ptr %348, i64 7
+  %373 = load i8, ptr %372, align 1, !tbaa !117
+  %374 = zext i8 %373 to i32
+  %375 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.118, i32 noundef %374) #11
+  %376 = icmp sgt i32 %375, -1
+  br i1 %376, label %377, label %.thread
 
-376:                                              ; preds = %370
-  %377 = load i8, ptr %365, align 2, !tbaa !116
-  %378 = zext i8 %377 to i32
-  %379 = add nuw nsw i32 %378, 9
-  %380 = getelementptr inbounds nuw i8, ptr %347, i64 8
-  %381 = load i16, ptr %380, align 2, !tbaa !118
-  %382 = zext i16 %381 to i32
-  %383 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef %379, ptr noundef nonnull @.str.119, i32 noundef %382) #11
-  %384 = icmp sgt i32 %383, -1
-  br i1 %384, label %385, label %.thread
+377:                                              ; preds = %371
+  %378 = load i8, ptr %366, align 2, !tbaa !116
+  %379 = zext i8 %378 to i32
+  %380 = add nuw nsw i32 %379, 9
+  %381 = getelementptr inbounds nuw i8, ptr %348, i64 8
+  %382 = load i16, ptr %381, align 2, !tbaa !118
+  %383 = zext i16 %382 to i32
+  %384 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef %380, ptr noundef nonnull @.str.119, i32 noundef %383) #11
+  %385 = icmp sgt i32 %384, -1
+  br i1 %385, label %386, label %.thread
 
-385:                                              ; preds = %376
-  %386 = getelementptr inbounds nuw i8, ptr %347, i64 10
-  %387 = load i16, ptr %386, align 2, !tbaa !119
-  %388 = zext i16 %387 to i32
-  %389 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef %379, ptr noundef nonnull @.str.120, i32 noundef %388) #11
-  %390 = icmp sgt i32 %389, -1
-  br i1 %390, label %391, label %.thread
+386:                                              ; preds = %377
+  %387 = getelementptr inbounds nuw i8, ptr %348, i64 10
+  %388 = load i16, ptr %387, align 2, !tbaa !119
+  %389 = zext i16 %388 to i32
+  %390 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef %380, ptr noundef nonnull @.str.120, i32 noundef %389) #11
+  %391 = icmp sgt i32 %390, -1
+  br i1 %391, label %392, label %.thread
 
-391:                                              ; preds = %385, %362
-  %392 = getelementptr inbounds nuw i8, ptr %347, i64 12
-  %393 = load i8, ptr %392, align 2, !tbaa !120
-  %394 = zext i8 %393 to i32
-  %395 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.121, i32 noundef %394) #11
-  %396 = icmp sgt i32 %395, -1
-  br i1 %396, label %397, label %.thread
+392:                                              ; preds = %386, %363
+  %393 = getelementptr inbounds nuw i8, ptr %348, i64 12
+  %394 = load i8, ptr %393, align 2, !tbaa !120
+  %395 = zext i8 %394 to i32
+  %396 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.121, i32 noundef %395) #11
+  %397 = icmp sgt i32 %396, -1
+  br i1 %397, label %398, label %.thread
 
-397:                                              ; preds = %391
-  %398 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
-  %399 = icmp sgt i32 %398, -1
-  br i1 %399, label %.preheader.i.i, label %.thread
+398:                                              ; preds = %392
+  %399 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
+  %400 = icmp sgt i32 %399, -1
+  br i1 %400, label %.preheader.i.i, label %.thread
 
-.preheader.i.i:                                   ; preds = %397
-  %400 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  br label %401
+.preheader.i.i:                                   ; preds = %398
+  %401 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  br label %402
 
-401:                                              ; preds = %404, %.preheader.i.i
-  %402 = load i32, ptr %400, align 4, !tbaa !200
-  %reass.sub.i.i.i = sub i32 0, %402
-  %403 = and i32 %reass.sub.i.i.i, 7
-  %.not.i.i = icmp eq i32 %403, 0
-  br i1 %.not.i.i, label %cbs_h264_write_sps_extension.exit, label %404
+402:                                              ; preds = %405, %.preheader.i.i
+  %403 = load i32, ptr %401, align 4, !tbaa !200
+  %reass.sub.i.i.i = sub i32 0, %403
+  %404 = and i32 %reass.sub.i.i.i, 7
+  %.not.i.i = icmp eq i32 %404, 0
+  br i1 %.not.i.i, label %cbs_h264_write_sps_extension.exit, label %405
 
-404:                                              ; preds = %401
-  %405 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
-  %406 = icmp sgt i32 %405, -1
-  br i1 %406, label %401, label %.thread, !llvm.loop !202
+405:                                              ; preds = %402
+  %406 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  %407 = icmp sgt i32 %406, -1
+  br i1 %407, label %402, label %.thread, !llvm.loop !202
 
-407:                                              ; preds = %3
-  %408 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %409 = load ptr, ptr %408, align 8, !tbaa !62
+408:                                              ; preds = %3
+  %409 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %410 = load ptr, ptr %409, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %410 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %411 = load ptr, ptr %410, align 8, !tbaa !18
+  %411 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %412 = load ptr, ptr %411, align 8, !tbaa !18
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.122) #11
-  %412 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %409, i32 noundef 256)
-  %413 = icmp slt i32 %412, 0
-  br i1 %413, label %cbs_h264_write_pps.exit.thread, label %414
+  %413 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %410, i32 noundef 256)
+  %414 = icmp slt i32 %413, 0
+  br i1 %414, label %cbs_h264_write_pps.exit.thread, label %415
 
-414:                                              ; preds = %407
-  %415 = getelementptr inbounds nuw i8, ptr %409, i64 4
-  %416 = load i8, ptr %415, align 4, !tbaa !122
-  %417 = zext i8 %416 to i32
-  %418 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.123, ptr noundef null, i32 noundef %417, i32 noundef 0, i32 noundef 255)
-  %419 = icmp sgt i32 %418, -1
-  br i1 %419, label %420, label %cbs_h264_write_pps.exit.thread
+415:                                              ; preds = %408
+  %416 = getelementptr inbounds nuw i8, ptr %410, i64 4
+  %417 = load i8, ptr %416, align 4, !tbaa !122
+  %418 = zext i8 %417 to i32
+  %419 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.123, ptr noundef null, i32 noundef %418, i32 noundef 0, i32 noundef 255)
+  %420 = icmp sgt i32 %419, -1
+  br i1 %420, label %421, label %cbs_h264_write_pps.exit.thread
 
-420:                                              ; preds = %414
-  %421 = getelementptr inbounds nuw i8, ptr %409, i64 5
-  %422 = load i8, ptr %421, align 1, !tbaa !124
-  %423 = zext i8 %422 to i32
-  %424 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.24, ptr noundef null, i32 noundef %423, i32 noundef 0, i32 noundef 31)
-  %425 = icmp sgt i32 %424, -1
-  br i1 %425, label %426, label %cbs_h264_write_pps.exit.thread
+421:                                              ; preds = %415
+  %422 = getelementptr inbounds nuw i8, ptr %410, i64 5
+  %423 = load i8, ptr %422, align 1, !tbaa !124
+  %424 = zext i8 %423 to i32
+  %425 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.24, ptr noundef null, i32 noundef %424, i32 noundef 0, i32 noundef 31)
+  %426 = icmp sgt i32 %425, -1
+  br i1 %426, label %427, label %cbs_h264_write_pps.exit.thread
 
-426:                                              ; preds = %420
-  %427 = getelementptr inbounds nuw i8, ptr %411, i64 56
-  %428 = load i8, ptr %421, align 1, !tbaa !124
-  %429 = zext i8 %428 to i64
-  %430 = getelementptr inbounds nuw ptr, ptr %427, i64 %429
-  %431 = load ptr, ptr %430, align 8, !tbaa !107
-  %.not.i99 = icmp eq ptr %431, null
-  br i1 %.not.i99, label %432, label %435
+427:                                              ; preds = %421
+  %428 = getelementptr inbounds nuw i8, ptr %412, i64 56
+  %429 = load i8, ptr %422, align 1, !tbaa !124
+  %430 = zext i8 %429 to i64
+  %431 = getelementptr inbounds nuw ptr, ptr %428, i64 %430
+  %432 = load ptr, ptr %431, align 8, !tbaa !107
+  %.not.i99 = icmp eq ptr %432, null
+  br i1 %.not.i99, label %433, label %436
 
-432:                                              ; preds = %426
-  %433 = load ptr, ptr %0, align 8, !tbaa !31
-  %434 = zext i8 %428 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %433, i32 noundef 16, ptr noundef nonnull @.str.124, i32 noundef %434) #11
+433:                                              ; preds = %427
+  %434 = load ptr, ptr %0, align 8, !tbaa !31
+  %435 = zext i8 %429 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %434, i32 noundef 16, ptr noundef nonnull @.str.124, i32 noundef %435) #11
   br label %cbs_h264_write_pps.exit.thread
 
-435:                                              ; preds = %426
-  %436 = getelementptr inbounds nuw i8, ptr %409, i64 6
-  %437 = load i8, ptr %436, align 2, !tbaa !125
-  %438 = zext i8 %437 to i32
-  %439 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.125, i32 noundef %438) #11
-  %440 = icmp sgt i32 %439, -1
-  br i1 %440, label %441, label %cbs_h264_write_pps.exit.thread
+436:                                              ; preds = %427
+  %437 = getelementptr inbounds nuw i8, ptr %410, i64 6
+  %438 = load i8, ptr %437, align 2, !tbaa !125
+  %439 = zext i8 %438 to i32
+  %440 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.125, i32 noundef %439) #11
+  %441 = icmp sgt i32 %440, -1
+  br i1 %441, label %442, label %cbs_h264_write_pps.exit.thread
 
-441:                                              ; preds = %435
-  %442 = getelementptr inbounds nuw i8, ptr %409, i64 7
-  %443 = load i8, ptr %442, align 1, !tbaa !126
-  %444 = zext i8 %443 to i32
-  %445 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.126, i32 noundef %444) #11
-  %446 = icmp sgt i32 %445, -1
-  br i1 %446, label %447, label %cbs_h264_write_pps.exit.thread
+442:                                              ; preds = %436
+  %443 = getelementptr inbounds nuw i8, ptr %410, i64 7
+  %444 = load i8, ptr %443, align 1, !tbaa !126
+  %445 = zext i8 %444 to i32
+  %446 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.126, i32 noundef %445) #11
+  %447 = icmp sgt i32 %446, -1
+  br i1 %447, label %448, label %cbs_h264_write_pps.exit.thread
 
-447:                                              ; preds = %441
-  %448 = getelementptr inbounds nuw i8, ptr %409, i64 8
-  %449 = load i8, ptr %448, align 8, !tbaa !127
-  %450 = zext i8 %449 to i32
-  %451 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.127, ptr noundef null, i32 noundef %450, i32 noundef 0, i32 noundef 7)
-  %452 = icmp sgt i32 %451, -1
-  br i1 %452, label %453, label %cbs_h264_write_pps.exit.thread
+448:                                              ; preds = %442
+  %449 = getelementptr inbounds nuw i8, ptr %410, i64 8
+  %450 = load i8, ptr %449, align 8, !tbaa !127
+  %451 = zext i8 %450 to i32
+  %452 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.127, ptr noundef null, i32 noundef %451, i32 noundef 0, i32 noundef 7)
+  %453 = icmp sgt i32 %452, -1
+  br i1 %453, label %454, label %cbs_h264_write_pps.exit.thread
 
-453:                                              ; preds = %447
-  %454 = load i8, ptr %448, align 8, !tbaa !127
-  %.not370.i = icmp eq i8 %454, 0
-  br i1 %.not370.i, label %.thread387.i, label %455
+454:                                              ; preds = %448
+  %455 = load i8, ptr %449, align 8, !tbaa !127
+  %.not370.i = icmp eq i8 %455, 0
+  br i1 %.not370.i, label %.thread387.i, label %456
 
-455:                                              ; preds = %453
-  %456 = getelementptr inbounds nuw i8, ptr %431, i64 1842
-  %457 = load i16, ptr %456, align 2, !tbaa !96
-  %458 = zext i16 %457 to i32
-  %459 = add nuw nsw i32 %458, 1
-  %460 = getelementptr inbounds nuw i8, ptr %431, i64 1844
-  %461 = load i16, ptr %460, align 4, !tbaa !97
-  %462 = zext i16 %461 to i32
-  %463 = add nuw nsw i32 %462, 1
-  %464 = mul nuw nsw i32 %463, %459
-  %465 = getelementptr inbounds nuw i8, ptr %409, i64 9
-  %466 = load i8, ptr %465, align 1, !tbaa !128
-  %467 = zext i8 %466 to i32
-  %468 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.128, ptr noundef null, i32 noundef %467, i32 noundef 0, i32 noundef 6)
-  %469 = icmp sgt i32 %468, -1
-  br i1 %469, label %470, label %cbs_h264_write_pps.exit.thread
+456:                                              ; preds = %454
+  %457 = getelementptr inbounds nuw i8, ptr %432, i64 1842
+  %458 = load i16, ptr %457, align 2, !tbaa !96
+  %459 = zext i16 %458 to i32
+  %460 = add nuw nsw i32 %459, 1
+  %461 = getelementptr inbounds nuw i8, ptr %432, i64 1844
+  %462 = load i16, ptr %461, align 4, !tbaa !97
+  %463 = zext i16 %462 to i32
+  %464 = add nuw nsw i32 %463, 1
+  %465 = mul nuw nsw i32 %464, %460
+  %466 = getelementptr inbounds nuw i8, ptr %410, i64 9
+  %467 = load i8, ptr %466, align 1, !tbaa !128
+  %468 = zext i8 %467 to i32
+  %469 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.128, ptr noundef null, i32 noundef %468, i32 noundef 0, i32 noundef 6)
+  %470 = icmp sgt i32 %469, -1
+  br i1 %470, label %471, label %cbs_h264_write_pps.exit.thread
 
-470:                                              ; preds = %455
-  %471 = load i8, ptr %465, align 1, !tbaa !128
-  switch i8 %471, label %.thread387.i [
+471:                                              ; preds = %456
+  %472 = load i8, ptr %466, align 1, !tbaa !128
+  switch i8 %472, label %.thread387.i [
     i8 0, label %.preheader390.i
     i8 2, label %.preheader392.i
-    i8 3, label %510
-    i8 4, label %510
-    i8 5, label %510
-    i8 6, label %516
+    i8 3, label %511
+    i8 4, label %511
+    i8 5, label %511
+    i8 6, label %517
   ]
 
-.preheader392.i:                                  ; preds = %470
-  %472 = load i8, ptr %448, align 8, !tbaa !127
-  %.not405.i = icmp eq i8 %472, 0
+.preheader392.i:                                  ; preds = %471
+  %473 = load i8, ptr %449, align 8, !tbaa !127
+  %.not405.i = icmp eq i8 %473, 0
   br i1 %.not405.i, label %.thread387.i, label %.lr.ph.i104
 
 .lr.ph.i104:                                      ; preds = %.preheader392.i
-  %473 = getelementptr inbounds nuw i8, ptr %409, i64 26
-  %474 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %475 = add nsw i32 %464, -1
-  %476 = getelementptr inbounds nuw i8, ptr %409, i64 42
-  %477 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  br label %495
+  %474 = getelementptr inbounds nuw i8, ptr %410, i64 26
+  %475 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %476 = add nsw i32 %465, -1
+  %477 = getelementptr inbounds nuw i8, ptr %410, i64 42
+  %478 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  br label %496
 
-.preheader390.i:                                  ; preds = %470
-  %478 = getelementptr inbounds nuw i8, ptr %409, i64 10
-  %479 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %480 = add nsw i32 %464, -1
-  br label %484
+.preheader390.i:                                  ; preds = %471
+  %479 = getelementptr inbounds nuw i8, ptr %410, i64 10
+  %480 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %481 = add nsw i32 %465, -1
+  br label %485
 
-481:                                              ; preds = %484
+482:                                              ; preds = %485
   %indvars.iv.next420.i = add nuw nsw i64 %indvars.iv419.i, 1
-  %482 = load i8, ptr %448, align 8, !tbaa !127
-  %483 = zext i8 %482 to i64
-  %.not373.not.i = icmp samesign ult i64 %indvars.iv419.i, %483
-  br i1 %.not373.not.i, label %484, label %.thread387.i, !llvm.loop !203
+  %483 = load i8, ptr %449, align 8, !tbaa !127
+  %484 = zext i8 %483 to i64
+  %.not373.not.i = icmp samesign ult i64 %indvars.iv419.i, %484
+  br i1 %.not373.not.i, label %485, label %.thread387.i, !llvm.loop !203
 
-484:                                              ; preds = %481, %.preheader390.i
-  %indvars.iv419.i = phi i64 [ 0, %.preheader390.i ], [ %indvars.iv.next420.i, %481 ]
-  %485 = getelementptr inbounds nuw i16, ptr %478, i64 %indvars.iv419.i
-  %486 = load i16, ptr %485, align 2, !tbaa !129
-  %487 = zext i16 %486 to i32
+485:                                              ; preds = %482, %.preheader390.i
+  %indvars.iv419.i = phi i64 [ 0, %.preheader390.i ], [ %indvars.iv.next420.i, %482 ]
+  %486 = getelementptr inbounds nuw i16, ptr %479, i64 %indvars.iv419.i
+  %487 = load i16, ptr %486, align 2, !tbaa !129
+  %488 = zext i16 %487 to i32
   store i32 1, ptr %4, align 4, !tbaa !63
-  %488 = trunc nuw nsw i64 %indvars.iv419.i to i32
-  store i32 %488, ptr %479, align 4, !tbaa !63
-  %489 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.129, ptr noundef nonnull %4, i32 noundef %487, i32 noundef 0, i32 noundef %480)
-  %490 = icmp sgt i32 %489, -1
-  br i1 %490, label %481, label %cbs_h264_write_pps.exit.thread
+  %489 = trunc nuw nsw i64 %indvars.iv419.i to i32
+  store i32 %489, ptr %480, align 4, !tbaa !63
+  %490 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.129, ptr noundef nonnull %4, i32 noundef %488, i32 noundef 0, i32 noundef %481)
+  %491 = icmp sgt i32 %490, -1
+  br i1 %491, label %482, label %cbs_h264_write_pps.exit.thread
 
-491:                                              ; preds = %502
+492:                                              ; preds = %503
   %indvars.iv.next417.i = add nuw nsw i64 %indvars.iv416.i, 1
-  %492 = load i8, ptr %448, align 8, !tbaa !127
-  %493 = zext i8 %492 to i64
-  %494 = icmp samesign ult i64 %indvars.iv.next417.i, %493
-  br i1 %494, label %495, label %.thread387.i, !llvm.loop !204
+  %493 = load i8, ptr %449, align 8, !tbaa !127
+  %494 = zext i8 %493 to i64
+  %495 = icmp samesign ult i64 %indvars.iv.next417.i, %494
+  br i1 %495, label %496, label %.thread387.i, !llvm.loop !204
 
-495:                                              ; preds = %491, %.lr.ph.i104
-  %indvars.iv416.i = phi i64 [ 0, %.lr.ph.i104 ], [ %indvars.iv.next417.i, %491 ]
-  %496 = getelementptr inbounds nuw i16, ptr %473, i64 %indvars.iv416.i
-  %497 = load i16, ptr %496, align 2, !tbaa !129
-  %498 = zext i16 %497 to i32
+496:                                              ; preds = %492, %.lr.ph.i104
+  %indvars.iv416.i = phi i64 [ 0, %.lr.ph.i104 ], [ %indvars.iv.next417.i, %492 ]
+  %497 = getelementptr inbounds nuw i16, ptr %474, i64 %indvars.iv416.i
+  %498 = load i16, ptr %497, align 2, !tbaa !129
+  %499 = zext i16 %498 to i32
   store i32 1, ptr %5, align 4, !tbaa !63
-  %499 = trunc nuw nsw i64 %indvars.iv416.i to i32
-  store i32 %499, ptr %474, align 4, !tbaa !63
-  %500 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.130, ptr noundef nonnull %5, i32 noundef %498, i32 noundef 0, i32 noundef %475)
-  %501 = icmp sgt i32 %500, -1
-  br i1 %501, label %502, label %cbs_h264_write_pps.exit.thread
+  %500 = trunc nuw nsw i64 %indvars.iv416.i to i32
+  store i32 %500, ptr %475, align 4, !tbaa !63
+  %501 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.130, ptr noundef nonnull %5, i32 noundef %499, i32 noundef 0, i32 noundef %476)
+  %502 = icmp sgt i32 %501, -1
+  br i1 %502, label %503, label %cbs_h264_write_pps.exit.thread
 
-502:                                              ; preds = %495
-  %503 = getelementptr inbounds nuw i16, ptr %476, i64 %indvars.iv416.i
-  %504 = load i16, ptr %503, align 2, !tbaa !129
-  %505 = zext i16 %504 to i32
+503:                                              ; preds = %496
+  %504 = getelementptr inbounds nuw i16, ptr %477, i64 %indvars.iv416.i
+  %505 = load i16, ptr %504, align 2, !tbaa !129
+  %506 = zext i16 %505 to i32
   store i32 1, ptr %6, align 4, !tbaa !63
-  store i32 %499, ptr %477, align 4, !tbaa !63
-  %506 = load i16, ptr %496, align 2, !tbaa !129
-  %507 = zext i16 %506 to i32
-  %508 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.131, ptr noundef nonnull %6, i32 noundef %505, i32 noundef %507, i32 noundef %475)
-  %509 = icmp sgt i32 %508, -1
-  br i1 %509, label %491, label %cbs_h264_write_pps.exit.thread
+  store i32 %500, ptr %478, align 4, !tbaa !63
+  %507 = load i16, ptr %497, align 2, !tbaa !129
+  %508 = zext i16 %507 to i32
+  %509 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.131, ptr noundef nonnull %6, i32 noundef %506, i32 noundef %508, i32 noundef %476)
+  %510 = icmp sgt i32 %509, -1
+  br i1 %510, label %492, label %cbs_h264_write_pps.exit.thread
 
-510:                                              ; preds = %470, %470, %470
-  %511 = getelementptr inbounds nuw i8, ptr %409, i64 58
-  %512 = load i8, ptr %511, align 2, !tbaa !132
-  %513 = zext i8 %512 to i32
-  %514 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.132, i32 noundef %513) #11
-  %515 = icmp sgt i32 %514, -1
-  br i1 %515, label %550, label %cbs_h264_write_pps.exit.thread
+511:                                              ; preds = %471, %471, %471
+  %512 = getelementptr inbounds nuw i8, ptr %410, i64 58
+  %513 = load i8, ptr %512, align 2, !tbaa !132
+  %514 = zext i8 %513 to i32
+  %515 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.132, i32 noundef %514) #11
+  %516 = icmp sgt i32 %515, -1
+  br i1 %516, label %551, label %cbs_h264_write_pps.exit.thread
 
-516:                                              ; preds = %470
-  %517 = getelementptr inbounds nuw i8, ptr %409, i64 62
-  %518 = load i16, ptr %517, align 2, !tbaa !134
-  %519 = zext i16 %518 to i32
-  %520 = add nsw i32 %464, -1
-  %521 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.134, ptr noundef null, i32 noundef %519, i32 noundef %520, i32 noundef %520)
-  %522 = icmp sgt i32 %521, -1
-  br i1 %522, label %523, label %cbs_h264_write_pps.exit.thread
+517:                                              ; preds = %471
+  %518 = getelementptr inbounds nuw i8, ptr %410, i64 62
+  %519 = load i16, ptr %518, align 2, !tbaa !134
+  %520 = zext i16 %519 to i32
+  %521 = add nsw i32 %465, -1
+  %522 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.134, ptr noundef null, i32 noundef %520, i32 noundef %521, i32 noundef %521)
+  %523 = icmp sgt i32 %522, -1
+  br i1 %523, label %524, label %cbs_h264_write_pps.exit.thread
 
-523:                                              ; preds = %516
-  %524 = getelementptr inbounds nuw i8, ptr %409, i64 64
-  %525 = load ptr, ptr %524, align 8, !tbaa !139
-  %.not371.i = icmp eq ptr %525, null
-  br i1 %.not371.i, label %527, label %.preheader396.i
+524:                                              ; preds = %517
+  %525 = getelementptr inbounds nuw i8, ptr %410, i64 64
+  %526 = load ptr, ptr %525, align 8, !tbaa !139
+  %.not371.i = icmp eq ptr %526, null
+  br i1 %.not371.i, label %528, label %.preheader396.i
 
-.preheader396.i:                                  ; preds = %523
-  %526 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  br label %532
+.preheader396.i:                                  ; preds = %524
+  %527 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  br label %533
 
-527:                                              ; preds = %523
-  %528 = load ptr, ptr %0, align 8, !tbaa !31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %528, i32 noundef 16, ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.227) #11
+528:                                              ; preds = %524
+  %529 = load ptr, ptr %0, align 8, !tbaa !31
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %529, i32 noundef 16, ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.227) #11
   br label %cbs_h264_write_pps.exit.thread
 
-529:                                              ; preds = %532
+530:                                              ; preds = %533
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i100, 1
-  %530 = load i16, ptr %517, align 2, !tbaa !134
-  %531 = zext i16 %530 to i64
-  %.not372.not.i = icmp samesign ult i64 %indvars.iv.i100, %531
-  br i1 %.not372.not.i, label %532, label %.thread387.i, !llvm.loop !205
+  %531 = load i16, ptr %518, align 2, !tbaa !134
+  %532 = zext i16 %531 to i64
+  %.not372.not.i = icmp samesign ult i64 %indvars.iv.i100, %532
+  br i1 %.not372.not.i, label %533, label %.thread387.i, !llvm.loop !205
 
-532:                                              ; preds = %529, %.preheader396.i
-  %indvars.iv.i100 = phi i64 [ 0, %.preheader396.i ], [ %indvars.iv.next.i101, %529 ]
-  %533 = load ptr, ptr %524, align 8, !tbaa !139
-  %534 = getelementptr inbounds nuw i8, ptr %533, i64 %indvars.iv.i100
-  %535 = load i8, ptr %534, align 1, !tbaa !25
-  %536 = zext i8 %535 to i32
-  %537 = load i8, ptr %448, align 8, !tbaa !127
-  %538 = zext i8 %537 to i32
-  %539 = shl nuw nsw i32 %538, 1
-  %540 = or disjoint i32 %539, 1
-  %.not11.i.i = icmp sgt i8 %537, -1
+533:                                              ; preds = %530, %.preheader396.i
+  %indvars.iv.i100 = phi i64 [ 0, %.preheader396.i ], [ %indvars.iv.next.i101, %530 ]
+  %534 = load ptr, ptr %525, align 8, !tbaa !139
+  %535 = getelementptr inbounds nuw i8, ptr %534, i64 %indvars.iv.i100
+  %536 = load i8, ptr %535, align 1, !tbaa !25
+  %537 = zext i8 %536 to i32
+  %538 = load i8, ptr %449, align 8, !tbaa !127
+  %539 = zext i8 %538 to i32
+  %540 = shl nuw nsw i32 %539, 1
+  %541 = or disjoint i32 %540, 1
+  %.not11.i.i = icmp sgt i8 %538, -1
   %.1.i.i = select i1 %.not11.i.i, i32 0, i32 8
-  %541 = zext nneg i32 %540 to i64
-  %542 = select i1 %.not11.i.i, i64 %541, i64 1
-  %543 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %542
-  %544 = load i8, ptr %543, align 1, !tbaa !25
-  %545 = zext i8 %544 to i32
-  %546 = add nuw nsw i32 %.1.i.i, %545
+  %542 = zext nneg i32 %541 to i64
+  %543 = select i1 %.not11.i.i, i64 %542, i64 1
+  %544 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %543
+  %545 = load i8, ptr %544, align 1, !tbaa !25
+  %546 = zext i8 %545 to i32
+  %547 = add nuw nsw i32 %.1.i.i, %546
   store i32 1, ptr %7, align 4, !tbaa !63
-  %547 = trunc nuw nsw i64 %indvars.iv.i100 to i32
-  store i32 %547, ptr %526, align 4, !tbaa !63
-  %548 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %546, ptr noundef nonnull @.str.135, ptr noundef nonnull %7, i32 noundef %536, i32 noundef 0, i32 noundef %538) #11
-  %549 = icmp sgt i32 %548, -1
-  br i1 %549, label %529, label %cbs_h264_write_pps.exit.thread
+  %548 = trunc nuw nsw i64 %indvars.iv.i100 to i32
+  store i32 %548, ptr %527, align 4, !tbaa !63
+  %549 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %547, ptr noundef nonnull @.str.135, ptr noundef nonnull %7, i32 noundef %537, i32 noundef 0, i32 noundef %539) #11
+  %550 = icmp sgt i32 %549, -1
+  br i1 %550, label %530, label %cbs_h264_write_pps.exit.thread
 
-550:                                              ; preds = %510
-  %551 = getelementptr inbounds nuw i8, ptr %409, i64 60
-  %552 = load i16, ptr %551, align 4, !tbaa !133
-  %553 = zext i16 %552 to i32
-  %554 = add nsw i32 %464, -1
-  %555 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.133, ptr noundef null, i32 noundef %553, i32 noundef 0, i32 noundef %554)
-  %556 = icmp sgt i32 %555, -1
-  br i1 %556, label %.thread387.i, label %cbs_h264_write_pps.exit.thread
+551:                                              ; preds = %511
+  %552 = getelementptr inbounds nuw i8, ptr %410, i64 60
+  %553 = load i16, ptr %552, align 4, !tbaa !133
+  %554 = zext i16 %553 to i32
+  %555 = add nsw i32 %465, -1
+  %556 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.133, ptr noundef null, i32 noundef %554, i32 noundef 0, i32 noundef %555)
+  %557 = icmp sgt i32 %556, -1
+  br i1 %557, label %.thread387.i, label %cbs_h264_write_pps.exit.thread
 
-.thread387.i:                                     ; preds = %529, %491, %481, %550, %.preheader392.i, %470, %453
-  %557 = getelementptr inbounds nuw i8, ptr %409, i64 80
-  %558 = load i8, ptr %557, align 8, !tbaa !141
-  %559 = zext i8 %558 to i32
-  %560 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.136, ptr noundef null, i32 noundef %559, i32 noundef 0, i32 noundef 31)
-  %561 = icmp sgt i32 %560, -1
-  br i1 %561, label %562, label %cbs_h264_write_pps.exit.thread
+.thread387.i:                                     ; preds = %530, %492, %482, %551, %.preheader392.i, %471, %454
+  %558 = getelementptr inbounds nuw i8, ptr %410, i64 80
+  %559 = load i8, ptr %558, align 8, !tbaa !141
+  %560 = zext i8 %559 to i32
+  %561 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.136, ptr noundef null, i32 noundef %560, i32 noundef 0, i32 noundef 31)
+  %562 = icmp sgt i32 %561, -1
+  br i1 %562, label %563, label %cbs_h264_write_pps.exit.thread
 
-562:                                              ; preds = %.thread387.i
-  %563 = getelementptr inbounds nuw i8, ptr %409, i64 81
-  %564 = load i8, ptr %563, align 1, !tbaa !142
-  %565 = zext i8 %564 to i32
-  %566 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.137, ptr noundef null, i32 noundef %565, i32 noundef 0, i32 noundef 31)
-  %567 = icmp sgt i32 %566, -1
-  br i1 %567, label %568, label %cbs_h264_write_pps.exit.thread
+563:                                              ; preds = %.thread387.i
+  %564 = getelementptr inbounds nuw i8, ptr %410, i64 81
+  %565 = load i8, ptr %564, align 1, !tbaa !142
+  %566 = zext i8 %565 to i32
+  %567 = call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.137, ptr noundef null, i32 noundef %566, i32 noundef 0, i32 noundef 31)
+  %568 = icmp sgt i32 %567, -1
+  br i1 %568, label %569, label %cbs_h264_write_pps.exit.thread
 
-568:                                              ; preds = %562
-  %569 = getelementptr inbounds nuw i8, ptr %409, i64 82
-  %570 = load i8, ptr %569, align 2, !tbaa !143
-  %571 = zext i8 %570 to i32
-  %572 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.138, i32 noundef %571) #11
-  %573 = icmp sgt i32 %572, -1
-  br i1 %573, label %574, label %cbs_h264_write_pps.exit.thread
+569:                                              ; preds = %563
+  %570 = getelementptr inbounds nuw i8, ptr %410, i64 82
+  %571 = load i8, ptr %570, align 2, !tbaa !143
+  %572 = zext i8 %571 to i32
+  %573 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.138, i32 noundef %572) #11
+  %574 = icmp sgt i32 %573, -1
+  br i1 %574, label %575, label %cbs_h264_write_pps.exit.thread
 
-574:                                              ; preds = %568
-  %575 = getelementptr inbounds nuw i8, ptr %409, i64 83
-  %576 = load i8, ptr %575, align 1, !tbaa !144
-  %577 = zext i8 %576 to i32
-  %578 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.139, ptr noundef null, i32 noundef %577, i32 noundef 0, i32 noundef 2) #11
-  %579 = icmp sgt i32 %578, -1
-  br i1 %579, label %580, label %cbs_h264_write_pps.exit.thread
+575:                                              ; preds = %569
+  %576 = getelementptr inbounds nuw i8, ptr %410, i64 83
+  %577 = load i8, ptr %576, align 1, !tbaa !144
+  %578 = zext i8 %577 to i32
+  %579 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.139, ptr noundef null, i32 noundef %578, i32 noundef 0, i32 noundef 2) #11
+  %580 = icmp sgt i32 %579, -1
+  br i1 %580, label %581, label %cbs_h264_write_pps.exit.thread
 
-580:                                              ; preds = %574
-  %581 = getelementptr inbounds nuw i8, ptr %409, i64 84
-  %582 = load i8, ptr %581, align 4, !tbaa !145
-  %583 = sext i8 %582 to i32
-  %584 = getelementptr inbounds nuw i8, ptr %431, i64 16
-  %585 = load i8, ptr %584, align 4, !tbaa !81
-  %586 = zext i8 %585 to i32
-  %.neg.i = mul nsw i32 %586, -6
-  %587 = add nsw i32 %.neg.i, -26
-  %588 = call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.140, ptr noundef null, i32 noundef %583, i32 noundef %587, i32 noundef 25)
-  %589 = icmp sgt i32 %588, -1
-  br i1 %589, label %590, label %cbs_h264_write_pps.exit.thread
+581:                                              ; preds = %575
+  %582 = getelementptr inbounds nuw i8, ptr %410, i64 84
+  %583 = load i8, ptr %582, align 4, !tbaa !145
+  %584 = sext i8 %583 to i32
+  %585 = getelementptr inbounds nuw i8, ptr %432, i64 16
+  %586 = load i8, ptr %585, align 4, !tbaa !81
+  %587 = zext i8 %586 to i32
+  %.neg.i = mul nsw i32 %587, -6
+  %588 = add nsw i32 %.neg.i, -26
+  %589 = call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.140, ptr noundef null, i32 noundef %584, i32 noundef %588, i32 noundef 25)
+  %590 = icmp sgt i32 %589, -1
+  br i1 %590, label %591, label %cbs_h264_write_pps.exit.thread
 
-590:                                              ; preds = %580
-  %591 = getelementptr inbounds nuw i8, ptr %409, i64 85
-  %592 = load i8, ptr %591, align 1, !tbaa !146
-  %593 = sext i8 %592 to i32
-  %594 = call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.141, ptr noundef null, i32 noundef %593, i32 noundef -26, i32 noundef 25)
-  %595 = icmp sgt i32 %594, -1
-  br i1 %595, label %596, label %cbs_h264_write_pps.exit.thread
+591:                                              ; preds = %581
+  %592 = getelementptr inbounds nuw i8, ptr %410, i64 85
+  %593 = load i8, ptr %592, align 1, !tbaa !146
+  %594 = sext i8 %593 to i32
+  %595 = call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.141, ptr noundef null, i32 noundef %594, i32 noundef -26, i32 noundef 25)
+  %596 = icmp sgt i32 %595, -1
+  br i1 %596, label %597, label %cbs_h264_write_pps.exit.thread
 
-596:                                              ; preds = %590
-  %597 = getelementptr inbounds nuw i8, ptr %409, i64 86
-  %598 = load i8, ptr %597, align 2, !tbaa !147
-  %599 = sext i8 %598 to i32
-  %600 = call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.142, ptr noundef null, i32 noundef %599, i32 noundef -12, i32 noundef 12)
-  %601 = icmp sgt i32 %600, -1
-  br i1 %601, label %602, label %cbs_h264_write_pps.exit.thread
+597:                                              ; preds = %591
+  %598 = getelementptr inbounds nuw i8, ptr %410, i64 86
+  %599 = load i8, ptr %598, align 2, !tbaa !147
+  %600 = sext i8 %599 to i32
+  %601 = call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.142, ptr noundef null, i32 noundef %600, i32 noundef -12, i32 noundef 12)
+  %602 = icmp sgt i32 %601, -1
+  br i1 %602, label %603, label %cbs_h264_write_pps.exit.thread
 
-602:                                              ; preds = %596
-  %603 = getelementptr inbounds nuw i8, ptr %409, i64 87
-  %604 = load i8, ptr %603, align 1, !tbaa !148
-  %605 = zext i8 %604 to i32
-  %606 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.143, i32 noundef %605) #11
-  %607 = icmp sgt i32 %606, -1
-  br i1 %607, label %608, label %cbs_h264_write_pps.exit.thread
+603:                                              ; preds = %597
+  %604 = getelementptr inbounds nuw i8, ptr %410, i64 87
+  %605 = load i8, ptr %604, align 1, !tbaa !148
+  %606 = zext i8 %605 to i32
+  %607 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.143, i32 noundef %606) #11
+  %608 = icmp sgt i32 %607, -1
+  br i1 %608, label %609, label %cbs_h264_write_pps.exit.thread
 
-608:                                              ; preds = %602
-  %609 = getelementptr inbounds nuw i8, ptr %409, i64 88
-  %610 = load i8, ptr %609, align 8, !tbaa !149
-  %611 = zext i8 %610 to i32
-  %612 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.144, i32 noundef %611) #11
-  %613 = icmp sgt i32 %612, -1
-  br i1 %613, label %614, label %cbs_h264_write_pps.exit.thread
+609:                                              ; preds = %603
+  %610 = getelementptr inbounds nuw i8, ptr %410, i64 88
+  %611 = load i8, ptr %610, align 8, !tbaa !149
+  %612 = zext i8 %611 to i32
+  %613 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.144, i32 noundef %612) #11
+  %614 = icmp sgt i32 %613, -1
+  br i1 %614, label %615, label %cbs_h264_write_pps.exit.thread
 
-614:                                              ; preds = %608
-  %615 = getelementptr inbounds nuw i8, ptr %409, i64 90
-  %616 = load i8, ptr %615, align 2, !tbaa !150
-  %617 = zext i8 %616 to i32
-  %618 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.145, i32 noundef %617) #11
-  %619 = icmp sgt i32 %618, -1
-  br i1 %619, label %620, label %cbs_h264_write_pps.exit.thread
+615:                                              ; preds = %609
+  %616 = getelementptr inbounds nuw i8, ptr %410, i64 90
+  %617 = load i8, ptr %616, align 2, !tbaa !150
+  %618 = zext i8 %617 to i32
+  %619 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.145, i32 noundef %618) #11
+  %620 = icmp sgt i32 %619, -1
+  br i1 %620, label %621, label %cbs_h264_write_pps.exit.thread
 
-620:                                              ; preds = %614
-  %621 = getelementptr inbounds nuw i8, ptr %409, i64 89
-  %622 = load i8, ptr %621, align 1, !tbaa !151
-  %.not374.i = icmp eq i8 %622, 0
-  %623 = getelementptr inbounds nuw i8, ptr %409, i64 91
-  %624 = load i8, ptr %623, align 1, !tbaa !152
-  br i1 %.not374.i, label %674, label %625
+621:                                              ; preds = %615
+  %622 = getelementptr inbounds nuw i8, ptr %410, i64 89
+  %623 = load i8, ptr %622, align 1, !tbaa !151
+  %.not374.i = icmp eq i8 %623, 0
+  %624 = getelementptr inbounds nuw i8, ptr %410, i64 91
+  %625 = load i8, ptr %624, align 1, !tbaa !152
+  br i1 %.not374.i, label %675, label %626
 
-625:                                              ; preds = %620
-  %626 = zext i8 %624 to i32
-  %627 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.146, i32 noundef %626) #11
-  %628 = icmp sgt i32 %627, -1
-  br i1 %628, label %629, label %cbs_h264_write_pps.exit.thread
+626:                                              ; preds = %621
+  %627 = zext i8 %625 to i32
+  %628 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.146, i32 noundef %627) #11
+  %629 = icmp sgt i32 %628, -1
+  br i1 %629, label %630, label %cbs_h264_write_pps.exit.thread
 
-629:                                              ; preds = %625
-  %630 = getelementptr inbounds nuw i8, ptr %409, i64 92
-  %631 = load i8, ptr %630, align 4, !tbaa !153
-  %632 = zext i8 %631 to i32
-  %633 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.147, i32 noundef %632) #11
-  %634 = icmp sgt i32 %633, -1
-  br i1 %634, label %635, label %cbs_h264_write_pps.exit.thread
+630:                                              ; preds = %626
+  %631 = getelementptr inbounds nuw i8, ptr %410, i64 92
+  %632 = load i8, ptr %631, align 4, !tbaa !153
+  %633 = zext i8 %632 to i32
+  %634 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.147, i32 noundef %633) #11
+  %635 = icmp sgt i32 %634, -1
+  br i1 %635, label %636, label %cbs_h264_write_pps.exit.thread
 
-635:                                              ; preds = %629
-  %636 = load i8, ptr %630, align 4, !tbaa !153
-  %.not378.i = icmp eq i8 %636, 0
+636:                                              ; preds = %630
+  %637 = load i8, ptr %631, align 4, !tbaa !153
+  %.not378.i = icmp eq i8 %637, 0
   br i1 %.not378.i, label %.loopexit.i103, label %.preheader.i102
 
-.preheader.i102:                                  ; preds = %635
-  %637 = getelementptr inbounds nuw i8, ptr %431, i64 14
-  %638 = getelementptr inbounds nuw i8, ptr %409, i64 93
-  %639 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %640 = getelementptr inbounds nuw i8, ptr %409, i64 105
-  br label %641
+.preheader.i102:                                  ; preds = %636
+  %638 = getelementptr inbounds nuw i8, ptr %432, i64 14
+  %639 = getelementptr inbounds nuw i8, ptr %410, i64 93
+  %640 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %641 = getelementptr inbounds nuw i8, ptr %410, i64 105
+  br label %642
 
-641:                                              ; preds = %661, %.preheader.i102
-  %indvars.iv422.i = phi i64 [ 0, %.preheader.i102 ], [ %indvars.iv.next423.i, %661 ]
-  %642 = getelementptr inbounds nuw i8, ptr %638, i64 %indvars.iv422.i
-  %643 = load i8, ptr %642, align 1, !tbaa !25
-  %644 = zext i8 %643 to i32
+642:                                              ; preds = %662, %.preheader.i102
+  %indvars.iv422.i = phi i64 [ 0, %.preheader.i102 ], [ %indvars.iv.next423.i, %662 ]
+  %643 = getelementptr inbounds nuw i8, ptr %639, i64 %indvars.iv422.i
+  %644 = load i8, ptr %643, align 1, !tbaa !25
+  %645 = zext i8 %644 to i32
   store i32 1, ptr %8, align 4, !tbaa !63
-  %645 = trunc nuw nsw i64 %indvars.iv422.i to i32
-  store i32 %645, ptr %639, align 4, !tbaa !63
-  %646 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.148, ptr noundef nonnull %8, i32 noundef %644, i32 noundef 0, i32 noundef 1) #11
-  %647 = icmp sgt i32 %646, -1
-  br i1 %647, label %648, label %cbs_h264_write_pps.exit.thread
+  %646 = trunc nuw nsw i64 %indvars.iv422.i to i32
+  store i32 %646, ptr %640, align 4, !tbaa !63
+  %647 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.148, ptr noundef nonnull %8, i32 noundef %645, i32 noundef 0, i32 noundef 1) #11
+  %648 = icmp sgt i32 %647, -1
+  br i1 %648, label %649, label %cbs_h264_write_pps.exit.thread
 
-648:                                              ; preds = %641
-  %649 = load i8, ptr %642, align 1, !tbaa !25
-  %.not380.i = icmp eq i8 %649, 0
-  br i1 %.not380.i, label %661, label %650
+649:                                              ; preds = %642
+  %650 = load i8, ptr %643, align 1, !tbaa !25
+  %.not380.i = icmp eq i8 %650, 0
+  br i1 %.not380.i, label %662, label %651
 
-650:                                              ; preds = %648
-  %651 = icmp samesign ult i64 %indvars.iv422.i, 6
-  br i1 %651, label %652, label %656
+651:                                              ; preds = %649
+  %652 = icmp samesign ult i64 %indvars.iv422.i, 6
+  br i1 %652, label %653, label %657
 
-652:                                              ; preds = %650
-  %653 = getelementptr inbounds nuw %struct.H264RawScalingList, ptr %640, i64 %indvars.iv422.i
-  %654 = call fastcc i32 @cbs_h264_write_scaling_list(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull readonly %653, i32 noundef 16)
-  %655 = icmp slt i32 %654, 0
-  br i1 %655, label %cbs_h264_write_pps.exit.thread, label %661
+653:                                              ; preds = %651
+  %654 = getelementptr inbounds nuw %struct.H264RawScalingList, ptr %641, i64 %indvars.iv422.i
+  %655 = call fastcc i32 @cbs_h264_write_scaling_list(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull readonly %654, i32 noundef 16)
+  %656 = icmp slt i32 %655, 0
+  br i1 %656, label %cbs_h264_write_pps.exit.thread, label %662
 
-656:                                              ; preds = %650
-  %657 = getelementptr %struct.H264RawScalingList, ptr %409, i64 %indvars.iv422.i
-  %658 = getelementptr i8, ptr %657, i64 105
-  %659 = call fastcc i32 @cbs_h264_write_scaling_list(ptr noundef nonnull %0, ptr noundef %2, ptr noundef readonly %658, i32 noundef 64)
-  %660 = icmp slt i32 %659, 0
-  br i1 %660, label %cbs_h264_write_pps.exit.thread, label %661
+657:                                              ; preds = %651
+  %658 = getelementptr %struct.H264RawScalingList, ptr %410, i64 %indvars.iv422.i
+  %659 = getelementptr i8, ptr %658, i64 105
+  %660 = call fastcc i32 @cbs_h264_write_scaling_list(ptr noundef nonnull %0, ptr noundef %2, ptr noundef readonly %659, i32 noundef 64)
+  %661 = icmp slt i32 %660, 0
+  br i1 %661, label %cbs_h264_write_pps.exit.thread, label %662
 
-661:                                              ; preds = %656, %652, %648
+662:                                              ; preds = %657, %653, %649
   %indvars.iv.next423.i = add nuw nsw i64 %indvars.iv422.i, 1
-  %662 = load i8, ptr %637, align 2, !tbaa !79
-  %.not379.i = icmp eq i8 %662, 3
-  %663 = select i1 %.not379.i, i64 6, i64 2
-  %664 = load i8, ptr %623, align 1, !tbaa !152
-  %665 = zext i8 %664 to i64
-  %666 = mul nuw nsw i64 %663, %665
-  %667 = add nuw nsw i64 %666, 6
-  %668 = icmp samesign ult i64 %indvars.iv.next423.i, %667
-  br i1 %668, label %641, label %.loopexit.i103, !llvm.loop !206
+  %663 = load i8, ptr %638, align 2, !tbaa !79
+  %.not379.i = icmp eq i8 %663, 3
+  %664 = select i1 %.not379.i, i64 6, i64 2
+  %665 = load i8, ptr %624, align 1, !tbaa !152
+  %666 = zext i8 %665 to i64
+  %667 = mul nuw nsw i64 %664, %666
+  %668 = add nuw nsw i64 %667, 6
+  %669 = icmp samesign ult i64 %indvars.iv.next423.i, %668
+  br i1 %669, label %642, label %.loopexit.i103, !llvm.loop !206
 
-.loopexit.i103:                                   ; preds = %661, %635
-  %669 = getelementptr inbounds nuw i8, ptr %409, i64 873
-  %670 = load i8, ptr %669, align 1, !tbaa !155
-  %671 = sext i8 %670 to i32
-  %672 = call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.149, ptr noundef null, i32 noundef %671, i32 noundef -12, i32 noundef 12)
-  %673 = icmp sgt i32 %672, -1
-  br i1 %673, label %cbs_h264_write_pps.exit, label %cbs_h264_write_pps.exit.thread
+.loopexit.i103:                                   ; preds = %662, %636
+  %670 = getelementptr inbounds nuw i8, ptr %410, i64 873
+  %671 = load i8, ptr %670, align 1, !tbaa !155
+  %672 = sext i8 %671 to i32
+  %673 = call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.149, ptr noundef null, i32 noundef %672, i32 noundef -12, i32 noundef 12)
+  %674 = icmp sgt i32 %673, -1
+  br i1 %674, label %cbs_h264_write_pps.exit, label %cbs_h264_write_pps.exit.thread
 
-674:                                              ; preds = %620
-  %.not375.i = icmp eq i8 %624, 0
-  br i1 %.not375.i, label %678, label %675
+675:                                              ; preds = %621
+  %.not375.i = icmp eq i8 %625, 0
+  br i1 %.not375.i, label %679, label %676
 
-675:                                              ; preds = %674
-  %676 = load ptr, ptr %0, align 8, !tbaa !31
-  %677 = zext i8 %624 to i64
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %676, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.146, i64 noundef %677, i64 noundef 0) #11
+676:                                              ; preds = %675
+  %677 = load ptr, ptr %0, align 8, !tbaa !31
+  %678 = zext i8 %625 to i64
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %677, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.146, i64 noundef %678, i64 noundef 0) #11
   br label %cbs_h264_write_pps.exit.thread
 
-678:                                              ; preds = %674
-  %679 = getelementptr inbounds nuw i8, ptr %409, i64 92
-  %680 = load i8, ptr %679, align 4, !tbaa !153
-  %.not376.i = icmp eq i8 %680, 0
-  br i1 %.not376.i, label %684, label %681
+679:                                              ; preds = %675
+  %680 = getelementptr inbounds nuw i8, ptr %410, i64 92
+  %681 = load i8, ptr %680, align 4, !tbaa !153
+  %.not376.i = icmp eq i8 %681, 0
+  br i1 %.not376.i, label %685, label %682
 
-681:                                              ; preds = %678
-  %682 = load ptr, ptr %0, align 8, !tbaa !31
-  %683 = zext i8 %680 to i64
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %682, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.147, i64 noundef %683, i64 noundef 0) #11
+682:                                              ; preds = %679
+  %683 = load ptr, ptr %0, align 8, !tbaa !31
+  %684 = zext i8 %681 to i64
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %683, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.147, i64 noundef %684, i64 noundef 0) #11
   br label %cbs_h264_write_pps.exit.thread
 
-684:                                              ; preds = %678
-  %685 = getelementptr inbounds nuw i8, ptr %409, i64 873
-  %686 = load i8, ptr %685, align 1, !tbaa !155
-  %687 = load i8, ptr %597, align 2, !tbaa !147
-  %.not377.i = icmp eq i8 %686, %687
-  br i1 %.not377.i, label %cbs_h264_write_pps.exit, label %688
+685:                                              ; preds = %679
+  %686 = getelementptr inbounds nuw i8, ptr %410, i64 873
+  %687 = load i8, ptr %686, align 1, !tbaa !155
+  %688 = load i8, ptr %598, align 2, !tbaa !147
+  %.not377.i = icmp eq i8 %687, %688
+  br i1 %.not377.i, label %cbs_h264_write_pps.exit, label %689
 
-688:                                              ; preds = %684
-  %689 = load ptr, ptr %0, align 8, !tbaa !31
-  %690 = sext i8 %686 to i64
+689:                                              ; preds = %685
+  %690 = load ptr, ptr %0, align 8, !tbaa !31
   %691 = sext i8 %687 to i64
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %689, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.149, i64 noundef %690, i64 noundef %691) #11
+  %692 = sext i8 %688 to i64
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %690, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.149, i64 noundef %691, i64 noundef %692) #11
   br label %cbs_h264_write_pps.exit.thread
 
-cbs_h264_write_pps.exit.thread:                   ; preds = %532, %502, %495, %484, %656, %652, %641, %.loopexit.i103, %629, %625, %675, %681, %688, %614, %608, %602, %596, %590, %580, %574, %568, %562, %.thread387.i, %550, %447, %441, %435, %432, %420, %414, %407, %455, %516, %527, %510
-  %.0.i98.ph = phi i32 [ %514, %510 ], [ -1094995529, %527 ], [ %521, %516 ], [ %468, %455 ], [ %412, %407 ], [ %418, %414 ], [ %424, %420 ], [ -1094995529, %432 ], [ %439, %435 ], [ %445, %441 ], [ %451, %447 ], [ %555, %550 ], [ %560, %.thread387.i ], [ %566, %562 ], [ %572, %568 ], [ %578, %574 ], [ %588, %580 ], [ %594, %590 ], [ %600, %596 ], [ %606, %602 ], [ %612, %608 ], [ %618, %614 ], [ -1094995529, %688 ], [ -1094995529, %681 ], [ -1094995529, %675 ], [ %627, %625 ], [ %633, %629 ], [ %672, %.loopexit.i103 ], [ %659, %656 ], [ %654, %652 ], [ %646, %641 ], [ %489, %484 ], [ %508, %502 ], [ %500, %495 ], [ %548, %532 ]
+cbs_h264_write_pps.exit.thread:                   ; preds = %533, %503, %496, %485, %657, %653, %642, %.loopexit.i103, %630, %626, %676, %682, %689, %615, %609, %603, %597, %591, %581, %575, %569, %563, %.thread387.i, %551, %448, %442, %436, %433, %421, %415, %408, %456, %517, %528, %511
+  %.0.i98.ph = phi i32 [ %515, %511 ], [ -1094995529, %528 ], [ %522, %517 ], [ %469, %456 ], [ %413, %408 ], [ %419, %415 ], [ %425, %421 ], [ -1094995529, %433 ], [ %440, %436 ], [ %446, %442 ], [ %452, %448 ], [ %556, %551 ], [ %561, %.thread387.i ], [ %567, %563 ], [ %573, %569 ], [ %579, %575 ], [ %589, %581 ], [ %595, %591 ], [ %601, %597 ], [ %607, %603 ], [ %613, %609 ], [ %619, %615 ], [ -1094995529, %689 ], [ -1094995529, %682 ], [ -1094995529, %676 ], [ %628, %626 ], [ %634, %630 ], [ %673, %.loopexit.i103 ], [ %660, %657 ], [ %655, %653 ], [ %647, %642 ], [ %490, %485 ], [ %509, %503 ], [ %501, %496 ], [ %549, %533 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6268,910 +6270,910 @@ cbs_h264_write_pps.exit.thread:                   ; preds = %532, %502, %495, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
-cbs_h264_write_pps.exit:                          ; preds = %.loopexit.i103, %684
-  %692 = call fastcc i32 @cbs_h264_write_rbsp_trailing_bits(ptr noundef nonnull %0, ptr noundef %2)
+cbs_h264_write_pps.exit:                          ; preds = %.loopexit.i103, %685
+  %693 = call fastcc i32 @cbs_h264_write_rbsp_trailing_bits(ptr noundef nonnull %0, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %693 = icmp slt i32 %692, 0
-  br i1 %693, label %.thread, label %694
+  %694 = icmp slt i32 %693, 0
+  br i1 %694, label %.thread, label %695
 
-694:                                              ; preds = %cbs_h264_write_pps.exit
-  %695 = load ptr, ptr %410, align 8, !tbaa !18
-  %696 = load ptr, ptr %408, align 8, !tbaa !62
-  %697 = getelementptr inbounds nuw i8, ptr %696, i64 4
-  %698 = load i8, ptr %697, align 4, !tbaa !122
-  %699 = call i32 @ff_cbs_make_unit_refcounted(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
-  %700 = icmp slt i32 %699, 0
-  br i1 %700, label %.thread, label %701
+695:                                              ; preds = %cbs_h264_write_pps.exit
+  %696 = load ptr, ptr %411, align 8, !tbaa !18
+  %697 = load ptr, ptr %409, align 8, !tbaa !62
+  %698 = getelementptr inbounds nuw i8, ptr %697, i64 4
+  %699 = load i8, ptr %698, align 4, !tbaa !122
+  %700 = call i32 @ff_cbs_make_unit_refcounted(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
+  %701 = icmp slt i32 %700, 0
+  br i1 %701, label %.thread, label %702
 
-701:                                              ; preds = %694
-  %702 = getelementptr inbounds nuw i8, ptr %695, i64 312
-  %703 = zext i8 %698 to i64
-  %704 = getelementptr inbounds nuw ptr, ptr %702, i64 %703
-  %705 = load ptr, ptr %704, align 8, !tbaa !156
-  %706 = getelementptr inbounds nuw i8, ptr %695, i64 2368
-  %707 = load ptr, ptr %706, align 8, !tbaa !157
-  %708 = icmp eq ptr %705, %707
-  br i1 %708, label %709, label %710
+702:                                              ; preds = %695
+  %703 = getelementptr inbounds nuw i8, ptr %696, i64 312
+  %704 = zext i8 %699 to i64
+  %705 = getelementptr inbounds nuw ptr, ptr %703, i64 %704
+  %706 = load ptr, ptr %705, align 8, !tbaa !156
+  %707 = getelementptr inbounds nuw i8, ptr %696, i64 2368
+  %708 = load ptr, ptr %707, align 8, !tbaa !157
+  %709 = icmp eq ptr %706, %708
+  br i1 %709, label %710, label %711
 
-709:                                              ; preds = %701
-  store ptr null, ptr %706, align 8, !tbaa !157
-  br label %710
+710:                                              ; preds = %702
+  store ptr null, ptr %707, align 8, !tbaa !157
+  br label %711
 
-710:                                              ; preds = %709, %701
-  %711 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %712 = load ptr, ptr %711, align 8, !tbaa !112
-  %.not.i105 = icmp eq ptr %712, null
-  br i1 %.not.i105, label %713, label %714
+711:                                              ; preds = %710, %702
+  %712 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %713 = load ptr, ptr %712, align 8, !tbaa !112
+  %.not.i105 = icmp eq ptr %713, null
+  br i1 %.not.i105, label %714, label %715
 
-713:                                              ; preds = %710
+714:                                              ; preds = %711
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.3, i32 noundef 777) #11
   call void @abort() #12
   unreachable
 
-714:                                              ; preds = %710
-  call void @av_refstruct_replace(ptr noundef nonnull %704, ptr noundef nonnull %712) #11
+715:                                              ; preds = %711
+  call void @av_refstruct_replace(ptr noundef nonnull %705, ptr noundef nonnull %713) #11
   br label %cbs_h264_write_sps_extension.exit
 
-715:                                              ; preds = %3, %3, %3
-  %716 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %717 = load ptr, ptr %716, align 8, !tbaa !62
-  %718 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %719 = load ptr, ptr %718, align 8, !tbaa !18
+716:                                              ; preds = %3, %3, %3
+  %717 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %718 = load ptr, ptr %717, align 8, !tbaa !62
+  %719 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %720 = load ptr, ptr %719, align 8, !tbaa !18
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.150) #11
-  %720 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %717, i32 noundef 524322)
-  %721 = icmp slt i32 %720, 0
-  br i1 %721, label %.thread, label %722
+  %721 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %718, i32 noundef 524322)
+  %722 = icmp slt i32 %721, 0
+  br i1 %722, label %.thread, label %723
 
-722:                                              ; preds = %715
-  %723 = getelementptr inbounds nuw i8, ptr %717, i64 1
-  %724 = load i8, ptr %723, align 1, !tbaa !158
-  %725 = icmp eq i8 %724, 19
-  br i1 %725, label %726, label %731
+723:                                              ; preds = %716
+  %724 = getelementptr inbounds nuw i8, ptr %718, i64 1
+  %725 = load i8, ptr %724, align 1, !tbaa !158
+  %726 = icmp eq i8 %725, 19
+  br i1 %726, label %727, label %732
 
-726:                                              ; preds = %722
-  %727 = getelementptr inbounds nuw i8, ptr %719, i64 2376
-  %728 = load i8, ptr %727, align 8, !tbaa !160
-  %.not.i120 = icmp eq i8 %728, 0
-  br i1 %.not.i120, label %729, label %731
+727:                                              ; preds = %723
+  %728 = getelementptr inbounds nuw i8, ptr %720, i64 2376
+  %729 = load i8, ptr %728, align 8, !tbaa !160
+  %.not.i120 = icmp eq i8 %729, 0
+  br i1 %.not.i120, label %730, label %732
 
-729:                                              ; preds = %726
-  %730 = load ptr, ptr %0, align 8, !tbaa !31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %730, i32 noundef 16, ptr noundef nonnull @.str.151) #11
+730:                                              ; preds = %727
+  %731 = load ptr, ptr %0, align 8, !tbaa !31
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %731, i32 noundef 16, ptr noundef nonnull @.str.151) #11
   br label %.thread
 
-731:                                              ; preds = %726, %722
-  %.0382.in.in.i = phi i8 [ %728, %726 ], [ %724, %722 ]
+732:                                              ; preds = %727, %723
+  %.0382.in.in.i = phi i8 [ %729, %727 ], [ %725, %723 ]
   %.0382.in.in.fr.i = freeze i8 %.0382.in.in.i
   %.0382.in.i = icmp eq i8 %.0382.in.in.fr.i, 5
   %.0382.i = zext i1 %.0382.in.i to i32
-  %732 = getelementptr inbounds nuw i8, ptr %717, i64 4
-  %733 = load i32, ptr %732, align 4, !tbaa !161
-  %734 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.152, ptr noundef null, i32 noundef %733, i32 noundef 0, i32 noundef 139263)
-  %735 = icmp sgt i32 %734, -1
-  br i1 %735, label %736, label %.thread
+  %733 = getelementptr inbounds nuw i8, ptr %718, i64 4
+  %734 = load i32, ptr %733, align 4, !tbaa !161
+  %735 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.152, ptr noundef null, i32 noundef %734, i32 noundef 0, i32 noundef 139263)
+  %736 = icmp sgt i32 %735, -1
+  br i1 %736, label %737, label %.thread
 
-736:                                              ; preds = %731
-  %737 = getelementptr inbounds nuw i8, ptr %717, i64 8
-  %738 = load i8, ptr %737, align 4, !tbaa !162
-  %739 = zext i8 %738 to i32
-  %740 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.153, ptr noundef null, i32 noundef %739, i32 noundef 0, i32 noundef 9)
-  %741 = icmp sgt i32 %740, -1
-  br i1 %741, label %742, label %.thread
+737:                                              ; preds = %732
+  %738 = getelementptr inbounds nuw i8, ptr %718, i64 8
+  %739 = load i8, ptr %738, align 4, !tbaa !162
+  %740 = zext i8 %739 to i32
+  %741 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.153, ptr noundef null, i32 noundef %740, i32 noundef 0, i32 noundef 9)
+  %742 = icmp sgt i32 %741, -1
+  br i1 %742, label %743, label %.thread
 
-742:                                              ; preds = %736
-  %743 = load i8, ptr %737, align 4, !tbaa !162
-  %744 = zext i8 %743 to i32
-  %745 = urem i8 %743, 5
-  %746 = icmp eq i8 %745, 1
-  %747 = icmp eq i8 %745, 3
-  br i1 %.0382.in.i, label %switch.early.test.i, label %750
+743:                                              ; preds = %737
+  %744 = load i8, ptr %738, align 4, !tbaa !162
+  %745 = zext i8 %744 to i32
+  %746 = urem i8 %744, 5
+  %747 = icmp eq i8 %746, 1
+  %748 = icmp eq i8 %746, 3
+  br i1 %.0382.in.i, label %switch.early.test.i, label %751
 
-switch.early.test.i:                              ; preds = %742
-  switch i8 %745, label %748 [
-    i8 4, label %750
-    i8 2, label %750
+switch.early.test.i:                              ; preds = %743
+  switch i8 %746, label %749 [
+    i8 4, label %751
+    i8 2, label %751
   ]
 
-748:                                              ; preds = %switch.early.test.i
-  %749 = load ptr, ptr %0, align 8, !tbaa !31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %749, i32 noundef 16, ptr noundef nonnull @.str.154, i32 noundef %744) #11
+749:                                              ; preds = %switch.early.test.i
+  %750 = load ptr, ptr %0, align 8, !tbaa !31
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %750, i32 noundef 16, ptr noundef nonnull @.str.154, i32 noundef %745) #11
   br label %.thread
 
-750:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %742
-  %751 = getelementptr inbounds nuw i8, ptr %717, i64 9
-  %752 = load i8, ptr %751, align 1, !tbaa !163
-  %753 = zext i8 %752 to i32
-  %754 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.123, ptr noundef null, i32 noundef %753, i32 noundef 0, i32 noundef 255)
-  %755 = icmp sgt i32 %754, -1
-  br i1 %755, label %756, label %.thread
+751:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %743
+  %752 = getelementptr inbounds nuw i8, ptr %718, i64 9
+  %753 = load i8, ptr %752, align 1, !tbaa !163
+  %754 = zext i8 %753 to i32
+  %755 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.123, ptr noundef null, i32 noundef %754, i32 noundef 0, i32 noundef 255)
+  %756 = icmp sgt i32 %755, -1
+  br i1 %756, label %757, label %.thread
 
-756:                                              ; preds = %750
-  %757 = getelementptr inbounds nuw i8, ptr %719, i64 312
-  %758 = load i8, ptr %751, align 1, !tbaa !163
-  %759 = zext i8 %758 to i64
-  %760 = getelementptr inbounds nuw ptr, ptr %757, i64 %759
-  %761 = load ptr, ptr %760, align 8, !tbaa !156
-  %.not450.i = icmp eq ptr %761, null
-  br i1 %.not450.i, label %762, label %765
+757:                                              ; preds = %751
+  %758 = getelementptr inbounds nuw i8, ptr %720, i64 312
+  %759 = load i8, ptr %752, align 1, !tbaa !163
+  %760 = zext i8 %759 to i64
+  %761 = getelementptr inbounds nuw ptr, ptr %758, i64 %760
+  %762 = load ptr, ptr %761, align 8, !tbaa !156
+  %.not450.i = icmp eq ptr %762, null
+  br i1 %.not450.i, label %763, label %766
 
-762:                                              ; preds = %756
-  %763 = load ptr, ptr %0, align 8, !tbaa !31
-  %764 = zext i8 %758 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %763, i32 noundef 16, ptr noundef nonnull @.str.155, i32 noundef %764) #11
+763:                                              ; preds = %757
+  %764 = load ptr, ptr %0, align 8, !tbaa !31
+  %765 = zext i8 %759 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %764, i32 noundef 16, ptr noundef nonnull @.str.155, i32 noundef %765) #11
   br label %.thread
 
-765:                                              ; preds = %756
-  %766 = getelementptr inbounds nuw i8, ptr %719, i64 2368
-  store ptr %761, ptr %766, align 8, !tbaa !157
-  %767 = getelementptr inbounds nuw i8, ptr %719, i64 56
-  %768 = getelementptr inbounds nuw i8, ptr %761, i64 5
-  %769 = load i8, ptr %768, align 1, !tbaa !124
-  %770 = zext i8 %769 to i64
-  %771 = getelementptr inbounds nuw ptr, ptr %767, i64 %770
-  %772 = load ptr, ptr %771, align 8, !tbaa !107
-  %.not451.i = icmp eq ptr %772, null
-  br i1 %.not451.i, label %773, label %776
+766:                                              ; preds = %757
+  %767 = getelementptr inbounds nuw i8, ptr %720, i64 2368
+  store ptr %762, ptr %767, align 8, !tbaa !157
+  %768 = getelementptr inbounds nuw i8, ptr %720, i64 56
+  %769 = getelementptr inbounds nuw i8, ptr %762, i64 5
+  %770 = load i8, ptr %769, align 1, !tbaa !124
+  %771 = zext i8 %770 to i64
+  %772 = getelementptr inbounds nuw ptr, ptr %768, i64 %771
+  %773 = load ptr, ptr %772, align 8, !tbaa !107
+  %.not451.i = icmp eq ptr %773, null
+  br i1 %.not451.i, label %774, label %777
 
-773:                                              ; preds = %765
-  %774 = load ptr, ptr %0, align 8, !tbaa !31
-  %775 = zext i8 %769 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %774, i32 noundef 16, ptr noundef nonnull @.str.124, i32 noundef %775) #11
+774:                                              ; preds = %766
+  %775 = load ptr, ptr %0, align 8, !tbaa !31
+  %776 = zext i8 %770 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %775, i32 noundef 16, ptr noundef nonnull @.str.124, i32 noundef %776) #11
   br label %.thread
 
-776:                                              ; preds = %765
-  %777 = getelementptr inbounds nuw i8, ptr %719, i64 2360
-  store ptr %772, ptr %777, align 8, !tbaa !109
-  %778 = getelementptr inbounds nuw i8, ptr %772, i64 15
-  %779 = load i8, ptr %778, align 1, !tbaa !80
-  %.not452.i = icmp eq i8 %779, 0
-  br i1 %.not452.i, label %786, label %780
+777:                                              ; preds = %766
+  %778 = getelementptr inbounds nuw i8, ptr %720, i64 2360
+  store ptr %773, ptr %778, align 8, !tbaa !109
+  %779 = getelementptr inbounds nuw i8, ptr %773, i64 15
+  %780 = load i8, ptr %779, align 1, !tbaa !80
+  %.not452.i = icmp eq i8 %780, 0
+  br i1 %.not452.i, label %787, label %781
 
-780:                                              ; preds = %776
-  %781 = getelementptr inbounds nuw i8, ptr %717, i64 10
-  %782 = load i8, ptr %781, align 2, !tbaa !164
-  %783 = zext i8 %782 to i32
-  %784 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %783, i32 noundef 0, i32 noundef 2) #11
-  %785 = icmp sgt i32 %784, -1
-  br i1 %785, label %786, label %.thread
+781:                                              ; preds = %777
+  %782 = getelementptr inbounds nuw i8, ptr %718, i64 10
+  %783 = load i8, ptr %782, align 2, !tbaa !164
+  %784 = zext i8 %783 to i32
+  %785 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %784, i32 noundef 0, i32 noundef 2) #11
+  %786 = icmp sgt i32 %785, -1
+  br i1 %786, label %787, label %.thread
 
-786:                                              ; preds = %780, %776
-  %787 = getelementptr inbounds nuw i8, ptr %717, i64 12
-  %788 = load i16, ptr %787, align 4, !tbaa !165
-  %789 = zext i16 %788 to i32
-  %790 = getelementptr inbounds nuw i8, ptr %772, i64 800
-  %791 = load i8, ptr %790, align 4, !tbaa !86
-  %792 = zext i8 %791 to i32
-  %793 = add nuw nsw i32 %792, 4
-  %794 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %793, ptr noundef nonnull @.str.157, i32 noundef %789) #11
-  %795 = icmp sgt i32 %794, -1
-  br i1 %795, label %796, label %.thread
+787:                                              ; preds = %781, %777
+  %788 = getelementptr inbounds nuw i8, ptr %718, i64 12
+  %789 = load i16, ptr %788, align 4, !tbaa !165
+  %790 = zext i16 %789 to i32
+  %791 = getelementptr inbounds nuw i8, ptr %773, i64 800
+  %792 = load i8, ptr %791, align 4, !tbaa !86
+  %793 = zext i8 %792 to i32
+  %794 = add nuw nsw i32 %793, 4
+  %795 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %794, ptr noundef nonnull @.str.157, i32 noundef %790) #11
+  %796 = icmp sgt i32 %795, -1
+  br i1 %796, label %797, label %.thread
 
-796:                                              ; preds = %786
-  %797 = getelementptr inbounds nuw i8, ptr %772, i64 1846
-  %798 = load i8, ptr %797, align 2, !tbaa !98
-  %.not453.i = icmp eq i8 %798, 0
-  %799 = getelementptr inbounds nuw i8, ptr %717, i64 14
-  %800 = load i8, ptr %799, align 2, !tbaa !166
-  br i1 %.not453.i, label %801, label %817
+797:                                              ; preds = %787
+  %798 = getelementptr inbounds nuw i8, ptr %773, i64 1846
+  %799 = load i8, ptr %798, align 2, !tbaa !98
+  %.not453.i = icmp eq i8 %799, 0
+  %800 = getelementptr inbounds nuw i8, ptr %718, i64 14
+  %801 = load i8, ptr %800, align 2, !tbaa !166
+  br i1 %.not453.i, label %802, label %818
 
-801:                                              ; preds = %796
-  %802 = zext i8 %800 to i32
-  %803 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.158, i32 noundef %802) #11
-  %804 = icmp sgt i32 %803, -1
-  br i1 %804, label %805, label %.thread
+802:                                              ; preds = %797
+  %803 = zext i8 %801 to i32
+  %804 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.158, i32 noundef %803) #11
+  %805 = icmp sgt i32 %804, -1
+  br i1 %805, label %806, label %.thread
 
-805:                                              ; preds = %801
-  %806 = load i8, ptr %799, align 2, !tbaa !166
-  %.not454.i = icmp eq i8 %806, 0
-  %807 = getelementptr inbounds nuw i8, ptr %717, i64 15
-  %808 = load i8, ptr %807, align 1, !tbaa !167
-  br i1 %.not454.i, label %813, label %809
+806:                                              ; preds = %802
+  %807 = load i8, ptr %800, align 2, !tbaa !166
+  %.not454.i = icmp eq i8 %807, 0
+  %808 = getelementptr inbounds nuw i8, ptr %718, i64 15
+  %809 = load i8, ptr %808, align 1, !tbaa !167
+  br i1 %.not454.i, label %814, label %810
 
-809:                                              ; preds = %805
-  %810 = zext i8 %808 to i32
-  %811 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.159, i32 noundef %810) #11
-  %812 = icmp sgt i32 %811, -1
-  br i1 %812, label %827, label %.thread
+810:                                              ; preds = %806
+  %811 = zext i8 %809 to i32
+  %812 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.159, i32 noundef %811) #11
+  %813 = icmp sgt i32 %812, -1
+  br i1 %813, label %828, label %.thread
 
-813:                                              ; preds = %805
-  %.not455.i = icmp eq i8 %808, 0
-  br i1 %.not455.i, label %827, label %814
+814:                                              ; preds = %806
+  %.not455.i = icmp eq i8 %809, 0
+  br i1 %.not455.i, label %828, label %815
 
-814:                                              ; preds = %813
-  %815 = load ptr, ptr %0, align 8, !tbaa !31
-  %816 = zext i8 %808 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %815, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.159, i64 noundef %816, i64 noundef 0) #11
+815:                                              ; preds = %814
+  %816 = load ptr, ptr %0, align 8, !tbaa !31
+  %817 = zext i8 %809 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %816, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.159, i64 noundef %817, i64 noundef 0) #11
   br label %.thread
 
-817:                                              ; preds = %796
-  %.not456.i = icmp eq i8 %800, 0
-  br i1 %.not456.i, label %821, label %818
+818:                                              ; preds = %797
+  %.not456.i = icmp eq i8 %801, 0
+  br i1 %.not456.i, label %822, label %819
 
-818:                                              ; preds = %817
-  %819 = load ptr, ptr %0, align 8, !tbaa !31
-  %820 = zext i8 %800 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %819, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.158, i64 noundef %820, i64 noundef 0) #11
+819:                                              ; preds = %818
+  %820 = load ptr, ptr %0, align 8, !tbaa !31
+  %821 = zext i8 %801 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %820, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.158, i64 noundef %821, i64 noundef 0) #11
   br label %.thread
 
-821:                                              ; preds = %817
-  %822 = getelementptr inbounds nuw i8, ptr %717, i64 15
-  %823 = load i8, ptr %822, align 1, !tbaa !167
-  %.not457.i = icmp eq i8 %823, 0
-  br i1 %.not457.i, label %827, label %824
+822:                                              ; preds = %818
+  %823 = getelementptr inbounds nuw i8, ptr %718, i64 15
+  %824 = load i8, ptr %823, align 1, !tbaa !167
+  %.not457.i = icmp eq i8 %824, 0
+  br i1 %.not457.i, label %828, label %825
 
-824:                                              ; preds = %821
-  %825 = load ptr, ptr %0, align 8, !tbaa !31
-  %826 = zext i8 %823 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %825, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.159, i64 noundef %826, i64 noundef 0) #11
+825:                                              ; preds = %822
+  %826 = load ptr, ptr %0, align 8, !tbaa !31
+  %827 = zext i8 %824 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %826, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.159, i64 noundef %827, i64 noundef 0) #11
   br label %.thread
 
-827:                                              ; preds = %821, %813, %809
-  br i1 %.0382.in.i, label %828, label %834
+828:                                              ; preds = %822, %814, %810
+  br i1 %.0382.in.i, label %829, label %835
 
-828:                                              ; preds = %827
-  %829 = getelementptr inbounds nuw i8, ptr %717, i64 16
-  %830 = load i16, ptr %829, align 4, !tbaa !168
-  %831 = zext i16 %830 to i32
-  %832 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.160, ptr noundef null, i32 noundef %831, i32 noundef 0, i32 noundef 65535)
-  %833 = icmp sgt i32 %832, -1
-  br i1 %833, label %834, label %.thread
+829:                                              ; preds = %828
+  %830 = getelementptr inbounds nuw i8, ptr %718, i64 16
+  %831 = load i16, ptr %830, align 4, !tbaa !168
+  %832 = zext i16 %831 to i32
+  %833 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.160, ptr noundef null, i32 noundef %832, i32 noundef 0, i32 noundef 65535)
+  %834 = icmp sgt i32 %833, -1
+  br i1 %834, label %835, label %.thread
 
-834:                                              ; preds = %828, %827
-  %835 = getelementptr inbounds nuw i8, ptr %772, i64 801
-  %836 = load i8, ptr %835, align 1, !tbaa !87
-  switch i8 %836, label %891 [
-    i8 0, label %837
-    i8 1, label %857
+835:                                              ; preds = %829, %828
+  %836 = getelementptr inbounds nuw i8, ptr %773, i64 801
+  %837 = load i8, ptr %836, align 1, !tbaa !87
+  switch i8 %837, label %892 [
+    i8 0, label %838
+    i8 1, label %858
   ]
 
-837:                                              ; preds = %834
-  %838 = getelementptr inbounds nuw i8, ptr %717, i64 18
-  %839 = load i16, ptr %838, align 2, !tbaa !169
-  %840 = zext i16 %839 to i32
-  %841 = getelementptr inbounds nuw i8, ptr %772, i64 802
-  %842 = load i8, ptr %841, align 2, !tbaa !88
-  %843 = zext i8 %842 to i32
-  %844 = add nuw nsw i32 %843, 4
-  %845 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %844, ptr noundef nonnull @.str.161, i32 noundef %840) #11
-  %846 = icmp sgt i32 %845, -1
-  br i1 %846, label %847, label %.thread
+838:                                              ; preds = %835
+  %839 = getelementptr inbounds nuw i8, ptr %718, i64 18
+  %840 = load i16, ptr %839, align 2, !tbaa !169
+  %841 = zext i16 %840 to i32
+  %842 = getelementptr inbounds nuw i8, ptr %773, i64 802
+  %843 = load i8, ptr %842, align 2, !tbaa !88
+  %844 = zext i8 %843 to i32
+  %845 = add nuw nsw i32 %844, 4
+  %846 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %845, ptr noundef nonnull @.str.161, i32 noundef %841) #11
+  %847 = icmp sgt i32 %846, -1
+  br i1 %847, label %848, label %.thread
 
-847:                                              ; preds = %837
-  %848 = getelementptr inbounds nuw i8, ptr %761, i64 7
-  %849 = load i8, ptr %848, align 1, !tbaa !126
-  %.not464.i = icmp eq i8 %849, 0
-  br i1 %.not464.i, label %891, label %850
+848:                                              ; preds = %838
+  %849 = getelementptr inbounds nuw i8, ptr %762, i64 7
+  %850 = load i8, ptr %849, align 1, !tbaa !126
+  %.not464.i = icmp eq i8 %850, 0
+  br i1 %.not464.i, label %892, label %851
 
-850:                                              ; preds = %847
-  %851 = load i8, ptr %799, align 2, !tbaa !166
-  %.not465.i = icmp eq i8 %851, 0
-  br i1 %.not465.i, label %852, label %891
+851:                                              ; preds = %848
+  %852 = load i8, ptr %800, align 2, !tbaa !166
+  %.not465.i = icmp eq i8 %852, 0
+  br i1 %.not465.i, label %853, label %892
 
-852:                                              ; preds = %850
-  %853 = getelementptr inbounds nuw i8, ptr %717, i64 20
-  %854 = load i32, ptr %853, align 4, !tbaa !170
-  %855 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.162, ptr noundef null, i32 noundef %854, i32 noundef -2147483647, i32 noundef 2147483647)
-  %856 = icmp sgt i32 %855, -1
-  br i1 %856, label %891, label %.thread
+853:                                              ; preds = %851
+  %854 = getelementptr inbounds nuw i8, ptr %718, i64 20
+  %855 = load i32, ptr %854, align 4, !tbaa !170
+  %856 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.162, ptr noundef null, i32 noundef %855, i32 noundef -2147483647, i32 noundef 2147483647)
+  %857 = icmp sgt i32 %856, -1
+  br i1 %857, label %892, label %.thread
 
-857:                                              ; preds = %834
-  %858 = getelementptr inbounds nuw i8, ptr %772, i64 803
-  %859 = load i8, ptr %858, align 1, !tbaa !89
-  %.not458.i = icmp eq i8 %859, 0
-  %860 = getelementptr inbounds nuw i8, ptr %717, i64 24
-  %861 = load i32, ptr %860, align 4, !tbaa !63
-  br i1 %.not458.i, label %862, label %881
+858:                                              ; preds = %835
+  %859 = getelementptr inbounds nuw i8, ptr %773, i64 803
+  %860 = load i8, ptr %859, align 1, !tbaa !89
+  %.not458.i = icmp eq i8 %860, 0
+  %861 = getelementptr inbounds nuw i8, ptr %718, i64 24
+  %862 = load i32, ptr %861, align 4, !tbaa !63
+  br i1 %.not458.i, label %863, label %882
 
-862:                                              ; preds = %857
-  %863 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.163, ptr noundef null, i32 noundef %861, i32 noundef -2147483647, i32 noundef 2147483647)
-  %864 = icmp sgt i32 %863, -1
-  br i1 %864, label %865, label %.thread
+863:                                              ; preds = %858
+  %864 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.163, ptr noundef null, i32 noundef %862, i32 noundef -2147483647, i32 noundef 2147483647)
+  %865 = icmp sgt i32 %864, -1
+  br i1 %865, label %866, label %.thread
 
-865:                                              ; preds = %862
-  %866 = getelementptr inbounds nuw i8, ptr %761, i64 7
-  %867 = load i8, ptr %866, align 1, !tbaa !126
-  %.not459.i = icmp eq i8 %867, 0
-  br i1 %.not459.i, label %875, label %868
+866:                                              ; preds = %863
+  %867 = getelementptr inbounds nuw i8, ptr %762, i64 7
+  %868 = load i8, ptr %867, align 1, !tbaa !126
+  %.not459.i = icmp eq i8 %868, 0
+  br i1 %.not459.i, label %876, label %869
 
-868:                                              ; preds = %865
-  %869 = load i8, ptr %799, align 2, !tbaa !166
-  %.not460.i = icmp eq i8 %869, 0
-  br i1 %.not460.i, label %870, label %875
+869:                                              ; preds = %866
+  %870 = load i8, ptr %800, align 2, !tbaa !166
+  %.not460.i = icmp eq i8 %870, 0
+  br i1 %.not460.i, label %871, label %876
 
-870:                                              ; preds = %868
-  %871 = getelementptr inbounds nuw i8, ptr %717, i64 28
-  %872 = load i32, ptr %871, align 4, !tbaa !63
-  %873 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.164, ptr noundef null, i32 noundef %872, i32 noundef -2147483647, i32 noundef 2147483647)
-  %874 = icmp sgt i32 %873, -1
-  br i1 %874, label %891, label %.thread
+871:                                              ; preds = %869
+  %872 = getelementptr inbounds nuw i8, ptr %718, i64 28
+  %873 = load i32, ptr %872, align 4, !tbaa !63
+  %874 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.164, ptr noundef null, i32 noundef %873, i32 noundef -2147483647, i32 noundef 2147483647)
+  %875 = icmp sgt i32 %874, -1
+  br i1 %875, label %892, label %.thread
 
-875:                                              ; preds = %868, %865
-  %876 = getelementptr inbounds nuw i8, ptr %717, i64 28
-  %877 = load i32, ptr %876, align 4, !tbaa !63
-  %.not461.i = icmp eq i32 %877, 0
-  br i1 %.not461.i, label %891, label %878
+876:                                              ; preds = %869, %866
+  %877 = getelementptr inbounds nuw i8, ptr %718, i64 28
+  %878 = load i32, ptr %877, align 4, !tbaa !63
+  %.not461.i = icmp eq i32 %878, 0
+  br i1 %.not461.i, label %892, label %879
 
-878:                                              ; preds = %875
-  %879 = load ptr, ptr %0, align 8, !tbaa !31
-  %880 = sext i32 %877 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %879, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.164, i64 noundef %880, i64 noundef 0) #11
+879:                                              ; preds = %876
+  %880 = load ptr, ptr %0, align 8, !tbaa !31
+  %881 = sext i32 %878 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %880, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.164, i64 noundef %881, i64 noundef 0) #11
   br label %.thread
 
-881:                                              ; preds = %857
-  %.not462.i = icmp eq i32 %861, 0
-  br i1 %.not462.i, label %885, label %882
+882:                                              ; preds = %858
+  %.not462.i = icmp eq i32 %862, 0
+  br i1 %.not462.i, label %886, label %883
 
-882:                                              ; preds = %881
-  %883 = load ptr, ptr %0, align 8, !tbaa !31
-  %884 = sext i32 %861 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %883, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.163, i64 noundef %884, i64 noundef 0) #11
+883:                                              ; preds = %882
+  %884 = load ptr, ptr %0, align 8, !tbaa !31
+  %885 = sext i32 %862 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %884, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.163, i64 noundef %885, i64 noundef 0) #11
   br label %.thread
 
-885:                                              ; preds = %881
-  %886 = getelementptr inbounds nuw i8, ptr %717, i64 28
-  %887 = load i32, ptr %886, align 4, !tbaa !63
-  %.not463.i = icmp eq i32 %887, 0
-  br i1 %.not463.i, label %891, label %888
+886:                                              ; preds = %882
+  %887 = getelementptr inbounds nuw i8, ptr %718, i64 28
+  %888 = load i32, ptr %887, align 4, !tbaa !63
+  %.not463.i = icmp eq i32 %888, 0
+  br i1 %.not463.i, label %892, label %889
 
-888:                                              ; preds = %885
-  %889 = load ptr, ptr %0, align 8, !tbaa !31
-  %890 = sext i32 %887 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %889, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.164, i64 noundef %890, i64 noundef 0) #11
+889:                                              ; preds = %886
+  %890 = load ptr, ptr %0, align 8, !tbaa !31
+  %891 = sext i32 %888 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %890, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.164, i64 noundef %891, i64 noundef 0) #11
   br label %.thread
 
-891:                                              ; preds = %885, %875, %870, %852, %850, %847, %834
-  %892 = getelementptr inbounds nuw i8, ptr %761, i64 90
-  %893 = load i8, ptr %892, align 2, !tbaa !150
-  %.not466.i = icmp eq i8 %893, 0
-  %894 = getelementptr inbounds nuw i8, ptr %717, i64 32
-  %895 = load i8, ptr %894, align 4, !tbaa !171
-  br i1 %.not466.i, label %900, label %896
+892:                                              ; preds = %886, %876, %871, %853, %851, %848, %835
+  %893 = getelementptr inbounds nuw i8, ptr %762, i64 90
+  %894 = load i8, ptr %893, align 2, !tbaa !150
+  %.not466.i = icmp eq i8 %894, 0
+  %895 = getelementptr inbounds nuw i8, ptr %718, i64 32
+  %896 = load i8, ptr %895, align 4, !tbaa !171
+  br i1 %.not466.i, label %901, label %897
 
-896:                                              ; preds = %891
-  %897 = zext i8 %895 to i32
-  %898 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.165, ptr noundef null, i32 noundef %897, i32 noundef 0, i32 noundef 127)
-  %899 = icmp sgt i32 %898, -1
-  br i1 %899, label %904, label %.thread
+897:                                              ; preds = %892
+  %898 = zext i8 %896 to i32
+  %899 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.165, ptr noundef null, i32 noundef %898, i32 noundef 0, i32 noundef 127)
+  %900 = icmp sgt i32 %899, -1
+  br i1 %900, label %905, label %.thread
 
-900:                                              ; preds = %891
-  %.not467.i = icmp eq i8 %895, 0
-  br i1 %.not467.i, label %904, label %901
+901:                                              ; preds = %892
+  %.not467.i = icmp eq i8 %896, 0
+  br i1 %.not467.i, label %905, label %902
 
-901:                                              ; preds = %900
-  %902 = load ptr, ptr %0, align 8, !tbaa !31
-  %903 = zext i8 %895 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %902, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.165, i64 noundef %903, i64 noundef 0) #11
+902:                                              ; preds = %901
+  %903 = load ptr, ptr %0, align 8, !tbaa !31
+  %904 = zext i8 %896 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %903, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.165, i64 noundef %904, i64 noundef 0) #11
   br label %.thread
 
-904:                                              ; preds = %900, %896
-  %905 = load i8, ptr %723, align 1, !tbaa !158
-  %.not468.i = icmp eq i8 %905, 19
-  br i1 %.not468.i, label %910, label %906
+905:                                              ; preds = %901, %897
+  %906 = load i8, ptr %724, align 1, !tbaa !158
+  %.not468.i = icmp eq i8 %906, 19
+  br i1 %.not468.i, label %911, label %907
 
-906:                                              ; preds = %904
-  %907 = load i8, ptr %894, align 4, !tbaa !171
-  %.not469.i = icmp eq i8 %907, 0
-  br i1 %.not469.i, label %908, label %910
+907:                                              ; preds = %905
+  %908 = load i8, ptr %895, align 4, !tbaa !171
+  %.not469.i = icmp eq i8 %908, 0
+  br i1 %.not469.i, label %909, label %911
 
-908:                                              ; preds = %906
-  %909 = getelementptr inbounds nuw i8, ptr %719, i64 2376
-  store i8 %905, ptr %909, align 8, !tbaa !160
-  br label %910
+909:                                              ; preds = %907
+  %910 = getelementptr inbounds nuw i8, ptr %720, i64 2376
+  store i8 %906, ptr %910, align 8, !tbaa !160
+  br label %911
 
-910:                                              ; preds = %908, %906, %904
-  br i1 %746, label %911, label %917
+911:                                              ; preds = %909, %907, %905
+  br i1 %747, label %912, label %918
 
-911:                                              ; preds = %910
-  %912 = getelementptr inbounds nuw i8, ptr %717, i64 33
-  %913 = load i8, ptr %912, align 1, !tbaa !172
-  %914 = zext i8 %913 to i32
-  %915 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.166, i32 noundef %914) #11
-  %916 = icmp sgt i32 %915, -1
-  br i1 %916, label %.thread.i, label %.thread
+912:                                              ; preds = %911
+  %913 = getelementptr inbounds nuw i8, ptr %718, i64 33
+  %914 = load i8, ptr %913, align 1, !tbaa !172
+  %915 = zext i8 %914 to i32
+  %916 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.166, i32 noundef %915) #11
+  %917 = icmp sgt i32 %916, -1
+  br i1 %917, label %.thread.i, label %.thread
 
-917:                                              ; preds = %910
-  switch i8 %745, label %954 [
+918:                                              ; preds = %911
+  switch i8 %746, label %955 [
     i8 3, label %.thread.i
     i8 1, label %.thread.i
     i8 0, label %.thread.i
   ]
 
-.thread.i:                                        ; preds = %917, %917, %917, %911
-  %918 = getelementptr inbounds nuw i8, ptr %717, i64 34
-  %919 = load i8, ptr %918, align 2, !tbaa !173
-  %920 = zext i8 %919 to i32
-  %921 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.167, i32 noundef %920) #11
-  %922 = icmp sgt i32 %921, -1
-  br i1 %922, label %923, label %.thread
+.thread.i:                                        ; preds = %918, %918, %918, %912
+  %919 = getelementptr inbounds nuw i8, ptr %718, i64 34
+  %920 = load i8, ptr %919, align 2, !tbaa !173
+  %921 = zext i8 %920 to i32
+  %922 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.167, i32 noundef %921) #11
+  %923 = icmp sgt i32 %922, -1
+  br i1 %923, label %924, label %.thread
 
-923:                                              ; preds = %.thread.i
-  %924 = load i8, ptr %918, align 2, !tbaa !173
-  %.not470.i109 = icmp eq i8 %924, 0
-  %925 = getelementptr inbounds nuw i8, ptr %717, i64 35
-  %926 = load i8, ptr %925, align 1, !tbaa !174
-  br i1 %.not470.i109, label %938, label %927
+924:                                              ; preds = %.thread.i
+  %925 = load i8, ptr %919, align 2, !tbaa !173
+  %.not470.i109 = icmp eq i8 %925, 0
+  %926 = getelementptr inbounds nuw i8, ptr %718, i64 35
+  %927 = load i8, ptr %926, align 1, !tbaa !174
+  br i1 %.not470.i109, label %939, label %928
 
-927:                                              ; preds = %923
-  %928 = zext i8 %926 to i32
-  %929 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.168, ptr noundef null, i32 noundef %928, i32 noundef 0, i32 noundef 31)
-  %930 = icmp sgt i32 %929, -1
-  br i1 %930, label %931, label %.thread
+928:                                              ; preds = %924
+  %929 = zext i8 %927 to i32
+  %930 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.168, ptr noundef null, i32 noundef %929, i32 noundef 0, i32 noundef 31)
+  %931 = icmp sgt i32 %930, -1
+  br i1 %931, label %932, label %.thread
 
-931:                                              ; preds = %927
-  br i1 %746, label %932, label %954
+932:                                              ; preds = %928
+  br i1 %747, label %933, label %955
 
-932:                                              ; preds = %931
-  %933 = getelementptr inbounds nuw i8, ptr %717, i64 36
-  %934 = load i8, ptr %933, align 4, !tbaa !175
-  %935 = zext i8 %934 to i32
-  %936 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.169, ptr noundef null, i32 noundef %935, i32 noundef 0, i32 noundef 31)
-  %937 = icmp sgt i32 %936, -1
-  br i1 %937, label %954, label %.thread
+933:                                              ; preds = %932
+  %934 = getelementptr inbounds nuw i8, ptr %718, i64 36
+  %935 = load i8, ptr %934, align 4, !tbaa !175
+  %936 = zext i8 %935 to i32
+  %937 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.169, ptr noundef null, i32 noundef %936, i32 noundef 0, i32 noundef 31)
+  %938 = icmp sgt i32 %937, -1
+  br i1 %938, label %955, label %.thread
 
-938:                                              ; preds = %923
-  %939 = getelementptr inbounds nuw i8, ptr %761, i64 80
-  %940 = load i8, ptr %939, align 8, !tbaa !141
-  %.not471.i118 = icmp eq i8 %926, %940
-  br i1 %.not471.i118, label %945, label %941
+939:                                              ; preds = %924
+  %940 = getelementptr inbounds nuw i8, ptr %762, i64 80
+  %941 = load i8, ptr %940, align 8, !tbaa !141
+  %.not471.i118 = icmp eq i8 %927, %941
+  br i1 %.not471.i118, label %946, label %942
 
-941:                                              ; preds = %938
-  %942 = load ptr, ptr %0, align 8, !tbaa !31
-  %943 = zext i8 %926 to i64
-  %944 = zext i8 %940 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %942, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.168, i64 noundef %943, i64 noundef %944) #11
+942:                                              ; preds = %939
+  %943 = load ptr, ptr %0, align 8, !tbaa !31
+  %944 = zext i8 %927 to i64
+  %945 = zext i8 %941 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %943, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.168, i64 noundef %944, i64 noundef %945) #11
   br label %.thread
 
-945:                                              ; preds = %938
-  %946 = getelementptr inbounds nuw i8, ptr %717, i64 36
-  %947 = load i8, ptr %946, align 4, !tbaa !175
-  %948 = getelementptr inbounds nuw i8, ptr %761, i64 81
-  %949 = load i8, ptr %948, align 1, !tbaa !142
-  %.not472.i119 = icmp eq i8 %947, %949
-  br i1 %.not472.i119, label %954, label %950
+946:                                              ; preds = %939
+  %947 = getelementptr inbounds nuw i8, ptr %718, i64 36
+  %948 = load i8, ptr %947, align 4, !tbaa !175
+  %949 = getelementptr inbounds nuw i8, ptr %762, i64 81
+  %950 = load i8, ptr %949, align 1, !tbaa !142
+  %.not472.i119 = icmp eq i8 %948, %950
+  br i1 %.not472.i119, label %955, label %951
 
-950:                                              ; preds = %945
-  %951 = load ptr, ptr %0, align 8, !tbaa !31
-  %952 = zext i8 %947 to i64
-  %953 = zext i8 %949 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %951, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.169, i64 noundef %952, i64 noundef %953) #11
+951:                                              ; preds = %946
+  %952 = load ptr, ptr %0, align 8, !tbaa !31
+  %953 = zext i8 %948 to i64
+  %954 = zext i8 %950 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %952, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.169, i64 noundef %953, i64 noundef %954) #11
   br label %.thread
 
-954:                                              ; preds = %945, %932, %931, %917
-  %955 = load i8, ptr %723, align 1, !tbaa !158
-  %956 = and i8 %955, -2
-  %switch.i = icmp eq i8 %956, 20
-  br i1 %switch.i, label %957, label %959
+955:                                              ; preds = %946, %933, %932, %918
+  %956 = load i8, ptr %724, align 1, !tbaa !158
+  %957 = and i8 %956, -2
+  %switch.i = icmp eq i8 %957, 20
+  br i1 %switch.i, label %958, label %960
 
-957:                                              ; preds = %954
-  %958 = load ptr, ptr %0, align 8, !tbaa !31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %958, i32 noundef 16, ptr noundef nonnull @.str.170) #11
+958:                                              ; preds = %955
+  %959 = load ptr, ptr %0, align 8, !tbaa !31
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %959, i32 noundef 16, ptr noundef nonnull @.str.170) #11
   br label %.thread
 
-959:                                              ; preds = %954
-  %960 = tail call fastcc i32 @cbs_h264_write_ref_pic_list_modification(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull readonly %717)
-  %961 = icmp slt i32 %960, 0
-  br i1 %961, label %.thread, label %962
+960:                                              ; preds = %955
+  %961 = tail call fastcc i32 @cbs_h264_write_ref_pic_list_modification(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull readonly %718)
+  %962 = icmp slt i32 %961, 0
+  br i1 %962, label %.thread, label %963
 
-962:                                              ; preds = %959
-  %963 = getelementptr inbounds nuw i8, ptr %761, i64 82
-  %964 = load i8, ptr %963, align 2, !tbaa !143
-  %.not473.i110 = icmp eq i8 %964, 0
-  br i1 %.not473.i110, label %966, label %965
+963:                                              ; preds = %960
+  %964 = getelementptr inbounds nuw i8, ptr %762, i64 82
+  %965 = load i8, ptr %964, align 2, !tbaa !143
+  %.not473.i110 = icmp eq i8 %965, 0
+  br i1 %.not473.i110, label %967, label %966
 
-965:                                              ; preds = %962
-  switch i8 %745, label %966 [
-    i8 3, label %970
-    i8 0, label %970
+966:                                              ; preds = %963
+  switch i8 %746, label %967 [
+    i8 3, label %971
+    i8 0, label %971
   ]
 
-966:                                              ; preds = %965, %962
-  %967 = getelementptr inbounds nuw i8, ptr %761, i64 83
-  %968 = load i8, ptr %967, align 1, !tbaa !144
-  %969 = icmp eq i8 %968, 1
-  %or.cond38.i = select i1 %969, i1 %746, i1 false
-  br i1 %or.cond38.i, label %970, label %973
+967:                                              ; preds = %966, %963
+  %968 = getelementptr inbounds nuw i8, ptr %762, i64 83
+  %969 = load i8, ptr %968, align 1, !tbaa !144
+  %970 = icmp eq i8 %969, 1
+  %or.cond38.i = select i1 %970, i1 %747, i1 false
+  br i1 %or.cond38.i, label %971, label %974
 
-970:                                              ; preds = %966, %965, %965
-  %971 = tail call fastcc i32 @cbs_h264_write_pred_weight_table(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull readonly %717)
-  %972 = icmp slt i32 %971, 0
-  br i1 %972, label %.thread, label %973
+971:                                              ; preds = %967, %966, %966
+  %972 = tail call fastcc i32 @cbs_h264_write_pred_weight_table(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull readonly %718)
+  %973 = icmp slt i32 %972, 0
+  br i1 %973, label %.thread, label %974
 
-973:                                              ; preds = %970, %966
-  %974 = load i8, ptr %717, align 4, !tbaa !176
-  %.not474.i111 = icmp eq i8 %974, 0
-  br i1 %.not474.i111, label %978, label %975
+974:                                              ; preds = %971, %967
+  %975 = load i8, ptr %718, align 4, !tbaa !176
+  %.not474.i111 = icmp eq i8 %975, 0
+  br i1 %.not474.i111, label %979, label %976
 
-975:                                              ; preds = %973
-  %976 = tail call fastcc i32 @cbs_h264_write_dec_ref_pic_marking(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull readonly %717, i32 noundef %.0382.i)
-  %977 = icmp slt i32 %976, 0
-  br i1 %977, label %.thread, label %978
+976:                                              ; preds = %974
+  %977 = tail call fastcc i32 @cbs_h264_write_dec_ref_pic_marking(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull readonly %718, i32 noundef %.0382.i)
+  %978 = icmp slt i32 %977, 0
+  br i1 %978, label %.thread, label %979
 
-978:                                              ; preds = %975, %973
-  %979 = getelementptr inbounds nuw i8, ptr %761, i64 6
-  %980 = load i8, ptr %979, align 2, !tbaa !125
-  %.fr.i = freeze i8 %980
-  %981 = icmp eq i8 %.fr.i, 0
-  br i1 %981, label %988, label %switch.early.test486.i
+979:                                              ; preds = %976, %974
+  %980 = getelementptr inbounds nuw i8, ptr %762, i64 6
+  %981 = load i8, ptr %980, align 2, !tbaa !125
+  %.fr.i = freeze i8 %981
+  %982 = icmp eq i8 %.fr.i, 0
+  br i1 %982, label %989, label %switch.early.test486.i
 
-switch.early.test486.i:                           ; preds = %978
-  switch i8 %745, label %982 [
-    i8 4, label %988
-    i8 2, label %988
+switch.early.test486.i:                           ; preds = %979
+  switch i8 %746, label %983 [
+    i8 4, label %989
+    i8 2, label %989
   ]
 
-982:                                              ; preds = %switch.early.test486.i
-  %983 = getelementptr inbounds nuw i8, ptr %717, i64 2156
-  %984 = load i8, ptr %983, align 4, !tbaa !177
-  %985 = zext i8 %984 to i32
-  %986 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.171, ptr noundef null, i32 noundef %985, i32 noundef 0, i32 noundef 2)
-  %987 = icmp sgt i32 %986, -1
-  br i1 %987, label %988, label %.thread
+983:                                              ; preds = %switch.early.test486.i
+  %984 = getelementptr inbounds nuw i8, ptr %718, i64 2156
+  %985 = load i8, ptr %984, align 4, !tbaa !177
+  %986 = zext i8 %985 to i32
+  %987 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.171, ptr noundef null, i32 noundef %986, i32 noundef 0, i32 noundef 2)
+  %988 = icmp sgt i32 %987, -1
+  br i1 %988, label %989, label %.thread
 
-988:                                              ; preds = %982, %switch.early.test486.i, %switch.early.test486.i, %978
-  %989 = getelementptr inbounds nuw i8, ptr %717, i64 2157
-  %990 = load i8, ptr %989, align 1, !tbaa !178
-  %991 = sext i8 %990 to i32
-  %992 = getelementptr inbounds nuw i8, ptr %772, i64 16
-  %993 = load i8, ptr %992, align 4, !tbaa !81
-  %994 = zext i8 %993 to i32
-  %995 = mul nuw nsw i32 %994, 6
-  %996 = sub nuw nsw i32 -51, %995
-  %997 = add nuw nsw i32 %995, 51
-  %998 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.172, ptr noundef null, i32 noundef %991, i32 noundef %996, i32 noundef %997)
-  %999 = icmp sgt i32 %998, -1
-  br i1 %999, label %1000, label %.thread
+989:                                              ; preds = %983, %switch.early.test486.i, %switch.early.test486.i, %979
+  %990 = getelementptr inbounds nuw i8, ptr %718, i64 2157
+  %991 = load i8, ptr %990, align 1, !tbaa !178
+  %992 = sext i8 %991 to i32
+  %993 = getelementptr inbounds nuw i8, ptr %773, i64 16
+  %994 = load i8, ptr %993, align 4, !tbaa !81
+  %995 = zext i8 %994 to i32
+  %996 = mul nuw nsw i32 %995, 6
+  %997 = sub nuw nsw i32 -51, %996
+  %998 = add nuw nsw i32 %996, 51
+  %999 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.172, ptr noundef null, i32 noundef %992, i32 noundef %997, i32 noundef %998)
+  %1000 = icmp sgt i32 %999, -1
+  br i1 %1000, label %1001, label %.thread
 
-1000:                                             ; preds = %988
-  %1001 = add nsw i8 %745, -3
-  %or.cond44.i = icmp ult i8 %1001, 2
-  br i1 %or.cond44.i, label %1002, label %1015
+1001:                                             ; preds = %989
+  %1002 = add nsw i8 %746, -3
+  %or.cond44.i = icmp ult i8 %1002, 2
+  br i1 %or.cond44.i, label %1003, label %1016
 
-1002:                                             ; preds = %1000
-  br i1 %747, label %1003, label %1009
+1003:                                             ; preds = %1001
+  br i1 %748, label %1004, label %1010
 
-1003:                                             ; preds = %1002
-  %1004 = getelementptr inbounds nuw i8, ptr %717, i64 2158
-  %1005 = load i8, ptr %1004, align 2, !tbaa !179
-  %1006 = zext i8 %1005 to i32
-  %1007 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.173, i32 noundef %1006) #11
-  %1008 = icmp sgt i32 %1007, -1
-  br i1 %1008, label %1009, label %.thread
+1004:                                             ; preds = %1003
+  %1005 = getelementptr inbounds nuw i8, ptr %718, i64 2158
+  %1006 = load i8, ptr %1005, align 2, !tbaa !179
+  %1007 = zext i8 %1006 to i32
+  %1008 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.173, i32 noundef %1007) #11
+  %1009 = icmp sgt i32 %1008, -1
+  br i1 %1009, label %1010, label %.thread
 
-1009:                                             ; preds = %1003, %1002
-  %1010 = getelementptr inbounds nuw i8, ptr %717, i64 2159
-  %1011 = load i8, ptr %1010, align 1, !tbaa !180
-  %1012 = sext i8 %1011 to i32
-  %1013 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.174, ptr noundef null, i32 noundef %1012, i32 noundef -51, i32 noundef 51)
-  %1014 = icmp sgt i32 %1013, -1
-  br i1 %1014, label %1015, label %.thread
+1010:                                             ; preds = %1004, %1003
+  %1011 = getelementptr inbounds nuw i8, ptr %718, i64 2159
+  %1012 = load i8, ptr %1011, align 1, !tbaa !180
+  %1013 = sext i8 %1012 to i32
+  %1014 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.174, ptr noundef null, i32 noundef %1013, i32 noundef -51, i32 noundef 51)
+  %1015 = icmp sgt i32 %1014, -1
+  br i1 %1015, label %1016, label %.thread
 
-1015:                                             ; preds = %1009, %1000
-  %1016 = getelementptr inbounds nuw i8, ptr %761, i64 87
-  %1017 = load i8, ptr %1016, align 1, !tbaa !148
-  %.not475.i112 = icmp eq i8 %1017, 0
-  %1018 = getelementptr inbounds nuw i8, ptr %717, i64 2160
-  %1019 = load i8, ptr %1018, align 4, !tbaa !181
-  br i1 %.not475.i112, label %1048, label %1020
+1016:                                             ; preds = %1010, %1001
+  %1017 = getelementptr inbounds nuw i8, ptr %762, i64 87
+  %1018 = load i8, ptr %1017, align 1, !tbaa !148
+  %.not475.i112 = icmp eq i8 %1018, 0
+  %1019 = getelementptr inbounds nuw i8, ptr %718, i64 2160
+  %1020 = load i8, ptr %1019, align 4, !tbaa !181
+  br i1 %.not475.i112, label %1049, label %1021
 
-1020:                                             ; preds = %1015
-  %1021 = zext i8 %1019 to i32
-  %1022 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.175, ptr noundef null, i32 noundef %1021, i32 noundef 0, i32 noundef 2)
-  %1023 = icmp sgt i32 %1022, -1
-  br i1 %1023, label %1024, label %.thread
+1021:                                             ; preds = %1016
+  %1022 = zext i8 %1020 to i32
+  %1023 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.175, ptr noundef null, i32 noundef %1022, i32 noundef 0, i32 noundef 2)
+  %1024 = icmp sgt i32 %1023, -1
+  br i1 %1024, label %1025, label %.thread
 
-1024:                                             ; preds = %1020
-  %1025 = load i8, ptr %1018, align 4, !tbaa !181
-  %.not479.i113 = icmp eq i8 %1025, 1
-  %1026 = getelementptr inbounds nuw i8, ptr %717, i64 2161
-  %1027 = load i8, ptr %1026, align 1, !tbaa !182
-  br i1 %.not479.i113, label %1038, label %1028
+1025:                                             ; preds = %1021
+  %1026 = load i8, ptr %1019, align 4, !tbaa !181
+  %.not479.i113 = icmp eq i8 %1026, 1
+  %1027 = getelementptr inbounds nuw i8, ptr %718, i64 2161
+  %1028 = load i8, ptr %1027, align 1, !tbaa !182
+  br i1 %.not479.i113, label %1039, label %1029
 
-1028:                                             ; preds = %1024
-  %1029 = sext i8 %1027 to i32
-  %1030 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.176, ptr noundef null, i32 noundef %1029, i32 noundef -6, i32 noundef 6)
-  %1031 = icmp sgt i32 %1030, -1
-  br i1 %1031, label %1032, label %.thread
+1029:                                             ; preds = %1025
+  %1030 = sext i8 %1028 to i32
+  %1031 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.176, ptr noundef null, i32 noundef %1030, i32 noundef -6, i32 noundef 6)
+  %1032 = icmp sgt i32 %1031, -1
+  br i1 %1032, label %1033, label %.thread
 
-1032:                                             ; preds = %1028
-  %1033 = getelementptr inbounds nuw i8, ptr %717, i64 2162
-  %1034 = load i8, ptr %1033, align 2, !tbaa !183
-  %1035 = sext i8 %1034 to i32
-  %1036 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.177, ptr noundef null, i32 noundef %1035, i32 noundef -6, i32 noundef 6)
-  %1037 = icmp sgt i32 %1036, -1
-  br i1 %1037, label %1064, label %.thread
+1033:                                             ; preds = %1029
+  %1034 = getelementptr inbounds nuw i8, ptr %718, i64 2162
+  %1035 = load i8, ptr %1034, align 2, !tbaa !183
+  %1036 = sext i8 %1035 to i32
+  %1037 = tail call fastcc i32 @cbs_write_se_golomb(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.177, ptr noundef null, i32 noundef %1036, i32 noundef -6, i32 noundef 6)
+  %1038 = icmp sgt i32 %1037, -1
+  br i1 %1038, label %1065, label %.thread
 
-1038:                                             ; preds = %1024
-  %.not480.i = icmp eq i8 %1027, 0
-  br i1 %.not480.i, label %1042, label %1039
+1039:                                             ; preds = %1025
+  %.not480.i = icmp eq i8 %1028, 0
+  br i1 %.not480.i, label %1043, label %1040
 
-1039:                                             ; preds = %1038
-  %1040 = load ptr, ptr %0, align 8, !tbaa !31
-  %1041 = sext i8 %1027 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1040, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.176, i64 noundef %1041, i64 noundef 0) #11
+1040:                                             ; preds = %1039
+  %1041 = load ptr, ptr %0, align 8, !tbaa !31
+  %1042 = sext i8 %1028 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1041, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.176, i64 noundef %1042, i64 noundef 0) #11
   br label %.thread
 
-1042:                                             ; preds = %1038
-  %1043 = getelementptr inbounds nuw i8, ptr %717, i64 2162
-  %1044 = load i8, ptr %1043, align 2, !tbaa !183
-  %.not481.i = icmp eq i8 %1044, 0
-  br i1 %.not481.i, label %1064, label %1045
+1043:                                             ; preds = %1039
+  %1044 = getelementptr inbounds nuw i8, ptr %718, i64 2162
+  %1045 = load i8, ptr %1044, align 2, !tbaa !183
+  %.not481.i = icmp eq i8 %1045, 0
+  br i1 %.not481.i, label %1065, label %1046
 
-1045:                                             ; preds = %1042
-  %1046 = load ptr, ptr %0, align 8, !tbaa !31
-  %1047 = sext i8 %1044 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1046, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.177, i64 noundef %1047, i64 noundef 0) #11
+1046:                                             ; preds = %1043
+  %1047 = load ptr, ptr %0, align 8, !tbaa !31
+  %1048 = sext i8 %1045 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1047, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.177, i64 noundef %1048, i64 noundef 0) #11
   br label %.thread
 
-1048:                                             ; preds = %1015
-  %.not476.i115 = icmp eq i8 %1019, 0
-  br i1 %.not476.i115, label %1052, label %1049
+1049:                                             ; preds = %1016
+  %.not476.i115 = icmp eq i8 %1020, 0
+  br i1 %.not476.i115, label %1053, label %1050
 
-1049:                                             ; preds = %1048
-  %1050 = load ptr, ptr %0, align 8, !tbaa !31
-  %1051 = zext i8 %1019 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1050, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.175, i64 noundef %1051, i64 noundef 0) #11
+1050:                                             ; preds = %1049
+  %1051 = load ptr, ptr %0, align 8, !tbaa !31
+  %1052 = zext i8 %1020 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1051, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.175, i64 noundef %1052, i64 noundef 0) #11
   br label %.thread
 
-1052:                                             ; preds = %1048
-  %1053 = getelementptr inbounds nuw i8, ptr %717, i64 2161
-  %1054 = load i8, ptr %1053, align 1, !tbaa !182
-  %.not477.i116 = icmp eq i8 %1054, 0
-  br i1 %.not477.i116, label %1058, label %1055
+1053:                                             ; preds = %1049
+  %1054 = getelementptr inbounds nuw i8, ptr %718, i64 2161
+  %1055 = load i8, ptr %1054, align 1, !tbaa !182
+  %.not477.i116 = icmp eq i8 %1055, 0
+  br i1 %.not477.i116, label %1059, label %1056
 
-1055:                                             ; preds = %1052
-  %1056 = load ptr, ptr %0, align 8, !tbaa !31
-  %1057 = sext i8 %1054 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1056, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.176, i64 noundef %1057, i64 noundef 0) #11
+1056:                                             ; preds = %1053
+  %1057 = load ptr, ptr %0, align 8, !tbaa !31
+  %1058 = sext i8 %1055 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1057, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.176, i64 noundef %1058, i64 noundef 0) #11
   br label %.thread
 
-1058:                                             ; preds = %1052
-  %1059 = getelementptr inbounds nuw i8, ptr %717, i64 2162
-  %1060 = load i8, ptr %1059, align 2, !tbaa !183
-  %.not478.i117 = icmp eq i8 %1060, 0
-  br i1 %.not478.i117, label %1064, label %1061
+1059:                                             ; preds = %1053
+  %1060 = getelementptr inbounds nuw i8, ptr %718, i64 2162
+  %1061 = load i8, ptr %1060, align 2, !tbaa !183
+  %.not478.i117 = icmp eq i8 %1061, 0
+  br i1 %.not478.i117, label %1065, label %1062
 
-1061:                                             ; preds = %1058
-  %1062 = load ptr, ptr %0, align 8, !tbaa !31
-  %1063 = sext i8 %1060 to i64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1062, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.177, i64 noundef %1063, i64 noundef 0) #11
+1062:                                             ; preds = %1059
+  %1063 = load ptr, ptr %0, align 8, !tbaa !31
+  %1064 = sext i8 %1061 to i64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1063, i32 noundef 16, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.177, i64 noundef %1064, i64 noundef 0) #11
   br label %.thread
 
-1064:                                             ; preds = %1058, %1042, %1032
-  %1065 = getelementptr inbounds nuw i8, ptr %761, i64 8
-  %1066 = load i8, ptr %1065, align 8, !tbaa !127
-  %.not482.i = icmp eq i8 %1066, 0
-  br i1 %.not482.i, label %1101, label %1067
+1065:                                             ; preds = %1059, %1043, %1033
+  %1066 = getelementptr inbounds nuw i8, ptr %762, i64 8
+  %1067 = load i8, ptr %1066, align 8, !tbaa !127
+  %.not482.i = icmp eq i8 %1067, 0
+  br i1 %.not482.i, label %1102, label %1068
 
-1067:                                             ; preds = %1064
-  %1068 = getelementptr inbounds nuw i8, ptr %761, i64 9
-  %1069 = load i8, ptr %1068, align 1, !tbaa !128
-  %1070 = add i8 %1069, -3
-  %or.cond.i = icmp ult i8 %1070, 3
-  br i1 %or.cond.i, label %1071, label %1101
+1068:                                             ; preds = %1065
+  %1069 = getelementptr inbounds nuw i8, ptr %762, i64 9
+  %1070 = load i8, ptr %1069, align 1, !tbaa !128
+  %1071 = add i8 %1070, -3
+  %or.cond.i = icmp ult i8 %1071, 3
+  br i1 %or.cond.i, label %1072, label %1102
 
-1071:                                             ; preds = %1067
-  %1072 = getelementptr inbounds nuw i8, ptr %772, i64 1842
-  %1073 = load i16, ptr %1072, align 2, !tbaa !96
-  %1074 = zext i16 %1073 to i32
-  %1075 = add nuw nsw i32 %1074, 1
-  %1076 = getelementptr inbounds nuw i8, ptr %772, i64 1844
-  %1077 = load i16, ptr %1076, align 4, !tbaa !97
-  %1078 = zext i16 %1077 to i32
-  %1079 = add nuw nsw i32 %1078, 1
-  %1080 = mul nuw nsw i32 %1079, %1075
-  %1081 = getelementptr inbounds nuw i8, ptr %761, i64 60
-  %1082 = load i16, ptr %1081, align 4, !tbaa !133
-  %1083 = zext i16 %1082 to i32
-  %1084 = add nuw i32 %1080, %1083
-  %1085 = add nuw nsw i32 %1083, 1
-  %1086 = udiv i32 %1084, %1085
-  %1087 = shl i32 %1086, 1
-  %.not.i.i.i = icmp ult i32 %1087, 65536
-  %1088 = lshr i32 %1087, 16
-  %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %1087, i32 %1088
+1072:                                             ; preds = %1068
+  %1073 = getelementptr inbounds nuw i8, ptr %773, i64 1842
+  %1074 = load i16, ptr %1073, align 2, !tbaa !96
+  %1075 = zext i16 %1074 to i32
+  %1076 = add nuw nsw i32 %1075, 1
+  %1077 = getelementptr inbounds nuw i8, ptr %773, i64 1844
+  %1078 = load i16, ptr %1077, align 4, !tbaa !97
+  %1079 = zext i16 %1078 to i32
+  %1080 = add nuw nsw i32 %1079, 1
+  %1081 = mul nuw nsw i32 %1080, %1076
+  %1082 = getelementptr inbounds nuw i8, ptr %762, i64 60
+  %1083 = load i16, ptr %1082, align 4, !tbaa !133
+  %1084 = zext i16 %1083 to i32
+  %1085 = add nuw i32 %1081, %1084
+  %1086 = add nuw nsw i32 %1084, 1
+  %1087 = udiv i32 %1085, %1086
+  %1088 = shl i32 %1087, 1
+  %.not.i.i.i = icmp ult i32 %1088, 65536
+  %1089 = lshr i32 %1088, 16
+  %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %1088, i32 %1089
   %spec.select12.i.i.i = select i1 %.not.i.i.i, i32 0, i32 16
   %.not11.i.i.i = icmp samesign ult i32 %spec.select.i.i.i, 256
-  %1089 = lshr i32 %spec.select.i.i.i, 8
-  %1090 = or disjoint i32 %spec.select12.i.i.i, 8
-  %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %1089
-  %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %1090
-  %1091 = zext nneg i32 %.110.i.i.i to i64
-  %1092 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %1091
-  %1093 = load i8, ptr %1092, align 1, !tbaa !25
-  %1094 = zext i8 %1093 to i32
-  %1095 = add nuw nsw i32 %.1.i.i.i, %1094
-  %1096 = getelementptr inbounds nuw i8, ptr %717, i64 2164
-  %1097 = load i16, ptr %1096, align 4, !tbaa !184
-  %1098 = zext i16 %1097 to i32
-  %1099 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1095, ptr noundef nonnull @.str.178, ptr noundef null, i32 noundef %1098, i32 noundef 0, i32 noundef %1086) #11
-  %1100 = icmp sgt i32 %1099, -1
-  br i1 %1100, label %1101, label %.thread
+  %1090 = lshr i32 %spec.select.i.i.i, 8
+  %1091 = or disjoint i32 %spec.select12.i.i.i, 8
+  %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %1090
+  %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %1091
+  %1092 = zext nneg i32 %.110.i.i.i to i64
+  %1093 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %1092
+  %1094 = load i8, ptr %1093, align 1, !tbaa !25
+  %1095 = zext i8 %1094 to i32
+  %1096 = add nuw nsw i32 %.1.i.i.i, %1095
+  %1097 = getelementptr inbounds nuw i8, ptr %718, i64 2164
+  %1098 = load i16, ptr %1097, align 4, !tbaa !184
+  %1099 = zext i16 %1098 to i32
+  %1100 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1096, ptr noundef nonnull @.str.178, ptr noundef null, i32 noundef %1099, i32 noundef 0, i32 noundef %1087) #11
+  %1101 = icmp sgt i32 %1100, -1
+  br i1 %1101, label %1102, label %.thread
 
-1101:                                             ; preds = %1071, %1067, %1064
-  %1102 = load i8, ptr %979, align 2, !tbaa !125
-  %.not483.i = icmp eq i8 %1102, 0
+1102:                                             ; preds = %1072, %1068, %1065
+  %1103 = load i8, ptr %980, align 2, !tbaa !125
+  %.not483.i = icmp eq i8 %1103, 0
   br i1 %.not483.i, label %cbs_h264_write_slice_header.exit, label %.preheader.i114
 
-.preheader.i114:                                  ; preds = %1101
-  %1103 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  br label %1104
+.preheader.i114:                                  ; preds = %1102
+  %1104 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  br label %1105
 
-1104:                                             ; preds = %1107, %.preheader.i114
-  %1105 = load i32, ptr %1103, align 4, !tbaa !200
-  %reass.sub.i.i = sub i32 0, %1105
-  %1106 = and i32 %reass.sub.i.i, 7
-  %.not484.i = icmp eq i32 %1106, 0
-  br i1 %.not484.i, label %cbs_h264_write_slice_header.exit, label %1107
+1105:                                             ; preds = %1108, %.preheader.i114
+  %1106 = load i32, ptr %1104, align 4, !tbaa !200
+  %reass.sub.i.i = sub i32 0, %1106
+  %1107 = and i32 %reass.sub.i.i, 7
+  %.not484.i = icmp eq i32 %1107, 0
+  br i1 %.not484.i, label %cbs_h264_write_slice_header.exit, label %1108
 
-1107:                                             ; preds = %1104
-  %1108 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull @.str.179, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
-  %1109 = icmp sgt i32 %1108, -1
-  br i1 %1109, label %1104, label %.thread, !llvm.loop !207
+1108:                                             ; preds = %1105
+  %1109 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull @.str.179, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
+  %1110 = icmp sgt i32 %1109, -1
+  br i1 %1110, label %1105, label %.thread, !llvm.loop !207
 
-cbs_h264_write_slice_header.exit:                 ; preds = %1104, %1101
-  %1110 = getelementptr inbounds nuw i8, ptr %717, i64 2168
-  %1111 = load ptr, ptr %1110, align 8, !tbaa !190
-  %.not = icmp eq ptr %1111, null
-  br i1 %.not, label %cbs_h264_write_sps_extension.exit, label %1112
+cbs_h264_write_slice_header.exit:                 ; preds = %1105, %1102
+  %1111 = getelementptr inbounds nuw i8, ptr %718, i64 2168
+  %1112 = load ptr, ptr %1111, align 8, !tbaa !190
+  %.not = icmp eq ptr %1112, null
+  br i1 %.not, label %cbs_h264_write_sps_extension.exit, label %1113
 
-1112:                                             ; preds = %cbs_h264_write_slice_header.exit
-  %1113 = getelementptr inbounds nuw i8, ptr %717, i64 2184
-  %1114 = load i64, ptr %1113, align 8, !tbaa !186
-  %1115 = getelementptr inbounds nuw i8, ptr %717, i64 2192
-  %1116 = load i32, ptr %1115, align 8, !tbaa !191
-  %1117 = tail call fastcc i32 @cbs_h2645_write_slice_data(ptr noundef %2, ptr noundef %1111, i64 noundef %1114, i32 noundef %1116)
-  %1118 = icmp slt i32 %1117, 0
-  br i1 %1118, label %.thread, label %cbs_h264_write_sps_extension.exit
+1113:                                             ; preds = %cbs_h264_write_slice_header.exit
+  %1114 = getelementptr inbounds nuw i8, ptr %718, i64 2184
+  %1115 = load i64, ptr %1114, align 8, !tbaa !186
+  %1116 = getelementptr inbounds nuw i8, ptr %718, i64 2192
+  %1117 = load i32, ptr %1116, align 8, !tbaa !191
+  %1118 = tail call fastcc i32 @cbs_h2645_write_slice_data(ptr noundef %2, ptr noundef %1112, i64 noundef %1115, i32 noundef %1117)
+  %1119 = icmp slt i32 %1118, 0
+  br i1 %1119, label %.thread, label %cbs_h264_write_sps_extension.exit
 
-1119:                                             ; preds = %3
-  %1120 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1121 = load ptr, ptr %1120, align 8, !tbaa !62
+1120:                                             ; preds = %3
+  %1121 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1122 = load ptr, ptr %1121, align 8, !tbaa !62
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.207) #11
-  %1122 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %1121, i32 noundef 512)
-  %1123 = icmp slt i32 %1122, 0
-  br i1 %1123, label %.thread, label %1124
+  %1123 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %1122, i32 noundef 512)
+  %1124 = icmp slt i32 %1123, 0
+  br i1 %1124, label %.thread, label %1125
 
-1124:                                             ; preds = %1119
-  %1125 = getelementptr inbounds nuw i8, ptr %1121, i64 4
-  %1126 = load i8, ptr %1125, align 1, !tbaa !192
-  %1127 = zext i8 %1126 to i32
-  %1128 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.208, i32 noundef %1127) #11
-  %1129 = icmp sgt i32 %1128, -1
-  br i1 %1129, label %1130, label %.thread
+1125:                                             ; preds = %1120
+  %1126 = getelementptr inbounds nuw i8, ptr %1122, i64 4
+  %1127 = load i8, ptr %1126, align 1, !tbaa !192
+  %1128 = zext i8 %1127 to i32
+  %1129 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.208, i32 noundef %1128) #11
+  %1130 = icmp sgt i32 %1129, -1
+  br i1 %1130, label %1131, label %.thread
 
-1130:                                             ; preds = %1124
-  %1131 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
-  %1132 = icmp sgt i32 %1131, -1
-  br i1 %1132, label %.preheader.i.i122, label %.thread
+1131:                                             ; preds = %1125
+  %1132 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
+  %1133 = icmp sgt i32 %1132, -1
+  br i1 %1133, label %.preheader.i.i122, label %.thread
 
-.preheader.i.i122:                                ; preds = %1130
-  %1133 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  br label %1134
+.preheader.i.i122:                                ; preds = %1131
+  %1134 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  br label %1135
 
-1134:                                             ; preds = %1137, %.preheader.i.i122
-  %1135 = load i32, ptr %1133, align 4, !tbaa !200
-  %reass.sub.i.i.i123 = sub i32 0, %1135
-  %1136 = and i32 %reass.sub.i.i.i123, 7
-  %.not.i.i124 = icmp eq i32 %1136, 0
-  br i1 %.not.i.i124, label %cbs_h264_write_sps_extension.exit, label %1137
+1135:                                             ; preds = %1138, %.preheader.i.i122
+  %1136 = load i32, ptr %1134, align 4, !tbaa !200
+  %reass.sub.i.i.i123 = sub i32 0, %1136
+  %1137 = and i32 %reass.sub.i.i.i123, 7
+  %.not.i.i124 = icmp eq i32 %1137, 0
+  br i1 %.not.i.i124, label %cbs_h264_write_sps_extension.exit, label %1138
 
-1137:                                             ; preds = %1134
-  %1138 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
-  %1139 = icmp sgt i32 %1138, -1
-  br i1 %1139, label %1134, label %.thread, !llvm.loop !202
+1138:                                             ; preds = %1135
+  %1139 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  %1140 = icmp sgt i32 %1139, -1
+  br i1 %1140, label %1135, label %.thread, !llvm.loop !202
 
-1140:                                             ; preds = %3
-  %1141 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1142 = load ptr, ptr %1141, align 8, !tbaa !62
+1141:                                             ; preds = %3
+  %1142 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1143 = load ptr, ptr %1142, align 8, !tbaa !62
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.209) #11
-  %1143 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %1142, i32 noundef 64)
-  %1144 = icmp slt i32 %1143, 0
-  br i1 %1144, label %.thread, label %1145
+  %1144 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %1143, i32 noundef 64)
+  %1145 = icmp slt i32 %1144, 0
+  br i1 %1145, label %.thread, label %1146
 
-1145:                                             ; preds = %1140
-  %1146 = getelementptr inbounds nuw i8, ptr %1142, i64 8
-  %1147 = tail call fastcc i32 @cbs_sei_write_message_list(ptr noundef %0, ptr noundef %2, ptr noundef nonnull readonly %1146)
-  %1148 = icmp slt i32 %1147, 0
-  br i1 %1148, label %.thread, label %1149
+1146:                                             ; preds = %1141
+  %1147 = getelementptr inbounds nuw i8, ptr %1143, i64 8
+  %1148 = tail call fastcc i32 @cbs_sei_write_message_list(ptr noundef %0, ptr noundef %2, ptr noundef nonnull readonly %1147)
+  %1149 = icmp slt i32 %1148, 0
+  br i1 %1149, label %.thread, label %1150
 
-1149:                                             ; preds = %1145
-  %1150 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
-  %1151 = icmp sgt i32 %1150, -1
-  br i1 %1151, label %.preheader.i.i126, label %.thread
+1150:                                             ; preds = %1146
+  %1151 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
+  %1152 = icmp sgt i32 %1151, -1
+  br i1 %1152, label %.preheader.i.i126, label %.thread
 
-.preheader.i.i126:                                ; preds = %1149
-  %1152 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  br label %1153
+.preheader.i.i126:                                ; preds = %1150
+  %1153 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  br label %1154
 
-1153:                                             ; preds = %1156, %.preheader.i.i126
-  %1154 = load i32, ptr %1152, align 4, !tbaa !200
-  %reass.sub.i.i.i127 = sub i32 0, %1154
-  %1155 = and i32 %reass.sub.i.i.i127, 7
-  %.not.i.i128 = icmp eq i32 %1155, 0
-  br i1 %.not.i.i128, label %cbs_h264_write_sps_extension.exit, label %1156
+1154:                                             ; preds = %1157, %.preheader.i.i126
+  %1155 = load i32, ptr %1153, align 4, !tbaa !200
+  %reass.sub.i.i.i127 = sub i32 0, %1155
+  %1156 = and i32 %reass.sub.i.i.i127, 7
+  %.not.i.i128 = icmp eq i32 %1156, 0
+  br i1 %.not.i.i128, label %cbs_h264_write_sps_extension.exit, label %1157
 
-1156:                                             ; preds = %1153
-  %1157 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
-  %1158 = icmp sgt i32 %1157, -1
-  br i1 %1158, label %1153, label %.thread, !llvm.loop !202
+1157:                                             ; preds = %1154
+  %1158 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  %1159 = icmp sgt i32 %1158, -1
+  br i1 %1159, label %1154, label %.thread, !llvm.loop !202
 
-1159:                                             ; preds = %3
-  %1160 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1161 = load ptr, ptr %1160, align 8, !tbaa !62
+1160:                                             ; preds = %3
+  %1161 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1162 = load ptr, ptr %1161, align 8, !tbaa !62
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.218) #11
-  %1162 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %1161, i32 noundef 4096)
-  %1163 = icmp slt i32 %1162, 0
-  br i1 %1163, label %.thread, label %.preheader.i129
+  %1163 = tail call fastcc i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %1162, i32 noundef 4096)
+  %1164 = icmp slt i32 %1163, 0
+  br i1 %1164, label %.thread, label %.preheader.i129
 
-.preheader.i129:                                  ; preds = %1159
-  %1164 = getelementptr inbounds nuw i8, ptr %1161, i64 4
-  %1165 = load i32, ptr %1164, align 4, !tbaa !194
-  %.not35.not.i = icmp eq i32 %1165, 0
+.preheader.i129:                                  ; preds = %1160
+  %1165 = getelementptr inbounds nuw i8, ptr %1162, i64 4
+  %1166 = load i32, ptr %1165, align 4, !tbaa !194
+  %.not35.not.i = icmp eq i32 %1166, 0
   br i1 %.not35.not.i, label %._crit_edge.i, label %.lr.ph.i130
 
-1166:                                             ; preds = %.lr.ph.i130
-  %1167 = add nuw i32 %.02436.i, 1
-  %1168 = load i32, ptr %1164, align 4, !tbaa !194
-  %.not.i132 = icmp ult i32 %1167, %1168
+1167:                                             ; preds = %.lr.ph.i130
+  %1168 = add nuw i32 %.02436.i, 1
+  %1169 = load i32, ptr %1165, align 4, !tbaa !194
+  %.not.i132 = icmp ult i32 %1168, %1169
   br i1 %.not.i132, label %.lr.ph.i130, label %._crit_edge.i, !llvm.loop !208
 
-.lr.ph.i130:                                      ; preds = %.preheader.i129, %1166
-  %.02436.i = phi i32 [ %1167, %1166 ], [ 0, %.preheader.i129 ]
-  %1169 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.210, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #11
-  %1170 = icmp sgt i32 %1169, -1
-  br i1 %1170, label %1166, label %.thread
+.lr.ph.i130:                                      ; preds = %.preheader.i129, %1167
+  %.02436.i = phi i32 [ %1168, %1167 ], [ 0, %.preheader.i129 ]
+  %1170 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.210, ptr noundef null, i32 noundef 255, i32 noundef 255, i32 noundef 255) #11
+  %1171 = icmp sgt i32 %1170, -1
+  br i1 %1171, label %1167, label %.thread
 
-._crit_edge.i:                                    ; preds = %1166, %.preheader.i129
-  %1171 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
-  %1172 = icmp sgt i32 %1171, -1
-  br i1 %1172, label %.preheader.i.i133, label %.thread
+._crit_edge.i:                                    ; preds = %1167, %.preheader.i129
+  %1172 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.112, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
+  %1173 = icmp sgt i32 %1172, -1
+  br i1 %1173, label %.preheader.i.i133, label %.thread
 
 .preheader.i.i133:                                ; preds = %._crit_edge.i
-  %1173 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  br label %1174
+  %1174 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  br label %1175
 
-1174:                                             ; preds = %1177, %.preheader.i.i133
-  %1175 = load i32, ptr %1173, align 4, !tbaa !200
-  %reass.sub.i.i.i134 = sub i32 0, %1175
-  %1176 = and i32 %reass.sub.i.i.i134, 7
-  %.not.i.i135 = icmp eq i32 %1176, 0
-  br i1 %.not.i.i135, label %cbs_h264_write_sps_extension.exit, label %1177
+1175:                                             ; preds = %1178, %.preheader.i.i133
+  %1176 = load i32, ptr %1174, align 4, !tbaa !200
+  %reass.sub.i.i.i134 = sub i32 0, %1176
+  %1177 = and i32 %reass.sub.i.i.i134, 7
+  %.not.i.i135 = icmp eq i32 %1177, 0
+  br i1 %.not.i.i135, label %cbs_h264_write_sps_extension.exit, label %1178
 
-1177:                                             ; preds = %1174
-  %1178 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
-  %1179 = icmp sgt i32 %1178, -1
-  br i1 %1179, label %1174, label %.thread, !llvm.loop !202
+1178:                                             ; preds = %1175
+  %1179 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull @.str.113, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  %1180 = icmp sgt i32 %1179, -1
+  br i1 %1180, label %1175, label %.thread, !llvm.loop !202
 
-1180:                                             ; preds = %3
-  %1181 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1182 = load ptr, ptr %1181, align 8, !tbaa !62
+1181:                                             ; preds = %3
+  %1182 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1183 = load ptr, ptr %1182, align 8, !tbaa !62
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.219) #11
-  %1183 = tail call fastcc range(i32 -2147483648, 1) i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %1182, i32 noundef 1024)
-  %1184 = icmp slt i32 %1183, 0
-  br i1 %1184, label %.thread, label %cbs_h264_write_sps_extension.exit
+  %1184 = tail call fastcc range(i32 -2147483648, 1) i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %1183, i32 noundef 1024)
+  %1185 = icmp slt i32 %1184, 0
+  br i1 %1185, label %.thread, label %cbs_h264_write_sps_extension.exit
 
-1185:                                             ; preds = %3
-  %1186 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1187 = load ptr, ptr %1186, align 8, !tbaa !62
+1186:                                             ; preds = %3
+  %1187 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1188 = load ptr, ptr %1187, align 8, !tbaa !62
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.220) #11
-  %1188 = tail call fastcc range(i32 -2147483648, 1) i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %1187, i32 noundef 2048)
-  %1189 = icmp slt i32 %1188, 0
-  br i1 %1189, label %.thread, label %cbs_h264_write_sps_extension.exit
+  %1189 = tail call fastcc range(i32 -2147483648, 1) i32 @cbs_h264_write_nal_unit_header(ptr noundef %0, ptr noundef %2, ptr noundef readonly %1188, i32 noundef 2048)
+  %1190 = icmp slt i32 %1189, 0
+  br i1 %1190, label %.thread, label %cbs_h264_write_sps_extension.exit
 
-1190:                                             ; preds = %3
-  %1191 = load ptr, ptr %0, align 8, !tbaa !31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1191, i32 noundef 16, ptr noundef nonnull @.str.221, i32 noundef %11) #11
+1191:                                             ; preds = %3
+  %1192 = load ptr, ptr %0, align 8, !tbaa !31
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1192, i32 noundef 16, ptr noundef nonnull @.str.221, i32 noundef %11) #11
   br label %.thread
 
-cbs_h264_write_sps_extension.exit:                ; preds = %1174, %1153, %1134, %401, %cbs_h264_write_slice_header.exit, %1112, %714, %344, %1185, %1180
+cbs_h264_write_sps_extension.exit:                ; preds = %1175, %1154, %1135, %402, %cbs_h264_write_slice_header.exit, %1113, %715, %345, %1186, %1181
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph.i130, %1177, %1156, %1137, %1107, %404, %._crit_edge.i, %1159, %1149, %1145, %1140, %1130, %1119, %1124, %975, %970, %959, %715, %729, %731, %736, %748, %750, %762, %773, %780, %786, %801, %814, %809, %828, %862, %870, %878, %888, %882, %837, %852, %901, %896, %911, %.thread.i, %950, %941, %927, %932, %982, %988, %1003, %1009, %1061, %1055, %1049, %1020, %1045, %1039, %1028, %1032, %1071, %957, %824, %818, %1112, %694, %cbs_h264_write_pps.exit.thread, %cbs_h264_write_pps.exit, %376, %370, %364, %397, %345, %350, %356, %385, %391, %323, %cbs_h264_write_sps.exit.thread, %cbs_h264_write_sps.exit, %1185, %1180, %cbs_h264_write_sps_extension.exit, %1190
-  %.1 = phi i32 [ -1163346256, %1190 ], [ 0, %cbs_h264_write_sps_extension.exit ], [ %1183, %1180 ], [ %1188, %1185 ], [ %329, %323 ], [ %.0.i.ph, %cbs_h264_write_sps.exit.thread ], [ %321, %cbs_h264_write_sps.exit ], [ %383, %376 ], [ %374, %370 ], [ %368, %364 ], [ %398, %397 ], [ %348, %345 ], [ %354, %350 ], [ %360, %356 ], [ %389, %385 ], [ %395, %391 ], [ %699, %694 ], [ %.0.i98.ph, %cbs_h264_write_pps.exit.thread ], [ %692, %cbs_h264_write_pps.exit ], [ %1117, %1112 ], [ %976, %975 ], [ %971, %970 ], [ %960, %959 ], [ %720, %715 ], [ -1094995529, %729 ], [ %734, %731 ], [ %740, %736 ], [ -1094995529, %748 ], [ %754, %750 ], [ -1094995529, %762 ], [ -1094995529, %773 ], [ %784, %780 ], [ %794, %786 ], [ %803, %801 ], [ -1094995529, %814 ], [ %811, %809 ], [ %832, %828 ], [ %863, %862 ], [ %873, %870 ], [ -1094995529, %878 ], [ -1094995529, %888 ], [ -1094995529, %882 ], [ %845, %837 ], [ %855, %852 ], [ -1094995529, %901 ], [ %898, %896 ], [ %915, %911 ], [ %921, %.thread.i ], [ -1094995529, %950 ], [ -1094995529, %941 ], [ %929, %927 ], [ %936, %932 ], [ %986, %982 ], [ %998, %988 ], [ %1007, %1003 ], [ %1013, %1009 ], [ -1094995529, %1061 ], [ -1094995529, %1055 ], [ -1094995529, %1049 ], [ %1022, %1020 ], [ -1094995529, %1045 ], [ -1094995529, %1039 ], [ %1030, %1028 ], [ %1036, %1032 ], [ %1099, %1071 ], [ -1163346256, %957 ], [ -1094995529, %824 ], [ -1094995529, %818 ], [ %1131, %1130 ], [ %1122, %1119 ], [ %1128, %1124 ], [ %1150, %1149 ], [ %1147, %1145 ], [ %1143, %1140 ], [ %1171, %._crit_edge.i ], [ %1162, %1159 ], [ %405, %404 ], [ %1108, %1107 ], [ %1138, %1137 ], [ %1157, %1156 ], [ %1178, %1177 ], [ %1169, %.lr.ph.i130 ]
+.thread:                                          ; preds = %.lr.ph.i130, %1178, %1157, %1138, %1108, %405, %._crit_edge.i, %1160, %1150, %1146, %1141, %1131, %1120, %1125, %976, %971, %960, %716, %730, %732, %737, %749, %751, %763, %774, %781, %787, %802, %815, %810, %829, %863, %871, %879, %889, %883, %838, %853, %902, %897, %912, %.thread.i, %951, %942, %928, %933, %983, %989, %1004, %1010, %1062, %1056, %1050, %1021, %1046, %1040, %1029, %1033, %1072, %958, %825, %819, %1113, %695, %cbs_h264_write_pps.exit.thread, %cbs_h264_write_pps.exit, %377, %371, %365, %398, %346, %351, %357, %386, %392, %324, %cbs_h264_write_sps.exit.thread, %cbs_h264_write_sps.exit, %1186, %1181, %cbs_h264_write_sps_extension.exit, %1191
+  %.1 = phi i32 [ -1163346256, %1191 ], [ 0, %cbs_h264_write_sps_extension.exit ], [ %1184, %1181 ], [ %1189, %1186 ], [ %330, %324 ], [ %.0.i.ph, %cbs_h264_write_sps.exit.thread ], [ %322, %cbs_h264_write_sps.exit ], [ %384, %377 ], [ %375, %371 ], [ %369, %365 ], [ %399, %398 ], [ %349, %346 ], [ %355, %351 ], [ %361, %357 ], [ %390, %386 ], [ %396, %392 ], [ %700, %695 ], [ %.0.i98.ph, %cbs_h264_write_pps.exit.thread ], [ %693, %cbs_h264_write_pps.exit ], [ %1118, %1113 ], [ %977, %976 ], [ %972, %971 ], [ %961, %960 ], [ %721, %716 ], [ -1094995529, %730 ], [ %735, %732 ], [ %741, %737 ], [ -1094995529, %749 ], [ %755, %751 ], [ -1094995529, %763 ], [ -1094995529, %774 ], [ %785, %781 ], [ %795, %787 ], [ %804, %802 ], [ -1094995529, %815 ], [ %812, %810 ], [ %833, %829 ], [ %864, %863 ], [ %874, %871 ], [ -1094995529, %879 ], [ -1094995529, %889 ], [ -1094995529, %883 ], [ %846, %838 ], [ %856, %853 ], [ -1094995529, %902 ], [ %899, %897 ], [ %916, %912 ], [ %922, %.thread.i ], [ -1094995529, %951 ], [ -1094995529, %942 ], [ %930, %928 ], [ %937, %933 ], [ %987, %983 ], [ %999, %989 ], [ %1008, %1004 ], [ %1014, %1010 ], [ -1094995529, %1062 ], [ -1094995529, %1056 ], [ -1094995529, %1050 ], [ %1023, %1021 ], [ -1094995529, %1046 ], [ -1094995529, %1040 ], [ %1031, %1029 ], [ %1037, %1033 ], [ %1100, %1072 ], [ -1163346256, %958 ], [ -1094995529, %825 ], [ -1094995529, %819 ], [ %1132, %1131 ], [ %1123, %1120 ], [ %1129, %1125 ], [ %1151, %1150 ], [ %1148, %1146 ], [ %1144, %1141 ], [ %1172, %._crit_edge.i ], [ %1163, %1160 ], [ %406, %405 ], [ %1109, %1108 ], [ %1139, %1138 ], [ %1158, %1157 ], [ %1179, %1178 ], [ %1170, %.lr.ph.i130 ]
   ret i32 %.1
 }
 
@@ -7267,229 +7269,231 @@ define internal i32 @cbs_h2645_assemble_fragment(ptr noundef readonly captures(n
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !210
   %wide.trip.count107 = zext nneg i32 %5 to i64
-  br label %16
+  br label %17
 
 12:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %13 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %8, i64 %indvars.iv, i32 1
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
-  %.not73 = icmp eq ptr %14, null
-  br i1 %.not73, label %15, label %9
+  %13 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !53
+  %.not73 = icmp eq ptr %15, null
+  br i1 %.not73, label %16, label %9
 
-15:                                               ; preds = %12
+16:                                               ; preds = %12
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.3, i32 noundef 1837) #11
   tail call void @abort() #12
   unreachable
 
-16:                                               ; preds = %.lr.ph88, %16
-  %indvars.iv104 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next105, %16 ]
-  %.06086 = phi i64 [ 0, %.lr.ph88 ], [ %22, %16 ]
-  %17 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %11, i64 %indvars.iv104, i32 2
-  %18 = load i64, ptr %17, align 8, !tbaa !55
-  %19 = mul i64 %18, 3
-  %20 = lshr i64 %19, 1
-  %21 = add i64 %.06086, 4
-  %22 = add i64 %21, %20
+17:                                               ; preds = %.lr.ph88, %17
+  %indvars.iv104 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next105, %17 ]
+  %.06086 = phi i64 [ 0, %.lr.ph88 ], [ %24, %17 ]
+  %18 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %11, i64 %indvars.iv104
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load i64, ptr %19, align 8, !tbaa !55
+  %21 = mul i64 %20, 3
+  %22 = lshr i64 %21, 1
+  %23 = add i64 %.06086, 4
+  %24 = add i64 %23, %22
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %._crit_edge, label %16, !llvm.loop !212
+  br i1 %exitcond108.not, label %._crit_edge, label %17, !llvm.loop !212
 
-._crit_edge:                                      ; preds = %16, %2
-  %.060.lcssa = phi i64 [ 0, %2 ], [ %22, %16 ]
-  %23 = add i64 %.060.lcssa, 64
-  %24 = tail call ptr @av_realloc(ptr noundef null, i64 noundef %23) #11
-  store ptr %24, ptr %3, align 8, !tbaa !213
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %105, label %.preheader
+._crit_edge:                                      ; preds = %17, %2
+  %.060.lcssa = phi i64 [ 0, %2 ], [ %24, %17 ]
+  %25 = add i64 %.060.lcssa, 64
+  %26 = tail call ptr @av_realloc(ptr noundef null, i64 noundef %25) #11
+  store ptr %26, ptr %3, align 8, !tbaa !213
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %107, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %25 = load i32, ptr %4, align 8, !tbaa !23
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph98, label %._crit_edge99.thread
+  %27 = load i32, ptr %4, align 8, !tbaa !23
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %.lr.ph98, label %._crit_edge99.thread
 
 .lr.ph98:                                         ; preds = %.preheader
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %30
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %32
 
-30:                                               ; preds = %.lr.ph98, %._crit_edge94
-  %.pre = phi ptr [ %24, %.lr.ph98 ], [ %58, %._crit_edge94 ]
+32:                                               ; preds = %.lr.ph98, %._crit_edge94
+  %.pre = phi ptr [ %26, %.lr.ph98 ], [ %60, %._crit_edge94 ]
   %indvars.iv109 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next110, %._crit_edge94 ]
-  %31 = phi i32 [ %25, %.lr.ph98 ], [ %90, %._crit_edge94 ]
+  %33 = phi i32 [ %27, %.lr.ph98 ], [ %92, %._crit_edge94 ]
   %.06296 = phi i64 [ 0, %.lr.ph98 ], [ %.264.lcssa, %._crit_edge94 ]
-  %32 = load ptr, ptr %27, align 8, !tbaa !210
-  %33 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %32, i64 %indvars.iv109
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %35 = load i64, ptr %34, align 8, !tbaa !214
-  %.not71 = icmp eq i64 %35, 0
-  br i1 %.not71, label %43, label %36
+  %34 = load ptr, ptr %29, align 8, !tbaa !210
+  %35 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %34, i64 %indvars.iv109
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %37 = load i64, ptr %36, align 8, !tbaa !214
+  %.not71 = icmp eq i64 %37, 0
+  br i1 %.not71, label %45, label %38
 
-36:                                               ; preds = %30
-  %37 = add nsw i32 %31, -1
-  %38 = sext i32 %37 to i64
-  %39 = icmp slt i64 %indvars.iv109, %38
-  br i1 %39, label %40, label %42
+38:                                               ; preds = %32
+  %39 = add nsw i32 %33, -1
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %indvars.iv109, %40
+  br i1 %41, label %42, label %44
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %0, align 8, !tbaa !31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %41, i32 noundef 24, ptr noundef nonnull @.str.238) #11
-  br label %43
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %0, align 8, !tbaa !31
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %43, i32 noundef 24, ptr noundef nonnull @.str.238) #11
+  br label %45
 
-42:                                               ; preds = %36
-  store i64 %35, ptr %28, align 8, !tbaa !215
-  br label %43
+44:                                               ; preds = %38
+  store i64 %37, ptr %30, align 8, !tbaa !215
+  br label %45
 
-43:                                               ; preds = %40, %42, %30
-  %44 = load i32, ptr %33, align 8, !tbaa !61
-  %45 = icmp eq i64 %indvars.iv109, 0
-  br i1 %45, label %cbs_h2645_unit_requires_zero_byte.exit.thread77, label %46
+45:                                               ; preds = %42, %44, %32
+  %46 = load i32, ptr %35, align 8, !tbaa !61
+  %47 = icmp eq i64 %indvars.iv109, 0
+  br i1 %47, label %cbs_h2645_unit_requires_zero_byte.exit.thread77, label %48
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %29, align 8, !tbaa !4
-  %48 = load i32, ptr %47, align 8, !tbaa !14
-  switch i32 %48, label %cbs_h2645_unit_requires_zero_byte.exit.thread [
-    i32 27, label %49
-    i32 173, label %52
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %31, align 8, !tbaa !4
+  %50 = load i32, ptr %49, align 8, !tbaa !14
+  switch i32 %50, label %cbs_h2645_unit_requires_zero_byte.exit.thread [
+    i32 27, label %51
+    i32 173, label %54
     i32 196, label %cbs_h2645_unit_requires_zero_byte.exit
   ]
 
-49:                                               ; preds = %46
-  %50 = add i32 %44, -7
-  %51 = icmp ult i32 %50, 2
-  br i1 %51, label %cbs_h2645_unit_requires_zero_byte.exit.thread77, label %cbs_h2645_unit_requires_zero_byte.exit.thread
+51:                                               ; preds = %48
+  %52 = add i32 %46, -7
+  %53 = icmp ult i32 %52, 2
+  br i1 %53, label %cbs_h2645_unit_requires_zero_byte.exit.thread77, label %cbs_h2645_unit_requires_zero_byte.exit.thread
 
-52:                                               ; preds = %46
-  %.off = add i32 %44, -32
+54:                                               ; preds = %48
+  %.off = add i32 %46, -32
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %cbs_h2645_unit_requires_zero_byte.exit.thread77, label %cbs_h2645_unit_requires_zero_byte.exit.thread
 
-cbs_h2645_unit_requires_zero_byte.exit:           ; preds = %46
-  %53 = add i32 %44, -12
-  %54 = icmp ult i32 %53, 7
-  br i1 %54, label %cbs_h2645_unit_requires_zero_byte.exit.thread77, label %cbs_h2645_unit_requires_zero_byte.exit.thread
+cbs_h2645_unit_requires_zero_byte.exit:           ; preds = %48
+  %55 = add i32 %46, -12
+  %56 = icmp ult i32 %55, 7
+  br i1 %56, label %cbs_h2645_unit_requires_zero_byte.exit.thread77, label %cbs_h2645_unit_requires_zero_byte.exit.thread
 
-cbs_h2645_unit_requires_zero_byte.exit.thread77:  ; preds = %52, %49, %43, %cbs_h2645_unit_requires_zero_byte.exit
-  %55 = add i64 %.06296, 1
-  %56 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.06296
-  store i8 0, ptr %56, align 1, !tbaa !25
+cbs_h2645_unit_requires_zero_byte.exit.thread77:  ; preds = %54, %51, %45, %cbs_h2645_unit_requires_zero_byte.exit
+  %57 = add i64 %.06296, 1
+  %58 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.06296
+  store i8 0, ptr %58, align 1, !tbaa !25
   br label %cbs_h2645_unit_requires_zero_byte.exit.thread
 
-cbs_h2645_unit_requires_zero_byte.exit.thread:    ; preds = %52, %49, %46, %cbs_h2645_unit_requires_zero_byte.exit.thread77, %cbs_h2645_unit_requires_zero_byte.exit
-  %.163 = phi i64 [ %55, %cbs_h2645_unit_requires_zero_byte.exit.thread77 ], [ %.06296, %cbs_h2645_unit_requires_zero_byte.exit ], [ %.06296, %46 ], [ %.06296, %49 ], [ %.06296, %52 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.163
-  store i8 0, ptr %57, align 1, !tbaa !25
-  %58 = load ptr, ptr %3, align 8, !tbaa !213
-  %59 = getelementptr i8, ptr %58, i64 %.163
-  %60 = getelementptr i8, ptr %59, i64 1
-  store i8 0, ptr %60, align 1, !tbaa !25
-  %61 = add i64 %.163, 3
-  %62 = getelementptr i8, ptr %59, i64 2
-  store i8 1, ptr %62, align 1, !tbaa !25
-  %63 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %64 = load i64, ptr %63, align 8, !tbaa !55
-  %.not101 = icmp eq i64 %64, 0
+cbs_h2645_unit_requires_zero_byte.exit.thread:    ; preds = %54, %51, %48, %cbs_h2645_unit_requires_zero_byte.exit.thread77, %cbs_h2645_unit_requires_zero_byte.exit
+  %.163 = phi i64 [ %57, %cbs_h2645_unit_requires_zero_byte.exit.thread77 ], [ %.06296, %cbs_h2645_unit_requires_zero_byte.exit ], [ %.06296, %48 ], [ %.06296, %51 ], [ %.06296, %54 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.163
+  store i8 0, ptr %59, align 1, !tbaa !25
+  %60 = load ptr, ptr %3, align 8, !tbaa !213
+  %61 = getelementptr i8, ptr %60, i64 %.163
+  %62 = getelementptr i8, ptr %61, i64 1
+  store i8 0, ptr %62, align 1, !tbaa !25
+  %63 = add i64 %.163, 3
+  %64 = getelementptr i8, ptr %61, i64 2
+  store i8 1, ptr %64, align 1, !tbaa !25
+  %65 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %66 = load i64, ptr %65, align 8, !tbaa !55
+  %.not101 = icmp eq i64 %66, 0
   br i1 %.not101, label %._crit_edge94, label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %cbs_h2645_unit_requires_zero_byte.exit.thread
-  %65 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  br label %66
+  %67 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  br label %68
 
-66:                                               ; preds = %.lr.ph93, %83
-  %.05792 = phi i32 [ 0, %.lr.ph93 ], [ %.1, %83 ]
-  %.06191 = phi i64 [ 0, %.lr.ph93 ], [ %87, %83 ]
-  %.26490 = phi i64 [ %61, %.lr.ph93 ], [ %85, %83 ]
-  %67 = icmp slt i32 %.05792, 2
-  %68 = load ptr, ptr %65, align 8, !tbaa !53
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.06191
-  %70 = load i8, ptr %69, align 1, !tbaa !25
-  br i1 %67, label %71, label %74
+68:                                               ; preds = %.lr.ph93, %85
+  %.05792 = phi i32 [ 0, %.lr.ph93 ], [ %.1, %85 ]
+  %.06191 = phi i64 [ 0, %.lr.ph93 ], [ %89, %85 ]
+  %.26490 = phi i64 [ %63, %.lr.ph93 ], [ %87, %85 ]
+  %69 = icmp slt i32 %.05792, 2
+  %70 = load ptr, ptr %67, align 8, !tbaa !53
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %.06191
+  %72 = load i8, ptr %71, align 1, !tbaa !25
+  br i1 %69, label %73, label %76
 
-71:                                               ; preds = %66
-  %72 = icmp eq i8 %70, 0
-  %73 = add nuw nsw i32 %.05792, 1
-  %spec.select = select i1 %72, i32 %73, i32 0
-  br label %83
+73:                                               ; preds = %68
+  %74 = icmp eq i8 %72, 0
+  %75 = add nuw nsw i32 %.05792, 1
+  %spec.select = select i1 %74, i32 %75, i32 0
+  br label %85
 
-74:                                               ; preds = %66
-  %75 = icmp ult i8 %70, 4
-  br i1 %75, label %76, label %79
+76:                                               ; preds = %68
+  %77 = icmp ult i8 %72, 4
+  br i1 %77, label %78, label %81
 
-76:                                               ; preds = %74
-  %77 = add i64 %.26490, 1
-  %78 = getelementptr inbounds nuw i8, ptr %58, i64 %.26490
-  store i8 3, ptr %78, align 1, !tbaa !25
-  %.pre112 = load ptr, ptr %65, align 8, !tbaa !53
+78:                                               ; preds = %76
+  %79 = add i64 %.26490, 1
+  %80 = getelementptr inbounds nuw i8, ptr %60, i64 %.26490
+  store i8 3, ptr %80, align 1, !tbaa !25
+  %.pre112 = load ptr, ptr %67, align 8, !tbaa !53
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre112, i64 %.06191
   %.pre113 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !25
-  br label %79
+  br label %81
 
-79:                                               ; preds = %76, %74
-  %80 = phi i8 [ %.pre113, %76 ], [ %70, %74 ]
-  %.4 = phi i64 [ %77, %76 ], [ %.26490, %74 ]
-  %81 = icmp eq i8 %80, 0
-  %82 = zext i1 %81 to i32
-  br label %83
+81:                                               ; preds = %78, %76
+  %82 = phi i8 [ %.pre113, %78 ], [ %72, %76 ]
+  %.4 = phi i64 [ %79, %78 ], [ %.26490, %76 ]
+  %83 = icmp eq i8 %82, 0
+  %84 = zext i1 %83 to i32
+  br label %85
 
-83:                                               ; preds = %71, %79
-  %84 = phi i8 [ %80, %79 ], [ %70, %71 ]
-  %.3 = phi i64 [ %.4, %79 ], [ %.26490, %71 ]
-  %.1 = phi i32 [ %82, %79 ], [ %spec.select, %71 ]
-  %85 = add i64 %.3, 1
-  %86 = getelementptr inbounds nuw i8, ptr %58, i64 %.3
-  store i8 %84, ptr %86, align 1, !tbaa !25
-  %87 = add nuw i64 %.06191, 1
-  %88 = load i64, ptr %63, align 8, !tbaa !55
-  %89 = icmp ult i64 %87, %88
-  br i1 %89, label %66, label %._crit_edge94, !llvm.loop !216
+85:                                               ; preds = %73, %81
+  %86 = phi i8 [ %82, %81 ], [ %72, %73 ]
+  %.3 = phi i64 [ %.4, %81 ], [ %.26490, %73 ]
+  %.1 = phi i32 [ %84, %81 ], [ %spec.select, %73 ]
+  %87 = add i64 %.3, 1
+  %88 = getelementptr inbounds nuw i8, ptr %60, i64 %.3
+  store i8 %86, ptr %88, align 1, !tbaa !25
+  %89 = add nuw i64 %.06191, 1
+  %90 = load i64, ptr %65, align 8, !tbaa !55
+  %91 = icmp ult i64 %89, %90
+  br i1 %91, label %68, label %._crit_edge94, !llvm.loop !216
 
-._crit_edge94:                                    ; preds = %83, %cbs_h2645_unit_requires_zero_byte.exit.thread
-  %.264.lcssa = phi i64 [ %61, %cbs_h2645_unit_requires_zero_byte.exit.thread ], [ %85, %83 ]
+._crit_edge94:                                    ; preds = %85, %cbs_h2645_unit_requires_zero_byte.exit.thread
+  %.264.lcssa = phi i64 [ %63, %cbs_h2645_unit_requires_zero_byte.exit.thread ], [ %87, %85 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %90 = load i32, ptr %4, align 8, !tbaa !23
-  %91 = sext i32 %90 to i64
-  %92 = icmp slt i64 %indvars.iv.next110, %91
-  br i1 %92, label %30, label %._crit_edge99, !llvm.loop !217
+  %92 = load i32, ptr %4, align 8, !tbaa !23
+  %93 = sext i32 %92 to i64
+  %94 = icmp slt i64 %indvars.iv.next110, %93
+  br i1 %94, label %32, label %._crit_edge99, !llvm.loop !217
 
 ._crit_edge99:                                    ; preds = %._crit_edge94
   %.not68 = icmp ugt i64 %.264.lcssa, %.060.lcssa
-  br i1 %.not68, label %93, label %._crit_edge99.thread
+  br i1 %.not68, label %95, label %._crit_edge99.thread
 
-93:                                               ; preds = %._crit_edge99
+95:                                               ; preds = %._crit_edge99
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.3, i32 noundef 1889) #11
   tail call void @abort() #12
   unreachable
 
 ._crit_edge99.thread:                             ; preds = %.preheader, %._crit_edge99
   %.062.lcssa124 = phi i64 [ %.264.lcssa, %._crit_edge99 ], [ 0, %.preheader ]
-  %94 = add i64 %.062.lcssa124, 64
-  %95 = call i32 @av_reallocp(ptr noundef nonnull %3, i64 noundef %94) #11
-  %.not69 = icmp eq i32 %95, 0
-  br i1 %.not69, label %96, label %105
+  %96 = add i64 %.062.lcssa124, 64
+  %97 = call i32 @av_reallocp(ptr noundef nonnull %3, i64 noundef %96) #11
+  %.not69 = icmp eq i32 %97, 0
+  br i1 %.not69, label %98, label %107
 
-96:                                               ; preds = %._crit_edge99.thread
-  %97 = load ptr, ptr %3, align 8, !tbaa !213
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %.062.lcssa124
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %98, i8 0, i64 64, i1 false)
-  %99 = call ptr @av_buffer_create(ptr noundef %97, i64 noundef %94, ptr noundef null, ptr noundef null, i32 noundef 0) #11
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %99, ptr %100, align 8, !tbaa !218
-  %.not70 = icmp eq ptr %99, null
-  br i1 %.not70, label %101, label %102
+98:                                               ; preds = %._crit_edge99.thread
+  %99 = load ptr, ptr %3, align 8, !tbaa !213
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.062.lcssa124
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %100, i8 0, i64 64, i1 false)
+  %101 = call ptr @av_buffer_create(ptr noundef %99, i64 noundef %96, ptr noundef null, ptr noundef null, i32 noundef 0) #11
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %101, ptr %102, align 8, !tbaa !218
+  %.not70 = icmp eq ptr %101, null
+  br i1 %.not70, label %103, label %104
 
-101:                                              ; preds = %96
+103:                                              ; preds = %98
   call void @av_freep(ptr noundef nonnull %3) #11
-  br label %105
+  br label %107
 
-102:                                              ; preds = %96
-  %103 = load ptr, ptr %3, align 8, !tbaa !213
-  store ptr %103, ptr %1, align 8, !tbaa !19
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.062.lcssa124, ptr %104, align 8, !tbaa !24
-  br label %105
+104:                                              ; preds = %98
+  %105 = load ptr, ptr %3, align 8, !tbaa !213
+  store ptr %105, ptr %1, align 8, !tbaa !19
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.062.lcssa124, ptr %106, align 8, !tbaa !24
+  br label %107
 
-105:                                              ; preds = %._crit_edge99.thread, %._crit_edge, %102, %101
-  %.0 = phi i32 [ 0, %102 ], [ -12, %101 ], [ -12, %._crit_edge ], [ %95, %._crit_edge99.thread ]
+107:                                              ; preds = %._crit_edge99.thread, %._crit_edge, %104, %103
+  %.0 = phi i32 [ 0, %104 ], [ -12, %103 ], [ -12, %._crit_edge ], [ %97, %._crit_edge99.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -18592,7 +18596,7 @@ thread-pre-split.i:                               ; preds = %403
   %525 = getelementptr inbounds nuw i8, ptr %200, i64 8268
   %526 = getelementptr inbounds nuw i8, ptr %200, i64 8265
   %527 = add nsw i32 %521, -1
-  %wide.trip.count1444.i = zext i32 %527 to i64
+  %wide.trip.count1444.i = zext nneg i32 %527 to i64
   br label %542
 
 .loopexit1072.thread.i:                           ; preds = %.loopexit1069.i, %.loopexit1072.i, %.loopexit1072.loopexit1271.i, %558

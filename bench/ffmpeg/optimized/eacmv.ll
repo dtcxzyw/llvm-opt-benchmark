@@ -172,7 +172,7 @@ define internal range(i32 8, 0) i32 @cmv_decode_frame(ptr noundef %0, ptr nounde
 cmv_process_header.exit:                          ; preds = %69, %56
   %88 = zext i32 %19 to i64
   %89 = add nsw i64 %11, -8
-  %90 = icmp slt i64 %89, %88
+  %90 = icmp samesign ult i64 %89, %88
   br i1 %90, label %.thread, label %91
 
 91:                                               ; preds = %cmv_process_header.exit

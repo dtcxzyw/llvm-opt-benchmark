@@ -2294,7 +2294,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal4prop16MinisatSatSolver10isD
   br i1 %10, label %11, label %_ZNK4cvc58internal7Minisat6Solver10isDecisionEi.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %6, i64 %7, i32 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !397
   %14 = icmp sgt i32 %13, 0
   br label %_ZNK4cvc58internal7Minisat6Solver10isDecisionEi.exit
@@ -2312,26 +2312,27 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal4prop16MinisatSatSolver7isFi
   %6 = load ptr, ptr %5, align 8, !tbaa !394
   %sext = shl i64 %1, 32
   %7 = ashr exact i64 %sext, 32
-  %8 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %6, i64 %7, i32 3
-  %9 = load i32, ptr %8, align 4, !tbaa !398
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %19
+  %8 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %10 = load i32, ptr %9, align 4, !tbaa !398
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %20
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %6, i64 %7, i32 2
-  %13 = load i32, ptr %12, align 4, !tbaa !399
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %19
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %14 = load i32, ptr %13, align 4, !tbaa !399
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %20
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %6, i64 %7, i32 1
-  %17 = load i32, ptr %16, align 4, !tbaa !397
-  %18 = icmp eq i32 %17, 0
-  br label %19
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !397
+  %19 = icmp eq i32 %18, 0
+  br label %20
 
-19:                                               ; preds = %15, %11, %2
-  %20 = phi i1 [ false, %11 ], [ false, %2 ], [ %18, %15 ]
-  ret i1 %20
+20:                                               ; preds = %16, %12, %2
+  %21 = phi i1 [ false, %12 ], [ false, %2 ], [ %19, %16 ]
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -264,7 +264,7 @@ _ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit:
 
 11:                                               ; preds = %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
-  br label %60
+  br label %61
 
 12:                                               ; preds = %_ZNK3ade19MemoryDescriptorRef13getDescriptorEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -334,44 +334,45 @@ _ZNK3ade19MemoryDescriptorRef10originSpanEv.exit: ; preds = %.lr.ph.i.i, %_ZNK3a
   br i1 %.not3132.i, label %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit, %.lr.ph.i
-  %.035.i = phi i64 [ %55, %.lr.ph.i ], [ %39, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
-  %.01934.i = phi i64 [ %46, %.lr.ph.i ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
-  %.sroa.022.033.i = phi i64 [ %56, %.lr.ph.i ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
-  %40 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %4, i64 %.sroa.022.033.i, i32 1
-  %41 = load i32, ptr %40, align 4, !tbaa !56, !noalias !50
-  %42 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %5, i64 %.sroa.022.033.i
-  %43 = load i32, ptr %42, align 8, !tbaa !16, !noalias !50
-  %44 = mul nsw i32 %43, %41
-  %45 = sext i32 %44 to i64
-  %46 = add i64 %.01934.i, %45
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !13, !noalias !50
-  %49 = sub nsw i32 %48, %43
-  %50 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %0, i64 %.sroa.022.033.i
-  store i32 %49, ptr %50, align 8, !tbaa !58, !alias.scope !50
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 %41, ptr %51, align 4, !tbaa !56, !alias.scope !50
-  %52 = add nsw i32 %49, -1
-  %53 = mul nsw i32 %52, %41
-  %54 = sext i32 %53 to i64
-  %55 = add i64 %.035.i, %54
-  %56 = add nuw i64 %.sroa.022.033.i, 1
-  %.not31.i = icmp eq i64 %56, %35
+  %.035.i = phi i64 [ %56, %.lr.ph.i ], [ %39, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
+  %.01934.i = phi i64 [ %47, %.lr.ph.i ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
+  %.sroa.022.033.i = phi i64 [ %57, %.lr.ph.i ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
+  %40 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %4, i64 %.sroa.022.033.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %42 = load i32, ptr %41, align 4, !tbaa !56, !noalias !50
+  %43 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %5, i64 %.sroa.022.033.i
+  %44 = load i32, ptr %43, align 8, !tbaa !16, !noalias !50
+  %45 = mul nsw i32 %44, %42
+  %46 = sext i32 %45 to i64
+  %47 = add i64 %.01934.i, %46
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %49 = load i32, ptr %48, align 4, !tbaa !13, !noalias !50
+  %50 = sub nsw i32 %49, %44
+  %51 = getelementptr inbounds nuw %"struct.ade::util::SliceDimension", ptr %0, i64 %.sroa.022.033.i
+  store i32 %50, ptr %51, align 8, !tbaa !58, !alias.scope !50
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i32 %42, ptr %52, align 4, !tbaa !56, !alias.scope !50
+  %53 = add nsw i32 %50, -1
+  %54 = mul nsw i32 %53, %42
+  %55 = sext i32 %54 to i64
+  %56 = add i64 %.035.i, %55
+  %57 = add nuw i64 %.sroa.022.033.i, 1
+  %.not31.i = icmp eq i64 %57, %35
   br i1 %.not31.i, label %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit, label %.lr.ph.i
 
 _ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit: ; preds = %.lr.ph.i, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit
-  %.019.lcssa.i = phi i64 [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ], [ %46, %.lr.ph.i ]
-  %.0.lcssa.i = phi i64 [ %39, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ], [ %55, %.lr.ph.i ]
-  %57 = load ptr, ptr %8, align 8, !tbaa !37, !noalias !50
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.019.lcssa.i
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %58, ptr %59, align 8, !tbaa !59, !alias.scope !50
+  %.019.lcssa.i = phi i64 [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ], [ %47, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %39, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ], [ %56, %.lr.ph.i ]
+  %58 = load ptr, ptr %8, align 8, !tbaa !37, !noalias !50
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.019.lcssa.i
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %59, ptr %60, align 8, !tbaa !59, !alias.scope !50
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.0.lcssa.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !50
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %60
+  br label %61
 
-60:                                               ; preds = %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit, %11
+61:                                               ; preds = %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

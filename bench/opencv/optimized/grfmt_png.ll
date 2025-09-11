@@ -6672,7 +6672,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %122, %121 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %855
+  br label %859
 
 ._crit_edge.thread:                               ; preds = %.preheader539, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %60, %._crit_edge
   %.0295.lcssa747 = phi i32 [ %.1296512516, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %.1296512516, %60 ], [ %.1296512516, %._crit_edge ], [ 6, %.preheader539 ]
@@ -7168,7 +7168,7 @@ _ZN2cv9APNGFrameD2Ev.exit:                        ; preds = %_ZNSt6vectorIN2cv9A
 
 _ZN2cv9APNGFrameD2Ev.exit420:                     ; preds = %338, %340
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %816
+  br label %820
 
 ._crit_edge570.loopexit:                          ; preds = %_ZN2cv9APNGFrameD2Ev.exit
   %.pre662 = load i32, ptr %149, align 4, !tbaa !298
@@ -7220,7 +7220,7 @@ _ZN2cv9APNGFrameD2Ev.exit420:                     ; preds = %338, %340
   %366 = load ptr, ptr %365, align 8, !tbaa !99
   %367 = call noalias ptr @fopen(ptr noundef %366, ptr noundef nonnull @.str.10)
   %.not362 = icmp eq ptr %367, null
-  br i1 %.not362, label %774, label %368
+  br i1 %.not362, label %778, label %368
 
 368:                                              ; preds = %364, %361
   %.0348 = phi ptr [ null, %361 ], [ %367, %364 ]
@@ -7274,7 +7274,7 @@ _ZN2cv9APNGFrameD2Ev.exit420:                     ; preds = %338, %340
 386:                                              ; preds = %429, %424, %422, %391, %385, %382, %380, %378, %371, %369, %368
   %387 = landingpad { ptr, i32 }
           cleanup
-  br label %773
+  br label %777
 
 388:                                              ; preds = %383, %385
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 8944
@@ -7336,7 +7336,7 @@ _ZN2cvneIdEEbRKNS_7Scalar_IT_EES5_.exit:          ; preds = %394, %404
   %419 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %773
+  br label %777
 
 420:                                              ; preds = %417, %_ZN2cvneIdEEbRKNS_7Scalar_IT_EES5_.exit
   %421 = load i32, ptr %149, align 4, !tbaa !298
@@ -7711,10 +7711,10 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit456:  ; preds = %.noexc455, %_ZN2cv1
           cleanup
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit466
 
-555:                                              ; preds = %.noexc460, %.noexc459, %.noexc458, %.noexc457, %557, %542, %528, %514, %500, %486, %471, %458, %763, %761, %757, %._crit_edge595.thread, %752, %747, %742, %740, %738, %736, %734, %731, %_ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit
+555:                                              ; preds = %.noexc460, %.noexc459, %.noexc458, %.noexc457, %557, %542, %528, %514, %500, %486, %471, %458, %767, %765, %761, %._crit_edge595.thread, %756, %750, %744, %742, %740, %738, %736, %733, %_ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit
   %556 = landingpad { ptr, i32 }
           cleanup
-  br label %769
+  br label %773
 
 557:                                              ; preds = %550
   %558 = load ptr, ptr %14, align 8, !tbaa !301
@@ -7799,13 +7799,13 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
   %wide.trip.count658 = zext i32 %585 to i64
   br label %.preheader536
 
-.preheader536:                                    ; preds = %.preheader536.lr.ph, %727
-  %indvars.iv655 = phi i64 [ 0, %.preheader536.lr.ph ], [ %indvars.iv.next656, %727 ]
-  %.0310594 = phi i32 [ 0, %.preheader536.lr.ph ], [ %728, %727 ]
-  %.0331593 = phi i32 [ %145, %.preheader536.lr.ph ], [ %724, %727 ]
-  %.0332592 = phi i32 [ %143, %.preheader536.lr.ph ], [ %722, %727 ]
-  %.0333591 = phi i32 [ 0, %.preheader536.lr.ph ], [ %720, %727 ]
-  %.0334590 = phi i32 [ 0, %.preheader536.lr.ph ], [ %718, %727 ]
+.preheader536:                                    ; preds = %.preheader536.lr.ph, %729
+  %indvars.iv655 = phi i64 [ 0, %.preheader536.lr.ph ], [ %indvars.iv.next656, %729 ]
+  %.0310594 = phi i32 [ 0, %.preheader536.lr.ph ], [ %730, %729 ]
+  %.0331593 = phi i32 [ %145, %.preheader536.lr.ph ], [ %726, %729 ]
+  %.0332592 = phi i32 [ %143, %.preheader536.lr.ph ], [ %724, %729 ]
+  %.0333591 = phi i32 [ 0, %.preheader536.lr.ph ], [ %722, %729 ]
+  %.0334590 = phi i32 [ 0, %.preheader536.lr.ph ], [ %720, %729 ]
   br label %595
 
 595:                                              ; preds = %.preheader536, %595
@@ -7883,10 +7883,10 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
   %exitcond639.not = icmp eq i32 %624, %.0331593
   br i1 %exitcond639.not, label %.loopexit533, label %.preheader528.us, !llvm.loop !304
 
-625:                                              ; preds = %.loopexit, %681, %678, %674, %670, %669, %668, %667, %666, %662, %643, %.loopexit533, %598
+625:                                              ; preds = %.loopexit, %683, %680, %675, %670, %669, %668, %667, %666, %662, %643, %.loopexit533, %598
   %626 = landingpad { ptr, i32 }
           cleanup
-  br label %769
+  br label %773
 
 627:                                              ; preds = %.lr.ph575, %627
   %indvars.iv630 = phi i64 [ 0, %.lr.ph575 ], [ %indvars.iv.next631, %627 ]
@@ -7981,60 +7981,62 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 
 670:                                              ; preds = %669
   %671 = load ptr, ptr %14, align 8, !tbaa !301
-  %672 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %671, i64 %indvars.iv655, i32 8
-  %673 = load i32, ptr %672, align 4, !tbaa !17
-  invoke void @png_save_uint_16(ptr noundef nonnull %591, i32 noundef %673)
-          to label %674 unwind label %625
+  %672 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %671, i64 %indvars.iv655
+  %673 = getelementptr inbounds nuw i8, ptr %672, i64 1052
+  %674 = load i32, ptr %673, align 4, !tbaa !17
+  invoke void @png_save_uint_16(ptr noundef nonnull %591, i32 noundef %674)
+          to label %675 unwind label %625
 
-674:                                              ; preds = %670
-  %675 = load ptr, ptr %14, align 8, !tbaa !301
-  %676 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %675, i64 %indvars.iv655, i32 9
-  %677 = load i32, ptr %676, align 8, !tbaa !18
-  invoke void @png_save_uint_16(ptr noundef nonnull %592, i32 noundef %677)
-          to label %678 unwind label %625
+675:                                              ; preds = %670
+  %676 = load ptr, ptr %14, align 8, !tbaa !301
+  %677 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %676, i64 %indvars.iv655
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 1056
+  %679 = load i32, ptr %678, align 8, !tbaa !18
+  invoke void @png_save_uint_16(ptr noundef nonnull %592, i32 noundef %679)
+          to label %680 unwind label %625
 
-678:                                              ; preds = %674
-  %679 = trunc i32 %663 to i8
-  store i8 %679, ptr %593, align 8, !tbaa !121
-  %680 = trunc nuw nsw i32 %.0310594 to i8
-  store i8 %680, ptr %594, align 1, !tbaa !121
+680:                                              ; preds = %675
+  %681 = trunc i32 %663 to i8
+  store i8 %681, ptr %593, align 8, !tbaa !121
+  %682 = trunc nuw nsw i32 %.0310594 to i8
+  store i8 %682, ptr %594, align 1, !tbaa !121
   invoke void @_ZN2cv10PngEncoder10writeChunkEP8_IO_FILEPKcPhj(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %.0348, ptr noundef nonnull @.str.24, ptr noundef nonnull %25, i32 noundef 26)
-          to label %681 unwind label %625
+          to label %683 unwind label %625
 
-681:                                              ; preds = %678
-  %682 = load ptr, ptr %27, align 8, !tbaa !208
-  %683 = load i32, ptr %6, align 4, !tbaa !137
-  %684 = trunc nuw i64 %indvars.iv655 to i32
-  invoke void @_ZN2cv10PngEncoder10writeIDATsEP8_IO_FILEiPhjj(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %.0348, i32 noundef %684, ptr noundef %682, i32 noundef %683, i32 noundef %192)
-          to label %685 unwind label %625
+683:                                              ; preds = %680
+  %684 = load ptr, ptr %27, align 8, !tbaa !208
+  %685 = load i32, ptr %6, align 4, !tbaa !137
+  %686 = trunc nuw i64 %indvars.iv655 to i32
+  invoke void @_ZN2cv10PngEncoder10writeIDATsEP8_IO_FILEiPhjj(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %.0348, i32 noundef %686, ptr noundef %684, i32 noundef %685, i32 noundef %192)
+          to label %687 unwind label %625
 
-685:                                              ; preds = %681
+687:                                              ; preds = %683
   %cond = icmp eq i32 %663, 2
-  br i1 %cond, label %.loopexit, label %686
+  br i1 %cond, label %.loopexit, label %688
 
-686:                                              ; preds = %685
-  %687 = load ptr, ptr %12, align 8, !tbaa !208
-  %688 = load ptr, ptr %14, align 8, !tbaa !301
-  %689 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %688, i64 %indvars.iv655
-  %690 = load ptr, ptr %689, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %687, ptr align 1 %690, i64 %155, i1 false)
-  %691 = icmp eq i32 %663, 1
-  br i1 %691, label %692, label %.loopexit
+688:                                              ; preds = %687
+  %689 = load ptr, ptr %12, align 8, !tbaa !208
+  %690 = load ptr, ptr %14, align 8, !tbaa !301
+  %691 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %690, i64 %indvars.iv655
+  %692 = load ptr, ptr %691, align 8, !tbaa !34
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %689, ptr align 1 %692, i64 %155, i1 false)
+  %693 = icmp eq i32 %663, 1
+  br i1 %693, label %694, label %.loopexit
 
-692:                                              ; preds = %686
+694:                                              ; preds = %688
   %.not610 = icmp eq i32 %.0331593, 0
   br i1 %switch.selectcmp, label %.preheader529, label %.preheader530
 
-.preheader530:                                    ; preds = %692
+.preheader530:                                    ; preds = %694
   br i1 %.not610, label %.loopexit, label %.lr.ph584
 
 .lr.ph584:                                        ; preds = %.preheader530
-  %693 = mul i32 %.0332592, %spec.select519
-  %694 = zext i32 %693 to i64
+  %695 = mul i32 %.0332592, %spec.select519
+  %696 = zext i32 %695 to i64
   %wide.trip.count647 = zext i32 %.0331593 to i64
-  br label %706
+  br label %708
 
-.preheader529:                                    ; preds = %692
+.preheader529:                                    ; preds = %694
   %.not611 = icmp eq i32 %.0332592, 0
   %or.cond761 = select i1 %.not610, i1 true, i1 %.not611
   br i1 %or.cond761, label %.loopexit, label %.preheader.us.preheader
@@ -8044,239 +8046,241 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge587.us
-  %.6343588.us = phi i32 [ %705, %._crit_edge587.us ], [ 0, %.preheader.us.preheader ]
-  %695 = add i32 %.6343588.us, %.0333591
-  %696 = mul i32 %695, %143
-  %697 = add i32 %696, %.0334590
-  br label %698
+  %.6343588.us = phi i32 [ %707, %._crit_edge587.us ], [ 0, %.preheader.us.preheader ]
+  %697 = add i32 %.6343588.us, %.0333591
+  %698 = mul i32 %697, %143
+  %699 = add i32 %698, %.0334590
+  br label %700
 
-698:                                              ; preds = %.preheader.us, %698
-  %indvars.iv649 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next650, %698 ]
-  %699 = load ptr, ptr %12, align 8, !tbaa !208
-  %700 = trunc nuw i64 %indvars.iv649 to i32
-  %701 = add i32 %697, %700
-  %702 = mul i32 %701, 3
-  %703 = zext i32 %702 to i64
-  %704 = getelementptr inbounds nuw i8, ptr %699, i64 %703
-  store i24 %.0.extract.trunc, ptr %704, align 1
+700:                                              ; preds = %.preheader.us, %700
+  %indvars.iv649 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next650, %700 ]
+  %701 = load ptr, ptr %12, align 8, !tbaa !208
+  %702 = trunc nuw i64 %indvars.iv649 to i32
+  %703 = add i32 %699, %702
+  %704 = mul i32 %703, 3
+  %705 = zext i32 %704 to i64
+  %706 = getelementptr inbounds nuw i8, ptr %701, i64 %705
+  store i24 %.0.extract.trunc, ptr %706, align 1
   %indvars.iv.next650 = add nuw nsw i64 %indvars.iv649, 1
   %exitcond653.not = icmp eq i64 %indvars.iv.next650, %wide.trip.count652
-  br i1 %exitcond653.not, label %._crit_edge587.us, label %698, !llvm.loop !307
+  br i1 %exitcond653.not, label %._crit_edge587.us, label %700, !llvm.loop !307
 
-._crit_edge587.us:                                ; preds = %698
-  %705 = add nuw i32 %.6343588.us, 1
-  %exitcond654.not = icmp eq i32 %705, %.0331593
+._crit_edge587.us:                                ; preds = %700
+  %707 = add nuw i32 %.6343588.us, 1
+  %exitcond654.not = icmp eq i32 %707, %.0331593
   br i1 %exitcond654.not, label %.loopexit, label %.preheader.us, !llvm.loop !308
 
-706:                                              ; preds = %.lr.ph584, %706
-  %indvars.iv644 = phi i64 [ 0, %.lr.ph584 ], [ %indvars.iv.next645, %706 ]
-  %707 = load ptr, ptr %12, align 8, !tbaa !208
-  %708 = trunc nuw i64 %indvars.iv644 to i32
-  %709 = add i32 %.0333591, %708
-  %710 = mul i32 %709, %143
-  %711 = add i32 %710, %.0334590
-  %712 = mul i32 %711, %spec.select519
-  %713 = zext i32 %712 to i64
-  %714 = getelementptr inbounds nuw i8, ptr %707, i64 %713
-  call void @llvm.memset.p0.i64(ptr align 1 %714, i8 %586, i64 %694, i1 false)
+708:                                              ; preds = %.lr.ph584, %708
+  %indvars.iv644 = phi i64 [ 0, %.lr.ph584 ], [ %indvars.iv.next645, %708 ]
+  %709 = load ptr, ptr %12, align 8, !tbaa !208
+  %710 = trunc nuw i64 %indvars.iv644 to i32
+  %711 = add i32 %.0333591, %710
+  %712 = mul i32 %711, %143
+  %713 = add i32 %712, %.0334590
+  %714 = mul i32 %713, %spec.select519
+  %715 = zext i32 %714 to i64
+  %716 = getelementptr inbounds nuw i8, ptr %709, i64 %715
+  call void @llvm.memset.p0.i64(ptr align 1 %716, i8 %586, i64 %696, i1 false)
   %indvars.iv.next645 = add nuw nsw i64 %indvars.iv644, 1
   %exitcond648.not = icmp eq i64 %indvars.iv.next645, %wide.trip.count647
-  br i1 %exitcond648.not, label %.loopexit, label %706, !llvm.loop !309
+  br i1 %exitcond648.not, label %.loopexit, label %708, !llvm.loop !309
 
-.loopexit:                                        ; preds = %706, %._crit_edge587.us, %.preheader530, %.preheader529, %685, %686
-  %715 = sext i32 %.1 to i64
-  %716 = getelementptr inbounds %"struct.cv::OP", ptr %568, i64 %715
-  %717 = getelementptr inbounds nuw i8, ptr %716, i64 12
-  %718 = load i32, ptr %717, align 4, !tbaa !260
-  %719 = getelementptr inbounds nuw i8, ptr %716, i64 16
-  %720 = load i32, ptr %719, align 8, !tbaa !261
-  %721 = getelementptr inbounds nuw i8, ptr %716, i64 20
-  %722 = load i32, ptr %721, align 4, !tbaa !262
-  %723 = getelementptr inbounds nuw i8, ptr %716, i64 24
-  %724 = load i32, ptr %723, align 8, !tbaa !263
-  %725 = load ptr, ptr %27, align 8, !tbaa !208
-  %726 = load ptr, ptr %13, align 8, !tbaa !208
-  invoke void @_ZN2cv10PngEncoder14deflateRectFinEPhPjiiS1_ii(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %725, ptr noundef nonnull %6, i32 noundef %spec.select519, i32 noundef %153, ptr noundef %726, i32 noundef %441, i32 noundef %.1)
-          to label %727 unwind label %625
+.loopexit:                                        ; preds = %708, %._crit_edge587.us, %.preheader530, %.preheader529, %687, %688
+  %717 = sext i32 %.1 to i64
+  %718 = getelementptr inbounds %"struct.cv::OP", ptr %568, i64 %717
+  %719 = getelementptr inbounds nuw i8, ptr %718, i64 12
+  %720 = load i32, ptr %719, align 4, !tbaa !260
+  %721 = getelementptr inbounds nuw i8, ptr %718, i64 16
+  %722 = load i32, ptr %721, align 8, !tbaa !261
+  %723 = getelementptr inbounds nuw i8, ptr %718, i64 20
+  %724 = load i32, ptr %723, align 4, !tbaa !262
+  %725 = getelementptr inbounds nuw i8, ptr %718, i64 24
+  %726 = load i32, ptr %725, align 8, !tbaa !263
+  %727 = load ptr, ptr %27, align 8, !tbaa !208
+  %728 = load ptr, ptr %13, align 8, !tbaa !208
+  invoke void @_ZN2cv10PngEncoder14deflateRectFinEPhPjiiS1_ii(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %727, ptr noundef nonnull %6, i32 noundef %spec.select519, i32 noundef %153, ptr noundef %728, i32 noundef %441, i32 noundef %.1)
+          to label %729 unwind label %625
 
-727:                                              ; preds = %.loopexit
-  %728 = and i32 %.1, 1
+729:                                              ; preds = %.loopexit
+  %730 = and i32 %.1, 1
   %exitcond659.not = icmp eq i64 %indvars.iv.next656, %wide.trip.count658
   br i1 %exitcond659.not, label %._crit_edge595, label %.preheader536, !llvm.loop !310
 
-._crit_edge595:                                   ; preds = %727
-  %729 = zext i32 %585 to i64
-  %730 = trunc nuw nsw i32 %728 to i8
-  br i1 %384, label %731, label %._crit_edge595.thread
+._crit_edge595:                                   ; preds = %729
+  %731 = zext i32 %585 to i64
+  %732 = trunc nuw nsw i32 %730 to i8
+  br i1 %384, label %733, label %._crit_edge595.thread
 
-731:                                              ; preds = %._crit_edge595
-  %732 = load i32, ptr %549, align 8, !tbaa !232
-  %733 = add i32 %732, 1
-  store i32 %733, ptr %549, align 8, !tbaa !232
-  invoke void @png_save_uint_32(ptr noundef nonnull %25, i32 noundef %732)
-          to label %734 unwind label %555
-
-734:                                              ; preds = %731
-  %735 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  invoke void @png_save_uint_32(ptr noundef nonnull %735, i32 noundef %722)
+733:                                              ; preds = %._crit_edge595
+  %734 = load i32, ptr %549, align 8, !tbaa !232
+  %735 = add i32 %734, 1
+  store i32 %735, ptr %549, align 8, !tbaa !232
+  invoke void @png_save_uint_32(ptr noundef nonnull %25, i32 noundef %734)
           to label %736 unwind label %555
 
-736:                                              ; preds = %734
-  %737 = getelementptr inbounds nuw i8, ptr %25, i64 8
+736:                                              ; preds = %733
+  %737 = getelementptr inbounds nuw i8, ptr %25, i64 4
   invoke void @png_save_uint_32(ptr noundef nonnull %737, i32 noundef %724)
           to label %738 unwind label %555
 
 738:                                              ; preds = %736
-  %739 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  invoke void @png_save_uint_32(ptr noundef nonnull %739, i32 noundef %718)
+  %739 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  invoke void @png_save_uint_32(ptr noundef nonnull %739, i32 noundef %726)
           to label %740 unwind label %555
 
 740:                                              ; preds = %738
-  %741 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %741 = getelementptr inbounds nuw i8, ptr %25, i64 12
   invoke void @png_save_uint_32(ptr noundef nonnull %741, i32 noundef %720)
           to label %742 unwind label %555
 
 742:                                              ; preds = %740
-  %743 = getelementptr inbounds nuw i8, ptr %25, i64 20
-  %744 = load ptr, ptr %14, align 8, !tbaa !301
-  %745 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %744, i64 %729, i32 8
-  %746 = load i32, ptr %745, align 4, !tbaa !17
-  invoke void @png_save_uint_16(ptr noundef nonnull %743, i32 noundef %746)
-          to label %747 unwind label %555
+  %743 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  invoke void @png_save_uint_32(ptr noundef nonnull %743, i32 noundef %722)
+          to label %744 unwind label %555
 
-747:                                              ; preds = %742
-  %748 = getelementptr inbounds nuw i8, ptr %25, i64 22
-  %749 = load ptr, ptr %14, align 8, !tbaa !301
-  %750 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %749, i64 %729, i32 9
-  %751 = load i32, ptr %750, align 8, !tbaa !18
-  invoke void @png_save_uint_16(ptr noundef nonnull %748, i32 noundef %751)
-          to label %752 unwind label %555
+744:                                              ; preds = %742
+  %745 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  %746 = load ptr, ptr %14, align 8, !tbaa !301
+  %747 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %746, i64 %731
+  %748 = getelementptr inbounds nuw i8, ptr %747, i64 1052
+  %749 = load i32, ptr %748, align 4, !tbaa !17
+  invoke void @png_save_uint_16(ptr noundef nonnull %745, i32 noundef %749)
+          to label %750 unwind label %555
 
-752:                                              ; preds = %747
-  %753 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i8 0, ptr %753, align 8, !tbaa !121
-  %754 = getelementptr inbounds nuw i8, ptr %25, i64 25
-  store i8 %730, ptr %754, align 1, !tbaa !121
+750:                                              ; preds = %744
+  %751 = getelementptr inbounds nuw i8, ptr %25, i64 22
+  %752 = load ptr, ptr %14, align 8, !tbaa !301
+  %753 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %752, i64 %731
+  %754 = getelementptr inbounds nuw i8, ptr %753, i64 1056
+  %755 = load i32, ptr %754, align 8, !tbaa !18
+  invoke void @png_save_uint_16(ptr noundef nonnull %751, i32 noundef %755)
+          to label %756 unwind label %555
+
+756:                                              ; preds = %750
+  %757 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store i8 0, ptr %757, align 8, !tbaa !121
+  %758 = getelementptr inbounds nuw i8, ptr %25, i64 25
+  store i8 %732, ptr %758, align 1, !tbaa !121
   invoke void @_ZN2cv10PngEncoder10writeChunkEP8_IO_FILEPKcPhj(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %.0348, ptr noundef nonnull @.str.24, ptr noundef nonnull %25, i32 noundef 26)
           to label %._crit_edge595.thread unwind label %555
 
-._crit_edge595.thread:                            ; preds = %.preheader537, %752, %._crit_edge595
-  %755 = load ptr, ptr %27, align 8, !tbaa !208
-  %756 = load i32, ptr %6, align 4, !tbaa !137
-  invoke void @_ZN2cv10PngEncoder10writeIDATsEP8_IO_FILEiPhjj(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %.0348, i32 noundef %585, ptr noundef %755, i32 noundef %756, i32 noundef %192)
-          to label %757 unwind label %555
+._crit_edge595.thread:                            ; preds = %.preheader537, %756, %._crit_edge595
+  %759 = load ptr, ptr %27, align 8, !tbaa !208
+  %760 = load i32, ptr %6, align 4, !tbaa !137
+  invoke void @_ZN2cv10PngEncoder10writeIDATsEP8_IO_FILEiPhjj(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %.0348, i32 noundef %585, ptr noundef %759, i32 noundef %760, i32 noundef %192)
+          to label %761 unwind label %555
 
-757:                                              ; preds = %._crit_edge595.thread
+761:                                              ; preds = %._crit_edge595.thread
   invoke void @_ZN2cv10PngEncoder10writeChunkEP8_IO_FILEPKcPhj(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %.0348, ptr noundef nonnull @.str.25, ptr noundef null, i32 noundef 0)
-          to label %758 unwind label %555
+          to label %762 unwind label %555
 
-758:                                              ; preds = %757
+762:                                              ; preds = %761
   %.not365 = icmp eq ptr %.0348, null
-  br i1 %.not365, label %761, label %759
+  br i1 %.not365, label %765, label %763
 
-759:                                              ; preds = %758
-  %760 = call i32 @fclose(ptr noundef nonnull %.0348)
-  br label %761
+763:                                              ; preds = %762
+  %764 = call i32 @fclose(ptr noundef nonnull %.0348)
+  br label %765
 
-761:                                              ; preds = %759, %758
-  %762 = invoke i32 @deflateEnd(ptr noundef nonnull %425)
-          to label %763 unwind label %555
+765:                                              ; preds = %763, %762
+  %766 = invoke i32 @deflateEnd(ptr noundef nonnull %425)
+          to label %767 unwind label %555
 
-763:                                              ; preds = %761
-  %764 = invoke i32 @deflateEnd(ptr noundef nonnull %430)
-          to label %765 unwind label %555
+767:                                              ; preds = %765
+  %768 = invoke i32 @deflateEnd(ptr noundef nonnull %430)
+          to label %769 unwind label %555
 
-765:                                              ; preds = %763
-  %766 = load ptr, ptr %27, align 8, !tbaa !208
-  %.not.i.i462 = icmp eq ptr %766, %443
-  %767 = icmp eq ptr %766, null
-  %or.cond762 = or i1 %.not.i.i462, %767
-  br i1 %or.cond762, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %768
+769:                                              ; preds = %767
+  %770 = load ptr, ptr %27, align 8, !tbaa !208
+  %.not.i.i462 = icmp eq ptr %770, %443
+  %771 = icmp eq ptr %770, null
+  %or.cond762 = or i1 %.not.i.i462, %771
+  br i1 %or.cond762, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, label %772
 
-768:                                              ; preds = %765
-  call void @_ZdaPv(ptr noundef nonnull %766) #32
+772:                                              ; preds = %769
+  call void @_ZdaPv(ptr noundef nonnull %770) #32
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %768, %765
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %772, %769
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %774
+  br label %778
 
-769:                                              ; preds = %625, %555
+773:                                              ; preds = %625, %555
   %.pn369 = phi { ptr, i32 } [ %626, %625 ], [ %556, %555 ]
-  %770 = load ptr, ptr %27, align 8, !tbaa !208
-  %.not.i.i464 = icmp eq ptr %770, %443
-  %771 = icmp eq ptr %770, null
-  %or.cond763 = or i1 %.not.i.i464, %771
-  br i1 %or.cond763, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit466, label %772
+  %774 = load ptr, ptr %27, align 8, !tbaa !208
+  %.not.i.i464 = icmp eq ptr %774, %443
+  %775 = icmp eq ptr %774, null
+  %or.cond763 = or i1 %.not.i.i464, %775
+  br i1 %or.cond763, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit466, label %776
 
-772:                                              ; preds = %769
-  call void @_ZdaPv(ptr noundef nonnull %770) #32
+776:                                              ; preds = %773
+  call void @_ZdaPv(ptr noundef nonnull %774) #32
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit466
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit466:         ; preds = %772, %769, %553
-  %.pn369.pn = phi { ptr, i32 } [ %554, %553 ], [ %.pn369, %769 ], [ %.pn369, %772 ]
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit466:         ; preds = %776, %773, %553
+  %.pn369.pn = phi { ptr, i32 } [ %554, %553 ], [ %.pn369, %773 ], [ %.pn369, %776 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %773
+  br label %777
 
-773:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit466, %418, %386
+777:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit466, %418, %386
   %.pn369.pn.pn = phi { ptr, i32 } [ %.pn369.pn, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit466 ], [ %387, %386 ], [ %419, %418 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %816
+  br label %820
 
-774:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, %364
-  %775 = load ptr, ptr %15, align 8, !tbaa !95
-  %776 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %777 = load ptr, ptr %776, align 8, !tbaa !96
-  %.not4.i.i.i.i = icmp eq ptr %775, %777
+778:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, %364
+  %779 = load ptr, ptr %15, align 8, !tbaa !95
+  %780 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %781 = load ptr, ptr %780, align 8, !tbaa !96
+  %.not4.i.i.i.i = icmp eq ptr %779, %781
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %774, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %778, %.lr.ph.i.i.i.i ], [ %775, %774 ]
+.lr.ph.i.i.i.i:                                   ; preds = %778, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %782, %.lr.ph.i.i.i.i ], [ %779, %778 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #33
-  %778 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
-  %.not.i.i.i.i467 = icmp eq ptr %778, %777
+  %782 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
+  %.not.i.i.i.i467 = icmp eq ptr %782, %781
   br i1 %.not.i.i.i.i467, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !97
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %15, align 8, !tbaa !95
   br label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %774
-  %779 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %775, %774 ]
-  %.not.i.i.i = icmp eq ptr %779, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %780
+_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %778
+  %783 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %779, %778 ]
+  %.not.i.i.i = icmp eq ptr %783, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %784
 
-780:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %779) #32
+784:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %783) #32
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %780
+_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %784
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %781 = load ptr, ptr %14, align 8, !tbaa !301
-  %782 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %783 = load ptr, ptr %782, align 8, !tbaa !292
-  %.not4.i.i.i.i468 = icmp eq ptr %781, %783
+  %785 = load ptr, ptr %14, align 8, !tbaa !301
+  %786 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %787 = load ptr, ptr %786, align 8, !tbaa !292
+  %.not4.i.i.i.i468 = icmp eq ptr %785, %787
   br i1 %.not4.i.i.i.i468, label %_ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i469
 
 .lr.ph.i.i.i.i469:                                ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %_ZSt8_DestroyIN2cv9APNGFrameEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i470 = phi ptr [ %787, %_ZSt8_DestroyIN2cv9APNGFrameEEvPT_.exit.i.i.i.i ], [ %781, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
-  %784 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i470, i64 1064
-  %785 = load ptr, ptr %784, align 8, !tbaa !19
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %785, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN2cv9APNGFrameEEvPT_.exit.i.i.i.i, label %786
+  %.05.i.i.i.i470 = phi ptr [ %791, %_ZSt8_DestroyIN2cv9APNGFrameEEvPT_.exit.i.i.i.i ], [ %785, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
+  %788 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i470, i64 1064
+  %789 = load ptr, ptr %788, align 8, !tbaa !19
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %789, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN2cv9APNGFrameEEvPT_.exit.i.i.i.i, label %790
 
-786:                                              ; preds = %.lr.ph.i.i.i.i469
-  call void @_ZdlPv(ptr noundef nonnull %785) #32
+790:                                              ; preds = %.lr.ph.i.i.i.i469
+  call void @_ZdlPv(ptr noundef nonnull %789) #32
   br label %_ZSt8_DestroyIN2cv9APNGFrameEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyIN2cv9APNGFrameEEvPT_.exit.i.i.i.i:  ; preds = %786, %.lr.ph.i.i.i.i469
-  %787 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i470, i64 1088
-  %.not.i.i.i.i471 = icmp eq ptr %787, %783
+_ZSt8_DestroyIN2cv9APNGFrameEEvPT_.exit.i.i.i.i:  ; preds = %790, %.lr.ph.i.i.i.i469
+  %791 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i470, i64 1088
+  %.not.i.i.i.i471 = icmp eq ptr %791, %787
   br i1 %.not.i.i.i.i471, label %_ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i469, !llvm.loop !311
 
 _ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN2cv9APNGFrameEEvPT_.exit.i.i.i.i
@@ -8284,240 +8288,240 @@ _ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds
   br label %_ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  %788 = phi ptr [ %.pr.i472, %_ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %781, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
-  %.not.i.i.i473 = icmp eq ptr %788, null
-  br i1 %.not.i.i.i473, label %_ZNSt6vectorIN2cv9APNGFrameESaIS1_EED2Ev.exit, label %789
+  %792 = phi ptr [ %.pr.i472, %_ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %785, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
+  %.not.i.i.i473 = icmp eq ptr %792, null
+  br i1 %.not.i.i.i473, label %_ZNSt6vectorIN2cv9APNGFrameESaIS1_EED2Ev.exit, label %793
 
-789:                                              ; preds = %_ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %788) #32
+793:                                              ; preds = %_ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %792) #32
   br label %_ZNSt6vectorIN2cv9APNGFrameESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN2cv9APNGFrameESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exit.i, %789
+_ZNSt6vectorIN2cv9APNGFrameESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN2cv9APNGFrameES1_EvT_S3_RSaIT0_E.exit.i, %793
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %790 = load ptr, ptr %13, align 8, !tbaa !208
-  %.not.i.i474 = icmp eq ptr %790, %194
-  %791 = icmp eq ptr %790, null
-  %or.cond764 = or i1 %.not.i.i474, %791
-  br i1 %or.cond764, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit476, label %792
+  %794 = load ptr, ptr %13, align 8, !tbaa !208
+  %.not.i.i474 = icmp eq ptr %794, %194
+  %795 = icmp eq ptr %794, null
+  %or.cond764 = or i1 %.not.i.i474, %795
+  br i1 %or.cond764, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit476, label %796
 
-792:                                              ; preds = %_ZNSt6vectorIN2cv9APNGFrameESaIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %790) #32
+796:                                              ; preds = %_ZNSt6vectorIN2cv9APNGFrameESaIS1_EED2Ev.exit
+  call void @_ZdaPv(ptr noundef nonnull %794) #32
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit476
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit476:         ; preds = %792, %_ZNSt6vectorIN2cv9APNGFrameESaIS1_EED2Ev.exit
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit476:         ; preds = %796, %_ZNSt6vectorIN2cv9APNGFrameESaIS1_EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %793 = load ptr, ptr %12, align 8, !tbaa !208
-  %.not.i.i477 = icmp eq ptr %793, %184
-  br i1 %.not.i.i477, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit479, label %794
+  %797 = load ptr, ptr %12, align 8, !tbaa !208
+  %.not.i.i477 = icmp eq ptr %797, %184
+  br i1 %.not.i.i477, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit479, label %798
 
-794:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit476
-  %795 = icmp eq ptr %793, null
-  br i1 %795, label %797, label %796
+798:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit476
+  %799 = icmp eq ptr %797, null
+  br i1 %799, label %801, label %800
 
-796:                                              ; preds = %794
-  call void @_ZdaPv(ptr noundef nonnull %793) #32
-  br label %797
+800:                                              ; preds = %798
+  call void @_ZdaPv(ptr noundef nonnull %797) #32
+  br label %801
 
-797:                                              ; preds = %796, %794
+801:                                              ; preds = %800, %798
   store i64 1032, ptr %183, align 8, !tbaa !210
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit479
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit479:         ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit476, %797
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit479:         ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit476, %801
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %798 = load ptr, ptr %11, align 8, !tbaa !208
-  %.not.i.i480 = icmp eq ptr %798, %189
-  br i1 %.not.i.i480, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit482, label %799
+  %802 = load ptr, ptr %11, align 8, !tbaa !208
+  %.not.i.i480 = icmp eq ptr %802, %189
+  br i1 %.not.i.i480, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit482, label %803
 
-799:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit479
-  %800 = icmp eq ptr %798, null
-  br i1 %800, label %802, label %801
+803:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit479
+  %804 = icmp eq ptr %802, null
+  br i1 %804, label %806, label %805
 
-801:                                              ; preds = %799
-  call void @_ZdaPv(ptr noundef nonnull %798) #32
-  br label %802
+805:                                              ; preds = %803
+  call void @_ZdaPv(ptr noundef nonnull %802) #32
+  br label %806
 
-802:                                              ; preds = %801, %799
+806:                                              ; preds = %805, %803
   store i64 1032, ptr %190, align 8, !tbaa !210
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit482
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit482:         ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit479, %802
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit482:         ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit479, %806
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %803 = load ptr, ptr %10, align 8, !tbaa !208
-  %.not.i.i483 = icmp eq ptr %803, %186
-  br i1 %.not.i.i483, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit485, label %804
+  %807 = load ptr, ptr %10, align 8, !tbaa !208
+  %.not.i.i483 = icmp eq ptr %807, %186
+  br i1 %.not.i.i483, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit485, label %808
 
-804:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit482
-  %805 = icmp eq ptr %803, null
-  br i1 %805, label %807, label %806
+808:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit482
+  %809 = icmp eq ptr %807, null
+  br i1 %809, label %811, label %810
 
-806:                                              ; preds = %804
-  call void @_ZdaPv(ptr noundef nonnull %803) #32
-  br label %807
+810:                                              ; preds = %808
+  call void @_ZdaPv(ptr noundef nonnull %807) #32
+  br label %811
 
-807:                                              ; preds = %806, %804
+811:                                              ; preds = %810, %808
   store i64 1032, ptr %185, align 8, !tbaa !210
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit485
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit485:         ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit482, %807
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit485:         ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit482, %811
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %808 = load ptr, ptr %9, align 8, !tbaa !208
-  %.not.i.i486 = icmp eq ptr %808, %187
-  br i1 %.not.i.i486, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit488, label %809
+  %812 = load ptr, ptr %9, align 8, !tbaa !208
+  %.not.i.i486 = icmp eq ptr %812, %187
+  br i1 %.not.i.i486, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit488, label %813
 
-809:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit485
-  %810 = icmp eq ptr %808, null
-  br i1 %810, label %812, label %811
+813:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit485
+  %814 = icmp eq ptr %812, null
+  br i1 %814, label %816, label %815
 
-811:                                              ; preds = %809
-  call void @_ZdaPv(ptr noundef nonnull %808) #32
-  br label %812
+815:                                              ; preds = %813
+  call void @_ZdaPv(ptr noundef nonnull %812) #32
+  br label %816
 
-812:                                              ; preds = %811, %809
+816:                                              ; preds = %815, %813
   store i64 1032, ptr %188, align 8, !tbaa !210
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit488
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit488:         ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit485, %812
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit488:         ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit485, %816
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %813 = load ptr, ptr %8, align 8, !tbaa !208
-  %.not.i.i489 = icmp eq ptr %813, %156
-  %814 = icmp eq ptr %813, null
-  %or.cond765 = or i1 %.not.i.i489, %814
-  br i1 %or.cond765, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit491, label %815
+  %817 = load ptr, ptr %8, align 8, !tbaa !208
+  %.not.i.i489 = icmp eq ptr %817, %156
+  %818 = icmp eq ptr %817, null
+  %or.cond765 = or i1 %.not.i.i489, %818
+  br i1 %or.cond765, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit491, label %819
 
-815:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit488
-  call void @_ZdaPv(ptr noundef nonnull %813) #32
+819:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit488
+  call void @_ZdaPv(ptr noundef nonnull %817) #32
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit491
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit491:         ; preds = %815, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit488
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit491:         ; preds = %819, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit488
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 true
 
-816:                                              ; preds = %773, %_ZN2cv9APNGFrameD2Ev.exit420
-  %.pn386.pn = phi { ptr, i32 } [ %.pn386, %_ZN2cv9APNGFrameD2Ev.exit420 ], [ %.pn369.pn.pn, %773 ]
+820:                                              ; preds = %777, %_ZN2cv9APNGFrameD2Ev.exit420
+  %.pn386.pn = phi { ptr, i32 } [ %.pn386, %_ZN2cv9APNGFrameD2Ev.exit420 ], [ %.pn369.pn.pn, %777 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZNSt6vectorIN2cv9APNGFrameESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %817 = load ptr, ptr %13, align 8, !tbaa !208
-  %.not.i.i492 = icmp eq ptr %817, %194
-  %818 = icmp eq ptr %817, null
-  %or.cond766 = or i1 %.not.i.i492, %818
-  br i1 %or.cond766, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494, label %819
+  %821 = load ptr, ptr %13, align 8, !tbaa !208
+  %.not.i.i492 = icmp eq ptr %821, %194
+  %822 = icmp eq ptr %821, null
+  %or.cond766 = or i1 %.not.i.i492, %822
+  br i1 %or.cond766, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494, label %823
 
-819:                                              ; preds = %816
-  call void @_ZdaPv(ptr noundef nonnull %817) #32
+823:                                              ; preds = %820
+  call void @_ZdaPv(ptr noundef nonnull %821) #32
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494:         ; preds = %819, %816, %249
-  %.pn386.pn.pn = phi { ptr, i32 } [ %250, %249 ], [ %.pn386.pn, %816 ], [ %.pn386.pn, %819 ]
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494:         ; preds = %823, %820, %249
+  %.pn386.pn.pn = phi { ptr, i32 } [ %250, %249 ], [ %.pn386.pn, %820 ], [ %.pn386.pn, %823 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %820 = load ptr, ptr %12, align 8, !tbaa !208
-  %.not.i.i495 = icmp eq ptr %820, %184
-  br i1 %.not.i.i495, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497, label %821
+  %824 = load ptr, ptr %12, align 8, !tbaa !208
+  %.not.i.i495 = icmp eq ptr %824, %184
+  br i1 %.not.i.i495, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497, label %825
 
-821:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494
-  %822 = icmp eq ptr %820, null
-  br i1 %822, label %824, label %823
+825:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494
+  %826 = icmp eq ptr %824, null
+  br i1 %826, label %828, label %827
 
-823:                                              ; preds = %821
-  call void @_ZdaPv(ptr noundef nonnull %820) #32
-  br label %824
+827:                                              ; preds = %825
+  call void @_ZdaPv(ptr noundef nonnull %824) #32
+  br label %828
 
-824:                                              ; preds = %823, %821
+828:                                              ; preds = %827, %825
   store i64 1032, ptr %183, align 8, !tbaa !210
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497:         ; preds = %824, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494, %247
-  %825 = phi ptr [ %169, %247 ], [ %190, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %190, %824 ]
-  %826 = phi ptr [ %168, %247 ], [ %189, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %189, %824 ]
-  %827 = phi ptr [ %165, %247 ], [ %185, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %185, %824 ]
-  %828 = phi ptr [ %164, %247 ], [ %186, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %186, %824 ]
-  %829 = phi ptr [ %161, %247 ], [ %188, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %188, %824 ]
-  %830 = phi ptr [ %160, %247 ], [ %187, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %187, %824 ]
-  %.pn386.pn.pn.pn = phi { ptr, i32 } [ %248, %247 ], [ %.pn386.pn.pn, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %.pn386.pn.pn, %824 ]
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497:         ; preds = %828, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494, %247
+  %829 = phi ptr [ %169, %247 ], [ %190, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %190, %828 ]
+  %830 = phi ptr [ %168, %247 ], [ %189, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %189, %828 ]
+  %831 = phi ptr [ %165, %247 ], [ %185, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %185, %828 ]
+  %832 = phi ptr [ %164, %247 ], [ %186, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %186, %828 ]
+  %833 = phi ptr [ %161, %247 ], [ %188, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %188, %828 ]
+  %834 = phi ptr [ %160, %247 ], [ %187, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %187, %828 ]
+  %.pn386.pn.pn.pn = phi { ptr, i32 } [ %248, %247 ], [ %.pn386.pn.pn, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit494 ], [ %.pn386.pn.pn, %828 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %831 = load ptr, ptr %11, align 8, !tbaa !208
-  %.not.i.i498 = icmp eq ptr %831, %826
-  br i1 %.not.i.i498, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500, label %832
+  %835 = load ptr, ptr %11, align 8, !tbaa !208
+  %.not.i.i498 = icmp eq ptr %835, %830
+  br i1 %.not.i.i498, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500, label %836
 
-832:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497
-  %833 = icmp eq ptr %831, null
-  br i1 %833, label %835, label %834
+836:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497
+  %837 = icmp eq ptr %835, null
+  br i1 %837, label %839, label %838
 
-834:                                              ; preds = %832
-  call void @_ZdaPv(ptr noundef nonnull %831) #32
-  br label %835
+838:                                              ; preds = %836
+  call void @_ZdaPv(ptr noundef nonnull %835) #32
+  br label %839
 
-835:                                              ; preds = %834, %832
-  store i64 1032, ptr %825, align 8, !tbaa !210
+839:                                              ; preds = %838, %836
+  store i64 1032, ptr %829, align 8, !tbaa !210
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500:         ; preds = %835, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497, %245
-  %836 = phi ptr [ %165, %245 ], [ %827, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497 ], [ %827, %835 ]
-  %837 = phi ptr [ %164, %245 ], [ %828, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497 ], [ %828, %835 ]
-  %838 = phi ptr [ %161, %245 ], [ %829, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497 ], [ %829, %835 ]
-  %839 = phi ptr [ %160, %245 ], [ %830, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497 ], [ %830, %835 ]
-  %.pn386.pn.pn.pn.pn = phi { ptr, i32 } [ %246, %245 ], [ %.pn386.pn.pn.pn, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497 ], [ %.pn386.pn.pn.pn, %835 ]
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500:         ; preds = %839, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497, %245
+  %840 = phi ptr [ %165, %245 ], [ %831, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497 ], [ %831, %839 ]
+  %841 = phi ptr [ %164, %245 ], [ %832, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497 ], [ %832, %839 ]
+  %842 = phi ptr [ %161, %245 ], [ %833, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497 ], [ %833, %839 ]
+  %843 = phi ptr [ %160, %245 ], [ %834, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497 ], [ %834, %839 ]
+  %.pn386.pn.pn.pn.pn = phi { ptr, i32 } [ %246, %245 ], [ %.pn386.pn.pn.pn, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit497 ], [ %.pn386.pn.pn.pn, %839 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %840 = load ptr, ptr %10, align 8, !tbaa !208
-  %.not.i.i501 = icmp eq ptr %840, %837
-  br i1 %.not.i.i501, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit503, label %841
+  %844 = load ptr, ptr %10, align 8, !tbaa !208
+  %.not.i.i501 = icmp eq ptr %844, %841
+  br i1 %.not.i.i501, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit503, label %845
 
-841:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500
-  %842 = icmp eq ptr %840, null
-  br i1 %842, label %844, label %843
+845:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500
+  %846 = icmp eq ptr %844, null
+  br i1 %846, label %848, label %847
 
-843:                                              ; preds = %841
-  call void @_ZdaPv(ptr noundef nonnull %840) #32
-  br label %844
+847:                                              ; preds = %845
+  call void @_ZdaPv(ptr noundef nonnull %844) #32
+  br label %848
 
-844:                                              ; preds = %843, %841
-  store i64 1032, ptr %836, align 8, !tbaa !210
+848:                                              ; preds = %847, %845
+  store i64 1032, ptr %840, align 8, !tbaa !210
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit503
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit503:         ; preds = %844, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500, %243
-  %845 = phi ptr [ %161, %243 ], [ %838, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500 ], [ %838, %844 ]
-  %846 = phi ptr [ %160, %243 ], [ %839, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500 ], [ %839, %844 ]
-  %.pn386.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %244, %243 ], [ %.pn386.pn.pn.pn.pn, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500 ], [ %.pn386.pn.pn.pn.pn, %844 ]
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit503:         ; preds = %848, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500, %243
+  %849 = phi ptr [ %161, %243 ], [ %842, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500 ], [ %842, %848 ]
+  %850 = phi ptr [ %160, %243 ], [ %843, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500 ], [ %843, %848 ]
+  %.pn386.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %244, %243 ], [ %.pn386.pn.pn.pn.pn, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit500 ], [ %.pn386.pn.pn.pn.pn, %848 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %847 = load ptr, ptr %9, align 8, !tbaa !208
-  %.not.i.i504 = icmp eq ptr %847, %846
-  br i1 %.not.i.i504, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit506, label %848
+  %851 = load ptr, ptr %9, align 8, !tbaa !208
+  %.not.i.i504 = icmp eq ptr %851, %850
+  br i1 %.not.i.i504, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit506, label %852
 
-848:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit503
-  %849 = icmp eq ptr %847, null
-  br i1 %849, label %851, label %850
+852:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit503
+  %853 = icmp eq ptr %851, null
+  br i1 %853, label %855, label %854
 
-850:                                              ; preds = %848
-  call void @_ZdaPv(ptr noundef nonnull %847) #32
-  br label %851
+854:                                              ; preds = %852
+  call void @_ZdaPv(ptr noundef nonnull %851) #32
+  br label %855
 
-851:                                              ; preds = %850, %848
-  store i64 1032, ptr %845, align 8, !tbaa !210
+855:                                              ; preds = %854, %852
+  store i64 1032, ptr %849, align 8, !tbaa !210
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit506
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit506:         ; preds = %851, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit503, %241
-  %.pn386.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %242, %241 ], [ %.pn386.pn.pn.pn.pn.pn, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit503 ], [ %.pn386.pn.pn.pn.pn.pn, %851 ]
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit506:         ; preds = %855, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit503, %241
+  %.pn386.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %242, %241 ], [ %.pn386.pn.pn.pn.pn.pn, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit503 ], [ %.pn386.pn.pn.pn.pn.pn, %855 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %852 = load ptr, ptr %8, align 8, !tbaa !208
-  %.not.i.i507 = icmp eq ptr %852, %156
-  %853 = icmp eq ptr %852, null
-  %or.cond767 = or i1 %.not.i.i507, %853
-  br i1 %or.cond767, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit509, label %854
+  %856 = load ptr, ptr %8, align 8, !tbaa !208
+  %.not.i.i507 = icmp eq ptr %856, %156
+  %857 = icmp eq ptr %856, null
+  %or.cond767 = or i1 %.not.i.i507, %857
+  br i1 %or.cond767, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit509, label %858
 
-854:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit506
-  call void @_ZdaPv(ptr noundef nonnull %852) #32
+858:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit506
+  call void @_ZdaPv(ptr noundef nonnull %856) #32
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit509
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit509:         ; preds = %854, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit506
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit509:         ; preds = %858, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit506
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %855
+  br label %859
 
-855:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit509, %129
+859:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit509, %129
   %.pn386.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn386.pn.pn.pn.pn.pn.pn, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit509 ], [ %.pn.pn, %129 ]
   resume { ptr, i32 } %.pn386.pn.pn.pn.pn.pn.pn.pn
 }

@@ -1059,7 +1059,8 @@ do.body44.i.i:                                    ; preds = %_ZN2v810MaybeLocalI
 
 _ZN4node12_GLOBAL__N_111ProcessWrap13StreamForWrapEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE.exit.i: ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit.i.i
   %113 = load ptr, ptr %stdio.i, align 8
-  %data.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %113, i64 %indvars.iv.i, i32 1
+  %arrayidx128.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %113, i64 %indvars.iv.i
+  %data.i = getelementptr inbounds nuw i8, ptr %arrayidx128.i, i64 8
   store ptr %112, ptr %data.i, align 8
   br label %for.inc.i
 
@@ -1103,7 +1104,8 @@ do.body44.i55.i:                                  ; preds = %_ZN2v810MaybeLocalI
 
 _ZN4node12_GLOBAL__N_111ProcessWrap13StreamForWrapEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE.exit57.i: ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit.i51.i
   %121 = load ptr, ptr %stdio.i, align 8
-  %data157.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %121, i64 %indvars.iv.i, i32 1
+  %arrayidx156.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %121, i64 %indvars.iv.i
+  %data157.i = getelementptr inbounds nuw i8, ptr %arrayidx156.i, i64 8
   store ptr %120, ptr %data157.i, align 8
   br label %for.inc.i
 
@@ -1147,7 +1149,8 @@ do.body44.i71.i:                                  ; preds = %_ZN2v810MaybeLocalI
 
 _ZN4node12_GLOBAL__N_111ProcessWrap13StreamForWrapEPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEE.exit73.i: ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit.i67.i
   %129 = load ptr, ptr %stdio.i, align 8
-  %data186.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %129, i64 %indvars.iv.i, i32 1
+  %arrayidx185.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %129, i64 %indvars.iv.i
+  %data186.i = getelementptr inbounds nuw i8, ptr %arrayidx185.i, i64 8
   store ptr %128, ptr %data186.i, align 8
   br label %for.inc.i
 
@@ -1178,7 +1181,8 @@ do.end222.i:                                      ; preds = %_ZN2v810MaybeLocalI
   %arrayidx233.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %100, i64 %indvars.iv.i
   store i32 2, ptr %arrayidx233.i, align 8
   %132 = load ptr, ptr %stdio.i, align 8
-  %data238.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %132, i64 %indvars.iv.i, i32 1
+  %arrayidx237.i = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %132, i64 %indvars.iv.i
+  %data238.i = getelementptr inbounds nuw i8, ptr %arrayidx237.i, i64 8
   store i32 %conv230.i, ptr %data238.i, align 8
   br label %for.inc.i
 

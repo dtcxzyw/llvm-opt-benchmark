@@ -443,150 +443,151 @@ define dso_local noundef zeroext i1 @_ZN4llvm7TGLexer10processEOFEv(ptr noundef 
   %9 = add i32 %8, -1
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %6, align 8, !tbaa !47
-  %12 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %11, i64 %10, i32 2
-  %.sroa.0.0.copyload.i = load ptr, ptr %12, align 8, !tbaa !55
+  %12 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %11, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.0.0.copyload.i = load ptr, ptr %13, align 8, !tbaa !55
   %.not = icmp eq ptr %.sroa.0.0.copyload.i, null
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %14 = load ptr, ptr %13, align 8, !tbaa !44
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %16 = load i32, ptr %15, align 8, !tbaa !58
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::SmallVector.11", ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 -56
-  %20 = load i32, ptr %19, align 8, !tbaa !58
-  %.not.i.i3 = icmp eq i32 %20, 0
-  br i1 %.not, label %66, label %21
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %15 = load ptr, ptr %14, align 8, !tbaa !44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %17 = load i32, ptr %16, align 8, !tbaa !58
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw %"class.llvm::SmallVector.11", ptr %15, i64 %18
+  %20 = getelementptr inbounds i8, ptr %19, i64 -56
+  %21 = load i32, ptr %20, align 8, !tbaa !58
+  %.not.i.i3 = icmp eq i32 %21, 0
+  br i1 %.not, label %67, label %22
 
-21:                                               ; preds = %1
-  br i1 %.not.i.i3, label %22, label %_ZN4llvm7TGLexer15prepExitIncludeEb.exit
+22:                                               ; preds = %1
+  br i1 %.not.i.i3, label %23, label %_ZN4llvm7TGLexer15prepExitIncludeEb.exit
 
-22:                                               ; preds = %21
-  %23 = add i32 %16, -1
-  store i32 %23, ptr %15, align 8, !tbaa !58
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.llvm::SmallVector.11", ptr %14, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !44
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %28 = icmp eq ptr %26, %27
-  br i1 %28, label %47, label %29
+23:                                               ; preds = %22
+  %24 = add i32 %17, -1
+  store i32 %24, ptr %16, align 8, !tbaa !58
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw %"class.llvm::SmallVector.11", ptr %15, i64 %25
+  %27 = load ptr, ptr %26, align 8, !tbaa !44
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %48, label %30
 
-29:                                               ; preds = %22
-  tail call void @free(ptr noundef %26) #25
+30:                                               ; preds = %23
+  tail call void @free(ptr noundef %27) #25
   %.pre = load ptr, ptr %0, align 8, !tbaa !75
-  br label %47
+  br label %48
 
-_ZN4llvm7TGLexer15prepExitIncludeEb.exit:         ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %18, i64 -64
-  %31 = load ptr, ptr %30, align 8, !tbaa !44
-  %32 = zext i32 %20 to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::TGLexer::PreprocessorControlDesc", ptr %31, i64 %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !76
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load i64, ptr %36, align 8, !tbaa !77
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
+_ZN4llvm7TGLexer15prepExitIncludeEb.exit:         ; preds = %22
+  %31 = getelementptr inbounds i8, ptr %19, i64 -64
+  %32 = load ptr, ptr %31, align 8, !tbaa !44
+  %33 = zext i32 %21 to i64
+  %34 = getelementptr inbounds nuw %"struct.llvm::TGLexer::PreprocessorControlDesc", ptr %32, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !76
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %38 = load i64, ptr %37, align 8, !tbaa !77
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 1, ptr %40, align 1, !tbaa !68
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 1, ptr %41, align 1, !tbaa !68
   store ptr @.str.112, ptr %4, align 8, !tbaa !14
-  store i8 3, ptr %39, align 8, !tbaa !62
-  call void @_ZN4llvm10PrintErrorEPKcRKNS_5TwineE(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(34) %4) #25
+  store i8 3, ptr %40, align 8, !tbaa !62
+  call void @_ZN4llvm10PrintErrorEPKcRKNS_5TwineE(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(34) %4) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %41 = getelementptr inbounds i8, ptr %33, i64 -8
+  %42 = getelementptr inbounds i8, ptr %34, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %43, align 1, !tbaa !68
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 1, ptr %44, align 1, !tbaa !68
   store ptr @.str.113, ptr %5, align 8, !tbaa !14
-  store i8 3, ptr %42, align 8, !tbaa !62
-  call void @_ZN4llvm10PrintErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr nonnull %41, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %5) #25
+  store i8 3, ptr %43, align 8, !tbaa !62
+  call void @_ZN4llvm10PrintErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr nonnull %42, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !57
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %45, ptr %46, align 8, !tbaa !74
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !57
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %46, ptr %47, align 8, !tbaa !74
   br label %_ZN4llvm7TGLexer15prepExitIncludeEb.exit4
 
-47:                                               ; preds = %22, %29
-  %48 = phi ptr [ %6, %22 ], [ %.pre, %29 ]
-  %49 = tail call noundef i32 @_ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr nonnull %.sroa.0.0.copyload.i) #25
-  store i32 %49, ptr %7, align 8, !tbaa !46
-  %50 = load ptr, ptr %0, align 8, !tbaa !75
-  %51 = add i32 %49, -1
-  %52 = zext i32 %51 to i64
-  %53 = load ptr, ptr %50, align 8, !tbaa !47
-  %54 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %53, i64 %52
-  %55 = load ptr, ptr %54, align 8, !tbaa !50
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !52
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !54
-  %60 = ptrtoint ptr %59 to i64
-  %61 = ptrtoint ptr %57 to i64
-  %62 = sub i64 %60, %61
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %57, ptr %63, align 8, !tbaa !55
+48:                                               ; preds = %23, %30
+  %49 = phi ptr [ %6, %23 ], [ %.pre, %30 ]
+  %50 = tail call noundef i32 @_ZNK4llvm9SourceMgr23FindBufferContainingLocENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr nonnull %.sroa.0.0.copyload.i) #25
+  store i32 %50, ptr %7, align 8, !tbaa !46
+  %51 = load ptr, ptr %0, align 8, !tbaa !75
+  %52 = add i32 %50, -1
+  %53 = zext i32 %52 to i64
+  %54 = load ptr, ptr %51, align 8, !tbaa !47
+  %55 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %54, i64 %53
+  %56 = load ptr, ptr %55, align 8, !tbaa !50
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !52
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %60 = load ptr, ptr %59, align 8, !tbaa !54
+  %61 = ptrtoint ptr %60 to i64
+  %62 = ptrtoint ptr %58 to i64
+  %63 = sub i64 %61, %62
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %58, ptr %64, align 8, !tbaa !55
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %62, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !56
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.0.copyload.i, ptr %64, align 8, !tbaa !57
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sroa.0.0.copyload.i, ptr %65, align 8, !tbaa !74
+  store i64 %63, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !56
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.0.0.copyload.i, ptr %65, align 8, !tbaa !57
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.sroa.0.0.copyload.i, ptr %66, align 8, !tbaa !74
   br label %_ZN4llvm7TGLexer15prepExitIncludeEb.exit4
 
-66:                                               ; preds = %1
-  br i1 %.not.i.i3, label %85, label %67
+67:                                               ; preds = %1
+  br i1 %.not.i.i3, label %86, label %68
 
-67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %18, i64 -64
-  %69 = load ptr, ptr %68, align 8, !tbaa !44
-  %70 = zext i32 %20 to i64
-  %71 = getelementptr inbounds nuw %"struct.llvm::TGLexer::PreprocessorControlDesc", ptr %69, i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %73 = load ptr, ptr %72, align 8, !tbaa !76
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %75 = load i64, ptr %74, align 8, !tbaa !77
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 %75
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds i8, ptr %19, i64 -64
+  %70 = load ptr, ptr %69, align 8, !tbaa !44
+  %71 = zext i32 %21 to i64
+  %72 = getelementptr inbounds nuw %"struct.llvm::TGLexer::PreprocessorControlDesc", ptr %70, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %74 = load ptr, ptr %73, align 8, !tbaa !76
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %76 = load i64, ptr %75, align 8, !tbaa !77
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %76
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  store i8 1, ptr %78, align 1, !tbaa !68
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 33
+  store i8 1, ptr %79, align 1, !tbaa !68
   store ptr @.str.112, ptr %2, align 8, !tbaa !14
-  store i8 3, ptr %77, align 8, !tbaa !62
-  call void @_ZN4llvm10PrintErrorEPKcRKNS_5TwineE(ptr noundef %76, ptr noundef nonnull align 8 dereferenceable(34) %2) #25
+  store i8 3, ptr %78, align 8, !tbaa !62
+  call void @_ZN4llvm10PrintErrorEPKcRKNS_5TwineE(ptr noundef %77, ptr noundef nonnull align 8 dereferenceable(34) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %79 = getelementptr inbounds i8, ptr %71, i64 -8
+  %80 = getelementptr inbounds i8, ptr %72, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  store i8 1, ptr %81, align 1, !tbaa !68
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  store i8 1, ptr %82, align 1, !tbaa !68
   store ptr @.str.113, ptr %3, align 8, !tbaa !14
-  store i8 3, ptr %80, align 8, !tbaa !62
-  call void @_ZN4llvm10PrintErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr nonnull %79, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %3) #25
+  store i8 3, ptr %81, align 8, !tbaa !62
+  call void @_ZN4llvm10PrintErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr nonnull %80, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !57
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %83, ptr %84, align 8, !tbaa !74
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !57
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %84, ptr %85, align 8, !tbaa !74
   br label %_ZN4llvm7TGLexer15prepExitIncludeEb.exit4
 
-85:                                               ; preds = %66
-  %86 = add i32 %16, -1
-  store i32 %86, ptr %15, align 8, !tbaa !58
-  %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw %"class.llvm::SmallVector.11", ptr %14, i64 %87
-  %89 = load ptr, ptr %88, align 8, !tbaa !44
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %91 = icmp eq ptr %89, %90
-  br i1 %91, label %_ZN4llvm7TGLexer15prepExitIncludeEb.exit4, label %92
+86:                                               ; preds = %67
+  %87 = add i32 %17, -1
+  store i32 %87, ptr %16, align 8, !tbaa !58
+  %88 = zext i32 %87 to i64
+  %89 = getelementptr inbounds nuw %"class.llvm::SmallVector.11", ptr %15, i64 %88
+  %90 = load ptr, ptr %89, align 8, !tbaa !44
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %92 = icmp eq ptr %90, %91
+  br i1 %92, label %_ZN4llvm7TGLexer15prepExitIncludeEb.exit4, label %93
 
-92:                                               ; preds = %85
-  tail call void @free(ptr noundef %89) #25
+93:                                               ; preds = %86
+  tail call void @free(ptr noundef %90) #25
   br label %_ZN4llvm7TGLexer15prepExitIncludeEb.exit4
 
-_ZN4llvm7TGLexer15prepExitIncludeEb.exit4:        ; preds = %92, %85, %67, %_ZN4llvm7TGLexer15prepExitIncludeEb.exit, %47
-  %.0 = phi i1 [ true, %47 ], [ false, %_ZN4llvm7TGLexer15prepExitIncludeEb.exit ], [ false, %67 ], [ false, %85 ], [ false, %92 ]
+_ZN4llvm7TGLexer15prepExitIncludeEb.exit4:        ; preds = %93, %86, %68, %_ZN4llvm7TGLexer15prepExitIncludeEb.exit, %48
+  %.0 = phi i1 [ true, %48 ], [ false, %_ZN4llvm7TGLexer15prepExitIncludeEb.exit ], [ false, %68 ], [ false, %86 ], [ false, %93 ]
   ret i1 %.0
 }
 

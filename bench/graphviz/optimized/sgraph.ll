@@ -90,8 +90,9 @@ define void @reset(ptr noundef captures(none) initializes((0, 8)) %0) local_unna
 
 20:                                               ; preds = %.lr.ph17, %20
   %indvars.iv19 = phi i64 [ %.0.lcssa26, %.lr.ph17 ], [ %indvars.iv.next20, %20 ]
-  %21 = getelementptr inbounds nuw %struct.snode, ptr %13, i64 %indvars.iv19, i32 4
-  store i16 0, ptr %21, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw %struct.snode, ptr %13, i64 %indvars.iv19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store i16 0, ptr %22, align 8, !tbaa !15
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %._crit_edge, label %20, !llvm.loop !24
@@ -188,40 +189,42 @@ gv_calloc.exit25:                                 ; preds = %.thread.i24, %29
   br i1 %41, label %.lr.ph31, label %._crit_edge
 
 .lr.ph31:                                         ; preds = %.preheader.thread, %.preheader
-  %.0.lcssa47 = phi ptr [ %48, %.preheader.thread ], [ %20, %.preheader ]
-  %.019.lcssa46 = phi i64 [ %49, %.preheader.thread ], [ 0, %.preheader ]
+  %.0.lcssa47 = phi ptr [ %49, %.preheader.thread ], [ %20, %.preheader ]
+  %.019.lcssa46 = phi i64 [ %50, %.preheader.thread ], [ 0, %.preheader ]
   %42 = add nsw i32 %3, 2
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !14
   %45 = sext i32 %1 to i64
   %wide.trip.count37 = zext nneg i32 %42 to i64
-  br label %50
+  br label %51
 
 46:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %.027 = phi ptr [ %20, %.lr.ph ], [ %48, %46 ]
-  %47 = getelementptr inbounds nuw %struct.snode, ptr %40, i64 %indvars.iv, i32 7
-  store ptr %.027, ptr %47, align 8, !tbaa !28
-  %48 = getelementptr inbounds nuw i8, ptr %.027, i64 24
+  %.027 = phi ptr [ %20, %.lr.ph ], [ %49, %46 ]
+  %47 = getelementptr inbounds nuw %struct.snode, ptr %40, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  store ptr %.027, ptr %48, align 8, !tbaa !28
+  %49 = getelementptr inbounds nuw i8, ptr %.027, i64 24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader.thread, label %46, !llvm.loop !29
 
 .preheader.thread:                                ; preds = %46
-  %49 = zext nneg i32 %3 to i64
+  %50 = zext nneg i32 %3 to i64
   br label %.lr.ph31
 
-50:                                               ; preds = %.lr.ph31, %50
-  %indvars.iv34 = phi i64 [ %.019.lcssa46, %.lr.ph31 ], [ %indvars.iv.next35, %50 ]
-  %.130 = phi ptr [ %.0.lcssa47, %.lr.ph31 ], [ %52, %50 ]
-  %51 = getelementptr inbounds nuw %struct.snode, ptr %44, i64 %indvars.iv34, i32 7
-  store ptr %.130, ptr %51, align 8, !tbaa !28
-  %52 = getelementptr inbounds i32, ptr %.130, i64 %45
+51:                                               ; preds = %.lr.ph31, %51
+  %indvars.iv34 = phi i64 [ %.019.lcssa46, %.lr.ph31 ], [ %indvars.iv.next35, %51 ]
+  %.130 = phi ptr [ %.0.lcssa47, %.lr.ph31 ], [ %54, %51 ]
+  %52 = getelementptr inbounds nuw %struct.snode, ptr %44, i64 %indvars.iv34
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
+  store ptr %.130, ptr %53, align 8, !tbaa !28
+  %54 = getelementptr inbounds i32, ptr %.130, i64 %45
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %._crit_edge, label %50, !llvm.loop !30
+  br i1 %exitcond38.not, label %._crit_edge, label %51, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %50, %.preheader
+._crit_edge:                                      ; preds = %51, %.preheader
   ret void
 }
 

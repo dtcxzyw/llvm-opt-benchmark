@@ -726,23 +726,23 @@ image_to_grid.exit.us.i:                          ; preds = %335, %331
   %346 = mul nuw nsw i64 %345, %228
   %347 = add nuw nsw i64 %346, %291
   %348 = mul i64 %347, %224
-  %349 = add i64 %348, %342
-  %350 = fmul reassoc nsz arcp contract afn float %.065.us.i, %294
-  %351 = getelementptr inbounds nuw %struct.dt_iop_colorreconstruct_Lab_t, ptr %261, i64 %349
+  %349 = fmul reassoc nsz arcp contract afn float %.065.us.i, %294
+  %350 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %261, i64 %348
+  %351 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %350, i64 %342
   %352 = load float, ptr %351, align 16, !tbaa !132
-  %353 = fadd reassoc nsz arcp contract afn float %352, %350
+  %353 = fadd reassoc nsz arcp contract afn float %352, %349
   store float %353, ptr %351, align 16, !tbaa !132
   %354 = fmul reassoc nsz arcp contract afn float %.065.us.i, %296
-  %355 = getelementptr inbounds nuw %struct.dt_iop_colorreconstruct_Lab_t, ptr %261, i64 %349, i32 1
+  %355 = getelementptr inbounds nuw i8, ptr %351, i64 4
   %356 = load float, ptr %355, align 4, !tbaa !134
   %357 = fadd reassoc nsz arcp contract afn float %356, %354
   store float %357, ptr %355, align 4, !tbaa !134
   %358 = fmul reassoc nsz arcp contract afn float %.065.us.i, %298
-  %359 = getelementptr inbounds nuw %struct.dt_iop_colorreconstruct_Lab_t, ptr %261, i64 %349, i32 2
+  %359 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %360 = load float, ptr %359, align 8, !tbaa !135
   %361 = fadd reassoc nsz arcp contract afn float %360, %358
   store float %361, ptr %359, align 8, !tbaa !135
-  %362 = getelementptr inbounds nuw %struct.dt_iop_colorreconstruct_Lab_t, ptr %261, i64 %349, i32 3
+  %362 = getelementptr inbounds nuw i8, ptr %351, i64 12
   %363 = load float, ptr %362, align 4, !tbaa !136
   %364 = fadd reassoc nsz arcp contract afn float %363, %.065.us.i
   store float %364, ptr %362, align 4, !tbaa !136
@@ -1659,22 +1659,23 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %8, label %.preheader
+  br i1 %or.cond, label %9, label %.preheader
 
 6:                                                ; preds = %.preheader
   store ptr @introspection_init.f4, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 424), align 8, !tbaa !167
   store ptr @introspection_init.f5, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 512), align 16, !tbaa !167
-  br label %8
+  br label %9
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
-  store ptr %0, ptr %7, align 8, !tbaa !167
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %0, ptr %8, align 8, !tbaa !167
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %6, label %.preheader
 
-8:                                                ; preds = %2, %6
+9:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
   ret i32 %.06
 }

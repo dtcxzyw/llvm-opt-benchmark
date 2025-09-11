@@ -4939,9 +4939,10 @@ if.then:                                          ; preds = %if.then20.i.i.i, %_
 
 if.end:                                           ; preds = %if.end21.i.i.i, %if.end.i.i.i
   %13 = phi i64 [ %idx.ext20.i.i.i, %if.end.i.i.i ], [ %idx.ext.i.i.i, %if.end21.i.i.i ]
-  %second7 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.189", ptr %8, i64 %13, i32 0, i32 1
-  %14 = load i32, ptr %second7, align 8
-  %inc = add i32 %14, 1
+  %14 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.189", ptr %8, i64 %13
+  %second7 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %15 = load i32, ptr %second7, align 8
+  %inc = add i32 %15, 1
   store i32 %inc, ptr %second7, align 8
   %call11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %itoaBuf, i64 noundef 16, ptr noundef nonnull @.str.116, i32 noundef %inc) #26
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 16
@@ -4959,7 +4960,7 @@ if.end:                                           ; preds = %if.end21.i.i.i, %if
 if.end.i.thread.i:                                ; preds = %if.end
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %buf, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %agg.tmp12.sroa.2.0.copyload, i64 noundef 1) #26
   %.pre13.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %15 = zext i32 %.pre13.pre.i.i to i64
+  %16 = zext i32 %.pre13.pre.i.i to i64
   %.pre = load ptr, ptr %buf, align 8
   br label %if.then.i.i.i
 
@@ -4968,25 +4969,25 @@ if.end.i.i:                                       ; preds = %if.end
   br i1 %cmp.not.i.i.i, label %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i, %if.end.i.thread.i
-  %16 = phi ptr [ %.pre, %if.end.i.thread.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i ]
-  %.pre13.i4.i = phi i64 [ %15, %if.end.i.thread.i ], [ 0, %if.end.i.i ]
-  %add.ptr.i.i.i7 = getelementptr inbounds nuw i8, ptr %16, i64 %.pre13.i4.i
+  %17 = phi ptr [ %.pre, %if.end.i.thread.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i ]
+  %.pre13.i4.i = phi i64 [ %16, %if.end.i.thread.i ], [ 0, %if.end.i.i ]
+  %add.ptr.i.i.i7 = getelementptr inbounds nuw i8, ptr %17, i64 %.pre13.i4.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i7, ptr align 1 %agg.tmp12.sroa.0.0.copyload, i64 %agg.tmp12.sroa.2.0.copyload, i1 false)
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre81 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
   br label %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit
 
 _ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit: ; preds = %if.end.i.i, %if.then.i.i.i
-  %17 = phi i32 [ 32, %if.end.i.i ], [ %.pre81, %if.then.i.i.i ]
-  %18 = phi i32 [ 0, %if.end.i.i ], [ %.pre.i.i, %if.then.i.i.i ]
-  %19 = trunc i64 %agg.tmp12.sroa.2.0.copyload to i32
-  %conv.i12.i.i = add i32 %18, %19
+  %18 = phi i32 [ 32, %if.end.i.i ], [ %.pre81, %if.then.i.i.i ]
+  %19 = phi i32 [ 0, %if.end.i.i ], [ %.pre.i.i, %if.then.i.i.i ]
+  %20 = trunc i64 %agg.tmp12.sroa.2.0.copyload to i32
+  %conv.i12.i.i = add i32 %19, %20
   store i32 %conv.i12.i.i, ptr %Size.i.i.i.i.i.i, align 8
-  %cmp.i.i13 = icmp eq i32 %17, %conv.i12.i.i
+  %cmp.i.i13 = icmp eq i32 %18, %conv.i12.i.i
   br i1 %cmp.i.i13, label %if.end.i.thread.i21, label %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit25
 
 if.end.i.thread.i21:                              ; preds = %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit
-  %conv.i5.i.i11 = zext i32 %17 to i64
+  %conv.i5.i.i11 = zext i32 %18 to i64
   %add.i.i22 = add nuw nsw i64 %conv.i5.i.i11, 1
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %buf, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i22, i64 noundef 1) #26
   %.pre13.pre.i.i24 = load i32, ptr %Size.i.i.i.i.i.i, align 8
@@ -4994,16 +4995,16 @@ if.end.i.thread.i21:                              ; preds = %_ZN4llvh11SmallStri
 
 _ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit25: ; preds = %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit, %if.end.i.thread.i21
   %.pre13.i4.i16 = phi i32 [ %.pre13.pre.i.i24, %if.end.i.thread.i21 ], [ %conv.i12.i.i, %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit ]
-  %20 = load ptr, ptr %buf, align 8
+  %21 = load ptr, ptr %buf, align 8
   %conv.i9.i.i17 = zext i32 %.pre13.i4.i16 to i64
-  %add.ptr.i.i.i18 = getelementptr inbounds nuw i8, ptr %20, i64 %conv.i9.i.i17
+  %add.ptr.i.i.i18 = getelementptr inbounds nuw i8, ptr %21, i64 %conv.i9.i.i17
   store i8 32, ptr %add.ptr.i.i.i18, align 1
   %.pre.i.i19 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i12.i.i20 = add i32 %.pre.i.i19, 1
   store i32 %conv.i12.i.i20, ptr %Size.i.i.i.i.i.i, align 8
   %call.i32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %itoaBuf) #27
-  %21 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %conv.i.i.i27 = zext i32 %21 to i64
+  %22 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
+  %conv.i.i.i27 = zext i32 %22 to i64
   %conv.i5.i.i29 = zext i32 %conv.i12.i.i20 to i64
   %sub.i.i30 = sub nsw i64 %conv.i.i.i27, %conv.i5.i.i29
   %cmp.i.i31 = icmp ugt i64 %call.i32, %sub.i.i30
@@ -5022,24 +5023,24 @@ if.end.i.i32:                                     ; preds = %_ZN4llvh11SmallStri
 
 if.then.i.i.i34:                                  ; preds = %if.end.i.i32, %if.end.i.thread.i40
   %conv.i9.i.i36.pre-phi = phi i64 [ %conv.i5.i.i29, %if.end.i.i32 ], [ %.pre83, %if.end.i.thread.i40 ]
-  %22 = load ptr, ptr %buf, align 8
-  %add.ptr.i.i.i37 = getelementptr inbounds nuw i8, ptr %22, i64 %conv.i9.i.i36.pre-phi
+  %23 = load ptr, ptr %buf, align 8
+  %add.ptr.i.i.i37 = getelementptr inbounds nuw i8, ptr %23, i64 %conv.i9.i.i36.pre-phi
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i37, ptr nonnull align 16 %itoaBuf, i64 %call.i32, i1 false)
   %.pre.i.i38 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %.pre82 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
   br label %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit44
 
 _ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit44: ; preds = %if.end.i.i32, %if.then.i.i.i34
-  %23 = phi i32 [ %21, %if.end.i.i32 ], [ %.pre82, %if.then.i.i.i34 ]
-  %24 = phi i32 [ %conv.i12.i.i20, %if.end.i.i32 ], [ %.pre.i.i38, %if.then.i.i.i34 ]
-  %25 = trunc i64 %call.i32 to i32
-  %conv.i12.i.i39 = add i32 %24, %25
+  %24 = phi i32 [ %22, %if.end.i.i32 ], [ %.pre82, %if.then.i.i.i34 ]
+  %25 = phi i32 [ %conv.i12.i.i20, %if.end.i.i32 ], [ %.pre.i.i38, %if.then.i.i.i34 ]
+  %26 = trunc i64 %call.i32 to i32
+  %conv.i12.i.i39 = add i32 %25, %26
   store i32 %conv.i12.i.i39, ptr %Size.i.i.i.i.i.i, align 8
-  %cmp.i.i50 = icmp eq i32 %23, %conv.i12.i.i39
+  %cmp.i.i50 = icmp eq i32 %24, %conv.i12.i.i39
   br i1 %cmp.i.i50, label %if.end.i.thread.i58, label %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit62
 
 if.end.i.thread.i58:                              ; preds = %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit44
-  %conv.i5.i.i48 = zext i32 %23 to i64
+  %conv.i5.i.i48 = zext i32 %24 to i64
   %add.i.i59 = add nuw nsw i64 %conv.i5.i.i48, 1
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %buf, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %add.i.i59, i64 noundef 1) #26
   %.pre13.pre.i.i61 = load i32, ptr %Size.i.i.i.i.i.i, align 8
@@ -5047,24 +5048,24 @@ if.end.i.thread.i58:                              ; preds = %_ZN4llvh11SmallStri
 
 _ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit62: ; preds = %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit44, %if.end.i.thread.i58
   %.pre13.i4.i53 = phi i32 [ %.pre13.pre.i.i61, %if.end.i.thread.i58 ], [ %conv.i12.i.i39, %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit44 ]
-  %26 = load ptr, ptr %buf, align 8
+  %27 = load ptr, ptr %buf, align 8
   %conv.i9.i.i54 = zext i32 %.pre13.i4.i53 to i64
-  %add.ptr.i.i.i55 = getelementptr inbounds nuw i8, ptr %26, i64 %conv.i9.i.i54
+  %add.ptr.i.i.i55 = getelementptr inbounds nuw i8, ptr %27, i64 %conv.i9.i.i54
   store i8 35, ptr %add.ptr.i.i.i55, align 1
   %.pre.i.i56 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i12.i.i57 = add i32 %.pre.i.i56, 1
   store i32 %conv.i12.i.i57, ptr %Size.i.i.i.i.i.i, align 8
-  %27 = load ptr, ptr %Ctx.i, align 8
-  %28 = load ptr, ptr %buf, align 8
-  %conv.i.i.i65 = zext i32 %conv.i12.i.i57 to i64
-  %stringTable_.i = getelementptr inbounds nuw i8, ptr %27, i64 72
-  %call.i.i66 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i, ptr %28, i64 %conv.i.i.i65)
+  %28 = load ptr, ptr %Ctx.i, align 8
   %29 = load ptr, ptr %buf, align 8
-  %cmp.i.i.i.i = icmp eq ptr %29, %add.ptr.i.i.i.i.i.i
+  %conv.i.i.i65 = zext i32 %conv.i12.i.i57 to i64
+  %stringTable_.i = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %call.i.i66 = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i, ptr %29, i64 %conv.i.i.i65)
+  %30 = load ptr, ptr %buf, align 8
+  %cmp.i.i.i.i = icmp eq ptr %30, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %return, label %if.then.i.i.i68
 
 if.then.i.i.i68:                                  ; preds = %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit62
-  call void @free(ptr noundef %29) #26
+  call void @free(ptr noundef %30) #26
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i68, %_ZN4llvh11SmallStringILj32EE6appendENS_9StringRefE.exit62, %if.then

@@ -6300,7 +6300,7 @@ define internal noundef i32 @run_channel_fft(ptr noundef readonly captures(none)
   %84 = fmul nsz float %81, %83
   %85 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %69, i64 %indvars.iv274
   store float %84, ptr %85, align 4, !tbaa !207
-  %86 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %69, i64 %indvars.iv274, i32 1
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store float 0.000000e+00, ptr %86, align 4, !tbaa !209
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond278.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count277
@@ -6534,7 +6534,7 @@ define internal noundef i32 @run_channel_fft(ptr noundef readonly captures(none)
   %225 = tail call nsz float @llvm.fmuladd.f32(float %217, float %219, float %224)
   %226 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %192, i64 %indvars.iv304
   store float %223, ptr %226, align 4, !tbaa !207
-  %227 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %192, i64 %indvars.iv304, i32 1
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 4
   store float %225, ptr %227, align 4, !tbaa !209
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %exitcond308.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count307
@@ -6549,7 +6549,7 @@ define internal noundef i32 @run_channel_fft(ptr noundef readonly captures(none)
   %233 = fmul nsz float %230, %232
   %234 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %56, i64 %indvars.iv309
   store float %233, ptr %234, align 4, !tbaa !207
-  %235 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %56, i64 %indvars.iv309, i32 1
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 4
   store float 0.000000e+00, ptr %235, align 4, !tbaa !209
   %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
   %exitcond313.not = icmp eq i64 %indvars.iv.next310, %wide.trip.count312

@@ -105,24 +105,24 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_fsgnjn_qP1
   %.sroa.04.0.copyload = load i64, ptr %22, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !22
-  %23 = lshr i64 %1, 16
-  %.sroa.23.0..sroa_idx.idx = and i64 %23, 496
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.23.0..sroa_idx.idx
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %23 = lshr i64 %1, 20
+  %24 = and i64 %23, 31
+  %25 = getelementptr inbounds nuw %struct.float128_t, ptr %19, i64 %24
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !22
-  %25 = and i64 %.sroa.25.0.copyload, 9223372036854775807
-  %26 = and i64 %.sroa.23.0.copyload, -9223372036854775808
-  %27 = or disjoint i64 %26, %25
-  %28 = xor i64 %27, -9223372036854775808
-  %29 = lshr i64 %1, 7
-  %30 = and i64 %29, 31
-  %31 = getelementptr inbounds nuw %struct.float128_t, ptr %19, i64 %30
-  store i64 %.sroa.04.0.copyload, ptr %31, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 %28, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %33 = load ptr, ptr %32, align 8, !tbaa !23
-  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %33, i64 noundef 24576)
+  %26 = and i64 %.sroa.25.0.copyload, 9223372036854775807
+  %27 = and i64 %.sroa.23.0.copyload, -9223372036854775808
+  %28 = or disjoint i64 %27, %26
+  %29 = xor i64 %28, -9223372036854775808
+  %30 = lshr i64 %1, 7
+  %31 = and i64 %30, 31
+  %32 = getelementptr inbounds nuw %struct.float128_t, ptr %19, i64 %31
+  store i64 %.sroa.04.0.copyload, ptr %32, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i64 %29, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %34 = load ptr, ptr %33, align 8, !tbaa !23
+  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %34, i64 noundef 24576)
   ret i64 %16
 }
 
@@ -179,24 +179,24 @@ define noundef i64 @_Z19fast_rv64i_fsgnjn_qP11processor_t6insn_tm(ptr noundef ca
   %.sroa.04.0.copyload = load i64, ptr %20, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !22
-  %21 = lshr i64 %1, 16
-  %.sroa.23.0..sroa_idx.idx = and i64 %21, 496
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.23.0..sroa_idx.idx
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %21 = lshr i64 %1, 20
+  %22 = and i64 %21, 31
+  %23 = getelementptr inbounds nuw %struct.float128_t, ptr %17, i64 %22
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !22
-  %23 = and i64 %.sroa.25.0.copyload, 9223372036854775807
-  %24 = and i64 %.sroa.23.0.copyload, -9223372036854775808
-  %25 = or disjoint i64 %24, %23
-  %26 = xor i64 %25, -9223372036854775808
-  %27 = lshr i64 %1, 7
-  %28 = and i64 %27, 31
-  %29 = getelementptr inbounds nuw %struct.float128_t, ptr %17, i64 %28
-  store i64 %.sroa.04.0.copyload, ptr %29, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i64 %26, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %31 = load ptr, ptr %30, align 8, !tbaa !23
-  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %31, i64 noundef 24576)
+  %24 = and i64 %.sroa.25.0.copyload, 9223372036854775807
+  %25 = and i64 %.sroa.23.0.copyload, -9223372036854775808
+  %26 = or disjoint i64 %25, %24
+  %27 = xor i64 %26, -9223372036854775808
+  %28 = lshr i64 %1, 7
+  %29 = and i64 %28, 31
+  %30 = getelementptr inbounds nuw %struct.float128_t, ptr %17, i64 %29
+  store i64 %.sroa.04.0.copyload, ptr %30, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i64 %27, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %32 = load ptr, ptr %31, align 8, !tbaa !23
+  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %32, i64 noundef 24576)
   ret i64 %14
 }
 
@@ -237,34 +237,34 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_fsgnjn_q
   %.sroa.04.0.copyload = load i64, ptr %23, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !22
-  %24 = lshr i64 %1, 16
-  %.sroa.23.0..sroa_idx.idx = and i64 %24, 496
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.23.0..sroa_idx.idx
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %24 = lshr i64 %1, 20
+  %25 = and i64 %24, 31
+  %26 = getelementptr inbounds nuw %struct.float128_t, ptr %20, i64 %25
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !22
-  %26 = and i64 %.sroa.25.0.copyload, 9223372036854775807
-  %27 = and i64 %.sroa.23.0.copyload, -9223372036854775808
-  %28 = or disjoint i64 %27, %26
-  %29 = xor i64 %28, -9223372036854775808
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  %27 = and i64 %.sroa.25.0.copyload, 9223372036854775807
+  %28 = and i64 %.sroa.23.0.copyload, -9223372036854775808
+  %29 = or disjoint i64 %28, %27
+  %30 = xor i64 %29, -9223372036854775808
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %31 = lshr i64 %1, 7
-  %32 = and i64 %31, 31
-  %33 = shl nuw nsw i64 %32, 4
-  %34 = or disjoint i64 %33, 1
-  store i64 %34, ptr %4, align 8, !tbaa !3
-  %35 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i64 %.sroa.04.0.copyload, ptr %35, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i64 %29, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %36 = getelementptr inbounds nuw %struct.float128_t, ptr %20, i64 %32
+  %32 = lshr i64 %1, 7
+  %33 = and i64 %32, 31
+  %34 = shl nuw nsw i64 %33, 4
+  %35 = or disjoint i64 %34, 1
+  store i64 %35, ptr %4, align 8, !tbaa !3
+  %36 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store i64 %.sroa.04.0.copyload, ptr %36, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %29, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %38 = load ptr, ptr %37, align 8, !tbaa !23
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %38, i64 noundef 24576)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store i64 %30, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %37 = getelementptr inbounds nuw %struct.float128_t, ptr %20, i64 %33
+  store i64 %.sroa.04.0.copyload, ptr %37, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i64 %30, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %39 = load ptr, ptr %38, align 8, !tbaa !23
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %39, i64 noundef 24576)
   ret i64 %17
 }
 
@@ -389,34 +389,34 @@ define noundef i64 @_Z21logged_rv64i_fsgnjn_qP11processor_t6insn_tm(ptr noundef 
   %.sroa.04.0.copyload = load i64, ptr %21, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !22
-  %22 = lshr i64 %1, 16
-  %.sroa.23.0..sroa_idx.idx = and i64 %22, 496
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %.sroa.23.0..sroa_idx.idx
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %22 = lshr i64 %1, 20
+  %23 = and i64 %22, 31
+  %24 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %23
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !22
-  %24 = and i64 %.sroa.25.0.copyload, 9223372036854775807
-  %25 = and i64 %.sroa.23.0.copyload, -9223372036854775808
-  %26 = or disjoint i64 %25, %24
-  %27 = xor i64 %26, -9223372036854775808
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  %25 = and i64 %.sroa.25.0.copyload, 9223372036854775807
+  %26 = and i64 %.sroa.23.0.copyload, -9223372036854775808
+  %27 = or disjoint i64 %26, %25
+  %28 = xor i64 %27, -9223372036854775808
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %29 = lshr i64 %1, 7
-  %30 = and i64 %29, 31
-  %31 = shl nuw nsw i64 %30, 4
-  %32 = or disjoint i64 %31, 1
-  store i64 %32, ptr %4, align 8, !tbaa !3
-  %33 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i64 %.sroa.04.0.copyload, ptr %33, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i64 %27, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %34 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %30
+  %30 = lshr i64 %1, 7
+  %31 = and i64 %30, 31
+  %32 = shl nuw nsw i64 %31, 4
+  %33 = or disjoint i64 %32, 1
+  store i64 %33, ptr %4, align 8, !tbaa !3
+  %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store i64 %.sroa.04.0.copyload, ptr %34, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i64 %27, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %36 = load ptr, ptr %35, align 8, !tbaa !23
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %36, i64 noundef 24576)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i64 %28, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %35 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %31
+  store i64 %.sroa.04.0.copyload, ptr %35, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i64 %28, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %37 = load ptr, ptr %36, align 8, !tbaa !23
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %37, i64 noundef 24576)
   ret i64 %15
 }
 
@@ -456,24 +456,24 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fsgnjn_qP1
   %.sroa.04.0.copyload = load i64, ptr %22, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !22
-  %23 = lshr i64 %1, 16
-  %.sroa.23.0..sroa_idx.idx = and i64 %23, 496
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.23.0..sroa_idx.idx
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %23 = lshr i64 %1, 20
+  %24 = and i64 %23, 31
+  %25 = getelementptr inbounds nuw %struct.float128_t, ptr %19, i64 %24
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !22
-  %25 = and i64 %.sroa.25.0.copyload, 9223372036854775807
-  %26 = and i64 %.sroa.23.0.copyload, -9223372036854775808
-  %27 = or disjoint i64 %26, %25
-  %28 = xor i64 %27, -9223372036854775808
-  %29 = lshr i64 %1, 7
-  %30 = and i64 %29, 31
-  %31 = getelementptr inbounds nuw %struct.float128_t, ptr %19, i64 %30
-  store i64 %.sroa.04.0.copyload, ptr %31, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 %28, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %33 = load ptr, ptr %32, align 8, !tbaa !23
-  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %33, i64 noundef 24576)
+  %26 = and i64 %.sroa.25.0.copyload, 9223372036854775807
+  %27 = and i64 %.sroa.23.0.copyload, -9223372036854775808
+  %28 = or disjoint i64 %27, %26
+  %29 = xor i64 %28, -9223372036854775808
+  %30 = lshr i64 %1, 7
+  %31 = and i64 %30, 31
+  %32 = getelementptr inbounds nuw %struct.float128_t, ptr %19, i64 %31
+  store i64 %.sroa.04.0.copyload, ptr %32, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i64 %29, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %34 = load ptr, ptr %33, align 8, !tbaa !23
+  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %34, i64 noundef 24576)
   ret i64 %16
 }
 
@@ -511,24 +511,24 @@ define noundef i64 @_Z19fast_rv64e_fsgnjn_qP11processor_t6insn_tm(ptr noundef ca
   %.sroa.04.0.copyload = load i64, ptr %20, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !22
-  %21 = lshr i64 %1, 16
-  %.sroa.23.0..sroa_idx.idx = and i64 %21, 496
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.23.0..sroa_idx.idx
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %21 = lshr i64 %1, 20
+  %22 = and i64 %21, 31
+  %23 = getelementptr inbounds nuw %struct.float128_t, ptr %17, i64 %22
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !22
-  %23 = and i64 %.sroa.25.0.copyload, 9223372036854775807
-  %24 = and i64 %.sroa.23.0.copyload, -9223372036854775808
-  %25 = or disjoint i64 %24, %23
-  %26 = xor i64 %25, -9223372036854775808
-  %27 = lshr i64 %1, 7
-  %28 = and i64 %27, 31
-  %29 = getelementptr inbounds nuw %struct.float128_t, ptr %17, i64 %28
-  store i64 %.sroa.04.0.copyload, ptr %29, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i64 %26, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %31 = load ptr, ptr %30, align 8, !tbaa !23
-  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %31, i64 noundef 24576)
+  %24 = and i64 %.sroa.25.0.copyload, 9223372036854775807
+  %25 = and i64 %.sroa.23.0.copyload, -9223372036854775808
+  %26 = or disjoint i64 %25, %24
+  %27 = xor i64 %26, -9223372036854775808
+  %28 = lshr i64 %1, 7
+  %29 = and i64 %28, 31
+  %30 = getelementptr inbounds nuw %struct.float128_t, ptr %17, i64 %29
+  store i64 %.sroa.04.0.copyload, ptr %30, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i64 %27, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %32 = load ptr, ptr %31, align 8, !tbaa !23
+  tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %32, i64 noundef 24576)
   ret i64 %14
 }
 
@@ -569,34 +569,34 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_fsgnjn_q
   %.sroa.04.0.copyload = load i64, ptr %23, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !22
-  %24 = lshr i64 %1, 16
-  %.sroa.23.0..sroa_idx.idx = and i64 %24, 496
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.23.0..sroa_idx.idx
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %24 = lshr i64 %1, 20
+  %25 = and i64 %24, 31
+  %26 = getelementptr inbounds nuw %struct.float128_t, ptr %20, i64 %25
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !22
-  %26 = and i64 %.sroa.25.0.copyload, 9223372036854775807
-  %27 = and i64 %.sroa.23.0.copyload, -9223372036854775808
-  %28 = or disjoint i64 %27, %26
-  %29 = xor i64 %28, -9223372036854775808
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  %27 = and i64 %.sroa.25.0.copyload, 9223372036854775807
+  %28 = and i64 %.sroa.23.0.copyload, -9223372036854775808
+  %29 = or disjoint i64 %28, %27
+  %30 = xor i64 %29, -9223372036854775808
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %31 = lshr i64 %1, 7
-  %32 = and i64 %31, 31
-  %33 = shl nuw nsw i64 %32, 4
-  %34 = or disjoint i64 %33, 1
-  store i64 %34, ptr %4, align 8, !tbaa !3
-  %35 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i64 %.sroa.04.0.copyload, ptr %35, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i64 %29, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %36 = getelementptr inbounds nuw %struct.float128_t, ptr %20, i64 %32
+  %32 = lshr i64 %1, 7
+  %33 = and i64 %32, 31
+  %34 = shl nuw nsw i64 %33, 4
+  %35 = or disjoint i64 %34, 1
+  store i64 %35, ptr %4, align 8, !tbaa !3
+  %36 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store i64 %.sroa.04.0.copyload, ptr %36, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %29, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %38 = load ptr, ptr %37, align 8, !tbaa !23
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %38, i64 noundef 24576)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store i64 %30, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %37 = getelementptr inbounds nuw %struct.float128_t, ptr %20, i64 %33
+  store i64 %.sroa.04.0.copyload, ptr %37, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i64 %30, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %39 = load ptr, ptr %38, align 8, !tbaa !23
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %39, i64 noundef 24576)
   ret i64 %17
 }
 
@@ -635,34 +635,34 @@ define noundef i64 @_Z21logged_rv64e_fsgnjn_qP11processor_t6insn_tm(ptr noundef 
   %.sroa.04.0.copyload = load i64, ptr %21, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !22
-  %22 = lshr i64 %1, 16
-  %.sroa.23.0..sroa_idx.idx = and i64 %22, 496
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %.sroa.23.0..sroa_idx.idx
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %22 = lshr i64 %1, 20
+  %23 = and i64 %22, 31
+  %24 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %23
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !22
-  %24 = and i64 %.sroa.25.0.copyload, 9223372036854775807
-  %25 = and i64 %.sroa.23.0.copyload, -9223372036854775808
-  %26 = or disjoint i64 %25, %24
-  %27 = xor i64 %26, -9223372036854775808
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  %25 = and i64 %.sroa.25.0.copyload, 9223372036854775807
+  %26 = and i64 %.sroa.23.0.copyload, -9223372036854775808
+  %27 = or disjoint i64 %26, %25
+  %28 = xor i64 %27, -9223372036854775808
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %29 = lshr i64 %1, 7
-  %30 = and i64 %29, 31
-  %31 = shl nuw nsw i64 %30, 4
-  %32 = or disjoint i64 %31, 1
-  store i64 %32, ptr %4, align 8, !tbaa !3
-  %33 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i64 %.sroa.04.0.copyload, ptr %33, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i64 %27, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %34 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %30
+  %30 = lshr i64 %1, 7
+  %31 = and i64 %30, 31
+  %32 = shl nuw nsw i64 %31, 4
+  %33 = or disjoint i64 %32, 1
+  store i64 %33, ptr %4, align 8, !tbaa !3
+  %34 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(8) %4)
   store i64 %.sroa.04.0.copyload, ptr %34, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i64 %27, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %36 = load ptr, ptr %35, align 8, !tbaa !23
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %36, i64 noundef 24576)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i64 %28, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %35 = getelementptr inbounds nuw %struct.float128_t, ptr %18, i64 %31
+  store i64 %.sroa.04.0.copyload, ptr %35, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i64 %28, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !22
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %37 = load ptr, ptr %36, align 8, !tbaa !23
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %37, i64 noundef 24576)
   ret i64 %15
 }
 

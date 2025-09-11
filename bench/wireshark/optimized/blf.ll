@@ -754,7 +754,7 @@ define internal void @blf_close(ptr noundef readonly captures(none) %0) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not20.i = icmp eq ptr %6, null
-  br i1 %.not20.i, label %21, label %.preheader.i
+  br i1 %.not20.i, label %22, label %.preheader.i
 
 .preheader.i:                                     ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -762,58 +762,59 @@ define internal void @blf_close(ptr noundef readonly captures(none) %0) #1 {
   %.not25.i = icmp eq i32 %8, 0
   br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %15, %.preheader.i
-  %.lcssa.i = phi ptr [ %6, %.preheader.i ], [ %16, %15 ]
+._crit_edge.i:                                    ; preds = %16, %.preheader.i
+  %.lcssa.i = phi ptr [ %6, %.preheader.i ], [ %17, %16 ]
   %9 = tail call ptr @g_array_free(ptr noundef %.lcssa.i, i32 noundef 1)
   store ptr null, ptr %5, align 8
-  br label %21
+  br label %22
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %15
-  %10 = phi ptr [ %16, %15 ], [ %6, %.preheader.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %16
+  %10 = phi ptr [ %17, %16 ], [ %6, %.preheader.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %.preheader.i ]
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr %struct.blf_log_container, ptr %11, i64 %indvars.iv.i, i32 6
-  %13 = load ptr, ptr %12, align 8
-  %.not23.i = icmp eq ptr %13, null
-  br i1 %.not23.i, label %15, label %14
+  %12 = getelementptr %struct.blf_log_container, ptr %11, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %14 = load ptr, ptr %13, align 8
+  %.not23.i = icmp eq ptr %14, null
+  br i1 %.not23.i, label %16, label %15
 
-14:                                               ; preds = %.lr.ph.i
-  tail call void @g_free(ptr noundef nonnull %13)
+15:                                               ; preds = %.lr.ph.i
+  tail call void @g_free(ptr noundef nonnull %14)
   %.pre.i = load ptr, ptr %5, align 8
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %.lr.ph.i
-  %16 = phi ptr [ %.pre.i, %14 ], [ %10, %.lr.ph.i ]
+16:                                               ; preds = %15, %.lr.ph.i
+  %17 = phi ptr [ %.pre.i, %15 ], [ %10, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i32, ptr %17, align 8
-  %19 = zext i32 %18 to i64
-  %20 = icmp samesign ult i64 %indvars.iv.next.i, %19
-  br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i32, ptr %18, align 8
+  %20 = zext i32 %19 to i64
+  %21 = icmp samesign ult i64 %indvars.iv.next.i, %20
+  br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
-21:                                               ; preds = %._crit_edge.i, %4
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %.not21.i = icmp eq ptr %23, null
-  br i1 %.not21.i, label %25, label %24
+22:                                               ; preds = %._crit_edge.i, %4
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %.not21.i = icmp eq ptr %24, null
+  br i1 %.not21.i, label %26, label %25
 
-24:                                               ; preds = %21
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %23)
-  store ptr null, ptr %22, align 8
-  br label %25
+25:                                               ; preds = %22
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %24)
+  store ptr null, ptr %23, align 8
+  br label %26
 
-25:                                               ; preds = %24, %21
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %27 = load ptr, ptr %26, align 8
-  %.not22.i = icmp eq ptr %27, null
-  br i1 %.not22.i, label %blf_free.exit, label %28
+26:                                               ; preds = %25, %22
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %28 = load ptr, ptr %27, align 8
+  %.not22.i = icmp eq ptr %28, null
+  br i1 %.not22.i, label %blf_free.exit, label %29
 
-28:                                               ; preds = %25
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %27)
-  store ptr null, ptr %26, align 8
+29:                                               ; preds = %26
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %28)
+  store ptr null, ptr %27, align 8
   br label %blf_free.exit
 
-blf_free.exit:                                    ; preds = %1, %25, %28
+blf_free.exit:                                    ; preds = %1, %26, %29
   ret void
 }
 

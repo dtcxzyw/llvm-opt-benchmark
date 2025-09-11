@@ -934,10 +934,11 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit:  ; preds = %49, %_ZN4llvm23Smal
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = zext i32 %57 to i64
   %60 = load ptr, ptr %58, align 8, !tbaa !23
-  %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %60, i64 %59, i32 1
+  %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %60, i64 %59
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %61
+  ret ptr %62
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

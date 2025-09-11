@@ -84,7 +84,7 @@ define internal range(i32 4, 0) i32 @avs_decode_frame(ptr noundef %0, ptr nounde
   %43 = mul nuw nsw i32 %38, 3
   %44 = add nuw nsw i32 %43, 8
   %45 = zext nneg i32 %44 to i64
-  %46 = icmp slt i64 %gepdiff, %45
+  %46 = icmp samesign ult i64 %gepdiff, %45
   br i1 %46, label %.critedge, label %47
 
 47:                                               ; preds = %42

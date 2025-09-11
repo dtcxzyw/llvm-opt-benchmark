@@ -220,7 +220,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverGameCube_InitDevice(ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 256) i32 @HIDAPI_DriverGameCube_GetDevicePlayerIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
+define internal range(i32 -1, 4) i32 @HIDAPI_DriverGameCube_GetDevicePlayerIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4

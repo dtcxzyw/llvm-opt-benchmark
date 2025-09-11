@@ -3325,12 +3325,12 @@ define internal fastcc nonnull ptr @set_table_bit(ptr noundef captures(none) %0,
   %.055 = phi ptr [ %27, %24 ], [ %48, %35 ], [ %70, %52 ], [ %99, %89 ], [ %116, %100 ], [ %7, %5 ]
   %.0 = phi i32 [ %31, %24 ], [ %47, %35 ], [ %69, %52 ], [ %98, %89 ], [ %115, %100 ], [ %9, %5 ]
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %171, label %118
+  br i1 %.not, label %172, label %118
 
 118:                                              ; preds = %117
   %119 = or i32 %4, %3
   %or.cond.not = icmp eq i32 %119, 0
-  br i1 %or.cond.not, label %157, label %120
+  br i1 %or.cond.not, label %158, label %120
 
 120:                                              ; preds = %118
   %121 = lshr i32 %.0, 7
@@ -3345,60 +3345,61 @@ define internal fastcc nonnull ptr @set_table_bit(ptr noundef captures(none) %0,
   %130 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage2_8, i64 %129
   %131 = load i16, ptr %130, align 2, !tbaa !19
   %132 = zext i16 %131 to i64
-  %133 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %132, i32 4
-  %134 = load i32, ptr %133, align 4, !tbaa !22
-  %135 = add nsw i32 %134, %.0
-  br i1 %19, label %136, label %146
+  %133 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %132
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
+  %135 = load i32, ptr %134, align 4, !tbaa !22
+  %136 = add nsw i32 %135, %.0
+  br i1 %19, label %137, label %147
 
-136:                                              ; preds = %120
+137:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %137 = call i32 @_pcre2_ord2utf_8(i32 noundef %135, ptr noundef nonnull %6) #5
-  %138 = load i8, ptr %6, align 1, !tbaa !17
-  %139 = and i8 %138, 7
-  %140 = shl nuw i8 1, %139
-  %141 = lshr i8 %138, 3
-  %142 = zext nneg i8 %141 to i64
-  %143 = getelementptr inbounds nuw i8, ptr %12, i64 %142
-  %144 = load i8, ptr %143, align 1, !tbaa !17
-  %145 = or i8 %140, %144
-  store i8 %145, ptr %143, align 1, !tbaa !17
+  %138 = call i32 @_pcre2_ord2utf_8(i32 noundef %136, ptr noundef nonnull %6) #5
+  %139 = load i8, ptr %6, align 1, !tbaa !17
+  %140 = and i8 %139, 7
+  %141 = shl nuw i8 1, %140
+  %142 = lshr i8 %139, 3
+  %143 = zext nneg i8 %142 to i64
+  %144 = getelementptr inbounds nuw i8, ptr %12, i64 %143
+  %145 = load i8, ptr %144, align 1, !tbaa !17
+  %146 = or i8 %141, %145
+  store i8 %146, ptr %144, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %171
+  br label %172
 
-146:                                              ; preds = %120
-  %147 = icmp ult i32 %135, 256
-  br i1 %147, label %148, label %171
+147:                                              ; preds = %120
+  %148 = icmp ult i32 %136, 256
+  br i1 %148, label %149, label %172
 
-148:                                              ; preds = %146
-  %149 = and i32 %135, 7
-  %150 = shl nuw nsw i32 1, %149
-  %151 = lshr i32 %135, 3
-  %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw i8, ptr %12, i64 %152
-  %154 = load i8, ptr %153, align 1, !tbaa !17
-  %155 = trunc nuw i32 %150 to i8
-  %156 = or i8 %154, %155
-  store i8 %156, ptr %153, align 1, !tbaa !17
-  br label %171
+149:                                              ; preds = %147
+  %150 = and i32 %136, 7
+  %151 = shl nuw nsw i32 1, %150
+  %152 = lshr i32 %136, 3
+  %153 = zext nneg i32 %152 to i64
+  %154 = getelementptr inbounds nuw i8, ptr %12, i64 %153
+  %155 = load i8, ptr %154, align 1, !tbaa !17
+  %156 = trunc nuw i32 %151 to i8
+  %157 = or i8 %155, %156
+  store i8 %157, ptr %154, align 1, !tbaa !17
+  br label %172
 
-157:                                              ; preds = %118
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %159 = load ptr, ptr %158, align 8, !tbaa !18
-  %160 = add nuw i32 %.0, 256
-  %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 %161
-  %163 = load i8, ptr %162, align 1, !tbaa !17
-  %164 = and i8 %163, 7
-  %165 = shl nuw i8 1, %164
-  %166 = lshr i8 %163, 3
-  %167 = zext nneg i8 %166 to i64
-  %168 = getelementptr inbounds nuw i8, ptr %12, i64 %167
-  %169 = load i8, ptr %168, align 1, !tbaa !17
-  %170 = or i8 %165, %169
-  store i8 %170, ptr %168, align 1, !tbaa !17
-  br label %171
+158:                                              ; preds = %118
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %160 = load ptr, ptr %159, align 8, !tbaa !18
+  %161 = add nuw i32 %.0, 256
+  %162 = zext i32 %161 to i64
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 %162
+  %164 = load i8, ptr %163, align 1, !tbaa !17
+  %165 = and i8 %164, 7
+  %166 = shl nuw i8 1, %165
+  %167 = lshr i8 %164, 3
+  %168 = zext nneg i8 %167 to i64
+  %169 = getelementptr inbounds nuw i8, ptr %12, i64 %168
+  %170 = load i8, ptr %169, align 1, !tbaa !17
+  %171 = or i8 %166, %170
+  store i8 %171, ptr %169, align 1, !tbaa !17
+  br label %172
 
-171:                                              ; preds = %157, %146, %148, %136, %117
+172:                                              ; preds = %158, %147, %149, %137, %117
   ret ptr %.055
 }
 

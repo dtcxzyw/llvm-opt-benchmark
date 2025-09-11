@@ -623,26 +623,24 @@ define hidden void @_ZN26ShenandoahRegionPartitions32move_from_partition_to_part
   %8 = sub i64 %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = zext i8 %2 to i64
-  %11 = ashr i64 %1, 6
-  %12 = and i64 %1, 63
-  %13 = shl nuw i64 1, %12
-  %14 = xor i64 %13, -1
-  %.idx = mul nuw nsw i64 %10, 24
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %11 = getelementptr inbounds nuw %class.ShenandoahSimpleBitMap, ptr %9, i64 %10
+  %12 = ashr i64 %1, 6
+  %13 = and i64 %1, 63
+  %14 = shl nuw i64 1, %13
+  %15 = xor i64 %14, -1
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i64, ptr %17, i64 %11
+  %18 = getelementptr inbounds i64, ptr %17, i64 %12
   %19 = load i64, ptr %18, align 8
-  %20 = and i64 %19, %14
+  %20 = and i64 %19, %15
   store i64 %20, ptr %18, align 8
   %21 = zext i8 %3 to i64
-  %.idx18 = mul nuw nsw i64 %21, 24
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx18
+  %22 = getelementptr inbounds nuw %class.ShenandoahSimpleBitMap, ptr %9, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i64, ptr %24, i64 %11
+  %25 = getelementptr inbounds i64, ptr %24, i64 %12
   %26 = load i64, ptr %25, align 8
-  %27 = or i64 %26, %13
+  %27 = or i64 %26, %14
   store i64 %27, ptr %25, align 8
   %28 = load i64, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136

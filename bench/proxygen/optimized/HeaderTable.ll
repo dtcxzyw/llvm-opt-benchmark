@@ -421,16 +421,17 @@ if.then28:                                        ; preds = %if.end25
   %26 = load ptr, ptr %names_, align 8, !noalias !16, !nonnull !19, !noundef !19
   %27 = load i32, ptr %25, align 4, !noalias !16
   %idx.ext8.i.i.i = zext i32 %27 to i64
+  %add.ptr9.i.i.i = getelementptr inbounds nuw %"struct.std::pair.8", ptr %26, i64 %idx.ext8.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %rv.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i)
-  %second.i = getelementptr inbounds nuw %"struct.std::pair.8", ptr %26, i64 %idx.ext8.i.i.i, i32 1
+  %second.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i, i64 8
   %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
   %28 = load i32, ptr %head_, align 4
   store i32 %28, ptr %_M_storage.i.i.i.i, align 4
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %second.i) #29
-  %_M_size.i.i.i = getelementptr inbounds nuw i8, ptr %second.i, i64 16
+  %_M_size.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i, i64 24
   %29 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %29, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -666,9 +667,9 @@ if.else.i.i.i.i:                                  ; preds = %cleanup.done
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 5
-  %3 = add nsw i64 %sub.ptr.div.i.i.i.i, -89
-  %or.cond.i.i.i.i = icmp ult i64 %3, -87
-  br i1 %or.cond.i.i.i.i, label %if.then.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashIS4_EEmRKT_.exit
+  %3 = add nsw i64 %sub.ptr.div.i.i.i.i, -2
+  %or.cond.i.i.i.i = icmp ult i64 %3, 87
+  br i1 %or.cond.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashIS4_EEmRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i.i.i.i
   %4 = load ptr, ptr %headerName, align 8
@@ -792,7 +793,8 @@ if.end:                                           ; preds = %land.rhs.i.i.i.i, %
   %22 = load ptr, ptr %names_, align 8, !nonnull !19, !noundef !19
   %23 = load i32, ptr %arrayidx.i.i.i.i.le, align 4
   %idx.ext8.i.i = zext i32 %23 to i64
-  %second = getelementptr inbounds nuw %"struct.std::pair.8", ptr %22, i64 %idx.ext8.i.i, i32 1
+  %add.ptr9.i.i = getelementptr inbounds nuw %"struct.std::pair.8", ptr %22, i64 %idx.ext8.i.i
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i, i64 8
   %24 = load ptr, ptr %second, align 8, !noalias !22
   %cmp.i.i.i30.not71 = icmp eq ptr %second, %24
   %table_.i.i42.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -806,7 +808,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   br i1 %nameOnly, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph
-  %_M_prev.i.i.us = getelementptr inbounds nuw i8, ptr %second, i64 8
+  %_M_prev.i.i.us = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i, i64 16
   %25 = load ptr, ptr %_M_prev.i.i.us, align 8
   %_M_storage.i.i.i.us = getelementptr inbounds nuw i8, ptr %25, i64 16
   %26 = load i32, ptr %_M_storage.i.i.i.us, align 4
@@ -823,10 +825,10 @@ for.body.us73:                                    ; preds = %for.body.lr.ph.spli
   %_M_storage.i.i.i.us76 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %28 = load i32, ptr %_M_storage.i.i.i.us76, align 4
   %conv.us = zext i32 %28 to i64
-  %value24.us = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %.pre, i64 %conv.us, i32 1
-  %arrayidx.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %value24.us, i64 23
+  %add.ptr.i.us = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %.pre, i64 %conv.us
+  %arrayidx.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.us, i64 31
   %29 = load i8, ptr %arrayidx.i.i.i.i.i.i.us, align 1
-  %size_.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %value24.us, i64 8
+  %size_.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.us, i64 16
   %30 = load i64, ptr %size_.i.i.i.i.us, align 8
   %conv.i.i.i.i.us = zext i8 %29 to i64
   %sub.i.i.i.i.us = sub nsw i64 23, %conv.i.i.i.i.us
@@ -846,10 +848,10 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   %32 = load i32, ptr %_M_storage.i.i.i, align 4
   %conv = zext i32 %32 to i64
-  %value24 = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %.pre, i64 %conv, i32 1
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %value24, i64 23
+  %add.ptr.i = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %.pre, i64 %conv
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 31
   %33 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
-  %size_.i.i.i.i = getelementptr inbounds nuw i8, ptr %value24, i64 8
+  %size_.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %34 = load i64, ptr %size_.i.i.i.i, align 8
   %conv.i.i.i.i = zext i8 %33 to i64
   %sub.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i
@@ -860,6 +862,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 
 land.rhs.i.i:                                     ; preds = %for.body
   %cmp.i.i.i.i.i31 = icmp ult i8 %33, 64
+  %value24 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %35 = load ptr, ptr %value24, align 8
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i31, ptr %value24, ptr %35
   %bcmp.i.i = tail call i32 @bcmp(ptr %cond.i.i.i.i.i, ptr %value.coerce0.fr, i64 %sub.ptr.sub.i6.i.i)
@@ -889,7 +892,7 @@ for.inc:                                          ; preds = %for.body, %land.rhs
   br i1 %cmp.i.i.i30.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %if.end
-  %_M_prev.i.i39 = getelementptr inbounds nuw i8, ptr %second, i64 8
+  %_M_prev.i.i39 = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i, i64 16
   %39 = load ptr, ptr %_M_prev.i.i39, align 8
   %_M_storage.i.i.i40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %40 = load i32, ptr %_M_storage.i.i.i40, align 4
@@ -997,9 +1000,9 @@ if.else.i.i.i.i:                                  ; preds = %cleanup.done
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 5
-  %3 = add nsw i64 %sub.ptr.div.i.i.i.i, -89
-  %or.cond.i.i.i.i = icmp ult i64 %3, -87
-  br i1 %or.cond.i.i.i.i, label %if.then.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashIS4_EEmRKT_.exit
+  %3 = add nsw i64 %sub.ptr.div.i.i.i.i, -2
+  %or.cond.i.i.i.i = icmp ult i64 %3, 87
+  br i1 %or.cond.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashIS4_EEmRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i.i.i.i
   %4 = load ptr, ptr %headerName, align 8
@@ -1291,9 +1294,9 @@ if.else.i.i.i.i:                                  ; preds = %if.then
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 5
-  %6 = add nsw i64 %sub.ptr.div.i.i.i.i, -89
-  %or.cond.i.i.i.i = icmp ult i64 %6, -87
-  br i1 %or.cond.i.i.i.i, label %if.then.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashIS4_EEmRKT_.exit
+  %6 = add nsw i64 %sub.ptr.div.i.i.i.i, -2
+  %or.cond.i.i.i.i = icmp ult i64 %6, 87
+  br i1 %or.cond.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashIS4_EEmRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i.i.i.i
   %7 = load ptr, ptr %add.ptr.i56, align 8
@@ -1440,9 +1443,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then36
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 5
-  %30 = add nsw i64 %sub.ptr.div.i.i.i.i.i.i, -89
-  %or.cond.i.i.i.i.i.i = icmp ult i64 %30, -87
-  br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashERKNS1_26VectorContainerIndexSearchE.exit
+  %30 = add nsw i64 %sub.ptr.div.i.i.i.i.i.i, -2
+  %or.cond.i.i.i.i.i.i = icmp ult i64 %30, 87
+  br i1 %or.cond.i.i.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashERKNS1_26VectorContainerIndexSearchE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i.i.i.i
   %31 = load ptr, ptr %arrayidx.i.i, align 8
@@ -2469,9 +2472,9 @@ if.else.i.i.i.i:                                  ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 5
-  %1 = add nsw i64 %sub.ptr.div.i.i.i.i, -89
-  %or.cond.i.i.i.i = icmp ult i64 %1, -87
-  br i1 %or.cond.i.i.i.i, label %if.then.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashIS4_EEmRKT_.exit
+  %1 = add nsw i64 %sub.ptr.div.i.i.i.i, -2
+  %or.cond.i.i.i.i = icmp ult i64 %1, 87
+  br i1 %or.cond.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashIS4_EEmRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i.i.i.i
   %2 = load ptr, ptr %key, align 8
@@ -3175,9 +3178,9 @@ call.i.i.i.i.i.noexc:                             ; preds = %if.else.i.i.i.i.i
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %call.i.i.i.i.i75 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 5
-  %21 = add nsw i64 %sub.ptr.div.i.i.i.i.i, -89
-  %or.cond.i.i.i.i.i = icmp ult i64 %21, -87
-  br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i, label %invoke.cont61
+  %21 = add nsw i64 %sub.ptr.div.i.i.i.i.i, -2
+  %or.cond.i.i.i.i.i = icmp ult i64 %21, 87
+  br i1 %or.cond.i.i.i.i.i, label %invoke.cont61, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.i.i.i.i.noexc
   %22 = load ptr, ptr %arrayidx.i73, align 8
@@ -3734,9 +3737,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 5
-  %13 = add nsw i64 %sub.ptr.div.i.i.i.i.i.i, -89
-  %or.cond.i.i.i.i.i.i = icmp ult i64 %13, -87
-  br i1 %or.cond.i.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashERKNS1_26VectorContainerIndexSearchE.exit
+  %13 = add nsw i64 %sub.ptr.div.i.i.i.i.i.i, -2
+  %or.cond.i.i.i.i.i.i = icmp ult i64 %13, 87
+  br i1 %or.cond.i.i.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashERKNS1_26VectorContainerIndexSearchE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i.i.i.i
   %14 = load ptr, ptr %arrayidx.i.i, align 8
@@ -3856,9 +3859,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %call.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 5
-  %4 = add nsw i64 %sub.ptr.div.i.i.i.i.i, -89
-  %or.cond.i.i.i.i.i = icmp ult i64 %4, -87
-  br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE15computeItemHashERKj.exit
+  %4 = add nsw i64 %sub.ptr.div.i.i.i.i.i, -2
+  %or.cond.i.i.i.i.i = icmp ult i64 %4, 87
+  br i1 %or.cond.i.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE15computeItemHashERKj.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx.i, align 8

@@ -8399,7 +8399,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt14theory_wmaxsat12compare_costEEclIPiS
   %.pre48 = load i32, ptr %3, align 4, !tbaa !89
   %.pre49 = load ptr, ptr %9, align 8, !tbaa !18
   %.phi.trans.insert50 = zext i32 %.pre48 to i64
-  %.phi.trans.insert52 = getelementptr inbounds nuw %class.mpz, ptr %.pre49, i64 %.phi.trans.insert50, i32 1
+  %.phi.trans.insert51 = getelementptr inbounds nuw %class.mpz, ptr %.pre49, i64 %.phi.trans.insert50
+  %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert51, i64 4
   %.pre53 = load i8, ptr %.phi.trans.insert52, align 4
   br label %52
 
@@ -8473,7 +8474,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt14theory_wmaxsat12compare_costEEclIPiS
   %.pre35 = load i32, ptr %3, align 4, !tbaa !89
   %.pre36 = load ptr, ptr %9, align 8, !tbaa !18
   %.phi.trans.insert = zext i32 %.pre35 to i64
-  %.phi.trans.insert38 = getelementptr inbounds nuw %class.mpz, ptr %.pre36, i64 %.phi.trans.insert, i32 1
+  %.phi.trans.insert37 = getelementptr inbounds nuw %class.mpz, ptr %.pre36, i64 %.phi.trans.insert
+  %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert37, i64 4
   %.pre39 = load i8, ptr %.phi.trans.insert38, align 4
   br label %95
 

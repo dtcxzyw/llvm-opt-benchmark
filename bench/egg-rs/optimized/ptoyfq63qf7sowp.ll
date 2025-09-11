@@ -188,7 +188,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3egg3run16BackoffSche
 
 "_ZN8indexmap3map4core3raw26OccupiedEntry$LT$K$C$V$GT$8into_mut17h05f0c6143d412a40E.exit.i": ; preds = %41
   %50 = load ptr, ptr %30, align 8, !alias.scope !53, !noalias !56, !nonnull !14, !noundef !14
-  %51 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %50, i64 %46, i32 1
+  %51 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %50, i64 %46
   br label %"_ZN8indexmap3map4core18Entry$LT$K$C$V$GT$9or_insert17h1b8611b4890cfc68E.exit"
 
 52:                                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12contains_key17h470a3ec433032820E.exit.thread"
@@ -214,7 +214,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3egg3run16BackoffSche
 
 "_ZN8indexmap3map4core24VacantEntry$LT$K$C$V$GT$6insert17h659361e6e1c76466E.llvm.3488692421967456325.exit.i": ; preds = %52
   %61 = load ptr, ptr %30, align 8, !alias.scope !67, !noalias !70, !nonnull !14, !noundef !14
-  %62 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %61, i64 %57, i32 1
+  %62 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %61, i64 %57
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !62
   br label %"_ZN8indexmap3map4core18Entry$LT$K$C$V$GT$9or_insert17h1b8611b4890cfc68E.exit"
 
@@ -280,11 +280,12 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3egg3run16BackoffSche
 
 "_ZN100_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..index..IndexMut$LT$$RF$Q$GT$$GT$9index_mut17h9300c24bae81af52E.exit": ; preds = %77
   %88 = load ptr, ptr %17, align 8, !alias.scope !121, !noalias !122, !nonnull !14, !noundef !14
-  %89 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %88, i64 %83, i32 1
+  %89 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %88, i64 %83
   br label %"_ZN8indexmap3map4core18Entry$LT$K$C$V$GT$9or_insert17h1b8611b4890cfc68E.exit"
 
 "_ZN8indexmap3map4core18Entry$LT$K$C$V$GT$9or_insert17h1b8611b4890cfc68E.exit": ; preds = %"_ZN8indexmap3map4core24VacantEntry$LT$K$C$V$GT$6insert17h659361e6e1c76466E.llvm.3488692421967456325.exit.i", %"_ZN8indexmap3map4core3raw26OccupiedEntry$LT$K$C$V$GT$8into_mut17h05f0c6143d412a40E.exit.i", %"_ZN100_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..index..IndexMut$LT$$RF$Q$GT$$GT$9index_mut17h9300c24bae81af52E.exit"
-  %.sroa.0.0 = phi ptr [ %89, %"_ZN100_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..index..IndexMut$LT$$RF$Q$GT$$GT$9index_mut17h9300c24bae81af52E.exit" ], [ %51, %"_ZN8indexmap3map4core3raw26OccupiedEntry$LT$K$C$V$GT$8into_mut17h05f0c6143d412a40E.exit.i" ], [ %62, %"_ZN8indexmap3map4core24VacantEntry$LT$K$C$V$GT$6insert17h659361e6e1c76466E.llvm.3488692421967456325.exit.i" ]
+  %.pn = phi ptr [ %89, %"_ZN100_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..index..IndexMut$LT$$RF$Q$GT$$GT$9index_mut17h9300c24bae81af52E.exit" ], [ %51, %"_ZN8indexmap3map4core3raw26OccupiedEntry$LT$K$C$V$GT$8into_mut17h05f0c6143d412a40E.exit.i" ], [ %62, %"_ZN8indexmap3map4core24VacantEntry$LT$K$C$V$GT$6insert17h659361e6e1c76466E.llvm.3488692421967456325.exit.i" ]
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   ret ptr %.sroa.0.0
 }
 

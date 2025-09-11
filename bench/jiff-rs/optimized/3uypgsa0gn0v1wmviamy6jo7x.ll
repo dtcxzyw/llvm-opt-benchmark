@@ -771,141 +771,142 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$std..sync..poison..rwlock..
   br i1 %7, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h824b33a3e89d6ed9E.exit.i.i.i", label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %1, %"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E.exit.i.i.i.i.i"
-  %.sroa.0.011.i.i.i.i.i = phi i64 [ %8, %"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E.exit.i.i.i.i.i" ], [ 0, %1 ]
-  %8 = add nuw i64 %.sroa.0.011.i.i.i.i.i, 1
+  %.sroa.0.011.i.i.i.i.i = phi i64 [ %9, %"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E.exit.i.i.i.i.i" ], [ 0, %1 ]
+  %8 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { [2 x i32], i32, [1 x i32] } }, ptr }, ptr %.val.i.i.i, i64 %.sroa.0.011.i.i.i.i.i
+  %9 = add nuw i64 %.sroa.0.011.i.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  %9 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { [2 x i32], i32, [1 x i32] } }, ptr }, ptr %.val.i.i.i, i64 %.sroa.0.011.i.i.i.i.i, i32 2
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %.val.i.i.i.i.i.i.i = load ptr, ptr %9, align 8, !alias.scope !82, !noalias !72, !noundef !24
-  %10 = ptrtoint ptr %.val.i.i.i.i.i.i.i to i64
-  %11 = and i64 %10, 7
-  switch i64 %11, label %12 [
+  %.val.i.i.i.i.i.i.i = load ptr, ptr %10, align 8, !alias.scope !82, !noalias !72, !noundef !24
+  %11 = ptrtoint ptr %.val.i.i.i.i.i.i.i to i64
+  %12 = and i64 %11, 7
+  switch i64 %12, label %13 [
     i64 1, label %"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E.exit.i.i.i.i.i"
     i64 2, label %"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E.exit.i.i.i.i.i"
     i64 3, label %"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E.exit.i.i.i.i.i"
     i64 0, label %"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E.exit.i.i.i.i.i"
-    i64 4, label %13
-    i64 5, label %21
+    i64 4, label %14
+    i64 5, label %22
   ]
 
-12:                                               ; preds = %.lr.ph.i.i.i.i.i
+13:                                               ; preds = %.lr.ph.i.i.i.i.i
   unreachable
 
-13:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %14 = getelementptr i8, ptr %.val.i.i.i.i.i.i.i, i64 -4
+14:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %15 = getelementptr i8, ptr %.val.i.i.i.i.i.i.i, i64 -4
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !83
-  %15 = invoke noundef i64 @_ZN5alloc4sync11data_offset17h92b7e6d7f1e1ebdcE(ptr noundef %14)
-          to label %.noexc.i.i.i.i.i unwind label %32, !noalias !84
+  %16 = invoke noundef i64 @_ZN5alloc4sync11data_offset17h92b7e6d7f1e1ebdcE(ptr noundef %15)
+          to label %.noexc.i.i.i.i.i unwind label %33, !noalias !84
 
-.noexc.i.i.i.i.i:                                 ; preds = %13
-  %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds i8, ptr %14, i64 %16
-  store ptr %17, ptr %3, align 8, !noalias !83
-  %18 = atomicrmw sub ptr %17, i64 1 release, align 8, !noalias !85
-  %19 = icmp eq i64 %18, 1
-  br i1 %19, label %20, label %"_ZN4core3ptr400drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..tzif..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$$GT$17h9892376ba7652f5dE.exit.i.i.i.i.i.i.i.i.i"
+.noexc.i.i.i.i.i:                                 ; preds = %14
+  %17 = sub nsw i64 0, %16
+  %18 = getelementptr inbounds i8, ptr %15, i64 %17
+  store ptr %18, ptr %3, align 8, !noalias !83
+  %19 = atomicrmw sub ptr %18, i64 1 release, align 8, !noalias !85
+  %20 = icmp eq i64 %19, 1
+  br i1 %20, label %21, label %"_ZN4core3ptr400drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..tzif..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$$GT$17h9892376ba7652f5dE.exit.i.i.i.i.i.i.i.i.i"
 
-20:                                               ; preds = %.noexc.i.i.i.i.i
+21:                                               ; preds = %.noexc.i.i.i.i.i
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb87847bedeba7d92E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %"_ZN4core3ptr400drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..tzif..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$$GT$17h9892376ba7652f5dE.exit.i.i.i.i.i.i.i.i.i" unwind label %32, !noalias !84
+          to label %"_ZN4core3ptr400drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..tzif..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$$GT$17h9892376ba7652f5dE.exit.i.i.i.i.i.i.i.i.i" unwind label %33, !noalias !84
 
-"_ZN4core3ptr400drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..tzif..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$$GT$17h9892376ba7652f5dE.exit.i.i.i.i.i.i.i.i.i": ; preds = %20, %.noexc.i.i.i.i.i
+"_ZN4core3ptr400drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..tzif..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$$GT$17h9892376ba7652f5dE.exit.i.i.i.i.i.i.i.i.i": ; preds = %21, %.noexc.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !83
   br label %"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E.exit.i.i.i.i.i"
 
-21:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %22 = getelementptr i8, ptr %.val.i.i.i.i.i.i.i, i64 -5
+22:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %23 = getelementptr i8, ptr %.val.i.i.i.i.i.i.i, i64 -5
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !83
-  %23 = invoke noundef i64 @_ZN5alloc4sync11data_offset17h06196d248641f88aE(ptr noundef %22)
-          to label %.noexc8.i.i.i.i.i unwind label %32, !noalias !84
+  %24 = invoke noundef i64 @_ZN5alloc4sync11data_offset17h06196d248641f88aE(ptr noundef %23)
+          to label %.noexc8.i.i.i.i.i unwind label %33, !noalias !84
 
-.noexc8.i.i.i.i.i:                                ; preds = %21
-  %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds i8, ptr %22, i64 %24
-  store ptr %25, ptr %2, align 8, !noalias !83
-  %26 = atomicrmw sub ptr %25, i64 1 release, align 8, !noalias !90
-  %27 = icmp eq i64 %26, 1
-  br i1 %27, label %28, label %"_ZN4core3ptr138drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..posix..PosixTimeZone$LT$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$GT$$GT$$GT$17hc184291c7230a886E.exit.i.i.i.i.i.i.i.i.i"
+.noexc8.i.i.i.i.i:                                ; preds = %22
+  %25 = sub nsw i64 0, %24
+  %26 = getelementptr inbounds i8, ptr %23, i64 %25
+  store ptr %26, ptr %2, align 8, !noalias !83
+  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !90
+  %28 = icmp eq i64 %27, 1
+  br i1 %28, label %29, label %"_ZN4core3ptr138drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..posix..PosixTimeZone$LT$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$GT$$GT$$GT$17hc184291c7230a886E.exit.i.i.i.i.i.i.i.i.i"
 
-28:                                               ; preds = %.noexc8.i.i.i.i.i
+29:                                               ; preds = %.noexc8.i.i.i.i.i
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h70605632d9ab3dc1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN4core3ptr138drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..posix..PosixTimeZone$LT$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$GT$$GT$$GT$17hc184291c7230a886E.exit.i.i.i.i.i.i.i.i.i" unwind label %32, !noalias !84
+          to label %"_ZN4core3ptr138drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..posix..PosixTimeZone$LT$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$GT$$GT$$GT$17hc184291c7230a886E.exit.i.i.i.i.i.i.i.i.i" unwind label %33, !noalias !84
 
-"_ZN4core3ptr138drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..posix..PosixTimeZone$LT$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$GT$$GT$$GT$17hc184291c7230a886E.exit.i.i.i.i.i.i.i.i.i": ; preds = %28, %.noexc8.i.i.i.i.i
+"_ZN4core3ptr138drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..posix..PosixTimeZone$LT$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$GT$$GT$$GT$17hc184291c7230a886E.exit.i.i.i.i.i.i.i.i.i": ; preds = %29, %.noexc8.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !83
   br label %"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E.exit.i.i.i.i.i"
 
 "_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E.exit.i.i.i.i.i": ; preds = %"_ZN4core3ptr138drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..posix..PosixTimeZone$LT$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$GT$$GT$$GT$17hc184291c7230a886E.exit.i.i.i.i.i.i.i.i.i", %"_ZN4core3ptr400drop_in_place$LT$alloc..sync..Arc$LT$jiff..tz..tzif..Tzif$LT$alloc..string..String$C$jiff..shared..util..array_str..ArrayStr$LT$30_usize$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifLocalTimeType$GT$$C$alloc..vec..Vec$LT$i64$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifDateTime$GT$$C$alloc..vec..Vec$LT$jiff..shared..TzifTransitionInfo$GT$$GT$$GT$$GT$17h9892376ba7652f5dE.exit.i.i.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %29 = icmp eq i64 %8, %.val1.i.i.i
-  br i1 %29, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h824b33a3e89d6ed9E.exit.i.i.i", label %.lr.ph.i.i.i.i.i
+  %30 = icmp eq i64 %9, %.val1.i.i.i
+  br i1 %30, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h824b33a3e89d6ed9E.exit.i.i.i", label %.lr.ph.i.i.i.i.i
 
-30:                                               ; preds = %34, %32
-  %.sroa.0.1.i.i.i.i.i = phi i64 [ %8, %32 ], [ %36, %34 ]
-  %31 = icmp eq i64 %.sroa.0.1.i.i.i.i.i, %.val1.i.i.i
-  br i1 %31, label %.body.i.i.i, label %34
+31:                                               ; preds = %35, %33
+  %.sroa.0.1.i.i.i.i.i = phi i64 [ %9, %33 ], [ %37, %35 ]
+  %32 = icmp eq i64 %.sroa.0.1.i.i.i.i.i, %.val1.i.i.i
+  br i1 %32, label %.body.i.i.i, label %35
 
-32:                                               ; preds = %28, %21, %20, %13
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %29, %22, %21, %14
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %30
+  br label %31
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { [2 x i32], i32, [1 x i32] } }, ptr }, ptr %.val.i.i.i, i64 %.sroa.0.1.i.i.i.i.i
-  %36 = add i64 %.sroa.0.1.i.i.i.i.i, 1
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %35) #20
-          to label %30 unwind label %37, !noalias !72
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { [2 x i32], i32, [1 x i32] } }, ptr }, ptr %.val.i.i.i, i64 %.sroa.0.1.i.i.i.i.i
+  %37 = add i64 %.sroa.0.1.i.i.i.i.i, 1
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %36) #20
+          to label %31 unwind label %38, !noalias !72
 
-37:                                               ; preds = %34
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %35
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18, !noalias !84
   unreachable
 
-.body.i.i.i:                                      ; preds = %30
+.body.i.i.i:                                      ; preds = %31
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h8e3c99e4324aef3dE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, i64 noundef 8, i64 noundef 48)
-          to label %.body.i.i unwind label %39
+          to label %.body.i.i unwind label %40
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h824b33a3e89d6ed9E.exit.i.i.i": ; preds = %"_ZN4core3ptr70drop_in_place$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$17ha7289351060ca635E.exit.i.i.i.i.i", %1
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h8e3c99e4324aef3dE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %4, i64 noundef 8, i64 noundef 48)
-          to label %"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$$GT$17hfb846b9b5c1d94a1E.exit.i.i" unwind label %41
+          to label %"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$$GT$17hfb846b9b5c1d94a1E.exit.i.i" unwind label %42
 
-39:                                               ; preds = %.body.i.i.i
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %.body.i.i.i
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18
   unreachable
 
-41:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h824b33a3e89d6ed9E.exit.i.i.i"
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h824b33a3e89d6ed9E.exit.i.i.i"
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
 
-.body.i.i:                                        ; preds = %41, %.body.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %42, %41 ], [ %33, %.body.i.i.i ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h8e3c99e4324aef3dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %43, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4ac51dcb41e10881E.exit.i.i" unwind label %48
-
-"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$$GT$17hfb846b9b5c1d94a1E.exit.i.i": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h824b33a3e89d6ed9E.exit.i.i.i"
+.body.i.i:                                        ; preds = %42, %.body.i.i.i
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %43, %42 ], [ %34, %.body.i.i.i ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h8e3c99e4324aef3dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr97drop_in_place$LT$core..cell..UnsafeCell$LT$jiff..tz..db..concatenated..inner..CachedZones$GT$$GT$17hf9eef69babd8e79cE.exit" unwind label %46
+          to label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4ac51dcb41e10881E.exit.i.i" unwind label %49
 
-"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4ac51dcb41e10881E.exit.i.i": ; preds = %46, %.body.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %47, %46 ], [ %eh.lpad-body.i.i, %.body.i.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
+"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$$GT$17hfb846b9b5c1d94a1E.exit.i.i": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h824b33a3e89d6ed9E.exit.i.i.i"
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h8e3c99e4324aef3dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4ac51dcb41e10881E.exit3.i.i" unwind label %48
+          to label %"_ZN4core3ptr97drop_in_place$LT$core..cell..UnsafeCell$LT$jiff..tz..db..concatenated..inner..CachedZones$GT$$GT$17hf9eef69babd8e79cE.exit" unwind label %47
 
-46:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$$GT$17hfb846b9b5c1d94a1E.exit.i.i"
-  %47 = landingpad { ptr, i32 }
+"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4ac51dcb41e10881E.exit.i.i": ; preds = %47, %.body.i.i
+  %.pn.i.i = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body.i.i, %.body.i.i ]
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h8e3c99e4324aef3dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %46, i64 noundef 1, i64 noundef 1)
+          to label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4ac51dcb41e10881E.exit3.i.i" unwind label %49
+
+47:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$$GT$17hfb846b9b5c1d94a1E.exit.i.i"
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4ac51dcb41e10881E.exit.i.i"
 
-48:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4ac51dcb41e10881E.exit.i.i", %.body.i.i
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h4ac51dcb41e10881E.exit.i.i", %.body.i.i
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18
   unreachable
@@ -914,8 +915,8 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$std..sync..poison..rwlock..
   resume { ptr, i32 } %.pn.i.i
 
 "_ZN4core3ptr97drop_in_place$LT$core..cell..UnsafeCell$LT$jiff..tz..db..concatenated..inner..CachedZones$GT$$GT$17hf9eef69babd8e79cE.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$jiff..tz..db..concatenated..inner..CachedTimeZone$GT$$GT$17hfb846b9b5c1d94a1E.exit.i.i"
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h8e3c99e4324aef3dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50, i64 noundef 1, i64 noundef 1)
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h8e3c99e4324aef3dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51, i64 noundef 1, i64 noundef 1)
   ret void
 }
 

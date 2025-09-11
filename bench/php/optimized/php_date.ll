@@ -13466,7 +13466,7 @@ define hidden void @zif_timezone_transitions_get(ptr noundef %0, ptr noundef cap
   store i32 775, ptr %43, align 8, !tbaa !33
   %44 = load i64, ptr %5, align 8, !tbaa !139
   %45 = icmp eq i64 %44, -9223372036854775808
-  br i1 %45, label %46, label %70
+  br i1 %45, label %46, label %69
 
 46:                                               ; preds = %41
   %47 = call ptr @_zend_new_array_0() #25
@@ -13499,196 +13499,196 @@ define hidden void @zif_timezone_transitions_get(ptr noundef %0, ptr noundef cap
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 104
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 96
   %68 = load ptr, ptr %67, align 8, !tbaa !228
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  br label %247
+  br label %248
 
-70:                                               ; preds = %41
-  %71 = getelementptr inbounds i8, ptr %27, i64 -24
-  %72 = load ptr, ptr %71, align 8, !tbaa !33
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
-  %74 = load i64, ptr %73, align 8, !tbaa !232
-  %.not154 = icmp eq i64 %74, 0
-  br i1 %.not154, label %218, label %.preheader
+69:                                               ; preds = %41
+  %70 = getelementptr inbounds i8, ptr %27, i64 -24
+  %71 = load ptr, ptr %70, align 8, !tbaa !33
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 56
+  %73 = load i64, ptr %72, align 8, !tbaa !232
+  %.not154 = icmp eq i64 %73, 0
+  br i1 %.not154, label %219, label %.preheader
 
-.preheader:                                       ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 80
-  %76 = load ptr, ptr %75, align 8, !tbaa !233
-  br label %77
+.preheader:                                       ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 80
+  %75 = load ptr, ptr %74, align 8, !tbaa !233
+  br label %76
 
-77:                                               ; preds = %.preheader, %140
-  %.1 = phi i64 [ %141, %140 ], [ 0, %.preheader ]
-  %78 = getelementptr inbounds nuw i64, ptr %76, i64 %.1
-  %79 = load i64, ptr %78, align 8, !tbaa !139
-  %80 = icmp sgt i64 %79, %44
-  br i1 %80, label %81, label %140
+76:                                               ; preds = %.preheader, %139
+  %.1 = phi i64 [ %140, %139 ], [ 0, %.preheader ]
+  %77 = getelementptr inbounds nuw i64, ptr %75, i64 %.1
+  %78 = load i64, ptr %77, align 8, !tbaa !139
+  %79 = icmp sgt i64 %78, %44
+  br i1 %79, label %80, label %139
 
-81:                                               ; preds = %77
+80:                                               ; preds = %76
   %.not155 = icmp eq i64 %.1, 0
-  %82 = call ptr @_zend_new_array_0() #25
-  store ptr %82, ptr %4, align 8, !tbaa !33
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 775, ptr %83, align 8, !tbaa !33
+  %81 = call ptr @_zend_new_array_0() #25
+  store ptr %81, ptr %4, align 8, !tbaa !33
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 775, ptr %82, align 8, !tbaa !33
+  %83 = load i64, ptr %5, align 8, !tbaa !139
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %83) #25
   %84 = load i64, ptr %5, align 8, !tbaa !139
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %84) #25
-  %85 = load i64, ptr %5, align 8, !tbaa !139
-  br i1 %.not155, label %122, label %86
+  br i1 %.not155, label %122, label %85
 
-86:                                               ; preds = %81
-  %87 = call ptr @timelib_time_ctor() #25
-  call void @timelib_unixtime2gmt(ptr noundef %87, i64 noundef %85) #25
-  %88 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %87, i1 noundef zeroext false)
-  call void @timelib_time_dtor(ptr noundef %87) #25
-  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %88) #25
-  %89 = load ptr, ptr %71, align 8, !tbaa !33
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 96
-  %91 = load ptr, ptr %90, align 8, !tbaa !228
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 88
-  %93 = load ptr, ptr %92, align 8, !tbaa !234
-  %94 = add i64 %.1, -1
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 %94
-  %96 = load i8, ptr %95, align 1, !tbaa !33
-  %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw %struct._ttinfo, ptr %91, i64 %97
-  %99 = load i32, ptr %98, align 4, !tbaa !229
-  %100 = sext i32 %99 to i64
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %100) #25
-  %101 = load ptr, ptr %71, align 8, !tbaa !33
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 96
-  %103 = load ptr, ptr %102, align 8, !tbaa !228
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 88
-  %105 = load ptr, ptr %104, align 8, !tbaa !234
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %94
-  %107 = load i8, ptr %106, align 1, !tbaa !33
-  %108 = zext i8 %107 to i64
-  %109 = getelementptr inbounds nuw %struct._ttinfo, ptr %103, i64 %108, i32 1
+85:                                               ; preds = %80
+  %86 = call ptr @timelib_time_ctor() #25
+  call void @timelib_unixtime2gmt(ptr noundef %86, i64 noundef %84) #25
+  %87 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %86, i1 noundef zeroext false)
+  call void @timelib_time_dtor(ptr noundef %86) #25
+  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %87) #25
+  %88 = load ptr, ptr %70, align 8, !tbaa !33
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 96
+  %90 = load ptr, ptr %89, align 8, !tbaa !228
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 88
+  %92 = load ptr, ptr %91, align 8, !tbaa !234
+  %93 = add i64 %.1, -1
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
+  %95 = load i8, ptr %94, align 1, !tbaa !33
+  %96 = zext i8 %95 to i64
+  %97 = getelementptr inbounds nuw %struct._ttinfo, ptr %90, i64 %96
+  %98 = load i32, ptr %97, align 4, !tbaa !229
+  %99 = sext i32 %98 to i64
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %99) #25
+  %100 = load ptr, ptr %70, align 8, !tbaa !33
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 96
+  %102 = load ptr, ptr %101, align 8, !tbaa !228
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 88
+  %104 = load ptr, ptr %103, align 8, !tbaa !234
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %93
+  %106 = load i8, ptr %105, align 1, !tbaa !33
+  %107 = zext i8 %106 to i64
+  %108 = getelementptr inbounds nuw %struct._ttinfo, ptr %102, i64 %107
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4, !tbaa !231
   %111 = icmp ne i32 %110, 0
   call void @add_assoc_bool_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i64 noundef 5, i1 noundef zeroext %111) #25
-  %112 = load ptr, ptr %71, align 8, !tbaa !33
+  %112 = load ptr, ptr %70, align 8, !tbaa !33
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 104
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 96
   %115 = load ptr, ptr %114, align 8, !tbaa !228
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 88
   %117 = load ptr, ptr %116, align 8, !tbaa !234
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 %94
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 %93
   %119 = load i8, ptr %118, align 1, !tbaa !33
   %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds nuw %struct._ttinfo, ptr %115, i64 %120, i32 2
-  br label %247
+  %121 = getelementptr inbounds nuw %struct._ttinfo, ptr %115, i64 %120
+  br label %248
 
-122:                                              ; preds = %81
-  %123 = call ptr @php_format_date(ptr noundef nonnull @.str.61, i64 noundef 13, i64 noundef %85, i1 noundef zeroext false)
+122:                                              ; preds = %80
+  %123 = call ptr @php_format_date(ptr noundef nonnull @.str.61, i64 noundef 13, i64 noundef %84, i1 noundef zeroext false)
   call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %123) #25
-  %124 = load ptr, ptr %71, align 8, !tbaa !33
+  %124 = load ptr, ptr %70, align 8, !tbaa !33
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 96
   %126 = load ptr, ptr %125, align 8, !tbaa !228
   %127 = load i32, ptr %126, align 4, !tbaa !229
   %128 = sext i32 %127 to i64
   call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %128) #25
-  %129 = load ptr, ptr %71, align 8, !tbaa !33
+  %129 = load ptr, ptr %70, align 8, !tbaa !33
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 96
   %131 = load ptr, ptr %130, align 8, !tbaa !228
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %133 = load i32, ptr %132, align 4, !tbaa !231
   %134 = icmp ne i32 %133, 0
   call void @add_assoc_bool_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i64 noundef 5, i1 noundef zeroext %134) #25
-  %135 = load ptr, ptr %71, align 8, !tbaa !33
+  %135 = load ptr, ptr %70, align 8, !tbaa !33
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 104
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 96
   %138 = load ptr, ptr %137, align 8, !tbaa !228
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  br label %247
+  br label %248
 
-140:                                              ; preds = %77
-  %141 = add nuw i64 %.1, 1
-  %exitcond.not = icmp eq i64 %141, %74
-  br i1 %exitcond.not, label %.critedge, label %77
+139:                                              ; preds = %76
+  %140 = add nuw i64 %.1, 1
+  %exitcond.not = icmp eq i64 %140, %73
+  br i1 %exitcond.not, label %.critedge, label %76
 
-.critedge:                                        ; preds = %140
-  %142 = getelementptr inbounds nuw i8, ptr %72, i64 168
-  %143 = load ptr, ptr %142, align 8, !tbaa !235
-  %.not157 = icmp eq ptr %143, null
-  br i1 %.not157, label %164, label %144
+.critedge:                                        ; preds = %139
+  %141 = getelementptr inbounds nuw i8, ptr %71, i64 168
+  %142 = load ptr, ptr %141, align 8, !tbaa !235
+  %.not157 = icmp eq ptr %142, null
+  br i1 %.not157, label %163, label %143
 
-144:                                              ; preds = %.critedge
-  %145 = getelementptr inbounds nuw i8, ptr %143, i64 40
-  %146 = load ptr, ptr %145, align 8, !tbaa !236
-  %.not158 = icmp eq ptr %146, null
-  br i1 %.not158, label %164, label %147
+143:                                              ; preds = %.critedge
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %145 = load ptr, ptr %144, align 8, !tbaa !236
+  %.not158 = icmp eq ptr %145, null
+  br i1 %.not158, label %163, label %146
 
-147:                                              ; preds = %144
-  %148 = call ptr @timelib_get_time_zone_info(i64 noundef %44, ptr noundef nonnull %72) #25
-  %149 = call ptr @_zend_new_array_0() #25
-  store ptr %149, ptr %4, align 8, !tbaa !33
-  %150 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 775, ptr %150, align 8, !tbaa !33
+146:                                              ; preds = %143
+  %147 = call ptr @timelib_get_time_zone_info(i64 noundef %44, ptr noundef nonnull %71) #25
+  %148 = call ptr @_zend_new_array_0() #25
+  store ptr %148, ptr %4, align 8, !tbaa !33
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 775, ptr %149, align 8, !tbaa !33
+  %150 = load i64, ptr %5, align 8, !tbaa !139
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %150) #25
   %151 = load i64, ptr %5, align 8, !tbaa !139
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %151) #25
-  %152 = load i64, ptr %5, align 8, !tbaa !139
-  %153 = call ptr @timelib_time_ctor() #25
-  call void @timelib_unixtime2gmt(ptr noundef %153, i64 noundef %152) #25
-  %154 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %153, i1 noundef zeroext false)
-  call void @timelib_time_dtor(ptr noundef %153) #25
-  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %154) #25
-  %155 = load i32, ptr %148, align 8, !tbaa !105
-  %156 = sext i32 %155 to i64
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %156) #25
-  %157 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %158 = load i32, ptr %157, align 8, !tbaa !108
-  %159 = icmp ne i32 %158, 0
-  call void @add_assoc_bool_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i64 noundef 5, i1 noundef zeroext %159) #25
-  %160 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %161 = load ptr, ptr %160, align 8, !tbaa !110
-  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %161) #25
-  %162 = load ptr, ptr %1, align 8, !tbaa !33
-  %163 = call ptr @zend_hash_next_index_insert(ptr noundef %162, ptr noundef nonnull %4) #25
-  call void @timelib_time_offset_dtor(ptr noundef nonnull %148) #25
+  %152 = call ptr @timelib_time_ctor() #25
+  call void @timelib_unixtime2gmt(ptr noundef %152, i64 noundef %151) #25
+  %153 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %152, i1 noundef zeroext false)
+  call void @timelib_time_dtor(ptr noundef %152) #25
+  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %153) #25
+  %154 = load i32, ptr %147, align 8, !tbaa !105
+  %155 = sext i32 %154 to i64
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %155) #25
+  %156 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %157 = load i32, ptr %156, align 8, !tbaa !108
+  %158 = icmp ne i32 %157, 0
+  call void @add_assoc_bool_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i64 noundef 5, i1 noundef zeroext %158) #25
+  %159 = getelementptr inbounds nuw i8, ptr %147, i64 16
+  %160 = load ptr, ptr %159, align 8, !tbaa !110
+  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %160) #25
+  %161 = load ptr, ptr %1, align 8, !tbaa !33
+  %162 = call ptr @zend_hash_next_index_insert(ptr noundef %161, ptr noundef nonnull %4) #25
+  call void @timelib_time_offset_dtor(ptr noundef nonnull %147) #25
   br label %.critedge167
 
-164:                                              ; preds = %.critedge, %144
-  %165 = call ptr @_zend_new_array_0() #25
-  store ptr %165, ptr %4, align 8, !tbaa !33
-  %166 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 775, ptr %166, align 8, !tbaa !33
+163:                                              ; preds = %.critedge, %143
+  %164 = call ptr @_zend_new_array_0() #25
+  store ptr %164, ptr %4, align 8, !tbaa !33
+  %165 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 775, ptr %165, align 8, !tbaa !33
+  %166 = load i64, ptr %5, align 8, !tbaa !139
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %166) #25
   %167 = load i64, ptr %5, align 8, !tbaa !139
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %167) #25
-  %168 = load i64, ptr %5, align 8, !tbaa !139
-  %169 = call ptr @timelib_time_ctor() #25
-  call void @timelib_unixtime2gmt(ptr noundef %169, i64 noundef %168) #25
-  %170 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %169, i1 noundef zeroext false)
-  call void @timelib_time_dtor(ptr noundef %169) #25
-  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %170) #25
-  %171 = load ptr, ptr %71, align 8, !tbaa !33
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 96
-  %173 = load ptr, ptr %172, align 8, !tbaa !228
-  %174 = getelementptr inbounds nuw i8, ptr %171, i64 88
-  %175 = load ptr, ptr %174, align 8, !tbaa !234
-  %176 = getelementptr inbounds nuw i8, ptr %171, i64 56
-  %177 = load i64, ptr %176, align 8, !tbaa !232
-  %178 = getelementptr i8, ptr %175, i64 %177
-  %179 = getelementptr i8, ptr %178, i64 -1
-  %180 = load i8, ptr %179, align 1, !tbaa !33
-  %181 = zext i8 %180 to i64
-  %182 = getelementptr inbounds nuw %struct._ttinfo, ptr %173, i64 %181
-  %183 = load i32, ptr %182, align 4, !tbaa !229
-  %184 = sext i32 %183 to i64
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %184) #25
-  %185 = load ptr, ptr %71, align 8, !tbaa !33
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 96
-  %187 = load ptr, ptr %186, align 8, !tbaa !228
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 88
-  %189 = load ptr, ptr %188, align 8, !tbaa !234
-  %190 = getelementptr inbounds nuw i8, ptr %185, i64 56
-  %191 = load i64, ptr %190, align 8, !tbaa !232
-  %192 = getelementptr i8, ptr %189, i64 %191
-  %193 = getelementptr i8, ptr %192, i64 -1
-  %194 = load i8, ptr %193, align 1, !tbaa !33
-  %195 = zext i8 %194 to i64
-  %196 = getelementptr inbounds nuw %struct._ttinfo, ptr %187, i64 %195, i32 1
+  %168 = call ptr @timelib_time_ctor() #25
+  call void @timelib_unixtime2gmt(ptr noundef %168, i64 noundef %167) #25
+  %169 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %168, i1 noundef zeroext false)
+  call void @timelib_time_dtor(ptr noundef %168) #25
+  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %169) #25
+  %170 = load ptr, ptr %70, align 8, !tbaa !33
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 96
+  %172 = load ptr, ptr %171, align 8, !tbaa !228
+  %173 = getelementptr inbounds nuw i8, ptr %170, i64 88
+  %174 = load ptr, ptr %173, align 8, !tbaa !234
+  %175 = getelementptr inbounds nuw i8, ptr %170, i64 56
+  %176 = load i64, ptr %175, align 8, !tbaa !232
+  %177 = getelementptr i8, ptr %174, i64 %176
+  %178 = getelementptr i8, ptr %177, i64 -1
+  %179 = load i8, ptr %178, align 1, !tbaa !33
+  %180 = zext i8 %179 to i64
+  %181 = getelementptr inbounds nuw %struct._ttinfo, ptr %172, i64 %180
+  %182 = load i32, ptr %181, align 4, !tbaa !229
+  %183 = sext i32 %182 to i64
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %183) #25
+  %184 = load ptr, ptr %70, align 8, !tbaa !33
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 96
+  %186 = load ptr, ptr %185, align 8, !tbaa !228
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 88
+  %188 = load ptr, ptr %187, align 8, !tbaa !234
+  %189 = getelementptr inbounds nuw i8, ptr %184, i64 56
+  %190 = load i64, ptr %189, align 8, !tbaa !232
+  %191 = getelementptr i8, ptr %188, i64 %190
+  %192 = getelementptr i8, ptr %191, i64 -1
+  %193 = load i8, ptr %192, align 1, !tbaa !33
+  %194 = zext i8 %193 to i64
+  %195 = getelementptr inbounds nuw %struct._ttinfo, ptr %186, i64 %194
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %197 = load i32, ptr %196, align 4, !tbaa !231
   %198 = icmp ne i32 %197, 0
   call void @add_assoc_bool_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i64 noundef 5, i1 noundef zeroext %198) #25
-  %199 = load ptr, ptr %71, align 8, !tbaa !33
+  %199 = load ptr, ptr %70, align 8, !tbaa !33
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 104
   %201 = load ptr, ptr %200, align 8, !tbaa !239
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 96
@@ -13701,292 +13701,298 @@ define hidden void @zif_timezone_transitions_get(ptr noundef %0, ptr noundef cap
   %209 = getelementptr i8, ptr %208, i64 -1
   %210 = load i8, ptr %209, align 1, !tbaa !33
   %211 = zext i8 %210 to i64
-  %212 = getelementptr inbounds nuw %struct._ttinfo, ptr %203, i64 %211, i32 2
-  %213 = load i32, ptr %212, align 4, !tbaa !240
-  %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds nuw i8, ptr %201, i64 %214
-  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %215) #25
-  %216 = load ptr, ptr %1, align 8, !tbaa !33
-  %217 = call ptr @zend_hash_next_index_insert(ptr noundef %216, ptr noundef nonnull %4) #25
+  %212 = getelementptr inbounds nuw %struct._ttinfo, ptr %203, i64 %211
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %214 = load i32, ptr %213, align 4, !tbaa !240
+  %215 = zext i32 %214 to i64
+  %216 = getelementptr inbounds nuw i8, ptr %201, i64 %215
+  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %216) #25
+  %217 = load ptr, ptr %1, align 8, !tbaa !33
+  %218 = call ptr @zend_hash_next_index_insert(ptr noundef %217, ptr noundef nonnull %4) #25
   br label %.critedge167
 
-218:                                              ; preds = %70
-  %219 = call ptr @_zend_new_array_0() #25
-  store ptr %219, ptr %4, align 8, !tbaa !33
-  %220 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 775, ptr %220, align 8, !tbaa !33
-  %221 = load i64, ptr %5, align 8, !tbaa !139
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %221) #25
+219:                                              ; preds = %69
+  %220 = call ptr @_zend_new_array_0() #25
+  store ptr %220, ptr %4, align 8, !tbaa !33
+  %221 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 775, ptr %221, align 8, !tbaa !33
   %222 = load i64, ptr %5, align 8, !tbaa !139
-  %223 = call ptr @timelib_time_ctor() #25
-  call void @timelib_unixtime2gmt(ptr noundef %223, i64 noundef %222) #25
-  %224 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %223, i1 noundef zeroext false)
-  call void @timelib_time_dtor(ptr noundef %223) #25
-  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %224) #25
-  %225 = load ptr, ptr %71, align 8, !tbaa !33
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 96
-  %227 = load ptr, ptr %226, align 8, !tbaa !228
-  %228 = load i32, ptr %227, align 4, !tbaa !229
-  %229 = sext i32 %228 to i64
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %229) #25
-  %230 = load ptr, ptr %71, align 8, !tbaa !33
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 96
-  %232 = load ptr, ptr %231, align 8, !tbaa !228
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 4
-  %234 = load i32, ptr %233, align 4, !tbaa !231
-  %235 = icmp ne i32 %234, 0
-  call void @add_assoc_bool_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i64 noundef 5, i1 noundef zeroext %235) #25
-  %236 = load ptr, ptr %71, align 8, !tbaa !33
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 104
-  %238 = load ptr, ptr %237, align 8, !tbaa !239
-  %239 = getelementptr inbounds nuw i8, ptr %236, i64 96
-  %240 = load ptr, ptr %239, align 8, !tbaa !228
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  %242 = load i32, ptr %241, align 4, !tbaa !240
-  %243 = zext i32 %242 to i64
-  %244 = getelementptr inbounds nuw i8, ptr %238, i64 %243
-  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %244) #25
-  %245 = load ptr, ptr %1, align 8, !tbaa !33
-  %246 = call ptr @zend_hash_next_index_insert(ptr noundef %245, ptr noundef nonnull %4) #25
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %222) #25
+  %223 = load i64, ptr %5, align 8, !tbaa !139
+  %224 = call ptr @timelib_time_ctor() #25
+  call void @timelib_unixtime2gmt(ptr noundef %224, i64 noundef %223) #25
+  %225 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %224, i1 noundef zeroext false)
+  call void @timelib_time_dtor(ptr noundef %224) #25
+  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %225) #25
+  %226 = load ptr, ptr %70, align 8, !tbaa !33
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 96
+  %228 = load ptr, ptr %227, align 8, !tbaa !228
+  %229 = load i32, ptr %228, align 4, !tbaa !229
+  %230 = sext i32 %229 to i64
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %230) #25
+  %231 = load ptr, ptr %70, align 8, !tbaa !33
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 96
+  %233 = load ptr, ptr %232, align 8, !tbaa !228
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
+  %235 = load i32, ptr %234, align 4, !tbaa !231
+  %236 = icmp ne i32 %235, 0
+  call void @add_assoc_bool_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i64 noundef 5, i1 noundef zeroext %236) #25
+  %237 = load ptr, ptr %70, align 8, !tbaa !33
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 104
+  %239 = load ptr, ptr %238, align 8, !tbaa !239
+  %240 = getelementptr inbounds nuw i8, ptr %237, i64 96
+  %241 = load ptr, ptr %240, align 8, !tbaa !228
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load i32, ptr %242, align 4, !tbaa !240
+  %244 = zext i32 %243 to i64
+  %245 = getelementptr inbounds nuw i8, ptr %239, i64 %244
+  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %245) #25
+  %246 = load ptr, ptr %1, align 8, !tbaa !33
+  %247 = call ptr @zend_hash_next_index_insert(ptr noundef %246, ptr noundef nonnull %4) #25
   br label %.critedge167
 
-247:                                              ; preds = %46, %122, %86
-  %.sink.in = phi ptr [ %69, %46 ], [ %139, %122 ], [ %121, %86 ]
-  %.sink202.in = phi ptr [ %66, %46 ], [ %136, %122 ], [ %113, %86 ]
-  %.0 = phi i64 [ 0, %46 ], [ 0, %122 ], [ %.1, %86 ]
+248:                                              ; preds = %46, %122, %85
+  %.sink = phi ptr [ %68, %46 ], [ %138, %122 ], [ %121, %85 ]
+  %.sink202.in = phi ptr [ %66, %46 ], [ %136, %122 ], [ %113, %85 ]
+  %.0 = phi i64 [ 0, %46 ], [ 0, %122 ], [ %.1, %85 ]
   %.sink202 = load ptr, ptr %.sink202.in, align 8, !tbaa !239
-  %.sink = load i32, ptr %.sink.in, align 4, !tbaa !240
-  %248 = zext i32 %.sink to i64
-  %249 = getelementptr inbounds nuw i8, ptr %.sink202, i64 %248
-  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %249) #25
-  %250 = load ptr, ptr %1, align 8, !tbaa !33
-  %251 = call ptr @zend_hash_next_index_insert(ptr noundef %250, ptr noundef nonnull %4) #25
-  %252 = getelementptr inbounds i8, ptr %27, i64 -24
-  %253 = load ptr, ptr %252, align 8, !tbaa !33
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 56
-  %255 = load i64, ptr %254, align 8, !tbaa !232
-  %.not159180 = icmp ult i64 %.0, %255
+  %249 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
+  %250 = load i32, ptr %249, align 4, !tbaa !240
+  %251 = zext i32 %250 to i64
+  %252 = getelementptr inbounds nuw i8, ptr %.sink202, i64 %251
+  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %252) #25
+  %253 = load ptr, ptr %1, align 8, !tbaa !33
+  %254 = call ptr @zend_hash_next_index_insert(ptr noundef %253, ptr noundef nonnull %4) #25
+  %255 = getelementptr inbounds i8, ptr %27, i64 -24
+  %256 = load ptr, ptr %255, align 8, !tbaa !33
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 56
+  %258 = load i64, ptr %257, align 8, !tbaa !232
+  %.not159180 = icmp ult i64 %.0, %258
   br i1 %.not159180, label %.lr.ph, label %.critedge167
 
-.lr.ph:                                           ; preds = %247
-  %256 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %257
+.lr.ph:                                           ; preds = %248
+  %259 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %260
 
-257:                                              ; preds = %.lr.ph, %265
-  %258 = phi ptr [ %253, %.lr.ph ], [ %318, %265 ]
-  %.0148181 = phi i64 [ %.0, %.lr.ph ], [ %317, %265 ]
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 80
-  %260 = load ptr, ptr %259, align 8, !tbaa !233
-  %261 = getelementptr inbounds nuw i64, ptr %260, i64 %.0148181
-  %262 = load i64, ptr %261, align 8, !tbaa !139
-  %263 = load i64, ptr %6, align 8, !tbaa !139
-  %264 = icmp slt i64 %262, %263
-  br i1 %264, label %265, label %.loopexit178
+260:                                              ; preds = %.lr.ph, %268
+  %261 = phi ptr [ %256, %.lr.ph ], [ %323, %268 ]
+  %.0148181 = phi i64 [ %.0, %.lr.ph ], [ %322, %268 ]
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 80
+  %263 = load ptr, ptr %262, align 8, !tbaa !233
+  %264 = getelementptr inbounds nuw i64, ptr %263, i64 %.0148181
+  %265 = load i64, ptr %264, align 8, !tbaa !139
+  %266 = load i64, ptr %6, align 8, !tbaa !139
+  %267 = icmp slt i64 %265, %266
+  br i1 %267, label %268, label %.loopexit178
 
-265:                                              ; preds = %257
-  %266 = call ptr @_zend_new_array_0() #25
-  store ptr %266, ptr %4, align 8, !tbaa !33
-  store i32 775, ptr %256, align 8, !tbaa !33
-  %267 = load ptr, ptr %252, align 8, !tbaa !33
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 80
-  %269 = load ptr, ptr %268, align 8, !tbaa !233
-  %270 = getelementptr inbounds nuw i64, ptr %269, i64 %.0148181
-  %271 = load i64, ptr %270, align 8, !tbaa !139
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %271) #25
-  %272 = load ptr, ptr %252, align 8, !tbaa !33
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 80
-  %274 = load ptr, ptr %273, align 8, !tbaa !233
-  %275 = getelementptr inbounds nuw i64, ptr %274, i64 %.0148181
-  %276 = load i64, ptr %275, align 8, !tbaa !139
-  %277 = call ptr @timelib_time_ctor() #25
-  call void @timelib_unixtime2gmt(ptr noundef %277, i64 noundef %276) #25
-  %278 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %277, i1 noundef zeroext false)
-  call void @timelib_time_dtor(ptr noundef %277) #25
-  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %278) #25
-  %279 = load ptr, ptr %252, align 8, !tbaa !33
-  %280 = getelementptr inbounds nuw i8, ptr %279, i64 96
-  %281 = load ptr, ptr %280, align 8, !tbaa !228
-  %282 = getelementptr inbounds nuw i8, ptr %279, i64 88
-  %283 = load ptr, ptr %282, align 8, !tbaa !234
-  %284 = getelementptr inbounds nuw i8, ptr %283, i64 %.0148181
-  %285 = load i8, ptr %284, align 1, !tbaa !33
-  %286 = zext i8 %285 to i64
-  %287 = getelementptr inbounds nuw %struct._ttinfo, ptr %281, i64 %286
-  %288 = load i32, ptr %287, align 4, !tbaa !229
-  %289 = sext i32 %288 to i64
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %289) #25
-  %290 = load ptr, ptr %252, align 8, !tbaa !33
-  %291 = getelementptr inbounds nuw i8, ptr %290, i64 96
-  %292 = load ptr, ptr %291, align 8, !tbaa !228
-  %293 = getelementptr inbounds nuw i8, ptr %290, i64 88
-  %294 = load ptr, ptr %293, align 8, !tbaa !234
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 %.0148181
-  %296 = load i8, ptr %295, align 1, !tbaa !33
-  %297 = zext i8 %296 to i64
-  %298 = getelementptr inbounds nuw %struct._ttinfo, ptr %292, i64 %297, i32 1
-  %299 = load i32, ptr %298, align 4, !tbaa !231
-  %300 = icmp ne i32 %299, 0
-  call void @add_assoc_bool_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i64 noundef 5, i1 noundef zeroext %300) #25
-  %301 = load ptr, ptr %252, align 8, !tbaa !33
-  %302 = getelementptr inbounds nuw i8, ptr %301, i64 104
-  %303 = load ptr, ptr %302, align 8, !tbaa !239
-  %304 = getelementptr inbounds nuw i8, ptr %301, i64 96
-  %305 = load ptr, ptr %304, align 8, !tbaa !228
-  %306 = getelementptr inbounds nuw i8, ptr %301, i64 88
-  %307 = load ptr, ptr %306, align 8, !tbaa !234
-  %308 = getelementptr inbounds nuw i8, ptr %307, i64 %.0148181
-  %309 = load i8, ptr %308, align 1, !tbaa !33
-  %310 = zext i8 %309 to i64
-  %311 = getelementptr inbounds nuw %struct._ttinfo, ptr %305, i64 %310, i32 2
-  %312 = load i32, ptr %311, align 4, !tbaa !240
-  %313 = zext i32 %312 to i64
-  %314 = getelementptr inbounds nuw i8, ptr %303, i64 %313
-  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %314) #25
-  %315 = load ptr, ptr %1, align 8, !tbaa !33
-  %316 = call ptr @zend_hash_next_index_insert(ptr noundef %315, ptr noundef nonnull %4) #25
-  %317 = add nuw i64 %.0148181, 1
-  %318 = load ptr, ptr %252, align 8, !tbaa !33
-  %319 = getelementptr inbounds nuw i8, ptr %318, i64 56
-  %320 = load i64, ptr %319, align 8, !tbaa !232
-  %.not159 = icmp ult i64 %317, %320
-  br i1 %.not159, label %257, label %.critedge167
+268:                                              ; preds = %260
+  %269 = call ptr @_zend_new_array_0() #25
+  store ptr %269, ptr %4, align 8, !tbaa !33
+  store i32 775, ptr %259, align 8, !tbaa !33
+  %270 = load ptr, ptr %255, align 8, !tbaa !33
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 80
+  %272 = load ptr, ptr %271, align 8, !tbaa !233
+  %273 = getelementptr inbounds nuw i64, ptr %272, i64 %.0148181
+  %274 = load i64, ptr %273, align 8, !tbaa !139
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %274) #25
+  %275 = load ptr, ptr %255, align 8, !tbaa !33
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 80
+  %277 = load ptr, ptr %276, align 8, !tbaa !233
+  %278 = getelementptr inbounds nuw i64, ptr %277, i64 %.0148181
+  %279 = load i64, ptr %278, align 8, !tbaa !139
+  %280 = call ptr @timelib_time_ctor() #25
+  call void @timelib_unixtime2gmt(ptr noundef %280, i64 noundef %279) #25
+  %281 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %280, i1 noundef zeroext false)
+  call void @timelib_time_dtor(ptr noundef %280) #25
+  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %281) #25
+  %282 = load ptr, ptr %255, align 8, !tbaa !33
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 96
+  %284 = load ptr, ptr %283, align 8, !tbaa !228
+  %285 = getelementptr inbounds nuw i8, ptr %282, i64 88
+  %286 = load ptr, ptr %285, align 8, !tbaa !234
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 %.0148181
+  %288 = load i8, ptr %287, align 1, !tbaa !33
+  %289 = zext i8 %288 to i64
+  %290 = getelementptr inbounds nuw %struct._ttinfo, ptr %284, i64 %289
+  %291 = load i32, ptr %290, align 4, !tbaa !229
+  %292 = sext i32 %291 to i64
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %292) #25
+  %293 = load ptr, ptr %255, align 8, !tbaa !33
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 96
+  %295 = load ptr, ptr %294, align 8, !tbaa !228
+  %296 = getelementptr inbounds nuw i8, ptr %293, i64 88
+  %297 = load ptr, ptr %296, align 8, !tbaa !234
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 %.0148181
+  %299 = load i8, ptr %298, align 1, !tbaa !33
+  %300 = zext i8 %299 to i64
+  %301 = getelementptr inbounds nuw %struct._ttinfo, ptr %295, i64 %300
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 4
+  %303 = load i32, ptr %302, align 4, !tbaa !231
+  %304 = icmp ne i32 %303, 0
+  call void @add_assoc_bool_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i64 noundef 5, i1 noundef zeroext %304) #25
+  %305 = load ptr, ptr %255, align 8, !tbaa !33
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 104
+  %307 = load ptr, ptr %306, align 8, !tbaa !239
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 96
+  %309 = load ptr, ptr %308, align 8, !tbaa !228
+  %310 = getelementptr inbounds nuw i8, ptr %305, i64 88
+  %311 = load ptr, ptr %310, align 8, !tbaa !234
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 %.0148181
+  %313 = load i8, ptr %312, align 1, !tbaa !33
+  %314 = zext i8 %313 to i64
+  %315 = getelementptr inbounds nuw %struct._ttinfo, ptr %309, i64 %314
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
+  %317 = load i32, ptr %316, align 4, !tbaa !240
+  %318 = zext i32 %317 to i64
+  %319 = getelementptr inbounds nuw i8, ptr %307, i64 %318
+  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %319) #25
+  %320 = load ptr, ptr %1, align 8, !tbaa !33
+  %321 = call ptr @zend_hash_next_index_insert(ptr noundef %320, ptr noundef nonnull %4) #25
+  %322 = add nuw i64 %.0148181, 1
+  %323 = load ptr, ptr %255, align 8, !tbaa !33
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 56
+  %325 = load i64, ptr %324, align 8, !tbaa !232
+  %.not159 = icmp ult i64 %322, %325
+  br i1 %.not159, label %260, label %.critedge167
 
-.critedge167:                                     ; preds = %265, %247, %218, %164, %147
-  %321 = getelementptr inbounds i8, ptr %27, i64 -24
-  %322 = load ptr, ptr %321, align 8, !tbaa !33
-  %323 = getelementptr inbounds nuw i8, ptr %322, i64 168
-  %324 = load ptr, ptr %323, align 8, !tbaa !235
-  %.not160 = icmp eq ptr %324, null
-  br i1 %.not160, label %.loopexit178, label %325
+.critedge167:                                     ; preds = %268, %248, %219, %163, %146
+  %326 = getelementptr inbounds i8, ptr %27, i64 -24
+  %327 = load ptr, ptr %326, align 8, !tbaa !33
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 168
+  %329 = load ptr, ptr %328, align 8, !tbaa !235
+  %.not160 = icmp eq ptr %329, null
+  br i1 %.not160, label %.loopexit178, label %330
 
-325:                                              ; preds = %.critedge167
-  %326 = getelementptr inbounds nuw i8, ptr %324, i64 40
-  %327 = load ptr, ptr %326, align 8, !tbaa !236
-  %.not161 = icmp eq ptr %327, null
-  br i1 %.not161, label %.loopexit178, label %328
+330:                                              ; preds = %.critedge167
+  %331 = getelementptr inbounds nuw i8, ptr %329, i64 40
+  %332 = load ptr, ptr %331, align 8, !tbaa !236
+  %.not161 = icmp eq ptr %332, null
+  br i1 %.not161, label %.loopexit178, label %333
 
-328:                                              ; preds = %325
+333:                                              ; preds = %330
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %329 = getelementptr inbounds nuw i8, ptr %322, i64 80
-  %330 = load ptr, ptr %329, align 8, !tbaa !233
-  %331 = getelementptr inbounds nuw i8, ptr %322, i64 56
-  %332 = load i64, ptr %331, align 8, !tbaa !232
-  %333 = getelementptr i64, ptr %330, i64 %332
-  %334 = getelementptr i8, ptr %333, i64 -8
-  %335 = load i64, ptr %334, align 8, !tbaa !139
-  call void @timelib_unixtime2date(i64 noundef %335, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10) #25
-  %336 = load i64, ptr %6, align 8, !tbaa !139
-  call void @timelib_unixtime2date(i64 noundef %336, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #25
-  %337 = load i64, ptr %7, align 8, !tbaa !117
-  %338 = load i64, ptr %8, align 8, !tbaa !117
-  %.not162185 = icmp sgt i64 %337, %338
+  %334 = getelementptr inbounds nuw i8, ptr %327, i64 80
+  %335 = load ptr, ptr %334, align 8, !tbaa !233
+  %336 = getelementptr inbounds nuw i8, ptr %327, i64 56
+  %337 = load i64, ptr %336, align 8, !tbaa !232
+  %338 = getelementptr i64, ptr %335, i64 %337
+  %339 = getelementptr i8, ptr %338, i64 -8
+  %340 = load i64, ptr %339, align 8, !tbaa !139
+  call void @timelib_unixtime2date(i64 noundef %340, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %10) #25
+  %341 = load i64, ptr %6, align 8, !tbaa !139
+  call void @timelib_unixtime2date(i64 noundef %341, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #25
+  %342 = load i64, ptr %7, align 8, !tbaa !117
+  %343 = load i64, ptr %8, align 8, !tbaa !117
+  %.not162185 = icmp sgt i64 %342, %343
   br i1 %.not162185, label %.loopexit, label %.lr.ph188
 
-.lr.ph188:                                        ; preds = %328
-  %339 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %340 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %341 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  br label %342
+.lr.ph188:                                        ; preds = %333
+  %344 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %345 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  br label %347
 
-342:                                              ; preds = %.lr.ph188, %._crit_edge
-  %.0145186 = phi i64 [ %337, %.lr.ph188 ], [ %390, %._crit_edge ]
+347:                                              ; preds = %.lr.ph188, %._crit_edge
+  %.0145186 = phi i64 [ %342, %.lr.ph188 ], [ %397, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 104, i1 false)
-  %343 = load ptr, ptr %321, align 8, !tbaa !33
-  call void @timelib_get_transitions_for_year(ptr noundef %343, i64 noundef %.0145186, ptr noundef nonnull %11) #25
-  %344 = load i64, ptr %11, align 8, !tbaa !241
-  %.not164182.not = icmp eq i64 %344, 0
+  %348 = load ptr, ptr %326, align 8, !tbaa !33
+  call void @timelib_get_transitions_for_year(ptr noundef %348, i64 noundef %.0145186, ptr noundef nonnull %11) #25
+  %349 = load i64, ptr %11, align 8, !tbaa !241
+  %.not164182.not = icmp eq i64 %349, 0
   br i1 %.not164182.not, label %._crit_edge, label %.lr.ph184
 
-.lr.ph184:                                        ; preds = %342, %386
-  %345 = phi i64 [ %387, %386 ], [ %344, %342 ]
-  %.0144183 = phi i64 [ %388, %386 ], [ 0, %342 ]
-  %346 = getelementptr inbounds nuw i64, ptr %339, i64 %.0144183
-  %347 = load i64, ptr %346, align 8, !tbaa !117
-  %.not163 = icmp sle i64 %347, %335
-  %348 = load i64, ptr %5, align 8
-  %349 = icmp slt i64 %347, %348
-  %or.cond = select i1 %.not163, i1 true, i1 %349
-  br i1 %or.cond, label %386, label %350
+.lr.ph184:                                        ; preds = %347, %393
+  %350 = phi i64 [ %394, %393 ], [ %349, %347 ]
+  %.0144183 = phi i64 [ %395, %393 ], [ 0, %347 ]
+  %351 = getelementptr inbounds nuw i64, ptr %344, i64 %.0144183
+  %352 = load i64, ptr %351, align 8, !tbaa !117
+  %.not163 = icmp sle i64 %352, %340
+  %353 = load i64, ptr %5, align 8
+  %354 = icmp slt i64 %352, %353
+  %or.cond = select i1 %.not163, i1 true, i1 %354
+  br i1 %or.cond, label %393, label %355
 
-350:                                              ; preds = %.lr.ph184
-  %351 = load i64, ptr %6, align 8, !tbaa !139
-  %352 = icmp sgt i64 %347, %351
-  br i1 %352, label %389, label %353
+355:                                              ; preds = %.lr.ph184
+  %356 = load i64, ptr %6, align 8, !tbaa !139
+  %357 = icmp sgt i64 %352, %356
+  br i1 %357, label %396, label %358
 
-353:                                              ; preds = %350
-  %354 = call ptr @_zend_new_array_0() #25
-  store ptr %354, ptr %4, align 8, !tbaa !33
-  store i32 775, ptr %340, align 8, !tbaa !33
-  %355 = load i64, ptr %346, align 8, !tbaa !117
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %355) #25
-  %356 = load i64, ptr %346, align 8, !tbaa !117
-  %357 = call ptr @timelib_time_ctor() #25
-  call void @timelib_unixtime2gmt(ptr noundef %357, i64 noundef %356) #25
-  %358 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %357, i1 noundef zeroext false)
-  call void @timelib_time_dtor(ptr noundef %357) #25
-  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %358) #25
-  %359 = load ptr, ptr %321, align 8, !tbaa !33
-  %360 = getelementptr inbounds nuw i8, ptr %359, i64 96
-  %361 = load ptr, ptr %360, align 8, !tbaa !228
-  %362 = getelementptr inbounds nuw i64, ptr %341, i64 %.0144183
-  %363 = load i64, ptr %362, align 8, !tbaa !117
-  %364 = getelementptr inbounds %struct._ttinfo, ptr %361, i64 %363
-  %365 = load i32, ptr %364, align 4, !tbaa !229
-  %366 = sext i32 %365 to i64
-  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %366) #25
-  %367 = load ptr, ptr %321, align 8, !tbaa !33
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 96
-  %369 = load ptr, ptr %368, align 8, !tbaa !228
-  %370 = load i64, ptr %362, align 8, !tbaa !117
-  %371 = getelementptr inbounds %struct._ttinfo, ptr %369, i64 %370, i32 1
-  %372 = load i32, ptr %371, align 4, !tbaa !231
-  %373 = icmp ne i32 %372, 0
-  call void @add_assoc_bool_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i64 noundef 5, i1 noundef zeroext %373) #25
-  %374 = load ptr, ptr %321, align 8, !tbaa !33
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 104
-  %376 = load ptr, ptr %375, align 8, !tbaa !239
-  %377 = getelementptr inbounds nuw i8, ptr %374, i64 96
-  %378 = load ptr, ptr %377, align 8, !tbaa !228
-  %379 = load i64, ptr %362, align 8, !tbaa !117
-  %380 = getelementptr inbounds %struct._ttinfo, ptr %378, i64 %379, i32 2
-  %381 = load i32, ptr %380, align 4, !tbaa !240
-  %382 = zext i32 %381 to i64
-  %383 = getelementptr inbounds nuw i8, ptr %376, i64 %382
-  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %383) #25
-  %384 = load ptr, ptr %1, align 8, !tbaa !33
-  %385 = call ptr @zend_hash_next_index_insert(ptr noundef %384, ptr noundef nonnull %4) #25
+358:                                              ; preds = %355
+  %359 = call ptr @_zend_new_array_0() #25
+  store ptr %359, ptr %4, align 8, !tbaa !33
+  store i32 775, ptr %345, align 8, !tbaa !33
+  %360 = load i64, ptr %351, align 8, !tbaa !117
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.59, i64 noundef 2, i64 noundef %360) #25
+  %361 = load i64, ptr %351, align 8, !tbaa !117
+  %362 = call ptr @timelib_time_ctor() #25
+  call void @timelib_unixtime2gmt(ptr noundef %362, i64 noundef %361) #25
+  %363 = call fastcc ptr @date_format(ptr noundef nonnull @.str.61, i64 noundef 13, ptr noundef %362, i1 noundef zeroext false)
+  call void @timelib_time_dtor(ptr noundef %362) #25
+  call void @add_assoc_str_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.60, i64 noundef 4, ptr noundef %363) #25
+  %364 = load ptr, ptr %326, align 8, !tbaa !33
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 96
+  %366 = load ptr, ptr %365, align 8, !tbaa !228
+  %367 = getelementptr inbounds nuw i64, ptr %346, i64 %.0144183
+  %368 = load i64, ptr %367, align 8, !tbaa !117
+  %369 = getelementptr inbounds %struct._ttinfo, ptr %366, i64 %368
+  %370 = load i32, ptr %369, align 4, !tbaa !229
+  %371 = sext i32 %370 to i64
+  call void @add_assoc_long_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.62, i64 noundef 6, i64 noundef %371) #25
+  %372 = load ptr, ptr %326, align 8, !tbaa !33
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 96
+  %374 = load ptr, ptr %373, align 8, !tbaa !228
+  %375 = load i64, ptr %367, align 8, !tbaa !117
+  %376 = getelementptr inbounds %struct._ttinfo, ptr %374, i64 %375
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 4
+  %378 = load i32, ptr %377, align 4, !tbaa !231
+  %379 = icmp ne i32 %378, 0
+  call void @add_assoc_bool_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.63, i64 noundef 5, i1 noundef zeroext %379) #25
+  %380 = load ptr, ptr %326, align 8, !tbaa !33
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 104
+  %382 = load ptr, ptr %381, align 8, !tbaa !239
+  %383 = getelementptr inbounds nuw i8, ptr %380, i64 96
+  %384 = load ptr, ptr %383, align 8, !tbaa !228
+  %385 = load i64, ptr %367, align 8, !tbaa !117
+  %386 = getelementptr inbounds %struct._ttinfo, ptr %384, i64 %385
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
+  %388 = load i32, ptr %387, align 4, !tbaa !240
+  %389 = zext i32 %388 to i64
+  %390 = getelementptr inbounds nuw i8, ptr %382, i64 %389
+  call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.64, i64 noundef 4, ptr noundef %390) #25
+  %391 = load ptr, ptr %1, align 8, !tbaa !33
+  %392 = call ptr @zend_hash_next_index_insert(ptr noundef %391, ptr noundef nonnull %4) #25
   %.pre = load i64, ptr %11, align 8, !tbaa !241
-  br label %386
+  br label %393
 
-386:                                              ; preds = %.lr.ph184, %353
-  %387 = phi i64 [ %345, %.lr.ph184 ], [ %.pre, %353 ]
-  %388 = add nuw i64 %.0144183, 1
-  %.not164 = icmp ult i64 %388, %387
+393:                                              ; preds = %.lr.ph184, %358
+  %394 = phi i64 [ %350, %.lr.ph184 ], [ %.pre, %358 ]
+  %395 = add nuw i64 %.0144183, 1
+  %.not164 = icmp ult i64 %395, %394
   br i1 %.not164, label %.lr.ph184, label %._crit_edge
 
-389:                                              ; preds = %350
+396:                                              ; preds = %355
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
-._crit_edge:                                      ; preds = %386, %342
+._crit_edge:                                      ; preds = %393, %347
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %390 = add nsw i64 %.0145186, 1
-  %391 = load i64, ptr %8, align 8, !tbaa !117
-  %.not162.not = icmp slt i64 %.0145186, %391
-  br i1 %.not162.not, label %342, label %.loopexit
+  %397 = add nsw i64 %.0145186, 1
+  %398 = load i64, ptr %8, align 8, !tbaa !117
+  %.not162.not = icmp slt i64 %.0145186, %398
+  br i1 %.not162.not, label %347, label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %328, %389
+.loopexit:                                        ; preds = %._crit_edge, %333, %396
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit178
 
-.loopexit178:                                     ; preds = %257, %.loopexit, %.critedge167, %325, %39, %31, %22
+.loopexit178:                                     ; preds = %260, %.loopexit, %.critedge167, %330, %39, %31, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

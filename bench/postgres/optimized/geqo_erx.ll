@@ -384,10 +384,10 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   %wide.trip.count.i37 = zext nneg i32 %45 to i64
   br label %.lr.ph.i38
 
-.lr.ph.i38:                                       ; preds = %66, %.lr.ph.preheader.i36
-  %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.preheader.i36 ], [ %indvars.iv.next.i40, %66 ]
-  %.02748.i = phi i32 [ -1, %.lr.ph.preheader.i36 ], [ %.1.i, %66 ]
-  %.02847.i = phi i32 [ 5, %.lr.ph.preheader.i36 ], [ %.129.i, %66 ]
+.lr.ph.i38:                                       ; preds = %67, %.lr.ph.preheader.i36
+  %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.preheader.i36 ], [ %indvars.iv.next.i40, %67 ]
+  %.02748.i = phi i32 [ -1, %.lr.ph.preheader.i36 ], [ %.1.i, %67 ]
+  %.02847.i = phi i32 [ 5, %.lr.ph.preheader.i36 ], [ %.129.i, %67 ]
   %48 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i39
   %49 = load i32, ptr %48, align 4
   %50 = icmp slt i32 %49, 0
@@ -399,228 +399,233 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
 
 53:                                               ; preds = %.lr.ph.i38
   %54 = zext nneg i32 %49 to i64
-  %55 = getelementptr inbounds nuw %struct.Edge, ptr %1, i64 %54, i32 2
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp slt i32 %56, %.02847.i
-  br i1 %57, label %66, label %58
+  %55 = getelementptr inbounds nuw %struct.Edge, ptr %1, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 20
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp slt i32 %57, %.02847.i
+  br i1 %58, label %67, label %59
 
-58:                                               ; preds = %53
-  %59 = icmp eq i32 %.02748.i, -1
-  br i1 %59, label %60, label %63
+59:                                               ; preds = %53
+  %60 = icmp eq i32 %.02748.i, -1
+  br i1 %60, label %61, label %64
 
-60:                                               ; preds = %58
-  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %61)
-  %62 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
+61:                                               ; preds = %59
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %62)
+  %63 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 337, ptr noundef nonnull @__func__.gimme_gene) #9
   unreachable
 
-63:                                               ; preds = %58
-  %64 = icmp eq i32 %56, %.02847.i
-  %65 = zext i1 %64 to i32
-  %spec.select.i = add nuw i32 %.02748.i, %65
-  br label %66
+64:                                               ; preds = %59
+  %65 = icmp eq i32 %57, %.02847.i
+  %66 = zext i1 %65 to i32
+  %spec.select.i = add nuw i32 %.02748.i, %66
+  br label %67
 
-66:                                               ; preds = %63, %53
-  %.129.i = phi i32 [ %56, %53 ], [ %.02847.i, %63 ]
-  %.1.i = phi i32 [ 1, %53 ], [ %spec.select.i, %63 ]
+67:                                               ; preds = %64, %53
+  %.129.i = phi i32 [ %57, %53 ], [ %.02847.i, %64 ]
+  %.1.i = phi i32 [ 1, %53 ], [ %spec.select.i, %64 ]
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i37
   br i1 %exitcond.not.i41, label %._crit_edge.i, label %.lr.ph.i38, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %66
-  %67 = add i32 %.1.i, -1
-  %68 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %67, i32 noundef 0) #9
+._crit_edge.i:                                    ; preds = %67
+  %68 = add i32 %.1.i, -1
+  %69 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %68, i32 noundef 0) #9
   br label %.lr.ph54.i
 
-.lr.ph54.i:                                       ; preds = %78, %._crit_edge.i
-  %indvars.iv61.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next62.i, %78 ]
-  %.252.i = phi i32 [ %.1.i, %._crit_edge.i ], [ %.3.i, %78 ]
-  %69 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv61.i
-  %70 = load i32, ptr %69, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds %struct.Edge, ptr %1, i64 %71, i32 2
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %73, %.129.i
-  br i1 %74, label %75, label %78
+.lr.ph54.i:                                       ; preds = %80, %._crit_edge.i
+  %indvars.iv61.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next62.i, %80 ]
+  %.252.i = phi i32 [ %.1.i, %._crit_edge.i ], [ %.3.i, %80 ]
+  %70 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv61.i
+  %71 = load i32, ptr %70, align 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds %struct.Edge, ptr %1, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 20
+  %75 = load i32, ptr %74, align 4
+  %76 = icmp eq i32 %75, %.129.i
+  br i1 %76, label %77, label %80
 
-75:                                               ; preds = %.lr.ph54.i
-  %76 = add i32 %.252.i, -1
-  %77 = icmp eq i32 %76, %68
-  br i1 %77, label %gimme_gene.exit, label %78
+77:                                               ; preds = %.lr.ph54.i
+  %78 = add i32 %.252.i, -1
+  %79 = icmp eq i32 %78, %69
+  br i1 %79, label %gimme_gene.exit, label %80
 
-78:                                               ; preds = %75, %.lr.ph54.i
-  %.3.i = phi i32 [ %76, %75 ], [ %.252.i, %.lr.ph54.i ]
+80:                                               ; preds = %77, %.lr.ph54.i
+  %.3.i = phi i32 [ %78, %77 ], [ %.252.i, %.lr.ph54.i ]
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count.i37
   br i1 %exitcond65.not.i, label %._crit_edge55.i, label %.lr.ph54.i, !llvm.loop !11
 
-._crit_edge55.i:                                  ; preds = %78, %._crit_edge.thread.i
-  %79 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %79)
-  %80 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+._crit_edge55.i:                                  ; preds = %80, %._crit_edge.thread.i
+  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %81)
+  %82 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.gimme_gene) #9
   unreachable
 
-gimme_gene.exit:                                  ; preds = %75, %51
-  %.0.i = phi i32 [ %52, %51 ], [ %70, %75 ]
+gimme_gene.exit:                                  ; preds = %77, %51
+  %.0.i = phi i32 [ %52, %51 ], [ %71, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %edge_failure.exit
 
 .lr.ph.preheader.i43:                             ; preds = %remove_gene.exit
-  %81 = add i32 %.073, 1
-  %82 = zext i32 %39 to i64
+  %83 = add i32 %.073, 1
+  %84 = zext i32 %39 to i64
   br label %.lr.ph.i45
 
-.lr.ph.i45:                                       ; preds = %92, %.lr.ph.preheader.i43
-  %indvars.iv.i46 = phi i64 [ 1, %.lr.ph.preheader.i43 ], [ %indvars.iv.next.i49, %92 ]
-  %.080.i = phi i32 [ 0, %.lr.ph.preheader.i43 ], [ %.1.i48, %92 ]
-  %.04979.i = phi i32 [ 0, %.lr.ph.preheader.i43 ], [ %.150.i, %92 ]
-  %83 = getelementptr inbounds nuw %struct.Edge, ptr %1, i64 %indvars.iv.i46
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 20
-  %85 = load i32, ptr %84, align 4
-  %.not70.i = icmp eq i32 %85, -1
-  %.not71.i = icmp eq i64 %indvars.iv.i46, %82
+.lr.ph.i45:                                       ; preds = %94, %.lr.ph.preheader.i43
+  %indvars.iv.i46 = phi i64 [ 1, %.lr.ph.preheader.i43 ], [ %indvars.iv.next.i49, %94 ]
+  %.080.i = phi i32 [ 0, %.lr.ph.preheader.i43 ], [ %.1.i48, %94 ]
+  %.04979.i = phi i32 [ 0, %.lr.ph.preheader.i43 ], [ %.150.i, %94 ]
+  %85 = getelementptr inbounds nuw %struct.Edge, ptr %1, i64 %indvars.iv.i46
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 20
+  %87 = load i32, ptr %86, align 4
+  %.not70.i = icmp eq i32 %87, -1
+  %.not71.i = icmp eq i64 %indvars.iv.i46, %84
   %or.cond.i = or i1 %.not71.i, %.not70.i
-  br i1 %or.cond.i, label %92, label %86
+  br i1 %or.cond.i, label %94, label %88
 
-86:                                               ; preds = %.lr.ph.i45
-  %87 = add i32 %.04979.i, 1
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp eq i32 %89, 4
-  %91 = zext i1 %90 to i32
-  %spec.select.i47 = add i32 %.080.i, %91
-  br label %92
+88:                                               ; preds = %.lr.ph.i45
+  %89 = add i32 %.04979.i, 1
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %91 = load i32, ptr %90, align 4
+  %92 = icmp eq i32 %91, 4
+  %93 = zext i1 %92 to i32
+  %spec.select.i47 = add i32 %.080.i, %93
+  br label %94
 
-92:                                               ; preds = %86, %.lr.ph.i45
-  %.150.i = phi i32 [ %.04979.i, %.lr.ph.i45 ], [ %87, %86 ]
-  %.1.i48 = phi i32 [ %.080.i, %.lr.ph.i45 ], [ %spec.select.i47, %86 ]
+94:                                               ; preds = %88, %.lr.ph.i45
+  %.150.i = phi i32 [ %.04979.i, %.lr.ph.i45 ], [ %89, %88 ]
+  %.1.i48 = phi i32 [ %.080.i, %.lr.ph.i45 ], [ %spec.select.i47, %88 ]
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i44
   br i1 %exitcond.i, label %._crit_edge.i50, label %.lr.ph.i45, !llvm.loop !12
 
-._crit_edge.i50:                                  ; preds = %92
+._crit_edge.i50:                                  ; preds = %94
   %.not61.i = icmp eq i32 %.1.i48, 0
-  br i1 %.not61.i, label %111, label %93
+  br i1 %.not61.i, label %113, label %95
 
-93:                                               ; preds = %._crit_edge.i50
-  %94 = add i32 %.1.i48, -1
-  %95 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %94, i32 noundef 0) #9
+95:                                               ; preds = %._crit_edge.i50
+  %96 = add i32 %.1.i48, -1
+  %97 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %96, i32 noundef 0) #9
   br label %.lr.ph86.i
 
-.lr.ph86.i:                                       ; preds = %108, %93
-  %.284.i = phi i32 [ %.3.i51, %108 ], [ %.1.i48, %93 ]
-  %.15583.i = phi i32 [ %109, %108 ], [ 1, %93 ]
+.lr.ph86.i:                                       ; preds = %110, %95
+  %.284.i = phi i32 [ %.3.i51, %110 ], [ %.1.i48, %95 ]
+  %.15583.i = phi i32 [ %111, %110 ], [ 1, %95 ]
   %.not68.i = icmp eq i32 %.15583.i, %39
-  br i1 %.not68.i, label %108, label %96
+  br i1 %.not68.i, label %110, label %98
 
-96:                                               ; preds = %.lr.ph86.i
-  %97 = sext i32 %.15583.i to i64
-  %98 = getelementptr inbounds %struct.Edge, ptr %1, i64 %97
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 20
-  %100 = load i32, ptr %99, align 4
-  %.not69.i = icmp eq i32 %100, -1
-  br i1 %.not69.i, label %108, label %101
+98:                                               ; preds = %.lr.ph86.i
+  %99 = sext i32 %.15583.i to i64
+  %100 = getelementptr inbounds %struct.Edge, ptr %1, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 20
+  %102 = load i32, ptr %101, align 4
+  %.not69.i = icmp eq i32 %102, -1
+  br i1 %.not69.i, label %110, label %103
 
-101:                                              ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %103, 4
-  br i1 %104, label %105, label %108
+103:                                              ; preds = %98
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, 4
+  br i1 %106, label %107, label %110
 
-105:                                              ; preds = %101
-  %106 = add i32 %.284.i, -1
-  %107 = icmp eq i32 %95, %106
-  br i1 %107, label %edge_failure.exit, label %108
+107:                                              ; preds = %103
+  %108 = add i32 %.284.i, -1
+  %109 = icmp eq i32 %97, %108
+  br i1 %109, label %edge_failure.exit, label %110
 
-108:                                              ; preds = %105, %101, %96, %.lr.ph86.i
-  %.3.i51 = phi i32 [ %106, %105 ], [ %.284.i, %101 ], [ %.284.i, %96 ], [ %.284.i, %.lr.ph86.i ]
-  %109 = add i32 %.15583.i, 1
-  %.not67.i = icmp sgt i32 %109, %3
+110:                                              ; preds = %107, %103, %98, %.lr.ph86.i
+  %.3.i51 = phi i32 [ %108, %107 ], [ %.284.i, %103 ], [ %.284.i, %98 ], [ %.284.i, %.lr.ph86.i ]
+  %111 = add i32 %.15583.i, 1
+  %.not67.i = icmp sgt i32 %111, %3
   br i1 %.not67.i, label %._crit_edge87.i, label %.lr.ph86.i, !llvm.loop !13
 
-._crit_edge87.i:                                  ; preds = %108
-  %110 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
-  br i1 %110, label %.sink.split.i, label %133
+._crit_edge87.i:                                  ; preds = %110
+  %112 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  br i1 %112, label %.sink.split.i, label %137
 
-111:                                              ; preds = %._crit_edge.i50
+113:                                              ; preds = %._crit_edge.i50
   %.not62.i = icmp eq i32 %.150.i, 0
-  br i1 %.not62.i, label %.lr.ph96.i, label %112
+  br i1 %.not62.i, label %.lr.ph96.i, label %114
 
-112:                                              ; preds = %111
-  %113 = add i32 %.150.i, -1
-  %114 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %113, i32 noundef 0) #9
+114:                                              ; preds = %113
+  %115 = add i32 %.150.i, -1
+  %116 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %115, i32 noundef 0) #9
   br label %.lr.ph92.i
 
-.lr.ph92.i:                                       ; preds = %122, %112
-  %.25190.i = phi i32 [ %.352.i, %122 ], [ %.150.i, %112 ]
-  %.25689.i = phi i32 [ %123, %122 ], [ 1, %112 ]
+.lr.ph92.i:                                       ; preds = %125, %114
+  %.25190.i = phi i32 [ %.352.i, %125 ], [ %.150.i, %114 ]
+  %.25689.i = phi i32 [ %126, %125 ], [ 1, %114 ]
   %.not65.i = icmp eq i32 %.25689.i, %39
-  br i1 %.not65.i, label %122, label %115
+  br i1 %.not65.i, label %125, label %117
 
-115:                                              ; preds = %.lr.ph92.i
-  %116 = sext i32 %.25689.i to i64
-  %117 = getelementptr inbounds %struct.Edge, ptr %1, i64 %116, i32 2
-  %118 = load i32, ptr %117, align 4
-  %.not66.i = icmp eq i32 %118, -1
-  br i1 %.not66.i, label %122, label %119
+117:                                              ; preds = %.lr.ph92.i
+  %118 = sext i32 %.25689.i to i64
+  %119 = getelementptr inbounds %struct.Edge, ptr %1, i64 %118
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 20
+  %121 = load i32, ptr %120, align 4
+  %.not66.i = icmp eq i32 %121, -1
+  br i1 %.not66.i, label %125, label %122
 
-119:                                              ; preds = %115
-  %120 = add i32 %.25190.i, -1
-  %121 = icmp eq i32 %114, %120
-  br i1 %121, label %edge_failure.exit, label %122
+122:                                              ; preds = %117
+  %123 = add i32 %.25190.i, -1
+  %124 = icmp eq i32 %116, %123
+  br i1 %124, label %edge_failure.exit, label %125
 
-122:                                              ; preds = %119, %115, %.lr.ph92.i
-  %.352.i = phi i32 [ %120, %119 ], [ %.25190.i, %115 ], [ %.25190.i, %.lr.ph92.i ]
-  %123 = add i32 %.25689.i, 1
-  %.not64.i = icmp sgt i32 %123, %3
+125:                                              ; preds = %122, %117, %.lr.ph92.i
+  %.352.i = phi i32 [ %123, %122 ], [ %.25190.i, %117 ], [ %.25190.i, %.lr.ph92.i ]
+  %126 = add i32 %.25689.i, 1
+  %.not64.i = icmp sgt i32 %126, %3
   br i1 %.not64.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !14
 
-._crit_edge93.i:                                  ; preds = %122
-  %124 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
-  br i1 %124, label %.sink.split.i, label %133
+._crit_edge93.i:                                  ; preds = %125
+  %127 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  br i1 %127, label %.sink.split.i, label %137
 
-.lr.ph96.i:                                       ; preds = %111, %129
-  %.35795.i = phi i32 [ %130, %129 ], [ 1, %111 ]
-  %125 = sext i32 %.35795.i to i64
-  %126 = getelementptr inbounds %struct.Edge, ptr %1, i64 %125, i32 2
-  %127 = load i32, ptr %126, align 4
-  %128 = icmp sgt i32 %127, -1
-  br i1 %128, label %edge_failure.exit, label %129
+.lr.ph96.i:                                       ; preds = %113, %133
+  %.35795.i = phi i32 [ %134, %133 ], [ 1, %113 ]
+  %128 = sext i32 %.35795.i to i64
+  %129 = getelementptr inbounds %struct.Edge, ptr %1, i64 %128
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 20
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp sgt i32 %131, -1
+  br i1 %132, label %edge_failure.exit, label %133
 
-129:                                              ; preds = %.lr.ph96.i
-  %130 = add i32 %.35795.i, 1
-  %.not63.i = icmp sgt i32 %130, %3
+133:                                              ; preds = %.lr.ph96.i
+  %134 = add i32 %.35795.i, 1
+  %.not63.i = icmp sgt i32 %134, %3
   br i1 %.not63.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !15
 
-._crit_edge97.i:                                  ; preds = %129
-  %131 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
-  br i1 %131, label %.sink.split.i, label %133
+._crit_edge97.i:                                  ; preds = %133
+  %135 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  br i1 %135, label %.sink.split.i, label %137
 
 .sink.split.i:                                    ; preds = %._crit_edge97.i, %._crit_edge93.i, %._crit_edge87.i
   %.str.4.sink.i = phi ptr [ @.str.3, %._crit_edge87.i ], [ @.str.4, %._crit_edge93.i ], [ @.str.5, %._crit_edge97.i ]
   %.sink.i = phi i32 [ 422, %._crit_edge87.i ], [ 443, %._crit_edge93.i ], [ 461, %._crit_edge97.i ]
-  %132 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull %.str.4.sink.i) #9
+  %136 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull %.str.4.sink.i) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink.i, ptr noundef nonnull @__func__.edge_failure) #9
-  br label %133
+  br label %137
 
-133:                                              ; preds = %.sink.split.i, %._crit_edge97.i, %._crit_edge93.i, %._crit_edge87.i
-  %134 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %134)
-  %135 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #9
+137:                                              ; preds = %.sink.split.i, %._crit_edge97.i, %._crit_edge93.i, %._crit_edge87.i
+  %138 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %138)
+  %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 466, ptr noundef nonnull @__func__.edge_failure) #9
   unreachable
 
-edge_failure.exit:                                ; preds = %105, %119, %.lr.ph96.i, %gimme_gene.exit
-  %.053.i.sink = phi i32 [ %.0.i, %gimme_gene.exit ], [ %.35795.i, %.lr.ph96.i ], [ %.25689.i, %119 ], [ %.15583.i, %105 ]
-  %.1 = phi i32 [ %.073, %gimme_gene.exit ], [ %81, %.lr.ph96.i ], [ %81, %119 ], [ %81, %105 ]
-  %136 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  store i32 %.053.i.sink, ptr %136, align 4
-  %137 = load i32, ptr %14, align 4
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds %struct.Edge, ptr %1, i64 %138, i32 2
-  store i32 -1, ptr %139, align 4
+edge_failure.exit:                                ; preds = %107, %122, %.lr.ph96.i, %gimme_gene.exit
+  %.053.i.sink = phi i32 [ %.0.i, %gimme_gene.exit ], [ %.35795.i, %.lr.ph96.i ], [ %.25689.i, %122 ], [ %.15583.i, %107 ]
+  %.1 = phi i32 [ %.073, %gimme_gene.exit ], [ %83, %.lr.ph96.i ], [ %83, %122 ], [ %83, %107 ]
+  %140 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  store i32 %.053.i.sink, ptr %140, align 4
+  %141 = load i32, ptr %14, align 4
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds %struct.Edge, ptr %1, i64 %142
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 20
+  store i32 -1, ptr %144, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !16

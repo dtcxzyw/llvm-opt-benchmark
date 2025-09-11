@@ -708,36 +708,37 @@ define linkonce_odr void @_ZNK5arrow8internal7TDigest11TDigestImpl8ValidateEv(pt
   %54 = fmul double %.val28, 0xBFF921FB54442D18
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %65, %.lr.ph.preheader.i
-  %.06.i = phi double [ %58, %65 ], [ 0.000000e+00, %.lr.ph.preheader.i ]
-  %.0195.i = phi double [ %61, %65 ], [ %54, %.lr.ph.preheader.i ]
-  %.0234.i = phi i64 [ %66, %65 ], [ 0, %.lr.ph.preheader.i ]
-  %55 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val23, i64 %.0234.i, i32 1
-  %56 = load double, ptr %55, align 8, !tbaa !35, !noalias !36
-  %57 = fdiv double %56, %27
-  %58 = fadd double %.06.i, %57
-  %59 = tail call double @llvm.fmuladd.f64(double %58, double 2.000000e+00, double -1.000000e+00)
-  %60 = tail call double @asin(double noundef %59) #25, !tbaa !39, !noalias !36
-  %61 = fmul double %.val28, %60
-  %62 = fcmp une double %56, 1.000000e+00
-  %63 = fsub double %61, %.0195.i
-  %64 = fcmp ogt double %63, 1.001000e+00
-  %or.cond.i = select i1 %62, i1 %64, i1 false
-  br i1 %or.cond.i, label %.critedge.i, label %65
+.lr.ph.i:                                         ; preds = %66, %.lr.ph.preheader.i
+  %.06.i = phi double [ %59, %66 ], [ 0.000000e+00, %.lr.ph.preheader.i ]
+  %.0195.i = phi double [ %62, %66 ], [ %54, %.lr.ph.preheader.i ]
+  %.0234.i = phi i64 [ %67, %66 ], [ 0, %.lr.ph.preheader.i ]
+  %55 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val23, i64 %.0234.i
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = load double, ptr %56, align 8, !tbaa !35, !noalias !36
+  %58 = fdiv double %57, %27
+  %59 = fadd double %.06.i, %58
+  %60 = tail call double @llvm.fmuladd.f64(double %59, double 2.000000e+00, double -1.000000e+00)
+  %61 = tail call double @asin(double noundef %60) #25, !tbaa !39, !noalias !36
+  %62 = fmul double %.val28, %61
+  %63 = fcmp une double %57, 1.000000e+00
+  %64 = fsub double %62, %.0195.i
+  %65 = fcmp ogt double %64, 1.001000e+00
+  %or.cond.i = select i1 %63, i1 %65, i1 false
+  br i1 %or.cond.i, label %.critedge.i, label %66
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !36
-  store double %63, ptr %3, align 8, !tbaa !40, !noalias !36
+  store double %64, ptr %3, align 8, !tbaa !40, !noalias !36
   call void @_ZN5arrow6Status8FromArgsIJRA21_KcdEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(21) @.str.7, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !36
   br label %_ZNK5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE8ValidateERKSt6vectorINS1_8CentroidESaIS6_EEd.exit
 
-65:                                               ; preds = %.lr.ph.i
-  %66 = add nuw i64 %.0234.i, 1
-  %exitcond.not.i = icmp eq i64 %66, %53
+66:                                               ; preds = %.lr.ph.i
+  %67 = add nuw i64 %.0234.i, 1
+  %exitcond.not.i = icmp eq i64 %67, %53
   br i1 %exitcond.not.i, label %.critedge26.i, label %.lr.ph.i, !llvm.loop !41
 
-.critedge26.i:                                    ; preds = %65, %48
+.critedge26.i:                                    ; preds = %66, %48
   store ptr null, ptr %0, align 8, !tbaa !43, !alias.scope !46
   br label %_ZNK5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE8ValidateERKSt6vectorINS1_8CentroidESaIS6_EEd.exit
 
@@ -827,7 +828,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %25, 
   ret void
 
 .lr.ph:                                           ; preds = %1, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15
-  %.018 = phi i64 [ %63, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15 ], [ 0, %1 ]
+  %.018 = phi i64 [ %64, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15 ], [ 0, %1 ]
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.018)
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.9, i64 noundef 9)
   %.val9 = load ptr, ptr %6, align 8, !tbaa !13
@@ -836,54 +837,55 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %25, 
   %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %35, double noundef %38)
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull @.str.10, i64 noundef 11)
   %.val10 = load ptr, ptr %6, align 8, !tbaa !13
-  %41 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val10, i64 %.018, i32 1
-  %42 = load double, ptr %41, align 8, !tbaa !35
-  %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %39, double noundef %42)
-  %44 = load ptr, ptr %43, align 8, !tbaa !49
-  %45 = getelementptr i8, ptr %44, i64 -24
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 240
-  %49 = load ptr, ptr %48, align 8, !tbaa !51
-  %.not.i.i.i11 = icmp eq ptr %49, null
-  br i1 %.not.i.i.i11, label %50, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i12
+  %41 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val10, i64 %.018
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load double, ptr %42, align 8, !tbaa !35
+  %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %39, double noundef %43)
+  %45 = load ptr, ptr %44, align 8, !tbaa !49
+  %46 = getelementptr i8, ptr %45, i64 -24
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %44, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 240
+  %50 = load ptr, ptr %49, align 8, !tbaa !51
+  %.not.i.i.i11 = icmp eq ptr %50, null
+  br i1 %.not.i.i.i11, label %51, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i12
 
-50:                                               ; preds = %.lr.ph
+51:                                               ; preds = %.lr.ph
   tail call void @_ZSt16__throw_bad_castv() #26
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i12: ; preds = %.lr.ph
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 56
-  %52 = load i8, ptr %51, align 8, !tbaa !68
-  %.not.i1.i.i13 = icmp eq i8 %52, 0
-  br i1 %.not.i1.i.i13, label %56, label %53
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 56
+  %53 = load i8, ptr %52, align 8, !tbaa !68
+  %.not.i1.i.i13 = icmp eq i8 %53, 0
+  br i1 %.not.i1.i.i13, label %57, label %54
 
-53:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i12
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 67
-  %55 = load i8, ptr %54, align 1, !tbaa !74
+54:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i12
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 67
+  %56 = load i8, ptr %55, align 1, !tbaa !74
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15
 
-56:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i12
-  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %49)
-  %57 = load ptr, ptr %49, align 8, !tbaa !49
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef signext i8 %59(ptr noundef nonnull align 8 dereferenceable(570) %49, i8 noundef signext 10)
+57:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i12
+  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %50)
+  %58 = load ptr, ptr %50, align 8, !tbaa !49
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call noundef signext i8 %60(ptr noundef nonnull align 8 dereferenceable(570) %50, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15
 
-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15: ; preds = %53, %56
-  %.0.i.i.i14 = phi i8 [ %55, %53 ], [ %60, %56 ]
-  %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %43, i8 noundef signext %.0.i.i.i14)
-  %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %61)
-  %63 = add nuw i64 %.018, 1
+_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15: ; preds = %54, %57
+  %.0.i.i.i14 = phi i8 [ %56, %54 ], [ %61, %57 ]
+  %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %44, i8 noundef signext %.0.i.i.i14)
+  %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %62)
+  %64 = add nuw i64 %.018, 1
   %.val = load ptr, ptr %6, align 8, !tbaa !13
   %.val8 = load ptr, ptr %7, align 8, !tbaa !16
-  %64 = ptrtoint ptr %.val8 to i64
-  %65 = ptrtoint ptr %.val to i64
-  %66 = sub i64 %64, %65
-  %67 = ashr exact i64 %66, 4
-  %68 = icmp ult i64 %63, %67
-  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !75
+  %65 = ptrtoint ptr %.val8 to i64
+  %66 = ptrtoint ptr %.val to i64
+  %67 = sub i64 %65, %66
+  %68 = ashr exact i64 %67, 4
+  %69 = icmp ult i64 %64, %68
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !75
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1718,7 +1720,7 @@ define linkonce_odr noundef double @_ZNK5arrow8internal7TDigest11TDigestImpl8Qua
   %3 = fcmp olt double %1, 0.000000e+00
   %4 = fcmp ogt double %1, 1.000000e+00
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %101, label %5
+  br i1 %or.cond, label %100, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1734,7 +1736,7 @@ define linkonce_odr noundef double @_ZNK5arrow8internal7TDigest11TDigestImpl8Qua
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 4
   %16 = icmp eq ptr %.val71, %.val
-  br i1 %16, label %101, label %17
+  br i1 %16, label %100, label %17
 
 17:                                               ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1746,7 +1748,7 @@ define linkonce_odr noundef double @_ZNK5arrow8internal7TDigest11TDigestImpl8Qua
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load double, ptr %23, align 8, !tbaa !25
-  br label %101
+  br label %100
 
 25:                                               ; preds = %17
   %26 = fadd double %19, -1.000000e+00
@@ -1756,115 +1758,119 @@ define linkonce_odr noundef double @_ZNK5arrow8internal7TDigest11TDigestImpl8Qua
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load double, ptr %29, align 8, !tbaa !26
-  br label %101
+  br label %100
 
-.lr.ph:                                           ; preds = %25, %36
-  %31 = phi i64 [ %38, %36 ], [ 0, %25 ]
-  %.06091 = phi double [ %34, %36 ], [ 0.000000e+00, %25 ]
-  %.06290 = phi i32 [ %37, %36 ], [ 0, %25 ]
-  %32 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val, i64 %31, i32 1
-  %33 = load double, ptr %32, align 8, !tbaa !35
-  %34 = fadd double %.06091, %33
-  %35 = fcmp ugt double %20, %34
-  br i1 %35, label %36, label %._crit_edge
+.lr.ph:                                           ; preds = %25, %37
+  %31 = phi i64 [ %39, %37 ], [ 0, %25 ]
+  %.06091 = phi double [ %35, %37 ], [ 0.000000e+00, %25 ]
+  %.06290 = phi i32 [ %38, %37 ], [ 0, %25 ]
+  %32 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load double, ptr %33, align 8, !tbaa !35
+  %35 = fadd double %.06091, %34
+  %36 = fcmp ugt double %20, %35
+  br i1 %36, label %37, label %._crit_edge
 
-36:                                               ; preds = %.lr.ph
-  %37 = add i32 %.06290, 1
-  %38 = zext i32 %37 to i64
-  %39 = icmp ugt i64 %15, %38
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !104
+37:                                               ; preds = %.lr.ph
+  %38 = add i32 %.06290, 1
+  %39 = zext i32 %38 to i64
+  %40 = icmp ugt i64 %15, %39
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !104
 
-._crit_edge:                                      ; preds = %36, %.lr.ph
-  %.062.lcssa.ph = phi i32 [ %37, %36 ], [ %.06290, %.lr.ph ]
-  %.lcssa.ph = phi i64 [ %38, %36 ], [ %31, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val, i64 %.lcssa.ph
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load double, ptr %41, align 8, !tbaa !35
-  %43 = fmul double %42, 5.000000e-01
-  %44 = fadd double %20, %43
-  %45 = fsub double %44, %34
-  %46 = fcmp oeq double %42, 1.000000e+00
-  %47 = tail call double @llvm.fabs.f64(double %45)
-  %48 = fcmp olt double %47, 5.000000e-01
-  %or.cond89 = and i1 %46, %48
-  br i1 %or.cond89, label %49, label %51
+._crit_edge:                                      ; preds = %37, %.lr.ph
+  %.062.lcssa.ph = phi i32 [ %38, %37 ], [ %.06290, %.lr.ph ]
+  %.lcssa.ph = phi i64 [ %39, %37 ], [ %31, %.lr.ph ]
+  %41 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val, i64 %.lcssa.ph
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load double, ptr %42, align 8, !tbaa !35
+  %44 = fmul double %43, 5.000000e-01
+  %45 = fadd double %20, %44
+  %46 = fsub double %45, %35
+  %47 = fcmp oeq double %43, 1.000000e+00
+  %48 = tail call double @llvm.fabs.f64(double %46)
+  %49 = fcmp olt double %48, 5.000000e-01
+  %or.cond89 = and i1 %47, %49
+  br i1 %or.cond89, label %50, label %52
 
-49:                                               ; preds = %._crit_edge
-  %50 = load double, ptr %40, align 8, !tbaa !33
-  br label %101
+50:                                               ; preds = %._crit_edge
+  %51 = load double, ptr %41, align 8, !tbaa !33
+  br label %100
 
-51:                                               ; preds = %._crit_edge
-  %52 = fcmp ogt double %45, 0.000000e+00
-  br i1 %52, label %53, label %65
+52:                                               ; preds = %._crit_edge
+  %53 = fcmp ogt double %46, 0.000000e+00
+  br i1 %53, label %54, label %66
 
-53:                                               ; preds = %51
-  %54 = add nsw i64 %15, -1
-  %55 = icmp eq i64 %54, %.lcssa.ph
-  br i1 %55, label %56, label %63
+54:                                               ; preds = %52
+  %55 = add nsw i64 %15, -1
+  %56 = icmp eq i64 %55, %.lcssa.ph
+  br i1 %56, label %57, label %64
 
-56:                                               ; preds = %53
-  %57 = load double, ptr %40, align 8, !tbaa !33
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %59 = load double, ptr %58, align 8, !tbaa !26
-  %60 = fdiv double %45, %43
-  %61 = fsub double %59, %57
-  %62 = tail call noundef double @llvm.fmuladd.f64(double %60, double %61, double %57)
-  br label %101
+57:                                               ; preds = %54
+  %58 = load double, ptr %41, align 8, !tbaa !33
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %60 = load double, ptr %59, align 8, !tbaa !26
+  %61 = fdiv double %46, %44
+  %62 = fsub double %60, %58
+  %63 = tail call noundef double @llvm.fmuladd.f64(double %61, double %62, double %58)
+  br label %100
 
-63:                                               ; preds = %53
-  %64 = add i32 %.062.lcssa.ph, 1
-  %.pre = zext i32 %.062.lcssa.ph to i64
-  br label %85
+64:                                               ; preds = %54
+  %65 = add i32 %.062.lcssa.ph, 1
+  %.phi.trans.insert = zext i32 %.062.lcssa.ph to i64
+  %.phi.trans.insert99 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val, i64 %.phi.trans.insert
+  %.phi.trans.insert100 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert99, i64 8
+  %.pre = load double, ptr %.phi.trans.insert100, align 8, !tbaa !35
+  %.pre102 = fmul double %.pre, 5.000000e-01
+  br label %87
 
-65:                                               ; preds = %51
-  %66 = icmp eq i32 %.062.lcssa.ph, 0
-  br i1 %66, label %67, label %77
+66:                                               ; preds = %52
+  %67 = icmp eq i32 %.062.lcssa.ph, 0
+  br i1 %67, label %68, label %78
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load double, ptr %68, align 8, !tbaa !25
-  %70 = load double, ptr %.val, align 8, !tbaa !33
-  %71 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %72 = load double, ptr %71, align 8, !tbaa !35
-  %73 = fmul double %72, 5.000000e-01
-  %74 = fdiv double %20, %73
-  %75 = fsub double %70, %69
-  %76 = tail call noundef double @llvm.fmuladd.f64(double %74, double %75, double %69)
-  br label %101
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %70 = load double, ptr %69, align 8, !tbaa !25
+  %71 = load double, ptr %.val, align 8, !tbaa !33
+  %72 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %73 = load double, ptr %72, align 8, !tbaa !35
+  %74 = fmul double %73, 5.000000e-01
+  %75 = fdiv double %20, %74
+  %76 = fsub double %71, %70
+  %77 = tail call noundef double @llvm.fmuladd.f64(double %75, double %76, double %70)
+  br label %100
 
-77:                                               ; preds = %65
-  %78 = add i32 %.062.lcssa.ph, -1
-  %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val, i64 %79, i32 1
-  %81 = load double, ptr %80, align 8, !tbaa !35
-  %82 = fmul double %81, 5.000000e-01
-  %83 = fadd double %43, %82
-  %84 = fadd double %45, %83
-  br label %85
+78:                                               ; preds = %66
+  %79 = add i32 %.062.lcssa.ph, -1
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val, i64 %80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = load double, ptr %82, align 8, !tbaa !35
+  %84 = fmul double %83, 5.000000e-01
+  %85 = fadd double %44, %84
+  %86 = fadd double %46, %85
+  br label %87
 
-85:                                               ; preds = %77, %63
-  %.pre-phi = phi i64 [ %79, %77 ], [ %.pre, %63 ]
-  %.059 = phi double [ %84, %77 ], [ %45, %63 ]
-  %.057 = phi i32 [ %.062.lcssa.ph, %77 ], [ %64, %63 ]
-  %86 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val, i64 %.pre-phi
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %88 = load double, ptr %87, align 8, !tbaa !35
-  %89 = fmul double %88, 5.000000e-01
-  %90 = zext i32 %.057 to i64
-  %91 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val, i64 %90
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load double, ptr %92, align 8, !tbaa !35
-  %94 = fmul double %93, 5.000000e-01
-  %95 = fadd double %89, %94
-  %96 = fdiv double %.059, %95
-  %97 = load double, ptr %86, align 8, !tbaa !33
-  %98 = load double, ptr %91, align 8, !tbaa !33
-  %99 = fsub double %98, %97
-  %100 = tail call noundef double @llvm.fmuladd.f64(double %96, double %99, double %97)
-  br label %101
+87:                                               ; preds = %78, %64
+  %.pre-phi103 = phi double [ %84, %78 ], [ %.pre102, %64 ]
+  %.pre-phi = phi i64 [ %80, %78 ], [ %.phi.trans.insert, %64 ]
+  %.059 = phi double [ %86, %78 ], [ %46, %64 ]
+  %.057 = phi i32 [ %.062.lcssa.ph, %78 ], [ %65, %64 ]
+  %88 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val, i64 %.pre-phi
+  %89 = zext i32 %.057 to i64
+  %90 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %.val, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load double, ptr %91, align 8, !tbaa !35
+  %93 = fmul double %92, 5.000000e-01
+  %94 = fadd double %.pre-phi103, %93
+  %95 = fdiv double %.059, %94
+  %96 = load double, ptr %88, align 8, !tbaa !33
+  %97 = load double, ptr %90, align 8, !tbaa !33
+  %98 = fsub double %97, %96
+  %99 = tail call noundef double @llvm.fmuladd.f64(double %95, double %98, double %96)
+  br label %100
 
-101:                                              ; preds = %22, %28, %56, %67, %85, %49, %2, %5
-  %.0 = phi double [ 0x7FF8000000000000, %5 ], [ 0x7FF8000000000000, %2 ], [ %24, %22 ], [ %30, %28 ], [ %50, %49 ], [ %62, %56 ], [ %100, %85 ], [ %76, %67 ]
+100:                                              ; preds = %22, %28, %57, %68, %87, %50, %2, %5
+  %.0 = phi double [ 0x7FF8000000000000, %5 ], [ 0x7FF8000000000000, %2 ], [ %24, %22 ], [ %30, %28 ], [ %51, %50 ], [ %63, %57 ], [ %99, %87 ], [ %77, %68 ]
   ret double %.0
 }
 

@@ -1332,7 +1332,7 @@ define void @Json_ReadTest(ptr noundef %0) local_unnamed_addr #2 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call ptr @Json_Read(ptr noundef %0, ptr noundef nonnull %2)
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %30, label %5
+  br i1 %4, label %32, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8, !tbaa !28
@@ -1359,45 +1359,47 @@ Json_Write.exit:                                  ; preds = %9, %11
   %.pre.i.i = load ptr, ptr %16, align 8, !tbaa !12
   br i1 %15, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %Json_Write.exit, %24
-  %17 = phi i32 [ %25, %24 ], [ %14, %Json_Write.exit ]
-  %18 = phi ptr [ %26, %24 ], [ %.pre.i.i, %Json_Write.exit ]
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %Json_Write.exit ]
-  %19 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %18, i64 %indvars.iv.i.i, i32 2
-  %20 = load ptr, ptr %19, align 8, !tbaa !3
-  %.not15.i.i = icmp eq ptr %20, null
-  br i1 %.not15.i.i, label %24, label %21
+.lr.ph.i.i:                                       ; preds = %Json_Write.exit, %26
+  %17 = phi i32 [ %27, %26 ], [ %14, %Json_Write.exit ]
+  %18 = phi ptr [ %28, %26 ], [ %.pre.i.i, %Json_Write.exit ]
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %26 ], [ 0, %Json_Write.exit ]
+  %19 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %18, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
+  %.not15.i.i = icmp eq ptr %21, null
+  br i1 %.not15.i.i, label %26, label %22
 
-21:                                               ; preds = %.lr.ph.i.i
-  tail call void @free(ptr noundef nonnull %20) #14
-  %22 = load ptr, ptr %16, align 8, !tbaa !12
-  %23 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %22, i64 %indvars.iv.i.i, i32 2
-  store ptr null, ptr %23, align 8, !tbaa !3
+22:                                               ; preds = %.lr.ph.i.i
+  tail call void @free(ptr noundef nonnull %21) #14
+  %23 = load ptr, ptr %16, align 8, !tbaa !12
+  %24 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %23, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr null, ptr %25, align 8, !tbaa !3
   %.pre18.i.i = load i32, ptr %3, align 8, !tbaa !23
-  br label %24
+  br label %26
 
-24:                                               ; preds = %21, %.lr.ph.i.i
-  %25 = phi i32 [ %.pre18.i.i, %21 ], [ %17, %.lr.ph.i.i ]
-  %26 = phi ptr [ %22, %21 ], [ %18, %.lr.ph.i.i ]
+26:                                               ; preds = %22, %.lr.ph.i.i
+  %27 = phi i32 [ %.pre18.i.i, %22 ], [ %17, %.lr.ph.i.i ]
+  %28 = phi ptr [ %23, %22 ], [ %18, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %27 = sext i32 %25 to i64
-  %28 = icmp slt i64 %indvars.iv.next.i.i, %27
-  br i1 %28, label %.lr.ph.i.i, label %._crit_edge.thread.i.i, !llvm.loop !30
+  %29 = sext i32 %27 to i64
+  %30 = icmp slt i64 %indvars.iv.next.i.i, %29
+  br i1 %30, label %.lr.ph.i.i, label %._crit_edge.thread.i.i, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %Json_Write.exit
   %.not.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i, label %Vec_WecFree.exit, label %._crit_edge.thread.i.i
 
-._crit_edge.thread.i.i:                           ; preds = %24, %._crit_edge.i.i
-  %29 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %26, %24 ]
-  tail call void @free(ptr noundef nonnull %29) #14
+._crit_edge.thread.i.i:                           ; preds = %26, %._crit_edge.i.i
+  %31 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %28, %26 ]
+  tail call void @free(ptr noundef nonnull %31) #14
   br label %Vec_WecFree.exit
 
 Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %._crit_edge.thread.i.i
   tail call void @free(ptr noundef nonnull %3) #14
-  br label %30
+  br label %32
 
-30:                                               ; preds = %1, %Vec_WecFree.exit
+32:                                               ; preds = %1, %Vec_WecFree.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

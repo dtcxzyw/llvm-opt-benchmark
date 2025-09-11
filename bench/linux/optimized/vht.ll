@@ -375,7 +375,8 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
 
 29:                                               ; preds = %27, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %24 ]
-  %30 = getelementptr %struct.ieee80211_channel, ptr %25, i64 %indvars.iv, i32 4
+  %.split = getelementptr %struct.ieee80211_channel, ptr %25, i64 %indvars.iv
+  %30 = getelementptr i8, ptr %.split, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 129
   %33 = icmp eq i32 %32, 0

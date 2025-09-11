@@ -910,8 +910,8 @@ define hidden void @_ZN6Assimp14AssbinImporter14ReadBinaryNodeEPNS_8IOStreamEPP6
   call void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #20
   unreachable
 
-common.resume:                                    ; preds = %34, %331, %44, %28
-  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %45, %44 ], [ %35, %34 ], [ %.pn67.pn.pn.pn.pn, %331 ]
+common.resume:                                    ; preds = %34, %332, %44, %28
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %45, %44 ], [ %35, %34 ], [ %.pn67.pn.pn.pn.pn, %332 ]
   resume { ptr, i32 } %common.resume.op
 
 28:                                               ; preds = %25
@@ -1137,7 +1137,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.noexc78, %.noexc
   %106 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef 1144) #18
-  br label %331
+  br label %332
 
 107:                                              ; preds = %53, %47
   %108 = landingpad { ptr, i32 }
@@ -1800,8 +1800,9 @@ _Z4ReadI8aiStringET_PN6Assimp8IOStreamE.exit145:  ; preds = %.noexc143, %.noexc1
   %327 = load ptr, ptr %175, align 8
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 16
   %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %329, i64 %indvars.iv210, i32 1
-  store ptr %.053, ptr %330, align 8
+  %330 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %329, i64 %indvars.iv210
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
+  store ptr %.053, ptr %331, align 8
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %158
   br i1 %exitcond214.not, label %_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit, label %177, !llvm.loop !19
@@ -1814,9 +1815,9 @@ _ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev.exit: ; preds = %326, %.lo
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit174, %.loopexit.split-lp175, %210, %133, %115, %99, %113, %88, %111, %77, %154, %240, %.body119, %.body124, %.body129, %.body134, %.body139, %317, %324, %224, %109, %107
   %.pn67.pn.pn.pn = phi { ptr, i32 } [ %110, %109 ], [ %108, %107 ], [ %155, %154 ], [ %225, %224 ], [ %eh.lpad-body120, %.body119 ], [ %241, %240 ], [ %eh.lpad-body125, %.body124 ], [ %eh.lpad-body130, %.body129 ], [ %eh.lpad-body135, %.body134 ], [ %eh.lpad-body140, %.body139 ], [ %318, %317 ], [ %325, %324 ], [ %112, %111 ], [ %78, %77 ], [ %114, %113 ], [ %89, %88 ], [ %116, %115 ], [ %100, %99 ], [ %134, %133 ], [ %211, %210 ], [ %lpad.loopexit176, %.loopexit174 ], [ %lpad.loopexit.split-lp177, %.loopexit.split-lp175 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt10unique_ptrI6aiNodeSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #19
-  br label %331
+  br label %332
 
-331:                                              ; preds = %.body, %105
+332:                                              ; preds = %.body, %105
   %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn67.pn.pn.pn, %.body ], [ %106, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %common.resume

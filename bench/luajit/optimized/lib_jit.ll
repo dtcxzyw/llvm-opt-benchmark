@@ -1037,7 +1037,7 @@ define internal range(i32 0, 2) i32 @lj_cf_jit_util_funck(ptr noundef %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %8 = load i32, ptr %7, align 4, !tbaa !64
   %9 = zext i32 %8 to i64
-  %10 = icmp slt i64 %4, %9
+  %10 = icmp samesign ult i64 %4, %9
   br i1 %10, label %11, label %42
 
 11:                                               ; preds = %6
@@ -1057,7 +1057,7 @@ define internal range(i32 0, 2) i32 @lj_cf_jit_util_funck(ptr noundef %0) #0 {
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %23 = load i32, ptr %22, align 8, !tbaa !63
   %24 = zext i32 %23 to i64
-  %25 = icmp slt i64 %21, %24
+  %25 = icmp samesign ult i64 %21, %24
   br i1 %25, label %26, label %42
 
 26:                                               ; preds = %20

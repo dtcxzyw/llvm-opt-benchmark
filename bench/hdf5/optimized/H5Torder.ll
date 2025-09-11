@@ -241,7 +241,7 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T_get_order, i32 noundef 131, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.6) #4
   br label %.loopexit
 
-37:                                               ; preds = %49
+37:                                               ; preds = %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
@@ -252,31 +252,32 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
   %38 = load ptr, ptr %22, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %40 = load ptr, ptr %39, align 8, !tbaa !32
-  %41 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %40, i64 %indvars.iv, i32 3
-  %42 = load ptr, ptr %41, align 8, !tbaa !34
-  %43 = tail call i32 @H5T_get_order(ptr noundef %42)
-  %44 = icmp eq i32 %43, -1
-  br i1 %44, label %45, label %49
+  %41 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %40, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !34
+  %44 = tail call i32 @H5T_get_order(ptr noundef %43)
+  %45 = icmp eq i32 %44, -1
+  br i1 %45, label %46, label %50
 
-45:                                               ; preds = %.lr.ph
-  %46 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %47 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !11
-  %48 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T_get_order, i32 noundef 138, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.7) #4
+46:                                               ; preds = %.lr.ph
+  %47 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
+  %48 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !11
+  %49 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T_get_order, i32 noundef 138, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.7) #4
   br label %.loopexit
 
-49:                                               ; preds = %.lr.ph
-  %50 = icmp ne i32 %43, 4
-  %51 = icmp eq i32 %.248, 4
-  %or.cond = select i1 %50, i1 %51, i1 false
-  %spec.select = select i1 %or.cond, i32 %43, i32 %.248
-  %52 = icmp ne i32 %spec.select, 4
-  %.not40 = icmp ne i32 %43, %spec.select
-  %.not44 = and i1 %52, %.not40
-  %or.cond41.not = select i1 %50, i1 %.not44, i1 false
+50:                                               ; preds = %.lr.ph
+  %51 = icmp ne i32 %44, 4
+  %52 = icmp eq i32 %.248, 4
+  %or.cond = select i1 %51, i1 %52, i1 false
+  %spec.select = select i1 %or.cond, i32 %44, i32 %.248
+  %53 = icmp ne i32 %spec.select, 4
+  %.not40 = icmp ne i32 %44, %spec.select
+  %.not44 = and i1 %53, %.not40
+  %or.cond41.not = select i1 %51, i1 %.not44, i1 false
   br i1 %or.cond41.not, label %.loopexit, label %37
 
-.loopexit:                                        ; preds = %37, %49, %.preheader, %33, %45, %14, %25, %28, %10
-  %.033 = phi i32 [ -1, %10 ], [ 4, %28 ], [ %27, %25 ], [ 4, %14 ], [ -1, %33 ], [ -1, %45 ], [ 4, %.preheader ], [ %spec.select, %37 ], [ 3, %49 ]
+.loopexit:                                        ; preds = %37, %50, %.preheader, %33, %46, %14, %25, %28, %10
+  %.033 = phi i32 [ -1, %10 ], [ 4, %28 ], [ %27, %25 ], [ 4, %14 ], [ -1, %33 ], [ -1, %46 ], [ 4, %.preheader ], [ %spec.select, %37 ], [ 3, %50 ]
   ret i32 %.033
 }
 
@@ -535,20 +536,21 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__set_order(ptr noundef 
   %55 = load ptr, ptr %28, align 8, !tbaa !15
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
   %57 = load ptr, ptr %56, align 8, !tbaa !32
-  %58 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %57, i64 %indvars.iv, i32 3
-  %59 = load ptr, ptr %58, align 8, !tbaa !34
-  %60 = tail call fastcc i32 @H5T__set_order(ptr noundef %59, i32 noundef %1)
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %54
+  %58 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %57, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %60 = load ptr, ptr %59, align 8, !tbaa !34
+  %61 = tail call fastcc i32 @H5T__set_order(ptr noundef %60, i32 noundef %1)
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %54
 
-62:                                               ; preds = %.lr.ph
-  %63 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
-  %64 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
-  %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__set_order, i32 noundef 251, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.15) #4
+63:                                               ; preds = %.lr.ph
+  %64 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
+  %65 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
+  %66 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__set_order, i32 noundef 251, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.15) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %54, %44, %50, %62, %2, %37, %39, %33, %18
-  %.034 = phi i32 [ -1, %18 ], [ 0, %39 ], [ 0, %37 ], [ -1, %33 ], [ 0, %2 ], [ -1, %44 ], [ -1, %50 ], [ -1, %62 ], [ 0, %54 ]
+.loopexit:                                        ; preds = %54, %44, %50, %63, %2, %37, %39, %33, %18
+  %.034 = phi i32 [ -1, %18 ], [ 0, %39 ], [ 0, %37 ], [ -1, %33 ], [ 0, %2 ], [ -1, %44 ], [ -1, %50 ], [ -1, %63 ], [ 0, %54 ]
   ret i32 %.034
 }
 

@@ -637,7 +637,7 @@ define dso_local void @appendServerSaveParams(i64 noundef %0, i32 noundef %1) lo
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds %struct.saveparam, ptr %8, i64 %10
   store i64 %0, ptr %11, align 8, !tbaa !48
-  %12 = getelementptr inbounds %struct.saveparam, ptr %8, i64 %10, i32 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %1, ptr %12, align 8, !tbaa !50
   %13 = add nsw i32 %9, 1
   store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
@@ -7634,7 +7634,7 @@ define internal range(i32 0, 2) i32 @setConfigSaveOption(ptr readnone captures(n
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds %struct.saveparam, ptr %45, i64 %47
   store i64 %35, ptr %48, align 8, !tbaa !48
-  %49 = getelementptr inbounds %struct.saveparam, ptr %45, i64 %47, i32 1
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 %39, ptr %49, align 8, !tbaa !50
   %50 = add nsw i32 %46, 1
   store i32 %50, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
@@ -8892,7 +8892,7 @@ define dso_local void @addModuleEnumConfig(ptr noundef %0, ptr noundef %1, i32 n
   %21 = sext i32 %6 to i64
   %22 = getelementptr inbounds %struct.configEnum, ptr %19, i64 %21
   store ptr null, ptr %22, align 8, !tbaa !5
-  %23 = getelementptr inbounds %struct.configEnum, ptr %19, i64 %21, i32 1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 0, ptr %23, align 8, !tbaa !16
   %24 = tail call noalias dereferenceable_or_null(128) ptr @zmalloc(i64 noundef 128) #29
   %.sroa.7.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -8941,7 +8941,7 @@ define dso_local void @addModuleEnumConfig(ptr noundef %0, ptr noundef %1, i32 n
   store ptr %31, ptr %32, align 8, !tbaa !5
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !16
-  %35 = getelementptr inbounds nuw %struct.configEnum, ptr %19, i64 %indvars.iv, i32 1
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %34, ptr %35, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

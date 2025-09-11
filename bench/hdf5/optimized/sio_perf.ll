@@ -1828,130 +1828,131 @@ define internal fastcc void @output_results(ptr noundef nonnull readonly capture
   %.sroa.6.0 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.sroa.6.1, %7 ]
   %.sroa.0.0 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i ], [ %.sroa.0.1, %7 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i ], [ %17, %7 ]
-  %9 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i ], [ %15, %7 ]
-  %10 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %13, %7 ]
-  %11 = getelementptr inbounds nuw %struct.minmax, ptr %2, i64 %indvars.iv.i, i32 1
-  %12 = load double, ptr %11, align 8, !tbaa !83
-  %13 = fadd double %10, %12
-  %14 = fcmp olt double %12, %9
-  %.sroa.0.1 = select i1 %14, double %12, double %.sroa.0.0
-  %15 = select i1 %14, double %12, double %9
-  %16 = fcmp ogt double %12, %8
-  %.sroa.6.1 = select i1 %16, double %12, double %.sroa.6.0
-  %17 = select i1 %16, double %12, double %8
+  %8 = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i ], [ %18, %7 ]
+  %9 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i ], [ %16, %7 ]
+  %10 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %14, %7 ]
+  %11 = getelementptr inbounds nuw %struct.minmax, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load double, ptr %12, align 8, !tbaa !83
+  %14 = fadd double %10, %13
+  %15 = fcmp olt double %13, %9
+  %.sroa.0.1 = select i1 %15, double %13, double %.sroa.0.0
+  %16 = select i1 %15, double %13, double %9
+  %17 = fcmp ogt double %13, %8
+  %.sroa.6.1 = select i1 %17, double %13, double %.sroa.6.0
+  %18 = select i1 %17, double %13, double %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %accumulate_minmax_stuff.exit, label %7, !llvm.loop !85
 
 accumulate_minmax_stuff.exit:                     ; preds = %7, %5
-  %.sroa.10.0 = phi double [ 0.000000e+00, %5 ], [ %13, %7 ]
+  %.sroa.10.0 = phi double [ 0.000000e+00, %5 ], [ %14, %7 ]
   %.sroa.6.2 = phi double [ 0xFFEFFFFFFFFFFFFF, %5 ], [ %.sroa.6.1, %7 ]
   %.sroa.0.2 = phi double [ 0x7FEFFFFFFFFFFFFF, %5 ], [ %.sroa.0.1, %7 ]
   br label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %accumulate_minmax_stuff.exit
-  %.03.i = phi i32 [ %20, %.lr.ph.i11 ], [ 12, %accumulate_minmax_stuff.exit ]
-  %18 = load ptr, ptr @output, align 8, !tbaa !4
-  %19 = tail call i32 @fputc(i32 noundef 32, ptr noundef %18)
-  %20 = add nsw i32 %.03.i, -1
-  %21 = icmp samesign ugt i32 %.03.i, 1
-  br i1 %21, label %.lr.ph.i11, label %print_indent.exit, !llvm.loop !74
+  %.03.i = phi i32 [ %21, %.lr.ph.i11 ], [ 12, %accumulate_minmax_stuff.exit ]
+  %19 = load ptr, ptr @output, align 8, !tbaa !4
+  %20 = tail call i32 @fputc(i32 noundef 32, ptr noundef %19)
+  %21 = add nsw i32 %.03.i, -1
+  %22 = icmp samesign ugt i32 %.03.i, 1
+  br i1 %22, label %.lr.ph.i11, label %print_indent.exit, !llvm.loop !74
 
 print_indent.exit:                                ; preds = %.lr.ph.i11
   tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.24, ptr noundef %1, i32 noundef %3)
   br label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %.lr.ph.i13, %print_indent.exit
-  %.03.i14 = phi i32 [ %24, %.lr.ph.i13 ], [ 16, %print_indent.exit ]
-  %22 = load ptr, ptr @output, align 8, !tbaa !4
-  %23 = tail call i32 @fputc(i32 noundef 32, ptr noundef %22)
-  %24 = add nsw i32 %.03.i14, -1
-  %25 = icmp samesign ugt i32 %.03.i14, 1
-  br i1 %25, label %.lr.ph.i13, label %print_indent.exit16, !llvm.loop !74
+  %.03.i14 = phi i32 [ %25, %.lr.ph.i13 ], [ 16, %print_indent.exit ]
+  %23 = load ptr, ptr @output, align 8, !tbaa !4
+  %24 = tail call i32 @fputc(i32 noundef 32, ptr noundef %23)
+  %25 = add nsw i32 %.03.i14, -1
+  %26 = icmp samesign ugt i32 %.03.i14, 1
+  br i1 %26, label %.lr.ph.i13, label %print_indent.exit16, !llvm.loop !74
 
 print_indent.exit16:                              ; preds = %.lr.ph.i13
-  %26 = tail call double @llvm.fabs.f64(double %.sroa.0.2)
-  %27 = fcmp olt double %26, 0x3CB0000000000000
-  %28 = sitofp i64 %4 to double
-  %29 = fmul double %28, 0x3EB0000000000000
-  %30 = fdiv double %29, %.sroa.0.2
-  %31 = select i1 %27, double 0.000000e+00, double %30
-  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.25, double noundef %31)
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %33 = load i32, ptr %32, align 8, !tbaa !19
-  %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %35, label %34
+  %27 = tail call double @llvm.fabs.f64(double %.sroa.0.2)
+  %28 = fcmp olt double %27, 0x3CB0000000000000
+  %29 = sitofp i64 %4 to double
+  %30 = fmul double %29, 0x3EB0000000000000
+  %31 = fdiv double %30, %.sroa.0.2
+  %32 = select i1 %28, double 0.000000e+00, double %31
+  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.25, double noundef %32)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %34 = load i32, ptr %33, align 8, !tbaa !19
+  %.not = icmp eq i32 %34, 0
+  br i1 %.not, label %36, label %35
 
-34:                                               ; preds = %print_indent.exit16
+35:                                               ; preds = %print_indent.exit16
   tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.26, double noundef %.sroa.0.2)
   br label %.lr.ph.i17.preheader
 
-35:                                               ; preds = %print_indent.exit16
+36:                                               ; preds = %print_indent.exit16
   tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.27)
   br label %.lr.ph.i17.preheader
 
-.lr.ph.i17.preheader:                             ; preds = %35, %34
+.lr.ph.i17.preheader:                             ; preds = %36, %35
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17.preheader, %.lr.ph.i17
-  %.03.i18 = phi i32 [ %38, %.lr.ph.i17 ], [ 16, %.lr.ph.i17.preheader ]
-  %36 = load ptr, ptr @output, align 8, !tbaa !4
-  %37 = tail call i32 @fputc(i32 noundef 32, ptr noundef %36)
-  %38 = add nsw i32 %.03.i18, -1
-  %39 = icmp samesign ugt i32 %.03.i18, 1
-  br i1 %39, label %.lr.ph.i17, label %print_indent.exit20, !llvm.loop !74
+  %.03.i18 = phi i32 [ %39, %.lr.ph.i17 ], [ 16, %.lr.ph.i17.preheader ]
+  %37 = load ptr, ptr @output, align 8, !tbaa !4
+  %38 = tail call i32 @fputc(i32 noundef 32, ptr noundef %37)
+  %39 = add nsw i32 %.03.i18, -1
+  %40 = icmp samesign ugt i32 %.03.i18, 1
+  br i1 %40, label %.lr.ph.i17, label %print_indent.exit20, !llvm.loop !74
 
 print_indent.exit20:                              ; preds = %.lr.ph.i17
-  %40 = sitofp i32 %3 to double
-  %41 = fdiv double %.sroa.10.0, %40
-  %42 = tail call double @llvm.fabs.f64(double %41)
-  %43 = fcmp olt double %42, 0x3CB0000000000000
-  %44 = fdiv double %29, %41
-  %45 = select i1 %43, double 0.000000e+00, double %44
-  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.28, double noundef %45)
-  %46 = load i32, ptr %32, align 8, !tbaa !19
-  %.not9 = icmp eq i32 %46, 0
-  br i1 %.not9, label %48, label %47
-
-47:                                               ; preds = %print_indent.exit20
-  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.26, double noundef %41)
-  br label %.lr.ph.i21.preheader
+  %41 = sitofp i32 %3 to double
+  %42 = fdiv double %.sroa.10.0, %41
+  %43 = tail call double @llvm.fabs.f64(double %42)
+  %44 = fcmp olt double %43, 0x3CB0000000000000
+  %45 = fdiv double %30, %42
+  %46 = select i1 %44, double 0.000000e+00, double %45
+  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.28, double noundef %46)
+  %47 = load i32, ptr %33, align 8, !tbaa !19
+  %.not9 = icmp eq i32 %47, 0
+  br i1 %.not9, label %49, label %48
 
 48:                                               ; preds = %print_indent.exit20
+  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.26, double noundef %42)
+  br label %.lr.ph.i21.preheader
+
+49:                                               ; preds = %print_indent.exit20
   tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.27)
   br label %.lr.ph.i21.preheader
 
-.lr.ph.i21.preheader:                             ; preds = %48, %47
+.lr.ph.i21.preheader:                             ; preds = %49, %48
   br label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %.lr.ph.i21.preheader, %.lr.ph.i21
-  %.03.i22 = phi i32 [ %51, %.lr.ph.i21 ], [ 16, %.lr.ph.i21.preheader ]
-  %49 = load ptr, ptr @output, align 8, !tbaa !4
-  %50 = tail call i32 @fputc(i32 noundef 32, ptr noundef %49)
-  %51 = add nsw i32 %.03.i22, -1
-  %52 = icmp samesign ugt i32 %.03.i22, 1
-  br i1 %52, label %.lr.ph.i21, label %print_indent.exit24, !llvm.loop !74
+  %.03.i22 = phi i32 [ %52, %.lr.ph.i21 ], [ 16, %.lr.ph.i21.preheader ]
+  %50 = load ptr, ptr @output, align 8, !tbaa !4
+  %51 = tail call i32 @fputc(i32 noundef 32, ptr noundef %50)
+  %52 = add nsw i32 %.03.i22, -1
+  %53 = icmp samesign ugt i32 %.03.i22, 1
+  br i1 %53, label %.lr.ph.i21, label %print_indent.exit24, !llvm.loop !74
 
 print_indent.exit24:                              ; preds = %.lr.ph.i21
-  %53 = tail call double @llvm.fabs.f64(double %.sroa.6.2)
-  %54 = fcmp olt double %53, 0x3CB0000000000000
-  %55 = fdiv double %29, %.sroa.6.2
-  %56 = select i1 %54, double 0.000000e+00, double %55
-  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.29, double noundef %56)
-  %57 = load i32, ptr %32, align 8, !tbaa !19
-  %.not10 = icmp eq i32 %57, 0
-  br i1 %.not10, label %59, label %58
-
-58:                                               ; preds = %print_indent.exit24
-  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.26, double noundef %.sroa.6.2)
-  br label %60
+  %54 = tail call double @llvm.fabs.f64(double %.sroa.6.2)
+  %55 = fcmp olt double %54, 0x3CB0000000000000
+  %56 = fdiv double %30, %.sroa.6.2
+  %57 = select i1 %55, double 0.000000e+00, double %56
+  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.29, double noundef %57)
+  %58 = load i32, ptr %33, align 8, !tbaa !19
+  %.not10 = icmp eq i32 %58, 0
+  br i1 %.not10, label %60, label %59
 
 59:                                               ; preds = %print_indent.exit24
-  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.27)
-  br label %60
+  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.26, double noundef %.sroa.6.2)
+  br label %61
 
-60:                                               ; preds = %59, %58
+60:                                               ; preds = %print_indent.exit24
+  tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.27)
+  br label %61
+
+61:                                               ; preds = %60, %59
   ret void
 }
 

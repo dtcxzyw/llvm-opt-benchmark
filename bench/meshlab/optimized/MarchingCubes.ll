@@ -1533,7 +1533,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr noundef 
 
 40:                                               ; preds = %.preheader38, %_ZN13MarchingCubes9SetVertexEiPKdd.exit
   %indvars.iv = phi i64 [ 0, %.preheader38 ], [ %indvars.iv.next, %_ZN13MarchingCubes9SetVertexEiPKdd.exit ]
-  %.041 = phi i32 [ 1, %.preheader38 ], [ %95, %_ZN13MarchingCubes9SetVertexEiPKdd.exit ]
+  %.041 = phi i32 [ 1, %.preheader38 ], [ %96, %_ZN13MarchingCubes9SetVertexEiPKdd.exit ]
   %41 = and i32 %37, %.041
   %.not36 = icmp eq i32 %41, 0
   br i1 %.not36, label %_ZN13MarchingCubes9SetVertexEiPKdd.exit, label %42
@@ -1611,15 +1611,16 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr noundef 
 
 .sink.split.i:                                    ; preds = %81, %65, %48
   %.sink.i = phi double [ %89, %81 ], [ %80, %65 ], [ %64, %48 ]
-  %94 = getelementptr inbounds nuw [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %indvars.iv, i64 2
-  store double %.sink.i, ptr %94, align 8
+  %94 = getelementptr inbounds nuw [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  store double %.sink.i, ptr %95, align 8
   br label %_ZN13MarchingCubes9SetVertexEiPKdd.exit
 
 default.unreachable:                              ; preds = %42
   unreachable
 
 _ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %40
-  %95 = shl i32 %.041, 1
+  %96 = shl i32 %.041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %.preheader.lr.ph, label %40, !llvm.loop !15
@@ -1627,36 +1628,36 @@ _ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %40
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %.preheader ]
   %indvars.iv50 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next51, %.preheader ]
-  %96 = phi i32 [ %39, %.preheader.lr.ph ], [ %110, %.preheader ]
-  %97 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv50
-  %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %98
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %101 = load i32, ptr %100, align 4
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %102
-  %104 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %105 = load i32, ptr %104, align 4
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %103, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false)
+  %97 = phi i32 [ %39, %.preheader.lr.ph ], [ %111, %.preheader ]
+  %98 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv50
+  %99 = sext i32 %97 to i64
+  %100 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  %102 = load i32, ptr %101, align 4
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %106 = load i32, ptr %105, align 4
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %107
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %100, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %108, i64 24, i1 false)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %108 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %108, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
+  %109 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 3
-  %109 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.next51
-  %110 = load i32, ptr %109, align 4
-  %.not35 = icmp eq i32 %110, -1
+  %110 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.next51
+  %111 = load i32, ptr %110, align 4
+  %.not35 = icmp eq i32 %111, -1
   br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %111 = trunc nuw i64 %indvars.iv.next53 to i32
+  %112 = trunc nuw i64 %indvars.iv.next53 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %.034 = phi i32 [ 0, %3 ], [ %111, %.loopexit.loopexit ]
+  %.034 = phi i32 [ 0, %3 ], [ %112, %.loopexit.loopexit ]
   ret i32 %.034
 }
 
@@ -2369,7 +2370,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr noundef 
 
 40:                                               ; preds = %.preheader38, %_ZN13MarchingCubes9SetVertexEiPKff.exit
   %indvars.iv = phi i64 [ 0, %.preheader38 ], [ %indvars.iv.next, %_ZN13MarchingCubes9SetVertexEiPKff.exit ]
-  %.041 = phi i32 [ 1, %.preheader38 ], [ %98, %_ZN13MarchingCubes9SetVertexEiPKff.exit ]
+  %.041 = phi i32 [ 1, %.preheader38 ], [ %99, %_ZN13MarchingCubes9SetVertexEiPKff.exit ]
   %41 = and i32 %37, %.041
   %.not36 = icmp eq i32 %41, 0
   br i1 %.not36, label %_ZN13MarchingCubes9SetVertexEiPKff.exit, label %42
@@ -2450,15 +2451,16 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr noundef 
 
 .sink.split.i:                                    ; preds = %83, %66, %48
   %.sink.i = phi double [ %92, %83 ], [ %82, %66 ], [ %65, %48 ]
-  %97 = getelementptr inbounds nuw [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %indvars.iv, i64 2
-  store double %.sink.i, ptr %97, align 8
+  %97 = getelementptr inbounds nuw [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  store double %.sink.i, ptr %98, align 8
   br label %_ZN13MarchingCubes9SetVertexEiPKff.exit
 
 default.unreachable:                              ; preds = %42
   unreachable
 
 _ZN13MarchingCubes9SetVertexEiPKff.exit:          ; preds = %.sink.split.i, %40
-  %98 = shl i32 %.041, 1
+  %99 = shl i32 %.041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %.preheader.lr.ph, label %40, !llvm.loop !31
@@ -2466,36 +2468,36 @@ _ZN13MarchingCubes9SetVertexEiPKff.exit:          ; preds = %.sink.split.i, %40
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %.preheader ]
   %indvars.iv50 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next51, %.preheader ]
-  %99 = phi i32 [ %39, %.preheader.lr.ph ], [ %113, %.preheader ]
-  %100 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv50
-  %101 = sext i32 %99 to i64
-  %102 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %101
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %104 = load i32, ptr %103, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %105
-  %107 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %108 = load i32, ptr %107, align 4
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %102, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %110, i64 24, i1 false)
+  %100 = phi i32 [ %39, %.preheader.lr.ph ], [ %114, %.preheader ]
+  %101 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv50
+  %102 = sext i32 %100 to i64
+  %103 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %109 = load i32, ptr %108, align 4
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds [3 x double], ptr @_ZN13MarchingCubes10vertexListE, i64 %110
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %103, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %111, i64 24, i1 false)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %111 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %111, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
+  %112 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %112, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 3
-  %112 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.next51
-  %113 = load i32, ptr %112, align 4
-  %.not35 = icmp eq i32 %113, -1
+  %113 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.next51
+  %114 = load i32, ptr %113, align 4
+  %.not35 = icmp eq i32 %114, -1
   br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !32
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %114 = trunc nuw i64 %indvars.iv.next53 to i32
+  %115 = trunc nuw i64 %indvars.iv.next53 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %.034 = phi i32 [ 0, %3 ], [ %114, %.loopexit.loopexit ]
+  %.034 = phi i32 [ 0, %3 ], [ %115, %.loopexit.loopexit ]
   ret i32 %.034
 }
 

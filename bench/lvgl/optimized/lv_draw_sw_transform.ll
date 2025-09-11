@@ -993,8 +993,8 @@ define internal fastcc void @transform_rgb888(ptr noundef readonly captures(none
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %16
 
-16:                                               ; preds = %.lr.ph, %106
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
+16:                                               ; preds = %.lr.ph, %107
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
   %17 = trunc i64 %indvars.iv to i32
   %18 = mul i32 %6, %17
   %19 = ashr i32 %18, 8
@@ -1014,162 +1014,163 @@ define internal fastcc void @transform_rgb888(ptr noundef readonly captures(none
   %.not = icmp slt i32 %26, %2
   %31 = and i1 %30, %.not
   %or.cond170 = select i1 %29, i1 %31, i1 false
-  br i1 %or.cond170, label %34, label %32
+  br i1 %or.cond170, label %35, label %32
 
 32:                                               ; preds = %28, %16
-  %33 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %9, i64 %indvars.iv, i32 3
-  store i8 0, ptr %33, align 1, !tbaa !31
-  br label %106
+  %33 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %9, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 3
+  store i8 0, ptr %34, align 1, !tbaa !31
+  br label %107
 
-34:                                               ; preds = %28
-  %35 = and i32 %20, 255
-  %36 = and i32 %24, 255
-  %37 = icmp samesign ult i32 %35, 128
-  %38 = sub nuw nsw i32 127, %35
-  %39 = add nsw i32 %35, -128
-  %.0155 = select i1 %37, i32 -1, i32 1
-  %.0153 = select i1 %37, i32 %38, i32 %39
-  %40 = icmp samesign ult i32 %36, 128
-  %41 = sub nuw nsw i32 127, %36
-  %42 = add nsw i32 %36, -128
-  %.0156 = select i1 %40, i32 -1, i32 1
-  %.0154 = select i1 %40, i32 %41, i32 %42
-  %43 = mul nsw i32 %26, %3
-  %44 = mul nuw nsw i32 %25, %11
-  %45 = add i32 %43, %44
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  %49 = load i8, ptr %48, align 1, !tbaa !27
-  %50 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %9, i64 %indvars.iv
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 2
-  store i8 %49, ptr %51, align 1, !tbaa !39
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  %53 = load i8, ptr %52, align 1, !tbaa !27
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  store i8 %53, ptr %54, align 1, !tbaa !40
-  %55 = load i8, ptr %47, align 1, !tbaa !27
-  store i8 %55, ptr %50, align 1, !tbaa !41
-  %56 = getelementptr inbounds nuw i8, ptr %50, i64 3
-  store i8 -1, ptr %56, align 1, !tbaa !31
-  br i1 %10, label %57, label %90
+35:                                               ; preds = %28
+  %36 = and i32 %20, 255
+  %37 = and i32 %24, 255
+  %38 = icmp samesign ult i32 %36, 128
+  %39 = sub nuw nsw i32 127, %36
+  %40 = add nsw i32 %36, -128
+  %.0155 = select i1 %38, i32 -1, i32 1
+  %.0153 = select i1 %38, i32 %39, i32 %40
+  %41 = icmp samesign ult i32 %37, 128
+  %42 = sub nuw nsw i32 127, %37
+  %43 = add nsw i32 %37, -128
+  %.0156 = select i1 %41, i32 -1, i32 1
+  %.0154 = select i1 %41, i32 %42, i32 %43
+  %44 = mul nsw i32 %26, %3
+  %45 = mul nuw nsw i32 %25, %11
+  %46 = add i32 %44, %45
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
+  %50 = load i8, ptr %49, align 1, !tbaa !27
+  %51 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %9, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  store i8 %50, ptr %52, align 1, !tbaa !39
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 1
+  %54 = load i8, ptr %53, align 1, !tbaa !27
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 1
+  store i8 %54, ptr %55, align 1, !tbaa !40
+  %56 = load i8, ptr %48, align 1, !tbaa !27
+  store i8 %56, ptr %51, align 1, !tbaa !41
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 3
+  store i8 -1, ptr %57, align 1, !tbaa !31
+  br i1 %10, label %58, label %91
 
-57:                                               ; preds = %34
-  %58 = add nsw i32 %.0155, %25
-  %59 = icmp sgt i32 %58, -1
-  %.not166.not = icmp slt i32 %58, %1
-  %or.cond171 = and i1 %59, %.not166.not
-  br i1 %or.cond171, label %60, label %90
+58:                                               ; preds = %35
+  %59 = add nsw i32 %.0155, %25
+  %60 = icmp sgt i32 %59, -1
+  %.not166.not = icmp slt i32 %59, %1
+  %or.cond171 = and i1 %60, %.not166.not
+  br i1 %or.cond171, label %61, label %91
 
-60:                                               ; preds = %57
-  %61 = add nsw i32 %.0156, %26
-  %62 = icmp sgt i32 %61, -1
-  %.not167.not = icmp slt i32 %61, %2
-  %or.cond172 = and i1 %62, %.not167.not
-  br i1 %or.cond172, label %63, label %90
+61:                                               ; preds = %58
+  %62 = add nsw i32 %.0156, %26
+  %63 = icmp sgt i32 %62, -1
+  %.not167.not = icmp slt i32 %62, %2
+  %or.cond172 = and i1 %63, %.not167.not
+  br i1 %or.cond172, label %64, label %91
 
-63:                                               ; preds = %60
-  %64 = mul nsw i32 %.0155, %11
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %47, i64 %65
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
-  %68 = load i8, ptr %67, align 1, !tbaa !27
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 1
-  %70 = load i8, ptr %69, align 1, !tbaa !27
-  %71 = load i8, ptr %66, align 1, !tbaa !27
-  %72 = mul nsw i32 %.0156, %3
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %47, i64 %73
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
-  %76 = load i8, ptr %75, align 1, !tbaa !27
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 1
-  %78 = load i8, ptr %77, align 1, !tbaa !27
-  %79 = load i8, ptr %74, align 1, !tbaa !27
-  %80 = load i32, ptr %50, align 1
-  %.sroa.6.0.insert.ext = zext i8 %76 to i32
+64:                                               ; preds = %61
+  %65 = mul nsw i32 %.0155, %11
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i8, ptr %48, i64 %66
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
+  %69 = load i8, ptr %68, align 1, !tbaa !27
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 1
+  %71 = load i8, ptr %70, align 1, !tbaa !27
+  %72 = load i8, ptr %67, align 1, !tbaa !27
+  %73 = mul nsw i32 %.0156, %3
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i8, ptr %48, i64 %74
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 2
+  %77 = load i8, ptr %76, align 1, !tbaa !27
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 1
+  %79 = load i8, ptr %78, align 1, !tbaa !27
+  %80 = load i8, ptr %75, align 1, !tbaa !27
+  %81 = load i32, ptr %51, align 1
+  %.sroa.6.0.insert.ext = zext i8 %77 to i32
   %.sroa.6.0.insert.shift = shl nuw nsw i32 %.sroa.6.0.insert.ext, 16
-  %.sroa.5.0.insert.ext = zext i8 %78 to i32
+  %.sroa.5.0.insert.ext = zext i8 %79 to i32
   %.sroa.5.0.insert.shift = shl nuw nsw i32 %.sroa.5.0.insert.ext, 8
   %.sroa.6.0.insert.insert = or disjoint i32 %.sroa.5.0.insert.shift, %.sroa.6.0.insert.shift
-  %.sroa.012.0.insert.ext = zext i8 %79 to i32
+  %.sroa.012.0.insert.ext = zext i8 %80 to i32
   %.sroa.5.0.insert.insert = or disjoint i32 %.sroa.6.0.insert.insert, %.sroa.012.0.insert.ext
   %.sroa.012.0.insert.insert = or disjoint i32 %.sroa.5.0.insert.insert, -16777216
-  %81 = tail call zeroext i1 @lv_color32_eq(i32 %80, i32 %.sroa.012.0.insert.insert) #3
-  %.pre = load i32, ptr %50, align 1
-  br i1 %81, label %84, label %82
+  %82 = tail call zeroext i1 @lv_color32_eq(i32 %81, i32 %.sroa.012.0.insert.insert) #3
+  %.pre = load i32, ptr %51, align 1
+  br i1 %82, label %85, label %83
 
-82:                                               ; preds = %63
+83:                                               ; preds = %64
   %.sroa.7.0.insert.ext28 = shl nsw i32 %.0154, 24
   %.sroa.6.0.insert.insert26 = or disjoint i32 %.sroa.6.0.insert.shift, %.sroa.7.0.insert.ext28
   %.sroa.5.0.insert.insert21 = or disjoint i32 %.sroa.6.0.insert.insert26, %.sroa.5.0.insert.shift
   %.sroa.012.0.insert.insert16 = or disjoint i32 %.sroa.5.0.insert.insert21, %.sroa.012.0.insert.ext
-  %83 = tail call i32 @lv_color_mix32(i32 %.sroa.012.0.insert.insert16, i32 %.pre) #3
-  store i32 %83, ptr %50, align 1
-  br label %84
+  %84 = tail call i32 @lv_color_mix32(i32 %.sroa.012.0.insert.insert16, i32 %.pre) #3
+  store i32 %84, ptr %51, align 1
+  br label %85
 
-84:                                               ; preds = %82, %63
-  %85 = phi i32 [ %83, %82 ], [ %.pre, %63 ]
-  %.sroa.645.0.insert.ext = zext i8 %68 to i32
+85:                                               ; preds = %83, %64
+  %86 = phi i32 [ %84, %83 ], [ %.pre, %64 ]
+  %.sroa.645.0.insert.ext = zext i8 %69 to i32
   %.sroa.645.0.insert.shift = shl nuw nsw i32 %.sroa.645.0.insert.ext, 16
-  %.sroa.539.0.insert.ext = zext i8 %70 to i32
+  %.sroa.539.0.insert.ext = zext i8 %71 to i32
   %.sroa.539.0.insert.shift = shl nuw nsw i32 %.sroa.539.0.insert.ext, 8
   %.sroa.645.0.insert.insert = or disjoint i32 %.sroa.539.0.insert.shift, %.sroa.645.0.insert.shift
-  %.sroa.034.0.insert.ext = zext i8 %71 to i32
+  %.sroa.034.0.insert.ext = zext i8 %72 to i32
   %.sroa.539.0.insert.insert = or disjoint i32 %.sroa.645.0.insert.insert, %.sroa.034.0.insert.ext
   %.sroa.034.0.insert.insert = or disjoint i32 %.sroa.539.0.insert.insert, -16777216
-  %86 = tail call zeroext i1 @lv_color32_eq(i32 %85, i32 %.sroa.034.0.insert.insert) #3
-  br i1 %86, label %106, label %87
+  %87 = tail call zeroext i1 @lv_color32_eq(i32 %86, i32 %.sroa.034.0.insert.insert) #3
+  br i1 %87, label %107, label %88
 
-87:                                               ; preds = %84
+88:                                               ; preds = %85
   %.sroa.751.0.insert.ext53 = shl nsw i32 %.0153, 24
   %.sroa.645.0.insert.insert50 = or disjoint i32 %.sroa.645.0.insert.shift, %.sroa.751.0.insert.ext53
   %.sroa.539.0.insert.insert44 = or disjoint i32 %.sroa.645.0.insert.insert50, %.sroa.539.0.insert.shift
   %.sroa.034.0.insert.insert38 = or disjoint i32 %.sroa.539.0.insert.insert44, %.sroa.034.0.insert.ext
-  %88 = load i32, ptr %50, align 1
-  %89 = tail call i32 @lv_color_mix32(i32 %.sroa.034.0.insert.insert38, i32 %88) #3
-  store i32 %89, ptr %50, align 1
-  br label %106
+  %89 = load i32, ptr %51, align 1
+  %90 = tail call i32 @lv_color_mix32(i32 %.sroa.034.0.insert.insert38, i32 %89) #3
+  store i32 %90, ptr %51, align 1
+  br label %107
 
-90:                                               ; preds = %60, %57, %34
-  %91 = icmp samesign ult i32 %20, 256
-  %or.cond3 = and i1 %91, %37
+91:                                               ; preds = %61, %58, %35
+  %92 = icmp samesign ult i32 %20, 256
+  %or.cond3 = and i1 %92, %38
   %or.cond3.not = xor i1 %or.cond3, true
-  %92 = icmp ne i32 %25, %14
-  %or.cond5.not = or i1 %92, %37
+  %93 = icmp ne i32 %25, %14
+  %or.cond5.not = or i1 %93, %38
   %or.cond = select i1 %or.cond3.not, i1 %or.cond5.not, i1 false
-  br i1 %or.cond, label %98, label %93
+  br i1 %or.cond, label %99, label %94
 
-93:                                               ; preds = %90
-  %94 = sub nuw nsw i32 255, %.0153
-  %95 = mul nuw nsw i32 %94, 255
-  %96 = lshr i32 %95, 8
-  %97 = trunc nuw i32 %96 to i8
-  store i8 %97, ptr %56, align 1, !tbaa !31
-  br label %106
+94:                                               ; preds = %91
+  %95 = sub nuw nsw i32 255, %.0153
+  %96 = mul nuw nsw i32 %95, 255
+  %97 = lshr i32 %96, 8
+  %98 = trunc nuw i32 %97 to i8
+  store i8 %98, ptr %57, align 1, !tbaa !31
+  br label %107
 
-98:                                               ; preds = %90
-  %99 = icmp samesign ult i32 %24, 256
-  %or.cond7 = and i1 %99, %40
+99:                                               ; preds = %91
+  %100 = icmp samesign ult i32 %24, 256
+  %or.cond7 = and i1 %100, %41
   %or.cond7.not = xor i1 %or.cond7, true
-  %100 = icmp ne i32 %26, %15
-  %or.cond9.not = or i1 %100, %40
+  %101 = icmp ne i32 %26, %15
+  %or.cond9.not = or i1 %101, %41
   %or.cond177 = select i1 %or.cond7.not, i1 %or.cond9.not, i1 false
-  br i1 %or.cond177, label %106, label %101
+  br i1 %or.cond177, label %107, label %102
 
-101:                                              ; preds = %98
-  %102 = sub nuw nsw i32 255, %.0154
-  %103 = mul nuw nsw i32 %102, 255
-  %104 = lshr i32 %103, 8
-  %105 = trunc nuw i32 %104 to i8
-  store i8 %105, ptr %56, align 1, !tbaa !31
-  br label %106
+102:                                              ; preds = %99
+  %103 = sub nuw nsw i32 255, %.0154
+  %104 = mul nuw nsw i32 %103, 255
+  %105 = lshr i32 %104, 8
+  %106 = trunc nuw i32 %105 to i8
+  store i8 %106, ptr %57, align 1, !tbaa !31
+  br label %107
 
-106:                                              ; preds = %98, %87, %84, %101, %93, %32
+107:                                              ; preds = %99, %88, %85, %102, %94, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %106, %12
+._crit_edge:                                      ; preds = %107, %12
   ret void
 }
 

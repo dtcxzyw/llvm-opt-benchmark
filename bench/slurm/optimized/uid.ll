@@ -445,28 +445,29 @@ define dso_local void @uid_cache_clear() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %6 = load ptr, ptr @uid_cache, align 8
-  %7 = getelementptr inbounds nuw %struct.uid_cache_entry_t, ptr %6, i64 %indvars.iv, i32 1
-  tail call void @slurm_xfree(ptr noundef nonnull %7) #10
+  %7 = getelementptr inbounds nuw %struct.uid_cache_entry_t, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  tail call void @slurm_xfree(ptr noundef nonnull %8) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr @uid_cache_used, align 4
-  %9 = sext i32 %8 to i64
-  %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %9 = load i32, ptr @uid_cache_used, align 4
+  %10 = sext i32 %9 to i64
+  %11 = icmp slt i64 %indvars.iv.next, %10
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call void @slurm_xfree(ptr noundef nonnull @uid_cache) #10
   store i32 0, ptr @uid_cache_used, align 4
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @uid_lock) #10
-  %.not9 = icmp eq i32 %11, 0
-  br i1 %.not9, label %14, label %12
+  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @uid_lock) #10
+  %.not9 = icmp eq i32 %12, 0
+  br i1 %.not9, label %15, label %13
 
-12:                                               ; preds = %._crit_edge
-  %13 = tail call ptr @__errno_location() #11
-  store i32 %11, ptr %13, align 4
+13:                                               ; preds = %._crit_edge
+  %14 = tail call ptr @__errno_location() #11
+  store i32 %12, ptr %14, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.uid_cache_clear) #12
   unreachable
 
-14:                                               ; preds = %._crit_edge
+15:                                               ; preds = %._crit_edge
   ret void
 }
 

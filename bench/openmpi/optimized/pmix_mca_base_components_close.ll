@@ -13,33 +13,34 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @pmix_mca_base_component_unload(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %or.cond = icmp ult i32 %1, 64
-  br i1 %or.cond, label %3, label %10
+  br i1 %or.cond, label %3, label %11
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %4, i32 2
-  %6 = load i32, ptr %5, align 4, !tbaa !3
-  %7 = icmp sgt i32 %6, 9
-  br i1 %7, label %8, label %10
+  %5 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %7 = load i32, ptr %6, align 4, !tbaa !3
+  %8 = icmp sgt i32 %7, 9
+  br i1 %8, label %9, label %11
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %9) #7
-  br label %10
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %10) #7
+  br label %11
 
-10:                                               ; preds = %8, %3, %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %14 = tail call i32 @pmix_mca_base_var_group_find(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #7
-  %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %16, label %18
+11:                                               ; preds = %9, %3, %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %15 = tail call i32 @pmix_mca_base_var_group_find(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #7
+  %16 = icmp sgt i32 %15, -1
+  br i1 %16, label %17, label %19
 
-16:                                               ; preds = %10
-  %17 = tail call i32 @pmix_mca_base_var_group_deregister(i32 noundef %14) #7
-  br label %18
+17:                                               ; preds = %11
+  %18 = tail call i32 @pmix_mca_base_var_group_deregister(i32 noundef %15) #7
+  br label %19
 
-18:                                               ; preds = %16, %10
+19:                                               ; preds = %17, %11
   tail call void @pmix_mca_base_component_repository_release(ptr noundef nonnull %0) #7
   ret void
 }
@@ -57,7 +58,7 @@ define void @pmix_mca_base_component_close(ptr noundef %0, i32 noundef %1) local
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %14, label %5
+  br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 %4() #7
@@ -66,49 +67,51 @@ define void @pmix_mca_base_component_close(ptr noundef %0, i32 noundef %1) local
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8, i32 2
-  %10 = load i32, ptr %9, align 4, !tbaa !3
-  %11 = icmp sgt i32 %10, 9
-  br i1 %11, label %12, label %.thread
+  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !3
+  %12 = icmp sgt i32 %11, 9
+  br i1 %12, label %13, label %.thread
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %13) #7
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %14) #7
   br label %.thread
 
-14:                                               ; preds = %2
+15:                                               ; preds = %2
   %or.cond.i = icmp ult i32 %1, 64
   br i1 %or.cond.i, label %..thread_crit_edge, label %.thread11
 
-..thread_crit_edge:                               ; preds = %14
+..thread_crit_edge:                               ; preds = %15
   %.pre = zext nneg i32 %1 to i64
   br label %.thread
 
-.thread:                                          ; preds = %..thread_crit_edge, %12, %7
-  %.pre-phi = phi i64 [ %.pre, %..thread_crit_edge ], [ %8, %12 ], [ %8, %7 ]
-  %15 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %.pre-phi, i32 2
-  %16 = load i32, ptr %15, align 4, !tbaa !3
-  %17 = icmp sgt i32 %16, 9
-  br i1 %17, label %18, label %.thread11
+.thread:                                          ; preds = %..thread_crit_edge, %13, %7
+  %.pre-phi = phi i64 [ %.pre, %..thread_crit_edge ], [ %8, %13 ], [ %8, %7 ]
+  %16 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %.pre-phi
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !3
+  %19 = icmp sgt i32 %18, 9
+  br i1 %19, label %20, label %.thread11
 
-18:                                               ; preds = %.thread
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %19) #7
+20:                                               ; preds = %.thread
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %21) #7
   br label %.thread11
 
-.thread11:                                        ; preds = %5, %18, %.thread, %14
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %23 = tail call i32 @pmix_mca_base_var_group_find(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22) #7
-  %24 = icmp sgt i32 %23, -1
-  br i1 %24, label %25, label %pmix_mca_base_component_unload.exit
+.thread11:                                        ; preds = %5, %20, %.thread, %15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %25 = tail call i32 @pmix_mca_base_var_group_find(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24) #7
+  %26 = icmp sgt i32 %25, -1
+  br i1 %26, label %27, label %pmix_mca_base_component_unload.exit
 
-25:                                               ; preds = %.thread11
-  %26 = tail call i32 @pmix_mca_base_var_group_deregister(i32 noundef %23) #7
+27:                                               ; preds = %.thread11
+  %28 = tail call i32 @pmix_mca_base_var_group_deregister(i32 noundef %25) #7
   br label %pmix_mca_base_component_unload.exit
 
-pmix_mca_base_component_unload.exit:              ; preds = %.thread11, %25
+pmix_mca_base_component_unload.exit:              ; preds = %.thread11, %27
   tail call void @pmix_mca_base_component_repository_release(ptr noundef nonnull %0) #7
   ret void
 }

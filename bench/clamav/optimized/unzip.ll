@@ -317,30 +317,31 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   %.not227 = icmp eq i64 %spec.select, 0
   br i1 %.not227, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %110
-  %.0226 = phi i64 [ %111, %110 ], [ 0, %.preheader ]
-  %107 = getelementptr inbounds nuw %struct.zip_record, ptr %.1118.ph, i64 %.0226, i32 7
-  %108 = load ptr, ptr %107, align 8, !tbaa !55
-  %.not147 = icmp eq ptr %108, null
-  br i1 %.not147, label %110, label %109
+.lr.ph:                                           ; preds = %.preheader, %111
+  %.0226 = phi i64 [ %112, %111 ], [ 0, %.preheader ]
+  %107 = getelementptr inbounds nuw %struct.zip_record, ptr %.1118.ph, i64 %.0226
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  %109 = load ptr, ptr %108, align 8, !tbaa !55
+  %.not147 = icmp eq ptr %109, null
+  br i1 %.not147, label %111, label %110
 
-109:                                              ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %108) #13
-  store ptr null, ptr %107, align 8, !tbaa !55
-  br label %110
+110:                                              ; preds = %.lr.ph
+  tail call void @free(ptr noundef nonnull %109) #13
+  store ptr null, ptr %108, align 8, !tbaa !55
+  br label %111
 
-110:                                              ; preds = %.lr.ph, %109
-  %111 = add nuw i64 %.0226, 1
-  %exitcond251.not = icmp eq i64 %111, %spec.select
+111:                                              ; preds = %.lr.ph, %110
+  %112 = add nuw i64 %.0226, 1
+  %exitcond251.not = icmp eq i64 %112, %spec.select
   br i1 %exitcond251.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %110, %.preheader
+._crit_edge:                                      ; preds = %111, %.preheader
   tail call void @free(ptr noundef %.1118.ph) #13
-  %112 = select i1 %.0109181, i32 25, i32 %.0103182
+  %113 = select i1 %.0109181, i32 25, i32 %.0103182
   br label %.thread187
 
 .thread187:                                       ; preds = %._crit_edge, %11, %.loopexit, %10, %105
-  %.7 = phi i32 [ 0, %105 ], [ 0, %10 ], [ 0, %.loopexit ], [ %112, %._crit_edge ], [ 20, %11 ]
+  %.7 = phi i32 [ 0, %105 ], [ 0, %10 ], [ 0, %.loopexit ], [ %113, %._crit_edge ], [ 20, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.7
 }
@@ -818,7 +819,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   %90 = zext i32 %89 to i64
   %91 = load ptr, ptr %18, align 8, !tbaa !56
   %92 = call ptr %91(ptr noundef nonnull %8, i64 noundef range(i64 0, 4294967296) %90, i64 noundef 30, i32 noundef 1) #13
-  %93 = getelementptr inbounds nuw %struct.zip_record, ptr %39, i64 %.0103187, i32 7
+  %93 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !55
   %95 = call fastcc i32 @zdecrypt(ptr noundef %72, i32 noundef %86, i32 noundef %88, ptr noundef %92, ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef %94)
   br label %108
@@ -962,42 +963,43 @@ select.unfold:                                    ; preds = %121, %63
 .critedge:                                        ; preds = %134, %149, %.thread153, %.thread163, %.thread235, %122, %.thread160, %36, %16, %13
   %152 = load ptr, ptr %5, align 8, !tbaa !7
   %.not140 = icmp eq ptr %152, null
-  br i1 %.not140, label %159, label %.preheader
+  br i1 %.not140, label %160, label %.preheader
 
 .preheader:                                       ; preds = %.critedge
   %153 = load i64, ptr %6, align 8, !tbaa !10
   %.not207 = icmp eq i64 %153, 0
   br i1 %.not207, label %._crit_edge, label %.lr.ph199
 
-.lr.ph199:                                        ; preds = %.preheader, %157
-  %.1104198 = phi i64 [ %158, %157 ], [ 0, %.preheader ]
-  %154 = getelementptr inbounds nuw %struct.zip_record, ptr %152, i64 %.1104198, i32 7
-  %155 = load ptr, ptr %154, align 8, !tbaa !55
-  %.not141 = icmp eq ptr %155, null
-  br i1 %.not141, label %157, label %156
+.lr.ph199:                                        ; preds = %.preheader, %158
+  %.1104198 = phi i64 [ %159, %158 ], [ 0, %.preheader ]
+  %154 = getelementptr inbounds nuw %struct.zip_record, ptr %152, i64 %.1104198
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
+  %156 = load ptr, ptr %155, align 8, !tbaa !55
+  %.not141 = icmp eq ptr %156, null
+  br i1 %.not141, label %158, label %157
 
-156:                                              ; preds = %.lr.ph199
-  call void @free(ptr noundef nonnull %155) #13
-  store ptr null, ptr %154, align 8, !tbaa !55
-  br label %157
+157:                                              ; preds = %.lr.ph199
+  call void @free(ptr noundef nonnull %156) #13
+  store ptr null, ptr %155, align 8, !tbaa !55
+  br label %158
 
-157:                                              ; preds = %.lr.ph199, %156
-  %158 = add nuw i64 %.1104198, 1
-  %exitcond212.not = icmp eq i64 %158, %153
+158:                                              ; preds = %.lr.ph199, %157
+  %159 = add nuw i64 %.1104198, 1
+  %exitcond212.not = icmp eq i64 %159, %153
   br i1 %exitcond212.not, label %._crit_edge, label %.lr.ph199
 
-._crit_edge:                                      ; preds = %157, %.preheader
+._crit_edge:                                      ; preds = %158, %.preheader
   call void @free(ptr noundef nonnull %152) #13
-  br label %159
+  br label %160
 
-159:                                              ; preds = %._crit_edge, %.critedge
-  %160 = load i32, ptr %3, align 4, !tbaa !3
+160:                                              ; preds = %._crit_edge, %.critedge
+  %161 = load i32, ptr %3, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %160
+  ret i32 %161
 }
 
 ; Function Attrs: inlinehint nounwind uwtable

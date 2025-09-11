@@ -67,9 +67,10 @@ define noundef i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 "_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h64f3a1ab3e9925a4E.exit": ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %11, i64 %4, i32 5
-  %13 = load i64, ptr %12, align 8, !noundef !3
-  ret i64 %13
+  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %11, i64 %4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 200
+  %14 = load i64, ptr %13, align 8, !noundef !3
+  ret i64 %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -405,16 +406,17 @@ define hidden noundef i64 @"_ZN14cranelift_isle9serialize16respect_priority28_$u
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ult i64 %3, %6
-  br i1 %7, label %8, label %13, !prof !7
+  br i1 %7, label %8, label %14, !prof !7
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %10, i64 %3, i32 5
-  %12 = load i64, ptr %11, align 8, !noundef !3
-  ret i64 %12
+  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %10, i64 %3
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
+  %13 = load i64, ptr %12, align 8, !noundef !3
+  ret i64 %13
 
-13:                                               ; preds = %2
+14:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %3, i64 %6, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.12) #10
   unreachable
 }
@@ -449,18 +451,19 @@ define hidden { i64, i64 } @"_ZN14cranelift_isle9serialize13Decomposition4sort28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ult i64 %3, %6
-  br i1 %7, label %8, label %15, !prof !7
+  br i1 %7, label %8, label %16, !prof !7
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %10, i64 %3, i32 5
-  %12 = load i64, ptr %11, align 8, !noundef !3
-  %13 = insertvalue { i64, i64 } poison, i64 %12, 0
-  %14 = insertvalue { i64, i64 } %13, i64 %3, 1
-  ret { i64, i64 } %14
+  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %10, i64 %3
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
+  %13 = load i64, ptr %12, align 8, !noundef !3
+  %14 = insertvalue { i64, i64 } poison, i64 %13, 0
+  %15 = insertvalue { i64, i64 } %14, i64 %3, 1
+  ret { i64, i64 } %15
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %3, i64 %6, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.16) #10
   unreachable
 }
@@ -632,7 +635,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = icmp ult i64 %8, %10
-  br i1 %11, label %12, label %58, !prof !7
+  br i1 %11, label %12, label %60, !prof !7
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -665,7 +668,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.outer.backedge.i.i.i, %.lr.ph.lr.ph.i.i.i
-  %30 = phi ptr [ %27, %.lr.ph.lr.ph.i.i.i ], [ %43, %.outer.backedge.i.i.i ]
+  %30 = phi ptr [ %27, %.lr.ph.lr.ph.i.i.i ], [ %44, %.outer.backedge.i.i.i ]
   %.0.ph38.i.i.i = phi i64 [ 0, %.lr.ph.lr.ph.i.i.i ], [ %.0.ph.be.i.i.i, %.outer.backedge.i.i.i ]
   br label %32
 
@@ -687,61 +690,63 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
 
 "_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit.i.i.i": ; preds = %32
   %37 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
-  %38 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %37, i64 %.val12.i.i.i, i32 2
-  %39 = call { i16, i16 } @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$4find17h05eb2a36b8ee1825E"(ptr nonnull align 8 %38, i16 %5)
-  %40 = extractvalue { i16, i16 } %39, 0
-  %41 = icmp eq i16 %40, 1
-  br i1 %41, label %.outer.backedge.i.i.i, label %.preheader.i.i.i
+  %38 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %37, i64 %.val12.i.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 72
+  %40 = call { i16, i16 } @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$4find17h05eb2a36b8ee1825E"(ptr nonnull align 8 %39, i16 %5)
+  %41 = extractvalue { i16, i16 } %40, 0
+  %42 = icmp eq i16 %41, 1
+  br i1 %42, label %.outer.backedge.i.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit.i.i.i", %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit16.i.i.i"
-  %42 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %3)
-  %.not10.i.i.i = icmp eq ptr %42, null
-  br i1 %.not10.i.i.i, label %.loopexit.i.i.i, label %44
+  %43 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %3)
+  %.not10.i.i.i = icmp eq ptr %43, null
+  br i1 %.not10.i.i.i, label %.loopexit.i.i.i, label %45
 
-.outer.backedge.i.i.i:                            ; preds = %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit.i.i.i", %53
+.outer.backedge.i.i.i:                            ; preds = %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit.i.i.i", %55
   %.0.ph.be.i.i.i = add i64 %.0.ph38.i.i.i, 1
-  %43 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %3)
-  %.not35.i.i.i = icmp eq ptr %43, null
+  %44 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %3)
+  %.not35.i.i.i = icmp eq ptr %44, null
   br i1 %.not35.i.i.i, label %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hea11f12726b25874E.exit.i", label %.lr.ph.i.i.i
 
-44:                                               ; preds = %.preheader.i.i.i
-  %.val15.i.i.i = load i64, ptr %42, align 8, !noundef !3
-  %45 = load i64, ptr %28, align 8, !noundef !3
-  %46 = icmp ult i64 %.val15.i.i.i, %45
-  br i1 %46, label %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit16.i.i.i", label %47, !prof !7
+45:                                               ; preds = %.preheader.i.i.i
+  %.val15.i.i.i = load i64, ptr %43, align 8, !noundef !3
+  %46 = load i64, ptr %28, align 8, !noundef !3
+  %47 = icmp ult i64 %.val15.i.i.i, %46
+  br i1 %47, label %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit16.i.i.i", label %48, !prof !7
 
-47:                                               ; preds = %44
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val15.i.i.i, i64 %45, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.23) #10
+48:                                               ; preds = %45
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val15.i.i.i, i64 %46, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.23) #10
   unreachable
 
-"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit16.i.i.i": ; preds = %44
-  %48 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
-  %49 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %48, i64 %.val15.i.i.i, i32 2
-  %50 = call { i16, i16 } @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$4find17h05eb2a36b8ee1825E"(ptr nonnull align 8 %49, i16 %5)
-  %51 = extractvalue { i16, i16 } %50, 0
-  %52 = icmp eq i16 %51, 1
-  br i1 %52, label %53, label %.preheader.i.i.i
+"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit16.i.i.i": ; preds = %45
+  %49 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
+  %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %49, i64 %.val15.i.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 72
+  %52 = call { i16, i16 } @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$4find17h05eb2a36b8ee1825E"(ptr nonnull align 8 %51, i16 %5)
+  %53 = extractvalue { i16, i16 } %52, 0
+  %54 = icmp eq i16 %53, 1
+  br i1 %54, label %55, label %.preheader.i.i.i
 
-53:                                               ; preds = %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit16.i.i.i"
-  %54 = load i64, ptr %33, align 8, !noundef !3
-  %55 = load i64, ptr %42, align 8, !noundef !3
-  store i64 %55, ptr %33, align 8
-  store i64 %54, ptr %42, align 8
+55:                                               ; preds = %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit16.i.i.i"
+  %56 = load i64, ptr %33, align 8, !noundef !3
+  %57 = load i64, ptr %43, align 8, !noundef !3
+  store i64 %57, ptr %33, align 8
+  store i64 %56, ptr %43, align 8
   br label %.outer.backedge.i.i.i
 
 "_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hea11f12726b25874E.exit.i": ; preds = %.outer.backedge.i.i.i, %.loopexit.i.i.i, %23
   %.0.ph.lcssa34.i.i.i = phi i64 [ 0, %23 ], [ %.0.ph38.i.i.i, %.loopexit.i.i.i ], [ %.0.ph.be.i.i.i, %.outer.backedge.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %56 = icmp ne i64 %.0.ph.lcssa34.i.i.i, 0
-  %57 = call i64 @_ZN14cranelift_isle9serialize16respect_priority17h48727fe3094c7d24E(ptr nonnull align 8 %21, ptr nonnull align 8 %18, i64 %20, i64 %.0.ph.lcssa34.i.i.i)
-  store i64 %57, ptr %1, align 8
+  %58 = icmp ne i64 %.0.ph.lcssa34.i.i.i, 0
+  %59 = call i64 @_ZN14cranelift_isle9serialize16respect_priority17h48727fe3094c7d24E(ptr nonnull align 8 %21, ptr nonnull align 8 %18, i64 %20, i64 %.0.ph.lcssa34.i.i.i)
+  store i64 %59, ptr %1, align 8
   br label %_ZN14cranelift_isle9serialize5Score6update17h1c1f9b19e879762dE.exit
 
 _ZN14cranelift_isle9serialize5Score6update17h1c1f9b19e879762dE.exit: ; preds = %12, %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hea11f12726b25874E.exit.i"
-  %.0.i = phi i1 [ %56, %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hea11f12726b25874E.exit.i" ], [ false, %12 ]
+  %.0.i = phi i1 [ %58, %"_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hea11f12726b25874E.exit.i" ], [ false, %12 ]
   ret i1 %.0.i
 
-58:                                               ; preds = %2
+60:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %8, i64 %10, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.22) #10
   unreachable
 }
@@ -949,7 +954,7 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
-  %14 = phi ptr [ %9, %.lr.ph.lr.ph ], [ %26, %.outer.backedge ]
+  %14 = phi ptr [ %9, %.lr.ph.lr.ph ], [ %27, %.outer.backedge ]
   %.0.ph40 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.0.ph.be, %.outer.backedge ]
   br label %16
 
@@ -971,11 +976,12 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc
 
 "_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit": ; preds = %16
   %21 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %21, i64 %.val12, i32 5
-  %23 = load i64, ptr %22, align 8, !noundef !3
+  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %21, i64 %.val12
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 200
+  %24 = load i64, ptr %23, align 8, !noundef !3
   call void @llvm.assume(i1 %13)
-  %24 = load i64, ptr %3, align 8, !noundef !3
-  %.not17 = icmp slt i64 %23, %24
+  %25 = load i64, ptr %3, align 8, !noundef !3
+  %.not17 = icmp slt i64 %24, %25
   br i1 %.not17, label %.preheader, label %.outer.backedge
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.loopexit, %4
@@ -983,38 +989,39 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc
   ret i64 %.0.ph.lcssa36
 
 .preheader:                                       ; preds = %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit", %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16"
-  %25 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %5)
-  %.not10 = icmp eq ptr %25, null
-  br i1 %.not10, label %.loopexit, label %27
+  %26 = call align 8 ptr @"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h824819d2399a98c0E"(ptr nonnull align 8 %5)
+  %.not10 = icmp eq ptr %26, null
+  br i1 %.not10, label %.loopexit, label %28
 
-.outer.backedge:                                  ; preds = %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit", %35
+.outer.backedge:                                  ; preds = %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit", %37
   %.0.ph.be = add i64 %.0.ph40, 1
-  %26 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %5)
-  %.not37 = icmp eq ptr %26, null
+  %27 = call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80783fd722ff1c8E"(ptr nonnull align 8 %5)
+  %.not37 = icmp eq ptr %27, null
   br i1 %.not37, label %.outer._crit_edge, label %.lr.ph
 
-27:                                               ; preds = %.preheader
-  %.val15 = load i64, ptr %25, align 8, !noundef !3
-  %28 = load i64, ptr %11, align 8, !noundef !3
-  %29 = icmp ult i64 %.val15, %28
-  br i1 %29, label %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16", label %30, !prof !7
+28:                                               ; preds = %.preheader
+  %.val15 = load i64, ptr %26, align 8, !noundef !3
+  %29 = load i64, ptr %11, align 8, !noundef !3
+  %30 = icmp ult i64 %.val15, %29
+  br i1 %30, label %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16", label %31, !prof !7
 
-30:                                               ; preds = %27
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val15, i64 %28, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.13) #10
+31:                                               ; preds = %28
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.val15, i64 %29, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.13) #10
   unreachable
 
-"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16": ; preds = %27
-  %31 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
-  %32 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %31, i64 %.val15, i32 5
-  %33 = load i64, ptr %32, align 8, !noundef !3
-  %34 = load i64, ptr %3, align 8, !noundef !3
-  %.not18 = icmp slt i64 %33, %34
-  br i1 %.not18, label %.preheader, label %35
+"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16": ; preds = %28
+  %32 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
+  %33 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %32, i64 %.val15
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 200
+  %35 = load i64, ptr %34, align 8, !noundef !3
+  %36 = load i64, ptr %3, align 8, !noundef !3
+  %.not18 = icmp slt i64 %35, %36
+  br i1 %.not18, label %.preheader, label %37
 
-35:                                               ; preds = %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16"
-  %36 = load i64, ptr %17, align 8, !noundef !3
+37:                                               ; preds = %"_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16"
+  %38 = load i64, ptr %17, align 8, !noundef !3
   store i64 %.val15, ptr %17, align 8
-  store i64 %36, ptr %25, align 8
+  store i64 %38, ptr %26, align 8
   br label %.outer.backedge
 }
 

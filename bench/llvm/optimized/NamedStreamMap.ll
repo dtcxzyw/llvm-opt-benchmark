@@ -652,19 +652,20 @@ _ZN4llvm5ErrorD2Ev.exit53:                        ; preds = %79
   %94 = load ptr, ptr %4, align 8, !tbaa !42, !noalias !109
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !109
   %95 = load ptr, ptr %1, align 8, !tbaa !102
-  %96 = getelementptr inbounds nuw %"struct.std::pair", ptr %95, i64 %81, i32 1
-  %97 = load i32, ptr %94, align 1, !tbaa !14
-  store i32 %97, ptr %96, align 4, !tbaa !14
-  %98 = load i32, ptr %58, align 8, !tbaa !99
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %58, align 8, !tbaa !99
-  %100 = load i64, ptr %59, align 8, !tbaa !101
-  %101 = lshr i64 %100, 1
-  store i64 %101, ptr %59, align 8, !tbaa !101
+  %96 = getelementptr inbounds nuw %"struct.std::pair", ptr %95, i64 %81
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %98 = load i32, ptr %94, align 1, !tbaa !14
+  store i32 %98, ptr %97, align 4, !tbaa !14
+  %99 = load i32, ptr %58, align 8, !tbaa !99
+  %100 = add i32 %99, 1
+  store i32 %100, ptr %58, align 8, !tbaa !99
+  %101 = load i64, ptr %59, align 8, !tbaa !101
+  %102 = lshr i64 %101, 1
+  store i64 %102, ptr %59, align 8, !tbaa !101
   call void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
-  %102 = load i8, ptr %11, align 8, !tbaa !95, !range !112, !noundef !113
-  %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %_ZN4llvm5ErrorD2Ev.exit57, label %79
+  %103 = load i8, ptr %11, align 8, !tbaa !95, !range !112, !noundef !113
+  %104 = trunc nuw i8 %103 to i1
+  br i1 %104, label %_ZN4llvm5ErrorD2Ev.exit57, label %79
 
 .critedge42:                                      ; preds = %.critedge41, %_ZN4llvm18BinaryStreamReader11readIntegerIjEENS_5ErrorERT_.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1233,9 +1234,10 @@ _ZNK4llvm3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_inte
   %.fca.0.extract1 = extractvalue { ptr, i64 } %8, 0
   %10 = and i64 %.fca.1.extract2, 4294967295
   %11 = load ptr, ptr %.fca.0.extract1, align 8, !tbaa !102
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %10, i32 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %12, align 1
+  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %13, align 1
   store i32 %.0.copyload.i.i.i, ptr %3, align 4, !tbaa !108
   br label %_ZNK4llvm3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEeqERKS7_.exit.thread
 
@@ -1730,35 +1732,36 @@ define dso_local void @_ZN4llvm3pdb14NamedStreamMap3setENS_9StringRefEj(ptr noun
   %.fca.1.extract5.i.i = extractvalue { ptr, i64 } %8, 1
   %9 = and i64 %.fca.1.extract5.i.i, 4294967296
   %.not.i.i.not = icmp eq i64 %9, 0
-  br i1 %.not.i.i.not, label %10, label %14
+  br i1 %.not.i.i.not, label %10, label %15
 
 10:                                               ; preds = %4
   %11 = and i64 %.fca.1.extract5.i.i, 4294967295
   %12 = load ptr, ptr %7, align 8, !tbaa !102
-  %13 = getelementptr inbounds nuw %"struct.std::pair", ptr %12, i64 %11, i32 1
-  store i32 %3, ptr %13, align 4, !tbaa !14
+  %13 = getelementptr inbounds nuw %"struct.std::pair", ptr %12, i64 %11
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 %3, ptr %14, align 4, !tbaa !14
   br label %_ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE6set_asINS_9StringRefENS0_20NamedStreamMapTraitsEEEbRKT_S6_RT0_.exit
 
-14:                                               ; preds = %4
+15:                                               ; preds = %4
   %.sroa.418.8.extract.trunc22.i.i = trunc i64 %.fca.1.extract5.i.i to i32
-  %15 = and i64 %.fca.1.extract5.i.i, 4294967295
-  %16 = load ptr, ptr %7, align 8, !tbaa !102
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %16, i64 %15
+  %16 = and i64 %.fca.1.extract5.i.i, 4294967295
+  %17 = load ptr, ptr %7, align 8, !tbaa !102
+  %18 = getelementptr inbounds nuw %"struct.std::pair", ptr %17, i64 %16
   %.sroa.0.0.copyload.i.i = load ptr, ptr %5, align 8, !tbaa !138
   %.sroa.2.0.copyload.i.i = load i64, ptr %6, align 8, !tbaa !74
-  %18 = load ptr, ptr %0, align 8, !tbaa !3
-  %19 = call noundef i32 @_ZN4llvm3pdb14NamedStreamMap16appendStringDataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %18, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
-  store i32 %19, ptr %17, align 4, !tbaa !123
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 %3, ptr %20, align 4, !tbaa !14
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef %.sroa.418.8.extract.trunc22.i.i)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %.sroa.418.8.extract.trunc22.i.i)
+  %19 = load ptr, ptr %0, align 8, !tbaa !3
+  %20 = call noundef i32 @_ZN4llvm3pdb14NamedStreamMap16appendStringDataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %19, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i)
+  store i32 %20, ptr %18, align 4, !tbaa !123
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 %3, ptr %21, align 4, !tbaa !14
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %.sroa.418.8.extract.trunc22.i.i)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef %.sroa.418.8.extract.trunc22.i.i)
   call void @_ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE4growINS0_20NamedStreamMapTraitsEEEvRT_(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(8) %0) #23
   br label %_ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE6set_asINS_9StringRefENS0_20NamedStreamMapTraitsEEEbRKT_S6_RT0_.exit
 
-_ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE6set_asINS_9StringRefENS0_20NamedStreamMapTraitsEEEbRKT_S6_RT0_.exit: ; preds = %10, %14
+_ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE6set_asINS_9StringRefENS0_20NamedStreamMapTraitsEEEbRKT_S6_RT0_.exit: ; preds = %10, %15
   ret void
 }
 
@@ -3081,41 +3084,42 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm3pdb9HashTableINS_7suppor
 8:                                                ; preds = %5
   %9 = and i64 %.fca.1.extract5, 4294967295
   %10 = load ptr, ptr %0, align 8, !tbaa !102
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %9, i32 1
-  store i32 %2, ptr %11, align 4, !tbaa !14
-  br label %24
+  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %9
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 %2, ptr %12, align 4, !tbaa !14
+  br label %25
 
 _ZNK4llvm20iterator_facade_baseINS_3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt20forward_iterator_tagKSt4pairIjS7_ElPSC_RSC_EneERKS8_.exit: ; preds = %5
   %.sroa.027.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.418.8.extract.trunc22 = trunc i64 %.fca.1.extract5 to i32
-  %12 = and i64 %.fca.1.extract5, 4294967295
-  %13 = load ptr, ptr %0, align 8, !tbaa !102
-  %14 = getelementptr inbounds nuw %"struct.std::pair", ptr %13, i64 %12
-  %15 = and i64 %4, 4294967296
-  %.not32 = icmp eq i64 %15, 0
-  br i1 %.not32, label %16, label %19
+  %13 = and i64 %.fca.1.extract5, 4294967295
+  %14 = load ptr, ptr %0, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw %"struct.std::pair", ptr %14, i64 %13
+  %16 = and i64 %4, 4294967296
+  %.not32 = icmp eq i64 %16, 0
+  br i1 %.not32, label %17, label %20
 
-16:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt20forward_iterator_tagKSt4pairIjS7_ElPSC_RSC_EneERKS8_.exit
+17:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt20forward_iterator_tagKSt4pairIjS7_ElPSC_RSC_EneERKS8_.exit
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !tbaa !138
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !74
-  %17 = load ptr, ptr %3, align 8, !tbaa !3
-  %18 = tail call noundef i32 @_ZN4llvm3pdb14NamedStreamMap16appendStringDataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %17, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
-  br label %19
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = tail call noundef i32 @_ZN4llvm3pdb14NamedStreamMap16appendStringDataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(120) %18, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  br label %20
 
-19:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt20forward_iterator_tagKSt4pairIjS7_ElPSC_RSC_EneERKS8_.exit, %16
-  %20 = phi i32 [ %18, %16 ], [ %.sroa.027.0.extract.trunc, %_ZNK4llvm20iterator_facade_baseINS_3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt20forward_iterator_tagKSt4pairIjS7_ElPSC_RSC_EneERKS8_.exit ]
-  store i32 %20, ptr %14, align 4, !tbaa !123
-  %21 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i32 %2, ptr %21, align 4, !tbaa !14
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %.sroa.418.8.extract.trunc22)
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef %.sroa.418.8.extract.trunc22)
+20:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt20forward_iterator_tagKSt4pairIjS7_ElPSC_RSC_EneERKS8_.exit, %17
+  %21 = phi i32 [ %19, %17 ], [ %.sroa.027.0.extract.trunc, %_ZNK4llvm20iterator_facade_baseINS_3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt20forward_iterator_tagKSt4pairIjS7_ElPSC_RSC_EneERKS8_.exit ]
+  store i32 %21, ptr %15, align 4, !tbaa !123
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 %2, ptr %22, align 4, !tbaa !14
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef %.sroa.418.8.extract.trunc22)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef %.sroa.418.8.extract.trunc22)
   tail call void @_ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE4growINS0_20NamedStreamMapTraitsEEEvRT_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %24
+  br label %25
 
-24:                                               ; preds = %19, %8
+25:                                               ; preds = %20, %8
   ret i1 %.not
 }
 

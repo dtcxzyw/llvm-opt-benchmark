@@ -2553,8 +2553,8 @@ define ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %68 = trunc i64 %.0126215 to i32
   %69 = icmp sgt i32 %68, -1
   %.not.i = icmp slt i32 %68, %65
-  %or.cond202 = and i1 %69, %.not.i
-  br i1 %or.cond202, label %70, label %ssl_has_cert.exit.thread
+  %or.cond201 = and i1 %69, %.not.i
+  br i1 %or.cond201, label %70, label %ssl_has_cert.exit.thread
 
 70:                                               ; preds = %67
   %71 = load i32, ptr %66, align 8, !tbaa !120
@@ -2582,7 +2582,7 @@ ssl_has_cert_type.exit.i:                         ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %.pre236, i64 32
   %76 = load ptr, ptr %75, align 8, !tbaa !212
   %77 = and i64 %.0126215, 2147483647
-  %78 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %76, i64 %77, i32 1
+  %78 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %76, i64 %77
   br label %ssl_has_cert.exit
 
 ssl_has_cert_type.exit.thread.i:                  ; preds = %.ssl_has_cert_type.exit.thread.i_crit_edge, %ssl_has_cert_type.exit.i
@@ -2593,17 +2593,14 @@ ssl_has_cert_type.exit.thread.i:                  ; preds = %.ssl_has_cert_type.
   %83 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !213
   %.not12.i = icmp eq ptr %84, null
-  br i1 %.not12.i, label %ssl_has_cert.exit.thread, label %85
+  br i1 %.not12.i, label %ssl_has_cert.exit.thread, label %ssl_has_cert.exit
 
-85:                                               ; preds = %ssl_has_cert_type.exit.thread.i
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  br label %ssl_has_cert.exit
-
-ssl_has_cert.exit:                                ; preds = %74, %85
-  %.0.shrunk.i.in.in = phi ptr [ %78, %74 ], [ %86, %85 ]
-  %.0.shrunk.i.in = load ptr, ptr %.0.shrunk.i.in.in, align 8, !tbaa !214
-  %.0.shrunk.i.not = icmp eq ptr %.0.shrunk.i.in, null
-  br i1 %.0.shrunk.i.not, label %ssl_has_cert.exit.thread, label %.critedge.loopexit
+ssl_has_cert.exit:                                ; preds = %74, %ssl_has_cert_type.exit.thread.i
+  %.sink.i = phi ptr [ %78, %74 ], [ %83, %ssl_has_cert_type.exit.thread.i ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !214
+  %.not202 = icmp eq ptr %86, null
+  br i1 %.not202, label %ssl_has_cert.exit.thread, label %.critedge.loopexit
 
 ssl_has_cert.exit.thread:                         ; preds = %ssl_has_cert_type.exit.thread.i, %67, %ssl_has_cert.exit
   %87 = add nuw i64 %.0126215, 1

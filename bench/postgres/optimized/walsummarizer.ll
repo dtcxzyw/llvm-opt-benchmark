@@ -1644,7 +1644,7 @@ define dso_local void @GetWalSummarizerState(ptr noundef writeonly captures(none
   store i32 0, ptr %0, align 4
   store i64 0, ptr %1, align 8
   store i64 0, ptr %2, align 8
-  br label %30
+  br label %31
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -1660,7 +1660,7 @@ define dso_local void @GetWalSummarizerState(ptr noundef writeonly captures(none
 
 20:                                               ; preds = %12
   store i64 %18, ptr %2, align 8
-  br label %30
+  br label %31
 
 21:                                               ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1669,18 +1669,19 @@ define dso_local void @GetWalSummarizerState(ptr noundef writeonly captures(none
   %24 = load ptr, ptr @ProcGlobal, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %14 to i64
-  %27 = getelementptr inbounds %struct.PGPROC, ptr %25, i64 %26, i32 7
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp slt i32 %28, 1
-  %spec.store.select = select i1 %29, i32 -1, i32 %28
-  br label %30
+  %27 = getelementptr inbounds %struct.PGPROC, ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 60
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp slt i32 %29, 1
+  %spec.store.select = select i1 %30, i32 -1, i32 %29
+  br label %31
 
-30:                                               ; preds = %21, %20, %11
+31:                                               ; preds = %21, %20, %11
   %spec.store.select.sink = phi i32 [ %spec.store.select, %21 ], [ -1, %20 ], [ -1, %11 ]
   store i32 %spec.store.select.sink, ptr %3, align 4
-  %31 = load ptr, ptr @MainLWLockArray, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 6272
-  tail call void @LWLockRelease(ptr noundef nonnull %32) #11
+  %32 = load ptr, ptr @MainLWLockArray, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 6272
+  tail call void @LWLockRelease(ptr noundef nonnull %33) #11
   ret void
 }
 
@@ -1694,7 +1695,7 @@ declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 define dso_local void @WakeupWalSummarizer() local_unnamed_addr #1 {
   %1 = load ptr, ptr @WalSummarizerCtl, align 8
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %17, label %3
+  br i1 %2, label %18, label %3
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @MainLWLockArray, align 8
@@ -1707,17 +1708,18 @@ define dso_local void @WakeupWalSummarizer() local_unnamed_addr #1 {
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 6272
   tail call void @LWLockRelease(ptr noundef nonnull %11) #11
   %.not = icmp eq i32 %9, -1
-  br i1 %.not, label %17, label %12
+  br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr @ProcGlobal, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %9 to i64
-  %16 = getelementptr inbounds %struct.PGPROC, ptr %14, i64 %15, i32 4
-  tail call void @SetLatch(ptr noundef nonnull %16) #11
-  br label %17
+  %16 = getelementptr inbounds %struct.PGPROC, ptr %14, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
+  tail call void @SetLatch(ptr noundef nonnull %17) #11
+  br label %18
 
-17:                                               ; preds = %3, %12, %0
+18:                                               ; preds = %3, %12, %0
   ret void
 }
 

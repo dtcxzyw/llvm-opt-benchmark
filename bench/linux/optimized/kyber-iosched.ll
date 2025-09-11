@@ -1592,8 +1592,8 @@ define internal void @kyber_completed_request(ptr noundef readonly captures(none
 
 49:                                               ; preds = %40, %34
   %50 = phi i64 [ %48, %40 ], [ 0, %34 ]
-  %.split3 = getelementptr [2 x [8 x %struct.atomic_t]], ptr %18, i64 %14, i64 1
-  %51 = getelementptr %struct.atomic_t, ptr %.split3, i64 %50
+  %.split4 = getelementptr i8, ptr %.split, i64 32
+  %51 = getelementptr %struct.atomic_t, ptr %.split4, i64 %50
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %51, ptr elementtype(i32) %51) #18, !srcloc !42
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !43
   %52 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !33
@@ -1693,7 +1693,7 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
   %.idx = shl nuw nsw i64 %24, 6
   %37 = getelementptr i8, ptr %3, i64 %.idx
   %38 = getelementptr i8, ptr %37, i64 32
-  %39 = getelementptr [2 x [8 x %struct.atomic_t]], ptr %22, i64 %24, i64 1
+  %39 = getelementptr i8, ptr %26, i64 32
   br label %40
 
 40:                                               ; preds = %40, %36

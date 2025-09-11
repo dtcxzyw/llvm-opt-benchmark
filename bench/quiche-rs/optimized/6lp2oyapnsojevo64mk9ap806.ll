@@ -7341,7 +7341,7 @@ define hidden void @"_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler27Co
   store i32 1000000000, ptr %21, align 8
   br label %22
 
-22:                                               ; preds = %54, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h5a0993452aac7285E.exit29.thread", %20
+22:                                               ; preds = %55, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h5a0993452aac7285E.exit29.thread", %20
   ret void
 
 23:                                               ; preds = %10
@@ -7358,7 +7358,7 @@ define hidden void @"_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler27Co
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %29 = load i32, ptr %28, align 8, !range !322, !noundef !12
   %.not22 = icmp eq i32 %29, 1000000001
-  br i1 %.not22, label %52, label %50
+  br i1 %.not22, label %53, label %51
 
 30:                                               ; preds = %23
   %31 = extractvalue { i64, i64 } %24, 1
@@ -7391,19 +7391,20 @@ define hidden void @"_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler27Co
   %.not3637 = icmp eq i64 %41, 0
   br i1 %.not3637, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h5a0993452aac7285E.exit29.thread", label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7get_mut17h4285cf3e7e8e3b89E.exit.thread", %48
+.lr.ph:                                           ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7get_mut17h4285cf3e7e8e3b89E.exit.thread", %49
   %42 = load i64, ptr %11, align 8, !alias.scope !319, !noundef !12
   %43 = load i64, ptr %1, align 8, !range !315, !alias.scope !319, !noundef !12
   %.not.i27 = icmp ult i64 %42, %43
   %44 = select i1 %.not.i27, i64 0, i64 %43
   %.sroa.01.0.i28 = sub nuw i64 %42, %44
   %45 = load ptr, ptr %15, align 8, !alias.scope !319, !nonnull !12, !noundef !12
-  %46 = getelementptr inbounds nuw { i64, { [24 x i32], i32, [1 x i32] } }, ptr %45, i64 %.sroa.01.0.i28, i32 1, i32 1
-  %47 = load i32, ptr %46, align 8, !range !326, !noundef !12
-  %.not21 = icmp eq i32 %47, 1000000000
-  br i1 %.not21, label %48, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h5a0993452aac7285E.exit29.thread"
+  %46 = getelementptr inbounds nuw { i64, { [24 x i32], i32, [1 x i32] } }, ptr %45, i64 %.sroa.01.0.i28
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 104
+  %48 = load i32, ptr %47, align 8, !range !326, !noundef !12
+  %.not21 = icmp eq i32 %48, 1000000000
+  br i1 %.not21, label %49, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h5a0993452aac7285E.exit29.thread"
 
-"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h5a0993452aac7285E.exit29.thread": ; preds = %.lr.ph, %48, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7get_mut17h4285cf3e7e8e3b89E.exit.thread"
+"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h5a0993452aac7285E.exit29.thread": ; preds = %.lr.ph, %49, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$7get_mut17h4285cf3e7e8e3b89E.exit.thread"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.03, i64 96, i1 false)
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx4, align 8
@@ -7412,25 +7413,25 @@ define hidden void @"_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler27Co
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03)
   br label %22
 
-48:                                               ; preds = %.lr.ph
+49:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hae040947739ea5afE"(ptr noalias noundef nonnull sret([112 x i8]) align 8 captures(none) dereferenceable(112) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %49 = load i64, ptr %8, align 8, !alias.scope !319, !noundef !12
-  %.not36 = icmp eq i64 %49, 0
+  %50 = load i64, ptr %8, align 8, !alias.scope !319, !noundef !12
+  %.not36 = icmp eq i64 %50, 0
   br i1 %.not36, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h5a0993452aac7285E.exit29.thread", label %.lr.ph
 
-50:                                               ; preds = %27
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %51, i64 104, i1 false)
-  br label %54
+51:                                               ; preds = %27
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %52, i64 104, i1 false)
+  br label %55
 
-52:                                               ; preds = %27
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 1000000000, ptr %53, align 8
-  br label %54
+53:                                               ; preds = %27
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 1000000000, ptr %54, align 8
+  br label %55
 
-54:                                               ; preds = %52, %50
+55:                                               ; preds = %53, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %22
 }

@@ -1955,40 +1955,41 @@ define hidden void @"_ZN4core3ptr123drop_in_place$LT$$u5b$tracing_subscriber..re
   br label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit"
 
 "_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit": ; preds = %4, %2
-  %.0 = phi i64 [ 0, %2 ], [ %5, %4 ]
+  %.0 = phi i64 [ 0, %2 ], [ %6, %4 ]
   %3 = icmp eq i64 %.0, %1
-  br i1 %3, label %7, label %4
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit"
-  %5 = add i64 %.0, 1
-  %6 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %0, i64 %.0, i32 1
-  invoke void @"_ZN78_$LT$sharded_slab..pool..Ref$LT$T$C$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd5f775e1f06b6fbfE.llvm.1799741712541865863"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
-          to label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit" unwind label %10
+  %5 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %0, i64 %.0
+  %6 = add i64 %.0, 1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @"_ZN78_$LT$sharded_slab..pool..Ref$LT$T$C$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd5f775e1f06b6fbfE.llvm.1799741712541865863"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+          to label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit" unwind label %11
 
-7:                                                ; preds = %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit"
+8:                                                ; preds = %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit"
   ret void
 
-8:                                                ; preds = %12, %10
-  %.1 = phi i64 [ %5, %10 ], [ %14, %12 ]
-  %9 = icmp eq i64 %.1, %1
-  br i1 %9, label %15, label %12
+9:                                                ; preds = %13, %11
+  %.1 = phi i64 [ %6, %11 ], [ %15, %13 ]
+  %10 = icmp eq i64 %.1, %1
+  br i1 %10, label %16, label %13
 
-10:                                               ; preds = %4
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %4
+  %12 = landingpad { ptr, i32 }
           cleanup
-  br label %8
+  br label %9
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %0, i64 %.1
-  %14 = add i64 %.1, 1
-  invoke void @"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13) #24
-          to label %8 unwind label %16
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %0, i64 %.1
+  %15 = add i64 %.1, 1
+  invoke void @"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14) #24
+          to label %9 unwind label %17
 
-15:                                               ; preds = %8
-  resume { ptr, i32 } %11
+16:                                               ; preds = %9
+  resume { ptr, i32 } %12
 
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #27
   unreachable
@@ -2684,56 +2685,57 @@ define hidden void @"_ZN4core3ptr136drop_in_place$LT$alloc..vec..Vec$LT$tracing_
   br label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i"
 
 "_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i": ; preds = %6, %1
-  %.0.i.i = phi i64 [ 0, %1 ], [ %7, %6 ]
+  %.0.i.i = phi i64 [ 0, %1 ], [ %8, %6 ]
   %5 = icmp eq i64 %.0.i.i, %4
   br i1 %5, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf994a57871dc45b4E.llvm.1799741712541865863.exit", label %6
 
 6:                                                ; preds = %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i"
-  %7 = add i64 %.0.i.i, 1
-  %8 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %2, i64 %.0.i.i, i32 1
-  invoke void @"_ZN78_$LT$sharded_slab..pool..Ref$LT$T$C$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd5f775e1f06b6fbfE.llvm.1799741712541865863"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
-          to label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i" unwind label %11, !noalias !975
+  %7 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %2, i64 %.0.i.i
+  %8 = add i64 %.0.i.i, 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  invoke void @"_ZN78_$LT$sharded_slab..pool..Ref$LT$T$C$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd5f775e1f06b6fbfE.llvm.1799741712541865863"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+          to label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i" unwind label %12, !noalias !975
 
-9:                                                ; preds = %13, %11
-  %.1.i.i = phi i64 [ %7, %11 ], [ %15, %13 ]
-  %10 = icmp eq i64 %.1.i.i, %4
-  br i1 %10, label %.body, label %13
+10:                                               ; preds = %14, %12
+  %.1.i.i = phi i64 [ %8, %12 ], [ %16, %14 ]
+  %11 = icmp eq i64 %.1.i.i, %4
+  br i1 %11, label %.body, label %14
 
-11:                                               ; preds = %6
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %6
+  %13 = landingpad { ptr, i32 }
           cleanup
-  br label %9
+  br label %10
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %2, i64 %.1.i.i
-  %15 = add i64 %.1.i.i, 1
-  invoke void @"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %14) #24
-          to label %9 unwind label %16, !noalias !975
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %2, i64 %.1.i.i
+  %16 = add i64 %.1.i.i, 1
+  invoke void @"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %15) #24
+          to label %10 unwind label %17, !noalias !975
 
-16:                                               ; preds = %13
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %14
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #27, !noalias !978
   unreachable
 
-.body:                                            ; preds = %9
+.body:                                            ; preds = %10
   tail call void @"_ZN4core3ptr143drop_in_place$LT$alloc..raw_vec..RawVec$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hdb0327a189c3a901E.llvm.1799741712541865863"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #24
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf994a57871dc45b4E.llvm.1799741712541865863.exit": ; preds = %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !981)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !984)
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i64, ptr %18, align 8, !alias.scope !987, !noalias !990, !noundef !10
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %"_ZN4core3ptr143drop_in_place$LT$alloc..raw_vec..RawVec$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hdb0327a189c3a901E.llvm.1799741712541865863.exit", label %21
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load i64, ptr %19, align 8, !alias.scope !987, !noalias !990, !noundef !10
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %"_ZN4core3ptr143drop_in_place$LT$alloc..raw_vec..RawVec$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hdb0327a189c3a901E.llvm.1799741712541865863.exit", label %22
 
-21:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf994a57871dc45b4E.llvm.1799741712541865863.exit"
-  %22 = mul nuw i64 %19, 40
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %22, i64 noundef 8) #26, !noalias !992
+22:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf994a57871dc45b4E.llvm.1799741712541865863.exit"
+  %23 = mul nuw i64 %20, 40
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %23, i64 noundef 8) #26, !noalias !992
   br label %"_ZN4core3ptr143drop_in_place$LT$alloc..raw_vec..RawVec$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hdb0327a189c3a901E.llvm.1799741712541865863.exit"
 
-"_ZN4core3ptr143drop_in_place$LT$alloc..raw_vec..RawVec$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hdb0327a189c3a901E.llvm.1799741712541865863.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf994a57871dc45b4E.llvm.1799741712541865863.exit", %21
+"_ZN4core3ptr143drop_in_place$LT$alloc..raw_vec..RawVec$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hdb0327a189c3a901E.llvm.1799741712541865863.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf994a57871dc45b4E.llvm.1799741712541865863.exit", %22
   ret void
 }
 
@@ -12608,20 +12610,19 @@ define hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops.
   br label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i"
 
 "_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i": ; preds = %10, %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17he4833dffb773211dE.exit"
-  %.0.i = phi i64 [ 0, %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17he4833dffb773211dE.exit" ], [ %11, %10 ]
+  %.0.i = phi i64 [ 0, %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17he4833dffb773211dE.exit" ], [ %12, %10 ]
   %9 = icmp eq i64 %.0.i, %4
   br i1 %9, label %"_ZN4core3ptr123drop_in_place$LT$$u5b$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$u5d$$GT$17h11f9ad85eb8d7720E.llvm.1799741712541865863.exit", label %10
 
 10:                                               ; preds = %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i"
-  %11 = add nuw nsw i64 %.0.i, 1
-  %.idx = mul nuw nsw i64 %.0.i, 40
-  %12 = getelementptr i8, ptr %8, i64 %.idx
-  %13 = getelementptr i8, ptr %12, i64 8
+  %11 = getelementptr inbounds nuw { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %8, i64 %.0.i
+  %12 = add nuw nsw i64 %.0.i, 1
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   invoke void @"_ZN78_$LT$sharded_slab..pool..Ref$LT$T$C$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd5f775e1f06b6fbfE.llvm.1799741712541865863"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
           to label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i" unwind label %16
 
 14:                                               ; preds = %18, %16
-  %.1.i = phi i64 [ %11, %16 ], [ %20, %18 ]
+  %.1.i = phi i64 [ %12, %16 ], [ %20, %18 ]
   %15 = icmp eq i64 %.1.i, %4
   br i1 %15, label %common.resume, label %18
 
@@ -12637,7 +12638,7 @@ define hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops.
           to label %14 unwind label %21
 
 common.resume:                                    ; preds = %14, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %38, %.body.i ], [ %17, %14 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %.body.i ], [ %17, %14 ]
   resume { ptr, i32 } %common.resume.op
 
 21:                                               ; preds = %18
@@ -12662,45 +12663,46 @@ common.resume:                                    ; preds = %14, %.body.i
   br label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i.i"
 
 "_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i.i": ; preds = %32, %23
-  %.0.i.i.i = phi i64 [ 0, %23 ], [ %33, %32 ]
+  %.0.i.i.i = phi i64 [ 0, %23 ], [ %34, %32 ]
   %31 = icmp eq i64 %.0.i.i.i, %28
   br i1 %31, label %"_ZN4core3ptr136drop_in_place$LT$alloc..vec..Vec$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hfa9941950cbb56b3E.llvm.1799741712541865863.exit", label %32
 
 32:                                               ; preds = %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i.i"
-  %33 = add i64 %.0.i.i.i, 1
-  %34 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %26, i64 %.0.i.i.i, i32 1
-  invoke void @"_ZN78_$LT$sharded_slab..pool..Ref$LT$T$C$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd5f775e1f06b6fbfE.llvm.1799741712541865863"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34)
-          to label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i.i" unwind label %37, !noalias !4965
+  %33 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %26, i64 %.0.i.i.i
+  %34 = add i64 %.0.i.i.i, 1
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  invoke void @"_ZN78_$LT$sharded_slab..pool..Ref$LT$T$C$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd5f775e1f06b6fbfE.llvm.1799741712541865863"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35)
+          to label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i.i" unwind label %38, !noalias !4965
 
-35:                                               ; preds = %39, %37
-  %.1.i.i.i = phi i64 [ %33, %37 ], [ %41, %39 ]
-  %36 = icmp eq i64 %.1.i.i.i, %28
-  br i1 %36, label %.body.i, label %39
+36:                                               ; preds = %40, %38
+  %.1.i.i.i = phi i64 [ %34, %38 ], [ %42, %40 ]
+  %37 = icmp eq i64 %.1.i.i.i, %28
+  br i1 %37, label %.body.i, label %40
 
-37:                                               ; preds = %32
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %32
+  %39 = landingpad { ptr, i32 }
           cleanup
-  br label %35
+  br label %36
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %26, i64 %.1.i.i.i
-  %41 = add i64 %.1.i.i.i, 1
-  invoke void @"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %40) #24
-          to label %35 unwind label %42, !noalias !4965
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %26, i64 %.1.i.i.i
+  %42 = add i64 %.1.i.i.i, 1
+  invoke void @"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %41) #24
+          to label %36 unwind label %43, !noalias !4965
 
-42:                                               ; preds = %39
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %40
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #27, !noalias !4970
   unreachable
 
-.body.i:                                          ; preds = %35
+.body.i:                                          ; preds = %36
   call void @"_ZN4core3ptr143drop_in_place$LT$alloc..raw_vec..RawVec$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hdb0327a189c3a901E.llvm.1799741712541865863"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #24
   br label %common.resume
 
 "_ZN4core3ptr136drop_in_place$LT$alloc..vec..Vec$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$17hfa9941950cbb56b3E.llvm.1799741712541865863.exit": ; preds = %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i.i.i"
-  %44 = mul nuw i64 %4, 40
-  tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %44, i64 noundef 8) #26, !noalias !4973
+  %45 = mul nuw i64 %4, 40
+  tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %45, i64 noundef 8) #26, !noalias !4973
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN4core3ptr123drop_in_place$LT$$u5b$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$u5d$$GT$17h11f9ad85eb8d7720E.llvm.1799741712541865863.exit"
 
@@ -13127,37 +13129,38 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i"
 
 "_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i": ; preds = %6, %1
-  %.0.i = phi i64 [ 0, %1 ], [ %7, %6 ]
+  %.0.i = phi i64 [ 0, %1 ], [ %8, %6 ]
   %5 = icmp eq i64 %.0.i, %4
   br i1 %5, label %"_ZN4core3ptr123drop_in_place$LT$$u5b$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$u5d$$GT$17h11f9ad85eb8d7720E.llvm.1799741712541865863.exit", label %6
 
 6:                                                ; preds = %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i"
-  %7 = add i64 %.0.i, 1
-  %8 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %2, i64 %.0.i, i32 1
-  invoke void @"_ZN78_$LT$sharded_slab..pool..Ref$LT$T$C$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd5f775e1f06b6fbfE.llvm.1799741712541865863"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
-          to label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i" unwind label %11
+  %7 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %2, i64 %.0.i
+  %8 = add i64 %.0.i, 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  invoke void @"_ZN78_$LT$sharded_slab..pool..Ref$LT$T$C$C$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd5f775e1f06b6fbfE.llvm.1799741712541865863"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+          to label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE.exit.i" unwind label %12
 
-9:                                                ; preds = %13, %11
-  %.1.i = phi i64 [ %7, %11 ], [ %15, %13 ]
-  %10 = icmp eq i64 %.1.i, %4
-  br i1 %10, label %16, label %13
+10:                                               ; preds = %14, %12
+  %.1.i = phi i64 [ %8, %12 ], [ %16, %14 ]
+  %11 = icmp eq i64 %.1.i, %4
+  br i1 %11, label %17, label %14
 
-11:                                               ; preds = %6
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %6
+  %13 = landingpad { ptr, i32 }
           cleanup
-  br label %9
+  br label %10
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %2, i64 %.1.i
-  %15 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %14) #24
-          to label %9 unwind label %17
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %2, i64 %.1.i
+  %16 = add i64 %.1.i, 1
+  invoke void @"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h2c604e4ab1c6154cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %15) #24
+          to label %10 unwind label %18
 
-16:                                               ; preds = %9
-  resume { ptr, i32 } %12
+17:                                               ; preds = %10
+  resume { ptr, i32 } %13
 
-17:                                               ; preds = %13
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %14
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #27, !noalias !5104
   unreachable

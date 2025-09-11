@@ -104,7 +104,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr noundef captures(no
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 263, ptr noundef nonnull @__func__.ssl_set_cert) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 268, ptr noundef null) #6
-  br label %46
+  br label %50
 
 8:                                                ; preds = %3
   %9 = call ptr @ssl_cert_lookup_by_pkey(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %2) #6
@@ -115,7 +115,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr noundef captures(no
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 268, ptr noundef nonnull @__func__.ssl_set_cert) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 247, ptr noundef null) #6
-  br label %46
+  br label %50
 
 12:                                               ; preds = %8
   %13 = load i64, ptr %4, align 8, !tbaa !71
@@ -135,59 +135,63 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr noundef captures(no
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 273, ptr noundef nonnull @__func__.ssl_set_cert) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 318, ptr noundef null) #6
-  br label %46
+  br label %50
 
 18:                                               ; preds = %._crit_edge, %12
   %19 = phi i64 [ %.pre, %._crit_edge ], [ %13, %12 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !72
-  %22 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %21, i64 %19, i32 1
-  %23 = load ptr, ptr %22, align 8, !tbaa !76
-  %.not20 = icmp eq ptr %23, null
-  br i1 %.not20, label %37, label %24
+  %22 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %21, i64 %19
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !76
+  %.not20 = icmp eq ptr %24, null
+  br i1 %.not20, label %41, label %25
 
-24:                                               ; preds = %18
-  %25 = call i32 @EVP_PKEY_copy_parameters(ptr noundef nonnull %5, ptr noundef nonnull %23) #6
+25:                                               ; preds = %18
+  %26 = call i32 @EVP_PKEY_copy_parameters(ptr noundef nonnull %5, ptr noundef nonnull %24) #6
   call void @ERR_clear_error() #6
-  %26 = load ptr, ptr %20, align 8, !tbaa !72
-  %27 = load i64, ptr %4, align 8, !tbaa !71
-  %28 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %26, i64 %27, i32 1
-  %29 = load ptr, ptr %28, align 8, !tbaa !76
-  %30 = call i32 @X509_check_private_key(ptr noundef nonnull %1, ptr noundef %29) #6
-  %.not21 = icmp eq i32 %30, 0
+  %27 = load ptr, ptr %20, align 8, !tbaa !72
+  %28 = load i64, ptr %4, align 8, !tbaa !71
+  %29 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %27, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !76
+  %32 = call i32 @X509_check_private_key(ptr noundef nonnull %1, ptr noundef %31) #6
+  %.not21 = icmp eq i32 %32, 0
   %.pre23 = load ptr, ptr %20, align 8, !tbaa !72
   %.pre25 = load i64, ptr %4, align 8, !tbaa !71
-  br i1 %.not21, label %31, label %37
+  br i1 %.not21, label %33, label %41
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %.pre23, i64 %.pre25, i32 1
-  %33 = load ptr, ptr %32, align 8, !tbaa !76
-  call void @EVP_PKEY_free(ptr noundef %33) #6
-  %34 = load ptr, ptr %20, align 8, !tbaa !72
-  %35 = load i64, ptr %4, align 8, !tbaa !71
-  %36 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %34, i64 %35, i32 1
-  store ptr null, ptr %36, align 8, !tbaa !76
+33:                                               ; preds = %25
+  %34 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %.pre23, i64 %.pre25
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !76
+  call void @EVP_PKEY_free(ptr noundef %36) #6
+  %37 = load ptr, ptr %20, align 8, !tbaa !72
+  %38 = load i64, ptr %4, align 8, !tbaa !71
+  %39 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %37, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store ptr null, ptr %40, align 8, !tbaa !76
   call void @ERR_clear_error() #6
   %.pre22 = load ptr, ptr %20, align 8, !tbaa !72
   %.pre24 = load i64, ptr %4, align 8, !tbaa !71
-  br label %37
+  br label %41
 
-37:                                               ; preds = %24, %31, %18
-  %38 = phi i64 [ %.pre25, %24 ], [ %.pre24, %31 ], [ %19, %18 ]
-  %39 = phi ptr [ %.pre23, %24 ], [ %.pre22, %31 ], [ %21, %18 ]
-  %40 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %39, i64 %38
-  %41 = load ptr, ptr %40, align 8, !tbaa !78
-  call void @X509_free(ptr noundef %41) #6
-  %42 = call i32 @X509_up_ref(ptr noundef nonnull %1) #6
-  %43 = load ptr, ptr %20, align 8, !tbaa !72
-  %44 = load i64, ptr %4, align 8, !tbaa !71
-  %45 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %43, i64 %44
-  store ptr %1, ptr %45, align 8, !tbaa !78
-  store ptr %45, ptr %0, align 8, !tbaa !79
-  br label %46
+41:                                               ; preds = %25, %33, %18
+  %42 = phi i64 [ %.pre25, %25 ], [ %.pre24, %33 ], [ %19, %18 ]
+  %43 = phi ptr [ %.pre23, %25 ], [ %.pre22, %33 ], [ %21, %18 ]
+  %44 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %43, i64 %42
+  %45 = load ptr, ptr %44, align 8, !tbaa !78
+  call void @X509_free(ptr noundef %45) #6
+  %46 = call i32 @X509_up_ref(ptr noundef nonnull %1) #6
+  %47 = load ptr, ptr %20, align 8, !tbaa !72
+  %48 = load i64, ptr %4, align 8, !tbaa !71
+  %49 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %47, i64 %48
+  store ptr %1, ptr %49, align 8, !tbaa !78
+  store ptr %49, ptr %0, align 8, !tbaa !79
+  br label %50
 
-46:                                               ; preds = %37, %17, %11, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 1, %37 ], [ 0, %17 ]
+50:                                               ; preds = %41, %17, %11, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 1, %41 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -436,7 +440,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_pkey(ptr noundef captures(no
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 138, ptr noundef nonnull @__func__.ssl_set_pkey) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 247, ptr noundef null) #6
-  br label %26
+  br label %27
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -450,7 +454,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_pkey(ptr noundef captures(no
 14:                                               ; preds = %8
   %15 = call i32 @X509_check_private_key(ptr noundef nonnull %13, ptr noundef nonnull %1) #6
   %.not12 = icmp eq i32 %15, 0
-  br i1 %.not12, label %26, label %._crit_edge
+  br i1 %.not12, label %27, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14
   %.pre = load ptr, ptr %9, align 8, !tbaa !72
@@ -460,19 +464,20 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_pkey(ptr noundef captures(no
 16:                                               ; preds = %._crit_edge, %8
   %17 = phi i64 [ %.pre13, %._crit_edge ], [ %11, %8 ]
   %18 = phi ptr [ %.pre, %._crit_edge ], [ %10, %8 ]
-  %19 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %18, i64 %17, i32 1
-  %20 = load ptr, ptr %19, align 8, !tbaa !76
-  call void @EVP_PKEY_free(ptr noundef %20) #6
-  %21 = call i32 @EVP_PKEY_up_ref(ptr noundef nonnull %1) #6
-  %22 = load ptr, ptr %9, align 8, !tbaa !72
-  %23 = load i64, ptr %4, align 8, !tbaa !71
-  %24 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %22, i64 %23, i32 1
-  store ptr %1, ptr %24, align 8, !tbaa !76
-  %25 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %22, i64 %23
+  %19 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %18, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !76
+  call void @EVP_PKEY_free(ptr noundef %21) #6
+  %22 = call i32 @EVP_PKEY_up_ref(ptr noundef nonnull %1) #6
+  %23 = load ptr, ptr %9, align 8, !tbaa !72
+  %24 = load i64, ptr %4, align 8, !tbaa !71
+  %25 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %23, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %1, ptr %26, align 8, !tbaa !76
   store ptr %25, ptr %0, align 8, !tbaa !79
-  br label %26
+  br label %27
 
-26:                                               ; preds = %14, %16, %7
+27:                                               ; preds = %14, %16, %7
   %.0 = phi i32 [ 0, %7 ], [ 1, %16 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1747,7 +1752,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 991, ptr noundef nonnull @__func__.ssl_set_cert_and_key) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %22, ptr noundef null) #6
-  br label %97
+  br label %98
 
 26:                                               ; preds = %.lr.ph
   %27 = add nuw nsw i32 %.06390, 1
@@ -1766,12 +1771,12 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 997, ptr noundef nonnull @__func__.ssl_set_cert_and_key) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %31, ptr noundef null) #6
-  br label %97
+  br label %98
 
 ._crit_edge:                                      ; preds = %26, %.preheader
   %33 = tail call ptr @X509_get_pubkey(ptr noundef %2) #6
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %97, label %35
+  br i1 %34, label %98, label %35
 
 35:                                               ; preds = %._crit_edge
   %36 = icmp eq ptr %3, null
@@ -1791,7 +1796,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1012, ptr noundef nonnull @__func__.ssl_set_cert_and_key) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 290, ptr noundef null) #6
-  br label %97
+  br label %98
 
 42:                                               ; preds = %40
   %43 = tail call i32 @EVP_PKEY_copy_parameters(ptr noundef nonnull %3, ptr noundef nonnull %33) #6
@@ -1802,7 +1807,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1017, ptr noundef nonnull @__func__.ssl_set_cert_and_key) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 296, ptr noundef null) #6
-  br label %97
+  br label %98
 
 45:                                               ; preds = %37
   br i1 %.not78, label %49, label %46
@@ -1816,7 +1821,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1024, ptr noundef nonnull @__func__.ssl_set_cert_and_key) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 296, ptr noundef null) #6
-  br label %97
+  br label %98
 
 49:                                               ; preds = %45, %46, %42
   %50 = tail call i32 @EVP_PKEY_eq(ptr noundef nonnull %33, ptr noundef nonnull %3) #6
@@ -1827,7 +1832,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1031, ptr noundef nonnull @__func__.ssl_set_cert_and_key) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 288, ptr noundef null) #6
-  br label %97
+  br label %98
 
 52:                                               ; preds = %35, %49
   %.065 = phi ptr [ %3, %49 ], [ %33, %35 ]
@@ -1839,7 +1844,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1036, ptr noundef nonnull @__func__.ssl_set_cert_and_key) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 247, ptr noundef null) #6
-  br label %97
+  br label %98
 
 56:                                               ; preds = %52
   %.not83 = icmp eq i32 %5, 0
@@ -1870,7 +1875,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1044, ptr noundef nonnull @__func__.ssl_set_cert_and_key) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 289, ptr noundef null) #6
-  br label %97
+  br label %98
 
 70:                                               ; preds = %66, %56
   %.not87 = icmp eq ptr %4, null
@@ -1885,48 +1890,49 @@ define internal fastcc range(i32 0, 2) i32 @ssl_set_cert_and_key(ptr noundef %0,
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1051, ptr noundef nonnull @__func__.ssl_set_cert_and_key) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524299, ptr noundef null) #6
-  br label %97
+  br label %98
 
 75:                                               ; preds = %71, %70
   %.061 = phi ptr [ %72, %71 ], [ null, %70 ]
   %76 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %77 = load ptr, ptr %76, align 8, !tbaa !72
   %78 = load i64, ptr %7, align 8, !tbaa !71
-  %79 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %77, i64 %78, i32 2
-  %80 = load ptr, ptr %79, align 8, !tbaa !111
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %80) #6
-  %81 = load ptr, ptr %76, align 8, !tbaa !72
-  %82 = load i64, ptr %7, align 8, !tbaa !71
-  %83 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %81, i64 %82, i32 2
-  store ptr %.061, ptr %83, align 8, !tbaa !111
-  %84 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %81, i64 %82
-  %85 = load ptr, ptr %84, align 8, !tbaa !78
-  call void @X509_free(ptr noundef %85) #6
-  %86 = call i32 @X509_up_ref(ptr noundef %2) #6
-  %87 = load ptr, ptr %76, align 8, !tbaa !72
-  %88 = load i64, ptr %7, align 8, !tbaa !71
-  %89 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %87, i64 %88
-  store ptr %2, ptr %89, align 8, !tbaa !78
-  %90 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %87, i64 %88, i32 1
-  %91 = load ptr, ptr %90, align 8, !tbaa !76
-  call void @EVP_PKEY_free(ptr noundef %91) #6
-  %92 = call i32 @EVP_PKEY_up_ref(ptr noundef nonnull %.065) #6
-  %93 = load ptr, ptr %76, align 8, !tbaa !72
-  %94 = load i64, ptr %7, align 8, !tbaa !71
-  %95 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %93, i64 %94, i32 1
-  store ptr %.065, ptr %95, align 8, !tbaa !76
-  %96 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %93, i64 %94
+  %79 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %77, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = load ptr, ptr %80, align 8, !tbaa !111
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %81) #6
+  %82 = load ptr, ptr %76, align 8, !tbaa !72
+  %83 = load i64, ptr %7, align 8, !tbaa !71
+  %84 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %82, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  store ptr %.061, ptr %85, align 8, !tbaa !111
+  %86 = load ptr, ptr %84, align 8, !tbaa !78
+  call void @X509_free(ptr noundef %86) #6
+  %87 = call i32 @X509_up_ref(ptr noundef %2) #6
+  %88 = load ptr, ptr %76, align 8, !tbaa !72
+  %89 = load i64, ptr %7, align 8, !tbaa !71
+  %90 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %88, i64 %89
+  store ptr %2, ptr %90, align 8, !tbaa !78
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !76
+  call void @EVP_PKEY_free(ptr noundef %92) #6
+  %93 = call i32 @EVP_PKEY_up_ref(ptr noundef nonnull %.065) #6
+  %94 = load ptr, ptr %76, align 8, !tbaa !72
+  %95 = load i64, ptr %7, align 8, !tbaa !71
+  %96 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %94, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  store ptr %.065, ptr %97, align 8, !tbaa !76
   store ptr %96, ptr %21, align 8, !tbaa !79
-  br label %97
+  br label %98
 
-97:                                               ; preds = %._crit_edge, %75, %74, %69, %55, %51, %48, %44, %41, %32, %25
+98:                                               ; preds = %._crit_edge, %75, %74, %69, %55, %51, %48, %44, %41, %32, %25
   %.064 = phi i32 [ 0, %25 ], [ 0, %32 ], [ 0, %._crit_edge ], [ 0, %55 ], [ 0, %74 ], [ 1, %75 ], [ 0, %69 ], [ 0, %41 ], [ 0, %51 ], [ 0, %44 ], [ 0, %48 ]
   %.060 = phi ptr [ null, %25 ], [ null, %32 ], [ null, %._crit_edge ], [ %33, %55 ], [ %33, %74 ], [ %33, %75 ], [ %33, %69 ], [ %33, %41 ], [ %33, %51 ], [ %33, %44 ], [ %33, %48 ]
   call void @EVP_PKEY_free(ptr noundef %.060) #6
   br label %.thread
 
-.thread:                                          ; preds = %14, %9, %16, %97
-  %.062 = phi i32 [ %.064, %97 ], [ 0, %16 ], [ 0, %9 ], [ 0, %14 ]
+.thread:                                          ; preds = %14, %9, %16, %98
+  %.062 = phi i32 [ %.064, %98 ], [ 0, %16 ], [ 0, %9 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.062
 }

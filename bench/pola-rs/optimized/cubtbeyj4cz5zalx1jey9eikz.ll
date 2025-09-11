@@ -87416,14 +87416,13 @@ define hidden void @_ZN14polars_compute4cast10binview_to14view_to_binary17hae6b3
   %32 = zext i32 %31 to i64
   %33 = icmp ugt i64 %26, %32
   call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %35 = load i32, ptr %34, align 4, !alias.scope !7020, !noalias !7023, !noundef !6
-  %36 = zext i32 %35 to i64
-  %.idx = mul nuw nsw i64 %32, 24
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
+  %34 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %25, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %36 = load i32, ptr %35, align 4, !alias.scope !7020, !noalias !7023, !noundef !6
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %39 = load ptr, ptr %38, align 8, !alias.scope !7025, !noalias !7020, !noundef !6
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %36
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %37
   br label %45
 
 41:                                               ; preds = %19

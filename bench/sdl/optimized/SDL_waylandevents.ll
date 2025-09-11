@@ -4974,9 +4974,7 @@ Wayland_GetPointerTimestamp.exit:                 ; preds = %20, %29
   br i1 %33, label %switch.lookup, label %pointer_handle_button_common.exit
 
 switch.lookup:                                    ; preds = %Wayland_GetPointerTimestamp.exit
-  %switch.cast = trunc nuw i32 %switch.tableidx to i5
-  %switch.downshift = lshr i5 1, %switch.cast
-  %switch.masked = trunc nuw i5 %switch.downshift to i1
+  %switch.masked = icmp eq i32 %switch.tableidx, 0
   %34 = shl nuw nsw i32 %switch.tableidx, 3
   %switch.shiftamt12 = zext nneg i32 %34 to i40
   %switch.downshift13 = lshr i40 21542077185, %switch.shiftamt12

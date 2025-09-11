@@ -4640,7 +4640,7 @@ define internal fastcc i64 @_odict_get_index(ptr noundef %0, ptr noundef %1, i64
   br i1 %19, label %.thread.i, label %20
 
 20:                                               ; preds = %17
-  %21 = shl nuw i64 8, %.pre-phi
+  %21 = shl nuw nsw i64 8, %.pre-phi
   %22 = tail call ptr @PyMem_Malloc(i64 noundef %21) #8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread.i, label %._crit_edge.i

@@ -71,8 +71,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr noundef nonnull align 4 c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 28
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %16 = getelementptr inbounds nuw %"struct.dtLocalBoundary::Segment", ptr %6, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load float, ptr %17, align 4
   %19 = fcmp ugt float %1, %18
@@ -233,8 +232,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %56 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv.i, 28
-  %52 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i
+  %52 = getelementptr inbounds nuw %"struct.dtLocalBoundary::Segment", ptr %30, i64 %indvars.iv.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load float, ptr %53, align 4
   %55 = fcmp ugt float %39, %54

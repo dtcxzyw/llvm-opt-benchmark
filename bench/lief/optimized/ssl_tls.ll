@@ -3344,7 +3344,7 @@ mbedtls_ssl_get_current_mtu.exit40:               ; preds = %52, %60, %63, %67
   br i1 %70, label %.thread, label %71
 
 71:                                               ; preds = %mbedtls_ssl_get_current_mtu.exit40
-  %.not33 = icmp ugt i64 %.0.i37, %69
+  %.not33 = icmp samesign ugt i64 %.0.i37, %69
   br i1 %.not33, label %73, label %72
 
 72:                                               ; preds = %71

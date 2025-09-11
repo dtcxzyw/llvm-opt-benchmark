@@ -534,7 +534,8 @@ define internal fastcc noundef ptr @huge_pte_lock(i32 %.40.val, ptr noundef %0, 
   %14 = select i1 %10, i64 %11, i64 %13
   %15 = add i64 %9, %14
   %16 = lshr i64 %15, 12
-  %17 = getelementptr %struct.page, ptr %6, i64 %16, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %6, i64 %16
+  %17 = getelementptr i8, ptr %.split, i64 40
   br label %20
 
 18:                                               ; preds = %2

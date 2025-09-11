@@ -535,7 +535,7 @@ bn_expand.exit.thread62:                          ; preds = %28, %bn_expand.exit
 53:                                               ; preds = %51, %39
   %.145 = phi i64 [ %45, %39 ], [ 0, %51 ]
   %.1 = phi i32 [ %47, %39 ], [ 0, %51 ]
-  %54 = icmp sgt i32 %.in, 1
+  %54 = icmp samesign ugt i32 %.in, 1
   br i1 %54, label %39, label %55, !llvm.loop !26
 
 55:                                               ; preds = %53

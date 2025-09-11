@@ -679,7 +679,8 @@ for.body.us:                                      ; preds = %_ZN8QuantLib6Matrix
 
 invoke.cont83.us:                                 ; preds = %for.body.us, %invoke.cont83.us
   %j.0141.us = phi i64 [ 0, %for.body.us ], [ %inc.us, %invoke.cont83.us ]
-  %values_.i.us = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %0, i64 %j.0141.us, i32 1
+  %add.ptr.i.i79.us = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %0, i64 %j.0141.us
+  %values_.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i79.us, i64 72
   %53 = load ptr, ptr %values_.i.us, align 8, !tbaa !28
   %arrayidx.i.i.us = getelementptr inbounds nuw double, ptr %53, i64 %52
   %54 = load double, ptr %arrayidx.i.i.us, align 8, !tbaa !44

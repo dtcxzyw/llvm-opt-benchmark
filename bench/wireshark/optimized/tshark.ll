@@ -3114,7 +3114,7 @@ define internal fastcc void @list_read_capture_types() unnamed_addr #0 {
 14:                                               ; preds = %.lr.ph44
   %15 = getelementptr %struct.string_elem, ptr %7, i64 %10
   store ptr %13, ptr %15, align 8
-  %16 = getelementptr %struct.open_info, ptr %11, i64 %10, i32 1
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   %19 = select i1 %18, ptr @.str.268, ptr @.str.269

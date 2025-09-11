@@ -3854,7 +3854,7 @@ define noundef zeroext i1 @_ZN21uv_distribution_types4hash10HashPolicy11is_gener
   br i1 %trunc, label %16, label %7
 
 _ZN21uv_distribution_types9BuiltDist4file17h83bdb74c8b1ba9afE.exit9.thread: ; preds = %7, %9, %16, %25, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ %31, %25 ], [ true, %16 ], [ false, %9 ], [ true, %7 ]
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ %32, %25 ], [ true, %16 ], [ false, %9 ], [ true, %7 ]
   ret i1 %.sroa.0.0
 
 7:                                                ; preds = %4
@@ -3898,10 +3898,11 @@ _ZN21uv_distribution_types9BuiltDist4file17h83bdb74c8b1ba9afE.exit9.thread: ; pr
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8, !alias.scope !684, !nonnull !3, !noundef !3
-  %28 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %27, i64 %20, i32 2
-  %29 = load ptr, ptr %28, align 8, !noalias !678, !nonnull !3, !align !103, !noundef !3
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %31 = tail call noundef zeroext i1 @_ZN13uv_pypi_types11simple_json11HashDigests8is_empty17h30856c43da787a0cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %30)
+  %28 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %27, i64 %20
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %30 = load ptr, ptr %29, align 8, !noalias !678, !nonnull !3, !align !103, !noundef !3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %32 = tail call noundef zeroext i1 @_ZN13uv_pypi_types11simple_json11HashDigests8is_empty17h30856c43da787a0cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31)
   br label %_ZN21uv_distribution_types9BuiltDist4file17h83bdb74c8b1ba9afE.exit9.thread
 }
 

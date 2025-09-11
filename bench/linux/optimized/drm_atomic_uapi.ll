@@ -489,7 +489,8 @@ define dso_local i32 @drm_atomic_set_crtc_for_connector(ptr noundef %0, ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr %struct.__drm_crtcs_state, ptr %13, i64 %16, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %13, i64 %16
+  %17 = getelementptr i8, ptr %.split, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %20 = load i32, ptr %19, align 8
@@ -2204,7 +2205,8 @@ define dso_local i32 @drm_atomic_set_property(ptr noundef %0, ptr noundef %1, pt
   %279 = getelementptr inbounds nuw i8, ptr %266, i64 48
   %280 = load ptr, ptr %279, align 8
   %281 = zext i32 %268 to i64
-  %282 = getelementptr %struct.__drm_connnectors_state, ptr %280, i64 %281, i32 4
+  %.split28 = getelementptr %struct.__drm_connnectors_state, ptr %280, i64 %281
+  %282 = getelementptr i8, ptr %.split28, i64 32
   store ptr %264, ptr %282, align 8
   br label %318
 
@@ -2433,7 +2435,8 @@ define dso_local i32 @drm_atomic_set_property(ptr noundef %0, ptr noundef %1, pt
   %427 = getelementptr i8, ptr %2, i64 48
   %428 = load i32, ptr %427, align 8
   %429 = zext i32 %428 to i64
-  %430 = getelementptr %struct.__drm_crtcs_state, ptr %426, i64 %429, i32 5
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %426, i64 %429
+  %430 = getelementptr i8, ptr %.split, i64 40
   store ptr %412, ptr %430, align 8
   br label %.thread
 
@@ -3370,7 +3373,8 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   %210 = getelementptr inbounds nuw i8, ptr %201, i64 144
   %211 = load i32, ptr %210, align 8
   %212 = zext i32 %211 to i64
-  %213 = getelementptr %struct.__drm_crtcs_state, ptr %209, i64 %212, i32 5
+  %.split.i = getelementptr %struct.__drm_crtcs_state, ptr %209, i64 %212
+  %213 = getelementptr i8, ptr %.split.i, i64 40
   %214 = load ptr, ptr %213, align 8
   store ptr null, ptr %213, align 8
   %215 = load i32, ptr %1, align 8
@@ -3378,7 +3382,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   %217 = icmp ne i32 %216, 0
   %218 = icmp ne ptr %214, null
   %219 = select i1 %217, i1 true, i1 %218
-  br i1 %219, label %220, label %.thread36.i
+  br i1 %219, label %220, label %.thread37.i
 
 220:                                              ; preds = %203
   %221 = load i64, ptr %102, align 8
@@ -3401,8 +3405,8 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   %232 = getelementptr inbounds nuw i8, ptr %205, i64 312
   store ptr %223, ptr %232, align 8
   %.pre.i = load i32, ptr %1, align 8
-  %.pre63.i = and i32 %.pre.i, 1
-  %233 = icmp eq i32 %.pre63.i, 0
+  %.pre64.i = and i32 %.pre.i, 1
+  %233 = icmp eq i32 %.pre64.i, 0
   br i1 %233, label %238, label %234
 
 234:                                              ; preds = %225
@@ -3411,15 +3415,15 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
 235:                                              ; preds = %234
   %236 = call i32 @drm_event_reserve_init(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %223, ptr noundef nonnull %226) #12
   %237 = icmp eq i32 %236, 0
-  br i1 %237, label %238, label %.thread37.i
+  br i1 %237, label %238, label %.thread38.i
 
-.thread37.i:                                      ; preds = %235
+.thread38.i:                                      ; preds = %235
   call void @kfree(ptr noundef nonnull %223) #12
   store ptr null, ptr %232, align 8
   br label %.thread46
 
 238:                                              ; preds = %235, %225
-  br i1 %218, label %239, label %.thread36.i
+  br i1 %218, label %239, label %.thread37.i
 
 239:                                              ; preds = %238
   %240 = add i32 %.5, 1
@@ -3466,7 +3470,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   br i1 %267, label %select.unfold.i, label %275
 
 select.unfold.i:                                  ; preds = %264, %255, %251
-  %.ph26.i = phi i32 [ -14, %255 ], [ %252, %251 ], [ -12, %264 ]
+  %.ph27.i = phi i32 [ -14, %255 ], [ %252, %251 ], [ -12, %264 ]
   %268 = getelementptr inbounds nuw i8, ptr %249, i64 56
   %269 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %268, i32 -1, ptr nonnull elementtype(i32) %268) #12, !srcloc !37
   %270 = icmp eq i32 %269, 1
@@ -3489,18 +3493,18 @@ select.unfold.i:                                  ; preds = %264, %255, %251
   %276 = load ptr, ptr %232, align 8
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 24
   store ptr %249, ptr %277, align 8
-  br label %.thread36.i
+  br label %.thread37.i
 
-.thread36.i:                                      ; preds = %275, %238, %203
+.thread37.i:                                      ; preds = %275, %238, %203
   %.633 = phi ptr [ %243, %275 ], [ %.532, %238 ], [ %.532, %203 ]
   %.6 = phi i32 [ %240, %275 ], [ %.5, %238 ], [ %.5, %203 ]
   %278 = add i32 %198, 1
   br label %279
 
-279:                                              ; preds = %.thread36.i, %234, %.preheader110
-  %.734 = phi ptr [ %.532, %.preheader110 ], [ %.633, %.thread36.i ], [ %.532, %234 ]
-  %.7 = phi i32 [ %.5, %.preheader110 ], [ %.6, %.thread36.i ], [ %.5, %234 ]
-  %280 = phi i32 [ %198, %.preheader110 ], [ %278, %.thread36.i ], [ %198, %234 ]
+279:                                              ; preds = %.thread37.i, %234, %.preheader110
+  %.734 = phi ptr [ %.532, %.preheader110 ], [ %.633, %.thread37.i ], [ %.532, %234 ]
+  %.7 = phi i32 [ %.5, %.preheader110 ], [ %.6, %.thread37.i ], [ %.5, %234 ]
+  %280 = phi i32 [ %198, %.preheader110 ], [ %278, %.thread37.i ], [ %198, %234 ]
   %281 = add nuw nsw i64 %197, 1
   %282 = load ptr, ptr %100, align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 728
@@ -3531,7 +3535,8 @@ select.unfold.i:                                  ; preds = %264, %255, %251
   %299 = getelementptr inbounds nuw i8, ptr %290, i64 136
   %300 = load i32, ptr %299, align 8
   %301 = zext i32 %300 to i64
-  %302 = getelementptr %struct.__drm_connnectors_state, ptr %288, i64 %301, i32 4
+  %.split22.i = getelementptr %struct.__drm_connnectors_state, ptr %288, i64 %301
+  %302 = getelementptr i8, ptr %.split22.i, i64 32
   %303 = load ptr, ptr %302, align 8
   store ptr null, ptr %302, align 8
   %304 = icmp eq ptr %303, null
@@ -3560,7 +3565,7 @@ select.unfold.i:                                  ; preds = %264, %255, %251
   %319 = getelementptr inbounds nuw i8, ptr %313, i64 16
   store i32 %318, ptr %319, align 8
   %320 = icmp slt i32 %318, 0
-  br i1 %320, label %select.unfold40.i, label %321
+  br i1 %320, label %select.unfold41.i, label %321
 
 321:                                              ; preds = %317
   %322 = load ptr, ptr %313, align 8
@@ -3572,23 +3577,23 @@ select.unfold.i:                                  ; preds = %264, %255, %251
   call void @llvm.write_register.i64(metadata !0, i64 %326)
   %328 = and i64 %327, 4294967295
   %329 = icmp eq i64 %328, 0
-  br i1 %329, label %330, label %select.unfold40.i
+  br i1 %329, label %330, label %select.unfold41.i
 
 330:                                              ; preds = %321
   %331 = call ptr @sync_file_create(ptr noundef nonnull %315) #12
   %332 = getelementptr inbounds nuw i8, ptr %313, i64 8
   store ptr %331, ptr %332, align 8
   %333 = icmp eq ptr %331, null
-  br i1 %333, label %select.unfold40.i, label %341
+  br i1 %333, label %select.unfold41.i, label %341
 
-select.unfold40.i:                                ; preds = %330, %321, %317
+select.unfold41.i:                                ; preds = %330, %321, %317
   %.ph.i = phi i32 [ -14, %321 ], [ %318, %317 ], [ -12, %330 ]
   %334 = getelementptr inbounds nuw i8, ptr %315, i64 56
   %335 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %334, i32 -1, ptr nonnull elementtype(i32) %334) #12, !srcloc !37
   %336 = icmp eq i32 %335, 1
   br i1 %336, label %340, label %337
 
-337:                                              ; preds = %select.unfold40.i
+337:                                              ; preds = %select.unfold41.i
   %338 = icmp sgt i32 %335, 0
   br i1 %338, label %.thread46, label %339, !prof !11
 
@@ -3596,7 +3601,7 @@ select.unfold40.i:                                ; preds = %330, %321, %317
   call void @refcount_warn_saturate(ptr noundef nonnull %334, i32 noundef 3) #12
   br label %.thread46
 
-340:                                              ; preds = %select.unfold40.i
+340:                                              ; preds = %select.unfold41.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !38
   call void @dma_fence_release(ptr noundef nonnull %334) #12, !callees !39
   br label %.thread46
@@ -3678,10 +3683,10 @@ prepare_signaling.exit:                           ; preds = %.loopexit.i, %.loop
   %375 = icmp eq i32 %374, 0
   br i1 %375, label %381, label %.thread46
 
-.thread46:                                        ; preds = %.preheader59, %245, %239, %220, %311, %305, %337, %339, %340, %271, %273, %274, %.thread37.i, %354, %.thread, %125, %134, %146, %373
-  %376 = phi i32 [ %374, %373 ], [ %.ph, %.thread ], [ -2, %125 ], [ -2, %134 ], [ -14, %146 ], [ %.ph.i, %337 ], [ %.ph.i, %339 ], [ %.ph.i, %340 ], [ %.ph26.i, %271 ], [ %.ph26.i, %273 ], [ %.ph26.i, %274 ], [ %236, %.thread37.i ], [ -22, %354 ], [ -12, %305 ], [ -12, %311 ], [ -12, %220 ], [ -12, %239 ], [ -12, %245 ], [ -14, %.preheader59 ]
-  %.050 = phi i32 [ %.8, %373 ], [ 0, %.thread ], [ 0, %125 ], [ 0, %134 ], [ 0, %146 ], [ %306, %337 ], [ %306, %339 ], [ %306, %340 ], [ %240, %271 ], [ %240, %273 ], [ %240, %274 ], [ %.5, %.thread37.i ], [ %.2, %354 ], [ %.3, %305 ], [ %.3, %311 ], [ %.5, %220 ], [ %.5, %239 ], [ %.5, %245 ], [ 0, %.preheader59 ]
-  %.02749 = phi ptr [ %.835, %373 ], [ null, %.thread ], [ null, %125 ], [ null, %134 ], [ null, %146 ], [ %309, %337 ], [ %309, %339 ], [ %309, %340 ], [ %243, %271 ], [ %243, %273 ], [ %243, %274 ], [ %.532, %.thread37.i ], [ %.229, %354 ], [ %309, %311 ], [ %.330, %305 ], [ %243, %245 ], [ %.532, %239 ], [ %.532, %220 ], [ null, %.preheader59 ]
+.thread46:                                        ; preds = %.preheader59, %245, %239, %220, %311, %305, %337, %339, %340, %271, %273, %274, %.thread38.i, %354, %.thread, %125, %134, %146, %373
+  %376 = phi i32 [ %374, %373 ], [ %.ph, %.thread ], [ -2, %125 ], [ -2, %134 ], [ -14, %146 ], [ %.ph.i, %337 ], [ %.ph.i, %339 ], [ %.ph.i, %340 ], [ %.ph27.i, %271 ], [ %.ph27.i, %273 ], [ %.ph27.i, %274 ], [ %236, %.thread38.i ], [ -22, %354 ], [ -12, %305 ], [ -12, %311 ], [ -12, %220 ], [ -12, %239 ], [ -12, %245 ], [ -14, %.preheader59 ]
+  %.050 = phi i32 [ %.8, %373 ], [ 0, %.thread ], [ 0, %125 ], [ 0, %134 ], [ 0, %146 ], [ %306, %337 ], [ %306, %339 ], [ %306, %340 ], [ %240, %271 ], [ %240, %273 ], [ %240, %274 ], [ %.5, %.thread38.i ], [ %.2, %354 ], [ %.3, %305 ], [ %.3, %311 ], [ %.5, %220 ], [ %.5, %239 ], [ %.5, %245 ], [ 0, %.preheader59 ]
+  %.02749 = phi ptr [ %.835, %373 ], [ null, %.thread ], [ null, %125 ], [ null, %134 ], [ null, %146 ], [ %309, %337 ], [ %309, %339 ], [ %309, %340 ], [ %243, %271 ], [ %243, %273 ], [ %243, %274 ], [ %.532, %.thread38.i ], [ %.229, %354 ], [ %309, %311 ], [ %.330, %305 ], [ %243, %245 ], [ %.532, %239 ], [ %.532, %220 ], [ null, %.preheader59 ]
   %377 = load ptr, ptr %100, align 8
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 728
   %379 = load i32, ptr %378, align 8

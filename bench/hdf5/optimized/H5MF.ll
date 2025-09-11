@@ -5595,7 +5595,7 @@ define internal noundef i32 @H5MF__sects_cb(ptr noundef readonly captures(none) 
   store i64 %16, ptr %18, align 8, !tbaa !139
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !59
-  %21 = getelementptr inbounds nuw %struct.H5F_sect_info_t, ptr %17, i64 %11, i32 1
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %20, ptr %21, align 8, !tbaa !141
   %22 = add nuw i64 %11, 1
   store i64 %22, ptr %10, align 8, !tbaa !117

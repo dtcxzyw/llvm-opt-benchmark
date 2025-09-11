@@ -346,7 +346,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %22
 
 25:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37
   invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN7Iex_3_46ArgExcE, ptr nonnull @_ZN7Iex_3_46ArgExcD1Ev) #25
-          to label %137 unwind label %26
+          to label %139 unwind label %26
 
 26:                                               ; preds = %22, %14, %25, %20, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %27 = landingpad { ptr, i32 }
@@ -363,7 +363,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %22
   %.pn34 = phi { ptr, i32 } [ %27, %26 ], [ %29, %28 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %136
+  br label %138
 
 31:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -392,7 +392,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %22
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = sext i32 %42 to i64
-  br label %74
+  br label %75
 
 ._crit_edge46.loopexit:                           ; preds = %._crit_edge
   %.pre = load i32, ptr %41, align 4, !tbaa !43
@@ -424,151 +424,153 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %22
   %66 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %62, i64 %65
   %67 = sub nsw i32 0, %52
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %66, i64 %68, i32 1
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %71 = load i32, ptr %70, align 4, !tbaa !23
-  %72 = zext i32 %71 to i64
-  %73 = shl nuw nsw i64 %72, 3
-  invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %9, i32 noundef 1, ptr noundef nonnull %69, i64 noundef 8, i64 noundef %73, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %103 unwind label %129
+  %69 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %66, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %72 = load i32, ptr %71, align 4, !tbaa !23
+  %73 = zext i32 %72 to i64
+  %74 = shl nuw nsw i64 %73, 3
+  invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %9, i32 noundef 1, ptr noundef nonnull %70, i64 noundef 8, i64 noundef %74, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
+          to label %104 unwind label %131
 
-74:                                               ; preds = %.lr.ph45, %._crit_edge
+75:                                               ; preds = %.lr.ph45, %._crit_edge
   %indvars.iv54 = phi i64 [ %51, %.lr.ph45 ], [ %indvars.iv.next55, %._crit_edge ]
   %indvars.iv52 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next53, %._crit_edge ]
-  %75 = load i32, ptr %7, align 4, !tbaa !42
-  %76 = load i32, ptr %34, align 4, !tbaa !39
-  %.not3338 = icmp sgt i32 %75, %76
+  %76 = load i32, ptr %7, align 4, !tbaa !42
+  %77 = load i32, ptr %34, align 4, !tbaa !39
+  %.not3338 = icmp sgt i32 %76, %77
   br i1 %.not3338, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %74
-  %77 = sext i32 %75 to i64
-  br label %86
+.lr.ph:                                           ; preds = %75
+  %78 = sext i32 %76 to i64
+  br label %87
 
-._crit_edge:                                      ; preds = %86, %74
-  %78 = load i8, ptr %50, align 8, !tbaa !8, !range !54, !noundef !55
-  %79 = trunc nuw i8 %78 to i1
-  %80 = load ptr, ptr %47, align 8, !tbaa !30
-  %81 = load i64, ptr %48, align 8, !tbaa !32
-  %82 = mul nsw i64 %81, %indvars.iv52
-  %83 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %80, i64 %82
-  call void @_ZN7Imf_3_47RgbaYca9RGBAtoYCAERKN9Imath_3_24Vec3IfEEibPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %49, i32 noundef %38, i1 noundef zeroext %79, ptr noundef %83, ptr noundef %83)
+._crit_edge:                                      ; preds = %87, %75
+  %79 = load i8, ptr %50, align 8, !tbaa !8, !range !54, !noundef !55
+  %80 = trunc nuw i8 %79 to i1
+  %81 = load ptr, ptr %47, align 8, !tbaa !30
+  %82 = load i64, ptr %48, align 8, !tbaa !32
+  %83 = mul nsw i64 %82, %indvars.iv52
+  %84 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %81, i64 %83
+  call void @_ZN7Imf_3_47RgbaYca9RGBAtoYCAERKN9Imath_3_24Vec3IfEEibPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %49, i32 noundef %38, i1 noundef zeroext %80, ptr noundef %84, ptr noundef %84)
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %84 = load i32, ptr %43, align 4, !tbaa !44
-  %85 = sext i32 %84 to i64
-  %.not.not = icmp slt i64 %indvars.iv54, %85
-  br i1 %.not.not, label %74, label %._crit_edge46.loopexit, !llvm.loop !56
+  %85 = load i32, ptr %43, align 4, !tbaa !44
+  %86 = sext i32 %85 to i64
+  %.not.not = icmp slt i64 %indvars.iv54, %86
+  br i1 %.not.not, label %75, label %._crit_edge46.loopexit, !llvm.loop !56
 
-86:                                               ; preds = %.lr.ph, %86
-  %indvars.iv47 = phi i64 [ %77, %.lr.ph ], [ %indvars.iv.next48, %86 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %87 = load i64, ptr %45, align 8, !tbaa !37
-  %88 = mul i64 %87, %indvars.iv47
-  %89 = load i64, ptr %46, align 8, !tbaa !38
-  %90 = mul i64 %89, %indvars.iv54
-  %91 = add i64 %90, %88
-  %92 = shl i64 %91, 3
-  %93 = add i64 %92, %40
-  %94 = inttoptr i64 %93 to ptr
-  %95 = load ptr, ptr %47, align 8, !tbaa !30
-  %96 = load i64, ptr %48, align 8, !tbaa !32
-  %97 = mul nsw i64 %96, %indvars.iv52
-  %98 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %95, i64 %97
-  %99 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %98, i64 %indvars.iv
-  %100 = load i64, ptr %94, align 2
-  store i64 %100, ptr %99, align 2
+87:                                               ; preds = %.lr.ph, %87
+  %indvars.iv47 = phi i64 [ %78, %.lr.ph ], [ %indvars.iv.next48, %87 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
+  %88 = load i64, ptr %45, align 8, !tbaa !37
+  %89 = mul i64 %88, %indvars.iv47
+  %90 = load i64, ptr %46, align 8, !tbaa !38
+  %91 = mul i64 %90, %indvars.iv54
+  %92 = add i64 %91, %89
+  %93 = shl i64 %92, 3
+  %94 = add i64 %93, %40
+  %95 = inttoptr i64 %94 to ptr
+  %96 = load ptr, ptr %47, align 8, !tbaa !30
+  %97 = load i64, ptr %48, align 8, !tbaa !32
+  %98 = mul nsw i64 %97, %indvars.iv52
+  %99 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %96, i64 %98
+  %100 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %99, i64 %indvars.iv
+  %101 = load i64, ptr %95, align 2
+  store i64 %101, ptr %100, align 2
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %101 = load i32, ptr %34, align 4, !tbaa !39
-  %102 = sext i32 %101 to i64
-  %.not33.not = icmp slt i64 %indvars.iv47, %102
-  br i1 %.not33.not, label %86, label %._crit_edge, !llvm.loop !58
+  %102 = load i32, ptr %34, align 4, !tbaa !39
+  %103 = sext i32 %102 to i64
+  %.not33.not = icmp slt i64 %indvars.iv47, %103
+  br i1 %.not33.not, label %87, label %._crit_edge, !llvm.loop !58
 
-103:                                              ; preds = %._crit_edge46
+104:                                              ; preds = %._crit_edge46
   invoke void @_ZN7Imf_3_411FrameBuffer6insertEPKcRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(50) %9)
-          to label %104 unwind label %129
+          to label %105 unwind label %131
 
-104:                                              ; preds = %103
+105:                                              ; preds = %104
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %105 = load i32, ptr %41, align 4, !tbaa !43
-  %106 = sub nsw i32 0, %105
-  %107 = sext i32 %106 to i64
-  %108 = load ptr, ptr %61, align 8, !tbaa !30
-  %109 = load i64, ptr %63, align 8, !tbaa !32
-  %110 = mul nsw i64 %109, %107
-  %111 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %108, i64 %110
-  %112 = load i32, ptr %7, align 4, !tbaa !42
-  %113 = sub nsw i32 0, %112
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %111, i64 %114, i32 3
-  %116 = load i32, ptr %70, align 4, !tbaa !23
-  %117 = zext i32 %116 to i64
-  %118 = shl nuw nsw i64 %117, 3
-  invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %10, i32 noundef 1, ptr noundef nonnull %115, i64 noundef 8, i64 noundef %118, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %119 unwind label %131
+  %106 = load i32, ptr %41, align 4, !tbaa !43
+  %107 = sub nsw i32 0, %106
+  %108 = sext i32 %107 to i64
+  %109 = load ptr, ptr %61, align 8, !tbaa !30
+  %110 = load i64, ptr %63, align 8, !tbaa !32
+  %111 = mul nsw i64 %110, %108
+  %112 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %109, i64 %111
+  %113 = load i32, ptr %7, align 4, !tbaa !42
+  %114 = sub nsw i32 0, %113
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %112, i64 %115
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 6
+  %118 = load i32, ptr %71, align 4, !tbaa !23
+  %119 = zext i32 %118 to i64
+  %120 = shl nuw nsw i64 %119, 3
+  invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %10, i32 noundef 1, ptr noundef nonnull %117, i64 noundef 8, i64 noundef %120, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
+          to label %121 unwind label %133
 
-119:                                              ; preds = %104
+121:                                              ; preds = %105
   invoke void @_ZN7Imf_3_411FrameBuffer6insertEPKcRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(50) %10)
-          to label %120 unwind label %131
-
-120:                                              ; preds = %119
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %121 = load ptr, ptr %32, align 8, !tbaa !26
-  invoke void @_ZN7Imf_3_415TiledOutputFile14setFrameBufferERKNS_11FrameBufferE(ptr noundef nonnull align 8 dereferenceable(25) %121, ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %122 unwind label %133
 
-122:                                              ; preds = %120
+122:                                              ; preds = %121
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %123 = load ptr, ptr %32, align 8, !tbaa !26
-  invoke void @_ZN7Imf_3_415TiledOutputFile9writeTileEiiii(ptr noundef nonnull align 8 dereferenceable(25) %123, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-          to label %124 unwind label %133
+  invoke void @_ZN7Imf_3_415TiledOutputFile14setFrameBufferERKNS_11FrameBufferE(ptr noundef nonnull align 8 dereferenceable(25) %123, ptr noundef nonnull align 8 dereferenceable(48) %8)
+          to label %124 unwind label %135
 
 124:                                              ; preds = %122
-  %125 = load ptr, ptr %55, align 8, !tbaa !50
-  invoke void @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %125)
-          to label %_ZN7Imf_3_411FrameBufferD2Ev.exit unwind label %126
+  %125 = load ptr, ptr %32, align 8, !tbaa !26
+  invoke void @_ZN7Imf_3_415TiledOutputFile9writeTileEiiii(ptr noundef nonnull align 8 dereferenceable(25) %125, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+          to label %126 unwind label %135
 
 126:                                              ; preds = %124
-  %127 = landingpad { ptr, i32 }
+  %127 = load ptr, ptr %55, align 8, !tbaa !50
+  invoke void @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %127)
+          to label %_ZN7Imf_3_411FrameBufferD2Ev.exit unwind label %128
+
+128:                                              ; preds = %126
+  %129 = landingpad { ptr, i32 }
           catch ptr null
-  %128 = extractvalue { ptr, i32 } %127, 0
-  call void @__clang_call_terminate(ptr %128) #26
+  %130 = extractvalue { ptr, i32 } %129, 0
+  call void @__clang_call_terminate(ptr %130) #26
   unreachable
 
-_ZN7Imf_3_411FrameBufferD2Ev.exit:                ; preds = %124
+_ZN7Imf_3_411FrameBufferD2Ev.exit:                ; preds = %126
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-129:                                              ; preds = %103, %._crit_edge46
-  %130 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %135
-
-131:                                              ; preds = %119, %104
+131:                                              ; preds = %104, %._crit_edge46
   %132 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %135
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %137
 
-133:                                              ; preds = %122, %120
+133:                                              ; preds = %121, %105
   %134 = landingpad { ptr, i32 }
           cleanup
-  br label %135
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %137
 
-135:                                              ; preds = %133, %131, %129
-  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %132, %131 ], [ %130, %129 ]
+135:                                              ; preds = %124, %122
+  %136 = landingpad { ptr, i32 }
+          cleanup
+  br label %137
+
+137:                                              ; preds = %135, %133, %131
+  %.pn = phi { ptr, i32 } [ %136, %135 ], [ %134, %133 ], [ %132, %131 ]
   call void @_ZN7Imf_3_411FrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %136
+  br label %138
 
-136:                                              ; preds = %135, %30
-  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %30 ], [ %.pn, %135 ]
+138:                                              ; preds = %137, %30
+  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %30 ], [ %.pn, %137 ]
   resume { ptr, i32 } %.pn34.pn
 
-137:                                              ; preds = %25
+139:                                              ; preds = %25
   unreachable
 }
 
@@ -3220,7 +3222,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit42: ; preds = %19
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %85 ]
   %86 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %81, i64 %indvars.iv
   store i16 0, ptr %86, align 2, !tbaa !114
-  %87 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %81, i64 %indvars.iv, i32 2
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store i16 0, ptr %87, align 2, !tbaa !114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

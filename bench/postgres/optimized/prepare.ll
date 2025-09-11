@@ -728,229 +728,232 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.1, i32 noundef %0, i32 noundef %40) #12
   %41 = load ptr, ptr @stmtCacheEntries, align 8
   %sext = shl i64 %indvars.iv.i, 32
-  %42 = ashr exact i64 %sext, 32
-  %43 = getelementptr inbounds %struct.stmtCacheEntry, ptr %41, i64 %42, i32 1
-  %44 = tail call ptr @ecpg_get_connection(ptr noundef %1) #12
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %.01118.i = load ptr, ptr %45, align 8
+  %42 = ashr exact i64 %sext, 26
+  %43 = getelementptr inbounds i8, ptr %41, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %45 = tail call ptr @ecpg_get_connection(ptr noundef %1) #12
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %.01118.i = load ptr, ptr %46, align 8
   %.not19.i = icmp eq ptr %.01118.i, null
   br i1 %.not19.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %39, %49
-  %.01121.i = phi ptr [ %.011.i, %49 ], [ %.01118.i, %39 ]
-  %46 = load ptr, ptr %.01121.i, align 8
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull readonly dereferenceable(1) %43) #11
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.critedge, label %49
+.lr.ph.i:                                         ; preds = %39, %50
+  %.01121.i = phi ptr [ %.011.i, %50 ], [ %.01118.i, %39 ]
+  %47 = load ptr, ptr %.01121.i, align 8
+  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(1) %44) #11
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %.critedge, label %50
 
-49:                                               ; preds = %.lr.ph.i
-  %50 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 24
-  %.011.i = load ptr, ptr %50, align 8
+50:                                               ; preds = %.lr.ph.i
+  %51 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 24
+  %.011.i = load ptr, ptr %51, align 8
   %.not.i42 = icmp eq ptr %.011.i, null
   br i1 %.not.i42, label %.loopexit, label %.lr.ph.i, !llvm.loop !3
 
-.loopexit:                                        ; preds = %49, %39
-  %51 = tail call fastcc zeroext i1 @prepare_common(i32 noundef %0, ptr noundef %44, ptr noundef nonnull %43, ptr noundef nonnull %4)
-  br i1 %51, label %.critedge, label %135
+.loopexit:                                        ; preds = %50, %39
+  %52 = tail call fastcc zeroext i1 @prepare_common(i32 noundef %0, ptr noundef %45, ptr noundef nonnull %44, ptr noundef nonnull %4)
+  br i1 %52, label %.critedge, label %138
 
 .critedge:                                        ; preds = %.lr.ph.i, %.loopexit
-  %52 = tail call ptr @ecpg_strdup(ptr noundef nonnull %43, i32 noundef %0) #12
-  store ptr %52, ptr %3, align 8
+  %53 = tail call ptr @ecpg_strdup(ptr noundef nonnull %44, i32 noundef %0) #12
+  store ptr %53, ptr %3, align 8
   %sext87 = shl i64 %indvars.iv.i, 32
   %.pre = ashr exact i64 %sext87, 32
-  br label %130
+  br label %132
 
 SearchStmtCache.exit.thread:                      ; preds = %35, %37, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.2, i32 noundef %0) #12
-  %53 = load i32, ptr @nextStmtID, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr @nextStmtID, align 4
-  %55 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.3, i32 noundef %53) #12
-  %56 = call zeroext i1 @ECPGprepare(i32 noundef %0, ptr noundef %1, i1 zeroext poison, ptr noundef nonnull %6, ptr noundef %4)
-  br i1 %56, label %57, label %.critedge41
+  %54 = load i32, ptr @nextStmtID, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr @nextStmtID, align 4
+  %56 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.3, i32 noundef %54) #12
+  %57 = call zeroext i1 @ECPGprepare(i32 noundef %0, ptr noundef %1, i1 zeroext poison, ptr noundef nonnull %6, ptr noundef %4)
+  br i1 %57, label %58, label %.critedge41
 
-57:                                               ; preds = %SearchStmtCache.exit.thread
-  %58 = load ptr, ptr @stmtCacheEntries, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %63
+58:                                               ; preds = %SearchStmtCache.exit.thread
+  %59 = load ptr, ptr @stmtCacheEntries, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %64
 
-60:                                               ; preds = %57
-  %61 = call ptr @ecpg_alloc(i64 noundef 1044032, i32 noundef %0) #12
-  store ptr %61, ptr @stmtCacheEntries, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %.critedge41, label %63
+61:                                               ; preds = %58
+  %62 = call ptr @ecpg_alloc(i64 noundef 1044032, i32 noundef %0) #12
+  store ptr %62, ptr @stmtCacheEntries, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %.critedge41, label %64
 
-63:                                               ; preds = %60, %57
-  %64 = phi ptr [ %61, %60 ], [ %58, %57 ]
-  %65 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #11
-  %66 = trunc i64 %65 to i32
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph.preheader.i.i48, label %HashStmt.exit.i43
+64:                                               ; preds = %61, %58
+  %65 = phi ptr [ %62, %61 ], [ %59, %58 ]
+  %66 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #11
+  %67 = trunc i64 %66 to i32
+  %68 = icmp sgt i32 %67, 0
+  br i1 %68, label %.lr.ph.preheader.i.i48, label %HashStmt.exit.i43
 
-.lr.ph.preheader.i.i48:                           ; preds = %63
-  %68 = call i32 @llvm.umin.i32(i32 %66, i32 50)
-  %wide.trip.count.i.i49 = zext nneg i32 %68 to i64
+.lr.ph.preheader.i.i48:                           ; preds = %64
+  %69 = call i32 @llvm.umin.i32(i32 %67, i32 50)
+  %wide.trip.count.i.i49 = zext nneg i32 %69 to i64
   br label %.lr.ph.i.i50
 
 .lr.ph.i.i50:                                     ; preds = %.lr.ph.i.i50, %.lr.ph.preheader.i.i48
   %indvars.iv.i.i51 = phi i64 [ 0, %.lr.ph.preheader.i.i48 ], [ %indvars.iv.next.i.i53, %.lr.ph.i.i50 ]
-  %.01518.i.i52 = phi i64 [ 0, %.lr.ph.preheader.i.i48 ], [ %77, %.lr.ph.i.i50 ]
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i51
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i64
-  %72 = add nsw i64 %.01518.i.i52, %71
-  %73 = shl nsw i64 %72, 13
-  %74 = lshr i64 %73, 32
-  %75 = and i64 %74, 8191
-  %76 = and i64 %73, 4294959104
-  %77 = or disjoint i64 %75, %76
+  %.01518.i.i52 = phi i64 [ 0, %.lr.ph.preheader.i.i48 ], [ %78, %.lr.ph.i.i50 ]
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i51
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i64
+  %73 = add nsw i64 %.01518.i.i52, %72
+  %74 = shl nsw i64 %73, 13
+  %75 = lshr i64 %74, 32
+  %76 = and i64 %75, 8191
+  %77 = and i64 %74, 4294959104
+  %78 = or disjoint i64 %76, %77
   %indvars.iv.next.i.i53 = add nuw nsw i64 %indvars.iv.i.i51, 1
   %exitcond.not.i.i54 = icmp eq i64 %indvars.iv.next.i.i53, %wide.trip.count.i.i49
   br i1 %exitcond.not.i.i54, label %._crit_edge.loopexit.i.i55, label %.lr.ph.i.i50, !llvm.loop !10
 
 ._crit_edge.loopexit.i.i55:                       ; preds = %.lr.ph.i.i50
-  %.lhs.trunc.i.i56 = trunc nuw i64 %77 to i32
-  %78 = urem i32 %.lhs.trunc.i.i56, 2039
-  %79 = shl nuw nsw i32 %78, 3
-  %80 = or disjoint i32 %79, 1
+  %.lhs.trunc.i.i56 = trunc nuw i64 %78 to i32
+  %79 = urem i32 %.lhs.trunc.i.i56, 2039
+  %80 = shl nuw nsw i32 %79, 3
+  %81 = or disjoint i32 %80, 1
   br label %HashStmt.exit.i43
 
-HashStmt.exit.i43:                                ; preds = %._crit_edge.loopexit.i.i55, %63
-  %.015.lcssa.i.i44 = phi i32 [ 1, %63 ], [ %80, %._crit_edge.loopexit.i.i55 ]
-  %81 = zext nneg i32 %.015.lcssa.i.i44 to i64
-  br label %82
+HashStmt.exit.i43:                                ; preds = %._crit_edge.loopexit.i.i55, %64
+  %.015.lcssa.i.i44 = phi i32 [ 1, %64 ], [ %81, %._crit_edge.loopexit.i.i55 ]
+  %82 = zext nneg i32 %.015.lcssa.i.i44 to i64
+  br label %83
 
-82:                                               ; preds = %86, %HashStmt.exit.i43
-  %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ %81, %HashStmt.exit.i43 ]
-  %.02941.i = phi i32 [ %spec.select.i, %86 ], [ %.015.lcssa.i.i44, %HashStmt.exit.i43 ]
-  %.03240.i = phi i32 [ %94, %86 ], [ 0, %HashStmt.exit.i43 ]
-  %83 = getelementptr inbounds nuw %struct.stmtCacheEntry, ptr %64, i64 %indvars.iv
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %85 = load i8, ptr %84, align 4
-  %.not.i45 = icmp eq i8 %85, 0
-  br i1 %.not.i45, label %95, label %86
+83:                                               ; preds = %87, %HashStmt.exit.i43
+  %indvars.iv = phi i64 [ %indvars.iv.next, %87 ], [ %82, %HashStmt.exit.i43 ]
+  %.02941.i = phi i32 [ %spec.select.i, %87 ], [ %.015.lcssa.i.i44, %HashStmt.exit.i43 ]
+  %.03240.i = phi i32 [ %96, %87 ], [ 0, %HashStmt.exit.i43 ]
+  %84 = getelementptr inbounds nuw %struct.stmtCacheEntry, ptr %65, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %86 = load i8, ptr %85, align 4
+  %.not.i45 = icmp eq i8 %86, 0
+  br i1 %.not.i45, label %97, label %87
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw i8, ptr %83, i64 48
-  %88 = load i64, ptr %87, align 8
-  %89 = sext i32 %.02941.i to i64
-  %90 = getelementptr inbounds %struct.stmtCacheEntry, ptr %64, i64 %89, i32 3
-  %91 = load i64, ptr %90, align 8
-  %92 = icmp slt i64 %88, %91
-  %93 = trunc nsw i64 %indvars.iv to i32
-  %spec.select.i = select i1 %92, i32 %93, i32 %.02941.i
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 48
+  %89 = load i64, ptr %88, align 8
+  %90 = sext i32 %.02941.i to i64
+  %91 = getelementptr inbounds %struct.stmtCacheEntry, ptr %65, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
+  %93 = load i64, ptr %92, align 8
+  %94 = icmp slt i64 %89, %93
+  %95 = trunc nsw i64 %indvars.iv to i32
+  %spec.select.i = select i1 %94, i32 %95, i32 %.02941.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %94 = add nuw nsw i32 %.03240.i, 1
-  %exitcond.not.i46 = icmp eq i32 %94, 8
-  br i1 %exitcond.not.i46, label %.thread.i47, label %82, !llvm.loop !12
+  %96 = add nuw nsw i32 %.03240.i, 1
+  %exitcond.not.i46 = icmp eq i32 %96, 8
+  br i1 %exitcond.not.i46, label %.thread.i47, label %83, !llvm.loop !12
 
-95:                                               ; preds = %82
-  %96 = trunc nsw i64 %indvars.iv to i32
-  %97 = icmp samesign ugt i32 %.03240.i, 7
-  %spec.select59.i = select i1 %97, i32 %.02941.i, i32 %96
+97:                                               ; preds = %83
+  %98 = trunc nsw i64 %indvars.iv to i32
+  %99 = icmp samesign ugt i32 %.03240.i, 7
+  %spec.select59.i = select i1 %99, i32 %.02941.i, i32 %98
   br label %.thread.i47
 
-.thread.i47:                                      ; preds = %86, %95
-  %98 = phi i32 [ %spec.select59.i, %95 ], [ %spec.select.i, %86 ]
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds %struct.stmtCacheEntry, ptr %64, i64 %99
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %102 = load i8, ptr %101, align 4
-  %.not.i.i = icmp eq i8 %102, 0
-  br i1 %.not.i.i, label %AddStmtToCache.exit, label %103
+.thread.i47:                                      ; preds = %87, %97
+  %100 = phi i32 [ %spec.select59.i, %97 ], [ %spec.select.i, %87 ]
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds %struct.stmtCacheEntry, ptr %65, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  %104 = load i8, ptr %103, align 4
+  %.not.i.i = icmp eq i8 %104, 0
+  br i1 %.not.i.i, label %AddStmtToCache.exit, label %105
 
-103:                                              ; preds = %.thread.i47
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  %105 = load ptr, ptr %104, align 8
-  %106 = call ptr @ecpg_get_connection(ptr noundef %105) #12
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  %.01118.i.i.i = load ptr, ptr %107, align 8
+105:                                              ; preds = %.thread.i47
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 56
+  %107 = load ptr, ptr %106, align 8
+  %108 = call ptr @ecpg_get_connection(ptr noundef %107) #12
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  %.01118.i.i.i = load ptr, ptr %109, align 8
   %.not19.i.i.i = icmp eq ptr %.01118.i.i.i, null
   br i1 %.not19.i.i.i, label %ecpg_find_prepared_statement.exit.thread.i.i, label %.lr.ph.i.preheader.i.i
 
-.lr.ph.i.preheader.i.i:                           ; preds = %103
-  %108 = load ptr, ptr %.01118.i.i.i, align 8
-  %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %108, ptr noundef nonnull readonly dereferenceable(1) %101) #11
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %ecpg_find_prepared_statement.exit.i.i, label %.lr.ph.i34.i
+.lr.ph.i.preheader.i.i:                           ; preds = %105
+  %110 = load ptr, ptr %.01118.i.i.i, align 8
+  %111 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull readonly dereferenceable(1) %103) #11
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %ecpg_find_prepared_statement.exit.i.i, label %.lr.ph.i34.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i34.i
-  %111 = load ptr, ptr %.011.i.i.i, align 8
-  %112 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull readonly dereferenceable(1) %101) #11
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %ecpg_find_prepared_statement.exit.i.i, label %.lr.ph.i34.i, !llvm.loop !3
+  %113 = load ptr, ptr %.011.i.i.i, align 8
+  %114 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull readonly dereferenceable(1) %103) #11
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %ecpg_find_prepared_statement.exit.i.i, label %.lr.ph.i34.i, !llvm.loop !3
 
 .lr.ph.i34.i:                                     ; preds = %.lr.ph.i.preheader.i.i, %.lr.ph.i.i.i
   %.01121.i26.i.i = phi ptr [ %.011.i.i.i, %.lr.ph.i.i.i ], [ %.01118.i.i.i, %.lr.ph.i.preheader.i.i ]
-  %114 = getelementptr inbounds nuw i8, ptr %.01121.i26.i.i, i64 24
-  %.011.i.i.i = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %.01121.i26.i.i, i64 24
+  %.011.i.i.i = load ptr, ptr %116, align 8
   %.not.i.i.i = icmp eq ptr %.011.i.i.i, null
   br i1 %.not.i.i.i, label %ecpg_find_prepared_statement.exit.thread.i.i, label %.lr.ph.i.i.i, !llvm.loop !3
 
 ecpg_find_prepared_statement.exit.i.i:            ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
   %.01121.i.lcssa.i.i = phi ptr [ %.01118.i.i.i, %.lr.ph.i.preheader.i.i ], [ %.011.i.i.i, %.lr.ph.i.i.i ]
   %.020.i.lcssa.i.i = phi ptr [ null, %.lr.ph.i.preheader.i.i ], [ %.01121.i26.i.i, %.lr.ph.i.i.i ]
-  %115 = call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %2, ptr noundef %106, ptr noundef %.020.i.lcssa.i.i, ptr noundef %.01121.i.lcssa.i.i)
-  br i1 %115, label %ecpg_find_prepared_statement.exit.thread.i.i, label %.critedge41
+  %117 = call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %2, ptr noundef %108, ptr noundef %.020.i.lcssa.i.i, ptr noundef %.01121.i.lcssa.i.i)
+  br i1 %117, label %ecpg_find_prepared_statement.exit.thread.i.i, label %.critedge41
 
-ecpg_find_prepared_statement.exit.thread.i.i:     ; preds = %.lr.ph.i34.i, %ecpg_find_prepared_statement.exit.i.i, %103
-  store i8 0, ptr %101, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %100, i64 40
-  %117 = load ptr, ptr %116, align 8
-  %.not19.i.i = icmp eq ptr %117, null
-  br i1 %.not19.i.i, label %ecpg_freeStmtCacheEntry.exit.i, label %118
+ecpg_find_prepared_statement.exit.thread.i.i:     ; preds = %.lr.ph.i34.i, %ecpg_find_prepared_statement.exit.i.i, %105
+  store i8 0, ptr %103, align 4
+  %118 = getelementptr inbounds nuw i8, ptr %102, i64 40
+  %119 = load ptr, ptr %118, align 8
+  %.not19.i.i = icmp eq ptr %119, null
+  br i1 %.not19.i.i, label %ecpg_freeStmtCacheEntry.exit.i, label %120
 
-118:                                              ; preds = %ecpg_find_prepared_statement.exit.thread.i.i
-  call void @ecpg_free(ptr noundef nonnull %117) #12
-  store ptr null, ptr %116, align 8
+120:                                              ; preds = %ecpg_find_prepared_statement.exit.thread.i.i
+  call void @ecpg_free(ptr noundef nonnull %119) #12
+  store ptr null, ptr %118, align 8
   br label %ecpg_freeStmtCacheEntry.exit.i
 
-ecpg_freeStmtCacheEntry.exit.i:                   ; preds = %118, %ecpg_find_prepared_statement.exit.thread.i.i
-  %119 = icmp slt i32 %98, 0
-  br i1 %119, label %.critedge41, label %ecpg_freeStmtCacheEntry.exit.ecpg_freeStmtCacheEntry.exit.thread36_crit_edge.i
+ecpg_freeStmtCacheEntry.exit.i:                   ; preds = %120, %ecpg_find_prepared_statement.exit.thread.i.i
+  %121 = icmp slt i32 %100, 0
+  br i1 %121, label %.critedge41, label %ecpg_freeStmtCacheEntry.exit.ecpg_freeStmtCacheEntry.exit.thread36_crit_edge.i
 
 ecpg_freeStmtCacheEntry.exit.ecpg_freeStmtCacheEntry.exit.thread36_crit_edge.i: ; preds = %ecpg_freeStmtCacheEntry.exit.i
   %.pre.i = load ptr, ptr @stmtCacheEntries, align 8
   br label %AddStmtToCache.exit
 
 AddStmtToCache.exit:                              ; preds = %.thread.i47, %ecpg_freeStmtCacheEntry.exit.ecpg_freeStmtCacheEntry.exit.thread36_crit_edge.i
-  %120 = phi ptr [ %.pre.i, %ecpg_freeStmtCacheEntry.exit.ecpg_freeStmtCacheEntry.exit.thread36_crit_edge.i ], [ %64, %.thread.i47 ]
-  %121 = getelementptr inbounds %struct.stmtCacheEntry, ptr %120, i64 %99
-  store i32 %0, ptr %121, align 8
-  %122 = call ptr @ecpg_strdup(ptr noundef nonnull %4, i32 noundef %0) #12
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 40
-  store ptr %122, ptr %123, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 56
-  store ptr %1, ptr %124, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %121, i64 48
-  store i64 0, ptr %125, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %126, ptr noundef nonnull readonly align 16 dereferenceable(32) %6, i64 32, i1 false)
-  %127 = icmp slt i32 %98, 0
-  br i1 %127, label %.critedge41, label %128
+  %122 = phi ptr [ %.pre.i, %ecpg_freeStmtCacheEntry.exit.ecpg_freeStmtCacheEntry.exit.thread36_crit_edge.i ], [ %65, %.thread.i47 ]
+  %123 = getelementptr inbounds %struct.stmtCacheEntry, ptr %122, i64 %101
+  store i32 %0, ptr %123, align 8
+  %124 = call ptr @ecpg_strdup(ptr noundef nonnull %4, i32 noundef %0) #12
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 40
+  store ptr %124, ptr %125, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 56
+  store ptr %1, ptr %126, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 48
+  store i64 0, ptr %127, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %128, ptr noundef nonnull readonly align 16 dereferenceable(32) %6, i64 32, i1 false)
+  %129 = icmp slt i32 %100, 0
+  br i1 %129, label %.critedge41, label %130
 
-128:                                              ; preds = %AddStmtToCache.exit
-  %129 = call ptr @ecpg_strdup(ptr noundef nonnull %6, i32 noundef %0) #12
-  store ptr %129, ptr %3, align 8
+130:                                              ; preds = %AddStmtToCache.exit
+  %131 = call ptr @ecpg_strdup(ptr noundef nonnull %6, i32 noundef %0) #12
+  store ptr %131, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %130
+  br label %132
 
-130:                                              ; preds = %128, %.critedge
-  %.pre-phi = phi i64 [ %99, %128 ], [ %.pre, %.critedge ]
-  %131 = load ptr, ptr @stmtCacheEntries, align 8
-  %132 = getelementptr inbounds %struct.stmtCacheEntry, ptr %131, i64 %.pre-phi, i32 3
-  %133 = load i64, ptr %132, align 8
-  %134 = add i64 %133, 1
-  store i64 %134, ptr %132, align 8
-  br label %135
+132:                                              ; preds = %130, %.critedge
+  %.pre-phi = phi i64 [ %101, %130 ], [ %.pre, %.critedge ]
+  %133 = load ptr, ptr @stmtCacheEntries, align 8
+  %134 = getelementptr inbounds %struct.stmtCacheEntry, ptr %133, i64 %.pre-phi
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 48
+  %136 = load i64, ptr %135, align 8
+  %137 = add i64 %136, 1
+  store i64 %137, ptr %135, align 8
+  br label %138
 
-.critedge41:                                      ; preds = %ecpg_find_prepared_statement.exit.i.i, %ecpg_freeStmtCacheEntry.exit.i, %60, %AddStmtToCache.exit, %SearchStmtCache.exit.thread
+.critedge41:                                      ; preds = %ecpg_find_prepared_statement.exit.i.i, %ecpg_freeStmtCacheEntry.exit.i, %61, %AddStmtToCache.exit, %SearchStmtCache.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %135
+  br label %138
 
-135:                                              ; preds = %.critedge41, %.loopexit, %130
-  %.132 = phi i1 [ true, %130 ], [ false, %.loopexit ], [ false, %.critedge41 ]
+138:                                              ; preds = %.critedge41, %.loopexit, %132
+  %.132 = phi i1 [ true, %132 ], [ false, %.loopexit ], [ false, %.critedge41 ]
   ret i1 %.132
 }
 

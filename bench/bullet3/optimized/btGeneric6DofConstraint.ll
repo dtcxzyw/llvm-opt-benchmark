@@ -3213,41 +3213,40 @@ define dso_local noundef i32 @_ZN23btGeneric6DofConstraint15setLinearLimitsEPN17
   store float %99, ptr %18, align 4, !tbaa !28
   %100 = load i8, ptr %47, align 1, !tbaa !45, !range !57, !noundef !88
   %101 = trunc nuw i8 %100 to i1
-  br i1 %101, label %102, label %117
+  br i1 %101, label %102, label %116
 
 102:                                              ; preds = %95
   %.cmp.not = icmp eq i64 %indvars.iv, 2
-  %103 = shl nuw nsw i64 %indvars.iv, 6
-  %104 = add nuw i64 %103, 64
-  %105 = and i64 %104, 4294967232
-  %106 = select i1 %.cmp.not, i64 0, i64 %105
-  %107 = getelementptr inbounds nuw i8, ptr %48, i64 %106
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 56
-  %109 = load i32, ptr %108, align 4, !tbaa !33
-  %.not52 = icmp eq i32 %109, 0
-  br i1 %.not52, label %117, label %110
+  %103 = add nuw i64 %indvars.iv, 1
+  %104 = and i64 %103, 4294967295
+  %105 = select i1 %.cmp.not, i64 0, i64 %104
+  %106 = getelementptr inbounds nuw %class.btRotationalLimitMotor, ptr %48, i64 %105
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
+  %108 = load i32, ptr %107, align 4, !tbaa !33
+  %.not52 = icmp eq i32 %108, 0
+  br i1 %.not52, label %116, label %109
 
-110:                                              ; preds = %102
+109:                                              ; preds = %102
   %.cmp57 = icmp eq i64 %indvars.iv, 0
-  %111 = add nuw i64 %103, 4294967232
-  %112 = and i64 %111, 4294967232
-  %113 = select i1 %.cmp57, i64 128, i64 %112
-  %114 = getelementptr inbounds nuw i8, ptr %48, i64 %113
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
-  %116 = load i32, ptr %115, align 4, !tbaa !33
-  %.not53 = icmp eq i32 %116, 0
+  %110 = add nuw i64 %indvars.iv, 4294967295
+  %111 = and i64 %110, 4294967295
+  %112 = select i1 %.cmp57, i64 2, i64 %111
+  %113 = getelementptr inbounds nuw %class.btRotationalLimitMotor, ptr %48, i64 %112
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 56
+  %115 = load i32, ptr %114, align 4, !tbaa !33
+  %.not53 = icmp eq i32 %115, 0
   %spec.select = zext i1 %.not53 to i32
-  br label %117
+  br label %116
 
-117:                                              ; preds = %95, %102, %110
-  %.sink = phi i32 [ 1, %102 ], [ %spec.select, %110 ], [ 0, %95 ]
-  %118 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.04661, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 0, i32 noundef %.sink)
-  %.1 = add nsw i32 %118, %.04661
+116:                                              ; preds = %95, %102, %109
+  %.sink = phi i32 [ 1, %102 ], [ %spec.select, %109 ], [ 0, %95 ]
+  %117 = call noundef i32 @_ZN23btGeneric6DofConstraint21get_limit_motor_info2EP22btRotationalLimitMotorRK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1333) %0, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.04661, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 0, i32 noundef %.sink)
+  %.1 = add nsw i32 %117, %.04661
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit
 
-_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit: ; preds = %56, %117
-  %.2 = phi i32 [ %.1, %117 ], [ %.04661, %56 ]
+_ZNK25btTranslationalLimitMotor14needApplyForceEi.exit: ; preds = %56, %116
+  %.2 = phi i32 [ %.1, %116 ], [ %.04661, %56 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %49, label %50, !llvm.loop !133

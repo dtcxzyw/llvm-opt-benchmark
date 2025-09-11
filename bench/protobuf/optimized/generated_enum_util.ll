@@ -128,7 +128,8 @@ while.body.i.i:                                   ; preds = %entry, %.thread
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i": ; preds = %while.body.i.i
   %idxprom.i.i.i.i.i = sext i32 %.val.i.i to i64
-  %value.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %enums, i64 %idxprom.i.i.i.i.i, i32 1
+  %arrayidx.i.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %enums, i64 %idxprom.i.i.i.i.i
+  %value.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i, i64 16
   %0 = load i32, ptr %value.i.i.i.i.i, align 8
   %.fr = freeze i32 %0
   %1 = icmp slt i32 %.fr, %value
@@ -153,7 +154,8 @@ while.body.i.i:                                   ; preds = %entry, %.thread
 land.lhs.true:                                    ; preds = %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit"
   %5 = load i32, ptr %__first.addr.0.lcssa.i.i, align 4
   %idxprom = sext i32 %5 to i64
-  %value2 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %enums, i64 %idxprom, i32 1
+  %arrayidx = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %enums, i64 %idxprom
+  %value2 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %6 = load i32, ptr %value2, align 8
   %cmp3 = icmp eq i32 %6, %value
   br i1 %cmp3, label %if.then, label %return

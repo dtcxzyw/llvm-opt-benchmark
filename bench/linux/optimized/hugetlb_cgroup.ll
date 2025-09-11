@@ -828,7 +828,8 @@ define internal ptr @hugetlb_cgroup_css_alloc(ptr noundef %0) #0 align 16 {
   store i64 2251799813685247, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 160
   store ptr null, ptr %55, align 32
-  %56 = getelementptr %struct.hstate, ptr @hstates, i64 %49, i32 3
+  %.split.us = getelementptr %struct.hstate, ptr @hstates, i64 %49
+  %56 = getelementptr i8, ptr %.split.us, i64 40
   %57 = load i32, ptr %56, align 8
   %58 = shl nsw i32 -1, %57
   %59 = zext i32 %58 to i64
@@ -854,7 +855,8 @@ define internal ptr @hugetlb_cgroup_css_alloc(ptr noundef %0) #0 align 16 {
   store i64 2251799813685247, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 160
   store ptr %66, ptr %72, align 32
-  %73 = getelementptr %struct.hstate, ptr @hstates, i64 %64, i32 3
+  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %64
+  %73 = getelementptr i8, ptr %.split, i64 40
   %74 = load i32, ptr %73, align 8
   %75 = shl nsw i32 -1, %74
   %76 = zext i32 %75 to i64
@@ -1377,7 +1379,8 @@ define internal noundef i32 @hugetlb_cgroup_read_u64_max(ptr noundef %0, ptr rea
   %10 = load i64, ptr %9, align 8
   %11 = lshr i64 %10, 16
   %12 = and i64 %11, 65535
-  %13 = getelementptr %struct.hstate, ptr @hstates, i64 %12, i32 3
+  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = shl nsw i32 -1, %14
   %16 = trunc i64 %10 to i16
@@ -1406,7 +1409,8 @@ define internal noundef i32 @hugetlb_cgroup_read_u64_max(ptr noundef %0, ptr rea
 25:                                               ; preds = %24, %2
   %26 = phi i64 [ 256, %2 ], [ 640, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 %26
-  %28 = getelementptr %struct.page_counter, ptr %27, i64 %12, i32 15
+  %.split1 = getelementptr %struct.page_counter, ptr %27, i64 %12
+  %28 = getelementptr i8, ptr %.split1, i64 152
   %29 = load i64, ptr %28, align 8
   %30 = sext i32 %15 to i64
   %31 = xor i64 %29, %30
@@ -1700,7 +1704,8 @@ define internal fastcc i64 @hugetlb_cgroup_write(ptr noundef %0, ptr noundef %1,
   %21 = lshr i64 %20, 16
   %22 = load i64, ptr %5, align 8
   %23 = and i64 %21, 65535
-  %24 = getelementptr %struct.hstate, ptr @hstates, i64 %23, i32 3
+  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %23
+  %24 = getelementptr i8, ptr %.split, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = shl nsw i32 -1, %25
   %27 = zext i32 %26 to i64

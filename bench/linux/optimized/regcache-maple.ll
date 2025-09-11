@@ -601,7 +601,8 @@ define internal fastcc i32 @regcache_maple_insert_block(ptr noundef readonly cap
   %35 = trunc i64 %34 to i32
   %36 = add i32 %1, %35
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.reg_default, ptr %32, i64 %37, i32 1
+  %.split = getelementptr %struct.reg_default, ptr %32, i64 %37
+  %38 = getelementptr i8, ptr %.split, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
   %41 = getelementptr i64, ptr %26, i64 %34

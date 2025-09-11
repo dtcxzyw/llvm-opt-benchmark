@@ -9182,7 +9182,7 @@ define internal fastcc ptr @build_envp(ptr noundef %0, i64 %1, i64 %2) unnamed_a
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @JS_GetOwnPropertyNames(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 %1, i64 %2, i32 noundef 17) #30
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %65, label %8
+  br i1 %7, label %68, label %8
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %4, align 4, !tbaa !7
@@ -9198,129 +9198,132 @@ define internal fastcc ptr @build_envp(ptr noundef %0, i64 %1, i64 %2) unnamed_a
   %.not88 = icmp eq i32 %.pre103, 0
   br i1 %.not88, label %._crit_edge87, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %43
-  %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %45
+  %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.preheader ]
   %14 = load ptr, ptr %5, align 8, !tbaa !146
-  %15 = getelementptr inbounds nuw %struct.JSPropertyEnum, ptr %14, i64 %indvars.iv, i32 1
-  %16 = load i32, ptr %15, align 4, !tbaa !148
-  %17 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef %16, i64 %1, i64 %2, i32 noundef 0) #30
-  %18 = extractvalue { i64, i64 } %17, 0
-  %19 = extractvalue { i64, i64 } %17, 1
-  %20 = and i64 %19, 4294967295
-  %.not78 = icmp eq i64 %20, 6
-  br i1 %.not78, label %.loopexit, label %21
+  %15 = getelementptr inbounds nuw %struct.JSPropertyEnum, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !148
+  %18 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef %17, i64 %1, i64 %2, i32 noundef 0) #30
+  %19 = extractvalue { i64, i64 } %18, 0
+  %20 = extractvalue { i64, i64 } %18, 1
+  %21 = and i64 %20, 4294967295
+  %.not78 = icmp eq i64 %21, 6
+  br i1 %.not78, label %.loopexit, label %22
 
-21:                                               ; preds = %.lr.ph
-  %22 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %18, i64 %19, i32 noundef 0) #30
-  %23 = trunc i64 %19 to i32
-  %24 = icmp ugt i32 %23, -12
-  br i1 %24, label %25, label %JS_FreeValue.exit
+22:                                               ; preds = %.lr.ph
+  %23 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %19, i64 %20, i32 noundef 0) #30
+  %24 = trunc i64 %20 to i32
+  %25 = icmp ugt i32 %24, -12
+  br i1 %25, label %26, label %JS_FreeValue.exit
 
-25:                                               ; preds = %21
-  %26 = inttoptr i64 %18 to ptr
-  %27 = load i32, ptr %26, align 4, !tbaa !14
-  %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4, !tbaa !14
-  %29 = icmp slt i32 %28, 1
-  br i1 %29, label %30, label %JS_FreeValue.exit
+26:                                               ; preds = %22
+  %27 = inttoptr i64 %19 to ptr
+  %28 = load i32, ptr %27, align 4, !tbaa !14
+  %29 = add i32 %28, -1
+  store i32 %29, ptr %27, align 4, !tbaa !14
+  %30 = icmp slt i32 %29, 1
+  br i1 %30, label %31, label %JS_FreeValue.exit
 
-30:                                               ; preds = %25
-  call void @__JS_FreeValue(ptr noundef %0, i64 %18, i64 %19) #30
+31:                                               ; preds = %26
+  call void @__JS_FreeValue(ptr noundef %0, i64 %19, i64 %20) #30
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %21, %25, %30
-  %.not75 = icmp eq ptr %22, null
-  br i1 %.not75, label %.loopexit, label %31
+JS_FreeValue.exit:                                ; preds = %22, %26, %31
+  %.not75 = icmp eq ptr %23, null
+  br i1 %.not75, label %.loopexit, label %32
 
-31:                                               ; preds = %JS_FreeValue.exit
-  %32 = load ptr, ptr %5, align 8, !tbaa !146
-  %33 = getelementptr inbounds nuw %struct.JSPropertyEnum, ptr %32, i64 %indvars.iv, i32 1
-  %34 = load i32, ptr %33, align 4, !tbaa !148
-  %35 = call ptr @JS_AtomToCString(ptr noundef %0, i32 noundef %34) #30
-  %.not76 = icmp eq ptr %35, null
-  br i1 %.not76, label %.loopexit.sink.split, label %36
+32:                                               ; preds = %JS_FreeValue.exit
+  %33 = load ptr, ptr %5, align 8, !tbaa !146
+  %34 = getelementptr inbounds nuw %struct.JSPropertyEnum, ptr %33, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %36 = load i32, ptr %35, align 4, !tbaa !148
+  %37 = call ptr @JS_AtomToCString(ptr noundef %0, i32 noundef %36) #30
+  %.not76 = icmp eq ptr %37, null
+  br i1 %.not76, label %.loopexit.sink.split, label %38
 
-36:                                               ; preds = %31
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #32
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #32
-  %39 = add i64 %37, 2
-  %40 = add i64 %39, %38
-  %41 = call ptr @js_malloc(ptr noundef %0, i64 noundef %40) #30
-  %.not77 = icmp eq ptr %41, null
-  br i1 %.not77, label %42, label %43
+38:                                               ; preds = %32
+  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #32
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #32
+  %41 = add i64 %39, 2
+  %42 = add i64 %41, %40
+  %43 = call ptr @js_malloc(ptr noundef %0, i64 noundef %42) #30
+  %.not77 = icmp eq ptr %43, null
+  br i1 %.not77, label %44, label %45
 
-42:                                               ; preds = %36
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %35) #30
+44:                                               ; preds = %38
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %37) #30
   br label %.loopexit.sink.split
 
-43:                                               ; preds = %36
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull align 1 %35, i64 %37, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %37
-  store i8 61, ptr %44, align 1, !tbaa !11
-  %45 = getelementptr i8, ptr %44, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %22, i64 %38, i1 false)
-  %46 = getelementptr i8, ptr %45, i64 %38
-  store i8 0, ptr %46, align 1, !tbaa !11
-  %47 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
-  store ptr %41, ptr %47, align 8, !tbaa !29
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %35) #30
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %22) #30
+45:                                               ; preds = %38
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %37, i64 %39, i1 false)
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %39
+  store i8 61, ptr %46, align 1, !tbaa !11
+  %47 = getelementptr i8, ptr %46, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull align 1 %23, i64 %40, i1 false)
+  %48 = getelementptr i8, ptr %47, i64 %40
+  store i8 0, ptr %48, align 1, !tbaa !11
+  %49 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  store ptr %43, ptr %49, align 8, !tbaa !29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %37) #30
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %23) #30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = load i32, ptr %4, align 4, !tbaa !7
-  %49 = zext i32 %48 to i64
-  %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %.critedge, !llvm.loop !150
+  %50 = load i32, ptr %4, align 4, !tbaa !7
+  %51 = zext i32 %50 to i64
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
+  br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !150
 
-.critedge:                                        ; preds = %43, %8, %._crit_edge
-  %51 = phi i32 [ %.pre, %._crit_edge ], [ %.pre103, %8 ], [ %48, %43 ]
-  %.067 = phi ptr [ null, %._crit_edge ], [ null, %8 ], [ %13, %43 ]
-  %.not90 = icmp eq i32 %51, 0
+.critedge:                                        ; preds = %45, %8, %._crit_edge
+  %53 = phi i32 [ %.pre, %._crit_edge ], [ %.pre103, %8 ], [ %50, %45 ]
+  %.067 = phi ptr [ null, %._crit_edge ], [ null, %8 ], [ %13, %45 ]
+  %.not90 = icmp eq i32 %53, 0
   br i1 %.not90, label %._crit_edge87, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %.critedge, %.lr.ph86
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %.lr.ph86 ], [ 0, %.critedge ]
-  %52 = load ptr, ptr %5, align 8, !tbaa !146
-  %53 = getelementptr inbounds nuw %struct.JSPropertyEnum, ptr %52, i64 %indvars.iv100, i32 1
-  %54 = load i32, ptr %53, align 4, !tbaa !148
-  call void @JS_FreeAtom(ptr noundef %0, i32 noundef %54) #30
+  %54 = load ptr, ptr %5, align 8, !tbaa !146
+  %55 = getelementptr inbounds nuw %struct.JSPropertyEnum, ptr %54, i64 %indvars.iv100
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %57 = load i32, ptr %56, align 4, !tbaa !148
+  call void @JS_FreeAtom(ptr noundef %0, i32 noundef %57) #30
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %55 = load i32, ptr %4, align 4, !tbaa !7
-  %56 = zext i32 %55 to i64
-  %57 = icmp samesign ult i64 %indvars.iv.next101, %56
-  br i1 %57, label %.lr.ph86, label %._crit_edge87, !llvm.loop !151
+  %58 = load i32, ptr %4, align 4, !tbaa !7
+  %59 = zext i32 %58 to i64
+  %60 = icmp samesign ult i64 %indvars.iv.next101, %59
+  br i1 %60, label %.lr.ph86, label %._crit_edge87, !llvm.loop !151
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %.preheader, %.critedge
   %.067110 = phi ptr [ %.067, %.critedge ], [ %13, %.preheader ], [ %.067, %.lr.ph86 ]
-  %58 = load ptr, ptr %5, align 8, !tbaa !146
-  call void @js_free(ptr noundef %0, ptr noundef %58) #30
-  br label %65
+  %61 = load ptr, ptr %5, align 8, !tbaa !146
+  call void @js_free(ptr noundef %0, ptr noundef %61) #30
+  br label %68
 
-.loopexit.sink.split:                             ; preds = %31, %42
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %22) #30
+.loopexit.sink.split:                             ; preds = %32, %44
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %23) #30
   br label %.loopexit
 
 .loopexit:                                        ; preds = %JS_FreeValue.exit, %.lr.ph, %.loopexit.sink.split
-  %59 = load i32, ptr %4, align 4, !tbaa !7
-  %.not89 = icmp eq i32 %59, 0
+  %62 = load i32, ptr %4, align 4, !tbaa !7
+  %.not89 = icmp eq i32 %62, 0
   br i1 %.not89, label %._crit_edge, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.loopexit, %.lr.ph84
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.lr.ph84 ], [ 0, %.loopexit ]
-  %60 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv97
-  %61 = load ptr, ptr %60, align 8, !tbaa !29
-  call void @js_free(ptr noundef %0, ptr noundef %61) #30
+  %63 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv97
+  %64 = load ptr, ptr %63, align 8, !tbaa !29
+  call void @js_free(ptr noundef %0, ptr noundef %64) #30
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %62 = load i32, ptr %4, align 4, !tbaa !7
-  %63 = zext i32 %62 to i64
-  %64 = icmp samesign ult i64 %indvars.iv.next98, %63
-  br i1 %64, label %.lr.ph84, label %._crit_edge, !llvm.loop !152
+  %65 = load i32, ptr %4, align 4, !tbaa !7
+  %66 = zext i32 %65 to i64
+  %67 = icmp samesign ult i64 %indvars.iv.next98, %66
+  br i1 %67, label %.lr.ph84, label %._crit_edge, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %.lr.ph84, %.loopexit
   call void @js_free(ptr noundef %0, ptr noundef nonnull %13) #30
   %.pre = load i32, ptr %4, align 4, !tbaa !7
   br label %.critedge
 
-65:                                               ; preds = %3, %._crit_edge87
+68:                                               ; preds = %3, %._crit_edge87
   %.0 = phi ptr [ %.067110, %._crit_edge87 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

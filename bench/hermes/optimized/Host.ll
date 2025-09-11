@@ -668,7 +668,8 @@ if.then:                                          ; preds = %if.end.i1426
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 %.sroa.speculated.i
   %sub.i.i.i = sub i64 %9, %.sroa.speculated.i
   %.pre = load ptr, ptr %Lines, align 8
-  %Length.i1033.phi.trans.insert = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %.pre, i64 %indvars.iv, i32 1
+  %arrayidx.i993.phi.trans.insert = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %.pre, i64 %indvars.iv
+  %Length.i1033.phi.trans.insert = getelementptr inbounds nuw i8, ptr %arrayidx.i993.phi.trans.insert, i64 8
   %.pre919 = load i64, ptr %Length.i1033.phi.trans.insert, align 8
   br label %if.end
 

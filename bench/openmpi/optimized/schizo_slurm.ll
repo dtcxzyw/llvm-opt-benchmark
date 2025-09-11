@@ -200,54 +200,55 @@ define internal noundef i32 @parse_env(ptr readnone captures(none) %0, ptr readn
 define internal i32 @detect_proxy(ptr noundef %0) #0 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_schizo_base_framework, i64 76), align 4, !tbaa !24
   %or.cond = icmp ult i32 %2, 64
-  br i1 %or.cond, label %3, label %13
+  br i1 %or.cond, label %3, label %14
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %4, i32 2
-  %6 = load i32, ptr %5, align 4, !tbaa !29
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %13
+  %5 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %7 = load i32, ptr %6, align 4, !tbaa !29
+  %8 = icmp sgt i32 %7, 1
+  br i1 %8, label %9, label %14
 
-8:                                                ; preds = %3
-  %9 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #8
-  %10 = icmp eq ptr %0, null
-  %11 = select i1 %10, ptr @.str.26, ptr %0
-  %12 = load ptr, ptr @prte_tool_basename, align 8, !tbaa !3
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %2, ptr noundef nonnull @.str.24, ptr noundef %9, ptr noundef nonnull @.str.25, ptr noundef nonnull %11, ptr noundef %12) #8
-  br label %13
+9:                                                ; preds = %3
+  %10 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #8
+  %11 = icmp eq ptr %0, null
+  %12 = select i1 %11, ptr @.str.26, ptr %0
+  %13 = load ptr, ptr @prte_tool_basename, align 8, !tbaa !3
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %2, ptr noundef nonnull @.str.24, ptr noundef %10, ptr noundef nonnull @.str.25, ptr noundef nonnull %12, ptr noundef %13) #8
+  br label %14
 
-13:                                               ; preds = %8, %3, %1
+14:                                               ; preds = %9, %3, %1
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %17, label %14
+  br i1 %.not, label %18, label %15
 
-14:                                               ; preds = %13
-  %15 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str) #7
-  %.not10 = icmp eq ptr %15, null
-  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_schizo_slurm_component, i64 224), align 8
-  %spec.select = select i1 %.not10, i32 0, i32 %16
-  br label %26
+15:                                               ; preds = %14
+  %16 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str) #7
+  %.not10 = icmp eq ptr %16, null
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_schizo_slurm_component, i64 224), align 8
+  %spec.select = select i1 %.not10, i32 0, i32 %17
+  br label %27
 
-17:                                               ; preds = %13
-  %18 = tail call ptr @getenv(ptr noundef nonnull @.str.27) #8
-  %.not9 = icmp eq ptr %18, null
-  br i1 %.not9, label %22, label %19
+18:                                               ; preds = %14
+  %19 = tail call ptr @getenv(ptr noundef nonnull @.str.27) #8
+  %.not9 = icmp eq ptr %19, null
+  br i1 %.not9, label %23, label %20
 
-19:                                               ; preds = %17
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(6) @.str) #7
-  %21 = icmp eq i32 %20, 0
-  %. = select i1 %21, i32 100, i32 0
-  br label %26
+20:                                               ; preds = %18
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str) #7
+  %22 = icmp eq i32 %21, 0
+  %. = select i1 %22, i32 100, i32 0
+  br label %27
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr @prte_tool_basename, align 8, !tbaa !3
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(5) @.str.28) #7
-  %25 = icmp eq i32 %24, 0
-  %.11 = select i1 %25, i32 100, i32 0
-  br label %26
+23:                                               ; preds = %18
+  %24 = load ptr, ptr @prte_tool_basename, align 8, !tbaa !3
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(5) @.str.28) #7
+  %26 = icmp eq i32 %25, 0
+  %.11 = select i1 %26, i32 100, i32 0
+  br label %27
 
-26:                                               ; preds = %14, %22, %19
-  %.0 = phi i32 [ %., %19 ], [ %.11, %22 ], [ %spec.select, %14 ]
+27:                                               ; preds = %15, %23, %20
+  %.0 = phi i32 [ %., %20 ], [ %.11, %23 ], [ %spec.select, %15 ]
   ret i32 %.0
 }
 

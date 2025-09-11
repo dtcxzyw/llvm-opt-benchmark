@@ -178,35 +178,37 @@ define dso_local range(i32 0, 23) i32 @RegisterTimeout(i32 noundef %0, ptr nound
   %3 = icmp ugt i32 %0, 12
   br i1 %3, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %2, %7
-  %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 13, %2 ]
-  %4 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %indvars.iv, i32 3
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %.loopexit.loopexit, label %7
+.preheader:                                       ; preds = %2, %8
+  %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 13, %2 ]
+  %4 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %.loopexit.loopexit, label %8
 
-7:                                                ; preds = %.preheader
+8:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
-  br i1 %exitcond.not, label %8, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !8
 
-8:                                                ; preds = %7
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 16581) #10
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #10
+9:                                                ; preds = %8
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %10)
+  %11 = tail call i32 @errcode(i32 noundef 16581) #10
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__func__.RegisterTimeout) #10
   unreachable
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %12 = trunc nuw nsw i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
-  %.0 = phi i32 [ %0, %2 ], [ %12, %.loopexit.loopexit ]
-  %13 = zext nneg i32 %.0 to i64
-  %14 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %13, i32 3
-  store ptr %1, ptr %14, align 8
+  %.0 = phi i32 [ %0, %2 ], [ %13, %.loopexit.loopexit ]
+  %14 = zext nneg i32 %.0 to i64
+  %15 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %1, ptr %16, align 8
   ret i32 %.0
 }
 
@@ -835,19 +837,20 @@ define dso_local void @disable_all_timeouts(i1 noundef zeroext %0) local_unnamed
 
 .split.us:                                        ; preds = %1, %.split.us
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %.split.us ], [ 0, %1 ]
-  %2 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %indvars.iv10, i32 1
-  store volatile i8 0, ptr %2, align 4
+  %2 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %indvars.iv10
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store volatile i8 0, ptr %3, align 4
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, 23
   br i1 %exitcond13.not, label %.split7.us, label %.split.us, !llvm.loop !16
 
 .split:                                           ; preds = %1, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %indvars.iv
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store volatile i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store volatile i8 0, ptr %5, align 1
+  %4 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store volatile i8 0, ptr %5, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  store volatile i8 0, ptr %6, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
   br i1 %exitcond.not, label %.split7.us, label %.split, !llvm.loop !16
@@ -859,43 +862,47 @@ define dso_local void @disable_all_timeouts(i1 noundef zeroext %0) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable
 define dso_local zeroext i1 @get_timeout_active(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %2, i32 1
-  %4 = load volatile i8, ptr %3, align 4, !range !9, !noundef !10
-  %5 = trunc nuw i8 %4 to i1
-  ret i1 %5
+  %3 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %5 = load volatile i8, ptr %4, align 4, !range !9, !noundef !10
+  %6 = trunc nuw i8 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
 define dso_local zeroext i1 @get_timeout_indicator(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %3, i32 2
-  %5 = load volatile i8, ptr %4, align 1, !range !9, !noundef !10
-  %6 = trunc nuw i8 %5 to i1
-  %brmerge.demorgan = and i1 %1, %6
-  br i1 %brmerge.demorgan, label %7, label %8
+  %4 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  %6 = load volatile i8, ptr %5, align 1, !range !9, !noundef !10
+  %7 = trunc nuw i8 %6 to i1
+  %brmerge.demorgan = and i1 %1, %7
+  br i1 %brmerge.demorgan, label %8, label %9
 
-7:                                                ; preds = %2
-  store volatile i8 0, ptr %4, align 1
-  br label %8
+8:                                                ; preds = %2
+  store volatile i8 0, ptr %5, align 1
+  br label %9
 
-8:                                                ; preds = %2, %7
-  ret i1 %6
+9:                                                ; preds = %2, %8
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i64 @get_timeout_start_time(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %2, i32 4
-  %4 = load i64, ptr %3, align 8
-  ret i64 %4
+  %3 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i64 @get_timeout_finish_time(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %2, i32 5
-  %4 = load i64, ptr %3, align 8
-  ret i64 %4
+  %3 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
 }
 
 declare void @SetLatch(ptr noundef) local_unnamed_addr #1

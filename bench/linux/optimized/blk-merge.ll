@@ -994,7 +994,8 @@ define dso_local i32 @__blk_rq_map_sg(ptr noundef readonly captures(none) %0, pt
 192:                                              ; preds = %188
   %193 = load ptr, ptr %58, align 8
   %194 = add i32 %77, %67
-  %195 = getelementptr %struct.bio_vec, ptr %193, i64 %71, i32 1
+  %.split = getelementptr %struct.bio_vec, ptr %193, i64 %71
+  %195 = getelementptr i8, ptr %.split, i64 8
   %196 = load i32, ptr %195, align 8
   %197 = icmp eq i32 %194, %196
   %198 = zext i1 %197 to i32
@@ -2847,7 +2848,8 @@ define internal fastcc zeroext i1 @bio_will_gap(ptr noundef readonly captures(no
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr %struct.bio_vec, ptr %26, i64 %29, i32 2
+  %.split = getelementptr %struct.bio_vec, ptr %26, i64 %29
+  %32 = getelementptr i8, ptr %.split, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, %31
   %35 = zext i32 %34 to i64
@@ -2889,7 +2891,8 @@ define internal fastcc zeroext i1 @bio_will_gap(ptr noundef readonly captures(no
   %59 = phi i32 [ %66, %65 ], [ %57, %56 ]
   %60 = phi i32 [ %67, %65 ], [ %40, %56 ]
   %61 = zext i32 %60 to i64
-  %62 = getelementptr %struct.bio_vec, ptr %44, i64 %61, i32 1
+  %.split11 = getelementptr %struct.bio_vec, ptr %44, i64 %61
+  %62 = getelementptr i8, ptr %.split11, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = icmp ult i32 %59, %63
   br i1 %64, label %.loopexit, label %65

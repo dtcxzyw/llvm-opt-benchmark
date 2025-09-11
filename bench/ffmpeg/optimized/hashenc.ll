@@ -452,31 +452,32 @@ define internal noundef i32 @framehash_write_packet(ptr noundef readonly capture
   %58 = load i64, ptr %57, align 8, !tbaa !64
   call void @av_hash_update(ptr noundef %53, ptr noundef %56, i64 noundef %58) #6
   %59 = load ptr, ptr %48, align 8, !tbaa !61
-  %60 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %59, i64 %indvars.iv, i32 1
-  %61 = load i64, ptr %60, align 8, !tbaa !64
-  %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 127, ptr noundef nonnull @.str.33, i64 noundef %61) #6
-  %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
-  %64 = load ptr, ptr %6, align 8, !tbaa !24
-  %65 = load ptr, ptr %64, align 8, !tbaa !33
-  %sext34 = shl i64 %63, 32
-  %66 = ashr exact i64 %sext34, 32
-  %67 = getelementptr inbounds i8, ptr %3, i64 %66
-  %68 = trunc i64 %63 to i32
-  %69 = sub i32 256, %68
-  call void @av_hash_final_hex(ptr noundef %65, ptr noundef nonnull %67, i32 noundef %69) #6
-  %70 = load ptr, ptr %33, align 8, !tbaa !47
-  %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
-  %72 = trunc i64 %71 to i32
-  call void @avio_write(ptr noundef %70, ptr noundef nonnull %3, i32 noundef %72) #6
+  %60 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load i64, ptr %61, align 8, !tbaa !64
+  %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 127, ptr noundef nonnull @.str.33, i64 noundef %62) #6
+  %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
+  %65 = load ptr, ptr %6, align 8, !tbaa !24
+  %66 = load ptr, ptr %65, align 8, !tbaa !33
+  %sext34 = shl i64 %64, 32
+  %67 = ashr exact i64 %sext34, 32
+  %68 = getelementptr inbounds i8, ptr %3, i64 %67
+  %69 = trunc i64 %64 to i32
+  %70 = sub i32 256, %69
+  call void @av_hash_final_hex(ptr noundef %66, ptr noundef nonnull %68, i32 noundef %70) #6
+  %71 = load ptr, ptr %33, align 8, !tbaa !47
+  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
+  %73 = trunc i64 %72 to i32
+  call void @avio_write(ptr noundef %71, ptr noundef nonnull %3, i32 noundef %73) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = load i32, ptr %41, align 8, !tbaa !60
-  %74 = sext i32 %73 to i64
-  %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %49, label %.loopexit, !llvm.loop !65
+  %74 = load i32, ptr %41, align 8, !tbaa !60
+  %75 = sext i32 %74 to i64
+  %76 = icmp slt i64 %indvars.iv.next, %75
+  br i1 %76, label %49, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %49, %43, %40, %2
-  %76 = load ptr, ptr %33, align 8, !tbaa !47
-  %77 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %76, ptr noundef nonnull @.str.17) #6
+  %77 = load ptr, ptr %33, align 8, !tbaa !47
+  %78 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %77, ptr noundef nonnull @.str.17) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }

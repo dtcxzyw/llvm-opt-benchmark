@@ -2037,11 +2037,11 @@ define internal fastcc void @_filters_gui_update(ptr noundef %0) unnamed_addr #1
   br label %24
 
 .preheader:                                       ; preds = %_widget_update.exit
-  %22 = icmp slt i32 %100, 10
+  %22 = icmp slt i32 %105, 10
   br i1 %22, label %.lr.ph69.preheader, label %._crit_edge
 
 .lr.ph69.preheader:                               ; preds = %.thread86, %16, %.preheader
-  %.lcssa6688 = phi i32 [ %100, %.preheader ], [ 0, %.thread86 ], [ %17, %16 ]
+  %.lcssa6688 = phi i32 [ %105, %.preheader ], [ 0, %.thread86 ], [ %17, %16 ]
   %23 = sext i32 %.lcssa6688 to i64
   br label %.lr.ph69
 
@@ -2135,123 +2135,128 @@ _widget_special_destroy.exit57:                   ; preds = %55, %58
   %63 = phi ptr [ %49, %_widget_special_destroy.exit57 ], [ %35, %_widget_special_destroy.exit ]
   %phi.call = phi i32 [ %61, %_widget_special_destroy.exit57 ], [ %47, %_widget_special_destroy.exit ]
   %.not54 = icmp eq i32 %phi.call, 0
-  br i1 %.not54, label %70, label %64
+  br i1 %.not54, label %71, label %64
 
 64:                                               ; preds = %62
-  %65 = load ptr, ptr %21, align 8, !tbaa !127
-  %66 = tail call i64 @gtk_box_get_type() #21
-  %67 = call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef %66) #20
-  %68 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv, i32 2
-  %69 = load ptr, ptr %68, align 8, !tbaa !128
-  call void @gtk_box_pack_start(ptr noundef %67, ptr noundef %69, i32 noundef 0, i32 noundef 1, i32 noundef 0) #20
-  br label %70
+  %65 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %66 = load ptr, ptr %21, align 8, !tbaa !127
+  %67 = tail call i64 @gtk_box_get_type() #21
+  %68 = call ptr @g_type_check_instance_cast(ptr noundef %66, i64 noundef %67) #20
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !128
+  call void @gtk_box_pack_start(ptr noundef %68, ptr noundef %70, i32 noundef 0, i32 noundef 1, i32 noundef 0) #20
+  br label %71
 
-70:                                               ; preds = %64, %62
-  %71 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv, i32 2
-  %72 = load ptr, ptr %71, align 8, !tbaa !128
-  call void @gtk_widget_show_all(ptr noundef %72) #20
-  br i1 %.not53, label %_widget_init_special.exit, label %73
+71:                                               ; preds = %64, %62
+  %72 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !128
+  call void @gtk_widget_show_all(ptr noundef %74) #20
+  br i1 %.not53, label %_widget_init_special.exit, label %75
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv, i32 13
-  %75 = load ptr, ptr %74, align 8, !tbaa !125
-  %.not28.i = icmp eq ptr %75, null
-  br i1 %.not28.i, label %77, label %76
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 344
+  %78 = load ptr, ptr %77, align 8, !tbaa !125
+  %.not28.i = icmp eq ptr %78, null
+  br i1 %.not28.i, label %80, label %79
 
-76:                                               ; preds = %73
-  call void @gtk_widget_destroy(ptr noundef nonnull %75) #20
-  br label %77
+79:                                               ; preds = %75
+  call void @gtk_widget_destroy(ptr noundef nonnull %78) #20
+  br label %80
 
-77:                                               ; preds = %76, %73
-  %78 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #20
-  store ptr %78, ptr %74, align 8, !tbaa !125
-  %79 = call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef 80) #20
-  %80 = call ptr @g_object_ref(ptr noundef %79) #20
-  %81 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv, i32 1
-  %82 = load i32, ptr %81, align 4, !tbaa !129
-  br label %84
+80:                                               ; preds = %79, %75
+  %81 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
+  %82 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #20
+  store ptr %82, ptr %77, align 8, !tbaa !125
+  %83 = call ptr @g_type_check_instance_cast(ptr noundef %82, i64 noundef 80) #20
+  %84 = call ptr @g_object_ref(ptr noundef %83) #20
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %86 = load i32, ptr %85, align 4, !tbaa !129
+  br label %88
 
-83:                                               ; preds = %84
+87:                                               ; preds = %88
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 26
-  br i1 %exitcond.i.i, label %_widget_init_special.exit, label %84
+  br i1 %exitcond.i.i, label %_widget_init_special.exit, label %88
 
-84:                                               ; preds = %83, %77
-  %indvars.iv.i.i = phi i64 [ 0, %77 ], [ %indvars.iv.next.i.i, %83 ]
-  %85 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i
-  %86 = load i32, ptr %85, align 8, !tbaa !130
-  %87 = icmp eq i32 %86, %82
-  br i1 %87, label %_filters_get.exit.i, label %83
+88:                                               ; preds = %87, %80
+  %indvars.iv.i.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i.i, %87 ]
+  %89 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i
+  %90 = load i32, ptr %89, align 8, !tbaa !130
+  %91 = icmp eq i32 %90, %86
+  br i1 %91, label %_filters_get.exit.i, label %87
 
-_filters_get.exit.i:                              ; preds = %84
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !132
-  call void %89(ptr noundef nonnull %63, i32 noundef %82, ptr noundef %29, ptr noundef %0, i32 noundef 1) #20
-  call void @gtk_widget_show_all(ptr noundef %78) #20
+_filters_get.exit.i:                              ; preds = %88
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !132
+  call void %93(ptr noundef nonnull %63, i32 noundef %86, ptr noundef %29, ptr noundef %0, i32 noundef 1) #20
+  call void @gtk_widget_show_all(ptr noundef %82) #20
   br label %_widget_init_special.exit
 
-_widget_init_special.exit:                        ; preds = %83, %_filters_get.exit.i, %70
+_widget_init_special.exit:                        ; preds = %87, %_filters_get.exit.i, %71
+  %94 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv
   call void @g_free(ptr noundef %29) #20
-  %90 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv, i32 1
-  %91 = load i32, ptr %90, align 4, !tbaa !129
-  br label %93
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %96 = load i32, ptr %95, align 4, !tbaa !129
+  br label %98
 
-92:                                               ; preds = %93
+97:                                               ; preds = %98
   %indvars.iv.next.i.i59 = add nuw nsw i64 %indvars.iv.i.i58, 1
   %exitcond.i.i60 = icmp eq i64 %indvars.iv.next.i.i59, 26
-  br i1 %exitcond.i.i60, label %_widget_update.exit, label %93
+  br i1 %exitcond.i.i60, label %_widget_update.exit, label %98
 
-93:                                               ; preds = %92, %_widget_init_special.exit
-  %indvars.iv.i.i58 = phi i64 [ 0, %_widget_init_special.exit ], [ %indvars.iv.next.i.i59, %92 ]
-  %94 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i58
-  %95 = load i32, ptr %94, align 8, !tbaa !130
-  %96 = icmp eq i32 %95, %91
-  br i1 %96, label %_filters_get.exit.i62, label %92
+98:                                               ; preds = %97, %_widget_init_special.exit
+  %indvars.iv.i.i58 = phi i64 [ 0, %_widget_init_special.exit ], [ %indvars.iv.next.i.i59, %97 ]
+  %99 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i58
+  %100 = load i32, ptr %99, align 8, !tbaa !130
+  %101 = icmp eq i32 %100, %96
+  br i1 %101, label %_filters_get.exit.i62, label %97
 
-_filters_get.exit.i62:                            ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !133
-  %99 = call i32 %98(ptr noundef nonnull %63) #20
+_filters_get.exit.i62:                            ; preds = %98
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !133
+  %104 = call i32 %103(ptr noundef nonnull %63) #20
   br label %_widget_update.exit
 
-_widget_update.exit:                              ; preds = %92, %_filters_get.exit.i62
+_widget_update.exit:                              ; preds = %97, %_filters_get.exit.i62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %100 = load i32, ptr %20, align 8, !tbaa !122
-  %101 = sext i32 %100 to i64
-  %102 = icmp slt i64 %indvars.iv.next, %101
-  br i1 %102, label %24, label %.preheader
+  %105 = load i32, ptr %20, align 8, !tbaa !122
+  %106 = sext i32 %105 to i64
+  %107 = icmp slt i64 %indvars.iv.next, %106
+  br i1 %107, label %24, label %.preheader
 
-._crit_edge:                                      ; preds = %113, %.preheader
+._crit_edge:                                      ; preds = %118, %.preheader
   call fastcc void @_topbar_update(ptr noundef %0)
-  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !116
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 96
-  %105 = load i32, ptr %104, align 8, !tbaa !117
-  %106 = add nsw i32 %105, -1
-  store i32 %106, ptr %104, align 8, !tbaa !117
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !116
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 96
+  %110 = load i32, ptr %109, align 8, !tbaa !117
+  %111 = add nsw i32 %110, -1
+  store i32 %111, ptr %109, align 8, !tbaa !117
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %113
-  %indvars.iv75 = phi i64 [ %23, %.lr.ph69.preheader ], [ %indvars.iv.next76, %113 ]
-  %107 = getelementptr inbounds %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv75
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  store i32 0, ptr %108, align 4, !tbaa !129
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %110 = load ptr, ptr %109, align 8, !tbaa !128
-  %.not = icmp eq ptr %110, null
-  br i1 %.not, label %113, label %111
+.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %118
+  %indvars.iv75 = phi i64 [ %23, %.lr.ph69.preheader ], [ %indvars.iv.next76, %118 ]
+  %112 = getelementptr inbounds %struct.dt_lib_filtering_rule_t, ptr %4, i64 %indvars.iv75
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
+  store i32 0, ptr %113, align 4, !tbaa !129
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %115 = load ptr, ptr %114, align 8, !tbaa !128
+  %.not = icmp eq ptr %115, null
+  br i1 %.not, label %118, label %116
 
-111:                                              ; preds = %.lr.ph69
-  call void @gtk_widget_destroy(ptr noundef nonnull %110) #20
-  store ptr null, ptr %109, align 8, !tbaa !128
-  %112 = getelementptr inbounds nuw i8, ptr %107, i64 328
-  store ptr null, ptr %112, align 8, !tbaa !123
-  br label %113
+116:                                              ; preds = %.lr.ph69
+  call void @gtk_widget_destroy(ptr noundef nonnull %115) #20
+  store ptr null, ptr %114, align 8, !tbaa !128
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 328
+  store ptr null, ptr %117, align 8, !tbaa !123
+  br label %118
 
-113:                                              ; preds = %.lr.ph69, %111
+118:                                              ; preds = %.lr.ph69, %116
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, 1
-  %114 = and i64 %indvars.iv.next76, 4294967295
-  %exitcond.not = icmp eq i64 %114, 10
+  %119 = and i64 %indvars.iv.next76, 4294967295
+  %exitcond.not = icmp eq i64 %119, 10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph69
 }
 
@@ -3715,8 +3720,9 @@ define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #1 {
 
 10:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %3, i64 %indvars.iv, i32 16
-  store i32 1, ptr %11, align 4, !tbaa !192
+  %11 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 364
+  store i32 1, ptr %12, align 4, !tbaa !192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %4, label %10

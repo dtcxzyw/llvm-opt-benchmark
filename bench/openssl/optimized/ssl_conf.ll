@@ -713,8 +713,8 @@ define range(i32 0, 2) i32 @SSL_CONF_CTX_finish(ptr noundef captures(none) %0) l
   br label %27
 
 27:                                               ; preds = %.lr.ph, %.critedge
-  %28 = phi i64 [ %23, %.lr.ph ], [ %49, %.critedge ]
-  %.03362 = phi i64 [ 0, %.lr.ph ], [ %50, %.critedge ]
+  %28 = phi i64 [ %23, %.lr.ph ], [ %50, %.critedge ]
+  %.03362 = phi i64 [ 0, %.lr.ph ], [ %51, %.critedge ]
   %29 = load ptr, ptr %24, align 8, !tbaa !50
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.03362
   %31 = load ptr, ptr %30, align 8, !tbaa !37
@@ -723,86 +723,87 @@ define range(i32 0, 2) i32 @SSL_CONF_CTX_finish(ptr noundef captures(none) %0) l
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %25, align 8, !tbaa !51
-  %34 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %33, i64 %.03362, i32 1
-  %35 = load ptr, ptr %34, align 8, !tbaa !58
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %.critedge
+  %34 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %33, i64 %.03362
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !58
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %.critedge
 
-37:                                               ; preds = %32
-  %38 = load i32, ptr %0, align 8, !tbaa !18
-  %39 = and i32 %38, 32
-  %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %.critedge, label %40
+38:                                               ; preds = %32
+  %39 = load i32, ptr %0, align 8, !tbaa !18
+  %40 = and i32 %39, 32
+  %.not.i = icmp eq i32 %40, 0
+  br i1 %.not.i, label %.critedge, label %41
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %2, align 8, !tbaa !38
-  %.not11.i = icmp eq ptr %41, null
-  br i1 %.not11.i, label %44, label %42
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %2, align 8, !tbaa !38
+  %.not11.i = icmp eq ptr %42, null
+  br i1 %.not11.i, label %45, label %43
 
-42:                                               ; preds = %40
-  %43 = tail call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef nonnull %41, ptr noundef nonnull %31, i32 noundef 1) #7
-  br label %44
+43:                                               ; preds = %41
+  %44 = tail call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef nonnull %42, ptr noundef nonnull %31, i32 noundef 1) #7
+  br label %45
 
-44:                                               ; preds = %42, %40
-  %.0.i = phi i32 [ %43, %42 ], [ 1, %40 ]
-  %45 = load ptr, ptr %26, align 8, !tbaa !39
-  %.not12.i = icmp eq ptr %45, null
-  br i1 %.not12.i, label %cmd_PrivateKey.exit, label %46
+45:                                               ; preds = %43, %41
+  %.0.i = phi i32 [ %44, %43 ], [ 1, %41 ]
+  %46 = load ptr, ptr %26, align 8, !tbaa !39
+  %.not12.i = icmp eq ptr %46, null
+  br i1 %.not12.i, label %cmd_PrivateKey.exit, label %47
 
-46:                                               ; preds = %44
-  %47 = tail call i32 @SSL_use_PrivateKey_file(ptr noundef nonnull %45, ptr noundef nonnull %31, i32 noundef 1) #7
+47:                                               ; preds = %45
+  %48 = tail call i32 @SSL_use_PrivateKey_file(ptr noundef nonnull %46, ptr noundef nonnull %31, i32 noundef 1) #7
   br label %cmd_PrivateKey.exit
 
-cmd_PrivateKey.exit:                              ; preds = %44, %46
-  %.1.i = phi i32 [ %47, %46 ], [ %.0.i, %44 ]
-  %48 = icmp slt i32 %.1.i, 1
-  br i1 %48, label %.loopexit, label %cmd_PrivateKey.exit..critedge_crit_edge
+cmd_PrivateKey.exit:                              ; preds = %45, %47
+  %.1.i = phi i32 [ %48, %47 ], [ %.0.i, %45 ]
+  %49 = icmp slt i32 %.1.i, 1
+  br i1 %49, label %.loopexit, label %cmd_PrivateKey.exit..critedge_crit_edge
 
 cmd_PrivateKey.exit..critedge_crit_edge:          ; preds = %cmd_PrivateKey.exit
   %.pre = load i64, ptr %22, align 8, !tbaa !49
   br label %.critedge
 
-.critedge:                                        ; preds = %cmd_PrivateKey.exit..critedge_crit_edge, %37, %32, %27
-  %49 = phi i64 [ %.pre, %cmd_PrivateKey.exit..critedge_crit_edge ], [ %28, %37 ], [ %28, %32 ], [ %28, %27 ]
-  %50 = add nuw i64 %.03362, 1
-  %51 = icmp ult i64 %50, %49
-  br i1 %51, label %27, label %.thread57, !llvm.loop !62
+.critedge:                                        ; preds = %cmd_PrivateKey.exit..critedge_crit_edge, %38, %32, %27
+  %50 = phi i64 [ %.pre, %cmd_PrivateKey.exit..critedge_crit_edge ], [ %28, %38 ], [ %28, %32 ], [ %28, %27 ]
+  %51 = add nuw i64 %.03362, 1
+  %52 = icmp ult i64 %51, %50
+  br i1 %52, label %27, label %.thread57, !llvm.loop !62
 
 .thread57:                                        ; preds = %.critedge, %.preheader, %12, %14, %6, %19, %18
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %53 = load ptr, ptr %52, align 8, !tbaa !63
-  %.not49 = icmp eq ptr %53, null
-  br i1 %.not49, label %.loopexit, label %54
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %54 = load ptr, ptr %53, align 8, !tbaa !63
+  %.not49 = icmp eq ptr %54, null
+  br i1 %.not49, label %.loopexit, label %55
 
-54:                                               ; preds = %.thread57
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %56 = load ptr, ptr %55, align 8, !tbaa !39
-  %.not50 = icmp eq ptr %56, null
-  br i1 %.not50, label %58, label %57
+55:                                               ; preds = %.thread57
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %57 = load ptr, ptr %56, align 8, !tbaa !39
+  %.not50 = icmp eq ptr %57, null
+  br i1 %.not50, label %59, label %58
 
-57:                                               ; preds = %54
-  tail call void @SSL_set0_CA_list(ptr noundef nonnull %56, ptr noundef nonnull %53) #7
-  br label %62
+58:                                               ; preds = %55
+  tail call void @SSL_set0_CA_list(ptr noundef nonnull %57, ptr noundef nonnull %54) #7
+  br label %63
 
-58:                                               ; preds = %54
-  %59 = load ptr, ptr %2, align 8, !tbaa !38
-  %.not51 = icmp eq ptr %59, null
-  br i1 %.not51, label %61, label %60
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %2, align 8, !tbaa !38
+  %.not51 = icmp eq ptr %60, null
+  br i1 %.not51, label %62, label %61
 
-60:                                               ; preds = %58
-  tail call void @SSL_CTX_set0_CA_list(ptr noundef nonnull %59, ptr noundef nonnull %53) #7
-  br label %62
+61:                                               ; preds = %59
+  tail call void @SSL_CTX_set0_CA_list(ptr noundef nonnull %60, ptr noundef nonnull %54) #7
+  br label %63
 
-61:                                               ; preds = %58
-  tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %53, ptr noundef nonnull @X509_NAME_free) #7
-  br label %62
+62:                                               ; preds = %59
+  tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %54, ptr noundef nonnull @X509_NAME_free) #7
+  br label %63
 
-62:                                               ; preds = %60, %61, %57
-  store ptr null, ptr %52, align 8, !tbaa !63
+63:                                               ; preds = %61, %62, %58
+  store ptr null, ptr %53, align 8, !tbaa !63
   br label %.loopexit
 
-.loopexit:                                        ; preds = %cmd_PrivateKey.exit, %.thread57, %62
-  %.2 = phi i32 [ 1, %62 ], [ 1, %.thread57 ], [ 0, %cmd_PrivateKey.exit ]
+.loopexit:                                        ; preds = %cmd_PrivateKey.exit, %.thread57, %63
+  %.2 = phi i32 [ 1, %63 ], [ 1, %.thread57 ], [ 0, %cmd_PrivateKey.exit ]
   ret i32 %.2
 }
 

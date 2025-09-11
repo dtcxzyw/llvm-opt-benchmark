@@ -1664,53 +1664,54 @@ encode_preinit_audio.exit:                        ; preds = %.lr.ph100.i, %.lr.p
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 784
   br label %301
 
-301:                                              ; preds = %.lr.ph, %321
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %321 ]
-  %302 = phi i32 [ %295, %.lr.ph ], [ %323, %321 ]
-  %303 = getelementptr inbounds nuw %struct.SideDataMap, ptr @ff_sd_global_map, i64 %indvars.iv, i32 1
-  %304 = load i32, ptr %303, align 4, !tbaa !135
-  %305 = load ptr, ptr %297, align 8, !tbaa !136
-  %306 = load i32, ptr %298, align 8, !tbaa !137
-  %307 = call ptr @av_frame_side_data_get_c(ptr noundef %305, i32 noundef %306, i32 noundef %304) #8
-  %.not76 = icmp eq ptr %307, null
-  br i1 %.not76, label %321, label %308
+301:                                              ; preds = %.lr.ph, %322
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %322 ]
+  %302 = phi i32 [ %295, %.lr.ph ], [ %324, %322 ]
+  %303 = getelementptr inbounds nuw %struct.SideDataMap, ptr @ff_sd_global_map, i64 %indvars.iv
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 4
+  %305 = load i32, ptr %304, align 4, !tbaa !135
+  %306 = load ptr, ptr %297, align 8, !tbaa !136
+  %307 = load i32, ptr %298, align 8, !tbaa !137
+  %308 = call ptr @av_frame_side_data_get_c(ptr noundef %306, i32 noundef %307, i32 noundef %305) #8
+  %.not76 = icmp eq ptr %308, null
+  br i1 %.not76, label %322, label %309
 
-308:                                              ; preds = %301
-  %309 = load ptr, ptr %299, align 8, !tbaa !138
-  %310 = load i32, ptr %300, align 8, !tbaa !139
-  %311 = call ptr @av_packet_side_data_get(ptr noundef %309, i32 noundef %310, i32 noundef %302) #8
-  %.not77 = icmp eq ptr %311, null
-  br i1 %.not77, label %312, label %321
+309:                                              ; preds = %301
+  %310 = load ptr, ptr %299, align 8, !tbaa !138
+  %311 = load i32, ptr %300, align 8, !tbaa !139
+  %312 = call ptr @av_packet_side_data_get(ptr noundef %310, i32 noundef %311, i32 noundef %302) #8
+  %.not77 = icmp eq ptr %312, null
+  br i1 %.not77, label %313, label %322
 
-312:                                              ; preds = %308
-  %313 = getelementptr inbounds nuw i8, ptr %307, i64 16
-  %314 = load i64, ptr %313, align 8, !tbaa !77
-  %315 = call ptr @av_packet_side_data_new(ptr noundef nonnull %299, ptr noundef nonnull %300, i32 noundef %302, i64 noundef %314, i32 noundef 0) #8
-  %.not78 = icmp eq ptr %315, null
-  br i1 %.not78, label %.loopexit, label %316
+313:                                              ; preds = %309
+  %314 = getelementptr inbounds nuw i8, ptr %308, i64 16
+  %315 = load i64, ptr %314, align 8, !tbaa !77
+  %316 = call ptr @av_packet_side_data_new(ptr noundef nonnull %299, ptr noundef nonnull %300, i32 noundef %302, i64 noundef %315, i32 noundef 0) #8
+  %.not78 = icmp eq ptr %316, null
+  br i1 %.not78, label %.loopexit, label %317
 
-316:                                              ; preds = %312
-  %317 = load ptr, ptr %315, align 8, !tbaa !140
-  %318 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  %319 = load ptr, ptr %318, align 8, !tbaa !79
-  %320 = load i64, ptr %313, align 8, !tbaa !77
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr align 1 %319, i64 %320, i1 false)
-  br label %321
+317:                                              ; preds = %313
+  %318 = load ptr, ptr %316, align 8, !tbaa !140
+  %319 = getelementptr inbounds nuw i8, ptr %308, i64 8
+  %320 = load ptr, ptr %319, align 8, !tbaa !79
+  %321 = load i64, ptr %314, align 8, !tbaa !77
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %318, ptr align 1 %320, i64 %321, i1 false)
+  br label %322
 
-321:                                              ; preds = %316, %308, %301
+322:                                              ; preds = %317, %309, %301
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %322 = getelementptr inbounds nuw %struct.SideDataMap, ptr @ff_sd_global_map, i64 %indvars.iv.next
-  %323 = load i32, ptr %322, align 4, !tbaa !133
-  %324 = icmp ugt i32 %323, 37
-  br i1 %324, label %.critedge, label %301, !llvm.loop !142
+  %323 = getelementptr inbounds nuw %struct.SideDataMap, ptr @ff_sd_global_map, i64 %indvars.iv.next
+  %324 = load i32, ptr %323, align 4, !tbaa !133
+  %325 = icmp ugt i32 %324, 37
+  br i1 %325, label %.critedge, label %301, !llvm.loop !142
 
-.critedge:                                        ; preds = %321, %294
-  %325 = call i32 @ff_frame_thread_encoder_init(ptr noundef nonnull %0) #8
-  %. = call i32 @llvm.smin.i32(i32 %325, i32 0)
+.critedge:                                        ; preds = %322, %294
+  %326 = call i32 @ff_frame_thread_encoder_init(ptr noundef nonnull %0) #8
+  %. = call i32 @llvm.smin.i32(i32 %326, i32 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %312, %.critedge, %291, %279, %249, %290, %36, %25, %20
-  %.0 = phi i32 [ -22, %20 ], [ -22, %25 ], [ -38, %290 ], [ -22, %36 ], [ %.059, %249 ], [ -12, %279 ], [ -12, %291 ], [ %., %.critedge ], [ -12, %312 ]
+.loopexit:                                        ; preds = %313, %.critedge, %291, %279, %249, %290, %36, %25, %20
+  %.0 = phi i32 [ -22, %20 ], [ -22, %25 ], [ -38, %290 ], [ -22, %36 ], [ %.059, %249 ], [ -12, %279 ], [ -12, %291 ], [ %., %.critedge ], [ -12, %313 ]
   ret i32 %.0
 }
 
@@ -1906,13 +1907,13 @@ define ptr @ff_encode_add_cpb_side_data(ptr noundef captures(none) %0) local_unn
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %11, align 8, !tbaa !140
-  br label %36
+  br label %37
 
 ._crit_edge:                                      ; preds = %9, %1
   %17 = call ptr @av_cpb_properties_alloc(ptr noundef nonnull %3) #8
   store ptr %17, ptr %2, align 8, !tbaa !152
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %36, label %18
+  br i1 %.not, label %37, label %18
 
 18:                                               ; preds = %._crit_edge
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -1926,7 +1927,7 @@ define ptr @ff_encode_add_cpb_side_data(ptr noundef captures(none) %0) local_unn
 
 25:                                               ; preds = %18
   call void @av_freep(ptr noundef nonnull %2) #8
-  br label %36
+  br label %37
 
 26:                                               ; preds = %18
   store ptr %24, ptr %19, align 8, !tbaa !138
@@ -1934,18 +1935,19 @@ define ptr @ff_encode_add_cpb_side_data(ptr noundef captures(none) %0) local_unn
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %4, align 8, !tbaa !139
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds %struct.AVPacketSideData, ptr %24, i64 %29, i32 2
-  store i32 10, ptr %30, align 8, !tbaa !151
-  %31 = getelementptr inbounds %struct.AVPacketSideData, ptr %24, i64 %29
-  store ptr %17, ptr %31, align 8, !tbaa !140
-  %32 = load i64, ptr %3, align 8, !tbaa !154
-  %33 = sext i32 %28 to i64
-  %34 = getelementptr %struct.AVPacketSideData, ptr %24, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 -16
-  store i64 %32, ptr %35, align 8, !tbaa !155
-  br label %36
+  %30 = getelementptr inbounds %struct.AVPacketSideData, ptr %24, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store i32 10, ptr %31, align 8, !tbaa !151
+  %32 = sext i32 %28 to i64
+  %33 = getelementptr %struct.AVPacketSideData, ptr %24, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 -24
+  store ptr %17, ptr %34, align 8, !tbaa !140
+  %35 = load i64, ptr %3, align 8, !tbaa !154
+  %36 = getelementptr i8, ptr %33, i64 -16
+  store i64 %35, ptr %36, align 8, !tbaa !155
+  br label %37
 
-36:                                               ; preds = %._crit_edge, %26, %25, %15
+37:                                               ; preds = %._crit_edge, %26, %25, %15
   %.019 = phi ptr [ %16, %15 ], [ %17, %26 ], [ null, %25 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

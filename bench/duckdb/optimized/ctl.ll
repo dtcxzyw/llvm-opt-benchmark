@@ -9010,36 +9010,37 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_nregs_ctl(ptr readnone captur
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
-  br i1 %or.cond, label %22, label %11
+  br i1 %or.cond, label %23, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %13, i32 2
-  %15 = load i32, ptr %14, align 8, !tbaa !226
-  store i32 %15, ptr %8, align 4, !tbaa !88
-  %16 = icmp ne ptr %3, null
-  %17 = icmp ne ptr %4, null
-  %or.cond3 = and i1 %16, %17
-  br i1 %or.cond3, label %18, label %22
+  %14 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load i32, ptr %15, align 8, !tbaa !226
+  store i32 %16, ptr %8, align 4, !tbaa !88
+  %17 = icmp ne ptr %3, null
+  %18 = icmp ne ptr %4, null
+  %or.cond3 = and i1 %17, %18
+  br i1 %or.cond3, label %19, label %23
 
-18:                                               ; preds = %11
-  %19 = load i64, ptr %4, align 8, !tbaa !3
-  %.not = icmp eq i64 %19, 4
-  br i1 %.not, label %21, label %20
+19:                                               ; preds = %11
+  %20 = load i64, ptr %4, align 8, !tbaa !3
+  %.not = icmp eq i64 %20, 4
+  br i1 %.not, label %22, label %21
 
-20:                                               ; preds = %18
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %19, i64 4)
+21:                                               ; preds = %19
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %20, i64 4)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 4 %8, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %4, align 8, !tbaa !3
-  br label %22
+  br label %23
 
-21:                                               ; preds = %18
-  store i32 %15, ptr %3, align 4, !tbaa !88
-  br label %22
+22:                                               ; preds = %19
+  store i32 %16, ptr %3, align 4, !tbaa !88
+  br label %23
 
-22:                                               ; preds = %20, %7, %21, %11
-  %.019 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
+23:                                               ; preds = %21, %7, %22, %11
+  %.019 = phi i32 [ 22, %21 ], [ 1, %7 ], [ 0, %22 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -9051,36 +9052,37 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_slab_size_ctl(ptr readnone ca
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
-  br i1 %or.cond, label %22, label %11
+  br i1 %or.cond, label %23, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %13, i32 1
-  %15 = load i64, ptr %14, align 8, !tbaa !227
-  store i64 %15, ptr %8, align 8, !tbaa !3
-  %16 = icmp ne ptr %3, null
-  %17 = icmp ne ptr %4, null
-  %or.cond3 = and i1 %16, %17
-  br i1 %or.cond3, label %18, label %22
+  %14 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load i64, ptr %15, align 8, !tbaa !227
+  store i64 %16, ptr %8, align 8, !tbaa !3
+  %17 = icmp ne ptr %3, null
+  %18 = icmp ne ptr %4, null
+  %or.cond3 = and i1 %17, %18
+  br i1 %or.cond3, label %19, label %23
 
-18:                                               ; preds = %11
-  %19 = load i64, ptr %4, align 8, !tbaa !3
-  %.not = icmp eq i64 %19, 8
-  br i1 %.not, label %21, label %20
+19:                                               ; preds = %11
+  %20 = load i64, ptr %4, align 8, !tbaa !3
+  %.not = icmp eq i64 %20, 8
+  br i1 %.not, label %22, label %21
 
-20:                                               ; preds = %18
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %19, i64 8)
+21:                                               ; preds = %19
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %20, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %4, align 8, !tbaa !3
-  br label %22
+  br label %23
 
-21:                                               ; preds = %18
-  store i64 %15, ptr %3, align 8, !tbaa !3
-  br label %22
+22:                                               ; preds = %19
+  store i64 %16, ptr %3, align 8, !tbaa !3
+  br label %23
 
-22:                                               ; preds = %20, %7, %21, %11
-  %.019 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
+23:                                               ; preds = %21, %7, %22, %11
+  %.019 = phi i32 [ 22, %21 ], [ 1, %7 ], [ 0, %22 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -9092,36 +9094,37 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_nshards_ctl(ptr readnone capt
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
-  br i1 %or.cond, label %22, label %11
+  br i1 %or.cond, label %23, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %13, i32 3
-  %15 = load i32, ptr %14, align 4, !tbaa !228
-  store i32 %15, ptr %8, align 4, !tbaa !88
-  %16 = icmp ne ptr %3, null
-  %17 = icmp ne ptr %4, null
-  %or.cond3 = and i1 %16, %17
-  br i1 %or.cond3, label %18, label %22
+  %14 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
+  %16 = load i32, ptr %15, align 4, !tbaa !228
+  store i32 %16, ptr %8, align 4, !tbaa !88
+  %17 = icmp ne ptr %3, null
+  %18 = icmp ne ptr %4, null
+  %or.cond3 = and i1 %17, %18
+  br i1 %or.cond3, label %19, label %23
 
-18:                                               ; preds = %11
-  %19 = load i64, ptr %4, align 8, !tbaa !3
-  %.not = icmp eq i64 %19, 4
-  br i1 %.not, label %21, label %20
+19:                                               ; preds = %11
+  %20 = load i64, ptr %4, align 8, !tbaa !3
+  %.not = icmp eq i64 %20, 4
+  br i1 %.not, label %22, label %21
 
-20:                                               ; preds = %18
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %19, i64 4)
+21:                                               ; preds = %19
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %20, i64 4)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 4 %8, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %4, align 8, !tbaa !3
-  br label %22
+  br label %23
 
-21:                                               ; preds = %18
-  store i32 %15, ptr %3, align 4, !tbaa !88
-  br label %22
+22:                                               ; preds = %19
+  store i32 %16, ptr %3, align 4, !tbaa !88
+  br label %23
 
-22:                                               ; preds = %20, %7, %21, %11
-  %.019 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
+23:                                               ; preds = %21, %7, %22, %11
+  %.019 = phi i32 [ 22, %21 ], [ 1, %7 ], [ 0, %22 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
@@ -10645,70 +10648,71 @@ malloc_mutex_lock.exit113:                        ; preds = %175, %181
 
 .preheader:                                       ; preds = %malloc_mutex_lock.exit113, %._crit_edge
   %indvars.iv128 = phi i64 [ 0, %malloc_mutex_lock.exit113 ], [ %indvars.iv.next129, %._crit_edge ]
-  %191 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %indvars.iv128, i32 3
-  %192 = load i32, ptr %191, align 4, !tbaa !228
-  %.not126 = icmp eq i32 %192, 0
+  %191 = getelementptr inbounds nuw %struct.bin_info_s, ptr @duckdb_je_bin_infos, i64 %indvars.iv128
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 20
+  %193 = load i32, ptr %192, align 4, !tbaa !228
+  %.not126 = icmp eq i32 %193, 0
   br i1 %.not126, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %193 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv128
-  br label %194
+  %194 = getelementptr inbounds nuw i32, ptr @duckdb_je_arena_bin_offsets, i64 %indvars.iv128
+  br label %195
 
 ._crit_edge:                                      ; preds = %malloc_mutex_lock.exit117, %.preheader
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next129, 36
   br i1 %exitcond.not, label %arena_get.exit.thread, label %.preheader
 
-194:                                              ; preds = %.lr.ph, %malloc_mutex_lock.exit117
+195:                                              ; preds = %.lr.ph, %malloc_mutex_lock.exit117
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %malloc_mutex_lock.exit117 ]
-  %195 = load i32, ptr %193, align 4, !tbaa !88
-  %196 = zext i32 %195 to i64
-  %197 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %196
-  %198 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !88
-  %199 = zext i32 %198 to i64
-  %200 = icmp samesign ult i64 %indvars.iv128, %199
-  %201 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %197, i64 %indvars.iv
-  %202 = getelementptr inbounds nuw %struct.bin_s, ptr %197, i64 %indvars.iv
-  %.0.i114 = select i1 %200, ptr %201, ptr %202
-  %203 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 72
-  %204 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %203) #14
-  %.not.i115 = icmp eq i32 %204, 0
-  br i1 %.not.i115, label %207, label %205
+  %196 = load i32, ptr %194, align 4, !tbaa !88
+  %197 = zext i32 %196 to i64
+  %198 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %197
+  %199 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !88
+  %200 = zext i32 %199 to i64
+  %201 = icmp samesign ult i64 %indvars.iv128, %200
+  %202 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %198, i64 %indvars.iv
+  %203 = getelementptr inbounds nuw %struct.bin_s, ptr %198, i64 %indvars.iv
+  %.0.i114 = select i1 %201, ptr %202, ptr %203
+  %204 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 72
+  %205 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %204) #14
+  %.not.i115 = icmp eq i32 %205, 0
+  br i1 %.not.i115, label %208, label %206
 
-205:                                              ; preds = %194
+206:                                              ; preds = %195
   tail call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i114) #14
-  %206 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 64
-  store atomic i8 1, ptr %206 monotonic, align 1
-  br label %207
+  %207 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 64
+  store atomic i8 1, ptr %207 monotonic, align 1
+  br label %208
 
-207:                                              ; preds = %205, %194
-  %208 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 56
-  %209 = load i64, ptr %208, align 8, !tbaa !16
-  %210 = add i64 %209, 1
-  store i64 %210, ptr %208, align 8, !tbaa !16
-  %211 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 48
-  %212 = load ptr, ptr %211, align 8, !tbaa !22
-  %.not.i.i116 = icmp eq ptr %212, %0
-  br i1 %.not.i.i116, label %malloc_mutex_lock.exit117, label %213
+208:                                              ; preds = %206, %195
+  %209 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 56
+  %210 = load i64, ptr %209, align 8, !tbaa !16
+  %211 = add i64 %210, 1
+  store i64 %211, ptr %209, align 8, !tbaa !16
+  %212 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 48
+  %213 = load ptr, ptr %212, align 8, !tbaa !22
+  %.not.i.i116 = icmp eq ptr %213, %0
+  br i1 %.not.i.i116, label %malloc_mutex_lock.exit117, label %214
 
-213:                                              ; preds = %207
-  store ptr %0, ptr %211, align 8, !tbaa !22
-  %214 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 40
-  %215 = load i64, ptr %214, align 8, !tbaa !23
-  %216 = add i64 %215, 1
-  store i64 %216, ptr %214, align 8, !tbaa !23
+214:                                              ; preds = %208
+  store ptr %0, ptr %212, align 8, !tbaa !22
+  %215 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 40
+  %216 = load i64, ptr %215, align 8, !tbaa !23
+  %217 = add i64 %216, 1
+  store i64 %217, ptr %215, align 8, !tbaa !23
   br label %malloc_mutex_lock.exit117
 
-malloc_mutex_lock.exit117:                        ; preds = %207, %213
+malloc_mutex_lock.exit117:                        ; preds = %208, %214
   tail call void @duckdb_je_malloc_mutex_prof_data_reset(ptr noundef %0, ptr noundef nonnull %.0.i114) #14
-  %217 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 64
-  store atomic i8 0, ptr %217 monotonic, align 1
-  %218 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %203) #14
+  %218 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 64
+  store atomic i8 0, ptr %218 monotonic, align 1
+  %219 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %204) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %219 = load i32, ptr %191, align 4, !tbaa !228
-  %220 = zext i32 %219 to i64
-  %221 = icmp samesign ult i64 %indvars.iv.next, %220
-  br i1 %221, label %194, label %._crit_edge
+  %220 = load i32, ptr %192, align 4, !tbaa !228
+  %221 = zext i32 %220 to i64
+  %222 = icmp samesign ult i64 %indvars.iv.next, %221
+  br i1 %222, label %195, label %._crit_edge
 
 arena_get.exit.thread:                            ; preds = %._crit_edge, %.lr.ph123
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1

@@ -475,16 +475,17 @@ _ZNSt10unique_ptrIN4llvm6object8TapiFileESt14default_deleteIS2_EED2Ev.exit:
   %9 = load i32, ptr %8, align 8, !tbaa !58
   %10 = sext i32 %9 to i64
   %11 = load ptr, ptr %7, align 8, !tbaa !37
-  %12 = getelementptr inbounds nuw %"struct.llvm::object::TapiUniversal::Library", ptr %11, i64 %10, i32 1
-  %13 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17, !noalias !59
-  %14 = load i8, ptr %12, align 1, !tbaa !35, !noalias !59
-  call void @_ZN4llvm6object8TapiFileC1ENS_15MemoryBufferRefERKNS_5MachO13InterfaceFileENS3_12ArchitectureE(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %2, ptr noundef nonnull align 8 dereferenceable(464) %6, i8 noundef zeroext %14) #14, !noalias !59
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, -2
-  store i8 %17, ptr %15, align 8
-  %18 = ptrtoint ptr %13 to i64
-  store i64 %18, ptr %0, align 8, !tbaa !62
+  %12 = getelementptr inbounds nuw %"struct.llvm::object::TapiUniversal::Library", ptr %11, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17, !noalias !59
+  %15 = load i8, ptr %13, align 1, !tbaa !35, !noalias !59
+  call void @_ZN4llvm6object8TapiFileC1ENS_15MemoryBufferRefERKNS_5MachO13InterfaceFileENS3_12ArchitectureE(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %2, ptr noundef nonnull align 8 dereferenceable(464) %6, i8 noundef zeroext %15) #14, !noalias !59
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i8, ptr %16, align 8
+  %18 = and i8 %17, -2
+  store i8 %18, ptr %16, align 8
+  %19 = ptrtoint ptr %14 to i64
+  store i64 %19, ptr %0, align 8, !tbaa !62
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

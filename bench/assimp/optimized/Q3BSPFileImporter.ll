@@ -4455,21 +4455,21 @@ _ZNSt6vectorIP9aiTextureSaIS1_EE9push_backERKS1_.exit: ; preds = %65, %_ZNSt6vec
 
 88:                                               ; preds = %25, %88
   %.042 = phi i64 [ 0, %25 ], [ %100, %88 ]
-  %.02741 = phi i64 [ 0, %25 ], [ %95, %88 ]
+  %.02741 = phi i64 [ 0, %25 ], [ %96, %88 ]
   %89 = getelementptr inbounds nuw i8, ptr %24, i64 %.02741
   %90 = load i8, ptr %89, align 1
-  %91 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042, i32 2
-  store i8 %90, ptr %91, align 1
-  %92 = getelementptr i8, ptr %89, i64 1
-  %93 = load i8, ptr %92, align 1
-  %94 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042, i32 1
-  store i8 %93, ptr %94, align 1
-  %95 = add nuw nsw i64 %.02741, 3
-  %96 = getelementptr i8, ptr %89, i64 2
-  %97 = load i8, ptr %96, align 1
-  %98 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042
-  store i8 %97, ptr %98, align 1
-  %99 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042, i32 3
+  %91 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 2
+  store i8 %90, ptr %92, align 1
+  %93 = getelementptr i8, ptr %89, i64 1
+  %94 = load i8, ptr %93, align 1
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 1
+  store i8 %94, ptr %95, align 1
+  %96 = add nuw nsw i64 %.02741, 3
+  %97 = getelementptr i8, ptr %89, i64 2
+  %98 = load i8, ptr %97, align 1
+  store i8 %98, ptr %91, align 1
+  %99 = getelementptr inbounds nuw i8, ptr %91, i64 3
   store i8 -1, ptr %99, align 1
   %100 = add nuw nsw i64 %.042, 1
   %exitcond.not = icmp eq i64 %100, 16384

@@ -6423,24 +6423,25 @@ define void @"_ZN153_$LT$wasmtime_runtime..instance..allocator..pooling..Pooling
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !889, !nonnull !4, !noundef !4
   %12 = urem i64 %4, %6
-  %13 = getelementptr inbounds { { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, i64 }, { { i32, [1 x i32] }, { i32, [1 x i32] } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i32, i32, i32, [1 x i32] } } } }, { i32, [2 x i32] }, [1 x i32] }, ptr %11, i64 %12, i32 1
-  %14 = load i32, ptr %13, align 8, !range !583, !noalias !889, !noundef !4
-  %trunc.i = trunc nuw i32 %14 to i1
-  br i1 %trunc.i, label %15, label %_ZN16wasmtime_runtime8instance9allocator7pooling11memory_pool10MemoryPool19next_available_pkey17h15b0f895583dda69E.exit
+  %13 = getelementptr inbounds { { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, i64 }, { { i32, [1 x i32] }, { i32, [1 x i32] } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i32, i32, i32, [1 x i32] } } } }, { i32, [2 x i32] }, [1 x i32] }, ptr %11, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
+  %15 = load i32, ptr %14, align 8, !range !583, !noalias !889, !noundef !4
+  %trunc.i = trunc nuw i32 %15 to i1
+  br i1 %trunc.i, label %16, label %_ZN16wasmtime_runtime8instance9allocator7pooling11memory_pool10MemoryPool19next_available_pkey17h15b0f895583dda69E.exit
 
-15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %17 = load i32, ptr %16, align 4, !noalias !889, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %19 = load i32, ptr %18, align 4, !noalias !889, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %17, ptr %20, align 4, !alias.scope !889
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %19, ptr %21, align 4, !alias.scope !889
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 116
+  %18 = load i32, ptr %17, align 4, !noalias !889, !noundef !4
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %20 = load i32, ptr %19, align 4, !noalias !889, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %18, ptr %21, align 4, !alias.scope !889
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %20, ptr %22, align 4, !alias.scope !889
   br label %_ZN16wasmtime_runtime8instance9allocator7pooling11memory_pool10MemoryPool19next_available_pkey17h15b0f895583dda69E.exit
 
-_ZN16wasmtime_runtime8instance9allocator7pooling11memory_pool10MemoryPool19next_available_pkey17h15b0f895583dda69E.exit: ; preds = %9, %15
-  %storemerge.i = phi i32 [ 1, %15 ], [ 0, %9 ]
+_ZN16wasmtime_runtime8instance9allocator7pooling11memory_pool10MemoryPool19next_available_pkey17h15b0f895583dda69E.exit: ; preds = %9, %16
+  %storemerge.i = phi i32 [ 1, %16 ], [ 0, %9 ]
   store i32 %storemerge.i, ptr %0, align 4, !alias.scope !889
   ret void
 }

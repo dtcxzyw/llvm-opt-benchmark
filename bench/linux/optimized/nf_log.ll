@@ -372,7 +372,7 @@ define dso_local range(i32 -2, 1) i32 @nf_logger_find_get(i32 noundef %0, i32 no
 
 4:                                                ; preds = %2
   %5 = zext i32 %1 to i64
-  %6 = getelementptr [2 x ptr], ptr @loggers, i64 2, i64 %5
+  %6 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @loggers, i64 32), i64 %5
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
@@ -386,7 +386,7 @@ define dso_local range(i32 -2, 1) i32 @nf_logger_find_get(i32 noundef %0, i32 no
 13:                                               ; preds = %9
   tail call void @__rcu_read_unlock() #16
   tail call void @__rcu_read_lock() #16
-  %14 = getelementptr [2 x ptr], ptr @loggers, i64 10, i64 %5
+  %14 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @loggers, i64 160), i64 %5
   %15 = load volatile ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
@@ -446,7 +446,7 @@ define dso_local void @nf_logger_put(i32 noundef %0, i32 noundef %1) #0 align 16
 
 4:                                                ; preds = %2
   %5 = zext i32 %1 to i64
-  %6 = getelementptr [2 x ptr], ptr @loggers, i64 2, i64 %5
+  %6 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @loggers, i64 32), i64 %5
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -466,7 +466,7 @@ define dso_local void @nf_logger_put(i32 noundef %0, i32 noundef %1) #0 align 16
 13:                                               ; preds = %10, %9
   tail call void @__rcu_read_unlock() #16
   tail call void @__rcu_read_lock() #16
-  %14 = getelementptr [2 x ptr], ptr @loggers, i64 10, i64 %5
+  %14 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @loggers, i64 160), i64 %5
   %15 = load volatile ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
@@ -775,7 +775,8 @@ define internal noundef range(i32 -12, 1) i32 @nf_log_net_init(ptr noundef %0) #
 
 28:                                               ; preds = %28, %26
   %29 = phi i64 [ 0, %26 ], [ %31, %28 ]
-  %30 = getelementptr %struct.ctl_table, ptr %27, i64 %29, i32 8
+  %.split = getelementptr %struct.ctl_table, ptr %27, i64 %29
+  %30 = getelementptr i8, ptr %.split, i64 56
   store ptr %0, ptr %30, align 8
   %31 = add nuw nsw i64 %29, 1
   %32 = icmp eq i64 %31, 11
@@ -913,7 +914,8 @@ define internal range(i32 -28, 1) i32 @seq_show(ptr noundef %0, ptr noundef read
 
 28:                                               ; preds = %26
   %29 = load i64, ptr %1, align 8
-  %30 = getelementptr [2 x ptr], ptr @loggers, i64 %29, i64 1
+  %.split2 = getelementptr [2 x ptr], ptr @loggers, i64 %29
+  %30 = getelementptr i8, ptr %.split2, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %34, label %33

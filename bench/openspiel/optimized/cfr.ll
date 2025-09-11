@@ -3991,7 +3991,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %30
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv152
   store i64 %59, ptr %60, align 8
-  %61 = getelementptr inbounds nuw %"struct.std::pair.26", ptr %36, i64 %indvars.iv152, i32 1
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load double, ptr %61, align 8
   %63 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv152
   store double %62, ptr %63, align 8

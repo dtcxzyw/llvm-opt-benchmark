@@ -585,7 +585,8 @@ define dso_local void @ioam6_fill_trace_data(ptr noundef readonly captures(none)
   %223 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %224 = load ptr, ptr %223, align 8
   %225 = zext i16 %222 to i64
-  %226 = getelementptr %struct.netdev_queue, ptr %224, i64 %225, i32 2
+  %.split = getelementptr %struct.netdev_queue, ptr %224, i64 %225
+  %226 = getelementptr i8, ptr %.split, i64 8
   %227 = load volatile ptr, ptr %226, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, i8 0, i64 20, i1 false)

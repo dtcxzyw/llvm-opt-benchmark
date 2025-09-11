@@ -429,32 +429,33 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_5ValueENS_12DenseMapInf
 define dso_local void @_ZN4llvm14SSAUpdaterBulk6AddUseEjPNS_3UseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %0, align 8, !tbaa !9
-  %6 = getelementptr inbounds nuw %"struct.llvm::SSAUpdaterBulk::RewriteInfo", ptr %5, i64 %4, i32 1
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !10
-  %.not.i.i.not.i = icmp ult i32 %8, %10
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_3UseELb1EE9push_backES2_.exit, label %11, !prof !28
+  %6 = getelementptr inbounds nuw %"struct.llvm::SSAUpdaterBulk::RewriteInfo", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %9 = load i32, ptr %8, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %11 = load i32, ptr %10, align 4, !tbaa !10
+  %.not.i.i.not.i = icmp ult i32 %9, %11
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_3UseELb1EE9push_backES2_.exit, label %12, !prof !28
 
-11:                                               ; preds = %3
-  %12 = zext i32 %8 to i64
-  %13 = add nuw nsw i64 %12, 1
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 8) #14
-  %.pre.i = load i32, ptr %7, align 8, !tbaa !3
+12:                                               ; preds = %3
+  %13 = zext i32 %9 to i64
+  %14 = add nuw nsw i64 %13, 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 8) #14
+  %.pre.i = load i32, ptr %8, align 8, !tbaa !3
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_3UseELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_3UseELb1EE9push_backES2_.exit: ; preds = %3, %11
-  %15 = phi i32 [ %8, %3 ], [ %.pre.i, %11 ]
-  %16 = load ptr, ptr %6, align 8, !tbaa !9
-  %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
-  %19 = ptrtoint ptr %2 to i64
-  store i64 %19, ptr %18, align 1
-  %20 = load i32, ptr %7, align 8, !tbaa !3
-  %21 = add i32 %20, 1
-  store i32 %21, ptr %7, align 8, !tbaa !3
+_ZN4llvm23SmallVectorTemplateBaseIPNS_3UseELb1EE9push_backES2_.exit: ; preds = %3, %12
+  %16 = phi i32 [ %9, %3 ], [ %.pre.i, %12 ]
+  %17 = load ptr, ptr %7, align 8, !tbaa !9
+  %18 = zext i32 %16 to i64
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %20 = ptrtoint ptr %2 to i64
+  store i64 %20, ptr %19, align 1
+  %21 = load i32, ptr %8, align 8, !tbaa !3
+  %22 = add i32 %21, 1
+  store i32 %22, ptr %8, align 8, !tbaa !3
   ret void
 }
 

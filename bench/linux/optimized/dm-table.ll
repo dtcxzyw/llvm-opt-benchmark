@@ -1258,7 +1258,8 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   %23 = phi i32 [ 0, %11 ], [ %35, %16 ]
   %24 = phi i32 [ 0, %11 ], [ %34, %16 ]
   %25 = phi i32 [ 0, %11 ], [ %33, %16 ]
-  %26 = getelementptr %struct.dm_target, ptr %13, i64 %21, i32 1
+  %.split = getelementptr %struct.dm_target, ptr %13, i64 %21
+  %26 = getelementptr i8, ptr %.split, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = load ptr, ptr %28, align 8

@@ -550,66 +550,68 @@ define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT
   br i1 %4, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h051e79cd567584c3E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr83drop_in_place$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$17hb7ae39ac99f5160bE.exit.i.i"
-  %.sroa.0.08.i.i = phi i64 [ %5, %"_ZN4core3ptr83drop_in_place$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$17hb7ae39ac99f5160bE.exit.i.i" ], [ 0, %1 ]
-  %5 = add nuw i64 %.sroa.0.08.i.i, 1
-  %6 = getelementptr { { i32, [1 x i32] }, { i32, [1 x i32] }, { ptr, { { i64 } } } }, ptr %.val, i64 %.sroa.0.08.i.i, i32 2
-  %.val7.i.i = load ptr, ptr %6, align 8, !alias.scope !69, !align !8, !noundef !9
-  %7 = icmp eq ptr %.val7.i.i, null
-  br i1 %7, label %"_ZN4core3ptr83drop_in_place$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$17hb7ae39ac99f5160bE.exit.i.i", label %8
+  %.sroa.0.08.i.i = phi i64 [ %6, %"_ZN4core3ptr83drop_in_place$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$17hb7ae39ac99f5160bE.exit.i.i" ], [ 0, %1 ]
+  %5 = getelementptr inbounds nuw { { i32, [1 x i32] }, { i32, [1 x i32] }, { ptr, { { i64 } } } }, ptr %.val, i64 %.sroa.0.08.i.i
+  %6 = add nuw i64 %.sroa.0.08.i.i, 1
+  %7 = getelementptr i8, ptr %5, i64 16
+  %.val7.i.i = load ptr, ptr %7, align 8, !alias.scope !69, !align !8, !noundef !9
+  %8 = icmp eq ptr %.val7.i.i, null
+  br i1 %8, label %"_ZN4core3ptr83drop_in_place$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$17hb7ae39ac99f5160bE.exit.i.i", label %9
 
-8:                                                ; preds = %.lr.ph.i.i
-  %9 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h67701b0d23ed94d4E(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val7.i.i, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef 104, i64 noundef 16)
+9:                                                ; preds = %.lr.ph.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 32
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h67701b0d23ed94d4E(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val7.i.i, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef 104, i64 noundef 16)
           to label %"_ZN4core3ptr201drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$u32$C$protobuf..unknown..UnknownValues$C$core..hash..BuildHasherDefault$LT$std..hash..random..DefaultHasher$GT$$GT$$GT$$GT$17h2da91f11245686f8E.exit.i.i.i.i.i.i" unwind label %.body.i.i, !noalias !72
 
-.body.i.i:                                        ; preds = %8
-  %10 = landingpad { ptr, i32 }
+.body.i.i:                                        ; preds = %9
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val7.i.i, i64 noundef 32, i64 noundef 8) #10, !noalias !72
-  br label %12
+  br label %13
 
-"_ZN4core3ptr201drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$u32$C$protobuf..unknown..UnknownValues$C$core..hash..BuildHasherDefault$LT$std..hash..random..DefaultHasher$GT$$GT$$GT$$GT$17h2da91f11245686f8E.exit.i.i.i.i.i.i": ; preds = %8
+"_ZN4core3ptr201drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$u32$C$protobuf..unknown..UnknownValues$C$core..hash..BuildHasherDefault$LT$std..hash..random..DefaultHasher$GT$$GT$$GT$$GT$17h2da91f11245686f8E.exit.i.i.i.i.i.i": ; preds = %9
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val7.i.i, i64 noundef 32, i64 noundef 8) #10, !noalias !72
   br label %"_ZN4core3ptr83drop_in_place$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$17hb7ae39ac99f5160bE.exit.i.i"
 
 "_ZN4core3ptr83drop_in_place$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$17hb7ae39ac99f5160bE.exit.i.i": ; preds = %"_ZN4core3ptr201drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$u32$C$protobuf..unknown..UnknownValues$C$core..hash..BuildHasherDefault$LT$std..hash..random..DefaultHasher$GT$$GT$$GT$$GT$17h2da91f11245686f8E.exit.i.i.i.i.i.i", %.lr.ph.i.i
-  %11 = icmp eq i64 %5, %.val1
-  br i1 %11, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h051e79cd567584c3E.exit", label %.lr.ph.i.i
+  %12 = icmp eq i64 %6, %.val1
+  br i1 %12, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h051e79cd567584c3E.exit", label %.lr.ph.i.i
 
-12:                                               ; preds = %14, %.body.i.i
-  %.sroa.0.1.i.i = phi i64 [ %5, %.body.i.i ], [ %15, %14 ]
-  %13 = icmp eq i64 %.sroa.0.1.i.i, %.val1
-  br i1 %13, label %.body, label %14
+13:                                               ; preds = %15, %.body.i.i
+  %.sroa.0.1.i.i = phi i64 [ %6, %.body.i.i ], [ %17, %15 ]
+  %14 = icmp eq i64 %.sroa.0.1.i.i, %.val1
+  br i1 %14, label %.body, label %15
 
-14:                                               ; preds = %12
-  %15 = add i64 %.sroa.0.1.i.i, 1
-  %16 = getelementptr { { i32, [1 x i32] }, { i32, [1 x i32] }, { ptr, { { i64 } } } }, ptr %.val, i64 %.sroa.0.1.i.i, i32 2
-  %.val.i.i = load ptr, ptr %16, align 8, !alias.scope !69, !align !8, !noundef !9
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw { { i32, [1 x i32] }, { i32, [1 x i32] }, { ptr, { { i64 } } } }, ptr %.val, i64 %.sroa.0.1.i.i
+  %17 = add i64 %.sroa.0.1.i.i, 1
+  %18 = getelementptr i8, ptr %16, i64 16
+  %.val.i.i = load ptr, ptr %18, align 8, !alias.scope !69, !align !8, !noundef !9
   invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$17hb7ae39ac99f5160bE"(ptr %.val.i.i) #9
-          to label %12 unwind label %17, !noalias !66
+          to label %13 unwind label %19, !noalias !66
 
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %15
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #11, !noalias !66
   unreachable
 
-.body:                                            ; preds = %12
+.body:                                            ; preds = %13
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h593329f0564febbaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 32)
-          to label %"_ZN4core3ptr113drop_in_place$LT$alloc..raw_vec..RawVec$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$$GT$17hbd52e0aca6a88f6bE.exit" unwind label %19
+          to label %"_ZN4core3ptr113drop_in_place$LT$alloc..raw_vec..RawVec$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$$GT$17hbd52e0aca6a88f6bE.exit" unwind label %21
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h051e79cd567584c3E.exit": ; preds = %"_ZN4core3ptr83drop_in_place$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$17hb7ae39ac99f5160bE.exit.i.i", %1
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h593329f0564febbaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 32)
   ret void
 
-19:                                               ; preds = %.body
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %.body
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #11
   unreachable
 
 "_ZN4core3ptr113drop_in_place$LT$alloc..raw_vec..RawVec$LT$protobuf..descriptor..enum_descriptor_proto..EnumReservedRange$GT$$GT$17hbd52e0aca6a88f6bE.exit": ; preds = %.body
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7794,66 +7796,68 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$
   br i1 %4, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5f7ae2ca0e66de0E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr74drop_in_place$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$17hb2a17f7eff8121dbE.exit.i.i"
-  %.sroa.0.08.i.i = phi i64 [ %5, %"_ZN4core3ptr74drop_in_place$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$17hb2a17f7eff8121dbE.exit.i.i" ], [ 0, %1 ]
-  %5 = add nuw i64 %.sroa.0.08.i.i, 1
-  %6 = getelementptr { { i32, [1 x i32] }, { i32, [1 x i32] }, { ptr, { { i64 } } } }, ptr %.val, i64 %.sroa.0.08.i.i, i32 2
-  %.val7.i.i = load ptr, ptr %6, align 8, !alias.scope !1208, !align !8, !noundef !9
-  %7 = icmp eq ptr %.val7.i.i, null
-  br i1 %7, label %"_ZN4core3ptr74drop_in_place$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$17hb2a17f7eff8121dbE.exit.i.i", label %8
+  %.sroa.0.08.i.i = phi i64 [ %6, %"_ZN4core3ptr74drop_in_place$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$17hb2a17f7eff8121dbE.exit.i.i" ], [ 0, %1 ]
+  %5 = getelementptr inbounds nuw { { i32, [1 x i32] }, { i32, [1 x i32] }, { ptr, { { i64 } } } }, ptr %.val, i64 %.sroa.0.08.i.i
+  %6 = add nuw i64 %.sroa.0.08.i.i, 1
+  %7 = getelementptr i8, ptr %5, i64 16
+  %.val7.i.i = load ptr, ptr %7, align 8, !alias.scope !1208, !align !8, !noundef !9
+  %8 = icmp eq ptr %.val7.i.i, null
+  br i1 %8, label %"_ZN4core3ptr74drop_in_place$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$17hb2a17f7eff8121dbE.exit.i.i", label %9
 
-8:                                                ; preds = %.lr.ph.i.i
-  %9 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 32
-  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h67701b0d23ed94d4E(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val7.i.i, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef 104, i64 noundef 16)
+9:                                                ; preds = %.lr.ph.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %.val7.i.i, i64 32
+  invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h67701b0d23ed94d4E(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val7.i.i, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef 104, i64 noundef 16)
           to label %"_ZN4core3ptr201drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$u32$C$protobuf..unknown..UnknownValues$C$core..hash..BuildHasherDefault$LT$std..hash..random..DefaultHasher$GT$$GT$$GT$$GT$17h2da91f11245686f8E.exit.i.i.i.i.i.i" unwind label %.body.i.i, !noalias !1211
 
-.body.i.i:                                        ; preds = %8
-  %10 = landingpad { ptr, i32 }
+.body.i.i:                                        ; preds = %9
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val7.i.i, i64 noundef 32, i64 noundef 8) #10, !noalias !1211
-  br label %12
+  br label %13
 
-"_ZN4core3ptr201drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$u32$C$protobuf..unknown..UnknownValues$C$core..hash..BuildHasherDefault$LT$std..hash..random..DefaultHasher$GT$$GT$$GT$$GT$17h2da91f11245686f8E.exit.i.i.i.i.i.i": ; preds = %8
+"_ZN4core3ptr201drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$u32$C$protobuf..unknown..UnknownValues$C$core..hash..BuildHasherDefault$LT$std..hash..random..DefaultHasher$GT$$GT$$GT$$GT$17h2da91f11245686f8E.exit.i.i.i.i.i.i": ; preds = %9
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull %.val7.i.i, i64 noundef 32, i64 noundef 8) #10, !noalias !1211
   br label %"_ZN4core3ptr74drop_in_place$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$17hb2a17f7eff8121dbE.exit.i.i"
 
 "_ZN4core3ptr74drop_in_place$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$17hb2a17f7eff8121dbE.exit.i.i": ; preds = %"_ZN4core3ptr201drop_in_place$LT$alloc..boxed..Box$LT$std..collections..hash..map..HashMap$LT$u32$C$protobuf..unknown..UnknownValues$C$core..hash..BuildHasherDefault$LT$std..hash..random..DefaultHasher$GT$$GT$$GT$$GT$17h2da91f11245686f8E.exit.i.i.i.i.i.i", %.lr.ph.i.i
-  %11 = icmp eq i64 %5, %.val1
-  br i1 %11, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5f7ae2ca0e66de0E.exit", label %.lr.ph.i.i
+  %12 = icmp eq i64 %6, %.val1
+  br i1 %12, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5f7ae2ca0e66de0E.exit", label %.lr.ph.i.i
 
-12:                                               ; preds = %14, %.body.i.i
-  %.sroa.0.1.i.i = phi i64 [ %5, %.body.i.i ], [ %15, %14 ]
-  %13 = icmp eq i64 %.sroa.0.1.i.i, %.val1
-  br i1 %13, label %.body, label %14
+13:                                               ; preds = %15, %.body.i.i
+  %.sroa.0.1.i.i = phi i64 [ %6, %.body.i.i ], [ %17, %15 ]
+  %14 = icmp eq i64 %.sroa.0.1.i.i, %.val1
+  br i1 %14, label %.body, label %15
 
-14:                                               ; preds = %12
-  %15 = add i64 %.sroa.0.1.i.i, 1
-  %16 = getelementptr { { i32, [1 x i32] }, { i32, [1 x i32] }, { ptr, { { i64 } } } }, ptr %.val, i64 %.sroa.0.1.i.i, i32 2
-  %.val.i.i = load ptr, ptr %16, align 8, !alias.scope !1208, !align !8, !noundef !9
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw { { i32, [1 x i32] }, { i32, [1 x i32] }, { ptr, { { i64 } } } }, ptr %.val, i64 %.sroa.0.1.i.i
+  %17 = add i64 %.sroa.0.1.i.i, 1
+  %18 = getelementptr i8, ptr %16, i64 16
+  %.val.i.i = load ptr, ptr %18, align 8, !alias.scope !1208, !align !8, !noundef !9
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$17hb2a17f7eff8121dbE"(ptr %.val.i.i) #9
-          to label %12 unwind label %17, !noalias !1205
+          to label %13 unwind label %19, !noalias !1205
 
-17:                                               ; preds = %14
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %15
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #11, !noalias !1205
   unreachable
 
-.body:                                            ; preds = %12
+.body:                                            ; preds = %13
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h593329f0564febbaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 32)
-          to label %"_ZN4core3ptr104drop_in_place$LT$alloc..raw_vec..RawVec$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$$GT$17h81842dd21c3d3990E.exit" unwind label %19
+          to label %"_ZN4core3ptr104drop_in_place$LT$alloc..raw_vec..RawVec$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$$GT$17h81842dd21c3d3990E.exit" unwind label %21
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5f7ae2ca0e66de0E.exit": ; preds = %"_ZN4core3ptr74drop_in_place$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$17hb2a17f7eff8121dbE.exit.i.i", %1
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h593329f0564febbaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 8, i64 noundef 32)
   ret void
 
-19:                                               ; preds = %.body
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %.body
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #11
   unreachable
 
 "_ZN4core3ptr104drop_in_place$LT$alloc..raw_vec..RawVec$LT$protobuf..descriptor..descriptor_proto..ReservedRange$GT$$GT$17h81842dd21c3d3990E.exit": ; preds = %.body
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable

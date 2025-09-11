@@ -9775,7 +9775,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i: ; preds = %_ZNK5clan
   br i1 %.not.i5, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread.i, label %_ZNK5clang12OverloadExpr12getRAngleLocEv.exit.i
 
 _ZNK5clang12OverloadExpr12getRAngleLocEv.exit.i:  ; preds = %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i
-  %23 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i.i, i64 %21, i32 0, i32 0, i32 0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !1055
   br label %_ZNK5clang20UnresolvedMemberExpr9getEndLocEv.exit
 
@@ -9844,7 +9844,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i: ; preds = %_ZNK5clan
   br i1 %.not.i5, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread.i, label %_ZNK5clang12OverloadExpr12getRAngleLocEv.exit.i
 
 _ZNK5clang12OverloadExpr12getRAngleLocEv.exit.i:  ; preds = %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.i
-  %17 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i.i, i64 %15, i32 0, i32 0, i32 0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i.i, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !1055
   br label %_ZNK5clang20UnresolvedLookupExpr9getEndLocEv.exit
 
@@ -14017,7 +14017,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit: ; preds = %1
   br i1 %.not, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang12OverloadExpr12getRAngleLocEv.exit
 
 _ZNK5clang12OverloadExpr12getRAngleLocEv.exit:    ; preds = %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit
-  %10 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i, i64 %8, i32 0, i32 0, i32 0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !1055
   br label %15
 
@@ -14056,7 +14056,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit: ; preds = %1
   br i1 %.not, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang12OverloadExpr12getRAngleLocEv.exit
 
 _ZNK5clang12OverloadExpr12getRAngleLocEv.exit:    ; preds = %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit
-  %10 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i, i64 %8, i32 0, i32 0, i32 0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !1055
   br label %15
 

@@ -1828,35 +1828,36 @@ define hidden void @av1_loop_restoration_copy_planes(ptr noundef readonly captur
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+8:                                                ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %9 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %5, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %18, label %12
+  br i1 %11, label %19, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw %struct.FilterFrameCtxt, ptr %0, i64 %indvars.iv, i32 10, i32 2
-  %.sroa.0.0.copyload = load i32, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %13 = getelementptr inbounds nuw %struct.FilterFrameCtxt, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %.sroa.0.0.copyload = load i32, ptr %14, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 68
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 72
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 76
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %14 = getelementptr inbounds nuw ptr, ptr @av1_loop_restoration_copy_planes.copy_funs, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %7, align 8
-  tail call void %15(ptr noundef %16, ptr noundef %17, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.4.0.copyload) #12
-  br label %18
+  %15 = getelementptr inbounds nuw ptr, ptr @av1_loop_restoration_copy_planes.copy_funs, i64 %indvars.iv
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %7, align 8
+  tail call void %16(ptr noundef %17, ptr noundef %18, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.4.0.copyload) #12
+  br label %19
 
-18:                                               ; preds = %8, %12
+19:                                               ; preds = %8, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %18, %3
+._crit_edge:                                      ; preds = %19, %3
   ret void
 }
 
@@ -1907,35 +1908,36 @@ foreach_rest_unit_in_planes.exit:                 ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 224
   br label %25
 
-25:                                               ; preds = %35, %foreach_rest_unit_in_planes.exit
-  %indvars.iv.i13 = phi i64 [ 0, %foreach_rest_unit_in_planes.exit ], [ %indvars.iv.next.i14, %35 ]
+25:                                               ; preds = %36, %foreach_rest_unit_in_planes.exit
+  %indvars.iv.i13 = phi i64 [ 0, %foreach_rest_unit_in_planes.exit ], [ %indvars.iv.next.i14, %36 ]
   %26 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %8, i64 %indvars.iv.i13
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %35, label %29
+  br i1 %28, label %36, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw %struct.FilterFrameCtxt, ptr %3, i64 %indvars.iv.i13, i32 10, i32 2
-  %.sroa.0.0.copyload.i = load i32, ptr %30, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %30 = getelementptr inbounds nuw %struct.FilterFrameCtxt, ptr %3, i64 %indvars.iv.i13
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
+  %.sroa.0.0.copyload.i = load i32, ptr %31, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 68
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 72
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 12
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 76
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4
-  %31 = getelementptr inbounds nuw ptr, ptr @av1_loop_restoration_copy_planes.copy_funs, i64 %indvars.iv.i13
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %23, align 8
-  %34 = load ptr, ptr %24, align 8
-  tail call void %32(ptr noundef %33, ptr noundef %34, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.3.0.copyload.i, i32 noundef %.sroa.2.0.copyload.i, i32 noundef %.sroa.4.0.copyload.i) #12
-  br label %35
+  %32 = getelementptr inbounds nuw ptr, ptr @av1_loop_restoration_copy_planes.copy_funs, i64 %indvars.iv.i13
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %23, align 8
+  %35 = load ptr, ptr %24, align 8
+  tail call void %33(ptr noundef %34, ptr noundef %35, i32 noundef %.sroa.0.0.copyload.i, i32 noundef %.sroa.3.0.copyload.i, i32 noundef %.sroa.2.0.copyload.i, i32 noundef %.sroa.4.0.copyload.i) #12
+  br label %36
 
-35:                                               ; preds = %29, %25
+36:                                               ; preds = %29, %25
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, %wide.trip.count.i
   br i1 %exitcond.not.i15, label %av1_loop_restoration_copy_planes.exit, label %25, !llvm.loop !32
 
-av1_loop_restoration_copy_planes.exit:            ; preds = %35
+av1_loop_restoration_copy_planes.exit:            ; preds = %36
   ret void
 }
 

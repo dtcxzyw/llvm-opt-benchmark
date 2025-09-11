@@ -336,13 +336,13 @@ define range(i32 -22, 1) i32 @avfilter_link(ptr noundef %0, i32 noundef %1, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i32, ptr %16, align 8, !tbaa !27
   %.not61 = icmp ugt i32 %17, %1
-  br i1 %.not61, label %18, label %86
+  br i1 %.not61, label %18, label %89
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load i32, ptr %19, align 8, !tbaa !28
   %.not62 = icmp ugt i32 %20, %3
-  br i1 %.not62, label %21, label %86
+  br i1 %.not62, label %21, label %89
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -351,7 +351,7 @@ define range(i32 -22, 1) i32 @avfilter_link(ptr noundef %0, i32 noundef %1, ptr 
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !17
   %.not63 = icmp eq ptr %26, null
-  br i1 %.not63, label %27, label %86
+  br i1 %.not63, label %27, label %89
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -360,7 +360,7 @@ define range(i32 -22, 1) i32 @avfilter_link(ptr noundef %0, i32 noundef %1, ptr 
   %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !17
   %.not64 = icmp eq ptr %32, null
-  br i1 %.not64, label %33, label %86
+  br i1 %.not64, label %33, label %89
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -378,78 +378,81 @@ define range(i32 -22, 1) i32 @avfilter_link(ptr noundef %0, i32 noundef %1, ptr 
 
 41:                                               ; preds = %37, %33
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #15
-  br label %86
+  br label %89
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !34
-  %45 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %44, i64 %24, i32 1
-  %46 = load i32, ptr %45, align 8, !tbaa !35
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !36
-  %49 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %48, i64 %30, i32 1
-  %50 = load i32, ptr %49, align 8, !tbaa !35
-  %.not67 = icmp eq i32 %46, %50
-  br i1 %.not67, label %63, label %51
+  %45 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %44, i64 %24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i32, ptr %46, align 8, !tbaa !35
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %49 = load ptr, ptr %48, align 8, !tbaa !36
+  %50 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %49, i64 %30
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %51, align 8, !tbaa !35
+  %.not67 = icmp eq i32 %47, %52
+  br i1 %.not67, label %66, label %53
 
-51:                                               ; preds = %42
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !37
-  %54 = tail call ptr @av_get_media_type_string(i32 noundef %46) #15
-  %.not.i = icmp eq ptr %54, null
-  %55 = select i1 %.not.i, ptr @.str.7, ptr %54
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !37
-  %58 = load ptr, ptr %47, align 8, !tbaa !36
-  %59 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %58, i64 %30, i32 1
-  %60 = load i32, ptr %59, align 8, !tbaa !35
-  %61 = tail call ptr @av_get_media_type_string(i32 noundef %60) #15
-  %.not.i69 = icmp eq ptr %61, null
-  %62 = select i1 %.not.i69, ptr @.str.7, ptr %61
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.6, ptr noundef %53, i32 noundef %1, ptr noundef nonnull %55, ptr noundef %57, i32 noundef %3, ptr noundef nonnull %62) #15
-  br label %86
+53:                                               ; preds = %42
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !37
+  %56 = tail call ptr @av_get_media_type_string(i32 noundef %47) #15
+  %.not.i = icmp eq ptr %56, null
+  %57 = select i1 %.not.i, ptr @.str.7, ptr %56
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %59 = load ptr, ptr %58, align 8, !tbaa !37
+  %60 = load ptr, ptr %48, align 8, !tbaa !36
+  %61 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %60, i64 %30
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load i32, ptr %62, align 8, !tbaa !35
+  %64 = tail call ptr @av_get_media_type_string(i32 noundef %63) #15
+  %.not.i69 = icmp eq ptr %64, null
+  %65 = select i1 %.not.i69, ptr @.str.7, ptr %64
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.6, ptr noundef %55, i32 noundef %1, ptr noundef nonnull %57, ptr noundef %59, i32 noundef %3, ptr noundef nonnull %65) #15
+  br label %89
 
-63:                                               ; preds = %42
-  %64 = tail call noalias ptr @av_mallocz(i64 noundef 400) #15
-  %.not68 = icmp eq ptr %64, null
-  br i1 %.not68, label %86, label %65
+66:                                               ; preds = %42
+  %67 = tail call noalias ptr @av_mallocz(i64 noundef 400) #15
+  %.not68 = icmp eq ptr %67, null
+  br i1 %.not68, label %89, label %68
 
-65:                                               ; preds = %63
-  %66 = load ptr, ptr %28, align 8, !tbaa !30
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %30
-  store ptr %64, ptr %67, align 8, !tbaa !17
-  %68 = load ptr, ptr %22, align 8, !tbaa !29
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %24
-  store ptr %64, ptr %69, align 8, !tbaa !17
-  store ptr %0, ptr %64, align 8, !tbaa !38
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store ptr %2, ptr %70, align 8, !tbaa !47
-  %71 = load ptr, ptr %43, align 8, !tbaa !34
-  %72 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %71, i64 %24
-  %73 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr %72, ptr %73, align 8, !tbaa !48
-  %74 = load ptr, ptr %47, align 8, !tbaa !36
-  %75 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %74, i64 %30
-  %76 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  store ptr %75, ptr %76, align 8, !tbaa !49
-  %77 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %71, i64 %24, i32 1
-  %78 = load i32, ptr %77, align 8, !tbaa !35
-  %79 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  store i32 %78, ptr %79, align 8, !tbaa !50
-  %80 = load ptr, ptr %5, align 8, !tbaa !19
-  %81 = getelementptr inbounds nuw i8, ptr %64, i64 200
-  store ptr %80, ptr %81, align 8, !tbaa !51
-  %82 = getelementptr inbounds nuw i8, ptr %64, i64 36
-  store i32 -1, ptr %82, align 4, !tbaa !60
-  %83 = getelementptr inbounds nuw i8, ptr %64, i64 56
-  store i32 2, ptr %83, align 8, !tbaa !61
-  %84 = getelementptr inbounds nuw i8, ptr %64, i64 288
-  %85 = getelementptr inbounds nuw i8, ptr %80, i64 96
-  tail call void @ff_framequeue_init(ptr noundef nonnull %84, ptr noundef nonnull %85) #15
-  br label %86
+68:                                               ; preds = %66
+  %69 = load ptr, ptr %28, align 8, !tbaa !30
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %30
+  store ptr %67, ptr %70, align 8, !tbaa !17
+  %71 = load ptr, ptr %22, align 8, !tbaa !29
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %24
+  store ptr %67, ptr %72, align 8, !tbaa !17
+  store ptr %0, ptr %67, align 8, !tbaa !38
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  store ptr %2, ptr %73, align 8, !tbaa !47
+  %74 = load ptr, ptr %43, align 8, !tbaa !34
+  %75 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %74, i64 %24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store ptr %75, ptr %76, align 8, !tbaa !48
+  %77 = load ptr, ptr %48, align 8, !tbaa !36
+  %78 = getelementptr inbounds nuw %struct.AVFilterPad, ptr %77, i64 %30
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  store ptr %78, ptr %79, align 8, !tbaa !49
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %81 = load i32, ptr %80, align 8, !tbaa !35
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  store i32 %81, ptr %82, align 8, !tbaa !50
+  %83 = load ptr, ptr %5, align 8, !tbaa !19
+  %84 = getelementptr inbounds nuw i8, ptr %67, i64 200
+  store ptr %83, ptr %84, align 8, !tbaa !51
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 36
+  store i32 -1, ptr %85, align 4, !tbaa !60
+  %86 = getelementptr inbounds nuw i8, ptr %67, i64 56
+  store i32 2, ptr %86, align 8, !tbaa !61
+  %87 = getelementptr inbounds nuw i8, ptr %67, i64 288
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 96
+  tail call void @ff_framequeue_init(ptr noundef nonnull %87, ptr noundef nonnull %88) #15
+  br label %89
 
-86:                                               ; preds = %63, %15, %18, %21, %27, %65, %51, %41
-  %.0 = phi i32 [ -22, %51 ], [ 0, %65 ], [ -22, %41 ], [ -22, %27 ], [ -22, %21 ], [ -22, %18 ], [ -22, %15 ], [ -12, %63 ]
+89:                                               ; preds = %66, %15, %18, %21, %27, %68, %53, %41
+  %.0 = phi i32 [ -22, %53 ], [ 0, %68 ], [ -22, %41 ], [ -22, %27 ], [ -22, %21 ], [ -22, %18 ], [ -22, %15 ], [ -12, %66 ]
   ret i32 %.0
 }
 
@@ -2115,9 +2118,10 @@ define ptr @avfilter_pad_get_name(ptr noundef readonly captures(none) %0, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @avfilter_pad_get_type(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %struct.AVFilterPad, ptr %0, i64 %3, i32 1
-  %5 = load i32, ptr %4, align 8, !tbaa !35
-  ret i32 %5
+  %4 = getelementptr inbounds %struct.AVFilterPad, ptr %0, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load i32, ptr %5, align 8, !tbaa !35
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable

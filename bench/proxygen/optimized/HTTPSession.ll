@@ -34887,7 +34887,8 @@ for.body.preheader.i:                             ; preds = %for.body.preheader.
   %sub = add nsw i64 %and.i.i.pre-phi, -1
   %tobool.not1.i.i.i = icmp slt i64 %16, 0
   %cond.i.i.i = select i1 %tobool.not1.i.i.i, ptr %15, ptr %u.i.i
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::shared_ptr.629", ptr %cond.i.i.i, i64 %sub, i32 0, i32 1
+  %add.ptr.i3 = getelementptr inbounds %"class.std::shared_ptr.629", ptr %cond.i.i.i, i64 %sub
+  %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3, i64 8
   %17 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -37508,9 +37509,10 @@ while.cond77:                                     ; preds = %while.end73, %while
 
 if.then.i80:                                      ; preds = %while.cond77
   %31 = load ptr, ptr %this, align 8
+  %add.ptr86 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %31, i64 %i.0
   %conv88 = zext nneg i8 %30 to i64
   %sub89 = add nsw i64 %conv88, -1
-  %rawItems_.i.i.i70 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %31, i64 %i.0, i32 3
+  %rawItems_.i.i.i70 = getelementptr inbounds nuw i8, ptr %add.ptr86, i64 16
   %arrayidx.i.i.i.i.i71 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i70, i64 %sub89
   %shr.i.i75 = lshr i64 %sub89, 1
   %cmp.i.i76 = icmp ult i8 %30, 17
@@ -39858,9 +39860,10 @@ while.cond85:                                     ; preds = %while.end81, %while
 
 if.then.i99:                                      ; preds = %while.cond85
   %34 = load ptr, ptr %this, align 8
+  %add.ptr94 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.702", ptr %34, i64 %i.0
   %conv96 = zext nneg i8 %33 to i64
   %sub97 = add nsw i64 %conv96, -1
-  %rawItems_.i.i.i89 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.702", ptr %34, i64 %i.0, i32 3
+  %rawItems_.i.i.i89 = getelementptr inbounds nuw i8, ptr %add.ptr94, i64 16
   %arrayidx.i.i.i.i.i90 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i89, i64 %sub97
   %shr.i.i94 = lshr i64 %sub97, 1
   %cmp.i.i95 = icmp ult i8 %33, 17

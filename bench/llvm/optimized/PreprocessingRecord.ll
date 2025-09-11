@@ -1742,13 +1742,14 @@ define dso_local noundef ptr @_ZN5clang19PreprocessingRecord19findMacroDefinitio
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9MacroInfoEPNS2_21MacroDefinitionRecordENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPKSC_RKT_.exit.i: ; preds = %21, %8
   %28 = phi i64 [ %15, %8 ], [ %24, %21 ]
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8, !tbaa !173
+  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !173
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9MacroInfoEPNS2_21MacroDefinitionRecordENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6lookupES5_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9MacroInfoEPNS2_21MacroDefinitionRecordENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6lookupES5_.exit: ; preds = %.lr.ph.i.i.i, %2, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9MacroInfoEPNS2_21MacroDefinitionRecordENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPKSC_RKT_.exit.i
-  %31 = phi ptr [ %30, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9MacroInfoEPNS2_21MacroDefinitionRecordENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPKSC_RKT_.exit.i ], [ null, %2 ], [ null, %.lr.ph.i.i.i ]
-  ret ptr %31
+  %32 = phi ptr [ %31, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9MacroInfoEPNS2_21MacroDefinitionRecordENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6doFindIS5_EEPKSC_RKT_.exit.i ], [ null, %2 ], [ null, %.lr.ph.i.i.i ]
+  ret ptr %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1865,55 +1866,56 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 
 _ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit: ; preds = %60, %47
   %67 = phi i64 [ %54, %47 ], [ %63, %60 ]
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %43, i64 %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8, !tbaa !173
-  %.not = icmp eq ptr %69, null
-  br i1 %.not, label %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread, label %70
+  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %43, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !173
+  %.not = icmp eq ptr %70, null
+  br i1 %.not, label %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread, label %71
 
-70:                                               ; preds = %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %73 = load i64, ptr %72, align 8, !tbaa !11
-  %74 = add i64 %73, 24
-  store i64 %74, ptr %72, align 8, !tbaa !11
-  %75 = load ptr, ptr %71, align 8, !tbaa !26
-  %76 = ptrtoint ptr %75 to i64
-  %77 = add i64 %76, 7
-  %78 = and i64 %77, -8
-  %79 = add i64 %78, 24
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %81 = load ptr, ptr %80, align 8, !tbaa !27
-  %82 = ptrtoint ptr %81 to i64
-  %.not.i.i.i.i.i14 = icmp ule i64 %79, %82
-  %83 = icmp ne ptr %75, null
-  %84 = and i1 %83, %.not.i.i.i.i.i14
-  br i1 %84, label %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16, label %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16.thread, !prof !28
+71:                                               ; preds = %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %74 = load i64, ptr %73, align 8, !tbaa !11
+  %75 = add i64 %74, 24
+  store i64 %75, ptr %73, align 8, !tbaa !11
+  %76 = load ptr, ptr %72, align 8, !tbaa !26
+  %77 = ptrtoint ptr %76 to i64
+  %78 = add i64 %77, 7
+  %79 = and i64 %78, -8
+  %80 = add i64 %79, 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %82 = load ptr, ptr %81, align 8, !tbaa !27
+  %83 = ptrtoint ptr %82 to i64
+  %.not.i.i.i.i.i14 = icmp ule i64 %80, %83
+  %84 = icmp ne ptr %76, null
+  %85 = and i1 %84, %.not.i.i.i.i.i14
+  br i1 %85, label %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16, label %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16.thread, !prof !28
 
-_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16.thread: ; preds = %70
-  %85 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %71, i64 noundef 24, i64 noundef 24, i8 3)
-  br label %89
+_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16.thread: ; preds = %71
+  %86 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %72, i64 noundef 24, i64 noundef 24, i8 3)
+  br label %90
 
-_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16: ; preds = %70
-  %86 = inttoptr i64 %79 to ptr
-  store ptr %86, ptr %71, align 8, !tbaa !26
-  %87 = inttoptr i64 %78 to ptr
-  %88 = icmp eq i64 %78, 0
-  br i1 %88, label %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread.sink.split, label %89
+_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16: ; preds = %71
+  %87 = inttoptr i64 %80 to ptr
+  store ptr %87, ptr %72, align 8, !tbaa !26
+  %88 = inttoptr i64 %79 to ptr
+  %89 = icmp eq i64 %79, 0
+  br i1 %89, label %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread.sink.split, label %90
 
-89:                                               ; preds = %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16.thread, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16
-  %.0.i.i.i.i.i1521 = phi ptr [ %85, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16.thread ], [ %87, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16 ]
+90:                                               ; preds = %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16.thread, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16
+  %.0.i.i.i.i.i1521 = phi ptr [ %86, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16.thread ], [ %88, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16 ]
   store i32 1, ptr %.0.i.i.i.i.i1521, align 4, !tbaa !3
-  %90 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i1521, i64 4
-  store i64 %3, ptr %90, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i1521, i64 16
-  %92 = ptrtoint ptr %69 to i64
-  %93 = or i64 %92, 4
-  store i64 %93, ptr %91, align 8, !tbaa !29
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i1521, i64 4
+  store i64 %3, ptr %91, align 4
+  %92 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i1521, i64 16
+  %93 = ptrtoint ptr %70 to i64
+  %94 = or i64 %93, 4
+  store i64 %94, ptr %92, align 8, !tbaa !29
   br label %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread.sink.split
 
-_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread.sink.split: ; preds = %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16, %89, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit, %_ZNK5clang5Token17getIdentifierInfoEv.exit
-  %.sink = phi ptr [ %.0.i.i.i.i.i18, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ null, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit ], [ %.0.i.i.i.i.i1521, %89 ], [ null, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16 ]
-  %94 = tail call i32 @_ZN5clang19PreprocessingRecord21addPreprocessedEntityEPNS_18PreprocessedEntityE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %.sink)
+_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread.sink.split: ; preds = %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16, %90, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit, %_ZNK5clang5Token17getIdentifierInfoEv.exit
+  %.sink = phi ptr [ %.0.i.i.i.i.i18, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ null, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit ], [ %.0.i.i.i.i.i1521, %90 ], [ null, %_ZN5clang18PreprocessedEntitynwEmRNS_19PreprocessingRecordEj.exit16 ]
+  %95 = tail call i32 @_ZN5clang19PreprocessingRecord21addPreprocessedEntityEPNS_18PreprocessedEntityE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %.sink)
   br label %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread
 
 _ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread: ; preds = %.lr.ph.i.i.i.i, %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread.sink.split, %41, %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit, %4

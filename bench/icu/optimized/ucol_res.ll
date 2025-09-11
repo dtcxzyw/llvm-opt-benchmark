@@ -2715,16 +2715,17 @@ define ptr @ucol_getAvailable_77(i32 noundef %0) local_unnamed_addr #1 {
   %4 = load i32, ptr %2, align 4
   %5 = icmp slt i32 %0, %4
   %or.cond = select i1 %.not, i1 %5, i1 false
-  br i1 %or.cond, label %6, label %10
+  br i1 %or.cond, label %6, label %11
 
 6:                                                ; preds = %1
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %"class.icu_77::Locale", ptr %3, i64 %7, i32 7
-  %9 = load ptr, ptr %8, align 8, !tbaa !35
-  br label %10
+  %8 = getelementptr inbounds %"class.icu_77::Locale", ptr %3, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  br label %11
 
-10:                                               ; preds = %1, %6
-  %.0 = phi ptr [ %9, %6 ], [ null, %1 ]
+11:                                               ; preds = %1, %6
+  %.0 = phi ptr [ %10, %6 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

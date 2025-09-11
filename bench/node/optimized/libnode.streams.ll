@@ -8703,7 +8703,8 @@ _ZN4node16MaybeStackBufferI10ngtcp2_vecLm16EEixEm.exit15: ; preds = %_ZN4node16M
   %9 = load i64, ptr %head.031, align 8
   %sub = sub i64 %8, %9
   %10 = load ptr, ptr %buf_.i, align 8
-  %len8 = getelementptr inbounds %struct.ngtcp2_vec, ptr %10, i64 %n.030, i32 1
+  %arrayidx.i14 = getelementptr inbounds %struct.ngtcp2_vec, ptr %10, i64 %n.030
+  %len8 = getelementptr inbounds nuw i8, ptr %arrayidx.i14, i64 8
   store i64 %sub, ptr %len8, align 8
   %next9 = getelementptr inbounds nuw i8, ptr %head.031, i64 48
   %inc = add nuw i64 %n.030, 1

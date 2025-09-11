@@ -76,17 +76,18 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.017.i = phi i64 [ %2, %6 ], [ %13, %11 ]
-  %.016.i = phi i64 [ 0, %6 ], [ %14, %11 ]
-  %12 = getelementptr { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i, i32 0, i32 0, i32 1
-  %.val.i = load i64, ptr %12, align 8, !noundef !10
-  %13 = add i64 %.val.i, %.017.i
-  %14 = add nuw i64 %.016.i, 1
-  %15 = icmp eq i64 %14, %10
-  br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9b5f8790ffcde00bE.llvm.17191764028380965858.exit", label %11
+  %.017.i = phi i64 [ %2, %6 ], [ %14, %11 ]
+  %.016.i = phi i64 [ 0, %6 ], [ %15, %11 ]
+  %12 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i
+  %13 = getelementptr i8, ptr %12, i64 8
+  %.val.i = load i64, ptr %13, align 8, !noundef !10
+  %14 = add i64 %.val.i, %.017.i
+  %15 = add nuw i64 %.016.i, 1
+  %16 = icmp eq i64 %15, %10
+  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9b5f8790ffcde00bE.llvm.17191764028380965858.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9b5f8790ffcde00bE.llvm.17191764028380965858.exit": ; preds = %11, %3
-  %.0.i = phi i64 [ %2, %3 ], [ %13, %11 ]
+  %.0.i = phi i64 [ %2, %3 ], [ %14, %11 ]
   ret i64 %.0.i
 }
 
@@ -197,17 +198,18 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.017.i = phi i64 [ %2, %6 ], [ %13, %11 ]
-  %.016.i = phi i64 [ 0, %6 ], [ %14, %11 ]
-  %12 = getelementptr { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i, i32 0, i32 0, i32 1
-  %.val.i = load i64, ptr %12, align 8, !noundef !10
-  %13 = add i64 %.val.i, %.017.i
-  %14 = add nuw i64 %.016.i, 1
-  %15 = icmp eq i64 %14, %10
-  br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc4179051f24bccc0E.llvm.17191764028380965858.exit", label %11
+  %.017.i = phi i64 [ %2, %6 ], [ %14, %11 ]
+  %.016.i = phi i64 [ 0, %6 ], [ %15, %11 ]
+  %12 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i
+  %13 = getelementptr i8, ptr %12, i64 8
+  %.val.i = load i64, ptr %13, align 8, !noundef !10
+  %14 = add i64 %.val.i, %.017.i
+  %15 = add nuw i64 %.016.i, 1
+  %16 = icmp eq i64 %15, %10
+  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc4179051f24bccc0E.llvm.17191764028380965858.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc4179051f24bccc0E.llvm.17191764028380965858.exit": ; preds = %11, %3
-  %.0.i = phi i64 [ %2, %3 ], [ %13, %11 ]
+  %.0.i = phi i64 [ %2, %3 ], [ %14, %11 ]
   ret i64 %.0.i
 }
 
@@ -318,17 +320,18 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.017.i = phi i64 [ %2, %6 ], [ %13, %11 ]
-  %.016.i = phi i64 [ 0, %6 ], [ %14, %11 ]
-  %12 = getelementptr { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i, i32 0, i32 0, i32 1
-  %.val.i = load i64, ptr %12, align 8, !noundef !10
-  %13 = add i64 %.val.i, %.017.i
-  %14 = add nuw i64 %.016.i, 1
-  %15 = icmp eq i64 %14, %10
-  br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h52f05a3655c4ef1eE.llvm.17191764028380965858.exit", label %11
+  %.017.i = phi i64 [ %2, %6 ], [ %14, %11 ]
+  %.016.i = phi i64 [ 0, %6 ], [ %15, %11 ]
+  %12 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i
+  %13 = getelementptr i8, ptr %12, i64 8
+  %.val.i = load i64, ptr %13, align 8, !noundef !10
+  %14 = add i64 %.val.i, %.017.i
+  %15 = add nuw i64 %.016.i, 1
+  %16 = icmp eq i64 %15, %10
+  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h52f05a3655c4ef1eE.llvm.17191764028380965858.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h52f05a3655c4ef1eE.llvm.17191764028380965858.exit": ; preds = %11, %3
-  %.0.i = phi i64 [ %2, %3 ], [ %13, %11 ]
+  %.0.i = phi i64 [ %2, %3 ], [ %14, %11 ]
   ret i64 %.0.i
 }
 
@@ -2787,17 +2790,18 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator3sum17h02840b3a
   br label %10
 
 10:                                               ; preds = %10, %5
-  %.017.i.i.i = phi i64 [ 0, %5 ], [ %12, %10 ]
-  %.016.i.i.i = phi i64 [ 0, %5 ], [ %13, %10 ]
-  %11 = getelementptr { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i.i.i, i32 0, i32 0, i32 1
-  %.val.i.i.i = load i64, ptr %11, align 8, !noundef !10
-  %12 = add i64 %.val.i.i.i, %.017.i.i.i
-  %13 = add nuw i64 %.016.i.i.i, 1
-  %14 = icmp eq i64 %13, %9
-  br i1 %14, label %"_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum..Sum$GT$3sum17h38ae93fffd31ce16E.exit", label %10
+  %.017.i.i.i = phi i64 [ 0, %5 ], [ %13, %10 ]
+  %.016.i.i.i = phi i64 [ 0, %5 ], [ %14, %10 ]
+  %11 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i.i.i
+  %12 = getelementptr i8, ptr %11, i64 8
+  %.val.i.i.i = load i64, ptr %12, align 8, !noundef !10
+  %13 = add i64 %.val.i.i.i, %.017.i.i.i
+  %14 = add nuw i64 %.016.i.i.i, 1
+  %15 = icmp eq i64 %14, %9
+  br i1 %15, label %"_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum..Sum$GT$3sum17h38ae93fffd31ce16E.exit", label %10
 
 "_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum..Sum$GT$3sum17h38ae93fffd31ce16E.exit": ; preds = %10, %2
-  %.0.i.i.i = phi i64 [ 0, %2 ], [ %12, %10 ]
+  %.0.i.i.i = phi i64 [ 0, %2 ], [ %13, %10 ]
   ret i64 %.0.i.i.i
 }
 
@@ -2816,17 +2820,18 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator3sum17h1340ad36
   br label %10
 
 10:                                               ; preds = %10, %5
-  %.017.i.i.i = phi i64 [ 0, %5 ], [ %12, %10 ]
-  %.016.i.i.i = phi i64 [ 0, %5 ], [ %13, %10 ]
-  %11 = getelementptr { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i.i.i, i32 0, i32 0, i32 1
-  %.val.i.i.i = load i64, ptr %11, align 8, !noundef !10
-  %12 = add i64 %.val.i.i.i, %.017.i.i.i
-  %13 = add nuw i64 %.016.i.i.i, 1
-  %14 = icmp eq i64 %13, %9
-  br i1 %14, label %"_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum..Sum$GT$3sum17he8a5aeed70d4dce7E.exit", label %10
+  %.017.i.i.i = phi i64 [ 0, %5 ], [ %13, %10 ]
+  %.016.i.i.i = phi i64 [ 0, %5 ], [ %14, %10 ]
+  %11 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i.i.i
+  %12 = getelementptr i8, ptr %11, i64 8
+  %.val.i.i.i = load i64, ptr %12, align 8, !noundef !10
+  %13 = add i64 %.val.i.i.i, %.017.i.i.i
+  %14 = add nuw i64 %.016.i.i.i, 1
+  %15 = icmp eq i64 %14, %9
+  br i1 %15, label %"_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum..Sum$GT$3sum17he8a5aeed70d4dce7E.exit", label %10
 
 "_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum..Sum$GT$3sum17he8a5aeed70d4dce7E.exit": ; preds = %10, %2
-  %.0.i.i.i = phi i64 [ 0, %2 ], [ %12, %10 ]
+  %.0.i.i.i = phi i64 [ 0, %2 ], [ %13, %10 ]
   ret i64 %.0.i.i.i
 }
 
@@ -2845,17 +2850,18 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator3sum17h998cd3cd
   br label %10
 
 10:                                               ; preds = %10, %5
-  %.017.i.i.i = phi i64 [ 0, %5 ], [ %12, %10 ]
-  %.016.i.i.i = phi i64 [ 0, %5 ], [ %13, %10 ]
-  %11 = getelementptr { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i.i.i, i32 0, i32 0, i32 1
-  %.val.i.i.i = load i64, ptr %11, align 8, !noundef !10
-  %12 = add i64 %.val.i.i.i, %.017.i.i.i
-  %13 = add nuw i64 %.016.i.i.i, 1
-  %14 = icmp eq i64 %13, %9
-  br i1 %14, label %"_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum..Sum$GT$3sum17h15dfce99ccb5c79dE.exit", label %10
+  %.017.i.i.i = phi i64 [ 0, %5 ], [ %13, %10 ]
+  %.016.i.i.i = phi i64 [ 0, %5 ], [ %14, %10 ]
+  %11 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %0, i64 %.016.i.i.i
+  %12 = getelementptr i8, ptr %11, i64 8
+  %.val.i.i.i = load i64, ptr %12, align 8, !noundef !10
+  %13 = add i64 %.val.i.i.i, %.017.i.i.i
+  %14 = add nuw i64 %.016.i.i.i, 1
+  %15 = icmp eq i64 %14, %9
+  br i1 %15, label %"_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum..Sum$GT$3sum17h15dfce99ccb5c79dE.exit", label %10
 
 "_ZN56_$LT$usize$u20$as$u20$core..iter..traits..accum..Sum$GT$3sum17h15dfce99ccb5c79dE.exit": ; preds = %10, %2
-  %.0.i.i.i = phi i64 [ 0, %2 ], [ %12, %10 ]
+  %.0.i.i.i = phi i64 [ 0, %2 ], [ %13, %10 ]
   ret i64 %.0.i.i.i
 }
 
@@ -6551,17 +6557,18 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.017 = phi i64 [ %2, %6 ], [ %13, %11 ]
-  %.016 = phi i64 [ 0, %6 ], [ %14, %11 ]
-  %12 = getelementptr { { { ptr, i64 }, {} } }, ptr %0, i64 %.016, i32 0, i32 0, i32 1
-  %.val = load i64, ptr %12, align 8, !noundef !10
-  %13 = add i64 %.val, %.017
-  %14 = add nuw i64 %.016, 1
-  %15 = icmp eq i64 %14, %10
-  br i1 %15, label %.loopexit, label %11
+  %.017 = phi i64 [ %2, %6 ], [ %14, %11 ]
+  %.016 = phi i64 [ 0, %6 ], [ %15, %11 ]
+  %12 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %0, i64 %.016
+  %13 = getelementptr i8, ptr %12, i64 8
+  %.val = load i64, ptr %13, align 8, !noundef !10
+  %14 = add i64 %.val, %.017
+  %15 = add nuw i64 %.016, 1
+  %16 = icmp eq i64 %15, %10
+  br i1 %16, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %11, %3
-  %.0 = phi i64 [ %2, %3 ], [ %13, %11 ]
+  %.0 = phi i64 [ %2, %3 ], [ %14, %11 ]
   ret i64 %.0
 }
 
@@ -6700,17 +6707,18 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.017 = phi i64 [ %2, %6 ], [ %13, %11 ]
-  %.016 = phi i64 [ 0, %6 ], [ %14, %11 ]
-  %12 = getelementptr { { { ptr, i64 }, {} } }, ptr %0, i64 %.016, i32 0, i32 0, i32 1
-  %.val = load i64, ptr %12, align 8, !noundef !10
-  %13 = add i64 %.val, %.017
-  %14 = add nuw i64 %.016, 1
-  %15 = icmp eq i64 %14, %10
-  br i1 %15, label %.loopexit, label %11
+  %.017 = phi i64 [ %2, %6 ], [ %14, %11 ]
+  %.016 = phi i64 [ 0, %6 ], [ %15, %11 ]
+  %12 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %0, i64 %.016
+  %13 = getelementptr i8, ptr %12, i64 8
+  %.val = load i64, ptr %13, align 8, !noundef !10
+  %14 = add i64 %.val, %.017
+  %15 = add nuw i64 %.016, 1
+  %16 = icmp eq i64 %15, %10
+  br i1 %16, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %11, %3
-  %.0 = phi i64 [ %2, %3 ], [ %13, %11 ]
+  %.0 = phi i64 [ %2, %3 ], [ %14, %11 ]
   ret i64 %.0
 }
 
@@ -6789,17 +6797,18 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   br label %11
 
 11:                                               ; preds = %11, %6
-  %.017 = phi i64 [ %2, %6 ], [ %13, %11 ]
-  %.016 = phi i64 [ 0, %6 ], [ %14, %11 ]
-  %12 = getelementptr { { { ptr, i64 }, {} } }, ptr %0, i64 %.016, i32 0, i32 0, i32 1
-  %.val = load i64, ptr %12, align 8, !noundef !10
-  %13 = add i64 %.val, %.017
-  %14 = add nuw i64 %.016, 1
-  %15 = icmp eq i64 %14, %10
-  br i1 %15, label %.loopexit, label %11
+  %.017 = phi i64 [ %2, %6 ], [ %14, %11 ]
+  %.016 = phi i64 [ 0, %6 ], [ %15, %11 ]
+  %12 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %0, i64 %.016
+  %13 = getelementptr i8, ptr %12, i64 8
+  %.val = load i64, ptr %13, align 8, !noundef !10
+  %14 = add i64 %.val, %.017
+  %15 = add nuw i64 %.016, 1
+  %16 = icmp eq i64 %15, %10
+  br i1 %16, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %11, %3
-  %.0 = phi i64 [ %2, %3 ], [ %13, %11 ]
+  %.0 = phi i64 [ %2, %3 ], [ %14, %11 ]
   ret i64 %.0
 }
 

@@ -593,184 +593,185 @@ _.exit:                                           ; preds = %3, %8
 _.exit53:                                         ; preds = %36, %38
   %.0.i52 = phi ptr [ %39, %38 ], [ @.str.6, %36 ]
   %40 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i52) #15
-  br label %118
+  br label %119
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.03777 = phi i32 [ %spec.select, %.lr.ph.split ], [ 0, %.lr.ph ]
   %41 = load ptr, ptr %6, align 8, !tbaa !69
-  %42 = getelementptr inbounds nuw %struct.string_list_item, ptr %41, i64 %indvars.iv, i32 1
-  %43 = load ptr, ptr %42, align 8, !tbaa !32
-  %44 = tail call ptr @parse_object(ptr noundef nonnull %0, ptr noundef %43) #15
-  %.not49 = icmp eq ptr %44, null
-  %45 = zext i1 %.not49 to i32
-  %spec.select = add nuw nsw i32 %.03777, %45
+  %42 = getelementptr inbounds nuw %struct.string_list_item, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !32
+  %45 = tail call ptr @parse_object(ptr noundef nonnull %0, ptr noundef %44) #15
+  %.not49 = icmp eq ptr %45, null
+  %46 = zext i1 %.not49 to i32
+  %spec.select = add nuw nsw i32 %.03777, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = load i64, ptr %16, align 8, !tbaa !68
-  %47 = icmp ugt i64 %46, %indvars.iv.next
-  br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !71
+  %47 = load i64, ptr %16, align 8, !tbaa !68
+  %48 = icmp ugt i64 %47, %indvars.iv.next
+  br i1 %48, label %.lr.ph.split, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %33
   %.037.lcssa = phi i32 [ %.1.us, %33 ], [ %spec.select, %.lr.ph.split ]
   %.not44 = icmp eq i32 %.037.lcssa, 0
-  br i1 %.not44, label %._crit_edge.thread, label %118
+  br i1 %.not44, label %._crit_edge.thread, label %119
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %48 = call i32 @check_connected(ptr noundef nonnull @iterate_ref_map, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
-  %.not45 = icmp eq i32 %48, 0
-  br i1 %.not45, label %54, label %49
+  %49 = call i32 @check_connected(ptr noundef nonnull @iterate_ref_map, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
+  %.not45 = icmp eq i32 %49, 0
+  br i1 %.not45, label %55, label %50
 
-49:                                               ; preds = %._crit_edge.thread
-  %50 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
-  %.not4.i54 = icmp eq i32 %50, 0
-  br i1 %.not4.i54, label %_.exit56, label %51
+50:                                               ; preds = %._crit_edge.thread
+  %51 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
+  %.not4.i54 = icmp eq i32 %51, 0
+  br i1 %.not4.i54, label %_.exit56, label %52
 
-51:                                               ; preds = %49
-  %52 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #15
+52:                                               ; preds = %50
+  %53 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #15
   br label %_.exit56
 
-_.exit56:                                         ; preds = %49, %51
-  %.0.i55 = phi ptr [ %52, %51 ], [ @.str.9, %49 ]
-  %53 = call i32 (ptr, ...) @error(ptr noundef %.0.i55) #15
-  br label %54
+_.exit56:                                         ; preds = %50, %52
+  %.0.i55 = phi ptr [ %53, %52 ], [ @.str.9, %50 ]
+  %54 = call i32 (ptr, ...) @error(ptr noundef %.0.i55) #15
+  br label %55
 
-54:                                               ; preds = %_.exit56, %._crit_edge.thread
-  %55 = and i32 %2, 1
-  %.not46 = icmp eq i32 %55, 0
-  br i1 %.not46, label %118, label %56
+55:                                               ; preds = %_.exit56, %._crit_edge.thread
+  %56 = and i32 %2, 1
+  %.not46 = icmp eq i32 %56, 0
+  br i1 %.not46, label %119, label %57
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %59 = load i64, ptr %58, align 8, !tbaa !68
-  %60 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
-  %.not.i = icmp eq i32 %60, 0
-  br i1 %.not.i, label %61, label %64
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %60 = load i64, ptr %59, align 8, !tbaa !68
+  %61 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
+  %.not.i = icmp eq i32 %61, 0
+  br i1 %.not.i, label %62, label %65
 
-61:                                               ; preds = %56
-  %62 = icmp eq i64 %59, 1
-  %63 = select i1 %62, ptr @.str.10, ptr @.str.11
+62:                                               ; preds = %57
+  %63 = icmp eq i64 %60, 1
+  %64 = select i1 %63, ptr @.str.10, ptr @.str.11
   br label %Q_.exit
 
-64:                                               ; preds = %56
-  %65 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %59, i32 noundef 5) #15
-  %.pre = load i64, ptr %58, align 8, !tbaa !68
+65:                                               ; preds = %57
+  %66 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %60, i32 noundef 5) #15
+  %.pre = load i64, ptr %59, align 8, !tbaa !68
   br label %Q_.exit
 
-Q_.exit:                                          ; preds = %61, %64
-  %66 = phi i64 [ %.pre, %64 ], [ %59, %61 ]
-  %.0.i57 = phi ptr [ %65, %64 ], [ %63, %61 ]
-  %67 = call i32 (ptr, ...) @printf_ln(ptr noundef %.0.i57, i64 noundef %66) #15
-  %68 = load i64, ptr %58, align 8, !tbaa !68
-  %.not.i58 = icmp eq i64 %68, 0
+Q_.exit:                                          ; preds = %62, %65
+  %67 = phi i64 [ %.pre, %65 ], [ %60, %62 ]
+  %.0.i57 = phi ptr [ %66, %65 ], [ %64, %62 ]
+  %68 = call i32 (ptr, ...) @printf_ln(ptr noundef %.0.i57, i64 noundef %67) #15
+  %69 = load i64, ptr %59, align 8, !tbaa !68
+  %.not.i58 = icmp eq i64 %69, 0
   br i1 %.not.i58, label %list_refs.exit, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %Q_.exit, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %Q_.exit ]
-  %69 = load ptr, ptr %57, align 8, !tbaa !69
-  %70 = getelementptr inbounds nuw %struct.string_list_item, ptr %69, i64 %indvars.iv.i
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !32
-  %73 = load ptr, ptr %70, align 8, !tbaa !70
-  %74 = call ptr @oid_to_hex(ptr noundef %72) #15
-  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, ptr noundef %74, ptr noundef %73)
+  %70 = load ptr, ptr %58, align 8, !tbaa !69
+  %71 = getelementptr inbounds nuw %struct.string_list_item, ptr %70, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !32
+  %74 = load ptr, ptr %71, align 8, !tbaa !70
+  %75 = call ptr @oid_to_hex(ptr noundef %73) #15
+  %76 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, ptr noundef %75, ptr noundef %74)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %76 = load i64, ptr %58, align 8, !tbaa !68
-  %77 = icmp ugt i64 %76, %indvars.iv.next.i
-  br i1 %77, label %.lr.ph.split.i, label %list_refs.exit, !llvm.loop !72
+  %77 = load i64, ptr %59, align 8, !tbaa !68
+  %78 = icmp ugt i64 %77, %indvars.iv.next.i
+  br i1 %78, label %.lr.ph.split.i, label %list_refs.exit, !llvm.loop !72
 
 list_refs.exit:                                   ; preds = %.lr.ph.split.i, %Q_.exit
-  %78 = load i64, ptr %16, align 8, !tbaa !68
-  %.not47 = icmp eq i64 %78, 0
-  %79 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
-  %.not4.i59 = icmp eq i32 %79, 0
-  br i1 %.not47, label %80, label %84
+  %79 = load i64, ptr %16, align 8, !tbaa !68
+  %.not47 = icmp eq i64 %79, 0
+  %80 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
+  %.not4.i59 = icmp eq i32 %80, 0
+  br i1 %.not47, label %81, label %85
 
-80:                                               ; preds = %list_refs.exit
-  br i1 %.not4.i59, label %_.exit61, label %81
+81:                                               ; preds = %list_refs.exit
+  br i1 %.not4.i59, label %_.exit61, label %82
 
-81:                                               ; preds = %80
-  %82 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #15
+82:                                               ; preds = %81
+  %83 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #15
   br label %_.exit61
 
-_.exit61:                                         ; preds = %80, %81
-  %.0.i60 = phi ptr [ %82, %81 ], [ @.str.12, %80 ]
-  %83 = call i32 (ptr, ...) @printf_ln(ptr noundef %.0.i60) #15
+_.exit61:                                         ; preds = %81, %82
+  %.0.i60 = phi ptr [ %83, %82 ], [ @.str.12, %81 ]
+  %84 = call i32 (ptr, ...) @printf_ln(ptr noundef %.0.i60) #15
   br label %list_refs.exit70
 
-84:                                               ; preds = %list_refs.exit
-  br i1 %.not4.i59, label %85, label %88
+85:                                               ; preds = %list_refs.exit
+  br i1 %.not4.i59, label %86, label %89
 
-85:                                               ; preds = %84
-  %86 = icmp eq i64 %78, 1
-  %87 = select i1 %86, ptr @.str.13, ptr @.str.14
+86:                                               ; preds = %85
+  %87 = icmp eq i64 %79, 1
+  %88 = select i1 %87, ptr @.str.13, ptr @.str.14
   br label %Q_.exit64
 
-88:                                               ; preds = %84
-  %89 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i64 noundef %78, i32 noundef 5) #15
+89:                                               ; preds = %85
+  %90 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i64 noundef %79, i32 noundef 5) #15
   %.pre85 = load i64, ptr %16, align 8, !tbaa !68
   br label %Q_.exit64
 
-Q_.exit64:                                        ; preds = %85, %88
-  %90 = phi i64 [ %.pre85, %88 ], [ %78, %85 ]
-  %.0.i63 = phi ptr [ %89, %88 ], [ %87, %85 ]
-  %91 = call i32 (ptr, ...) @printf_ln(ptr noundef %.0.i63, i64 noundef %90) #15
-  %92 = load i64, ptr %16, align 8, !tbaa !68
-  %.not.i65 = icmp eq i64 %92, 0
+Q_.exit64:                                        ; preds = %86, %89
+  %91 = phi i64 [ %.pre85, %89 ], [ %79, %86 ]
+  %.0.i63 = phi ptr [ %90, %89 ], [ %88, %86 ]
+  %92 = call i32 (ptr, ...) @printf_ln(ptr noundef %.0.i63, i64 noundef %91) #15
+  %93 = load i64, ptr %16, align 8, !tbaa !68
+  %.not.i65 = icmp eq i64 %93, 0
   br i1 %.not.i65, label %list_refs.exit70, label %.lr.ph.split.i67
 
 .lr.ph.split.i67:                                 ; preds = %Q_.exit64, %.lr.ph.split.i67
   %indvars.iv.i68 = phi i64 [ %indvars.iv.next.i69, %.lr.ph.split.i67 ], [ 0, %Q_.exit64 ]
-  %93 = load ptr, ptr %6, align 8, !tbaa !69
-  %94 = getelementptr inbounds nuw %struct.string_list_item, ptr %93, i64 %indvars.iv.i68
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !32
-  %97 = load ptr, ptr %94, align 8, !tbaa !70
-  %98 = call ptr @oid_to_hex(ptr noundef %96) #15
-  %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, ptr noundef %98, ptr noundef %97)
+  %94 = load ptr, ptr %6, align 8, !tbaa !69
+  %95 = getelementptr inbounds nuw %struct.string_list_item, ptr %94, i64 %indvars.iv.i68
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %97 = load ptr, ptr %96, align 8, !tbaa !32
+  %98 = load ptr, ptr %95, align 8, !tbaa !70
+  %99 = call ptr @oid_to_hex(ptr noundef %97) #15
+  %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, ptr noundef %99, ptr noundef %98)
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
-  %100 = load i64, ptr %16, align 8, !tbaa !68
-  %101 = icmp ugt i64 %100, %indvars.iv.next.i69
-  br i1 %101, label %.lr.ph.split.i67, label %list_refs.exit70, !llvm.loop !72
+  %101 = load i64, ptr %16, align 8, !tbaa !68
+  %102 = icmp ugt i64 %101, %indvars.iv.next.i69
+  br i1 %102, label %.lr.ph.split.i67, label %list_refs.exit70, !llvm.loop !72
 
 list_refs.exit70:                                 ; preds = %.lr.ph.split.i67, %Q_.exit64, %_.exit61
-  %102 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
-  %.not4.i71 = icmp eq i32 %102, 0
-  br i1 %.not4.i71, label %_.exit73, label %103
+  %103 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
+  %.not4.i71 = icmp eq i32 %103, 0
+  br i1 %.not4.i71, label %_.exit73, label %104
 
-103:                                              ; preds = %list_refs.exit70
-  %104 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #15
+104:                                              ; preds = %list_refs.exit70
+  %105 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #15
   br label %_.exit73
 
-_.exit73:                                         ; preds = %list_refs.exit70, %103
-  %.0.i72 = phi ptr [ %104, %103 ], [ @.str.15, %list_refs.exit70 ]
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %106 = load ptr, ptr %105, align 8, !tbaa !25
-  %107 = load ptr, ptr %106, align 8, !tbaa !73
-  %108 = call i32 (ptr, ...) @printf_ln(ptr noundef %.0.i72, ptr noundef %107) #15
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %110 = load i32, ptr %109, align 8, !tbaa !76
-  %.not48 = icmp eq i32 %110, 0
-  br i1 %.not48, label %118, label %111
+_.exit73:                                         ; preds = %list_refs.exit70, %104
+  %.0.i72 = phi ptr [ %105, %104 ], [ @.str.15, %list_refs.exit70 ]
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %107 = load ptr, ptr %106, align 8, !tbaa !25
+  %108 = load ptr, ptr %107, align 8, !tbaa !73
+  %109 = call i32 (ptr, ...) @printf_ln(ptr noundef %.0.i72, ptr noundef %108) #15
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %111 = load i32, ptr %110, align 8, !tbaa !76
+  %.not48 = icmp eq i32 %111, 0
+  br i1 %.not48, label %119, label %112
 
-111:                                              ; preds = %_.exit73
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %113 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
-  %.not4.i74 = icmp eq i32 %113, 0
-  br i1 %.not4.i74, label %_.exit76, label %114
+112:                                              ; preds = %_.exit73
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %114 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !16
+  %.not4.i74 = icmp eq i32 %114, 0
+  br i1 %.not4.i74, label %_.exit76, label %115
 
-114:                                              ; preds = %111
-  %115 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 5) #15
+115:                                              ; preds = %112
+  %116 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 5) #15
   br label %_.exit76
 
-_.exit76:                                         ; preds = %111, %114
-  %.0.i75 = phi ptr [ %115, %114 ], [ @.str.16, %111 ]
-  %116 = call ptr @list_objects_filter_spec(ptr noundef nonnull %112) #15
-  %117 = call i32 (ptr, ...) @printf_ln(ptr noundef %.0.i75, ptr noundef %116) #15
-  br label %118
+_.exit76:                                         ; preds = %112, %115
+  %.0.i75 = phi ptr [ %116, %115 ], [ @.str.16, %112 ]
+  %117 = call ptr @list_objects_filter_spec(ptr noundef nonnull %113) #15
+  %118 = call i32 (ptr, ...) @printf_ln(ptr noundef %.0.i75, ptr noundef %117) #15
+  br label %119
 
-118:                                              ; preds = %._crit_edge, %54, %_.exit76, %_.exit73, %_.exit53
-  %.0 = phi i32 [ -1, %_.exit53 ], [ %.037.lcssa, %._crit_edge ], [ %48, %54 ], [ %48, %_.exit76 ], [ %48, %_.exit73 ]
+119:                                              ; preds = %._crit_edge, %55, %_.exit76, %_.exit73, %_.exit53
+  %.0 = phi i32 [ -1, %_.exit53 ], [ %.037.lcssa, %._crit_edge ], [ %49, %55 ], [ %49, %_.exit76 ], [ %49, %_.exit73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -793,18 +794,19 @@ define internal ptr @iterate_ref_map(ptr noundef captures(none) %0) #7 {
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !68
   %.not = icmp ult i64 %3, %6
-  br i1 %.not, label %7, label %12
+  br i1 %.not, label %7, label %13
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %4, align 8, !tbaa !69
   %9 = add nuw i64 %3, 1
   store i64 %9, ptr %2, align 8, !tbaa !37
-  %10 = getelementptr inbounds nuw %struct.string_list_item, ptr %8, i64 %3, i32 1
-  %11 = load ptr, ptr %10, align 8, !tbaa !32
-  br label %12
+  %10 = getelementptr inbounds nuw %struct.string_list_item, ptr %8, i64 %3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !32
+  br label %13
 
-12:                                               ; preds = %1, %7
-  %.0 = phi ptr [ %11, %7 ], [ null, %1 ]
+13:                                               ; preds = %1, %7
+  %.0 = phi ptr [ %12, %7 ], [ null, %1 ]
   ret ptr %.0
 }
 

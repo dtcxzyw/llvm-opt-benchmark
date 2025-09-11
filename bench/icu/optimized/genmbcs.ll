@@ -1925,8 +1925,7 @@ _ZL14removeFallbackP8MBCSDataj.exit.thread:       ; preds = %158, %183, %181, %_
 
 205:                                              ; preds = %199
   %206 = zext nneg i32 %203 to i64
-  %.idx.i = shl nuw nsw i64 %206, 3
-  %207 = getelementptr inbounds nuw i8, ptr %200, i64 %.idx.i
+  %207 = getelementptr inbounds nuw %struct._MBCSToUFallback, ptr %200, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   store i32 %3, ptr %208, align 4, !tbaa !96
   br label %_ZL11setFallbackP8MBCSDataji.exit

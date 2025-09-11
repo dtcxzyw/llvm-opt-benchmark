@@ -261,11 +261,12 @@ define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr n
 27:                                               ; preds = %25, %27
   %28 = phi ptr [ %30, %27 ], [ %.pre, %25 ]
   %29 = phi i64 [ %33, %27 ], [ 0, %25 ]
-  %30 = getelementptr %struct.percpu_counter, ptr %0, i64 %29, i32 2
+  %.split = getelementptr %struct.percpu_counter, ptr %0, i64 %29
+  %30 = getelementptr i8, ptr %.split, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %30, ptr %31, align 8
   store ptr %28, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = getelementptr i8, ptr %.split, i64 24
   store ptr @percpu_counters, ptr %32, align 8
   store volatile ptr %30, ptr @percpu_counters, align 8
   %33 = add nuw nsw i64 %29, 1
@@ -313,8 +314,9 @@ define dso_local void @percpu_counter_destroy_many(ptr noundef captures(address_
 
 14:                                               ; preds = %14, %12
   %15 = phi i64 [ 0, %12 ], [ %21, %14 ]
-  %16 = getelementptr %struct.percpu_counter, ptr %0, i64 %15, i32 2
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.split = getelementptr %struct.percpu_counter, ptr %0, i64 %15
+  %16 = getelementptr i8, ptr %.split, i64 16
+  %17 = getelementptr i8, ptr %.split, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -334,7 +336,8 @@ define dso_local void @percpu_counter_destroy_many(ptr noundef captures(address_
 
 25:                                               ; preds = %25, %23
   %26 = phi i64 [ 0, %23 ], [ %28, %25 ]
-  %27 = getelementptr %struct.percpu_counter, ptr %0, i64 %26, i32 3
+  %.split2 = getelementptr %struct.percpu_counter, ptr %0, i64 %26
+  %27 = getelementptr i8, ptr %.split2, i64 32
   store ptr null, ptr %27, align 8
   %28 = add nuw nsw i64 %26, 1
   %29 = icmp eq i64 %28, %13

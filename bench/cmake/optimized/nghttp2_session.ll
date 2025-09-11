@@ -11055,18 +11055,18 @@ inbound_frame_set_settings_entry.exit:            ; preds = %995, %1016, %1019, 
 
 ._crit_edge.i:                                    ; preds = %1042, %.lr.ph.i975, %.preheader.i
   %.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %1038, %1042 ], [ %.033.i, %.lr.ph.i975 ]
-  %1044 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre.i974, i64 %.0.lcssa.i, i32 1
-  %1045 = load i32, ptr %1044, align 4, !tbaa !195
-  %.not31.i = icmp eq i32 %.sroa.4.0.copyload.i, %1045
-  br i1 %.not31.i, label %session_process_settings_frame.exit, label %1046
+  %1044 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre.i974, i64 %.0.lcssa.i
+  %1045 = getelementptr inbounds nuw i8, ptr %1044, i64 4
+  %1046 = load i32, ptr %1045, align 4, !tbaa !195
+  %.not31.i = icmp eq i32 %.sroa.4.0.copyload.i, %1046
+  br i1 %.not31.i, label %session_process_settings_frame.exit, label %1047
 
-1046:                                             ; preds = %._crit_edge.i
-  %1047 = add i64 %1038, 1
-  store i64 %1047, ptr %57, align 8, !tbaa !260
-  %1048 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre.i974, i64 %1038
-  %1049 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre.i974, i64 %.0.lcssa.i
-  %1050 = load i64, ptr %1049, align 4
-  store i64 %1050, ptr %1048, align 4
+1047:                                             ; preds = %._crit_edge.i
+  %1048 = add i64 %1038, 1
+  store i64 %1048, ptr %57, align 8, !tbaa !260
+  %1049 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre.i974, i64 %1038
+  %1050 = load i64, ptr %1044, align 4
+  store i64 %1050, ptr %1049, align 4
   %1051 = load ptr, ptr %58, align 8, !tbaa !112
   %1052 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %1051, i64 %.0.lcssa.i
   store i32 %.sroa.0.0.copyload.i, ptr %1052, align 4, !tbaa !90
@@ -11074,8 +11074,8 @@ inbound_frame_set_settings_entry.exit:            ; preds = %995, %1016, %1019, 
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx2.i, align 4, !tbaa !90
   br label %session_process_settings_frame.exit
 
-session_process_settings_frame.exit:              ; preds = %1033, %1035, %._crit_edge.i, %1046
-  %1053 = phi ptr [ %.pre.i974, %1035 ], [ %1051, %1046 ], [ %.pre.i974, %._crit_edge.i ], [ %.pre.i974, %1033 ]
+session_process_settings_frame.exit:              ; preds = %1033, %1035, %._crit_edge.i, %1047
+  %1053 = phi ptr [ %.pre.i974, %1035 ], [ %1051, %1047 ], [ %.pre.i974, %._crit_edge.i ], [ %.pre.i974, %1033 ]
   %1054 = load i64, ptr %57, align 8, !tbaa !260
   call void @nghttp2_frame_unpack_settings_payload(ptr noundef nonnull %9, ptr noundef %1053, i64 noundef %1054) #20
   store ptr null, ptr %58, align 8, !tbaa !112

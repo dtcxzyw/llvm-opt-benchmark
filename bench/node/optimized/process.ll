@@ -853,7 +853,8 @@ for.body11.preheader:                             ; preds = %if.end8
 
 for.body11:                                       ; preds = %for.body11.preheader, %for.inc28
   %indvars.iv = phi i64 [ 0, %for.body11.preheader ], [ %indvars.iv.next, %for.inc28 ]
-  %arrayidx12 = getelementptr inbounds nuw [2 x i32], ptr %pipes, i64 %indvars.iv, i64 1
+  %arrayidx = getelementptr inbounds nuw [2 x i32], ptr %pipes, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %3 = load i32, ptr %arrayidx12, align 4
   %4 = zext i32 %3 to i64
   %or.cond = icmp samesign ugt i64 %indvars.iv, %4
@@ -895,7 +896,8 @@ for.inc28:                                        ; preds = %if.end17, %for.body
 for.body32:                                       ; preds = %for.inc28, %for.inc72
   %fd.1174 = phi i32 [ %inc73, %for.inc72 ], [ 0, %for.inc28 ]
   %idxprom33 = sext i32 %fd.1174 to i64
-  %arrayidx35 = getelementptr inbounds [2 x i32], ptr %pipes, i64 %idxprom33, i64 1
+  %arrayidx34 = getelementptr inbounds [2 x i32], ptr %pipes, i64 %idxprom33
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 4
   %7 = load i32, ptr %arrayidx35, align 4
   %cmp36 = icmp slt i32 %7, 0
   br i1 %cmp36, label %if.then37, label %if.end47.thread

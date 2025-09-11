@@ -988,8 +988,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_graphprint(ptr nounde
 
 7:                                                ; preds = %7, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw %struct.AVTextFormatSection, ptr @sections, i64 %indvars.iv.i, i32 8
-  store i32 1, ptr %8, align 8, !tbaa !130
+  %8 = getelementptr inbounds nuw %struct.AVTextFormatSection, ptr @sections, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  store i32 1, ptr %9, align 8, !tbaa !130
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28
   br i1 %exitcond.not.i, label %init_sections.exit, label %7, !llvm.loop !132
@@ -997,158 +998,158 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_graphprint(ptr nounde
 init_sections.exit:                               ; preds = %7
   store ptr null, ptr %0, align 8, !tbaa !4
   tail call void @av_bprint_init(ptr noundef %1, i32 noundef 0, i32 noundef -1) #7
-  %9 = load ptr, ptr @print_graphs_format, align 8, !tbaa !129
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %.thread
+  %10 = load ptr, ptr @print_graphs_format, align 8, !tbaa !129
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %11, label %.thread
 
-10:                                               ; preds = %init_sections.exit
-  %11 = tail call noalias ptr @av_strdup(ptr noundef nonnull @.str.2) #7
-  store ptr %11, ptr @print_graphs_format, align 8, !tbaa !129
-  %.not26 = icmp eq ptr %11, null
-  br i1 %.not26, label %67, label %.thread
+11:                                               ; preds = %init_sections.exit
+  %12 = tail call noalias ptr @av_strdup(ptr noundef nonnull @.str.2) #7
+  store ptr %12, ptr @print_graphs_format, align 8, !tbaa !129
+  %.not26 = icmp eq ptr %12, null
+  br i1 %.not26, label %68, label %.thread
 
-.thread:                                          ; preds = %init_sections.exit, %10
-  %12 = phi ptr [ %11, %10 ], [ %9, %init_sections.exit ]
-  %13 = call ptr @av_strtok(ptr noundef nonnull %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #7
-  %.not27 = icmp eq ptr %13, null
-  br i1 %.not27, label %14, label %15
-
-14:                                               ; preds = %.thread
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.4) #7
-  br label %67
+.thread:                                          ; preds = %init_sections.exit, %11
+  %13 = phi ptr [ %12, %11 ], [ %10, %init_sections.exit ]
+  %14 = call ptr @av_strtok(ptr noundef nonnull %13, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #7
+  %.not27 = icmp eq ptr %14, null
+  br i1 %.not27, label %15, label %16
 
 15:                                               ; preds = %.thread
-  %16 = call ptr @avtext_get_formatter_by_name(ptr noundef nonnull %13) #7
-  %.not28 = icmp eq ptr %16, null
-  br i1 %.not28, label %17, label %18
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.4) #7
+  br label %68
 
-17:                                               ; preds = %15
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.5, ptr noundef nonnull %13) #7
-  br label %67
+16:                                               ; preds = %.thread
+  %17 = call ptr @avtext_get_formatter_by_name(ptr noundef nonnull %14) #7
+  %.not28 = icmp eq ptr %17, null
+  br i1 %.not28, label %18, label %19
 
-18:                                               ; preds = %15
-  %19 = call i32 @avtextwriter_create_buffer(ptr noundef nonnull %4, ptr noundef %1) #7
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %22
+18:                                               ; preds = %16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.5, ptr noundef nonnull %14) #7
+  br label %68
 
-21:                                               ; preds = %18
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %19) #7
-  br label %67
+19:                                               ; preds = %16
+  %20 = call i32 @avtextwriter_create_buffer(ptr noundef nonnull %4, ptr noundef %1) #7
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %22, label %23
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %4, align 8, !tbaa !128
-  %24 = load ptr, ptr %6, align 8, !tbaa !129
-  %25 = call i32 @avtext_context_open(ptr noundef nonnull %3, ptr noundef nonnull %16, ptr noundef %23, ptr noundef %24, ptr noundef nonnull @sections, i32 noundef 28, ptr noundef nonnull byval(%struct.AVTextFormatOptions) align 8 @__const.init_graphprint.tf_options, ptr noundef null) #7
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %67, label %27
+22:                                               ; preds = %19
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %20) #7
+  br label %68
 
-27:                                               ; preds = %22
-  %28 = call noalias ptr @av_mallocz(i64 noundef 1080) #7
-  store ptr %28, ptr %5, align 8, !tbaa !4
-  %.not29 = icmp eq ptr %28, null
-  br i1 %.not29, label %67, label %29
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %4, align 8, !tbaa !128
+  %25 = load ptr, ptr %6, align 8, !tbaa !129
+  %26 = call i32 @avtext_context_open(ptr noundef nonnull %3, ptr noundef nonnull %17, ptr noundef %24, ptr noundef %25, ptr noundef nonnull @sections, i32 noundef 28, ptr noundef nonnull byval(%struct.AVTextFormatOptions) align 8 @__const.init_graphprint.tf_options, ptr noundef null) #7
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %68, label %28
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %4, align 8, !tbaa !128
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %30, ptr %31, align 8, !tbaa !126
-  %32 = load ptr, ptr %3, align 8, !tbaa !127
-  store ptr %32, ptr %28, align 8, !tbaa !13
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  call void @av_bprint_init(ptr noundef nonnull %33, i32 noundef 0, i32 noundef -1) #7
-  %34 = atomicrmw add ptr @prefix_num, i32 1 seq_cst, align 4
-  %35 = load ptr, ptr %5, align 8, !tbaa !4
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store i32 %34, ptr %36, align 8, !tbaa !26
-  %37 = load ptr, ptr %3, align 8, !tbaa !127
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !133
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 72
-  %41 = load i32, ptr %40, align 8, !tbaa !138
-  %42 = lshr i32 %41, 2
-  %.lobit = and i32 %42, 1
-  %43 = getelementptr inbounds nuw i8, ptr %35, i64 44
-  store i32 %.lobit, ptr %43, align 4, !tbaa !86
+28:                                               ; preds = %23
+  %29 = call noalias ptr @av_mallocz(i64 noundef 1080) #7
+  store ptr %29, ptr %5, align 8, !tbaa !4
+  %.not29 = icmp eq ptr %29, null
+  br i1 %.not29, label %68, label %30
+
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %4, align 8, !tbaa !128
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %31, ptr %32, align 8, !tbaa !126
+  %33 = load ptr, ptr %3, align 8, !tbaa !127
+  store ptr %33, ptr %29, align 8, !tbaa !13
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  call void @av_bprint_init(ptr noundef nonnull %34, i32 noundef 0, i32 noundef -1) #7
+  %35 = atomicrmw add ptr @prefix_num, i32 1 seq_cst, align 4
+  %36 = load ptr, ptr %5, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  store i32 %35, ptr %37, align 8, !tbaa !26
+  %38 = load ptr, ptr %3, align 8, !tbaa !127
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !133
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 72
+  %42 = load i32, ptr %41, align 8, !tbaa !138
+  %43 = lshr i32 %42, 2
+  %.lobit = and i32 %43, 1
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 44
+  store i32 %.lobit, ptr %44, align 4, !tbaa !86
   %.not30 = icmp eq i32 %.lobit, 0
-  br i1 %.not30, label %49, label %44
+  br i1 %.not30, label %50, label %45
 
-44:                                               ; preds = %29
-  %45 = getelementptr inbounds nuw i8, ptr %37, i64 17292
-  store i32 1, ptr %45, align 4, !tbaa !140
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 17288
-  store i32 -1, ptr %46, align 8, !tbaa !141
-  %47 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  store i32 1, ptr %47, align 8, !tbaa !94
-  %48 = getelementptr inbounds nuw i8, ptr %35, i64 52
-  store i32 1, ptr %48, align 4, !tbaa !92
-  br label %49
+45:                                               ; preds = %30
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 17292
+  store i32 1, ptr %46, align 4, !tbaa !140
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 17288
+  store i32 -1, ptr %47, align 8, !tbaa !141
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  store i32 1, ptr %48, align 8, !tbaa !94
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 52
+  store i32 1, ptr %49, align 4, !tbaa !92
+  br label %50
 
-49:                                               ; preds = %44, %29
-  %50 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !142
-  %52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(8) @.str.7) #8
-  %.not31 = icmp eq i32 %52, 0
-  br i1 %.not31, label %55, label %53
+50:                                               ; preds = %45, %30
+  %51 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !142
+  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(8) @.str.7) #8
+  %.not31 = icmp eq i32 %53, 0
+  br i1 %.not31, label %56, label %54
 
-53:                                               ; preds = %49
-  %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(12) @.str.8) #8
-  %.not32 = icmp eq i32 %54, 0
-  br i1 %.not32, label %55, label %66
+54:                                               ; preds = %50
+  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(12) @.str.8) #8
+  %.not32 = icmp eq i32 %55, 0
+  br i1 %.not32, label %56, label %67
 
-55:                                               ; preds = %53, %49
-  %56 = call ptr @ff_resman_get_string(i32 noundef 0) #7
-  %57 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr %56, ptr %57, align 8, !tbaa !143
-  %58 = load ptr, ptr %50, align 8, !tbaa !142
-  %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(12) @.str.8) #8
-  %.not33 = icmp eq i32 %59, 0
-  br i1 %.not33, label %60, label %63
+56:                                               ; preds = %54, %50
+  %57 = call ptr @ff_resman_get_string(i32 noundef 0) #7
+  %58 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  store ptr %57, ptr %58, align 8, !tbaa !143
+  %59 = load ptr, ptr %51, align 8, !tbaa !142
+  %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(12) @.str.8) #8
+  %.not33 = icmp eq i32 %60, 0
+  br i1 %.not33, label %61, label %64
 
-60:                                               ; preds = %55
-  %61 = call ptr @ff_resman_get_string(i32 noundef 1) #7
-  %62 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store ptr %61, ptr %62, align 8, !tbaa !144
-  br label %63
+61:                                               ; preds = %56
+  %62 = call ptr @ff_resman_get_string(i32 noundef 1) #7
+  %63 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  store ptr %62, ptr %63, align 8, !tbaa !144
+  br label %64
 
-63:                                               ; preds = %60, %55
-  %64 = load ptr, ptr %3, align 8, !tbaa !127
-  %65 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  call void @av_diagram_init(ptr noundef %64, ptr noundef nonnull %65) #7
-  br label %66
+64:                                               ; preds = %61, %56
+  %65 = load ptr, ptr %3, align 8, !tbaa !127
+  %66 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  call void @av_diagram_init(ptr noundef %65, ptr noundef nonnull %66) #7
+  br label %67
 
-66:                                               ; preds = %63, %53
-  store ptr %35, ptr %0, align 8, !tbaa !4
-  br label %79
+67:                                               ; preds = %64, %54
+  store ptr %36, ptr %0, align 8, !tbaa !4
+  br label %80
 
-67:                                               ; preds = %27, %10, %22, %21, %17, %14
-  %.019 = phi i32 [ -22, %21 ], [ %25, %22 ], [ -22, %17 ], [ -22, %14 ], [ -12, %10 ], [ -12, %27 ]
-  %68 = load ptr, ptr %3, align 8, !tbaa !127
-  %.not34 = icmp eq ptr %68, null
-  br i1 %.not34, label %72, label %69
+68:                                               ; preds = %28, %11, %23, %22, %18, %15
+  %.019 = phi i32 [ -22, %22 ], [ %26, %23 ], [ -22, %18 ], [ -22, %15 ], [ -12, %11 ], [ -12, %28 ]
+  %69 = load ptr, ptr %3, align 8, !tbaa !127
+  %.not34 = icmp eq ptr %69, null
+  br i1 %.not34, label %73, label %70
 
-69:                                               ; preds = %67
-  %70 = call i32 @avtext_context_close(ptr noundef nonnull %3) #7
+70:                                               ; preds = %68
+  %71 = call i32 @avtext_context_close(ptr noundef nonnull %3) #7
   %.pre = load ptr, ptr %3, align 8
-  %71 = icmp ne ptr %.pre, null
-  br label %72
+  %72 = icmp ne ptr %.pre, null
+  br label %73
 
-72:                                               ; preds = %69, %67
-  %73 = phi i1 [ %71, %69 ], [ false, %67 ]
-  %74 = load ptr, ptr %4, align 8, !tbaa !128
-  %75 = icmp eq ptr %74, null
-  %or.cond = select i1 %75, i1 true, i1 %73
-  br i1 %or.cond, label %78, label %76
+73:                                               ; preds = %70, %68
+  %74 = phi i1 [ %72, %70 ], [ false, %68 ]
+  %75 = load ptr, ptr %4, align 8, !tbaa !128
+  %76 = icmp eq ptr %75, null
+  %or.cond = select i1 %76, i1 true, i1 %74
+  br i1 %or.cond, label %79, label %77
 
-76:                                               ; preds = %72
-  %77 = call i32 @avtextwriter_context_close(ptr noundef nonnull %4) #7
-  br label %78
-
-78:                                               ; preds = %76, %72
-  call void @av_freep(ptr noundef nonnull %5) #7
+77:                                               ; preds = %73
+  %78 = call i32 @avtextwriter_context_close(ptr noundef nonnull %4) #7
   br label %79
 
-79:                                               ; preds = %78, %66
-  %.0 = phi i32 [ %.019, %78 ], [ 0, %66 ]
+79:                                               ; preds = %77, %73
+  call void @av_freep(ptr noundef nonnull %5) #7
+  br label %80
+
+80:                                               ; preds = %79, %67
+  %.0 = phi i32 [ %.019, %79 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

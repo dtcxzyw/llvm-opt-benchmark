@@ -863,13 +863,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit374:       ; preds = %_ZNKSt7__cxx1112bas
   %321 = load ptr, ptr %320, align 8, !tbaa !62
   %322 = getelementptr inbounds nuw float, ptr %321, i64 %indvars.iv644
   store float %319, ptr %322, align 4, !tbaa !28
-  %323 = getelementptr inbounds [3 x float], ptr %311, i64 %317, i64 1
+  %323 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %324 = load float, ptr %323, align 4, !tbaa !28
   %325 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %326 = load ptr, ptr %325, align 8, !tbaa !62
   %327 = getelementptr inbounds nuw float, ptr %326, i64 %indvars.iv644
   store float %324, ptr %327, align 4, !tbaa !28
-  %328 = getelementptr inbounds [3 x float], ptr %311, i64 %317, i64 2
+  %328 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %329 = load float, ptr %328, align 4, !tbaa !28
   %330 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %331 = load ptr, ptr %330, align 8, !tbaa !62

@@ -220,18 +220,18 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 
 102:                                              ; preds = %67, %72, %77, %87
   %.ph = phi i32 [ %84, %87 ], [ %75, %77 ], [ %69, %72 ], [ %50, %67 ]
-  %.ph31 = phi i32 [ 4, %87 ], [ 3, %77 ], [ 2, %72 ], [ 1, %67 ]
-  %.ph32 = phi i32 [ %56, %87 ], [ %56, %77 ], [ %56, %72 ], [ 12, %67 ]
+  %.ph33 = phi i32 [ 4, %87 ], [ 3, %77 ], [ 2, %72 ], [ 1, %67 ]
+  %.ph34 = phi i32 [ %56, %87 ], [ %56, %77 ], [ %56, %72 ], [ 12, %67 ]
   %103 = add i32 %56, -1
   %104 = and i32 %.ph, %103
   %105 = xor i32 %104, -1
-  %106 = add i32 %.ph32, %105
-  %107 = call fastcc ptr @ext4_get_branch(ptr noundef %1, i32 noundef %.ph31, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
+  %106 = add i32 %.ph34, %105
+  %107 = call fastcc ptr @ext4_get_branch(ptr noundef %1, i32 noundef %.ph33, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
   %108 = icmp eq ptr %107, null
   br i1 %108, label %109, label %132
 
 109:                                              ; preds = %102
-  %110 = zext nneg i32 %.ph31 to i64
+  %110 = zext nneg i32 %.ph33 to i64
   %111 = getelementptr %struct.Indirect, ptr %10, i64 %110
   %112 = getelementptr i8, ptr %111, i64 -24
   %113 = getelementptr i8, ptr %111, i64 -16
@@ -245,7 +245,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %119 = icmp ult i32 %118, %116
   %120 = icmp sle i32 %118, %106
   %121 = select i1 %119, i1 %120, i1 false
-  br i1 %121, label %122, label %.loopexit36
+  br i1 %121, label %122, label %.loopexit38
 
 122:                                              ; preds = %117
   %123 = load ptr, ptr %112, align 8
@@ -257,7 +257,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %129 = icmp eq i64 %128, %127
   %130 = zext i1 %129 to i32
   %131 = add nuw i32 %118, %130
-  br i1 %129, label %117, label %.loopexit36
+  br i1 %129, label %117, label %.loopexit38
 
 132:                                              ; preds = %102
   br i1 %45, label %166, label %133
@@ -274,7 +274,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %142 = sdiv exact i64 %141, 24
   %143 = trunc i64 %142 to i32
   %144 = add i32 %143, 1
-  %145 = icmp slt i32 %144, %.ph31
+  %145 = icmp slt i32 %144, %.ph33
   br i1 %145, label %146, label %162
 
 146:                                              ; preds = %133
@@ -292,7 +292,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %156 = add i32 %155, %153
   %157 = add nsw i64 %149, 1
   %158 = trunc i64 %157 to i32
-  %159 = icmp eq i32 %.ph31, %158
+  %159 = icmp eq i32 %.ph33, %158
   br i1 %159, label %160, label %148, !llvm.loop !21
 
 160:                                              ; preds = %148
@@ -305,12 +305,12 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %164 = load i32, ptr %13, align 4
   %165 = call i32 @llvm.umin.i32(i32 %164, i32 %163)
   store i32 %165, ptr %13, align 4
-  br label %.thread35
+  br label %.thread37
 
 166:                                              ; preds = %132
   %167 = load i32, ptr %8, align 4
   %168 = icmp eq i32 %167, -5
-  br i1 %168, label %.thread35, label %169
+  br i1 %168, label %.thread37, label %169
 
 169:                                              ; preds = %166
   %170 = load ptr, ptr %51, align 8
@@ -421,7 +421,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %231 = and i64 %230, 4294967295
   %232 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %231, ptr %232, align 8
-  %233 = zext nneg i32 %.ph31 to i64
+  %233 = zext nneg i32 %.ph33 to i64
   %234 = getelementptr %struct.Indirect, ptr %10, i64 %233
   %235 = ptrtoint ptr %234 to i64
   %236 = ptrtoint ptr %107 to i64
@@ -450,7 +450,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   br label %257
 
 254:                                              ; preds = %229
-  %255 = sub i32 %.ph32, %104
+  %255 = sub i32 %.ph34, %104
   %256 = call i32 @llvm.umin.i32(i32 %255, i32 %241)
   br label %267
 
@@ -484,7 +484,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !6
   %274 = icmp slt i32 %240, 0
-  br i1 %274, label %.thread34, label %275
+  br i1 %274, label %.thread36, label %275
 
 275:                                              ; preds = %267
   %276 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -515,7 +515,8 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   store i64 %290, ptr %232, align 8
   %293 = add i32 %281, 1
   %294 = sext i32 %293 to i64
-  %295 = getelementptr %struct.Indirect, ptr %107, i64 %294, i32 2
+  %.split = getelementptr %struct.Indirect, ptr %107, i64 %294
+  %295 = getelementptr i8, ptr %.split, i64 16
   store ptr null, ptr %295, align 8
   br label %296
 
@@ -526,7 +527,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 
 299:                                              ; preds = %296
   %300 = add i32 %281, -1
-  br label %.loopexit41
+  br label %.loopexit43
 
 301:                                              ; preds = %296
   %302 = sext i32 %281 to i64
@@ -568,7 +569,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 
 333:                                              ; preds = %309
   store i32 -12, ptr %6, align 4
-  br label %.loopexit41
+  br label %.loopexit43
 
 334:                                              ; preds = %309
   %335 = call i32 @__SCT__might_resched() #12
@@ -593,7 +594,7 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 
 346:                                              ; preds = %340
   call void @unlock_buffer(ptr noundef nonnull %330) #12
-  br label %.loopexit41
+  br label %.loopexit43
 
 347:                                              ; preds = %340
   %348 = getelementptr inbounds nuw i8, ptr %330, i64 40
@@ -610,50 +611,50 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %357 = load i32, ptr %269, align 8
   %358 = select i1 %282, i32 %357, i32 %280
   %359 = icmp sgt i32 %358, 0
-  br i1 %359, label %.preheader39, label %.loopexit40
+  br i1 %359, label %.preheader41, label %.loopexit42
 
-.preheader39:                                     ; preds = %347, %.preheader39
-  %360 = phi i32 [ %366, %.preheader39 ], [ 0, %347 ]
-  %361 = phi ptr [ %365, %.preheader39 ], [ %356, %347 ]
-  %362 = phi i64 [ %363, %.preheader39 ], [ %304, %347 ]
+.preheader41:                                     ; preds = %347, %.preheader41
+  %360 = phi i32 [ %366, %.preheader41 ], [ 0, %347 ]
+  %361 = phi ptr [ %365, %.preheader41 ], [ %356, %347 ]
+  %362 = phi i64 [ %363, %.preheader41 ], [ %304, %347 ]
   %363 = add i64 %362, 1
   %364 = trunc i64 %362 to i32
   %365 = getelementptr i8, ptr %361, i64 4
   store i32 %364, ptr %361, align 4
   %366 = add nuw nsw i32 %360, 1
   %367 = icmp eq i32 %366, %358
-  br i1 %367, label %.loopexit40, label %.preheader39, !llvm.loop !27
+  br i1 %367, label %.loopexit42, label %.preheader41, !llvm.loop !27
 
-.loopexit40:                                      ; preds = %.preheader39, %347
+.loopexit42:                                      ; preds = %.preheader41, %347
   %368 = load volatile i64, ptr %330, align 8
   %369 = and i64 %368, 1
   %370 = icmp eq i64 %369, 0
   br i1 %370, label %371, label %372
 
-371:                                              ; preds = %.loopexit40
+371:                                              ; preds = %.loopexit42
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %330, i32 1, ptr nonnull elementtype(i8) %330) #12, !srcloc !28
   br label %372
 
-372:                                              ; preds = %371, %.loopexit40
+372:                                              ; preds = %371, %.loopexit42
   call void @unlock_buffer(ptr noundef nonnull %330) #12
   %373 = load ptr, ptr %7, align 8
   %374 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_alloc_branch, i32 noundef 385, ptr noundef %0, ptr noundef %373, ptr noundef nonnull %330) #12
   store i32 %374, ptr %6, align 4
   %375 = icmp eq i32 %374, 0
-  br i1 %375, label %376, label %.loopexit41
+  br i1 %375, label %376, label %.loopexit43
 
 376:                                              ; preds = %372, %301
   %377 = phi i32 [ %280, %301 ], [ %358, %372 ]
   %378 = add i32 %281, 1
   %379 = icmp sgt i32 %378, %240
-  br i1 %379, label %.thread34, label %279, !llvm.loop !29
+  br i1 %379, label %.thread36, label %279, !llvm.loop !29
 
-.loopexit41:                                      ; preds = %372, %346, %333, %299
+.loopexit43:                                      ; preds = %372, %346, %333, %299
   %380 = phi i32 [ %300, %299 ], [ %281, %333 ], [ %281, %346 ], [ %281, %372 ]
   %381 = icmp eq i32 %380, %240
   br i1 %381, label %382, label %390
 
-382:                                              ; preds = %.loopexit41
+382:                                              ; preds = %.loopexit43
   %383 = load ptr, ptr %7, align 8
   %384 = zext nneg i32 %240 to i64
   %385 = getelementptr i64, ptr %5, i64 %384
@@ -664,10 +665,10 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %389 = add i32 %239, -2
   br label %390
 
-390:                                              ; preds = %382, %.loopexit41
-  %391 = phi i32 [ %389, %382 ], [ %380, %.loopexit41 ]
+390:                                              ; preds = %382, %.loopexit43
+  %391 = phi i32 [ %389, %382 ], [ %380, %.loopexit43 ]
   %392 = icmp sgt i32 %391, -1
-  br i1 %392, label %393, label %.loopexit38
+  br i1 %392, label %393, label %.loopexit40
 
 393:                                              ; preds = %390
   %394 = zext nneg i32 %391 to i64
@@ -679,7 +680,8 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %398 = shl i64 %396, 32
   %399 = add i64 %398, 4294967296
   %400 = ashr exact i64 %399, 32
-  %401 = getelementptr %struct.Indirect, ptr %107, i64 %400, i32 2
+  %.split31 = getelementptr %struct.Indirect, ptr %107, i64 %400
+  %401 = getelementptr i8, ptr %.split31, i64 16
   %402 = load ptr, ptr %401, align 8
   %403 = getelementptr i64, ptr %5, i64 %396
   %404 = load i64, ptr %403, align 8
@@ -688,27 +690,27 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   call void @ext4_free_blocks(ptr noundef %0, ptr noundef %397, ptr noundef %402, i64 noundef %404, i64 noundef 1, i32 noundef %406) #12
   %407 = add nsw i64 %396, -1
   %.not = icmp eq i64 %396, 0
-  br i1 %.not, label %.loopexit38, label %395, !llvm.loop !30
+  br i1 %.not, label %.loopexit40, label %395, !llvm.loop !30
 
-.thread34:                                        ; preds = %376, %267
+.thread36:                                        ; preds = %376, %267
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 0, ptr %8, align 4
   br label %410
 
-.loopexit38:                                      ; preds = %395, %390
+.loopexit40:                                      ; preds = %395, %390
   %408 = load i32, ptr %6, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %408, ptr %8, align 4
   %409 = icmp eq i32 %408, 0
-  br i1 %409, label %410, label %.thread35
+  br i1 %409, label %410, label %.thread37
 
-410:                                              ; preds = %.loopexit38, %.thread34
+410:                                              ; preds = %.loopexit40, %.thread36
   %411 = call fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %107, i32 noundef %240)
   store i32 %411, ptr %8, align 4
   %412 = icmp eq i32 %411, 0
-  br i1 %412, label %413, label %.thread35
+  br i1 %412, label %413, label %.thread37
 
 413:                                              ; preds = %410
   %414 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -717,108 +719,106 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   store i32 %416, ptr %414, align 8
   call fastcc void @ext4_update_inode_fsync_trans(ptr noundef %0, ptr noundef %1)
   %417 = load i32, ptr %269, align 8
-  br i1 %191, label %.loopexit36, label %418
+  br i1 %191, label %.loopexit38, label %418
 
 418:                                              ; preds = %413
   call void @ext4_da_update_reserve_space(ptr noundef %1, i32 noundef %417, i32 noundef 1) #12
-  br label %.loopexit36
+  br label %.loopexit38
 
-.loopexit36:                                      ; preds = %122, %117, %418, %413
-  %419 = phi i32 [ %417, %418 ], [ %417, %413 ], [ %118, %117 ], [ %131, %122 ]
+.loopexit38:                                      ; preds = %122, %117, %418, %413
+  %.pre-phi = phi i64 [ %233, %418 ], [ %233, %413 ], [ %110, %117 ], [ %110, %122 ]
+  %419 = phi i32 [ %417, %418 ], [ %417, %413 ], [ %131, %122 ], [ %118, %117 ]
   %420 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %421 = load i32, ptr %420, align 8
   %422 = or i32 %421, 16
   store i32 %422, ptr %420, align 8
-  %423 = add nsw i32 %.ph31, -1
-  %424 = zext nneg i32 %423 to i64
-  %425 = getelementptr %struct.Indirect, ptr %10, i64 %424, i32 1
-  %426 = load i32, ptr %425, align 8
-  %427 = zext i32 %426 to i64
-  store i64 %427, ptr %2, align 8
+  %423 = getelementptr %struct.Indirect, ptr %10, i64 %.pre-phi
+  %424 = getelementptr i8, ptr %423, i64 -16
+  %425 = load i32, ptr %424, align 8
+  %426 = zext i32 %425 to i64
+  store i64 %426, ptr %2, align 8
   store i32 %419, ptr %13, align 4
-  %428 = icmp sgt i32 %419, %106
-  br i1 %428, label %429, label %431
+  %427 = icmp sgt i32 %419, %106
+  br i1 %427, label %428, label %430
 
-429:                                              ; preds = %.loopexit36
-  %430 = or i32 %421, 528
-  store i32 %430, ptr %420, align 8
-  br label %431
+428:                                              ; preds = %.loopexit38
+  %429 = or i32 %421, 528
+  store i32 %429, ptr %420, align 8
+  br label %430
 
-431:                                              ; preds = %429, %.loopexit36
+430:                                              ; preds = %428, %.loopexit38
   store i32 %419, ptr %8, align 4
-  %432 = zext nneg i32 %.ph31 to i64
-  %433 = getelementptr %struct.Indirect, ptr %10, i64 %432
-  %434 = getelementptr i8, ptr %433, i64 -24
-  br label %.thread35
+  %431 = getelementptr i8, ptr %423, i64 -24
+  br label %.thread37
 
-.thread35:                                        ; preds = %.loopexit38, %431, %410, %166, %162
-  %435 = phi ptr [ %107, %162 ], [ %107, %166 ], [ %107, %410 ], [ %434, %431 ], [ %107, %.loopexit38 ]
-  %436 = icmp ugt ptr %435, %10
-  br i1 %436, label %.preheader, label %.loopexit
+.thread37:                                        ; preds = %.loopexit40, %430, %410, %166, %162
+  %432 = phi ptr [ %107, %162 ], [ %107, %166 ], [ %107, %410 ], [ %431, %430 ], [ %107, %.loopexit40 ]
+  %433 = icmp ugt ptr %432, %10
+  br i1 %433, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.thread35, %442
-  %437 = phi ptr [ %443, %442 ], [ %435, %.thread35 ]
-  %438 = getelementptr inbounds nuw i8, ptr %437, i64 16
-  %439 = load ptr, ptr %438, align 8
-  %440 = icmp eq ptr %439, null
-  br i1 %440, label %442, label %441
+.preheader:                                       ; preds = %.thread37, %439
+  %434 = phi ptr [ %440, %439 ], [ %432, %.thread37 ]
+  %435 = getelementptr inbounds nuw i8, ptr %434, i64 16
+  %436 = load ptr, ptr %435, align 8
+  %437 = icmp eq ptr %436, null
+  br i1 %437, label %439, label %438
 
-441:                                              ; preds = %.preheader
-  call void @__brelse(ptr noundef nonnull %439) #12
-  br label %442
+438:                                              ; preds = %.preheader
+  call void @__brelse(ptr noundef nonnull %436) #12
+  br label %439
 
-442:                                              ; preds = %441, %.preheader
-  %443 = getelementptr i8, ptr %437, i64 -24
-  %444 = icmp ugt ptr %443, %10
-  br i1 %444, label %.preheader, label %.loopexit, !llvm.loop !31
+439:                                              ; preds = %438, %.preheader
+  %440 = getelementptr i8, ptr %434, i64 -24
+  %441 = icmp ugt ptr %440, %10
+  br i1 %441, label %.preheader, label %.loopexit, !llvm.loop !31
 
-.loopexit:                                        ; preds = %442, %95, %.thread35, %179
-  %445 = load i32, ptr %8, align 4
+.loopexit:                                        ; preds = %439, %95, %.thread37, %179
+  %442 = load i32, ptr %8, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_ext4_ind_map_blocks_exit, i64 8), i32 2) #12
-          to label %466 [label %446], !srcloc !7
+          to label %463 [label %443], !srcloc !7
 
-446:                                              ; preds = %.loopexit
-  %447 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !32
-  %448 = zext i32 %447 to i64
-  %449 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %448) #12, !srcloc !9
-  %450 = icmp ult i8 %449, 2
-  call void @llvm.assume(i1 %450)
-  %451 = icmp eq i8 %449, 0
-  br i1 %451, label %466, label %452
+443:                                              ; preds = %.loopexit
+  %444 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !32
+  %445 = zext i32 %444 to i64
+  %446 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %445) #12, !srcloc !9
+  %447 = icmp ult i8 %446, 2
+  call void @llvm.assume(i1 %447)
+  %448 = icmp eq i8 %446, 0
+  br i1 %448, label %463, label %449
 
-452:                                              ; preds = %446
+449:                                              ; preds = %443
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !33
-  %453 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_ext4_ind_map_blocks_exit, i64 72), align 8
-  %454 = icmp eq ptr %453, null
-  br i1 %454, label %459, label %455
+  %450 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_ext4_ind_map_blocks_exit, i64 72), align 8
+  %451 = icmp eq ptr %450, null
+  br i1 %451, label %456, label %452
 
-455:                                              ; preds = %452
-  %456 = getelementptr inbounds nuw i8, ptr %453, i64 8
-  %457 = load ptr, ptr %456, align 8
-  %458 = call i32 @__SCT__tp_func_ext4_ind_map_blocks_exit(ptr noundef %457, ptr noundef %1, i32 noundef %3, ptr noundef %2, i32 noundef %445) #12
-  br label %459
+452:                                              ; preds = %449
+  %453 = getelementptr inbounds nuw i8, ptr %450, i64 8
+  %454 = load ptr, ptr %453, align 8
+  %455 = call i32 @__SCT__tp_func_ext4_ind_map_blocks_exit(ptr noundef %454, ptr noundef %1, i32 noundef %3, ptr noundef %2, i32 noundef %442) #12
+  br label %456
 
-459:                                              ; preds = %455, %452
+456:                                              ; preds = %452, %449
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !34
-  %460 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !13
-  %461 = icmp ult i8 %460, 2
-  call void @llvm.assume(i1 %461)
-  %462 = icmp eq i8 %460, 0
-  br i1 %462, label %466, label %463, !prof !14
+  %457 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !13
+  %458 = icmp ult i8 %457, 2
+  call void @llvm.assume(i1 %458)
+  %459 = icmp eq i8 %457, 0
+  br i1 %459, label %463, label %460, !prof !14
 
-463:                                              ; preds = %459
-  %464 = call i64 @llvm.read_register.i64(metadata !0)
-  %465 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %464) #12, !srcloc !35
-  call void @llvm.write_register.i64(metadata !0, i64 %465)
-  br label %466
+460:                                              ; preds = %456
+  %461 = call i64 @llvm.read_register.i64(metadata !0)
+  %462 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %461) #12, !srcloc !35
+  call void @llvm.write_register.i64(metadata !0, i64 %462)
+  br label %463
 
-466:                                              ; preds = %463, %459, %446, %.loopexit
+463:                                              ; preds = %460, %456, %443, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %445
+  ret i32 %442
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -987,17 +987,17 @@ define internal fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr noundef reado
   %17 = load ptr, ptr %2, align 8
   store i32 %16, ptr %17, align 4
   %18 = icmp eq i32 %3, 0
-  br i1 %18, label %19, label %.loopexit5
+  br i1 %18, label %19, label %.loopexit6
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp ugt i32 %21, 1
-  br i1 %22, label %.preheader11, label %.loopexit5
+  br i1 %22, label %.preheader12, label %.loopexit6
 
-.preheader11:                                     ; preds = %19, %.preheader11
-  %23 = phi i32 [ %28, %.preheader11 ], [ 1, %19 ]
-  %.in = phi i32 [ %24, %.preheader11 ], [ %16, %19 ]
+.preheader12:                                     ; preds = %19, %.preheader12
+  %23 = phi i32 [ %28, %.preheader12 ], [ 1, %19 ]
+  %.in = phi i32 [ %24, %.preheader12 ], [ %16, %19 ]
   %24 = add i32 %.in, 1
   %25 = load ptr, ptr %2, align 8
   %26 = sext i32 %23 to i64
@@ -1006,20 +1006,20 @@ define internal fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr noundef reado
   %28 = add nuw i32 %23, 1
   %29 = load i32, ptr %20, align 8
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %.preheader11, label %.loopexit5, !llvm.loop !38
+  br i1 %30, label %.preheader12, label %.loopexit6, !llvm.loop !38
 
-.loopexit5:                                       ; preds = %.preheader11, %19, %14
+.loopexit6:                                       ; preds = %.preheader12, %19, %14
   %31 = load ptr, ptr %5, align 8
   %32 = icmp eq ptr %31, null
   %33 = load ptr, ptr %1, align 8
   br i1 %32, label %37, label %34
 
-34:                                               ; preds = %.loopexit5
+34:                                               ; preds = %.loopexit6
   %35 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_splice_branch, i32 noundef 472, ptr noundef %0, ptr noundef %33, ptr noundef nonnull %31) #12
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %58, label %40
 
-37:                                               ; preds = %.loopexit5
+37:                                               ; preds = %.loopexit6
   %38 = tail call i32 @__ext4_mark_inode_dirty(ptr noundef %0, ptr noundef %33, ptr noundef nonnull @__func__.ext4_splice_branch, i32 noundef 479) #12
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %58, label %40, !prof !14
@@ -1033,7 +1033,8 @@ define internal fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr noundef reado
   %43 = phi i32 [ %48, %.preheader ], [ 1, %40 ]
   %44 = load ptr, ptr %1, align 8
   %45 = sext i32 %43 to i64
-  %46 = getelementptr %struct.Indirect, ptr %2, i64 %45, i32 2
+  %.split = getelementptr %struct.Indirect, ptr %2, i64 %45
+  %46 = getelementptr i8, ptr %.split, i64 16
   %47 = load ptr, ptr %46, align 8
   tail call void @ext4_free_blocks(ptr noundef %0, ptr noundef %44, ptr noundef %47, i64 noundef 0, i64 noundef 1, i32 noundef 2) #12
   %48 = add i32 %43, 1
@@ -1043,7 +1044,8 @@ define internal fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr noundef reado
 .loopexit:                                        ; preds = %.preheader, %40
   %50 = load ptr, ptr %1, align 8
   %51 = sext i32 %3 to i64
-  %52 = getelementptr %struct.Indirect, ptr %2, i64 %51, i32 1
+  %.split5 = getelementptr %struct.Indirect, ptr %2, i64 %51
+  %52 = getelementptr i8, ptr %.split5, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8

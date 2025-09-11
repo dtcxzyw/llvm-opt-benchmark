@@ -604,9 +604,9 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   br i1 %.not550, label %.loopexit522, label %.preheader521
 
 .preheader521:                                    ; preds = %.preheader521.lr.ph, %._crit_edge
-  %148 = phi i32 [ %527, %._crit_edge ], [ %128, %.preheader521.lr.ph ]
-  %149 = phi i32 [ %528, %._crit_edge ], [ %147, %.preheader521.lr.ph ]
-  %.0299548 = phi i32 [ %529, %._crit_edge ], [ 0, %.preheader521.lr.ph ]
+  %148 = phi i32 [ %528, %._crit_edge ], [ %128, %.preheader521.lr.ph ]
+  %149 = phi i32 [ %529, %._crit_edge ], [ %147, %.preheader521.lr.ph ]
+  %.0299548 = phi i32 [ %530, %._crit_edge ], [ 0, %.preheader521.lr.ph ]
   %.not551 = icmp eq i32 %149, 0
   br i1 %.not551, label %._crit_edge, label %.lr.ph
 
@@ -616,8 +616,8 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   br label %152
 
 152:                                              ; preds = %.lr.ph, %.loopexit
-  %153 = phi i32 [ %149, %.lr.ph ], [ %525, %.loopexit ]
-  %.0300547 = phi i32 [ 0, %.lr.ph ], [ %524, %.loopexit ]
+  %153 = phi i32 [ %149, %.lr.ph ], [ %526, %.loopexit ]
+  %.0300547 = phi i32 [ 0, %.lr.ph ], [ %525, %.loopexit ]
   %154 = or disjoint i32 %.0300547, 1
   %.not335 = icmp ult i32 %154, %153
   %spec.select347 = select i1 %.not335, i32 2, i32 1
@@ -628,15 +628,15 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   %wide.trip.count = zext nneg i32 %spec.select347 to i64
   br label %.preheader518
 
-.preheader518:                                    ; preds = %152, %359
-  %indvars.iv557 = phi i64 [ 0, %152 ], [ %indvars.iv.next558, %359 ]
+.preheader518:                                    ; preds = %152, %360
+  %indvars.iv557 = phi i64 [ 0, %152 ], [ %indvars.iv.next558, %360 ]
   %156 = trunc nuw nsw i64 %indvars.iv557 to i32
   %157 = add i32 %.0299548, %156
   %invariant.gep = getelementptr inbounds nuw %struct.YUVBlock, ptr %4, i64 %indvars.iv557
   br label %158
 
-158:                                              ; preds = %.preheader518, %358
-  %indvars.iv = phi i64 [ 0, %.preheader518 ], [ %indvars.iv.next, %358 ]
+158:                                              ; preds = %.preheader518, %359
+  %indvars.iv = phi i64 [ 0, %.preheader518 ], [ %indvars.iv.next, %359 ]
   %159 = trunc nuw nsw i64 %indvars.iv to i32
   %160 = add i32 %.0300547, %159
   %161 = load i32, ptr %3, align 4
@@ -795,533 +795,534 @@ avifPrepareReformatState.exit:                    ; preds = %83, %78
   %.sink = phi float [ %243, %235 ], [ %252, %244 ], [ %.sroa.0.1, %233 ]
   %254 = phi float [ %240, %235 ], [ %249, %244 ], [ %.sroa.32.1, %233 ]
   %255 = phi float [ %238, %235 ], [ %247, %244 ], [ %.sroa.17.1, %233 ]
-  %256 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep, i64 %indvars.iv, i64 0, i32 2
-  store float %.sink, ptr %256, align 4
-  %257 = load i32, ptr %129, align 4
-  %258 = icmp ugt i32 %257, 1
-  br i1 %258, label %avifYUVColorSpaceInfoYToUNorm.exit, label %avifYUVColorSpaceInfoYToUNorm.exit356
+  %256 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep, i64 %indvars.iv
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
+  store float %.sink, ptr %257, align 4
+  %258 = load i32, ptr %129, align 4
+  %259 = icmp ugt i32 %258, 1
+  br i1 %259, label %avifYUVColorSpaceInfoYToUNorm.exit, label %avifYUVColorSpaceInfoYToUNorm.exit356
 
 avifYUVColorSpaceInfoYToUNorm.exit:               ; preds = %253
-  %259 = load ptr, ptr %125, align 8
-  %260 = shl nsw i32 %160, 1
-  %261 = load i32, ptr %126, align 8
-  %262 = mul i32 %261, %157
-  %263 = add i32 %262, %260
-  %264 = zext i32 %263 to i64
-  %265 = getelementptr inbounds nuw i8, ptr %259, i64 %264
-  %266 = load float, ptr %139, align 4
-  %267 = load float, ptr %140, align 4
-  %268 = call float @llvm.fmuladd.f32(float %255, float %266, float %267)
-  %269 = call float @avifRoundf(float noundef %268) #10
-  %270 = fptosi float %269 to i32
-  %271 = icmp slt i32 %270, 0
-  %272 = load i32, ptr %141, align 4
-  %..i = call i32 @llvm.smin.i32(i32 %272, i32 %270)
-  %273 = trunc i32 %..i to i16
-  %274 = select i1 %271, i16 0, i16 %273
-  store i16 %274, ptr %265, align 2
-  %275 = load i32, ptr %142, align 4
-  %276 = icmp eq i32 %275, 1
-  br i1 %276, label %avifYUVColorSpaceInfoUVToUNorm.exit, label %358
+  %260 = load ptr, ptr %125, align 8
+  %261 = shl nsw i32 %160, 1
+  %262 = load i32, ptr %126, align 8
+  %263 = mul i32 %262, %157
+  %264 = add i32 %263, %261
+  %265 = zext i32 %264 to i64
+  %266 = getelementptr inbounds nuw i8, ptr %260, i64 %265
+  %267 = load float, ptr %139, align 4
+  %268 = load float, ptr %140, align 4
+  %269 = call float @llvm.fmuladd.f32(float %255, float %267, float %268)
+  %270 = call float @avifRoundf(float noundef %269) #10
+  %271 = fptosi float %270 to i32
+  %272 = icmp slt i32 %271, 0
+  %273 = load i32, ptr %141, align 4
+  %..i = call i32 @llvm.smin.i32(i32 %273, i32 %271)
+  %274 = trunc i32 %..i to i16
+  %275 = select i1 %272, i16 0, i16 %274
+  store i16 %275, ptr %266, align 2
+  %276 = load i32, ptr %142, align 4
+  %277 = icmp eq i32 %276, 1
+  br i1 %277, label %avifYUVColorSpaceInfoUVToUNorm.exit, label %359
 
 avifYUVColorSpaceInfoUVToUNorm.exit:              ; preds = %avifYUVColorSpaceInfoYToUNorm.exit
-  %277 = load ptr, ptr %143, align 8
-  %278 = load i32, ptr %144, align 4
-  %279 = mul i32 %278, %157
-  %280 = add i32 %279, %260
-  %281 = zext i32 %280 to i64
-  %282 = getelementptr inbounds nuw i8, ptr %277, i64 %281
-  %283 = load i32, ptr %79, align 4
-  %284 = icmp eq i32 %283, 1
+  %278 = load ptr, ptr %143, align 8
+  %279 = load i32, ptr %144, align 4
+  %280 = mul i32 %279, %157
+  %281 = add i32 %280, %261
+  %282 = zext i32 %281 to i64
+  %283 = getelementptr inbounds nuw i8, ptr %278, i64 %282
+  %284 = load i32, ptr %79, align 4
+  %285 = icmp eq i32 %284, 1
   %.val511 = load float, ptr %139, align 4
   %.sroa.gep408.val = load float, ptr %.sroa.gep416, align 4
-  %285 = select i1 %284, float %.val511, float %.sroa.gep408.val
+  %286 = select i1 %285, float %.val511, float %.sroa.gep408.val
   %.val512 = load float, ptr %140, align 4
   %.sroa.gep410.val = load float, ptr %.sroa.gep418, align 4
-  %286 = select i1 %284, float %.val512, float %.sroa.gep410.val
-  %287 = call float @llvm.fmuladd.f32(float %254, float %285, float %286)
-  %288 = call float @avifRoundf(float noundef %287) #10
-  %.0.i349 = fptosi float %288 to i32
-  %289 = icmp slt i32 %.0.i349, 0
-  %290 = load i32, ptr %141, align 4
-  %..0.i = call i32 @llvm.smin.i32(i32 %290, i32 %.0.i349)
-  %291 = trunc i32 %..0.i to i16
-  %292 = select i1 %289, i16 0, i16 %291
-  store i16 %292, ptr %282, align 2
-  %293 = load ptr, ptr %145, align 8
-  %294 = load i32, ptr %146, align 8
-  %295 = mul i32 %294, %157
-  %296 = add i32 %295, %260
-  %297 = zext i32 %296 to i64
-  %298 = getelementptr inbounds nuw i8, ptr %293, i64 %297
-  %299 = load i32, ptr %79, align 4
-  %300 = icmp eq i32 %299, 1
+  %287 = select i1 %285, float %.val512, float %.sroa.gep410.val
+  %288 = call float @llvm.fmuladd.f32(float %254, float %286, float %287)
+  %289 = call float @avifRoundf(float noundef %288) #10
+  %.0.i349 = fptosi float %289 to i32
+  %290 = icmp slt i32 %.0.i349, 0
+  %291 = load i32, ptr %141, align 4
+  %..0.i = call i32 @llvm.smin.i32(i32 %291, i32 %.0.i349)
+  %292 = trunc i32 %..0.i to i16
+  %293 = select i1 %290, i16 0, i16 %292
+  store i16 %293, ptr %283, align 2
+  %294 = load ptr, ptr %145, align 8
+  %295 = load i32, ptr %146, align 8
+  %296 = mul i32 %295, %157
+  %297 = add i32 %296, %261
+  %298 = zext i32 %297 to i64
+  %299 = getelementptr inbounds nuw i8, ptr %294, i64 %298
+  %300 = load i32, ptr %79, align 4
+  %301 = icmp eq i32 %300, 1
   %.val513 = load float, ptr %139, align 4
   %.sroa.gep408.val514 = load float, ptr %.sroa.gep416, align 4
-  %301 = select i1 %300, float %.val513, float %.sroa.gep408.val514
+  %302 = select i1 %301, float %.val513, float %.sroa.gep408.val514
   %.val515 = load float, ptr %140, align 4
   %.sroa.gep410.val516 = load float, ptr %.sroa.gep418, align 4
-  %302 = select i1 %300, float %.val515, float %.sroa.gep410.val516
-  %303 = call float @llvm.fmuladd.f32(float %.sink, float %301, float %302)
-  %304 = call float @avifRoundf(float noundef %303) #10
-  %.0.i352 = fptosi float %304 to i32
-  %305 = icmp slt i32 %.0.i352, 0
-  %306 = load i32, ptr %141, align 4
-  %..0.i353 = call i32 @llvm.smin.i32(i32 %306, i32 %.0.i352)
-  %307 = trunc i32 %..0.i353 to i16
-  %308 = select i1 %305, i16 0, i16 %307
-  store i16 %308, ptr %298, align 2
-  br label %358
+  %303 = select i1 %301, float %.val515, float %.sroa.gep410.val516
+  %304 = call float @llvm.fmuladd.f32(float %.sink, float %302, float %303)
+  %305 = call float @avifRoundf(float noundef %304) #10
+  %.0.i352 = fptosi float %305 to i32
+  %306 = icmp slt i32 %.0.i352, 0
+  %307 = load i32, ptr %141, align 4
+  %..0.i353 = call i32 @llvm.smin.i32(i32 %307, i32 %.0.i352)
+  %308 = trunc i32 %..0.i353 to i16
+  %309 = select i1 %306, i16 0, i16 %308
+  store i16 %309, ptr %299, align 2
+  br label %359
 
 avifYUVColorSpaceInfoYToUNorm.exit356:            ; preds = %253
-  %309 = load float, ptr %139, align 4
-  %310 = load float, ptr %140, align 4
-  %311 = call float @llvm.fmuladd.f32(float %255, float %309, float %310)
-  %312 = call float @avifRoundf(float noundef %311) #10
-  %313 = fptosi float %312 to i32
-  %314 = icmp slt i32 %313, 0
-  %315 = load i32, ptr %141, align 4
-  %..i355 = call i32 @llvm.smin.i32(i32 %315, i32 %313)
-  %316 = trunc i32 %..i355 to i8
-  %317 = select i1 %314, i8 0, i8 %316
-  %318 = load ptr, ptr %125, align 8
-  %319 = load i32, ptr %126, align 8
-  %320 = mul i32 %319, %157
-  %321 = add i32 %320, %160
-  %322 = zext i32 %321 to i64
-  %323 = getelementptr inbounds nuw i8, ptr %318, i64 %322
-  store i8 %317, ptr %323, align 1
-  %324 = load i32, ptr %142, align 4
-  %325 = icmp eq i32 %324, 1
-  br i1 %325, label %avifYUVColorSpaceInfoUVToUNorm.exit361, label %358
+  %310 = load float, ptr %139, align 4
+  %311 = load float, ptr %140, align 4
+  %312 = call float @llvm.fmuladd.f32(float %255, float %310, float %311)
+  %313 = call float @avifRoundf(float noundef %312) #10
+  %314 = fptosi float %313 to i32
+  %315 = icmp slt i32 %314, 0
+  %316 = load i32, ptr %141, align 4
+  %..i355 = call i32 @llvm.smin.i32(i32 %316, i32 %314)
+  %317 = trunc i32 %..i355 to i8
+  %318 = select i1 %315, i8 0, i8 %317
+  %319 = load ptr, ptr %125, align 8
+  %320 = load i32, ptr %126, align 8
+  %321 = mul i32 %320, %157
+  %322 = add i32 %321, %160
+  %323 = zext i32 %322 to i64
+  %324 = getelementptr inbounds nuw i8, ptr %319, i64 %323
+  store i8 %318, ptr %324, align 1
+  %325 = load i32, ptr %142, align 4
+  %326 = icmp eq i32 %325, 1
+  br i1 %326, label %avifYUVColorSpaceInfoUVToUNorm.exit361, label %359
 
 avifYUVColorSpaceInfoUVToUNorm.exit361:           ; preds = %avifYUVColorSpaceInfoYToUNorm.exit356
-  %326 = load i32, ptr %79, align 4
-  %327 = icmp eq i32 %326, 1
+  %327 = load i32, ptr %79, align 4
+  %328 = icmp eq i32 %327, 1
   %.val = load float, ptr %139, align 4
   %.sroa.gep416.val = load float, ptr %.sroa.gep416, align 4
-  %328 = select i1 %327, float %.val, float %.sroa.gep416.val
+  %329 = select i1 %328, float %.val, float %.sroa.gep416.val
   %.val506 = load float, ptr %140, align 4
   %.sroa.gep418.val = load float, ptr %.sroa.gep418, align 4
-  %329 = select i1 %327, float %.val506, float %.sroa.gep418.val
-  %330 = call float @llvm.fmuladd.f32(float %254, float %328, float %329)
-  %331 = call float @avifRoundf(float noundef %330) #10
-  %.0.i359 = fptosi float %331 to i32
-  %332 = icmp slt i32 %.0.i359, 0
-  %333 = load i32, ptr %141, align 4
-  %..0.i360 = call i32 @llvm.smin.i32(i32 %333, i32 %.0.i359)
-  %334 = trunc i32 %..0.i360 to i8
-  %335 = select i1 %332, i8 0, i8 %334
-  %336 = load ptr, ptr %143, align 8
-  %337 = load i32, ptr %144, align 4
-  %338 = mul i32 %337, %157
-  %339 = add i32 %338, %160
-  %340 = zext i32 %339 to i64
-  %341 = getelementptr inbounds nuw i8, ptr %336, i64 %340
-  store i8 %335, ptr %341, align 1
-  %342 = load i32, ptr %79, align 4
-  %343 = icmp eq i32 %342, 1
+  %330 = select i1 %328, float %.val506, float %.sroa.gep418.val
+  %331 = call float @llvm.fmuladd.f32(float %254, float %329, float %330)
+  %332 = call float @avifRoundf(float noundef %331) #10
+  %.0.i359 = fptosi float %332 to i32
+  %333 = icmp slt i32 %.0.i359, 0
+  %334 = load i32, ptr %141, align 4
+  %..0.i360 = call i32 @llvm.smin.i32(i32 %334, i32 %.0.i359)
+  %335 = trunc i32 %..0.i360 to i8
+  %336 = select i1 %333, i8 0, i8 %335
+  %337 = load ptr, ptr %143, align 8
+  %338 = load i32, ptr %144, align 4
+  %339 = mul i32 %338, %157
+  %340 = add i32 %339, %160
+  %341 = zext i32 %340 to i64
+  %342 = getelementptr inbounds nuw i8, ptr %337, i64 %341
+  store i8 %336, ptr %342, align 1
+  %343 = load i32, ptr %79, align 4
+  %344 = icmp eq i32 %343, 1
   %.val507 = load float, ptr %139, align 4
   %.sroa.gep416.val508 = load float, ptr %.sroa.gep416, align 4
-  %344 = select i1 %343, float %.val507, float %.sroa.gep416.val508
+  %345 = select i1 %344, float %.val507, float %.sroa.gep416.val508
   %.val509 = load float, ptr %140, align 4
   %.sroa.gep418.val510 = load float, ptr %.sroa.gep418, align 4
-  %345 = select i1 %343, float %.val509, float %.sroa.gep418.val510
-  %346 = call float @llvm.fmuladd.f32(float %.sink, float %344, float %345)
-  %347 = call float @avifRoundf(float noundef %346) #10
-  %.0.i364 = fptosi float %347 to i32
-  %348 = icmp slt i32 %.0.i364, 0
-  %349 = load i32, ptr %141, align 4
-  %..0.i365 = call i32 @llvm.smin.i32(i32 %349, i32 %.0.i364)
-  %350 = trunc i32 %..0.i365 to i8
-  %351 = select i1 %348, i8 0, i8 %350
-  %352 = load ptr, ptr %145, align 8
-  %353 = load i32, ptr %146, align 8
-  %354 = mul i32 %353, %157
-  %355 = add i32 %354, %160
-  %356 = zext i32 %355 to i64
-  %357 = getelementptr inbounds nuw i8, ptr %352, i64 %356
-  store i8 %351, ptr %357, align 1
-  br label %358
+  %346 = select i1 %344, float %.val509, float %.sroa.gep418.val510
+  %347 = call float @llvm.fmuladd.f32(float %.sink, float %345, float %346)
+  %348 = call float @avifRoundf(float noundef %347) #10
+  %.0.i364 = fptosi float %348 to i32
+  %349 = icmp slt i32 %.0.i364, 0
+  %350 = load i32, ptr %141, align 4
+  %..0.i365 = call i32 @llvm.smin.i32(i32 %350, i32 %.0.i364)
+  %351 = trunc i32 %..0.i365 to i8
+  %352 = select i1 %349, i8 0, i8 %351
+  %353 = load ptr, ptr %145, align 8
+  %354 = load i32, ptr %146, align 8
+  %355 = mul i32 %354, %157
+  %356 = add i32 %355, %160
+  %357 = zext i32 %356 to i64
+  %358 = getelementptr inbounds nuw i8, ptr %353, i64 %357
+  store i8 %352, ptr %358, align 1
+  br label %359
 
-358:                                              ; preds = %avifYUVColorSpaceInfoUVToUNorm.exit, %avifYUVColorSpaceInfoYToUNorm.exit, %avifYUVColorSpaceInfoUVToUNorm.exit361, %avifYUVColorSpaceInfoYToUNorm.exit356
+359:                                              ; preds = %avifYUVColorSpaceInfoUVToUNorm.exit, %avifYUVColorSpaceInfoYToUNorm.exit, %avifYUVColorSpaceInfoUVToUNorm.exit361, %avifYUVColorSpaceInfoYToUNorm.exit356
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %359, label %158, !llvm.loop !4
-
-359:                                              ; preds = %358
-  %indvars.iv.next558 = add nuw nsw i64 %indvars.iv557, 1
-  %exitcond562.not = icmp eq i64 %indvars.iv.next558, %wide.trip.count561
-  br i1 %exitcond562.not, label %360, label %.preheader518, !llvm.loop !6
+  br i1 %exitcond.not, label %360, label %158, !llvm.loop !4
 
 360:                                              ; preds = %359
-  %361 = load i32, ptr %142, align 4
-  switch i32 %361, label %.loopexit [
+  %indvars.iv.next558 = add nuw nsw i64 %indvars.iv557, 1
+  %exitcond562.not = icmp eq i64 %indvars.iv.next558, %wide.trip.count561
+  br i1 %exitcond562.not, label %361, label %.preheader518, !llvm.loop !6
+
+361:                                              ; preds = %360
+  %362 = load i32, ptr %142, align 4
+  switch i32 %362, label %.loopexit [
     i32 2, label %.preheader519
     i32 3, label %.preheader517
   ]
 
-.preheader519:                                    ; preds = %360
-  %362 = uitofp nneg i32 %spec.select347 to float
-  %363 = lshr exact i32 %.0300547, 1
+.preheader519:                                    ; preds = %361
+  %363 = uitofp nneg i32 %spec.select347 to float
+  %364 = lshr exact i32 %.0300547, 1
   br label %.preheader
 
-.preheader517:                                    ; preds = %360, %371
-  %indvars.iv568 = phi i64 [ %indvars.iv.next569, %371 ], [ 0, %360 ]
-  %.0310540 = phi float [ %367, %371 ], [ 0.000000e+00, %360 ]
-  %.0312539 = phi float [ %370, %371 ], [ 0.000000e+00, %360 ]
+.preheader517:                                    ; preds = %361, %372
+  %indvars.iv568 = phi i64 [ %indvars.iv.next569, %372 ], [ 0, %361 ]
+  %.0310540 = phi float [ %368, %372 ], [ 0.000000e+00, %361 ]
+  %.0312539 = phi float [ %371, %372 ], [ 0.000000e+00, %361 ]
   %invariant.gep533 = getelementptr inbounds nuw %struct.YUVBlock, ptr %4, i64 %indvars.iv568
-  br label %364
+  br label %365
 
-364:                                              ; preds = %.preheader517, %364
-  %indvars.iv563 = phi i64 [ 0, %.preheader517 ], [ %indvars.iv.next564, %364 ]
-  %.1311537 = phi float [ %.0310540, %.preheader517 ], [ %367, %364 ]
-  %.1313536 = phi float [ %.0312539, %.preheader517 ], [ %370, %364 ]
+365:                                              ; preds = %.preheader517, %365
+  %indvars.iv563 = phi i64 [ 0, %.preheader517 ], [ %indvars.iv.next564, %365 ]
+  %.1311537 = phi float [ %.0310540, %.preheader517 ], [ %368, %365 ]
+  %.1313536 = phi float [ %.0312539, %.preheader517 ], [ %371, %365 ]
   %gep534 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep533, i64 %indvars.iv563
-  %365 = getelementptr inbounds nuw i8, ptr %gep534, i64 4
-  %366 = load float, ptr %365, align 4
-  %367 = fadd float %.1311537, %366
-  %368 = getelementptr inbounds nuw i8, ptr %gep534, i64 8
-  %369 = load float, ptr %368, align 4
-  %370 = fadd float %.1313536, %369
+  %366 = getelementptr inbounds nuw i8, ptr %gep534, i64 4
+  %367 = load float, ptr %366, align 4
+  %368 = fadd float %.1311537, %367
+  %369 = getelementptr inbounds nuw i8, ptr %gep534, i64 8
+  %370 = load float, ptr %369, align 4
+  %371 = fadd float %.1313536, %370
   %indvars.iv.next564 = add nuw nsw i64 %indvars.iv563, 1
   %exitcond567.not = icmp eq i64 %indvars.iv.next564, %wide.trip.count
-  br i1 %exitcond567.not, label %371, label %364, !llvm.loop !7
+  br i1 %exitcond567.not, label %372, label %365, !llvm.loop !7
 
-371:                                              ; preds = %364
+372:                                              ; preds = %365
   %indvars.iv.next569 = add nuw nsw i64 %indvars.iv568, 1
   %exitcond572.not = icmp eq i64 %indvars.iv.next569, %wide.trip.count561
-  br i1 %exitcond572.not, label %372, label %.preheader517, !llvm.loop !8
+  br i1 %exitcond572.not, label %373, label %.preheader517, !llvm.loop !8
 
-372:                                              ; preds = %371
-  %373 = zext i1 %.not335 to i32
-  %374 = shl nuw nsw i32 %.0306, %373
-  %375 = uitofp nneg i32 %374 to float
-  %376 = fdiv float %367, %375
-  %377 = fdiv float %370, %375
-  %378 = load i32, ptr %129, align 4
-  %379 = icmp ugt i32 %378, 1
-  br i1 %379, label %avifYUVColorSpaceInfoUVToUNorm.exit371, label %avifYUVColorSpaceInfoUVToUNorm.exit381
+373:                                              ; preds = %372
+  %374 = zext i1 %.not335 to i32
+  %375 = shl nuw nsw i32 %.0306, %374
+  %376 = uitofp nneg i32 %375 to float
+  %377 = fdiv float %368, %376
+  %378 = fdiv float %371, %376
+  %379 = load i32, ptr %129, align 4
+  %380 = icmp ugt i32 %379, 1
+  br i1 %380, label %avifYUVColorSpaceInfoUVToUNorm.exit371, label %avifYUVColorSpaceInfoUVToUNorm.exit381
 
-avifYUVColorSpaceInfoUVToUNorm.exit371:           ; preds = %372
-  %380 = load ptr, ptr %143, align 8
-  %381 = load i32, ptr %144, align 4
-  %382 = mul i32 %381, %151
-  %383 = add i32 %382, %.0300547
-  %384 = zext i32 %383 to i64
-  %385 = getelementptr inbounds nuw i8, ptr %380, i64 %384
-  %386 = load i32, ptr %79, align 4
-  %387 = icmp eq i32 %386, 1
+avifYUVColorSpaceInfoUVToUNorm.exit371:           ; preds = %373
+  %381 = load ptr, ptr %143, align 8
+  %382 = load i32, ptr %144, align 4
+  %383 = mul i32 %382, %151
+  %384 = add i32 %383, %.0300547
+  %385 = zext i32 %384 to i64
+  %386 = getelementptr inbounds nuw i8, ptr %381, i64 %385
+  %387 = load i32, ptr %79, align 4
+  %388 = icmp eq i32 %387, 1
   %.sroa.gep423.val = load float, ptr %139, align 4
   %.sroa.gep424.val = load float, ptr %.sroa.gep416, align 4
-  %388 = select i1 %387, float %.sroa.gep423.val, float %.sroa.gep424.val
+  %389 = select i1 %388, float %.sroa.gep423.val, float %.sroa.gep424.val
   %.sroa.gep425.val = load float, ptr %140, align 4
   %.sroa.gep426.val = load float, ptr %.sroa.gep418, align 4
-  %389 = select i1 %387, float %.sroa.gep425.val, float %.sroa.gep426.val
-  %390 = call float @llvm.fmuladd.f32(float %376, float %388, float %389)
-  %391 = call float @avifRoundf(float noundef %390) #10
-  %.0.i369 = fptosi float %391 to i32
-  %392 = icmp slt i32 %.0.i369, 0
-  %393 = load i32, ptr %141, align 4
-  %..0.i370 = call i32 @llvm.smin.i32(i32 %393, i32 %.0.i369)
-  %394 = trunc i32 %..0.i370 to i16
-  %395 = select i1 %392, i16 0, i16 %394
-  store i16 %395, ptr %385, align 2
-  %396 = load ptr, ptr %145, align 8
-  %397 = load i32, ptr %146, align 8
-  %398 = mul i32 %397, %151
-  %399 = add i32 %398, %.0300547
-  %400 = zext i32 %399 to i64
-  %401 = getelementptr inbounds nuw i8, ptr %396, i64 %400
-  %402 = load i32, ptr %79, align 4
-  %403 = icmp eq i32 %402, 1
+  %390 = select i1 %388, float %.sroa.gep425.val, float %.sroa.gep426.val
+  %391 = call float @llvm.fmuladd.f32(float %377, float %389, float %390)
+  %392 = call float @avifRoundf(float noundef %391) #10
+  %.0.i369 = fptosi float %392 to i32
+  %393 = icmp slt i32 %.0.i369, 0
+  %394 = load i32, ptr %141, align 4
+  %..0.i370 = call i32 @llvm.smin.i32(i32 %394, i32 %.0.i369)
+  %395 = trunc i32 %..0.i370 to i16
+  %396 = select i1 %393, i16 0, i16 %395
+  store i16 %396, ptr %386, align 2
+  %397 = load ptr, ptr %145, align 8
+  %398 = load i32, ptr %146, align 8
+  %399 = mul i32 %398, %151
+  %400 = add i32 %399, %.0300547
+  %401 = zext i32 %400 to i64
+  %402 = getelementptr inbounds nuw i8, ptr %397, i64 %401
+  %403 = load i32, ptr %79, align 4
+  %404 = icmp eq i32 %403, 1
   %.sroa.gep423.val494 = load float, ptr %139, align 4
   %.sroa.gep424.val495 = load float, ptr %.sroa.gep416, align 4
-  %404 = select i1 %403, float %.sroa.gep423.val494, float %.sroa.gep424.val495
+  %405 = select i1 %404, float %.sroa.gep423.val494, float %.sroa.gep424.val495
   %.sroa.gep425.val496 = load float, ptr %140, align 4
   %.sroa.gep426.val497 = load float, ptr %.sroa.gep418, align 4
-  %405 = select i1 %403, float %.sroa.gep425.val496, float %.sroa.gep426.val497
-  %406 = call float @llvm.fmuladd.f32(float %377, float %404, float %405)
-  %407 = call float @avifRoundf(float noundef %406) #10
-  %.0.i374 = fptosi float %407 to i32
-  %408 = icmp slt i32 %.0.i374, 0
-  %409 = load i32, ptr %141, align 4
-  %..0.i375 = call i32 @llvm.smin.i32(i32 %409, i32 %.0.i374)
-  %410 = trunc i32 %..0.i375 to i16
-  %411 = select i1 %408, i16 0, i16 %410
-  store i16 %411, ptr %401, align 2
+  %406 = select i1 %404, float %.sroa.gep425.val496, float %.sroa.gep426.val497
+  %407 = call float @llvm.fmuladd.f32(float %378, float %405, float %406)
+  %408 = call float @avifRoundf(float noundef %407) #10
+  %.0.i374 = fptosi float %408 to i32
+  %409 = icmp slt i32 %.0.i374, 0
+  %410 = load i32, ptr %141, align 4
+  %..0.i375 = call i32 @llvm.smin.i32(i32 %410, i32 %.0.i374)
+  %411 = trunc i32 %..0.i375 to i16
+  %412 = select i1 %409, i16 0, i16 %411
+  store i16 %412, ptr %402, align 2
   br label %.loopexit
 
-avifYUVColorSpaceInfoUVToUNorm.exit381:           ; preds = %372
-  %412 = lshr exact i32 %.0300547, 1
-  %413 = load i32, ptr %79, align 4
-  %414 = icmp eq i32 %413, 1
+avifYUVColorSpaceInfoUVToUNorm.exit381:           ; preds = %373
+  %413 = lshr exact i32 %.0300547, 1
+  %414 = load i32, ptr %79, align 4
+  %415 = icmp eq i32 %414, 1
   %.sroa.gep431.val = load float, ptr %139, align 4
   %.sroa.gep432.val = load float, ptr %.sroa.gep416, align 4
-  %415 = select i1 %414, float %.sroa.gep431.val, float %.sroa.gep432.val
+  %416 = select i1 %415, float %.sroa.gep431.val, float %.sroa.gep432.val
   %.sroa.gep433.val = load float, ptr %140, align 4
   %.sroa.gep434.val = load float, ptr %.sroa.gep418, align 4
-  %416 = select i1 %414, float %.sroa.gep433.val, float %.sroa.gep434.val
-  %417 = call float @llvm.fmuladd.f32(float %376, float %415, float %416)
-  %418 = call float @avifRoundf(float noundef %417) #10
-  %.0.i379 = fptosi float %418 to i32
-  %419 = icmp slt i32 %.0.i379, 0
-  %420 = load i32, ptr %141, align 4
-  %..0.i380 = call i32 @llvm.smin.i32(i32 %420, i32 %.0.i379)
-  %421 = trunc i32 %..0.i380 to i8
-  %422 = select i1 %419, i8 0, i8 %421
-  %423 = load ptr, ptr %143, align 8
-  %424 = load i32, ptr %144, align 4
-  %425 = mul i32 %424, %151
-  %426 = add i32 %425, %412
-  %427 = zext i32 %426 to i64
-  %428 = getelementptr inbounds nuw i8, ptr %423, i64 %427
-  store i8 %422, ptr %428, align 1
-  %429 = load i32, ptr %79, align 4
-  %430 = icmp eq i32 %429, 1
+  %417 = select i1 %415, float %.sroa.gep433.val, float %.sroa.gep434.val
+  %418 = call float @llvm.fmuladd.f32(float %377, float %416, float %417)
+  %419 = call float @avifRoundf(float noundef %418) #10
+  %.0.i379 = fptosi float %419 to i32
+  %420 = icmp slt i32 %.0.i379, 0
+  %421 = load i32, ptr %141, align 4
+  %..0.i380 = call i32 @llvm.smin.i32(i32 %421, i32 %.0.i379)
+  %422 = trunc i32 %..0.i380 to i8
+  %423 = select i1 %420, i8 0, i8 %422
+  %424 = load ptr, ptr %143, align 8
+  %425 = load i32, ptr %144, align 4
+  %426 = mul i32 %425, %151
+  %427 = add i32 %426, %413
+  %428 = zext i32 %427 to i64
+  %429 = getelementptr inbounds nuw i8, ptr %424, i64 %428
+  store i8 %423, ptr %429, align 1
+  %430 = load i32, ptr %79, align 4
+  %431 = icmp eq i32 %430, 1
   %.sroa.gep431.val490 = load float, ptr %139, align 4
   %.sroa.gep432.val491 = load float, ptr %.sroa.gep416, align 4
-  %431 = select i1 %430, float %.sroa.gep431.val490, float %.sroa.gep432.val491
+  %432 = select i1 %431, float %.sroa.gep431.val490, float %.sroa.gep432.val491
   %.sroa.gep433.val492 = load float, ptr %140, align 4
   %.sroa.gep434.val493 = load float, ptr %.sroa.gep418, align 4
-  %432 = select i1 %430, float %.sroa.gep433.val492, float %.sroa.gep434.val493
-  %433 = call float @llvm.fmuladd.f32(float %377, float %431, float %432)
-  %434 = call float @avifRoundf(float noundef %433) #10
-  %.0.i384 = fptosi float %434 to i32
-  %435 = icmp slt i32 %.0.i384, 0
-  %436 = load i32, ptr %141, align 4
-  %..0.i385 = call i32 @llvm.smin.i32(i32 %436, i32 %.0.i384)
-  %437 = trunc i32 %..0.i385 to i8
-  %438 = select i1 %435, i8 0, i8 %437
-  %439 = load ptr, ptr %145, align 8
-  %440 = load i32, ptr %146, align 8
-  %441 = mul i32 %440, %151
-  %442 = add i32 %441, %412
-  %443 = zext i32 %442 to i64
-  %444 = getelementptr inbounds nuw i8, ptr %439, i64 %443
-  store i8 %438, ptr %444, align 1
+  %433 = select i1 %431, float %.sroa.gep433.val492, float %.sroa.gep434.val493
+  %434 = call float @llvm.fmuladd.f32(float %378, float %432, float %433)
+  %435 = call float @avifRoundf(float noundef %434) #10
+  %.0.i384 = fptosi float %435 to i32
+  %436 = icmp slt i32 %.0.i384, 0
+  %437 = load i32, ptr %141, align 4
+  %..0.i385 = call i32 @llvm.smin.i32(i32 %437, i32 %.0.i384)
+  %438 = trunc i32 %..0.i385 to i8
+  %439 = select i1 %436, i8 0, i8 %438
+  %440 = load ptr, ptr %145, align 8
+  %441 = load i32, ptr %146, align 8
+  %442 = mul i32 %441, %151
+  %443 = add i32 %442, %413
+  %444 = zext i32 %443 to i64
+  %445 = getelementptr inbounds nuw i8, ptr %440, i64 %444
+  store i8 %439, ptr %445, align 1
   br label %.loopexit
 
-.preheader:                                       ; preds = %.preheader519, %523
-  %indvars.iv578 = phi i64 [ 0, %.preheader519 ], [ %indvars.iv.next579, %523 ]
+.preheader:                                       ; preds = %.preheader519, %524
+  %indvars.iv578 = phi i64 [ 0, %.preheader519 ], [ %indvars.iv.next579, %524 ]
   %invariant.gep541 = getelementptr inbounds nuw %struct.YUVBlock, ptr %4, i64 %indvars.iv578
-  br label %445
+  br label %446
 
-445:                                              ; preds = %.preheader, %445
-  %indvars.iv573 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next574, %445 ]
-  %.0302544 = phi float [ 0.000000e+00, %.preheader ], [ %451, %445 ]
-  %.0303543 = phi float [ 0.000000e+00, %.preheader ], [ %448, %445 ]
+446:                                              ; preds = %.preheader, %446
+  %indvars.iv573 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next574, %446 ]
+  %.0302544 = phi float [ 0.000000e+00, %.preheader ], [ %452, %446 ]
+  %.0303543 = phi float [ 0.000000e+00, %.preheader ], [ %449, %446 ]
   %gep542 = getelementptr inbounds nuw [2 x %struct.YUVBlock], ptr %invariant.gep541, i64 %indvars.iv573
-  %446 = getelementptr inbounds nuw i8, ptr %gep542, i64 4
-  %447 = load float, ptr %446, align 4
-  %448 = fadd float %.0303543, %447
-  %449 = getelementptr inbounds nuw i8, ptr %gep542, i64 8
-  %450 = load float, ptr %449, align 4
-  %451 = fadd float %.0302544, %450
+  %447 = getelementptr inbounds nuw i8, ptr %gep542, i64 4
+  %448 = load float, ptr %447, align 4
+  %449 = fadd float %.0303543, %448
+  %450 = getelementptr inbounds nuw i8, ptr %gep542, i64 8
+  %451 = load float, ptr %450, align 4
+  %452 = fadd float %.0302544, %451
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
   %exitcond577.not = icmp eq i64 %indvars.iv.next574, %wide.trip.count
-  br i1 %exitcond577.not, label %452, label %445, !llvm.loop !9
+  br i1 %exitcond577.not, label %453, label %446, !llvm.loop !9
 
-452:                                              ; preds = %445
-  %453 = fdiv float %448, %362
-  %454 = fdiv float %451, %362
-  %455 = trunc nuw nsw i64 %indvars.iv578 to i32
-  %456 = add i32 %.0299548, %455
-  %457 = load i32, ptr %129, align 4
-  %458 = icmp ugt i32 %457, 1
-  br i1 %458, label %avifYUVColorSpaceInfoUVToUNorm.exit391, label %avifYUVColorSpaceInfoUVToUNorm.exit401
+453:                                              ; preds = %446
+  %454 = fdiv float %449, %363
+  %455 = fdiv float %452, %363
+  %456 = trunc nuw nsw i64 %indvars.iv578 to i32
+  %457 = add i32 %.0299548, %456
+  %458 = load i32, ptr %129, align 4
+  %459 = icmp ugt i32 %458, 1
+  br i1 %459, label %avifYUVColorSpaceInfoUVToUNorm.exit391, label %avifYUVColorSpaceInfoUVToUNorm.exit401
 
-avifYUVColorSpaceInfoUVToUNorm.exit391:           ; preds = %452
-  %459 = load ptr, ptr %143, align 8
-  %460 = load i32, ptr %144, align 4
-  %461 = mul i32 %460, %456
-  %462 = add i32 %461, %.0300547
-  %463 = zext i32 %462 to i64
-  %464 = getelementptr inbounds nuw i8, ptr %459, i64 %463
-  %465 = load i32, ptr %79, align 4
-  %466 = icmp eq i32 %465, 1
+avifYUVColorSpaceInfoUVToUNorm.exit391:           ; preds = %453
+  %460 = load ptr, ptr %143, align 8
+  %461 = load i32, ptr %144, align 4
+  %462 = mul i32 %461, %457
+  %463 = add i32 %462, %.0300547
+  %464 = zext i32 %463 to i64
+  %465 = getelementptr inbounds nuw i8, ptr %460, i64 %464
+  %466 = load i32, ptr %79, align 4
+  %467 = icmp eq i32 %466, 1
   %.sroa.gep439.val = load float, ptr %139, align 4
   %.sroa.gep440.val = load float, ptr %.sroa.gep416, align 4
-  %467 = select i1 %466, float %.sroa.gep439.val, float %.sroa.gep440.val
+  %468 = select i1 %467, float %.sroa.gep439.val, float %.sroa.gep440.val
   %.sroa.gep441.val = load float, ptr %140, align 4
   %.sroa.gep442.val = load float, ptr %.sroa.gep418, align 4
-  %468 = select i1 %466, float %.sroa.gep441.val, float %.sroa.gep442.val
-  %469 = call float @llvm.fmuladd.f32(float %453, float %467, float %468)
-  %470 = call float @avifRoundf(float noundef %469) #10
-  %.0.i389 = fptosi float %470 to i32
-  %471 = icmp slt i32 %.0.i389, 0
-  %472 = load i32, ptr %141, align 4
-  %..0.i390 = call i32 @llvm.smin.i32(i32 %472, i32 %.0.i389)
-  %473 = trunc i32 %..0.i390 to i16
-  %474 = select i1 %471, i16 0, i16 %473
-  store i16 %474, ptr %464, align 2
-  %475 = load ptr, ptr %145, align 8
-  %476 = load i32, ptr %146, align 8
-  %477 = mul i32 %476, %456
-  %478 = add i32 %477, %.0300547
-  %479 = zext i32 %478 to i64
-  %480 = getelementptr inbounds nuw i8, ptr %475, i64 %479
-  %481 = load i32, ptr %79, align 4
-  %482 = icmp eq i32 %481, 1
+  %469 = select i1 %467, float %.sroa.gep441.val, float %.sroa.gep442.val
+  %470 = call float @llvm.fmuladd.f32(float %454, float %468, float %469)
+  %471 = call float @avifRoundf(float noundef %470) #10
+  %.0.i389 = fptosi float %471 to i32
+  %472 = icmp slt i32 %.0.i389, 0
+  %473 = load i32, ptr %141, align 4
+  %..0.i390 = call i32 @llvm.smin.i32(i32 %473, i32 %.0.i389)
+  %474 = trunc i32 %..0.i390 to i16
+  %475 = select i1 %472, i16 0, i16 %474
+  store i16 %475, ptr %465, align 2
+  %476 = load ptr, ptr %145, align 8
+  %477 = load i32, ptr %146, align 8
+  %478 = mul i32 %477, %457
+  %479 = add i32 %478, %.0300547
+  %480 = zext i32 %479 to i64
+  %481 = getelementptr inbounds nuw i8, ptr %476, i64 %480
+  %482 = load i32, ptr %79, align 4
+  %483 = icmp eq i32 %482, 1
   %.sroa.gep439.val502 = load float, ptr %139, align 4
   %.sroa.gep440.val503 = load float, ptr %.sroa.gep416, align 4
-  %483 = select i1 %482, float %.sroa.gep439.val502, float %.sroa.gep440.val503
+  %484 = select i1 %483, float %.sroa.gep439.val502, float %.sroa.gep440.val503
   %.sroa.gep441.val504 = load float, ptr %140, align 4
   %.sroa.gep442.val505 = load float, ptr %.sroa.gep418, align 4
-  %484 = select i1 %482, float %.sroa.gep441.val504, float %.sroa.gep442.val505
-  %485 = call float @llvm.fmuladd.f32(float %454, float %483, float %484)
-  %486 = call float @avifRoundf(float noundef %485) #10
-  %.0.i394 = fptosi float %486 to i32
-  %487 = icmp slt i32 %.0.i394, 0
-  %488 = load i32, ptr %141, align 4
-  %..0.i395 = call i32 @llvm.smin.i32(i32 %488, i32 %.0.i394)
-  %489 = trunc i32 %..0.i395 to i16
-  %490 = select i1 %487, i16 0, i16 %489
-  store i16 %490, ptr %480, align 2
-  br label %523
+  %485 = select i1 %483, float %.sroa.gep441.val504, float %.sroa.gep442.val505
+  %486 = call float @llvm.fmuladd.f32(float %455, float %484, float %485)
+  %487 = call float @avifRoundf(float noundef %486) #10
+  %.0.i394 = fptosi float %487 to i32
+  %488 = icmp slt i32 %.0.i394, 0
+  %489 = load i32, ptr %141, align 4
+  %..0.i395 = call i32 @llvm.smin.i32(i32 %489, i32 %.0.i394)
+  %490 = trunc i32 %..0.i395 to i16
+  %491 = select i1 %488, i16 0, i16 %490
+  store i16 %491, ptr %481, align 2
+  br label %524
 
-avifYUVColorSpaceInfoUVToUNorm.exit401:           ; preds = %452
-  %491 = load i32, ptr %79, align 4
-  %492 = icmp eq i32 %491, 1
+avifYUVColorSpaceInfoUVToUNorm.exit401:           ; preds = %453
+  %492 = load i32, ptr %79, align 4
+  %493 = icmp eq i32 %492, 1
   %.sroa.gep447.val = load float, ptr %139, align 4
   %.sroa.gep448.val = load float, ptr %.sroa.gep416, align 4
-  %493 = select i1 %492, float %.sroa.gep447.val, float %.sroa.gep448.val
+  %494 = select i1 %493, float %.sroa.gep447.val, float %.sroa.gep448.val
   %.sroa.gep449.val = load float, ptr %140, align 4
   %.sroa.gep450.val = load float, ptr %.sroa.gep418, align 4
-  %494 = select i1 %492, float %.sroa.gep449.val, float %.sroa.gep450.val
-  %495 = call float @llvm.fmuladd.f32(float %453, float %493, float %494)
-  %496 = call float @avifRoundf(float noundef %495) #10
-  %.0.i399 = fptosi float %496 to i32
-  %497 = icmp slt i32 %.0.i399, 0
-  %498 = load i32, ptr %141, align 4
-  %..0.i400 = call i32 @llvm.smin.i32(i32 %498, i32 %.0.i399)
-  %499 = trunc i32 %..0.i400 to i8
-  %500 = select i1 %497, i8 0, i8 %499
-  %501 = load ptr, ptr %143, align 8
-  %502 = load i32, ptr %144, align 4
-  %503 = mul i32 %502, %456
-  %504 = add i32 %503, %363
-  %505 = zext i32 %504 to i64
-  %506 = getelementptr inbounds nuw i8, ptr %501, i64 %505
-  store i8 %500, ptr %506, align 1
-  %507 = load i32, ptr %79, align 4
-  %508 = icmp eq i32 %507, 1
+  %495 = select i1 %493, float %.sroa.gep449.val, float %.sroa.gep450.val
+  %496 = call float @llvm.fmuladd.f32(float %454, float %494, float %495)
+  %497 = call float @avifRoundf(float noundef %496) #10
+  %.0.i399 = fptosi float %497 to i32
+  %498 = icmp slt i32 %.0.i399, 0
+  %499 = load i32, ptr %141, align 4
+  %..0.i400 = call i32 @llvm.smin.i32(i32 %499, i32 %.0.i399)
+  %500 = trunc i32 %..0.i400 to i8
+  %501 = select i1 %498, i8 0, i8 %500
+  %502 = load ptr, ptr %143, align 8
+  %503 = load i32, ptr %144, align 4
+  %504 = mul i32 %503, %457
+  %505 = add i32 %504, %364
+  %506 = zext i32 %505 to i64
+  %507 = getelementptr inbounds nuw i8, ptr %502, i64 %506
+  store i8 %501, ptr %507, align 1
+  %508 = load i32, ptr %79, align 4
+  %509 = icmp eq i32 %508, 1
   %.sroa.gep447.val498 = load float, ptr %139, align 4
   %.sroa.gep448.val499 = load float, ptr %.sroa.gep416, align 4
-  %509 = select i1 %508, float %.sroa.gep447.val498, float %.sroa.gep448.val499
+  %510 = select i1 %509, float %.sroa.gep447.val498, float %.sroa.gep448.val499
   %.sroa.gep449.val500 = load float, ptr %140, align 4
   %.sroa.gep450.val501 = load float, ptr %.sroa.gep418, align 4
-  %510 = select i1 %508, float %.sroa.gep449.val500, float %.sroa.gep450.val501
-  %511 = call float @llvm.fmuladd.f32(float %454, float %509, float %510)
-  %512 = call float @avifRoundf(float noundef %511) #10
-  %.0.i404 = fptosi float %512 to i32
-  %513 = icmp slt i32 %.0.i404, 0
-  %514 = load i32, ptr %141, align 4
-  %..0.i405 = call i32 @llvm.smin.i32(i32 %514, i32 %.0.i404)
-  %515 = trunc i32 %..0.i405 to i8
-  %516 = select i1 %513, i8 0, i8 %515
-  %517 = load ptr, ptr %145, align 8
-  %518 = load i32, ptr %146, align 8
-  %519 = mul i32 %518, %456
-  %520 = add i32 %519, %363
-  %521 = zext i32 %520 to i64
-  %522 = getelementptr inbounds nuw i8, ptr %517, i64 %521
-  store i8 %516, ptr %522, align 1
-  br label %523
+  %511 = select i1 %509, float %.sroa.gep449.val500, float %.sroa.gep450.val501
+  %512 = call float @llvm.fmuladd.f32(float %455, float %510, float %511)
+  %513 = call float @avifRoundf(float noundef %512) #10
+  %.0.i404 = fptosi float %513 to i32
+  %514 = icmp slt i32 %.0.i404, 0
+  %515 = load i32, ptr %141, align 4
+  %..0.i405 = call i32 @llvm.smin.i32(i32 %515, i32 %.0.i404)
+  %516 = trunc i32 %..0.i405 to i8
+  %517 = select i1 %514, i8 0, i8 %516
+  %518 = load ptr, ptr %145, align 8
+  %519 = load i32, ptr %146, align 8
+  %520 = mul i32 %519, %457
+  %521 = add i32 %520, %364
+  %522 = zext i32 %521 to i64
+  %523 = getelementptr inbounds nuw i8, ptr %518, i64 %522
+  store i8 %517, ptr %523, align 1
+  br label %524
 
-523:                                              ; preds = %avifYUVColorSpaceInfoUVToUNorm.exit391, %avifYUVColorSpaceInfoUVToUNorm.exit401
+524:                                              ; preds = %avifYUVColorSpaceInfoUVToUNorm.exit391, %avifYUVColorSpaceInfoUVToUNorm.exit401
   %indvars.iv.next579 = add nuw nsw i64 %indvars.iv578, 1
   %exitcond582.not = icmp eq i64 %indvars.iv.next579, %wide.trip.count561
   br i1 %exitcond582.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
-.loopexit:                                        ; preds = %523, %360, %avifYUVColorSpaceInfoUVToUNorm.exit371, %avifYUVColorSpaceInfoUVToUNorm.exit381
-  %524 = add i32 %.0300547, 2
-  %525 = load i32, ptr %0, align 8
-  %526 = icmp ult i32 %524, %525
-  br i1 %526, label %152, label %._crit_edge.loopexit, !llvm.loop !11
+.loopexit:                                        ; preds = %524, %361, %avifYUVColorSpaceInfoUVToUNorm.exit371, %avifYUVColorSpaceInfoUVToUNorm.exit381
+  %525 = add i32 %.0300547, 2
+  %526 = load i32, ptr %0, align 8
+  %527 = icmp ult i32 %525, %526
+  br i1 %527, label %152, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load i32, ptr %127, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader521
-  %527 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %148, %.preheader521 ]
-  %528 = phi i32 [ %525, %._crit_edge.loopexit ], [ 0, %.preheader521 ]
-  %529 = add i32 %.0299548, 2
-  %530 = icmp ult i32 %529, %527
-  br i1 %530, label %.preheader521, label %.loopexit522, !llvm.loop !12
+  %528 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %148, %.preheader521 ]
+  %529 = phi i32 [ %526, %._crit_edge.loopexit ], [ 0, %.preheader521 ]
+  %530 = add i32 %.0299548, 2
+  %531 = icmp ult i32 %530, %528
+  br i1 %531, label %.preheader521, label %.loopexit522, !llvm.loop !12
 
 .loopexit522:                                     ; preds = %._crit_edge, %.preheader521.lr.ph, %.critedge346, %112, %117
-  %531 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %532 = load ptr, ptr %531, align 8
-  %.not341 = icmp eq ptr %532, null
-  br i1 %.not341, label %avifPrepareReformatState.exit.thread, label %533
+  %532 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %533 = load ptr, ptr %532, align 8
+  %.not341 = icmp eq ptr %533, null
+  br i1 %.not341, label %avifPrepareReformatState.exit.thread, label %534
 
-533:                                              ; preds = %.loopexit522
-  %534 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %535 = load i32, ptr %534, align 8
-  %.not342 = icmp eq i32 %535, 0
-  br i1 %.not342, label %avifPrepareReformatState.exit.thread, label %536
+534:                                              ; preds = %.loopexit522
+  %535 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %536 = load i32, ptr %535, align 8
+  %.not342 = icmp eq i32 %536, 0
+  br i1 %.not342, label %avifPrepareReformatState.exit.thread, label %537
 
-536:                                              ; preds = %533
-  %537 = load i32, ptr %0, align 8
-  store i32 %537, ptr %5, align 8
-  %538 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %539 = load i32, ptr %538, align 4
-  %540 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %539, ptr %540, align 4
-  %541 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %542 = load i32, ptr %541, align 8
-  %543 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 %542, ptr %543, align 4
-  %544 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %532, ptr %544, align 8
-  %545 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %535, ptr %545, align 8
-  %546 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store i32 0, ptr %546, align 4
-  %547 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %548 = load i32, ptr %547, align 4
-  %549 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 %548, ptr %549, align 8
-  %550 = load i32, ptr %9, align 4
-  %551 = call i32 @avifRGBFormatHasAlpha(i32 noundef %550) #10
-  %.not343 = icmp eq i32 %551, 0
-  br i1 %.not343, label %568, label %552
+537:                                              ; preds = %534
+  %538 = load i32, ptr %0, align 8
+  store i32 %538, ptr %5, align 8
+  %539 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %540 = load i32, ptr %539, align 4
+  %541 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %540, ptr %541, align 4
+  %542 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %543 = load i32, ptr %542, align 8
+  %544 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i32 %543, ptr %544, align 4
+  %545 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr %533, ptr %545, align 8
+  %546 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 %536, ptr %546, align 8
+  %547 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  store i32 0, ptr %547, align 4
+  %548 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  %549 = load i32, ptr %548, align 4
+  %550 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i32 %549, ptr %550, align 8
+  %551 = load i32, ptr %9, align 4
+  %552 = call i32 @avifRGBFormatHasAlpha(i32 noundef %551) #10
+  %.not343 = icmp eq i32 %552, 0
+  br i1 %.not343, label %569, label %553
 
-552:                                              ; preds = %536
-  %553 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %554 = load i32, ptr %553, align 4
-  %.not344 = icmp eq i32 %554, 0
-  br i1 %.not344, label %555, label %568
+553:                                              ; preds = %537
+  %554 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %555 = load i32, ptr %554, align 4
+  %.not344 = icmp eq i32 %555, 0
+  br i1 %.not344, label %556, label %569
 
-555:                                              ; preds = %552
-  %556 = load i32, ptr %13, align 8
-  %557 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %556, ptr %557, align 8
-  %558 = load ptr, ptr %6, align 8
-  %559 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %558, ptr %559, align 8
-  %560 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %561 = load i32, ptr %560, align 8
-  %562 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %561, ptr %562, align 8
-  %563 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %564 = load i32, ptr %563, align 4
-  %565 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 %564, ptr %565, align 4
-  %566 = load i32, ptr %22, align 4
-  %567 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %566, ptr %567, align 8
+556:                                              ; preds = %553
+  %557 = load i32, ptr %13, align 8
+  %558 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %557, ptr %558, align 8
+  %559 = load ptr, ptr %6, align 8
+  %560 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %559, ptr %560, align 8
+  %561 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %562 = load i32, ptr %561, align 8
+  %563 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i32 %562, ptr %563, align 8
+  %564 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %565 = load i32, ptr %564, align 4
+  %566 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i32 %565, ptr %566, align 4
+  %567 = load i32, ptr %22, align 4
+  %568 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i32 %567, ptr %568, align 8
   call void @avifReformatAlpha(ptr noundef nonnull %5) #10
   br label %avifPrepareReformatState.exit.thread
 
-568:                                              ; preds = %552, %536
+569:                                              ; preds = %553, %537
   call void @avifFillAlpha(ptr noundef nonnull %5) #10
   br label %avifPrepareReformatState.exit.thread
 
-avifPrepareReformatState.exit.thread:             ; preds = %15, %.thread78.i, %12, %70, %.thread460, %.loopexit522, %533, %568, %555, %117, %112, %90, %avifPrepareReformatState.exit, %2, %8
-  %.0 = phi i32 [ 5, %8 ], [ 5, %2 ], [ 25, %avifPrepareReformatState.exit ], [ %93, %90 ], [ %113, %112 ], [ %118, %117 ], [ 0, %555 ], [ 0, %568 ], [ 0, %533 ], [ 0, %.loopexit522 ], [ %94, %.thread460 ], [ 5, %70 ], [ 5, %12 ], [ 5, %.thread78.i ], [ 5, %15 ]
+avifPrepareReformatState.exit.thread:             ; preds = %15, %.thread78.i, %12, %70, %.thread460, %.loopexit522, %534, %569, %556, %117, %112, %90, %avifPrepareReformatState.exit, %2, %8
+  %.0 = phi i32 [ 5, %8 ], [ 5, %2 ], [ 25, %avifPrepareReformatState.exit ], [ %93, %90 ], [ %113, %112 ], [ %118, %117 ], [ 0, %556 ], [ 0, %569 ], [ 0, %534 ], [ 0, %.loopexit522 ], [ %94, %.thread460 ], [ 5, %70 ], [ 5, %12 ], [ 5, %.thread78.i ], [ 5, %15 ]
   ret i32 %.0
 }
 

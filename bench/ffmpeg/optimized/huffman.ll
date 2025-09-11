@@ -423,7 +423,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 
 21:                                               ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str) #5
-  br label %176
+  br label %177
 
 ._crit_edge.thread:                               ; preds = %7, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -670,149 +670,150 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %121 = shl nsw i32 %2, 1
   %122 = add nsw i32 %121, -1
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds %struct.Node, ptr %4, i64 %123, i32 2
-  store i32 0, ptr %124, align 4, !tbaa !27
+  %124 = getelementptr inbounds %struct.Node, ptr %4, i64 %123
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
+  store i32 0, ptr %125, align 4, !tbaa !27
   br i1 %12, label %.lr.ph265, label %._crit_edge266
 
 .lr.ph265:                                        ; preds = %120
-  %125 = and i32 %6, 1
-  %.not198 = icmp eq i32 %125, 0
+  %126 = and i32 %6, 1
+  %.not198 = icmp eq i32 %126, 0
   br i1 %.not198, label %.lr.ph265.split.us, label %.lr.ph265.split
 
 .lr.ph265.split.us:                               ; preds = %.lr.ph265, %._crit_edge249.us
   %indvars.iv306 = phi i64 [ %indvars.iv.next307, %._crit_edge249.us ], [ 0, %.lr.ph265 ]
   %indvars.iv302 = phi i32 [ %indvars.iv.next303, %._crit_edge249.us ], [ 2, %.lr.ph265 ]
   %indvars.iv298 = phi i64 [ %indvars.iv.next299, %._crit_edge249.us ], [ %22, %.lr.ph265 ]
-  %126 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv306, i32 2
-  %127 = load i32, ptr %126, align 4, !tbaa !27
-  %128 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv306
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 12
-  %130 = load i32, ptr %129, align 4, !tbaa !27
-  %131 = add i32 %130, %127
+  %127 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv306
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
+  %129 = load i32, ptr %128, align 4, !tbaa !27
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 12
+  %131 = load i32, ptr %130, align 4, !tbaa !27
+  %132 = add i32 %131, %129
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 2
   %sext327 = shl i64 %indvars.iv298, 32
-  %132 = ashr exact i64 %sext327, 32
-  %133 = icmp sgt i64 %132, %indvars.iv.next307
-  br i1 %133, label %.lr.ph248.us, label %._crit_edge249.us
+  %133 = ashr exact i64 %sext327, 32
+  %134 = icmp sgt i64 %133, %indvars.iv.next307
+  br i1 %134, label %.lr.ph248.us, label %._crit_edge249.us
 
-.lr.ph248.us:                                     ; preds = %.lr.ph265.split.us, %137
-  %indvars.iv300 = phi i64 [ %indvars.iv.next301, %137 ], [ %indvars.iv298, %.lr.ph265.split.us ]
-  %134 = getelementptr %struct.Node, ptr %4, i64 %indvars.iv300
-  %135 = getelementptr i8, ptr %134, i64 -4
-  %136 = load i32, ptr %135, align 4, !tbaa !27
-  %or.cond273.not = icmp ult i32 %131, %136
-  br i1 %or.cond273.not, label %137, label %._crit_edge249.us.loopexit.split.loop.exit
+.lr.ph248.us:                                     ; preds = %.lr.ph265.split.us, %138
+  %indvars.iv300 = phi i64 [ %indvars.iv.next301, %138 ], [ %indvars.iv298, %.lr.ph265.split.us ]
+  %135 = getelementptr %struct.Node, ptr %4, i64 %indvars.iv300
+  %136 = getelementptr i8, ptr %135, i64 -4
+  %137 = load i32, ptr %136, align 4, !tbaa !27
+  %or.cond273.not = icmp ult i32 %132, %137
+  br i1 %or.cond273.not, label %138, label %._crit_edge249.us.loopexit.split.loop.exit
 
-137:                                              ; preds = %.lr.ph248.us
-  %138 = getelementptr i8, ptr %134, i64 -8
-  %139 = load i64, ptr %138, align 4
-  store i64 %139, ptr %134, align 4
+138:                                              ; preds = %.lr.ph248.us
+  %139 = getelementptr i8, ptr %135, i64 -8
+  %140 = load i64, ptr %139, align 4
+  store i64 %140, ptr %135, align 4
   %indvars.iv.next301 = add nsw i64 %indvars.iv300, -1
-  %140 = icmp sgt i64 %indvars.iv.next301, %indvars.iv.next307
-  br i1 %140, label %.lr.ph248.us, label %._crit_edge249.us.loopexit, !llvm.loop !36
+  %141 = icmp sgt i64 %indvars.iv.next301, %indvars.iv.next307
+  br i1 %141, label %.lr.ph248.us, label %._crit_edge249.us.loopexit, !llvm.loop !36
 
 ._crit_edge249.us.loopexit.split.loop.exit:       ; preds = %.lr.ph248.us
-  %141 = trunc nuw nsw i64 %indvars.iv300 to i32
+  %142 = trunc nuw nsw i64 %indvars.iv300 to i32
   br label %._crit_edge249.us.loopexit
 
-._crit_edge249.us.loopexit:                       ; preds = %137, %._crit_edge249.us.loopexit.split.loop.exit
-  %.0188.lcssa.us.ph = phi i32 [ %141, %._crit_edge249.us.loopexit.split.loop.exit ], [ %indvars.iv302, %137 ]
+._crit_edge249.us.loopexit:                       ; preds = %138, %._crit_edge249.us.loopexit.split.loop.exit
+  %.0188.lcssa.us.ph = phi i32 [ %142, %._crit_edge249.us.loopexit.split.loop.exit ], [ %indvars.iv302, %138 ]
   %.pre312 = sext i32 %.0188.lcssa.us.ph to i64
   br label %._crit_edge249.us
 
 ._crit_edge249.us:                                ; preds = %._crit_edge249.us.loopexit, %.lr.ph265.split.us
-  %.pre-phi = phi i64 [ %.pre312, %._crit_edge249.us.loopexit ], [ %132, %.lr.ph265.split.us ]
-  %142 = getelementptr inbounds %struct.Node, ptr %4, i64 %.pre-phi
-  store i16 -1, ptr %142, align 4, !tbaa !24
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  store i32 %131, ptr %143, align 4, !tbaa !27
-  %144 = trunc i64 %indvars.iv306 to i16
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 2
-  store i16 %144, ptr %145, align 2, !tbaa !26
+  %.pre-phi = phi i64 [ %.pre312, %._crit_edge249.us.loopexit ], [ %133, %.lr.ph265.split.us ]
+  %143 = getelementptr inbounds %struct.Node, ptr %4, i64 %.pre-phi
+  store i16 -1, ptr %143, align 4, !tbaa !24
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
+  store i32 %132, ptr %144, align 4, !tbaa !27
+  %145 = trunc i64 %indvars.iv306 to i16
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 2
+  store i16 %145, ptr %146, align 2, !tbaa !26
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
-  %146 = icmp slt i64 %indvars.iv.next307, %123
+  %147 = icmp slt i64 %indvars.iv.next307, %123
   %indvars.iv.next303 = add nuw i32 %indvars.iv302, 2
-  br i1 %146, label %.lr.ph265.split.us, label %._crit_edge266, !llvm.loop !37
+  br i1 %147, label %.lr.ph265.split.us, label %._crit_edge266, !llvm.loop !37
 
 .lr.ph265.split:                                  ; preds = %.lr.ph265, %._crit_edge252.split.us
   %indvars.iv292 = phi i64 [ %indvars.iv.next293, %._crit_edge252.split.us ], [ 0, %.lr.ph265 ]
   %indvars.iv288 = phi i32 [ %indvars.iv.next289, %._crit_edge252.split.us ], [ 2, %.lr.ph265 ]
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %._crit_edge252.split.us ], [ %22, %.lr.ph265 ]
-  %147 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv292, i32 2
-  %148 = load i32, ptr %147, align 4, !tbaa !27
-  %149 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv292
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 12
-  %151 = load i32, ptr %150, align 4, !tbaa !27
-  %152 = add i32 %151, %148
+  %148 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv292
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  %150 = load i32, ptr %149, align 4, !tbaa !27
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 12
+  %152 = load i32, ptr %151, align 4, !tbaa !27
+  %153 = add i32 %152, %150
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 2
   %sext = shl i64 %indvars.iv284, 32
-  %153 = ashr exact i64 %sext, 32
-  %154 = icmp sgt i64 %153, %indvars.iv.next293
-  br i1 %154, label %.lr.ph248, label %._crit_edge252.split.us
+  %154 = ashr exact i64 %sext, 32
+  %155 = icmp sgt i64 %154, %indvars.iv.next293
+  br i1 %155, label %.lr.ph248, label %._crit_edge252.split.us
 
-.lr.ph248:                                        ; preds = %.lr.ph265.split, %159
-  %indvars.iv286 = phi i64 [ %indvars.iv.next287, %159 ], [ %indvars.iv284, %.lr.ph265.split ]
-  %155 = getelementptr %struct.Node, ptr %4, i64 %indvars.iv286
-  %156 = getelementptr i8, ptr %155, i64 -4
-  %157 = load i32, ptr %156, align 4, !tbaa !27
-  %158 = icmp ugt i32 %152, %157
-  br i1 %158, label %._crit_edge252.split.us.loopexit.split.loop.exit, label %159
+.lr.ph248:                                        ; preds = %.lr.ph265.split, %160
+  %indvars.iv286 = phi i64 [ %indvars.iv.next287, %160 ], [ %indvars.iv284, %.lr.ph265.split ]
+  %156 = getelementptr %struct.Node, ptr %4, i64 %indvars.iv286
+  %157 = getelementptr i8, ptr %156, i64 -4
+  %158 = load i32, ptr %157, align 4, !tbaa !27
+  %159 = icmp ugt i32 %153, %158
+  br i1 %159, label %._crit_edge252.split.us.loopexit.split.loop.exit, label %160
 
-159:                                              ; preds = %.lr.ph248
-  %160 = getelementptr i8, ptr %155, i64 -8
-  %161 = load i64, ptr %160, align 4
-  store i64 %161, ptr %155, align 4
+160:                                              ; preds = %.lr.ph248
+  %161 = getelementptr i8, ptr %156, i64 -8
+  %162 = load i64, ptr %161, align 4
+  store i64 %162, ptr %156, align 4
   %indvars.iv.next287 = add nsw i64 %indvars.iv286, -1
-  %162 = icmp sgt i64 %indvars.iv.next287, %indvars.iv.next293
-  br i1 %162, label %.lr.ph248, label %._crit_edge252.split.us.loopexit, !llvm.loop !36
+  %163 = icmp sgt i64 %indvars.iv.next287, %indvars.iv.next293
+  br i1 %163, label %.lr.ph248, label %._crit_edge252.split.us.loopexit, !llvm.loop !36
 
 ._crit_edge252.split.us.loopexit.split.loop.exit: ; preds = %.lr.ph248
-  %163 = trunc nuw nsw i64 %indvars.iv286 to i32
+  %164 = trunc nuw nsw i64 %indvars.iv286 to i32
   br label %._crit_edge252.split.us.loopexit
 
-._crit_edge252.split.us.loopexit:                 ; preds = %159, %._crit_edge252.split.us.loopexit.split.loop.exit
-  %.0188.lcssa.ph = phi i32 [ %163, %._crit_edge252.split.us.loopexit.split.loop.exit ], [ %indvars.iv288, %159 ]
+._crit_edge252.split.us.loopexit:                 ; preds = %160, %._crit_edge252.split.us.loopexit.split.loop.exit
+  %.0188.lcssa.ph = phi i32 [ %164, %._crit_edge252.split.us.loopexit.split.loop.exit ], [ %indvars.iv288, %160 ]
   %.pre313 = sext i32 %.0188.lcssa.ph to i64
   br label %._crit_edge252.split.us
 
 ._crit_edge252.split.us:                          ; preds = %._crit_edge252.split.us.loopexit, %.lr.ph265.split
-  %.pre-phi314 = phi i64 [ %.pre313, %._crit_edge252.split.us.loopexit ], [ %153, %.lr.ph265.split ]
-  %164 = getelementptr inbounds %struct.Node, ptr %4, i64 %.pre-phi314
-  store i16 -1, ptr %164, align 4, !tbaa !24
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
-  store i32 %152, ptr %165, align 4, !tbaa !27
-  %166 = trunc i64 %indvars.iv292 to i16
-  %167 = getelementptr inbounds nuw i8, ptr %164, i64 2
-  store i16 %166, ptr %167, align 2, !tbaa !26
+  %.pre-phi314 = phi i64 [ %.pre313, %._crit_edge252.split.us.loopexit ], [ %154, %.lr.ph265.split ]
+  %165 = getelementptr inbounds %struct.Node, ptr %4, i64 %.pre-phi314
+  store i16 -1, ptr %165, align 4, !tbaa !24
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
+  store i32 %153, ptr %166, align 4, !tbaa !27
+  %167 = trunc i64 %indvars.iv292 to i16
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 2
+  store i16 %167, ptr %168, align 2, !tbaa !26
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
-  %168 = icmp slt i64 %indvars.iv.next293, %123
+  %169 = icmp slt i64 %indvars.iv.next293, %123
   %indvars.iv.next289 = add nuw i32 %indvars.iv288, 2
-  br i1 %168, label %.lr.ph265.split, label %._crit_edge266, !llvm.loop !37
+  br i1 %169, label %.lr.ph265.split, label %._crit_edge266, !llvm.loop !37
 
 ._crit_edge266:                                   ; preds = %._crit_edge252.split.us, %._crit_edge249.us, %120
-  %169 = add nsw i32 %121, -2
-  %170 = lshr i32 %6, 1
-  %.lobit.i = and i32 %170, 1
-  %171 = xor i32 %.lobit.i, 1
+  %170 = add nsw i32 %121, -2
+  %171 = lshr i32 %6, 1
+  %.lobit.i = and i32 %171, 1
+  %172 = xor i32 %.lobit.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !18
-  call fastcc void @get_tree_codes(ptr noundef %8, ptr noundef %9, ptr noundef nonnull readonly %4, i32 noundef range(i32 -2147483648, 2147483646) %169, i32 noundef 0, ptr noundef %10, i32 noundef %171)
-  %172 = load i32, ptr %10, align 4, !tbaa !18
-  %173 = call i32 @ff_vlc_init_from_lengths(ptr noundef %1, i32 noundef %3, i32 noundef %172, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef %0) #5
+  call fastcc void @get_tree_codes(ptr noundef %8, ptr noundef %9, ptr noundef nonnull readonly %4, i32 noundef range(i32 -2147483648, 2147483646) %170, i32 noundef 0, ptr noundef %10, i32 noundef %172)
+  %173 = load i32, ptr %10, align 4, !tbaa !18
+  %174 = call i32 @ff_vlc_init_from_lengths(ptr noundef %1, i32 noundef %3, i32 noundef %173, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef %0) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %174 = icmp slt i32 %173, 0
-  br i1 %174, label %175, label %176
+  %175 = icmp slt i32 %174, 0
+  br i1 %175, label %176, label %177
 
-175:                                              ; preds = %._crit_edge266
+176:                                              ; preds = %._crit_edge266
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1) #5
-  br label %176
+  br label %177
 
-176:                                              ; preds = %._crit_edge266, %175, %21
-  %.0 = phi i32 [ -1, %21 ], [ -1, %175 ], [ 0, %._crit_edge266 ]
+177:                                              ; preds = %._crit_edge266, %176, %21
+  %.0 = phi i32 [ -1, %21 ], [ -1, %176 ], [ 0, %._crit_edge266 ]
   ret i32 %.0
 }
 

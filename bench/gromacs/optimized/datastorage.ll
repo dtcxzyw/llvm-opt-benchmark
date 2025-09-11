@@ -2243,69 +2243,71 @@ define void @_ZN3gmx24AnalysisDataStorageFrame14finishPointSetEv(ptr noundef non
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not2028, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %13, %24
-  %.030 = phi i64 [ %25, %24 ], [ %16, %13 ]
-  %.01929 = phi i32 [ %26, %24 ], [ 0, %13 ]
-  %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.030, i32 2
-  %22 = load i64, ptr %21, align 8, !tbaa !151
-  %23 = and i64 %22, 1
-  %.not26 = icmp eq i64 %23, 0
-  br i1 %.not26, label %24, label %.critedge
+.lr.ph:                                           ; preds = %13, %25
+  %.030 = phi i64 [ %26, %25 ], [ %16, %13 ]
+  %.01929 = phi i32 [ %27, %25 ], [ 0, %13 ]
+  %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.030
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load i64, ptr %22, align 8, !tbaa !151
+  %24 = and i64 %23, 1
+  %.not26 = icmp eq i64 %24, 0
+  br i1 %.not26, label %25, label %.critedge
 
-24:                                               ; preds = %.lr.ph
-  %25 = add i64 %.030, 1
-  %26 = add nuw nsw i32 %.01929, 1
-  %.not20 = icmp eq i64 %25, %20
+25:                                               ; preds = %.lr.ph
+  %26 = add i64 %.030, 1
+  %27 = add nuw nsw i32 %.01929, 1
+  %.not20 = icmp eq i64 %26, %20
   br i1 %.not20, label %.critedge, label %.lr.ph, !llvm.loop !153
 
-.critedge:                                        ; preds = %.lr.ph, %24, %13
-  %.019.lcssa = phi i32 [ 0, %13 ], [ %18, %24 ], [ %.01929, %.lr.ph ]
-  %.0.lcssa = phi i64 [ %16, %13 ], [ %20, %24 ], [ %.030, %.lr.ph ]
-  br label %27
+.critedge:                                        ; preds = %.lr.ph, %25, %13
+  %.019.lcssa = phi i32 [ 0, %13 ], [ %18, %25 ], [ %.01929, %.lr.ph ]
+  %.0.lcssa = phi i64 [ %16, %13 ], [ %20, %25 ], [ %.030, %.lr.ph ]
+  br label %28
 
-27:                                               ; preds = %28, %.critedge
-  %.018 = phi i64 [ %20, %.critedge ], [ %29, %28 ]
+28:                                               ; preds = %29, %.critedge
+  %.018 = phi i64 [ %20, %.critedge ], [ %30, %29 ]
   %.not21 = icmp eq i64 %.018, %.0.lcssa
-  br i1 %.not21, label %33, label %28
+  br i1 %.not21, label %35, label %29
 
-28:                                               ; preds = %27
-  %29 = add i64 %.018, -1
-  %30 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %29, i32 2
-  %31 = load i64, ptr %30, align 8, !tbaa !151
-  %32 = and i64 %31, 1
-  %.not27 = icmp eq i64 %32, 0
-  br i1 %.not27, label %27, label %33, !llvm.loop !154
+29:                                               ; preds = %28
+  %30 = add i64 %.018, -1
+  %31 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !151
+  %34 = and i64 %33, 1
+  %.not27 = icmp eq i64 %34, 0
+  br i1 %.not27, label %28, label %35, !llvm.loop !154
 
-33:                                               ; preds = %28, %27
-  %.018.lcssa = phi i64 [ %.0.lcssa, %27 ], [ %.018, %28 ]
-  %spec.select = phi i32 [ 0, %27 ], [ %.019.lcssa, %28 ]
-  %34 = load ptr, ptr %0, align 8, !tbaa !127
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load i32, ptr %35, align 8, !tbaa !128
-  %37 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.0.lcssa
-  %38 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.018.lcssa
-  tail call void @_ZN3gmx8internal28AnalysisDataStorageFrameData11addPointSetEiiNS_8ArrayRefIKNS_17AnalysisDataValueEEE(ptr noundef nonnull align 8 dereferenceable(84) %34, i32 noundef %36, i32 noundef %spec.select, ptr %37, ptr %38)
+35:                                               ; preds = %29, %28
+  %.018.lcssa = phi i64 [ %.0.lcssa, %28 ], [ %.018, %29 ]
+  %spec.select = phi i32 [ 0, %28 ], [ %.019.lcssa, %29 ]
+  %36 = load ptr, ptr %0, align 8, !tbaa !127
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %38 = load i32, ptr %37, align 8, !tbaa !128
+  %39 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.0.lcssa
+  %40 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.018.lcssa
+  tail call void @_ZN3gmx8internal28AnalysisDataStorageFrameData11addPointSetEiiNS_8ArrayRefIKNS_17AnalysisDataValueEEE(ptr noundef nonnull align 8 dereferenceable(84) %36, i32 noundef %38, i32 noundef %spec.select, ptr %39, ptr %40)
   %.pre35 = load i8, ptr %10, align 4, !tbaa !96, !range !99
-  %39 = trunc nuw i8 %.pre35 to i1
-  br i1 %39, label %40, label %_ZN3gmx24AnalysisDataStorageFrame11clearValuesEv.exit
+  %41 = trunc nuw i8 %.pre35 to i1
+  br i1 %41, label %42, label %_ZN3gmx24AnalysisDataStorageFrame11clearValuesEv.exit
 
-40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !101
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+42:                                               ; preds = %35
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !101
-  %.not4.i = icmp eq ptr %42, %44
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = load ptr, ptr %45, align 8, !tbaa !101
+  %.not4.i = icmp eq ptr %44, %46
   br i1 %.not4.i, label %_ZN3gmx24AnalysisDataStorageFrame11clearValuesEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %40, %.lr.ph.i
-  %.sroa.01.05.i = phi ptr [ %45, %.lr.ph.i ], [ %42, %40 ]
+.lr.ph.i:                                         ; preds = %42, %.lr.ph.i
+  %.sroa.01.05.i = phi ptr [ %47, %.lr.ph.i ], [ %44, %42 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.05.i, i8 0, i64 16, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 16
-  %46 = load ptr, ptr %43, align 8, !tbaa !101
-  %.not.i = icmp eq ptr %45, %46
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 16
+  %48 = load ptr, ptr %45, align 8, !tbaa !101
+  %.not.i = icmp eq ptr %47, %48
   br i1 %.not.i, label %_ZN3gmx24AnalysisDataStorageFrame11clearValuesEv.exit, label %.lr.ph.i, !llvm.loop !102
 
-_ZN3gmx24AnalysisDataStorageFrame11clearValuesEv.exit: ; preds = %.lr.ph.i, %9, %33, %40
+_ZN3gmx24AnalysisDataStorageFrame11clearValuesEv.exit: ; preds = %.lr.ph.i, %9, %35, %42
   store i8 0, ptr %10, align 4, !tbaa !96
   ret void
 }

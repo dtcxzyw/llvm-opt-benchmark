@@ -1588,38 +1588,39 @@ define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr noundef readonly cap
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.02026 = phi i64 [ %7, %.lr.ph ], [ 0, %4 ]
-  %.02125 = phi i64 [ %8, %.lr.ph ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %2, i64 %.02125, i32 1
-  %6 = load i64, ptr %5, align 8, !tbaa !21
-  %7 = add i64 %6, %.02026
-  %8 = add nuw i64 %.02125, 1
-  %exitcond.not = icmp eq i64 %8, %3
+  %.02026 = phi i64 [ %8, %.lr.ph ], [ 0, %4 ]
+  %.02125 = phi i64 [ %9, %.lr.ph ], [ 0, %4 ]
+  %5 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %2, i64 %.02125
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !21
+  %8 = add i64 %7, %.02026
+  %9 = add nuw i64 %.02125, 1
+  %exitcond.not = icmp eq i64 %9, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %9 = icmp eq i64 %1, %7
-  br i1 %9, label %.lr.ph29, label %.loopexit
+  %10 = icmp eq i64 %1, %8
+  br i1 %10, label %.lr.ph29, label %.loopexit
 
-.lr.ph29:                                         ; preds = %._crit_edge, %14
-  %.028 = phi ptr [ %15, %14 ], [ %0, %._crit_edge ]
-  %.127 = phi i64 [ %16, %14 ], [ 0, %._crit_edge ]
-  %10 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %2, i64 %.127
-  %11 = load ptr, ptr %10, align 8, !tbaa !23
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !21
-  %bcmp = tail call i32 @bcmp(ptr %.028, ptr %11, i64 %13)
+.lr.ph29:                                         ; preds = %._crit_edge, %15
+  %.028 = phi ptr [ %16, %15 ], [ %0, %._crit_edge ]
+  %.127 = phi i64 [ %17, %15 ], [ 0, %._crit_edge ]
+  %11 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %2, i64 %.127
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %14 = load i64, ptr %13, align 8, !tbaa !21
+  %bcmp = tail call i32 @bcmp(ptr %.028, ptr %12, i64 %14)
   %.not24 = icmp eq i32 %bcmp, 0
-  br i1 %.not24, label %14, label %.loopexit
+  br i1 %.not24, label %15, label %.loopexit
 
-14:                                               ; preds = %.lr.ph29
-  %15 = getelementptr inbounds nuw i8, ptr %.028, i64 %13
-  %16 = add nuw i64 %.127, 1
-  %exitcond35.not = icmp eq i64 %16, %3
+15:                                               ; preds = %.lr.ph29
+  %16 = getelementptr inbounds nuw i8, ptr %.028, i64 %14
+  %17 = add nuw i64 %.127, 1
+  %exitcond35.not = icmp eq i64 %17, %3
   br i1 %exitcond35.not, label %.loopexit, label %.lr.ph29, !llvm.loop !34
 
-.loopexit:                                        ; preds = %.lr.ph29, %14, %4, %._crit_edge
-  %.022 = phi i32 [ 0, %._crit_edge ], [ 0, %4 ], [ 0, %.lr.ph29 ], [ 1, %14 ]
+.loopexit:                                        ; preds = %.lr.ph29, %15, %4, %._crit_edge
+  %.022 = phi i32 [ 0, %._crit_edge ], [ 0, %4 ], [ 0, %.lr.ph29 ], [ 1, %15 ]
   ret i32 %.022
 }
 

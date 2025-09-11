@@ -8708,8 +8708,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %479, label %480, label %691, !prof !23
 
 480:                                              ; preds = %472
-  %481 = mul i64 %474, 10
-  %482 = add i64 %478, %481
+  %481 = mul nuw nsw i64 %474, 10
+  %482 = add nuw nsw i64 %478, %481
   %483 = getelementptr inbounds nuw i8, ptr %257, i64 18
   %484 = load i8, ptr %483, align 1, !tbaa !75
   %485 = zext i8 %484 to i64
@@ -8718,8 +8718,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %487, label %488, label %702, !prof !23
 
 488:                                              ; preds = %480
-  %489 = mul i64 %482, 10
-  %490 = add i64 %486, %489
+  %489 = mul nuw i64 %482, 10
+  %490 = add nuw i64 %486, %489
   %491 = getelementptr inbounds nuw i8, ptr %257, i64 19
   %492 = load i8, ptr %491, align 1, !tbaa !75
   %493 = zext i8 %492 to i64
@@ -9122,7 +9122,7 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
 706:                                              ; preds = %702
   %707 = select i1 %255, i64 12, i64 4
   store i64 %707, ptr %.7605.i, align 8, !tbaa !73
-  %708 = sub i64 0, %482
+  %708 = sub nsw i64 0, %482
   %709 = select i1 %255, i64 %708, i64 %482
   %710 = getelementptr inbounds nuw i8, ptr %.7605.i, i64 8
   store i64 %709, ptr %710, align 8, !tbaa !75
@@ -9144,8 +9144,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %718, label %719, label %967, !prof !23
 
 719:                                              ; preds = %713
-  %720 = mul nsw i64 %.0570.i329, 10
-  %721 = add nsw i64 %717, %720
+  %720 = mul nuw nsw i64 %.0570.i329, 10
+  %721 = add nuw nsw i64 %717, %720
   br label %722
 
 722:                                              ; preds = %719, %535
@@ -9160,8 +9160,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %727, label %728, label %967, !prof !23
 
 728:                                              ; preds = %722
-  %729 = mul nsw i64 %.2572.i383, 10
-  %730 = add nsw i64 %726, %729
+  %729 = mul nuw nsw i64 %.2572.i383, 10
+  %730 = add nuw nsw i64 %726, %729
   br label %731
 
 731:                                              ; preds = %728, %546
@@ -9176,8 +9176,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %736, label %737, label %967, !prof !23
 
 737:                                              ; preds = %731
-  %738 = mul nsw i64 %.3573.i385, 10
-  %739 = add nsw i64 %735, %738
+  %738 = mul nuw nsw i64 %.3573.i385, 10
+  %739 = add nuw nsw i64 %735, %738
   br label %740
 
 740:                                              ; preds = %737, %557
@@ -9192,8 +9192,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %745, label %746, label %967, !prof !23
 
 746:                                              ; preds = %740
-  %747 = mul nsw i64 %.4574.i387, 10
-  %748 = add nsw i64 %744, %747
+  %747 = mul nuw nsw i64 %.4574.i387, 10
+  %748 = add nuw nsw i64 %744, %747
   br label %749
 
 749:                                              ; preds = %746, %568
@@ -9208,8 +9208,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %754, label %755, label %967, !prof !23
 
 755:                                              ; preds = %749
-  %756 = mul nsw i64 %.5575.i389, 10
-  %757 = add nsw i64 %753, %756
+  %756 = mul nuw nsw i64 %.5575.i389, 10
+  %757 = add nuw nsw i64 %753, %756
   br label %758
 
 758:                                              ; preds = %755, %579
@@ -9224,8 +9224,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %763, label %764, label %967, !prof !23
 
 764:                                              ; preds = %758
-  %765 = mul nsw i64 %.6576.i391, 10
-  %766 = add nsw i64 %762, %765
+  %765 = mul nuw nsw i64 %.6576.i391, 10
+  %766 = add nuw nsw i64 %762, %765
   br label %767
 
 767:                                              ; preds = %764, %590
@@ -9240,8 +9240,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %772, label %773, label %967, !prof !23
 
 773:                                              ; preds = %767
-  %774 = mul nsw i64 %.7577.i393, 10
-  %775 = add nsw i64 %771, %774
+  %774 = mul nuw nsw i64 %.7577.i393, 10
+  %775 = add nuw nsw i64 %771, %774
   br label %776
 
 776:                                              ; preds = %773, %601
@@ -9256,8 +9256,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %781, label %782, label %967, !prof !23
 
 782:                                              ; preds = %776
-  %783 = mul nsw i64 %.8578.i395, 10
-  %784 = add nsw i64 %780, %783
+  %783 = mul nuw nsw i64 %.8578.i395, 10
+  %784 = add nuw nsw i64 %780, %783
   br label %785
 
 785:                                              ; preds = %782, %612
@@ -9272,8 +9272,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %790, label %791, label %967, !prof !23
 
 791:                                              ; preds = %785
-  %792 = mul nsw i64 %.9579.i397, 10
-  %793 = add nsw i64 %789, %792
+  %792 = mul nuw nsw i64 %.9579.i397, 10
+  %793 = add nuw nsw i64 %789, %792
   br label %794
 
 794:                                              ; preds = %791, %623
@@ -9288,8 +9288,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %799, label %800, label %967, !prof !23
 
 800:                                              ; preds = %794
-  %801 = mul nsw i64 %.10580.i399, 10
-  %802 = add nsw i64 %798, %801
+  %801 = mul nuw nsw i64 %.10580.i399, 10
+  %802 = add nuw nsw i64 %798, %801
   br label %803
 
 803:                                              ; preds = %800, %634
@@ -9304,8 +9304,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %808, label %809, label %967, !prof !23
 
 809:                                              ; preds = %803
-  %810 = mul nsw i64 %.11581.i401, 10
-  %811 = add nsw i64 %807, %810
+  %810 = mul nuw nsw i64 %.11581.i401, 10
+  %811 = add nuw nsw i64 %807, %810
   br label %812
 
 812:                                              ; preds = %809, %645
@@ -9320,8 +9320,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %817, label %818, label %967, !prof !23
 
 818:                                              ; preds = %812
-  %819 = mul nsw i64 %.12582.i403, 10
-  %820 = add nsw i64 %816, %819
+  %819 = mul nuw nsw i64 %.12582.i403, 10
+  %820 = add nuw nsw i64 %816, %819
   br label %821
 
 821:                                              ; preds = %818, %656
@@ -9336,8 +9336,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %826, label %827, label %967, !prof !23
 
 827:                                              ; preds = %821
-  %828 = mul nsw i64 %.13583.i405, 10
-  %829 = add nsw i64 %825, %828
+  %828 = mul nuw nsw i64 %.13583.i405, 10
+  %829 = add nuw nsw i64 %825, %828
   br label %830
 
 830:                                              ; preds = %827, %667
@@ -9352,8 +9352,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %835, label %836, label %967, !prof !23
 
 836:                                              ; preds = %830
-  %837 = mul nsw i64 %.14584.i407, 10
-  %838 = add nsw i64 %834, %837
+  %837 = mul nuw nsw i64 %.14584.i407, 10
+  %838 = add nuw nsw i64 %834, %837
   br label %839
 
 839:                                              ; preds = %836, %678
@@ -9368,8 +9368,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %844, label %845, label %967, !prof !23
 
 845:                                              ; preds = %839
-  %846 = mul nsw i64 %.15585.i409, 10
-  %847 = add nsw i64 %843, %846
+  %846 = mul nuw nsw i64 %.15585.i409, 10
+  %847 = add nuw nsw i64 %843, %846
   br label %848
 
 848:                                              ; preds = %845, %689
@@ -9384,8 +9384,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %853, label %854, label %967, !prof !23
 
 854:                                              ; preds = %848
-  %855 = mul nsw i64 %.16586.i411, 10
-  %856 = add nsw i64 %852, %855
+  %855 = mul nuw nsw i64 %.16586.i411, 10
+  %856 = add nuw nsw i64 %852, %855
   br label %857
 
 857:                                              ; preds = %854, %700
@@ -9400,8 +9400,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %862, label %863, label %967, !prof !23
 
 863:                                              ; preds = %857
-  %864 = mul i64 %.17587.i413, 10
-  %865 = add i64 %861, %864
+  %864 = mul nuw nsw i64 %.17587.i413, 10
+  %865 = add nuw nsw i64 %861, %864
   br label %866
 
 866:                                              ; preds = %863, %711
@@ -9416,8 +9416,8 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
   br i1 %871, label %872, label %967, !prof !23
 
 872:                                              ; preds = %866
-  %873 = mul i64 %.18588.i415, 10
-  %874 = add i64 %870, %873
+  %873 = mul nuw i64 %.18588.i415, 10
+  %874 = add nuw i64 %870, %873
   %875 = getelementptr inbounds nuw i8, ptr %.283371, i64 20
   %876 = load i8, ptr %875, align 1, !tbaa !75
   %877 = add i8 %876, -58
@@ -9446,13 +9446,13 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
 
 890:                                              ; preds = %887
   %891 = icmp eq i64 %490, 1844674407370955161
-  %892 = icmp ult i64 %888, 6
+  %892 = icmp samesign ult i64 %888, 6
   %or.cond5.i429 = select i1 %891, i1 %892, i1 false
   br i1 %or.cond5.i429, label %893, label %909
 
 893:                                              ; preds = %890, %887
   %894 = mul nuw i64 %490, 10
-  %895 = add i64 %888, %894
+  %895 = add nsw i64 %888, %894
   br i1 %255, label %896, label %907
 
 896:                                              ; preds = %893
@@ -9529,7 +9529,7 @@ read_inf_or_nan.exit842.thread:                   ; preds = %263, %288, %289, %2
 924:                                              ; preds = %920
   %925 = icmp ugt i8 %919, 52
   %926 = zext i1 %925 to i64
-  %927 = add i64 %.20590.i417, %926
+  %927 = add nuw i64 %.20590.i417, %926
   %.not669.i419 = icmp eq ptr %.20.i418, null
   br i1 %.not669.i419, label %928, label %.loopexit4276
 
@@ -15427,8 +15427,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %3799, label %3800, label %4011, !prof !23
 
 3800:                                             ; preds = %3792
-  %3801 = mul i64 %3794, 10
-  %3802 = add i64 %3798, %3801
+  %3801 = mul nuw nsw i64 %3794, 10
+  %3802 = add nuw nsw i64 %3798, %3801
   %3803 = getelementptr inbounds nuw i8, ptr %3577, i64 18
   %3804 = load i8, ptr %3803, align 1, !tbaa !75
   %3805 = zext i8 %3804 to i64
@@ -15437,8 +15437,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %3807, label %3808, label %4022, !prof !23
 
 3808:                                             ; preds = %3800
-  %3809 = mul i64 %3802, 10
-  %3810 = add i64 %3806, %3809
+  %3809 = mul nuw i64 %3802, 10
+  %3810 = add nuw i64 %3806, %3809
   %3811 = getelementptr inbounds nuw i8, ptr %3577, i64 19
   %3812 = load i8, ptr %3811, align 1, !tbaa !75
   %3813 = zext i8 %3812 to i64
@@ -15841,7 +15841,7 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
 4026:                                             ; preds = %4022
   %4027 = select i1 %3575, i64 12, i64 4
   store i64 %4027, ptr %3570, align 8, !tbaa !73
-  %4028 = sub i64 0, %3802
+  %4028 = sub nsw i64 0, %3802
   %4029 = select i1 %3575, i64 %4028, i64 %3802
   %4030 = getelementptr inbounds nuw i8, ptr %.25623.i, i64 24
   store i64 %4029, ptr %4030, align 8, !tbaa !75
@@ -15863,8 +15863,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4038, label %4039, label %4287, !prof !23
 
 4039:                                             ; preds = %4033
-  %4040 = mul nsw i64 %.0570.i434, 10
-  %4041 = add nsw i64 %4037, %4040
+  %4040 = mul nuw nsw i64 %.0570.i434, 10
+  %4041 = add nuw nsw i64 %4037, %4040
   br label %4042
 
 4042:                                             ; preds = %4039, %3855
@@ -15879,8 +15879,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4047, label %4048, label %4287, !prof !23
 
 4048:                                             ; preds = %4042
-  %4049 = mul nsw i64 %.2572.i488, 10
-  %4050 = add nsw i64 %4046, %4049
+  %4049 = mul nuw nsw i64 %.2572.i488, 10
+  %4050 = add nuw nsw i64 %4046, %4049
   br label %4051
 
 4051:                                             ; preds = %4048, %3866
@@ -15895,8 +15895,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4056, label %4057, label %4287, !prof !23
 
 4057:                                             ; preds = %4051
-  %4058 = mul nsw i64 %.3573.i490, 10
-  %4059 = add nsw i64 %4055, %4058
+  %4058 = mul nuw nsw i64 %.3573.i490, 10
+  %4059 = add nuw nsw i64 %4055, %4058
   br label %4060
 
 4060:                                             ; preds = %4057, %3877
@@ -15911,8 +15911,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4065, label %4066, label %4287, !prof !23
 
 4066:                                             ; preds = %4060
-  %4067 = mul nsw i64 %.4574.i492, 10
-  %4068 = add nsw i64 %4064, %4067
+  %4067 = mul nuw nsw i64 %.4574.i492, 10
+  %4068 = add nuw nsw i64 %4064, %4067
   br label %4069
 
 4069:                                             ; preds = %4066, %3888
@@ -15927,8 +15927,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4074, label %4075, label %4287, !prof !23
 
 4075:                                             ; preds = %4069
-  %4076 = mul nsw i64 %.5575.i494, 10
-  %4077 = add nsw i64 %4073, %4076
+  %4076 = mul nuw nsw i64 %.5575.i494, 10
+  %4077 = add nuw nsw i64 %4073, %4076
   br label %4078
 
 4078:                                             ; preds = %4075, %3899
@@ -15943,8 +15943,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4083, label %4084, label %4287, !prof !23
 
 4084:                                             ; preds = %4078
-  %4085 = mul nsw i64 %.6576.i496, 10
-  %4086 = add nsw i64 %4082, %4085
+  %4085 = mul nuw nsw i64 %.6576.i496, 10
+  %4086 = add nuw nsw i64 %4082, %4085
   br label %4087
 
 4087:                                             ; preds = %4084, %3910
@@ -15959,8 +15959,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4092, label %4093, label %4287, !prof !23
 
 4093:                                             ; preds = %4087
-  %4094 = mul nsw i64 %.7577.i498, 10
-  %4095 = add nsw i64 %4091, %4094
+  %4094 = mul nuw nsw i64 %.7577.i498, 10
+  %4095 = add nuw nsw i64 %4091, %4094
   br label %4096
 
 4096:                                             ; preds = %4093, %3921
@@ -15975,8 +15975,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4101, label %4102, label %4287, !prof !23
 
 4102:                                             ; preds = %4096
-  %4103 = mul nsw i64 %.8578.i500, 10
-  %4104 = add nsw i64 %4100, %4103
+  %4103 = mul nuw nsw i64 %.8578.i500, 10
+  %4104 = add nuw nsw i64 %4100, %4103
   br label %4105
 
 4105:                                             ; preds = %4102, %3932
@@ -15991,8 +15991,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4110, label %4111, label %4287, !prof !23
 
 4111:                                             ; preds = %4105
-  %4112 = mul nsw i64 %.9579.i502, 10
-  %4113 = add nsw i64 %4109, %4112
+  %4112 = mul nuw nsw i64 %.9579.i502, 10
+  %4113 = add nuw nsw i64 %4109, %4112
   br label %4114
 
 4114:                                             ; preds = %4111, %3943
@@ -16007,8 +16007,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4119, label %4120, label %4287, !prof !23
 
 4120:                                             ; preds = %4114
-  %4121 = mul nsw i64 %.10580.i504, 10
-  %4122 = add nsw i64 %4118, %4121
+  %4121 = mul nuw nsw i64 %.10580.i504, 10
+  %4122 = add nuw nsw i64 %4118, %4121
   br label %4123
 
 4123:                                             ; preds = %4120, %3954
@@ -16023,8 +16023,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4128, label %4129, label %4287, !prof !23
 
 4129:                                             ; preds = %4123
-  %4130 = mul nsw i64 %.11581.i506, 10
-  %4131 = add nsw i64 %4127, %4130
+  %4130 = mul nuw nsw i64 %.11581.i506, 10
+  %4131 = add nuw nsw i64 %4127, %4130
   br label %4132
 
 4132:                                             ; preds = %4129, %3965
@@ -16039,8 +16039,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4137, label %4138, label %4287, !prof !23
 
 4138:                                             ; preds = %4132
-  %4139 = mul nsw i64 %.12582.i508, 10
-  %4140 = add nsw i64 %4136, %4139
+  %4139 = mul nuw nsw i64 %.12582.i508, 10
+  %4140 = add nuw nsw i64 %4136, %4139
   br label %4141
 
 4141:                                             ; preds = %4138, %3976
@@ -16055,8 +16055,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4146, label %4147, label %4287, !prof !23
 
 4147:                                             ; preds = %4141
-  %4148 = mul nsw i64 %.13583.i510, 10
-  %4149 = add nsw i64 %4145, %4148
+  %4148 = mul nuw nsw i64 %.13583.i510, 10
+  %4149 = add nuw nsw i64 %4145, %4148
   br label %4150
 
 4150:                                             ; preds = %4147, %3987
@@ -16071,8 +16071,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4155, label %4156, label %4287, !prof !23
 
 4156:                                             ; preds = %4150
-  %4157 = mul nsw i64 %.14584.i512, 10
-  %4158 = add nsw i64 %4154, %4157
+  %4157 = mul nuw nsw i64 %.14584.i512, 10
+  %4158 = add nuw nsw i64 %4154, %4157
   br label %4159
 
 4159:                                             ; preds = %4156, %3998
@@ -16087,8 +16087,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4164, label %4165, label %4287, !prof !23
 
 4165:                                             ; preds = %4159
-  %4166 = mul nsw i64 %.15585.i514, 10
-  %4167 = add nsw i64 %4163, %4166
+  %4166 = mul nuw nsw i64 %.15585.i514, 10
+  %4167 = add nuw nsw i64 %4163, %4166
   br label %4168
 
 4168:                                             ; preds = %4165, %4009
@@ -16103,8 +16103,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4173, label %4174, label %4287, !prof !23
 
 4174:                                             ; preds = %4168
-  %4175 = mul nsw i64 %.16586.i516, 10
-  %4176 = add nsw i64 %4172, %4175
+  %4175 = mul nuw nsw i64 %.16586.i516, 10
+  %4176 = add nuw nsw i64 %4172, %4175
   br label %4177
 
 4177:                                             ; preds = %4174, %4020
@@ -16119,8 +16119,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4182, label %4183, label %4287, !prof !23
 
 4183:                                             ; preds = %4177
-  %4184 = mul i64 %.17587.i518, 10
-  %4185 = add i64 %4181, %4184
+  %4184 = mul nuw nsw i64 %.17587.i518, 10
+  %4185 = add nuw nsw i64 %4181, %4184
   br label %4186
 
 4186:                                             ; preds = %4183, %4031
@@ -16135,8 +16135,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
   br i1 %4191, label %4192, label %4287, !prof !23
 
 4192:                                             ; preds = %4186
-  %4193 = mul i64 %.18588.i520, 10
-  %4194 = add i64 %4190, %4193
+  %4193 = mul nuw i64 %.18588.i520, 10
+  %4194 = add nuw i64 %4190, %4193
   %4195 = getelementptr inbounds nuw i8, ptr %.283295, i64 20
   %4196 = load i8, ptr %4195, align 1, !tbaa !75
   %4197 = add i8 %4196, -58
@@ -16165,13 +16165,13 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
 
 4210:                                             ; preds = %4207
   %4211 = icmp eq i64 %3810, 1844674407370955161
-  %4212 = icmp ult i64 %4208, 6
+  %4212 = icmp samesign ult i64 %4208, 6
   %or.cond5.i534 = select i1 %4211, i1 %4212, i1 false
   br i1 %or.cond5.i534, label %4213, label %4229
 
 4213:                                             ; preds = %4210, %4207
   %4214 = mul nuw i64 %3810, 10
-  %4215 = add i64 %4208, %4214
+  %4215 = add nsw i64 %4208, %4214
   br i1 %3575, label %4216, label %4227
 
 4216:                                             ; preds = %4213
@@ -16248,7 +16248,7 @@ read_inf_or_nan.exit.thread:                      ; preds = %3583, %3608, %3609,
 4244:                                             ; preds = %4240
   %4245 = icmp ugt i8 %4239, 52
   %4246 = zext i1 %4245 to i64
-  %4247 = add i64 %.20590.i522, %4246
+  %4247 = add nuw i64 %.20590.i522, %4246
   %.not669.i524 = icmp eq ptr %.20.i523, null
   br i1 %.not669.i524, label %4248, label %.loopexit4316
 
@@ -18916,8 +18916,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5401, label %5402, label %5613, !prof !23
 
 5402:                                             ; preds = %5394
-  %5403 = mul i64 %5396, 10
-  %5404 = add i64 %5400, %5403
+  %5403 = mul nuw nsw i64 %5396, 10
+  %5404 = add nuw nsw i64 %5400, %5403
   %5405 = getelementptr inbounds nuw i8, ptr %5179, i64 18
   %5406 = load i8, ptr %5405, align 1, !tbaa !75
   %5407 = zext i8 %5406 to i64
@@ -18926,8 +18926,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5409, label %5410, label %5624, !prof !23
 
 5410:                                             ; preds = %5402
-  %5411 = mul i64 %5404, 10
-  %5412 = add i64 %5408, %5411
+  %5411 = mul nuw i64 %5404, 10
+  %5412 = add nuw i64 %5408, %5411
   %5413 = getelementptr inbounds nuw i8, ptr %5179, i64 19
   %5414 = load i8, ptr %5413, align 1, !tbaa !75
   %5415 = zext i8 %5414 to i64
@@ -19330,7 +19330,7 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
 5628:                                             ; preds = %5624
   %5629 = select i1 %5177, i64 12, i64 4
   store i64 %5629, ptr %.7604.i, align 8, !tbaa !73
-  %5630 = sub i64 0, %5404
+  %5630 = sub nsw i64 0, %5404
   %5631 = select i1 %5177, i64 %5630, i64 %5404
   %5632 = getelementptr inbounds nuw i8, ptr %.7604.i, i64 8
   store i64 %5631, ptr %5632, align 8, !tbaa !75
@@ -19352,8 +19352,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5640, label %5641, label %5889, !prof !23
 
 5641:                                             ; preds = %5635
-  %5642 = mul nsw i64 %.0570.i, 10
-  %5643 = add nsw i64 %5639, %5642
+  %5642 = mul nuw nsw i64 %.0570.i, 10
+  %5643 = add nuw nsw i64 %5639, %5642
   br label %5644
 
 5644:                                             ; preds = %5641, %5457
@@ -19368,8 +19368,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5649, label %5650, label %5889, !prof !23
 
 5650:                                             ; preds = %5644
-  %5651 = mul nsw i64 %.2572.i, 10
-  %5652 = add nsw i64 %5648, %5651
+  %5651 = mul nuw nsw i64 %.2572.i, 10
+  %5652 = add nuw nsw i64 %5648, %5651
   br label %5653
 
 5653:                                             ; preds = %5650, %5468
@@ -19384,8 +19384,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5658, label %5659, label %5889, !prof !23
 
 5659:                                             ; preds = %5653
-  %5660 = mul nsw i64 %.3573.i, 10
-  %5661 = add nsw i64 %5657, %5660
+  %5660 = mul nuw nsw i64 %.3573.i, 10
+  %5661 = add nuw nsw i64 %5657, %5660
   br label %5662
 
 5662:                                             ; preds = %5659, %5479
@@ -19400,8 +19400,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5667, label %5668, label %5889, !prof !23
 
 5668:                                             ; preds = %5662
-  %5669 = mul nsw i64 %.4574.i, 10
-  %5670 = add nsw i64 %5666, %5669
+  %5669 = mul nuw nsw i64 %.4574.i, 10
+  %5670 = add nuw nsw i64 %5666, %5669
   br label %5671
 
 5671:                                             ; preds = %5668, %5490
@@ -19416,8 +19416,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5676, label %5677, label %5889, !prof !23
 
 5677:                                             ; preds = %5671
-  %5678 = mul nsw i64 %.5575.i, 10
-  %5679 = add nsw i64 %5675, %5678
+  %5678 = mul nuw nsw i64 %.5575.i, 10
+  %5679 = add nuw nsw i64 %5675, %5678
   br label %5680
 
 5680:                                             ; preds = %5677, %5501
@@ -19432,8 +19432,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5685, label %5686, label %5889, !prof !23
 
 5686:                                             ; preds = %5680
-  %5687 = mul nsw i64 %.6576.i, 10
-  %5688 = add nsw i64 %5684, %5687
+  %5687 = mul nuw nsw i64 %.6576.i, 10
+  %5688 = add nuw nsw i64 %5684, %5687
   br label %5689
 
 5689:                                             ; preds = %5686, %5512
@@ -19448,8 +19448,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5694, label %5695, label %5889, !prof !23
 
 5695:                                             ; preds = %5689
-  %5696 = mul nsw i64 %.7577.i, 10
-  %5697 = add nsw i64 %5693, %5696
+  %5696 = mul nuw nsw i64 %.7577.i, 10
+  %5697 = add nuw nsw i64 %5693, %5696
   br label %5698
 
 5698:                                             ; preds = %5695, %5523
@@ -19464,8 +19464,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5703, label %5704, label %5889, !prof !23
 
 5704:                                             ; preds = %5698
-  %5705 = mul nsw i64 %.8578.i, 10
-  %5706 = add nsw i64 %5702, %5705
+  %5705 = mul nuw nsw i64 %.8578.i, 10
+  %5706 = add nuw nsw i64 %5702, %5705
   br label %5707
 
 5707:                                             ; preds = %5704, %5534
@@ -19480,8 +19480,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5712, label %5713, label %5889, !prof !23
 
 5713:                                             ; preds = %5707
-  %5714 = mul nsw i64 %.9579.i, 10
-  %5715 = add nsw i64 %5711, %5714
+  %5714 = mul nuw nsw i64 %.9579.i, 10
+  %5715 = add nuw nsw i64 %5711, %5714
   br label %5716
 
 5716:                                             ; preds = %5713, %5545
@@ -19496,8 +19496,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5721, label %5722, label %5889, !prof !23
 
 5722:                                             ; preds = %5716
-  %5723 = mul nsw i64 %.10580.i, 10
-  %5724 = add nsw i64 %5720, %5723
+  %5723 = mul nuw nsw i64 %.10580.i, 10
+  %5724 = add nuw nsw i64 %5720, %5723
   br label %5725
 
 5725:                                             ; preds = %5722, %5556
@@ -19512,8 +19512,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5730, label %5731, label %5889, !prof !23
 
 5731:                                             ; preds = %5725
-  %5732 = mul nsw i64 %.11581.i, 10
-  %5733 = add nsw i64 %5729, %5732
+  %5732 = mul nuw nsw i64 %.11581.i, 10
+  %5733 = add nuw nsw i64 %5729, %5732
   br label %5734
 
 5734:                                             ; preds = %5731, %5567
@@ -19528,8 +19528,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5739, label %5740, label %5889, !prof !23
 
 5740:                                             ; preds = %5734
-  %5741 = mul nsw i64 %.12582.i, 10
-  %5742 = add nsw i64 %5738, %5741
+  %5741 = mul nuw nsw i64 %.12582.i, 10
+  %5742 = add nuw nsw i64 %5738, %5741
   br label %5743
 
 5743:                                             ; preds = %5740, %5578
@@ -19544,8 +19544,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5748, label %5749, label %5889, !prof !23
 
 5749:                                             ; preds = %5743
-  %5750 = mul nsw i64 %.13583.i, 10
-  %5751 = add nsw i64 %5747, %5750
+  %5750 = mul nuw nsw i64 %.13583.i, 10
+  %5751 = add nuw nsw i64 %5747, %5750
   br label %5752
 
 5752:                                             ; preds = %5749, %5589
@@ -19560,8 +19560,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5757, label %5758, label %5889, !prof !23
 
 5758:                                             ; preds = %5752
-  %5759 = mul nsw i64 %.14584.i, 10
-  %5760 = add nsw i64 %5756, %5759
+  %5759 = mul nuw nsw i64 %.14584.i, 10
+  %5760 = add nuw nsw i64 %5756, %5759
   br label %5761
 
 5761:                                             ; preds = %5758, %5600
@@ -19576,8 +19576,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5766, label %5767, label %5889, !prof !23
 
 5767:                                             ; preds = %5761
-  %5768 = mul nsw i64 %.15585.i, 10
-  %5769 = add nsw i64 %5765, %5768
+  %5768 = mul nuw nsw i64 %.15585.i, 10
+  %5769 = add nuw nsw i64 %5765, %5768
   br label %5770
 
 5770:                                             ; preds = %5767, %5611
@@ -19592,8 +19592,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5775, label %5776, label %5889, !prof !23
 
 5776:                                             ; preds = %5770
-  %5777 = mul nsw i64 %.16586.i, 10
-  %5778 = add nsw i64 %5774, %5777
+  %5777 = mul nuw nsw i64 %.16586.i, 10
+  %5778 = add nuw nsw i64 %5774, %5777
   br label %5779
 
 5779:                                             ; preds = %5776, %5622
@@ -19608,8 +19608,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5784, label %5785, label %5889, !prof !23
 
 5785:                                             ; preds = %5779
-  %5786 = mul i64 %.17587.i, 10
-  %5787 = add i64 %5783, %5786
+  %5786 = mul nuw nsw i64 %.17587.i, 10
+  %5787 = add nuw nsw i64 %5783, %5786
   br label %5788
 
 5788:                                             ; preds = %5785, %5633
@@ -19624,8 +19624,8 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
   br i1 %5793, label %5794, label %5889, !prof !23
 
 5794:                                             ; preds = %5788
-  %5795 = mul i64 %.18588.i, 10
-  %5796 = add i64 %5792, %5795
+  %5795 = mul nuw i64 %.18588.i, 10
+  %5796 = add nuw i64 %5792, %5795
   %5797 = getelementptr inbounds nuw i8, ptr %.28, i64 20
   %5798 = load i8, ptr %5797, align 1, !tbaa !75
   %5799 = add i8 %5798, -58
@@ -19654,13 +19654,13 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
 
 5812:                                             ; preds = %5809
   %5813 = icmp eq i64 %5412, 1844674407370955161
-  %5814 = icmp ult i64 %5810, 6
+  %5814 = icmp samesign ult i64 %5810, 6
   %or.cond5.i = select i1 %5813, i1 %5814, i1 false
   br i1 %or.cond5.i, label %5815, label %5831
 
 5815:                                             ; preds = %5812, %5809
   %5816 = mul nuw i64 %5412, 10
-  %5817 = add i64 %5810, %5816
+  %5817 = add nsw i64 %5810, %5816
   br i1 %5177, label %5818, label %5829
 
 5818:                                             ; preds = %5815
@@ -19737,7 +19737,7 @@ read_inf_or_nan.exit856.thread:                   ; preds = %5185, %5210, %5211,
 5846:                                             ; preds = %5842
   %5847 = icmp ugt i8 %5841, 52
   %5848 = zext i1 %5847 to i64
-  %5849 = add i64 %.20590.i, %5848
+  %5849 = add nuw i64 %.20590.i, %5848
   %.not669.i = icmp eq ptr %.20.i219, null
   br i1 %.not669.i, label %5850, label %.loopexit4181
 
@@ -25405,8 +25405,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8643, label %8644, label %8855, !prof !23
 
 8644:                                             ; preds = %8636
-  %8645 = mul i64 %8638, 10
-  %8646 = add i64 %8642, %8645
+  %8645 = mul nuw nsw i64 %8638, 10
+  %8646 = add nuw nsw i64 %8642, %8645
   %8647 = getelementptr inbounds nuw i8, ptr %8421, i64 18
   %8648 = load i8, ptr %8647, align 1, !tbaa !75
   %8649 = zext i8 %8648 to i64
@@ -25415,8 +25415,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8651, label %8652, label %8866, !prof !23
 
 8652:                                             ; preds = %8644
-  %8653 = mul i64 %8646, 10
-  %8654 = add i64 %8650, %8653
+  %8653 = mul nuw i64 %8646, 10
+  %8654 = add nuw i64 %8650, %8653
   %8655 = getelementptr inbounds nuw i8, ptr %8421, i64 19
   %8656 = load i8, ptr %8655, align 1, !tbaa !75
   %8657 = zext i8 %8656 to i64
@@ -25819,7 +25819,7 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
 8870:                                             ; preds = %8866
   %8871 = select i1 %8419, i64 12, i64 4
   store i64 %8871, ptr %8414, align 8, !tbaa !73
-  %8872 = sub i64 0, %8646
+  %8872 = sub nsw i64 0, %8646
   %8873 = select i1 %8419, i64 %8872, i64 %8646
   %8874 = getelementptr inbounds nuw i8, ptr %.25622.i, i64 24
   store i64 %8873, ptr %8874, align 8, !tbaa !75
@@ -25841,8 +25841,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8882, label %8883, label %9131, !prof !23
 
 8883:                                             ; preds = %8877
-  %8884 = mul nsw i64 %.0570.i224, 10
-  %8885 = add nsw i64 %8881, %8884
+  %8884 = mul nuw nsw i64 %.0570.i224, 10
+  %8885 = add nuw nsw i64 %8881, %8884
   br label %8886
 
 8886:                                             ; preds = %8883, %8699
@@ -25857,8 +25857,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8891, label %8892, label %9131, !prof !23
 
 8892:                                             ; preds = %8886
-  %8893 = mul nsw i64 %.2572.i278, 10
-  %8894 = add nsw i64 %8890, %8893
+  %8893 = mul nuw nsw i64 %.2572.i278, 10
+  %8894 = add nuw nsw i64 %8890, %8893
   br label %8895
 
 8895:                                             ; preds = %8892, %8710
@@ -25873,8 +25873,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8900, label %8901, label %9131, !prof !23
 
 8901:                                             ; preds = %8895
-  %8902 = mul nsw i64 %.3573.i280, 10
-  %8903 = add nsw i64 %8899, %8902
+  %8902 = mul nuw nsw i64 %.3573.i280, 10
+  %8903 = add nuw nsw i64 %8899, %8902
   br label %8904
 
 8904:                                             ; preds = %8901, %8721
@@ -25889,8 +25889,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8909, label %8910, label %9131, !prof !23
 
 8910:                                             ; preds = %8904
-  %8911 = mul nsw i64 %.4574.i282, 10
-  %8912 = add nsw i64 %8908, %8911
+  %8911 = mul nuw nsw i64 %.4574.i282, 10
+  %8912 = add nuw nsw i64 %8908, %8911
   br label %8913
 
 8913:                                             ; preds = %8910, %8732
@@ -25905,8 +25905,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8918, label %8919, label %9131, !prof !23
 
 8919:                                             ; preds = %8913
-  %8920 = mul nsw i64 %.5575.i284, 10
-  %8921 = add nsw i64 %8917, %8920
+  %8920 = mul nuw nsw i64 %.5575.i284, 10
+  %8921 = add nuw nsw i64 %8917, %8920
   br label %8922
 
 8922:                                             ; preds = %8919, %8743
@@ -25921,8 +25921,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8927, label %8928, label %9131, !prof !23
 
 8928:                                             ; preds = %8922
-  %8929 = mul nsw i64 %.6576.i286, 10
-  %8930 = add nsw i64 %8926, %8929
+  %8929 = mul nuw nsw i64 %.6576.i286, 10
+  %8930 = add nuw nsw i64 %8926, %8929
   br label %8931
 
 8931:                                             ; preds = %8928, %8754
@@ -25937,8 +25937,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8936, label %8937, label %9131, !prof !23
 
 8937:                                             ; preds = %8931
-  %8938 = mul nsw i64 %.7577.i288, 10
-  %8939 = add nsw i64 %8935, %8938
+  %8938 = mul nuw nsw i64 %.7577.i288, 10
+  %8939 = add nuw nsw i64 %8935, %8938
   br label %8940
 
 8940:                                             ; preds = %8937, %8765
@@ -25953,8 +25953,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8945, label %8946, label %9131, !prof !23
 
 8946:                                             ; preds = %8940
-  %8947 = mul nsw i64 %.8578.i290, 10
-  %8948 = add nsw i64 %8944, %8947
+  %8947 = mul nuw nsw i64 %.8578.i290, 10
+  %8948 = add nuw nsw i64 %8944, %8947
   br label %8949
 
 8949:                                             ; preds = %8946, %8776
@@ -25969,8 +25969,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8954, label %8955, label %9131, !prof !23
 
 8955:                                             ; preds = %8949
-  %8956 = mul nsw i64 %.9579.i292, 10
-  %8957 = add nsw i64 %8953, %8956
+  %8956 = mul nuw nsw i64 %.9579.i292, 10
+  %8957 = add nuw nsw i64 %8953, %8956
   br label %8958
 
 8958:                                             ; preds = %8955, %8787
@@ -25985,8 +25985,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8963, label %8964, label %9131, !prof !23
 
 8964:                                             ; preds = %8958
-  %8965 = mul nsw i64 %.10580.i294, 10
-  %8966 = add nsw i64 %8962, %8965
+  %8965 = mul nuw nsw i64 %.10580.i294, 10
+  %8966 = add nuw nsw i64 %8962, %8965
   br label %8967
 
 8967:                                             ; preds = %8964, %8798
@@ -26001,8 +26001,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8972, label %8973, label %9131, !prof !23
 
 8973:                                             ; preds = %8967
-  %8974 = mul nsw i64 %.11581.i296, 10
-  %8975 = add nsw i64 %8971, %8974
+  %8974 = mul nuw nsw i64 %.11581.i296, 10
+  %8975 = add nuw nsw i64 %8971, %8974
   br label %8976
 
 8976:                                             ; preds = %8973, %8809
@@ -26017,8 +26017,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8981, label %8982, label %9131, !prof !23
 
 8982:                                             ; preds = %8976
-  %8983 = mul nsw i64 %.12582.i298, 10
-  %8984 = add nsw i64 %8980, %8983
+  %8983 = mul nuw nsw i64 %.12582.i298, 10
+  %8984 = add nuw nsw i64 %8980, %8983
   br label %8985
 
 8985:                                             ; preds = %8982, %8820
@@ -26033,8 +26033,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8990, label %8991, label %9131, !prof !23
 
 8991:                                             ; preds = %8985
-  %8992 = mul nsw i64 %.13583.i300, 10
-  %8993 = add nsw i64 %8989, %8992
+  %8992 = mul nuw nsw i64 %.13583.i300, 10
+  %8993 = add nuw nsw i64 %8989, %8992
   br label %8994
 
 8994:                                             ; preds = %8991, %8831
@@ -26049,8 +26049,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %8999, label %9000, label %9131, !prof !23
 
 9000:                                             ; preds = %8994
-  %9001 = mul nsw i64 %.14584.i302, 10
-  %9002 = add nsw i64 %8998, %9001
+  %9001 = mul nuw nsw i64 %.14584.i302, 10
+  %9002 = add nuw nsw i64 %8998, %9001
   br label %9003
 
 9003:                                             ; preds = %9000, %8842
@@ -26065,8 +26065,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %9008, label %9009, label %9131, !prof !23
 
 9009:                                             ; preds = %9003
-  %9010 = mul nsw i64 %.15585.i304, 10
-  %9011 = add nsw i64 %9007, %9010
+  %9010 = mul nuw nsw i64 %.15585.i304, 10
+  %9011 = add nuw nsw i64 %9007, %9010
   br label %9012
 
 9012:                                             ; preds = %9009, %8853
@@ -26081,8 +26081,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %9017, label %9018, label %9131, !prof !23
 
 9018:                                             ; preds = %9012
-  %9019 = mul nsw i64 %.16586.i306, 10
-  %9020 = add nsw i64 %9016, %9019
+  %9019 = mul nuw nsw i64 %.16586.i306, 10
+  %9020 = add nuw nsw i64 %9016, %9019
   br label %9021
 
 9021:                                             ; preds = %9018, %8864
@@ -26097,8 +26097,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %9026, label %9027, label %9131, !prof !23
 
 9027:                                             ; preds = %9021
-  %9028 = mul i64 %.17587.i308, 10
-  %9029 = add i64 %9025, %9028
+  %9028 = mul nuw nsw i64 %.17587.i308, 10
+  %9029 = add nuw nsw i64 %9025, %9028
   br label %9030
 
 9030:                                             ; preds = %9027, %8875
@@ -26113,8 +26113,8 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
   br i1 %9035, label %9036, label %9131, !prof !23
 
 9036:                                             ; preds = %9030
-  %9037 = mul i64 %.18588.i310, 10
-  %9038 = add i64 %9034, %9037
+  %9037 = mul nuw i64 %.18588.i310, 10
+  %9038 = add nuw i64 %9034, %9037
   %9039 = getelementptr inbounds nuw i8, ptr %.283333, i64 20
   %9040 = load i8, ptr %9039, align 1, !tbaa !75
   %9041 = add i8 %9040, -58
@@ -26143,13 +26143,13 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
 
 9054:                                             ; preds = %9051
   %9055 = icmp eq i64 %8654, 1844674407370955161
-  %9056 = icmp ult i64 %9052, 6
+  %9056 = icmp samesign ult i64 %9052, 6
   %or.cond5.i324 = select i1 %9055, i1 %9056, i1 false
   br i1 %or.cond5.i324, label %9057, label %9073
 
 9057:                                             ; preds = %9054, %9051
   %9058 = mul nuw i64 %8654, 10
-  %9059 = add i64 %9052, %9058
+  %9059 = add nsw i64 %9052, %9058
   br i1 %8419, label %9060, label %9071
 
 9060:                                             ; preds = %9057
@@ -26226,7 +26226,7 @@ read_inf_or_nan.exit849.thread:                   ; preds = %8427, %8452, %8453,
 9088:                                             ; preds = %9084
   %9089 = icmp ugt i8 %9083, 52
   %9090 = zext i1 %9089 to i64
-  %9091 = add i64 %.20590.i312, %9090
+  %9091 = add nuw i64 %.20590.i312, %9090
   %.not669.i314 = icmp eq ptr %.20.i313, null
   br i1 %.not669.i314, label %9092, label %.loopexit4221
 
@@ -28974,8 +28974,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %260, label %261, label %468, !prof !23
 
 261:                                              ; preds = %253
-  %262 = mul i64 %255, 10
-  %263 = add i64 %259, %262
+  %262 = mul nuw nsw i64 %255, 10
+  %263 = add nuw nsw i64 %259, %262
   %264 = getelementptr inbounds nuw i8, ptr %37, i64 18
   %265 = load i8, ptr %264, align 1, !tbaa !75
   %266 = zext i8 %265 to i64
@@ -28984,8 +28984,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %268, label %269, label %479, !prof !23
 
 269:                                              ; preds = %261
-  %270 = mul i64 %263, 10
-  %271 = add i64 %267, %270
+  %270 = mul nuw i64 %263, 10
+  %271 = add nuw i64 %267, %270
   %272 = getelementptr inbounds nuw i8, ptr %37, i64 19
   %273 = load i8, ptr %272, align 1, !tbaa !75
   %274 = zext i8 %273 to i64
@@ -29378,7 +29378,7 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
 483:                                              ; preds = %479
   %484 = select i1 %35, i64 12, i64 4
   store i64 %484, ptr %18, align 8, !tbaa !73
-  %485 = sub i64 0, %263
+  %485 = sub nsw i64 0, %263
   %486 = select i1 %35, i64 %485, i64 %263
   %487 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store i64 %486, ptr %487, align 8, !tbaa !75
@@ -29400,8 +29400,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %495, label %496, label %735, !prof !23
 
 496:                                              ; preds = %490
-  %497 = mul nsw i64 %.0570.i, 10
-  %498 = add nsw i64 %494, %497
+  %497 = mul nuw nsw i64 %.0570.i, 10
+  %498 = add nuw nsw i64 %494, %497
   br label %499
 
 499:                                              ; preds = %496, %312
@@ -29416,8 +29416,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %504, label %505, label %735, !prof !23
 
 505:                                              ; preds = %499
-  %506 = mul nsw i64 %.2572.i, 10
-  %507 = add nsw i64 %503, %506
+  %506 = mul nuw nsw i64 %.2572.i, 10
+  %507 = add nuw nsw i64 %503, %506
   br label %508
 
 508:                                              ; preds = %505, %323
@@ -29432,8 +29432,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %513, label %514, label %735, !prof !23
 
 514:                                              ; preds = %508
-  %515 = mul nsw i64 %.3573.i, 10
-  %516 = add nsw i64 %512, %515
+  %515 = mul nuw nsw i64 %.3573.i, 10
+  %516 = add nuw nsw i64 %512, %515
   br label %517
 
 517:                                              ; preds = %514, %334
@@ -29448,8 +29448,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %522, label %523, label %735, !prof !23
 
 523:                                              ; preds = %517
-  %524 = mul nsw i64 %.4574.i, 10
-  %525 = add nsw i64 %521, %524
+  %524 = mul nuw nsw i64 %.4574.i, 10
+  %525 = add nuw nsw i64 %521, %524
   br label %526
 
 526:                                              ; preds = %523, %345
@@ -29464,8 +29464,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %531, label %532, label %735, !prof !23
 
 532:                                              ; preds = %526
-  %533 = mul nsw i64 %.5575.i, 10
-  %534 = add nsw i64 %530, %533
+  %533 = mul nuw nsw i64 %.5575.i, 10
+  %534 = add nuw nsw i64 %530, %533
   br label %535
 
 535:                                              ; preds = %532, %356
@@ -29480,8 +29480,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %540, label %541, label %735, !prof !23
 
 541:                                              ; preds = %535
-  %542 = mul nsw i64 %.6576.i, 10
-  %543 = add nsw i64 %539, %542
+  %542 = mul nuw nsw i64 %.6576.i, 10
+  %543 = add nuw nsw i64 %539, %542
   br label %544
 
 544:                                              ; preds = %541, %367
@@ -29496,8 +29496,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %549, label %550, label %735, !prof !23
 
 550:                                              ; preds = %544
-  %551 = mul nsw i64 %.7577.i, 10
-  %552 = add nsw i64 %548, %551
+  %551 = mul nuw nsw i64 %.7577.i, 10
+  %552 = add nuw nsw i64 %548, %551
   br label %553
 
 553:                                              ; preds = %550, %378
@@ -29512,8 +29512,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %558, label %559, label %735, !prof !23
 
 559:                                              ; preds = %553
-  %560 = mul nsw i64 %.8578.i, 10
-  %561 = add nsw i64 %557, %560
+  %560 = mul nuw nsw i64 %.8578.i, 10
+  %561 = add nuw nsw i64 %557, %560
   br label %562
 
 562:                                              ; preds = %559, %389
@@ -29528,8 +29528,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %567, label %568, label %735, !prof !23
 
 568:                                              ; preds = %562
-  %569 = mul nsw i64 %.9579.i, 10
-  %570 = add nsw i64 %566, %569
+  %569 = mul nuw nsw i64 %.9579.i, 10
+  %570 = add nuw nsw i64 %566, %569
   br label %571
 
 571:                                              ; preds = %568, %400
@@ -29544,8 +29544,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %576, label %577, label %735, !prof !23
 
 577:                                              ; preds = %571
-  %578 = mul nsw i64 %.10580.i, 10
-  %579 = add nsw i64 %575, %578
+  %578 = mul nuw nsw i64 %.10580.i, 10
+  %579 = add nuw nsw i64 %575, %578
   br label %580
 
 580:                                              ; preds = %577, %411
@@ -29560,8 +29560,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %585, label %586, label %735, !prof !23
 
 586:                                              ; preds = %580
-  %587 = mul nsw i64 %.11581.i, 10
-  %588 = add nsw i64 %584, %587
+  %587 = mul nuw nsw i64 %.11581.i, 10
+  %588 = add nuw nsw i64 %584, %587
   br label %589
 
 589:                                              ; preds = %586, %422
@@ -29576,8 +29576,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %594, label %595, label %735, !prof !23
 
 595:                                              ; preds = %589
-  %596 = mul nsw i64 %.12582.i, 10
-  %597 = add nsw i64 %593, %596
+  %596 = mul nuw nsw i64 %.12582.i, 10
+  %597 = add nuw nsw i64 %593, %596
   br label %598
 
 598:                                              ; preds = %595, %433
@@ -29592,8 +29592,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %603, label %604, label %735, !prof !23
 
 604:                                              ; preds = %598
-  %605 = mul nsw i64 %.13583.i, 10
-  %606 = add nsw i64 %602, %605
+  %605 = mul nuw nsw i64 %.13583.i, 10
+  %606 = add nuw nsw i64 %602, %605
   br label %607
 
 607:                                              ; preds = %604, %444
@@ -29608,8 +29608,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %612, label %613, label %735, !prof !23
 
 613:                                              ; preds = %607
-  %614 = mul nsw i64 %.14584.i, 10
-  %615 = add nsw i64 %611, %614
+  %614 = mul nuw nsw i64 %.14584.i, 10
+  %615 = add nuw nsw i64 %611, %614
   br label %616
 
 616:                                              ; preds = %613, %455
@@ -29624,8 +29624,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %621, label %622, label %735, !prof !23
 
 622:                                              ; preds = %616
-  %623 = mul nsw i64 %.15585.i, 10
-  %624 = add nsw i64 %620, %623
+  %623 = mul nuw nsw i64 %.15585.i, 10
+  %624 = add nuw nsw i64 %620, %623
   br label %625
 
 625:                                              ; preds = %622, %466
@@ -29640,8 +29640,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %630, label %631, label %735, !prof !23
 
 631:                                              ; preds = %625
-  %632 = mul nsw i64 %.16586.i, 10
-  %633 = add nsw i64 %629, %632
+  %632 = mul nuw nsw i64 %.16586.i, 10
+  %633 = add nuw nsw i64 %629, %632
   br label %634
 
 634:                                              ; preds = %631, %477
@@ -29656,8 +29656,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %639, label %640, label %735, !prof !23
 
 640:                                              ; preds = %634
-  %641 = mul i64 %.17587.i, 10
-  %642 = add i64 %638, %641
+  %641 = mul nuw nsw i64 %.17587.i, 10
+  %642 = add nuw nsw i64 %638, %641
   br label %643
 
 643:                                              ; preds = %640, %488
@@ -29672,8 +29672,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
   br i1 %648, label %649, label %735, !prof !23
 
 649:                                              ; preds = %643
-  %650 = mul i64 %.18588.i, 10
-  %651 = add i64 %647, %650
+  %650 = mul nuw i64 %.18588.i, 10
+  %651 = add nuw i64 %647, %650
   %652 = getelementptr inbounds nuw i8, ptr %.28, i64 20
   %653 = load i8, ptr %652, align 1, !tbaa !75
   %654 = add i8 %653, -58
@@ -29702,13 +29702,13 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
 
 667:                                              ; preds = %664
   %668 = icmp eq i64 %271, 1844674407370955161
-  %669 = icmp ult i64 %665, 6
+  %669 = icmp samesign ult i64 %665, 6
   %or.cond5.i = select i1 %668, i1 %669, i1 false
   br i1 %or.cond5.i, label %670, label %682
 
 670:                                              ; preds = %667, %664
   %671 = mul nuw i64 %271, 10
-  %672 = add i64 %665, %671
+  %672 = add nsw i64 %665, %671
   br i1 %35, label %673, label %680
 
 673:                                              ; preds = %670
@@ -29774,7 +29774,7 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
 697:                                              ; preds = %693
   %698 = icmp ugt i8 %692, 52
   %699 = zext i1 %698 to i64
-  %700 = add i64 %.20590.i, %699
+  %700 = add nuw i64 %.20590.i, %699
   %.not669.i = icmp eq ptr %.20.i, null
   br i1 %.not669.i, label %701, label %.loopexit735
 
@@ -33269,8 +33269,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %244, label %245, label %453, !prof !23
 
 245:                                              ; preds = %237
-  %246 = mul i64 %239, 10
-  %247 = add i64 %243, %246
+  %246 = mul nuw nsw i64 %239, 10
+  %247 = add nuw nsw i64 %243, %246
   %248 = getelementptr inbounds nuw i8, ptr %24, i64 18
   %249 = load i8, ptr %248, align 1, !tbaa !75
   %250 = zext i8 %249 to i64
@@ -33279,8 +33279,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %252, label %253, label %464, !prof !23
 
 253:                                              ; preds = %245
-  %254 = mul i64 %247, 10
-  %255 = add i64 %251, %254
+  %254 = mul nuw i64 %247, 10
+  %255 = add nuw i64 %251, %254
   %256 = getelementptr inbounds nuw i8, ptr %24, i64 19
   %257 = load i8, ptr %256, align 1, !tbaa !75
   %258 = zext i8 %257 to i64
@@ -33673,7 +33673,7 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
 468:                                              ; preds = %464
   %469 = select i1 %22, i64 12, i64 4
   store i64 %469, ptr %1, align 8, !tbaa !73
-  %470 = sub i64 0, %247
+  %470 = sub nsw i64 0, %247
   %471 = select i1 %22, i64 %470, i64 %247
   %472 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %471, ptr %472, align 8, !tbaa !75
@@ -33695,8 +33695,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %480, label %481, label %720, !prof !23
 
 481:                                              ; preds = %475
-  %482 = mul nsw i64 %.0570.i, 10
-  %483 = add nsw i64 %479, %482
+  %482 = mul nuw nsw i64 %.0570.i, 10
+  %483 = add nuw nsw i64 %479, %482
   br label %484
 
 484:                                              ; preds = %481, %297
@@ -33711,8 +33711,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %489, label %490, label %720, !prof !23
 
 490:                                              ; preds = %484
-  %491 = mul nsw i64 %.2572.i, 10
-  %492 = add nsw i64 %488, %491
+  %491 = mul nuw nsw i64 %.2572.i, 10
+  %492 = add nuw nsw i64 %488, %491
   br label %493
 
 493:                                              ; preds = %490, %308
@@ -33727,8 +33727,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %498, label %499, label %720, !prof !23
 
 499:                                              ; preds = %493
-  %500 = mul nsw i64 %.3573.i, 10
-  %501 = add nsw i64 %497, %500
+  %500 = mul nuw nsw i64 %.3573.i, 10
+  %501 = add nuw nsw i64 %497, %500
   br label %502
 
 502:                                              ; preds = %499, %319
@@ -33743,8 +33743,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %507, label %508, label %720, !prof !23
 
 508:                                              ; preds = %502
-  %509 = mul nsw i64 %.4574.i, 10
-  %510 = add nsw i64 %506, %509
+  %509 = mul nuw nsw i64 %.4574.i, 10
+  %510 = add nuw nsw i64 %506, %509
   br label %511
 
 511:                                              ; preds = %508, %330
@@ -33759,8 +33759,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %516, label %517, label %720, !prof !23
 
 517:                                              ; preds = %511
-  %518 = mul nsw i64 %.5575.i, 10
-  %519 = add nsw i64 %515, %518
+  %518 = mul nuw nsw i64 %.5575.i, 10
+  %519 = add nuw nsw i64 %515, %518
   br label %520
 
 520:                                              ; preds = %517, %341
@@ -33775,8 +33775,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %525, label %526, label %720, !prof !23
 
 526:                                              ; preds = %520
-  %527 = mul nsw i64 %.6576.i, 10
-  %528 = add nsw i64 %524, %527
+  %527 = mul nuw nsw i64 %.6576.i, 10
+  %528 = add nuw nsw i64 %524, %527
   br label %529
 
 529:                                              ; preds = %526, %352
@@ -33791,8 +33791,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %534, label %535, label %720, !prof !23
 
 535:                                              ; preds = %529
-  %536 = mul nsw i64 %.7577.i, 10
-  %537 = add nsw i64 %533, %536
+  %536 = mul nuw nsw i64 %.7577.i, 10
+  %537 = add nuw nsw i64 %533, %536
   br label %538
 
 538:                                              ; preds = %535, %363
@@ -33807,8 +33807,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %543, label %544, label %720, !prof !23
 
 544:                                              ; preds = %538
-  %545 = mul nsw i64 %.8578.i, 10
-  %546 = add nsw i64 %542, %545
+  %545 = mul nuw nsw i64 %.8578.i, 10
+  %546 = add nuw nsw i64 %542, %545
   br label %547
 
 547:                                              ; preds = %544, %374
@@ -33823,8 +33823,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %552, label %553, label %720, !prof !23
 
 553:                                              ; preds = %547
-  %554 = mul nsw i64 %.9579.i, 10
-  %555 = add nsw i64 %551, %554
+  %554 = mul nuw nsw i64 %.9579.i, 10
+  %555 = add nuw nsw i64 %551, %554
   br label %556
 
 556:                                              ; preds = %553, %385
@@ -33839,8 +33839,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %561, label %562, label %720, !prof !23
 
 562:                                              ; preds = %556
-  %563 = mul nsw i64 %.10580.i, 10
-  %564 = add nsw i64 %560, %563
+  %563 = mul nuw nsw i64 %.10580.i, 10
+  %564 = add nuw nsw i64 %560, %563
   br label %565
 
 565:                                              ; preds = %562, %396
@@ -33855,8 +33855,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %570, label %571, label %720, !prof !23
 
 571:                                              ; preds = %565
-  %572 = mul nsw i64 %.11581.i, 10
-  %573 = add nsw i64 %569, %572
+  %572 = mul nuw nsw i64 %.11581.i, 10
+  %573 = add nuw nsw i64 %569, %572
   br label %574
 
 574:                                              ; preds = %571, %407
@@ -33871,8 +33871,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %579, label %580, label %720, !prof !23
 
 580:                                              ; preds = %574
-  %581 = mul nsw i64 %.12582.i, 10
-  %582 = add nsw i64 %578, %581
+  %581 = mul nuw nsw i64 %.12582.i, 10
+  %582 = add nuw nsw i64 %578, %581
   br label %583
 
 583:                                              ; preds = %580, %418
@@ -33887,8 +33887,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %588, label %589, label %720, !prof !23
 
 589:                                              ; preds = %583
-  %590 = mul nsw i64 %.13583.i, 10
-  %591 = add nsw i64 %587, %590
+  %590 = mul nuw nsw i64 %.13583.i, 10
+  %591 = add nuw nsw i64 %587, %590
   br label %592
 
 592:                                              ; preds = %589, %429
@@ -33903,8 +33903,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %597, label %598, label %720, !prof !23
 
 598:                                              ; preds = %592
-  %599 = mul nsw i64 %.14584.i, 10
-  %600 = add nsw i64 %596, %599
+  %599 = mul nuw nsw i64 %.14584.i, 10
+  %600 = add nuw nsw i64 %596, %599
   br label %601
 
 601:                                              ; preds = %598, %440
@@ -33919,8 +33919,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %606, label %607, label %720, !prof !23
 
 607:                                              ; preds = %601
-  %608 = mul nsw i64 %.15585.i, 10
-  %609 = add nsw i64 %605, %608
+  %608 = mul nuw nsw i64 %.15585.i, 10
+  %609 = add nuw nsw i64 %605, %608
   br label %610
 
 610:                                              ; preds = %607, %451
@@ -33935,8 +33935,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %615, label %616, label %720, !prof !23
 
 616:                                              ; preds = %610
-  %617 = mul nsw i64 %.16586.i, 10
-  %618 = add nsw i64 %614, %617
+  %617 = mul nuw nsw i64 %.16586.i, 10
+  %618 = add nuw nsw i64 %614, %617
   br label %619
 
 619:                                              ; preds = %616, %462
@@ -33951,8 +33951,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %624, label %625, label %720, !prof !23
 
 625:                                              ; preds = %619
-  %626 = mul i64 %.17587.i, 10
-  %627 = add i64 %623, %626
+  %626 = mul nuw nsw i64 %.17587.i, 10
+  %627 = add nuw nsw i64 %623, %626
   br label %628
 
 628:                                              ; preds = %625, %473
@@ -33967,8 +33967,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
   br i1 %633, label %634, label %720, !prof !23
 
 634:                                              ; preds = %628
-  %635 = mul i64 %.18588.i, 10
-  %636 = add i64 %632, %635
+  %635 = mul nuw i64 %.18588.i, 10
+  %636 = add nuw i64 %632, %635
   %637 = getelementptr inbounds nuw i8, ptr %.28, i64 20
   %638 = load i8, ptr %637, align 1, !tbaa !75
   %639 = add i8 %638, -58
@@ -33997,13 +33997,13 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
 
 652:                                              ; preds = %649
   %653 = icmp eq i64 %255, 1844674407370955161
-  %654 = icmp ult i64 %650, 6
+  %654 = icmp samesign ult i64 %650, 6
   %or.cond5.i = select i1 %653, i1 %654, i1 false
   br i1 %or.cond5.i, label %655, label %668
 
 655:                                              ; preds = %652, %649
   %656 = mul nuw i64 %255, 10
-  %657 = add i64 %650, %656
+  %657 = add nsw i64 %650, %656
   br i1 %22, label %658, label %666
 
 658:                                              ; preds = %655
@@ -34065,7 +34065,7 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
 682:                                              ; preds = %678
   %683 = icmp ugt i8 %677, 52
   %684 = zext i1 %683 to i64
-  %685 = add i64 %.20590.i, %684
+  %685 = add nuw i64 %.20590.i, %684
   %.not669.i = icmp eq ptr %.20.i, null
   br i1 %.not669.i, label %686, label %.loopexit370
 

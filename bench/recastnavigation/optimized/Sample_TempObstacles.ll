@@ -997,8 +997,8 @@ define dso_local void @_Z9drawTilesP11duDebugDrawP11dtTileCache(ptr noundef %0, 
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %21
 
-.preheader:                                       ; preds = %35
-  %14 = icmp sgt i32 %36, 0
+.preheader:                                       ; preds = %36
+  %14 = icmp sgt i32 %37, 0
   br i1 %14, label %.lr.ph35, label %._crit_edge
 
 .lr.ph35:                                         ; preds = %.preheader
@@ -1008,78 +1008,80 @@ define dso_local void @_Z9drawTilesP11duDebugDrawP11dtTileCache(ptr noundef %0, 
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %39
+  br label %40
 
-21:                                               ; preds = %.lr.ph, %35
-  %22 = phi i32 [ %7, %.lr.ph ], [ %36, %35 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
+21:                                               ; preds = %.lr.ph, %36
+  %22 = phi i32 [ %7, %.lr.ph ], [ %37, %36 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %23, i64 %indvars.iv, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %.not32 = icmp eq ptr %25, null
-  br i1 %.not32, label %35, label %26
+  %24 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %.not32 = icmp eq ptr %26, null
+  br i1 %.not32, label %36, label %27
 
-26:                                               ; preds = %21
-  call void @_ZNK11dtTileCache19calcTightTileBoundsEPK22dtTileCacheLayerHeaderPfS3_(ptr noundef nonnull align 8 dereferenceable(912) %1, ptr noundef nonnull %25, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %27 = trunc nuw nsw i64 %indvars.iv to i32
-  %28 = call noundef i32 @_Z10duIntToColii(i32 noundef %27, i32 noundef 64)
-  call void @_Z15duCalcBoxColorsPjjj(ptr noundef nonnull %3, i32 noundef %28, i32 noundef %28)
-  %29 = load float, ptr %4, align 4
-  %30 = load float, ptr %10, align 4
-  %31 = load float, ptr %11, align 4
-  %32 = load float, ptr %5, align 4
-  %33 = load float, ptr %12, align 4
-  %34 = load float, ptr %13, align 4
-  call void @_Z14duDebugDrawBoxP11duDebugDrawffffffPKj(ptr noundef %0, float noundef %29, float noundef %30, float noundef %31, float noundef %32, float noundef %33, float noundef %34, ptr noundef nonnull %3)
+27:                                               ; preds = %21
+  call void @_ZNK11dtTileCache19calcTightTileBoundsEPK22dtTileCacheLayerHeaderPfS3_(ptr noundef nonnull align 8 dereferenceable(912) %1, ptr noundef nonnull %26, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
+  %29 = call noundef i32 @_Z10duIntToColii(i32 noundef %28, i32 noundef 64)
+  call void @_Z15duCalcBoxColorsPjjj(ptr noundef nonnull %3, i32 noundef %29, i32 noundef %29)
+  %30 = load float, ptr %4, align 4
+  %31 = load float, ptr %10, align 4
+  %32 = load float, ptr %11, align 4
+  %33 = load float, ptr %5, align 4
+  %34 = load float, ptr %12, align 4
+  %35 = load float, ptr %13, align 4
+  call void @_Z14duDebugDrawBoxP11duDebugDrawffffffPKj(ptr noundef %0, float noundef %30, float noundef %31, float noundef %32, float noundef %33, float noundef %34, float noundef %35, ptr noundef nonnull %3)
   %.pre = load i32, ptr %6, align 4
-  br label %35
+  br label %36
 
-35:                                               ; preds = %21, %26
-  %36 = phi i32 [ %22, %21 ], [ %.pre, %26 ]
+36:                                               ; preds = %21, %27
+  %37 = phi i32 [ %22, %21 ], [ %.pre, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %21, label %.preheader, !llvm.loop !11
+  %38 = sext i32 %37 to i64
+  %39 = icmp slt i64 %indvars.iv.next, %38
+  br i1 %39, label %21, label %.preheader, !llvm.loop !11
 
-39:                                               ; preds = %.lr.ph35, %61
-  %40 = phi i32 [ %36, %.lr.ph35 ], [ %62, %61 ]
-  %indvars.iv37 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next38, %61 ]
-  %41 = load ptr, ptr %15, align 8
-  %42 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %41, i64 %indvars.iv37, i32 1
-  %43 = load ptr, ptr %42, align 8
-  %.not = icmp eq ptr %43, null
-  br i1 %.not, label %61, label %44
+40:                                               ; preds = %.lr.ph35, %63
+  %41 = phi i32 [ %37, %.lr.ph35 ], [ %64, %63 ]
+  %indvars.iv37 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next38, %63 ]
+  %42 = load ptr, ptr %15, align 8
+  %43 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %42, i64 %indvars.iv37
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %.not = icmp eq ptr %45, null
+  br i1 %.not, label %63, label %46
 
-44:                                               ; preds = %39
-  call void @_ZNK11dtTileCache19calcTightTileBoundsEPK22dtTileCacheLayerHeaderPfS3_(ptr noundef nonnull align 8 dereferenceable(912) %1, ptr noundef nonnull %43, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %45 = trunc nuw nsw i64 %indvars.iv37 to i32
-  %46 = call noundef i32 @_Z10duIntToColii(i32 noundef %45, i32 noundef 255)
-  %47 = load float, ptr %16, align 4
-  %48 = fmul float %47, 0x3FB99999A0000000
-  %49 = load float, ptr %4, align 4
-  %50 = fsub float %49, %48
-  %51 = load float, ptr %17, align 4
-  %52 = fsub float %51, %48
-  %53 = load float, ptr %18, align 4
-  %54 = fsub float %53, %48
-  %55 = load float, ptr %5, align 4
-  %56 = fadd float %48, %55
-  %57 = load float, ptr %19, align 4
-  %58 = fadd float %48, %57
-  %59 = load float, ptr %20, align 4
-  %60 = fadd float %48, %59
-  call void @_Z18duDebugDrawBoxWireP11duDebugDrawffffffjf(ptr noundef %0, float noundef %50, float noundef %52, float noundef %54, float noundef %56, float noundef %58, float noundef %60, i32 noundef %46, float noundef 2.000000e+00)
+46:                                               ; preds = %40
+  call void @_ZNK11dtTileCache19calcTightTileBoundsEPK22dtTileCacheLayerHeaderPfS3_(ptr noundef nonnull align 8 dereferenceable(912) %1, ptr noundef nonnull %45, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %47 = trunc nuw nsw i64 %indvars.iv37 to i32
+  %48 = call noundef i32 @_Z10duIntToColii(i32 noundef %47, i32 noundef 255)
+  %49 = load float, ptr %16, align 4
+  %50 = fmul float %49, 0x3FB99999A0000000
+  %51 = load float, ptr %4, align 4
+  %52 = fsub float %51, %50
+  %53 = load float, ptr %17, align 4
+  %54 = fsub float %53, %50
+  %55 = load float, ptr %18, align 4
+  %56 = fsub float %55, %50
+  %57 = load float, ptr %5, align 4
+  %58 = fadd float %50, %57
+  %59 = load float, ptr %19, align 4
+  %60 = fadd float %50, %59
+  %61 = load float, ptr %20, align 4
+  %62 = fadd float %50, %61
+  call void @_Z18duDebugDrawBoxWireP11duDebugDrawffffffjf(ptr noundef %0, float noundef %52, float noundef %54, float noundef %56, float noundef %58, float noundef %60, float noundef %62, i32 noundef %48, float noundef 2.000000e+00)
   %.pre40 = load i32, ptr %6, align 4
-  br label %61
+  br label %63
 
-61:                                               ; preds = %39, %44
-  %62 = phi i32 [ %40, %39 ], [ %.pre40, %44 ]
+63:                                               ; preds = %40, %46
+  %64 = phi i32 [ %41, %40 ], [ %.pre40, %46 ]
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %63 = sext i32 %62 to i64
-  %64 = icmp slt i64 %indvars.iv.next38, %63
-  br i1 %64, label %39, label %._crit_edge, !llvm.loop !12
+  %65 = sext i32 %64 to i64
+  %66 = icmp slt i64 %indvars.iv.next38, %65
+  br i1 %66, label %40, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %61, %2, %.preheader
+._crit_edge:                                      ; preds = %63, %2, %.preheader
   ret void
 }
 

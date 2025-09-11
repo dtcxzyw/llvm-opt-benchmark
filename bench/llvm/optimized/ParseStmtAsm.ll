@@ -8703,7 +8703,7 @@ _ZNK12_GLOBAL__N_122ClangAsmParserCallback19findTokensForStringEN4llvm9StringRef
   %76 = load i32, ptr %8, align 8
   %77 = icmp eq i32 %76, %74
   %or.cond = select i1 %75, i1 true, i1 %77
-  br i1 %or.cond, label %100, label %78
+  br i1 %or.cond, label %101, label %78
 
 78:                                               ; preds = %_ZNK12_GLOBAL__N_122ClangAsmParserCallback19findTokensForStringEN4llvm9StringRefERNS1_15SmallVectorImplIN5clang5TokenEEERPKS5_.exit
   %79 = load ptr, ptr %34, align 8, !tbaa !1594
@@ -8718,43 +8718,44 @@ _ZNK12_GLOBAL__N_122ClangAsmParserCallback19findTokensForStringEN4llvm9StringRef
   %88 = load ptr, ptr %16, align 8, !tbaa !1588
   %89 = getelementptr inbounds nuw i32, ptr %88, i64 %87
   %90 = load i32, ptr %89, align 4, !tbaa !317
-  %91 = getelementptr inbounds nuw %"class.clang::Token", ptr %79, i64 %87, i32 1
-  %92 = load i32, ptr %91, align 4, !tbaa !344
-  %93 = add i32 %92, %90
-  %94 = and i64 %83, 4294967295
-  %95 = getelementptr inbounds nuw i32, ptr %88, i64 %94
-  %96 = load i32, ptr %95, align 4, !tbaa !317
-  %97 = sub i32 %93, %96
-  %98 = zext i32 %97 to i64
-  %99 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !1549
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %99, i64 %98)
+  %91 = getelementptr inbounds nuw %"class.clang::Token", ptr %79, i64 %87
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %93 = load i32, ptr %92, align 4, !tbaa !344
+  %94 = add i32 %93, %90
+  %95 = and i64 %83, 4294967295
+  %96 = getelementptr inbounds nuw i32, ptr %88, i64 %95
+  %97 = load i32, ptr %96, align 4, !tbaa !317
+  %98 = sub i32 %94, %97
+  %99 = zext i32 %98 to i64
+  %100 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !1549
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %100, i64 %99)
   store i64 %.sroa.speculated.i, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !372
-  br label %100
+  br label %101
 
-100:                                              ; preds = %_ZNK12_GLOBAL__N_122ClangAsmParserCallback19findTokensForStringEN4llvm9StringRefERNS1_15SmallVectorImplIN5clang5TokenEEERPKS5_.exit, %78
-  %101 = icmp ugt i64 %73, 1
-  br i1 %101, label %102, label %108
+101:                                              ; preds = %_ZNK12_GLOBAL__N_122ClangAsmParserCallback19findTokensForStringEN4llvm9StringRefERNS1_15SmallVectorImplIN5clang5TokenEEERPKS5_.exit, %78
+  %102 = icmp ugt i64 %73, 1
+  br i1 %102, label %103, label %109
 
-102:                                              ; preds = %100
-  %103 = load ptr, ptr %71, align 8, !tbaa !1595
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 88
-  %105 = load ptr, ptr %104, align 8, !tbaa !316
-  %106 = and i64 %73, -2
-  %107 = inttoptr i64 %106 to ptr
-  call void @_ZN5clang4Sema27FillInlineAsmIdentifierInfoEPNS_4ExprERN4llvm23InlineAsmIdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %105, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(28) %2) #17
-  br label %108
+103:                                              ; preds = %101
+  %104 = load ptr, ptr %71, align 8, !tbaa !1595
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 88
+  %106 = load ptr, ptr %105, align 8, !tbaa !316
+  %107 = and i64 %73, -2
+  %108 = inttoptr i64 %107 to ptr
+  call void @_ZN5clang4Sema27FillInlineAsmIdentifierInfoEPNS_4ExprERN4llvm23InlineAsmIdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %106, ptr noundef %108, ptr noundef nonnull align 8 dereferenceable(28) %2) #17
+  br label %109
 
-108:                                              ; preds = %100, %102
+109:                                              ; preds = %101, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %109 = load ptr, ptr %5, align 8, !tbaa !14
-  %110 = icmp eq ptr %109, %7
-  br i1 %110, label %_ZN4llvm11SmallVectorIN5clang5TokenELj16EED2Ev.exit, label %111
+  %110 = load ptr, ptr %5, align 8, !tbaa !14
+  %111 = icmp eq ptr %110, %7
+  br i1 %111, label %_ZN4llvm11SmallVectorIN5clang5TokenELj16EED2Ev.exit, label %112
 
-111:                                              ; preds = %108
-  call void @free(ptr noundef %109) #17
+112:                                              ; preds = %109
+  call void @free(ptr noundef %110) #17
   br label %_ZN4llvm11SmallVectorIN5clang5TokenELj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang5TokenELj16EED2Ev.exit: ; preds = %108, %111
+_ZN4llvm11SmallVectorIN5clang5TokenELj16EED2Ev.exit: ; preds = %109, %112
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

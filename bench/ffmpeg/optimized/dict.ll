@@ -462,7 +462,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   %77 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %74, i64 %76
   store ptr %.173115, ptr %77, align 8, !tbaa !12
   %78 = load ptr, ptr %5, align 8, !tbaa !21
-  %79 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %74, i64 %76, i32 1
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %78, ptr %79, align 8, !tbaa !22
   %80 = add nsw i32 %75, 1
   store i32 %80, ptr %.2119, align 8, !tbaa !4
@@ -626,7 +626,7 @@ parse_key_value_pair.exit:                        ; preds = %.lr.ph, %13, %15, %
 define void @av_dict_free(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %18, label %.preheader
+  br i1 %.not, label %19, label %.preheader
 
 .preheader:                                       ; preds = %1
   %3 = load i32, ptr %2, align 8, !tbaa !4
@@ -640,7 +640,7 @@ define void @av_dict_free(ptr noundef %0) local_unnamed_addr #2 {
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
-  %7 = phi i32 [ %4, %.lr.ph ], [ %16, %6 ]
+  %7 = phi i32 [ %4, %.lr.ph ], [ %17, %6 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !11
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %8, i64 %9
@@ -648,20 +648,21 @@ define void @av_dict_free(ptr noundef %0) local_unnamed_addr #2 {
   %11 = load ptr, ptr %5, align 8, !tbaa !11
   %12 = load i32, ptr %2, align 8, !tbaa !4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %11, i64 %13, i32 1
-  tail call void @av_freep(ptr noundef nonnull %14) #8
-  %15 = load i32, ptr %2, align 8, !tbaa !4
-  %16 = add nsw i32 %15, -1
-  store i32 %16, ptr %2, align 8, !tbaa !4
-  %.not9 = icmp eq i32 %15, 0
+  %14 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %11, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  tail call void @av_freep(ptr noundef nonnull %15) #8
+  %16 = load i32, ptr %2, align 8, !tbaa !4
+  %17 = add nsw i32 %16, -1
+  store i32 %17, ptr %2, align 8, !tbaa !4
+  %.not9 = icmp eq i32 %16, 0
   br i1 %.not9, label %._crit_edge, label %6, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %6, %.preheader
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @av_freep(ptr noundef nonnull %17) #8
-  br label %18
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  tail call void @av_freep(ptr noundef nonnull %18) #8
+  br label %19
 
-18:                                               ; preds = %._crit_edge, %1
+19:                                               ; preds = %._crit_edge, %1
   tail call void @av_freep(ptr noundef nonnull %0) #8
   ret void
 }

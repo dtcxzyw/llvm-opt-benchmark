@@ -6392,7 +6392,8 @@ _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit38: ; preds = %_ZNK5boost10sha
 if.then34:                                        ; preds = %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit38
   %localVolInterpol_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %23 = load ptr, ptr %localVolInterpol_, align 8, !tbaa !60
-  %impl_.i = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %23, i64 %sub.ptr.div.i.i.i, i32 1
+  %add.ptr.i41 = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %23, i64 %sub.ptr.div.i.i.i
+  %impl_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i41, i64 16
   %24 = load ptr, ptr %impl_.i, align 8, !tbaa !120
   %cmp.not.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib13InterpolationclEdb.exit, !prof !102
@@ -6672,7 +6673,8 @@ _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit106: ; preds = %_ZNK5boost10sh
 cond.true:                                        ; preds = %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit106
   %localVolInterpol_106 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %83 = load ptr, ptr %localVolInterpol_106, align 8, !tbaa !60
-  %impl_.i110 = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %83, i64 %sub96.pre-phi, i32 1
+  %add.ptr.i109 = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %83, i64 %sub96.pre-phi
+  %impl_.i110 = getelementptr inbounds nuw i8, ptr %add.ptr.i109, i64 16
   %84 = load ptr, ptr %impl_.i110, align 8, !tbaa !120
   %cmp.not.i.i111 = icmp eq ptr %84, null
   br i1 %cmp.not.i.i111, label %cond.false.i.i115, label %_ZNK8QuantLib13InterpolationclEdb.exit117, !prof !102
@@ -6724,7 +6726,8 @@ cond.end:                                         ; preds = %_ZNK5boost10shared_
   %cond = phi double [ %call2.i114, %_ZNK8QuantLib13InterpolationclEdb.exit117 ], [ %92, %_ZNK5boost10shared_ptrIN8QuantLib6MatrixEEptEv.exit125 ]
   %localVolInterpol_119 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %93 = load ptr, ptr %localVolInterpol_119, align 8, !tbaa !60
-  %impl_.i131 = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %93, i64 %sub.ptr.div.i.i.i, i32 1
+  %add.ptr.i130 = getelementptr inbounds nuw %"class.QuantLib::Interpolation", ptr %93, i64 %sub.ptr.div.i.i.i
+  %impl_.i131 = getelementptr inbounds nuw i8, ptr %add.ptr.i130, i64 16
   %94 = load ptr, ptr %impl_.i131, align 8, !tbaa !120
   %cmp.not.i.i132 = icmp eq ptr %94, null
   br i1 %cmp.not.i.i132, label %cond.false.i.i136, label %_ZNK8QuantLib13InterpolationclEdb.exit138, !prof !102

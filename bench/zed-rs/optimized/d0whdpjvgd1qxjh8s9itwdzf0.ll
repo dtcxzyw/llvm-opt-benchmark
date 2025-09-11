@@ -21709,12 +21709,11 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hdcd8762cde
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit.i.i", %20
-  %.sroa.0.09.i.i = phi i64 [ %22, %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit.i.i" ], [ 0, %20 ]
-  %22 = add nuw nsw i64 %.sroa.0.09.i.i, 1
+  %.sroa.0.09.i.i = phi i64 [ %23, %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit.i.i" ], [ 0, %20 ]
+  %22 = getelementptr inbounds nuw { ptr, { { { { ptr, i64 } }, {}, {} } }, i64 }, ptr %21, i64 %.sroa.0.09.i.i
+  %23 = add nuw nsw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4004)
-  %.idx = shl nsw i64 %.sroa.0.09.i.i, 5
-  %23 = getelementptr i8, ptr %21, i64 %.idx
-  %24 = getelementptr i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4007)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4010)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4013)
@@ -21729,22 +21728,21 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hdcd8762cde
           to label %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit.i.i" unwind label %30
 
 "_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit.i.i": ; preds = %28, %.lr.ph.i.i
-  %29 = icmp eq i64 %22, %19
+  %29 = icmp eq i64 %23, %19
   br i1 %29, label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hb3e699fbb3269392E.exit, label %.lr.ph.i.i
 
 30:                                               ; preds = %28
   %31 = landingpad { ptr, i32 }
           cleanup
-  %32 = icmp eq i64 %22, %19
+  %32 = icmp eq i64 %23, %19
   br i1 %32, label %common.resume, label %.lr.ph12.i.i
 
 .lr.ph12.i.i:                                     ; preds = %30, %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit8.i.i"
-  %.sroa.0.110.i.i = phi i64 [ %33, %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit8.i.i" ], [ %22, %30 ]
-  %33 = add i64 %.sroa.0.110.i.i, 1
+  %.sroa.0.110.i.i = phi i64 [ %34, %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit8.i.i" ], [ %23, %30 ]
+  %33 = getelementptr inbounds { ptr, { { { { ptr, i64 } }, {}, {} } }, i64 }, ptr %21, i64 %.sroa.0.110.i.i
+  %34 = add i64 %.sroa.0.110.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4020)
-  %.idx2 = shl nsw i64 %.sroa.0.110.i.i, 5
-  %34 = getelementptr i8, ptr %21, i64 %.idx2
-  %35 = getelementptr i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4023)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4026)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4029)
@@ -21759,7 +21757,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hdcd8762cde
           to label %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit8.i.i" unwind label %41
 
 "_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit8.i.i": ; preds = %39, %.lr.ph12.i.i
-  %40 = icmp eq i64 %33, %19
+  %40 = icmp eq i64 %34, %19
   br i1 %40, label %common.resume, label %.lr.ph12.i.i
 
 common.resume:                                    ; preds = %"_ZN4core3ptr92drop_in_place$LT$sum_tree..cursor..StackEntry$LT$worktree..Entry$C$worktree..PathKey$GT$$GT$17h1b975180d7d71336E.exit8.i.i", %30, %50

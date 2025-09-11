@@ -111,98 +111,99 @@ _ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEE
 .lr.ph60:                                         ; preds = %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit
   %20 = add nsw i64 %8, -1
   %21 = shl i64 %2, 1
-  br label %30
+  br label %31
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.057 = phi i64 [ %25, %.lr.ph ], [ 0, %4 ]
-  %22 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %.pre, i64 %.057, i32 3
-  %23 = load i64, ptr %22, align 8, !tbaa !3
-  %24 = tail call i64 @llvm.umax.i64(i64 %23, i64 16)
-  store i64 %24, ptr %22, align 8, !tbaa !17
-  %25 = add nuw nsw i64 %.057, 1
-  %exitcond.not = icmp eq i64 %25, %8
+  %.057 = phi i64 [ %26, %.lr.ph ], [ 0, %4 ]
+  %22 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %.pre, i64 %.057
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %24 = load i64, ptr %23, align 8, !tbaa !3
+  %25 = tail call i64 @llvm.umax.i64(i64 %24, i64 16)
+  store i64 %25, ptr %23, align 8, !tbaa !17
+  %26 = add nuw nsw i64 %.057, 1
+  %exitcond.not = icmp eq i64 %26, %8
   br i1 %exitcond.not, label %.lr.ph.i.i.i.i.i.preheader, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge61:                                    ; preds = %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit, %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit
-  %.033.lcssa = phi i64 [ %19, %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit ], [ %65, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
-  %26 = urem i64 %.033.lcssa, %3
-  %.not = icmp eq i64 %26, 0
-  %27 = sub i64 %3, %26
-  %28 = select i1 %.not, i64 0, i64 %27
-  %.1 = add i64 %28, %.033.lcssa
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.1, ptr %29, align 8, !tbaa !22
+  %.033.lcssa = phi i64 [ %19, %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit ], [ %66, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
+  %27 = urem i64 %.033.lcssa, %3
+  %.not = icmp eq i64 %27, 0
+  %28 = sub i64 %3, %27
+  %29 = select i1 %.not, i64 0, i64 %28
+  %.1 = add i64 %29, %.033.lcssa
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.1, ptr %30, align 8, !tbaa !22
   ret void
 
-30:                                               ; preds = %.lr.ph60, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
-  %.03359 = phi i64 [ %19, %.lr.ph60 ], [ %65, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
-  %.03458 = phi i64 [ 0, %.lr.ph60 ], [ %66, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
-  %31 = icmp eq i64 %.03458, %20
-  %32 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %13, i64 %.03458
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !23
-  br i1 %31, label %39, label %35
+31:                                               ; preds = %.lr.ph60, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
+  %.03359 = phi i64 [ %19, %.lr.ph60 ], [ %66, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
+  %.03458 = phi i64 [ 0, %.lr.ph60 ], [ %67, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
+  %32 = icmp eq i64 %.03458, %20
+  %33 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %13, i64 %.03458
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load i64, ptr %34, align 8, !tbaa !23
+  br i1 %32, label %40, label %36
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 80
-  %37 = load i64, ptr %36, align 8, !tbaa !3
-  %38 = icmp ult i64 %2, %37
-  %..i41 = select i1 %38, ptr %36, ptr %5
-  br label %39
+36:                                               ; preds = %31
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 80
+  %38 = load i64, ptr %37, align 8, !tbaa !3
+  %39 = icmp ult i64 %2, %38
+  %..i41 = select i1 %39, ptr %37, ptr %5
+  br label %40
 
-39:                                               ; preds = %30, %35
-  %.in = phi ptr [ %..i41, %35 ], [ %5, %30 ]
-  %40 = load i64, ptr %.in, align 8, !tbaa !3
-  %41 = icmp ult i64 %34, 5
-  br i1 %41, label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit, label %42
+40:                                               ; preds = %31, %36
+  %.in = phi ptr [ %..i41, %36 ], [ %5, %31 ]
+  %41 = load i64, ptr %.in, align 8, !tbaa !3
+  %42 = icmp ult i64 %35, 5
+  br i1 %42, label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit, label %43
 
-42:                                               ; preds = %39
-  %43 = icmp ult i64 %34, 17
-  br i1 %43, label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit, label %44
+43:                                               ; preds = %40
+  %44 = icmp ult i64 %35, 17
+  br i1 %44, label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit, label %45
 
-44:                                               ; preds = %42
-  %45 = icmp ult i64 %34, 129
-  br i1 %45, label %46, label %48
+45:                                               ; preds = %43
+  %46 = icmp ult i64 %35, 129
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %44
-  %47 = add nuw nsw i64 %34, 32
+47:                                               ; preds = %45
+  %48 = add nuw nsw i64 %35, 32
   br label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
 
-48:                                               ; preds = %44
-  %49 = icmp ult i64 %34, 513
-  br i1 %49, label %50, label %52
+49:                                               ; preds = %45
+  %50 = icmp ult i64 %35, 513
+  br i1 %50, label %51, label %53
 
-50:                                               ; preds = %48
-  %51 = add nuw nsw i64 %34, 64
+51:                                               ; preds = %49
+  %52 = add nuw nsw i64 %35, 64
   br label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
 
-52:                                               ; preds = %48
-  %53 = icmp ult i64 %34, 4097
-  br i1 %53, label %54, label %56
+53:                                               ; preds = %49
+  %54 = icmp ult i64 %35, 4097
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %52
-  %55 = add nuw nsw i64 %34, 128
+55:                                               ; preds = %53
+  %56 = add nuw nsw i64 %35, 128
   br label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
 
-56:                                               ; preds = %52
-  %57 = add i64 %34, 256
+57:                                               ; preds = %53
+  %58 = add i64 %35, 256
   br label %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit
 
-_ZN4llvmL17VarAndRedzoneSizeEmmm.exit:            ; preds = %39, %42, %46, %50, %54, %56
-  %.0.i = phi i64 [ %47, %46 ], [ %51, %50 ], [ %55, %54 ], [ %57, %56 ], [ 16, %39 ], [ 32, %42 ]
+_ZN4llvmL17VarAndRedzoneSizeEmmm.exit:            ; preds = %40, %43, %47, %51, %55, %57
+  %.0.i = phi i64 [ %48, %47 ], [ %52, %51 ], [ %56, %55 ], [ %58, %57 ], [ 16, %40 ], [ 32, %43 ]
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %.0.i, i64 %21)
-  %58 = icmp ne i64 %.sroa.speculated.i, 0
-  %59 = zext i1 %58 to i64
-  %60 = sub i64 %.sroa.speculated.i, %59
-  %61 = udiv i64 %60, %40
-  %62 = add i64 %61, %59
-  %63 = mul i64 %62, %40
-  %64 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store i64 %.03359, ptr %64, align 8, !tbaa !24
-  %65 = add i64 %63, %.03359
-  %66 = add nuw nsw i64 %.03458, 1
-  %exitcond69.not = icmp eq i64 %66, %8
-  br i1 %exitcond69.not, label %._crit_edge61, label %30, !llvm.loop !25
+  %59 = icmp ne i64 %.sroa.speculated.i, 0
+  %60 = zext i1 %59 to i64
+  %61 = sub i64 %.sroa.speculated.i, %60
+  %62 = udiv i64 %61, %41
+  %63 = add i64 %62, %60
+  %64 = mul i64 %63, %41
+  %65 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 %.03359, ptr %65, align 8, !tbaa !24
+  %66 = add i64 %64, %.03359
+  %67 = add nuw nsw i64 %.03458, 1
+  %exitcond69.not = icmp eq i64 %67, %8
+  br i1 %exitcond69.not, label %._crit_edge61, label %31, !llvm.loop !25
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

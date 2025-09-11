@@ -2822,8 +2822,9 @@ thread-pre-split:                                 ; preds = %115, %154
 
 193:                                              ; preds = %191
   %194 = load ptr, ptr %112, align 8
-  %195 = getelementptr inbounds %struct._Point, ptr %194, i64 %175, i32 2
-  store i8 1, ptr %195, align 8
+  %195 = getelementptr inbounds %struct._Point, ptr %194, i64 %175
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  store i8 1, ptr %196, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %52, %50, %30, %32, %87, %193, %191

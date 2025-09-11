@@ -28643,7 +28643,7 @@ RSTRING_PTR.exit:                                 ; preds = %40, %47
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader59.i.thread, %.preheader59.i
   %54 = phi i1 [ false, %.preheader59.i ], [ false, %.preheader59.i.thread ], [ true, %.lr.ph.i ]
-  %.047.lcssa.i = phi i64 [ 0, %.preheader59.i ], [ 0, %.preheader59.i.thread ], [ %77, %.lr.ph.i ]
+  %.047.lcssa.i = phi i64 [ 0, %.preheader59.i ], [ 0, %.preheader59.i.thread ], [ %78, %.lr.ph.i ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %56 = load ptr, ptr %55, align 8, !tbaa !48
   %57 = icmp eq ptr %56, null
@@ -28684,37 +28684,38 @@ RSTRING_PTR.exit:                                 ; preds = %40, %47
 io_allocate_write_buffer.exit.i:                  ; preds = %72, %67
   %74 = phi ptr [ %68, %67 ], [ %.pre.i, %72 ]
   %.not.i = icmp eq ptr %74, null
-  br i1 %.not.i, label %105, label %78
+  br i1 %.not.i, label %106, label %79
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.04760.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %77, %.lr.ph.i ]
-  %75 = getelementptr %struct.iovec, ptr %21, i64 %indvars.iv.i, i32 1
-  %76 = load i64, ptr %75, align 8, !tbaa !334
-  %77 = add i64 %76, %.04760.i
+  %.04760.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %78, %.lr.ph.i ]
+  %75 = getelementptr %struct.iovec, ptr %21, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load i64, ptr %76, align 8, !tbaa !334
+  %78 = add i64 %77, %.04760.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !414
 
-78:                                               ; preds = %io_allocate_write_buffer.exit.i
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  %80 = load i32, ptr %79, align 4, !tbaa !35
-  %.not55.i = icmp eq i32 %80, 0
-  br i1 %.not55.i, label %105, label %81
+79:                                               ; preds = %io_allocate_write_buffer.exit.i
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  %81 = load i32, ptr %80, align 4, !tbaa !35
+  %.not55.i = icmp eq i32 %81, 0
+  br i1 %.not55.i, label %106, label %82
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %83 = load i32, ptr %82, align 8, !tbaa !49
-  %84 = add i32 %83, %80
-  %85 = sext i32 %84 to i64
-  %86 = add i64 %.047.lcssa.i, %85
-  %87 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %88 = load i32, ptr %87, align 8, !tbaa !50
-  %89 = sext i32 %88 to i64
-  %.not57.i = icmp ugt i64 %86, %89
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %84 = load i32, ptr %83, align 8, !tbaa !49
+  %85 = add i32 %84, %81
+  %86 = sext i32 %85 to i64
+  %87 = add i64 %.047.lcssa.i, %86
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %89 = load i32, ptr %88, align 8, !tbaa !50
+  %90 = sext i32 %89 to i64
+  %.not57.i = icmp ugt i64 %87, %90
   br i1 %.not57.i, label %.thread.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %81
+.preheader.i:                                     ; preds = %82
   br i1 %54, label %.lr.ph64.preheader.i, label %._crit_edge65.i
 
 .lr.ph64.preheader.i:                             ; preds = %.preheader.i
@@ -28723,118 +28724,118 @@ io_allocate_write_buffer.exit.i:                  ; preds = %72, %67
 
 .lr.ph64.i:                                       ; preds = %ruby_nonempty_memcpy.exit.i, %.lr.ph64.preheader.i
   %indvars.iv67.i = phi i64 [ 1, %.lr.ph64.preheader.i ], [ %indvars.iv.next68.i, %ruby_nonempty_memcpy.exit.i ]
-  %.04562.i = phi i64 [ %85, %.lr.ph64.preheader.i ], [ %97, %ruby_nonempty_memcpy.exit.i ]
-  %90 = getelementptr %struct.iovec, ptr %21, i64 %indvars.iv67.i
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load i64, ptr %91, align 8, !tbaa !334
-  %.not.i.i43 = icmp eq i64 %92, 0
-  br i1 %.not.i.i43, label %ruby_nonempty_memcpy.exit.i, label %93
+  %.04562.i = phi i64 [ %86, %.lr.ph64.preheader.i ], [ %98, %ruby_nonempty_memcpy.exit.i ]
+  %91 = getelementptr %struct.iovec, ptr %21, i64 %indvars.iv67.i
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load i64, ptr %92, align 8, !tbaa !334
+  %.not.i.i43 = icmp eq i64 %93, 0
+  br i1 %.not.i.i43, label %ruby_nonempty_memcpy.exit.i, label %94
 
-93:                                               ; preds = %.lr.ph64.i
-  %94 = load ptr, ptr %90, align 8, !tbaa !332
-  %95 = load ptr, ptr %55, align 8, !tbaa !48
-  %96 = getelementptr i8, ptr %95, i64 %.04562.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %96, ptr noundef nonnull readonly align 1 %94, i64 noundef range(i64 1, 0) %92, i1 noundef false) #28
+94:                                               ; preds = %.lr.ph64.i
+  %95 = load ptr, ptr %91, align 8, !tbaa !332
+  %96 = load ptr, ptr %55, align 8, !tbaa !48
+  %97 = getelementptr i8, ptr %96, i64 %.04562.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %97, ptr noundef nonnull readonly align 1 %95, i64 noundef range(i64 1, 0) %93, i1 noundef false) #28
   br label %ruby_nonempty_memcpy.exit.i
 
-ruby_nonempty_memcpy.exit.i:                      ; preds = %93, %.lr.ph64.i
-  %97 = add i64 %92, %.04562.i
+ruby_nonempty_memcpy.exit.i:                      ; preds = %94, %.lr.ph64.i
+  %98 = add i64 %93, %.04562.i
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count70.i
   br i1 %exitcond71.not.i, label %._crit_edge65.loopexit.i, label %.lr.ph64.i, !llvm.loop !415
 
-.thread.i:                                        ; preds = %81
-  %98 = sext i32 %83 to i64
-  %99 = getelementptr i8, ptr %74, i64 %98
-  store ptr %99, ptr %21, align 8, !tbaa !332
-  %100 = sext i32 %80 to i64
-  %101 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %100, ptr %101, align 8, !tbaa !334
-  br label %107
+.thread.i:                                        ; preds = %82
+  %99 = sext i32 %84 to i64
+  %100 = getelementptr i8, ptr %74, i64 %99
+  store ptr %100, ptr %21, align 8, !tbaa !332
+  %101 = sext i32 %81 to i64
+  %102 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 %101, ptr %102, align 8, !tbaa !334
+  br label %108
 
 ._crit_edge65.loopexit.i:                         ; preds = %ruby_nonempty_memcpy.exit.i
-  %.pre73.i = load i32, ptr %79, align 4, !tbaa !35
+  %.pre73.i = load i32, ptr %80, align 4, !tbaa !35
   br label %._crit_edge65.i
 
 ._crit_edge65.i:                                  ; preds = %._crit_edge65.loopexit.i, %.preheader.i
-  %102 = phi i32 [ %.pre73.i, %._crit_edge65.loopexit.i ], [ %80, %.preheader.i ]
-  %103 = trunc i64 %.047.lcssa.i to i32
-  %104 = add i32 %102, %103
-  store i32 %104, ptr %79, align 4, !tbaa !35
+  %103 = phi i32 [ %.pre73.i, %._crit_edge65.loopexit.i ], [ %81, %.preheader.i ]
+  %104 = trunc i64 %.047.lcssa.i to i32
+  %105 = add i32 %103, %104
+  store i32 %105, ptr %80, align 4, !tbaa !35
   br label %io_binwritev.exit
 
-105:                                              ; preds = %78, %io_allocate_write_buffer.exit.i
-  %106 = getelementptr i8, ptr %21, i64 16
+106:                                              ; preds = %79, %io_allocate_write_buffer.exit.i
+  %107 = getelementptr i8, ptr %21, i64 16
   %.not56.i = icmp eq i32 %0, 0
-  br i1 %.not56.i, label %io_binwritev.exit, label %107
+  br i1 %.not56.i, label %io_binwritev.exit, label %108
 
-107:                                              ; preds = %105, %.thread.i
-  %.050.i = phi ptr [ %106, %105 ], [ %21, %.thread.i ]
-  %.049.i = phi i32 [ %0, %105 ], [ %8, %.thread.i ]
+108:                                              ; preds = %106, %.thread.i
+  %.050.i = phi ptr [ %107, %106 ], [ %21, %.thread.i ]
+  %.049.i = phi i32 [ %0, %106 ], [ %8, %.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8, !tbaa !416
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.050.i, ptr %108, align 8, !tbaa !418
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %.049.i, ptr %109, align 8, !tbaa !419
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.047.lcssa.i, ptr %110, align 8, !tbaa !420
-  %111 = load i64, ptr %69, align 8, !tbaa !37
-  %112 = icmp eq i64 %111, 4
-  %113 = ptrtoint ptr %4 to i64
-  br i1 %112, label %116, label %114
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %.050.i, ptr %109, align 8, !tbaa !418
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 %.049.i, ptr %110, align 8, !tbaa !419
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.047.lcssa.i, ptr %111, align 8, !tbaa !420
+  %112 = load i64, ptr %69, align 8, !tbaa !37
+  %113 = icmp eq i64 %112, 4
+  %114 = ptrtoint ptr %4 to i64
+  br i1 %113, label %117, label %115
 
-114:                                              ; preds = %107
-  %115 = call i64 @rb_mutex_synchronize(i64 noundef %111, ptr noundef nonnull @io_binwritev_internal, i64 noundef %113) #28
-  br label %118
+115:                                              ; preds = %108
+  %116 = call i64 @rb_mutex_synchronize(i64 noundef %112, ptr noundef nonnull @io_binwritev_internal, i64 noundef %114) #28
+  br label %119
 
-116:                                              ; preds = %107
-  %117 = call i64 @io_binwritev_internal(i64 noundef %113)
-  br label %118
+117:                                              ; preds = %108
+  %118 = call i64 @io_binwritev_internal(i64 noundef %114)
+  br label %119
 
-118:                                              ; preds = %116, %114
-  %.3.i = phi i64 [ %117, %116 ], [ %115, %114 ]
+119:                                              ; preds = %117, %115
+  %.3.i = phi i64 [ %118, %117 ], [ %116, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %io_binwritev.exit
 
-io_binwritev.exit:                                ; preds = %._crit_edge, %._crit_edge65.i, %105, %118
-  %.048.i = phi i64 [ 0, %._crit_edge ], [ %.3.i, %118 ], [ %.047.lcssa.i, %._crit_edge65.i ], [ 0, %105 ]
-  %119 = load i64, ptr %6, align 8, !tbaa !23
-  %.not = icmp eq i64 %119, 0
-  br i1 %.not, label %121, label %120
+io_binwritev.exit:                                ; preds = %._crit_edge, %._crit_edge65.i, %106, %119
+  %.048.i = phi i64 [ 0, %._crit_edge ], [ %.3.i, %119 ], [ %.047.lcssa.i, %._crit_edge65.i ], [ 0, %106 ]
+  %120 = load i64, ptr %6, align 8, !tbaa !23
+  %.not = icmp eq i64 %120, 0
+  br i1 %.not, label %122, label %121
 
-120:                                              ; preds = %io_binwritev.exit
+121:                                              ; preds = %io_binwritev.exit
   call void @rb_free_tmp_buffer(ptr noundef nonnull %6) #28
-  br label %121
+  br label %122
 
-121:                                              ; preds = %120, %io_binwritev.exit
+122:                                              ; preds = %121, %io_binwritev.exit
   br i1 %.not62, label %._crit_edge48, label %.lr.ph47.preheader
 
-.lr.ph47.preheader:                               ; preds = %121
+.lr.ph47.preheader:                               ; preds = %122
   %wide.trip.count53 = zext nneg i32 %0 to i64
   br label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next51, %.lr.ph47 ]
-  %122 = getelementptr i64, ptr %1, i64 %indvars.iv50
-  %123 = load i64, ptr %122, align 8, !tbaa !23
-  %124 = getelementptr i64, ptr %33, i64 %indvars.iv50
-  %125 = load i64, ptr %124, align 8, !tbaa !23
-  call void @rb_str_tmp_frozen_release(i64 noundef %123, i64 noundef %125) #28
+  %123 = getelementptr i64, ptr %1, i64 %indvars.iv50
+  %124 = load i64, ptr %123, align 8, !tbaa !23
+  %125 = getelementptr i64, ptr %33, i64 %indvars.iv50
+  %126 = load i64, ptr %125, align 8, !tbaa !23
+  call void @rb_str_tmp_frozen_release(i64 noundef %124, i64 noundef %126) #28
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
   br i1 %exitcond54.not, label %._crit_edge48, label %.lr.ph47, !llvm.loop !421
 
-._crit_edge48:                                    ; preds = %.lr.ph47, %121
-  %126 = load i64, ptr %7, align 8, !tbaa !23
-  %.not40 = icmp eq i64 %126, 0
-  br i1 %.not40, label %128, label %127
+._crit_edge48:                                    ; preds = %.lr.ph47, %122
+  %127 = load i64, ptr %7, align 8, !tbaa !23
+  %.not40 = icmp eq i64 %127, 0
+  br i1 %.not40, label %129, label %128
 
-127:                                              ; preds = %._crit_edge48
+128:                                              ; preds = %._crit_edge48
   call void @rb_free_tmp_buffer(ptr noundef nonnull %7) #28
-  br label %128
+  br label %129
 
-128:                                              ; preds = %127, %._crit_edge48
+129:                                              ; preds = %128, %._crit_edge48
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

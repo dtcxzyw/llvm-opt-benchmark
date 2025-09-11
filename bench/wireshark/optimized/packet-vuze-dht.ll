@@ -352,14 +352,14 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr noundef readonly captu
   %30 = icmp samesign ugt i8 %25, 8
   br i1 %30, label %31, label %.thread64.i
 
-31:                                               ; preds = %.thread, %29
-  %.0.i105 = phi i32 [ 18, %.thread ], [ 17, %29 ]
+31:                                               ; preds = %29, %.thread
+  %.0.i93 = phi i32 [ 18, %.thread ], [ 17, %29 ]
   %32 = load i32, ptr @hf_vuze_dht_network_id, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef %.0.i105, i32 noundef 4, i32 noundef 0)
-  %34 = or disjoint i32 %.0.i105, 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef %.0.i93, i32 noundef 4, i32 noundef 0)
+  %34 = or disjoint i32 %.0.i93, 4
   %35 = load i32, ptr @hf_vuze_dht_local_proto_ver, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 1, i32 noundef 0)
-  %37 = add nuw nsw i32 %.0.i105, 5
+  %37 = add nuw nsw i32 %.0.i93, 5
   br label %.thread64.i
 
 .thread64.i:                                      ; preds = %31, %29
@@ -402,9 +402,9 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr noundef readonly captu
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %65, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
   %67 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
   %68 = icmp ugt i8 %67, 13
-  br i1 %68, label %.thread106, label %71
+  br i1 %68, label %.thread94, label %71
 
-.thread106:                                       ; preds = %55
+.thread94:                                        ; preds = %55
   %69 = load i32, ptr @hf_vuze_dht_vendor_id, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %69, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
   br label %73
@@ -413,11 +413,11 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr noundef readonly captu
   %72 = icmp samesign ugt i8 %67, 8
   br i1 %72, label %73, label %77
 
-73:                                               ; preds = %.thread106, %71
-  %.0.i50108 = phi i32 [ 18, %.thread106 ], [ 17, %71 ]
+73:                                               ; preds = %.thread94, %71
+  %.0.i5096 = phi i32 [ 18, %.thread94 ], [ 17, %71 ]
   %74 = load i32, ptr @hf_vuze_dht_network_id, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %74, ptr noundef %0, i32 noundef %.0.i50108, i32 noundef 4, i32 noundef 0)
-  %76 = or disjoint i32 %.0.i50108, 4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %74, ptr noundef %0, i32 noundef %.0.i5096, i32 noundef 4, i32 noundef 0)
+  %76 = or disjoint i32 %.0.i5096, 4
   br label %77
 
 77:                                               ; preds = %73, %71

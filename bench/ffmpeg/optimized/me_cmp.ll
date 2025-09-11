@@ -25,46 +25,47 @@ define range(i32 -22, 1) i32 @ff_set_cmp(ptr noundef readonly captures(none) %0,
 
 8:                                                ; preds = %4
   %9 = icmp samesign ugt i32 %5, 15
-  br i1 %9, label %17, label %10
+  br i1 %9, label %18, label %10
 
 10:                                               ; preds = %8
   %11 = zext nneg i32 %5 to i64
-  %12 = icmp eq i32 %5, 14
-  br i1 %12, label %17, label %13
+  %12 = getelementptr inbounds nuw %struct.anon, ptr @ff_set_cmp.cmp_func_list, i64 %11
+  %13 = icmp eq i32 %5, 14
+  br i1 %13, label %18, label %14
 
-13:                                               ; preds = %10
+14:                                               ; preds = %10
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %14, label %18
+  br i1 %.not, label %15, label %19
 
-14:                                               ; preds = %13
-  %15 = shl nuw nsw i64 1, %11
-  %16 = and i64 %15, 57223
-  %.not22.not = icmp eq i64 %16, 0
-  br i1 %.not22.not, label %17, label %18
+15:                                               ; preds = %14
+  %16 = shl nuw nsw i64 1, %11
+  %17 = and i64 %16, 57223
+  %.not22.not = icmp eq i64 %17, 0
+  br i1 %.not22.not, label %18, label %19
 
-17:                                               ; preds = %14, %10, %8
+18:                                               ; preds = %15, %10, %8
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str) #12
   br label %.loopexit
 
-18:                                               ; preds = %14, %13
-  %19 = getelementptr inbounds nuw %struct.anon, ptr @ff_set_cmp.cmp_func_list, i64 %11, i32 2
-  %20 = load i16, ptr %19, align 2, !tbaa !10
-  %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
-  br label %23
+19:                                               ; preds = %15, %14
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  %21 = load i16, ptr %20, align 2, !tbaa !10
+  %22 = zext i16 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
+  br label %24
 
-23:                                               ; preds = %18, %23
-  %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !4
-  %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  store ptr %25, ptr %26, align 8, !tbaa !4
+24:                                               ; preds = %19, %24
+  %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %24 ]
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8, !tbaa !4
+  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  store ptr %26, ptr %27, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !13
 
-.loopexit:                                        ; preds = %23, %.preheader, %17
-  %.019 = phi i32 [ -22, %17 ], [ 0, %.preheader ], [ 0, %23 ]
+.loopexit:                                        ; preds = %24, %.preheader, %18
+  %.019 = phi i32 [ -22, %18 ], [ 0, %.preheader ], [ 0, %24 ]
   ret i32 %.019
 }
 

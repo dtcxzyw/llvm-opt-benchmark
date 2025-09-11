@@ -541,7 +541,7 @@ select.unfold180:                                 ; preds = %63, %59, %61, %67, 
   store i8 1, ptr %91, align 1
   store i8 0, ptr %92, align 8
   store i8 1, ptr %93, align 2
-  %103 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %98, i64 %indvars.iv327, i32 6
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 64
   %104 = load i64, ptr %103, align 8
   store i64 %104, ptr %11, align 8
   store i8 1, ptr %94, align 1
@@ -1035,8 +1035,8 @@ define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %71
-  %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %72
+  %indvars.iv = phi i64 [ %indvars.iv.next, %72 ], [ 0, %1 ]
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
@@ -1053,87 +1053,88 @@ define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef
     i16 7, label %50
     i16 8, label %54
     i16 16, label %58
-    i16 18, label %67
+    i16 18, label %68
   ]
 
 26:                                               ; preds = %.lr.ph
   %27 = inttoptr i64 %23 to ptr
   %28 = tail call ptr @pg_detoast_datum(ptr noundef %27) #6
   %29 = tail call zeroext i1 @range_before_internal(ptr noundef %16, ptr noundef %11, ptr noundef %28) #6
-  br i1 %29, label %71, label %._crit_edge
+  br i1 %29, label %72, label %._crit_edge
 
 30:                                               ; preds = %.lr.ph
   %31 = inttoptr i64 %23 to ptr
   %32 = tail call ptr @pg_detoast_datum(ptr noundef %31) #6
   %33 = tail call zeroext i1 @range_overleft_internal(ptr noundef %16, ptr noundef %11, ptr noundef %32) #6
-  br i1 %33, label %71, label %._crit_edge
+  br i1 %33, label %72, label %._crit_edge
 
 34:                                               ; preds = %.lr.ph
   %35 = inttoptr i64 %23 to ptr
   %36 = tail call ptr @pg_detoast_datum(ptr noundef %35) #6
   %37 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %16, ptr noundef %11, ptr noundef %36) #6
-  br i1 %37, label %71, label %._crit_edge
+  br i1 %37, label %72, label %._crit_edge
 
 38:                                               ; preds = %.lr.ph
   %39 = inttoptr i64 %23 to ptr
   %40 = tail call ptr @pg_detoast_datum(ptr noundef %39) #6
   %41 = tail call zeroext i1 @range_overright_internal(ptr noundef %16, ptr noundef %11, ptr noundef %40) #6
-  br i1 %41, label %71, label %._crit_edge
+  br i1 %41, label %72, label %._crit_edge
 
 42:                                               ; preds = %.lr.ph
   %43 = inttoptr i64 %23 to ptr
   %44 = tail call ptr @pg_detoast_datum(ptr noundef %43) #6
   %45 = tail call zeroext i1 @range_after_internal(ptr noundef %16, ptr noundef %11, ptr noundef %44) #6
-  br i1 %45, label %71, label %._crit_edge
+  br i1 %45, label %72, label %._crit_edge
 
 46:                                               ; preds = %.lr.ph
   %47 = inttoptr i64 %23 to ptr
   %48 = tail call ptr @pg_detoast_datum(ptr noundef %47) #6
   %49 = tail call zeroext i1 @range_adjacent_internal(ptr noundef %16, ptr noundef %11, ptr noundef %48) #6
-  br i1 %49, label %71, label %._crit_edge
+  br i1 %49, label %72, label %._crit_edge
 
 50:                                               ; preds = %.lr.ph
   %51 = inttoptr i64 %23 to ptr
   %52 = tail call ptr @pg_detoast_datum(ptr noundef %51) #6
   %53 = tail call zeroext i1 @range_contains_internal(ptr noundef %16, ptr noundef %11, ptr noundef %52) #6
-  br i1 %53, label %71, label %._crit_edge
+  br i1 %53, label %72, label %._crit_edge
 
 54:                                               ; preds = %.lr.ph
   %55 = inttoptr i64 %23 to ptr
   %56 = tail call ptr @pg_detoast_datum(ptr noundef %55) #6
   %57 = tail call zeroext i1 @range_contained_by_internal(ptr noundef %16, ptr noundef %11, ptr noundef %56) #6
-  br i1 %57, label %71, label %._crit_edge
+  br i1 %57, label %72, label %._crit_edge
 
 58:                                               ; preds = %.lr.ph
   %59 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %16, ptr noundef %11, i64 noundef %23) #6
-  br i1 %59, label %71, label %._crit_edge
+  br i1 %59, label %72, label %._crit_edge
 
 60:                                               ; preds = %.lr.ph
   %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %61)
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %62, i64 %indvars.iv, i32 2
-  %64 = load i16, ptr %63, align 2
-  %65 = zext i16 %64 to i32
-  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %65) #6
+  %63 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %62, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
+  %65 = load i16, ptr %64, align 2
+  %66 = zext i16 %65 to i32
+  %67 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %66) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 985, ptr noundef nonnull @__func__.spg_range_quad_leaf_consistent) #6
   unreachable
 
-67:                                               ; preds = %.lr.ph
-  %68 = inttoptr i64 %23 to ptr
-  %69 = tail call ptr @pg_detoast_datum(ptr noundef %68) #6
-  %70 = tail call zeroext i1 @range_eq_internal(ptr noundef %16, ptr noundef %11, ptr noundef %69) #6
-  br i1 %70, label %71, label %._crit_edge
+68:                                               ; preds = %.lr.ph
+  %69 = inttoptr i64 %23 to ptr
+  %70 = tail call ptr @pg_detoast_datum(ptr noundef %69) #6
+  %71 = tail call zeroext i1 @range_eq_internal(ptr noundef %16, ptr noundef %11, ptr noundef %70) #6
+  br i1 %71, label %72, label %._crit_edge
 
-71:                                               ; preds = %58, %54, %50, %46, %42, %38, %34, %30, %26, %67
+72:                                               ; preds = %58, %54, %50, %46, %42, %38, %34, %30, %26, %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = load i32, ptr %17, align 8
-  %73 = sext i32 %72 to i64
-  %.not = icmp slt i64 %indvars.iv.next, %73
+  %73 = load i32, ptr %17, align 8
+  %74 = sext i32 %73 to i64
+  %.not = icmp slt i64 %indvars.iv.next, %74
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %71, %67, %26, %30, %34, %38, %42, %46, %50, %54, %58, %1
-  %.lcssa52 = phi i64 [ 1, %1 ], [ 0, %58 ], [ 0, %54 ], [ 0, %50 ], [ 0, %46 ], [ 0, %42 ], [ 0, %38 ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %67 ], [ 1, %71 ]
+._crit_edge:                                      ; preds = %72, %68, %26, %30, %34, %38, %42, %46, %50, %54, %58, %1
+  %.lcssa52 = phi i64 [ 1, %1 ], [ 0, %58 ], [ 0, %54 ], [ 0, %50 ], [ 0, %46 ], [ 0, %42 ], [ 0, %38 ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %68 ], [ 1, %72 ]
   ret i64 %.lcssa52
 }
 

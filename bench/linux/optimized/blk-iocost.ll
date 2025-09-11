@@ -1585,7 +1585,8 @@ define internal noalias noundef ptr @ioc_cpd_alloc(i32 noundef %0) #1 align 16 {
 
 9:                                                ; preds = %5, %1
   %10 = phi i64 [ 0, %1 ], [ %8, %5 ]
-  %11 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10, i64 5
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10
+  %11 = getelementptr i8, ptr %.split, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %12, i32 noundef %2, i64 noundef 24) #23
   %14 = icmp eq ptr %13, null
@@ -8189,7 +8190,8 @@ define internal void @ioc_rqos_done(ptr noundef readonly captures(none) %0, ptr 
   br label %59
 
 57:                                               ; preds = %47
-  %58 = getelementptr %struct.ioc_missed, ptr %45, i64 %21, i32 1
+  %.split = getelementptr %struct.ioc_missed, ptr %45, i64 %21
+  %58 = getelementptr i8, ptr %.split, i64 8
   tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %58, ptr elementtype(i64) %58) #21, !srcloc !145
   br label %59
 

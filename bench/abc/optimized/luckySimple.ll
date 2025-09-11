@@ -19,8 +19,8 @@ define range(i32 0, 2) i32 @nextSwap(ptr noundef captures(none) %0) local_unname
   br label %8
 
 8:                                                ; preds = %.lr.ph, %47
-  %.04957 = phi i32 [ %3, %.lr.ph ], [ %48, %47 ]
-  %9 = zext nneg i32 %.04957 to i64
+  %.04958 = phi i32 [ %3, %.lr.ph ], [ %48, %47 ]
+  %9 = zext nneg i32 %.04958 to i64
   %10 = getelementptr inbounds nuw %struct.varInfo, ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !12
@@ -29,56 +29,56 @@ define range(i32 0, 2) i32 @nextSwap(ptr noundef captures(none) %0) local_unname
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i32, ptr %6, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !15
-  %18 = icmp sgt i32 %.04957, %17
+  %18 = icmp sgt i32 %.04958, %17
   br i1 %18, label %19, label %47
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %21 = getelementptr inbounds i32, ptr %6, i64 %15
   store i32 %14, ptr %20, align 4, !tbaa !12
-  %22 = getelementptr inbounds nuw %struct.varInfo, ptr %7, i64 %9, i32 1
-  %23 = load i32, ptr %21, align 4, !tbaa !15
-  store i32 %.04957, ptr %21, align 4, !tbaa !15
-  %24 = load i32, ptr %20, align 4, !tbaa !12
-  %25 = load i32, ptr %10, align 4, !tbaa !14
-  %26 = sub nsw i32 %24, %25
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %6, i64 %27
-  store i32 %23, ptr %28, align 4, !tbaa !15
-  %29 = load i32, ptr %20, align 4, !tbaa !12
-  %30 = load i32, ptr %10, align 4, !tbaa !14
-  %31 = sub nsw i32 %29, %30
-  %32 = sext i32 %23 to i64
-  %33 = getelementptr inbounds %struct.varInfo, ptr %7, i64 %32, i32 1
-  store i32 %31, ptr %33, align 4, !tbaa !12
+  %22 = load i32, ptr %21, align 4, !tbaa !15
+  store i32 %.04958, ptr %21, align 4, !tbaa !15
+  %23 = load i32, ptr %20, align 4, !tbaa !12
+  %24 = load i32, ptr %10, align 4, !tbaa !14
+  %25 = sub nsw i32 %23, %24
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i32, ptr %6, i64 %26
+  store i32 %22, ptr %27, align 4, !tbaa !15
+  %28 = load i32, ptr %20, align 4, !tbaa !12
+  %29 = load i32, ptr %10, align 4, !tbaa !14
+  %30 = sub nsw i32 %28, %29
+  %31 = sext i32 %22 to i64
+  %32 = getelementptr inbounds %struct.varInfo, ptr %7, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  store i32 %30, ptr %33, align 4, !tbaa !12
   %34 = load i32, ptr %2, align 8, !tbaa !3
-  %35 = icmp sgt i32 %34, %.04957
-  br i1 %35, label %.lr.ph59, label %._crit_edge
+  %35 = icmp sgt i32 %34, %.04958
+  br i1 %35, label %.lr.ph60, label %._crit_edge
 
-.lr.ph59:                                         ; preds = %19, %.lr.ph59
-  %.04858 = phi i32 [ %40, %.lr.ph59 ], [ %34, %19 ]
-  %36 = zext nneg i32 %.04858 to i64
+.lr.ph60:                                         ; preds = %19, %.lr.ph60
+  %.04859 = phi i32 [ %40, %.lr.ph60 ], [ %34, %19 ]
+  %36 = zext nneg i32 %.04859 to i64
   %37 = getelementptr inbounds nuw %struct.varInfo, ptr %7, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !14
   %39 = sub nsw i32 0, %38
   store i32 %39, ptr %37, align 4, !tbaa !14
-  %40 = add nsw i32 %.04858, -1
-  %41 = icmp samesign ugt i32 %40, %.04957
-  br i1 %41, label %.lr.ph59, label %._crit_edge, !llvm.loop !16
+  %40 = add nsw i32 %.04859, -1
+  %41 = icmp samesign ugt i32 %40, %.04958
+  br i1 %41, label %.lr.ph60, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %.lr.ph59, %19
-  %42 = add nsw i32 %31, -1
+._crit_edge:                                      ; preds = %.lr.ph60, %19
+  %42 = add nsw i32 %30, -1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %42, ptr %43, align 4, !tbaa !18
-  %44 = load i32, ptr %22, align 4, !tbaa !12
+  %44 = load i32, ptr %20, align 4, !tbaa !12
   %45 = add nsw i32 %44, -1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %45, ptr %46, align 8, !tbaa !19
   br label %.loopexit
 
 47:                                               ; preds = %8
-  %48 = add nsw i32 %.04957, -1
-  %49 = icmp sgt i32 %.04957, 2
+  %48 = add nsw i32 %.04958, -1
+  %49 = icmp sgt i32 %.04958, 2
   br i1 %49, label %8, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %47, %1, %._crit_edge
@@ -109,13 +109,13 @@ define void @fillInSwapArray(ptr noundef readonly captures(none) %0) local_unnam
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %13 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %indvars.iv.i, i32 1
-  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %14, ptr %13, align 4, !tbaa !12
-  %15 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %indvars.iv.i
-  store i32 -1, ptr %15, align 4, !tbaa !14
+  %13 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %15 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %15, ptr %14, align 4, !tbaa !12
+  store i32 -1, ptr %13, align 4, !tbaa !14
   %16 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
-  store i32 %14, ptr %16, align 4, !tbaa !15
+  store i32 %15, ptr %16, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %setSwapInfoPtr.exit, label %.lr.ph.i, !llvm.loop !24
@@ -136,13 +136,13 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   br label %.lr.ph.i13.preheader.us
 
 .lr.ph.i13.preheader.us:                          ; preds = %.loopexit.us, %.lr.ph.i13.preheader.lr.ph
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.loopexit.us ], [ %23, %.lr.ph.i13.preheader.lr.ph ]
-  %indvars.iv.next48 = add nsw i64 %indvars.iv47, -1
+  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.loopexit.us ], [ %23, %.lr.ph.i13.preheader.lr.ph ]
+  %indvars.iv.next44 = add nsw i64 %indvars.iv43, -1
   br label %.lr.ph.i13.us
 
 .lr.ph.i13.us:                                    ; preds = %34, %.lr.ph.i13.preheader.us
-  %.04957.i.us = phi i32 [ %35, %34 ], [ %4, %.lr.ph.i13.preheader.us ]
-  %24 = zext nneg i32 %.04957.i.us to i64
+  %.04958.i.us = phi i32 [ %35, %34 ], [ %4, %.lr.ph.i13.preheader.us ]
+  %24 = zext nneg i32 %.04958.i.us to i64
   %25 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !12
@@ -151,46 +151,46 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i32, ptr %10, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !15
-  %33 = icmp sgt i32 %.04957.i.us, %32
+  %33 = icmp sgt i32 %.04958.i.us, %32
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %.lr.ph.i13.us
-  %35 = add nsw i32 %.04957.i.us, -1
-  %36 = icmp sgt i32 %.04957.i.us, 2
+  %35 = add nsw i32 %.04958.i.us, -1
+  %36 = icmp sgt i32 %.04958.i.us, 2
   br i1 %36, label %.lr.ph.i13.us, label %.loopexit16, !llvm.loop !20
 
 37:                                               ; preds = %.lr.ph.i13.us
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %39 = getelementptr inbounds i32, ptr %10, i64 %30
   store i32 %29, ptr %38, align 4, !tbaa !12
-  %40 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %24, i32 1
-  store i32 %.04957.i.us, ptr %39, align 4, !tbaa !15
-  %41 = sext i32 %27 to i64
-  %42 = getelementptr inbounds i32, ptr %10, i64 %41
-  store i32 %32, ptr %42, align 4, !tbaa !15
-  %43 = sext i32 %32 to i64
-  %44 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %43, i32 1
+  store i32 %.04958.i.us, ptr %39, align 4, !tbaa !15
+  %40 = sext i32 %27 to i64
+  %41 = getelementptr inbounds i32, ptr %10, i64 %40
+  store i32 %32, ptr %41, align 4, !tbaa !15
+  %42 = sext i32 %32 to i64
+  %43 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 %27, ptr %44, align 4, !tbaa !12
-  %45 = icmp sgt i32 %4, %.04957.i.us
-  br i1 %45, label %.lr.ph59.i.us, label %.loopexit.us
+  %45 = icmp sgt i32 %4, %.04958.i.us
+  br i1 %45, label %.lr.ph60.i.us, label %.loopexit.us
 
-.lr.ph59.i.us:                                    ; preds = %37, %.lr.ph59.i.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph59.i.us ], [ %22, %37 ]
+.lr.ph60.i.us:                                    ; preds = %37, %.lr.ph60.i.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph60.i.us ], [ %22, %37 ]
   %46 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !14
   %48 = sub nsw i32 0, %47
   store i32 %48, ptr %46, align 4, !tbaa !14
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
-  %49 = icmp samesign ult i32 %.04957.i.us, %indvars
-  br i1 %49, label %.lr.ph59.i.us, label %.loopexit.us, !llvm.loop !16
+  %49 = icmp samesign ult i32 %.04958.i.us, %indvars
+  br i1 %49, label %.lr.ph60.i.us, label %.loopexit.us, !llvm.loop !16
 
-.loopexit.us:                                     ; preds = %.lr.ph59.i.us, %37
-  %50 = load i32, ptr %40, align 4, !tbaa !12
+.loopexit.us:                                     ; preds = %.lr.ph60.i.us, %37
+  %50 = load i32, ptr %38, align 4, !tbaa !12
   %51 = load ptr, ptr %21, align 8, !tbaa !25
-  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next48
-  %.lcssa59. = tail call i32 @llvm.smin.i32(i32 %27, i32 %50)
-  %53 = add nsw i32 %.lcssa59., -1
+  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next44
+  %.lcssa55. = tail call i32 @llvm.smin.i32(i32 %27, i32 %50)
+  %53 = add nsw i32 %.lcssa55., -1
   store i32 %53, ptr %52, align 4, !tbaa !15
   br label %.lr.ph.i13.preheader.us
 

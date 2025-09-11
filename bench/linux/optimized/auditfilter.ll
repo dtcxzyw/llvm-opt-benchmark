@@ -350,7 +350,8 @@ define dso_local ptr @audit_dupe_rule(ptr noundef %0) local_unnamed_addr #0 alig
 
 56:                                               ; preds = %50, %50, %50, %50, %50, %50, %50, %50, %50, %50
   %57 = load ptr, ptr %42, align 8
-  %58 = getelementptr %struct.audit_field, ptr %57, i64 %53, i32 1
+  %.split = getelementptr %struct.audit_field, ptr %57, i64 %53
+  %58 = getelementptr i8, ptr %.split, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noalias ptr @kstrdup(ptr noundef %59, i32 noundef 3264) #14
   %61 = icmp eq ptr %60, null
@@ -3209,7 +3210,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_compare_rule(ptr nound
 
 30:                                               ; preds = %24
   %31 = icmp eq i32 %26, 0
-  br i1 %31, label %.loopexit5, label %32
+  br i1 %31, label %.loopexit10, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -3224,7 +3225,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_compare_rule(ptr nound
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 312
   br label %45
 
-.loopexit5:                                       ; preds = %113, %30
+.loopexit10:                                      ; preds = %113, %30
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %120
@@ -3279,9 +3280,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_compare_rule(ptr nound
   ]
 
 62:                                               ; preds = %61, %61, %61, %61, %61, %61, %61, %61, %61, %61
-  %63 = getelementptr %struct.audit_field, ptr %47, i64 %48, i32 1
+  %63 = getelementptr i8, ptr %49, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr %struct.audit_field, ptr %51, i64 %48, i32 1
+  %65 = getelementptr i8, ptr %52, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = tail call i32 @strcmp(ptr noundef %64, ptr noundef %66) #14
   %68 = icmp eq i32 %67, 0
@@ -3322,16 +3323,16 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_compare_rule(ptr nound
   br i1 %94, label %113, label %.loopexit
 
 95:                                               ; preds = %61, %61, %61, %61, %61, %61
-  %96 = getelementptr %struct.audit_field, ptr %47, i64 %48, i32 1
-  %97 = getelementptr %struct.audit_field, ptr %51, i64 %48, i32 1
+  %96 = getelementptr i8, ptr %49, i64 8
+  %97 = getelementptr i8, ptr %52, i64 8
   %98 = load i32, ptr %96, align 8
   %99 = load i32, ptr %97, align 8
   %100 = icmp eq i32 %98, %99
   br i1 %100, label %113, label %.loopexit
 
 101:                                              ; preds = %61, %61, %61, %61, %61
-  %102 = getelementptr %struct.audit_field, ptr %47, i64 %48, i32 1
-  %103 = getelementptr %struct.audit_field, ptr %51, i64 %48, i32 1
+  %102 = getelementptr i8, ptr %49, i64 8
+  %103 = getelementptr i8, ptr %52, i64 8
   %104 = load i32, ptr %102, align 8
   %105 = load i32, ptr %103, align 8
   %106 = icmp eq i32 %104, %105
@@ -3349,15 +3350,15 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_compare_rule(ptr nound
   %114 = add nuw i32 %46, 1
   %115 = load i32, ptr %25, align 4
   %116 = icmp ult i32 %114, %115
-  br i1 %116, label %45, label %.loopexit5, !llvm.loop !42
+  br i1 %116, label %45, label %.loopexit10, !llvm.loop !42
 
 117:                                              ; preds = %120
   %118 = add nuw nsw i64 %121, 1
   %119 = icmp eq i64 %118, 64
   br i1 %119, label %.loopexit, label %120, !llvm.loop !43
 
-120:                                              ; preds = %117, %.loopexit5
-  %121 = phi i64 [ 0, %.loopexit5 ], [ %118, %117 ]
+120:                                              ; preds = %117, %.loopexit10
+  %121 = phi i64 [ 0, %.loopexit10 ], [ %118, %117 ]
   %122 = getelementptr i32, ptr %43, i64 %121
   %123 = load i32, ptr %122, align 4
   %124 = getelementptr i32, ptr %44, i64 %121

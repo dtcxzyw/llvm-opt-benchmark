@@ -6378,7 +6378,7 @@ define internal fastcc void @dissect_egprs_ul_data_block(ptr noundef %0, ptr nou
   %30 = getelementptr %struct.length_indicator_t, ptr %5, i64 %29
   store i32 %.025.i, ptr %30, align 8
   %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.025.i)
-  %32 = getelementptr %struct.length_indicator_t, ptr %5, i64 %29, i32 1
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i8 %31, ptr %32, align 4
   %33 = add nuw nsw i8 %.05, 1
   br label %36
@@ -6493,50 +6493,51 @@ define internal fastcc i32 @construct_gprs_data_segment_li_array(ptr noundef %0,
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %7, %29
-  %.028 = phi i32 [ %36, %29 ], [ %8, %7 ]
+.lr.ph:                                           ; preds = %7, %30
+  %.028 = phi i32 [ %37, %30 ], [ %8, %7 ]
   %12 = load i32, ptr @hf_li, align 4
   %13 = shl i32 %.028, 3
   %14 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 6, i32 noundef 0)
   %15 = load i8, ptr %4, align 1
   %16 = icmp ult i8 %15, %9
-  br i1 %16, label %17, label %27
+  br i1 %16, label %17, label %28
 
 17:                                               ; preds = %.lr.ph
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.028)
   %19 = load i8, ptr %4, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr %struct.length_indicator_t, ptr %5, i64 %20, i32 1
-  store i8 %18, ptr %21, align 4
-  %22 = load i8, ptr %4, align 1
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr %struct.length_indicator_t, ptr %5, i64 %23
-  store i32 %.028, ptr %24, align 4
-  %25 = load i8, ptr %4, align 1
-  %26 = add i8 %25, 1
-  store i8 %26, ptr %4, align 1
-  br label %29
+  %21 = getelementptr %struct.length_indicator_t, ptr %5, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i8 %18, ptr %22, align 4
+  %23 = load i8, ptr %4, align 1
+  %24 = zext i8 %23 to i64
+  %25 = getelementptr %struct.length_indicator_t, ptr %5, i64 %24
+  store i32 %.028, ptr %25, align 4
+  %26 = load i8, ptr %4, align 1
+  %27 = add i8 %26, 1
+  store i8 %27, ptr %4, align 1
+  br label %30
 
-27:                                               ; preds = %.lr.ph
-  %28 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %14, ptr noundef nonnull @ei_li)
-  br label %29
+28:                                               ; preds = %.lr.ph
+  %29 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %14, ptr noundef nonnull @ei_li)
+  br label %30
 
-29:                                               ; preds = %27, %17
-  %30 = load i32, ptr @hf_me, align 4
-  %31 = or disjoint i32 %13, 6
-  %32 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef 2, i32 noundef 0)
-  %33 = load i32, ptr @hf_e, align 4
-  %34 = or disjoint i32 %13, 7
-  %35 = tail call ptr @proto_tree_add_bits_ret_val(ptr noundef %1, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef 1, ptr noundef %6, i32 noundef 0)
-  %36 = add i32 %.028, 1
-  %37 = load i64, ptr %6, align 8
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+30:                                               ; preds = %28, %17
+  %31 = load i32, ptr @hf_me, align 4
+  %32 = or disjoint i32 %13, 6
+  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef 2, i32 noundef 0)
+  %34 = load i32, ptr @hf_e, align 4
+  %35 = or disjoint i32 %13, 7
+  %36 = tail call ptr @proto_tree_add_bits_ret_val(ptr noundef %1, i32 noundef %34, ptr noundef %0, i32 noundef %35, i32 noundef 1, ptr noundef %6, i32 noundef 0)
+  %37 = add i32 %.028, 1
+  %38 = load i64, ptr %6, align 8
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %29, %7
-  %.0.lcssa = phi i32 [ %8, %7 ], [ %36, %29 ]
-  %39 = sub i32 %.0.lcssa, %8
-  ret i32 %39
+._crit_edge:                                      ; preds = %30, %7
+  %.0.lcssa = phi i32 [ %8, %7 ], [ %37, %30 ]
+  %40 = sub i32 %.0.lcssa, %8
+  ret i32 %40
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -6894,7 +6895,7 @@ define internal fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr nou
   %30 = getelementptr %struct.length_indicator_t, ptr %5, i64 %29
   store i32 %.025.i, ptr %30, align 8
   %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.025.i)
-  %32 = getelementptr %struct.length_indicator_t, ptr %5, i64 %29, i32 1
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i8 %31, ptr %32, align 4
   %33 = add nuw nsw i8 %.0, 1
   br label %36

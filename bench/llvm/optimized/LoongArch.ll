@@ -1023,7 +1023,7 @@ define dso_local void @_ZN5clang6driver5tools9loongarch26getLoongArchTargetFeatu
   %33 = load ptr, ptr %32, align 8, !tbaa !21, !noalias !153
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.sroa.4.0.extract.shift.i.i.i
   %35 = and i64 %31, 4294967295
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
+  %36 = getelementptr ptr, ptr %33, i64 %35
   %.not2428.i.i.i.i.i = icmp samesign eq i64 %.sroa.4.0.extract.shift.i.i.i, %35
   br i1 %.not2428.i.i.i.i.i, label %_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -3148,7 +3148,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit241: ; preds = %.threa
   %776 = load ptr, ptr %164, align 8, !tbaa !21, !noalias !277
   %777 = getelementptr inbounds nuw ptr, ptr %776, i64 %.sroa.4.0.extract.shift.i.i483
   %778 = and i64 %775, 4294967295
-  %779 = getelementptr inbounds nuw ptr, ptr %776, i64 %778
+  %779 = getelementptr ptr, ptr %776, i64 %778
   %.not2428.i.i.i.i = icmp samesign eq i64 %.sroa.4.0.extract.shift.i.i483, %778
   br i1 %.not2428.i.i.i.i, label %_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i485
 
@@ -3198,7 +3198,7 @@ _ZNK4llvm3opt7ArgList17getLastArgNoClaimIJN5clang6driver7options2IDEEEEPNS0_3Arg
   %793 = load ptr, ptr %164, align 8, !tbaa !21, !noalias !283
   %794 = getelementptr inbounds nuw ptr, ptr %793, i64 %.sroa.4.0.extract.shift.i.i489
   %795 = and i64 %792, 4294967295
-  %796 = getelementptr inbounds nuw ptr, ptr %793, i64 %795
+  %796 = getelementptr ptr, ptr %793, i64 %795
   %.not2428.i.i.i.i490 = icmp samesign eq i64 %.sroa.4.0.extract.shift.i.i489, %795
   br i1 %.not2428.i.i.i.i490, label %_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i498, label %.lr.ph.i.i.i.i492
 
@@ -3248,7 +3248,7 @@ _ZNK4llvm3opt7ArgList17getLastArgNoClaimIJN5clang6driver7options2IDEEEEPNS0_3Arg
   %810 = load ptr, ptr %164, align 8, !tbaa !21, !noalias !289
   %811 = getelementptr inbounds nuw ptr, ptr %810, i64 %.sroa.4.0.extract.shift.i.i504
   %812 = and i64 %809, 4294967295
-  %813 = getelementptr inbounds nuw ptr, ptr %810, i64 %812
+  %813 = getelementptr ptr, ptr %810, i64 %812
   %.not2428.i.i.i.i505 = icmp samesign eq i64 %.sroa.4.0.extract.shift.i.i504, %812
   br i1 %.not2428.i.i.i.i505, label %_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i513, label %.lr.ph.i.i.i.i507
 

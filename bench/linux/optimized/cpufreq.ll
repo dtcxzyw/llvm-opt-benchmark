@@ -1115,66 +1115,66 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
   %30 = icmp ne i8 %29, 0
   %31 = and i1 %27, %30
   %32 = icmp ugt i32 %5, %12
-  switch i32 %17, label %.split [
-    i32 0, label %.split.us
-    i32 1, label %.split.us55
+  switch i32 %17, label %.split53 [
+    i32 0, label %.split53.us
+    i32 1, label %.split53.us58
   ]
 
-.split.us:                                        ; preds = %25
-  br i1 %23, label %.split.us.split.us, label %.split.us.split
+.split53.us:                                      ; preds = %25
+  br i1 %23, label %.split53.us.split.us, label %.split53.us.split
 
-.split.us.split.us:                               ; preds = %.split.us, %.loopexit22.us.us
-  %33 = phi i1 [ false, %.loopexit22.us.us ], [ %31, %.split.us ]
-  br i1 %32, label %34, label %.preheader21.us.us
+.split53.us.split.us:                             ; preds = %.split53.us, %.loopexit24.us.us
+  %33 = phi i1 [ false, %.loopexit24.us.us ], [ %31, %.split53.us ]
+  br i1 %32, label %34, label %.preheader23.us.us
 
-34:                                               ; preds = %.split.us.split.us
+34:                                               ; preds = %.split53.us.split.us
   %35 = load i32, ptr %22, align 4
   %36 = tail call i32 @llvm.umax.i32(i32 %35, i32 %12)
-  br label %.preheader21.us.us
+  br label %.preheader23.us.us
 
-.preheader21.us.us:                               ; preds = %34, %.split.us.split.us
-  %37 = phi i32 [ %36, %34 ], [ %5, %.split.us.split.us ]
-  br i1 %33, label %.preheader21.split.us.us.us, label %.preheader21.split.us53.us
+.preheader23.us.us:                               ; preds = %34, %.split53.us.split.us
+  %37 = phi i32 [ %36, %34 ], [ %5, %.split53.us.split.us ]
+  br i1 %33, label %.preheader23.split.us.us.us, label %.preheader23.split.us56.us
 
-.preheader21.split.us53.us:                       ; preds = %.preheader21.us.us, %45
-  %38 = phi ptr [ %47, %45 ], [ %14, %.preheader21.us.us ]
-  %39 = phi i32 [ %48, %45 ], [ 0, %.preheader21.us.us ]
-  %40 = phi i32 [ %46, %45 ], [ -1, %.preheader21.us.us ]
+.preheader23.split.us56.us:                       ; preds = %.preheader23.us.us, %45
+  %38 = phi ptr [ %47, %45 ], [ %14, %.preheader23.us.us ]
+  %39 = phi i32 [ %48, %45 ], [ 0, %.preheader23.us.us ]
+  %40 = phi i32 [ %46, %45 ], [ -1, %.preheader23.us.us ]
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %42 = load i32, ptr %41, align 4
   switch i32 %42, label %43 [
-    i32 -2, label %.loopexit22.us.us
+    i32 -2, label %.loopexit24.us.us
     i32 -1, label %45
   ]
 
-43:                                               ; preds = %.preheader21.split.us53.us
+43:                                               ; preds = %.preheader23.split.us56.us
   %44 = icmp ult i32 %42, %37
-  br i1 %44, label %45, label %.loopexit22.us.us
+  br i1 %44, label %45, label %.loopexit24.us.us
 
-45:                                               ; preds = %43, %.preheader21.split.us53.us
-  %46 = phi i32 [ %40, %.preheader21.split.us53.us ], [ %39, %43 ]
+45:                                               ; preds = %43, %.preheader23.split.us56.us
+  %46 = phi i32 [ %40, %.preheader23.split.us56.us ], [ %39, %43 ]
   %47 = getelementptr i8, ptr %38, i64 12
   %48 = add i32 %39, 1
-  br label %.preheader21.split.us53.us, !llvm.loop !45
+  br label %.preheader23.split.us56.us, !llvm.loop !45
 
-.loopexit22.us.us:                                ; preds = %.preheader21.split.us53.us, %43, %.preheader21.split.us.us.us, %60
-  %.us-phi50.us.us = phi i32 [ %53, %.preheader21.split.us.us.us ], [ %52, %60 ], [ %40, %.preheader21.split.us53.us ], [ %39, %43 ]
-  %49 = icmp slt i32 %.us-phi50.us.us, 0
+.loopexit24.us.us:                                ; preds = %.preheader23.split.us56.us, %43, %.preheader23.split.us.us.us, %60
+  %.us-phi52.us.us = phi i32 [ %53, %.preheader23.split.us.us.us ], [ %52, %60 ], [ %40, %.preheader23.split.us56.us ], [ %39, %43 ]
+  %49 = icmp slt i32 %.us-phi52.us.us, 0
   %50 = and i1 %33, %49
-  br i1 %50, label %.split.us.split.us, label %.loopexit33
+  br i1 %50, label %.split53.us.split.us, label %.loopexit35
 
-.preheader21.split.us.us.us:                      ; preds = %.preheader21.us.us, %62
-  %51 = phi ptr [ %64, %62 ], [ %14, %.preheader21.us.us ]
-  %52 = phi i32 [ %65, %62 ], [ 0, %.preheader21.us.us ]
-  %53 = phi i32 [ %63, %62 ], [ -1, %.preheader21.us.us ]
+.preheader23.split.us.us.us:                      ; preds = %.preheader23.us.us, %62
+  %51 = phi ptr [ %64, %62 ], [ %14, %.preheader23.us.us ]
+  %52 = phi i32 [ %65, %62 ], [ 0, %.preheader23.us.us ]
+  %53 = phi i32 [ %63, %62 ], [ -1, %.preheader23.us.us ]
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = load i32, ptr %54, align 4
   switch i32 %55, label %56 [
-    i32 -2, label %.loopexit22.us.us
+    i32 -2, label %.loopexit24.us.us
     i32 -1, label %62
   ]
 
-56:                                               ; preds = %.preheader21.split.us.us.us
+56:                                               ; preds = %.preheader23.split.us.us.us
   %57 = load i32, ptr %51, align 4
   %58 = and i32 %57, 2
   %59 = icmp eq i32 %58, 0
@@ -1182,77 +1182,77 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
 
 60:                                               ; preds = %56
   %61 = icmp ult i32 %55, %37
-  br i1 %61, label %62, label %.loopexit22.us.us
+  br i1 %61, label %62, label %.loopexit24.us.us
 
-62:                                               ; preds = %60, %56, %.preheader21.split.us.us.us
-  %63 = phi i32 [ %53, %56 ], [ %53, %.preheader21.split.us.us.us ], [ %52, %60 ]
+62:                                               ; preds = %60, %56, %.preheader23.split.us.us.us
+  %63 = phi i32 [ %53, %56 ], [ %53, %.preheader23.split.us.us.us ], [ %52, %60 ]
   %64 = getelementptr i8, ptr %51, i64 12
   %65 = add i32 %52, 1
-  br label %.preheader21.split.us.us.us, !llvm.loop !45
+  br label %.preheader23.split.us.us.us, !llvm.loop !45
 
-.split.us.split:                                  ; preds = %.split.us, %.loopexit25.us
-  %66 = phi i1 [ false, %.loopexit25.us ], [ %31, %.split.us ]
-  br i1 %32, label %67, label %.preheader24.us
+.split53.us.split:                                ; preds = %.split53.us, %.loopexit27.us
+  %66 = phi i1 [ false, %.loopexit27.us ], [ %31, %.split53.us ]
+  br i1 %32, label %67, label %.preheader26.us
 
-67:                                               ; preds = %.split.us.split
+67:                                               ; preds = %.split53.us.split
   %68 = load i32, ptr %22, align 4
   %69 = tail call i32 @llvm.umax.i32(i32 %68, i32 %12)
-  br label %.preheader24.us
+  br label %.preheader26.us
 
-.preheader24.us:                                  ; preds = %67, %.split.us.split
-  %70 = phi i32 [ %69, %67 ], [ %5, %.split.us.split ]
-  br i1 %66, label %.preheader24.us.split.us, label %.preheader24.us.split
+.preheader26.us:                                  ; preds = %67, %.split53.us.split
+  %70 = phi i32 [ %69, %67 ], [ %5, %.split53.us.split ]
+  br i1 %66, label %.preheader26.us.split.us, label %.preheader26.us.split
 
-.preheader24.us.split:                            ; preds = %.preheader24.us, %82
-  %71 = phi ptr [ %84, %82 ], [ %14, %.preheader24.us ]
-  %72 = phi i32 [ %85, %82 ], [ 0, %.preheader24.us ]
-  %73 = phi i32 [ %83, %82 ], [ -1, %.preheader24.us ]
+.preheader26.us.split:                            ; preds = %.preheader26.us, %82
+  %71 = phi ptr [ %84, %82 ], [ %14, %.preheader26.us ]
+  %72 = phi i32 [ %85, %82 ], [ 0, %.preheader26.us ]
+  %73 = phi i32 [ %83, %82 ], [ -1, %.preheader26.us ]
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load i32, ptr %74, align 4
   switch i32 %75, label %76 [
-    i32 -2, label %.loopexit25.us
+    i32 -2, label %.loopexit27.us
     i32 -1, label %82
   ]
 
-76:                                               ; preds = %.preheader24.us.split
+76:                                               ; preds = %.preheader26.us.split
   %77 = icmp eq i32 %75, %70
-  br i1 %77, label %.loopexit25.us, label %78
+  br i1 %77, label %.loopexit27.us, label %78
 
 78:                                               ; preds = %76
   %79 = icmp ugt i32 %75, %70
-  br i1 %79, label %82, label %.split70
+  br i1 %79, label %82, label %.split73
 
-.split70:                                         ; preds = %78, %100
-  %.us-phi71 = phi i32 [ %90, %100 ], [ %72, %78 ]
-  %.us-phi72 = phi i32 [ %91, %100 ], [ %73, %78 ]
-  %80 = icmp eq i32 %.us-phi72, -1
-  %81 = select i1 %80, i32 %.us-phi71, i32 %.us-phi72
-  br label %.loopexit25.us
+.split73:                                         ; preds = %78, %100
+  %.us-phi74 = phi i32 [ %90, %100 ], [ %72, %78 ]
+  %.us-phi75 = phi i32 [ %91, %100 ], [ %73, %78 ]
+  %80 = icmp eq i32 %.us-phi75, -1
+  %81 = select i1 %80, i32 %.us-phi74, i32 %.us-phi75
+  br label %.loopexit27.us
 
-82:                                               ; preds = %78, %.preheader24.us.split
-  %83 = phi i32 [ %73, %.preheader24.us.split ], [ %72, %78 ]
+82:                                               ; preds = %78, %.preheader26.us.split
+  %83 = phi i32 [ %73, %.preheader26.us.split ], [ %72, %78 ]
   %84 = getelementptr i8, ptr %71, i64 12
   %85 = add i32 %72, 1
-  br label %.preheader24.us.split, !llvm.loop !46
+  br label %.preheader26.us.split, !llvm.loop !46
 
-.loopexit25.us:                                   ; preds = %76, %.preheader24.us.split, %98, %.preheader24.us.split.us, %.split70
-  %86 = phi i32 [ %81, %.split70 ], [ %91, %.preheader24.us.split.us ], [ %90, %98 ], [ %73, %.preheader24.us.split ], [ %72, %76 ]
+.loopexit27.us:                                   ; preds = %76, %.preheader26.us.split, %98, %.preheader26.us.split.us, %.split73
+  %86 = phi i32 [ %81, %.split73 ], [ %91, %.preheader26.us.split.us ], [ %90, %98 ], [ %73, %.preheader26.us.split ], [ %72, %76 ]
   %87 = icmp slt i32 %86, 0
   %88 = and i1 %66, %87
-  br i1 %88, label %.split.us.split, label %.loopexit33
+  br i1 %88, label %.split53.us.split, label %.loopexit35
 
-.preheader24.us.split.us:                         ; preds = %.preheader24.us, %102
-  %89 = phi ptr [ %104, %102 ], [ %14, %.preheader24.us ]
-  %90 = phi i32 [ %105, %102 ], [ 0, %.preheader24.us ]
-  %91 = phi i32 [ %103, %102 ], [ -1, %.preheader24.us ]
+.preheader26.us.split.us:                         ; preds = %.preheader26.us, %102
+  %89 = phi ptr [ %104, %102 ], [ %14, %.preheader26.us ]
+  %90 = phi i32 [ %105, %102 ], [ 0, %.preheader26.us ]
+  %91 = phi i32 [ %103, %102 ], [ -1, %.preheader26.us ]
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %93 = load i32, ptr %92, align 4
   switch i32 %93, label %94 [
-    i32 -2, label %.loopexit25.us
+    i32 -2, label %.loopexit27.us
     i32 -1, label %102
   ]
 
-94:                                               ; preds = %.preheader24.us.split.us
+94:                                               ; preds = %.preheader26.us.split.us
   %95 = load i32, ptr %89, align 4
   %96 = and i32 %95, 2
   %97 = icmp eq i32 %96, 0
@@ -1260,84 +1260,84 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
 
 98:                                               ; preds = %94
   %99 = icmp eq i32 %93, %70
-  br i1 %99, label %.loopexit25.us, label %100
+  br i1 %99, label %.loopexit27.us, label %100
 
 100:                                              ; preds = %98
   %101 = icmp ugt i32 %93, %70
-  br i1 %101, label %102, label %.split70
+  br i1 %101, label %102, label %.split73
 
-102:                                              ; preds = %100, %94, %.preheader24.us.split.us
-  %103 = phi i32 [ %91, %94 ], [ %91, %.preheader24.us.split.us ], [ %90, %100 ]
+102:                                              ; preds = %100, %94, %.preheader26.us.split.us
+  %103 = phi i32 [ %91, %94 ], [ %91, %.preheader26.us.split.us ], [ %90, %100 ]
   %104 = getelementptr i8, ptr %89, i64 12
   %105 = add i32 %90, 1
-  br label %.preheader24.us.split.us, !llvm.loop !46
+  br label %.preheader26.us.split.us, !llvm.loop !46
 
-.split.us55:                                      ; preds = %25
-  br i1 %23, label %.split.us55.split.us, label %.split.us55.split
+.split53.us58:                                    ; preds = %25
+  br i1 %23, label %.split53.us58.split.us, label %.split53.us58.split
 
-.split.us55.split.us:                             ; preds = %.split.us55, %.loopexit28.us.us
-  %106 = phi i1 [ false, %.loopexit28.us.us ], [ %31, %.split.us55 ]
-  br i1 %32, label %107, label %.preheader27.us.us
+.split53.us58.split.us:                           ; preds = %.split53.us58, %.loopexit30.us.us
+  %106 = phi i1 [ false, %.loopexit30.us.us ], [ %31, %.split53.us58 ]
+  br i1 %32, label %107, label %.preheader29.us.us
 
-107:                                              ; preds = %.split.us55.split.us
+107:                                              ; preds = %.split53.us58.split.us
   %108 = load i32, ptr %22, align 4
   %109 = tail call i32 @llvm.umax.i32(i32 %108, i32 %12)
-  br label %.preheader27.us.us
+  br label %.preheader29.us.us
 
-.preheader27.us.us:                               ; preds = %107, %.split.us55.split.us
-  %110 = phi i32 [ %109, %107 ], [ %5, %.split.us55.split.us ]
-  br i1 %106, label %.preheader27.us.split.us.us, label %.preheader27.us.split.us84
+.preheader29.us.us:                               ; preds = %107, %.split53.us58.split.us
+  %110 = phi i32 [ %109, %107 ], [ %5, %.split53.us58.split.us ]
+  br i1 %106, label %.preheader29.us.split.us.us, label %.preheader29.us.split.us87
 
-.preheader27.us.split.us84:                       ; preds = %.preheader27.us.us, %120
-  %111 = phi ptr [ %122, %120 ], [ %14, %.preheader27.us.us ]
-  %112 = phi i32 [ %123, %120 ], [ 0, %.preheader27.us.us ]
-  %113 = phi i32 [ %121, %120 ], [ -1, %.preheader27.us.us ]
+.preheader29.us.split.us87:                       ; preds = %.preheader29.us.us, %120
+  %111 = phi ptr [ %122, %120 ], [ %14, %.preheader29.us.us ]
+  %112 = phi i32 [ %123, %120 ], [ 0, %.preheader29.us.us ]
+  %113 = phi i32 [ %121, %120 ], [ -1, %.preheader29.us.us ]
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %115 = load i32, ptr %114, align 4
   switch i32 %115, label %116 [
-    i32 -2, label %.loopexit28.us.us
+    i32 -2, label %.loopexit30.us.us
     i32 -1, label %120
   ]
 
-116:                                              ; preds = %.preheader27.us.split.us84
+116:                                              ; preds = %.preheader29.us.split.us87
   %117 = icmp eq i32 %115, %110
-  br i1 %117, label %.loopexit28.us.us, label %118
+  br i1 %117, label %.loopexit30.us.us, label %118
 
 118:                                              ; preds = %116
   %119 = icmp ult i32 %115, %110
-  br i1 %119, label %120, label %.split76.us79
+  br i1 %119, label %120, label %.split79.us82
 
-120:                                              ; preds = %118, %.preheader27.us.split.us84
-  %121 = phi i32 [ %113, %.preheader27.us.split.us84 ], [ %112, %118 ]
+120:                                              ; preds = %118, %.preheader29.us.split.us87
+  %121 = phi i32 [ %113, %.preheader29.us.split.us87 ], [ %112, %118 ]
   %122 = getelementptr i8, ptr %111, i64 12
   %123 = add i32 %112, 1
-  br label %.preheader27.us.split.us84, !llvm.loop !47
+  br label %.preheader29.us.split.us87, !llvm.loop !47
 
-.loopexit28.us.us:                                ; preds = %116, %.preheader27.us.split.us84, %.preheader27.us.split.us.us, %138, %.split76.us79
-  %124 = phi i32 [ %128, %.split76.us79 ], [ %131, %.preheader27.us.split.us.us ], [ %130, %138 ], [ %113, %.preheader27.us.split.us84 ], [ %112, %116 ]
+.loopexit30.us.us:                                ; preds = %116, %.preheader29.us.split.us87, %.preheader29.us.split.us.us, %138, %.split79.us82
+  %124 = phi i32 [ %128, %.split79.us82 ], [ %131, %.preheader29.us.split.us.us ], [ %130, %138 ], [ %113, %.preheader29.us.split.us87 ], [ %112, %116 ]
   %125 = icmp slt i32 %124, 0
   %126 = and i1 %106, %125
-  br i1 %126, label %.split.us55.split.us, label %.loopexit33
+  br i1 %126, label %.split53.us58.split.us, label %.loopexit35
 
-.split76.us79:                                    ; preds = %118, %140
-  %.us-phi77.us = phi i32 [ %130, %140 ], [ %112, %118 ]
-  %.us-phi78.us = phi i32 [ %131, %140 ], [ %113, %118 ]
-  %127 = icmp eq i32 %.us-phi78.us, -1
-  %128 = select i1 %127, i32 %.us-phi77.us, i32 %.us-phi78.us
-  br label %.loopexit28.us.us
+.split79.us82:                                    ; preds = %118, %140
+  %.us-phi80.us = phi i32 [ %130, %140 ], [ %112, %118 ]
+  %.us-phi81.us = phi i32 [ %131, %140 ], [ %113, %118 ]
+  %127 = icmp eq i32 %.us-phi81.us, -1
+  %128 = select i1 %127, i32 %.us-phi80.us, i32 %.us-phi81.us
+  br label %.loopexit30.us.us
 
-.preheader27.us.split.us.us:                      ; preds = %.preheader27.us.us, %142
-  %129 = phi ptr [ %144, %142 ], [ %14, %.preheader27.us.us ]
-  %130 = phi i32 [ %145, %142 ], [ 0, %.preheader27.us.us ]
-  %131 = phi i32 [ %143, %142 ], [ -1, %.preheader27.us.us ]
+.preheader29.us.split.us.us:                      ; preds = %.preheader29.us.us, %142
+  %129 = phi ptr [ %144, %142 ], [ %14, %.preheader29.us.us ]
+  %130 = phi i32 [ %145, %142 ], [ 0, %.preheader29.us.us ]
+  %131 = phi i32 [ %143, %142 ], [ -1, %.preheader29.us.us ]
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %133 = load i32, ptr %132, align 4
   switch i32 %133, label %134 [
-    i32 -2, label %.loopexit28.us.us
+    i32 -2, label %.loopexit30.us.us
     i32 -1, label %142
   ]
 
-134:                                              ; preds = %.preheader27.us.split.us.us
+134:                                              ; preds = %.preheader29.us.split.us.us
   %135 = load i32, ptr %129, align 4
   %136 = and i32 %135, 2
   %137 = icmp eq i32 %136, 0
@@ -1345,70 +1345,70 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
 
 138:                                              ; preds = %134
   %139 = icmp eq i32 %133, %110
-  br i1 %139, label %.loopexit28.us.us, label %140
+  br i1 %139, label %.loopexit30.us.us, label %140
 
 140:                                              ; preds = %138
   %141 = icmp ult i32 %133, %110
-  br i1 %141, label %142, label %.split76.us79
+  br i1 %141, label %142, label %.split79.us82
 
-142:                                              ; preds = %140, %134, %.preheader27.us.split.us.us
-  %143 = phi i32 [ %131, %134 ], [ %131, %.preheader27.us.split.us.us ], [ %130, %140 ]
+142:                                              ; preds = %140, %134, %.preheader29.us.split.us.us
+  %143 = phi i32 [ %131, %134 ], [ %131, %.preheader29.us.split.us.us ], [ %130, %140 ]
   %144 = getelementptr i8, ptr %129, i64 12
   %145 = add i32 %130, 1
-  br label %.preheader27.us.split.us.us, !llvm.loop !47
+  br label %.preheader29.us.split.us.us, !llvm.loop !47
 
-.split.us55.split:                                ; preds = %.split.us55, %.loopexit31.us
-  %146 = phi i1 [ false, %.loopexit31.us ], [ %31, %.split.us55 ]
-  br i1 %32, label %147, label %.preheader30.us
+.split53.us58.split:                              ; preds = %.split53.us58, %.loopexit33.us
+  %146 = phi i1 [ false, %.loopexit33.us ], [ %31, %.split53.us58 ]
+  br i1 %32, label %147, label %.preheader32.us
 
-147:                                              ; preds = %.split.us55.split
+147:                                              ; preds = %.split53.us58.split
   %148 = load i32, ptr %22, align 4
   %149 = tail call i32 @llvm.umax.i32(i32 %148, i32 %12)
-  br label %.preheader30.us
+  br label %.preheader32.us
 
-.preheader30.us:                                  ; preds = %147, %.split.us55.split
-  %150 = phi i32 [ %149, %147 ], [ %5, %.split.us55.split ]
-  br i1 %146, label %.preheader30.split.us.us, label %.preheader30.split.us58
+.preheader32.us:                                  ; preds = %147, %.split53.us58.split
+  %150 = phi i32 [ %149, %147 ], [ %5, %.split53.us58.split ]
+  br i1 %146, label %.preheader32.split.us.us, label %.preheader32.split.us61
 
-.preheader30.split.us58:                          ; preds = %.preheader30.us, %158
-  %151 = phi ptr [ %160, %158 ], [ %14, %.preheader30.us ]
-  %152 = phi i32 [ %161, %158 ], [ 0, %.preheader30.us ]
-  %153 = phi i32 [ %159, %158 ], [ -1, %.preheader30.us ]
+.preheader32.split.us61:                          ; preds = %.preheader32.us, %158
+  %151 = phi ptr [ %160, %158 ], [ %14, %.preheader32.us ]
+  %152 = phi i32 [ %161, %158 ], [ 0, %.preheader32.us ]
+  %153 = phi i32 [ %159, %158 ], [ -1, %.preheader32.us ]
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %155 = load i32, ptr %154, align 4
   switch i32 %155, label %156 [
-    i32 -2, label %.loopexit31.us
+    i32 -2, label %.loopexit33.us
     i32 -1, label %158
   ]
 
-156:                                              ; preds = %.preheader30.split.us58
+156:                                              ; preds = %.preheader32.split.us61
   %157 = icmp ugt i32 %155, %150
-  br i1 %157, label %158, label %.loopexit31.us
+  br i1 %157, label %158, label %.loopexit33.us
 
-158:                                              ; preds = %156, %.preheader30.split.us58
-  %159 = phi i32 [ %153, %.preheader30.split.us58 ], [ %152, %156 ]
+158:                                              ; preds = %156, %.preheader32.split.us61
+  %159 = phi i32 [ %153, %.preheader32.split.us61 ], [ %152, %156 ]
   %160 = getelementptr i8, ptr %151, i64 12
   %161 = add i32 %152, 1
-  br label %.preheader30.split.us58, !llvm.loop !48
+  br label %.preheader32.split.us61, !llvm.loop !48
 
-.loopexit31.us:                                   ; preds = %.preheader30.split.us58, %156, %.preheader30.split.us.us, %173
-  %.us-phi.us = phi i32 [ %166, %.preheader30.split.us.us ], [ %165, %173 ], [ %153, %.preheader30.split.us58 ], [ %152, %156 ]
+.loopexit33.us:                                   ; preds = %.preheader32.split.us61, %156, %.preheader32.split.us.us, %173
+  %.us-phi.us = phi i32 [ %166, %.preheader32.split.us.us ], [ %165, %173 ], [ %153, %.preheader32.split.us61 ], [ %152, %156 ]
   %162 = icmp slt i32 %.us-phi.us, 0
   %163 = and i1 %146, %162
-  br i1 %163, label %.split.us55.split, label %.loopexit33
+  br i1 %163, label %.split53.us58.split, label %.loopexit35
 
-.preheader30.split.us.us:                         ; preds = %.preheader30.us, %175
-  %164 = phi ptr [ %177, %175 ], [ %14, %.preheader30.us ]
-  %165 = phi i32 [ %178, %175 ], [ 0, %.preheader30.us ]
-  %166 = phi i32 [ %176, %175 ], [ -1, %.preheader30.us ]
+.preheader32.split.us.us:                         ; preds = %.preheader32.us, %175
+  %164 = phi ptr [ %177, %175 ], [ %14, %.preheader32.us ]
+  %165 = phi i32 [ %178, %175 ], [ 0, %.preheader32.us ]
+  %166 = phi i32 [ %176, %175 ], [ -1, %.preheader32.us ]
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %168 = load i32, ptr %167, align 4
   switch i32 %168, label %169 [
-    i32 -2, label %.loopexit31.us
+    i32 -2, label %.loopexit33.us
     i32 -1, label %175
   ]
 
-169:                                              ; preds = %.preheader30.split.us.us
+169:                                              ; preds = %.preheader32.split.us.us
   %170 = load i32, ptr %164, align 4
   %171 = and i32 %170, 2
   %172 = icmp eq i32 %171, 0
@@ -1416,28 +1416,28 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
 
 173:                                              ; preds = %169
   %174 = icmp ugt i32 %168, %150
-  br i1 %174, label %175, label %.loopexit31.us
+  br i1 %174, label %175, label %.loopexit33.us
 
-175:                                              ; preds = %173, %169, %.preheader30.split.us.us
-  %176 = phi i32 [ %166, %169 ], [ %166, %.preheader30.split.us.us ], [ %165, %173 ]
+175:                                              ; preds = %173, %169, %.preheader32.split.us.us
+  %176 = phi i32 [ %166, %169 ], [ %166, %.preheader32.split.us.us ], [ %165, %173 ]
   %177 = getelementptr i8, ptr %164, i64 12
   %178 = add i32 %165, 1
-  br label %.preheader30.split.us.us, !llvm.loop !48
+  br label %.preheader32.split.us.us, !llvm.loop !48
 
-.split:                                           ; preds = %25
-  br i1 %23, label %.split.split.us, label %.split.split
+.split53:                                         ; preds = %25
+  br i1 %23, label %.split53.split.us, label %.split53.split
 
-.split.split.us:                                  ; preds = %.split, %.loopexit.us
-  %179 = phi i1 [ false, %.loopexit.us ], [ %31, %.split ]
+.split53.split.us:                                ; preds = %.split53, %.loopexit.us
+  %179 = phi i1 [ false, %.loopexit.us ], [ %31, %.split53 ]
   br i1 %32, label %180, label %.preheader.us
 
-180:                                              ; preds = %.split.split.us
+180:                                              ; preds = %.split53.split.us
   %181 = load i32, ptr %22, align 4
   %182 = tail call i32 @llvm.umax.i32(i32 %181, i32 %12)
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %180, %.split.split.us
-  %183 = phi i32 [ %182, %180 ], [ %5, %.split.split.us ]
+.preheader.us:                                    ; preds = %180, %.split53.split.us
+  %183 = phi i32 [ %182, %180 ], [ %5, %.split53.split.us ]
   br i1 %179, label %.preheader.us.split.us, label %.preheader.us.split
 
 .preheader.us.split:                              ; preds = %.preheader.us, %202
@@ -1457,23 +1457,24 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
 
 191:                                              ; preds = %189
   %192 = icmp ult i32 %188, %183
-  br i1 %192, label %202, label %.split64
+  br i1 %192, label %202, label %.split67
 
-.split64:                                         ; preds = %191, %220
-  %.us-phi65 = phi i32 [ %210, %220 ], [ %185, %191 ]
-  %.us-phi66 = phi i32 [ %211, %220 ], [ %186, %191 ]
-  %.us-phi67 = phi i32 [ %213, %220 ], [ %188, %191 ]
-  %193 = icmp eq i32 %.us-phi66, -1
+.split67:                                         ; preds = %191, %220
+  %.us-phi68 = phi i32 [ %210, %220 ], [ %185, %191 ]
+  %.us-phi69 = phi i32 [ %211, %220 ], [ %186, %191 ]
+  %.us-phi70 = phi i32 [ %213, %220 ], [ %188, %191 ]
+  %193 = icmp eq i32 %.us-phi69, -1
   br i1 %193, label %.loopexit.us, label %194
 
-194:                                              ; preds = %.split64
-  %195 = sext i32 %.us-phi66 to i64
-  %196 = getelementptr %struct.cpufreq_frequency_table, ptr %14, i64 %195, i32 2
+194:                                              ; preds = %.split67
+  %195 = sext i32 %.us-phi69 to i64
+  %.split18.us = getelementptr %struct.cpufreq_frequency_table, ptr %14, i64 %195
+  %196 = getelementptr i8, ptr %.split18.us, i64 8
   %197 = load i32, ptr %196, align 4
   %198 = sub i32 %183, %197
-  %199 = sub i32 %.us-phi67, %183
+  %199 = sub i32 %.us-phi70, %183
   %200 = icmp ugt i32 %198, %199
-  %201 = select i1 %200, i32 %.us-phi65, i32 %.us-phi66
+  %201 = select i1 %200, i32 %.us-phi68, i32 %.us-phi69
   br label %.loopexit.us
 
 202:                                              ; preds = %191, %.preheader.us.split
@@ -1482,11 +1483,11 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
   %205 = add i32 %185, 1
   br label %.preheader.us.split, !llvm.loop !49
 
-.loopexit.us:                                     ; preds = %189, %.preheader.us.split, %218, %.preheader.us.split.us, %194, %.split64
-  %206 = phi i32 [ %.us-phi65, %.split64 ], [ %201, %194 ], [ %211, %.preheader.us.split.us ], [ %210, %218 ], [ %186, %.preheader.us.split ], [ %185, %189 ]
+.loopexit.us:                                     ; preds = %189, %.preheader.us.split, %218, %.preheader.us.split.us, %194, %.split67
+  %206 = phi i32 [ %.us-phi68, %.split67 ], [ %201, %194 ], [ %211, %.preheader.us.split.us ], [ %210, %218 ], [ %186, %.preheader.us.split ], [ %185, %189 ]
   %207 = icmp slt i32 %206, 0
   %208 = and i1 %179, %207
-  br i1 %208, label %.split.split.us, label %.loopexit33
+  br i1 %208, label %.split53.split.us, label %.loopexit35
 
 .preheader.us.split.us:                           ; preds = %.preheader.us, %222
   %209 = phi ptr [ %224, %222 ], [ %14, %.preheader.us ]
@@ -1511,7 +1512,7 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
 
 220:                                              ; preds = %218
   %221 = icmp ult i32 %213, %183
-  br i1 %221, label %222, label %.split64
+  br i1 %221, label %222, label %.split67
 
 222:                                              ; preds = %220, %214, %.preheader.us.split.us
   %223 = phi i32 [ %211, %214 ], [ %211, %.preheader.us.split.us ], [ %210, %220 ]
@@ -1521,29 +1522,29 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
 
 226:                                              ; preds = %16
   %227 = tail call i32 @cpufreq_table_index_unsorted(ptr noundef %0, i32 noundef %12, i32 noundef %17) #21
-  br label %.loopexit33
+  br label %.loopexit35
 
-.split.split:                                     ; preds = %.split, %.loopexit19
-  %228 = phi i1 [ false, %.loopexit19 ], [ %31, %.split ]
-  br i1 %32, label %229, label %.preheader18
+.split53.split:                                   ; preds = %.split53, %.loopexit21
+  %228 = phi i1 [ false, %.loopexit21 ], [ %31, %.split53 ]
+  br i1 %32, label %229, label %.preheader20
 
-229:                                              ; preds = %.split.split
+229:                                              ; preds = %.split53.split
   %230 = load i32, ptr %22, align 4
   %231 = tail call i32 @llvm.umax.i32(i32 %230, i32 %12)
-  br label %.preheader18
+  br label %.preheader20
 
-.preheader18:                                     ; preds = %229, %.split.split
-  %232 = phi i32 [ %231, %229 ], [ %5, %.split.split ]
+.preheader20:                                     ; preds = %229, %.split53.split
+  %232 = phi i32 [ %231, %229 ], [ %5, %.split53.split ]
   br label %233
 
-233:                                              ; preds = %.preheader18, %258
-  %234 = phi ptr [ %260, %258 ], [ %14, %.preheader18 ]
-  %235 = phi i32 [ %261, %258 ], [ 0, %.preheader18 ]
-  %236 = phi i32 [ %259, %258 ], [ -1, %.preheader18 ]
+233:                                              ; preds = %.preheader20, %258
+  %234 = phi ptr [ %260, %258 ], [ %14, %.preheader20 ]
+  %235 = phi i32 [ %261, %258 ], [ 0, %.preheader20 ]
+  %236 = phi i32 [ %259, %258 ], [ -1, %.preheader20 ]
   %237 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %238 = load i32, ptr %237, align 4
   switch i32 %238, label %239 [
-    i32 -2, label %.loopexit19
+    i32 -2, label %.loopexit21
     i32 -1, label %258
   ]
 
@@ -1558,7 +1559,7 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
 
 244:                                              ; preds = %240, %239
   %245 = icmp eq i32 %238, %232
-  br i1 %245, label %.loopexit19, label %246
+  br i1 %245, label %.loopexit21, label %246
 
 246:                                              ; preds = %244
   %247 = icmp ugt i32 %238, %232
@@ -1566,17 +1567,18 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
 
 248:                                              ; preds = %246
   %249 = icmp eq i32 %236, -1
-  br i1 %249, label %.loopexit19, label %250
+  br i1 %249, label %.loopexit21, label %250
 
 250:                                              ; preds = %248
   %251 = sext i32 %236 to i64
-  %252 = getelementptr %struct.cpufreq_frequency_table, ptr %14, i64 %251, i32 2
+  %.split = getelementptr %struct.cpufreq_frequency_table, ptr %14, i64 %251
+  %252 = getelementptr i8, ptr %.split, i64 8
   %253 = load i32, ptr %252, align 4
   %254 = sub i32 %253, %232
   %255 = sub i32 %232, %238
   %256 = icmp ugt i32 %254, %255
   %257 = select i1 %256, i32 %235, i32 %236
-  br label %.loopexit19
+  br label %.loopexit21
 
 258:                                              ; preds = %246, %240, %233
   %259 = phi i32 [ %236, %240 ], [ %236, %233 ], [ %235, %246 ]
@@ -1588,28 +1590,29 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
   tail call void asm sideeffect "326: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 326b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 326) #21, !srcloc !51
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.18, i32 1053, i32 2307, i64 12) #21, !srcloc !52
   tail call void asm sideeffect "327: nop\0A\09.pushsection .discard.instr_end\0A\09.long 327b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 327) #21, !srcloc !53
-  br label %.loopexit33
+  br label %.loopexit35
 
-.loopexit19:                                      ; preds = %244, %233, %250, %248
+.loopexit21:                                      ; preds = %244, %233, %250, %248
   %263 = phi i32 [ %235, %248 ], [ %257, %250 ], [ %236, %233 ], [ %235, %244 ]
   %264 = icmp slt i32 %263, 0
   %265 = and i1 %228, %264
-  br i1 %265, label %.split.split, label %.loopexit33
+  br i1 %265, label %.split53.split, label %.loopexit35
 
-.loopexit33:                                      ; preds = %.loopexit31.us, %.loopexit28.us.us, %.loopexit25.us, %.loopexit22.us.us, %.loopexit19, %.loopexit.us, %262, %226
-  %266 = phi i32 [ %227, %226 ], [ 0, %262 ], [ %206, %.loopexit.us ], [ %263, %.loopexit19 ], [ %.us-phi50.us.us, %.loopexit22.us.us ], [ %86, %.loopexit25.us ], [ %124, %.loopexit28.us.us ], [ %.us-phi.us, %.loopexit31.us ]
+.loopexit35:                                      ; preds = %.loopexit33.us, %.loopexit30.us.us, %.loopexit27.us, %.loopexit24.us.us, %.loopexit21, %.loopexit.us, %262, %226
+  %266 = phi i32 [ %227, %226 ], [ 0, %262 ], [ %206, %.loopexit.us ], [ %263, %.loopexit21 ], [ %.us-phi52.us.us, %.loopexit24.us.us ], [ %86, %.loopexit27.us ], [ %124, %.loopexit30.us.us ], [ %.us-phi.us, %.loopexit33.us ]
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 %266, ptr %267, align 8
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 516
   store i32 %12, ptr %268, align 4
   %269 = load ptr, ptr %13, align 8
   %270 = zext i32 %266 to i64
-  %271 = getelementptr %struct.cpufreq_frequency_table, ptr %269, i64 %270, i32 2
+  %.split19 = getelementptr %struct.cpufreq_frequency_table, ptr %269, i64 %270
+  %271 = getelementptr i8, ptr %.split19, i64 8
   %272 = load i32, ptr %271, align 4
   br label %273
 
-273:                                              ; preds = %.loopexit33, %11
-  %274 = phi i32 [ %272, %.loopexit33 ], [ %12, %11 ]
+273:                                              ; preds = %.loopexit35, %11
+  %274 = phi i32 [ %272, %.loopexit35 ], [ %12, %11 ]
   ret i32 %274
 }
 
@@ -2311,7 +2314,8 @@ define dso_local i32 @__cpufreq_driver_target(ptr noundef %0, i32 noundef %1, i3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %34 to i64
-  %39 = getelementptr %struct.cpufreq_frequency_table, ptr %37, i64 %38, i32 2
+  %.split = getelementptr %struct.cpufreq_frequency_table, ptr %37, i64 %38
+  %39 = getelementptr i8, ptr %.split, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, %10
   br i1 %41, label %81, label %42

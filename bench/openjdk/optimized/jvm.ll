@@ -67,6 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.jvalue = type { i64 }
 %class.ThreadsListEnumerator = type { ptr }
 %class.instanceHandle = type { %class.Handle }
+%class.ImmutableOopMapPair = type { i32, i32 }
 %class.JfrFlush = type { ptr }
 %class.EventWriterHost = type { %class.WriterHost.base, [7 x i8] }
 %class.WriterHost.base = type <{ %class.MemoryWriterHost, i8 }>
@@ -24117,17 +24118,17 @@ _ZN16JvmtiThreadState40class_to_verify_considering_redefinitionEP5KlassP10JavaTh
   %66 = load i16, ptr %65, align 2
   %67 = zext i16 %66 to i32
   store i32 %67, ptr %4, align 4
-  %68 = getelementptr inbounds %class.ExceptionTableElement, ptr %61, i64 %64, i32 1
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 2
   %69 = load i16, ptr %68, align 2
   %70 = zext i16 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %70, ptr %71, align 4
-  %72 = getelementptr inbounds %class.ExceptionTableElement, ptr %61, i64 %64, i32 2
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds %class.ExceptionTableElement, ptr %61, i64 %64, i32 3
+  %76 = getelementptr inbounds nuw i8, ptr %65, i64 6
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i32
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -41460,17 +41461,16 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   br i1 %.not11.i.i, label %_ZNK5frame7oop_mapEv.exit, label %_ZNK5frame7oop_mapEv.exit.thread23
 
 _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %46 = lshr i32 %44, 21
-  %47 = and i32 %46, 2040
-  %.idx.i.i.i.i = zext nneg i32 %47 to i64
-  %48 = getelementptr i8, ptr %45, i64 %.idx.i.i.i.i
-  %49 = getelementptr i8, ptr %48, i64 4
+  %45 = lshr i32 %44, 24
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %47 = zext nneg i32 %45 to i64
+  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 3
-  %54 = getelementptr inbounds i8, ptr %45, i64 %53
+  %54 = getelementptr inbounds i8, ptr %46, i64 %53
   %55 = sext i32 %50 to i64
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
   store ptr %56, ptr %28, align 8

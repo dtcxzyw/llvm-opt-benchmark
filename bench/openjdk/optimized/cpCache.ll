@@ -3029,9 +3029,9 @@ define hidden void @_ZNK17ConstantPoolCache29print_resolved_method_entriesEP12ou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
-8:                                                ; preds = %.lr.ph, %34
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %9 = phi ptr [ %4, %.lr.ph ], [ %35, %34 ]
+8:                                                ; preds = %.lr.ph, %35
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
+  %9 = phi ptr [ %4, %.lr.ph ], [ %36, %35 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = getelementptr inbounds nuw %class.ResolvedMethodEntry, ptr %10, i64 %indvars.iv
   tail call void @_ZNK19ResolvedMethodEntry8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %1) #12
@@ -3039,7 +3039,7 @@ define hidden void @_ZNK17ConstantPoolCache29print_resolved_method_entriesEP12ou
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 8
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %34, label %15
+  br i1 %.not, label %35, label %15
 
 15:                                               ; preds = %8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.23) #12
@@ -3049,32 +3049,33 @@ define hidden void @_ZNK17ConstantPoolCache29print_resolved_method_entriesEP12ou
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr %class.ResolvedMethodEntry, ptr %21, i64 %indvars.iv, i32 2
-  %23 = load i16, ptr %22, align 8
-  %24 = load i8, ptr @UseCompressedOops, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = load i8, ptr @UseCompressedClassPointers, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = zext i16 %23 to i64
-  %..i.i = select i1 %25, i64 20, i64 24
-  %.7.i.i = select i1 %25, i64 2, i64 3
-  %29 = select i1 %27, i64 16, i64 %..i.i
-  %30 = shl nuw nsw i64 %28, %.7.i.i
-  %31 = add nuw nsw i64 %29, %30
-  %32 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %31) #12
-  tail call void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %1) #12
-  br label %34
+  %22 = getelementptr %class.ResolvedMethodEntry, ptr %21, i64 %indvars.iv
+  %23 = getelementptr i8, ptr %22, i64 16
+  %24 = load i16, ptr %23, align 8
+  %25 = load i8, ptr @UseCompressedOops, align 1
+  %26 = trunc i8 %25 to i1
+  %27 = load i8, ptr @UseCompressedClassPointers, align 1
+  %28 = trunc i8 %27 to i1
+  %29 = zext i16 %24 to i64
+  %..i.i = select i1 %26, i64 20, i64 24
+  %.7.i.i = select i1 %26, i64 2, i64 3
+  %30 = select i1 %28, i64 16, i64 %..i.i
+  %31 = shl nuw nsw i64 %29, %.7.i.i
+  %32 = add nuw nsw i64 %30, %31
+  %33 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %32) #12
+  tail call void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %1) #12
+  br label %35
 
-34:                                               ; preds = %8, %15
+35:                                               ; preds = %8, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load ptr, ptr %3, align 8
-  %36 = load i32, ptr %35, align 8
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %8, label %._crit_edge, !llvm.loop !20
+  %36 = load ptr, ptr %3, align 8
+  %37 = load i32, ptr %36, align 8
+  %38 = sext i32 %37 to i64
+  %39 = icmp slt i64 %indvars.iv.next, %38
+  br i1 %39, label %8, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %34, %2
+._crit_edge:                                      ; preds = %35, %2
   ret void
 }
 

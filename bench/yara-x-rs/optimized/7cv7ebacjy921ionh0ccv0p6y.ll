@@ -7911,13 +7911,13 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   tail call void @_ZN4core9panicking18panic_bounds_check17hfa2ac8420ad021dcE(i64 noundef %58, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6edf3ccbd140278cfd20363a6c969711.23) #36, !noalias !477
   unreachable
 
-_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit.sink.split: ; preds = %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.us.split.i
-  %.sroa.0.0.ph = phi i64 [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ]
+_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit.sink.split: ; preds = %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.us.split.i
+  %.sroa.0.0.ph = phi i64 [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
   br label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit
 
-_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit: ; preds = %68, %38, %42, %83, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit.sink.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.us.split.i, %.split.us.i, %.split.i
-  %.sroa.0.0 = phi i64 [ 0, %.split.i ], [ 0, %.split.us.i ], [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ %.sroa.0.0.ph, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit.sink.split ], [ %.lcssa7083, %83 ], [ %.lcssa7083, %42 ], [ %.lcssa7083, %38 ], [ 0, %68 ]
+_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit: ; preds = %68, %38, %42, %83, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit.sink.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.us.split.i, %.split.us.i, %.split.i
+  %.sroa.0.0 = phi i64 [ 0, %.split.i ], [ 0, %.split.us.i ], [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %.sroa.0.0.ph, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit.sink.split ], [ %.lcssa7083, %83 ], [ %.lcssa7083, %42 ], [ %.lcssa7083, %38 ], [ 0, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %134 = insertvalue { ptr, i64 } poison, ptr %0, 0
   %135 = insertvalue { ptr, i64 } %134, i64 %.sroa.0.0, 1
@@ -13173,11 +13173,12 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 "_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit": ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21, i32 1
+  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21
   br label %29
 
 29:                                               ; preds = %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit", %45
-  %.sroa.0.0 = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.pn = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   ret ptr %.sroa.0.0
 
 .body:                                            ; preds = %8
@@ -13225,7 +13226,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 45:                                               ; preds = %.noexc6
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !976, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41, i32 1
+  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !976
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13315,11 +13316,12 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 "_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit": ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21, i32 1
+  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21
   br label %29
 
 29:                                               ; preds = %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit", %45
-  %.sroa.0.0 = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.pn = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   ret ptr %.sroa.0.0
 
 .body:                                            ; preds = %8
@@ -13367,7 +13369,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 45:                                               ; preds = %.noexc6
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !988, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41, i32 1
+  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !988
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13457,11 +13459,12 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 "_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit": ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21, i32 1
+  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %27, i64 %21
   br label %29
 
 29:                                               ; preds = %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit", %45
-  %.sroa.0.0 = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.pn = phi ptr [ %48, %45 ], [ %28, %"_ZN8indexmap3map4core5entry26OccupiedEntry$LT$K$C$V$GT$8into_mut17h92fbfd14b879d602E.exit" ]
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   ret ptr %.sroa.0.0
 
 .body:                                            ; preds = %8
@@ -13509,7 +13512,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8indexmap3ma
 45:                                               ; preds = %.noexc6
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !1000, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41, i32 1
+  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, i64 }, i64 }, ptr %47, i64 %41
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1000
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

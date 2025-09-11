@@ -50,18 +50,19 @@ ossl_qrl_enc_level_set_get.exit:
   %2 = icmp ult i32 %1, 4
   tail call void @llvm.assume(i1 %2)
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %3, i32 9
-  %5 = load i8, ptr %4, align 8, !tbaa !4
-  %6 = icmp ult i8 %5, 4
-  br i1 %6, label %switch.lookup, label %8
+  %4 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %6 = load i8, ptr %5, align 8, !tbaa !4
+  %7 = icmp ult i8 %6, 4
+  br i1 %7, label %switch.lookup, label %9
 
 switch.lookup:                                    ; preds = %ossl_qrl_enc_level_set_get.exit
-  %7 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ossl_qrl_enc_level_set_have_el, i64 %7
+  %8 = zext nneg i8 %6 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ossl_qrl_enc_level_set_have_el, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %8
+  br label %9
 
-8:                                                ; preds = %ossl_qrl_enc_level_set_get.exit, %switch.lookup
+9:                                                ; preds = %ossl_qrl_enc_level_set_get.exit, %switch.lookup
   %.0 = phi i32 [ %switch.load, %switch.lookup ], [ -1, %ossl_qrl_enc_level_set_get.exit ]
   ret i32 %.0
 }
@@ -73,33 +74,34 @@ define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_has_keyslot(ptr noundef reado
 
 ossl_qrl_enc_level_set_get.exit:                  ; preds = %4
   %6 = zext nneg i32 %1 to i64
-  %7 = icmp ne ptr %0, null
-  %8 = icmp ult i64 %3, 2
-  %9 = and i1 %7, %8
-  br i1 %9, label %10, label %ossl_qrl_enc_level_set_get.exit.thread, !prof !17
+  %7 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %6
+  %8 = icmp ne ptr %0, null
+  %9 = icmp ult i64 %3, 2
+  %10 = and i1 %8, %9
+  br i1 %10, label %11, label %ossl_qrl_enc_level_set_get.exit.thread, !prof !17
 
-10:                                               ; preds = %ossl_qrl_enc_level_set_get.exit
+11:                                               ; preds = %ossl_qrl_enc_level_set_get.exit
   switch i8 %2, label %ossl_qrl_enc_level_set_get.exit.thread [
-    i8 1, label %11
-    i8 2, label %11
-    i8 3, label %15
+    i8 1, label %12
+    i8 2, label %12
+    i8 3, label %16
   ]
 
-11:                                               ; preds = %10, %10
-  %12 = icmp eq i32 %1, 3
-  %13 = icmp eq i64 %3, 0
-  %14 = or i1 %12, %13
+12:                                               ; preds = %11, %11
+  %13 = icmp eq i32 %1, 3
+  %14 = icmp eq i64 %3, 0
+  %15 = or i1 %13, %14
   br label %ossl_qrl_enc_level_set_get.exit.thread
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %6, i32 5
-  %17 = load i64, ptr %16, align 8, !tbaa !18
-  %18 = and i64 %17, 1
-  %19 = icmp eq i64 %3, %18
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %18 = load i64, ptr %17, align 8, !tbaa !18
+  %19 = and i64 %18, 1
+  %20 = icmp eq i64 %3, %19
   br label %ossl_qrl_enc_level_set_get.exit.thread
 
-ossl_qrl_enc_level_set_get.exit.thread:           ; preds = %4, %10, %ossl_qrl_enc_level_set_get.exit, %15, %11
-  %.0.shrunk = phi i1 [ %14, %11 ], [ %19, %15 ], [ false, %ossl_qrl_enc_level_set_get.exit ], [ false, %10 ], [ false, %4 ]
+ossl_qrl_enc_level_set_get.exit.thread:           ; preds = %4, %11, %ossl_qrl_enc_level_set_get.exit, %16, %12
+  %.0.shrunk = phi i1 [ %15, %12 ], [ %20, %16 ], [ false, %ossl_qrl_enc_level_set_get.exit ], [ false, %11 ], [ false, %4 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -136,7 +138,7 @@ ossl_qrl_enc_level_set_get.exit:
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 217, ptr noundef nonnull @__func__.ossl_qrl_enc_level_set_provide_secret) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524550, ptr noundef null) #6
-  br label %117
+  br label %115
 
 25:                                               ; preds = %21
   %26 = icmp eq i32 %3, 0
@@ -159,7 +161,7 @@ ossl_qrl_enc_level_set_get.exit:
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 234, ptr noundef nonnull @__func__.ossl_qrl_enc_level_set_provide_secret) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #6
-  br label %117
+  br label %115
 
 31:                                               ; preds = %.thread, %._crit_edge
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 104
@@ -174,7 +176,7 @@ ossl_qrl_enc_level_set_get.exit:
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 241, ptr noundef nonnull @__func__.ossl_qrl_enc_level_set_provide_secret) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #6
-  br label %117
+  br label %115
 
 38:                                               ; preds = %31
   %.not122 = icmp eq ptr %5, null
@@ -189,7 +191,7 @@ ossl_qrl_enc_level_set_get.exit:
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @__func__.ossl_qrl_enc_level_set_provide_secret) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #6
-  br label %117
+  br label %115
 
 43:                                               ; preds = %39, %38
   %.097 = phi ptr [ %5, %38 ], [ %40, %39 ]
@@ -256,7 +258,7 @@ ossl_qrl_enc_level_set_get.exit:
   call void @OPENSSL_cleanse(ptr noundef nonnull %11, i64 noundef 64) #6
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #6
   store i8 1, ptr %32, align 8, !tbaa !4
-  br label %117
+  br label %115
 
 73:                                               ; preds = %69, %67, %64, %59, %55, %43
   %.0100 = phi i32 [ %.1, %69 ], [ 1, %67 ], [ 0, %64 ], [ 0, %59 ], [ 0, %55 ], [ 0, %43 ]
@@ -285,90 +287,88 @@ ossl_qrl_enc_level_set_get.exit:
   %80 = icmp eq i32 %3, 3
   %81 = icmp eq i64 %33, 0
   %82 = or i1 %80, %81
-  br i1 %82, label %87, label %el_teardown_keyslot.exit
+  br i1 %82, label %86, label %el_teardown_keyslot.exit
 
 ossl_qrl_enc_level_set_has_keyslot.exit.i:        ; preds = %76
-  %83 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %13, i32 5
-  %84 = load i64, ptr %83, align 8, !tbaa !18
-  %85 = and i64 %84, 1
-  %86 = icmp eq i64 %33, %85
-  br i1 %86, label %87, label %el_teardown_keyslot.exit
+  %83 = load i64, ptr %51, align 8, !tbaa !18
+  %84 = and i64 %83, 1
+  %85 = icmp eq i64 %33, %84
+  br i1 %85, label %86, label %el_teardown_keyslot.exit
 
-87:                                               ; preds = %ossl_qrl_enc_level_set_has_keyslot.exit.i, %79
-  %88 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %33
-  %90 = load ptr, ptr %89, align 8, !tbaa !26
-  %.not13.i = icmp eq ptr %90, null
-  br i1 %.not13.i, label %92, label %91
+86:                                               ; preds = %ossl_qrl_enc_level_set_has_keyslot.exit.i, %79
+  %87 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %33
+  %89 = load ptr, ptr %88, align 8, !tbaa !26
+  %.not13.i = icmp eq ptr %89, null
+  br i1 %.not13.i, label %91, label %90
 
-91:                                               ; preds = %87
-  call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %90) #6
-  store ptr null, ptr %89, align 8, !tbaa !26
-  br label %92
+90:                                               ; preds = %86
+  call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %89) #6
+  store ptr null, ptr %88, align 8, !tbaa !26
+  br label %91
 
-92:                                               ; preds = %91, %87
-  %93 = getelementptr inbounds nuw i8, ptr %14, i64 106
-  %94 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %33
-  call void @OPENSSL_cleanse(ptr noundef nonnull %94, i64 noundef 16) #6
+91:                                               ; preds = %90, %86
+  %92 = getelementptr inbounds nuw i8, ptr %14, i64 106
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %33
+  call void @OPENSSL_cleanse(ptr noundef nonnull %93, i64 noundef 16) #6
   br label %el_teardown_keyslot.exit
 
-el_teardown_keyslot.exit:                         ; preds = %92, %ossl_qrl_enc_level_set_has_keyslot.exit.i, %79, %76, %73
+el_teardown_keyslot.exit:                         ; preds = %91, %ossl_qrl_enc_level_set_has_keyslot.exit.i, %79, %76, %73
   %.not119 = icmp eq i32 %.0100, 0
-  br i1 %.not119, label %el_teardown_keyslot.exit125, label %95
+  br i1 %.not119, label %el_teardown_keyslot.exit125, label %94
 
-95:                                               ; preds = %el_teardown_keyslot.exit
-  %96 = xor i64 %33, 1
-  br i1 %12, label %97, label %el_teardown_keyslot.exit125, !prof !27
+94:                                               ; preds = %el_teardown_keyslot.exit
+  %95 = xor i64 %33, 1
+  br i1 %12, label %96, label %el_teardown_keyslot.exit125, !prof !27
 
-97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  %99 = load i8, ptr %98, align 8, !tbaa !4
-  switch i8 %99, label %el_teardown_keyslot.exit125 [
-    i8 1, label %100
-    i8 2, label %100
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds nuw i8, ptr %14, i64 104
+  %98 = load i8, ptr %97, align 8, !tbaa !4
+  switch i8 %98, label %el_teardown_keyslot.exit125 [
+    i8 1, label %99
+    i8 2, label %99
     i8 3, label %ossl_qrl_enc_level_set_has_keyslot.exit.i123
   ]
 
-100:                                              ; preds = %97, %97
-  %101 = icmp eq i32 %3, 3
-  %102 = icmp eq i64 %33, 1
-  %103 = or i1 %101, %102
-  br i1 %103, label %108, label %el_teardown_keyslot.exit125
+99:                                               ; preds = %96, %96
+  %100 = icmp eq i32 %3, 3
+  %101 = icmp eq i64 %33, 1
+  %102 = or i1 %100, %101
+  br i1 %102, label %106, label %el_teardown_keyslot.exit125
 
-ossl_qrl_enc_level_set_has_keyslot.exit.i123:     ; preds = %97
-  %104 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %13, i32 5
-  %105 = load i64, ptr %104, align 8, !tbaa !18
-  %106 = and i64 %105, 1
-  %107 = icmp eq i64 %96, %106
-  br i1 %107, label %108, label %el_teardown_keyslot.exit125
+ossl_qrl_enc_level_set_has_keyslot.exit.i123:     ; preds = %96
+  %103 = load i64, ptr %51, align 8, !tbaa !18
+  %104 = and i64 %103, 1
+  %105 = icmp eq i64 %95, %104
+  br i1 %105, label %106, label %el_teardown_keyslot.exit125
 
-108:                                              ; preds = %ossl_qrl_enc_level_set_has_keyslot.exit.i123, %100
-  %109 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %96
-  %111 = load ptr, ptr %110, align 8, !tbaa !26
-  %.not13.i124 = icmp eq ptr %111, null
-  br i1 %.not13.i124, label %113, label %112
+106:                                              ; preds = %ossl_qrl_enc_level_set_has_keyslot.exit.i123, %99
+  %107 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %95
+  %109 = load ptr, ptr %108, align 8, !tbaa !26
+  %.not13.i124 = icmp eq ptr %109, null
+  br i1 %.not13.i124, label %111, label %110
 
-112:                                              ; preds = %108
-  call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %111) #6
-  store ptr null, ptr %110, align 8, !tbaa !26
-  br label %113
+110:                                              ; preds = %106
+  call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %109) #6
+  store ptr null, ptr %108, align 8, !tbaa !26
+  br label %111
 
-113:                                              ; preds = %112, %108
-  %114 = getelementptr inbounds nuw i8, ptr %14, i64 106
-  %115 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %96
-  call void @OPENSSL_cleanse(ptr noundef nonnull %115, i64 noundef 16) #6
+111:                                              ; preds = %110, %106
+  %112 = getelementptr inbounds nuw i8, ptr %14, i64 106
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %95
+  call void @OPENSSL_cleanse(ptr noundef nonnull %113, i64 noundef 16) #6
   br label %el_teardown_keyslot.exit125
 
-el_teardown_keyslot.exit125:                      ; preds = %75, %113, %ossl_qrl_enc_level_set_has_keyslot.exit.i123, %100, %97, %95, %el_teardown_keyslot.exit
-  br i1 %.not122, label %116, label %117
+el_teardown_keyslot.exit125:                      ; preds = %75, %111, %ossl_qrl_enc_level_set_has_keyslot.exit.i123, %99, %96, %94, %el_teardown_keyslot.exit
+  br i1 %.not122, label %114, label %115
 
-116:                                              ; preds = %el_teardown_keyslot.exit125
+114:                                              ; preds = %el_teardown_keyslot.exit125
   call void @EVP_MD_free(ptr noundef nonnull %.097) #6
-  br label %117
+  br label %115
 
-117:                                              ; preds = %el_teardown_keyslot.exit125, %116, %72, %42, %37, %30, %24
-  %.0 = phi i32 [ 0, %24 ], [ 0, %30 ], [ 0, %37 ], [ 0, %42 ], [ 1, %72 ], [ 0, %116 ], [ 0, %el_teardown_keyslot.exit125 ]
+115:                                              ; preds = %el_teardown_keyslot.exit125, %114, %72, %42, %37, %30, %24
+  %.0 = phi i32 [ 0, %24 ], [ 0, %30 ], [ 0, %37 ], [ 0, %42 ], [ 1, %72 ], [ 0, %114 ], [ 0, %el_teardown_keyslot.exit125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -414,7 +414,7 @@ ossl_qrl_enc_level_set_get.exit:                  ; preds = %2
   ]
 
 ossl_qrl_enc_level_set_has_keyslot.exit.i:        ; preds = %12
-  %14 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %4, i32 5
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %15 = load i64, ptr %14, align 8, !tbaa !18
   %16 = and i64 %15, 1
   %17 = icmp eq i64 %16, 0
@@ -434,11 +434,11 @@ ossl_qrl_enc_level_set_has_keyslot.exit.i:        ; preds = %12
 22:                                               ; preds = %21, %18
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 106
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %23, i64 noundef 16) #6
-  %.pre = load i8, ptr %8, align 8, !tbaa !4
+  %.pr.pre = load i8, ptr %8, align 8, !tbaa !4
   br label %el_teardown_keyslot.exit
 
 el_teardown_keyslot.exit:                         ; preds = %22, %12
-  %24 = phi i8 [ %.pre, %22 ], [ %13, %12 ]
+  %24 = phi i8 [ %13, %12 ], [ %.pr.pre, %22 ]
   switch i8 %24, label %el_teardown_keyslot.exit16 [
     i8 1, label %25
     i8 2, label %25
@@ -450,7 +450,7 @@ el_teardown_keyslot.exit:                         ; preds = %22, %12
   br i1 %26, label %30, label %el_teardown_keyslot.exit16
 
 ossl_qrl_enc_level_set_has_keyslot.exit.i14:      ; preds = %ossl_qrl_enc_level_set_has_keyslot.exit.i, %el_teardown_keyslot.exit
-  %27 = getelementptr inbounds nuw %struct.ossl_qrl_enc_level_st, ptr %0, i64 %4, i32 5
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %28 = load i64, ptr %27, align 8, !tbaa !18
   %29 = and i64 %28, 1
   %.not = icmp eq i64 %29, 0
@@ -614,12 +614,12 @@ ossl_qrl_enc_level_set_has_keyslot.exit:          ; preds = %ossl_qrl_enc_level_
   br label %69
 
 .sink.split:                                      ; preds = %63, %55, %59, %52, %47
-  %.sink65 = phi i32 [ 160, %47 ], [ 165, %52 ], [ 171, %59 ], [ 171, %55 ], [ 177, %63 ]
+  %.sink66 = phi i32 [ 160, %47 ], [ 165, %52 ], [ 171, %59 ], [ 171, %55 ], [ 177, %63 ]
   %.sink = phi i32 [ 524294, %47 ], [ 524294, %52 ], [ 786691, %59 ], [ 786691, %55 ], [ 524294, %63 ]
   %.046.ph = phi ptr [ null, %47 ], [ %50, %52 ], [ %50, %59 ], [ %50, %55 ], [ %50, %63 ]
   %.0.ph = phi ptr [ null, %47 ], [ null, %52 ], [ %53, %59 ], [ %53, %55 ], [ %53, %63 ]
   call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink65, ptr noundef nonnull @__func__.el_setup_keyslot) #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink66, ptr noundef nonnull @__func__.el_setup_keyslot) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #6
   br label %68
 

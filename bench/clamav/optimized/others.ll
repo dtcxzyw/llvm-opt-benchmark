@@ -2957,7 +2957,7 @@ define ptr @cli_recursion_stack_pop(ptr noundef captures(none) %0) local_unnamed
 
 5:                                                ; preds = %1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.86) #24
-  br label %20
+  br label %21
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2972,13 +2972,14 @@ define ptr @cli_recursion_stack_pop(ptr noundef captures(none) %0) local_unnamed
   store i32 %14, ptr %2, align 4, !tbaa !188
   %15 = load ptr, ptr %7, align 8, !tbaa !184
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %15, i64 %16, i32 2
-  %18 = load ptr, ptr %17, align 8, !tbaa !190
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %18, ptr %19, align 8, !tbaa !179
-  br label %20
+  %17 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %15, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !190
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %19, ptr %20, align 8, !tbaa !179
+  br label %21
 
-20:                                               ; preds = %6, %5
+21:                                               ; preds = %6, %5
   %.0 = phi ptr [ null, %5 ], [ %12, %6 ]
   ret ptr %.0
 }
@@ -3016,38 +3017,39 @@ define i32 @cli_recursion_stack_get_type(ptr noundef readonly captures(none) %0,
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
-  %.020.i = phi i32 [ %4, %.lr.ph.i ], [ %17, %12 ]
+  %.020.i = phi i32 [ %4, %.lr.ph.i ], [ %18, %12 ]
   %.219.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %spec.select.i, %12 ]
   %13 = zext nneg i32 %.020.i to i64
-  %14 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %11, i64 %13, i32 5
-  %15 = load i32, ptr %14, align 8, !tbaa !197
-  %16 = and i32 %15, 1
-  %spec.select.i = sub nsw i32 %.219.i, %16
-  %17 = add nsw i32 %.020.i, -1
-  %18 = icmp sgt i32 %.020.i, %spec.select.i
-  %19 = icmp samesign ugt i32 %.020.i, 1
-  %20 = and i1 %19, %18
-  br i1 %20, label %12, label %recursion_stack_get.exit
+  %14 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %11, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = load i32, ptr %15, align 8, !tbaa !197
+  %17 = and i32 %16, 1
+  %spec.select.i = sub nsw i32 %.219.i, %17
+  %18 = add nsw i32 %.020.i, -1
+  %19 = icmp sgt i32 %.020.i, %spec.select.i
+  %20 = icmp samesign ugt i32 %.020.i, 1
+  %21 = and i1 %20, %19
+  br i1 %21, label %12, label %recursion_stack_get.exit
 
 recursion_stack_get.exit:                         ; preds = %12, %2, %.preheader.i
   %.1.i = phi i32 [ %.015.i, %.preheader.i ], [ %6, %2 ], [ %spec.select.i, %12 ]
-  %21 = icmp slt i32 %.1.i, 0
-  br i1 %21, label %30, label %22
+  %22 = icmp slt i32 %.1.i, 0
+  br i1 %22, label %31, label %23
 
-22:                                               ; preds = %recursion_stack_get.exit
-  %23 = icmp ult i32 %4, %.1.i
-  br i1 %23, label %30, label %24
+23:                                               ; preds = %recursion_stack_get.exit
+  %24 = icmp ult i32 %4, %.1.i
+  br i1 %24, label %31, label %25
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = load ptr, ptr %25, align 8, !tbaa !184
-  %27 = zext nneg i32 %.1.i to i64
-  %28 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %26, i64 %27
-  %29 = load i32, ptr %28, align 8, !tbaa !193
-  br label %30
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %27 = load ptr, ptr %26, align 8, !tbaa !184
+  %28 = zext nneg i32 %.1.i to i64
+  %29 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %27, i64 %28
+  %30 = load i32, ptr %29, align 8, !tbaa !193
+  br label %31
 
-30:                                               ; preds = %22, %recursion_stack_get.exit, %24
-  %.0 = phi i32 [ %29, %24 ], [ 0, %recursion_stack_get.exit ], [ 586, %22 ]
+31:                                               ; preds = %23, %recursion_stack_get.exit, %25
+  %.0 = phi i32 [ %30, %25 ], [ 0, %recursion_stack_get.exit ], [ 586, %23 ]
   ret i32 %.0
 }
 
@@ -3072,45 +3074,49 @@ define i64 @cli_recursion_stack_get_size(ptr noundef readonly captures(none) %0,
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
-  %.020.i = phi i32 [ %4, %.lr.ph.i ], [ %17, %12 ]
+  %.020.i = phi i32 [ %4, %.lr.ph.i ], [ %18, %12 ]
   %.219.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %spec.select.i, %12 ]
   %13 = zext nneg i32 %.020.i to i64
-  %14 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %11, i64 %13, i32 5
-  %15 = load i32, ptr %14, align 8, !tbaa !197
-  %16 = and i32 %15, 1
-  %spec.select.i = sub nsw i32 %.219.i, %16
-  %17 = add nsw i32 %.020.i, -1
-  %18 = icmp sgt i32 %.020.i, %spec.select.i
-  %19 = icmp samesign ugt i32 %.020.i, 1
-  %20 = and i1 %19, %18
-  br i1 %20, label %12, label %recursion_stack_get.exit
+  %14 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %11, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = load i32, ptr %15, align 8, !tbaa !197
+  %17 = and i32 %16, 1
+  %spec.select.i = sub nsw i32 %.219.i, %17
+  %18 = add nsw i32 %.020.i, -1
+  %19 = icmp sgt i32 %.020.i, %spec.select.i
+  %20 = icmp samesign ugt i32 %.020.i, 1
+  %21 = and i1 %20, %19
+  br i1 %21, label %12, label %recursion_stack_get.exit
 
 recursion_stack_get.exit:                         ; preds = %12, %2, %.preheader.i
   %.1.i = phi i32 [ %.015.i, %.preheader.i ], [ %6, %2 ], [ %spec.select.i, %12 ]
-  %21 = icmp slt i32 %.1.i, 0
-  br i1 %21, label %22, label %27
+  %22 = icmp slt i32 %.1.i, 0
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %recursion_stack_get.exit
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %24 = load ptr, ptr %23, align 8, !tbaa !184
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !194
-  br label %35
+23:                                               ; preds = %recursion_stack_get.exit
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %25 = load ptr, ptr %24, align 8, !tbaa !184
+  br label %.sink.split
 
-27:                                               ; preds = %recursion_stack_get.exit
-  %28 = icmp ult i32 %4, %.1.i
-  br i1 %28, label %35, label %29
+26:                                               ; preds = %recursion_stack_get.exit
+  %27 = icmp ult i32 %4, %.1.i
+  br i1 %27, label %35, label %28
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %31 = load ptr, ptr %30, align 8, !tbaa !184
-  %32 = zext nneg i32 %.1.i to i64
-  %33 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %31, i64 %32, i32 1
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %30 = load ptr, ptr %29, align 8, !tbaa !184
+  %31 = zext nneg i32 %.1.i to i64
+  %32 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %30, i64 %31
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %23, %28
+  %.sink10 = phi ptr [ %32, %28 ], [ %25, %23 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sink10, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !194
   br label %35
 
-35:                                               ; preds = %27, %29, %22
-  %.0 = phi i64 [ %26, %22 ], [ %34, %29 ], [ 0, %27 ]
+35:                                               ; preds = %.sink.split, %26
+  %.0 = phi i64 [ 0, %26 ], [ %34, %.sink.split ]
   ret i64 %.0
 }
 

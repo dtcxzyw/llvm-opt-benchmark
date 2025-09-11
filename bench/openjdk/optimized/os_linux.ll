@@ -3756,7 +3756,7 @@ define linkonce_odr hidden void @_ZN6Events15log_dll_messageEP6ThreadPKcz(ptr no
   %6 = load ptr, ptr @_ZN6Events13_dll_messagesE, align 8
   %7 = icmp ne ptr %6, null
   %or.cond = select i1 %5, i1 %7, i1 false
-  br i1 %or.cond, label %8, label %34
+  br i1 %or.cond, label %8, label %36
 
 8:                                                ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -3790,23 +3790,25 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %21, %11
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %15 to i64
-  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26, i32 1
-  store ptr %0, ptr %27, align 8
-  %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %28, i64 %26
-  store double %12, ptr %29, align 8
-  %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %30, i64 %26, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @jio_vsnprintf(ptr noundef %32, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #26
+  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %0, ptr %28, align 8
+  %29 = load ptr, ptr %24, align 8
+  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %29, i64 %26
+  store double %12, ptr %30, align 8
+  %31 = load ptr, ptr %24, align 8
+  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %31, i64 %26
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 @jio_vsnprintf(ptr noundef %34, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #26
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #26
   br label %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit
 
 _ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit: ; preds = %8, %_ZN11MutexLockerD2Ev.exit.i
   call void @llvm.va_end.p0(ptr nonnull %3)
-  br label %34
+  br label %36
 
-34:                                               ; preds = %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit, %2
+36:                                               ; preds = %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit, %2
   ret void
 }
 
@@ -10726,7 +10728,7 @@ define linkonce_odr hidden void @_ZN6Events14log_memprotectEP6ThreadPKcz(ptr nou
   %6 = load ptr, ptr @_ZN6Events20_memprotect_messagesE, align 8
   %7 = icmp ne ptr %6, null
   %or.cond = select i1 %5, i1 %7, i1 false
-  br i1 %or.cond, label %8, label %34
+  br i1 %or.cond, label %8, label %36
 
 8:                                                ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -10760,23 +10762,25 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %21, %11
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %15 to i64
-  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26, i32 1
-  store ptr %0, ptr %27, align 8
-  %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %28, i64 %26
-  store double %12, ptr %29, align 8
-  %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %30, i64 %26, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @jio_vsnprintf(ptr noundef %32, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #26
+  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %0, ptr %28, align 8
+  %29 = load ptr, ptr %24, align 8
+  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %29, i64 %26
+  store double %12, ptr %30, align 8
+  %31 = load ptr, ptr %24, align 8
+  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %31, i64 %26
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 @jio_vsnprintf(ptr noundef %34, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #26
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #26
   br label %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit
 
 _ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit: ; preds = %8, %_ZN11MutexLockerD2Ev.exit.i
   call void @llvm.va_end.p0(ptr nonnull %3)
-  br label %34
+  br label %36
 
-34:                                               ; preds = %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit, %2
+36:                                               ; preds = %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit, %2
   ret void
 }
 

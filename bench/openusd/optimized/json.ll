@@ -4044,88 +4044,89 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br i1 %3, label %4, label %83
 
 4:                                                ; preds = %2
-  %5 = trunc nuw nsw i64 %0 to i32
-  %6 = icmp samesign ult i64 %0, 10000
-  br i1 %6, label %7, label %35
+  %5 = icmp samesign ult i64 %0, 10000
+  br i1 %5, label %6, label %34
 
-7:                                                ; preds = %4
-  %8 = udiv i32 %5, 100
-  %9 = shl nuw nsw i32 %8, 1
-  %10 = urem i32 %5, 100
-  %11 = shl nuw nsw i32 %10, 1
-  %12 = icmp samesign ugt i64 %0, 999
-  br i1 %12, label %.thread, label %17
+6:                                                ; preds = %4
+  %.lhs.trunc = trunc nuw nsw i64 %0 to i16
+  %7 = udiv i16 %.lhs.trunc, 100
+  %8 = shl nuw nsw i16 %7, 1
+  %9 = urem i16 %.lhs.trunc, 100
+  %10 = shl nuw nsw i16 %9, 1
+  %11 = icmp samesign ugt i64 %0, 999
+  br i1 %11, label %.thread, label %16
 
-.thread:                                          ; preds = %7
-  %13 = zext nneg i32 %9 to i64
-  %14 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %13
-  %15 = load i8, ptr %14, align 2
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %15, ptr %1, align 1
+.thread:                                          ; preds = %6
+  %12 = zext nneg i16 %8 to i64
+  %13 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %12
+  %14 = load i8, ptr %13, align 2
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %14, ptr %1, align 1
   br label %.thread230
 
-17:                                               ; preds = %7
-  %18 = icmp samesign ugt i64 %0, 99
-  br i1 %18, label %..thread230_crit_edge, label %23
+16:                                               ; preds = %6
+  %17 = icmp samesign ugt i64 %0, 99
+  br i1 %17, label %..thread230_crit_edge, label %22
 
-..thread230_crit_edge:                            ; preds = %17
-  %.pre = zext nneg i32 %9 to i64
+..thread230_crit_edge:                            ; preds = %16
+  %.pre = zext nneg i16 %8 to i64
   br label %.thread230
 
 .thread230:                                       ; preds = %..thread230_crit_edge, %.thread
-  %.pre-phi = phi i64 [ %.pre, %..thread230_crit_edge ], [ %13, %.thread ]
-  %.0229 = phi ptr [ %1, %..thread230_crit_edge ], [ %16, %.thread ]
-  %19 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds nuw i8, ptr %.0229, i64 1
-  store i8 %21, ptr %.0229, align 1
-  br label %25
+  %.pre-phi = phi i64 [ %.pre, %..thread230_crit_edge ], [ %12, %.thread ]
+  %.0229 = phi ptr [ %1, %..thread230_crit_edge ], [ %15, %.thread ]
+  %18 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0229, i64 1
+  store i8 %20, ptr %.0229, align 1
+  br label %24
 
-23:                                               ; preds = %17
-  %24 = icmp samesign ugt i64 %0, 9
-  br i1 %24, label %25, label %._crit_edge294
+22:                                               ; preds = %16
+  %23 = icmp samesign ugt i64 %0, 9
+  br i1 %23, label %24, label %._crit_edge298
 
-._crit_edge294:                                   ; preds = %23
-  %.pre295 = zext nneg i32 %11 to i64
-  br label %30
+._crit_edge298:                                   ; preds = %22
+  %.pre299 = zext nneg i16 %10 to i64
+  br label %29
 
-25:                                               ; preds = %.thread230, %23
-  %.1232 = phi ptr [ %22, %.thread230 ], [ %1, %23 ]
-  %26 = zext nneg i32 %11 to i64
-  %27 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %26
-  %28 = load i8, ptr %27, align 2
-  %29 = getelementptr inbounds nuw i8, ptr %.1232, i64 1
-  store i8 %28, ptr %.1232, align 1
-  br label %30
+24:                                               ; preds = %.thread230, %22
+  %.1232 = phi ptr [ %21, %.thread230 ], [ %1, %22 ]
+  %25 = zext nneg i16 %10 to i64
+  %26 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %25
+  %27 = load i8, ptr %26, align 2
+  %28 = getelementptr inbounds nuw i8, ptr %.1232, i64 1
+  store i8 %27, ptr %.1232, align 1
+  br label %29
 
-30:                                               ; preds = %._crit_edge294, %25
-  %.pre-phi296 = phi i64 [ %.pre295, %._crit_edge294 ], [ %26, %25 ]
-  %.2 = phi ptr [ %1, %._crit_edge294 ], [ %29, %25 ]
-  %31 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi296
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  store i8 %33, ptr %.2, align 1
+29:                                               ; preds = %._crit_edge298, %24
+  %.pre-phi300 = phi i64 [ %.pre299, %._crit_edge298 ], [ %25, %24 ]
+  %.2 = phi ptr [ %1, %._crit_edge298 ], [ %28, %24 ]
+  %30 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi300
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %32 = load i8, ptr %31, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  store i8 %32, ptr %.2, align 1
   br label %318
 
-35:                                               ; preds = %4
-  %36 = udiv i32 %5, 10000
-  %37 = urem i32 %5, 10000
-  %38 = udiv i32 %5, 1000000
+34:                                               ; preds = %4
+  %35 = trunc nuw nsw i64 %0 to i32
+  %36 = udiv i32 %35, 10000
+  %37 = urem i32 %35, 10000
+  %38 = udiv i32 %35, 1000000
   %39 = shl nuw nsw i32 %38, 1
-  %.lhs.trunc = trunc nuw nsw i32 %36 to i16
-  %40 = urem i16 %.lhs.trunc, 100
+  %.lhs.trunc259 = trunc nuw nsw i32 %36 to i16
+  %40 = urem i16 %.lhs.trunc259, 100
   %41 = shl nuw nsw i16 %40, 1
-  %.lhs.trunc257 = trunc nuw nsw i32 %37 to i16
-  %42 = udiv i16 %.lhs.trunc257, 100
+  %.lhs.trunc261 = trunc nuw nsw i32 %37 to i16
+  %42 = udiv i16 %.lhs.trunc261, 100
   %43 = shl nuw nsw i16 %42, 1
-  %44 = urem i16 %.lhs.trunc257, 100
+  %44 = urem i16 %.lhs.trunc261, 100
   %45 = shl nuw nsw i16 %44, 1
   %46 = icmp samesign ugt i64 %0, 9999999
   br i1 %46, label %.thread233, label %51
 
-.thread233:                                       ; preds = %35
+.thread233:                                       ; preds = %34
   %47 = zext nneg i32 %39 to i64
   %48 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %47
   %49 = load i8, ptr %48, align 2
@@ -4133,18 +4134,18 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   store i8 %49, ptr %1, align 1
   br label %.thread236
 
-51:                                               ; preds = %35
+51:                                               ; preds = %34
   %52 = icmp samesign ugt i64 %0, 999999
   br i1 %52, label %..thread236_crit_edge, label %57
 
 ..thread236_crit_edge:                            ; preds = %51
-  %.pre297 = zext nneg i32 %39 to i64
+  %.pre301 = zext nneg i32 %39 to i64
   br label %.thread236
 
 .thread236:                                       ; preds = %..thread236_crit_edge, %.thread233
-  %.pre-phi298 = phi i64 [ %.pre297, %..thread236_crit_edge ], [ %47, %.thread233 ]
+  %.pre-phi302 = phi i64 [ %.pre301, %..thread236_crit_edge ], [ %47, %.thread233 ]
   %.3235 = phi ptr [ %1, %..thread236_crit_edge ], [ %50, %.thread233 ]
-  %53 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi298
+  %53 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi302
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = getelementptr inbounds nuw i8, ptr %.3235, i64 1
@@ -4153,10 +4154,10 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
 
 57:                                               ; preds = %51
   %58 = icmp samesign ugt i64 %0, 99999
-  br i1 %58, label %59, label %._crit_edge293
+  br i1 %58, label %59, label %._crit_edge297
 
-._crit_edge293:                                   ; preds = %57
-  %.pre299 = zext nneg i16 %41 to i64
+._crit_edge297:                                   ; preds = %57
+  %.pre303 = zext nneg i16 %41 to i64
   br label %64
 
 59:                                               ; preds = %.thread236, %57
@@ -4168,10 +4169,10 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   store i8 %62, ptr %.4238, align 1
   br label %64
 
-64:                                               ; preds = %._crit_edge293, %59
-  %.pre-phi300 = phi i64 [ %.pre299, %._crit_edge293 ], [ %60, %59 ]
-  %.5 = phi ptr [ %1, %._crit_edge293 ], [ %63, %59 ]
-  %65 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi300
+64:                                               ; preds = %._crit_edge297, %59
+  %.pre-phi304 = phi i64 [ %.pre303, %._crit_edge297 ], [ %60, %59 ]
+  %.5 = phi ptr [ %1, %._crit_edge297 ], [ %63, %59 ]
+  %65 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi304
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = getelementptr inbounds nuw i8, ptr %.5, i64 1
@@ -4209,25 +4210,25 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   %91 = urem i32 %87, 10000
   %92 = udiv i32 %87, 1000000
   %93 = shl nuw nsw i32 %92, 1
-  %.lhs.trunc261 = trunc nuw nsw i32 %90 to i16
-  %94 = urem i16 %.lhs.trunc261, 100
+  %.lhs.trunc265 = trunc nuw nsw i32 %90 to i16
+  %94 = urem i16 %.lhs.trunc265, 100
   %95 = shl nuw nsw i16 %94, 1
-  %.lhs.trunc263 = trunc nuw nsw i32 %91 to i16
-  %96 = udiv i16 %.lhs.trunc263, 100
+  %.lhs.trunc267 = trunc nuw nsw i32 %91 to i16
+  %96 = udiv i16 %.lhs.trunc267, 100
   %97 = shl nuw nsw i16 %96, 1
-  %98 = urem i16 %.lhs.trunc263, 100
+  %98 = urem i16 %.lhs.trunc267, 100
   %99 = shl nuw nsw i16 %98, 1
   %100 = udiv i32 %89, 10000
   %101 = urem i32 %89, 10000
   %102 = udiv i32 %89, 1000000
   %103 = shl nuw nsw i32 %102, 1
-  %.lhs.trunc267 = trunc nuw nsw i32 %100 to i16
-  %104 = urem i16 %.lhs.trunc267, 100
+  %.lhs.trunc271 = trunc nuw nsw i32 %100 to i16
+  %104 = urem i16 %.lhs.trunc271, 100
   %105 = shl nuw nsw i16 %104, 1
-  %.lhs.trunc269 = trunc nuw nsw i32 %101 to i16
-  %106 = udiv i16 %.lhs.trunc269, 100
+  %.lhs.trunc273 = trunc nuw nsw i32 %101 to i16
+  %106 = udiv i16 %.lhs.trunc273, 100
   %107 = shl nuw nsw i16 %106, 1
-  %108 = urem i16 %.lhs.trunc269, 100
+  %108 = urem i16 %.lhs.trunc273, 100
   %109 = shl nuw nsw i16 %108, 1
   %110 = icmp samesign ugt i64 %0, 999999999999999
   br i1 %110, label %.thread239, label %115
@@ -4245,13 +4246,13 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br i1 %116, label %..thread242_crit_edge, label %121
 
 ..thread242_crit_edge:                            ; preds = %115
-  %.pre301 = zext nneg i32 %93 to i64
+  %.pre305 = zext nneg i32 %93 to i64
   br label %.thread242
 
 .thread242:                                       ; preds = %..thread242_crit_edge, %.thread239
-  %.pre-phi302 = phi i64 [ %.pre301, %..thread242_crit_edge ], [ %111, %.thread239 ]
+  %.pre-phi306 = phi i64 [ %.pre305, %..thread242_crit_edge ], [ %111, %.thread239 ]
   %.7241 = phi ptr [ %1, %..thread242_crit_edge ], [ %114, %.thread239 ]
-  %117 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi302
+  %117 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi306
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
   %119 = load i8, ptr %118, align 1
   %120 = getelementptr inbounds nuw i8, ptr %.7241, i64 1
@@ -4276,13 +4277,13 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br i1 %128, label %..thread248_crit_edge, label %133
 
 ..thread248_crit_edge:                            ; preds = %127
-  %.pre303 = zext nneg i16 %95 to i64
+  %.pre307 = zext nneg i16 %95 to i64
   br label %.thread248
 
 .thread248:                                       ; preds = %..thread248_crit_edge, %.thread245
-  %.pre-phi304 = phi i64 [ %.pre303, %..thread248_crit_edge ], [ %123, %.thread245 ]
+  %.pre-phi308 = phi i64 [ %.pre307, %..thread248_crit_edge ], [ %123, %.thread245 ]
   %.9247 = phi ptr [ %1, %..thread248_crit_edge ], [ %126, %.thread245 ]
-  %129 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi304
+  %129 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi308
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 1
   %131 = load i8, ptr %130, align 1
   %132 = getelementptr inbounds nuw i8, ptr %.9247, i64 1
@@ -4307,13 +4308,13 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br i1 %140, label %..thread254_crit_edge, label %145
 
 ..thread254_crit_edge:                            ; preds = %139
-  %.pre305 = zext nneg i16 %97 to i64
+  %.pre309 = zext nneg i16 %97 to i64
   br label %.thread254
 
 .thread254:                                       ; preds = %..thread254_crit_edge, %.thread251
-  %.pre-phi306 = phi i64 [ %.pre305, %..thread254_crit_edge ], [ %135, %.thread251 ]
+  %.pre-phi310 = phi i64 [ %.pre309, %..thread254_crit_edge ], [ %135, %.thread251 ]
   %.11253 = phi ptr [ %1, %..thread254_crit_edge ], [ %138, %.thread251 ]
-  %141 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi306
+  %141 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi310
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 1
   %143 = load i8, ptr %142, align 1
   %144 = getelementptr inbounds nuw i8, ptr %.11253, i64 1
@@ -4325,7 +4326,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br i1 %146, label %147, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %145
-  %.pre307 = zext nneg i16 %99 to i64
+  %.pre311 = zext nneg i16 %99 to i64
   br label %152
 
 147:                                              ; preds = %.thread254, %145
@@ -4338,9 +4339,9 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br label %152
 
 152:                                              ; preds = %._crit_edge, %147
-  %.pre-phi308 = phi i64 [ %.pre307, %._crit_edge ], [ %148, %147 ]
+  %.pre-phi312 = phi i64 [ %.pre311, %._crit_edge ], [ %148, %147 ]
   %.13 = phi ptr [ %1, %._crit_edge ], [ %151, %147 ]
-  %153 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi308
+  %153 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi312
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1
   %156 = getelementptr inbounds nuw i8, ptr %.13, i64 1
@@ -4414,9 +4415,9 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
 
 203:                                              ; preds = %193
   %204 = icmp ult i64 %0, -8446744073709551616
-  %.lhs.trunc285 = trunc nuw nsw i64 %186 to i16
-  %205 = udiv i16 %.lhs.trunc285, 100
-  %206 = urem i16 %.lhs.trunc285, 100
+  %.lhs.trunc289 = trunc nuw nsw i64 %186 to i16
+  %205 = udiv i16 %.lhs.trunc289, 100
+  %206 = urem i16 %.lhs.trunc289, 100
   br i1 %204, label %207, label %220
 
 207:                                              ; preds = %203
@@ -4424,7 +4425,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   %209 = add nuw nsw i8 %208, 48
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %209, ptr %1, align 1
-  %211 = urem i16 %.lhs.trunc285, 100
+  %211 = urem i16 %.lhs.trunc289, 100
   %212 = shl nuw nsw i16 %211, 1
   %213 = zext nneg i16 %212 to i64
   %214 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %213
@@ -4470,25 +4471,25 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   %243 = urem i32 %239, 10000
   %244 = udiv i32 %239, 1000000
   %245 = shl nuw nsw i32 %244, 1
-  %.lhs.trunc273 = trunc nuw nsw i32 %242 to i16
-  %246 = urem i16 %.lhs.trunc273, 100
+  %.lhs.trunc277 = trunc nuw nsw i32 %242 to i16
+  %246 = urem i16 %.lhs.trunc277, 100
   %247 = shl nuw nsw i16 %246, 1
-  %.lhs.trunc275 = trunc nuw nsw i32 %243 to i16
-  %248 = udiv i16 %.lhs.trunc275, 100
+  %.lhs.trunc279 = trunc nuw nsw i32 %243 to i16
+  %248 = udiv i16 %.lhs.trunc279, 100
   %249 = shl nuw nsw i16 %248, 1
-  %250 = urem i16 %.lhs.trunc275, 100
+  %250 = urem i16 %.lhs.trunc279, 100
   %251 = shl nuw nsw i16 %250, 1
   %252 = udiv i32 %241, 10000
   %253 = urem i32 %241, 10000
   %254 = udiv i32 %241, 1000000
   %255 = shl nuw nsw i32 %254, 1
-  %.lhs.trunc279 = trunc nuw nsw i32 %252 to i16
-  %256 = urem i16 %.lhs.trunc279, 100
+  %.lhs.trunc283 = trunc nuw nsw i32 %252 to i16
+  %256 = urem i16 %.lhs.trunc283, 100
   %257 = shl nuw nsw i16 %256, 1
-  %.lhs.trunc281 = trunc nuw nsw i32 %253 to i16
-  %258 = udiv i16 %.lhs.trunc281, 100
+  %.lhs.trunc285 = trunc nuw nsw i32 %253 to i16
+  %258 = udiv i16 %.lhs.trunc285, 100
   %259 = shl nuw nsw i16 %258, 1
-  %260 = urem i16 %.lhs.trunc281, 100
+  %260 = urem i16 %.lhs.trunc285, 100
   %261 = shl nuw nsw i16 %260, 1
   %262 = zext nneg i32 %245 to i64
   %263 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %262
@@ -4564,8 +4565,8 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   store i8 %316, ptr %314, align 1
   br label %318
 
-318:                                              ; preds = %152, %237, %30, %64
-  %.6 = phi ptr [ %34, %30 ], [ %82, %64 ], [ %184, %152 ], [ %317, %237 ]
+318:                                              ; preds = %152, %237, %29, %64
+  %.6 = phi ptr [ %33, %29 ], [ %82, %64 ], [ %184, %152 ], [ %317, %237 ]
   ret ptr %.6
 }
 

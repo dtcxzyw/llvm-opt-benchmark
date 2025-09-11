@@ -2164,12 +2164,13 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNK
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = and i64 %13, 4294967295
-  %17 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %15, i64 %16, i32 1
-  %18 = load i32, ptr %17, align 4, !tbaa !27
-  store i32 %18, ptr %4, align 8, !tbaa !59
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %19, align 8, !tbaa !99
-  %20 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(20) %4) #10
+  %17 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %15, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !27
+  store i32 %19, ptr %4, align 8, !tbaa !59
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 0, ptr %20, align 8, !tbaa !99
+  %21 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(20) %4) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -2272,12 +2273,13 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNK
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = and i64 %13, 4294967295
-  %17 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %15, i64 %16, i32 1
-  %18 = load i32, ptr %17, align 4, !tbaa !27
-  store i32 %18, ptr %4, align 8, !tbaa !59
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %19, align 8, !tbaa !99
-  %20 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildTruncERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(20) %4, i64 0) #10
+  %17 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %15, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !27
+  store i32 %19, ptr %4, align 8, !tbaa !59
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 0, ptr %20, align 8, !tbaa !99
+  %21 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildTruncERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(20) %4, i64 0) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

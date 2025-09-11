@@ -622,7 +622,7 @@ define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br label %15
 
 15:                                               ; preds = %21, %.lr.ph.split.us.i
-  %16 = phi i32 [ %23, %21 ], [ %10, %.lr.ph.split.us.i ]
+  %16 = phi i32 [ %24, %21 ], [ %10, %.lr.ph.split.us.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !151)
   store i32 0, ptr %6, align 8, !alias.scope !154, !noalias !155
   %.not.i.i.i.i.i.us.i = icmp eq i32 %16, 0
@@ -635,14 +635,15 @@ define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   br i1 %20, label %21, label %.split.us.i
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %14, i64 %19, i32 1
-  %23 = load i32, ptr %22, align 8, !noalias !158, !noundef !3
-  store i32 %23, ptr %6, align 8, !alias.scope !154, !noalias !155
+  %22 = getelementptr inbounds nuw { { i64, [1 x i64] }, i32, i32 }, ptr %14, i64 %19
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load i32, ptr %23, align 8, !noalias !158, !noundef !3
+  store i32 %24, ptr %6, align 8, !alias.scope !154, !noalias !155
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !159
   store i32 %16, ptr %4, align 4, !noalias !162
-  %24 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb0071bc2079a0ef1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4), !noalias !165
+  %25 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb0071bc2079a0ef1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4), !noalias !165
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !159
-  br i1 %24, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1240ece13d6bec30E.exit, label %15
+  br i1 %25, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1240ece13d6bec30E.exit, label %15
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2fac09c06d0dd3c2E.exit.loopexit.us.i": ; preds = %15
   store ptr null, ptr %5, align 8, !alias.scope !128, !noalias !131

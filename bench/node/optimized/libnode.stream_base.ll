@@ -653,7 +653,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %total_bytes.034 = phi i64 [ %add, %for.body ], [ 0, %entry ]
   %i.033 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %len = getelementptr inbounds %struct.uv_buf_t, ptr %bufs, i64 %i.033, i32 1
+  %arrayidx = getelementptr inbounds %struct.uv_buf_t, ptr %bufs, i64 %i.033
+  %len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %len, align 8
   %add = add i64 %1, %total_bytes.034
   %inc = add nuw i64 %i.033, 1
@@ -1359,7 +1360,8 @@ do.body4.i73:                                     ; preds = %_ZN4node16MaybeStac
 
 _ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit76: ; preds = %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit
   %40 = load ptr, ptr %buf_.i.i, align 8
-  %len = getelementptr inbounds nuw %struct.uv_buf_t, ptr %40, i64 %i160.0152, i32 1
+  %arrayidx.i75 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %40, i64 %i160.0152
+  %len = getelementptr inbounds nuw i8, ptr %arrayidx.i75, i64 8
   store i64 %call191, ptr %len, align 8
   %inc194 = add nuw nsw i64 %i160.0152, 1
   %exitcond158.not = icmp eq i64 %inc194, %count.0
@@ -1445,7 +1447,8 @@ do.body4.i92:                                     ; preds = %_ZN4node16MaybeStac
 
 _ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit95: ; preds = %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit90
   %48 = load ptr, ptr %buf_.i.i, align 8
-  %len246 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %48, i64 %i205.0154, i32 1
+  %arrayidx.i94 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %48, i64 %i205.0154
+  %len246 = getelementptr inbounds nuw i8, ptr %arrayidx.i94, i64 8
   store i64 %call244, ptr %len246, align 8
   br label %for.inc325
 
@@ -1512,7 +1515,8 @@ do.body4.i103:                                    ; preds = %_ZN4node16MaybeStac
 
 _ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit106: ; preds = %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit101
   %52 = load ptr, ptr %buf_.i.i, align 8
-  %len323 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %52, i64 %i205.0154, i32 1
+  %arrayidx.i105 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %52, i64 %i205.0154
+  %len323 = getelementptr inbounds nuw i8, ptr %arrayidx.i105, i64 8
   store i64 %call319, ptr %len323, align 8
   %add324 = add i64 %call319, %offset.0155
   br label %for.inc325

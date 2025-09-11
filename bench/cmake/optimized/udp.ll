@@ -947,7 +947,7 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
   store ptr %.2106.i, ptr %20, align 8, !tbaa !24
   %83 = add nuw nsw i64 %.1105.i, 1
   %.2.i = load ptr, ptr %15, align 8, !tbaa !24
-  %84 = icmp ult i64 %83, %52
+  %84 = icmp samesign ult i64 %83, %52
   %85 = icmp ne ptr %.2.i, %15
   %86 = select i1 %84, i1 %85, i1 false
   br i1 %86, label %.lr.ph107.i, label %._crit_edge.i, !llvm.loop !68

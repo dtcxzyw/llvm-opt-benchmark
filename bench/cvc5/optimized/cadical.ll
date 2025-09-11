@@ -940,7 +940,7 @@ _ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE5clearEv.exit: ; preds = %
   ret void
 
 14:                                               ; preds = %.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %.sroa.016.020 = phi ptr [ %5, %.lr.ph ], [ %61, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %.sroa.016.020 = phi ptr [ %5, %.lr.ph ], [ %62, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   %15 = load ptr, ptr %8, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i64, ptr %.sroa.016.020, align 8, !tbaa !82
@@ -978,7 +978,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %30, %28, 
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(521) %15, ptr noundef nonnull %2)
-          to label %35 unwind label %62
+          to label %35 unwind label %63
 
 35:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
   %36 = load ptr, ptr %2, align 8, !tbaa !120
@@ -1021,18 +1021,19 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %35, %39, %45
   %57 = load i64, ptr %.sroa.016.020, align 8, !tbaa !80
   %58 = lshr i64 %57, 1
   %59 = load ptr, ptr %11, align 8, !tbaa !126
-  %60 = getelementptr inbounds nuw %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %59, i64 %58, i32 1
-  store i32 %56, ptr %60, align 4, !tbaa !127
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.016.020, i64 8
-  %.not = icmp eq ptr %61, %7
+  %60 = getelementptr inbounds nuw %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %59, i64 %58
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  store i32 %56, ptr %61, align 4, !tbaa !127
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.016.020, i64 8
+  %.not = icmp eq ptr %62, %7
   br i1 %.not, label %._crit_edge, label %14
 
-62:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %63
+  resume { ptr, i32 } %64
 }
 
 declare void @_ZN4cvc58internal9CodeTimerC1ERNS0_9TimerStatEb(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) unnamed_addr #0
@@ -1966,22 +1967,23 @@ define hidden noundef range(i32 0, 3) i32 @_ZN4cvc58internal4prop13CadicalSolver
   %5 = lshr i64 %1, 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !126
-  %8 = getelementptr inbounds nuw %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %7, i64 %5, i32 6
-  %9 = load i32, ptr %8, align 4, !tbaa !171
-  %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %_ZNK4cvc58internal4prop17CadicalPropagator5valueENS1_10SatLiteralE.exit, label %10
+  %8 = getelementptr inbounds nuw %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %7, i64 %5
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %10 = load i32, ptr %9, align 4, !tbaa !171
+  %.not.i = icmp eq i32 %10, 0
+  br i1 %.not.i, label %_ZNK4cvc58internal4prop17CadicalPropagator5valueENS1_10SatLiteralE.exit, label %11
 
-10:                                               ; preds = %2
-  %11 = and i64 %1, 1
-  %.not8.i = icmp eq i64 %11, 0
-  %12 = sub nsw i32 0, %9
-  %13 = select i1 %.not8.i, i32 %9, i32 %12
-  %.inv.i.i = icmp slt i32 %13, 1
+11:                                               ; preds = %2
+  %12 = and i64 %1, 1
+  %.not8.i = icmp eq i64 %12, 0
+  %13 = sub nsw i32 0, %10
+  %14 = select i1 %.not8.i, i32 %10, i32 %13
+  %.inv.i.i = icmp slt i32 %14, 1
   %..i.i = select i1 %.inv.i.i, i32 2, i32 1
   br label %_ZNK4cvc58internal4prop17CadicalPropagator5valueENS1_10SatLiteralE.exit
 
-_ZNK4cvc58internal4prop17CadicalPropagator5valueENS1_10SatLiteralE.exit: ; preds = %2, %10
-  %.0.i = phi i32 [ 0, %2 ], [ %..i.i, %10 ]
+_ZNK4cvc58internal4prop17CadicalPropagator5valueENS1_10SatLiteralE.exit: ; preds = %2, %11
+  %.0.i = phi i32 [ 0, %2 ], [ %..i.i, %11 ]
   ret i32 %.0.i
 }
 
@@ -3205,7 +3207,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %154
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit97: ; preds = %41, %37, %28
-  %66 = getelementptr inbounds nuw %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %32, i64 %31, i32 4
+  %66 = getelementptr inbounds nuw i8, ptr %33, i64 10
   store i8 0, ptr %66, align 2, !tbaa !156
   %67 = load ptr, ptr %27, align 8, !tbaa !152
   %68 = trunc i64 %31 to i32
@@ -3484,8 +3486,9 @@ define hidden void @_ZN4cvc58internal4prop13CadicalSolver11preferPhaseENS1_10Sat
   %12 = select i1 %.not.i.i, i8 1, i8 -1
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !126
-  %15 = getelementptr inbounds nuw %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %14, i64 %8, i32 7
-  store i8 %12, ptr %15, align 4, !tbaa !210
+  %15 = getelementptr inbounds nuw %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %14, i64 %8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i8 %12, ptr %16, align 4, !tbaa !210
   ret void
 }
 
@@ -3505,26 +3508,27 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal4prop13CadicalSolver7isFixed
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !72
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %11, label %5
+  br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !126
-  %8 = getelementptr inbounds nuw %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %7, i64 %1, i32 3
-  %9 = load i8, ptr %8, align 1, !tbaa !131, !range !132, !noundef !133
-  %10 = trunc nuw i8 %9 to i1
-  br label %17
+  %8 = getelementptr inbounds nuw %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %7, i64 %1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %10 = load i8, ptr %9, align 1, !tbaa !131, !range !132, !noundef !133
+  %11 = trunc nuw i8 %10 to i1
+  br label %18
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !6
-  %14 = trunc i64 %1 to i32
-  %15 = tail call noundef i32 @_ZNK7CaDiCaL6Solver5fixedEi(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %14)
-  %16 = icmp ne i32 %15, 0
-  br label %17
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !6
+  %15 = trunc i64 %1 to i32
+  %16 = tail call noundef i32 @_ZNK7CaDiCaL6Solver5fixedEi(ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef %15)
+  %17 = icmp ne i32 %16, 0
+  br label %18
 
-17:                                               ; preds = %11, %5
-  %.0 = phi i1 [ %10, %5 ], [ %16, %11 ]
+18:                                               ; preds = %12, %5
+  %.0 = phi i1 [ %11, %5 ], [ %17, %12 ]
   ret i1 %.0
 }
 
@@ -8464,7 +8468,7 @@ define linkonce_odr hidden noundef i32 @_ZN4cvc58internal4prop17CadicalPropagato
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %6 = load i8, ptr %5, align 8, !tbaa !192, !range !132, !noundef !133
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %71, label %8
+  br i1 %7, label %72, label %8
 
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -8551,56 +8555,57 @@ _ZNSt6vectorIiSaIiEED2Ev.exit26:                  ; preds = %36, %39
   %48 = load i64, ptr @_ZN4cvc58internal4propL15undefSatLiteralE, align 8
   %.not = icmp eq i64 %.sroa.0.0, %48
   %or.cond = select i1 %47, i1 true, i1 %.not
-  br i1 %or.cond, label %70, label %49
+  br i1 %or.cond, label %71, label %49
 
 49:                                               ; preds = %45
   %50 = load i8, ptr %3, align 1, !tbaa !158, !range !132, !noundef !133
   %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %64, label %52
+  br i1 %51, label %65, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = lshr i64 %.sroa.0.0, 1
   %55 = load ptr, ptr %53, align 8, !tbaa !126
-  %56 = getelementptr inbounds nuw %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %55, i64 %54, i32 7
-  %57 = load i8, ptr %56, align 4, !tbaa !210
-  switch i8 %57, label %64 [
-    i8 1, label %60
-    i8 -1, label %58
+  %56 = getelementptr inbounds nuw %"struct.cvc5::internal::prop::CadicalPropagator::VarInfo", ptr %55, i64 %54
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %58 = load i8, ptr %57, align 4, !tbaa !210
+  switch i8 %58, label %65 [
+    i8 1, label %61
+    i8 -1, label %59
   ]
 
-58:                                               ; preds = %52
-  %59 = and i64 %.sroa.0.0, 1
-  %.not114 = icmp eq i64 %59, 0
-  br i1 %.not114, label %62, label %64
+59:                                               ; preds = %52
+  %60 = and i64 %.sroa.0.0, 1
+  %.not114 = icmp eq i64 %60, 0
+  br i1 %.not114, label %63, label %65
 
-60:                                               ; preds = %52
-  %61 = and i64 %.sroa.0.0, 1
-  %.not115 = icmp eq i64 %61, 0
-  br i1 %.not115, label %64, label %62
+61:                                               ; preds = %52
+  %62 = and i64 %.sroa.0.0, 1
+  %.not115 = icmp eq i64 %62, 0
+  br i1 %.not115, label %65, label %63
 
-62:                                               ; preds = %60, %58
-  %63 = xor i64 %.sroa.0.0, 1
-  br label %64
+63:                                               ; preds = %61, %59
+  %64 = xor i64 %.sroa.0.0, 1
+  br label %65
 
-64:                                               ; preds = %58, %62, %60, %52, %49
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %49 ], [ %.sroa.0.0, %52 ], [ %.sroa.0.0, %60 ], [ %63, %62 ], [ %.sroa.0.0, %58 ]
-  %65 = and i64 %.sroa.0.1, 1
-  %.not.i47 = icmp eq i64 %65, 0
-  %66 = lshr i64 %.sroa.0.1, 1
-  %67 = sub nsw i64 0, %66
-  %68 = select i1 %.not.i47, i64 %66, i64 %67
-  %69 = trunc i64 %68 to i32
-  br label %70
-
-70:                                               ; preds = %45, %64
-  %.1 = phi i32 [ %69, %64 ], [ 0, %45 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+65:                                               ; preds = %59, %63, %61, %52, %49
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %49 ], [ %.sroa.0.0, %52 ], [ %.sroa.0.0, %61 ], [ %64, %63 ], [ %.sroa.0.0, %59 ]
+  %66 = and i64 %.sroa.0.1, 1
+  %.not.i47 = icmp eq i64 %66, 0
+  %67 = lshr i64 %.sroa.0.1, 1
+  %68 = sub nsw i64 0, %67
+  %69 = select i1 %.not.i47, i64 %67, i64 %68
+  %70 = trunc i64 %69 to i32
   br label %71
 
-71:                                               ; preds = %1, %70
-  %.0 = phi i32 [ %.1, %70 ], [ 0, %1 ]
+71:                                               ; preds = %45, %65
+  %.1 = phi i32 [ %70, %65 ], [ 0, %45 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %72
+
+72:                                               ; preds = %1, %71
+  %.0 = phi i32 [ %.1, %71 ], [ 0, %1 ]
   ret i32 %.0
 }
 

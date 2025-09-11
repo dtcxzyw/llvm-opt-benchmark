@@ -647,7 +647,8 @@ define internal noundef ptr @gss_create_cred(ptr noundef %0, ptr noundef %1, i32
 
 12:                                               ; preds = %8, %4
   %13 = phi i64 [ 0, %4 ], [ %11, %8 ]
-  %14 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13, i64 2
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13
+  %14 = getelementptr i8, ptr %.split, i64 16
   %15 = load ptr, ptr %14, align 16
   %16 = tail call noalias align 8 dereferenceable_or_null(136) ptr @kmalloc_trace(ptr noundef %15, i32 noundef %5, i64 noundef 136) #19
   %17 = icmp eq ptr %16, null

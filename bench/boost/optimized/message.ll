@@ -6625,60 +6625,61 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost6locale11gnu_gettext10mo_messa
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = sext i32 %1 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !56
-  %14 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<char>::domain_data_type", ptr %13, i64 %12, i32 2
-  %15 = load ptr, ptr %14, align 8, !tbaa !52
-  %.not32 = icmp eq ptr %15, null
-  br i1 %.not32, label %20, label %16
+  %14 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<char>::domain_data_type", ptr %13, i64 %12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %16 = load ptr, ptr %15, align 8, !tbaa !52
+  %.not32 = icmp eq ptr %16, null
+  br i1 %.not32, label %21, label %17
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %15, align 8, !tbaa !8
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %4)
-  br label %23
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %16, align 8, !tbaa !8
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %4)
+  br label %24
 
-20:                                               ; preds = %10
-  %21 = icmp ne i64 %4, 1
-  %22 = zext i1 %21 to i64
-  br label %23
+21:                                               ; preds = %10
+  %22 = icmp ne i64 %4, 1
+  %23 = zext i1 %22 to i64
+  br label %24
 
-23:                                               ; preds = %20, %16
-  %.017 = phi i64 [ %19, %16 ], [ %22, %20 ]
+24:                                               ; preds = %21, %17
+  %.017 = phi i64 [ %20, %17 ], [ %23, %21 ]
   %.not2136 = icmp sgt i64 %.017, 0
   br i1 %.not2136, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %23, %29
-  %.01639 = phi i64 [ %33, %29 ], [ 0, %23 ]
-  %.sroa.0.038 = phi ptr [ %31, %29 ], [ %7, %23 ]
-  %.sroa.7.037 = phi i64 [ %32, %29 ], [ %8, %23 ]
-  %24 = icmp eq i64 %.sroa.7.037, 0
-  br i1 %24, label %.critedge, label %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
+.lr.ph:                                           ; preds = %24, %30
+  %.01639 = phi i64 [ %34, %30 ], [ 0, %24 ]
+  %.sroa.0.038 = phi ptr [ %32, %30 ], [ %7, %24 ]
+  %.sroa.7.037 = phi i64 [ %33, %30 ], [ %8, %24 ]
+  %25 = icmp eq i64 %.sroa.7.037, 0
+  br i1 %25, label %.critedge, label %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
 
 _ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %.lr.ph
-  %25 = tail call ptr @memchr(ptr noundef %.sroa.0.038, i32 noundef 0, i64 noundef %.sroa.7.037) #25
-  %.not.i = icmp eq ptr %25, null
-  %26 = ptrtoint ptr %25 to i64
-  %27 = ptrtoint ptr %.sroa.0.038 to i64
-  %28 = sub i64 %26, %27
-  %.not33 = icmp eq i64 %28, -1
+  %26 = tail call ptr @memchr(ptr noundef %.sroa.0.038, i32 noundef 0, i64 noundef %.sroa.7.037) #25
+  %.not.i = icmp eq ptr %26, null
+  %27 = ptrtoint ptr %26 to i64
+  %28 = ptrtoint ptr %.sroa.0.038 to i64
+  %29 = sub i64 %27, %28
+  %.not33 = icmp eq i64 %29, -1
   %.not = select i1 %.not.i, i1 true, i1 %.not33
-  br i1 %.not, label %.critedge, label %29, !prof !211
+  br i1 %.not, label %.critedge, label %30, !prof !211
 
-29:                                               ; preds = %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
-  %30 = add nuw i64 %28, 1
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %30, i64 %.sroa.7.037)
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.038, i64 %spec.select.i
-  %32 = sub i64 %.sroa.7.037, %spec.select.i
-  %33 = add nuw nsw i64 %.01639, 1
-  %exitcond.not = icmp eq i64 %33, %.017
+30:                                               ; preds = %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
+  %31 = add nuw i64 %29, 1
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %31, i64 %.sroa.7.037)
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.038, i64 %spec.select.i
+  %33 = sub i64 %.sroa.7.037, %spec.select.i
+  %34 = add nuw nsw i64 %.01639, 1
+  %exitcond.not = icmp eq i64 %34, %.017
   br i1 %exitcond.not, label %.critedge22.loopexit, label %.lr.ph, !llvm.loop !212
 
-.critedge22.loopexit:                             ; preds = %29
-  %34 = icmp eq i64 %32, 0
-  %35 = select i1 %34, ptr null, ptr %31
+.critedge22.loopexit:                             ; preds = %30
+  %35 = icmp eq i64 %33, 0
+  %36 = select i1 %35, ptr null, ptr %32
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit, %23, %.critedge22.loopexit, %5
-  %.0 = phi ptr [ null, %5 ], [ %7, %23 ], [ %35, %.critedge22.loopexit ], [ null, %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit ], [ null, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit, %24, %.critedge22.loopexit, %5
+  %.0 = phi ptr [ null, %5 ], [ %7, %24 ], [ %36, %.critedge22.loopexit ], [ null, %_ZNK5boost17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -11605,61 +11606,62 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost6locale11gnu_gettext10mo_messa
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = sext i32 %1 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !71
-  %14 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type", ptr %13, i64 %12, i32 2
-  %15 = load ptr, ptr %14, align 8, !tbaa !52
-  %.not32 = icmp eq ptr %15, null
-  br i1 %.not32, label %20, label %16
+  %14 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type", ptr %13, i64 %12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %16 = load ptr, ptr %15, align 8, !tbaa !52
+  %.not32 = icmp eq ptr %16, null
+  br i1 %.not32, label %21, label %17
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %15, align 8, !tbaa !8
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %4)
-  br label %23
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %16, align 8, !tbaa !8
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %4)
+  br label %24
 
-20:                                               ; preds = %10
-  %21 = icmp ne i64 %4, 1
-  %22 = zext i1 %21 to i64
-  br label %23
+21:                                               ; preds = %10
+  %22 = icmp ne i64 %4, 1
+  %23 = zext i1 %22 to i64
+  br label %24
 
-23:                                               ; preds = %20, %16
-  %.017 = phi i64 [ %19, %16 ], [ %22, %20 ]
+24:                                               ; preds = %21, %17
+  %.017 = phi i64 [ %20, %17 ], [ %23, %21 ]
   %.not2136 = icmp sgt i64 %.017, 0
   br i1 %.not2136, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %23, %29
-  %.01639 = phi i64 [ %34, %29 ], [ 0, %23 ]
-  %.sroa.0.038 = phi ptr [ %32, %29 ], [ %7, %23 ]
-  %.sroa.7.037 = phi i64 [ %33, %29 ], [ %8, %23 ]
-  %24 = icmp eq i64 %.sroa.7.037, 0
-  br i1 %24, label %.critedge, label %_ZNK5boost17basic_string_viewIwSt11char_traitsIwEE4findEwm.exit
+.lr.ph:                                           ; preds = %24, %30
+  %.01639 = phi i64 [ %35, %30 ], [ 0, %24 ]
+  %.sroa.0.038 = phi ptr [ %33, %30 ], [ %7, %24 ]
+  %.sroa.7.037 = phi i64 [ %34, %30 ], [ %8, %24 ]
+  %25 = icmp eq i64 %.sroa.7.037, 0
+  br i1 %25, label %.critedge, label %_ZNK5boost17basic_string_viewIwSt11char_traitsIwEE4findEwm.exit
 
 _ZNK5boost17basic_string_viewIwSt11char_traitsIwEE4findEwm.exit: ; preds = %.lr.ph
-  %25 = tail call ptr @wmemchr(ptr noundef %.sroa.0.038, i32 noundef signext 0, i64 noundef %.sroa.7.037) #27
-  %.not.i = icmp eq ptr %25, null
-  %26 = ptrtoint ptr %25 to i64
-  %27 = ptrtoint ptr %.sroa.0.038 to i64
-  %28 = sub i64 %26, %27
-  %.not33 = icmp eq i64 %28, -4
+  %26 = tail call ptr @wmemchr(ptr noundef %.sroa.0.038, i32 noundef signext 0, i64 noundef %.sroa.7.037) #27
+  %.not.i = icmp eq ptr %26, null
+  %27 = ptrtoint ptr %26 to i64
+  %28 = ptrtoint ptr %.sroa.0.038 to i64
+  %29 = sub i64 %27, %28
+  %.not33 = icmp eq i64 %29, -4
   %.not = select i1 %.not.i, i1 true, i1 %.not33
-  br i1 %.not, label %.critedge, label %29, !prof !211
+  br i1 %.not, label %.critedge, label %30, !prof !211
 
-29:                                               ; preds = %_ZNK5boost17basic_string_viewIwSt11char_traitsIwEE4findEwm.exit
-  %30 = ashr exact i64 %28, 2
-  %31 = add nuw nsw i64 %30, 1
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %31, i64 %.sroa.7.037)
-  %32 = getelementptr inbounds nuw i32, ptr %.sroa.0.038, i64 %spec.select.i
-  %33 = sub i64 %.sroa.7.037, %spec.select.i
-  %34 = add nuw nsw i64 %.01639, 1
-  %exitcond.not = icmp eq i64 %34, %.017
+30:                                               ; preds = %_ZNK5boost17basic_string_viewIwSt11char_traitsIwEE4findEwm.exit
+  %31 = ashr exact i64 %29, 2
+  %32 = add nuw nsw i64 %31, 1
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %32, i64 %.sroa.7.037)
+  %33 = getelementptr inbounds nuw i32, ptr %.sroa.0.038, i64 %spec.select.i
+  %34 = sub i64 %.sroa.7.037, %spec.select.i
+  %35 = add nuw nsw i64 %.01639, 1
+  %exitcond.not = icmp eq i64 %35, %.017
   br i1 %exitcond.not, label %.critedge22.loopexit, label %.lr.ph, !llvm.loop !296
 
-.critedge22.loopexit:                             ; preds = %29
-  %35 = icmp eq i64 %33, 0
-  %36 = select i1 %35, ptr null, ptr %32
+.critedge22.loopexit:                             ; preds = %30
+  %36 = icmp eq i64 %34, 0
+  %37 = select i1 %36, ptr null, ptr %33
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %_ZNK5boost17basic_string_viewIwSt11char_traitsIwEE4findEwm.exit, %23, %.critedge22.loopexit, %5
-  %.0 = phi ptr [ null, %5 ], [ %7, %23 ], [ %36, %.critedge22.loopexit ], [ null, %_ZNK5boost17basic_string_viewIwSt11char_traitsIwEE4findEwm.exit ], [ null, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %_ZNK5boost17basic_string_viewIwSt11char_traitsIwEE4findEwm.exit, %24, %.critedge22.loopexit, %5
+  %.0 = phi ptr [ null, %5 ], [ %7, %24 ], [ %37, %.critedge22.loopexit ], [ null, %_ZNK5boost17basic_string_viewIwSt11char_traitsIwEE4findEwm.exit ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -13285,7 +13287,7 @@ _ZNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__
 define linkonce_odr hidden { ptr, i64 } @_ZNK5boost6locale11gnu_gettext10mo_messageIwE10get_stringEiPKwS5_(ptr noundef nonnull align 8 dereferenceable(153) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::locale::gnu_gettext::message_key.106", align 8
   %6 = icmp slt i32 %1, 0
-  br i1 %6, label %50, label %7
+  br i1 %6, label %51, label %7
 
 7:                                                ; preds = %4
   %8 = zext nneg i32 %1 to i64
@@ -13298,92 +13300,93 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5boost6locale11gnu_gettext10mo_mess
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 72
   %.not = icmp ugt i64 %16, %8
-  br i1 %.not, label %17, label %50
+  br i1 %.not, label %17, label %51
 
 17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type", ptr %12, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %18, ptr %5, align 8, !tbaa !306
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !278
-  store i32 0, ptr %18, align 8, !tbaa !287
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %21, ptr %20, align 8, !tbaa !306
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 0, ptr %22, align 8, !tbaa !278
-  store i32 0, ptr %21, align 8, !tbaa !287
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr %3, ptr %23, align 8, !tbaa !315
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %19, ptr %5, align 8, !tbaa !306
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 0, ptr %20, align 8, !tbaa !278
+  store i32 0, ptr %19, align 8, !tbaa !287
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store ptr %22, ptr %21, align 8, !tbaa !306
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 0, ptr %23, align 8, !tbaa !278
+  store i32 0, ptr %22, align 8, !tbaa !287
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr %3, ptr %24, align 8, !tbaa !315
   %.not.i = icmp eq ptr %2, null
   %spec.select.i = select i1 %.not.i, ptr @_ZZN5boost6locale11gnu_gettext11message_keyIwEC1EPKwS5_E5empty, ptr %2
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %spec.select.i, ptr %24, align 8, !tbaa !313
-  %25 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type", ptr %12, i64 %8, i32 1
-  %26 = invoke ptr @_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIwEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS6_(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(80) %5)
-          to label %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit unwind label %28
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %spec.select.i, ptr %25, align 8, !tbaa !313
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %27 = invoke ptr @_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIwEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS6_(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(80) %5)
+          to label %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit unwind label %29
 
 _ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit: ; preds = %17
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %35, label %30
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %36, label %31
 
-28:                                               ; preds = %17
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %17
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6locale11gnu_gettext11message_keyIwED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %29
+  resume { ptr, i32 } %30
 
-30:                                               ; preds = %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 88
-  %32 = load ptr, ptr %31, align 8, !tbaa !275
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  %34 = load i64, ptr %33, align 8, !tbaa !278
-  br label %35
+31:                                               ; preds = %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 88
+  %33 = load ptr, ptr %32, align 8, !tbaa !275
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 96
+  %35 = load i64, ptr %34, align 8, !tbaa !278
+  br label %36
 
-35:                                               ; preds = %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit, %30
-  %.sroa.4.1 = phi i64 [ %34, %30 ], [ 0, %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit ]
-  %.sroa.013.1 = phi ptr [ %32, %30 ], [ null, %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit ]
-  %36 = load ptr, ptr %20, align 8, !tbaa !275
-  %37 = icmp eq ptr %36, %21
-  br i1 %37, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
+36:                                               ; preds = %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit, %31
+  %.sroa.4.1 = phi i64 [ %35, %31 ], [ 0, %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit ]
+  %.sroa.013.1 = phi ptr [ %33, %31 ], [ null, %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit ]
+  %37 = load ptr, ptr %21, align 8, !tbaa !275
+  %38 = icmp eq ptr %37, %22
+  br i1 %38, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %35
-  %38 = load i64, ptr %22, align 8, !tbaa !278
-  %39 = icmp ult i64 %38, 4
-  call void @llvm.assume(i1 %39)
+_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %36
+  %39 = load i64, ptr %23, align 8, !tbaa !278
+  %40 = icmp ult i64 %39, 4
+  call void @llvm.assume(i1 %40)
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit.i
 
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i: ; preds = %35
-  %40 = load i64, ptr %21, align 8, !tbaa !23
-  %41 = shl i64 %40, 2
-  %42 = add i64 %41, 4
-  call void @_ZdlPvm(ptr noundef %36, i64 noundef %42) #23
+_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i: ; preds = %36
+  %41 = load i64, ptr %22, align 8, !tbaa !23
+  %42 = shl i64 %41, 2
+  %43 = add i64 %42, 4
+  call void @_ZdlPvm(ptr noundef %37, i64 noundef %43) #23
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i
-  %43 = load ptr, ptr %5, align 8, !tbaa !275
-  %44 = icmp eq ptr %43, %18
-  br i1 %44, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i2.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i1.i
+  %44 = load ptr, ptr %5, align 8, !tbaa !275
+  %45 = icmp eq ptr %44, %19
+  br i1 %45, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i2.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i1.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i2.i: ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit.i
-  %45 = load i64, ptr %19, align 8, !tbaa !278
-  %46 = icmp ult i64 %45, 4
-  call void @llvm.assume(i1 %46)
+  %46 = load i64, ptr %20, align 8, !tbaa !278
+  %47 = icmp ult i64 %46, 4
+  call void @llvm.assume(i1 %47)
   br label %_ZN5boost6locale11gnu_gettext11message_keyIwED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i1.i: ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit.i
-  %47 = load i64, ptr %18, align 8, !tbaa !23
-  %48 = shl i64 %47, 2
-  %49 = add i64 %48, 4
-  call void @_ZdlPvm(ptr noundef %43, i64 noundef %49) #23
+  %48 = load i64, ptr %19, align 8, !tbaa !23
+  %49 = shl i64 %48, 2
+  %50 = add i64 %49, 4
+  call void @_ZdlPvm(ptr noundef %44, i64 noundef %50) #23
   br label %_ZN5boost6locale11gnu_gettext11message_keyIwED2Ev.exit
 
 _ZN5boost6locale11gnu_gettext11message_keyIwED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i2.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i1.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %50
+  br label %51
 
-50:                                               ; preds = %4, %7, %_ZN5boost6locale11gnu_gettext11message_keyIwED2Ev.exit
+51:                                               ; preds = %4, %7, %_ZN5boost6locale11gnu_gettext11message_keyIwED2Ev.exit
   %.sroa.4.0 = phi i64 [ %.sroa.4.1, %_ZN5boost6locale11gnu_gettext11message_keyIwED2Ev.exit ], [ 0, %7 ], [ 0, %4 ]
   %.sroa.013.0 = phi ptr [ %.sroa.013.1, %_ZN5boost6locale11gnu_gettext11message_keyIwED2Ev.exit ], [ null, %7 ], [ null, %4 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.013.0, 0

@@ -1390,7 +1390,7 @@ define dso_local void @create_branches_recursively(ptr noundef %0, ptr noundef %
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
-17:                                               ; preds = %42
+17:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %14, align 8, !tbaa !60
   %19 = sext i32 %18 to i64
@@ -1404,7 +1404,7 @@ define dso_local void @create_branches_recursively(ptr noundef %0, ptr noundef %
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !65
   %.not53 = icmp eq ptr %24, null
-  br i1 %.not53, label %25, label %42
+  br i1 %.not53, label %25, label %43
 
 25:                                               ; preds = %.lr.ph
   %26 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
@@ -1419,107 +1419,110 @@ define dso_local void @create_branches_recursively(ptr noundef %0, ptr noundef %
 _.exit:                                           ; preds = %25, %27
   %29 = phi ptr [ %.pre, %27 ], [ %21, %25 ]
   %.0.i = phi ptr [ %28, %27 ], [ @.str.11, %25 ]
-  %30 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %29, i64 %indvars.iv, i32 2
-  %31 = load ptr, ptr %30, align 8, !tbaa !69
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !70
-  %34 = call i32 (ptr, ...) @die_message(ptr noundef %.0.i, ptr noundef %33) #14
-  %35 = call i32 @advice_enabled(i32 noundef 39) #14
-  %.not54 = icmp eq i32 %35, 0
-  br i1 %.not54, label %40, label %36
+  %30 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8, !tbaa !69
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !70
+  %35 = call i32 (ptr, ...) @die_message(ptr noundef %.0.i, ptr noundef %34) #14
+  %36 = call i32 @advice_enabled(i32 noundef 39) #14
+  %.not54 = icmp eq i32 %36, 0
+  br i1 %.not54, label %41, label %37
 
-36:                                               ; preds = %_.exit
-  %37 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i57 = icmp eq i32 %37, 0
-  br i1 %.not4.i57, label %_.exit59, label %38
+37:                                               ; preds = %_.exit
+  %38 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
+  %.not4.i57 = icmp eq i32 %38, 0
+  br i1 %.not4.i57, label %_.exit59, label %39
 
-38:                                               ; preds = %36
-  %39 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #14
+39:                                               ; preds = %37
+  %40 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #14
   br label %_.exit59
 
-_.exit59:                                         ; preds = %36, %38
-  %.0.i58 = phi ptr [ %39, %38 ], [ @.str.12, %36 ]
+_.exit59:                                         ; preds = %37, %39
+  %.0.i58 = phi ptr [ %40, %39 ], [ @.str.12, %37 ]
   call void (ptr, ...) @advise(ptr noundef %.0.i58, ptr noundef %2) #14
-  br label %40
+  br label %41
 
-40:                                               ; preds = %_.exit59, %_.exit
-  %41 = call i32 @common_exit(ptr noundef nonnull @.str.3, i32 noundef 781, i32 noundef %34) #14
-  call void @exit(i32 noundef %41) #15
+41:                                               ; preds = %_.exit59, %_.exit
+  %42 = call i32 @common_exit(ptr noundef nonnull @.str.3, i32 noundef 781, i32 noundef %35) #14
+  call void @exit(i32 noundef %42) #15
   unreachable
 
-42:                                               ; preds = %.lr.ph
-  %43 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !69
-  %45 = load ptr, ptr %22, align 8, !tbaa !73
-  %46 = call ptr @oid_to_hex(ptr noundef %45) #14
-  %47 = getelementptr i8, ptr %44, i64 8
-  %.val = load ptr, ptr %47, align 8, !tbaa !70
-  %48 = call fastcc i32 @submodule_create_branch(ptr noundef nonnull %24, ptr %.val, ptr noundef %1, ptr noundef %46, ptr noundef %spec.select, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 1)
-  %.not55 = icmp eq i32 %48, 0
-  br i1 %.not55, label %17, label %49
+43:                                               ; preds = %.lr.ph
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !69
+  %46 = load ptr, ptr %22, align 8, !tbaa !73
+  %47 = call ptr @oid_to_hex(ptr noundef %46) #14
+  %48 = getelementptr i8, ptr %45, i64 8
+  %.val = load ptr, ptr %48, align 8, !tbaa !70
+  %49 = call fastcc i32 @submodule_create_branch(ptr noundef nonnull %24, ptr %.val, ptr noundef %1, ptr noundef %47, ptr noundef %spec.select, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 1)
+  %.not55 = icmp eq i32 %49, 0
+  br i1 %.not55, label %17, label %50
 
-49:                                               ; preds = %42
-  %50 = call fastcc ptr @_(ptr noundef nonnull @.str.13)
-  %51 = load ptr, ptr %12, align 8, !tbaa !64
-  %52 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %51, i64 %indvars.iv, i32 2
-  %53 = load ptr, ptr %52, align 8, !tbaa !69
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !70
-  call void (ptr, ...) @die(ptr noundef %50, ptr noundef %55, ptr noundef %1) #15
+50:                                               ; preds = %43
+  %51 = call fastcc ptr @_(ptr noundef nonnull @.str.13)
+  %52 = load ptr, ptr %12, align 8, !tbaa !64
+  %53 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %52, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !69
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !70
+  call void (ptr, ...) @die(ptr noundef %51, ptr noundef %57, ptr noundef %1) #15
   unreachable
 
 ._crit_edge:                                      ; preds = %17, %9
   call void @create_branch(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4, i32 noundef 0, i32 noundef %5, i32 noundef %6, i32 noundef 0, i32 noundef %8)
   %.not50 = icmp eq i32 %8, 0
-  br i1 %.not50, label %56, label %.loopexit
+  br i1 %.not50, label %58, label %.loopexit
 
-56:                                               ; preds = %._crit_edge
+58:                                               ; preds = %._crit_edge
   %.not51 = icmp eq i32 %7, 0
-  br i1 %.not51, label %58, label %57
+  br i1 %.not51, label %60, label %59
 
-57:                                               ; preds = %56
+59:                                               ; preds = %58
   call fastcc void @setup_tracking(ptr noundef %1, ptr noundef %spec.select, i32 noundef %7, i32 noundef %6)
-  br label %58
+  br label %60
 
-58:                                               ; preds = %57, %56
-  %59 = load i32, ptr %14, align 8, !tbaa !60
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph68, label %.loopexit
+60:                                               ; preds = %59, %58
+  %61 = load i32, ptr %14, align 8, !tbaa !60
+  %62 = icmp sgt i32 %61, 0
+  br i1 %62, label %.lr.ph68, label %.loopexit
 
-61:                                               ; preds = %.lr.ph68
+63:                                               ; preds = %.lr.ph68
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %62 = load i32, ptr %14, align 8, !tbaa !60
-  %63 = sext i32 %62 to i64
-  %64 = icmp slt i64 %indvars.iv.next75, %63
-  br i1 %64, label %.lr.ph68, label %.loopexit, !llvm.loop !74
+  %64 = load i32, ptr %14, align 8, !tbaa !60
+  %65 = sext i32 %64 to i64
+  %66 = icmp slt i64 %indvars.iv.next75, %65
+  br i1 %66, label %.lr.ph68, label %.loopexit, !llvm.loop !74
 
-.lr.ph68:                                         ; preds = %58, %61
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %61 ], [ 0, %58 ]
-  %65 = load ptr, ptr %12, align 8, !tbaa !64
-  %66 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %65, i64 %indvars.iv74
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !65
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !69
-  %71 = load ptr, ptr %66, align 8, !tbaa !73
-  %72 = call ptr @oid_to_hex(ptr noundef %71) #14
-  %73 = getelementptr i8, ptr %70, i64 8
-  %.val56 = load ptr, ptr %73, align 8, !tbaa !70
-  %74 = call fastcc i32 @submodule_create_branch(ptr noundef %68, ptr %.val56, ptr noundef %1, ptr noundef %72, ptr noundef %spec.select, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0)
-  %.not52 = icmp eq i32 %74, 0
-  br i1 %.not52, label %61, label %75
+.lr.ph68:                                         ; preds = %60, %63
+  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %63 ], [ 0, %60 ]
+  %67 = load ptr, ptr %12, align 8, !tbaa !64
+  %68 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %67, i64 %indvars.iv74
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !65
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %72 = load ptr, ptr %71, align 8, !tbaa !69
+  %73 = load ptr, ptr %68, align 8, !tbaa !73
+  %74 = call ptr @oid_to_hex(ptr noundef %73) #14
+  %75 = getelementptr i8, ptr %72, i64 8
+  %.val56 = load ptr, ptr %75, align 8, !tbaa !70
+  %76 = call fastcc i32 @submodule_create_branch(ptr noundef %70, ptr %.val56, ptr noundef %1, ptr noundef %74, ptr noundef %spec.select, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0)
+  %.not52 = icmp eq i32 %76, 0
+  br i1 %.not52, label %63, label %77
 
-75:                                               ; preds = %.lr.ph68
-  %76 = call fastcc ptr @_(ptr noundef nonnull @.str.13)
-  %77 = load ptr, ptr %12, align 8, !tbaa !64
-  %78 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %77, i64 %indvars.iv74, i32 2
-  %79 = load ptr, ptr %78, align 8, !tbaa !69
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !70
-  call void (ptr, ...) @die(ptr noundef %76, ptr noundef %81, ptr noundef %1) #15
+77:                                               ; preds = %.lr.ph68
+  %78 = call fastcc ptr @_(ptr noundef nonnull @.str.13)
+  %79 = load ptr, ptr %12, align 8, !tbaa !64
+  %80 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %79, i64 %indvars.iv74
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !69
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !70
+  call void (ptr, ...) @die(ptr noundef %78, ptr noundef %84, ptr noundef %1) #15
   unreachable
 
-.loopexit:                                        ; preds = %61, %58, %._crit_edge
+.loopexit:                                        ; preds = %63, %60, %._crit_edge
   call void @submodule_entry_list_release(ptr noundef nonnull %12) #14
   call void @free(ptr noundef %13) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

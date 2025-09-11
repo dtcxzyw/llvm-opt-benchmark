@@ -53220,7 +53220,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h56fd351a6b5928dcE.exit.
   %207 = load ptr, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !1082, !noalias !1033, !nonnull !8, !align !117, !noundef !8
   %.sroa.0.0.in.i.i.i = getelementptr inbounds nuw { ptr, i64 }, ptr %207, i64 %.sroa.022.0.i.i
   %.sroa.0.0.i30.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !noalias !1079, !nonnull !8, !align !122, !noundef !8
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw { ptr, i64 }, ptr %207, i64 %.sroa.022.0.i.i, i32 1
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i.i.i, i64 8
   %.sroa.3.0.i31.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !1079, !noundef !8
   %208 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h2a332557ca879722E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %203, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i30.i.i, i64 noundef %.sroa.3.0.i31.i.i)
   br i1 %208, label %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread267.i", label %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17h24633a02a1aefd99E.exit.thread264.i"
@@ -54402,7 +54402,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h94fc66c1a9e04e05E.exit:
   %55 = load ptr, ptr %.in.i, align 8, !alias.scope !1185, !nonnull !8, !align !117, !noundef !8
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %55, i64 %switch.offset
   %.sroa.0.0.i28 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !1185, !nonnull !8, !align !122, !noundef !8
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %55, i64 %switch.offset, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i29 = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !1185, !noundef !8
   %56 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h2a332557ca879722E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %23, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i28, i64 noundef %.sroa.3.0.i29)
   br i1 %56, label %57, label %63
@@ -54647,7 +54647,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h56fd351a6b5928dcE.exit:
   %107 = load ptr, ptr %.in.i, align 8, !alias.scope !1209, !nonnull !8, !align !117, !noundef !8
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %107, i64 %93
   %.sroa.0.0.i30 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !1209, !nonnull !8, !align !122, !noundef !8
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %107, i64 %93, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i31 = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !1209, !noundef !8
   %108 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h2a332557ca879722E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %92, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i30, i64 noundef %.sroa.3.0.i31)
   br i1 %108, label %109, label %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17he7d2bb67a9e6b671E.exit34"
@@ -54890,7 +54890,7 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h56fd351a6b5928dcE.exit:
   %108 = load ptr, ptr %.in.i, align 8, !alias.scope !1233, !nonnull !8, !align !117, !noundef !8
   %.sroa.0.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %108, i64 %94
   %.sroa.0.0.i30 = load ptr, ptr %.sroa.0.0.in.i, align 8, !noalias !1233, !nonnull !8, !align !122, !noundef !8
-  %.sroa.3.0.in.i = getelementptr inbounds nuw { ptr, i64 }, ptr %108, i64 %94, i32 1
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.in.i, i64 8
   %.sroa.3.0.i31 = load i64, ptr %.sroa.3.0.in.i, align 8, !noalias !1233, !noundef !8
   %109 = call noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17h2a332557ca879722E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %93, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i30, i64 noundef %.sroa.3.0.i31)
   br i1 %109, label %110, label %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17he7d2bb67a9e6b671E.exit34"

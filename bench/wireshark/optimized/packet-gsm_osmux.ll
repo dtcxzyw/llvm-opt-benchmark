@@ -656,200 +656,201 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %41 = load i8, ptr %40, align 1, !range !8, !noundef !9
   %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %49, label %43
+  br i1 %42, label %50, label %43
 
 43:                                               ; preds = %34
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr %struct._value_string, ptr @osmux_ft_vals, i64 %46, i32 1
-  %48 = load ptr, ptr %47, align 8
-  br label %49
+  %47 = getelementptr %struct._value_string, ptr @osmux_ft_vals, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8
+  br label %50
 
-49:                                               ; preds = %34, %43
-  %50 = phi ptr [ %48, %43 ], [ @.str.66, %34 ]
-  %51 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %39, ptr noundef nonnull @.str.65, ptr noundef %50)
-  %52 = load i32, ptr %27, align 8
-  %53 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %51, i32 noundef %52, i1 noundef zeroext true, i32 noundef 1)
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %55 = load i8, ptr %54, align 1
-  %56 = icmp eq i8 %55, 1
-  br i1 %56, label %57, label %182
+50:                                               ; preds = %34, %43
+  %51 = phi ptr [ %49, %43 ], [ @.str.66, %34 ]
+  %52 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %39, ptr noundef nonnull @.str.65, ptr noundef %51)
+  %53 = load i32, ptr %27, align 8
+  %54 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %52, i32 noundef %53, i1 noundef zeroext true, i32 noundef 1)
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %56 = load i8, ptr %55, align 1
+  %57 = icmp eq i8 %56, 1
+  br i1 %57, label %58, label %183
 
-57:                                               ; preds = %49
-  %58 = load i8, ptr %40, align 1, !range !8, !noundef !9
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %182, label %60
+58:                                               ; preds = %50
+  %59 = load i8, ptr %40, align 1, !range !8, !noundef !9
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %183, label %61
 
-60:                                               ; preds = %57
-  %61 = load i32, ptr %27, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %63 = load i8, ptr %62, align 2
-  %64 = zext i8 %63 to i32
-  %65 = add nuw nsw i32 %64, 1
-  %66 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.71, i32 noundef %61, i1 noundef zeroext true, i32 noundef %65)
-  %67 = load i32, ptr %27, align 8
-  %68 = load i8, ptr %62, align 2
-  %69 = zext i8 %68 to i32
-  %70 = add nuw nsw i32 %69, 1
-  %71 = tail call i32 @stats_tree_manip_node_int(i32 noundef 3, ptr noundef %0, ptr noundef nonnull @.str.71, i32 noundef %67, i1 noundef zeroext true, i32 noundef %70)
-  %72 = load i32, ptr %27, align 8
-  %73 = load i8, ptr %3, align 8, !range !8, !noundef !9
-  %74 = zext nneg i8 %73 to i32
-  %75 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.72, i32 noundef %72, i1 noundef zeroext true, i32 noundef %74)
-  %76 = load i32, ptr %27, align 8
-  %77 = load i8, ptr %3, align 8, !range !8, !noundef !9
-  %78 = zext nneg i8 %77 to i32
-  %79 = tail call i32 @stats_tree_manip_node_int(i32 noundef 3, ptr noundef %0, ptr noundef nonnull @.str.72, i32 noundef %76, i1 noundef zeroext true, i32 noundef %78)
-  %80 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %83, label %87
+61:                                               ; preds = %58
+  %62 = load i32, ptr %27, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %64 = load i8, ptr %63, align 2
+  %65 = zext i8 %64 to i32
+  %66 = add nuw nsw i32 %65, 1
+  %67 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.71, i32 noundef %62, i1 noundef zeroext true, i32 noundef %66)
+  %68 = load i32, ptr %27, align 8
+  %69 = load i8, ptr %63, align 2
+  %70 = zext i8 %69 to i32
+  %71 = add nuw nsw i32 %70, 1
+  %72 = tail call i32 @stats_tree_manip_node_int(i32 noundef 3, ptr noundef %0, ptr noundef nonnull @.str.71, i32 noundef %68, i1 noundef zeroext true, i32 noundef %71)
+  %73 = load i32, ptr %27, align 8
+  %74 = load i8, ptr %3, align 8, !range !8, !noundef !9
+  %75 = zext nneg i8 %74 to i32
+  %76 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.72, i32 noundef %73, i1 noundef zeroext true, i32 noundef %75)
+  %77 = load i32, ptr %27, align 8
+  %78 = load i8, ptr %3, align 8, !range !8, !noundef !9
+  %79 = zext nneg i8 %78 to i32
+  %80 = tail call i32 @stats_tree_manip_node_int(i32 noundef 3, ptr noundef %0, ptr noundef nonnull @.str.72, i32 noundef %77, i1 noundef zeroext true, i32 noundef %79)
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %82 = load i64, ptr %81, align 8
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %84, label %88
 
-83:                                               ; preds = %60
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %85 = load i32, ptr %84, align 8
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %90, label %87
+84:                                               ; preds = %61
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %86 = load i32, ptr %85, align 8
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %91, label %88
 
-87:                                               ; preds = %83, %60
-  %88 = load i8, ptr %3, align 8, !range !8, !noundef !9
-  %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %90, label %98
+88:                                               ; preds = %84, %61
+  %89 = load i8, ptr %3, align 8, !range !8, !noundef !9
+  %90 = trunc nuw i8 %89 to i1
+  br i1 %90, label %91, label %99
 
-90:                                               ; preds = %87, %83
-  %91 = load i32, ptr %27, align 8
-  %92 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.73, i32 noundef %91, i1 noundef zeroext true, i32 noundef 0)
-  %93 = load i32, ptr %27, align 8
-  %94 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.74, i32 noundef %93, i1 noundef zeroext true, i32 noundef 0)
-  %95 = load i32, ptr %27, align 8
-  %96 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef %95, i1 noundef zeroext true, i32 noundef 0)
-  %97 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store double 0.000000e+00, ptr %97, align 8
-  br label %128
+91:                                               ; preds = %88, %84
+  %92 = load i32, ptr %27, align 8
+  %93 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.73, i32 noundef %92, i1 noundef zeroext true, i32 noundef 0)
+  %94 = load i32, ptr %27, align 8
+  %95 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.74, i32 noundef %94, i1 noundef zeroext true, i32 noundef 0)
+  %96 = load i32, ptr %27, align 8
+  %97 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef %96, i1 noundef zeroext true, i32 noundef 0)
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store double 0.000000e+00, ptr %98, align 8
+  br label %129
 
-98:                                               ; preds = %87
+99:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %99, ptr noundef nonnull %80)
-  %100 = call double @nstime_to_msec(ptr noundef nonnull %6)
-  %101 = fptoui double %100 to i32
-  %102 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %106 = load i32, ptr %105, align 4
-  %107 = sub i32 %104, %106
-  %108 = load i8, ptr %62, align 2
-  %109 = zext i8 %108 to i32
-  %110 = add nuw nsw i32 %109, 1
-  %111 = mul i32 %107, -20
-  %.neg = mul i32 %111, %110
-  %112 = add i32 %.neg, %101
-  %113 = call i32 @llvm.abs.i32(i32 %112, i1 false)
-  %114 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %115 = load double, ptr %114, align 8
-  %116 = uitofp i32 %113 to double
-  %117 = fsub double %116, %115
-  %118 = fmul double %117, 6.250000e-02
-  %119 = fadd double %115, %118
-  store double %119, ptr %114, align 8
-  %120 = load i32, ptr %27, align 8
-  %121 = call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.73, i32 noundef %120, i1 noundef zeroext true, i32 noundef %112)
-  %122 = load i32, ptr %27, align 8
-  %123 = call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.74, i32 noundef %122, i1 noundef zeroext true, i32 noundef %113)
-  %124 = load i32, ptr %27, align 8
-  %125 = load double, ptr %114, align 8
-  %126 = fptosi double %125 to i32
-  %127 = call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef %124, i1 noundef zeroext true, i32 noundef %126)
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %100, ptr noundef nonnull %81)
+  %101 = call double @nstime_to_msec(ptr noundef nonnull %6)
+  %102 = fptoui double %101 to i32
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %104 = load i8, ptr %103, align 1
+  %105 = zext i8 %104 to i32
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %107 = load i32, ptr %106, align 4
+  %108 = sub i32 %105, %107
+  %109 = load i8, ptr %63, align 2
+  %110 = zext i8 %109 to i32
+  %111 = add nuw nsw i32 %110, 1
+  %112 = mul i32 %108, -20
+  %.neg = mul i32 %112, %111
+  %113 = add i32 %.neg, %102
+  %114 = call i32 @llvm.abs.i32(i32 %113, i1 false)
+  %115 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %116 = load double, ptr %115, align 8
+  %117 = uitofp i32 %114 to double
+  %118 = fsub double %117, %116
+  %119 = fmul double %118, 6.250000e-02
+  %120 = fadd double %116, %119
+  store double %120, ptr %115, align 8
+  %121 = load i32, ptr %27, align 8
+  %122 = call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.73, i32 noundef %121, i1 noundef zeroext true, i32 noundef %113)
+  %123 = load i32, ptr %27, align 8
+  %124 = call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.74, i32 noundef %123, i1 noundef zeroext true, i32 noundef %114)
+  %125 = load i32, ptr %27, align 8
+  %126 = load double, ptr %115, align 8
+  %127 = fptosi double %126 to i32
+  %128 = call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.75, i32 noundef %125, i1 noundef zeroext true, i32 noundef %127)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %128
+  br label %129
 
-128:                                              ; preds = %98, %90
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %129, i64 16, i1 false)
-  %130 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %131 = load i8, ptr %130, align 1
-  %132 = zext i8 %131 to i32
-  %133 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %132, ptr %133, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %135 = load i8, ptr %134, align 4, !range !8, !noundef !9
-  %136 = trunc nuw i8 %135 to i1
-  br i1 %136, label %137, label %145
+129:                                              ; preds = %99, %91
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %130, i64 16, i1 false)
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %132 = load i8, ptr %131, align 1
+  %133 = zext i8 %132 to i32
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  store i32 %133, ptr %134, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %136 = load i8, ptr %135, align 4, !range !8, !noundef !9
+  %137 = trunc nuw i8 %136 to i1
+  br i1 %137, label %138, label %146
 
-137:                                              ; preds = %128
-  %138 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %139 = load i32, ptr %138, align 8
-  %140 = add i32 %139, 1
-  %141 = and i32 %140, 255
-  %142 = load i8, ptr %130, align 1
-  %143 = zext i8 %142 to i32
-  %144 = icmp eq i32 %141, %143
-  br i1 %144, label %145, label %151
+138:                                              ; preds = %129
+  %139 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %140 = load i32, ptr %139, align 8
+  %141 = add i32 %140, 1
+  %142 = and i32 %141, 255
+  %143 = load i8, ptr %131, align 1
+  %144 = zext i8 %143 to i32
+  %145 = icmp eq i32 %142, %144
+  br i1 %145, label %146, label %152
 
-145:                                              ; preds = %137, %128
-  %146 = load i32, ptr %27, align 8
-  %147 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.76, i32 noundef %146, i1 noundef zeroext true, i32 noundef 1)
-  %148 = load i8, ptr %130, align 1
-  %149 = zext i8 %148 to i32
-  %150 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %149, ptr %150, align 8
-  store i8 1, ptr %134, align 4
-  br label %182
+146:                                              ; preds = %138, %129
+  %147 = load i32, ptr %27, align 8
+  %148 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.76, i32 noundef %147, i1 noundef zeroext true, i32 noundef 1)
+  %149 = load i8, ptr %131, align 1
+  %150 = zext i8 %149 to i32
+  %151 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 %150, ptr %151, align 8
+  store i8 1, ptr %135, align 4
+  br label %183
 
-151:                                              ; preds = %137
-  %152 = icmp eq i32 %139, %143
-  br i1 %152, label %153, label %156
+152:                                              ; preds = %138
+  %153 = icmp eq i32 %140, %144
+  br i1 %153, label %154, label %157
 
-153:                                              ; preds = %151
-  %154 = load i32, ptr %27, align 8
-  %155 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef %154, i1 noundef zeroext true, i32 noundef 1)
-  br label %182
+154:                                              ; preds = %152
+  %155 = load i32, ptr %27, align 8
+  %156 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef %155, i1 noundef zeroext true, i32 noundef 1)
+  br label %183
 
-156:                                              ; preds = %151
-  %157 = icmp samesign ult i32 %141, %143
-  br i1 %157, label %158, label %165
+157:                                              ; preds = %152
+  %158 = icmp samesign ult i32 %142, %144
+  br i1 %158, label %159, label %166
 
-158:                                              ; preds = %156
-  %159 = load i32, ptr %27, align 8
-  %160 = xor i32 %139, -1
-  %161 = add i32 %143, %160
-  %162 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef %159, i1 noundef zeroext true, i32 noundef %161)
-  %163 = load i8, ptr %130, align 1
-  %164 = zext i8 %163 to i32
-  store i32 %164, ptr %138, align 8
-  br label %182
+159:                                              ; preds = %157
+  %160 = load i32, ptr %27, align 8
+  %161 = xor i32 %140, -1
+  %162 = add i32 %144, %161
+  %163 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef %160, i1 noundef zeroext true, i32 noundef %162)
+  %164 = load i8, ptr %131, align 1
+  %165 = zext i8 %164 to i32
+  store i32 %165, ptr %139, align 8
+  br label %183
 
-165:                                              ; preds = %156
-  %166 = sub i32 %139, %143
-  %167 = icmp ugt i32 %166, 143
-  %reass.sub109 = sub i32 %143, %139
-  br i1 %167, label %168, label %174
+166:                                              ; preds = %157
+  %167 = sub i32 %140, %144
+  %168 = icmp ugt i32 %167, 143
+  %reass.sub109 = sub i32 %144, %140
+  br i1 %168, label %169, label %175
 
-168:                                              ; preds = %165
-  %169 = load i32, ptr %27, align 8
-  %170 = add i32 %reass.sub109, 255
-  %171 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef %169, i1 noundef zeroext true, i32 noundef %170)
-  %172 = load i8, ptr %130, align 1
-  %173 = zext i8 %172 to i32
-  store i32 %173, ptr %138, align 8
-  br label %182
+169:                                              ; preds = %166
+  %170 = load i32, ptr %27, align 8
+  %171 = add i32 %reass.sub109, 255
+  %172 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef %170, i1 noundef zeroext true, i32 noundef %171)
+  %173 = load i8, ptr %131, align 1
+  %174 = zext i8 %173 to i32
+  store i32 %174, ptr %139, align 8
+  br label %183
 
-174:                                              ; preds = %165
-  %175 = icmp ugt i32 %139, %143
-  %176 = icmp samesign ugt i32 %reass.sub109, 143
-  %or.cond = select i1 %175, i1 true, i1 %176
-  br i1 %or.cond, label %177, label %182
+175:                                              ; preds = %166
+  %176 = icmp ugt i32 %140, %144
+  %177 = icmp samesign ugt i32 %reass.sub109, 143
+  %or.cond = select i1 %176, i1 true, i1 %177
+  br i1 %or.cond, label %178, label %183
 
-177:                                              ; preds = %174
-  %178 = load i32, ptr %27, align 8
-  %179 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef %178, i1 noundef zeroext true, i32 noundef 1)
-  %180 = load i32, ptr %27, align 8
-  %181 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef %180, i1 noundef zeroext true, i32 noundef -1)
-  br label %182
+178:                                              ; preds = %175
+  %179 = load i32, ptr %27, align 8
+  %180 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef %179, i1 noundef zeroext true, i32 noundef 1)
+  %181 = load i32, ptr %27, align 8
+  %182 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef %181, i1 noundef zeroext true, i32 noundef -1)
+  br label %183
 
-182:                                              ; preds = %174, %145, %158, %177, %168, %153, %57, %49
+183:                                              ; preds = %175, %146, %159, %178, %169, %154, %58, %50
   ret i32 1
 }
 

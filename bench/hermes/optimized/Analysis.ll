@@ -3749,12 +3749,13 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
 
 if.then.i:                                        ; preds = %if.end13.i.i, %if.end.i.i
   %6 = phi i64 [ %idx.ext24.i.i, %if.end.i.i ], [ %idx.ext.i.i, %if.end13.i.i ]
-  %second.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.249", ptr %cond.i.i.i.i, i64 %6, i32 0, i32 1
-  %7 = load ptr, ptr %second.i.i, align 8
+  %7 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.249", ptr %cond.i.i.i.i, i64 %6
+  %second.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %8 = load ptr, ptr %second.i.i, align 8
   br label %_ZNK4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEPS3_Lj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E6lookupES5_.exit
 
 _ZNK4llvh12DenseMapBaseINS_13SmallDenseMapIPKN6hermes10BasicBlockEPS3_Lj16ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E6lookupES5_.exit: ; preds = %if.end9.i.i, %entry, %if.then.i
-  %retval.0.i = phi ptr [ %7, %if.then.i ], [ null, %entry ], [ null, %if.end9.i.i ]
+  %retval.0.i = phi ptr [ %8, %if.then.i ], [ null, %entry ], [ null, %if.end9.i.i ]
   ret ptr %retval.0.i
 }
 
@@ -3806,9 +3807,10 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
 
 _ZNK6hermes12LoopAnalysis13getLoopHeaderEPKNS_10BasicBlockE.exit: ; preds = %if.end13.i.i.i, %if.end.i.i.i
   %6 = phi i64 [ %idx.ext24.i.i.i, %if.end.i.i.i ], [ %idx.ext.i.i.i, %if.end13.i.i.i ]
-  %second.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.249", ptr %cond.i.i.i.i.i, i64 %6, i32 0, i32 1
-  %7 = load ptr, ptr %second.i.i.i, align 8
-  %tobool.not = icmp eq ptr %7, null
+  %7 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.249", ptr %cond.i.i.i.i.i, i64 %6
+  %second.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %8 = load ptr, ptr %second.i.i.i, align 8
+  %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZNK6hermes12LoopAnalysis13getLoopHeaderEPKNS_10BasicBlockE.exit
@@ -3817,17 +3819,17 @@ if.then:                                          ; preds = %_ZNK6hermes12LoopAn
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 1
   %tobool.not.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
   %storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 272
-  %8 = load ptr, ptr %storage.i.i.i.i.i, align 8
-  %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %8, ptr %storage.i.i.i.i.i
+  %9 = load ptr, ptr %storage.i.i.i.i.i, align 8
+  %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %9, ptr %storage.i.i.i.i.i
   %NumBuckets.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
-  %9 = load i32, ptr %NumBuckets.i.i.i.i, align 8
-  %cond.i.i18.i.i = select i1 %tobool.not.i.i.i.i, i32 %9, i32 16
+  %10 = load i32, ptr %NumBuckets.i.i.i.i, align 8
+  %cond.i.i18.i.i = select i1 %tobool.not.i.i.i.i, i32 %10, i32 16
   %cmp.i.i = icmp eq i32 %cond.i.i18.i.i, 0
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
-  %10 = ptrtoint ptr %7 to i64
-  %conv.i.i.i.i = trunc i64 %10 to i32
+  %11 = ptrtoint ptr %8 to i64
+  %conv.i.i.i.i = trunc i64 %11 to i32
   %shr.i.i.i.i = lshr i32 %conv.i.i.i.i, 4
   %shr2.i.i.i.i = lshr i32 %conv.i.i.i.i, 9
   %xor.i.i.i.i = xor i32 %shr.i.i.i.i, %shr2.i.i.i.i
@@ -3835,15 +3837,15 @@ if.end.i.i:                                       ; preds = %if.then
   %BucketNo.023.i.i = and i32 %sub.i.i, %xor.i.i.i.i
   %idx.ext24.i.i = zext nneg i32 %BucketNo.023.i.i to i64
   %add.ptr25.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.249", ptr %cond.i.i.i.i, i64 %idx.ext24.i.i
-  %11 = load ptr, ptr %add.ptr25.i.i, align 8
-  %cmp.i26.i.i = icmp eq ptr %7, %11
+  %12 = load ptr, ptr %add.ptr25.i.i, align 8
+  %cmp.i26.i.i = icmp eq ptr %8, %12
   br i1 %cmp.i26.i.i, label %if.then.i, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.end.i.i, %if.end13.i.i
-  %12 = phi ptr [ %13, %if.end13.i.i ], [ %11, %if.end.i.i ]
+  %13 = phi ptr [ %14, %if.end13.i.i ], [ %12, %if.end.i.i ]
   %BucketNo.029.i.i = phi i32 [ %BucketNo.0.i.i, %if.end13.i.i ], [ %BucketNo.023.i.i, %if.end.i.i ]
   %ProbeAmt.028.i.i = phi i32 [ %inc.i.i, %if.end13.i.i ], [ 1, %if.end.i.i ]
-  %cmp.i19.i.i = icmp eq ptr %12, inttoptr (i64 -8 to ptr)
+  %cmp.i19.i.i = icmp eq ptr %13, inttoptr (i64 -8 to ptr)
   br i1 %cmp.i19.i.i, label %return, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.end9.i.i
@@ -3852,18 +3854,19 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   %BucketNo.0.i.i = and i32 %add.i.i, %sub.i.i
   %idx.ext.i.i = zext i32 %BucketNo.0.i.i to i64
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.249", ptr %cond.i.i.i.i, i64 %idx.ext.i.i
-  %13 = load ptr, ptr %add.ptr.i.i, align 8
-  %cmp.i.i.i2 = icmp eq ptr %7, %13
+  %14 = load ptr, ptr %add.ptr.i.i, align 8
+  %cmp.i.i.i2 = icmp eq ptr %8, %14
   br i1 %cmp.i.i.i2, label %if.then.i, label %if.end9.i.i, !llvm.loop !19
 
 if.then.i:                                        ; preds = %if.end13.i.i, %if.end.i.i
-  %14 = phi i64 [ %idx.ext24.i.i, %if.end.i.i ], [ %idx.ext.i.i, %if.end13.i.i ]
-  %second.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.249", ptr %cond.i.i.i.i, i64 %14, i32 0, i32 1
-  %15 = load ptr, ptr %second.i.i, align 8
+  %15 = phi i64 [ %idx.ext24.i.i, %if.end.i.i ], [ %idx.ext.i.i, %if.end13.i.i ]
+  %16 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.249", ptr %cond.i.i.i.i, i64 %15
+  %second.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %17 = load ptr, ptr %second.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end9.i.i.i, %if.end9.i.i, %entry, %if.then.i, %if.then, %_ZNK6hermes12LoopAnalysis13getLoopHeaderEPKNS_10BasicBlockE.exit
-  %retval.0 = phi ptr [ null, %_ZNK6hermes12LoopAnalysis13getLoopHeaderEPKNS_10BasicBlockE.exit ], [ %15, %if.then.i ], [ null, %if.then ], [ null, %entry ], [ null, %if.end9.i.i ], [ null, %if.end9.i.i.i ]
+  %retval.0 = phi ptr [ null, %_ZNK6hermes12LoopAnalysis13getLoopHeaderEPKNS_10BasicBlockE.exit ], [ %17, %if.then.i ], [ null, %if.then ], [ null, %entry ], [ null, %if.end9.i.i ], [ null, %if.end9.i.i.i ]
   ret ptr %retval.0
 }
 

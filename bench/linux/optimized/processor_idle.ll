@@ -920,7 +920,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_dev(ptr noundef %0, pt
   %34 = phi i64 [ 1, %25 ], [ %75, %73 ]
   %35 = phi i32 [ 1, %25 ], [ %74, %73 ]
   %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct.cpuidle_driver, ptr @acpi_idle_driver, i64 0, i32 3, i64 %36
+  %37 = getelementptr %struct.cpuidle_state, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %36
   %38 = getelementptr %struct.acpi_processor_cx, ptr %27, i64 %34
   %39 = load i8, ptr %38, align 4
   %40 = icmp eq i8 %39, 0
@@ -1155,7 +1155,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
 
 7:                                                ; preds = %7, %6
   %8 = phi i64 [ 1, %6 ], [ %11, %7 ]
-  %9 = getelementptr %struct.cpuidle_driver, ptr @acpi_idle_driver, i64 0, i32 3, i64 %8
+  %9 = getelementptr %struct.cpuidle_state, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %8
   store i8 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %10, align 8
@@ -1182,7 +1182,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
 23:                                               ; preds = %46, %21
   %24 = phi i64 [ 0, %21 ], [ %48, %46 ]
   %25 = getelementptr %struct.acpi_lpi_state, ptr %22, i64 %24
-  %26 = getelementptr %struct.cpuidle_driver, ptr @acpi_idle_driver, i64 0, i32 3, i64 %24
+  %26 = getelementptr %struct.cpuidle_state, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %24
   %27 = trunc nuw nsw i64 %24 to i32
   %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %26, i64 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %27) #17
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -1257,7 +1257,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
 
 72:                                               ; preds = %65
   %73 = sext i32 %68 to i64
-  %74 = getelementptr %struct.cpuidle_driver, ptr @acpi_idle_driver, i64 0, i32 3, i64 %73
+  %74 = getelementptr %struct.cpuidle_state, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %73
   %75 = trunc nuw nsw i64 %67 to i32
   %76 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %74, i64 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %75) #17
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16

@@ -237,7 +237,7 @@ define void @_Z14tMPI_Mult_recvP10tmpi_comm_P8coll_enviiiP14tmpi_datatype_mPvPi(
 
 27:                                               ; preds = %25, %22
   %.not35 = icmp eq i64 %19, 0
-  br i1 %.not35, label %43, label %28
+  br i1 %.not35, label %44, label %28
 
 28:                                               ; preds = %27
   %29 = icmp ugt i64 %19, %6
@@ -250,47 +250,50 @@ define void @_Z14tMPI_Mult_recvP10tmpi_comm_P8coll_enviiiP14tmpi_datatype_mPvPi(
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %1, align 8, !tbaa !3
-  %34 = getelementptr inbounds %struct.coll_env_thread, ptr %33, i64 %13, i32 4
-  %35 = load ptr, ptr %34, align 8, !tbaa !23
-  %36 = icmp eq ptr %35, %7
-  br i1 %36, label %37, label %40
+  %34 = getelementptr inbounds %struct.coll_env_thread, ptr %33, i64 %13
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 144
+  %36 = load ptr, ptr %35, align 8, !tbaa !23
+  %37 = icmp eq ptr %36, %7
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !61
-  %39 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %38, i32 noundef 14)
-  store i32 %39, ptr %8, align 4, !tbaa !55
+38:                                               ; preds = %32
+  %39 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !61
+  %40 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %39, i32 noundef 14)
+  store i32 %40, ptr %8, align 4, !tbaa !55
   br label %.critedge
 
-40:                                               ; preds = %32
-  %41 = getelementptr inbounds ptr, ptr %35, i64 %17
-  %42 = load ptr, ptr %41, align 8, !tbaa !62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %42, i64 %19, i1 false)
-  br label %43
+41:                                               ; preds = %32
+  %42 = getelementptr inbounds ptr, ptr %36, i64 %17
+  %43 = load ptr, ptr %42, align 8, !tbaa !62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %43, i64 %19, i1 false)
+  br label %44
 
-43:                                               ; preds = %40, %27
+44:                                               ; preds = %41, %27
   fence seq_cst
-  %44 = load ptr, ptr %1, align 8, !tbaa !3
-  %45 = getelementptr inbounds %struct.coll_env_thread, ptr %44, i64 %13, i32 1
+  %45 = load ptr, ptr %1, align 8, !tbaa !3
+  %46 = getelementptr inbounds %struct.coll_env_thread, ptr %45, i64 %13
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store volatile i32 -1, ptr %11, align 4, !tbaa !55
   %.0..0..0..0..0..0..i = load volatile i32, ptr %11, align 4, !tbaa !55
-  %46 = atomicrmw add ptr %45, i32 %.0..0..0..0..0..0..i seq_cst, align 4
+  %48 = atomicrmw add ptr %47, i32 %.0..0..0..0..0..0..i seq_cst, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %47 = icmp slt i32 %46, 2
-  br i1 %47, label %48, label %.critedge
+  %49 = icmp slt i32 %48, 2
+  br i1 %49, label %50, label %.critedge
 
-48:                                               ; preds = %43
+50:                                               ; preds = %44
   fence seq_cst
-  %49 = load ptr, ptr %1, align 8, !tbaa !3
-  %50 = getelementptr inbounds %struct.coll_env_thread, ptr %49, i64 %13, i32 6
+  %51 = load ptr, ptr %1, align 8, !tbaa !3
+  %52 = getelementptr inbounds %struct.coll_env_thread, ptr %51, i64 %13
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 160
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store volatile i32 1, ptr %10, align 4, !tbaa !55
   %.0..0..0..0..0..0..i36 = load volatile i32, ptr %10, align 4, !tbaa !55
-  %51 = atomicrmw add ptr %50, i32 %.0..0..0..0..0..0..i36 seq_cst, align 4
+  %54 = atomicrmw add ptr %53, i32 %.0..0..0..0..0..0..i36 seq_cst, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
-.critedge:                                        ; preds = %30, %37, %43, %48
+.critedge:                                        ; preds = %30, %38, %44, %50
   ret void
 }
 
@@ -342,77 +345,81 @@ define noundef i32 @_Z15tMPI_Post_multiP8coll_enviiiP14tmpi_datatype_mPviii(ptr 
   %12 = alloca i32, align 4
   %13 = load ptr, ptr %0, align 8, !tbaa !3
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds %struct.coll_env_thread, ptr %13, i64 %14, i32 2
-  store i32 %3, ptr %15, align 8, !tbaa !60
-  %16 = getelementptr inbounds %struct.coll_env_thread, ptr %13, i64 %14, i32 3
-  store ptr %4, ptr %16, align 8, !tbaa !59
-  %17 = getelementptr inbounds %struct.coll_env_thread, ptr %13, i64 %14, i32 4
-  %18 = load ptr, ptr %17, align 8, !tbaa !23
-  %19 = sext i32 %2 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
-  store ptr %6, ptr %20, align 8, !tbaa !62
-  %21 = load ptr, ptr %0, align 8, !tbaa !3
-  %22 = getelementptr inbounds %struct.coll_env_thread, ptr %21, i64 %14, i32 5
-  %23 = load ptr, ptr %22, align 8, !tbaa !24
-  %24 = getelementptr inbounds i64, ptr %23, i64 %19
-  store i64 %5, ptr %24, align 8, !tbaa !57
-  %25 = getelementptr inbounds %struct.coll_env_thread, ptr %21, i64 %14, i32 1
-  store i32 %7, ptr %25, align 8, !tbaa !22
+  %15 = getelementptr inbounds %struct.coll_env_thread, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
+  store i32 %3, ptr %16, align 8, !tbaa !60
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  store ptr %4, ptr %17, align 8, !tbaa !59
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  %20 = sext i32 %2 to i64
+  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  store ptr %6, ptr %21, align 8, !tbaa !62
+  %22 = load ptr, ptr %0, align 8, !tbaa !3
+  %23 = getelementptr inbounds %struct.coll_env_thread, ptr %22, i64 %14
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 152
+  %25 = load ptr, ptr %24, align 8, !tbaa !24
+  %26 = getelementptr inbounds i64, ptr %25, i64 %20
+  store i64 %5, ptr %26, align 8, !tbaa !57
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  store i32 %7, ptr %27, align 8, !tbaa !22
   fence seq_cst
-  %26 = load ptr, ptr %0, align 8, !tbaa !3
-  %27 = getelementptr inbounds %struct.coll_env_thread, ptr %26, i64 %14
-  store i32 %8, ptr %27, align 8, !tbaa !15
-  %28 = icmp slt i32 %9, 0
-  br i1 %28, label %.preheader, label %42
+  %28 = load ptr, ptr %0, align 8, !tbaa !3
+  %29 = getelementptr inbounds %struct.coll_env_thread, ptr %28, i64 %14
+  store i32 %8, ptr %29, align 8, !tbaa !15
+  %30 = icmp slt i32 %9, 0
+  br i1 %30, label %.preheader, label %45
 
 .preheader:                                       ; preds = %10
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %30 = load i32, ptr %29, align 8, !tbaa !12
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph.preheader, label %.loopexit
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %32 = load i32, ptr %31, align 8, !tbaa !12
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %32 = zext i32 %1 to i64
+  %34 = zext i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
-  %33 = phi i32 [ %30, %.lr.ph.preheader ], [ %39, %38 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %38 ]
-  %.not = icmp eq i64 %indvars.iv, %32
-  br i1 %.not, label %38, label %34
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
+  %35 = phi i32 [ %32, %.lr.ph.preheader ], [ %42, %41 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
+  %.not = icmp eq i64 %indvars.iv, %34
+  br i1 %.not, label %41, label %36
 
-34:                                               ; preds = %.lr.ph
+36:                                               ; preds = %.lr.ph
   fence seq_cst
-  %35 = load ptr, ptr %0, align 8, !tbaa !3
-  %36 = getelementptr inbounds nuw %struct.coll_env_thread, ptr %35, i64 %indvars.iv, i32 7
+  %37 = load ptr, ptr %0, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.coll_env_thread, ptr %37, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 228
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store volatile i32 1, ptr %12, align 4, !tbaa !55
   %.0..0..0..0..0..0..i = load volatile i32, ptr %12, align 4, !tbaa !55
-  %37 = atomicrmw add ptr %36, i32 %.0..0..0..0..0..0..i seq_cst, align 4
+  %40 = atomicrmw add ptr %39, i32 %.0..0..0..0..0..0..i seq_cst, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.pre = load i32, ptr %29, align 8, !tbaa !12
-  br label %38
+  %.pre = load i32, ptr %31, align 8, !tbaa !12
+  br label %41
 
-38:                                               ; preds = %.lr.ph, %34
-  %39 = phi i32 [ %33, %.lr.ph ], [ %.pre, %34 ]
+41:                                               ; preds = %.lr.ph, %36
+  %42 = phi i32 [ %35, %.lr.ph ], [ %.pre, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !63
+  %43 = sext i32 %42 to i64
+  %44 = icmp slt i64 %indvars.iv.next, %43
+  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !63
 
-42:                                               ; preds = %10
+45:                                               ; preds = %10
   fence seq_cst
-  %43 = load ptr, ptr %0, align 8, !tbaa !3
-  %44 = zext nneg i32 %9 to i64
-  %45 = getelementptr inbounds nuw %struct.coll_env_thread, ptr %43, i64 %44, i32 7
+  %46 = load ptr, ptr %0, align 8, !tbaa !3
+  %47 = zext nneg i32 %9 to i64
+  %48 = getelementptr inbounds nuw %struct.coll_env_thread, ptr %46, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 228
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store volatile i32 1, ptr %11, align 4, !tbaa !55
   %.0..0..0..0..0..0..i30 = load volatile i32, ptr %11, align 4, !tbaa !55
-  %46 = atomicrmw add ptr %45, i32 %.0..0..0..0..0..0..i30 seq_cst, align 4
+  %50 = atomicrmw add ptr %49, i32 %.0..0..0..0..0..0..i30 seq_cst, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %38, %.preheader, %42
+.loopexit:                                        ; preds = %41, %.preheader, %45
   ret i32 0
 }
 
@@ -421,21 +428,23 @@ define void @_Z20tMPI_Wait_for_othersP8coll_envi(ptr noundef readonly captures(n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8, !tbaa !12
   %5 = icmp sgt i32 %4, 1
-  br i1 %5, label %6, label %15
+  br i1 %5, label %6, label %17
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !tbaa !3
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.coll_env_thread, ptr %7, i64 %8, i32 6
-  %10 = tail call noundef i32 @_Z15tMPI_Event_waitP12tMPI_Event_t(ptr noundef nonnull %9)
-  %11 = load ptr, ptr %0, align 8, !tbaa !3
-  %12 = getelementptr inbounds %struct.coll_env_thread, ptr %11, i64 %8, i32 6, i32 1
-  %13 = load i32, ptr %12, align 8, !tbaa !64
-  %14 = add nsw i32 %13, 1
-  store i32 %14, ptr %12, align 8, !tbaa !64
-  br label %15
+  %9 = getelementptr inbounds %struct.coll_env_thread, ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 160
+  %11 = tail call noundef i32 @_Z15tMPI_Event_waitP12tMPI_Event_t(ptr noundef nonnull %10)
+  %12 = load ptr, ptr %0, align 8, !tbaa !3
+  %13 = getelementptr inbounds %struct.coll_env_thread, ptr %12, i64 %8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 224
+  %15 = load i32, ptr %14, align 8, !tbaa !64
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %14, align 8, !tbaa !64
+  br label %17
 
-15:                                               ; preds = %6, %2
+17:                                               ; preds = %6, %2
   ret void
 }
 
@@ -445,13 +454,15 @@ declare noundef i32 @_Z15tMPI_Event_waitP12tMPI_Event_t(ptr noundef) local_unnam
 define void @_Z18tMPI_Wait_for_dataP11tmpi_threadP8coll_envi(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !3
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds %struct.coll_env_thread, ptr %4, i64 %5, i32 7
-  %7 = tail call noundef i32 @_Z15tMPI_Event_waitP12tMPI_Event_t(ptr noundef nonnull %6)
-  %8 = load ptr, ptr %1, align 8, !tbaa !3
-  %9 = getelementptr inbounds %struct.coll_env_thread, ptr %8, i64 %5, i32 7, i32 1
-  %10 = load i32, ptr %9, align 4, !tbaa !65
-  %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %9, align 4, !tbaa !65
+  %6 = getelementptr inbounds %struct.coll_env_thread, ptr %4, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 228
+  %8 = tail call noundef i32 @_Z15tMPI_Event_waitP12tMPI_Event_t(ptr noundef nonnull %7)
+  %9 = load ptr, ptr %1, align 8, !tbaa !3
+  %10 = getelementptr inbounds %struct.coll_env_thread, ptr %9, i64 %5
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 292
+  %12 = load i32, ptr %11, align 4, !tbaa !65
+  %13 = add nsw i32 %12, 1
+  store i32 %13, ptr %11, align 4, !tbaa !65
   ret void
 }
 

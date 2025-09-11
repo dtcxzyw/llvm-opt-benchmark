@@ -2664,48 +2664,49 @@ define void @_ZN11RecVolumes5D2Ev(ptr noundef nonnull readonly align 8 captures(
   %31 = icmp ugt i64 %28, %30
   br i1 %31, label %.lr.ph, label %.preheader, !llvm.loop !152
 
-._crit_edge:                                      ; preds = %42, %.preheader
+._crit_edge:                                      ; preds = %43, %.preheader
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %33 = load ptr, ptr %32, align 8, !tbaa !140
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %47, label %46
+  br i1 %34, label %48, label %47
 
-35:                                               ; preds = %.lr.ph15, %42
-  %36 = phi i32 [ %15, %.lr.ph15 ], [ %43, %42 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next, %42 ]
+35:                                               ; preds = %.lr.ph15, %43
+  %36 = phi i32 [ %15, %.lr.ph15 ], [ %44, %43 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next, %43 ]
   %37 = load ptr, ptr %16, align 8, !tbaa !140
-  %38 = getelementptr inbounds nuw %struct.RecRSThreadData, ptr %37, i64 %indvars.iv, i32 1
-  %39 = load ptr, ptr %38, align 8, !tbaa !145
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %42, label %41
+  %38 = getelementptr inbounds nuw %struct.RecRSThreadData, ptr %37, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !145
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %43, label %42
 
-41:                                               ; preds = %35
-  tail call void @_ZN9RSCoder16D1Ev(ptr noundef nonnull align 8 dereferenceable(64) %39) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %39) #17
+42:                                               ; preds = %35
+  tail call void @_ZN9RSCoder16D1Ev(ptr noundef nonnull align 8 dereferenceable(64) %40) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %40) #17
   %.pre18 = load i32, ptr %14, align 4, !tbaa !139
-  br label %42
+  br label %43
 
-42:                                               ; preds = %35, %41
-  %43 = phi i32 [ %36, %35 ], [ %.pre18, %41 ]
+43:                                               ; preds = %35, %42
+  %44 = phi i32 [ %36, %35 ], [ %.pre18, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = zext i32 %43 to i64
-  %45 = icmp samesign ult i64 %indvars.iv.next, %44
-  br i1 %45, label %35, label %._crit_edge, !llvm.loop !153
+  %45 = zext i32 %44 to i64
+  %46 = icmp samesign ult i64 %indvars.iv.next, %45
+  br i1 %46, label %35, label %._crit_edge, !llvm.loop !153
 
-46:                                               ; preds = %._crit_edge
+47:                                               ; preds = %._crit_edge
   tail call void @_ZdaPv(ptr noundef nonnull %33) #17
-  br label %47
+  br label %48
 
-47:                                               ; preds = %46, %._crit_edge
-  %48 = load ptr, ptr %0, align 8, !tbaa !149
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN5ArrayI10RecVolItemED2Ev.exit, label %49
+48:                                               ; preds = %47, %._crit_edge
+  %49 = load ptr, ptr %0, align 8, !tbaa !149
+  %.not.i = icmp eq ptr %49, null
+  br i1 %.not.i, label %_ZN5ArrayI10RecVolItemED2Ev.exit, label %50
 
-49:                                               ; preds = %47
-  tail call void @free(ptr noundef nonnull %48) #15
+50:                                               ; preds = %48
+  tail call void @free(ptr noundef nonnull %49) #15
   br label %_ZN5ArrayI10RecVolItemED2Ev.exit
 
-_ZN5ArrayI10RecVolItemED2Ev.exit:                 ; preds = %47, %49
+_ZN5ArrayI10RecVolItemED2Ev.exit:                 ; preds = %48, %50
   ret void
 }
 
@@ -4339,14 +4340,14 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
   %lhsv = load i64, ptr %4, align 16
   %.not42 = icmp eq i64 %lhsv, 8531315341307044178
   %or.cond53 = select i1 %.not, i1 %.not42, i1 false
-  br i1 %or.cond53, label %10, label %95
+  br i1 %or.cond53, label %10, label %98
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !91
   %13 = add i32 %12, -1048577
   %or.cond = icmp ult i32 %13, -1048571
-  br i1 %or.cond, label %95, label %14
+  br i1 %or.cond, label %98, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4359,12 +4360,12 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
 
 19:                                               ; preds = %14
   %.not43 = icmp eq i64 %18, %17
-  br i1 %.not43, label %22, label %89
+  br i1 %.not43, label %22, label %92
 
 20:                                               ; preds = %14
   %21 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %95
 
 22:                                               ; preds = %19
   %23 = invoke noundef i32 @_Z5CRC32jPKvm(i32 noundef -1, ptr noundef nonnull %11, i64 noundef 4)
@@ -4378,12 +4379,12 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
 27:                                               ; preds = %24
   %28 = xor i32 %26, %16
   %.not44 = icmp eq i32 %28, -1
-  br i1 %.not44, label %31, label %89
+  br i1 %.not44, label %31, label %92
 
 29:                                               ; preds = %36, %34, %31, %24, %22
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %95
 
 31:                                               ; preds = %27
   %32 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
@@ -4391,7 +4392,7 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
 
 33:                                               ; preds = %31
   %.not45 = icmp eq i8 %32, 1
-  br i1 %.not45, label %34, label %89
+  br i1 %.not45, label %34, label %92
 
 34:                                               ; preds = %33
   %35 = invoke noundef zeroext i16 @_ZN7RawRead4Get2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
@@ -4421,12 +4422,12 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
   %.not46 = icmp ule i32 %49, %48
   %50 = icmp ugt i32 %49, 65535
   %or.cond52 = or i1 %.not46, %50
-  br i1 %or.cond52, label %89, label %53
+  br i1 %or.cond52, label %92, label %53
 
 51:                                               ; preds = %40
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %95
 
 53:                                               ; preds = %47
   %54 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
@@ -4461,12 +4462,12 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
 66:                                               ; preds = %53
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %95
 
 68:                                               ; preds = %56
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %95
 
 70:                                               ; preds = %.lr.ph, %70
   %.02657 = phi i64 [ %58, %.lr.ph ], [ %72, %70 ]
@@ -4476,70 +4477,73 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
   %exitcond.not = icmp eq i64 %72, %62
   br i1 %exitcond.not, label %.preheader, label %70, !llvm.loop !189
 
-.lr.ph59:                                         ; preds = %.preheader, %78
-  %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.preheader ]
+.lr.ph59:                                         ; preds = %.preheader, %79
+  %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 0, %.preheader ]
   %73 = invoke noundef i64 @_ZN7RawRead4Get8Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-          to label %74 unwind label %84
+          to label %74 unwind label %86
 
 74:                                               ; preds = %.lr.ph59
   %75 = load ptr, ptr %0, align 8, !tbaa !149
-  %76 = getelementptr inbounds nuw %struct.RecVolItem, ptr %75, i64 %indvars.iv, i32 3
-  store i64 %73, ptr %76, align 8, !tbaa !181
-  %77 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-          to label %78 unwind label %84
+  %76 = getelementptr inbounds nuw %struct.RecVolItem, ptr %75, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8208
+  store i64 %73, ptr %77, align 8, !tbaa !181
+  %78 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
+          to label %79 unwind label %86
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %0, align 8, !tbaa !149
-  %80 = getelementptr inbounds nuw %struct.RecVolItem, ptr %79, i64 %indvars.iv, i32 2
-  store i32 %77, ptr %80, align 8, !tbaa !178
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %0, align 8, !tbaa !149
+  %81 = getelementptr inbounds nuw %struct.RecVolItem, ptr %80, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8200
+  store i32 %78, ptr %82, align 8, !tbaa !178
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = load i32, ptr %38, align 8, !tbaa !154
-  %82 = zext i32 %81 to i64
-  %83 = icmp samesign ult i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph59, label %.loopexit, !llvm.loop !190
+  %83 = load i32, ptr %38, align 8, !tbaa !154
+  %84 = zext i32 %83 to i64
+  %85 = icmp samesign ult i64 %indvars.iv.next, %84
+  br i1 %85, label %.lr.ph59, label %.loopexit, !llvm.loop !190
 
-84:                                               ; preds = %74, %.lr.ph59
-  %85 = landingpad { ptr, i32 }
+86:                                               ; preds = %74, %.lr.ph59
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %92
-
-.loopexit:                                        ; preds = %78, %.preheader, %55
-  %86 = zext i16 %46 to i64
-  %87 = load ptr, ptr %0, align 8, !tbaa !149
-  %88 = getelementptr inbounds nuw %struct.RecVolItem, ptr %87, i64 %86, i32 2
-  store i32 %54, ptr %88, align 8, !tbaa !178
-  br label %89
-
-89:                                               ; preds = %27, %33, %47, %.loopexit, %19
-  %.2 = phi i32 [ 0, %19 ], [ 0, %27 ], [ 0, %33 ], [ %48, %.loopexit ], [ 0, %47 ]
-  %90 = load ptr, ptr %5, align 8, !tbaa !10
-  %.not.i.i = icmp eq ptr %90, null
-  br i1 %.not.i.i, label %_ZN7RawReadD2Ev.exit, label %91
-
-91:                                               ; preds = %89
-  call void @free(ptr noundef nonnull %90) #15
-  br label %_ZN7RawReadD2Ev.exit
-
-_ZN7RawReadD2Ev.exit:                             ; preds = %89, %91
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %95
 
-92:                                               ; preds = %29, %66, %84, %68, %51, %20
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %30, %29 ], [ %52, %51 ], [ %67, %66 ], [ %85, %84 ], [ %69, %68 ]
+.loopexit:                                        ; preds = %79, %.preheader, %55
+  %88 = zext i16 %46 to i64
+  %89 = load ptr, ptr %0, align 8, !tbaa !149
+  %90 = getelementptr inbounds nuw %struct.RecVolItem, ptr %89, i64 %88
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8200
+  store i32 %54, ptr %91, align 8, !tbaa !178
+  br label %92
+
+92:                                               ; preds = %27, %33, %47, %.loopexit, %19
+  %.2 = phi i32 [ 0, %19 ], [ 0, %27 ], [ 0, %33 ], [ %48, %.loopexit ], [ 0, %47 ]
   %93 = load ptr, ptr %5, align 8, !tbaa !10
-  %.not.i.i54 = icmp eq ptr %93, null
-  br i1 %.not.i.i54, label %_ZN7RawReadD2Ev.exit55, label %94
+  %.not.i.i = icmp eq ptr %93, null
+  br i1 %.not.i.i, label %_ZN7RawReadD2Ev.exit, label %94
 
 94:                                               ; preds = %92
   call void @free(ptr noundef nonnull %93) #15
+  br label %_ZN7RawReadD2Ev.exit
+
+_ZN7RawReadD2Ev.exit:                             ; preds = %92, %94
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %98
+
+95:                                               ; preds = %29, %66, %86, %68, %51, %20
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %30, %29 ], [ %52, %51 ], [ %67, %66 ], [ %87, %86 ], [ %69, %68 ]
+  %96 = load ptr, ptr %5, align 8, !tbaa !10
+  %.not.i.i54 = icmp eq ptr %96, null
+  br i1 %.not.i.i54, label %_ZN7RawReadD2Ev.exit55, label %97
+
+97:                                               ; preds = %95
+  call void @free(ptr noundef nonnull %96) #15
   br label %_ZN7RawReadD2Ev.exit55
 
-_ZN7RawReadD2Ev.exit55:                           ; preds = %92, %94
+_ZN7RawReadD2Ev.exit55:                           ; preds = %95, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
-95:                                               ; preds = %_ZN7RawReadD2Ev.exit, %10, %3
+98:                                               ; preds = %_ZN7RawReadD2Ev.exit, %10, %3
   %.027 = phi i32 [ 0, %3 ], [ %.2, %_ZN7RawReadD2Ev.exit ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.027
@@ -4639,8 +4643,8 @@ define void @_ZN11RecVolumes54TestEP11CommandDataPKw(ptr noundef nonnull align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %14
 
-14:                                               ; preds = %.lr.ph, %47
-  %.026 = phi i32 [ 0, %.lr.ph ], [ %.1, %47 ]
+14:                                               ; preds = %.lr.ph, %48
+  %.026 = phi i32 [ 0, %.lr.ph ], [ %.1, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4FileC1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %6)
   %15 = invoke noundef zeroext i1 @_ZN4File4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(8256) %6, ptr noundef nonnull %5, i32 noundef 0)
@@ -4651,12 +4655,12 @@ define void @_ZN11RecVolumes54TestEP11CommandDataPKw(ptr noundef nonnull align 8
 
 17:                                               ; preds = %16
   invoke void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %5)
-          to label %47 unwind label %18, !llvm.loop !191
+          to label %48 unwind label %18, !llvm.loop !191
 
 18:                                               ; preds = %20, %17, %14
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %50
 
 20:                                               ; preds = %16
   %21 = invoke noundef zeroext i1 @_Z18uiStartFileExtractPKwbbb(ptr noundef nonnull %5, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
@@ -4687,75 +4691,76 @@ define void @_ZN11RecVolumes54TestEP11CommandDataPKw(ptr noundef nonnull align 8
   invoke void @_Z11CalcFileSumP4FilePjPhjlj(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, i32 noundef 1, i64 noundef 9223372034707292159, i32 noundef %30)
           to label %35 unwind label %33
 
-31:                                               ; preds = %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i, %46, %45, %23
+31:                                               ; preds = %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i, %47, %46, %23
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %50
 
 33:                                               ; preds = %27
   %34 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %49
+  br label %50
 
 35:                                               ; preds = %27
   %36 = add i32 %.026, 1
   %37 = load i32, ptr %7, align 4, !tbaa !91
   %38 = zext nneg i32 %25 to i64
   %39 = load ptr, ptr %0, align 8, !tbaa !149
-  %40 = getelementptr inbounds nuw %struct.RecVolItem, ptr %39, i64 %38, i32 2
-  %41 = load i32, ptr %40, align 8, !tbaa !178
-  %42 = icmp eq i32 %37, %41
+  %40 = getelementptr inbounds nuw %struct.RecVolItem, ptr %39, i64 %38
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8200
+  %42 = load i32, ptr %41, align 8, !tbaa !178
+  %43 = icmp eq i32 %37, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %42, label %46, label %.thread
+  br i1 %43, label %47, label %.thread
 
 .thread:                                          ; preds = %26, %35
   %.222 = phi i32 [ %36, %35 ], [ %.026, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %43
+  br label %44
 
-43:                                               ; preds = %43, %.thread
-  %indvars.iv.i.i = phi i64 [ 0, %.thread ], [ %indvars.iv.next.i.i, %43 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
-  store ptr @.str.6, ptr %44, align 8, !tbaa !83
+44:                                               ; preds = %44, %.thread
+  %indvars.iv.i.i = phi i64 [ 0, %.thread ], [ %indvars.iv.next.i.i, %44 ]
+  %45 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
+  store ptr @.str.6, ptr %45, align 8, !tbaa !83
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i, label %43, !llvm.loop !84
+  br i1 %exitcond.not.i.i, label %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i, label %44, !llvm.loop !84
 
-_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i:        ; preds = %43
+_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i:        ; preds = %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   store i32 3, ptr %11, align 8, !tbaa !85
   store ptr %5, ptr %4, align 8, !tbaa !83
   store i32 2, ptr %12, align 8, !tbaa !88
   store ptr %5, ptr %13, align 8, !tbaa !83
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
-          to label %45 unwind label %31
-
-45:                                               ; preds = %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  invoke void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 3)
           to label %46 unwind label %31
 
-46:                                               ; preds = %35, %45
-  %.221 = phi i32 [ %.222, %45 ], [ %36, %35 ]
-  invoke void @_Z14NextVolumeNamePwjb(ptr noundef nonnull %5, i32 noundef 2048, i1 noundef zeroext false)
+46:                                               ; preds = %_ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  invoke void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 3)
           to label %47 unwind label %31
 
-47:                                               ; preds = %46, %17
-  %.1 = phi i32 [ %.026, %17 ], [ %.221, %46 ]
+47:                                               ; preds = %35, %46
+  %.221 = phi i32 [ %.222, %46 ], [ %36, %35 ]
+  invoke void @_Z14NextVolumeNamePwjb(ptr noundef nonnull %5, i32 noundef 2048, i1 noundef zeroext false)
+          to label %48 unwind label %31
+
+48:                                               ; preds = %47, %17
+  %.1 = phi i32 [ %.026, %17 ], [ %.221, %47 ]
   call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %48 = call noundef zeroext i1 @_Z9FileExistPKw(ptr noundef nonnull %5)
-  br i1 %48, label %14, label %.loopexit
+  %49 = call noundef zeroext i1 @_Z9FileExistPKw(ptr noundef nonnull %5)
+  br i1 %49, label %14, label %.loopexit
 
-49:                                               ; preds = %31, %33, %18
+50:                                               ; preds = %31, %33, %18
   %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %32, %31 ], [ %34, %33 ]
   call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 
-.loopexit:                                        ; preds = %47, %3, %.thread23
+.loopexit:                                        ; preds = %48, %3, %.thread23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

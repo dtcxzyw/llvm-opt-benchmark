@@ -2320,7 +2320,7 @@ calc_bitrate_ext.exit:                            ; preds = %63, %68, %70, %72
   br i1 %82, label %83, label %.thread
 
 83:                                               ; preds = %81
-  %84 = icmp ugt i32 %.1156, 999
+  %84 = icmp samesign ugt i32 %.1156, 999
   %85 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_total, align 4
   br i1 %84, label %86, label %91
 
@@ -2395,7 +2395,7 @@ calc_bitrate_ext.exit183:                         ; preds = %103, %108, %110, %1
   br i1 %122, label %123, label %.thread184
 
 123:                                              ; preds = %121
-  %124 = icmp ugt i32 %.1, 999
+  %124 = icmp samesign ugt i32 %.1, 999
   %125 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_total, align 4
   br i1 %124, label %126, label %131
 

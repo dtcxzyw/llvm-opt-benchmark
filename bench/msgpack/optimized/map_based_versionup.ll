@@ -10056,8 +10056,8 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v14type10define_mapIJA6_Kc5base
 
 28:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %29 = getelementptr inbounds nuw %"struct.msgpack::v1::object_kv", ptr %21, i64 %indvars.iv, i32 0, i32 0, i32 1
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !40
   %32 = load i32, ptr %29, align 8, !tbaa !40
   %33 = zext i32 %32 to i64
@@ -10109,7 +10109,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v14type10define_mapIJA6_Kc5base
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 %33
   store i8 0, ptr %47, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %48 = getelementptr inbounds nuw %"struct.msgpack::v1::object_kv", ptr %21, i64 %indvars.iv, i32 1
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %48, ptr %5, align 8, !tbaa !163
   %49 = invoke { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN7msgpack2v26objectESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJS5_PS8_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %50 unwind label %60
@@ -11410,8 +11410,8 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v14type10define_mapIJA2_KcNSt7_
 
 28:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %29 = getelementptr inbounds nuw %"struct.msgpack::v1::object_kv", ptr %21, i64 %indvars.iv, i32 0, i32 0, i32 1
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !40
   %32 = load i32, ptr %29, align 8, !tbaa !40
   %33 = zext i32 %32 to i64
@@ -11463,7 +11463,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v14type10define_mapIJA2_KcNSt7_
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 %33
   store i8 0, ptr %47, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %48 = getelementptr inbounds nuw %"struct.msgpack::v1::object_kv", ptr %21, i64 %indvars.iv, i32 1
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %48, ptr %5, align 8, !tbaa !163
   %49 = invoke { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN7msgpack2v26objectESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJS5_PS8_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %50 unwind label %60
@@ -12512,8 +12512,8 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v14type10define_mapIJA6_Kc5base
 
 28:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %29 = getelementptr inbounds nuw %"struct.msgpack::v1::object_kv", ptr %21, i64 %indvars.iv, i32 0, i32 0, i32 1
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !40
   %32 = load i32, ptr %29, align 8, !tbaa !40
   %33 = zext i32 %32 to i64
@@ -12565,7 +12565,7 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v14type10define_mapIJA6_Kc5base
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 %33
   store i8 0, ptr %47, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %48 = getelementptr inbounds nuw %"struct.msgpack::v1::object_kv", ptr %21, i64 %indvars.iv, i32 1
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %48, ptr %5, align 8, !tbaa !163
   %49 = invoke { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN7msgpack2v26objectESt4lessIS5_ESaISt4pairIKS5_SA_EEE7emplaceIJS5_PS8_EEESD_ISt17_Rb_tree_iteratorISF_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %50 unwind label %60

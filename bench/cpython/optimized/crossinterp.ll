@@ -4169,7 +4169,7 @@ define dso_local range(i32 -1, 1) i32 @_PyXI_FillNamespaceFromDict(ptr noundef r
   br label %7
 
 7:                                                ; preds = %.lr.ph, %.critedge
-  %.01841 = phi i64 [ 0, %.lr.ph ], [ %97, %.critedge ]
+  %.01841 = phi i64 [ 0, %.lr.ph ], [ %98, %.critedge ]
   %8 = load ptr, ptr %6, align 8, !tbaa !149
   %9 = getelementptr %struct._sharednsitem, ptr %8, i64 %.01841
   %10 = load ptr, ptr %9, align 8, !tbaa !150
@@ -4245,151 +4245,152 @@ _propagate_not_shareable_error.exit:              ; preds = %_sharednsitem_copy_
   br i1 %.not45, label %.loopexit, label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %_propagate_not_shareable_error.exit, %_sharednsitem_clear_value.exit
-  %.043 = phi i64 [ %96, %_sharednsitem_clear_value.exit ], [ 0, %_propagate_not_shareable_error.exit ]
+  %.043 = phi i64 [ %97, %_sharednsitem_clear_value.exit ], [ 0, %_propagate_not_shareable_error.exit ]
   %39 = load ptr, ptr %6, align 8, !tbaa !149
-  %40 = getelementptr %struct._sharednsitem, ptr %39, i64 %.043, i32 1
-  %41 = load ptr, ptr %40, align 8, !tbaa !153
-  %.not.i20 = icmp eq ptr %41, null
-  br i1 %.not.i20, label %_sharednsitem_clear_value.exit, label %42
+  %40 = getelementptr %struct._sharednsitem, ptr %39, i64 %.043
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !153
+  %.not.i20 = icmp eq ptr %42, null
+  br i1 %.not.i20, label %_sharednsitem_clear_value.exit, label %43
 
-42:                                               ; preds = %.lr.ph44
-  store ptr null, ptr %40, align 8, !tbaa !153
-  %43 = tail call ptr @PyErr_GetRaisedException() #11
-  %44 = load ptr, ptr %41, align 8, !tbaa !121
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %50, label %46
+43:                                               ; preds = %.lr.ph44
+  store ptr null, ptr %41, align 8, !tbaa !153
+  %44 = tail call ptr @PyErr_GetRaisedException() #11
+  %45 = load ptr, ptr %42, align 8, !tbaa !121
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %51, label %47
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !123
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %55
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %49 = load ptr, ptr %48, align 8, !tbaa !123
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %56
 
-50:                                               ; preds = %46, %42
-  %51 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !125
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %55
+51:                                               ; preds = %47, %43
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !125
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %50
-  store ptr null, ptr %41, align 8, !tbaa !121
+55:                                               ; preds = %51
+  store ptr null, ptr %42, align 8, !tbaa !121
   br label %_release_xid_data.exit.i
 
-55:                                               ; preds = %50, %46
-  %56 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %57 = load i64, ptr %56, align 8, !tbaa !124
-  %58 = tail call ptr @_PyInterpreterState_LookUpID(i64 noundef %57) #11
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %_xidata_release.exit, label %60
+56:                                               ; preds = %51, %47
+  %57 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %58 = load i64, ptr %57, align 8, !tbaa !124
+  %59 = tail call ptr @_PyInterpreterState_LookUpID(i64 noundef %58) #11
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %_xidata_release.exit, label %61
 
-60:                                               ; preds = %55
-  %61 = tail call ptr @PyInterpreterState_Get() #11
-  %62 = icmp eq ptr %58, %61
-  br i1 %62, label %63, label %79
+61:                                               ; preds = %56
+  %62 = tail call ptr @PyInterpreterState_Get() #11
+  %63 = icmp eq ptr %59, %62
+  br i1 %63, label %64, label %80
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %41, align 8, !tbaa !121
-  %.not.i.i19.i = icmp eq ptr %64, null
-  br i1 %.not.i.i19.i, label %70, label %65
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %42, align 8, !tbaa !121
+  %.not.i.i19.i = icmp eq ptr %65, null
+  br i1 %.not.i.i19.i, label %71, label %66
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %67 = load ptr, ptr %66, align 8, !tbaa !123
-  %.not12.i.i20.i = icmp eq ptr %67, null
-  br i1 %.not12.i.i20.i, label %69, label %68
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %68 = load ptr, ptr %67, align 8, !tbaa !123
+  %.not12.i.i20.i = icmp eq ptr %68, null
+  br i1 %.not12.i.i20.i, label %70, label %69
 
-68:                                               ; preds = %65
-  tail call void %67(ptr noundef nonnull %64) #11
-  br label %69
-
-69:                                               ; preds = %68, %65
-  store ptr null, ptr %41, align 8, !tbaa !121
+69:                                               ; preds = %66
+  tail call void %68(ptr noundef nonnull %65) #11
   br label %70
 
-70:                                               ; preds = %69, %63
-  %71 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !94
-  %.not13.i.i21.i = icmp eq ptr %72, null
-  br i1 %.not13.i.i21.i, label %_release_xid_data.exit.i, label %73
+70:                                               ; preds = %69, %66
+  store ptr null, ptr %42, align 8, !tbaa !121
+  br label %71
 
-73:                                               ; preds = %70
-  store ptr null, ptr %71, align 8, !tbaa !94
-  %74 = load i32, ptr %72, align 8, !tbaa !110
-  %.not.i.i.i22.i = icmp sgt i32 %74, -1
-  br i1 %.not.i.i.i22.i, label %75, label %_release_xid_data.exit.i
+71:                                               ; preds = %70, %64
+  %72 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !94
+  %.not13.i.i21.i = icmp eq ptr %73, null
+  br i1 %.not13.i.i21.i, label %_release_xid_data.exit.i, label %74
 
-75:                                               ; preds = %73
-  %76 = add nsw i32 %74, -1
-  store i32 %76, ptr %72, align 8, !tbaa !110
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %_release_xid_data.exit.i
+74:                                               ; preds = %71
+  store ptr null, ptr %72, align 8, !tbaa !94
+  %75 = load i32, ptr %73, align 8, !tbaa !110
+  %.not.i.i.i22.i = icmp sgt i32 %75, -1
+  br i1 %.not.i.i.i22.i, label %76, label %_release_xid_data.exit.i
 
-78:                                               ; preds = %75
-  tail call void @_Py_Dealloc(ptr noundef nonnull %72) #11
+76:                                               ; preds = %74
+  %77 = add nsw i32 %75, -1
+  store i32 %77, ptr %73, align 8, !tbaa !110
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %_release_xid_data.exit.i
+
+79:                                               ; preds = %76
+  tail call void @_Py_Dealloc(ptr noundef nonnull %73) #11
   br label %_release_xid_data.exit.i
 
-79:                                               ; preds = %60
-  %80 = tail call i32 @_PyEval_AddPendingCall(ptr noundef nonnull %58, ptr noundef nonnull @_call_clear_xidata, ptr noundef nonnull %41, i32 noundef 0) #11
+80:                                               ; preds = %61
+  %81 = tail call i32 @_PyEval_AddPendingCall(ptr noundef nonnull %59, ptr noundef nonnull @_call_clear_xidata, ptr noundef nonnull %42, i32 noundef 0) #11
   br label %_release_xid_data.exit.i
 
-_xidata_release.exit:                             ; preds = %55
-  %81 = load ptr, ptr %41, align 8, !tbaa !121
-  %.not.i.i.i.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i, label %87, label %82
+_xidata_release.exit:                             ; preds = %56
+  %82 = load ptr, ptr %42, align 8, !tbaa !121
+  %.not.i.i.i.i = icmp eq ptr %82, null
+  br i1 %.not.i.i.i.i, label %88, label %83
 
-82:                                               ; preds = %_xidata_release.exit
-  %83 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %84 = load ptr, ptr %83, align 8, !tbaa !123
-  %.not12.i.i.i.i = icmp eq ptr %84, null
-  br i1 %.not12.i.i.i.i, label %86, label %85
+83:                                               ; preds = %_xidata_release.exit
+  %84 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %85 = load ptr, ptr %84, align 8, !tbaa !123
+  %.not12.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not12.i.i.i.i, label %87, label %86
 
-85:                                               ; preds = %82
-  tail call void %84(ptr noundef nonnull %81) #11
-  br label %86
-
-86:                                               ; preds = %85, %82
-  store ptr null, ptr %41, align 8, !tbaa !121
+86:                                               ; preds = %83
+  tail call void %85(ptr noundef nonnull %82) #11
   br label %87
 
-87:                                               ; preds = %86, %_xidata_release.exit
-  %88 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !94
-  %.not13.i.i.i.i = icmp eq ptr %89, null
-  br i1 %.not13.i.i.i.i, label %_PyXIData_Clear.exit.i.i, label %90
+87:                                               ; preds = %86, %83
+  store ptr null, ptr %42, align 8, !tbaa !121
+  br label %88
 
-90:                                               ; preds = %87
-  store ptr null, ptr %88, align 8, !tbaa !94
-  %91 = load i32, ptr %89, align 8, !tbaa !110
-  %.not.i.i.i.i.i = icmp sgt i32 %91, -1
-  br i1 %.not.i.i.i.i.i, label %92, label %_PyXIData_Clear.exit.i.i
+88:                                               ; preds = %87, %_xidata_release.exit
+  %89 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !94
+  %.not13.i.i.i.i = icmp eq ptr %90, null
+  br i1 %.not13.i.i.i.i, label %_PyXIData_Clear.exit.i.i, label %91
 
-92:                                               ; preds = %90
-  %93 = add nsw i32 %91, -1
-  store i32 %93, ptr %89, align 8, !tbaa !110
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %_PyXIData_Clear.exit.i.i
+91:                                               ; preds = %88
+  store ptr null, ptr %89, align 8, !tbaa !94
+  %92 = load i32, ptr %90, align 8, !tbaa !110
+  %.not.i.i.i.i.i = icmp sgt i32 %92, -1
+  br i1 %.not.i.i.i.i.i, label %93, label %_PyXIData_Clear.exit.i.i
 
-95:                                               ; preds = %92
-  tail call void @_Py_Dealloc(ptr noundef nonnull %89) #11
+93:                                               ; preds = %91
+  %94 = add nsw i32 %92, -1
+  store i32 %94, ptr %90, align 8, !tbaa !110
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %_PyXIData_Clear.exit.i.i
+
+96:                                               ; preds = %93
+  tail call void @_Py_Dealloc(ptr noundef nonnull %90) #11
   br label %_PyXIData_Clear.exit.i.i
 
-_PyXIData_Clear.exit.i.i:                         ; preds = %95, %92, %90, %87
+_PyXIData_Clear.exit.i.i:                         ; preds = %96, %93, %91, %88
   tail call void @PyErr_Clear() #11
   br label %_release_xid_data.exit.i
 
-_release_xid_data.exit.i:                         ; preds = %79, %70, %73, %75, %78, %54, %_PyXIData_Clear.exit.i.i
-  tail call void @PyErr_SetRaisedException(ptr noundef %43) #11
+_release_xid_data.exit.i:                         ; preds = %80, %71, %74, %76, %79, %55, %_PyXIData_Clear.exit.i.i
+  tail call void @PyErr_SetRaisedException(ptr noundef %44) #11
   br label %_sharednsitem_clear_value.exit
 
 _sharednsitem_clear_value.exit:                   ; preds = %.lr.ph44, %_release_xid_data.exit.i
-  %96 = add nuw nsw i64 %.043, 1
-  %exitcond.not = icmp eq i64 %96, %.01841
+  %97 = add nuw nsw i64 %.043, 1
+  %exitcond.not = icmp eq i64 %97, %.01841
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph44, !llvm.loop !162
 
 .critedge:                                        ; preds = %_sharednsitem_copy_from_ns.exit.thread23, %_sharednsitem_copy_from_ns.exit
-  %97 = add nuw nsw i64 %.01841, 1
-  %98 = load i64, ptr %0, align 8, !tbaa !146
-  %.not = icmp slt i64 %97, %98
+  %98 = add nuw nsw i64 %.01841, 1
+  %99 = load i64, ptr %0, align 8, !tbaa !146
+  %.not = icmp slt i64 %98, %99
   br i1 %.not, label %7, label %.loopexit, !llvm.loop !163
 
 .loopexit:                                        ; preds = %.critedge, %_sharednsitem_clear_value.exit, %3, %_propagate_not_shareable_error.exit

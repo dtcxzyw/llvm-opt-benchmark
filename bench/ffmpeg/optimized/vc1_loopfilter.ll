@@ -2092,7 +2092,7 @@ define void @ff_vc1_p_loop_filter(ptr noundef readonly %0) local_unnamed_addr #0
 154:                                              ; preds = %148
   %155 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %156 = load i16, ptr %155, align 2, !tbaa !97
-  %157 = getelementptr inbounds [2 x i16], ptr %142, i64 %151, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %158 = load i16, ptr %157, align 2, !tbaa !97
   %.not98.i = icmp eq i16 %156, %158
   br i1 %.not98.i, label %159, label %.sink.split
@@ -2368,7 +2368,7 @@ vc1_p_v_loop_filter.exit:                         ; preds = %183, %196, %198
 348:                                              ; preds = %342
   %349 = getelementptr inbounds nuw i8, ptr %336, i64 2
   %350 = load i16, ptr %349, align 2, !tbaa !97
-  %351 = getelementptr inbounds [2 x i16], ptr %336, i64 %345, i64 1
+  %351 = getelementptr inbounds nuw i8, ptr %346, i64 2
   %352 = load i16, ptr %351, align 2, !tbaa !97
   %.not98.i757 = icmp eq i16 %350, %352
   br i1 %.not98.i757, label %353, label %.sink.split1342
@@ -2654,7 +2654,7 @@ vc1_p_v_loop_filter.exit764:                      ; preds = %377, %390, %392
 550:                                              ; preds = %544
   %551 = getelementptr inbounds nuw i8, ptr %538, i64 2
   %552 = load i16, ptr %551, align 2, !tbaa !97
-  %553 = getelementptr inbounds [2 x i16], ptr %538, i64 %547, i64 1
+  %553 = getelementptr inbounds nuw i8, ptr %548, i64 2
   %554 = load i16, ptr %553, align 2, !tbaa !97
   %.not98.i779 = icmp eq i16 %552, %554
   br i1 %.not98.i779, label %555, label %.sink.split1346
@@ -2858,7 +2858,7 @@ vc1_p_v_loop_filter.exit786:                      ; preds = %579, %592, %594
 685:                                              ; preds = %679
   %686 = getelementptr inbounds nuw i8, ptr %647, i64 2
   %687 = load i16, ptr %686, align 2, !tbaa !97
-  %688 = getelementptr inbounds [2 x i16], ptr %647, i64 %682, i64 1
+  %688 = getelementptr inbounds nuw i8, ptr %683, i64 2
   %689 = load i16, ptr %688, align 2, !tbaa !97
   %.not98.i801 = icmp eq i16 %687, %689
   br i1 %.not98.i801, label %690, label %697
@@ -3154,7 +3154,7 @@ vc1_p_v_loop_filter.exit808:                      ; preds = %.thread1053, %739, 
 891:                                              ; preds = %885
   %892 = getelementptr inbounds nuw i8, ptr %879, i64 2
   %893 = load i16, ptr %892, align 2, !tbaa !97
-  %894 = getelementptr inbounds [2 x i16], ptr %879, i64 %888, i64 1
+  %894 = getelementptr inbounds nuw i8, ptr %889, i64 2
   %895 = load i16, ptr %894, align 2, !tbaa !97
   %.not98.i823 = icmp eq i16 %893, %895
   br i1 %.not98.i823, label %896, label %.sink.split1350
@@ -3354,7 +3354,7 @@ vc1_p_v_loop_filter.exit830:                      ; preds = %920, %933, %935
 1022:                                             ; preds = %1016
   %1023 = getelementptr inbounds nuw i8, ptr %984, i64 2
   %1024 = load i16, ptr %1023, align 2, !tbaa !97
-  %1025 = getelementptr inbounds [2 x i16], ptr %984, i64 %1019, i64 1
+  %1025 = getelementptr inbounds nuw i8, ptr %1020, i64 2
   %1026 = load i16, ptr %1025, align 2, !tbaa !97
   %.not98.i845 = icmp eq i16 %1024, %1026
   br i1 %.not98.i845, label %1027, label %1034

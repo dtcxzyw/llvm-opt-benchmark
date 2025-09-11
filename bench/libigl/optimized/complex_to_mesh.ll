@@ -306,13 +306,13 @@ _ZNK4CGAL15Triangulation_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_30Tr
 74:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i
   %75 = landingpad { ptr, i32 }
           cleanup
-  br label %1002
+  br label %1004
 
 76:                                               ; preds = %78
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %1002
+  br label %1004
 
 78:                                               ; preds = %.lr.ph, %_ZN4CGAL15Triangulation_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3IS3_NS_27Triangulation_vertex_base_3IS3_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS3_NS_24Surface_mesh_cell_base_3IS3_NS_25Triangulation_cell_base_3IS3_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEENS_7DefaultEE24Finite_vertices_iteratorppEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4CGAL15Triangulation_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3IS3_NS_27Triangulation_vertex_base_3IS3_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS3_NS_24Surface_mesh_cell_base_3IS3_NS_25Triangulation_cell_base_3IS3_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEENS_7DefaultEE24Finite_vertices_iteratorppEv.exit ]
@@ -1025,7 +1025,7 @@ _ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_str
 374:                                              ; preds = %._crit_edge
   %375 = landingpad { ptr, i32 }
           cleanup
-  br label %906
+  br label %908
 
 376:                                              ; preds = %110
   %377 = landingpad { ptr, i32 }
@@ -1035,12 +1035,12 @@ _ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_str
 .loopexit338:                                     ; preds = %_ZNSt3setISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt4lessISW_ESaISW_EE4findERKSW_.exit142.thread, %386
   %lpad.loopexit340 = landingpad { ptr, i32 }
           cleanup
-  br label %886
+  br label %888
 
 .loopexit.split-lp339:                            ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i195
   %lpad.loopexit.split-lp341 = landingpad { ptr, i32 }
           cleanup
-  br label %886
+  br label %888
 
 _ZNSt3setISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt4lessISW_ESaISW_EE4findERKSW_.exit142.thread: ; preds = %213, %202, %_ZNSt8_Rb_treeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_St9_IdentityISW_ESt4lessISW_ESaISW_EE14_M_lower_boundEPSt13_Rb_tree_nodeISW_EPSt18_Rb_tree_node_baseRKSW_.exit.i.i137, %_ZNKSt4lessISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiEEclERKSW_SZ_.exit.i.i138
   %378 = invoke { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_St9_IdentityISW_ESt4lessISW_ESaISW_EE16_M_insert_uniqueIRKSW_EES0_ISt17_Rb_tree_iteratorISW_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(12) %119)
@@ -1891,12 +1891,12 @@ _ZNSt5dequeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
 .loopexit335:                                     ; preds = %_ZNSt8_Rb_treeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_St9_IdentityISW_ESt4lessISW_ESaISW_EE10_M_insert_IRKSW_NS12_11_Alloc_nodeEEESt17_Rb_tree_iteratorISW_EPSt18_Rb_tree_node_baseS1A_OT_RT0_.exit.i, %_ZNSt5dequeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE22_M_reserve_map_at_backEm.exit.i, %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE15_M_allocate_mapEm.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %886
+  br label %888
 
 .loopexit.split-lp:                               ; preds = %695, %.noexc.i.i, %.noexc3.i.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %886
+  br label %888
 
 _ZNK4CGAL28Complex_2_in_triangulation_3INS_24Delaunay_triangulation_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3IS4_NS_27Triangulation_vertex_base_3IS4_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS4_NS_24Surface_mesh_cell_base_3IS4_NS_25Triangulation_cell_base_3IS4_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEENS_7DefaultESM_EEvE9is_markedERKNS_8internal11CC_iteratorINS_17Compact_containerINS6_IS4_NS7_IS4_NS8_ISL_EEEEEESM_SM_SM_EELb0EEESY_.exit.thread.i: ; preds = %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEE3popEv.exit.split, %_ZNKSt8_Rb_treeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_26Surface_mesh_vertex_base_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3INS1_30Triangulation_data_structure_3INS5_IS8_NS9_IS8_NSA_IvEEEEEENS1_52Delaunay_triangulation_cell_base_with_circumcenter_3IS8_NS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3IvEEEEEEEENS1_14Sequential_tagEEEEEEEEENS1_7DefaultESS_SS_EELb0EEESU_ES0_IKSV_S0_IiSt3setIS0_INS3_INS4_INSF_IS8_NSG_IS8_NSH_IS8_NSI_ISO_EEEEEEEESS_SS_SS_EELb0EEEiESt4lessIS14_ESaIS14_EEEESt10_Select1stIS1A_ES15_ISV_ESaIS1A_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1A_EPKSt18_Rb_tree_node_baseRSW_.exit.i.i.i, %443, %_ZNKSt4lessISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_26Surface_mesh_vertex_base_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3INS1_30Triangulation_data_structure_3INS5_IS8_NS9_IS8_NSA_IvEEEEEENS1_52Delaunay_triangulation_cell_base_with_circumcenter_3IS8_NS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3IvEEEEEEEENS1_14Sequential_tagEEEEEEEEENS1_7DefaultESS_SS_EELb0EEESU_EEclERKSV_SY_.exit.i.i.i, %_ZNKSt3mapISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_26Surface_mesh_vertex_base_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3INS1_30Triangulation_data_structure_3INS5_IS8_NS9_IS8_NSA_IvEEEEEENS1_52Delaunay_triangulation_cell_base_with_circumcenter_3IS8_NS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3IvEEEEEEEENS1_14Sequential_tagEEEEEEEEENS1_7DefaultESS_SS_EELb0EEESU_ES0_IiSt3setIS0_INS3_INS4_INSF_IS8_NSG_IS8_NSH_IS8_NSI_ISO_EEEEEEEESS_SS_SS_EELb0EEEiESt4lessIS13_ESaIS13_EEES14_ISV_ESaIS0_IKSV_S18_EEE4findERS1A_.exit.i
   br label %_ZNK4CGAL28Complex_2_in_triangulation_3INS_24Delaunay_triangulation_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3IS4_NS_27Triangulation_vertex_base_3IS4_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS4_NS_24Surface_mesh_cell_base_3IS4_NS_25Triangulation_cell_base_3IS4_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEENS_7DefaultESM_EEvE11face_statusERKNS_6TripleINS_8internal11CC_iteratorINS_17Compact_containerINSC_IS4_NSD_IS4_NSE_IS4_NSF_ISL_EEEEEEEESM_SM_SM_EELb0EEEiiEE.exit
@@ -1925,7 +1925,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %777 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %797
 
-._crit_edge416:                                   ; preds = %828, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
+._crit_edge416:                                   ; preds = %830, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   %778 = load ptr, ptr %8, align 8, !tbaa !130
   %.not.i.i.i197 = icmp eq ptr %778, null
   br i1 %.not.i.i.i197, label %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit, label %779
@@ -1963,7 +1963,7 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %793 = load ptr, ptr %112, align 8, !tbaa !37
   invoke void @_ZNSt8_Rb_treeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_St9_IdentityISW_ESt4lessISW_ESaISW_EE8_M_eraseEPSt13_Rb_tree_nodeISW_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %793)
-          to label %842 unwind label %794
+          to label %844 unwind label %794
 
 794:                                              ; preds = %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit
   %795 = landingpad { ptr, i32 }
@@ -1972,9 +1972,9 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   call void @__clang_call_terminate(ptr %796) #29
   unreachable
 
-797:                                              ; preds = %.lr.ph415, %828
-  %indvars.iv474 = phi i64 [ 0, %.lr.ph415 ], [ %indvars.iv.next475, %828 ]
-  %.sroa.0264.0413 = phi ptr [ %776, %.lr.ph415 ], [ %835, %828 ]
+797:                                              ; preds = %.lr.ph415, %830
+  %indvars.iv474 = phi i64 [ 0, %.lr.ph415 ], [ %indvars.iv.next475, %830 ]
+  %.sroa.0264.0413 = phi ptr [ %776, %.lr.ph415 ], [ %837, %830 ]
   %798 = getelementptr inbounds nuw i8, ptr %.sroa.0264.0413, i64 32
   %799 = load i64, ptr %798, align 8, !tbaa !76
   %800 = inttoptr i64 %799 to ptr
@@ -1990,7 +1990,7 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   %.sroa.0.0.copyload.i = load ptr, ptr %808, align 8, !tbaa !51
   store ptr %.sroa.0.0.copyload.i, ptr %9, align 8
   %809 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEEixEOST_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %810 unwind label %836
+          to label %810 unwind label %838
 
 810:                                              ; preds = %797
   %811 = load i32, ptr %809, align 4, !tbaa !64
@@ -1998,79 +1998,81 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %812 = load i32, ptr %801, align 4, !tbaa !64
   %813 = sext i32 %812 to i64
-  %814 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %813, i64 1
-  %815 = load i32, ptr %814, align 4, !tbaa !64
-  %816 = zext nneg i32 %815 to i64
-  %817 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %806, i64 %816
-  %.sroa.0.0.copyload.i200 = load ptr, ptr %817, align 8, !tbaa !51
+  %814 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %813
+  %815 = getelementptr inbounds nuw i8, ptr %814, i64 4
+  %816 = load i32, ptr %815, align 4, !tbaa !64
+  %817 = zext nneg i32 %816 to i64
+  %818 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %806, i64 %817
+  %.sroa.0.0.copyload.i200 = load ptr, ptr %818, align 8, !tbaa !51
   store ptr %.sroa.0.0.copyload.i200, ptr %10, align 8
-  %818 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEEixEOST_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %819 unwind label %838
+  %819 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEEixEOST_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %820 unwind label %840
 
-819:                                              ; preds = %810
-  %820 = load i32, ptr %818, align 4, !tbaa !64
+820:                                              ; preds = %810
+  %821 = load i32, ptr %819, align 4, !tbaa !64
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %821 = load i32, ptr %801, align 4, !tbaa !64
-  %822 = sext i32 %821 to i64
-  %823 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %822, i64 2
-  %824 = load i32, ptr %823, align 4, !tbaa !64
-  %825 = zext nneg i32 %824 to i64
-  %826 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %806, i64 %825
-  %.sroa.0.0.copyload.i202 = load ptr, ptr %826, align 8, !tbaa !51
+  %822 = load i32, ptr %801, align 4, !tbaa !64
+  %823 = sext i32 %822 to i64
+  %824 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %823
+  %825 = getelementptr inbounds nuw i8, ptr %824, i64 8
+  %826 = load i32, ptr %825, align 4, !tbaa !64
+  %827 = zext nneg i32 %826 to i64
+  %828 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %806, i64 %827
+  %.sroa.0.0.copyload.i202 = load ptr, ptr %828, align 8, !tbaa !51
   store ptr %.sroa.0.0.copyload.i202, ptr %11, align 8
-  %827 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEEixEOST_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %828 unwind label %840
+  %829 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEEixEOST_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %830 unwind label %842
 
-828:                                              ; preds = %819
-  %829 = load i32, ptr %827, align 4, !tbaa !64
+830:                                              ; preds = %820
+  %831 = load i32, ptr %829, align 4, !tbaa !64
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %830 = load ptr, ptr %2, align 8, !tbaa !137
-  %831 = getelementptr i32, ptr %830, i64 %indvars.iv474
-  store i32 %811, ptr %831, align 4, !tbaa !64
-  %832 = load i64, ptr %777, align 8, !tbaa !140
-  %833 = getelementptr i32, ptr %831, i64 %832
-  store i32 %820, ptr %833, align 4, !tbaa !64
-  %.idx = shl i64 %832, 3
-  %834 = getelementptr i8, ptr %831, i64 %.idx
-  store i32 %829, ptr %834, align 4, !tbaa !64
+  %832 = load ptr, ptr %2, align 8, !tbaa !137
+  %833 = getelementptr i32, ptr %832, i64 %indvars.iv474
+  store i32 %811, ptr %833, align 4, !tbaa !64
+  %834 = load i64, ptr %777, align 8, !tbaa !140
+  %835 = getelementptr i32, ptr %833, i64 %834
+  store i32 %821, ptr %835, align 4, !tbaa !64
+  %.idx = shl i64 %834, 3
+  %836 = getelementptr i8, ptr %833, i64 %.idx
+  store i32 %831, ptr %836, align 4, !tbaa !64
   %indvars.iv.next475 = add nuw nsw i64 %indvars.iv474, 1
-  %835 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0264.0413) #25
-  %.not332 = icmp eq ptr %835, %111
+  %837 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0264.0413) #25
+  %.not332 = icmp eq ptr %837, %111
   br i1 %.not332, label %._crit_edge416, label %797, !llvm.loop !141
 
-836:                                              ; preds = %797
-  %837 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %886
-
-838:                                              ; preds = %810
+838:                                              ; preds = %797
   %839 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %886
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %888
 
-840:                                              ; preds = %819
+840:                                              ; preds = %810
   %841 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %886
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %888
 
-842:                                              ; preds = %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit
+842:                                              ; preds = %820
+  %843 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br label %888
+
+844:                                              ; preds = %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN3igl8centroidIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLi3ELi1ELi0ELi3ELi1EEEdEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERNS1_15PlainObjectBaseIT1_EERT2_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %843 unwind label %907
+          to label %845 unwind label %909
 
-843:                                              ; preds = %842
-  %844 = load double, ptr %13, align 8, !tbaa !58
-  %845 = fcmp olt double %844, 0.000000e+00
-  br i1 %845, label %846, label %912
+845:                                              ; preds = %844
+  %846 = load double, ptr %13, align 8, !tbaa !58
+  %847 = fcmp olt double %846, 0.000000e+00
+  br i1 %847, label %848, label %914
 
-846:                                              ; preds = %843
+848:                                              ; preds = %845
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %2, ptr %15, align 8
@@ -2078,460 +2080,460 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !alias.scope !142
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !142
   invoke void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEENS_7ReverseIS3_Li1EEENS0_9assign_opIiiEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %849 unwind label %847
+          to label %851 unwind label %849
 
-847:                                              ; preds = %846
-  %848 = landingpad { ptr, i32 }
+849:                                              ; preds = %848
+  %850 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-849:                                              ; preds = %846
+851:                                              ; preds = %848
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !142
-  %850 = load ptr, ptr %14, align 8, !tbaa !137
-  %851 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %852 = load i64, ptr %851, align 8, !tbaa !140
-  %853 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %854 = load i64, ptr %853, align 8, !tbaa !145
-  %855 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %856 = load i64, ptr %855, align 8, !tbaa !140
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %856, %852
-  %857 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %858 = load i64, ptr %857, align 8
-  %.not8.i.i.i.i.i.i.i.i = icmp eq i64 %858, %854
+  %852 = load ptr, ptr %14, align 8, !tbaa !137
+  %853 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %854 = load i64, ptr %853, align 8, !tbaa !140
+  %855 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %856 = load i64, ptr %855, align 8, !tbaa !145
+  %857 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %858 = load i64, ptr %857, align 8, !tbaa !140
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %858, %854
+  %859 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %860 = load i64, ptr %859, align 8
+  %.not8.i.i.i.i.i.i.i.i = icmp eq i64 %860, %856
   %or.cond.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i1 %.not8.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %867, label %859
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %869, label %861
 
-859:                                              ; preds = %849
-  %860 = icmp eq i64 %852, 0
-  %861 = icmp eq i64 %854, 0
-  %or.cond.i.i.i.i.i.i.i.i.i.i = or i1 %860, %861
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i, label %862
+861:                                              ; preds = %851
+  %862 = icmp eq i64 %854, 0
+  %863 = icmp eq i64 %856, 0
+  %or.cond.i.i.i.i.i.i.i.i.i.i = or i1 %862, %863
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i, label %864
 
-862:                                              ; preds = %859
-  %863 = sdiv i64 9223372036854775807, %854
-  %864 = icmp sgt i64 %852, %863
-  br i1 %864, label %.noexc.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
+864:                                              ; preds = %861
+  %865 = sdiv i64 9223372036854775807, %856
+  %866 = icmp sgt i64 %854, %865
+  br i1 %866, label %.noexc.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
 
-.noexc.i.i.i.i.i.i.i:                             ; preds = %862
-  %865 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %865, align 8, !tbaa !146
-  invoke void @__cxa_throw(ptr nonnull %865, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
-          to label %.noexc203 unwind label %909
+.noexc.i.i.i.i.i.i.i:                             ; preds = %864
+  %867 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %867, align 8, !tbaa !146
+  invoke void @__cxa_throw(ptr nonnull %867, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
+          to label %.noexc203 unwind label %911
 
 .noexc203:                                        ; preds = %.noexc.i.i.i.i.i.i.i
   unreachable
 
-_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i: ; preds = %862, %859
-  %866 = mul nsw i64 %854, %852
-  invoke void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %866, i64 noundef %852, i64 noundef %854)
-          to label %.noexc204 unwind label %909
+_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i: ; preds = %864, %861
+  %868 = mul nsw i64 %856, %854
+  invoke void @_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %868, i64 noundef %854, i64 noundef %856)
+          to label %.noexc204 unwind label %911
 
 .noexc204:                                        ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
-  %.pre.i.i.i.i.i.i.i = load i64, ptr %855, align 8, !tbaa !140
-  %.pre20.i.i.i.i.i.i.i = load i64, ptr %857, align 8, !tbaa !145
-  br label %867
+  %.pre.i.i.i.i.i.i.i = load i64, ptr %857, align 8, !tbaa !140
+  %.pre20.i.i.i.i.i.i.i = load i64, ptr %859, align 8, !tbaa !145
+  br label %869
 
-867:                                              ; preds = %.noexc204, %849
-  %868 = phi i64 [ %.pre20.i.i.i.i.i.i.i, %.noexc204 ], [ %854, %849 ]
-  %869 = phi i64 [ %.pre.i.i.i.i.i.i.i, %.noexc204 ], [ %852, %849 ]
-  %870 = load ptr, ptr %2, align 8, !tbaa !137
-  %871 = mul nsw i64 %869, %868
-  %872 = sdiv i64 %871, 4
-  %873 = shl nsw i64 %872, 2
-  %874 = icmp sgt i64 %871, 3
-  br i1 %874, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
+869:                                              ; preds = %.noexc204, %851
+  %870 = phi i64 [ %.pre20.i.i.i.i.i.i.i, %.noexc204 ], [ %856, %851 ]
+  %871 = phi i64 [ %.pre.i.i.i.i.i.i.i, %.noexc204 ], [ %854, %851 ]
+  %872 = load ptr, ptr %2, align 8, !tbaa !137
+  %873 = mul nsw i64 %871, %870
+  %874 = sdiv i64 %873, 4
+  %875 = shl nsw i64 %874, 2
+  %876 = icmp sgt i64 %873, 3
+  br i1 %876, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %867
-  %875 = icmp slt i64 %873, %871
-  br i1 %875, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEaSERKS3_.exit
+._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %869
+  %877 = icmp slt i64 %875, %873
+  br i1 %877, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEaSERKS3_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %879, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %873, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %876 = getelementptr inbounds i32, ptr %870, i64 %.05.i.i.i.i.i.i.i.i.i
-  %877 = getelementptr inbounds i32, ptr %850, i64 %.05.i.i.i.i.i.i.i.i.i
-  %878 = load i32, ptr %877, align 4, !tbaa !64
-  store i32 %878, ptr %876, align 4, !tbaa !64
-  %879 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %879, %871
+  %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %881, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %875, %._crit_edge.i.i.i.i.i.i.i.i ]
+  %878 = getelementptr inbounds i32, ptr %872, i64 %.05.i.i.i.i.i.i.i.i.i
+  %879 = getelementptr inbounds i32, ptr %852, i64 %.05.i.i.i.i.i.i.i.i.i
+  %880 = load i32, ptr %879, align 4, !tbaa !64
+  store i32 %880, ptr %878, align 4, !tbaa !64
+  %881 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %881, %873
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEaSERKS3_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !148
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %867, %.lr.ph.i.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i.i = phi i64 [ %883, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %867 ]
-  %880 = getelementptr inbounds nuw i32, ptr %870, i64 %.011.i.i.i.i.i.i.i.i
-  %881 = getelementptr inbounds nuw i32, ptr %850, i64 %.011.i.i.i.i.i.i.i.i
-  %882 = load <2 x i64>, ptr %881, align 16, !tbaa !126
-  store <2 x i64> %882, ptr %880, align 16, !tbaa !126
-  %883 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 4
-  %884 = icmp slt i64 %883, %873
-  br i1 %884, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !149
+.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %869, %.lr.ph.i.i.i.i.i.i.i.i
+  %.011.i.i.i.i.i.i.i.i = phi i64 [ %885, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %869 ]
+  %882 = getelementptr inbounds nuw i32, ptr %872, i64 %.011.i.i.i.i.i.i.i.i
+  %883 = getelementptr inbounds nuw i32, ptr %852, i64 %.011.i.i.i.i.i.i.i.i
+  %884 = load <2 x i64>, ptr %883, align 16, !tbaa !126
+  store <2 x i64> %884, ptr %882, align 16, !tbaa !126
+  %885 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 4
+  %886 = icmp slt i64 %885, %875
+  br i1 %886, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !149
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEaSERKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
-  %885 = load ptr, ptr %14, align 8, !tbaa !137
-  call void @free(ptr noundef %885) #27
+  %887 = load ptr, ptr %14, align 8, !tbaa !137
+  call void @free(ptr noundef %887) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %912
+  br label %914
 
-886:                                              ; preds = %.loopexit335, %.loopexit.split-lp, %.loopexit338, %.loopexit.split-lp339, %836, %840, %838
-  %.pn116 = phi { ptr, i32 } [ %837, %836 ], [ %839, %838 ], [ %841, %840 ], [ %lpad.loopexit340, %.loopexit338 ], [ %lpad.loopexit.split-lp341, %.loopexit.split-lp339 ], [ %lpad.loopexit, %.loopexit335 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %887 = load ptr, ptr %8, align 8, !tbaa !130
-  %.not.i.i.i205 = icmp eq ptr %887, null
-  br i1 %.not.i.i.i205, label %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit211, label %888
+888:                                              ; preds = %.loopexit335, %.loopexit.split-lp, %.loopexit338, %.loopexit.split-lp339, %838, %842, %840
+  %.pn116 = phi { ptr, i32 } [ %839, %838 ], [ %841, %840 ], [ %843, %842 ], [ %lpad.loopexit340, %.loopexit338 ], [ %lpad.loopexit.split-lp341, %.loopexit.split-lp339 ], [ %lpad.loopexit, %.loopexit335 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %889 = load ptr, ptr %8, align 8, !tbaa !130
+  %.not.i.i.i205 = icmp eq ptr %889, null
+  br i1 %.not.i.i.i205, label %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit211, label %890
 
-888:                                              ; preds = %886
-  %889 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %890 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %891 = load ptr, ptr %890, align 8, !tbaa !135
-  %892 = load ptr, ptr %889, align 8, !tbaa !109
-  %893 = getelementptr inbounds nuw i8, ptr %892, i64 8
-  %894 = icmp ult ptr %891, %893
-  br i1 %894, label %.lr.ph.i.i.i.i207, label %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.i.i.i206
+890:                                              ; preds = %888
+  %891 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %892 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %893 = load ptr, ptr %892, align 8, !tbaa !135
+  %894 = load ptr, ptr %891, align 8, !tbaa !109
+  %895 = getelementptr inbounds nuw i8, ptr %894, i64 8
+  %896 = icmp ult ptr %893, %895
+  br i1 %896, label %.lr.ph.i.i.i.i207, label %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.i.i.i206
 
-.lr.ph.i.i.i.i207:                                ; preds = %888, %.lr.ph.i.i.i.i207
-  %.06.i.i.i.i208 = phi ptr [ %896, %.lr.ph.i.i.i.i207 ], [ %891, %888 ]
-  %895 = load ptr, ptr %.06.i.i.i.i208, align 8, !tbaa !108
-  call void @_ZdlPvm(ptr noundef %895, i64 noundef 512) #24
-  %896 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i208, i64 8
-  %897 = icmp ult ptr %.06.i.i.i.i208, %892
-  br i1 %897, label %.lr.ph.i.i.i.i207, label %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.loopexit.i.i.i209, !llvm.loop !136
+.lr.ph.i.i.i.i207:                                ; preds = %890, %.lr.ph.i.i.i.i207
+  %.06.i.i.i.i208 = phi ptr [ %898, %.lr.ph.i.i.i.i207 ], [ %893, %890 ]
+  %897 = load ptr, ptr %.06.i.i.i.i208, align 8, !tbaa !108
+  call void @_ZdlPvm(ptr noundef %897, i64 noundef 512) #24
+  %898 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i208, i64 8
+  %899 = icmp ult ptr %.06.i.i.i.i208, %894
+  br i1 %899, label %.lr.ph.i.i.i.i207, label %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.loopexit.i.i.i209, !llvm.loop !136
 
 _ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.loopexit.i.i.i209: ; preds = %.lr.ph.i.i.i.i207
   %.pre.i.i.i210 = load ptr, ptr %8, align 8, !tbaa !130
   br label %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.i.i.i206
 
-_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.i.i.i206: ; preds = %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.loopexit.i.i.i209, %888
-  %898 = phi ptr [ %.pre.i.i.i210, %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.loopexit.i.i.i209 ], [ %887, %888 ]
-  %899 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %900 = load i64, ptr %899, align 8, !tbaa !129
-  %901 = shl i64 %900, 3
-  call void @_ZdlPvm(ptr noundef %898, i64 noundef %901) #24
+_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.i.i.i206: ; preds = %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.loopexit.i.i.i209, %890
+  %900 = phi ptr [ %.pre.i.i.i210, %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.loopexit.i.i.i209 ], [ %889, %890 ]
+  %901 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %902 = load i64, ptr %901, align 8, !tbaa !129
+  %903 = shl i64 %902, 3
+  call void @_ZdlPvm(ptr noundef %900, i64 noundef %903) #24
   br label %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit211
 
-_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit211: ; preds = %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.i.i.i206, %886, %376
-  %.pn116.pn = phi { ptr, i32 } [ %377, %376 ], [ %.pn116, %886 ], [ %.pn116, %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.i.i.i206 ]
+_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit211: ; preds = %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.i.i.i206, %888, %376
+  %.pn116.pn = phi { ptr, i32 } [ %377, %376 ], [ %.pn116, %888 ], [ %.pn116, %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE16_M_destroy_nodesEPPSW_S10_.exit.i.i.i206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %902 = load ptr, ptr %112, align 8, !tbaa !37
-  invoke void @_ZNSt8_Rb_treeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_St9_IdentityISW_ESt4lessISW_ESaISW_EE8_M_eraseEPSt13_Rb_tree_nodeISW_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %902)
-          to label %_ZNSt3setISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt4lessISW_ESaISW_EED2Ev.exit212 unwind label %903
+  %904 = load ptr, ptr %112, align 8, !tbaa !37
+  invoke void @_ZNSt8_Rb_treeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_St9_IdentityISW_ESt4lessISW_ESaISW_EE8_M_eraseEPSt13_Rb_tree_nodeISW_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %904)
+          to label %_ZNSt3setISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt4lessISW_ESaISW_EED2Ev.exit212 unwind label %905
 
-903:                                              ; preds = %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit211
-  %904 = landingpad { ptr, i32 }
+905:                                              ; preds = %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit211
+  %906 = landingpad { ptr, i32 }
           catch ptr null
-  %905 = extractvalue { ptr, i32 } %904, 0
-  call void @__clang_call_terminate(ptr %905) #29
+  %907 = extractvalue { ptr, i32 } %906, 0
+  call void @__clang_call_terminate(ptr %907) #29
   unreachable
 
 _ZNSt3setISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt4lessISW_ESaISW_EED2Ev.exit212: ; preds = %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEED2Ev.exit211
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %906
+  br label %908
 
-906:                                              ; preds = %_ZNSt3setISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt4lessISW_ESaISW_EED2Ev.exit212, %374
+908:                                              ; preds = %_ZNSt3setISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt4lessISW_ESaISW_EED2Ev.exit212, %374
   %.pn116.pn.pn = phi { ptr, i32 } [ %.pn116.pn, %_ZNSt3setISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt4lessISW_ESaISW_EED2Ev.exit212 ], [ %375, %374 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %1002
+  br label %1004
 
-907:                                              ; preds = %842
-  %908 = landingpad { ptr, i32 }
-          cleanup
-  br label %1001
-
-909:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i
+909:                                              ; preds = %844
   %910 = landingpad { ptr, i32 }
+          cleanup
+  br label %1003
+
+911:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i
+  %912 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %847, %909
-  %.pn = phi { ptr, i32 } [ %910, %909 ], [ %848, %847 ]
-  %911 = load ptr, ptr %14, align 8, !tbaa !137
-  call void @free(ptr noundef %911) #27
+.body:                                            ; preds = %849, %911
+  %.pn = phi { ptr, i32 } [ %912, %911 ], [ %850, %849 ]
+  %913 = load ptr, ptr %14, align 8, !tbaa !137
+  call void @free(ptr noundef %913) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %1001
+  br label %1003
 
-912:                                              ; preds = %843, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEaSERKS3_.exit
+914:                                              ; preds = %845, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEaSERKS3_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  %913 = load ptr, ptr %1, align 8, !tbaa !60
-  %914 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %915 = load i64, ptr %914, align 8, !tbaa !63
-  %916 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %917 = load i64, ptr %916, align 8, !tbaa !150
-  %918 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %915, 0
-  %919 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.not8.i.i.i.i.i.i.i = icmp eq i64 %917, 0
+  %915 = load ptr, ptr %1, align 8, !tbaa !60
+  %916 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %917 = load i64, ptr %916, align 8, !tbaa !63
+  %918 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %919 = load i64, ptr %918, align 8, !tbaa !150
+  %920 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %917, 0
+  %921 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.not8.i.i.i.i.i.i.i = icmp eq i64 %919, 0
   %or.cond.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 %.not8.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit, label %920
+  br i1 %or.cond.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit, label %922
 
-920:                                              ; preds = %912
+922:                                              ; preds = %914
   %or.cond.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i, %.not8.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i, label %921
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i, label %923
 
-921:                                              ; preds = %920
-  %922 = sdiv i64 9223372036854775807, %917
-  %923 = icmp sgt i64 %915, %922
-  br i1 %923, label %.invoke, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
+923:                                              ; preds = %922
+  %924 = sdiv i64 9223372036854775807, %919
+  %925 = icmp sgt i64 %917, %924
+  br i1 %925, label %.invoke, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
 
-_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i: ; preds = %921, %920
-  %924 = mul nsw i64 %917, %915
-  %.not.i248 = icmp eq i64 %924, 0
-  br i1 %.not.i248, label %.thread, label %925
+_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i: ; preds = %923, %922
+  %926 = mul nsw i64 %919, %917
+  %.not.i248 = icmp eq i64 %926, 0
+  br i1 %.not.i248, label %.thread, label %927
 
 .thread:                                          ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
-  store i64 %915, ptr %918, align 8, !tbaa !63
-  store i64 %917, ptr %919, align 8, !tbaa !150
+  store i64 %917, ptr %920, align 8, !tbaa !63
+  store i64 %919, ptr %921, align 8, !tbaa !150
   br label %._crit_edge.i.i.i.i.i.i.i
 
-925:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
-  %926 = icmp sgt i64 %924, 0
-  br i1 %926, label %929, label %.thread586
+927:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
+  %928 = icmp sgt i64 %926, 0
+  br i1 %928, label %931, label %.thread586
 
-.thread586:                                       ; preds = %925
-  store i64 %915, ptr %918, align 8, !tbaa !63
-  store i64 %917, ptr %919, align 8, !tbaa !150
-  %.nonneg593 = sub i64 0, %924
-  %927 = and i64 %.nonneg593, -2
-  %928 = sub i64 0, %927
+.thread586:                                       ; preds = %927
+  store i64 %917, ptr %920, align 8, !tbaa !63
+  store i64 %919, ptr %921, align 8, !tbaa !150
+  %.nonneg593 = sub i64 0, %926
+  %929 = and i64 %.nonneg593, -2
+  %930 = sub i64 0, %929
   br label %._crit_edge.i.i.i.i.i.i.i
 
-929:                                              ; preds = %925
-  %930 = icmp samesign ugt i64 %924, 2305843009213693951
-  br i1 %930, label %.invoke, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i
+931:                                              ; preds = %927
+  %932 = icmp samesign ugt i64 %926, 2305843009213693951
+  br i1 %932, label %.invoke, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i
 
-_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %929
-  %931 = shl nuw i64 %924, 3
-  %932 = call noalias ptr @malloc(i64 noundef %931) #30
-  %933 = icmp eq ptr %932, null
-  br i1 %933, label %.invoke, label %935
+_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %931
+  %933 = shl nuw i64 %926, 3
+  %934 = call noalias ptr @malloc(i64 noundef %933) #30
+  %935 = icmp eq ptr %934, null
+  br i1 %935, label %.invoke, label %937
 
-.invoke:                                          ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i, %929, %921
-  %934 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %934, align 8, !tbaa !146
-  invoke void @__cxa_throw(ptr nonnull %934, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
-          to label %.cont unwind label %948
+.invoke:                                          ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i, %931, %923
+  %936 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %936, align 8, !tbaa !146
+  invoke void @__cxa_throw(ptr nonnull %936, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
+          to label %.cont unwind label %950
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-935:                                              ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i
-  store ptr %932, ptr %17, align 8, !tbaa !60
-  store i64 %915, ptr %918, align 8, !tbaa !63
-  store i64 %917, ptr %919, align 8, !tbaa !150
-  %936 = and i64 %924, 2305843009213693950
-  %.not645 = icmp eq i64 %924, 1
+937:                                              ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i
+  store ptr %934, ptr %17, align 8, !tbaa !60
+  store i64 %917, ptr %920, align 8, !tbaa !63
+  store i64 %919, ptr %921, align 8, !tbaa !150
+  %938 = and i64 %926, 2305843009213693950
+  %.not645 = icmp eq i64 %926, 1
   br i1 %.not645, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread586, %.thread, %935
-  %937 = phi i64 [ 0, %.thread ], [ %936, %935 ], [ %928, %.thread586 ], [ %936, %.lr.ph.i.i.i.i.i.i.i ]
-  %.pre.i585 = phi ptr [ null, %.thread ], [ %932, %935 ], [ null, %.thread586 ], [ %932, %.lr.ph.i.i.i.i.i.i.i ]
-  %938 = icmp slt i64 %937, %924
-  br i1 %938, label %.lr.ph.i.i.i.i.i.i.i.i213, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
+._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread586, %.thread, %937
+  %939 = phi i64 [ 0, %.thread ], [ %938, %937 ], [ %930, %.thread586 ], [ %938, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pre.i585 = phi ptr [ null, %.thread ], [ %934, %937 ], [ null, %.thread586 ], [ %934, %.lr.ph.i.i.i.i.i.i.i ]
+  %940 = icmp slt i64 %939, %926
+  br i1 %940, label %.lr.ph.i.i.i.i.i.i.i.i213, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i213:                        ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i213
-  %.05.i.i.i.i.i.i.i.i = phi i64 [ %942, %.lr.ph.i.i.i.i.i.i.i.i213 ], [ %937, %._crit_edge.i.i.i.i.i.i.i ]
-  %939 = getelementptr inbounds double, ptr %.pre.i585, i64 %.05.i.i.i.i.i.i.i.i
-  %940 = getelementptr inbounds double, ptr %913, i64 %.05.i.i.i.i.i.i.i.i
-  %941 = load double, ptr %940, align 8, !tbaa !58
-  store double %941, ptr %939, align 8, !tbaa !58
-  %942 = add nsw i64 %.05.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %942, %924
+  %.05.i.i.i.i.i.i.i.i = phi i64 [ %944, %.lr.ph.i.i.i.i.i.i.i.i213 ], [ %939, %._crit_edge.i.i.i.i.i.i.i ]
+  %941 = getelementptr inbounds double, ptr %.pre.i585, i64 %.05.i.i.i.i.i.i.i.i
+  %942 = getelementptr inbounds double, ptr %915, i64 %.05.i.i.i.i.i.i.i.i
+  %943 = load double, ptr %942, align 8, !tbaa !58
+  store double %943, ptr %941, align 8, !tbaa !58
+  %944 = add nsw i64 %.05.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %944, %926
   br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit, label %.lr.ph.i.i.i.i.i.i.i.i213, !llvm.loop !151
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %935, %.lr.ph.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i = phi i64 [ %946, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %935 ]
-  %943 = getelementptr inbounds nuw double, ptr %932, i64 %.011.i.i.i.i.i.i.i
-  %944 = getelementptr inbounds nuw double, ptr %913, i64 %.011.i.i.i.i.i.i.i
-  %945 = load <2 x double>, ptr %944, align 16, !tbaa !126
-  store <2 x double> %945, ptr %943, align 16, !tbaa !126
-  %946 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 2
-  %947 = icmp samesign ult i64 %946, %936
-  br i1 %947, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !152
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %937, %.lr.ph.i.i.i.i.i.i.i
+  %.011.i.i.i.i.i.i.i = phi i64 [ %948, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %937 ]
+  %945 = getelementptr inbounds nuw double, ptr %934, i64 %.011.i.i.i.i.i.i.i
+  %946 = getelementptr inbounds nuw double, ptr %915, i64 %.011.i.i.i.i.i.i.i
+  %947 = load <2 x double>, ptr %946, align 16, !tbaa !126
+  store <2 x double> %947, ptr %945, align 16, !tbaa !126
+  %948 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 2
+  %949 = icmp samesign ult i64 %948, %938
+  br i1 %949, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, !llvm.loop !152
 
-948:                                              ; preds = %.invoke
-  %949 = landingpad { ptr, i32 }
+950:                                              ; preds = %.invoke
+  %951 = landingpad { ptr, i32 }
           cleanup
   br label %.body214
 
-_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i213, %._crit_edge.i.i.i.i.i.i.i, %912
+_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i213, %._crit_edge.i.i.i.i.i.i.i, %914
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  %950 = load ptr, ptr %2, align 8, !tbaa !137
-  %951 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %952 = load i64, ptr %951, align 8, !tbaa !140
-  %953 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %954 = load i64, ptr %953, align 8, !tbaa !145
-  %955 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.not.i.i.i.i.i.i.i216 = icmp eq i64 %952, 0
-  %956 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %.not8.i.i.i.i.i.i.i217 = icmp eq i64 %954, 0
+  %952 = load ptr, ptr %2, align 8, !tbaa !137
+  %953 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %954 = load i64, ptr %953, align 8, !tbaa !140
+  %955 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %956 = load i64, ptr %955, align 8, !tbaa !145
+  %957 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.not.i.i.i.i.i.i.i216 = icmp eq i64 %954, 0
+  %958 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.not8.i.i.i.i.i.i.i217 = icmp eq i64 %956, 0
   %or.cond.i.i.i.i.i.i.i218 = select i1 %.not.i.i.i.i.i.i.i216, i1 %.not8.i.i.i.i.i.i.i217, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i218, label %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit, label %957
+  br i1 %or.cond.i.i.i.i.i.i.i218, label %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit, label %959
 
-957:                                              ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
+959:                                              ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
   %or.cond.i.i.i.i.i.i.i.i.i219 = or i1 %.not.i.i.i.i.i.i.i216, %.not8.i.i.i.i.i.i.i217
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i219, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i, label %958
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i219, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i, label %960
 
-958:                                              ; preds = %957
-  %959 = sdiv i64 9223372036854775807, %954
-  %960 = icmp sgt i64 %952, %959
-  br i1 %960, label %.invoke643, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
+960:                                              ; preds = %959
+  %961 = sdiv i64 9223372036854775807, %956
+  %962 = icmp sgt i64 %954, %961
+  br i1 %962, label %.invoke643, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
 
-_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i: ; preds = %958, %957
-  %961 = mul nsw i64 %954, %952
-  %.not.i251 = icmp eq i64 %961, 0
-  br i1 %.not.i251, label %.thread588, label %962
+_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i: ; preds = %960, %959
+  %963 = mul nsw i64 %956, %954
+  %.not.i251 = icmp eq i64 %963, 0
+  br i1 %.not.i251, label %.thread588, label %964
 
 .thread588:                                       ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
-  store i64 %952, ptr %955, align 8, !tbaa !140
-  store i64 %954, ptr %956, align 8, !tbaa !145
+  store i64 %954, ptr %957, align 8, !tbaa !140
+  store i64 %956, ptr %958, align 8, !tbaa !145
   br label %._crit_edge.i.i.i.i.i.i.i223
 
-962:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
-  %963 = icmp sgt i64 %961, 0
-  br i1 %963, label %966, label %.thread591
+964:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
+  %965 = icmp sgt i64 %963, 0
+  br i1 %965, label %968, label %.thread591
 
-.thread591:                                       ; preds = %962
-  store i64 %952, ptr %955, align 8, !tbaa !140
-  store i64 %954, ptr %956, align 8, !tbaa !145
-  %.nonneg = sub i64 0, %961
-  %964 = and i64 %.nonneg, -4
-  %965 = sub i64 0, %964
+.thread591:                                       ; preds = %964
+  store i64 %954, ptr %957, align 8, !tbaa !140
+  store i64 %956, ptr %958, align 8, !tbaa !145
+  %.nonneg = sub i64 0, %963
+  %966 = and i64 %.nonneg, -4
+  %967 = sub i64 0, %966
   br label %._crit_edge.i.i.i.i.i.i.i223
 
-966:                                              ; preds = %962
-  %967 = icmp samesign ugt i64 %961, 4611686018427387903
-  br i1 %967, label %.invoke643, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i
+968:                                              ; preds = %964
+  %969 = icmp samesign ugt i64 %963, 4611686018427387903
+  br i1 %969, label %.invoke643, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i
 
-_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %966
-  %968 = shl nuw i64 %961, 2
-  %969 = call noalias ptr @malloc(i64 noundef %968) #30
-  %970 = icmp eq ptr %969, null
-  br i1 %970, label %.invoke643, label %972
+_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %968
+  %970 = shl nuw i64 %963, 2
+  %971 = call noalias ptr @malloc(i64 noundef %970) #30
+  %972 = icmp eq ptr %971, null
+  br i1 %972, label %.invoke643, label %974
 
-.invoke643:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i, %966, %958
-  %971 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %971, align 8, !tbaa !146
-  invoke void @__cxa_throw(ptr nonnull %971, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
-          to label %.cont644 unwind label %986
+.invoke643:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i, %968, %960
+  %973 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %973, align 8, !tbaa !146
+  invoke void @__cxa_throw(ptr nonnull %973, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
+          to label %.cont644 unwind label %988
 
 .cont644:                                         ; preds = %.invoke643
   unreachable
 
-972:                                              ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i
-  store ptr %969, ptr %18, align 8, !tbaa !137
-  store i64 %952, ptr %955, align 8, !tbaa !140
-  store i64 %954, ptr %956, align 8, !tbaa !145
-  %973 = and i64 %961, 4611686018427387900
-  %974 = icmp samesign ugt i64 %961, 3
-  br i1 %974, label %.lr.ph.i.i.i.i.i.i.i227, label %._crit_edge.i.i.i.i.i.i.i223
+974:                                              ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i
+  store ptr %971, ptr %18, align 8, !tbaa !137
+  store i64 %954, ptr %957, align 8, !tbaa !140
+  store i64 %956, ptr %958, align 8, !tbaa !145
+  %975 = and i64 %963, 4611686018427387900
+  %976 = icmp samesign ugt i64 %963, 3
+  br i1 %976, label %.lr.ph.i.i.i.i.i.i.i227, label %._crit_edge.i.i.i.i.i.i.i223
 
-._crit_edge.i.i.i.i.i.i.i223:                     ; preds = %.lr.ph.i.i.i.i.i.i.i227, %.thread591, %.thread588, %972
-  %975 = phi i64 [ 0, %.thread588 ], [ %973, %972 ], [ %965, %.thread591 ], [ %973, %.lr.ph.i.i.i.i.i.i.i227 ]
-  %.pre.i222590 = phi ptr [ null, %.thread588 ], [ %969, %972 ], [ null, %.thread591 ], [ %969, %.lr.ph.i.i.i.i.i.i.i227 ]
-  %976 = icmp slt i64 %975, %961
-  br i1 %976, label %.lr.ph.i.i.i.i.i.i.i.i224, label %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
+._crit_edge.i.i.i.i.i.i.i223:                     ; preds = %.lr.ph.i.i.i.i.i.i.i227, %.thread591, %.thread588, %974
+  %977 = phi i64 [ 0, %.thread588 ], [ %975, %974 ], [ %967, %.thread591 ], [ %975, %.lr.ph.i.i.i.i.i.i.i227 ]
+  %.pre.i222590 = phi ptr [ null, %.thread588 ], [ %971, %974 ], [ null, %.thread591 ], [ %971, %.lr.ph.i.i.i.i.i.i.i227 ]
+  %978 = icmp slt i64 %977, %963
+  br i1 %978, label %.lr.ph.i.i.i.i.i.i.i.i224, label %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i224:                        ; preds = %._crit_edge.i.i.i.i.i.i.i223, %.lr.ph.i.i.i.i.i.i.i.i224
-  %.05.i.i.i.i.i.i.i.i225 = phi i64 [ %980, %.lr.ph.i.i.i.i.i.i.i.i224 ], [ %975, %._crit_edge.i.i.i.i.i.i.i223 ]
-  %977 = getelementptr inbounds i32, ptr %.pre.i222590, i64 %.05.i.i.i.i.i.i.i.i225
-  %978 = getelementptr inbounds i32, ptr %950, i64 %.05.i.i.i.i.i.i.i.i225
-  %979 = load i32, ptr %978, align 4, !tbaa !64
-  store i32 %979, ptr %977, align 4, !tbaa !64
-  %980 = add nsw i64 %.05.i.i.i.i.i.i.i.i225, 1
-  %exitcond.not.i.i.i.i.i.i.i.i226 = icmp eq i64 %980, %961
+  %.05.i.i.i.i.i.i.i.i225 = phi i64 [ %982, %.lr.ph.i.i.i.i.i.i.i.i224 ], [ %977, %._crit_edge.i.i.i.i.i.i.i223 ]
+  %979 = getelementptr inbounds i32, ptr %.pre.i222590, i64 %.05.i.i.i.i.i.i.i.i225
+  %980 = getelementptr inbounds i32, ptr %952, i64 %.05.i.i.i.i.i.i.i.i225
+  %981 = load i32, ptr %980, align 4, !tbaa !64
+  store i32 %981, ptr %979, align 4, !tbaa !64
+  %982 = add nsw i64 %.05.i.i.i.i.i.i.i.i225, 1
+  %exitcond.not.i.i.i.i.i.i.i.i226 = icmp eq i64 %982, %963
   br i1 %exitcond.not.i.i.i.i.i.i.i.i226, label %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit, label %.lr.ph.i.i.i.i.i.i.i.i224, !llvm.loop !148
 
-.lr.ph.i.i.i.i.i.i.i227:                          ; preds = %972, %.lr.ph.i.i.i.i.i.i.i227
-  %.011.i.i.i.i.i.i.i228 = phi i64 [ %984, %.lr.ph.i.i.i.i.i.i.i227 ], [ 0, %972 ]
-  %981 = getelementptr inbounds nuw i32, ptr %969, i64 %.011.i.i.i.i.i.i.i228
-  %982 = getelementptr inbounds nuw i32, ptr %950, i64 %.011.i.i.i.i.i.i.i228
-  %983 = load <2 x i64>, ptr %982, align 16, !tbaa !126
-  store <2 x i64> %983, ptr %981, align 16, !tbaa !126
-  %984 = add nuw nsw i64 %.011.i.i.i.i.i.i.i228, 4
-  %985 = icmp samesign ult i64 %984, %973
-  br i1 %985, label %.lr.ph.i.i.i.i.i.i.i227, label %._crit_edge.i.i.i.i.i.i.i223, !llvm.loop !149
+.lr.ph.i.i.i.i.i.i.i227:                          ; preds = %974, %.lr.ph.i.i.i.i.i.i.i227
+  %.011.i.i.i.i.i.i.i228 = phi i64 [ %986, %.lr.ph.i.i.i.i.i.i.i227 ], [ 0, %974 ]
+  %983 = getelementptr inbounds nuw i32, ptr %971, i64 %.011.i.i.i.i.i.i.i228
+  %984 = getelementptr inbounds nuw i32, ptr %952, i64 %.011.i.i.i.i.i.i.i228
+  %985 = load <2 x i64>, ptr %984, align 16, !tbaa !126
+  store <2 x i64> %985, ptr %983, align 16, !tbaa !126
+  %986 = add nuw nsw i64 %.011.i.i.i.i.i.i.i228, 4
+  %987 = icmp samesign ult i64 %986, %975
+  br i1 %987, label %.lr.ph.i.i.i.i.i.i.i227, label %._crit_edge.i.i.i.i.i.i.i223, !llvm.loop !149
 
-986:                                              ; preds = %.invoke643
-  %987 = landingpad { ptr, i32 }
+988:                                              ; preds = %.invoke643
+  %989 = landingpad { ptr, i32 }
           cleanup
   br label %.body231
 
 _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i224, %._crit_edge.i.i.i.i.i.i.i223, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
   invoke void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES3_S4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERNS1_15PlainObjectBaseIT1_EERNSF_IT2_EERNSF_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %988 unwind label %996
+          to label %990 unwind label %998
 
-988:                                              ; preds = %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
-  %989 = load ptr, ptr %18, align 8, !tbaa !137
-  call void @free(ptr noundef %989) #27
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %990 = load ptr, ptr %17, align 8, !tbaa !60
-  call void @free(ptr noundef %990) #27
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %991 = load ptr, ptr %16, align 8, !tbaa !153
+990:                                              ; preds = %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
+  %991 = load ptr, ptr %18, align 8, !tbaa !137
   call void @free(ptr noundef %991) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  %992 = load ptr, ptr %17, align 8, !tbaa !60
+  call void @free(ptr noundef %992) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  %993 = load ptr, ptr %16, align 8, !tbaa !153
+  call void @free(ptr noundef %993) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %992 = load ptr, ptr %27, align 8, !tbaa !37
-  invoke void @_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEESt4pairIKST_iESt10_Select1stISW_ESt4lessIST_ESaISW_EE8_M_eraseEPSt13_Rb_tree_nodeISW_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %992)
-          to label %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEED2Ev.exit unwind label %993
+  %994 = load ptr, ptr %27, align 8, !tbaa !37
+  invoke void @_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEESt4pairIKST_iESt10_Select1stISW_ESt4lessIST_ESaISW_EE8_M_eraseEPSt13_Rb_tree_nodeISW_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %994)
+          to label %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEED2Ev.exit unwind label %995
 
-993:                                              ; preds = %988
-  %994 = landingpad { ptr, i32 }
+995:                                              ; preds = %990
+  %996 = landingpad { ptr, i32 }
           catch ptr null
-  %995 = extractvalue { ptr, i32 } %994, 0
-  call void @__clang_call_terminate(ptr %995) #29
+  %997 = extractvalue { ptr, i32 } %996, 0
+  call void @__clang_call_terminate(ptr %997) #29
   unreachable
 
-_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEED2Ev.exit: ; preds = %988
+_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEED2Ev.exit: ; preds = %990
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.lcssa
 
-996:                                              ; preds = %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
-  %997 = landingpad { ptr, i32 }
+998:                                              ; preds = %_ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2INS_15PlainObjectBaseIS1_EEEERKT_.exit
+  %999 = landingpad { ptr, i32 }
           cleanup
-  %998 = load ptr, ptr %18, align 8, !tbaa !137
-  call void @free(ptr noundef %998) #27
+  %1000 = load ptr, ptr %18, align 8, !tbaa !137
+  call void @free(ptr noundef %1000) #27
   br label %.body231
 
-.body231:                                         ; preds = %986, %996
-  %.pn100 = phi { ptr, i32 } [ %997, %996 ], [ %987, %986 ]
+.body231:                                         ; preds = %988, %998
+  %.pn100 = phi { ptr, i32 } [ %999, %998 ], [ %989, %988 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %999 = load ptr, ptr %17, align 8, !tbaa !60
-  call void @free(ptr noundef %999) #27
+  %1001 = load ptr, ptr %17, align 8, !tbaa !60
+  call void @free(ptr noundef %1001) #27
   %.pre503 = load ptr, ptr %16, align 8, !tbaa !153
   br label %.body214
 
-.body214:                                         ; preds = %948, %.body231
-  %1000 = phi ptr [ %.pre503, %.body231 ], [ null, %948 ]
-  %.pn100.pn = phi { ptr, i32 } [ %.pn100, %.body231 ], [ %949, %948 ]
+.body214:                                         ; preds = %950, %.body231
+  %1002 = phi ptr [ %.pre503, %.body231 ], [ null, %950 ]
+  %.pn100.pn = phi { ptr, i32 } [ %.pn100, %.body231 ], [ %951, %950 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  call void @free(ptr noundef %1000) #27
+  call void @free(ptr noundef %1002) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %1001
+  br label %1003
 
-1001:                                             ; preds = %.body214, %.body, %907
-  %.pn100.pn.pn.pn = phi { ptr, i32 } [ %.pn100.pn, %.body214 ], [ %.pn, %.body ], [ %908, %907 ]
+1003:                                             ; preds = %.body214, %.body, %909
+  %.pn100.pn.pn.pn = phi { ptr, i32 } [ %.pn100.pn, %.body214 ], [ %.pn, %.body ], [ %910, %909 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %1002
+  br label %1004
 
-1002:                                             ; preds = %1001, %906, %76, %74
-  %.pn120.pn = phi { ptr, i32 } [ %77, %76 ], [ %.pn116.pn.pn, %906 ], [ %.pn100.pn.pn.pn, %1001 ], [ %75, %74 ]
-  %1003 = load ptr, ptr %27, align 8, !tbaa !37
-  invoke void @_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEESt4pairIKST_iESt10_Select1stISW_ESt4lessIST_ESaISW_EE8_M_eraseEPSt13_Rb_tree_nodeISW_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %1003)
-          to label %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEED2Ev.exit233 unwind label %1004
+1004:                                             ; preds = %1003, %908, %76, %74
+  %.pn120.pn = phi { ptr, i32 } [ %77, %76 ], [ %.pn116.pn.pn, %908 ], [ %.pn100.pn.pn.pn, %1003 ], [ %75, %74 ]
+  %1005 = load ptr, ptr %27, align 8, !tbaa !37
+  invoke void @_ZNSt8_Rb_treeIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEESt4pairIKST_iESt10_Select1stISW_ESt4lessIST_ESaISW_EE8_M_eraseEPSt13_Rb_tree_nodeISW_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %1005)
+          to label %_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEED2Ev.exit233 unwind label %1006
 
-1004:                                             ; preds = %1002
-  %1005 = landingpad { ptr, i32 }
+1006:                                             ; preds = %1004
+  %1007 = landingpad { ptr, i32 }
           catch ptr null
-  %1006 = extractvalue { ptr, i32 } %1005, 0
-  call void @__clang_call_terminate(ptr %1006) #29
+  %1008 = extractvalue { ptr, i32 } %1007, 0
+  call void @__clang_call_terminate(ptr %1008) #29
   unreachable
 
-_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEED2Ev.exit233: ; preds = %1002
+_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEED2Ev.exit233: ; preds = %1004
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn120.pn
 }

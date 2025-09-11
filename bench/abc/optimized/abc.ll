@@ -97492,41 +97492,43 @@ define internal fastcc void @Vec_WecFree(ptr noundef captures(none) %0) unnamed_
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !1441
   br i1 %3, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %1, %12
-  %5 = phi i32 [ %13, %12 ], [ %2, %1 ]
-  %6 = phi ptr [ %14, %12 ], [ %.pre.i, %1 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %6, i64 %indvars.iv.i, i32 2
-  %8 = load ptr, ptr %7, align 8, !tbaa !38
-  %.not15.i = icmp eq ptr %8, null
-  br i1 %.not15.i, label %12, label %9
+.lr.ph.i:                                         ; preds = %1, %14
+  %5 = phi i32 [ %15, %14 ], [ %2, %1 ]
+  %6 = phi ptr [ %16, %14 ], [ %.pre.i, %1 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %1 ]
+  %7 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !38
+  %.not15.i = icmp eq ptr %9, null
+  br i1 %.not15.i, label %14, label %10
 
-9:                                                ; preds = %.lr.ph.i
-  tail call void @free(ptr noundef nonnull %8) #32
-  %10 = load ptr, ptr %4, align 8, !tbaa !1441
-  %11 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %10, i64 %indvars.iv.i, i32 2
-  store ptr null, ptr %11, align 8, !tbaa !38
+10:                                               ; preds = %.lr.ph.i
+  tail call void @free(ptr noundef nonnull %9) #32
+  %11 = load ptr, ptr %4, align 8, !tbaa !1441
+  %12 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %11, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr null, ptr %13, align 8, !tbaa !38
   %.pre18.i = load i32, ptr %0, align 8, !tbaa !1439
-  br label %12
+  br label %14
 
-12:                                               ; preds = %9, %.lr.ph.i
-  %13 = phi i32 [ %.pre18.i, %9 ], [ %5, %.lr.ph.i ]
-  %14 = phi ptr [ %10, %9 ], [ %6, %.lr.ph.i ]
+14:                                               ; preds = %10, %.lr.ph.i
+  %15 = phi i32 [ %.pre18.i, %10 ], [ %5, %.lr.ph.i ]
+  %16 = phi ptr [ %11, %10 ], [ %6, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %15 = sext i32 %13 to i64
-  %16 = icmp slt i64 %indvars.iv.next.i, %15
-  br i1 %16, label %.lr.ph.i, label %._crit_edge.thread.i, !llvm.loop !1442
+  %17 = sext i32 %15 to i64
+  %18 = icmp slt i64 %indvars.iv.next.i, %17
+  br i1 %18, label %.lr.ph.i, label %._crit_edge.thread.i, !llvm.loop !1442
 
 ._crit_edge.i:                                    ; preds = %1
   %.not.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i, label %18, label %._crit_edge.thread.i
+  br i1 %.not.i, label %20, label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %12, %._crit_edge.i
-  %17 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %14, %12 ]
-  tail call void @free(ptr noundef nonnull %17) #32
-  br label %18
+._crit_edge.thread.i:                             ; preds = %14, %._crit_edge.i
+  %19 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %16, %14 ]
+  tail call void @free(ptr noundef nonnull %19) #32
+  br label %20
 
-18:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
+20:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
   tail call void @free(ptr noundef nonnull %0) #32
   ret void
 }

@@ -71885,9 +71885,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   br i1 %35, label %68, label %36
 
 36:                                               ; preds = %34
-  %37 = sub nsw i32 8, %11
+  %37 = sub nuw nsw i32 8, %11
   %38 = shl nuw nsw i32 1, %37
-  %39 = trunc i32 %38 to i8
+  %39 = trunc nuw i32 %38 to i8
   %.not = icmp ult i8 %0, %39
   br i1 %.not, label %65, label %40
 
@@ -73390,9 +73390,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   br i1 %35, label %68, label %36
 
 36:                                               ; preds = %34
-  %37 = sub nsw i32 16, %11
+  %37 = sub nuw nsw i32 16, %11
   %38 = shl nuw nsw i32 1, %37
-  %39 = trunc i32 %38 to i16
+  %39 = trunc nuw i32 %38 to i16
   %.not = icmp ult i16 %0, %39
   br i1 %.not, label %65, label %40
 

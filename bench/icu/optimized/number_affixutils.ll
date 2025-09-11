@@ -18,7 +18,8 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZTIN6icu_776number4impl14SymbolProviderE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6icu_776number4impl14SymbolProviderE }, align 8
 @_ZTSN6icu_776number4impl14SymbolProviderE = constant [38 x i8] c"N6icu_776number4impl14SymbolProviderE\00", align 1
 @_ZTVN6icu_7713UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
-@switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode = private unnamed_addr constant [15 x i8] [i8 39, i8 poison, i8 poison, i8 poison, i8 poison, i8 39, i8 39, i8 39, i8 39, i8 39, i8 41, i8 40, i8 45, i8 42, i8 42], align 1
+@switch.table._ZN6icu_776number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE = private unnamed_addr constant [15 x i8] [i8 39, i8 poison, i8 poison, i8 poison, i8 poison, i8 39, i8 39, i8 39, i8 39, i8 39, i8 41, i8 40, i8 45, i8 42, i8 42], align 1
+@switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode = private unnamed_addr constant [10 x i8] c"''''')(-**", align 1
 
 @_ZN6icu_776number4impl13TokenConsumerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_776number4impl13TokenConsumerD2Ev
 @_ZN6icu_776number4impl14SymbolProviderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_776number4impl14SymbolProviderD2Ev
@@ -290,7 +291,7 @@ define range(i8 39, 46) i8 @_ZN6icu_776number4impl10AffixUtils15getFieldForTypeE
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 %4
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6icu_776number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE, i64 %4
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -392,20 +393,16 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %.sroa.8.12.extract.trunc37)
-  %switch.tableidx = add nsw i32 %.sroa.8.12.extract.trunc37, 15
-  %63 = icmp ugt i64 %49, -64424509441
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 32737, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond = select i1 %63, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %64
+  %63 = icmp ugt i64 %49, -42949672961
+  br i1 %63, label %switch.lookup, label %64
 
 64:                                               ; preds = %59
   call void @abort() #10
   unreachable
 
 switch.lookup:                                    ; preds = %59
-  %65 = zext nneg i32 %switch.tableidx to i64
+  %switch.tableidx = add nuw nsw i64 %.sroa.8.12.extract.shift36, 10
+  %65 = and i64 %switch.tableidx, 4294967295
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 %65
   %switch.load = load i8, ptr %switch.gep, align 1
   %66 = add nsw i32 %.02846, %2

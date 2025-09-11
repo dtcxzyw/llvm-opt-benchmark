@@ -2482,35 +2482,36 @@ define linkonce_odr noundef ptr @_ZN6icu_7730CollationLocaleListEnumeration4next
   %5 = load i32, ptr %4, align 4, !tbaa !63
   %6 = load i32, ptr @_ZL24availableLocaleListCount, align 4, !tbaa !33
   %7 = icmp slt i32 %5, %6
-  br i1 %7, label %8, label %17
+  br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr @_ZL19availableLocaleList, align 8, !tbaa !37
   %10 = add nsw i32 %5, 1
   store i32 %10, ptr %4, align 4, !tbaa !63
   %11 = sext i32 %5 to i64
-  %12 = getelementptr inbounds %"class.icu_77::Locale", ptr %9, i64 %11, i32 7
-  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %12 = getelementptr inbounds %"class.icu_77::Locale", ptr %9, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %14 = load ptr, ptr %13, align 8, !tbaa !17
   %.not9 = icmp eq ptr %1, null
-  br i1 %.not9, label %18, label %14
+  br i1 %.not9, label %19, label %15
 
-14:                                               ; preds = %8
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #18
-  %16 = trunc i64 %15 to i32
+15:                                               ; preds = %8
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #18
+  %17 = trunc i64 %16 to i32
   br label %.sink.split
 
-17:                                               ; preds = %3
+18:                                               ; preds = %3
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %18, label %.sink.split
+  br i1 %.not, label %19, label %.sink.split
 
-.sink.split:                                      ; preds = %17, %14
-  %.sink = phi i32 [ %16, %14 ], [ 0, %17 ]
-  %.0.ph = phi ptr [ %13, %14 ], [ null, %17 ]
+.sink.split:                                      ; preds = %18, %15
+  %.sink = phi i32 [ %17, %15 ], [ 0, %18 ]
+  %.0.ph = phi ptr [ %14, %15 ], [ null, %18 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !33
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.sink.split, %17, %8
-  %.0 = phi ptr [ %13, %8 ], [ null, %17 ], [ %.0.ph, %.sink.split ]
+19:                                               ; preds = %.sink.split, %18, %8
+  %.0 = phi ptr [ %14, %8 ], [ null, %18 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

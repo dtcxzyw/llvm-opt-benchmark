@@ -6595,21 +6595,22 @@ define hidden void @"_ZN95_$LT$petgraph..visit..reversed..Reversed$LT$G$GT$$u20$
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !1626, !noalias !1627, !nonnull !8, !noundef !8
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i32] }, ptr %14, i64 %10, i32 1, i64 1
+  %15 = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i32] }, ptr %14, i64 %10
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 36
   %.sroa.5.0.copyload.i.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i.i, align 4, !noalias !1628
   br label %"_ZN113_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..IntoNeighborsDirected$GT$18neighbors_directed17h64f6685599bec0a8E.exit"
 
 "_ZN113_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..IntoNeighborsDirected$GT$18neighbors_directed17h64f6685599bec0a8E.exit": ; preds = %3, %12
   %.sroa.5.0.i.i.i = phi i32 [ %.sroa.5.0.copyload.i.i.i, %12 ], [ -1, %3 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %0, align 8, !alias.scope !1627, !noalias !1626
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %16, align 8, !alias.scope !1627, !noalias !1626
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %7, ptr %17, align 8, !alias.scope !1627, !noalias !1626
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.5.0..sroa_idx2.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.5.0.i.i.i, ptr %.sroa.5.0..sroa_idx2.i.i.i, align 4, !alias.scope !1627, !noalias !1626
-  store i32 -1, ptr %17, align 8, !alias.scope !1629, !noalias !1630
-  store i32 -1, ptr %15, align 8, !alias.scope !1629, !noalias !1630
+  store i32 -1, ptr %18, align 8, !alias.scope !1629, !noalias !1630
+  store i32 -1, ptr %16, align 8, !alias.scope !1629, !noalias !1630
   ret void
 }
 

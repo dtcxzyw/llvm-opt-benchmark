@@ -688,8 +688,8 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
   %54 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv272.i
   %55 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv272.i
   %56 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv272.i
-  %57 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv272.i, i32 0, i64 1
-  %58 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %0, i64 %indvars.iv272.i, i32 0, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   br label %59
 
 59:                                               ; preds = %150, %.lr.ph234.i

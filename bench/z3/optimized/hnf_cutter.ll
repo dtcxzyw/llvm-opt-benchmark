@@ -6556,56 +6556,57 @@ define hidden void @_ZN2lp10hnf_cutter25try_add_term_to_A_for_hnfEj(ptr noundef 
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1320
   %14 = load ptr, ptr %13, align 8, !tbaa !251
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw %"class.lp::column", ptr %14, i64 %15, i32 2
-  %17 = load ptr, ptr %16, align 8, !tbaa !254
+  %16 = getelementptr inbounds nuw %"class.lp::column", ptr %14, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !254
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %18 = invoke noundef zeroext i1 @_ZNK2lp10hnf_cutter7is_fullEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-          to label %19 unwind label %28
+  %19 = invoke noundef zeroext i1 @_ZNK2lp10hnf_cutter7is_fullEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
+          to label %20 unwind label %29
 
-19:                                               ; preds = %2
-  br i1 %18, label %30, label %20
+20:                                               ; preds = %2
+  br i1 %19, label %31, label %21
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %11, align 8, !tbaa !250
-  %22 = invoke noundef zeroext i1 @_ZNK2lp10lar_solver49get_equality_and_right_side_for_term_on_current_xEjR8rationalRPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyERb(ptr noundef nonnull align 8 dereferenceable(2128) %21, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %23 unwind label %28
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %11, align 8, !tbaa !250
+  %23 = invoke noundef zeroext i1 @_ZNK2lp10lar_solver49get_equality_and_right_side_for_term_on_current_xEjR8rationalRPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyERb(ptr noundef nonnull align 8 dereferenceable(2128) %22, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %24 unwind label %29
 
-23:                                               ; preds = %20
-  br i1 %22, label %24, label %30
+24:                                               ; preds = %21
+  br i1 %23, label %25, label %31
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %4, align 8, !tbaa !129
-  %26 = load i8, ptr %5, align 1, !tbaa !125, !range !177, !noundef !178
-  %27 = trunc nuw i8 %26 to i1
-  invoke void @_ZN2lp10hnf_cutter8add_termEPKNS_8lar_termERK8rationalPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %25, i1 noundef zeroext %27)
-          to label %30 unwind label %28
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %4, align 8, !tbaa !129
+  %27 = load i8, ptr %5, align 1, !tbaa !125, !range !177, !noundef !178
+  %28 = trunc nuw i8 %27 to i1
+  invoke void @_ZN2lp10hnf_cutter8add_termEPKNS_8lar_termERK8rationalPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %26, i1 noundef zeroext %28)
+          to label %31 unwind label %29
 
-28:                                               ; preds = %24, %20, %2
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %25, %21, %2
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %29
+  resume { ptr, i32 } %30
 
-30:                                               ; preds = %24, %23, %19
+31:                                               ; preds = %25, %24, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %31 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !26
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %.noexc.i unwind label %32
+  %32 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !26
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %.noexc.i unwind label %33
 
-.noexc.i:                                         ; preds = %30
-  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %_ZN8rationalD2Ev.exit unwind label %32
+.noexc.i:                                         ; preds = %31
+  invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %_ZN8rationalD2Ev.exit unwind label %33
 
-32:                                               ; preds = %.noexc.i, %30
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %.noexc.i, %31
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #25
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #25
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i

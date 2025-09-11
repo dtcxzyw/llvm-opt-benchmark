@@ -984,7 +984,7 @@ define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull
 
 4:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.8) #20
-  br label %61
+  br label %62
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 8
@@ -1029,101 +1029,102 @@ define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull
 
 24:                                               ; preds = %24, %.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next45.i, %24 ]
-  %25 = phi ptr [ @.str.116, %.preheader.i ], [ %30, %24 ]
+  %25 = phi ptr [ @.str.116, %.preheader.i ], [ %31, %24 ]
   %.22639.i = phi ptr [ null, %.preheader.i ], [ %spec.select51, %24 ]
   %26 = getelementptr inbounds nuw %struct.anon.23, ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t2, i64 %indvars.iv44.i
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, %23
   %spec.select51 = select i1 %28, ptr %25, ptr %.22639.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %29 = getelementptr inbounds nuw %struct.anon.23, ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t2, i64 %indvars.iv.next45.i, i32 1
-  %30 = load ptr, ptr %29, align 8
+  %29 = getelementptr inbounds nuw %struct.anon.23, ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t2, i64 %indvars.iv.next45.i
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8
   %.not31.i = icmp eq i64 %indvars.iv.next45.i, 9
-  br i1 %.not31.i, label %31, label %24, !llvm.loop !12
+  br i1 %.not31.i, label %32, label %24, !llvm.loop !12
 
-31:                                               ; preds = %24
+32:                                               ; preds = %24
   %.not36.i = icmp eq ptr %spec.select51, null
   %spec.select = select i1 %.not36.i, ptr @.str.134, ptr %spec.select51
   br label %_ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit
 
-_ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit: ; preds = %31, %.loopexit.i
-  %32 = phi i32 [ %16, %.loopexit.i ], [ %23, %31 ]
-  %.12534.sink.i = phi ptr [ %21, %.loopexit.i ], [ %spec.select, %31 ]
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.10, i32 noundef %32, ptr noundef %.12534.sink.i) #20
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %34 = load i32, ptr %33, align 4
-  %.not50 = icmp eq i32 %34, 0
-  br i1 %.not50, label %36, label %35
+_ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit: ; preds = %32, %.loopexit.i
+  %33 = phi i32 [ %16, %.loopexit.i ], [ %23, %32 ]
+  %.12534.sink.i = phi ptr [ %21, %.loopexit.i ], [ %spec.select, %32 ]
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.10, i32 noundef %33, ptr noundef %.12534.sink.i) #20
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %35 = load i32, ptr %34, align 4
+  %.not50 = icmp eq i32 %35, 0
+  br i1 %.not50, label %37, label %36
 
-35:                                               ; preds = %_ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11, i32 noundef %34) #20
-  br label %36
+36:                                               ; preds = %_ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11, i32 noundef %35) #20
+  br label %37
 
-36:                                               ; preds = %35, %_ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit
-  %37 = load i32, ptr %9, align 8
-  switch i32 %37, label %_ZN2os19signal_sent_by_killEPKv.exit [
-    i32 0, label %38
-    i32 -1, label %38
-    i32 -6, label %38
+37:                                               ; preds = %36, %_ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.exit
+  %38 = load i32, ptr %9, align 8
+  switch i32 %38, label %_ZN2os19signal_sent_by_killEPKv.exit [
+    i32 0, label %39
+    i32 -1, label %39
+    i32 -6, label %39
   ]
 
-38:                                               ; preds = %36, %36, %36
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load i32, ptr %39, align 8
-  %41 = sext i32 %40 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12, i64 noundef %41) #20
-  %42 = add i32 %40, -1
-  %or.cond = icmp ult i32 %42, 2147483646
-  br i1 %or.cond, label %43, label %.sink.split
+39:                                               ; preds = %37, %37, %37
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = load i32, ptr %40, align 8
+  %42 = sext i32 %41 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12, i64 noundef %42) #20
+  %43 = add i32 %41, -1
+  %or.cond = icmp ult i32 %43, 2147483646
+  br i1 %or.cond, label %44, label %.sink.split
 
-43:                                               ; preds = %38
-  %44 = call i32 @getpid() #20
-  %45 = icmp eq i32 %44, %40
-  br i1 %45, label %.sink.split, label %46
+44:                                               ; preds = %39
+  %45 = call i32 @getpid() #20
+  %46 = icmp eq i32 %45, %41
+  br i1 %46, label %.sink.split, label %47
 
-.sink.split:                                      ; preds = %38, %43
-  %.str.13.sink = phi ptr [ @.str.13, %43 ], [ @.str.14, %38 ]
+.sink.split:                                      ; preds = %39, %44
+  %.str.13.sink = phi ptr [ @.str.13, %44 ], [ @.str.14, %39 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.str.13.sink) #20
-  br label %46
+  br label %47
 
-46:                                               ; preds = %.sink.split, %43
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %48 = load i32, ptr %47, align 4
-  %49 = zext i32 %48 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.15, i64 noundef %49) #20
-  %50 = icmp eq i32 %6, 17
-  br i1 %50, label %51, label %61
+47:                                               ; preds = %.sink.split, %44
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %49 = load i32, ptr %48, align 4
+  %50 = zext i32 %49 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.15, i64 noundef %50) #20
+  %51 = icmp eq i32 %6, 17
+  br i1 %51, label %52, label %62
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %53 = load i32, ptr %52, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.16, i32 noundef %53) #20
-  br label %61
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %54 = load i32, ptr %53, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.16, i32 noundef %54) #20
+  br label %62
 
-_ZN2os19signal_sent_by_killEPKv.exit:             ; preds = %36
-  switch i32 %6, label %61 [
-    i32 11, label %54
-    i32 8, label %54
-    i32 7, label %54
-    i32 5, label %54
-    i32 4, label %54
-    i32 29, label %58
+_ZN2os19signal_sent_by_killEPKv.exit:             ; preds = %37
+  switch i32 %6, label %62 [
+    i32 11, label %55
+    i32 8, label %55
+    i32 7, label %55
+    i32 5, label %55
+    i32 4, label %55
+    i32 29, label %59
   ]
 
-54:                                               ; preds = %_ZN2os19signal_sent_by_killEPKv.exit, %_ZN2os19signal_sent_by_killEPKv.exit, %_ZN2os19signal_sent_by_killEPKv.exit, %_ZN2os19signal_sent_by_killEPKv.exit, %_ZN2os19signal_sent_by_killEPKv.exit
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %57 = ptrtoint ptr %56 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.17, i64 noundef %57) #20
-  br label %61
+55:                                               ; preds = %_ZN2os19signal_sent_by_killEPKv.exit, %_ZN2os19signal_sent_by_killEPKv.exit, %_ZN2os19signal_sent_by_killEPKv.exit, %_ZN2os19signal_sent_by_killEPKv.exit, %_ZN2os19signal_sent_by_killEPKv.exit
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = ptrtoint ptr %57 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.17, i64 noundef %58) #20
+  br label %62
 
-58:                                               ; preds = %_ZN2os19signal_sent_by_killEPKv.exit
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %60 = load i64, ptr %59, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.18, i64 noundef %60) #20
-  br label %61
+59:                                               ; preds = %_ZN2os19signal_sent_by_killEPKv.exit
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %61 = load i64, ptr %60, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.18, i64 noundef %61) #20
+  br label %62
 
-61:                                               ; preds = %_ZN2os19signal_sent_by_killEPKv.exit, %54, %58, %46, %51, %4
+62:                                               ; preds = %_ZN2os19signal_sent_by_killEPKv.exit, %55, %59, %47, %52, %4
   ret void
 }
 
@@ -1263,7 +1264,7 @@ define linkonce_odr hidden void @_ZN6Events3logEP6ThreadPKcz(ptr noundef %0, ptr
   %6 = load ptr, ptr @_ZN6Events9_messagesE, align 8
   %7 = icmp ne ptr %6, null
   %or.cond = select i1 %5, i1 %7, i1 false
-  br i1 %or.cond, label %8, label %34
+  br i1 %or.cond, label %8, label %36
 
 8:                                                ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -1297,23 +1298,25 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %21, %11
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %15 to i64
-  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26, i32 1
-  store ptr %0, ptr %27, align 8
-  %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %28, i64 %26
-  store double %12, ptr %29, align 8
-  %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %30, i64 %26, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @jio_vsnprintf(ptr noundef %32, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #20
+  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %0, ptr %28, align 8
+  %29 = load ptr, ptr %24, align 8
+  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %29, i64 %26
+  store double %12, ptr %30, align 8
+  %31 = load ptr, ptr %24, align 8
+  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %31, i64 %26
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 @jio_vsnprintf(ptr noundef %34, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #20
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #20
   br label %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit
 
 _ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit: ; preds = %8, %_ZN11MutexLockerD2Ev.exit.i
   call void @llvm.va_end.p0(ptr nonnull %3)
-  br label %34
+  br label %36
 
-34:                                               ; preds = %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit, %2
+36:                                               ; preds = %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit, %2
   ret void
 }
 

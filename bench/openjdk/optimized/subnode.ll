@@ -8484,28 +8484,29 @@ define hidden noundef ptr @_ZN7AbsNode5IdealEP8PhaseGVNb(ptr noundef nonnull ali
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %28, i32 1
-  %30 = load i8, ptr %29, align 4
-  %31 = icmp eq i8 %30, 14
-  %32 = icmp ugt i8 %30, 18
-  %or.cond.i = or i1 %31, %32
+  %29 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %31 = load i8, ptr %30, align 4
+  %32 = icmp eq i8 %31, 14
+  %33 = icmp ugt i8 %31, 18
+  %or.cond.i = or i1 %32, %33
   br i1 %or.cond.i, label %_ZNK4Type12is_zero_typeEv.exit.thread, label %_ZNK4Type12is_zero_typeEv.exit
 
 _ZNK4Type12is_zero_typeEv.exit:                   ; preds = %12
-  %33 = zext nneg i8 %30 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr @_ZN4Type10_zero_typeE, i64 %33
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %25, %35
-  br i1 %36, label %37, label %_ZNK4Type12is_zero_typeEv.exit.thread
+  %34 = zext nneg i8 %31 to i64
+  %35 = getelementptr inbounds nuw ptr, ptr @_ZN4Type10_zero_typeE, i64 %34
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %25, %36
+  br i1 %37, label %38, label %_ZNK4Type12is_zero_typeEv.exit.thread
 
-37:                                               ; preds = %_ZNK4Type12is_zero_typeEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %39 = load ptr, ptr %38, align 8
-  tail call void @_ZN4Node9set_req_XEjPS_P8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 1, ptr noundef %39, ptr noundef nonnull %1) #10
+38:                                               ; preds = %_ZNK4Type12is_zero_typeEv.exit
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %40 = load ptr, ptr %39, align 8
+  tail call void @_ZN4Node9set_req_XEjPS_P8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 1, ptr noundef %40, ptr noundef nonnull %1) #10
   br label %_ZNK4Type12is_zero_typeEv.exit.thread
 
-_ZNK4Type12is_zero_typeEv.exit.thread:            ; preds = %12, %3, %_ZNK4Type12is_zero_typeEv.exit, %37
-  %.0 = phi ptr [ %0, %37 ], [ null, %_ZNK4Type12is_zero_typeEv.exit ], [ null, %3 ], [ null, %12 ]
+_ZNK4Type12is_zero_typeEv.exit.thread:            ; preds = %12, %3, %_ZNK4Type12is_zero_typeEv.exit, %38
+  %.0 = phi ptr [ %0, %38 ], [ null, %_ZNK4Type12is_zero_typeEv.exit ], [ null, %3 ], [ null, %12 ]
   ret ptr %.0
 }
 

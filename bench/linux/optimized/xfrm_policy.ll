@@ -591,7 +591,8 @@ define dso_local noundef ptr @xfrm_policy_alloc(ptr noundef %0, i32 noundef %1) 
 
 10:                                               ; preds = %6, %2
   %11 = phi i64 [ 0, %2 ], [ %9, %6 ]
-  %12 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %11, i64 10
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 80
   %13 = load ptr, ptr %12, align 16
   %14 = tail call noalias align 8 dereferenceable_or_null(832) ptr @kmalloc_trace(ptr noundef %13, i32 noundef %3, i64 noundef 832) #23
   %15 = icmp eq ptr %14, null

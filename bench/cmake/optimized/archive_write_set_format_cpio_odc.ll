@@ -363,7 +363,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %32 = call fastcc i64 @format_octal_recursive(i64 noundef %..i, ptr noundef nonnull %31, i32 noundef 6)
   %33 = call i64 @archive_entry_ino64(ptr noundef %1) #12
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.thread113, label %35
+  br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %27
   %36 = call i32 @archive_entry_nlink(ptr noundef %1) #12
@@ -444,7 +444,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %72 = phi ptr [ %.pre.i67, %._crit_edge._crit_edge.i ], [ %68, %69 ]
   %73 = getelementptr inbounds nuw %struct.anon, ptr %72, i64 %71
   store i64 %33, ptr %73, align 8, !tbaa !39
-  %74 = getelementptr inbounds nuw %struct.anon, ptr %72, i64 %71, i32 1
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 %59, ptr %74, align 8, !tbaa !41
   %75 = add i64 %71, 1
   store i64 %75, ptr %38, align 8, !tbaa !35
@@ -462,14 +462,14 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
 77:                                               ; preds = %synthesize_ino_value.exit
   %78 = zext nneg i32 %.0.i65 to i64
   %79 = icmp samesign ugt i32 %.0.i65, 262143
-  br i1 %79, label %80, label %.thread113
+  br i1 %79, label %80, label %.thread
 
 80:                                               ; preds = %77
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.12) #12
   br label %158
 
-.thread113:                                       ; preds = %77, %27
-  %81 = phi i64 [ 0, %27 ], [ %78, %77 ]
+.thread:                                          ; preds = %27, %77
+  %81 = phi i64 [ %78, %77 ], [ 0, %27 ]
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %83 = call fastcc i64 @format_octal_recursive(i64 noundef %81, ptr noundef nonnull %82, i32 noundef 6)
   %84 = call i32 @archive_entry_mode(ptr noundef %1) #12
@@ -494,12 +494,12 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   %99 = icmp eq i32 %98, 24576
   br i1 %99, label %103, label %100
 
-100:                                              ; preds = %.thread113
+100:                                              ; preds = %.thread
   %101 = call i32 @archive_entry_filetype(ptr noundef %1) #12
   %102 = icmp eq i32 %101, 8192
   br i1 %102, label %103, label %107
 
-103:                                              ; preds = %100, %.thread113
+103:                                              ; preds = %100, %.thread
   %104 = call i64 @archive_entry_rdev(ptr noundef %1) #12
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 42
   %..i90 = call i64 @llvm.umin.i64(i64 %104, i64 262143)
@@ -574,11 +574,11 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   br label %141
 
 141:                                              ; preds = %139, %137
-  %.sink127 = phi i64 [ %140, %139 ], [ %138, %137 ]
+  %.sink124 = phi i64 [ %140, %139 ], [ %138, %137 ]
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 65
-  %..i106 = call i64 @llvm.umin.i64(i64 %.sink127, i64 8589934591)
+  %..i106 = call i64 @llvm.umin.i64(i64 %.sink124, i64 8589934591)
   %143 = call fastcc i64 @format_octal_recursive(i64 noundef %..i106, ptr noundef nonnull %142, i32 noundef 11)
-  %.0.in = icmp ult i64 %.sink127, 8589934592
+  %.0.in = icmp ult i64 %.sink124, 8589934592
   br i1 %.0.in, label %145, label %144
 
 144:                                              ; preds = %141

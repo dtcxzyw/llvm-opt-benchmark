@@ -192,10 +192,10 @@ _ZNK6vectorIbLb0EjE4sizeEv.exit:                  ; preds = %_ZNK6vectorIbLb0EjE
   %16 = load i8, ptr %15, align 1, !tbaa !75, !range !76, !noundef !77
   %17 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %12, i64 %indvars.iv
   store i8 %16, ptr %17, align 1, !tbaa !75
-  %18 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %12, i64 %indvars.iv, i32 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store double 0.000000e+00, ptr %18, align 8, !tbaa !78
-  %19 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %12, i64 %indvars.iv, i32 3
-  store i32 0, ptr %19, align 4, !tbaa !74
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store i32 0, ptr %19, align 8, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %10, align 4, !tbaa !74
   %21 = zext i32 %20 to i64

@@ -2341,7 +2341,8 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 
 8:                                                ; preds = %2
   %9 = zext nneg i8 %6 to i64
-  %10 = getelementptr %struct.fib_prop, ptr @fib_props, i64 %9, i32 1
+  %.split = getelementptr %struct.fib_prop, ptr @fib_props, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 4
   %11 = load i8, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %13 = load i8, ptr %12, align 1

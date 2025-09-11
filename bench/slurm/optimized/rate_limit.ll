@@ -196,13 +196,13 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_unnamed_addr #0 {
   %.b69 = load i1, ptr @rate_limit_enabled, align 1
-  br i1 %.b69, label %2, label %114
+  br i1 %.b69, label %2, label %121
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
   %5 = tail call zeroext i1 @validate_slurm_user(i32 noundef %4) #7
-  br i1 %5, label %114, label %6
+  br i1 %5, label %121, label %6
 
 6:                                                ; preds = %2
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @rate_limit_mutex) #7
@@ -223,7 +223,7 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
 12:                                               ; preds = %10
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @rate_limit_mutex) #7
   %.not71 = icmp eq i32 %13, 0
-  br i1 %.not71, label %114, label %14
+  br i1 %.not71, label %121, label %14
 
 14:                                               ; preds = %12
   %15 = tail call ptr @__errno_location() #8
@@ -239,33 +239,33 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
   %21 = load ptr, ptr @user_buckets, align 8
   br label %22
 
-22:                                               ; preds = %26, %16
-  %.056 = phi i32 [ %20, %16 ], [ %spec.store.select, %26 ]
+22:                                               ; preds = %27, %16
+  %.056 = phi i32 [ %20, %16 ], [ %spec.store.select, %27 ]
   %23 = sext i32 %.056 to i64
-  %24 = getelementptr inbounds %struct.user_bucket_t, ptr %21, i64 %23, i32 3
-  %25 = load i32, ptr %24, align 4
-  %.not72 = icmp eq i32 %25, 0
-  %.not73 = icmp eq i32 %25, %18
+  %24 = getelementptr inbounds %struct.user_bucket_t, ptr %21, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %26 = load i32, ptr %25, align 4
+  %.not72 = icmp eq i32 %26, 0
+  %.not73 = icmp eq i32 %26, %18
   %or.cond82 = select i1 %.not72, i1 true, i1 %.not73
-  br i1 %or.cond82, label %.critedge, label %26
+  br i1 %or.cond82, label %.critedge, label %27
 
-26:                                               ; preds = %22
-  %27 = add nsw i32 %.056, 1
-  %28 = icmp eq i32 %27, %19
-  %spec.store.select = select i1 %28, i32 0, i32 %27
-  %29 = icmp eq i32 %spec.store.select, %20
-  br i1 %29, label %.critedge.thread, label %22, !llvm.loop !8
+27:                                               ; preds = %22
+  %28 = add nsw i32 %.056, 1
+  %29 = icmp eq i32 %28, %19
+  %spec.store.select = select i1 %29, i32 0, i32 %28
+  %30 = icmp eq i32 %spec.store.select, %20
+  br i1 %30, label %.critedge.thread, label %22, !llvm.loop !8
 
-.critedge.thread:                                 ; preds = %26
-  %30 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11) #7
-  br label %80
+.critedge.thread:                                 ; preds = %27
+  %31 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11) #7
+  br label %85
 
 .critedge:                                        ; preds = %22
-  %31 = getelementptr inbounds %struct.user_bucket_t, ptr %21, i64 %23
-  br i1 %.not72, label %32, label %47
+  br i1 %.not72, label %32, label %48
 
 32:                                               ; preds = %.critedge
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i32 %18, ptr %33, align 4
   %34 = load i32, ptr @refill_period, align 4
   %35 = sext i32 %34 to i64
@@ -276,135 +276,142 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
   %39 = load i32, ptr @bucket_size, align 4
   %40 = add nsw i32 %39, -1
   %41 = load ptr, ptr @user_buckets, align 8
-  %42 = getelementptr inbounds %struct.user_bucket_t, ptr %41, i64 %23, i32 2
-  store i32 %40, ptr %42, align 8
-  %43 = tail call i32 @get_log_level() #7
-  %44 = icmp sgt i32 %43, 6
-  br i1 %44, label %45, label %80
+  %42 = getelementptr inbounds %struct.user_bucket_t, ptr %41, i64 %23
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store i32 %40, ptr %43, align 8
+  %44 = tail call i32 @get_log_level() #7
+  %45 = icmp sgt i32 %44, 6
+  br i1 %45, label %46, label %85
 
-45:                                               ; preds = %32
-  %46 = load i32, ptr %3, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.rate_limit_exceeded, i32 noundef %46) #7
-  br label %80
+46:                                               ; preds = %32
+  %47 = load i32, ptr %3, align 4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.rate_limit_exceeded, i32 noundef %47) #7
+  br label %85
 
-47:                                               ; preds = %.critedge
-  %48 = load i32, ptr @refill_period, align 4
-  %49 = sext i32 %48 to i64
-  %50 = sdiv i64 %17, %49
-  %51 = load i64, ptr %31, align 8
-  store i64 %50, ptr %31, align 8
-  %.not75 = icmp eq i64 %50, %51
-  br i1 %.not75, label %65, label %52
+48:                                               ; preds = %.critedge
+  %49 = load i32, ptr @refill_period, align 4
+  %50 = sext i32 %49 to i64
+  %51 = sdiv i64 %17, %50
+  %52 = load i64, ptr %24, align 8
+  store i64 %51, ptr %24, align 8
+  %.not75 = icmp eq i64 %51, %52
+  br i1 %.not75, label %68, label %53
 
-52:                                               ; preds = %47
-  %53 = sub nsw i64 %50, %51
-  %54 = load i32, ptr @refill_rate, align 4
-  %55 = load ptr, ptr @user_buckets, align 8
-  %56 = getelementptr inbounds %struct.user_bucket_t, ptr %55, i64 %23, i32 2
-  %57 = load i32, ptr %56, align 8
-  %58 = trunc i64 %53 to i32
-  %59 = mul i32 %54, %58
-  %60 = add i32 %57, %59
-  store i32 %60, ptr %56, align 8
-  %61 = load ptr, ptr @user_buckets, align 8
-  %62 = getelementptr inbounds %struct.user_bucket_t, ptr %61, i64 %23, i32 2
-  %63 = load i32, ptr %62, align 8
-  %64 = load i32, ptr @bucket_size, align 4
-  %. = tail call i32 @llvm.umin.i32(i32 %63, i32 %64)
-  store i32 %., ptr %62, align 8
-  br label %65
+53:                                               ; preds = %48
+  %54 = sub nsw i64 %51, %52
+  %55 = load i32, ptr @refill_rate, align 4
+  %56 = load ptr, ptr @user_buckets, align 8
+  %57 = getelementptr inbounds %struct.user_bucket_t, ptr %56, i64 %23
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %59 = load i32, ptr %58, align 8
+  %60 = trunc i64 %54 to i32
+  %61 = mul i32 %55, %60
+  %62 = add i32 %59, %61
+  store i32 %62, ptr %58, align 8
+  %63 = load ptr, ptr @user_buckets, align 8
+  %64 = getelementptr inbounds %struct.user_bucket_t, ptr %63, i64 %23
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %66 = load i32, ptr %65, align 8
+  %67 = load i32, ptr @bucket_size, align 4
+  %. = tail call i32 @llvm.umin.i32(i32 %66, i32 %67)
+  store i32 %., ptr %65, align 8
+  br label %68
 
-65:                                               ; preds = %52, %47
-  %66 = load ptr, ptr @user_buckets, align 8
-  %67 = getelementptr inbounds %struct.user_bucket_t, ptr %66, i64 %23, i32 2
-  %68 = load i32, ptr %67, align 8
-  %.not76 = icmp eq i32 %68, 0
-  br i1 %.not76, label %71, label %69
+68:                                               ; preds = %53, %48
+  %69 = load ptr, ptr @user_buckets, align 8
+  %70 = getelementptr inbounds %struct.user_bucket_t, ptr %69, i64 %23
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %72 = load i32, ptr %71, align 8
+  %.not76 = icmp eq i32 %72, 0
+  br i1 %.not76, label %75, label %73
 
-69:                                               ; preds = %65
-  %70 = add i32 %68, -1
-  store i32 %70, ptr %67, align 8
-  br label %71
+73:                                               ; preds = %68
+  %74 = add i32 %72, -1
+  store i32 %74, ptr %71, align 8
+  br label %75
 
-71:                                               ; preds = %65, %69
-  %72 = tail call i32 @get_log_level() #7
-  %73 = icmp sgt i32 %72, 6
-  br i1 %73, label %74, label %80
+75:                                               ; preds = %68, %73
+  %76 = tail call i32 @get_log_level() #7
+  %77 = icmp sgt i32 %76, 6
+  br i1 %77, label %78, label %85
 
-74:                                               ; preds = %71
-  %75 = load i32, ptr %3, align 4
-  %76 = load ptr, ptr @user_buckets, align 8
-  %77 = getelementptr inbounds %struct.user_bucket_t, ptr %76, i64 %23, i32 2
-  %78 = load i32, ptr %77, align 8
-  %79 = select i1 %.not76, ptr @.str.14, ptr @.str.15
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.rate_limit_exceeded, i32 noundef %75, i32 noundef %.056, i32 noundef %78, ptr noundef nonnull %79) #7
-  br label %80
+78:                                               ; preds = %75
+  %79 = load i32, ptr %3, align 4
+  %80 = load ptr, ptr @user_buckets, align 8
+  %81 = getelementptr inbounds %struct.user_bucket_t, ptr %80, i64 %23
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %83 = load i32, ptr %82, align 8
+  %84 = select i1 %.not76, ptr @.str.14, ptr @.str.15
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.rate_limit_exceeded, i32 noundef %79, i32 noundef %.056, i32 noundef %83, ptr noundef nonnull %84) #7
+  br label %85
 
-80:                                               ; preds = %71, %74, %.critedge.thread, %32, %45
-  %.15780 = phi i32 [ %19, %.critedge.thread ], [ %.056, %45 ], [ %.056, %32 ], [ %.056, %74 ], [ %.056, %71 ]
-  %.1 = phi i1 [ false, %.critedge.thread ], [ false, %45 ], [ false, %32 ], [ %.not76, %74 ], [ %.not76, %71 ]
-  %81 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @rate_limit_mutex) #7
-  %.not77 = icmp eq i32 %81, 0
-  br i1 %.not77, label %84, label %82
+85:                                               ; preds = %75, %78, %.critedge.thread, %32, %46
+  %.15780 = phi i32 [ %19, %.critedge.thread ], [ %.056, %46 ], [ %.056, %32 ], [ %.056, %78 ], [ %.056, %75 ]
+  %.1 = phi i1 [ false, %.critedge.thread ], [ false, %46 ], [ false, %32 ], [ %.not76, %78 ], [ %.not76, %75 ]
+  %86 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @rate_limit_mutex) #7
+  %.not77 = icmp eq i32 %86, 0
+  br i1 %.not77, label %89, label %87
 
-82:                                               ; preds = %80
-  %83 = tail call ptr @__errno_location() #8
-  store i32 %81, ptr %83, align 4
+87:                                               ; preds = %85
+  %88 = tail call ptr @__errno_location() #8
+  store i32 %86, ptr %88, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.rate_limit_exceeded) #9
   unreachable
 
-84:                                               ; preds = %80
-  %85 = load i32, ptr @log_freq, align 4
-  %86 = icmp ne i32 %85, -1
-  %or.cond = select i1 %.1, i1 %86, i1 false
-  br i1 %or.cond, label %87, label %114
+89:                                               ; preds = %85
+  %90 = load i32, ptr @log_freq, align 4
+  %91 = icmp ne i32 %90, -1
+  %or.cond = select i1 %.1, i1 %91, i1 false
+  br i1 %or.cond, label %92, label %121
 
-87:                                               ; preds = %84
-  %88 = load ptr, ptr @user_buckets, align 8
-  %89 = sext i32 %.15780 to i64
-  %90 = getelementptr inbounds %struct.user_bucket_t, ptr %88, i64 %89, i32 1
-  %91 = load i64, ptr %90, align 8
-  %92 = sext i32 %85 to i64
-  %93 = add nsw i64 %91, %92
-  %.not78 = icmp sgt i64 %93, %17
-  br i1 %.not78, label %114, label %94
+92:                                               ; preds = %89
+  %93 = load ptr, ptr @user_buckets, align 8
+  %94 = sext i32 %.15780 to i64
+  %95 = getelementptr inbounds %struct.user_bucket_t, ptr %93, i64 %94
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %97 = load i64, ptr %96, align 8
+  %98 = sext i32 %90 to i64
+  %99 = add nsw i64 %97, %98
+  %.not78 = icmp sgt i64 %99, %17
+  br i1 %.not78, label %121, label %100
 
-94:                                               ; preds = %87
-  %95 = load i16, ptr %0, align 8
-  %96 = icmp eq i16 %95, 0
-  br i1 %96, label %97, label %103
+100:                                              ; preds = %92
+  %101 = load i16, ptr %0, align 8
+  %102 = icmp eq i16 %101, 0
+  br i1 %102, label %103, label %109
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %99 = load i32, ptr %98, align 8
-  %100 = icmp sgt i32 %99, -1
-  br i1 %100, label %101, label %103
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %105 = load i32, ptr %104, align 8
+  %106 = icmp sgt i32 %105, -1
+  br i1 %106, label %107, label %109
 
-101:                                              ; preds = %97
-  %102 = tail call i32 @slurm_get_peer_addr(i32 noundef %99, ptr noundef nonnull %0) #7
-  br label %103
+107:                                              ; preds = %103
+  %108 = tail call i32 @slurm_get_peer_addr(i32 noundef %105, ptr noundef nonnull %0) #7
+  br label %109
 
-103:                                              ; preds = %101, %97, %94
-  %104 = tail call i32 @get_log_level() #7
-  %105 = icmp sgt i32 %104, 2
-  br i1 %105, label %106, label %111
+109:                                              ; preds = %107, %103, %100
+  %110 = tail call i32 @get_log_level() #7
+  %111 = icmp sgt i32 %110, 2
+  br i1 %111, label %112, label %117
 
-106:                                              ; preds = %103
-  %107 = load i32, ptr %3, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %109 = load i16, ptr %108, align 4
-  %110 = tail call ptr @rpc_num2string(i16 noundef zeroext %109) #7
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.16, i32 noundef %107, ptr noundef %110, ptr noundef nonnull %0) #7
-  br label %111
+112:                                              ; preds = %109
+  %113 = load i32, ptr %3, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %115 = load i16, ptr %114, align 4
+  %116 = tail call ptr @rpc_num2string(i16 noundef zeroext %115) #7
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.16, i32 noundef %113, ptr noundef %116, ptr noundef nonnull %0) #7
+  br label %117
 
-111:                                              ; preds = %106, %103
-  %112 = load ptr, ptr @user_buckets, align 8
-  %113 = getelementptr inbounds %struct.user_bucket_t, ptr %112, i64 %89, i32 1
-  store i64 %17, ptr %113, align 8
-  br label %114
+117:                                              ; preds = %112, %109
+  %118 = load ptr, ptr @user_buckets, align 8
+  %119 = getelementptr inbounds %struct.user_bucket_t, ptr %118, i64 %94
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  store i64 %17, ptr %120, align 8
+  br label %121
 
-114:                                              ; preds = %84, %87, %111, %12, %2, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %2 ], [ true, %12 ], [ true, %111 ], [ true, %87 ], [ %.1, %84 ]
+121:                                              ; preds = %89, %92, %117, %12, %2, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %2 ], [ true, %12 ], [ true, %117 ], [ true, %92 ], [ %.1, %89 ]
   ret i1 %.0
 }
 

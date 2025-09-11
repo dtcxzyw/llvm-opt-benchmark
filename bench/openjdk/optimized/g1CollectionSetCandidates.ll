@@ -999,36 +999,37 @@ define hidden void @_ZN25G1CollectionSetCandidates26sort_marking_by_efficiencyEv
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
-  %.sroa.3.010 = phi i32 [ 0, %.lr.ph ], [ %13, %5 ]
+  %.sroa.3.010 = phi i32 [ 0, %.lr.ph ], [ %14, %5 ]
   %6 = load ptr, ptr %4, align 8
   %7 = sext i32 %.sroa.3.010 to i64
   %8 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef double @_ZN12G1HeapRegion18calc_gc_efficiencyEv(ptr noundef nonnull align 8 dereferenceable(136) %9) #18
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %11, i64 %7, i32 1
-  store double %10, ptr %12, align 8
-  %13 = add i32 %.sroa.3.010, 1
-  %14 = load i32, ptr %2, align 8
-  %.not = icmp eq i32 %13, %14
+  %12 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %11, i64 %7
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store double %10, ptr %13, align 8
+  %14 = add i32 %.sroa.3.010, 1
+  %15 = load i32, ptr %2, align 8
+  %.not = icmp eq i32 %14, %15
   br i1 %.not, label %._crit_edge.loopexit, label %5, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %5
-  %15 = sext i32 %13 to i64
+  %16 = sext i32 %14 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.lcssa = phi i64 [ 0, %1 ], [ %15, %._crit_edge.loopexit ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %_ZN25G1CollectionCandidateList18sort_by_efficiencyEv.exit, label %19
+  %.lcssa = phi i64 [ 0, %1 ], [ %16, %._crit_edge.loopexit ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %_ZN25G1CollectionCandidateList18sort_by_efficiencyEv.exit, label %20
 
-19:                                               ; preds = %._crit_edge
-  tail call void @qsort(ptr noundef nonnull %17, i64 noundef %.lcssa, i64 noundef 24, ptr noundef nonnull @_ZN25G1CollectionCandidateList21compare_gc_efficiencyEP28G1CollectionSetCandidateInfoS1_) #18
+20:                                               ; preds = %._crit_edge
+  tail call void @qsort(ptr noundef nonnull %18, i64 noundef %.lcssa, i64 noundef 24, ptr noundef nonnull @_ZN25G1CollectionCandidateList21compare_gc_efficiencyEP28G1CollectionSetCandidateInfoS1_) #18
   br label %_ZN25G1CollectionCandidateList18sort_by_efficiencyEv.exit
 
-_ZN25G1CollectionCandidateList18sort_by_efficiencyEv.exit: ; preds = %._crit_edge, %19
+_ZN25G1CollectionCandidateList18sort_by_efficiencyEv.exit: ; preds = %._crit_edge, %20
   ret void
 }
 

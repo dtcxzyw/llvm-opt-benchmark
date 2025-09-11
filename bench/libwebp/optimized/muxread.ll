@@ -756,37 +756,38 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly captures(addre
 7:                                                ; preds = %3
   %8 = tail call i32 @ChunkGetIndexFromFourCC(ptr noundef nonnull %1) #5
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %9, i32 1
-  %11 = load i32, ptr %10, align 4, !tbaa !38
-  switch i32 %11, label %12 [
+  %10 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = load i32, ptr %11, align 4, !tbaa !38
+  switch i32 %12, label %13 [
     i32 3, label %IsWPI.exit
     i32 5, label %IsWPI.exit
     i32 6, label %IsWPI.exit
   ]
 
-12:                                               ; preds = %7
+13:                                               ; preds = %7
   %.not22 = icmp eq i32 %8, 9
-  br i1 %.not22, label %15, label %13
+  br i1 %.not22, label %16, label %14
 
-13:                                               ; preds = %12
-  %14 = tail call fastcc i32 @MuxGet(ptr noundef %0, i32 noundef %8, ptr noundef %2)
+14:                                               ; preds = %13
+  %15 = tail call fastcc i32 @MuxGet(ptr noundef %0, i32 noundef %8, ptr noundef %2)
   br label %IsWPI.exit
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !39
-  %18 = tail call i32 @ChunkGetTagFromFourCC(ptr noundef nonnull %1) #5
-  %19 = tail call ptr @ChunkSearchList(ptr noundef %17, i32 noundef 1, i32 noundef %18) #5
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %IsWPI.exit, label %21
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %18 = load ptr, ptr %17, align 8, !tbaa !39
+  %19 = tail call i32 @ChunkGetTagFromFourCC(ptr noundef nonnull %1) #5
+  %20 = tail call ptr @ChunkSearchList(ptr noundef %18, i32 noundef 1, i32 noundef %19) #5
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %IsWPI.exit, label %22
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !40
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !40
   br label %IsWPI.exit
 
-IsWPI.exit:                                       ; preds = %7, %7, %7, %21, %15, %3, %13
-  %.0 = phi i32 [ %14, %13 ], [ -1, %3 ], [ 1, %21 ], [ 0, %15 ], [ -1, %7 ], [ -1, %7 ], [ -1, %7 ]
+IsWPI.exit:                                       ; preds = %7, %7, %7, %22, %16, %3, %14
+  %.0 = phi i32 [ %15, %14 ], [ -1, %3 ], [ 1, %22 ], [ 0, %16 ], [ -1, %7 ], [ -1, %7 ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -1018,7 +1019,7 @@ define range(i32 -1, 2) i32 @WebPMuxNumChunks(ptr noundef %0, i32 noundef %1, pt
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
-  br i1 %or.cond, label %30, label %6
+  br i1 %or.cond, label %31, label %6
 
 6:                                                ; preds = %3
   switch i32 %1, label %9 [
@@ -1040,60 +1041,61 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
 
 .lr.ph.i:                                         ; preds = %9, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %9 ]
-  %12 = phi i32 [ %16, %14 ], [ %11, %9 ]
+  %12 = phi i32 [ %17, %14 ], [ %11, %9 ]
   %13 = icmp eq i32 %1, %12
   br i1 %13, label %._crit_edge.loopexit.split.loop.exit14.i, label %14
 
 14:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %15 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv.next.i, i32 1
-  %16 = load i32, ptr %15, align 4, !tbaa !38
-  %.not.i = icmp eq i32 %16, 10
+  %15 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv.next.i
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !38
+  %.not.i = icmp eq i32 %17, 10
   br i1 %.not.i, label %ChunkGetIndexFromId.exit, label %.lr.ph.i, !llvm.loop !60
 
 ._crit_edge.loopexit.split.loop.exit14.i:         ; preds = %.lr.ph.i
-  %17 = and i64 %indvars.iv.i, 4294967295
+  %18 = and i64 %indvars.iv.i, 4294967295
   br label %ChunkGetIndexFromId.exit
 
 ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edge.loopexit.split.loop.exit14.i
-  %.06.i = phi i64 [ 10, %9 ], [ %17, %._crit_edge.loopexit.split.loop.exit14.i ], [ 10, %14 ]
-  %18 = load ptr, ptr %10, align 8, !tbaa !61
-  %19 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %.06.i
-  %20 = load i32, ptr %19, align 4, !tbaa !16
-  %.not9.i = icmp eq ptr %18, null
+  %.06.i = phi i64 [ 10, %9 ], [ %18, %._crit_edge.loopexit.split.loop.exit14.i ], [ 10, %14 ]
+  %19 = load ptr, ptr %10, align 8, !tbaa !61
+  %20 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %.06.i
+  %21 = load i32, ptr %20, align 4, !tbaa !16
+  %.not9.i = icmp eq ptr %19, null
   br i1 %.not9.i, label %CountChunks.exit, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %ChunkGetIndexFromId.exit
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i15, %.lr.ph.split.us.i
-  %.011.us.i = phi ptr [ %24, %.lr.ph.split.us.i ], [ %18, %.lr.ph.i15 ]
-  %.0710.us.i = phi i32 [ %22, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i15 ]
-  %22 = add nuw nsw i32 %.0710.us.i, 1
-  %23 = getelementptr inbounds nuw i8, ptr %.011.us.i, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !62
-  %.not.us.i = icmp eq ptr %24, null
+  %.011.us.i = phi ptr [ %25, %.lr.ph.split.us.i ], [ %19, %.lr.ph.i15 ]
+  %.0710.us.i = phi i32 [ %23, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i15 ]
+  %23 = add nuw nsw i32 %.0710.us.i, 1
+  %24 = getelementptr inbounds nuw i8, ptr %.011.us.i, i64 24
+  %25 = load ptr, ptr %24, align 8, !tbaa !62
+  %.not.us.i = icmp eq ptr %25, null
   br i1 %.not.us.i, label %CountChunks.exit, label %.lr.ph.split.us.i, !llvm.loop !63
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i15, %.lr.ph.split.i
-  %.011.i = phi ptr [ %29, %.lr.ph.split.i ], [ %18, %.lr.ph.i15 ]
+  %.011.i = phi ptr [ %30, %.lr.ph.split.i ], [ %19, %.lr.ph.i15 ]
   %.0710.i = phi i32 [ %spec.select.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i15 ]
-  %25 = load i32, ptr %.011.i, align 8, !tbaa !11
-  %26 = icmp eq i32 %25, %20
-  %27 = zext i1 %26 to i32
-  %spec.select.i = add nuw nsw i32 %.0710.i, %27
-  %28 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !62
-  %.not.i16 = icmp eq ptr %29, null
+  %26 = load i32, ptr %.011.i, align 8, !tbaa !11
+  %27 = icmp eq i32 %26, %21
+  %28 = zext i1 %27 to i32
+  %spec.select.i = add nuw nsw i32 %.0710.i, %28
+  %29 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
+  %30 = load ptr, ptr %29, align 8, !tbaa !62
+  %.not.i16 = icmp eq ptr %30, null
   br i1 %.not.i16, label %CountChunks.exit, label %.lr.ph.split.i, !llvm.loop !63
 
 CountChunks.exit:                                 ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %ChunkGetIndexFromId.exit, %IsWPI.exit
-  %storemerge = phi i32 [ %8, %IsWPI.exit ], [ 0, %ChunkGetIndexFromId.exit ], [ %22, %.lr.ph.split.us.i ], [ %spec.select.i, %.lr.ph.split.i ]
+  %storemerge = phi i32 [ %8, %IsWPI.exit ], [ 0, %ChunkGetIndexFromId.exit ], [ %23, %.lr.ph.split.us.i ], [ %spec.select.i, %.lr.ph.split.i ]
   store i32 %storemerge, ptr %2, align 4, !tbaa !18
-  br label %30
+  br label %31
 
-30:                                               ; preds = %3, %CountChunks.exit
+31:                                               ; preds = %3, %CountChunks.exit
   %.0 = phi i32 [ 1, %CountChunks.exit ], [ -1, %3 ]
   ret i32 %.0
 }

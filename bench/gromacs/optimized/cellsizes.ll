@@ -2326,7 +2326,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %exitcond165.not, label %._crit_edge95, label %79, !llvm.loop !325
 
 ._crit_edge95.thread:                             ; preds = %.preheader56, %._crit_edge95
-  %.1257.lcssa223 = phi i32 [ %.2258, %._crit_edge95 ], [ %.0256, %.preheader56 ]
+  %.1257.lcssa227 = phi i32 [ %.2258, %._crit_edge95 ], [ %.0256, %.preheader56 ]
   %111 = load ptr, ptr %11, align 8, !tbaa !122
   %112 = getelementptr inbounds nuw float, ptr %111, i64 %24
   %113 = load float, ptr %112, align 4, !tbaa !109
@@ -2380,7 +2380,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   resume { ptr, i32 } %140
 
 141:                                              ; preds = %._crit_edge95.thread
-  %142 = icmp sgt i32 %.1257.lcssa223, 0
+  %142 = icmp sgt i32 %.1257.lcssa227, 0
   %143 = icmp sgt i32 %.0.val.tr, 0
   %or.cond = or i1 %143, %142
   %144 = icmp slt i32 %.4.val.tr.ph, %35
@@ -2419,7 +2419,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %164, label %165, label %..loopexit55_crit_edge
 
 ..loopexit55_crit_edge:                           ; preds = %153
-  %.pre204 = add nsw i64 %indvars.iv177, 1
+  %.pre207 = add nsw i64 %indvars.iv177, 1
   br label %.loopexit55
 
 165:                                              ; preds = %153
@@ -2456,7 +2456,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %..loopexit55_crit_edge, %.loopexit55.loopexit, %165
-  %indvars.iv.next178.pre-phi = phi i64 [ %.pre204, %..loopexit55_crit_edge ], [ %166, %.loopexit55.loopexit ], [ %166, %165 ]
+  %indvars.iv.next178.pre-phi = phi i64 [ %.pre207, %..loopexit55_crit_edge ], [ %166, %.loopexit55.loopexit ], [ %166, %165 ]
   %177 = phi float [ %163, %..loopexit55_crit_edge ], [ %.pre199, %.loopexit55.loopexit ], [ %161, %165 ]
   %178 = load float, ptr %155, align 4, !tbaa !109
   %179 = getelementptr inbounds nuw float, ptr %149, i64 %indvars.iv.next178.pre-phi
@@ -2510,12 +2510,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 .lr.ph123:                                        ; preds = %.thread
   %194 = load ptr, ptr %23, align 8, !tbaa !286
-  %.phi.trans.insert202 = getelementptr inbounds nuw float, ptr %111, i64 %30
-  %.pre203 = load float, ptr %.phi.trans.insert202, align 4, !tbaa !109
+  %.phi.trans.insert205 = getelementptr inbounds nuw float, ptr %111, i64 %30
+  %.pre206 = load float, ptr %.phi.trans.insert205, align 4, !tbaa !109
   br label %.thread34
 
 .thread34:                                        ; preds = %.lr.ph123, %.thread34
-  %195 = phi float [ %.pre203, %.lr.ph123 ], [ %198, %.thread34 ]
+  %195 = phi float [ %.pre206, %.lr.ph123 ], [ %198, %.thread34 ]
   %indvars.iv190 = phi i64 [ %30, %.lr.ph123 ], [ %indvars.iv.next191, %.thread34 ]
   %196 = getelementptr inbounds nuw %"struct.RowCoordinator::Bounds", ptr %194, i64 %indvars.iv190
   store float %195, ptr %196, align 4, !tbaa !291
@@ -2527,11 +2527,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %exitcond197.not = icmp eq i64 %indvars.iv.next191, %24
   br i1 %exitcond197.not, label %.loopexit, label %.thread34, !llvm.loop !339
 
-.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %227
-  %indvars.iv183 = phi i64 [ %193, %.lr.ph119.preheader ], [ %indvars.iv.next184, %227 ]
-  %.0117 = phi i1 [ false, %.lr.ph119.preheader ], [ %.1, %227 ]
-  %.sroa.17.0116 = phi i32 [ %.4.val.tr.ph, %.lr.ph119.preheader ], [ %.sroa.17.1, %227 ]
-  %.sroa.014.0115 = phi i32 [ %.0.val.tr, %.lr.ph119.preheader ], [ %.sroa.014.2, %227 ]
+.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %226
+  %indvars.iv183 = phi i64 [ %193, %.lr.ph119.preheader ], [ %indvars.iv.next184, %226 ]
+  %.0117 = phi i1 [ false, %.lr.ph119.preheader ], [ %.1, %226 ]
+  %.sroa.17.0116 = phi i32 [ %.4.val.tr.ph, %.lr.ph119.preheader ], [ %.sroa.17.1, %226 ]
+  %.sroa.014.0115 = phi i32 [ %.0.val.tr, %.lr.ph119.preheader ], [ %.sroa.014.2, %226 ]
   %200 = load ptr, ptr %23, align 8, !tbaa !286
   %201 = getelementptr inbounds nuw %"struct.RowCoordinator::Bounds", ptr %200, i64 %indvars.iv183
   %202 = load ptr, ptr %11, align 8, !tbaa !122
@@ -2544,75 +2544,78 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %209 = load float, ptr %208, align 4, !tbaa !293
   %210 = fcmp ule float %204, %209
   %or.cond.not = select i1 %207, i1 true, i1 %210
-  br i1 %or.cond.not, label %211, label %228
+  br i1 %or.cond.not, label %211, label %227
 
 211:                                              ; preds = %.lr.ph119
   %212 = trunc nsw i64 %indvars.iv183 to i32
-  br i1 %207, label %213, label %227
+  br i1 %207, label %213, label %226
 
 213:                                              ; preds = %211
   %or.cond4 = select i1 %210, i1 true, i1 %.0117
-  br i1 %or.cond4, label %227, label %214
+  br i1 %or.cond4, label %226, label %214
 
 214:                                              ; preds = %213
   %215 = icmp slt i32 %.sroa.17.0116, %.4.val.tr.ph
-  br i1 %215, label %216, label %221
+  br i1 %215, label %216, label %222
 
 216:                                              ; preds = %214
   %217 = sext i32 %.sroa.17.0116 to i64
-  %218 = getelementptr inbounds nuw %"struct.RowCoordinator::Bounds", ptr %200, i64 %217, i32 2
-  %219 = load float, ptr %218, align 4, !tbaa !292
-  %220 = getelementptr inbounds nuw float, ptr %202, i64 %217
-  store float %219, ptr %220, align 4, !tbaa !109
+  %218 = getelementptr inbounds nuw %"struct.RowCoordinator::Bounds", ptr %200, i64 %217
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  %220 = load float, ptr %219, align 4, !tbaa !292
+  %221 = getelementptr inbounds nuw float, ptr %202, i64 %217
+  store float %220, ptr %221, align 4, !tbaa !109
   tail call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, i32 %.sroa.014.0115, i32 %.sroa.17.0116)
   %.pre200 = load ptr, ptr %23, align 8, !tbaa !286
-  %.pre201 = load ptr, ptr %11, align 8, !tbaa !122
-  br label %221
+  %.phi.trans.insert201 = getelementptr inbounds nuw %"struct.RowCoordinator::Bounds", ptr %.pre200, i64 %indvars.iv183
+  %.phi.trans.insert202 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert201, i64 12
+  %.pre203 = load float, ptr %.phi.trans.insert202, align 4, !tbaa !293
+  %.pre204 = load ptr, ptr %11, align 8, !tbaa !122
+  br label %222
 
-221:                                              ; preds = %216, %214
-  %222 = phi ptr [ %.pre201, %216 ], [ %202, %214 ]
-  %223 = phi ptr [ %.pre200, %216 ], [ %200, %214 ]
+222:                                              ; preds = %216, %214
+  %223 = phi ptr [ %.pre204, %216 ], [ %202, %214 ]
+  %224 = phi float [ %.pre203, %216 ], [ %209, %214 ]
   %.sroa.014.1 = phi i32 [ %.sroa.17.0116, %216 ], [ %.sroa.014.0115, %214 ]
-  %224 = getelementptr inbounds nuw %"struct.RowCoordinator::Bounds", ptr %223, i64 %indvars.iv183, i32 3
-  %225 = load float, ptr %224, align 4, !tbaa !293
-  %226 = getelementptr inbounds nuw float, ptr %222, i64 %indvars.iv183
-  store float %225, ptr %226, align 4, !tbaa !109
+  %225 = getelementptr inbounds nuw float, ptr %223, i64 %indvars.iv183
+  store float %224, ptr %225, align 4, !tbaa !109
   tail call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, i32 %.sroa.014.1, i32 %212)
-  br label %227
+  br label %226
 
-227:                                              ; preds = %211, %213, %221
-  %.sroa.014.2 = phi i32 [ %.sroa.014.0115, %213 ], [ %212, %221 ], [ %.sroa.014.0115, %211 ]
-  %.sroa.17.1 = phi i32 [ %.sroa.17.0116, %213 ], [ %.4.val.tr.ph, %221 ], [ %212, %211 ]
-  %.1 = phi i1 [ %.0117, %213 ], [ true, %221 ], [ false, %211 ]
+226:                                              ; preds = %211, %213, %222
+  %.sroa.014.2 = phi i32 [ %.sroa.014.0115, %213 ], [ %212, %222 ], [ %.sroa.014.0115, %211 ]
+  %.sroa.17.1 = phi i32 [ %.sroa.17.0116, %213 ], [ %.4.val.tr.ph, %222 ], [ %212, %211 ]
+  %.1 = phi i1 [ %.0117, %213 ], [ true, %222 ], [ false, %211 ]
   %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
   %lftr.wideiv185 = trunc i64 %indvars.iv.next184 to i32
   %exitcond186.not = icmp eq i32 %.4.val.tr.ph, %lftr.wideiv185
   br i1 %exitcond186.not, label %.critedge, label %.lr.ph119
 
-228:                                              ; preds = %.lr.ph119
-  %229 = getelementptr inbounds nuw float, ptr %202, i64 %indvars.iv183
-  %230 = trunc nsw i64 %indvars.iv183 to i32
-  %231 = fadd float %206, %209
-  %232 = fmul float %231, 5.000000e-01
-  store float %232, ptr %229, align 4, !tbaa !109
-  tail call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, i32 %.0.val.tr, i32 %230)
+227:                                              ; preds = %.lr.ph119
+  %228 = getelementptr inbounds nuw float, ptr %202, i64 %indvars.iv183
+  %229 = trunc nsw i64 %indvars.iv183 to i32
+  %230 = fadd float %206, %209
+  %231 = fmul float %230, 5.000000e-01
+  store float %231, ptr %228, align 4, !tbaa !109
+  tail call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, i32 %.0.val.tr, i32 %229)
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %228, %234
-  %.0.val.tr.be = phi i32 [ %230, %228 ], [ %.sroa.17.1, %234 ]
+tailrecurse.backedge:                             ; preds = %227, %233
+  %.0.val.tr.be = phi i32 [ %229, %227 ], [ %.sroa.17.1, %233 ]
   br label %tailrecurse
 
-.critedge:                                        ; preds = %227
-  %233 = icmp slt i32 %.sroa.17.1, %.4.val.tr.ph
-  br i1 %233, label %234, label %241
+.critedge:                                        ; preds = %226
+  %232 = icmp slt i32 %.sroa.17.1, %.4.val.tr.ph
+  br i1 %232, label %233, label %241
 
-234:                                              ; preds = %.critedge
-  %235 = sext i32 %.sroa.17.1 to i64
-  %236 = load ptr, ptr %23, align 8, !tbaa !286
-  %237 = getelementptr inbounds nuw %"struct.RowCoordinator::Bounds", ptr %236, i64 %235, i32 2
+233:                                              ; preds = %.critedge
+  %234 = sext i32 %.sroa.17.1 to i64
+  %235 = load ptr, ptr %23, align 8, !tbaa !286
+  %236 = getelementptr inbounds nuw %"struct.RowCoordinator::Bounds", ptr %235, i64 %234
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load float, ptr %237, align 4, !tbaa !292
   %239 = load ptr, ptr %11, align 8, !tbaa !122
-  %240 = getelementptr inbounds nuw float, ptr %239, i64 %235
+  %240 = getelementptr inbounds nuw float, ptr %239, i64 %234
   store float %238, ptr %240, align 4, !tbaa !109
   tail call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, i32 %.sroa.014.2, i32 %.sroa.17.1)
   br label %tailrecurse.backedge

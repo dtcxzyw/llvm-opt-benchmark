@@ -471,7 +471,7 @@ define internal range(i32 -1, 1) i32 @nsv_read_seek(ptr noundef readonly capture
   %13 = load ptr, ptr %12, align 8, !tbaa !58
   %14 = tail call i32 @av_index_search_timestamp(ptr noundef %11, i64 noundef %2, i32 noundef %3) #8
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %32, label %16
+  br i1 %15, label %33, label %16
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -483,19 +483,20 @@ define internal range(i32 -1, 1) i32 @nsv_read_seek(ptr noundef readonly capture
   %23 = load i64, ptr %22, align 8, !tbaa !73
   %24 = tail call i64 @avio_seek(ptr noundef %18, i64 noundef %23, i32 noundef 0) #8
   %25 = icmp slt i64 %24, 0
-  br i1 %25, label %32, label %26
+  br i1 %25, label %33, label %26
 
 26:                                               ; preds = %16
   %27 = load ptr, ptr %19, align 8, !tbaa !61
-  %28 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %27, i64 %21, i32 1
-  %29 = load i64, ptr %28, align 8, !tbaa !75
-  %30 = trunc i64 %29 to i32
-  store i32 %30, ptr %13, align 4, !tbaa !76
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %31, align 4, !tbaa !31
-  br label %32
+  %28 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %27, i64 %21
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !75
+  %31 = trunc i64 %30 to i32
+  store i32 %31, ptr %13, align 4, !tbaa !76
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 0, ptr %32, align 4, !tbaa !31
+  br label %33
 
-32:                                               ; preds = %16, %4, %26
+33:                                               ; preds = %16, %4, %26
   %.0 = phi i32 [ 0, %26 ], [ -1, %4 ], [ -1, %16 ]
   ret i32 %.0
 }

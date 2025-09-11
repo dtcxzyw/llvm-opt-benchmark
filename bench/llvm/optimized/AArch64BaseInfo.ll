@@ -3370,18 +3370,19 @@ _ZZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS_9StringR
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZN4llvm17AArch64ExactFPImm22lookupExactFPImmByEnumEh(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %.not = icmp ult i8 %0, 4
-  br i1 %.not, label %2, label %8
+  br i1 %.not, label %2, label %9
 
 2:                                                ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.IndexType.77, ptr @_ZZN4llvm17AArch64ExactFPImm22lookupExactFPImmByEnumEhE5Index, i64 %3, i32 1
-  %5 = load i32, ptr %4, align 4, !tbaa !77
-  %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::AArch64ExactFPImm::ExactFPImm", ptr @_ZN4llvm17AArch64ExactFPImmL15ExactFPImmsListE, i64 %6
-  br label %8
+  %4 = getelementptr inbounds nuw %struct.IndexType.77, ptr @_ZZN4llvm17AArch64ExactFPImm22lookupExactFPImmByEnumEhE5Index, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %6 = load i32, ptr %5, align 4, !tbaa !77
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds nuw %"struct.llvm::AArch64ExactFPImm::ExactFPImm", ptr @_ZN4llvm17AArch64ExactFPImmL15ExactFPImmsListE, i64 %7
+  br label %9
 
-8:                                                ; preds = %1, %2
-  %.0 = phi ptr [ %7, %2 ], [ null, %1 ]
+9:                                                ; preds = %1, %2
+  %.0 = phi ptr [ %8, %2 ], [ null, %1 ]
   ret ptr %.0
 }
 

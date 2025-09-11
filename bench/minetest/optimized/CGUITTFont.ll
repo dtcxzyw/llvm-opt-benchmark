@@ -2874,10 +2874,12 @@ for.body:                                         ; preds = %for.body, %for.body
   %glyph_page = getelementptr inbounds nuw i8, ptr %add.ptr.i.i447, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %glyph_page, i8 0, i64 20, i1 false)
   %167 = load ptr, ptr %Glyphs, align 8, !tbaa !159
-  %offset = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %167, i64 %conv.i446, i32 3
+  %offset.split = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %167, i64 %conv.i446
+  %offset = getelementptr inbounds nuw i8, ptr %offset.split, i64 24
   store i64 0, ptr %offset, align 8, !tbaa.struct !29
   %168 = load ptr, ptr %Glyphs, align 8, !tbaa !159
-  %advance = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %168, i64 %conv.i446, i32 4
+  %advance.split = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %168, i64 %conv.i446
+  %advance = getelementptr inbounds nuw i8, ptr %advance.split, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %advance, i8 0, i64 16, i1 false)
   %169 = load ptr, ptr %Glyphs, align 8, !tbaa !159
   %add.ptr.i.i457 = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %169, i64 %conv.i446
@@ -5668,7 +5670,8 @@ if.then.i:                                        ; preds = %call.i.noexc
   %sub.i636 = add i32 %call.i637, -1
   %conv.i.i = zext i32 %sub.i636 to i64
   %111 = load ptr, ptr %Glyphs, align 8, !tbaa !159
-  %advance.i = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %111, i64 %conv.i.i, i32 4
+  %advance.i.split = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %111, i64 %conv.i.i
+  %advance.i = getelementptr inbounds nuw i8, ptr %advance.i.split, i64 32
   %112 = load i64, ptr %advance.i, align 8, !tbaa !254
   %div.i = sdiv i64 %112, 64
   br label %invoke.cont157
@@ -6931,7 +6934,8 @@ if.then.i.i:                                      ; preds = %entry
   %sub.i.i = add i32 %call.i.i, -1
   %conv.i.i.i = zext i32 %sub.i.i to i64
   %0 = load ptr, ptr %Glyphs.i.i, align 8, !tbaa !159
-  %advance.i.i = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %0, i64 %conv.i.i.i, i32 4
+  %advance.i.i.split = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %0, i64 %conv.i.i.i
+  %advance.i.i = getelementptr inbounds nuw i8, ptr %advance.i.i.split, i64 32
   %1 = load i64, ptr %advance.i.i, align 8, !tbaa !254
   %div.i.i = sdiv i64 %1, 64
   br label %_ZNK3irr3gui10CGUITTFont21getWidthFromCharacterEw.exit
@@ -7370,7 +7374,8 @@ if.then.i141:                                     ; preds = %if.end43
   %sub.i143 = add i32 %call.i139, -1
   %conv.i.i144 = zext i32 %sub.i143 to i64
   %38 = load ptr, ptr %Glyphs.i142, align 8, !tbaa !159
-  %advance.i = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %38, i64 %conv.i.i144, i32 4
+  %advance.i.split = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %38, i64 %conv.i.i144
+  %advance.i = getelementptr inbounds nuw i8, ptr %advance.i.split, i64 32
   %39 = load i64, ptr %advance.i, align 8, !tbaa !254
   %div.i145 = sdiv i64 %39, 64
   br label %_ZNK3irr3gui10CGUITTFont21getWidthFromCharacterEDi.exit
@@ -7534,7 +7539,8 @@ if.then.i.i3:                                     ; preds = %call.i.i.noexc
   %sub.i.i = add i32 %call.i.i4, -1
   %conv.i.i.i = zext i32 %sub.i.i to i64
   %4 = load ptr, ptr %Glyphs.i.i, align 8, !tbaa !159
-  %advance.i.i = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %4, i64 %conv.i.i.i, i32 4
+  %advance.i.i.split = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %4, i64 %conv.i.i.i
+  %advance.i.i = getelementptr inbounds nuw i8, ptr %advance.i.i.split, i64 32
   %5 = load i64, ptr %advance.i.i, align 8, !tbaa !254
   %div.i.i = sdiv i64 %5, 64
   br label %_ZNK3irr3gui10CGUITTFont21getWidthFromCharacterEDi.exit.i
@@ -7667,7 +7673,8 @@ if.then.i:                                        ; preds = %while.body
   %sub.i = add i32 %call.i, -1
   %conv.i.i = zext i32 %sub.i to i64
   %3 = load ptr, ptr %Glyphs.i, align 8, !tbaa !159
-  %advance.i = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %3, i64 %conv.i.i, i32 4
+  %advance.i.split = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %3, i64 %conv.i.i
+  %advance.i = getelementptr inbounds nuw i8, ptr %advance.i.split, i64 32
   %4 = load i64, ptr %advance.i, align 8, !tbaa !254
   %div.i = sdiv i64 %4, 64
   br label %_ZNK3irr3gui10CGUITTFont21getWidthFromCharacterEDi.exit
@@ -9174,7 +9181,8 @@ if.then.i.i456:                                   ; preds = %call.i.i.noexc
   %sub.i.i = add i32 %call.i.i458, -1
   %conv.i.i.i = zext i32 %sub.i.i to i64
   %67 = load ptr, ptr %Glyphs, align 8, !tbaa !159
-  %advance.i.i = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %67, i64 %conv.i.i.i, i32 4
+  %advance.i.i.split = getelementptr inbounds nuw %"struct.irr::gui::SGUITTGlyph", ptr %67, i64 %conv.i.i.i
+  %advance.i.i = getelementptr inbounds nuw i8, ptr %advance.i.i.split, i64 32
   %68 = load i64, ptr %advance.i.i, align 8, !tbaa !254
   %div.i.i = sdiv i64 %68, 64
   br label %invoke.cont189
@@ -13085,7 +13093,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !416
-  %Normal = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 1
+  %Normal.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %Normal = getelementptr inbounds nuw i8, ptr %Normal.split, i64 12
   ret ptr %Normal
 }
 
@@ -13095,7 +13104,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !416
-  %Normal = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 1
+  %Normal.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %Normal = getelementptr inbounds nuw i8, ptr %Normal.split, i64 12
   ret ptr %Normal
 }
 
@@ -13105,7 +13115,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !416
-  %TCoords = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 3
+  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %TCoords = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 28
   ret ptr %TCoords
 }
 
@@ -13115,7 +13126,8 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !416
-  %TCoords = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i, i32 3
+  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %TCoords = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 28
   ret ptr %TCoords
 }
 

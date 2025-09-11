@@ -4416,14 +4416,14 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   br label %28
 
 27:                                               ; preds = %28
-  store i8 %38, ptr %18, align 4, !tbaa !284
+  store i8 %37, ptr %18, align 4, !tbaa !284
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 6
   br i1 %exitcond22.not, label %11, label %12
 
 28:                                               ; preds = %12, %28
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %28 ]
-  %29 = phi i8 [ 0, %12 ], [ %38, %28 ]
+  %29 = phi i8 [ 0, %12 ], [ %37, %28 ]
   %30 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !36
   %32 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
@@ -4431,11 +4431,9 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   %34 = zext i8 %29 to i64
   %35 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %26, i64 %34
   store float %31, ptr %35, align 8, !tbaa !268
-  %.idx.i = shl nuw nsw i64 %34, 3
-  %36 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  store float %33, ptr %37, align 4, !tbaa !270
-  %38 = add i8 %29, 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store float %33, ptr %36, align 4, !tbaa !270
+  %37 = add i8 %29, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %27, label %28
@@ -5196,114 +5194,112 @@ _iop_gui_alloc.exit:                              ; preds = %1, %11
   %204 = icmp eq i32 %201, 0
   %205 = icmp ne i32 %203, -1
   %or.cond = select i1 %204, i1 %205, i1 false
-  br i1 %or.cond, label %214, label %216
+  br i1 %or.cond, label %213, label %215
 
 206:                                              ; preds = %_iop_gui_alloc.exit, %206
-  %indvars.iv153 = phi i64 [ 1, %_iop_gui_alloc.exit ], [ %indvars.iv.next154, %206 ]
+  %indvars.iv151 = phi i64 [ 1, %_iop_gui_alloc.exit ], [ %indvars.iv.next152, %206 ]
   %indvars.iv = phi i64 [ 0, %_iop_gui_alloc.exit ], [ %indvars.iv.next, %206 ]
   %207 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv
   %208 = load float, ptr %207, align 4, !tbaa !36
   %209 = getelementptr inbounds nuw float, ptr %79, i64 %indvars.iv
   %210 = load float, ptr %209, align 4, !tbaa !36
-  %211 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %82, i64 %indvars.iv153
+  %211 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %82, i64 %indvars.iv151
   store float %208, ptr %211, align 8, !tbaa !268
-  %.idx.i150 = shl nuw nsw i64 %indvars.iv153, 3
-  %212 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i150
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  store float %210, ptr %213, align 4, !tbaa !270
-  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
+  store float %210, ptr %212, align 4, !tbaa !270
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %84, label %206
 
-214:                                              ; preds = %84
-  %215 = load ptr, ptr %200, align 8, !tbaa !285
-  call void @dt_bauhaus_combobox_remove_at(ptr noundef %215, i32 noundef %203) #20
-  br label %216
+213:                                              ; preds = %84
+  %214 = load ptr, ptr %200, align 8, !tbaa !285
+  call void @dt_bauhaus_combobox_remove_at(ptr noundef %214, i32 noundef %203) #20
+  br label %215
 
-216:                                              ; preds = %214, %84
-  %217 = load ptr, ptr %18, align 16, !tbaa !299
-  %218 = call ptr @g_type_check_instance_cast(ptr noundef %217, i64 noundef %123) #20
-  %219 = load ptr, ptr %19, align 8, !tbaa !288
-  store ptr %219, ptr %8, align 8, !tbaa !128
-  %220 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %221 = load ptr, ptr %30, align 16, !tbaa !286
-  store ptr %221, ptr %220, align 8, !tbaa !128
-  %222 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr inttoptr (i64 -1 to ptr), ptr %222, align 8, !tbaa !128
-  %223 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.46, i32 noundef 3761, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %218, ptr noundef nonnull %8) #20
-  %224 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.60) #20
-  %225 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store ptr %224, ptr %225, align 8, !tbaa !293
-  call void @dt_bauhaus_slider_set_soft_max(ptr noundef %224, float noundef 4.000000e+00) #20
-  %226 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.61) #20
-  %227 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr %226, ptr %227, align 16, !tbaa !313
-  call void @dt_bauhaus_slider_set_soft_max(ptr noundef %226, float noundef 4.000000e+00) #20
-  %228 = load ptr, ptr %227, align 16, !tbaa !313
-  call void @dt_bauhaus_slider_set_digits(ptr noundef %228, i32 noundef 3) #20
-  %229 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.62) #20
-  %230 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store ptr %229, ptr %230, align 8, !tbaa !297
-  %231 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.63) #20
-  %232 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr %231, ptr %232, align 16, !tbaa !298
-  call void @dt_bauhaus_slider_set_soft_range(ptr noundef %231, float noundef -1.000000e+01, float noundef 1.000000e+01) #20
-  %233 = load ptr, ptr %18, align 16, !tbaa !299
-  %234 = call ptr @g_type_check_instance_cast(ptr noundef %233, i64 noundef %123) #20
-  %235 = load ptr, ptr %184, align 8, !tbaa !287
-  store ptr %235, ptr %9, align 8, !tbaa !128
-  %236 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %236, align 8, !tbaa !128
-  %237 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.46, i32 noundef 3772, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %234, ptr noundef nonnull %9) #20
-  %238 = call ptr @dt_bauhaus_toggle_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.64) #20
-  %239 = getelementptr inbounds nuw i8, ptr %10, i64 2280
-  store ptr %238, ptr %239, align 8, !tbaa !253
-  %240 = call ptr @dt_bauhaus_toggle_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.65) #20
-  %241 = getelementptr inbounds nuw i8, ptr %10, i64 2288
-  store ptr %240, ptr %241, align 16, !tbaa !254
-  %242 = load ptr, ptr %198, align 8, !tbaa !252
-  %243 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %242, ptr noundef %243) #20
-  %244 = load ptr, ptr %239, align 8, !tbaa !253
-  %245 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.67, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %244, ptr noundef %245) #20
-  %246 = load ptr, ptr %10, align 16, !tbaa !248
-  %247 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.68, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %246, ptr noundef %247) #20
-  %248 = load ptr, ptr %200, align 8, !tbaa !285
-  %249 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.69, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %248, ptr noundef %249) #20
-  %250 = load ptr, ptr %32, align 16, !tbaa !292
-  %251 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.70, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %250, ptr noundef %251) #20
-  %252 = load ptr, ptr %21, align 16, !tbaa !289
-  %253 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %252, ptr noundef %253) #20
-  %254 = load ptr, ptr %24, align 8, !tbaa !290
-  %255 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.72, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %254, ptr noundef %255) #20
-  %256 = load ptr, ptr %26, align 8, !tbaa !291
-  %257 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.73, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %256, ptr noundef %257) #20
-  %258 = load ptr, ptr %28, align 16, !tbaa !300
-  %259 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.74, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %258, ptr noundef %259) #20
-  %260 = load ptr, ptr %227, align 16, !tbaa !313
-  %261 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %260, ptr noundef %261) #20
-  %262 = load ptr, ptr %225, align 8, !tbaa !293
-  %263 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.76, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %262, ptr noundef %263) #20
-  %264 = load ptr, ptr %230, align 8, !tbaa !297
-  %265 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.77, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %264, ptr noundef %265) #20
-  %266 = load ptr, ptr %232, align 16, !tbaa !298
-  %267 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.78, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %266, ptr noundef %267) #20
-  %268 = load ptr, ptr %241, align 16, !tbaa !254
-  %269 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.79, i32 noundef 5) #20
-  call void @gtk_widget_set_tooltip_text(ptr noundef %268, ptr noundef %269) #20
+215:                                              ; preds = %213, %84
+  %216 = load ptr, ptr %18, align 16, !tbaa !299
+  %217 = call ptr @g_type_check_instance_cast(ptr noundef %216, i64 noundef %123) #20
+  %218 = load ptr, ptr %19, align 8, !tbaa !288
+  store ptr %218, ptr %8, align 8, !tbaa !128
+  %219 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %220 = load ptr, ptr %30, align 16, !tbaa !286
+  store ptr %220, ptr %219, align 8, !tbaa !128
+  %221 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr inttoptr (i64 -1 to ptr), ptr %221, align 8, !tbaa !128
+  %222 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.46, i32 noundef 3761, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %217, ptr noundef nonnull %8) #20
+  %223 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.60) #20
+  %224 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  store ptr %223, ptr %224, align 8, !tbaa !293
+  call void @dt_bauhaus_slider_set_soft_max(ptr noundef %223, float noundef 4.000000e+00) #20
+  %225 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.61) #20
+  %226 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store ptr %225, ptr %226, align 16, !tbaa !313
+  call void @dt_bauhaus_slider_set_soft_max(ptr noundef %225, float noundef 4.000000e+00) #20
+  %227 = load ptr, ptr %226, align 16, !tbaa !313
+  call void @dt_bauhaus_slider_set_digits(ptr noundef %227, i32 noundef 3) #20
+  %228 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.62) #20
+  %229 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store ptr %228, ptr %229, align 8, !tbaa !297
+  %230 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.63) #20
+  %231 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store ptr %230, ptr %231, align 16, !tbaa !298
+  call void @dt_bauhaus_slider_set_soft_range(ptr noundef %230, float noundef -1.000000e+01, float noundef 1.000000e+01) #20
+  %232 = load ptr, ptr %18, align 16, !tbaa !299
+  %233 = call ptr @g_type_check_instance_cast(ptr noundef %232, i64 noundef %123) #20
+  %234 = load ptr, ptr %184, align 8, !tbaa !287
+  store ptr %234, ptr %9, align 8, !tbaa !128
+  %235 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr inttoptr (i64 -1 to ptr), ptr %235, align 8, !tbaa !128
+  %236 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.46, i32 noundef 3772, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %233, ptr noundef nonnull %9) #20
+  %237 = call ptr @dt_bauhaus_toggle_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.64) #20
+  %238 = getelementptr inbounds nuw i8, ptr %10, i64 2280
+  store ptr %237, ptr %238, align 8, !tbaa !253
+  %239 = call ptr @dt_bauhaus_toggle_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.65) #20
+  %240 = getelementptr inbounds nuw i8, ptr %10, i64 2288
+  store ptr %239, ptr %240, align 16, !tbaa !254
+  %241 = load ptr, ptr %198, align 8, !tbaa !252
+  %242 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %241, ptr noundef %242) #20
+  %243 = load ptr, ptr %238, align 8, !tbaa !253
+  %244 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.67, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %243, ptr noundef %244) #20
+  %245 = load ptr, ptr %10, align 16, !tbaa !248
+  %246 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.68, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %245, ptr noundef %246) #20
+  %247 = load ptr, ptr %200, align 8, !tbaa !285
+  %248 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.69, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %247, ptr noundef %248) #20
+  %249 = load ptr, ptr %32, align 16, !tbaa !292
+  %250 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.70, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %249, ptr noundef %250) #20
+  %251 = load ptr, ptr %21, align 16, !tbaa !289
+  %252 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %251, ptr noundef %252) #20
+  %253 = load ptr, ptr %24, align 8, !tbaa !290
+  %254 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.72, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %253, ptr noundef %254) #20
+  %255 = load ptr, ptr %26, align 8, !tbaa !291
+  %256 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.73, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %255, ptr noundef %256) #20
+  %257 = load ptr, ptr %28, align 16, !tbaa !300
+  %258 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.74, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %257, ptr noundef %258) #20
+  %259 = load ptr, ptr %226, align 16, !tbaa !313
+  %260 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %259, ptr noundef %260) #20
+  %261 = load ptr, ptr %224, align 8, !tbaa !293
+  %262 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.76, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %261, ptr noundef %262) #20
+  %263 = load ptr, ptr %229, align 8, !tbaa !297
+  %264 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.77, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %263, ptr noundef %264) #20
+  %265 = load ptr, ptr %231, align 16, !tbaa !298
+  %266 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.78, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %265, ptr noundef %266) #20
+  %267 = load ptr, ptr %240, align 16, !tbaa !254
+  %268 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.79, i32 noundef 5) #20
+  call void @gtk_widget_set_tooltip_text(ptr noundef %267, ptr noundef %268) #20
   ret void
 }
 
@@ -6759,23 +6755,24 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %8, label %.preheader
+  br i1 %or.cond, label %9, label %.preheader
 
 6:                                                ; preds = %.preheader
   store ptr @introspection_init.f12, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1128), align 8, !tbaa !44
   store ptr @introspection_init.f22, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2008), align 8, !tbaa !44
   store ptr @introspection_init.f23, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2096), align 16, !tbaa !44
-  br label %8
+  br label %9
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
-  store ptr %0, ptr %7, align 8, !tbaa !44
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %0, ptr %8, align 8, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
   br i1 %exitcond.not, label %6, label %.preheader
 
-8:                                                ; preds = %2, %6
+9:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
   ret i32 %.06
 }

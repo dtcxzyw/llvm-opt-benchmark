@@ -183,7 +183,7 @@ define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshN
   store float %27, ptr %28, align 4
   %.037.i86 = add nsw i32 %1, 1
   %29 = icmp slt i32 %.037.i86, %2
-  br i1 %.not85, label %81, label %30
+  br i1 %.not85, label %82, label %30
 
 30:                                               ; preds = %13
   br i1 %29, label %.lr.ph.preheader.i, label %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit
@@ -262,88 +262,89 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %64 = getelementptr inbounds %struct.BoundsItem, ptr %0, i64 %indvars.iv, i32 2
-  %65 = load i32, ptr %64, align 4
-  %66 = mul nsw i32 %65, 3
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %9, i64 %67
-  %69 = load i32, ptr %7, align 4
-  %70 = mul nsw i32 %69, 3
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %8, i64 %71
-  %73 = add nsw i32 %69, 1
-  store i32 %73, ptr %7, align 4
-  %74 = load i32, ptr %68, align 4
-  store i32 %74, ptr %72, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 %76, ptr %77, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 %79, ptr %80, align 4
+  %64 = getelementptr inbounds %struct.BoundsItem, ptr %0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %66 = load i32, ptr %65, align 4
+  %67 = mul nsw i32 %66, 3
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i32, ptr %9, i64 %68
+  %70 = load i32, ptr %7, align 4
+  %71 = mul nsw i32 %70, 3
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i32, ptr %8, i64 %72
+  %74 = add nsw i32 %70, 1
+  store i32 %74, ptr %7, align 4
+  %75 = load i32, ptr %69, align 4
+  store i32 %75, ptr %73, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %77 = load i32, ptr %76, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  store i32 %77, ptr %78, align 4
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %80 = load i32, ptr %79, align 4
+  %81 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store i32 %80, ptr %81, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %common.ret10, label %.lr.ph, !llvm.loop !10
 
-81:                                               ; preds = %13
+82:                                               ; preds = %13
   br i1 %29, label %.lr.ph.preheader.i87, label %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93
 
-.lr.ph.preheader.i87:                             ; preds = %81
-  %82 = add nsw i64 %18, 1
+.lr.ph.preheader.i87:                             ; preds = %82
+  %83 = add nsw i64 %18, 1
   br label %.lr.ph.i88
 
-.lr.ph.i88:                                       ; preds = %109, %.lr.ph.preheader.i87
-  %83 = phi float [ %27, %.lr.ph.preheader.i87 ], [ %110, %109 ]
-  %84 = phi float [ %25, %.lr.ph.preheader.i87 ], [ %104, %109 ]
-  %85 = phi float [ %22, %.lr.ph.preheader.i87 ], [ %98, %109 ]
-  %86 = phi float [ %20, %.lr.ph.preheader.i87 ], [ %92, %109 ]
-  %indvars.iv.i89 = phi i64 [ %82, %.lr.ph.preheader.i87 ], [ %indvars.iv.next.i90, %109 ]
-  %87 = getelementptr inbounds %struct.BoundsItem, ptr %0, i64 %indvars.iv.i89
-  %88 = load float, ptr %87, align 4
-  %89 = fcmp olt float %88, %86
-  br i1 %89, label %90, label %91
+.lr.ph.i88:                                       ; preds = %110, %.lr.ph.preheader.i87
+  %84 = phi float [ %27, %.lr.ph.preheader.i87 ], [ %111, %110 ]
+  %85 = phi float [ %25, %.lr.ph.preheader.i87 ], [ %105, %110 ]
+  %86 = phi float [ %22, %.lr.ph.preheader.i87 ], [ %99, %110 ]
+  %87 = phi float [ %20, %.lr.ph.preheader.i87 ], [ %93, %110 ]
+  %indvars.iv.i89 = phi i64 [ %83, %.lr.ph.preheader.i87 ], [ %indvars.iv.next.i90, %110 ]
+  %88 = getelementptr inbounds %struct.BoundsItem, ptr %0, i64 %indvars.iv.i89
+  %89 = load float, ptr %88, align 4
+  %90 = fcmp olt float %89, %87
+  br i1 %90, label %91, label %92
 
-90:                                               ; preds = %.lr.ph.i88
-  store float %88, ptr %16, align 4
-  br label %91
+91:                                               ; preds = %.lr.ph.i88
+  store float %89, ptr %16, align 4
+  br label %92
 
-91:                                               ; preds = %90, %.lr.ph.i88
-  %92 = phi float [ %88, %90 ], [ %86, %.lr.ph.i88 ]
-  %93 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %94 = load float, ptr %93, align 4
-  %95 = fcmp olt float %94, %85
-  br i1 %95, label %96, label %97
+92:                                               ; preds = %91, %.lr.ph.i88
+  %93 = phi float [ %89, %91 ], [ %87, %.lr.ph.i88 ]
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %95 = load float, ptr %94, align 4
+  %96 = fcmp olt float %95, %86
+  br i1 %96, label %97, label %98
 
-96:                                               ; preds = %91
-  store float %94, ptr %23, align 4
-  br label %97
+97:                                               ; preds = %92
+  store float %95, ptr %23, align 4
+  br label %98
 
-97:                                               ; preds = %96, %91
-  %98 = phi float [ %94, %96 ], [ %85, %91 ]
-  %99 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %100 = load float, ptr %99, align 4
-  %101 = fcmp ogt float %100, %84
-  br i1 %101, label %102, label %103
+98:                                               ; preds = %97, %92
+  %99 = phi float [ %95, %97 ], [ %86, %92 ]
+  %100 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %101 = load float, ptr %100, align 4
+  %102 = fcmp ogt float %101, %85
+  br i1 %102, label %103, label %104
 
-102:                                              ; preds = %97
-  store float %100, ptr %17, align 4
-  br label %103
+103:                                              ; preds = %98
+  store float %101, ptr %17, align 4
+  br label %104
 
-103:                                              ; preds = %102, %97
-  %104 = phi float [ %100, %102 ], [ %84, %97 ]
-  %105 = getelementptr inbounds nuw i8, ptr %87, i64 12
-  %106 = load float, ptr %105, align 4
-  %107 = fcmp ogt float %106, %83
-  br i1 %107, label %108, label %109
+104:                                              ; preds = %103, %98
+  %105 = phi float [ %101, %103 ], [ %85, %98 ]
+  %106 = getelementptr inbounds nuw i8, ptr %88, i64 12
+  %107 = load float, ptr %106, align 4
+  %108 = fcmp ogt float %107, %84
+  br i1 %108, label %109, label %110
 
-108:                                              ; preds = %103
-  store float %106, ptr %28, align 4
-  br label %109
+109:                                              ; preds = %104
+  store float %107, ptr %28, align 4
+  br label %110
 
-109:                                              ; preds = %108, %103
-  %110 = phi float [ %106, %108 ], [ %83, %103 ]
+110:                                              ; preds = %109, %104
+  %111 = phi float [ %107, %109 ], [ %84, %104 ]
   %indvars.iv.next.i90 = add nsw i64 %indvars.iv.i89, 1
   %lftr.wideiv.i91 = trunc i64 %indvars.iv.next.i90 to i32
   %exitcond.not.i92 = icmp eq i32 %2, %lftr.wideiv.i91
@@ -352,25 +353,25 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
 common.ret10:                                     ; preds = %10, %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit, %.lr.ph, %_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93
   ret void
 
-_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93:    ; preds = %109, %81
-  %111 = phi float [ %22, %81 ], [ %98, %109 ]
-  %112 = phi float [ %27, %81 ], [ %110, %109 ]
-  %113 = phi float [ %20, %81 ], [ %92, %109 ]
-  %114 = phi float [ %25, %81 ], [ %104, %109 ]
-  %115 = fsub float %114, %113
-  %116 = fsub float %112, %111
-  %117 = fcmp ogt float %116, %115
-  %118 = sext i32 %11 to i64
-  %_ZL12compareItemYPKvS0_._ZL12compareItemXPKvS0_ = select i1 %117, ptr @_ZL12compareItemYPKvS0_, ptr @_ZL12compareItemXPKvS0_
-  tail call void @qsort(ptr noundef nonnull %19, i64 noundef %118, i64 noundef 20, ptr noundef nonnull %_ZL12compareItemYPKvS0_._ZL12compareItemXPKvS0_)
-  %119 = sdiv i32 %11, 2
-  %120 = add nsw i32 %119, %1
-  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %0, i32 noundef %1, i32 noundef %120, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
-  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %0, i32 noundef %120, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
-  %121 = load i32, ptr %4, align 4
-  %.neg = sub nsw i32 %12, %121
-  %122 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 %.neg, ptr %122, align 4
+_ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93:    ; preds = %110, %82
+  %112 = phi float [ %22, %82 ], [ %99, %110 ]
+  %113 = phi float [ %27, %82 ], [ %111, %110 ]
+  %114 = phi float [ %20, %82 ], [ %93, %110 ]
+  %115 = phi float [ %25, %82 ], [ %105, %110 ]
+  %116 = fsub float %115, %114
+  %117 = fsub float %113, %112
+  %118 = fcmp ogt float %117, %116
+  %119 = sext i32 %11 to i64
+  %_ZL12compareItemYPKvS0_._ZL12compareItemXPKvS0_ = select i1 %118, ptr @_ZL12compareItemYPKvS0_, ptr @_ZL12compareItemXPKvS0_
+  tail call void @qsort(ptr noundef nonnull %19, i64 noundef %119, i64 noundef 20, ptr noundef nonnull %_ZL12compareItemYPKvS0_._ZL12compareItemXPKvS0_)
+  %120 = sdiv i32 %11, 2
+  %121 = add nsw i32 %120, %1
+  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %0, i32 noundef %1, i32 noundef %121, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
+  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %0, i32 noundef %121, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
+  %122 = load i32, ptr %4, align 4
+  %.neg = sub nsw i32 %12, %122
+  %123 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 %.neg, ptr %123, align 4
   br label %common.ret10
 }
 

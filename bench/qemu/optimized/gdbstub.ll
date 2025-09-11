@@ -425,7 +425,7 @@ define internal range(i32 0, 9) i32 @riscv_gdb_set_fpu(ptr noundef %0, ptr nound
 declare ptr @gdb_find_static_feature(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483640, -2147483648) i32 @riscv_gdb_get_vector(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 0, 65537) i32 @riscv_gdb_get_vector(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 56, ptr noundef nonnull @__func__.RISCV_CPU) #7
   %6 = icmp slt i32 %2, 32
@@ -461,7 +461,7 @@ define internal range(i32 -2147483640, -2147483648) i32 @riscv_gdb_get_vector(pt
 .loopexit.loopexit:                               ; preds = %12
   %21 = add nsw i32 %9, -1
   %22 = and i32 %21, -8
-  %23 = add nsw i32 %22, 8
+  %23 = add nuw nsw i32 %22, 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %3

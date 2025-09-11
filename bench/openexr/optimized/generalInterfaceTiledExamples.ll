@@ -335,11 +335,11 @@ define dso_local void @_Z10readTiled1PKcRN7Imf_3_47Array2DI2GZEERiS6_(ptr nounde
   %9 = tail call noundef i32 @_ZN7Imf_3_417globalThreadCountEv()
   call void @_ZN7Imf_3_414TiledInputFileC1EPKci(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %0, i32 noundef %9)
   %10 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_414TiledInputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %11 unwind label %121
+          to label %11 unwind label %122
 
 11:                                               ; preds = %4
   %12 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_46Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %10)
-          to label %13 unwind label %121
+          to label %13 unwind label %122
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %12, align 4, !tbaa !32
@@ -364,7 +364,7 @@ define dso_local void @_Z10readTiled1PKcRN7Imf_3_47Array2DI2GZEERiS6_(ptr nounde
   %30 = shl nuw i64 %28, 3
   %31 = select i1 %29, i64 -1, i64 %30
   %32 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %31) #15
-          to label %.noexc unwind label %123
+          to label %.noexc unwind label %124
 
 .noexc:                                           ; preds = %13
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -404,11 +404,11 @@ define dso_local void @_Z10readTiled1PKcRN7Imf_3_47Array2DI2GZEERiS6_(ptr nounde
   %49 = getelementptr inbounds %struct.GZ, ptr %47, i64 %48
   %50 = shl nsw i64 %.pre-phi, 3
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %7, i32 noundef 1, ptr noundef nonnull %49, i64 noundef 8, i64 noundef %50, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %51 unwind label %125
+          to label %51 unwind label %126
 
 51:                                               ; preds = %37
   invoke void @_ZN7Imf_3_411FrameBuffer6insertEPKcRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(50) %7)
-          to label %52 unwind label %125
+          to label %52 unwind label %126
 
 52:                                               ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -417,188 +417,189 @@ define dso_local void @_Z10readTiled1PKcRN7Imf_3_47Array2DI2GZEERiS6_(ptr nounde
   %54 = load i64, ptr %38, align 8, !tbaa !37
   %55 = mul nsw i64 %54, %45
   %56 = getelementptr inbounds %struct.GZ, ptr %53, i64 %55
-  %57 = getelementptr inbounds %struct.GZ, ptr %56, i64 %48, i32 1
-  %58 = load i32, ptr %2, align 4, !tbaa !35
-  %59 = sext i32 %58 to i64
-  %60 = shl nsw i64 %59, 3
-  invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %8, i32 noundef 2, ptr noundef nonnull %57, i64 noundef 8, i64 noundef %60, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %61 unwind label %127
+  %57 = getelementptr inbounds %struct.GZ, ptr %56, i64 %48
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %59 = load i32, ptr %2, align 4, !tbaa !35
+  %60 = sext i32 %59 to i64
+  %61 = shl nsw i64 %60, 3
+  invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %8, i32 noundef 2, ptr noundef nonnull %58, i64 noundef 8, i64 noundef %61, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
+          to label %62 unwind label %128
 
-61:                                               ; preds = %52
+62:                                               ; preds = %52
   invoke void @_ZN7Imf_3_411FrameBuffer6insertEPKcRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(50) %8)
-          to label %62 unwind label %127
-
-62:                                               ; preds = %61
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  invoke void @_ZN7Imf_3_414TiledInputFile14setFrameBufferERKNS_11FrameBufferE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %6)
-          to label %63 unwind label %129
+          to label %63 unwind label %128
 
 63:                                               ; preds = %62
-  %64 = invoke noundef i32 @_ZNK7Imf_3_414TiledInputFile9numXTilesEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0)
-          to label %65 unwind label %129
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  invoke void @_ZN7Imf_3_414TiledInputFile14setFrameBufferERKNS_11FrameBufferE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) %6)
+          to label %64 unwind label %130
 
-65:                                               ; preds = %63
-  %66 = invoke noundef i32 @_ZNK7Imf_3_414TiledInputFile9numYTilesEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0)
-          to label %67 unwind label %129
+64:                                               ; preds = %63
+  %65 = invoke noundef i32 @_ZNK7Imf_3_414TiledInputFile9numXTilesEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0)
+          to label %66 unwind label %130
 
-67:                                               ; preds = %65
-  %68 = add nsw i32 %64, -1
-  %69 = add nsw i32 %66, -1
-  invoke void @_ZN7Imf_3_414TiledInputFile9readTilesEiiiii(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0, i32 noundef %68, i32 noundef 0, i32 noundef %69, i32 noundef 0)
-          to label %70 unwind label %129
+66:                                               ; preds = %64
+  %67 = invoke noundef i32 @_ZNK7Imf_3_414TiledInputFile9numYTilesEi(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0)
+          to label %68 unwind label %130
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %40, align 8, !tbaa !25
-  invoke void @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %71)
-          to label %_ZN7Imf_3_411FrameBufferD2Ev.exit unwind label %72
+68:                                               ; preds = %66
+  %69 = add nsw i32 %65, -1
+  %70 = add nsw i32 %67, -1
+  invoke void @_ZN7Imf_3_414TiledInputFile9readTilesEiiiii(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0, i32 noundef %69, i32 noundef 0, i32 noundef %70, i32 noundef 0)
+          to label %71 unwind label %130
 
-72:                                               ; preds = %70
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %40, align 8, !tbaa !25
+  invoke void @_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %72)
+          to label %_ZN7Imf_3_411FrameBufferD2Ev.exit unwind label %73
+
+73:                                               ; preds = %71
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #13
+  %75 = extractvalue { ptr, i32 } %74, 0
+  call void @__clang_call_terminate(ptr %75) #13
   unreachable
 
-_ZN7Imf_3_411FrameBufferD2Ev.exit:                ; preds = %70
+_ZN7Imf_3_411FrameBufferD2Ev.exit:                ; preds = %71
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !38
-  %.not.i.i.i = icmp eq ptr %76, null
-  br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %77
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %77 = load ptr, ptr %76, align 8, !tbaa !38
+  %.not.i.i.i = icmp eq ptr %77, null
+  br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %78
 
-77:                                               ; preds = %_ZN7Imf_3_411FrameBufferD2Ev.exit
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %79 = load atomic i64, ptr %78 acquire, align 8
-  %80 = icmp eq i64 %79, 4294967297
-  %81 = trunc i64 %79 to i32
-  br i1 %80, label %82, label %90
+78:                                               ; preds = %_ZN7Imf_3_411FrameBufferD2Ev.exit
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %80 = load atomic i64, ptr %79 acquire, align 8
+  %81 = icmp eq i64 %80, 4294967297
+  %82 = trunc i64 %80 to i32
+  br i1 %81, label %83, label %91
 
-82:                                               ; preds = %77
-  store i32 0, ptr %78, align 8, !tbaa !41
-  %83 = getelementptr inbounds nuw i8, ptr %76, i64 12
-  store i32 0, ptr %83, align 4, !tbaa !43
-  %84 = load ptr, ptr %76, align 8, !tbaa !44
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  call void %86(ptr noundef nonnull align 8 dereferenceable(16) %76) #14
-  %87 = load ptr, ptr %76, align 8, !tbaa !44
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(16) %76) #14
+83:                                               ; preds = %78
+  store i32 0, ptr %79, align 8, !tbaa !41
+  %84 = getelementptr inbounds nuw i8, ptr %77, i64 12
+  store i32 0, ptr %84, align 4, !tbaa !43
+  %85 = load ptr, ptr %77, align 8, !tbaa !44
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %87 = load ptr, ptr %86, align 8
+  call void %87(ptr noundef nonnull align 8 dereferenceable(16) %77) #14
+  %88 = load ptr, ptr %77, align 8, !tbaa !44
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  %90 = load ptr, ptr %89, align 8
+  call void %90(ptr noundef nonnull align 8 dereferenceable(16) %77) #14
   br label %_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
-90:                                               ; preds = %77
-  %91 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !46
-  %.not.i.i.i.i = icmp eq i8 %91, 0
-  br i1 %.not.i.i.i.i, label %94, label %92
+91:                                               ; preds = %78
+  %92 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !46
+  %.not.i.i.i.i = icmp eq i8 %92, 0
+  br i1 %.not.i.i.i.i, label %95, label %93
 
-92:                                               ; preds = %90
-  %93 = add nsw i32 %81, -1
-  store i32 %93, ptr %78, align 4, !tbaa !35
+93:                                               ; preds = %91
+  %94 = add nsw i32 %82, -1
+  store i32 %94, ptr %79, align 4, !tbaa !35
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-94:                                               ; preds = %90
-  %95 = atomicrmw volatile add ptr %78, i32 -1 acq_rel, align 4
+95:                                               ; preds = %91
+  %96 = atomicrmw volatile add ptr %79, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %94, %92
-  %.0.i.i.i.i.i = phi i32 [ %81, %92 ], [ %95, %94 ]
-  %96 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %96, label %97, label %_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !47
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %95, %93
+  %.0.i.i.i.i.i = phi i32 [ %82, %93 ], [ %96, %95 ]
+  %97 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %97, label %98, label %_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !47
 
-97:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #14
+98:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %77) #14
   br label %_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
-_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %97, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %82, %_ZN7Imf_3_411FrameBufferD2Ev.exit
-  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !38
-  %.not.i.i.i1.i = icmp eq ptr %99, null
-  br i1 %.not.i.i.i1.i, label %_ZN7Imf_3_414TiledInputFileD2Ev.exit, label %100
+_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %98, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %83, %_ZN7Imf_3_411FrameBufferD2Ev.exit
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %100 = load ptr, ptr %99, align 8, !tbaa !38
+  %.not.i.i.i1.i = icmp eq ptr %100, null
+  br i1 %.not.i.i.i1.i, label %_ZN7Imf_3_414TiledInputFileD2Ev.exit, label %101
 
-100:                                              ; preds = %_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %102 = load atomic i64, ptr %101 acquire, align 8
-  %103 = icmp eq i64 %102, 4294967297
-  %104 = trunc i64 %102 to i32
-  br i1 %103, label %105, label %113
+101:                                              ; preds = %_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %103 = load atomic i64, ptr %102 acquire, align 8
+  %104 = icmp eq i64 %103, 4294967297
+  %105 = trunc i64 %103 to i32
+  br i1 %104, label %106, label %114
 
-105:                                              ; preds = %100
-  store i32 0, ptr %101, align 8, !tbaa !41
-  %106 = getelementptr inbounds nuw i8, ptr %99, i64 12
-  store i32 0, ptr %106, align 4, !tbaa !43
-  %107 = load ptr, ptr %99, align 8, !tbaa !44
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %109 = load ptr, ptr %108, align 8
-  call void %109(ptr noundef nonnull align 8 dereferenceable(16) %99) #14
-  %110 = load ptr, ptr %99, align 8, !tbaa !44
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %112 = load ptr, ptr %111, align 8
-  call void %112(ptr noundef nonnull align 8 dereferenceable(16) %99) #14
+106:                                              ; preds = %101
+  store i32 0, ptr %102, align 8, !tbaa !41
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 12
+  store i32 0, ptr %107, align 4, !tbaa !43
+  %108 = load ptr, ptr %100, align 8, !tbaa !44
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %110 = load ptr, ptr %109, align 8
+  call void %110(ptr noundef nonnull align 8 dereferenceable(16) %100) #14
+  %111 = load ptr, ptr %100, align 8, !tbaa !44
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
+  %113 = load ptr, ptr %112, align 8
+  call void %113(ptr noundef nonnull align 8 dereferenceable(16) %100) #14
   br label %_ZN7Imf_3_414TiledInputFileD2Ev.exit
 
-113:                                              ; preds = %100
-  %114 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !46
-  %.not.i.i.i.i.i = icmp eq i8 %114, 0
-  br i1 %.not.i.i.i.i.i, label %117, label %115
+114:                                              ; preds = %101
+  %115 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !46
+  %.not.i.i.i.i.i = icmp eq i8 %115, 0
+  br i1 %.not.i.i.i.i.i, label %118, label %116
 
-115:                                              ; preds = %113
-  %116 = add nsw i32 %104, -1
-  store i32 %116, ptr %101, align 4, !tbaa !35
+116:                                              ; preds = %114
+  %117 = add nsw i32 %105, -1
+  store i32 %117, ptr %102, align 4, !tbaa !35
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-117:                                              ; preds = %113
-  %118 = atomicrmw volatile add ptr %101, i32 -1 acq_rel, align 4
+118:                                              ; preds = %114
+  %119 = atomicrmw volatile add ptr %102, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %117, %115
-  %.0.i.i.i.i.i.i = phi i32 [ %104, %115 ], [ %118, %117 ]
-  %119 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %119, label %120, label %_ZN7Imf_3_414TiledInputFileD2Ev.exit, !prof !47
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %118, %116
+  %.0.i.i.i.i.i.i = phi i32 [ %105, %116 ], [ %119, %118 ]
+  %120 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %120, label %121, label %_ZN7Imf_3_414TiledInputFileD2Ev.exit, !prof !47
 
-120:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %99) #14
+121:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %100) #14
   br label %_ZN7Imf_3_414TiledInputFileD2Ev.exit
 
-_ZN7Imf_3_414TiledInputFileD2Ev.exit:             ; preds = %_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %120
+_ZN7Imf_3_414TiledInputFileD2Ev.exit:             ; preds = %_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %106, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-121:                                              ; preds = %11, %4
-  %122 = landingpad { ptr, i32 }
+122:                                              ; preds = %11, %4
+  %123 = landingpad { ptr, i32 }
           cleanup
-  br label %132
+  br label %133
 
-123:                                              ; preds = %13
-  %124 = landingpad { ptr, i32 }
+124:                                              ; preds = %13
+  %125 = landingpad { ptr, i32 }
           cleanup
-  br label %132
+  br label %133
 
-125:                                              ; preds = %51, %37
-  %126 = landingpad { ptr, i32 }
+126:                                              ; preds = %51, %37
+  %127 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %131
-
-127:                                              ; preds = %61, %52
-  %128 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %131
-
-129:                                              ; preds = %67, %65, %63, %62
-  %130 = landingpad { ptr, i32 }
-          cleanup
-  br label %131
-
-131:                                              ; preds = %129, %127, %125
-  %.pn = phi { ptr, i32 } [ %130, %129 ], [ %128, %127 ], [ %126, %125 ]
-  call void @_ZN7Imf_3_411FrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #14
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %132
 
-132:                                              ; preds = %123, %131, %121
-  %.pn.pn.pn = phi { ptr, i32 } [ %122, %121 ], [ %.pn, %131 ], [ %124, %123 ]
+128:                                              ; preds = %62, %52
+  %129 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %132
+
+130:                                              ; preds = %68, %66, %64, %63
+  %131 = landingpad { ptr, i32 }
+          cleanup
+  br label %132
+
+132:                                              ; preds = %130, %128, %126
+  %.pn = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %127, %126 ]
+  call void @_ZN7Imf_3_411FrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %133
+
+133:                                              ; preds = %124, %132, %122
+  %.pn.pn.pn = phi { ptr, i32 } [ %123, %122 ], [ %.pn, %132 ], [ %125, %124 ]
   call void @_ZN7Imf_3_414TiledInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn

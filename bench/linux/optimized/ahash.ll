@@ -1343,7 +1343,8 @@ define dso_local i32 @crypto_register_ahashes(ptr noundef %0, i32 noundef %1) #0
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv13 = phi i64 [ %38, %.preheader.preheader ], [ %indvars.iv.next14, %.preheader ]
-  %42 = getelementptr %struct.ahash_alg, ptr %0, i64 %indvars.iv13, i32 11, i32 2
+  %.split = getelementptr %struct.ahash_alg, ptr %0, i64 %indvars.iv13
+  %42 = getelementptr i8, ptr %.split, i64 96
   tail call void @crypto_unregister_alg(ptr noundef %42) #9
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, -1
   %.not = icmp eq i64 %indvars.iv13, 0
@@ -1366,7 +1367,8 @@ define dso_local void @crypto_unregister_ahashes(ptr noundef %0, i32 noundef %1)
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ %6, %5 ], [ %10, %7 ]
-  %9 = getelementptr %struct.ahash_alg, ptr %0, i64 %8, i32 11, i32 2
+  %.split = getelementptr %struct.ahash_alg, ptr %0, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 96
   tail call void @crypto_unregister_alg(ptr noundef %9) #9
   %10 = add nsw i64 %8, -1
   %.not = icmp eq i64 %8, 0

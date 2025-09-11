@@ -3578,7 +3578,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %1467 = load i64, ptr %.sroa.0448.0657.i, align 8, !tbaa !47
   %.val276.i = load ptr, ptr %34, align 8, !tbaa !58
   %1468 = getelementptr inbounds nuw %"class.std::shared_ptr.51", ptr %.val276.i, i64 %1467
-  %1469 = getelementptr %"class.std::shared_ptr.51", ptr %.val274.i, i64 %1389, i32 0, i32 1
+  %1469 = getelementptr i8, ptr %1434, i64 8
   %.val285.i = load ptr, ptr %1469, align 8, !tbaa !53
   store ptr %.val284.i, ptr %1468, align 8, !tbaa !66
   %1470 = getelementptr inbounds nuw i8, ptr %1468, i64 8

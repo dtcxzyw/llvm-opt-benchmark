@@ -3018,13 +3018,13 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_data(ptr noundef readonly cap
   %16 = phi ptr [ %9, %5 ], [ %13, %11 ]
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %43, label %18
+  br i1 %.not, label %44, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 27120
   %20 = load ptr, ptr %19, align 8
   %.not17 = icmp eq ptr %20, null
-  br i1 %.not17, label %43, label %21
+  br i1 %.not17, label %44, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -3038,21 +3038,22 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_data(ptr noundef readonly cap
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 431876
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.TileBufferDec, ptr %29, i64 %32, i32 1
-  %34 = load i64, ptr %33, align 8
-  store i64 %34, ptr %17, align 8
-  %35 = load i32, ptr %26, align 32
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [64 x %struct.TileBufferDec], ptr %25, i64 %36
-  %38 = load i32, ptr %30, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.TileBufferDec, ptr %37, i64 %39
-  %41 = load ptr, ptr %40, align 16
-  %42 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %41, ptr %42, align 8
-  br label %43
+  %33 = getelementptr inbounds %struct.TileBufferDec, ptr %29, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load i64, ptr %34, align 8
+  store i64 %35, ptr %17, align 8
+  %36 = load i32, ptr %26, align 32
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds [64 x %struct.TileBufferDec], ptr %25, i64 %37
+  %39 = load i32, ptr %30, align 4
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds %struct.TileBufferDec, ptr %38, i64 %40
+  %42 = load ptr, ptr %41, align 16
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %42, ptr %43, align 8
+  br label %44
 
-43:                                               ; preds = %15, %18, %21
+44:                                               ; preds = %15, %18, %21
   %.0 = phi i32 [ 0, %21 ], [ 1, %18 ], [ 8, %15 ]
   ret i32 %.0
 }

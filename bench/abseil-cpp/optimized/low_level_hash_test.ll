@@ -683,7 +683,7 @@ _ZN7testing7MessageD2Ev.exit42:                   ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %98 = load ptr, ptr %5, align 8, !tbaa !41
   %99 = load i64, ptr %15, align 8, !tbaa !27
-  %100 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN12_GLOBAL__N_134LowLevelHashTest_VerifyGolden_Test8TestBodyEvE5cases, i64 %storemerge92, i32 1
+  %100 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %101 = load i64, ptr %100, align 8, !tbaa !43
   %102 = invoke noundef i64 @_ZN4absl13hash_internal12LowLevelHashEPKvmmPKm(ptr noundef %98, i64 noundef %99, i64 noundef %101, ptr noundef nonnull @_ZN12_GLOBAL__N_15kSaltE)
           to label %103 unwind label %112

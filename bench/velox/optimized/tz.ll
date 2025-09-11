@@ -2463,7 +2463,8 @@ for.body85:                                       ; preds = %for.body85.lr.ph, %
   %59 = load i8, ptr %add.ptr.i69, align 1
   %idx.ext91 = zext i8 %59 to i64
   %add.ptr92 = getelementptr inbounds nuw %"struct.date::detail::expanded_ttinfo", ptr %58, i64 %idx.ext91
-  %info96 = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %57, i64 %conv81116, i32 1
+  %add.ptr.i70 = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %57, i64 %conv81116
+  %info96 = getelementptr inbounds nuw i8, ptr %add.ptr.i70, i64 8
   store ptr %add.ptr92, ptr %info96, align 8
   %inc98 = add i32 %i.1114, 1
   %inc99 = add i32 %j.0115, 1
@@ -3076,7 +3077,8 @@ for.body85:                                       ; preds = %for.body85.lr.ph, %
   %58 = load i8, ptr %add.ptr.i69, align 1
   %idx.ext91 = zext i8 %58 to i64
   %add.ptr92 = getelementptr inbounds nuw %"struct.date::detail::expanded_ttinfo", ptr %57, i64 %idx.ext91
-  %info96 = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %56, i64 %conv81116, i32 1
+  %add.ptr.i70 = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %56, i64 %conv81116
+  %info96 = getelementptr inbounds nuw i8, ptr %add.ptr.i70, i64 8
   store ptr %add.ptr92, ptr %info96, align 8
   %inc98 = add i32 %i.1114, 1
   %inc99 = add i32 %j.0115, 1

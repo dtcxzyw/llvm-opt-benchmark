@@ -3575,11 +3575,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not211 = icmp eq ptr %6, null
-  br i1 %.not211, label %70, label %7
+  br i1 %.not211, label %84, label %7
 
 7:                                                ; preds = %4
   tail call void %6(ptr noundef nonnull %3)
-  br label %70
+  br label %84
 
 8:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 noundef 0, i64 noundef 48, i1 noundef false) #11
@@ -3596,11 +3596,12 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 13:                                               ; preds = %13, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %8 ]
   %indvars251 = trunc i64 %indvars.iv to i32
-  %14 = getelementptr %struct._value_string, ptr @h225_RasMessage_vals, i64 %indvars.iv, i32 1
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %12, align 8
-  %16 = getelementptr i32, ptr @ras_msg_idx, i64 %indvars.iv
-  store i32 %indvars251, ptr %16, align 4
+  %14 = getelementptr %struct._value_string, ptr @h225_RasMessage_vals, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8
+  store ptr %16, ptr %12, align 8
+  %17 = getelementptr i32, ptr @ras_msg_idx, i64 %indvars.iv
+  store i32 %indvars251, ptr %17, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %indvars251, i32 noundef 2, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not184 = icmp eq i64 %indvars.iv.next, 33
@@ -3608,193 +3609,206 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 
 .preheader223:                                    ; preds = %13, %.preheader223
   %indvars.iv254 = phi i64 [ %indvars.iv.next255, %.preheader223 ], [ 0, %13 ]
-  %.1154 = phi i32 [ %20, %.preheader223 ], [ 33, %13 ]
-  %17 = getelementptr %struct._value_string, ptr @T_h323_message_body_vals, i64 %indvars.iv254, i32 1
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %12, align 8
-  %19 = getelementptr i32, ptr @cs_msg_idx, i64 %indvars.iv254
-  store i32 %.1154, ptr %19, align 4
+  %.1154 = phi i32 [ %22, %.preheader223 ], [ 33, %13 ]
+  %18 = getelementptr %struct._value_string, ptr @T_h323_message_body_vals, i64 %indvars.iv254
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %12, align 8
+  %21 = getelementptr i32, ptr @cs_msg_idx, i64 %indvars.iv254
+  store i32 %.1154, ptr %21, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.1154, i32 noundef 2, ptr noundef nonnull %2)
-  %20 = add nuw nsw i32 %.1154, 1
+  %22 = add nuw nsw i32 %.1154, 1
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %.not186 = icmp eq i64 %indvars.iv.next255, 13
   br i1 %.not186, label %.preheader222, label %.preheader223, !llvm.loop !9
 
 .preheader222:                                    ; preds = %.preheader223, %.preheader222
   %indvars.iv257 = phi i64 [ %indvars.iv.next258, %.preheader222 ], [ 0, %.preheader223 ]
-  %.2155 = phi i32 [ %24, %.preheader222 ], [ 46, %.preheader223 ]
-  %21 = getelementptr %struct._value_string, ptr @GatekeeperRejectReason_vals, i64 %indvars.iv257, i32 1
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %12, align 8
-  %23 = getelementptr i32, ptr @grj_reason_idx, i64 %indvars.iv257
-  store i32 %.2155, ptr %23, align 4
+  %.2155 = phi i32 [ %27, %.preheader222 ], [ 46, %.preheader223 ]
+  %23 = getelementptr %struct._value_string, ptr @GatekeeperRejectReason_vals, i64 %indvars.iv257
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %12, align 8
+  %26 = getelementptr i32, ptr @grj_reason_idx, i64 %indvars.iv257
+  store i32 %.2155, ptr %26, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.2155, i32 noundef 2, ptr noundef nonnull %2)
-  %24 = add nuw nsw i32 %.2155, 1
+  %27 = add nuw nsw i32 %.2155, 1
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %.not188 = icmp eq i64 %indvars.iv.next258, 8
   br i1 %.not188, label %.preheader221, label %.preheader222, !llvm.loop !10
 
 .preheader221:                                    ; preds = %.preheader222, %.preheader221
   %indvars.iv260 = phi i64 [ %indvars.iv.next261, %.preheader221 ], [ 0, %.preheader222 ]
-  %.3156 = phi i32 [ %28, %.preheader221 ], [ 54, %.preheader222 ]
-  %25 = getelementptr %struct._value_string, ptr @RegistrationRejectReason_vals, i64 %indvars.iv260, i32 1
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %12, align 8
-  %27 = getelementptr i32, ptr @rrj_reason_idx, i64 %indvars.iv260
-  store i32 %.3156, ptr %27, align 4
+  %.3156 = phi i32 [ %32, %.preheader221 ], [ 54, %.preheader222 ]
+  %28 = getelementptr %struct._value_string, ptr @RegistrationRejectReason_vals, i64 %indvars.iv260
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %12, align 8
+  %31 = getelementptr i32, ptr @rrj_reason_idx, i64 %indvars.iv260
+  store i32 %.3156, ptr %31, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.3156, i32 noundef 2, ptr noundef nonnull %2)
-  %28 = add nuw nsw i32 %.3156, 1
+  %32 = add nuw nsw i32 %.3156, 1
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %.not190 = icmp eq i64 %indvars.iv.next261, 19
   br i1 %.not190, label %.preheader220, label %.preheader221, !llvm.loop !11
 
 .preheader220:                                    ; preds = %.preheader221, %.preheader220
   %indvars.iv263 = phi i64 [ %indvars.iv.next264, %.preheader220 ], [ 0, %.preheader221 ]
-  %.4157 = phi i32 [ %32, %.preheader220 ], [ 73, %.preheader221 ]
-  %29 = getelementptr %struct._value_string, ptr @UnregRequestReason_vals, i64 %indvars.iv263, i32 1
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %12, align 8
-  %31 = getelementptr i32, ptr @urq_reason_idx, i64 %indvars.iv263
-  store i32 %.4157, ptr %31, align 4
+  %.4157 = phi i32 [ %37, %.preheader220 ], [ 73, %.preheader221 ]
+  %33 = getelementptr %struct._value_string, ptr @UnregRequestReason_vals, i64 %indvars.iv263
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %12, align 8
+  %36 = getelementptr i32, ptr @urq_reason_idx, i64 %indvars.iv263
+  store i32 %.4157, ptr %36, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.4157, i32 noundef 2, ptr noundef nonnull %2)
-  %32 = add nuw nsw i32 %.4157, 1
+  %37 = add nuw nsw i32 %.4157, 1
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %.not192 = icmp eq i64 %indvars.iv.next264, 7
   br i1 %.not192, label %.preheader219, label %.preheader220, !llvm.loop !12
 
 .preheader219:                                    ; preds = %.preheader220, %.preheader219
   %indvars.iv266 = phi i64 [ %indvars.iv.next267, %.preheader219 ], [ 0, %.preheader220 ]
-  %.5158 = phi i32 [ %36, %.preheader219 ], [ 80, %.preheader220 ]
-  %33 = getelementptr %struct._value_string, ptr @UnregRejectReason_vals, i64 %indvars.iv266, i32 1
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %12, align 8
-  %35 = getelementptr i32, ptr @urj_reason_idx, i64 %indvars.iv266
-  store i32 %.5158, ptr %35, align 4
+  %.5158 = phi i32 [ %42, %.preheader219 ], [ 80, %.preheader220 ]
+  %38 = getelementptr %struct._value_string, ptr @UnregRejectReason_vals, i64 %indvars.iv266
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8
+  store ptr %40, ptr %12, align 8
+  %41 = getelementptr i32, ptr @urj_reason_idx, i64 %indvars.iv266
+  store i32 %.5158, ptr %41, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.5158, i32 noundef 2, ptr noundef nonnull %2)
-  %36 = add nuw nsw i32 %.5158, 1
+  %42 = add nuw nsw i32 %.5158, 1
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %.not194 = icmp eq i64 %indvars.iv.next267, 6
   br i1 %.not194, label %.preheader218, label %.preheader219, !llvm.loop !13
 
 .preheader218:                                    ; preds = %.preheader219, %.preheader218
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %.preheader218 ], [ 0, %.preheader219 ]
-  %.6159 = phi i32 [ %40, %.preheader218 ], [ 86, %.preheader219 ]
-  %37 = getelementptr %struct._value_string, ptr @AdmissionRejectReason_vals, i64 %indvars.iv269, i32 1
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %12, align 8
-  %39 = getelementptr i32, ptr @arj_reason_idx, i64 %indvars.iv269
-  store i32 %.6159, ptr %39, align 4
+  %.6159 = phi i32 [ %47, %.preheader218 ], [ 86, %.preheader219 ]
+  %43 = getelementptr %struct._value_string, ptr @AdmissionRejectReason_vals, i64 %indvars.iv269
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %12, align 8
+  %46 = getelementptr i32, ptr @arj_reason_idx, i64 %indvars.iv269
+  store i32 %.6159, ptr %46, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.6159, i32 noundef 2, ptr noundef nonnull %2)
-  %40 = add nuw nsw i32 %.6159, 1
+  %47 = add nuw nsw i32 %.6159, 1
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %.not196 = icmp eq i64 %indvars.iv.next270, 23
   br i1 %.not196, label %.preheader217, label %.preheader218, !llvm.loop !14
 
 .preheader217:                                    ; preds = %.preheader218, %.preheader217
   %indvars.iv272 = phi i64 [ %indvars.iv.next273, %.preheader217 ], [ 0, %.preheader218 ]
-  %.7160 = phi i32 [ %44, %.preheader217 ], [ 109, %.preheader218 ]
-  %41 = getelementptr %struct._value_string, ptr @BandRejectReason_vals, i64 %indvars.iv272, i32 1
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %12, align 8
-  %43 = getelementptr i32, ptr @brj_reason_idx, i64 %indvars.iv272
-  store i32 %.7160, ptr %43, align 4
+  %.7160 = phi i32 [ %52, %.preheader217 ], [ 109, %.preheader218 ]
+  %48 = getelementptr %struct._value_string, ptr @BandRejectReason_vals, i64 %indvars.iv272
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %12, align 8
+  %51 = getelementptr i32, ptr @brj_reason_idx, i64 %indvars.iv272
+  store i32 %.7160, ptr %51, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.7160, i32 noundef 2, ptr noundef nonnull %2)
-  %44 = add nuw nsw i32 %.7160, 1
+  %52 = add nuw nsw i32 %.7160, 1
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %.not198 = icmp eq i64 %indvars.iv.next273, 8
   br i1 %.not198, label %.preheader216, label %.preheader217, !llvm.loop !15
 
 .preheader216:                                    ; preds = %.preheader217, %.preheader216
   %indvars.iv275 = phi i64 [ %indvars.iv.next276, %.preheader216 ], [ 0, %.preheader217 ]
-  %.8161 = phi i32 [ %48, %.preheader216 ], [ 117, %.preheader217 ]
-  %45 = getelementptr %struct._value_string, ptr @DisengageReason_vals, i64 %indvars.iv275, i32 1
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %12, align 8
-  %47 = getelementptr i32, ptr @drq_reason_idx, i64 %indvars.iv275
-  store i32 %.8161, ptr %47, align 4
+  %.8161 = phi i32 [ %57, %.preheader216 ], [ 117, %.preheader217 ]
+  %53 = getelementptr %struct._value_string, ptr @DisengageReason_vals, i64 %indvars.iv275
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8
+  store ptr %55, ptr %12, align 8
+  %56 = getelementptr i32, ptr @drq_reason_idx, i64 %indvars.iv275
+  store i32 %.8161, ptr %56, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.8161, i32 noundef 2, ptr noundef nonnull %2)
-  %48 = add nuw nsw i32 %.8161, 1
+  %57 = add nuw nsw i32 %.8161, 1
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %.not200 = icmp eq i64 %indvars.iv.next276, 3
   br i1 %.not200, label %.preheader215, label %.preheader216, !llvm.loop !16
 
 .preheader215:                                    ; preds = %.preheader216, %.preheader215
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.preheader215 ], [ 0, %.preheader216 ]
-  %.9162 = phi i32 [ %52, %.preheader215 ], [ 120, %.preheader216 ]
-  %49 = getelementptr %struct._value_string, ptr @DisengageRejectReason_vals, i64 %indvars.iv278, i32 1
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %12, align 8
-  %51 = getelementptr i32, ptr @drj_reason_idx, i64 %indvars.iv278
-  store i32 %.9162, ptr %51, align 4
+  %.9162 = phi i32 [ %62, %.preheader215 ], [ 120, %.preheader216 ]
+  %58 = getelementptr %struct._value_string, ptr @DisengageRejectReason_vals, i64 %indvars.iv278
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %12, align 8
+  %61 = getelementptr i32, ptr @drj_reason_idx, i64 %indvars.iv278
+  store i32 %.9162, ptr %61, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.9162, i32 noundef 2, ptr noundef nonnull %2)
-  %52 = add nuw nsw i32 %.9162, 1
+  %62 = add nuw nsw i32 %.9162, 1
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %.not202 = icmp eq i64 %indvars.iv.next279, 4
   br i1 %.not202, label %.preheader214, label %.preheader215, !llvm.loop !17
 
 .preheader214:                                    ; preds = %.preheader215, %.preheader214
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %.preheader214 ], [ 0, %.preheader215 ]
-  %.10163 = phi i32 [ %56, %.preheader214 ], [ 124, %.preheader215 ]
-  %53 = getelementptr %struct._value_string, ptr @LocationRejectReason_vals, i64 %indvars.iv281, i32 1
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %12, align 8
-  %55 = getelementptr i32, ptr @lrj_reason_idx, i64 %indvars.iv281
-  store i32 %.10163, ptr %55, align 4
+  %.10163 = phi i32 [ %67, %.preheader214 ], [ 124, %.preheader215 ]
+  %63 = getelementptr %struct._value_string, ptr @LocationRejectReason_vals, i64 %indvars.iv281
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8
+  store ptr %65, ptr %12, align 8
+  %66 = getelementptr i32, ptr @lrj_reason_idx, i64 %indvars.iv281
+  store i32 %.10163, ptr %66, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.10163, i32 noundef 2, ptr noundef nonnull %2)
-  %56 = add nuw nsw i32 %.10163, 1
+  %67 = add nuw nsw i32 %.10163, 1
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %.not204 = icmp eq i64 %indvars.iv.next282, 16
   br i1 %.not204, label %.preheader213, label %.preheader214, !llvm.loop !18
 
 .preheader213:                                    ; preds = %.preheader214, %.preheader213
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %.preheader213 ], [ 0, %.preheader214 ]
-  %.11164 = phi i32 [ %60, %.preheader213 ], [ 140, %.preheader214 ]
-  %57 = getelementptr %struct._value_string, ptr @InfoRequestNakReason_vals, i64 %indvars.iv284, i32 1
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %12, align 8
-  %59 = getelementptr i32, ptr @irqnak_reason_idx, i64 %indvars.iv284
-  store i32 %.11164, ptr %59, align 4
+  %.11164 = phi i32 [ %72, %.preheader213 ], [ 140, %.preheader214 ]
+  %68 = getelementptr %struct._value_string, ptr @InfoRequestNakReason_vals, i64 %indvars.iv284
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load ptr, ptr %69, align 8
+  store ptr %70, ptr %12, align 8
+  %71 = getelementptr i32, ptr @irqnak_reason_idx, i64 %indvars.iv284
+  store i32 %.11164, ptr %71, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.11164, i32 noundef 2, ptr noundef nonnull %2)
-  %60 = add nuw nsw i32 %.11164, 1
+  %72 = add nuw nsw i32 %.11164, 1
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %.not206 = icmp eq i64 %indvars.iv.next285, 4
   br i1 %.not206, label %.preheader212, label %.preheader213, !llvm.loop !19
 
 .preheader212:                                    ; preds = %.preheader213, %.preheader212
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %.preheader212 ], [ 0, %.preheader213 ]
-  %.12165 = phi i32 [ %64, %.preheader212 ], [ 144, %.preheader213 ]
-  %61 = getelementptr %struct._value_string, ptr @h225_ReleaseCompleteReason_vals, i64 %indvars.iv287, i32 1
-  %62 = load ptr, ptr %61, align 8
-  store ptr %62, ptr %12, align 8
-  %63 = getelementptr i32, ptr @rel_cmp_reason_idx, i64 %indvars.iv287
-  store i32 %.12165, ptr %63, align 4
+  %.12165 = phi i32 [ %77, %.preheader212 ], [ 144, %.preheader213 ]
+  %73 = getelementptr %struct._value_string, ptr @h225_ReleaseCompleteReason_vals, i64 %indvars.iv287
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = load ptr, ptr %74, align 8
+  store ptr %75, ptr %12, align 8
+  %76 = getelementptr i32, ptr @rel_cmp_reason_idx, i64 %indvars.iv287
+  store i32 %.12165, ptr %76, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.12165, i32 noundef 2, ptr noundef nonnull %2)
-  %64 = add nuw nsw i32 %.12165, 1
+  %77 = add nuw nsw i32 %.12165, 1
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %.not208 = icmp eq i64 %indvars.iv.next288, 25
   br i1 %.not208, label %.preheader, label %.preheader212, !llvm.loop !20
 
 .preheader:                                       ; preds = %.preheader212, %.preheader
   %indvars.iv290 = phi i64 [ %indvars.iv.next291, %.preheader ], [ 0, %.preheader212 ]
-  %.13166 = phi i32 [ %68, %.preheader ], [ 169, %.preheader212 ]
-  %65 = getelementptr %struct._value_string, ptr @FacilityReason_vals, i64 %indvars.iv290, i32 1
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %12, align 8
-  %67 = getelementptr i32, ptr @facility_reason_idx, i64 %indvars.iv290
-  store i32 %.13166, ptr %67, align 4
+  %.13166 = phi i32 [ %82, %.preheader ], [ 169, %.preheader212 ]
+  %78 = getelementptr %struct._value_string, ptr @FacilityReason_vals, i64 %indvars.iv290
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  store ptr %80, ptr %12, align 8
+  %81 = getelementptr i32, ptr @facility_reason_idx, i64 %indvars.iv290
+  store i32 %.13166, ptr %81, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.13166, i32 noundef 2, ptr noundef nonnull %2)
-  %68 = add nuw nsw i32 %.13166, 1
+  %82 = add nuw nsw i32 %.13166, 1
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %.not210 = icmp eq i64 %indvars.iv.next291, 11
-  br i1 %.not210, label %69, label %.preheader, !llvm.loop !21
+  br i1 %.not210, label %83, label %.preheader, !llvm.loop !21
 
-69:                                               ; preds = %.preheader
+83:                                               ; preds = %.preheader
   store ptr @.str.1743, ptr %12, align 8
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef 180, i32 noundef 2, ptr noundef nonnull %2)
   store i1 true, ptr @other_idx, align 4
-  br label %70
+  br label %84
 
-70:                                               ; preds = %4, %7, %69
+84:                                               ; preds = %4, %7, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -4589,7 +4603,7 @@ declare void @register_rtd_table(i32 noundef, ptr noundef, i32 noundef, i32 noun
 define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %60
+  br i1 %.not, label %7, label %64
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4597,15 +4611,15 @@ define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr noundef readonly capt
   %10 = icmp ne i32 %9, -1
   %11 = icmp slt i32 %9, 21
   %or.cond = and i1 %10, %11
-  br i1 %or.cond, label %12, label %60
+  br i1 %or.cond, label %12, label %64
 
 12:                                               ; preds = %7
   %13 = sdiv i32 %9, 3
   %14 = srem i32 %9, 3
-  switch i32 %14, label %60 [
+  switch i32 %14, label %64 [
     i32 0, label %15
-    i32 1, label %30
-    i32 2, label %30
+    i32 1, label %31
+    i32 2, label %31
   ]
 
 15:                                               ; preds = %12
@@ -4615,68 +4629,72 @@ define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr noundef readonly capt
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %13 to i64
-  br i1 %18, label %22, label %26
+  %22 = getelementptr %struct._rtd_timestat, ptr %20, i64 %21
+  br i1 %18, label %23, label %27
 
-22:                                               ; preds = %15
-  %23 = getelementptr %struct._rtd_timestat, ptr %20, i64 %21, i32 4
-  %24 = load i32, ptr %23, align 8
-  %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 8
-  br label %60
+23:                                               ; preds = %15
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %25 = load i32, ptr %24, align 8
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %24, align 8
+  br label %64
 
-26:                                               ; preds = %15
-  %27 = getelementptr %struct._rtd_timestat, ptr %20, i64 %21, i32 2
-  %28 = load i32, ptr %27, align 8
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 8
-  br label %60
+27:                                               ; preds = %15
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %29 = load i32, ptr %28, align 8
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %28, align 8
+  br label %64
 
-30:                                               ; preds = %12, %12
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %32 = load i8, ptr %31, align 4, !range !23, !noundef !24
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %41
+31:                                               ; preds = %12, %12
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %33 = load i8, ptr %32, align 4, !range !23, !noundef !24
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %35, label %43
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = zext i32 %13 to i64
-  %38 = getelementptr %struct._rtd_timestat, ptr %36, i64 %37, i32 5
-  %39 = load i32, ptr %38, align 4
-  %40 = add i32 %39, 1
-  store i32 %40, ptr %38, align 4
-  br label %60
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = zext i32 %13 to i64
+  %39 = getelementptr %struct._rtd_timestat, ptr %37, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 28
+  %41 = load i32, ptr %40, align 4
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %40, align 4
+  br label %64
 
-41:                                               ; preds = %30
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 37
-  %43 = load i8, ptr %42, align 1, !range !23, !noundef !24
-  %44 = trunc nuw i8 %43 to i1
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = zext i32 %13 to i64
-  br i1 %44, label %52, label %48
+43:                                               ; preds = %31
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 37
+  %45 = load i8, ptr %44, align 1, !range !23, !noundef !24
+  %46 = trunc nuw i8 %45 to i1
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = zext i32 %13 to i64
+  %50 = getelementptr %struct._rtd_timestat, ptr %48, i64 %49
+  br i1 %46, label %55, label %51
 
-48:                                               ; preds = %41
-  %49 = getelementptr %struct._rtd_timestat, ptr %46, i64 %47, i32 3
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  br label %60
+51:                                               ; preds = %43
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 20
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %52, align 4
+  br label %64
 
-52:                                               ; preds = %41
-  %53 = getelementptr %struct._rtd_timestat, ptr %46, i64 %47, i32 2
-  %54 = load i32, ptr %53, align 8
-  %55 = add i32 %54, -1
-  store i32 %55, ptr %53, align 8
-  %56 = load ptr, ptr %45, align 8
-  %57 = getelementptr %struct._rtd_timestat, ptr %56, i64 %47, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  tail call void @time_stat_update(ptr noundef %58, ptr noundef nonnull %59, ptr noundef %1)
-  br label %60
+55:                                               ; preds = %43
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %57 = load i32, ptr %56, align 8
+  %58 = add i32 %57, -1
+  store i32 %58, ptr %56, align 8
+  %59 = load ptr, ptr %47, align 8
+  %60 = getelementptr %struct._rtd_timestat, ptr %59, i64 %49
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  tail call void @time_stat_update(ptr noundef %62, ptr noundef nonnull %63, ptr noundef %1)
+  br label %64
 
-60:                                               ; preds = %26, %22, %48, %52, %34, %12, %5, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %5 ], [ 0, %12 ], [ 1, %34 ], [ 1, %52 ], [ 1, %48 ], [ 1, %22 ], [ 1, %26 ]
+64:                                               ; preds = %27, %23, %51, %55, %35, %12, %5, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %5 ], [ 0, %12 ], [ 1, %35 ], [ 1, %55 ], [ 1, %51 ], [ 1, %23 ], [ 1, %27 ]
   ret i32 %.0
 }
 

@@ -669,7 +669,7 @@ define internal void @user_data_post_update_cb() #0 {
 deregister_user_data.exit:                        ; preds = %16, %18
   %19 = load i32, ptr @num_user_data_fields, align 4
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %136, label %20
+  br i1 %.not, label %143, label %20
 
 20:                                               ; preds = %deregister_user_data.exit
   %21 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef null)
@@ -696,173 +696,179 @@ deregister_user_data.exit:                        ; preds = %16, %18
   %.not74 = icmp eq i32 %32, 0
   br i1 %.not74, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %132, %31
-  %.lcssa = phi i32 [ 0, %31 ], [ %133, %132 ]
+._crit_edge:                                      ; preds = %139, %31
+  %.lcssa = phi i32 [ 0, %31 ], [ %140, %139 ]
   %33 = load i32, ptr @proto_autosar_nm, align 4
   %34 = load ptr, ptr @dynamic_hf, align 8
   call void @proto_register_field_array(i32 noundef %33, ptr noundef %34, i32 noundef %.lcssa)
-  br label %136
+  br label %143
 
-.lr.ph:                                           ; preds = %31, %132
-  %indvars.iv = phi i64 [ %indvars.iv.next, %132 ], [ 0, %31 ]
+.lr.ph:                                           ; preds = %31, %139
+  %indvars.iv = phi i64 [ %indvars.iv.next, %139 ], [ 0, %31 ]
   %35 = call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #11
   store i32 -1, ptr %35, align 4
   %36 = load ptr, ptr @dynamic_hf, align 8
   %37 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv
   store ptr %35, ptr %37, align 8
-  %38 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv, i32 1, i32 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr null, ptr %38, align 8
   %39 = load ptr, ptr @user_data_fields, align 8
-  %40 = getelementptr %struct._user_data_field_t, ptr %39, i64 %indvars.iv, i32 4
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv, i32 1, i32 5
-  store i64 %41, ptr %42, align 8
-  %43 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv, i32 1, i32 11
-  store ptr null, ptr %43, align 8
-  %44 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv, i32 1, i32 10
-  store i32 -1, ptr %44, align 4
-  %45 = load ptr, ptr @user_data_fields, align 8
-  %46 = getelementptr %struct._user_data_field_t, ptr %45, i64 %indvars.iv
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %48 = load i64, ptr %47, align 8
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %54, label %50
+  %40 = getelementptr %struct._user_data_field_t, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  store i64 %42, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 72
+  store ptr null, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 68
+  store i32 -1, ptr %45, align 4
+  %46 = load ptr, ptr @user_data_fields, align 8
+  %47 = getelementptr %struct._user_data_field_t, ptr %46, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load i64, ptr %48, align 8
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %55, label %51
 
-50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds nuw i8, ptr %46, i64 20
-  %52 = load i32, ptr %51, align 4
-  %53 = add i32 %52, -9
-  %or.cond = icmp ult i32 %53, -8
-  br i1 %or.cond, label %54, label %70
+51:                                               ; preds = %.lr.ph
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 20
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, -9
+  %or.cond = icmp ult i32 %54, -8
+  br i1 %or.cond, label %55, label %71
 
-54:                                               ; preds = %50, %.lr.ph
-  %55 = load ptr, ptr %46, align 8
-  %56 = call noalias ptr @g_strdup(ptr noundef %55)
-  %57 = load ptr, ptr @dynamic_hf, align 8
-  %58 = getelementptr %struct.hf_register_info, ptr %57, i64 %indvars.iv, i32 1
-  store ptr %56, ptr %58, align 8
-  %59 = load ptr, ptr @user_data_fields, align 8
-  %60 = getelementptr %struct._user_data_field_t, ptr %59, i64 %indvars.iv
-  %61 = load ptr, ptr %60, align 8
-  %62 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.143, ptr noundef %61)
-  %63 = load ptr, ptr @dynamic_hf, align 8
-  %64 = getelementptr %struct.hf_register_info, ptr %63, i64 %indvars.iv, i32 1, i32 1
-  store ptr %62, ptr %64, align 8
-  %65 = getelementptr %struct.hf_register_info, ptr %63, i64 %indvars.iv, i32 1, i32 2
-  store i32 30, ptr %65, align 8
-  %66 = getelementptr %struct.hf_register_info, ptr %63, i64 %indvars.iv, i32 1, i32 3
-  store i32 0, ptr %66, align 4
-  %67 = getelementptr %struct.hf_register_info, ptr %63, i64 %indvars.iv, i32 1, i32 5
-  store i64 0, ptr %67, align 8
-  %68 = load ptr, ptr @user_data_fields, align 8
-  %69 = getelementptr %struct._user_data_field_t, ptr %68, i64 %indvars.iv, i32 1
-  br label %92
+55:                                               ; preds = %51, %.lr.ph
+  %56 = load ptr, ptr %47, align 8
+  %57 = call noalias ptr @g_strdup(ptr noundef %56)
+  %58 = load ptr, ptr @dynamic_hf, align 8
+  %59 = getelementptr %struct.hf_register_info, ptr %58, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store ptr %57, ptr %60, align 8
+  %61 = load ptr, ptr @user_data_fields, align 8
+  %62 = getelementptr %struct._user_data_field_t, ptr %61, i64 %indvars.iv
+  %63 = load ptr, ptr %62, align 8
+  %64 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.143, ptr noundef %63)
+  %65 = load ptr, ptr @dynamic_hf, align 8
+  %66 = getelementptr %struct.hf_register_info, ptr %65, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  store ptr %64, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  store i32 30, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 28
+  store i32 0, ptr %69, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  store i64 0, ptr %70, align 8
+  br label %94
 
-70:                                               ; preds = %50
-  %71 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %72 = load ptr, ptr %71, align 8
-  %73 = call noalias ptr @g_strdup(ptr noundef %72)
-  %74 = load ptr, ptr @dynamic_hf, align 8
-  %75 = getelementptr %struct.hf_register_info, ptr %74, i64 %indvars.iv, i32 1
-  store ptr %73, ptr %75, align 8
-  %76 = load ptr, ptr @user_data_fields, align 8
-  %77 = getelementptr %struct._user_data_field_t, ptr %76, i64 %indvars.iv
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 32
+71:                                               ; preds = %51
+  %72 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %74 = call noalias ptr @g_strdup(ptr noundef %73)
+  %75 = load ptr, ptr @dynamic_hf, align 8
+  %76 = getelementptr %struct.hf_register_info, ptr %75, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store ptr %74, ptr %77, align 8
+  %78 = load ptr, ptr @user_data_fields, align 8
+  %79 = getelementptr %struct._user_data_field_t, ptr %78, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8
-  %81 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.144, ptr noundef %78, ptr noundef %80)
-  %82 = load ptr, ptr @dynamic_hf, align 8
-  %83 = getelementptr %struct.hf_register_info, ptr %82, i64 %indvars.iv, i32 1, i32 1
-  store ptr %81, ptr %83, align 8
-  %84 = getelementptr %struct.hf_register_info, ptr %82, i64 %indvars.iv, i32 1, i32 2
-  store i32 2, ptr %84, align 8
-  %85 = load ptr, ptr @user_data_fields, align 8
-  %86 = getelementptr %struct._user_data_field_t, ptr %85, i64 %indvars.iv, i32 3
-  %87 = load i32, ptr %86, align 4
-  %88 = shl i32 %87, 3
-  %89 = getelementptr %struct.hf_register_info, ptr %82, i64 %indvars.iv, i32 1, i32 3
-  store i32 %88, ptr %89, align 4
-  %90 = load ptr, ptr @user_data_fields, align 8
-  %91 = getelementptr %struct._user_data_field_t, ptr %90, i64 %indvars.iv, i32 5
-  br label %92
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %82 = load ptr, ptr %81, align 8
+  %83 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.144, ptr noundef %80, ptr noundef %82)
+  %84 = load ptr, ptr @dynamic_hf, align 8
+  %85 = getelementptr %struct.hf_register_info, ptr %84, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  store ptr %83, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  store i32 2, ptr %87, align 8
+  %88 = load ptr, ptr @user_data_fields, align 8
+  %89 = getelementptr %struct._user_data_field_t, ptr %88, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 20
+  %91 = load i32, ptr %90, align 4
+  %92 = shl i32 %91, 3
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 28
+  store i32 %92, ptr %93, align 4
+  br label %94
 
-92:                                               ; preds = %70, %54
-  %.sink82.in = phi ptr [ %91, %70 ], [ %69, %54 ]
-  %.sink82 = load ptr, ptr %.sink82.in, align 8
-  %93 = call noalias ptr @g_strdup(ptr noundef %.sink82)
-  %94 = load ptr, ptr @dynamic_hf, align 8
-  %95 = getelementptr %struct.hf_register_info, ptr %94, i64 %indvars.iv, i32 1, i32 6
-  store ptr %93, ptr %95, align 8
-  %96 = load ptr, ptr @user_data_fields, align 8
-  %97 = getelementptr %struct._user_data_field_t, ptr %96, i64 %indvars.iv
-  %.sroa.0.0.copyload = load ptr, ptr %97, align 8
-  %.sroa.471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 16
+94:                                               ; preds = %71, %55
+  %.sink85 = phi i64 [ 32, %71 ], [ 8, %55 ]
+  %95 = load ptr, ptr @user_data_fields, align 8
+  %96 = getelementptr %struct._user_data_field_t, ptr %95, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %.sink85
+  %98 = load ptr, ptr %97, align 8
+  %99 = call noalias ptr @g_strdup(ptr noundef %98)
+  %100 = load ptr, ptr @dynamic_hf, align 8
+  %101 = getelementptr %struct.hf_register_info, ptr %100, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
+  store ptr %99, ptr %102, align 8
+  %103 = load ptr, ptr @user_data_fields, align 8
+  %104 = getelementptr %struct._user_data_field_t, ptr %103, i64 %indvars.iv
+  %.sroa.0.0.copyload = load ptr, ptr %104, align 8
+  %.sroa.471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 16
   %.sroa.471.0.copyload = load i32, ptr %.sroa.471.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 20
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 20
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 24
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
-  %98 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.145, i32 noundef %.sroa.471.0.copyload, i32 noundef %.sroa.5.0.copyload, i64 noundef %.sroa.6.0.copyload, ptr noundef %.sroa.0.0.copyload)
-  %99 = load ptr, ptr @user_data_fields_hash_hf, align 8
-  %100 = call i32 @g_hash_table_insert(ptr noundef %99, ptr noundef %98, ptr noundef %35)
-  %101 = load ptr, ptr @user_data_fields, align 8
-  %102 = getelementptr %struct._user_data_field_t, ptr %101, i64 %indvars.iv
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %104 = load i32, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %102, i64 20
-  %106 = load i32, ptr %105, align 4
+  %105 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.145, i32 noundef %.sroa.471.0.copyload, i32 noundef %.sroa.5.0.copyload, i64 noundef %.sroa.6.0.copyload, ptr noundef %.sroa.0.0.copyload)
+  %106 = load ptr, ptr @user_data_fields_hash_hf, align 8
+  %107 = call i32 @g_hash_table_insert(ptr noundef %106, ptr noundef %105, ptr noundef %35)
+  %108 = load ptr, ptr @user_data_fields, align 8
+  %109 = getelementptr %struct._user_data_field_t, ptr %108, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %111 = load i32, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 20
+  %113 = load i32, ptr %112, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %107 = zext i32 %104 to i64
-  %108 = shl nuw i64 %107, 32
-  %109 = zext i32 %106 to i64
-  %110 = or disjoint i64 %108, %109
-  store i64 %110, ptr %1, align 8
-  %111 = load ptr, ptr @user_data_fields_hash_ett, align 8
-  %.not.i70 = icmp eq ptr %111, null
+  %114 = zext i32 %111 to i64
+  %115 = shl nuw i64 %114, 32
+  %116 = zext i32 %113 to i64
+  %117 = or disjoint i64 %115, %116
+  store i64 %117, ptr %1, align 8
+  %118 = load ptr, ptr @user_data_fields_hash_ett, align 8
+  %.not.i70 = icmp eq ptr %118, null
   br i1 %.not.i70, label %get_ett_for_user_data.exit.thread, label %get_ett_for_user_data.exit
 
-get_ett_for_user_data.exit.thread:                ; preds = %92
+get_ett_for_user_data.exit.thread:                ; preds = %94
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %114
+  br label %121
 
-get_ett_for_user_data.exit:                       ; preds = %92
-  %112 = call ptr @wmem_map_lookup(ptr noundef nonnull %111, ptr noundef nonnull %1)
+get_ett_for_user_data.exit:                       ; preds = %94
+  %119 = call ptr @wmem_map_lookup(ptr noundef nonnull %118, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %114, label %132
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %121, label %139
 
-114:                                              ; preds = %get_ett_for_user_data.exit.thread, %get_ett_for_user_data.exit
+121:                                              ; preds = %get_ett_for_user_data.exit.thread, %get_ett_for_user_data.exit
   store i32 -1, ptr @user_data_post_update_cb.ett_dummy, align 4
   call void @proto_register_subtree_array(ptr noundef nonnull @user_data_post_update_cb.ett, i32 noundef 1)
-  %115 = call ptr @wmem_epan_scope()
-  %116 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %115, i64 noundef 4) #12
-  %117 = load i32, ptr @user_data_post_update_cb.ett_dummy, align 4
-  store i32 %117, ptr %116, align 4
-  %118 = call ptr @wmem_epan_scope()
-  %119 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %118, i64 noundef 8) #12
-  %120 = load ptr, ptr @user_data_fields, align 8
-  %121 = getelementptr %struct._user_data_field_t, ptr %120, i64 %indvars.iv
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %123 = load i32, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 20
-  %125 = load i32, ptr %124, align 4
-  %126 = zext i32 %123 to i64
-  %127 = shl nuw i64 %126, 32
-  %128 = zext i32 %125 to i64
-  %129 = or disjoint i64 %127, %128
-  store i64 %129, ptr %119, align 8
-  %130 = load ptr, ptr @user_data_fields_hash_ett, align 8
-  %131 = call ptr @wmem_map_insert(ptr noundef %130, ptr noundef %119, ptr noundef %116)
-  br label %132
+  %122 = call ptr @wmem_epan_scope()
+  %123 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %122, i64 noundef 4) #12
+  %124 = load i32, ptr @user_data_post_update_cb.ett_dummy, align 4
+  store i32 %124, ptr %123, align 4
+  %125 = call ptr @wmem_epan_scope()
+  %126 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %125, i64 noundef 8) #12
+  %127 = load ptr, ptr @user_data_fields, align 8
+  %128 = getelementptr %struct._user_data_field_t, ptr %127, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  %130 = load i32, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 20
+  %132 = load i32, ptr %131, align 4
+  %133 = zext i32 %130 to i64
+  %134 = shl nuw i64 %133, 32
+  %135 = zext i32 %132 to i64
+  %136 = or disjoint i64 %134, %135
+  store i64 %136, ptr %126, align 8
+  %137 = load ptr, ptr @user_data_fields_hash_ett, align 8
+  %138 = call ptr @wmem_map_insert(ptr noundef %137, ptr noundef %126, ptr noundef %123)
+  br label %139
 
-132:                                              ; preds = %get_ett_for_user_data.exit, %114
+139:                                              ; preds = %get_ett_for_user_data.exit, %121
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %133 = load i32, ptr @dynamic_hf_size, align 4
-  %134 = zext i32 %133 to i64
-  %135 = icmp samesign ult i64 %indvars.iv.next, %134
-  br i1 %135, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  %140 = load i32, ptr @dynamic_hf_size, align 4
+  %141 = zext i32 %140 to i64
+  %142 = icmp samesign ult i64 %indvars.iv.next, %141
+  br i1 %142, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-136:                                              ; preds = %._crit_edge, %deregister_user_data.exit
+143:                                              ; preds = %._crit_edge, %deregister_user_data.exit
   ret void
 }
 
@@ -1054,9 +1060,9 @@ switch.lookup:                                    ; preds = %23
   %.not93 = icmp eq i32 %60, 0
   br i1 %.not93, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %53, %97
-  %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ 0, %53 ]
-  %.06891 = phi ptr [ %.1, %97 ], [ null, %53 ]
+.lr.ph:                                           ; preds = %53, %98
+  %indvars.iv = phi i64 [ %indvars.iv.next, %98 ], [ 0, %53 ]
+  %.06891 = phi ptr [ %.1, %98 ], [ null, %53 ]
   %61 = load ptr, ptr @user_data_fields, align 8
   %62 = getelementptr %struct._user_data_field_t, ptr %61, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %62, align 8
@@ -1104,47 +1110,48 @@ get_ett_for_user_data.exit:                       ; preds = %get_hf_for_user_dat
   %80 = add i32 %72, %70
   %.not83 = icmp ult i32 %10, %80
   %or.cond87 = select i1 %.not82, i1 true, i1 %.not83
-  br i1 %or.cond87, label %97, label %81
+  br i1 %or.cond87, label %98, label %81
 
 81:                                               ; preds = %get_ett_for_user_data.exit
   %82 = load ptr, ptr @user_data_fields, align 8
-  %83 = getelementptr %struct._user_data_field_t, ptr %82, i64 %indvars.iv, i32 4
-  %84 = load i64, ptr %83, align 8
-  %85 = icmp eq i64 %84, 0
-  br i1 %85, label %86, label %93
+  %83 = getelementptr %struct._user_data_field_t, ptr %82, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %85 = load i64, ptr %84, align 8
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %94
 
-86:                                               ; preds = %81
-  %87 = load i32, ptr %.0.i, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %87, ptr noundef %0, i32 noundef %70, i32 noundef %72, i32 noundef 0)
-  %89 = icmp eq ptr %.0.i89, null
-  br i1 %89, label %97, label %90
+87:                                               ; preds = %81
+  %88 = load i32, ptr %.0.i, align 4
+  %89 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %88, ptr noundef %0, i32 noundef %70, i32 noundef %72, i32 noundef 0)
+  %90 = icmp eq ptr %.0.i89, null
+  br i1 %90, label %98, label %91
 
-90:                                               ; preds = %86
-  %91 = load i32, ptr %.0.i89, align 4
-  %92 = call ptr @proto_item_add_subtree(ptr noundef %88, i32 noundef %91)
-  br label %97
+91:                                               ; preds = %87
+  %92 = load i32, ptr %.0.i89, align 4
+  %93 = call ptr @proto_item_add_subtree(ptr noundef %89, i32 noundef %92)
+  br label %98
 
-93:                                               ; preds = %81
+94:                                               ; preds = %81
   %.not84 = icmp eq ptr %.06891, null
-  br i1 %.not84, label %97, label %94
+  br i1 %.not84, label %98, label %95
 
-94:                                               ; preds = %93
-  %95 = load i32, ptr %.0.i, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef nonnull %.06891, i32 noundef %95, ptr noundef %0, i32 noundef %70, i32 noundef %72, i32 noundef 0)
-  br label %97
+95:                                               ; preds = %94
+  %96 = load i32, ptr %.0.i, align 4
+  %97 = call ptr @proto_tree_add_item(ptr noundef nonnull %.06891, i32 noundef %96, ptr noundef %0, i32 noundef %70, i32 noundef %72, i32 noundef 0)
+  br label %98
 
-97:                                               ; preds = %86, %get_ett_for_user_data.exit, %90, %94, %93
-  %.1 = phi ptr [ %92, %90 ], [ %.06891, %94 ], [ null, %93 ], [ %.06891, %get_ett_for_user_data.exit ], [ null, %86 ]
+98:                                               ; preds = %87, %get_ett_for_user_data.exit, %91, %95, %94
+  %.1 = phi ptr [ %93, %91 ], [ %.06891, %95 ], [ null, %94 ], [ %.06891, %get_ett_for_user_data.exit ], [ null, %87 ]
   call void @g_free(ptr noundef %63)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = load i32, ptr @num_user_data_fields, align 4
-  %99 = zext i32 %98 to i64
-  %100 = icmp samesign ult i64 %indvars.iv.next, %99
-  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  %99 = load i32, ptr @num_user_data_fields, align 4
+  %100 = zext i32 %99 to i64
+  %101 = icmp samesign ult i64 %indvars.iv.next, %100
+  br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %97, %53
-  %101 = load ptr, ptr %7, align 8
-  call void @col_set_fence(ptr noundef %101, i32 noundef 25)
+._crit_edge:                                      ; preds = %98, %53
+  %102 = load ptr, ptr %7, align 8
+  call void @col_set_fence(ptr noundef %102, i32 noundef 25)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %10
 }

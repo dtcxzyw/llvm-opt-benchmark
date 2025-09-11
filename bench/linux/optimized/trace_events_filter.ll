@@ -1581,7 +1581,8 @@ define internal fastcc void @__free_filter(ptr noundef %0) unnamed_addr #2 align
   tail call void @kfree(ptr noundef nonnull %10) #17
   %15 = add i32 %11, 1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct.prog_entry, ptr %4, i64 %16, i32 2
+  %.split = getelementptr %struct.prog_entry, ptr %4, i64 %16
+  %17 = getelementptr i8, ptr %.split, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !18
@@ -3767,7 +3768,8 @@ thread-pre-split:                                 ; preds = %130, %149, %689
   call void @kfree(ptr noundef nonnull %767) #17
   %772 = add i32 %768, 1
   %773 = sext i32 %772 to i64
-  %774 = getelementptr %struct.prog_entry, ptr %760, i64 %773, i32 2
+  %.split = getelementptr %struct.prog_entry, ptr %760, i64 %773
+  %774 = getelementptr i8, ptr %.split, i64 8
   %775 = load ptr, ptr %774, align 8
   %776 = icmp eq ptr %775, null
   br i1 %776, label %.loopexit, label %.preheader, !llvm.loop !57

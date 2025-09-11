@@ -2561,7 +2561,8 @@ for.body.i4:                                      ; preds = %if.then, %for.inc.i
 if.then.i:                                        ; preds = %for.body.i4
   %second.i.i6 = getelementptr inbounds nuw i8, ptr %arrayidx10.i, i64 8
   %12 = load ptr, ptr %other, align 8
-  %second.i14.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %12, i64 %i.017.i, i32 0, i32 1
+  %arrayidx24.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %12, i64 %i.017.i
+  %second.i14.i = getelementptr inbounds nuw i8, ptr %arrayidx24.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i6, ptr noundef nonnull align 8 dereferenceable(32) %second.i14.i) #15
   br label %for.inc.i
 

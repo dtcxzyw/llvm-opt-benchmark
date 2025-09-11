@@ -25380,7 +25380,7 @@ define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr noundef nonnull captu
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %40
-  %.03952 = phi i64 [ %50, %40 ], [ 0, %.preheader ]
+  %.03952 = phi i64 [ %51, %40 ], [ 0, %.preheader ]
   %22 = tail call ptr @PySequence_GetItem(ptr noundef %2, i64 noundef %.03952) #19
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit47, label %24
@@ -25428,32 +25428,33 @@ define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr noundef nonnull captu
   %45 = getelementptr %struct.iovec, ptr %44, i64 %.03952
   store ptr %43, ptr %45, align 8, !tbaa !344
   %46 = load ptr, ptr %1, align 8, !tbaa !254
-  %47 = getelementptr %struct.Py_buffer, ptr %46, i64 %.03952, i32 2
-  %48 = load i64, ptr %47, align 8, !tbaa !250
-  %49 = getelementptr %struct.iovec, ptr %44, i64 %.03952, i32 1
-  store i64 %48, ptr %49, align 8, !tbaa !346
-  %50 = add nuw nsw i64 %.03952, 1
-  %exitcond.not = icmp eq i64 %50, %3
+  %47 = getelementptr %struct.Py_buffer, ptr %46, i64 %.03952
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load i64, ptr %48, align 8, !tbaa !250
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i64 %49, ptr %50, align 8, !tbaa !346
+  %51 = add nuw nsw i64 %.03952, 1
+  %exitcond.not = icmp eq i64 %51, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !347
 
 .loopexit47:                                      ; preds = %.lr.ph, %30, %31, %34
-  %51 = load ptr, ptr %0, align 8, !tbaa !342
-  tail call void @PyMem_Free(ptr noundef %51) #19
+  %52 = load ptr, ptr %0, align 8, !tbaa !342
+  tail call void @PyMem_Free(ptr noundef %52) #19
   %.not55 = icmp eq i64 %.03952, 0
   br i1 %.not55, label %._crit_edge, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %.loopexit47, %.lr.ph54
-  %.03853 = phi i64 [ %54, %.lr.ph54 ], [ 0, %.loopexit47 ]
-  %52 = load ptr, ptr %1, align 8, !tbaa !254
-  %53 = getelementptr %struct.Py_buffer, ptr %52, i64 %.03853
-  tail call void @PyBuffer_Release(ptr noundef %53) #19
-  %54 = add nuw nsw i64 %.03853, 1
-  %exitcond61.not = icmp eq i64 %54, %.03952
+  %.03853 = phi i64 [ %55, %.lr.ph54 ], [ 0, %.loopexit47 ]
+  %53 = load ptr, ptr %1, align 8, !tbaa !254
+  %54 = getelementptr %struct.Py_buffer, ptr %53, i64 %.03853
+  tail call void @PyBuffer_Release(ptr noundef %54) #19
+  %55 = add nuw nsw i64 %.03853, 1
+  %exitcond61.not = icmp eq i64 %55, %.03952
   br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !348
 
 ._crit_edge:                                      ; preds = %.lr.ph54, %.loopexit47
-  %55 = load ptr, ptr %1, align 8, !tbaa !254
-  tail call void @PyMem_Free(ptr noundef %55) #19
+  %56 = load ptr, ptr %1, align 8, !tbaa !254
+  tail call void @PyMem_Free(ptr noundef %56) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %.preheader, %._crit_edge, %19, %11

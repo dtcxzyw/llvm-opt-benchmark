@@ -142541,10 +142541,10 @@ thread-pre-split:                                 ; preds = %7
   %74 = getelementptr inbounds nuw i8, ptr %.12549, i64 4
   %75 = load i8, ptr %65, align 1, !tbaa !142
   %76 = add i8 %75, -48
-  %77 = mul i16 %71, 10
+  %77 = mul nuw i16 %71, 10
   %78 = icmp ult i8 %76, 10
   %79 = zext nneg i8 %76 to i16
-  %80 = add i16 %77, %79
+  %80 = add nuw i16 %77, %79
   br i1 %78, label %81, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread, !prof !2505
 
 81:                                               ; preds = %73
@@ -157385,10 +157385,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %157 = load i8, ptr %147, align 1, !tbaa !142
   %158 = add i8 %157, -48
-  %159 = mul i64 %153, 10
+  %159 = mul nuw nsw i64 %153, 10
   %160 = icmp ult i8 %158, 10
   %161 = zext nneg i8 %158 to i64
-  %162 = add i64 %159, %161
+  %162 = add nuw nsw i64 %159, %161
   br i1 %160, label %163, label %.thread
 
 163:                                              ; preds = %155
@@ -171825,10 +171825,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal33StringToUnsignedIntC
   %69 = getelementptr inbounds nuw i8, ptr %.01824, i64 4
   %70 = load i8, ptr %60, align 1, !tbaa !142
   %71 = add i8 %70, -48
-  %72 = mul i16 %66, 10
+  %72 = mul nuw i16 %66, 10
   %73 = icmp ult i8 %71, 10
   %74 = zext nneg i8 %71 to i16
-  %75 = add i16 %72, %74
+  %75 = add nuw i16 %72, %74
   br i1 %73, label %76, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit
 
 76:                                               ; preds = %68

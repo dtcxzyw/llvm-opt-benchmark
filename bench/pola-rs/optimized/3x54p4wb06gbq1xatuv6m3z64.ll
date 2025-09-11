@@ -20003,14 +20003,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %199 = zext i32 %198 to i64
   %200 = icmp ugt i64 %192, %199
   call void @llvm.assume(i1 %200)
-  %201 = getelementptr inbounds nuw i8, ptr %190, i64 12
-  %202 = load i32, ptr %201, align 4, !alias.scope !4485, !noalias !4490, !noundef !30
-  %203 = zext i32 %202 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %199, 24
-  %204 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 %.idx.i.i.i
+  %201 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %191, i64 %199
+  %202 = getelementptr inbounds nuw i8, ptr %190, i64 12
+  %203 = load i32, ptr %202, align 4, !alias.scope !4485, !noalias !4490, !noundef !30
+  %204 = zext i32 %203 to i64
+  %205 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %206 = load ptr, ptr %205, align 8, !alias.scope !4491, !noalias !4494, !noundef !30
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 %203
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 %204
   %.not98.i.i.i = icmp eq ptr %206, null
   br i1 %.not98.i.i.i, label %.thread37.i.i.i, label %208
 

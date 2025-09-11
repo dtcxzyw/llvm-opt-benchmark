@@ -625,7 +625,8 @@ _ZSt8_DestroyIPSt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphIN
   store ptr %200, ptr %201, align 8
   %.pre286.i = load i64, ptr %122, align 8
   %.pre287.i = load ptr, ptr %5, align 8
-  %.phi.trans.insert288.i = getelementptr inbounds nuw %"class.std::vector", ptr %.pre287.i, i64 %.pre286.i, i32 0, i32 0, i32 0, i32 1
+  %.phi.trans.insert.i = getelementptr inbounds nuw %"class.std::vector", ptr %.pre287.i, i64 %.pre286.i
+  %.phi.trans.insert288.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i, i64 8
   %.pre289.i = load ptr, ptr %.phi.trans.insert288.i, align 8
   br label %_ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EESaISA_EE5clearEv.exit.i
 

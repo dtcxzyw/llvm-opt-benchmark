@@ -16663,12 +16663,13 @@ define dso_local noundef ptr @_ZN4llvm12BlockAddress6lookupEPKNS_10BasicBlockE(p
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_8FunctionEPKNS_10BasicBlockEEPNS_12BlockAddressENS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_SB_EEEES9_SB_SD_SG_E6doFindIS9_EEPKSG_RKT_.exit.i: ; preds = %49, %15
   %61 = phi i64 [ %36, %15 ], [ %53, %49 ]
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.733", ptr %11, i64 %61, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8, !tbaa !733
+  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.733", ptr %11, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8, !tbaa !733
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_8FunctionEPKNS_10BasicBlockEEPNS_12BlockAddressENS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_SB_EEEES9_SB_SD_SG_E6lookupERKS9_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_8FunctionEPKNS_10BasicBlockEEPNS_12BlockAddressENS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_SB_EEEES9_SB_SD_SG_E6lookupERKS9_.exit: ; preds = %.lr.ph.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_8FunctionEPKNS_10BasicBlockEEPNS_12BlockAddressENS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_SB_EEEES9_SB_SD_SG_E6doFindIS9_EEPKSG_RKT_.exit.i, %5, %1
-  %.0 = phi ptr [ null, %1 ], [ %63, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_8FunctionEPKNS_10BasicBlockEEPNS_12BlockAddressENS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_SB_EEEES9_SB_SD_SG_E6doFindIS9_EEPKSG_RKT_.exit.i ], [ null, %5 ], [ null, %.lr.ph.i.i.i ]
+  %.0 = phi ptr [ null, %1 ], [ %64, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_8FunctionEPKNS_10BasicBlockEEPNS_12BlockAddressENS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_SB_EEEES9_SB_SD_SG_E6doFindIS9_EEPKSG_RKT_.exit.i ], [ null, %5 ], [ null, %.lr.ph.i.i.i ]
   ret ptr %.0
 }
 

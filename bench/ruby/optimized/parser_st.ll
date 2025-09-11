@@ -46,7 +46,7 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
   br label %31
 
 23:                                               ; preds = %5
-  %24 = getelementptr %struct.st_features, ptr @features, i64 %12, i32 3
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !24
   %26 = shl i64 %25, 3
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #24
@@ -82,7 +82,7 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
   br i1 %.not.i, label %make_tab_empty.exit, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr %struct.st_features, ptr @features, i64 %12, i32 3
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !24
   %44 = shl i64 %43, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %32, i8 noundef 0, i64 noundef %44, i1 noundef false) #25
@@ -381,17 +381,18 @@ define dso_local void @rb_parser_st_clear(ptr noundef captures(none) initializes
 6:                                                ; preds = %1
   %.val.i = load i8, ptr %0, align 8, !tbaa !17
   %7 = zext i8 %.val.i to i64
-  %8 = getelementptr %struct.st_features, ptr @features, i64 %7, i32 3
-  %9 = load i64, ptr %8, align 8, !tbaa !24
-  %10 = shl i64 %9, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %5, i8 noundef 0, i64 noundef %10, i1 noundef false) #25
+  %8 = getelementptr %struct.st_features, ptr @features, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load i64, ptr %9, align 8, !tbaa !24
+  %11 = shl i64 %10, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %5, i8 noundef 0, i64 noundef %11, i1 noundef false) #25
   br label %make_tab_empty.exit
 
 make_tab_empty.exit:                              ; preds = %1, %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !27
-  %13 = add i32 %12, 1
-  store i32 %13, ptr %11, align 4, !tbaa !27
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %13 = load i32, ptr %12, align 4, !tbaa !27
+  %14 = add i32 %13, 1
+  store i32 %14, ptr %12, align 4, !tbaa !27
   ret void
 }
 
@@ -405,17 +406,18 @@ define dso_local i64 @rb_parser_st_memsize(ptr noundef readonly captures(none) %
   br i1 %4, label %._crit_edge, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr %struct.st_features, ptr @features, i64 %.pre, i32 3
-  %7 = load i64, ptr %6, align 8, !tbaa !24
-  %8 = shl i64 %7, 3
-  %9 = add i64 %8, 56
+  %6 = getelementptr %struct.st_features, ptr @features, i64 %.pre
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load i64, ptr %7, align 8, !tbaa !24
+  %9 = shl i64 %8, 3
+  %10 = add i64 %9, 56
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %5
-  %10 = phi i64 [ %9, %5 ], [ 56, %1 ]
-  %11 = shl i64 24, %.pre
-  %12 = add i64 %11, %10
-  ret i64 %12
+  %11 = phi i64 [ %10, %5 ], [ 56, %1 ]
+  %12 = shl i64 24, %.pre
+  %13 = add i64 %12, %11
+  ret i64 %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -607,9 +609,10 @@ find_table_entry_ind.exit:                        ; preds = %67, %.loopexit.spli
 
 85:                                               ; preds = %.loopexit
   %86 = load ptr, ptr %10, align 8, !tbaa !25
-  %87 = getelementptr %struct.parser_st_table_entry, ptr %86, i64 %.018, i32 2
-  %88 = load i64, ptr %87, align 8, !tbaa !48
-  store i64 %88, ptr %2, align 8, !tbaa !45
+  %87 = getelementptr %struct.parser_st_table_entry, ptr %86, i64 %.018
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %89 = load i64, ptr %88, align 8, !tbaa !48
+  store i64 %89, ptr %2, align 8, !tbaa !45
   br label %find_entry.exit.thread
 
 find_entry.exit.thread:                           ; preds = %18, %find_table_entry_ind.exit, %find_entry.exit, %77, %.thread, %.loopexit, %85
@@ -806,9 +809,10 @@ find_table_entry_ind.exit:                        ; preds = %67, %.loopexit.spli
 
 85:                                               ; preds = %.loopexit
   %86 = load ptr, ptr %10, align 8, !tbaa !25
-  %87 = getelementptr %struct.parser_st_table_entry, ptr %86, i64 %.018, i32 1
-  %88 = load i64, ptr %87, align 8, !tbaa !34
-  store i64 %88, ptr %2, align 8, !tbaa !45
+  %87 = getelementptr %struct.parser_st_table_entry, ptr %86, i64 %.018
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load i64, ptr %88, align 8, !tbaa !34
+  store i64 %89, ptr %2, align 8, !tbaa !45
   br label %find_entry.exit.thread
 
 find_entry.exit.thread:                           ; preds = %18, %find_table_entry_ind.exit, %find_entry.exit, %77, %.thread, %.loopexit, %85
@@ -964,8 +968,9 @@ find_entry.exit:                                  ; preds = %26, %.loopexit.spli
 .loopexit:                                        ; preds = %find_entry.exit, %43
   %.03144 = phi i64 [ %45, %43 ], [ %.02233.i, %find_entry.exit ]
   %69 = load ptr, ptr %12, align 8, !tbaa !25
-  %70 = getelementptr %struct.parser_st_table_entry, ptr %69, i64 %.03144, i32 2
-  store i64 %2, ptr %70, align 8, !tbaa !48
+  %70 = getelementptr %struct.parser_st_table_entry, ptr %69, i64 %.03144
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  store i64 %2, ptr %71, align 8, !tbaa !48
   br label %set_bin.exit
 
 set_bin.exit:                                     ; preds = %67, %64, %61, %58, %46, %.loopexit
@@ -982,7 +987,7 @@ define internal fastcc void @rebuild_table_if_necessary(ptr noundef captures(non
   %4 = zext nneg i8 %.val to i64
   %5 = shl nuw i64 1, %4
   %6 = icmp eq i64 %3, %5
-  br i1 %6, label %7, label %52
+  br i1 %6, label %7, label %53
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -994,83 +999,84 @@ define internal fastcc void @rebuild_table_if_necessary(ptr noundef captures(non
   %or.cond.i = and i1 %.not.i, %12
   %13 = icmp ult i64 %9, 4
   %or.cond22.i = or i1 %13, %or.cond.i
-  br i1 %or.cond22.i, label %14, label %22
+  br i1 %or.cond22.i, label %14, label %23
 
 14:                                               ; preds = %7
   store i64 0, ptr %8, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !23
   %.not17.i = icmp eq ptr %16, null
-  br i1 %.not17.i, label %21, label %17
+  br i1 %.not17.i, label %22, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr %struct.st_features, ptr @features, i64 %4, i32 3
-  %19 = load i64, ptr %18, align 8, !tbaa !24
-  %20 = shl i64 %19, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %16, i8 noundef 0, i64 noundef %20, i1 noundef false) #25
-  br label %21
+  %18 = getelementptr %struct.st_features, ptr @features, i64 %4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load i64, ptr %19, align 8, !tbaa !24
+  %21 = shl i64 %20, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %16, i8 noundef 0, i64 noundef %21, i1 noundef false) #25
+  br label %22
 
-21:                                               ; preds = %17, %14
+22:                                               ; preds = %17, %14
   tail call fastcc void @rebuild_table_with(ptr noundef nonnull %0, ptr noundef nonnull %0)
   br label %rebuild_table.exit
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !7
-  %25 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #24
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %rb_parser_st_init_table_with_size.exit.i, label %27
+23:                                               ; preds = %7
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !7
+  %26 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #24
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %rb_parser_st_init_table_with_size.exit.i, label %28
 
-27:                                               ; preds = %22
-  %28 = add i64 %10, -1
-  %29 = tail call ptr @rb_parser_st_init_existing_table_with_size(ptr noundef nonnull %25, ptr noundef %24, i64 noundef %28)
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %rb_parser_st_init_table_with_size.exit.i
+28:                                               ; preds = %23
+  %29 = add i64 %10, -1
+  %30 = tail call ptr @rb_parser_st_init_existing_table_with_size(ptr noundef nonnull %26, ptr noundef %25, i64 noundef %29)
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %rb_parser_st_init_table_with_size.exit.i
 
-31:                                               ; preds = %27
-  tail call void @free(ptr noundef nonnull %25) #25
+32:                                               ; preds = %28
+  tail call void @free(ptr noundef nonnull %26) #25
   br label %rb_parser_st_init_table_with_size.exit.i
 
-rb_parser_st_init_table_with_size.exit.i:         ; preds = %31, %27, %22
-  %.0.i.i = phi ptr [ null, %31 ], [ null, %22 ], [ %25, %27 ]
+rb_parser_st_init_table_with_size.exit.i:         ; preds = %32, %28, %23
+  %.0.i.i = phi ptr [ null, %32 ], [ null, %23 ], [ %26, %28 ]
   tail call fastcc void @rebuild_table_with(ptr noundef %.0.i.i, ptr noundef nonnull %0)
-  %32 = load i8, ptr %.0.i.i, align 8, !tbaa !17
-  store i8 %32, ptr %0, align 8, !tbaa !17
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  %34 = load i8, ptr %33, align 1, !tbaa !20
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %34, ptr %35, align 1, !tbaa !20
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
-  %37 = load i8, ptr %36, align 2, !tbaa !22
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %37, ptr %38, align 2, !tbaa !22
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !23
-  tail call void @free(ptr noundef %40) #25
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !23
-  store ptr %42, ptr %39, align 8, !tbaa !23
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %44 = load ptr, ptr %43, align 8, !tbaa !25
-  tail call void @free(ptr noundef %44) #25
-  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
-  %46 = load ptr, ptr %45, align 8, !tbaa !25
-  store ptr %46, ptr %43, align 8, !tbaa !25
+  %33 = load i8, ptr %.0.i.i, align 8, !tbaa !17
+  store i8 %33, ptr %0, align 8, !tbaa !17
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !20
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %35, ptr %36, align 1, !tbaa !20
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
+  %38 = load i8, ptr %37, align 2, !tbaa !22
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %38, ptr %39, align 2, !tbaa !22
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %41 = load ptr, ptr %40, align 8, !tbaa !23
+  tail call void @free(ptr noundef %41) #25
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !23
+  store ptr %43, ptr %40, align 8, !tbaa !23
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %45 = load ptr, ptr %44, align 8, !tbaa !25
+  tail call void @free(ptr noundef %45) #25
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
+  %47 = load ptr, ptr %46, align 8, !tbaa !25
+  store ptr %47, ptr %44, align 8, !tbaa !25
   tail call void @free(ptr noundef %.0.i.i) #25
   br label %rebuild_table.exit
 
-rebuild_table.exit:                               ; preds = %21, %rb_parser_st_init_table_with_size.exit.i
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %47, align 8, !tbaa !31
-  %48 = load i64, ptr %8, align 8, !tbaa !26
-  store i64 %48, ptr %2, align 8, !tbaa !30
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !27
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 4, !tbaa !27
-  br label %52
+rebuild_table.exit:                               ; preds = %22, %rb_parser_st_init_table_with_size.exit.i
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %48, align 8, !tbaa !31
+  %49 = load i64, ptr %8, align 8, !tbaa !26
+  store i64 %49, ptr %2, align 8, !tbaa !30
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %51 = load i32, ptr %50, align 4, !tbaa !27
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %50, align 4, !tbaa !27
+  br label %53
 
-52:                                               ; preds = %rebuild_table.exit, %1
+53:                                               ; preds = %rebuild_table.exit, %1
   ret void
 }
 
@@ -1545,8 +1551,9 @@ find_entry.exit:                                  ; preds = %27, %.loopexit.spli
 .loopexit:                                        ; preds = %find_entry.exit, %44
   %.03346 = phi i64 [ %46, %44 ], [ %.02233.i, %find_entry.exit ]
   %71 = load ptr, ptr %13, align 8, !tbaa !25
-  %72 = getelementptr %struct.parser_st_table_entry, ptr %71, i64 %.03346, i32 2
-  store i64 %2, ptr %72, align 8, !tbaa !48
+  %72 = getelementptr %struct.parser_st_table_entry, ptr %71, i64 %.03346
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  store i64 %2, ptr %73, align 8, !tbaa !48
   br label %set_bin.exit
 
 set_bin.exit:                                     ; preds = %69, %66, %63, %60, %47, %.loopexit
@@ -1568,59 +1575,61 @@ define dso_local noundef ptr @rb_parser_st_replace(ptr noundef writeonly capture
   store ptr null, ptr %7, align 8, !tbaa !23
   %.val23.pre = load i8, ptr %1, align 8, !tbaa !17
   %.pre = zext nneg i8 %.val23.pre to i64
-  br label %16
+  br label %17
 
 8:                                                ; preds = %2
   %.val21 = load i8, ptr %1, align 8, !tbaa !17
   %9 = zext i8 %.val21 to i64
-  %10 = getelementptr %struct.st_features, ptr @features, i64 %9, i32 3
-  %11 = load i64, ptr %10, align 8, !tbaa !24
-  %12 = shl i64 %11, 3
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #24
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %13, ptr %14, align 8, !tbaa !23
-  %15 = icmp eq ptr %13, null
-  br i1 %15, label %nonempty_memcpy.exit26, label %16
+  %10 = getelementptr %struct.st_features, ptr @features, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i64, ptr %11, align 8, !tbaa !24
+  %13 = shl i64 %12, 3
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %14, ptr %15, align 8, !tbaa !23
+  %16 = icmp eq ptr %14, null
+  br i1 %16, label %nonempty_memcpy.exit26, label %17
 
-16:                                               ; preds = %8, %6
+17:                                               ; preds = %8, %6
   %.pre-phi = phi i64 [ %9, %8 ], [ %.pre, %6 ]
-  %17 = phi ptr [ %13, %8 ], [ null, %6 ]
+  %18 = phi ptr [ %14, %8 ], [ null, %6 ]
   %.val23 = phi i8 [ %.val21, %8 ], [ %.val23.pre, %6 ]
-  %18 = shl i64 24, %.pre-phi
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #24
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %19, ptr %20, align 8, !tbaa !25
-  %21 = icmp eq ptr %19, null
-  br i1 %21, label %nonempty_memcpy.exit26, label %22
+  %19 = shl i64 24, %.pre-phi
+  %20 = tail call noalias ptr @malloc(i64 noundef %19) #24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %20, ptr %21, align 8, !tbaa !25
+  %22 = icmp eq ptr %20, null
+  br i1 %22, label %nonempty_memcpy.exit26, label %23
 
-22:                                               ; preds = %16
+23:                                               ; preds = %17
   %.not.i = icmp ugt i8 %.val23, 60
-  br i1 %.not.i, label %nonempty_memcpy.exit, label %23
+  br i1 %.not.i, label %nonempty_memcpy.exit, label %24
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %19, ptr noundef nonnull readonly align 1 %25, i64 noundef range(i64 1, 0) %18, i1 noundef false) #25
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %26 = load ptr, ptr %25, align 8, !tbaa !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %20, ptr noundef nonnull readonly align 1 %26, i64 noundef range(i64 1, 0) %19, i1 noundef false) #25
   br label %nonempty_memcpy.exit
 
-nonempty_memcpy.exit:                             ; preds = %22, %23
-  %26 = load ptr, ptr %3, align 8, !tbaa !23
-  %.not = icmp eq ptr %26, null
-  br i1 %.not, label %nonempty_memcpy.exit26, label %27
+nonempty_memcpy.exit:                             ; preds = %23, %24
+  %27 = load ptr, ptr %3, align 8, !tbaa !23
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %nonempty_memcpy.exit26, label %28
 
-27:                                               ; preds = %nonempty_memcpy.exit
-  %28 = getelementptr %struct.st_features, ptr @features, i64 %.pre-phi, i32 3
-  %29 = load i64, ptr %28, align 8, !tbaa !24
-  %30 = shl i64 %29, 3
-  %.not.i24 = icmp eq i64 %30, 0
-  br i1 %.not.i24, label %nonempty_memcpy.exit26, label %31
+28:                                               ; preds = %nonempty_memcpy.exit
+  %29 = getelementptr %struct.st_features, ptr @features, i64 %.pre-phi
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i64, ptr %30, align 8, !tbaa !24
+  %32 = shl i64 %31, 3
+  %.not.i24 = icmp eq i64 %32, 0
+  br i1 %.not.i24, label %nonempty_memcpy.exit26, label %33
 
-31:                                               ; preds = %27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %17, ptr noundef nonnull readonly align 1 %26, i64 noundef range(i64 1, 0) %30, i1 noundef false) #25
+33:                                               ; preds = %28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %18, ptr noundef nonnull readonly align 1 %27, i64 noundef range(i64 1, 0) %32, i1 noundef false) #25
   br label %nonempty_memcpy.exit26
 
-nonempty_memcpy.exit26:                           ; preds = %31, %27, %nonempty_memcpy.exit, %16, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %16 ], [ %0, %nonempty_memcpy.exit ], [ %0, %27 ], [ %0, %31 ]
+nonempty_memcpy.exit26:                           ; preds = %33, %28, %nonempty_memcpy.exit, %17, %8
+  %.0 = phi ptr [ null, %8 ], [ null, %17 ], [ %0, %nonempty_memcpy.exit ], [ %0, %28 ], [ %0, %33 ]
   ret ptr %.0
 }
 

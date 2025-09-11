@@ -1780,7 +1780,7 @@ define linkonce_odr hidden void @_ZN6Events20log_zgc_phase_switchEPKcz(ptr nound
   %5 = load ptr, ptr @_ZN6Events17_zgc_phase_switchE, align 8
   %6 = icmp ne ptr %5, null
   %or.cond = select i1 %4, i1 %6, i1 false
-  br i1 %or.cond, label %7, label %33
+  br i1 %or.cond, label %7, label %35
 
 7:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
@@ -1814,23 +1814,25 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %20, %10
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %14 to i64
-  %26 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %24, i64 %25, i32 1
-  store ptr null, ptr %26, align 8
-  %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %27, i64 %25
-  store double %11, ptr %28, align 8
-  %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %29, i64 %25, i32 2
-  %31 = load ptr, ptr %30, align 8
-  %32 = call i32 @jio_vsnprintf(ptr noundef %31, i64 noundef 256, ptr noundef %0, ptr noundef nonnull %2) #17
+  %26 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %24, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store ptr null, ptr %27, align 8
+  %28 = load ptr, ptr %23, align 8
+  %29 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %28, i64 %25
+  store double %11, ptr %29, align 8
+  %30 = load ptr, ptr %23, align 8
+  %31 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %30, i64 %25
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = call i32 @jio_vsnprintf(ptr noundef %33, i64 noundef 256, ptr noundef %0, ptr noundef nonnull %2) #17
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %12) #17
   br label %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit
 
 _ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit: ; preds = %7, %_ZN11MutexLockerD2Ev.exit.i
   call void @llvm.va_end.p0(ptr nonnull %2)
-  br label %33
+  br label %35
 
-33:                                               ; preds = %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit, %1
+35:                                               ; preds = %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit, %1
   ret void
 }
 
@@ -2806,13 +2808,13 @@ define hidden noundef i32 @_ZN16ZGenerationYoung26compute_tenuring_thresholdE27Z
   %.04867 = phi double [ 0.000000e+00, %2 ], [ %.1, %21 ]
   %.04966 = phi i32 [ 0, %2 ], [ %.150, %21 ]
   %.05165 = phi i32 [ 0, %2 ], [ %.152, %21 ]
-  %4 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv, i32 2
-  %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 784
+  %4 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 784
   %8 = load i64, ptr %7, align 8
-  %9 = add i64 %8, %5
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1552
+  %9 = add i64 %8, %6
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1552
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %9, %11
   %.not = icmp eq i64 %12, 0

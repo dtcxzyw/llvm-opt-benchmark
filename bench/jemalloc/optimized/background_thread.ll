@@ -718,16 +718,17 @@ define hidden void @je_background_thread_prefork1(ptr noundef %0) local_unnamed_
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %3 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
-  %.04 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
+  %3 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
+  %.04 = phi i32 [ %7, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %5 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %4, i64 %3, i32 2
-  tail call void @je_malloc_mutex_prefork(ptr noundef %0, ptr noundef nonnull %5) #12
-  %6 = add i32 %.04, 1
-  %7 = zext i32 %6 to i64
-  %8 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
-  %9 = icmp ugt i64 %8, %7
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  %5 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %4, i64 %3
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  tail call void @je_malloc_mutex_prefork(ptr noundef %0, ptr noundef nonnull %6) #12
+  %7 = add i32 %.04, 1
+  %8 = zext i32 %7 to i64
+  %9 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
+  %10 = icmp ugt i64 %9, %8
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -741,16 +742,17 @@ define hidden void @je_background_thread_postfork_parent(ptr noundef %0) local_u
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %3 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
-  %.05 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
+  %3 = phi i64 [ %8, %.lr.ph ], [ 0, %1 ]
+  %.05 = phi i32 [ %7, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %5 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %4, i64 %3, i32 2
-  tail call void @je_malloc_mutex_postfork_parent(ptr noundef %0, ptr noundef nonnull %5) #12
-  %6 = add i32 %.05, 1
-  %7 = zext i32 %6 to i64
-  %8 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
-  %9 = icmp ugt i64 %8, %7
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  %5 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %4, i64 %3
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  tail call void @je_malloc_mutex_postfork_parent(ptr noundef %0, ptr noundef nonnull %6) #12
+  %7 = add i32 %.05, 1
+  %8 = zext i32 %7 to i64
+  %9 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
+  %10 = icmp ugt i64 %9, %8
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 }
 
 declare void @je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -765,121 +767,122 @@ define hidden void @je_background_thread_postfork_child(ptr noundef %0) local_un
   tail call void @je_malloc_mutex_postfork_child(ptr noundef %0, ptr noundef nonnull @je_background_thread_lock) #12
   %3 = load i8, ptr @background_thread_enabled_at_fork, align 1, !tbaa !30, !range !31, !noundef !32
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %12, label %55
+  br i1 %4, label %13, label %56
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %5 = phi i64 [ %9, %.lr.ph ], [ 0, %1 ]
-  %.025 = phi i32 [ %8, %.lr.ph ], [ 0, %1 ]
+  %5 = phi i64 [ %10, %.lr.ph ], [ 0, %1 ]
+  %.025 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
   %6 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %7 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %6, i64 %5, i32 2
-  tail call void @je_malloc_mutex_postfork_child(ptr noundef %0, ptr noundef nonnull %7) #12
-  %8 = add i32 %.025, 1
-  %9 = zext i32 %8 to i64
-  %10 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
-  %11 = icmp ugt i64 %10, %9
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  %7 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %6, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  tail call void @je_malloc_mutex_postfork_child(ptr noundef %0, ptr noundef nonnull %8) #12
+  %9 = add i32 %.025, 1
+  %10 = zext i32 %9 to i64
+  %11 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
+  %12 = icmp ugt i64 %11, %10
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
-12:                                               ; preds = %._crit_edge
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 72)) #12
-  %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %14
+13:                                               ; preds = %._crit_edge
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 72)) #12
+  %.not.i = icmp eq i32 %14, 0
+  br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %15
 
-malloc_mutex_trylock_final.exit.i:                ; preds = %12
+malloc_mutex_trylock_final.exit.i:                ; preds = %13
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 64) monotonic, align 8
-  br label %15
+  br label %16
 
-14:                                               ; preds = %12
+15:                                               ; preds = %13
   tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_background_thread_lock) #12
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %malloc_mutex_trylock_final.exit.i
-  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 56), align 8, !tbaa !8
-  %17 = add i64 %16, 1
-  store i64 %17, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 56), align 8, !tbaa !8
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 48), align 8, !tbaa !15
-  %.not.i.i = icmp eq ptr %18, %0
-  br i1 %.not.i.i, label %atomic_store_b.exit, label %19
+16:                                               ; preds = %15, %malloc_mutex_trylock_final.exit.i
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 56), align 8, !tbaa !8
+  %18 = add i64 %17, 1
+  store i64 %18, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 56), align 8, !tbaa !8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 48), align 8, !tbaa !15
+  %.not.i.i = icmp eq ptr %19, %0
+  br i1 %.not.i.i, label %atomic_store_b.exit, label %20
 
-19:                                               ; preds = %15
+20:                                               ; preds = %16
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 48), align 8, !tbaa !15
-  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 40), align 8, !tbaa !16
-  %21 = add i64 %20, 1
-  store i64 %21, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 40), align 8, !tbaa !16
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 40), align 8, !tbaa !16
+  %22 = add i64 %21, 1
+  store i64 %22, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 40), align 8, !tbaa !16
   br label %atomic_store_b.exit
 
-atomic_store_b.exit:                              ; preds = %15, %19
+atomic_store_b.exit:                              ; preds = %16, %20
   store i64 0, ptr @je_n_background_threads, align 8, !tbaa !17
   store atomic i8 0, ptr @je_background_thread_enabled_state monotonic, align 1
-  %22 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
-  %.not29 = icmp eq i64 %22, 0
+  %23 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
+  %.not29 = icmp eq i64 %23, 0
   br i1 %.not29, label %._crit_edge28, label %.lr.ph27
 
 ._crit_edge28:                                    ; preds = %malloc_mutex_lock.exit24, %atomic_store_b.exit
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 64) monotonic, align 8
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 72)) #12
-  br label %55
+  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 72)) #12
+  br label %56
 
 .lr.ph27:                                         ; preds = %atomic_store_b.exit, %malloc_mutex_lock.exit24
-  %24 = phi i64 [ %52, %malloc_mutex_lock.exit24 ], [ 0, %atomic_store_b.exit ]
-  %.01826 = phi i32 [ %51, %malloc_mutex_lock.exit24 ], [ 0, %atomic_store_b.exit ]
-  %25 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %25, i64 %24
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %28 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %27) #12
-  %.not.i21 = icmp eq i32 %28, 0
-  br i1 %.not.i21, label %malloc_mutex_trylock_final.exit.i23, label %30
+  %25 = phi i64 [ %53, %malloc_mutex_lock.exit24 ], [ 0, %atomic_store_b.exit ]
+  %.01826 = phi i32 [ %52, %malloc_mutex_lock.exit24 ], [ 0, %atomic_store_b.exit ]
+  %26 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
+  %27 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %26, i64 %25
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
+  %29 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %28) #12
+  %.not.i21 = icmp eq i32 %29, 0
+  br i1 %.not.i21, label %malloc_mutex_trylock_final.exit.i23, label %31
 
 malloc_mutex_trylock_final.exit.i23:              ; preds = %.lr.ph27
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 120
-  store atomic i8 1, ptr %29 monotonic, align 1
-  br label %32
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 120
+  store atomic i8 1, ptr %30 monotonic, align 1
+  br label %33
 
-30:                                               ; preds = %.lr.ph27
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %31) #12
-  br label %32
+31:                                               ; preds = %.lr.ph27
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %32) #12
+  br label %33
 
-32:                                               ; preds = %30, %malloc_mutex_trylock_final.exit.i23
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 112
-  %34 = load i64, ptr %33, align 8, !tbaa !8
-  %35 = add i64 %34, 1
-  store i64 %35, ptr %33, align 8, !tbaa !8
-  %36 = getelementptr inbounds nuw i8, ptr %26, i64 104
-  %37 = load ptr, ptr %36, align 8, !tbaa !15
-  %.not.i.i22 = icmp eq ptr %37, %0
-  br i1 %.not.i.i22, label %malloc_mutex_lock.exit24, label %38
+33:                                               ; preds = %31, %malloc_mutex_trylock_final.exit.i23
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 112
+  %35 = load i64, ptr %34, align 8, !tbaa !8
+  %36 = add i64 %35, 1
+  store i64 %36, ptr %34, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 104
+  %38 = load ptr, ptr %37, align 8, !tbaa !15
+  %.not.i.i22 = icmp eq ptr %38, %0
+  br i1 %.not.i.i22, label %malloc_mutex_lock.exit24, label %39
 
-38:                                               ; preds = %32
-  store ptr %0, ptr %36, align 8, !tbaa !15
-  %39 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  %40 = load i64, ptr %39, align 8, !tbaa !16
-  %41 = add i64 %40, 1
-  store i64 %41, ptr %39, align 8, !tbaa !16
+39:                                               ; preds = %33
+  store ptr %0, ptr %37, align 8, !tbaa !15
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 96
+  %41 = load i64, ptr %40, align 8, !tbaa !16
+  %42 = add i64 %41, 1
+  store i64 %42, ptr %40, align 8, !tbaa !16
   br label %malloc_mutex_lock.exit24
 
-malloc_mutex_lock.exit24:                         ; preds = %32, %38
-  %42 = getelementptr inbounds nuw i8, ptr %26, i64 168
-  store i32 0, ptr %42, align 8, !tbaa !20
-  %43 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %44 = tail call i32 @pthread_cond_init(ptr noundef nonnull %43, ptr noundef null) #12
-  %45 = getelementptr inbounds nuw i8, ptr %26, i64 172
-  store atomic i8 0, ptr %45 release, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %26, i64 176
-  tail call void @je_nstime_init(ptr noundef nonnull %46, i64 noundef 0) #12
-  %47 = getelementptr inbounds nuw i8, ptr %26, i64 184
-  %48 = getelementptr inbounds nuw i8, ptr %26, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
-  tail call void @je_nstime_copy(ptr noundef nonnull %48, ptr noundef nonnull @nstime_zero) #12
-  %49 = getelementptr inbounds nuw i8, ptr %26, i64 120
-  store atomic i8 0, ptr %49 monotonic, align 8
-  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %27) #12
-  %51 = add i32 %.01826, 1
-  %52 = zext i32 %51 to i64
-  %53 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
-  %54 = icmp ugt i64 %53, %52
-  br i1 %54, label %.lr.ph27, label %._crit_edge28, !llvm.loop !41
+malloc_mutex_lock.exit24:                         ; preds = %33, %39
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 168
+  store i32 0, ptr %43, align 8, !tbaa !20
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %45 = tail call i32 @pthread_cond_init(ptr noundef nonnull %44, ptr noundef null) #12
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 172
+  store atomic i8 0, ptr %46 release, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 176
+  tail call void @je_nstime_init(ptr noundef nonnull %47, i64 noundef 0) #12
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 184
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 200
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
+  tail call void @je_nstime_copy(ptr noundef nonnull %49, ptr noundef nonnull @nstime_zero) #12
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 120
+  store atomic i8 0, ptr %50 monotonic, align 8
+  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %28) #12
+  %52 = add i32 %.01826, 1
+  %53 = zext i32 %52 to i64
+  %54 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
+  %55 = icmp ugt i64 %54, %53
+  br i1 %55, label %.lr.ph27, label %._crit_edge28, !llvm.loop !41
 
-55:                                               ; preds = %._crit_edge, %._crit_edge28
+56:                                               ; preds = %._crit_edge, %._crit_edge28
   ret void
 }
 

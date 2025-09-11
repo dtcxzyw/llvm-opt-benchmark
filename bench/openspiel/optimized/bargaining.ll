@@ -10419,45 +10419,46 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %_ZSteqIiSaIiEEbRKSt
   %.us-phi19 = phi ptr [ %20, %.lr.ph.split.us ], [ %28, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
   %34 = phi ptr [ %21, %.lr.ph.split.us ], [ %29, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
   %.us-phi22 = phi i64 [ %indvars.iv56, %.lr.ph.split.us ], [ %indvars.iv, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
-  %35 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %.us-phi22, i32 0, i32 0, i32 0, i32 0, i32 1
+  %35 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %.us-phi22
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.us-phi19, %34
-  br i1 %.not.i.i.i.i.i.i, label %39, label %36
+  br i1 %.not.i.i.i.i.i.i, label %40, label %37
 
-36:                                               ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread
-  %37 = icmp ugt i64 %17, 9223372036854775804
-  br i1 %37, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i
+37:                                               ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread
+  %38 = icmp ugt i64 %17, 9223372036854775804
+  br i1 %38, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i
 
-.noexc.i.i.i.i:                                   ; preds = %36
+.noexc.i.i.i.i:                                   ; preds = %37
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #24
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %36
-  %38 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #27
-  %.pre = load ptr, ptr %35, align 8
-  br label %39
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %37
+  %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #27
+  %.pre = load ptr, ptr %36, align 8
+  br label %40
 
-39:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread
-  %40 = phi ptr [ %.us-phi19, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %.pre, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i ]
-  %41 = phi ptr [ null, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %38, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i ]
-  store ptr %41, ptr %0, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 %17
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %43, ptr %44, align 8
-  %45 = ptrtoint ptr %40 to i64
-  %46 = ptrtoint ptr %34 to i64
-  %47 = sub i64 %45, %46
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %40, %34
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, label %48
+40:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread
+  %41 = phi ptr [ %.us-phi19, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %.pre, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i ]
+  %42 = phi ptr [ null, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %39, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i ]
+  store ptr %42, ptr %0, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = getelementptr inbounds i8, ptr %42, i64 %17
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %44, ptr %45, align 8
+  %46 = ptrtoint ptr %41 to i64
+  %47 = ptrtoint ptr %34 to i64
+  %48 = sub i64 %46, %47
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %41, %34
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, label %49
 
-48:                                               ; preds = %39
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %41, ptr align 4 %34, i64 %47, i1 false)
+49:                                               ; preds = %40
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %42, ptr align 4 %34, i64 %48, i1 false)
   br label %_ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
 
-_ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit: ; preds = %39, %48
-  %49 = getelementptr inbounds i8, ptr %41, i64 %47
-  store ptr %49, ptr %42, align 8
-  br label %54
+_ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit: ; preds = %40, %49
+  %50 = getelementptr inbounds i8, ptr %42, i64 %48
+  store ptr %50, ptr %43, align 8
+  br label %55
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10: ; preds = %.lr.ph.split, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
@@ -10465,20 +10466,20 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10: ; preds = %.lr.ph.split, %_Z
   br i1 %exitcond.not, label %_ZN10open_spiel10bargaining5OfferD2Ev.exit, label %.lr.ph.split, !llvm.loop !185
 
 _ZN10open_spiel10bargaining5OfferD2Ev.exit:       ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread10.us, %3
-  %50 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #27
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %50, i8 0, i64 12, i1 false)
-  store ptr %50, ptr %0, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %51, ptr %53, align 8
-  br label %54
+  %51 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #27
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, i8 0, i64 12, i1 false)
+  store ptr %51, ptr %0, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %52, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %52, ptr %54, align 8
+  br label %55
 
-54:                                               ; preds = %_ZN10open_spiel10bargaining5OfferD2Ev.exit, %_ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
+55:                                               ; preds = %_ZN10open_spiel10bargaining5OfferD2Ev.exit, %_ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
   %.sink = phi i64 [ -1, %_ZN10open_spiel10bargaining5OfferD2Ev.exit ], [ %.us-phi22, %_ZNSt4pairIN10open_spiel10bargaining5OfferElEC2IRKS2_RiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sink, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sink, ptr %56, align 8
   ret void
 }
 

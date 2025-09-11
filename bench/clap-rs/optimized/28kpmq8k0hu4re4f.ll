@@ -5366,21 +5366,22 @@ define hidden noundef zeroext i1 @_ZN12clap_builder6parser7matches11matched_arg1
   br i1 %6, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit", label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
-  %.018.i.i.i = phi i64 [ %8, %.preheader ], [ 0, %1 ]
-  %.017.i.i.i = phi i64 [ %9, %.preheader ], [ 0, %1 ]
-  %7 = getelementptr { { i64, ptr }, i64 }, ptr %3, i64 %.017.i.i.i, i32 1
-  %.val22.i.i.i = load i64, ptr %7, align 8, !noalias !1100, !noundef !4
-  %8 = add i64 %.val22.i.i.i, %.018.i.i.i
-  %9 = add nuw i64 %.017.i.i.i, 1
-  %10 = icmp eq i64 %9, %5
-  br i1 %10, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit", label %.preheader
+  %.018.i.i.i = phi i64 [ %9, %.preheader ], [ 0, %1 ]
+  %.017.i.i.i = phi i64 [ %10, %.preheader ], [ 0, %1 ]
+  %7 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %3, i64 %.017.i.i.i
+  %8 = getelementptr i8, ptr %7, i64 16
+  %.val22.i.i.i = load i64, ptr %8, align 8, !noalias !1100, !noundef !4
+  %9 = add i64 %.val22.i.i.i, %.018.i.i.i
+  %10 = add nuw i64 %.017.i.i.i, 1
+  %11 = icmp eq i64 %10, %5
+  br i1 %11, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit", label %.preheader
 
 "_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit": ; preds = %.preheader
-  %11 = icmp eq i64 %8, 0
+  %12 = icmp eq i64 %9, 0
   br label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit"
 
 "_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit": ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit", %1
-  %.0.i.i = phi i1 [ true, %1 ], [ %11, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit" ]
+  %.0.i.i = phi i1 [ true, %1 ], [ %12, %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold17h00d8ede55041c655E.exit.loopexit" ]
   ret i1 %.0.i.i
 }
 

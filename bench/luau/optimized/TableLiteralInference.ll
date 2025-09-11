@@ -4996,73 +4996,75 @@ _ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 _ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit.us: ; preds = %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i.us, %23, %30, %.critedge1.backedge.i.i.us, %12
   %35 = phi i64 [ %13, %12 ], [ %17, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i.us ], [ %17, %23 ], [ %17, %30 ], [ %3, %.critedge1.backedge.i.i.us ]
-  %36 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %11, i64 %35, i32 1
-  %37 = load i8, ptr %36, align 8, !tbaa !174, !range !49, !noundef !50
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %12, label %.critedge, !llvm.loop !176
+  %36 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %11, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %38 = load i8, ptr %37, align 8, !tbaa !174, !range !49, !noundef !50
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %12, label %.critedge, !llvm.loop !176
 
-.split:                                           ; preds = %.split.preheader, %63
-  %.sroa.2.0.copyload.i = phi i64 [ %.sroa.2.0.copyload.i.pre, %.split.preheader ], [ %62, %63 ]
-  %39 = add i64 %.sroa.2.0.copyload.i, 1
-  store i64 %39, ptr %.sroa.2.0..0..sroa_idx.i, align 8, !tbaa !172
-  %40 = icmp ult i64 %39, %3
-  br i1 %40, label %.lr.ph.i.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
+.split:                                           ; preds = %.split.preheader, %64
+  %.sroa.2.0.copyload.i = phi i64 [ %.sroa.2.0.copyload.i.pre, %.split.preheader ], [ %63, %64 ]
+  %40 = add i64 %.sroa.2.0.copyload.i, 1
+  store i64 %40, ptr %.sroa.2.0..0..sroa_idx.i, align 8, !tbaa !172
+  %41 = icmp ult i64 %40, %3
+  br i1 %41, label %.lr.ph.i.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
 
 .lr.ph.i.i:                                       ; preds = %.split
-  %41 = load ptr, ptr %.sroa.0.0.copyload.i.fr, align 8, !tbaa !118
-  %42 = load i8, ptr %9, align 8, !tbaa !84, !range !49, !noundef !50
-  br label %43
+  %42 = load ptr, ptr %.sroa.0.0.copyload.i.fr, align 8, !tbaa !118
+  %43 = load i8, ptr %9, align 8, !tbaa !84, !range !49, !noundef !50
+  br label %44
 
-43:                                               ; preds = %.critedge1.backedge.i.i, %.lr.ph.i.i
-  %44 = phi i64 [ %39, %.lr.ph.i.i ], [ %61, %.critedge1.backedge.i.i ]
-  %45 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %41, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %47 = load i8, ptr %46, align 8, !tbaa !84, !range !49, !noundef !50
-  %48 = trunc nuw i8 %47 to i1
-  %49 = icmp eq i8 %47, %42
-  %brmerge.not.i.i.i.i = and i1 %49, %48
-  br i1 %brmerge.not.i.i.i.i, label %50, label %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i
+44:                                               ; preds = %.critedge1.backedge.i.i, %.lr.ph.i.i
+  %45 = phi i64 [ %40, %.lr.ph.i.i ], [ %62, %.critedge1.backedge.i.i ]
+  %46 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %42, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %48 = load i8, ptr %47, align 8, !tbaa !84, !range !49, !noundef !50
+  %49 = trunc nuw i8 %48 to i1
+  %50 = icmp eq i8 %48, %43
+  %brmerge.not.i.i.i.i = and i1 %50, %49
+  br i1 %brmerge.not.i.i.i.i, label %51, label %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i
 
-50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %52 = load i64, ptr %51, align 8, !tbaa !72
-  %53 = load i64, ptr %10, align 8, !tbaa !72
-  %54 = icmp eq i64 %52, %53
-  br i1 %54, label %55, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
+51:                                               ; preds = %44
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %53 = load i64, ptr %52, align 8, !tbaa !72
+  %54 = load i64, ptr %10, align 8, !tbaa !72
+  %55 = icmp eq i64 %53, %54
+  br i1 %55, label %56, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
 
-55:                                               ; preds = %50
-  %56 = icmp eq i64 %52, 0
-  br i1 %56, label %.critedge1.backedge.i.i, label %57
+56:                                               ; preds = %51
+  %57 = icmp eq i64 %53, 0
+  br i1 %57, label %.critedge1.backedge.i.i, label %58
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr %8, align 8, !tbaa !69
-  %59 = load ptr, ptr %45, align 8, !tbaa !69
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %59, ptr %58, i64 %52)
-  %60 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %60, label %.critedge1.backedge.i.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
+58:                                               ; preds = %56
+  %59 = load ptr, ptr %8, align 8, !tbaa !69
+  %60 = load ptr, ptr %46, align 8, !tbaa !69
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %60, ptr %59, i64 %53)
+  %61 = icmp eq i32 %bcmp.i.i.i.i.i, 0
+  br i1 %61, label %.critedge1.backedge.i.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
 
-_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i: ; preds = %43
-  br i1 %49, label %.critedge1.backedge.i.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
+_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i: ; preds = %44
+  br i1 %50, label %.critedge1.backedge.i.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
 
-.critedge1.backedge.i.i:                          ; preds = %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i, %57, %55
-  %61 = add nuw i64 %44, 1
-  store i64 %61, ptr %.sroa.2.0..0..sroa_idx.i, align 8, !tbaa !172
-  %exitcond.not.i.i = icmp eq i64 %61, %3
-  br i1 %exitcond.not.i.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit, label %43, !llvm.loop !173
+.critedge1.backedge.i.i:                          ; preds = %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i, %58, %56
+  %62 = add nuw i64 %45, 1
+  store i64 %62, ptr %.sroa.2.0..0..sroa_idx.i, align 8, !tbaa !172
+  %exitcond.not.i.i = icmp eq i64 %62, %3
+  br i1 %exitcond.not.i.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit, label %44, !llvm.loop !173
 
-_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit: ; preds = %50, %57, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i, %.critedge1.backedge.i.i, %.split
-  %62 = phi i64 [ %39, %.split ], [ %44, %50 ], [ %44, %57 ], [ %44, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i ], [ %3, %.critedge1.backedge.i.i ]
-  %.not = icmp eq i64 %62, %7
-  br i1 %.not, label %.critedge, label %63
+_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit: ; preds = %51, %58, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i, %.critedge1.backedge.i.i, %.split
+  %63 = phi i64 [ %40, %.split ], [ %45, %51 ], [ %45, %58 ], [ %45, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.i ], [ %3, %.critedge1.backedge.i.i ]
+  %.not = icmp eq i64 %63, %7
+  br i1 %.not, label %.critedge, label %64
 
-63:                                               ; preds = %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
-  %64 = load ptr, ptr %.sroa.0.0.copyload.i.fr, align 8, !tbaa !118
-  %65 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %64, i64 %62, i32 1
-  %66 = load i8, ptr %65, align 8, !tbaa !174, !range !49, !noundef !50
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %.split, label %.critedge, !llvm.loop !176
+64:                                               ; preds = %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
+  %65 = load ptr, ptr %.sroa.0.0.copyload.i.fr, align 8, !tbaa !118
+  %66 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %65, i64 %63
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  %68 = load i8, ptr %67, align 8, !tbaa !174, !range !49, !noundef !50
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %.split, label %.critedge, !llvm.loop !176
 
-.critedge:                                        ; preds = %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit.us, %63, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
+.critedge:                                        ; preds = %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit.us, %64, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEi.exit
   ret ptr %0
 }
 
@@ -8755,128 +8757,131 @@ define linkonce_odr dso_local void @_ZN4Luau3SetISt8optionalINSt7__cxx1112basic_
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %9, i64 %2, i32 1
-  %15 = load i8, ptr %14, align 8, !tbaa !174, !range !49, !noundef !50
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %.lr.ph4, label %.critedge
+  %14 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %9, i64 %2
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %16 = load i8, ptr %15, align 8, !tbaa !174, !range !49, !noundef !50
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %.lr.ph4, label %.critedge
 
 .lr.ph4:                                          ; preds = %.lr.ph.split.us
-  %17 = load i64, ptr %10, align 8, !tbaa !102
-  br label %18
+  %18 = load i64, ptr %10, align 8, !tbaa !102
+  br label %19
 
-18:                                               ; preds = %.lr.ph4, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us
-  %19 = phi i64 [ %2, %.lr.ph4 ], [ %42, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us ]
-  %20 = add i64 %19, 1
-  store i64 %20, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !172
-  %21 = icmp ult i64 %20, %17
-  br i1 %21, label %.lr.ph.i.us, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us
+19:                                               ; preds = %.lr.ph4, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us
+  %20 = phi i64 [ %2, %.lr.ph4 ], [ %43, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us ]
+  %21 = add i64 %20, 1
+  store i64 %21, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !172
+  %22 = icmp ult i64 %21, %18
+  br i1 %22, label %.lr.ph.i.us, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us
 
-.lr.ph.i.us:                                      ; preds = %18
-  %22 = load i8, ptr %12, align 8, !tbaa !84, !range !49, !noundef !50
-  br label %23
+.lr.ph.i.us:                                      ; preds = %19
+  %23 = load i8, ptr %12, align 8, !tbaa !84, !range !49, !noundef !50
+  br label %24
 
-23:                                               ; preds = %.critedge1.backedge.i.us, %.lr.ph.i.us
-  %24 = phi i64 [ %20, %.lr.ph.i.us ], [ %41, %.critedge1.backedge.i.us ]
-  %25 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %9, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = load i8, ptr %26, align 8, !tbaa !84, !range !49, !noundef !50
-  %28 = trunc nuw i8 %27 to i1
-  %29 = icmp eq i8 %27, %22
-  %brmerge.not.i.i.i.us = and i1 %29, %28
-  br i1 %brmerge.not.i.i.i.us, label %30, label %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.us
+24:                                               ; preds = %.critedge1.backedge.i.us, %.lr.ph.i.us
+  %25 = phi i64 [ %21, %.lr.ph.i.us ], [ %42, %.critedge1.backedge.i.us ]
+  %26 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %9, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %28 = load i8, ptr %27, align 8, !tbaa !84, !range !49, !noundef !50
+  %29 = trunc nuw i8 %28 to i1
+  %30 = icmp eq i8 %28, %23
+  %brmerge.not.i.i.i.us = and i1 %30, %29
+  br i1 %brmerge.not.i.i.i.us, label %31, label %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.us
 
-_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.us: ; preds = %23
-  br i1 %29, label %.critedge1.backedge.i.us, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us
+_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.us: ; preds = %24
+  br i1 %30, label %.critedge1.backedge.i.us, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !72
-  %33 = load i64, ptr %13, align 8, !tbaa !72
-  %34 = icmp eq i64 %32, %33
-  br i1 %34, label %35, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !72
+  %34 = load i64, ptr %13, align 8, !tbaa !72
+  %35 = icmp eq i64 %33, %34
+  br i1 %35, label %36, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us
 
-35:                                               ; preds = %30
-  %36 = icmp eq i64 %32, 0
-  br i1 %36, label %.critedge1.backedge.i.us, label %37
+36:                                               ; preds = %31
+  %37 = icmp eq i64 %33, 0
+  br i1 %37, label %.critedge1.backedge.i.us, label %38
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %11, align 8, !tbaa !69
-  %39 = load ptr, ptr %25, align 8, !tbaa !69
-  %bcmp.i.i.i.i.us = tail call i32 @bcmp(ptr %39, ptr %38, i64 %32)
-  %40 = icmp eq i32 %bcmp.i.i.i.i.us, 0
-  br i1 %40, label %.critedge1.backedge.i.us, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %11, align 8, !tbaa !69
+  %40 = load ptr, ptr %26, align 8, !tbaa !69
+  %bcmp.i.i.i.i.us = tail call i32 @bcmp(ptr %40, ptr %39, i64 %33)
+  %41 = icmp eq i32 %bcmp.i.i.i.i.us, 0
+  br i1 %41, label %.critedge1.backedge.i.us, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us
 
-.critedge1.backedge.i.us:                         ; preds = %37, %35, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.us
-  %41 = add nuw i64 %24, 1
-  store i64 %41, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !172
-  %exitcond.not.i.us = icmp eq i64 %41, %17
-  br i1 %exitcond.not.i.us, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us, label %23, !llvm.loop !173
+.critedge1.backedge.i.us:                         ; preds = %38, %36, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.us
+  %42 = add nuw i64 %25, 1
+  store i64 %42, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !172
+  %exitcond.not.i.us = icmp eq i64 %42, %18
+  br i1 %exitcond.not.i.us, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us, label %24, !llvm.loop !173
 
-_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us: ; preds = %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.us, %30, %37, %.critedge1.backedge.i.us, %18
-  %42 = phi i64 [ %20, %18 ], [ %24, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.us ], [ %24, %30 ], [ %24, %37 ], [ %17, %.critedge1.backedge.i.us ]
-  %43 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %9, i64 %42, i32 1
-  %44 = load i8, ptr %43, align 8, !tbaa !174, !range !49, !noundef !50
-  %45 = icmp eq i8 %44, 0
-  br i1 %45, label %18, label %.critedge
+_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us: ; preds = %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.us, %31, %38, %.critedge1.backedge.i.us, %19
+  %43 = phi i64 [ %21, %19 ], [ %25, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i.us ], [ %25, %31 ], [ %25, %38 ], [ %18, %.critedge1.backedge.i.us ]
+  %44 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %9, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %46 = load i8, ptr %45, align 8, !tbaa !174, !range !49, !noundef !50
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %19, label %.critedge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit
-  %46 = phi i64 [ %74, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit ], [ %2, %.lr.ph ]
-  %47 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %9, i64 %46, i32 1
-  %48 = load i8, ptr %47, align 8, !tbaa !174, !range !49, !noundef !50
-  %49 = icmp eq i8 %48, 0
-  br i1 %49, label %50, label %.critedge
+  %48 = phi i64 [ %77, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit ], [ %2, %.lr.ph ]
+  %49 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %9, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %51 = load i8, ptr %50, align 8, !tbaa !174, !range !49, !noundef !50
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %53, label %.critedge
 
-50:                                               ; preds = %.lr.ph.split
-  %51 = load i64, ptr %10, align 8, !tbaa !102
-  %52 = add i64 %46, 1
-  store i64 %52, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !172
-  %53 = icmp ult i64 %52, %51
-  br i1 %53, label %.lr.ph.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit
+53:                                               ; preds = %.lr.ph.split
+  %54 = load i64, ptr %10, align 8, !tbaa !102
+  %55 = add i64 %48, 1
+  store i64 %55, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !172
+  %56 = icmp ult i64 %55, %54
+  br i1 %56, label %.lr.ph.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit
 
-.lr.ph.i:                                         ; preds = %50
-  %54 = load i8, ptr %12, align 8, !tbaa !84, !range !49, !noundef !50
-  br label %55
+.lr.ph.i:                                         ; preds = %53
+  %57 = load i8, ptr %12, align 8, !tbaa !84, !range !49, !noundef !50
+  br label %58
 
-55:                                               ; preds = %.critedge1.backedge.i, %.lr.ph.i
-  %56 = phi i64 [ %52, %.lr.ph.i ], [ %73, %.critedge1.backedge.i ]
-  %57 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %9, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %59 = load i8, ptr %58, align 8, !tbaa !84, !range !49, !noundef !50
-  %60 = trunc nuw i8 %59 to i1
-  %61 = icmp eq i8 %59, %54
-  %brmerge.not.i.i.i = and i1 %61, %60
-  br i1 %brmerge.not.i.i.i, label %62, label %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i
+58:                                               ; preds = %.critedge1.backedge.i, %.lr.ph.i
+  %59 = phi i64 [ %55, %.lr.ph.i ], [ %76, %.critedge1.backedge.i ]
+  %60 = getelementptr inbounds nuw %"struct.std::pair.115", ptr %9, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %62 = load i8, ptr %61, align 8, !tbaa !84, !range !49, !noundef !50
+  %63 = trunc nuw i8 %62 to i1
+  %64 = icmp eq i8 %62, %57
+  %brmerge.not.i.i.i = and i1 %64, %63
+  br i1 %brmerge.not.i.i.i, label %65, label %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i
 
-62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %64 = load i64, ptr %63, align 8, !tbaa !72
-  %65 = load i64, ptr %13, align 8, !tbaa !72
-  %66 = icmp eq i64 %64, %65
-  br i1 %66, label %67, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit
+65:                                               ; preds = %58
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !72
+  %68 = load i64, ptr %13, align 8, !tbaa !72
+  %69 = icmp eq i64 %67, %68
+  br i1 %69, label %70, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit
 
-67:                                               ; preds = %62
-  %68 = icmp eq i64 %64, 0
-  br i1 %68, label %.critedge1.backedge.i, label %69
+70:                                               ; preds = %65
+  %71 = icmp eq i64 %67, 0
+  br i1 %71, label %.critedge1.backedge.i, label %72
 
-69:                                               ; preds = %67
-  %70 = load ptr, ptr %11, align 8, !tbaa !69
-  %71 = load ptr, ptr %57, align 8, !tbaa !69
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %71, ptr %70, i64 %64)
-  %72 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %72, label %.critedge1.backedge.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit
+72:                                               ; preds = %70
+  %73 = load ptr, ptr %11, align 8, !tbaa !69
+  %74 = load ptr, ptr %60, align 8, !tbaa !69
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %74, ptr %73, i64 %67)
+  %75 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %75, label %.critedge1.backedge.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit
 
-_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i: ; preds = %55
-  br i1 %61, label %.critedge1.backedge.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit
+_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i: ; preds = %58
+  br i1 %64, label %.critedge1.backedge.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit
 
-.critedge1.backedge.i:                            ; preds = %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i, %69, %67
-  %73 = add nuw i64 %56, 1
-  store i64 %73, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !172
-  %exitcond.not.i = icmp eq i64 %73, %51
-  br i1 %exitcond.not.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit, label %55, !llvm.loop !173
+.critedge1.backedge.i:                            ; preds = %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i, %72, %70
+  %76 = add nuw i64 %59, 1
+  store i64 %76, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !172
+  %exitcond.not.i = icmp eq i64 %76, %54
+  br i1 %exitcond.not.i, label %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit, label %58, !llvm.loop !173
 
-_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit: ; preds = %62, %69, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i, %.critedge1.backedge.i, %50
-  %74 = phi i64 [ %52, %50 ], [ %56, %62 ], [ %56, %69 ], [ %56, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i ], [ %51, %.critedge1.backedge.i ]
-  %.not = icmp eq i64 %74, %4
+_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit: ; preds = %65, %72, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i, %.critedge1.backedge.i, %53
+  %77 = phi i64 [ %55, %53 ], [ %59, %65 ], [ %59, %72 ], [ %59, %_ZNKSt8equal_toISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKS7_SA_.exit.i ], [ %54, %.critedge1.backedge.i ]
+  %.not = icmp eq i64 %77, %4
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !255
 
 .critedge:                                        ; preds = %.lr.ph.split, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit, %_ZN4Luau6detail14DenseHashTableISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIS9_bESA_IKS9_bENS0_16ItemInterfaceMapIS9_bEESt4hashIS9_ESt8equal_toIS9_EE14const_iteratorppEv.exit.us, %.lr.ph.split.us, %5

@@ -409,7 +409,7 @@ define internal fastcc void @X11_GL_InitExtensions(ptr noundef %0) unnamed_addr 
   %7 = load i32, ptr %6, align 8
   %8 = tail call ptr @X11_GL_GetVisual(ptr noundef %0, ptr noundef %5, i32 noundef %7, i1 noundef zeroext false)
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %66, label %9
+  br i1 %.not, label %68, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -452,7 +452,7 @@ X11_GL_GetProcAddress.exit107:                    ; preds = %23, %25
   %29 = icmp ne ptr %.0.i, null
   %30 = icmp ne ptr %.0.i106, null
   %or.cond = select i1 %29, i1 %30, i1 false
-  br i1 %or.cond, label %31, label %63
+  br i1 %or.cond, label %31, label %65
 
 31:                                               ; preds = %X11_GL_GetProcAddress.exit107
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -466,734 +466,736 @@ X11_GL_GetProcAddress.exit107:                    ; preds = %23, %25
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %38 = load ptr, ptr %37, align 8
   %39 = sext i32 %7 to i64
-  %40 = getelementptr inbounds %struct.Screen, ptr %38, i64 %39, i32 2
-  %41 = load i64, ptr %40, align 8
-  %42 = load ptr, ptr %8, align 8
-  %43 = tail call i64 %36(ptr noundef nonnull %5, i64 noundef %41, ptr noundef %42, i32 noundef 0) #6
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store i64 %43, ptr %44, align 8
-  %45 = load ptr, ptr @X11_XCreateWindow, align 8
-  %46 = load ptr, ptr %37, align 8
-  %47 = getelementptr inbounds %struct.Screen, ptr %46, i64 %39, i32 2
-  %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %50 = load i32, ptr %49, align 4
-  %51 = load ptr, ptr %8, align 8
-  %52 = call i64 %45(ptr noundef nonnull %5, i64 noundef %48, i32 noundef 0, i32 noundef 0, i32 noundef 32, i32 noundef 32, i32 noundef 0, i32 noundef %50, i32 noundef 1, ptr noundef %51, i64 noundef 8202, ptr noundef nonnull %2) #6
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
-  %55 = load ptr, ptr %54, align 8
-  %56 = call ptr %55(ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef null, i32 noundef 1) #6
-  %.not102 = icmp eq ptr %56, null
-  br i1 %.not102, label %62, label %57
+  %40 = getelementptr inbounds %struct.Screen, ptr %38, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = load ptr, ptr %8, align 8
+  %44 = tail call i64 %36(ptr noundef nonnull %5, i64 noundef %42, ptr noundef %43, i32 noundef 0) #6
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i64 %44, ptr %45, align 8
+  %46 = load ptr, ptr @X11_XCreateWindow, align 8
+  %47 = load ptr, ptr %37, align 8
+  %48 = getelementptr inbounds %struct.Screen, ptr %47, i64 %39
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %52 = load i32, ptr %51, align 4
+  %53 = load ptr, ptr %8, align 8
+  %54 = call i64 %46(ptr noundef nonnull %5, i64 noundef %50, i32 noundef 0, i32 noundef 0, i32 noundef 32, i32 noundef 32, i32 noundef 0, i32 noundef %52, i32 noundef 1, ptr noundef %53, i64 noundef 8202, ptr noundef nonnull %2) #6
+  %55 = load ptr, ptr %10, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
+  %57 = load ptr, ptr %56, align 8
+  %58 = call ptr %57(ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef null, i32 noundef 1) #6
+  %.not102 = icmp eq ptr %58, null
+  br i1 %.not102, label %64, label %59
 
-57:                                               ; preds = %31
-  %58 = load ptr, ptr %10, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 96
-  %60 = load ptr, ptr %59, align 8
-  %61 = call i32 %60(ptr noundef nonnull %5, i64 noundef %52, ptr noundef nonnull %56) #6
-  br label %62
+59:                                               ; preds = %31
+  %60 = load ptr, ptr %10, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 96
+  %62 = load ptr, ptr %61, align 8
+  %63 = call i32 %62(ptr noundef nonnull %5, i64 noundef %54, ptr noundef nonnull %58) #6
+  br label %64
 
-62:                                               ; preds = %57, %31
+64:                                               ; preds = %59, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %63
+  br label %65
 
-63:                                               ; preds = %62, %X11_GL_GetProcAddress.exit107
-  %.196 = phi i64 [ %33, %62 ], [ 0, %X11_GL_GetProcAddress.exit107 ]
-  %.194 = phi ptr [ %56, %62 ], [ null, %X11_GL_GetProcAddress.exit107 ]
-  %.192 = phi ptr [ %32, %62 ], [ null, %X11_GL_GetProcAddress.exit107 ]
-  %.1 = phi i64 [ %52, %62 ], [ 0, %X11_GL_GetProcAddress.exit107 ]
-  %64 = load ptr, ptr @X11_XFree, align 8
-  %65 = call i32 %64(ptr noundef nonnull %8) #6
-  br label %66
+65:                                               ; preds = %64, %X11_GL_GetProcAddress.exit107
+  %.196 = phi i64 [ %33, %64 ], [ 0, %X11_GL_GetProcAddress.exit107 ]
+  %.194 = phi ptr [ %58, %64 ], [ null, %X11_GL_GetProcAddress.exit107 ]
+  %.192 = phi ptr [ %32, %64 ], [ null, %X11_GL_GetProcAddress.exit107 ]
+  %.1 = phi i64 [ %54, %64 ], [ 0, %X11_GL_GetProcAddress.exit107 ]
+  %66 = load ptr, ptr @X11_XFree, align 8
+  %67 = call i32 %66(ptr noundef nonnull %8) #6
+  br label %68
 
-66:                                               ; preds = %63, %1
-  %.095 = phi i64 [ %.196, %63 ], [ 0, %1 ]
-  %.093 = phi ptr [ %.194, %63 ], [ null, %1 ]
-  %.091 = phi ptr [ %.192, %63 ], [ null, %1 ]
-  %.0 = phi i64 [ %.1, %63 ], [ 0, %1 ]
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
+68:                                               ; preds = %65, %1
+  %.095 = phi i64 [ %.196, %65 ], [ 0, %1 ]
+  %.093 = phi ptr [ %.194, %65 ], [ null, %1 ]
+  %.091 = phi ptr [ %.192, %65 ], [ null, %1 ]
+  %.0 = phi i64 [ %.1, %65 ], [ 0, %1 ]
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %70 = load ptr, ptr %69, align 8
-  %.not.i108 = icmp eq ptr %70, null
-  br i1 %.not.i108, label %73, label %71
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  %72 = load ptr, ptr %71, align 8
+  %.not.i108 = icmp eq ptr %72, null
+  br i1 %.not.i108, label %75, label %73
 
-71:                                               ; preds = %66
-  %72 = call ptr %70(ptr noundef nonnull @.str.30) #6
+73:                                               ; preds = %68
+  %74 = call ptr %72(ptr noundef nonnull @.str.30) #6
   br label %X11_GL_GetProcAddress.exit110
 
-73:                                               ; preds = %66
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @dlsym(ptr noundef %75, ptr noundef nonnull @.str.30) #6
+75:                                               ; preds = %68
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %77 = load ptr, ptr %76, align 8
+  %78 = call ptr @dlsym(ptr noundef %77, ptr noundef nonnull @.str.30) #6
   br label %X11_GL_GetProcAddress.exit110
 
-X11_GL_GetProcAddress.exit110:                    ; preds = %71, %73
-  %.0.i109 = phi ptr [ %72, %71 ], [ %76, %73 ]
+X11_GL_GetProcAddress.exit110:                    ; preds = %73, %75
+  %.0.i109 = phi ptr [ %74, %73 ], [ %78, %75 ]
   %.not103 = icmp eq ptr %.0.i109, null
-  br i1 %.not103, label %.thread, label %79
+  br i1 %.not103, label %.thread, label %81
 
 .thread:                                          ; preds = %X11_GL_GetProcAddress.exit110
-  %77 = load ptr, ptr %67, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 10
-  store i8 0, ptr %78, align 2
+  %79 = load ptr, ptr %69, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 10
+  store i8 0, ptr %80, align 2
   br label %HasExtension.exit189.thread.thread
 
-79:                                               ; preds = %X11_GL_GetProcAddress.exit110
-  %80 = call ptr %.0.i109(ptr noundef nonnull %5, i32 noundef %7) #6
-  %81 = load ptr, ptr %67, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 10
-  store i8 0, ptr %82, align 2
-  %.not.i111 = icmp eq ptr %80, null
-  br i1 %.not.i111, label %HasExtension.exit189.thread.thread, label %83
+81:                                               ; preds = %X11_GL_GetProcAddress.exit110
+  %82 = call ptr %.0.i109(ptr noundef nonnull %5, i32 noundef %7) #6
+  %83 = load ptr, ptr %69, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 10
+  store i8 0, ptr %84, align 2
+  %.not.i111 = icmp eq ptr %82, null
+  br i1 %.not.i111, label %HasExtension.exit189.thread.thread, label %85
 
-83:                                               ; preds = %79
-  %84 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.31, i32 noundef 32) #6
-  %.not21.i = icmp eq ptr %84, null
-  br i1 %.not21.i, label %85, label %.thread228
+85:                                               ; preds = %81
+  %86 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.31, i32 noundef 32) #6
+  %.not21.i = icmp eq ptr %86, null
+  br i1 %.not21.i, label %87, label %.thread228
 
-85:                                               ; preds = %83
-  %86 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %80, ptr noundef nonnull @.str.31) #6
-  %.not2223.i = icmp eq ptr %86, null
+87:                                               ; preds = %85
+  %88 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %82, ptr noundef nonnull @.str.31) #6
+  %.not2223.i = icmp eq ptr %88, null
   br i1 %.not2223.i, label %.thread228, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %85, %97
-  %87 = phi ptr [ %98, %97 ], [ %86, %85 ]
-  %.01724.i = phi ptr [ %89, %97 ], [ %80, %85 ]
-  %88 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.31) #6
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 %88
-  %90 = icmp eq ptr %87, %.01724.i
-  br i1 %90, label %95, label %91
+.lr.ph.i:                                         ; preds = %87, %99
+  %89 = phi ptr [ %100, %99 ], [ %88, %87 ]
+  %.01724.i = phi ptr [ %91, %99 ], [ %82, %87 ]
+  %90 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.31) #6
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 %90
+  %92 = icmp eq ptr %89, %.01724.i
+  br i1 %92, label %97, label %93
 
-91:                                               ; preds = %.lr.ph.i
-  %92 = getelementptr inbounds i8, ptr %87, i64 -1
-  %93 = load i8, ptr %92, align 1
-  %94 = icmp eq i8 %93, 32
-  br i1 %94, label %95, label %97
+93:                                               ; preds = %.lr.ph.i
+  %94 = getelementptr inbounds i8, ptr %89, i64 -1
+  %95 = load i8, ptr %94, align 1
+  %96 = icmp eq i8 %95, 32
+  br i1 %96, label %97, label %99
 
-95:                                               ; preds = %91, %.lr.ph.i
-  %96 = load i8, ptr %89, align 1
-  switch i8 %96, label %97 [
+97:                                               ; preds = %93, %.lr.ph.i
+  %98 = load i8, ptr %91, align 1
+  switch i8 %98, label %99 [
     i8 32, label %HasExtension.exit
     i8 0, label %HasExtension.exit
   ]
 
-97:                                               ; preds = %95, %91
-  %98 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %89, ptr noundef nonnull @.str.31) #6
-  %.not22.i = icmp eq ptr %98, null
+99:                                               ; preds = %97, %93
+  %100 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %91, ptr noundef nonnull @.str.31) #6
+  %.not22.i = icmp eq ptr %100, null
   br i1 %.not22.i, label %.thread228, label %.lr.ph.i
 
-HasExtension.exit:                                ; preds = %95, %95
-  %99 = load ptr, ptr %67, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %101 = load ptr, ptr %100, align 8
-  %.not.i113 = icmp eq ptr %101, null
-  br i1 %.not.i113, label %104, label %102
-
-102:                                              ; preds = %HasExtension.exit
-  %103 = call ptr %101(ptr noundef nonnull @.str.32) #6
-  br label %X11_GL_GetProcAddress.exit115
+HasExtension.exit:                                ; preds = %97, %97
+  %101 = load ptr, ptr %69, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
+  %103 = load ptr, ptr %102, align 8
+  %.not.i113 = icmp eq ptr %103, null
+  br i1 %.not.i113, label %106, label %104
 
 104:                                              ; preds = %HasExtension.exit
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %106 = load ptr, ptr %105, align 8
-  %107 = call ptr @dlsym(ptr noundef %106, ptr noundef nonnull @.str.32) #6
+  %105 = call ptr %103(ptr noundef nonnull @.str.32) #6
   br label %X11_GL_GetProcAddress.exit115
 
-X11_GL_GetProcAddress.exit115:                    ; preds = %102, %104
-  %.0.i114 = phi ptr [ %103, %102 ], [ %107, %104 ]
-  %108 = load ptr, ptr %67, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 120
-  store ptr %.0.i114, ptr %109, align 8
-  %110 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.33, i32 noundef 32) #6
-  %.not21.i117 = icmp eq ptr %110, null
-  br i1 %.not21.i117, label %111, label %.thread228
+106:                                              ; preds = %HasExtension.exit
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %108 = load ptr, ptr %107, align 8
+  %109 = call ptr @dlsym(ptr noundef %108, ptr noundef nonnull @.str.32) #6
+  br label %X11_GL_GetProcAddress.exit115
 
-111:                                              ; preds = %X11_GL_GetProcAddress.exit115
-  %112 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %80, ptr noundef nonnull @.str.33) #6
-  %.not2223.i119 = icmp eq ptr %112, null
+X11_GL_GetProcAddress.exit115:                    ; preds = %104, %106
+  %.0.i114 = phi ptr [ %105, %104 ], [ %109, %106 ]
+  %110 = load ptr, ptr %69, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 120
+  store ptr %.0.i114, ptr %111, align 8
+  %112 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.33, i32 noundef 32) #6
+  %.not21.i117 = icmp eq ptr %112, null
+  br i1 %.not21.i117, label %113, label %.thread228
+
+113:                                              ; preds = %X11_GL_GetProcAddress.exit115
+  %114 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %82, ptr noundef nonnull @.str.33) #6
+  %.not2223.i119 = icmp eq ptr %114, null
   br i1 %.not2223.i119, label %.thread228, label %.lr.ph.i120
 
-.lr.ph.i120:                                      ; preds = %111, %123
-  %113 = phi ptr [ %124, %123 ], [ %112, %111 ]
-  %.01724.i121 = phi ptr [ %115, %123 ], [ %80, %111 ]
-  %114 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.33) #6
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 %114
-  %116 = icmp eq ptr %113, %.01724.i121
-  br i1 %116, label %121, label %117
+.lr.ph.i120:                                      ; preds = %113, %125
+  %115 = phi ptr [ %126, %125 ], [ %114, %113 ]
+  %.01724.i121 = phi ptr [ %117, %125 ], [ %82, %113 ]
+  %116 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.33) #6
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 %116
+  %118 = icmp eq ptr %115, %.01724.i121
+  br i1 %118, label %123, label %119
 
-117:                                              ; preds = %.lr.ph.i120
-  %118 = getelementptr inbounds i8, ptr %113, i64 -1
-  %119 = load i8, ptr %118, align 1
-  %120 = icmp eq i8 %119, 32
-  br i1 %120, label %121, label %123
+119:                                              ; preds = %.lr.ph.i120
+  %120 = getelementptr inbounds i8, ptr %115, i64 -1
+  %121 = load i8, ptr %120, align 1
+  %122 = icmp eq i8 %121, 32
+  br i1 %122, label %123, label %125
 
-121:                                              ; preds = %117, %.lr.ph.i120
-  %122 = load i8, ptr %115, align 1
-  switch i8 %122, label %123 [
+123:                                              ; preds = %119, %.lr.ph.i120
+  %124 = load i8, ptr %117, align 1
+  switch i8 %124, label %125 [
     i8 32, label %HasExtension.exit123
     i8 0, label %HasExtension.exit123
   ]
 
-123:                                              ; preds = %121, %117
-  %124 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %115, ptr noundef nonnull @.str.33) #6
-  %.not22.i122 = icmp eq ptr %124, null
+125:                                              ; preds = %123, %119
+  %126 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %117, ptr noundef nonnull @.str.33) #6
+  %.not22.i122 = icmp eq ptr %126, null
   br i1 %.not22.i122, label %.thread228, label %.lr.ph.i120
 
-HasExtension.exit123:                             ; preds = %121, %121
-  %125 = load ptr, ptr %67, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 10
-  store i8 1, ptr %126, align 2
+HasExtension.exit123:                             ; preds = %123, %123
+  %127 = load ptr, ptr %69, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 10
+  store i8 1, ptr %128, align 2
   br label %.thread228
 
-.thread228:                                       ; preds = %97, %123, %HasExtension.exit123, %83, %85, %111, %X11_GL_GetProcAddress.exit115
-  %127 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.34, i32 noundef 32) #6
-  %.not21.i125 = icmp eq ptr %127, null
-  br i1 %.not21.i125, label %128, label %HasExtension.exit131.thread.thread312
+.thread228:                                       ; preds = %99, %125, %HasExtension.exit123, %85, %87, %113, %X11_GL_GetProcAddress.exit115
+  %129 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.34, i32 noundef 32) #6
+  %.not21.i125 = icmp eq ptr %129, null
+  br i1 %.not21.i125, label %130, label %HasExtension.exit131.thread.thread312
 
-128:                                              ; preds = %.thread228
-  %129 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %80, ptr noundef nonnull @.str.34) #6
-  %.not2223.i127 = icmp eq ptr %129, null
+130:                                              ; preds = %.thread228
+  %131 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %82, ptr noundef nonnull @.str.34) #6
+  %.not2223.i127 = icmp eq ptr %131, null
   br i1 %.not2223.i127, label %HasExtension.exit131.thread.thread312, label %.lr.ph.i128
 
-.lr.ph.i128:                                      ; preds = %128, %140
-  %130 = phi ptr [ %141, %140 ], [ %129, %128 ]
-  %.01724.i129 = phi ptr [ %132, %140 ], [ %80, %128 ]
-  %131 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.34) #6
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 %131
-  %133 = icmp eq ptr %130, %.01724.i129
-  br i1 %133, label %138, label %134
+.lr.ph.i128:                                      ; preds = %130, %142
+  %132 = phi ptr [ %143, %142 ], [ %131, %130 ]
+  %.01724.i129 = phi ptr [ %134, %142 ], [ %82, %130 ]
+  %133 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.34) #6
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 %133
+  %135 = icmp eq ptr %132, %.01724.i129
+  br i1 %135, label %140, label %136
 
-134:                                              ; preds = %.lr.ph.i128
-  %135 = getelementptr inbounds i8, ptr %130, i64 -1
-  %136 = load i8, ptr %135, align 1
-  %137 = icmp eq i8 %136, 32
-  br i1 %137, label %138, label %140
+136:                                              ; preds = %.lr.ph.i128
+  %137 = getelementptr inbounds i8, ptr %132, i64 -1
+  %138 = load i8, ptr %137, align 1
+  %139 = icmp eq i8 %138, 32
+  br i1 %139, label %140, label %142
 
-138:                                              ; preds = %134, %.lr.ph.i128
-  %139 = load i8, ptr %132, align 1
-  switch i8 %139, label %140 [
+140:                                              ; preds = %136, %.lr.ph.i128
+  %141 = load i8, ptr %134, align 1
+  switch i8 %141, label %142 [
     i8 32, label %HasExtension.exit131
     i8 0, label %HasExtension.exit131
   ]
 
-140:                                              ; preds = %138, %134
-  %141 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %132, ptr noundef nonnull @.str.34) #6
-  %.not22.i130 = icmp eq ptr %141, null
+142:                                              ; preds = %140, %136
+  %143 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %134, ptr noundef nonnull @.str.34) #6
+  %.not22.i130 = icmp eq ptr %143, null
   br i1 %.not22.i130, label %HasExtension.exit131.thread.thread312, label %.lr.ph.i128
 
-HasExtension.exit131:                             ; preds = %138, %138
-  %142 = load ptr, ptr %67, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
-  %144 = load ptr, ptr %143, align 8
-  %.not.i132 = icmp eq ptr %144, null
-  br i1 %.not.i132, label %147, label %145
-
-145:                                              ; preds = %HasExtension.exit131
-  %146 = call ptr %144(ptr noundef nonnull @.str.35) #6
-  br label %X11_GL_GetProcAddress.exit134
+HasExtension.exit131:                             ; preds = %140, %140
+  %144 = load ptr, ptr %69, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 40
+  %146 = load ptr, ptr %145, align 8
+  %.not.i132 = icmp eq ptr %146, null
+  br i1 %.not.i132, label %149, label %147
 
 147:                                              ; preds = %HasExtension.exit131
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %149 = load ptr, ptr %148, align 8
-  %150 = call ptr @dlsym(ptr noundef %149, ptr noundef nonnull @.str.35) #6
+  %148 = call ptr %146(ptr noundef nonnull @.str.35) #6
   br label %X11_GL_GetProcAddress.exit134
 
-X11_GL_GetProcAddress.exit134:                    ; preds = %145, %147
-  %.0.i133 = phi ptr [ %146, %145 ], [ %150, %147 ]
-  %151 = load ptr, ptr %67, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 136
-  store ptr %.0.i133, ptr %152, align 8
-  %153 = load ptr, ptr %67, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 40
-  %155 = load ptr, ptr %154, align 8
-  %.not.i135 = icmp eq ptr %155, null
-  br i1 %.not.i135, label %158, label %156
+149:                                              ; preds = %HasExtension.exit131
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %151 = load ptr, ptr %150, align 8
+  %152 = call ptr @dlsym(ptr noundef %151, ptr noundef nonnull @.str.35) #6
+  br label %X11_GL_GetProcAddress.exit134
 
-156:                                              ; preds = %X11_GL_GetProcAddress.exit134
-  %157 = call ptr %155(ptr noundef nonnull @.str.36) #6
-  br label %162
+X11_GL_GetProcAddress.exit134:                    ; preds = %147, %149
+  %.0.i133 = phi ptr [ %148, %147 ], [ %152, %149 ]
+  %153 = load ptr, ptr %69, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 136
+  store ptr %.0.i133, ptr %154, align 8
+  %155 = load ptr, ptr %69, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 40
+  %157 = load ptr, ptr %156, align 8
+  %.not.i135 = icmp eq ptr %157, null
+  br i1 %.not.i135, label %160, label %158
 
 158:                                              ; preds = %X11_GL_GetProcAddress.exit134
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %160 = load ptr, ptr %159, align 8
-  %161 = call ptr @dlsym(ptr noundef %160, ptr noundef nonnull @.str.36) #6
-  br label %162
+  %159 = call ptr %157(ptr noundef nonnull @.str.36) #6
+  br label %164
 
-162:                                              ; preds = %158, %156
-  %.0.i136 = phi ptr [ %157, %156 ], [ %161, %158 ]
-  %163 = load ptr, ptr %67, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 144
-  store ptr %.0.i136, ptr %164, align 8
+160:                                              ; preds = %X11_GL_GetProcAddress.exit134
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %162 = load ptr, ptr %161, align 8
+  %163 = call ptr @dlsym(ptr noundef %162, ptr noundef nonnull @.str.36) #6
+  br label %164
+
+164:                                              ; preds = %160, %158
+  %.0.i136 = phi ptr [ %159, %158 ], [ %163, %160 ]
+  %165 = load ptr, ptr %69, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 144
+  store ptr %.0.i136, ptr %166, align 8
   br label %HasExtension.exit131.thread.thread312
 
-HasExtension.exit131.thread.thread312:            ; preds = %140, %162, %.thread228, %128
-  %165 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.37, i32 noundef 32) #6
-  %.not21.i139 = icmp eq ptr %165, null
-  br i1 %.not21.i139, label %166, label %HasExtension.exit145.thread.thread318
+HasExtension.exit131.thread.thread312:            ; preds = %142, %164, %.thread228, %130
+  %167 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.37, i32 noundef 32) #6
+  %.not21.i139 = icmp eq ptr %167, null
+  br i1 %.not21.i139, label %168, label %HasExtension.exit145.thread.thread318
 
-166:                                              ; preds = %HasExtension.exit131.thread.thread312
-  %167 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %80, ptr noundef nonnull @.str.37) #6
-  %.not2223.i141 = icmp eq ptr %167, null
+168:                                              ; preds = %HasExtension.exit131.thread.thread312
+  %169 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %82, ptr noundef nonnull @.str.37) #6
+  %.not2223.i141 = icmp eq ptr %169, null
   br i1 %.not2223.i141, label %HasExtension.exit145.thread.thread318, label %.lr.ph.i142
 
-.lr.ph.i142:                                      ; preds = %166, %178
-  %168 = phi ptr [ %179, %178 ], [ %167, %166 ]
-  %.01724.i143 = phi ptr [ %170, %178 ], [ %80, %166 ]
-  %169 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.37) #6
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 %169
-  %171 = icmp eq ptr %168, %.01724.i143
-  br i1 %171, label %176, label %172
+.lr.ph.i142:                                      ; preds = %168, %180
+  %170 = phi ptr [ %181, %180 ], [ %169, %168 ]
+  %.01724.i143 = phi ptr [ %172, %180 ], [ %82, %168 ]
+  %171 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.37) #6
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 %171
+  %173 = icmp eq ptr %170, %.01724.i143
+  br i1 %173, label %178, label %174
 
-172:                                              ; preds = %.lr.ph.i142
-  %173 = getelementptr inbounds i8, ptr %168, i64 -1
-  %174 = load i8, ptr %173, align 1
-  %175 = icmp eq i8 %174, 32
-  br i1 %175, label %176, label %178
+174:                                              ; preds = %.lr.ph.i142
+  %175 = getelementptr inbounds i8, ptr %170, i64 -1
+  %176 = load i8, ptr %175, align 1
+  %177 = icmp eq i8 %176, 32
+  br i1 %177, label %178, label %180
 
-176:                                              ; preds = %172, %.lr.ph.i142
-  %177 = load i8, ptr %170, align 1
-  switch i8 %177, label %178 [
+178:                                              ; preds = %174, %.lr.ph.i142
+  %179 = load i8, ptr %172, align 1
+  switch i8 %179, label %180 [
     i8 32, label %HasExtension.exit145
     i8 0, label %HasExtension.exit145
   ]
 
-178:                                              ; preds = %176, %172
-  %179 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %170, ptr noundef nonnull @.str.37) #6
-  %.not22.i144 = icmp eq ptr %179, null
+180:                                              ; preds = %178, %174
+  %181 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %172, ptr noundef nonnull @.str.37) #6
+  %.not22.i144 = icmp eq ptr %181, null
   br i1 %.not22.i144, label %HasExtension.exit145.thread.thread318, label %.lr.ph.i142
 
-HasExtension.exit145:                             ; preds = %176, %176
-  %180 = load ptr, ptr %67, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 40
-  %182 = load ptr, ptr %181, align 8
-  %.not.i146 = icmp eq ptr %182, null
-  br i1 %.not.i146, label %185, label %183
-
-183:                                              ; preds = %HasExtension.exit145
-  %184 = call ptr %182(ptr noundef nonnull @.str.38) #6
-  br label %189
+HasExtension.exit145:                             ; preds = %178, %178
+  %182 = load ptr, ptr %69, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 40
+  %184 = load ptr, ptr %183, align 8
+  %.not.i146 = icmp eq ptr %184, null
+  br i1 %.not.i146, label %187, label %185
 
 185:                                              ; preds = %HasExtension.exit145
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %187 = load ptr, ptr %186, align 8
-  %188 = call ptr @dlsym(ptr noundef %187, ptr noundef nonnull @.str.38) #6
-  br label %189
+  %186 = call ptr %184(ptr noundef nonnull @.str.38) #6
+  br label %191
 
-189:                                              ; preds = %185, %183
-  %.0.i147 = phi ptr [ %184, %183 ], [ %188, %185 ]
-  %190 = load ptr, ptr %67, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 128
-  store ptr %.0.i147, ptr %191, align 8
+187:                                              ; preds = %HasExtension.exit145
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %189 = load ptr, ptr %188, align 8
+  %190 = call ptr @dlsym(ptr noundef %189, ptr noundef nonnull @.str.38) #6
+  br label %191
+
+191:                                              ; preds = %187, %185
+  %.0.i147 = phi ptr [ %186, %185 ], [ %190, %187 ]
+  %192 = load ptr, ptr %69, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 128
+  store ptr %.0.i147, ptr %193, align 8
   br label %HasExtension.exit145.thread.thread318
 
-HasExtension.exit145.thread.thread318:            ; preds = %178, %189, %HasExtension.exit131.thread.thread312, %166
-  %192 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.39, i32 noundef 32) #6
-  %.not21.i150 = icmp eq ptr %192, null
-  br i1 %.not21.i150, label %193, label %HasExtension.exit156.thread.thread324
+HasExtension.exit145.thread.thread318:            ; preds = %180, %191, %HasExtension.exit131.thread.thread312, %168
+  %194 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.39, i32 noundef 32) #6
+  %.not21.i150 = icmp eq ptr %194, null
+  br i1 %.not21.i150, label %195, label %HasExtension.exit156.thread.thread324
 
-193:                                              ; preds = %HasExtension.exit145.thread.thread318
-  %194 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %80, ptr noundef nonnull @.str.39) #6
-  %.not2223.i152 = icmp eq ptr %194, null
+195:                                              ; preds = %HasExtension.exit145.thread.thread318
+  %196 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %82, ptr noundef nonnull @.str.39) #6
+  %.not2223.i152 = icmp eq ptr %196, null
   br i1 %.not2223.i152, label %HasExtension.exit156.thread.thread324, label %.lr.ph.i153
 
-.lr.ph.i153:                                      ; preds = %193, %205
-  %195 = phi ptr [ %206, %205 ], [ %194, %193 ]
-  %.01724.i154 = phi ptr [ %197, %205 ], [ %80, %193 ]
-  %196 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.39) #6
-  %197 = getelementptr inbounds nuw i8, ptr %195, i64 %196
-  %198 = icmp eq ptr %195, %.01724.i154
-  br i1 %198, label %203, label %199
+.lr.ph.i153:                                      ; preds = %195, %207
+  %197 = phi ptr [ %208, %207 ], [ %196, %195 ]
+  %.01724.i154 = phi ptr [ %199, %207 ], [ %82, %195 ]
+  %198 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.39) #6
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 %198
+  %200 = icmp eq ptr %197, %.01724.i154
+  br i1 %200, label %205, label %201
 
-199:                                              ; preds = %.lr.ph.i153
-  %200 = getelementptr inbounds i8, ptr %195, i64 -1
-  %201 = load i8, ptr %200, align 1
-  %202 = icmp eq i8 %201, 32
-  br i1 %202, label %203, label %205
+201:                                              ; preds = %.lr.ph.i153
+  %202 = getelementptr inbounds i8, ptr %197, i64 -1
+  %203 = load i8, ptr %202, align 1
+  %204 = icmp eq i8 %203, 32
+  br i1 %204, label %205, label %207
 
-203:                                              ; preds = %199, %.lr.ph.i153
-  %204 = load i8, ptr %197, align 1
-  switch i8 %204, label %205 [
+205:                                              ; preds = %201, %.lr.ph.i153
+  %206 = load i8, ptr %199, align 1
+  switch i8 %206, label %207 [
     i8 32, label %HasExtension.exit156
     i8 0, label %HasExtension.exit156
   ]
 
-205:                                              ; preds = %203, %199
-  %206 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %197, ptr noundef nonnull @.str.39) #6
-  %.not22.i155 = icmp eq ptr %206, null
+207:                                              ; preds = %205, %201
+  %208 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %199, ptr noundef nonnull @.str.39) #6
+  %.not22.i155 = icmp eq ptr %208, null
   br i1 %.not22.i155, label %HasExtension.exit156.thread.thread324, label %.lr.ph.i153
 
-HasExtension.exit156:                             ; preds = %203, %203
-  %207 = load ptr, ptr %67, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 40
-  %209 = load ptr, ptr %208, align 8
-  %.not.i157 = icmp eq ptr %209, null
-  br i1 %.not.i157, label %212, label %210
-
-210:                                              ; preds = %HasExtension.exit156
-  %211 = call ptr %209(ptr noundef nonnull @.str.40) #6
-  br label %X11_GL_GetProcAddress.exit159
+HasExtension.exit156:                             ; preds = %205, %205
+  %209 = load ptr, ptr %69, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 40
+  %211 = load ptr, ptr %210, align 8
+  %.not.i157 = icmp eq ptr %211, null
+  br i1 %.not.i157, label %214, label %212
 
 212:                                              ; preds = %HasExtension.exit156
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %214 = load ptr, ptr %213, align 8
-  %215 = call ptr @dlsym(ptr noundef %214, ptr noundef nonnull @.str.40) #6
+  %213 = call ptr %211(ptr noundef nonnull @.str.40) #6
   br label %X11_GL_GetProcAddress.exit159
 
-X11_GL_GetProcAddress.exit159:                    ; preds = %210, %212
-  %.0.i158 = phi ptr [ %211, %210 ], [ %215, %212 ]
-  %216 = load ptr, ptr %67, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 64
-  store ptr %.0.i158, ptr %217, align 8
-  %218 = load ptr, ptr %67, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 40
-  %220 = load ptr, ptr %219, align 8
-  %.not.i160 = icmp eq ptr %220, null
-  br i1 %.not.i160, label %223, label %221
+214:                                              ; preds = %HasExtension.exit156
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %216 = load ptr, ptr %215, align 8
+  %217 = call ptr @dlsym(ptr noundef %216, ptr noundef nonnull @.str.40) #6
+  br label %X11_GL_GetProcAddress.exit159
 
-221:                                              ; preds = %X11_GL_GetProcAddress.exit159
-  %222 = call ptr %220(ptr noundef nonnull @.str.41) #6
-  br label %X11_GL_GetProcAddress.exit162
+X11_GL_GetProcAddress.exit159:                    ; preds = %212, %214
+  %.0.i158 = phi ptr [ %213, %212 ], [ %217, %214 ]
+  %218 = load ptr, ptr %69, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 64
+  store ptr %.0.i158, ptr %219, align 8
+  %220 = load ptr, ptr %69, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 40
+  %222 = load ptr, ptr %221, align 8
+  %.not.i160 = icmp eq ptr %222, null
+  br i1 %.not.i160, label %225, label %223
 
 223:                                              ; preds = %X11_GL_GetProcAddress.exit159
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %225 = load ptr, ptr %224, align 8
-  %226 = call ptr @dlsym(ptr noundef %225, ptr noundef nonnull @.str.41) #6
+  %224 = call ptr %222(ptr noundef nonnull @.str.41) #6
   br label %X11_GL_GetProcAddress.exit162
 
-X11_GL_GetProcAddress.exit162:                    ; preds = %221, %223
-  %.0.i161 = phi ptr [ %222, %221 ], [ %226, %223 ]
-  %227 = load ptr, ptr %67, align 8
-  %228 = getelementptr inbounds nuw i8, ptr %227, i64 72
-  store ptr %.0.i161, ptr %228, align 8
-  %229 = load ptr, ptr %67, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 40
-  %231 = load ptr, ptr %230, align 8
-  %.not.i163 = icmp eq ptr %231, null
-  br i1 %.not.i163, label %234, label %232
+225:                                              ; preds = %X11_GL_GetProcAddress.exit159
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %227 = load ptr, ptr %226, align 8
+  %228 = call ptr @dlsym(ptr noundef %227, ptr noundef nonnull @.str.41) #6
+  br label %X11_GL_GetProcAddress.exit162
 
-232:                                              ; preds = %X11_GL_GetProcAddress.exit162
-  %233 = call ptr %231(ptr noundef nonnull @.str.42) #6
-  br label %238
+X11_GL_GetProcAddress.exit162:                    ; preds = %223, %225
+  %.0.i161 = phi ptr [ %224, %223 ], [ %228, %225 ]
+  %229 = load ptr, ptr %69, align 8
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
+  store ptr %.0.i161, ptr %230, align 8
+  %231 = load ptr, ptr %69, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 40
+  %233 = load ptr, ptr %232, align 8
+  %.not.i163 = icmp eq ptr %233, null
+  br i1 %.not.i163, label %236, label %234
 
 234:                                              ; preds = %X11_GL_GetProcAddress.exit162
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %236 = load ptr, ptr %235, align 8
-  %237 = call ptr @dlsym(ptr noundef %236, ptr noundef nonnull @.str.42) #6
-  br label %238
+  %235 = call ptr %233(ptr noundef nonnull @.str.42) #6
+  br label %240
 
-238:                                              ; preds = %234, %232
-  %.0.i164 = phi ptr [ %233, %232 ], [ %237, %234 ]
-  %239 = load ptr, ptr %67, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 80
-  store ptr %.0.i164, ptr %240, align 8
+236:                                              ; preds = %X11_GL_GetProcAddress.exit162
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %238 = load ptr, ptr %237, align 8
+  %239 = call ptr @dlsym(ptr noundef %238, ptr noundef nonnull @.str.42) #6
+  br label %240
+
+240:                                              ; preds = %236, %234
+  %.0.i164 = phi ptr [ %235, %234 ], [ %239, %236 ]
+  %241 = load ptr, ptr %69, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 80
+  store ptr %.0.i164, ptr %242, align 8
   br label %HasExtension.exit156.thread.thread324
 
-HasExtension.exit156.thread.thread324:            ; preds = %205, %238, %HasExtension.exit145.thread.thread318, %193
-  %241 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.43, i32 noundef 32) #6
-  %.not21.i167 = icmp eq ptr %241, null
-  br i1 %.not21.i167, label %242, label %HasExtension.exit173.thread.thread330
+HasExtension.exit156.thread.thread324:            ; preds = %207, %240, %HasExtension.exit145.thread.thread318, %195
+  %243 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.43, i32 noundef 32) #6
+  %.not21.i167 = icmp eq ptr %243, null
+  br i1 %.not21.i167, label %244, label %HasExtension.exit173.thread.thread330
 
-242:                                              ; preds = %HasExtension.exit156.thread.thread324
-  %243 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %80, ptr noundef nonnull @.str.43) #6
-  %.not2223.i169 = icmp eq ptr %243, null
+244:                                              ; preds = %HasExtension.exit156.thread.thread324
+  %245 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %82, ptr noundef nonnull @.str.43) #6
+  %.not2223.i169 = icmp eq ptr %245, null
   br i1 %.not2223.i169, label %HasExtension.exit173.thread.thread330, label %.lr.ph.i170
 
-.lr.ph.i170:                                      ; preds = %242, %254
-  %244 = phi ptr [ %255, %254 ], [ %243, %242 ]
-  %.01724.i171 = phi ptr [ %246, %254 ], [ %80, %242 ]
-  %245 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.43) #6
-  %246 = getelementptr inbounds nuw i8, ptr %244, i64 %245
-  %247 = icmp eq ptr %244, %.01724.i171
-  br i1 %247, label %252, label %248
+.lr.ph.i170:                                      ; preds = %244, %256
+  %246 = phi ptr [ %257, %256 ], [ %245, %244 ]
+  %.01724.i171 = phi ptr [ %248, %256 ], [ %82, %244 ]
+  %247 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.43) #6
+  %248 = getelementptr inbounds nuw i8, ptr %246, i64 %247
+  %249 = icmp eq ptr %246, %.01724.i171
+  br i1 %249, label %254, label %250
 
-248:                                              ; preds = %.lr.ph.i170
-  %249 = getelementptr inbounds i8, ptr %244, i64 -1
-  %250 = load i8, ptr %249, align 1
-  %251 = icmp eq i8 %250, 32
-  br i1 %251, label %252, label %254
+250:                                              ; preds = %.lr.ph.i170
+  %251 = getelementptr inbounds i8, ptr %246, i64 -1
+  %252 = load i8, ptr %251, align 1
+  %253 = icmp eq i8 %252, 32
+  br i1 %253, label %254, label %256
 
-252:                                              ; preds = %248, %.lr.ph.i170
-  %253 = load i8, ptr %246, align 1
-  switch i8 %253, label %254 [
-    i8 32, label %256
-    i8 0, label %256
+254:                                              ; preds = %250, %.lr.ph.i170
+  %255 = load i8, ptr %248, align 1
+  switch i8 %255, label %256 [
+    i8 32, label %258
+    i8 0, label %258
   ]
 
-254:                                              ; preds = %252, %248
-  %255 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %246, ptr noundef nonnull @.str.43) #6
-  %.not22.i172 = icmp eq ptr %255, null
+256:                                              ; preds = %254, %250
+  %257 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %248, ptr noundef nonnull @.str.43) #6
+  %.not22.i172 = icmp eq ptr %257, null
   br i1 %.not22.i172, label %HasExtension.exit173.thread.thread330, label %.lr.ph.i170
 
-256:                                              ; preds = %252, %252
-  %257 = load ptr, ptr %67, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
-  store i8 1, ptr %258, align 8
+258:                                              ; preds = %254, %254
+  %259 = load ptr, ptr %69, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
+  store i8 1, ptr %260, align 8
   br label %HasExtension.exit173.thread.thread330
 
-HasExtension.exit173.thread.thread330:            ; preds = %254, %256, %HasExtension.exit156.thread.thread324, %242
-  %259 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.44, i32 noundef 32) #6
-  %.not21.i175 = icmp eq ptr %259, null
-  br i1 %.not21.i175, label %260, label %HasExtension.exit181.thread.thread336
+HasExtension.exit173.thread.thread330:            ; preds = %256, %258, %HasExtension.exit156.thread.thread324, %244
+  %261 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.44, i32 noundef 32) #6
+  %.not21.i175 = icmp eq ptr %261, null
+  br i1 %.not21.i175, label %262, label %HasExtension.exit181.thread.thread336
 
-260:                                              ; preds = %HasExtension.exit173.thread.thread330
-  %261 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %80, ptr noundef nonnull @.str.44) #6
-  %.not2223.i177 = icmp eq ptr %261, null
+262:                                              ; preds = %HasExtension.exit173.thread.thread330
+  %263 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %82, ptr noundef nonnull @.str.44) #6
+  %.not2223.i177 = icmp eq ptr %263, null
   br i1 %.not2223.i177, label %HasExtension.exit181.thread.thread336, label %.lr.ph.i178
 
-.lr.ph.i178:                                      ; preds = %260, %272
-  %262 = phi ptr [ %273, %272 ], [ %261, %260 ]
-  %.01724.i179 = phi ptr [ %264, %272 ], [ %80, %260 ]
-  %263 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.44) #6
-  %264 = getelementptr inbounds nuw i8, ptr %262, i64 %263
-  %265 = icmp eq ptr %262, %.01724.i179
-  br i1 %265, label %270, label %266
+.lr.ph.i178:                                      ; preds = %262, %274
+  %264 = phi ptr [ %275, %274 ], [ %263, %262 ]
+  %.01724.i179 = phi ptr [ %266, %274 ], [ %82, %262 ]
+  %265 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.44) #6
+  %266 = getelementptr inbounds nuw i8, ptr %264, i64 %265
+  %267 = icmp eq ptr %264, %.01724.i179
+  br i1 %267, label %272, label %268
 
-266:                                              ; preds = %.lr.ph.i178
-  %267 = getelementptr inbounds i8, ptr %262, i64 -1
-  %268 = load i8, ptr %267, align 1
-  %269 = icmp eq i8 %268, 32
-  br i1 %269, label %270, label %272
+268:                                              ; preds = %.lr.ph.i178
+  %269 = getelementptr inbounds i8, ptr %264, i64 -1
+  %270 = load i8, ptr %269, align 1
+  %271 = icmp eq i8 %270, 32
+  br i1 %271, label %272, label %274
 
-270:                                              ; preds = %266, %.lr.ph.i178
-  %271 = load i8, ptr %264, align 1
-  switch i8 %271, label %272 [
-    i8 32, label %274
-    i8 0, label %274
+272:                                              ; preds = %268, %.lr.ph.i178
+  %273 = load i8, ptr %266, align 1
+  switch i8 %273, label %274 [
+    i8 32, label %276
+    i8 0, label %276
   ]
 
-272:                                              ; preds = %270, %266
-  %273 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %264, ptr noundef nonnull @.str.44) #6
-  %.not22.i180 = icmp eq ptr %273, null
+274:                                              ; preds = %272, %268
+  %275 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %266, ptr noundef nonnull @.str.44) #6
+  %.not22.i180 = icmp eq ptr %275, null
   br i1 %.not22.i180, label %HasExtension.exit181.thread.thread336, label %.lr.ph.i178
 
-274:                                              ; preds = %270, %270
-  %275 = load ptr, ptr %67, align 8
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 9
-  store i8 1, ptr %276, align 1
+276:                                              ; preds = %272, %272
+  %277 = load ptr, ptr %69, align 8
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 9
+  store i8 1, ptr %278, align 1
   br label %HasExtension.exit181.thread.thread336
 
-HasExtension.exit181.thread.thread336:            ; preds = %272, %274, %HasExtension.exit173.thread.thread330, %260
-  %277 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.45, i32 noundef 32) #6
-  %.not21.i183 = icmp eq ptr %277, null
-  br i1 %.not21.i183, label %278, label %HasExtension.exit189.thread.thread342
+HasExtension.exit181.thread.thread336:            ; preds = %274, %276, %HasExtension.exit173.thread.thread330, %262
+  %279 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.45, i32 noundef 32) #6
+  %.not21.i183 = icmp eq ptr %279, null
+  br i1 %.not21.i183, label %280, label %HasExtension.exit189.thread.thread342
 
-278:                                              ; preds = %HasExtension.exit181.thread.thread336
-  %279 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %80, ptr noundef nonnull @.str.45) #6
-  %.not2223.i185 = icmp eq ptr %279, null
+280:                                              ; preds = %HasExtension.exit181.thread.thread336
+  %281 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %82, ptr noundef nonnull @.str.45) #6
+  %.not2223.i185 = icmp eq ptr %281, null
   br i1 %.not2223.i185, label %HasExtension.exit189.thread.thread342, label %.lr.ph.i186
 
-.lr.ph.i186:                                      ; preds = %278, %290
-  %280 = phi ptr [ %291, %290 ], [ %279, %278 ]
-  %.01724.i187 = phi ptr [ %282, %290 ], [ %80, %278 ]
-  %281 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.45) #6
-  %282 = getelementptr inbounds nuw i8, ptr %280, i64 %281
-  %283 = icmp eq ptr %280, %.01724.i187
-  br i1 %283, label %288, label %284
+.lr.ph.i186:                                      ; preds = %280, %292
+  %282 = phi ptr [ %293, %292 ], [ %281, %280 ]
+  %.01724.i187 = phi ptr [ %284, %292 ], [ %82, %280 ]
+  %283 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.45) #6
+  %284 = getelementptr inbounds nuw i8, ptr %282, i64 %283
+  %285 = icmp eq ptr %282, %.01724.i187
+  br i1 %285, label %290, label %286
 
-284:                                              ; preds = %.lr.ph.i186
-  %285 = getelementptr inbounds i8, ptr %280, i64 -1
-  %286 = load i8, ptr %285, align 1
-  %287 = icmp eq i8 %286, 32
-  br i1 %287, label %288, label %290
+286:                                              ; preds = %.lr.ph.i186
+  %287 = getelementptr inbounds i8, ptr %282, i64 -1
+  %288 = load i8, ptr %287, align 1
+  %289 = icmp eq i8 %288, 32
+  br i1 %289, label %290, label %292
 
-288:                                              ; preds = %284, %.lr.ph.i186
-  %289 = load i8, ptr %282, align 1
-  switch i8 %289, label %290 [
+290:                                              ; preds = %286, %.lr.ph.i186
+  %291 = load i8, ptr %284, align 1
+  switch i8 %291, label %292 [
     i8 32, label %HasExtension.exit189
     i8 0, label %HasExtension.exit189
   ]
 
-290:                                              ; preds = %288, %284
-  %291 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %282, ptr noundef nonnull @.str.45) #6
-  %.not22.i188 = icmp eq ptr %291, null
+292:                                              ; preds = %290, %286
+  %293 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %284, ptr noundef nonnull @.str.45) #6
+  %.not22.i188 = icmp eq ptr %293, null
   br i1 %.not22.i188, label %HasExtension.exit189.thread, label %.lr.ph.i186
 
-HasExtension.exit189.thread.thread:               ; preds = %.thread, %79
+HasExtension.exit189.thread.thread:               ; preds = %.thread, %81
   %.not362 = icmp eq ptr %.093, null
-  br i1 %.not362, label %369, label %354
+  br i1 %.not362, label %371, label %356
 
-HasExtension.exit189.thread.thread342:            ; preds = %278, %HasExtension.exit181.thread.thread336
-  %292 = icmp ne ptr %.093, null
-  br label %298
+HasExtension.exit189.thread.thread342:            ; preds = %280, %HasExtension.exit181.thread.thread336
+  %294 = icmp ne ptr %.093, null
+  br label %300
 
-HasExtension.exit189.thread:                      ; preds = %290
-  %293 = icmp ne ptr %.093, null
-  br label %298
+HasExtension.exit189.thread:                      ; preds = %292
+  %295 = icmp ne ptr %.093, null
+  br label %300
 
-HasExtension.exit189:                             ; preds = %288, %288
+HasExtension.exit189:                             ; preds = %290, %290
   %.not361 = icmp eq ptr %.093, null
-  br i1 %.not361, label %298, label %294
+  br i1 %.not361, label %300, label %296
 
-294:                                              ; preds = %HasExtension.exit189
-  %295 = load ptr, ptr %67, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 16
-  %297 = getelementptr inbounds nuw i8, ptr %295, i64 20
-  call void @SDL_GL_DeduceMaxSupportedESProfile(ptr noundef nonnull %296, ptr noundef nonnull %297) #6
-  br label %298
+296:                                              ; preds = %HasExtension.exit189
+  %297 = load ptr, ptr %69, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 16
+  %299 = getelementptr inbounds nuw i8, ptr %297, i64 20
+  call void @SDL_GL_DeduceMaxSupportedESProfile(ptr noundef nonnull %298, ptr noundef nonnull %299) #6
+  br label %300
 
-298:                                              ; preds = %HasExtension.exit189, %294, %HasExtension.exit189.thread, %HasExtension.exit189.thread.thread342
-  %299 = phi i1 [ %293, %HasExtension.exit189.thread ], [ true, %294 ], [ %292, %HasExtension.exit189.thread.thread342 ], [ false, %HasExtension.exit189 ]
-  %300 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.46, i32 noundef 32) #6
-  %.not21.i191 = icmp eq ptr %300, null
-  br i1 %.not21.i191, label %301, label %HasExtension.exit197.thread.thread349
+300:                                              ; preds = %HasExtension.exit189, %296, %HasExtension.exit189.thread, %HasExtension.exit189.thread.thread342
+  %301 = phi i1 [ %295, %HasExtension.exit189.thread ], [ true, %296 ], [ %294, %HasExtension.exit189.thread.thread342 ], [ false, %HasExtension.exit189 ]
+  %302 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.46, i32 noundef 32) #6
+  %.not21.i191 = icmp eq ptr %302, null
+  br i1 %.not21.i191, label %303, label %HasExtension.exit197.thread.thread349
 
-301:                                              ; preds = %298
-  %302 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %80, ptr noundef nonnull @.str.46) #6
-  %.not2223.i193 = icmp eq ptr %302, null
+303:                                              ; preds = %300
+  %304 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %82, ptr noundef nonnull @.str.46) #6
+  %.not2223.i193 = icmp eq ptr %304, null
   br i1 %.not2223.i193, label %HasExtension.exit197.thread.thread349, label %.lr.ph.i194
 
-.lr.ph.i194:                                      ; preds = %301, %313
-  %303 = phi ptr [ %314, %313 ], [ %302, %301 ]
-  %.01724.i195 = phi ptr [ %305, %313 ], [ %80, %301 ]
-  %304 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.46) #6
-  %305 = getelementptr inbounds nuw i8, ptr %303, i64 %304
-  %306 = icmp eq ptr %303, %.01724.i195
-  br i1 %306, label %311, label %307
+.lr.ph.i194:                                      ; preds = %303, %315
+  %305 = phi ptr [ %316, %315 ], [ %304, %303 ]
+  %.01724.i195 = phi ptr [ %307, %315 ], [ %82, %303 ]
+  %306 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.46) #6
+  %307 = getelementptr inbounds nuw i8, ptr %305, i64 %306
+  %308 = icmp eq ptr %305, %.01724.i195
+  br i1 %308, label %313, label %309
 
-307:                                              ; preds = %.lr.ph.i194
-  %308 = getelementptr inbounds i8, ptr %303, i64 -1
-  %309 = load i8, ptr %308, align 1
-  %310 = icmp eq i8 %309, 32
-  br i1 %310, label %311, label %313
+309:                                              ; preds = %.lr.ph.i194
+  %310 = getelementptr inbounds i8, ptr %305, i64 -1
+  %311 = load i8, ptr %310, align 1
+  %312 = icmp eq i8 %311, 32
+  br i1 %312, label %313, label %315
 
-311:                                              ; preds = %307, %.lr.ph.i194
-  %312 = load i8, ptr %305, align 1
-  switch i8 %312, label %313 [
-    i8 32, label %315
-    i8 0, label %315
+313:                                              ; preds = %309, %.lr.ph.i194
+  %314 = load i8, ptr %307, align 1
+  switch i8 %314, label %315 [
+    i8 32, label %317
+    i8 0, label %317
   ]
 
-313:                                              ; preds = %311, %307
-  %314 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %305, ptr noundef nonnull @.str.46) #6
-  %.not22.i196 = icmp eq ptr %314, null
+315:                                              ; preds = %313, %309
+  %316 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %307, ptr noundef nonnull @.str.46) #6
+  %.not22.i196 = icmp eq ptr %316, null
   br i1 %.not22.i196, label %HasExtension.exit197.thread.thread349, label %.lr.ph.i194
 
-315:                                              ; preds = %311, %311
-  %316 = load ptr, ptr %67, align 8
-  %317 = getelementptr inbounds nuw i8, ptr %316, i64 11
-  store i8 1, ptr %317, align 1
+317:                                              ; preds = %313, %313
+  %318 = load ptr, ptr %69, align 8
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 11
+  store i8 1, ptr %319, align 1
   br label %HasExtension.exit197.thread.thread349
 
-HasExtension.exit197.thread.thread349:            ; preds = %313, %315, %298, %301
-  %318 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.47, i32 noundef 32) #6
-  %.not21.i199 = icmp eq ptr %318, null
-  br i1 %.not21.i199, label %319, label %HasExtension.exit205.thread.thread357
+HasExtension.exit197.thread.thread349:            ; preds = %315, %317, %300, %303
+  %320 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.47, i32 noundef 32) #6
+  %.not21.i199 = icmp eq ptr %320, null
+  br i1 %.not21.i199, label %321, label %HasExtension.exit205.thread.thread357
 
-319:                                              ; preds = %HasExtension.exit197.thread.thread349
-  %320 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %80, ptr noundef nonnull @.str.47) #6
-  %.not2223.i201 = icmp eq ptr %320, null
+321:                                              ; preds = %HasExtension.exit197.thread.thread349
+  %322 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %82, ptr noundef nonnull @.str.47) #6
+  %.not2223.i201 = icmp eq ptr %322, null
   br i1 %.not2223.i201, label %HasExtension.exit205.thread.thread357, label %.lr.ph.i202
 
-.lr.ph.i202:                                      ; preds = %319, %331
-  %321 = phi ptr [ %332, %331 ], [ %320, %319 ]
-  %.01724.i203 = phi ptr [ %323, %331 ], [ %80, %319 ]
-  %322 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.47) #6
-  %323 = getelementptr inbounds nuw i8, ptr %321, i64 %322
-  %324 = icmp eq ptr %321, %.01724.i203
-  br i1 %324, label %329, label %325
+.lr.ph.i202:                                      ; preds = %321, %333
+  %323 = phi ptr [ %334, %333 ], [ %322, %321 ]
+  %.01724.i203 = phi ptr [ %325, %333 ], [ %82, %321 ]
+  %324 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.47) #6
+  %325 = getelementptr inbounds nuw i8, ptr %323, i64 %324
+  %326 = icmp eq ptr %323, %.01724.i203
+  br i1 %326, label %331, label %327
 
-325:                                              ; preds = %.lr.ph.i202
-  %326 = getelementptr inbounds i8, ptr %321, i64 -1
-  %327 = load i8, ptr %326, align 1
-  %328 = icmp eq i8 %327, 32
-  br i1 %328, label %329, label %331
+327:                                              ; preds = %.lr.ph.i202
+  %328 = getelementptr inbounds i8, ptr %323, i64 -1
+  %329 = load i8, ptr %328, align 1
+  %330 = icmp eq i8 %329, 32
+  br i1 %330, label %331, label %333
 
-329:                                              ; preds = %325, %.lr.ph.i202
-  %330 = load i8, ptr %323, align 1
-  switch i8 %330, label %331 [
-    i8 32, label %333
-    i8 0, label %333
+331:                                              ; preds = %327, %.lr.ph.i202
+  %332 = load i8, ptr %325, align 1
+  switch i8 %332, label %333 [
+    i8 32, label %335
+    i8 0, label %335
   ]
 
-331:                                              ; preds = %329, %325
-  %332 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %323, ptr noundef nonnull @.str.47) #6
-  %.not22.i204 = icmp eq ptr %332, null
+333:                                              ; preds = %331, %327
+  %334 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %325, ptr noundef nonnull @.str.47) #6
+  %.not22.i204 = icmp eq ptr %334, null
   br i1 %.not22.i204, label %HasExtension.exit205.thread.thread357, label %.lr.ph.i202
 
-333:                                              ; preds = %329, %329
-  %334 = load ptr, ptr %67, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %334, i64 12
-  store i8 1, ptr %335, align 4
+335:                                              ; preds = %331, %331
+  %336 = load ptr, ptr %69, align 8
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 12
+  store i8 1, ptr %337, align 4
   br label %HasExtension.exit205.thread.thread357
 
-HasExtension.exit205.thread.thread357:            ; preds = %331, %333, %HasExtension.exit197.thread.thread349, %319
-  %336 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.48, i32 noundef 32) #6
-  %.not21.i207 = icmp eq ptr %336, null
-  br i1 %.not21.i207, label %337, label %HasExtension.exit213.thread
+HasExtension.exit205.thread.thread357:            ; preds = %333, %335, %HasExtension.exit197.thread.thread349, %321
+  %338 = call ptr @SDL_strchr_REAL(ptr noundef nonnull @.str.48, i32 noundef 32) #6
+  %.not21.i207 = icmp eq ptr %338, null
+  br i1 %.not21.i207, label %339, label %HasExtension.exit213.thread
 
-337:                                              ; preds = %HasExtension.exit205.thread.thread357
-  %338 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %80, ptr noundef nonnull @.str.48) #6
-  %.not2223.i209 = icmp eq ptr %338, null
+339:                                              ; preds = %HasExtension.exit205.thread.thread357
+  %340 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %82, ptr noundef nonnull @.str.48) #6
+  %.not2223.i209 = icmp eq ptr %340, null
   br i1 %.not2223.i209, label %HasExtension.exit213.thread, label %.lr.ph.i210
 
-.lr.ph.i210:                                      ; preds = %337, %349
-  %339 = phi ptr [ %350, %349 ], [ %338, %337 ]
-  %.01724.i211 = phi ptr [ %341, %349 ], [ %80, %337 ]
-  %340 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.48) #6
-  %341 = getelementptr inbounds nuw i8, ptr %339, i64 %340
-  %342 = icmp eq ptr %339, %.01724.i211
-  br i1 %342, label %347, label %343
+.lr.ph.i210:                                      ; preds = %339, %351
+  %341 = phi ptr [ %352, %351 ], [ %340, %339 ]
+  %.01724.i211 = phi ptr [ %343, %351 ], [ %82, %339 ]
+  %342 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.48) #6
+  %343 = getelementptr inbounds nuw i8, ptr %341, i64 %342
+  %344 = icmp eq ptr %341, %.01724.i211
+  br i1 %344, label %349, label %345
 
-343:                                              ; preds = %.lr.ph.i210
-  %344 = getelementptr inbounds i8, ptr %339, i64 -1
-  %345 = load i8, ptr %344, align 1
-  %346 = icmp eq i8 %345, 32
-  br i1 %346, label %347, label %349
+345:                                              ; preds = %.lr.ph.i210
+  %346 = getelementptr inbounds i8, ptr %341, i64 -1
+  %347 = load i8, ptr %346, align 1
+  %348 = icmp eq i8 %347, 32
+  br i1 %348, label %349, label %351
 
-347:                                              ; preds = %343, %.lr.ph.i210
-  %348 = load i8, ptr %341, align 1
-  switch i8 %348, label %349 [
-    i8 32, label %351
-    i8 0, label %351
+349:                                              ; preds = %345, %.lr.ph.i210
+  %350 = load i8, ptr %343, align 1
+  switch i8 %350, label %351 [
+    i8 32, label %353
+    i8 0, label %353
   ]
 
-349:                                              ; preds = %347, %343
-  %350 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %341, ptr noundef nonnull @.str.48) #6
-  %.not22.i212 = icmp eq ptr %350, null
+351:                                              ; preds = %349, %345
+  %352 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %343, ptr noundef nonnull @.str.48) #6
+  %.not22.i212 = icmp eq ptr %352, null
   br i1 %.not22.i212, label %HasExtension.exit213.thread, label %.lr.ph.i210
 
-HasExtension.exit213.thread:                      ; preds = %349, %HasExtension.exit205.thread.thread357, %337
-  br i1 %299, label %354, label %369
+HasExtension.exit213.thread:                      ; preds = %351, %HasExtension.exit205.thread.thread357, %339
+  br i1 %301, label %356, label %371
 
-351:                                              ; preds = %347, %347
-  %352 = load ptr, ptr %67, align 8
-  %353 = getelementptr inbounds nuw i8, ptr %352, i64 13
-  store i8 1, ptr %353, align 1
-  br i1 %299, label %354, label %369
+353:                                              ; preds = %349, %349
+  %354 = load ptr, ptr %69, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 13
+  store i8 1, ptr %355, align 1
+  br i1 %301, label %356, label %371
 
-354:                                              ; preds = %HasExtension.exit189.thread.thread, %HasExtension.exit213.thread, %351
-  %355 = load ptr, ptr %67, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 96
-  %357 = load ptr, ptr %356, align 8
-  %358 = call i32 %357(ptr noundef %5, i64 noundef 0, ptr noundef null) #6
-  %359 = load ptr, ptr %67, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %359, i64 88
-  %361 = load ptr, ptr %360, align 8
-  call void %361(ptr noundef %5, ptr noundef nonnull %.093) #6
-  %362 = icmp ne ptr %.091, null
-  %363 = icmp ne i64 %.095, 0
-  %or.cond3 = select i1 %362, i1 %363, i1 false
-  br i1 %or.cond3, label %364, label %369
+356:                                              ; preds = %HasExtension.exit189.thread.thread, %HasExtension.exit213.thread, %353
+  %357 = load ptr, ptr %69, align 8
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 96
+  %359 = load ptr, ptr %358, align 8
+  %360 = call i32 %359(ptr noundef %5, i64 noundef 0, ptr noundef null) #6
+  %361 = load ptr, ptr %69, align 8
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 88
+  %363 = load ptr, ptr %362, align 8
+  call void %363(ptr noundef %5, ptr noundef nonnull %.093) #6
+  %364 = icmp ne ptr %.091, null
+  %365 = icmp ne i64 %.095, 0
+  %or.cond3 = select i1 %364, i1 %365, i1 false
+  br i1 %or.cond3, label %366, label %371
 
-364:                                              ; preds = %354
-  %365 = load ptr, ptr %67, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 96
-  %367 = load ptr, ptr %366, align 8
-  %368 = call i32 %367(ptr noundef %5, i64 noundef %.095, ptr noundef nonnull %.091) #6
-  br label %369
+366:                                              ; preds = %356
+  %367 = load ptr, ptr %69, align 8
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 96
+  %369 = load ptr, ptr %368, align 8
+  %370 = call i32 %369(ptr noundef %5, i64 noundef %.095, ptr noundef nonnull %.091) #6
+  br label %371
 
-369:                                              ; preds = %HasExtension.exit189.thread.thread, %HasExtension.exit213.thread, %354, %364, %351
+371:                                              ; preds = %HasExtension.exit189.thread.thread, %HasExtension.exit213.thread, %356, %366, %353
   %.not104 = icmp eq i64 %.0, 0
-  br i1 %.not104, label %373, label %370
+  br i1 %.not104, label %375, label %372
 
-370:                                              ; preds = %369
-  %371 = load ptr, ptr @X11_XDestroyWindow, align 8
-  %372 = call i32 %371(ptr noundef %5, i64 noundef %.0) #6
-  br label %373
+372:                                              ; preds = %371
+  %373 = load ptr, ptr @X11_XDestroyWindow, align 8
+  %374 = call i32 %373(ptr noundef %5, i64 noundef %.0) #6
+  br label %375
 
-373:                                              ; preds = %370, %369
+375:                                              ; preds = %372, %371
   call void @X11_PumpEvents(ptr noundef %0) #6
   ret void
 }

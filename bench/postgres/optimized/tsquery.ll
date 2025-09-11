@@ -1179,11 +1179,11 @@ define internal fastcc void @makepol(ptr noundef nonnull %0, ptr noundef readonl
   br label %12
 
 12:                                               ; preds = %.backedge, %3
-  %.promoted33 = phi i32 [ 0, %3 ], [ %84, %.backedge ]
+  %.promoted33 = phi i32 [ 0, %3 ], [ %85, %.backedge ]
   %13 = load ptr, ptr %0, align 8
   %14 = call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %10) #12
-  switch i32 %14, label %67 [
-    i32 0, label %93
+  switch i32 %14, label %68 [
+    i32 0, label %94
     i32 2, label %15
     i32 3, label %21
     i32 4, label %34
@@ -1197,7 +1197,7 @@ define internal fastcc void @makepol(ptr noundef nonnull %0, ptr noundef readonl
   %19 = load i8, ptr %10, align 1, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   call void %1(i64 noundef %2, ptr noundef nonnull %0, ptr noundef %16, i32 noundef %17, i16 noundef signext %18, i1 noundef zeroext %20) #12
-  br label %83
+  br label %84
 
 21:                                               ; preds = %12
   %22 = load i8, ptr %4, align 1
@@ -1219,15 +1219,15 @@ pushOpStack.exit:                                 ; preds = %21
   %30 = sext i32 %23 to i64
   %31 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %30
   store i8 %29, ptr %31, align 4
-  %32 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %30, i32 1
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 2
   store i16 %28, ptr %32, align 2
   %33 = add i32 %23, 1
   store i32 %33, ptr %8, align 4
-  br label %83
+  br label %84
 
 34:                                               ; preds = %12
   call fastcc void @makepol(ptr noundef %0, ptr noundef %1, i64 noundef %2)
-  br label %83
+  br label %84
 
 35:                                               ; preds = %12
   %.not17.i = icmp eq i32 %.promoted33, 0
@@ -1262,117 +1262,119 @@ pushOpStack.exit:                                 ; preds = %21
   %55 = phi i8 [ %49, %.lr.ph.split.i ], [ %40, %.lr.ph.i ]
   %56 = phi i64 [ %47, %.lr.ph.split.i ], [ %38, %.lr.ph.i ]
   %57 = phi i32 [ %46, %.lr.ph.split.i ], [ %37, %.lr.ph.i ]
-  %58 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %56, i32 1
-  %59 = load i16, ptr %58, align 2
-  %60 = call ptr @palloc0(i64 noundef 8) #12
-  store i8 2, ptr %60, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  store i8 %55, ptr %61, align 1
-  %62 = icmp eq i8 %55, 4
-  %63 = select i1 %62, i16 %59, i16 0
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 2
-  store i16 %63, ptr %64, align 2
-  %65 = load ptr, ptr %36, align 8
-  %66 = call ptr @lcons(ptr noundef nonnull %60, ptr noundef %65) #12
-  store ptr %66, ptr %36, align 8
+  %58 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %56
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 2
+  %60 = load i16, ptr %59, align 2
+  %61 = call ptr @palloc0(i64 noundef 8) #12
+  store i8 2, ptr %61, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
+  store i8 %55, ptr %62, align 1
+  %63 = icmp eq i8 %55, 4
+  %64 = select i1 %63, i16 %60, i16 0
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 2
+  store i16 %64, ptr %65, align 2
+  %66 = load ptr, ptr %36, align 8
+  %67 = call ptr @lcons(ptr noundef nonnull %61, ptr noundef %66) #12
+  store ptr %67, ptr %36, align 8
   %.not.i = icmp eq i32 %57, 0
   br i1 %.not.i, label %.cleanOpStack.exit.loopexit30_crit_edge, label %.lr.ph.split.i, !llvm.loop !12
 
-67:                                               ; preds = %12
-  %68 = load ptr, ptr %11, align 8
-  %.not24 = icmp eq ptr %68, null
-  br i1 %.not24, label %76, label %69
+68:                                               ; preds = %12
+  %69 = load ptr, ptr %11, align 8
+  %.not24 = icmp eq ptr %69, null
+  br i1 %.not24, label %77, label %70
 
-69:                                               ; preds = %67
-  %70 = load i32, ptr %68, align 4
-  %71 = icmp eq i32 %70, 446
-  br i1 %71, label %72, label %76
+70:                                               ; preds = %68
+  %71 = load i32, ptr %69, align 4
+  %72 = icmp eq i32 %71, 446
+  br i1 %72, label %73, label %77
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %74 = load i8, ptr %73, align 4, !range !7, !noundef !8
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %cleanOpStack.exit, label %76
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %75 = load i8, ptr %74, align 4, !range !7, !noundef !8
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %cleanOpStack.exit, label %77
 
-76:                                               ; preds = %67, %69, %72
-  %77 = call zeroext i1 @errsave_start(ptr noundef %68, ptr noundef null) #12
-  br i1 %77, label %78, label %cleanOpStack.exit
+77:                                               ; preds = %68, %70, %73
+  %78 = call zeroext i1 @errsave_start(ptr noundef %69, ptr noundef null) #12
+  br i1 %78, label %79, label %cleanOpStack.exit
 
-78:                                               ; preds = %76
-  %79 = call i32 @errcode(i32 noundef 16801924) #12
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %81) #12
-  call void @errsave_finish(ptr noundef %68, ptr noundef nonnull @.str.1, i32 noundef 714, ptr noundef nonnull @__func__.makepol) #12
+79:                                               ; preds = %77
+  %80 = call i32 @errcode(i32 noundef 16801924) #12
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %82) #12
+  call void @errsave_finish(ptr noundef %69, ptr noundef nonnull @.str.1, i32 noundef 714, ptr noundef nonnull @__func__.makepol) #12
   br label %cleanOpStack.exit
 
-83:                                               ; preds = %34, %pushOpStack.exit, %15
-  %84 = phi i32 [ %.promoted33, %34 ], [ %33, %pushOpStack.exit ], [ %.promoted33, %15 ]
-  %85 = load ptr, ptr %11, align 8
-  %.not23 = icmp eq ptr %85, null
-  br i1 %.not23, label %.backedge, label %86
+84:                                               ; preds = %34, %pushOpStack.exit, %15
+  %85 = phi i32 [ %.promoted33, %34 ], [ %33, %pushOpStack.exit ], [ %.promoted33, %15 ]
+  %86 = load ptr, ptr %11, align 8
+  %.not23 = icmp eq ptr %86, null
+  br i1 %.not23, label %.backedge, label %87
 
-86:                                               ; preds = %83
-  %87 = load i32, ptr %85, align 4
-  %88 = icmp eq i32 %87, 446
-  br i1 %88, label %89, label %.backedge
+87:                                               ; preds = %84
+  %88 = load i32, ptr %86, align 4
+  %89 = icmp eq i32 %88, 446
+  br i1 %89, label %90, label %.backedge
 
-89:                                               ; preds = %86
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %91 = load i8, ptr %90, align 4, !range !7, !noundef !8
-  %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %cleanOpStack.exit, label %.backedge
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 4
+  %92 = load i8, ptr %91, align 4, !range !7, !noundef !8
+  %93 = trunc nuw i8 %92 to i1
+  br i1 %93, label %cleanOpStack.exit, label %.backedge
 
-.backedge:                                        ; preds = %89, %86, %83
+.backedge:                                        ; preds = %90, %87, %84
   br label %12, !llvm.loop !13
 
-93:                                               ; preds = %12
+94:                                               ; preds = %12
   %.not17.i25 = icmp eq i32 %.promoted33, 0
   br i1 %.not17.i25, label %cleanOpStack.exit, label %.lr.ph.i26
 
-.lr.ph.i26:                                       ; preds = %93
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %95 = add i32 %.promoted33, -1
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %96
-  %98 = load i8, ptr %97, align 4
-  %99 = sext i8 %98 to i64
-  %100 = getelementptr i32, ptr @tsearch_op_priority, i64 %99
-  %101 = getelementptr i8, ptr %100, i64 -4
-  %102 = load i32, ptr %101, align 4
-  %103 = icmp slt i32 %102, 1
-  br i1 %103, label %cleanOpStack.exit, label %.lr.ph34
+.lr.ph.i26:                                       ; preds = %94
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %96 = add i32 %.promoted33, -1
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %97
+  %99 = load i8, ptr %98, align 4
+  %100 = sext i8 %99 to i64
+  %101 = getelementptr i32, ptr @tsearch_op_priority, i64 %100
+  %102 = getelementptr i8, ptr %101, i64 -4
+  %103 = load i32, ptr %102, align 4
+  %104 = icmp slt i32 %103, 1
+  br i1 %104, label %cleanOpStack.exit, label %.lr.ph34
 
 .lr.ph.split.i27:                                 ; preds = %.lr.ph34
-  %104 = add i32 %115, -1
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %105
-  %107 = load i8, ptr %106, align 4
-  %108 = sext i8 %107 to i64
-  %109 = getelementptr i32, ptr @tsearch_op_priority, i64 %108
-  %110 = getelementptr i8, ptr %109, i64 -4
-  %111 = load i32, ptr %110, align 4
-  %112 = icmp slt i32 %111, 1
-  br i1 %112, label %cleanOpStack.exit, label %.lr.ph34, !llvm.loop !12
+  %105 = add i32 %116, -1
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %106
+  %108 = load i8, ptr %107, align 4
+  %109 = sext i8 %108 to i64
+  %110 = getelementptr i32, ptr @tsearch_op_priority, i64 %109
+  %111 = getelementptr i8, ptr %110, i64 -4
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp slt i32 %112, 1
+  br i1 %113, label %cleanOpStack.exit, label %.lr.ph34, !llvm.loop !12
 
 .lr.ph34:                                         ; preds = %.lr.ph.i26, %.lr.ph.split.i27
-  %113 = phi i8 [ %107, %.lr.ph.split.i27 ], [ %98, %.lr.ph.i26 ]
-  %114 = phi i64 [ %105, %.lr.ph.split.i27 ], [ %96, %.lr.ph.i26 ]
-  %115 = phi i32 [ %104, %.lr.ph.split.i27 ], [ %95, %.lr.ph.i26 ]
-  %116 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %114, i32 1
-  %117 = load i16, ptr %116, align 2
-  %118 = call ptr @palloc0(i64 noundef 8) #12
-  store i8 2, ptr %118, align 4
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 1
-  store i8 %113, ptr %119, align 1
-  %120 = icmp eq i8 %113, 4
-  %121 = select i1 %120, i16 %117, i16 0
-  %122 = getelementptr inbounds nuw i8, ptr %118, i64 2
-  store i16 %121, ptr %122, align 2
-  %123 = load ptr, ptr %94, align 8
-  %124 = call ptr @lcons(ptr noundef nonnull %118, ptr noundef %123) #12
-  store ptr %124, ptr %94, align 8
-  %.not.i28 = icmp eq i32 %115, 0
+  %114 = phi i8 [ %108, %.lr.ph.split.i27 ], [ %99, %.lr.ph.i26 ]
+  %115 = phi i64 [ %106, %.lr.ph.split.i27 ], [ %97, %.lr.ph.i26 ]
+  %116 = phi i32 [ %105, %.lr.ph.split.i27 ], [ %96, %.lr.ph.i26 ]
+  %117 = getelementptr inbounds %struct.OperatorElement, ptr %7, i64 %115
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 2
+  %119 = load i16, ptr %118, align 2
+  %120 = call ptr @palloc0(i64 noundef 8) #12
+  store i8 2, ptr %120, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1
+  store i8 %114, ptr %121, align 1
+  %122 = icmp eq i8 %114, 4
+  %123 = select i1 %122, i16 %119, i16 0
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 2
+  store i16 %123, ptr %124, align 2
+  %125 = load ptr, ptr %95, align 8
+  %126 = call ptr @lcons(ptr noundef nonnull %120, ptr noundef %125) #12
+  store ptr %126, ptr %95, align 8
+  %.not.i28 = icmp eq i32 %116, 0
   br i1 %.not.i28, label %.cleanOpStack.exit.loopexit_crit_edge, label %.lr.ph.split.i27, !llvm.loop !12
 
 .cleanOpStack.exit.loopexit_crit_edge:            ; preds = %.lr.ph34
@@ -1381,7 +1383,7 @@ pushOpStack.exit:                                 ; preds = %21
 .cleanOpStack.exit.loopexit30_crit_edge:          ; preds = %.lr.ph
   br label %cleanOpStack.exit, !llvm.loop !12
 
-cleanOpStack.exit:                                ; preds = %89, %.lr.ph.split.i, %.lr.ph.split.i27, %.lr.ph.i, %.cleanOpStack.exit.loopexit30_crit_edge, %.lr.ph.i26, %.cleanOpStack.exit.loopexit_crit_edge, %93, %35, %72, %78, %76
+cleanOpStack.exit:                                ; preds = %90, %.lr.ph.split.i, %.lr.ph.split.i27, %.lr.ph.i, %.cleanOpStack.exit.loopexit30_crit_edge, %.lr.ph.i26, %.cleanOpStack.exit.loopexit_crit_edge, %94, %35, %73, %79, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

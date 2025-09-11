@@ -19454,8 +19454,7 @@ _ZN9itertools9Itertools13sorted_by_key17h0798b5eb764f287bE.exit: ; preds = %4, %
 131:                                              ; preds = %.noexc174, %128
   %.sroa.07.0.i.i.i = phi i64 [ %.val.i.i, %128 ], [ %.sroa.0.0.i.i.i.i.i.i, %.noexc174 ]
   %.sroa.09.0.i.i.i = phi i64 [ 0, %128 ], [ %136, %.noexc174 ]
-  %.idx.i = shl i64 %.sroa.09.0.i.i.i, 6
-  %132 = getelementptr i8, ptr %125, i64 %.idx.i
+  %132 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, [3 x i64] }, i64, i8, [7 x i8] }, ptr %125, i64 %.sroa.09.0.i.i.i
   %133 = getelementptr i8, ptr %132, i64 112
   %.val.i.i.i = load i64, ptr %133, align 8, !noundef !25
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !2813

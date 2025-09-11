@@ -881,7 +881,7 @@ GetBackwardReferencesLowEffort.exit:              ; preds = %72, %VP8LRefsCursor
 
 .thread:                                          ; preds = %GetBackwardReferencesLowEffort.exit, %26
   %83 = tail call i32 @WebPEncodingSetError(ptr noundef %11, i32 noundef 1) #11
-  br label %828
+  br label %829
 
 84:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -2315,11 +2315,11 @@ BackwardRefsClone.exit.thread.i:                  ; preds = %658, %BackwardRefsS
   %.not.i35 = icmp eq i32 %686, 0
   br i1 %.not.i35, label %.preheader.loopexit.i, label %126, !llvm.loop !93
 
-688:                                              ; preds = %819, %.preheader.i
-  %indvars.iv278.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next279.i, %819 ]
+688:                                              ; preds = %820, %.preheader.i
+  %indvars.iv278.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next279.i, %820 ]
   %689 = icmp ne i64 %indvars.iv278.i, 1
   %or.cond7.i = or i1 %85, %689
-  br i1 %or.cond7.i, label %690, label %819
+  br i1 %or.cond7.i, label %690, label %820
 
 690:                                              ; preds = %688
   %691 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv278.i
@@ -2392,212 +2392,213 @@ BackwardRefsSwap.exit174.i:                       ; preds = %722, %721
   br label %.thread234.i
 
 .thread234.i:                                     ; preds = %BackwardRefsSwap.exit174.i, %706, %696, %694
-  %723 = getelementptr %struct.VP8LBackwardRefs, ptr %9, i64 %indvars.iv278.i, i32 2
-  %.val.i36 = load ptr, ptr %723, align 8, !tbaa !14, !noalias !94
+  %723 = getelementptr inbounds nuw %struct.VP8LBackwardRefs, ptr %9, i64 %indvars.iv278.i
+  %724 = getelementptr i8, ptr %723, i64 8
+  %.val.i36 = load ptr, ptr %724, align 8, !tbaa !14, !noalias !94
   %.not.i.i175.i = icmp eq ptr %.val.i36, null
   br i1 %.not.i.i175.i, label %BackwardReferences2DLocality.exit.i, label %VP8LRefsCursorInit.exit.i176.i
 
 VP8LRefsCursorInit.exit.i176.i:                   ; preds = %.thread234.i
-  %724 = getelementptr inbounds nuw i8, ptr %.val.i36, i64 8
-  %725 = load ptr, ptr %724, align 8, !tbaa !23, !noalias !97
-  %.not45.i.i37 = icmp eq ptr %725, null
+  %725 = getelementptr inbounds nuw i8, ptr %.val.i36, i64 8
+  %726 = load ptr, ptr %725, align 8, !tbaa !23, !noalias !97
+  %.not45.i.i37 = icmp eq ptr %726, null
   br i1 %.not45.i.i37, label %BackwardReferences2DLocality.exit.i, label %.lr.ph.i177.i
 
 .lr.ph.i177.i:                                    ; preds = %VP8LRefsCursorInit.exit.i176.i
-  %726 = getelementptr inbounds nuw i8, ptr %.val.i36, i64 16
-  %727 = load i32, ptr %726, align 8, !tbaa !24, !noalias !97
-  %728 = sext i32 %727 to i64
-  %729 = getelementptr inbounds %struct.PixOrCopy, ptr %725, i64 %728
-  br label %730
+  %727 = getelementptr inbounds nuw i8, ptr %.val.i36, i64 16
+  %728 = load i32, ptr %727, align 8, !tbaa !24, !noalias !97
+  %729 = sext i32 %728 to i64
+  %730 = getelementptr inbounds %struct.PixOrCopy, ptr %726, i64 %729
+  br label %731
 
-730:                                              ; preds = %VP8LRefsCursorNext.exit.i179.i, %.lr.ph.i177.i
-  %.sroa.0.08.i.i38 = phi ptr [ %725, %.lr.ph.i177.i ], [ %.sroa.0.1.i180.i, %VP8LRefsCursorNext.exit.i179.i ]
+731:                                              ; preds = %VP8LRefsCursorNext.exit.i179.i, %.lr.ph.i177.i
+  %.sroa.0.08.i.i38 = phi ptr [ %726, %.lr.ph.i177.i ], [ %.sroa.0.1.i180.i, %VP8LRefsCursorNext.exit.i179.i ]
   %.sroa.10.07.i.i39 = phi ptr [ %.val.i36, %.lr.ph.i177.i ], [ %.sroa.10.1.i.i43, %VP8LRefsCursorNext.exit.i179.i ]
-  %.sroa.13.06.i.i40 = phi ptr [ %729, %.lr.ph.i177.i ], [ %.sroa.13.1.i.i42, %VP8LRefsCursorNext.exit.i179.i ]
+  %.sroa.13.06.i.i40 = phi ptr [ %730, %.lr.ph.i177.i ], [ %.sroa.13.1.i.i42, %VP8LRefsCursorNext.exit.i179.i ]
   %.val4.i.i41 = load i8, ptr %.sroa.0.08.i.i38, align 4, !tbaa !45
   %.not.i178.i = icmp eq i8 %.val4.i.i41, 2
-  br i1 %.not.i178.i, label %731, label %761
+  br i1 %.not.i178.i, label %732, label %762
 
-731:                                              ; preds = %730
-  %732 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i38, i64 4
-  %733 = load i32, ptr %732, align 4, !tbaa !48
-  %734 = sdiv i32 %733, %0
-  %735 = mul nsw i32 %734, %0
-  %.recomposed212 = srem i32 %733, %0
-  %736 = icmp slt i32 %.recomposed212, 9
-  %737 = icmp slt i32 %734, 8
-  %or.cond.i.i182.i = and i1 %737, %736
-  br i1 %or.cond.i.i182.i, label %738, label %747
+732:                                              ; preds = %731
+  %733 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i38, i64 4
+  %734 = load i32, ptr %733, align 4, !tbaa !48
+  %735 = sdiv i32 %734, %0
+  %736 = mul nsw i32 %735, %0
+  %.recomposed212 = srem i32 %734, %0
+  %737 = icmp slt i32 %.recomposed212, 9
+  %738 = icmp slt i32 %735, 8
+  %or.cond.i.i182.i = and i1 %738, %737
+  br i1 %or.cond.i.i182.i, label %739, label %748
 
-738:                                              ; preds = %731
-  %739 = shl nsw i32 %734, 4
-  %740 = or disjoint i32 %739, 8
-  %741 = sub i32 %740, %.recomposed212
-  %742 = sext i32 %741 to i64
-  %743 = getelementptr inbounds i8, ptr @plane_to_code_lut, i64 %742
-  %744 = load i8, ptr %743, align 1, !tbaa !3
-  %745 = zext i8 %744 to i32
-  %746 = add nuw nsw i32 %745, 1
+739:                                              ; preds = %732
+  %740 = shl nsw i32 %735, 4
+  %741 = or disjoint i32 %740, 8
+  %742 = sub i32 %741, %.recomposed212
+  %743 = sext i32 %742 to i64
+  %744 = getelementptr inbounds i8, ptr @plane_to_code_lut, i64 %743
+  %745 = load i8, ptr %744, align 1, !tbaa !3
+  %746 = zext i8 %745 to i32
+  %747 = add nuw nsw i32 %746, 1
   br label %VP8LDistanceToPlaneCode.exit.i184.i
 
-747:                                              ; preds = %731
-  %748 = icmp sgt i32 %.recomposed212, %.pre-phi.i
-  %749 = icmp slt i32 %734, 7
-  %or.cond3.i.i183.i = and i1 %749, %748
-  br i1 %or.cond3.i.i183.i, label %750, label %759
+748:                                              ; preds = %732
+  %749 = icmp sgt i32 %.recomposed212, %.pre-phi.i
+  %750 = icmp slt i32 %735, 7
+  %or.cond3.i.i183.i = and i1 %750, %749
+  br i1 %or.cond3.i.i183.i, label %751, label %760
 
-750:                                              ; preds = %747
-  %751 = shl i32 %734, 4
-  %752 = add i32 %751, %.pre-phi283.i
-  %753 = sub i32 %752, %.recomposed212
-  %754 = sext i32 %753 to i64
-  %755 = getelementptr inbounds i8, ptr @plane_to_code_lut, i64 %754
-  %756 = load i8, ptr %755, align 1, !tbaa !3
-  %757 = zext i8 %756 to i32
-  %758 = add nuw nsw i32 %757, 1
+751:                                              ; preds = %748
+  %752 = shl i32 %735, 4
+  %753 = add i32 %752, %.pre-phi283.i
+  %754 = sub i32 %753, %.recomposed212
+  %755 = sext i32 %754 to i64
+  %756 = getelementptr inbounds i8, ptr @plane_to_code_lut, i64 %755
+  %757 = load i8, ptr %756, align 1, !tbaa !3
+  %758 = zext i8 %757 to i32
+  %759 = add nuw nsw i32 %758, 1
   br label %VP8LDistanceToPlaneCode.exit.i184.i
 
-759:                                              ; preds = %747
-  %760 = add nsw i32 %733, 120
+760:                                              ; preds = %748
+  %761 = add nsw i32 %734, 120
   br label %VP8LDistanceToPlaneCode.exit.i184.i
 
-VP8LDistanceToPlaneCode.exit.i184.i:              ; preds = %759, %750, %738
-  %.0.i.i185.i = phi i32 [ %746, %738 ], [ %758, %750 ], [ %760, %759 ]
-  store i32 %.0.i.i185.i, ptr %732, align 4, !tbaa !48
-  br label %761
+VP8LDistanceToPlaneCode.exit.i184.i:              ; preds = %760, %751, %739
+  %.0.i.i185.i = phi i32 [ %747, %739 ], [ %759, %751 ], [ %761, %760 ]
+  store i32 %.0.i.i185.i, ptr %733, align 4, !tbaa !48
+  br label %762
 
-761:                                              ; preds = %VP8LDistanceToPlaneCode.exit.i184.i, %730
-  %762 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i38, i64 8
-  %763 = icmp eq ptr %762, %.sroa.13.06.i.i40
-  br i1 %763, label %764, label %VP8LRefsCursorNext.exit.i179.i
+762:                                              ; preds = %VP8LDistanceToPlaneCode.exit.i184.i, %731
+  %763 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i38, i64 8
+  %764 = icmp eq ptr %763, %.sroa.13.06.i.i40
+  br i1 %764, label %765, label %VP8LRefsCursorNext.exit.i179.i
 
-764:                                              ; preds = %761
-  %765 = load ptr, ptr %.sroa.10.07.i.i39, align 8, !tbaa !16
-  %766 = icmp eq ptr %765, null
-  br i1 %766, label %BackwardReferences2DLocality.exit.i, label %767
+765:                                              ; preds = %762
+  %766 = load ptr, ptr %.sroa.10.07.i.i39, align 8, !tbaa !16
+  %767 = icmp eq ptr %766, null
+  br i1 %767, label %BackwardReferences2DLocality.exit.i, label %768
 
-767:                                              ; preds = %764
-  %768 = getelementptr inbounds nuw i8, ptr %765, i64 8
-  %769 = load ptr, ptr %768, align 8, !tbaa !23
-  %770 = getelementptr inbounds nuw i8, ptr %765, i64 16
-  %771 = load i32, ptr %770, align 8, !tbaa !24
-  %772 = sext i32 %771 to i64
-  %773 = getelementptr inbounds %struct.PixOrCopy, ptr %769, i64 %772
+768:                                              ; preds = %765
+  %769 = getelementptr inbounds nuw i8, ptr %766, i64 8
+  %770 = load ptr, ptr %769, align 8, !tbaa !23
+  %771 = getelementptr inbounds nuw i8, ptr %766, i64 16
+  %772 = load i32, ptr %771, align 8, !tbaa !24
+  %773 = sext i32 %772 to i64
+  %774 = getelementptr inbounds %struct.PixOrCopy, ptr %770, i64 %773
   br label %VP8LRefsCursorNext.exit.i179.i
 
-VP8LRefsCursorNext.exit.i179.i:                   ; preds = %767, %761
-  %.sroa.13.1.i.i42 = phi ptr [ %.sroa.13.06.i.i40, %761 ], [ %773, %767 ]
-  %.sroa.10.1.i.i43 = phi ptr [ %.sroa.10.07.i.i39, %761 ], [ %765, %767 ]
-  %.sroa.0.1.i180.i = phi ptr [ %762, %761 ], [ %769, %767 ]
+VP8LRefsCursorNext.exit.i179.i:                   ; preds = %768, %762
+  %.sroa.13.1.i.i42 = phi ptr [ %.sroa.13.06.i.i40, %762 ], [ %774, %768 ]
+  %.sroa.10.1.i.i43 = phi ptr [ %.sroa.10.07.i.i39, %762 ], [ %766, %768 ]
+  %.sroa.0.1.i180.i = phi ptr [ %763, %762 ], [ %770, %768 ]
   %.not4.i.i44 = icmp eq ptr %.sroa.0.1.i180.i, null
-  br i1 %.not4.i.i44, label %BackwardReferences2DLocality.exit.i, label %730, !llvm.loop !49
+  br i1 %.not4.i.i44, label %BackwardReferences2DLocality.exit.i, label %731, !llvm.loop !49
 
-BackwardReferences2DLocality.exit.i:              ; preds = %VP8LRefsCursorNext.exit.i179.i, %764, %VP8LRefsCursorInit.exit.i176.i, %.thread234.i
-  %774 = icmp eq i64 %indvars.iv278.i, 1
-  %775 = load i32, ptr %125, align 4
-  %776 = icmp eq i32 %121, %775
-  %or.cond263.i = select i1 %774, i1 %776, i1 false
-  br i1 %or.cond263.i, label %777, label %819
+BackwardReferences2DLocality.exit.i:              ; preds = %VP8LRefsCursorNext.exit.i179.i, %765, %VP8LRefsCursorInit.exit.i176.i, %.thread234.i
+  %775 = icmp eq i64 %indvars.iv278.i, 1
+  %776 = load i32, ptr %125, align 4
+  %777 = icmp eq i32 %121, %776
+  %or.cond263.i = select i1 %775, i1 %777, i1 false
+  br i1 %or.cond263.i, label %778, label %820
 
-777:                                              ; preds = %BackwardReferences2DLocality.exit.i
-  %778 = load i32, ptr %10, align 4, !tbaa !32
-  %779 = icmp eq i32 %778, 0
-  br i1 %779, label %780, label %819
+778:                                              ; preds = %BackwardReferences2DLocality.exit.i
+  %779 = load i32, ptr %10, align 4, !tbaa !32
+  %780 = icmp eq i32 %779, 0
+  br i1 %780, label %781, label %820
 
-780:                                              ; preds = %777
-  %781 = getelementptr i8, ptr %9, i64 48
-  %.val130.i = load ptr, ptr %781, align 8, !tbaa !14
-  %782 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %783 = load ptr, ptr %782, align 8, !tbaa !6
-  %.not.i.i186.i = icmp eq ptr %783, null
-  br i1 %.not.i.i186.i, label %VP8LClearBackwardRefs.exit.i187.i, label %784
+781:                                              ; preds = %778
+  %782 = getelementptr i8, ptr %9, i64 48
+  %.val130.i = load ptr, ptr %782, align 8, !tbaa !14
+  %783 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %784 = load ptr, ptr %783, align 8, !tbaa !6
+  %.not.i.i186.i = icmp eq ptr %784, null
+  br i1 %.not.i.i186.i, label %VP8LClearBackwardRefs.exit.i187.i, label %785
 
-784:                                              ; preds = %780
-  %785 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %786 = load ptr, ptr %785, align 8, !tbaa !12
-  store ptr %786, ptr %783, align 8, !tbaa !13
+785:                                              ; preds = %781
+  %786 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %787 = load ptr, ptr %786, align 8, !tbaa !12
+  store ptr %787, ptr %784, align 8, !tbaa !13
   br label %VP8LClearBackwardRefs.exit.i187.i
 
-VP8LClearBackwardRefs.exit.i187.i:                ; preds = %784, %780
-  %787 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %788 = load ptr, ptr %787, align 8, !tbaa !14
-  %789 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %788, ptr %789, align 8, !tbaa !12
-  store ptr %787, ptr %782, align 8, !tbaa !6
-  %790 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %790, align 8, !tbaa !15
-  store ptr null, ptr %787, align 8, !tbaa !14
+VP8LClearBackwardRefs.exit.i187.i:                ; preds = %785, %781
+  %788 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %789 = load ptr, ptr %788, align 8, !tbaa !14
+  %790 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr %789, ptr %790, align 8, !tbaa !12
+  store ptr %788, ptr %783, align 8, !tbaa !6
+  %791 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %791, align 8, !tbaa !15
+  store ptr null, ptr %788, align 8, !tbaa !14
   %.not3.i188.i = icmp eq ptr %.val130.i, null
   br i1 %.not3.i188.i, label %GetBackwardReferences.exit, label %.lr.ph.i189.i
 
-.lr.ph.i189.i:                                    ; preds = %VP8LClearBackwardRefs.exit.i187.i, %804
-  %.0134.i190.i = phi ptr [ %815, %804 ], [ %.val130.i, %VP8LClearBackwardRefs.exit.i187.i ]
-  %791 = load ptr, ptr %789, align 8, !tbaa !12
-  %792 = icmp eq ptr %791, null
-  br i1 %792, label %793, label %802
+.lr.ph.i189.i:                                    ; preds = %VP8LClearBackwardRefs.exit.i187.i, %805
+  %.0134.i190.i = phi ptr [ %816, %805 ], [ %.val130.i, %VP8LClearBackwardRefs.exit.i187.i ]
+  %792 = load ptr, ptr %790, align 8, !tbaa !12
+  %793 = icmp eq ptr %792, null
+  br i1 %793, label %794, label %803
 
-793:                                              ; preds = %.lr.ph.i189.i
-  %794 = load i32, ptr %9, align 8, !tbaa !20
-  %795 = sext i32 %794 to i64
-  %796 = shl nsw i64 %795, 3
-  %797 = add nsw i64 %796, 24
-  %798 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %797) #11
-  %.not.i17.i197.i = icmp eq ptr %798, null
-  br i1 %.not.i17.i197.i, label %BackwardRefsClone.exit199.i, label %799
+794:                                              ; preds = %.lr.ph.i189.i
+  %795 = load i32, ptr %9, align 8, !tbaa !20
+  %796 = sext i32 %795 to i64
+  %797 = shl nsw i64 %796, 3
+  %798 = add nsw i64 %797, 24
+  %799 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %798) #11
+  %.not.i17.i197.i = icmp eq ptr %799, null
+  br i1 %.not.i17.i197.i, label %BackwardRefsClone.exit199.i, label %800
 
-799:                                              ; preds = %793
-  %800 = getelementptr inbounds nuw i8, ptr %798, i64 24
-  %801 = getelementptr inbounds nuw i8, ptr %798, i64 8
-  store ptr %800, ptr %801, align 8, !tbaa !23
-  br label %804
+800:                                              ; preds = %794
+  %801 = getelementptr inbounds nuw i8, ptr %799, i64 24
+  %802 = getelementptr inbounds nuw i8, ptr %799, i64 8
+  store ptr %801, ptr %802, align 8, !tbaa !23
+  br label %805
 
-802:                                              ; preds = %.lr.ph.i189.i
-  %803 = load ptr, ptr %791, align 8, !tbaa !16
-  store ptr %803, ptr %789, align 8, !tbaa !12
-  %.phi.trans.insert.i191.i = getelementptr inbounds nuw i8, ptr %791, i64 8
+803:                                              ; preds = %.lr.ph.i189.i
+  %804 = load ptr, ptr %792, align 8, !tbaa !16
+  store ptr %804, ptr %790, align 8, !tbaa !12
+  %.phi.trans.insert.i191.i = getelementptr inbounds nuw i8, ptr %792, i64 8
   %.pre.i192.i = load ptr, ptr %.phi.trans.insert.i191.i, align 8, !tbaa !23
-  br label %804
+  br label %805
 
-804:                                              ; preds = %802, %799
-  %805 = phi ptr [ %800, %799 ], [ %.pre.i192.i, %802 ]
-  %.021.i.i193.i = phi ptr [ %798, %799 ], [ %791, %802 ]
-  %806 = load ptr, ptr %782, align 8, !tbaa !6
-  store ptr %.021.i.i193.i, ptr %806, align 8, !tbaa !13
-  store ptr %.021.i.i193.i, ptr %782, align 8, !tbaa !6
-  store ptr %.021.i.i193.i, ptr %790, align 8, !tbaa !15
+805:                                              ; preds = %803, %800
+  %806 = phi ptr [ %801, %800 ], [ %.pre.i192.i, %803 ]
+  %.021.i.i193.i = phi ptr [ %799, %800 ], [ %792, %803 ]
+  %807 = load ptr, ptr %783, align 8, !tbaa !6
+  store ptr %.021.i.i193.i, ptr %807, align 8, !tbaa !13
+  store ptr %.021.i.i193.i, ptr %783, align 8, !tbaa !6
+  store ptr %.021.i.i193.i, ptr %791, align 8, !tbaa !15
   store ptr null, ptr %.021.i.i193.i, align 8, !tbaa !16
-  %807 = getelementptr inbounds nuw i8, ptr %.021.i.i193.i, i64 16
-  store i32 0, ptr %807, align 8, !tbaa !24
-  %808 = getelementptr inbounds nuw i8, ptr %.0134.i190.i, i64 8
-  %809 = load ptr, ptr %808, align 8, !tbaa !23
-  %810 = getelementptr inbounds nuw i8, ptr %.0134.i190.i, i64 16
-  %811 = load i32, ptr %810, align 8, !tbaa !24
-  %812 = sext i32 %811 to i64
-  %813 = shl nsw i64 %812, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %805, ptr align 4 %809, i64 %813, i1 false)
-  %814 = load i32, ptr %810, align 8, !tbaa !24
-  store i32 %814, ptr %807, align 8, !tbaa !24
-  %815 = load ptr, ptr %.0134.i190.i, align 8, !tbaa !16
-  %.not.i194.i = icmp eq ptr %815, null
+  %808 = getelementptr inbounds nuw i8, ptr %.021.i.i193.i, i64 16
+  store i32 0, ptr %808, align 8, !tbaa !24
+  %809 = getelementptr inbounds nuw i8, ptr %.0134.i190.i, i64 8
+  %810 = load ptr, ptr %809, align 8, !tbaa !23
+  %811 = getelementptr inbounds nuw i8, ptr %.0134.i190.i, i64 16
+  %812 = load i32, ptr %811, align 8, !tbaa !24
+  %813 = sext i32 %812 to i64
+  %814 = shl nsw i64 %813, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %806, ptr align 4 %810, i64 %814, i1 false)
+  %815 = load i32, ptr %811, align 8, !tbaa !24
+  store i32 %815, ptr %808, align 8, !tbaa !24
+  %816 = load ptr, ptr %.0134.i190.i, align 8, !tbaa !16
+  %.not.i194.i = icmp eq ptr %816, null
   br i1 %.not.i194.i, label %GetBackwardReferences.exit, label %.lr.ph.i189.i, !llvm.loop !89
 
-BackwardRefsClone.exit199.i:                      ; preds = %793
-  %816 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %817 = load i32, ptr %816, align 4, !tbaa !27
-  %818 = or i32 %817, 1
-  store i32 %818, ptr %816, align 4, !tbaa !27
+BackwardRefsClone.exit199.i:                      ; preds = %794
+  %817 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %818 = load i32, ptr %817, align 4, !tbaa !27
+  %819 = or i32 %818, 1
+  store i32 %819, ptr %817, align 4, !tbaa !27
   br label %.critedge
 
-819:                                              ; preds = %777, %BackwardReferences2DLocality.exit.i, %688
+820:                                              ; preds = %778, %BackwardReferences2DLocality.exit.i, %688
   %indvars.iv.next279.i = add nsw i64 %indvars.iv278.i, -1
   %.not346.i = icmp eq i64 %indvars.iv278.i, 0
   br i1 %.not346.i, label %GetBackwardReferences.exit, label %688, !llvm.loop !100
 
-GetBackwardReferences.exit:                       ; preds = %819, %804, %VP8LClearBackwardRefs.exit.i187.i
-  %820 = load ptr, ptr %25, align 8, !tbaa !28
-  call void @WebPSafeFree(ptr noundef %820) #11
-  %821 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i32 0, ptr %821, align 8, !tbaa !31
+GetBackwardReferences.exit:                       ; preds = %820, %805, %VP8LClearBackwardRefs.exit.i187.i
+  %821 = load ptr, ptr %25, align 8, !tbaa !28
+  call void @WebPSafeFree(ptr noundef %821) #11
+  %822 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i32 0, ptr %822, align 8, !tbaa !31
   store ptr null, ptr %25, align 8, !tbaa !28
   call void @VP8LFreeHistogram(ptr noundef nonnull %88) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -2606,26 +2607,26 @@ GetBackwardReferences.exit:                       ; preds = %819, %804, %VP8LCle
   br label %GetBackwardReferencesLowEffort.exit.thread
 
 .critedge:                                        ; preds = %286, %129, %418, %CalculateBestCacheSize.exit.i, %702, %BackwardRefsWithLocalCache.exit.thread.i, %BackwardRefsClone.exit.i, %BackwardRefsClone.exit199.i, %84
-  %822 = load ptr, ptr %25, align 8, !tbaa !28
-  call void @WebPSafeFree(ptr noundef %822) #11
-  %823 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i32 0, ptr %823, align 8, !tbaa !31
+  %823 = load ptr, ptr %25, align 8, !tbaa !28
+  call void @WebPSafeFree(ptr noundef %823) #11
+  %824 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i32 0, ptr %824, align 8, !tbaa !31
   store ptr null, ptr %25, align 8, !tbaa !28
   call void @VP8LFreeHistogram(ptr noundef %88) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %824 = call i32 @WebPEncodingSetError(ptr noundef %11, i32 noundef 1) #11
-  br label %828
+  %825 = call i32 @WebPEncodingSetError(ptr noundef %11, i32 noundef 1) #11
+  br label %829
 
 GetBackwardReferencesLowEffort.exit.thread:       ; preds = %GetBackwardReferencesLowEffort.exit, %28, %VP8LRefsCursorInit.exit.i.i, %GetBackwardReferences.exit
-  %825 = load i32, ptr %13, align 4, !tbaa !32
-  %826 = add nsw i32 %825, %12
-  %827 = call i32 @WebPReportProgress(ptr noundef %11, i32 noundef %826, ptr noundef nonnull %13) #11
-  br label %828
+  %826 = load i32, ptr %13, align 4, !tbaa !32
+  %827 = add nsw i32 %826, %12
+  %828 = call i32 @WebPReportProgress(ptr noundef %11, i32 noundef %827, ptr noundef nonnull %13) #11
+  br label %829
 
-828:                                              ; preds = %.thread, %GetBackwardReferencesLowEffort.exit.thread, %.critedge
-  %.1 = phi i32 [ %827, %GetBackwardReferencesLowEffort.exit.thread ], [ %824, %.critedge ], [ %83, %.thread ]
+829:                                              ; preds = %.thread, %GetBackwardReferencesLowEffort.exit.thread, %.critedge
+  %.1 = phi i32 [ %828, %GetBackwardReferencesLowEffort.exit.thread ], [ %825, %.critedge ], [ %83, %.thread ]
   ret i32 %.1
 }
 

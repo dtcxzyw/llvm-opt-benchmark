@@ -1460,10 +1460,10 @@ list_add_tail.exit:                               ; preds = %43, %46
 
 57:                                               ; preds = %48
   store ptr %56, ptr %52, align 8, !tbaa !36
-  %58 = getelementptr inbounds nuw %struct.regex_list_ht, ptr %56, i64 %50, i32 1
-  store ptr %14, ptr %58, align 8, !tbaa !88
-  %59 = getelementptr inbounds nuw %struct.regex_list_ht, ptr %56, i64 %50
-  store ptr %14, ptr %59, align 8, !tbaa !84
+  %58 = getelementptr inbounds nuw %struct.regex_list_ht, ptr %56, i64 %50
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store ptr %14, ptr %59, align 8, !tbaa !88
+  store ptr %14, ptr %58, align 8, !tbaa !84
   %60 = load i8, ptr %1, align 1, !tbaa !10
   %61 = icmp eq i8 %60, 47
   br i1 %61, label %62, label %68

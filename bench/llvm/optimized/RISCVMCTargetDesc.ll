@@ -2785,7 +2785,7 @@ define internal void @_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11updateStateERKN4l
 17:                                               ; preds = %8
   %18 = load i32, ptr %1, align 8, !tbaa !166
   %cond = icmp eq i32 %18, 11940
-  br i1 %cond, label %41, label %19
+  br i1 %cond, label %43, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2793,77 +2793,79 @@ define internal void @_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11updateStateERKN4l
   %22 = load ptr, ptr %21, align 8, !tbaa !60
   %23 = zext i32 %18 to i64
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %22, i64 %24, i32 2
-  %26 = load i8, ptr %25, align 4, !tbaa !173
-  %.not = icmp eq i8 %26, 0
+  %25 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %22, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %27 = load i8, ptr %26, align 4, !tbaa !173
+  %.not = icmp eq i8 %27, 0
   br i1 %.not, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit18, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !3
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %.promoted = load i64, ptr %29, align 8
-  %wide.trip.count = zext i8 %26 to i64
-  br label %30
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %29 = load ptr, ptr %28, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %.promoted = load i64, ptr %30, align 8
+  %wide.trip.count = zext i8 %27 to i64
+  br label %31
 
-30:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit
+31:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit ]
-  %31 = phi i64 [ %.promoted, %.lr.ph ], [ %40, %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit ]
-  %32 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %28, i64 %indvars.iv, i32 1
-  %33 = load i32, ptr %32, align 8, !tbaa !9
-  %34 = add i32 %33, -75
-  %or.cond = icmp ult i32 %34, -31
+  %32 = phi i64 [ %.promoted, %.lr.ph ], [ %42, %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit ]
+  %33 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %29, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load i32, ptr %34, align 8, !tbaa !9
+  %36 = add i32 %35, -75
+  %or.cond = icmp ult i32 %36, -31
   br i1 %or.cond, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit, label %_ZNSt6bitsetILm31EE5resetEm.exit.i
 
-_ZNSt6bitsetILm31EE5resetEm.exit.i:               ; preds = %30
-  %35 = add nsw i32 %33, -44
-  %36 = zext nneg i32 %35 to i64
-  %37 = shl nuw nsw i64 1, %36
-  %38 = xor i64 %37, -1
-  %39 = and i64 %31, %38
-  store i64 %39, ptr %29, align 8, !tbaa !56
+_ZNSt6bitsetILm31EE5resetEm.exit.i:               ; preds = %31
+  %37 = add nsw i32 %35, -44
+  %38 = zext nneg i32 %37 to i64
+  %39 = shl nuw nsw i64 1, %38
+  %40 = xor i64 %39, -1
+  %41 = and i64 %32, %40
+  store i64 %41, ptr %30, align 8, !tbaa !56
   br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit
 
-_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit: ; preds = %_ZNSt6bitsetILm31EE5resetEm.exit.i, %30
-  %40 = phi i64 [ %39, %_ZNSt6bitsetILm31EE5resetEm.exit.i ], [ %31, %30 ]
+_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit: ; preds = %_ZNSt6bitsetILm31EE5resetEm.exit.i, %31
+  %42 = phi i64 [ %41, %_ZNSt6bitsetILm31EE5resetEm.exit.i ], [ %32, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit18, label %30, !llvm.loop !175
+  br i1 %exitcond.not, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit18, label %31, !llvm.loop !175
 
-41:                                               ; preds = %17
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !3
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i32, ptr %44, align 8, !tbaa !9
-  %46 = icmp eq i32 %45, 43
-  br i1 %46, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit18, label %47
+43:                                               ; preds = %17
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i32, ptr %46, align 8, !tbaa !9
+  %48 = icmp eq i32 %47, 43
+  br i1 %48, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit18, label %49
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %49 = load i64, ptr %48, align 8, !tbaa !9
-  %50 = shl i64 %49, 12
-  %51 = add i64 %50, %2
-  %52 = add i32 %45, -44
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %53, i64 %54
-  store i64 %51, ptr %55, align 8, !tbaa !56
-  %56 = icmp ugt i32 %52, 30
-  br i1 %56, label %57, label %_ZNSt6bitsetILm31EE3setEmb.exit.i17
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %51 = load i64, ptr %50, align 8, !tbaa !9
+  %52 = shl i64 %51, 12
+  %53 = add i64 %52, %2
+  %54 = add i32 %47, -44
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %56 = zext i32 %54 to i64
+  %57 = getelementptr inbounds nuw i64, ptr %55, i64 %56
+  store i64 %53, ptr %57, align 8, !tbaa !56
+  %58 = icmp ugt i32 %54, 30
+  br i1 %58, label %59, label %_ZNSt6bitsetILm31EE3setEmb.exit.i17
 
-57:                                               ; preds = %47
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.753, ptr noundef nonnull @.str.752, i64 noundef %54, i64 noundef 31) #22
+59:                                               ; preds = %49
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.753, ptr noundef nonnull @.str.752, i64 noundef %56, i64 noundef 31) #22
   unreachable
 
-_ZNSt6bitsetILm31EE3setEmb.exit.i17:              ; preds = %47
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %59 = shl nuw nsw i64 1, %54
-  %60 = load i64, ptr %58, align 8, !tbaa !56
-  %61 = or i64 %60, %59
-  store i64 %61, ptr %58, align 8, !tbaa !56
+_ZNSt6bitsetILm31EE3setEmb.exit.i17:              ; preds = %49
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %61 = shl nuw nsw i64 1, %56
+  %62 = load i64, ptr %60, align 8, !tbaa !56
+  %63 = or i64 %62, %61
+  store i64 %63, ptr %60, align 8, !tbaa !56
   br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit18
 
-_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit18: ; preds = %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit, %19, %_ZNSt6bitsetILm31EE3setEmb.exit.i17, %41, %13
+_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit18: ; preds = %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEN4llvm10MCRegisterESt8optionalIlE.exit, %19, %_ZNSt6bitsetILm31EE3setEmb.exit.i17, %43, %13
   ret void
 }
 
@@ -2875,82 +2877,12 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isB
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8, i32 9
-  %10 = load i64, ptr %9, align 8, !tbaa !176
-  %11 = and i64 %10, 1024
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
-
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val4 = load ptr, ptr %13, align 8
-  switch i32 %5, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit [
-    i32 12659, label %14
-    i32 12660, label %18
-    i32 12321, label %27
-  ]
-
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !9
-  %17 = icmp eq i32 %16, 43
-  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
-
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !9
-  %21 = icmp eq i32 %20, 43
-  br i1 %21, label %22, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
-
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.val4, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !9
-  %25 = icmp ne i32 %24, 44
-  %26 = icmp ne i32 %24, 48
-  %spec.select.i.not.i = and i1 %25, %26
-  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
-
-27:                                               ; preds = %12
-  %28 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !9
-  %30 = icmp ne i32 %29, 44
-  %31 = icmp ne i32 %29, 48
-  %spec.select.i7.not.i = and i1 %30, %31
-  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
-
-_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit: ; preds = %27, %22, %18, %14, %12, %2
-  %.0 = phi i1 [ true, %2 ], [ %17, %14 ], [ %spec.select.i7.not.i, %27 ], [ false, %12 ], [ false, %18 ], [ %spec.select.i.not.i, %22 ]
-  ret i1 %.0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis19isConditionalBranchERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !138
-  %5 = load i32, ptr %1, align 8, !tbaa !166
-  %6 = load ptr, ptr %4, align 8, !tbaa !60
-  %7 = zext i32 %5 to i64
-  %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8, i32 9
-  %10 = load i64, ptr %9, align 8, !tbaa !176
-  %11 = and i64 %10, 3328
-  %12 = icmp eq i64 %11, 1024
-  ret i1 %12
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis21isUnconditionalBranchERKN4llvm6MCInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !138
-  %5 = load i32, ptr %1, align 8, !tbaa !166
-  %6 = load ptr, ptr %4, align 8, !tbaa !60
-  %7 = zext i32 %5 to i64
-  %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8, i32 9
-  %10 = load i64, ptr %9, align 8, !tbaa !176
-  %11 = and i64 %10, 3328
-  %12 = icmp eq i64 %11, 1280
-  br i1 %12, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit, label %13
+  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %10, align 8, !tbaa !176
+  %12 = and i64 %11, 1024
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %13, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2994,6 +2926,79 @@ _ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit: ; p
   ret i1 %.0
 }
 
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis19isConditionalBranchERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #2 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !138
+  %5 = load i32, ptr %1, align 8, !tbaa !166
+  %6 = load ptr, ptr %4, align 8, !tbaa !60
+  %7 = zext i32 %5 to i64
+  %8 = sub nsw i64 0, %7
+  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %10, align 8, !tbaa !176
+  %12 = and i64 %11, 3328
+  %13 = icmp eq i64 %12, 1024
+  ret i1 %13
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis21isUnconditionalBranchERKN4llvm6MCInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #1 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !138
+  %5 = load i32, ptr %1, align 8, !tbaa !166
+  %6 = load ptr, ptr %4, align 8, !tbaa !60
+  %7 = zext i32 %5 to i64
+  %8 = sub nsw i64 0, %7
+  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %10, align 8, !tbaa !176
+  %12 = and i64 %11, 3328
+  %13 = icmp eq i64 %12, 1280
+  br i1 %13, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit, label %14
+
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val4 = load ptr, ptr %15, align 8
+  switch i32 %5, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit [
+    i32 12659, label %16
+    i32 12660, label %20
+    i32 12321, label %29
+  ]
+
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
+  %18 = load i32, ptr %17, align 8, !tbaa !9
+  %19 = icmp eq i32 %18, 43
+  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
+
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
+  %22 = load i32, ptr %21, align 8, !tbaa !9
+  %23 = icmp eq i32 %22, 43
+  br i1 %23, label %24, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
+
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %.val4, i64 24
+  %26 = load i32, ptr %25, align 8, !tbaa !9
+  %27 = icmp ne i32 %26, 44
+  %28 = icmp ne i32 %26, 48
+  %spec.select.i.not.i = and i1 %27, %28
+  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
+
+29:                                               ; preds = %14
+  %30 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
+  %31 = load i32, ptr %30, align 8, !tbaa !9
+  %32 = icmp ne i32 %31, 44
+  %33 = icmp ne i32 %31, 48
+  %spec.select.i7.not.i = and i1 %32, %33
+  br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
+
+_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit: ; preds = %29, %24, %20, %16, %14, %2
+  %.0 = phi i1 [ true, %2 ], [ %19, %16 ], [ %spec.select.i7.not.i, %29 ], [ false, %14 ], [ false, %20 ], [ %spec.select.i.not.i, %24 ]
+  ret i1 %.0
+}
+
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis16isIndirectBranchERKN4llvm6MCInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3002,46 +3007,47 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis16is
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8, i32 9
-  %10 = load i64, ptr %9, align 8, !tbaa !176
-  %11 = and i64 %10, 2048
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %31
+  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %10, align 8, !tbaa !176
+  %12 = and i64 %11, 2048
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %13, label %32
 
-12:                                               ; preds = %2
-  switch i32 %5, label %31 [
-    i32 12660, label %13
-    i32 12321, label %24
+13:                                               ; preds = %2
+  switch i32 %5, label %32 [
+    i32 12660, label %14
+    i32 12321, label %25
   ]
 
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !9
-  %18 = icmp eq i32 %17, 43
-  br i1 %18, label %19, label %31
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load i32, ptr %17, align 8, !tbaa !9
+  %19 = icmp eq i32 %18, 43
+  br i1 %19, label %20, label %32
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %21 = load i32, ptr %20, align 8, !tbaa !9
-  %22 = icmp ne i32 %21, 44
-  %23 = icmp ne i32 %21, 48
-  %spec.select.i.not = and i1 %22, %23
-  br label %31
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %22 = load i32, ptr %21, align 8, !tbaa !9
+  %23 = icmp ne i32 %22, 44
+  %24 = icmp ne i32 %22, 48
+  %spec.select.i.not = and i1 %23, %24
+  br label %32
 
-24:                                               ; preds = %12
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !9
-  %29 = icmp ne i32 %28, 44
-  %30 = icmp ne i32 %28, 48
-  %spec.select.i8.not = and i1 %29, %30
-  br label %31
+25:                                               ; preds = %13
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !9
+  %30 = icmp ne i32 %29, 44
+  %31 = icmp ne i32 %29, 48
+  %spec.select.i8.not = and i1 %30, %31
+  br label %32
 
-31:                                               ; preds = %13, %19, %12, %2, %24
-  %.0 = phi i1 [ %spec.select.i8.not, %24 ], [ true, %2 ], [ false, %12 ], [ false, %13 ], [ %spec.select.i.not, %19 ]
+32:                                               ; preds = %14, %20, %13, %2, %25
+  %.0 = phi i1 [ %spec.select.i8.not, %25 ], [ true, %2 ], [ false, %13 ], [ false, %14 ], [ %spec.select.i.not, %20 ]
   ret i1 %.0
 }
 
@@ -3053,27 +3059,28 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis6isC
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8, i32 9
-  %10 = load i64, ptr %9, align 8, !tbaa !176
-  %11 = and i64 %10, 128
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %19
+  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %10, align 8, !tbaa !176
+  %12 = and i64 %11, 128
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %13, label %20
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   %.off = add i32 %5, -12659
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %13, label %19
+  br i1 %switch, label %14, label %20
 
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !9
-  %18 = icmp ne i32 %17, 43
-  br label %19
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load i32, ptr %17, align 8, !tbaa !9
+  %19 = icmp ne i32 %18, 43
+  br label %20
 
-19:                                               ; preds = %12, %2, %13
-  %.0 = phi i1 [ %18, %13 ], [ true, %2 ], [ false, %12 ]
+20:                                               ; preds = %13, %2, %14
+  %.0 = phi i1 [ %19, %14 ], [ true, %2 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -3085,46 +3092,47 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isR
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8, i32 9
-  %10 = load i64, ptr %9, align 8, !tbaa !176
-  %11 = and i64 %10, 32
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %31
+  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %10, align 8, !tbaa !176
+  %12 = and i64 %11, 32
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %13, label %32
 
-12:                                               ; preds = %2
-  switch i32 %5, label %31 [
-    i32 12660, label %13
-    i32 12321, label %24
+13:                                               ; preds = %2
+  switch i32 %5, label %32 [
+    i32 12660, label %14
+    i32 12321, label %25
   ]
 
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !9
-  %18 = icmp eq i32 %17, 43
-  br i1 %18, label %19, label %31
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load i32, ptr %17, align 8, !tbaa !9
+  %19 = icmp eq i32 %18, 43
+  br i1 %19, label %20, label %32
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %21 = load i32, ptr %20, align 8, !tbaa !9
-  %22 = icmp eq i32 %21, 44
-  %23 = icmp eq i32 %21, 48
-  %spec.select.i = or i1 %22, %23
-  br label %31
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %22 = load i32, ptr %21, align 8, !tbaa !9
+  %23 = icmp eq i32 %22, 44
+  %24 = icmp eq i32 %22, 48
+  %spec.select.i = or i1 %23, %24
+  br label %32
 
-24:                                               ; preds = %12
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !9
-  %29 = icmp eq i32 %28, 44
-  %30 = icmp eq i32 %28, 48
-  %spec.select.i8 = or i1 %29, %30
-  br label %31
+25:                                               ; preds = %13
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !9
+  %30 = icmp eq i32 %29, 44
+  %31 = icmp eq i32 %29, 48
+  %spec.select.i8 = or i1 %30, %31
+  br label %32
 
-31:                                               ; preds = %13, %19, %12, %2, %24
-  %.0 = phi i1 [ %spec.select.i8, %24 ], [ true, %2 ], [ false, %12 ], [ false, %13 ], [ %spec.select.i, %19 ]
+32:                                               ; preds = %14, %20, %13, %2, %25
+  %.0 = phi i1 [ %spec.select.i8, %25 ], [ true, %2 ], [ false, %13 ], [ false, %14 ], [ %spec.select.i, %20 ]
   ret i1 %.0
 }
 
@@ -3136,27 +3144,28 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis12is
   %6 = load ptr, ptr %4, align 8, !tbaa !60
   %7 = zext i32 %5 to i64
   %8 = sub nsw i64 0, %7
-  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8, i32 9
-  %10 = load i64, ptr %9, align 8, !tbaa !176
-  %11 = and i64 %10, 512
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %19
+  %9 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %10, align 8, !tbaa !176
+  %12 = and i64 %11, 512
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %13, label %20
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   %.off = add i32 %5, -12659
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %13, label %19
+  br i1 %switch, label %14, label %20
 
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !9
-  %18 = icmp eq i32 %17, 43
-  br label %19
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load i32, ptr %17, align 8, !tbaa !9
+  %19 = icmp eq i32 %18, 43
+  br label %20
 
-19:                                               ; preds = %12, %2, %13
-  %.0 = phi i1 [ %18, %13 ], [ true, %2 ], [ false, %12 ]
+20:                                               ; preds = %13, %2, %14
+  %.0 = phi i1 [ %19, %14 ], [ true, %2 ], [ false, %13 ]
   ret i1 %.0
 }
 

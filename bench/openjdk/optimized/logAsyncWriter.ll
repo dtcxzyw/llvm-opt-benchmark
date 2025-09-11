@@ -317,8 +317,8 @@ define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMess
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
-  %15 = phi ptr [ %9, %.lr.ph ], [ %36, %14 ]
-  %16 = phi i64 [ %8, %.lr.ph ], [ %35, %14 ]
+  %15 = phi ptr [ %9, %.lr.ph ], [ %37, %14 ]
+  %16 = phi i64 [ %8, %.lr.ph ], [ %36, %14 ]
   %17 = load ptr, ptr %13, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %19 = load ptr, ptr %18, align 8
@@ -333,25 +333,26 @@ define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMess
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %7, align 8
-  %30 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %28, i64 %29, i32 1
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 %31
-  call void @_ZN14AsyncLogWriter14enqueue_lockedEP19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %32)
-  %33 = load i64, ptr %7, align 8
-  %34 = add i64 %33, 1
-  store i64 %34, ptr %7, align 8
+  %30 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %26, i64 %32
+  call void @_ZN14AsyncLogWriter14enqueue_lockedEP19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %33)
+  %34 = load i64, ptr %7, align 8
+  %35 = add i64 %34, 1
+  store i64 %35, ptr %7, align 8
   call void @_ZN16LogMessageBuffer8Iterator30skip_messages_with_finer_levelEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  %35 = load i64, ptr %7, align 8
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %38 = load i64, ptr %37, align 8
-  %39 = icmp eq i64 %35, %38
-  br i1 %39, label %._crit_edge, label %14, !llvm.loop !8
+  %36 = load i64, ptr %7, align 8
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %39 = load i64, ptr %38, align 8
+  %40 = icmp eq i64 %36, %39
+  br i1 %40, label %._crit_edge, label %14, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %14, %3
-  %40 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 928
-  %42 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %41) #16
+  %41 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 928
+  %43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %42) #16
   ret void
 }
 

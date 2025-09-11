@@ -796,7 +796,8 @@ cleanup_entry.exit:                               ; preds = %.loopexit.i, %70
 .preheader14:                                     ; preds = %92, %.preheader14
   %97 = phi i32 [ %100, %.preheader14 ], [ 0, %92 ]
   %98 = sext i32 %97 to i64
-  %99 = getelementptr %struct.nf_hook_ops, ptr %95, i64 %98, i32 2
+  %.split = getelementptr %struct.nf_hook_ops, ptr %95, i64 %98
+  %99 = getelementptr i8, ptr %.split, i64 16
   store ptr %23, ptr %99, align 8
   %100 = add nuw i32 %97, 1
   %101 = icmp eq i32 %100, %90

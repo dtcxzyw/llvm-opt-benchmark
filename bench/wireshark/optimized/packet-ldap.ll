@@ -1738,7 +1738,7 @@ define internal void @attribute_types_post_update_cb() #0 {
 deregister_attribute_types.exit:                  ; preds = %15, %17
   %18 = load i32, ptr @num_attribute_types, align 4
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %56, label %19
+  br i1 %.not, label %59, label %19
 
 19:                                               ; preds = %deregister_attribute_types.exit
   %20 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal)
@@ -1758,10 +1758,10 @@ deregister_attribute_types.exit:                  ; preds = %15, %17
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
   %25 = phi ptr [ %23, %19 ], [ %.pre, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ 0, %19 ], [ %53, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ 0, %19 ], [ %56, %._crit_edge.loopexit ]
   %26 = load i32, ptr @proto_ldap, align 4
   tail call void @proto_register_field_array(i32 noundef %26, ptr noundef %25, i32 noundef %.lcssa)
-  br label %56
+  br label %59
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %19 ]
@@ -1774,42 +1774,45 @@ deregister_attribute_types.exit:                  ; preds = %15, %17
   %32 = load ptr, ptr @dynamic_hf, align 8
   %33 = getelementptr %struct.hf_register_info, ptr %32, i64 %indvars.iv
   store ptr %27, ptr %33, align 8
-  %34 = getelementptr %struct.hf_register_info, ptr %32, i64 %indvars.iv, i32 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %31, ptr %34, align 8
   %35 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.951, ptr noundef %31)
   %36 = load ptr, ptr @dynamic_hf, align 8
-  %37 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv, i32 1, i32 1
-  store ptr %35, ptr %37, align 8
-  %38 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv, i32 1, i32 2
-  store i32 26, ptr %38, align 8
-  %39 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv, i32 1, i32 3
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(20) %39, i8 0, i64 20, i1 false)
-  %40 = load ptr, ptr @attribute_types, align 8
-  %41 = getelementptr %struct._attribute_type_t, ptr %40, i64 %indvars.iv, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noalias ptr @g_strdup(ptr noundef %42)
-  %44 = load ptr, ptr @dynamic_hf, align 8
-  %45 = getelementptr %struct.hf_register_info, ptr %44, i64 %indvars.iv, i32 1, i32 6
-  store ptr %43, ptr %45, align 8
-  %46 = getelementptr %struct.hf_register_info, ptr %44, i64 %indvars.iv, i32 1, i32 7
-  store i32 -1, ptr %46, align 8
-  %47 = getelementptr %struct.hf_register_info, ptr %44, i64 %indvars.iv, i32 1, i32 8
-  store i32 0, ptr %47, align 4
-  %48 = getelementptr %struct.hf_register_info, ptr %44, i64 %indvars.iv, i32 1, i32 9
-  store i32 0, ptr %48, align 8
-  %49 = getelementptr %struct.hf_register_info, ptr %44, i64 %indvars.iv, i32 1, i32 10
-  store i32 -1, ptr %49, align 4
-  %50 = getelementptr %struct.hf_register_info, ptr %44, i64 %indvars.iv, i32 1, i32 11
-  store ptr null, ptr %50, align 8
-  %51 = load ptr, ptr @attribute_types_hash, align 8
-  %52 = tail call i32 @g_hash_table_insert(ptr noundef %51, ptr noundef %31, ptr noundef %27)
+  %37 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store ptr %35, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store i32 26, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %40, i8 0, i64 20, i1 false)
+  %41 = load ptr, ptr @attribute_types, align 8
+  %42 = getelementptr %struct._attribute_type_t, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call noalias ptr @g_strdup(ptr noundef %44)
+  %46 = load ptr, ptr @dynamic_hf, align 8
+  %47 = getelementptr %struct.hf_register_info, ptr %46, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  store ptr %45, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  store i32 -1, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 60
+  store i32 0, ptr %50, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  store i32 0, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 68
+  store i32 -1, ptr %52, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 72
+  store ptr null, ptr %53, align 8
+  %54 = load ptr, ptr @attribute_types_hash, align 8
+  %55 = tail call i32 @g_hash_table_insert(ptr noundef %54, ptr noundef %31, ptr noundef %27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr @dynamic_hf_size, align 4
-  %54 = zext i32 %53 to i64
-  %55 = icmp samesign ult i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
+  %56 = load i32, ptr @dynamic_hf_size, align 4
+  %57 = zext i32 %56 to i64
+  %58 = icmp samesign ult i64 %indvars.iv.next, %57
+  br i1 %58, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
 
-56:                                               ; preds = %._crit_edge, %deregister_attribute_types.exit
+59:                                               ; preds = %._crit_edge, %deregister_attribute_types.exit
   ret void
 }
 

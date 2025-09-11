@@ -3975,7 +3975,7 @@ list_length.exit122:                              ; preds = %161, %167
   br label %178
 
 178:                                              ; preds = %.lr.ph134, %list_length.exit124
-  %.0133 = phi i32 [ 0, %.lr.ph134 ], [ %191, %list_length.exit124 ]
+  %.0133 = phi i32 [ 0, %.lr.ph134 ], [ %192, %list_length.exit124 ]
   %179 = load ptr, ptr %177, align 8
   %180 = load ptr, ptr %174, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -3993,10 +3993,11 @@ list_length.exit124:                              ; preds = %178, %183
   %187 = xor i32 %.0133, -1
   %188 = add i32 %186, %187
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds %struct.ParseNamespaceColumn, ptr %179, i64 %189, i32 8
-  store i8 1, ptr %190, align 2
-  %191 = add nuw nsw i32 %.0133, 1
-  %exitcond.not = icmp eq i32 %191, %.1
+  %190 = getelementptr inbounds %struct.ParseNamespaceColumn, ptr %179, i64 %189
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 30
+  store i8 1, ptr %191, align 2
+  %192 = add nuw nsw i32 %.0133, 1
+  %exitcond.not = icmp eq i32 %192, %.1
   br i1 %exitcond.not, label %.loopexit, label %178, !llvm.loop !24
 
 .loopexit:                                        ; preds = %list_length.exit124, %list_length.exit122
@@ -6101,7 +6102,7 @@ define dso_local i32 @attnumTypeId(ptr noundef readonly captures(none) %0, i32 n
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @attnumCollationId(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 1
-  br i1 %3, label %19, label %4
+  br i1 %3, label %20, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6122,12 +6123,13 @@ define dso_local i32 @attnumCollationId(ptr noundef readonly captures(none) %0, 
   %14 = shl nuw nsw i64 %13, 4
   %15 = getelementptr i8, ptr %6, i64 %14
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr %struct.FormData_pg_attribute, ptr %15, i64 %16, i32 1, i32 0, i64 16
-  %18 = load i32, ptr %17, align 4
-  br label %19
+  %17 = getelementptr %struct.FormData_pg_attribute, ptr %15, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 20
+  %19 = load i32, ptr %18, align 4
+  br label %20
 
-19:                                               ; preds = %2, %12
-  %.0 = phi i32 [ %18, %12 ], [ 0, %2 ]
+20:                                               ; preds = %2, %12
+  %.0 = phi i32 [ %19, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 

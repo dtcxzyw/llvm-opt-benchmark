@@ -605,36 +605,37 @@ define hidden void @_ZN18ReferenceProcessor12weak_oops_doEP10OopClosure(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %6
 
-6:                                                ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+6:                                                ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %7 = load i8, ptr @UseCompressedOops, align 1
   %8 = trunc i8 %7 to i1
   %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %1, align 8
-  br i1 %8, label %11, label %15
+  %10 = getelementptr inbounds nuw %class.DiscoveredList, ptr %9, i64 %indvars.iv
+  br i1 %8, label %11, label %16
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw %class.DiscoveredList, ptr %9, i64 %indvars.iv, i32 1
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12) #17
-  br label %18
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = load ptr, ptr %1, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12) #17
+  br label %19
 
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds nuw %class.DiscoveredList, ptr %9, i64 %indvars.iv
-  %17 = load ptr, ptr %10, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %16) #17
-  br label %18
+16:                                               ; preds = %6
+  %17 = load ptr, ptr %1, align 8
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10) #17
+  br label %19
 
-18:                                               ; preds = %11, %15
+19:                                               ; preds = %11, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %3, align 4
-  %20 = shl i32 %19, 2
-  %21 = zext i32 %20 to i64
-  %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %6, label %._crit_edge, !llvm.loop !8
+  %20 = load i32, ptr %3, align 4
+  %21 = shl i32 %20, 2
+  %22 = zext i32 %21 to i64
+  %23 = icmp samesign ult i64 %indvars.iv.next, %22
+  br i1 %23, label %6, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %18, %2
+._crit_edge:                                      ; preds = %19, %2
   ret void
 }
 
@@ -668,16 +669,17 @@ define hidden noundef i64 @_ZNK18ReferenceProcessor11total_countEP14DiscoveredLi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.067 = phi i64 [ 0, %.lr.ph.preheader ], [ %7, %.lr.ph ]
-  %5 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv, i32 2
-  %6 = load i64, ptr %5, align 8
-  %7 = add i64 %6, %.067
+  %.067 = phi i64 [ 0, %.lr.ph.preheader ], [ %8, %.lr.ph ]
+  %5 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load i64, ptr %6, align 8
+  %8 = add i64 %7, %.067
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.06.lcssa = phi i64 [ 0, %2 ], [ %7, %.lr.ph ]
+  %.06.lcssa = phi i64 [ 0, %2 ], [ %8, %.lr.ph ]
   ret i64 %.06.lcssa
 }
 
@@ -702,107 +704,111 @@ define hidden void @_ZN18ReferenceProcessor29process_discovered_referencesER16Re
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.067.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %16, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw %class.DiscoveredList, ptr %11, i64 %indvars.iv.i, i32 2
-  %15 = load i64, ptr %14, align 8
-  %16 = add i64 %15, %.067.i
+  %.067.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %17, %.lr.ph.i ]
+  %14 = getelementptr inbounds nuw %class.DiscoveredList, ptr %11, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load i64, ptr %15, align 8
+  %17 = add i64 %16, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit: ; preds = %.lr.ph.i, %4
-  %.06.lcssa.i = phi i64 [ 0, %4 ], [ %16, %.lr.ph.i ]
+  %.06.lcssa.i = phi i64 [ 0, %4 ], [ %17, %.lr.ph.i ]
   tail call void @_ZN28ReferenceProcessorPhaseTimes18set_ref_discoveredE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 1, i64 noundef %.06.lcssa.i) #17
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i32, ptr %12, align 4
-  %.not.i21 = icmp eq i32 %19, 0
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i32, ptr %12, align 4
+  %.not.i21 = icmp eq i32 %20, 0
   br i1 %.not.i21, label %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit30, label %.lr.ph.preheader.i22
 
 .lr.ph.preheader.i22:                             ; preds = %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit
-  %wide.trip.count.i23 = zext i32 %19 to i64
+  %wide.trip.count.i23 = zext i32 %20 to i64
   br label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %.lr.ph.i24, %.lr.ph.preheader.i22
   %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.preheader.i22 ], [ %indvars.iv.next.i27, %.lr.ph.i24 ]
-  %.067.i26 = phi i64 [ 0, %.lr.ph.preheader.i22 ], [ %22, %.lr.ph.i24 ]
-  %20 = getelementptr inbounds nuw %class.DiscoveredList, ptr %18, i64 %indvars.iv.i25, i32 2
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, %.067.i26
+  %.067.i26 = phi i64 [ 0, %.lr.ph.preheader.i22 ], [ %24, %.lr.ph.i24 ]
+  %21 = getelementptr inbounds nuw %class.DiscoveredList, ptr %19, i64 %indvars.iv.i25
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load i64, ptr %22, align 8
+  %24 = add i64 %23, %.067.i26
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i23
   br i1 %exitcond.not.i28, label %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit30, label %.lr.ph.i24, !llvm.loop !9
 
 _ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit30: ; preds = %.lr.ph.i24, %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit
-  %.06.lcssa.i29 = phi i64 [ 0, %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit ], [ %22, %.lr.ph.i24 ]
+  %.06.lcssa.i29 = phi i64 [ 0, %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit ], [ %24, %.lr.ph.i24 ]
   tail call void @_ZN28ReferenceProcessorPhaseTimes18set_ref_discoveredE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 2, i64 noundef %.06.lcssa.i29) #17
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %12, align 4
-  %.not.i31 = icmp eq i32 %25, 0
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i32, ptr %12, align 4
+  %.not.i31 = icmp eq i32 %27, 0
   br i1 %.not.i31, label %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit40, label %.lr.ph.preheader.i32
 
 .lr.ph.preheader.i32:                             ; preds = %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit30
-  %wide.trip.count.i33 = zext i32 %25 to i64
+  %wide.trip.count.i33 = zext i32 %27 to i64
   br label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34, %.lr.ph.preheader.i32
   %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.preheader.i32 ], [ %indvars.iv.next.i37, %.lr.ph.i34 ]
-  %.067.i36 = phi i64 [ 0, %.lr.ph.preheader.i32 ], [ %28, %.lr.ph.i34 ]
-  %26 = getelementptr inbounds nuw %class.DiscoveredList, ptr %24, i64 %indvars.iv.i35, i32 2
-  %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, %.067.i36
+  %.067.i36 = phi i64 [ 0, %.lr.ph.preheader.i32 ], [ %31, %.lr.ph.i34 ]
+  %28 = getelementptr inbounds nuw %class.DiscoveredList, ptr %26, i64 %indvars.iv.i35
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load i64, ptr %29, align 8
+  %31 = add i64 %30, %.067.i36
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i33
   br i1 %exitcond.not.i38, label %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit40, label %.lr.ph.i34, !llvm.loop !9
 
 _ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit40: ; preds = %.lr.ph.i34, %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit30
-  %.06.lcssa.i39 = phi i64 [ 0, %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit30 ], [ %28, %.lr.ph.i34 ]
+  %.06.lcssa.i39 = phi i64 [ 0, %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit30 ], [ %31, %.lr.ph.i34 ]
   tail call void @_ZN28ReferenceProcessorPhaseTimes18set_ref_discoveredE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 3, i64 noundef %.06.lcssa.i39) #17
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr %12, align 4
-  %.not.i41 = icmp eq i32 %31, 0
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i32, ptr %12, align 4
+  %.not.i41 = icmp eq i32 %34, 0
   br i1 %.not.i41, label %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit50, label %.lr.ph.preheader.i42
 
 .lr.ph.preheader.i42:                             ; preds = %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit40
-  %wide.trip.count.i43 = zext i32 %31 to i64
+  %wide.trip.count.i43 = zext i32 %34 to i64
   br label %.lr.ph.i44
 
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44, %.lr.ph.preheader.i42
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.preheader.i42 ], [ %indvars.iv.next.i47, %.lr.ph.i44 ]
-  %.067.i46 = phi i64 [ 0, %.lr.ph.preheader.i42 ], [ %34, %.lr.ph.i44 ]
-  %32 = getelementptr inbounds nuw %class.DiscoveredList, ptr %30, i64 %indvars.iv.i45, i32 2
-  %33 = load i64, ptr %32, align 8
-  %34 = add i64 %33, %.067.i46
+  %.067.i46 = phi i64 [ 0, %.lr.ph.preheader.i42 ], [ %38, %.lr.ph.i44 ]
+  %35 = getelementptr inbounds nuw %class.DiscoveredList, ptr %33, i64 %indvars.iv.i45
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load i64, ptr %36, align 8
+  %38 = add i64 %37, %.067.i46
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %wide.trip.count.i43
   br i1 %exitcond.not.i48, label %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit50, label %.lr.ph.i44, !llvm.loop !9
 
 _ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit50: ; preds = %.lr.ph.i44, %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit40
-  %.06.lcssa.i49 = phi i64 [ 0, %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit40 ], [ %34, %.lr.ph.i44 ]
+  %.06.lcssa.i49 = phi i64 [ 0, %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit40 ], [ %38, %.lr.ph.i44 ]
   tail call void @_ZN28ReferenceProcessorPhaseTimes18set_ref_discoveredE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 4, i64 noundef %.06.lcssa.i49) #17
-  %35 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #17
-  %36 = sdiv i64 %35, 1000000
-  %37 = load i64, ptr @_ZN18ReferenceProcessor25_soft_ref_timestamp_clockE, align 8
-  %38 = icmp sgt i64 %36, %37
-  br i1 %38, label %39, label %_ZN18ReferenceProcessor28update_soft_ref_master_clockEv.exit
+  %39 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #17
+  %40 = sdiv i64 %39, 1000000
+  %41 = load i64, ptr @_ZN18ReferenceProcessor25_soft_ref_timestamp_clockE, align 8
+  %42 = icmp sgt i64 %40, %41
+  br i1 %42, label %43, label %_ZN18ReferenceProcessor28update_soft_ref_master_clockEv.exit
 
-39:                                               ; preds = %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit50
-  store i64 %36, ptr @_ZN18ReferenceProcessor25_soft_ref_timestamp_clockE, align 8
-  tail call void @_ZN27java_lang_ref_SoftReference9set_clockEl(i64 noundef %36) #17
+43:                                               ; preds = %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit50
+  store i64 %40, ptr @_ZN18ReferenceProcessor25_soft_ref_timestamp_clockE, align 8
+  tail call void @_ZN27java_lang_ref_SoftReference9set_clockEl(i64 noundef %40) #17
   br label %_ZN18ReferenceProcessor28update_soft_ref_master_clockEv.exit
 
-_ZN18ReferenceProcessor28update_soft_ref_master_clockEv.exit: ; preds = %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit50, %39
-  %40 = load i8, ptr @ParallelRefProcEnabled, align 1
-  %41 = trunc i8 %40 to i1
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp ugt i32 %43, 1
-  %45 = select i1 %41, i1 %44, i1 false
-  %46 = zext i1 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  store i8 %46, ptr %47, align 8
+_ZN18ReferenceProcessor28update_soft_ref_master_clockEv.exit: ; preds = %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit50, %43
+  %44 = load i8, ptr @ParallelRefProcEnabled, align 1
+  %45 = trunc i8 %44 to i1
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp ugt i32 %47, 1
+  %49 = select i1 %45, i1 %48, i1 false
+  %50 = zext i1 %49 to i8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  store i8 %50, ptr %51, align 8
   call void @_ZN29RefProcTotalPhaseTimesTrackerC1EN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) %5, i32 noundef 0, ptr noundef nonnull %3) #17
   call void @_ZN18ReferenceProcessor28process_soft_weak_final_refsER16RefProcProxyTaskR28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull align 8 dereferenceable(184) %3)
   call void @_ZN29RefProcTotalPhaseTimesTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #17
@@ -812,22 +818,22 @@ _ZN18ReferenceProcessor28update_soft_ref_master_clockEv.exit: ; preds = %_ZNK18R
   call void @_ZN29RefProcTotalPhaseTimesTrackerC1EN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) %7, i32 noundef 2, ptr noundef nonnull %3) #17
   call void @_ZN18ReferenceProcessor20process_phantom_refsER16RefProcProxyTaskR28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull align 8 dereferenceable(184) %3)
   call void @_ZN29RefProcTotalPhaseTimesTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %7) #17
-  %48 = call noundef double @_ZN2os11elapsedTimeEv() #17
-  %49 = fsub double %48, %8
-  %50 = fmul double %49, 1.000000e+03
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store double %50, ptr %51, align 8
-  %52 = call noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 1) #17
-  %53 = call noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 2) #17
-  %54 = call noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 3) #17
-  %55 = call noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 4) #17
-  store i64 %52, ptr %0, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %53, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %54, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %55, ptr %58, align 8
+  %52 = call noundef double @_ZN2os11elapsedTimeEv() #17
+  %53 = fsub double %52, %8
+  %54 = fmul double %53, 1.000000e+03
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store double %54, ptr %55, align 8
+  %56 = call noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 1) #17
+  %57 = call noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 2) #17
+  %58 = call noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 3) #17
+  %59 = call noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr noundef nonnull align 8 dereferenceable(184) %3, i32 noundef 4) #17
+  store i64 %56, ptr %0, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %57, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %58, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %59, ptr %62, align 8
   ret void
 }
 
@@ -852,11 +858,11 @@ define hidden void @_ZN18ReferenceProcessor28process_soft_weak_final_refsER16Ref
 12:                                               ; preds = %3
   %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %122, label %14
+  br i1 %.not, label %125, label %14
 
 14:                                               ; preds = %12
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.15)
-  br label %122
+  br label %125
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -885,7 +891,7 @@ _ZN23RefProcMTDegreeAdjusterC2EP18ReferenceProcessorNS0_13RefProcPhasesEm.exit: 
   %31 = trunc i8 %30 to i1
   %32 = icmp ugt i32 %.0.i.i, 1
   %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %34, label %107
+  br i1 %33, label %34, label %110
 
 34:                                               ; preds = %_ZN23RefProcMTDegreeAdjusterC2EP18ReferenceProcessorNS0_13RefProcPhasesEm.exit
   call void @_ZN31RefProcBalanceQueuesTimeTrackerC1EN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) %4, i32 noundef 0, ptr noundef nonnull %2) #17
@@ -917,14 +923,15 @@ _ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i: ; preds = %.lr.ph.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i
   %indvars.iv12.i.i = phi i64 [ %indvars.iv.next13.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i ], [ %49, %.lr.ph.i.i ]
-  %50 = getelementptr inbounds nuw %class.DiscoveredList, ptr %36, i64 %indvars.iv12.i.i, i32 1
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp ne i32 %51, 0
-  %53 = zext i32 %51 to i64
-  %54 = shl i64 %53, %48
-  %55 = getelementptr i8, ptr %46, i64 %54
-  %56 = icmp ne ptr %55, null
-  %or.cond.not.i.i = select i1 %52, i1 %56, i1 false
+  %50 = getelementptr inbounds nuw %class.DiscoveredList, ptr %36, i64 %indvars.iv12.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp ne i32 %52, 0
+  %54 = zext i32 %52 to i64
+  %55 = shl i64 %54, %48
+  %56 = getelementptr i8, ptr %46, i64 %55
+  %57 = icmp ne ptr %56, null
+  %or.cond.not.i.i = select i1 %53, i1 %57, i1 false
   br i1 %or.cond.not.i.i, label %.loopexit.i, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i: ; preds = %.lr.ph.split.us.i.i
@@ -935,9 +942,9 @@ _ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i: ; preds = %.lr.ph.split.us.i
 
 _ZNK14DiscoveredList8is_emptyEv.exit.i.i:         ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %49, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i ]
-  %57 = getelementptr inbounds nuw %class.DiscoveredList, ptr %36, i64 %indvars.iv.i.i
-  %58 = load ptr, ptr %57, align 8
-  %.not.i.i = icmp eq ptr %58, null
+  %58 = getelementptr inbounds nuw %class.DiscoveredList, ptr %36, i64 %indvars.iv.i.i
+  %59 = load ptr, ptr %58, align 8
+  %.not.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i, label %.loopexit.i
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i:  ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.i.i
@@ -951,55 +958,56 @@ _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i:  ; preds = %_ZNK14DiscoveredLis
   br label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit
 
 _ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit: ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i, %39, %.loopexit.i
-  %59 = phi i8 [ %37, %39 ], [ %.pre, %.loopexit.i ], [ %37, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i ], [ %37, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %61 = load ptr, ptr %60, align 8
-  %62 = trunc i8 %59 to i1
-  br i1 %62, label %.loopexit.i17, label %63
+  %60 = phi i8 [ %37, %39 ], [ %.pre, %.loopexit.i ], [ %37, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i ], [ %37, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i ]
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %62 = load ptr, ptr %61, align 8
+  %63 = trunc i8 %60 to i1
+  br i1 %63, label %.loopexit.i17, label %64
 
-63:                                               ; preds = %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit
-  %64 = load i32, ptr %16, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp ult i32 %64, %66
-  br i1 %67, label %.lr.ph.i.i11, label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28
+64:                                               ; preds = %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit
+  %65 = load i32, ptr %16, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp ult i32 %65, %67
+  br i1 %68, label %.lr.ph.i.i11, label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28
 
-.lr.ph.i.i11:                                     ; preds = %63
-  %68 = load i8, ptr @UseCompressedOops, align 1
-  %69 = trunc i8 %68 to i1
-  %70 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %72 = zext nneg i32 %71 to i64
-  %73 = zext i32 %64 to i64
-  br i1 %69, label %.lr.ph.split.us.i.i21, label %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i12
+.lr.ph.i.i11:                                     ; preds = %64
+  %69 = load i8, ptr @UseCompressedOops, align 1
+  %70 = trunc i8 %69 to i1
+  %71 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %73 = zext nneg i32 %72 to i64
+  %74 = zext i32 %65 to i64
+  br i1 %70, label %.lr.ph.split.us.i.i21, label %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i12
 
 _ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i12: ; preds = %.lr.ph.i.i11
-  %wide.trip.count.i.i13 = zext i32 %66 to i64
+  %wide.trip.count.i.i13 = zext i32 %67 to i64
   br label %_ZNK14DiscoveredList8is_emptyEv.exit.i.i14
 
 .lr.ph.split.us.i.i21:                            ; preds = %.lr.ph.i.i11, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24
-  %indvars.iv12.i.i22 = phi i64 [ %indvars.iv.next13.i.i25, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24 ], [ %73, %.lr.ph.i.i11 ]
-  %74 = getelementptr inbounds nuw %class.DiscoveredList, ptr %61, i64 %indvars.iv12.i.i22, i32 1
-  %75 = load i32, ptr %74, align 8
-  %76 = icmp ne i32 %75, 0
-  %77 = zext i32 %75 to i64
-  %78 = shl i64 %77, %72
-  %79 = getelementptr i8, ptr %70, i64 %78
-  %80 = icmp ne ptr %79, null
-  %or.cond.not.i.i23 = select i1 %76, i1 %80, i1 false
+  %indvars.iv12.i.i22 = phi i64 [ %indvars.iv.next13.i.i25, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24 ], [ %74, %.lr.ph.i.i11 ]
+  %75 = getelementptr inbounds nuw %class.DiscoveredList, ptr %62, i64 %indvars.iv12.i.i22
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp ne i32 %77, 0
+  %79 = zext i32 %77 to i64
+  %80 = shl i64 %79, %73
+  %81 = getelementptr i8, ptr %71, i64 %80
+  %82 = icmp ne ptr %81, null
+  %or.cond.not.i.i23 = select i1 %78, i1 %82, i1 false
   br i1 %or.cond.not.i.i23, label %.loopexit.i17, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24: ; preds = %.lr.ph.split.us.i.i21
   %indvars.iv.next13.i.i25 = add nuw nsw i64 %indvars.iv12.i.i22, 1
   %lftr.wideiv.i.i26 = trunc i64 %indvars.iv.next13.i.i25 to i32
-  %exitcond15.not.i.i27 = icmp eq i32 %66, %lftr.wideiv.i.i26
+  %exitcond15.not.i.i27 = icmp eq i32 %67, %lftr.wideiv.i.i26
   br i1 %exitcond15.not.i.i27, label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28, label %.lr.ph.split.us.i.i21, !llvm.loop !10
 
 _ZNK14DiscoveredList8is_emptyEv.exit.i.i14:       ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i12
-  %indvars.iv.i.i15 = phi i64 [ %73, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i12 ], [ %indvars.iv.next.i.i19, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18 ]
-  %81 = getelementptr inbounds nuw %class.DiscoveredList, ptr %61, i64 %indvars.iv.i.i15
-  %82 = load ptr, ptr %81, align 8
-  %.not.i.i16 = icmp eq ptr %82, null
+  %indvars.iv.i.i15 = phi i64 [ %74, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i12 ], [ %indvars.iv.next.i.i19, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18 ]
+  %83 = getelementptr inbounds nuw %class.DiscoveredList, ptr %62, i64 %indvars.iv.i.i15
+  %84 = load ptr, ptr %83, align 8
+  %.not.i.i16 = icmp eq ptr %84, null
   br i1 %.not.i.i16, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18, label %.loopexit.i17
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18: ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.i.i14
@@ -1008,60 +1016,61 @@ _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18: ; preds = %_ZNK14DiscoveredLi
   br i1 %exitcond.not.i.i20, label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28, label %_ZNK14DiscoveredList8is_emptyEv.exit.i.i14, !llvm.loop !10
 
 .loopexit.i17:                                    ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.i.i14, %.lr.ph.split.us.i.i21, %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit
-  call void @_ZN18ReferenceProcessor14balance_queuesEP14DiscoveredList(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %61)
+  call void @_ZN18ReferenceProcessor14balance_queuesEP14DiscoveredList(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %62)
   %.pre59 = load i8, ptr @ParallelRefProcBalancingEnabled, align 1
   br label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28
 
-_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28: ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24, %63, %.loopexit.i17
-  %83 = phi i8 [ %59, %63 ], [ %.pre59, %.loopexit.i17 ], [ %59, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24 ], [ %59, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18 ]
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %85 = load ptr, ptr %84, align 8
-  %86 = trunc i8 %83 to i1
-  br i1 %86, label %.loopexit.i35, label %87
+_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28: ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24, %64, %.loopexit.i17
+  %85 = phi i8 [ %60, %64 ], [ %.pre59, %.loopexit.i17 ], [ %60, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i24 ], [ %60, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i18 ]
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %87 = load ptr, ptr %86, align 8
+  %88 = trunc i8 %85 to i1
+  br i1 %88, label %.loopexit.i35, label %89
 
-87:                                               ; preds = %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28
-  %88 = load i32, ptr %16, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %90 = load i32, ptr %89, align 4
-  %91 = icmp ult i32 %88, %90
-  br i1 %91, label %.lr.ph.i.i29, label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit46
+89:                                               ; preds = %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28
+  %90 = load i32, ptr %16, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %92 = load i32, ptr %91, align 4
+  %93 = icmp ult i32 %90, %92
+  br i1 %93, label %.lr.ph.i.i29, label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit46
 
-.lr.ph.i.i29:                                     ; preds = %87
-  %92 = load i8, ptr @UseCompressedOops, align 1
-  %93 = trunc i8 %92 to i1
-  %94 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %96 = zext nneg i32 %95 to i64
-  %97 = zext i32 %88 to i64
-  br i1 %93, label %.lr.ph.split.us.i.i39, label %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i30
+.lr.ph.i.i29:                                     ; preds = %89
+  %94 = load i8, ptr @UseCompressedOops, align 1
+  %95 = trunc i8 %94 to i1
+  %96 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %98 = zext nneg i32 %97 to i64
+  %99 = zext i32 %90 to i64
+  br i1 %95, label %.lr.ph.split.us.i.i39, label %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i30
 
 _ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i30: ; preds = %.lr.ph.i.i29
-  %wide.trip.count.i.i31 = zext i32 %90 to i64
+  %wide.trip.count.i.i31 = zext i32 %92 to i64
   br label %_ZNK14DiscoveredList8is_emptyEv.exit.i.i32
 
 .lr.ph.split.us.i.i39:                            ; preds = %.lr.ph.i.i29, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i42
-  %indvars.iv12.i.i40 = phi i64 [ %indvars.iv.next13.i.i43, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i42 ], [ %97, %.lr.ph.i.i29 ]
-  %98 = getelementptr inbounds nuw %class.DiscoveredList, ptr %85, i64 %indvars.iv12.i.i40, i32 1
-  %99 = load i32, ptr %98, align 8
-  %100 = icmp ne i32 %99, 0
-  %101 = zext i32 %99 to i64
-  %102 = shl i64 %101, %96
-  %103 = getelementptr i8, ptr %94, i64 %102
-  %104 = icmp ne ptr %103, null
-  %or.cond.not.i.i41 = select i1 %100, i1 %104, i1 false
+  %indvars.iv12.i.i40 = phi i64 [ %indvars.iv.next13.i.i43, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i42 ], [ %99, %.lr.ph.i.i29 ]
+  %100 = getelementptr inbounds nuw %class.DiscoveredList, ptr %87, i64 %indvars.iv12.i.i40
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %102 = load i32, ptr %101, align 8
+  %103 = icmp ne i32 %102, 0
+  %104 = zext i32 %102 to i64
+  %105 = shl i64 %104, %98
+  %106 = getelementptr i8, ptr %96, i64 %105
+  %107 = icmp ne ptr %106, null
+  %or.cond.not.i.i41 = select i1 %103, i1 %107, i1 false
   br i1 %or.cond.not.i.i41, label %.loopexit.i35, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i42
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i42: ; preds = %.lr.ph.split.us.i.i39
   %indvars.iv.next13.i.i43 = add nuw nsw i64 %indvars.iv12.i.i40, 1
   %lftr.wideiv.i.i44 = trunc i64 %indvars.iv.next13.i.i43 to i32
-  %exitcond15.not.i.i45 = icmp eq i32 %90, %lftr.wideiv.i.i44
+  %exitcond15.not.i.i45 = icmp eq i32 %92, %lftr.wideiv.i.i44
   br i1 %exitcond15.not.i.i45, label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit46, label %.lr.ph.split.us.i.i39, !llvm.loop !10
 
 _ZNK14DiscoveredList8is_emptyEv.exit.i.i32:       ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i36, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i30
-  %indvars.iv.i.i33 = phi i64 [ %97, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i30 ], [ %indvars.iv.next.i.i37, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i36 ]
-  %105 = getelementptr inbounds nuw %class.DiscoveredList, ptr %85, i64 %indvars.iv.i.i33
-  %106 = load ptr, ptr %105, align 8
-  %.not.i.i34 = icmp eq ptr %106, null
+  %indvars.iv.i.i33 = phi i64 [ %99, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i30 ], [ %indvars.iv.next.i.i37, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i36 ]
+  %108 = getelementptr inbounds nuw %class.DiscoveredList, ptr %87, i64 %indvars.iv.i.i33
+  %109 = load ptr, ptr %108, align 8
+  %.not.i.i34 = icmp eq ptr %109, null
   br i1 %.not.i.i34, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i36, label %.loopexit.i35
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i36: ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.i.i32
@@ -1070,41 +1079,41 @@ _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i36: ; preds = %_ZNK14DiscoveredLi
   br i1 %exitcond.not.i.i38, label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit46, label %_ZNK14DiscoveredList8is_emptyEv.exit.i.i32, !llvm.loop !10
 
 .loopexit.i35:                                    ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.i.i32, %.lr.ph.split.us.i.i39, %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit28
-  call void @_ZN18ReferenceProcessor14balance_queuesEP14DiscoveredList(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %85)
+  call void @_ZN18ReferenceProcessor14balance_queuesEP14DiscoveredList(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %87)
   br label %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit46
 
-_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit46: ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i36, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i42, %87, %.loopexit.i35
+_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit46: ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i36, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i42, %89, %.loopexit.i35
   call void @_ZN31RefProcBalanceQueuesTimeTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4) #17
-  br label %107
+  br label %110
 
-107:                                              ; preds = %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit46, %_ZN23RefProcMTDegreeAdjusterC2EP18ReferenceProcessorNS0_13RefProcPhasesEm.exit
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %111 = load i32, ptr %110, align 4
-  call void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(ptr nonnull align 8 poison, ptr noundef nonnull @.str.16, ptr noundef %109, i32 noundef %111)
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %113 = load ptr, ptr %112, align 8
-  %114 = load i32, ptr %110, align 4
-  call void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(ptr nonnull align 8 poison, ptr noundef nonnull @.str.17, ptr noundef %113, i32 noundef %114)
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 72
+110:                                              ; preds = %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit46, %_ZN23RefProcMTDegreeAdjusterC2EP18ReferenceProcessorNS0_13RefProcPhasesEm.exit
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %114 = load i32, ptr %113, align 4
+  call void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(ptr nonnull align 8 poison, ptr noundef nonnull @.str.16, ptr noundef %112, i32 noundef %114)
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %116 = load ptr, ptr %115, align 8
-  %117 = load i32, ptr %110, align 4
-  call void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(ptr nonnull align 8 poison, ptr noundef nonnull @.str.18, ptr noundef %116, i32 noundef %117)
-  %118 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %2, ptr %119, align 8
+  %117 = load i32, ptr %113, align 4
+  call void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(ptr nonnull align 8 poison, ptr noundef nonnull @.str.17, ptr noundef %116, i32 noundef %117)
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %119 = load ptr, ptr %118, align 8
+  %120 = load i32, ptr %113, align 4
+  call void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(ptr nonnull align 8 poison, ptr noundef nonnull @.str.18, ptr noundef %119, i32 noundef %120)
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %0, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %2, ptr %122, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV29RefProcSoftWeakFinalPhaseTask, i64 16), ptr %5, align 8
   call void @_ZN18ReferenceProcessor8run_taskER11RefProcTaskR16RefProcProxyTaskb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(41) %1, i1 noundef zeroext false)
-  %120 = load ptr, ptr %115, align 8
-  %121 = load i32, ptr %110, align 4
-  call void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(ptr nonnull align 8 poison, ptr noundef nonnull @.str.21, ptr noundef %120, i32 noundef %121)
+  %123 = load ptr, ptr %118, align 8
+  %124 = load i32, ptr %113, align 4
+  call void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(ptr nonnull align 8 poison, ptr noundef nonnull @.str.21, ptr noundef %123, i32 noundef %124)
   store i32 %17, ptr %16, align 8
   store i32 0, ptr %29, align 4
-  br label %122
+  br label %125
 
-122:                                              ; preds = %14, %12, %107
+125:                                              ; preds = %14, %12, %110
   ret void
 }
 
@@ -1122,11 +1131,11 @@ define hidden void @_ZN18ReferenceProcessor24process_final_keep_aliveER16RefProc
 8:                                                ; preds = %3
   %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %47, label %10
+  br i1 %.not, label %48, label %10
 
 10:                                               ; preds = %8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.22)
-  br label %47
+  br label %48
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1137,7 +1146,7 @@ define hidden void @_ZN18ReferenceProcessor24process_final_keep_aliveER16RefProc
   %16 = trunc i8 %15 to i1
   %17 = icmp ugt i32 %13, 1
   %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %19, label %44
+  br i1 %18, label %19, label %45
 
 19:                                               ; preds = %11
   call void @_ZN31RefProcBalanceQueuesTimeTrackerC1EN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) %4, i32 noundef 1, ptr noundef nonnull %2) #17
@@ -1169,14 +1178,15 @@ _ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i: ; preds = %.lr.ph.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i
   %indvars.iv12.i.i = phi i64 [ %indvars.iv.next13.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i ], [ %34, %.lr.ph.i.i ]
-  %35 = getelementptr inbounds nuw %class.DiscoveredList, ptr %21, i64 %indvars.iv12.i.i, i32 1
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp ne i32 %36, 0
-  %38 = zext i32 %36 to i64
-  %39 = shl i64 %38, %33
-  %40 = getelementptr i8, ptr %31, i64 %39
-  %41 = icmp ne ptr %40, null
-  %or.cond.not.i.i = select i1 %37, i1 %41, i1 false
+  %35 = getelementptr inbounds nuw %class.DiscoveredList, ptr %21, i64 %indvars.iv12.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp ne i32 %37, 0
+  %39 = zext i32 %37 to i64
+  %40 = shl i64 %39, %33
+  %41 = getelementptr i8, ptr %31, i64 %40
+  %42 = icmp ne ptr %41, null
+  %or.cond.not.i.i = select i1 %38, i1 %42, i1 false
   br i1 %or.cond.not.i.i, label %.loopexit.i, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i: ; preds = %.lr.ph.split.us.i.i
@@ -1187,9 +1197,9 @@ _ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i: ; preds = %.lr.ph.split.us.i
 
 _ZNK14DiscoveredList8is_emptyEv.exit.i.i:         ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %34, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i ]
-  %42 = getelementptr inbounds nuw %class.DiscoveredList, ptr %21, i64 %indvars.iv.i.i
-  %43 = load ptr, ptr %42, align 8
-  %.not.i.i = icmp eq ptr %43, null
+  %43 = getelementptr inbounds nuw %class.DiscoveredList, ptr %21, i64 %indvars.iv.i.i
+  %44 = load ptr, ptr %43, align 8
+  %.not.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i, label %.loopexit.i
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i:  ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.i.i
@@ -1203,20 +1213,20 @@ _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i:  ; preds = %_ZNK14DiscoveredLis
 
 _ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit: ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i, %24, %.loopexit.i
   call void @_ZN31RefProcBalanceQueuesTimeTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4) #17
-  br label %44
+  br label %45
 
-44:                                               ; preds = %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit, %11
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %2, ptr %46, align 8
+45:                                               ; preds = %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit, %11
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %0, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %2, ptr %47, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV30RefProcKeepAliveFinalPhaseTask, i64 16), ptr %5, align 8
   call void @_ZN18ReferenceProcessor8run_taskER11RefProcTaskR16RefProcProxyTaskb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(41) %1, i1 noundef zeroext true)
   store i32 %13, ptr %12, align 8
   store i32 0, ptr %14, align 4
-  br label %47
+  br label %48
 
-47:                                               ; preds = %10, %8, %44
+48:                                               ; preds = %10, %8, %45
   ret void
 }
 
@@ -1231,11 +1241,11 @@ define hidden void @_ZN18ReferenceProcessor20process_phantom_refsER16RefProcProx
 8:                                                ; preds = %3
   %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %62, label %10
+  br i1 %.not, label %63, label %10
 
 10:                                               ; preds = %8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.24)
-  br label %62
+  br label %63
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1264,7 +1274,7 @@ _ZN23RefProcMTDegreeAdjusterC2EP18ReferenceProcessorNS0_13RefProcPhasesEm.exit: 
   %27 = trunc i8 %26 to i1
   %28 = icmp ugt i32 %.0.i.i, 1
   %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %30, label %55
+  br i1 %29, label %30, label %56
 
 30:                                               ; preds = %_ZN23RefProcMTDegreeAdjusterC2EP18ReferenceProcessorNS0_13RefProcPhasesEm.exit
   call void @_ZN31RefProcBalanceQueuesTimeTrackerC1EN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) %4, i32 noundef 2, ptr noundef nonnull %2) #17
@@ -1296,14 +1306,15 @@ _ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i: ; preds = %.lr.ph.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i
   %indvars.iv12.i.i = phi i64 [ %indvars.iv.next13.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i ], [ %45, %.lr.ph.i.i ]
-  %46 = getelementptr inbounds nuw %class.DiscoveredList, ptr %32, i64 %indvars.iv12.i.i, i32 1
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp ne i32 %47, 0
-  %49 = zext i32 %47 to i64
-  %50 = shl i64 %49, %44
-  %51 = getelementptr i8, ptr %42, i64 %50
-  %52 = icmp ne ptr %51, null
-  %or.cond.not.i.i = select i1 %48, i1 %52, i1 false
+  %46 = getelementptr inbounds nuw %class.DiscoveredList, ptr %32, i64 %indvars.iv12.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp ne i32 %48, 0
+  %50 = zext i32 %48 to i64
+  %51 = shl i64 %50, %44
+  %52 = getelementptr i8, ptr %42, i64 %51
+  %53 = icmp ne ptr %52, null
+  %or.cond.not.i.i = select i1 %49, i1 %53, i1 false
   br i1 %or.cond.not.i.i, label %.loopexit.i, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i: ; preds = %.lr.ph.split.us.i.i
@@ -1314,9 +1325,9 @@ _ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i: ; preds = %.lr.ph.split.us.i
 
 _ZNK14DiscoveredList8is_emptyEv.exit.i.i:         ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %45, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i ]
-  %53 = getelementptr inbounds nuw %class.DiscoveredList, ptr %32, i64 %indvars.iv.i.i
-  %54 = load ptr, ptr %53, align 8
-  %.not.i.i = icmp eq ptr %54, null
+  %54 = getelementptr inbounds nuw %class.DiscoveredList, ptr %32, i64 %indvars.iv.i.i
+  %55 = load ptr, ptr %54, align 8
+  %.not.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i, label %.loopexit.i
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i:  ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.i.i
@@ -1330,25 +1341,25 @@ _ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i:  ; preds = %_ZNK14DiscoveredLis
 
 _ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit: ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i.i, %35, %.loopexit.i
   call void @_ZN31RefProcBalanceQueuesTimeTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4) #17
-  br label %55
+  br label %56
 
-55:                                               ; preds = %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit, %_ZN23RefProcMTDegreeAdjusterC2EP18ReferenceProcessorNS0_13RefProcPhasesEm.exit
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %59 = load i32, ptr %58, align 4
-  call void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(ptr nonnull align 8 poison, ptr noundef nonnull @.str.25, ptr noundef %57, i32 noundef %59)
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %2, ptr %61, align 8
+56:                                               ; preds = %_ZN18ReferenceProcessor20maybe_balance_queuesEP14DiscoveredList.exit, %_ZN23RefProcMTDegreeAdjusterC2EP18ReferenceProcessorNS0_13RefProcPhasesEm.exit
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %60 = load i32, ptr %59, align 4
+  call void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(ptr nonnull align 8 poison, ptr noundef nonnull @.str.25, ptr noundef %58, i32 noundef %60)
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %0, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %2, ptr %62, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23RefProcPhantomPhaseTask, i64 16), ptr %5, align 8
   call void @_ZN18ReferenceProcessor8run_taskER11RefProcTaskR16RefProcProxyTaskb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(41) %1, i1 noundef zeroext false)
   store i32 %13, ptr %12, align 8
   store i32 0, ptr %25, align 4
-  br label %62
+  br label %63
 
-62:                                               ; preds = %10, %8, %55
+63:                                               ; preds = %10, %8, %56
   ret void
 }
 
@@ -2192,16 +2203,17 @@ switch.lookup:                                    ; preds = %2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.067.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %14, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw %class.DiscoveredList, ptr %.0, i64 %indvars.iv.i, i32 2
-  %13 = load i64, ptr %12, align 8
-  %14 = add i64 %13, %.067.i
+  %.067.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %15, %.lr.ph.i ]
+  %12 = getelementptr inbounds nuw %class.DiscoveredList, ptr %.0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load i64, ptr %13, align 8
+  %15 = add i64 %14, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZNK18ReferenceProcessor11total_countEP14DiscoveredList.exit: ; preds = %.lr.ph.i, %switch.lookup
-  %.06.lcssa.i = phi i64 [ 0, %switch.lookup ], [ %14, %.lr.ph.i ]
+  %.06.lcssa.i = phi i64 [ 0, %switch.lookup ], [ %15, %.lr.ph.i ]
   ret i64 %.06.lcssa.i
 }
 
@@ -2262,7 +2274,7 @@ define hidden void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(p
   %5 = alloca %class.LogStream, align 8
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %14, label %7
+  br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %4
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %5, i1 noundef zeroext false) #17
@@ -2284,23 +2296,24 @@ define hidden void @_ZN18ReferenceProcessor11log_reflistEPKcP14DiscoveredListj(p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0910 = phi i64 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
-  %10 = getelementptr inbounds nuw %class.DiscoveredList, ptr %2, i64 %indvars.iv, i32 2
-  %11 = load i64, ptr %10, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.8, i64 noundef %11) #17
-  %12 = load i64, ptr %10, align 8
-  %13 = add i64 %12, %.0910
+  %.0910 = phi i64 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
+  %10 = getelementptr inbounds nuw %class.DiscoveredList, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load i64, ptr %11, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.8, i64 noundef %12) #17
+  %13 = load i64, ptr %11, align 8
+  %14 = add i64 %13, %.0910
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %.09.lcssa = phi i64 [ 0, %7 ], [ %13, %.lr.ph ]
+  %.09.lcssa = phi i64 [ 0, %7 ], [ %14, %.lr.ph ]
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.9, i64 noundef %.09.lcssa) #17
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %5) #17
-  br label %14
+  br label %15
 
-14:                                               ; preds = %4, %._crit_edge
+15:                                               ; preds = %4, %._crit_edge
   ret void
 }
 
@@ -2352,14 +2365,15 @@ _ZNK14DiscoveredList8is_emptyEv.exit.preheader:   ; preds = %.lr.ph
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv12 = phi i64 [ %indvars.iv.next13, %.lr.ph.split.us ], [ %16, %.lr.ph ]
-  %17 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv12, i32 1
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp ne i32 %18, 0
-  %20 = zext i32 %18 to i64
-  %21 = shl i64 %20, %15
-  %22 = getelementptr i8, ptr %13, i64 %21
-  %23 = icmp ne ptr %22, null
-  %or.cond.not = select i1 %19, i1 %23, i1 false
+  %17 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i32 %19 to i64
+  %22 = shl i64 %21, %15
+  %23 = getelementptr i8, ptr %13, i64 %22
+  %24 = icmp ne ptr %23, null
+  %or.cond.not = select i1 %20, i1 %24, i1 false
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next13 to i32
   %exitcond15.not = icmp eq i32 %9, %lftr.wideiv
@@ -2368,9 +2382,9 @@ _ZNK14DiscoveredList8is_emptyEv.exit.preheader:   ; preds = %.lr.ph
 
 _ZNK14DiscoveredList8is_emptyEv.exit:             ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader
   %indvars.iv = phi i64 [ %16, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader ], [ %indvars.iv.next, %_ZNK14DiscoveredList8is_emptyEv.exit ]
-  %24 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8
-  %.not = icmp ne ptr %25, null
+  %25 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8
+  %.not = icmp ne ptr %26, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond22 = select i1 %.not, i1 true, i1 %exitcond.not
@@ -2410,14 +2424,15 @@ _ZNK14DiscoveredList8is_emptyEv.exit.preheader.i: ; preds = %.lr.ph.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i
   %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i ], [ %16, %.lr.ph.i ]
-  %17 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv12.i, i32 1
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp ne i32 %18, 0
-  %20 = zext i32 %18 to i64
-  %21 = shl i64 %20, %15
-  %22 = getelementptr i8, ptr %13, i64 %21
-  %23 = icmp ne ptr %22, null
-  %or.cond.not.i = select i1 %19, i1 %23, i1 false
+  %17 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv12.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i32 %19 to i64
+  %22 = shl i64 %21, %15
+  %23 = getelementptr i8, ptr %13, i64 %22
+  %24 = icmp ne ptr %23, null
+  %or.cond.not.i = select i1 %20, i1 %24, i1 false
   br i1 %or.cond.not.i, label %.loopexit, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i: ; preds = %.lr.ph.split.us.i
@@ -2428,9 +2443,9 @@ _ZNK14DiscoveredList8is_emptyEv.exit.thread.us.i: ; preds = %.lr.ph.split.us.i
 
 _ZNK14DiscoveredList8is_emptyEv.exit.i:           ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i
   %indvars.iv.i = phi i64 [ %16, %_ZNK14DiscoveredList8is_emptyEv.exit.preheader.i ], [ %indvars.iv.next.i, %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i ]
-  %24 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv.i
-  %25 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %25, null
+  %25 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv.i
+  %26 = load ptr, ptr %25, align 8
+  %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %_ZNK14DiscoveredList8is_emptyEv.exit.thread.i, label %.loopexit
 
 _ZNK14DiscoveredList8is_emptyEv.exit.thread.i:    ; preds = %_ZNK14DiscoveredList8is_emptyEv.exit.i
@@ -2459,94 +2474,96 @@ define hidden void @_ZN18ReferenceProcessor14balance_queuesEP14DiscoveredList(pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.06881 = phi i64 [ 0, %.lr.ph.preheader ], [ %7, %.lr.ph ]
-  %5 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv, i32 2
-  %6 = load i64, ptr %5, align 8
-  %7 = add i64 %6, %.06881
+  %.06881 = phi i64 [ 0, %.lr.ph.preheader ], [ %8, %.lr.ph ]
+  %5 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load i64, ptr %6, align 8
+  %8 = add i64 %7, %.06881
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph97.preheader, label %.lr.ph, !llvm.loop !15
 
 .lr.ph97.preheader:                               ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load i32, ptr %8, align 8
-  %10 = zext i32 %9 to i64
-  %11 = udiv i64 %7, %10
-  %12 = add i64 %11, 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = load i32, ptr %9, align 8
+  %11 = zext i32 %10 to i64
+  %12 = udiv i64 %8, %11
+  %13 = add i64 %12, 1
   br label %.lr.ph97
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %._crit_edge91
-  %13 = phi i32 [ %4, %.lr.ph97.preheader ], [ %122, %._crit_edge91 ]
+  %14 = phi i32 [ %4, %.lr.ph97.preheader ], [ %123, %._crit_edge91 ]
   %indvars.iv105 = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next106, %._crit_edge91 ]
   %.07294 = phi i32 [ 0, %.lr.ph97.preheader ], [ %.1.lcssa, %._crit_edge91 ]
-  %14 = load i32, ptr %8, align 8
-  %15 = zext i32 %14 to i64
-  %.not = icmp samesign uge i64 %indvars.iv105, %15
-  %.phi.trans.insert108 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv105, i32 2
+  %15 = load i32, ptr %9, align 8
+  %16 = zext i32 %15 to i64
+  %.not = icmp samesign uge i64 %indvars.iv105, %16
+  %.phi.trans.insert = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv105
+  %.phi.trans.insert108 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 16
   %.pre = load i64, ptr %.phi.trans.insert108, align 8
-  %16 = icmp ne i64 %.pre, 0
-  %.070 = and i1 %.not, %16
-  %17 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv105
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = icmp ugt i64 %.pre, %12
-  %20 = or i1 %.070, %19
-  br i1 %20, label %.lr.ph90, label %._crit_edge91
+  %17 = icmp ne i64 %.pre, 0
+  %.070 = and i1 %.not, %17
+  %18 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %indvars.iv105
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = icmp ugt i64 %.pre, %13
+  %21 = or i1 %.070, %20
+  br i1 %21, label %.lr.ph90, label %._crit_edge91
 
 .lr.ph90:                                         ; preds = %.lr.ph97
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %22 = select i1 %.070, i64 0, i64 %12
-  br label %23
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %23 = select i1 %.070, i64 0, i64 %13
+  br label %24
 
-23:                                               ; preds = %.lr.ph90, %118
-  %24 = phi i64 [ %.pre, %.lr.ph90 ], [ %119, %118 ]
-  %.188 = phi i32 [ %.07294, %.lr.ph90 ], [ %.2, %118 ]
-  %25 = zext i32 %.188 to i64
-  %26 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load i64, ptr %27, align 8
-  %29 = icmp ult i64 %28, %12
-  br i1 %29, label %30, label %114
+24:                                               ; preds = %.lr.ph90, %119
+  %25 = phi i64 [ %.pre, %.lr.ph90 ], [ %120, %119 ]
+  %.188 = phi i32 [ %.07294, %.lr.ph90 ], [ %.2, %119 ]
+  %26 = zext i32 %.188 to i64
+  %27 = getelementptr inbounds nuw %class.DiscoveredList, ptr %1, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = icmp ult i64 %29, %13
+  br i1 %30, label %31, label %115
 
-30:                                               ; preds = %23
-  %.sink = sub i64 %24, %22
-  %31 = sub nuw i64 %12, %28
-  %32 = tail call noundef i64 @llvm.umin.i64(i64 %.sink, i64 %31)
-  %33 = load i8, ptr @UseCompressedOops, align 1
-  %34 = trunc i8 %33 to i1
-  br i1 %34, label %35, label %47
+31:                                               ; preds = %24
+  %.sink = sub i64 %25, %23
+  %32 = sub nuw i64 %13, %29
+  %33 = tail call noundef i64 @llvm.umin.i64(i64 %.sink, i64 %32)
+  %34 = load i8, ptr @UseCompressedOops, align 1
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %48
 
-35:                                               ; preds = %30
-  %36 = load i32, ptr %21, align 8
-  %37 = icmp eq i32 %36, 0
-  %38 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = zext i32 %36 to i64
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %42 = zext nneg i32 %41 to i64
-  %43 = shl i64 %40, %42
-  %44 = add i64 %43, %39
-  %45 = inttoptr i64 %44 to ptr
-  %46 = select i1 %37, ptr null, ptr %45
+36:                                               ; preds = %31
+  %37 = load i32, ptr %22, align 8
+  %38 = icmp eq i32 %37, 0
+  %39 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = zext i32 %37 to i64
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %43 = zext nneg i32 %42 to i64
+  %44 = shl i64 %41, %43
+  %45 = add i64 %44, %40
+  %46 = inttoptr i64 %45 to ptr
+  %47 = select i1 %38, ptr null, ptr %46
   br label %_ZNK14DiscoveredList4headEv.exit
 
-47:                                               ; preds = %30
-  %48 = load ptr, ptr %17, align 8
+48:                                               ; preds = %31
+  %49 = load ptr, ptr %18, align 8
   br label %_ZNK14DiscoveredList4headEv.exit
 
-_ZNK14DiscoveredList4headEv.exit:                 ; preds = %35, %47
-  %49 = phi ptr [ %46, %35 ], [ %48, %47 ]
-  %.not101 = icmp eq i64 %32, 0
+_ZNK14DiscoveredList4headEv.exit:                 ; preds = %36, %48
+  %50 = phi ptr [ %47, %36 ], [ %49, %48 ]
+  %.not101 = icmp eq i64 %33, 0
   br i1 %.not101, label %._crit_edge85, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %_ZNK14DiscoveredList4headEv.exit, %.lr.ph84
-  %.083 = phi i64 [ %54, %.lr.ph84 ], [ 0, %_ZNK14DiscoveredList4headEv.exit ]
-  %.06682 = phi ptr [ %53, %.lr.ph84 ], [ %49, %_ZNK14DiscoveredList4headEv.exit ]
-  %50 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %51 = sext i32 %50 to i64
-  %52 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %53 = tail call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(16) %.06682, i64 noundef %51) #17
-  %54 = add nuw i64 %.083, 1
-  %exitcond104.not = icmp eq i64 %54, %32
+  %.083 = phi i64 [ %55, %.lr.ph84 ], [ 0, %_ZNK14DiscoveredList4headEv.exit ]
+  %.06682 = phi ptr [ %54, %.lr.ph84 ], [ %50, %_ZNK14DiscoveredList4headEv.exit ]
+  %51 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %52 = sext i32 %51 to i64
+  %53 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(16) %.06682, i64 noundef %52) #17
+  %55 = add nuw i64 %.083, 1
+  %exitcond104.not = icmp eq i64 %55, %33
   br i1 %exitcond104.not, label %._crit_edge85.loopexit, label %.lr.ph84, !llvm.loop !16
 
 ._crit_edge85.loopexit:                           ; preds = %.lr.ph84
@@ -2554,138 +2571,138 @@ _ZNK14DiscoveredList4headEv.exit:                 ; preds = %35, %47
   br label %._crit_edge85
 
 ._crit_edge85:                                    ; preds = %._crit_edge85.loopexit, %_ZNK14DiscoveredList4headEv.exit
-  %55 = phi i8 [ %33, %_ZNK14DiscoveredList4headEv.exit ], [ %.pre109, %._crit_edge85.loopexit ]
-  %.067.lcssa = phi ptr [ %49, %_ZNK14DiscoveredList4headEv.exit ], [ %.06682, %._crit_edge85.loopexit ]
-  %.066.lcssa = phi ptr [ %49, %_ZNK14DiscoveredList4headEv.exit ], [ %53, %._crit_edge85.loopexit ]
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %57, label %_ZNK14DiscoveredList4headEv.exit75.thread79
+  %56 = phi i8 [ %34, %_ZNK14DiscoveredList4headEv.exit ], [ %.pre109, %._crit_edge85.loopexit ]
+  %.067.lcssa = phi ptr [ %50, %_ZNK14DiscoveredList4headEv.exit ], [ %.06682, %._crit_edge85.loopexit ]
+  %.066.lcssa = phi ptr [ %50, %_ZNK14DiscoveredList4headEv.exit ], [ %54, %._crit_edge85.loopexit ]
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %_ZNK14DiscoveredList4headEv.exit75.thread79
 
-57:                                               ; preds = %._crit_edge85
-  %58 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  %61 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %62 = zext i32 %59 to i64
-  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %64 = zext nneg i32 %63 to i64
-  %65 = shl i64 %62, %64
-  %66 = getelementptr i8, ptr %61, i64 %65
-  %67 = icmp eq ptr %66, null
-  %or.cond = select i1 %60, i1 true, i1 %67
-  br i1 %or.cond, label %_ZNK14DiscoveredList4headEv.exit75.thread, label %70
+58:                                               ; preds = %._crit_edge85
+  %59 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp eq i32 %60, 0
+  %62 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %63 = zext i32 %60 to i64
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %65 = zext nneg i32 %64 to i64
+  %66 = shl i64 %63, %65
+  %67 = getelementptr i8, ptr %62, i64 %66
+  %68 = icmp eq ptr %67, null
+  %or.cond = select i1 %61, i1 true, i1 %68
+  br i1 %or.cond, label %_ZNK14DiscoveredList4headEv.exit75.thread, label %71
 
 _ZNK14DiscoveredList4headEv.exit75.thread79:      ; preds = %._crit_edge85
-  %68 = load ptr, ptr %26, align 8
-  %69 = icmp eq ptr %68, null
-  %spec.select = select i1 %69, ptr %.067.lcssa, ptr %68
+  %69 = load ptr, ptr %27, align 8
+  %70 = icmp eq ptr %69, null
+  %spec.select = select i1 %70, ptr %.067.lcssa, ptr %69
   br label %_ZNK14DiscoveredList4headEv.exit75.thread
 
-70:                                               ; preds = %57
-  %71 = ptrtoint ptr %61 to i64
-  %72 = add i64 %65, %71
-  %73 = inttoptr i64 %72 to ptr
+71:                                               ; preds = %58
+  %72 = ptrtoint ptr %62 to i64
+  %73 = add i64 %66, %72
+  %74 = inttoptr i64 %73 to ptr
   br label %_ZNK14DiscoveredList4headEv.exit75.thread
 
-_ZNK14DiscoveredList4headEv.exit75.thread:        ; preds = %_ZNK14DiscoveredList4headEv.exit75.thread79, %70, %57
-  %.sink118 = phi ptr [ %.067.lcssa, %57 ], [ %73, %70 ], [ %spec.select, %_ZNK14DiscoveredList4headEv.exit75.thread79 ]
-  %74 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.067.lcssa, i32 noundef %74, ptr noundef %.sink118) #17
-  %75 = load i8, ptr @UseCompressedOops, align 1
-  %76 = trunc i8 %75 to i1
-  br i1 %76, label %77, label %89
+_ZNK14DiscoveredList4headEv.exit75.thread:        ; preds = %_ZNK14DiscoveredList4headEv.exit75.thread79, %71, %58
+  %.sink118 = phi ptr [ %.067.lcssa, %58 ], [ %74, %71 ], [ %spec.select, %_ZNK14DiscoveredList4headEv.exit75.thread79 ]
+  %75 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  tail call void @_ZN7oopDesc17obj_field_put_rawEiPS_(ptr noundef nonnull align 8 dereferenceable(16) %.067.lcssa, i32 noundef %75, ptr noundef %.sink118) #17
+  %76 = load i8, ptr @UseCompressedOops, align 1
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %90
 
-77:                                               ; preds = %_ZNK14DiscoveredList4headEv.exit75.thread
-  %78 = icmp eq ptr %49, null
-  %79 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %80 = ptrtoint ptr %49 to i64
-  %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %84 = zext nneg i32 %83 to i64
-  %85 = lshr i64 %82, %84
-  %86 = trunc i64 %85 to i32
-  %87 = select i1 %78, i32 0, i32 %86
-  %88 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 %87, ptr %88, align 8
+78:                                               ; preds = %_ZNK14DiscoveredList4headEv.exit75.thread
+  %79 = icmp eq ptr %50, null
+  %80 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %81 = ptrtoint ptr %50 to i64
+  %82 = ptrtoint ptr %80 to i64
+  %83 = sub i64 %81, %82
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %85 = zext nneg i32 %84 to i64
+  %86 = lshr i64 %83, %85
+  %87 = trunc i64 %86 to i32
+  %88 = select i1 %79, i32 0, i32 %87
+  %89 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i32 %88, ptr %89, align 8
   br label %_ZN14DiscoveredList8set_headEP7oopDesc.exit
 
-89:                                               ; preds = %_ZNK14DiscoveredList4headEv.exit75.thread
-  store ptr %49, ptr %26, align 8
+90:                                               ; preds = %_ZNK14DiscoveredList4headEv.exit75.thread
+  store ptr %50, ptr %27, align 8
   br label %_ZN14DiscoveredList8set_headEP7oopDesc.exit
 
-_ZN14DiscoveredList8set_headEP7oopDesc.exit:      ; preds = %77, %89
-  %90 = load i64, ptr %27, align 8
-  %91 = add i64 %90, %32
-  store i64 %91, ptr %27, align 8
-  %92 = icmp eq ptr %.067.lcssa, %.066.lcssa
-  %93 = load i8, ptr @UseCompressedOops, align 1
-  %94 = trunc i8 %93 to i1
-  br i1 %92, label %95, label %98
+_ZN14DiscoveredList8set_headEP7oopDesc.exit:      ; preds = %78, %90
+  %91 = load i64, ptr %28, align 8
+  %92 = add i64 %91, %33
+  store i64 %92, ptr %28, align 8
+  %93 = icmp eq ptr %.067.lcssa, %.066.lcssa
+  %94 = load i8, ptr @UseCompressedOops, align 1
+  %95 = trunc i8 %94 to i1
+  br i1 %93, label %96, label %99
 
-95:                                               ; preds = %_ZN14DiscoveredList8set_headEP7oopDesc.exit
-  br i1 %94, label %96, label %97
+96:                                               ; preds = %_ZN14DiscoveredList8set_headEP7oopDesc.exit
+  br i1 %95, label %97, label %98
 
-96:                                               ; preds = %95
-  store i32 0, ptr %21, align 8
+97:                                               ; preds = %96
+  store i32 0, ptr %22, align 8
   br label %_ZN14DiscoveredList8set_headEP7oopDesc.exit77
 
-97:                                               ; preds = %95
-  store ptr null, ptr %17, align 8
+98:                                               ; preds = %96
+  store ptr null, ptr %18, align 8
   br label %_ZN14DiscoveredList8set_headEP7oopDesc.exit77
 
-98:                                               ; preds = %_ZN14DiscoveredList8set_headEP7oopDesc.exit
-  br i1 %94, label %99, label %110
+99:                                               ; preds = %_ZN14DiscoveredList8set_headEP7oopDesc.exit
+  br i1 %95, label %100, label %111
 
-99:                                               ; preds = %98
-  %100 = icmp eq ptr %.066.lcssa, null
-  %101 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %102 = ptrtoint ptr %.066.lcssa to i64
-  %103 = ptrtoint ptr %101 to i64
-  %104 = sub i64 %102, %103
-  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %106 = zext nneg i32 %105 to i64
-  %107 = lshr i64 %104, %106
-  %108 = trunc i64 %107 to i32
-  %109 = select i1 %100, i32 0, i32 %108
-  store i32 %109, ptr %21, align 8
+100:                                              ; preds = %99
+  %101 = icmp eq ptr %.066.lcssa, null
+  %102 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %103 = ptrtoint ptr %.066.lcssa to i64
+  %104 = ptrtoint ptr %102 to i64
+  %105 = sub i64 %103, %104
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %107 = zext nneg i32 %106 to i64
+  %108 = lshr i64 %105, %107
+  %109 = trunc i64 %108 to i32
+  %110 = select i1 %101, i32 0, i32 %109
+  store i32 %110, ptr %22, align 8
   br label %_ZN14DiscoveredList8set_headEP7oopDesc.exit77
 
-110:                                              ; preds = %98
-  store ptr %.066.lcssa, ptr %17, align 8
+111:                                              ; preds = %99
+  store ptr %.066.lcssa, ptr %18, align 8
   br label %_ZN14DiscoveredList8set_headEP7oopDesc.exit77
 
-_ZN14DiscoveredList8set_headEP7oopDesc.exit77:    ; preds = %110, %99, %97, %96
-  %111 = load i64, ptr %18, align 8
-  %112 = sub i64 %111, %32
-  store i64 %112, ptr %18, align 8
-  %113 = icmp eq i64 %111, %32
-  br i1 %113, label %._crit_edge91.loopexit, label %118
+_ZN14DiscoveredList8set_headEP7oopDesc.exit77:    ; preds = %111, %100, %98, %97
+  %112 = load i64, ptr %19, align 8
+  %113 = sub i64 %112, %33
+  store i64 %113, ptr %19, align 8
+  %114 = icmp eq i64 %112, %33
+  br i1 %114, label %._crit_edge91.loopexit, label %119
 
-114:                                              ; preds = %23
-  %115 = add i32 %.188, 1
-  %116 = load i32, ptr %8, align 8
-  %117 = urem i32 %115, %116
-  br label %118
+115:                                              ; preds = %24
+  %116 = add i32 %.188, 1
+  %117 = load i32, ptr %9, align 8
+  %118 = urem i32 %116, %117
+  br label %119
 
-118:                                              ; preds = %_ZN14DiscoveredList8set_headEP7oopDesc.exit77, %114
-  %119 = phi i64 [ %112, %_ZN14DiscoveredList8set_headEP7oopDesc.exit77 ], [ %24, %114 ]
-  %.2 = phi i32 [ %.188, %_ZN14DiscoveredList8set_headEP7oopDesc.exit77 ], [ %117, %114 ]
-  %120 = icmp ugt i64 %119, %12
-  %121 = or i1 %.070, %120
-  br i1 %121, label %23, label %._crit_edge91.loopexit, !llvm.loop !17
+119:                                              ; preds = %_ZN14DiscoveredList8set_headEP7oopDesc.exit77, %115
+  %120 = phi i64 [ %113, %_ZN14DiscoveredList8set_headEP7oopDesc.exit77 ], [ %25, %115 ]
+  %.2 = phi i32 [ %.188, %_ZN14DiscoveredList8set_headEP7oopDesc.exit77 ], [ %118, %115 ]
+  %121 = icmp ugt i64 %120, %13
+  %122 = or i1 %.070, %121
+  br i1 %122, label %24, label %._crit_edge91.loopexit, !llvm.loop !17
 
-._crit_edge91.loopexit:                           ; preds = %118, %_ZN14DiscoveredList8set_headEP7oopDesc.exit77
-  %.1.lcssa.ph = phi i32 [ %.188, %_ZN14DiscoveredList8set_headEP7oopDesc.exit77 ], [ %.2, %118 ]
+._crit_edge91.loopexit:                           ; preds = %119, %_ZN14DiscoveredList8set_headEP7oopDesc.exit77
+  %.1.lcssa.ph = phi i32 [ %.188, %_ZN14DiscoveredList8set_headEP7oopDesc.exit77 ], [ %.2, %119 ]
   %.pre110 = load i32, ptr %3, align 4
   br label %._crit_edge91
 
 ._crit_edge91:                                    ; preds = %._crit_edge91.loopexit, %.lr.ph97
-  %122 = phi i32 [ %13, %.lr.ph97 ], [ %.pre110, %._crit_edge91.loopexit ]
+  %123 = phi i32 [ %14, %.lr.ph97 ], [ %.pre110, %._crit_edge91.loopexit ]
   %.1.lcssa = phi i32 [ %.07294, %.lr.ph97 ], [ %.1.lcssa.ph, %._crit_edge91.loopexit ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %123 = zext i32 %122 to i64
-  %124 = icmp samesign ult i64 %indvars.iv.next106, %123
-  br i1 %124, label %.lr.ph97, label %._crit_edge98, !llvm.loop !18
+  %124 = zext i32 %123 to i64
+  %125 = icmp samesign ult i64 %indvars.iv.next106, %124
+  br i1 %125, label %.lr.ph97, label %._crit_edge98, !llvm.loop !18
 
 ._crit_edge98:                                    ; preds = %._crit_edge91, %2
   ret void

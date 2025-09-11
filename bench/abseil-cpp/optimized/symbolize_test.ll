@@ -5701,8 +5701,8 @@ declare i32 @dl_iterate_phdr(ptr noundef, ptr noundef) local_unnamed_addr #0
 define internal noundef i32 @_ZL15FilterElfHeaderP12dl_phdr_infomPv(ptr noundef readonly captures(none) %0, i64 %1, ptr readnone captures(none) %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i16, ptr %4, align 8, !tbaa !79
-  %.not29 = icmp eq i16 %5, 0
-  br i1 %.not29, label %.loopexit, label %.lr.ph
+  %.not28 = icmp eq i16 %5, 0
+  br i1 %.not28, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5725,11 +5725,11 @@ define internal noundef i32 @_ZL15FilterElfHeaderP12dl_phdr_infomPv(ptr noundef 
 
 16:                                               ; preds = %12
   %17 = load i64, ptr %0, align 8, !tbaa !87
-  %18 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %7, i64 %indvars.iv, i32 3
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !88
   %20 = add i64 %19, %17
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %7, i64 %indvars.iv, i32 6
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %23 = load i64, ptr %22, align 8, !tbaa !89
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !90
@@ -5747,7 +5747,7 @@ define internal noundef i32 @_ZL15FilterElfHeaderP12dl_phdr_infomPv(ptr noundef 
 29:                                               ; preds = %26, %28
   %.0 = phi ptr [ @.str.103, %28 ], [ %25, %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 %23
-  %31 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %7, i64 %indvars.iv, i32 2
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !91
   %33 = tail call noundef zeroext i1 @_ZN4absl18debugging_internal23RegisterFileMappingHintEPKvS2_mPKc(ptr noundef %21, ptr noundef %30, i64 noundef %32, ptr noundef nonnull %.0)
   br label %.loopexit

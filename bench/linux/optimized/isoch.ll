@@ -435,7 +435,8 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   %257 = phi i32 [ 0, %.thread26 ], [ %252, %.thread28.loopexit ]
   %258 = add i32 %33, -1
   %259 = zext i32 %258 to i64
-  %260 = getelementptr %struct.isoch_data, ptr %128, i64 %259, i32 1
+  %.split = getelementptr %struct.isoch_data, ptr %128, i64 %259
+  %260 = getelementptr i8, ptr %.split, i64 4
   %261 = load i32, ptr %260, align 4
   %262 = add i32 %261, %256
   store i32 %262, ptr %260, align 4

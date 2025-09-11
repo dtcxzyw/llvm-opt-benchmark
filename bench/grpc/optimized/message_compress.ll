@@ -482,7 +482,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
   %33 = icmp eq i32 %22, 0
   br label %38
 
-34:                                               ; preds = %89
+34:                                               ; preds = %88
   %35 = add nuw i64 %.083149, 1
   %36 = load i64, ptr %29, align 8, !tbaa !7
   %37 = icmp ult i64 %35, %36
@@ -500,238 +500,237 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
   %43 = getelementptr inbounds nuw %struct.grpc_slice, ptr %42, i64 %.083149
   %44 = load ptr, ptr %43, align 8, !tbaa !13
   %.not92 = icmp eq ptr %44, null
-  br i1 %.not92, label %54, label %45
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  br i1 %.not92, label %54, label %46
 
-45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw %struct.grpc_slice, ptr %42, i64 %.083149, i32 1
-  %47 = load i64, ptr %46, align 8, !tbaa !38
+46:                                               ; preds = %38
+  %47 = load i64, ptr %45, align 8, !tbaa !38
   %48 = icmp ugt i64 %47, 4294967295
   br i1 %48, label %49, label %50, !prof !34
 
-49:                                               ; preds = %45
+49:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str, i32 noundef 49, i64 47, ptr nonnull @.str.5) #12
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
   unreachable
 
-50:                                               ; preds = %45
+50:                                               ; preds = %46
   %51 = trunc nuw i64 %47 to i32
   store i32 %51, ptr %32, align 8, !tbaa !39
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !38
-  br label %59
+  br label %58
 
 54:                                               ; preds = %38
-  %55 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %56 = load i8, ptr %55, align 8, !tbaa !38
-  %57 = zext i8 %56 to i32
-  store i32 %57, ptr %32, align 8, !tbaa !39
-  %58 = getelementptr inbounds nuw i8, ptr %43, i64 9
-  br label %59
+  %55 = load i8, ptr %45, align 8, !tbaa !38
+  %56 = zext i8 %55 to i32
+  store i32 %56, ptr %32, align 8, !tbaa !39
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 9
+  br label %58
 
-59:                                               ; preds = %54, %50
-  %60 = phi ptr [ %53, %50 ], [ %58, %54 ]
-  store ptr %60, ptr %0, align 8, !tbaa !40
-  br i1 %.pr, label %.critedge174, label %71
+58:                                               ; preds = %54, %50
+  %59 = phi ptr [ %53, %50 ], [ %57, %54 ]
+  store ptr %59, ptr %0, align 8, !tbaa !40
+  br i1 %.pr, label %.critedge174, label %70
 
-.critedge174:                                     ; preds = %86, %59
-  %61 = call i64 @grpc_slice_buffer_add_indexed(ptr noundef %2, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6)
+.critedge174:                                     ; preds = %85, %58
+  %60 = call i64 @grpc_slice_buffer_add_indexed(ptr noundef %2, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @grpc_slice_malloc(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %9, i64 noundef 1024)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !41
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %62 = load ptr, ptr %6, align 8, !tbaa !13
-  %.not95 = icmp ne ptr %62, null
-  %63 = load i64, ptr %16, align 8
-  %64 = icmp ugt i64 %63, 4294967295
-  %.not97 = select i1 %.not95, i1 %64, i1 false
-  br i1 %.not97, label %65, label %.critedge105, !prof !34
+  %61 = load ptr, ptr %6, align 8, !tbaa !13
+  %.not95 = icmp ne ptr %61, null
+  %62 = load i64, ptr %16, align 8
+  %63 = icmp ugt i64 %62, 4294967295
+  %.not97 = select i1 %.not95, i1 %63, i1 false
+  br i1 %.not97, label %64, label %.critedge105, !prof !34
 
-65:                                               ; preds = %.critedge174
+64:                                               ; preds = %.critedge174
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str, i32 noundef 56, i64 37, ptr nonnull @.str.4) #12
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   unreachable
 
 .critedge105:                                     ; preds = %.critedge174
-  %.not98 = icmp eq ptr %62, null
-  %66 = and i64 %63, 255
-  %67 = select i1 %.not98, i64 %66, i64 %63
-  %68 = trunc i64 %67 to i32
-  store i32 %68, ptr %23, align 8, !tbaa !35
-  %69 = load ptr, ptr %24, align 8
-  %70 = select i1 %.not98, ptr %26, ptr %69
-  store ptr %70, ptr %28, align 8, !tbaa !36
-  br label %71
+  %.not98 = icmp eq ptr %61, null
+  %65 = and i64 %62, 255
+  %66 = select i1 %.not98, i64 %65, i64 %62
+  %67 = trunc i64 %66 to i32
+  store i32 %67, ptr %23, align 8, !tbaa !35
+  %68 = load ptr, ptr %24, align 8
+  %69 = select i1 %.not98, ptr %26, ptr %68
+  store ptr %69, ptr %28, align 8, !tbaa !36
+  br label %70
 
-71:                                               ; preds = %.critedge105, %59
-  %72 = call noundef i32 %3(ptr noundef nonnull %0, i32 noundef %spec.select), !callees !43
-  %73 = icmp slt i32 %72, 0
-  %74 = icmp ne i32 %72, -5
-  %or.cond = and i1 %73, %74
-  br i1 %or.cond, label %75, label %86
+70:                                               ; preds = %.critedge105, %58
+  %71 = call noundef i32 %3(ptr noundef nonnull %0, i32 noundef %spec.select), !callees !43
+  %72 = icmp slt i32 %71, 0
+  %73 = icmp ne i32 %71, -5
+  %or.cond = and i1 %72, %73
+  br i1 %or.cond, label %74, label %85
 
-75:                                               ; preds = %71
-  %76 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_0clEvE4site", i64 8) monotonic, align 8
-  %77 = icmp slt i32 %76, 2
-  br i1 %77, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, !prof !25
+74:                                               ; preds = %70
+  %75 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_0clEvE4site", i64 8) monotonic, align 8
+  %76 = icmp slt i32 %75, 2
+  br i1 %76, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit, !prof !25
 
-_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %75
-  %78 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_0clEvE4site", i32 noundef %76)
-  br i1 %78, label %79, label %.critedge108
+_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %74
+  %77 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_0clEvE4site", i32 noundef %75)
+  br i1 %77, label %78, label %.critedge108
 
-79:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit
+78:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str, i32 noundef 62) #12
-  %80 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 2)
-          to label %81 unwind label %84
+  %79 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 2)
+          to label %80 unwind label %83
 
-81:                                               ; preds = %79
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %80, i64 12, ptr nonnull @.str.6)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit unwind label %84
+80:                                               ; preds = %78
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %79, i64 12, ptr nonnull @.str.6)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit unwind label %83
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; preds = %81
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; preds = %80
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 %72, ptr %5, align 4, !tbaa !44
-  %82 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %83 unwind label %84
+  store i32 %71, ptr %5, align 4, !tbaa !44
+  %81 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %82 unwind label %83
 
-83:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit
+82:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %82, i64 1, ptr nonnull @.str.7)
-          to label %.critedge107 unwind label %84
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %81, i64 1, ptr nonnull @.str.7)
+          to label %.critedge107 unwind label %83
 
-.critedge107:                                     ; preds = %83
+.critedge107:                                     ; preds = %82
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge108
 
-84:                                               ; preds = %83, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit, %81, %79
-  %85 = landingpad { ptr, i32 }
+83:                                               ; preds = %82, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit, %80, %78
+  %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %125
+  br label %124
 
-86:                                               ; preds = %71
-  %87 = load i32, ptr %23, align 8, !tbaa !35
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.critedge174, label %89, !llvm.loop !45
+85:                                               ; preds = %70
+  %86 = load i32, ptr %23, align 8, !tbaa !35
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %.critedge174, label %88, !llvm.loop !45
 
-89:                                               ; preds = %86
-  %90 = load i32, ptr %32, align 8, !tbaa !39
-  %.not100 = icmp eq i32 %90, 0
-  br i1 %.not100, label %34, label %91
+88:                                               ; preds = %85
+  %89 = load i32, ptr %32, align 8, !tbaa !39
+  %.not100 = icmp eq i32 %89, 0
+  br i1 %.not100, label %34, label %90
 
-91:                                               ; preds = %89
-  %92 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_1clEvE4site", i64 8) monotonic, align 8
-  %93 = icmp slt i32 %92, 2
-  br i1 %93, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119, !prof !25
+90:                                               ; preds = %88
+  %91 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_1clEvE4site", i64 8) monotonic, align 8
+  %92 = icmp slt i32 %91, 2
+  br i1 %92, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119, !prof !25
 
-_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119: ; preds = %91
-  %94 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_1clEvE4site", i32 noundef %92)
-  br i1 %94, label %95, label %.critedge108
+_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119: ; preds = %90
+  %93 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_1clEvE4site", i32 noundef %91)
+  br i1 %93, label %94, label %.critedge108
 
-95:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119
+94:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str, i32 noundef 67) #12
-  %96 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 2)
-          to label %97 unwind label %98
+  %95 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 2)
+          to label %96 unwind label %97
 
-97:                                               ; preds = %95
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %96, i64 28, ptr nonnull @.str.8)
-          to label %.critedge110 unwind label %98
+96:                                               ; preds = %94
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %95, i64 28, ptr nonnull @.str.8)
+          to label %.critedge110 unwind label %97
 
-.critedge110:                                     ; preds = %97
+.critedge110:                                     ; preds = %96
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge108
 
-98:                                               ; preds = %97, %95
-  %99 = landingpad { ptr, i32 }
+97:                                               ; preds = %96, %94
+  %98 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %125
+  br label %124
 
 ._crit_edge:                                      ; preds = %34
-  %100 = icmp eq i32 %72, 1
-  br i1 %100, label %._crit_edge.thread, label %101
+  %99 = icmp eq i32 %71, 1
+  br i1 %99, label %._crit_edge.thread, label %100
 
-101:                                              ; preds = %._crit_edge
-  %102 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_2clEvE4site", i64 8) monotonic, align 8
-  %103 = icmp slt i32 %102, 2
-  br i1 %103, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121, !prof !25
+100:                                              ; preds = %._crit_edge
+  %101 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_2clEvE4site", i64 8) monotonic, align 8
+  %102 = icmp slt i32 %101, 2
+  br i1 %102, label %.critedge108, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121, !prof !25
 
-_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121: ; preds = %101
-  %104 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_2clEvE4site", i32 noundef %102)
-  br i1 %104, label %105, label %.critedge108
+_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121: ; preds = %100
+  %103 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iEENK3$_2clEvE4site", i32 noundef %101)
+  br i1 %103, label %104, label %.critedge108
 
-105:                                              ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121
+104:                                              ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull @.str, i32 noundef 72) #12
-  %106 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 2)
-          to label %107 unwind label %108
+  %105 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 2)
+          to label %106 unwind label %107
 
-107:                                              ; preds = %105
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, ptr nonnull @.str.9)
-          to label %.critedge113 unwind label %108
+106:                                              ; preds = %104
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, ptr nonnull @.str.9)
+          to label %.critedge113 unwind label %107
 
-.critedge113:                                     ; preds = %107
+.critedge113:                                     ; preds = %106
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge108
 
-108:                                              ; preds = %107, %105
-  %109 = landingpad { ptr, i32 }
+107:                                              ; preds = %106, %104
+  %108 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %125
+  br label %124
 
 ._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge
-  %110 = phi i32 [ %87, %._crit_edge ], [ %22, %.critedge ]
-  %111 = load ptr, ptr %6, align 8, !tbaa !13
-  %.not91 = icmp eq ptr %111, null
-  br i1 %.not91, label %112, label %.critedge116, !prof !34
+  %109 = phi i32 [ %86, %._crit_edge ], [ %22, %.critedge ]
+  %110 = load ptr, ptr %6, align 8, !tbaa !13
+  %.not91 = icmp eq ptr %110, null
+  br i1 %.not91, label %111, label %.critedge116, !prof !34
 
-112:                                              ; preds = %._crit_edge.thread
+111:                                              ; preds = %._crit_edge.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str, i32 noundef 76, i64 15, ptr nonnull @.str.10) #12
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
   unreachable
 
 .critedge116:                                     ; preds = %._crit_edge.thread
-  %113 = zext i32 %110 to i64
-  %114 = load i64, ptr %16, align 8, !tbaa !38
-  %115 = sub i64 %114, %113
-  store i64 %115, ptr %16, align 8, !tbaa !38
-  %116 = call i64 @grpc_slice_buffer_add_indexed(ptr noundef %2, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6)
+  %112 = zext i32 %109 to i64
+  %113 = load i64, ptr %16, align 8, !tbaa !38
+  %114 = sub i64 %113, %112
+  store i64 %114, ptr %16, align 8, !tbaa !38
+  %115 = call i64 @grpc_slice_buffer_add_indexed(ptr noundef %2, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
-.critedge108:                                     ; preds = %101, %91, %75, %.critedge113, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121, %.critedge110, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119, %.critedge107, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit
-  %117 = load ptr, ptr %6, align 8, !tbaa !13
-  %118 = icmp ugt ptr %117, inttoptr (i64 1 to ptr)
-  br i1 %118, label %119, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
+.critedge108:                                     ; preds = %100, %90, %74, %.critedge113, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit121, %.critedge110, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit119, %.critedge107, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit
+  %116 = load ptr, ptr %6, align 8, !tbaa !13
+  %117 = icmp ugt ptr %116, inttoptr (i64 1 to ptr)
+  br i1 %117, label %118, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
-119:                                              ; preds = %.critedge108
-  %120 = atomicrmw sub ptr %117, i64 1 acq_rel, align 8
-  %121 = icmp eq i64 %120, 1
-  br i1 %121, label %122, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
+118:                                              ; preds = %.critedge108
+  %119 = atomicrmw sub ptr %116, i64 1 acq_rel, align 8
+  %120 = icmp eq i64 %119, 1
+  br i1 %120, label %121, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !26
-  call void %124(ptr noundef nonnull align 8 dereferenceable(16) %117)
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %123 = load ptr, ptr %122, align 8, !tbaa !26
+  call void %123(ptr noundef nonnull align 8 dereferenceable(16) %116)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
-_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %122, %119, %.critedge108, %.critedge116
-  %.068 = phi i32 [ 1, %.critedge116 ], [ 0, %.critedge108 ], [ 0, %119 ], [ 0, %122 ]
+_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %121, %118, %.critedge108, %.critedge116
+  %.068 = phi i32 [ 1, %.critedge116 ], [ 0, %.critedge108 ], [ 0, %118 ], [ 0, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.068
 
-125:                                              ; preds = %108, %98, %84
-  %.pn = phi { ptr, i32 } [ %85, %84 ], [ %99, %98 ], [ %109, %108 ]
+124:                                              ; preds = %107, %97, %83
+  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %98, %97 ], [ %108, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }

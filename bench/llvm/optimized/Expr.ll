@@ -2612,33 +2612,35 @@ define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang18Designate
   %wide.trip.count29.i = zext nneg i32 %9 to i64
   br i1 %.not.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %12
-  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %12 ], [ 0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv26.i, i32 1, i32 0, i32 1
-  %storemerge.us.i = load i32, ptr %11, align 4, !tbaa !83
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %13
+  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %13 ], [ 0, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv26.i
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %storemerge.us.i = load i32, ptr %12, align 4, !tbaa !83
   %.not18.us.i = icmp eq i32 %storemerge.us.i, 0
-  br i1 %.not18.us.i, label %12, label %_ZNK5clang18DesignatedInitExpr11getBeginLocEv.exit
+  br i1 %.not18.us.i, label %13, label %_ZNK5clang18DesignatedInitExpr11getBeginLocEv.exit
 
-12:                                               ; preds = %.lr.ph.split.us.i
+13:                                               ; preds = %.lr.ph.split.us.i
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %wide.trip.count29.i
   br i1 %exitcond30.not.i, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !145
 
-13:                                               ; preds = %.lr.ph.split.i
+14:                                               ; preds = %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count29.i
   br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !145
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %13
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %13 ], [ 0, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv.i, i32 1, i32 0, i32 2
-  %storemerge.i = load i32, ptr %14, align 4, !tbaa !83
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %14
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.lr.ph.i ]
+  %15 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %storemerge.i = load i32, ptr %16, align 4, !tbaa !83
   %.not18.i = icmp eq i32 %storemerge.i, 0
-  br i1 %.not18.i, label %13, label %_ZNK5clang18DesignatedInitExpr11getBeginLocEv.exit
+  br i1 %.not18.i, label %14, label %_ZNK5clang18DesignatedInitExpr11getBeginLocEv.exit
 
-.critedge.i:                                      ; preds = %13, %12, %.preheader.i, %1
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.sroa.0.0.copyload.i16.i = load i32, ptr %15, align 4, !tbaa !83
+.critedge.i:                                      ; preds = %14, %13, %.preheader.i, %1
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.sroa.0.0.copyload.i16.i = load i32, ptr %17, align 4, !tbaa !83
   br label %_ZNK5clang18DesignatedInitExpr11getBeginLocEv.exit
 
 _ZNK5clang18DesignatedInitExpr11getBeginLocEv.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.critedge.i
@@ -30234,53 +30236,53 @@ define dso_local i64 @_ZNK5clang18DesignatedInitExpr25getDesignatorsSourceRangeE
   %8 = load ptr, ptr %7, align 8, !tbaa !139
   %9 = load i32, ptr %8, align 8, !tbaa !142
   %10 = icmp eq i32 %9, 0
-  br i1 %6, label %11, label %17
+  br i1 %6, label %11, label %19
 
 11:                                               ; preds = %1
-  br i1 %10, label %12, label %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit.sink.split
+  br i1 %10, label %12, label %17
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %13, align 8, !tbaa !83
   %14 = icmp eq i32 %.sroa.0.0.copyload.i.i.i, 0
-  br i1 %14, label %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit.sink.split, label %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit
+  br i1 %14, label %15, label %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit
 
-_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit.sink.split: ; preds = %11, %12
-  %.sink6 = phi i64 [ 20, %12 ], [ 12, %11 ]
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink6
-  %.sroa.0.0.copyload.i1.i.i = load i32, ptr %15, align 4, !tbaa !83
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %.sroa.0.0.copyload.i1.i.i = load i32, ptr %16, align 4, !tbaa !83
   br label %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit
 
-_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit: ; preds = %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit.sink.split, %12
-  %.sroa.0.1.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %12 ], [ %.sroa.0.0.copyload.i1.i.i, %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit.sink.split ]
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  br label %25
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.sroa.0.0.copyload.i3.i.i = load i32, ptr %18, align 4, !tbaa !83
+  br label %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit
 
-17:                                               ; preds = %1
-  br i1 %10, label %18, label %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit.sink.split
+19:                                               ; preds = %1
+  br i1 %10, label %20, label %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit.sink.split
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.0.0.copyload.i.i = load i32, ptr %19, align 8, !tbaa !83
-  %20 = icmp eq i32 %.sroa.0.0.copyload.i.i, 0
-  br i1 %20, label %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit.sink.split, label %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.0.0.copyload.i.i = load i32, ptr %21, align 8, !tbaa !83
+  %22 = icmp eq i32 %.sroa.0.0.copyload.i.i, 0
+  br i1 %22, label %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit.sink.split, label %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit
 
-_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit.sink.split: ; preds = %17, %18
-  %.sink7 = phi i64 [ 20, %18 ], [ 12, %17 ]
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink7
-  %.sroa.0.0.copyload.i1.i = load i32, ptr %21, align 4, !tbaa !83
+_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit.sink.split: ; preds = %19, %20
+  %.sink6 = phi i64 [ 20, %20 ], [ 12, %19 ]
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink6
+  %.sroa.0.0.copyload.i1.i = load i32, ptr %23, align 4, !tbaa !83
   br label %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit
 
-_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit: ; preds = %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit.sink.split, %18
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload.i.i, %18 ], [ %.sroa.0.0.copyload.i1.i, %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit.sink.split ]
-  %22 = add nsw i32 %5, -1
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %8, i64 %23, i32 1, i32 0, i32 2
-  br label %25
+_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit: ; preds = %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit.sink.split, %20
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.0.copyload.i.i, %20 ], [ %.sroa.0.0.copyload.i1.i, %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit.sink.split ]
+  %24 = add nsw i32 %5, -1
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %8, i64 %25
+  br label %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit
 
-25:                                               ; preds = %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit, %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit
-  %.sroa.3.0.in = phi ptr [ %16, %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit ], [ %24, %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0.1.i.i, %_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit ], [ %.sroa.0.1.i, %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit ]
+_ZNK5clang18DesignatedInitExpr10Designator14getSourceRangeEv.exit: ; preds = %17, %15, %12, %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit
+  %.pn = phi ptr [ %26, %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit ], [ %8, %12 ], [ %8, %15 ], [ %8, %17 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.1.i, %_ZNK5clang18DesignatedInitExpr10Designator11getBeginLocEv.exit ], [ %.sroa.0.0.copyload.i.i.i, %12 ], [ %.sroa.0.0.copyload.i1.i.i, %15 ], [ %.sroa.0.0.copyload.i3.i.i, %17 ]
+  %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 20
   %.sroa.3.0 = load i32, ptr %.sroa.3.0.in, align 4
   %.sroa.3.0.insert.ext = zext i32 %.sroa.3.0 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
@@ -30312,33 +30314,35 @@ define dso_local i32 @_ZNK5clang18DesignatedInitExpr11getBeginLocEv(ptr noundef 
   %wide.trip.count29 = zext nneg i32 %9 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %12
-  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %12 ], [ 0, %.lr.ph ]
-  %11 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv26, i32 1, i32 0, i32 1
-  %storemerge.us = load i32, ptr %11, align 4, !tbaa !83
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %13
+  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %13 ], [ 0, %.lr.ph ]
+  %11 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv26
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %storemerge.us = load i32, ptr %12, align 4, !tbaa !83
   %.not18.us = icmp eq i32 %storemerge.us, 0
-  br i1 %.not18.us, label %12, label %.loopexit
+  br i1 %.not18.us, label %13, label %.loopexit
 
-12:                                               ; preds = %.lr.ph.split.us
+13:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
   br i1 %exitcond30.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !145
 
-13:                                               ; preds = %.lr.ph.split
+14:                                               ; preds = %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count29
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !145
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %13
-  %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv, i32 1, i32 0, i32 2
-  %storemerge = load i32, ptr %14, align 4, !tbaa !83
+.lr.ph.split:                                     ; preds = %.lr.ph, %14
+  %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.lr.ph ]
+  %15 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %storemerge = load i32, ptr %16, align 4, !tbaa !83
   %.not18 = icmp eq i32 %storemerge, 0
-  br i1 %.not18, label %13, label %.loopexit
+  br i1 %.not18, label %14, label %.loopexit
 
-.critedge:                                        ; preds = %13, %12, %.preheader, %1
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.sroa.0.0.copyload.i16 = load i32, ptr %15, align 4, !tbaa !83
+.critedge:                                        ; preds = %14, %13, %.preheader, %1
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.sroa.0.0.copyload.i16 = load i32, ptr %17, align 4, !tbaa !83
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.critedge

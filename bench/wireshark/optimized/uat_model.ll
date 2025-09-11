@@ -2908,12 +2908,12 @@ define void @_ZNK8UatModel10headerDataEiN2Qt11OrientationEi(ptr dead_on_unwind n
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(32) %0, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 2, ptr %7, align 8
-  br label %28
+  br label %30
 
 8:                                                ; preds = %5
-  switch i32 %4, label %26 [
+  switch i32 %4, label %28 [
     i32 3, label %9
-    i32 0, label %18
+    i32 0, label %19
   ]
 
 9:                                                ; preds = %8
@@ -2922,33 +2922,35 @@ define void @_ZNK8UatModel10headerDataEiN2Qt11OrientationEi(ptr dead_on_unwind n
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %2 to i64
-  %15 = getelementptr %struct._uat_field_t, ptr %13, i64 %14, i32 6
-  %16 = load ptr, ptr %15, align 8
-  %.not6 = icmp eq ptr %16, null
-  br i1 %.not6, label %26, label %17
+  %15 = getelementptr %struct._uat_field_t, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %17 = load ptr, ptr %16, align 8
+  %.not6 = icmp eq ptr %17, null
+  br i1 %.not6, label %28, label %18
 
-17:                                               ; preds = %9
-  tail call void @_ZN8QVariantC2EPKc(ptr noundef align 8 dereferenceable_or_null(32) %0, ptr noundef nonnull %16)
-  br label %28
+18:                                               ; preds = %9
+  tail call void @_ZN8QVariantC2EPKc(ptr noundef align 8 dereferenceable_or_null(32) %0, ptr noundef nonnull %17)
+  br label %30
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
-  %22 = load ptr, ptr %21, align 8
-  %23 = sext i32 %2 to i64
-  %24 = getelementptr %struct._uat_field_t, ptr %22, i64 %23, i32 1
-  %25 = load ptr, ptr %24, align 8
-  tail call void @_ZN8QVariantC2EPKc(ptr noundef align 8 dereferenceable_or_null(32) %0, ptr noundef %25)
-  br label %28
+19:                                               ; preds = %8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
+  %23 = load ptr, ptr %22, align 8
+  %24 = sext i32 %2 to i64
+  %25 = getelementptr %struct._uat_field_t, ptr %23, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  tail call void @_ZN8QVariantC2EPKc(ptr noundef align 8 dereferenceable_or_null(32) %0, ptr noundef %27)
+  br label %30
 
-26:                                               ; preds = %9, %8
+28:                                               ; preds = %9, %8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(32) %0, i8 0, i64 24, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 2, ptr %27, align 8
-  br label %28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 2, ptr %29, align 8
+  br label %30
 
-28:                                               ; preds = %26, %18, %17, %6
+30:                                               ; preds = %28, %19, %18, %6
   ret void
 }
 

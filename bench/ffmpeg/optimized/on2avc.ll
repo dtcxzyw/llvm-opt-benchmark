@@ -2059,15 +2059,15 @@ define internal fastcc range(i32 -1094995529, 1) i32 @on2avc_decode_subframe(ptr
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %23 = load ptr, ptr %22, align 16, !tbaa !47
   %24 = zext nneg i32 %21 to i64
-  %25 = getelementptr inbounds nuw %struct.On2AVCMode, ptr %23, i64 %24, i32 2
-  %26 = load ptr, ptr %25, align 8, !tbaa !87
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %26, ptr %27, align 16, !tbaa !89
-  %28 = getelementptr inbounds nuw %struct.On2AVCMode, ptr %23, i64 %24
-  %29 = load i32, ptr %28, align 8, !tbaa !90
+  %25 = getelementptr inbounds nuw %struct.On2AVCMode, ptr %23, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !87
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr %27, ptr %28, align 16, !tbaa !89
+  %29 = load i32, ptr %25, align 8, !tbaa !90
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %29, ptr %30, align 16, !tbaa !91
-  %31 = getelementptr inbounds nuw %struct.On2AVCMode, ptr %23, i64 %24, i32 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !92
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 %32, ptr %33, align 4, !tbaa !93
@@ -2556,7 +2556,7 @@ on2avc_decode_band_scales.exit.i:                 ; preds = %264
   %298 = phi i32 [ %292, %.lr.ph.preheader.i ], [ %551, %on2avc_decode_quads.exit.i ]
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i54, %on2avc_decode_quads.exit.i ]
   %.189.i = phi ptr [ %.04693.i, %.lr.ph.preheader.i ], [ %.2.i, %on2avc_decode_quads.exit.i ]
-  %299 = load ptr, ptr %27, align 16, !tbaa !89
+  %299 = load ptr, ptr %28, align 16, !tbaa !89
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %300 = getelementptr inbounds nuw i32, ptr %299, i64 %indvars.iv.next.i54
   %301 = load i32, ptr %300, align 4, !tbaa !37
@@ -2988,7 +2988,7 @@ on2avc_decode_quads.exit.i:                       ; preds = %370, %on2avc_decode
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 2272
   %579 = getelementptr inbounds nuw i8, ptr %0, i64 6368
   %580 = zext nneg i32 %563 to i64
-  %581 = load ptr, ptr %27, align 16, !tbaa !89
+  %581 = load ptr, ptr %28, align 16, !tbaa !89
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i

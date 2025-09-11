@@ -1434,7 +1434,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: nounwind uwtable
 define i32 @exr_set_longname_support(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %74, label %3
+  br i1 %.not, label %75, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -1450,7 +1450,7 @@ define i32 @exr_set_longname_support(ptr noundef %0, i32 noundef %1) local_unnam
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !55
   %11 = tail call i32 %10(ptr noundef nonnull %0, i32 noundef 8) #13
-  br label %74
+  br label %75
 
 12:                                               ; preds = %3, %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -1520,7 +1520,7 @@ define i32 @exr_set_longname_support(ptr noundef %0, i32 noundef %1) local_unnam
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !90
   %47 = tail call i32 (ptr, i32, ptr, ...) %42(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.10, i32 noundef %43, ptr noundef %44, ptr noundef %46, i32 noundef 31) #13
-  br label %74
+  br label %75
 
 48:                                               ; preds = %36
   %49 = getelementptr inbounds nuw i8, ptr %32, i64 20
@@ -1565,10 +1565,11 @@ define i32 @exr_set_longname_support(ptr noundef %0, i32 noundef %1) local_unnam
   %67 = load ptr, ptr %66, align 8, !tbaa !50
   %68 = load i32, ptr %25, align 8, !tbaa !98
   %69 = load ptr, ptr %64, align 8, !tbaa !103
-  %70 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %69, i64 %indvars.iv, i32 0, i32 2
-  %71 = load ptr, ptr %70, align 8, !tbaa !108
-  %72 = tail call i32 (ptr, i32, ptr, ...) %67(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.11, i32 noundef %68, ptr noundef %71, i32 noundef 31) #13
-  br label %74
+  %70 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %69, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !108
+  %73 = tail call i32 (ptr, i32, ptr, ...) %67(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.11, i32 noundef %68, ptr noundef %72, i32 noundef 31) #13
+  br label %75
 
 .thread103:                                       ; preds = %.thread83, %23
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
@@ -1578,11 +1579,11 @@ define i32 @exr_set_longname_support(ptr noundef %0, i32 noundef %1) local_unnam
 .thread106:                                       ; preds = %.thread103, %.preheader, %.thread, %15
   %.06582 = phi i8 [ -1, %.thread ], [ 31, %15 ], [ 31, %.preheader ], [ 31, %.thread103 ]
   store i8 %.06582, ptr %13, align 2, !tbaa !78
-  %73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #13
-  br label %74
+  %74 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #13
+  br label %75
 
-74:                                               ; preds = %.thread101, %63, %2, %.thread106, %7
-  %.064 = phi i32 [ %11, %7 ], [ 0, %.thread106 ], [ 2, %2 ], [ %72, %63 ], [ %47, %.thread101 ]
+75:                                               ; preds = %.thread101, %63, %2, %.thread106, %7
+  %.064 = phi i32 [ %11, %7 ], [ 0, %.thread106 ], [ 2, %2 ], [ %73, %63 ], [ %47, %.thread101 ]
   ret i32 %.064
 }
 

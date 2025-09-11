@@ -3868,7 +3868,7 @@ revert_inter_ch_decorr.exit.i:                    ; preds = %1635, %1634, %1631,
   %.sink.i400.i = load i32, ptr %.sink.in.i.i, align 4, !tbaa !41
   %1697 = getelementptr inbounds nuw i32, ptr %1656, i64 %indvars.iv.next115.i.i
   store i32 %.sink.i400.i, ptr %1697, align 4, !tbaa !41
-  %1698 = icmp sgt i64 %indvars.iv114.i.i, 1
+  %1698 = icmp samesign ugt i64 %indvars.iv114.i.i, 1
   br i1 %1698, label %.preheader80.i.i, label %._crit_edge.i395.i, !llvm.loop !187
 
 ._crit_edge.i395.i:                               ; preds = %.preheader80.i.i, %1655

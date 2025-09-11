@@ -850,7 +850,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %264
   %269 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next122.i
   %270 = load i32, ptr %269, align 4
   %271 = or i32 %270, %.323943.i
-  %272 = icmp sgt i64 %indvars.iv121.i, 5
+  %272 = icmp samesign ugt i64 %indvars.iv121.i, 5
   br i1 %272, label %.lr.ph44.i, label %._crit_edge45.i, !llvm.loop !15
 
 ._crit_edge45.i:                                  ; preds = %.lr.ph44.i

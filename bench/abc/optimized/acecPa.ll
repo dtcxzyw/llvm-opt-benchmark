@@ -94,7 +94,7 @@ define void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr noundef readonly captures
   %9 = getelementptr i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !29
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %78
+  br i1 %11, label %12, label %79
 
 12:                                               ; preds = %4
   tail call void @Gia_ManIncrementTravId(ptr noundef %0) #15
@@ -106,100 +106,101 @@ define void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr noundef readonly captures
   %invariant.gep = getelementptr i32, ptr %.val51, i64 %7
   br label %17
 
-17:                                               ; preds = %12, %39
-  %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %39 ]
+17:                                               ; preds = %12, %40
+  %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %40 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %18 = load i32, ptr %gep, align 4, !tbaa !29
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %39, label %20
+  br i1 %19, label %40, label %20
 
 20:                                               ; preds = %17
   %.val54 = load ptr, ptr %13, align 8, !tbaa !28
   %21 = sext i32 %18 to i64
+  %22 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %21
   %.val57 = load ptr, ptr %14, align 8, !tbaa !34
-  %22 = ashr i32 %18, 5
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %.val57, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !29
-  %26 = and i32 %18, 31
-  %27 = shl nuw i32 1, %26
-  %28 = and i32 %25, %27
-  %.not50 = icmp eq i32 %28, 0
-  %29 = getelementptr inbounds nuw i32, ptr @__const.Pas_ManVerifyPhaseOne.Truths, i64 %indvars.iv
-  %30 = load i32, ptr %29, align 4, !tbaa !29
-  %31 = and i32 %30, 255
-  %32 = xor i32 %31, 255
-  %33 = select i1 %.not50, i32 %30, i32 %32
-  %34 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %21, i32 1
-  store i32 %33, ptr %34, align 4, !tbaa !31
-  %35 = load i32, ptr %15, align 8, !tbaa !30
-  %36 = load ptr, ptr %16, align 8, !tbaa !3
-  %37 = shl nsw i64 %21, 2
-  %38 = getelementptr inbounds i8, ptr %36, i64 %37
-  store i32 %35, ptr %38, align 4, !tbaa !29
-  br label %39
+  %23 = ashr i32 %18, 5
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i32, ptr %.val57, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !29
+  %27 = and i32 %18, 31
+  %28 = shl nuw i32 1, %27
+  %29 = and i32 %26, %28
+  %.not50 = icmp eq i32 %29, 0
+  %30 = getelementptr inbounds nuw i32, ptr @__const.Pas_ManVerifyPhaseOne.Truths, i64 %indvars.iv
+  %31 = load i32, ptr %30, align 4, !tbaa !29
+  %32 = and i32 %31, 255
+  %33 = xor i32 %32, 255
+  %34 = select i1 %.not50, i32 %31, i32 %33
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i32 %34, ptr %35, align 4, !tbaa !31
+  %36 = load i32, ptr %15, align 8, !tbaa !30
+  %37 = load ptr, ptr %16, align 8, !tbaa !3
+  %38 = shl nsw i64 %21, 2
+  %39 = getelementptr inbounds i8, ptr %37, i64 %38
+  store i32 %36, ptr %39, align 4, !tbaa !29
+  br label %40
 
-39:                                               ; preds = %17, %20
+40:                                               ; preds = %17, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %40, label %17, !llvm.loop !36
+  br i1 %exitcond.not, label %41, label %17, !llvm.loop !36
 
-40:                                               ; preds = %39
-  %41 = getelementptr i32, ptr %.val51, i64 %7
-  %42 = getelementptr i8, ptr %41, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !29
+41:                                               ; preds = %40
+  %42 = getelementptr i32, ptr %.val51, i64 %7
+  %43 = getelementptr i8, ptr %42, i64 12
+  %44 = load i32, ptr %43, align 4, !tbaa !29
   %.val55 = load ptr, ptr %13, align 8, !tbaa !28
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val55, i64 %44
-  %46 = tail call i32 @Pas_ManVerifyPhaseOne_rec(ptr noundef %0, ptr noundef %45)
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val55, i64 %45
+  %47 = tail call i32 @Pas_ManVerifyPhaseOne_rec(ptr noundef %0, ptr noundef %46)
   %.val58 = load ptr, ptr %14, align 8, !tbaa !34
-  %47 = ashr i32 %43, 5
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %.val58, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !29
-  %51 = and i32 %43, 31
+  %48 = ashr i32 %44, 5
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i32, ptr %.val58, i64 %49
+  %51 = load i32, ptr %50, align 4, !tbaa !29
+  %52 = and i32 %44, 31
   %.val53 = load ptr, ptr %6, align 8, !tbaa !33
-  %52 = getelementptr i32, ptr %.val53, i64 %7
-  %53 = getelementptr i8, ptr %52, i64 16
-  %54 = load i32, ptr %53, align 4, !tbaa !29
+  %53 = getelementptr i32, ptr %.val53, i64 %7
+  %54 = getelementptr i8, ptr %53, i64 16
+  %55 = load i32, ptr %54, align 4, !tbaa !29
   %.val56 = load ptr, ptr %13, align 8, !tbaa !28
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val56, i64 %55
-  %57 = tail call i32 @Pas_ManVerifyPhaseOne_rec(ptr noundef %0, ptr noundef %56)
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val56, i64 %56
+  %58 = tail call i32 @Pas_ManVerifyPhaseOne_rec(ptr noundef %0, ptr noundef %57)
   %.val59 = load ptr, ptr %14, align 8, !tbaa !34
-  %58 = ashr i32 %54, 5
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i32, ptr %.val59, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !29
-  %62 = and i32 %54, 31
-  %63 = shl nuw i32 1, %62
-  %64 = and i32 %61, %63
-  %.not47 = icmp eq i32 %64, 0
-  %65 = and i32 %57, 255
-  %66 = xor i32 %65, 255
-  %67 = select i1 %.not47, i32 %57, i32 %66
-  %68 = shl nuw i32 1, %51
-  %69 = and i32 %50, %68
-  %.not = icmp eq i32 %69, 0
-  %70 = and i32 %46, 255
-  %71 = xor i32 %70, 255
-  %72 = select i1 %.not, i32 %46, i32 %71
-  %.not48 = icmp eq i32 %72, 150
-  br i1 %.not48, label %75, label %73
+  %59 = ashr i32 %55, 5
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds i32, ptr %.val59, i64 %60
+  %62 = load i32, ptr %61, align 4, !tbaa !29
+  %63 = and i32 %55, 31
+  %64 = shl nuw i32 1, %63
+  %65 = and i32 %62, %64
+  %.not47 = icmp eq i32 %65, 0
+  %66 = and i32 %58, 255
+  %67 = xor i32 %66, 255
+  %68 = select i1 %.not47, i32 %58, i32 %67
+  %69 = shl nuw i32 1, %52
+  %70 = and i32 %51, %69
+  %.not = icmp eq i32 %70, 0
+  %71 = and i32 %47, 255
+  %72 = xor i32 %71, 255
+  %73 = select i1 %.not, i32 %47, i32 %72
+  %.not48 = icmp eq i32 %73, 150
+  br i1 %.not48, label %76, label %74
 
-73:                                               ; preds = %40
-  %74 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %2)
-  br label %75
+74:                                               ; preds = %41
+  %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %2)
+  br label %76
 
-75:                                               ; preds = %73, %40
-  %.not49 = icmp eq i32 %67, 232
-  br i1 %.not49, label %78, label %76
+76:                                               ; preds = %74, %41
+  %.not49 = icmp eq i32 %68, 232
+  br i1 %.not49, label %79, label %77
 
-76:                                               ; preds = %75
-  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %2)
-  br label %78
+77:                                               ; preds = %76
+  %78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %2)
+  br label %79
 
-78:                                               ; preds = %76, %75, %4
+79:                                               ; preds = %77, %76, %4
   ret void
 }
 

@@ -1549,8 +1549,9 @@ define internal void @rv10_init_static() #2 {
   %8 = getelementptr inbounds nuw %struct.VLCElem, ptr %6, i64 %7
   store i16 255, ptr %8, align 2, !tbaa !13
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 8), align 8, !tbaa !14
-  %10 = getelementptr inbounds nuw %struct.VLCElem, ptr %9, i64 %7, i32 0, i32 0, i32 1
-  store i16 18, ptr %10, align 2, !tbaa !13
+  %10 = getelementptr inbounds nuw %struct.VLCElem, ptr %9, i64 %7
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i16 18, ptr %11, align 2, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %1, label %5, !llvm.loop !123

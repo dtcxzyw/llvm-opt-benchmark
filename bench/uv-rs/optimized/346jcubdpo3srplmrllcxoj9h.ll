@@ -6381,7 +6381,7 @@ define noundef align 8 dereferenceable_or_null(24) ptr @_ZN21uv_distribution_typ
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %8 = load i64, ptr %7, align 8, !noundef !6
   %9 = icmp ult i64 %5, %8
-  br i1 %9, label %11, label %18
+  br i1 %9, label %11, label %19
 
 10:                                               ; preds = %11, %1
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %spec.select, %11 ]
@@ -6390,14 +6390,15 @@ define noundef align 8 dereferenceable_or_null(24) ptr @_ZN21uv_distribution_typ
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %13 = load ptr, ptr %12, align 8, !nonnull !6, !noundef !6
-  %14 = getelementptr inbounds { { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, { i64, [3 x i64] } }, ptr %13, i64 %5, i32 1
-  %15 = load i64, ptr %14, align 8, !range !28, !noundef !6
-  %16 = icmp eq i64 %15, 2
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %spec.select = select i1 %16, ptr %17, ptr null
+  %14 = getelementptr inbounds { { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, { i64, [3 x i64] } }, ptr %13, i64 %5
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  %16 = load i64, ptr %15, align 8, !range !28, !noundef !6
+  %17 = icmp eq i64 %16, 2
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  %spec.select = select i1 %17, ptr %18, ptr null
   br label %10
 
-18:                                               ; preds = %6
+19:                                               ; preds = %6
   tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %5, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b0c071d729df3d91766c85fc4f81692a.115) #42
   unreachable
 }

@@ -8304,7 +8304,7 @@ Abc_TtHasVar.exit.thread84:                       ; preds = %58, %72, %Abc_TtHas
 
 .lr.ph140.us.preheader.i:                         ; preds = %.preheader.i
   %112 = add nsw i32 %101, -1
-  %wide.trip.count165.i = zext i32 %112 to i64
+  %wide.trip.count165.i = zext nneg i32 %112 to i64
   %spec.select.i = select i1 %.not.i.i, i32 2, i32 3
   br label %.lr.ph140.us.i
 

@@ -1737,10 +1737,11 @@ define internal double @imagf(ptr noundef readonly captures(none) %0, double nou
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !67
   %19 = sext i32 %.0.i.i to i64
-  %20 = getelementptr inbounds %struct.AVComplexFloat, ptr %18, i64 %19, i32 1
-  %21 = load float, ptr %20, align 4, !tbaa !73
-  %22 = fpext nsz float %21 to double
-  ret double %22
+  %20 = getelementptr inbounds %struct.AVComplexFloat, ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %22 = load float, ptr %21, align 4, !tbaa !73
+  %23 = fpext nsz float %22 to double
+  ret double %23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

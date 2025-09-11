@@ -6274,92 +6274,93 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_m
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit, %.lr.ph
   %30 = phi i64 [ %26, %.lr.ph ], [ %.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit ]
   %31 = phi i64 [ %10, %.lr.ph ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit ]
-  %32 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %.031
-  store i64 %30, ptr %32, align 8
-  %33 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %31, i32 1
-  %34 = load ptr, ptr %33, align 8, !tbaa !14
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %34, ptr %35, align 8, !tbaa !144
-  %36 = icmp slt i64 %31, %7
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !159
+  %32 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %31
+  %33 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %.031
+  store i64 %30, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !14
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store ptr %35, ptr %36, align 8, !tbaa !144
+  %37 = icmp slt i64 %31, %7
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit.thread, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESE_EEbT_T0_.exit.thread ]
-  %37 = and i64 %2, 1
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %52
+  %38 = and i64 %2, 1
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %40, label %53
 
-39:                                               ; preds = %._crit_edge
-  %40 = add nsw i64 %2, -2
-  %41 = ashr exact i64 %40, 1
-  %42 = icmp eq i64 %.0.lcssa, %41
-  br i1 %42, label %43, label %52
+40:                                               ; preds = %._crit_edge
+  %41 = add nsw i64 %2, -2
+  %42 = ashr exact i64 %41, 1
+  %43 = icmp eq i64 %.0.lcssa, %42
+  br i1 %43, label %44, label %53
 
-43:                                               ; preds = %39
-  %44 = shl nsw i64 %.0.lcssa, 1
-  %45 = or disjoint i64 %44, 1
-  %46 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %45
-  %47 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %.0.lcssa
-  %48 = load i64, ptr %46, align 8
-  store i64 %48, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !14
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store ptr %50, ptr %51, align 8, !tbaa !144
-  br label %52
+44:                                               ; preds = %40
+  %45 = shl nsw i64 %.0.lcssa, 1
+  %46 = or disjoint i64 %45, 1
+  %47 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %46
+  %48 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %.0.lcssa
+  %49 = load i64, ptr %47, align 8
+  store i64 %49, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !14
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store ptr %51, ptr %52, align 8, !tbaa !144
+  br label %53
 
-52:                                               ; preds = %43, %39, %._crit_edge
-  %.1 = phi i64 [ %45, %43 ], [ %.0.lcssa, %39 ], [ %.0.lcssa, %._crit_edge ]
-  %53 = icmp sgt i64 %.1, %1
-  br i1 %53, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit
+53:                                               ; preds = %44, %40, %._crit_edge
+  %.1 = phi i64 [ %46, %44 ], [ %.0.lcssa, %40 ], [ %.0.lcssa, %._crit_edge ]
+  %54 = icmp sgt i64 %.1, %1
+  br i1 %54, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %55
+.lr.ph.i:                                         ; preds = %53
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %56
 
-55:                                               ; preds = %70, %.lr.ph.i
-  %.01316.i = phi i64 [ %.1, %.lr.ph.i ], [ %.017.i, %70 ]
+56:                                               ; preds = %71, %.lr.ph.i
+  %.01316.i = phi i64 [ %.1, %.lr.ph.i ], [ %.017.i, %71 ]
   %.017.in.i = add nsw i64 %.01316.i, -1
   %.017.i = sdiv i64 %.017.in.i, 2
-  %56 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %.017.i
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !152
-  %60 = load i8, ptr %59, align 1, !tbaa !44
-  %61 = icmp eq i8 %60, 42
-  %.idx.i.i.i.i.i.i.i = zext i1 %61 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i.i.i.i.i.i.i
-  %63 = load ptr, ptr %54, align 8, !tbaa !152
-  %64 = load i8, ptr %63, align 1, !tbaa !44
-  %65 = icmp eq i8 %64, 42
-  %.idx.i.i3.i.i.i.i.i = zext i1 %65 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i.i3.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq ptr %62, %66
-  %67 = ptrtoint ptr %57 to i64
+  %57 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %.017.i
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !152
+  %61 = load i8, ptr %60, align 1, !tbaa !44
+  %62 = icmp eq i8 %61, 42
+  %.idx.i.i.i.i.i.i.i = zext i1 %62 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i.i.i.i.i.i
+  %64 = load ptr, ptr %55, align 8, !tbaa !152
+  %65 = load i8, ptr %64, align 1, !tbaa !44
+  %66 = icmp eq i8 %65, 42
+  %.idx.i.i3.i.i.i.i.i = zext i1 %66 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i3.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp eq ptr %63, %67
+  %68 = ptrtoint ptr %58 to i64
   br i1 %.not.i.i.i.i.i, label %_ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i: ; preds = %55
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %66) #28
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %_ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i: ; preds = %56
+  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %67) #28
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %71, label %_ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit
 
-70:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i
-  %71 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %.01316.i
-  store i64 %67, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !14
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr %73, ptr %74, align 8, !tbaa !144
-  %75 = icmp sgt i64 %.017.i, %1
-  br i1 %75, label %55, label %_ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit, !llvm.loop !160
+71:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i
+  %72 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %.01316.i
+  store i64 %68, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !14
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  store ptr %74, ptr %75, align 8, !tbaa !144
+  %76 = icmp sgt i64 %.017.i, %1
+  br i1 %76, label %56, label %_ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit, !llvm.loop !160
 
-_ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit: ; preds = %55, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i, %70, %52
-  %.013.lcssa.i = phi i64 [ %.1, %52 ], [ %.01316.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i ], [ %.017.i, %70 ], [ %.01316.i, %55 ]
-  %76 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %.013.lcssa.i
-  %77 = ptrtoint ptr %3 to i64
-  store i64 %77, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store ptr %4, ptr %78, align 8, !tbaa !144
+_ZSt11__push_heapIPSt4pairIN5boost9typeindex14stl_type_indexEPvElS5_N9__gnu_cxx5__ops14_Iter_comp_valINS1_3log11v2_mt_posix3aux21dispatching_map_orderEEEEvT_T0_SG_T1_RT2_.exit: ; preds = %56, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i, %71, %53
+  %.013.lcssa.i = phi i64 [ %.1, %53 ], [ %.01316.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost3log11v2_mt_posix3aux21dispatching_map_orderEEclIPSt4pairINS2_9typeindex14stl_type_indexEPvESD_EEbT_RT0_.exit.i ], [ %.017.i, %71 ], [ %.01316.i, %56 ]
+  %77 = getelementptr inbounds %"struct.std::pair.249", ptr %0, i64 %.013.lcssa.i
+  %78 = ptrtoint ptr %3 to i64
+  store i64 %78, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store ptr %4, ptr %79, align 8, !tbaa !144
   ret void
 }
 

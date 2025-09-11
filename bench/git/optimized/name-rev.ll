@@ -1606,22 +1606,23 @@ add_to_tip_table.exit:                            ; preds = %100, %108
   %110 = phi i32 [ %101, %100 ], [ %.pre29.i, %108 ]
   %111 = phi ptr [ %102, %100 ], [ %.pre28.i, %108 ]
   %112 = phi ptr [ %.0.i, %100 ], [ %109, %108 ]
-  %113 = getelementptr inbounds %struct.tip_table_entry, ptr %111, i64 %.pre-phi.i, i32 1
-  store ptr %112, ptr %113, align 8, !tbaa !46
-  %114 = getelementptr inbounds %struct.tip_table_entry, ptr %111, i64 %.pre-phi.i, i32 2
-  store ptr %.063, ptr %114, align 8, !tbaa !43
-  %115 = getelementptr inbounds %struct.tip_table_entry, ptr %111, i64 %.pre-phi.i, i32 3
-  store i64 %.362, ptr %115, align 8, !tbaa !47
-  %116 = getelementptr inbounds %struct.tip_table_entry, ptr %111, i64 %.pre-phi.i, i32 4
-  %117 = trunc i32 %.064 to i8
-  %118 = load i8, ptr %116, align 8
-  %119 = and i8 %117, 1
-  %120 = and i8 %118, -4
-  %121 = or disjoint i8 %119, %.065108
-  %122 = or disjoint i8 %121, %120
-  store i8 %122, ptr %116, align 8
-  %123 = add nsw i32 %110, 1
-  store i32 %123, ptr @tip_table.1, align 8, !tbaa !39
+  %113 = getelementptr inbounds %struct.tip_table_entry, ptr %111, i64 %.pre-phi.i
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
+  store ptr %112, ptr %114, align 8, !tbaa !46
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 48
+  store ptr %.063, ptr %115, align 8, !tbaa !43
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 56
+  store i64 %.362, ptr %116, align 8, !tbaa !47
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 64
+  %118 = trunc i32 %.064 to i8
+  %119 = load i8, ptr %117, align 8
+  %120 = and i8 %118, 1
+  %121 = and i8 %119, -4
+  %122 = or disjoint i8 %120, %.065108
+  %123 = or disjoint i8 %122, %121
+  store i8 %123, ptr %117, align 8
+  %124 = add nsw i32 %110, 1
+  store i32 %124, ptr @tip_table.1, align 8, !tbaa !39
   store i1 false, ptr @tip_table.3, align 8
   br label %.critedge84
 
@@ -1787,7 +1788,7 @@ define internal fastcc ptr @get_rev_name(ptr noundef %0, ptr noundef nonnull %1)
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 14
   %.not = icmp eq i32 %4, 2
-  br i1 %.not, label %27, label %5
+  br i1 %.not, label %28, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @tip_table.0, align 8, !tbaa !42
@@ -1830,99 +1831,100 @@ sane_qsort.exit.i:                                ; preds = %13, %11
 22:                                               ; preds = %15
   %23 = load ptr, ptr @tip_table.0, align 8, !tbaa !42
   %24 = zext nneg i32 %20 to i64
-  %25 = getelementptr inbounds nuw %struct.tip_table_entry, ptr %23, i64 %24, i32 1
-  %26 = load ptr, ptr %25, align 8, !tbaa !46
+  %25 = getelementptr inbounds nuw %struct.tip_table_entry, ptr %23, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %27 = load ptr, ptr %26, align 8, !tbaa !46
   br label %get_exact_ref_match.exit
 
-27:                                               ; preds = %2
-  %28 = getelementptr i8, ptr %0, i64 64
-  %.val = load i32, ptr %28, align 8, !tbaa !48
-  %29 = udiv i32 %.val, 16383
-  %30 = urem i32 %.val, 16383
-  %31 = load i32, ptr @rev_names.2, align 8, !tbaa !21
-  %.not.i.i.i = icmp ugt i32 %31, %29
-  br i1 %.not.i.i.i, label %32, label %get_exact_ref_match.exit
+28:                                               ; preds = %2
+  %29 = getelementptr i8, ptr %0, i64 64
+  %.val = load i32, ptr %29, align 8, !tbaa !48
+  %30 = udiv i32 %.val, 16383
+  %31 = urem i32 %.val, 16383
+  %32 = load i32, ptr @rev_names.2, align 8, !tbaa !21
+  %.not.i.i.i = icmp ugt i32 %32, %30
+  br i1 %.not.i.i.i, label %33, label %get_exact_ref_match.exit
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   %.pre.i.i.i = load ptr, ptr @rev_names.3, align 8, !tbaa !24
-  %33 = zext nneg i32 %29 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %33
-  %35 = load ptr, ptr %34, align 8, !tbaa !49
-  %.not35.i.i.i = icmp eq ptr %35, null
+  %34 = zext nneg i32 %30 to i64
+  %35 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !49
+  %.not35.i.i.i = icmp eq ptr %36, null
   br i1 %.not35.i.i.i, label %get_exact_ref_match.exit, label %is_valid_rev_name.exit.i
 
-is_valid_rev_name.exit.i:                         ; preds = %32
+is_valid_rev_name.exit.i:                         ; preds = %33
   %.b27 = load i1, ptr @rev_names.1, align 4
-  %36 = zext nneg i32 %30 to i64
-  %37 = select i1 %.b27, i64 %36, i64 0
-  %38 = getelementptr inbounds nuw %struct.rev_name, ptr %35, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !52
-  %.fr.i = freeze ptr %39
+  %37 = zext nneg i32 %31 to i64
+  %38 = select i1 %.b27, i64 %37, i64 0
+  %39 = getelementptr inbounds nuw %struct.rev_name, ptr %36, i64 %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !52
+  %.fr.i = freeze ptr %40
   %.not7.i = icmp eq ptr %.fr.i, null
   br i1 %.not7.i, label %get_exact_ref_match.exit, label %get_commit_rev_name.exit
 
 get_commit_rev_name.exit:                         ; preds = %is_valid_rev_name.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %41 = load i32, ptr %40, align 8, !tbaa !55
-  %.not17 = icmp eq i32 %41, 0
-  br i1 %.not17, label %get_exact_ref_match.exit, label %42
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %42 = load i32, ptr %41, align 8, !tbaa !55
+  %.not17 = icmp eq i32 %42, 0
+  br i1 %.not17, label %get_exact_ref_match.exit, label %43
 
-42:                                               ; preds = %get_commit_rev_name.exit
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %43, align 8, !tbaa !68
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !69
-  %.not9.i = icmp eq ptr %45, @strbuf_slopbuf
-  br i1 %.not9.i, label %strbuf_setlen.exit, label %46
+43:                                               ; preds = %get_commit_rev_name.exit
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 0, ptr %44, align 8, !tbaa !68
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %46 = load ptr, ptr %45, align 8, !tbaa !69
+  %.not9.i = icmp eq ptr %46, @strbuf_slopbuf
+  br i1 %.not9.i, label %strbuf_setlen.exit, label %47
 
-46:                                               ; preds = %42
-  store i8 0, ptr %45, align 1, !tbaa !70
-  %.pre = load ptr, ptr %38, align 8, !tbaa !52
+47:                                               ; preds = %43
+  store i8 0, ptr %46, align 1, !tbaa !70
+  %.pre = load ptr, ptr %39, align 8, !tbaa !52
   br label %strbuf_setlen.exit
 
-strbuf_setlen.exit:                               ; preds = %42, %46
-  %47 = phi ptr [ %.fr.i, %42 ], [ %.pre, %46 ]
-  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #19
-  tail call void @strbuf_add(ptr noundef nonnull %1, ptr noundef nonnull %47, i64 noundef %48) #16
-  %49 = load ptr, ptr %44, align 8, !tbaa !69
-  %50 = load i64, ptr %43, align 8, !tbaa !27
-  %51 = icmp ult i64 %50, 2
-  br i1 %51, label %strbuf_strip_suffix.exit, label %52
+strbuf_setlen.exit:                               ; preds = %43, %47
+  %48 = phi ptr [ %.fr.i, %43 ], [ %.pre, %47 ]
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #19
+  tail call void @strbuf_add(ptr noundef nonnull %1, ptr noundef nonnull %48, i64 noundef %49) #16
+  %50 = load ptr, ptr %45, align 8, !tbaa !69
+  %51 = load i64, ptr %44, align 8, !tbaa !27
+  %52 = icmp ult i64 %51, 2
+  br i1 %52, label %strbuf_strip_suffix.exit, label %53
 
-52:                                               ; preds = %strbuf_setlen.exit
-  %53 = add i64 %50, -2
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 %53
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %54, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
+53:                                               ; preds = %strbuf_setlen.exit
+  %54 = add i64 %51, -2
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 %54
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %55, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not.i.i, label %55, label %strbuf_strip_suffix.exit
+  br i1 %.not.i.i, label %56, label %strbuf_strip_suffix.exit
 
-55:                                               ; preds = %52
-  store i64 %53, ptr %43, align 8, !tbaa !27
-  %56 = load i64, ptr %1, align 8, !tbaa !66
-  %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %56, i64 1)
-  %57 = icmp ugt i64 %53, %spec.select.i.i
-  br i1 %57, label %58, label %59
+56:                                               ; preds = %53
+  store i64 %54, ptr %44, align 8, !tbaa !27
+  %57 = load i64, ptr %1, align 8, !tbaa !66
+  %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %57, i64 1)
+  %58 = icmp ugt i64 %54, %spec.select.i.i
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.41, i32 noundef 167, ptr noundef nonnull @.str.42) #17
   unreachable
 
-59:                                               ; preds = %55
-  %.not9.i.i = icmp eq ptr %49, @strbuf_slopbuf
-  br i1 %.not9.i.i, label %strbuf_strip_suffix.exit, label %60
+60:                                               ; preds = %56
+  %.not9.i.i = icmp eq ptr %50, @strbuf_slopbuf
+  br i1 %.not9.i.i, label %strbuf_strip_suffix.exit, label %61
 
-60:                                               ; preds = %59
-  store i8 0, ptr %54, align 1, !tbaa !70
+61:                                               ; preds = %60
+  store i8 0, ptr %55, align 1, !tbaa !70
   br label %strbuf_strip_suffix.exit
 
-strbuf_strip_suffix.exit:                         ; preds = %strbuf_setlen.exit, %52, %59, %60
-  %61 = load i32, ptr %40, align 8, !tbaa !55
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.40, i32 noundef %61) #16
-  %62 = load ptr, ptr %44, align 8, !tbaa !69
+strbuf_strip_suffix.exit:                         ; preds = %strbuf_setlen.exit, %53, %60, %61
+  %62 = load i32, ptr %41, align 8, !tbaa !55
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.40, i32 noundef %62) #16
+  %63 = load ptr, ptr %45, align 8, !tbaa !69
   br label %get_exact_ref_match.exit
 
-get_exact_ref_match.exit:                         ; preds = %get_commit_rev_name.exit, %is_valid_rev_name.exit.i, %32, %27, %22, %15, %5, %strbuf_strip_suffix.exit
-  %.0 = phi ptr [ %62, %strbuf_strip_suffix.exit ], [ %26, %22 ], [ null, %5 ], [ null, %15 ], [ null, %27 ], [ null, %32 ], [ null, %is_valid_rev_name.exit.i ], [ %.fr.i, %get_commit_rev_name.exit ]
+get_exact_ref_match.exit:                         ; preds = %get_commit_rev_name.exit, %is_valid_rev_name.exit.i, %33, %28, %22, %15, %5, %strbuf_strip_suffix.exit
+  %.0 = phi ptr [ %63, %strbuf_strip_suffix.exit ], [ %27, %22 ], [ null, %5 ], [ null, %15 ], [ null, %28 ], [ null, %33 ], [ null, %is_valid_rev_name.exit.i ], [ %.fr.i, %get_commit_rev_name.exit ]
   ret ptr %.0
 }
 

@@ -680,16 +680,16 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
 87:                                               ; preds = %.lr.ph, %110
   %88 = phi ptr [ %.pre90, %.lr.ph ], [ %112, %110 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %110 ]
-  %89 = getelementptr inbounds nuw %struct.multiCmd, ptr %88, i64 %indvars.iv, i32 2
-  %90 = load i32, ptr %89, align 4, !tbaa !31
-  store i32 %90, ptr %76, align 8, !tbaa !41
-  %91 = getelementptr inbounds nuw %struct.multiCmd, ptr %88, i64 %indvars.iv
-  %92 = load ptr, ptr %91, align 8, !tbaa !33
+  %89 = getelementptr inbounds nuw %struct.multiCmd, ptr %88, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 12
+  %91 = load i32, ptr %90, align 4, !tbaa !31
+  store i32 %91, ptr %76, align 8, !tbaa !41
+  %92 = load ptr, ptr %89, align 8, !tbaa !33
   store ptr %92, ptr %72, align 8, !tbaa !42
-  %93 = getelementptr inbounds nuw %struct.multiCmd, ptr %88, i64 %indvars.iv, i32 1
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %94 = load i32, ptr %93, align 8, !tbaa !44
   store i32 %94, ptr %74, align 8, !tbaa !43
-  %95 = getelementptr inbounds nuw %struct.multiCmd, ptr %88, i64 %indvars.iv, i32 3
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %96 = load ptr, ptr %95, align 8, !tbaa !40
   store ptr %96, ptr %86, align 8, !tbaa !91
   store ptr %96, ptr %78, align 8, !tbaa !39
@@ -736,16 +736,16 @@ discardTransaction.exit:                          ; preds = %._crit_edge.i.i, %4
 110:                                              ; preds = %103, %101
   %111 = load i32, ptr %76, align 8, !tbaa !41
   %112 = load ptr, ptr %80, align 8, !tbaa !30
-  %113 = getelementptr inbounds nuw %struct.multiCmd, ptr %112, i64 %indvars.iv, i32 2
-  store i32 %111, ptr %113, align 4, !tbaa !31
-  %114 = load ptr, ptr %72, align 8, !tbaa !42
-  %115 = getelementptr inbounds nuw %struct.multiCmd, ptr %112, i64 %indvars.iv
-  store ptr %114, ptr %115, align 8, !tbaa !33
+  %113 = getelementptr inbounds nuw %struct.multiCmd, ptr %112, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 12
+  store i32 %111, ptr %114, align 4, !tbaa !31
+  %115 = load ptr, ptr %72, align 8, !tbaa !42
+  store ptr %115, ptr %113, align 8, !tbaa !33
   %116 = load i32, ptr %74, align 8, !tbaa !43
-  %117 = getelementptr inbounds nuw %struct.multiCmd, ptr %112, i64 %indvars.iv, i32 1
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i32 %116, ptr %117, align 8, !tbaa !44
   %118 = load ptr, ptr %78, align 8, !tbaa !39
-  %119 = getelementptr inbounds nuw %struct.multiCmd, ptr %112, i64 %indvars.iv, i32 3
+  %119 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store ptr %118, ptr %119, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

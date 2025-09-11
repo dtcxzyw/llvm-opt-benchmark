@@ -2455,7 +2455,7 @@ argv2int.exit154:                                 ; preds = %105, %lj_strscan_nu
   %180 = load i32, ptr %179, align 8, !tbaa !60
   %181 = zext i32 %180 to i64
   %182 = add nuw nsw i64 %181, %169
-  %183 = icmp sgt i64 %182, 250
+  %183 = icmp samesign ugt i64 %182, 250
   br i1 %183, label %184, label %.lr.ph.preheader
 
 184:                                              ; preds = %173
@@ -2465,7 +2465,6 @@ argv2int.exit154:                                 ; preds = %105, %lj_strscan_nu
 .lr.ph.preheader:                                 ; preds = %173
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %169, ptr %185, align 8, !tbaa !32
-  %smax = tail call i64 @llvm.smax.i64(i64 %169, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2491,7 +2490,7 @@ argv2int.exit154:                                 ; preds = %105, %lj_strscan_nu
   %195 = getelementptr inbounds nuw i32, ptr %194, i64 %.0131162
   store i32 %193, ptr %195, align 4, !tbaa !39
   %196 = add nuw nsw i64 %.0131162, 1
-  %exitcond.not = icmp eq i64 %196, %smax
+  %exitcond.not = icmp eq i64 %196, %169
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !61
 
 197:                                              ; preds = %167
@@ -6198,9 +6197,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8

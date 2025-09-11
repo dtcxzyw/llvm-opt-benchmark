@@ -8381,7 +8381,8 @@ if.then:                                          ; preds = %land.rhs.i.i.i, %if
   %14 = load ptr, ptr %childrenIndices_, align 8, !nonnull !29, !noundef !29
   %15 = load i32, ptr %arrayidx.i.i.i.i.le, align 4
   %idx.ext8.i.i = zext i32 %15 to i64
-  %second = getelementptr inbounds nuw %"struct.std::pair.164", ptr %14, i64 %idx.ext8.i.i, i32 1
+  %add.ptr9.i.i = getelementptr inbounds nuw %"struct.std::pair.164", ptr %14, i64 %idx.ext8.i.i
+  %second = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i, i64 32
   %16 = load i32, ptr %second, align 4
   %17 = zext i32 %16 to i64
   br label %return
@@ -31213,7 +31214,8 @@ for.body20.lr.ph:                                 ; preds = %_ZNSt6vectorISt10sh
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.inc25
   %indvars.iv = phi i64 [ 0, %for.body20.lr.ph ], [ %indvars.iv.next, %for.inc25 ]
   %4 = phi ptr [ %1, %for.body20.lr.ph ], [ %14, %for.inc25 ]
-  %type23 = getelementptr inbounds nuw %"struct.facebook::velox::TypeParameter", ptr %4, i64 %indvars.iv, i32 1
+  %add.ptr.i24 = getelementptr inbounds nuw %"struct.facebook::velox::TypeParameter", ptr %4, i64 %indvars.iv
+  %type23 = getelementptr inbounds nuw i8, ptr %add.ptr.i24, i64 8
   %5 = load ptr, ptr %_M_finish.i25, align 8
   %6 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i = icmp eq ptr %5, %6
@@ -31223,7 +31225,7 @@ if.then.i26:                                      ; preds = %for.body20
   %7 = load ptr, ptr %type23, align 8
   store ptr %7, ptr %5, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %_M_refcount3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %type23, i64 8
+  %_M_refcount3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i24, i64 16
   %8 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
   store ptr %8, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -34607,9 +34609,10 @@ while.cond85:                                     ; preds = %while.cond85, %whil
 
 if.then.i95:                                      ; preds = %while.cond85
   %33 = load ptr, ptr %this, align 8
+  %add.ptr94 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.418", ptr %33, i64 %i.0
   %conv96 = zext nneg i8 %32 to i64
   %sub97 = add nsw i64 %conv96, -1
-  %rawItems_.i.i.i85 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.418", ptr %33, i64 %i.0, i32 3
+  %rawItems_.i.i.i85 = getelementptr inbounds nuw i8, ptr %add.ptr94, i64 16
   %arrayidx.i.i.i.i.i86 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i85, i64 %sub97
   %shr.i.i90 = lshr i64 %sub97, 1
   %cmp.i.i91 = icmp ult i8 %32, 17

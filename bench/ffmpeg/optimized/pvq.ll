@@ -150,7 +150,7 @@ define internal i32 @pvq_encode_band(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %or.cond.i35, label %.preheader.us.preheader.i, label %celt_haar1.exit
 
 .preheader.us.preheader.i:                        ; preds = %.lr.ph227
-  %62 = shl nuw i32 1, %57
+  %62 = shl nuw nsw i32 1, %57
   %63 = zext nneg i32 %62 to i64
   %wide.trip.count.i = zext nneg i32 %59 to i64
   br label %.preheader.us.i
@@ -1644,7 +1644,7 @@ celt_haar1.exit130:                               ; preds = %._crit_edge.us.i127
   br i1 %or.cond.i131, label %.preheader.us.preheader.i132, label %celt_haar1.exit146
 
 .preheader.us.preheader.i132:                     ; preds = %.lr.ph280
-  %846 = shl nuw i32 1, %841
+  %846 = shl nuw nsw i32 1, %841
   %847 = zext nneg i32 %846 to i64
   %wide.trip.count.i133 = zext nneg i32 %843 to i64
   br label %.preheader.us.i134
@@ -1841,7 +1841,7 @@ define internal i32 @pvq_decode_band(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %or.cond.i35, label %.preheader.us.preheader.i, label %celt_haar1.exit
 
 .preheader.us.preheader.i:                        ; preds = %56
-  %62 = shl nuw i32 1, %57
+  %62 = shl nuw nsw i32 1, %57
   %63 = zext nneg i32 %62 to i64
   %wide.trip.count.i = zext nneg i32 %59 to i64
   br label %.preheader.us.i
@@ -3276,7 +3276,7 @@ celt_haar1.exit105:                               ; preds = %._crit_edge.us.i102
   br i1 %or.cond.i106, label %.preheader.us.preheader.i107, label %celt_haar1.exit121
 
 .preheader.us.preheader.i107:                     ; preds = %.lr.ph250
-  %817 = shl nuw i32 1, %812
+  %817 = shl nuw nsw i32 1, %812
   %818 = zext nneg i32 %817 to i64
   %wide.trip.count.i108 = zext nneg i32 %814 to i64
   br label %.preheader.us.i109

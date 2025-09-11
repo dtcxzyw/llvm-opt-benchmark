@@ -18079,11 +18079,11 @@ define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2024011618container_inter
 11:                                               ; preds = %6
   %12 = sub nsw i32 %10, %2
   %13 = sext i32 %12 to i64
-  br label %76
+  br label %75
 
 14:                                               ; preds = %6
   %15 = icmp eq i32 %10, %2
-  br i1 %15, label %76, label %16
+  br i1 %15, label %75, label %16
 
 16:                                               ; preds = %._crit_edge, %14
   %.sroa.2.0.copyload.i = phi i32 [ %.sroa.2.0.copyload.i.pre, %._crit_edge ], [ %10, %14 ]
@@ -18126,88 +18126,87 @@ define linkonce_odr hidden noundef i64 @_ZNK4absl12lts_2024011618container_inter
   br label %38
 
 38:                                               ; preds = %.backedge, %._crit_edge.i
-  %.246.i = phi i64 [ %.044108.i, %._crit_edge.i ], [ %63, %.backedge ]
+  %.246.i = phi i64 [ %.044108.i, %._crit_edge.i ], [ %62, %.backedge ]
   %.142.i = phi i64 [ %35, %._crit_edge.i ], [ %.142.i.be, %.backedge ]
   %.1.i = phi ptr [ %36, %._crit_edge.i ], [ %.1.i.be, %.backedge ]
   %39 = getelementptr inbounds nuw i8, ptr %.1.i, i64 256
-  %40 = and i64 %.142.i, 255
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !11
-  %43 = getelementptr i8, ptr %42, i64 11
-  %44 = load i8, ptr %43, align 1, !tbaa !13
-  %.not.i63.i = icmp eq i8 %44, 0
-  br i1 %.not.i63.i, label %.lr.ph87.i, label %53
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %.142.i
+  %41 = load ptr, ptr %40, align 8, !tbaa !11
+  %42 = getelementptr i8, ptr %41, i64 11
+  %43 = load i8, ptr %42, align 1, !tbaa !13
+  %.not.i63.i = icmp eq i8 %43, 0
+  br i1 %.not.i63.i, label %.lr.ph87.i, label %52
 
 .lr.ph87.i:                                       ; preds = %38, %.lr.ph87.i
-  %.35086.i = phi ptr [ %46, %.lr.ph87.i ], [ %42, %38 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.35086.i, i64 256
-  %46 = load ptr, ptr %45, align 8, !tbaa !11
-  %47 = getelementptr i8, ptr %46, i64 11
-  %48 = load i8, ptr %47, align 1, !tbaa !13
-  %.not.i64.i = icmp eq i8 %48, 0
+  %.35086.i = phi ptr [ %45, %.lr.ph87.i ], [ %41, %38 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.35086.i, i64 256
+  %45 = load ptr, ptr %44, align 8, !tbaa !11
+  %46 = getelementptr i8, ptr %45, i64 11
+  %47 = load i8, ptr %46, align 1, !tbaa !13
+  %.not.i64.i = icmp eq i8 %47, 0
   br i1 %.not.i64.i, label %.lr.ph87.i, label %._crit_edge88.i, !llvm.loop !597
 
 ._crit_edge88.i:                                  ; preds = %.lr.ph87.i
-  %49 = getelementptr i8, ptr %46, i64 8
-  %50 = load i8, ptr %49, align 1, !tbaa !13
-  %51 = zext i8 %50 to i64
-  %52 = load ptr, ptr %46, align 8, !tbaa !11
-  br label %53
+  %48 = getelementptr i8, ptr %45, i64 8
+  %49 = load i8, ptr %48, align 1, !tbaa !13
+  %50 = zext i8 %49 to i64
+  %51 = load ptr, ptr %45, align 8, !tbaa !11
+  br label %52
 
-53:                                               ; preds = %._crit_edge88.i, %38
-  %.249.i = phi ptr [ %46, %._crit_edge88.i ], [ %42, %38 ]
-  %.243.i = phi i64 [ %51, %._crit_edge88.i ], [ %.142.i, %38 ]
-  %.2.i = phi ptr [ %52, %._crit_edge88.i ], [ %.1.i, %38 ]
-  %54 = icmp eq ptr %.249.i, %4
-  br i1 %54, label %_ZNK4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS5_ESaISt4pairIKS5_S9_EELi256ELb0EEEEERSE_PSE_E13distance_slowENS2_IKSH_RKSE_PSM_EE.exit, label %55
+52:                                               ; preds = %._crit_edge88.i, %38
+  %.249.i = phi ptr [ %45, %._crit_edge88.i ], [ %41, %38 ]
+  %.243.i = phi i64 [ %50, %._crit_edge88.i ], [ %.142.i, %38 ]
+  %.2.i = phi ptr [ %51, %._crit_edge88.i ], [ %.1.i, %38 ]
+  %53 = icmp eq ptr %.249.i, %4
+  br i1 %53, label %_ZNK4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS5_ESaISt4pairIKS5_S9_EELi256ELb0EEEEERSE_PSE_E13distance_slowENS2_IKSH_RKSE_PSM_EE.exit, label %54
 
-55:                                               ; preds = %53
-  %56 = icmp eq ptr %.2.i, %4
-  %57 = icmp eq i64 %.243.i, %37
-  %or.cond.i = select i1 %56, i1 %57, i1 false
-  %58 = getelementptr i8, ptr %.249.i, i64 10
-  %59 = load i8, ptr %58, align 1, !tbaa !13
-  %60 = zext i8 %59 to i64
-  br i1 %or.cond.i, label %_ZNK4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS5_ESaISt4pairIKS5_S9_EELi256ELb0EEEEERSE_PSE_E13distance_slowENS2_IKSH_RKSE_PSM_EE.exit, label %61
+54:                                               ; preds = %52
+  %55 = icmp eq ptr %.2.i, %4
+  %56 = icmp eq i64 %.243.i, %37
+  %or.cond.i = select i1 %55, i1 %56, i1 false
+  %57 = getelementptr i8, ptr %.249.i, i64 10
+  %58 = load i8, ptr %57, align 1, !tbaa !13
+  %59 = zext i8 %58 to i64
+  br i1 %or.cond.i, label %_ZNK4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS5_ESaISt4pairIKS5_S9_EELi256ELb0EEEEERSE_PSE_E13distance_slowENS2_IKSH_RKSE_PSM_EE.exit, label %60
 
-61:                                               ; preds = %55
-  %62 = add i64 %.246.i, 1
-  %63 = add i64 %62, %60
-  %64 = getelementptr i8, ptr %.2.i, i64 10
-  %65 = load i8, ptr %64, align 1, !tbaa !13
-  %66 = zext i8 %65 to i64
-  %.not.not.i = icmp samesign ult i64 %.243.i, %66
+60:                                               ; preds = %54
+  %61 = add i64 %.246.i, 1
+  %62 = add i64 %61, %59
+  %63 = getelementptr i8, ptr %.2.i, i64 10
+  %64 = load i8, ptr %63, align 1, !tbaa !13
+  %65 = zext i8 %64 to i64
+  %.not.not.i = icmp samesign ult i64 %.243.i, %65
   br i1 %.not.not.i, label %.backedge, label %.preheader69.i
 
-.backedge:                                        ; preds = %73, %61
-  %.142.i.be.in = phi i64 [ %.243.i, %61 ], [ %69, %73 ]
-  %.1.i.be = phi ptr [ %.2.i, %61 ], [ %70, %73 ]
+.backedge:                                        ; preds = %72, %60
+  %.142.i.be.in = phi i64 [ %.243.i, %60 ], [ %68, %72 ]
+  %.1.i.be = phi ptr [ %.2.i, %60 ], [ %69, %72 ]
   %.142.i.be = add nuw nsw i64 %.142.i.be.in, 1
   br label %38, !llvm.loop !598
 
-.preheader69.i:                                   ; preds = %61, %73
-  %.3.i = phi ptr [ %70, %73 ], [ %.2.i, %61 ]
-  %67 = getelementptr i8, ptr %.3.i, i64 8
-  %68 = load i8, ptr %67, align 1, !tbaa !13
-  %69 = zext i8 %68 to i64
-  %70 = load ptr, ptr %.3.i, align 8, !tbaa !11
-  %71 = icmp eq ptr %70, %4
-  %72 = icmp eq i64 %69, %37
-  %or.cond61.i = select i1 %71, i1 %72, i1 false
-  br i1 %or.cond61.i, label %_ZNK4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS5_ESaISt4pairIKS5_S9_EELi256ELb0EEEEERSE_PSE_E13distance_slowENS2_IKSH_RKSE_PSM_EE.exit, label %73
+.preheader69.i:                                   ; preds = %60, %72
+  %.3.i = phi ptr [ %69, %72 ], [ %.2.i, %60 ]
+  %66 = getelementptr i8, ptr %.3.i, i64 8
+  %67 = load i8, ptr %66, align 1, !tbaa !13
+  %68 = zext i8 %67 to i64
+  %69 = load ptr, ptr %.3.i, align 8, !tbaa !11
+  %70 = icmp eq ptr %69, %4
+  %71 = icmp eq i64 %68, %37
+  %or.cond61.i = select i1 %70, i1 %71, i1 false
+  br i1 %or.cond61.i, label %_ZNK4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS5_ESaISt4pairIKS5_S9_EELi256ELb0EEEEERSE_PSE_E13distance_slowENS2_IKSH_RKSE_PSM_EE.exit, label %72
 
-73:                                               ; preds = %.preheader69.i
-  %74 = getelementptr i8, ptr %70, i64 10
-  %75 = load i8, ptr %74, align 1, !tbaa !13
-  %.not.i = icmp ult i8 %68, %75
+72:                                               ; preds = %.preheader69.i
+  %73 = getelementptr i8, ptr %69, i64 10
+  %74 = load i8, ptr %73, align 1, !tbaa !13
+  %.not.i = icmp ult i8 %67, %74
   br i1 %.not.i, label %.backedge, label %.preheader69.i, !llvm.loop !599
 
-_ZNK4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS5_ESaISt4pairIKS5_S9_EELi256ELb0EEEEERSE_PSE_E13distance_slowENS2_IKSH_RKSE_PSM_EE.exit: ; preds = %53, %55, %.preheader69.i
-  %.pn.i = phi i64 [ %60, %.preheader69.i ], [ %37, %53 ], [ %60, %55 ]
+_ZNK4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS5_ESaISt4pairIKS5_S9_EELi256ELb0EEEEERSE_PSE_E13distance_slowENS2_IKSH_RKSE_PSM_EE.exit: ; preds = %52, %54, %.preheader69.i
+  %.pn.i = phi i64 [ %59, %.preheader69.i ], [ %37, %52 ], [ %59, %54 ]
   %.051.i = add i64 %.pn.i, %.246.i
-  br label %76
+  br label %75
 
-76:                                               ; preds = %14, %_ZNK4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS5_ESaISt4pairIKS5_S9_EELi256ELb0EEEEERSE_PSE_E13distance_slowENS2_IKSH_RKSE_PSM_EE.exit, %11
+75:                                               ; preds = %14, %_ZNK4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS5_ESaISt4pairIKS5_S9_EELi256ELb0EEEEERSE_PSE_E13distance_slowENS2_IKSH_RKSE_PSM_EE.exit, %11
   %.0 = phi i64 [ %13, %11 ], [ %.051.i, %_ZNK4absl12lts_2024011618container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIPdPN5ceres8internal14ParameterBlockESt4lessIS5_ESaISt4pairIKS5_S9_EELi256ELb0EEEEERSE_PSE_E13distance_slowENS2_IKSH_RKSE_PSM_EE.exit ], [ 0, %14 ]
   ret i64 %.0
 }

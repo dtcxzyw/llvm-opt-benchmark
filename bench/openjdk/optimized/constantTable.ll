@@ -830,25 +830,26 @@ define hidden noundef range(i32 0, -1) i32 @_ZNK13ConstantTable11find_offsetERNS
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit: ; preds = %6
   %14 = load ptr, ptr %5, align 8
   %15 = and i64 %indvars.iv.i, 4294967295
-  %16 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %14, i64 %15, i32 5
-  %17 = load i32, ptr %16, align 8
-  %.not6 = icmp eq i32 %17, -1
-  br i1 %.not6, label %19, label %21
+  %16 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %14, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i32, ptr %17, align 8
+  %.not6 = icmp eq i32 %18, -1
+  br i1 %.not6, label %20, label %22
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread: ; preds = %10, %2
-  %18 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %18, align 1
+  %19 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %19, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 224, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #9
   unreachable
 
-19:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit
-  %20 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %20, align 1
+20:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit
+  %21 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %21, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #9
   unreachable
 
-21:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit
-  ret i32 %17
+22:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit
+  ret i32 %18
 }
 
 ; Function Attrs: noreturn
@@ -1350,87 +1351,88 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %11, i32 1
-  %13 = load i8, ptr %12, align 4
-  switch i8 %13, label %48 [
-    i8 11, label %14
-    i8 10, label %19
-    i8 6, label %25
-    i8 7, label %31
-    i8 12, label %37
-    i8 15, label %37
-    i8 17, label %42
+  %12 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i8, ptr %13, align 4
+  switch i8 %14, label %49 [
+    i8 11, label %15
+    i8 10, label %20
+    i8 6, label %26
+    i8 7, label %32
+    i8 12, label %38
+    i8 15, label %38
+    i8 17, label %43
   ]
 
-14:                                               ; preds = %4
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  %.sroa.03.sroa.0.0.extract.trunc7 = trunc i64 %18 to i32
-  %.sroa.03.sroa.6.0.extract.shift10 = and i64 %18, -4294967296
-  br label %51
-
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  %24 = trunc i64 %23 to i32
-  br label %51
-
-25:                                               ; preds = %4
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef float %28(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  %30 = bitcast float %29 to i32
-  br label %51
-
-31:                                               ; preds = %4
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef double %34(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  %36 = bitcast double %35 to i64
-  %.sroa.03.sroa.0.0.extract.trunc = trunc i64 %36 to i32
-  %.sroa.03.sroa.6.0.extract.shift = and i64 %36, -4294967296
-  br label %51
-
-37:                                               ; preds = %4, %4
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  %.sroa.03.sroa.0.0.extract.trunc6 = trunc i64 %41 to i32
-  %.sroa.03.sroa.6.0.extract.shift8 = and i64 %41, -4294967296
-  br label %51
-
-42:                                               ; preds = %4
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  %47 = inttoptr i64 %46 to ptr
-  tail call void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %47)
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  %.sroa.03.sroa.0.0.extract.trunc7 = trunc i64 %19 to i32
+  %.sroa.03.sroa.6.0.extract.shift10 = and i64 %19, -4294967296
   br label %52
 
-48:                                               ; preds = %4
-  %49 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %49, align 1
-  %50 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %13) #10
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 277, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %50) #9
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  %25 = trunc i64 %24 to i32
+  br label %52
+
+26:                                               ; preds = %4
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call noundef float %29(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  %31 = bitcast float %30 to i32
+  br label %52
+
+32:                                               ; preds = %4
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noundef double %35(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  %37 = bitcast double %36 to i64
+  %.sroa.03.sroa.0.0.extract.trunc = trunc i64 %37 to i32
+  %.sroa.03.sroa.6.0.extract.shift = and i64 %37, -4294967296
+  br label %52
+
+38:                                               ; preds = %4, %4
+  %39 = load ptr, ptr %3, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  %.sroa.03.sroa.0.0.extract.trunc6 = trunc i64 %42 to i32
+  %.sroa.03.sroa.6.0.extract.shift8 = and i64 %42, -4294967296
+  br label %52
+
+43:                                               ; preds = %4
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  %48 = inttoptr i64 %47 to ptr
+  tail call void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %48)
+  br label %53
+
+49:                                               ; preds = %4
+  %50 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %50, align 1
+  %51 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %14) #10
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 277, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef %51) #9
   unreachable
 
-51:                                               ; preds = %37, %31, %25, %19, %14
-  %.sroa.03.sroa.0.0 = phi i32 [ %.sroa.03.sroa.0.0.extract.trunc7, %14 ], [ %24, %19 ], [ %30, %25 ], [ %.sroa.03.sroa.0.0.extract.trunc, %31 ], [ %.sroa.03.sroa.0.0.extract.trunc6, %37 ]
-  %.sroa.03.sroa.6.0 = phi i64 [ %.sroa.03.sroa.6.0.extract.shift10, %14 ], [ 0, %19 ], [ 0, %25 ], [ %.sroa.03.sroa.6.0.extract.shift, %31 ], [ %.sroa.03.sroa.6.0.extract.shift8, %37 ]
+52:                                               ; preds = %38, %32, %26, %20, %15
+  %.sroa.03.sroa.0.0 = phi i32 [ %.sroa.03.sroa.0.0.extract.trunc7, %15 ], [ %25, %20 ], [ %31, %26 ], [ %.sroa.03.sroa.0.0.extract.trunc, %32 ], [ %.sroa.03.sroa.0.0.extract.trunc6, %38 ]
+  %.sroa.03.sroa.6.0 = phi i64 [ %.sroa.03.sroa.6.0.extract.shift10, %15 ], [ 0, %20 ], [ 0, %26 ], [ %.sroa.03.sroa.6.0.extract.shift, %32 ], [ %.sroa.03.sroa.6.0.extract.shift8, %38 ]
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.03.sroa.0.0 to i64
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.03.sroa.6.0, %.sroa.0.sroa.0.0.insert.ext
-  tail call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue(ptr dead_on_unwind writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2, i8 noundef zeroext %13, i64 %.sroa.0.sroa.0.0.insert.insert)
-  br label %52
+  tail call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue(ptr dead_on_unwind writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2, i8 noundef zeroext %14, i64 %.sroa.0.sroa.0.0.insert.insert)
+  br label %53
 
-52:                                               ; preds = %51, %42
+53:                                               ; preds = %52, %43
   ret void
 }
 

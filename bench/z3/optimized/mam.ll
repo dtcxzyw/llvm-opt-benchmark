@@ -6415,7 +6415,7 @@ _ZN12_GLOBAL__N_112label_hasherclEP9func_decl.exit: ; preds = %_ZN6vectorIaLb0Ej
 
 363:                                              ; preds = %357
   tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %0, ptr noundef nonnull %362, ptr noundef nonnull %.077.i.i, ptr noundef %3, ptr noundef %4)
-  %364 = getelementptr inbounds nuw %"struct.std::pair", ptr %359, i64 %360, i32 1
+  %364 = getelementptr inbounds nuw i8, ptr %361, i64 8
   %365 = load ptr, ptr %364, align 8, !tbaa !715
   tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %0, ptr noundef %365, ptr noundef nonnull %.078.i.i, ptr noundef %3, ptr noundef %4)
   br label %_ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i
@@ -6453,7 +6453,7 @@ _ZN12_GLOBAL__N_112label_hasherclEP9func_decl.exit: ; preds = %_ZN6vectorIaLb0Ej
   store ptr %366, ptr %380, align 8, !tbaa !613
   %381 = add i32 %376, 1
   store i32 %381, ptr %378, align 4, !tbaa !576
-  %382 = getelementptr inbounds nuw %"struct.std::pair", ptr %359, i64 %360, i32 1
+  %382 = getelementptr inbounds nuw i8, ptr %361, i64 8
   %383 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %50, i64 noundef 16)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19path_treeEE, i64 16), ptr %383, align 8, !tbaa !8
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 8

@@ -37,7 +37,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %10 = trunc i64 %9 to i32
   %11 = tail call noalias ptr @hwloc_bitmap_alloc() #15
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %192, label %12
+  br i1 %.not, label %198, label %12
 
 12:                                               ; preds = %4
   %13 = tail call noalias dereferenceable_or_null(36) ptr @malloc(i64 noundef 36) #16
@@ -192,7 +192,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 88:                                               ; preds = %87, %65
   %89 = and i64 %3, 1
   %.not176 = icmp eq i64 %89, 0
-  br i1 %.not176, label %177, label %90
+  br i1 %.not176, label %183, label %90
 
 90:                                               ; preds = %88
   %91 = call noalias dereferenceable_or_null(33) ptr @malloc(i64 noundef 33) #16
@@ -200,7 +200,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %91, i64 noundef 33, ptr noundef nonnull @.str.6, i64 noundef %92) #15
   %94 = call ptr @opendir(ptr noundef nonnull %91)
   %.not177 = icmp eq ptr %94, null
-  br i1 %.not177, label %176, label %95
+  br i1 %.not177, label %182, label %95
 
 95:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -242,8 +242,8 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 1116
   br label %.outer
 
-.outer:                                           ; preds = %170, %109
-  %.0145.ph = phi i32 [ %171, %170 ], [ 0, %109 ]
+.outer:                                           ; preds = %176, %109
+  %.0145.ph = phi i32 [ %177, %176 ], [ 0, %109 ]
   br label %113
 
 113:                                              ; preds = %115, %.outer
@@ -266,153 +266,159 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   store i64 %117, ptr %123, align 8, !tbaa !20
   %124 = call noalias dereferenceable_or_null(61) ptr @malloc(i64 noundef 61) #16
   %.not182 = icmp eq ptr %124, null
-  br i1 %.not182, label %152, label %125
+  br i1 %.not182, label %157, label %125
 
 125:                                              ; preds = %120
   %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %124, i64 noundef 61, ptr noundef nonnull @.str.7, ptr noundef nonnull %91, i64 noundef %117) #15
   %127 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %124, i32 noundef 2) #15
   %128 = icmp sgt i32 %127, -1
-  br i1 %128, label %129, label %151
+  br i1 %128, label %129, label %156
 
 129:                                              ; preds = %125
   %130 = load ptr, ptr %108, align 8, !tbaa !18
-  %131 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %130, i64 %122, i32 3
-  %132 = call i64 @read(i32 noundef %127, ptr noundef nonnull %131, i64 noundef 16) #15
-  %133 = call i32 @close(i32 noundef %127) #15
-  %134 = icmp slt i64 %132, 1
-  br i1 %134, label %135, label %138
+  %131 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %130, i64 %122
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 20
+  %133 = call i64 @read(i32 noundef %127, ptr noundef nonnull %132, i64 noundef 16) #15
+  %134 = call i32 @close(i32 noundef %127) #15
+  %135 = icmp slt i64 %133, 1
+  br i1 %135, label %136, label %140
 
-135:                                              ; preds = %129
-  %136 = load ptr, ptr %108, align 8, !tbaa !18
-  %137 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %136, i64 %122, i32 3
-  store i8 0, ptr %137, align 4, !tbaa !12
-  br label %144
+136:                                              ; preds = %129
+  %137 = load ptr, ptr %108, align 8, !tbaa !18
+  %138 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %137, i64 %122
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 20
+  store i8 0, ptr %139, align 4, !tbaa !12
+  br label %147
 
-138:                                              ; preds = %129
-  %139 = icmp samesign ult i64 %132, 16
-  br i1 %139, label %140, label %144
+140:                                              ; preds = %129
+  %141 = icmp samesign ult i64 %133, 16
+  br i1 %141, label %142, label %147
 
-140:                                              ; preds = %138
-  %141 = load ptr, ptr %108, align 8, !tbaa !18
-  %142 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %141, i64 %122, i32 3
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 %132
-  store i8 0, ptr %143, align 1, !tbaa !12
-  br label %144
-
-144:                                              ; preds = %138, %140, %135
-  %145 = load ptr, ptr %108, align 8, !tbaa !18
-  %146 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %145, i64 %122, i32 3, i64 15
+142:                                              ; preds = %140
+  %143 = load ptr, ptr %108, align 8, !tbaa !18
+  %144 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %143, i64 %122
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 20
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 %133
   store i8 0, ptr %146, align 1, !tbaa !12
-  %147 = load ptr, ptr %108, align 8, !tbaa !18
-  %148 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %147, i64 %122, i32 3
-  %149 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %148, i32 noundef 10) #17
-  store ptr %149, ptr %8, align 8, !tbaa !14
-  %.not183 = icmp eq ptr %149, null
-  br i1 %.not183, label %151, label %150
+  br label %147
 
-150:                                              ; preds = %144
-  store i8 0, ptr %149, align 1, !tbaa !12
-  br label %151
+147:                                              ; preds = %140, %142, %136
+  %148 = load ptr, ptr %108, align 8, !tbaa !18
+  %149 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %148, i64 %122
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 35
+  store i8 0, ptr %150, align 1, !tbaa !12
+  %151 = load ptr, ptr %108, align 8, !tbaa !18
+  %152 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %151, i64 %122
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 20
+  %154 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %153, i32 noundef 10) #17
+  store ptr %154, ptr %8, align 8, !tbaa !14
+  %.not183 = icmp eq ptr %154, null
+  br i1 %.not183, label %156, label %155
 
-151:                                              ; preds = %144, %150, %125
+155:                                              ; preds = %147
+  store i8 0, ptr %154, align 1, !tbaa !12
+  br label %156
+
+156:                                              ; preds = %147, %155, %125
   call void @free(ptr noundef nonnull %124) #15
-  br label %152
+  br label %157
 
-152:                                              ; preds = %151, %120
-  %153 = trunc i64 %117 to i32
-  br i1 %.not184, label %156, label %154
+157:                                              ; preds = %156, %120
+  %158 = trunc i64 %117 to i32
+  br i1 %.not184, label %161, label %159
 
-154:                                              ; preds = %152
-  %155 = call i32 @hwloc_linux_get_tid_last_cpu_location(ptr noundef %0, i32 noundef %153, ptr noundef nonnull %11) #15
-  %.not186 = icmp eq i32 %155, 0
-  br i1 %.not186, label %158, label %170
+159:                                              ; preds = %157
+  %160 = call i32 @hwloc_linux_get_tid_last_cpu_location(ptr noundef %0, i32 noundef %158, ptr noundef nonnull %11) #15
+  %.not186 = icmp eq i32 %160, 0
+  br i1 %.not186, label %163, label %176
 
-156:                                              ; preds = %152
-  %157 = call i32 @hwloc_linux_get_tid_cpubind(ptr noundef %0, i32 noundef %153, ptr noundef nonnull %11) #15
-  %.not185 = icmp eq i32 %157, 0
-  br i1 %.not185, label %158, label %170
+161:                                              ; preds = %157
+  %162 = call i32 @hwloc_linux_get_tid_cpubind(ptr noundef %0, i32 noundef %158, ptr noundef nonnull %11) #15
+  %.not185 = icmp eq i32 %162, 0
+  br i1 %.not185, label %163, label %176
 
-158:                                              ; preds = %156, %154
-  %159 = call i32 @hwloc_bitmap_and(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %1) #15
-  %160 = call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %11) #17
-  %.not187 = icmp eq i32 %160, 0
-  br i1 %.not187, label %161, label %170
+163:                                              ; preds = %161, %159
+  %164 = call i32 @hwloc_bitmap_and(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %1) #15
+  %165 = call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %11) #17
+  %.not187 = icmp eq i32 %165, 0
+  br i1 %.not187, label %166, label %176
 
-161:                                              ; preds = %158
-  %162 = call noalias ptr @hwloc_bitmap_dup(ptr noundef nonnull %11) #15
-  %163 = load ptr, ptr %108, align 8, !tbaa !18
-  %164 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %163, i64 %122, i32 1
-  store ptr %162, ptr %164, align 8, !tbaa !22
-  %165 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %11, ptr noundef %1) #17
-  %.not188 = icmp eq i32 %165, 0
-  br i1 %.not188, label %166, label %170
+166:                                              ; preds = %163
+  %167 = call noalias ptr @hwloc_bitmap_dup(ptr noundef nonnull %11) #15
+  %168 = load ptr, ptr %108, align 8, !tbaa !18
+  %169 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %168, i64 %122
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  store ptr %167, ptr %170, align 8, !tbaa !22
+  %171 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %11, ptr noundef %1) #17
+  %.not188 = icmp eq i32 %171, 0
+  br i1 %.not188, label %172, label %176
 
-166:                                              ; preds = %161
-  %167 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %163, i64 %122, i32 2
-  store i32 1, ptr %167, align 8, !tbaa !23
-  %168 = load i32, ptr %111, align 8, !tbaa !24
-  %169 = add i32 %168, 1
-  store i32 %169, ptr %111, align 8, !tbaa !24
-  br label %170
-
-170:                                              ; preds = %161, %166, %158, %156, %154
-  %171 = add i32 %.0145.ph, 1
-  %172 = load i32, ptr %112, align 4, !tbaa !25
-  %173 = add i32 %172, 1
-  store i32 %173, ptr %112, align 4, !tbaa !25
-  %174 = icmp eq i32 %171, %spec.select195
-  br i1 %174, label %.loopexit, label %.outer
-
-.loopexit:                                        ; preds = %170, %113, %95, %105, %._crit_edge
-  %175 = call i32 @closedir(ptr noundef nonnull %94)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+172:                                              ; preds = %166
+  %173 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  store i32 1, ptr %173, align 8, !tbaa !23
+  %174 = load i32, ptr %111, align 8, !tbaa !24
+  %175 = add i32 %174, 1
+  store i32 %175, ptr %111, align 8, !tbaa !24
   br label %176
 
-176:                                              ; preds = %.loopexit, %90
+176:                                              ; preds = %166, %172, %163, %161, %159
+  %177 = add i32 %.0145.ph, 1
+  %178 = load i32, ptr %112, align 4, !tbaa !25
+  %179 = add i32 %178, 1
+  store i32 %179, ptr %112, align 4, !tbaa !25
+  %180 = icmp eq i32 %177, %spec.select195
+  br i1 %180, label %.loopexit, label %.outer
+
+.loopexit:                                        ; preds = %176, %113, %95, %105, %._crit_edge
+  %181 = call i32 @closedir(ptr noundef nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %182
+
+182:                                              ; preds = %.loopexit, %90
   call void @free(ptr noundef %91) #15
-  br label %177
+  br label %183
 
-177:                                              ; preds = %176, %88
-  %178 = and i64 %3, 2
-  %.not189 = icmp eq i64 %178, 0
-  br i1 %.not189, label %181, label %179
+183:                                              ; preds = %182, %88
+  %184 = and i64 %3, 2
+  %.not189 = icmp eq i64 %184, 0
+  br i1 %.not189, label %187, label %185
 
-179:                                              ; preds = %177
-  %180 = call i32 @hwloc_get_proc_last_cpu_location(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %11, i32 noundef 0) #15
-  %.not191 = icmp eq i32 %180, 0
-  br i1 %.not191, label %183, label %191
+185:                                              ; preds = %183
+  %186 = call i32 @hwloc_get_proc_last_cpu_location(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %11, i32 noundef 0) #15
+  %.not191 = icmp eq i32 %186, 0
+  br i1 %.not191, label %189, label %197
 
-181:                                              ; preds = %177
-  %182 = call i32 @hwloc_get_proc_cpubind(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %11, i32 noundef 0) #15
-  %.not190 = icmp eq i32 %182, 0
-  br i1 %.not190, label %183, label %191
+187:                                              ; preds = %183
+  %188 = call i32 @hwloc_get_proc_cpubind(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %11, i32 noundef 0) #15
+  %.not190 = icmp eq i32 %188, 0
+  br i1 %.not190, label %189, label %197
 
-183:                                              ; preds = %181, %179
-  %184 = call i32 @hwloc_bitmap_and(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %1) #15
-  %185 = call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %11) #17
-  %.not192 = icmp eq i32 %185, 0
-  br i1 %.not192, label %186, label %191
+189:                                              ; preds = %187, %185
+  %190 = call i32 @hwloc_bitmap_and(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %1) #15
+  %191 = call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %11) #17
+  %.not192 = icmp eq i32 %191, 0
+  br i1 %.not192, label %192, label %197
 
-186:                                              ; preds = %183
-  %187 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %11, ptr noundef %1) #17
-  %.not193 = icmp eq i32 %187, 0
-  %188 = zext i1 %.not193 to i32
-  %189 = getelementptr inbounds nuw i8, ptr %2, i64 1112
-  store i32 %188, ptr %189, align 8, !tbaa !26
-  %190 = getelementptr inbounds nuw i8, ptr %2, i64 1096
-  store ptr %11, ptr %190, align 8, !tbaa !27
-  br label %192
+192:                                              ; preds = %189
+  %193 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %11, ptr noundef %1) #17
+  %.not193 = icmp eq i32 %193, 0
+  %194 = zext i1 %.not193 to i32
+  %195 = getelementptr inbounds nuw i8, ptr %2, i64 1112
+  store i32 %194, ptr %195, align 8, !tbaa !26
+  %196 = getelementptr inbounds nuw i8, ptr %2, i64 1096
+  store ptr %11, ptr %196, align 8, !tbaa !27
+  br label %198
 
 .sink.split:                                      ; preds = %18, %12
   tail call void @free(ptr noundef nonnull %13) #15
-  br label %191
+  br label %197
 
-191:                                              ; preds = %.sink.split, %183, %181, %179
+197:                                              ; preds = %.sink.split, %189, %187, %185
   call void @hwloc_bitmap_free(ptr noundef nonnull %11) #15
-  br label %192
+  br label %198
 
-192:                                              ; preds = %4, %191, %186
-  %.0 = phi i32 [ -1, %191 ], [ 0, %186 ], [ -1, %4 ]
+198:                                              ; preds = %4, %197, %192
+  %.0 = phi i32 [ -1, %197 ], [ 0, %192 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -648,34 +654,35 @@ define hidden void @hwloc_ps_free_process(ptr noundef readonly captures(none) %0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   br label %5
 
-5:                                                ; preds = %.lr.ph, %11
-  %6 = phi i32 [ %3, %.lr.ph ], [ %12, %11 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
+5:                                                ; preds = %.lr.ph, %12
+  %6 = phi i32 [ %3, %.lr.ph ], [ %13, %12 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %7 = load ptr, ptr %4, align 8, !tbaa !18
-  %8 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %7, i64 %indvars.iv, i32 1
-  %9 = load ptr, ptr %8, align 8, !tbaa !22
-  %.not10 = icmp eq ptr %9, null
-  br i1 %.not10, label %11, label %10
+  %8 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %.not10 = icmp eq ptr %10, null
+  br i1 %.not10, label %12, label %11
 
-10:                                               ; preds = %5
-  tail call void @hwloc_bitmap_free(ptr noundef nonnull %9) #15
+11:                                               ; preds = %5
+  tail call void @hwloc_bitmap_free(ptr noundef nonnull %10) #15
   %.pre = load i32, ptr %2, align 4, !tbaa !25
-  br label %11
+  br label %12
 
-11:                                               ; preds = %5, %10
-  %12 = phi i32 [ %6, %5 ], [ %.pre, %10 ]
+12:                                               ; preds = %5, %11
+  %13 = phi i32 [ %6, %5 ], [ %.pre, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = zext i32 %12 to i64
-  %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %5, label %.loopexit, !llvm.loop !30
+  %14 = zext i32 %13 to i64
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
+  br i1 %15, label %5, label %.loopexit, !llvm.loop !30
 
-.loopexit:                                        ; preds = %11, %1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  %16 = load ptr, ptr %15, align 8, !tbaa !18
-  tail call void @free(ptr noundef %16) #15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %18 = load ptr, ptr %17, align 8, !tbaa !27
-  tail call void @hwloc_bitmap_free(ptr noundef %18) #15
+.loopexit:                                        ; preds = %12, %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1128
+  %17 = load ptr, ptr %16, align 8, !tbaa !18
+  tail call void @free(ptr noundef %17) #15
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %19 = load ptr, ptr %18, align 8, !tbaa !27
+  tail call void @hwloc_bitmap_free(ptr noundef %19) #15
   ret void
 }
 
@@ -685,7 +692,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr
   %9 = alloca ptr, align 8
   %10 = tail call ptr @opendir(ptr noundef nonnull @.str.16)
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %52, label %.preheader
+  br i1 %.not, label %53, label %.preheader
 
 .preheader:                                       ; preds = %7
   %11 = tail call ptr @readdir(ptr noundef nonnull %10) #15
@@ -703,8 +710,8 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 1104
   br label %19
 
-19:                                               ; preds = %.lr.ph, %49
-  %20 = phi ptr [ %11, %.lr.ph ], [ %50, %49 ]
+19:                                               ; preds = %.lr.ph, %50
+  %20 = phi ptr [ %11, %.lr.ph ], [ %51, %50 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 19
@@ -712,7 +719,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr
   %23 = load ptr, ptr %9, align 8, !tbaa !14
   %24 = load i8, ptr %23, align 1, !tbaa !12
   %.not22 = icmp eq i8 %24, 0
-  br i1 %.not22, label %25, label %49, !llvm.loop !31
+  br i1 %.not22, label %25, label %50, !llvm.loop !31
 
 25:                                               ; preds = %19
   store i64 %22, ptr %8, align 8, !tbaa !3
@@ -749,46 +756,47 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %hwloc_ps_free_process.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %36, %43
-  %38 = phi i32 [ %44, %43 ], [ %37, %36 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %36 ]
+.lr.ph.i:                                         ; preds = %36, %44
+  %38 = phi i32 [ %45, %44 ], [ %37, %36 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %36 ]
   %39 = load ptr, ptr %15, align 8, !tbaa !18
-  %40 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %39, i64 %indvars.iv.i, i32 1
-  %41 = load ptr, ptr %40, align 8, !tbaa !22
-  %.not10.i = icmp eq ptr %41, null
-  br i1 %.not10.i, label %43, label %42
+  %40 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %39, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !22
+  %.not10.i = icmp eq ptr %42, null
+  br i1 %.not10.i, label %44, label %43
 
-42:                                               ; preds = %.lr.ph.i
-  call void @hwloc_bitmap_free(ptr noundef nonnull %41) #15
+43:                                               ; preds = %.lr.ph.i
+  call void @hwloc_bitmap_free(ptr noundef nonnull %42) #15
   %.pre.i = load i32, ptr %13, align 4, !tbaa !25
-  br label %43
+  br label %44
 
-43:                                               ; preds = %42, %.lr.ph.i
-  %44 = phi i32 [ %38, %.lr.ph.i ], [ %.pre.i, %42 ]
+44:                                               ; preds = %43, %.lr.ph.i
+  %45 = phi i32 [ %38, %.lr.ph.i ], [ %.pre.i, %43 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %45 = zext i32 %44 to i64
-  %46 = icmp samesign ult i64 %indvars.iv.next.i, %45
-  br i1 %46, label %.lr.ph.i, label %hwloc_ps_free_process.exit, !llvm.loop !30
+  %46 = zext i32 %45 to i64
+  %47 = icmp samesign ult i64 %indvars.iv.next.i, %46
+  br i1 %47, label %.lr.ph.i, label %hwloc_ps_free_process.exit, !llvm.loop !30
 
-hwloc_ps_free_process.exit:                       ; preds = %43, %36
-  %47 = load ptr, ptr %15, align 8, !tbaa !18
-  call void @free(ptr noundef %47) #15
-  %48 = load ptr, ptr %12, align 8, !tbaa !27
-  call void @hwloc_bitmap_free(ptr noundef %48) #15
-  br label %49
+hwloc_ps_free_process.exit:                       ; preds = %44, %36
+  %48 = load ptr, ptr %15, align 8, !tbaa !18
+  call void @free(ptr noundef %48) #15
+  %49 = load ptr, ptr %12, align 8, !tbaa !27
+  call void @hwloc_bitmap_free(ptr noundef %49) #15
+  br label %50
 
-49:                                               ; preds = %19, %hwloc_ps_free_process.exit
+50:                                               ; preds = %19, %hwloc_ps_free_process.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %50 = call ptr @readdir(ptr noundef nonnull %10) #15
-  %.not21 = icmp eq ptr %50, null
+  %51 = call ptr @readdir(ptr noundef nonnull %10) #15
+  %.not21 = icmp eq ptr %51, null
   br i1 %.not21, label %._crit_edge, label %19
 
-._crit_edge:                                      ; preds = %49, %.preheader
-  %51 = call i32 @closedir(ptr noundef nonnull %10)
-  br label %52
+._crit_edge:                                      ; preds = %50, %.preheader
+  %52 = call i32 @closedir(ptr noundef nonnull %10)
+  br label %53
 
-52:                                               ; preds = %7, %._crit_edge
+53:                                               ; preds = %7, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %7 ]
   ret i32 %.0
 }
@@ -843,90 +851,91 @@ define hidden noundef i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %hwloc_ps_free_process.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %30, %37
-  %32 = phi i32 [ %38, %37 ], [ %31, %30 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %37 ], [ 0, %30 ]
+.lr.ph.i:                                         ; preds = %30, %38
+  %32 = phi i32 [ %39, %38 ], [ %31, %30 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 0, %30 ]
   %33 = load ptr, ptr %16, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %33, i64 %indvars.iv.i, i32 1
-  %35 = load ptr, ptr %34, align 8, !tbaa !22
-  %.not10.i = icmp eq ptr %35, null
-  br i1 %.not10.i, label %37, label %36
+  %34 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %33, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !22
+  %.not10.i = icmp eq ptr %36, null
+  br i1 %.not10.i, label %38, label %37
 
-36:                                               ; preds = %.lr.ph.i
-  call void @hwloc_bitmap_free(ptr noundef nonnull %35) #15
+37:                                               ; preds = %.lr.ph.i
+  call void @hwloc_bitmap_free(ptr noundef nonnull %36) #15
   %.pre.i = load i32, ptr %14, align 4, !tbaa !25
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %.lr.ph.i
-  %38 = phi i32 [ %32, %.lr.ph.i ], [ %.pre.i, %36 ]
+38:                                               ; preds = %37, %.lr.ph.i
+  %39 = phi i32 [ %32, %.lr.ph.i ], [ %.pre.i, %37 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %39 = zext i32 %38 to i64
-  %40 = icmp samesign ult i64 %indvars.iv.next.i, %39
-  br i1 %40, label %.lr.ph.i, label %hwloc_ps_free_process.exit, !llvm.loop !30
+  %40 = zext i32 %39 to i64
+  %41 = icmp samesign ult i64 %indvars.iv.next.i, %40
+  br i1 %41, label %.lr.ph.i, label %hwloc_ps_free_process.exit, !llvm.loop !30
 
-hwloc_ps_free_process.exit:                       ; preds = %37, %30
-  %41 = load ptr, ptr %16, align 8, !tbaa !18
-  call void @free(ptr noundef %41) #15
-  %42 = load ptr, ptr %13, align 8, !tbaa !27
-  call void @hwloc_bitmap_free(ptr noundef %42) #15
-  %43 = load i64, ptr %9, align 8, !tbaa !3
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 512, ptr noundef nonnull @.str.6, i64 noundef %43) #15
-  %45 = call ptr @opendir(ptr noundef nonnull %10)
-  %.not40 = icmp eq ptr %45, null
-  br i1 %.not40, label %68, label %.preheader
+hwloc_ps_free_process.exit:                       ; preds = %38, %30
+  %42 = load ptr, ptr %16, align 8, !tbaa !18
+  call void @free(ptr noundef %42) #15
+  %43 = load ptr, ptr %13, align 8, !tbaa !27
+  call void @hwloc_bitmap_free(ptr noundef %43) #15
+  %44 = load i64, ptr %9, align 8, !tbaa !3
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 512, ptr noundef nonnull @.str.6, i64 noundef %44) #15
+  %46 = call ptr @opendir(ptr noundef nonnull %10)
+  %.not40 = icmp eq ptr %46, null
+  br i1 %.not40, label %69, label %.preheader
 
 .preheader:                                       ; preds = %hwloc_ps_free_process.exit
-  %46 = call ptr @readdir(ptr noundef nonnull %45) #15
-  %.not4150 = icmp eq ptr %46, null
+  %47 = call ptr @readdir(ptr noundef nonnull %46) #15
+  %.not4150 = icmp eq ptr %47, null
   br i1 %.not4150, label %._crit_edge, label %.lr.ph51
 
-.lr.ph51:                                         ; preds = %.preheader, %65
-  %47 = phi ptr [ %66, %65 ], [ %46, %.preheader ]
+.lr.ph51:                                         ; preds = %.preheader, %66
+  %48 = phi ptr [ %67, %66 ], [ %47, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %48 = load i64, ptr %9, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 19
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 512, ptr noundef nonnull @.str.17, i64 noundef %48, ptr noundef nonnull %49) #15
-  %51 = call noalias ptr @fopen(ptr noundef nonnull %10, ptr noundef nonnull @.str.15)
-  %.not42 = icmp eq ptr %51, null
-  br i1 %.not42, label %65, label %52, !llvm.loop !32
+  %49 = load i64, ptr %9, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 19
+  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 512, ptr noundef nonnull @.str.17, i64 noundef %49, ptr noundef nonnull %50) #15
+  %52 = call noalias ptr @fopen(ptr noundef nonnull %10, ptr noundef nonnull @.str.15)
+  %.not42 = icmp eq ptr %52, null
+  br i1 %.not42, label %66, label %53, !llvm.loop !32
 
-52:                                               ; preds = %.lr.ph51
-  %53 = call i64 @fread(ptr noundef nonnull %11, i64 noundef 1, i64 noundef 4095, ptr noundef nonnull %51)
-  %54 = call i32 @fclose(ptr noundef nonnull %51)
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 %53
-  store i8 0, ptr %55, align 1, !tbaa !12
+53:                                               ; preds = %.lr.ph51
+  %54 = call i64 @fread(ptr noundef nonnull %11, i64 noundef 1, i64 noundef 4095, ptr noundef nonnull %52)
+  %55 = call i32 @fclose(ptr noundef nonnull %52)
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 %54
+  store i8 0, ptr %56, align 1, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %56 = call i64 @strtoul(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 10) #15
-  %57 = load ptr, ptr %12, align 8, !tbaa !14
-  %58 = icmp eq ptr %57, %11
-  br i1 %58, label %.thread, label %.lr.ph
+  %57 = call i64 @strtoul(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 10) #15
+  %58 = load ptr, ptr %12, align 8, !tbaa !14
+  %59 = icmp eq ptr %58, %11
+  br i1 %59, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %.lr.ph, %52
+.thread:                                          ; preds = %.lr.ph, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %65
+  br label %66
 
-.lr.ph:                                           ; preds = %52, %.lr.ph
-  %59 = phi ptr [ %63, %.lr.ph ], [ %57, %52 ]
-  %60 = phi i64 [ %62, %.lr.ph ], [ %56, %52 ]
-  %61 = call i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1, i64 noundef %60, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7)
+.lr.ph:                                           ; preds = %53, %.lr.ph
+  %60 = phi ptr [ %64, %.lr.ph ], [ %58, %53 ]
+  %61 = phi i64 [ %63, %.lr.ph ], [ %57, %53 ]
+  %62 = call i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1, i64 noundef %61, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %62 = call i64 @strtoul(ptr noundef %59, ptr noundef nonnull %12, i32 noundef 10) #15
-  %63 = load ptr, ptr %12, align 8, !tbaa !14
-  %64 = icmp eq ptr %63, %59
-  br i1 %64, label %.thread, label %.lr.ph
+  %63 = call i64 @strtoul(ptr noundef %60, ptr noundef nonnull %12, i32 noundef 10) #15
+  %64 = load ptr, ptr %12, align 8, !tbaa !14
+  %65 = icmp eq ptr %64, %60
+  br i1 %65, label %.thread, label %.lr.ph
 
-65:                                               ; preds = %.thread, %.lr.ph51
+66:                                               ; preds = %.thread, %.lr.ph51
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %66 = call ptr @readdir(ptr noundef nonnull %45) #15
-  %.not41 = icmp eq ptr %66, null
+  %67 = call ptr @readdir(ptr noundef nonnull %46) #15
+  %.not41 = icmp eq ptr %67, null
   br i1 %.not41, label %._crit_edge, label %.lr.ph51
 
-._crit_edge:                                      ; preds = %65, %.preheader
-  %67 = call i32 @closedir(ptr noundef nonnull %45)
-  br label %68
+._crit_edge:                                      ; preds = %66, %.preheader
+  %68 = call i32 @closedir(ptr noundef nonnull %46)
+  br label %69
 
-68:                                               ; preds = %._crit_edge, %hwloc_ps_free_process.exit
+69:                                               ; preds = %._crit_edge, %hwloc_ps_free_process.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 0

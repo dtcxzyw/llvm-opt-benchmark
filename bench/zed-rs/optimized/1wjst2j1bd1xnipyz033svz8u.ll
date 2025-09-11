@@ -73975,76 +73975,77 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$$u5b$$LP$usize$C$fu
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE.exit"
-  %.sroa.0.012 = phi i64 [ %4, %"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE.exit" ], [ 0, %2 ]
-  %4 = add nuw i64 %.sroa.0.012, 1
+  %.sroa.0.012 = phi i64 [ %5, %"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE.exit" ], [ 0, %2 ]
+  %4 = getelementptr inbounds { i64, ptr }, ptr %0, i64 %.sroa.0.012
+  %5 = add nuw i64 %.sroa.0.012, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26962)
-  %5 = getelementptr inbounds { i64, ptr }, ptr %0, i64 %.sroa.0.012, i32 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26965)
-  %6 = load ptr, ptr %5, align 8, !alias.scope !26968, !nonnull !4, !noundef !4
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  invoke void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h2f70a956c7c796b8E"(ptr noundef nonnull align 8 %7)
-          to label %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3d85791067445f4E.llvm.11880408977092959598.exit.i.i" unwind label %8, !noalias !26971
+  %7 = load ptr, ptr %6, align 8, !alias.scope !26968, !nonnull !4, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  invoke void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h2f70a956c7c796b8E"(ptr noundef nonnull align 8 %8)
+          to label %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3d85791067445f4E.llvm.11880408977092959598.exit.i.i" unwind label %9, !noalias !26971
 
-8:                                                ; preds = %.lr.ph
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %.lr.ph
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !26972
-  %11 = icmp eq i64 %10, 1
-  br i1 %11, label %12, label %.body
+  %11 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !26972
+  %12 = icmp eq i64 %11, 1
+  br i1 %12, label %13, label %.body
 
-12:                                               ; preds = %8
+13:                                               ; preds = %9
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h267c6a5a4cc5b0d5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.body unwind label %16
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h267c6a5a4cc5b0d5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+          to label %.body unwind label %17
 
 "_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3d85791067445f4E.llvm.11880408977092959598.exit.i.i": ; preds = %.lr.ph
-  %13 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !26977
-  %14 = icmp eq i64 %13, 1
-  br i1 %14, label %15, label %"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE.exit"
+  %14 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !26977
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %16, label %"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE.exit"
 
-15:                                               ; preds = %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3d85791067445f4E.llvm.11880408977092959598.exit.i.i"
+16:                                               ; preds = %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3d85791067445f4E.llvm.11880408977092959598.exit.i.i"
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h267c6a5a4cc5b0d5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE.exit" unwind label %21
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h267c6a5a4cc5b0d5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
+          to label %"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE.exit" unwind label %22
 
-16:                                               ; preds = %12
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
-"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE.exit": ; preds = %15, %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3d85791067445f4E.llvm.11880408977092959598.exit.i.i"
-  %18 = icmp eq i64 %4, %1
-  br i1 %18, label %._crit_edge, label %.lr.ph
+"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE.exit": ; preds = %16, %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd3d85791067445f4E.llvm.11880408977092959598.exit.i.i"
+  %19 = icmp eq i64 %5, %1
+  br i1 %19, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE.exit", %2
   ret void
 
-19:                                               ; preds = %23, %.body
-  %.sroa.0.1 = phi i64 [ %4, %.body ], [ %25, %23 ]
-  %20 = icmp eq i64 %.sroa.0.1, %1
-  br i1 %20, label %26, label %23
+20:                                               ; preds = %24, %.body
+  %.sroa.0.1 = phi i64 [ %5, %.body ], [ %26, %24 ]
+  %21 = icmp eq i64 %.sroa.0.1, %1
+  br i1 %21, label %27, label %24
 
-21:                                               ; preds = %15
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %16
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %8, %12, %21
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %9, %12 ], [ %9, %8 ]
-  br label %19
+.body:                                            ; preds = %9, %13, %22
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %10, %13 ], [ %10, %9 ]
+  br label %20
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds { i64, ptr }, ptr %0, i64 %.sroa.0.1
-  %25 = add i64 %.sroa.0.1, 1
-  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE"(ptr noalias noundef align 8 dereferenceable(16) %24) #31
-          to label %19 unwind label %27
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds { i64, ptr }, ptr %0, i64 %.sroa.0.1
+  %26 = add i64 %.sroa.0.1, 1
+  invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$$LP$usize$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$17h9d3b5d695fe0993dE"(ptr noalias noundef align 8 dereferenceable(16) %25) #31
+          to label %20 unwind label %28
 
-26:                                               ; preds = %19
+27:                                               ; preds = %20
   resume { ptr, i32 } %eh.lpad-body
 
-27:                                               ; preds = %23
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %24
+  %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable

@@ -78,61 +78,63 @@ define internal void @cursor_frame_done(ptr noundef initializes((416, 424)) %0, 
   store i64 %27, ptr %25, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = sext i32 %15 to i64
-  %30 = getelementptr inbounds %struct.Wayland_SystemCursorFrame, ptr %28, i64 %29, i32 1
-  %31 = load i64, ptr %30, align 8
-  %.not42 = icmp ugt i64 %31, %27
+  %30 = getelementptr inbounds %struct.Wayland_SystemCursorFrame, ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load i64, ptr %31, align 8
+  %.not42 = icmp ugt i64 %32, %27
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %33 = load i32, ptr %32, align 8
-  br label %34
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %34 = load i32, ptr %33, align 8
+  br label %35
 
-34:                                               ; preds = %34, %.lr.ph
-  %.044 = phi i64 [ %31, %.lr.ph ], [ %40, %34 ]
-  %.03743 = phi i32 [ %15, %.lr.ph ], [ %36, %34 ]
-  %35 = add nsw i32 %.03743, 1
-  %36 = srem i32 %35, %33
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.Wayland_SystemCursorFrame, ptr %28, i64 %37, i32 1
-  %39 = load i64, ptr %38, align 8
-  %.not41 = icmp eq i64 %39, 0
-  %40 = add i64 %39, %.044
-  %.not = icmp ugt i64 %40, %27
+35:                                               ; preds = %35, %.lr.ph
+  %.044 = phi i64 [ %32, %.lr.ph ], [ %42, %35 ]
+  %.03743 = phi i32 [ %15, %.lr.ph ], [ %37, %35 ]
+  %36 = add nsw i32 %.03743, 1
+  %37 = srem i32 %36, %34
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds %struct.Wayland_SystemCursorFrame, ptr %28, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i64, ptr %40, align 8
+  %.not41 = icmp eq i64 %41, 0
+  %42 = add i64 %41, %.044
+  %.not = icmp ugt i64 %42, %27
   %or.cond = select i1 %.not41, i1 true, i1 %.not
-  br i1 %or.cond, label %._crit_edge, label %34, !llvm.loop !3
+  br i1 %or.cond, label %._crit_edge, label %35, !llvm.loop !3
 
-._crit_edge:                                      ; preds = %34, %3
-  %.pre-phi = phi i64 [ %29, %3 ], [ %37, %34 ]
-  %.139 = phi i64 [ 0, %3 ], [ %.044, %34 ]
-  %.1 = phi i32 [ %15, %3 ], [ %36, %34 ]
-  %41 = sub i64 %27, %.139
-  store i64 %41, ptr %25, align 8
+._crit_edge:                                      ; preds = %35, %3
+  %.pre-phi = phi i64 [ %29, %3 ], [ %38, %35 ]
+  %.139 = phi i64 [ 0, %3 ], [ %.044, %35 ]
+  %.1 = phi i32 [ %15, %3 ], [ %37, %35 ]
+  %43 = sub i64 %27, %.139
+  store i64 %43, ptr %25, align 8
   store i64 %6, ptr %8, align 8
   store i32 %.1, ptr %14, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.Wayland_SystemCursorFrame, ptr %43, i64 %.pre-phi
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %47 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %48 = tail call i32 %47(ptr noundef %42) #6
-  %49 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %46(ptr noundef %42, i32 noundef 1, ptr noundef null, i32 noundef %48, i32 noundef 0, ptr noundef %45, i32 noundef 0, i32 noundef 0) #6
-  %50 = load ptr, ptr %7, align 8
-  %51 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %52 = tail call i32 %51(ptr noundef %50) #6
-  %53 = icmp ugt i32 %52, 3
-  %54 = load ptr, ptr %7, align 8
-  %55 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %56 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %57 = tail call i32 %56(ptr noundef %54) #6
-  %. = select i1 %53, i32 9, i32 2
-  %58 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %55(ptr noundef %54, i32 noundef %., ptr noundef null, i32 noundef %57, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2147483647, i32 noundef 2147483647) #6
-  %59 = load ptr, ptr %7, align 8
-  %60 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %61 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %62 = tail call i32 %61(ptr noundef %59) #6
-  %63 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %60(ptr noundef %59, i32 noundef 6, ptr noundef null, i32 noundef %62, i32 noundef 0) #6
+  %44 = load ptr, ptr %7, align 8
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds %struct.Wayland_SystemCursorFrame, ptr %45, i64 %.pre-phi
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %49 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %50 = tail call i32 %49(ptr noundef %44) #6
+  %51 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %48(ptr noundef %44, i32 noundef 1, ptr noundef null, i32 noundef %50, i32 noundef 0, ptr noundef %47, i32 noundef 0, i32 noundef 0) #6
+  %52 = load ptr, ptr %7, align 8
+  %53 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %54 = tail call i32 %53(ptr noundef %52) #6
+  %55 = icmp ugt i32 %54, 3
+  %56 = load ptr, ptr %7, align 8
+  %57 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %58 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %59 = tail call i32 %58(ptr noundef %56) #6
+  %. = select i1 %55, i32 9, i32 2
+  %60 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %57(ptr noundef %56, i32 noundef %., ptr noundef null, i32 noundef %59, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2147483647, i32 noundef 2147483647) #6
+  %61 = load ptr, ptr %7, align 8
+  %62 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %63 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %64 = tail call i32 %63(ptr noundef %61) #6
+  %65 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %62(ptr noundef %61, i32 noundef 6, ptr noundef null, i32 noundef %64, i32 noundef 0) #6
   ret void
 }
 
@@ -1498,7 +1500,7 @@ define internal fastcc void @Wayland_SeatSetCursor(ptr noundef %0, ptr noundef r
 
 20:                                               ; preds = %18, %15, %10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  br i1 %.not72, label %372, label %22
+  br i1 %.not72, label %375, label %22
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %21, align 8
@@ -1509,7 +1511,7 @@ define internal fastcc void @Wayland_SeatSetCursor(ptr noundef %0, ptr noundef r
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %27 = load i8, ptr %26, align 8, !range !8, !noundef !9
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %29, label %255
+  br i1 %28, label %29, label %258
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -1645,7 +1647,7 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
 102:                                              ; preds = %97
   %103 = load ptr, ptr %98, align 8
   %.not111.i = icmp eq ptr %103, null
-  br i1 %.not111.i, label %.thread.i, label %126
+  br i1 %.not111.i, label %.thread.i, label %127
 
 .thread.i:                                        ; preds = %96, %102, %86
   %104 = load ptr, ptr @dbus_cursor_theme, align 8
@@ -1674,418 +1676,421 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
   %117 = load ptr, ptr %94, align 8
   %118 = load i32, ptr %91, align 8
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds %struct.SDL_WaylandCursorTheme, ptr %117, i64 %119, i32 1
-  store i32 %90, ptr %120, align 8
-  %121 = load ptr, ptr %94, align 8
-  %122 = load i32, ptr %91, align 8
-  %123 = add nsw i32 %122, 1
-  store i32 %123, ptr %91, align 8
-  %124 = sext i32 %122 to i64
-  %125 = getelementptr inbounds %struct.SDL_WaylandCursorTheme, ptr %121, i64 %124
-  store ptr %116, ptr %125, align 8
-  br label %126
+  %120 = getelementptr inbounds %struct.SDL_WaylandCursorTheme, ptr %117, i64 %119
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  store i32 %90, ptr %121, align 8
+  %122 = load ptr, ptr %94, align 8
+  %123 = load i32, ptr %91, align 8
+  %124 = add nsw i32 %123, 1
+  store i32 %124, ptr %91, align 8
+  %125 = sext i32 %123 to i64
+  %126 = getelementptr inbounds %struct.SDL_WaylandCursorTheme, ptr %122, i64 %125
+  store ptr %116, ptr %126, align 8
+  br label %127
 
-126:                                              ; preds = %112, %102
+127:                                              ; preds = %112, %102
   %.194.i = phi ptr [ %103, %102 ], [ %116, %112 ]
-  %127 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %128 = load i32, ptr %127, align 4
-  %129 = call ptr @SDL_GetCSSCursorName(i32 noundef %128, ptr noundef nonnull %3) #6
-  %130 = load ptr, ptr @WAYLAND_wl_cursor_theme_get_cursor, align 8
-  %131 = call ptr %130(ptr noundef %.194.i, ptr noundef %129) #6
-  %132 = icmp eq ptr %131, null
-  %133 = load ptr, ptr %3, align 8
-  %134 = icmp ne ptr %133, null
-  %or.cond.i = select i1 %132, i1 %134, i1 false
-  br i1 %or.cond.i, label %135, label %138
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %129 = load i32, ptr %128, align 4
+  %130 = call ptr @SDL_GetCSSCursorName(i32 noundef %129, ptr noundef nonnull %3) #6
+  %131 = load ptr, ptr @WAYLAND_wl_cursor_theme_get_cursor, align 8
+  %132 = call ptr %131(ptr noundef %.194.i, ptr noundef %130) #6
+  %133 = icmp eq ptr %132, null
+  %134 = load ptr, ptr %3, align 8
+  %135 = icmp ne ptr %134, null
+  %or.cond.i = select i1 %133, i1 %135, i1 false
+  br i1 %or.cond.i, label %136, label %139
 
-135:                                              ; preds = %126
-  %136 = load ptr, ptr @WAYLAND_wl_cursor_theme_get_cursor, align 8
-  %137 = call ptr %136(ptr noundef %.194.i, ptr noundef nonnull %133) #6
-  br label %138
+136:                                              ; preds = %127
+  %137 = load ptr, ptr @WAYLAND_wl_cursor_theme_get_cursor, align 8
+  %138 = call ptr %137(ptr noundef %.194.i, ptr noundef nonnull %134) #6
+  br label %139
 
-138:                                              ; preds = %135, %126
-  %.095.i = phi ptr [ %137, %135 ], [ %131, %126 ]
+139:                                              ; preds = %136, %127
+  %.095.i = phi ptr [ %138, %136 ], [ %132, %127 ]
   %.not114.i = icmp eq ptr %.095.i, null
-  br i1 %.not114.i, label %139, label %.thread126.i
+  br i1 %.not114.i, label %140, label %.thread126.i
 
-139:                                              ; preds = %138
-  %140 = load ptr, ptr @WAYLAND_wl_cursor_theme_get_cursor, align 8
-  %141 = call ptr %140(ptr noundef %.194.i, ptr noundef nonnull @.str.12) #6
-  %.not115.i = icmp eq ptr %141, null
-  br i1 %.not115.i, label %142, label %.thread126.i
+140:                                              ; preds = %139
+  %141 = load ptr, ptr @WAYLAND_wl_cursor_theme_get_cursor, align 8
+  %142 = call ptr %141(ptr noundef %.194.i, ptr noundef nonnull @.str.12) #6
+  %.not115.i = icmp eq ptr %142, null
+  br i1 %.not115.i, label %143, label %.thread126.i
 
-142:                                              ; preds = %139
-  %143 = load ptr, ptr @WAYLAND_wl_cursor_theme_get_cursor, align 8
-  %144 = call ptr %143(ptr noundef %.194.i, ptr noundef nonnull @.str.15) #6
-  %.not116.i = icmp eq ptr %144, null
+143:                                              ; preds = %140
+  %144 = load ptr, ptr @WAYLAND_wl_cursor_theme_get_cursor, align 8
+  %145 = call ptr %144(ptr noundef %.194.i, ptr noundef nonnull @.str.15) #6
+  %.not116.i = icmp eq ptr %145, null
   br i1 %.not116.i, label %Wayland_GetSystemCursor.exit.thread, label %.thread126.i
 
-.thread126.i:                                     ; preds = %142, %139, %138
-  %.297129.i = phi ptr [ %144, %142 ], [ %141, %139 ], [ %.095.i, %138 ]
-  %145 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %146 = load i32, ptr %145, align 8
-  %147 = load i32, ptr %.297129.i, align 8
-  %.not117.i = icmp eq i32 %146, %147
-  br i1 %.not117.i, label %153, label %148
+.thread126.i:                                     ; preds = %143, %140, %139
+  %.297129.i = phi ptr [ %145, %143 ], [ %142, %140 ], [ %.095.i, %139 ]
+  %146 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %147 = load i32, ptr %146, align 8
+  %148 = load i32, ptr %.297129.i, align 8
+  %.not117.i = icmp eq i32 %147, %148
+  br i1 %.not117.i, label %154, label %149
 
-148:                                              ; preds = %.thread126.i
-  %149 = load ptr, ptr %11, align 8
-  call void @SDL_free_REAL(ptr noundef %149) #6
-  %150 = load i32, ptr %.297129.i, align 8
-  %151 = zext i32 %150 to i64
-  %152 = call noalias ptr @SDL_calloc_REAL(i64 noundef %151, i64 noundef 16) #7
-  store ptr %152, ptr %11, align 8
-  %.not118.i = icmp eq ptr %152, null
+149:                                              ; preds = %.thread126.i
+  %150 = load ptr, ptr %11, align 8
+  call void @SDL_free_REAL(ptr noundef %150) #6
+  %151 = load i32, ptr %.297129.i, align 8
+  %152 = zext i32 %151 to i64
+  %153 = call noalias ptr @SDL_calloc_REAL(i64 noundef %152, i64 noundef 16) #7
+  store ptr %153, ptr %11, align 8
+  %.not118.i = icmp eq ptr %153, null
   br i1 %.not118.i, label %Wayland_GetSystemCursor.exit.thread, label %._crit_edge150.i
 
-._crit_edge150.i:                                 ; preds = %148
+._crit_edge150.i:                                 ; preds = %149
   %.pre151.i = load i32, ptr %.297129.i, align 8
-  br label %153
+  br label %154
 
-153:                                              ; preds = %._crit_edge150.i, %.thread126.i
-  %154 = phi i32 [ %.pre151.i, %._crit_edge150.i ], [ %146, %.thread126.i ]
-  store i32 %154, ptr %145, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 0, ptr %155, align 8
-  %156 = load i32, ptr %.297129.i, align 8
-  %.not143.i = icmp eq i32 %156, 0
+154:                                              ; preds = %._crit_edge150.i, %.thread126.i
+  %155 = phi i32 [ %.pre151.i, %._crit_edge150.i ], [ %147, %.thread126.i ]
+  store i32 %155, ptr %146, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 0, ptr %156, align 8
+  %157 = load i32, ptr %.297129.i, align 8
+  %.not143.i = icmp eq i32 %157, 0
   br i1 %.not143.i, label %._crit_edge.i, label %.lr.ph137.i
 
-.lr.ph137.i:                                      ; preds = %153
-  %157 = getelementptr inbounds nuw i8, ptr %.297129.i, i64 8
-  br label %166
+.lr.ph137.i:                                      ; preds = %154
+  %158 = getelementptr inbounds nuw i8, ptr %.297129.i, i64 8
+  br label %167
 
-._crit_edge.i:                                    ; preds = %166, %153
-  %158 = call double @SDL_ceil_REAL(double noundef %.0100.i) #6
-  %159 = fcmp oeq double %158, %.0100.i
-  %160 = fptosi double %.0100.i to i32
-  %161 = select i1 %159, i32 %160, i32 0
-  %162 = getelementptr inbounds nuw i8, ptr %.297129.i, i64 8
-  %163 = load ptr, ptr %162, align 8
+._crit_edge.i:                                    ; preds = %167, %154
+  %159 = call double @SDL_ceil_REAL(double noundef %.0100.i) #6
+  %160 = fcmp oeq double %159, %.0100.i
+  %161 = fptosi double %.0100.i to i32
+  %162 = select i1 %160, i32 %161, i32 0
+  %163 = getelementptr inbounds nuw i8, ptr %.297129.i, i64 8
   %164 = load ptr, ptr %163, align 8
-  %165 = load i32, ptr %164, align 4
-  %.not119.i = icmp eq i32 %165, %90
-  br i1 %.not119.i, label %202, label %191
+  %165 = load ptr, ptr %164, align 8
+  %166 = load i32, ptr %165, align 4
+  %.not119.i = icmp eq i32 %166, %90
+  br i1 %.not119.i, label %205, label %194
 
-166:                                              ; preds = %166, %.lr.ph137.i
-  %indvars.iv147.i = phi i64 [ 0, %.lr.ph137.i ], [ %indvars.iv.next148.i, %166 ]
-  %167 = load ptr, ptr @WAYLAND_wl_cursor_image_get_buffer, align 8
-  %168 = load ptr, ptr %157, align 8
-  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv147.i
-  %170 = load ptr, ptr %169, align 8
-  %171 = call ptr %167(ptr noundef %170) #6
-  %172 = load ptr, ptr %11, align 8
-  %173 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %172, i64 %indvars.iv147.i
-  store ptr %171, ptr %173, align 8
-  %174 = load ptr, ptr %157, align 8
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv147.i
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %178 = load i32, ptr %177, align 4
-  %179 = zext i32 %178 to i64
-  %180 = mul nuw nsw i64 %179, 1000000
-  %181 = load ptr, ptr %11, align 8
-  %182 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %181, i64 %indvars.iv147.i, i32 1
-  store i64 %180, ptr %182, align 8
-  %183 = load ptr, ptr %11, align 8
-  %184 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %183, i64 %indvars.iv147.i, i32 1
-  %185 = load i64, ptr %184, align 8
-  %186 = load i64, ptr %155, align 8
-  %187 = add i64 %186, %185
-  store i64 %187, ptr %155, align 8
+167:                                              ; preds = %167, %.lr.ph137.i
+  %indvars.iv147.i = phi i64 [ 0, %.lr.ph137.i ], [ %indvars.iv.next148.i, %167 ]
+  %168 = load ptr, ptr @WAYLAND_wl_cursor_image_get_buffer, align 8
+  %169 = load ptr, ptr %158, align 8
+  %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv147.i
+  %171 = load ptr, ptr %170, align 8
+  %172 = call ptr %168(ptr noundef %171) #6
+  %173 = load ptr, ptr %11, align 8
+  %174 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %173, i64 %indvars.iv147.i
+  store ptr %172, ptr %174, align 8
+  %175 = load ptr, ptr %158, align 8
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv147.i
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %179 = load i32, ptr %178, align 4
+  %180 = zext i32 %179 to i64
+  %181 = mul nuw nsw i64 %180, 1000000
+  %182 = load ptr, ptr %11, align 8
+  %183 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %182, i64 %indvars.iv147.i
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  store i64 %181, ptr %184, align 8
+  %185 = load ptr, ptr %11, align 8
+  %186 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %185, i64 %indvars.iv147.i
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %188 = load i64, ptr %187, align 8
+  %189 = load i64, ptr %156, align 8
+  %190 = add i64 %189, %188
+  store i64 %190, ptr %156, align 8
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
-  %188 = load i32, ptr %.297129.i, align 8
-  %189 = zext i32 %188 to i64
-  %190 = icmp samesign ult i64 %indvars.iv.next148.i, %189
-  br i1 %190, label %166, label %._crit_edge.i, !llvm.loop !17
+  %191 = load i32, ptr %.297129.i, align 8
+  %192 = zext i32 %191 to i64
+  %193 = icmp samesign ult i64 %indvars.iv.next148.i, %192
+  br i1 %193, label %167, label %._crit_edge.i, !llvm.loop !17
 
-191:                                              ; preds = %._crit_edge.i
-  %192 = getelementptr inbounds nuw i8, ptr %68, i64 160
-  %193 = load ptr, ptr %192, align 8
-  %.not120.i = icmp eq ptr %193, null
-  br i1 %.not120.i, label %thread-pre-split.i, label %202
+194:                                              ; preds = %._crit_edge.i
+  %195 = getelementptr inbounds nuw i8, ptr %68, i64 160
+  %196 = load ptr, ptr %195, align 8
+  %.not120.i = icmp eq ptr %196, null
+  br i1 %.not120.i, label %thread-pre-split.i, label %205
 
-thread-pre-split.i:                               ; preds = %191
-  %194 = icmp sgt i32 %161, 1
-  br i1 %194, label %.lr.ph138.i.preheader, label %._crit_edge139.i
+thread-pre-split.i:                               ; preds = %194
+  %197 = icmp sgt i32 %162, 1
+  br i1 %197, label %.lr.ph138.i.preheader, label %._crit_edge139.i
 
 .lr.ph138.i.preheader:                            ; preds = %thread-pre-split.i
-  %smin = call i32 @llvm.smin.i32(i32 %160, i32 2)
-  %195 = add i32 %smin, -1
+  %smin = call i32 @llvm.smin.i32(i32 %161, i32 2)
+  %198 = add i32 %smin, -1
   br label %.lr.ph138.i
 
-.lr.ph138.i:                                      ; preds = %.lr.ph138.i.preheader, %198
-  %.3 = phi i32 [ %199, %198 ], [ %160, %.lr.ph138.i.preheader ]
-  %196 = urem i32 %165, %.3
-  %197 = icmp eq i32 %196, 0
-  br i1 %197, label %._crit_edge139.i, label %198
+.lr.ph138.i:                                      ; preds = %.lr.ph138.i.preheader, %201
+  %.3 = phi i32 [ %202, %201 ], [ %161, %.lr.ph138.i.preheader ]
+  %199 = urem i32 %166, %.3
+  %200 = icmp eq i32 %199, 0
+  br i1 %200, label %._crit_edge139.i, label %201
 
-198:                                              ; preds = %.lr.ph138.i
-  %199 = add nsw i32 %.3, -1
-  %200 = icmp sgt i32 %.3, 2
-  br i1 %200, label %.lr.ph138.i, label %._crit_edge139.i, !llvm.loop !18
+201:                                              ; preds = %.lr.ph138.i
+  %202 = add nsw i32 %.3, -1
+  %203 = icmp sgt i32 %.3, 2
+  br i1 %203, label %.lr.ph138.i, label %._crit_edge139.i, !llvm.loop !18
 
-._crit_edge139.i:                                 ; preds = %198, %.lr.ph138.i, %thread-pre-split.i
-  %.2101 = phi i32 [ %161, %thread-pre-split.i ], [ %195, %198 ], [ %.3, %.lr.ph138.i ]
-  %.lcssa.i = phi i32 [ %161, %thread-pre-split.i ], [ 1, %198 ], [ %.3, %.lr.ph138.i ]
-  %201 = sitofp i32 %.lcssa.i to double
-  br label %202
+._crit_edge139.i:                                 ; preds = %201, %.lr.ph138.i, %thread-pre-split.i
+  %.2101 = phi i32 [ %162, %thread-pre-split.i ], [ %198, %201 ], [ %.3, %.lr.ph138.i ]
+  %.lcssa.i = phi i32 [ %162, %thread-pre-split.i ], [ 1, %201 ], [ %.3, %.lr.ph138.i ]
+  %204 = sitofp i32 %.lcssa.i to double
+  br label %205
 
-Wayland_GetSystemCursor.exit.thread:              ; preds = %142, %148, %.thread.i
+Wayland_GetSystemCursor.exit.thread:              ; preds = %143, %149, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %Wayland_GetCustomCursor.exit
 
-202:                                              ; preds = %191, %._crit_edge139.i, %._crit_edge.i
-  %.1100 = phi i32 [ %161, %._crit_edge.i ], [ %.2101, %._crit_edge139.i ], [ 0, %191 ]
-  %.1101.i = phi double [ %.0100.i, %._crit_edge.i ], [ %201, %._crit_edge139.i ], [ %.0100.i, %191 ]
-  %203 = uitofp i32 %165 to double
-  %204 = fdiv double %203, %.1101.i
-  %205 = call i64 @SDL_lround_REAL(double noundef %204) #6
-  %206 = trunc i64 %205 to i32
-  %207 = load ptr, ptr %162, align 8
-  %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  %210 = load i32, ptr %209, align 4
-  %211 = uitofp i32 %210 to double
-  %212 = fdiv double %211, %.1101.i
-  %213 = call i64 @SDL_lround_REAL(double noundef %212) #6
-  %214 = trunc i64 %213 to i32
-  %215 = load ptr, ptr %162, align 8
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %218 = load i32, ptr %217, align 4
-  %219 = uitofp i32 %218 to double
-  %220 = fdiv double %219, %.1101.i
-  %221 = call i64 @SDL_lround_REAL(double noundef %220) #6
-  %222 = trunc i64 %221 to i32
+205:                                              ; preds = %194, %._crit_edge139.i, %._crit_edge.i
+  %.1100 = phi i32 [ %162, %._crit_edge.i ], [ %.2101, %._crit_edge139.i ], [ 0, %194 ]
+  %.1101.i = phi double [ %.0100.i, %._crit_edge.i ], [ %204, %._crit_edge139.i ], [ %.0100.i, %194 ]
+  %206 = uitofp i32 %166 to double
+  %207 = fdiv double %206, %.1101.i
+  %208 = call i64 @SDL_lround_REAL(double noundef %207) #6
+  %209 = trunc i64 %208 to i32
+  %210 = load ptr, ptr %163, align 8
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %213 = load i32, ptr %212, align 4
+  %214 = uitofp i32 %213 to double
+  %215 = fdiv double %214, %.1101.i
+  %216 = call i64 @SDL_lround_REAL(double noundef %215) #6
+  %217 = trunc i64 %216 to i32
+  %218 = load ptr, ptr %163, align 8
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 12
+  %221 = load i32, ptr %220, align 4
+  %222 = uitofp i32 %221 to double
+  %223 = fdiv double %222, %.1101.i
+  %224 = call i64 @SDL_lround_REAL(double noundef %223) #6
+  %225 = trunc i64 %224 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %223 = load ptr, ptr %12, align 8
-  %.not77 = icmp eq ptr %223, null
-  br i1 %.not77, label %224, label %233
+  %226 = load ptr, ptr %12, align 8
+  %.not77 = icmp eq ptr %226, null
+  br i1 %.not77, label %227, label %236
 
-224:                                              ; preds = %202
-  %225 = load ptr, ptr %0, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 32
-  %227 = load ptr, ptr %226, align 8
-  %228 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %229 = load ptr, ptr @WAYLAND_wl_surface_interface, align 8
-  %230 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %231 = call i32 %230(ptr noundef %227) #6
-  %232 = call ptr (ptr, i32, ptr, i32, i32, ...) %228(ptr noundef %227, i32 noundef 0, ptr noundef %229, i32 noundef %231, i32 noundef 0, ptr noundef null) #6
-  store ptr %232, ptr %12, align 8
-  br label %233
+227:                                              ; preds = %205
+  %228 = load ptr, ptr %0, align 8
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 32
+  %230 = load ptr, ptr %229, align 8
+  %231 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %232 = load ptr, ptr @WAYLAND_wl_surface_interface, align 8
+  %233 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %234 = call i32 %233(ptr noundef %230) #6
+  %235 = call ptr (ptr, i32, ptr, i32, i32, ...) %231(ptr noundef %230, i32 noundef 0, ptr noundef %232, i32 noundef %234, i32 noundef 0, ptr noundef null) #6
+  store ptr %235, ptr %12, align 8
+  br label %236
 
-233:                                              ; preds = %224, %202
-  %234 = phi ptr [ %232, %224 ], [ %223, %202 ]
-  %235 = load ptr, ptr %11, align 8
-  %236 = load ptr, ptr %235, align 8
-  %237 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %238 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %239 = call i32 %238(ptr noundef %234) #6
-  %240 = call ptr (ptr, i32, ptr, i32, i32, ...) %237(ptr noundef %234, i32 noundef 1, ptr noundef null, i32 noundef %239, i32 noundef 0, ptr noundef %236, i32 noundef 0, i32 noundef 0) #6
-  %241 = load i32, ptr %145, align 8
-  %242 = icmp sgt i32 %241, 1
-  br i1 %242, label %243, label %308
+236:                                              ; preds = %227, %205
+  %237 = phi ptr [ %235, %227 ], [ %226, %205 ]
+  %238 = load ptr, ptr %11, align 8
+  %239 = load ptr, ptr %238, align 8
+  %240 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %241 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %242 = call i32 %241(ptr noundef %237) #6
+  %243 = call ptr (ptr, i32, ptr, i32, i32, ...) %240(ptr noundef %237, i32 noundef 1, ptr noundef null, i32 noundef %242, i32 noundef 0, ptr noundef %239, i32 noundef 0, i32 noundef 0) #6
+  %244 = load i32, ptr %146, align 8
+  %245 = icmp sgt i32 %244, 1
+  br i1 %245, label %246, label %311
 
-243:                                              ; preds = %233
-  %244 = call i64 @SDL_GetTicks_REAL() #6
-  %245 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store i64 %244, ptr %245, align 8
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store i64 0, ptr %246, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store i32 0, ptr %247, align 8
-  %248 = load ptr, ptr %12, align 8
-  %249 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %250 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %251 = call i32 %250(ptr noundef %248) #6
-  %252 = call ptr (ptr, i32, ptr, i32, i32, ...) %249(ptr noundef %248, i32 noundef 3, ptr noundef nonnull @wl_callback_interface, i32 noundef %251, i32 noundef 0, ptr noundef null) #6
-  store ptr %252, ptr %13, align 8
-  %253 = load ptr, ptr @WAYLAND_wl_proxy_add_listener, align 8
-  %254 = call i32 %253(ptr noundef %252, ptr noundef nonnull @cursor_frame_listener, ptr noundef nonnull %0) #6
-  br label %308
+246:                                              ; preds = %236
+  %247 = call i64 @SDL_GetTicks_REAL() #6
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  store i64 %247, ptr %248, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  store i64 0, ptr %249, align 8
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  store i32 0, ptr %250, align 8
+  %251 = load ptr, ptr %12, align 8
+  %252 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %253 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %254 = call i32 %253(ptr noundef %251) #6
+  %255 = call ptr (ptr, i32, ptr, i32, i32, ...) %252(ptr noundef %251, i32 noundef 3, ptr noundef nonnull @wl_callback_interface, i32 noundef %254, i32 noundef 0, ptr noundef null) #6
+  store ptr %255, ptr %13, align 8
+  %256 = load ptr, ptr @WAYLAND_wl_proxy_add_listener, align 8
+  %257 = call i32 %256(ptr noundef %255, ptr noundef nonnull @cursor_frame_listener, ptr noundef nonnull %0) #6
+  br label %311
 
-255:                                              ; preds = %25
-  %256 = tail call ptr @SDL_GetVideoDevice() #6
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 1656
-  %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %260 = load ptr, ptr %259, align 8
-  %261 = tail call ptr @SDL_GetMouseFocus_REAL() #6
-  %.not.i83 = icmp eq ptr %261, null
-  br i1 %.not.i83, label %270, label %262
+258:                                              ; preds = %25
+  %259 = tail call ptr @SDL_GetVideoDevice() #6
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 1656
+  %261 = load ptr, ptr %260, align 8
+  %262 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %263 = load ptr, ptr %262, align 8
+  %264 = tail call ptr @SDL_GetMouseFocus_REAL() #6
+  %.not.i83 = icmp eq ptr %264, null
+  br i1 %.not.i83, label %273, label %265
 
-262:                                              ; preds = %255
-  %263 = load ptr, ptr %260, align 8
-  %264 = tail call zeroext i1 @SDL_SurfaceHasAlternateImages_REAL(ptr noundef %263) #6
-  br i1 %264, label %265, label %270
+265:                                              ; preds = %258
+  %266 = load ptr, ptr %263, align 8
+  %267 = tail call zeroext i1 @SDL_SurfaceHasAlternateImages_REAL(ptr noundef %266) #6
+  br i1 %267, label %268, label %273
 
-265:                                              ; preds = %262
-  %266 = getelementptr inbounds nuw i8, ptr %261, i64 392
-  %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 248
-  %269 = load double, ptr %268, align 8
-  br label %270
+268:                                              ; preds = %265
+  %269 = getelementptr inbounds nuw i8, ptr %264, i64 392
+  %270 = load ptr, ptr %269, align 8
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 248
+  %272 = load double, ptr %271, align 8
+  br label %273
 
-270:                                              ; preds = %265, %262, %255
-  %.025.i = phi double [ %269, %265 ], [ 1.000000e+00, %262 ], [ 1.000000e+00, %255 ]
-  %271 = getelementptr inbounds nuw i8, ptr %258, i64 160
-  %272 = load ptr, ptr %271, align 8
-  %.not28.i = icmp eq ptr %272, null
-  br i1 %.not28.i, label %273, label %275
+273:                                              ; preds = %268, %265, %258
+  %.025.i = phi double [ %272, %268 ], [ 1.000000e+00, %265 ], [ 1.000000e+00, %258 ]
+  %274 = getelementptr inbounds nuw i8, ptr %261, i64 160
+  %275 = load ptr, ptr %274, align 8
+  %.not28.i = icmp eq ptr %275, null
+  br i1 %.not28.i, label %276, label %278
 
-273:                                              ; preds = %270
-  %274 = tail call double @SDL_ceil_REAL(double noundef %.025.i) #6
-  br label %275
+276:                                              ; preds = %273
+  %277 = tail call double @SDL_ceil_REAL(double noundef %.025.i) #6
+  br label %278
 
-275:                                              ; preds = %273, %270
-  %.1.i84 = phi double [ %.025.i, %270 ], [ %274, %273 ]
-  %276 = tail call fastcc ptr @Wayland_CacheScaledCustomCursor(ptr noundef %260, double noundef %.1.i84)
-  %.not29.i.not = icmp eq ptr %276, null
-  br i1 %.not29.i.not, label %Wayland_GetCustomCursor.exit, label %277
+278:                                              ; preds = %276, %273
+  %.1.i84 = phi double [ %.025.i, %273 ], [ %277, %276 ]
+  %279 = tail call fastcc ptr @Wayland_CacheScaledCustomCursor(ptr noundef %263, double noundef %.1.i84)
+  %.not29.i.not = icmp eq ptr %279, null
+  br i1 %.not29.i.not, label %Wayland_GetCustomCursor.exit, label %280
 
-277:                                              ; preds = %275
-  %278 = load ptr, ptr %276, align 8
-  %279 = tail call double @SDL_ceil_REAL(double noundef %.1.i84) #6
-  %280 = fcmp oeq double %279, %.1.i84
-  %281 = fptosi double %.1.i84 to i32
-  %282 = select i1 %280, i32 %281, i32 0
-  %283 = load ptr, ptr %260, align 8
-  %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
-  %285 = load i32, ptr %284, align 8
-  %286 = getelementptr inbounds nuw i8, ptr %283, i64 12
-  %287 = load i32, ptr %286, align 4
-  %288 = getelementptr inbounds nuw i8, ptr %260, i64 8
-  %289 = load i32, ptr %288, align 8
-  %290 = getelementptr inbounds nuw i8, ptr %260, i64 12
-  %291 = load i32, ptr %290, align 4
-  %292 = load ptr, ptr %12, align 8
-  %.not75 = icmp eq ptr %292, null
-  br i1 %.not75, label %293, label %302
+280:                                              ; preds = %278
+  %281 = load ptr, ptr %279, align 8
+  %282 = tail call double @SDL_ceil_REAL(double noundef %.1.i84) #6
+  %283 = fcmp oeq double %282, %.1.i84
+  %284 = fptosi double %.1.i84 to i32
+  %285 = select i1 %283, i32 %284, i32 0
+  %286 = load ptr, ptr %263, align 8
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  %288 = load i32, ptr %287, align 8
+  %289 = getelementptr inbounds nuw i8, ptr %286, i64 12
+  %290 = load i32, ptr %289, align 4
+  %291 = getelementptr inbounds nuw i8, ptr %263, i64 8
+  %292 = load i32, ptr %291, align 8
+  %293 = getelementptr inbounds nuw i8, ptr %263, i64 12
+  %294 = load i32, ptr %293, align 4
+  %295 = load ptr, ptr %12, align 8
+  %.not75 = icmp eq ptr %295, null
+  br i1 %.not75, label %296, label %305
 
-293:                                              ; preds = %277
-  %294 = load ptr, ptr %0, align 8
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 32
-  %296 = load ptr, ptr %295, align 8
-  %297 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %298 = load ptr, ptr @WAYLAND_wl_surface_interface, align 8
-  %299 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %300 = tail call i32 %299(ptr noundef %296) #6
-  %301 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %297(ptr noundef %296, i32 noundef 0, ptr noundef %298, i32 noundef %300, i32 noundef 0, ptr noundef null) #6
-  store ptr %301, ptr %12, align 8
-  br label %302
+296:                                              ; preds = %280
+  %297 = load ptr, ptr %0, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 32
+  %299 = load ptr, ptr %298, align 8
+  %300 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %301 = load ptr, ptr @WAYLAND_wl_surface_interface, align 8
+  %302 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %303 = tail call i32 %302(ptr noundef %299) #6
+  %304 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %300(ptr noundef %299, i32 noundef 0, ptr noundef %301, i32 noundef %303, i32 noundef 0, ptr noundef null) #6
+  store ptr %304, ptr %12, align 8
+  br label %305
 
-302:                                              ; preds = %293, %277
-  %303 = phi ptr [ %301, %293 ], [ %292, %277 ]
-  %304 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %305 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %306 = tail call i32 %305(ptr noundef %303) #6
-  %307 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %304(ptr noundef %303, i32 noundef 1, ptr noundef null, i32 noundef %306, i32 noundef 0, ptr noundef %278, i32 noundef 0, i32 noundef 0) #6
-  br label %308
+305:                                              ; preds = %296, %280
+  %306 = phi ptr [ %304, %296 ], [ %295, %280 ]
+  %307 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %308 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %309 = tail call i32 %308(ptr noundef %306) #6
+  %310 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %307(ptr noundef %306, i32 noundef 1, ptr noundef null, i32 noundef %309, i32 noundef 0, ptr noundef %281, i32 noundef 0, i32 noundef 0) #6
+  br label %311
 
-308:                                              ; preds = %233, %243, %302
-  %.099 = phi i32 [ %.1100, %243 ], [ %.1100, %233 ], [ %282, %302 ]
-  %.096 = phi i32 [ %206, %243 ], [ %206, %233 ], [ %285, %302 ]
-  %.094 = phi i32 [ %206, %243 ], [ %206, %233 ], [ %287, %302 ]
-  %.091 = phi i32 [ %214, %243 ], [ %214, %233 ], [ %289, %302 ]
-  %.0 = phi i32 [ %222, %243 ], [ %222, %233 ], [ %291, %302 ]
+311:                                              ; preds = %236, %246, %305
+  %.099 = phi i32 [ %.1100, %246 ], [ %.1100, %236 ], [ %285, %305 ]
+  %.096 = phi i32 [ %209, %246 ], [ %209, %236 ], [ %288, %305 ]
+  %.094 = phi i32 [ %209, %246 ], [ %209, %236 ], [ %290, %305 ]
+  %.091 = phi i32 [ %217, %246 ], [ %217, %236 ], [ %292, %305 ]
+  %.0 = phi i32 [ %225, %246 ], [ %225, %236 ], [ %294, %305 ]
   %.not78 = icmp eq i32 %.099, 0
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %310 = load ptr, ptr %309, align 8
-  %.not79 = icmp eq ptr %310, null
-  br i1 %.not78, label %311, label %337
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %313 = load ptr, ptr %312, align 8
+  %.not79 = icmp eq ptr %313, null
+  br i1 %.not78, label %314, label %340
 
-311:                                              ; preds = %308
-  br i1 %.not79, label %312, label %321
+314:                                              ; preds = %311
+  br i1 %.not79, label %315, label %324
 
-312:                                              ; preds = %311
-  %313 = load ptr, ptr %0, align 8
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 160
-  %315 = load ptr, ptr %314, align 8
-  %316 = load ptr, ptr %12, align 8
-  %317 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %318 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %319 = call i32 %318(ptr noundef %315) #6
-  %320 = call ptr (ptr, i32, ptr, i32, i32, ...) %317(ptr noundef %315, i32 noundef 1, ptr noundef nonnull @wp_viewport_interface, i32 noundef %319, i32 noundef 0, ptr noundef null, ptr noundef %316) #6
-  store ptr %320, ptr %309, align 8
-  br label %321
+315:                                              ; preds = %314
+  %316 = load ptr, ptr %0, align 8
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 160
+  %318 = load ptr, ptr %317, align 8
+  %319 = load ptr, ptr %12, align 8
+  %320 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %321 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %322 = call i32 %321(ptr noundef %318) #6
+  %323 = call ptr (ptr, i32, ptr, i32, i32, ...) %320(ptr noundef %318, i32 noundef 1, ptr noundef nonnull @wp_viewport_interface, i32 noundef %322, i32 noundef 0, ptr noundef null, ptr noundef %319) #6
+  store ptr %323, ptr %312, align 8
+  br label %324
 
-321:                                              ; preds = %312, %311
-  %322 = load ptr, ptr %12, align 8
-  %323 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %324 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %325 = call i32 %324(ptr noundef %322) #6
-  %326 = call ptr (ptr, i32, ptr, i32, i32, ...) %323(ptr noundef %322, i32 noundef 8, ptr noundef null, i32 noundef %325, i32 noundef 0, i32 noundef 1) #6
-  %327 = load ptr, ptr %309, align 8
-  %328 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %329 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %330 = call i32 %329(ptr noundef %327) #6
-  %331 = call ptr (ptr, i32, ptr, i32, i32, ...) %328(ptr noundef %327, i32 noundef 1, ptr noundef null, i32 noundef %330, i32 noundef 0, i32 noundef -256, i32 noundef -256, i32 noundef -256, i32 noundef -256) #6
-  %332 = load ptr, ptr %309, align 8
-  %333 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %334 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %335 = call i32 %334(ptr noundef %332) #6
-  %336 = call ptr (ptr, i32, ptr, i32, i32, ...) %333(ptr noundef %332, i32 noundef 2, ptr noundef null, i32 noundef %335, i32 noundef 0, i32 noundef %.096, i32 noundef %.094) #6
-  br label %349
+324:                                              ; preds = %315, %314
+  %325 = load ptr, ptr %12, align 8
+  %326 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %327 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %328 = call i32 %327(ptr noundef %325) #6
+  %329 = call ptr (ptr, i32, ptr, i32, i32, ...) %326(ptr noundef %325, i32 noundef 8, ptr noundef null, i32 noundef %328, i32 noundef 0, i32 noundef 1) #6
+  %330 = load ptr, ptr %312, align 8
+  %331 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %332 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %333 = call i32 %332(ptr noundef %330) #6
+  %334 = call ptr (ptr, i32, ptr, i32, i32, ...) %331(ptr noundef %330, i32 noundef 1, ptr noundef null, i32 noundef %333, i32 noundef 0, i32 noundef -256, i32 noundef -256, i32 noundef -256, i32 noundef -256) #6
+  %335 = load ptr, ptr %312, align 8
+  %336 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %337 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %338 = call i32 %337(ptr noundef %335) #6
+  %339 = call ptr (ptr, i32, ptr, i32, i32, ...) %336(ptr noundef %335, i32 noundef 2, ptr noundef null, i32 noundef %338, i32 noundef 0, i32 noundef %.096, i32 noundef %.094) #6
+  br label %352
 
-337:                                              ; preds = %308
-  br i1 %.not79, label %343, label %338
+340:                                              ; preds = %311
+  br i1 %.not79, label %346, label %341
 
-338:                                              ; preds = %337
-  %339 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %340 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %341 = call i32 %340(ptr noundef nonnull %310) #6
-  %342 = call ptr (ptr, i32, ptr, i32, i32, ...) %339(ptr noundef nonnull %310, i32 noundef 0, ptr noundef null, i32 noundef %341, i32 noundef 1) #6
-  store ptr null, ptr %309, align 8
-  br label %343
+341:                                              ; preds = %340
+  %342 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %343 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %344 = call i32 %343(ptr noundef nonnull %313) #6
+  %345 = call ptr (ptr, i32, ptr, i32, i32, ...) %342(ptr noundef nonnull %313, i32 noundef 0, ptr noundef null, i32 noundef %344, i32 noundef 1) #6
+  store ptr null, ptr %312, align 8
+  br label %346
 
-343:                                              ; preds = %338, %337
-  %344 = load ptr, ptr %12, align 8
-  %345 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %346 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %347 = call i32 %346(ptr noundef %344) #6
-  %348 = call ptr (ptr, i32, ptr, i32, i32, ...) %345(ptr noundef %344, i32 noundef 8, ptr noundef null, i32 noundef %347, i32 noundef 0, i32 noundef %.099) #6
-  br label %349
+346:                                              ; preds = %341, %340
+  %347 = load ptr, ptr %12, align 8
+  %348 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %349 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %350 = call i32 %349(ptr noundef %347) #6
+  %351 = call ptr (ptr, i32, ptr, i32, i32, ...) %348(ptr noundef %347, i32 noundef 8, ptr noundef null, i32 noundef %350, i32 noundef 0, i32 noundef %.099) #6
+  br label %352
 
-349:                                              ; preds = %343, %321
-  %350 = load ptr, ptr %4, align 8
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %352 = load i32, ptr %351, align 8
-  %353 = load ptr, ptr %12, align 8
-  %354 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %355 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %356 = call i32 %355(ptr noundef %350) #6
-  %357 = call ptr (ptr, i32, ptr, i32, i32, ...) %354(ptr noundef %350, i32 noundef 0, ptr noundef null, i32 noundef %356, i32 noundef 0, i32 noundef %352, ptr noundef %353, i32 noundef %.091, i32 noundef %.0) #6
-  %358 = load ptr, ptr %12, align 8
-  %359 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %360 = call i32 %359(ptr noundef %358) #6
-  %361 = icmp ugt i32 %360, 3
-  %362 = load ptr, ptr %12, align 8
-  %363 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %364 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %365 = call i32 %364(ptr noundef %362) #6
-  %. = select i1 %361, i32 9, i32 2
-  %366 = call ptr (ptr, i32, ptr, i32, i32, ...) %363(ptr noundef %362, i32 noundef %., ptr noundef null, i32 noundef %365, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2147483647, i32 noundef 2147483647) #6
+352:                                              ; preds = %346, %324
+  %353 = load ptr, ptr %4, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %355 = load i32, ptr %354, align 8
+  %356 = load ptr, ptr %12, align 8
+  %357 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %358 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %359 = call i32 %358(ptr noundef %353) #6
+  %360 = call ptr (ptr, i32, ptr, i32, i32, ...) %357(ptr noundef %353, i32 noundef 0, ptr noundef null, i32 noundef %359, i32 noundef 0, i32 noundef %355, ptr noundef %356, i32 noundef %.091, i32 noundef %.0) #6
+  %361 = load ptr, ptr %12, align 8
+  %362 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %363 = call i32 %362(ptr noundef %361) #6
+  %364 = icmp ugt i32 %363, 3
+  %365 = load ptr, ptr %12, align 8
+  %366 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %367 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %368 = call i32 %367(ptr noundef %365) #6
+  %. = select i1 %364, i32 9, i32 2
+  %369 = call ptr (ptr, i32, ptr, i32, i32, ...) %366(ptr noundef %365, i32 noundef %., ptr noundef null, i32 noundef %368, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 2147483647, i32 noundef 2147483647) #6
   store ptr %11, ptr %21, align 8
-  %367 = load ptr, ptr %12, align 8
-  %368 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %369 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %370 = call i32 %369(ptr noundef %367) #6
-  %371 = call ptr (ptr, i32, ptr, i32, i32, ...) %368(ptr noundef %367, i32 noundef 6, ptr noundef null, i32 noundef %370, i32 noundef 0) #6
+  %370 = load ptr, ptr %12, align 8
+  %371 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %372 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %373 = call i32 %372(ptr noundef %370) #6
+  %374 = call ptr (ptr, i32, ptr, i32, i32, ...) %371(ptr noundef %370, i32 noundef 6, ptr noundef null, i32 noundef %373, i32 noundef 0) #6
   br label %Wayland_GetCustomCursor.exit
 
-372:                                              ; preds = %20
+375:                                              ; preds = %20
   store ptr null, ptr %21, align 8
-  %373 = load ptr, ptr %4, align 8
-  %374 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %375 = load i32, ptr %374, align 8
-  %376 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %377 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %378 = tail call i32 %377(ptr noundef %373) #6
-  %379 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %376(ptr noundef %373, i32 noundef 0, ptr noundef null, i32 noundef %378, i32 noundef 0, i32 noundef %375, ptr noundef null, i32 noundef 0, i32 noundef 0) #6
+  %376 = load ptr, ptr %4, align 8
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %378 = load i32, ptr %377, align 8
+  %379 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %380 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %381 = tail call i32 %380(ptr noundef %376) #6
+  %382 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %379(ptr noundef %376, i32 noundef 0, ptr noundef null, i32 noundef %381, i32 noundef 0, i32 noundef %378, ptr noundef null, i32 noundef 0, i32 noundef 0) #6
   br label %Wayland_GetCustomCursor.exit
 
-Wayland_GetCustomCursor.exit:                     ; preds = %Wayland_SetSystemCursorShape.exit, %22, %372, %349, %Wayland_GetSystemCursor.exit.thread, %275, %2
+Wayland_GetCustomCursor.exit:                     ; preds = %Wayland_SetSystemCursorShape.exit, %22, %375, %352, %Wayland_GetSystemCursor.exit.thread, %278, %2
   ret void
 }
 

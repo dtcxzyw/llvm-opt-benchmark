@@ -371,14 +371,14 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   %155 = zext nneg i32 %128 to i64
   %156 = getelementptr inbounds nuw %struct.code, ptr %154, i64 %155
   store i8 %153, ptr %156, align 2, !tbaa !22
-  %157 = getelementptr inbounds nuw %struct.code, ptr %154, i64 %155, i32 1
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 1
   store i8 %73, ptr %157, align 1, !tbaa !24
   %158 = ptrtoint ptr %132 to i64
   %159 = ptrtoint ptr %154 to i64
   %160 = sub i64 %158, %159
   %161 = lshr exact i64 %160, 2
   %162 = trunc i64 %161 to i16
-  %163 = getelementptr inbounds nuw %struct.code, ptr %154, i64 %155, i32 2
+  %163 = getelementptr inbounds nuw i8, ptr %156, i64 2
   store i16 %162, ptr %163, align 2, !tbaa !25
   br label %.outer
 

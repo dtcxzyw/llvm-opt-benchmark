@@ -2078,8 +2078,9 @@ define linkonce_odr hidden void @_ZN1q5queue18reset_instantiated4undoEv(ptr noun
   %6 = load i32, ptr %5, align 8, !tbaa !617
   %7 = load ptr, ptr %4, align 8, !tbaa !468
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw %"struct.q::queue::entry", ptr %7, i64 %8, i32 2
-  store i8 0, ptr %9, align 4, !tbaa !531
+  %9 = getelementptr inbounds nuw %"struct.q::queue::entry", ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i8 0, ptr %10, align 4, !tbaa !531
   ret void
 }
 

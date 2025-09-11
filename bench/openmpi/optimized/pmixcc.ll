@@ -139,7 +139,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !8
   %16 = tail call zeroext i1 @pmix_output_init() #16
-  br i1 %16, label %17, label %688
+  br i1 %16, label %17, label %704
 
 17:                                               ; preds = %2
   %18 = tail call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @pmix_pinstalldirs_base_framework, i32 noundef 0) #16
@@ -149,7 +149,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 19:                                               ; preds = %17
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 577, i32 noundef %18) #17
-  br label %688
+  br label %704
 
 22:                                               ; preds = %17
   %23 = tail call i32 @pmix_pinstall_dirs_base_init(ptr noundef null, i64 noundef 0) #16
@@ -159,7 +159,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 24:                                               ; preds = %22
   %25 = load ptr, ptr @stderr, align 8, !tbaa !11
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 585, i32 noundef %23) #17
-  br label %688
+  br label %704
 
 27:                                               ; preds = %22
   %28 = tail call i32 @pmix_show_help_init(ptr noundef null) #16
@@ -169,7 +169,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 30:                                               ; preds = %27
   %31 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1, ptr noundef nonnull @.str.5, i32 noundef %29) #16
-  br label %688
+  br label %704
 
 32:                                               ; preds = %27
   %33 = tail call i32 @pmix_mca_base_open(ptr noundef null) #16
@@ -178,7 +178,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 34:                                               ; preds = %32
   %35 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1, ptr noundef nonnull @.str.6, i32 noundef %33) #16
-  br label %688
+  br label %704
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %1, align 8, !tbaa !13
@@ -228,7 +228,7 @@ data_init.exit.thread:                            ; preds = %36, %data_init.exit
   %56 = load ptr, ptr @stderr, align 8, !tbaa !11
   %57 = call ptr @PMIx_Error_string(i32 noundef %.0.i206) #16
   %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.7, ptr noundef %38, ptr noundef %57) #17
-  br label %688
+  br label %704
 
 .lr.ph.splitthread-pre-split:                     ; preds = %find_options_index.exit
   %.pr388 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
@@ -557,11 +557,11 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
   %222 = icmp sgt i32 %221, 0
   br i1 %222, label %.lr.ph305, label %._crit_edge306.thread
 
-.lr.ph305:                                        ; preds = %218, %462
-  %.0130303 = phi i32 [ %.4134, %462 ], [ 60, %218 ]
-  %.1137302 = phi i32 [ %463, %462 ], [ 0, %218 ]
-  %.0146301 = phi i1 [ %.3149, %462 ], [ true, %218 ]
-  %.0151300 = phi i1 [ %.1152, %462 ], [ false, %218 ]
+.lr.ph305:                                        ; preds = %218, %470
+  %.0130303 = phi i32 [ %.4134, %470 ], [ 60, %218 ]
+  %.1137302 = phi i32 [ %471, %470 ], [ 0, %218 ]
+  %.0146301 = phi i1 [ %.3149, %470 ], [ true, %218 ]
+  %.0151300 = phi i1 [ %.1152, %470 ], [ false, %218 ]
   %223 = load ptr, ptr %11, align 8, !tbaa !8
   %224 = sext i32 %.1137302 to i64
   %225 = getelementptr inbounds ptr, ptr %223, i64 %224
@@ -623,798 +623,814 @@ load_env_data_argv.exit199:                       ; preds = %load_env_data_argv.
 259:                                              ; preds = %256
   %260 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(17) @.str.27, i64 noundef 16) #18
   %261 = icmp eq i32 %260, 0
-  br i1 %261, label %262, label %268
+  br i1 %261, label %262, label %269
 
 262:                                              ; preds = %259, %256
   %263 = load ptr, ptr @options_data, align 8, !tbaa !17
   %264 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds %struct.options_data_t, ptr %263, i64 %265, i32 8
-  %267 = load ptr, ptr %266, align 8, !tbaa !33
-  call fastcc void @print_flags(ptr noundef %267, ptr noundef nonnull @.str.28)
+  %266 = getelementptr inbounds %struct.options_data_t, ptr %263, i64 %265
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 64
+  %268 = load ptr, ptr %267, align 8, !tbaa !33
+  call fastcc void @print_flags(ptr noundef %268, ptr noundef nonnull @.str.28)
   br label %.thread217
 
-268:                                              ; preds = %259
-  %269 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(23) @.str.29, i64 noundef 22) #18
-  %270 = icmp eq i32 %269, 0
-  br i1 %270, label %274, label %271
+269:                                              ; preds = %259
+  %270 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(23) @.str.29, i64 noundef 22) #18
+  %271 = icmp eq i32 %270, 0
+  br i1 %271, label %275, label %272
 
-271:                                              ; preds = %268
-  %272 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(24) @.str.30, i64 noundef 23) #18
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %274, label %290
+272:                                              ; preds = %269
+  %273 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(24) @.str.30, i64 noundef 23) #18
+  %274 = icmp eq i32 %273, 0
+  br i1 %274, label %275, label %293
 
-274:                                              ; preds = %271, %268
+275:                                              ; preds = %272, %269
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %275 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %276 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds %struct.options_data_t, ptr %275, i64 %277, i32 11
-  %279 = load ptr, ptr %278, align 8, !tbaa !34
-  %280 = call ptr @PMIx_Argv_copy(ptr noundef %279) #16
-  store ptr %280, ptr %13, align 8, !tbaa !8
-  %281 = call i32 @PMIx_Argv_count(ptr noundef %280) #16
-  %282 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %283 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds %struct.options_data_t, ptr %282, i64 %284, i32 12
-  %286 = load ptr, ptr %285, align 8, !tbaa !35
-  %287 = call i32 @pmix_argv_insert(ptr noundef nonnull %13, i32 noundef %281, ptr noundef %286) #16
-  %288 = load ptr, ptr %13, align 8, !tbaa !8
-  call fastcc void @print_flags(ptr noundef %288, ptr noundef nonnull @.str.31)
-  %289 = load ptr, ptr %13, align 8, !tbaa !8
-  call void @PMIx_Argv_free(ptr noundef %289) #16
+  %276 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %277 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %278 = sext i32 %277 to i64
+  %279 = getelementptr inbounds %struct.options_data_t, ptr %276, i64 %278
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 88
+  %281 = load ptr, ptr %280, align 8, !tbaa !34
+  %282 = call ptr @PMIx_Argv_copy(ptr noundef %281) #16
+  store ptr %282, ptr %13, align 8, !tbaa !8
+  %283 = call i32 @PMIx_Argv_count(ptr noundef %282) #16
+  %284 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %285 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %286 = sext i32 %285 to i64
+  %287 = getelementptr inbounds %struct.options_data_t, ptr %284, i64 %286
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 96
+  %289 = load ptr, ptr %288, align 8, !tbaa !35
+  %290 = call i32 @pmix_argv_insert(ptr noundef nonnull %13, i32 noundef %283, ptr noundef %289) #16
+  %291 = load ptr, ptr %13, align 8, !tbaa !8
+  call fastcc void @print_flags(ptr noundef %291, ptr noundef nonnull @.str.31)
+  %292 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @PMIx_Argv_free(ptr noundef %292) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread217
 
-290:                                              ; preds = %271
-  %291 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(16) @.str.32, i64 noundef 15) #18
-  %292 = icmp eq i32 %291, 0
-  br i1 %292, label %296, label %293
-
-293:                                              ; preds = %290
-  %294 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(17) @.str.33, i64 noundef 16) #18
+293:                                              ; preds = %272
+  %294 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(16) @.str.32, i64 noundef 15) #18
   %295 = icmp eq i32 %294, 0
-  br i1 %295, label %296, label %302
+  br i1 %295, label %299, label %296
 
-296:                                              ; preds = %293, %290
-  %297 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %298 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds %struct.options_data_t, ptr %297, i64 %299, i32 11
-  %301 = load ptr, ptr %300, align 8, !tbaa !34
-  call fastcc void @print_flags(ptr noundef %301, ptr noundef nonnull @.str.31)
+296:                                              ; preds = %293
+  %297 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(17) @.str.33, i64 noundef 16) #18
+  %298 = icmp eq i32 %297, 0
+  br i1 %298, label %299, label %306
+
+299:                                              ; preds = %296, %293
+  %300 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %301 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %302 = sext i32 %301 to i64
+  %303 = getelementptr inbounds %struct.options_data_t, ptr %300, i64 %302
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 88
+  %305 = load ptr, ptr %304, align 8, !tbaa !34
+  call fastcc void @print_flags(ptr noundef %305, ptr noundef nonnull @.str.31)
   br label %.thread217
 
-302:                                              ; preds = %293
-  %303 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(20) @.str.34, i64 noundef 19) #18
-  %304 = icmp eq i32 %303, 0
-  br i1 %304, label %308, label %305
+306:                                              ; preds = %296
+  %307 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(20) @.str.34, i64 noundef 19) #18
+  %308 = icmp eq i32 %307, 0
+  br i1 %308, label %312, label %309
 
-305:                                              ; preds = %302
-  %306 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(21) @.str.35, i64 noundef 20) #18
-  %307 = icmp eq i32 %306, 0
-  br i1 %307, label %308, label %324
+309:                                              ; preds = %306
+  %310 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(21) @.str.35, i64 noundef 20) #18
+  %311 = icmp eq i32 %310, 0
+  br i1 %311, label %312, label %330
 
-308:                                              ; preds = %305, %302
+312:                                              ; preds = %309, %306
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %309 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %310 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %311 = sext i32 %310 to i64
-  %312 = getelementptr inbounds %struct.options_data_t, ptr %309, i64 %311, i32 13
-  %313 = load ptr, ptr %312, align 8, !tbaa !36
-  %314 = call ptr @PMIx_Argv_copy(ptr noundef %313) #16
-  store ptr %314, ptr %14, align 8, !tbaa !8
-  %315 = call i32 @PMIx_Argv_count(ptr noundef %314) #16
-  %316 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %317 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds %struct.options_data_t, ptr %316, i64 %318, i32 14
-  %320 = load ptr, ptr %319, align 8, !tbaa !37
-  %321 = call i32 @pmix_argv_insert(ptr noundef nonnull %14, i32 noundef %315, ptr noundef %320) #16
-  %322 = load ptr, ptr %14, align 8, !tbaa !8
-  call fastcc void @print_flags(ptr noundef %322, ptr noundef nonnull @.str.36)
-  %323 = load ptr, ptr %14, align 8, !tbaa !8
-  call void @PMIx_Argv_free(ptr noundef %323) #16
+  %313 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %314 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %315 = sext i32 %314 to i64
+  %316 = getelementptr inbounds %struct.options_data_t, ptr %313, i64 %315
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 104
+  %318 = load ptr, ptr %317, align 8, !tbaa !36
+  %319 = call ptr @PMIx_Argv_copy(ptr noundef %318) #16
+  store ptr %319, ptr %14, align 8, !tbaa !8
+  %320 = call i32 @PMIx_Argv_count(ptr noundef %319) #16
+  %321 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %322 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %323 = sext i32 %322 to i64
+  %324 = getelementptr inbounds %struct.options_data_t, ptr %321, i64 %323
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 112
+  %326 = load ptr, ptr %325, align 8, !tbaa !37
+  %327 = call i32 @pmix_argv_insert(ptr noundef nonnull %14, i32 noundef %320, ptr noundef %326) #16
+  %328 = load ptr, ptr %14, align 8, !tbaa !8
+  call fastcc void @print_flags(ptr noundef %328, ptr noundef nonnull @.str.36)
+  %329 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @PMIx_Argv_free(ptr noundef %329) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread217
 
-324:                                              ; preds = %305
-  %325 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(13) @.str.37, i64 noundef 12) #18
-  %326 = icmp eq i32 %325, 0
-  br i1 %326, label %330, label %327
+330:                                              ; preds = %309
+  %331 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(13) @.str.37, i64 noundef 12) #18
+  %332 = icmp eq i32 %331, 0
+  br i1 %332, label %336, label %333
 
-327:                                              ; preds = %324
-  %328 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(14) @.str.38, i64 noundef 13) #18
-  %329 = icmp eq i32 %328, 0
-  br i1 %329, label %330, label %336
+333:                                              ; preds = %330
+  %334 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(14) @.str.38, i64 noundef 13) #18
+  %335 = icmp eq i32 %334, 0
+  br i1 %335, label %336, label %343
 
-330:                                              ; preds = %327, %324
-  %331 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %332 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds %struct.options_data_t, ptr %331, i64 %333, i32 13
-  %335 = load ptr, ptr %334, align 8, !tbaa !36
-  call fastcc void @print_flags(ptr noundef %335, ptr noundef nonnull @.str.36)
+336:                                              ; preds = %333, %330
+  %337 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %338 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %339 = sext i32 %338 to i64
+  %340 = getelementptr inbounds %struct.options_data_t, ptr %337, i64 %339
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 104
+  %342 = load ptr, ptr %341, align 8, !tbaa !36
+  call fastcc void @print_flags(ptr noundef %342, ptr noundef nonnull @.str.36)
   br label %.thread217
 
-336:                                              ; preds = %327
-  %337 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(16) @.str.39, i64 noundef 15) #18
-  %338 = icmp eq i32 %337, 0
-  br i1 %338, label %342, label %339
+343:                                              ; preds = %333
+  %344 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(16) @.str.39, i64 noundef 15) #18
+  %345 = icmp eq i32 %344, 0
+  br i1 %345, label %349, label %346
 
-339:                                              ; preds = %336
-  %340 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(17) @.str.40, i64 noundef 16) #18
-  %341 = icmp eq i32 %340, 0
-  br i1 %341, label %342, label %357
+346:                                              ; preds = %343
+  %347 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(17) @.str.40, i64 noundef 16) #18
+  %348 = icmp eq i32 %347, 0
+  br i1 %348, label %349, label %364
 
-342:                                              ; preds = %339, %336
-  %343 = load ptr, ptr %1, align 8, !tbaa !13
-  %344 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %345 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds %struct.options_data_t, ptr %344, i64 %346
-  %348 = getelementptr inbounds nuw i8, ptr %347, i64 16
-  %349 = load ptr, ptr %348, align 8, !tbaa !38
-  %350 = getelementptr inbounds nuw i8, ptr %347, i64 32
-  %351 = load ptr, ptr %350, align 8, !tbaa !39
-  %352 = getelementptr inbounds nuw i8, ptr %347, i64 8
-  %353 = load ptr, ptr %352, align 8, !tbaa !30
-  %354 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.41, i32 noundef 0, ptr noundef %343, ptr noundef %349, ptr noundef %351, ptr noundef %353, ptr noundef null) #16
-  %.not175 = icmp eq ptr %354, null
-  br i1 %.not175, label %.thread217, label %355
+349:                                              ; preds = %346, %343
+  %350 = load ptr, ptr %1, align 8, !tbaa !13
+  %351 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %352 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %353 = sext i32 %352 to i64
+  %354 = getelementptr inbounds %struct.options_data_t, ptr %351, i64 %353
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 16
+  %356 = load ptr, ptr %355, align 8, !tbaa !38
+  %357 = getelementptr inbounds nuw i8, ptr %354, i64 32
+  %358 = load ptr, ptr %357, align 8, !tbaa !39
+  %359 = getelementptr inbounds nuw i8, ptr %354, i64 8
+  %360 = load ptr, ptr %359, align 8, !tbaa !30
+  %361 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.41, i32 noundef 0, ptr noundef %350, ptr noundef %356, ptr noundef %358, ptr noundef %360, ptr noundef null) #16
+  %.not175 = icmp eq ptr %361, null
+  br i1 %.not175, label %.thread217, label %362
 
-355:                                              ; preds = %342
-  %356 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull %354)
-  call void @free(ptr noundef nonnull %354) #16
+362:                                              ; preds = %349
+  %363 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull %361)
+  call void @free(ptr noundef nonnull %361) #16
   br label %.thread217
 
-357:                                              ; preds = %339
-  %358 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(13) @.str.43, i64 noundef 12) #18
-  %359 = icmp eq i32 %358, 0
-  br i1 %359, label %363, label %360
+364:                                              ; preds = %346
+  %365 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(13) @.str.43, i64 noundef 12) #18
+  %366 = icmp eq i32 %365, 0
+  br i1 %366, label %370, label %367
 
-360:                                              ; preds = %357
-  %361 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(14) @.str.44, i64 noundef 13) #18
-  %362 = icmp eq i32 %361, 0
-  br i1 %362, label %363, label %373
+367:                                              ; preds = %364
+  %368 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(14) @.str.44, i64 noundef 13) #18
+  %369 = icmp eq i32 %368, 0
+  br i1 %369, label %370, label %381
 
-363:                                              ; preds = %360, %357
-  %364 = load ptr, ptr %1, align 8, !tbaa !13
-  %365 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %366 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds %struct.options_data_t, ptr %365, i64 %367, i32 2
-  %369 = load ptr, ptr %368, align 8, !tbaa !38
-  %370 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.45, i32 noundef 0, ptr noundef %364, ptr noundef %369, ptr noundef null) #16
-  %.not174 = icmp eq ptr %370, null
-  br i1 %.not174, label %.thread217, label %371
+370:                                              ; preds = %367, %364
+  %371 = load ptr, ptr %1, align 8, !tbaa !13
+  %372 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %373 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %374 = sext i32 %373 to i64
+  %375 = getelementptr inbounds %struct.options_data_t, ptr %372, i64 %374
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 16
+  %377 = load ptr, ptr %376, align 8, !tbaa !38
+  %378 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.45, i32 noundef 0, ptr noundef %371, ptr noundef %377, ptr noundef null) #16
+  %.not174 = icmp eq ptr %378, null
+  br i1 %.not174, label %.thread217, label %379
 
-371:                                              ; preds = %363
-  %372 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull %370)
-  call void @free(ptr noundef nonnull %370) #16
+379:                                              ; preds = %370
+  %380 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull %378)
+  call void @free(ptr noundef nonnull %378) #16
   br label %.thread217
 
-373:                                              ; preds = %360
-  %374 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(9) @.str.46, i64 noundef 8) #18
-  %375 = icmp eq i32 %374, 0
-  br i1 %375, label %379, label %376
+381:                                              ; preds = %367
+  %382 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(9) @.str.46, i64 noundef 8) #18
+  %383 = icmp eq i32 %382, 0
+  br i1 %383, label %387, label %384
 
-376:                                              ; preds = %373
-  %377 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(10) @.str.47, i64 noundef 9) #18
-  %378 = icmp eq i32 %377, 0
-  br i1 %378, label %379, label %.thread223
+384:                                              ; preds = %381
+  %385 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(10) @.str.47, i64 noundef 9) #18
+  %386 = icmp eq i32 %385, 0
+  br i1 %386, label %387, label %.thread223
 
-379:                                              ; preds = %376, %373
-  %380 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %381 = load ptr, ptr %1, align 8, !tbaa !13
-  %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %380, ptr noundef nonnull @.str.48, ptr noundef %381, ptr noundef nonnull %226) #17
-  %383 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %384 = load ptr, ptr %1, align 8, !tbaa !13
-  %385 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %383, ptr noundef nonnull @.str.49, ptr noundef %384) #17
+387:                                              ; preds = %384, %381
+  %388 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %389 = load ptr, ptr %1, align 8, !tbaa !13
+  %390 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef nonnull @.str.48, ptr noundef %389, ptr noundef nonnull %226) #17
+  %391 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %392 = load ptr, ptr %1, align 8, !tbaa !13
+  %393 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %391, ptr noundef nonnull @.str.49, ptr noundef %392) #17
   br label %.thread217
 
-.thread223:                                       ; preds = %376
-  %386 = or i32 %.0130303, 3
-  %387 = call i32 @pmix_argv_delete(ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %.1137302, i32 noundef 1) #16
-  %388 = add nsw i32 %.1137302, -1
-  br label %462
+.thread223:                                       ; preds = %384
+  %394 = or i32 %.0130303, 3
+  %395 = call i32 @pmix_argv_delete(ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %.1137302, i32 noundef 1) #16
+  %396 = add nsw i32 %.1137302, -1
+  br label %470
 
 .thread229:                                       ; preds = %250, %253, %244, %247, %238, %241
   %.2132.ph = phi i32 [ 51, %250 ], [ 51, %253 ], [ 27, %244 ], [ 27, %247 ], [ 7, %238 ], [ 7, %241 ]
-  %389 = call i32 @pmix_argv_delete(ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %.1137302, i32 noundef 1) #16
-  br label %469
+  %397 = call i32 @pmix_argv_delete(ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef %.1137302, i32 noundef 1) #16
+  br label %477
 
 sub_0:                                            ; preds = %235
-  %390 = load i8, ptr %226, align 1
-  %.not311 = icmp eq i8 %390, 45
+  %398 = load i8, ptr %226, align 1
+  %.not311 = icmp eq i8 %398, 45
   br i1 %.not311, label %sub_1, label %.tail249.thread
 
 sub_1:                                            ; preds = %sub_0
-  %391 = getelementptr inbounds nuw i8, ptr %226, i64 1
-  %392 = load i8, ptr %391, align 1
-  %.not312 = icmp eq i8 %392, 99
+  %399 = getelementptr inbounds nuw i8, ptr %226, i64 1
+  %400 = load i8, ptr %399, align 1
+  %.not312 = icmp eq i8 %400, 99
   br i1 %.not312, label %.tail, label %sub_1241
 
 .tail:                                            ; preds = %sub_1
-  %393 = getelementptr inbounds nuw i8, ptr %226, i64 2
-  %394 = load i8, ptr %393, align 1
-  %395 = icmp eq i8 %394, 0
-  br i1 %395, label %396, label %sub_1241
+  %401 = getelementptr inbounds nuw i8, ptr %226, i64 2
+  %402 = load i8, ptr %401, align 1
+  %403 = icmp eq i8 %402, 0
+  br i1 %403, label %404, label %sub_1241
 
-396:                                              ; preds = %.tail
-  %397 = and i32 %.0130303, -33
-  br label %462
+404:                                              ; preds = %.tail
+  %405 = and i32 %.0130303, -33
+  br label %470
 
 sub_1241:                                         ; preds = %.tail, %sub_1
-  %398 = getelementptr inbounds nuw i8, ptr %226, i64 1
-  %399 = load i8, ptr %398, align 1
-  %.not314 = icmp eq i8 %399, 69
+  %406 = getelementptr inbounds nuw i8, ptr %226, i64 1
+  %407 = load i8, ptr %406, align 1
+  %.not314 = icmp eq i8 %407, 69
   br i1 %.not314, label %.tail239, label %sub_1246
 
 .tail239:                                         ; preds = %sub_1241
-  %400 = getelementptr inbounds nuw i8, ptr %226, i64 2
-  %401 = load i8, ptr %400, align 1
-  %402 = icmp eq i8 %401, 0
-  br i1 %402, label %408, label %sub_1246
+  %408 = getelementptr inbounds nuw i8, ptr %226, i64 2
+  %409 = load i8, ptr %408, align 1
+  %410 = icmp eq i8 %409, 0
+  br i1 %410, label %416, label %sub_1246
 
 sub_1246:                                         ; preds = %.tail239, %sub_1241
-  %403 = getelementptr inbounds nuw i8, ptr %226, i64 1
-  %404 = load i8, ptr %403, align 1
-  %.not316 = icmp eq i8 %404, 77
+  %411 = getelementptr inbounds nuw i8, ptr %226, i64 1
+  %412 = load i8, ptr %411, align 1
+  %.not316 = icmp eq i8 %412, 77
   br i1 %.not316, label %.tail244, label %sub_1251
 
 .tail244:                                         ; preds = %sub_1246
-  %405 = getelementptr inbounds nuw i8, ptr %226, i64 2
-  %406 = load i8, ptr %405, align 1
-  %407 = icmp eq i8 %406, 0
-  br i1 %407, label %408, label %sub_1251
+  %413 = getelementptr inbounds nuw i8, ptr %226, i64 2
+  %414 = load i8, ptr %413, align 1
+  %415 = icmp eq i8 %414, 0
+  br i1 %415, label %416, label %sub_1251
 
-408:                                              ; preds = %.tail244, %.tail239
-  %409 = and i32 %.0130303, -49
-  br label %462
+416:                                              ; preds = %.tail244, %.tail239
+  %417 = and i32 %.0130303, -49
+  br label %470
 
 sub_1251:                                         ; preds = %.tail244, %sub_1246
-  %410 = getelementptr inbounds nuw i8, ptr %226, i64 1
-  %411 = load i8, ptr %410, align 1
-  %.not318 = icmp eq i8 %411, 83
+  %418 = getelementptr inbounds nuw i8, ptr %226, i64 1
+  %419 = load i8, ptr %418, align 1
+  %.not318 = icmp eq i8 %419, 83
   br i1 %.not318, label %.tail249, label %.tail249.thread
 
 .tail249:                                         ; preds = %sub_1251
-  %412 = getelementptr inbounds nuw i8, ptr %226, i64 2
-  %413 = load i8, ptr %412, align 1
-  %414 = icmp eq i8 %413, 0
-  br i1 %414, label %415, label %.tail249.thread
+  %420 = getelementptr inbounds nuw i8, ptr %226, i64 2
+  %421 = load i8, ptr %420, align 1
+  %422 = icmp eq i8 %421, 0
+  br i1 %422, label %423, label %.tail249.thread
 
-415:                                              ; preds = %.tail249
-  %416 = and i32 %.0130303, -33
-  br label %462
+423:                                              ; preds = %.tail249
+  %424 = and i32 %.0130303, -33
+  br label %470
 
 .tail249.thread:                                  ; preds = %sub_0, %sub_1251, %.tail249
-  %417 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(8) @.str.54) #18
-  %418 = icmp eq i32 %417, 0
-  br i1 %418, label %434, label %419
+  %425 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(8) @.str.54) #18
+  %426 = icmp eq i32 %425, 0
+  br i1 %426, label %442, label %427
 
-419:                                              ; preds = %.tail249.thread
-  %420 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(9) @.str.55) #18
-  %421 = icmp eq i32 %420, 0
-  br i1 %421, label %434, label %422
+427:                                              ; preds = %.tail249.thread
+  %428 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(9) @.str.55) #18
+  %429 = icmp eq i32 %428, 0
+  br i1 %429, label %442, label %430
 
-422:                                              ; preds = %419
-  %423 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(9) @.str.56) #18
-  %424 = icmp eq i32 %423, 0
-  br i1 %424, label %434, label %425
+430:                                              ; preds = %427
+  %431 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(9) @.str.56) #18
+  %432 = icmp eq i32 %431, 0
+  br i1 %432, label %442, label %433
 
-425:                                              ; preds = %422
-  %426 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(12) @.str.57) #18
-  %427 = icmp eq i32 %426, 0
-  br i1 %427, label %434, label %428
+433:                                              ; preds = %430
+  %434 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(12) @.str.57) #18
+  %435 = icmp eq i32 %434, 0
+  br i1 %435, label %442, label %436
 
-428:                                              ; preds = %425
-  %429 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(13) @.str.58) #18
-  %430 = icmp eq i32 %429, 0
-  br i1 %430, label %434, label %431
-
-431:                                              ; preds = %428
-  %432 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(13) @.str.59) #18
-  %433 = icmp eq i32 %432, 0
-  br i1 %433, label %434, label %436
-
-434:                                              ; preds = %431, %428, %425, %422, %419, %.tail249.thread
-  %435 = or i32 %.0130303, 128
-  br label %462
-
-436:                                              ; preds = %431
-  %437 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(9) @.str.60) #18
+436:                                              ; preds = %433
+  %437 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(13) @.str.58) #18
   %438 = icmp eq i32 %437, 0
-  br i1 %438, label %454, label %439
+  br i1 %438, label %442, label %439
 
 439:                                              ; preds = %436
-  %440 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(10) @.str.61) #18
+  %440 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(13) @.str.59) #18
   %441 = icmp eq i32 %440, 0
-  br i1 %441, label %454, label %442
+  br i1 %441, label %442, label %444
 
-442:                                              ; preds = %439
-  %443 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(10) @.str.62) #18
-  %444 = icmp eq i32 %443, 0
-  br i1 %444, label %454, label %445
+442:                                              ; preds = %439, %436, %433, %430, %427, %.tail249.thread
+  %443 = or i32 %.0130303, 128
+  br label %470
 
-445:                                              ; preds = %442
-  %446 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(13) @.str.63) #18
-  %447 = icmp eq i32 %446, 0
-  br i1 %447, label %454, label %448
+444:                                              ; preds = %439
+  %445 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(9) @.str.60) #18
+  %446 = icmp eq i32 %445, 0
+  br i1 %446, label %462, label %447
 
-448:                                              ; preds = %445
-  %449 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(14) @.str.64) #18
-  %450 = icmp eq i32 %449, 0
-  br i1 %450, label %454, label %451
+447:                                              ; preds = %444
+  %448 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(10) @.str.61) #18
+  %449 = icmp eq i32 %448, 0
+  br i1 %449, label %462, label %450
 
-451:                                              ; preds = %448
-  %452 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(14) @.str.65) #18
-  %453 = icmp eq i32 %452, 0
-  br i1 %453, label %454, label %456
+450:                                              ; preds = %447
+  %451 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(10) @.str.62) #18
+  %452 = icmp eq i32 %451, 0
+  br i1 %452, label %462, label %453
 
-454:                                              ; preds = %451, %448, %445, %442, %439, %436
-  %455 = and i32 %.0130303, -129
-  br label %462
+453:                                              ; preds = %450
+  %454 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(13) @.str.63) #18
+  %455 = icmp eq i32 %454, 0
+  br i1 %455, label %462, label %456
 
-456:                                              ; preds = %451
-  br i1 %.not311, label %459, label %457
-
-457:                                              ; preds = %456
-  %458 = or i32 %.0130303, 2
-  br label %462
+456:                                              ; preds = %453
+  %457 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(14) @.str.64) #18
+  %458 = icmp eq i32 %457, 0
+  br i1 %458, label %462, label %459
 
 459:                                              ; preds = %456
-  %460 = call fastcc i32 @find_options_index(ptr noundef nonnull %226)
-  %461 = icmp slt i32 %460, 0
-  %spec.select = select i1 %461, i1 true, i1 %.0151300
-  br label %462
+  %460 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(14) @.str.65) #18
+  %461 = icmp eq i32 %460, 0
+  br i1 %461, label %462, label %464
 
-462:                                              ; preds = %.thread223, %459, %408, %434, %457, %454, %415, %396
-  %.1152 = phi i1 [ true, %396 ], [ true, %408 ], [ true, %415 ], [ %.0151300, %434 ], [ %.0151300, %454 ], [ true, %457 ], [ %spec.select, %459 ], [ %.0151300, %.thread223 ]
-  %.3149 = phi i1 [ %.0146301, %396 ], [ %.0146301, %408 ], [ %.0146301, %415 ], [ %.0146301, %434 ], [ %.0146301, %454 ], [ false, %457 ], [ %.0146301, %459 ], [ %.0146301, %.thread223 ]
-  %.3139 = phi i32 [ %.1137302, %396 ], [ %.1137302, %408 ], [ %.1137302, %415 ], [ %.1137302, %434 ], [ %.1137302, %454 ], [ %.1137302, %457 ], [ %.1137302, %459 ], [ %388, %.thread223 ]
-  %.4134 = phi i32 [ %397, %396 ], [ %409, %408 ], [ %416, %415 ], [ %435, %434 ], [ %455, %454 ], [ %458, %457 ], [ %.0130303, %459 ], [ %386, %.thread223 ]
-  %463 = add nsw i32 %.3139, 1
-  %464 = load i32, ptr %9, align 4, !tbaa !4
-  %465 = icmp slt i32 %463, %464
-  br i1 %465, label %.lr.ph305, label %._crit_edge306, !llvm.loop !40
+462:                                              ; preds = %459, %456, %453, %450, %447, %444
+  %463 = and i32 %.0130303, -129
+  br label %470
 
-._crit_edge306:                                   ; preds = %462
-  br i1 %.3149, label %._crit_edge306.thread, label %469
+464:                                              ; preds = %459
+  br i1 %.not311, label %467, label %465
+
+465:                                              ; preds = %464
+  %466 = or i32 %.0130303, 2
+  br label %470
+
+467:                                              ; preds = %464
+  %468 = call fastcc i32 @find_options_index(ptr noundef nonnull %226)
+  %469 = icmp slt i32 %468, 0
+  %spec.select = select i1 %469, i1 true, i1 %.0151300
+  br label %470
+
+470:                                              ; preds = %.thread223, %467, %416, %442, %465, %462, %423, %404
+  %.1152 = phi i1 [ true, %404 ], [ true, %416 ], [ true, %423 ], [ %.0151300, %442 ], [ %.0151300, %462 ], [ true, %465 ], [ %spec.select, %467 ], [ %.0151300, %.thread223 ]
+  %.3149 = phi i1 [ %.0146301, %404 ], [ %.0146301, %416 ], [ %.0146301, %423 ], [ %.0146301, %442 ], [ %.0146301, %462 ], [ false, %465 ], [ %.0146301, %467 ], [ %.0146301, %.thread223 ]
+  %.3139 = phi i32 [ %.1137302, %404 ], [ %.1137302, %416 ], [ %.1137302, %423 ], [ %.1137302, %442 ], [ %.1137302, %462 ], [ %.1137302, %465 ], [ %.1137302, %467 ], [ %396, %.thread223 ]
+  %.4134 = phi i32 [ %405, %404 ], [ %417, %416 ], [ %424, %423 ], [ %443, %442 ], [ %463, %462 ], [ %466, %465 ], [ %.0130303, %467 ], [ %394, %.thread223 ]
+  %471 = add nsw i32 %.3139, 1
+  %472 = load i32, ptr %9, align 4, !tbaa !4
+  %473 = icmp slt i32 %471, %472
+  br i1 %473, label %.lr.ph305, label %._crit_edge306, !llvm.loop !40
+
+._crit_edge306:                                   ; preds = %470
+  br i1 %.3149, label %._crit_edge306.thread, label %477
 
 ._crit_edge306.thread:                            ; preds = %218, %._crit_edge306
   %.0130.lcssa396 = phi i32 [ %.4134, %._crit_edge306 ], [ 60, %218 ]
   %.0151.lcssa395 = phi i1 [ %.1152, %._crit_edge306 ], [ false, %218 ]
-  %466 = and i32 %.0130.lcssa396, 1
-  %467 = icmp eq i32 %466, 0
-  %or.cond = select i1 %467, i1 true, i1 %.0151.lcssa395
-  %468 = and i32 %.0130.lcssa396, -57
-  %spec.select186 = select i1 %or.cond, i32 %468, i32 %.0130.lcssa396
-  br label %469
+  %474 = and i32 %.0130.lcssa396, 1
+  %475 = icmp eq i32 %474, 0
+  %or.cond = select i1 %475, i1 true, i1 %.0151.lcssa395
+  %476 = and i32 %.0130.lcssa396, -57
+  %spec.select186 = select i1 %or.cond, i32 %476, i32 %.0130.lcssa396
+  br label %477
 
-469:                                              ; preds = %.thread229, %._crit_edge306.thread, %._crit_edge306
+477:                                              ; preds = %.thread229, %._crit_edge306.thread, %._crit_edge306
   %.5135 = phi i32 [ %.4134, %._crit_edge306 ], [ %spec.select186, %._crit_edge306.thread ], [ %.2132.ph, %.thread229 ]
-  %470 = and i32 %.5135, 4
-  %.not176 = icmp eq i32 %470, 0
-  br i1 %.not176, label %.thread235, label %472
+  %478 = and i32 %.5135, 4
+  %.not176 = icmp eq i32 %478, 0
+  br i1 %.not176, label %.thread235, label %480
 
-.thread235:                                       ; preds = %469
-  %471 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #20
-  store ptr %471, ptr %10, align 8, !tbaa !8
-  store ptr null, ptr %471, align 8, !tbaa !13
-  br label %483
+.thread235:                                       ; preds = %477
+  %479 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #20
+  store ptr %479, ptr %10, align 8, !tbaa !8
+  store ptr null, ptr %479, align 8, !tbaa !13
+  br label %492
 
-472:                                              ; preds = %469
-  %473 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %474 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %475 = sext i32 %474 to i64
-  %476 = getelementptr inbounds %struct.options_data_t, ptr %473, i64 %475, i32 7
-  %477 = load ptr, ptr %476, align 8, !tbaa !41
-  %478 = call ptr @PMIx_Argv_split(ptr noundef %477, i32 noundef 32) #16
-  store ptr %478, ptr %10, align 8, !tbaa !8
-  %479 = call i32 @PMIx_Argv_count(ptr noundef %478) #16
+480:                                              ; preds = %477
+  %481 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %482 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %483 = sext i32 %482 to i64
+  %484 = getelementptr inbounds %struct.options_data_t, ptr %481, i64 %483
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 56
+  %486 = load ptr, ptr %485, align 8, !tbaa !41
+  %487 = call ptr @PMIx_Argv_split(ptr noundef %486, i32 noundef 32) #16
+  store ptr %487, ptr %10, align 8, !tbaa !8
+  %488 = call i32 @PMIx_Argv_count(ptr noundef %487) #16
   %.pr234 = load ptr, ptr %10, align 8, !tbaa !8
-  %480 = icmp eq ptr %.pr234, null
-  br i1 %480, label %481, label %483
+  %489 = icmp eq ptr %.pr234, null
+  br i1 %489, label %490, label %492
 
-481:                                              ; preds = %472
-  %482 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.66, i32 noundef 1) #16
-  br label %688
+490:                                              ; preds = %480
+  %491 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.66, i32 noundef 1) #16
+  br label %704
 
-483:                                              ; preds = %.thread235, %472
-  %.0140237 = phi i32 [ 0, %.thread235 ], [ %479, %472 ]
-  %484 = and i32 %.5135, 16
-  %.not177 = icmp eq i32 %484, 0
-  br i1 %.not177, label %494, label %485
+492:                                              ; preds = %.thread235, %480
+  %.0140237 = phi i32 [ 0, %.thread235 ], [ %488, %480 ]
+  %493 = and i32 %.5135, 16
+  %.not177 = icmp eq i32 %493, 0
+  br i1 %.not177, label %504, label %494
 
-485:                                              ; preds = %483
-  %486 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %487 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %488 = sext i32 %487 to i64
-  %489 = getelementptr inbounds %struct.options_data_t, ptr %486, i64 %488, i32 10
-  %490 = load ptr, ptr %489, align 8, !tbaa !42
-  %491 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.0140237, ptr noundef %490) #16
-  %492 = load ptr, ptr %10, align 8, !tbaa !8
-  %493 = call i32 @PMIx_Argv_count(ptr noundef %492) #16
-  br label %494
+494:                                              ; preds = %492
+  %495 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %496 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %497 = sext i32 %496 to i64
+  %498 = getelementptr inbounds %struct.options_data_t, ptr %495, i64 %497
+  %499 = getelementptr inbounds nuw i8, ptr %498, i64 80
+  %500 = load ptr, ptr %499, align 8, !tbaa !42
+  %501 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.0140237, ptr noundef %500) #16
+  %502 = load ptr, ptr %10, align 8, !tbaa !8
+  %503 = call i32 @PMIx_Argv_count(ptr noundef %502) #16
+  br label %504
 
-494:                                              ; preds = %485, %483
-  %.1141 = phi i32 [ %493, %485 ], [ %.0140237, %483 ]
-  %495 = load ptr, ptr %11, align 8, !tbaa !8
-  %496 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.1141, ptr noundef %495) #16
-  %497 = load ptr, ptr %10, align 8, !tbaa !8
-  %498 = call i32 @PMIx_Argv_count(ptr noundef %497) #16
-  %499 = and i32 %.5135, 8
-  %.not178 = icmp eq i32 %499, 0
-  br i1 %.not178, label %509, label %500
-
-500:                                              ; preds = %494
-  %501 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %502 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %503 = sext i32 %502 to i64
-  %504 = getelementptr inbounds %struct.options_data_t, ptr %501, i64 %503, i32 8
-  %505 = load ptr, ptr %504, align 8, !tbaa !33
-  %506 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %498, ptr noundef %505) #16
+504:                                              ; preds = %494, %492
+  %.1141 = phi i32 [ %503, %494 ], [ %.0140237, %492 ]
+  %505 = load ptr, ptr %11, align 8, !tbaa !8
+  %506 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.1141, ptr noundef %505) #16
   %507 = load ptr, ptr %10, align 8, !tbaa !8
   %508 = call i32 @PMIx_Argv_count(ptr noundef %507) #16
-  br label %509
+  %509 = and i32 %.5135, 8
+  %.not178 = icmp eq i32 %509, 0
+  br i1 %.not178, label %520, label %510
 
-509:                                              ; preds = %500, %494
-  %.2142 = phi i32 [ %508, %500 ], [ %498, %494 ]
-  br i1 %.not177, label %519, label %510
-
-510:                                              ; preds = %509
+510:                                              ; preds = %504
   %511 = load ptr, ptr @options_data, align 8, !tbaa !17
   %512 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %513 = sext i32 %512 to i64
-  %514 = getelementptr inbounds %struct.options_data_t, ptr %511, i64 %513, i32 9
-  %515 = load ptr, ptr %514, align 8, !tbaa !43
-  %516 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.2142, ptr noundef %515) #16
-  %517 = load ptr, ptr %10, align 8, !tbaa !8
-  %518 = call i32 @PMIx_Argv_count(ptr noundef %517) #16
-  br label %519
+  %514 = getelementptr inbounds %struct.options_data_t, ptr %511, i64 %513
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 64
+  %516 = load ptr, ptr %515, align 8, !tbaa !33
+  %517 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %508, ptr noundef %516) #16
+  %518 = load ptr, ptr %10, align 8, !tbaa !8
+  %519 = call i32 @PMIx_Argv_count(ptr noundef %518) #16
+  br label %520
 
-519:                                              ; preds = %510, %509
-  %.3143 = phi i32 [ %518, %510 ], [ %.2142, %509 ]
-  %520 = and i32 %.5135, 32
-  %.not179 = icmp eq i32 %520, 0
-  br i1 %.not179, label %559, label %521
+520:                                              ; preds = %510, %504
+  %.2142 = phi i32 [ %519, %510 ], [ %508, %504 ]
+  br i1 %.not177, label %531, label %521
 
-521:                                              ; preds = %519
+521:                                              ; preds = %520
   %522 = load ptr, ptr @options_data, align 8, !tbaa !17
   %523 = load i32, ptr @user_data_idx, align 4, !tbaa !4
   %524 = sext i32 %523 to i64
-  %525 = getelementptr inbounds %struct.options_data_t, ptr %522, i64 %524, i32 11
-  %526 = load ptr, ptr %525, align 8, !tbaa !34
-  %527 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.3143, ptr noundef %526) #16
-  %528 = load ptr, ptr %10, align 8, !tbaa !8
-  %529 = call i32 @PMIx_Argv_count(ptr noundef %528) #16
-  %530 = and i32 %.5135, 128
-  %.not180 = icmp eq i32 %530, 0
-  %531 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %532 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %533 = sext i32 %532 to i64
-  br i1 %.not180, label %.critedge, label %534
+  %525 = getelementptr inbounds %struct.options_data_t, ptr %522, i64 %524
+  %526 = getelementptr inbounds nuw i8, ptr %525, i64 72
+  %527 = load ptr, ptr %526, align 8, !tbaa !43
+  %528 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.2142, ptr noundef %527) #16
+  %529 = load ptr, ptr %10, align 8, !tbaa !8
+  %530 = call i32 @PMIx_Argv_count(ptr noundef %529) #16
+  br label %531
 
-534:                                              ; preds = %521
-  %535 = getelementptr inbounds %struct.options_data_t, ptr %531, i64 %533, i32 12
-  %536 = load ptr, ptr %535, align 8, !tbaa !35
-  %537 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %529, ptr noundef %536) #16
-  %538 = load ptr, ptr %10, align 8, !tbaa !8
-  %539 = call i32 @PMIx_Argv_count(ptr noundef %538) #16
-  %540 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %541 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %542 = sext i32 %541 to i64
-  %543 = getelementptr inbounds %struct.options_data_t, ptr %540, i64 %542, i32 13
-  %544 = load ptr, ptr %543, align 8, !tbaa !36
-  %545 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %539, ptr noundef %544) #16
-  %546 = load ptr, ptr %10, align 8, !tbaa !8
-  %547 = call i32 @PMIx_Argv_count(ptr noundef %546) #16
-  %548 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %549 = load i32, ptr @user_data_idx, align 4, !tbaa !4
-  %550 = sext i32 %549 to i64
-  %551 = getelementptr inbounds %struct.options_data_t, ptr %548, i64 %550, i32 14
-  %552 = load ptr, ptr %551, align 8, !tbaa !37
-  %553 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %547, ptr noundef %552) #16
-  br label %.sink.split
+531:                                              ; preds = %521, %520
+  %.3143 = phi i32 [ %530, %521 ], [ %.2142, %520 ]
+  %532 = and i32 %.5135, 32
+  %.not179 = icmp eq i32 %532, 0
+  br i1 %.not179, label %575, label %533
 
-.critedge:                                        ; preds = %521
-  %554 = getelementptr inbounds %struct.options_data_t, ptr %531, i64 %533, i32 13
-  %555 = load ptr, ptr %554, align 8, !tbaa !36
-  %556 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %529, ptr noundef %555) #16
-  br label %.sink.split
+533:                                              ; preds = %531
+  %534 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %535 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %536 = sext i32 %535 to i64
+  %537 = getelementptr inbounds %struct.options_data_t, ptr %534, i64 %536
+  %538 = getelementptr inbounds nuw i8, ptr %537, i64 88
+  %539 = load ptr, ptr %538, align 8, !tbaa !34
+  %540 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %.3143, ptr noundef %539) #16
+  %541 = load ptr, ptr %10, align 8, !tbaa !8
+  %542 = call i32 @PMIx_Argv_count(ptr noundef %541) #16
+  %543 = and i32 %.5135, 128
+  %.not180 = icmp eq i32 %543, 0
+  %544 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %545 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %546 = sext i32 %545 to i64
+  %547 = getelementptr inbounds %struct.options_data_t, ptr %544, i64 %546
+  br i1 %.not180, label %.critedge, label %548
 
-.sink.split:                                      ; preds = %534, %.critedge
-  %557 = load ptr, ptr %10, align 8, !tbaa !8
-  %558 = call i32 @PMIx_Argv_count(ptr noundef %557) #16
-  br label %559
-
-559:                                              ; preds = %.sink.split, %519
-  %560 = and i32 %.5135, 1
-  %.not181 = icmp eq i32 %560, 0
+548:                                              ; preds = %533
+  %549 = getelementptr inbounds nuw i8, ptr %547, i64 96
+  %550 = load ptr, ptr %549, align 8, !tbaa !35
+  %551 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %542, ptr noundef %550) #16
+  %552 = load ptr, ptr %10, align 8, !tbaa !8
+  %553 = call i32 @PMIx_Argv_count(ptr noundef %552) #16
+  %554 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %555 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %556 = sext i32 %555 to i64
+  %557 = getelementptr inbounds %struct.options_data_t, ptr %554, i64 %556
+  %558 = getelementptr inbounds nuw i8, ptr %557, i64 104
+  %559 = load ptr, ptr %558, align 8, !tbaa !36
+  %560 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %553, ptr noundef %559) #16
   %561 = load ptr, ptr %10, align 8, !tbaa !8
-  br i1 %.not181, label %564, label %562
+  %562 = call i32 @PMIx_Argv_count(ptr noundef %561) #16
+  %563 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %564 = load i32, ptr @user_data_idx, align 4, !tbaa !4
+  %565 = sext i32 %564 to i64
+  %566 = getelementptr inbounds %struct.options_data_t, ptr %563, i64 %565
+  %567 = getelementptr inbounds nuw i8, ptr %566, i64 112
+  %568 = load ptr, ptr %567, align 8, !tbaa !37
+  %569 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %562, ptr noundef %568) #16
+  br label %.sink.split
 
-562:                                              ; preds = %559
-  %563 = call ptr @PMIx_Argv_join(ptr noundef %561, i32 noundef 32) #16
-  %puts = call i32 @puts(ptr nonnull dereferenceable(1) %563)
-  br label %.thread217
+.critedge:                                        ; preds = %533
+  %570 = getelementptr inbounds nuw i8, ptr %547, i64 104
+  %571 = load ptr, ptr %570, align 8, !tbaa !36
+  %572 = call i32 @pmix_argv_insert(ptr noundef nonnull %10, i32 noundef %542, ptr noundef %571) #16
+  br label %.sink.split
 
-564:                                              ; preds = %559
-  %565 = load ptr, ptr %561, align 8, !tbaa !13
-  %566 = load ptr, ptr @environ, align 8, !tbaa !8
-  %567 = call noalias ptr @pmix_path_findv(ptr noundef %565, i32 noundef 0, ptr noundef %566, ptr noundef null) #16
-  %568 = icmp eq ptr %567, null
-  br i1 %568, label %569, label %574
+.sink.split:                                      ; preds = %548, %.critedge
+  %573 = load ptr, ptr %10, align 8, !tbaa !8
+  %574 = call i32 @PMIx_Argv_count(ptr noundef %573) #16
+  br label %575
 
-569:                                              ; preds = %564
-  %570 = load ptr, ptr %10, align 8, !tbaa !8
-  %571 = load ptr, ptr %570, align 8, !tbaa !13
-  %572 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.68, i32 noundef 1, ptr noundef %571, ptr noundef null) #16
-  %573 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %573, align 4, !tbaa !4
-  br label %.thread217
-
-574:                                              ; preds = %564
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %575 = load ptr, ptr %10, align 8, !tbaa !8
-  %576 = load ptr, ptr %575, align 8, !tbaa !13
-  call void @free(ptr noundef %576) #16
+575:                                              ; preds = %.sink.split, %531
+  %576 = and i32 %.5135, 1
+  %.not181 = icmp eq i32 %576, 0
   %577 = load ptr, ptr %10, align 8, !tbaa !8
-  store ptr %567, ptr %577, align 8, !tbaa !13
-  %578 = call i32 @pmix_few(ptr noundef nonnull %577, ptr noundef nonnull %15) #16
-  %579 = load i32, ptr %15, align 4, !tbaa !4
-  %580 = and i32 %579, 127
-  %581 = icmp eq i32 %580, 0
-  br i1 %581, label %582, label %585
+  br i1 %.not181, label %580, label %578
 
-582:                                              ; preds = %574
-  %583 = lshr i32 %579, 8
-  %584 = and i32 %583, 255
-  br label %594
+578:                                              ; preds = %575
+  %579 = call ptr @PMIx_Argv_join(ptr noundef %577, i32 noundef 32) #16
+  %puts = call i32 @puts(ptr nonnull dereferenceable(1) %579)
+  br label %.thread217
 
-585:                                              ; preds = %574
-  %586 = shl nuw nsw i32 %580, 24
-  %sext = add nuw i32 %586, 16777216
-  %587 = icmp sgt i32 %sext, 33554431
-  br i1 %587, label %594, label %588
+580:                                              ; preds = %575
+  %581 = load ptr, ptr %577, align 8, !tbaa !13
+  %582 = load ptr, ptr @environ, align 8, !tbaa !8
+  %583 = call noalias ptr @pmix_path_findv(ptr noundef %581, i32 noundef 0, ptr noundef %582, ptr noundef null) #16
+  %584 = icmp eq ptr %583, null
+  br i1 %584, label %585, label %590
 
-588:                                              ; preds = %585
-  %589 = and i32 %579, 255
-  %590 = icmp eq i32 %589, 127
-  %591 = lshr i32 %579, 8
-  %592 = and i32 %591, 255
-  %593 = select i1 %590, i32 %592, i32 255
-  br label %594
+585:                                              ; preds = %580
+  %586 = load ptr, ptr %10, align 8, !tbaa !8
+  %587 = load ptr, ptr %586, align 8, !tbaa !13
+  %588 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.68, i32 noundef 1, ptr noundef %587, ptr noundef null) #16
+  %589 = tail call ptr @__errno_location() #21
+  store i32 0, ptr %589, align 4, !tbaa !4
+  br label %.thread217
 
-594:                                              ; preds = %585, %588, %582
-  %595 = phi i32 [ %584, %582 ], [ %593, %588 ], [ %580, %585 ]
-  %.not182 = icmp eq i32 %578, 0
-  br i1 %.not182, label %596, label %600
+590:                                              ; preds = %580
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  %591 = load ptr, ptr %10, align 8, !tbaa !8
+  %592 = load ptr, ptr %591, align 8, !tbaa !13
+  call void @free(ptr noundef %592) #16
+  %593 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %583, ptr %593, align 8, !tbaa !13
+  %594 = call i32 @pmix_few(ptr noundef nonnull %593, ptr noundef nonnull %15) #16
+  %595 = load i32, ptr %15, align 4, !tbaa !4
+  %596 = and i32 %595, 127
+  %597 = icmp eq i32 %596, 0
+  br i1 %597, label %598, label %601
 
-596:                                              ; preds = %594
-  %.not183 = icmp eq i32 %595, 0
-  %597 = and i32 %.5135, 2
-  %.not184 = icmp eq i32 %597, 0
-  %or.cond187 = or i1 %.not184, %.not183
-  br i1 %or.cond187, label %610, label %.thread238
-
-.thread238:                                       ; preds = %596
-  %598 = load ptr, ptr %10, align 8, !tbaa !8
-  %599 = call ptr @PMIx_Argv_join(ptr noundef %598, i32 noundef 32) #16
-  br label %608
-
-600:                                              ; preds = %594
-  %601 = load ptr, ptr %10, align 8, !tbaa !8
-  %602 = call ptr @PMIx_Argv_join(ptr noundef %601, i32 noundef 32) #16
-  %603 = load ptr, ptr %10, align 8, !tbaa !8
-  %604 = load ptr, ptr %603, align 8, !tbaa !13
-  %605 = load i32, ptr %15, align 4, !tbaa !4
-  %606 = call ptr @strerror(i32 noundef %605) #16
-  %607 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.69, i32 noundef 1, ptr noundef %604, ptr noundef %606, ptr noundef %602, ptr noundef null) #16
-  br label %608
-
-608:                                              ; preds = %.thread238, %600
-  %609 = phi ptr [ %599, %.thread238 ], [ %602, %600 ]
-  call void @free(ptr noundef %609) #16
+598:                                              ; preds = %590
+  %599 = lshr i32 %595, 8
+  %600 = and i32 %599, 255
   br label %610
 
-610:                                              ; preds = %608, %596
+601:                                              ; preds = %590
+  %602 = shl nuw nsw i32 %596, 24
+  %sext = add nuw i32 %602, 16777216
+  %603 = icmp sgt i32 %sext, 33554431
+  br i1 %603, label %610, label %604
+
+604:                                              ; preds = %601
+  %605 = and i32 %595, 255
+  %606 = icmp eq i32 %605, 127
+  %607 = lshr i32 %595, 8
+  %608 = and i32 %607, 255
+  %609 = select i1 %606, i32 %608, i32 255
+  br label %610
+
+610:                                              ; preds = %601, %604, %598
+  %611 = phi i32 [ %600, %598 ], [ %609, %604 ], [ %596, %601 ]
+  %.not182 = icmp eq i32 %594, 0
+  br i1 %.not182, label %612, label %616
+
+612:                                              ; preds = %610
+  %.not183 = icmp eq i32 %611, 0
+  %613 = and i32 %.5135, 2
+  %.not184 = icmp eq i32 %613, 0
+  %or.cond187 = or i1 %.not184, %.not183
+  br i1 %or.cond187, label %626, label %.thread238
+
+.thread238:                                       ; preds = %612
+  %614 = load ptr, ptr %10, align 8, !tbaa !8
+  %615 = call ptr @PMIx_Argv_join(ptr noundef %614, i32 noundef 32) #16
+  br label %624
+
+616:                                              ; preds = %610
+  %617 = load ptr, ptr %10, align 8, !tbaa !8
+  %618 = call ptr @PMIx_Argv_join(ptr noundef %617, i32 noundef 32) #16
+  %619 = load ptr, ptr %10, align 8, !tbaa !8
+  %620 = load ptr, ptr %619, align 8, !tbaa !13
+  %621 = load i32, ptr %15, align 4, !tbaa !4
+  %622 = call ptr @strerror(i32 noundef %621) #16
+  %623 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.69, i32 noundef 1, ptr noundef %620, ptr noundef %622, ptr noundef %618, ptr noundef null) #16
+  br label %624
+
+624:                                              ; preds = %.thread238, %616
+  %625 = phi ptr [ %615, %.thread238 ], [ %618, %616 ]
+  call void @free(ptr noundef %625) #16
+  br label %626
+
+626:                                              ; preds = %624, %612
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread217
 
-.thread217:                                       ; preds = %363, %371, %342, %355, %379, %330, %308, %296, %274, %262, %569, %610, %562, %196
-  %.0129 = phi i32 [ 1, %196 ], [ 0, %562 ], [ 1, %569 ], [ %595, %610 ], [ 0, %363 ], [ 0, %371 ], [ 0, %342 ], [ 0, %355 ], [ 1, %379 ], [ 0, %330 ], [ 0, %308 ], [ 0, %296 ], [ 0, %274 ], [ 0, %262 ]
-  %611 = load ptr, ptr %10, align 8, !tbaa !8
-  call void @PMIx_Argv_free(ptr noundef %611) #16
-  %612 = load ptr, ptr %11, align 8, !tbaa !8
-  call void @PMIx_Argv_free(ptr noundef %612) #16
+.thread217:                                       ; preds = %370, %379, %349, %362, %387, %336, %312, %299, %275, %262, %585, %626, %578, %196
+  %.0129 = phi i32 [ 1, %196 ], [ 0, %578 ], [ 1, %585 ], [ %611, %626 ], [ 0, %370 ], [ 0, %379 ], [ 0, %349 ], [ 0, %362 ], [ 1, %387 ], [ 0, %336 ], [ 0, %312 ], [ 0, %299 ], [ 0, %275 ], [ 0, %262 ]
+  %627 = load ptr, ptr %10, align 8, !tbaa !8
+  call void @PMIx_Argv_free(ptr noundef %627) #16
+  %628 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @PMIx_Argv_free(ptr noundef %628) #16
   %.not185 = icmp eq ptr %38, null
-  br i1 %.not185, label %614, label %613
+  br i1 %.not185, label %630, label %629
 
-613:                                              ; preds = %.thread217
+629:                                              ; preds = %.thread217
   call void @free(ptr noundef nonnull %38) #16
-  br label %614
+  br label %630
 
-614:                                              ; preds = %613, %.thread217
-  %615 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %.not3.i = icmp slt i32 %615, 0
+630:                                              ; preds = %629, %.thread217
+  %631 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %.not3.i = icmp slt i32 %631, 0
   br i1 %.not3.i, label %data_finalize.exit, label %.lr.ph.i200
 
-.lr.ph.i200:                                      ; preds = %614, %options_data_free.exit.i
-  %indvars.iv.i201 = phi i64 [ %indvars.iv.next.i202, %options_data_free.exit.i ], [ 0, %614 ]
-  %616 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %617 = getelementptr inbounds nuw %struct.options_data_t, ptr %616, i64 %indvars.iv.i201
-  %618 = load ptr, ptr %617, align 8, !tbaa !19
-  %.not.i.i = icmp eq ptr %618, null
-  br i1 %.not.i.i, label %620, label %619
+.lr.ph.i200:                                      ; preds = %630, %options_data_free.exit.i
+  %indvars.iv.i201 = phi i64 [ %indvars.iv.next.i202, %options_data_free.exit.i ], [ 0, %630 ]
+  %632 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %633 = getelementptr inbounds nuw %struct.options_data_t, ptr %632, i64 %indvars.iv.i201
+  %634 = load ptr, ptr %633, align 8, !tbaa !19
+  %.not.i.i = icmp eq ptr %634, null
+  br i1 %.not.i.i, label %636, label %635
 
-619:                                              ; preds = %.lr.ph.i200
-  call void @PMIx_Argv_free(ptr noundef nonnull %618) #16
-  br label %620
-
-620:                                              ; preds = %619, %.lr.ph.i200
-  %621 = getelementptr inbounds nuw i8, ptr %617, i64 8
-  %622 = load ptr, ptr %621, align 8, !tbaa !30
-  %.not45.i.i = icmp eq ptr %622, null
-  br i1 %.not45.i.i, label %624, label %623
-
-623:                                              ; preds = %620
-  call void @free(ptr noundef nonnull %622) #16
-  br label %624
-
-624:                                              ; preds = %623, %620
-  %625 = getelementptr inbounds nuw i8, ptr %617, i64 56
-  %626 = load ptr, ptr %625, align 8, !tbaa !41
-  %.not46.i.i = icmp eq ptr %626, null
-  br i1 %.not46.i.i, label %628, label %627
-
-627:                                              ; preds = %624
-  call void @free(ptr noundef nonnull %626) #16
-  br label %628
-
-628:                                              ; preds = %627, %624
-  %629 = getelementptr inbounds nuw i8, ptr %617, i64 16
-  %630 = load ptr, ptr %629, align 8, !tbaa !38
-  %.not47.i.i = icmp eq ptr %630, null
-  br i1 %.not47.i.i, label %632, label %631
-
-631:                                              ; preds = %628
-  call void @free(ptr noundef nonnull %630) #16
-  br label %632
-
-632:                                              ; preds = %631, %628
-  %633 = getelementptr inbounds nuw i8, ptr %617, i64 24
-  %634 = load ptr, ptr %633, align 8, !tbaa !26
-  %.not48.i.i = icmp eq ptr %634, null
-  br i1 %.not48.i.i, label %636, label %635
-
-635:                                              ; preds = %632
-  call void @free(ptr noundef nonnull %634) #16
+635:                                              ; preds = %.lr.ph.i200
+  call void @PMIx_Argv_free(ptr noundef nonnull %634) #16
   br label %636
 
-636:                                              ; preds = %635, %632
-  %637 = getelementptr inbounds nuw i8, ptr %617, i64 32
-  %638 = load ptr, ptr %637, align 8, !tbaa !39
-  %.not49.i.i = icmp eq ptr %638, null
-  br i1 %.not49.i.i, label %640, label %639
+636:                                              ; preds = %635, %.lr.ph.i200
+  %637 = getelementptr inbounds nuw i8, ptr %633, i64 8
+  %638 = load ptr, ptr %637, align 8, !tbaa !30
+  %.not45.i.i = icmp eq ptr %638, null
+  br i1 %.not45.i.i, label %640, label %639
 
 639:                                              ; preds = %636
   call void @free(ptr noundef nonnull %638) #16
   br label %640
 
 640:                                              ; preds = %639, %636
-  %641 = getelementptr inbounds nuw i8, ptr %617, i64 40
-  %642 = load ptr, ptr %641, align 8, !tbaa !27
-  %.not50.i.i = icmp eq ptr %642, null
-  br i1 %.not50.i.i, label %644, label %643
+  %641 = getelementptr inbounds nuw i8, ptr %633, i64 56
+  %642 = load ptr, ptr %641, align 8, !tbaa !41
+  %.not46.i.i = icmp eq ptr %642, null
+  br i1 %.not46.i.i, label %644, label %643
 
 643:                                              ; preds = %640
   call void @free(ptr noundef nonnull %642) #16
   br label %644
 
 644:                                              ; preds = %643, %640
-  %645 = getelementptr inbounds nuw i8, ptr %617, i64 48
-  %646 = load ptr, ptr %645, align 8, !tbaa !28
-  %.not51.i.i = icmp eq ptr %646, null
-  br i1 %.not51.i.i, label %648, label %647
+  %645 = getelementptr inbounds nuw i8, ptr %633, i64 16
+  %646 = load ptr, ptr %645, align 8, !tbaa !38
+  %.not47.i.i = icmp eq ptr %646, null
+  br i1 %.not47.i.i, label %648, label %647
 
 647:                                              ; preds = %644
   call void @free(ptr noundef nonnull %646) #16
   br label %648
 
 648:                                              ; preds = %647, %644
-  %649 = getelementptr inbounds nuw i8, ptr %617, i64 64
-  %650 = load ptr, ptr %649, align 8, !tbaa !33
-  call void @PMIx_Argv_free(ptr noundef %650) #16
-  %651 = getelementptr inbounds nuw i8, ptr %617, i64 72
-  %652 = load ptr, ptr %651, align 8, !tbaa !43
-  call void @PMIx_Argv_free(ptr noundef %652) #16
-  %653 = getelementptr inbounds nuw i8, ptr %617, i64 80
-  %654 = load ptr, ptr %653, align 8, !tbaa !42
-  call void @PMIx_Argv_free(ptr noundef %654) #16
-  %655 = getelementptr inbounds nuw i8, ptr %617, i64 88
-  %656 = load ptr, ptr %655, align 8, !tbaa !34
-  call void @PMIx_Argv_free(ptr noundef %656) #16
-  %657 = getelementptr inbounds nuw i8, ptr %617, i64 96
-  %658 = load ptr, ptr %657, align 8, !tbaa !35
-  call void @PMIx_Argv_free(ptr noundef %658) #16
-  %659 = getelementptr inbounds nuw i8, ptr %617, i64 104
-  %660 = load ptr, ptr %659, align 8, !tbaa !36
-  call void @PMIx_Argv_free(ptr noundef %660) #16
-  %661 = getelementptr inbounds nuw i8, ptr %617, i64 112
-  %662 = load ptr, ptr %661, align 8, !tbaa !37
-  call void @PMIx_Argv_free(ptr noundef %662) #16
-  %663 = getelementptr inbounds nuw i8, ptr %617, i64 120
-  %664 = load ptr, ptr %663, align 8, !tbaa !44
-  %.not52.i.i = icmp eq ptr %664, null
-  br i1 %.not52.i.i, label %666, label %665
+  %649 = getelementptr inbounds nuw i8, ptr %633, i64 24
+  %650 = load ptr, ptr %649, align 8, !tbaa !26
+  %.not48.i.i = icmp eq ptr %650, null
+  br i1 %.not48.i.i, label %652, label %651
 
-665:                                              ; preds = %648
-  call void @free(ptr noundef nonnull %664) #16
-  br label %666
+651:                                              ; preds = %648
+  call void @free(ptr noundef nonnull %650) #16
+  br label %652
 
-666:                                              ; preds = %665, %648
-  %667 = getelementptr inbounds nuw i8, ptr %617, i64 128
-  %668 = load ptr, ptr %667, align 8, !tbaa !45
-  %.not53.i.i = icmp eq ptr %668, null
-  br i1 %.not53.i.i, label %670, label %669
+652:                                              ; preds = %651, %648
+  %653 = getelementptr inbounds nuw i8, ptr %633, i64 32
+  %654 = load ptr, ptr %653, align 8, !tbaa !39
+  %.not49.i.i = icmp eq ptr %654, null
+  br i1 %.not49.i.i, label %656, label %655
 
-669:                                              ; preds = %666
-  call void @free(ptr noundef nonnull %668) #16
-  br label %670
+655:                                              ; preds = %652
+  call void @free(ptr noundef nonnull %654) #16
+  br label %656
 
-670:                                              ; preds = %669, %666
-  %671 = getelementptr inbounds nuw i8, ptr %617, i64 136
-  %672 = load ptr, ptr %671, align 8, !tbaa !29
-  %.not54.i.i = icmp eq ptr %672, null
-  br i1 %.not54.i.i, label %674, label %673
+656:                                              ; preds = %655, %652
+  %657 = getelementptr inbounds nuw i8, ptr %633, i64 40
+  %658 = load ptr, ptr %657, align 8, !tbaa !27
+  %.not50.i.i = icmp eq ptr %658, null
+  br i1 %.not50.i.i, label %660, label %659
 
-673:                                              ; preds = %670
-  call void @free(ptr noundef nonnull %672) #16
-  br label %674
+659:                                              ; preds = %656
+  call void @free(ptr noundef nonnull %658) #16
+  br label %660
 
-674:                                              ; preds = %673, %670
-  %675 = getelementptr inbounds nuw i8, ptr %617, i64 144
-  %676 = load ptr, ptr %675, align 8, !tbaa !46
-  %.not55.i.i = icmp eq ptr %676, null
-  br i1 %.not55.i.i, label %678, label %677
+660:                                              ; preds = %659, %656
+  %661 = getelementptr inbounds nuw i8, ptr %633, i64 48
+  %662 = load ptr, ptr %661, align 8, !tbaa !28
+  %.not51.i.i = icmp eq ptr %662, null
+  br i1 %.not51.i.i, label %664, label %663
 
-677:                                              ; preds = %674
-  call void @free(ptr noundef nonnull %676) #16
-  br label %678
+663:                                              ; preds = %660
+  call void @free(ptr noundef nonnull %662) #16
+  br label %664
 
-678:                                              ; preds = %677, %674
-  %679 = getelementptr inbounds nuw i8, ptr %617, i64 152
-  %680 = load ptr, ptr %679, align 8, !tbaa !32
-  %.not56.i.i = icmp eq ptr %680, null
-  br i1 %.not56.i.i, label %options_data_free.exit.i, label %681
+664:                                              ; preds = %663, %660
+  %665 = getelementptr inbounds nuw i8, ptr %633, i64 64
+  %666 = load ptr, ptr %665, align 8, !tbaa !33
+  call void @PMIx_Argv_free(ptr noundef %666) #16
+  %667 = getelementptr inbounds nuw i8, ptr %633, i64 72
+  %668 = load ptr, ptr %667, align 8, !tbaa !43
+  call void @PMIx_Argv_free(ptr noundef %668) #16
+  %669 = getelementptr inbounds nuw i8, ptr %633, i64 80
+  %670 = load ptr, ptr %669, align 8, !tbaa !42
+  call void @PMIx_Argv_free(ptr noundef %670) #16
+  %671 = getelementptr inbounds nuw i8, ptr %633, i64 88
+  %672 = load ptr, ptr %671, align 8, !tbaa !34
+  call void @PMIx_Argv_free(ptr noundef %672) #16
+  %673 = getelementptr inbounds nuw i8, ptr %633, i64 96
+  %674 = load ptr, ptr %673, align 8, !tbaa !35
+  call void @PMIx_Argv_free(ptr noundef %674) #16
+  %675 = getelementptr inbounds nuw i8, ptr %633, i64 104
+  %676 = load ptr, ptr %675, align 8, !tbaa !36
+  call void @PMIx_Argv_free(ptr noundef %676) #16
+  %677 = getelementptr inbounds nuw i8, ptr %633, i64 112
+  %678 = load ptr, ptr %677, align 8, !tbaa !37
+  call void @PMIx_Argv_free(ptr noundef %678) #16
+  %679 = getelementptr inbounds nuw i8, ptr %633, i64 120
+  %680 = load ptr, ptr %679, align 8, !tbaa !44
+  %.not52.i.i = icmp eq ptr %680, null
+  br i1 %.not52.i.i, label %682, label %681
 
-681:                                              ; preds = %678
+681:                                              ; preds = %664
   call void @free(ptr noundef nonnull %680) #16
+  br label %682
+
+682:                                              ; preds = %681, %664
+  %683 = getelementptr inbounds nuw i8, ptr %633, i64 128
+  %684 = load ptr, ptr %683, align 8, !tbaa !45
+  %.not53.i.i = icmp eq ptr %684, null
+  br i1 %.not53.i.i, label %686, label %685
+
+685:                                              ; preds = %682
+  call void @free(ptr noundef nonnull %684) #16
+  br label %686
+
+686:                                              ; preds = %685, %682
+  %687 = getelementptr inbounds nuw i8, ptr %633, i64 136
+  %688 = load ptr, ptr %687, align 8, !tbaa !29
+  %.not54.i.i = icmp eq ptr %688, null
+  br i1 %.not54.i.i, label %690, label %689
+
+689:                                              ; preds = %686
+  call void @free(ptr noundef nonnull %688) #16
+  br label %690
+
+690:                                              ; preds = %689, %686
+  %691 = getelementptr inbounds nuw i8, ptr %633, i64 144
+  %692 = load ptr, ptr %691, align 8, !tbaa !46
+  %.not55.i.i = icmp eq ptr %692, null
+  br i1 %.not55.i.i, label %694, label %693
+
+693:                                              ; preds = %690
+  call void @free(ptr noundef nonnull %692) #16
+  br label %694
+
+694:                                              ; preds = %693, %690
+  %695 = getelementptr inbounds nuw i8, ptr %633, i64 152
+  %696 = load ptr, ptr %695, align 8, !tbaa !32
+  %.not56.i.i = icmp eq ptr %696, null
+  br i1 %.not56.i.i, label %options_data_free.exit.i, label %697
+
+697:                                              ; preds = %694
+  call void @free(ptr noundef nonnull %696) #16
   br label %options_data_free.exit.i
 
-options_data_free.exit.i:                         ; preds = %681, %678
+options_data_free.exit.i:                         ; preds = %697, %694
   %indvars.iv.next.i202 = add nuw nsw i64 %indvars.iv.i201, 1
-  %682 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %683 = sext i32 %682 to i64
-  %.not.not.i203 = icmp slt i64 %indvars.iv.i201, %683
+  %698 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %699 = sext i32 %698 to i64
+  %.not.not.i203 = icmp slt i64 %indvars.iv.i201, %699
   br i1 %.not.not.i203, label %.lr.ph.i200, label %data_finalize.exit, !llvm.loop !47
 
-data_finalize.exit:                               ; preds = %options_data_free.exit.i, %614
-  %684 = load ptr, ptr @options_data, align 8, !tbaa !17
-  call void @free(ptr noundef %684) #16
+data_finalize.exit:                               ; preds = %options_data_free.exit.i, %630
+  %700 = load ptr, ptr @options_data, align 8, !tbaa !17
+  call void @free(ptr noundef %700) #16
   call void @pmix_util_keyval_parse_finalize() #16
-  %685 = call i32 @pmix_mca_base_framework_close(ptr noundef nonnull @pmix_pinstalldirs_base_framework) #16
-  %686 = call i32 @pmix_mca_base_close() #16
-  %687 = call i32 @pmix_show_help_finalize() #16
+  %701 = call i32 @pmix_mca_base_framework_close(ptr noundef nonnull @pmix_pinstalldirs_base_framework) #16
+  %702 = call i32 @pmix_mca_base_close() #16
+  %703 = call i32 @pmix_show_help_finalize() #16
   call void @pmix_output_finalize() #16
-  br label %688
+  br label %704
 
-688:                                              ; preds = %2, %data_finalize.exit, %481, %data_init.exit.thread, %34, %30, %24, %19
-  %.0 = phi i32 [ %18, %19 ], [ %23, %24 ], [ %29, %30 ], [ %33, %34 ], [ %.0.i206, %data_init.exit.thread ], [ %.0129, %data_finalize.exit ], [ 1, %481 ], [ -1, %2 ]
+704:                                              ; preds = %2, %data_finalize.exit, %490, %data_init.exit.thread, %34, %30, %24, %19
+  %.0 = phi i32 [ %18, %19 ], [ %23, %24 ], [ %29, %30 ], [ %33, %34 ], [ %.0.i206, %data_init.exit.thread ], [ %.0129, %data_finalize.exit ], [ 1, %490 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1634,540 +1650,570 @@ define internal void @data_callback(ptr readnone captures(none) %0, i32 %1, ptr 
 
 15:                                               ; preds = %12
   tail call fastcc void @options_data_expand(ptr noundef %3)
-  br label %313
+  br label %341
 
 16:                                               ; preds = %12
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(9) @.str.74) #18
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %26
+  br i1 %18, label %19, label %27
 
 19:                                               ; preds = %16
   %.not78 = icmp eq ptr %3, null
-  br i1 %.not78, label %313, label %20
+  br i1 %.not78, label %341, label %20
 
 20:                                               ; preds = %19
   %21 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
   %22 = load ptr, ptr @options_data, align 8, !tbaa !17
   %23 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.options_data_t, ptr %22, i64 %24, i32 1
-  store ptr %21, ptr %25, align 8, !tbaa !30
-  br label %313
+  %25 = getelementptr inbounds %struct.options_data_t, ptr %22, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %21, ptr %26, align 8, !tbaa !30
+  br label %341
 
-26:                                               ; preds = %16
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(9) @.str.75) #18
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %36
+27:                                               ; preds = %16
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(9) @.str.75) #18
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %38
 
-29:                                               ; preds = %26
+30:                                               ; preds = %27
   %.not77 = icmp eq ptr %3, null
-  br i1 %.not77, label %313, label %30
+  br i1 %.not77, label %341, label %31
 
-30:                                               ; preds = %29
-  %31 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
-  %32 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %33 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %struct.options_data_t, ptr %32, i64 %34, i32 7
-  store ptr %31, ptr %35, align 8, !tbaa !41
-  br label %313
+31:                                               ; preds = %30
+  %32 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
+  %33 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %34 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds %struct.options_data_t, ptr %33, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
+  store ptr %32, ptr %37, align 8, !tbaa !41
+  br label %341
 
-36:                                               ; preds = %26
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.76) #18
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %46
+38:                                               ; preds = %27
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.76) #18
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %49
 
-39:                                               ; preds = %36
+41:                                               ; preds = %38
   %.not76 = icmp eq ptr %3, null
-  br i1 %.not76, label %313, label %40
+  br i1 %.not76, label %341, label %42
 
-40:                                               ; preds = %39
-  %41 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
-  %42 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %43 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.options_data_t, ptr %42, i64 %44, i32 2
-  store ptr %41, ptr %45, align 8, !tbaa !38
-  br label %313
+42:                                               ; preds = %41
+  %43 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
+  %44 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %45 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds %struct.options_data_t, ptr %44, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store ptr %43, ptr %48, align 8, !tbaa !38
+  br label %341
 
-46:                                               ; preds = %36
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.41) #18
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %56
+49:                                               ; preds = %38
+  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(8) @.str.41) #18
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %60
 
-49:                                               ; preds = %46
+52:                                               ; preds = %49
   %.not75 = icmp eq ptr %3, null
-  br i1 %.not75, label %313, label %50
+  br i1 %.not75, label %341, label %53
 
-50:                                               ; preds = %49
-  %51 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
-  %52 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %53 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.options_data_t, ptr %52, i64 %54, i32 4
-  store ptr %51, ptr %55, align 8, !tbaa !39
-  br label %313
+53:                                               ; preds = %52
+  %54 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
+  %55 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %56 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds %struct.options_data_t, ptr %55, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  store ptr %54, ptr %59, align 8, !tbaa !39
+  br label %341
 
-56:                                               ; preds = %46
-  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(19) @.str.77) #18
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %103
+60:                                               ; preds = %49
+  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(19) @.str.77) #18
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %110
 
-59:                                               ; preds = %56
-  %60 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
-  %61 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %62 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %struct.options_data_t, ptr %61, i64 %63, i32 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !33
-  %66 = tail call i32 @PMIx_Argv_count(ptr noundef %65) #16
-  %67 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %64, i32 noundef %66, ptr noundef %60) #16
-  %68 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %69 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %struct.options_data_t, ptr %68, i64 %70, i32 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !33
-  %73 = load ptr, ptr %72, align 8, !tbaa !13
-  %.not16.i = icmp eq ptr %73, null
+63:                                               ; preds = %60
+  %64 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
+  %65 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %66 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds %struct.options_data_t, ptr %65, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
+  %70 = load ptr, ptr %69, align 8, !tbaa !33
+  %71 = tail call i32 @PMIx_Argv_count(ptr noundef %70) #16
+  %72 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %69, i32 noundef %71, ptr noundef %64) #16
+  %73 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %74 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds %struct.options_data_t, ptr %73, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
+  %78 = load ptr, ptr %77, align 8, !tbaa !33
+  %79 = load ptr, ptr %78, align 8, !tbaa !13
+  %.not16.i = icmp eq ptr %79, null
   br i1 %.not16.i, label %expand_flags.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %59, %79
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %79 ], [ 0, %59 ]
-  %74 = phi ptr [ %81, %79 ], [ %73, %59 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i
-  %76 = tail call ptr @pmix_pinstall_dirs_expand(ptr noundef nonnull %74) #16
-  %77 = load ptr, ptr %75, align 8, !tbaa !13
-  %.not15.i = icmp eq ptr %76, %77
-  br i1 %.not15.i, label %79, label %78
+.lr.ph.i:                                         ; preds = %63, %85
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %85 ], [ 0, %63 ]
+  %80 = phi ptr [ %87, %85 ], [ %79, %63 ]
+  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.i
+  %82 = tail call ptr @pmix_pinstall_dirs_expand(ptr noundef nonnull %80) #16
+  %83 = load ptr, ptr %81, align 8, !tbaa !13
+  %.not15.i = icmp eq ptr %82, %83
+  br i1 %.not15.i, label %85, label %84
 
-78:                                               ; preds = %.lr.ph.i
-  tail call void @free(ptr noundef %77) #16
-  store ptr %76, ptr %75, align 8, !tbaa !13
-  br label %79
+84:                                               ; preds = %.lr.ph.i
+  tail call void @free(ptr noundef %83) #16
+  store ptr %82, ptr %81, align 8, !tbaa !13
+  br label %85
 
-79:                                               ; preds = %78, %.lr.ph.i
+85:                                               ; preds = %84, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %80 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.next.i
-  %81 = load ptr, ptr %80, align 8, !tbaa !13
-  %.not.i = icmp eq ptr %81, null
+  %86 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.next.i
+  %87 = load ptr, ptr %86, align 8, !tbaa !13
+  %.not.i = icmp eq ptr %87, null
   br i1 %.not.i, label %expand_flags.exit.loopexit, label %.lr.ph.i, !llvm.loop !49
 
-expand_flags.exit.loopexit:                       ; preds = %79
-  %.pre107 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %.pre108 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %.phi.trans.insert109 = sext i32 %.pre108 to i64
-  %.phi.trans.insert110 = getelementptr inbounds %struct.options_data_t, ptr %.pre107, i64 %.phi.trans.insert109, i32 8
-  %.pre111 = load ptr, ptr %.phi.trans.insert110, align 8, !tbaa !8
+expand_flags.exit.loopexit:                       ; preds = %85
+  %.pre108 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %.pre109 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %.phi.trans.insert110 = sext i32 %.pre109 to i64
+  %.phi.trans.insert111 = getelementptr inbounds %struct.options_data_t, ptr %.pre108, i64 %.phi.trans.insert110
+  %.phi.trans.insert112 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert111, i64 64
+  %.pre113 = load ptr, ptr %.phi.trans.insert112, align 8, !tbaa !8
   br label %expand_flags.exit
 
-expand_flags.exit:                                ; preds = %expand_flags.exit.loopexit, %59
-  %.pre-phi112 = phi i64 [ %.phi.trans.insert109, %expand_flags.exit.loopexit ], [ %70, %59 ]
-  %82 = phi ptr [ %.pre111, %expand_flags.exit.loopexit ], [ %72, %59 ]
-  %83 = phi ptr [ %.pre107, %expand_flags.exit.loopexit ], [ %68, %59 ]
-  %84 = getelementptr inbounds %struct.options_data_t, ptr %83, i64 %.pre-phi112, i32 8
+expand_flags.exit:                                ; preds = %expand_flags.exit.loopexit, %63
+  %.pre-phi = phi i64 [ %.phi.trans.insert110, %expand_flags.exit.loopexit ], [ %75, %63 ]
+  %88 = phi ptr [ %.pre113, %expand_flags.exit.loopexit ], [ %78, %63 ]
+  %89 = phi ptr [ %.pre108, %expand_flags.exit.loopexit ], [ %73, %63 ]
+  %90 = getelementptr inbounds %struct.options_data_t, ptr %89, i64 %.pre-phi
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %85 = tail call i32 @PMIx_Argv_count(ptr noundef %82) #16
-  store i32 %85, ptr %6, align 4, !tbaa !4
-  %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph.i79, label %filter_flags.exit
+  %92 = tail call i32 @PMIx_Argv_count(ptr noundef %88) #16
+  store i32 %92, ptr %6, align 4, !tbaa !4
+  %93 = icmp sgt i32 %92, 0
+  br i1 %93, label %.lr.ph.i79, label %filter_flags.exit
 
 .lr.ph.i79:                                       ; preds = %expand_flags.exit, %.loopexit.i
-  %87 = phi i32 [ %100, %.loopexit.i ], [ %85, %expand_flags.exit ]
+  %94 = phi i32 [ %107, %.loopexit.i ], [ %92, %expand_flags.exit ]
   %.01218.i = phi i32 [ %spec.select.i, %.loopexit.i ], [ 0, %expand_flags.exit ]
-  %88 = load ptr, ptr %84, align 8, !tbaa !8
-  %89 = zext nneg i32 %.01218.i to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %88, i64 %89
-  %91 = load ptr, ptr %90, align 8, !tbaa !13
-  br label %94
+  %95 = load ptr, ptr %91, align 8, !tbaa !8
+  %96 = zext nneg i32 %.01218.i to i64
+  %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %96
+  %98 = load ptr, ptr %97, align 8, !tbaa !13
+  br label %101
 
-92:                                               ; preds = %94
-  %93 = add nuw nsw i64 %.01116.i, 1
-  %.not.not.i = icmp eq i64 %93, 3
-  br i1 %.not.not.i, label %.loopexit.i, label %94, !llvm.loop !50
+99:                                               ; preds = %101
+  %100 = add nuw nsw i64 %.01116.i, 1
+  %.not.not.i = icmp eq i64 %100, 3
+  br i1 %.not.not.i, label %.loopexit.i, label %101, !llvm.loop !50
 
-94:                                               ; preds = %92, %.lr.ph.i79
-  %.01116.i = phi i64 [ 0, %.lr.ph.i79 ], [ %93, %92 ]
-  %95 = getelementptr inbounds nuw ptr, ptr @filtered_args, i64 %.01116.i
-  %96 = load ptr, ptr %95, align 8, !tbaa !13
-  %97 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %96) #18
-  %.not.not24.i.not.not.not.not.not = icmp ne i32 %97, 0
-  br i1 %.not.not24.i.not.not.not.not.not, label %92, label %98
+101:                                              ; preds = %99, %.lr.ph.i79
+  %.01116.i = phi i64 [ 0, %.lr.ph.i79 ], [ %100, %99 ]
+  %102 = getelementptr inbounds nuw ptr, ptr @filtered_args, i64 %.01116.i
+  %103 = load ptr, ptr %102, align 8, !tbaa !13
+  %104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %103) #18
+  %.not.not24.i.not.not.not.not.not = icmp ne i32 %104, 0
+  br i1 %.not.not24.i.not.not.not.not.not, label %99, label %105
 
-98:                                               ; preds = %94
-  %99 = call i32 @pmix_argv_delete(ptr noundef nonnull %6, ptr noundef nonnull %84, i32 noundef %.01218.i, i32 noundef 1) #16
+105:                                              ; preds = %101
+  %106 = call i32 @pmix_argv_delete(ptr noundef nonnull %6, ptr noundef nonnull %91, i32 noundef %.01218.i, i32 noundef 1) #16
   %.pre.i = load i32, ptr %6, align 4, !tbaa !4
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %92, %98
-  %100 = phi i32 [ %.pre.i, %98 ], [ %87, %92 ]
-  %101 = zext i1 %.not.not24.i.not.not.not.not.not to i32
-  %spec.select.i = add nuw nsw i32 %.01218.i, %101
-  %102 = icmp slt i32 %spec.select.i, %100
-  br i1 %102, label %.lr.ph.i79, label %filter_flags.exit, !llvm.loop !51
+.loopexit.i:                                      ; preds = %99, %105
+  %107 = phi i32 [ %.pre.i, %105 ], [ %94, %99 ]
+  %108 = zext i1 %.not.not24.i.not.not.not.not.not to i32
+  %spec.select.i = add nuw nsw i32 %.01218.i, %108
+  %109 = icmp slt i32 %spec.select.i, %107
+  br i1 %109, label %.lr.ph.i79, label %filter_flags.exit, !llvm.loop !51
 
 filter_flags.exit:                                ; preds = %.loopexit.i, %expand_flags.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @PMIx_Argv_free(ptr noundef %60) #16
-  br label %313
+  call void @PMIx_Argv_free(ptr noundef %64) #16
+  br label %341
 
-103:                                              ; preds = %56
-  %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(15) @.str.78) #18
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %150
+110:                                              ; preds = %60
+  %111 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(15) @.str.78) #18
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %160
 
-106:                                              ; preds = %103
-  %107 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
-  %108 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %109 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds %struct.options_data_t, ptr %108, i64 %110, i32 9
-  %112 = load ptr, ptr %111, align 8, !tbaa !43
-  %113 = tail call i32 @PMIx_Argv_count(ptr noundef %112) #16
-  %114 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %111, i32 noundef %113, ptr noundef %107) #16
+113:                                              ; preds = %110
+  %114 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
   %115 = load ptr, ptr @options_data, align 8, !tbaa !17
   %116 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.options_data_t, ptr %115, i64 %117, i32 9
-  %119 = load ptr, ptr %118, align 8, !tbaa !43
-  %120 = load ptr, ptr %119, align 8, !tbaa !13
-  %.not16.i80 = icmp eq ptr %120, null
+  %118 = getelementptr inbounds %struct.options_data_t, ptr %115, i64 %117
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 72
+  %120 = load ptr, ptr %119, align 8, !tbaa !43
+  %121 = tail call i32 @PMIx_Argv_count(ptr noundef %120) #16
+  %122 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %119, i32 noundef %121, ptr noundef %114) #16
+  %123 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %124 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds %struct.options_data_t, ptr %123, i64 %125
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 72
+  %128 = load ptr, ptr %127, align 8, !tbaa !43
+  %129 = load ptr, ptr %128, align 8, !tbaa !13
+  %.not16.i80 = icmp eq ptr %129, null
   br i1 %.not16.i80, label %expand_flags.exit86, label %.lr.ph.i81
 
-.lr.ph.i81:                                       ; preds = %106, %126
-  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i84, %126 ], [ 0, %106 ]
-  %121 = phi ptr [ %128, %126 ], [ %120, %106 ]
-  %122 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.i82
-  %123 = tail call ptr @pmix_pinstall_dirs_expand(ptr noundef nonnull %121) #16
-  %124 = load ptr, ptr %122, align 8, !tbaa !13
-  %.not15.i83 = icmp eq ptr %123, %124
-  br i1 %.not15.i83, label %126, label %125
+.lr.ph.i81:                                       ; preds = %113, %135
+  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i84, %135 ], [ 0, %113 ]
+  %130 = phi ptr [ %137, %135 ], [ %129, %113 ]
+  %131 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv.i82
+  %132 = tail call ptr @pmix_pinstall_dirs_expand(ptr noundef nonnull %130) #16
+  %133 = load ptr, ptr %131, align 8, !tbaa !13
+  %.not15.i83 = icmp eq ptr %132, %133
+  br i1 %.not15.i83, label %135, label %134
 
-125:                                              ; preds = %.lr.ph.i81
-  tail call void @free(ptr noundef %124) #16
-  store ptr %123, ptr %122, align 8, !tbaa !13
-  br label %126
+134:                                              ; preds = %.lr.ph.i81
+  tail call void @free(ptr noundef %133) #16
+  store ptr %132, ptr %131, align 8, !tbaa !13
+  br label %135
 
-126:                                              ; preds = %125, %.lr.ph.i81
+135:                                              ; preds = %134, %.lr.ph.i81
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i82, 1
-  %127 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.next.i84
-  %128 = load ptr, ptr %127, align 8, !tbaa !13
-  %.not.i85 = icmp eq ptr %128, null
+  %136 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv.next.i84
+  %137 = load ptr, ptr %136, align 8, !tbaa !13
+  %.not.i85 = icmp eq ptr %137, null
   br i1 %.not.i85, label %expand_flags.exit86.loopexit, label %.lr.ph.i81, !llvm.loop !49
 
-expand_flags.exit86.loopexit:                     ; preds = %126
+expand_flags.exit86.loopexit:                     ; preds = %135
   %.pre = load ptr, ptr @options_data, align 8, !tbaa !17
   %.pre104 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %.phi.trans.insert = sext i32 %.pre104 to i64
-  %.phi.trans.insert105 = getelementptr inbounds %struct.options_data_t, ptr %.pre, i64 %.phi.trans.insert, i32 9
-  %.pre106 = load ptr, ptr %.phi.trans.insert105, align 8, !tbaa !8
+  %.phi.trans.insert105 = getelementptr inbounds %struct.options_data_t, ptr %.pre, i64 %.phi.trans.insert
+  %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert105, i64 72
+  %.pre107 = load ptr, ptr %.phi.trans.insert106, align 8, !tbaa !8
   br label %expand_flags.exit86
 
-expand_flags.exit86:                              ; preds = %expand_flags.exit86.loopexit, %106
-  %.pre-phi = phi i64 [ %.phi.trans.insert, %expand_flags.exit86.loopexit ], [ %117, %106 ]
-  %129 = phi ptr [ %.pre106, %expand_flags.exit86.loopexit ], [ %119, %106 ]
-  %130 = phi ptr [ %.pre, %expand_flags.exit86.loopexit ], [ %115, %106 ]
-  %131 = getelementptr inbounds %struct.options_data_t, ptr %130, i64 %.pre-phi, i32 9
+expand_flags.exit86:                              ; preds = %expand_flags.exit86.loopexit, %113
+  %.pre-phi114 = phi i64 [ %.phi.trans.insert, %expand_flags.exit86.loopexit ], [ %125, %113 ]
+  %138 = phi ptr [ %.pre107, %expand_flags.exit86.loopexit ], [ %128, %113 ]
+  %139 = phi ptr [ %.pre, %expand_flags.exit86.loopexit ], [ %123, %113 ]
+  %140 = getelementptr inbounds %struct.options_data_t, ptr %139, i64 %.pre-phi114
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %132 = tail call i32 @PMIx_Argv_count(ptr noundef %129) #16
-  store i32 %132, ptr %5, align 4, !tbaa !4
-  %133 = icmp sgt i32 %132, 0
-  br i1 %133, label %.lr.ph.i87, label %filter_flags.exit95
+  %142 = tail call i32 @PMIx_Argv_count(ptr noundef %138) #16
+  store i32 %142, ptr %5, align 4, !tbaa !4
+  %143 = icmp sgt i32 %142, 0
+  br i1 %143, label %.lr.ph.i87, label %filter_flags.exit95
 
 .lr.ph.i87:                                       ; preds = %expand_flags.exit86, %.loopexit.i92
-  %134 = phi i32 [ %147, %.loopexit.i92 ], [ %132, %expand_flags.exit86 ]
+  %144 = phi i32 [ %157, %.loopexit.i92 ], [ %142, %expand_flags.exit86 ]
   %.01218.i88 = phi i32 [ %spec.select.i93, %.loopexit.i92 ], [ 0, %expand_flags.exit86 ]
-  %135 = load ptr, ptr %131, align 8, !tbaa !8
-  %136 = zext nneg i32 %.01218.i88 to i64
-  %137 = getelementptr inbounds nuw ptr, ptr %135, i64 %136
-  %138 = load ptr, ptr %137, align 8, !tbaa !13
-  br label %141
+  %145 = load ptr, ptr %141, align 8, !tbaa !8
+  %146 = zext nneg i32 %.01218.i88 to i64
+  %147 = getelementptr inbounds nuw ptr, ptr %145, i64 %146
+  %148 = load ptr, ptr %147, align 8, !tbaa !13
+  br label %151
 
-139:                                              ; preds = %141
-  %140 = add nuw nsw i64 %.01116.i89, 1
-  %.not.not.i94 = icmp eq i64 %140, 3
-  br i1 %.not.not.i94, label %.loopexit.i92, label %141, !llvm.loop !50
+149:                                              ; preds = %151
+  %150 = add nuw nsw i64 %.01116.i89, 1
+  %.not.not.i94 = icmp eq i64 %150, 3
+  br i1 %.not.not.i94, label %.loopexit.i92, label %151, !llvm.loop !50
 
-141:                                              ; preds = %139, %.lr.ph.i87
-  %.01116.i89 = phi i64 [ 0, %.lr.ph.i87 ], [ %140, %139 ]
-  %142 = getelementptr inbounds nuw ptr, ptr @filtered_args, i64 %.01116.i89
-  %143 = load ptr, ptr %142, align 8, !tbaa !13
-  %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(1) %143) #18
-  %.not.not24.i90.not.not.not.not.not = icmp ne i32 %144, 0
-  br i1 %.not.not24.i90.not.not.not.not.not, label %139, label %145
+151:                                              ; preds = %149, %.lr.ph.i87
+  %.01116.i89 = phi i64 [ 0, %.lr.ph.i87 ], [ %150, %149 ]
+  %152 = getelementptr inbounds nuw ptr, ptr @filtered_args, i64 %.01116.i89
+  %153 = load ptr, ptr %152, align 8, !tbaa !13
+  %154 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %148, ptr noundef nonnull dereferenceable(1) %153) #18
+  %.not.not24.i90.not.not.not.not.not = icmp ne i32 %154, 0
+  br i1 %.not.not24.i90.not.not.not.not.not, label %149, label %155
 
-145:                                              ; preds = %141
-  %146 = call i32 @pmix_argv_delete(ptr noundef nonnull %5, ptr noundef nonnull %131, i32 noundef %.01218.i88, i32 noundef 1) #16
+155:                                              ; preds = %151
+  %156 = call i32 @pmix_argv_delete(ptr noundef nonnull %5, ptr noundef nonnull %141, i32 noundef %.01218.i88, i32 noundef 1) #16
   %.pre.i91 = load i32, ptr %5, align 4, !tbaa !4
   br label %.loopexit.i92
 
-.loopexit.i92:                                    ; preds = %139, %145
-  %147 = phi i32 [ %.pre.i91, %145 ], [ %134, %139 ]
-  %148 = zext i1 %.not.not24.i90.not.not.not.not.not to i32
-  %spec.select.i93 = add nuw nsw i32 %.01218.i88, %148
-  %149 = icmp slt i32 %spec.select.i93, %147
-  br i1 %149, label %.lr.ph.i87, label %filter_flags.exit95, !llvm.loop !51
+.loopexit.i92:                                    ; preds = %149, %155
+  %157 = phi i32 [ %.pre.i91, %155 ], [ %144, %149 ]
+  %158 = zext i1 %.not.not24.i90.not.not.not.not.not to i32
+  %spec.select.i93 = add nuw nsw i32 %.01218.i88, %158
+  %159 = icmp slt i32 %spec.select.i93, %157
+  br i1 %159, label %.lr.ph.i87, label %filter_flags.exit95, !llvm.loop !51
 
 filter_flags.exit95:                              ; preds = %.loopexit.i92, %expand_flags.exit86
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @PMIx_Argv_free(ptr noundef %107) #16
-  br label %313
+  call void @PMIx_Argv_free(ptr noundef %114) #16
+  br label %341
 
-150:                                              ; preds = %103
-  %151 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(22) @.str.79) #18
-  %152 = icmp eq i32 %151, 0
-  br i1 %152, label %153, label %167
+160:                                              ; preds = %110
+  %161 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(22) @.str.79) #18
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %163, label %179
 
-153:                                              ; preds = %150
-  %154 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
-  %155 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %156 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds %struct.options_data_t, ptr %155, i64 %157, i32 10
-  %159 = load ptr, ptr %158, align 8, !tbaa !42
-  %160 = tail call i32 @PMIx_Argv_count(ptr noundef %159) #16
-  %161 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %158, i32 noundef %160, ptr noundef %154) #16
-  %162 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %163 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds %struct.options_data_t, ptr %162, i64 %164, i32 10
-  %166 = load ptr, ptr %165, align 8, !tbaa !42
-  tail call fastcc void @expand_flags(ptr noundef %166)
-  tail call void @PMIx_Argv_free(ptr noundef %154) #16
-  br label %313
+163:                                              ; preds = %160
+  %164 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
+  %165 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %166 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds %struct.options_data_t, ptr %165, i64 %167
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 80
+  %170 = load ptr, ptr %169, align 8, !tbaa !42
+  %171 = tail call i32 @PMIx_Argv_count(ptr noundef %170) #16
+  %172 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %169, i32 noundef %171, ptr noundef %164) #16
+  %173 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %174 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %175 = sext i32 %174 to i64
+  %176 = getelementptr inbounds %struct.options_data_t, ptr %173, i64 %175
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 80
+  %178 = load ptr, ptr %177, align 8, !tbaa !42
+  tail call fastcc void @expand_flags(ptr noundef %178)
+  tail call void @PMIx_Argv_free(ptr noundef %164) #16
+  br label %341
 
-167:                                              ; preds = %150
-  %168 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(13) @.str.80) #18
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %170, label %188
+179:                                              ; preds = %160
+  %180 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(13) @.str.80) #18
+  %181 = icmp eq i32 %180, 0
+  br i1 %181, label %182, label %203
 
-170:                                              ; preds = %167
-  %171 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
-  %172 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %173 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds %struct.options_data_t, ptr %172, i64 %174, i32 11
-  %176 = load ptr, ptr %175, align 8, !tbaa !34
-  %177 = tail call i32 @PMIx_Argv_count(ptr noundef %176) #16
-  %178 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %175, i32 noundef %177, ptr noundef %171) #16
-  %179 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %180 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds %struct.options_data_t, ptr %179, i64 %181, i32 11
-  %183 = load ptr, ptr %182, align 8, !tbaa !34
-  tail call fastcc void @expand_flags(ptr noundef %183)
+182:                                              ; preds = %179
+  %183 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
   %184 = load ptr, ptr @options_data, align 8, !tbaa !17
   %185 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds %struct.options_data_t, ptr %184, i64 %186, i32 11
-  tail call fastcc void @filter_flags(ptr noundef nonnull %187)
-  tail call void @PMIx_Argv_free(ptr noundef %171) #16
-  br label %313
+  %187 = getelementptr inbounds %struct.options_data_t, ptr %184, i64 %186
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 88
+  %189 = load ptr, ptr %188, align 8, !tbaa !34
+  %190 = tail call i32 @PMIx_Argv_count(ptr noundef %189) #16
+  %191 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %188, i32 noundef %190, ptr noundef %183) #16
+  %192 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %193 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds %struct.options_data_t, ptr %192, i64 %194
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 88
+  %197 = load ptr, ptr %196, align 8, !tbaa !34
+  tail call fastcc void @expand_flags(ptr noundef %197)
+  %198 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %199 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr inbounds %struct.options_data_t, ptr %198, i64 %200
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 88
+  tail call fastcc void @filter_flags(ptr noundef nonnull %202)
+  tail call void @PMIx_Argv_free(ptr noundef %183) #16
+  br label %341
 
-188:                                              ; preds = %167
-  %189 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(20) @.str.81) #18
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %191, label %209
+203:                                              ; preds = %179
+  %204 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(20) @.str.81) #18
+  %205 = icmp eq i32 %204, 0
+  br i1 %205, label %206, label %227
 
-191:                                              ; preds = %188
-  %192 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
-  %193 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %194 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds %struct.options_data_t, ptr %193, i64 %195, i32 12
-  %197 = load ptr, ptr %196, align 8, !tbaa !35
-  %198 = tail call i32 @PMIx_Argv_count(ptr noundef %197) #16
-  %199 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %196, i32 noundef %198, ptr noundef %192) #16
-  %200 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %201 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds %struct.options_data_t, ptr %200, i64 %202, i32 12
-  %204 = load ptr, ptr %203, align 8, !tbaa !35
-  tail call fastcc void @expand_flags(ptr noundef %204)
-  %205 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %206 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds %struct.options_data_t, ptr %205, i64 %207, i32 12
-  tail call fastcc void @filter_flags(ptr noundef nonnull %208)
-  tail call void @PMIx_Argv_free(ptr noundef %192) #16
-  br label %313
+206:                                              ; preds = %203
+  %207 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
+  %208 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %209 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %210 = sext i32 %209 to i64
+  %211 = getelementptr inbounds %struct.options_data_t, ptr %208, i64 %210
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 96
+  %213 = load ptr, ptr %212, align 8, !tbaa !35
+  %214 = tail call i32 @PMIx_Argv_count(ptr noundef %213) #16
+  %215 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %212, i32 noundef %214, ptr noundef %207) #16
+  %216 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %217 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %218 = sext i32 %217 to i64
+  %219 = getelementptr inbounds %struct.options_data_t, ptr %216, i64 %218
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 96
+  %221 = load ptr, ptr %220, align 8, !tbaa !35
+  tail call fastcc void @expand_flags(ptr noundef %221)
+  %222 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %223 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %224 = sext i32 %223 to i64
+  %225 = getelementptr inbounds %struct.options_data_t, ptr %222, i64 %224
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 96
+  tail call fastcc void @filter_flags(ptr noundef nonnull %226)
+  tail call void @PMIx_Argv_free(ptr noundef %207) #16
+  br label %341
 
-209:                                              ; preds = %188
-  %210 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.82) #18
-  %211 = icmp eq i32 %210, 0
-  br i1 %211, label %212, label %221
+227:                                              ; preds = %203
+  %228 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.82) #18
+  %229 = icmp eq i32 %228, 0
+  br i1 %229, label %230, label %240
 
-212:                                              ; preds = %209
-  %213 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
-  %214 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %215 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds %struct.options_data_t, ptr %214, i64 %216, i32 13
-  %218 = load ptr, ptr %217, align 8, !tbaa !36
-  %219 = tail call i32 @PMIx_Argv_count(ptr noundef %218) #16
-  %220 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %217, i32 noundef %219, ptr noundef %213) #16
-  tail call void @PMIx_Argv_free(ptr noundef %213) #16
-  br label %313
+230:                                              ; preds = %227
+  %231 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
+  %232 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %233 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds %struct.options_data_t, ptr %232, i64 %234
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 104
+  %237 = load ptr, ptr %236, align 8, !tbaa !36
+  %238 = tail call i32 @PMIx_Argv_count(ptr noundef %237) #16
+  %239 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %236, i32 noundef %238, ptr noundef %231) #16
+  tail call void @PMIx_Argv_free(ptr noundef %231) #16
+  br label %341
 
-221:                                              ; preds = %209
-  %222 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(12) @.str.83) #18
-  %223 = icmp eq i32 %222, 0
-  br i1 %223, label %224, label %233
+240:                                              ; preds = %227
+  %241 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(12) @.str.83) #18
+  %242 = icmp eq i32 %241, 0
+  br i1 %242, label %243, label %253
 
-224:                                              ; preds = %221
-  %225 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
-  %226 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %227 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds %struct.options_data_t, ptr %226, i64 %228, i32 14
-  %230 = load ptr, ptr %229, align 8, !tbaa !37
-  %231 = tail call i32 @PMIx_Argv_count(ptr noundef %230) #16
-  %232 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %229, i32 noundef %231, ptr noundef %225) #16
-  tail call void @PMIx_Argv_free(ptr noundef %225) #16
-  br label %313
+243:                                              ; preds = %240
+  %244 = tail call ptr @PMIx_Argv_split(ptr noundef %3, i32 noundef 32) #16
+  %245 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %246 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %247 = sext i32 %246 to i64
+  %248 = getelementptr inbounds %struct.options_data_t, ptr %245, i64 %247
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 112
+  %250 = load ptr, ptr %249, align 8, !tbaa !37
+  %251 = tail call i32 @PMIx_Argv_count(ptr noundef %250) #16
+  %252 = tail call i32 @pmix_argv_insert(ptr noundef nonnull %249, i32 noundef %251, ptr noundef %244) #16
+  tail call void @PMIx_Argv_free(ptr noundef %244) #16
+  br label %341
 
-233:                                              ; preds = %221
-  %234 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(13) @.str.84) #18
-  %235 = icmp eq i32 %234, 0
-  br i1 %235, label %236, label %243
-
-236:                                              ; preds = %233
-  %.not74 = icmp eq ptr %3, null
-  br i1 %.not74, label %313, label %237
-
-237:                                              ; preds = %236
-  %238 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
-  %239 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %240 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds %struct.options_data_t, ptr %239, i64 %241, i32 15
-  store ptr %238, ptr %242, align 8, !tbaa !44
-  br label %313
-
-243:                                              ; preds = %233
-  %244 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(16) @.str.85) #18
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %246, label %253
-
-246:                                              ; preds = %243
-  %.not73 = icmp eq ptr %3, null
-  br i1 %.not73, label %313, label %247
-
-247:                                              ; preds = %246
-  %248 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
-  %249 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %250 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds %struct.options_data_t, ptr %249, i64 %251, i32 16
-  store ptr %248, ptr %252, align 8, !tbaa !45
-  br label %313
-
-253:                                              ; preds = %243
-  %254 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(14) @.str.86) #18
+253:                                              ; preds = %240
+  %254 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(13) @.str.84) #18
   %255 = icmp eq i32 %254, 0
-  br i1 %255, label %256, label %263
+  br i1 %255, label %256, label %264
 
 256:                                              ; preds = %253
-  %.not72 = icmp eq ptr %3, null
-  br i1 %.not72, label %313, label %257
+  %.not74 = icmp eq ptr %3, null
+  br i1 %.not74, label %341, label %257
 
 257:                                              ; preds = %256
   %258 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
   %259 = load ptr, ptr @options_data, align 8, !tbaa !17
   %260 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
   %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds %struct.options_data_t, ptr %259, i64 %261, i32 17
-  store ptr %258, ptr %262, align 8, !tbaa !29
-  br label %313
+  %262 = getelementptr inbounds %struct.options_data_t, ptr %259, i64 %261
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 120
+  store ptr %258, ptr %263, align 8, !tbaa !44
+  br label %341
 
-263:                                              ; preds = %253
-  %264 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(14) @.str.87) #18
-  %265 = icmp eq i32 %264, 0
-  br i1 %265, label %266, label %273
+264:                                              ; preds = %253
+  %265 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(16) @.str.85) #18
+  %266 = icmp eq i32 %265, 0
+  br i1 %266, label %267, label %275
 
-266:                                              ; preds = %263
+267:                                              ; preds = %264
+  %.not73 = icmp eq ptr %3, null
+  br i1 %.not73, label %341, label %268
+
+268:                                              ; preds = %267
+  %269 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
+  %270 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %271 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %272 = sext i32 %271 to i64
+  %273 = getelementptr inbounds %struct.options_data_t, ptr %270, i64 %272
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 128
+  store ptr %269, ptr %274, align 8, !tbaa !45
+  br label %341
+
+275:                                              ; preds = %264
+  %276 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(14) @.str.86) #18
+  %277 = icmp eq i32 %276, 0
+  br i1 %277, label %278, label %286
+
+278:                                              ; preds = %275
+  %.not72 = icmp eq ptr %3, null
+  br i1 %.not72, label %341, label %279
+
+279:                                              ; preds = %278
+  %280 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
+  %281 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %282 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %283 = sext i32 %282 to i64
+  %284 = getelementptr inbounds %struct.options_data_t, ptr %281, i64 %283
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 136
+  store ptr %280, ptr %285, align 8, !tbaa !29
+  br label %341
+
+286:                                              ; preds = %275
+  %287 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(14) @.str.87) #18
+  %288 = icmp eq i32 %287, 0
+  br i1 %288, label %289, label %297
+
+289:                                              ; preds = %286
   %.not71 = icmp eq ptr %3, null
-  br i1 %.not71, label %313, label %267
+  br i1 %.not71, label %341, label %290
 
-267:                                              ; preds = %266
-  %268 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
-  %269 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %270 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds %struct.options_data_t, ptr %269, i64 %271, i32 3
-  store ptr %268, ptr %272, align 8, !tbaa !26
-  br label %313
+290:                                              ; preds = %289
+  %291 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
+  %292 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %293 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %294 = sext i32 %293 to i64
+  %295 = getelementptr inbounds %struct.options_data_t, ptr %292, i64 %294
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 24
+  store ptr %291, ptr %296, align 8, !tbaa !26
+  br label %341
 
-273:                                              ; preds = %263
-  %274 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(13) @.str.88) #18
-  %275 = icmp eq i32 %274, 0
-  br i1 %275, label %276, label %283
+297:                                              ; preds = %286
+  %298 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(13) @.str.88) #18
+  %299 = icmp eq i32 %298, 0
+  br i1 %299, label %300, label %308
 
-276:                                              ; preds = %273
+300:                                              ; preds = %297
   %.not70 = icmp eq ptr %3, null
-  br i1 %.not70, label %313, label %277
+  br i1 %.not70, label %341, label %301
 
-277:                                              ; preds = %276
-  %278 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
-  %279 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %280 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %281 = sext i32 %280 to i64
-  %282 = getelementptr inbounds %struct.options_data_t, ptr %279, i64 %281, i32 5
-  store ptr %278, ptr %282, align 8, !tbaa !27
-  br label %313
+301:                                              ; preds = %300
+  %302 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
+  %303 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %304 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %305 = sext i32 %304 to i64
+  %306 = getelementptr inbounds %struct.options_data_t, ptr %303, i64 %305
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 40
+  store ptr %302, ptr %307, align 8, !tbaa !27
+  br label %341
 
-283:                                              ; preds = %273
-  %284 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(19) @.str.89) #18
-  %285 = icmp eq i32 %284, 0
-  br i1 %285, label %286, label %293
+308:                                              ; preds = %297
+  %309 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(19) @.str.89) #18
+  %310 = icmp eq i32 %309, 0
+  br i1 %310, label %311, label %319
 
-286:                                              ; preds = %283
+311:                                              ; preds = %308
   %.not69 = icmp eq ptr %3, null
-  br i1 %.not69, label %313, label %287
+  br i1 %.not69, label %341, label %312
 
-287:                                              ; preds = %286
-  %288 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
-  %289 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %290 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %291 = sext i32 %290 to i64
-  %292 = getelementptr inbounds %struct.options_data_t, ptr %289, i64 %291, i32 6
-  store ptr %288, ptr %292, align 8, !tbaa !28
-  br label %313
+312:                                              ; preds = %311
+  %313 = tail call noalias ptr @strdup(ptr noundef nonnull %3) #16
+  %314 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %315 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %316 = sext i32 %315 to i64
+  %317 = getelementptr inbounds %struct.options_data_t, ptr %314, i64 %316
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 48
+  store ptr %313, ptr %318, align 8, !tbaa !28
+  br label %341
 
-293:                                              ; preds = %283
-  %294 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(11) @.str.90) #18
-  %295 = icmp eq i32 %294, 0
-  br i1 %295, label %296, label %303
+319:                                              ; preds = %308
+  %320 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(11) @.str.90) #18
+  %321 = icmp eq i32 %320, 0
+  br i1 %321, label %322, label %330
 
-296:                                              ; preds = %293
+322:                                              ; preds = %319
   %.not68 = icmp eq ptr %3, null
-  br i1 %.not68, label %313, label %297
+  br i1 %.not68, label %341, label %323
 
-297:                                              ; preds = %296
-  %298 = tail call ptr @pmix_pinstall_dirs_expand(ptr noundef nonnull %3) #16
-  %299 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %300 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %301 = sext i32 %300 to i64
-  %302 = getelementptr inbounds %struct.options_data_t, ptr %299, i64 %301, i32 18
-  store ptr %298, ptr %302, align 8, !tbaa !46
-  br label %313
+323:                                              ; preds = %322
+  %324 = tail call ptr @pmix_pinstall_dirs_expand(ptr noundef nonnull %3) #16
+  %325 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %326 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %327 = sext i32 %326 to i64
+  %328 = getelementptr inbounds %struct.options_data_t, ptr %325, i64 %327
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 144
+  store ptr %324, ptr %329, align 8, !tbaa !46
+  br label %341
 
-303:                                              ; preds = %293
-  %304 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.91) #18
-  %305 = icmp eq i32 %304, 0
-  %306 = icmp ne ptr %3, null
-  %or.cond = and i1 %306, %305
-  br i1 %or.cond, label %307, label %313
+330:                                              ; preds = %319
+  %331 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.91) #18
+  %332 = icmp eq i32 %331, 0
+  %333 = icmp ne ptr %3, null
+  %or.cond = and i1 %333, %332
+  br i1 %or.cond, label %334, label %341
 
-307:                                              ; preds = %303
-  %308 = tail call ptr @pmix_pinstall_dirs_expand(ptr noundef nonnull %3) #16
-  %309 = load ptr, ptr @options_data, align 8, !tbaa !17
-  %310 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
-  %311 = sext i32 %310 to i64
-  %312 = getelementptr inbounds %struct.options_data_t, ptr %309, i64 %311, i32 19
-  store ptr %308, ptr %312, align 8, !tbaa !32
-  br label %313
+334:                                              ; preds = %330
+  %335 = tail call ptr @pmix_pinstall_dirs_expand(ptr noundef nonnull %3) #16
+  %336 = load ptr, ptr @options_data, align 8, !tbaa !17
+  %337 = load i32, ptr @parse_options_idx, align 4, !tbaa !4
+  %338 = sext i32 %337 to i64
+  %339 = getelementptr inbounds %struct.options_data_t, ptr %336, i64 %338
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 152
+  store ptr %335, ptr %340, align 8, !tbaa !32
+  br label %341
 
-313:                                              ; preds = %20, %19, %40, %39, %filter_flags.exit, %153, %191, %224, %247, %246, %267, %266, %287, %286, %303, %307, %296, %297, %276, %277, %256, %257, %236, %237, %212, %170, %filter_flags.exit95, %49, %50, %29, %30, %15
+341:                                              ; preds = %20, %19, %42, %41, %filter_flags.exit, %163, %206, %243, %268, %267, %290, %289, %312, %311, %330, %334, %322, %323, %300, %301, %278, %279, %256, %257, %230, %182, %filter_flags.exit95, %52, %53, %30, %31, %15
   ret void
 }
 

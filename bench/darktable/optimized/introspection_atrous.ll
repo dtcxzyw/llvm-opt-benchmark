@@ -1032,14 +1032,14 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   br label %40
 
 39:                                               ; preds = %40
-  store i8 %50, ptr %30, align 4, !tbaa !102
+  store i8 %49, ptr %30, align 4, !tbaa !102
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 5
   br i1 %exitcond44.not, label %11, label %24
 
 40:                                               ; preds = %24, %40
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %40 ]
-  %41 = phi i8 [ 0, %24 ], [ %50, %40 ]
+  %41 = phi i8 [ 0, %24 ], [ %49, %40 ]
   %42 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
   %43 = load float, ptr %42, align 4, !tbaa !82
   %44 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
@@ -1047,29 +1047,27 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   %46 = zext i8 %41 to i64
   %47 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %38, i64 %46
   store float %43, ptr %47, align 8, !tbaa !108
-  %.idx.i = shl nuw nsw i64 %46, 3
-  %48 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store float %45, ptr %49, align 4, !tbaa !110
-  %50 = add i8 %41, 1
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  store float %45, ptr %48, align 4, !tbaa !110
+  %49 = add i8 %41, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %39, label %40
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %51 = tail call i32 @llvm.umin.i32(i32 %52, i32 6)
+  %50 = tail call i32 @llvm.umin.i32(i32 %51, i32 6)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %.030.lcssa = phi i32 [ 0, %11 ], [ %51, %._crit_edge.loopexit ]
+  %.030.lcssa = phi i32 [ 0, %11 ], [ %50, %._crit_edge.loopexit ]
   store i32 %.030.lcssa, ptr %4, align 8, !tbaa !125
   ret void
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.039 = phi i32 [ %53, %.lr.ph ], [ %23, %11 ]
-  %.03038 = phi i32 [ %52, %.lr.ph ], [ 0, %11 ]
-  %52 = add nuw nsw i32 %.03038, 1
-  %53 = ashr i32 %.039, 1
+  %.039 = phi i32 [ %52, %.lr.ph ], [ %23, %11 ]
+  %.03038 = phi i32 [ %51, %.lr.ph ], [ 0, %11 ]
+  %51 = add nuw nsw i32 %.03038, 1
+  %52 = ashr i32 %.039, 1
   %.not = icmp ult i32 %.039, 2
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
@@ -2440,7 +2438,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %4
 
 29:                                               ; preds = %103
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  store i8 %113, ptr %30, align 4, !tbaa !102
+  store i8 %112, ptr %30, align 4, !tbaa !102
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store double -1.000000e+00, ptr %31, align 8, !tbaa !185
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -2535,7 +2533,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %4
 
 103:                                              ; preds = %_iop_gui_alloc.exit, %103
   %indvars.iv = phi i64 [ 0, %_iop_gui_alloc.exit ], [ %indvars.iv.next, %103 ]
-  %104 = phi i8 [ 0, %_iop_gui_alloc.exit ], [ %113, %103 ]
+  %104 = phi i8 [ 0, %_iop_gui_alloc.exit ], [ %112, %103 ]
   %105 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
   %106 = load float, ptr %105, align 4, !tbaa !82
   %107 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
@@ -2543,11 +2541,9 @@ _iop_gui_alloc.exit:                              ; preds = %1, %4
   %109 = zext i8 %104 to i64
   %110 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %28, i64 %109
   store float %106, ptr %110, align 8, !tbaa !108
-  %.idx.i = shl nuw nsw i64 %109, 3
-  %111 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  store float %108, ptr %112, align 4, !tbaa !110
-  %113 = add i8 %104, 1
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store float %108, ptr %111, align 4, !tbaa !110
+  %112 = add i8 %104, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %29, label %103
@@ -4523,21 +4519,22 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
-  br i1 %or.cond, label %8, label %.preheader
+  br i1 %or.cond, label %9, label %.preheader
 
 6:                                                ; preds = %.preheader
   store ptr @introspection_init.f8, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 776), align 8, !tbaa !167
-  br label %8
+  br label %9
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv, i32 0, i32 0, i32 7
-  store ptr %0, ptr %7, align 8, !tbaa !167
+  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %0, ptr %8, align 8, !tbaa !167
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %6, label %.preheader
 
-8:                                                ; preds = %2, %6
+9:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
   ret i32 %.06
 }

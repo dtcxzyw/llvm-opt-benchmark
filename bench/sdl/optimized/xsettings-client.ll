@@ -40,7 +40,7 @@ define hidden noalias noundef ptr @xsettings_client_new_with_grab_funcs(ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #14
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %48, label %11
+  br i1 %.not, label %50, label %11
 
 11:                                               ; preds = %7
   store ptr %0, ptr %10, align 8
@@ -76,32 +76,34 @@ define hidden noalias noundef ptr @xsettings_client_new_with_grab_funcs(ptr noun
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %1 to i64
-  %33 = getelementptr inbounds %struct.Screen, ptr %31, i64 %32, i32 2
-  %34 = load i64, ptr %33, align 8
+  %33 = getelementptr inbounds %struct.Screen, ptr %31, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load i64, ptr %34, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %35 = load ptr, ptr @X11_XGetWindowAttributes, align 8
-  %36 = call i32 %35(ptr noundef %0, i64 noundef %34, ptr noundef nonnull %8) #15
-  %37 = load ptr, ptr @X11_XSelectInput, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %39 = load i64, ptr %38, align 8
-  %40 = or i64 %39, 131072
-  %41 = call i32 %37(ptr noundef %0, i64 noundef %34, i64 noundef %40) #15
+  %36 = load ptr, ptr @X11_XGetWindowAttributes, align 8
+  %37 = call i32 %36(ptr noundef %0, i64 noundef %35, ptr noundef nonnull %8) #15
+  %38 = load ptr, ptr @X11_XSelectInput, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %40 = load i64, ptr %39, align 8
+  %41 = or i64 %40, 131072
+  %42 = call i32 %38(ptr noundef %0, i64 noundef %35, i64 noundef %41) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not39 = icmp eq ptr %3, null
-  br i1 %.not39, label %47, label %42
+  br i1 %.not39, label %49, label %43
 
-42:                                               ; preds = %11
-  %43 = load ptr, ptr %30, align 8
-  %44 = getelementptr inbounds %struct.Screen, ptr %43, i64 %32, i32 2
-  %45 = load i64, ptr %44, align 8
-  %46 = call i32 %3(i64 noundef %45, i32 noundef 1, i64 noundef 131072, ptr noundef %4) #15
-  br label %47
+43:                                               ; preds = %11
+  %44 = load ptr, ptr %30, align 8
+  %45 = getelementptr inbounds %struct.Screen, ptr %44, i64 %32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load i64, ptr %46, align 8
+  %48 = call i32 %3(i64 noundef %47, i32 noundef 1, i64 noundef 131072, ptr noundef %4) #15
+  br label %49
 
-47:                                               ; preds = %42, %11
+49:                                               ; preds = %43, %11
   call fastcc void @check_manager_window(ptr noundef nonnull %10)
-  br label %48
+  br label %50
 
-48:                                               ; preds = %7, %47
+50:                                               ; preds = %7, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %10
 }
@@ -233,7 +235,7 @@ define hidden void @xsettings_client_destroy(ptr noundef captures(none) %0) loca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %16, label %4
+  br i1 %.not, label %17, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
@@ -242,68 +244,69 @@ define hidden void @xsettings_client_destroy(ptr noundef captures(none) %0) loca
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.Screen, ptr %7, i64 %10, i32 2
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %3(i64 noundef %12, i32 noundef 0, i64 noundef 0, ptr noundef %14) #15
-  br label %16
+  %11 = getelementptr inbounds %struct.Screen, ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 %3(i64 noundef %13, i32 noundef 0, i64 noundef 0, ptr noundef %15) #15
+  br label %17
 
-16:                                               ; preds = %4, %1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load i64, ptr %17, align 8
-  %.not14 = icmp eq i64 %18, 0
-  br i1 %.not14, label %25, label %19
+17:                                               ; preds = %4, %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %19 = load i64, ptr %18, align 8
+  %.not14 = icmp eq i64 %19, 0
+  br i1 %.not14, label %26, label %20
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %2, align 8
-  %.not15 = icmp eq ptr %20, null
-  br i1 %.not15, label %25, label %21
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %2, align 8
+  %.not15 = icmp eq ptr %21, null
+  br i1 %.not15, label %26, label %22
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %20(i64 noundef %18, i32 noundef 0, i64 noundef 0, ptr noundef %23) #15
-  br label %25
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call i32 %21(i64 noundef %19, i32 noundef 0, i64 noundef 0, ptr noundef %24) #15
+  br label %26
 
-25:                                               ; preds = %21, %19, %16
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %27 = load ptr, ptr %26, align 8
-  %.not5.i = icmp eq ptr %27, null
+26:                                               ; preds = %22, %20, %17
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %28 = load ptr, ptr %27, align 8
+  %.not5.i = icmp eq ptr %28, null
   br i1 %.not5.i, label %xsettings_list_free.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %25, %xsettings_setting_free.exit.i
-  %.06.i = phi ptr [ %29, %xsettings_setting_free.exit.i ], [ %27, %25 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %.06.i, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %32, 1
-  br i1 %33, label %34, label %37
+.lr.ph.i:                                         ; preds = %26, %xsettings_setting_free.exit.i
+  %.06.i = phi ptr [ %30, %xsettings_setting_free.exit.i ], [ %28, %26 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %.06.i, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %35, label %38
 
-34:                                               ; preds = %.lr.ph.i
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %36 = load ptr, ptr %35, align 8
-  tail call void @free(ptr noundef %36) #15
-  br label %37
+35:                                               ; preds = %.lr.ph.i
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %37 = load ptr, ptr %36, align 8
+  tail call void @free(ptr noundef %37) #15
+  br label %38
 
-37:                                               ; preds = %34, %.lr.ph.i
-  %38 = load ptr, ptr %30, align 8
-  %.not.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i, label %xsettings_setting_free.exit.i, label %39
+38:                                               ; preds = %35, %.lr.ph.i
+  %39 = load ptr, ptr %31, align 8
+  %.not.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i, label %xsettings_setting_free.exit.i, label %40
 
-39:                                               ; preds = %37
-  tail call void @free(ptr noundef nonnull %38) #15
+40:                                               ; preds = %38
+  tail call void @free(ptr noundef nonnull %39) #15
   br label %xsettings_setting_free.exit.i
 
-xsettings_setting_free.exit.i:                    ; preds = %39, %37
-  tail call void @free(ptr noundef nonnull %30) #15
+xsettings_setting_free.exit.i:                    ; preds = %40, %38
+  tail call void @free(ptr noundef nonnull %31) #15
   tail call void @free(ptr noundef nonnull %.06.i) #15
-  %.not.i = icmp eq ptr %29, null
+  %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %xsettings_list_free.exit, label %.lr.ph.i, !llvm.loop !3
 
-xsettings_list_free.exit:                         ; preds = %xsettings_setting_free.exit.i, %25
+xsettings_list_free.exit:                         ; preds = %xsettings_setting_free.exit.i, %26
   tail call void @free(ptr noundef %0) #15
   ret void
 }
@@ -494,59 +497,60 @@ define hidden range(i32 0, 2) i32 @xsettings_client_process_event(ptr noundef ca
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.Screen, ptr %7, i64 %10, i32 2
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %4, %12
-  br i1 %13, label %14, label %30
+  %11 = getelementptr inbounds %struct.Screen, ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp eq i64 %4, %13
+  br i1 %14, label %15, label %31
 
-14:                                               ; preds = %2
-  %15 = load i32, ptr %1, align 8
-  %16 = icmp eq i32 %15, 33
-  br i1 %16, label %17, label %38
+15:                                               ; preds = %2
+  %16 = load i32, ptr %1, align 8
+  %17 = icmp eq i32 %16, 33
+  br i1 %17, label %18, label %39
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load i64, ptr %20, align 8
-  %22 = icmp eq i64 %19, %21
-  br i1 %22, label %23, label %38
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %22 = load i64, ptr %21, align 8
+  %23 = icmp eq i64 %20, %22
+  br i1 %23, label %24, label %39
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp eq i64 %25, %27
-  br i1 %28, label %29, label %38
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp eq i64 %26, %28
+  br i1 %29, label %30, label %39
 
-29:                                               ; preds = %23
+30:                                               ; preds = %24
   tail call fastcc void @check_manager_window(ptr noundef nonnull %0)
-  br label %38
+  br label %39
 
-30:                                               ; preds = %2
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %32 = load i64, ptr %31, align 8
-  %33 = icmp eq i64 %4, %32
-  br i1 %33, label %34, label %38
+31:                                               ; preds = %2
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %33 = load i64, ptr %32, align 8
+  %34 = icmp eq i64 %4, %33
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %30
-  %35 = load i32, ptr %1, align 8
-  switch i32 %35, label %38 [
-    i32 17, label %36
-    i32 28, label %37
+35:                                               ; preds = %31
+  %36 = load i32, ptr %1, align 8
+  switch i32 %36, label %39 [
+    i32 17, label %37
+    i32 28, label %38
   ]
 
-36:                                               ; preds = %34
+37:                                               ; preds = %35
   tail call fastcc void @check_manager_window(ptr noundef nonnull %0)
-  br label %38
+  br label %39
 
-37:                                               ; preds = %34
+38:                                               ; preds = %35
   tail call fastcc void @read_settings(ptr noundef nonnull %0)
-  br label %38
+  br label %39
 
-38:                                               ; preds = %23, %17, %14, %30, %34, %37, %36, %29
-  %.0 = phi i32 [ 1, %29 ], [ 0, %36 ], [ 1, %37 ], [ 0, %34 ], [ 0, %30 ], [ 0, %14 ], [ 0, %17 ], [ 0, %23 ]
+39:                                               ; preds = %24, %18, %15, %31, %35, %38, %37, %30
+  %.0 = phi i32 [ 1, %30 ], [ 0, %37 ], [ 1, %38 ], [ 0, %35 ], [ 0, %31 ], [ 0, %15 ], [ 0, %18 ], [ 0, %24 ]
   ret i32 %.0
 }
 

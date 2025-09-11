@@ -7058,7 +7058,7 @@ define i32 @ff_rtsp_fetch_packet(ptr noundef %0, ptr noundef %1) #2 {
   store i32 %114, ptr %118, align 4, !tbaa !226
   %119 = add nsw i32 %116, 1
   store i32 %119, ptr %115, align 8, !tbaa !225
-  %120 = getelementptr inbounds %struct.pollfd, ptr %109, i64 %117, i32 1
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i16 1, ptr %120, align 4, !tbaa !228
   br label %121
 
@@ -7117,7 +7117,7 @@ define i32 @ff_rtsp_fetch_packet(ptr noundef %0, ptr noundef %1) #2 {
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %144 = trunc nsw i64 %indvars.iv.next.i.i to i32
   store i32 %144, ptr %125, align 8, !tbaa !225
-  %145 = getelementptr inbounds %struct.pollfd, ptr %109, i64 %indvars.iv.i.i, i32 1
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i16 1, ptr %145, align 4, !tbaa !228
   %indvars.iv.next138.i.i = add nuw nsw i64 %indvars.iv137.i.i, 1
   %146 = load i32, ptr %5, align 4, !tbaa !121
@@ -7193,21 +7193,21 @@ define i32 @ff_rtsp_fetch_packet(ptr noundef %0, ptr noundef %1) #2 {
 
 178:                                              ; preds = %.lr.ph118.i.i
   %179 = sext i32 %.0116.i.i to i64
-  %180 = getelementptr inbounds %struct.pollfd, ptr %.068.i.i, i64 %179, i32 2
-  %181 = load i16, ptr %180, align 2, !tbaa !231
-  %182 = and i16 %181, 1
-  %.not98.i.i = icmp eq i16 %182, 0
-  br i1 %.not98.i.i, label %183, label %188
+  %180 = getelementptr inbounds %struct.pollfd, ptr %.068.i.i, i64 %179
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 6
+  %182 = load i16, ptr %181, align 2, !tbaa !231
+  %183 = and i16 %182, 1
+  %.not98.i.i = icmp eq i16 %183, 0
+  br i1 %.not98.i.i, label %184, label %188
 
-183:                                              ; preds = %178
-  %184 = getelementptr %struct.pollfd, ptr %.068.i.i, i64 %179
-  %185 = getelementptr i8, ptr %184, i64 14
+184:                                              ; preds = %178
+  %185 = getelementptr i8, ptr %180, i64 14
   %186 = load i16, ptr %185, align 2, !tbaa !231
   %187 = and i16 %186, 1
   %.not99.i.i = icmp eq i16 %187, 0
   br i1 %.not99.i.i, label %191, label %188
 
-188:                                              ; preds = %183, %178
+188:                                              ; preds = %184, %178
   %189 = call i32 @ffurl_read2(ptr noundef nonnull %177, ptr noundef %97, i32 noundef 81920) #15
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %udp_read_packet.exit.thread50.i, label %._crit_edge150.i.i
@@ -7222,8 +7222,8 @@ udp_read_packet.exit.thread50.i:                  ; preds = %188
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %230
 
-191:                                              ; preds = %._crit_edge150.i.i, %183
-  %.pre148.i.i = phi i32 [ %.pre148.pre.i.i, %._crit_edge150.i.i ], [ %.pre148151.i.i, %183 ]
+191:                                              ; preds = %._crit_edge150.i.i, %184
+  %.pre148.i.i = phi i32 [ %.pre148.pre.i.i, %._crit_edge150.i.i ], [ %.pre148151.i.i, %184 ]
   %192 = add nsw i32 %.0116.i.i, 2
   br label %193
 

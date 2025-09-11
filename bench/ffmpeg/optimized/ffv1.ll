@@ -140,7 +140,7 @@ define range(i32 -12, 1) i32 @ff_ffv1_init_slice_state(ptr noundef readonly capt
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %30 = getelementptr inbounds nuw %struct.VlcState, ptr %27, i64 %indvars.iv
   store i32 4, ptr %30, align 4, !tbaa !55
-  %31 = getelementptr inbounds nuw %struct.VlcState, ptr %27, i64 %indvars.iv, i32 3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 7
   store i8 1, ptr %31, align 1, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -463,13 +463,13 @@ define void @ff_ffv1_clear_slice_state(ptr noundef readonly captures(none) %0, p
 
 16:                                               ; preds = %.lr.ph.us, %16
   %indvars.iv35 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next36, %16 ]
-  %17 = getelementptr inbounds nuw %struct.VlcState, ptr %22, i64 %indvars.iv35, i32 1
-  store i16 0, ptr %17, align 4, !tbaa !82
-  %18 = getelementptr inbounds nuw %struct.VlcState, ptr %22, i64 %indvars.iv35
-  store i32 4, ptr %18, align 4, !tbaa !55
-  %19 = getelementptr inbounds nuw %struct.VlcState, ptr %22, i64 %indvars.iv35, i32 2
+  %17 = getelementptr inbounds nuw %struct.VlcState, ptr %22, i64 %indvars.iv35
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  store i16 0, ptr %18, align 4, !tbaa !82
+  store i32 4, ptr %17, align 4, !tbaa !55
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 6
   store i8 0, ptr %19, align 2, !tbaa !83
-  %20 = getelementptr inbounds nuw %struct.VlcState, ptr %22, i64 %indvars.iv35, i32 3
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 7
   store i8 1, ptr %20, align 1, !tbaa !58
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
@@ -534,13 +534,13 @@ define void @ff_ffv1_clear_slice_state(ptr noundef readonly captures(none) %0, p
 
 44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw %struct.VlcState, ptr %30, i64 %indvars.iv, i32 1
-  store i16 0, ptr %45, align 4, !tbaa !82
-  %46 = getelementptr inbounds nuw %struct.VlcState, ptr %30, i64 %indvars.iv
-  store i32 4, ptr %46, align 4, !tbaa !55
-  %47 = getelementptr inbounds nuw %struct.VlcState, ptr %30, i64 %indvars.iv, i32 2
+  %45 = getelementptr inbounds nuw %struct.VlcState, ptr %30, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store i16 0, ptr %46, align 4, !tbaa !82
+  store i32 4, ptr %45, align 4, !tbaa !55
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 6
   store i8 0, ptr %47, align 2, !tbaa !83
-  %48 = getelementptr inbounds nuw %struct.VlcState, ptr %30, i64 %indvars.iv, i32 3
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 7
   store i8 1, ptr %48, align 1, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1250,27 +1250,28 @@ define void @ff_ffv1_close(ptr noundef %0) local_unnamed_addr #2 {
 .lr.ph39:                                         ; preds = %31, %.lr.ph39
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.lr.ph39 ], [ 0, %31 ]
   %35 = load ptr, ptr %29, align 8, !tbaa !65
-  %36 = getelementptr inbounds nuw %struct.FFV1SliceContext, ptr %35, i64 %indvars.iv49, i32 17, i32 0, i32 1
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv52
-  tail call void @av_freep(ptr noundef nonnull %37) #12
+  %36 = getelementptr inbounds nuw %struct.FFV1SliceContext, ptr %35, i64 %indvars.iv49
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4768
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv52
+  tail call void @av_freep(ptr noundef nonnull %38) #12
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %38 = load i32, ptr %2, align 8, !tbaa !63
-  %39 = sext i32 %38 to i64
-  %40 = icmp slt i64 %indvars.iv.next50, %39
-  br i1 %40, label %.lr.ph39, label %._crit_edge40, !llvm.loop !102
+  %39 = load i32, ptr %2, align 8, !tbaa !63
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %indvars.iv.next50, %40
+  br i1 %41, label %.lr.ph39, label %._crit_edge40, !llvm.loop !102
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %31
-  %41 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv52
-  tail call void @av_freep(ptr noundef nonnull %41) #12
+  %42 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv52
+  tail call void @av_freep(ptr noundef nonnull %42) #12
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %42 = load i32, ptr %25, align 8, !tbaa !78
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next53, %43
-  br i1 %44, label %31, label %._crit_edge44, !llvm.loop !103
+  %43 = load i32, ptr %25, align 8, !tbaa !78
+  %44 = sext i32 %43 to i64
+  %45 = icmp slt i64 %indvars.iv.next53, %44
+  br i1 %45, label %31, label %._crit_edge44, !llvm.loop !103
 
 ._crit_edge44:                                    ; preds = %._crit_edge40, %._crit_edge
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 25224
-  tail call void @av_freep(ptr noundef nonnull %45) #12
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 25224
+  tail call void @av_freep(ptr noundef nonnull %46) #12
   ret void
 }
 

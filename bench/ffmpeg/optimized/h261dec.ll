@@ -924,7 +924,7 @@ decode_mv_component.exit131.i.i:                  ; preds = %496, %493, %491, %g
   %541 = getelementptr inbounds [2 x i16], ptr %531, i64 %540
   store i16 %539, ptr %541, align 2, !tbaa !97
   %542 = trunc i32 %530 to i16
-  %543 = getelementptr inbounds [2 x i16], ptr %531, i64 %540, i64 1
+  %543 = getelementptr inbounds nuw i8, ptr %541, i64 2
   store i16 %542, ptr %543, align 2, !tbaa !97
   br label %544
 
@@ -1375,7 +1375,7 @@ define internal fastcc void @h261_decode_mb_skipped(ptr noundef initializes((336
   %65 = sext i32 %reass.mul to i64
   %66 = getelementptr inbounds [2 x i16], ptr %57, i64 %65
   store i16 0, ptr %66, align 2, !tbaa !97
-  %67 = getelementptr inbounds [2 x i16], ptr %57, i64 %65, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
   store i16 0, ptr %67, align 2, !tbaa !97
   br label %68
 

@@ -9801,8 +9801,9 @@ define hidden { i64, i32 } @_ZN11quinn_proto10connection5timer10TimerTable3get17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN11quinn_proto10connection5timer10TimerTable4stop17hd014fe4b44ea571eE(ptr noalias noundef writeonly align 8 captures(none) dereferenceable(160) %0, i8 noundef range(i8 0, 9) %1) unnamed_addr #6 {
   %3 = zext nneg i8 %1 to i64
-  %4 = getelementptr inbounds nuw { [2 x i32], i32, [1 x i32] }, ptr %0, i64 %3, i32 1
-  store i32 1000000000, ptr %4, align 8
+  %4 = getelementptr inbounds nuw { [2 x i32], i32, [1 x i32] }, ptr %0, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 1000000000, ptr %5, align 8
   ret void
 }
 

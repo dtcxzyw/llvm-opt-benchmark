@@ -6474,7 +6474,8 @@ _ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.us.i.i
 
 if.then.us.i.i:                                   ; preds = %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.us.i.i, %for.body.us.if.then.us_crit_edge.i.i
   %539 = phi ptr [ %.pre48.i.i, %for.body.us.if.then.us_crit_edge.i.i ], [ %.pre49.i.i, %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.us.i.i ]
-  %_M_engaged.i.i.i.us.i.i = getelementptr inbounds nuw %"class.std::optional", ptr %539, i64 %indvars.iv44.i.i, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i23.us.i.i = getelementptr inbounds nuw %"class.std::optional", ptr %539, i64 %indvars.iv44.i.i
+  %_M_engaged.i.i.i.us.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i23.us.i.i, i64 16
   %540 = load i8, ptr %_M_engaged.i.i.i.us.i.i, align 8, !noalias !186
   %tobool.i.i.i.us.i.i = trunc i8 %540 to i1
   br i1 %tobool.i.i.i.us.i.i, label %if.then.i.i.i.us.i.i, label %for.inc.us.i.i
@@ -6543,7 +6544,8 @@ _ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i: ;
 
 if.then.i.i:                                      ; preds = %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i, %for.body.if.then_crit_edge.i.i
   %550 = phi ptr [ %.pre.i.i, %for.body.if.then_crit_edge.i.i ], [ %.pre47.i.i, %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i ]
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw %"class.std::optional", ptr %550, i64 %indvars.iv.i17.i, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i23.i.i = getelementptr inbounds nuw %"class.std::optional", ptr %550, i64 %indvars.iv.i17.i
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i23.i.i, i64 16
   %551 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8, !noalias !186
   %tobool.i.i.i.i.i = trunc i8 %551 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i20.i, label %for.inc.i.i
@@ -15767,9 +15769,10 @@ while.cond81:                                     ; preds = %while.cond81, %whil
 
 if.then.i77:                                      ; preds = %while.cond81
   %31 = load ptr, ptr %this, align 8
+  %add.ptr90 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %31, i64 %i.0
   %conv92 = zext nneg i8 %30 to i64
   %sub93 = add nsw i64 %conv92, -1
-  %rawItems_.i.i.i67 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %31, i64 %i.0, i32 3
+  %rawItems_.i.i.i67 = getelementptr inbounds nuw i8, ptr %add.ptr90, i64 16
   %arrayidx.i.i.i.i.i68 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i67, i64 %sub93
   %shr.i.i72 = lshr i64 %sub93, 1
   %cmp.i.i73 = icmp ult i8 %30, 17
@@ -39158,7 +39161,8 @@ for.body13.preheader:                             ; preds = %for.cond11.preheade
 
 for.body13:                                       ; preds = %for.body13.preheader, %_ZNSt10shared_ptrIvED2Ev.exit
   %indvars.iv = phi i64 [ %11, %for.body13.preheader ], [ %indvars.iv.next, %_ZNSt10shared_ptrIvED2Ev.exit ]
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::shared_ptr.329", ptr %4, i64 %indvars.iv, i32 0, i32 1
+  %arrayidx = getelementptr inbounds %"class.std::shared_ptr.329", ptr %4, i64 %indvars.iv
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %12 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIvED2Ev.exit, label %if.then.i.i.i
@@ -39462,7 +39466,8 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %_ZNSt10shared_ptrIvED2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt10shared_ptrIvED2Ev.exit ], [ 0, %if.end ]
-  %_M_refcount.i.i = getelementptr inbounds nuw %"class.std::shared_ptr.329", ptr %1, i64 %indvars.iv, i32 0, i32 1
+  %arrayidx = getelementptr inbounds nuw %"class.std::shared_ptr.329", ptr %1, i64 %indvars.iv
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIvED2Ev.exit, label %if.then.i.i.i
@@ -42647,7 +42652,8 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
 
 if.then25:                                        ; preds = %for.body17
   %11 = load ptr, ptr %columnData_, align 8
-  %_M_engaged.i.i.i = getelementptr inbounds %"class.std::optional", ptr %11, i64 %idx.233, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i20 = getelementptr inbounds %"class.std::optional", ptr %11, i64 %idx.233
+  %_M_engaged.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i20, i64 16
   %12 = load i8, ptr %_M_engaged.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %for.inc
@@ -45716,7 +45722,8 @@ entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
   %1 = load ptr, ptr %0, align 8
-  %_M_engaged.i.i = getelementptr inbounds %"class.std::optional", ptr %1, i64 %idx, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i = getelementptr inbounds %"class.std::optional", ptr %1, i64 %idx
+  %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %2 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i = trunc i8 %2 to i1
   %lnot = xor i1 %tobool.i.i, true
@@ -46743,7 +46750,8 @@ cond.false:                                       ; preds = %entry
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_, align 8
   %2 = load ptr, ptr %1, align 8
-  %_M_str.i = getelementptr inbounds %"class.std::optional", ptr %2, i64 %idx, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i = getelementptr inbounds %"class.std::optional", ptr %2, i64 %idx
+  %_M_str.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %3 = load ptr, ptr %_M_str.i, align 8
   %call4.val = load i64, ptr %3, align 8
   br label %cond.end

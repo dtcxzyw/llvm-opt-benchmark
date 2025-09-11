@@ -4418,13 +4418,13 @@ define dso_local noalias noundef ptr @getMemoryOverheadData() local_unnamed_addr
   %121 = tail call i64 @kvstoreMemUsage(ptr noundef %120) #17
   %122 = shl i64 %111, 4
   %123 = add i64 %121, %122
-  %124 = getelementptr inbounds nuw %struct.anon.0, ptr %118, i64 %115, i32 1
+  %124 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 %123, ptr %124, align 8, !tbaa !179
   %125 = add i64 %123, %.0109121
   %126 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %127 = load ptr, ptr %126, align 8, !tbaa !180
   %128 = tail call i64 @kvstoreMemUsage(ptr noundef %127) #17
-  %129 = getelementptr inbounds nuw %struct.anon.0, ptr %118, i64 %115, i32 2
+  %129 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store i64 %128, ptr %129, align 8, !tbaa !181
   %130 = add i64 %125, %128
   %131 = add i64 %115, 1
@@ -5359,11 +5359,11 @@ getLongLongFromObjectOrReply.exit.thread:         ; preds = %35
   call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef nonnull %4) #17
   call void @addReplyMapLen(ptr noundef nonnull %0, i64 noundef 2) #17
   call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef nonnull @.str.100) #17
-  %159 = getelementptr inbounds nuw %struct.anon.0, ptr %.pre, i64 %.0158181, i32 1
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %160 = load i64, ptr %159, align 8, !tbaa !179
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %160) #17
   call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef nonnull @.str.101) #17
-  %161 = getelementptr inbounds nuw %struct.anon.0, ptr %.pre, i64 %.0158181, i32 2
+  %161 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %162 = load i64, ptr %161, align 8, !tbaa !181
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %162) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

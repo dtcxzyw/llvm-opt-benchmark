@@ -76,8 +76,9 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN100_$LT$index
 
 34:                                               ; preds = %23
   %35 = load ptr, ptr %13, align 8, !alias.scope !4, !noalias !7, !nonnull !16, !noundef !16
-  %36 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %35, i64 %29, i32 1
-  ret ptr %36
+  %36 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %35, i64 %29
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  ret ptr %37
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -323,19 +324,20 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN8indexmap3map
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !129
   %29 = load i64, ptr %14, align 8, !noundef !16
   %30 = icmp ult i64 %28, %29
-  br i1 %30, label %31, label %34, !prof !44
+  br i1 %30, label %31, label %35, !prof !44
 
 31:                                               ; preds = %22
   %32 = load ptr, ptr %12, align 8, !nonnull !16, !noundef !16
-  %33 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %32, i64 %28, i32 1
+  %33 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %32, i64 %28
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h8f26345564270a96E.llvm.13994044477760586293.exit.thread"
 
-34:                                               ; preds = %22
+35:                                               ; preds = %22
   call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %28, i64 noundef %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.302fcb1e5dd85ace1084fdb313415a8e.6.llvm.13994044477760586293) #12
   unreachable
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h8f26345564270a96E.llvm.13994044477760586293.exit.thread": ; preds = %2, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h8f26345564270a96E.llvm.13994044477760586293.exit", %31
-  %.sroa.0.0 = phi ptr [ %33, %31 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h8f26345564270a96E.llvm.13994044477760586293.exit" ], [ null, %2 ]
+  %.sroa.0.0 = phi ptr [ %34, %31 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h8f26345564270a96E.llvm.13994044477760586293.exit" ], [ null, %2 ]
   ret ptr %.sroa.0.0
 }
 

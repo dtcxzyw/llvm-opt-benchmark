@@ -349,7 +349,8 @@ invoke.cont23:                                    ; preds = %invoke.cont15
   %18 = load ptr, ptr %descriptor_, align 8
   %values_.i24 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %19 = load ptr, ptr %values_.i24, align 8
-  %options_.i27 = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %19, i64 %indvars.iv, i32 5
+  %add.ptr.i26 = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %19, i64 %indvars.iv
+  %options_.i27 = getelementptr inbounds nuw i8, ptr %add.ptr.i26, i64 24
   %20 = load ptr, ptr %options_.i27, align 8
   %deprecated_.i.i28 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %21 = load i8, ptr %deprecated_.i.i28, align 8
@@ -412,7 +413,8 @@ lpad11.loopexit.split-lp:                         ; preds = %for.end
 
 invoke.cont30:                                    ; preds = %invoke.cont23, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit45
   %28 = phi ptr [ %19, %invoke.cont23 ], [ %.pre172, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit45 ]
-  %all_names_.i49 = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %28, i64 %indvars.iv, i32 3
+  %add.ptr.i48 = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %28, i64 %indvars.iv
+  %all_names_.i49 = getelementptr inbounds nuw i8, ptr %add.ptr.i48, i64 8
   %29 = load ptr, ptr %all_names_.i49, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %original_name, ptr noundef nonnull align 8 dereferenceable(32) %29)
           to label %invoke.cont43 unwind label %lpad11.loopexit
@@ -425,9 +427,10 @@ invoke.cont43:                                    ; preds = %invoke.cont30
   %32 = load ptr, ptr %descriptor_, align 8
   %values_.i51 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %33 = load ptr, ptr %values_.i51, align 8
+  %add.ptr.i53 = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %33, i64 %indvars.iv
   %34 = extractvalue { i64, ptr } %call40, 1
   %35 = extractvalue { i64, ptr } %call40, 0
-  %all_names_.i54 = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %33, i64 %indvars.iv, i32 3
+  %all_names_.i54 = getelementptr inbounds nuw i8, ptr %add.ptr.i53, i64 8
   %36 = load ptr, ptr %all_names_.i54, align 8
   %call47 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #24
   %37 = extractvalue { i64, ptr } %call47, 0
@@ -684,7 +687,8 @@ invoke.cont81:                                    ; preds = %if.then.i.i.i.i.i.i
   %64 = load ptr, ptr %descriptor_, align 8
   %values_.i64 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %65 = load ptr, ptr %values_.i64, align 8
-  %number_.i = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %65, i64 %indvars.iv, i32 2
+  %add.ptr.i66 = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %65, i64 %indvars.iv
+  %number_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i66, i64 4
   %66 = load i32, ptr %number_.i, align 4
   %67 = load ptr, ptr %used_number, align 8, !noalias !23
   call void @llvm.prefetch.p0(ptr %67, i32 0, i32 1, i32 1), !noalias !23

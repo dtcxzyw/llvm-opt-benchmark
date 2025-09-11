@@ -653,7 +653,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16PcpPropertyIndex16GetProper
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpPropertyIterator", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpPropertyIterator", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpPropertyIterator", align 8
-  br i1 %2, label %.preheader, label %42
+  br i1 %2, label %.preheader, label %44
 
 .preheader:                                       ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -662,80 +662,82 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16PcpPropertyIndex16GetProper
   %.not25 = icmp eq ptr %9, %10
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %14
-  %11 = phi ptr [ %.pre26.pre, %14 ], [ %10, %.preheader ]
-  %.015 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
-  %12 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Pcp_PropertyInfo", ptr %11, i64 %.015, i32 1
-  %13 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10IsRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+.lr.ph:                                           ; preds = %.preheader, %15
+  %11 = phi ptr [ %.pre26.pre, %15 ], [ %10, %.preheader ]
+  %.015 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
+  %12 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Pcp_PropertyInfo", ptr %11, i64 %.015
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10IsRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
   %.pre.pre = load ptr, ptr %8, align 8
   %.pre26.pre = load ptr, ptr %1, align 8
-  br i1 %13, label %._crit_edge, label %14
+  br i1 %14, label %._crit_edge, label %15
 
-14:                                               ; preds = %.lr.ph
-  %15 = add nuw i64 %.015, 1
-  %16 = ptrtoint ptr %.pre.pre to i64
-  %17 = ptrtoint ptr %.pre26.pre to i64
-  %18 = sub i64 %16, %17
-  %19 = sdiv exact i64 %18, 24
-  %20 = icmp ult i64 %15, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+15:                                               ; preds = %.lr.ph
+  %16 = add nuw i64 %.015, 1
+  %17 = ptrtoint ptr %.pre.pre to i64
+  %18 = ptrtoint ptr %.pre26.pre to i64
+  %19 = sub i64 %17, %18
+  %20 = sdiv exact i64 %19, 24
+  %21 = icmp ult i64 %16, %20
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %14, %.lr.ph, %.preheader
-  %21 = phi ptr [ %10, %.preheader ], [ %.pre26.pre, %.lr.ph ], [ %.pre26.pre, %14 ]
-  %22 = phi ptr [ %9, %.preheader ], [ %.pre.pre, %.lr.ph ], [ %.pre.pre, %14 ]
-  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %15, %14 ], [ %.015, %.lr.ph ]
-  %23 = ptrtoint ptr %22 to i64
-  %24 = ptrtoint ptr %21 to i64
-  %25 = sub i64 %23, %24
-  %26 = sdiv exact i64 %25, 24
-  %27 = icmp ult i64 %.0.lcssa, %26
-  br i1 %27, label %.lr.ph20, label %._crit_edge21
+._crit_edge:                                      ; preds = %15, %.lr.ph, %.preheader
+  %22 = phi ptr [ %10, %.preheader ], [ %.pre26.pre, %.lr.ph ], [ %.pre26.pre, %15 ]
+  %23 = phi ptr [ %9, %.preheader ], [ %.pre.pre, %.lr.ph ], [ %.pre.pre, %15 ]
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %16, %15 ], [ %.015, %.lr.ph ]
+  %24 = ptrtoint ptr %23 to i64
+  %25 = ptrtoint ptr %22 to i64
+  %26 = sub i64 %24, %25
+  %27 = sdiv exact i64 %26, 24
+  %28 = icmp ult i64 %.0.lcssa, %27
+  br i1 %28, label %.lr.ph20, label %._crit_edge21
 
-.lr.ph20:                                         ; preds = %._crit_edge, %31
-  %28 = phi ptr [ %34, %31 ], [ %21, %._crit_edge ]
-  %.01418 = phi i64 [ %32, %31 ], [ %.0.lcssa, %._crit_edge ]
-  %29 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Pcp_PropertyInfo", ptr %28, i64 %.01418, i32 1
-  %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10IsRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %29)
-  br i1 %30, label %31, label %._crit_edge21
+.lr.ph20:                                         ; preds = %._crit_edge, %33
+  %29 = phi ptr [ %36, %33 ], [ %22, %._crit_edge ]
+  %.01418 = phi i64 [ %34, %33 ], [ %.0.lcssa, %._crit_edge ]
+  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Pcp_PropertyInfo", ptr %29, i64 %.01418
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10IsRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
+  br i1 %32, label %33, label %._crit_edge21
 
-31:                                               ; preds = %.lr.ph20
-  %32 = add nuw i64 %.01418, 1
-  %33 = load ptr, ptr %8, align 8
-  %34 = load ptr, ptr %1, align 8
-  %35 = ptrtoint ptr %33 to i64
-  %36 = ptrtoint ptr %34 to i64
-  %37 = sub i64 %35, %36
-  %38 = sdiv exact i64 %37, 24
-  %39 = icmp ult i64 %32, %38
-  br i1 %39, label %.lr.ph20, label %._crit_edge21, !llvm.loop !13
+33:                                               ; preds = %.lr.ph20
+  %34 = add nuw i64 %.01418, 1
+  %35 = load ptr, ptr %8, align 8
+  %36 = load ptr, ptr %1, align 8
+  %37 = ptrtoint ptr %35 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = sdiv exact i64 %39, 24
+  %41 = icmp ult i64 %34, %40
+  br i1 %41, label %.lr.ph20, label %._crit_edge21, !llvm.loop !13
 
-._crit_edge21:                                    ; preds = %31, %.lr.ph20, %._crit_edge
-  %.014.lcssa = phi i64 [ %.0.lcssa, %._crit_edge ], [ %.01418, %.lr.ph20 ], [ %32, %31 ]
+._crit_edge21:                                    ; preds = %33, %.lr.ph20, %._crit_edge
+  %.014.lcssa = phi i64 [ %.0.lcssa, %._crit_edge ], [ %.01418, %.lr.ph20 ], [ %34, %33 ]
   %.not = icmp eq i64 %.0.lcssa, %.014.lcssa
-  %40 = select i1 %.not, i64 0, i64 %.0.lcssa
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__19PcpPropertyIteratorC1ERKNS_16PcpPropertyIndexEm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %40)
-  %41 = select i1 %.not, i64 0, i64 %.014.lcssa
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__19PcpPropertyIteratorC1ERKNS_16PcpPropertyIndexEm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %41)
-  br label %50
+  %42 = select i1 %.not, i64 0, i64 %.0.lcssa
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__19PcpPropertyIteratorC1ERKNS_16PcpPropertyIndexEm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %42)
+  %43 = select i1 %.not, i64 0, i64 %.014.lcssa
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__19PcpPropertyIteratorC1ERKNS_16PcpPropertyIndexEm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %43)
+  br label %52
 
-42:                                               ; preds = %3
+44:                                               ; preds = %3
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19PcpPropertyIteratorC1ERKNS_16PcpPropertyIndexEm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0)
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %1, align 8
-  %46 = ptrtoint ptr %44 to i64
-  %47 = ptrtoint ptr %45 to i64
-  %48 = sub i64 %46, %47
-  %49 = sdiv exact i64 %48, 24
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__19PcpPropertyIteratorC1ERKNS_16PcpPropertyIndexEm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %49)
-  br label %50
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %1, align 8
+  %48 = ptrtoint ptr %46 to i64
+  %49 = ptrtoint ptr %47 to i64
+  %50 = sub i64 %48, %49
+  %51 = sdiv exact i64 %50, 24
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__19PcpPropertyIteratorC1ERKNS_16PcpPropertyIndexEm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %51)
+  br label %52
 
-50:                                               ; preds = %42, %._crit_edge21
-  %.sink = phi ptr [ %6, %42 ], [ %4, %._crit_edge21 ]
-  %.sink32 = phi ptr [ %7, %42 ], [ %5, %._crit_edge21 ]
+52:                                               ; preds = %44, %._crit_edge21
+  %.sink = phi ptr [ %6, %44 ], [ %4, %._crit_edge21 ]
+  %.sink32 = phi ptr [ %7, %44 ], [ %5, %._crit_edge21 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 16, i1 false)
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %.sink32, i64 16, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %.sink32, i64 16, i1 false)
   ret void
 }
 
@@ -752,22 +754,23 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__16PcpPropertyIndex16Ge
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %5 = phi ptr [ %11, %.lr.ph ], [ %4, %1 ]
-  %.07 = phi i64 [ %9, %.lr.ph ], [ 0, %1 ]
+  %5 = phi ptr [ %12, %.lr.ph ], [ %4, %1 ]
+  %.07 = phi i64 [ %10, %.lr.ph ], [ 0, %1 ]
   %.056 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Pcp_PropertyInfo", ptr %5, i64 %.07, i32 1
-  %7 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10IsRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  %8 = zext i1 %7 to i64
-  %spec.select = add i64 %.056, %8
-  %9 = add nuw i64 %.07, 1
-  %10 = load ptr, ptr %2, align 8
-  %11 = load ptr, ptr %0, align 8
-  %12 = ptrtoint ptr %10 to i64
+  %6 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Pcp_PropertyInfo", ptr %5, i64 %.07
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10IsRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %9 = zext i1 %8 to i64
+  %spec.select = add i64 %.056, %9
+  %10 = add nuw i64 %.07, 1
+  %11 = load ptr, ptr %2, align 8
+  %12 = load ptr, ptr %0, align 8
   %13 = ptrtoint ptr %11 to i64
-  %14 = sub i64 %12, %13
-  %15 = sdiv exact i64 %14, 24
-  %16 = icmp ult i64 %9, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = sdiv exact i64 %15, 24
+  %17 = icmp ult i64 %10, %16
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.05.lcssa = phi i64 [ 0, %1 ], [ %spec.select, %.lr.ph ]

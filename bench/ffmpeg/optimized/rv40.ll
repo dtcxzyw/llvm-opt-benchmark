@@ -727,14 +727,14 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 564
   %70 = load i32, ptr %69, align 4, !tbaa !92
   %71 = icmp ugt i32 %.043.i, %70
-  br i1 %71, label %206, label %72
+  br i1 %71, label %207, label %72
 
 72:                                               ; preds = %get_interleaved_ue_golomb.exit, %1
   %73 = phi i32 [ %.043.i, %get_interleaved_ue_golomb.exit ], [ %13, %1 ]
   %74 = add nsw i32 %73, -1
   store i32 %74, ptr %12, align 4, !tbaa !90
   %.not60 = icmp eq i32 %74, 0
-  br i1 %.not60, label %75, label %206
+  br i1 %.not60, label %75, label %207
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 6680
@@ -890,7 +890,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %171 = tail call i32 @llvm.umin.i32(i32 %147, i32 %170)
   store i32 %171, ptr %144, align 8, !tbaa !63
   %172 = icmp slt i16 %165, 255
-  br i1 %172, label %206, label %.sink.split
+  br i1 %172, label %207, label %.sink.split
 
 173:                                              ; preds = %139
   %174 = getelementptr inbounds i8, ptr @block_num_to_btype_vlc_num, i64 %143
@@ -910,34 +910,35 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   %188 = tail call i32 @llvm.umin.i32(i32 %147, i32 %187)
   store i32 %188, ptr %144, align 8, !tbaa !63
   %189 = icmp slt i16 %182, 255
-  br i1 %189, label %206, label %.sink.split
+  br i1 %189, label %207, label %.sink.split
 
 .sink.split:                                      ; preds = %173, %156
-  %.sink110 = phi i32 [ %171, %156 ], [ %188, %173 ]
-  %.sink102 = phi i32 [ 25, %156 ], [ 26, %173 ]
-  %.sink98 = phi ptr [ %161, %156 ], [ %178, %173 ]
+  %.sink111 = phi i32 [ %171, %156 ], [ %188, %173 ]
+  %.sink103 = phi i32 [ 25, %156 ], [ 26, %173 ]
+  %.sink99 = phi ptr [ %161, %156 ], [ %178, %173 ]
   %.str.2.sink = phi ptr [ @.str.2, %156 ], [ @.str.3, %173 ]
-  %190 = lshr i32 %.sink110, 3
+  %190 = lshr i32 %.sink111, 3
   %191 = zext nneg i32 %190 to i64
   %192 = getelementptr inbounds nuw i8, ptr %148, i64 %191
   %193 = load i32, ptr %192, align 1, !tbaa !65
   %194 = tail call i32 @llvm.bswap.i32(i32 %193)
-  %195 = and i32 %.sink110, 7
+  %195 = and i32 %.sink111, 7
   %196 = shl i32 %194, %195
-  %197 = lshr i32 %196, %.sink102
+  %197 = lshr i32 %196, %.sink103
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw %struct.VLCElem, ptr %.sink98, i64 %198, i32 0, i32 0, i32 1
-  %200 = load i16, ptr %199, align 2, !tbaa !65
-  %201 = sext i16 %200 to i32
-  %202 = add i32 %.sink110, %201
-  %203 = tail call i32 @llvm.umin.i32(i32 %147, i32 %202)
-  store i32 %203, ptr %144, align 8, !tbaa !63
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %205 = load ptr, ptr %204, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %205, i32 noundef 16, ptr noundef nonnull %.str.2.sink) #8
-  br label %206
+  %199 = getelementptr inbounds nuw %struct.VLCElem, ptr %.sink99, i64 %198
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 2
+  %201 = load i16, ptr %200, align 2, !tbaa !65
+  %202 = sext i16 %201 to i32
+  %203 = add i32 %.sink111, %202
+  %204 = tail call i32 @llvm.umin.i32(i32 %147, i32 %203)
+  store i32 %204, ptr %144, align 8, !tbaa !63
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %206 = load ptr, ptr %205, align 8, !tbaa !96
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %206, i32 noundef 16, ptr noundef nonnull %.str.2.sink) #8
+  br label %207
 
-206:                                              ; preds = %.sink.split, %173, %156, %72, %get_interleaved_ue_golomb.exit
+207:                                              ; preds = %.sink.split, %173, %156, %72, %get_interleaved_ue_golomb.exit
   %.053 = phi i32 [ -1, %get_interleaved_ue_golomb.exit ], [ 6, %72 ], [ %166, %156 ], [ %183, %173 ], [ 0, %.sink.split ]
   ret i32 %.053
 }

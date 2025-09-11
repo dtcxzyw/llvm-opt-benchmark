@@ -228,7 +228,8 @@ define dso_local void @hsw_prepare_dp_ddi_buffers(ptr noundef %0, ptr noundef %1
   call void %58(ptr noundef nonnull %47, i32 %53, i32 noundef %57, i1 noundef zeroext true) #14
   %59 = or disjoint i32 %53, 4
   %60 = load ptr, ptr %9, align 8
-  %61 = getelementptr %union.intel_ddi_buf_trans_entry, ptr %60, i64 %50, i32 0, i32 1
+  %.split = getelementptr %union.intel_ddi_buf_trans_entry, ptr %60, i64 %50
+  %61 = getelementptr i8, ptr %.split, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = load ptr, ptr %48, align 8
   call void %63(ptr noundef nonnull %47, i32 %59, i32 noundef %62, i1 noundef zeroext true) #14
@@ -2452,7 +2453,8 @@ define dso_local void @intel_ddi_update_active_dpll(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %13 = load i32, ptr %12, align 4
@@ -5290,7 +5292,8 @@ define internal noundef i32 @intel_ddi_compute_config_late(ptr noundef readonly 
   %79 = getelementptr inbounds nuw i8, ptr %65, i64 144
   %80 = load i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
-  %82 = getelementptr %struct.__drm_crtcs_state, ptr %78, i64 %81, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %78, i64 %81
+  %82 = getelementptr i8, ptr %.split, i64 24
   %83 = load ptr, ptr %82, align 8
   %84 = load i8, ptr %48, align 8, !range !37, !noundef !38
   %85 = icmp eq i8 %84, 0
@@ -5448,10 +5451,10 @@ define internal void @intel_enable_ddi(ptr noundef %0, ptr noundef %1, ptr nound
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 2632
   %34 = load i16, ptr %33, align 8
   %35 = icmp ugt i16 %34, 10
-  br i1 %35, label %36, label %._crit_edge17
+  br i1 %35, label %36, label %._crit_edge18
 
-._crit_edge17:                                    ; preds = %27
-  %.pre18 = sext i32 %31 to i64
+._crit_edge18:                                    ; preds = %27
+  %.pre19 = sext i32 %31 to i64
   br label %62
 
 36:                                               ; preds = %27
@@ -5487,8 +5490,8 @@ define internal void @intel_enable_ddi(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void %61(ptr noundef nonnull %59, i32 %58, i32 noundef %47, i1 noundef zeroext true) #14
   br label %62
 
-62:                                               ; preds = %._crit_edge17, %46
-  %.pre-phi = phi i64 [ %.pre18, %._crit_edge17 ], [ %50, %46 ]
+62:                                               ; preds = %._crit_edge18, %46
+  %.pre-phi = phi i64 [ %.pre19, %._crit_edge18 ], [ %50, %46 ]
   %63 = load ptr, ptr %32, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %65 = getelementptr i32, ptr %64, i64 %.pre-phi
@@ -5663,7 +5666,8 @@ define internal void @intel_enable_ddi(ptr noundef %0, ptr noundef %1, ptr nound
   call void %172(ptr noundef nonnull %170, i32 %164, i32 noundef %169, i1 noundef zeroext true) #14
   %173 = add i32 %163, 413260
   %174 = load ptr, ptr %130, align 8
-  %175 = getelementptr %union.intel_ddi_buf_trans_entry, ptr %174, i64 %166, i32 0, i32 1
+  %.split = getelementptr %union.intel_ddi_buf_trans_entry, ptr %174, i64 %166
+  %175 = getelementptr i8, ptr %.split, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = load ptr, ptr %171, align 8
   call void %177(ptr noundef nonnull %170, i32 %173, i32 noundef %176, i1 noundef zeroext true) #14
@@ -5680,9 +5684,9 @@ thread-pre-split:                                 ; preds = %178, %115
   br i1 %180, label %181, label %thread-pre-split.thread
 
 181:                                              ; preds = %thread-pre-split
-  %.val10 = load ptr, ptr %1, align 8
-  %.val11 = load i32, ptr %94, align 4
-  call fastcc void @mtl_ddi_enable_d2d(ptr %.val10, i32 %.val11)
+  %.val11 = load ptr, ptr %1, align 8
+  %.val12 = load i32, ptr %94, align 4
+  call fastcc void @mtl_ddi_enable_d2d(ptr %.val11, i32 %.val12)
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %119, %181, %thread-pre-split
@@ -5914,10 +5918,10 @@ thread-pre-split.thread:                          ; preds = %119, %181, %thread-
     i32 7, label %316
     i32 8, label %316
     i32 6, label %316
-    i32 11, label %.thread12
+    i32 11, label %.thread13
   ]
 
-.thread12:                                        ; preds = %312
+.thread13:                                        ; preds = %312
   %313 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %314 = load ptr, ptr %313, align 8
   br label %319
@@ -5937,15 +5941,15 @@ thread-pre-split.thread:                          ; preds = %119, %181, %thread-
 
 ._crit_edge:                                      ; preds = %316
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 392
-  %.pre15 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre16 = load ptr, ptr %.phi.trans.insert, align 8
   br label %319
 
 318:                                              ; preds = %316
   br label %319
 
-319:                                              ; preds = %.thread12, %._crit_edge, %318, %316, %316, %316, %316
-  %.pn = phi ptr [ %317, %316 ], [ %317, %316 ], [ %317, %316 ], [ %317, %316 ], [ %317, %318 ], [ %314, %.thread12 ], [ %317, %._crit_edge ]
-  %320 = phi ptr [ %1, %316 ], [ %1, %316 ], [ %1, %316 ], [ %1, %316 ], [ null, %318 ], [ %314, %.thread12 ], [ %.pre15, %._crit_edge ]
+319:                                              ; preds = %.thread13, %._crit_edge, %318, %316, %316, %316, %316
+  %.pn = phi ptr [ %317, %316 ], [ %317, %316 ], [ %317, %316 ], [ %317, %316 ], [ %317, %318 ], [ %314, %.thread13 ], [ %317, %._crit_edge ]
+  %320 = phi ptr [ %1, %316 ], [ %1, %316 ], [ %1, %316 ], [ %1, %316 ], [ null, %318 ], [ %314, %.thread13 ], [ %.pre16, %._crit_edge ]
   %321 = getelementptr inbounds nuw i8, ptr %.pn, i64 392
   %322 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %323 = load i32, ptr %322, align 4
@@ -6021,7 +6025,8 @@ thread-pre-split.thread:                          ; preds = %119, %181, %thread-
   %367 = getelementptr inbounds nuw i8, ptr %363, i64 144
   %368 = load i32, ptr %367, align 8
   %369 = zext i32 %368 to i64
-  %370 = getelementptr %struct.__drm_crtcs_state, ptr %366, i64 %369, i32 3
+  %.split10 = getelementptr %struct.__drm_crtcs_state, ptr %366, i64 %369
+  %370 = getelementptr i8, ptr %.split10, i64 24
   %371 = load ptr, ptr %370, align 8
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 4908
   %373 = load i32, ptr %372, align 4
@@ -6052,11 +6057,11 @@ thread-pre-split.thread:                          ; preds = %119, %181, %thread-
   %384 = phi ptr [ %381, %379 ], [ %361, %376 ], [ %361, %376 ], [ %361, %376 ], [ %361, %376 ], [ null, %382 ]
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 392
   tail call void @intel_dp_stop_link_train(ptr noundef nonnull %385, ptr noundef %371) #14
-  %.pre16 = load i32, ptr %343, align 8
+  %.pre17 = load i32, ptr %343, align 8
   br label %386
 
 386:                                              ; preds = %383, %365, %357, %350
-  %387 = phi i32 [ %.pre16, %383 ], [ %351, %365 ], [ %351, %357 ], [ %351, %350 ]
+  %387 = phi i32 [ %.pre17, %383 ], [ %351, %365 ], [ %351, %357 ], [ %351, %350 ]
   %388 = add nuw nsw i64 %352, 1
   %389 = sext i32 %387 to i64
   %390 = icmp slt i64 %388, %389
@@ -7886,7 +7891,8 @@ define internal void @intel_ddi_post_disable(ptr noundef readonly captures(none)
   %35 = getelementptr i8, ptr %24, i64 128
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr %struct.__drm_crtcs_state, ptr %34, i64 %37, i32 2
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %34, i64 %37
+  %38 = getelementptr i8, ptr %.split, i64 16
   %39 = load ptr, ptr %38, align 8
   tail call void @intel_crtc_vblank_off(ptr noundef %39) #14
   tail call void @intel_dsc_disable(ptr noundef %39) #14
@@ -10685,7 +10691,8 @@ define internal void @hsw_set_signal_levels(ptr noundef %0, ptr noundef %1) #0 a
 67:                                               ; preds = %66
   %68 = load ptr, ptr %51, align 8
   %69 = sext i32 %13 to i64
-  %70 = getelementptr %union.intel_ddi_buf_trans_entry, ptr %68, i64 %69, i32 0, i32 2
+  %.split = getelementptr %union.intel_ddi_buf_trans_entry, ptr %68, i64 %69
+  %70 = getelementptr i8, ptr %.split, i64 8
   %71 = load i8, ptr %70, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %72

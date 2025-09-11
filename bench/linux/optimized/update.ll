@@ -3949,34 +3949,34 @@ define dso_local void @__wait_rcu_gp(i1 noundef zeroext %0, i32 noundef %1, ptr 
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %1 to i64
-  br i1 %0, label %.split.us, label %.split
+  br i1 %0, label %.split9.us, label %.split9
 
-.split.us:                                        ; preds = %6, %27
+.split9.us:                                       ; preds = %6, %27
   %8 = phi i64 [ %28, %27 ], [ 0, %6 ]
   %9 = getelementptr ptr, ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, @call_rcu
   br i1 %11, label %25, label %12
 
-12:                                               ; preds = %.split.us
+12:                                               ; preds = %.split9.us
   %13 = icmp eq i64 %8, 0
-  br i1 %13, label %.loopexit7.us.thread, label %.preheader42
+  br i1 %13, label %.loopexit7.us.thread, label %.preheader43
 
-.preheader42:                                     ; preds = %12, %17
-  %indvars.iv16 = phi i64 [ %indvars.iv.next17, %17 ], [ 0, %12 ]
-  %14 = getelementptr ptr, ptr %2, i64 %indvars.iv16
+.preheader43:                                     ; preds = %12, %17
+  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %17 ], [ 0, %12 ]
+  %14 = getelementptr ptr, ptr %2, i64 %indvars.iv17
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %10
   br i1 %16, label %.loopexit7.us, label %17
 
-17:                                               ; preds = %.preheader42
-  %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
-  %18 = icmp eq i64 %8, %indvars.iv.next17
-  br i1 %18, label %.loopexit7.us, label %.preheader42, !llvm.loop !57
+17:                                               ; preds = %.preheader43
+  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
+  %18 = icmp eq i64 %8, %indvars.iv.next18
+  br i1 %18, label %.loopexit7.us, label %.preheader43, !llvm.loop !57
 
-.loopexit7.us:                                    ; preds = %.preheader42, %17
-  %.ph12.in = phi i64 [ %8, %17 ], [ %indvars.iv16, %.preheader42 ]
-  %19 = and i64 %.ph12.in, 4294967295
+.loopexit7.us:                                    ; preds = %.preheader43, %17
+  %.ph13.in = phi i64 [ %8, %17 ], [ %indvars.iv17, %.preheader43 ]
+  %19 = and i64 %.ph13.in, 4294967295
   %20 = icmp eq i64 %8, %19
   br i1 %20, label %.loopexit7.us.thread, label %27
 
@@ -3990,21 +3990,21 @@ define dso_local void @__wait_rcu_gp(i1 noundef zeroext %0, i32 noundef %1, ptr 
   tail call void %24(ptr noundef %21, ptr noundef nonnull @wakeme_after_rcu) #16
   br label %27
 
-25:                                               ; preds = %.split.us
+25:                                               ; preds = %.split9.us
   %26 = tail call i32 @__SCT__might_resched() #16
   br label %27
 
 27:                                               ; preds = %25, %.loopexit7.us.thread, %.loopexit7.us
   %28 = add nuw nsw i64 %8, 1
   %29 = icmp eq i64 %28, %7
-  br i1 %29, label %.preheader, label %.split.us, !llvm.loop !58
+  br i1 %29, label %.preheader, label %.split9.us, !llvm.loop !58
 
-.split:                                           ; preds = %6, %48
+.split9:                                          ; preds = %6, %48
   %30 = phi i64 [ %49, %48 ], [ 0, %6 ]
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %.loopexit7.thread, label %32
 
-32:                                               ; preds = %.split
+32:                                               ; preds = %.split9
   %33 = getelementptr ptr, ptr %2, i64 %30
   %34 = load ptr, ptr %33, align 8
   br label %35
@@ -4022,12 +4022,12 @@ define dso_local void @__wait_rcu_gp(i1 noundef zeroext %0, i32 noundef %1, ptr 
   br i1 %40, label %.loopexit7, label %35, !llvm.loop !57
 
 .loopexit7:                                       ; preds = %39, %35
-  %.ph13.in = phi i64 [ %30, %39 ], [ %indvars.iv, %35 ]
-  %41 = and i64 %.ph13.in, 4294967295
+  %.ph14.in = phi i64 [ %30, %39 ], [ %indvars.iv, %35 ]
+  %41 = and i64 %.ph14.in, 4294967295
   %42 = icmp eq i64 %30, %41
   br i1 %42, label %.loopexit7.thread, label %48
 
-.loopexit7.thread:                                ; preds = %.split, %.loopexit7
+.loopexit7.thread:                                ; preds = %.split9, %.loopexit7
   %43 = getelementptr %struct.rcu_synchronize, ptr %3, i64 %30
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i32 0, ptr %44, align 8
@@ -4041,87 +4041,89 @@ define dso_local void @__wait_rcu_gp(i1 noundef zeroext %0, i32 noundef %1, ptr 
 48:                                               ; preds = %.loopexit7.thread, %.loopexit7
   %49 = add nuw nsw i64 %30, 1
   %50 = icmp eq i64 %49, %7
-  br i1 %50, label %.preheader, label %.split, !llvm.loop !58
+  br i1 %50, label %.preheader, label %.split9, !llvm.loop !58
 
 .preheader:                                       ; preds = %48, %27
-  br i1 %0, label %.preheader.split9.us, label %.preheader.split9
+  br i1 %0, label %.preheader.split10.us, label %.preheader.split10
 
-.preheader.split9.us:                             ; preds = %.preheader, %65
+.preheader.split10.us:                            ; preds = %.preheader, %65
   %51 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
   %52 = getelementptr ptr, ptr %2, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, @call_rcu
   br i1 %54, label %65, label %55
 
-55:                                               ; preds = %.preheader.split9.us
+55:                                               ; preds = %.preheader.split10.us
   %56 = icmp eq i64 %51, 0
-  br i1 %56, label %.loopexit.us.thread, label %.preheader40
+  br i1 %56, label %.loopexit.us.thread, label %.preheader41
 
-.preheader40:                                     ; preds = %55, %60
-  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %60 ], [ 0, %55 ]
-  %57 = getelementptr ptr, ptr %2, i64 %indvars.iv22
+.preheader41:                                     ; preds = %55, %60
+  %indvars.iv23 = phi i64 [ %indvars.iv.next24, %60 ], [ 0, %55 ]
+  %57 = getelementptr ptr, ptr %2, i64 %indvars.iv23
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %53
   br i1 %59, label %.loopexit.us, label %60
 
-60:                                               ; preds = %.preheader40
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %61 = icmp eq i64 %51, %indvars.iv.next23
-  br i1 %61, label %.loopexit.us, label %.preheader40, !llvm.loop !59
+60:                                               ; preds = %.preheader41
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %61 = icmp eq i64 %51, %indvars.iv.next24
+  br i1 %61, label %.loopexit.us, label %.preheader41, !llvm.loop !59
 
-.loopexit.us:                                     ; preds = %.preheader40, %60
-  %.ph.in = phi i64 [ %51, %60 ], [ %indvars.iv22, %.preheader40 ]
+.loopexit.us:                                     ; preds = %.preheader41, %60
+  %.ph.in = phi i64 [ %51, %60 ], [ %indvars.iv23, %.preheader41 ]
   %62 = and i64 %.ph.in, 4294967295
   %63 = icmp eq i64 %51, %62
   br i1 %63, label %.loopexit.us.thread, label %65
 
 .loopexit.us.thread:                              ; preds = %55, %.loopexit.us
-  %64 = getelementptr %struct.rcu_synchronize, ptr %3, i64 %51, i32 1
+  %.split.us = getelementptr %struct.rcu_synchronize, ptr %3, i64 %51
+  %64 = getelementptr i8, ptr %.split.us, i64 16
   tail call void @wait_for_completion(ptr noundef %64) #16
   br label %65
 
-65:                                               ; preds = %.loopexit.us.thread, %.loopexit.us, %.preheader.split9.us
+65:                                               ; preds = %.loopexit.us.thread, %.loopexit.us, %.preheader.split10.us
   %66 = add nuw nsw i64 %51, 1
   %67 = icmp eq i64 %66, %7
-  br i1 %67, label %.critedge, label %.preheader.split9.us, !llvm.loop !60
+  br i1 %67, label %.critedge, label %.preheader.split10.us, !llvm.loop !60
 
-.preheader.split9:                                ; preds = %.preheader, %82
+.preheader.split10:                               ; preds = %.preheader, %82
   %68 = phi i64 [ %83, %82 ], [ 0, %.preheader ]
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %.loopexit.thread, label %70
 
-70:                                               ; preds = %.preheader.split9
+70:                                               ; preds = %.preheader.split10
   %71 = getelementptr ptr, ptr %2, i64 %68
   %72 = load ptr, ptr %71, align 8
   br label %73
 
 73:                                               ; preds = %77, %70
-  %indvars.iv19 = phi i64 [ %indvars.iv.next20, %77 ], [ 0, %70 ]
-  %74 = getelementptr ptr, ptr %2, i64 %indvars.iv19
+  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %77 ], [ 0, %70 ]
+  %74 = getelementptr ptr, ptr %2, i64 %indvars.iv20
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, %72
   br i1 %76, label %.loopexit, label %77
 
 77:                                               ; preds = %73
-  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %78 = icmp eq i64 %68, %indvars.iv.next20
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
+  %78 = icmp eq i64 %68, %indvars.iv.next21
   br i1 %78, label %.loopexit, label %73, !llvm.loop !59
 
 .loopexit:                                        ; preds = %77, %73
-  %.ph10.in = phi i64 [ %68, %77 ], [ %indvars.iv19, %73 ]
-  %79 = and i64 %.ph10.in, 4294967295
+  %.ph11.in = phi i64 [ %68, %77 ], [ %indvars.iv20, %73 ]
+  %79 = and i64 %.ph11.in, 4294967295
   %80 = icmp eq i64 %68, %79
   br i1 %80, label %.loopexit.thread, label %82
 
-.loopexit.thread:                                 ; preds = %.preheader.split9, %.loopexit
-  %81 = getelementptr %struct.rcu_synchronize, ptr %3, i64 %68, i32 1
+.loopexit.thread:                                 ; preds = %.preheader.split10, %.loopexit
+  %.split = getelementptr %struct.rcu_synchronize, ptr %3, i64 %68
+  %81 = getelementptr i8, ptr %.split, i64 16
   tail call void @wait_for_completion(ptr noundef %81) #16
   br label %82
 
 82:                                               ; preds = %.loopexit.thread, %.loopexit
   %83 = add nuw nsw i64 %68, 1
   %84 = icmp eq i64 %83, %7
-  br i1 %84, label %.critedge, label %.preheader.split9, !llvm.loop !60
+  br i1 %84, label %.critedge, label %.preheader.split10, !llvm.loop !60
 
 .critedge:                                        ; preds = %82, %65, %4
   ret void

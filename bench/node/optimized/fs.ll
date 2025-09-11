@@ -456,12 +456,12 @@ if.then79.i:                                      ; preds = %if.end75.i
 
 if.end83.i:                                       ; preds = %if.end75.i, %if.end63.i
   %33 = load i64, ptr %st_size84.i, align 8
-  %cond508 = icmp eq i64 %33, 0
-  br i1 %cond508, label %out.i.thread, label %if.end90.i
+  %cond511 = icmp eq i64 %33, 0
+  br i1 %cond511, label %out.i.thread, label %if.end90.i
 
 if.end90.i:                                       ; preds = %if.end83.i, %if.end97.i
-  %in_offset.0.i510 = phi i64 [ %add.i, %if.end97.i ], [ 0, %if.end83.i ]
-  %bytes_to_send.0.i509 = phi i64 [ %sub98.i, %if.end97.i ], [ %33, %if.end83.i ]
+  %in_offset.0.i513 = phi i64 [ %add.i, %if.end97.i ], [ 0, %if.end83.i ]
+  %bytes_to_send.0.i512 = phi i64 [ %sub98.i, %if.end97.i ], [ %33, %if.end83.i ]
   store i32 6, ptr %type.i414, align 8
   store i32 5, ptr %fs_type.i415, align 8
   store ptr null, ptr %new_path.i420, align 8
@@ -469,8 +469,8 @@ if.end90.i:                                       ; preds = %if.end83.i, %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %loop2.i418, i8 0, i64 40, i1 false)
   store i32 %conv.i426, ptr %flags17.i423, align 4
   store i32 %conv.i410, ptr %file.i396, align 8
-  store i64 %in_offset.0.i510, ptr %off5.i, align 8
-  store i64 %bytes_to_send.0.i509, ptr %len6.i, align 8
+  store i64 %in_offset.0.i513, ptr %off5.i, align 8
+  store i64 %bytes_to_send.0.i512, ptr %len6.i, align 8
   call void @uv__fs_work(ptr noundef nonnull %work_req31.i425)
   %34 = load i64, ptr %result.i416, align 8
   call void @uv_fs_req_cleanup(ptr noundef nonnull %fs_req.i)
@@ -482,8 +482,8 @@ if.then95.i:                                      ; preds = %if.end90.i
   br label %out.i
 
 if.end97.i:                                       ; preds = %if.end90.i
-  %sub98.i = sub nsw i64 %bytes_to_send.0.i509, %34
-  %add.i = add nuw nsw i64 %34, %in_offset.0.i510
+  %sub98.i = sub nsw i64 %bytes_to_send.0.i512, %34
+  %add.i = add nuw nsw i64 %34, %in_offset.0.i513
   %cond = icmp eq i64 %sub98.i, 0
   br i1 %cond, label %out.i.thread, label %if.end90.i
 
@@ -1729,14 +1729,14 @@ sw.bb119:                                         ; preds = %do.body
   %call.i353 = call i32 @uv__getiovmax() #15
   %203 = load i32, ptr %nbufs1.i, align 4
   %204 = load ptr, ptr %bufs2.i354, align 8
-  %cmp.not44.i = icmp eq i32 %203, 0
-  br i1 %cmp.not44.i, label %while.end.i, label %while.body.i356
+  %cmp.not47.i = icmp eq i32 %203, 0
+  br i1 %cmp.not47.i, label %while.end.i, label %while.body.i356
 
 while.body.i356:                                  ; preds = %sw.bb119, %uv__fs_buf_offset.exit.i
   %205 = phi ptr [ %add.ptr.i370, %uv__fs_buf_offset.exit.i ], [ %204, %sw.bb119 ]
-  %nbufs.046.i = phi i32 [ %sub.i371, %uv__fs_buf_offset.exit.i ], [ %203, %sw.bb119 ]
-  %total.045.i = phi i64 [ %add27.i, %uv__fs_buf_offset.exit.i ], [ 0, %sw.bb119 ]
-  %spec.select.i357 = call i32 @llvm.umin.i32(i32 %nbufs.046.i, i32 %call.i353)
+  %nbufs.049.i = phi i32 [ %sub.i371, %uv__fs_buf_offset.exit.i ], [ %203, %sw.bb119 ]
+  %total.048.i = phi i64 [ %add27.i, %uv__fs_buf_offset.exit.i ], [ 0, %sw.bb119 ]
+  %spec.select.i357 = call i32 @llvm.umin.i32(i32 %nbufs.049.i, i32 %call.i353)
   store i32 %spec.select.i357, ptr %nbufs1.i, align 4
   br label %do.body.i
 
@@ -1803,8 +1803,8 @@ do.end.i:                                         ; preds = %uv__fs_write.exit.i
 
 if.then12.i359:                                   ; preds = %do.end.i, %land.rhs.i375, %if.else14.i.i, %if.then.i.i378
   %r.0.i3235.i = phi i64 [ %r.0.i.i, %land.rhs.i375 ], [ 0, %if.then.i.i378 ], [ 0, %if.else14.i.i ], [ 0, %do.end.i ]
-  %cmp13.i360 = icmp eq i64 %total.045.i, 0
-  %spec.select28.i = select i1 %cmp13.i360, i64 %r.0.i3235.i, i64 %total.045.i
+  %cmp13.i360 = icmp eq i64 %total.048.i, 0
+  %spec.select28.i = select i1 %cmp13.i360, i64 %r.0.i3235.i, i64 %total.048.i
   br label %while.end.i
 
 if.end16.i365:                                    ; preds = %do.end.i
@@ -1822,40 +1822,40 @@ if.end20.i366:                                    ; preds = %if.then18.i373, %if
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body.i.i, %if.end20.i366
-  %offset.018.i.i = phi i64 [ 0, %if.end20.i366 ], [ %inc.i.i, %for.body.i.i ]
-  %size.addr.017.i.i = phi i64 [ %r.0.i.i, %if.end20.i366 ], [ %sub.i.i367, %for.body.i.i ]
-  %len.i.i = getelementptr inbounds %struct.uv_buf_t, ptr %216, i64 %offset.018.i.i, i32 1
+  %offset.019.i.i = phi i64 [ 0, %if.end20.i366 ], [ %inc.i.i, %for.body.i.i ]
+  %size.addr.018.i.i = phi i64 [ %r.0.i.i, %if.end20.i366 ], [ %sub.i.i367, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds %struct.uv_buf_t, ptr %216, i64 %offset.019.i.i
+  %len.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %217 = load i64, ptr %len.i.i, align 8
-  %cmp1.not.i.i = icmp ugt i64 %217, %size.addr.017.i.i
+  %cmp1.not.i.i = icmp ugt i64 %217, %size.addr.018.i.i
   br i1 %cmp1.not.i.i, label %if.then.i29.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
-  %sub.i.i367 = sub nuw nsw i64 %size.addr.017.i.i, %217
-  %inc.i.i = add i64 %offset.018.i.i, 1
+  %sub.i.i367 = sub nuw nsw i64 %size.addr.018.i.i, %217
+  %inc.i.i = add i64 %offset.019.i.i, 1
   %cmp.not.i.i368 = icmp eq i64 %sub.i.i367, 0
   br i1 %cmp.not.i.i368, label %uv__fs_buf_offset.exit.i, label %land.rhs.i.i
 
 if.then.i29.i:                                    ; preds = %land.rhs.i.i
-  %arrayidx5.i.i = getelementptr inbounds %struct.uv_buf_t, ptr %216, i64 %offset.018.i.i
-  %218 = load ptr, ptr %arrayidx5.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %218, i64 %size.addr.017.i.i
-  store ptr %add.ptr.i.i, ptr %arrayidx5.i.i, align 8
-  %len7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i.i, i64 8
-  %sub8.i.i = sub nuw i64 %217, %size.addr.017.i.i
-  store i64 %sub8.i.i, ptr %len7.i.i, align 8
-  %.pre54.i = load ptr, ptr %bufs2.i354, align 8
+  %len.i.i.le = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
+  %218 = load ptr, ptr %arrayidx.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %218, i64 %size.addr.018.i.i
+  store ptr %add.ptr.i.i, ptr %arrayidx.i.i, align 8
+  %sub8.i.i = sub nuw i64 %217, %size.addr.018.i.i
+  store i64 %sub8.i.i, ptr %len.i.i.le, align 8
+  %.pre58.i = load ptr, ptr %bufs2.i354, align 8
   br label %uv__fs_buf_offset.exit.i
 
 uv__fs_buf_offset.exit.i:                         ; preds = %for.body.i.i, %if.then.i29.i
-  %219 = phi ptr [ %.pre54.i, %if.then.i29.i ], [ %216, %for.body.i.i ]
-  %offset.015.i.i = phi i64 [ %offset.018.i.i, %if.then.i29.i ], [ %inc.i.i, %for.body.i.i ]
+  %219 = phi ptr [ %.pre58.i, %if.then.i29.i ], [ %216, %for.body.i.i ]
+  %offset.015.i.i = phi i64 [ %offset.019.i.i, %if.then.i29.i ], [ %inc.i.i, %for.body.i.i ]
   %conv.i369 = trunc i64 %offset.015.i.i to i32
   store i32 %conv.i369, ptr %nbufs1.i, align 4
   %idx.ext.i = and i64 %offset.015.i.i, 4294967295
   %add.ptr.i370 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %219, i64 %idx.ext.i
   store ptr %add.ptr.i370, ptr %bufs2.i354, align 8
-  %sub.i371 = sub i32 %nbufs.046.i, %conv.i369
-  %add27.i = add nuw nsw i64 %r.0.i.i, %total.045.i
+  %sub.i371 = sub i32 %nbufs.049.i, %conv.i369
+  %add27.i = add nuw nsw i64 %r.0.i.i, %total.048.i
   %cmp.not.i372 = icmp eq i32 %sub.i371, 0
   br i1 %cmp.not.i372, label %while.end.i, label %while.body.i356
 

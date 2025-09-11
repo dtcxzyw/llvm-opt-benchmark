@@ -498,10 +498,11 @@ if.then.i190:                                     ; preds = %for.body37
   store i32 %17, ptr %incdec.ptr.i, align 4
   %add.ptr39.idx = shl nuw nsw i64 %idx.ext38, 2
   %sub.ptr.sub.i.i = add nsw i64 %add.ptr39.idx, -4
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i, -1
-  %div.i.i.i = sdiv i64 %sub.i.i.i, 2
-  %cmp24.i.i.i = icmp sgt i64 %sub.ptr.div.i.i, 2
+  %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 2
+  %div.i.i.i1263.lhs.trunc = add nuw nsw i64 %sub.ptr.div.i.i, 4294967295
+  %div.i.i.i126312641267 = lshr i64 %div.i.i.i1263.lhs.trunc, 1
+  %div.i.i.i1263.zext = and i64 %div.i.i.i126312641267, 2147483647
+  %cmp24.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 8
   br i1 %cmp24.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then.i190, %while.body.i.i.i
@@ -520,7 +521,7 @@ while.body.i.i.i:                                 ; preds = %if.then.i190, %whil
   %21 = load i32, ptr %add.ptr3.i.i.i196, align 4
   %add.ptr4.i.i.i197 = getelementptr inbounds i32, ptr %call6, i64 %__secondChild.025.i.i.i
   store i32 %21, ptr %add.ptr4.i.i.i197, align 4
-  %cmp.i.i.i198 = icmp slt i64 %spec.select.i.i.i195, %div.i.i.i
+  %cmp.i.i.i198 = icmp slt i64 %spec.select.i.i.i195, %div.i.i.i1263.zext
   br i1 %cmp.i.i.i198, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !7
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.then.i190

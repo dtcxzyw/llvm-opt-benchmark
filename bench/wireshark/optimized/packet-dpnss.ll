@@ -1287,8 +1287,8 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noun
   br label %9
 
 9:                                                ; preds = %.lr.ph102, %.loopexit
-  %.081100 = phi i32 [ %3, %.lr.ph102 ], [ %56, %.loopexit ]
-  %.08799 = phi i32 [ 1, %.lr.ph102 ], [ %57, %.loopexit ]
+  %.081100 = phi i32 [ %3, %.lr.ph102 ], [ %49, %.loopexit ]
+  %.08799 = phi i32 [ 1, %.lr.ph102 ], [ %50, %.loopexit ]
   %10 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.081100)
   %11 = icmp eq i8 %10, 42
   br i1 %11, label %12, label %.thread
@@ -1318,69 +1318,48 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noun
 29:                                               ; preds = %12
   %30 = zext nneg i32 %27 to i64
   %31 = load i32, ptr @hf_dpnss_sup_str, align 4
-  %32 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %30, i32 1
-  %33 = load ptr, ptr %32, align 8
-  %34 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %31, ptr noundef %0, i32 noundef %13, i32 noundef %23, ptr noundef %33)
+  %32 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %31, ptr noundef %0, i32 noundef %13, i32 noundef %23, ptr noundef %34)
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %29, %53
-  %.18298.in = phi i32 [ %36, %53 ], [ %22, %29 ]
-  %.08596 = phi i32 [ %35, %53 ], [ 0, %29 ]
+.lr.ph:                                           ; preds = %29, %46
+  %.18298.in = phi i32 [ %37, %46 ], [ %22, %29 ]
+  %.08596 = phi i32 [ %36, %46 ], [ 0, %29 ]
   %.18298 = add nuw i32 %.18298.in, 1
-  %35 = add i32 %.08596, 1
-  %36 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %.18298, i32 noundef -1, i8 noundef zeroext 42)
-  %.not103 = icmp eq i32 %36, -1
-  %spec.select93 = select i1 %.not103, i32 %14, i32 %36
-  switch i32 %.08596, label %53 [
-    i32 0, label %37
-    i32 1, label %41
-    i32 2, label %45
-    i32 3, label %49
-  ]
+  %36 = add i32 %.08596, 1
+  %37 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %.18298, i32 noundef -1, i8 noundef zeroext 42)
+  %.not103 = icmp eq i32 %37, -1
+  %38 = icmp ult i32 %.08596, 4
+  br i1 %38, label %switch.lookup, label %46
 
-37:                                               ; preds = %.lr.ph
-  %38 = load i32, ptr %5, align 4
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %39, i32 3
-  br label %.sink.split
-
-41:                                               ; preds = %.lr.ph
-  %42 = load i32, ptr %5, align 4
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %43, i32 4
-  br label %.sink.split
-
-45:                                               ; preds = %.lr.ph
-  %46 = load i32, ptr %5, align 4
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %47, i32 5
-  br label %.sink.split
-
-49:                                               ; preds = %.lr.ph
-  %50 = load i32, ptr %5, align 4
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %51, i32 6
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %37, %41, %45, %49
-  %.sink.in = phi ptr [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ]
-  %.sink = load i32, ptr %.sink.in, align 4
+switch.lookup:                                    ; preds = %.lr.ph
+  %spec.select93 = select i1 %.not103, i32 %14, i32 %37
+  %39 = shl nuw nsw i32 %.08596, 2
+  %40 = load i32, ptr %5, align 4
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr %struct.dpnns_sup_serv_set_t, ptr @dpnns_sup_serv_set, i64 %41
+  %43 = zext nneg i32 %39 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %.sink = load i32, ptr %45, align 4
   call fastcc void @dissect_dpnns_sup_str_par(ptr noundef %0, ptr noundef %1, ptr noundef %20, i32 noundef %.sink, i32 noundef %.18298, i32 noundef %spec.select93)
-  br label %53
+  br label %46
 
-53:                                               ; preds = %.sink.split, %.lr.ph
+46:                                               ; preds = %.lr.ph, %switch.lookup
   br i1 %.not103, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .thread:                                          ; preds = %9
-  %54 = load i32, ptr @hf_dpnss_dest_addr, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %.081100, i32 noundef -1, i32 noundef 0)
+  %47 = load i32, ptr @hf_dpnss_dest_addr, align 4
+  %48 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %.081100, i32 noundef -1, i32 noundef 0)
   br label %._crit_edge
 
-.loopexit:                                        ; preds = %53, %12, %29
-  %56 = add i32 %14, 1
-  %57 = add i32 %.08799, 1
-  %58 = icmp slt i32 %56, %6
-  br i1 %58, label %9, label %._crit_edge, !llvm.loop !8
+.loopexit:                                        ; preds = %46, %12, %29
+  %49 = add i32 %14, 1
+  %50 = add i32 %.08799, 1
+  %51 = icmp slt i32 %49, %6
+  br i1 %51, label %9, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit, %.thread, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

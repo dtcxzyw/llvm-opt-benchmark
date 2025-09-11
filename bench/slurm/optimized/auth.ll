@@ -120,11 +120,12 @@ define dso_local zeroext i1 @slurm_get_plugin_hash_enable(i32 noundef %0) local_
 5:                                                ; preds = %1
   %6 = load ptr, ptr @ops, align 8
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.auth_ops_t, ptr %6, i64 %7, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i8, ptr %9, align 1, !range !11, !noundef !12
-  %11 = trunc nuw i8 %10 to i1
-  ret i1 %11
+  %8 = getelementptr inbounds %struct.auth_ops_t, ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i8, ptr %10, align 1, !range !11, !noundef !12
+  %12 = trunc nuw i8 %11 to i1
+  ret i1 %12
 }
 
 ; Function Attrs: noreturn
@@ -554,7 +555,7 @@ define dso_local void @auth_setuid_unlock() local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @auth_g_create(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq i32 %2, 99
-  br i1 %6, label %22, label %7
+  br i1 %6, label %23, label %7
 
 7:                                                ; preds = %5
   %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @context_lock) #12
@@ -570,29 +571,30 @@ define dso_local ptr @auth_g_create(i32 noundef %0, ptr noundef %1, i32 noundef 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @ops, align 8
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds %struct.auth_ops_t, ptr %12, i64 %13, i32 3
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr %15(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #12
-  %17 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
-  %.not18 = icmp eq i32 %17, 0
-  br i1 %.not18, label %20, label %18
+  %14 = getelementptr inbounds %struct.auth_ops_t, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call ptr %16(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #12
+  %18 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
+  %.not18 = icmp eq i32 %18, 0
+  br i1 %.not18, label %21, label %19
 
-18:                                               ; preds = %11
-  %19 = tail call ptr @__errno_location() #13
-  store i32 %17, ptr %19, align 4
+19:                                               ; preds = %11
+  %20 = tail call ptr @__errno_location() #13
+  store i32 %18, ptr %20, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.auth_g_create) #11
   unreachable
 
-20:                                               ; preds = %11
-  %.not19 = icmp eq ptr %16, null
-  br i1 %.not19, label %22, label %21
+21:                                               ; preds = %11
+  %.not19 = icmp eq ptr %17, null
+  br i1 %.not19, label %23, label %22
 
-21:                                               ; preds = %20
-  store i32 %0, ptr %16, align 4
-  br label %22
+22:                                               ; preds = %21
+  store i32 %0, ptr %17, align 4
+  br label %23
 
-22:                                               ; preds = %20, %21, %5
-  %.0 = phi ptr [ null, %5 ], [ %16, %21 ], [ null, %20 ]
+23:                                               ; preds = %21, %22, %5
+  %.0 = phi ptr [ null, %5 ], [ %17, %22 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -602,25 +604,26 @@ declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local void @auth_g_destroy(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %8, label %2
+  br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @ops, align 8
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.auth_ops_t, ptr %3, i64 %5, i32 4
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull %0) #12
-  br label %8
+  %6 = getelementptr inbounds %struct.auth_ops_t, ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef nonnull %0) #12
+  br label %9
 
-8:                                                ; preds = %1, %2
+9:                                                ; preds = %1, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @auth_g_verify(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %17, label %3
+  br i1 %.not, label %18, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @context_lock) #12
@@ -637,21 +640,22 @@ define dso_local i32 @auth_g_verify(ptr noundef %0, ptr noundef %1) local_unname
   %8 = load ptr, ptr @ops, align 8
   %9 = load i32, ptr %0, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.auth_ops_t, ptr %8, i64 %10, i32 5
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef %1) #12
-  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
-  %.not14 = icmp eq i32 %14, 0
-  br i1 %.not14, label %17, label %15
+  %11 = getelementptr inbounds %struct.auth_ops_t, ptr %8, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %1) #12
+  %15 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
+  %.not14 = icmp eq i32 %15, 0
+  br i1 %.not14, label %18, label %16
 
-15:                                               ; preds = %7
-  %16 = tail call ptr @__errno_location() #13
-  store i32 %14, ptr %16, align 4
+16:                                               ; preds = %7
+  %17 = tail call ptr @__errno_location() #13
+  store i32 %15, ptr %17, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.auth_g_verify) #11
   unreachable
 
-17:                                               ; preds = %7, %2
-  %.0 = phi i32 [ -1, %2 ], [ %13, %7 ]
+18:                                               ; preds = %7, %2
+  %.0 = phi i32 [ -1, %2 ], [ %14, %7 ]
   ret i32 %.0
 }
 
@@ -660,7 +664,7 @@ define dso_local void @auth_g_get_ids(ptr noundef %0, ptr noundef initializes((0
   store i32 99, ptr %1, align 4
   store i32 99, ptr %2, align 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %17, label %4
+  br i1 %.not, label %18, label %4
 
 4:                                                ; preds = %3
   %5 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @context_lock) #12
@@ -677,20 +681,21 @@ define dso_local void @auth_g_get_ids(ptr noundef %0, ptr noundef initializes((0
   %9 = load ptr, ptr @ops, align 8
   %10 = load i32, ptr %0, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.auth_ops_t, ptr %9, i64 %11, i32 6
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
-  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
-  %.not14 = icmp eq i32 %14, 0
-  br i1 %.not14, label %17, label %15
+  %12 = getelementptr inbounds %struct.auth_ops_t, ptr %9, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
+  %15 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
+  %.not14 = icmp eq i32 %15, 0
+  br i1 %.not14, label %18, label %16
 
-15:                                               ; preds = %8
-  %16 = tail call ptr @__errno_location() #13
-  store i32 %14, ptr %16, align 4
+16:                                               ; preds = %8
+  %17 = tail call ptr @__errno_location() #13
+  store i32 %15, ptr %17, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.auth_g_get_ids) #11
   unreachable
 
-17:                                               ; preds = %8, %3
+18:                                               ; preds = %8, %3
   ret void
 }
 
@@ -703,7 +708,7 @@ define dso_local i32 @auth_g_get_uid(ptr noundef %0) local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 99, ptr %3, align 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %19, label %4
+  br i1 %.not, label %20, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @context_lock) #12
@@ -720,25 +725,26 @@ define dso_local i32 @auth_g_get_uid(ptr noundef %0) local_unnamed_addr #1 {
   %9 = load ptr, ptr @ops, align 8
   %10 = load i32, ptr %0, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.auth_ops_t, ptr %9, i64 %11, i32 6
-  %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
-  %14 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
-  %.not12 = icmp eq i32 %14, 0
-  br i1 %.not12, label %17, label %15
+  %12 = getelementptr inbounds %struct.auth_ops_t, ptr %9, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %14 = load ptr, ptr %13, align 8
+  call void %14(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
+  %15 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
+  %.not12 = icmp eq i32 %15, 0
+  br i1 %.not12, label %18, label %16
 
-15:                                               ; preds = %8
-  %16 = tail call ptr @__errno_location() #13
-  store i32 %14, ptr %16, align 4
+16:                                               ; preds = %8
+  %17 = tail call ptr @__errno_location() #13
+  store i32 %15, ptr %17, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.auth_g_get_uid) #11
   unreachable
 
-17:                                               ; preds = %8
-  %18 = load i32, ptr %2, align 4
-  br label %19
+18:                                               ; preds = %8
+  %19 = load i32, ptr %2, align 4
+  br label %20
 
-19:                                               ; preds = %1, %17
-  %.0 = phi i32 [ %18, %17 ], [ 99, %1 ]
+20:                                               ; preds = %1, %18
+  %.0 = phi i32 [ %19, %18 ], [ 99, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -747,13 +753,13 @@ define dso_local i32 @auth_g_get_uid(ptr noundef %0) local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @auth_g_get_host(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %58, label %2
+  br i1 %.not, label %59, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %.not43 = icmp eq ptr %4, null
-  br i1 %.not43, label %58, label %5
+  br i1 %.not43, label %59, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @context_lock) #12
@@ -770,103 +776,104 @@ define dso_local ptr @auth_g_get_host(ptr noundef %0) local_unnamed_addr #1 {
   %10 = load ptr, ptr @ops, align 8
   %11 = load i32, ptr %4, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.auth_ops_t, ptr %10, i64 %12, i32 7
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr %14(ptr noundef nonnull %4) #12
-  %16 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
-  %.not45 = icmp eq i32 %16, 0
-  br i1 %.not45, label %19, label %17
+  %13 = getelementptr inbounds %struct.auth_ops_t, ptr %10, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call ptr %15(ptr noundef nonnull %4) #12
+  %17 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
+  %.not45 = icmp eq i32 %17, 0
+  br i1 %.not45, label %20, label %18
 
-17:                                               ; preds = %9
-  %18 = tail call ptr @__errno_location() #13
-  store i32 %16, ptr %18, align 4
+18:                                               ; preds = %9
+  %19 = tail call ptr @__errno_location() #13
+  store i32 %17, ptr %19, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.auth_g_get_host) #11
   unreachable
 
-19:                                               ; preds = %9
-  %.not46 = icmp eq ptr %15, null
-  br i1 %.not46, label %24, label %20
+20:                                               ; preds = %9
+  %.not46 = icmp eq ptr %16, null
+  br i1 %.not46, label %25, label %21
 
-20:                                               ; preds = %19
-  %21 = tail call i32 @get_log_level() #12
-  %22 = icmp sgt i32 %21, 6
-  br i1 %22, label %23, label %58
+21:                                               ; preds = %20
+  %22 = tail call i32 @get_log_level() #12
+  %23 = icmp sgt i32 %22, 6
+  br i1 %23, label %24, label %59
 
-23:                                               ; preds = %20
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__.auth_g_get_host, ptr noundef nonnull %15) #12
-  br label %58
+24:                                               ; preds = %21
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__.auth_g_get_host, ptr noundef nonnull %16) #12
+  br label %59
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %26 = load ptr, ptr %25, align 8
-  %.not47 = icmp eq ptr %26, null
-  br i1 %.not47, label %35, label %27
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %27 = load ptr, ptr %26, align 8
+  %.not47 = icmp eq ptr %27, null
+  br i1 %.not47, label %36, label %28
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  %29 = load ptr, ptr %28, align 8
-  %.not48 = icmp eq ptr %29, null
-  br i1 %.not48, label %35, label %30
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 80
+  %30 = load ptr, ptr %29, align 8
+  %.not48 = icmp eq ptr %30, null
+  br i1 %.not48, label %36, label %31
 
-30:                                               ; preds = %27
-  %31 = tail call ptr @xstrdup(ptr noundef nonnull %29) #12
-  %32 = tail call i32 @get_log_level() #12
-  %33 = icmp sgt i32 %32, 6
-  br i1 %33, label %34, label %58
+31:                                               ; preds = %28
+  %32 = tail call ptr @xstrdup(ptr noundef nonnull %30) #12
+  %33 = tail call i32 @get_log_level() #12
+  %34 = icmp sgt i32 %33, 6
+  br i1 %34, label %35, label %59
 
-34:                                               ; preds = %30
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.auth_g_get_host, ptr noundef %31) #12
-  br label %58
+35:                                               ; preds = %31
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.auth_g_get_host, ptr noundef %32) #12
+  br label %59
 
-35:                                               ; preds = %27, %24
-  %36 = load i16, ptr %0, align 8
-  %37 = icmp eq i16 %36, 0
-  br i1 %37, label %38, label %47
+36:                                               ; preds = %28, %25
+  %37 = load i16, ptr %0, align 8
+  %38 = icmp eq i16 %37, 0
+  br i1 %38, label %39, label %48
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %42, label %47
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp sgt i32 %41, -1
+  br i1 %42, label %43, label %48
 
-42:                                               ; preds = %38
-  %43 = tail call i32 @slurm_get_peer_addr(i32 noundef %40, ptr noundef nonnull %0) #12
-  %.not49 = icmp eq i32 %43, 0
-  br i1 %.not49, label %47, label %.critedge
+43:                                               ; preds = %39
+  %44 = tail call i32 @slurm_get_peer_addr(i32 noundef %41, ptr noundef nonnull %0) #12
+  %.not49 = icmp eq i32 %44, 0
+  br i1 %.not49, label %48, label %.critedge
 
-.critedge:                                        ; preds = %42
-  %44 = load i32, ptr %39, align 8
-  %45 = tail call ptr @slurm_strerror(i32 noundef %43) #12
-  %46 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.auth_g_get_host, i32 noundef %44, ptr noundef %45) #12
-  br label %58
+.critedge:                                        ; preds = %43
+  %45 = load i32, ptr %40, align 8
+  %46 = tail call ptr @slurm_strerror(i32 noundef %44) #12
+  %47 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.auth_g_get_host, i32 noundef %45, ptr noundef %46) #12
+  br label %59
 
-47:                                               ; preds = %42, %38, %35
-  %48 = tail call ptr @xgetnameinfo(ptr noundef nonnull %0) #12
-  %.not50 = icmp eq ptr %48, null
-  br i1 %.not50, label %53, label %49
+48:                                               ; preds = %43, %39, %36
+  %49 = tail call ptr @xgetnameinfo(ptr noundef nonnull %0) #12
+  %.not50 = icmp eq ptr %49, null
+  br i1 %.not50, label %54, label %50
 
-49:                                               ; preds = %47
-  %50 = tail call i32 @get_log_level() #12
-  %51 = icmp sgt i32 %50, 6
-  br i1 %51, label %52, label %58
+50:                                               ; preds = %48
+  %51 = tail call i32 @get_log_level() #12
+  %52 = icmp sgt i32 %51, 6
+  br i1 %52, label %53, label %59
 
-52:                                               ; preds = %49
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.auth_g_get_host, ptr noundef nonnull %48) #12
-  br label %58
+53:                                               ; preds = %50
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.auth_g_get_host, ptr noundef nonnull %49) #12
+  br label %59
 
-53:                                               ; preds = %47
-  %54 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 46, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 463, ptr noundef nonnull @__func__.auth_g_get_host) #12
-  tail call void @slurm_get_ip_str(ptr noundef nonnull %0, ptr noundef %54, i32 noundef 46) #12
-  %55 = tail call i32 @get_log_level() #12
-  %56 = icmp sgt i32 %55, 6
-  br i1 %56, label %57, label %58
+54:                                               ; preds = %48
+  %55 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 46, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 463, ptr noundef nonnull @__func__.auth_g_get_host) #12
+  tail call void @slurm_get_ip_str(ptr noundef nonnull %0, ptr noundef %55, i32 noundef 46) #12
+  %56 = tail call i32 @get_log_level() #12
+  %57 = icmp sgt i32 %56, 6
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %53
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__.auth_g_get_host, ptr noundef %54) #12
-  br label %58
+58:                                               ; preds = %54
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__.auth_g_get_host, ptr noundef %55) #12
+  br label %59
 
-58:                                               ; preds = %52, %49, %57, %53, %.critedge, %30, %34, %20, %23, %1, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %1 ], [ %15, %23 ], [ %15, %20 ], [ %31, %34 ], [ %31, %30 ], [ null, %.critedge ], [ %48, %52 ], [ %48, %49 ], [ %54, %57 ], [ %54, %53 ]
+59:                                               ; preds = %53, %50, %58, %54, %.critedge, %31, %35, %21, %24, %1, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %1 ], [ %16, %24 ], [ %16, %21 ], [ %32, %35 ], [ %32, %31 ], [ null, %.critedge ], [ %49, %53 ], [ %49, %50 ], [ %55, %58 ], [ %55, %54 ]
   ret ptr %.0
 }
 
@@ -881,7 +888,7 @@ declare void @slurm_get_ip_str(ptr noundef, ptr noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @auth_g_get_data(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %18, label %4
+  br i1 %.not, label %19, label %4
 
 4:                                                ; preds = %3
   %5 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @context_lock) #12
@@ -898,28 +905,29 @@ define dso_local i32 @auth_g_get_data(ptr noundef %0, ptr noundef %1, ptr nounde
   %9 = load ptr, ptr @ops, align 8
   %10 = load i32, ptr %0, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.auth_ops_t, ptr %9, i64 %11, i32 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #12
-  %15 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
-  %.not15 = icmp eq i32 %15, 0
-  br i1 %.not15, label %18, label %16
+  %12 = getelementptr inbounds %struct.auth_ops_t, ptr %9, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #12
+  %16 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
+  %.not15 = icmp eq i32 %16, 0
+  br i1 %.not15, label %19, label %17
 
-16:                                               ; preds = %8
-  %17 = tail call ptr @__errno_location() #13
-  store i32 %15, ptr %17, align 4
+17:                                               ; preds = %8
+  %18 = tail call ptr @__errno_location() #13
+  store i32 %16, ptr %18, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.auth_g_get_data) #11
   unreachable
 
-18:                                               ; preds = %8, %3
-  %.0 = phi i32 [ -1, %3 ], [ %14, %8 ]
+19:                                               ; preds = %8, %3
+  %.0 = phi i32 [ -1, %3 ], [ %15, %8 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @auth_g_get_identity(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %16, label %2
+  br i1 %.not, label %17, label %2
 
 2:                                                ; preds = %1
   %3 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @context_lock) #12
@@ -936,32 +944,33 @@ define dso_local ptr @auth_g_get_identity(ptr noundef %0) local_unnamed_addr #1 
   %7 = load ptr, ptr @ops, align 8
   %8 = load i32, ptr %0, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.auth_ops_t, ptr %7, i64 %9, i32 9
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef nonnull %0) #12
-  %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
-  %.not13 = icmp eq i32 %13, 0
-  br i1 %.not13, label %16, label %14
+  %10 = getelementptr inbounds %struct.auth_ops_t, ptr %7, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call ptr %12(ptr noundef nonnull %0) #12
+  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
+  %.not13 = icmp eq i32 %14, 0
+  br i1 %.not13, label %17, label %15
 
-14:                                               ; preds = %6
-  %15 = tail call ptr @__errno_location() #13
-  store i32 %13, ptr %15, align 4
+15:                                               ; preds = %6
+  %16 = tail call ptr @__errno_location() #13
+  store i32 %14, ptr %16, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.auth_g_get_identity) #11
   unreachable
 
-16:                                               ; preds = %6, %1
-  %.0 = phi ptr [ null, %1 ], [ %12, %6 ]
+17:                                               ; preds = %6, %1
+  %.0 = phi ptr [ null, %1 ], [ %13, %6 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @auth_g_pack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %22, label %4
+  br i1 %.not, label %23, label %4
 
 4:                                                ; preds = %3
   %5 = icmp ugt i16 %2, 10239
-  br i1 %5, label %6, label %19
+  br i1 %5, label %6, label %20
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr @ops, align 8
@@ -974,18 +983,19 @@ define dso_local i32 @auth_g_pack(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %13 = load ptr, ptr @ops, align 8
   %14 = load i32, ptr %0, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.auth_ops_t, ptr %13, i64 %15, i32 10
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %2) #12
-  br label %22
+  %16 = getelementptr inbounds %struct.auth_ops_t, ptr %13, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %2) #12
+  br label %23
 
-19:                                               ; preds = %4
-  %20 = zext nneg i16 %2 to i32
-  %21 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.auth_g_pack, i32 noundef %20) #12
-  br label %22
+20:                                               ; preds = %4
+  %21 = zext nneg i16 %2 to i32
+  %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.auth_g_pack, i32 noundef %21) #12
+  br label %23
 
-22:                                               ; preds = %3, %19, %6
-  %.0 = phi i32 [ %18, %6 ], [ -1, %19 ], [ -1, %3 ]
+23:                                               ; preds = %3, %20, %6
+  %.0 = phi i32 [ %19, %6 ], [ -1, %20 ], [ -1, %3 ]
   ret i32 %.0
 }
 

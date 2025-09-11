@@ -300,57 +300,60 @@ define void @_ZN21rcHeightfieldLayerSetD2Ev(ptr noundef nonnull readonly align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1, %16
-  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %19
+  %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw %struct.rcHeightfieldLayer, ptr %5, i64 %indvars.iv, i32 12
-  %7 = load ptr, ptr %6, align 8
-  invoke void @_Z6rcFreePv(ptr noundef %7)
-          to label %8 unwind label %.loopexit
+  %6 = getelementptr inbounds nuw %struct.rcHeightfieldLayer, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %8 = load ptr, ptr %7, align 8
+  invoke void @_Z6rcFreePv(ptr noundef %8)
+          to label %9 unwind label %.loopexit
 
-8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw %struct.rcHeightfieldLayer, ptr %9, i64 %indvars.iv, i32 13
-  %11 = load ptr, ptr %10, align 8
-  invoke void @_Z6rcFreePv(ptr noundef %11)
-          to label %12 unwind label %.loopexit
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds nuw %struct.rcHeightfieldLayer, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %13 = load ptr, ptr %12, align 8
+  invoke void @_Z6rcFreePv(ptr noundef %13)
+          to label %14 unwind label %.loopexit
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds nuw %struct.rcHeightfieldLayer, ptr %13, i64 %indvars.iv, i32 14
-  %15 = load ptr, ptr %14, align 8
-  invoke void @_Z6rcFreePv(ptr noundef %15)
-          to label %16 unwind label %.loopexit
+14:                                               ; preds = %9
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds nuw %struct.rcHeightfieldLayer, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  %18 = load ptr, ptr %17, align 8
+  invoke void @_Z6rcFreePv(ptr noundef %18)
+          to label %19 unwind label %.loopexit
 
-16:                                               ; preds = %12
+19:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr %2, align 8
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  %20 = load i32, ptr %2, align 8
+  %21 = sext i32 %20 to i64
+  %22 = icmp slt i64 %indvars.iv.next, %21
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %16, %1
-  %20 = load ptr, ptr %0, align 8
-  invoke void @_Z6rcFreePv(ptr noundef %20)
-          to label %21 unwind label %.loopexit.split-lp
+._crit_edge:                                      ; preds = %19, %1
+  %23 = load ptr, ptr %0, align 8
+  invoke void @_Z6rcFreePv(ptr noundef %23)
+          to label %24 unwind label %.loopexit.split-lp
 
-21:                                               ; preds = %._crit_edge
+24:                                               ; preds = %._crit_edge
   ret void
 
-.loopexit:                                        ; preds = %.lr.ph, %8, %12
+.loopexit:                                        ; preds = %.lr.ph, %9, %14
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %22
+  br label %25
 
 .loopexit.split-lp:                               ; preds = %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %22
+  br label %25
 
-22:                                               ; preds = %.loopexit.split-lp, %.loopexit
+25:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %23 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %23) #20
+  %26 = extractvalue { ptr, i32 } %lpad.phi, 0
+  tail call void @__clang_call_terminate(ptr %26) #20
   unreachable
 }
 
@@ -388,8 +391,8 @@ define void @_ZN12rcContourSetD2Ev(ptr noundef nonnull readonly align 8 captures
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1, %12
-  %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %13
+  %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw %struct.rcContour, ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
@@ -398,40 +401,41 @@ define void @_ZN12rcContourSetD2Ev(ptr noundef nonnull readonly align 8 captures
 
 8:                                                ; preds = %.lr.ph
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw %struct.rcContour, ptr %9, i64 %indvars.iv, i32 2
-  %11 = load ptr, ptr %10, align 8
-  invoke void @_Z6rcFreePv(ptr noundef %11)
-          to label %12 unwind label %.loopexit
+  %10 = getelementptr inbounds nuw %struct.rcContour, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load ptr, ptr %11, align 8
+  invoke void @_Z6rcFreePv(ptr noundef %12)
+          to label %13 unwind label %.loopexit
 
-12:                                               ; preds = %8
+13:                                               ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load i32, ptr %2, align 8
-  %14 = sext i32 %13 to i64
-  %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  %14 = load i32, ptr %2, align 8
+  %15 = sext i32 %14 to i64
+  %16 = icmp slt i64 %indvars.iv.next, %15
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %12, %1
-  %16 = load ptr, ptr %0, align 8
-  invoke void @_Z6rcFreePv(ptr noundef %16)
-          to label %17 unwind label %.loopexit.split-lp
+._crit_edge:                                      ; preds = %13, %1
+  %17 = load ptr, ptr %0, align 8
+  invoke void @_Z6rcFreePv(ptr noundef %17)
+          to label %18 unwind label %.loopexit.split-lp
 
-17:                                               ; preds = %._crit_edge
+18:                                               ; preds = %._crit_edge
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph, %8
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %18
+  br label %19
 
 .loopexit.split-lp:                               ; preds = %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.loopexit.split-lp, %.loopexit
+19:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %19 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %19) #20
+  %20 = extractvalue { ptr, i32 } %lpad.phi, 0
+  tail call void @__clang_call_terminate(ptr %20) #20
   unreachable
 }
 
@@ -1032,7 +1036,7 @@ _Z25rcGetHeightFieldSpanCountP9rcContextRK13rcHeightfield.exit: ; preds = %._cri
   %.not = icmp eq ptr %66, null
   br i1 %.not, label %.invoke, label %80
 
-69:                                               ; preds = %.invoke, %230, %86, %80, %_Z25rcGetHeightFieldSpanCountP9rcContextRK13rcHeightfield.exit
+69:                                               ; preds = %.invoke, %231, %86, %80, %_Z25rcGetHeightFieldSpanCountP9rcContextRK13rcHeightfield.exit
   %70 = landingpad { ptr, i32 }
           cleanup
   %71 = load i8, ptr %11, align 1
@@ -1277,12 +1281,12 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   store i32 %189, ptr %188, align 4
   br label %190
 
-190:                                              ; preds = %186, %226
-  %.2205 = phi i32 [ %.0161207, %186 ], [ %.3, %226 ]
-  %.0163204 = phi ptr [ %184, %186 ], [ %228, %226 ]
+190:                                              ; preds = %186, %227
+  %.2205 = phi i32 [ %.0161207, %186 ], [ %.3, %227 ]
+  %.0163204 = phi ptr [ %184, %186 ], [ %229, %227 ]
   %191 = load i32, ptr %.0163204, align 8
   %.not191 = icmp ult i32 %191, 67108864
-  br i1 %.not191, label %226, label %192
+  br i1 %.not191, label %227, label %192
 
 192:                                              ; preds = %190
   %193 = lshr i32 %191, 13
@@ -1308,69 +1312,70 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %207 = tail call i32 @llvm.smax.i32(i32 %206, i32 0)
   %208 = tail call i32 @llvm.umin.i32(i32 %207, i32 255)
   %209 = load ptr, ptr %85, align 8
-  %210 = getelementptr inbounds %struct.rcCompactSpan, ptr %209, i64 %204, i32 2
-  %211 = load i32, ptr %210, align 4
-  %212 = shl nuw i32 %208, 24
-  %213 = and i32 %211, 16777215
-  %214 = or disjoint i32 %213, %212
-  store i32 %214, ptr %210, align 4
-  %215 = load i32, ptr %.0163204, align 8
-  %216 = lshr i32 %215, 26
-  %217 = trunc nuw nsw i32 %216 to i8
-  %218 = load ptr, ptr %89, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 %204
-  store i8 %217, ptr %219, align 1
-  %220 = add nsw i32 %.2205, 1
-  %221 = load i32, ptr %188, align 4
-  %222 = and i32 %221, -16777216
-  %223 = add i32 %222, 16777216
-  %224 = and i32 %221, 16777215
-  %225 = or disjoint i32 %223, %224
-  store i32 %225, ptr %188, align 4
-  br label %226
+  %210 = getelementptr inbounds %struct.rcCompactSpan, ptr %209, i64 %204
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 4
+  %212 = load i32, ptr %211, align 4
+  %213 = shl nuw i32 %208, 24
+  %214 = and i32 %212, 16777215
+  %215 = or disjoint i32 %214, %213
+  store i32 %215, ptr %211, align 4
+  %216 = load i32, ptr %.0163204, align 8
+  %217 = lshr i32 %216, 26
+  %218 = trunc nuw nsw i32 %217 to i8
+  %219 = load ptr, ptr %89, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 %204
+  store i8 %218, ptr %220, align 1
+  %221 = add nsw i32 %.2205, 1
+  %222 = load i32, ptr %188, align 4
+  %223 = and i32 %222, -16777216
+  %224 = add i32 %223, 16777216
+  %225 = and i32 %222, 16777215
+  %226 = or disjoint i32 %224, %225
+  store i32 %226, ptr %188, align 4
+  br label %227
 
-226:                                              ; preds = %190, %200
-  %.3 = phi i32 [ %220, %200 ], [ %.2205, %190 ]
-  %227 = getelementptr inbounds nuw i8, ptr %.0163204, i64 8
-  %228 = load ptr, ptr %227, align 8
-  %.not190 = icmp eq ptr %228, null
+227:                                              ; preds = %190, %200
+  %.3 = phi i32 [ %221, %200 ], [ %.2205, %190 ]
+  %228 = getelementptr inbounds nuw i8, ptr %.0163204, i64 8
+  %229 = load ptr, ptr %228, align 8
+  %.not190 = icmp eq ptr %229, null
   br i1 %.not190, label %.loopexit202, label %190, !llvm.loop !18
 
-.loopexit202:                                     ; preds = %226, %181
-  %.1 = phi i32 [ %.0161207, %181 ], [ %.3, %226 ]
+.loopexit202:                                     ; preds = %227, %181
+  %.1 = phi i32 [ %.0161207, %181 ], [ %.3, %227 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader201, label %181, !llvm.loop !19
 
 ._crit_edge224:                                   ; preds = %._crit_edge220.us
-  %229 = icmp sgt i32 %.2167.lcssa.us, 62
-  br i1 %229, label %230, label %._crit_edge224.thread
+  %230 = icmp sgt i32 %.2167.lcssa.us, 62
+  br i1 %230, label %231, label %._crit_edge224.thread
 
-230:                                              ; preds = %._crit_edge224
+231:                                              ; preds = %._crit_edge224
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull @.str.6, i32 noundef %.2167.lcssa.us, i32 noundef 62)
           to label %._crit_edge224.thread unwind label %69
 
-._crit_edge224.thread:                            ; preds = %.invoke, %.preheader201, %._crit_edge224, %230
-  %.0 = phi i1 [ true, %230 ], [ true, %._crit_edge224 ], [ true, %.preheader201 ], [ false, %.invoke ]
-  %231 = load i8, ptr %11, align 1
-  %232 = trunc i8 %231 to i1
-  br i1 %232, label %233, label %_ZN13rcScopedTimerD2Ev.exit195
+._crit_edge224.thread:                            ; preds = %.invoke, %.preheader201, %._crit_edge224, %231
+  %.0 = phi i1 [ true, %231 ], [ true, %._crit_edge224 ], [ true, %.preheader201 ], [ false, %.invoke ]
+  %232 = load i8, ptr %11, align 1
+  %233 = trunc i8 %232 to i1
+  br i1 %233, label %234, label %_ZN13rcScopedTimerD2Ev.exit195
 
-233:                                              ; preds = %._crit_edge224.thread
-  %234 = load ptr, ptr %0, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 48
-  %236 = load ptr, ptr %235, align 8
-  invoke void %236(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3)
-          to label %_ZN13rcScopedTimerD2Ev.exit195 unwind label %237
+234:                                              ; preds = %._crit_edge224.thread
+  %235 = load ptr, ptr %0, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 48
+  %237 = load ptr, ptr %236, align 8
+  invoke void %237(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3)
+          to label %_ZN13rcScopedTimerD2Ev.exit195 unwind label %238
 
-237:                                              ; preds = %233
-  %238 = landingpad { ptr, i32 }
+238:                                              ; preds = %234
+  %239 = landingpad { ptr, i32 }
           catch ptr null
-  %239 = extractvalue { ptr, i32 } %238, 0
-  tail call void @__clang_call_terminate(ptr %239) #20
+  %240 = extractvalue { ptr, i32 } %239, 0
+  tail call void @__clang_call_terminate(ptr %240) #20
   unreachable
 
-_ZN13rcScopedTimerD2Ev.exit195:                   ; preds = %._crit_edge224.thread, %233
+_ZN13rcScopedTimerD2Ev.exit195:                   ; preds = %._crit_edge224.thread, %234
   ret i1 %.0
 }
 

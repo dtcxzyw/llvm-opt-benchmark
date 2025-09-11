@@ -2070,7 +2070,7 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
   %170 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Tmsi_Zone, align 4
   %171 = add nsw i32 %168, -32
   %172 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %170, ptr noundef %0, i32 noundef %167, i32 noundef %171, i32 noundef 0)
-  %173 = trunc nsw i32 %171 to i16
+  %173 = trunc nuw nsw i32 %171 to i16
   %174 = add i16 %94, %173
   %175 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Tmsi_Code_Addr, align 4
   %176 = zext i16 %174 to i32

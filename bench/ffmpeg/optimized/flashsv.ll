@@ -734,7 +734,7 @@ flashsv2_prime.exit.i.us:                         ; preds = %374, %.preheader.i.
   %402 = load ptr, ptr %401, align 8, !tbaa !53
   %403 = getelementptr inbounds nuw %struct.BlockInfo, ptr %402, i64 %327
   store ptr %400, ptr %403, align 8, !tbaa !65
-  %404 = getelementptr inbounds nuw %struct.BlockInfo, ptr %402, i64 %327, i32 1
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 8
   store i32 %.0224337.us, ptr %404, align 8, !tbaa !67
   br label %405
 

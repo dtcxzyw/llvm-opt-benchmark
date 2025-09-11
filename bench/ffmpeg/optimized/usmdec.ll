@@ -839,7 +839,7 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   %347 = tail call i32 @ff_get_extradata(ptr noundef nonnull %0, ptr noundef %346, ptr noundef %5, i32 noundef %343) #8
   %348 = sext i32 %347 to i64
   %349 = icmp slt i32 %347, 0
-  br i1 %349, label %377, label %367
+  br i1 %349, label %.thread46, label %367
 
 350:                                              ; preds = %338
   %351 = getelementptr inbounds nuw i8, ptr %280, i64 48
@@ -862,7 +862,7 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   %362 = tail call i32 @av_get_packet(ptr noundef %5, ptr noundef %1, i32 noundef %343) #8
   %363 = sext i32 %362 to i64
   %364 = icmp slt i32 %362, 0
-  br i1 %364, label %377, label %365
+  br i1 %364, label %.thread46, label %365
 
 365:                                              ; preds = %361
   %366 = load i32, ptr %280, align 8, !tbaa !33
@@ -876,7 +876,6 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   %369 = and i64 %342, 4294967295
   %.not172.i = icmp ne i64 %.0144.i, %369
   %brmerge.i = select i1 %.not172.i, i1 true, i1 %.0149.i
-  %.mux.i = select i1 %.not172.i, i64 -541478725, i64 %.0144..i
   br i1 %brmerge.i, label %377, label %parse_utf.exit.i
 
 parse_utf.exit.i:                                 ; preds = %367, %276, %50, %275, %._crit_edge.i.i, %125, %51
@@ -894,9 +893,9 @@ parse_utf.exit.i:                                 ; preds = %367, %276, %50, %27
   %spec.select = select i1 %376, i64 %375, i64 -1329874258
   br label %.thread46
 
-377:                                              ; preds = %367, %361, %344
-  %.0.i = phi i64 [ %.mux.i, %367 ], [ %363, %361 ], [ %348, %344 ]
-  %378 = icmp sgt i64 %.0.i, 0
+377:                                              ; preds = %367
+  %.mux.i = select i1 %.not172.i, i64 -541478725, i64 %.0144..i
+  %378 = icmp sgt i64 %.mux.i, 0
   br i1 %378, label %379, label %381
 
 379:                                              ; preds = %377
@@ -905,12 +904,12 @@ parse_utf.exit.i:                                 ; preds = %367, %276, %50, %27
   br label %.thread46
 
 381:                                              ; preds = %.thread, %377
-  %.336 = phi i64 [ %21, %.thread ], [ %.0.i, %377 ]
+  %.336 = phi i64 [ %21, %.thread ], [ %.mux.i, %377 ]
   %382 = icmp slt i64 %.336, 0
   br i1 %382, label %.thread46, label %9
 
-.thread46:                                        ; preds = %9, %381, %22, %32, %44, %287, %335, %2, %372, %switch.lookup, %68, %69, %74, %bytestream2_get_be32.exit121.i.i, %bytestream2_get_be16.exit130.i.i, %parse_utf.exit.i, %379
-  %.128 = phi i64 [ %.0.i, %379 ], [ -1094995529, %switch.lookup ], [ -1094995529, %68 ], [ -12, %69 ], [ -541478725, %74 ], [ -1094995529, %bytestream2_get_be32.exit121.i.i ], [ -1094995529, %bytestream2_get_be16.exit130.i.i ], [ %370, %parse_utf.exit.i ], [ %spec.select, %372 ], [ -541478725, %2 ], [ %.336, %9 ], [ %.336, %381 ], [ %30, %22 ], [ %42, %32 ], [ %48, %44 ], [ -12, %287 ], [ %336, %335 ]
+.thread46:                                        ; preds = %9, %381, %22, %32, %44, %287, %361, %344, %335, %2, %372, %switch.lookup, %68, %69, %74, %bytestream2_get_be32.exit121.i.i, %bytestream2_get_be16.exit130.i.i, %parse_utf.exit.i, %379
+  %.128 = phi i64 [ %.0144..i, %379 ], [ -1094995529, %switch.lookup ], [ -1094995529, %68 ], [ -12, %69 ], [ -541478725, %74 ], [ -1094995529, %bytestream2_get_be32.exit121.i.i ], [ -1094995529, %bytestream2_get_be16.exit130.i.i ], [ %370, %parse_utf.exit.i ], [ %spec.select, %372 ], [ -541478725, %2 ], [ %.336, %9 ], [ %.336, %381 ], [ %30, %22 ], [ %42, %32 ], [ %48, %44 ], [ -12, %287 ], [ %363, %361 ], [ %348, %344 ], [ %336, %335 ]
   %383 = trunc i64 %.128 to i32
   br label %.thread42
 

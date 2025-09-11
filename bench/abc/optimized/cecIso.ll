@@ -380,7 +380,7 @@ Gia_ManIsoEqual.exit.thread.i:                    ; preds = %137, %.preheader224
   br i1 %.not37.i, label %._crit_edge.i, label %.preheader224
 
 ._crit_edge.i:                                    ; preds = %Gia_ManIsoEqual.exit.thread.i, %Gia_ManIsoHashKey.exit.i
-  %147 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val103, i64 %indvars.iv169, i32 1
+  %147 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 %129, ptr %147, align 4, !tbaa !40
   store i32 %52, ptr %128, align 4, !tbaa !32
   br label %Gia_ManIsoSimulate.exit

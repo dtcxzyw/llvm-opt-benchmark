@@ -188,31 +188,31 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %88 = call i32 @__SCT__might_resched() #10
   %89 = icmp eq i8 %75, 0
   %90 = zext nneg i8 %78 to i64
-  br i1 %89, label %.split.us, label %.preheader16
+  br i1 %89, label %.split18.us, label %.preheader16
 
-.split.us:                                        ; preds = %86
+.split18.us:                                      ; preds = %86
   %91 = load ptr, ptr %79, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %.split19.us, label %.split.us.split
+  br i1 %94, label %.split20.us, label %.split18.us.split
 
-.split.us.split:                                  ; preds = %.split.us, %102
-  %95 = phi i32 [ %103, %102 ], [ %87, %.split.us ]
+.split18.us.split:                                ; preds = %.split18.us, %102
+  %95 = phi i32 [ %103, %102 ], [ %87, %.split18.us ]
   %96 = load ptr, ptr %79, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
   br i1 %99, label %102, label %100
 
-100:                                              ; preds = %.split.us.split
+100:                                              ; preds = %.split18.us.split
   %101 = call i32 %98(ptr noundef %76) #10
   br label %102
 
-102:                                              ; preds = %100, %.split.us.split
-  %103 = phi i32 [ %101, %100 ], [ 0, %.split.us.split ]
+102:                                              ; preds = %100, %.split18.us.split
+  %103 = phi i32 [ %101, %100 ], [ 0, %.split18.us.split ]
   %104 = icmp eq i32 %103, %95
-  br i1 %104, label %.split19.us, label %.split.us.split, !llvm.loop !6
+  br i1 %104, label %.split20.us, label %.split18.us.split, !llvm.loop !6
 
 .preheader16:                                     ; preds = %86, %121
   %105 = phi i32 [ %122, %121 ], [ %87, %86 ]
@@ -244,9 +244,9 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
 121:                                              ; preds = %119, %.loopexit17
   %122 = phi i32 [ %120, %119 ], [ 0, %.loopexit17 ]
   %123 = icmp eq i32 %122, %105
-  br i1 %123, label %.split19.us, label %.preheader16, !llvm.loop !11
+  br i1 %123, label %.split20.us, label %.preheader16, !llvm.loop !11
 
-.split19.us:                                      ; preds = %121, %102, %.split.us
+.split20.us:                                      ; preds = %121, %102, %.split18.us
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 2, ptr %16, align 1
   %124 = call i32 @__SCT__might_resched() #10
@@ -287,40 +287,40 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %149 = icmp eq ptr %148, null
   br i1 %149, label %152, label %150
 
-150:                                              ; preds = %.split19.us
+150:                                              ; preds = %.split20.us
   %151 = call i32 %148(ptr noundef %142) #10
   br label %152
 
-152:                                              ; preds = %150, %.split19.us
-  %153 = phi i32 [ %151, %150 ], [ 0, %.split19.us ]
+152:                                              ; preds = %150, %.split20.us
+  %153 = phi i32 [ %151, %150 ], [ 0, %.split20.us ]
   %154 = call i32 @__SCT__might_resched() #10
   %155 = icmp eq i8 %141, 0
   %156 = zext nneg i8 %144 to i64
-  br i1 %155, label %.split20.us, label %.preheader15
+  br i1 %155, label %.split21.us, label %.preheader15
 
-.split20.us:                                      ; preds = %152
+.split21.us:                                      ; preds = %152
   %157 = load ptr, ptr %145, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = load ptr, ptr %158, align 8
   %160 = icmp eq ptr %159, null
-  br i1 %160, label %.split22.us, label %.split20.us.split
+  br i1 %160, label %.split23.us, label %.split21.us.split
 
-.split20.us.split:                                ; preds = %.split20.us, %168
-  %161 = phi i32 [ %169, %168 ], [ %153, %.split20.us ]
+.split21.us.split:                                ; preds = %.split21.us, %168
+  %161 = phi i32 [ %169, %168 ], [ %153, %.split21.us ]
   %162 = load ptr, ptr %145, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, null
   br i1 %165, label %168, label %166
 
-166:                                              ; preds = %.split20.us.split
+166:                                              ; preds = %.split21.us.split
   %167 = call i32 %164(ptr noundef %142) #10
   br label %168
 
-168:                                              ; preds = %166, %.split20.us.split
-  %169 = phi i32 [ %167, %166 ], [ 0, %.split20.us.split ]
+168:                                              ; preds = %166, %.split21.us.split
+  %169 = phi i32 [ %167, %166 ], [ 0, %.split21.us.split ]
   %170 = icmp eq i32 %169, %161
-  br i1 %170, label %.split22.us, label %.split20.us.split, !llvm.loop !12
+  br i1 %170, label %.split23.us, label %.split21.us.split, !llvm.loop !12
 
 .preheader15:                                     ; preds = %152, %187
   %171 = phi i32 [ %188, %187 ], [ %153, %152 ]
@@ -352,9 +352,9 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
 187:                                              ; preds = %185, %.loopexit
   %188 = phi i32 [ %186, %185 ], [ 0, %.loopexit ]
   %189 = icmp eq i32 %188, %171
-  br i1 %189, label %.split22.us, label %.preheader15, !llvm.loop !11
+  br i1 %189, label %.split23.us, label %.preheader15, !llvm.loop !11
 
-.split22.us:                                      ; preds = %187, %168, %.split20.us
+.split23.us:                                      ; preds = %187, %168, %.split21.us
   %190 = getelementptr inbounds nuw i8, ptr %34, i64 144
   %191 = load i32, ptr %0, align 8
   %192 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %190, i64 noundef 64, ptr noundef nonnull @.str.1, i32 noundef %191) #10
@@ -399,7 +399,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   %216 = icmp ugt i8 %215, 7
   br i1 %216, label %217, label %250
 
-217:                                              ; preds = %.split22.us
+217:                                              ; preds = %.split23.us
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i16 0, ptr %24, align 2, !annotation !5
   %218 = call i32 @__SCT__might_resched() #10
@@ -454,7 +454,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %253
 
-250:                                              ; preds = %.split22.us
+250:                                              ; preds = %.split23.us
   %251 = load ptr, ptr %54, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
   store i16 6, ptr %252, align 8
@@ -641,7 +641,8 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   br i1 %363, label %366, label %364
 
 364:                                              ; preds = %309
-  %365 = getelementptr %struct.input_absinfo, ptr %362, i64 %303, i32 5
+  %.split = getelementptr %struct.input_absinfo, ptr %362, i64 %303
+  %365 = getelementptr i8, ptr %.split, i64 20
   store i32 %345, ptr %365, align 4
   br label %366
 

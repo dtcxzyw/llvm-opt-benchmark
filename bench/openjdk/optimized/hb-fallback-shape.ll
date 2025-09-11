@@ -208,15 +208,16 @@ _ZN9hb_font_t35subtract_glyph_origin_for_directionEj14hb_direction_tPiS1_.exit: 
 .lr.ph.i:                                         ; preds = %94, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %94 ]
   %96 = load ptr, ptr %26, align 8
-  %97 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %96, i64 %indvars.iv.i, i32 1
-  %98 = load i32, ptr %97, align 4
-  %99 = and i32 %98, -8
-  store i32 %99, ptr %97, align 4
+  %97 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %96, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  %99 = load i32, ptr %98, align 4
+  %100 = and i32 %99, -8
+  store i32 %100, ptr %98, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %100 = load i32, ptr %24, align 8
-  %101 = zext i32 %100 to i64
-  %102 = icmp samesign ult i64 %indvars.iv.next.i, %101
-  br i1 %102, label %.lr.ph.i, label %_ZN11hb_buffer_t17clear_glyph_flagsEj.exit, !llvm.loop !8
+  %101 = load i32, ptr %24, align 8
+  %102 = zext i32 %101 to i64
+  %103 = icmp samesign ult i64 %indvars.iv.next.i, %102
+  br i1 %103, label %.lr.ph.i, label %_ZN11hb_buffer_t17clear_glyph_flagsEj.exit, !llvm.loop !8
 
 _ZN11hb_buffer_t17clear_glyph_flagsEj.exit:       ; preds = %.lr.ph.i, %94
   ret i32 1

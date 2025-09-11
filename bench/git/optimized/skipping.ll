@@ -159,12 +159,12 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
 
 35:                                               ; preds = %push_parent.exit.i, %.lr.ph.i
   %.02752.i = phi ptr [ %.02749.i, %.lr.ph.i ], [ %.027.i, %push_parent.exit.i ]
-  %.02651.i = phi i32 [ 0, %.lr.ph.i ], [ %99, %push_parent.exit.i ]
+  %.02651.i = phi i32 [ 0, %.lr.ph.i ], [ %100, %push_parent.exit.i ]
   %36 = load ptr, ptr %.02752.i, align 8, !tbaa !31
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 256
   %.not.i.i = icmp eq i32 %38, 0
-  br i1 %.not.i.i, label %50, label %39
+  br i1 %.not.i.i, label %51, label %39
 
 39:                                               ; preds = %35
   %40 = and i32 %37, 512
@@ -187,162 +187,163 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
 
 45:                                               ; preds = %43, %.lr.ph.i.i
   %.02837.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %44, %43 ]
-  %46 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %42, i64 %.02837.i.i, i32 1
-  %47 = load ptr, ptr %46, align 8, !tbaa !36
-  %48 = load ptr, ptr %47, align 8, !tbaa !22
-  %49 = icmp eq ptr %48, %36
-  br i1 %49, label %.loopexit.i.i, label %43
+  %46 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %42, i64 %.02837.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !36
+  %49 = load ptr, ptr %48, align 8, !tbaa !22
+  %50 = icmp eq ptr %49, %36
+  br i1 %50, label %.loopexit.i.i, label %43
 
 ._crit_edge.i.i:                                  ; preds = %.preheader.i.i, %43
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.1) #7
   unreachable
 
-50:                                               ; preds = %35
-  %51 = or disjoint i32 %37, 256
-  store i32 %51, ptr %36, align 8
-  %52 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #6
-  store ptr %36, ptr %52, align 8, !tbaa !22
-  call void @prio_queue_put(ptr noundef nonnull %4, ptr noundef nonnull %52) #6
-  %53 = load i32, ptr %6, align 8, !tbaa !26
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %6, align 8, !tbaa !26
+51:                                               ; preds = %35
+  %52 = or disjoint i32 %37, 256
+  store i32 %52, ptr %36, align 8
+  %53 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #6
+  store ptr %36, ptr %53, align 8, !tbaa !22
+  call void @prio_queue_put(ptr noundef nonnull %4, ptr noundef nonnull %53) #6
+  %54 = load i32, ptr %6, align 8, !tbaa !26
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %6, align 8, !tbaa !26
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %45, %50
-  %.2.i.i = phi ptr [ %52, %50 ], [ %47, %45 ]
-  %55 = load ptr, ptr %15, align 8, !tbaa !22
-  %56 = load i32, ptr %55, align 8
-  %57 = and i32 %56, 192
-  %.not32.i.i = icmp eq i32 %57, 0
-  br i1 %.not32.i.i, label %85, label %58
+.loopexit.i.i:                                    ; preds = %45, %51
+  %.2.i.i = phi ptr [ %53, %51 ], [ %48, %45 ]
+  %56 = load ptr, ptr %15, align 8, !tbaa !22
+  %57 = load i32, ptr %56, align 8
+  %58 = and i32 %57, 192
+  %.not32.i.i = icmp eq i32 %58, 0
+  br i1 %.not32.i.i, label %86, label %59
 
-58:                                               ; preds = %.loopexit.i.i
+59:                                               ; preds = %.loopexit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %59 = load i32, ptr %36, align 8
-  %60 = and i32 %59, 64
-  %.not.i36.i = icmp eq i32 %60, 0
-  br i1 %.not.i36.i, label %61, label %mark_common.exit.i
+  %60 = load i32, ptr %36, align 8
+  %61 = and i32 %60, 64
+  %.not.i36.i = icmp eq i32 %61, 0
+  br i1 %.not.i36.i, label %62, label %mark_common.exit.i
 
-61:                                               ; preds = %58
+62:                                               ; preds = %59
   call void @prio_queue_put(ptr noundef nonnull %2, ptr noundef nonnull %36) #6
-  %62 = load i32, ptr %36, align 8
-  %63 = or i32 %62, 64
-  store i32 %63, ptr %36, align 8
-  %64 = call ptr @prio_queue_get(ptr noundef nonnull %2) #6
-  %.not1423.i.i = icmp eq ptr %64, null
+  %63 = load i32, ptr %36, align 8
+  %64 = or i32 %63, 64
+  store i32 %64, ptr %36, align 8
+  %65 = call ptr @prio_queue_get(ptr noundef nonnull %2) #6
+  %.not1423.i.i = icmp eq ptr %65, null
   br i1 %.not1423.i.i, label %._crit_edge.i40.i, label %.lr.ph24.i.i
 
-.lr.ph24.i.i:                                     ; preds = %61, %.loopexit.i39.i
-  %65 = phi ptr [ %84, %.loopexit.i39.i ], [ %64, %61 ]
-  %66 = load i32, ptr %65, align 8
-  %67 = and i32 %66, 512
-  %.not15.i.i = icmp eq i32 %67, 0
-  br i1 %.not15.i.i, label %68, label %71
+.lr.ph24.i.i:                                     ; preds = %62, %.loopexit.i39.i
+  %66 = phi ptr [ %85, %.loopexit.i39.i ], [ %65, %62 ]
+  %67 = load i32, ptr %66, align 8
+  %68 = and i32 %67, 512
+  %.not15.i.i = icmp eq i32 %68, 0
+  br i1 %.not15.i.i, label %69, label %72
 
-68:                                               ; preds = %.lr.ph24.i.i
-  %69 = load i32, ptr %6, align 8, !tbaa !26
-  %70 = add nsw i32 %69, -1
-  store i32 %70, ptr %6, align 8, !tbaa !26
-  %.pre.i.i = load i32, ptr %65, align 8
-  br label %71
+69:                                               ; preds = %.lr.ph24.i.i
+  %70 = load i32, ptr %6, align 8, !tbaa !26
+  %71 = add nsw i32 %70, -1
+  store i32 %71, ptr %6, align 8, !tbaa !26
+  %.pre.i.i = load i32, ptr %66, align 8
+  br label %72
 
-71:                                               ; preds = %68, %.lr.ph24.i.i
-  %72 = phi i32 [ %.pre.i.i, %68 ], [ %66, %.lr.ph24.i.i ]
-  %73 = and i32 %72, 1
-  %.not16.i.i = icmp eq i32 %73, 0
-  br i1 %.not16.i.i, label %.loopexit.i39.i, label %74, !llvm.loop !38
+72:                                               ; preds = %69, %.lr.ph24.i.i
+  %73 = phi i32 [ %.pre.i.i, %69 ], [ %67, %.lr.ph24.i.i ]
+  %74 = and i32 %73, 1
+  %.not16.i.i = icmp eq i32 %74, 0
+  br i1 %.not16.i.i, label %.loopexit.i39.i, label %75, !llvm.loop !38
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %.020.i.i = load ptr, ptr %75, align 8, !tbaa !29
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %66, i64 48
+  %.020.i.i = load ptr, ptr %76, align 8, !tbaa !29
   %.not1721.i.i = icmp eq ptr %.020.i.i, null
   br i1 %.not1721.i.i, label %.loopexit.i39.i, label %.lr.ph.i37.i
 
-.lr.ph.i37.i:                                     ; preds = %74, %82
-  %.022.i.i = phi ptr [ %.0.i38.i, %82 ], [ %.020.i.i, %74 ]
-  %76 = load ptr, ptr %.022.i.i, align 8, !tbaa !31
-  %77 = load i32, ptr %76, align 8
-  %78 = and i32 %77, 320
-  %or.cond.i.i = icmp eq i32 %78, 256
-  br i1 %or.cond.i.i, label %79, label %82
+.lr.ph.i37.i:                                     ; preds = %75, %83
+  %.022.i.i = phi ptr [ %.0.i38.i, %83 ], [ %.020.i.i, %75 ]
+  %77 = load ptr, ptr %.022.i.i, align 8, !tbaa !31
+  %78 = load i32, ptr %77, align 8
+  %79 = and i32 %78, 320
+  %or.cond.i.i = icmp eq i32 %79, 256
+  br i1 %or.cond.i.i, label %80, label %83
 
-79:                                               ; preds = %.lr.ph.i37.i
-  %80 = or disjoint i32 %77, 64
-  store i32 %80, ptr %76, align 8
-  %81 = load ptr, ptr %.022.i.i, align 8, !tbaa !31
-  call void @prio_queue_put(ptr noundef nonnull %2, ptr noundef %81) #6
-  br label %82
+80:                                               ; preds = %.lr.ph.i37.i
+  %81 = or disjoint i32 %78, 64
+  store i32 %81, ptr %77, align 8
+  %82 = load ptr, ptr %.022.i.i, align 8, !tbaa !31
+  call void @prio_queue_put(ptr noundef nonnull %2, ptr noundef %82) #6
+  br label %83
 
-82:                                               ; preds = %79, %.lr.ph.i37.i
-  %83 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
-  %.0.i38.i = load ptr, ptr %83, align 8, !tbaa !29
+83:                                               ; preds = %80, %.lr.ph.i37.i
+  %84 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
+  %.0.i38.i = load ptr, ptr %84, align 8, !tbaa !29
   %.not17.i.i = icmp eq ptr %.0.i38.i, null
   br i1 %.not17.i.i, label %.loopexit.i39.i, label %.lr.ph.i37.i, !llvm.loop !39
 
-.loopexit.i39.i:                                  ; preds = %82, %74, %71
-  %84 = call ptr @prio_queue_get(ptr noundef nonnull %2) #6
-  %.not14.i.i = icmp eq ptr %84, null
+.loopexit.i39.i:                                  ; preds = %83, %75, %72
+  %85 = call ptr @prio_queue_get(ptr noundef nonnull %2) #6
+  %.not14.i.i = icmp eq ptr %85, null
   br i1 %.not14.i.i, label %._crit_edge.i40.i, label %.lr.ph24.i.i
 
-._crit_edge.i40.i:                                ; preds = %.loopexit.i39.i, %61
+._crit_edge.i40.i:                                ; preds = %.loopexit.i39.i, %62
   call void @clear_prio_queue(ptr noundef nonnull %2) #6
   br label %mark_common.exit.i
 
-mark_common.exit.i:                               ; preds = %._crit_edge.i40.i, %58
+mark_common.exit.i:                               ; preds = %._crit_edge.i40.i, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %push_parent.exit.i
 
-85:                                               ; preds = %.loopexit.i.i
-  %86 = load i16, ptr %33, align 2, !tbaa !28
-  %.not33.i.i = icmp eq i16 %86, 0
-  %87 = load i16, ptr %34, align 8, !tbaa !40
-  %88 = lshr i16 %87, 1
-  %89 = add i16 %87, 1
-  %90 = add i16 %89, %88
-  %91 = select i1 %.not33.i.i, i16 %90, i16 %87
-  %92 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 8
-  %93 = load i16, ptr %92, align 8, !tbaa !40
-  %94 = icmp ult i16 %93, %91
-  br i1 %94, label %95, label %push_parent.exit.i
+86:                                               ; preds = %.loopexit.i.i
+  %87 = load i16, ptr %33, align 2, !tbaa !28
+  %.not33.i.i = icmp eq i16 %87, 0
+  %88 = load i16, ptr %34, align 8, !tbaa !40
+  %89 = lshr i16 %88, 1
+  %90 = add i16 %88, 1
+  %91 = add i16 %90, %89
+  %92 = select i1 %.not33.i.i, i16 %91, i16 %88
+  %93 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 8
+  %94 = load i16, ptr %93, align 8, !tbaa !40
+  %95 = icmp ult i16 %94, %92
+  br i1 %95, label %96, label %push_parent.exit.i
 
-95:                                               ; preds = %85
-  %96 = add i16 %86, -1
-  %97 = select i1 %.not33.i.i, i16 %90, i16 %96
-  store i16 %91, ptr %92, align 8, !tbaa !40
-  %98 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 10
-  store i16 %97, ptr %98, align 2, !tbaa !28
+96:                                               ; preds = %86
+  %97 = add i16 %87, -1
+  %98 = select i1 %.not33.i.i, i16 %91, i16 %97
+  store i16 %92, ptr %93, align 8, !tbaa !40
+  %99 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 10
+  store i16 %98, ptr %99, align 2, !tbaa !28
   br label %push_parent.exit.i
 
-push_parent.exit.i:                               ; preds = %95, %85, %mark_common.exit.i, %39
-  %.0.i.i = phi i32 [ 0, %39 ], [ 1, %85 ], [ 1, %95 ], [ 1, %mark_common.exit.i ]
-  %99 = or i32 %.0.i.i, %.02651.i
-  %100 = getelementptr inbounds nuw i8, ptr %.02752.i, i64 8
-  %.027.i = load ptr, ptr %100, align 8, !tbaa !29
+push_parent.exit.i:                               ; preds = %96, %86, %mark_common.exit.i, %39
+  %.0.i.i = phi i32 [ 0, %39 ], [ 1, %86 ], [ 1, %96 ], [ 1, %mark_common.exit.i ]
+  %100 = or i32 %.0.i.i, %.02651.i
+  %101 = getelementptr inbounds nuw i8, ptr %.02752.i, i64 8
+  %.027.i = load ptr, ptr %101, align 8, !tbaa !29
   %.not34.i = icmp eq ptr %.027.i, null
   br i1 %.not34.i, label %select.unfold.loopexit.i, label %35, !llvm.loop !41
 
 select.unfold.loopexit.i:                         ; preds = %push_parent.exit.i
-  %101 = icmp ne i32 %99, 0
+  %102 = icmp ne i32 %100, 0
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %select.unfold.loopexit.i, %29
-  %.026.lcssa.i = phi i1 [ false, %29 ], [ %101, %select.unfold.loopexit.i ]
-  %102 = load i32, ptr %16, align 8
-  %103 = and i32 %102, 64
-  %104 = icmp ne i32 %103, 0
-  %or.cond.i = select i1 %104, i1 true, i1 %.026.lcssa.i
+  %.026.lcssa.i = phi i1 [ false, %29 ], [ %102, %select.unfold.loopexit.i ]
+  %103 = load i32, ptr %16, align 8
+  %104 = and i32 %103, 64
+  %105 = icmp ne i32 %104, 0
+  %or.cond.i = select i1 %105, i1 true, i1 %.026.lcssa.i
   call void @free(ptr noundef %15) #6
   %spec.select41.i = select i1 %or.cond.i, ptr %.231.i, ptr %16
-  %105 = icmp eq ptr %spec.select41.i, null
-  br i1 %105, label %8, label %106
+  %106 = icmp eq ptr %spec.select41.i, null
+  br i1 %106, label %8, label %107
 
-106:                                              ; preds = %select.unfold.i
-  %107 = getelementptr inbounds nuw i8, ptr %spec.select41.i, i64 4
+107:                                              ; preds = %select.unfold.i
+  %108 = getelementptr inbounds nuw i8, ptr %spec.select41.i, i64 4
   br label %get_rev.exit
 
-get_rev.exit:                                     ; preds = %8, %11, %106
-  %.2.i = phi ptr [ %107, %106 ], [ null, %11 ], [ null, %8 ]
+get_rev.exit:                                     ; preds = %8, %11, %107
+  %.2.i = phi ptr [ %108, %107 ], [ null, %11 ], [ null, %8 ]
   ret ptr %.2.i
 }
 
@@ -387,15 +388,16 @@ define internal void @release(ptr noundef readonly captures(none) %0) #0 {
   ret void
 
 7:                                                ; preds = %.lr.ph, %7
-  %.07 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
+  %.07 = phi i64 [ 0, %.lr.ph ], [ %12, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !33
-  %9 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %8, i64 %.07, i32 1
-  %10 = load ptr, ptr %9, align 8, !tbaa !36
-  tail call void @free(ptr noundef %10) #6
-  %11 = add nuw i64 %.07, 1
-  %12 = load i64, ptr %4, align 8, !tbaa !27
-  %13 = icmp ult i64 %11, %12
-  br i1 %13, label %7, label %._crit_edge, !llvm.loop !42
+  %9 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %8, i64 %.07
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !36
+  tail call void @free(ptr noundef %11) #6
+  %12 = add nuw i64 %.07, 1
+  %13 = load i64, ptr %4, align 8, !tbaa !27
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %7, label %._crit_edge, !llvm.loop !42
 }
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1

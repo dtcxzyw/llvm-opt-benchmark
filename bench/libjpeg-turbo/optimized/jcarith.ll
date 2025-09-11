@@ -1140,7 +1140,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   %.not109 = icmp sgt i32 %.187143, %92
   %93 = select i1 %.not109, i64 217, i64 189
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 %93
-  %.not110123 = icmp ult i32 %.084, 5
+  %.not110123 = icmp samesign ult i32 %.084, 5
   br i1 %.not110123, label %.loopexit.thread164, label %.lr.ph128
 
 .loopexit.thread164:                              ; preds = %89

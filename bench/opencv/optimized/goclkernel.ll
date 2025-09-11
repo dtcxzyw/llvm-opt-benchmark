@@ -116,35 +116,36 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv11GOCLContext5inMa
   unreachable
 
 _ZNSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i:      ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.cv::GArg", ptr %7, i64 %4, i32 2
-  %14 = load ptr, ptr %13, align 8, !tbaa !10
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %_ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.thread.i.i.i, label %_ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.i.i.i
+  %13 = getelementptr inbounds nuw %"class.cv::GArg", ptr %7, i64 %4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !10
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %_ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.thread.i.i.i, label %_ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.i.i.i
 
 _ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.i.i.i: ; preds = %_ZNSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i
-  %16 = tail call ptr @__dynamic_cast(ptr nonnull %14, ptr nonnull @_ZTIN2cv4util3any6holderE, ptr nonnull @_ZTIN2cv4util3any11holder_implINS_4UMatEEE, i64 0) #19
-  %.not.i.i.i.i = icmp eq ptr %16, null
+  %17 = tail call ptr @__dynamic_cast(ptr nonnull %15, ptr nonnull @_ZTIN2cv4util3any6holderE, ptr nonnull @_ZTIN2cv4util3any11holder_implINS_4UMatEEE, i64 0) #19
+  %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %_ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.thread.i.i.i, label %_ZN2cv11GOCLContext5inArgINS_4UMatEEERKT_i.exit
 
 _ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.thread.i.i.i: ; preds = %_ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.i.i.i, %_ZNSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4util12bad_any_castE, i64 16), ptr %3, align 8, !tbaa !12
   invoke void @_ZN2cv4util11throw_errorINS0_12bad_any_castEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
-          to label %17 unwind label %18
-
-17:                                               ; preds = %_ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.thread.i.i.i
-  unreachable
+          to label %18 unwind label %19
 
 18:                                               ; preds = %_ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.thread.i.i.i
-  %19 = landingpad { ptr, i32 }
+  unreachable
+
+19:                                               ; preds = %_ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.thread.i.i.i
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %20
 
 _ZN2cv11GOCLContext5inArgINS_4UMatEEERKT_i.exit:  ; preds = %_ZN2cv4util8any_castINS_4UMatEEEPT_PNS0_3anyE.exit.i.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  ret ptr %20
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -262,35 +263,36 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GOCLContext5inVa
   unreachable
 
 _ZNSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i:      ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.cv::GArg", ptr %7, i64 %4, i32 2
-  %14 = load ptr, ptr %13, align 8, !tbaa !10
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %_ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.thread.i.i.i, label %_ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.i.i.i
+  %13 = getelementptr inbounds nuw %"class.cv::GArg", ptr %7, i64 %4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !10
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %_ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.thread.i.i.i, label %_ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.i.i.i
 
 _ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.i.i.i: ; preds = %_ZNSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i
-  %16 = tail call ptr @__dynamic_cast(ptr nonnull %14, ptr nonnull @_ZTIN2cv4util3any6holderE, ptr nonnull @_ZTIN2cv4util3any11holder_implINS_7Scalar_IdEEEE, i64 0) #19
-  %.not.i.i.i.i = icmp eq ptr %16, null
+  %17 = tail call ptr @__dynamic_cast(ptr nonnull %15, ptr nonnull @_ZTIN2cv4util3any6holderE, ptr nonnull @_ZTIN2cv4util3any11holder_implINS_7Scalar_IdEEEE, i64 0) #19
+  %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %_ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.thread.i.i.i, label %_ZN2cv11GOCLContext5inArgINS_7Scalar_IdEEEERKT_i.exit
 
 _ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.thread.i.i.i: ; preds = %_ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.i.i.i, %_ZNSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv4util12bad_any_castE, i64 16), ptr %3, align 8, !tbaa !12
   invoke void @_ZN2cv4util11throw_errorINS0_12bad_any_castEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
-          to label %17 unwind label %18
-
-17:                                               ; preds = %_ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.thread.i.i.i
-  unreachable
+          to label %18 unwind label %19
 
 18:                                               ; preds = %_ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.thread.i.i.i
-  %19 = landingpad { ptr, i32 }
+  unreachable
+
+19:                                               ; preds = %_ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.thread.i.i.i
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %19
+  resume { ptr, i32 } %20
 
 _ZN2cv11GOCLContext5inArgINS_7Scalar_IdEEEERKT_i.exit: ; preds = %_ZN2cv4util8any_castINS_7Scalar_IdEEEEPT_PNS0_3anyE.exit.i.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  ret ptr %20
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -686,7 +686,8 @@ define dso_local noundef zeroext i1 @drm_ioctl_flags(i32 noundef %0, ptr noundef
   %10 = trunc i64 %9 to i32
   %11 = and i32 %0, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr %struct.drm_ioctl_desc, ptr @drm_ioctls, i64 %12, i32 1
+  %.split = getelementptr %struct.drm_ioctl_desc, ptr @drm_ioctls, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 4
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %1, align 4
   br label %15

@@ -2027,7 +2027,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   %839 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %838, ptr noundef %0, i32 noundef %.1110941179, i32 noundef 1, i32 noundef 0)
   %840 = add i32 %.1110941179, 1
   %841 = add nsw i32 %.141180, -1
-  %842 = icmp sgt i32 %.141180, 1
+  %842 = icmp samesign ugt i32 %.141180, 1
   br i1 %842, label %.lr.ph1181, label %.thread1136, !llvm.loop !22
 
 843:                                              ; preds = %602

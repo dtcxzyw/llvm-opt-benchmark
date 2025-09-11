@@ -2641,8 +2641,8 @@ _ZN4core3ops8function6FnOnce9call_once17h8a0668248a99363cE.exit.i15.i.i.i.i: ; p
 
 .noexc17.i:                                       ; preds = %_ZN4core3ops8function6FnOnce9call_once17h8a0668248a99363cE.exit.i15.i.i.i.i
   %100 = extractvalue { i64, i64 } %99, 0
-  %.not.i18.i.i.i.i = icmp eq i64 %100, 0
-  br i1 %.not.i18.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h8a0668248a99363cE.exit.thread9.i11.i.i.i.i, label %110
+  %.not.i17.i.i.i.i = icmp eq i64 %100, 0
+  br i1 %.not.i17.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h8a0668248a99363cE.exit.thread9.i11.i.i.i.i, label %110
 
 _ZN4core3ops8function6FnOnce9call_once17h8a0668248a99363cE.exit.thread9.i11.i.i.i.i: ; preds = %.noexc17.i, %.noexc16.i
   store i64 0, ptr %62, align 16, !alias.scope !369, !noalias !318
@@ -2689,13 +2689,13 @@ _ZN4core3ops8function6FnOnce9call_once17h8a0668248a99363cE.exit.thread9.i11.i.i.
   br label %.thread.i
 
 110:                                              ; preds = %.noexc17.i
-  %spec.select1.i.i.i17.i.i.i.i = sub i64 2, %100
+  %spec.select1.i.i.i16.i.i.i.i = sub i64 2, %100
   %111 = extractvalue { i64, i64 } %99, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !349
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.noexc12.i, %110, %.thread31.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h0ba963182c208a5fE.exit.i.i.i.i, %50
-  %.sroa.0.0.i.i.i24.i = phi i64 [ %spec.select1.i.i.i17.i.i.i.i, %110 ], [ %.sroa.0.0.i4.i.i.i.ph.i, %.thread31.i ], [ 1, %50 ], [ %spec.select1.i.i.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h0ba963182c208a5fE.exit.i.i.i.i ], [ 0, %.noexc12.i ]
+  %.sroa.0.0.i.i.i24.i = phi i64 [ %spec.select1.i.i.i16.i.i.i.i, %110 ], [ %.sroa.0.0.i4.i.i.i.ph.i, %.thread31.i ], [ 1, %50 ], [ %spec.select1.i.i.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h0ba963182c208a5fE.exit.i.i.i.i ], [ 0, %.noexc12.i ]
   %.sroa.3.0.i3.pn.i.i.i23.i = phi i64 [ %111, %110 ], [ %.sroa.3.0.i3.i.i.i.ph.i, %.thread31.i ], [ %51, %50 ], [ %54, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h0ba963182c208a5fE.exit.i.i.i.i ], [ undef, %.noexc12.i ]
   %112 = load ptr, ptr %5, align 8, !noalias !323, !noundef !12
   %113 = load ptr, ptr %13, align 8, !noalias !323
@@ -19857,14 +19857,13 @@ define internal fastcc void @"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validi
   %28 = zext i32 %27 to i64
   %29 = icmp ugt i64 %22, %28
   tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %31 = load i32, ptr %30, align 4, !alias.scope !2824, !noalias !2829, !noundef !12
-  %32 = zext i32 %31 to i64
-  %.idx.i.i.i.i = mul nuw nsw i64 %28, 24
-  %33 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i.i.i
+  %30 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %20, i64 %28
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %32 = load i32, ptr %31, align 4, !alias.scope !2824, !noalias !2829, !noundef !12
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %35 = load ptr, ptr %34, align 8, !alias.scope !2830, !noalias !2833, !noundef !12
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %33
   br label %"_ZN12polars_arrow5array7binview8iterator136_$LT$impl$u20$polars_arrow..array..iterator..ArrayAccessor$u20$for$u20$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$T$GT$$GT$15value_unchecked17h2b0e741b32bc4132E.exit.i.i"
 
 37:                                               ; preds = %11
@@ -19991,14 +19990,13 @@ define internal fastcc void @"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validi
   %95 = zext i32 %94 to i64
   %96 = icmp ugt i64 %89, %95
   tail call void @llvm.assume(i1 %96)
-  %97 = getelementptr inbounds nuw i8, ptr %85, i64 12
-  %98 = load i32, ptr %97, align 4, !alias.scope !2843, !noalias !2848, !noundef !12
-  %99 = zext i32 %98 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %95, 24
-  %100 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx.i.i.i
+  %97 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %87, i64 %95
+  %98 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  %99 = load i32, ptr %98, align 4, !alias.scope !2843, !noalias !2848, !noundef !12
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %102 = load ptr, ptr %101, align 8, !alias.scope !2849, !noalias !2852, !noundef !12
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %99
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %100
   %.not1 = icmp eq ptr %102, null
   br i1 %.not1, label %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8563647e56ca9461E.exit.thread", label %104
 

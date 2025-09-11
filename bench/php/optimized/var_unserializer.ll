@@ -539,30 +539,27 @@ define dso_local void @var_push_dtor(ptr noundef readonly captures(address_is_nu
   %.028.i.i = phi ptr [ %16, %25 ], [ %11, %12 ]
   %29 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 16
   %30 = add nsw i64 %28, 1
-  %.idx.i.i = shl nsw i64 %28, 4
-  %31 = getelementptr i8, ptr %29, i64 %.idx.i.i
-  %32 = getelementptr i8, ptr %31, i64 8
+  %31 = getelementptr inbounds %struct._zval_struct, ptr %29, i64 %28
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 0, ptr %32, align 8, !tbaa !46
-  %33 = getelementptr i8, ptr %31, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 0, ptr %33, align 4, !tbaa !46
   store i64 %30, ptr %.028.i.i, align 8, !tbaa !45
-  %34 = getelementptr inbounds %struct._zval_struct, ptr %29, i64 %28
-  %35 = load ptr, ptr %1, align 8, !tbaa !46
-  %36 = load i32, ptr %3, align 8, !tbaa !46
-  store ptr %35, ptr %34, align 8, !tbaa !46
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %36, ptr %37, align 8, !tbaa !46
-  %38 = and i32 %36, 65280
-  %.not13 = icmp eq i32 %38, 0
-  br i1 %.not13, label %var_tmp_var.exit.thread, label %39
+  %34 = load ptr, ptr %1, align 8, !tbaa !46
+  %35 = load i32, ptr %3, align 8, !tbaa !46
+  store ptr %34, ptr %31, align 8, !tbaa !46
+  store i32 %35, ptr %32, align 8, !tbaa !46
+  %36 = and i32 %35, 65280
+  %.not13 = icmp eq i32 %36, 0
+  br i1 %.not13, label %var_tmp_var.exit.thread, label %37
 
-39:                                               ; preds = %27
-  %40 = load i32, ptr %35, align 4, !tbaa !63
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %35, align 4, !tbaa !63
+37:                                               ; preds = %27
+  %38 = load i32, ptr %34, align 4, !tbaa !63
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %34, align 4, !tbaa !63
   br label %var_tmp_var.exit.thread
 
-var_tmp_var.exit.thread:                          ; preds = %6, %39, %27, %2
+var_tmp_var.exit.thread:                          ; preds = %6, %37, %27, %2
   ret void
 }
 
@@ -617,11 +614,10 @@ define dso_local ptr @var_tmp_var(ptr noundef readonly captures(address_is_null)
   %.028.i = phi ptr [ %12, %21 ], [ %7, %8 ]
   %25 = getelementptr inbounds nuw i8, ptr %.028.i, i64 16
   %26 = add nsw i64 %24, 1
-  %.idx.i = shl nsw i64 %24, 4
-  %27 = getelementptr i8, ptr %25, i64 %.idx.i
-  %28 = getelementptr i8, ptr %27, i64 8
+  %27 = getelementptr inbounds %struct._zval_struct, ptr %25, i64 %24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 0, ptr %28, align 8, !tbaa !46
-  %29 = getelementptr i8, ptr %27, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 0, ptr %29, align 4, !tbaa !46
   store i64 %26, ptr %.028.i, align 8, !tbaa !45
   %30 = getelementptr inbounds nuw i8, ptr %.028.i, i64 16
@@ -3769,11 +3765,10 @@ zval_ptr_dtor_str.exit110:                        ; preds = %79, %74, %72, %42, 
 
 138:                                              ; preds = %.lr.ph152, %138
   %139 = phi i64 [ %136, %.lr.ph152 ], [ %143, %138 ]
-  %.idx.i = shl nsw i64 %139, 4
-  %140 = getelementptr i8, ptr %137, i64 %.idx.i
-  %141 = getelementptr i8, ptr %140, i64 8
+  %140 = getelementptr inbounds %struct._zval_struct, ptr %137, i64 %139
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i32 0, ptr %141, align 8, !tbaa !46
-  %142 = getelementptr i8, ptr %140, i64 12
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 12
   store i32 0, ptr %142, align 4, !tbaa !46
   %143 = add nsw i64 %139, 1
   %.not156 = icmp sgt i64 %139, %136
@@ -4324,7 +4319,7 @@ zval_ptr_dtor_str.exit101:                        ; preds = %369, %369
 
 403:                                              ; preds = %400, %._crit_edge
   %.3 = phi ptr [ %402, %400 ], [ %0, %._crit_edge ]
-  br i1 %177, label %404, label %439
+  br i1 %177, label %404, label %436
 
 404:                                              ; preds = %403
   %405 = getelementptr inbounds nuw i8, ptr %395, i64 16
@@ -4367,52 +4362,48 @@ var_tmp_var.exit:                                 ; preds = %420, %407
   %.028.i.i = phi ptr [ %411, %420 ], [ %406, %407 ]
   %423 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 16
   %424 = add nsw i64 %422, 1
-  %.idx.i.i = shl nsw i64 %422, 4
-  %425 = getelementptr i8, ptr %423, i64 %.idx.i.i
-  %426 = getelementptr i8, ptr %425, i64 8
+  %425 = getelementptr inbounds %struct._zval_struct, ptr %423, i64 %422
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
   store i32 0, ptr %426, align 8, !tbaa !46
-  %427 = getelementptr i8, ptr %425, i64 12
+  %427 = getelementptr inbounds nuw i8, ptr %425, i64 12
   store i32 0, ptr %427, align 4, !tbaa !46
   store i64 %424, ptr %.028.i.i, align 8, !tbaa !45
-  %428 = getelementptr inbounds %struct._zval_struct, ptr %423, i64 %422
-  %429 = load ptr, ptr %.3, align 8, !tbaa !46
-  %430 = getelementptr inbounds nuw i8, ptr %.3, i64 8
-  %431 = load i32, ptr %430, align 8, !tbaa !46
-  store ptr %429, ptr %428, align 8, !tbaa !46
-  %432 = getelementptr inbounds nuw i8, ptr %428, i64 8
-  store i32 %431, ptr %432, align 8, !tbaa !46
-  %433 = and i32 %431, 65280
-  %.not91 = icmp eq i32 %433, 0
-  br i1 %.not91, label %437, label %434
+  %428 = load ptr, ptr %.3, align 8, !tbaa !46
+  %429 = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %430 = load i32, ptr %429, align 8, !tbaa !46
+  store ptr %428, ptr %425, align 8, !tbaa !46
+  store i32 %430, ptr %426, align 8, !tbaa !46
+  %431 = and i32 %430, 65280
+  %.not91 = icmp eq i32 %431, 0
+  br i1 %.not91, label %435, label %432
 
-434:                                              ; preds = %var_tmp_var.exit
-  %435 = load i32, ptr %429, align 4, !tbaa !63
-  %436 = add i32 %435, 1
-  store i32 %436, ptr %429, align 4, !tbaa !63
-  br label %437
+432:                                              ; preds = %var_tmp_var.exit
+  %433 = load i32, ptr %428, align 4, !tbaa !63
+  %434 = add i32 %433, 1
+  store i32 %434, ptr %428, align 4, !tbaa !63
+  br label %435
 
-437:                                              ; preds = %434, %var_tmp_var.exit
-  %438 = getelementptr inbounds nuw i8, ptr %428, i64 12
-  store i32 1, ptr %438, align 4, !tbaa !46
-  br label %439
+435:                                              ; preds = %432, %var_tmp_var.exit
+  store i32 1, ptr %427, align 4, !tbaa !46
+  br label %436
 
-439:                                              ; preds = %437, %403
-  %440 = load ptr, ptr %1, align 8, !tbaa !104
-  %.not.i119 = icmp ult ptr %440, %2
-  br i1 %.not.i119, label %441, label %finish_nested_data.exit122
+436:                                              ; preds = %435, %403
+  %437 = load ptr, ptr %1, align 8, !tbaa !104
+  %.not.i119 = icmp ult ptr %437, %2
+  br i1 %.not.i119, label %438, label %finish_nested_data.exit122
 
-441:                                              ; preds = %439
-  %442 = load i8, ptr %440, align 1, !tbaa !46
-  %.not5.i121 = icmp eq i8 %442, 125
-  br i1 %.not5.i121, label %443, label %finish_nested_data.exit122
+438:                                              ; preds = %436
+  %439 = load i8, ptr %437, align 1, !tbaa !46
+  %.not5.i121 = icmp eq i8 %439, 125
+  br i1 %.not5.i121, label %440, label %finish_nested_data.exit122
 
-443:                                              ; preds = %441
-  %444 = getelementptr inbounds nuw i8, ptr %440, i64 1
-  store ptr %444, ptr %1, align 8, !tbaa !104
+440:                                              ; preds = %438
+  %441 = getelementptr inbounds nuw i8, ptr %437, i64 1
+  store ptr %441, ptr %1, align 8, !tbaa !104
   br label %finish_nested_data.exit122
 
-finish_nested_data.exit122:                       ; preds = %443, %441, %439, %380, %388, %175, %finish_nested_data.exit
-  %.1 = phi i32 [ %.0, %finish_nested_data.exit ], [ 0, %175 ], [ 0, %388 ], [ 0, %380 ], [ 1, %443 ], [ 0, %441 ], [ 0, %439 ]
+finish_nested_data.exit122:                       ; preds = %440, %438, %436, %380, %388, %175, %finish_nested_data.exit
+  %.1 = phi i32 [ %.0, %finish_nested_data.exit ], [ 0, %175 ], [ 0, %388 ], [ 0, %380 ], [ 1, %440 ], [ 0, %438 ], [ 0, %436 ]
   ret i32 %.1
 }
 
@@ -4603,19 +4594,16 @@ define internal fastcc void @var_push_dtor_value(ptr noundef nonnull readonly ca
   %.028.i.i = phi ptr [ %16, %25 ], [ %11, %12 ]
   %29 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 16
   %30 = add nsw i64 %28, 1
-  %.idx.i.i = shl nsw i64 %28, 4
-  %31 = getelementptr i8, ptr %29, i64 %.idx.i.i
-  %32 = getelementptr i8, ptr %31, i64 8
+  %31 = getelementptr inbounds %struct._zval_struct, ptr %29, i64 %28
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 0, ptr %32, align 8, !tbaa !46
-  %33 = getelementptr i8, ptr %31, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 0, ptr %33, align 4, !tbaa !46
   store i64 %30, ptr %.028.i.i, align 8, !tbaa !45
-  %34 = getelementptr inbounds %struct._zval_struct, ptr %29, i64 %28
-  %35 = load ptr, ptr %1, align 8, !tbaa !46
-  %36 = load i32, ptr %3, align 8, !tbaa !46
-  store ptr %35, ptr %34, align 8, !tbaa !46
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %36, ptr %37, align 8, !tbaa !46
+  %34 = load ptr, ptr %1, align 8, !tbaa !46
+  %35 = load i32, ptr %3, align 8, !tbaa !46
+  store ptr %34, ptr %31, align 8, !tbaa !46
+  store i32 %35, ptr %32, align 8, !tbaa !46
   br label %var_tmp_var.exit.thread
 
 var_tmp_var.exit.thread:                          ; preds = %6, %27, %2

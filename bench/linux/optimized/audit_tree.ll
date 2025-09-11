@@ -2163,7 +2163,8 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
 75:                                               ; preds = %75, %73
   %76 = phi i64 [ 0, %73 ], [ %83, %75 ]
   %77 = phi i32 [ 0, %73 ], [ %82, %75 ]
-  %78 = getelementptr %struct.audit_node, ptr %16, i64 %76, i32 1
+  %.split = getelementptr %struct.audit_node, ptr %16, i64 %76
+  %78 = getelementptr i8, ptr %.split, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = icmp ne ptr %79, null
   %81 = zext i1 %80 to i32

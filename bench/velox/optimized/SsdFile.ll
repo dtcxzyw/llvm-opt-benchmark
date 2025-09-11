@@ -2143,7 +2143,7 @@ if.end20.i:                                       ; preds = %while.end.i
   br i1 %exitcond.not, label %cleanup27.critedge, label %call6.i.noexc, !llvm.loop !15
 
 cleanup:                                          ; preds = %call11.i.noexc
-  %second = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %idxprom.i, i32 1
+  %second = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %18 = load i64, ptr %second, align 8
   %regionPins_.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %19 = lshr i64 %18, 49
@@ -2439,7 +2439,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %4 = phi ptr [ %3, %for.body.lr.ph ], [ %17, %if.end20 ]
   %payloadTotal.083 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %if.end20 ]
   %5 = load ptr, ptr %ssdPins, align 8
-  %run_.i = getelementptr inbounds nuw %"class.facebook::velox::cache::SsdPin", ptr %5, i64 %indvars.iv, i32 1
+  %add.ptr.i = getelementptr inbounds nuw %"class.facebook::velox::cache::SsdPin", ptr %5, i64 %indvars.iv
+  %run_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %run_.i, align 8
   %6 = trunc i64 %retval.sroa.0.0.copyload.i to i32
   %7 = and i32 %6, 8388607
@@ -2554,7 +2555,8 @@ for.body47:                                       ; preds = %_ZNSt8functionIFmiE
   %31 = load ptr, ptr %pins, align 8
   %add.ptr.i58 = getelementptr inbounds nuw %"class.facebook::velox::cache::CachePin", ptr %31, i64 %indvars.iv95
   %32 = load ptr, ptr %add.ptr.i58, align 8
-  %run_.i60 = getelementptr inbounds nuw %"class.facebook::velox::cache::SsdPin", ptr %30, i64 %indvars.iv95, i32 1
+  %add.ptr.i59 = getelementptr inbounds nuw %"class.facebook::velox::cache::SsdPin", ptr %30, i64 %indvars.iv95
+  %run_.i60 = getelementptr inbounds nuw i8, ptr %add.ptr.i59, i64 8
   %retval.sroa.0.0.copyload.i61 = load i64, ptr %run_.i60, align 8
   %shr.i62 = lshr i64 %retval.sroa.0.0.copyload.i61, 23
   %ssdFile_.i = getelementptr inbounds nuw i8, ptr %32, i64 152
@@ -4073,7 +4075,8 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i: ; preds = %if.end24.i
 invoke.cont128:                                   ; preds = %while.body.i.i, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i
   %idx.ext8.i.i.i.pre-phi = phi i64 [ %.pre294, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i ], [ %idxprom.i.i, %while.body.i.i ]
   %97 = phi ptr [ %.pre292, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i ], [ %59, %while.body.i.i ]
-  %second.i = getelementptr inbounds nuw %"struct.std::pair", ptr %97, i64 %idx.ext8.i.i.i.pre-phi, i32 1
+  %add.ptr9.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %97, i64 %idx.ext8.i.i.i.pre-phi
+  %second.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i, i64 24
   store i64 %or.i, ptr %second.i, align 8
   %98 = load i8, ptr @_ZN3fLB22FLAGS_ssd_verify_writeE, align 1
   %tobool = trunc i8 %98 to i1
@@ -6026,7 +6029,7 @@ lpad8.body.thread:                                ; preds = %.noexc
   br label %cleanup.action14
 
 cond.false:                                       ; preds = %call11.i.noexc
-  %second = getelementptr inbounds nuw %"struct.std::pair.228", ptr %3, i64 %idxprom.i, i32 1
+  %second = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %second)
           to label %cleanup.done unwind label %lpad8.body
 
@@ -7385,10 +7388,11 @@ invoke.cont111:                                   ; preds = %invoke.cont108
   %56 = load ptr, ptr %entries_, align 8, !noalias !78, !nonnull !33, !noundef !33
   %57 = load i32, ptr %55, align 4, !noalias !78
   %idx.ext8.i.i.i = zext i32 %57 to i64
+  %add.ptr9.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %56, i64 %idx.ext8.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %rv.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i)
-  %second.i = getelementptr inbounds nuw %"struct.std::pair", ptr %56, i64 %idx.ext8.i.i.i, i32 1
+  %second.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i, i64 24
   store i64 %31, ptr %second.i, align 8
   %58 = load ptr, ptr %key, align 8
   %tobool.not.i.i.i = icmp eq ptr %58, null
@@ -8540,7 +8544,8 @@ entry:
   %__args.val = load i32, ptr %__args, align 4
   %call.val.val = load ptr, ptr %call.val, align 8
   %conv.i.i.i = sext i32 %__args.val to i64
-  %run_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::cache::SsdPin", ptr %call.val.val, i64 %conv.i.i.i, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds %"class.facebook::velox::cache::SsdPin", ptr %call.val.val, i64 %conv.i.i.i
+  %run_.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %run_.i.i.i.i, align 8
   %shr.i.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i, 23
   ret i64 %shr.i.i.i.i

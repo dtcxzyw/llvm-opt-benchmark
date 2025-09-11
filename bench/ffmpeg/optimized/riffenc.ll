@@ -82,7 +82,7 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %10 = load i32, ptr %9, align 8, !tbaa !4
   %11 = add i32 %10, -65536
   %or.cond = icmp ult i32 %11, -65535
-  br i1 %or.cond, label %198, label %12
+  br i1 %or.cond, label %199, label %12
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -97,7 +97,7 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 19:                                               ; preds = %12
   %20 = tail call ptr @avcodec_get_name(i32 noundef 69645) #8
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.3, ptr noundef %20) #8
-  br label %198
+  br label %199
 
 ._crit_edge:                                      ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 156
@@ -354,7 +354,7 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 134:                                              ; preds = %104, %123, %129, %126, %119, %98
   %.0189 = phi ptr [ %5, %126 ], [ %133, %129 ], [ %103, %98 ], [ %118, %104 ], [ %122, %119 ], [ %125, %123 ]
   %.0115 = phi ptr [ %5, %126 ], [ %131, %129 ], [ %5, %98 ], [ %5, %104 ], [ %5, %119 ], [ %5, %123 ]
-  br i1 %45, label %135, label %178
+  br i1 %45, label %135, label %179
 
 135:                                              ; preds = %134
   %136 = and i32 %3, 2
@@ -410,7 +410,7 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %165 = phi i32 [ %158, %155 ], [ 0, %141 ], [ 0, %.critedge ]
   call void @avio_wl32(ptr noundef %1, i32 noundef %165) #8
   %166 = load i32, ptr %13, align 4, !tbaa !15
-  switch i32 %166, label %176 [
+  switch i32 %166, label %177 [
     i32 86056, label %167
     i32 86112, label %167
   ]
@@ -434,62 +434,63 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %173, label %174, label %169
 
 174:                                              ; preds = %.lr.ph.i
-  %175 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr @ff_codec_wav_guids, i64 %indvars.iv.i, i32 1
+  %175 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr @ff_codec_wav_guids, i64 %indvars.iv.i
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
   br label %ff_get_codec_guid.exit
 
 ff_get_codec_guid.exit:                           ; preds = %169, %167, %174
-  %.08.i = phi ptr [ %175, %174 ], [ null, %167 ], [ null, %169 ]
+  %.08.i = phi ptr [ %176, %174 ], [ null, %167 ], [ null, %169 ]
   call void @avio_write(ptr noundef %1, ptr noundef %.08.i, i32 noundef 16) #8
-  br label %187
+  br label %188
 
-176:                                              ; preds = %164
-  %177 = load i32, ptr %9, align 8, !tbaa !4
-  call void @avio_wl32(ptr noundef %1, i32 noundef %177) #8
+177:                                              ; preds = %164
+  %178 = load i32, ptr %9, align 8, !tbaa !4
+  call void @avio_wl32(ptr noundef %1, i32 noundef %178) #8
   call void @avio_wl32(ptr noundef %1, i32 noundef 1048576) #8
   call void @avio_wl32(ptr noundef %1, i32 noundef -1442840448) #8
   call void @avio_wl32(ptr noundef %1, i32 noundef 1905997824) #8
-  br label %187
+  br label %188
 
-178:                                              ; preds = %134
-  %179 = and i32 %3, 1
-  %.not141 = icmp eq i32 %179, 0
-  br i1 %.not141, label %180, label %182
+179:                                              ; preds = %134
+  %180 = and i32 %3, 1
+  %.not141 = icmp eq i32 %180, 0
+  br i1 %.not141, label %181, label %183
 
-180:                                              ; preds = %178
-  %181 = load i32, ptr %9, align 8, !tbaa !4
-  %.not142 = icmp eq i32 %181, 1
+181:                                              ; preds = %179
+  %182 = load i32, ptr %9, align 8, !tbaa !4
+  %.not142 = icmp eq i32 %182, 1
   %.not143 = icmp eq ptr %.0189, %.0115
   %or.cond149 = select i1 %.not142, i1 %.not143, i1 false
-  br i1 %or.cond149, label %187, label %182
+  br i1 %or.cond149, label %188, label %183
 
-182:                                              ; preds = %180, %178
-  %183 = ptrtoint ptr %.0189 to i64
-  %184 = ptrtoint ptr %.0115 to i64
-  %185 = sub i64 %183, %184
-  %186 = trunc i64 %185 to i32
-  call void @avio_wl16(ptr noundef %1, i32 noundef %186) #8
-  br label %187
+183:                                              ; preds = %181, %179
+  %184 = ptrtoint ptr %.0189 to i64
+  %185 = ptrtoint ptr %.0115 to i64
+  %186 = sub i64 %184, %185
+  %187 = trunc i64 %186 to i32
+  call void @avio_wl16(ptr noundef %1, i32 noundef %187) #8
+  br label %188
 
-187:                                              ; preds = %180, %ff_get_codec_guid.exit, %176, %182
-  %188 = ptrtoint ptr %.0189 to i64
-  %189 = ptrtoint ptr %.0115 to i64
-  %190 = sub i64 %188, %189
-  %191 = trunc i64 %190 to i32
-  call void @avio_write(ptr noundef %1, ptr noundef %.0115, i32 noundef %191) #8
-  %192 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #8
-  %193 = sub nsw i64 %192, %8
-  %194 = trunc i64 %193 to i32
-  %195 = and i32 %194, 1
-  %.not145 = icmp eq i32 %195, 0
-  br i1 %.not145, label %198, label %196
+188:                                              ; preds = %181, %ff_get_codec_guid.exit, %177, %183
+  %189 = ptrtoint ptr %.0189 to i64
+  %190 = ptrtoint ptr %.0115 to i64
+  %191 = sub i64 %189, %190
+  %192 = trunc i64 %191 to i32
+  call void @avio_write(ptr noundef %1, ptr noundef %.0115, i32 noundef %192) #8
+  %193 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #8
+  %194 = sub nsw i64 %193, %8
+  %195 = trunc i64 %194 to i32
+  %196 = and i32 %195, 1
+  %.not145 = icmp eq i32 %196, 0
+  br i1 %.not145, label %199, label %197
 
-196:                                              ; preds = %187
-  %197 = add nsw i32 %194, 1
+197:                                              ; preds = %188
+  %198 = add nsw i32 %195, 1
   call void @avio_w8(ptr noundef %1, i32 noundef 0) #8
-  br label %198
+  br label %199
 
-198:                                              ; preds = %187, %196, %4, %19
-  %.0 = phi i32 [ -22, %19 ], [ -1, %4 ], [ %197, %196 ], [ %194, %187 ]
+199:                                              ; preds = %188, %197, %4, %19
+  %.0 = phi i32 [ -22, %19 ], [ -1, %4 ], [ %198, %197 ], [ %195, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -533,11 +534,12 @@ define ptr @ff_get_codec_guid(i32 noundef %0, ptr noundef readonly captures(ret:
   br i1 %8, label %9, label %4
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr %1, i64 %indvars.iv, i32 1
+  %10 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %2, %9
-  %.08 = phi ptr [ %10, %9 ], [ null, %2 ], [ null, %4 ]
+  %.08 = phi ptr [ %11, %9 ], [ null, %2 ], [ null, %4 ]
   ret ptr %.08
 }
 

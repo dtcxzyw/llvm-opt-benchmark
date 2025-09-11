@@ -2908,7 +2908,7 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
   %or.cond = or i1 %2, %9
-  br i1 %or.cond, label %82, label %10
+  br i1 %or.cond, label %84, label %10
 
 10:                                               ; preds = %5
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -2921,119 +2921,121 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
 
 15:                                               ; preds = %3
   %16 = icmp sgt i32 %1, -1
-  br i1 %16, label %17, label %77
+  br i1 %16, label %17, label %79
 
 17:                                               ; preds = %15
   %18 = load i32, ptr @RecordCacheArrayLen, align 4
   %19 = icmp slt i32 %1, %18
-  br i1 %19, label %20, label %25
+  br i1 %19, label %20, label %26
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @RecordCacheArray, align 8
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw %struct.RecordCacheArrayEntry, ptr %21, i64 %22, i32 1
-  %24 = load ptr, ptr %23, align 8
-  %.not18 = icmp eq ptr %24, null
-  br i1 %.not18, label %25, label %82
+  %23 = getelementptr inbounds nuw %struct.RecordCacheArrayEntry, ptr %21, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %.not18 = icmp eq ptr %25, null
+  br i1 %.not18, label %26, label %84
 
-25:                                               ; preds = %20, %17
-  %26 = load ptr, ptr @CurrentSession, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %.not19 = icmp eq ptr %28, null
-  br i1 %.not19, label %77, label %29
+26:                                               ; preds = %20, %17
+  %27 = load ptr, ptr @CurrentSession, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %.not19 = icmp eq ptr %29, null
+  br i1 %.not19, label %79, label %30
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @dshash_find(ptr noundef %31, ptr noundef nonnull %4, i1 noundef zeroext false) #16
-  %.not20.not = icmp eq ptr %32, null
-  br i1 %.not20.not, label %76, label %33
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %32 = load ptr, ptr %31, align 8
+  %33 = call ptr @dshash_find(ptr noundef %32, ptr noundef nonnull %4, i1 noundef zeroext false) #16
+  %.not20.not = icmp eq ptr %33, null
+  br i1 %.not20.not, label %78, label %34
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr @CurrentSession, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %38 = load i64, ptr %37, align 8
-  %39 = call ptr @dsa_get_address(ptr noundef %36, i64 noundef %38) #16
-  %40 = load i32, ptr %4, align 4
-  %41 = load ptr, ptr @RecordCacheArray, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %._crit_edge.i
+34:                                               ; preds = %30
+  %35 = load ptr, ptr @CurrentSession, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %39 = load i64, ptr %38, align 8
+  %40 = call ptr @dsa_get_address(ptr noundef %37, i64 noundef %39) #16
+  %41 = load i32, ptr %4, align 4
+  %42 = load ptr, ptr @RecordCacheArray, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %33
+._crit_edge.i:                                    ; preds = %34
   %.pre.i = load i32, ptr @RecordCacheArrayLen, align 4
-  br label %46
+  br label %47
 
-43:                                               ; preds = %33
-  %44 = load ptr, ptr @CacheMemoryContext, align 8
-  %45 = call ptr @MemoryContextAllocZero(ptr noundef %44, i64 noundef 1024) #16
-  store ptr %45, ptr @RecordCacheArray, align 8
+44:                                               ; preds = %34
+  %45 = load ptr, ptr @CacheMemoryContext, align 8
+  %46 = call ptr @MemoryContextAllocZero(ptr noundef %45, i64 noundef 1024) #16
+  store ptr %46, ptr @RecordCacheArray, align 8
   store i32 64, ptr @RecordCacheArrayLen, align 4
-  br label %46
+  br label %47
 
-46:                                               ; preds = %43, %._crit_edge.i
-  %47 = phi ptr [ %41, %._crit_edge.i ], [ %45, %43 ]
-  %48 = phi i32 [ %.pre.i, %._crit_edge.i ], [ 64, %43 ]
-  %.not.i = icmp slt i32 %40, %48
-  br i1 %.not.i, label %.thread, label %49
+47:                                               ; preds = %44, %._crit_edge.i
+  %48 = phi ptr [ %42, %._crit_edge.i ], [ %46, %44 ]
+  %49 = phi i32 [ %.pre.i, %._crit_edge.i ], [ 64, %44 ]
+  %.not.i = icmp slt i32 %41, %49
+  br i1 %.not.i, label %.thread, label %50
 
-49:                                               ; preds = %46
-  %50 = add i32 %40, 1
-  %51 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %50)
-  %52 = icmp samesign ult i32 %51, 2
-  %53 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %50, i1 true)
-  %54 = xor i32 %53, 31
-  %55 = shl nuw i32 2, %54
-  %.0.i.i = select i1 %52, i32 %50, i32 %55
-  %56 = sext i32 %48 to i64
-  %57 = shl nsw i64 %56, 4
-  %58 = sext i32 %.0.i.i to i64
-  %59 = shl nsw i64 %58, 4
-  %60 = call ptr @repalloc0(ptr noundef %47, i64 noundef %57, i64 noundef %59) #16
-  store ptr %60, ptr @RecordCacheArray, align 8
+50:                                               ; preds = %47
+  %51 = add i32 %41, 1
+  %52 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %51)
+  %53 = icmp samesign ult i32 %52, 2
+  %54 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %51, i1 true)
+  %55 = xor i32 %54, 31
+  %56 = shl nuw i32 2, %55
+  %.0.i.i = select i1 %53, i32 %51, i32 %56
+  %57 = sext i32 %49 to i64
+  %58 = shl nsw i64 %57, 4
+  %59 = sext i32 %.0.i.i to i64
+  %60 = shl nsw i64 %59, 4
+  %61 = call ptr @repalloc0(ptr noundef %48, i64 noundef %58, i64 noundef %60) #16
+  store ptr %61, ptr @RecordCacheArray, align 8
   store i32 %.0.i.i, ptr @RecordCacheArrayLen, align 4
   br label %.thread
 
-.thread:                                          ; preds = %49, %46
-  %61 = phi ptr [ %60, %49 ], [ %47, %46 ]
-  %62 = load i32, ptr %4, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %61, i64 %63, i32 1
-  store ptr %39, ptr %64, align 8
-  %65 = load i64, ptr @tupledesc_id_counter, align 8
-  %66 = add i64 %65, 1
-  store i64 %66, ptr @tupledesc_id_counter, align 8
-  %67 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %61, i64 %63
-  store i64 %66, ptr %67, align 8
-  %68 = load ptr, ptr @CurrentSession, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %70 = load ptr, ptr %69, align 8
-  call void @dshash_release_lock(ptr noundef %70, ptr noundef nonnull %32) #16
-  %71 = load ptr, ptr @RecordCacheArray, align 8
-  %72 = load i32, ptr %4, align 4
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %71, i64 %73, i32 1
-  %75 = load ptr, ptr %74, align 8
-  br label %82
+.thread:                                          ; preds = %50, %47
+  %62 = phi ptr [ %61, %50 ], [ %48, %47 ]
+  %63 = load i32, ptr %4, align 4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %62, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store ptr %40, ptr %66, align 8
+  %67 = load i64, ptr @tupledesc_id_counter, align 8
+  %68 = add i64 %67, 1
+  store i64 %68, ptr @tupledesc_id_counter, align 8
+  store i64 %68, ptr %65, align 8
+  %69 = load ptr, ptr @CurrentSession, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  %71 = load ptr, ptr %70, align 8
+  call void @dshash_release_lock(ptr noundef %71, ptr noundef nonnull %33) #16
+  %72 = load ptr, ptr @RecordCacheArray, align 8
+  %73 = load i32, ptr %4, align 4
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %72, i64 %74
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load ptr, ptr %76, align 8
+  br label %84
 
-76:                                               ; preds = %29
-  br i1 %2, label %82, label %78
+78:                                               ; preds = %30
+  br i1 %2, label %84, label %80
 
-77:                                               ; preds = %25, %15
-  br i1 %2, label %82, label %78
+79:                                               ; preds = %26, %15
+  br i1 %2, label %84, label %80
 
-78:                                               ; preds = %76, %77
-  %79 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %79)
-  %80 = call i32 @errcode(i32 noundef 151027844) #16
-  %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #16
+80:                                               ; preds = %78, %79
+  %81 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  call void @llvm.assume(i1 %81)
+  %82 = call i32 @errcode(i32 noundef 151027844) #16
+  %83 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #16
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1899, ptr noundef nonnull @__func__.lookup_rowtype_tupdesc_internal) #16
   unreachable
 
-82:                                               ; preds = %.thread, %76, %77, %20, %5
-  %.013 = phi ptr [ null, %76 ], [ %8, %5 ], [ %24, %20 ], [ null, %77 ], [ %75, %.thread ]
+84:                                               ; preds = %.thread, %78, %79, %20, %5
+  %.013 = phi ptr [ null, %78 ], [ %8, %5 ], [ %25, %20 ], [ null, %79 ], [ %77, %.thread ]
   ret ptr %.013
 }
 
@@ -3193,7 +3195,7 @@ define dso_local void @assign_record_type_typmod(ptr noundef %0) local_unnamed_a
   %26 = load ptr, ptr %2, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 %25, ptr %27, align 8
-  br label %100
+  br label %101
 
 28:                                               ; preds = %21, %16
   %29 = load ptr, ptr @CacheMemoryContext, align 8
@@ -3304,26 +3306,27 @@ ensure_record_cache_typmod_slot_exists.exit20:    ; preds = %73, %70, %ensure_re
   %86 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %85, i64 %88, i32 1
-  store ptr %.0, ptr %89, align 8
-  %90 = load i64, ptr @tupledesc_id_counter, align 8
-  %91 = add i64 %90, 1
-  store i64 %91, ptr @tupledesc_id_counter, align 8
-  %92 = load i32, ptr %86, align 8
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %85, i64 %93
-  store i64 %91, ptr %94, align 8
-  %95 = load ptr, ptr @RecordCacheHash, align 8
-  %96 = call ptr @hash_search(ptr noundef %95, ptr noundef nonnull %2, i32 noundef 1, ptr noundef null) #16
-  store ptr %.0, ptr %96, align 8
-  %97 = load i32, ptr %86, align 8
-  %98 = load ptr, ptr %2, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store i32 %97, ptr %99, align 8
+  %89 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %85, i64 %88
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  store ptr %.0, ptr %90, align 8
+  %91 = load i64, ptr @tupledesc_id_counter, align 8
+  %92 = add i64 %91, 1
+  store i64 %92, ptr @tupledesc_id_counter, align 8
+  %93 = load i32, ptr %86, align 8
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds %struct.RecordCacheArrayEntry, ptr %85, i64 %94
+  store i64 %92, ptr %95, align 8
+  %96 = load ptr, ptr @RecordCacheHash, align 8
+  %97 = call ptr @hash_search(ptr noundef %96, ptr noundef nonnull %2, i32 noundef 1, ptr noundef null) #16
+  store ptr %.0, ptr %97, align 8
+  %98 = load i32, ptr %86, align 8
+  %99 = load ptr, ptr %2, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store i32 %98, ptr %100, align 8
   store ptr %30, ptr @CurrentMemoryContext, align 8
-  br label %100
+  br label %101
 
-100:                                              ; preds = %ensure_record_cache_typmod_slot_exists.exit20, %23
+101:                                              ; preds = %ensure_record_cache_typmod_slot_exists.exit20, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3588,84 +3591,85 @@ define dso_local void @SharedRecordTypmodRegistryInit(ptr noundef initializes((0
   %.pre37 = load ptr, ptr @RecordCacheArray, align 8
   br label %17
 
-17:                                               ; preds = %.lr.ph, %47
-  %18 = phi i32 [ %14, %.lr.ph ], [ %48, %47 ]
-  %19 = phi ptr [ %.pre37, %.lr.ph ], [ %49, %47 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
+17:                                               ; preds = %.lr.ph, %48
+  %18 = phi i32 [ %14, %.lr.ph ], [ %49, %48 ]
+  %19 = phi ptr [ %.pre37, %.lr.ph ], [ %50, %48 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %20 = getelementptr inbounds nuw %struct.RecordCacheArrayEntry, ptr %19, i64 %indvars.iv, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %47, label %23
+  %20 = getelementptr inbounds nuw %struct.RecordCacheArrayEntry, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %48, label %24
 
-23:                                               ; preds = %17
-  %24 = load i32, ptr %21, align 8
-  %25 = sext i32 %24 to i64
-  %reass.mul.i = mul nsw i64 %25, 116
-  %26 = add nsw i64 %reass.mul.i, 24
-  %27 = call i64 @dsa_allocate_extended(ptr noundef %2, i64 noundef %26, i32 noundef 0) #16
-  %28 = call ptr @dsa_get_address(ptr noundef %2, i64 noundef %27) #16
-  call void @TupleDescCopy(ptr noundef %28, ptr noundef nonnull %21) #16
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %30, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %32 = call ptr @dshash_find_or_insert(ptr noundef %9, ptr noundef nonnull %31, ptr noundef nonnull %5) #16
-  %33 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %38
+24:                                               ; preds = %17
+  %25 = load i32, ptr %22, align 8
+  %26 = sext i32 %25 to i64
+  %reass.mul.i = mul nsw i64 %26, 116
+  %27 = add nsw i64 %reass.mul.i, 24
+  %28 = call i64 @dsa_allocate_extended(ptr noundef %2, i64 noundef %27, i32 noundef 0) #16
+  %29 = call ptr @dsa_get_address(ptr noundef %2, i64 noundef %28) #16
+  call void @TupleDescCopy(ptr noundef %29, ptr noundef nonnull %22) #16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %31, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %33 = call ptr @dshash_find_or_insert(ptr noundef %9, ptr noundef nonnull %32, ptr noundef nonnull %5) #16
+  %34 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %23
-  %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %36)
-  %37 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #16
+36:                                               ; preds = %24
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  call void @llvm.assume(i1 %37)
+  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #16
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2251, ptr noundef nonnull @__func__.SharedRecordTypmodRegistryInit) #16
   unreachable
 
-38:                                               ; preds = %23
-  %39 = load i32, ptr %31, align 8
-  store i32 %39, ptr %32, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i64 %27, ptr %40, align 8
-  call void @dshash_release_lock(ptr noundef %9, ptr noundef nonnull %32) #16
+39:                                               ; preds = %24
+  %40 = load i32, ptr %32, align 8
+  store i32 %40, ptr %33, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store i64 %28, ptr %41, align 8
+  call void @dshash_release_lock(ptr noundef %9, ptr noundef nonnull %33) #16
   store i8 0, ptr %16, align 8
-  store ptr %21, ptr %4, align 8
-  %41 = call ptr @dshash_find_or_insert(ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
-  %42 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %46, label %44
+  store ptr %22, ptr %4, align 8
+  %42 = call ptr @dshash_find_or_insert(ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
+  %43 = load i8, ptr %5, align 1, !range !4, !noundef !5
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %47, label %45
 
-44:                                               ; preds = %38
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i8 1, ptr %45, align 8
-  store i64 %27, ptr %41, align 8
-  br label %46
-
-46:                                               ; preds = %44, %38
-  call void @dshash_release_lock(ptr noundef %8, ptr noundef %41) #16
-  %.pre = load ptr, ptr @RecordCacheArray, align 8
-  %.pre38 = load i32, ptr @NextRecordTypmod, align 4
+45:                                               ; preds = %39
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store i8 1, ptr %46, align 8
+  store i64 %28, ptr %42, align 8
   br label %47
 
-47:                                               ; preds = %17, %46
-  %48 = phi i32 [ %18, %17 ], [ %.pre38, %46 ]
-  %49 = phi ptr [ %19, %17 ], [ %.pre, %46 ]
+47:                                               ; preds = %45, %39
+  call void @dshash_release_lock(ptr noundef %8, ptr noundef %42) #16
+  %.pre = load ptr, ptr @RecordCacheArray, align 8
+  %.pre38 = load i32, ptr @NextRecordTypmod, align 4
+  br label %48
+
+48:                                               ; preds = %17, %47
+  %49 = phi i32 [ %18, %17 ], [ %.pre38, %47 ]
+  %50 = phi ptr [ %19, %17 ], [ %.pre, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = sext i32 %48 to i64
-  %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %17, label %._crit_edge, !llvm.loop !15
+  %51 = sext i32 %49 to i64
+  %52 = icmp slt i64 %indvars.iv.next, %51
+  br i1 %52, label %17, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %47, %3
-  %52 = load ptr, ptr @CurrentSession, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store ptr %8, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  store ptr %9, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store ptr %0, ptr %55, align 8
+._crit_edge:                                      ; preds = %48, %3
+  %53 = load ptr, ptr @CurrentSession, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  store ptr %8, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  store ptr %9, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store ptr %0, ptr %56, align 8
   call void @on_dsm_detach(ptr noundef %1, ptr noundef nonnull @shared_record_typmod_registry_detach, i64 noundef 0) #16
   ret void
 }

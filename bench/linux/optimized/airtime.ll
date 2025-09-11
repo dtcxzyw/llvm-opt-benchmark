@@ -471,7 +471,8 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr noundef readonly ca
 
 83:                                               ; preds = %90, %77
   %84 = phi i64 [ %91, %90 ], [ 0, %77 ]
-  %85 = getelementptr %struct.ieee80211_rate, ptr %81, i64 %84, i32 1
+  %.split = getelementptr %struct.ieee80211_rate, ptr %81, i64 %84
+  %85 = getelementptr i8, ptr %.split, i64 4
   %86 = load i16, ptr %85, align 4
   %87 = icmp eq i16 %79, %86
   br i1 %87, label %88, label %90

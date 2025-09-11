@@ -52,29 +52,30 @@ define internal range(i32 -1, 1) i32 @prte_mca_ras_slurm_component_query(ptr nou
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 228), align 4, !range !3
   %6 = trunc nuw i8 %5 to i1
   %or.cond = select i1 %4, i1 true, i1 %6
-  br i1 %or.cond, label %7, label %16
+  br i1 %or.cond, label %7, label %17
 
 7:                                                ; preds = %2
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4, !tbaa !4
   %or.cond3 = icmp ult i32 %8, 64
-  br i1 %or.cond3, label %9, label %16
+  br i1 %or.cond3, label %9, label %17
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %10, i32 2
-  %12 = load i32, ptr %11, align 4, !tbaa !19
-  %13 = icmp sgt i32 %12, 1
-  br i1 %13, label %14, label %16
+  %11 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %13 = load i32, ptr %12, align 4, !tbaa !19
+  %14 = icmp sgt i32 %13, 1
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %9
-  %15 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #4
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %8, ptr noundef nonnull @.str.11, ptr noundef %15) #4
-  br label %16
+15:                                               ; preds = %9
+  %16 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #4
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %8, ptr noundef nonnull @.str.11, ptr noundef %16) #4
+  br label %17
 
-16:                                               ; preds = %7, %9, %14, %2
-  %storemerge8 = phi i32 [ 0, %2 ], [ 50, %14 ], [ 50, %9 ], [ 50, %7 ]
-  %storemerge = phi ptr [ null, %2 ], [ @prte_ras_slurm_module, %14 ], [ @prte_ras_slurm_module, %9 ], [ @prte_ras_slurm_module, %7 ]
-  %.0 = phi i32 [ -1, %2 ], [ 0, %14 ], [ 0, %9 ], [ 0, %7 ]
+17:                                               ; preds = %7, %9, %15, %2
+  %storemerge8 = phi i32 [ 0, %2 ], [ 50, %15 ], [ 50, %9 ], [ 50, %7 ]
+  %storemerge = phi ptr [ null, %2 ], [ @prte_ras_slurm_module, %15 ], [ @prte_ras_slurm_module, %9 ], [ @prte_ras_slurm_module, %7 ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %15 ], [ 0, %9 ], [ 0, %7 ]
   store i32 %storemerge8, ptr %1, align 4, !tbaa !22
   store ptr %storemerge, ptr %0, align 8, !tbaa !23
   ret i32 %.0

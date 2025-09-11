@@ -1783,7 +1783,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
 
 29:                                               ; preds = %parse_optional_label.exit.thread110
   %30 = load ptr, ptr @poisoned_ast, align 8
-  br label %119
+  br label %120
 
 .critedge:                                        ; preds = %parse_optional_label.exit.thread110
   %31 = load ptr, ptr @decl_arena, align 8
@@ -1807,7 +1807,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
   %43 = load i64, ptr %3, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %43, ptr noundef nonnull @.str.12, ptr noundef %42) #5
   %44 = load ptr, ptr @poisoned_ast, align 8
-  br label %119
+  br label %120
 
 .critedge105:                                     ; preds = %.critedge103
   tail call void @advance(ptr noundef nonnull %0) #5
@@ -1828,7 +1828,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr @poisoned_ast, align 8
-  br label %119
+  br label %120
 
 .critedge2:                                       ; preds = %.critedge105, %.split
   %.sink = phi i64 [ %51, %.split ], [ 0, %.critedge105 ]
@@ -1850,7 +1850,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
   %63 = load i64, ptr %3, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %63, ptr noundef nonnull @.str.12, ptr noundef %62) #5
   %64 = load ptr, ptr @poisoned_ast, align 8
-  br label %119
+  br label %120
 
 .critedge107:                                     ; preds = %.critedge2
   tail call void @advance(ptr noundef nonnull %0) #5
@@ -1878,7 +1878,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
 
 75:                                               ; preds = %70
   %76 = load ptr, ptr @poisoned_ast, align 8
-  br label %119
+  br label %120
 
 77:                                               ; preds = %70
   %78 = load ptr, ptr %2, align 8
@@ -1892,7 +1892,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
   %85 = trunc i64 %84 to i32
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %85, ptr %86, align 4
-  br label %105
+  br label %106
 
 87:                                               ; preds = %67, %.critedge107
   %88 = load i32, ptr %57, align 4
@@ -1912,7 +1912,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr @poisoned_ast, align 8
-  br label %119
+  br label %120
 
 .critedge4:                                       ; preds = %87, %.split86
   %.sink119 = phi i64 [ %94, %.split86 ], [ 0, %87 ]
@@ -1924,55 +1924,56 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %phi.call88, ptr %99, align 4
   %.not100 = icmp eq i32 %58, %88
-  br i1 %.not100, label %105, label %100
+  br i1 %.not100, label %106, label %100
 
 100:                                              ; preds = %.critedge4
   %101 = and i64 %phi.call88.in, 4294967295
-  %102 = getelementptr inbounds nuw %struct.Ast_, ptr %.sink121, i64 %101, i32 2
-  %103 = load i8, ptr %102, align 4
-  %.not101 = icmp eq i8 %103, 6
-  br i1 %.not101, label %105, label %104
+  %102 = getelementptr inbounds nuw %struct.Ast_, ptr %.sink121, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
+  %104 = load i8, ptr %103, align 4
+  %.not101 = icmp eq i8 %104, 6
+  br i1 %.not101, label %106, label %105
 
-104:                                              ; preds = %100
-  store i8 0, ptr %102, align 4
-  br label %105
+105:                                              ; preds = %100
+  store i8 0, ptr %103, align 4
+  br label %106
 
-105:                                              ; preds = %.critedge4, %100, %104, %77
-  %106 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 118) #5
-  br i1 %106, label %107, label %119
+106:                                              ; preds = %.critedge4, %100, %105, %77
+  %107 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 118) #5
+  br i1 %107, label %108, label %120
 
-107:                                              ; preds = %105
-  %108 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %.critedge6, label %110
+108:                                              ; preds = %106
+  %109 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %.critedge6, label %111
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds nuw i8, ptr %108, i64 12
-  %112 = load i8, ptr %111, align 4
-  %.not102 = icmp eq i8 %112, 0
-  br i1 %.not102, label %114, label %.split89
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 12
+  %113 = load i8, ptr %112, align 4
+  %.not102 = icmp eq i8 %113, 0
+  br i1 %.not102, label %115, label %.split89
 
-.split89:                                         ; preds = %110
-  %113 = ptrtoint ptr %108 to i64
+.split89:                                         ; preds = %111
+  %114 = ptrtoint ptr %109 to i64
   br label %.critedge6
 
-114:                                              ; preds = %110
-  %115 = load ptr, ptr @poisoned_ast, align 8
-  br label %119
+115:                                              ; preds = %111
+  %116 = load ptr, ptr @poisoned_ast, align 8
+  br label %120
 
-.critedge6:                                       ; preds = %107, %.split89
-  %.sink122 = phi i64 [ %113, %.split89 ], [ 0, %107 ]
+.critedge6:                                       ; preds = %108, %.split89
+  %.sink122 = phi i64 [ %114, %.split89 ], [ 0, %108 ]
   %.sink124 = load ptr, ptr @ast_arena, align 8
-  %116 = ptrtoint ptr %.sink124 to i64
-  %117 = sub i64 %.sink122, %116
-  %phi.call91.in = sdiv exact i64 %117, 48
+  %117 = ptrtoint ptr %.sink124 to i64
+  %118 = sub i64 %.sink122, %117
+  %phi.call91.in = sdiv exact i64 %118, 48
   %phi.call91 = trunc i64 %phi.call91.in to i32
-  %118 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %phi.call91, ptr %118, align 8
-  br label %119
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i32 %phi.call91, ptr %119, align 8
+  br label %120
 
-119:                                              ; preds = %105, %.critedge6, %114, %95, %75, %61, %52, %41, %29
-  %.084 = phi ptr [ %115, %114 ], [ %76, %75 ], [ %96, %95 ], [ %64, %61 ], [ %53, %52 ], [ %44, %41 ], [ %30, %29 ], [ %5, %.critedge6 ], [ %5, %105 ]
+120:                                              ; preds = %106, %.critedge6, %115, %95, %75, %61, %52, %41, %29
+  %.084 = phi ptr [ %116, %115 ], [ %76, %75 ], [ %96, %95 ], [ %64, %61 ], [ %53, %52 ], [ %44, %41 ], [ %30, %29 ], [ %5, %.critedge6 ], [ %5, %106 ]
   ret ptr %.084
 }
 

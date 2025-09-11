@@ -1289,16 +1289,18 @@ define internal void @lru_priorities_init(ptr noundef readonly captures(none) %0
   %8 = sext i32 %7 to i64
   %9 = tail call noalias ptr @g_malloc0_n(i64 noundef %8, i64 noundef 8) #16
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds nuw %struct.CacheSet, ptr %10, i64 %indvars.iv, i32 1
-  store ptr %9, ptr %11, align 8
-  %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds nuw %struct.CacheSet, ptr %12, i64 %indvars.iv, i32 2
-  store i64 0, ptr %13, align 8
+  %11 = getelementptr inbounds nuw %struct.CacheSet, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %9, ptr %12, align 8
+  %13 = load ptr, ptr %0, align 8
+  %14 = getelementptr inbounds nuw %struct.CacheSet, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i64 0, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i32, ptr %2, align 8
-  %15 = sext i32 %14 to i64
-  %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !19
+  %16 = load i32, ptr %2, align 8
+  %17 = sext i32 %16 to i64
+  %18 = icmp slt i64 %indvars.iv.next, %17
+  br i1 %18, label %6, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %6, %1
   ret void
@@ -1314,14 +1316,15 @@ define internal void @lru_priorities_destroy(ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw %struct.CacheSet, ptr %5, i64 %indvars.iv, i32 1
-  %7 = load ptr, ptr %6, align 8
-  tail call void @g_free(ptr noundef %7) #12
+  %6 = getelementptr inbounds nuw %struct.CacheSet, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8
+  tail call void @g_free(ptr noundef %8) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr %2, align 8
-  %9 = sext i32 %8 to i64
-  %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  %9 = load i32, ptr %2, align 8
+  %10 = sext i32 %9 to i64
+  %11 = icmp slt i64 %indvars.iv.next, %10
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1331,11 +1334,12 @@ define internal void @lru_priorities_destroy(ptr noundef readonly captures(none)
 define internal void @fifo_update_on_miss(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.CacheSet, ptr %4, i64 %5, i32 3
-  %7 = load ptr, ptr %6, align 8
-  %8 = sext i32 %2 to i64
-  %9 = inttoptr i64 %8 to ptr
-  tail call void @g_queue_push_head(ptr noundef %7, ptr noundef %9) #12
+  %6 = getelementptr inbounds %struct.CacheSet, ptr %4, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = sext i32 %2 to i64
+  %10 = inttoptr i64 %9 to ptr
+  tail call void @g_queue_push_head(ptr noundef %8, ptr noundef %10) #12
   ret void
 }
 
@@ -1350,13 +1354,14 @@ define internal void @fifo_init(ptr noundef readonly captures(none) %0) #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = tail call ptr @g_queue_new() #12
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw %struct.CacheSet, ptr %6, i64 %indvars.iv, i32 3
-  store ptr %5, ptr %7, align 8
+  %7 = getelementptr inbounds nuw %struct.CacheSet, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %5, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr %2, align 8
-  %9 = sext i32 %8 to i64
-  %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  %9 = load i32, ptr %2, align 8
+  %10 = sext i32 %9 to i64
+  %11 = icmp slt i64 %indvars.iv.next, %10
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1372,14 +1377,15 @@ define internal void @fifo_destroy(ptr noundef readonly captures(none) %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw %struct.CacheSet, ptr %5, i64 %indvars.iv, i32 3
-  %7 = load ptr, ptr %6, align 8
-  tail call void @g_queue_free(ptr noundef %7) #12
+  %6 = getelementptr inbounds nuw %struct.CacheSet, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  tail call void @g_queue_free(ptr noundef %8) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr %2, align 8
-  %9 = sext i32 %8 to i64
-  %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  %9 = load i32, ptr %2, align 8
+  %10 = sext i32 %9 to i64
+  %11 = icmp slt i64 %indvars.iv.next, %10
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1675,115 +1681,119 @@ define internal fastcc noundef zeroext i1 @access_cache(ptr noundef %0, i64 noun
 in_cache.exit:                                    ; preds = %20
   %25 = load ptr, ptr @update_hit, align 8
   %.not31 = icmp eq ptr %25, null
-  br i1 %.not31, label %71, label %26
+  br i1 %.not31, label %75, label %26
 
 26:                                               ; preds = %in_cache.exit
   %27 = trunc nuw nsw i64 %indvars.iv.i to i32
   %28 = trunc i64 %9 to i32
   tail call void %25(ptr noundef nonnull %0, i32 noundef %28, i32 noundef %27) #12
-  br label %71
+  br label %75
 
-.lr.ph.i34:                                       ; preds = %24, %32
-  %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %32 ], [ 0, %24 ]
-  %29 = getelementptr inbounds nuw %struct.CacheBlock, ptr %15, i64 %indvars.iv.i36, i32 1
-  %30 = load i8, ptr %29, align 8, !range !3, !noundef !4
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %get_invalid_block.exit
+.lr.ph.i34:                                       ; preds = %24, %33
+  %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %33 ], [ 0, %24 ]
+  %29 = getelementptr inbounds nuw %struct.CacheBlock, ptr %15, i64 %indvars.iv.i36
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i8, ptr %30, align 8, !range !3, !noundef !4
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %get_invalid_block.exit
 
-32:                                               ; preds = %.lr.ph.i34
+33:                                               ; preds = %.lr.ph.i34
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i
   br i1 %exitcond.not.i38, label %get_invalid_block.exit.thread, label %.lr.ph.i34, !llvm.loop !24
 
 get_invalid_block.exit:                           ; preds = %.lr.ph.i34
-  %33 = trunc nuw nsw i64 %indvars.iv.i36 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv.i36 to i32
   br label %get_replaced_block.exit
 
-get_invalid_block.exit.thread:                    ; preds = %32, %2
-  %34 = load i32, ptr @policy, align 4
-  switch i32 %34, label %57 [
-    i32 2, label %35
-    i32 0, label %38
-    i32 1, label %50
+get_invalid_block.exit.thread:                    ; preds = %33, %2
+  %35 = load i32, ptr @policy, align 4
+  switch i32 %35, label %60 [
+    i32 2, label %36
+    i32 0, label %39
+    i32 1, label %52
   ]
 
-35:                                               ; preds = %get_invalid_block.exit.thread
-  %36 = load ptr, ptr @rng, align 8
-  %37 = tail call i32 @g_rand_int_range(ptr noundef %36, i32 noundef 0, i32 noundef %11) #12
+36:                                               ; preds = %get_invalid_block.exit.thread
+  %37 = load ptr, ptr @rng, align 8
+  %38 = tail call i32 @g_rand_int_range(ptr noundef %37, i32 noundef 0, i32 noundef %11) #12
   br label %get_replaced_block.exit
 
-38:                                               ; preds = %get_invalid_block.exit.thread
-  %39 = load ptr, ptr %0, align 8
+39:                                               ; preds = %get_invalid_block.exit.thread
+  %40 = load ptr, ptr %0, align 8
   %sext49 = shl i64 %9, 32
-  %40 = ashr exact i64 %sext49, 32
-  %41 = getelementptr inbounds %struct.CacheSet, ptr %39, i64 %40, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp sgt i32 %11, 1
-  br i1 %43, label %.lr.ph.preheader.i.i, label %get_replaced_block.exit
+  %41 = ashr exact i64 %sext49, 27
+  %42 = getelementptr inbounds i8, ptr %40, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp sgt i32 %11, 1
+  br i1 %45, label %.lr.ph.preheader.i.i, label %get_replaced_block.exit
 
-.lr.ph.preheader.i.i:                             ; preds = %38
-  %44 = load i64, ptr %42, align 8
+.lr.ph.preheader.i.i:                             ; preds = %39
+  %46 = load i64, ptr %44, align 8
   %wide.trip.count.i.i = zext nneg i32 %11 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %.021.i.i = phi i64 [ %44, %.lr.ph.preheader.i.i ], [ %spec.select1718.i.i, %.lr.ph.i.i ]
+  %.021.i.i = phi i64 [ %46, %.lr.ph.preheader.i.i ], [ %spec.select1718.i.i, %.lr.ph.i.i ]
   %.01320.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %45 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.i.i
-  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv.i.i
+  %48 = load i64, ptr %47, align 8
   %sext.i.i = shl i64 %.021.i.i, 32
-  %47 = ashr exact i64 %sext.i.i, 32
-  %48 = icmp ult i64 %46, %47
-  %49 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %spec.select.i.i = select i1 %48, i32 %49, i32 %.01320.i.i
-  %spec.select1718.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %47)
+  %49 = ashr exact i64 %sext.i.i, 32
+  %50 = icmp ult i64 %48, %49
+  %51 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %spec.select.i.i = select i1 %50, i32 %51, i32 %.01320.i.i
+  %spec.select1718.i.i = tail call i64 @llvm.umin.i64(i64 %48, i64 %49)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %get_replaced_block.exit, label %.lr.ph.i.i, !llvm.loop !25
 
-50:                                               ; preds = %get_invalid_block.exit.thread
+52:                                               ; preds = %get_invalid_block.exit.thread
   %.val.i39 = load ptr, ptr %0, align 8
   %sext = shl i64 %9, 32
-  %51 = ashr exact i64 %sext, 32
-  %52 = getelementptr inbounds %struct.CacheSet, ptr %.val.i39, i64 %51, i32 3
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr @g_queue_pop_tail(ptr noundef %53) #12
-  %55 = ptrtoint ptr %54 to i64
-  %56 = trunc i64 %55 to i32
+  %53 = ashr exact i64 %sext, 27
+  %54 = getelementptr inbounds i8, ptr %.val.i39, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call ptr @g_queue_pop_tail(ptr noundef %56) #12
+  %58 = ptrtoint ptr %57 to i64
+  %59 = trunc i64 %58 to i32
   br label %get_replaced_block.exit
 
-57:                                               ; preds = %get_invalid_block.exit.thread
+60:                                               ; preds = %get_invalid_block.exit.thread
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 326, ptr noundef nonnull @__func__.get_replaced_block, ptr noundef null) #13
   unreachable
 
-get_replaced_block.exit:                          ; preds = %.lr.ph.i.i, %get_invalid_block.exit, %50, %38, %35
-  %.0 = phi i32 [ %33, %get_invalid_block.exit ], [ %37, %35 ], [ %56, %50 ], [ 0, %38 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %58 = load ptr, ptr @update_miss, align 8
-  %.not30 = icmp eq ptr %58, null
-  br i1 %.not30, label %61, label %59
+get_replaced_block.exit:                          ; preds = %.lr.ph.i.i, %get_invalid_block.exit, %52, %39, %36
+  %.0 = phi i32 [ %34, %get_invalid_block.exit ], [ %38, %36 ], [ %59, %52 ], [ 0, %39 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %61 = load ptr, ptr @update_miss, align 8
+  %.not30 = icmp eq ptr %61, null
+  br i1 %.not30, label %64, label %62
 
-59:                                               ; preds = %get_replaced_block.exit
-  %60 = trunc i64 %9 to i32
-  tail call void %58(ptr noundef %0, i32 noundef %60, i32 noundef %.0) #12
-  br label %61
+62:                                               ; preds = %get_replaced_block.exit
+  %63 = trunc i64 %9 to i32
+  tail call void %61(ptr noundef %0, i32 noundef %63, i32 noundef %.0) #12
+  br label %64
 
-61:                                               ; preds = %59, %get_replaced_block.exit
-  %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds nuw %struct.CacheSet, ptr %62, i64 %9
-  %64 = load ptr, ptr %63, align 8
-  %65 = sext i32 %.0 to i64
-  %66 = getelementptr inbounds %struct.CacheBlock, ptr %64, i64 %65
-  store i64 %4, ptr %66, align 8
-  %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds nuw %struct.CacheSet, ptr %67, i64 %9
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.CacheBlock, ptr %69, i64 %65, i32 1
-  store i8 1, ptr %70, align 8
-  br label %71
+64:                                               ; preds = %62, %get_replaced_block.exit
+  %65 = load ptr, ptr %0, align 8
+  %66 = getelementptr inbounds nuw %struct.CacheSet, ptr %65, i64 %9
+  %67 = load ptr, ptr %66, align 8
+  %68 = sext i32 %.0 to i64
+  %69 = getelementptr inbounds %struct.CacheBlock, ptr %67, i64 %68
+  store i64 %4, ptr %69, align 8
+  %70 = load ptr, ptr %0, align 8
+  %71 = getelementptr inbounds nuw %struct.CacheSet, ptr %70, i64 %9
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds %struct.CacheBlock, ptr %72, i64 %68
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store i8 1, ptr %74, align 8
+  br label %75
 
-71:                                               ; preds = %in_cache.exit, %26, %61
-  %.not42 = phi i1 [ true, %in_cache.exit ], [ true, %26 ], [ false, %61 ]
+75:                                               ; preds = %in_cache.exit, %26, %64
+  %.not42 = phi i1 [ true, %in_cache.exit ], [ true, %26 ], [ false, %64 ]
   ret i1 %.not42
 }
 

@@ -526,7 +526,7 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 528
   store ptr %30, ptr %34, align 8
-  %35 = trunc nuw i64 %26 to i16
+  %35 = trunc nuw nsw i64 %26 to i16
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 580
   store i16 %35, ptr %36, align 4
   ret void

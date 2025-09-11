@@ -289,8 +289,7 @@ define internal range(i32 -2147483648, 1) i32 @cfhd_encode_init(ptr noundef %0) 
 
 .critedge266:                                     ; preds = %148, %134
   %.sink = phi i32 [ 1, %148 ], [ %147, %134 ]
-  %.idx = shl nuw nsw i64 %indvars.iv289, 3
-  %150 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
+  %150 = getelementptr inbounds nuw %struct.Codebook, ptr %25, i64 %indvars.iv289
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store i32 %.sink, ptr %151, align 4, !tbaa !52
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
@@ -298,7 +297,7 @@ define internal range(i32 -2147483648, 1) i32 @cfhd_encode_init(ptr noundef %0) 
   br i1 %exitcond292.not, label %124, label %129, !llvm.loop !56
 
 .loopexit:                                        ; preds = %175, %160
-  %.1244.lcssa = phi i32 [ %.0243276, %160 ], [ %167, %175 ]
+  %.1244.lcssa = phi i32 [ %.0243276, %160 ], [ %166, %175 ]
   %152 = icmp samesign ult i32 %.1244.lcssa, 320
   %153 = icmp samesign ult i64 %indvars.iv297, 16
   %154 = select i1 %152, i1 %153, i1 false
@@ -315,34 +314,34 @@ define internal range(i32 -2147483648, 1) i32 @cfhd_encode_init(ptr noundef %0) 
   br label %179
 
 160:                                              ; preds = %124, %.loopexit
+  %161 = phi i16 [ 1, %124 ], [ %165, %.loopexit ]
   %indvars.iv297 = phi i64 [ 0, %124 ], [ %indvars.iv.next298, %.loopexit ]
   %.0243276 = phi i32 [ 1, %124 ], [ %.1244.lcssa, %.loopexit ]
-  %161 = getelementptr inbounds nuw [3 x i16], ptr @runbook, i64 %indvars.iv297
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
-  %163 = load i16, ptr %162, align 2, !tbaa !60
-  %164 = zext i16 %163 to i32
+  %162 = zext i16 %161 to i32
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
-  %165 = getelementptr inbounds nuw [3 x i16], ptr @runbook, i64 %indvars.iv.next298, i64 2
-  %166 = load i16, ptr %165, align 2, !tbaa !60
-  %167 = zext i16 %166 to i32
-  %168 = icmp samesign ult i32 %.0243276, %167
-  br i1 %168, label %.lr.ph275, label %.loopexit
+  %163 = getelementptr inbounds nuw [3 x i16], ptr @runbook, i64 %indvars.iv.next298
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
+  %165 = load i16, ptr %164, align 2, !tbaa !60
+  %166 = zext i16 %165 to i32
+  %167 = icmp samesign ult i32 %.0243276, %166
+  br i1 %167, label %.lr.ph275, label %.loopexit
 
 .lr.ph275:                                        ; preds = %160
-  %169 = getelementptr inbounds nuw i8, ptr %161, i64 2
+  %168 = getelementptr inbounds nuw [3 x i16], ptr @runbook, i64 %indvars.iv297
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 2
   %170 = load i16, ptr %169, align 2, !tbaa !60
   %171 = zext i16 %170 to i32
-  %172 = load i16, ptr %161, align 2, !tbaa !60
+  %172 = load i16, ptr %168, align 2, !tbaa !60
   %173 = zext i16 %172 to i32
   %174 = zext nneg i32 %.0243276 to i64
-  %wide.trip.count = zext i16 %166 to i64
+  %wide.trip.count = zext i16 %165 to i64
   br label %175
 
 175:                                              ; preds = %.lr.ph275, %175
   %indvars.iv293 = phi i64 [ %174, %.lr.ph275 ], [ %indvars.iv.next294, %175 ]
   %176 = getelementptr inbounds nuw %struct.Runbook, ptr %127, i64 %indvars.iv293
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store i32 %164, ptr %177, align 4, !tbaa !53
+  store i32 %162, ptr %177, align 4, !tbaa !53
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 4
   store i32 %171, ptr %178, align 4, !tbaa !58
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1

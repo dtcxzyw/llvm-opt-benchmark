@@ -2612,9 +2612,10 @@ _ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit:      ; preds = %_ZNK10statistics7is
 define hidden noundef i32 @_ZNK10statistics14get_uint_valueEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %4, i32 1
-  %6 = load i32, ptr %5, align 8, !tbaa !52
-  ret i32 %6
+  %5 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i32, ptr %6, align 8, !tbaa !52
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -2634,9 +2635,10 @@ _ZNK6vectorISt4pairIPKcjELb0EjE4sizeEv.exit:      ; preds = %2, %5
   %9 = sub i32 %1, %.0.i
   %10 = load ptr, ptr %8, align 8, !tbaa !11
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::pair.2", ptr %10, i64 %11, i32 1
-  %13 = load double, ptr %12, align 8, !tbaa !56
-  ret double %13
+  %12 = getelementptr inbounds nuw %"struct.std::pair.2", ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load double, ptr %13, align 8, !tbaa !56
+  ret double %14
 }
 
 ; Function Attrs: mustprogress uwtable

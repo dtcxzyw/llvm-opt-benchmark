@@ -431,7 +431,7 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @utf8_prevCharSafeBody_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i8 noundef signext %4) local_unnamed_addr #0 {
+define range(i32 -1, 2097152) i32 @utf8_prevCharSafeBody_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i8 noundef signext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %2, align 4, !tbaa !3
   %7 = and i32 %3, 192
   %8 = icmp eq i32 %7, 128

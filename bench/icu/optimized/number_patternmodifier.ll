@@ -2297,23 +2297,24 @@ _ZN6icu_776number4impl21AdoptingModifierStoreD2Ev.exit: ; preds = %2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK6icu_776number4impl21AdoptingModifierStore11getModifierENS1_6SignumENS_14StandardPlural4FormE(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 comdat align 2 {
   %4 = zext i32 %2 to i64
-  %5 = getelementptr inbounds nuw %"class.icu_77::number::impl::AdoptingSignumModifierStore", ptr %0, i64 %4, i32 1, i64 1
-  %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !52
-  %9 = icmp eq ptr %8, null
-  %10 = icmp ne i32 %2, 5
-  %or.cond = and i1 %10, %9
-  br i1 %or.cond, label %11, label %15
+  %5 = getelementptr inbounds nuw %"class.icu_77::number::impl::AdoptingSignumModifierStore", ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = zext i32 %1 to i64
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
+  %10 = icmp eq ptr %9, null
+  %11 = icmp ne i32 %2, 5
+  %or.cond = and i1 %11, %10
+  br i1 %or.cond, label %12, label %16
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %6
-  %14 = load ptr, ptr %13, align 8, !tbaa !52
-  br label %15
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %7
+  %15 = load ptr, ptr %14, align 8, !tbaa !52
+  br label %16
 
-15:                                               ; preds = %11, %3
-  %.0 = phi ptr [ %14, %11 ], [ %8, %3 ]
+16:                                               ; preds = %12, %3
+  %.0 = phi ptr [ %15, %12 ], [ %9, %3 ]
   ret ptr %.0
 }
 

@@ -598,47 +598,45 @@ decode_vint_size.exit.i:                          ; preds = %3
   %8 = icmp samesign ult i8 %5, -120
   %.0.i.v.i = select i1 %8, i32 -119, i32 -111
   %.0.i.i = sub nuw nsw i32 %.0.i.v.i, %6
-  %9 = icmp eq i32 %.0.i.i, 1
-  br i1 %9, label %dissect_variable_length_long.exit, label %.preheader.i
+  switch i32 %.0.i.i, label %.lr.ph.i [
+    i32 1, label %dissect_variable_length_long.exit
+    i32 0, label %._crit_edge.i
+  ]
 
-.preheader.i:                                     ; preds = %decode_vint_size.exit.i
-  %10 = icmp sgt i32 %.0.i.i, 1
-  br i1 %10, label %.lr.ph.i, label %._crit_edge.i
-
-.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.03746.i = phi i32 [ %14, %.lr.ph.i ], [ 1, %.preheader.i ]
-  %.03944.i = phi i32 [ %17, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %11 = load i32, ptr %2, align 4
-  %12 = add i32 %11, %.03746.i
-  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %12)
-  %14 = add nuw nsw i32 %.03746.i, 1
-  %15 = shl i32 %.03944.i, 8
-  %16 = zext i8 %13 to i32
-  %17 = or disjoint i32 %15, %16
-  %exitcond.not.i = icmp eq i32 %14, %.0.i.i
+.lr.ph.i:                                         ; preds = %decode_vint_size.exit.i, %.lr.ph.i
+  %.03746.i = phi i32 [ %12, %.lr.ph.i ], [ 1, %decode_vint_size.exit.i ]
+  %.03944.i = phi i32 [ %15, %.lr.ph.i ], [ 0, %decode_vint_size.exit.i ]
+  %9 = load i32, ptr %2, align 4
+  %10 = add i32 %9, %.03746.i
+  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %10)
+  %12 = add nuw nsw i32 %.03746.i, 1
+  %13 = shl i32 %.03944.i, 8
+  %14 = zext i8 %11 to i32
+  %15 = or disjoint i32 %13, %14
+  %exitcond.not.i = icmp eq i32 %12, %.0.i.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.039.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %17, %.lr.ph.i ]
-  %.037.lcssa.i = phi i32 [ 1, %.preheader.i ], [ %.0.i.i, %.lr.ph.i ]
-  %18 = sext i1 %8 to i32
-  %19 = xor i32 %.039.lcssa.i, %18
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %decode_vint_size.exit.i
+  %.039.lcssa.i = phi i32 [ %.0.i.i, %decode_vint_size.exit.i ], [ %15, %.lr.ph.i ]
+  %.037.lcssa.i = phi i32 [ 1, %decode_vint_size.exit.i ], [ %.0.i.i, %.lr.ph.i ]
+  %16 = sext i1 %8 to i32
+  %17 = xor i32 %.039.lcssa.i, %16
   br label %dissect_variable_length_long.exit
 
-dissect_variable_length_long.exit:                ; preds = %3, %decode_vint_size.exit.i, %._crit_edge.i
-  %.037.lcssa.sink51.i = phi i32 [ %.037.lcssa.i, %._crit_edge.i ], [ 1, %3 ], [ 1, %decode_vint_size.exit.i ]
-  %.0.i = phi i32 [ %19, %._crit_edge.i ], [ %6, %3 ], [ %6, %decode_vint_size.exit.i ]
-  %20 = load i32, ptr @hf_hdfsdata_clientlen, align 4
+dissect_variable_length_long.exit:                ; preds = %decode_vint_size.exit.i, %3, %._crit_edge.i
+  %.037.lcssa.sink51.i = phi i32 [ %.037.lcssa.i, %._crit_edge.i ], [ 1, %3 ], [ %.0.i.i, %decode_vint_size.exit.i ]
+  %.0.i = phi i32 [ %17, %._crit_edge.i ], [ %6, %3 ], [ %6, %decode_vint_size.exit.i ]
+  %18 = load i32, ptr @hf_hdfsdata_clientlen, align 4
+  %19 = load i32, ptr %2, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %.037.lcssa.sink51.i, i32 noundef 0)
   %21 = load i32, ptr %2, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef %.037.lcssa.sink51.i, i32 noundef 0)
-  %23 = load i32, ptr %2, align 4
-  %24 = add i32 %23, %.037.lcssa.sink51.i
-  store i32 %24, ptr %2, align 4
-  %25 = load i32, ptr @hf_hdfsdata_clientid, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef %.0.i, i32 noundef 0)
-  %27 = load i32, ptr %2, align 4
-  %28 = add i32 %27, %.0.i
-  store i32 %28, ptr %2, align 4
+  %22 = add i32 %21, %.037.lcssa.sink51.i
+  store i32 %22, ptr %2, align 4
+  %23 = load i32, ptr @hf_hdfsdata_clientid, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef %.0.i, i32 noundef 0)
+  %25 = load i32, ptr %2, align 4
+  %26 = add i32 %25, %.0.i
+  store i32 %26, ptr %2, align 4
   ret void
 }
 

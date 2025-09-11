@@ -2026,58 +2026,59 @@ sane_qsort.exit.i.i:                              ; preds = %strbuf_strip_suffix
 
 78:                                               ; preds = %.lr.ph.i.i
   %79 = load ptr, ptr %7, align 8, !tbaa !77
-  %80 = getelementptr inbounds nuw %struct.string_list_item, ptr %79, i64 %indvars.iv.i.i, i32 1
-  %81 = load ptr, ptr %80, align 8, !tbaa !71
-  %82 = load i32, ptr @show_only, align 4, !tbaa !38
-  %83 = icmp ne i32 %82, 0
-  %84 = load i32, ptr @verbose, align 4
-  %85 = icmp ne i32 %84, 0
-  %or.cond.i.i.i = select i1 %83, i1 true, i1 %85
-  br i1 %or.cond.i.i.i, label %86, label %.thread.i.i.i
+  %80 = getelementptr inbounds nuw %struct.string_list_item, ptr %79, i64 %indvars.iv.i.i
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %82 = load ptr, ptr %81, align 8, !tbaa !71
+  %83 = load i32, ptr @show_only, align 4, !tbaa !38
+  %84 = icmp ne i32 %83, 0
+  %85 = load i32, ptr @verbose, align 4
+  %86 = icmp ne i32 %85, 0
+  %or.cond.i.i.i = select i1 %84, i1 true, i1 %86
+  br i1 %or.cond.i.i.i, label %87, label %.thread.i.i.i
 
-86:                                               ; preds = %78
-  %87 = load ptr, ptr @stderr, align 8, !tbaa !58
-  %88 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !38
-  %.not4.i.i.i.i = icmp eq i32 %88, 0
-  br i1 %.not4.i.i.i.i, label %91, label %89
+87:                                               ; preds = %78
+  %88 = load ptr, ptr @stderr, align 8, !tbaa !58
+  %89 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !38
+  %.not4.i.i.i.i = icmp eq i32 %89, 0
+  br i1 %.not4.i.i.i.i, label %92, label %90
 
-89:                                               ; preds = %86
-  %90 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.115, i32 noundef 5) #18
-  br label %91
+90:                                               ; preds = %87
+  %91 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.115, i32 noundef 5) #18
+  br label %92
 
-91:                                               ; preds = %89, %86
-  %.0.i.i.i.i = phi ptr [ %90, %89 ], [ @.str.115, %86 ]
-  %92 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %87, ptr noundef %.0.i.i.i.i, ptr noundef nonnull @.str.113, ptr noundef %81, ptr noundef nonnull @.str.116) #18
+92:                                               ; preds = %90, %87
+  %.0.i.i.i.i = phi ptr [ %91, %90 ], [ @.str.115, %87 ]
+  %93 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %88, ptr noundef %.0.i.i.i.i, ptr noundef nonnull @.str.113, ptr noundef %82, ptr noundef nonnull @.str.116) #18
   %.pr.i.i.i = load i32, ptr @show_only, align 4, !tbaa !38
   %.not.i.i11.i = icmp eq i32 %.pr.i.i.i, 0
   br i1 %.not.i.i11.i, label %.thread.i.i.i, label %prune_worktree.exit.i.i
 
-.thread.i.i.i:                                    ; preds = %91, %78
-  %93 = call fastcc i32 @delete_git_dir(ptr noundef %81)
+.thread.i.i.i:                                    ; preds = %92, %78
+  %94 = call fastcc i32 @delete_git_dir(ptr noundef %82)
   br label %prune_worktree.exit.i.i
 
-prune_worktree.exit.i.i:                          ; preds = %.thread.i.i.i, %91, %.lr.ph.i.i
+prune_worktree.exit.i.i:                          ; preds = %.thread.i.i.i, %92, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %94 = load i64, ptr %67, align 8, !tbaa !74
-  %95 = icmp ugt i64 %94, %indvars.iv.next.i.i
-  br i1 %95, label %.lr.ph.i.i, label %prune_dups.exit.i, !llvm.loop !79
+  %95 = load i64, ptr %67, align 8, !tbaa !74
+  %96 = icmp ugt i64 %95, %indvars.iv.next.i.i
+  br i1 %96, label %.lr.ph.i.i, label %prune_dups.exit.i, !llvm.loop !79
 
 prune_dups.exit.i:                                ; preds = %prune_worktree.exit.i.i, %sane_qsort.exit.i.i, %strbuf_strip_suffix.exit.i
   call void @string_list_clear(ptr noundef nonnull %7, i32 noundef 1) #18
-  %96 = load i32, ptr @show_only, align 4, !tbaa !38
-  %.not7.i = icmp eq i32 %96, 0
-  br i1 %.not7.i, label %97, label %100
+  %97 = load i32, ptr @show_only, align 4, !tbaa !38
+  %.not7.i = icmp eq i32 %97, 0
+  br i1 %.not7.i, label %98, label %101
 
-97:                                               ; preds = %prune_dups.exit.i
-  %98 = call ptr (ptr, ...) @git_path(ptr nonnull poison)
-  %99 = call i32 @lstat_cache_aware_rmdir(ptr noundef %98) #18
-  br label %100
+98:                                               ; preds = %prune_dups.exit.i
+  %99 = call ptr (ptr, ...) @git_path(ptr nonnull poison)
+  %100 = call i32 @lstat_cache_aware_rmdir(ptr noundef %99) #18
+  br label %101
 
-100:                                              ; preds = %97, %prune_dups.exit.i
+101:                                              ; preds = %98, %prune_dups.exit.i
   call void @strbuf_release(ptr noundef nonnull %5) #18
   br label %prune_worktrees.exit
 
-prune_worktrees.exit:                             ; preds = %12, %100
+prune_worktrees.exit:                             ; preds = %12, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

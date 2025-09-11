@@ -291,46 +291,46 @@ define dso_local noalias noundef ptr @cgroup_p_get_scope_path() local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @cgroup_p_initialize(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %2, i32 1
-  %4 = load ptr, ptr %3, align 8
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %_cgroup_init.exit.thread
+  %3 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %2
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %_cgroup_init.exit.thread
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %2
+6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %2
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @xcgroup_ns_create(ptr noundef nonnull %6, ptr noundef nonnull @.str.82, ptr noundef %8) #11
+  %9 = tail call i32 @xcgroup_ns_create(ptr noundef nonnull %3, ptr noundef nonnull @.str.82, ptr noundef %8) #11
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %13, label %10
 
-10:                                               ; preds = %5
+10:                                               ; preds = %6
   %11 = load ptr, ptr %7, align 8
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.83, ptr noundef %11) #11
   br label %_cgroup_init.exit.thread
 
-13:                                               ; preds = %5
+13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %2
-  %15 = tail call i32 @common_cgroup_create(ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull @.str.82, i32 noundef 0, i32 noundef 0) #11
+  %15 = tail call i32 @common_cgroup_create(ptr noundef nonnull %3, ptr noundef nonnull %14, ptr noundef nonnull @.str.82, i32 noundef 0, i32 noundef 0) #11
   %.not14.i = icmp eq i32 %15, 0
   br i1 %.not14.i, label %19, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %7, align 8
   %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %17) #11
-  tail call void @common_cgroup_ns_destroy(ptr noundef nonnull %6) #11
+  tail call void @common_cgroup_ns_destroy(ptr noundef nonnull %3) #11
   br label %_cgroup_init.exit.thread
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %21 = tail call i32 @xcgroup_create_slurm_cg(ptr noundef nonnull %6, ptr noundef nonnull %20) #11
+  %21 = tail call i32 @xcgroup_create_slurm_cg(ptr noundef nonnull %3, ptr noundef nonnull %20) #11
   %.not15.i = icmp eq i32 %21, 0
   br i1 %.not15.i, label %_cgroup_init.exit, label %22
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %7, align 8
   %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.85, ptr noundef %23) #11
-  tail call void @common_cgroup_ns_destroy(ptr noundef nonnull %6) #11
+  tail call void @common_cgroup_ns_destroy(ptr noundef nonnull %3) #11
   br label %_cgroup_init.exit.thread
 
 _cgroup_init.exit:                                ; preds = %19
@@ -895,49 +895,51 @@ define dso_local i32 @cgroup_p_step_addto(i32 noundef %0, ptr noundef %1, i32 no
   %5 = getelementptr inbounds nuw [4096 x i8], ptr @g_step_cgpath, i64 %4
   %6 = load i8, ptr %5, align 16
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %27, label %8
+  br i1 %7, label %29, label %8
 
 8:                                                ; preds = %3
-  switch i32 %0, label %22 [
+  switch i32 %0, label %23 [
     i32 0, label %9
-    i32 1, label %24
-    i32 2, label %24
-    i32 3, label %24
-    i32 4, label %18
+    i32 1, label %25
+    i32 2, label %25
+    i32 3, label %25
+    i32 4, label %19
   ]
 
 9:                                                ; preds = %8
   %10 = icmp eq i32 %2, 1
-  br i1 %10, label %11, label %24
+  br i1 %10, label %11, label %25
 
 11:                                               ; preds = %9
   %12 = load i32, ptr %1, align 4
   %13 = tail call i32 @getpid() #11
   %14 = icmp eq i32 %12, %13
-  br i1 %14, label %15, label %24
+  br i1 %14, label %15, label %25
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %4, i64 3
-  %17 = tail call i32 @common_cgroup_add_pids(ptr noundef nonnull %16, ptr noundef nonnull %1, i32 noundef 1) #11
-  br label %27
+  %16 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
+  %18 = tail call i32 @common_cgroup_add_pids(ptr noundef nonnull %17, ptr noundef nonnull %1, i32 noundef 1) #11
+  br label %29
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %4
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef %20) #11
-  br label %27
+19:                                               ; preds = %8
+  %20 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %4
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef %21) #11
+  br label %29
 
-22:                                               ; preds = %8
-  %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %0) #11
-  br label %27
+23:                                               ; preds = %8
+  %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %0) #11
+  br label %29
 
-24:                                               ; preds = %8, %8, %8, %9, %11
-  %25 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %4, i64 4
-  %26 = tail call i32 @common_cgroup_add_pids(ptr noundef nonnull %25, ptr noundef %1, i32 noundef %2) #11
-  br label %27
+25:                                               ; preds = %8, %8, %8, %9, %11
+  %26 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 160
+  %28 = tail call i32 @common_cgroup_add_pids(ptr noundef nonnull %27, ptr noundef %1, i32 noundef %2) #11
+  br label %29
 
-27:                                               ; preds = %3, %24, %22, %18, %15
-  %.0 = phi i32 [ -1, %22 ], [ %17, %15 ], [ %26, %24 ], [ -1, %18 ], [ -1, %3 ]
+29:                                               ; preds = %3, %25, %23, %19, %15
+  %.0 = phi i32 [ -1, %23 ], [ %18, %15 ], [ %28, %25 ], [ -1, %19 ], [ -1, %3 ]
   ret i32 %.0
 }
 

@@ -1541,7 +1541,7 @@ define internal fastcc i32 @device_try_init(ptr noundef %0, i32 noundef %1, ptr 
 14:                                               ; preds = %10
   %.pr = load i32, ptr %4, align 4, !tbaa !26
   %15 = icmp eq i32 %.pr, 0
-  br i1 %15, label %.preheader, label %43
+  br i1 %15, label %.preheader, label %44
 
 .preheader:                                       ; preds = %6, %13, %14
   %.04379 = phi i32 [ %11, %14 ], [ undef, %6 ], [ -22, %13 ]
@@ -1551,7 +1551,7 @@ define internal fastcc i32 @device_try_init(ptr noundef %0, i32 noundef %1, ptr 
 
 .lr.ph:                                           ; preds = %.preheader, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.preheader ]
-  %17 = phi i32 [ %35, %33 ], [ %16, %.preheader ]
+  %17 = phi i32 [ %36, %33 ], [ %16, %.preheader ]
   %.259 = phi i32 [ %.4, %33 ], [ %.04379, %.preheader ]
   %18 = load i32, ptr %7, align 8, !tbaa !65
   %19 = icmp eq i32 %18, 0
@@ -1589,45 +1589,46 @@ define internal fastcc i32 @device_try_init(ptr noundef %0, i32 noundef %1, ptr 
 33:                                               ; preds = %.lr.ph, %32
   %.4 = phi i32 [ -22, %32 ], [ %.259, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv.next, i32 1
-  %35 = load i32, ptr %34, align 4, !tbaa !141
-  %.not54 = icmp eq i32 %35, 0
+  %34 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv.next
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %36 = load i32, ptr %35, align 4, !tbaa !141
+  %.not54 = icmp eq i32 %36, 0
   br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %33, %.._crit_edge.loopexit_crit_edge
-  %36 = phi i32 [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ 0, %33 ]
+  %37 = phi i32 [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ 0, %33 ]
   %.3 = phi i32 [ %29, %.._crit_edge.loopexit_crit_edge ], [ %.4, %33 ]
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %._crit_edge.thread, label %43
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %._crit_edge.thread, label %44
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %38 = load i32, ptr %7, align 8, !tbaa !65
-  %39 = tail call ptr @avcodec_get_name(i32 noundef %38) #11
-  %40 = load i32, ptr %7, align 8, !tbaa !65
-  %41 = tail call ptr @av_get_pix_fmt_name(i32 noundef %1) #11
-  %.not.i57 = icmp eq ptr %41, null
-  %42 = select i1 %.not.i57, ptr @.str.65, ptr %41
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.66, ptr noundef %39, i32 noundef %40, ptr noundef nonnull %42, i32 noundef %1) #11
+  %39 = load i32, ptr %7, align 8, !tbaa !65
+  %40 = tail call ptr @avcodec_get_name(i32 noundef %39) #11
+  %41 = load i32, ptr %7, align 8, !tbaa !65
+  %42 = tail call ptr @av_get_pix_fmt_name(i32 noundef %1) #11
+  %.not.i57 = icmp eq ptr %42, null
+  %43 = select i1 %.not.i57, ptr @.str.65, ptr %42
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.66, ptr noundef %40, i32 noundef %41, ptr noundef nonnull %43, i32 noundef %1) #11
   %.pre64 = load i32, ptr %4, align 4, !tbaa !26
-  br label %43
+  br label %44
 
-43:                                               ; preds = %._crit_edge, %._crit_edge.thread, %14
-  %44 = phi i32 [ %.pr, %14 ], [ %.pre64, %._crit_edge.thread ], [ %36, %._crit_edge ]
+44:                                               ; preds = %._crit_edge, %._crit_edge.thread, %14
+  %45 = phi i32 [ %.pr, %14 ], [ %.pre64, %._crit_edge.thread ], [ %37, %._crit_edge ]
   %.1 = phi i32 [ %11, %14 ], [ -22, %._crit_edge.thread ], [ %.3, %._crit_edge ]
-  %45 = tail call i32 @ff_fmt_v4l2codec(i32 noundef %44) #11
-  store i32 %45, ptr %5, align 4, !tbaa !26
-  %46 = icmp ne i32 %45, 0
-  %47 = icmp eq i32 %.1, -22
-  %or.cond = select i1 %46, i1 true, i1 %47
-  br i1 %or.cond, label %.loopexit, label %48
+  %46 = tail call i32 @ff_fmt_v4l2codec(i32 noundef %45) #11
+  store i32 %46, ptr %5, align 4, !tbaa !26
+  %47 = icmp ne i32 %46, 0
+  %48 = icmp eq i32 %.1, -22
+  %or.cond = select i1 %47, i1 true, i1 %48
+  br i1 %or.cond, label %.loopexit, label %49
 
-48:                                               ; preds = %43
+49:                                               ; preds = %44
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 865) #11
   tail call void @abort() #13
   unreachable
 
-.loopexit:                                        ; preds = %31, %43, %13
-  %.044 = phi i32 [ %11, %13 ], [ %.1, %43 ], [ %29, %31 ]
+.loopexit:                                        ; preds = %31, %44, %13
+  %.044 = phi i32 [ %11, %13 ], [ %.1, %44 ], [ %29, %31 ]
   ret i32 %.044
 }
 

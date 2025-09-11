@@ -947,7 +947,7 @@ define internal i32 @virtio_gpu_get_caps_ioctl(ptr noundef readonly captures(non
   br label %104
 
 40:                                               ; preds = %38
-  %41 = getelementptr %struct.virtio_gpu_drv_capset, ptr %21, i64 %26, i32 2
+  %41 = getelementptr i8, ptr %27, i64 8
   %42 = load i32, ptr %41, align 4
   %43 = load i32, ptr %12, align 8
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 %42)

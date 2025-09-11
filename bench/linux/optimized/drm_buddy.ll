@@ -1073,34 +1073,34 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br i1 %90, label %.split.us75, label %.split
+  br i1 %90, label %.split.us76, label %.split
 
-.split.us75:                                      ; preds = %78
+.split.us76:                                      ; preds = %78
   %96 = and i64 %6, 2
   %97 = icmp eq i64 %96, 0
-  br i1 %97, label %.split.us75.split.us, label %.split.us75.split
+  br i1 %97, label %.split.us76.split.us, label %.split.us76.split
 
-.split.us75.split.us:                             ; preds = %.split.us75, %.split71.us.us.split.us.us
-  %98 = phi i32 [ %107, %.split71.us.us.split.us.us ], [ %85, %.split.us75 ]
-  %99 = phi i64 [ %164, %.split71.us.us.split.us.us ], [ %83, %.split.us75 ]
+.split.us76.split.us:                             ; preds = %.split.us76, %.split72.us.us.split.us.us
+  %98 = phi i32 [ %107, %.split72.us.us.split.us.us ], [ %85, %.split.us76 ]
+  %99 = phi i64 [ %164, %.split72.us.us.split.us.us ], [ %83, %.split.us76 ]
   %100 = trunc i64 %99 to i32
   %101 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %100, i32 -1) #7, !srcloc !42
   %102 = call i32 @llvm.umin.i32(i32 %98, i32 %101)
   %103 = load i32, ptr %88, align 4
   %104 = icmp ugt i32 %102, %103
-  br i1 %104, label %.split77.us, label %105, !prof !7
+  br i1 %104, label %.split78.us, label %105, !prof !7
 
-105:                                              ; preds = %.split.us75.split.us
+105:                                              ; preds = %.split.us76.split.us
   %106 = icmp ult i32 %102, %87
-  br i1 %106, label %.split79.us, label %.preheader50.us.us, !prof !7
+  br i1 %106, label %.split80.us, label %.preheader51.us.us, !prof !7
 
-.preheader50.us.us:                               ; preds = %105, %.thread46.us.us.us.us
-  %107 = phi i32 [ %142, %.thread46.us.us.us.us ], [ %102, %105 ]
+.preheader51.us.us:                               ; preds = %105, %.thread47.us.us.us.us
+  %107 = phi i32 [ %142, %.thread47.us.us.us.us ], [ %102, %105 ]
   %108 = load i32, ptr %88, align 4
   %109 = icmp ult i32 %108, %107
-  br i1 %109, label %.thread46.us.us.us.us, label %110
+  br i1 %109, label %.thread47.us.us.us.us, label %110
 
-110:                                              ; preds = %.preheader50.us.us
+110:                                              ; preds = %.preheader51.us.us
   %111 = load ptr, ptr %0, align 8
   br label %112
 
@@ -1113,13 +1113,13 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   br i1 %117, label %139, label %118
 
 118:                                              ; preds = %112
-  %119 = getelementptr %struct.list_head, ptr %111, i64 %114, i32 1
+  %119 = getelementptr i8, ptr %115, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr i8, ptr %120, i64 -40
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %139, label %.loopexit47.us.us.us.us
+  br i1 %122, label %139, label %.loopexit48.us.us.us.us
 
-123:                                              ; preds = %.loopexit47.us.us.us.us
+123:                                              ; preds = %.loopexit48.us.us.us.us
   %124 = icmp eq i32 %113, %107
   br i1 %124, label %.loopexit.us.us.us.us, label %.preheader.us.us.us.us
 
@@ -1146,25 +1146,25 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
 .loopexit.us.us.us.us:                            ; preds = %132, %129, %123
   %137 = phi ptr [ %131, %129 ], [ %121, %123 ], [ %134, %132 ]
   %138 = icmp ugt ptr %137, inttoptr (i64 -4096 to ptr)
-  br i1 %138, label %.thread46.us.us.us.us, label %.split71.us.us.split.us.us
+  br i1 %138, label %.thread47.us.us.us.us, label %.split72.us.us.split.us.us
 
 139:                                              ; preds = %118, %112
   %140 = add i32 %113, 1
   %141 = icmp ugt i32 %140, %108
-  br i1 %141, label %.thread46.us.us.us.us, label %112, !llvm.loop !44
+  br i1 %141, label %.thread47.us.us.us.us, label %112, !llvm.loop !44
 
-.thread46.us.us.us.us:                            ; preds = %139, %.loopexit.us.us.us.us, %.preheader50.us.us
+.thread47.us.us.us.us:                            ; preds = %139, %.loopexit.us.us.us.us, %.preheader51.us.us
   %142 = add i32 %107, -1
   %143 = icmp eq i32 %107, %87
-  br i1 %143, label %.split74.us, label %.preheader50.us.us, !llvm.loop !45
+  br i1 %143, label %.split75.us, label %.preheader51.us.us, !llvm.loop !45
 
-.loopexit47.us.us.us.us:                          ; preds = %118
+.loopexit48.us.us.us.us:                          ; preds = %118
   %144 = load i64, ptr %121, align 8
   %145 = and i64 %144, 3072
   %146 = icmp eq i64 %145, 2048
   br i1 %146, label %123, label %.split.us, !prof !16
 
-.split71.us.us.split.us.us:                       ; preds = %.loopexit.us.us.us.us
+.split72.us.us.split.us.us:                       ; preds = %.loopexit.us.us.us.us
   %147 = load i64, ptr %137, align 8
   %148 = and i64 %147, -3073
   %149 = or disjoint i64 %148, 1024
@@ -1194,29 +1194,29 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   %163 = shl nsw i64 -1, %162
   %164 = add i64 %163, %99
   %165 = icmp eq i64 %164, 0
-  br i1 %165, label %.split81.us, label %.split.us75.split.us, !llvm.loop !46
+  br i1 %165, label %.split82.us, label %.split.us76.split.us, !llvm.loop !46
 
-.split.us75.split:                                ; preds = %.split.us75, %.split71.us.us.split
-  %166 = phi i32 [ %175, %.split71.us.us.split ], [ %85, %.split.us75 ]
-  %167 = phi i64 [ %246, %.split71.us.us.split ], [ %83, %.split.us75 ]
+.split.us76.split:                                ; preds = %.split.us76, %.split72.us.us.split
+  %166 = phi i32 [ %175, %.split72.us.us.split ], [ %85, %.split.us76 ]
+  %167 = phi i64 [ %246, %.split72.us.us.split ], [ %83, %.split.us76 ]
   %168 = trunc i64 %167 to i32
   %169 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %168, i32 -1) #7, !srcloc !42
   %170 = call i32 @llvm.umin.i32(i32 %166, i32 %169)
   %171 = load i32, ptr %88, align 4
   %172 = icmp ugt i32 %170, %171
-  br i1 %172, label %.split77.us, label %173, !prof !7
+  br i1 %172, label %.split78.us, label %173, !prof !7
 
-173:                                              ; preds = %.split.us75.split
+173:                                              ; preds = %.split.us76.split
   %174 = icmp ult i32 %170, %87
-  br i1 %174, label %.split79.us, label %.preheader50.us, !prof !7
+  br i1 %174, label %.split80.us, label %.preheader51.us, !prof !7
 
-.preheader50.us:                                  ; preds = %173, %.thread46.us.us
-  %175 = phi i32 [ %227, %.thread46.us.us ], [ %170, %173 ]
+.preheader51.us:                                  ; preds = %173, %.thread47.us.us
+  %175 = phi i32 [ %227, %.thread47.us.us ], [ %170, %173 ]
   %176 = load i32, ptr %88, align 4
   %177 = icmp ult i32 %176, %175
-  br i1 %177, label %.thread46.us.us, label %178
+  br i1 %177, label %.thread47.us.us, label %178
 
-178:                                              ; preds = %.preheader50.us
+178:                                              ; preds = %.preheader51.us
   %179 = load ptr, ptr %0, align 8
   br label %180
 
@@ -1230,7 +1230,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   br i1 %186, label %199, label %187
 
 187:                                              ; preds = %180
-  %188 = getelementptr %struct.list_head, ptr %179, i64 %183, i32 1
+  %188 = getelementptr i8, ptr %184, i64 8
   %189 = load ptr, ptr %188, align 8
   %190 = getelementptr i8, ptr %189, i64 -40
   %191 = icmp eq ptr %181, null
@@ -1253,7 +1253,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
 
 203:                                              ; preds = %199
   %204 = icmp eq ptr %200, null
-  br i1 %204, label %.thread46.us.us, label %205
+  br i1 %204, label %.thread47.us.us, label %205
 
 205:                                              ; preds = %203
   %206 = load i64, ptr %200, align 8
@@ -1290,14 +1290,14 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
 .loopexit.us.us:                                  ; preds = %220, %217, %209
   %225 = phi ptr [ %219, %217 ], [ %200, %209 ], [ %222, %220 ]
   %226 = icmp ugt ptr %225, inttoptr (i64 -4096 to ptr)
-  br i1 %226, label %.thread46.us.us, label %.split71.us.us.split
+  br i1 %226, label %.thread47.us.us, label %.split72.us.us.split
 
-.thread46.us.us:                                  ; preds = %.loopexit.us.us, %203, %.preheader50.us
+.thread47.us.us:                                  ; preds = %.loopexit.us.us, %203, %.preheader51.us
   %227 = add i32 %175, -1
   %228 = icmp eq i32 %175, %87
-  br i1 %228, label %.split74.us, label %.preheader50.us, !llvm.loop !45
+  br i1 %228, label %.split75.us, label %.preheader51.us, !llvm.loop !45
 
-.split71.us.us.split:                             ; preds = %.loopexit.us.us
+.split72.us.us.split:                             ; preds = %.loopexit.us.us
   %229 = load i64, ptr %225, align 8
   %230 = and i64 %229, -3073
   %231 = or disjoint i64 %230, 1024
@@ -1327,43 +1327,43 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   %245 = shl nsw i64 -1, %244
   %246 = add i64 %245, %167
   %247 = icmp eq i64 %246, 0
-  br i1 %247, label %.split81.us, label %.split.us75.split, !llvm.loop !46
+  br i1 %247, label %.split82.us, label %.split.us76.split, !llvm.loop !46
 
-.split:                                           ; preds = %78, %.split71
-  %248 = phi i32 [ %257, %.split71 ], [ %85, %78 ]
-  %249 = phi i64 [ %380, %.split71 ], [ %83, %78 ]
+.split:                                           ; preds = %78, %.split72
+  %248 = phi i32 [ %257, %.split72 ], [ %85, %78 ]
+  %249 = phi i64 [ %380, %.split72 ], [ %83, %78 ]
   %250 = trunc i64 %249 to i32
   %251 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %250, i32 -1) #7, !srcloc !42
   %252 = call i32 @llvm.umin.i32(i32 %248, i32 %251)
   %253 = load i32, ptr %88, align 4
   %254 = icmp ugt i32 %252, %253
-  br i1 %254, label %.split77.us, label %255, !prof !7
+  br i1 %254, label %.split78.us, label %255, !prof !7
 
-.split77.us:                                      ; preds = %.split, %.split.us75.split, %.split.us75.split.us
+.split78.us:                                      ; preds = %.split, %.split.us76.split, %.split.us76.split.us
   call void asm sideeffect "340: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 340b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 340) #8, !srcloc !48
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 785, i32 0, i64 12) #8, !srcloc !49
   unreachable
 
 255:                                              ; preds = %.split
   %256 = icmp ult i32 %252, %87
-  br i1 %256, label %.split79.us, label %.preheader50, !prof !7
+  br i1 %256, label %.split80.us, label %.preheader51, !prof !7
 
-.split79.us:                                      ; preds = %255, %173, %105
+.split80.us:                                      ; preds = %255, %173, %105
   call void asm sideeffect "341: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 341b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 341) #8, !srcloc !50
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 786, i32 0, i64 12) #8, !srcloc !51
   unreachable
 
-.preheader50:                                     ; preds = %255, %.thread46
-  %257 = phi i32 [ %356, %.thread46 ], [ %252, %255 ]
+.preheader51:                                     ; preds = %255, %.thread47
+  %257 = phi i32 [ %356, %.thread47 ], [ %252, %255 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %9, ptr %9, align 8
   store ptr %9, ptr %91, align 8
   %258 = load i32, ptr %93, align 8
   %259 = icmp eq i32 %258, 0
-  br i1 %259, label %.loopexit49, label %.preheader48
+  br i1 %259, label %.loopexit50, label %.preheader49
 
-.preheader48:                                     ; preds = %.preheader50, %.preheader48
-  %260 = phi i32 [ %268, %.preheader48 ], [ 0, %.preheader50 ]
+.preheader49:                                     ; preds = %.preheader51, %.preheader49
+  %260 = phi i32 [ %268, %.preheader49 ], [ 0, %.preheader51 ]
   %261 = load ptr, ptr %94, align 8
   %262 = sext i32 %260 to i64
   %263 = getelementptr ptr, ptr %261, i64 %262
@@ -1378,18 +1378,18 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   %268 = add nuw i32 %260, 1
   %269 = load i32, ptr %93, align 8
   %270 = icmp ult i32 %268, %269
-  br i1 %270, label %.preheader48, label %.loopexit49, !llvm.loop !52
+  br i1 %270, label %.preheader49, label %.loopexit50, !llvm.loop !52
 
-.loopexit49:                                      ; preds = %.preheader48, %.preheader50
+.loopexit50:                                      ; preds = %.preheader49, %.preheader51
   %271 = load volatile ptr, ptr %9, align 8
   %272 = icmp eq ptr %271, %9
   %273 = getelementptr i8, ptr %271, i64 -56
   %274 = icmp eq ptr %273, null
   %275 = or i1 %272, %274
-  br i1 %275, label %.thread39.thread, label %.lr.ph
+  br i1 %275, label %.thread40.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit49, %323
-  %276 = phi ptr [ %326, %323 ], [ %273, %.loopexit49 ]
+.lr.ph:                                           ; preds = %.loopexit50, %323
+  %276 = phi ptr [ %326, %323 ], [ %273, %.loopexit50 ]
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 56
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 64
   %279 = load ptr, ptr %278, align 8
@@ -1432,7 +1432,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
 
 305:                                              ; preds = %299
   %306 = icmp eq i64 %297, 2048
-  br i1 %306, label %.thread39, label %323
+  br i1 %306, label %.thread40, label %323
 
 307:                                              ; preds = %299
   %308 = icmp eq i64 %297, 3072
@@ -1470,13 +1470,13 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   %326 = getelementptr i8, ptr %324, i64 -56
   %327 = icmp eq ptr %326, null
   %328 = or i1 %325, %327
-  br i1 %328, label %.thread39.thread, label %.lr.ph, !llvm.loop !53
+  br i1 %328, label %.thread40.thread, label %.lr.ph, !llvm.loop !53
 
 329:                                              ; preds = %309
   %330 = getelementptr inbounds nuw i8, ptr %276, i64 24
   %331 = load ptr, ptr %330, align 8
   %332 = icmp eq ptr %331, null
-  br i1 %332, label %.thread41, label %333
+  br i1 %332, label %.thread42, label %333
 
 333:                                              ; preds = %329
   %334 = getelementptr inbounds nuw i8, ptr %331, i64 8
@@ -1492,63 +1492,63 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
 340:                                              ; preds = %337, %333
   %341 = phi ptr [ %339, %337 ], [ %335, %333 ]
   %342 = icmp eq ptr %341, null
-  br i1 %342, label %.thread41, label %343
+  br i1 %342, label %.thread42, label %343
 
 343:                                              ; preds = %340
   %344 = load i64, ptr %276, align 8
   %345 = and i64 %344, 3072
   %346 = icmp eq i64 %345, 2048
-  br i1 %346, label %347, label %.thread41
+  br i1 %346, label %347, label %.thread42
 
 347:                                              ; preds = %343
   %348 = load i64, ptr %341, align 8
   %349 = and i64 %348, 3072
   %350 = icmp eq i64 %349, 2048
-  br i1 %350, label %351, label %.thread41
+  br i1 %350, label %351, label %.thread42
 
 351:                                              ; preds = %347
   call fastcc void @__drm_buddy_free(ptr noundef %0, ptr noundef nonnull %276)
-  br label %.thread41
+  br label %.thread42
 
-.thread41:                                        ; preds = %329, %351, %347, %343, %340
+.thread42:                                        ; preds = %329, %351, %347, %343, %340
   %352 = sext i32 %310 to i64
   %353 = inttoptr i64 %352 to ptr
-  br label %.thread39
+  br label %.thread40
 
-.thread39.thread:                                 ; preds = %323, %.loopexit49
+.thread40.thread:                                 ; preds = %323, %.loopexit50
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread46
+  br label %.thread47
 
-.thread39:                                        ; preds = %305, %.thread41
-  %354 = phi ptr [ %353, %.thread41 ], [ %276, %305 ]
+.thread40:                                        ; preds = %305, %.thread42
+  %354 = phi ptr [ %353, %.thread42 ], [ %276, %305 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %355 = icmp ugt ptr %354, inttoptr (i64 -4096 to ptr)
-  br i1 %355, label %.thread46, label %.split71
+  br i1 %355, label %.thread47, label %.split72
 
-.split.us:                                        ; preds = %205, %.loopexit47.us.us.us.us
+.split.us:                                        ; preds = %205, %.loopexit48.us.us.us.us
   call void asm sideeffect "331: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 331b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 331) #8, !srcloc !54
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 462, i32 0, i64 12) #8, !srcloc !55
   unreachable
 
-.thread46:                                        ; preds = %.thread39.thread, %.thread39
+.thread47:                                        ; preds = %.thread40.thread, %.thread40
   %356 = add i32 %257, -1
   %357 = icmp eq i32 %257, %87
-  br i1 %357, label %.split74.us, label %.preheader50, !llvm.loop !45
+  br i1 %357, label %.split75.us, label %.preheader51, !llvm.loop !45
 
-.split74.us:                                      ; preds = %.thread46, %.thread46.us.us, %.thread46.us.us.us.us
+.split75.us:                                      ; preds = %.thread47, %.thread47.us.us, %.thread47.us.us.us.us
   %358 = and i64 %6, 5
   %359 = icmp eq i64 %358, 4
   br i1 %359, label %360, label %362
 
-360:                                              ; preds = %.split74.us
+360:                                              ; preds = %.split75.us
   %361 = call fastcc i32 @__alloc_contig_try_harder(ptr noundef %0, i64 noundef %3, i64 noundef %4, ptr noundef %5)
   br label %425
 
-362:                                              ; preds = %.split74.us
+362:                                              ; preds = %.split75.us
   call void @drm_buddy_free_list(ptr noundef %0, ptr noundef nonnull %10)
   br label %425
 
-.split71:                                         ; preds = %.thread39
+.split72:                                         ; preds = %.thread40
   %363 = load i64, ptr %354, align 8
   %364 = and i64 %363, -3073
   %365 = or disjoint i64 %364, 1024
@@ -1578,13 +1578,13 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   %379 = shl nsw i64 -1, %378
   %380 = add i64 %379, %249
   %381 = icmp eq i64 %380, 0
-  br i1 %381, label %.split81.us, label %.split, !llvm.loop !46
+  br i1 %381, label %.split82.us, label %.split, !llvm.loop !46
 
-.split81.us:                                      ; preds = %.split71, %.split71.us.us.split, %.split71.us.us.split.us.us
+.split82.us:                                      ; preds = %.split72, %.split72.us.us.split, %.split72.us.us.split.us.us
   %382 = icmp eq i64 %80, %3
   br i1 %382, label %417, label %383
 
-383:                                              ; preds = %.split81.us
+383:                                              ; preds = %.split82.us
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %11, ptr %11, align 8
   store ptr %11, ptr %.sroa.gep1, align 8
@@ -1645,7 +1645,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %417
 
-417:                                              ; preds = %416, %.split81.us
+417:                                              ; preds = %416, %.split82.us
   %418 = load volatile ptr, ptr %10, align 8
   %419 = icmp eq ptr %418, %10
   br i1 %419, label %425, label %420

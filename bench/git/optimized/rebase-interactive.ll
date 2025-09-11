@@ -430,248 +430,249 @@ define dso_local range(i32 0, 2) i32 @todo_list_check(ptr noundef %0, ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %10
 
-10:                                               ; preds = %.lr.ph, %36
-  %11 = phi i32 [ %7, %.lr.ph ], [ %37, %36 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.sroa.2977.189 = phi ptr [ null, %.lr.ph ], [ %.sroa.2977.2, %36 ]
-  %.sroa.16.188 = phi i32 [ 0, %.lr.ph ], [ %.sroa.16.2, %36 ]
+10:                                               ; preds = %.lr.ph, %37
+  %11 = phi i32 [ %7, %.lr.ph ], [ %38, %37 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+  %.sroa.2977.189 = phi ptr [ null, %.lr.ph ], [ %.sroa.2977.2, %37 ]
+  %.sroa.16.188 = phi i32 [ 0, %.lr.ph ], [ %.sroa.16.2, %37 ]
   %12 = load ptr, ptr %9, align 8, !tbaa !26
-  %13 = getelementptr inbounds nuw %struct.todo_item, ptr %12, i64 %indvars.iv, i32 1
-  %14 = load ptr, ptr %13, align 8, !tbaa !27
-  %.not29 = icmp eq ptr %14, null
-  br i1 %.not29, label %36, label %15
+  %13 = getelementptr inbounds nuw %struct.todo_item, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !27
+  %.not29 = icmp eq ptr %15, null
+  br i1 %.not29, label %37, label %16
 
-15:                                               ; preds = %10
-  %16 = getelementptr i8, ptr %14, i64 64
-  %.val = load i32, ptr %16, align 8, !tbaa !30
-  %17 = udiv i32 %.val, 524256
-  %18 = urem i32 %.val, 524256
-  %.not.i.i = icmp ugt i32 %.sroa.16.188, %17
+16:                                               ; preds = %10
+  %17 = getelementptr i8, ptr %15, i64 64
+  %.val = load i32, ptr %17, align 8, !tbaa !30
+  %18 = udiv i32 %.val, 524256
+  %19 = urem i32 %.val, 524256
+  %.not.i.i = icmp ugt i32 %.sroa.16.188, %18
   br i1 %.not.i.i, label %._crit_edge3.i.i, label %._crit_edge3.i.i.loopexit
 
-._crit_edge3.i.i.loopexit:                        ; preds = %15
-  %19 = add nuw nsw i32 %17, 1
-  %20 = shl nuw nsw i32 %19, 3
-  %21 = zext nneg i32 %20 to i64
-  %22 = tail call ptr @xrealloc(ptr noundef %.sroa.2977.189, i64 noundef %21) #10
-  %23 = zext nneg i32 %.sroa.16.188 to i64
-  %24 = shl nuw nsw i64 %23, 3
-  %scevgep = getelementptr i8, ptr %22, i64 %24
-  %25 = sub nuw nsw i32 %17, %.sroa.16.188
-  %26 = shl nuw nsw i32 %25, 3
-  %narrow = add nuw nsw i32 %26, 8
-  %27 = zext nneg i32 %narrow to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %27, i1 false), !tbaa !16
+._crit_edge3.i.i.loopexit:                        ; preds = %16
+  %20 = add nuw nsw i32 %18, 1
+  %21 = shl nuw nsw i32 %20, 3
+  %22 = zext nneg i32 %21 to i64
+  %23 = tail call ptr @xrealloc(ptr noundef %.sroa.2977.189, i64 noundef %22) #10
+  %24 = zext nneg i32 %.sroa.16.188 to i64
+  %25 = shl nuw nsw i64 %24, 3
+  %scevgep = getelementptr i8, ptr %23, i64 %25
+  %26 = sub nuw nsw i32 %18, %.sroa.16.188
+  %27 = shl nuw nsw i32 %26, 3
+  %narrow = add nuw nsw i32 %27, 8
+  %28 = zext nneg i32 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %28, i1 false), !tbaa !16
   br label %._crit_edge3.i.i
 
-._crit_edge3.i.i:                                 ; preds = %._crit_edge3.i.i.loopexit, %15
-  %.sroa.16.5 = phi i32 [ %.sroa.16.188, %15 ], [ %19, %._crit_edge3.i.i.loopexit ]
-  %.sroa.2977.5 = phi ptr [ %.sroa.2977.189, %15 ], [ %22, %._crit_edge3.i.i.loopexit ]
-  %28 = zext nneg i32 %17 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.5, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !16
-  %.not34.i.i = icmp eq ptr %30, null
-  br i1 %.not34.i.i, label %31, label %commit_seen_at.exit
+._crit_edge3.i.i:                                 ; preds = %._crit_edge3.i.i.loopexit, %16
+  %.sroa.16.5 = phi i32 [ %.sroa.16.188, %16 ], [ %20, %._crit_edge3.i.i.loopexit ]
+  %.sroa.2977.5 = phi ptr [ %.sroa.2977.189, %16 ], [ %23, %._crit_edge3.i.i.loopexit ]
+  %29 = zext nneg i32 %18 to i64
+  %30 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.5, i64 %29
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
+  %.not34.i.i = icmp eq ptr %31, null
+  br i1 %.not34.i.i, label %32, label %commit_seen_at.exit
 
-31:                                               ; preds = %._crit_edge3.i.i
-  %32 = tail call ptr @xcalloc(i64 noundef 524256, i64 noundef 1) #10
-  store ptr %32, ptr %29, align 8, !tbaa !16
+32:                                               ; preds = %._crit_edge3.i.i
+  %33 = tail call ptr @xcalloc(i64 noundef 524256, i64 noundef 1) #10
+  store ptr %33, ptr %30, align 8, !tbaa !16
   br label %commit_seen_at.exit
 
-commit_seen_at.exit:                              ; preds = %._crit_edge3.i.i, %31
-  %33 = phi ptr [ %30, %._crit_edge3.i.i ], [ %32, %31 ]
-  %34 = zext nneg i32 %18 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
-  store i8 1, ptr %35, align 1, !tbaa !15
+commit_seen_at.exit:                              ; preds = %._crit_edge3.i.i, %32
+  %34 = phi ptr [ %31, %._crit_edge3.i.i ], [ %33, %32 ]
+  %35 = zext nneg i32 %19 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
+  store i8 1, ptr %36, align 1, !tbaa !15
   %.pre = load i32, ptr %6, align 8, !tbaa !25
-  br label %36
+  br label %37
 
-36:                                               ; preds = %commit_seen_at.exit, %10
-  %37 = phi i32 [ %11, %10 ], [ %.pre, %commit_seen_at.exit ]
+37:                                               ; preds = %commit_seen_at.exit, %10
+  %38 = phi i32 [ %11, %10 ], [ %.pre, %commit_seen_at.exit ]
   %.sroa.16.2 = phi i32 [ %.sroa.16.188, %10 ], [ %.sroa.16.5, %commit_seen_at.exit ]
   %.sroa.2977.2 = phi ptr [ %.sroa.2977.189, %10 ], [ %.sroa.2977.5, %commit_seen_at.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = sext i32 %37 to i64
-  %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %10, label %._crit_edge, !llvm.loop !36
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next, %39
+  br i1 %40, label %10, label %._crit_edge, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %36, %.preheader
-  %.sroa.16.1.lcssa = phi i32 [ 0, %.preheader ], [ %.sroa.16.2, %36 ]
-  %.sroa.2977.1.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.2977.2, %36 ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = load i32, ptr %40, align 8, !tbaa !25
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph97, label %._crit_edge98.thread
+._crit_edge:                                      ; preds = %37, %.preheader
+  %.sroa.16.1.lcssa = phi i32 [ 0, %.preheader ], [ %.sroa.16.2, %37 ]
+  %.sroa.2977.1.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.2977.2, %37 ]
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %42 = load i32, ptr %41, align 8, !tbaa !25
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %.lr.ph97, label %._crit_edge98.thread
 
 .lr.ph97:                                         ; preds = %._crit_edge
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %44 = zext nneg i32 %41 to i64
-  br label %45
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %45 = zext nneg i32 %42 to i64
+  br label %46
 
-45:                                               ; preds = %.lr.ph97, %99
-  %indvars.iv111 = phi i64 [ %44, %.lr.ph97 ], [ %indvars.iv.next112, %99 ]
-  %.sroa.2977.394 = phi ptr [ %.sroa.2977.1.lcssa, %.lr.ph97 ], [ %.sroa.2977.4, %99 ]
-  %.sroa.16.393 = phi i32 [ %.sroa.16.1.lcssa, %.lr.ph97 ], [ %.sroa.16.4, %99 ]
+46:                                               ; preds = %.lr.ph97, %100
+  %indvars.iv111 = phi i64 [ %45, %.lr.ph97 ], [ %indvars.iv.next112, %100 ]
+  %.sroa.2977.394 = phi ptr [ %.sroa.2977.1.lcssa, %.lr.ph97 ], [ %.sroa.2977.4, %100 ]
+  %.sroa.16.393 = phi i32 [ %.sroa.16.1.lcssa, %.lr.ph97 ], [ %.sroa.16.4, %100 ]
   %indvars.iv.next112 = add nsw i64 %indvars.iv111, -1
-  %46 = load ptr, ptr %43, align 8, !tbaa !26
-  %47 = getelementptr inbounds nuw %struct.todo_item, ptr %46, i64 %indvars.iv.next112
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !27
-  %.not27 = icmp eq ptr %49, null
-  br i1 %.not27, label %99, label %50
+  %47 = load ptr, ptr %44, align 8, !tbaa !26
+  %48 = getelementptr inbounds nuw %struct.todo_item, ptr %47, i64 %indvars.iv.next112
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !27
+  %.not27 = icmp eq ptr %50, null
+  br i1 %.not27, label %100, label %51
 
-50:                                               ; preds = %45
-  %51 = getelementptr i8, ptr %49, i64 64
-  %.val30 = load i32, ptr %51, align 8, !tbaa !30
-  %52 = udiv i32 %.val30, 524256
-  %53 = urem i32 %.val30, 524256
-  %.not.i.i32 = icmp ugt i32 %.sroa.16.393, %52
+51:                                               ; preds = %46
+  %52 = getelementptr i8, ptr %50, i64 64
+  %.val30 = load i32, ptr %52, align 8, !tbaa !30
+  %53 = udiv i32 %.val30, 524256
+  %54 = urem i32 %.val30, 524256
+  %.not.i.i32 = icmp ugt i32 %.sroa.16.393, %53
   br i1 %.not.i.i32, label %._crit_edge3.i.i40, label %._crit_edge3.i.i40.loopexit
 
-._crit_edge3.i.i40.loopexit:                      ; preds = %50
-  %54 = add nuw nsw i32 %52, 1
-  %55 = shl nuw nsw i32 %54, 3
-  %56 = zext nneg i32 %55 to i64
-  %57 = call ptr @xrealloc(ptr noundef %.sroa.2977.394, i64 noundef %56) #10
-  %58 = zext nneg i32 %.sroa.16.393 to i64
-  %59 = shl nuw nsw i64 %58, 3
-  %scevgep103 = getelementptr i8, ptr %57, i64 %59
-  %60 = sub nuw nsw i32 %52, %.sroa.16.393
-  %61 = shl nuw nsw i32 %60, 3
-  %narrow126 = add nuw nsw i32 %61, 8
-  %62 = zext nneg i32 %narrow126 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep103, i8 0, i64 %62, i1 false), !tbaa !16
+._crit_edge3.i.i40.loopexit:                      ; preds = %51
+  %55 = add nuw nsw i32 %53, 1
+  %56 = shl nuw nsw i32 %55, 3
+  %57 = zext nneg i32 %56 to i64
+  %58 = call ptr @xrealloc(ptr noundef %.sroa.2977.394, i64 noundef %57) #10
+  %59 = zext nneg i32 %.sroa.16.393 to i64
+  %60 = shl nuw nsw i64 %59, 3
+  %scevgep103 = getelementptr i8, ptr %58, i64 %60
+  %61 = sub nuw nsw i32 %53, %.sroa.16.393
+  %62 = shl nuw nsw i32 %61, 3
+  %narrow126 = add nuw nsw i32 %62, 8
+  %63 = zext nneg i32 %narrow126 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep103, i8 0, i64 %63, i1 false), !tbaa !16
   br label %._crit_edge3.i.i40
 
-._crit_edge3.i.i40:                               ; preds = %._crit_edge3.i.i40.loopexit, %50
-  %.sroa.16.6 = phi i32 [ %.sroa.16.393, %50 ], [ %54, %._crit_edge3.i.i40.loopexit ]
-  %.sroa.2977.6 = phi ptr [ %.sroa.2977.394, %50 ], [ %57, %._crit_edge3.i.i40.loopexit ]
-  %63 = zext nneg i32 %52 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.6, i64 %63
-  %65 = load ptr, ptr %64, align 8, !tbaa !16
-  %.not34.i.i41 = icmp eq ptr %65, null
-  br i1 %.not34.i.i41, label %66, label %commit_seen_at.exit42
+._crit_edge3.i.i40:                               ; preds = %._crit_edge3.i.i40.loopexit, %51
+  %.sroa.16.6 = phi i32 [ %.sroa.16.393, %51 ], [ %55, %._crit_edge3.i.i40.loopexit ]
+  %.sroa.2977.6 = phi ptr [ %.sroa.2977.394, %51 ], [ %58, %._crit_edge3.i.i40.loopexit ]
+  %64 = zext nneg i32 %53 to i64
+  %65 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.6, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !16
+  %.not34.i.i41 = icmp eq ptr %66, null
+  br i1 %.not34.i.i41, label %67, label %commit_seen_at.exit42
 
-66:                                               ; preds = %._crit_edge3.i.i40
-  %67 = call ptr @xcalloc(i64 noundef 524256, i64 noundef 1) #10
-  store ptr %67, ptr %64, align 8, !tbaa !16
+67:                                               ; preds = %._crit_edge3.i.i40
+  %68 = call ptr @xcalloc(i64 noundef 524256, i64 noundef 1) #10
+  store ptr %68, ptr %65, align 8, !tbaa !16
   br label %commit_seen_at.exit42
 
-commit_seen_at.exit42:                            ; preds = %._crit_edge3.i.i40, %66
-  %68 = phi ptr [ %65, %._crit_edge3.i.i40 ], [ %67, %66 ]
-  %69 = zext nneg i32 %53 to i64
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %69
-  %71 = load i8, ptr %70, align 1, !tbaa !15
-  %.not28 = icmp eq i8 %71, 0
-  br i1 %.not28, label %72, label %99
+commit_seen_at.exit42:                            ; preds = %._crit_edge3.i.i40, %67
+  %69 = phi ptr [ %66, %._crit_edge3.i.i40 ], [ %68, %67 ]
+  %70 = zext nneg i32 %54 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 %70
+  %72 = load i8, ptr %71, align 1, !tbaa !15
+  %.not28 = icmp eq i8 %72, 0
+  br i1 %.not28, label %73, label %100
 
-72:                                               ; preds = %commit_seen_at.exit42
-  %73 = load ptr, ptr @the_repository, align 8, !tbaa !17
-  %74 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %75 = load i32, ptr @default_abbrev, align 4, !tbaa !4
-  %76 = call ptr @repo_find_unique_abbrev(ptr noundef %73, ptr noundef nonnull %74, i32 noundef %75) #10
-  %77 = getelementptr inbounds nuw i8, ptr %47, i64 20
-  %78 = load i32, ptr %77, align 4, !tbaa !38
-  %79 = call ptr @todo_item_get_arg(ptr noundef nonnull %0, ptr noundef nonnull %47) #10
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef %76, i32 noundef %78, ptr noundef %79) #10
-  %.val31 = load i32, ptr %51, align 8, !tbaa !30
-  %80 = udiv i32 %.val31, 524256
-  %81 = urem i32 %.val31, 524256
-  %.not.i.i43 = icmp ugt i32 %.sroa.16.6, %80
+73:                                               ; preds = %commit_seen_at.exit42
+  %74 = load ptr, ptr @the_repository, align 8, !tbaa !17
+  %75 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %76 = load i32, ptr @default_abbrev, align 4, !tbaa !4
+  %77 = call ptr @repo_find_unique_abbrev(ptr noundef %74, ptr noundef nonnull %75, i32 noundef %76) #10
+  %78 = getelementptr inbounds nuw i8, ptr %48, i64 20
+  %79 = load i32, ptr %78, align 4, !tbaa !38
+  %80 = call ptr @todo_item_get_arg(ptr noundef nonnull %0, ptr noundef nonnull %48) #10
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef %77, i32 noundef %79, ptr noundef %80) #10
+  %.val31 = load i32, ptr %52, align 8, !tbaa !30
+  %81 = udiv i32 %.val31, 524256
+  %82 = urem i32 %.val31, 524256
+  %.not.i.i43 = icmp ugt i32 %.sroa.16.6, %81
   br i1 %.not.i.i43, label %._crit_edge3.i.i51, label %._crit_edge3.i.i51.loopexit
 
-._crit_edge3.i.i51.loopexit:                      ; preds = %72
-  %82 = add nuw nsw i32 %80, 1
-  %83 = shl nuw nsw i32 %82, 3
-  %84 = zext nneg i32 %83 to i64
-  %85 = call ptr @xrealloc(ptr noundef nonnull %.sroa.2977.6, i64 noundef %84) #10
-  %86 = zext nneg i32 %.sroa.16.6 to i64
-  %87 = shl nuw nsw i64 %86, 3
-  %scevgep107 = getelementptr i8, ptr %85, i64 %87
-  %88 = sub nuw nsw i32 %80, %.sroa.16.6
-  %89 = shl nuw nsw i32 %88, 3
-  %narrow127 = add nuw nsw i32 %89, 8
-  %90 = zext nneg i32 %narrow127 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep107, i8 0, i64 %90, i1 false), !tbaa !16
+._crit_edge3.i.i51.loopexit:                      ; preds = %73
+  %83 = add nuw nsw i32 %81, 1
+  %84 = shl nuw nsw i32 %83, 3
+  %85 = zext nneg i32 %84 to i64
+  %86 = call ptr @xrealloc(ptr noundef nonnull %.sroa.2977.6, i64 noundef %85) #10
+  %87 = zext nneg i32 %.sroa.16.6 to i64
+  %88 = shl nuw nsw i64 %87, 3
+  %scevgep107 = getelementptr i8, ptr %86, i64 %88
+  %89 = sub nuw nsw i32 %81, %.sroa.16.6
+  %90 = shl nuw nsw i32 %89, 3
+  %narrow127 = add nuw nsw i32 %90, 8
+  %91 = zext nneg i32 %narrow127 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep107, i8 0, i64 %91, i1 false), !tbaa !16
   br label %._crit_edge3.i.i51
 
-._crit_edge3.i.i51:                               ; preds = %._crit_edge3.i.i51.loopexit, %72
-  %.sroa.16.7 = phi i32 [ %.sroa.16.6, %72 ], [ %82, %._crit_edge3.i.i51.loopexit ]
-  %.sroa.2977.7 = phi ptr [ %.sroa.2977.6, %72 ], [ %85, %._crit_edge3.i.i51.loopexit ]
-  %91 = zext nneg i32 %80 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.7, i64 %91
-  %93 = load ptr, ptr %92, align 8, !tbaa !16
-  %.not34.i.i52 = icmp eq ptr %93, null
-  br i1 %.not34.i.i52, label %94, label %commit_seen_at.exit53
+._crit_edge3.i.i51:                               ; preds = %._crit_edge3.i.i51.loopexit, %73
+  %.sroa.16.7 = phi i32 [ %.sroa.16.6, %73 ], [ %83, %._crit_edge3.i.i51.loopexit ]
+  %.sroa.2977.7 = phi ptr [ %.sroa.2977.6, %73 ], [ %86, %._crit_edge3.i.i51.loopexit ]
+  %92 = zext nneg i32 %81 to i64
+  %93 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.7, i64 %92
+  %94 = load ptr, ptr %93, align 8, !tbaa !16
+  %.not34.i.i52 = icmp eq ptr %94, null
+  br i1 %.not34.i.i52, label %95, label %commit_seen_at.exit53
 
-94:                                               ; preds = %._crit_edge3.i.i51
-  %95 = call ptr @xcalloc(i64 noundef 524256, i64 noundef 1) #10
-  store ptr %95, ptr %92, align 8, !tbaa !16
+95:                                               ; preds = %._crit_edge3.i.i51
+  %96 = call ptr @xcalloc(i64 noundef 524256, i64 noundef 1) #10
+  store ptr %96, ptr %93, align 8, !tbaa !16
   br label %commit_seen_at.exit53
 
-commit_seen_at.exit53:                            ; preds = %._crit_edge3.i.i51, %94
-  %96 = phi ptr [ %93, %._crit_edge3.i.i51 ], [ %95, %94 ]
-  %97 = zext nneg i32 %81 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 %97
-  store i8 1, ptr %98, align 1, !tbaa !15
-  br label %99
+commit_seen_at.exit53:                            ; preds = %._crit_edge3.i.i51, %95
+  %97 = phi ptr [ %94, %._crit_edge3.i.i51 ], [ %96, %95 ]
+  %98 = zext nneg i32 %82 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 %98
+  store i8 1, ptr %99, align 1, !tbaa !15
+  br label %100
 
-99:                                               ; preds = %commit_seen_at.exit53, %commit_seen_at.exit42, %45
-  %.sroa.16.4 = phi i32 [ %.sroa.16.393, %45 ], [ %.sroa.16.7, %commit_seen_at.exit53 ], [ %.sroa.16.6, %commit_seen_at.exit42 ]
-  %.sroa.2977.4 = phi ptr [ %.sroa.2977.394, %45 ], [ %.sroa.2977.7, %commit_seen_at.exit53 ], [ %.sroa.2977.6, %commit_seen_at.exit42 ]
-  %100 = icmp samesign ugt i64 %indvars.iv111, 1
-  br i1 %100, label %45, label %._crit_edge98, !llvm.loop !39
+100:                                              ; preds = %commit_seen_at.exit53, %commit_seen_at.exit42, %46
+  %.sroa.16.4 = phi i32 [ %.sroa.16.393, %46 ], [ %.sroa.16.7, %commit_seen_at.exit53 ], [ %.sroa.16.6, %commit_seen_at.exit42 ]
+  %.sroa.2977.4 = phi ptr [ %.sroa.2977.394, %46 ], [ %.sroa.2977.7, %commit_seen_at.exit53 ], [ %.sroa.2977.6, %commit_seen_at.exit42 ]
+  %101 = icmp samesign ugt i64 %indvars.iv111, 1
+  br i1 %101, label %46, label %._crit_edge98, !llvm.loop !39
 
-._crit_edge98:                                    ; preds = %99
+._crit_edge98:                                    ; preds = %100
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre114 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !13
-  %101 = icmp eq i64 %.pre114, 0
-  br i1 %101, label %._crit_edge98.thread, label %102
+  %102 = icmp eq i64 %.pre114, 0
+  br i1 %102, label %._crit_edge98.thread, label %103
 
-102:                                              ; preds = %._crit_edge98
-  %103 = icmp eq i32 %4, 2
-  %spec.select = zext i1 %103 to i32
-  %104 = load ptr, ptr @stderr, align 8, !tbaa !23
-  %105 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i = icmp eq i32 %105, 0
-  br i1 %.not4.i, label %_.exit, label %106
+103:                                              ; preds = %._crit_edge98
+  %104 = icmp eq i32 %4, 2
+  %spec.select = zext i1 %104 to i32
+  %105 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %106 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
+  %.not4.i = icmp eq i32 %106, 0
+  br i1 %.not4.i, label %_.exit, label %107
 
-106:                                              ; preds = %102
-  %107 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #10
+107:                                              ; preds = %103
+  %108 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #10
   br label %_.exit
 
-_.exit:                                           ; preds = %102, %106
-  %.0.i = phi ptr [ %107, %106 ], [ @.str.12, %102 ]
-  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef %.0.i) #12
-  %109 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %110 = load ptr, ptr %109, align 8, !tbaa !14
-  %111 = load ptr, ptr @stderr, align 8, !tbaa !23
-  %112 = call i32 @fputs(ptr noundef %110, ptr noundef %111) #13
+_.exit:                                           ; preds = %103, %107
+  %.0.i = phi ptr [ %108, %107 ], [ @.str.12, %103 ]
+  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef %.0.i) #12
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %111 = load ptr, ptr %110, align 8, !tbaa !14
+  %112 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %113 = call i32 @fputs(ptr noundef %111, ptr noundef %112) #13
   call void @strbuf_release(ptr noundef nonnull %3) #10
-  %113 = load ptr, ptr @stderr, align 8, !tbaa !23
-  %114 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i54 = icmp eq i32 %114, 0
-  br i1 %.not4.i54, label %_.exit56, label %115
+  %114 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %115 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
+  %.not4.i54 = icmp eq i32 %115, 0
+  br i1 %.not4.i54, label %_.exit56, label %116
 
-115:                                              ; preds = %_.exit
-  %116 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #10
+116:                                              ; preds = %_.exit
+  %117 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #10
   br label %_.exit56
 
-_.exit56:                                         ; preds = %_.exit, %115
-  %.0.i55 = phi ptr [ %116, %115 ], [ @.str.13, %_.exit ]
-  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef %.0.i55) #12
-  %118 = load ptr, ptr @stderr, align 8, !tbaa !23
-  %119 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i57 = icmp eq i32 %119, 0
-  br i1 %.not4.i57, label %_.exit59, label %120
+_.exit56:                                         ; preds = %_.exit, %116
+  %.0.i55 = phi ptr [ %117, %116 ], [ @.str.13, %_.exit ]
+  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef %.0.i55) #12
+  %119 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %120 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
+  %.not4.i57 = icmp eq i32 %120, 0
+  br i1 %.not4.i57, label %_.exit59, label %121
 
-120:                                              ; preds = %_.exit56
-  %121 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @edit_todo_list_advice, i32 noundef 5) #10
+121:                                              ; preds = %_.exit56
+  %122 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @edit_todo_list_advice, i32 noundef 5) #10
   br label %_.exit59
 
-_.exit59:                                         ; preds = %_.exit56, %120
-  %.0.i58 = phi ptr [ %121, %120 ], [ @edit_todo_list_advice, %_.exit56 ]
-  %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef %.0.i58) #12
+_.exit59:                                         ; preds = %_.exit56, %121
+  %.0.i58 = phi ptr [ %122, %121 ], [ @edit_todo_list_advice, %_.exit56 ]
+  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef %.0.i58) #12
   br label %._crit_edge98.thread
 
 ._crit_edge98.thread:                             ; preds = %._crit_edge, %._crit_edge98, %_.exit59
@@ -682,16 +683,16 @@ _.exit59:                                         ; preds = %_.exit56, %120
   br i1 %.not.i, label %clear_commit_seen.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %._crit_edge98.thread
-  %123 = zext nneg i32 %.sroa.16.3.lcssa131 to i64
+  %124 = zext nneg i32 %.sroa.16.3.lcssa131 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %124 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.3.lcssa132, i64 %indvars.iv.i
-  %125 = load ptr, ptr %124, align 8, !tbaa !16
-  call void @free(ptr noundef %125) #10
+  %125 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.3.lcssa132, i64 %indvars.iv.i
+  %126 = load ptr, ptr %125, align 8, !tbaa !16
+  call void @free(ptr noundef %126) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %123
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %124
   br i1 %exitcond.not, label %clear_commit_seen.exit, label %.lr.ph.i, !llvm.loop !40
 
 clear_commit_seen.exit:                           ; preds = %.lr.ph.i, %2, %._crit_edge98.thread

@@ -6958,7 +6958,7 @@ define linkonce_odr hidden void @_ZN3smt19theory_polymorphism22add_theory_assump
 _ZNK3smt7context25get_num_asserted_formulasEv.exit: ; preds = %2, %11
   %.0.i.i.i = phi i32 [ %13, %11 ], [ 0, %2 ]
   %14 = icmp eq i32 %5, %.0.i.i.i
-  br i1 %14, label %98, label %15
+  br i1 %14, label %99, label %15
 
 15:                                               ; preds = %_ZNK3smt7context25get_num_asserted_formulasEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7091,8 +7091,8 @@ _ZNK3smt7context25get_num_asserted_formulasEv.exit8.lr.ph: ; preds = %70
   br label %_ZNK3smt7context25get_num_asserted_formulasEv.exit8
 
 _ZNK3smt7context25get_num_asserted_formulasEv.exit8: ; preds = %_ZNK3smt7context25get_num_asserted_formulasEv.exit8.lr.ph, %87
-  %82 = phi i32 [ %.pre, %_ZNK3smt7context25get_num_asserted_formulasEv.exit8.lr.ph ], [ %92, %87 ]
-  %83 = phi ptr [ %79, %_ZNK3smt7context25get_num_asserted_formulasEv.exit8.lr.ph ], [ %95, %87 ]
+  %82 = phi i32 [ %.pre, %_ZNK3smt7context25get_num_asserted_formulasEv.exit8.lr.ph ], [ %93, %87 ]
+  %83 = phi ptr [ %79, %_ZNK3smt7context25get_num_asserted_formulasEv.exit8.lr.ph ], [ %96, %87 ]
   %84 = getelementptr inbounds i8, ptr %83, i64 -4
   %85 = load i32, ptr %84, align 4, !tbaa !546
   %86 = icmp ult i32 %82, %85
@@ -7100,24 +7100,25 @@ _ZNK3smt7context25get_num_asserted_formulasEv.exit8: ; preds = %_ZNK3smt7context
 
 87:                                               ; preds = %_ZNK3smt7context25get_num_asserted_formulasEv.exit8
   %88 = zext i32 %82 to i64
-  %89 = getelementptr inbounds nuw %class.justified_expr, ptr %83, i64 %88, i32 1
-  %90 = load ptr, ptr %89, align 8, !tbaa !723
-  call void @_ZN12polymorphism4inst3addEP4expr(ptr noundef nonnull align 8 dereferenceable(264) %81, ptr noundef %90)
-  %91 = load i32, ptr %4, align 8, !tbaa !659
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %4, align 8, !tbaa !659
-  %93 = load ptr, ptr %6, align 8, !tbaa !718
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1152
-  %95 = load ptr, ptr %94, align 8, !tbaa !719
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %_ZNK3smt7context25get_num_asserted_formulasEv.exit8.thread, label %_ZNK3smt7context25get_num_asserted_formulasEv.exit8, !llvm.loop !725
+  %89 = getelementptr inbounds nuw %class.justified_expr, ptr %83, i64 %88
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load ptr, ptr %90, align 8, !tbaa !723
+  call void @_ZN12polymorphism4inst3addEP4expr(ptr noundef nonnull align 8 dereferenceable(264) %81, ptr noundef %91)
+  %92 = load i32, ptr %4, align 8, !tbaa !659
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %4, align 8, !tbaa !659
+  %94 = load ptr, ptr %6, align 8, !tbaa !718
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1152
+  %96 = load ptr, ptr %95, align 8, !tbaa !719
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %_ZNK3smt7context25get_num_asserted_formulasEv.exit8.thread, label %_ZNK3smt7context25get_num_asserted_formulasEv.exit8, !llvm.loop !725
 
 _ZNK3smt7context25get_num_asserted_formulasEv.exit8.thread: ; preds = %_ZNK3smt7context25get_num_asserted_formulasEv.exit8, %87, %70
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  store i8 1, ptr %97, align 4, !tbaa !679
-  br label %98
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 396
+  store i8 1, ptr %98, align 4, !tbaa !679
+  br label %99
 
-98:                                               ; preds = %_ZNK3smt7context25get_num_asserted_formulasEv.exit, %_ZNK3smt7context25get_num_asserted_formulasEv.exit8.thread
+99:                                               ; preds = %_ZNK3smt7context25get_num_asserted_formulasEv.exit, %_ZNK3smt7context25get_num_asserted_formulasEv.exit8.thread
   ret void
 }
 

@@ -476,7 +476,7 @@ define ptr @mpool_realloc(ptr noundef captures(address, ret: address, provenance
 
 4:                                                ; preds = %3
   %5 = tail call ptr @mpool_malloc(ptr noundef %0, i64 noundef %2)
-  br label %44
+  br label %39
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %1, i64 -2
@@ -486,72 +486,63 @@ define ptr @mpool_realloc(ptr noundef captures(address, ret: address, provenance
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 -1
   %10 = load i8, ptr %9, align 1, !tbaa !3
-  %11 = zext i8 %10 to i32
+  %11 = zext i8 %10 to i64
   %12 = icmp ugt i8 %10, 99
   br i1 %12, label %from_bits.exit.thread, label %from_bits.exit
 
 from_bits.exit.thread:                            ; preds = %8, %6
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.11, i64 noundef %2) #10
-  br label %44
+  br label %39
 
 from_bits.exit:                                   ; preds = %8
-  %13 = zext nneg i8 %10 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !40
-  %16 = zext i32 %15 to i64
-  %17 = load i8, ptr %7, align 1, !tbaa !3
-  %18 = zext i8 %17 to i64
-  %.neg51 = add nsw i64 %16, -2
-  %19 = sub nsw i64 %.neg51, %18
-  %.not43 = icmp ult i64 %19, %2
-  br i1 %.not43, label %32, label %20
+  %13 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %11
+  %14 = load i32, ptr %13, align 4, !tbaa !40
+  %15 = zext i32 %14 to i64
+  %16 = load i8, ptr %7, align 1, !tbaa !3
+  %17 = zext i8 %16 to i64
+  %.neg51 = add nsw i64 %15, -2
+  %18 = sub nsw i64 %.neg51, %17
+  %.not43 = icmp ult i64 %18, %2
+  br i1 %.not43, label %27, label %19
 
-20:                                               ; preds = %from_bits.exit
+19:                                               ; preds = %from_bits.exit
   %.not44 = icmp eq i8 %10, 0
-  br i1 %.not44, label %44, label %21
+  br i1 %.not44, label %39, label %from_bits.exit48
 
-21:                                               ; preds = %20
-  %22 = add nsw i32 %11, -1
-  %23 = icmp ugt i32 %22, 99
-  br i1 %23, label %from_bits.exit48, label %24
+from_bits.exit48:                                 ; preds = %19
+  %20 = add nuw nsw i64 %11, 4294967295
+  %21 = and i64 %20, 4294967295
+  %22 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %21
+  %23 = load i32, ptr %22, align 4, !tbaa !40
+  %24 = zext i32 %23 to i64
+  %reass.sub = sub nsw i64 %24, %17
+  %25 = add nsw i64 %reass.sub, -2
+  %26 = icmp ult i64 %25, %2
+  br i1 %26, label %39, label %27
 
-24:                                               ; preds = %21
-  %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !40
-  %28 = zext i32 %27 to i64
-  %29 = add nsw i64 %28, -2
-  br label %from_bits.exit48
+27:                                               ; preds = %from_bits.exit48, %from_bits.exit
+  %28 = tail call ptr @mpool_malloc(ptr noundef %0, i64 noundef %2)
+  %.not45 = icmp eq ptr %28, null
+  br i1 %.not45, label %39, label %mpool_free.exit
 
-from_bits.exit48:                                 ; preds = %21, %24
-  %.0.i47 = phi i64 [ %29, %24 ], [ -2, %21 ]
-  %30 = sub nsw i64 %.0.i47, %18
-  %31 = icmp ult i64 %30, %2
-  br i1 %31, label %44, label %32
+mpool_free.exit:                                  ; preds = %27
+  %29 = tail call i64 @llvm.umin.i64(i64 %18, i64 %2)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 1 %1, i64 %29, i1 false)
+  %30 = load i8, ptr %9, align 1, !tbaa !3
+  %31 = load i8, ptr %7, align 1, !tbaa !3
+  %32 = zext i8 %31 to i64
+  %33 = sub nsw i64 0, %32
+  %34 = getelementptr inbounds i8, ptr %7, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = zext i8 %30 to i64
+  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %38 = load ptr, ptr %37, align 8, !tbaa !41
+  store ptr %38, ptr %34, align 1, !tbaa !3
+  store ptr %34, ptr %37, align 8, !tbaa !41
+  br label %39
 
-32:                                               ; preds = %from_bits.exit48, %from_bits.exit
-  %33 = tail call ptr @mpool_malloc(ptr noundef %0, i64 noundef %2)
-  %.not45 = icmp eq ptr %33, null
-  br i1 %.not45, label %44, label %mpool_free.exit
-
-mpool_free.exit:                                  ; preds = %32
-  %34 = tail call i64 @llvm.umin.i64(i64 %19, i64 %2)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %1, i64 %34, i1 false)
-  %35 = load i8, ptr %9, align 1, !tbaa !3
-  %36 = load i8, ptr %7, align 1, !tbaa !3
-  %37 = zext i8 %36 to i64
-  %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds i8, ptr %7, i64 %38
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = zext i8 %35 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !41
-  store ptr %43, ptr %39, align 1, !tbaa !3
-  store ptr %39, ptr %42, align 8, !tbaa !41
-  br label %44
-
-44:                                               ; preds = %20, %from_bits.exit48, %32, %mpool_free.exit, %from_bits.exit.thread, %4
-  %.0 = phi ptr [ %33, %mpool_free.exit ], [ null, %from_bits.exit.thread ], [ %5, %4 ], [ null, %32 ], [ %1, %from_bits.exit48 ], [ %1, %20 ]
+39:                                               ; preds = %19, %from_bits.exit48, %27, %mpool_free.exit, %from_bits.exit.thread, %4
+  %.0 = phi ptr [ %28, %mpool_free.exit ], [ null, %from_bits.exit.thread ], [ %5, %4 ], [ null, %27 ], [ %1, %from_bits.exit48 ], [ %1, %19 ]
   ret ptr %.0
 }
 
@@ -568,91 +559,82 @@ define ptr @mpool_realloc2(ptr noundef captures(address, ret: address, provenanc
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 -1
   %8 = load i8, ptr %7, align 1, !tbaa !3
-  %9 = zext i8 %8 to i32
+  %9 = zext i8 %8 to i64
   %10 = icmp ugt i8 %8, 99
   br i1 %10, label %from_bits.exit.thread.i, label %from_bits.exit.i
 
 from_bits.exit.thread.i:                          ; preds = %6, %4
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.11, i64 noundef %2) #10
-  br label %43
+  br label %38
 
 from_bits.exit.i:                                 ; preds = %6
-  %11 = zext nneg i8 %8 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !40
-  %14 = zext i32 %13 to i64
-  %15 = load i8, ptr %5, align 1, !tbaa !3
-  %16 = zext i8 %15 to i64
-  %.neg51.i = add nsw i64 %14, -2
-  %17 = sub nsw i64 %.neg51.i, %16
-  %.not43.i = icmp ult i64 %17, %2
-  br i1 %.not43.i, label %30, label %18
+  %11 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %9
+  %12 = load i32, ptr %11, align 4, !tbaa !40
+  %13 = zext i32 %12 to i64
+  %14 = load i8, ptr %5, align 1, !tbaa !3
+  %15 = zext i8 %14 to i64
+  %.neg51.i = add nsw i64 %13, -2
+  %16 = sub nsw i64 %.neg51.i, %15
+  %.not43.i = icmp ult i64 %16, %2
+  br i1 %.not43.i, label %25, label %17
 
-18:                                               ; preds = %from_bits.exit.i
+17:                                               ; preds = %from_bits.exit.i
   %.not44.i = icmp eq i8 %8, 0
-  br i1 %.not44.i, label %mpool_free.exit, label %19
+  br i1 %.not44.i, label %mpool_free.exit, label %from_bits.exit48.i
 
-19:                                               ; preds = %18
-  %20 = add nsw i32 %9, -1
-  %21 = icmp ugt i32 %20, 99
-  br i1 %21, label %from_bits.exit48.i, label %22
+from_bits.exit48.i:                               ; preds = %17
+  %18 = add nuw nsw i64 %9, 4294967295
+  %19 = and i64 %18, 4294967295
+  %20 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %19
+  %21 = load i32, ptr %20, align 4, !tbaa !40
+  %22 = zext i32 %21 to i64
+  %reass.sub = sub nsw i64 %22, %15
+  %23 = add nsw i64 %reass.sub, -2
+  %24 = icmp ult i64 %23, %2
+  br i1 %24, label %mpool_free.exit, label %25
 
-22:                                               ; preds = %19
-  %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %23
-  %25 = load i32, ptr %24, align 4, !tbaa !40
-  %26 = zext i32 %25 to i64
-  %27 = add nsw i64 %26, -2
-  br label %from_bits.exit48.i
+25:                                               ; preds = %from_bits.exit48.i, %from_bits.exit.i
+  %26 = tail call ptr @mpool_malloc(ptr noundef %0, i64 noundef %2)
+  %.not45.i = icmp eq ptr %26, null
+  br i1 %.not45.i, label %38, label %mpool_free.exit.i
 
-from_bits.exit48.i:                               ; preds = %22, %19
-  %.0.i47.i = phi i64 [ %27, %22 ], [ -2, %19 ]
-  %28 = sub nsw i64 %.0.i47.i, %16
-  %29 = icmp ult i64 %28, %2
-  br i1 %29, label %mpool_free.exit, label %30
-
-30:                                               ; preds = %from_bits.exit48.i, %from_bits.exit.i
-  %31 = tail call ptr @mpool_malloc(ptr noundef %0, i64 noundef %2)
-  %.not45.i = icmp eq ptr %31, null
-  br i1 %.not45.i, label %43, label %mpool_free.exit.i
-
-mpool_free.exit.i:                                ; preds = %30
-  %32 = tail call i64 @llvm.umin.i64(i64 %17, i64 %2)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %1, i64 %32, i1 false)
-  %33 = load i8, ptr %7, align 1, !tbaa !3
-  %34 = load i8, ptr %5, align 1, !tbaa !3
-  %35 = zext i8 %34 to i64
-  %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds i8, ptr %5, i64 %36
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = zext i8 %33 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !41
-  store ptr %41, ptr %37, align 1, !tbaa !3
-  store ptr %37, ptr %40, align 8, !tbaa !41
+mpool_free.exit.i:                                ; preds = %25
+  %27 = tail call i64 @llvm.umin.i64(i64 %16, i64 %2)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %1, i64 %27, i1 false)
+  %28 = load i8, ptr %7, align 1, !tbaa !3
+  %29 = load i8, ptr %5, align 1, !tbaa !3
+  %30 = zext i8 %29 to i64
+  %31 = sub nsw i64 0, %30
+  %32 = getelementptr inbounds i8, ptr %5, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = zext i8 %28 to i64
+  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !41
+  store ptr %36, ptr %32, align 1, !tbaa !3
+  store ptr %32, ptr %35, align 8, !tbaa !41
   br label %mpool_free.exit
 
 mpool_realloc.exit:                               ; preds = %3
-  %42 = tail call ptr @mpool_malloc(ptr noundef %0, i64 noundef %2)
+  %37 = tail call ptr @mpool_malloc(ptr noundef %0, i64 noundef %2)
   br label %mpool_free.exit
 
-43:                                               ; preds = %30, %from_bits.exit.thread.i
-  %44 = getelementptr inbounds i8, ptr %1, i64 -1
-  %45 = load i8, ptr %44, align 1, !tbaa !3
-  %46 = load i8, ptr %5, align 1, !tbaa !3
-  %47 = zext i8 %46 to i64
-  %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds i8, ptr %5, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = zext i8 %45 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !41
-  store ptr %53, ptr %49, align 1, !tbaa !3
-  store ptr %49, ptr %52, align 8, !tbaa !41
+38:                                               ; preds = %25, %from_bits.exit.thread.i
+  %39 = getelementptr inbounds i8, ptr %1, i64 -1
+  %40 = load i8, ptr %39, align 1, !tbaa !3
+  %41 = load i8, ptr %5, align 1, !tbaa !3
+  %42 = zext i8 %41 to i64
+  %43 = sub nsw i64 0, %42
+  %44 = getelementptr inbounds i8, ptr %5, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = zext i8 %40 to i64
+  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %48 = load ptr, ptr %47, align 8, !tbaa !41
+  store ptr %48, ptr %44, align 1, !tbaa !3
+  store ptr %44, ptr %47, align 8, !tbaa !41
   br label %mpool_free.exit
 
-mpool_free.exit:                                  ; preds = %mpool_realloc.exit, %18, %from_bits.exit48.i, %mpool_free.exit.i, %43
-  %.0 = phi ptr [ null, %43 ], [ %1, %18 ], [ %1, %from_bits.exit48.i ], [ %31, %mpool_free.exit.i ], [ %42, %mpool_realloc.exit ]
+mpool_free.exit:                                  ; preds = %mpool_realloc.exit, %17, %from_bits.exit48.i, %mpool_free.exit.i, %38
+  %.0 = phi ptr [ null, %38 ], [ %1, %17 ], [ %1, %from_bits.exit48.i ], [ %26, %mpool_free.exit.i ], [ %37, %mpool_realloc.exit ]
   ret ptr %.0
 }
 

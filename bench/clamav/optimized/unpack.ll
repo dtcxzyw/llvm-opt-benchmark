@@ -889,81 +889,83 @@ _ZN12SubAllocator10AllocUnitsEi.exit:             ; preds = %88, %96
   %117 = getelementptr inbounds nuw %struct.RARPPM_STATE, ptr %116, i64 %indvars.iv
   store i8 %115, ptr %117, align 1, !tbaa !68
   %118 = load ptr, ptr %112, align 1, !tbaa !27
-  %119 = getelementptr inbounds nuw %struct.RARPPM_STATE, ptr %118, i64 %indvars.iv, i32 1
-  store i8 1, ptr %119, align 1, !tbaa !70
-  %120 = load ptr, ptr %112, align 1, !tbaa !27
-  %121 = getelementptr inbounds nuw %struct.RARPPM_STATE, ptr %120, i64 %indvars.iv, i32 2
-  store ptr null, ptr %121, align 1, !tbaa !71
+  %119 = getelementptr inbounds nuw %struct.RARPPM_STATE, ptr %118, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1
+  store i8 1, ptr %120, align 1, !tbaa !70
+  %121 = load ptr, ptr %112, align 1, !tbaa !27
+  %122 = getelementptr inbounds nuw %struct.RARPPM_STATE, ptr %121, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 2
+  store ptr null, ptr %123, align 1, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %.preheader37, label %114, !llvm.loop !72
 
-.preheader36:                                     ; preds = %.preheader37, %135
-  %indvars.iv52 = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next53, %135 ]
-  %122 = getelementptr inbounds nuw [64 x i16], ptr %113, i64 %indvars.iv52
-  %123 = trunc i64 %indvars.iv52 to i32
-  %124 = add i32 %123, 2
+.preheader36:                                     ; preds = %.preheader37, %137
+  %indvars.iv52 = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next53, %137 ]
+  %124 = getelementptr inbounds nuw [64 x i16], ptr %113, i64 %indvars.iv52
+  %125 = trunc i64 %indvars.iv52 to i32
+  %126 = add i32 %125, 2
   br label %.preheader35
 
-.preheader34:                                     ; preds = %135
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 1
+.preheader34:                                     ; preds = %137
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %.preheader
 
-.preheader35:                                     ; preds = %.preheader36, %134
-  %indvars.iv48 = phi i64 [ 0, %.preheader36 ], [ %indvars.iv.next49, %134 ]
-  %126 = getelementptr inbounds nuw i16, ptr @_ZZN8ModelPPM16RestartModelRareEvE10InitBinEsc, i64 %indvars.iv48
-  %127 = load i16, ptr %126, align 2, !tbaa !73
-  %128 = zext i16 %127 to i32
-  %129 = udiv i32 %128, %124
-  %130 = trunc nuw nsw i32 %129 to i16
-  %131 = sub nsw i16 16384, %130
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %122, i64 %indvars.iv48
-  br label %132
+.preheader35:                                     ; preds = %.preheader36, %136
+  %indvars.iv48 = phi i64 [ 0, %.preheader36 ], [ %indvars.iv.next49, %136 ]
+  %128 = getelementptr inbounds nuw i16, ptr @_ZZN8ModelPPM16RestartModelRareEvE10InitBinEsc, i64 %indvars.iv48
+  %129 = load i16, ptr %128, align 2, !tbaa !73
+  %130 = zext i16 %129 to i32
+  %131 = udiv i32 %130, %126
+  %132 = trunc nuw nsw i32 %131 to i16
+  %133 = sub nsw i16 16384, %132
+  %invariant.gep = getelementptr inbounds nuw i16, ptr %124, i64 %indvars.iv48
+  br label %134
 
-132:                                              ; preds = %.preheader35, %132
-  %indvars.iv45 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next46, %132 ]
+134:                                              ; preds = %.preheader35, %134
+  %indvars.iv45 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next46, %134 ]
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv45
-  store i16 %131, ptr %gep, align 2, !tbaa !73
+  store i16 %133, ptr %gep, align 2, !tbaa !73
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 8
-  %133 = icmp samesign ult i64 %indvars.iv45, 56
-  br i1 %133, label %132, label %134, !llvm.loop !74
+  %135 = icmp samesign ult i64 %indvars.iv45, 56
+  br i1 %135, label %134, label %136, !llvm.loop !74
 
-134:                                              ; preds = %132
+136:                                              ; preds = %134
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 8
-  br i1 %exitcond51.not, label %135, label %.preheader35, !llvm.loop !75
+  br i1 %exitcond51.not, label %137, label %.preheader35, !llvm.loop !75
 
-135:                                              ; preds = %134
+137:                                              ; preds = %136
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 128
   br i1 %exitcond55.not, label %.preheader34, label %.preheader36, !llvm.loop !76
 
-.preheader:                                       ; preds = %.preheader34, %143
-  %indvars.iv60 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next61, %143 ]
-  %136 = getelementptr inbounds nuw [16 x %struct.RARPPM_SEE2_CONTEXT], ptr %125, i64 %indvars.iv60
-  %137 = trunc i64 %indvars.iv60 to i16
-  %.tr.i = mul nuw nsw i16 %137, 40
-  %138 = add nuw nsw i16 %.tr.i, 80
-  br label %139
+.preheader:                                       ; preds = %.preheader34, %145
+  %indvars.iv60 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next61, %145 ]
+  %138 = getelementptr inbounds nuw [16 x %struct.RARPPM_SEE2_CONTEXT], ptr %127, i64 %indvars.iv60
+  %139 = trunc i64 %indvars.iv60 to i16
+  %.tr.i = mul nuw nsw i16 %139, 40
+  %140 = add nuw nsw i16 %.tr.i, 80
+  br label %141
 
-139:                                              ; preds = %.preheader, %139
-  %indvars.iv56 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next57, %139 ]
-  %140 = getelementptr inbounds nuw %struct.RARPPM_SEE2_CONTEXT, ptr %136, i64 %indvars.iv56
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 2
-  store i8 3, ptr %141, align 1, !tbaa !77
-  store i16 %138, ptr %140, align 1, !tbaa !78
-  %142 = getelementptr inbounds nuw i8, ptr %140, i64 3
-  store i8 4, ptr %142, align 4, !tbaa !79
+141:                                              ; preds = %.preheader, %141
+  %indvars.iv56 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next57, %141 ]
+  %142 = getelementptr inbounds nuw %struct.RARPPM_SEE2_CONTEXT, ptr %138, i64 %indvars.iv56
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 2
+  store i8 3, ptr %143, align 1, !tbaa !77
+  store i16 %140, ptr %142, align 1, !tbaa !78
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 3
+  store i8 4, ptr %144, align 4, !tbaa !79
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 16
-  br i1 %exitcond59.not, label %143, label %139, !llvm.loop !80
+  br i1 %exitcond59.not, label %145, label %141, !llvm.loop !80
 
-143:                                              ; preds = %139
+145:                                              ; preds = %141
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 25
-  br i1 %exitcond63.not, label %144, label %.preheader, !llvm.loop !81
+  br i1 %exitcond63.not, label %146, label %.preheader, !llvm.loop !81
 
-144:                                              ; preds = %143
+146:                                              ; preds = %145
   ret void
 }
 
@@ -7020,7 +7022,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %181, %.prehea
   %indvars.iv96 = phi i64 [ %245, %.lr.ph.preheader ], [ %indvars.iv.next97, %.lr.ph ]
   %.03884 = phi i32 [ %244, %.lr.ph.preheader ], [ %246, %.lr.ph ]
   %246 = add nsw i32 %.03884, -1
-  %247 = add nuw i64 %indvars.iv96, 4294967295
+  %247 = add nuw nsw i64 %indvars.iv96, 4294967295
   %248 = and i64 %247, 4294967295
   %249 = getelementptr inbounds nuw i8, ptr %3, i64 %248
   %250 = load i8, ptr %249, align 1, !tbaa !27
@@ -8437,7 +8439,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit174: ; preds = %294, %.pre
   %353 = shl nuw nsw i32 %352, 4
   %354 = add i32 %353, %335
   %355 = add nsw i32 %338, -4
-  %356 = add nsw i32 %355, %330
+  %356 = add nuw nsw i32 %355, %330
   %357 = lshr i32 %356, 3
   %358 = add i32 %357, %331
   store i32 %358, ptr %61, align 8, !tbaa !168
@@ -11604,7 +11606,7 @@ _ZN16FragmentedWindowixEm.exit:                   ; preds = %248, %.loopexit.i
   %287 = sub nsw i32 17, %275
   %288 = lshr i32 %286, %287
   %289 = add i32 %.0.i99, %288
-  %290 = add nsw i32 %236, %276
+  %290 = add nuw nsw i32 %236, %276
   %291 = lshr i32 %290, 3
   %292 = add i32 %291, %237
   store i32 %292, ptr %62, align 8, !tbaa !168
@@ -11729,7 +11731,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit112: ; preds = %308, %.pre
   %369 = shl i32 %368, 4
   %370 = add i32 %369, %.062
   %371 = add nsw i32 %348, -5
-  %372 = add nsw i32 %371, %344
+  %372 = add nuw nsw i32 %371, %344
   %373 = lshr i32 %372, 3
   %374 = add i32 %373, %345
   store i32 %374, ptr %62, align 8, !tbaa !168
@@ -12271,7 +12273,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit161: ; preds = %604, %.pre
   %656 = sub nsw i32 17, %644
   %657 = lshr i32 %655, %656
   %658 = add i32 %.0.i162, %657
-  %659 = add nsw i32 %640, %645
+  %659 = add nuw nsw i32 %640, %645
   %660 = lshr i32 %659, 3
   %661 = add i32 %660, %641
   store i32 %661, ptr %62, align 8, !tbaa !168

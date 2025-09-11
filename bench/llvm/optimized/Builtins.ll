@@ -2219,11 +2219,11 @@ define dso_local void @_ZN5clang7Builtin7Context18initializeBuiltinsERNS_15Ident
   %.not40 = icmp eq i64 %indvars.iv.next85, %24
   br i1 %.not40, label %._crit_edge74, label %.lr.ph73, !llvm.loop !31
 
-._crit_edge79:                                    ; preds = %125, %._crit_edge74
+._crit_edge79:                                    ; preds = %126, %._crit_edge74
   ret void
 
-56:                                               ; preds = %.lr.ph78, %125
-  %.sroa.054.076 = phi ptr [ %40, %.lr.ph78 ], [ %126, %125 ]
+56:                                               ; preds = %.lr.ph78, %126
+  %.sroa.054.076 = phi ptr [ %40, %.lr.ph78 ], [ %127, %126 ]
   %57 = load ptr, ptr %.sroa.054.076, align 8, !tbaa !32
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.054.076, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !35
@@ -2252,7 +2252,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %56, %_ZNK4llvm9Stri
   %69 = sext i32 %65 to i64
   %.not5960 = icmp eq i64 %69, %68
   %.not59 = select i1 %66, i1 true, i1 %.not5960
-  br i1 %.not59, label %125, label %70
+  br i1 %.not59, label %126, label %70
 
 70:                                               ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit
   %71 = load ptr, ptr %1, align 8
@@ -2270,7 +2270,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %56, %_ZNK4llvm9Stri
   %81 = add nsw i32 %78, -36
   %.not4161 = icmp eq i32 %81, 0
   %.not41 = select i1 %or.cond.i.not, i1 true, i1 %.not4161
-  br i1 %.not41, label %125, label %82
+  br i1 %.not41, label %126, label %82
 
 82:                                               ; preds = %70
   %83 = icmp samesign ult i32 %81, 1463
@@ -2291,7 +2291,7 @@ _ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit: ; preds = %85
   %92 = load ptr, ptr %91, align 8, !tbaa !18
   %93 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %92, i32 noundef 102) #14
   %.not64 = icmp eq ptr %93, null
-  br i1 %.not64, label %125, label %112
+  br i1 %.not64, label %126, label %113
 
 _ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread95: ; preds = %85
   %94 = trunc nsw i64 %86 to i32
@@ -2299,57 +2299,55 @@ _ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread95: ; preds = %
   %96 = sub nsw i32 %95, %94
   %97 = zext i32 %96 to i64
   %98 = load ptr, ptr %20, align 8, !tbaa !13
-  %99 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %98, i64 %97, i32 2
-  %100 = load ptr, ptr %99, align 8, !tbaa !18
-  %101 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %100, i32 noundef 102) #14
-  %.not6497 = icmp eq ptr %101, null
-  br i1 %.not6497, label %125, label %.thread98
+  %99 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %98, i64 %97
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  %101 = load ptr, ptr %100, align 8, !tbaa !18
+  %102 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %101, i32 noundef 102) #14
+  %.not6497 = icmp eq ptr %102, null
+  br i1 %.not6497, label %126, label %.thread98
 
 _ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread: ; preds = %82
-  %102 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %84, i32 2
-  %103 = load ptr, ptr %102, align 8, !tbaa !18
-  %104 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %103, i32 noundef 102) #14
-  %.not65 = icmp eq ptr %104, null
-  br i1 %.not65, label %125, label %.thread
-
-.thread:                                          ; preds = %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread
-  %105 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %84
-  br label %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit
+  %103 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %84
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  %105 = load ptr, ptr %104, align 8, !tbaa !18
+  %106 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %105, i32 noundef 102) #14
+  %.not65 = icmp eq ptr %106, null
+  br i1 %.not65, label %126, label %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit
 
 .thread98:                                        ; preds = %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread95
-  %106 = trunc nsw i64 %86 to i32
-  %107 = add nsw i32 %78, -1499
-  %108 = sub nsw i32 %107, %106
-  %109 = zext i32 %108 to i64
-  %110 = load ptr, ptr %20, align 8, !tbaa !13
-  %111 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %110, i64 %109
+  %107 = trunc nsw i64 %86 to i32
+  %108 = add nsw i32 %78, -1499
+  %109 = sub nsw i32 %108, %107
+  %110 = zext i32 %109 to i64
+  %111 = load ptr, ptr %20, align 8, !tbaa !13
+  %112 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %111, i64 %110
   br label %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit
 
-112:                                              ; preds = %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit
-  %113 = load ptr, ptr %0, align 8, !tbaa !13
-  %114 = zext nneg i32 %78 to i64
-  %115 = getelementptr %"struct.clang::Builtin::Info", ptr %113, i64 %114
-  %116 = getelementptr i8, ptr %115, i64 -71952
+113:                                              ; preds = %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit
+  %114 = load ptr, ptr %0, align 8, !tbaa !13
+  %115 = zext nneg i32 %78 to i64
+  %116 = getelementptr %"struct.clang::Builtin::Info", ptr %114, i64 %115
+  %117 = getelementptr i8, ptr %116, i64 -71952
   br label %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit
 
-_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit: ; preds = %.thread, %.thread98, %112
-  %.0.i.i44 = phi ptr [ %105, %.thread ], [ %111, %.thread98 ], [ %116, %112 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i.i44, i64 24
-  %118 = load ptr, ptr %117, align 8, !tbaa !18
-  %119 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %118, i32 noundef 122) #14
-  %120 = icmp ne ptr %119, null
-  %121 = xor i1 %63, %120
-  br i1 %121, label %125, label %122
+_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit: ; preds = %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread, %.thread98, %113
+  %.0.i.i44 = phi ptr [ %112, %.thread98 ], [ %117, %113 ], [ %103, %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread ]
+  %118 = getelementptr inbounds nuw i8, ptr %.0.i.i44, i64 24
+  %119 = load ptr, ptr %118, align 8, !tbaa !18
+  %120 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %119, i32 noundef 122) #14
+  %121 = icmp ne ptr %120, null
+  %122 = xor i1 %63, %121
+  br i1 %122, label %126, label %123
 
-122:                                              ; preds = %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit
-  %123 = and i64 %75, -33553921
-  %124 = or disjoint i64 %123, 33553408
-  store i64 %124, ptr %74, align 8
-  br label %125
+123:                                              ; preds = %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit
+  %124 = and i64 %75, -33553921
+  %125 = or disjoint i64 %124, 33553408
+  store i64 %125, ptr %74, align 8
+  br label %126
 
-125:                                              ; preds = %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread95, %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread, %70, %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit, %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit, %122, %_ZN4llvm9StringRef13consume_frontES0_.exit
-  %126 = getelementptr inbounds nuw i8, ptr %.sroa.054.076, i64 32
-  %.not58 = icmp eq ptr %126, %42
+126:                                              ; preds = %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread95, %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread, %70, %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit, %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit, %123, %_ZN4llvm9StringRef13consume_frontES0_.exit
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.054.076, i64 32
+  %.not58 = icmp eq ptr %127, %42
   br i1 %.not58, label %._crit_edge79, label %56
 }
 
@@ -3149,64 +3147,63 @@ _ZNK5clang7Builtin7Context9getRecordEj.exit:      ; preds = %5
   %9 = add i32 %1, -1463
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %0, align 8, !tbaa !13
-  %12 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %11, i64 %10, i32 1
-  %13 = load ptr, ptr %12, align 8, !tbaa !94
-  %14 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 38) #14
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %35, label %44
+  %12 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %11, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !94
+  %15 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 38) #14
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %37, label %46
 
 _ZNK5clang7Builtin7Context9getRecordEj.exit.thread8: ; preds = %5
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = trunc i64 %7 to i32
-  %17 = add i32 %1, -1463
-  %18 = sub i32 %17, %16
-  %19 = zext i32 %18 to i64
-  %20 = load ptr, ptr %15, align 8, !tbaa !13
-  %21 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %20, i64 %19, i32 1
-  %22 = load ptr, ptr %21, align 8, !tbaa !94
-  %23 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 38) #14
-  %.not10 = icmp eq ptr %23, null
-  br i1 %.not10, label %.thread11, label %44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = trunc i64 %7 to i32
+  %18 = add i32 %1, -1463
+  %19 = sub i32 %18, %17
+  %20 = zext i32 %19 to i64
+  %21 = load ptr, ptr %16, align 8, !tbaa !13
+  %22 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %21, i64 %20
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !94
+  %25 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %24, i32 noundef 38) #14
+  %.not10 = icmp eq ptr %25, null
+  br i1 %.not10, label %.thread11, label %46
 
 _ZNK5clang7Builtin7Context9getRecordEj.exit.thread: ; preds = %2
-  %24 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %4, i32 1
-  %25 = load ptr, ptr %24, align 16, !tbaa !94
-  %26 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 38) #14
-  %.not6 = icmp eq ptr %26, null
-  br i1 %.not6, label %.thread, label %44
-
-.thread:                                          ; preds = %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread
-  %27 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %4
-  br label %_ZNK5clang7Builtin7Context9getRecordEj.exit4
+  %26 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr @_ZL11BuiltinInfo, i64 %4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 16, !tbaa !94
+  %29 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 38) #14
+  %.not6 = icmp eq ptr %29, null
+  br i1 %.not6, label %_ZNK5clang7Builtin7Context9getRecordEj.exit4, label %46
 
 .thread11:                                        ; preds = %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = trunc i64 %7 to i32
-  %30 = add i32 %1, -1463
-  %31 = sub i32 %30, %29
-  %32 = zext i32 %31 to i64
-  %33 = load ptr, ptr %28, align 8, !tbaa !13
-  %34 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %33, i64 %32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %31 = trunc i64 %7 to i32
+  %32 = add i32 %1, -1463
+  %33 = sub i32 %32, %31
+  %34 = zext i32 %33 to i64
+  %35 = load ptr, ptr %30, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %35, i64 %34
   br label %_ZNK5clang7Builtin7Context9getRecordEj.exit4
 
-35:                                               ; preds = %_ZNK5clang7Builtin7Context9getRecordEj.exit
-  %36 = add i32 %1, -1463
-  %37 = zext i32 %36 to i64
-  %38 = load ptr, ptr %0, align 8, !tbaa !13
-  %39 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %38, i64 %37
+37:                                               ; preds = %_ZNK5clang7Builtin7Context9getRecordEj.exit
+  %38 = add i32 %1, -1463
+  %39 = zext i32 %38 to i64
+  %40 = load ptr, ptr %0, align 8, !tbaa !13
+  %41 = getelementptr inbounds nuw %"struct.clang::Builtin::Info", ptr %40, i64 %39
   br label %_ZNK5clang7Builtin7Context9getRecordEj.exit4
 
-_ZNK5clang7Builtin7Context9getRecordEj.exit4:     ; preds = %.thread, %.thread11, %35
-  %.0.i3 = phi ptr [ %27, %.thread ], [ %34, %.thread11 ], [ %39, %35 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !94
-  %42 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %41, i32 noundef 65) #14
-  %43 = icmp ne ptr %42, null
-  br label %44
+_ZNK5clang7Builtin7Context9getRecordEj.exit4:     ; preds = %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread, %.thread11, %37
+  %.0.i3 = phi ptr [ %36, %.thread11 ], [ %41, %37 ], [ %26, %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread ]
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i3, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !94
+  %44 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %43, i32 noundef 65) #14
+  %45 = icmp ne ptr %44, null
+  br label %46
 
-44:                                               ; preds = %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread8, %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread, %_ZNK5clang7Builtin7Context9getRecordEj.exit4, %_ZNK5clang7Builtin7Context9getRecordEj.exit
-  %45 = phi i1 [ true, %_ZNK5clang7Builtin7Context9getRecordEj.exit ], [ %43, %_ZNK5clang7Builtin7Context9getRecordEj.exit4 ], [ true, %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread ], [ true, %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread8 ]
-  ret i1 %45
+46:                                               ; preds = %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread8, %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread, %_ZNK5clang7Builtin7Context9getRecordEj.exit4, %_ZNK5clang7Builtin7Context9getRecordEj.exit
+  %47 = phi i1 [ true, %_ZNK5clang7Builtin7Context9getRecordEj.exit ], [ %45, %_ZNK5clang7Builtin7Context9getRecordEj.exit4 ], [ true, %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread ], [ true, %_ZNK5clang7Builtin7Context9getRecordEj.exit.thread8 ]
+  ret i1 %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

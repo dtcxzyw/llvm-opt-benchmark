@@ -244,14 +244,15 @@ define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff131lookup_expert_charset_
   br i1 %.not.not.i.i.i.i, label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread, label %2, !llvm.loop !11
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw %struct.sid_to_gid_t, ptr @_ZL25expert_charset_sid_to_gid, i64 %5, i32 1
-  %18 = load i8, ptr %17, align 2, !tbaa !13
-  %19 = zext i8 %18 to i32
+  %17 = getelementptr inbounds nuw %struct.sid_to_gid_t, ptr @_ZL25expert_charset_sid_to_gid, i64 %5
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %19 = load i8, ptr %18, align 2, !tbaa !13
+  %20 = zext i8 %19 to i32
   br label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread
 
 _ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread: ; preds = %15, %16
-  %20 = phi i32 [ %19, %16 ], [ 0, %15 ]
-  ret i32 %20
+  %21 = phi i32 [ %20, %16 ], [ 0, %15 ]
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -291,14 +292,15 @@ define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff138lookup_expert_subset_c
   br i1 %.not.not.i.i.i.i, label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread, label %2, !llvm.loop !11
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw %struct.sid_to_gid_t, ptr @_ZL32expert_subset_charset_sid_to_gid, i64 %5, i32 1
-  %18 = load i8, ptr %17, align 2, !tbaa !13
-  %19 = zext i8 %18 to i32
+  %17 = getelementptr inbounds nuw %struct.sid_to_gid_t, ptr @_ZL32expert_subset_charset_sid_to_gid, i64 %5
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %19 = load i8, ptr %18, align 2, !tbaa !13
+  %20 = zext i8 %19 to i32
   br label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread
 
 _ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread: ; preds = %15, %16
-  %20 = phi i32 [ %19, %16 ], [ 0, %15 ]
-  ret i32 %20
+  %21 = phi i32 [ %20, %16 ], [ 0, %15 ]
+  ret i32 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

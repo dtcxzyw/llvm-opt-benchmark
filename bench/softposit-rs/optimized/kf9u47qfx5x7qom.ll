@@ -40,7 +40,7 @@ _ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit: ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load i64, ptr %20, align 8, !alias.scope !4, !noundef !7
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %139, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
+  br i1 %22, label %138, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
 
 23:                                               ; preds = %1
   %24 = icmp eq i64 %3, -9223372036854775808
@@ -53,7 +53,7 @@ _ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit: ; preds = %1
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   %or.cond145 = select i1 %or.cond14.i97, i1 %27, i1 false
-  br i1 %or.cond145, label %139, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
+  br i1 %or.cond145, label %138, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
 
 _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %23
   %28 = phi i64 [ %21, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit ], [ %26, %23 ]
@@ -215,78 +215,77 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   %96 = lshr i32 2147483647, %95
   %97 = xor i32 %96, 2147483647
   %98 = icmp samesign ugt i8 %57, 29
-  br i1 %98, label %107, label %105
+  br i1 %98, label %106, label %104
 
 99:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit.thread"
   %100 = sub i8 0, %57
   %101 = sext i8 %100 to i32
-  %102 = and i32 %101, 31
-  %103 = lshr i32 1073741824, %102
-  %104 = icmp ugt i8 %100, 30
-  br i1 %104, label %107, label %105
+  %102 = lshr i32 1073741824, %101
+  %103 = icmp ugt i8 %100, 30
+  br i1 %103, label %106, label %104
 
-105:                                              ; preds = %99, %92
-  %.066 = phi i32 [ %103, %99 ], [ %97, %92 ]
+104:                                              ; preds = %99, %92
+  %.066 = phi i32 [ %102, %99 ], [ %97, %92 ]
   %.065 = phi i32 [ %101, %99 ], [ %94, %92 ]
-  %106 = icmp ult i32 %.065, 29
-  br i1 %106, label %115, label %109
+  %105 = icmp samesign ult i32 %.065, 29
+  br i1 %105, label %114, label %108
 
-107:                                              ; preds = %99, %92, %133, %129
-  %.068 = phi i32 [ %138, %133 ], [ %131, %129 ], [ 2147483647, %92 ], [ 1, %99 ]
-  %108 = sub i32 0, %.068
-  %.0.i108 = select i1 %.not, i32 %.068, i32 %108
+106:                                              ; preds = %99, %92, %132, %128
+  %.068 = phi i32 [ %137, %132 ], [ %130, %128 ], [ 2147483647, %92 ], [ 1, %99 ]
+  %107 = sub i32 0, %.068
+  %.0.i108 = select i1 %.not, i32 %.068, i32 %107
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %139
+  br label %138
 
-109:                                              ; preds = %105
-  %110 = icmp eq i32 %.065, 30
-  %111 = trunc i32 %62 to i8
-  %112 = and i8 %111, 1
-  %113 = ashr i32 %62, 1
-  %.073 = select i1 %110, i32 0, i32 %113
-  %114 = zext i1 %110 to i8
-  %.070.in = lshr i8 %111, %114
-  %.3 = select i1 %110, i8 %112, i8 %.069
-  br label %129
+108:                                              ; preds = %104
+  %109 = icmp eq i32 %.065, 30
+  %110 = trunc i32 %62 to i8
+  %111 = and i8 %110, 1
+  %112 = ashr i32 %62, 1
+  %.073 = select i1 %109, i32 0, i32 %112
+  %113 = zext i1 %109 to i8
+  %.070.in = lshr i8 %110, %113
+  %.3 = select i1 %109, i8 %111, i8 %.069
+  br label %128
 
-115:                                              ; preds = %105
-  %116 = add nuw nsw i32 %.065, 35
-  %117 = zext nneg i32 %116 to i64
-  %118 = lshr i64 %.075, %117
-  %119 = trunc nuw nsw i64 %118 to i32
-  %120 = add nuw nsw i32 %.065, 34
-  %121 = zext nneg i32 %120 to i64
-  %122 = lshr i64 %.075, %121
-  %123 = trunc i64 %122 to i8
-  %124 = sub nuw nsw i32 28, %.065
-  %125 = shl i32 %62, %124
-  %126 = sub nuw nsw i32 30, %.065
-  %127 = zext nneg i32 %126 to i64
-  %128 = shl i64 %.075, %127
-  br label %129
+114:                                              ; preds = %104
+  %115 = add nuw nsw i32 %.065, 35
+  %116 = zext nneg i32 %115 to i64
+  %117 = lshr i64 %.075, %116
+  %118 = trunc nuw nsw i64 %117 to i32
+  %119 = add nuw nsw i32 %.065, 34
+  %120 = zext nneg i32 %119 to i64
+  %121 = lshr i64 %.075, %120
+  %122 = trunc i64 %121 to i8
+  %123 = sub nuw nsw i32 28, %.065
+  %124 = shl i32 %62, %123
+  %125 = sub nuw nsw i32 30, %.065
+  %126 = zext nneg i32 %125 to i64
+  %127 = shl i64 %.075, %126
+  br label %128
 
-129:                                              ; preds = %109, %115
-  %.075.sink = phi i64 [ %.075, %109 ], [ %128, %115 ]
-  %.3.sink = phi i8 [ %.3, %109 ], [ %.069, %115 ]
-  %.174 = phi i32 [ %.073, %109 ], [ %125, %115 ]
-  %.072 = phi i32 [ 0, %109 ], [ %119, %115 ]
-  %.171.in = phi i8 [ %.070.in, %109 ], [ %123, %115 ]
-  %130 = add i32 %.174, %.066
-  %131 = add i32 %130, %.072
-  %132 = trunc i8 %.171.in to i1
-  br i1 %132, label %133, label %107
+128:                                              ; preds = %108, %114
+  %.075.sink = phi i64 [ %.075, %108 ], [ %127, %114 ]
+  %.3.sink = phi i8 [ %.3, %108 ], [ %.069, %114 ]
+  %.174 = phi i32 [ %.073, %108 ], [ %124, %114 ]
+  %.072 = phi i32 [ 0, %108 ], [ %118, %114 ]
+  %.171.in = phi i8 [ %.070.in, %108 ], [ %122, %114 ]
+  %129 = add i32 %.174, %.066
+  %130 = add i32 %129, %.072
+  %131 = trunc i8 %.171.in to i1
+  br i1 %131, label %132, label %106
 
-133:                                              ; preds = %129
+132:                                              ; preds = %128
   %.not89 = icmp eq i64 %.075.sink, 0
-  %134 = and i32 %131, 1
-  %135 = zext nneg i8 %.3.sink to i32
-  %136 = select i1 %.not89, i32 %135, i32 1
-  %137 = or i32 %134, %136
-  %138 = add i32 %137, %131
-  br label %107
+  %133 = and i32 %130, 1
+  %134 = zext nneg i8 %.3.sink to i32
+  %135 = select i1 %.not89, i32 %134, i32 1
+  %136 = or i32 %133, %135
+  %137 = add i32 %136, %130
+  br label %106
 
-139:                                              ; preds = %23, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %107
-  %.0 = phi i32 [ %.0.i108, %107 ], [ 0, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit ], [ -2147483648, %23 ]
+138:                                              ; preds = %23, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %106
+  %.0 = phi i32 [ %.0.i108, %106 ], [ 0, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit ], [ -2147483648, %23 ]
   ret i32 %.0
 }
 

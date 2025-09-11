@@ -587,7 +587,7 @@ define internal void @_ZN11gmx_ga2la_t5clearEb.omp_outlined(ptr noalias noundef 
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
   %15 = icmp sgt i64 %14, 0
-  br i1 %15, label %16, label %26
+  br i1 %15, label %16, label %27
 
 16:                                               ; preds = %3
   %17 = add nsw i64 %14, -1
@@ -613,10 +613,11 @@ define internal void @_ZN11gmx_ga2la_t5clearEb.omp_outlined(ptr noalias noundef 
   br label %23
 
 23:                                               ; preds = %.lr.ph, %23
-  %.014 = phi i64 [ %21, %.lr.ph ], [ %25, %23 ]
-  %24 = getelementptr inbounds nuw %"struct.gmx_ga2la_t::Entry", ptr %22, i64 %.014, i32 1
-  store i32 -1, ptr %24, align 4, !tbaa !59
-  %25 = add i64 %.014, 1
+  %.014 = phi i64 [ %21, %.lr.ph ], [ %26, %23 ]
+  %24 = getelementptr inbounds nuw %"struct.gmx_ga2la_t::Entry", ptr %22, i64 %.014
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  store i32 -1, ptr %25, align 4, !tbaa !59
+  %26 = add i64 %.014, 1
   %exitcond.not = icmp eq i64 %.014, %20
   br i1 %exitcond.not, label %._crit_edge, label %23
 
@@ -626,9 +627,9 @@ define internal void @_ZN11gmx_ga2la_t5clearEb.omp_outlined(ptr noalias noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %26
+  br label %27
 
-26:                                               ; preds = %._crit_edge, %3
+27:                                               ; preds = %._crit_edge, %3
   ret void
 }
 

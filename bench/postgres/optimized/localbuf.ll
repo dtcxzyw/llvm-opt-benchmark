@@ -166,32 +166,33 @@ define internal fastcc void @InitLocalBuffers() unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %23 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %24 = getelementptr inbounds nuw %struct.BufferDesc, ptr %23, i64 %indvars.iv, i32 1
-  %25 = trunc i64 %indvars.iv to i32
-  %26 = sub i32 -2, %25
-  store i32 %26, ptr %24, align 4
+  %24 = getelementptr inbounds nuw %struct.BufferDesc, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %26 = trunc i64 %indvars.iv to i32
+  %27 = sub i32 -2, %26
+  store i32 %27, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 20, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 24, ptr %28, align 8
-  %29 = call ptr @hash_create(ptr noundef nonnull @.str.9, i64 noundef %10, ptr noundef nonnull %1, i32 noundef 40) #14
-  store ptr %29, ptr @LocalBufHash, align 8
-  %.not = icmp eq ptr %29, null
-  br i1 %.not, label %30, label %33
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 20, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 24, ptr %29, align 8
+  %30 = call ptr @hash_create(ptr noundef nonnull @.str.9, i64 noundef %10, ptr noundef nonnull %1, i32 noundef 40) #14
+  store ptr %30, ptr @LocalBufHash, align 8
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %31, label %34
 
-30:                                               ; preds = %._crit_edge
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %31)
-  %32 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #14
+31:                                               ; preds = %._crit_edge
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %32)
+  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #14
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 642, ptr noundef nonnull @__func__.InitLocalBuffers) #14
   unreachable
 
-33:                                               ; preds = %._crit_edge
+34:                                               ; preds = %._crit_edge
   store i32 %2, ptr @NLocBuffer, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
@@ -673,7 +674,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %22 = zext i32 %21 to i64
   %23 = add nuw nsw i64 %.pre-phi, %22
   %24 = icmp samesign ugt i64 %23, 4294967293
-  br i1 %24, label %43, label %.preheader
+  br i1 %24, label %44, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
   br i1 %.not, label %._crit_edge86.critedge, label %.lr.ph81
@@ -685,7 +686,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  br label %60
+  br label %61
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -695,178 +696,180 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %33 = xor i32 %31, -1
   %34 = load ptr, ptr @LocalBufferDescriptors, align 8
   %35 = zext i32 %33 to i64
-  %36 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %37 = getelementptr inbounds nuw %struct.BufferDesc, ptr %34, i64 %35, i32 1
-  %38 = load i32, ptr %37, align 4
-  %39 = sub i32 -2, %38
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %36, i64 %40
-  %42 = load ptr, ptr %41, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %42, i8 0, i64 8192, i1 false)
+  %36 = getelementptr inbounds nuw %struct.BufferDesc, ptr %34, i64 %35
+  %37 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 20
+  %39 = load i32, ptr %38, align 4
+  %40 = sub i32 -2, %39
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds ptr, ptr %37, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %43, i8 0, i64 8192, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-43:                                               ; preds = %._crit_edge
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 261) #14
-  %46 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %47 = load i32, ptr %46, align 4
-  %48 = load i32, ptr %20, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %52 = load i32, ptr %51, align 4
-  %53 = tail call ptr @GetRelationPath(i32 noundef %47, i32 noundef %48, i32 noundef %50, i32 noundef %52, i32 noundef %1) #14
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %53, i32 noundef -2) #14
+44:                                               ; preds = %._crit_edge
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %45)
+  %46 = tail call i32 @errcode(i32 noundef 261) #14
+  %47 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %48 = load i32, ptr %47, align 4
+  %49 = load i32, ptr %20, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %51 = load i32, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %53 = load i32, ptr %52, align 4
+  %54 = tail call ptr @GetRelationPath(i32 noundef %48, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %1) #14
+  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %54, i32 noundef -2) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.ExtendBufferedRelLocal) #14
   unreachable
 
-._crit_edge82:                                    ; preds = %121
-  %55 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
-  %56 = trunc nuw i8 %55 to i1
-  %57 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %56) #14
+._crit_edge82:                                    ; preds = %122
+  %56 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
+  %57 = trunc nuw i8 %56 to i1
+  %58 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %57) #14
   call void @smgrzeroextend(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %21, i32 noundef %.078, i1 noundef zeroext false) #14
-  %58 = shl i32 %.078, 13
-  %59 = zext i32 %58 to i64
-  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 5, i64 %57, i32 noundef 1, i64 noundef %59) #14
+  %59 = shl i32 %.078, 13
+  %60 = zext i32 %59 to i64
+  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 5, i64 %58, i32 noundef 1, i64 noundef %60) #14
   br label %.lr.ph85
 
-60:                                               ; preds = %.lr.ph81, %121
-  %indvars.iv90 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next91, %121 ]
+61:                                               ; preds = %.lr.ph81, %122
+  %indvars.iv90 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next91, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %61 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv90
-  %62 = load i32, ptr %61, align 4
-  %63 = xor i32 %62, -1
-  %64 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw %struct.BufferDesc, ptr %64, i64 %65
-  %67 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %67) #14
-  %68 = trunc nuw i64 %indvars.iv90 to i32
-  %69 = add i32 %21, %68
-  %70 = load i32, ptr %20, align 4
-  store i32 %70, ptr %8, align 4
-  %71 = load i32, ptr %25, align 4
-  store i32 %71, ptr %26, align 4
-  %72 = load i32, ptr %27, align 4
-  store i32 %72, ptr %28, align 4
+  %62 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv90
+  %63 = load i32, ptr %62, align 4
+  %64 = xor i32 %63, -1
+  %65 = load ptr, ptr @LocalBufferDescriptors, align 8
+  %66 = zext i32 %64 to i64
+  %67 = getelementptr inbounds nuw %struct.BufferDesc, ptr %65, i64 %66
+  %68 = load ptr, ptr @CurrentResourceOwner, align 8
+  call void @ResourceOwnerEnlarge(ptr noundef %68) #14
+  %69 = trunc nuw i64 %indvars.iv90 to i32
+  %70 = add i32 %21, %69
+  %71 = load i32, ptr %20, align 4
+  store i32 %71, ptr %8, align 4
+  %72 = load i32, ptr %25, align 4
+  store i32 %72, ptr %26, align 4
+  %73 = load i32, ptr %27, align 4
+  store i32 %73, ptr %28, align 4
   store i32 %1, ptr %29, align 4
-  store i32 %69, ptr %30, align 4
-  %73 = load ptr, ptr @LocalBufHash, align 8
-  %74 = call ptr @hash_search(ptr noundef %73, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9) #14
-  %75 = load i8, ptr %9, align 1, !range !6, !noundef !7
-  %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %77, label %116
+  store i32 %70, ptr %30, align 4
+  %74 = load ptr, ptr @LocalBufHash, align 8
+  %75 = call ptr @hash_search(ptr noundef %74, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9) #14
+  %76 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %77 = trunc nuw i8 %76 to i1
+  br i1 %77, label %78, label %117
 
-77:                                               ; preds = %60
-  %78 = getelementptr i8, ptr %66, i64 20
-  %.val = load i32, ptr %78, align 4
-  %79 = add i32 %.val, 1
-  %80 = sub i32 -2, %.val
-  %81 = load ptr, ptr @LocalRefCount, align 8
-  %82 = sext i32 %80 to i64
-  %83 = getelementptr inbounds i32, ptr %81, i64 %82
-  %84 = load i32, ptr %83, align 4
-  %85 = add i32 %84, -1
-  store i32 %85, ptr %83, align 4
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %UnpinLocalBuffer.exit
+78:                                               ; preds = %61
+  %79 = getelementptr i8, ptr %67, i64 20
+  %.val = load i32, ptr %79, align 4
+  %80 = add i32 %.val, 1
+  %81 = sub i32 -2, %.val
+  %82 = load ptr, ptr @LocalRefCount, align 8
+  %83 = sext i32 %81 to i64
+  %84 = getelementptr inbounds i32, ptr %82, i64 %83
+  %85 = load i32, ptr %84, align 4
+  %86 = add i32 %85, -1
+  store i32 %86, ptr %84, align 4
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %UnpinLocalBuffer.exit
 
-87:                                               ; preds = %77
-  %88 = load i32, ptr @NLocalPinnedBuffers, align 4
-  %89 = add i32 %88, -1
-  store i32 %89, ptr @NLocalPinnedBuffers, align 4
+88:                                               ; preds = %78
+  %89 = load i32, ptr @NLocalPinnedBuffers, align 4
+  %90 = add i32 %89, -1
+  store i32 %90, ptr @NLocalPinnedBuffers, align 4
   br label %UnpinLocalBuffer.exit
 
-UnpinLocalBuffer.exit:                            ; preds = %77, %87
-  %90 = load ptr, ptr @CurrentResourceOwner, align 8
-  %91 = sext i32 %79 to i64
-  call void @ResourceOwnerForget(ptr noundef %90, i64 noundef %91, ptr noundef nonnull @buffer_pin_resowner_desc) #14
-  %92 = getelementptr inbounds nuw i8, ptr %74, i64 20
-  %93 = load i32, ptr %92, align 4
-  %94 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds nuw %struct.BufferDesc, ptr %94, i64 %95
-  %97 = getelementptr i8, ptr %96, i64 20
-  %.val.i = load i32, ptr %97, align 4
-  %98 = sub i32 -2, %.val.i
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %100 = load volatile i32, ptr %99, align 4
-  %101 = load ptr, ptr @LocalRefCount, align 8
-  %102 = sext i32 %98 to i64
-  %103 = getelementptr inbounds i32, ptr %101, i64 %102
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %PinLocalBuffer.exit
+UnpinLocalBuffer.exit:                            ; preds = %78, %88
+  %91 = load ptr, ptr @CurrentResourceOwner, align 8
+  %92 = sext i32 %80 to i64
+  call void @ResourceOwnerForget(ptr noundef %91, i64 noundef %92, ptr noundef nonnull @buffer_pin_resowner_desc) #14
+  %93 = getelementptr inbounds nuw i8, ptr %75, i64 20
+  %94 = load i32, ptr %93, align 4
+  %95 = load ptr, ptr @LocalBufferDescriptors, align 8
+  %96 = zext i32 %94 to i64
+  %97 = getelementptr inbounds nuw %struct.BufferDesc, ptr %95, i64 %96
+  %98 = getelementptr i8, ptr %97, i64 20
+  %.val.i = load i32, ptr %98, align 4
+  %99 = sub i32 -2, %.val.i
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %101 = load volatile i32, ptr %100, align 4
+  %102 = load ptr, ptr @LocalRefCount, align 8
+  %103 = sext i32 %99 to i64
+  %104 = getelementptr inbounds i32, ptr %102, i64 %103
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %PinLocalBuffer.exit
 
-106:                                              ; preds = %UnpinLocalBuffer.exit
-  %107 = load i32, ptr @NLocalPinnedBuffers, align 4
-  %108 = add i32 %107, 1
-  store i32 %108, ptr @NLocalPinnedBuffers, align 4
+107:                                              ; preds = %UnpinLocalBuffer.exit
+  %108 = load i32, ptr @NLocalPinnedBuffers, align 4
+  %109 = add i32 %108, 1
+  store i32 %109, ptr @NLocalPinnedBuffers, align 4
   br label %PinLocalBuffer.exit
 
-PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.exit, %106
-  %109 = add i32 %104, 1
-  store i32 %109, ptr %103, align 4
-  %110 = load ptr, ptr @CurrentResourceOwner, align 8
-  %.val12.i = load i32, ptr %97, align 4
-  %111 = add i32 %.val12.i, 1
-  %112 = sext i32 %111 to i64
-  call void @ResourceOwnerRemember(ptr noundef %110, i64 noundef %112, ptr noundef nonnull @buffer_pin_resowner_desc) #14
-  %.val70 = load i32, ptr %97, align 4
-  %113 = add i32 %.val70, 1
-  store i32 %113, ptr %61, align 4
-  %114 = load volatile i32, ptr %99, align 4
-  %115 = and i32 %114, -16777217
-  store volatile i32 %115, ptr %99, align 4
-  br label %121
+PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.exit, %107
+  %110 = add i32 %105, 1
+  store i32 %110, ptr %104, align 4
+  %111 = load ptr, ptr @CurrentResourceOwner, align 8
+  %.val12.i = load i32, ptr %98, align 4
+  %112 = add i32 %.val12.i, 1
+  %113 = sext i32 %112 to i64
+  call void @ResourceOwnerRemember(ptr noundef %111, i64 noundef %113, ptr noundef nonnull @buffer_pin_resowner_desc) #14
+  %.val70 = load i32, ptr %98, align 4
+  %114 = add i32 %.val70, 1
+  store i32 %114, ptr %62, align 4
+  %115 = load volatile i32, ptr %100, align 4
+  %116 = and i32 %115, -16777217
+  store volatile i32 %116, ptr %100, align 4
+  br label %122
 
-116:                                              ; preds = %60
-  %117 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %118 = load volatile i32, ptr %117, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %66, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
-  %119 = or i32 %118, 33816576
-  store volatile i32 %119, ptr %117, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %74, i64 20
-  store i32 %63, ptr %120, align 4
-  br label %121
+117:                                              ; preds = %61
+  %118 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %119 = load volatile i32, ptr %118, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %67, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
+  %120 = or i32 %119, 33816576
+  store volatile i32 %120, ptr %118, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %75, i64 20
+  store i32 %64, ptr %121, align 4
+  br label %122
 
-121:                                              ; preds = %116, %PinLocalBuffer.exit
+122:                                              ; preds = %117, %PinLocalBuffer.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %.pre-phi
-  br i1 %exitcond94.not, label %._crit_edge82, label %60, !llvm.loop !9
+  br i1 %exitcond94.not, label %._crit_edge82, label %61, !llvm.loop !9
 
 ._crit_edge86.critedge:                           ; preds = %.preheader
-  %122 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
-  %123 = trunc nuw i8 %122 to i1
-  %124 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %123) #14
+  %123 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
+  %124 = trunc nuw i8 %123 to i1
+  %125 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %124) #14
   tail call void @smgrzeroextend(ptr noundef %20, i32 noundef %1, i32 noundef %21, i32 noundef %.078, i1 noundef zeroext false) #14
-  tail call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 5, i64 %124, i32 noundef 1, i64 noundef 0) #14
+  tail call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 5, i64 %125, i32 noundef 1, i64 noundef 0) #14
   br label %._crit_edge86
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %._crit_edge86.critedge
   store i32 %.078, ptr %6, align 4
-  %125 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
-  %126 = add i64 %125, %.pre-phi
-  store i64 %126, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
+  %126 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
+  %127 = add i64 %126, %.pre-phi
+  store i64 %127, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
   ret i32 %21
 
 .lr.ph85:                                         ; preds = %._crit_edge82, %.lr.ph85
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.lr.ph85 ], [ 0, %._crit_edge82 ]
-  %127 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv95
-  %128 = load i32, ptr %127, align 4
-  %129 = xor i32 %128, -1
-  %130 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %131 = zext i32 %129 to i64
-  %132 = getelementptr inbounds nuw %struct.BufferDesc, ptr %130, i64 %131, i32 2
-  %133 = load volatile i32, ptr %132, align 4
-  %134 = or i32 %133, 16777216
-  store volatile i32 %134, ptr %132, align 4
+  %128 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv95
+  %129 = load i32, ptr %128, align 4
+  %130 = xor i32 %129, -1
+  %131 = load ptr, ptr @LocalBufferDescriptors, align 8
+  %132 = zext i32 %130 to i64
+  %133 = getelementptr inbounds nuw %struct.BufferDesc, ptr %131, i64 %132
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
+  %135 = load volatile i32, ptr %134, align 4
+  %136 = or i32 %135, 16777216
+  store volatile i32 %136, ptr %134, align 4
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %.pre-phi
   br i1 %exitcond99.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !10
@@ -916,21 +919,22 @@ define dso_local void @MarkLocalBufferDirty(i32 noundef %0) local_unnamed_addr #
   %2 = xor i32 %0, -1
   %3 = load ptr, ptr @LocalBufferDescriptors, align 8
   %4 = zext i32 %2 to i64
-  %5 = getelementptr inbounds nuw %struct.BufferDesc, ptr %3, i64 %4, i32 2
-  %6 = load volatile i32, ptr %5, align 4
-  %7 = and i32 %6, 8388608
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %11
+  %5 = getelementptr inbounds nuw %struct.BufferDesc, ptr %3, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = load volatile i32, ptr %6, align 4
+  %8 = and i32 %7, 8388608
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %9, label %12
 
-8:                                                ; preds = %1
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 48), align 8
-  %10 = add i64 %9, 1
-  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 48), align 8
-  br label %11
+9:                                                ; preds = %1
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 48), align 8
+  %11 = add i64 %10, 1
+  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 48), align 8
+  br label %12
 
-11:                                               ; preds = %8, %1
-  %12 = or i32 %6, 8388608
-  store volatile i32 %12, ptr %5, align 4
+12:                                               ; preds = %9, %1
+  %13 = or i32 %7, 8388608
+  store volatile i32 %13, ptr %6, align 4
   ret void
 }
 

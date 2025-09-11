@@ -15,12 +15,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp ult i16 %0, -14016
-  br i1 %3, label %.preheader, label %14
+  br i1 %3, label %.preheader, label %15
 
 4:                                                ; preds = %.preheader
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 4
-  br i1 %exitcond45.not, label %12, label %.preheader, !llvm.loop !3
+  br i1 %exitcond45.not, label %13, label %.preheader, !llvm.loop !3
 
 .preheader:                                       ; preds = %2, %4
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %4 ], [ 0, %2 ]
@@ -30,58 +30,60 @@ define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %
   br i1 %7, label %8, label %4
 
 8:                                                ; preds = %.preheader
+  %9 = getelementptr inbounds nuw [2 x i16], ptr @b1c4, i64 %indvars.iv42
   store i8 -9, ptr %1, align 1
-  %9 = getelementptr inbounds nuw [2 x i16], ptr @b1c4, i64 %indvars.iv42, i64 1
-  %10 = load i16, ptr %9, align 2
-  %11 = or i16 %10, -32640
-  br label %29
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = or i16 %11, -32640
+  br label %31
 
-12:                                               ; preds = %4
-  %13 = tail call fastcc zeroext i16 @BinarySearchRange(ptr noundef nonnull @big5Level1ToCnsPlane1, i32 noundef 23, i16 noundef zeroext %0)
-  %.not29 = icmp eq i16 %13, 0
-  br i1 %.not29, label %26, label %27
+13:                                               ; preds = %4
+  %14 = tail call fastcc zeroext i16 @BinarySearchRange(ptr noundef nonnull @big5Level1ToCnsPlane1, i32 noundef 23, i16 noundef zeroext %0)
+  %.not29 = icmp eq i16 %14, 0
+  br i1 %.not29, label %28, label %29
 
-14:                                               ; preds = %2
-  %15 = icmp eq i16 %0, -14006
-  br i1 %15, label %27, label %.preheader32
+15:                                               ; preds = %2
+  %16 = icmp eq i16 %0, -14006
+  br i1 %16, label %29, label %.preheader32
 
-16:                                               ; preds = %.preheader32
+17:                                               ; preds = %.preheader32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %24, label %.preheader32, !llvm.loop !5
+  br i1 %exitcond.not, label %26, label %.preheader32, !llvm.loop !5
 
-.preheader32:                                     ; preds = %14, %16
-  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %14 ]
-  %17 = getelementptr inbounds nuw [2 x i16], ptr @b2c3, i64 %indvars.iv
-  %18 = load i16, ptr %17, align 4
-  %19 = icmp eq i16 %18, %0
-  br i1 %19, label %20, label %16
+.preheader32:                                     ; preds = %15, %17
+  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %15 ]
+  %18 = getelementptr inbounds nuw [2 x i16], ptr @b2c3, i64 %indvars.iv
+  %19 = load i16, ptr %18, align 4
+  %20 = icmp eq i16 %19, %0
+  br i1 %20, label %21, label %17
 
-20:                                               ; preds = %.preheader32
+21:                                               ; preds = %.preheader32
+  %22 = getelementptr inbounds nuw [2 x i16], ptr @b2c3, i64 %indvars.iv
   store i8 -10, ptr %1, align 1
-  %21 = getelementptr inbounds nuw [2 x i16], ptr @b2c3, i64 %indvars.iv, i64 1
-  %22 = load i16, ptr %21, align 2
-  %23 = or i16 %22, -32640
-  br label %29
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
+  %24 = load i16, ptr %23, align 2
+  %25 = or i16 %24, -32640
+  br label %31
 
-24:                                               ; preds = %16
-  %25 = tail call fastcc zeroext i16 @BinarySearchRange(ptr noundef nonnull @big5Level2ToCnsPlane2, i32 noundef 46, i16 noundef zeroext %0)
-  %.not = icmp eq i16 %25, 0
-  br i1 %.not, label %26, label %27
+26:                                               ; preds = %17
+  %27 = tail call fastcc zeroext i16 @BinarySearchRange(ptr noundef nonnull @big5Level2ToCnsPlane2, i32 noundef 46, i16 noundef zeroext %0)
+  %.not = icmp eq i16 %27, 0
+  br i1 %.not, label %28, label %29
 
-26:                                               ; preds = %12, %24
+28:                                               ; preds = %13, %26
   store i8 0, ptr %1, align 1
-  br label %29
+  br label %31
 
-27:                                               ; preds = %24, %14, %12
-  %.sink = phi i8 [ -107, %12 ], [ -107, %14 ], [ -106, %24 ]
-  %.022.ph = phi i16 [ %13, %12 ], [ 17474, %14 ], [ %25, %24 ]
+29:                                               ; preds = %26, %15, %13
+  %.sink = phi i8 [ -107, %13 ], [ -107, %15 ], [ -106, %26 ]
+  %.022.ph = phi i16 [ %14, %13 ], [ 17474, %15 ], [ %27, %26 ]
   store i8 %.sink, ptr %1, align 1
-  %28 = or i16 %.022.ph, -32640
-  br label %29
+  %30 = or i16 %.022.ph, -32640
+  br label %31
 
-29:                                               ; preds = %27, %26, %20, %8
-  %.023 = phi i16 [ %11, %8 ], [ 63, %26 ], [ %28, %27 ], [ %23, %20 ]
+31:                                               ; preds = %29, %28, %21, %8
+  %.023 = phi i16 [ %12, %8 ], [ 63, %28 ], [ %30, %29 ], [ %25, %21 ]
   ret i16 %.023
 }
 

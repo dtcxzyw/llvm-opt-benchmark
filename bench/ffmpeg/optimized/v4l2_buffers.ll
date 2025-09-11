@@ -1051,21 +1051,22 @@ buf_to_m2mctx.exit:                               ; preds = %13, %switch.lookup
   %wide.trip.count = zext i32 %31 to i64
   br label %34
 
-34:                                               ; preds = %.lr.ph, %40
-  %35 = phi i32 [ 0, %.lr.ph ], [ %41, %40 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %36 = getelementptr inbounds nuw %struct.v4l2_plane, ptr %33, i64 %indvars.iv, i32 1
-  %37 = load i32, ptr %36, align 4, !tbaa !67
-  %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %40, label %38
+34:                                               ; preds = %.lr.ph, %41
+  %35 = phi i32 [ 0, %.lr.ph ], [ %42, %41 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
+  %36 = getelementptr inbounds nuw %struct.v4l2_plane, ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %38 = load i32, ptr %37, align 4, !tbaa !67
+  %.not = icmp eq i32 %38, 0
+  br i1 %.not, label %41, label %39
 
-38:                                               ; preds = %34
-  %39 = add nsw i32 %35, 1
-  store i32 %39, ptr %28, align 8, !tbaa !50
-  br label %40
+39:                                               ; preds = %34
+  %40 = add nsw i32 %35, 1
+  store i32 %40, ptr %28, align 8, !tbaa !50
+  br label %41
 
-40:                                               ; preds = %34, %38
-  %41 = phi i32 [ %35, %34 ], [ %39, %38 ]
+41:                                               ; preds = %34, %39
+  %42 = phi i32 [ %35, %34 ], [ %40, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !109
@@ -1074,114 +1075,115 @@ buf_to_m2mctx.exit:                               ; preds = %13, %switch.lookup
   store i32 1, ptr %28, align 8, !tbaa !50
   br label %.lr.ph98
 
-.loopexit:                                        ; preds = %40
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph98, label %._crit_edge
+.loopexit:                                        ; preds = %41
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %.lr.ph98, label %._crit_edge
 
 .lr.ph98:                                         ; preds = %.loopexit.thread, %.loopexit
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  br label %52
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  br label %53
 
-48:                                               ; preds = %89
+49:                                               ; preds = %91
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %49 = load i32, ptr %43, align 8, !tbaa !50
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next103, %50
-  br i1 %51, label %52, label %._crit_edge.loopexit, !llvm.loop !110
+  %50 = load i32, ptr %44, align 8, !tbaa !50
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i64 %indvars.iv.next103, %51
+  br i1 %52, label %53, label %._crit_edge.loopexit, !llvm.loop !110
 
-52:                                               ; preds = %.lr.ph98, %48
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next103, %48 ]
-  %53 = load i32, ptr %6, align 8, !tbaa !26
-  %.off85 = add i32 %53, -9
+53:                                               ; preds = %.lr.ph98, %49
+  %indvars.iv102 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next103, %49 ]
+  %54 = load i32, ptr %6, align 8, !tbaa !26
+  %.off85 = add i32 %54, -9
   %switch86 = icmp ult i32 %.off85, 2
-  %54 = getelementptr inbounds nuw %struct.v4l2_plane_pix_format, ptr %3, i64 %indvars.iv102
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
-  %.in = select i1 %switch86, ptr %55, ptr %44
-  %56 = load i32, ptr %.in, align 4, !tbaa !85
-  %57 = getelementptr inbounds nuw %struct.V4L2Plane_info, ptr %45, i64 %indvars.iv102
-  store i32 %56, ptr %57, align 8, !tbaa !83
-  br i1 %switch86, label %58, label %75
+  %55 = getelementptr inbounds nuw %struct.v4l2_plane_pix_format, ptr %3, i64 %indvars.iv102
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
+  %.in = select i1 %switch86, ptr %56, ptr %45
+  %57 = load i32, ptr %.in, align 4, !tbaa !85
+  %58 = getelementptr inbounds nuw %struct.V4L2Plane_info, ptr %46, i64 %indvars.iv102
+  store i32 %57, ptr %58, align 8, !tbaa !83
+  br i1 %switch86, label %59, label %77
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr %47, align 8, !tbaa !85
-  %60 = getelementptr inbounds nuw %struct.v4l2_plane, ptr %59, i64 %indvars.iv102, i32 1
-  %61 = load i32, ptr %60, align 4, !tbaa !67
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i64 %62, ptr %63, align 8, !tbaa !61
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %48, align 8, !tbaa !85
+  %61 = getelementptr inbounds nuw %struct.v4l2_plane, ptr %60, i64 %indvars.iv102
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %63 = load i32, ptr %62, align 4, !tbaa !67
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  store i64 %64, ptr %65, align 8, !tbaa !61
   %.val89 = load ptr, ptr %0, align 8, !tbaa !19
-  %64 = getelementptr inbounds nuw i8, ptr %.val89, i64 8
-  %65 = load i32, ptr %64, align 8, !tbaa !26
-  %switch.tableidx115 = add i32 %65, -2
-  %66 = icmp ult i32 %switch.tableidx115, 13
-  br i1 %66, label %switch.lookup116, label %buf_to_m2mctx.exit92
+  %66 = getelementptr inbounds nuw i8, ptr %.val89, i64 8
+  %67 = load i32, ptr %66, align 8, !tbaa !26
+  %switch.tableidx115 = add i32 %67, -2
+  %68 = icmp ult i32 %switch.tableidx115, 13
+  br i1 %68, label %switch.lookup116, label %buf_to_m2mctx.exit92
 
-switch.lookup116:                                 ; preds = %58
-  %67 = zext nneg i32 %switch.tableidx115 to i64
-  %switch.gep117 = getelementptr inbounds nuw i64, ptr @switch.table.v4l2_free_buffer.16, i64 %67
+switch.lookup116:                                 ; preds = %59
+  %69 = zext nneg i32 %switch.tableidx115 to i64
+  %switch.gep117 = getelementptr inbounds nuw i64, ptr @switch.table.v4l2_free_buffer.16, i64 %69
   %switch.load118 = load i64, ptr %switch.gep117, align 8
   br label %buf_to_m2mctx.exit92
 
-buf_to_m2mctx.exit92:                             ; preds = %58, %switch.lookup116
-  %.sink.i91 = phi i64 [ %switch.load118, %switch.lookup116 ], [ -4104, %58 ]
-  %68 = getelementptr inbounds i8, ptr %.val89, i64 %.sink.i91
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4096
-  %70 = load i32, ptr %69, align 8, !tbaa !108
-  %71 = getelementptr inbounds nuw %struct.v4l2_plane, ptr %59, i64 %indvars.iv102, i32 2
-  %72 = load i32, ptr %71, align 8, !tbaa !85
-  %73 = zext i32 %72 to i64
-  %74 = tail call ptr @mmap64(ptr noundef null, i64 noundef %62, i32 noundef 3, i32 noundef 1, i32 noundef %70, i64 noundef %73) #8
-  br label %89
+buf_to_m2mctx.exit92:                             ; preds = %59, %switch.lookup116
+  %.sink.i91 = phi i64 [ %switch.load118, %switch.lookup116 ], [ -4104, %59 ]
+  %70 = getelementptr inbounds i8, ptr %.val89, i64 %.sink.i91
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4096
+  %72 = load i32, ptr %71, align 8, !tbaa !108
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %74 = load i32, ptr %73, align 8, !tbaa !85
+  %75 = zext i32 %74 to i64
+  %76 = tail call ptr @mmap64(ptr noundef null, i64 noundef %64, i32 noundef 3, i32 noundef 1, i32 noundef %72, i64 noundef %75) #8
+  br label %91
 
-75:                                               ; preds = %52
-  %76 = load i32, ptr %46, align 8, !tbaa !69
-  %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i64 %77, ptr %78, align 8, !tbaa !61
+77:                                               ; preds = %53
+  %78 = load i32, ptr %47, align 8, !tbaa !69
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  store i64 %79, ptr %80, align 8, !tbaa !61
   %.val90 = load ptr, ptr %0, align 8, !tbaa !19
-  %79 = getelementptr inbounds nuw i8, ptr %.val90, i64 8
-  %80 = load i32, ptr %79, align 8, !tbaa !26
-  %switch.tableidx119 = add i32 %80, -2
-  %81 = icmp ult i32 %switch.tableidx119, 13
-  br i1 %81, label %switch.lookup120, label %buf_to_m2mctx.exit94
+  %81 = getelementptr inbounds nuw i8, ptr %.val90, i64 8
+  %82 = load i32, ptr %81, align 8, !tbaa !26
+  %switch.tableidx119 = add i32 %82, -2
+  %83 = icmp ult i32 %switch.tableidx119, 13
+  br i1 %83, label %switch.lookup120, label %buf_to_m2mctx.exit94
 
-switch.lookup120:                                 ; preds = %75
-  %82 = zext nneg i32 %switch.tableidx119 to i64
-  %switch.gep121 = getelementptr inbounds nuw i64, ptr @switch.table.v4l2_free_buffer.16, i64 %82
+switch.lookup120:                                 ; preds = %77
+  %84 = zext nneg i32 %switch.tableidx119 to i64
+  %switch.gep121 = getelementptr inbounds nuw i64, ptr @switch.table.v4l2_free_buffer.16, i64 %84
   %switch.load122 = load i64, ptr %switch.gep121, align 8
   br label %buf_to_m2mctx.exit94
 
-buf_to_m2mctx.exit94:                             ; preds = %75, %switch.lookup120
-  %.sink.i93 = phi i64 [ %switch.load122, %switch.lookup120 ], [ -4104, %75 ]
-  %83 = getelementptr inbounds i8, ptr %.val90, i64 %.sink.i93
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4096
-  %85 = load i32, ptr %84, align 8, !tbaa !108
-  %86 = load i32, ptr %47, align 8, !tbaa !85
-  %87 = zext i32 %86 to i64
-  %88 = tail call ptr @mmap64(ptr noundef null, i64 noundef %77, i32 noundef 3, i32 noundef 1, i32 noundef %85, i64 noundef %87) #8
-  br label %89
+buf_to_m2mctx.exit94:                             ; preds = %77, %switch.lookup120
+  %.sink.i93 = phi i64 [ %switch.load122, %switch.lookup120 ], [ -4104, %77 ]
+  %85 = getelementptr inbounds i8, ptr %.val90, i64 %.sink.i93
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4096
+  %87 = load i32, ptr %86, align 8, !tbaa !108
+  %88 = load i32, ptr %48, align 8, !tbaa !85
+  %89 = zext i32 %88 to i64
+  %90 = tail call ptr @mmap64(ptr noundef null, i64 noundef %79, i32 noundef 3, i32 noundef 1, i32 noundef %87, i64 noundef %89) #8
+  br label %91
 
-89:                                               ; preds = %buf_to_m2mctx.exit94, %buf_to_m2mctx.exit92
-  %.sink = phi ptr [ %88, %buf_to_m2mctx.exit94 ], [ %74, %buf_to_m2mctx.exit92 ]
-  %90 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %.sink, ptr %90, align 8, !tbaa !63
-  %91 = icmp eq ptr %.sink, inttoptr (i64 -1 to ptr)
-  br i1 %91, label %ff_v4l2_buffer_enqueue.exit, label %48
+91:                                               ; preds = %buf_to_m2mctx.exit94, %buf_to_m2mctx.exit92
+  %.sink = phi ptr [ %90, %buf_to_m2mctx.exit94 ], [ %76, %buf_to_m2mctx.exit92 ]
+  %92 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store ptr %.sink, ptr %92, align 8, !tbaa !63
+  %93 = icmp eq ptr %.sink, inttoptr (i64 -1 to ptr)
+  br i1 %93, label %ff_v4l2_buffer_enqueue.exit, label %49
 
-._crit_edge.loopexit:                             ; preds = %48
+._crit_edge.loopexit:                             ; preds = %49
   %.pre105 = load i32, ptr %6, align 8, !tbaa !26
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %29, %._crit_edge.loopexit, %.loopexit
-  %92 = phi i32 [ %27, %.loopexit ], [ %.pre105, %._crit_edge.loopexit ], [ %27, %29 ]
-  %.lcssa = phi i32 [ %41, %.loopexit ], [ %49, %._crit_edge.loopexit ], [ 0, %29 ]
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 828
-  store i32 0, ptr %93, align 4, !tbaa !82
-  switch i32 %92, label %97 [
+  %94 = phi i32 [ %27, %.loopexit ], [ %.pre105, %._crit_edge.loopexit ], [ %27, %29 ]
+  %.lcssa = phi i32 [ %42, %.loopexit ], [ %50, %._crit_edge.loopexit ], [ 0, %29 ]
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 828
+  store i32 0, ptr %95, align 4, !tbaa !82
+  switch i32 %94, label %99 [
     i32 2, label %ff_v4l2_buffer_enqueue.exit
     i32 10, label %ff_v4l2_buffer_enqueue.exit
     i32 3, label %ff_v4l2_buffer_enqueue.exit
@@ -1190,66 +1192,66 @@ buf_to_m2mctx.exit94:                             ; preds = %75, %switch.lookup1
     i32 7, label %ff_v4l2_buffer_enqueue.exit
     i32 12, label %ff_v4l2_buffer_enqueue.exit
     i32 14, label %ff_v4l2_buffer_enqueue.exit
-    i32 9, label %94
+    i32 9, label %96
   ]
 
-94:                                               ; preds = %._crit_edge
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store ptr %95, ptr %96, align 8, !tbaa !85
-  br label %103
+96:                                               ; preds = %._crit_edge
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store ptr %97, ptr %98, align 8, !tbaa !85
+  br label %105
 
-97:                                               ; preds = %._crit_edge
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %99 = load i32, ptr %98, align 8, !tbaa !65
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %99, ptr %100, align 8, !tbaa !68
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %102 = load i32, ptr %101, align 4, !tbaa !67
-  br label %103
+99:                                               ; preds = %._crit_edge
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %101 = load i32, ptr %100, align 8, !tbaa !65
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i32 %101, ptr %102, align 8, !tbaa !68
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 316
+  %104 = load i32, ptr %103, align 4, !tbaa !67
+  br label %105
 
-103:                                              ; preds = %97, %94
-  %.sink111 = phi i32 [ %102, %97 ], [ %.lcssa, %94 ]
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %.sink111, ptr %104, align 8, !tbaa !69
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %106 = load i32, ptr %105, align 8, !tbaa !105
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  store i32 %106, ptr %107, align 4, !tbaa !86
+105:                                              ; preds = %99, %96
+  %.sink111 = phi i32 [ %104, %99 ], [ %.lcssa, %96 ]
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i32 %.sink111, ptr %106, align 8, !tbaa !69
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  %108 = load i32, ptr %107, align 8, !tbaa !105
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  store i32 %108, ptr %109, align 4, !tbaa !86
   %.val.i = load ptr, ptr %0, align 8, !tbaa !19
-  %108 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %109 = load i32, ptr %108, align 8, !tbaa !26
-  %switch.tableidx123 = add i32 %109, -2
-  %110 = icmp ult i32 %switch.tableidx123, 13
-  br i1 %110, label %switch.lookup124, label %buf_to_m2mctx.exit.i
+  %110 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %111 = load i32, ptr %110, align 8, !tbaa !26
+  %switch.tableidx123 = add i32 %111, -2
+  %112 = icmp ult i32 %switch.tableidx123, 13
+  br i1 %112, label %switch.lookup124, label %buf_to_m2mctx.exit.i
 
-switch.lookup124:                                 ; preds = %103
-  %111 = zext nneg i32 %switch.tableidx123 to i64
-  %switch.gep125 = getelementptr inbounds nuw i64, ptr @switch.table.v4l2_free_buffer.16, i64 %111
+switch.lookup124:                                 ; preds = %105
+  %113 = zext nneg i32 %switch.tableidx123 to i64
+  %switch.gep125 = getelementptr inbounds nuw i64, ptr @switch.table.v4l2_free_buffer.16, i64 %113
   %switch.load126 = load i64, ptr %switch.gep125, align 8
   br label %buf_to_m2mctx.exit.i
 
-buf_to_m2mctx.exit.i:                             ; preds = %103, %switch.lookup124
-  %.sink.i.i = phi i64 [ %switch.load126, %switch.lookup124 ], [ -4104, %103 ]
-  %112 = getelementptr inbounds i8, ptr %.val.i, i64 %.sink.i.i
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4096
-  %114 = load i32, ptr %113, align 8, !tbaa !108
-  %115 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %114, i64 noundef 3227014671, ptr noundef nonnull %4) #8
-  %116 = icmp slt i32 %115, 0
-  br i1 %116, label %117, label %121
+buf_to_m2mctx.exit.i:                             ; preds = %105, %switch.lookup124
+  %.sink.i.i = phi i64 [ %switch.load126, %switch.lookup124 ], [ -4104, %105 ]
+  %114 = getelementptr inbounds i8, ptr %.val.i, i64 %.sink.i.i
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4096
+  %116 = load i32, ptr %115, align 8, !tbaa !108
+  %117 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %116, i64 noundef 3227014671, ptr noundef nonnull %4) #8
+  %118 = icmp slt i32 %117, 0
+  br i1 %118, label %119, label %123
 
-117:                                              ; preds = %buf_to_m2mctx.exit.i
-  %118 = tail call ptr @__errno_location() #7
-  %119 = load i32, ptr %118, align 4, !tbaa !59
-  %120 = sub nsw i32 0, %119
+119:                                              ; preds = %buf_to_m2mctx.exit.i
+  %120 = tail call ptr @__errno_location() #7
+  %121 = load i32, ptr %120, align 4, !tbaa !59
+  %122 = sub nsw i32 0, %121
   br label %ff_v4l2_buffer_enqueue.exit
 
-121:                                              ; preds = %buf_to_m2mctx.exit.i
-  store i32 1, ptr %93, align 4, !tbaa !82
+123:                                              ; preds = %buf_to_m2mctx.exit.i
+  store i32 1, ptr %95, align 4, !tbaa !82
   br label %ff_v4l2_buffer_enqueue.exit
 
-ff_v4l2_buffer_enqueue.exit:                      ; preds = %89, %121, %117, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %22
-  %.077 = phi i32 [ %25, %22 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ %120, %117 ], [ 0, %121 ], [ -12, %89 ]
+ff_v4l2_buffer_enqueue.exit:                      ; preds = %91, %123, %119, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %22
+  %.077 = phi i32 [ %25, %22 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ %122, %119 ], [ 0, %123 ], [ -12, %91 ]
   ret i32 %.077
 }
 

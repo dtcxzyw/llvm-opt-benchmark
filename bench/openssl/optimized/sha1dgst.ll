@@ -318,7 +318,7 @@ define range(i32 -2, 2) i32 @ossl_sha1_ctrl(ptr noundef %0, i32 noundef %1, i32 
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 %29
   %31 = add nsw i64 %20, -16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %22, i8 0, i64 68, i1 false)
-  %.not58.i = icmp ult i64 %31, 64
+  %.not58.i = icmp samesign ult i64 %31, 64
   br i1 %.not58.i, label %37, label %32
 
 32:                                               ; preds = %28
@@ -379,7 +379,7 @@ SHA1_Update.exit:                                 ; preds = %25, %37, %.thread52
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 %56
   %58 = add nsw i64 %47, -24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %49, i8 0, i64 68, i1 false)
-  %.not58.i20 = icmp ult i64 %58, 64
+  %.not58.i20 = icmp samesign ult i64 %58, 64
   br i1 %.not58.i20, label %64, label %59
 
 59:                                               ; preds = %55

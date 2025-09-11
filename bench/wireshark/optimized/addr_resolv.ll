@@ -1451,7 +1451,7 @@ define internal void @c_ares_set_dns_servers() #2 {
   %3 = load i8, ptr @use_custom_dns_server_list, align 1, !range !16
   %4 = trunc nuw i8 %3 to i1
   %or.cond = select i1 %.b38, i1 %4, i1 false
-  br i1 %or.cond, label %5, label %90
+  br i1 %or.cond, label %5, label %92
 
 5:                                                ; preds = %0
   %6 = load i32, ptr @ndnsservers, align 4
@@ -1463,7 +1463,7 @@ define internal void @c_ares_set_dns_servers() #2 {
   %10 = tail call i32 @ares_set_servers_ports(ptr noundef %9, ptr noundef null)
   %11 = load ptr, ptr @ghbn_chan, align 8
   %12 = tail call i32 @ares_set_servers_ports(ptr noundef %11, ptr noundef null)
-  br label %90
+  br label %92
 
 13:                                               ; preds = %5
   %14 = zext i32 %6 to i64
@@ -1479,8 +1479,8 @@ define internal void @c_ares_set_dns_servers() #2 {
 .lr.ph:                                           ; preds = %13, %42
   %18 = phi ptr [ %43, %42 ], [ %.pre65, %13 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %13 ]
-  %.03550 = phi ptr [ %51, %42 ], [ %16, %13 ]
-  %19 = phi i64 [ %50, %42 ], [ 0, %13 ]
+  %.03550 = phi ptr [ %52, %42 ], [ %16, %13 ]
+  %19 = phi i64 [ %51, %42 ], [ 0, %13 ]
   %20 = getelementptr %struct.dns_server_data, ptr %18, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = call zeroext i1 @ws_inet_pton6(ptr noundef %21, ptr noundef nonnull %2)
@@ -1514,93 +1514,95 @@ define internal void @c_ares_set_dns_servers() #2 {
 40:                                               ; preds = %29
   store i32 0, ptr %34, align 8
   %41 = call ptr @__memset_chk(ptr noundef nonnull %36, i32 noundef 0, i64 noundef 4, i64 noundef %37) #28
-  br label %78
+  br label %79
 
 42:                                               ; preds = %38, %23
   %43 = load ptr, ptr @dnsserverlist_uats, align 8
-  %44 = getelementptr %struct.dns_server_data, ptr %43, i64 %indvars.iv, i32 1
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %.03550, i64 28
-  store i32 %45, ptr %46, align 4
-  %47 = getelementptr %struct.dns_server_data, ptr %43, i64 %indvars.iv, i32 2
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %.03550, i64 32
-  store i32 %48, ptr %49, align 8
-  %50 = add nuw nsw i64 %19, 40
-  %51 = getelementptr i8, ptr %.03550, i64 40
-  store ptr %51, ptr %.03550, align 8
+  %44 = getelementptr %struct.dns_server_data, ptr %43, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i32, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %.03550, i64 28
+  store i32 %46, ptr %47, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 12
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %.03550, i64 32
+  store i32 %49, ptr %50, align 8
+  %51 = add nuw nsw i64 %19, 40
+  %52 = getelementptr i8, ptr %.03550, i64 40
+  store ptr %52, ptr %.03550, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = load i32, ptr @ndnsservers, align 4
-  %53 = add i32 %52, -1
-  %54 = zext i32 %53 to i64
-  %55 = icmp samesign ult i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !26
+  %53 = load i32, ptr @ndnsservers, align 4
+  %54 = add i32 %53, -1
+  %55 = zext i32 %54 to i64
+  %56 = icmp samesign ult i64 %indvars.iv.next, %55
+  br i1 %56, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !26
 
 .critedge.loopexit:                               ; preds = %42
-  %56 = add nuw i64 %19, 52
+  %57 = add nuw i64 %19, 52
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %13
-  %57 = phi ptr [ %.pre65, %13 ], [ %43, %.critedge.loopexit ]
-  %.lcssa48 = phi i64 [ 12, %13 ], [ %56, %.critedge.loopexit ]
-  %.035.lcssa = phi ptr [ %16, %13 ], [ %51, %.critedge.loopexit ]
+  %58 = phi ptr [ %.pre65, %13 ], [ %43, %.critedge.loopexit ]
+  %.lcssa48 = phi i64 [ 12, %13 ], [ %57, %.critedge.loopexit ]
+  %.035.lcssa = phi ptr [ %16, %13 ], [ %52, %.critedge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %13 ], [ %indvars.iv.next, %.critedge.loopexit ]
-  %58 = getelementptr %struct.dns_server_data, ptr %57, i64 %.0.lcssa
-  %59 = load ptr, ptr %58, align 8
-  %60 = call zeroext i1 @ws_inet_pton6(ptr noundef %59, ptr noundef nonnull %2)
-  br i1 %60, label %61, label %66
+  %59 = getelementptr %struct.dns_server_data, ptr %58, i64 %.0.lcssa
+  %60 = load ptr, ptr %59, align 8
+  %61 = call zeroext i1 @ws_inet_pton6(ptr noundef %60, ptr noundef nonnull %2)
+  br i1 %61, label %62, label %67
 
-61:                                               ; preds = %.critedge
-  %62 = getelementptr inbounds nuw i8, ptr %.035.lcssa, i64 8
-  store i32 10, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %.035.lcssa, i64 12
-  %64 = call i64 @llvm.usub.sat.i64(i64 %15, i64 %.lcssa48)
-  %65 = call ptr @__memcpy_chk(ptr noundef nonnull %63, ptr noundef nonnull %2, i64 noundef 16, i64 noundef %64) #28, !alias.scope !27
-  br label %78
+62:                                               ; preds = %.critedge
+  %63 = getelementptr inbounds nuw i8, ptr %.035.lcssa, i64 8
+  store i32 10, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %.035.lcssa, i64 12
+  %65 = call i64 @llvm.usub.sat.i64(i64 %15, i64 %.lcssa48)
+  %66 = call ptr @__memcpy_chk(ptr noundef nonnull %64, ptr noundef nonnull %2, i64 noundef 16, i64 noundef %65) #28, !alias.scope !27
+  br label %79
 
-66:                                               ; preds = %.critedge
-  %67 = load ptr, ptr @dnsserverlist_uats, align 8
-  %68 = getelementptr %struct.dns_server_data, ptr %67, i64 %.0.lcssa
-  %69 = load ptr, ptr %68, align 8
-  %70 = call zeroext i1 @ws_inet_pton4(ptr noundef %69, ptr noundef nonnull %1)
-  %71 = getelementptr inbounds nuw i8, ptr %.035.lcssa, i64 8
-  %72 = getelementptr inbounds nuw i8, ptr %.035.lcssa, i64 12
-  %73 = call i64 @llvm.usub.sat.i64(i64 %15, i64 %.lcssa48)
-  br i1 %70, label %74, label %76
+67:                                               ; preds = %.critedge
+  %68 = load ptr, ptr @dnsserverlist_uats, align 8
+  %69 = getelementptr %struct.dns_server_data, ptr %68, i64 %.0.lcssa
+  %70 = load ptr, ptr %69, align 8
+  %71 = call zeroext i1 @ws_inet_pton4(ptr noundef %70, ptr noundef nonnull %1)
+  %72 = getelementptr inbounds nuw i8, ptr %.035.lcssa, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.035.lcssa, i64 12
+  %74 = call i64 @llvm.usub.sat.i64(i64 %15, i64 %.lcssa48)
+  br i1 %71, label %75, label %77
 
-74:                                               ; preds = %66
-  store i32 2, ptr %71, align 8
-  %75 = call ptr @__memcpy_chk(ptr noundef nonnull %72, ptr noundef nonnull %1, i64 noundef 4, i64 noundef %73) #28, !alias.scope !31
-  br label %78
+75:                                               ; preds = %67
+  store i32 2, ptr %72, align 8
+  %76 = call ptr @__memcpy_chk(ptr noundef nonnull %73, ptr noundef nonnull %1, i64 noundef 4, i64 noundef %74) #28, !alias.scope !31
+  br label %79
 
-76:                                               ; preds = %66
-  store i32 0, ptr %71, align 8
-  %77 = call ptr @__memset_chk(ptr noundef nonnull %72, i32 noundef 0, i64 noundef 4, i64 noundef %73) #28
-  br label %78
+77:                                               ; preds = %67
+  store i32 0, ptr %72, align 8
+  %78 = call ptr @__memset_chk(ptr noundef nonnull %73, i32 noundef 0, i64 noundef 4, i64 noundef %74) #28
+  br label %79
 
-78:                                               ; preds = %40, %61, %76, %74
-  %.pre-phi = phi i64 [ %indvars.iv, %40 ], [ %.0.lcssa, %61 ], [ %.0.lcssa, %76 ], [ %.0.lcssa, %74 ]
-  %.03542 = phi ptr [ %.03550, %40 ], [ %.035.lcssa, %61 ], [ %.035.lcssa, %76 ], [ %.035.lcssa, %74 ]
-  %79 = load ptr, ptr @dnsserverlist_uats, align 8
-  %80 = getelementptr %struct.dns_server_data, ptr %79, i64 %.pre-phi, i32 1
-  %81 = load i32, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %.03542, i64 28
-  store i32 %81, ptr %82, align 4
-  %83 = getelementptr %struct.dns_server_data, ptr %79, i64 %.pre-phi, i32 2
-  %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %.03542, i64 32
-  store i32 %84, ptr %85, align 8
+79:                                               ; preds = %40, %62, %77, %75
+  %.pre-phi = phi i64 [ %indvars.iv, %40 ], [ %.0.lcssa, %62 ], [ %.0.lcssa, %77 ], [ %.0.lcssa, %75 ]
+  %.03542 = phi ptr [ %.03550, %40 ], [ %.035.lcssa, %62 ], [ %.035.lcssa, %77 ], [ %.035.lcssa, %75 ]
+  %80 = load ptr, ptr @dnsserverlist_uats, align 8
+  %81 = getelementptr %struct.dns_server_data, ptr %80, i64 %.pre-phi
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = load i32, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %.03542, i64 28
+  store i32 %83, ptr %84, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 12
+  %86 = load i32, ptr %85, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %.03542, i64 32
+  store i32 %86, ptr %87, align 8
   store ptr null, ptr %.03542, align 8
-  %86 = load ptr, ptr @ghba_chan, align 8
-  %87 = call i32 @ares_set_servers_ports(ptr noundef %86, ptr noundef %16)
-  %88 = load ptr, ptr @ghbn_chan, align 8
+  %88 = load ptr, ptr @ghba_chan, align 8
   %89 = call i32 @ares_set_servers_ports(ptr noundef %88, ptr noundef %16)
+  %90 = load ptr, ptr @ghbn_chan, align 8
+  %91 = call i32 @ares_set_servers_ports(ptr noundef %90, ptr noundef %16)
   call void @wmem_free(ptr noundef null, ptr noundef %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %90
+  br label %92
 
-90:                                               ; preds = %0, %78, %8
+92:                                               ; preds = %0, %79, %8
   ret void
 }
 
@@ -2327,52 +2329,53 @@ _host_name_lookup_cleanup.exit.i:                 ; preds = %16, %vlan_name_look
   store ptr null, ptr @ss7pc_hash_table, align 8
   br label %19
 
-19:                                               ; preds = %31, %_host_name_lookup_cleanup.exit.i
-  %indvars.iv20.i = phi i64 [ 0, %_host_name_lookup_cleanup.exit.i ], [ %indvars.iv.next21.i, %31 ]
-  %20 = getelementptr %struct.subnet_length_entry_t, ptr @subnet_length_entries, i64 %indvars.iv20.i, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %31, label %.preheader.i
+19:                                               ; preds = %32, %_host_name_lookup_cleanup.exit.i
+  %indvars.iv20.i = phi i64 [ 0, %_host_name_lookup_cleanup.exit.i ], [ %indvars.iv.next21.i, %32 ]
+  %20 = getelementptr %struct.subnet_length_entry_t, ptr @subnet_length_entries, i64 %indvars.iv20.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %32, label %.preheader.i
 
 .preheader.i:                                     ; preds = %19, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %19 ]
-  %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr ptr, ptr %22, i64 %indvars.iv.i
-  %24 = load ptr, ptr %23, align 8
-  %.not1415.i = icmp eq ptr %24, null
+  %23 = load ptr, ptr %21, align 8
+  %24 = getelementptr ptr, ptr %23, i64 %indvars.iv.i
+  %25 = load ptr, ptr %24, align 8
+  %.not1415.i = icmp eq ptr %25, null
   br i1 %.not1415.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.01216.i = phi ptr [ %26, %.lr.ph.i ], [ %24, %.preheader.i ]
-  %25 = getelementptr inbounds nuw i8, ptr %.01216.i, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr @addr_resolv_scope, align 8
-  tail call void @wmem_free(ptr noundef %27, ptr noundef nonnull %.01216.i)
-  %.not14.i = icmp eq ptr %26, null
+  %.01216.i = phi ptr [ %27, %.lr.ph.i ], [ %25, %.preheader.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %.01216.i, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr @addr_resolv_scope, align 8
+  tail call void @wmem_free(ptr noundef %28, ptr noundef nonnull %.01216.i)
+  %.not14.i = icmp eq ptr %27, null
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2048
-  br i1 %exitcond.not.i, label %28, label %.preheader.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %29, label %.preheader.i, !llvm.loop !37
 
-28:                                               ; preds = %._crit_edge.i
-  %29 = load ptr, ptr @addr_resolv_scope, align 8
-  %30 = load ptr, ptr %20, align 8
-  tail call void @wmem_free(ptr noundef %29, ptr noundef %30)
-  store ptr null, ptr %20, align 8
-  br label %31
+29:                                               ; preds = %._crit_edge.i
+  %30 = load ptr, ptr @addr_resolv_scope, align 8
+  %31 = load ptr, ptr %21, align 8
+  tail call void @wmem_free(ptr noundef %30, ptr noundef %31)
+  store ptr null, ptr %21, align 8
+  br label %32
 
-31:                                               ; preds = %28, %19
+32:                                               ; preds = %29, %19
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 32
   br i1 %exitcond23.not.i, label %host_name_lookup_cleanup.exit, label %19, !llvm.loop !38
 
-host_name_lookup_cleanup.exit:                    ; preds = %31
+host_name_lookup_cleanup.exit:                    ; preds = %32
   store i1 false, ptr @have_subnet_entry, align 1
   store i1 false, ptr @new_resolved_objects, align 1
-  %32 = load ptr, ptr @addr_resolv_scope, align 8
-  tail call void @wmem_destroy_allocator(ptr noundef %32)
+  %33 = load ptr, ptr @addr_resolv_scope, align 8
+  tail call void @wmem_destroy_allocator(ptr noundef %33)
   store ptr null, ptr @addr_resolv_scope, align 8
   ret void
 }

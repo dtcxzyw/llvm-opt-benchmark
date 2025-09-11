@@ -306,7 +306,7 @@ _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit: ; preds = %3, %8, %11
 _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124: ; preds = %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit, %16, %19
   %.0.i123 = phi i32 [ 1, %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit ], [ 2, %16 ], [ %..i122, %19 ]
   %.not = icmp ult i32 %1, %2
-  br i1 %.not, label %22, label %238
+  br i1 %.not, label %22, label %240
 
 22:                                               ; preds = %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124
   %23 = icmp samesign ult i32 %.0.i, %.0.i123
@@ -318,7 +318,7 @@ _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124: ; preds = %_ZN6icu_7716C
   %27 = shl nsw i32 -1, %26
   %28 = and i32 %27, %2
   %29 = icmp eq i32 %1, %28
-  br i1 %29, label %238, label %30
+  br i1 %29, label %240, label %30
 
 30:                                               ; preds = %24, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -403,7 +403,7 @@ _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124: ; preds = %_ZN6icu_7716C
   %77 = trunc i64 %.neg.i to i32
   %78 = add i32 %.1106.lcssa, %77
   %.not120 = icmp ult i32 %78, %.sroa.0.0
-  br i1 %.not120, label %.preheader, label %197
+  br i1 %.not120, label %.preheader, label %199
 
 .preheader:                                       ; preds = %._crit_edge164
   %79 = icmp slt i32 %31, 4
@@ -582,107 +582,109 @@ _ZNK6icu_7716CollationWeights9incWeightEji.exit:  ; preds = %.lr.ph.i, %143
 
 .lr.ph175:                                        ; preds = %.lr.ph175.preheader, %.lr.ph175
   %indvars.iv208 = phi i64 [ %191, %.lr.ph175.preheader ], [ %indvars.iv.next209, %.lr.ph175 ]
-  %192 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %5, i64 %indvars.iv208, i32 3
-  store i32 0, ptr %192, align 4, !tbaa !18
-  %193 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %4, i64 %indvars.iv208, i32 3
+  %192 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %5, i64 %indvars.iv208
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 12
   store i32 0, ptr %193, align 4, !tbaa !18
+  %194 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %4, i64 %indvars.iv208
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 12
+  store i32 0, ptr %195, align 4, !tbaa !18
   %indvars.iv.next209 = add nsw i64 %indvars.iv208, -1
-  %194 = icmp sgt i64 %indvars.iv.next209, %82
-  br i1 %194, label %.lr.ph175, label %.thread132, !llvm.loop !21
+  %196 = icmp sgt i64 %indvars.iv.next209, %82
+  br i1 %196, label %.lr.ph175, label %.thread132, !llvm.loop !21
 
 .thread128:                                       ; preds = %141, %_ZNK6icu_7716CollationWeights9incWeightEji.exit, %112, %117
   %indvars.iv.next206 = add nsw i64 %indvars.iv205, -1
-  %195 = icmp sgt i64 %indvars.iv.next206, %82
-  br i1 %195, label %112, label %.thread132, !llvm.loop !22
+  %197 = icmp sgt i64 %indvars.iv.next206, %82
+  br i1 %197, label %112, label %.thread132, !llvm.loop !22
 
 .thread132:                                       ; preds = %.thread128, %.lr.ph175, %.preheader, %185
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 0, ptr %196, align 4, !tbaa !8
-  br label %205
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i32 0, ptr %198, align 4, !tbaa !8
+  br label %207
 
-197:                                              ; preds = %._crit_edge164
-  %198 = sub nuw i32 %78, %.sroa.0.0
-  %199 = lshr i32 %198, %38
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 0, ptr %200, align 4, !tbaa !8
-  %201 = icmp sgt i32 %199, -1
-  br i1 %201, label %202, label %205
+199:                                              ; preds = %._crit_edge164
+  %200 = sub nuw i32 %78, %.sroa.0.0
+  %201 = lshr i32 %200, %38
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i32 0, ptr %202, align 4, !tbaa !8
+  %203 = icmp sgt i32 %201, -1
+  br i1 %203, label %204, label %207
 
-202:                                              ; preds = %197
-  %203 = add nuw nsw i32 %199, 1
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.sroa.0.0, ptr %204, align 4
+204:                                              ; preds = %199
+  %205 = add nuw nsw i32 %201, 1
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %.sroa.0.0, ptr %206, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %78, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %31, ptr %.sroa.11.0..sroa_idx, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %203, ptr %.sroa.12.0..sroa_idx, align 4
-  store i32 1, ptr %200, align 4, !tbaa !8
-  br label %205
+  store i32 %205, ptr %.sroa.12.0..sroa_idx, align 4
+  store i32 1, ptr %202, align 4, !tbaa !8
+  br label %207
 
-205:                                              ; preds = %.thread132, %202, %197
-  %206 = phi i32 [ 0, %.thread132 ], [ 1, %202 ], [ 0, %197 ]
-  %207 = phi ptr [ %196, %.thread132 ], [ %200, %202 ], [ %200, %197 ]
-  %208 = icmp slt i32 %31, 4
-  br i1 %208, label %.lr.ph179, label %._crit_edge180
+207:                                              ; preds = %.thread132, %204, %199
+  %208 = phi i32 [ 0, %.thread132 ], [ 1, %204 ], [ 0, %199 ]
+  %209 = phi ptr [ %198, %.thread132 ], [ %202, %204 ], [ %202, %199 ]
+  %210 = icmp slt i32 %31, 4
+  br i1 %210, label %.lr.ph179, label %._crit_edge180
 
-.lr.ph179:                                        ; preds = %205
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %210 = sext i32 %31 to i64
-  br label %214
+.lr.ph179:                                        ; preds = %207
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %212 = sext i32 %31 to i64
+  br label %216
 
-._crit_edge180:                                   ; preds = %236, %205
-  %211 = phi i32 [ %206, %205 ], [ %237, %236 ]
-  %212 = icmp sgt i32 %211, 0
-  %213 = zext i1 %212 to i8
+._crit_edge180:                                   ; preds = %238, %207
+  %213 = phi i32 [ %208, %207 ], [ %239, %238 ]
+  %214 = icmp sgt i32 %213, 0
+  %215 = zext i1 %214 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %240
+
+216:                                              ; preds = %.lr.ph179, %238
+  %217 = phi i32 [ %208, %.lr.ph179 ], [ %239, %238 ]
+  %indvars.iv211 = phi i64 [ %212, %.lr.ph179 ], [ %indvars.iv.next212, %238 ]
+  %indvars.iv.next212 = add nsw i64 %indvars.iv211, 1
+  %218 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %5, i64 %indvars.iv.next212
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 12
+  %220 = load i32, ptr %219, align 4, !tbaa !18
+  %221 = icmp sgt i32 %220, 0
+  br i1 %221, label %222, label %227
+
+222:                                              ; preds = %216
+  %223 = sext i32 %217 to i64
+  %224 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %211, i64 %223
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %224, ptr noundef nonnull align 16 dereferenceable(16) %218, i64 16, i1 false)
+  %225 = load i32, ptr %209, align 4, !tbaa !8
+  %226 = add nsw i32 %225, 1
+  store i32 %226, ptr %209, align 4, !tbaa !8
+  br label %227
+
+227:                                              ; preds = %222, %216
+  %228 = phi i32 [ %226, %222 ], [ %217, %216 ]
+  %229 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %4, i64 %indvars.iv.next212
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 12
+  %231 = load i32, ptr %230, align 4, !tbaa !18
+  %232 = icmp sgt i32 %231, 0
+  br i1 %232, label %233, label %238
+
+233:                                              ; preds = %227
+  %234 = sext i32 %228 to i64
+  %235 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %211, i64 %234
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %235, ptr noundef nonnull align 16 dereferenceable(16) %229, i64 16, i1 false)
+  %236 = load i32, ptr %209, align 4, !tbaa !8
+  %237 = add nsw i32 %236, 1
+  store i32 %237, ptr %209, align 4, !tbaa !8
   br label %238
 
-214:                                              ; preds = %.lr.ph179, %236
-  %215 = phi i32 [ %206, %.lr.ph179 ], [ %237, %236 ]
-  %indvars.iv211 = phi i64 [ %210, %.lr.ph179 ], [ %indvars.iv.next212, %236 ]
-  %indvars.iv.next212 = add nsw i64 %indvars.iv211, 1
-  %216 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %5, i64 %indvars.iv.next212, i32 3
-  %217 = load i32, ptr %216, align 4, !tbaa !18
-  %218 = icmp sgt i32 %217, 0
-  br i1 %218, label %219, label %225
-
-219:                                              ; preds = %214
-  %220 = sext i32 %215 to i64
-  %221 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %209, i64 %220
-  %222 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %5, i64 %indvars.iv.next212
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %221, ptr noundef nonnull align 16 dereferenceable(16) %222, i64 16, i1 false)
-  %223 = load i32, ptr %207, align 4, !tbaa !8
-  %224 = add nsw i32 %223, 1
-  store i32 %224, ptr %207, align 4, !tbaa !8
-  br label %225
-
-225:                                              ; preds = %219, %214
-  %226 = phi i32 [ %224, %219 ], [ %215, %214 ]
-  %227 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %4, i64 %indvars.iv.next212, i32 3
-  %228 = load i32, ptr %227, align 4, !tbaa !18
-  %229 = icmp sgt i32 %228, 0
-  br i1 %229, label %230, label %236
-
-230:                                              ; preds = %225
-  %231 = sext i32 %226 to i64
-  %232 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %209, i64 %231
-  %233 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %4, i64 %indvars.iv.next212
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %232, ptr noundef nonnull align 16 dereferenceable(16) %233, i64 16, i1 false)
-  %234 = load i32, ptr %207, align 4, !tbaa !8
-  %235 = add nsw i32 %234, 1
-  store i32 %235, ptr %207, align 4, !tbaa !8
-  br label %236
-
-236:                                              ; preds = %225, %230
-  %237 = phi i32 [ %226, %225 ], [ %235, %230 ]
+238:                                              ; preds = %227, %233
+  %239 = phi i32 [ %228, %227 ], [ %237, %233 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next212, 4
-  br i1 %exitcond.not, label %._crit_edge180, label %214, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge180, label %216, !llvm.loop !23
 
-238:                                              ; preds = %24, %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124, %._crit_edge180
-  %.0100 = phi i8 [ %213, %._crit_edge180 ], [ 0, %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124 ], [ 0, %24 ]
+240:                                              ; preds = %24, %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124, %._crit_edge180
+  %.0100 = phi i8 [ %215, %._crit_edge180 ], [ 0, %_ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124 ], [ 0, %24 ]
   ret i8 %.0100
 }
 

@@ -470,8 +470,7 @@ _ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15: ; preds 
   %.0.i17 = phi i32 [ %23, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ], [ %38, %55 ]
   store i32 -1, ptr %2, align 4, !tbaa !32
   %62 = zext nneg i32 %.0.i17 to i64
-  %.idx = shl nuw nsw i64 %62, 4
-  %63 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %63 = getelementptr inbounds nuw %struct.PointerTOCEntry, ptr %9, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !39
   %66 = tail call ptr @UDataMemory_normalizeDataPointer_77(ptr noundef %65)

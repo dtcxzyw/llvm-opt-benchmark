@@ -94,45 +94,46 @@ define void @_ZN3tbb6detail2r112input_buffer4growEm(ptr noundef nonnull align 8 
   %15 = load i64, ptr %14, align 8, !tbaa !19
   %16 = add i64 %4, -1
   %17 = add i64 %.028, -1
-  br label %20
+  br label %21
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
-  %.02733 = phi i64 [ %19, %.lr.ph ], [ 0, %10 ]
-  %18 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %12, i64 %.02733, i32 3
-  store i8 0, ptr %18, align 1, !tbaa !20
-  %19 = add nuw i64 %.02733, 1
-  %exitcond.not = icmp eq i64 %19, %.028
+  %.02733 = phi i64 [ %20, %.lr.ph ], [ 0, %10 ]
+  %18 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %12, i64 %.02733
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
+  store i8 0, ptr %19, align 1, !tbaa !20
+  %20 = add nuw i64 %.02733, 1
+  %exitcond.not = icmp eq i64 %20, %.028
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge38:                                    ; preds = %._crit_edge
   store ptr %12, ptr %0, align 8, !tbaa !18
   store i64 %.028, ptr %3, align 8, !tbaa !3
   %.not31 = icmp eq ptr %13, null
-  br i1 %.not31, label %28, label %27
+  br i1 %.not31, label %29, label %28
 
-20:                                               ; preds = %.lr.ph37, %20
-  %.035 = phi i64 [ 0, %.lr.ph37 ], [ %25, %20 ]
-  %.02634 = phi i64 [ %15, %.lr.ph37 ], [ %26, %20 ]
-  %21 = and i64 %.02634, %16
-  %22 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %13, i64 %21
-  %23 = and i64 %.02634, %17
-  %24 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %12, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %24, ptr noundef nonnull align 8 dereferenceable(18) %22, i64 18, i1 false), !tbaa.struct !23
-  %25 = add nuw i64 %.035, 1
-  %26 = add i64 %.02634, 1
-  %exitcond42.not = icmp eq i64 %25, %4
-  br i1 %exitcond42.not, label %._crit_edge38.thread, label %20, !llvm.loop !27
+21:                                               ; preds = %.lr.ph37, %21
+  %.035 = phi i64 [ 0, %.lr.ph37 ], [ %26, %21 ]
+  %.02634 = phi i64 [ %15, %.lr.ph37 ], [ %27, %21 ]
+  %22 = and i64 %.02634, %16
+  %23 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %13, i64 %22
+  %24 = and i64 %.02634, %17
+  %25 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %12, i64 %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %25, ptr noundef nonnull align 8 dereferenceable(18) %23, i64 18, i1 false), !tbaa.struct !23
+  %26 = add nuw i64 %.035, 1
+  %27 = add i64 %.02634, 1
+  %exitcond42.not = icmp eq i64 %26, %4
+  br i1 %exitcond42.not, label %._crit_edge38.thread, label %21, !llvm.loop !27
 
-._crit_edge38.thread:                             ; preds = %20
+._crit_edge38.thread:                             ; preds = %21
   store ptr %12, ptr %0, align 8, !tbaa !18
   store i64 %.028, ptr %3, align 8, !tbaa !3
-  br label %27
-
-27:                                               ; preds = %._crit_edge38.thread, %._crit_edge38
-  tail call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %13)
   br label %28
 
-28:                                               ; preds = %27, %._crit_edge38
+28:                                               ; preds = %._crit_edge38.thread, %._crit_edge38
+  tail call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %13)
+  br label %29
+
+29:                                               ; preds = %28, %._crit_edge38
   ret void
 }
 
@@ -714,69 +715,70 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = 
   %51 = load i64, ptr %34, align 8, !tbaa !19
   %52 = add i64 %39, -1
   %53 = add i64 %.028.i, -1
-  br label %56
+  br label %57
 
 .lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.i
-  %.02733.i = phi i64 [ %55, %.lr.ph.i ], [ 0, %.noexc ]
-  %54 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %49, i64 %.02733.i, i32 3
-  store i8 0, ptr %54, align 1, !tbaa !20
-  %55 = add nuw i64 %.02733.i, 1
-  %exitcond.not.i = icmp eq i64 %55, %.028.i
+  %.02733.i = phi i64 [ %56, %.lr.ph.i ], [ 0, %.noexc ]
+  %54 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %49, i64 %.02733.i
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 17
+  store i8 0, ptr %55, align 1, !tbaa !20
+  %56 = add nuw i64 %.02733.i, 1
+  %exitcond.not.i = icmp eq i64 %56, %.028.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
 ._crit_edge38.i:                                  ; preds = %._crit_edge.i
   store ptr %49, ptr %0, align 8, !tbaa !18
   store i64 %.028.i, ptr %38, align 8, !tbaa !3
   %.not31.i = icmp eq ptr %50, null
-  br i1 %.not31.i, label %_ZN3tbb6detail2r112input_buffer4growEm.exit, label %63
+  br i1 %.not31.i, label %_ZN3tbb6detail2r112input_buffer4growEm.exit, label %64
 
-56:                                               ; preds = %56, %.lr.ph37.i
-  %.035.i = phi i64 [ 0, %.lr.ph37.i ], [ %61, %56 ]
-  %.02634.i = phi i64 [ %51, %.lr.ph37.i ], [ %62, %56 ]
-  %57 = and i64 %.02634.i, %52
-  %58 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %50, i64 %57
-  %59 = and i64 %.02634.i, %53
-  %60 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %49, i64 %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %60, ptr noundef nonnull align 8 dereferenceable(18) %58, i64 18, i1 false), !tbaa.struct !23
-  %61 = add nuw i64 %.035.i, 1
-  %62 = add i64 %.02634.i, 1
-  %exitcond42.not.i = icmp eq i64 %61, %39
-  br i1 %exitcond42.not.i, label %._crit_edge38.thread.i, label %56, !llvm.loop !27
+57:                                               ; preds = %57, %.lr.ph37.i
+  %.035.i = phi i64 [ 0, %.lr.ph37.i ], [ %62, %57 ]
+  %.02634.i = phi i64 [ %51, %.lr.ph37.i ], [ %63, %57 ]
+  %58 = and i64 %.02634.i, %52
+  %59 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %50, i64 %58
+  %60 = and i64 %.02634.i, %53
+  %61 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %49, i64 %60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %61, ptr noundef nonnull align 8 dereferenceable(18) %59, i64 18, i1 false), !tbaa.struct !23
+  %62 = add nuw i64 %.035.i, 1
+  %63 = add i64 %.02634.i, 1
+  %exitcond42.not.i = icmp eq i64 %62, %39
+  br i1 %exitcond42.not.i, label %._crit_edge38.thread.i, label %57, !llvm.loop !27
 
-._crit_edge38.thread.i:                           ; preds = %56
+._crit_edge38.thread.i:                           ; preds = %57
   store ptr %49, ptr %0, align 8, !tbaa !18
   store i64 %.028.i, ptr %38, align 8, !tbaa !3
-  br label %63
+  br label %64
 
-63:                                               ; preds = %._crit_edge38.thread.i, %._crit_edge38.i
+64:                                               ; preds = %._crit_edge38.thread.i, %._crit_edge38.i
   invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %50)
           to label %_ZN3tbb6detail2r112input_buffer4growEm.exit unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %63, %47, %66
-  %64 = landingpad { ptr, i32 }
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %64, %47, %67
+  %65 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %4 release, align 8
-  resume { ptr, i32 } %64
+  resume { ptr, i32 } %65
 
-_ZN3tbb6detail2r112input_buffer4growEm.exit:      ; preds = %._crit_edge38.i, %63, %36
-  %65 = load ptr, ptr @__itt_sync_releasing_ptr__3_0, align 8, !tbaa !24
-  %.not18 = icmp eq ptr %65, null
-  br i1 %.not18, label %67, label %66
+_ZN3tbb6detail2r112input_buffer4growEm.exit:      ; preds = %._crit_edge38.i, %64, %36
+  %66 = load ptr, ptr @__itt_sync_releasing_ptr__3_0, align 8, !tbaa !24
+  %.not18 = icmp eq ptr %66, null
+  br i1 %.not18, label %68, label %67
 
-66:                                               ; preds = %_ZN3tbb6detail2r112input_buffer4growEm.exit
-  invoke void %65(ptr noundef nonnull %0)
-          to label %67 unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
+67:                                               ; preds = %_ZN3tbb6detail2r112input_buffer4growEm.exit
+  invoke void %66(ptr noundef nonnull %0)
+          to label %68 unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
-67:                                               ; preds = %66, %_ZN3tbb6detail2r112input_buffer4growEm.exit
-  %68 = load ptr, ptr %0, align 8, !tbaa !18
-  %69 = load i64, ptr %38, align 8, !tbaa !3
-  %70 = add i64 %69, -1
-  %71 = and i64 %70, %.013
-  %72 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %68, i64 %71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %72, ptr noundef nonnull align 8 dereferenceable(18) %1, i64 18, i1 false), !tbaa.struct !23
+68:                                               ; preds = %67, %_ZN3tbb6detail2r112input_buffer4growEm.exit
+  %69 = load ptr, ptr %0, align 8, !tbaa !18
+  %70 = load i64, ptr %38, align 8, !tbaa !3
+  %71 = add i64 %70, -1
+  %72 = and i64 %71, %.013
+  %73 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %69, i64 %72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %73, ptr noundef nonnull align 8 dereferenceable(18) %1, i64 18, i1 false), !tbaa.struct !23
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit22
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit22: ; preds = %33, %67
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit22: ; preds = %33, %68
   store atomic i8 0, ptr %4 release, align 8
   ret i1 %.not
 }
@@ -899,7 +901,7 @@ define void @_ZN3tbb6detail2r18pipeline10add_filterERNS0_2d111base_filterE(ptr n
   %18 = load i32, ptr %17, align 8, !tbaa !39
   %19 = and i32 %18, 1
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %37, label %20
+  br i1 %.not, label %38, label %20
 
 20:                                               ; preds = %13
   %21 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 56)
@@ -921,85 +923,87 @@ define void @_ZN3tbb6detail2r18pipeline10add_filterERNS0_2d111base_filterE(ptr n
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %20
-  %.02733.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %20 ]
-  %32 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %30, i64 %.02733.i.i, i32 3
-  store i8 0, ptr %32, align 1, !tbaa !20
-  %33 = add nuw nsw i64 %.02733.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %33, 4
+  %.02733.i.i = phi i64 [ %34, %.lr.ph.i.i ], [ 0, %20 ]
+  %32 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %30, i64 %.02733.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 17
+  store i8 0, ptr %33, align 1, !tbaa !20
+  %34 = add nuw nsw i64 %.02733.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %34, 4
   br i1 %exitcond.not.i.i, label %._crit_edge38.i.i, label %.lr.ph.i.i, !llvm.loop !22
 
 ._crit_edge38.i.i:                                ; preds = %.lr.ph.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %30, ptr %21, align 8, !tbaa !18
-  store i64 4, ptr %34, align 8, !tbaa !3
+  store i64 4, ptr %35, align 8, !tbaa !3
   %.not31.i.i = icmp eq ptr %31, null
-  br i1 %.not31.i.i, label %_ZN3tbb6detail2r112input_bufferC2Eb.exit, label %35
+  br i1 %.not31.i.i, label %_ZN3tbb6detail2r112input_bufferC2Eb.exit, label %36
 
-35:                                               ; preds = %._crit_edge38.i.i
+36:                                               ; preds = %._crit_edge38.i.i
   tail call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %31)
   br label %_ZN3tbb6detail2r112input_bufferC2Eb.exit
 
-_ZN3tbb6detail2r112input_bufferC2Eb.exit:         ; preds = %._crit_edge38.i.i, %35
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %21, ptr %36, align 8, !tbaa !46
-  br label %55
+_ZN3tbb6detail2r112input_bufferC2Eb.exit:         ; preds = %._crit_edge38.i.i, %36
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %21, ptr %37, align 8, !tbaa !46
+  br label %57
 
-37:                                               ; preds = %13
-  %38 = and i32 %18, 4
-  %39 = icmp ne i32 %38, 0
-  %or.cond = and i1 %39, %14
-  br i1 %or.cond, label %40, label %55
+38:                                               ; preds = %13
+  %39 = and i32 %18, 4
+  %40 = icmp ne i32 %39, 0
+  %or.cond = and i1 %40, %14
+  br i1 %or.cond, label %41, label %57
 
-40:                                               ; preds = %37
-  %41 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 56)
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store i64 0, ptr %42, align 8, !tbaa !47
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %41, i8 0, i64 25, i1 false)
-  store i8 0, ptr %43, align 8, !tbaa !66
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 44
-  store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  store i8 0, ptr %45, align 8, !tbaa !67
-  %46 = tail call noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef 96)
-  %47 = load ptr, ptr %41, align 8, !tbaa !18
+41:                                               ; preds = %38
+  %42 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 56)
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  store i64 0, ptr %43, align 8, !tbaa !47
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %42, i8 0, i64 25, i1 false)
+  store i8 0, ptr %44, align 8, !tbaa !66
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 44
+  store i32 0, ptr %45, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  store i8 0, ptr %46, align 8, !tbaa !67
+  %47 = tail call noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef 96)
+  %48 = load ptr, ptr %42, align 8, !tbaa !18
   br label %.lr.ph.i.i13
 
-.lr.ph.i.i13:                                     ; preds = %.lr.ph.i.i13, %40
-  %.02733.i.i14 = phi i64 [ %49, %.lr.ph.i.i13 ], [ 0, %40 ]
-  %48 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %46, i64 %.02733.i.i14, i32 3
-  store i8 0, ptr %48, align 1, !tbaa !20
-  %49 = add nuw nsw i64 %.02733.i.i14, 1
-  %exitcond.not.i.i15 = icmp eq i64 %49, 4
+.lr.ph.i.i13:                                     ; preds = %.lr.ph.i.i13, %41
+  %.02733.i.i14 = phi i64 [ %51, %.lr.ph.i.i13 ], [ 0, %41 ]
+  %49 = getelementptr inbounds nuw %"struct.tbb::detail::r1::task_info", ptr %47, i64 %.02733.i.i14
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 17
+  store i8 0, ptr %50, align 1, !tbaa !20
+  %51 = add nuw nsw i64 %.02733.i.i14, 1
+  %exitcond.not.i.i15 = icmp eq i64 %51, 4
   br i1 %exitcond.not.i.i15, label %._crit_edge38.i.i16, label %.lr.ph.i.i13, !llvm.loop !22
 
 ._crit_edge38.i.i16:                              ; preds = %.lr.ph.i.i13
-  %50 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %46, ptr %41, align 8, !tbaa !18
-  store i64 4, ptr %50, align 8, !tbaa !3
-  %.not31.i.i17 = icmp eq ptr %47, null
-  br i1 %.not31.i.i17, label %_ZN3tbb6detail2r112input_bufferC2Eb.exit18, label %51
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store ptr %47, ptr %42, align 8, !tbaa !18
+  store i64 4, ptr %52, align 8, !tbaa !3
+  %.not31.i.i17 = icmp eq ptr %48, null
+  br i1 %.not31.i.i17, label %_ZN3tbb6detail2r112input_bufferC2Eb.exit18, label %53
 
-51:                                               ; preds = %._crit_edge38.i.i16
-  tail call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %47)
+53:                                               ; preds = %._crit_edge38.i.i16
+  tail call void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %48)
   br label %_ZN3tbb6detail2r112input_bufferC2Eb.exit18
 
-_ZN3tbb6detail2r112input_bufferC2Eb.exit18:       ; preds = %._crit_edge38.i.i16, %51
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %41, ptr %52, align 8, !tbaa !46
-  %53 = tail call noundef i32 @pthread_key_create(ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef null) #9
-  %.not.i = icmp eq i32 %53, 0
-  br i1 %.not.i, label %_ZN3tbb6detail2r112input_buffer13create_my_tlsEv.exit, label %54
+_ZN3tbb6detail2r112input_bufferC2Eb.exit18:       ; preds = %._crit_edge38.i.i16, %53
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %42, ptr %54, align 8, !tbaa !46
+  %55 = tail call noundef i32 @pthread_key_create(ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef null) #9
+  %.not.i = icmp eq i32 %55, 0
+  br i1 %.not.i, label %_ZN3tbb6detail2r112input_buffer13create_my_tlsEv.exit, label %56
 
-54:                                               ; preds = %_ZN3tbb6detail2r112input_bufferC2Eb.exit18
-  tail call void @_ZN3tbb6detail2r113handle_perrorEiPKc(i32 noundef %53, ptr noundef nonnull @.str.3)
+56:                                               ; preds = %_ZN3tbb6detail2r112input_bufferC2Eb.exit18
+  tail call void @_ZN3tbb6detail2r113handle_perrorEiPKc(i32 noundef %55, ptr noundef nonnull @.str.3)
   br label %_ZN3tbb6detail2r112input_buffer13create_my_tlsEv.exit
 
-_ZN3tbb6detail2r112input_buffer13create_my_tlsEv.exit: ; preds = %_ZN3tbb6detail2r112input_bufferC2Eb.exit18, %54
-  store i8 1, ptr %45, align 8, !tbaa !67
-  br label %55
+_ZN3tbb6detail2r112input_buffer13create_my_tlsEv.exit: ; preds = %_ZN3tbb6detail2r112input_bufferC2Eb.exit18, %56
+  store i8 1, ptr %46, align 8, !tbaa !67
+  br label %57
 
-55:                                               ; preds = %37, %_ZN3tbb6detail2r112input_buffer13create_my_tlsEv.exit, %_ZN3tbb6detail2r112input_bufferC2Eb.exit
+57:                                               ; preds = %38, %_ZN3tbb6detail2r112input_buffer13create_my_tlsEv.exit, %_ZN3tbb6detail2r112input_bufferC2Eb.exit
   ret void
 }
 

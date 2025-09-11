@@ -1317,37 +1317,35 @@ mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.preheader.i
-  %.04145.us.i = phi i64 [ %293, %.lr.ph.split.us.i ], [ %281, %.lr.ph.split.us.preheader.i ]
-  %282 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.0.4.i106117, i64 %.04145.us.i
-  %283 = load double, ptr %282, align 8, !tbaa !94
-  %284 = getelementptr inbounds nuw %struct.pointf_s, ptr %266, i64 %.04145.us.i
-  store double %283, ptr %284, align 8, !tbaa !94
-  %285 = add nuw i64 %.04145.us.i, 1
-  %286 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.0.4.i106117, i64 %285, i32 1
+  %282 = phi double [ %288, %.lr.ph.split.us.i ], [ 1.000000e+00, %.lr.ph.split.us.preheader.i ]
+  %.04145.us.i = phi i64 [ %291, %.lr.ph.split.us.i ], [ %281, %.lr.ph.split.us.preheader.i ]
+  %283 = getelementptr inbounds nuw %struct.pointf_s, ptr %.sroa.0.4.i106117, i64 %.04145.us.i
+  %284 = load double, ptr %283, align 8, !tbaa !94
+  %285 = getelementptr inbounds nuw %struct.pointf_s, ptr %266, i64 %.04145.us.i
+  store double %284, ptr %285, align 8, !tbaa !94
+  %286 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %287 = load double, ptr %286, align 8, !tbaa !95
-  %288 = getelementptr inbounds nuw %struct.pointf_s, ptr %266, i64 %285, i32 1
-  %289 = load double, ptr %288, align 8, !tbaa !95
-  %290 = call double @llvm.maxnum.f64(double %287, double %289)
-  %291 = getelementptr inbounds nuw i8, ptr %284, i64 8
-  store double %290, ptr %291, align 8, !tbaa !95
-  %292 = icmp eq i64 %.04145.us.i, 0
-  %293 = add i64 %.04145.us.i, -1
-  br i1 %292, label %.lr.ph51.i, label %.lr.ph.split.us.i
+  %288 = call double @llvm.maxnum.f64(double %287, double %282)
+  %289 = getelementptr inbounds nuw i8, ptr %285, i64 8
+  store double %288, ptr %289, align 8, !tbaa !95
+  %290 = icmp eq i64 %.04145.us.i, 0
+  %291 = add i64 %.04145.us.i, -1
+  br i1 %290, label %.lr.ph51.i, label %.lr.ph.split.us.i
 
 .lr.ph51.i:                                       ; preds = %.lr.ph.split.us.i, %.lr.ph51.i
-  %.049.i = phi i64 [ %300, %.lr.ph51.i ], [ 0, %.lr.ph.split.us.i ]
+  %.049.i = phi i64 [ %298, %.lr.ph51.i ], [ 0, %.lr.ph.split.us.i ]
   %.04048.i = phi i64 [ %.1.i91, %.lr.ph51.i ], [ 0, %.lr.ph.split.us.i ]
   %.04247.i = phi double [ %.143.i, %.lr.ph51.i ], [ 0x7FF0000000000000, %.lr.ph.split.us.i ]
-  %294 = getelementptr inbounds nuw %struct.pointf_s, ptr %266, i64 %.049.i
-  %295 = load double, ptr %294, align 8, !tbaa !94
-  %296 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  %297 = load double, ptr %296, align 8, !tbaa !95
-  %298 = fmul double %295, %297
-  %299 = fcmp olt double %298, %.04247.i
-  %.143.i = select i1 %299, double %298, double %.04247.i
-  %.1.i91 = select i1 %299, i64 %.049.i, i64 %.04048.i
-  %300 = add nuw nsw i64 %.049.i, 1
-  %exitcond.not.i92 = icmp eq i64 %300, %.sroa.30.0.lcssa164169.i105119
+  %292 = getelementptr inbounds nuw %struct.pointf_s, ptr %266, i64 %.049.i
+  %293 = load double, ptr %292, align 8, !tbaa !94
+  %294 = getelementptr inbounds nuw i8, ptr %292, i64 8
+  %295 = load double, ptr %294, align 8, !tbaa !95
+  %296 = fmul double %293, %295
+  %297 = fcmp olt double %296, %.04247.i
+  %.143.i = select i1 %297, double %296, double %.04247.i
+  %.1.i91 = select i1 %297, i64 %.049.i, i64 %.04048.i
+  %298 = add nuw nsw i64 %.049.i, 1
+  %exitcond.not.i92 = icmp eq i64 %298, %.sroa.30.0.lcssa164169.i105119
   br i1 %exitcond.not.i92, label %computeScaleXY.exit.loopexit, label %.lr.ph51.i, !llvm.loop !96
 
 computeScaleXY.exit.loopexit:                     ; preds = %.lr.ph51.i
@@ -1356,26 +1354,27 @@ computeScaleXY.exit.loopexit:                     ; preds = %.lr.ph51.i
   br label %computeScaleXY.exit
 
 computeScaleXY.exit:                              ; preds = %computeScaleXY.exit.loopexit, %._crit_edge.thread.i
-  %301 = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %.pre, %computeScaleXY.exit.loopexit ]
-  %302 = phi ptr [ %272, %._crit_edge.thread.i ], [ %266, %computeScaleXY.exit.loopexit ]
+  %299 = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %.pre, %computeScaleXY.exit.loopexit ]
+  %300 = phi ptr [ %272, %._crit_edge.thread.i ], [ %266, %computeScaleXY.exit.loopexit ]
   %.040.lcssa.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %.1.i91, %computeScaleXY.exit.loopexit ]
-  %303 = getelementptr inbounds nuw %struct.pointf_s, ptr %302, i64 %.040.lcssa.i, i32 1
-  %304 = load double, ptr %303, align 8, !tbaa !95
-  call void @free(ptr noundef nonnull %302) #17
+  %301 = getelementptr inbounds nuw %struct.pointf_s, ptr %300, i64 %.040.lcssa.i
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
+  %303 = load double, ptr %302, align 8, !tbaa !95
+  call void @free(ptr noundef nonnull %300) #17
   br label %computeScale.exit
 
 computeScale.exit:                                ; preds = %.lr.ph.i89, %.thread, %253, %computeScaleXY.exit
   %.sroa.0.4.i106115 = phi ptr [ %.sroa.0.4.i106117, %computeScaleXY.exit ], [ %.sroa.0.4.i, %253 ], [ null, %.thread ], [ %.sroa.0.4.i, %.lr.ph.i89 ]
-  %.sroa.018.2 = phi double [ %301, %computeScaleXY.exit ], [ 0.000000e+00, %253 ], [ 0.000000e+00, %.thread ], [ %.1.i, %.lr.ph.i89 ]
-  %.sroa.9.2 = phi double [ %304, %computeScaleXY.exit ], [ 0.000000e+00, %253 ], [ 0.000000e+00, %.thread ], [ %.1.i, %.lr.ph.i89 ]
+  %.sroa.018.2 = phi double [ %299, %computeScaleXY.exit ], [ 0.000000e+00, %253 ], [ 0.000000e+00, %.thread ], [ %.1.i, %.lr.ph.i89 ]
+  %.sroa.9.2 = phi double [ %303, %computeScaleXY.exit ], [ 0.000000e+00, %253 ], [ 0.000000e+00, %.thread ], [ %.1.i, %.lr.ph.i89 ]
   call void @free(ptr noundef %.sroa.0.4.i106115) #17
-  %305 = load i8, ptr @Verbose, align 1, !tbaa !85
-  %.not80 = icmp eq i8 %305, 0
-  br i1 %.not80, label %.thread126, label %306
+  %304 = load i8, ptr @Verbose, align 1, !tbaa !85
+  %.not80 = icmp eq i8 %304, 0
+  br i1 %.not80, label %.thread126, label %305
 
-306:                                              ; preds = %computeScale.exit
-  %307 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %308 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %307, ptr noundef nonnull @.str.1, double noundef %.sroa.018.2, double noundef %.sroa.9.2) #19
+305:                                              ; preds = %computeScale.exit
+  %306 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %306, ptr noundef nonnull @.str.1, double noundef %.sroa.018.2, double noundef %.sroa.9.2) #19
   br label %.thread126
 
 mkOverlapSet.exit.thread:                         ; preds = %points_append.exit.i, %mkOverlapSet.exit
@@ -1383,32 +1382,32 @@ mkOverlapSet.exit.thread:                         ; preds = %points_append.exit.
   call void @free(ptr noundef %.sroa.0.4.i98) #17
   br label %compress.exit.thread
 
-.thread126:                                       ; preds = %computeScale.exit, %306, %125, %127
-  %.sroa.018.0 = phi double [ %.1.lcssa.i, %127 ], [ %.1.lcssa.i, %125 ], [ %.sroa.018.2, %306 ], [ %.sroa.018.2, %computeScale.exit ]
-  %.sroa.9.0 = phi double [ %.1.lcssa.i, %127 ], [ %.1.lcssa.i, %125 ], [ %.sroa.9.2, %306 ], [ %.sroa.9.2, %computeScale.exit ]
-  %309 = icmp sgt i32 %6, 0
-  br i1 %309, label %.lr.ph136, label %compress.exit.thread
+.thread126:                                       ; preds = %computeScale.exit, %305, %125, %127
+  %.sroa.018.0 = phi double [ %.1.lcssa.i, %127 ], [ %.1.lcssa.i, %125 ], [ %.sroa.018.2, %305 ], [ %.sroa.018.2, %computeScale.exit ]
+  %.sroa.9.0 = phi double [ %.1.lcssa.i, %127 ], [ %.1.lcssa.i, %125 ], [ %.sroa.9.2, %305 ], [ %.sroa.9.2, %computeScale.exit ]
+  %308 = icmp sgt i32 %6, 0
+  br i1 %308, label %.lr.ph136, label %compress.exit.thread
 
 .lr.ph136:                                        ; preds = %.thread126, %.lr.ph136
-  %.170135 = phi ptr [ %322, %.lr.ph136 ], [ %20, %.thread126 ]
-  %.075134 = phi i32 [ %323, %.lr.ph136 ], [ 0, %.thread126 ]
-  %310 = load double, ptr %.170135, align 8, !tbaa !72
-  %311 = fmul double %.sroa.018.0, %310
-  %312 = getelementptr inbounds nuw i8, ptr %.170135, i64 64
-  %313 = load ptr, ptr %312, align 8, !tbaa !81
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
-  %315 = load ptr, ptr %314, align 8, !tbaa !12
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 176
-  %317 = load ptr, ptr %316, align 8, !tbaa !18
-  store double %311, ptr %317, align 8, !tbaa !8
-  %318 = getelementptr inbounds nuw i8, ptr %.170135, i64 8
-  %319 = load double, ptr %318, align 8, !tbaa !74
-  %320 = fmul double %.sroa.9.0, %319
-  %321 = getelementptr inbounds nuw i8, ptr %317, i64 8
-  store double %320, ptr %321, align 8, !tbaa !8
-  %322 = getelementptr inbounds nuw i8, ptr %.170135, i64 72
-  %323 = add nuw nsw i32 %.075134, 1
-  %exitcond.not = icmp eq i32 %323, %6
+  %.170135 = phi ptr [ %321, %.lr.ph136 ], [ %20, %.thread126 ]
+  %.075134 = phi i32 [ %322, %.lr.ph136 ], [ 0, %.thread126 ]
+  %309 = load double, ptr %.170135, align 8, !tbaa !72
+  %310 = fmul double %.sroa.018.0, %309
+  %311 = getelementptr inbounds nuw i8, ptr %.170135, i64 64
+  %312 = load ptr, ptr %311, align 8, !tbaa !81
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
+  %314 = load ptr, ptr %313, align 8, !tbaa !12
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 176
+  %316 = load ptr, ptr %315, align 8, !tbaa !18
+  store double %310, ptr %316, align 8, !tbaa !8
+  %317 = getelementptr inbounds nuw i8, ptr %.170135, i64 8
+  %318 = load double, ptr %317, align 8, !tbaa !74
+  %319 = fmul double %.sroa.9.0, %318
+  %320 = getelementptr inbounds nuw i8, ptr %316, i64 8
+  store double %319, ptr %320, align 8, !tbaa !8
+  %321 = getelementptr inbounds nuw i8, ptr %.170135, i64 72
+  %322 = add nuw nsw i32 %.075134, 1
+  %exitcond.not = icmp eq i32 %322, %6
   br i1 %exitcond.not, label %compress.exit.thread, label %.lr.ph136, !llvm.loop !97
 
 compress.exit.thread:                             ; preds = %89, %.lr.ph136, %.thread126, %compress.exit, %62, %mkOverlapSet.exit.thread

@@ -1152,16 +1152,17 @@ declare ptr @dt_bauhaus_widget_set_label(ptr noundef, ptr noundef, ptr noundef) 
 define internal void @bpp_toggle_callback(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #16
   %4 = icmp sgt i32 %3, -1
-  br i1 %4, label %5, label %9
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %6, i32 1
-  %8 = load i32, ptr %7, align 8, !tbaa !127
-  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.43, i32 noundef %8) #16
-  br label %9
+  %7 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load i32, ptr %8, align 8, !tbaa !127
+  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.43, i32 noundef %9) #16
+  br label %10
 
-9:                                                ; preds = %5, %2
+10:                                               ; preds = %5, %2
   ret void
 }
 
@@ -1266,17 +1267,18 @@ size_toggle_callback.exit:                        ; preds = %41, %45
 
 57:                                               ; preds = %size_toggle_callback.exit
   %58 = zext nneg i32 %55 to i64
-  %59 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %58, i32 1
-  %60 = load i32, ptr %59, align 8, !tbaa !127
-  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.43, i32 noundef %60) #16
+  %59 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load i32, ptr %60, align 8, !tbaa !127
+  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.43, i32 noundef %61) #16
   br label %bpp_toggle_callback.exit
 
 bpp_toggle_callback.exit:                         ; preds = %size_toggle_callback.exit, %57
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %62 = load ptr, ptr %61, align 8, !tbaa !123
-  %63 = tail call ptr @g_type_check_instance_cast(ptr noundef %62, i64 noundef %6) #16
-  %64 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %63) #16
-  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.50, i32 noundef %64) #16
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %63 = load ptr, ptr %62, align 8, !tbaa !123
+  %64 = tail call ptr @g_type_check_instance_cast(ptr noundef %63, i64 noundef %6) #16
+  %65 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %64) #16
+  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.50, i32 noundef %65) #16
   ret void
 }
 
@@ -1376,7 +1378,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = load ptr, ptr %5, align 8, !tbaa !130
   %7 = tail call i64 %6(ptr noundef %0) #16
   %.not = icmp eq i64 %7, %4
-  br i1 %.not, label %8, label %66
+  br i1 %.not, label %8, label %67
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -1385,7 +1387,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 72
   br label %57
 
-13:                                               ; preds = %65
+13:                                               ; preds = %66
   %14 = load ptr, ptr %10, align 8, !tbaa !109
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 148
   tail call void @gtk_entry_set_text(ptr noundef %14, ptr noundef nonnull %15) #16
@@ -1449,27 +1451,28 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.37, i32 noundef %55) #16
   %56 = load i32, ptr %46, align 4, !tbaa !56
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.30, i32 noundef %56) #16
+  br label %67
+
+57:                                               ; preds = %8, %66
+  %.not42 = phi i1 [ false, %8 ], [ true, %66 ]
+  %indvars.iv = phi i64 [ 0, %8 ], [ 1, %66 ]
+  %58 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load i32, ptr %59, align 8, !tbaa !127
+  %61 = load i32, ptr %11, align 8, !tbaa !42
+  %62 = icmp eq i32 %60, %61
+  br i1 %62, label %63, label %66
+
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %12, align 8, !tbaa !120
+  %65 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %64, i32 noundef %65) #16
   br label %66
 
-57:                                               ; preds = %8, %65
-  %.not42 = phi i1 [ false, %8 ], [ true, %65 ]
-  %indvars.iv = phi i64 [ 0, %8 ], [ 1, %65 ]
-  %58 = getelementptr inbounds nuw %struct.anon.0, ptr @_pdf_bpp, i64 %indvars.iv, i32 1
-  %59 = load i32, ptr %58, align 8, !tbaa !127
-  %60 = load i32, ptr %11, align 8, !tbaa !42
-  %61 = icmp eq i32 %59, %60
-  br i1 %61, label %62, label %65
-
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %12, align 8, !tbaa !120
-  %64 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %63, i32 noundef %64) #16
-  br label %65
-
-65:                                               ; preds = %57, %62
+66:                                               ; preds = %57, %63
   br i1 %.not42, label %13, label %57
 
-66:                                               ; preds = %3, %13
+67:                                               ; preds = %3, %13
   %.041 = phi i32 [ 0, %13 ], [ 1, %3 ]
   ret i32 %.041
 }

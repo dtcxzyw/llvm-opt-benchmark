@@ -4038,7 +4038,8 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %first = getelementptr inbounds nuw %struct.ChatFormattedLine, ptr %2, i64 %conv5, i32 1
+  %first.split = getelementptr inbounds nuw %struct.ChatFormattedLine, ptr %2, i64 %conv5
+  %first = getelementptr inbounds nuw i8, ptr %first.split, i64 24
   %7 = load i8, ptr %first, align 8, !tbaa !71, !range !37, !noundef !89
   %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %cond.false, label %while.cond12
@@ -4055,7 +4056,8 @@ while.cond12:                                     ; preds = %if.then, %land.rhs1
   br i1 %cmp16, label %land.rhs17, label %if.end
 
 land.rhs17:                                       ; preds = %while.cond12
-  %first21 = getelementptr inbounds nuw %struct.ChatFormattedLine, ptr %2, i64 %conv13, i32 1
+  %first21.split = getelementptr inbounds nuw %struct.ChatFormattedLine, ptr %2, i64 %conv13
+  %first21 = getelementptr inbounds nuw i8, ptr %first21.split, i64 24
   %8 = load i8, ptr %first21, align 8, !tbaa !71, !range !37, !noundef !89
   %tobool22.not = icmp eq i8 %8, 0
   br i1 %tobool22.not, label %while.cond12, label %if.end, !llvm.loop !97
@@ -4629,22 +4631,20 @@ for.body.preheader.new:                           ; preds = %for.body.preheader
 for.body:                                         ; preds = %for.body, %for.body.preheader.new
   %indvars.iv = phi i64 [ 0, %for.body.preheader.new ], [ %indvars.iv.next.3, %for.body ]
   %restore_scroll_unformatted.0125 = phi i32 [ 0, %for.body.preheader.new ], [ %spec.select.3, %for.body ]
-  %first = getelementptr inbounds nuw %struct.ChatFormattedLine, ptr %16, i64 %indvars.iv, i32 1
+  %first.split = getelementptr inbounds nuw %struct.ChatFormattedLine, ptr %16, i64 %indvars.iv
+  %first = getelementptr inbounds nuw i8, ptr %first.split, i64 24
   %18 = load i8, ptr %first, align 8, !tbaa !71, !range !37, !noundef !89
   %inc = zext nneg i8 %18 to i32
   %spec.select = add i32 %restore_scroll_unformatted.0125, %inc
-  %indvars.iv.next = or disjoint i64 %indvars.iv, 1
-  %first.1 = getelementptr inbounds nuw %struct.ChatFormattedLine, ptr %16, i64 %indvars.iv.next, i32 1
+  %first.1 = getelementptr inbounds nuw i8, ptr %first.split, i64 56
   %19 = load i8, ptr %first.1, align 8, !tbaa !71, !range !37, !noundef !89
   %inc.1 = zext nneg i8 %19 to i32
   %spec.select.1 = add i32 %spec.select, %inc.1
-  %indvars.iv.next.1 = or disjoint i64 %indvars.iv, 2
-  %first.2 = getelementptr inbounds nuw %struct.ChatFormattedLine, ptr %16, i64 %indvars.iv.next.1, i32 1
+  %first.2 = getelementptr inbounds nuw i8, ptr %first.split, i64 88
   %20 = load i8, ptr %first.2, align 8, !tbaa !71, !range !37, !noundef !89
   %inc.2 = zext nneg i8 %20 to i32
   %spec.select.2 = add i32 %spec.select.1, %inc.2
-  %indvars.iv.next.2 = or disjoint i64 %indvars.iv, 3
-  %first.3 = getelementptr inbounds nuw %struct.ChatFormattedLine, ptr %16, i64 %indvars.iv.next.2, i32 1
+  %first.3 = getelementptr inbounds nuw i8, ptr %first.split, i64 120
   %21 = load i8, ptr %first.3, align 8, !tbaa !71, !range !37, !noundef !89
   %inc.3 = zext nneg i8 %21 to i32
   %spec.select.3 = add i32 %spec.select.2, %inc.3
@@ -4663,7 +4663,8 @@ for.body.epil:                                    ; preds = %if.end19.loopexit.u
   %indvars.iv.epil = phi i64 [ %indvars.iv.next.epil, %for.body.epil ], [ %indvars.iv.unr, %if.end19.loopexit.unr-lcssa ]
   %restore_scroll_unformatted.0125.epil = phi i32 [ %spec.select.epil, %for.body.epil ], [ %restore_scroll_unformatted.0125.unr, %if.end19.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.epil ], [ 0, %if.end19.loopexit.unr-lcssa ]
-  %first.epil = getelementptr inbounds nuw %struct.ChatFormattedLine, ptr %16, i64 %indvars.iv.epil, i32 1
+  %first.epil.split = getelementptr inbounds nuw %struct.ChatFormattedLine, ptr %16, i64 %indvars.iv.epil
+  %first.epil = getelementptr inbounds nuw i8, ptr %first.epil.split, i64 24
   %22 = load i8, ptr %first.epil, align 8, !tbaa !71, !range !37, !noundef !89
   %inc.epil = zext nneg i8 %22 to i32
   %spec.select.epil = add i32 %restore_scroll_unformatted.0125.epil, %inc.epil

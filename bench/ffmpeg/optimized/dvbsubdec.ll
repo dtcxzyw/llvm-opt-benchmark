@@ -3283,7 +3283,7 @@ default.unreachable:                              ; preds = %407
   %558 = add i32 %520, %557
   %559 = add nsw i32 %544, -1
   %560 = call i32 @llvm.umin.i32(i32 %558, i32 %559)
-  %umin58.i = zext i32 %560 to i64
+  %umin58.i = zext nneg i32 %560 to i64
   %561 = add nuw nsw i64 %umin58.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0499.us.us.i, i8 %.046.us.us.i, i64 %561, i1 false), !tbaa !38
   %scevgep59.i = getelementptr i8, ptr %.0499.us.us.i, i64 1
@@ -3345,7 +3345,7 @@ default.unreachable:                              ; preds = %407
   %587 = add i32 %520, %586
   %588 = add nsw i32 %575, -1
   %589 = call i32 @llvm.umin.i32(i32 %587, i32 %588)
-  %umin.i112 = zext i32 %589 to i64
+  %umin.i112 = zext nneg i32 %589 to i64
   %590 = add nuw nsw i64 %umin.i112, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0499.i, i8 %.04668.i, i64 %590, i1 false), !tbaa !38
   %scevgep.i113 = getelementptr i8, ptr %.0499.i, i64 1

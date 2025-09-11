@@ -1133,7 +1133,7 @@ initialize_members.exit.thread:                   ; preds = %23, %27
   store i64 %42, ptr %43, align 8, !tbaa !34
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i32 1, ptr %44, align 8, !tbaa !35
-  %45 = getelementptr %struct.PyStructSequence_Field, ptr %32, i64 %.02934.i, i32 1
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !36
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %46, ptr %47, align 8, !tbaa !37
@@ -1531,7 +1531,7 @@ initialize_members.exit.thread:                   ; preds = %count_members.exit,
   store i64 %33, ptr %34, align 8, !tbaa !34
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i32 1, ptr %35, align 8, !tbaa !35
-  %36 = getelementptr %struct.PyStructSequence_Field, ptr %23, i64 %.02934.i, i32 1
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !36
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr %37, ptr %38, align 8, !tbaa !37
@@ -1743,7 +1743,7 @@ initialize_members.exit.thread:                   ; preds = %count_members.exit,
   store i64 %33, ptr %34, align 8, !tbaa !34
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i32 1, ptr %35, align 8, !tbaa !35
-  %36 = getelementptr %struct.PyStructSequence_Field, ptr %23, i64 %.02934.i, i32 1
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !36
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr %37, ptr %38, align 8, !tbaa !37

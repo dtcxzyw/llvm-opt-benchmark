@@ -495,18 +495,20 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
   %59 = getelementptr inbounds nuw i8, ptr %40, i64 %58
   %wide.trip.count = zext nneg i32 %6 to i64
   %wide.trip.count120 = zext nneg i32 %6 to i64
+  %.073.in.idx = select i1 %4, i64 4, i64 0
+  %invariant.gep129 = getelementptr i8, ptr %2, i64 %.073.in.idx
   br label %60
 
-._crit_edge116:                                   ; preds = %112, %13
+._crit_edge116:                                   ; preds = %110, %13
   ret void
 
-60:                                               ; preds = %.lr.ph115, %112
-  %.sroa.091.0113 = phi ptr [ %30, %.lr.ph115 ], [ %113, %112 ]
+60:                                               ; preds = %.lr.ph115, %110
+  %.sroa.091.0113 = phi ptr [ %30, %.lr.ph115 ], [ %111, %110 ]
   %61 = load i32, ptr %.sroa.091.0113, align 4, !tbaa !128
   br i1 %38, label %.lr.ph, label %.critedge
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %spec.select, label %.critedge, label %112
+  br i1 %spec.select, label %.critedge, label %110
 
 .lr.ph:                                           ; preds = %60, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %60 ]
@@ -527,88 +529,86 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
   %.0.i = getelementptr i32, ptr %.0.i.v, i64 %66
   %68 = load i32, ptr %.0.i, align 4, !tbaa !128
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %69, i32 0, i32 0, i64 1
-  %71 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %69
-  %.073.in = select i1 %4, ptr %70, ptr %71
-  %.073 = load float, ptr %.073.in, align 4, !tbaa !160
-  %72 = fadd float %9, %.073
-  %73 = fadd float %10, %.073
-  %.075 = select i1 %44, float %10, float %73
-  %.074 = select i1 %44, float %72, float %9
-  %74 = fmul float %.075, %.075
-  %75 = tail call float @llvm.fmuladd.f32(float %.074, float %.074, float %74)
-  %76 = tail call float @llvm.fmuladd.f32(float %.074, float %.075, float %75)
-  %77 = load float, ptr %11, align 4, !tbaa !129
-  %78 = fcmp ogt float %76, %77
-  br i1 %78, label %79, label %100
+  %gep = getelementptr %union.t_iparams, ptr %invariant.gep129, i64 %69
+  %.073 = load float, ptr %gep, align 4, !tbaa !160
+  %70 = fadd float %9, %.073
+  %71 = fadd float %10, %.073
+  %.075 = select i1 %44, float %10, float %71
+  %.074 = select i1 %44, float %70, float %9
+  %72 = fmul float %.075, %.075
+  %73 = tail call float @llvm.fmuladd.f32(float %.074, float %.074, float %72)
+  %74 = tail call float @llvm.fmuladd.f32(float %.074, float %.075, float %73)
+  %75 = load float, ptr %11, align 4, !tbaa !129
+  %76 = fcmp ogt float %74, %75
+  br i1 %76, label %77, label %98
 
-79:                                               ; preds = %.critedge
-  %80 = tail call float @llvm.fmuladd.f32(float %9, float %.075, float %75)
-  store float %80, ptr %11, align 4, !tbaa !129
-  %81 = load ptr, ptr @debug, align 8, !tbaa !163
-  %.not = icmp eq ptr %81, null
-  br i1 %.not, label %100, label %82
+77:                                               ; preds = %.critedge
+  %78 = tail call float @llvm.fmuladd.f32(float %9, float %.075, float %73)
+  store float %78, ptr %11, align 4, !tbaa !129
+  %79 = load ptr, ptr @debug, align 8, !tbaa !163
+  %.not = icmp eq ptr %79, null
+  br i1 %.not, label %98, label %80
 
-82:                                               ; preds = %79
-  %83 = fpext float %.074 to double
-  %84 = fpext float %.075 to double
-  %85 = tail call noundef float @sqrtf(float noundef %80) #15, !tbaa !128
-  %86 = fpext float %85 to double
-  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %81, ptr noundef nonnull @.str.2, double noundef %83, double noundef %84, double noundef %86) #15
+80:                                               ; preds = %77
+  %81 = fpext float %.074 to double
+  %82 = fpext float %.075 to double
+  %83 = tail call noundef float @sqrtf(float noundef %78) #15, !tbaa !128
+  %84 = fpext float %83 to double
+  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %79, ptr noundef nonnull @.str.2, double noundef %81, double noundef %82, double noundef %84) #15
   br i1 %38, label %.lr.ph110, label %._crit_edge111
 
-._crit_edge111:                                   ; preds = %.lr.ph110, %82
-  %88 = load ptr, ptr @debug, align 8, !tbaa !163
-  %89 = fpext float %.073 to double
-  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.4, i32 noundef %61, double noundef %89) #15
-  br label %100
+._crit_edge111:                                   ; preds = %.lr.ph110, %80
+  %86 = load ptr, ptr @debug, align 8, !tbaa !163
+  %87 = fpext float %.073 to double
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.4, i32 noundef %61, double noundef %87) #15
+  br label %98
 
-.lr.ph110:                                        ; preds = %82, %.lr.ph110
-  %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph110 ], [ 0, %82 ]
-  %91 = load ptr, ptr @debug, align 8, !tbaa !163
-  %92 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv117
-  %93 = load i32, ptr %92, align 4, !tbaa !128
-  %94 = load i32, ptr %.0.i, align 4, !tbaa !128
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %95
-  %97 = load float, ptr %96, align 4, !tbaa !160
-  %98 = fpext float %97 to double
-  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.3, i32 noundef %93, double noundef %98) #15
+.lr.ph110:                                        ; preds = %80, %.lr.ph110
+  %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph110 ], [ 0, %80 ]
+  %89 = load ptr, ptr @debug, align 8, !tbaa !163
+  %90 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv117
+  %91 = load i32, ptr %90, align 4, !tbaa !128
+  %92 = load i32, ptr %.0.i, align 4, !tbaa !128
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %93
+  %95 = load float, ptr %94, align 4, !tbaa !160
+  %96 = fpext float %95 to double
+  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.3, i32 noundef %91, double noundef %96) #15
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
   br i1 %exitcond121.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !165
 
-100:                                              ; preds = %79, %._crit_edge111, %.critedge
-  br i1 %46, label %101, label %112
+98:                                               ; preds = %77, %._crit_edge111, %.critedge
+  br i1 %46, label %99, label %110
 
-101:                                              ; preds = %100
-  %102 = load i32, ptr %12, align 4, !tbaa !128
-  %103 = icmp slt i32 %102, %47
-  br i1 %103, label %104, label %112
+99:                                               ; preds = %98
+  %100 = load i32, ptr %12, align 4, !tbaa !128
+  %101 = icmp slt i32 %100, %47
+  br i1 %101, label %102, label %110
 
-104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %106 = load i32, ptr %105, align 4, !tbaa !128
-  %107 = icmp eq i32 %106, %5
-  br i1 %107, label %108, label %111
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %104 = load i32, ptr %103, align 4, !tbaa !128
+  %105 = icmp eq i32 %104, %5
+  br i1 %105, label %106, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %110 = load i32, ptr %109, align 4, !tbaa !128
-  br label %111
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %108 = load i32, ptr %107, align 4, !tbaa !128
+  br label %109
 
-111:                                              ; preds = %104, %108
-  %.0 = phi i32 [ %110, %108 ], [ %106, %104 ]
+109:                                              ; preds = %102, %106
+  %.0 = phi i32 [ %108, %106 ], [ %104, %102 ]
   store i32 %61, ptr %49, align 4, !tbaa !128
   store ptr %40, ptr %14, align 8, !tbaa !130
   store ptr %59, ptr %54, align 8, !tbaa !130
   tail call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm95EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(2280) %1, ptr %2, ptr %53, i1 noundef zeroext %4, i32 noundef %.0, i32 noundef %45, i32 noundef %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.107") align 8 %14, float noundef %.074, float noundef %.075, ptr noundef %11, ptr noundef %12)
   store i32 -1, ptr %49, align 4, !tbaa !128
-  br label %112
+  br label %110
 
-112:                                              ; preds = %100, %101, %111, %._crit_edge
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.091.0113, i64 4
-  %.not105 = icmp eq ptr %113, %28
+110:                                              ; preds = %98, %99, %109, %._crit_edge
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.091.0113, i64 4
+  %.not105 = icmp eq ptr %111, %28
   br i1 %.not105, label %._crit_edge116, label %60
 }
 

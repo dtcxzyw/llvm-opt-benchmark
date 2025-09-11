@@ -597,7 +597,8 @@ cond.false.i.i:                                   ; preds = %land.lhs.true.i.i, 
   unreachable
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re26RegexpEiEENS1_6HashEqIS6_vE4HashENS9_2EqESaISt4pairIKS6_iEEE8iteratordeEv.exit: ; preds = %land.lhs.true.i.i
-  %second.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 1
+  %add.ptr2.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i
+  %second.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i, i64 8
   ret ptr %second.i
 }
 
@@ -1135,7 +1136,8 @@ cond.false.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
   unreachable
 
 invoke.cont3.i:                                   ; preds = %land.lhs.true.i.i.i
-  %second.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %24, i64 %retval.sroa.0.0.i15.i.i, i32 1
+  %add.ptr2.i.i.i = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %24, i64 %retval.sroa.0.0.i15.i.i
+  %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i.i, i64 8
   %27 = load i32, ptr %second.i.i, align 4
   %sub.i = add nsw i32 %27, -1
   %cmp5.i = icmp slt i32 %27, 65536

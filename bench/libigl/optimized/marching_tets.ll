@@ -199,7 +199,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; 
   %59 = getelementptr i32, ptr %56, i64 %indvars.iv807
   %60 = getelementptr i32, ptr %59, i64 %58
   %61 = load i32, ptr %60, align 4, !tbaa !15
-  %62 = getelementptr inbounds [2 x i32], ptr @__const._ZN3igl13marching_tetsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi1ELi0ELin1ELi1EEES3_S4_NS2_IiLin1ELi1ELi0ELin1ELi1EEEdEEvRKNS1_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EENSG_6ScalarERNS1_15PlainObjectBaseIT2_EERNSL_IT3_EERNSL_IT4_EERNS1_12SparseMatrixIT5_Li0EiEE.mt_edge_lookup, i64 %52, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !15
   %64 = sext i32 %63 to i64
   %65 = mul nsw i64 %57, %64

@@ -84,20 +84,21 @@ define { ptr, i64 } @"_ZN22cranelift_codegen_meta4cdsl8settings6Preset13setting_
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ult i64 %4, %6
-  br i1 %7, label %8, label %17, !prof !5
+  br i1 %7, label %8, label %18, !prof !5
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %10, i64 %4, i32 1
-  %12 = load ptr, ptr %11, align 8, !nonnull !3, !align !6, !noundef !3
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %14 = load i64, ptr %13, align 8, !noundef !3
-  %15 = insertvalue { ptr, i64 } poison, ptr %12, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %14, 1
-  ret { ptr, i64 } %16
+  %11 = getelementptr inbounds { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %10, i64 %4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %13 = load ptr, ptr %12, align 8, !nonnull !3, !align !6, !noundef !3
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %15 = load i64, ptr %14, align 8, !noundef !3
+  %16 = insertvalue { ptr, i64 } poison, ptr %13, 0
+  %17 = insertvalue { ptr, i64 } %16, i64 %15, 1
+  ret { ptr, i64 } %17
 
-17:                                               ; preds = %2
+18:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %4, i64 %6, ptr nonnull align 8 @anon.afce8de8b73192e14840ebbd473a0322.5) #9
   unreachable
 }

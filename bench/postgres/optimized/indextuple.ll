@@ -364,9 +364,8 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 .lr.ph195:                                        ; preds = %53, %55
   %.0127194 = phi i32 [ %56, %55 ], [ 0, %53 ]
   %57 = sext i32 %.0127194 to i64
-  %.idx = shl nsw i64 %57, 4
-  %58 = getelementptr i8, ptr %22, i64 %.idx
-  %59 = getelementptr i8, ptr %58, i64 4
+  %58 = getelementptr inbounds %struct.CompactAttribute, ptr %22, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i16, ptr %59, align 4
   %61 = icmp slt i16 %60, 1
   br i1 %61, label %.preheader, label %55

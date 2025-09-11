@@ -12317,25 +12317,26 @@ _ZN4llvm9MCContext19getMCDwarfLineTableEj.exit:   ; preds = %15, %.critedge.i.i
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %23 = load i16, ptr %22, align 8, !tbaa !196
   %24 = icmp ugt i16 %23, 4
-  br label %35
+  br label %36
 
 25:                                               ; preds = %_ZN4llvm9MCContext19getMCDwarfLineTableEj.exit
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 168
   %27 = load i32, ptr %26, align 8, !tbaa !180
   %.not = icmp ugt i32 %27, %1
-  br i1 %.not, label %28, label %35
+  br i1 %.not, label %28, label %36
 
 28:                                               ; preds = %25
   %29 = zext i32 %1 to i64
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 160
   %31 = load ptr, ptr %30, align 8, !tbaa !179
-  %32 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFile", ptr %31, i64 %29, i32 0, i32 1
-  %33 = load i64, ptr %32, align 8, !tbaa !15
-  %34 = icmp ne i64 %33, 0
-  br label %35
+  %32 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFile", ptr %31, i64 %29
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load i64, ptr %33, align 8, !tbaa !15
+  %35 = icmp ne i64 %34, 0
+  br label %36
 
-35:                                               ; preds = %25, %28, %21
-  %.0 = phi i1 [ %24, %21 ], [ %34, %28 ], [ false, %25 ]
+36:                                               ; preds = %25, %28, %21
+  %.0 = phi i1 [ %24, %21 ], [ %35, %28 ], [ false, %25 ]
   ret i1 %.0
 }
 

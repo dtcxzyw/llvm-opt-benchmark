@@ -13426,12 +13426,13 @@ define dso_local noundef ptr @_ZN4llvm12DWARFContext18getTypeUnitForHashEmb(ptr 
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6doFindImEEPKS8_RKT_.exit.i: ; preds = %48, %35
   %56 = phi i64 [ %42, %35 ], [ %52, %48 ]
-  %57 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.703", ptr %31, i64 %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8, !tbaa !505
+  %57 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.703", ptr %31, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8, !tbaa !505
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6lookupERKm.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6lookupERKm.exit: ; preds = %.lr.ph.i.i.i, %21, %19, %17, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6doFindImEEPKS8_RKT_.exit.i, %25
-  %.2 = phi ptr [ %58, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6doFindImEEPKS8_RKT_.exit.i ], [ null, %25 ], [ null, %17 ], [ %spec.select.i.i.i, %21 ], [ null, %19 ], [ null, %.lr.ph.i.i.i ]
+  %.2 = phi ptr [ %59, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_13DWARFTypeUnitENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E6doFindImEEPKS8_RKT_.exit.i ], [ null, %25 ], [ null, %17 ], [ %spec.select.i.i.i, %21 ], [ null, %19 ], [ null, %.lr.ph.i.i.i ]
   ret ptr %.2
 }
 
@@ -31715,9 +31716,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_6object10SectionRefEN12_GLOBAL__N_1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %56 = zext i32 %54 to i64
   %.val8 = load ptr, ptr %55, align 8, !tbaa !164
-  %57 = getelementptr inbounds nuw %"struct.std::pair.941", ptr %.val8, i64 %56, i32 1
+  %57 = getelementptr inbounds nuw %"struct.std::pair.941", ptr %.val8, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %57
+  ret ptr %58
 }
 
 declare { ptr, ptr } @_ZN4llvm6object21getRelocationResolverERKNS0_10ObjectFileE(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1

@@ -1696,12 +1696,12 @@ define void @_ZNK3gmx10ImdSession4Impl14copyToMDForcesEv(ptr noundef nonnull rea
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %22 = load float, ptr %21, align 4, !tbaa !175
   %23 = fmul float %22, 0x4044EB8520000000
-  %24 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float %23, ptr %24, align 4, !tbaa !175
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %26 = load float, ptr %25, align 4, !tbaa !175
   %27 = fmul float %26, 0x4044EB8520000000
-  %28 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store float %27, ptr %28, align 4, !tbaa !175
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %2, align 8, !tbaa !171
@@ -2167,12 +2167,12 @@ define void @_ZN3gmx10ImdSession4Impl9syncNodesEPK9t_commrecd(ptr noundef nonnul
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %89 = load float, ptr %88, align 4, !tbaa !175
   %90 = fmul float %89, 0x4044EB8520000000
-  %91 = getelementptr inbounds nuw [3 x float], ptr %66, i64 %indvars.iv.i, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store float %90, ptr %91, align 4, !tbaa !175
   %92 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %93 = load float, ptr %92, align 4, !tbaa !175
   %94 = fmul float %93, 0x4044EB8520000000
-  %95 = getelementptr inbounds nuw [3 x float], ptr %66, i64 %indvars.iv.i, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store float %94, ptr %95, align 4, !tbaa !175
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %96 = load i32, ptr %57, align 8, !tbaa !171
@@ -3484,11 +3484,11 @@ define void @_ZNK3gmx10ImdSession4Impl21removeMolecularShiftsEPA3_Kf(ptr noundef
   %34 = load i32, ptr %33, align 4, !tbaa !161
   %spec.select63 = tail call i32 @llvm.smax.i32(i32 %34, i32 %.sroa.053.069)
   %.sroa.049.1 = tail call i32 @llvm.smin.i32(i32 %34, i32 %.sroa.049.072)
-  %35 = getelementptr inbounds [3 x i32], ptr %7, i64 %indvars.iv, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !161
   %.sroa.755.1 = tail call i32 @llvm.smax.i32(i32 %36, i32 %.sroa.755.068)
   %.sroa.7.1 = tail call i32 @llvm.smin.i32(i32 %36, i32 %.sroa.7.071)
-  %37 = getelementptr inbounds [3 x i32], ptr %7, i64 %indvars.iv, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load i32, ptr %37, align 4, !tbaa !161
   %.sroa.1257.1 = tail call i32 @llvm.smax.i32(i32 %38, i32 %.sroa.1257.067)
   %.sroa.12.1 = tail call i32 @llvm.smin.i32(i32 %38, i32 %.sroa.12.070)

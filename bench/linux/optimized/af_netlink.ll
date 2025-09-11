@@ -1548,14 +1548,15 @@ define dso_local range(i32 0, 2) i32 @netlink_has_listeners(ptr noundef %0, i32 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %11 = load i16, ptr %10, align 4
   %12 = zext i16 %11 to i64
-  %13 = getelementptr %struct.netlink_table, ptr %9, i64 %12, i32 2
+  %.split = getelementptr %struct.netlink_table, ptr %9, i64 %12
+  %13 = getelementptr i8, ptr %.split, i64 144
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %27, label %16
 
 16:                                               ; preds = %8
   %17 = add i32 %1, -1
-  %18 = getelementptr %struct.netlink_table, ptr %9, i64 %12, i32 4
+  %18 = getelementptr i8, ptr %.split, i64 156
   %19 = load i32, ptr %18, align 4
   %20 = icmp ult i32 %17, %19
   br i1 %20, label %21, label %27
@@ -1598,7 +1599,8 @@ define dso_local noundef range(i32 -105, 1) i32 @netlink_broadcast_filtered(ptr 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %14 = load i16, ptr %13, align 4
   %15 = zext i16 %14 to i64
-  %16 = getelementptr %struct.netlink_table, ptr %12, i64 %15, i32 1
+  %.split = getelementptr %struct.netlink_table, ptr %12, i64 %15
+  %16 = getelementptr i8, ptr %.split, i64 136
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   %19 = getelementptr i8, ptr %17, i64 -24
@@ -2082,7 +2084,8 @@ define dso_local i32 @netlink_set_err(ptr noundef readonly captures(address) %0,
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i64
-  %11 = getelementptr %struct.netlink_table, ptr %7, i64 %10, i32 1
+  %.split = getelementptr %struct.netlink_table, ptr %7, i64 %10
+  %11 = getelementptr i8, ptr %.split, i64 136
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   %14 = getelementptr i8, ptr %12, i64 -24
@@ -2095,15 +2098,15 @@ define dso_local i32 @netlink_set_err(ptr noundef readonly captures(address) %0,
   %19 = add i32 %2, -1
   %20 = zext i32 %19 to i64
   %21 = icmp eq i32 %3, -105
-  br i1 %21, label %.split.us, label %.split
+  br i1 %21, label %.split3.us, label %.split3
 
-.split.us:                                        ; preds = %17, %51
+.split3.us:                                       ; preds = %17, %51
   %22 = phi ptr [ %57, %51 ], [ %14, %17 ]
   %23 = phi i32 [ %53, %51 ], [ 0, %17 ]
   %24 = icmp eq ptr %22, %0
   br i1 %24, label %51, label %25
 
-25:                                               ; preds = %.split.us
+25:                                               ; preds = %.split3.us
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %18, align 8
@@ -2144,8 +2147,8 @@ define dso_local i32 @netlink_set_err(ptr noundef readonly captures(address) %0,
   tail call void @sk_error_report(ptr noundef nonnull %22) #23
   br label %51
 
-51:                                               ; preds = %49, %44, %38, %34, %30, %25, %.split.us
-  %52 = phi i32 [ 0, %.split.us ], [ 0, %30 ], [ 0, %34 ], [ 0, %49 ], [ 0, %38 ], [ 0, %25 ], [ 1, %44 ]
+51:                                               ; preds = %49, %44, %38, %34, %30, %25, %.split3.us
+  %52 = phi i32 [ 0, %.split3.us ], [ 0, %30 ], [ 0, %34 ], [ 0, %49 ], [ 0, %38 ], [ 0, %25 ], [ 1, %44 ]
   %53 = add i32 %52, %23
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %55 = load ptr, ptr %54, align 8
@@ -2153,14 +2156,14 @@ define dso_local i32 @netlink_set_err(ptr noundef readonly captures(address) %0,
   %57 = getelementptr i8, ptr %55, i64 -24
   %58 = icmp eq ptr %57, null
   %59 = or i1 %56, %58
-  br i1 %59, label %.loopexit, label %.split.us, !llvm.loop !47
+  br i1 %59, label %.loopexit, label %.split3.us, !llvm.loop !47
 
-.split:                                           ; preds = %17, %83
+.split3:                                          ; preds = %17, %83
   %60 = phi ptr [ %87, %83 ], [ %14, %17 ]
   %61 = icmp eq ptr %60, %0
   br i1 %61, label %83, label %62
 
-62:                                               ; preds = %.split
+62:                                               ; preds = %.split3
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %18, align 8
@@ -2194,14 +2197,14 @@ define dso_local i32 @netlink_set_err(ptr noundef readonly captures(address) %0,
   tail call void @sk_error_report(ptr noundef nonnull %60) #23
   br label %83
 
-83:                                               ; preds = %81, %75, %71, %67, %62, %.split
+83:                                               ; preds = %81, %75, %71, %67, %62, %.split3
   %84 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
   %87 = getelementptr i8, ptr %85, i64 -24
   %88 = icmp eq ptr %87, null
   %89 = or i1 %86, %88
-  br i1 %89, label %.loopexit, label %.split, !llvm.loop !47
+  br i1 %89, label %.loopexit, label %.split3, !llvm.loop !47
 
 .loopexit:                                        ; preds = %83, %51, %4
   %90 = phi i32 [ 0, %4 ], [ %53, %51 ], [ 0, %83 ]
@@ -2340,13 +2343,16 @@ define dso_local ptr @__netlink_kernel_create(ptr noundef %0, i32 noundef %1, pt
   store i32 %44, ptr %72, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !51
   %73 = load ptr, ptr @nl_table, align 8
-  %74 = getelementptr %struct.netlink_table, ptr %73, i64 %66, i32 2
+  %.split8 = getelementptr %struct.netlink_table, ptr %73, i64 %66
+  %74 = getelementptr i8, ptr %.split8, i64 144
   store volatile ptr %50, ptr %74, align 8
   %75 = load ptr, ptr @nl_table, align 8
-  %76 = getelementptr %struct.netlink_table, ptr %75, i64 %66, i32 5
+  %.split9 = getelementptr %struct.netlink_table, ptr %75, i64 %66
+  %76 = getelementptr i8, ptr %.split9, i64 160
   store ptr %11, ptr %76, align 8
   %77 = load ptr, ptr @nl_table, align 8
-  %78 = getelementptr %struct.netlink_table, ptr %77, i64 %66, i32 6
+  %.split10 = getelementptr %struct.netlink_table, ptr %77, i64 %66
+  %78 = getelementptr i8, ptr %.split10, i64 168
   store ptr %2, ptr %78, align 8
   br i1 %6, label %96, label %79
 
@@ -2354,35 +2360,41 @@ define dso_local ptr @__netlink_kernel_create(ptr noundef %0, i32 noundef %1, pt
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr @nl_table, align 8
-  %83 = getelementptr %struct.netlink_table, ptr %82, i64 %66, i32 7
+  %.split11 = getelementptr %struct.netlink_table, ptr %82, i64 %66
+  %83 = getelementptr i8, ptr %.split11, i64 176
   store ptr %81, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr @nl_table, align 8
-  %87 = getelementptr %struct.netlink_table, ptr %86, i64 %66, i32 8
+  %.split12 = getelementptr %struct.netlink_table, ptr %86, i64 %66
+  %87 = getelementptr i8, ptr %.split12, i64 184
   store ptr %85, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr @nl_table, align 8
-  %91 = getelementptr %struct.netlink_table, ptr %90, i64 %66, i32 9
+  %.split13 = getelementptr %struct.netlink_table, ptr %90, i64 %66
+  %91 = getelementptr i8, ptr %.split13, i64 192
   store ptr %89, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = load ptr, ptr @nl_table, align 8
-  %95 = getelementptr %struct.netlink_table, ptr %94, i64 %66, i32 3
+  %.split14 = getelementptr %struct.netlink_table, ptr %94, i64 %66
+  %95 = getelementptr i8, ptr %.split14, i64 152
   store i32 %93, ptr %95, align 8
   br label %96
 
 96:                                               ; preds = %79, %71
   %97 = load ptr, ptr @nl_table, align 8
-  %98 = getelementptr %struct.netlink_table, ptr %97, i64 %66, i32 10
+  %.split15 = getelementptr %struct.netlink_table, ptr %97, i64 %66
+  %98 = getelementptr i8, ptr %.split15, i64 200
   store i32 1, ptr %98, align 8
   br label %104
 
 99:                                               ; preds = %63
   call void @kfree(ptr noundef nonnull %50) #23
   %100 = load ptr, ptr @nl_table, align 8
-  %101 = getelementptr %struct.netlink_table, ptr %100, i64 %66, i32 10
+  %.split = getelementptr %struct.netlink_table, ptr %100, i64 %66
+  %101 = getelementptr i8, ptr %.split, i64 200
   %102 = load i32, ptr %101, align 8
   %103 = add i32 %102, 1
   store i32 %103, ptr %101, align 8
@@ -2999,7 +3011,8 @@ define dso_local void @__netlink_clear_multicast_users(ptr noundef readonly capt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i64
-  %7 = getelementptr %struct.netlink_table, ptr %3, i64 %6, i32 1
+  %.split = getelementptr %struct.netlink_table, ptr %3, i64 %6
+  %7 = getelementptr i8, ptr %.split, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = getelementptr i8, ptr %8, i64 -24
@@ -3079,7 +3092,8 @@ define internal fastcc void @netlink_update_socket_mc(ptr noundef %0, i32 nounde
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %37 = load i16, ptr %36, align 4
   %38 = zext i16 %37 to i64
-  %39 = getelementptr %struct.netlink_table, ptr %35, i64 %38, i32 1
+  %.split = getelementptr %struct.netlink_table, ptr %35, i64 %38
+  %39 = getelementptr i8, ptr %.split, i64 136
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %39, align 8
   store volatile ptr %41, ptr %40, align 8
@@ -4762,8 +4776,8 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   br label %21
 
-21:                                               ; preds = %.thread23, %8
-  %22 = phi ptr [ %15, %8 ], [ %168, %.thread23 ]
+21:                                               ; preds = %.thread29, %8
+  %22 = phi ptr [ %15, %8 ], [ %168, %.thread29 ]
   %23 = load i16, ptr %16, align 2
   %24 = zext i16 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -4829,7 +4843,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
 74:                                               ; preds = %70, %68
   %75 = phi ptr [ %69, %68 ], [ %73, %70 ]
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %.thread23, label %77
+  br i1 %76, label %.thread29, label %77
 
 77:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4844,26 +4858,26 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %80 = icmp ult i8 %79, 2
   call void @llvm.assume(i1 %80)
   %81 = icmp eq i8 %79, 0
-  br i1 %81, label %.loopexit28, label %.preheader27, !prof !62
+  br i1 %81, label %.loopexit34, label %.preheader33, !prof !62
 
-.preheader27:                                     ; preds = %77, %92
+.preheader33:                                     ; preds = %77, %92
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !63
   %82 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !19
   %83 = icmp ult i8 %82, 2
   call void @llvm.assume(i1 %83)
   %84 = icmp eq i8 %82, 0
-  br i1 %84, label %.preheader98, label %85, !prof !9
+  br i1 %84, label %.preheader104, label %85, !prof !9
 
-85:                                               ; preds = %.preheader27
+85:                                               ; preds = %.preheader33
   %86 = call i64 @llvm.read_register.i64(metadata !0)
   %87 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %86) #23, !srcloc !64
   call void @llvm.write_register.i64(metadata !0, i64 %87)
-  br label %.preheader98
+  br label %.preheader104
 
-.preheader98:                                     ; preds = %85, %.preheader27
+.preheader104:                                    ; preds = %85, %.preheader33
   br label %88
 
-88:                                               ; preds = %.preheader98, %88
+88:                                               ; preds = %.preheader104, %88
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !65
   %89 = load volatile i64, ptr %75, align 8
   %90 = and i64 %89, 1
@@ -4877,9 +4891,9 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %94 = icmp ult i8 %93, 2
   call void @llvm.assume(i1 %94)
   %95 = icmp eq i8 %93, 0
-  br i1 %95, label %.loopexit28, label %.preheader27, !prof !68, !llvm.loop !69
+  br i1 %95, label %.loopexit34, label %.preheader33, !prof !68, !llvm.loop !69
 
-.loopexit28:                                      ; preds = %92, %77
+.loopexit34:                                      ; preds = %92, %77
   %96 = load ptr, ptr %75, align 8
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %97, -2
@@ -4889,16 +4903,16 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %102 = select i1 %99, i64 %101, i64 %98
   %103 = and i64 %102, 1
   %104 = icmp eq i64 %103, 0
-  br i1 %104, label %105, label %.loopexit26
+  br i1 %104, label %105, label %.loopexit32
 
-105:                                              ; preds = %.loopexit28
+105:                                              ; preds = %.loopexit34
   %106 = inttoptr i64 %102 to ptr
   %107 = icmp eq ptr %14, %106
   br i1 %107, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %105
-  %.lcssa31.in75 = and i64 %78, 512
-  %.lcssa3176 = icmp eq i64 %.lcssa31.in75, 0
+  %.lcssa37.in81 = and i64 %78, 512
+  %.lcssa3782 = icmp eq i64 %.lcssa37.in81, 0
   %108 = load ptr, ptr %14, align 8
   br label %122
 
@@ -4907,8 +4921,8 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   br i1 %110, label %._crit_edge, label %.lr.ph, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %109
-  %.lcssa31.in = and i64 %78, 512
-  %.lcssa31 = icmp eq i64 %.lcssa31.in, 0
+  %.lcssa37.in = and i64 %78, 512
+  %.lcssa37 = icmp eq i64 %.lcssa37.in, 0
   %111 = load ptr, ptr %14, align 8
   %112 = icmp eq ptr %136, null
   br i1 %112, label %122, label %113
@@ -4932,7 +4946,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   br label %120
 
 120:                                              ; preds = %117, %113
-  br i1 %.lcssa31, label %151, label %121
+  br i1 %.lcssa37, label %151, label %121
 
 121:                                              ; preds = %120
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !74
@@ -4940,7 +4954,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
 
 122:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %123 = phi ptr [ %108, %._crit_edge.thread ], [ %111, %._crit_edge ]
-  %.lcssa3177 = phi i1 [ %.lcssa3176, %._crit_edge.thread ], [ %.lcssa31, %._crit_edge ]
+  %.lcssa3783 = phi i1 [ %.lcssa3782, %._crit_edge.thread ], [ %.lcssa37, %._crit_edge ]
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %124, 1
   %126 = icmp eq i64 %125, 0
@@ -4961,7 +4975,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   br label %134
 
 134:                                              ; preds = %131, %122
-  br i1 %.lcssa3177, label %151, label %135
+  br i1 %.lcssa3783, label %151, label %135
 
 135:                                              ; preds = %134
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !74
@@ -4973,9 +4987,9 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %138 = ptrtoint ptr %137 to i64
   %139 = and i64 %138, 1
   %140 = icmp eq i64 %139, 0
-  br i1 %140, label %109, label %.loopexit26, !llvm.loop !128
+  br i1 %140, label %109, label %.loopexit32, !llvm.loop !128
 
-.loopexit26:                                      ; preds = %.lr.ph, %.loopexit28
+.loopexit32:                                      ; preds = %.lr.ph, %.loopexit34
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !70
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %75, i32 -2, ptr nonnull elementtype(i8) %75) #23, !srcloc !71
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !72
@@ -4985,26 +4999,26 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %143 = icmp eq i8 %141, 0
   br i1 %143, label %147, label %144, !prof !9
 
-144:                                              ; preds = %.loopexit26
+144:                                              ; preds = %.loopexit32
   %145 = call i64 @llvm.read_register.i64(metadata !0)
   %146 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %145) #23, !srcloc !73
   call void @llvm.write_register.i64(metadata !0, i64 %146)
   br label %147
 
-147:                                              ; preds = %144, %.loopexit26
+147:                                              ; preds = %144, %.loopexit32
   %148 = and i64 %78, 512
   %149 = icmp eq i64 %148, 0
-  br i1 %149, label %.thread23, label %150
+  br i1 %149, label %.thread29, label %150
 
 150:                                              ; preds = %147
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !74
-  br label %.thread23
+  br label %.thread29
 
 151:                                              ; preds = %135, %134, %121, %120
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, ptr nonnull elementtype(i32) %17) #23, !srcloc !130
   %152 = load i8, ptr %18, align 2, !range !54, !noundef !55
   %153 = icmp eq i8 %152, 0
-  br i1 %153, label %.thread22, label %154
+  br i1 %153, label %.thread28, label %154
 
 154:                                              ; preds = %151
   %155 = load volatile i32, ptr %17, align 4
@@ -5012,43 +5026,43 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %157 = mul i32 %156, 3
   %158 = udiv i32 %157, 10
   %159 = icmp ult i32 %155, %158
-  br i1 %159, label %160, label %.thread22
+  br i1 %159, label %160, label %.thread28
 
 160:                                              ; preds = %154
   %161 = load i16, ptr %19, align 4
   %162 = zext i16 %161 to i32
   %163 = icmp ugt i32 %156, %162
-  br i1 %163, label %164, label %.thread22, !prof !10
+  br i1 %163, label %164, label %.thread28, !prof !10
 
 164:                                              ; preds = %160
   %165 = load ptr, ptr @system_wq, align 8
   %166 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %165, ptr noundef nonnull %20) #23
-  br label %.thread22
+  br label %.thread28
 
-.thread23:                                        ; preds = %150, %147, %74
+.thread29:                                        ; preds = %150, %147, %74
   %167 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %168 = load volatile ptr, ptr %167, align 16
   %169 = icmp eq ptr %168, null
   br i1 %169, label %170, label %21, !llvm.loop !131
 
-170:                                              ; preds = %.thread23
+170:                                              ; preds = %.thread29
   call void @__rcu_read_unlock() #23
   br label %179
 
-.thread22:                                        ; preds = %154, %160, %164, %151
+.thread28:                                        ; preds = %154, %160, %164, %151
   call void @__rcu_read_unlock() #23
   %171 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %172 = load volatile i32, ptr %171, align 4
   %173 = icmp eq i32 %172, 1
   br i1 %173, label %174, label %175, !prof !10
 
-174:                                              ; preds = %.thread22
+174:                                              ; preds = %.thread28
   call void asm sideeffect "884: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 884b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 884) #23, !srcloc !132
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 618, i32 2305, i64 12) #23, !srcloc !133
   call void asm sideeffect "885: nop\0A\09.pushsection .discard.instr_end\0A\09.long 885b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 885) #23, !srcloc !134
   br label %175
 
-175:                                              ; preds = %174, %.thread22
+175:                                              ; preds = %174, %.thread28
   %176 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %171, i32 -1, ptr nonnull elementtype(i32) %171) #23, !srcloc !30
   %177 = icmp slt i32 %176, 2
   br i1 %177, label %178, label %179, !prof !10
@@ -5062,7 +5076,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %180 = getelementptr inbounds nuw i8, ptr %6, i64 764
   %181 = load i32, ptr %180, align 4
   %182 = icmp eq i32 %181, 0
-  br i1 %182, label %.loopexit25, label %183
+  br i1 %182, label %.loopexit31, label %183
 
 183:                                              ; preds = %179
   %184 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -5086,28 +5100,28 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 144
   %197 = load ptr, ptr %196, align 8
   %198 = icmp eq ptr %197, null
-  br i1 %198, label %.loopexit25, label %199
+  br i1 %198, label %.loopexit31, label %199
 
 199:                                              ; preds = %191
   %200 = getelementptr inbounds nuw i8, ptr %195, i64 156
   %201 = load i32, ptr %200, align 4
   %202 = add i32 %201, 63
   %203 = icmp ult i32 %202, 64
-  br i1 %203, label %.loopexit25, label %204
+  br i1 %203, label %.loopexit31, label %204
 
 204:                                              ; preds = %199
   %205 = getelementptr inbounds nuw i8, ptr %195, i64 136
   %206 = getelementptr inbounds nuw i8, ptr %197, i64 16
   br label %207
 
-207:                                              ; preds = %.loopexit24, %204
-  %208 = phi i64 [ 0, %204 ], [ %238, %.loopexit24 ]
+207:                                              ; preds = %.loopexit30, %204
+  %208 = phi i64 [ 0, %204 ], [ %238, %.loopexit30 ]
   %209 = load ptr, ptr %205, align 8
   %210 = icmp eq ptr %209, null
   %211 = getelementptr i8, ptr %209, i64 -24
   %212 = icmp eq ptr %211, null
   %213 = or i1 %210, %212
-  br i1 %213, label %.loopexit24, label %.preheader
+  br i1 %213, label %.loopexit30, label %.preheader
 
 .preheader:                                       ; preds = %207, %228
   %214 = phi ptr [ %233, %228 ], [ %211, %207 ]
@@ -5136,9 +5150,9 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %233 = getelementptr i8, ptr %231, i64 -24
   %234 = icmp eq ptr %233, null
   %235 = or i1 %232, %234
-  br i1 %235, label %.loopexit24, label %.preheader, !llvm.loop !85
+  br i1 %235, label %.loopexit30, label %.preheader, !llvm.loop !85
 
-.loopexit24:                                      ; preds = %228, %207
+.loopexit30:                                      ; preds = %228, %207
   %236 = phi i64 [ 0, %207 ], [ %229, %228 ]
   %237 = getelementptr i64, ptr %206, i64 %208
   store i64 %236, ptr %237, align 8
@@ -5148,18 +5162,18 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %241 = lshr i32 %240, 6
   %242 = zext nneg i32 %241 to i64
   %243 = icmp samesign ult i64 %238, %242
-  br i1 %243, label %207, label %.loopexit25, !llvm.loop !86
+  br i1 %243, label %207, label %.loopexit31, !llvm.loop !86
 
-.loopexit25:                                      ; preds = %.loopexit24, %199, %191, %179
+.loopexit31:                                      ; preds = %.loopexit30, %199, %191, %179
   %244 = load i16, ptr %10, align 4
   %245 = icmp eq i16 %244, 16
   br i1 %245, label %246, label %247
 
-246:                                              ; preds = %.loopexit25
+246:                                              ; preds = %.loopexit31
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @genl_sk_destructing_cnt, ptr nonnull elementtype(i32) @genl_sk_destructing_cnt) #23, !srcloc !29
   br label %247
 
-247:                                              ; preds = %246, %.loopexit25
+247:                                              ; preds = %246, %.loopexit31
   call void @_raw_write_unlock_irq(ptr noundef nonnull @nl_table_lock) #23
   %248 = call i32 @__wake_up(ptr noundef nonnull @nl_table_wait, i32 noundef 3, i32 noundef 1, ptr noundef null) #23
   %249 = getelementptr inbounds nuw i8, ptr %6, i64 536
@@ -5207,9 +5221,9 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %275 = icmp ult i8 %274, 2
   call void @llvm.assume(i1 %275)
   %276 = icmp eq i8 %274, 0
-  br i1 %276, label %._crit_edge58, label %277
+  br i1 %276, label %._crit_edge64, label %277
 
-._crit_edge58:                                    ; preds = %270
+._crit_edge64:                                    ; preds = %270
   %.pre = add nuw i32 %271, 1
   br label %281
 
@@ -5220,8 +5234,8 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   call void %278(ptr noundef %279, i32 noundef %280) #23
   br label %281
 
-281:                                              ; preds = %._crit_edge58, %277
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge58 ], [ %280, %277 ]
+281:                                              ; preds = %._crit_edge64, %277
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge64 ], [ %280, %277 ]
   %282 = load i32, ptr %264, align 8
   %283 = icmp ult i32 %.pre-phi, %282
   br i1 %283, label %270, label %.loopexit, !llvm.loop !135
@@ -5287,7 +5301,8 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %318 = load ptr, ptr @nl_table, align 8
   %319 = load i16, ptr %10, align 4
   %320 = zext i16 %319 to i64
-  %321 = getelementptr %struct.netlink_table, ptr %318, i64 %320, i32 10
+  %.split = getelementptr %struct.netlink_table, ptr %318, i64 %320
+  %321 = getelementptr i8, ptr %.split, i64 200
   %322 = load i32, ptr %321, align 8
   %323 = icmp eq i32 %322, 0
   br i1 %323, label %324, label %325, !prof !10
@@ -5307,7 +5322,8 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %329 = load ptr, ptr @nl_table, align 8
   %330 = load i16, ptr %10, align 4
   %331 = zext i16 %330 to i64
-  %332 = getelementptr %struct.netlink_table, ptr %329, i64 %331, i32 2
+  %.split19 = getelementptr %struct.netlink_table, ptr %329, i64 %331
+  %332 = getelementptr i8, ptr %.split19, i64 144
   %333 = load ptr, ptr %332, align 8
   store volatile ptr null, ptr %332, align 8
   %334 = icmp eq ptr %333, null
@@ -5321,27 +5337,32 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %337 = load ptr, ptr @nl_table, align 8
   %338 = load i16, ptr %10, align 4
   %339 = zext i16 %338 to i64
-  %340 = getelementptr %struct.netlink_table, ptr %337, i64 %339, i32 6
+  %.split20 = getelementptr %struct.netlink_table, ptr %337, i64 %339
+  %340 = getelementptr i8, ptr %.split20, i64 168
   store ptr null, ptr %340, align 8
   %341 = load ptr, ptr @nl_table, align 8
   %342 = load i16, ptr %10, align 4
   %343 = zext i16 %342 to i64
-  %344 = getelementptr %struct.netlink_table, ptr %341, i64 %343, i32 7
+  %.split21 = getelementptr %struct.netlink_table, ptr %341, i64 %343
+  %344 = getelementptr i8, ptr %.split21, i64 176
   store ptr null, ptr %344, align 8
   %345 = load ptr, ptr @nl_table, align 8
   %346 = load i16, ptr %10, align 4
   %347 = zext i16 %346 to i64
-  %348 = getelementptr %struct.netlink_table, ptr %345, i64 %347, i32 8
+  %.split22 = getelementptr %struct.netlink_table, ptr %345, i64 %347
+  %348 = getelementptr i8, ptr %.split22, i64 184
   store ptr null, ptr %348, align 8
   %349 = load ptr, ptr @nl_table, align 8
   %350 = load i16, ptr %10, align 4
   %351 = zext i16 %350 to i64
-  %352 = getelementptr %struct.netlink_table, ptr %349, i64 %351, i32 3
+  %.split23 = getelementptr %struct.netlink_table, ptr %349, i64 %351
+  %352 = getelementptr i8, ptr %.split23, i64 152
   store i32 0, ptr %352, align 8
   %353 = load ptr, ptr @nl_table, align 8
   %354 = load i16, ptr %10, align 4
   %355 = zext i16 %354 to i64
-  %356 = getelementptr %struct.netlink_table, ptr %353, i64 %355, i32 10
+  %.split24 = getelementptr %struct.netlink_table, ptr %353, i64 %355
+  %356 = getelementptr i8, ptr %.split24, i64 200
   store i32 0, ptr %356, align 8
   br label %357
 
@@ -5414,7 +5435,8 @@ define internal i32 @netlink_bind(ptr noundef readonly captures(none) %0, ptr no
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 516
   %21 = load i16, ptr %20, align 4
   %22 = zext i16 %21 to i64
-  %23 = getelementptr %struct.netlink_table, ptr %19, i64 %22, i32 3
+  %.split = getelementptr %struct.netlink_table, ptr %19, i64 %22
+  %23 = getelementptr i8, ptr %.split, i64 152
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %26 = icmp eq i32 %25, 0
@@ -5513,9 +5535,9 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
   %88 = icmp ne ptr %87, null
   %89 = icmp ne i64 %75, 0
   %90 = select i1 %88, i1 %89, i1 false
-  br i1 %90, label %.preheader15, label %.loopexit20
+  br i1 %90, label %.preheader16, label %.loopexit21
 
-.preheader15:                                     ; preds = %85, %104
+.preheader16:                                     ; preds = %85, %104
   %91 = phi i64 [ %105, %104 ], [ 0, %85 ]
   %92 = phi i1 [ %106, %104 ], [ false, %85 ]
   %93 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %91) #23, !srcloc !15
@@ -5524,7 +5546,7 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
   %95 = icmp eq i8 %93, 0
   br i1 %95, label %104, label %96
 
-96:                                               ; preds = %.preheader15
+96:                                               ; preds = %.preheader16
   %97 = load ptr, ptr %86, align 8
   %98 = trunc i64 %91 to i32
   %99 = add i32 %98, 1
@@ -5535,22 +5557,22 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
 102:                                              ; preds = %96
   %103 = load i64, ptr %4, align 8
   call fastcc void @netlink_undo_bind(i32 noundef %98, i64 noundef %103, ptr noundef %6)
-  br i1 %92, label %.loopexit20, label %247
+  br i1 %92, label %.loopexit21, label %247
 
-104:                                              ; preds = %96, %.preheader15
+104:                                              ; preds = %96, %.preheader16
   %105 = add nuw nsw i64 %91, 1
   %106 = icmp samesign ugt i64 %91, 30
   %107 = icmp eq i64 %105, 32
-  br i1 %107, label %.loopexit20, label %.preheader15, !llvm.loop !140
+  br i1 %107, label %.loopexit21, label %.preheader16, !llvm.loop !140
 
-.loopexit20:                                      ; preds = %104, %102, %85
+.loopexit21:                                      ; preds = %104, %102, %85
   %108 = phi i32 [ 0, %85 ], [ %100, %102 ], [ 0, %104 ]
   %109 = call i64 @_raw_read_lock_irqsave(ptr noundef nonnull @nl_table_lock) #23
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @nl_table_users, ptr nonnull elementtype(i32) @nl_table_users) #23, !srcloc !29
   call void @_raw_read_unlock_irqrestore(ptr noundef nonnull @nl_table_lock, i64 noundef %109) #23
   br i1 %78, label %110, label %123
 
-110:                                              ; preds = %.loopexit20
+110:                                              ; preds = %.loopexit21
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = icmp eq i32 %112, 0
@@ -5575,8 +5597,8 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
   call fastcc void @netlink_undo_bind(i32 noundef 32, i64 noundef %122, ptr noundef %6)
   br label %239
 
-123:                                              ; preds = %118, %.loopexit20
-  %124 = phi i32 [ %108, %.loopexit20 ], [ 0, %118 ]
+123:                                              ; preds = %118, %.loopexit21
+  %124 = phi i32 [ %108, %.loopexit21 ], [ 0, %118 ]
   %125 = load i64, ptr %4, align 8
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %127, label %135
@@ -5646,7 +5668,8 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
   %169 = getelementptr inbounds nuw i8, ptr %6, i64 516
   %170 = load i16, ptr %169, align 4
   %171 = zext i16 %170 to i64
-  %172 = getelementptr %struct.netlink_table, ptr %168, i64 %171, i32 1
+  %.split14 = getelementptr %struct.netlink_table, ptr %168, i64 %171
+  %172 = getelementptr i8, ptr %.split14, i64 136
   %173 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %174 = load ptr, ptr %172, align 8
   store volatile ptr %174, ptr %173, align 8
@@ -5680,14 +5703,14 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 144
   %192 = load ptr, ptr %191, align 8
   %193 = icmp eq ptr %192, null
-  br i1 %193, label %.loopexit14, label %194
+  br i1 %193, label %.loopexit15, label %194
 
 194:                                              ; preds = %180
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 156
   %196 = load i32, ptr %195, align 4
   %197 = add i32 %196, 63
   %198 = icmp ult i32 %197, 64
-  br i1 %198, label %.loopexit14, label %199
+  br i1 %198, label %.loopexit15, label %199
 
 199:                                              ; preds = %194
   %200 = getelementptr inbounds nuw i8, ptr %190, i64 136
@@ -5742,9 +5765,9 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
   %236 = lshr i32 %235, 6
   %237 = zext nneg i32 %236 to i64
   %238 = icmp samesign ult i64 %233, %237
-  br i1 %238, label %202, label %.loopexit14, !llvm.loop !86
+  br i1 %238, label %202, label %.loopexit15, !llvm.loop !86
 
-.loopexit14:                                      ; preds = %.loopexit, %194, %180
+.loopexit15:                                      ; preds = %.loopexit, %194, %180
   call void @_raw_write_unlock_irq(ptr noundef nonnull @nl_table_lock) #23
   br label %244
 
@@ -5756,8 +5779,8 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
   %243 = icmp eq i8 %241, 0
   br i1 %243, label %247, label %244
 
-244:                                              ; preds = %239, %.loopexit14
-  %245 = phi i32 [ 0, %.loopexit14 ], [ %240, %239 ]
+244:                                              ; preds = %239, %.loopexit15
+  %245 = phi i32 [ 0, %.loopexit15 ], [ %240, %239 ]
   %246 = call i32 @__wake_up(ptr noundef nonnull @nl_table_wait, i32 noundef 3, i32 noundef 1, ptr noundef null) #23
   br label %247
 
@@ -5809,7 +5832,8 @@ define internal range(i32 -97, -98) i32 @netlink_connect(ptr noundef readonly ca
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 516
   %26 = load i16, ptr %25, align 4
   %27 = zext i16 %26 to i64
-  %28 = getelementptr %struct.netlink_table, ptr %24, i64 %27, i32 3
+  %.split = getelementptr %struct.netlink_table, ptr %24, i64 %27
+  %28 = getelementptr i8, ptr %.split, i64 152
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 2
   %31 = icmp eq i32 %30, 0
@@ -5988,7 +6012,8 @@ define internal i32 @netlink_setsockopt(ptr noundef readonly captures(none) %0, 
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 516
   %27 = load i16, ptr %26, align 4
   %28 = zext i16 %27 to i64
-  %29 = getelementptr %struct.netlink_table, ptr %24, i64 %28, i32 3
+  %.split = getelementptr %struct.netlink_table, ptr %24, i64 %28
+  %29 = getelementptr i8, ptr %.split, i64 152
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 1
   %32 = icmp eq i32 %31, 0
@@ -7050,7 +7075,8 @@ define internal fastcc range(i32 0, 2) i32 @netlink_allowed(ptr readonly capture
   %2 = getelementptr inbounds nuw i8, ptr %.24.val, i64 516
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i64
-  %5 = getelementptr %struct.netlink_table, ptr %1, i64 %4, i32 3
+  %.split = getelementptr %struct.netlink_table, ptr %1, i64 %4
+  %5 = getelementptr i8, ptr %.split, i64 152
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 2
   %8 = icmp eq i32 %7, 0
@@ -7463,11 +7489,11 @@ define internal noundef range(i32 -94, 1) i32 @netlink_create(ptr noundef %0, pt
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, -2
   %8 = icmp eq i16 %7, 2
-  br i1 %8, label %9, label %93
+  br i1 %8, label %9, label %89
 
 9:                                                ; preds = %4
   %10 = icmp ugt i32 %2, 31
-  br i1 %10, label %93, label %11
+  br i1 %10, label %89, label %11
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %2 to i64
@@ -7479,10 +7505,11 @@ define internal noundef range(i32 -94, 1) i32 @netlink_create(ptr noundef %0, pt
   tail call void @_raw_read_unlock_irqrestore(ptr noundef nonnull @nl_table_lock, i64 noundef %16) #23
   %17 = load ptr, ptr @nl_table, align 8
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr %struct.netlink_table, ptr %17, i64 %18, i32 10
+  %.split = getelementptr %struct.netlink_table, ptr %17, i64 %18
+  %19 = getelementptr i8, ptr %.split, i64 200
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %31
+  br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %11
   %23 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @nl_table_users, ptr nonnull elementtype(i32) @nl_table_users) #23, !srcloc !45
@@ -7495,119 +7522,118 @@ define internal noundef range(i32 -94, 1) i32 @netlink_create(ptr noundef %0, pt
   %27 = tail call i32 @__wake_up(ptr noundef nonnull @nl_table_wait, i32 noundef 3, i32 noundef 1, ptr noundef null) #23
   br label %28
 
-28:                                               ; preds = %26, %22
+28:                                               ; preds = %22, %26
   %29 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.51, i32 noundef 16, i32 noundef %15) #23
   %30 = tail call i64 @_raw_read_lock_irqsave(ptr noundef nonnull @nl_table_lock) #23
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @nl_table_users, ptr nonnull elementtype(i32) @nl_table_users) #23, !srcloc !29
   tail call void @_raw_read_unlock_irqrestore(ptr noundef nonnull @nl_table_lock, i64 noundef %30) #23
   %.pre = load ptr, ptr @nl_table, align 8
-  br label %31
+  %.phi.trans.insert = getelementptr %struct.netlink_table, ptr %.pre, i64 %18
+  %.phi.trans.insert4 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 200
+  %.pre5 = load i32, ptr %.phi.trans.insert4, align 8
+  %31 = icmp eq i32 %.pre5, 0
+  br i1 %31, label %40, label %.thread
 
-31:                                               ; preds = %28, %11
+.thread:                                          ; preds = %11, %28
   %32 = phi ptr [ %.pre, %28 ], [ %17, %11 ]
   %33 = getelementptr %struct.netlink_table, ptr %32, i64 %18
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 200
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %44, label %37
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 168
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call zeroext i1 @try_module_get(ptr noundef %35) #23
+  %.pre6 = load ptr, ptr @nl_table, align 8
+  br i1 %36, label %37, label %40
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 168
+37:                                               ; preds = %.thread
+  %.split3 = getelementptr %struct.netlink_table, ptr %.pre6, i64 %18
+  %38 = getelementptr i8, ptr %.split3, i64 168
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call zeroext i1 @try_module_get(ptr noundef %39) #23
-  %.pre3 = load ptr, ptr @nl_table, align 8
-  br i1 %40, label %41, label %44
+  br label %40
 
-41:                                               ; preds = %37
-  %42 = getelementptr %struct.netlink_table, ptr %.pre3, i64 %18, i32 6
-  %43 = load ptr, ptr %42, align 8
-  br label %44
-
-44:                                               ; preds = %41, %37, %31
-  %45 = phi ptr [ %.pre3, %41 ], [ %.pre3, %37 ], [ %32, %31 ]
-  %46 = phi i1 [ false, %41 ], [ true, %37 ], [ true, %31 ]
-  %47 = phi i32 [ 0, %41 ], [ -93, %37 ], [ -93, %31 ]
-  %48 = phi ptr [ %43, %41 ], [ null, %37 ], [ null, %31 ]
-  %49 = getelementptr %struct.netlink_table, ptr %45, i64 %18
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 160
+40:                                               ; preds = %37, %.thread, %28
+  %41 = phi ptr [ %.pre6, %37 ], [ %.pre6, %.thread ], [ %.pre, %28 ]
+  %42 = phi i1 [ false, %37 ], [ true, %.thread ], [ true, %28 ]
+  %43 = phi i32 [ 0, %37 ], [ -93, %.thread ], [ -93, %28 ]
+  %44 = phi ptr [ %39, %37 ], [ null, %.thread ], [ null, %28 ]
+  %45 = getelementptr %struct.netlink_table, ptr %41, i64 %18
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 160
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 176
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 184
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 176
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 192
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 184
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 192
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @nl_table_users, ptr nonnull elementtype(i32) @nl_table_users) #23, !srcloc !45
-  %59 = icmp ult i8 %58, 2
-  tail call void @llvm.assume(i1 %59)
-  %60 = icmp eq i8 %58, 0
-  br i1 %60, label %63, label %61
+  %54 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @nl_table_users, ptr nonnull elementtype(i32) @nl_table_users) #23, !srcloc !45
+  %55 = icmp ult i8 %54, 2
+  tail call void @llvm.assume(i1 %55)
+  %56 = icmp eq i8 %54, 0
+  br i1 %56, label %59, label %57
 
-61:                                               ; preds = %44
-  %62 = tail call i32 @__wake_up(ptr noundef nonnull @nl_table_wait, i32 noundef 3, i32 noundef 1, ptr noundef null) #23
-  br label %63
+57:                                               ; preds = %40
+  %58 = tail call i32 @__wake_up(ptr noundef nonnull @nl_table_wait, i32 noundef 3, i32 noundef 1, ptr noundef null) #23
+  br label %59
 
-63:                                               ; preds = %61, %44
-  br i1 %46, label %93, label %64
+59:                                               ; preds = %57, %40
+  br i1 %42, label %89, label %60
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr @netlink_ops, ptr %65, align 32
-  %66 = tail call ptr @sk_alloc(ptr noundef %0, i32 noundef 16, i32 noundef 3264, ptr noundef nonnull @netlink_proto, i32 noundef %3) #23
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %92, label %68
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr @netlink_ops, ptr %61, align 32
+  %62 = tail call ptr @sk_alloc(ptr noundef %0, i32 noundef 16, i32 noundef 3264, ptr noundef nonnull @netlink_proto, i32 noundef %3) #23
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %88, label %64
+
+64:                                               ; preds = %60
+  tail call void @sock_init_data(ptr noundef %1, ptr noundef nonnull %62) #23
+  %65 = icmp eq ptr %47, null
+  br i1 %65, label %68, label %66
+
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 960
+  store ptr %47, ptr %67, align 8
+  br label %71
 
 68:                                               ; preds = %64
-  tail call void @sock_init_data(ptr noundef %1, ptr noundef nonnull %66) #23
-  %69 = icmp eq ptr %51, null
-  br i1 %69, label %72, label %70
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 968
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 960
+  store ptr %69, ptr %70, align 8
+  tail call void @__mutex_init(ptr noundef nonnull %69, ptr noundef nonnull @.str.8, ptr noundef nonnull @__netlink_create.__key) #23
+  br label %71
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 960
-  store ptr %51, ptr %71, align 8
-  br label %75
+71:                                               ; preds = %68, %66
+  %72 = getelementptr inbounds nuw i8, ptr %62, i64 800
+  tail call void @__init_waitqueue_head(ptr noundef nonnull %72, ptr noundef nonnull @.str.10, ptr noundef nonnull @__netlink_create.__key.9) #23
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 712
+  store ptr @netlink_sock_destruct, ptr %73, align 8
+  %74 = trunc nuw nsw i32 %15 to i16
+  %75 = getelementptr inbounds nuw i8, ptr %62, i64 516
+  store i16 %74, ptr %75, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @netlink_proto, i64 208), align 8
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr i32, ptr %78, i64 %80
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81, ptr elementtype(i32) %81) #23, !srcloc !161
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1032
+  store ptr %44, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 1008
+  store ptr %49, ptr %85, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 1016
+  store ptr %51, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 1024
+  store ptr %53, ptr %87, align 8
+  br label %89
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %66, i64 968
-  %74 = getelementptr inbounds nuw i8, ptr %66, i64 960
-  store ptr %73, ptr %74, align 8
-  tail call void @__mutex_init(ptr noundef nonnull %73, ptr noundef nonnull @.str.8, ptr noundef nonnull @__netlink_create.__key) #23
-  br label %75
+88:                                               ; preds = %60
+  tail call void @module_put(ptr noundef %44) #23
+  br label %89
 
-75:                                               ; preds = %72, %70
-  %76 = getelementptr inbounds nuw i8, ptr %66, i64 800
-  tail call void @__init_waitqueue_head(ptr noundef nonnull %76, ptr noundef nonnull @.str.10, ptr noundef nonnull @__netlink_create.__key.9) #23
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 712
-  store ptr @netlink_sock_destruct, ptr %77, align 8
-  %78 = trunc nuw nsw i32 %15 to i16
-  %79 = getelementptr inbounds nuw i8, ptr %66, i64 516
-  store i16 %78, ptr %79, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @netlink_proto, i64 208), align 8
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr i32, ptr %82, i64 %84
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %85, ptr elementtype(i32) %85) #23, !srcloc !161
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1032
-  store ptr %48, ptr %88, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 1008
-  store ptr %53, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 1016
-  store ptr %55, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 1024
-  store ptr %57, ptr %91, align 8
-  br label %93
-
-92:                                               ; preds = %64
-  tail call void @module_put(ptr noundef %48) #23
-  br label %93
-
-93:                                               ; preds = %92, %75, %63, %9, %4
-  %94 = phi i32 [ -94, %4 ], [ -93, %9 ], [ %47, %63 ], [ -12, %92 ], [ 0, %75 ]
-  ret i32 %94
+89:                                               ; preds = %88, %71, %59, %9, %4
+  %90 = phi i32 [ -94, %4 ], [ -93, %9 ], [ %43, %59 ], [ -12, %88 ], [ 0, %71 ]
+  ret i32 %90
 }
 
 ; Function Attrs: null_pointer_is_valid

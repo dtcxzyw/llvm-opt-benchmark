@@ -910,9 +910,10 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %HelpStr = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %0, i64 %conv, i32 0, i32 1
+  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %0, i64 %conv
+  %HelpStr = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %retval.sroa.0.0.copyload = load ptr, ptr %HelpStr, align 8
-  %retval.sroa.2.0.HelpStr.sroa_idx = getelementptr inbounds nuw i8, ptr %HelpStr, i64 8
+  %retval.sroa.2.0.HelpStr.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.HelpStr.sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.2.0.copyload, 1
@@ -927,7 +928,8 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %V = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %0, i64 %conv, i32 1
+  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %0, i64 %conv
+  %V = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   ret ptr %V
 }
 
@@ -951,57 +953,59 @@ entry:
   %spec.select = select i1 %cmp.i.i.not, ptr %ArgName.coerce0, ptr %Arg.coerce0
   %ArgName.coerce1.fr = freeze i64 %ArgName.coerce1
   %Arg.coerce1.fr = freeze i64 %Arg.coerce1
-  %spec.select22 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1.fr, i64 %Arg.coerce1.fr
+  %spec.select20 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1.fr, i64 %Arg.coerce1.fr
   store ptr %spec.select, ptr %ArgVal, align 8
   %2 = getelementptr inbounds nuw i8, ptr %ArgVal, i64 8
-  store i64 %spec.select22, ptr %2, align 8
+  store i64 %spec.select20, ptr %2, align 8
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %3 to i64
-  %cmp.not10 = icmp eq i32 %3, 0
-  br i1 %cmp.not10, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.lr.ph
+  %cmp.not9 = icmp eq i32 %3, 0
+  br i1 %cmp.not9, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
-  %cmp.i28 = icmp eq i64 %spec.select22, 0
+  %cmp.i28 = icmp eq i64 %spec.select20, 0
   br i1 %cmp.i28, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %i.011.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %4, i64 %i.011.us, i32 0, i32 0, i32 1
+  %i.010.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %arrayidx.i23.us = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %4, i64 %i.010.us
+  %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw i8, ptr %arrayidx.i23.us, i64 8
   %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body.us
-  %inc.us = add nuw nsw i64 %i.011.us, 1
+  %inc.us = add nuw nsw i64 %i.010.us, 1
   %cmp.not.us = icmp eq i64 %inc.us, %conv.i
   br i1 %cmp.not.us, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.us, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.011 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i23 = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %4, i64 %i.011
+  %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
+  %arrayidx.i23 = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %4, i64 %i.010
   %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i23, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx, align 8
-  %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %spec.select22
+  %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %spec.select20
   br i1 %cmp.i, label %land.rhs.i, label %for.inc
 
 land.rhs.i:                                       ; preds = %for.body
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %arrayidx.i23, align 8
-  %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %spec.select22)
+  %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %spec.select20)
   %5 = icmp eq i32 %bcmp, 0
   br i1 %5, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %land.rhs.i, %for.body.us
-  %.us-phi12 = phi i64 [ %i.011.us, %for.body.us ], [ %i.011, %land.rhs.i ]
-  %Value.i = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %4, i64 %.us-phi12, i32 1, i32 0, i32 0, i32 1
-  %6 = load i32, ptr %Value.i, align 4
-  store i32 %6, ptr %V, align 4
+  %6 = phi i64 [ %i.010.us, %for.body.us ], [ %i.010, %land.rhs.i ]
+  %7 = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %4, i64 %6
+  %Value.i = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %8 = load i32, ptr %Value.i, align 4
+  store i32 %8, ptr %V, align 4
   br label %return
 
 for.inc:                                          ; preds = %land.rhs.i, %for.body
-  %inc = add nuw nsw i64 %i.011, 1
+  %inc = add nuw nsw i64 %i.010, 1
   %cmp.not = icmp eq i64 %inc, %conv.i
   br i1 %cmp.not, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body, !llvm.loop !13
 

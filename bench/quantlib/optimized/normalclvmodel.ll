@@ -4422,7 +4422,8 @@ _ZNK5boost10shared_ptrIN8QuantLib14NormalCLVModel15MappingFunction17Interpolatio
   %15 = phi ptr [ %14, %for.body ], [ %.pre.i23, %cond.false.i22 ]
   %interpl_ = getelementptr inbounds nuw i8, ptr %15, i64 24
   %16 = load ptr, ptr %interpl_, align 8, !tbaa !142
-  %impl_.i = getelementptr inbounds nuw %"class.QuantLib::LinearInterpolation", ptr %16, i64 %i.034, i32 0, i32 1
+  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::LinearInterpolation", ptr %16, i64 %i.034
+  %impl_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %17 = load ptr, ptr %impl_.i, align 8, !tbaa !143
   %cmp.not.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib13InterpolationclEdb.exit, !prof !80

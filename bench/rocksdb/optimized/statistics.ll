@@ -8218,7 +8218,7 @@ define void @_ZNK7rocksdb14StatisticsImpl13histogramDataEjPNS_13HistogramDataE(p
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %5 = invoke noalias noundef nonnull dereferenceable(968) ptr @_Znwm(i64 noundef 968) #29
-          to label %.noexc unwind label %38
+          to label %.noexc unwind label %39
 
 .noexc:                                           ; preds = %3
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN7rocksdb13HistogramImplE, i64 16), ptr %5, align 8, !tbaa !53, !noalias !164
@@ -8256,71 +8256,72 @@ _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i: 
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(968) %5) #31, !noalias !164
   br label %.body
 
-20:                                               ; preds = %24, %_ZN7rocksdb13HistogramImplC2Ev.exit.i
-  %.011.i = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit.i ], [ %25, %24 ]
+20:                                               ; preds = %25, %_ZN7rocksdb13HistogramImplC2Ev.exit.i
+  %.011.i = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit.i ], [ %26, %25 ]
   %21 = load ptr, ptr %12, align 8, !tbaa !156, !noalias !164
-  %22 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %21, i64 %.011.i, i32 1
-  %23 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %22, i64 %13
-  invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %5, ptr noundef nonnull align 8 dereferenceable(968) %23)
-          to label %24 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, !noalias !164
+  %22 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %21, i64 %.011.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1720
+  %24 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %23, i64 %13
+  invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %5, ptr noundef nonnull align 8 dereferenceable(968) %24)
+          to label %25 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, !noalias !164
 
-24:                                               ; preds = %20
-  %25 = add nuw i64 %.011.i, 1
-  %26 = load i32, ptr %11, align 8, !tbaa !149, !noalias !164
-  %27 = zext nneg i32 %26 to i64
-  %.0.highbits.i = lshr i64 %25, %27
-  %28 = icmp eq i64 %.0.highbits.i, 0
-  br i1 %28, label %20, label %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit, !llvm.loop !167
+25:                                               ; preds = %20
+  %26 = add nuw i64 %.011.i, 1
+  %27 = load i32, ptr %11, align 8, !tbaa !149, !noalias !164
+  %28 = zext nneg i32 %27 to i64
+  %.0.highbits.i = lshr i64 %26, %28
+  %29 = icmp eq i64 %.0.highbits.i, 0
+  br i1 %29, label %20, label %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit, !llvm.loop !167
 
-_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit: ; preds = %24
-  %29 = load ptr, ptr %5, align 8, !tbaa !53
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 120
-  %31 = load ptr, ptr %30, align 8
-  invoke void %31(ptr noundef nonnull align 8 dereferenceable(968) %5, ptr noundef %2)
+_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit: ; preds = %25
+  %30 = load ptr, ptr %5, align 8, !tbaa !53
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 120
+  %32 = load ptr, ptr %31, align 8
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(968) %5, ptr noundef %2)
           to label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit8
 
 _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit
-  %32 = load ptr, ptr %5, align 8, !tbaa !53
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(968) %5) #31
+  %33 = load ptr, ptr %5, align 8, !tbaa !53
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(968) %5) #31
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
-          to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %35
+          to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %36
 
-35:                                               ; preds = %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #33
+  %38 = extractvalue { ptr, i32 } %37, 0
+  tail call void @__clang_call_terminate(ptr %38) #33
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
   ret void
 
-38:                                               ; preds = %3
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %3
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit8: ; preds = %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = load ptr, ptr %5, align 8, !tbaa !53
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(968) %5) #31
+  %42 = load ptr, ptr %5, align 8, !tbaa !53
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(968) %5) #31
   br label %.body
 
-.body:                                            ; preds = %38, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, %14, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit8
-  %.pn = phi { ptr, i32 } [ %40, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit8 ], [ %39, %38 ], [ %16, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i ], [ %15, %14 ]
+.body:                                            ; preds = %39, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, %14, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit8
+  %.pn = phi { ptr, i32 } [ %41, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit8 ], [ %40, %39 ], [ %16, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i ], [ %15, %14 ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
-          to label %_ZN7rocksdb9MutexLockD2Ev.exit9 unwind label %44
+          to label %_ZN7rocksdb9MutexLockD2Ev.exit9 unwind label %45
 
-44:                                               ; preds = %.body
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %.body
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #33
+  %47 = extractvalue { ptr, i32 } %46, 0
+  tail call void @__clang_call_terminate(ptr %47) #33
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit9:                  ; preds = %.body
@@ -8355,7 +8356,7 @@ _ZN7rocksdb13HistogramImplC2Ev.exit:              ; preds = %.noexc
   %14 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 968) #30
-  br label %29
+  br label %30
 
 _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %19
   %15 = landingpad { ptr, i32 }
@@ -8365,28 +8366,29 @@ _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit: ; 
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(968) %4) #31
   store ptr null, ptr %0, align 8, !tbaa !168
-  br label %29
+  br label %30
 
-19:                                               ; preds = %_ZN7rocksdb13HistogramImplC2Ev.exit, %23
-  %.011 = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit ], [ %24, %23 ]
+19:                                               ; preds = %_ZN7rocksdb13HistogramImplC2Ev.exit, %24
+  %.011 = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit ], [ %25, %24 ]
   %20 = load ptr, ptr %11, align 8, !tbaa !156
-  %21 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %20, i64 %.011, i32 1
-  %22 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %21, i64 %12
-  invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %4, ptr noundef nonnull align 8 dereferenceable(968) %22)
-          to label %23 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
+  %21 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %20, i64 %.011
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1720
+  %23 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %22, i64 %12
+  invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %4, ptr noundef nonnull align 8 dereferenceable(968) %23)
+          to label %24 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
 
-23:                                               ; preds = %19
-  %24 = add nuw i64 %.011, 1
-  %25 = load i32, ptr %10, align 8, !tbaa !149
-  %26 = zext nneg i32 %25 to i64
-  %.0.highbits = lshr i64 %24, %26
-  %27 = icmp eq i64 %.0.highbits, 0
-  br i1 %27, label %19, label %28, !llvm.loop !167
+24:                                               ; preds = %19
+  %25 = add nuw i64 %.011, 1
+  %26 = load i32, ptr %10, align 8, !tbaa !149
+  %27 = zext nneg i32 %26 to i64
+  %.0.highbits = lshr i64 %25, %27
+  %28 = icmp eq i64 %.0.highbits, 0
+  br i1 %28, label %19, label %29, !llvm.loop !167
 
-28:                                               ; preds = %23
+29:                                               ; preds = %24
   ret void
 
-29:                                               ; preds = %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit, %13
+30:                                               ; preds = %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit, %13
   %.pn = phi { ptr, i32 } [ %15, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit ], [ %14, %13 ]
   resume { ptr, i32 } %.pn
 }
@@ -8398,7 +8400,7 @@ define void @_ZNK7rocksdb14StatisticsImpl18getHistogramStringB5cxx11Ej(ptr dead_
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   %5 = invoke noalias noundef nonnull dereferenceable(968) ptr @_Znwm(i64 noundef 968) #29
-          to label %.noexc unwind label %38
+          to label %.noexc unwind label %39
 
 .noexc:                                           ; preds = %3
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN7rocksdb13HistogramImplE, i64 16), ptr %5, align 8, !tbaa !53, !noalias !170
@@ -8436,71 +8438,72 @@ _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i: 
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(968) %5) #31, !noalias !170
   br label %.body
 
-20:                                               ; preds = %24, %_ZN7rocksdb13HistogramImplC2Ev.exit.i
-  %.011.i = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit.i ], [ %25, %24 ]
+20:                                               ; preds = %25, %_ZN7rocksdb13HistogramImplC2Ev.exit.i
+  %.011.i = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit.i ], [ %26, %25 ]
   %21 = load ptr, ptr %12, align 8, !tbaa !156, !noalias !170
-  %22 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %21, i64 %.011.i, i32 1
-  %23 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %22, i64 %13
-  invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %5, ptr noundef nonnull align 8 dereferenceable(968) %23)
-          to label %24 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, !noalias !170
+  %22 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %21, i64 %.011.i
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1720
+  %24 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %23, i64 %13
+  invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %5, ptr noundef nonnull align 8 dereferenceable(968) %24)
+          to label %25 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, !noalias !170
 
-24:                                               ; preds = %20
-  %25 = add nuw i64 %.011.i, 1
-  %26 = load i32, ptr %11, align 8, !tbaa !149, !noalias !170
-  %27 = zext nneg i32 %26 to i64
-  %.0.highbits.i = lshr i64 %25, %27
-  %28 = icmp eq i64 %.0.highbits.i, 0
-  br i1 %28, label %20, label %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit, !llvm.loop !167
+25:                                               ; preds = %20
+  %26 = add nuw i64 %.011.i, 1
+  %27 = load i32, ptr %11, align 8, !tbaa !149, !noalias !170
+  %28 = zext nneg i32 %27 to i64
+  %.0.highbits.i = lshr i64 %26, %28
+  %29 = icmp eq i64 %.0.highbits.i, 0
+  br i1 %29, label %20, label %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit, !llvm.loop !167
 
-_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit: ; preds = %24
-  %29 = load ptr, ptr %5, align 8, !tbaa !53
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %31 = load ptr, ptr %30, align 8
-  invoke void %31(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(968) %5)
+_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit: ; preds = %25
+  %30 = load ptr, ptr %5, align 8, !tbaa !53
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %32 = load ptr, ptr %31, align 8
+  invoke void %32(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(968) %5)
           to label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit7
 
 _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit
-  %32 = load ptr, ptr %5, align 8, !tbaa !53
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(968) %5) #31
+  %33 = load ptr, ptr %5, align 8, !tbaa !53
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(968) %5) #31
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
-          to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %35
+          to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %36
 
-35:                                               ; preds = %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #33
+  %38 = extractvalue { ptr, i32 } %37, 0
+  tail call void @__clang_call_terminate(ptr %38) #33
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
   ret void
 
-38:                                               ; preds = %3
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %3
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit7: ; preds = %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %41 = load ptr, ptr %5, align 8, !tbaa !53
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(968) %5) #31
+  %42 = load ptr, ptr %5, align 8, !tbaa !53
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(968) %5) #31
   br label %.body
 
-.body:                                            ; preds = %38, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, %14, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit7
-  %.pn = phi { ptr, i32 } [ %40, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit7 ], [ %39, %38 ], [ %16, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i ], [ %15, %14 ]
+.body:                                            ; preds = %39, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, %14, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit7
+  %.pn = phi { ptr, i32 } [ %41, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit7 ], [ %40, %39 ], [ %16, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i ], [ %15, %14 ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
-          to label %_ZN7rocksdb9MutexLockD2Ev.exit8 unwind label %44
+          to label %_ZN7rocksdb9MutexLockD2Ev.exit8 unwind label %45
 
-44:                                               ; preds = %.body
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %.body
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #33
+  %47 = extractvalue { ptr, i32 } %46, 0
+  tail call void @__clang_call_terminate(ptr %47) #33
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit8:                  ; preds = %.body
@@ -8712,7 +8715,7 @@ define void @_ZN7rocksdb14StatisticsImpl17recordInHistogramEjm(ptr noundef nonnu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load atomic i8, ptr %4 monotonic, align 8
   %6 = icmp ult i8 %5, 2
-  br i1 %6, label %47, label %7
+  br i1 %6, label %48, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -8751,28 +8754,29 @@ define void @_ZN7rocksdb14StatisticsImpl17recordInHistogramEjm(ptr noundef nonnu
 _ZNK7rocksdb14CoreLocalArrayINS_14StatisticsImpl14StatisticsDataEE6AccessEv.exit: ; preds = %11, %27
   %storemerge.i.i = phi i64 [ %31, %27 ], [ %26, %11 ]
   %32 = load ptr, ptr %8, align 8, !tbaa !156
-  %33 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %32, i64 %storemerge.i.i, i32 1
-  %34 = zext i32 %1 to i64
-  %35 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %33, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !53
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(968) %35, i64 noundef %2)
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
-  %41 = icmp ne ptr %40, null
-  %42 = icmp ult i32 %1, 62
-  %or.cond = and i1 %42, %41
-  br i1 %or.cond, label %43, label %47
+  %33 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %32, i64 %storemerge.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1720
+  %35 = zext i32 %1 to i64
+  %36 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %34, i64 %35
+  %37 = load ptr, ptr %36, align 8, !tbaa !53
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %39 = load ptr, ptr %38, align 8
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(968) %36, i64 noundef %2)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %42 = icmp ne ptr %41, null
+  %43 = icmp ult i32 %1, 62
+  %or.cond = and i1 %43, %42
+  br i1 %or.cond, label %44, label %48
 
-43:                                               ; preds = %_ZNK7rocksdb14CoreLocalArrayINS_14StatisticsImpl14StatisticsDataEE6AccessEv.exit
-  %44 = load ptr, ptr %40, align 8, !tbaa !53
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 216
-  %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(33) %40, i32 noundef %1, i64 noundef %2)
-  br label %47
+44:                                               ; preds = %_ZNK7rocksdb14CoreLocalArrayINS_14StatisticsImpl14StatisticsDataEE6AccessEv.exit
+  %45 = load ptr, ptr %41, align 8, !tbaa !53
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 216
+  %47 = load ptr, ptr %46, align 8
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(33) %41, i32 noundef %1, i64 noundef %2)
+  br label %48
 
-47:                                               ; preds = %3, %43, %_ZNK7rocksdb14CoreLocalArrayINS_14StatisticsImpl14StatisticsDataEE6AccessEv.exit
+48:                                               ; preds = %3, %44, %_ZNK7rocksdb14CoreLocalArrayINS_14StatisticsImpl14StatisticsDataEE6AccessEv.exit
   ret void
 }
 
@@ -8810,58 +8814,59 @@ _ZN7rocksdb14StatisticsImpl20setTickerCountLockedEjm.exit: ; preds = %7
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %15 ], [ 0, %_ZN7rocksdb14StatisticsImpl20setTickerCountLockedEjm.exit ]
   br label %18
 
-15:                                               ; preds = %25
+15:                                               ; preds = %26
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 62
-  br i1 %exitcond26.not, label %30, label %.preheader, !llvm.loop !178
+  br i1 %exitcond26.not, label %31, label %.preheader, !llvm.loop !178
 
 16:                                               ; preds = %18
   %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
-          to label %_ZN7rocksdb9MutexLockD2Ev.exit16 unwind label %35
+          to label %_ZN7rocksdb9MutexLockD2Ev.exit16 unwind label %36
 
-18:                                               ; preds = %.preheader, %25
-  %.020 = phi i64 [ 0, %.preheader ], [ %26, %25 ]
+18:                                               ; preds = %.preheader, %26
+  %.020 = phi i64 [ 0, %.preheader ], [ %27, %26 ]
   %19 = load ptr, ptr %4, align 8, !tbaa !156
-  %20 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %19, i64 %.020, i32 1
-  %21 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %20, i64 %indvars.iv23
-  %22 = load ptr, ptr %21, align 8, !tbaa !53
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8
-  invoke void %24(ptr noundef nonnull align 8 dereferenceable(968) %21)
-          to label %25 unwind label %16
+  %20 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %19, i64 %.020
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1720
+  %22 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %21, i64 %indvars.iv23
+  %23 = load ptr, ptr %22, align 8, !tbaa !53
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load ptr, ptr %24, align 8
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(968) %22)
+          to label %26 unwind label %16
 
-25:                                               ; preds = %18
-  %26 = add nuw i64 %.020, 1
-  %27 = load i32, ptr %5, align 8, !tbaa !149
-  %28 = zext nneg i32 %27 to i64
-  %.0.highbits = lshr i64 %26, %28
-  %29 = icmp eq i64 %.0.highbits, 0
-  br i1 %29, label %18, label %15, !llvm.loop !179
+26:                                               ; preds = %18
+  %27 = add nuw i64 %.020, 1
+  %28 = load i32, ptr %5, align 8, !tbaa !149
+  %29 = zext nneg i32 %28 to i64
+  %.0.highbits = lshr i64 %27, %29
+  %30 = icmp eq i64 %.0.highbits, 0
+  br i1 %30, label %18, label %15, !llvm.loop !179
 
-30:                                               ; preds = %15
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %31, align 8, !tbaa !47, !alias.scope !180
+31:                                               ; preds = %15
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %32, align 8, !tbaa !47, !alias.scope !180
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !180
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
-          to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %32
+          to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %33
 
-32:                                               ; preds = %30
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #33
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #33
   unreachable
 
-_ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %30
+_ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %31
   ret void
 
-35:                                               ; preds = %16
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %16
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #33
+  %38 = extractvalue { ptr, i32 } %37, 0
+  tail call void @__clang_call_terminate(ptr %38) #33
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit16:                 ; preds = %16
@@ -8913,7 +8918,7 @@ define void @_ZNK7rocksdb14StatisticsImpl8ToStringB5cxx11Ev(ptr dead_on_unwind n
 23:                                               ; preds = %2
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %108
+  br label %109
 
 25:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
   %.sroa.038.055 = phi ptr [ %10, %.lr.ph ], [ %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit ]
@@ -8977,7 +8982,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
 48:                                               ; preds = %.loopexit.split-lp45, %.loopexit44
   %lpad.phi48 = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %108
+  br label %109
 
 ._crit_edge60:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit29, %._crit_edge
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -9005,13 +9010,13 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 55:                                               ; preds = %.lr.ph59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit29
-  %.sroa.034.057 = phi ptr [ %14, %.lr.ph59 ], [ %107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit29 ]
+  %.sroa.034.057 = phi ptr [ %14, %.lr.ph59 ], [ %108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
   %56 = load i32, ptr %.sroa.034.057, align 8, !tbaa !185
   %57 = invoke noalias noundef nonnull dereferenceable(968) ptr @_Znwm(i64 noundef 968) #29
-          to label %.noexc22 unwind label %94
+          to label %.noexc22 unwind label %95
 
 .noexc22:                                         ; preds = %55
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN7rocksdb13HistogramImplE, i64 16), ptr %57, align 8, !tbaa !53, !noalias !188
@@ -9047,83 +9052,84 @@ _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i: 
   call void %69(ptr noundef nonnull align 8 dereferenceable(968) %57) #31, !noalias !188
   br label %.body
 
-70:                                               ; preds = %74, %_ZN7rocksdb13HistogramImplC2Ev.exit.i
-  %.011.i = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit.i ], [ %75, %74 ]
+70:                                               ; preds = %75, %_ZN7rocksdb13HistogramImplC2Ev.exit.i
+  %.011.i = phi i64 [ 0, %_ZN7rocksdb13HistogramImplC2Ev.exit.i ], [ %76, %75 ]
   %71 = load ptr, ptr %18, align 8, !tbaa !156, !noalias !188
-  %72 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %71, i64 %.011.i, i32 1
-  %73 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %72, i64 %63
-  invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %57, ptr noundef nonnull align 8 dereferenceable(968) %73)
-          to label %74 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, !noalias !188
+  %72 = getelementptr inbounds nuw %"struct.rocksdb::StatisticsImpl::StatisticsData", ptr %71, i64 %.011.i
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1720
+  %74 = getelementptr inbounds nuw %"class.rocksdb::HistogramImpl", ptr %73, i64 %63
+  invoke void @_ZN7rocksdb13HistogramImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(968) %57, ptr noundef nonnull align 8 dereferenceable(968) %74)
+          to label %75 unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, !noalias !188
 
-74:                                               ; preds = %70
-  %75 = add nuw i64 %.011.i, 1
-  %76 = load i32, ptr %17, align 8, !tbaa !149, !noalias !188
-  %77 = zext nneg i32 %76 to i64
-  %.0.highbits.i21 = lshr i64 %75, %77
-  %78 = icmp eq i64 %.0.highbits.i21, 0
-  br i1 %78, label %70, label %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit, !llvm.loop !167
+75:                                               ; preds = %70
+  %76 = add nuw i64 %.011.i, 1
+  %77 = load i32, ptr %17, align 8, !tbaa !149, !noalias !188
+  %78 = zext nneg i32 %77 to i64
+  %.0.highbits.i21 = lshr i64 %76, %78
+  %79 = icmp eq i64 %.0.highbits.i21, 0
+  br i1 %79, label %70, label %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit, !llvm.loop !167
 
-_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit: ; preds = %74
-  %79 = load ptr, ptr %57, align 8, !tbaa !53
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 120
-  %81 = load ptr, ptr %80, align 8
-  invoke void %81(ptr noundef nonnull align 8 dereferenceable(968) %57, ptr noundef nonnull %5)
+_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit: ; preds = %75
+  %80 = load ptr, ptr %57, align 8, !tbaa !53
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 120
+  %82 = load ptr, ptr %81, align 8
+  invoke void %82(ptr noundef nonnull align 8 dereferenceable(968) %57, ptr noundef nonnull %5)
           to label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit
-  %82 = load ptr, ptr %57, align 8, !tbaa !53
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(968) %57) #31
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.034.057, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !16
-  %87 = load double, ptr %5, align 8, !tbaa !191
-  %88 = load double, ptr %19, align 8, !tbaa !194
-  %89 = load double, ptr %20, align 8, !tbaa !195
-  %90 = load double, ptr %16, align 8, !tbaa !196
-  %91 = load i64, ptr %21, align 8, !tbaa !197
-  %92 = load i64, ptr %22, align 8, !tbaa !198
-  %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.282, ptr noundef %86, double noundef %87, double noundef %88, double noundef %89, double noundef %90, i64 noundef %91, i64 noundef %92) #31
-  %or.cond = icmp ugt i32 %93, 199
-  br i1 %or.cond, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit29, label %100
+  %83 = load ptr, ptr %57, align 8, !tbaa !53
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %85 = load ptr, ptr %84, align 8
+  call void %85(ptr noundef nonnull align 8 dereferenceable(968) %57) #31
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.034.057, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !16
+  %88 = load double, ptr %5, align 8, !tbaa !191
+  %89 = load double, ptr %19, align 8, !tbaa !194
+  %90 = load double, ptr %20, align 8, !tbaa !195
+  %91 = load double, ptr %16, align 8, !tbaa !196
+  %92 = load i64, ptr %21, align 8, !tbaa !197
+  %93 = load i64, ptr %22, align 8, !tbaa !198
+  %94 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.282, ptr noundef %87, double noundef %88, double noundef %89, double noundef %90, double noundef %91, i64 noundef %92, i64 noundef %93) #31
+  %or.cond = icmp ugt i32 %94, 199
+  br i1 %or.cond, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit29, label %101
 
-94:                                               ; preds = %55
-  %95 = landingpad { ptr, i32 }
+95:                                               ; preds = %55
+  %96 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 _ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit25: ; preds = %_ZNK7rocksdb14StatisticsImpl22getHistogramImplLockedEj.exit
-  %96 = landingpad { ptr, i32 }
+  %97 = landingpad { ptr, i32 }
           cleanup
-  %97 = load ptr, ptr %57, align 8, !tbaa !53
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %99 = load ptr, ptr %98, align 8
-  call void %99(ptr noundef nonnull align 8 dereferenceable(968) %57) #31
+  %98 = load ptr, ptr %57, align 8, !tbaa !53
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %100 = load ptr, ptr %99, align 8
+  call void %100(ptr noundef nonnull align 8 dereferenceable(968) %57) #31
   br label %.body
 
-100:                                              ; preds = %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
-  %101 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #31
-  %102 = load i64, ptr %8, align 8, !tbaa !18
-  %103 = sub i64 4611686018427387903, %102
-  %104 = icmp ult i64 %103, %101
-  br i1 %104, label %105, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i26
+101:                                              ; preds = %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
+  %102 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #31
+  %103 = load i64, ptr %8, align 8, !tbaa !18
+  %104 = sub i64 4611686018427387903, %103
+  %105 = icmp ult i64 %104, %102
+  br i1 %105, label %106, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i26
 
-105:                                              ; preds = %100
+106:                                              ; preds = %101
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.287) #32
           to label %.noexc27 unwind label %.loopexit.split-lp
 
-.noexc27:                                         ; preds = %105
+.noexc27:                                         ; preds = %106
   unreachable
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i26: ; preds = %100
-  %106 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4, i64 noundef %101)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i26: ; preds = %101
+  %107 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4, i64 noundef %102)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit29 unwind label %.loopexit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit29: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i26, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.034.057, i64 40
-  %.not43 = icmp eq ptr %107, %15
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.034.057, i64 40
+  %.not43 = icmp eq ptr %108, %15
   br i1 %.not43, label %._crit_edge60, label %55
 
 .loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i26
@@ -9131,44 +9137,44 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit29: ; preds
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %105
+.loopexit.split-lp:                               ; preds = %106
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit25, %64, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, %94
-  %.pn16 = phi { ptr, i32 } [ %96, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit25 ], [ %95, %94 ], [ %66, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i ], [ %65, %64 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit25, %64, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i, %95
+  %.pn16 = phi { ptr, i32 } [ %97, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit25 ], [ %96, %95 ], [ %66, %_ZNSt10unique_ptrIN7rocksdb13HistogramImplESt14default_deleteIS1_EED2Ev.exit.i ], [ %65, %64 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %108
+  br label %109
 
-108:                                              ; preds = %.body, %48, %23
+109:                                              ; preds = %.body, %48, %23
   %.pn18 = phi { ptr, i32 } [ %lpad.phi48, %48 ], [ %.pn16, %.body ], [ %24, %23 ]
-  %109 = load ptr, ptr %0, align 8, !tbaa !16
-  %110 = icmp eq ptr %109, %7
-  br i1 %110, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %110 = load ptr, ptr %0, align 8, !tbaa !16
+  %111 = icmp eq ptr %110, %7
+  br i1 %111, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %108
-  %111 = load i64, ptr %8, align 8, !tbaa !18
-  %112 = icmp ult i64 %111, 16
-  call void @llvm.assume(i1 %112)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %109
+  %112 = load i64, ptr %8, align 8, !tbaa !18
+  %113 = icmp ult i64 %112, 16
+  call void @llvm.assume(i1 %113)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %108
-  %113 = load i64, ptr %7, align 8, !tbaa !17
-  %114 = add i64 %113, 1
-  call void @_ZdlPvm(ptr noundef %109, i64 noundef %114) #30
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %109
+  %114 = load i64, ptr %7, align 8, !tbaa !17
+  %115 = add i64 %114, 1
+  call void @_ZdlPvm(ptr noundef %110, i64 noundef %115) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
-          to label %_ZN7rocksdb9MutexLockD2Ev.exit30 unwind label %115
+          to label %_ZN7rocksdb9MutexLockD2Ev.exit30 unwind label %116
 
-115:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %116 = landingpad { ptr, i32 }
+116:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %117 = landingpad { ptr, i32 }
           catch ptr null
-  %117 = extractvalue { ptr, i32 } %116, 0
-  call void @__clang_call_terminate(ptr %117) #33
+  %118 = extractvalue { ptr, i32 } %117, 0
+  call void @__clang_call_terminate(ptr %118) #33
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit30:                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

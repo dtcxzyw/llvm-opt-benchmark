@@ -1312,7 +1312,7 @@ define hidden void @zim_SplFixedArray_offsetExists(ptr noundef readonly captures
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %10 = icmp ne ptr %9, null
   call void @llvm.assume(i1 %10)
-  br label %27
+  br label %28
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1334,20 +1334,21 @@ define hidden void @zim_SplFixedArray_offsetExists(ptr noundef readonly captures
 spl_fixedarray_object_has_dimension_helper.exit:  ; preds = %18
   %21 = getelementptr inbounds i8, ptr %13, i64 -24
   %22 = load ptr, ptr %21, align 8, !tbaa !57
-  %23 = getelementptr inbounds nuw %struct._zval_struct, ptr %22, i64 %15, i32 1
-  %24 = load i8, ptr %23, align 8, !tbaa !8
-  %.fr = freeze i8 %24
+  %23 = getelementptr inbounds nuw %struct._zval_struct, ptr %22, i64 %15
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load i8, ptr %24, align 8, !tbaa !8
+  %.fr = freeze i8 %25
   %.not = icmp eq i8 %.fr, 1
   %spec.select = select i1 %.not, i32 2, i32 3
   br label %spl_fixedarray_object_has_dimension_helper.exit.thread
 
 spl_fixedarray_object_has_dimension_helper.exit.thread: ; preds = %spl_fixedarray_object_has_dimension_helper.exit, %18, %11
-  %25 = phi i32 [ 2, %11 ], [ 2, %18 ], [ %spec.select, %spl_fixedarray_object_has_dimension_helper.exit ]
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %25, ptr %26, align 8, !tbaa !8
-  br label %27
+  %26 = phi i32 [ 2, %11 ], [ 2, %18 ], [ %spec.select, %spl_fixedarray_object_has_dimension_helper.exit ]
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %26, ptr %27, align 8, !tbaa !8
+  br label %28
 
-27:                                               ; preds = %spl_fixedarray_object_has_dimension_helper.exit.thread, %8
+28:                                               ; preds = %spl_fixedarray_object_has_dimension_helper.exit.thread, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1633,8 +1634,7 @@ define hidden void @zim_SplFixedArray_offsetUnset(ptr noundef readonly captures(
   store ptr %30, ptr %3, align 8, !tbaa !8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %32, ptr %33, align 8, !tbaa !8
-  %34 = getelementptr inbounds nuw %struct._zval_struct, ptr %28, i64 %17, i32 1
-  store i32 1, ptr %34, align 8, !tbaa !8
+  store i32 1, ptr %31, align 8, !tbaa !8
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %spl_fixedarray_object_unset_dimension_helper.exit
@@ -1928,7 +1928,7 @@ define internal ptr @spl_fixedarray_object_read_dimension(ptr noundef %0, ptr no
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = icmp eq i32 %2, 3
-  br i1 %7, label %8, label %31
+  br i1 %7, label %8, label %32
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1953,7 +1953,7 @@ define internal ptr @spl_fixedarray_object_read_dimension(ptr noundef %0, ptr no
   %20 = call zeroext i1 @zend_is_true(ptr noundef nonnull %5) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %20, label %31, label %spl_fixedarray_object_read_dimension_helper.exit
+  br i1 %20, label %32, label %spl_fixedarray_object_read_dimension_helper.exit
 
 .critedge.i:                                      ; preds = %12, %8
   %21 = tail call fastcc i64 @spl_offset_convert_to_long(ptr noundef %1)
@@ -1972,84 +1972,85 @@ define internal ptr @spl_fixedarray_object_read_dimension(ptr noundef %0, ptr no
 spl_fixedarray_object_has_dimension.exit:         ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 -24
   %28 = load ptr, ptr %27, align 8, !tbaa !57
-  %29 = getelementptr inbounds nuw %struct._zval_struct, ptr %28, i64 %21, i32 1
-  %30 = load i8, ptr %29, align 8, !tbaa !8
-  %.not33 = icmp eq i8 %30, 1
-  br i1 %.not33, label %spl_fixedarray_object_read_dimension_helper.exit, label %31
+  %29 = getelementptr inbounds nuw %struct._zval_struct, ptr %28, i64 %21
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i8, ptr %30, align 8, !tbaa !8
+  %.not33 = icmp eq i8 %31, 1
+  br i1 %.not33, label %spl_fixedarray_object_read_dimension_helper.exit, label %32
 
-31:                                               ; preds = %19, %spl_fixedarray_object_has_dimension.exit, %4
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !108
-  %34 = load ptr, ptr @spl_ce_SplFixedArray, align 8, !tbaa !67
-  %.not19 = icmp eq ptr %33, %34
-  br i1 %.not19, label %.critedge, label %35
+32:                                               ; preds = %19, %spl_fixedarray_object_has_dimension.exit, %4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !108
+  %35 = load ptr, ptr @spl_ce_SplFixedArray, align 8, !tbaa !67
+  %.not19 = icmp eq ptr %34, %35
+  br i1 %.not19, label %.critedge, label %36
 
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 376
-  %37 = load ptr, ptr %36, align 8, !tbaa !109
-  %38 = load ptr, ptr %37, align 8, !tbaa !112
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !8
-  %.not = icmp eq ptr %40, %34
-  br i1 %.not, label %.critedge, label %41, !prof !48
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 376
+  %38 = load ptr, ptr %37, align 8, !tbaa !109
+  %39 = load ptr, ptr %38, align 8, !tbaa !112
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !8
+  %.not = icmp eq ptr %41, %35
+  br i1 %.not, label %.critedge, label %42, !prof !48
 
-41:                                               ; preds = %35
+42:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not20 = icmp eq ptr %1, null
-  br i1 %.not20, label %42, label %44
+  br i1 %.not20, label %43, label %45
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 1, ptr %43, align 8, !tbaa !8
-  br label %44
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 1, ptr %44, align 8, !tbaa !8
+  br label %45
 
-44:                                               ; preds = %42, %41
-  %.015 = phi ptr [ %1, %41 ], [ %6, %42 ]
-  call void @zend_call_known_function(ptr noundef nonnull %38, ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef %3, i32 noundef 1, ptr noundef nonnull %.015, ptr noundef null) #12
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %46 = load i8, ptr %45, align 8, !tbaa !8
-  %47 = icmp eq i8 %46, 0
-  %executor_globals. = select i1 %47, ptr @executor_globals, ptr %3
+45:                                               ; preds = %43, %42
+  %.015 = phi ptr [ %1, %42 ], [ %6, %43 ]
+  call void @zend_call_known_function(ptr noundef nonnull %39, ptr noundef nonnull %0, ptr noundef nonnull %34, ptr noundef %3, i32 noundef 1, ptr noundef nonnull %.015, ptr noundef null) #12
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %47 = load i8, ptr %46, align 8, !tbaa !8
+  %48 = icmp eq i8 %47, 0
+  %executor_globals. = select i1 %48, ptr @executor_globals, ptr %3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %spl_fixedarray_object_read_dimension_helper.exit
 
-.critedge:                                        ; preds = %31, %35
-  %48 = getelementptr inbounds i8, ptr %0, i64 -32
+.critedge:                                        ; preds = %32, %36
+  %49 = getelementptr inbounds i8, ptr %0, i64 -32
   %.not.i21 = icmp eq ptr %1, null
-  br i1 %.not.i21, label %49, label %50
+  br i1 %.not.i21, label %50, label %51
 
-49:                                               ; preds = %.critedge
+50:                                               ; preds = %.critedge
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.9) #12
   br label %spl_fixedarray_object_read_dimension_helper.exit
 
-50:                                               ; preds = %.critedge
-  %51 = call fastcc i64 @spl_offset_convert_to_long(ptr noundef nonnull %1)
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
-  %.not9.i = icmp eq ptr %52, null
-  br i1 %.not9.i, label %53, label %spl_fixedarray_object_read_dimension_helper.exit
+51:                                               ; preds = %.critedge
+  %52 = call fastcc i64 @spl_offset_convert_to_long(ptr noundef nonnull %1)
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
+  %.not9.i = icmp eq ptr %53, null
+  br i1 %.not9.i, label %54, label %spl_fixedarray_object_read_dimension_helper.exit
 
-53:                                               ; preds = %50
-  %54 = icmp slt i64 %51, 0
-  br i1 %54, label %57, label %55
+54:                                               ; preds = %51
+  %55 = icmp slt i64 %52, 0
+  br i1 %55, label %58, label %56
 
-55:                                               ; preds = %53
-  %56 = load i64, ptr %48, align 8, !tbaa !49
-  %.not10.i = icmp slt i64 %51, %56
-  br i1 %.not10.i, label %60, label %57
+56:                                               ; preds = %54
+  %57 = load i64, ptr %49, align 8, !tbaa !49
+  %.not10.i = icmp slt i64 %52, %57
+  br i1 %.not10.i, label %61, label %58
 
-57:                                               ; preds = %55, %53
-  %58 = load ptr, ptr @spl_ce_OutOfBoundsException, align 8, !tbaa !67
-  %59 = call ptr @zend_throw_exception(ptr noundef %58, ptr noundef nonnull @.str.10, i64 noundef 0) #12
+58:                                               ; preds = %56, %54
+  %59 = load ptr, ptr @spl_ce_OutOfBoundsException, align 8, !tbaa !67
+  %60 = call ptr @zend_throw_exception(ptr noundef %59, ptr noundef nonnull @.str.10, i64 noundef 0) #12
   br label %spl_fixedarray_object_read_dimension_helper.exit
 
-60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %0, i64 -24
-  %62 = load ptr, ptr %61, align 8, !tbaa !57
-  %63 = getelementptr inbounds nuw %struct._zval_struct, ptr %62, i64 %51
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds i8, ptr %0, i64 -24
+  %63 = load ptr, ptr %62, align 8, !tbaa !57
+  %64 = getelementptr inbounds nuw %struct._zval_struct, ptr %63, i64 %52
   br label %spl_fixedarray_object_read_dimension_helper.exit
 
-spl_fixedarray_object_read_dimension_helper.exit: ; preds = %19, %24, %.critedge.i, %60, %57, %50, %49, %spl_fixedarray_object_has_dimension.exit, %44
-  %.0 = phi ptr [ %executor_globals., %44 ], [ @executor_globals, %spl_fixedarray_object_has_dimension.exit ], [ null, %57 ], [ %63, %60 ], [ null, %49 ], [ null, %50 ], [ @executor_globals, %.critedge.i ], [ @executor_globals, %24 ], [ @executor_globals, %19 ]
+spl_fixedarray_object_read_dimension_helper.exit: ; preds = %19, %24, %.critedge.i, %61, %58, %51, %50, %spl_fixedarray_object_has_dimension.exit, %45
+  %.0 = phi ptr [ %executor_globals., %45 ], [ @executor_globals, %spl_fixedarray_object_has_dimension.exit ], [ null, %58 ], [ %64, %61 ], [ null, %50 ], [ null, %51 ], [ @executor_globals, %.critedge.i ], [ @executor_globals, %24 ], [ @executor_globals, %19 ]
   ret ptr %.0
 }
 
@@ -2152,8 +2153,7 @@ define internal void @spl_fixedarray_object_unset_dimension(ptr noundef %0, ptr 
   store ptr %29, ptr %3, align 8, !tbaa !8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %31, ptr %32, align 8, !tbaa !8
-  %33 = getelementptr inbounds nuw %struct._zval_struct, ptr %27, i64 %16, i32 1
-  store i32 1, ptr %33, align 8, !tbaa !8
+  store i32 1, ptr %30, align 8, !tbaa !8
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %spl_fixedarray_object_unset_dimension_helper.exit
@@ -2207,21 +2207,21 @@ define internal range(i32 0, 2) i32 @spl_fixedarray_object_has_dimension(ptr nou
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %0, i64 -24
   %25 = load ptr, ptr %24, align 8, !tbaa !57
-  br i1 %.not13, label %29, label %26
+  %26 = getelementptr inbounds nuw %struct._zval_struct, ptr %25, i64 %17
+  br i1 %.not13, label %29, label %27
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw %struct._zval_struct, ptr %25, i64 %17
-  %28 = tail call zeroext i1 @zend_is_true(ptr noundef %27) #12
+27:                                               ; preds = %23
+  %28 = tail call zeroext i1 @zend_is_true(ptr noundef %26) #12
   br label %spl_fixedarray_object_has_dimension_helper.exit
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw %struct._zval_struct, ptr %25, i64 %17, i32 1
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = load i8, ptr %30, align 8, !tbaa !8
   %32 = icmp ne i8 %31, 1
   br label %spl_fixedarray_object_has_dimension_helper.exit
 
-spl_fixedarray_object_has_dimension_helper.exit:  ; preds = %29, %26, %20, %.critedge, %15
-  %.0.in = phi i1 [ %16, %15 ], [ %28, %26 ], [ %32, %29 ], [ false, %.critedge ], [ false, %20 ]
+spl_fixedarray_object_has_dimension_helper.exit:  ; preds = %29, %27, %20, %.critedge, %15
+  %.0.in = phi i1 [ %16, %15 ], [ %28, %27 ], [ %32, %29 ], [ false, %.critedge ], [ false, %20 ]
   %.0 = zext i1 %.0.in to i32
   ret i32 %.0
 }

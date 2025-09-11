@@ -5679,8 +5679,8 @@ nch.exit.thread:                                  ; preds = %624
   %745 = getelementptr inbounds nuw i8, ptr %.val, i64 20
   %746 = load i32, ptr %745, align 4, !tbaa !40
   %747 = sext i32 %746 to i64
-  %.idx.i = shl nsw i64 %747, 5
-  %748 = getelementptr inbounds i8, ptr %744, i64 %.idx.i
+  %.idx.i = shl nuw nsw i64 %747, 5
+  %748 = getelementptr inbounds nuw i8, ptr %744, i64 %.idx.i
   %749 = icmp sgt i32 %746, 0
   br i1 %749, label %.lr.ph39.split.split.us.i, label %freezeset.exit
 

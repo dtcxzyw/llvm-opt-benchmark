@@ -61,7 +61,7 @@ define hidden i64 @X11_KeyCodeToSym(ptr noundef readonly captures(none) %0, i8 n
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1696
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %37, label %11
+  br i1 %.not, label %38, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -69,57 +69,58 @@ define hidden i64 @X11_KeyCodeToSym(ptr noundef readonly captures(none) %0, i8 n
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = zext i8 %1 to i64
-  %17 = getelementptr inbounds nuw %struct._XkbSymMapRec, ptr %15, i64 %16, i32 1
-  %18 = load i8, ptr %17, align 2
-  %19 = and i8 %18, 15
-  %20 = add nsw i8 %19, -1
-  %or.cond.not = icmp ult i8 %20, %2
-  br i1 %or.cond.not, label %21, label %27
+  %17 = getelementptr inbounds nuw %struct._XkbSymMapRec, ptr %15, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %19 = load i8, ptr %18, align 2
+  %20 = and i8 %19, 15
+  %21 = add nsw i8 %20, -1
+  %or.cond.not = icmp ult i8 %21, %2
+  br i1 %or.cond.not, label %22, label %28
 
-21:                                               ; preds = %11
-  %trunc = and i8 %18, -64
-  switch i8 %trunc, label %25 [
-    i8 -128, label %22
-    i8 64, label %27
+22:                                               ; preds = %11
+  %trunc = and i8 %19, -64
+  switch i8 %trunc, label %26 [
+    i8 -128, label %23
+    i8 64, label %28
   ]
 
-22:                                               ; preds = %21
-  %23 = lshr i8 %18, 4
-  %24 = and i8 %23, 3
-  %.not29 = icmp samesign ugt i8 %19, %24
-  %spec.store.select = select i1 %.not29, i8 %24, i8 0
-  br label %27
+23:                                               ; preds = %22
+  %24 = lshr i8 %19, 4
+  %25 = and i8 %24, 3
+  %.not29 = icmp samesign ugt i8 %20, %25
+  %spec.store.select = select i1 %.not29, i8 %25, i8 0
+  br label %28
 
-25:                                               ; preds = %21
-  %26 = urem i8 %2, %19
-  br label %27
+26:                                               ; preds = %22
+  %27 = urem i8 %2, %20
+  br label %28
 
-27:                                               ; preds = %21, %22, %25, %11
-  %.0 = phi i8 [ %2, %11 ], [ %spec.store.select, %22 ], [ %26, %25 ], [ %20, %21 ]
-  %28 = load ptr, ptr @X11_XkbLookupKeySym, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = and i8 %.0, 3
-  %31 = zext nneg i8 %30 to i32
-  %32 = shl nuw nsw i32 %31, 13
-  %33 = and i32 %3, 255
-  %34 = or disjoint i32 %32, %33
-  %35 = call i32 %28(ptr noundef %29, i8 noundef zeroext %1, i32 noundef %34, ptr noundef nonnull %6, ptr noundef nonnull %5) #9
-  %36 = icmp eq i32 %35, 0
+28:                                               ; preds = %22, %23, %26, %11
+  %.0 = phi i8 [ %2, %11 ], [ %spec.store.select, %23 ], [ %27, %26 ], [ %21, %22 ]
+  %29 = load ptr, ptr @X11_XkbLookupKeySym, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = and i8 %.0, 3
+  %32 = zext nneg i8 %31 to i32
+  %33 = shl nuw nsw i32 %32, 13
+  %34 = and i32 %3, 255
+  %35 = or disjoint i32 %33, %34
+  %36 = call i32 %29(ptr noundef %30, i8 noundef zeroext %1, i32 noundef %35, ptr noundef nonnull %6, ptr noundef nonnull %5) #9
+  %37 = icmp eq i32 %36, 0
   %.pre = load i64, ptr %5, align 8
-  %spec.select = select i1 %36, i64 0, i64 %.pre
+  %spec.select = select i1 %37, i64 0, i64 %.pre
   br label %._crit_edge
 
-37:                                               ; preds = %4
-  %38 = load ptr, ptr @X11_XKeycodeToKeysym, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = tail call i64 %38(ptr noundef %39, i8 noundef zeroext %1, i32 noundef 0) #9
+38:                                               ; preds = %4
+  %39 = load ptr, ptr @X11_XKeycodeToKeysym, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = tail call i64 %39(ptr noundef %40, i8 noundef zeroext %1, i32 noundef 0) #9
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %27, %37
-  %41 = phi i64 [ %40, %37 ], [ %spec.select, %27 ]
+._crit_edge:                                      ; preds = %28, %38
+  %42 = phi i64 [ %41, %38 ], [ %spec.select, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i64 %41
+  ret i64 %42
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -689,17 +690,17 @@ X11_GetScrollLockModifierMask.exit:               ; preds = %..split.loop.exit1_
   call void @SDL_SetKeymap(ptr noundef %8, i1 noundef zeroext %1) #9
   ret void
 
-78:                                               ; preds = %133
+78:                                               ; preds = %134
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 16
   br i1 %exitcond65.not, label %29, label %.preheader, !llvm.loop !13
 
-79:                                               ; preds = %.preheader, %133
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %133 ]
+79:                                               ; preds = %.preheader, %134
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %134 ]
   %80 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %133, label %83
+  br i1 %82, label %134, label %83
 
 83:                                               ; preds = %79
   %84 = trunc nuw nsw i64 %indvars.iv to i32
@@ -714,104 +715,105 @@ X11_GetScrollLockModifierMask.exit:               ; preds = %..split.loop.exit1_
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 1696
   %91 = load ptr, ptr %90, align 8
   %.not.i57 = icmp eq ptr %91, null
-  br i1 %.not.i57, label %117, label %92
+  br i1 %.not.i57, label %118, label %92
 
 92:                                               ; preds = %83
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw %struct._XkbSymMapRec, ptr %96, i64 %indvars.iv, i32 1
-  %98 = load i8, ptr %97, align 2
-  %99 = and i8 %98, 15
-  %100 = add nsw i8 %99, -1
-  %or.cond.not.i = icmp ult i8 %100, %87
-  br i1 %or.cond.not.i, label %101, label %107
+  %97 = getelementptr inbounds nuw %struct._XkbSymMapRec, ptr %96, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  %99 = load i8, ptr %98, align 2
+  %100 = and i8 %99, 15
+  %101 = add nsw i8 %100, -1
+  %or.cond.not.i = icmp ult i8 %101, %87
+  br i1 %or.cond.not.i, label %102, label %108
 
-101:                                              ; preds = %92
-  %trunc.i = and i8 %98, -64
-  switch i8 %trunc.i, label %105 [
-    i8 -128, label %102
-    i8 64, label %107
+102:                                              ; preds = %92
+  %trunc.i = and i8 %99, -64
+  switch i8 %trunc.i, label %106 [
+    i8 -128, label %103
+    i8 64, label %108
   ]
 
-102:                                              ; preds = %101
-  %103 = lshr i8 %98, 4
-  %104 = and i8 %103, 3
-  %.not29.i = icmp samesign ugt i8 %99, %104
-  %spec.store.select.i = select i1 %.not29.i, i8 %104, i8 0
-  br label %107
+103:                                              ; preds = %102
+  %104 = lshr i8 %99, 4
+  %105 = and i8 %104, 3
+  %.not29.i = icmp samesign ugt i8 %100, %105
+  %spec.store.select.i = select i1 %.not29.i, i8 %105, i8 0
+  br label %108
 
-105:                                              ; preds = %101
-  %106 = urem i8 %87, %99
-  br label %107
+106:                                              ; preds = %102
+  %107 = urem i8 %87, %100
+  br label %108
 
-107:                                              ; preds = %105, %102, %101, %92
-  %.0.i = phi i8 [ %87, %92 ], [ %spec.store.select.i, %102 ], [ %106, %105 ], [ %100, %101 ]
-  %108 = load ptr, ptr @X11_XkbLookupKeySym, align 8
-  %109 = load ptr, ptr %89, align 8
-  %110 = and i8 %.0.i, 3
-  %111 = zext nneg i8 %110 to i32
-  %112 = shl nuw nsw i32 %111, 13
-  %113 = and i32 %88, 255
-  %114 = or disjoint i32 %112, %113
-  %115 = call i32 %108(ptr noundef %109, i8 noundef zeroext %85, i32 noundef %114, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
-  %116 = icmp eq i32 %115, 0
+108:                                              ; preds = %106, %103, %102, %92
+  %.0.i = phi i8 [ %87, %92 ], [ %spec.store.select.i, %103 ], [ %107, %106 ], [ %101, %102 ]
+  %109 = load ptr, ptr @X11_XkbLookupKeySym, align 8
+  %110 = load ptr, ptr %89, align 8
+  %111 = and i8 %.0.i, 3
+  %112 = zext nneg i8 %111 to i32
+  %113 = shl nuw nsw i32 %112, 13
+  %114 = and i32 %88, 255
+  %115 = or disjoint i32 %113, %114
+  %116 = call i32 %109(ptr noundef %110, i8 noundef zeroext %85, i32 noundef %115, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
+  %117 = icmp eq i32 %116, 0
   %.pre.i = load i64, ptr %3, align 8
-  br i1 %116, label %X11_KeyCodeToSym.exit.thread, label %X11_KeyCodeToSym.exit
+  br i1 %117, label %X11_KeyCodeToSym.exit.thread, label %X11_KeyCodeToSym.exit
 
-117:                                              ; preds = %83
-  %118 = load ptr, ptr @X11_XKeycodeToKeysym, align 8
-  %119 = load ptr, ptr %89, align 8
-  %120 = call i64 %118(ptr noundef %119, i8 noundef zeroext %85, i32 noundef 0) #9
+118:                                              ; preds = %83
+  %119 = load ptr, ptr @X11_XKeycodeToKeysym, align 8
+  %120 = load ptr, ptr %89, align 8
+  %121 = call i64 %119(ptr noundef %120, i8 noundef zeroext %85, i32 noundef 0) #9
   br label %X11_KeyCodeToSym.exit
 
-X11_KeyCodeToSym.exit.thread:                     ; preds = %107
+X11_KeyCodeToSym.exit.thread:                     ; preds = %108
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %133
+  br label %134
 
-X11_KeyCodeToSym.exit:                            ; preds = %107, %117
-  %121 = phi i64 [ %120, %117 ], [ %.pre.i, %107 ]
+X11_KeyCodeToSym.exit:                            ; preds = %108, %118
+  %122 = phi i64 [ %121, %118 ], [ %.pre.i, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not40 = icmp eq i64 %121, 0
-  br i1 %.not40, label %133, label %122
+  %.not40 = icmp eq i64 %122, 0
+  br i1 %.not40, label %134, label %123
 
-122:                                              ; preds = %X11_KeyCodeToSym.exit
-  %123 = trunc i64 %121 to i32
-  %124 = load i16, ptr %27, align 8
-  %125 = call i32 @SDL_GetKeyCodeFromKeySym(i32 noundef %123, i32 noundef %84, i16 noundef zeroext %124) #9
-  %.not41 = icmp eq i32 %125, 0
-  br i1 %.not41, label %126, label %132
+123:                                              ; preds = %X11_KeyCodeToSym.exit
+  %124 = trunc i64 %122 to i32
+  %125 = load i16, ptr %27, align 8
+  %126 = call i32 @SDL_GetKeyCodeFromKeySym(i32 noundef %124, i32 noundef %84, i16 noundef zeroext %125) #9
+  %.not41 = icmp eq i32 %126, 0
+  br i1 %.not41, label %127, label %133
 
-126:                                              ; preds = %122
-  switch i32 %81, label %130 [
-    i32 40, label %132
-    i32 41, label %127
-    i32 42, label %128
-    i32 76, label %129
+127:                                              ; preds = %123
+  switch i32 %81, label %131 [
+    i32 40, label %133
+    i32 41, label %128
+    i32 42, label %129
+    i32 76, label %130
   ]
 
-127:                                              ; preds = %126
-  br label %132
-
-128:                                              ; preds = %126
-  br label %132
-
-129:                                              ; preds = %126
-  br label %132
-
-130:                                              ; preds = %126
-  %131 = or i32 %81, 1073741824
-  br label %132
-
-132:                                              ; preds = %126, %127, %128, %129, %130, %122
-  %.0 = phi i32 [ %125, %122 ], [ %131, %130 ], [ 27, %127 ], [ 8, %128 ], [ 127, %129 ], [ 13, %126 ]
-  call void @SDL_SetKeymapEntry(ptr noundef %8, i32 noundef %81, i16 noundef zeroext %124, i32 noundef %.0) #9
+128:                                              ; preds = %127
   br label %133
 
-133:                                              ; preds = %X11_KeyCodeToSym.exit.thread, %X11_KeyCodeToSym.exit, %132, %79
+129:                                              ; preds = %127
+  br label %133
+
+130:                                              ; preds = %127
+  br label %133
+
+131:                                              ; preds = %127
+  %132 = or i32 %81, 1073741824
+  br label %133
+
+133:                                              ; preds = %127, %128, %129, %130, %131, %123
+  %.0 = phi i32 [ %126, %123 ], [ %132, %131 ], [ 27, %128 ], [ 8, %129 ], [ 127, %130 ], [ 13, %127 ]
+  call void @SDL_SetKeymapEntry(ptr noundef %8, i32 noundef %81, i16 noundef zeroext %125, i32 noundef %.0) #9
+  br label %134
+
+134:                                              ; preds = %X11_KeyCodeToSym.exit.thread, %X11_KeyCodeToSym.exit, %133, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %78, label %79, !llvm.loop !14

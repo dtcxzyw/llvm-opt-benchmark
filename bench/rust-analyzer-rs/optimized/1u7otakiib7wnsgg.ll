@@ -14950,11 +14950,12 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN8indexmap3map
 "_ZN8indexmap3map4core3raw26RawTableEntry$LT$K$C$V$GT$11into_bucket17hda270c3f7464ea8bE.llvm.13346703328537446882.exit": ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !6805, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, i64 }, ptr %18, i64 %12, i32 1
+  %19 = getelementptr inbounds { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, i64 }, ptr %18, i64 %12
   br label %20
 
 20:                                               ; preds = %31, %"_ZN8indexmap3map4core3raw26RawTableEntry$LT$K$C$V$GT$11into_bucket17hda270c3f7464ea8bE.llvm.13346703328537446882.exit"
-  %.0 = phi ptr [ %19, %"_ZN8indexmap3map4core3raw26RawTableEntry$LT$K$C$V$GT$11into_bucket17hda270c3f7464ea8bE.llvm.13346703328537446882.exit" ], [ %34, %31 ]
+  %.pn = phi ptr [ %19, %"_ZN8indexmap3map4core3raw26RawTableEntry$LT$K$C$V$GT$11into_bucket17hda270c3f7464ea8bE.llvm.13346703328537446882.exit" ], [ %34, %31 ]
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   ret ptr %.0
 
 .noexc:                                           ; preds = %1
@@ -14984,7 +14985,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN8indexmap3map
 31:                                               ; preds = %.noexc
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !6816, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, i64 }, ptr %33, i64 %27, i32 1
+  %34 = getelementptr inbounds { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, i64 }, ptr %33, i64 %27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %20
@@ -15002,15 +15003,16 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN8indexmap3map
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !4
   %11 = icmp ult i64 %8, %10
-  br i1 %11, label %12, label %16, !prof !6804
+  br i1 %11, label %12, label %17, !prof !6804
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, i64 }, ptr %14, i64 %8, i32 1
-  ret ptr %15
+  %15 = getelementptr inbounds { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, i64 }, ptr %14, i64 %8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  ret ptr %16
 
-16:                                               ; preds = %2
+17:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %8, i64 noundef %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e250cdbf3a11d6659cc1e4a28236cdd3.30.llvm.13346703328537446882) #28
   unreachable
 }

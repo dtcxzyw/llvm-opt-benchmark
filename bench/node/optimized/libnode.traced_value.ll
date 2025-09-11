@@ -618,7 +618,7 @@ sw.bb82:                                          ; preds = %do.end
   br label %for.inc
 
 sw.default:                                       ; preds = %do.end
-  %8 = add i32 %c.2, -127
+  %8 = add nsw i32 %c.2, -127
   %or.cond = icmp ult i32 %8, -95
   br i1 %or.cond, label %if.then86, label %if.else93
 

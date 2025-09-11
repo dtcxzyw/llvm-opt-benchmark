@@ -3684,7 +3684,7 @@ define linkonce_odr dso_local void @_ZN2tf8Executor6_spawnEm(ptr noundef nonnull
 
 8:                                                ; preds = %.lr.ph, %_ZNSt6threadD2Ev.exit
   %9 = phi ptr [ %.pre, %.lr.ph ], [ %29, %_ZNSt6threadD2Ev.exit ]
-  %.014 = phi i64 [ 0, %.lr.ph ], [ %33, %_ZNSt6threadD2Ev.exit ]
+  %.014 = phi i64 [ 0, %.lr.ph ], [ %34, %_ZNSt6threadD2Ev.exit ]
   %10 = getelementptr inbounds nuw %"class.tf::Worker", ptr %9, i64 %.014
   store i64 %.014, ptr %10, align 128, !tbaa !216
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3740,21 +3740,22 @@ _ZNSt10unique_ptrINSt6thread6_StateESt14default_deleteIS1_EED2Ev.exit7.i: ; pred
 _ZNSt6threadC2IZN2tf8Executor6_spawnEmEUlvE_JEvEEOT_DpOT0_.exit: ; preds = %18, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = load ptr, ptr %5, align 8, !tbaa !134
-  %30 = getelementptr inbounds nuw %"class.tf::Worker", ptr %29, i64 %.014, i32 6
-  %.sroa.0.0.copyload.i.i = load i64, ptr %30, align 8, !tbaa !161
+  %30 = getelementptr inbounds nuw %"class.tf::Worker", ptr %29, i64 %.014
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  %.sroa.0.0.copyload.i.i = load i64, ptr %31, align 8, !tbaa !161
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
-  br i1 %.not.i, label %_ZNSt6threadD2Ev.exit, label %31
+  br i1 %.not.i, label %_ZNSt6threadD2Ev.exit, label %32
 
-31:                                               ; preds = %_ZNSt6threadC2IZN2tf8Executor6_spawnEmEUlvE_JEvEEOT_DpOT0_.exit
+32:                                               ; preds = %_ZNSt6threadC2IZN2tf8Executor6_spawnEmEUlvE_JEvEEOT_DpOT0_.exit
   call void @_ZSt9terminatev() #33
   unreachable
 
 _ZNSt6threadD2Ev.exit:                            ; preds = %_ZNSt6threadC2IZN2tf8Executor6_spawnEmEUlvE_JEvEEOT_DpOT0_.exit
-  %32 = load i64, ptr %4, align 8, !tbaa !161
-  store i64 %32, ptr %30, align 8, !tbaa !161
+  %33 = load i64, ptr %4, align 8, !tbaa !161
+  store i64 %33, ptr %31, align 8, !tbaa !161
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %33 = add nuw i64 %.014, 1
-  %exitcond.not = icmp eq i64 %33, %1
+  %34 = add nuw i64 %.014, 1
+  %exitcond.not = icmp eq i64 %34, %1
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !230
 }
 
@@ -4623,215 +4624,217 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i
 
 34:                                               ; preds = %15
   %35 = load ptr, ptr %5, align 8, !tbaa !134
-  %36 = getelementptr inbounds nuw %"class.tf::Worker", ptr %35, i64 %17, i32 8
-  %37 = load atomic i64, ptr %36 acquire, align 8
+  %36 = getelementptr inbounds nuw %"class.tf::Worker", ptr %35, i64 %17
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
+  %38 = load atomic i64, ptr %37 acquire, align 8
   fence seq_cst
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 128
-  %39 = load atomic i64, ptr %38 acquire, align 8
-  %40 = icmp slt i64 %37, %39
-  br i1 %40, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i12.i, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread.i
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 256
+  %40 = load atomic i64, ptr %39 acquire, align 8
+  %41 = icmp slt i64 %38, %40
+  br i1 %41, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i12.i, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread.i
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i12.i: ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 256
-  %42 = and i64 %37, 255
-  %43 = getelementptr inbounds nuw %"struct.std::atomic.150", ptr %41, i64 %42
-  %44 = load atomic i64, ptr %43 monotonic, align 8
-  %45 = add nsw i64 %37, 1
-  %46 = cmpxchg ptr %36, i64 %37, i64 %45 seq_cst monotonic, align 8
-  %47 = extractvalue { i64, i1 } %46, 1
-  br i1 %47, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.i, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread.i
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 384
+  %43 = and i64 %38, 255
+  %44 = getelementptr inbounds nuw %"struct.std::atomic.150", ptr %42, i64 %43
+  %45 = load atomic i64, ptr %44 monotonic, align 8
+  %46 = add nsw i64 %38, 1
+  %47 = cmpxchg ptr %37, i64 %38, i64 %46 seq_cst monotonic, align 8
+  %48 = extractvalue { i64, i1 } %47, 1
+  br i1 %48, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.i, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread.i
 
 _ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread.i: ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i12.i, %34, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i, %19
   store ptr null, ptr %2, align 8, !tbaa !80
-  br label %49
+  br label %50
 
 _ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.i: ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i12.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i
-  %.in.i = phi i64 [ %30, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i ], [ %44, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i12.i ]
-  %48 = inttoptr i64 %.in.i to ptr
-  store ptr %48, ptr %2, align 8, !tbaa !80
+  %.in.i = phi i64 [ %30, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i ], [ %45, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i12.i ]
+  %49 = inttoptr i64 %.in.i to ptr
+  store ptr %49, ptr %2, align 8, !tbaa !80
   %.not.i = icmp eq i64 %.in.i, 0
-  br i1 %.not.i, label %49, label %.loopexit39
+  br i1 %.not.i, label %50, label %.loopexit39
 
-49:                                               ; preds = %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.i, %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread.i
-  %50 = add i64 %.0.i, 1
-  %51 = load i64, ptr %0, align 128, !tbaa !84
-  %52 = icmp ugt i64 %50, %51
-  br i1 %52, label %53, label %58
+50:                                               ; preds = %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.i, %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread.i
+  %51 = add i64 %.0.i, 1
+  %52 = load i64, ptr %0, align 128, !tbaa !84
+  %53 = icmp ugt i64 %51, %52
+  br i1 %53, label %54, label %59
 
-53:                                               ; preds = %49
-  %54 = tail call noundef i32 @sched_yield() #35
-  %55 = load i64, ptr %0, align 128, !tbaa !84
-  %56 = add i64 %55, 100
-  %57 = icmp ugt i64 %50, %56
-  br i1 %57, label %_ZN2tf8Executor13_explore_taskERNS_6WorkerERPNS_4NodeE.exit, label %58
+54:                                               ; preds = %50
+  %55 = tail call noundef i32 @sched_yield() #35
+  %56 = load i64, ptr %0, align 128, !tbaa !84
+  %57 = add i64 %56, 100
+  %58 = icmp ugt i64 %51, %57
+  br i1 %58, label %_ZN2tf8Executor13_explore_taskERNS_6WorkerERPNS_4NodeE.exit, label %59
 
-58:                                               ; preds = %53, %49
-  %59 = tail call noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store i64 %59, ptr %4, align 8, !tbaa !223
-  %60 = load atomic i8, ptr %11 seq_cst, align 16
-  %61 = trunc i8 %60 to i1
-  br i1 %61, label %_ZN2tf8Executor13_explore_taskERNS_6WorkerERPNS_4NodeE.exit, label %.backedge61
+59:                                               ; preds = %54, %50
+  %60 = tail call noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  store i64 %60, ptr %4, align 8, !tbaa !223
+  %61 = load atomic i8, ptr %11 seq_cst, align 16
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %_ZN2tf8Executor13_explore_taskERNS_6WorkerERPNS_4NodeE.exit, label %.backedge61
 
-.backedge61:                                      ; preds = %58, %.backedge
-  %.0.i.be = phi i64 [ %50, %58 ], [ 0, %.backedge ]
+.backedge61:                                      ; preds = %59, %.backedge
+  %.0.i.be = phi i64 [ %51, %59 ], [ 0, %.backedge ]
   br label %15, !llvm.loop !278
 
-_ZN2tf8Executor13_explore_taskERNS_6WorkerERPNS_4NodeE.exit: ; preds = %53, %58
+_ZN2tf8Executor13_explore_taskERNS_6WorkerERPNS_4NodeE.exit: ; preds = %54, %59
   %.pr = load ptr, ptr %2, align 8, !tbaa !80
-  %62 = icmp eq ptr %.pr, null
-  br i1 %62, label %63, label %.loopexit39
+  %63 = icmp eq ptr %.pr, null
+  br i1 %63, label %64, label %.loopexit39
 
-63:                                               ; preds = %_ZN2tf8Executor13_explore_taskERNS_6WorkerERPNS_4NodeE.exit
-  %64 = load atomic i64, ptr %12 monotonic, align 16
-  %65 = add i64 %64, 16384
-  %66 = cmpxchg weak ptr %12, i64 %64, i64 %65 seq_cst seq_cst, align 8
-  %67 = extractvalue { i64, i1 } %66, 1
-  br i1 %67, label %_ZN2tf21NonblockingNotifierV212prepare_waitEPNS0_6WaiterE.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
+64:                                               ; preds = %_ZN2tf8Executor13_explore_taskERNS_6WorkerERPNS_4NodeE.exit
+  %65 = load atomic i64, ptr %12 monotonic, align 16
+  %66 = add i64 %65, 16384
+  %67 = cmpxchg weak ptr %12, i64 %65, i64 %66 seq_cst seq_cst, align 8
+  %68 = extractvalue { i64, i1 } %67, 1
+  br i1 %68, label %_ZN2tf21NonblockingNotifierV212prepare_waitEPNS0_6WaiterE.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
 
-_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; preds = %63, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
-  %68 = phi { i64, i1 } [ %71, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ], [ %66, %63 ]
-  %69 = extractvalue { i64, i1 } %68, 0
-  %70 = add i64 %69, 16384
-  %71 = cmpxchg weak ptr %12, i64 %69, i64 %70 seq_cst seq_cst, align 8
-  %72 = extractvalue { i64, i1 } %71, 1
-  br i1 %72, label %_ZN2tf21NonblockingNotifierV212prepare_waitEPNS0_6WaiterE.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, !llvm.loop !279
+_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; preds = %64, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
+  %69 = phi { i64, i1 } [ %72, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ], [ %67, %64 ]
+  %70 = extractvalue { i64, i1 } %69, 0
+  %71 = add i64 %70, 16384
+  %72 = cmpxchg weak ptr %12, i64 %70, i64 %71 seq_cst seq_cst, align 8
+  %73 = extractvalue { i64, i1 } %72, 1
+  br i1 %73, label %_ZN2tf21NonblockingNotifierV212prepare_waitEPNS0_6WaiterE.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, !llvm.loop !279
 
-_ZN2tf21NonblockingNotifierV212prepare_waitEPNS0_6WaiterE.exit: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, %63
-  %73 = load atomic i64, ptr %7 monotonic, align 128
-  %74 = load atomic i64, ptr %6 monotonic, align 128
-  %.not37 = icmp sgt i64 %73, %74
-  br i1 %.not37, label %81, label %.preheader
+_ZN2tf21NonblockingNotifierV212prepare_waitEPNS0_6WaiterE.exit: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, %64
+  %74 = load atomic i64, ptr %7 monotonic, align 128
+  %75 = load atomic i64, ptr %6 monotonic, align 128
+  %.not37 = icmp sgt i64 %74, %75
+  br i1 %.not37, label %82, label %.preheader
 
 .preheader:                                       ; preds = %_ZN2tf21NonblockingNotifierV212prepare_waitEPNS0_6WaiterE.exit
-  %75 = load ptr, ptr %14, align 32, !tbaa !140
-  %76 = load ptr, ptr %5, align 8, !tbaa !134
-  %.not = icmp eq ptr %75, %76
+  %76 = load ptr, ptr %14, align 32, !tbaa !140
+  %77 = load ptr, ptr %5, align 8, !tbaa !134
+  %.not = icmp eq ptr %76, %77
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %77 = ptrtoint ptr %75 to i64
   %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %80 = sdiv exact i64 %79, 2432
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %78, %79
+  %81 = sdiv exact i64 %80, 2432
   br label %.lr.ph
 
-81:                                               ; preds = %_ZN2tf21NonblockingNotifierV212prepare_waitEPNS0_6WaiterE.exit
-  %82 = load atomic i64, ptr %12 monotonic, align 16
-  %83 = lshr i64 %82, 14
-  %84 = lshr i64 %82, 28
-  %85 = xor i64 %83, %84
-  %86 = and i64 %85, 16383
-  %87 = icmp eq i64 %86, 0
-  %spec.select.v9.i = select i1 %87, i64 -268451840, i64 -16384
-  %spec.select10.i = add i64 %spec.select.v9.i, %82
-  %88 = cmpxchg weak ptr %12, i64 %82, i64 %spec.select10.i acq_rel acquire, align 8
-  %89 = extractvalue { i64, i1 } %88, 1
-  br i1 %89, label %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21
+82:                                               ; preds = %_ZN2tf21NonblockingNotifierV212prepare_waitEPNS0_6WaiterE.exit
+  %83 = load atomic i64, ptr %12 monotonic, align 16
+  %84 = lshr i64 %83, 14
+  %85 = lshr i64 %83, 28
+  %86 = xor i64 %84, %85
+  %87 = and i64 %86, 16383
+  %88 = icmp eq i64 %87, 0
+  %spec.select.v9.i = select i1 %88, i64 -268451840, i64 -16384
+  %spec.select10.i = add i64 %spec.select.v9.i, %83
+  %89 = cmpxchg weak ptr %12, i64 %83, i64 %spec.select10.i acq_rel acquire, align 8
+  %90 = extractvalue { i64, i1 } %89, 1
+  br i1 %90, label %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21
 
-_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21: ; preds = %81, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21
-  %90 = phi { i64, i1 } [ %97, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21 ], [ %88, %81 ]
-  %91 = extractvalue { i64, i1 } %90, 0
-  %92 = lshr i64 %91, 14
-  %93 = lshr i64 %91, 28
-  %94 = xor i64 %92, %93
-  %95 = and i64 %94, 16383
-  %96 = icmp eq i64 %95, 0
-  %spec.select.v.i = select i1 %96, i64 -268451840, i64 -16384
-  %spec.select.i = add i64 %spec.select.v.i, %91
-  %97 = cmpxchg weak ptr %12, i64 %91, i64 %spec.select.i acq_rel acquire, align 8
-  %98 = extractvalue { i64, i1 } %97, 1
-  br i1 %98, label %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21, !llvm.loop !280
+_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21: ; preds = %82, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21
+  %91 = phi { i64, i1 } [ %98, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21 ], [ %89, %82 ]
+  %92 = extractvalue { i64, i1 } %91, 0
+  %93 = lshr i64 %92, 14
+  %94 = lshr i64 %92, 28
+  %95 = xor i64 %93, %94
+  %96 = and i64 %95, 16383
+  %97 = icmp eq i64 %96, 0
+  %spec.select.v.i = select i1 %97, i64 -268451840, i64 -16384
+  %spec.select.i = add i64 %spec.select.v.i, %92
+  %98 = cmpxchg weak ptr %12, i64 %92, i64 %spec.select.i acq_rel acquire, align 8
+  %99 = extractvalue { i64, i1 } %98, 1
+  br i1 %99, label %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21, !llvm.loop !280
 
-_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21, %81
-  %99 = load i64, ptr %1, align 128, !tbaa !216
+_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21, %82
+  %100 = load i64, ptr %1, align 128, !tbaa !216
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24, %104, %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit, %144
-  %.sink = phi i64 [ %99, %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit ], [ %146, %144 ], [ %.01944, %104 ], [ %.01944, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24 ]
+.backedge:                                        ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24, %106, %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit, %146
+  %.sink = phi i64 [ %100, %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit ], [ %148, %146 ], [ %.01944, %106 ], [ %.01944, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24 ]
   store i64 %.sink, ptr %4, align 8, !tbaa !223
   br label %.backedge61
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %122
-  %.01944 = phi i64 [ %123, %122 ], [ 0, %.lr.ph.preheader ]
-  %100 = getelementptr inbounds nuw %"class.tf::Worker", ptr %76, i64 %.01944, i32 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 128
-  %102 = load atomic i64, ptr %101 monotonic, align 8
-  %103 = load atomic i64, ptr %100 monotonic, align 8
-  %.not38 = icmp sgt i64 %102, %103
-  br i1 %.not38, label %104, label %122
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %124
+  %.01944 = phi i64 [ %125, %124 ], [ 0, %.lr.ph.preheader ]
+  %101 = getelementptr inbounds nuw %"class.tf::Worker", ptr %77, i64 %.01944
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 128
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 256
+  %104 = load atomic i64, ptr %103 monotonic, align 8
+  %105 = load atomic i64, ptr %102 monotonic, align 8
+  %.not38 = icmp sgt i64 %104, %105
+  br i1 %.not38, label %106, label %124
 
-104:                                              ; preds = %.lr.ph
-  %105 = load atomic i64, ptr %12 monotonic, align 16
-  %106 = lshr i64 %105, 14
-  %107 = lshr i64 %105, 28
-  %108 = xor i64 %106, %107
-  %109 = and i64 %108, 16383
-  %110 = icmp eq i64 %109, 0
-  %spec.select.v9.i22 = select i1 %110, i64 -268451840, i64 -16384
-  %spec.select10.i23 = add i64 %spec.select.v9.i22, %105
-  %111 = cmpxchg weak ptr %12, i64 %105, i64 %spec.select10.i23 acq_rel acquire, align 8
-  %112 = extractvalue { i64, i1 } %111, 1
-  br i1 %112, label %.backedge, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24
+106:                                              ; preds = %.lr.ph
+  %107 = load atomic i64, ptr %12 monotonic, align 16
+  %108 = lshr i64 %107, 14
+  %109 = lshr i64 %107, 28
+  %110 = xor i64 %108, %109
+  %111 = and i64 %110, 16383
+  %112 = icmp eq i64 %111, 0
+  %spec.select.v9.i22 = select i1 %112, i64 -268451840, i64 -16384
+  %spec.select10.i23 = add i64 %spec.select.v9.i22, %107
+  %113 = cmpxchg weak ptr %12, i64 %107, i64 %spec.select10.i23 acq_rel acquire, align 8
+  %114 = extractvalue { i64, i1 } %113, 1
+  br i1 %114, label %.backedge, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24
 
-_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24: ; preds = %104, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24
-  %113 = phi { i64, i1 } [ %120, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24 ], [ %111, %104 ]
-  %114 = extractvalue { i64, i1 } %113, 0
-  %115 = lshr i64 %114, 14
-  %116 = lshr i64 %114, 28
-  %117 = xor i64 %115, %116
-  %118 = and i64 %117, 16383
-  %119 = icmp eq i64 %118, 0
-  %spec.select.v.i25 = select i1 %119, i64 -268451840, i64 -16384
-  %spec.select.i26 = add i64 %spec.select.v.i25, %114
-  %120 = cmpxchg weak ptr %12, i64 %114, i64 %spec.select.i26 acq_rel acquire, align 8
-  %121 = extractvalue { i64, i1 } %120, 1
-  br i1 %121, label %.backedge, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24, !llvm.loop !280
+_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24: ; preds = %106, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24
+  %115 = phi { i64, i1 } [ %122, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24 ], [ %113, %106 ]
+  %116 = extractvalue { i64, i1 } %115, 0
+  %117 = lshr i64 %116, 14
+  %118 = lshr i64 %116, 28
+  %119 = xor i64 %117, %118
+  %120 = and i64 %119, 16383
+  %121 = icmp eq i64 %120, 0
+  %spec.select.v.i25 = select i1 %121, i64 -268451840, i64 -16384
+  %spec.select.i26 = add i64 %spec.select.v.i25, %116
+  %122 = cmpxchg weak ptr %12, i64 %116, i64 %spec.select.i26 acq_rel acquire, align 8
+  %123 = extractvalue { i64, i1 } %122, 1
+  br i1 %123, label %.backedge, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i24, !llvm.loop !280
 
-122:                                              ; preds = %.lr.ph
-  %123 = add nuw i64 %.01944, 1
-  %exitcond.not = icmp eq i64 %123, %80
+124:                                              ; preds = %.lr.ph
+  %125 = add nuw i64 %.01944, 1
+  %exitcond.not = icmp eq i64 %125, %81
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !281
 
-._crit_edge:                                      ; preds = %122, %.preheader
-  %124 = load atomic i8, ptr %11 seq_cst, align 16
-  %125 = trunc i8 %124 to i1
-  br i1 %125, label %126, label %144
+._crit_edge:                                      ; preds = %124, %.preheader
+  %126 = load atomic i8, ptr %11 seq_cst, align 16
+  %127 = trunc i8 %126 to i1
+  br i1 %127, label %128, label %146
 
-126:                                              ; preds = %._crit_edge
-  %127 = load atomic i64, ptr %12 monotonic, align 16
-  %128 = lshr i64 %127, 14
-  %129 = lshr i64 %127, 28
-  %130 = xor i64 %128, %129
-  %131 = and i64 %130, 16383
-  %132 = icmp eq i64 %131, 0
-  %spec.select.v9.i28 = select i1 %132, i64 -268451840, i64 -16384
-  %spec.select10.i29 = add i64 %spec.select.v9.i28, %127
-  %133 = cmpxchg weak ptr %12, i64 %127, i64 %spec.select10.i29 acq_rel acquire, align 8
-  %134 = extractvalue { i64, i1 } %133, 1
-  br i1 %134, label %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit33, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30
+128:                                              ; preds = %._crit_edge
+  %129 = load atomic i64, ptr %12 monotonic, align 16
+  %130 = lshr i64 %129, 14
+  %131 = lshr i64 %129, 28
+  %132 = xor i64 %130, %131
+  %133 = and i64 %132, 16383
+  %134 = icmp eq i64 %133, 0
+  %spec.select.v9.i28 = select i1 %134, i64 -268451840, i64 -16384
+  %spec.select10.i29 = add i64 %spec.select.v9.i28, %129
+  %135 = cmpxchg weak ptr %12, i64 %129, i64 %spec.select10.i29 acq_rel acquire, align 8
+  %136 = extractvalue { i64, i1 } %135, 1
+  br i1 %136, label %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit33, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30
 
-_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30: ; preds = %126, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30
-  %135 = phi { i64, i1 } [ %142, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30 ], [ %133, %126 ]
-  %136 = extractvalue { i64, i1 } %135, 0
-  %137 = lshr i64 %136, 14
-  %138 = lshr i64 %136, 28
-  %139 = xor i64 %137, %138
-  %140 = and i64 %139, 16383
-  %141 = icmp eq i64 %140, 0
-  %spec.select.v.i31 = select i1 %141, i64 -268451840, i64 -16384
-  %spec.select.i32 = add i64 %spec.select.v.i31, %136
-  %142 = cmpxchg weak ptr %12, i64 %136, i64 %spec.select.i32 acq_rel acquire, align 8
-  %143 = extractvalue { i64, i1 } %142, 1
-  br i1 %143, label %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit33, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30, !llvm.loop !280
+_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30: ; preds = %128, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30
+  %137 = phi { i64, i1 } [ %144, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30 ], [ %135, %128 ]
+  %138 = extractvalue { i64, i1 } %137, 0
+  %139 = lshr i64 %138, 14
+  %140 = lshr i64 %138, 28
+  %141 = xor i64 %139, %140
+  %142 = and i64 %141, 16383
+  %143 = icmp eq i64 %142, 0
+  %spec.select.v.i31 = select i1 %143, i64 -268451840, i64 -16384
+  %spec.select.i32 = add i64 %spec.select.v.i31, %138
+  %144 = cmpxchg weak ptr %12, i64 %138, i64 %spec.select.i32 acq_rel acquire, align 8
+  %145 = extractvalue { i64, i1 } %144, 1
+  br i1 %145, label %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit33, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30, !llvm.loop !280
 
-_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit33: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30, %126
+_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit33: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i30, %128
   tail call void @_ZN2tf21NonblockingNotifierV27_notifyILb1EEEvv(ptr noundef nonnull align 8 dereferenceable(32) %12)
   br label %.loopexit39
 
-144:                                              ; preds = %._crit_edge
-  %145 = load ptr, ptr %13, align 8, !tbaa !225
-  tail call void @_ZN2tf21NonblockingNotifierV211commit_waitEPNS0_6WaiterE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %145)
-  %146 = load i64, ptr %1, align 128, !tbaa !216
+146:                                              ; preds = %._crit_edge
+  %147 = load ptr, ptr %13, align 8, !tbaa !225
+  tail call void @_ZN2tf21NonblockingNotifierV211commit_waitEPNS0_6WaiterE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %147)
+  %148 = load i64, ptr %1, align 128, !tbaa !216
   br label %.backedge
 
 .loopexit39:                                      ; preds = %_ZN2tf8Executor13_explore_taskERNS_6WorkerERPNS_4NodeE.exit, %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.i, %_ZN2tf21NonblockingNotifierV211cancel_waitEPNS0_6WaiterE.exit33
@@ -15439,7 +15442,8 @@ _ZNSt6vectorIS_IN2tf7SegmentESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %52, %3
   store ptr %74, ptr %75, align 8, !tbaa !635
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 504
   %.pre17 = load ptr, ptr %9, align 8, !tbaa !252
-  %.phi.trans.insert19 = getelementptr inbounds nuw %"class.std::stack", ptr %.pre17, i64 %8, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1
+  %.phi.trans.insert18 = getelementptr inbounds nuw %"class.std::stack", ptr %.pre17, i64 %8
+  %.phi.trans.insert19 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert18, i64 56
   %.pre20 = load ptr, ptr %.phi.trans.insert19, align 8, !tbaa !634
   br label %_ZNSt5stackINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEESt5dequeIS8_SaIS8_EEE3popEv.exit
 

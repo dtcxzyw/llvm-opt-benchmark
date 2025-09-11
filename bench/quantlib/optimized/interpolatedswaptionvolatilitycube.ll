@@ -3106,7 +3106,8 @@ _ZN8QuantLib15Interpolation2DD2Ev.exit:           ; preds = %_ZN8QuantLib15Inter
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %48 = load ptr, ptr %volSpreadsInterpolator_, align 8, !tbaa !92
-  %extrapolate_.i = getelementptr inbounds nuw %"class.QuantLib::Interpolation2D", ptr %48, i64 %i23.033, i32 0, i32 1
+  %add.ptr.i24 = getelementptr inbounds nuw %"class.QuantLib::Interpolation2D", ptr %48, i64 %i23.033
+  %extrapolate_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i24, i64 8
   store i8 1, ptr %extrapolate_.i, align 8, !tbaa !131
   %inc49 = add nuw i64 %i23.033, 1
   %49 = load i64, ptr %nStrikes_, align 8, !tbaa !70

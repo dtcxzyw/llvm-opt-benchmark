@@ -1250,7 +1250,7 @@ ecp_pick_window_size.exit.i:                      ; preds = %.critedge.i.i, %104
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %118 = load ptr, ptr %117, align 8, !tbaa !29
   %.not62.i = icmp eq ptr %118, null
-  br i1 %.not62.i, label %119, label %201
+  br i1 %.not62.i, label %119, label %202
 
 119:                                              ; preds = %116, %ecp_pick_window_size.exit.i
   %120 = zext nneg i32 %110 to i64
@@ -1418,319 +1418,320 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %158
 
 .lr.ph23.i.i:                                     ; preds = %._crit_edge20.i.i, %.lr.ph23.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph23.i.i ], [ 0, %._crit_edge20.i.i ]
-  %193 = getelementptr inbounds nuw %struct.mbedtls_ecp_point, ptr %121, i64 %indvars.iv.i.i, i32 2
-  call void @mbedtls_mpi_free(ptr noundef nonnull %193) #20
+  %193 = getelementptr inbounds nuw %struct.mbedtls_ecp_point, ptr %121, i64 %indvars.iv.i.i
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 32
+  call void @mbedtls_mpi_free(ptr noundef nonnull %194) #20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond32.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %120
   br i1 %exitcond32.not.i.i, label %mbedtls_ecp_copy.exit.thread.i.i, label %.lr.ph23.i.i, !llvm.loop !48
 
 mbedtls_ecp_copy.exit.thread.i.i:                 ; preds = %165, %mbedtls_ecp_copy.exit78.i.i, %158, %153, %179, %.lr.ph23.i.i, %._crit_edge20.i.i, %._crit_edge.i.i, %mbedtls_ecp_copy.exit.i.i, %135, %mpi_init_many.exit.i.i
   %.0.i.i = phi i32 [ %140, %mbedtls_ecp_copy.exit.i.i ], [ %175, %._crit_edge.i.i ], [ %192, %._crit_edge20.i.i ], [ %137, %135 ], [ %134, %mpi_init_many.exit.i.i ], [ 0, %.lr.ph23.i.i ], [ %183, %179 ], [ %157, %153 ], [ %161, %158 ], [ %166, %165 ], [ %164, %mbedtls_ecp_copy.exit78.i.i ]
-  br label %194
+  br label %195
 
-194:                                              ; preds = %194, %mbedtls_ecp_copy.exit.thread.i.i
-  %.03.i79.i.i = phi i64 [ 4, %mbedtls_ecp_copy.exit.thread.i.i ], [ %195, %194 ]
-  %.012.i80.i.i = phi ptr [ %14, %mbedtls_ecp_copy.exit.thread.i.i ], [ %196, %194 ]
-  %195 = add nsw i64 %.03.i79.i.i, -1
-  %196 = getelementptr inbounds nuw i8, ptr %.012.i80.i.i, i64 16
+195:                                              ; preds = %195, %mbedtls_ecp_copy.exit.thread.i.i
+  %.03.i79.i.i = phi i64 [ 4, %mbedtls_ecp_copy.exit.thread.i.i ], [ %196, %195 ]
+  %.012.i80.i.i = phi ptr [ %14, %mbedtls_ecp_copy.exit.thread.i.i ], [ %197, %195 ]
+  %196 = add nsw i64 %.03.i79.i.i, -1
+  %197 = getelementptr inbounds nuw i8, ptr %.012.i80.i.i, i64 16
   call void @mbedtls_mpi_free(ptr noundef nonnull %.012.i80.i.i) #20
-  %.not.i81.i.i = icmp eq i64 %195, 0
-  br i1 %.not.i81.i.i, label %ecp_precompute_comb.exit.i, label %194, !llvm.loop !40
+  %.not.i81.i.i = icmp eq i64 %196, 0
+  br i1 %.not.i81.i.i, label %ecp_precompute_comb.exit.i, label %195, !llvm.loop !40
 
-ecp_precompute_comb.exit.i:                       ; preds = %194
+ecp_precompute_comb.exit.i:                       ; preds = %195
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not64.i = icmp eq i32 %.0.i.i, 0
-  br i1 %.not64.i, label %197, label %280
+  br i1 %.not64.i, label %198, label %281
 
-197:                                              ; preds = %ecp_precompute_comb.exit.i
-  br i1 %.not.i2.i, label %201, label %198
+198:                                              ; preds = %ecp_precompute_comb.exit.i
+  br i1 %.not.i2.i, label %202, label %199
 
-198:                                              ; preds = %197
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %121, ptr %199, align 8, !tbaa !29
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i64 %120, ptr %200, align 8, !tbaa !30
-  br label %201
+199:                                              ; preds = %198
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr %121, ptr %200, align 8, !tbaa !29
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i64 %120, ptr %201, align 8, !tbaa !30
+  br label %202
 
-201:                                              ; preds = %198, %197, %116
-  %.0548.i = phi ptr [ %121, %198 ], [ %121, %197 ], [ %118, %116 ]
+202:                                              ; preds = %199, %198, %116
+  %.0548.i = phi ptr [ %121, %199 ], [ %121, %198 ], [ %118, %116 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @mbedtls_mpi_init(ptr noundef nonnull %10) #20
   call void @mbedtls_mpi_init(ptr noundef nonnull %11) #20
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %203 = call i32 @mbedtls_mpi_get_bit(ptr noundef nonnull %202, i64 noundef 0) #20
-  %.not.i.i72.i = icmp eq i32 %203, 1
-  br i1 %.not.i.i72.i, label %204, label %ecp_comb_recode_scalar.exit.thread.i.i
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %204 = call i32 @mbedtls_mpi_get_bit(ptr noundef nonnull %203, i64 noundef 0) #20
+  %.not.i.i72.i = icmp eq i32 %204, 1
+  br i1 %.not.i.i72.i, label %205, label %ecp_comb_recode_scalar.exit.thread.i.i
 
-ecp_comb_recode_scalar.exit.thread.i.i:           ; preds = %201
+ecp_comb_recode_scalar.exit.thread.i.i:           ; preds = %202
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %ecp_mul_comb_after_precomp.exit.i
 
-204:                                              ; preds = %201
-  %205 = call i32 @mbedtls_mpi_get_bit(ptr noundef %2, i64 noundef 0) #20
-  %206 = icmp eq i32 %205, 0
-  %207 = zext i1 %206 to i8
-  %208 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %10, ptr noundef %2) #20
-  %.not15.i.i.i = icmp eq i32 %208, 0
-  br i1 %.not15.i.i.i, label %209, label %ecp_comb_recode_scalar.exit.i.i
+205:                                              ; preds = %202
+  %206 = call i32 @mbedtls_mpi_get_bit(ptr noundef %2, i64 noundef 0) #20
+  %207 = icmp eq i32 %206, 0
+  %208 = zext i1 %207 to i8
+  %209 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %10, ptr noundef %2) #20
+  %.not15.i.i.i = icmp eq i32 %209, 0
+  br i1 %.not15.i.i.i, label %210, label %ecp_comb_recode_scalar.exit.i.i
 
-209:                                              ; preds = %204
-  %210 = call i32 @mbedtls_mpi_sub_mpi(ptr noundef nonnull %11, ptr noundef nonnull %202, ptr noundef %2) #20
-  %.not16.i.i.i = icmp eq i32 %210, 0
-  br i1 %.not16.i.i.i, label %211, label %ecp_comb_recode_scalar.exit.i.i
+210:                                              ; preds = %205
+  %211 = call i32 @mbedtls_mpi_sub_mpi(ptr noundef nonnull %11, ptr noundef nonnull %203, ptr noundef %2) #20
+  %.not16.i.i.i = icmp eq i32 %211, 0
+  br i1 %.not16.i.i.i, label %212, label %ecp_comb_recode_scalar.exit.i.i
 
-211:                                              ; preds = %209
-  %212 = call i32 @mbedtls_mpi_safe_cond_assign(ptr noundef nonnull %10, ptr noundef nonnull %11, i8 noundef zeroext %207) #20
-  %.not17.i.i.i = icmp eq i32 %212, 0
-  br i1 %.not17.i.i.i, label %213, label %ecp_comb_recode_scalar.exit.i.i
+212:                                              ; preds = %210
+  %213 = call i32 @mbedtls_mpi_safe_cond_assign(ptr noundef nonnull %10, ptr noundef nonnull %11, i8 noundef zeroext %208) #20
+  %.not17.i.i.i = icmp eq i32 %213, 0
+  br i1 %.not17.i.i.i, label %214, label %ecp_comb_recode_scalar.exit.i.i
 
-213:                                              ; preds = %211
-  %214 = add nuw i64 %115, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %12, i8 0, i64 %214, i1 false)
+214:                                              ; preds = %212
+  %215 = add nuw i64 %115, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %12, i8 0, i64 %215, i1 false)
   %.not54.i.i.i.i = icmp ult i64 %114, %112
   br i1 %.not54.i.i.i.i, label %ecp_comb_recode_scalar.exit.i.i, label %.preheader48.i.i.i.i
 
-.preheader48.i.i.i.i:                             ; preds = %213, %226
-  %.050.i.i.i.i = phi i64 [ %227, %226 ], [ 0, %213 ]
-  %215 = getelementptr inbounds nuw i8, ptr %12, i64 %.050.i.i.i.i
-  br label %216
+.preheader48.i.i.i.i:                             ; preds = %214, %227
+  %.050.i.i.i.i = phi i64 [ %228, %227 ], [ 0, %214 ]
+  %216 = getelementptr inbounds nuw i8, ptr %12, i64 %.050.i.i.i.i
+  br label %217
 
-216:                                              ; preds = %216, %.preheader48.i.i.i.i
-  %.04449.i.i.i.i = phi i64 [ 0, %.preheader48.i.i.i.i ], [ %225, %216 ]
-  %217 = mul i64 %.04449.i.i.i.i, %115
-  %218 = add i64 %217, %.050.i.i.i.i
-  %219 = call i32 @mbedtls_mpi_get_bit(ptr noundef nonnull %10, i64 noundef %218) #20
-  %220 = trunc nuw nsw i64 %.04449.i.i.i.i to i32
-  %221 = shl i32 %219, %220
-  %222 = load i8, ptr %215, align 1, !tbaa !34
-  %223 = trunc i32 %221 to i8
-  %224 = or i8 %222, %223
-  store i8 %224, ptr %215, align 1, !tbaa !34
-  %225 = add nuw nsw i64 %.04449.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %225, %112
-  br i1 %exitcond.not.i.i.i.i, label %226, label %216, !llvm.loop !49
+217:                                              ; preds = %217, %.preheader48.i.i.i.i
+  %.04449.i.i.i.i = phi i64 [ 0, %.preheader48.i.i.i.i ], [ %226, %217 ]
+  %218 = mul i64 %.04449.i.i.i.i, %115
+  %219 = add i64 %218, %.050.i.i.i.i
+  %220 = call i32 @mbedtls_mpi_get_bit(ptr noundef nonnull %10, i64 noundef %219) #20
+  %221 = trunc nuw nsw i64 %.04449.i.i.i.i to i32
+  %222 = shl i32 %220, %221
+  %223 = load i8, ptr %216, align 1, !tbaa !34
+  %224 = trunc i32 %222 to i8
+  %225 = or i8 %223, %224
+  store i8 %225, ptr %216, align 1, !tbaa !34
+  %226 = add nuw nsw i64 %.04449.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %226, %112
+  br i1 %exitcond.not.i.i.i.i, label %227, label %217, !llvm.loop !49
 
-226:                                              ; preds = %216
-  %227 = add nuw nsw i64 %.050.i.i.i.i, 1
-  %exitcond55.not.i.i.i.i = icmp eq i64 %227, %115
+227:                                              ; preds = %217
+  %228 = add nuw nsw i64 %.050.i.i.i.i, 1
+  %exitcond55.not.i.i.i.i = icmp eq i64 %228, %115
   br i1 %exitcond55.not.i.i.i.i, label %.lr.ph.i.i.i.i.preheader, label %.preheader48.i.i.i.i, !llvm.loop !50
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %226
+.lr.ph.i.i.i.i.preheader:                         ; preds = %227
   %load_initial = load i8, ptr %12, align 16
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
-  %store_forwarded = phi i8 [ %load_initial, %.lr.ph.i.i.i.i.preheader ], [ %237, %.lr.ph.i.i.i.i ]
-  %.153.i.i.i.i = phi i64 [ 1, %.lr.ph.i.i.i.i.preheader ], [ %240, %.lr.ph.i.i.i.i ]
-  %.04552.i.i.i.i = phi i8 [ 0, %.lr.ph.i.i.i.i.preheader ], [ %236, %.lr.ph.i.i.i.i ]
-  %228 = getelementptr inbounds nuw i8, ptr %12, i64 %.153.i.i.i.i
-  %229 = load i8, ptr %228, align 1, !tbaa !34
-  %230 = and i8 %229, %.04552.i.i.i.i
-  %231 = xor i8 %229, %.04552.i.i.i.i
-  %232 = and i8 %231, 1
-  %233 = xor i8 %232, 1
-  %234 = getelementptr i8, ptr %228, i64 -1
-  %narrow.i.i.i.i = mul nuw nsw i8 %233, %store_forwarded
-  %235 = and i8 %narrow.i.i.i.i, %231
-  %236 = or i8 %235, %230
-  %237 = xor i8 %narrow.i.i.i.i, %231
-  store i8 %237, ptr %228, align 1, !tbaa !34
-  %238 = shl nuw i8 %233, 7
-  %239 = or i8 %238, %store_forwarded
-  store i8 %239, ptr %234, align 1, !tbaa !34
-  %240 = add nuw i64 %.153.i.i.i.i, 1
+  %store_forwarded = phi i8 [ %load_initial, %.lr.ph.i.i.i.i.preheader ], [ %238, %.lr.ph.i.i.i.i ]
+  %.153.i.i.i.i = phi i64 [ 1, %.lr.ph.i.i.i.i.preheader ], [ %241, %.lr.ph.i.i.i.i ]
+  %.04552.i.i.i.i = phi i8 [ 0, %.lr.ph.i.i.i.i.preheader ], [ %237, %.lr.ph.i.i.i.i ]
+  %229 = getelementptr inbounds nuw i8, ptr %12, i64 %.153.i.i.i.i
+  %230 = load i8, ptr %229, align 1, !tbaa !34
+  %231 = and i8 %230, %.04552.i.i.i.i
+  %232 = xor i8 %230, %.04552.i.i.i.i
+  %233 = and i8 %232, 1
+  %234 = xor i8 %233, 1
+  %235 = getelementptr i8, ptr %229, i64 -1
+  %narrow.i.i.i.i = mul nuw nsw i8 %234, %store_forwarded
+  %236 = and i8 %narrow.i.i.i.i, %232
+  %237 = or i8 %236, %231
+  %238 = xor i8 %narrow.i.i.i.i, %232
+  store i8 %238, ptr %229, align 1, !tbaa !34
+  %239 = shl nuw i8 %234, 7
+  %240 = or i8 %239, %store_forwarded
+  store i8 %240, ptr %235, align 1, !tbaa !34
+  %241 = add nuw i64 %.153.i.i.i.i, 1
   %exitcond56.not.i.i.i.i = icmp eq i64 %.153.i.i.i.i, %115
   br i1 %exitcond56.not.i.i.i.i, label %ecp_comb_recode_scalar.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !51
 
-ecp_comb_recode_scalar.exit.i.i:                  ; preds = %.lr.ph.i.i.i.i, %213, %211, %209, %204
-  %.0.i.i.i = phi i32 [ %208, %204 ], [ %210, %209 ], [ %212, %211 ], [ 0, %213 ], [ 0, %.lr.ph.i.i.i.i ]
+ecp_comb_recode_scalar.exit.i.i:                  ; preds = %.lr.ph.i.i.i.i, %214, %212, %210, %205
+  %.0.i.i.i = phi i32 [ %209, %205 ], [ %211, %210 ], [ %213, %212 ], [ 0, %214 ], [ 0, %.lr.ph.i.i.i.i ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %11) #20
   call void @mbedtls_mpi_free(ptr noundef nonnull %10) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not.i74.i = icmp eq i32 %.0.i.i.i, 0
-  br i1 %.not.i74.i, label %241, label %ecp_mul_comb_after_precomp.exit.i
+  br i1 %.not.i74.i, label %242, label %ecp_mul_comb_after_precomp.exit.i
 
-241:                                              ; preds = %ecp_comb_recode_scalar.exit.i.i
+242:                                              ; preds = %ecp_comb_recode_scalar.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @mbedtls_mpi_init(ptr noundef nonnull %8) #20
-  %242 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @mbedtls_mpi_init(ptr noundef nonnull %242) #20
-  %243 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %243 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @mbedtls_mpi_init(ptr noundef nonnull %243) #20
-  br label %244
+  %244 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  call void @mbedtls_mpi_init(ptr noundef nonnull %244) #20
+  br label %245
 
-244:                                              ; preds = %244, %241
-  %.03.i.i.i.i = phi i64 [ 4, %241 ], [ %245, %244 ]
-  %.012.i.i.i.i = phi ptr [ %9, %241 ], [ %246, %244 ]
-  %245 = add nsw i64 %.03.i.i.i.i, -1
-  %246 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
+245:                                              ; preds = %245, %242
+  %.03.i.i.i.i = phi i64 [ 4, %242 ], [ %246, %245 ]
+  %.012.i.i.i.i = phi ptr [ %9, %242 ], [ %247, %245 ]
+  %246 = add nsw i64 %.03.i.i.i.i, -1
+  %247 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
   call void @mbedtls_mpi_init(ptr noundef nonnull %.012.i.i.i.i) #20
-  %.not.i.i.i.i = icmp eq i64 %245, 0
-  br i1 %.not.i.i.i.i, label %mpi_init_many.exit.i.i.i, label %244, !llvm.loop !36
+  %.not.i.i.i.i = icmp eq i64 %246, 0
+  br i1 %.not.i.i.i.i, label %mpi_init_many.exit.i.i.i, label %245, !llvm.loop !36
 
-mpi_init_many.exit.i.i.i:                         ; preds = %244
-  %247 = getelementptr inbounds nuw i8, ptr %12, i64 %115
-  %248 = load i8, ptr %247, align 1, !tbaa !34
-  %249 = call fastcc i32 @ecp_select_comb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0548.i, i8 noundef zeroext range(i8 2, 33) %111, i8 noundef zeroext %248)
-  %.not.i31.i.i = icmp eq i32 %249, 0
-  br i1 %.not.i31.i.i, label %250, label %.loopexit.i.i.i
+mpi_init_many.exit.i.i.i:                         ; preds = %245
+  %248 = getelementptr inbounds nuw i8, ptr %12, i64 %115
+  %249 = load i8, ptr %248, align 1, !tbaa !34
+  %250 = call fastcc i32 @ecp_select_comb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0548.i, i8 noundef zeroext range(i8 2, 33) %111, i8 noundef zeroext %249)
+  %.not.i31.i.i = icmp eq i32 %250, 0
+  br i1 %.not.i31.i.i, label %251, label %.loopexit.i.i.i
 
-250:                                              ; preds = %mpi_init_many.exit.i.i.i
+251:                                              ; preds = %mpi_init_many.exit.i.i.i
   %.not37.i.i.i = icmp eq ptr %4, null
-  br i1 %.not37.i.i.i, label %254, label %251
+  br i1 %.not37.i.i.i, label %255, label %252
 
-251:                                              ; preds = %250
-  %252 = call fastcc i32 @ecp_randomize_jac(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
-  %253 = icmp eq i32 %252, 0
+252:                                              ; preds = %251
+  %253 = call fastcc i32 @ecp_randomize_jac(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
+  %254 = icmp eq i32 %253, 0
   %.old1.i.i.i = icmp uge i64 %114, %112
-  %or.cond2.i.i.i = and i1 %.old1.i.i.i, %253
+  %or.cond2.i.i.i = and i1 %.old1.i.i.i, %254
   br i1 %or.cond2.i.i.i, label %.preheader.i.i.i.preheader, label %.loopexit.i.i.i
 
-254:                                              ; preds = %250
+255:                                              ; preds = %251
   %.old1.old.not.i.i.i = icmp ult i64 %114, %112
   br i1 %.old1.old.not.i.i.i, label %.loopexit.i.i.i, label %.preheader.i.i.i.preheader
 
-.preheader.i.i.i.preheader:                       ; preds = %254, %251
+.preheader.i.i.i.preheader:                       ; preds = %255, %252
   br label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %261
-  %.0.i32.i.i = phi i64 [ %255, %261 ], [ %115, %.preheader.i.i.i.preheader ]
-  %255 = add nsw i64 %.0.i32.i.i, -1
-  %256 = call fastcc i32 @ecp_double_jac(ptr noundef %0, ptr noundef %1, ptr noundef %1, ptr noundef %9)
-  %.not38.i.i.i = icmp eq i32 %256, 0
-  br i1 %.not38.i.i.i, label %257, label %.loopexit.i.i.i
+.preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %262
+  %.0.i32.i.i = phi i64 [ %256, %262 ], [ %115, %.preheader.i.i.i.preheader ]
+  %256 = add nsw i64 %.0.i32.i.i, -1
+  %257 = call fastcc i32 @ecp_double_jac(ptr noundef %0, ptr noundef %1, ptr noundef %1, ptr noundef %9)
+  %.not38.i.i.i = icmp eq i32 %257, 0
+  br i1 %.not38.i.i.i, label %258, label %.loopexit.i.i.i
 
-257:                                              ; preds = %.preheader.i.i.i
-  %258 = getelementptr inbounds nuw i8, ptr %12, i64 %255
-  %259 = load i8, ptr %258, align 1, !tbaa !34
-  %260 = call fastcc i32 @ecp_select_comb(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %.0548.i, i8 noundef zeroext range(i8 2, 33) %111, i8 noundef zeroext %259)
-  %.not39.i.i.i = icmp eq i32 %260, 0
-  br i1 %.not39.i.i.i, label %261, label %.loopexit.i.i.i
+258:                                              ; preds = %.preheader.i.i.i
+  %259 = getelementptr inbounds nuw i8, ptr %12, i64 %256
+  %260 = load i8, ptr %259, align 1, !tbaa !34
+  %261 = call fastcc i32 @ecp_select_comb(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %.0548.i, i8 noundef zeroext range(i8 2, 33) %111, i8 noundef zeroext %260)
+  %.not39.i.i.i = icmp eq i32 %261, 0
+  br i1 %.not39.i.i.i, label %262, label %.loopexit.i.i.i
 
-261:                                              ; preds = %257
-  %262 = call fastcc i32 @ecp_add_mixed(ptr noundef %0, ptr noundef %1, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %9)
-  %263 = icmp eq i32 %262, 0
-  %264 = icmp ne i64 %255, 0
-  %or.cond.i.i.i = select i1 %263, i1 %264, i1 false
+262:                                              ; preds = %258
+  %263 = call fastcc i32 @ecp_add_mixed(ptr noundef %0, ptr noundef %1, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %9)
+  %264 = icmp eq i32 %263, 0
+  %265 = icmp ne i64 %256, 0
+  %or.cond.i.i.i = select i1 %264, i1 %265, i1 false
   br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %.loopexit.i.i.i, !llvm.loop !52
 
-.loopexit.i.i.i:                                  ; preds = %261, %257, %.preheader.i.i.i, %254, %251, %mpi_init_many.exit.i.i.i
-  %.029.i.i.i = phi i32 [ %249, %mpi_init_many.exit.i.i.i ], [ %252, %251 ], [ 0, %254 ], [ %256, %.preheader.i.i.i ], [ %260, %257 ], [ %262, %261 ]
+.loopexit.i.i.i:                                  ; preds = %262, %258, %.preheader.i.i.i, %255, %252, %mpi_init_many.exit.i.i.i
+  %.029.i.i.i = phi i32 [ %250, %mpi_init_many.exit.i.i.i ], [ %253, %252 ], [ 0, %255 ], [ %257, %.preheader.i.i.i ], [ %261, %258 ], [ %263, %262 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #20
-  call void @mbedtls_mpi_free(ptr noundef nonnull %242) #20
   call void @mbedtls_mpi_free(ptr noundef nonnull %243) #20
-  br label %265
+  call void @mbedtls_mpi_free(ptr noundef nonnull %244) #20
+  br label %266
 
-265:                                              ; preds = %265, %.loopexit.i.i.i
-  %.03.i40.i.i.i = phi i64 [ 4, %.loopexit.i.i.i ], [ %266, %265 ]
-  %.012.i41.i.i.i = phi ptr [ %9, %.loopexit.i.i.i ], [ %267, %265 ]
-  %266 = add nsw i64 %.03.i40.i.i.i, -1
-  %267 = getelementptr inbounds nuw i8, ptr %.012.i41.i.i.i, i64 16
+266:                                              ; preds = %266, %.loopexit.i.i.i
+  %.03.i40.i.i.i = phi i64 [ 4, %.loopexit.i.i.i ], [ %267, %266 ]
+  %.012.i41.i.i.i = phi ptr [ %9, %.loopexit.i.i.i ], [ %268, %266 ]
+  %267 = add nsw i64 %.03.i40.i.i.i, -1
+  %268 = getelementptr inbounds nuw i8, ptr %.012.i41.i.i.i, i64 16
   call void @mbedtls_mpi_free(ptr noundef nonnull %.012.i41.i.i.i) #20
-  %.not.i42.i.i.i = icmp eq i64 %266, 0
-  br i1 %.not.i42.i.i.i, label %ecp_mul_comb_core.exit.i.i, label %265, !llvm.loop !40
+  %.not.i42.i.i.i = icmp eq i64 %267, 0
+  br i1 %.not.i42.i.i.i, label %ecp_mul_comb_core.exit.i.i, label %266, !llvm.loop !40
 
-ecp_mul_comb_core.exit.i.i:                       ; preds = %265
+ecp_mul_comb_core.exit.i.i:                       ; preds = %266
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not27.i.i = icmp eq i32 %.029.i.i.i, 0
-  br i1 %.not27.i.i, label %268, label %ecp_mul_comb_after_precomp.exit.i
+  br i1 %.not27.i.i, label %269, label %ecp_mul_comb_after_precomp.exit.i
 
-268:                                              ; preds = %ecp_mul_comb_core.exit.i.i
+269:                                              ; preds = %ecp_mul_comb_core.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @mbedtls_mpi_init(ptr noundef nonnull %7) #20
-  %269 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %270 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %269, i64 noundef 0) #20
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %272 = call i32 @mbedtls_mpi_sub_mpi(ptr noundef nonnull %7, ptr noundef nonnull %271, ptr noundef nonnull %269) #20
-  %.not.i33.i.i = icmp eq i32 %272, 0
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %271 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %270, i64 noundef 0) #20
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %273 = call i32 @mbedtls_mpi_sub_mpi(ptr noundef nonnull %7, ptr noundef nonnull %272, ptr noundef nonnull %270) #20
+  %.not.i33.i.i = icmp eq i32 %273, 0
   br i1 %.not.i33.i.i, label %ecp_safe_invert_jac.exit.i.i, label %ecp_safe_invert_jac.exit.thread.i.i
 
-ecp_safe_invert_jac.exit.thread.i.i:              ; preds = %268
+ecp_safe_invert_jac.exit.thread.i.i:              ; preds = %269
   call void @mbedtls_mpi_free(ptr noundef nonnull %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ecp_mul_comb_after_precomp.exit.i
 
-ecp_safe_invert_jac.exit.i.i:                     ; preds = %268
-  %.not12.i.i.i = icmp eq i32 %270, 0
-  %273 = select i1 %.not12.i.i.i, i8 0, i8 %207
-  %274 = call i32 @mbedtls_mpi_safe_cond_assign(ptr noundef nonnull %269, ptr noundef nonnull %7, i8 noundef zeroext %273) #20
+ecp_safe_invert_jac.exit.i.i:                     ; preds = %269
+  %.not12.i.i.i = icmp eq i32 %271, 0
+  %274 = select i1 %.not12.i.i.i, i8 0, i8 %208
+  %275 = call i32 @mbedtls_mpi_safe_cond_assign(ptr noundef nonnull %270, ptr noundef nonnull %7, i8 noundef zeroext %274) #20
   call void @mbedtls_mpi_free(ptr noundef nonnull %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not28.i.i = icmp eq i32 %274, 0
-  br i1 %.not28.i.i, label %275, label %ecp_mul_comb_after_precomp.exit.i
+  %.not28.i.i = icmp eq i32 %275, 0
+  br i1 %.not28.i.i, label %276, label %ecp_mul_comb_after_precomp.exit.i
 
-275:                                              ; preds = %ecp_safe_invert_jac.exit.i.i
+276:                                              ; preds = %ecp_safe_invert_jac.exit.i.i
   %.not29.i.i = icmp eq ptr %4, null
-  br i1 %.not29.i.i, label %278, label %276
+  br i1 %.not29.i.i, label %279, label %277
 
-276:                                              ; preds = %275
-  %277 = call fastcc i32 @ecp_randomize_jac(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %4, ptr noundef %5)
-  %.not30.i.i = icmp eq i32 %277, 0
-  br i1 %.not30.i.i, label %278, label %ecp_mul_comb_after_precomp.exit.i
+277:                                              ; preds = %276
+  %278 = call fastcc i32 @ecp_randomize_jac(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %4, ptr noundef %5)
+  %.not30.i.i = icmp eq i32 %278, 0
+  br i1 %.not30.i.i, label %279, label %ecp_mul_comb_after_precomp.exit.i
 
-278:                                              ; preds = %276, %275
-  %279 = call fastcc i32 @ecp_normalize_jac(ptr noundef nonnull %0, ptr noundef nonnull %1)
+279:                                              ; preds = %277, %276
+  %280 = call fastcc i32 @ecp_normalize_jac(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %ecp_mul_comb_after_precomp.exit.i
 
-ecp_mul_comb_after_precomp.exit.i:                ; preds = %278, %276, %ecp_safe_invert_jac.exit.i.i, %ecp_safe_invert_jac.exit.thread.i.i, %ecp_mul_comb_core.exit.i.i, %ecp_comb_recode_scalar.exit.i.i, %ecp_comb_recode_scalar.exit.thread.i.i
-  %.0.i73.i = phi i32 [ %.0.i.i.i, %ecp_comb_recode_scalar.exit.i.i ], [ %.029.i.i.i, %ecp_mul_comb_core.exit.i.i ], [ %274, %ecp_safe_invert_jac.exit.i.i ], [ %277, %276 ], [ %279, %278 ], [ -20352, %ecp_comb_recode_scalar.exit.thread.i.i ], [ %272, %ecp_safe_invert_jac.exit.thread.i.i ]
+ecp_mul_comb_after_precomp.exit.i:                ; preds = %279, %277, %ecp_safe_invert_jac.exit.i.i, %ecp_safe_invert_jac.exit.thread.i.i, %ecp_mul_comb_core.exit.i.i, %ecp_comb_recode_scalar.exit.i.i, %ecp_comb_recode_scalar.exit.thread.i.i
+  %.0.i73.i = phi i32 [ %.0.i.i.i, %ecp_comb_recode_scalar.exit.i.i ], [ %.029.i.i.i, %ecp_mul_comb_core.exit.i.i ], [ %275, %ecp_safe_invert_jac.exit.i.i ], [ %278, %277 ], [ %280, %279 ], [ -20352, %ecp_comb_recode_scalar.exit.thread.i.i ], [ %273, %ecp_safe_invert_jac.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %280
+  br label %281
 
-280:                                              ; preds = %ecp_mul_comb_after_precomp.exit.i, %ecp_precompute_comb.exit.i
+281:                                              ; preds = %ecp_mul_comb_after_precomp.exit.i, %ecp_precompute_comb.exit.i
   %.1.i = phi ptr [ %.0548.i, %ecp_mul_comb_after_precomp.exit.i ], [ %121, %ecp_precompute_comb.exit.i ]
   %.0.i30 = phi i32 [ %.0.i73.i, %ecp_mul_comb_after_precomp.exit.i ], [ %.0.i.i, %ecp_precompute_comb.exit.i ]
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %282 = load ptr, ptr %281, align 8, !tbaa !29
-  %283 = icmp eq ptr %.1.i, %282
-  br i1 %283, label %287, label %mbedtls_ecp_point_free.exit.preheader.i
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %283 = load ptr, ptr %282, align 8, !tbaa !29
+  %284 = icmp eq ptr %.1.i, %283
+  br i1 %284, label %288, label %mbedtls_ecp_point_free.exit.preheader.i
 
-mbedtls_ecp_point_free.exit.preheader.i:          ; preds = %280
+mbedtls_ecp_point_free.exit.preheader.i:          ; preds = %281
   %wide.trip.count.i = zext nneg i32 %110 to i64
   br label %mbedtls_ecp_point_free.exit.i
 
 mbedtls_ecp_point_free.exit.i:                    ; preds = %mbedtls_ecp_point_free.exit.i, %mbedtls_ecp_point_free.exit.preheader.i
   %indvars.iv.i = phi i64 [ 0, %mbedtls_ecp_point_free.exit.preheader.i ], [ %indvars.iv.next.i, %mbedtls_ecp_point_free.exit.i ]
-  %284 = getelementptr inbounds nuw %struct.mbedtls_ecp_point, ptr %.1.i, i64 %indvars.iv.i
-  call void @mbedtls_mpi_free(ptr noundef nonnull %284) #20
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 16
+  %285 = getelementptr inbounds nuw %struct.mbedtls_ecp_point, ptr %.1.i, i64 %indvars.iv.i
   call void @mbedtls_mpi_free(ptr noundef nonnull %285) #20
-  %286 = getelementptr inbounds nuw i8, ptr %284, i64 32
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
   call void @mbedtls_mpi_free(ptr noundef nonnull %286) #20
+  %287 = getelementptr inbounds nuw i8, ptr %285, i64 32
+  call void @mbedtls_mpi_free(ptr noundef nonnull %287) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %mbedtls_ecp_point_free.exit.i, !llvm.loop !53
 
 ._crit_edge.i:                                    ; preds = %mbedtls_ecp_point_free.exit.i
   call void @free(ptr noundef nonnull %.1.i) #20
-  br label %287
+  br label %288
 
-287:                                              ; preds = %._crit_edge.i, %280
+288:                                              ; preds = %._crit_edge.i, %281
   %.not69.i = icmp eq i32 %.0.i30, 0
   br i1 %.not69.i, label %ecp_mul_comb.exit, label %.thread16.i
 
-.thread16.i:                                      ; preds = %287, %119
-  %.01519.i = phi i32 [ %.0.i30, %287 ], [ -19840, %119 ]
-  %288 = icmp eq ptr %1, null
-  br i1 %288, label %ecp_mul_comb.exit, label %289
+.thread16.i:                                      ; preds = %288, %119
+  %.01519.i = phi i32 [ %.0.i30, %288 ], [ -19840, %119 ]
+  %289 = icmp eq ptr %1, null
+  br i1 %289, label %ecp_mul_comb.exit, label %290
 
-289:                                              ; preds = %.thread16.i
+290:                                              ; preds = %.thread16.i
   call void @mbedtls_mpi_free(ptr noundef nonnull %1) #20
-  %290 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @mbedtls_mpi_free(ptr noundef nonnull %290) #20
-  %291 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @mbedtls_mpi_free(ptr noundef nonnull %291) #20
+  %292 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  call void @mbedtls_mpi_free(ptr noundef nonnull %292) #20
   br label %ecp_mul_comb.exit
 
-ecp_mul_comb.exit:                                ; preds = %21, %85, %mbedtls_ecp_get_type.exit.thread, %289, %.thread16.i, %287, %ecp_mul_mxz.exit.thread, %ecp_mul_mxz.exit, %19, %6
-  %.0 = phi i32 [ %.034.i, %ecp_mul_mxz.exit ], [ %18, %6 ], [ %20, %19 ], [ -20352, %ecp_mul_mxz.exit.thread ], [ 0, %287 ], [ %.01519.i, %.thread16.i ], [ %.01519.i, %289 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ 0, %85 ], [ -20352, %21 ]
+ecp_mul_comb.exit:                                ; preds = %21, %85, %mbedtls_ecp_get_type.exit.thread, %290, %.thread16.i, %288, %ecp_mul_mxz.exit.thread, %ecp_mul_mxz.exit, %19, %6
+  %.0 = phi i32 [ %.034.i, %ecp_mul_mxz.exit ], [ %18, %6 ], [ %20, %19 ], [ -20352, %ecp_mul_mxz.exit.thread ], [ 0, %288 ], [ %.01519.i, %.thread16.i ], [ %.01519.i, %290 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ 0, %85 ], [ -20352, %21 ]
   ret i32 %.0
 }
 

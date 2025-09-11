@@ -1512,20 +1512,21 @@ define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12Prepare
 
 .preheader:                                       ; preds = %1, %8
   %indvars.iv10 = phi i64 [ 0, %1 ], [ %indvars.iv.next11, %8 ]
-  %3 = shl nuw nsw i64 %indvars.iv10, 2
-  br label %4
+  %.idx = shl nuw nsw i64 %indvars.iv10, 5
+  br label %3
 
-4:                                                ; preds = %.preheader, %4
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = add nuw nsw i64 %indvars.iv, %3
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %6, i64 %5, i32 1
+3:                                                ; preds = %.preheader, %3
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %3 ]
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 0, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %8, label %4, !llvm.loop !11
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !11
 
-8:                                                ; preds = %4
+8:                                                ; preds = %3
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, 4
   br i1 %exitcond13.not, label %9, label %.preheader, !llvm.loop !12
@@ -1586,20 +1587,21 @@ define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState13DoApply
 
 .preheader.i:                                     ; preds = %34, %26
   %indvars.iv10.i = phi i64 [ 0, %26 ], [ %indvars.iv.next11.i, %34 ]
-  %29 = shl nuw nsw i64 %indvars.iv10.i, 2
-  br label %30
+  %.idx.i = shl nuw nsw i64 %indvars.iv10.i, 5
+  br label %29
 
-30:                                               ; preds = %30, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %30 ]
-  %31 = add nuw nsw i64 %indvars.iv.i, %29
-  %32 = load ptr, ptr %28, align 8
-  %33 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %32, i64 %31, i32 1
+29:                                               ; preds = %29, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %29 ]
+  %30 = load ptr, ptr %28, align 8
+  %31 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %30, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i8 0, ptr %33, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %34, label %30, !llvm.loop !11
+  br i1 %exitcond.not.i, label %34, label %29, !llvm.loop !11
 
-34:                                               ; preds = %30
+34:                                               ; preds = %29
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
   %exitcond13.not.i = icmp eq i64 %indvars.iv.next11.i, 4
   br i1 %exitcond13.not.i, label %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit.preheader, label %.preheader.i, !llvm.loop !12

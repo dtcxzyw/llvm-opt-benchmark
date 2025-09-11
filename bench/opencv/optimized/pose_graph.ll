@@ -2504,9 +2504,10 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv5kinfu6detail13PoseGraphImpl12get
 define linkonce_odr hidden noundef i64 @_ZNK2cv5kinfu6detail13PoseGraphImpl10getEdgeEndEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !138
-  %5 = getelementptr inbounds nuw %"struct.cv::kinfu::detail::PoseGraphImpl::Edge", ptr %4, i64 %1, i32 1
-  %6 = load i64, ptr %5, align 8, !tbaa !70
-  ret i64 %6
+  %5 = getelementptr inbounds nuw %"struct.cv::kinfu::detail::PoseGraphImpl::Edge", ptr %4, i64 %1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !70
+  ret i64 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

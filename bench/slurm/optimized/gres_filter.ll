@@ -1317,7 +1317,7 @@ _shared_gres_task_limit.exit:                     ; preds = %529, %564, %458, %4
 641:                                              ; preds = %629, %630, %635, %611
   %642 = phi i16 [ 0, %629 ], [ %613, %630 ], [ %636, %635 ], [ %613, %611 ]
   %643 = phi i16 [ %617, %629 ], [ %617, %630 ], [ %617, %635 ], [ %612, %611 ]
-  %644 = icmp sgt i64 %indvars.iv1069, 1
+  %644 = icmp samesign ugt i64 %indvars.iv1069, 1
   br i1 %644, label %611, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %641, %606

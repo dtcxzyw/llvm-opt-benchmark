@@ -15,7 +15,7 @@ define ptr @Lpk_MapPrimeInternal(ptr noundef %0, ptr noundef readonly captures(n
 
 3:                                                ; preds = %2
   %4 = getelementptr i8, ptr %0, i64 16
-  br label %56
+  br label %59
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %1, i64 4
@@ -36,64 +36,67 @@ define ptr @Lpk_MapPrimeInternal(ptr noundef %0, ptr noundef readonly captures(n
 .lr.ph:                                           ; preds = %.preheader
   %13 = getelementptr i8, ptr %1, i64 16
   %14 = zext nneg i32 %.val27 to i64
-  br label %19
+  br label %20
 
 15:                                               ; preds = %5
   %16 = getelementptr i8, ptr %1, i64 16
   %.val32 = load ptr, ptr %16, align 8, !tbaa !13
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val32, i64 %17, i32 2
-  br label %56
+  %18 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val32, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  br label %59
 
-19:                                               ; preds = %.lr.ph, %19
-  %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %19 ]
+20:                                               ; preds = %.lr.ph, %20
+  %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.val29 = load ptr, ptr %13, align 8, !tbaa !13
-  %20 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29, i64 %indvars.iv
-  %21 = load i32, ptr %20, align 8
-  %22 = lshr i32 %21, 1
-  %23 = and i32 %22, 1073741823
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29, i64 %24, i32 2
-  %26 = load ptr, ptr %25, align 8, !tbaa !14
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %28 = load i32, ptr %27, align 4
-  %29 = lshr i32 %28, 1
-  %30 = and i32 %29, 1073741823
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29, i64 %31, i32 2
-  %33 = load ptr, ptr %32, align 8, !tbaa !14
-  %34 = ptrtoint ptr %26 to i64
-  %35 = and i64 %34, -2
-  %36 = trunc i64 %34 to i32
-  %37 = xor i32 %21, %36
-  %38 = and i32 %37, 1
-  %39 = zext nneg i32 %38 to i64
-  %40 = or disjoint i64 %35, %39
-  %41 = inttoptr i64 %40 to ptr
-  %42 = ptrtoint ptr %33 to i64
-  %43 = and i64 %42, -2
-  %44 = trunc i64 %42 to i32
-  %45 = xor i32 %28, %44
-  %46 = and i32 %45, 1
-  %47 = zext nneg i32 %46 to i64
-  %48 = or disjoint i64 %43, %47
-  %49 = inttoptr i64 %48 to ptr
-  %50 = tail call ptr @If_ManCreateAnd(ptr noundef %0, ptr noundef %41, ptr noundef %49) #3
-  %51 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %50, ptr %51, align 8, !tbaa !14
+  %21 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29, i64 %indvars.iv
+  %22 = load i32, ptr %21, align 8
+  %23 = lshr i32 %22, 1
+  %24 = and i32 %23, 1073741823
+  %25 = zext nneg i32 %24 to i64
+  %26 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = lshr i32 %30, 1
+  %32 = and i32 %31, 1073741823
+  %33 = zext nneg i32 %32 to i64
+  %34 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !14
+  %37 = ptrtoint ptr %28 to i64
+  %38 = and i64 %37, -2
+  %39 = trunc i64 %37 to i32
+  %40 = xor i32 %22, %39
+  %41 = and i32 %40, 1
+  %42 = zext nneg i32 %41 to i64
+  %43 = or disjoint i64 %38, %42
+  %44 = inttoptr i64 %43 to ptr
+  %45 = ptrtoint ptr %36 to i64
+  %46 = and i64 %45, -2
+  %47 = trunc i64 %45 to i32
+  %48 = xor i32 %30, %47
+  %49 = and i32 %48, 1
+  %50 = zext nneg i32 %49 to i64
+  %51 = or disjoint i64 %46, %50
+  %52 = inttoptr i64 %51 to ptr
+  %53 = tail call ptr @If_ManCreateAnd(ptr noundef %0, ptr noundef %44, ptr noundef %52) #3
+  %54 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %53, ptr %54, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = load i32, ptr %10, align 8, !tbaa !12
-  %53 = sext i32 %52 to i64
-  %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %19, label %.critedge, !llvm.loop !15
+  %55 = load i32, ptr %10, align 8, !tbaa !12
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv.next, %56
+  br i1 %57, label %20, label %.critedge, !llvm.loop !15
 
-.critedge:                                        ; preds = %19, %.preheader
-  %.024.lcssa = phi ptr [ null, %.preheader ], [ %20, %19 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.024.lcssa, i64 8
-  br label %56
+.critedge:                                        ; preds = %20, %.preheader
+  %.024.lcssa = phi ptr [ null, %.preheader ], [ %21, %20 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.024.lcssa, i64 8
+  br label %59
 
-56:                                               ; preds = %.critedge, %15, %3
-  %.023.in = phi ptr [ %4, %3 ], [ %18, %15 ], [ %55, %.critedge ]
+59:                                               ; preds = %.critedge, %15, %3
+  %.023.in = phi ptr [ %4, %3 ], [ %19, %15 ], [ %58, %.critedge ]
   %.023 = load ptr, ptr %.023.in, align 8, !tbaa !14
   ret ptr %.023
 }
@@ -106,7 +109,7 @@ define ptr @Lpk_MapPrime(ptr noundef readonly captures(none) %0, ptr noundef %1,
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = tail call ptr @Kit_TruthToGraph(ptr noundef %1, i32 noundef %2, ptr noundef %6) #3
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %80, label %.preheader
+  br i1 %8, label %84, label %.preheader
 
 .preheader:                                       ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -121,116 +124,120 @@ define ptr @Lpk_MapPrime(ptr noundef readonly captures(none) %0, ptr noundef %1,
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.val = load ptr, ptr %12, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !28
-  %16 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val, i64 %indvars.iv, i32 2
-  store ptr %15, ptr %16, align 8, !tbaa !14
+  %14 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %16 = load ptr, ptr %15, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %16, ptr %17, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr %9, align 4, !tbaa !11
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %13, label %.critedge, !llvm.loop !30
+  %18 = load i32, ptr %9, align 4, !tbaa !11
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  br i1 %20, label %13, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %13, %.preheader
-  %.lcssa21 = phi i32 [ %10, %.preheader ], [ %17, %13 ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8240048
-  %21 = load ptr, ptr %20, align 8, !tbaa !31
+  %.lcssa21 = phi i32 [ %10, %.preheader ], [ %18, %13 ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8240048
+  %22 = load ptr, ptr %21, align 8, !tbaa !31
   %.val.i = load i32, ptr %7, align 8, !tbaa !3
   %.not.i = icmp eq i32 %.val.i, 0
-  br i1 %.not.i, label %24, label %22
+  br i1 %.not.i, label %25, label %23
 
-22:                                               ; preds = %.critedge
-  %23 = getelementptr i8, ptr %21, i64 16
+23:                                               ; preds = %.critedge
+  %24 = getelementptr i8, ptr %22, i64 16
   br label %Lpk_MapPrimeInternal.exit
 
-24:                                               ; preds = %.critedge
-  %25 = getelementptr i8, ptr %7, i64 24
-  %.val28.i = load i32, ptr %25, align 8
-  %26 = lshr i32 %.val28.i, 1
-  %27 = and i32 %26, 1073741823
-  %.not34.i = icmp ult i32 %27, %.lcssa21
-  br i1 %.not34.i, label %33, label %.preheader.i
+25:                                               ; preds = %.critedge
+  %26 = getelementptr i8, ptr %7, i64 24
+  %.val28.i = load i32, ptr %26, align 8
+  %27 = lshr i32 %.val28.i, 1
+  %28 = and i32 %27, 1073741823
+  %.not34.i = icmp ult i32 %28, %.lcssa21
+  br i1 %.not34.i, label %34, label %.preheader.i
 
-.preheader.i:                                     ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !12
-  %30 = icmp slt i32 %.lcssa21, %29
-  br i1 %30, label %.lr.ph.i, label %.critedge.i
+.preheader.i:                                     ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %30 = load i32, ptr %29, align 8, !tbaa !12
+  %31 = icmp slt i32 %.lcssa21, %30
+  br i1 %31, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %31 = getelementptr i8, ptr %7, i64 16
-  %32 = zext nneg i32 %.lcssa21 to i64
-  br label %37
+  %32 = getelementptr i8, ptr %7, i64 16
+  %33 = zext nneg i32 %.lcssa21 to i64
+  br label %39
 
-33:                                               ; preds = %24
-  %34 = getelementptr i8, ptr %7, i64 16
-  %.val32.i = load ptr, ptr %34, align 8, !tbaa !13
-  %35 = zext nneg i32 %27 to i64
-  %36 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val32.i, i64 %35, i32 2
+34:                                               ; preds = %25
+  %35 = getelementptr i8, ptr %7, i64 16
+  %.val32.i = load ptr, ptr %35, align 8, !tbaa !13
+  %36 = zext nneg i32 %28 to i64
+  %37 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val32.i, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   br label %Lpk_MapPrimeInternal.exit
 
-37:                                               ; preds = %37, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %32, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
-  %.val29.i = load ptr, ptr %31, align 8, !tbaa !13
-  %38 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29.i, i64 %indvars.iv.i
-  %39 = load i32, ptr %38, align 8
-  %40 = lshr i32 %39, 1
-  %41 = and i32 %40, 1073741823
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29.i, i64 %42, i32 2
-  %44 = load ptr, ptr %43, align 8, !tbaa !14
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %46 = load i32, ptr %45, align 4
-  %47 = lshr i32 %46, 1
-  %48 = and i32 %47, 1073741823
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29.i, i64 %49, i32 2
-  %51 = load ptr, ptr %50, align 8, !tbaa !14
-  %52 = ptrtoint ptr %44 to i64
-  %53 = and i64 %52, -2
-  %54 = trunc i64 %52 to i32
-  %55 = xor i32 %39, %54
-  %56 = and i32 %55, 1
-  %57 = zext nneg i32 %56 to i64
-  %58 = or disjoint i64 %53, %57
-  %59 = inttoptr i64 %58 to ptr
-  %60 = ptrtoint ptr %51 to i64
-  %61 = and i64 %60, -2
-  %62 = trunc i64 %60 to i32
-  %63 = xor i32 %46, %62
-  %64 = and i32 %63, 1
-  %65 = zext nneg i32 %64 to i64
-  %66 = or disjoint i64 %61, %65
-  %67 = inttoptr i64 %66 to ptr
-  %68 = tail call ptr @If_ManCreateAnd(ptr noundef %21, ptr noundef %59, ptr noundef %67) #3
-  %69 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %68, ptr %69, align 8, !tbaa !14
+39:                                               ; preds = %39, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %33, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
+  %.val29.i = load ptr, ptr %32, align 8, !tbaa !13
+  %40 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29.i, i64 %indvars.iv.i
+  %41 = load i32, ptr %40, align 8
+  %42 = lshr i32 %41, 1
+  %43 = and i32 %42, 1073741823
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29.i, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !14
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = lshr i32 %49, 1
+  %51 = and i32 %50, 1073741823
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val29.i, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !14
+  %56 = ptrtoint ptr %47 to i64
+  %57 = and i64 %56, -2
+  %58 = trunc i64 %56 to i32
+  %59 = xor i32 %41, %58
+  %60 = and i32 %59, 1
+  %61 = zext nneg i32 %60 to i64
+  %62 = or disjoint i64 %57, %61
+  %63 = inttoptr i64 %62 to ptr
+  %64 = ptrtoint ptr %55 to i64
+  %65 = and i64 %64, -2
+  %66 = trunc i64 %64 to i32
+  %67 = xor i32 %49, %66
+  %68 = and i32 %67, 1
+  %69 = zext nneg i32 %68 to i64
+  %70 = or disjoint i64 %65, %69
+  %71 = inttoptr i64 %70 to ptr
+  %72 = tail call ptr @If_ManCreateAnd(ptr noundef %22, ptr noundef %63, ptr noundef %71) #3
+  %73 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store ptr %72, ptr %73, align 8, !tbaa !14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %70 = load i32, ptr %28, align 8, !tbaa !12
-  %71 = sext i32 %70 to i64
-  %72 = icmp slt i64 %indvars.iv.next.i, %71
-  br i1 %72, label %37, label %.critedge.i, !llvm.loop !15
+  %74 = load i32, ptr %29, align 8, !tbaa !12
+  %75 = sext i32 %74 to i64
+  %76 = icmp slt i64 %indvars.iv.next.i, %75
+  br i1 %76, label %39, label %.critedge.i, !llvm.loop !15
 
-.critedge.i:                                      ; preds = %37, %.preheader.i
-  %.024.lcssa.i = phi ptr [ null, %.preheader.i ], [ %38, %37 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i, i64 8
+.critedge.i:                                      ; preds = %39, %.preheader.i
+  %.024.lcssa.i = phi ptr [ null, %.preheader.i ], [ %40, %39 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i, i64 8
   br label %Lpk_MapPrimeInternal.exit
 
-Lpk_MapPrimeInternal.exit:                        ; preds = %22, %33, %.critedge.i
-  %.023.in.i = phi ptr [ %23, %22 ], [ %36, %33 ], [ %73, %.critedge.i ]
+Lpk_MapPrimeInternal.exit:                        ; preds = %23, %34, %.critedge.i
+  %.023.in.i = phi ptr [ %24, %23 ], [ %38, %34 ], [ %77, %.critedge.i ]
   %.023.i = load ptr, ptr %.023.in.i, align 8, !tbaa !14
-  %74 = getelementptr i8, ptr %7, i64 24
-  %.val20 = load i32, ptr %74, align 8
-  %75 = and i32 %.val20, 1
-  %76 = ptrtoint ptr %.023.i to i64
-  %77 = zext nneg i32 %75 to i64
-  %78 = xor i64 %77, %76
-  %79 = inttoptr i64 %78 to ptr
+  %78 = getelementptr i8, ptr %7, i64 24
+  %.val20 = load i32, ptr %78, align 8
+  %79 = and i32 %.val20, 1
+  %80 = ptrtoint ptr %.023.i to i64
+  %81 = zext nneg i32 %79 to i64
+  %82 = xor i64 %81, %80
+  %83 = inttoptr i64 %82 to ptr
   tail call void @Kit_GraphFree(ptr noundef nonnull %7) #3
-  br label %80
+  br label %84
 
-80:                                               ; preds = %4, %Lpk_MapPrimeInternal.exit
-  %.018 = phi ptr [ %79, %Lpk_MapPrimeInternal.exit ], [ null, %4 ]
+84:                                               ; preds = %4, %Lpk_MapPrimeInternal.exit
+  %.018 = phi ptr [ %83, %Lpk_MapPrimeInternal.exit ], [ null, %4 ]
   ret ptr %.018
 }
 

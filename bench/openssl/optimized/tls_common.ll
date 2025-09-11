@@ -2392,29 +2392,28 @@ tls_release_write_buffer.exit:                    ; preds = %23, %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %38 = load i32, ptr %37, align 4, !tbaa !31
   %39 = icmp eq i32 %38, 768
-  br i1 %39, label %40, label %42
+  br i1 %39, label %40, label %.preheader
 
 40:                                               ; preds = %tls_release_write_buffer.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4208
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %41, i64 noundef 64) #13
+  br label %.preheader
+
+.preheader:                                       ; preds = %40, %tls_release_write_buffer.exit
   br label %42
 
-42:                                               ; preds = %40, %tls_release_write_buffer.exit
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  br label %44
+42:                                               ; preds = %.preheader, %42
+  %.06.i = phi i64 [ %46, %42 ], [ 0, %.preheader ]
+  %43 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %0, i64 %.06.i
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1792
+  %45 = load ptr, ptr %44, align 8, !tbaa !94
+  tail call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 37) #13
+  store ptr null, ptr %44, align 8, !tbaa !94
+  %46 = add nuw nsw i64 %.06.i, 1
+  %exitcond.not.i = icmp eq i64 %46, 32
+  br i1 %exitcond.not.i, label %TLS_RL_RECORD_release.exit, label %42, !llvm.loop !123
 
-44:                                               ; preds = %44, %42
-  %.06.i = phi i64 [ 0, %42 ], [ %47, %44 ]
-  %.idx = mul nuw nsw i64 %.06.i, 72
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx
-  %46 = load ptr, ptr %45, align 8, !tbaa !94
-  tail call void @CRYPTO_free(ptr noundef %46, ptr noundef nonnull @.str, i32 noundef 37) #13
-  store ptr null, ptr %45, align 8, !tbaa !94
-  %47 = add nuw nsw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %47, 32
-  br i1 %exitcond.not.i, label %TLS_RL_RECORD_release.exit, label %44, !llvm.loop !123
-
-TLS_RL_RECORD_release.exit:                       ; preds = %44
+TLS_RL_RECORD_release.exit:                       ; preds = %42
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 1466) #13
   ret void
 }
@@ -3220,8 +3219,7 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
 134:                                              ; preds = %.lr.ph140
   %135 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %136 = load i64, ptr %135, align 8, !tbaa !65
-  %.idx = mul nuw nsw i64 %.1139, 48
-  %137 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
+  %137 = getelementptr inbounds nuw %struct.tls_buffer_st, ptr %29, i64 %.1139
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
   store i64 %136, ptr %138, align 8, !tbaa !45
   %139 = add nuw i64 %.1139, 1

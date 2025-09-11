@@ -189,10 +189,10 @@ define internal void @dd_exit_sched(ptr noundef readonly captures(none) %0) #2 a
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 328
   br label %5
 
-5:                                                ; preds = %35, %1
-  %6 = phi i64 [ 0, %1 ], [ %36, %35 ]
+5:                                                ; preds = %33, %1
+  %6 = phi i64 [ 0, %1 ], [ %34, %33 ]
   %7 = getelementptr %struct.dd_per_prio, ptr %3, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %8 = getelementptr i8, ptr %7, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %9
@@ -218,40 +218,38 @@ define internal void @dd_exit_sched(ptr noundef readonly captures(none) %0) #2 a
 
 18:                                               ; preds = %17, %13
   tail call void @_raw_spin_lock(ptr noundef nonnull %4) #12
-  %19 = getelementptr %struct.dd_per_prio, ptr %3, i64 %6, i32 4
-  %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %22 = load volatile i32, ptr %21, align 4
+  %19 = load i32, ptr %8, align 4
+  %20 = getelementptr i8, ptr %7, i64 92
+  %21 = load volatile i32, ptr %20, align 4
   tail call void @_raw_spin_unlock(ptr noundef nonnull %4) #12
-  %23 = icmp eq i32 %20, %22
-  %24 = load i1, ptr @dd_exit_sched.__already_done, align 1
-  %25 = select i1 %23, i1 true, i1 %24
-  br i1 %25, label %35, label %26, !prof !9
+  %22 = icmp eq i32 %19, %21
+  %23 = load i1, ptr @dd_exit_sched.__already_done, align 1
+  %24 = select i1 %22, i1 true, i1 %23
+  br i1 %24, label %33, label %25, !prof !9
 
-26:                                               ; preds = %18
+25:                                               ; preds = %18
   store i1 true, ptr @dd_exit_sched.__already_done, align 1
   tail call void asm sideeffect "746: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 746b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 746) #12, !srcloc !16
-  %27 = load i32, ptr %8, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 84
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 92
-  %33 = load volatile i32, ptr %32, align 4
-  %34 = trunc nuw nsw i64 %6 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, i32 noundef %34, i32 noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %33) #12
+  %26 = load i32, ptr %8, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 84
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %30 = load i32, ptr %29, align 4
+  %31 = load volatile i32, ptr %20, align 4
+  %32 = trunc nuw nsw i64 %6 to i32
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, i32 noundef %32, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %31) #12
   tail call void asm sideeffect "747: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 747b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 747) #12, !srcloc !17
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 683, i32 2313, i64 12) #12, !srcloc !18
   tail call void asm sideeffect "748: nop\0A\09.pushsection .discard.instr_end\0A\09.long 748b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 748) #12, !srcloc !19
   tail call void asm sideeffect "749: nop\0A\09.pushsection .discard.instr_end\0A\09.long 749b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 749) #12, !srcloc !20
-  br label %35
+  br label %33
 
-35:                                               ; preds = %26, %18
-  %36 = add nuw nsw i64 %6, 1
-  %37 = icmp eq i64 %36, 3
-  br i1 %37, label %38, label %5, !llvm.loop !21
+33:                                               ; preds = %25, %18
+  %34 = add nuw nsw i64 %6, 1
+  %35 = icmp eq i64 %34, 3
+  br i1 %35, label %36, label %5, !llvm.loop !21
 
-38:                                               ; preds = %35
+36:                                               ; preds = %33
   tail call void @kfree(ptr noundef %3) #12
   ret void
 }
@@ -356,8 +354,9 @@ define internal noundef range(i32 0, 4) i32 @dd_request_merge(ptr noundef readon
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %29 = zext nneg i32 %28 to i64
-  %.split = getelementptr %struct.dd_per_prio, ptr %7, i64 %25, i32 1
-  %30 = getelementptr %struct.rb_root, ptr %.split, i64 %29
+  %.split = getelementptr %struct.dd_per_prio, ptr %7, i64 %25
+  %.split1 = getelementptr i8, ptr %.split, i64 16
+  %30 = getelementptr %struct.rb_root, ptr %.split1, i64 %29
   %31 = tail call ptr @elv_rb_find(ptr noundef %30, i64 noundef %14) #12
   %32 = icmp eq ptr %31, null
   br i1 %32, label %51, label %33
@@ -421,13 +420,14 @@ define internal void @dd_request_merged(ptr noundef readonly captures(none) %0, 
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %.split = getelementptr %struct.dd_per_prio, ptr %13, i64 %16, i32 1
-  %21 = getelementptr %struct.rb_root, ptr %.split, i64 %20
+  %.split = getelementptr %struct.dd_per_prio, ptr %13, i64 %16
+  %.split1 = getelementptr i8, ptr %.split, i64 16
+  %21 = getelementptr %struct.rb_root, ptr %.split1, i64 %20
   tail call void @elv_rb_del(ptr noundef %21, ptr noundef %1) #12
   %22 = load i32, ptr %17, align 8
   %23 = and i32 %22, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr %struct.rb_root, ptr %.split, i64 %24
+  %25 = getelementptr %struct.rb_root, ptr %.split1, i64 %24
   tail call void @elv_rb_add(ptr noundef %25, ptr noundef %1) #12
   br label %26
 
@@ -585,7 +585,8 @@ define internal void @dd_finish_request(ptr noundef readonly captures(none) %0) 
   %15 = getelementptr i32, ptr @ioprio_class_to_prio, i64 %9
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr %struct.dd_per_prio, ptr %14, i64 %17, i32 4, i32 3
+  %.split = getelementptr %struct.dd_per_prio, ptr %14, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 92
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18, ptr elementtype(i32) %18) #12, !srcloc !24
   br label %19
 
@@ -876,9 +877,9 @@ define internal ptr @dd_dispatch_request(ptr noundef readonly captures(none) %0)
   br i1 %46, label %47, label %.loopexit
 
 47:                                               ; preds = %.preheader
-  %48 = getelementptr %struct.dd_per_prio, ptr %7, i64 %43, i32 4
+  %48 = getelementptr i8, ptr %44, i64 80
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 12
+  %50 = getelementptr i8, ptr %44, i64 92
   %51 = load volatile i32, ptr %50, align 4
   %52 = icmp ne i32 %49, %51
   %53 = add nuw nsw i64 %43, 1
@@ -918,9 +919,9 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
   %15 = icmp eq ptr %14, %13
   br i1 %15, label %.lr.ph26, label %.loopexit
 
-16:                                               ; preds = %42
-  %17 = add nuw nsw i64 %33, 1
-  %18 = icmp samesign ult i64 %33, 2
+16:                                               ; preds = %43
+  %17 = add nuw nsw i64 %34, 1
+  %18 = icmp samesign ult i64 %34, 2
   %19 = icmp eq i64 %17, 3
   br i1 %19, label %..loopexit_crit_edge, label %20, !llvm.loop !37
 
@@ -938,34 +939,35 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
   br i1 %27, label %.lr.ph, label %..loopexit.loopexit_crit_edge32, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %24
-  %28 = getelementptr %struct.dd_per_prio, ptr %7, i64 %17, i32 2
-  %29 = load volatile ptr, ptr %28, align 8
+  %28 = getelementptr %struct.dd_per_prio, ptr %7, i64 %17
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %30 = load volatile ptr, ptr %29, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !36
-  %30 = icmp eq ptr %29, %28
-  br i1 %30, label %.lr.ph26, label %.loopexit, !llvm.loop !37
+  %31 = icmp eq ptr %30, %29
+  br i1 %31, label %.lr.ph26, label %.loopexit, !llvm.loop !37
 
 .lr.ph26:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %31 = phi ptr [ %28, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %32 = phi i1 [ %18, %.lr.ph ], [ true, %.lr.ph.preheader ]
-  %33 = phi i64 [ %17, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %34 = getelementptr %struct.dd_per_prio, ptr %7, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %36 = load volatile ptr, ptr %35, align 8
-  %37 = icmp eq ptr %31, %36
-  br i1 %37, label %38, label %.loopexit
+  %32 = phi ptr [ %29, %.lr.ph ], [ %13, %.lr.ph.preheader ]
+  %33 = phi i1 [ %18, %.lr.ph ], [ true, %.lr.ph.preheader ]
+  %34 = phi i64 [ %17, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %35 = getelementptr %struct.dd_per_prio, ptr %7, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %37 = load volatile ptr, ptr %36, align 8
+  %38 = icmp eq ptr %32, %37
+  br i1 %38, label %39, label %.loopexit
 
-38:                                               ; preds = %.lr.ph26
-  %39 = getelementptr i8, ptr %34, i64 48
-  %40 = load volatile ptr, ptr %39, align 8
+39:                                               ; preds = %.lr.ph26
+  %40 = getelementptr i8, ptr %35, i64 48
+  %41 = load volatile ptr, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !36
-  %41 = icmp eq ptr %40, %39
-  br i1 %41, label %42, label %.loopexit
+  %42 = icmp eq ptr %41, %40
+  br i1 %42, label %43, label %.loopexit
 
-42:                                               ; preds = %38
-  %43 = getelementptr i8, ptr %34, i64 56
-  %44 = load volatile ptr, ptr %43, align 8
-  %45 = icmp eq ptr %39, %44
-  br i1 %45, label %16, label %.loopexit
+43:                                               ; preds = %39
+  %44 = getelementptr i8, ptr %35, i64 56
+  %45 = load volatile ptr, ptr %44, align 8
+  %46 = icmp eq ptr %40, %45
+  br i1 %46, label %16, label %.loopexit
 
 ..loopexit_crit_edge:                             ; preds = %16
   br label %.loopexit, !llvm.loop !37
@@ -976,9 +978,9 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
 ..loopexit.loopexit_crit_edge32:                  ; preds = %24
   br label %.loopexit, !llvm.loop !37
 
-.loopexit:                                        ; preds = %42, %38, %.lr.ph26, %.lr.ph, %.lr.ph.preheader, %..loopexit.loopexit_crit_edge32, %.preheader, %..loopexit_crit_edge, %..loopexit_crit_edge7, %1
-  %46 = phi i1 [ true, %1 ], [ %18, %..loopexit_crit_edge7 ], [ %18, %..loopexit_crit_edge ], [ true, %.preheader ], [ %18, %..loopexit.loopexit_crit_edge32 ], [ true, %.lr.ph.preheader ], [ %18, %.lr.ph ], [ %32, %.lr.ph26 ], [ %32, %38 ], [ %32, %42 ]
-  ret i1 %46
+.loopexit:                                        ; preds = %43, %39, %.lr.ph26, %.lr.ph, %.lr.ph.preheader, %..loopexit.loopexit_crit_edge32, %.preheader, %..loopexit_crit_edge, %..loopexit_crit_edge7, %1
+  %47 = phi i1 [ true, %1 ], [ %18, %..loopexit_crit_edge7 ], [ %18, %..loopexit_crit_edge ], [ true, %.preheader ], [ %18, %..loopexit.loopexit_crit_edge32 ], [ true, %.lr.ph.preheader ], [ %18, %.lr.ph ], [ %33, %.lr.ph26 ], [ %33, %39 ], [ %33, %43 ]
+  ret i1 %47
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -122,80 +122,81 @@ _ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit: ; preds = %._ZL9findindexP
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ %53, %_ZL9findindexP9lua_StateP8LuaTableP10lua_TValue.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %58 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %58, label %59, label %70
+  br i1 %58, label %59, label %71
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %52, align 8, !tbaa !20
-  %61 = getelementptr inbounds %struct.lua_TValue, ptr %60, i64 %indvars.iv.next, i32 2
-  %62 = load i32, ptr %61, align 4, !tbaa !4
-  %63 = icmp eq i32 %62, 0
+  %61 = getelementptr inbounds %struct.lua_TValue, ptr %60, i64 %indvars.iv.next
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 12
+  %63 = load i32, ptr %62, align 4, !tbaa !4
+  %64 = icmp eq i32 %63, 0
   %indvars.iv.next58 = add i32 %indvars.iv57, 1
-  br i1 %63, label %57, label %64, !llvm.loop !21
+  br i1 %64, label %57, label %65, !llvm.loop !21
 
-64:                                               ; preds = %59
-  %65 = trunc nsw i64 %indvars.iv to i32
-  %66 = add nsw i32 %65, 2
-  %67 = sitofp i32 %66 to double
-  store double %67, ptr %2, align 8, !tbaa !16
+65:                                               ; preds = %59
+  %66 = trunc nsw i64 %indvars.iv to i32
+  %67 = add nsw i32 %66, 2
+  %68 = sitofp i32 %67 to double
+  store double %68, ptr %2, align 8, !tbaa !16
   store i32 3, ptr %4, align 4, !tbaa !4
-  %68 = load ptr, ptr %52, align 8, !tbaa !20
-  %69 = getelementptr inbounds %struct.lua_TValue, ptr %68, i64 %indvars.iv.next
+  %69 = load ptr, ptr %52, align 8, !tbaa !20
+  %70 = getelementptr inbounds %struct.lua_TValue, ptr %69, i64 %indvars.iv.next
   br label %.loopexit.sink.split
 
-70:                                               ; preds = %57
-  %71 = trunc nsw i64 %indvars.iv.next to i32
-  %72 = sub nsw i32 %71, %51
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %74 = load i8, ptr %73, align 2, !tbaa !22
-  %75 = zext nneg i8 %74 to i32
-  %76 = shl nuw i32 1, %75
-  %77 = icmp slt i32 %72, %76
-  br i1 %77, label %.lr.ph, label %.loopexit
+71:                                               ; preds = %57
+  %72 = trunc nsw i64 %indvars.iv.next to i32
+  %73 = sub nsw i32 %72, %51
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %75 = load i8, ptr %74, align 2, !tbaa !22
+  %76 = zext nneg i8 %75 to i32
+  %77 = shl nuw i32 1, %76
+  %78 = icmp slt i32 %73, %77
+  br i1 %78, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %70
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %79 = load ptr, ptr %78, align 8, !tbaa !17
-  %80 = zext i32 %indvars.iv57 to i64
-  br label %84
+.lr.ph:                                           ; preds = %71
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %80 = load ptr, ptr %79, align 8, !tbaa !17
+  %81 = zext i32 %indvars.iv57 to i64
+  br label %85
 
-81:                                               ; preds = %84
+82:                                               ; preds = %85
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %82 = trunc nuw i64 %indvars.iv.next61 to i32
-  %83 = icmp sgt i32 %76, %82
-  br i1 %83, label %84, label %.loopexit, !llvm.loop !23
+  %83 = trunc nuw i64 %indvars.iv.next61 to i32
+  %84 = icmp sgt i32 %77, %83
+  br i1 %84, label %85, label %.loopexit, !llvm.loop !23
 
-84:                                               ; preds = %.lr.ph, %81
-  %indvars.iv60 = phi i64 [ %80, %.lr.ph ], [ %indvars.iv.next61, %81 ]
-  %85 = getelementptr inbounds nuw %struct.LuaNode, ptr %79, i64 %indvars.iv60
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
-  %87 = load i32, ptr %86, align 4, !tbaa !24
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %81, label %89
+85:                                               ; preds = %.lr.ph, %82
+  %indvars.iv60 = phi i64 [ %81, %.lr.ph ], [ %indvars.iv.next61, %82 ]
+  %86 = getelementptr inbounds nuw %struct.LuaNode, ptr %80, i64 %indvars.iv60
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
+  %88 = load i32, ptr %87, align 4, !tbaa !24
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %82, label %90
 
-89:                                               ; preds = %84
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %91 = load i64, ptr %90, align 8, !tbaa !16
-  store i64 %91, ptr %2, align 8, !tbaa !16
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %93 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %94 = load i32, ptr %93, align 8
-  store i32 %94, ptr %92, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %85, i64 28
-  %96 = load i32, ptr %95, align 4
-  %97 = and i32 %96, 15
-  store i32 %97, ptr %4, align 4, !tbaa !4
-  %98 = load ptr, ptr %78, align 8, !tbaa !17
-  %99 = getelementptr inbounds nuw %struct.LuaNode, ptr %98, i64 %indvars.iv60
+90:                                               ; preds = %85
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %92 = load i64, ptr %91, align 8, !tbaa !16
+  store i64 %92, ptr %2, align 8, !tbaa !16
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %95 = load i32, ptr %94, align 8
+  store i32 %95, ptr %93, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %86, i64 28
+  %97 = load i32, ptr %96, align 4
+  %98 = and i32 %97, 15
+  store i32 %98, ptr %4, align 4, !tbaa !4
+  %99 = load ptr, ptr %79, align 8, !tbaa !17
+  %100 = getelementptr inbounds nuw %struct.LuaNode, ptr %99, i64 %indvars.iv60
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %64, %89
-  %.sink72 = phi ptr [ %99, %89 ], [ %69, %64 ]
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %.sink72, i64 16, i1 false)
+.loopexit.sink.split:                             ; preds = %65, %90
+  %.sink72 = phi ptr [ %100, %90 ], [ %70, %65 ]
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %.sink72, i64 16, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %81, %.loopexit.sink.split, %70
-  %.0 = phi i32 [ 0, %70 ], [ 1, %.loopexit.sink.split ], [ 0, %81 ]
+.loopexit:                                        ; preds = %82, %.loopexit.sink.split, %71
+  %.0 = phi i32 [ 0, %71 ], [ 1, %.loopexit.sink.split ], [ 0, %82 ]
   ret i32 %.0
 }
 
@@ -408,7 +409,7 @@ define internal fastcc void @_ZL6resizeP9lua_StateP8LuaTableii(ptr noundef %0, p
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = icmp sgt i32 %2, %12
-  br i1 %18, label %19, label %36
+  br i1 %18, label %19, label %37
 
 19:                                               ; preds = %10
   %20 = icmp sgt i32 %2, -1
@@ -439,215 +440,216 @@ define internal fastcc void @_ZL6resizeP9lua_StateP8LuaTableii(ptr noundef %0, p
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %33, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %35 = getelementptr inbounds %struct.lua_TValue, ptr %30, i64 %indvars.iv.i, i32 2
-  store i32 0, ptr %35, align 4, !tbaa !4
+  %35 = getelementptr inbounds %struct.lua_TValue, ptr %30, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  store i32 0, ptr %36, align 4, !tbaa !4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %22
   br i1 %exitcond.not.i, label %_ZL14setarrayvectorP9lua_StateP8LuaTablei.exit, label %.lr.ph.i, !llvm.loop !30
 
 _ZL14setarrayvectorP9lua_StateP8LuaTablei.exit:   ; preds = %.lr.ph.i, %21
   store i32 %2, ptr %11, align 8, !tbaa !9
-  br label %36
+  br label %37
 
-36:                                               ; preds = %_ZL14setarrayvectorP9lua_StateP8LuaTablei.exit, %10
-  %37 = icmp eq i32 %3, 0
-  br i1 %37, label %38, label %39
+37:                                               ; preds = %_ZL14setarrayvectorP9lua_StateP8LuaTablei.exit, %10
+  %38 = icmp eq i32 %3, 0
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %36
+39:                                               ; preds = %37
   store ptr @luaH_dummynode, ptr %16, align 8, !tbaa !17
   br label %_ZL13setnodevectorP9lua_StateP8LuaTablei.exit
 
-39:                                               ; preds = %36
-  %40 = add nsw i32 %3, -1
-  %41 = tail call noundef i32 @_Z9luaO_log2j(i32 noundef %40)
-  %42 = add nsw i32 %41, 1
-  %43 = icmp sgt i32 %41, 25
-  br i1 %43, label %44, label %45
+40:                                               ; preds = %37
+  %41 = add nsw i32 %3, -1
+  %42 = tail call noundef i32 @_Z9luaO_log2j(i32 noundef %41)
+  %43 = add nsw i32 %42, 1
+  %44 = icmp sgt i32 %42, 25
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %39
+45:                                               ; preds = %40
   tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.4) #10
   unreachable
 
-45:                                               ; preds = %39
-  %46 = shl nuw nsw i32 1, %42
-  %47 = zext nneg i32 %46 to i64
-  %48 = shl nuw nsw i64 %47, 5
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %50 = load i8, ptr %49, align 2, !tbaa !29
-  %51 = tail call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %48, i8 noundef zeroext %50)
-  store ptr %51, ptr %16, align 8, !tbaa !17
-  br label %52
+46:                                               ; preds = %40
+  %47 = shl nuw nsw i32 1, %43
+  %48 = zext nneg i32 %47 to i64
+  %49 = shl nuw nsw i64 %48, 5
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %51 = load i8, ptr %50, align 2, !tbaa !29
+  %52 = tail call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %49, i8 noundef zeroext %51)
+  store ptr %52, ptr %16, align 8, !tbaa !17
+  br label %53
 
-52:                                               ; preds = %52, %45
-  %indvars.iv.i72 = phi i64 [ 0, %45 ], [ %indvars.iv.next.i73, %52 ]
-  %53 = load ptr, ptr %16, align 8, !tbaa !17
-  %54 = getelementptr inbounds nuw %struct.LuaNode, ptr %53, i64 %indvars.iv.i72
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 28
-  store i32 0, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  store i32 0, ptr %56, align 4, !tbaa !24
+53:                                               ; preds = %53, %46
+  %indvars.iv.i72 = phi i64 [ 0, %46 ], [ %indvars.iv.next.i73, %53 ]
+  %54 = load ptr, ptr %16, align 8, !tbaa !17
+  %55 = getelementptr inbounds nuw %struct.LuaNode, ptr %54, i64 %indvars.iv.i72
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 28
+  store i32 0, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 12
+  store i32 0, ptr %57, align 4, !tbaa !24
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
-  %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i73, %47
-  br i1 %exitcond.not.i74, label %_ZL13setnodevectorP9lua_StateP8LuaTablei.exit, label %52, !llvm.loop !31
+  %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i73, %48
+  br i1 %exitcond.not.i74, label %_ZL13setnodevectorP9lua_StateP8LuaTablei.exit, label %53, !llvm.loop !31
 
-_ZL13setnodevectorP9lua_StateP8LuaTablei.exit:    ; preds = %52, %38
-  %.026.i = phi i32 [ 0, %38 ], [ %42, %52 ]
-  %.0.i = phi i32 [ 0, %38 ], [ %46, %52 ]
-  %57 = trunc i32 %.026.i to i8
-  store i8 %57, ptr %13, align 2, !tbaa !22
+_ZL13setnodevectorP9lua_StateP8LuaTablei.exit:    ; preds = %53, %39
+  %.026.i = phi i32 [ 0, %39 ], [ %43, %53 ]
+  %.0.i = phi i32 [ 0, %39 ], [ %47, %53 ]
+  %58 = trunc i32 %.026.i to i8
+  store i8 %58, ptr %13, align 2, !tbaa !22
   %notmask.i = shl nsw i32 -1, %.026.i
-  %58 = trunc i32 %notmask.i to i8
-  %59 = xor i8 %58, -1
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  store i8 %59, ptr %60, align 1, !tbaa !32
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %.0.i, ptr %61, align 4, !tbaa !16
-  %62 = icmp slt i32 %2, %12
-  br i1 %62, label %63, label %91
+  %59 = trunc i32 %notmask.i to i8
+  %60 = xor i8 %59, -1
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  store i8 %60, ptr %61, align 1, !tbaa !32
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %.0.i, ptr %62, align 4, !tbaa !16
+  %63 = icmp slt i32 %2, %12
+  br i1 %63, label %64, label %92
 
-63:                                               ; preds = %_ZL13setnodevectorP9lua_StateP8LuaTablei.exit
+64:                                               ; preds = %_ZL13setnodevectorP9lua_StateP8LuaTablei.exit
   store i32 %2, ptr %11, align 8, !tbaa !9
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %66 = sext i32 %2 to i64
-  br label %69
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %67 = sext i32 %2 to i64
+  br label %70
 
-67:                                               ; preds = %80
-  %68 = icmp sgt i32 %2, -1
-  br i1 %68, label %81, label %90
+68:                                               ; preds = %81
+  %69 = icmp sgt i32 %2, -1
+  br i1 %69, label %82, label %91
 
-69:                                               ; preds = %63, %80
-  %indvars.iv = phi i64 [ %66, %63 ], [ %indvars.iv.next.pre-phi, %80 ]
-  %70 = load ptr, ptr %64, align 8, !tbaa !20
-  %71 = getelementptr inbounds %struct.lua_TValue, ptr %70, i64 %indvars.iv, i32 2
-  %72 = load i32, ptr %71, align 4, !tbaa !4
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %._crit_edge87, label %74
+70:                                               ; preds = %64, %81
+  %indvars.iv = phi i64 [ %67, %64 ], [ %indvars.iv.next.pre-phi, %81 ]
+  %71 = load ptr, ptr %65, align 8, !tbaa !20
+  %72 = getelementptr inbounds %struct.lua_TValue, ptr %71, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
+  %74 = load i32, ptr %73, align 4, !tbaa !4
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %._crit_edge87, label %76
 
-._crit_edge87:                                    ; preds = %69
+._crit_edge87:                                    ; preds = %70
   %.pre = add nsw i64 %indvars.iv, 1
   %.pre88 = trunc i64 %.pre to i32
-  br label %80
+  br label %81
 
-74:                                               ; preds = %69
+76:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %75 = add nsw i64 %indvars.iv, 1
-  %76 = trunc i64 %75 to i32
-  %77 = sitofp i32 %76 to double
-  store double %77, ptr %5, align 8, !tbaa !16
-  store i32 3, ptr %65, align 4, !tbaa !4
-  %78 = getelementptr inbounds %struct.lua_TValue, ptr %70, i64 %indvars.iv
-  %79 = call fastcc noundef ptr @_ZL6newkeyP9lua_StateP8LuaTablePK10lua_TValue(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !33
+  %77 = add nsw i64 %indvars.iv, 1
+  %78 = trunc i64 %77 to i32
+  %79 = sitofp i32 %78 to double
+  store double %79, ptr %5, align 8, !tbaa !16
+  store i32 3, ptr %66, align 4, !tbaa !4
+  %80 = call fastcc noundef ptr @_ZL6newkeyP9lua_StateP8LuaTablePK10lua_TValue(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %80
+  br label %81
 
-80:                                               ; preds = %._crit_edge87, %74
-  %lftr.wideiv.pre-phi = phi i32 [ %.pre88, %._crit_edge87 ], [ %76, %74 ]
-  %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge87 ], [ %75, %74 ]
+81:                                               ; preds = %._crit_edge87, %76
+  %lftr.wideiv.pre-phi = phi i32 [ %.pre88, %._crit_edge87 ], [ %78, %76 ]
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge87 ], [ %77, %76 ]
   %exitcond.not = icmp eq i32 %lftr.wideiv.pre-phi, %12
-  br i1 %exitcond.not, label %67, label %69, !llvm.loop !35
+  br i1 %exitcond.not, label %68, label %70, !llvm.loop !35
 
-81:                                               ; preds = %67
-  %82 = zext nneg i32 %2 to i64
-  %83 = sext i32 %12 to i64
-  %84 = shl nsw i64 %83, 4
-  %85 = load ptr, ptr %64, align 8, !tbaa !20
-  %86 = shl nuw nsw i64 %82, 4
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %88 = load i8, ptr %87, align 2, !tbaa !29
-  %89 = call noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr noundef %85, i64 noundef %84, i64 noundef %86, i8 noundef zeroext %88)
-  store ptr %89, ptr %64, align 8, !tbaa !20
-  br label %91
+82:                                               ; preds = %68
+  %83 = zext nneg i32 %2 to i64
+  %84 = sext i32 %12 to i64
+  %85 = shl nsw i64 %84, 4
+  %86 = load ptr, ptr %65, align 8, !tbaa !20
+  %87 = shl nuw nsw i64 %83, 4
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %89 = load i8, ptr %88, align 2, !tbaa !29
+  %90 = call noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr noundef %86, i64 noundef %85, i64 noundef %87, i8 noundef zeroext %89)
+  store ptr %90, ptr %65, align 8, !tbaa !20
+  br label %92
 
-90:                                               ; preds = %67
+91:                                               ; preds = %68
   call void @_Z11luaM_toobigP9lua_State(ptr noundef %0) #10
   unreachable
 
-91:                                               ; preds = %81, %_ZL13setnodevectorP9lua_StateP8LuaTablei.exit
-  %92 = shl nuw i32 1, %15
+92:                                               ; preds = %82, %_ZL13setnodevectorP9lua_StateP8LuaTablei.exit
+  %93 = shl nuw i32 1, %15
   %.not82 = icmp eq i8 %14, 31
   br i1 %.not82, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %91
-  %93 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %94 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %96 = zext i32 %92 to i64
-  br label %97
+.lr.ph:                                           ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %97 = zext i32 %93 to i64
+  br label %98
 
-._crit_edge:                                      ; preds = %126, %91
+._crit_edge:                                      ; preds = %127, %92
   %.not = icmp eq ptr %17, @luaH_dummynode
-  br i1 %.not, label %134, label %129
+  br i1 %.not, label %135, label %130
 
-97:                                               ; preds = %.lr.ph, %126
-  %indvars.iv84 = phi i64 [ %96, %.lr.ph ], [ %indvars.iv.next85, %126 ]
+98:                                               ; preds = %.lr.ph, %127
+  %indvars.iv84 = phi i64 [ %97, %.lr.ph ], [ %indvars.iv.next85, %127 ]
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
-  %98 = and i64 %indvars.iv.next85, 4294967295
-  %99 = getelementptr inbounds nuw %struct.LuaNode, ptr %17, i64 %98
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 12
-  %101 = load i32, ptr %100, align 4, !tbaa !24
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %126, label %103
+  %99 = and i64 %indvars.iv.next85, 4294967295
+  %100 = getelementptr inbounds nuw %struct.LuaNode, ptr %17, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 12
+  %102 = load i32, ptr %101, align 4, !tbaa !24
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %127, label %104
 
-103:                                              ; preds = %97
+104:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %104 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %105 = load i64, ptr %104, align 8, !tbaa !16
-  store i64 %105, ptr %6, align 8, !tbaa !16
-  %106 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %107 = load i32, ptr %106, align 8
-  store i32 %107, ptr %93, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %99, i64 28
-  %109 = load i32, ptr %108, align 4
-  %110 = and i32 %109, 15
-  store i32 %110, ptr %94, align 4, !tbaa !4
-  %111 = icmp eq i32 %110, 3
-  br i1 %111, label %112, label %.thread
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %106 = load i64, ptr %105, align 8, !tbaa !16
+  store i64 %106, ptr %6, align 8, !tbaa !16
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  %108 = load i32, ptr %107, align 8
+  store i32 %108, ptr %94, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %100, i64 28
+  %110 = load i32, ptr %109, align 4
+  %111 = and i32 %110, 15
+  store i32 %111, ptr %95, align 4, !tbaa !4
+  %112 = icmp eq i32 %111, 3
+  br i1 %112, label %113, label %.thread
 
-112:                                              ; preds = %103
-  %113 = bitcast i64 %105 to double
-  %114 = fptosi double %113 to i32
-  %115 = sitofp i32 %114 to double
-  %116 = fcmp oeq double %113, %115
-  br i1 %116, label %117, label %.thread
+113:                                              ; preds = %104
+  %114 = bitcast i64 %106 to double
+  %115 = fptosi double %114 to i32
+  %116 = sitofp i32 %115 to double
+  %117 = fcmp oeq double %114, %116
+  br i1 %117, label %118, label %.thread
 
-117:                                              ; preds = %112
-  %118 = add nsw i32 %114, -1
-  %119 = load i32, ptr %11, align 8, !tbaa !9
-  %120 = icmp ult i32 %118, %119
-  br i1 %120, label %121, label %.thread
+118:                                              ; preds = %113
+  %119 = add nsw i32 %115, -1
+  %120 = load i32, ptr %11, align 8, !tbaa !9
+  %121 = icmp ult i32 %119, %120
+  br i1 %121, label %122, label %.thread
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %95, align 8, !tbaa !20
-  %123 = sext i32 %118 to i64
-  %124 = getelementptr inbounds %struct.lua_TValue, ptr %122, i64 %123
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %96, align 8, !tbaa !20
+  %124 = sext i32 %119 to i64
+  %125 = getelementptr inbounds %struct.lua_TValue, ptr %123, i64 %124
   br label %_ZL13arrayornewkeyP9lua_StateP8LuaTablePK10lua_TValue.exit
 
-.thread:                                          ; preds = %112, %117, %103
-  %125 = call fastcc noundef ptr @_ZL6newkeyP9lua_StateP8LuaTablePK10lua_TValue(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6)
+.thread:                                          ; preds = %113, %118, %104
+  %126 = call fastcc noundef ptr @_ZL6newkeyP9lua_StateP8LuaTablePK10lua_TValue(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6)
   br label %_ZL13arrayornewkeyP9lua_StateP8LuaTablePK10lua_TValue.exit
 
-_ZL13arrayornewkeyP9lua_StateP8LuaTablePK10lua_TValue.exit: ; preds = %121, %.thread
-  %.1.i = phi ptr [ %125, %.thread ], [ %124, %121 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1.i, ptr noundef nonnull align 8 dereferenceable(16) %99, i64 16, i1 false), !tbaa.struct !33
+_ZL13arrayornewkeyP9lua_StateP8LuaTablePK10lua_TValue.exit: ; preds = %122, %.thread
+  %.1.i = phi ptr [ %126, %.thread ], [ %125, %122 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1.i, ptr noundef nonnull align 8 dereferenceable(16) %100, i64 16, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %126
+  br label %127
 
-126:                                              ; preds = %_ZL13arrayornewkeyP9lua_StateP8LuaTablePK10lua_TValue.exit, %97
-  %127 = trunc nuw i64 %indvars.iv84 to i32
-  %128 = icmp sgt i32 %127, 1
-  br i1 %128, label %97, label %._crit_edge, !llvm.loop !36
+127:                                              ; preds = %_ZL13arrayornewkeyP9lua_StateP8LuaTablePK10lua_TValue.exit, %98
+  %128 = trunc nuw i64 %indvars.iv84 to i32
+  %129 = icmp sgt i32 %128, 1
+  br i1 %129, label %98, label %._crit_edge, !llvm.loop !36
 
-129:                                              ; preds = %._crit_edge
-  %130 = sext i32 %92 to i64
-  %131 = shl nsw i64 %130, 5
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %133 = load i8, ptr %132, align 2, !tbaa !29
-  call void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef %0, ptr noundef %17, i64 noundef %131, i8 noundef zeroext %133)
-  br label %134
+130:                                              ; preds = %._crit_edge
+  %131 = sext i32 %93 to i64
+  %132 = shl nsw i64 %131, 5
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %134 = load i8, ptr %133, align 2, !tbaa !29
+  call void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef %0, ptr noundef %17, i64 noundef %132, i8 noundef zeroext %134)
+  br label %135
 
-134:                                              ; preds = %129, %._crit_edge
+135:                                              ; preds = %130, %._crit_edge
   ret void
 }
 
@@ -690,7 +692,7 @@ define hidden noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef %0, i32 noundef 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, i8 0, i64 12, i1 false)
   store ptr @luaH_dummynode, ptr %23, align 8, !tbaa !17
   %24 = icmp sgt i32 %1, 0
-  br i1 %24, label %25, label %36
+  br i1 %24, label %25, label %37
 
 25:                                               ; preds = %3
   %26 = icmp samesign ugt i32 %1, 67108864
@@ -715,63 +717,64 @@ define hidden noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef %0, i32 noundef 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %34, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %35 = getelementptr inbounds %struct.lua_TValue, ptr %31, i64 %indvars.iv.i, i32 2
-  store i32 0, ptr %35, align 4, !tbaa !4
+  %35 = getelementptr inbounds %struct.lua_TValue, ptr %31, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  store i32 0, ptr %36, align 4, !tbaa !4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %29
   br i1 %exitcond.not.i, label %_ZL14setarrayvectorP9lua_StateP8LuaTablei.exit, label %.lr.ph.i, !llvm.loop !30
 
 _ZL14setarrayvectorP9lua_StateP8LuaTablei.exit:   ; preds = %.lr.ph.i, %28
   store i32 %1, ptr %18, align 8, !tbaa !9
-  br label %36
+  br label %37
 
-36:                                               ; preds = %_ZL14setarrayvectorP9lua_StateP8LuaTablei.exit, %3
-  %37 = icmp sgt i32 %2, 0
-  br i1 %37, label %38, label %58
+37:                                               ; preds = %_ZL14setarrayvectorP9lua_StateP8LuaTablei.exit, %3
+  %38 = icmp sgt i32 %2, 0
+  br i1 %38, label %39, label %59
 
-38:                                               ; preds = %36
-  %39 = add nsw i32 %2, -1
-  %40 = tail call noundef i32 @_Z9luaO_log2j(i32 noundef %39)
-  %41 = add nsw i32 %40, 1
-  %42 = icmp sgt i32 %40, 25
-  br i1 %42, label %43, label %44
+39:                                               ; preds = %37
+  %40 = add nsw i32 %2, -1
+  %41 = tail call noundef i32 @_Z9luaO_log2j(i32 noundef %40)
+  %42 = add nsw i32 %41, 1
+  %43 = icmp sgt i32 %41, 25
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %38
+44:                                               ; preds = %39
   tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #10
   unreachable
 
-44:                                               ; preds = %38
-  %45 = shl nuw nsw i32 1, %41
-  %46 = zext nneg i32 %45 to i64
-  %47 = shl nuw nsw i64 %46, 5
-  %48 = load i8, ptr %14, align 2, !tbaa !29
-  %49 = tail call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %47, i8 noundef zeroext %48)
-  store ptr %49, ptr %23, align 8, !tbaa !17
-  br label %50
+45:                                               ; preds = %39
+  %46 = shl nuw nsw i32 1, %42
+  %47 = zext nneg i32 %46 to i64
+  %48 = shl nuw nsw i64 %47, 5
+  %49 = load i8, ptr %14, align 2, !tbaa !29
+  %50 = tail call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %48, i8 noundef zeroext %49)
+  store ptr %50, ptr %23, align 8, !tbaa !17
+  br label %51
 
-50:                                               ; preds = %50, %44
-  %indvars.iv.i26 = phi i64 [ 0, %44 ], [ %indvars.iv.next.i27, %50 ]
-  %51 = load ptr, ptr %23, align 8, !tbaa !17
-  %52 = getelementptr inbounds nuw %struct.LuaNode, ptr %51, i64 %indvars.iv.i26
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 28
-  store i32 0, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 12
-  store i32 0, ptr %54, align 4, !tbaa !24
+51:                                               ; preds = %51, %45
+  %indvars.iv.i26 = phi i64 [ 0, %45 ], [ %indvars.iv.next.i27, %51 ]
+  %52 = load ptr, ptr %23, align 8, !tbaa !17
+  %53 = getelementptr inbounds nuw %struct.LuaNode, ptr %52, i64 %indvars.iv.i26
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 28
+  store i32 0, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 12
+  store i32 0, ptr %55, align 4, !tbaa !24
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
-  %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %46
-  br i1 %exitcond.not.i28, label %_ZL13setnodevectorP9lua_StateP8LuaTablei.exit, label %50, !llvm.loop !31
+  %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %47
+  br i1 %exitcond.not.i28, label %_ZL13setnodevectorP9lua_StateP8LuaTablei.exit, label %51, !llvm.loop !31
 
-_ZL13setnodevectorP9lua_StateP8LuaTablei.exit:    ; preds = %50
-  %55 = trunc i32 %41 to i8
-  store i8 %55, ptr %20, align 2, !tbaa !22
-  %notmask.i = shl nsw i32 -1, %41
-  %56 = trunc i32 %notmask.i to i8
-  %57 = xor i8 %56, -1
-  store i8 %57, ptr %22, align 1, !tbaa !32
-  store i32 %45, ptr %19, align 4, !tbaa !16
-  br label %58
+_ZL13setnodevectorP9lua_StateP8LuaTablei.exit:    ; preds = %51
+  %56 = trunc i32 %42 to i8
+  store i8 %56, ptr %20, align 2, !tbaa !22
+  %notmask.i = shl nsw i32 -1, %42
+  %57 = trunc i32 %notmask.i to i8
+  %58 = xor i8 %57, -1
+  store i8 %58, ptr %22, align 1, !tbaa !32
+  store i32 %46, ptr %19, align 4, !tbaa !16
+  br label %59
 
-58:                                               ; preds = %_ZL13setnodevectorP9lua_StateP8LuaTablei.exit, %36
+59:                                               ; preds = %_ZL13setnodevectorP9lua_StateP8LuaTablei.exit, %37
   ret ptr %6
 }
 
@@ -1786,7 +1789,7 @@ define hidden noundef i32 @_Z9luaH_getnP8LuaTable(ptr noundef captures(none) %0)
 
 24:                                               ; preds = %20, %10
   %25 = icmp slt i32 %12, %11
-  br i1 %25, label %26, label %52
+  br i1 %25, label %26, label %53
 
 26:                                               ; preds = %24
   %27 = zext nneg i32 %12 to i64
@@ -1797,7 +1800,7 @@ define hidden noundef i32 @_Z9luaH_getnP8LuaTable(ptr noundef captures(none) %0)
   br i1 %31, label %36, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds nuw %struct.lua_TValue, ptr %14, i64 %27, i32 2
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %34 = load i32, ptr %33, align 4, !tbaa !4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %_ZL15updateaboundaryP8LuaTablei.exit, label %36
@@ -1805,115 +1808,118 @@ define hidden noundef i32 @_Z9luaH_getnP8LuaTable(ptr noundef captures(none) %0)
 36:                                               ; preds = %32, %26
   %37 = add nsw i32 %12, -1
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.lua_TValue, ptr %14, i64 %38, i32 2
-  %40 = load i32, ptr %39, align 4, !tbaa !4
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %52
+  %39 = getelementptr inbounds nuw %struct.lua_TValue, ptr %14, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  %41 = load i32, ptr %40, align 4, !tbaa !4
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %53
 
-42:                                               ; preds = %36
-  %43 = icmp samesign ugt i32 %12, 1
-  br i1 %43, label %44, label %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread
+43:                                               ; preds = %36
+  %44 = icmp samesign ugt i32 %12, 1
+  br i1 %44, label %45, label %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread
 
-44:                                               ; preds = %42
-  %45 = getelementptr i8, ptr %28, i64 -20
-  %46 = load i32, ptr %45, align 4, !tbaa !4
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread, label %48
+45:                                               ; preds = %43
+  %46 = getelementptr i8, ptr %28, i64 -20
+  %47 = load i32, ptr %46, align 4, !tbaa !4
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread, label %49
 
-48:                                               ; preds = %44
-  %49 = icmp slt i32 %3, 1
-  br i1 %49, label %50, label %_ZL15updateaboundaryP8LuaTablei.exit
+49:                                               ; preds = %45
+  %50 = icmp slt i32 %3, 1
+  br i1 %50, label %51, label %_ZL15updateaboundaryP8LuaTablei.exit
 
-50:                                               ; preds = %48
-  %51 = sub nsw i32 1, %12
+51:                                               ; preds = %49
+  %52 = sub nsw i32 1, %12
   br label %_ZL15updateaboundaryP8LuaTablei.exit.sink.split
 
-52:                                               ; preds = %24, %36
-  %53 = add nuw nsw i32 %12, 1
-  %54 = icmp slt i32 %53, %11
-  br i1 %54, label %55, label %_ZL15updateaboundaryP8LuaTablei.exit.thread
+53:                                               ; preds = %24, %36
+  %54 = add nuw nsw i32 %12, 1
+  %55 = icmp slt i32 %54, %11
+  br i1 %55, label %56, label %_ZL15updateaboundaryP8LuaTablei.exit.thread
 
-55:                                               ; preds = %52
-  %56 = zext nneg i32 %12 to i64
-  %57 = getelementptr inbounds nuw %struct.lua_TValue, ptr %14, i64 %56, i32 2
-  %58 = load i32, ptr %57, align 4, !tbaa !4
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread, label %60
+56:                                               ; preds = %53
+  %57 = zext nneg i32 %12 to i64
+  %58 = getelementptr inbounds nuw %struct.lua_TValue, ptr %14, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %60 = load i32, ptr %59, align 4, !tbaa !4
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread, label %62
 
-60:                                               ; preds = %55
-  %61 = zext nneg i32 %53 to i64
-  %62 = getelementptr inbounds nuw %struct.lua_TValue, ptr %14, i64 %61, i32 2
-  %63 = load i32, ptr %62, align 4, !tbaa !4
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread
+62:                                               ; preds = %56
+  %63 = zext nneg i32 %54 to i64
+  %64 = getelementptr inbounds nuw %struct.lua_TValue, ptr %14, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
+  %66 = load i32, ptr %65, align 4, !tbaa !4
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread
 
-65:                                               ; preds = %60
-  %66 = icmp slt i32 %3, 1
-  br i1 %66, label %67, label %_ZL15updateaboundaryP8LuaTablei.exit
+68:                                               ; preds = %62
+  %69 = icmp slt i32 %3, 1
+  br i1 %69, label %70, label %_ZL15updateaboundaryP8LuaTablei.exit
 
-67:                                               ; preds = %65
-  %68 = xor i32 %12, -1
+70:                                               ; preds = %68
+  %71 = xor i32 %12, -1
   br label %_ZL15updateaboundaryP8LuaTablei.exit.sink.split
 
-_ZL15updateaboundaryP8LuaTablei.exit.thread:      ; preds = %52
-  %69 = icmp sgt i32 %11, 0
-  br i1 %69, label %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread, label %_ZL15updateaboundaryP8LuaTablei.exit
+_ZL15updateaboundaryP8LuaTablei.exit.thread:      ; preds = %53
+  %72 = icmp sgt i32 %11, 0
+  br i1 %72, label %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread, label %_ZL15updateaboundaryP8LuaTablei.exit
 
-_ZL15updateaboundaryP8LuaTablei.exit.thread.thread: ; preds = %55, %60, %42, %44, %_ZL15updateaboundaryP8LuaTablei.exit.thread
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !20
-  %72 = zext nneg i32 %11 to i64
-  %73 = getelementptr %struct.lua_TValue, ptr %71, i64 %72
-  %74 = getelementptr i8, ptr %73, i64 -4
-  %75 = load i32, ptr %74, align 4, !tbaa !4
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %.preheader, label %_ZL15updateaboundaryP8LuaTablei.exit
+_ZL15updateaboundaryP8LuaTablei.exit.thread.thread: ; preds = %56, %62, %43, %45, %_ZL15updateaboundaryP8LuaTablei.exit.thread
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %74 = load ptr, ptr %73, align 8, !tbaa !20
+  %75 = zext nneg i32 %11 to i64
+  %76 = getelementptr %struct.lua_TValue, ptr %74, i64 %75
+  %77 = getelementptr i8, ptr %76, i64 -4
+  %78 = load i32, ptr %77, align 4, !tbaa !4
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %.preheader, label %_ZL15updateaboundaryP8LuaTablei.exit
 
 .preheader:                                       ; preds = %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread
   %.not5464 = icmp eq i32 %11, 1
   br i1 %.not5464, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.04666 = phi i32 [ %84, %.lr.ph ], [ %11, %.preheader ]
-  %.04865 = phi ptr [ %83, %.lr.ph ], [ %71, %.preheader ]
-  %77 = ashr i32 %.04666, 1
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.lua_TValue, ptr %.04865, i64 %78
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 12
-  %81 = load i32, ptr %80, align 4, !tbaa !4
-  %82 = icmp eq i32 %81, 0
-  %83 = select i1 %82, ptr %.04865, ptr %79
-  %84 = sub nsw i32 %.04666, %77
-  %.not54 = icmp ult i32 %84, 2
+  %.04666 = phi i32 [ %87, %.lr.ph ], [ %11, %.preheader ]
+  %.04865 = phi ptr [ %86, %.lr.ph ], [ %74, %.preheader ]
+  %80 = ashr i32 %.04666, 1
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds %struct.lua_TValue, ptr %.04865, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 12
+  %84 = load i32, ptr %83, align 4, !tbaa !4
+  %85 = icmp eq i32 %84, 0
+  %86 = select i1 %85, ptr %.04865, ptr %82
+  %87 = sub nsw i32 %.04666, %80
+  %.not54 = icmp ult i32 %87, 2
   br i1 %.not54, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.048.lcssa = phi ptr [ %71, %.preheader ], [ %83, %.lr.ph ]
-  %85 = getelementptr inbounds nuw i8, ptr %.048.lcssa, i64 12
-  %86 = load i32, ptr %85, align 4, !tbaa !4
-  %87 = icmp ne i32 %86, 0
-  %88 = zext i1 %87 to i32
-  %89 = ptrtoint ptr %.048.lcssa to i64
-  %90 = ptrtoint ptr %71 to i64
-  %91 = sub i64 %89, %90
-  %92 = lshr exact i64 %91, 4
-  %93 = trunc i64 %92 to i32
-  %94 = add nsw i32 %88, %93
-  %95 = icmp slt i32 %3, 1
-  br i1 %95, label %96, label %_ZL15updateaboundaryP8LuaTablei.exit
+  %.048.lcssa = phi ptr [ %74, %.preheader ], [ %86, %.lr.ph ]
+  %88 = getelementptr inbounds nuw i8, ptr %.048.lcssa, i64 12
+  %89 = load i32, ptr %88, align 4, !tbaa !4
+  %90 = icmp ne i32 %89, 0
+  %91 = zext i1 %90 to i32
+  %92 = ptrtoint ptr %.048.lcssa to i64
+  %93 = ptrtoint ptr %74 to i64
+  %94 = sub i64 %92, %93
+  %95 = lshr exact i64 %94, 4
+  %96 = trunc i64 %95 to i32
+  %97 = add nsw i32 %91, %96
+  %98 = icmp slt i32 %3, 1
+  br i1 %98, label %99, label %_ZL15updateaboundaryP8LuaTablei.exit
 
-96:                                               ; preds = %._crit_edge
-  %97 = sub nsw i32 0, %94
+99:                                               ; preds = %._crit_edge
+  %100 = sub nsw i32 0, %97
   br label %_ZL15updateaboundaryP8LuaTablei.exit.sink.split
 
-_ZL15updateaboundaryP8LuaTablei.exit.sink.split:  ; preds = %96, %50, %67
-  %.sink = phi i32 [ %68, %67 ], [ %51, %50 ], [ %97, %96 ]
-  %.0.ph = phi i32 [ %53, %67 ], [ %37, %50 ], [ %94, %96 ]
+_ZL15updateaboundaryP8LuaTablei.exit.sink.split:  ; preds = %99, %51, %70
+  %.sink = phi i32 [ %71, %70 ], [ %52, %51 ], [ %100, %99 ]
+  %.0.ph = phi i32 [ %54, %70 ], [ %37, %51 ], [ %97, %99 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !16
   br label %_ZL15updateaboundaryP8LuaTablei.exit
 
-_ZL15updateaboundaryP8LuaTablei.exit:             ; preds = %_ZL15updateaboundaryP8LuaTablei.exit.sink.split, %6, %65, %48, %._crit_edge, %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread, %_ZL15updateaboundaryP8LuaTablei.exit.thread, %32, %20
-  %.0 = phi i32 [ %11, %20 ], [ %12, %32 ], [ %94, %._crit_edge ], [ %11, %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread ], [ %11, %_ZL15updateaboundaryP8LuaTablei.exit.thread ], [ %37, %48 ], [ %53, %65 ], [ %8, %6 ], [ %.0.ph, %_ZL15updateaboundaryP8LuaTablei.exit.sink.split ]
+_ZL15updateaboundaryP8LuaTablei.exit:             ; preds = %_ZL15updateaboundaryP8LuaTablei.exit.sink.split, %6, %68, %49, %._crit_edge, %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread, %_ZL15updateaboundaryP8LuaTablei.exit.thread, %32, %20
+  %.0 = phi i32 [ %11, %20 ], [ %12, %32 ], [ %97, %._crit_edge ], [ %11, %_ZL15updateaboundaryP8LuaTablei.exit.thread.thread ], [ %11, %_ZL15updateaboundaryP8LuaTablei.exit.thread ], [ %37, %49 ], [ %54, %68 ], [ %8, %6 ], [ %.0.ph, %_ZL15updateaboundaryP8LuaTablei.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -2066,55 +2072,56 @@ define hidden void @_Z10luaH_clearP8LuaTable(ptr noundef captures(none) %0) loca
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !16
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %12, label %13
+  br i1 %9, label %13, label %14
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct.lua_TValue, ptr %6, i64 %indvars.iv, i32 2
-  store i32 0, ptr %11, align 4, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.lua_TValue, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i32 0, ptr %12, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !72
 
-12:                                               ; preds = %._crit_edge
+13:                                               ; preds = %._crit_edge
   store i32 0, ptr %7, align 4, !tbaa !16
-  br label %13
+  br label %14
 
-13:                                               ; preds = %12, %._crit_edge
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !17
-  %.not = icmp eq ptr %15, @luaH_dummynode
-  br i1 %.not, label %.loopexit, label %16
+14:                                               ; preds = %13, %._crit_edge
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
+  %.not = icmp eq ptr %16, @luaH_dummynode
+  br i1 %.not, label %.loopexit, label %17
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %18 = load i8, ptr %17, align 2, !tbaa !22
-  %19 = zext nneg i8 %18 to i32
-  %20 = shl nuw i32 1, %19
-  store i32 %20, ptr %7, align 4, !tbaa !16
-  %.not24 = icmp eq i8 %18, 31
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %19 = load i8, ptr %18, align 2, !tbaa !22
+  %20 = zext nneg i8 %19 to i32
+  %21 = shl nuw i32 1, %20
+  store i32 %21, ptr %7, align 4, !tbaa !16
+  %.not24 = icmp eq i8 %19, 31
   br i1 %.not24, label %.loopexit, label %.lr.ph23.preheader
 
-.lr.ph23.preheader:                               ; preds = %16
-  %smax = tail call i32 @llvm.smax.i32(i32 %20, i32 1)
+.lr.ph23.preheader:                               ; preds = %17
+  %smax = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
   %wide.trip.count29 = zext nneg i32 %smax to i64
   br label %.lr.ph23
 
 .lr.ph23:                                         ; preds = %.lr.ph23.preheader, %.lr.ph23
   %indvars.iv26 = phi i64 [ 0, %.lr.ph23.preheader ], [ %indvars.iv.next27, %.lr.ph23 ]
-  %21 = load ptr, ptr %14, align 8, !tbaa !17
-  %22 = getelementptr inbounds nuw %struct.LuaNode, ptr %21, i64 %indvars.iv26
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store i32 0, ptr %24, align 4, !tbaa !24
-  store i32 0, ptr %23, align 4
+  %22 = load ptr, ptr %15, align 8, !tbaa !17
+  %23 = getelementptr inbounds nuw %struct.LuaNode, ptr %22, i64 %indvars.iv26
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  store i32 0, ptr %25, align 4, !tbaa !24
+  store i32 0, ptr %24, align 4
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
   br i1 %exitcond30.not, label %.loopexit, label %.lr.ph23, !llvm.loop !73
 
-.loopexit:                                        ; preds = %.lr.ph23, %16, %13
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 -1, ptr %25, align 1, !tbaa !63
+.loopexit:                                        ; preds = %.lr.ph23, %17, %14
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  store i8 -1, ptr %26, align 1, !tbaa !63
   ret void
 }
 

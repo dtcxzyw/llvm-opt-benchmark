@@ -75,21 +75,22 @@ define hidden i32 @SDL_FindPenByCallback(ptr noundef readonly captures(none) %0,
 .lr.ph:                                           ; preds = %2, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %2 ]
   %10 = load ptr, ptr @pen_devices, align 8
-  %11 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %10, i64 %indvars.iv, i32 7
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call zeroext i1 %0(ptr noundef %12, ptr noundef %1) #8
-  br i1 %13, label %14, label %6
+  %11 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call zeroext i1 %0(ptr noundef %13, ptr noundef %1) #8
+  br i1 %14, label %15, label %6
 
-14:                                               ; preds = %.lr.ph
-  %15 = load ptr, ptr @pen_devices, align 8
-  %16 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %15, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 8
+15:                                               ; preds = %.lr.ph
+  %16 = load ptr, ptr @pen_devices, align 8
+  %17 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %16, i64 %indvars.iv
+  %18 = load i32, ptr %17, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %6, %2, %14
-  %.06 = phi i32 [ %17, %14 ], [ 0, %2 ], [ 0, %6 ]
-  %18 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %18) #8
+.loopexit:                                        ; preds = %6, %2, %15
+  %.06 = phi i32 [ %18, %15 ], [ 0, %2 ], [ 0, %6 ]
+  %19 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %19) #8
   ret i32 %.06
 }
 
@@ -110,7 +111,7 @@ define hidden void @SDL_QuitPen() local_unnamed_addr #0 {
   store ptr null, ptr @pen_device_rwlock, align 8
   %2 = load ptr, ptr @pen_devices, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %10, label %3
+  br i1 %.not, label %11, label %3
 
 3:                                                ; preds = %0
   %4 = load i32, ptr @pen_device_count, align 4
@@ -129,19 +130,20 @@ define hidden void @SDL_QuitPen() local_unnamed_addr #0 {
   %6 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %2, %3 ]
   tail call void @SDL_free_REAL(ptr noundef %6) #8
   store ptr null, ptr @pen_devices, align 8
-  br label %10
+  br label %11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %7 = load ptr, ptr @pen_devices, align 8
-  %8 = getelementptr inbounds %struct.SDL_Pen, ptr %7, i64 %indvars.iv.next, i32 1
-  %9 = load ptr, ptr %8, align 8
-  tail call void @SDL_free_REAL(ptr noundef %9) #8
+  %8 = getelementptr inbounds %struct.SDL_Pen, ptr %7, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void @SDL_free_REAL(ptr noundef %10) #8
   %.not2 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not2, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
 
-10:                                               ; preds = %._crit_edge, %0
+11:                                               ; preds = %._crit_edge, %0
   store i32 0, ptr @pen_device_count, align 4
   store i32 0, ptr @pen_touching, align 4
   ret void
@@ -448,21 +450,22 @@ define hidden void @SDL_RemoveAllPenDevices(ptr noundef readonly captures(none) 
   %10 = load ptr, ptr %9, align 8
   tail call void %0(i32 noundef %8, ptr noundef %10, ptr noundef %1) #8
   %11 = load ptr, ptr @pen_devices, align 8
-  %12 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %11, i64 %indvars.iv, i32 1
-  %13 = load ptr, ptr %12, align 8
-  tail call void @SDL_free_REAL(ptr noundef %13) #8
+  %12 = getelementptr inbounds nuw %struct.SDL_Pen, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8
+  tail call void @SDL_free_REAL(ptr noundef %14) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i32, ptr @pen_device_count, align 4
-  %15 = sext i32 %14 to i64
-  %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  %15 = load i32, ptr @pen_device_count, align 4
+  %16 = sext i32 %15 to i64
+  %17 = icmp slt i64 %indvars.iv.next, %16
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %2
-  %17 = load ptr, ptr @pen_devices, align 8
-  tail call void @SDL_free_REAL(ptr noundef %17) #8
+  %18 = load ptr, ptr @pen_devices, align 8
+  tail call void @SDL_free_REAL(ptr noundef %18) #8
   store ptr null, ptr @pen_devices, align 8
-  %18 = load ptr, ptr @pen_device_rwlock, align 8
-  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %18) #8
+  %19 = load ptr, ptr @pen_device_rwlock, align 8
+  tail call void @SDL_UnlockRWLock_REAL(ptr noundef %19) #8
   ret void
 }
 

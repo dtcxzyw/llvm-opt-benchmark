@@ -261,7 +261,7 @@ define dso_local void @PredicateLockShmemInit() local_unnamed_addr #0 {
   store ptr %35, ptr @PredXact, align 8
   %36 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %125, label %38
+  br i1 %37, label %127, label %38
 
 38:                                               ; preds = %19
   store ptr %35, ptr %35, align 8
@@ -291,240 +291,242 @@ define dso_local void @PredicateLockShmemInit() local_unnamed_addr #0 {
   br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %38, %dlist_push_tail.exit
-  %52 = phi ptr [ %57, %dlist_push_tail.exit ], [ %49, %38 ]
-  %53 = phi i64 [ %69, %dlist_push_tail.exit ], [ 0, %38 ]
-  %.02428 = phi i32 [ %68, %dlist_push_tail.exit ], [ 0, %38 ]
+  %52 = phi ptr [ %58, %dlist_push_tail.exit ], [ %49, %38 ]
+  %53 = phi i64 [ %71, %dlist_push_tail.exit ], [ 0, %38 ]
+  %.02428 = phi i32 [ %70, %dlist_push_tail.exit ], [ 0, %38 ]
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.SERIALIZABLEXACT, ptr %55, i64 %53, i32 9
-  call void @LWLockInitialize(ptr noundef nonnull %56, i32 noundef 76) #12
-  %57 = load ptr, ptr @PredXact, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 80
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %struct.SERIALIZABLEXACT, ptr %59, i64 %53, i32 8
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %dlist_push_tail.exit
+  %56 = getelementptr inbounds %struct.SERIALIZABLEXACT, ptr %55, i64 %53
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 112
+  call void @LWLockInitialize(ptr noundef nonnull %57, i32 noundef 76) #12
+  %58 = load ptr, ptr @PredXact, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 80
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds %struct.SERIALIZABLEXACT, ptr %60, i64 %53
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 96
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %66, label %dlist_push_tail.exit
 
-64:                                               ; preds = %.lr.ph
-  store ptr %57, ptr %57, align 8
-  store ptr %57, ptr %61, align 8
+66:                                               ; preds = %.lr.ph
+  store ptr %58, ptr %58, align 8
+  store ptr %58, ptr %63, align 8
   br label %dlist_push_tail.exit
 
-dlist_push_tail.exit:                             ; preds = %.lr.ph, %64
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %57, ptr %65, align 8
-  %66 = load ptr, ptr %57, align 8
-  store ptr %66, ptr %60, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store ptr %60, ptr %67, align 8
-  store ptr %60, ptr %57, align 8
-  %68 = add i32 %.02428, 1
-  %69 = sext i32 %68 to i64
-  %70 = icmp sgt i64 %34, %69
-  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+dlist_push_tail.exit:                             ; preds = %.lr.ph, %66
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 104
+  store ptr %58, ptr %67, align 8
+  %68 = load ptr, ptr %58, align 8
+  store ptr %68, ptr %62, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store ptr %62, ptr %69, align 8
+  store ptr %62, ptr %58, align 8
+  %70 = add i32 %.02428, 1
+  %71 = sext i32 %70 to i64
+  %72 = icmp sgt i64 %34, %71
+  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %dlist_push_tail.exit, %38
-  %71 = phi ptr [ %49, %38 ], [ %57, %dlist_push_tail.exit ]
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, null
-  %75 = icmp eq ptr %73, %71
-  %spec.select.i.i = or i1 %74, %75
-  br i1 %spec.select.i.i, label %CreatePredXact.exit, label %76
+  %73 = phi ptr [ %49, %38 ], [ %58, %dlist_push_tail.exit ]
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  %77 = icmp eq ptr %75, %73
+  %spec.select.i.i = or i1 %76, %77
+  br i1 %spec.select.i.i, label %CreatePredXact.exit, label %78
 
-76:                                               ; preds = %._crit_edge
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %73, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store ptr %78, ptr %80, align 8
-  %81 = load ptr, ptr %73, align 8
-  store ptr %81, ptr %78, align 8
-  %82 = getelementptr inbounds i8, ptr %73, i64 -96
-  %83 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %84 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %dlist_push_tail.exit.i
+78:                                               ; preds = %._crit_edge
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %75, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store ptr %80, ptr %82, align 8
+  %83 = load ptr, ptr %75, align 8
+  store ptr %83, ptr %80, align 8
+  %84 = getelementptr inbounds i8, ptr %75, i64 -96
+  %85 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %89, label %dlist_push_tail.exit.i
 
-87:                                               ; preds = %76
-  store ptr %83, ptr %83, align 8
-  store ptr %83, ptr %84, align 8
+89:                                               ; preds = %78
+  store ptr %85, ptr %85, align 8
+  store ptr %85, ptr %86, align 8
   br label %dlist_push_tail.exit.i
 
-dlist_push_tail.exit.i:                           ; preds = %87, %76
-  store ptr %83, ptr %77, align 8
-  %88 = load ptr, ptr %83, align 8
-  store ptr %88, ptr %73, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %73, ptr %89, align 8
-  store ptr %73, ptr %83, align 8
+dlist_push_tail.exit.i:                           ; preds = %89, %78
+  store ptr %85, ptr %79, align 8
+  %90 = load ptr, ptr %85, align 8
+  store ptr %90, ptr %75, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  store ptr %75, ptr %91, align 8
+  store ptr %75, ptr %85, align 8
   %.pre32.pre = load ptr, ptr @PredXact, align 8
   br label %CreatePredXact.exit
 
 CreatePredXact.exit:                              ; preds = %._crit_edge, %dlist_push_tail.exit.i
-  %.pre32 = phi ptr [ %.pre32.pre, %dlist_push_tail.exit.i ], [ %71, %._crit_edge ]
-  %.0.i = phi ptr [ %82, %dlist_push_tail.exit.i ], [ null, %._crit_edge ]
-  %90 = getelementptr inbounds nuw i8, ptr %71, i64 72
-  store ptr %.0.i, ptr %90, align 8
+  %.pre32 = phi ptr [ %.pre32.pre, %dlist_push_tail.exit.i ], [ %73, %._crit_edge ]
+  %.0.i = phi ptr [ %84, %dlist_push_tail.exit.i ], [ null, %._crit_edge ]
+  %92 = getelementptr inbounds nuw i8, ptr %73, i64 72
+  store ptr %.0.i, ptr %92, align 8
   store i32 -1, ptr %.0.i, align 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  store i32 0, ptr %92, align 4
-  %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store i64 0, ptr %94, align 8
-  %95 = load ptr, ptr %90, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  store i32 0, ptr %94, align 4
+  %95 = load ptr, ptr %92, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 0, ptr %96, align 8
-  %97 = load ptr, ptr %90, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %97 = load ptr, ptr %92, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store i64 0, ptr %98, align 8
-  %99 = load ptr, ptr %90, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  store ptr %100, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  store ptr %100, ptr %101, align 8
-  %102 = load ptr, ptr %90, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
-  store ptr %103, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 56
-  store ptr %103, ptr %104, align 8
-  %105 = load ptr, ptr %90, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 64
-  store ptr %106, ptr %106, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 72
-  store ptr %106, ptr %107, align 8
-  %108 = load ptr, ptr %90, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
-  %110 = load ptr, ptr %90, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 128
-  store ptr %111, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 136
-  store ptr %111, ptr %112, align 8
-  %113 = load ptr, ptr %90, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 144
-  store i32 0, ptr %114, align 8
-  %115 = load ptr, ptr %90, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 148
-  store i32 0, ptr %116, align 4
-  %117 = load ptr, ptr %90, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 152
-  store i32 0, ptr %118, align 8
-  %119 = load ptr, ptr %90, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 156
-  store i32 1, ptr %120, align 4
-  %121 = load ptr, ptr %90, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 160
-  store i32 0, ptr %122, align 8
-  %123 = load ptr, ptr %90, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 164
-  store i32 -1, ptr %124, align 4
-  br label %125
+  %99 = load ptr, ptr %92, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  store i64 0, ptr %100, align 8
+  %101 = load ptr, ptr %92, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
+  store ptr %102, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 40
+  store ptr %102, ptr %103, align 8
+  %104 = load ptr, ptr %92, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  store ptr %105, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  store ptr %105, ptr %106, align 8
+  %107 = load ptr, ptr %92, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 64
+  store ptr %108, ptr %108, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 72
+  store ptr %108, ptr %109, align 8
+  %110 = load ptr, ptr %92, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
+  %112 = load ptr, ptr %92, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 128
+  store ptr %113, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 136
+  store ptr %113, ptr %114, align 8
+  %115 = load ptr, ptr %92, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 144
+  store i32 0, ptr %116, align 8
+  %117 = load ptr, ptr %92, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 148
+  store i32 0, ptr %118, align 4
+  %119 = load ptr, ptr %92, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 152
+  store i32 0, ptr %120, align 8
+  %121 = load ptr, ptr %92, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 156
+  store i32 1, ptr %122, align 4
+  %123 = load ptr, ptr %92, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 160
+  store i32 0, ptr %124, align 8
+  %125 = load ptr, ptr %92, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 164
+  store i32 -1, ptr %126, align 4
+  br label %127
 
-125:                                              ; preds = %CreatePredXact.exit, %19
-  %126 = phi ptr [ %.pre32, %CreatePredXact.exit ], [ %35, %19 ]
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 72
-  %128 = load ptr, ptr %127, align 8
-  store ptr %128, ptr @OldCommittedSxact, align 8
+127:                                              ; preds = %CreatePredXact.exit, %19
+  %128 = phi ptr [ %.pre32, %CreatePredXact.exit ], [ %35, %19 ]
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 72
+  %130 = load ptr, ptr %129, align 8
+  store ptr %130, ptr @OldCommittedSxact, align 8
   store i64 4, ptr %12, align 8
   store i64 16, ptr %13, align 8
-  %129 = call ptr @ShmemInitHash(ptr noundef nonnull @.str.4, i64 noundef %34, i64 noundef %34, ptr noundef nonnull %2, i32 noundef 8232) #12
-  store ptr %129, ptr @SerializableXidHash, align 8
-  %130 = mul nsw i64 %33, 50
-  %131 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.5, i64 noundef 24, ptr noundef nonnull %3) #12
-  store ptr %131, ptr @RWConflictPool, align 8
-  %132 = load i8, ptr %3, align 1, !range !4, !noundef !5
-  %133 = trunc nuw i8 %132 to i1
-  br i1 %133, label %.loopexit, label %134
+  %131 = call ptr @ShmemInitHash(ptr noundef nonnull @.str.4, i64 noundef %34, i64 noundef %34, ptr noundef nonnull %2, i32 noundef 8232) #12
+  store ptr %131, ptr @SerializableXidHash, align 8
+  %132 = mul nsw i64 %33, 50
+  %133 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.5, i64 noundef 24, ptr noundef nonnull %3) #12
+  store ptr %133, ptr @RWConflictPool, align 8
+  %134 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %135 = trunc nuw i8 %134 to i1
+  br i1 %135, label %.loopexit, label %136
 
-134:                                              ; preds = %125
-  store ptr %131, ptr %131, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  store ptr %131, ptr %135, align 8
-  %136 = call i64 @mul_size(i64 noundef %130, i64 noundef 48) #12
-  %137 = call ptr @ShmemAlloc(i64 noundef %136) #12
-  %138 = load ptr, ptr @RWConflictPool, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  store ptr %137, ptr %139, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %137, i8 0, i64 %136, i1 false)
-  %140 = icmp sgt i32 %32, 0
-  br i1 %140, label %.lr.ph31, label %.loopexit
+136:                                              ; preds = %127
+  store ptr %133, ptr %133, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  store ptr %133, ptr %137, align 8
+  %138 = call i64 @mul_size(i64 noundef %132, i64 noundef 48) #12
+  %139 = call ptr @ShmemAlloc(i64 noundef %138) #12
+  %140 = load ptr, ptr @RWConflictPool, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  store ptr %139, ptr %141, align 8
+  call void @llvm.memset.p0.i64(ptr align 8 %139, i8 0, i64 %138, i1 false)
+  %142 = icmp sgt i32 %32, 0
+  br i1 %142, label %.lr.ph31, label %.loopexit
 
-.lr.ph31:                                         ; preds = %134
-  %141 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  br label %142
+.lr.ph31:                                         ; preds = %136
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  br label %144
 
-142:                                              ; preds = %.lr.ph31, %dlist_push_tail.exit27
-  %143 = phi i64 [ 0, %.lr.ph31 ], [ %153, %dlist_push_tail.exit27 ]
-  %.029 = phi i32 [ 0, %.lr.ph31 ], [ %152, %dlist_push_tail.exit27 ]
-  %144 = load ptr, ptr %139, align 8
-  %145 = getelementptr inbounds %struct.RWConflictData, ptr %144, i64 %143
+144:                                              ; preds = %.lr.ph31, %dlist_push_tail.exit27
+  %145 = phi i64 [ 0, %.lr.ph31 ], [ %155, %dlist_push_tail.exit27 ]
+  %.029 = phi i32 [ 0, %.lr.ph31 ], [ %154, %dlist_push_tail.exit27 ]
   %146 = load ptr, ptr %141, align 8
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %dlist_push_tail.exit27
+  %147 = getelementptr inbounds %struct.RWConflictData, ptr %146, i64 %145
+  %148 = load ptr, ptr %143, align 8
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %150, label %dlist_push_tail.exit27
 
-148:                                              ; preds = %142
-  store ptr %138, ptr %138, align 8
-  store ptr %138, ptr %141, align 8
+150:                                              ; preds = %144
+  store ptr %140, ptr %140, align 8
+  store ptr %140, ptr %143, align 8
   br label %dlist_push_tail.exit27
 
-dlist_push_tail.exit27:                           ; preds = %142, %148
-  %149 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  store ptr %138, ptr %149, align 8
-  %150 = load ptr, ptr %138, align 8
-  store ptr %150, ptr %145, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  store ptr %145, ptr %151, align 8
-  store ptr %145, ptr %138, align 8
-  %152 = add i32 %.029, 1
-  %153 = sext i32 %152 to i64
-  %154 = icmp sgt i64 %130, %153
-  br i1 %154, label %142, label %.loopexit, !llvm.loop !8
+dlist_push_tail.exit27:                           ; preds = %144, %150
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  store ptr %140, ptr %151, align 8
+  %152 = load ptr, ptr %140, align 8
+  store ptr %152, ptr %147, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  store ptr %147, ptr %153, align 8
+  store ptr %147, ptr %140, align 8
+  %154 = add i32 %.029, 1
+  %155 = sext i32 %154 to i64
+  %156 = icmp sgt i64 %132, %155
+  br i1 %156, label %144, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %dlist_push_tail.exit27, %134, %125
-  %155 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.6, i64 noundef 16, ptr noundef nonnull %3) #12
-  store ptr %155, ptr @FinishedSerializableTransactions, align 8
-  %156 = load i8, ptr %3, align 1, !range !4, !noundef !5
-  %157 = trunc nuw i8 %156 to i1
-  br i1 %157, label %160, label %158
+.loopexit:                                        ; preds = %dlist_push_tail.exit27, %136, %127
+  %157 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.6, i64 noundef 16, ptr noundef nonnull %3) #12
+  store ptr %157, ptr @FinishedSerializableTransactions, align 8
+  %158 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %159 = trunc nuw i8 %158 to i1
+  br i1 %159, label %162, label %160
 
-158:                                              ; preds = %.loopexit
-  store ptr %155, ptr %155, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store ptr %155, ptr %159, align 8
-  br label %160
+160:                                              ; preds = %.loopexit
+  store ptr %157, ptr %157, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  store ptr %157, ptr %161, align 8
+  br label %162
 
-160:                                              ; preds = %158, %.loopexit
+162:                                              ; preds = %160, %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @SerialPagePrecedesLogically, ptr getelementptr inbounds nuw (i8, ptr @SerialSlruCtlData, i64 16), align 8
-  %161 = load i32, ptr @serializable_buffers, align 4
-  call void @SimpleLruInit(ptr noundef nonnull @SerialSlruCtlData, ptr noundef nonnull @.str.22, i32 noundef %161, i32 noundef 0, ptr noundef nonnull @.str.23, i32 noundef 59, i32 noundef 88, i32 noundef 5, i1 noundef zeroext false) #12
-  %162 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.24, i64 noundef 16, ptr noundef nonnull %1) #12
-  store ptr %162, ptr @serialControl, align 8
-  %163 = load i8, ptr %1, align 1, !range !4, !noundef !5
-  %164 = trunc nuw i8 %163 to i1
-  br i1 %164, label %SerialInit.exit, label %165
+  %163 = load i32, ptr @serializable_buffers, align 4
+  call void @SimpleLruInit(ptr noundef nonnull @SerialSlruCtlData, ptr noundef nonnull @.str.22, i32 noundef %163, i32 noundef 0, ptr noundef nonnull @.str.23, i32 noundef 59, i32 noundef 88, i32 noundef 5, i1 noundef zeroext false) #12
+  %164 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.24, i64 noundef 16, ptr noundef nonnull %1) #12
+  store ptr %164, ptr @serialControl, align 8
+  %165 = load i8, ptr %1, align 1, !range !4, !noundef !5
+  %166 = trunc nuw i8 %165 to i1
+  br i1 %166, label %SerialInit.exit, label %167
 
-165:                                              ; preds = %160
-  %166 = load ptr, ptr @MainLWLockArray, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 6656
-  %168 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %167, i32 noundef 0) #12
-  %169 = load ptr, ptr @serialControl, align 8
-  store i64 -1, ptr %169, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 0, ptr %170, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %169, i64 12
-  store i32 0, ptr %171, align 4
-  %172 = load ptr, ptr @MainLWLockArray, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 6656
-  call void @LWLockRelease(ptr noundef nonnull %173) #12
+167:                                              ; preds = %162
+  %168 = load ptr, ptr @MainLWLockArray, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 6656
+  %170 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %169, i32 noundef 0) #12
+  %171 = load ptr, ptr @serialControl, align 8
+  store i64 -1, ptr %171, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  store i32 0, ptr %172, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 12
+  store i32 0, ptr %173, align 4
+  %174 = load ptr, ptr @MainLWLockArray, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 6656
+  call void @LWLockRelease(ptr noundef nonnull %175) #12
   br label %SerialInit.exit
 
-SerialInit.exit:                                  ; preds = %160, %165
+SerialInit.exit:                                  ; preds = %162, %167
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

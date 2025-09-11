@@ -109,7 +109,7 @@ define dso_local range(i32 0, 2051) i32 @job_submit(ptr noundef readonly capture
 _get_config.exit:                                 ; preds = %15, %12, %3
   %17 = load i32, ptr @jobs_per_user_per_hour, align 4
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %99, label %19
+  br i1 %18, label %101, label %19
 
 19:                                               ; preds = %_get_config.exit
   %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @throttle_mutex) #8
@@ -150,132 +150,134 @@ _get_config.exit:                                 ; preds = %15, %12, %3
   %37 = icmp sgt i32 %.pre39, 0
   br i1 %37, label %.lr.ph.i, label %._crit_edge
 
-.lr.ph.i:                                         ; preds = %32, %52
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %32 ]
+.lr.ph.i:                                         ; preds = %32, %53
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %32 ]
   %38 = load ptr, ptr @thru_put_array, align 8
-  %39 = getelementptr inbounds nuw %struct.thru_put, ptr %38, i64 %indvars.iv.i, i32 1
-  %40 = load i32, ptr %39, align 4
-  %41 = load i32, ptr @jobs_per_user_per_hour, align 4
-  %42 = mul nsw i32 %41, %33
-  %.neg.i = sdiv i32 %42, -10
-  %43 = add i32 %.neg.i, %40
-  %..i = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
-  store i32 %..i, ptr %39, align 4
-  %44 = tail call i32 @slurm_get_log_level() #8
-  %45 = icmp sgt i32 %44, 5
-  br i1 %45, label %46, label %52
+  %39 = getelementptr inbounds nuw %struct.thru_put, ptr %38, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = load i32, ptr @jobs_per_user_per_hour, align 4
+  %43 = mul nsw i32 %42, %33
+  %.neg.i = sdiv i32 %43, -10
+  %44 = add i32 %.neg.i, %41
+  %..i = tail call i32 @llvm.smax.i32(i32 %44, i32 0)
+  store i32 %..i, ptr %40, align 4
+  %45 = tail call i32 @slurm_get_log_level() #8
+  %46 = icmp sgt i32 %45, 5
+  br i1 %46, label %47, label %53
 
-46:                                               ; preds = %.lr.ph.i
-  %47 = load ptr, ptr @thru_put_array, align 8
-  %48 = getelementptr inbounds nuw %struct.thru_put, ptr %47, i64 %indvars.iv.i
-  %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %51 = load i32, ptr %50, align 4
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._reset_counters, i32 noundef %49, i32 noundef %40, i32 noundef %51) #8
-  br label %52
+47:                                               ; preds = %.lr.ph.i
+  %48 = load ptr, ptr @thru_put_array, align 8
+  %49 = getelementptr inbounds nuw %struct.thru_put, ptr %48, i64 %indvars.iv.i
+  %50 = load i32, ptr %49, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %52 = load i32, ptr %51, align 4
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._reset_counters, i32 noundef %50, i32 noundef %41, i32 noundef %52) #8
+  br label %53
 
-52:                                               ; preds = %46, %.lr.ph.i
+53:                                               ; preds = %47, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %53 = load i32, ptr @thru_put_size, align 4
-  %54 = sext i32 %53 to i64
-  %55 = icmp slt i64 %indvars.iv.next.i, %54
-  br i1 %55, label %.lr.ph.i, label %_reset_counters.exit, !llvm.loop !8
+  %54 = load i32, ptr @thru_put_size, align 4
+  %55 = sext i32 %54 to i64
+  %56 = icmp slt i64 %indvars.iv.next.i, %55
+  br i1 %56, label %.lr.ph.i, label %_reset_counters.exit, !llvm.loop !8
 
-_reset_counters.exit:                             ; preds = %52, %26, %27
-  %56 = phi i32 [ %.pre, %26 ], [ %.pre39, %27 ], [ %53, %52 ]
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+_reset_counters.exit:                             ; preds = %53, %26, %27
+  %57 = phi i32 [ %.pre, %26 ], [ %.pre39, %27 ], [ %54, %53 ]
+  %58 = icmp sgt i32 %57, 0
+  br i1 %58, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_reset_counters.exit
-  %58 = load ptr, ptr @thru_put_array, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %60 = load i32, ptr %59, align 8
-  %wide.trip.count = zext nneg i32 %56 to i64
-  br label %62
+  %59 = load ptr, ptr @thru_put_array, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %61 = load i32, ptr %60, align 8
+  %wide.trip.count = zext nneg i32 %57 to i64
+  br label %63
 
-61:                                               ; preds = %62
+62:                                               ; preds = %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %63, !llvm.loop !11
 
-62:                                               ; preds = %.lr.ph, %61
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
-  %63 = getelementptr inbounds nuw %struct.thru_put, ptr %58, i64 %indvars.iv
-  %64 = load i32, ptr %63, align 4
-  %.not27 = icmp eq i32 %64, %60
-  br i1 %.not27, label %65, label %61
+63:                                               ; preds = %.lr.ph, %62
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
+  %64 = getelementptr inbounds nuw %struct.thru_put, ptr %59, i64 %indvars.iv
+  %65 = load i32, ptr %64, align 4
+  %.not27 = icmp eq i32 %65, %61
+  br i1 %.not27, label %66, label %62
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw %struct.thru_put, ptr %58, i64 %indvars.iv, i32 1
-  %67 = load i32, ptr %66, align 4
-  %68 = load i32, ptr @jobs_per_user_per_hour, align 4
-  %69 = icmp ult i32 %67, %68
-  br i1 %69, label %70, label %75
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw %struct.thru_put, ptr %59, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = load i32, ptr @jobs_per_user_per_hour, align 4
+  %71 = icmp ult i32 %69, %70
+  br i1 %71, label %72, label %77
 
-70:                                               ; preds = %65
-  %71 = add nuw i32 %67, 1
-  store i32 %71, ptr %66, align 4
-  %72 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @throttle_mutex) #8
-  %.not30 = icmp eq i32 %72, 0
-  br i1 %.not30, label %99, label %73
+72:                                               ; preds = %66
+  %73 = add nuw i32 %69, 1
+  store i32 %73, ptr %68, align 4
+  %74 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @throttle_mutex) #8
+  %.not30 = icmp eq i32 %74, 0
+  br i1 %.not30, label %101, label %75
 
-73:                                               ; preds = %70
-  %74 = tail call ptr @__errno_location() #9
-  store i32 %72, ptr %74, align 4
+75:                                               ; preds = %72
+  %76 = tail call ptr @__errno_location() #9
+  store i32 %74, ptr %76, align 4
   tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.job_submit) #10
   unreachable
 
-75:                                               ; preds = %65
+77:                                               ; preds = %66
   %.not28 = icmp eq ptr %2, null
-  br i1 %.not28, label %78, label %76
+  br i1 %.not28, label %80, label %78
 
-76:                                               ; preds = %75
-  %77 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.2) #8
-  store ptr %77, ptr %2, align 8
-  br label %78
+78:                                               ; preds = %77
+  %79 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.2) #8
+  store ptr %79, ptr %2, align 8
+  br label %80
 
-78:                                               ; preds = %75, %76
-  %79 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @throttle_mutex) #8
-  %.not29 = icmp eq i32 %79, 0
-  br i1 %.not29, label %99, label %80
+80:                                               ; preds = %77, %78
+  %81 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @throttle_mutex) #8
+  %.not29 = icmp eq i32 %81, 0
+  br i1 %.not29, label %101, label %82
 
-80:                                               ; preds = %78
-  %81 = tail call ptr @__errno_location() #9
-  store i32 %79, ptr %81, align 4
+82:                                               ; preds = %80
+  %83 = tail call ptr @__errno_location() #9
+  store i32 %81, ptr %83, align 4
   tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.job_submit) #10
   unreachable
 
-._crit_edge:                                      ; preds = %61, %32, %_reset_counters.exit
-  %82 = phi i32 [ %56, %_reset_counters.exit ], [ %.pre39, %32 ], [ %56, %61 ]
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr @thru_put_size, align 4
-  %84 = sext i32 %83 to i64
-  %85 = shl nsw i64 %84, 3
-  %86 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull @thru_put_array, i64 noundef 1, i64 noundef %85, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 177, ptr noundef nonnull @__func__.job_submit) #8
-  store ptr %86, ptr @thru_put_array, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %88 = load i32, ptr %87, align 8
-  %89 = load i32, ptr @thru_put_size, align 4
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr %struct.thru_put, ptr %86, i64 %90
-  %92 = getelementptr i8, ptr %91, i64 -8
-  store i32 %88, ptr %92, align 4
-  %93 = load ptr, ptr @thru_put_array, align 8
-  %94 = getelementptr %struct.thru_put, ptr %93, i64 %90
-  %95 = getelementptr i8, ptr %94, i64 -4
-  store i32 1, ptr %95, align 4
-  %96 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @throttle_mutex) #8
-  %.not26 = icmp eq i32 %96, 0
-  br i1 %.not26, label %99, label %97
+._crit_edge:                                      ; preds = %62, %32, %_reset_counters.exit
+  %84 = phi i32 [ %57, %_reset_counters.exit ], [ %.pre39, %32 ], [ %57, %62 ]
+  %85 = add nsw i32 %84, 1
+  store i32 %85, ptr @thru_put_size, align 4
+  %86 = sext i32 %85 to i64
+  %87 = shl nsw i64 %86, 3
+  %88 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull @thru_put_array, i64 noundef 1, i64 noundef %87, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 177, ptr noundef nonnull @__func__.job_submit) #8
+  store ptr %88, ptr @thru_put_array, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %90 = load i32, ptr %89, align 8
+  %91 = load i32, ptr @thru_put_size, align 4
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr %struct.thru_put, ptr %88, i64 %92
+  %94 = getelementptr i8, ptr %93, i64 -8
+  store i32 %90, ptr %94, align 4
+  %95 = load ptr, ptr @thru_put_array, align 8
+  %96 = getelementptr %struct.thru_put, ptr %95, i64 %92
+  %97 = getelementptr i8, ptr %96, i64 -4
+  store i32 1, ptr %97, align 4
+  %98 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @throttle_mutex) #8
+  %.not26 = icmp eq i32 %98, 0
+  br i1 %.not26, label %101, label %99
 
-97:                                               ; preds = %._crit_edge
-  %98 = tail call ptr @__errno_location() #9
-  store i32 %96, ptr %98, align 4
+99:                                               ; preds = %._crit_edge
+  %100 = tail call ptr @__errno_location() #9
+  store i32 %98, ptr %100, align 4
   tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.job_submit) #10
   unreachable
 
-99:                                               ; preds = %._crit_edge, %78, %70, %_get_config.exit
-  %.0 = phi i32 [ 0, %_get_config.exit ], [ 0, %70 ], [ 2050, %78 ], [ 0, %._crit_edge ]
+101:                                              ; preds = %._crit_edge, %80, %72, %_get_config.exit
+  %.0 = phi i32 [ 0, %_get_config.exit ], [ 0, %72 ], [ 2050, %80 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

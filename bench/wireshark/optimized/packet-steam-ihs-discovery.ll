@@ -262,17 +262,17 @@ define internal i32 @dissect_steam_ihs_discovery(ptr noundef %0, ptr noundef %1,
   %9 = alloca %struct.protobuf_tag_t, align 8
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %11 = icmp ult i32 %10, 12
-  br i1 %11, label %172, label %12
+  br i1 %11, label %173, label %12
 
 12:                                               ; preds = %4
   %13 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %14 = icmp ult i32 %13, 12
-  br i1 %14, label %172, label %15
+  br i1 %14, label %173, label %15
 
 15:                                               ; preds = %12
   %16 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i64 %16, -3736313952
-  br i1 %.not, label %17, label %172
+  br i1 %.not, label %17, label %173
 
 17:                                               ; preds = %15
   %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8)
@@ -282,12 +282,12 @@ define internal i32 @dissect_steam_ihs_discovery(ptr noundef %0, ptr noundef %1,
   %22 = add i32 %21, %20
   %23 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %.not96 = icmp eq i32 %23, %22
-  br i1 %.not96, label %24, label %172
+  br i1 %.not96, label %24, label %173
 
 24:                                               ; preds = %17
   %25 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %.not97 = icmp eq i32 %25, %22
-  br i1 %.not97, label %26, label %172
+  br i1 %.not97, label %26, label %173
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -316,7 +316,7 @@ define internal i32 @dissect_steam_ihs_discovery(ptr noundef %0, ptr noundef %1,
 steamdiscover_dissect_header.exit.thread:         ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %155
+  br label %156
 
 .lr.ph.i:                                         ; preds = %26
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -593,85 +593,86 @@ steamdiscover_dissect_header.exit:                ; preds = %protobuf_iter_next.
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %or.cond = icmp ult i64 %.0.lcssa.i, 11
-  br i1 %or.cond, label %151, label %155
+  br i1 %or.cond, label %151, label %156
 
 151:                                              ; preds = %steamdiscover_dissect_header.exit
   %152 = load ptr, ptr %27, align 8
-  %153 = getelementptr %struct._val64_string, ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 %.0.lcssa.i, i32 1
-  %154 = load ptr, ptr %153, align 8
-  call void @col_set_str(ptr noundef %152, i32 noundef 25, ptr noundef %154)
-  br label %157
+  %153 = getelementptr %struct._val64_string, ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 %.0.lcssa.i
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %155 = load ptr, ptr %154, align 8
+  call void @col_set_str(ptr noundef %152, i32 noundef 25, ptr noundef %155)
+  br label %158
 
-155:                                              ; preds = %steamdiscover_dissect_header.exit.thread, %steamdiscover_dissect_header.exit
+156:                                              ; preds = %steamdiscover_dissect_header.exit.thread, %steamdiscover_dissect_header.exit
   %.0.lcssa.i101 = phi i64 [ -1, %steamdiscover_dissect_header.exit.thread ], [ %.0.lcssa.i, %steamdiscover_dissect_header.exit ]
-  %156 = load ptr, ptr %27, align 8
-  call void @col_set_str(ptr noundef %156, i32 noundef 25, ptr noundef nonnull @.str.132)
-  br label %157
+  %157 = load ptr, ptr %27, align 8
+  call void @col_set_str(ptr noundef %157, i32 noundef 25, ptr noundef nonnull @.str.132)
+  br label %158
 
-157:                                              ; preds = %155, %151
-  %.0.lcssa.i100 = phi i64 [ %.0.lcssa.i101, %155 ], [ %.0.lcssa.i, %151 ]
-  %158 = load i32, ptr @hf_steam_ihs_discovery_body_length, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %158, ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648)
-  switch i64 %.0.lcssa.i100, label %169 [
-    i64 0, label %160
-    i64 1, label %161
-    i64 2, label %170
-    i64 3, label %162
-    i64 9, label %170
-    i64 4, label %163
-    i64 5, label %164
-    i64 10, label %165
-    i64 6, label %166
-    i64 7, label %167
-    i64 8, label %168
+158:                                              ; preds = %156, %151
+  %.0.lcssa.i100 = phi i64 [ %.0.lcssa.i101, %156 ], [ %.0.lcssa.i, %151 ]
+  %159 = load i32, ptr @hf_steam_ihs_discovery_body_length, align 4
+  %160 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %159, ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648)
+  switch i64 %.0.lcssa.i100, label %170 [
+    i64 0, label %161
+    i64 1, label %162
+    i64 2, label %171
+    i64 3, label %163
+    i64 9, label %171
+    i64 4, label %164
+    i64 5, label %165
+    i64 10, label %166
+    i64 6, label %167
+    i64 7, label %168
+    i64 8, label %169
   ]
 
-160:                                              ; preds = %157
+161:                                              ; preds = %158
   call fastcc void @steamdiscover_dissect_body_discovery(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %21, i32 noundef %20)
-  br label %170
+  br label %171
 
-161:                                              ; preds = %157
+162:                                              ; preds = %158
   call fastcc void @steamdiscover_dissect_body_status(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %21, i32 noundef %20)
-  br label %170
+  br label %171
 
-162:                                              ; preds = %157
+163:                                              ; preds = %158
   call fastcc void @steamdiscover_dissect_body_authrequest(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %21, i32 noundef %20)
-  br label %170
+  br label %171
 
-163:                                              ; preds = %157
+164:                                              ; preds = %158
   call fastcc void @steamdiscover_dissect_body_authresponse(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %21, i32 noundef %20)
-  br label %170
+  br label %171
 
-164:                                              ; preds = %157
+165:                                              ; preds = %158
   call fastcc void @steamdiscover_dissect_body_streamingrequest(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %21, i32 noundef %20)
-  br label %170
+  br label %171
 
-165:                                              ; preds = %157
+166:                                              ; preds = %158
   call fastcc void @steamdiscover_dissect_body_streamingcancelrequest(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %21, i32 noundef %20)
-  br label %170
+  br label %171
 
-166:                                              ; preds = %157
+167:                                              ; preds = %158
   call fastcc void @steamdiscover_dissect_body_streamingresponse(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %21, i32 noundef %20)
-  br label %170
+  br label %171
 
-167:                                              ; preds = %157
+168:                                              ; preds = %158
   call fastcc void @steamdiscover_dissect_body_proofrequest(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %21, i32 noundef %20)
-  br label %170
+  br label %171
 
-168:                                              ; preds = %157
+169:                                              ; preds = %158
   call fastcc void @steamdiscover_dissect_body_proofresponse(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %21, i32 noundef %20)
-  br label %170
+  br label %171
 
-169:                                              ; preds = %157
+170:                                              ; preds = %158
   call fastcc void @steamdiscover_dissect_body_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %21, i32 noundef %20)
-  br label %170
+  br label %171
 
-170:                                              ; preds = %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %157, %157
-  %171 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %172
+171:                                              ; preds = %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %158, %158
+  %172 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %173
 
-172:                                              ; preds = %24, %17, %15, %12, %4, %170
-  %.0 = phi i32 [ %171, %170 ], [ 0, %4 ], [ 0, %12 ], [ 0, %15 ], [ 0, %17 ], [ 0, %24 ]
+173:                                              ; preds = %24, %17, %15, %12, %4, %171
+  %.0 = phi i32 [ %172, %171 ], [ 0, %4 ], [ 0, %12 ], [ 0, %15 ], [ 0, %17 ], [ 0, %24 ]
   ret i32 %.0
 }
 

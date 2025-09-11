@@ -4530,7 +4530,8 @@ define internal fastcc range(i32 -22, 1) i32 @usb_reset_and_verify_device(ptr no
   %142 = phi ptr [ %147, %.preheader ], [ %137, %136 ]
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr %struct.usb_host_endpoint, ptr %144, i64 %141, i32 10
+  %.split = getelementptr %struct.usb_host_endpoint, ptr %144, i64 %141
+  %145 = getelementptr i8, ptr %.split, i64 72
   store i32 0, ptr %145, align 8
   %146 = add nuw nsw i64 %141, 1
   %147 = load ptr, ptr %118, align 8
@@ -8846,7 +8847,7 @@ define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, 
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 913
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %.loopexit11, label %38
+  br i1 %37, label %.loopexit12, label %38
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -8857,22 +8858,23 @@ define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, 
 42:                                               ; preds = %42, %38
   %43 = phi i64 [ 0, %38 ], [ %49, %42 ]
   %44 = phi i32 [ %34, %38 ], [ %48, %42 ]
-  %45 = getelementptr %struct.usb_host_config, ptr %40, i64 %43, i32 0, i32 2
+  %.split = getelementptr %struct.usb_host_config, ptr %40, i64 %43
+  %45 = getelementptr i8, ptr %.split, i64 2
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
   %48 = tail call i32 @llvm.umax.i32(i32 %44, i32 %47)
   %49 = add nuw nsw i64 %43, 1
   %50 = icmp eq i64 %49, %41
-  br i1 %50, label %.loopexit11, label %42, !llvm.loop !66
+  br i1 %50, label %.loopexit12, label %42, !llvm.loop !66
 
-.loopexit11:                                      ; preds = %42, %33
+.loopexit12:                                      ; preds = %42, %33
   %51 = phi i32 [ %34, %33 ], [ %48, %42 ]
   %52 = zext i32 %51 to i64
   %53 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %52, i32 noundef 3072) #22
   %54 = icmp eq ptr %53, null
   br i1 %54, label %102, label %55
 
-55:                                               ; preds = %.loopexit11
+55:                                               ; preds = %.loopexit12
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %58 = load i8, ptr %35, align 1
@@ -8886,7 +8888,7 @@ define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, 
   %64 = zext i16 %63 to i32
   %65 = tail call i32 @usb_get_descriptor(ptr noundef %0, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull %53, i32 noundef %64) #19
   %66 = icmp eq i32 %65, %64
-  br i1 %66, label %.preheader, label %.thread9
+  br i1 %66, label %.preheader, label %.thread10
 
 67:                                               ; preds = %.preheader
   %68 = add nuw nsw i64 %80, 1
@@ -8897,13 +8899,14 @@ define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, 
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr %56, align 8
-  %73 = getelementptr %struct.usb_host_config, ptr %72, i64 %68, i32 0, i32 2
+  %.split9 = getelementptr %struct.usb_host_config, ptr %72, i64 %68
+  %73 = getelementptr i8, ptr %.split9, i64 2
   %74 = load i16, ptr %73, align 2
   %75 = zext i16 %74 to i32
   %76 = trunc nuw i64 %68 to i8
   %77 = tail call i32 @usb_get_descriptor(ptr noundef %0, i8 noundef zeroext 2, i8 noundef zeroext %76, ptr noundef nonnull %53, i32 noundef %75) #19
   %78 = icmp eq i32 %77, %75
-  br i1 %78, label %.preheader, label %.thread9, !llvm.loop !67
+  br i1 %78, label %.preheader, label %.thread10, !llvm.loop !67
 
 .preheader:                                       ; preds = %60, %71
   %79 = phi i16 [ %74, %71 ], [ %63, %60 ]
@@ -8914,11 +8917,11 @@ define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, 
   %84 = zext i16 %79 to i64
   %85 = tail call i32 @bcmp(ptr nonnull %53, ptr %83, i64 %84)
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %67, label %.thread9
+  br i1 %86, label %67, label %.thread10
 
 .loopexit:                                        ; preds = %67, %55
-  %.not10 = icmp eq i32 %34, 0
-  br i1 %.not10, label %.thread9, label %87
+  %.not11 = icmp eq i32 %34, 0
+  br i1 %.not11, label %.thread10, label %87
 
 87:                                               ; preds = %.loopexit
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 912
@@ -8928,7 +8931,7 @@ define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, 
   %92 = tail call i32 @usb_string(ptr noundef %0, i32 noundef %90, ptr noundef nonnull %53, i64 noundef %91) #19
   %93 = add i32 %92, 1
   %94 = icmp eq i32 %93, %34
-  br i1 %94, label %95, label %.thread9
+  br i1 %94, label %95, label %.thread10
 
 95:                                               ; preds = %87
   %96 = load ptr, ptr %26, align 8
@@ -8936,15 +8939,15 @@ define internal fastcc range(i32 0, 2) i32 @descriptors_changed(ptr noundef %0, 
   %98 = tail call i32 @bcmp(ptr nonnull %53, ptr %96, i64 %97)
   %99 = icmp ne i32 %98, 0
   %100 = zext i1 %99 to i32
-  br label %.thread9
+  br label %.thread10
 
-.thread9:                                         ; preds = %.preheader, %71, %60, %95, %87, %.loopexit
+.thread10:                                        ; preds = %.preheader, %71, %60, %95, %87, %.loopexit
   %101 = phi i32 [ 0, %.loopexit ], [ 1, %87 ], [ %100, %95 ], [ 1, %60 ], [ 1, %71 ], [ 1, %.preheader ]
   tail call void @kfree(ptr noundef nonnull %53) #19
   br label %102
 
-102:                                              ; preds = %.thread9, %.loopexit11, %22, %14, %13, %12, %3
-  %103 = phi i32 [ %101, %.thread9 ], [ 1, %3 ], [ 1, %13 ], [ 1, %12 ], [ 1, %14 ], [ 1, %22 ], [ 1, %.loopexit11 ]
+102:                                              ; preds = %.thread10, %.loopexit12, %22, %14, %13, %12, %3
+  %103 = phi i32 [ %101, %.thread10 ], [ 1, %3 ], [ 1, %13 ], [ 1, %12 ], [ 1, %14 ], [ 1, %22 ], [ 1, %.loopexit12 ]
   ret i32 %103
 }
 

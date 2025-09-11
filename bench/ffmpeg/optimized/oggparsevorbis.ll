@@ -912,26 +912,27 @@ define internal void @vorbis_cleanup(ptr noundef readonly captures(none) %0, i32
   %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = load ptr, ptr %4, align 8, !tbaa !47
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6, i32 30
-  %8 = load ptr, ptr %7, align 8, !tbaa !55
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.loopexit, label %9
+  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 424
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %.loopexit, label %10
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  tail call void @av_vorbis_parse_free(ptr noundef nonnull %10) #9
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  br label %12
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  tail call void @av_vorbis_parse_free(ptr noundef nonnull %11) #9
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  br label %13
 
-12:                                               ; preds = %9, %12
-  %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
-  tail call void @av_freep(ptr noundef nonnull %13) #9
+13:                                               ; preds = %10, %13
+  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %13 ]
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  tail call void @av_freep(ptr noundef nonnull %14) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !85
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !85
 
-.loopexit:                                        ; preds = %12, %2
+.loopexit:                                        ; preds = %13, %2
   ret void
 }
 

@@ -3162,14 +3162,14 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit19:  ; preds = %._crit_edge.i
   %44 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %22) #23
-  br label %113
+  br label %115
 
 45:                                               ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit
   %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %4) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %113
+  br label %115
 
 47:                                               ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %3
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3192,8 +3192,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit19:  ; preds = %._crit_edge.i
   ret void
 
 58:                                               ; preds = %.lr.ph, %58
-  %59 = phi ptr [ %50, %.lr.ph ], [ %107, %58 ]
-  %.01423 = phi i64 [ 0, %.lr.ph ], [ %105, %58 ]
+  %59 = phi ptr [ %50, %.lr.ph ], [ %109, %58 ]
+  %.01423 = phi i64 [ 0, %.lr.ph ], [ %107, %58 ]
   %60 = load double, ptr %51, align 8, !tbaa !76
   %61 = getelementptr inbounds nuw %"class.cv::Point_", ptr %59, i64 %.01423
   %62 = load float, ptr %61, align 4, !tbaa !154
@@ -3231,28 +3231,30 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit19:  ; preds = %._crit_edge.i
   %93 = load i64, ptr %92, align 8, !tbaa !12
   %94 = mul i64 %93, %84
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 %94
-  %96 = getelementptr inbounds %"class.cv::Vec.30", ptr %95, i64 %87, i32 0, i32 0, i64 1
-  store i8 %90, ptr %96, align 1, !tbaa !16
-  %97 = load double, ptr %57, align 8, !tbaa !86
-  %98 = fptoui double %97 to i8
-  %99 = load ptr, ptr %54, align 8, !tbaa !114
-  %100 = load ptr, ptr %55, align 8, !tbaa !126
-  %101 = load i64, ptr %100, align 8, !tbaa !12
-  %102 = mul i64 %101, %84
-  %103 = getelementptr inbounds nuw i8, ptr %99, i64 %102
-  %104 = getelementptr inbounds %"class.cv::Vec.30", ptr %103, i64 %87, i32 0, i32 0, i64 2
-  store i8 %98, ptr %104, align 1, !tbaa !16
-  %105 = add nuw i64 %.01423, 1
-  %106 = load ptr, ptr %48, align 8, !tbaa !122
-  %107 = load ptr, ptr %1, align 8, !tbaa !119
-  %108 = ptrtoint ptr %106 to i64
-  %109 = ptrtoint ptr %107 to i64
-  %110 = sub i64 %108, %109
-  %111 = ashr exact i64 %110, 3
-  %112 = icmp ult i64 %105, %111
-  br i1 %112, label %58, label %._crit_edge, !llvm.loop !158
+  %96 = getelementptr inbounds %"class.cv::Vec.30", ptr %95, i64 %87
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
+  store i8 %90, ptr %97, align 1, !tbaa !16
+  %98 = load double, ptr %57, align 8, !tbaa !86
+  %99 = fptoui double %98 to i8
+  %100 = load ptr, ptr %54, align 8, !tbaa !114
+  %101 = load ptr, ptr %55, align 8, !tbaa !126
+  %102 = load i64, ptr %101, align 8, !tbaa !12
+  %103 = mul i64 %102, %84
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 %103
+  %105 = getelementptr inbounds %"class.cv::Vec.30", ptr %104, i64 %87
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 2
+  store i8 %99, ptr %106, align 1, !tbaa !16
+  %107 = add nuw i64 %.01423, 1
+  %108 = load ptr, ptr %48, align 8, !tbaa !122
+  %109 = load ptr, ptr %1, align 8, !tbaa !119
+  %110 = ptrtoint ptr %108 to i64
+  %111 = ptrtoint ptr %109 to i64
+  %112 = sub i64 %110, %111
+  %113 = ashr exact i64 %112, 3
+  %114 = icmp ult i64 %107, %113
+  br i1 %114, label %58, label %._crit_edge, !llvm.loop !158
 
-113:                                              ; preds = %45, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit19
+115:                                              ; preds = %45, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit19
   %.pn = phi { ptr, i32 } [ %46, %45 ], [ %44, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit19 ]
   resume { ptr, i32 } %.pn
 }

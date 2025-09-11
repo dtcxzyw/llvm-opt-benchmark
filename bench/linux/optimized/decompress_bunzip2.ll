@@ -816,9 +816,8 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %175 = phi i32 [ %.ph43, %.thread45 ], [ %156, %164 ]
   %176 = phi i32 [ %.ph43, %.thread45 ], [ %155, %164 ]
   %177 = phi i1 [ %.ph, %.thread45 ], [ %136, %164 ]
-  %.idx = mul i64 %114, 1204
-  %178 = getelementptr i8, ptr %102, i64 %.idx
-  %179 = getelementptr i8, ptr %178, i64 164
+  %178 = getelementptr %struct.group_data, ptr %102, i64 %114
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 164
   %180 = zext nneg i32 %176 to i64
   %181 = getelementptr i8, ptr %3, i64 %180
   %182 = add nuw nsw i32 %175, 1

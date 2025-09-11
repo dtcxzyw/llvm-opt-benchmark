@@ -8113,8 +8113,8 @@ define void @_ZN9elfshaker4repo4pack16assign_to_frames17hf788d4a1f1d6cb72E(ptr d
   %store_forwarded = phi i64 [ %load_initial, %.lr.ph.preheader.i.preheader.preheader ], [ %28, %.lr.ph.preheader.i.preheader ]
   %.sroa.01.014.i = phi i64 [ 1, %.lr.ph.preheader.i.preheader.preheader ], [ %23, %.lr.ph.preheader.i.preheader ]
   %23 = add nuw nsw i64 %.sroa.01.014.i, 1
-  %24 = add nsw i64 %.sroa.01.014.i, -1
-  %25 = getelementptr inbounds nuw { i64, i64 }, ptr %1, i64 %24, i32 1
+  %24 = getelementptr { i64, i64 }, ptr %1, i64 %.sroa.01.014.i
+  %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load i64, ptr %25, align 8, !alias.scope !1167, !noalias !1176, !noundef !3
   %27 = getelementptr inbounds nuw i64, ptr %20, i64 %.sroa.01.014.i
   %28 = add i64 %store_forwarded, %26

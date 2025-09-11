@@ -3042,8 +3042,8 @@ process.exit:                                     ; preds = %1127, %287
 
 .lr.ph:                                           ; preds = %process.exit, %1154
   %indvars.iv647 = phi i64 [ %indvars.iv.next648, %1154 ], [ 0, %process.exit ]
-  %1134 = getelementptr inbounds nuw %struct.infilesformat, ptr %47, i64 %indvars.iv647, i32 2
-  %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 5128
+  %1134 = getelementptr inbounds nuw %struct.infilesformat, ptr %47, i64 %indvars.iv647
+  %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 5640
   %1136 = load ptr, ptr %1135, align 8, !tbaa !32
   %.not145 = icmp eq ptr %1136, null
   br i1 %.not145, label %1138, label %1137
@@ -3053,7 +3053,7 @@ process.exit:                                     ; preds = %1127, %287
   br label %1138
 
 1138:                                             ; preds = %1137, %.lr.ph
-  %1139 = getelementptr inbounds nuw i8, ptr %1134, i64 5152
+  %1139 = getelementptr inbounds nuw i8, ptr %1134, i64 5664
   %1140 = load ptr, ptr %1139, align 8, !tbaa !88
   %.not146 = icmp eq ptr %1140, null
   br i1 %.not146, label %1142, label %1141
@@ -3063,7 +3063,7 @@ process.exit:                                     ; preds = %1127, %287
   br label %1142
 
 1142:                                             ; preds = %1141, %1138
-  %1143 = getelementptr inbounds nuw i8, ptr %1134, i64 5160
+  %1143 = getelementptr inbounds nuw i8, ptr %1134, i64 5672
   %1144 = load ptr, ptr %1143, align 8, !tbaa !91
   %.not147 = icmp eq ptr %1144, null
   br i1 %.not147, label %1146, label %1145
@@ -3073,7 +3073,7 @@ process.exit:                                     ; preds = %1127, %287
   br label %1146
 
 1146:                                             ; preds = %1145, %1142
-  %1147 = getelementptr inbounds nuw i8, ptr %1134, i64 5176
+  %1147 = getelementptr inbounds nuw i8, ptr %1134, i64 5688
   %1148 = load ptr, ptr %1147, align 8, !tbaa !90
   %.not148 = icmp eq ptr %1148, null
   br i1 %.not148, label %1150, label %1149
@@ -3083,7 +3083,7 @@ process.exit:                                     ; preds = %1127, %287
   br label %1150
 
 1150:                                             ; preds = %1149, %1146
-  %1151 = getelementptr inbounds nuw i8, ptr %1134, i64 5184
+  %1151 = getelementptr inbounds nuw i8, ptr %1134, i64 5696
   %1152 = load ptr, ptr %1151, align 8, !tbaa !41
   %.not149 = icmp eq ptr %1152, null
   br i1 %.not149, label %1154, label %1153
@@ -3109,8 +3109,8 @@ process.exit.thread:                              ; preds = %.thread.i166, %1105
 
 .lr.ph415:                                        ; preds = %process.exit.thread, %1183
   %indvars.iv650 = phi i64 [ %indvars.iv.next651, %1183 ], [ 0, %process.exit.thread ]
-  %1163 = getelementptr inbounds nuw %struct.infilesformat, ptr %47, i64 %indvars.iv650, i32 2
-  %1164 = getelementptr inbounds nuw i8, ptr %1163, i64 5128
+  %1163 = getelementptr inbounds nuw %struct.infilesformat, ptr %47, i64 %indvars.iv650
+  %1164 = getelementptr inbounds nuw i8, ptr %1163, i64 5640
   %1165 = load ptr, ptr %1164, align 8, !tbaa !32
   %.not150 = icmp eq ptr %1165, null
   br i1 %.not150, label %1167, label %1166
@@ -3120,7 +3120,7 @@ process.exit.thread:                              ; preds = %.thread.i166, %1105
   br label %1167
 
 1167:                                             ; preds = %1166, %.lr.ph415
-  %1168 = getelementptr inbounds nuw i8, ptr %1163, i64 5152
+  %1168 = getelementptr inbounds nuw i8, ptr %1163, i64 5664
   %1169 = load ptr, ptr %1168, align 8, !tbaa !88
   %.not151 = icmp eq ptr %1169, null
   br i1 %.not151, label %1171, label %1170
@@ -3130,7 +3130,7 @@ process.exit.thread:                              ; preds = %.thread.i166, %1105
   br label %1171
 
 1171:                                             ; preds = %1170, %1167
-  %1172 = getelementptr inbounds nuw i8, ptr %1163, i64 5160
+  %1172 = getelementptr inbounds nuw i8, ptr %1163, i64 5672
   %1173 = load ptr, ptr %1172, align 8, !tbaa !91
   %.not152 = icmp eq ptr %1173, null
   br i1 %.not152, label %1175, label %1174
@@ -3140,7 +3140,7 @@ process.exit.thread:                              ; preds = %.thread.i166, %1105
   br label %1175
 
 1175:                                             ; preds = %1174, %1171
-  %1176 = getelementptr inbounds nuw i8, ptr %1163, i64 5176
+  %1176 = getelementptr inbounds nuw i8, ptr %1163, i64 5688
   %1177 = load ptr, ptr %1176, align 8, !tbaa !90
   %.not153 = icmp eq ptr %1177, null
   br i1 %.not153, label %1179, label %1178
@@ -3150,7 +3150,7 @@ process.exit.thread:                              ; preds = %.thread.i166, %1105
   br label %1179
 
 1179:                                             ; preds = %1178, %1175
-  %1180 = getelementptr inbounds nuw i8, ptr %1163, i64 5184
+  %1180 = getelementptr inbounds nuw i8, ptr %1163, i64 5696
   %1181 = load ptr, ptr %1180, align 8, !tbaa !41
   %.not154 = icmp eq ptr %1181, null
   br i1 %.not154, label %1183, label %1182

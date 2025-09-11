@@ -38,18 +38,18 @@ define zeroext i1 @nxsched_remove_readytorun(ptr noundef captures(none) %0, i1 n
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %24, label %.thread
+  br i1 %22, label %24, label %.thread36
 
-.thread:                                          ; preds = %18
+.thread36:                                        ; preds = %18
   %23 = load ptr, ptr %0, align 8
   br label %33
 
 24:                                               ; preds = %18
   %25 = and i8 %8, 4
   %.not29 = icmp ne i8 %25, 0
-  br i1 %.not29, label %27, label %.thread38
+  br i1 %.not29, label %27, label %.thread
 
-.thread38:                                        ; preds = %24
+.thread:                                          ; preds = %24
   %26 = load ptr, ptr %0, align 8
   br label %31
 
@@ -57,19 +57,19 @@ define zeroext i1 @nxsched_remove_readytorun(ptr noundef captures(none) %0, i1 n
   %28 = load ptr, ptr %0, align 16
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i8 3, ptr %29, align 16
-  %.pr.pre = load ptr, ptr %20, align 8
+  %.pr = load ptr, ptr %20, align 8
   %30 = load ptr, ptr %0, align 16
-  %.not30 = icmp eq ptr %.pr.pre, null
+  %.not30 = icmp eq ptr %.pr, null
   br i1 %.not30, label %31, label %33
 
-31:                                               ; preds = %.thread38, %27
-  %32 = phi ptr [ %26, %.thread38 ], [ %30, %27 ]
+31:                                               ; preds = %.thread, %27
+  %32 = phi ptr [ %26, %.thread ], [ %30, %27 ]
   store ptr %32, ptr %19, align 8
   br label %36
 
-33:                                               ; preds = %.thread, %27
-  %34 = phi ptr [ %23, %.thread ], [ %30, %27 ]
-  %35 = phi ptr [ %21, %.thread ], [ %.pr.pre, %27 ]
+33:                                               ; preds = %.thread36, %27
+  %34 = phi ptr [ %23, %.thread36 ], [ %30, %27 ]
+  %35 = phi ptr [ %21, %.thread36 ], [ %.pr, %27 ]
   store ptr %34, ptr %35, align 8
   br label %36
 

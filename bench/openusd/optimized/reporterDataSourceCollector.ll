@@ -536,49 +536,50 @@ define linkonce_odr void @_ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32
   %4 = load ptr, ptr %3, align 8
   br label %5
 
-5:                                                ; preds = %10, %2
-  %.08.i = phi i64 [ 0, %2 ], [ %11, %10 ]
-  %6 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %4, i64 %.08.i, i32 2
-  %7 = load atomic i64, ptr %6 monotonic, align 8
-  %8 = icmp ugt i64 %7, 1
-  br i1 %8, label %9, label %10
+5:                                                ; preds = %11, %2
+  %.08.i = phi i64 [ 0, %2 ], [ %12, %11 ]
+  %6 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %4, i64 %.08.i
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load atomic i64, ptr %7 monotonic, align 8
+  %9 = icmp ugt i64 %8, 1
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %5
-  %.0.i.i.i = inttoptr i64 %7 to ptr
+10:                                               ; preds = %5
+  %.0.i.i.i = inttoptr i64 %8 to ptr
   invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.0.i.i.i)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %9
-  store atomic i64 0, ptr %6 monotonic, align 8
-  br label %10
+.noexc:                                           ; preds = %10
+  store atomic i64 0, ptr %7 monotonic, align 8
+  br label %11
 
-10:                                               ; preds = %.noexc, %5
-  %11 = add nuw nsw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %11, 8
+11:                                               ; preds = %.noexc, %5
+  %12 = add nuw nsw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %12, 8
   br i1 %exitcond.not.i, label %_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit, label %5, !llvm.loop !14
 
-_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit: ; preds = %10
-  %12 = load ptr, ptr %3, align 8
-  invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef %12)
-          to label %13 unwind label %.loopexit.split-lp
+_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit: ; preds = %11
+  %13 = load ptr, ptr %3, align 8
+  invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef %13)
+          to label %14 unwind label %.loopexit.split-lp
 
-13:                                               ; preds = %_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit
+14:                                               ; preds = %_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit
   ret void
 
-.loopexit:                                        ; preds = %9
+.loopexit:                                        ; preds = %10
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %14
+  br label %15
 
 .loopexit.split-lp:                               ; preds = %1, %_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %14
+  br label %15
 
-14:                                               ; preds = %.loopexit.split-lp, %.loopexit
+15:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %15 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %15) #17
+  %16 = extractvalue { ptr, i32 } %lpad.phi, 0
+  tail call void @__clang_call_terminate(ptr %16) #17
   unreachable
 }
 
@@ -1165,106 +1166,107 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDa
   %5 = load ptr, ptr %4, align 8
   br label %6
 
-6:                                                ; preds = %11, %3
-  %.08.i.i = phi i64 [ 0, %3 ], [ %12, %11 ]
-  %7 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %5, i64 %.08.i.i, i32 2
-  %8 = load atomic i64, ptr %7 monotonic, align 8
-  %9 = icmp ugt i64 %8, 1
-  br i1 %9, label %10, label %11
+6:                                                ; preds = %12, %3
+  %.08.i.i = phi i64 [ 0, %3 ], [ %13, %12 ]
+  %7 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %5, i64 %.08.i.i
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load atomic i64, ptr %8 monotonic, align 8
+  %10 = icmp ugt i64 %9, 1
+  br i1 %10, label %11, label %12
 
-10:                                               ; preds = %6
-  %.0.i.i.i.i = inttoptr i64 %8 to ptr
+11:                                               ; preds = %6
+  %.0.i.i.i.i = inttoptr i64 %9 to ptr
   invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.0.i.i.i.i)
           to label %.noexc.i unwind label %.loopexit.i
 
-.noexc.i:                                         ; preds = %10
-  store atomic i64 0, ptr %7 monotonic, align 8
-  br label %11
+.noexc.i:                                         ; preds = %11
+  store atomic i64 0, ptr %8 monotonic, align 8
+  br label %12
 
-11:                                               ; preds = %.noexc.i, %6
-  %12 = add nuw nsw i64 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %12, 8
+12:                                               ; preds = %.noexc.i, %6
+  %13 = add nuw nsw i64 %.08.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %13, 8
   br i1 %exitcond.not.i.i, label %_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit.i, label %6, !llvm.loop !14
 
-_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit.i: ; preds = %11
-  %13 = load ptr, ptr %4, align 8
-  invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef %13)
+_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit.i: ; preds = %12
+  %14 = load ptr, ptr %4, align 8
+  invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef %14)
           to label %_ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEED2Ev.exit unwind label %.loopexit.split-lp.i
 
-.loopexit.i:                                      ; preds = %10
+.loopexit.i:                                      ; preds = %11
   %lpad.loopexit.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %14
+  br label %15
 
 .loopexit.split-lp.i:                             ; preds = %_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit.i, %1
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           catch ptr null
-  br label %14
+  br label %15
 
-14:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
+15:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  %15 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  tail call void @__clang_call_terminate(ptr %15) #17
+  %16 = extractvalue { ptr, i32 } %lpad.phi.i, 0
+  tail call void @__clang_call_terminate(ptr %16) #17
   unreachable
 
 _ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEED2Ev.exit: ; preds = %_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit.i
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFbvEED2Ev.exit, label %18
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFbvEED2Ev.exit, label %19
 
-18:                                               ; preds = %_ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEED2Ev.exit
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
-          to label %_ZNSt8functionIFbvEED2Ev.exit unwind label %21
+19:                                               ; preds = %_ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEED2Ev.exit
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 3)
+          to label %_ZNSt8functionIFbvEED2Ev.exit unwind label %22
 
-21:                                               ; preds = %18
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #17
+  %24 = extractvalue { ptr, i32 } %23, 0
+  tail call void @__clang_call_terminate(ptr %24) #17
   unreachable
 
-_ZNSt8functionIFbvEED2Ev.exit:                    ; preds = %_ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEED2Ev.exit, %18
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load atomic i64, ptr %24 monotonic, align 8
-  %.0.i.i = inttoptr i64 %25 to ptr
-  %.not.i = icmp eq i64 %25, 0
-  br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseD2Ev.exit, label %26
+_ZNSt8functionIFbvEED2Ev.exit:                    ; preds = %_ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEED2Ev.exit, %19
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load atomic i64, ptr %25 monotonic, align 8
+  %.0.i.i = inttoptr i64 %26 to ptr
+  %.not.i = icmp eq i64 %26, 0
+  br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseD2Ev.exit, label %27
 
-26:                                               ; preds = %_ZNSt8functionIFbvEED2Ev.exit
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 14
-  store i8 0, ptr %27, align 2
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 13
-  %29 = load i8, ptr %28, align 1
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
+27:                                               ; preds = %_ZNSt8functionIFbvEED2Ev.exit
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 14
+  store i8 0, ptr %28, align 2
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 13
+  %30 = load i8, ptr %29, align 1
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
 
-31:                                               ; preds = %26
+32:                                               ; preds = %27
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Tf_ExpiryNotifier7Invoke2EPKv(ptr noundef nonnull align 8 dereferenceable(15) %.0.i.i)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i unwind label %39
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i unwind label %40
 
-_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %31, %26
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %33 = atomicrmw sub ptr %32, i32 1 release, align 4
-  %34 = icmp eq i32 %33, 1
-  br i1 %34, label %35, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseD2Ev.exit
+_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %32, %27
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %34 = atomicrmw sub ptr %33, i32 1 release, align 4
+  %35 = icmp eq i32 %34, 1
+  br i1 %35, label %36, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseD2Ev.exit
 
-35:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
-  %36 = load ptr, ptr %.0.i.i, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(12) %.0.i.i) #12
+36:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
+  %37 = load ptr, ptr %.0.i.i, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(12) %.0.i.i) #12
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseD2Ev.exit
 
-39:                                               ; preds = %31
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %32
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #17
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #17
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseD2Ev.exit: ; preds = %_ZNSt8functionIFbvEED2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %35
+_ZN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseD2Ev.exit: ; preds = %_ZNSt8functionIFbvEED2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %36
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__27TraceReporterDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
   ret void
 }

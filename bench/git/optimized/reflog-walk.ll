@@ -220,7 +220,7 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
 
 .split:                                           ; preds = %63, %.split73
   call void @free(ptr noundef %.3) #12
-  br label %108
+  br label %109
 
 .thread.thread:                                   ; preds = %46, %.thread
   %.17191110 = phi ptr [ %.272, %.thread ], [ %45, %46 ]
@@ -238,7 +238,7 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
   %69 = icmp slt i32 %.167, 0
   %70 = getelementptr inbounds nuw i8, ptr %.070, i64 24
   %71 = load i32, ptr %70, align 8, !tbaa !28
-  br i1 %69, label %72, label %84
+  br i1 %69, label %72, label %85
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %.070, i64 16
@@ -255,77 +255,78 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %79 = load ptr, ptr %73, align 8, !tbaa !31
   %80 = and i64 %indvars.iv.next.i, 4294967295
-  %81 = getelementptr inbounds nuw %struct.reflog_info, ptr %79, i64 %80, i32 3
-  %82 = load i64, ptr %81, align 8, !tbaa !32
-  %.not.i = icmp ult i64 %.165, %82
+  %81 = getelementptr inbounds nuw %struct.reflog_info, ptr %79, i64 %80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 80
+  %83 = load i64, ptr %82, align 8, !tbaa !32
+  %.not.i = icmp ult i64 %.165, %83
   br i1 %.not.i, label %75, label %get_reflog_recno_by_time.exit, !llvm.loop !35
 
 get_reflog_recno_by_time.exit:                    ; preds = %78
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   store i32 %indvars.le.i, ptr %68, align 8, !tbaa !36
-  %83 = icmp slt i32 %indvars.le.i, 0
-  br i1 %83, label %get_reflog_recno_by_time.exit.thread, label %87
+  %84 = icmp slt i32 %indvars.le.i, 0
+  br i1 %84, label %get_reflog_recno_by_time.exit.thread, label %88
 
 get_reflog_recno_by_time.exit.thread:             ; preds = %75, %get_reflog_recno_by_time.exit
   call void @free(ptr noundef nonnull %68) #12
-  br label %108
+  br label %109
 
-84:                                               ; preds = %67
-  %85 = xor i32 %.167, -1
-  %86 = add i32 %71, %85
-  store i32 %86, ptr %68, align 8, !tbaa !36
-  br label %87
+85:                                               ; preds = %67
+  %86 = xor i32 %.167, -1
+  %87 = add i32 %71, %86
+  store i32 %87, ptr %68, align 8, !tbaa !36
+  br label %88
 
-87:                                               ; preds = %get_reflog_recno_by_time.exit, %84
-  %88 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store i32 %.1, ptr %88, align 4, !tbaa !39
-  %89 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store ptr %.070, ptr %89, align 8, !tbaa !40
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %91 = load i64, ptr %90, align 8, !tbaa !9
-  %92 = add i64 %91, 1
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %94 = load i64, ptr %93, align 8, !tbaa !41
-  %95 = icmp ugt i64 %92, %94
-  br i1 %95, label %96, label %._crit_edge
+88:                                               ; preds = %get_reflog_recno_by_time.exit, %85
+  %89 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  store i32 %.1, ptr %89, align 4, !tbaa !39
+  %90 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store ptr %.070, ptr %90, align 8, !tbaa !40
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %92 = load i64, ptr %91, align 8, !tbaa !9
+  %93 = add i64 %92, 1
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %95 = load i64, ptr %94, align 8, !tbaa !41
+  %96 = icmp ugt i64 %93, %95
+  br i1 %96, label %97, label %._crit_edge
 
-._crit_edge:                                      ; preds = %87
+._crit_edge:                                      ; preds = %88
   %.pre95 = load ptr, ptr %0, align 8, !tbaa !17
-  br label %104
+  br label %105
 
-96:                                               ; preds = %87
-  %97 = mul i64 %94, 3
-  %98 = add i64 %97, 48
-  %99 = lshr i64 %98, 1
-  %. = call i64 @llvm.umax.i64(i64 %99, i64 %92)
-  store i64 %., ptr %93, align 8, !tbaa !41
+97:                                               ; preds = %88
+  %98 = mul i64 %95, 3
+  %99 = add i64 %98, 48
+  %100 = lshr i64 %99, 1
+  %. = call i64 @llvm.umax.i64(i64 %100, i64 %93)
+  store i64 %., ptr %94, align 8, !tbaa !41
   %mul.ov.i = icmp ugt i64 %., 2305843009213693951
-  br i1 %mul.ov.i, label %100, label %st_mult.exit
+  br i1 %mul.ov.i, label %101, label %st_mult.exit
 
-100:                                              ; preds = %96
+101:                                              ; preds = %97
   call void (ptr, ...) @die(ptr noundef nonnull @.str.9, i64 noundef 8, i64 noundef %.) #14
   unreachable
 
-st_mult.exit:                                     ; preds = %96
-  %101 = load ptr, ptr %0, align 8, !tbaa !17
-  %102 = shl nuw i64 %., 3
-  %103 = call ptr @xrealloc(ptr noundef %101, i64 noundef %102) #12
-  store ptr %103, ptr %0, align 8, !tbaa !17
-  %.pre96 = load i64, ptr %90, align 8, !tbaa !9
+st_mult.exit:                                     ; preds = %97
+  %102 = load ptr, ptr %0, align 8, !tbaa !17
+  %103 = shl nuw i64 %., 3
+  %104 = call ptr @xrealloc(ptr noundef %102, i64 noundef %103) #12
+  store ptr %104, ptr %0, align 8, !tbaa !17
+  %.pre96 = load i64, ptr %91, align 8, !tbaa !9
   %.pre97 = add i64 %.pre96, 1
-  br label %104
+  br label %105
 
-104:                                              ; preds = %._crit_edge, %st_mult.exit
-  %.pre-phi = phi i64 [ %92, %._crit_edge ], [ %.pre97, %st_mult.exit ]
-  %105 = phi i64 [ %91, %._crit_edge ], [ %.pre96, %st_mult.exit ]
-  %106 = phi ptr [ %.pre95, %._crit_edge ], [ %103, %st_mult.exit ]
-  store i64 %.pre-phi, ptr %90, align 8, !tbaa !9
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %105
-  store ptr %68, ptr %107, align 8, !tbaa !18
-  br label %108
+105:                                              ; preds = %._crit_edge, %st_mult.exit
+  %.pre-phi = phi i64 [ %93, %._crit_edge ], [ %.pre97, %st_mult.exit ]
+  %106 = phi i64 [ %92, %._crit_edge ], [ %.pre96, %st_mult.exit ]
+  %107 = phi ptr [ %.pre95, %._crit_edge ], [ %104, %st_mult.exit ]
+  store i64 %.pre-phi, ptr %91, align 8, !tbaa !9
+  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %106
+  store ptr %68, ptr %108, align 8, !tbaa !18
+  br label %109
 
-108:                                              ; preds = %104, %get_reflog_recno_by_time.exit.thread, %.split
-  %.0 = phi i32 [ -1, %get_reflog_recno_by_time.exit.thread ], [ 0, %104 ], [ -1, %.split ]
+109:                                              ; preds = %105, %get_reflog_recno_by_time.exit.thread, %.split
+  %.0 = phi i32 [ -1, %get_reflog_recno_by_time.exit.thread ], [ 0, %105 ], [ -1, %.split ]
   ret i32 %.0
 }
 
@@ -414,7 +415,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @free_complete_reflog(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %21, label %.preheader
+  br i1 %.not, label %23, label %.preheader
 
 .preheader:                                       ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -429,32 +430,34 @@ define internal fastcc void @free_complete_reflog(ptr noundef captures(address_i
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !31
-  %8 = getelementptr inbounds nuw %struct.reflog_info, ptr %7, i64 %indvars.iv, i32 2
-  %9 = load ptr, ptr %8, align 8, !tbaa !43
-  tail call void @free(ptr noundef %9) #12
-  %10 = load ptr, ptr %5, align 8, !tbaa !31
-  %11 = getelementptr inbounds nuw %struct.reflog_info, ptr %10, i64 %indvars.iv, i32 5
-  %12 = load ptr, ptr %11, align 8, !tbaa !44
-  tail call void @free(ptr noundef %12) #12
+  %8 = getelementptr inbounds nuw %struct.reflog_info, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %10 = load ptr, ptr %9, align 8, !tbaa !43
+  tail call void @free(ptr noundef %10) #12
+  %11 = load ptr, ptr %5, align 8, !tbaa !31
+  %12 = getelementptr inbounds nuw %struct.reflog_info, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  %14 = load ptr, ptr %13, align 8, !tbaa !44
+  tail call void @free(ptr noundef %14) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load i32, ptr %2, align 8, !tbaa !28
-  %14 = sext i32 %13 to i64
-  %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %6, label %._crit_edge, !llvm.loop !45
+  %15 = load i32, ptr %2, align 8, !tbaa !28
+  %16 = sext i32 %15 to i64
+  %17 = icmp slt i64 %indvars.iv.next, %16
+  br i1 %17, label %6, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %6, %.preheader
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !31
-  tail call void @free(ptr noundef %17) #12
-  %18 = load ptr, ptr %0, align 8, !tbaa !42
-  tail call void @free(ptr noundef %18) #12
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !46
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !31
+  tail call void @free(ptr noundef %19) #12
+  %20 = load ptr, ptr %0, align 8, !tbaa !42
   tail call void @free(ptr noundef %20) #12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !46
+  tail call void @free(ptr noundef %22) #12
   tail call void @free(ptr noundef nonnull %0) #12
-  br label %21
+  br label %23
 
-21:                                               ; preds = %1, %._crit_edge
+23:                                               ; preds = %1, %._crit_edge
   ret void
 }
 
@@ -743,7 +746,7 @@ define dso_local ptr @next_reflog_entry(ptr noundef captures(none) %0) local_unn
 
 .lr.ph:                                           ; preds = %1, %next_reflog_commit.exit.thread
   %.01732 = phi ptr [ %.1, %next_reflog_commit.exit.thread ], [ null, %1 ]
-  %.01831 = phi i64 [ %38, %next_reflog_commit.exit.thread ], [ 0, %1 ]
+  %.01831 = phi i64 [ %41, %next_reflog_commit.exit.thread ], [ 0, %1 ]
   %.01930 = phi ptr [ %.120, %next_reflog_commit.exit.thread ], [ null, %1 ]
   %4 = load ptr, ptr %0, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01831
@@ -756,79 +759,82 @@ define dso_local ptr @next_reflog_entry(ptr noundef captures(none) %0) local_unn
   %8 = getelementptr i8, ptr %6, i64 8
   br label %9
 
-9:                                                ; preds = %22, %.lr.ph.i
-  %10 = phi i32 [ %.pr.i, %.lr.ph.i ], [ %24, %22 ]
+9:                                                ; preds = %23, %.lr.ph.i
+  %10 = phi i32 [ %.pr.i, %.lr.ph.i ], [ %25, %23 ]
   %11 = load ptr, ptr %8, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !31
   %14 = zext nneg i32 %10 to i64
-  %15 = load ptr, ptr @the_repository, align 8, !tbaa !26
-  %16 = getelementptr inbounds nuw %struct.reflog_info, ptr %13, i64 %14, i32 1
-  %17 = tail call ptr @parse_object(ptr noundef %15, ptr noundef nonnull %16) #12
-  %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %22, label %18
+  %15 = getelementptr inbounds nuw %struct.reflog_info, ptr %13, i64 %14
+  %16 = load ptr, ptr @the_repository, align 8, !tbaa !26
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 36
+  %18 = tail call ptr @parse_object(ptr noundef %16, ptr noundef nonnull %17) #12
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %23, label %19
 
-18:                                               ; preds = %9
-  %19 = load i32, ptr %17, align 4
-  %20 = and i32 %19, 14
-  %21 = icmp eq i32 %20, 2
-  br i1 %21, label %next_reflog_commit.exit, label %22
+19:                                               ; preds = %9
+  %20 = load i32, ptr %18, align 4
+  %21 = and i32 %20, 14
+  %22 = icmp eq i32 %21, 2
+  br i1 %22, label %next_reflog_commit.exit, label %23
 
-22:                                               ; preds = %18, %9
-  %23 = load i32, ptr %6, align 8, !tbaa !36
-  %24 = add nsw i32 %23, -1
-  store i32 %24, ptr %6, align 8, !tbaa !36
-  %25 = icmp sgt i32 %23, 0
-  br i1 %25, label %9, label %next_reflog_commit.exit.thread, !llvm.loop !53
+23:                                               ; preds = %19, %9
+  %24 = load i32, ptr %6, align 8, !tbaa !36
+  %25 = add nsw i32 %24, -1
+  store i32 %25, ptr %6, align 8, !tbaa !36
+  %26 = icmp sgt i32 %24, 0
+  br i1 %26, label %9, label %next_reflog_commit.exit.thread, !llvm.loop !53
 
-next_reflog_commit.exit:                          ; preds = %18
+next_reflog_commit.exit:                          ; preds = %19
   %.not24 = icmp eq ptr %.01732, null
-  br i1 %.not24, label %37, label %26
+  br i1 %.not24, label %40, label %27
 
-26:                                               ; preds = %next_reflog_commit.exit
+27:                                               ; preds = %next_reflog_commit.exit
   %.val = load i32, ptr %6, align 8, !tbaa !36
   %.val25 = load ptr, ptr %8, align 8, !tbaa !40
-  %27 = getelementptr i8, ptr %.val25, i64 16
-  %.val25.val = load ptr, ptr %27, align 8, !tbaa !31
-  %28 = sext i32 %.val to i64
-  %29 = getelementptr inbounds %struct.reflog_info, ptr %.val25.val, i64 %28, i32 3
-  %30 = load i64, ptr %29, align 8, !tbaa !32
+  %28 = getelementptr i8, ptr %.val25, i64 16
+  %.val25.val = load ptr, ptr %28, align 8, !tbaa !31
+  %29 = sext i32 %.val to i64
+  %30 = getelementptr inbounds %struct.reflog_info, ptr %.val25.val, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
+  %32 = load i64, ptr %31, align 8, !tbaa !32
   %.017.val = load i32, ptr %.01732, align 8, !tbaa !36
-  %31 = getelementptr i8, ptr %.01732, i64 8
-  %.017.val26 = load ptr, ptr %31, align 8, !tbaa !40
-  %32 = getelementptr i8, ptr %.017.val26, i64 16
-  %.017.val26.val = load ptr, ptr %32, align 8, !tbaa !31
-  %33 = sext i32 %.017.val to i64
-  %34 = getelementptr inbounds %struct.reflog_info, ptr %.017.val26.val, i64 %33, i32 3
-  %35 = load i64, ptr %34, align 8, !tbaa !32
-  %36 = icmp ugt i64 %30, %35
-  br i1 %36, label %37, label %next_reflog_commit.exit.thread
+  %33 = getelementptr i8, ptr %.01732, i64 8
+  %.017.val26 = load ptr, ptr %33, align 8, !tbaa !40
+  %34 = getelementptr i8, ptr %.017.val26, i64 16
+  %.017.val26.val = load ptr, ptr %34, align 8, !tbaa !31
+  %35 = sext i32 %.017.val to i64
+  %36 = getelementptr inbounds %struct.reflog_info, ptr %.017.val26.val, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
+  %38 = load i64, ptr %37, align 8, !tbaa !32
+  %39 = icmp ugt i64 %32, %38
+  br i1 %39, label %40, label %next_reflog_commit.exit.thread
 
-37:                                               ; preds = %26, %next_reflog_commit.exit
+40:                                               ; preds = %27, %next_reflog_commit.exit
   br label %next_reflog_commit.exit.thread
 
-next_reflog_commit.exit.thread:                   ; preds = %22, %.lr.ph, %26, %37
-  %.120 = phi ptr [ %17, %37 ], [ %.01930, %26 ], [ %.01930, %.lr.ph ], [ %.01930, %22 ]
-  %.1 = phi ptr [ %6, %37 ], [ %.01732, %26 ], [ %.01732, %.lr.ph ], [ %.01732, %22 ]
-  %38 = add nuw i64 %.01831, 1
-  %39 = load i64, ptr %2, align 8, !tbaa !9
-  %40 = icmp ult i64 %38, %39
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !54
+next_reflog_commit.exit.thread:                   ; preds = %23, %.lr.ph, %27, %40
+  %.120 = phi ptr [ %18, %40 ], [ %.01930, %27 ], [ %.01930, %.lr.ph ], [ %.01930, %23 ]
+  %.1 = phi ptr [ %6, %40 ], [ %.01732, %27 ], [ %.01732, %.lr.ph ], [ %.01732, %23 ]
+  %41 = add nuw i64 %.01831, 1
+  %42 = load i64, ptr %2, align 8, !tbaa !9
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %next_reflog_commit.exit.thread
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge.thread, label %41
+  br i1 %.not, label %._crit_edge.thread, label %44
 
-41:                                               ; preds = %._crit_edge
-  %42 = load i32, ptr %.1, align 8, !tbaa !36
-  %43 = add nsw i32 %42, -1
-  store i32 %43, ptr %.1, align 8, !tbaa !36
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %.1, ptr %44, align 8, !tbaa !47
+44:                                               ; preds = %._crit_edge
+  %45 = load i32, ptr %.1, align 8, !tbaa !36
+  %46 = add nsw i32 %45, -1
+  store i32 %46, ptr %.1, align 8, !tbaa !36
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %.1, ptr %47, align 8, !tbaa !47
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %1, %._crit_edge, %41
-  %.0 = phi ptr [ %.120, %41 ], [ null, %._crit_edge ], [ null, %1 ]
+._crit_edge.thread:                               ; preds = %1, %._crit_edge, %44
+  %.0 = phi ptr [ %.120, %44 ], [ null, %._crit_edge ], [ null, %1 ]
   ret ptr %.0
 }
 

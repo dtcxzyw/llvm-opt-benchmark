@@ -3388,7 +3388,8 @@ if.end.i:                                         ; preds = %sw.bb137
   %regExpTable_.i.i = getelementptr inbounds nuw i8, ptr %47, i64 152
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %regExpTable_.i.i, align 8
   %conv.i = zext i32 %46 to i64
-  %regex.sroa.1.0.call3.sroa_idx.i = getelementptr inbounds nuw %"struct.hermes::RegExpTableEntry", ptr %retval.sroa.0.0.copyload.i.i, i64 %conv.i, i32 1
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.hermes::RegExpTableEntry", ptr %retval.sroa.0.0.copyload.i.i, i64 %conv.i
+  %regex.sroa.1.0.call3.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
   %regex.sroa.1.0.copyload.i = load i32, ptr %regex.sroa.1.0.call3.sroa_idx.i, align 4
   tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.48, i64 16, i32 noundef %46, i32 noundef 8)
   tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.49, i64 19, i32 noundef %46, i32 noundef %regex.sroa.1.0.copyload.i)

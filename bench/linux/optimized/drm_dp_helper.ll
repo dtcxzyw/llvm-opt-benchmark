@@ -4173,7 +4173,7 @@ define dso_local range(i32 -2147483648, 2) i32 @drm_dp_pcon_hdmi_link_mode(ptr n
   br label %17
 
 17:                                               ; preds = %14, %7, %2
-  %18 = phi i32 [ %5, %2 ], [ %10, %14 ], [ %10, %7 ]
+  %18 = phi i32 [ %5, %2 ], [ 1, %14 ], [ %10, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %18
 }

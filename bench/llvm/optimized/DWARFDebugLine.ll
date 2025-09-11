@@ -9341,21 +9341,22 @@ _ZNK4llvm14DWARFDebugLine9LineTable12findRowInSeqERKNS0_8SequenceENS_6object16Se
   %94 = load ptr, ptr %93, align 8, !tbaa !413
   br label %95
 
-95:                                               ; preds = %.lr.ph, %99
-  %.046 = phi i32 [ %88, %.lr.ph ], [ %100, %99 ]
+95:                                               ; preds = %.lr.ph, %100
+  %.046 = phi i32 [ %88, %.lr.ph ], [ %101, %100 ]
   %96 = zext i32 %.046 to i64
-  %97 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugLine::Row", ptr %94, i64 %96, i32 1
-  %98 = load i32, ptr %97, align 8, !tbaa !374
-  %.not23 = icmp eq i32 %98, 0
-  br i1 %.not23, label %99, label %.loopexit
+  %97 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugLine::Row", ptr %94, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %99 = load i32, ptr %98, align 8, !tbaa !374
+  %.not23 = icmp eq i32 %99, 0
+  br i1 %.not23, label %100, label %.loopexit
 
-99:                                               ; preds = %95
+100:                                              ; preds = %95
   store i8 1, ptr %3, align 1, !tbaa !443
-  %100 = add i32 %.046, -1
-  %.not22 = icmp ult i32 %100, %92
+  %101 = add i32 %.046, -1
+  %.not22 = icmp ult i32 %101, %92
   br i1 %.not22, label %._crit_edge, label %95, !llvm.loop !663
 
-._crit_edge:                                      ; preds = %99, %.preheader
+._crit_edge:                                      ; preds = %100, %.preheader
   store i8 0, ptr %3, align 1, !tbaa !443
   br label %.loopexit
 

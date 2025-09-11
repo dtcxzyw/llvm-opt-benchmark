@@ -5391,8 +5391,9 @@ define void @_ZN5boost4json5array8pop_backEv(ptr noundef nonnull readonly align 
 
 .lr.ph.i.preheader:                               ; preds = %1
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds nuw %"class.boost::json::value", ptr %3, i64 %9, i32 0, i32 0, i32 1
-  tail call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #48
+  %10 = getelementptr inbounds nuw %"class.boost::json::value", ptr %3, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  tail call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #48
   %.pre = load ptr, ptr %2, align 8, !tbaa !35
   %.pre3 = load i32, ptr %.pre, align 8, !tbaa !40
   %.pre4 = add i32 %.pre3, -1
@@ -5400,8 +5401,8 @@ define void @_ZN5boost4json5array8pop_backEv(ptr noundef nonnull readonly align 
 
 _ZN5boost4json5array7destroyEPNS0_5valueES3_.exit: ; preds = %.lr.ph.i.preheader, %1
   %.pre-phi = phi i32 [ %.pre4, %.lr.ph.i.preheader ], [ %5, %1 ]
-  %11 = phi ptr [ %.pre, %.lr.ph.i.preheader ], [ %3, %1 ]
-  store i32 %.pre-phi, ptr %11, align 8, !tbaa !40
+  %12 = phi ptr [ %.pre, %.lr.ph.i.preheader ], [ %3, %1 ]
+  store i32 %.pre-phi, ptr %12, align 8, !tbaa !40
   ret void
 }
 
@@ -10437,7 +10438,7 @@ _ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i: ; pre
   %61 = trunc i64 %60 to i32
   %62 = load i32, ptr %59, align 4, !tbaa !114
   %63 = icmp eq i32 %62, %61
-  br i1 %63, label %64, label %67
+  br i1 %63, label %64, label %.preheader.i.i
 
 64:                                               ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 36
@@ -10445,153 +10446,133 @@ _ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i: ; pre
   store i32 %66, ptr %59, align 4, !tbaa !114
   br label %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
 
-67:                                               ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i
-  %68 = zext i32 %62 to i64
-  %.idx.i.i = mul nuw nsw i64 %68, 40
-  %69 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
-  %.014.i.i = getelementptr inbounds nuw i8, ptr %69, i64 36
-  %70 = load i32, ptr %.014.i.i, align 4, !tbaa !114
-  %.not15.i.i = icmp eq i32 %70, %61
-  br i1 %.not15.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+.preheader.i.i:                                   ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i, %.preheader.i.i
+  %.pn14.in.i.i = phi i32 [ %67, %.preheader.i.i ], [ %62, %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i ]
+  %.pn14.i.i = zext i32 %.pn14.in.i.i to i64
+  %.pn.i.i = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %5, i64 %.pn14.i.i
+  %.0.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 36
+  %67 = load i32, ptr %.0.i.i, align 4, !tbaa !114
+  %.not.i.i = icmp eq i32 %67, %61
+  br i1 %.not.i.i, label %68, label %.preheader.i.i, !llvm.loop !147
 
-.lr.ph.i.i:                                       ; preds = %67, %.lr.ph.i.i
-  %71 = phi i32 [ %74, %.lr.ph.i.i ], [ %70, %67 ]
-  %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %5, i64 %72
-  %.0.i.i = getelementptr inbounds nuw i8, ptr %73, i64 36
-  %74 = load i32, ptr %.0.i.i, align 4, !tbaa !114
-  %.not.i.i = icmp eq i32 %74, %61
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !147
-
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %67
-  %.pn.lcssa.i.i = phi ptr [ %69, %67 ], [ %73, %.lr.ph.i.i ]
-  %.0.le.i.i = getelementptr inbounds nuw i8, ptr %.pn.lcssa.i.i, i64 36
-  %75 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %76 = load i32, ptr %75, align 4, !tbaa !114
-  store i32 %76, ptr %.0.le.i.i, align 4, !tbaa !114
+68:                                               ; preds = %.preheader.i.i
+  %.0.i.i.le = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 36
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  %70 = load i32, ptr %69, align 4, !tbaa !114
+  store i32 %70, ptr %.0.i.i.le, align 4, !tbaa !114
   br label %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
 
-_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i: ; preds = %._crit_edge.i.i, %64
-  %77 = load i64, ptr %9, align 8, !tbaa !17
-  %78 = and i64 %77, 3
-  %79 = icmp eq i64 %78, 2
-  %80 = icmp eq ptr %43, @_ZN5boost4json14key_value_pair6empty_E
-  %or.cond.i = select i1 %79, i1 true, i1 %80
-  br i1 %or.cond.i, label %_ZN5boost4json14key_value_pairD2Ev.exit18.i, label %81
+_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i: ; preds = %68, %64
+  %71 = load i64, ptr %9, align 8, !tbaa !17
+  %72 = and i64 %71, 3
+  %73 = icmp eq i64 %72, 2
+  %74 = icmp eq ptr %43, @_ZN5boost4json14key_value_pair6empty_E
+  %or.cond.i = select i1 %73, i1 true, i1 %74
+  br i1 %or.cond.i, label %_ZN5boost4json14key_value_pairD2Ev.exit18.i, label %75
 
-81:                                               ; preds = %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
-  %.not.i.i.i16.i = icmp eq i64 %77, 0
-  %82 = and i64 %77, -4
-  %83 = inttoptr i64 %82 to ptr
-  %.0.i.i.i17.i = select i1 %.not.i.i.i16.i, ptr @_ZN5boost4json6detail16default_resource9instance_E, ptr %83
-  %84 = load i32, ptr %44, align 8, !tbaa !107
-  %85 = add i32 %84, 1
-  %86 = zext i32 %85 to i64
-  %87 = load ptr, ptr %.0.i.i.i17.i, align 8, !tbaa !19
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %89 = load ptr, ptr %88, align 8
-  invoke void %89(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i17.i, ptr noundef %43, i64 noundef %86, i64 noundef 1)
-          to label %_ZN5boost4json14key_value_pairD2Ev.exit18.i unwind label %90
+75:                                               ; preds = %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
+  %.not.i.i.i16.i = icmp eq i64 %71, 0
+  %76 = and i64 %71, -4
+  %77 = inttoptr i64 %76 to ptr
+  %.0.i.i.i17.i = select i1 %.not.i.i.i16.i, ptr @_ZN5boost4json6detail16default_resource9instance_E, ptr %77
+  %78 = load i32, ptr %44, align 8, !tbaa !107
+  %79 = add i32 %78, 1
+  %80 = zext i32 %79 to i64
+  %81 = load ptr, ptr %.0.i.i.i17.i, align 8, !tbaa !19
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  %83 = load ptr, ptr %82, align 8
+  invoke void %83(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i17.i, ptr noundef %43, i64 noundef %80, i64 noundef 1)
+          to label %_ZN5boost4json14key_value_pairD2Ev.exit18.i unwind label %84
 
-90:                                               ; preds = %81
-  %91 = landingpad { ptr, i32 }
+84:                                               ; preds = %75
+  %85 = landingpad { ptr, i32 }
           catch ptr null
-  %92 = extractvalue { ptr, i32 } %91, 0
-  tail call void @__clang_call_terminate(ptr %92) #50
+  %86 = extractvalue { ptr, i32 } %85, 0
+  tail call void @__clang_call_terminate(ptr %86) #50
   unreachable
 
-_ZN5boost4json14key_value_pairD2Ev.exit18.i:      ; preds = %81, %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
+_ZN5boost4json14key_value_pairD2Ev.exit18.i:      ; preds = %75, %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
   tail call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #48
-  %93 = load ptr, ptr %3, align 8, !tbaa !102
-  %94 = load i32, ptr %93, align 8, !tbaa !106
-  %95 = add i32 %94, -1
-  store i32 %95, ptr %93, align 8, !tbaa !106
-  %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %98 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %97, i64 %96
-  %.not.i = icmp eq ptr %1, %98
-  br i1 %.not.i, label %"_ZN5boost4json6object8do_eraseIZNS1_5eraseEPKNS0_14key_value_pairEE3$_0ZNS1_5eraseES5_E3$_1EEPS3_S5_T_T0_.exit", label %99
+  %87 = load ptr, ptr %3, align 8, !tbaa !102
+  %88 = load i32, ptr %87, align 8, !tbaa !106
+  %89 = add i32 %88, -1
+  store i32 %89, ptr %87, align 8, !tbaa !106
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %92 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %91, i64 %90
+  %.not.i = icmp eq ptr %1, %92
+  br i1 %.not.i, label %"_ZN5boost4json6object8do_eraseIZNS1_5eraseEPKNS0_14key_value_pairEE3$_0ZNS1_5eraseES5_E3$_1EEPS3_S5_T_T0_.exit", label %93
 
-99:                                               ; preds = %_ZN5boost4json14key_value_pairD2Ev.exit18.i
-  %100 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !111
-  %102 = getelementptr inbounds nuw i8, ptr %98, i64 32
-  %103 = load i32, ptr %102, align 8, !tbaa !107
-  %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i8, ptr %101, i64 %104
-  %106 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %107 = load i64, ptr %106, align 8, !tbaa !112
-  %108 = add i64 %107, -3750763034362895579
-  %.not8.i.i.i.i.i.i = icmp eq i32 %103, 0
+93:                                               ; preds = %_ZN5boost4json14key_value_pairD2Ev.exit18.i
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  %95 = load ptr, ptr %94, align 8, !tbaa !111
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 32
+  %97 = load i32, ptr %96, align 8, !tbaa !107
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %101 = load i64, ptr %100, align 8, !tbaa !112
+  %102 = add i64 %101, -3750763034362895579
+  %.not8.i.i.i.i.i.i = icmp eq i32 %97, 0
   br i1 %.not8.i.i.i.i.i.i, label %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %99, %.lr.ph.i.i.i.i.i.i
-  %.010.i.i.i.i.i.i = phi i64 [ %112, %.lr.ph.i.i.i.i.i.i ], [ %108, %99 ]
-  %.079.i.i.i.i.i.i = phi ptr [ %113, %.lr.ph.i.i.i.i.i.i ], [ %101, %99 ]
-  %109 = load i8, ptr %.079.i.i.i.i.i.i, align 1, !tbaa !15
-  %110 = sext i8 %109 to i64
-  %111 = xor i64 %.010.i.i.i.i.i.i, %110
-  %112 = mul i64 %111, 1099511628211
-  %113 = getelementptr inbounds nuw i8, ptr %.079.i.i.i.i.i.i, i64 1
-  %.not.i.i.i.i.i.i = icmp eq ptr %113, %105
+.lr.ph.i.i.i.i.i.i:                               ; preds = %93, %.lr.ph.i.i.i.i.i.i
+  %.010.i.i.i.i.i.i = phi i64 [ %106, %.lr.ph.i.i.i.i.i.i ], [ %102, %93 ]
+  %.079.i.i.i.i.i.i = phi ptr [ %107, %.lr.ph.i.i.i.i.i.i ], [ %95, %93 ]
+  %103 = load i8, ptr %.079.i.i.i.i.i.i, align 1, !tbaa !15
+  %104 = sext i8 %103 to i64
+  %105 = xor i64 %.010.i.i.i.i.i.i, %104
+  %106 = mul i64 %105, 1099511628211
+  %107 = getelementptr inbounds nuw i8, ptr %.079.i.i.i.i.i.i, i64 1
+  %.not.i.i.i.i.i.i = icmp eq ptr %107, %99
   br i1 %.not.i.i.i.i.i.i, label %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !113
 
-_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %99
-  %.0.lcssa.i.i.i.i.i.i = phi i64 [ %108, %99 ], [ %112, %.lr.ph.i.i.i.i.i.i ]
-  %114 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  %115 = load i32, ptr %114, align 4, !tbaa !104
-  %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %97, i64 %116
-  %118 = urem i64 %.0.lcssa.i.i.i.i.i.i, %116
-  %119 = getelementptr inbounds nuw i32, ptr %117, i64 %118
-  %120 = load i32, ptr %119, align 4, !tbaa !114
-  %121 = icmp eq i32 %120, %95
-  br i1 %121, label %122, label %125
+_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %93
+  %.0.lcssa.i.i.i.i.i.i = phi i64 [ %102, %93 ], [ %106, %.lr.ph.i.i.i.i.i.i ]
+  %108 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  %109 = load i32, ptr %108, align 4, !tbaa !104
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %91, i64 %110
+  %112 = urem i64 %.0.lcssa.i.i.i.i.i.i, %110
+  %113 = getelementptr inbounds nuw i32, ptr %111, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !114
+  %115 = icmp eq i32 %114, %89
+  br i1 %115, label %116, label %.preheader.i.i.i.i
 
-122:                                              ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i
-  %123 = getelementptr inbounds nuw i8, ptr %98, i64 36
-  %124 = load i32, ptr %123, align 4, !tbaa !114
-  store i32 %124, ptr %119, align 4, !tbaa !114
+116:                                              ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i
+  %117 = getelementptr inbounds nuw i8, ptr %92, i64 36
+  %118 = load i32, ptr %117, align 4, !tbaa !114
+  store i32 %118, ptr %113, align 4, !tbaa !114
   br label %"_ZZN5boost4json6object5eraseEPKNS0_14key_value_pairEENK3$_1clEPS2_.exit.i"
 
-125:                                              ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i
-  %126 = zext i32 %120 to i64
-  %.idx.i.i.i.i = mul nuw nsw i64 %126, 40
-  %127 = getelementptr inbounds nuw i8, ptr %97, i64 %.idx.i.i.i.i
-  %.014.i.i.i.i = getelementptr inbounds nuw i8, ptr %127, i64 36
-  %128 = load i32, ptr %.014.i.i.i.i, align 4, !tbaa !114
-  %.not15.i.i.i.i = icmp eq i32 %128, %95
-  br i1 %.not15.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i19.i
+.preheader.i.i.i.i:                               ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i, %.preheader.i.i.i.i
+  %.pn14.in.i.i.i.i = phi i32 [ %119, %.preheader.i.i.i.i ], [ %114, %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i ]
+  %.pn14.i.i.i.i = zext i32 %.pn14.in.i.i.i.i to i64
+  %.pn.i.i.i.i = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %91, i64 %.pn14.i.i.i.i
+  %.0.i.i.i19.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 36
+  %119 = load i32, ptr %.0.i.i.i19.i, align 4, !tbaa !114
+  %.not.i.i.i20.i = icmp eq i32 %119, %89
+  br i1 %.not.i.i.i20.i, label %120, label %.preheader.i.i.i.i, !llvm.loop !147
 
-.lr.ph.i.i.i19.i:                                 ; preds = %125, %.lr.ph.i.i.i19.i
-  %129 = phi i32 [ %132, %.lr.ph.i.i.i19.i ], [ %128, %125 ]
-  %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %97, i64 %130
-  %.0.i.i.i20.i = getelementptr inbounds nuw i8, ptr %131, i64 36
-  %132 = load i32, ptr %.0.i.i.i20.i, align 4, !tbaa !114
-  %.not.i.i.i21.i = icmp eq i32 %132, %95
-  br i1 %.not.i.i.i21.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i19.i, !llvm.loop !147
-
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i19.i, %125
-  %.pn.lcssa.i.i.i.i = phi ptr [ %127, %125 ], [ %131, %.lr.ph.i.i.i19.i ]
-  %.0.le.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.lcssa.i.i.i.i, i64 36
-  %133 = getelementptr inbounds nuw i8, ptr %98, i64 36
-  %134 = load i32, ptr %133, align 4, !tbaa !114
-  store i32 %134, ptr %.0.le.i.i.i.i, align 4, !tbaa !114
+120:                                              ; preds = %.preheader.i.i.i.i
+  %.0.i.i.i19.i.le = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 36
+  %121 = getelementptr inbounds nuw i8, ptr %92, i64 36
+  %122 = load i32, ptr %121, align 4, !tbaa !114
+  store i32 %122, ptr %.0.i.i.i19.i.le, align 4, !tbaa !114
   br label %"_ZZN5boost4json6object5eraseEPKNS0_14key_value_pairEENK3$_1clEPS2_.exit.i"
 
-"_ZZN5boost4json6object5eraseEPKNS0_14key_value_pairEENK3$_1clEPS2_.exit.i": ; preds = %._crit_edge.i.i.i.i, %122
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(40) %98, i64 40, i1 false)
-  %135 = load i32, ptr %119, align 4, !tbaa !114
-  %136 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 %135, ptr %136, align 4, !tbaa !114
-  %137 = load ptr, ptr %3, align 8, !tbaa !102
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %139 = ptrtoint ptr %138 to i64
-  %140 = sub i64 %6, %139
-  %141 = sdiv exact i64 %140, 40
-  %142 = trunc i64 %141 to i32
-  store i32 %142, ptr %119, align 4, !tbaa !114
+"_ZZN5boost4json6object5eraseEPKNS0_14key_value_pairEENK3$_1clEPS2_.exit.i": ; preds = %120, %116
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(40) %92, i64 40, i1 false)
+  %123 = load i32, ptr %113, align 4, !tbaa !114
+  %124 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  store i32 %123, ptr %124, align 4, !tbaa !114
+  %125 = load ptr, ptr %3, align 8, !tbaa !102
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  %127 = ptrtoint ptr %126 to i64
+  %128 = sub i64 %6, %127
+  %129 = sdiv exact i64 %128, 40
+  %130 = trunc i64 %129 to i32
+  store i32 %130, ptr %113, align 4, !tbaa !114
   br label %"_ZN5boost4json6object8do_eraseIZNS1_5eraseEPKNS0_14key_value_pairEE3$_0ZNS1_5eraseES5_E3$_1EEPS3_S5_T_T0_.exit"
 
 "_ZN5boost4json6object8do_eraseIZNS1_5eraseEPKNS0_14key_value_pairEE3$_0ZNS1_5eraseES5_E3$_1EEPS3_S5_T_T0_.exit": ; preds = %_ZN5boost4json14key_value_pairD2Ev.exit.i, %40, %_ZN5boost4json14key_value_pairD2Ev.exit18.i, %"_ZZN5boost4json6object5eraseEPKNS0_14key_value_pairEENK3$_1clEPS2_.exit.i"
@@ -10744,7 +10725,7 @@ _ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i: ; pre
   %64 = trunc i64 %63 to i32
   %65 = load i32, ptr %62, align 4, !tbaa !114
   %66 = icmp eq i32 %65, %64
-  br i1 %66, label %67, label %70
+  br i1 %66, label %67, label %.preheader.i.i
 
 67:                                               ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 36
@@ -10752,168 +10733,148 @@ _ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i: ; pre
   store i32 %69, ptr %62, align 4, !tbaa !114
   br label %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
 
-70:                                               ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i
-  %71 = zext i32 %65 to i64
-  %.idx.i.i = mul nuw nsw i64 %71, 40
-  %72 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
-  %.014.i.i = getelementptr inbounds nuw i8, ptr %72, i64 36
-  %73 = load i32, ptr %.014.i.i, align 4, !tbaa !114
-  %.not15.i.i = icmp eq i32 %73, %64
-  br i1 %.not15.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+.preheader.i.i:                                   ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i, %.preheader.i.i
+  %.pn14.in.i.i = phi i32 [ %70, %.preheader.i.i ], [ %65, %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i ]
+  %.pn14.i.i = zext i32 %.pn14.in.i.i to i64
+  %.pn.i.i = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %5, i64 %.pn14.i.i
+  %.0.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 36
+  %70 = load i32, ptr %.0.i.i, align 4, !tbaa !114
+  %.not.i.i = icmp eq i32 %70, %64
+  br i1 %.not.i.i, label %71, label %.preheader.i.i, !llvm.loop !147
 
-.lr.ph.i.i:                                       ; preds = %70, %.lr.ph.i.i
-  %74 = phi i32 [ %77, %.lr.ph.i.i ], [ %73, %70 ]
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %5, i64 %75
-  %.0.i.i = getelementptr inbounds nuw i8, ptr %76, i64 36
-  %77 = load i32, ptr %.0.i.i, align 4, !tbaa !114
-  %.not.i.i = icmp eq i32 %77, %64
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !147
-
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %70
-  %.pn.lcssa.i.i = phi ptr [ %72, %70 ], [ %76, %.lr.ph.i.i ]
-  %.0.le.i.i = getelementptr inbounds nuw i8, ptr %.pn.lcssa.i.i, i64 36
-  %78 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %79 = load i32, ptr %78, align 4, !tbaa !114
-  store i32 %79, ptr %.0.le.i.i, align 4, !tbaa !114
+71:                                               ; preds = %.preheader.i.i
+  %.0.i.i.le = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  %73 = load i32, ptr %72, align 4, !tbaa !114
+  store i32 %73, ptr %.0.i.i.le, align 4, !tbaa !114
   br label %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
 
-_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i: ; preds = %._crit_edge.i.i, %67
-  %80 = load i64, ptr %9, align 8, !tbaa !17
-  %81 = and i64 %80, 3
-  %82 = icmp eq i64 %81, 2
-  %83 = icmp eq ptr %46, @_ZN5boost4json14key_value_pair6empty_E
-  %or.cond.i = select i1 %82, i1 true, i1 %83
-  br i1 %or.cond.i, label %_ZN5boost4json14key_value_pairD2Ev.exit18.i, label %84
+_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i: ; preds = %71, %67
+  %74 = load i64, ptr %9, align 8, !tbaa !17
+  %75 = and i64 %74, 3
+  %76 = icmp eq i64 %75, 2
+  %77 = icmp eq ptr %46, @_ZN5boost4json14key_value_pair6empty_E
+  %or.cond.i = select i1 %76, i1 true, i1 %77
+  br i1 %or.cond.i, label %_ZN5boost4json14key_value_pairD2Ev.exit18.i, label %78
 
-84:                                               ; preds = %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
-  %.not.i.i.i16.i = icmp eq i64 %80, 0
-  %85 = and i64 %80, -4
-  %86 = inttoptr i64 %85 to ptr
-  %.0.i.i.i17.i = select i1 %.not.i.i.i16.i, ptr @_ZN5boost4json6detail16default_resource9instance_E, ptr %86
-  %87 = load i32, ptr %47, align 8, !tbaa !107
-  %88 = add i32 %87, 1
-  %89 = zext i32 %88 to i64
-  %90 = load ptr, ptr %.0.i.i.i17.i, align 8, !tbaa !19
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  %92 = load ptr, ptr %91, align 8
-  invoke void %92(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i17.i, ptr noundef %46, i64 noundef %89, i64 noundef 1)
-          to label %_ZN5boost4json14key_value_pairD2Ev.exit18.i unwind label %93
+78:                                               ; preds = %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
+  %.not.i.i.i16.i = icmp eq i64 %74, 0
+  %79 = and i64 %74, -4
+  %80 = inttoptr i64 %79 to ptr
+  %.0.i.i.i17.i = select i1 %.not.i.i.i16.i, ptr @_ZN5boost4json6detail16default_resource9instance_E, ptr %80
+  %81 = load i32, ptr %47, align 8, !tbaa !107
+  %82 = add i32 %81, 1
+  %83 = zext i32 %82 to i64
+  %84 = load ptr, ptr %.0.i.i.i17.i, align 8, !tbaa !19
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %86 = load ptr, ptr %85, align 8
+  invoke void %86(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i17.i, ptr noundef %46, i64 noundef %83, i64 noundef 1)
+          to label %_ZN5boost4json14key_value_pairD2Ev.exit18.i unwind label %87
 
-93:                                               ; preds = %84
-  %94 = landingpad { ptr, i32 }
+87:                                               ; preds = %78
+  %88 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  tail call void @__clang_call_terminate(ptr %95) #50
+  %89 = extractvalue { ptr, i32 } %88, 0
+  tail call void @__clang_call_terminate(ptr %89) #50
   unreachable
 
-_ZN5boost4json14key_value_pairD2Ev.exit18.i:      ; preds = %84, %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
+_ZN5boost4json14key_value_pairD2Ev.exit18.i:      ; preds = %78, %_ZN5boost4json6object6removeERjRNS0_14key_value_pairE.exit.i
   tail call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #48
-  %96 = load ptr, ptr %3, align 8, !tbaa !102
-  %97 = load i32, ptr %96, align 8, !tbaa !106
-  %98 = add i32 %97, -1
-  store i32 %98, ptr %96, align 8, !tbaa !106
-  %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %101 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %100, i64 %99
-  %.not.i = icmp eq ptr %1, %101
-  br i1 %.not.i, label %"_ZN5boost4json6object8do_eraseIZNS1_12stable_eraseEPKNS0_14key_value_pairEE3$_0ZNS1_12stable_eraseES5_E3$_1EEPS3_S5_T_T0_.exit", label %.lr.ph.i19.i
+  %90 = load ptr, ptr %3, align 8, !tbaa !102
+  %91 = load i32, ptr %90, align 8, !tbaa !106
+  %92 = add i32 %91, -1
+  store i32 %92, ptr %90, align 8, !tbaa !106
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %95 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %94, i64 %93
+  %.not.i = icmp eq ptr %1, %95
+  br i1 %.not.i, label %"_ZN5boost4json6object8do_eraseIZNS1_12stable_eraseEPKNS0_14key_value_pairEE3$_0ZNS1_12stable_eraseES5_E3$_1EEPS3_S5_T_T0_.exit", label %.lr.ph.i.i
 
-.lr.ph.i19.i:                                     ; preds = %_ZN5boost4json14key_value_pairD2Ev.exit18.i, %_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i
-  %102 = phi ptr [ %148, %_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i ], [ %100, %_ZN5boost4json14key_value_pairD2Ev.exit18.i ]
-  %103 = phi ptr [ %147, %_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i ], [ %96, %_ZN5boost4json14key_value_pairD2Ev.exit18.i ]
-  %.03.i.i = phi ptr [ %104, %_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i ], [ %9, %_ZN5boost4json14key_value_pairD2Ev.exit18.i ]
-  %104 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 40
-  %105 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 64
-  %106 = load ptr, ptr %105, align 8, !tbaa !111
-  %107 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 72
-  %108 = load i32, ptr %107, align 8, !tbaa !107
-  %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 %109
-  %111 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %112 = load i64, ptr %111, align 8, !tbaa !112
-  %113 = add i64 %112, -3750763034362895579
-  %.not8.i.i.i.i.i.i = icmp eq i32 %108, 0
+.lr.ph.i.i:                                       ; preds = %_ZN5boost4json14key_value_pairD2Ev.exit18.i, %_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i
+  %96 = phi ptr [ %136, %_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i ], [ %94, %_ZN5boost4json14key_value_pairD2Ev.exit18.i ]
+  %97 = phi ptr [ %135, %_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i ], [ %90, %_ZN5boost4json14key_value_pairD2Ev.exit18.i ]
+  %.02.i.i = phi ptr [ %98, %_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i ], [ %9, %_ZN5boost4json14key_value_pairD2Ev.exit18.i ]
+  %98 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 64
+  %100 = load ptr, ptr %99, align 8, !tbaa !111
+  %101 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 72
+  %102 = load i32, ptr %101, align 8, !tbaa !107
+  %103 = zext i32 %102 to i64
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %106 = load i64, ptr %105, align 8, !tbaa !112
+  %107 = add i64 %106, -3750763034362895579
+  %.not8.i.i.i.i.i.i = icmp eq i32 %102, 0
   br i1 %.not8.i.i.i.i.i.i, label %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i19.i, %.lr.ph.i.i.i.i.i.i
-  %.010.i.i.i.i.i.i = phi i64 [ %117, %.lr.ph.i.i.i.i.i.i ], [ %113, %.lr.ph.i19.i ]
-  %.079.i.i.i.i.i.i = phi ptr [ %118, %.lr.ph.i.i.i.i.i.i ], [ %106, %.lr.ph.i19.i ]
-  %114 = load i8, ptr %.079.i.i.i.i.i.i, align 1, !tbaa !15
-  %115 = sext i8 %114 to i64
-  %116 = xor i64 %.010.i.i.i.i.i.i, %115
-  %117 = mul i64 %116, 1099511628211
-  %118 = getelementptr inbounds nuw i8, ptr %.079.i.i.i.i.i.i, i64 1
-  %.not.i.i.i.i.i.i = icmp eq ptr %118, %110
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i
+  %.010.i.i.i.i.i.i = phi i64 [ %111, %.lr.ph.i.i.i.i.i.i ], [ %107, %.lr.ph.i.i ]
+  %.079.i.i.i.i.i.i = phi ptr [ %112, %.lr.ph.i.i.i.i.i.i ], [ %100, %.lr.ph.i.i ]
+  %108 = load i8, ptr %.079.i.i.i.i.i.i, align 1, !tbaa !15
+  %109 = sext i8 %108 to i64
+  %110 = xor i64 %.010.i.i.i.i.i.i, %109
+  %111 = mul i64 %110, 1099511628211
+  %112 = getelementptr inbounds nuw i8, ptr %.079.i.i.i.i.i.i, i64 1
+  %.not.i.i.i.i.i.i = icmp eq ptr %112, %104
   br i1 %.not.i.i.i.i.i.i, label %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !113
 
-_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i19.i
-  %.0.lcssa.i.i.i.i.i.i = phi i64 [ %113, %.lr.ph.i19.i ], [ %117, %.lr.ph.i.i.i.i.i.i ]
-  %119 = getelementptr inbounds nuw i8, ptr %103, i64 4
-  %120 = load i32, ptr %119, align 4, !tbaa !104
-  %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %102, i64 %121
-  %123 = urem i64 %.0.lcssa.i.i.i.i.i.i, %121
-  %124 = getelementptr inbounds nuw i32, ptr %122, i64 %123
-  %125 = ptrtoint ptr %104 to i64
-  %126 = ptrtoint ptr %102 to i64
-  %127 = sub i64 %125, %126
-  %128 = sdiv exact i64 %127, 40
-  %129 = trunc i64 %128 to i32
-  %130 = load i32, ptr %124, align 4, !tbaa !114
-  %131 = icmp eq i32 %130, %129
-  br i1 %131, label %132, label %135
+_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i
+  %.0.lcssa.i.i.i.i.i.i = phi i64 [ %107, %.lr.ph.i.i ], [ %111, %.lr.ph.i.i.i.i.i.i ]
+  %113 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  %114 = load i32, ptr %113, align 4, !tbaa !104
+  %115 = zext i32 %114 to i64
+  %116 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %96, i64 %115
+  %117 = urem i64 %.0.lcssa.i.i.i.i.i.i, %115
+  %118 = getelementptr inbounds nuw i32, ptr %116, i64 %117
+  %119 = ptrtoint ptr %98 to i64
+  %120 = ptrtoint ptr %96 to i64
+  %121 = sub i64 %119, %120
+  %122 = sdiv exact i64 %121, 40
+  %123 = trunc i64 %122 to i32
+  %124 = load i32, ptr %118, align 4, !tbaa !114
+  %125 = icmp eq i32 %124, %123
+  br i1 %125, label %126, label %.preheader.i.i.i.i
 
-132:                                              ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i
-  %133 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 76
-  %134 = load i32, ptr %133, align 4, !tbaa !114
-  store i32 %134, ptr %124, align 4, !tbaa !114
+126:                                              ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i
+  %127 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 76
+  %128 = load i32, ptr %127, align 4, !tbaa !114
+  store i32 %128, ptr %118, align 4, !tbaa !114
   br label %_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i
 
-135:                                              ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i
-  %136 = zext i32 %130 to i64
-  %.idx.i.i.i.i = mul nuw nsw i64 %136, 40
-  %137 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx.i.i.i.i
-  %.014.i.i.i.i = getelementptr inbounds nuw i8, ptr %137, i64 36
-  %138 = load i32, ptr %.014.i.i.i.i, align 4, !tbaa !114
-  %.not15.i.i.i.i = icmp eq i32 %138, %129
-  br i1 %.not15.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i20.i
+.preheader.i.i.i.i:                               ; preds = %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i, %.preheader.i.i.i.i
+  %.pn14.in.i.i.i.i = phi i32 [ %129, %.preheader.i.i.i.i ], [ %124, %_ZN5boost4json6object5table6bucketENS_4core17basic_string_viewIcEE.exit.i.i.i ]
+  %.pn14.i.i.i.i = zext i32 %.pn14.in.i.i.i.i to i64
+  %.pn.i.i.i.i = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %96, i64 %.pn14.i.i.i.i
+  %.0.i.i.i19.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 36
+  %129 = load i32, ptr %.0.i.i.i19.i, align 4, !tbaa !114
+  %.not.i.i.i20.i = icmp eq i32 %129, %123
+  br i1 %.not.i.i.i20.i, label %130, label %.preheader.i.i.i.i, !llvm.loop !147
 
-.lr.ph.i.i.i20.i:                                 ; preds = %135, %.lr.ph.i.i.i20.i
-  %139 = phi i32 [ %142, %.lr.ph.i.i.i20.i ], [ %138, %135 ]
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %102, i64 %140
-  %.0.i.i.i21.i = getelementptr inbounds nuw i8, ptr %141, i64 36
-  %142 = load i32, ptr %.0.i.i.i21.i, align 4, !tbaa !114
-  %.not.i.i.i22.i = icmp eq i32 %142, %129
-  br i1 %.not.i.i.i22.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i20.i, !llvm.loop !147
-
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i20.i, %135
-  %.pn.lcssa.i.i.i.i = phi ptr [ %137, %135 ], [ %141, %.lr.ph.i.i.i20.i ]
-  %.0.le.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.lcssa.i.i.i.i, i64 36
-  %143 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 76
-  %144 = load i32, ptr %143, align 4, !tbaa !114
-  store i32 %144, ptr %.0.le.i.i.i.i, align 4, !tbaa !114
+130:                                              ; preds = %.preheader.i.i.i.i
+  %.0.i.i.i19.i.le = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 36
+  %131 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 76
+  %132 = load i32, ptr %131, align 4, !tbaa !114
+  store i32 %132, ptr %.0.i.i.i19.i.le, align 4, !tbaa !114
   br label %_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i
 
-_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i: ; preds = %._crit_edge.i.i.i.i, %132
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.03.i.i, ptr noundef nonnull align 1 dereferenceable(40) %104, i64 40, i1 false)
-  %145 = load i32, ptr %124, align 4, !tbaa !114
-  %146 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 36
-  store i32 %145, ptr %146, align 4, !tbaa !114
-  %147 = load ptr, ptr %3, align 8, !tbaa !102
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %149 = ptrtoint ptr %.03.i.i to i64
-  %150 = ptrtoint ptr %148 to i64
-  %151 = sub i64 %149, %150
-  %152 = sdiv exact i64 %151, 40
-  %153 = trunc i64 %152 to i32
-  store i32 %153, ptr %124, align 4, !tbaa !114
-  %154 = load i32, ptr %147, align 8, !tbaa !106
-  %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %148, i64 %155
-  %.not.i23.i = icmp eq ptr %104, %156
-  br i1 %.not.i23.i, label %"_ZN5boost4json6object8do_eraseIZNS1_12stable_eraseEPKNS0_14key_value_pairEE3$_0ZNS1_12stable_eraseES5_E3$_1EEPS3_S5_T_T0_.exit", label %.lr.ph.i19.i, !llvm.loop !148
+_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i: ; preds = %130, %126
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.02.i.i, ptr noundef nonnull align 1 dereferenceable(40) %98, i64 40, i1 false)
+  %133 = load i32, ptr %118, align 4, !tbaa !114
+  %134 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 36
+  store i32 %133, ptr %134, align 4, !tbaa !114
+  %135 = load ptr, ptr %3, align 8, !tbaa !102
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  %137 = ptrtoint ptr %.02.i.i to i64
+  %138 = ptrtoint ptr %136 to i64
+  %139 = sub i64 %137, %138
+  %140 = sdiv exact i64 %139, 40
+  %141 = trunc i64 %140 to i32
+  store i32 %141, ptr %118, align 4, !tbaa !114
+  %142 = load i32, ptr %135, align 8, !tbaa !106
+  %143 = zext i32 %142 to i64
+  %144 = getelementptr inbounds nuw %"class.boost::json::key_value_pair", ptr %136, i64 %143
+  %.not.i21.i = icmp eq ptr %98, %144
+  br i1 %.not.i21.i, label %"_ZN5boost4json6object8do_eraseIZNS1_12stable_eraseEPKNS0_14key_value_pairEE3$_0ZNS1_12stable_eraseES5_E3$_1EEPS3_S5_T_T0_.exit", label %.lr.ph.i.i, !llvm.loop !148
 
 "_ZN5boost4json6object8do_eraseIZNS1_12stable_eraseEPKNS0_14key_value_pairEE3$_0ZNS1_12stable_eraseES5_E3$_1EEPS3_S5_T_T0_.exit": ; preds = %_ZN5boost4json6object16reindex_relocateEPNS0_14key_value_pairES3_.exit.i.i, %_ZN5boost4json14key_value_pairD2Ev.exit.i, %40, %_ZN5boost4json14key_value_pairD2Ev.exit18.i
   ret ptr %9

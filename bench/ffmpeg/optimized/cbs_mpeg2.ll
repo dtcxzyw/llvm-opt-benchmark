@@ -3761,81 +3761,82 @@ define internal range(i32 -12, 1) i32 @cbs_mpeg2_assemble_fragment(ptr readnone 
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %.03739 = phi i64 [ 0, %.lr.ph ], [ %12, %8 ]
-  %9 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %7, i64 %indvars.iv, i32 2
-  %10 = load i64, ptr %9, align 8, !tbaa !21
-  %11 = add i64 %.03739, 3
-  %12 = add i64 %11, %10
+  %.03739 = phi i64 [ 0, %.lr.ph ], [ %13, %8 ]
+  %9 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %10, align 8, !tbaa !21
+  %12 = add i64 %.03739, 3
+  %13 = add i64 %12, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %8, %2
-  %.037.lcssa = phi i64 [ 0, %2 ], [ %12, %8 ]
-  %13 = add i64 %.037.lcssa, 64
-  %14 = tail call ptr @av_buffer_alloc(i64 noundef %13) #7
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %14, ptr %15, align 8, !tbaa !16
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %44, label %16
+  %.037.lcssa = phi i64 [ 0, %2 ], [ %13, %8 ]
+  %14 = add i64 %.037.lcssa, 64
+  %15 = tail call ptr @av_buffer_alloc(i64 noundef %14) #7
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %15, ptr %16, align 8, !tbaa !16
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %45, label %17
 
-16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !69
-  %19 = load i32, ptr %3, align 8, !tbaa !169
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph44, label %._crit_edge45
+17:                                               ; preds = %._crit_edge
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !69
+  %20 = load i32, ptr %3, align 8, !tbaa !169
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph44, label %._crit_edge45
 
-.lr.ph44:                                         ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %22
+.lr.ph44:                                         ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  br label %23
 
-22:                                               ; preds = %.lr.ph44, %22
-  %indvars.iv49 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next50, %22 ]
-  %.03641 = phi i64 [ 0, %.lr.ph44 ], [ %35, %22 ]
-  %23 = load ptr, ptr %21, align 8, !tbaa !170
-  %24 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %23, i64 %indvars.iv49
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.03641
-  store i8 0, ptr %25, align 1, !tbaa !45
-  %26 = getelementptr i8, ptr %25, i64 1
+23:                                               ; preds = %.lr.ph44, %23
+  %indvars.iv49 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next50, %23 ]
+  %.03641 = phi i64 [ 0, %.lr.ph44 ], [ %36, %23 ]
+  %24 = load ptr, ptr %22, align 8, !tbaa !170
+  %25 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %24, i64 %indvars.iv49
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.03641
   store i8 0, ptr %26, align 1, !tbaa !45
-  %27 = add i64 %.03641, 3
-  %28 = getelementptr i8, ptr %25, i64 2
-  store i8 1, ptr %28, align 1, !tbaa !45
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 %27
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !19
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %31, i64 %33, i1 false)
-  %34 = load i64, ptr %32, align 8, !tbaa !21
-  %35 = add i64 %34, %27
+  %27 = getelementptr i8, ptr %26, i64 1
+  store i8 0, ptr %27, align 1, !tbaa !45
+  %28 = add i64 %.03641, 3
+  %29 = getelementptr i8, ptr %26, i64 2
+  store i8 1, ptr %29, align 1, !tbaa !45
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 %28
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !19
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %34 = load i64, ptr %33, align 8, !tbaa !21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %32, i64 %34, i1 false)
+  %35 = load i64, ptr %33, align 8, !tbaa !21
+  %36 = add i64 %35, %28
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %36 = load i32, ptr %3, align 8, !tbaa !169
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next50, %37
-  br i1 %38, label %22, label %._crit_edge45, !llvm.loop !172
+  %37 = load i32, ptr %3, align 8, !tbaa !169
+  %38 = sext i32 %37 to i64
+  %39 = icmp slt i64 %indvars.iv.next50, %38
+  br i1 %39, label %23, label %._crit_edge45, !llvm.loop !172
 
-._crit_edge45:                                    ; preds = %22, %16
-  %.036.lcssa = phi i64 [ 0, %16 ], [ %35, %22 ]
-  %39 = icmp eq i64 %.036.lcssa, %.037.lcssa
-  br i1 %39, label %41, label %40
+._crit_edge45:                                    ; preds = %23, %17
+  %.036.lcssa = phi i64 [ 0, %17 ], [ %36, %23 ]
+  %40 = icmp eq i64 %.036.lcssa, %.037.lcssa
+  br i1 %40, label %42, label %41
 
-40:                                               ; preds = %._crit_edge45
+41:                                               ; preds = %._crit_edge45
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.104, i32 noundef 391) #7
   tail call void @abort() #8
   unreachable
 
-41:                                               ; preds = %._crit_edge45
-  %42 = getelementptr inbounds nuw i8, ptr %18, i64 %.037.lcssa
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %42, i8 0, i64 64, i1 false)
-  store ptr %18, ptr %1, align 8, !tbaa !8
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.037.lcssa, ptr %43, align 8, !tbaa !15
-  br label %44
+42:                                               ; preds = %._crit_edge45
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 %.037.lcssa
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %43, i8 0, i64 64, i1 false)
+  store ptr %19, ptr %1, align 8, !tbaa !8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.037.lcssa, ptr %44, align 8, !tbaa !15
+  br label %45
 
-44:                                               ; preds = %._crit_edge, %41
-  %.0 = phi i32 [ 0, %41 ], [ -12, %._crit_edge ]
+45:                                               ; preds = %._crit_edge, %42
+  %.0 = phi i32 [ 0, %42 ], [ -12, %._crit_edge ]
   ret i32 %.0
 }
 

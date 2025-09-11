@@ -175,34 +175,35 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
 
 85:                                               ; preds = %83
   %86 = zext nneg i32 %84 to i64
-  %87 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %86, i32 2
-  %88 = load i32, ptr %87, align 4, !tbaa !31
-  %89 = icmp sgt i32 %88, 19
-  br i1 %89, label %90, label %get_weights.exit
+  %87 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %86
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  %89 = load i32, ptr %88, align 4, !tbaa !31
+  %90 = icmp sgt i32 %89, 19
+  br i1 %90, label %91, label %get_weights.exit
 
-90:                                               ; preds = %85
+91:                                               ; preds = %85
   call void (i32, ptr, ...) @pmix_output(i32 noundef %84, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %.2.i) #6
   br label %get_weights.exit
 
-get_weights.exit:                                 ; preds = %83, %85, %90
+get_weights.exit:                                 ; preds = %83, %85, %91
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %91 = load ptr, ptr %21, align 8, !tbaa !34
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv37
-  %93 = load ptr, ptr %92, align 8, !tbaa !37
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv
-  store i32 %.227.i, ptr %94, align 4, !tbaa !3
+  %92 = load ptr, ptr %21, align 8, !tbaa !34
+  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv37
+  %94 = load ptr, ptr %93, align 8, !tbaa !37
+  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv
+  store i32 %.227.i, ptr %95, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %95 = getelementptr inbounds nuw i8, ptr %.028, i64 120
-  %.0 = load ptr, ptr %95, align 8, !tbaa !16
+  %96 = getelementptr inbounds nuw i8, ptr %.028, i64 120
+  %.0 = load ptr, ptr %96, align 8, !tbaa !16
   %.not24 = icmp eq ptr %.0, %17
   br i1 %.not24, label %._crit_edge, label %29, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %get_weights.exit, %.lr.ph34.split
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %96 = getelementptr inbounds nuw i8, ptr %.01932, i64 120
-  %.019 = load ptr, ptr %96, align 8, !tbaa !16
+  %97 = getelementptr inbounds nuw i8, ptr %.01932, i64 120
+  %.019 = load ptr, ptr %97, align 8, !tbaa !16
   %.not = icmp eq ptr %.019, %15
   br i1 %.not, label %.loopexit, label %.lr.ph34.split, !llvm.loop !41
 

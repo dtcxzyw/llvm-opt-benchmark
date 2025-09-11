@@ -10941,7 +10941,7 @@ define linkonce_odr hidden void @_ZN1q8mam_impl9update_ppEhhPNS_4pathES2_P10quan
 
 72:                                               ; preds = %65
   tail call void @_ZN1q8mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef nonnull %71, ptr noundef %.075, ptr noundef %5, ptr noundef %6)
-  %73 = getelementptr inbounds nuw %"struct.std::pair", ptr %68, i64 %69, i32 1
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !684
   tail call void @_ZN1q8mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef %74, ptr noundef %.076, ptr noundef %5, ptr noundef %6)
   br label %_ZN1q8is_equalEPKNS_4pathES2_.exit
@@ -10984,7 +10984,7 @@ define linkonce_odr hidden void @_ZN1q8mam_impl9update_ppEhhPNS_4pathES2_P10quan
   %94 = add i32 %89, 1
   store i32 %94, ptr %91, align 4, !tbaa !43
   %95 = load ptr, ptr %75, align 8, !tbaa !646
-  %96 = getelementptr inbounds nuw %"struct.std::pair", ptr %68, i64 %69, i32 1
+  %96 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 2168
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 2184
   %99 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %98, i64 noundef 16)

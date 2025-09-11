@@ -1840,13 +1840,13 @@ _ZN12_GLOBAL__N_124X86CallFrameOptimization12isProfitableERN4llvm15MachineFuncti
   %658 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %659
 
-659:                                              ; preds = %.lr.ph155, %929
-  %.028154 = phi ptr [ %.val36, %.lr.ph155 ], [ %930, %929 ]
-  %.029153 = phi i1 [ false, %.lr.ph155 ], [ %.130, %929 ]
+659:                                              ; preds = %.lr.ph155, %930
+  %.028154 = phi ptr [ %.val36, %.lr.ph155 ], [ %931, %930 ]
+  %.029153 = phi i1 [ false, %.lr.ph155 ], [ %.130, %930 ]
   %660 = getelementptr inbounds nuw i8, ptr %.028154, i64 81
   %661 = load i8, ptr %660, align 1, !tbaa !387, !range !50, !noundef !51
   %662 = trunc nuw i8 %661 to i1
-  br i1 %662, label %663, label %929
+  br i1 %662, label %663, label %930
 
 663:                                              ; preds = %659
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2512,57 +2512,58 @@ _ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineIn
   %913 = and i32 %910, 2147483647
   %914 = zext nneg i32 %913 to i64
   %915 = load ptr, ptr %912, align 8
-  %916 = getelementptr inbounds nuw %"struct.std::pair", ptr %915, i64 %914, i32 1
-  %917 = getelementptr inbounds nuw i8, ptr %906, i64 296
-  %918 = zext nneg i32 %910 to i64
-  %919 = load ptr, ptr %917, align 8
-  %920 = getelementptr inbounds nuw ptr, ptr %919, i64 %918
-  %.0.in.i.i.i.i = select i1 %911, ptr %916, ptr %920
+  %916 = getelementptr inbounds nuw %"struct.std::pair", ptr %915, i64 %914
+  %917 = getelementptr inbounds nuw i8, ptr %916, i64 8
+  %918 = getelementptr inbounds nuw i8, ptr %906, i64 296
+  %919 = zext nneg i32 %910 to i64
+  %920 = load ptr, ptr %918, align 8
+  %921 = getelementptr inbounds nuw ptr, ptr %920, i64 %919
+  %.0.in.i.i.i.i = select i1 %911, ptr %917, ptr %921
   %.0.i.i.i.i = load ptr, ptr %.0.in.i.i.i.i, align 8, !tbaa !457
   %.not.i.i.i119.i67 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i.i119.i67, label %.loopexit.i68, label %921
+  br i1 %.not.i.i.i119.i67, label %.loopexit.i68, label %922
 
-921:                                              ; preds = %905
-  %922 = load i32, ptr %.0.i.i.i.i, align 8
-  %923 = and i32 %922, 16777216
-  %.not4.i.i.i120.i = icmp eq i32 %923, 0
+922:                                              ; preds = %905
+  %923 = load i32, ptr %.0.i.i.i.i, align 8
+  %924 = and i32 %923, 16777216
+  %.not4.i.i.i120.i = icmp eq i32 %924, 0
   br i1 %.not4.i.i.i120.i, label %_ZN12_GLOBAL__N_124X86CallFrameOptimization18adjustCallSequenceERN4llvm15MachineFunctionERKNS0_11CallContextE.exit, label %.preheader.i.i.i121.i
 
-.preheader.i.i.i121.i:                            ; preds = %921, %924
-  %.pn.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i, %924 ], [ %.0.i.i.i.i, %921 ]
+.preheader.i.i.i121.i:                            ; preds = %922, %925
+  %.pn.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i, %925 ], [ %.0.i.i.i.i, %922 ]
   %storemerge.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i, align 8, !tbaa !355
   %.not.i.i.i.i122.i = icmp eq ptr %storemerge.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i122.i, label %.loopexit.i68, label %924
+  br i1 %.not.i.i.i.i122.i, label %.loopexit.i68, label %925
 
-924:                                              ; preds = %.preheader.i.i.i121.i
-  %925 = load i32, ptr %storemerge.i.i.i.i.i, align 8
-  %926 = and i32 %925, 16777216
-  %.not1.i.i.i.i.i = icmp eq i32 %926, 0
+925:                                              ; preds = %.preheader.i.i.i121.i
+  %926 = load i32, ptr %storemerge.i.i.i.i.i, align 8
+  %927 = and i32 %926, 16777216
+  %.not1.i.i.i.i.i = icmp eq i32 %927, 0
   br i1 %.not1.i.i.i.i.i, label %_ZN12_GLOBAL__N_124X86CallFrameOptimization18adjustCallSequenceERN4llvm15MachineFunctionERKNS0_11CallContextE.exit, label %.preheader.i.i.i121.i, !llvm.loop !458
 
 .loopexit.i68:                                    ; preds = %.preheader.i.i.i121.i, %905
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %695) #18
   br label %_ZN12_GLOBAL__N_124X86CallFrameOptimization18adjustCallSequenceERN4llvm15MachineFunctionERKNS0_11CallContextE.exit
 
-_ZN12_GLOBAL__N_124X86CallFrameOptimization18adjustCallSequenceERN4llvm15MachineFunctionERKNS0_11CallContextE.exit: ; preds = %924, %._crit_edge.i65, %921, %.loopexit.i68
-  %927 = load ptr, ptr %658, align 8, !tbaa !459
-  %928 = getelementptr inbounds nuw i8, ptr %927, i64 92
-  store i8 1, ptr %928, align 4, !tbaa !460
+_ZN12_GLOBAL__N_124X86CallFrameOptimization18adjustCallSequenceERN4llvm15MachineFunctionERKNS0_11CallContextE.exit: ; preds = %925, %._crit_edge.i65, %922, %.loopexit.i68
+  %928 = load ptr, ptr %658, align 8, !tbaa !459
+  %929 = getelementptr inbounds nuw i8, ptr %928, i64 92
+  store i8 1, ptr %929, align 4, !tbaa !460
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %929
+  br label %930
 
-929:                                              ; preds = %_ZN12_GLOBAL__N_124X86CallFrameOptimization18adjustCallSequenceERN4llvm15MachineFunctionERKNS0_11CallContextE.exit, %659
+930:                                              ; preds = %_ZN12_GLOBAL__N_124X86CallFrameOptimization18adjustCallSequenceERN4llvm15MachineFunctionERKNS0_11CallContextE.exit, %659
   %.130 = phi i1 [ true, %_ZN12_GLOBAL__N_124X86CallFrameOptimization18adjustCallSequenceERN4llvm15MachineFunctionERKNS0_11CallContextE.exit ], [ %.029153, %659 ]
-  %930 = getelementptr inbounds nuw i8, ptr %.028154, i64 88
-  %.not = icmp eq ptr %930, %635
+  %931 = getelementptr inbounds nuw i8, ptr %.028154, i64 88
+  %.not = icmp eq ptr %931, %635
   br i1 %.not, label %.loopexit.loopexit, label %659
 
-.loopexit.loopexit:                               ; preds = %929
+.loopexit.loopexit:                               ; preds = %930
   %.val.i85.pre = load ptr, ptr %19, align 8, !tbaa !25
   %.val2.i.pre = load i32, ptr %143, align 8, !tbaa !26
   br label %.loopexit
@@ -2575,26 +2576,26 @@ _ZN12_GLOBAL__N_124X86CallFrameOptimization18adjustCallSequenceERN4llvm15Machine
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.loopexit
-  %931 = zext i32 %.val2.i to i64
-  %.idx.i86 = mul nuw nsw i64 %931, 88
-  %932 = getelementptr inbounds nuw i8, ptr %.val.i85, i64 %.idx.i86
+  %932 = zext i32 %.val2.i to i64
+  %.idx.i86 = mul nuw nsw i64 %932, 88
+  %933 = getelementptr inbounds nuw i8, ptr %.val.i85, i64 %.idx.i86
   br label %.lr.ph.i.i87
 
 .lr.ph.i.i87:                                     ; preds = %_ZN12_GLOBAL__N_124X86CallFrameOptimization11CallContextD2Ev.exit.i.i, %.lr.ph.i.preheader.i
-  %.05.i.i = phi ptr [ %933, %_ZN12_GLOBAL__N_124X86CallFrameOptimization11CallContextD2Ev.exit.i.i ], [ %932, %.lr.ph.i.preheader.i ]
-  %933 = getelementptr inbounds i8, ptr %.05.i.i, i64 -88
-  %934 = getelementptr inbounds i8, ptr %.05.i.i, i64 -56
-  %935 = load ptr, ptr %934, align 8, !tbaa !25
-  %936 = getelementptr inbounds i8, ptr %.05.i.i, i64 -40
-  %937 = icmp eq ptr %935, %936
-  br i1 %937, label %_ZN12_GLOBAL__N_124X86CallFrameOptimization11CallContextD2Ev.exit.i.i, label %938
+  %.05.i.i = phi ptr [ %934, %_ZN12_GLOBAL__N_124X86CallFrameOptimization11CallContextD2Ev.exit.i.i ], [ %933, %.lr.ph.i.preheader.i ]
+  %934 = getelementptr inbounds i8, ptr %.05.i.i, i64 -88
+  %935 = getelementptr inbounds i8, ptr %.05.i.i, i64 -56
+  %936 = load ptr, ptr %935, align 8, !tbaa !25
+  %937 = getelementptr inbounds i8, ptr %.05.i.i, i64 -40
+  %938 = icmp eq ptr %936, %937
+  br i1 %938, label %_ZN12_GLOBAL__N_124X86CallFrameOptimization11CallContextD2Ev.exit.i.i, label %939
 
-938:                                              ; preds = %.lr.ph.i.i87
-  call void @free(ptr noundef %935) #18
+939:                                              ; preds = %.lr.ph.i.i87
+  call void @free(ptr noundef %936) #18
   br label %_ZN12_GLOBAL__N_124X86CallFrameOptimization11CallContextD2Ev.exit.i.i
 
-_ZN12_GLOBAL__N_124X86CallFrameOptimization11CallContextD2Ev.exit.i.i: ; preds = %938, %.lr.ph.i.i87
-  %.not.i.i88 = icmp eq ptr %.val.i85, %933
+_ZN12_GLOBAL__N_124X86CallFrameOptimization11CallContextD2Ev.exit.i.i: ; preds = %939, %.lr.ph.i.i87
+  %.not.i.i88 = icmp eq ptr %.val.i85, %934
   br i1 %.not.i.i88, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i, label %.lr.ph.i.i87, !llvm.loop !490
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i: ; preds = %_ZN12_GLOBAL__N_124X86CallFrameOptimization11CallContextD2Ev.exit.i.i
@@ -2603,15 +2604,15 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11Cal
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.i: ; preds = %148, %_ZN12_GLOBAL__N_124X86CallFrameOptimization12isProfitableERN4llvm15MachineFunctionERNS1_11SmallVectorINS0_11CallContextELj8EEE.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i, %.loopexit
   %.1259 = phi i1 [ %.1, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i ], [ %.1, %.loopexit ], [ false, %_ZN12_GLOBAL__N_124X86CallFrameOptimization12isProfitableERN4llvm15MachineFunctionERNS1_11SmallVectorINS0_11CallContextELj8EEE.exit.thread ], [ false, %148 ]
-  %939 = phi ptr [ %.pre.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i ], [ %.val.i85, %.loopexit ], [ %.val36, %_ZN12_GLOBAL__N_124X86CallFrameOptimization12isProfitableERN4llvm15MachineFunctionERNS1_11SmallVectorINS0_11CallContextELj8EEE.exit.thread ], [ %.val36, %148 ]
-  %940 = icmp eq ptr %939, %144
-  br i1 %940, label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELj8EED2Ev.exit, label %941
+  %940 = phi ptr [ %.pre.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i ], [ %.val.i85, %.loopexit ], [ %.val36, %_ZN12_GLOBAL__N_124X86CallFrameOptimization12isProfitableERN4llvm15MachineFunctionERNS1_11SmallVectorINS0_11CallContextELj8EEE.exit.thread ], [ %.val36, %148 ]
+  %941 = icmp eq ptr %940, %144
+  br i1 %941, label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELj8EED2Ev.exit, label %942
 
-941:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.i
-  call void @free(ptr noundef %939) #18
+942:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.i
+  call void @free(ptr noundef %940) #18
   br label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELj8EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.i, %941
+_ZN4llvm11SmallVectorIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELj8EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124X86CallFrameOptimization11CallContextELb0EE13destroy_rangeEPS3_S5_.exit.i, %942
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN12_GLOBAL__N_124X86CallFrameOptimization7isLegalERN4llvm15MachineFunctionE.exit.thread
 

@@ -610,35 +610,35 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
 233:                                              ; preds = %232
   %.not210.i = icmp eq i32 %213, 0
   %234 = zext nneg i32 %206 to i64
-  br i1 %.not210.i, label %238, label %235
+  %235 = getelementptr [2 x i32], ptr @ht_20_tbl, i64 %234
+  br i1 %.not210.i, label %239, label %236
 
-235:                                              ; preds = %233
-  %236 = getelementptr [2 x i32], ptr @ht_20_tbl, i64 %234, i64 1
-  %237 = load i32, ptr %236, align 4
+236:                                              ; preds = %233
+  %237 = getelementptr i8, ptr %235, i64 4
+  %238 = load i32, ptr %237, align 4
   br label %249
 
-238:                                              ; preds = %233
-  %239 = getelementptr [2 x i32], ptr @ht_20_tbl, i64 %234
-  %240 = load i32, ptr %239, align 8
+239:                                              ; preds = %233
+  %240 = load i32, ptr %235, align 8
   br label %249
 
 241:                                              ; preds = %232
   %.not209.i = icmp eq i32 %213, 0
   %242 = zext nneg i32 %206 to i64
-  br i1 %.not209.i, label %246, label %243
+  %243 = getelementptr [2 x i32], ptr @ht_40_tbl, i64 %242
+  br i1 %.not209.i, label %247, label %244
 
-243:                                              ; preds = %241
-  %244 = getelementptr [2 x i32], ptr @ht_40_tbl, i64 %242, i64 1
-  %245 = load i32, ptr %244, align 4
+244:                                              ; preds = %241
+  %245 = getelementptr i8, ptr %243, i64 4
+  %246 = load i32, ptr %245, align 4
   br label %249
 
-246:                                              ; preds = %241
-  %247 = getelementptr [2 x i32], ptr @ht_40_tbl, i64 %242
-  %248 = load i32, ptr %247, align 8
+247:                                              ; preds = %241
+  %248 = load i32, ptr %243, align 8
   br label %249
 
-249:                                              ; preds = %246, %243, %238, %235, %232, %204
-  %.0193.i = phi i32 [ 0, %232 ], [ %237, %235 ], [ %240, %238 ], [ %245, %243 ], [ %248, %246 ], [ 0, %204 ]
+249:                                              ; preds = %247, %244, %239, %236, %232, %204
+  %.0193.i = phi i32 [ 0, %232 ], [ %238, %236 ], [ %240, %239 ], [ %246, %244 ], [ %248, %247 ], [ 0, %204 ]
   %250 = udiv i32 %.0193.i, 10
   %251 = urem i32 %.0193.i, 10
   %.not211.i = icmp eq i32 %213, 0

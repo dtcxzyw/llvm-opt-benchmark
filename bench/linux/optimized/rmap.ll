@@ -2868,7 +2868,8 @@ define dso_local i32 @folio_total_mapcount(ptr noundef %0) local_unnamed_addr #7
 19:                                               ; preds = %19, %.thread
   %20 = phi i64 [ 0, %.thread ], [ %25, %19 ]
   %21 = phi i32 [ %4, %.thread ], [ %24, %19 ]
-  %22 = getelementptr %struct.page, ptr %0, i64 %20, i32 2
+  %.split = getelementptr %struct.page, ptr %0, i64 %20
+  %22 = getelementptr i8, ptr %.split, i64 48
   %23 = load volatile i32, ptr %22, align 4
   %24 = add i32 %23, %21
   %25 = add nuw nsw i64 %20, 1

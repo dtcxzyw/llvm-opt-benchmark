@@ -155,69 +155,70 @@ define dso_local range(i32 0, 3) i32 @get_oid_hex_any(ptr noundef readonly captu
   br label %3
 
 3:                                                ; preds = %2, %get_oid_hex_algop.exit
-  %.017 = phi i32 [ 2, %2 ], [ %32, %get_oid_hex_algop.exit ]
+  %.017 = phi i32 [ 2, %2 ], [ %33, %get_oid_hex_algop.exit ]
   %4 = zext nneg i32 %.017 to i64
-  %5 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %4, i32 2
-  %6 = load i64, ptr %5, align 16, !tbaa !30
-  %.not18.not.i.i = icmp eq i64 %6, 0
+  %5 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load i64, ptr %6, align 16, !tbaa !30
+  %.not18.not.i.i = icmp eq i64 %7, 0
   br i1 %.not18.not.i.i, label %oid_set_algo.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %3, %23
-  %.01221.i.i = phi i64 [ %27, %23 ], [ 0, %3 ]
-  %.01320.i.i = phi ptr [ %26, %23 ], [ %0, %3 ]
-  %.01519.i.i = phi ptr [ %25, %23 ], [ %1, %3 ]
-  %7 = load i8, ptr %.01320.i.i, align 1, !tbaa !33
-  %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !33
-  %11 = sext i8 %10 to i32
-  %.not.i.i.i = icmp ult i8 %10, 16
-  br i1 %.not.i.i.i, label %12, label %hex2chr.exit.i.i
+.lr.ph.i.i:                                       ; preds = %3, %24
+  %.01221.i.i = phi i64 [ %28, %24 ], [ 0, %3 ]
+  %.01320.i.i = phi ptr [ %27, %24 ], [ %0, %3 ]
+  %.01519.i.i = phi ptr [ %26, %24 ], [ %1, %3 ]
+  %8 = load i8, ptr %.01320.i.i, align 1, !tbaa !33
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !33
+  %12 = sext i8 %11 to i32
+  %.not.i.i.i = icmp ult i8 %11, 16
+  br i1 %.not.i.i.i, label %13, label %hex2chr.exit.i.i
 
-12:                                               ; preds = %.lr.ph.i.i
-  %13 = shl nuw nsw i32 %11, 4
-  %14 = getelementptr inbounds nuw i8, ptr %.01320.i.i, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !33
-  %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !33
-  %19 = sext i8 %18 to i32
-  %20 = or i32 %13, %19
+13:                                               ; preds = %.lr.ph.i.i
+  %14 = shl nuw nsw i32 %12, 4
+  %15 = getelementptr inbounds nuw i8, ptr %.01320.i.i, i64 1
+  %16 = load i8, ptr %15, align 1, !tbaa !33
+  %17 = zext i8 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !33
+  %20 = sext i8 %19 to i32
+  %21 = or i32 %14, %20
   br label %hex2chr.exit.i.i
 
-hex2chr.exit.i.i:                                 ; preds = %12, %.lr.ph.i.i
-  %21 = phi i32 [ %20, %12 ], [ %11, %.lr.ph.i.i ]
-  %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %23, label %get_oid_hex_algop.exit
+hex2chr.exit.i.i:                                 ; preds = %13, %.lr.ph.i.i
+  %22 = phi i32 [ %21, %13 ], [ %12, %.lr.ph.i.i ]
+  %23 = icmp sgt i32 %22, -1
+  br i1 %23, label %24, label %get_oid_hex_algop.exit
 
-23:                                               ; preds = %hex2chr.exit.i.i
-  %24 = trunc i32 %21 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %.01519.i.i, i64 1
-  store i8 %24, ptr %.01519.i.i, align 1, !tbaa !33
-  %26 = getelementptr inbounds nuw i8, ptr %.01320.i.i, i64 2
-  %27 = add nuw i64 %.01221.i.i, 1
-  %exitcond.not = icmp eq i64 %27, %6
+24:                                               ; preds = %hex2chr.exit.i.i
+  %25 = trunc i32 %22 to i8
+  %26 = getelementptr inbounds nuw i8, ptr %.01519.i.i, i64 1
+  store i8 %25, ptr %.01519.i.i, align 1, !tbaa !33
+  %27 = getelementptr inbounds nuw i8, ptr %.01320.i.i, i64 2
+  %28 = add nuw i64 %.01221.i.i, 1
+  %exitcond.not = icmp eq i64 %28, %7
   br i1 %exitcond.not, label %oid_set_algo.exit.i, label %.lr.ph.i.i, !llvm.loop !34
 
-oid_set_algo.exit.i:                              ; preds = %3, %23
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.017, ptr %28, align 4, !tbaa !37
-  %.not10.i = icmp eq i64 %6, 32
-  br i1 %.not10.i, label %get_oid_hex_algop.exit.thread, label %29
+oid_set_algo.exit.i:                              ; preds = %3, %24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 %.017, ptr %29, align 4, !tbaa !37
+  %.not10.i = icmp eq i64 %7, 32
+  br i1 %.not10.i, label %get_oid_hex_algop.exit.thread, label %30
 
-29:                                               ; preds = %oid_set_algo.exit.i
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %6
-  %31 = sub i64 32, %6
-  tail call void @llvm.memset.p0.i64(ptr align 1 %30, i8 0, i64 %31, i1 false)
+30:                                               ; preds = %oid_set_algo.exit.i
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %7
+  %32 = sub i64 32, %7
+  tail call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)
   br label %get_oid_hex_algop.exit.thread
 
 get_oid_hex_algop.exit:                           ; preds = %hex2chr.exit.i.i
-  %32 = add i32 %.017, -1
-  %33 = icmp samesign ugt i32 %.017, 1
-  br i1 %33, label %3, label %get_oid_hex_algop.exit.thread, !llvm.loop !39
+  %33 = add i32 %.017, -1
+  %34 = icmp samesign ugt i32 %.017, 1
+  br i1 %34, label %3, label %get_oid_hex_algop.exit.thread, !llvm.loop !39
 
-get_oid_hex_algop.exit.thread:                    ; preds = %get_oid_hex_algop.exit, %29, %oid_set_algo.exit.i
-  %.06 = phi i32 [ %.017, %oid_set_algo.exit.i ], [ %.017, %29 ], [ 0, %get_oid_hex_algop.exit ]
+get_oid_hex_algop.exit.thread:                    ; preds = %get_oid_hex_algop.exit, %30, %oid_set_algo.exit.i
+  %.06 = phi i32 [ %.017, %oid_set_algo.exit.i ], [ %.017, %30 ], [ 0, %get_oid_hex_algop.exit ]
   ret i32 %.06
 }
 
@@ -400,85 +401,86 @@ define dso_local range(i32 0, 3) i32 @parse_oid_hex_any(ptr noundef %0, ptr noun
   br label %4
 
 4:                                                ; preds = %get_oid_hex_algop.exit.i, %3
-  %.017.i = phi i32 [ 2, %3 ], [ %34, %get_oid_hex_algop.exit.i ]
+  %.017.i = phi i32 [ 2, %3 ], [ %35, %get_oid_hex_algop.exit.i ]
   %5 = zext nneg i32 %.017.i to i64
-  %6 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %5, i32 2
-  %7 = load i64, ptr %6, align 16, !tbaa !30
-  %.not18.not.i.i.i = icmp eq i64 %7, 0
+  %6 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load i64, ptr %7, align 16, !tbaa !30
+  %.not18.not.i.i.i = icmp eq i64 %8, 0
   br i1 %.not18.not.i.i.i, label %oid_set_algo.exit.i.i.thread, label %.lr.ph.i.i.i
 
 oid_set_algo.exit.i.i.thread:                     ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.017.i, ptr %8, align 4, !tbaa !37
-  br label %31
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 %.017.i, ptr %9, align 4, !tbaa !37
+  br label %32
 
-.lr.ph.i.i.i:                                     ; preds = %4, %25
-  %.01221.i.i.i = phi i64 [ %29, %25 ], [ 0, %4 ]
-  %.01320.i.i.i = phi ptr [ %28, %25 ], [ %0, %4 ]
-  %.01519.i.i.i = phi ptr [ %27, %25 ], [ %1, %4 ]
-  %9 = load i8, ptr %.01320.i.i.i, align 1, !tbaa !33
-  %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !33
-  %13 = sext i8 %12 to i32
-  %.not.i.i.i.i = icmp ult i8 %12, 16
-  br i1 %.not.i.i.i.i, label %14, label %hex2chr.exit.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %4, %26
+  %.01221.i.i.i = phi i64 [ %30, %26 ], [ 0, %4 ]
+  %.01320.i.i.i = phi ptr [ %29, %26 ], [ %0, %4 ]
+  %.01519.i.i.i = phi ptr [ %28, %26 ], [ %1, %4 ]
+  %10 = load i8, ptr %.01320.i.i.i, align 1, !tbaa !33
+  %11 = zext i8 %10 to i64
+  %12 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %11
+  %13 = load i8, ptr %12, align 1, !tbaa !33
+  %14 = sext i8 %13 to i32
+  %.not.i.i.i.i = icmp ult i8 %13, 16
+  br i1 %.not.i.i.i.i, label %15, label %hex2chr.exit.i.i.i
 
-14:                                               ; preds = %.lr.ph.i.i.i
-  %15 = shl nuw nsw i32 %13, 4
-  %16 = getelementptr inbounds nuw i8, ptr %.01320.i.i.i, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !33
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !33
-  %21 = sext i8 %20 to i32
-  %22 = or i32 %15, %21
+15:                                               ; preds = %.lr.ph.i.i.i
+  %16 = shl nuw nsw i32 %14, 4
+  %17 = getelementptr inbounds nuw i8, ptr %.01320.i.i.i, i64 1
+  %18 = load i8, ptr %17, align 1, !tbaa !33
+  %19 = zext i8 %18 to i64
+  %20 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !33
+  %22 = sext i8 %21 to i32
+  %23 = or i32 %16, %22
   br label %hex2chr.exit.i.i.i
 
-hex2chr.exit.i.i.i:                               ; preds = %14, %.lr.ph.i.i.i
-  %23 = phi i32 [ %22, %14 ], [ %13, %.lr.ph.i.i.i ]
-  %24 = icmp sgt i32 %23, -1
-  br i1 %24, label %25, label %get_oid_hex_algop.exit.i
+hex2chr.exit.i.i.i:                               ; preds = %15, %.lr.ph.i.i.i
+  %24 = phi i32 [ %23, %15 ], [ %14, %.lr.ph.i.i.i ]
+  %25 = icmp sgt i32 %24, -1
+  br i1 %25, label %26, label %get_oid_hex_algop.exit.i
 
-25:                                               ; preds = %hex2chr.exit.i.i.i
-  %26 = trunc i32 %23 to i8
-  %27 = getelementptr inbounds nuw i8, ptr %.01519.i.i.i, i64 1
-  store i8 %26, ptr %.01519.i.i.i, align 1, !tbaa !33
-  %28 = getelementptr inbounds nuw i8, ptr %.01320.i.i.i, i64 2
-  %29 = add nuw i64 %.01221.i.i.i, 1
-  %exitcond.not.i = icmp eq i64 %29, %7
+26:                                               ; preds = %hex2chr.exit.i.i.i
+  %27 = trunc i32 %24 to i8
+  %28 = getelementptr inbounds nuw i8, ptr %.01519.i.i.i, i64 1
+  store i8 %27, ptr %.01519.i.i.i, align 1, !tbaa !33
+  %29 = getelementptr inbounds nuw i8, ptr %.01320.i.i.i, i64 2
+  %30 = add nuw i64 %.01221.i.i.i, 1
+  %exitcond.not.i = icmp eq i64 %30, %8
   br i1 %exitcond.not.i, label %oid_set_algo.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !34
 
-oid_set_algo.exit.i.i:                            ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.017.i, ptr %30, align 4, !tbaa !37
-  %.not10.i.i = icmp eq i64 %7, 32
-  br i1 %.not10.i.i, label %get_oid_hex_any.exit, label %31
+oid_set_algo.exit.i.i:                            ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 %.017.i, ptr %31, align 4, !tbaa !37
+  %.not10.i.i = icmp eq i64 %8, 32
+  br i1 %.not10.i.i, label %get_oid_hex_any.exit, label %32
 
-31:                                               ; preds = %oid_set_algo.exit.i.i.thread, %oid_set_algo.exit.i.i
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %7
-  %33 = sub i64 32, %7
-  tail call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 %33, i1 false)
+32:                                               ; preds = %oid_set_algo.exit.i.i.thread, %oid_set_algo.exit.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %8
+  %34 = sub i64 32, %8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %33, i8 0, i64 %34, i1 false)
   br label %get_oid_hex_any.exit
 
 get_oid_hex_algop.exit.i:                         ; preds = %hex2chr.exit.i.i.i
-  %34 = add nsw i32 %.017.i, -1
-  %35 = icmp samesign ugt i32 %.017.i, 1
-  br i1 %35, label %4, label %get_oid_hex_any.exit.thread, !llvm.loop !39
+  %35 = add nsw i32 %.017.i, -1
+  %36 = icmp samesign ugt i32 %.017.i, 1
+  br i1 %36, label %4, label %get_oid_hex_any.exit.thread, !llvm.loop !39
 
-get_oid_hex_any.exit:                             ; preds = %oid_set_algo.exit.i.i, %31
+get_oid_hex_any.exit:                             ; preds = %oid_set_algo.exit.i.i, %32
   %.not = icmp eq i32 %.017.i, 0
-  br i1 %.not, label %get_oid_hex_any.exit.thread, label %36
+  br i1 %.not, label %get_oid_hex_any.exit.thread, label %37
 
-36:                                               ; preds = %get_oid_hex_any.exit
-  %37 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %5, i32 3
-  %38 = load i64, ptr %37, align 8, !tbaa !40
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %38
-  store ptr %39, ptr %2, align 8, !tbaa !41
+37:                                               ; preds = %get_oid_hex_any.exit
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %39 = load i64, ptr %38, align 8, !tbaa !40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %39
+  store ptr %40, ptr %2, align 8, !tbaa !41
   br label %get_oid_hex_any.exit.thread
 
-get_oid_hex_any.exit.thread:                      ; preds = %get_oid_hex_algop.exit.i, %36, %get_oid_hex_any.exit
-  %.06.i9 = phi i32 [ %.017.i, %36 ], [ 0, %get_oid_hex_any.exit ], [ 0, %get_oid_hex_algop.exit.i ]
+get_oid_hex_any.exit.thread:                      ; preds = %get_oid_hex_algop.exit.i, %37, %get_oid_hex_any.exit
+  %.06.i9 = phi i32 [ %.017.i, %37 ], [ 0, %get_oid_hex_any.exit ], [ 0, %get_oid_hex_algop.exit.i ]
   ret i32 %.06.i9
 }
 

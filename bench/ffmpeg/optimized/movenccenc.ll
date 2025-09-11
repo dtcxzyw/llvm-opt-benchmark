@@ -911,9 +911,9 @@ bytestream2_init.exit.i:                          ; preds = %.critedge.i
 .critedge137.i:                                   ; preds = %144, %136
   %145 = phi i32 [ 0, %144 ], [ %141, %136 ]
   %.sink62.i = phi i32 [ %141, %144 ], [ 0, %136 ]
-  %146 = getelementptr inbounds nuw %struct.MOVMuxCencAV1TGInfo, ptr %142, i64 %indvars.iv.i170, i32 2
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i32 %.sink62.i, ptr %146, align 4, !tbaa !69
-  %147 = getelementptr inbounds nuw %struct.MOVMuxCencAV1TGInfo, ptr %142, i64 %indvars.iv.i170, i32 1
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i32 %140, ptr %147, align 4, !tbaa !70
   %148 = add i32 %109, %.012042.i171
   %149 = add i32 %148, %137
@@ -925,9 +925,9 @@ bytestream2_init.exit.i:                          ; preds = %.critedge.i
 
 .critedge135.i:                                   ; preds = %119, %._crit_edge
   %.sink.i = phi i32 [ %117, %119 ], [ 0, %._crit_edge ]
-  %153 = getelementptr inbounds nuw %struct.MOVMuxCencAV1TGInfo, ptr %111, i64 %103, i32 2
+  %153 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i32 %.sink.i, ptr %153, align 4, !tbaa !69
-  %154 = getelementptr inbounds nuw %struct.MOVMuxCencAV1TGInfo, ptr %111, i64 %103, i32 1
+  %154 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i32 %116, ptr %154, align 4, !tbaa !70
   %155 = add i32 %.012042.i.lcssa, %114
   br label %bytestream2_init.exit138.i

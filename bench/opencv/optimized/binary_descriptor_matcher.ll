@@ -536,7 +536,7 @@ define void @_ZN2cv15line_descriptor23BinaryDescriptorMatcher3addERKSt6vectorINS
 
 12:                                               ; preds = %.lr.ph, %12
   %13 = phi ptr [ %6, %.lr.ph ], [ %18, %12 ]
-  %.07 = phi i64 [ 0, %.lr.ph ], [ %25, %12 ]
+  %.07 = phi i64 [ 0, %.lr.ph ], [ %26, %12 ]
   %14 = getelementptr inbounds nuw %"class.cv::Mat", ptr %13, i64 %.07
   call void @_ZN2cv3Mat9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -547,22 +547,23 @@ define void @_ZN2cv15line_descriptor23BinaryDescriptorMatcher3addERKSt6vectorINS
   %17 = call { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE17_M_emplace_uniqueIJS0_IiiEEEES0_ISt17_Rb_tree_iteratorIS2_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = load ptr, ptr %1, align 8, !tbaa !60
-  %19 = getelementptr inbounds nuw %"class.cv::Mat", ptr %18, i64 %.07, i32 2
-  %20 = load i32, ptr %19, align 8, !tbaa !64
-  %21 = load i32, ptr %9, align 8, !tbaa !32
-  %22 = add nsw i32 %21, %20
-  store i32 %22, ptr %9, align 8, !tbaa !32
-  %23 = load i32, ptr %10, align 4, !tbaa !50
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %10, align 4, !tbaa !50
-  %25 = add nuw i64 %.07, 1
-  %26 = load ptr, ptr %4, align 8, !tbaa !57
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %18 to i64
-  %29 = sub i64 %27, %28
-  %30 = sdiv exact i64 %29, 96
-  %31 = icmp ult i64 %25, %30
-  br i1 %31, label %12, label %._crit_edge, !llvm.loop !65
+  %19 = getelementptr inbounds nuw %"class.cv::Mat", ptr %18, i64 %.07
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i32, ptr %20, align 8, !tbaa !64
+  %22 = load i32, ptr %9, align 8, !tbaa !32
+  %23 = add nsw i32 %22, %21
+  store i32 %23, ptr %9, align 8, !tbaa !32
+  %24 = load i32, ptr %10, align 4, !tbaa !50
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %10, align 4, !tbaa !50
+  %26 = add nuw i64 %.07, 1
+  %27 = load ptr, ptr %4, align 8, !tbaa !57
+  %28 = ptrtoint ptr %27 to i64
+  %29 = ptrtoint ptr %18 to i64
+  %30 = sub i64 %28, %29
+  %31 = sdiv exact i64 %30, 96
+  %32 = icmp ult i64 %26, %31
+  br i1 %32, label %12, label %._crit_edge, !llvm.loop !65
 }
 
 declare void @_ZN2cv3Mat9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0

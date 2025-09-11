@@ -548,63 +548,63 @@ define i32 @dt_imageio_png_read_profile(ptr noundef %0, ptr noundef writeonly ca
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = call i32 @png_get_unknown_chunks(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %8) #11
   %21 = sext i32 %20 to i64
-  %.not38 = icmp eq i32 %20, 0
-  br i1 %.not38, label %.loopexit, label %.lr.ph
+  %.not36 = icmp eq i32 %20, 0
+  br i1 %.not36, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %22 = load ptr, ptr %8, align 8, !tbaa !52
-  br label %23
+  br label %25
 
-23:                                               ; preds = %.lr.ph, %46
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %47, %46 ]
-  %24 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %22, i64 %.037
-  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(5) @.str.2) #14
-  %.not28 = icmp eq i32 %25, 0
-  br i1 %.not28, label %26, label %46
+23:                                               ; preds = %25
+  %24 = add nuw i64 %.035, 1
+  %exitcond.not = icmp eq i64 %24, %21
+  br i1 %exitcond.not, label %.loopexit, label %25
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !54
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
-  %30 = load i8, ptr %29, align 1, !tbaa !42
-  %.not29 = icmp eq i8 %30, 0
-  br i1 %.not29, label %31, label %42
+25:                                               ; preds = %.lr.ph, %23
+  %.035 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
+  %26 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %22, i64 %.035
+  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(5) @.str.2) #14
+  %.not28 = icmp eq i32 %27, 0
+  br i1 %.not28, label %28, label %23
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 3
-  %33 = load i8, ptr %32, align 1, !tbaa !42
-  %.not30 = icmp eq i8 %33, 0
-  br i1 %.not30, label %42, label %34
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !54
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 2
+  %32 = load i8, ptr %31, align 1, !tbaa !42
+  %.not29 = icmp eq i8 %32, 0
+  br i1 %.not29, label %33, label %44
 
-34:                                               ; preds = %31
-  %35 = load i8, ptr %28, align 1, !tbaa !42
-  %36 = zext i8 %35 to i32
-  store i32 %36, ptr %2, align 4, !tbaa !47
-  %37 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  %38 = load i8, ptr %37, align 1, !tbaa !42
-  %39 = zext i8 %38 to i32
-  store i32 %39, ptr %9, align 4, !tbaa !49
-  %40 = load i8, ptr %29, align 1, !tbaa !42
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 3
+  %35 = load i8, ptr %34, align 1, !tbaa !42
+  %.not30 = icmp eq i8 %35, 0
+  br i1 %.not30, label %44, label %36
+
+36:                                               ; preds = %33
+  %37 = load i8, ptr %30, align 1, !tbaa !42
+  %38 = zext i8 %37 to i32
+  store i32 %38, ptr %2, align 4, !tbaa !47
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %40 = load i8, ptr %39, align 1, !tbaa !42
   %41 = zext i8 %40 to i32
-  store i32 %41, ptr %10, align 4, !tbaa !50
+  store i32 %41, ptr %9, align 4, !tbaa !49
+  %42 = load i8, ptr %31, align 1, !tbaa !42
+  %43 = zext i8 %42 to i32
+  store i32 %43, ptr %10, align 4, !tbaa !50
   br label %.loopexit
 
-42:                                               ; preds = %26, %31
-  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !56
-  %44 = and i32 %43, 262144
-  %.not31 = icmp eq i32 %44, 0
-  br i1 %.not31, label %.loopexit, label %45
+44:                                               ; preds = %28, %33
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !56
+  %46 = and i32 %45, 262144
+  %.not31 = icmp eq i32 %46, 0
+  br i1 %.not31, label %.loopexit, label %47
 
-45:                                               ; preds = %42
+47:                                               ; preds = %44
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #11
   br label %.loopexit
 
-46:                                               ; preds = %23
-  %47 = add nuw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %47, %21
-  br i1 %exitcond.not, label %.loopexit, label %23
-
-.loopexit:                                        ; preds = %46, %15, %34, %45, %42
+.loopexit:                                        ; preds = %23, %15, %36, %47, %44
   %48 = load ptr, ptr %16, align 8, !tbaa !15
   %49 = load ptr, ptr %18, align 8, !tbaa !16
   %50 = call i32 @png_get_valid(ptr noundef %48, ptr noundef %49, i32 noundef 4096) #11

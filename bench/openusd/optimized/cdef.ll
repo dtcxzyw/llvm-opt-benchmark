@@ -639,8 +639,7 @@ fill_rect.exit351:                                ; preds = %._crit_edge.us.i348
   br i1 %exitcond20.not.i364, label %fill_rect.exit365, label %.preheader.us.i355, !llvm.loop !16
 
 fill_rect.exit365:                                ; preds = %._crit_edge.us.i362, %207, %fill_rect.exit351
-  %.idx = mul nuw nsw i64 %indvars.iv726, 2608
-  %215 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
+  %215 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %24, i64 %indvars.iv726
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load ptr, ptr %216, align 16
   %218 = shl i32 16, %195

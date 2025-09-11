@@ -1137,7 +1137,8 @@ define internal i32 @chv_color_check(ptr noundef %0) #0 align 16 {
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 144
   %148 = load i32, ptr %147, align 8
   %149 = zext i32 %148 to i64
-  %150 = getelementptr %struct.__drm_crtcs_state, ptr %146, i64 %149, i32 2
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %146, i64 %149
+  %150 = getelementptr i8, ptr %.split, i64 16
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4324
   %153 = load i32, ptr %152, align 4
@@ -2398,10 +2399,10 @@ define internal zeroext i1 @chv_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %77, label %208, label %78, !llvm.loop !74
 
 78:                                               ; preds = %68
-  %79 = getelementptr %struct.drm_color_lut, ptr %33, i64 %66, i32 2
+  %79 = getelementptr i8, ptr %70, i64 4
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i64
-  %82 = getelementptr %struct.drm_color_lut, ptr %31, i64 %66, i32 2
+  %82 = getelementptr i8, ptr %69, i64 4
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i64
   %85 = sub nsw i64 %81, %84
@@ -2410,10 +2411,10 @@ define internal zeroext i1 @chv_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %87, label %208, label %88, !llvm.loop !74
 
 88:                                               ; preds = %78
-  %89 = getelementptr %struct.drm_color_lut, ptr %33, i64 %66, i32 1
+  %89 = getelementptr i8, ptr %70, i64 2
   %90 = load i16, ptr %89, align 2
   %91 = zext i16 %90 to i64
-  %92 = getelementptr %struct.drm_color_lut, ptr %31, i64 %66, i32 1
+  %92 = getelementptr i8, ptr %69, i64 2
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i64
   %95 = sub nsw i64 %91, %94
@@ -2529,15 +2530,15 @@ define internal zeroext i1 @chv_lut_equal(ptr noundef readonly captures(none) %0
   %172 = sub nsw i64 %168, %171
   %173 = tail call i64 @llvm.abs.i64(i64 %172, i1 true)
   %174 = icmp samesign ugt i64 %173, %146
-  br i1 %174, label %212, label %.preheader9
+  br i1 %174, label %212, label %.preheader16
 
-.preheader9:                                      ; preds = %165, %198
+.preheader16:                                     ; preds = %165, %198
   %175 = phi i64 [ %176, %198 ], [ 0, %165 ]
   %176 = add nuw nsw i64 %175, 1
   %177 = icmp eq i64 %176, %147
   br i1 %177, label %210, label %178, !llvm.loop !74
 
-178:                                              ; preds = %.preheader9
+178:                                              ; preds = %.preheader16
   %179 = getelementptr %struct.drm_color_lut, ptr %140, i64 %176
   %180 = getelementptr %struct.drm_color_lut, ptr %142, i64 %176
   %181 = load i16, ptr %180, align 2
@@ -2550,10 +2551,10 @@ define internal zeroext i1 @chv_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %187, label %210, label %188, !llvm.loop !74
 
 188:                                              ; preds = %178
-  %189 = getelementptr %struct.drm_color_lut, ptr %142, i64 %176, i32 2
+  %189 = getelementptr i8, ptr %180, i64 4
   %190 = load i16, ptr %189, align 2
   %191 = zext i16 %190 to i64
-  %192 = getelementptr %struct.drm_color_lut, ptr %140, i64 %176, i32 2
+  %192 = getelementptr i8, ptr %179, i64 4
   %193 = load i16, ptr %192, align 2
   %194 = zext i16 %193 to i64
   %195 = sub nsw i64 %191, %194
@@ -2562,25 +2563,25 @@ define internal zeroext i1 @chv_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %197, label %210, label %198, !llvm.loop !74
 
 198:                                              ; preds = %188
-  %199 = getelementptr %struct.drm_color_lut, ptr %142, i64 %176, i32 1
+  %199 = getelementptr i8, ptr %180, i64 2
   %200 = load i16, ptr %199, align 2
   %201 = zext i16 %200 to i64
-  %202 = getelementptr %struct.drm_color_lut, ptr %140, i64 %176, i32 1
+  %202 = getelementptr i8, ptr %179, i64 2
   %203 = load i16, ptr %202, align 2
   %204 = zext i16 %203 to i64
   %205 = sub nsw i64 %201, %204
   %206 = tail call i64 @llvm.abs.i64(i64 %205, i1 true)
   %207 = icmp samesign ugt i64 %206, %146
-  br i1 %207, label %210, label %.preheader9, !llvm.loop !74
+  br i1 %207, label %210, label %.preheader16, !llvm.loop !74
 
 208:                                              ; preds = %88, %78, %68, %.preheader
   %.lcssa = phi i64 [ %66, %88 ], [ %66, %78 ], [ %66, %68 ], [ %37, %.preheader ]
   %209 = icmp samesign uge i64 %.lcssa, %37
   br label %212
 
-210:                                              ; preds = %198, %188, %178, %.preheader9
-  %.lcssa11 = phi i64 [ %176, %198 ], [ %176, %188 ], [ %176, %178 ], [ %147, %.preheader9 ]
-  %211 = icmp samesign uge i64 %.lcssa11, %147
+210:                                              ; preds = %198, %188, %178, %.preheader16
+  %.lcssa18 = phi i64 [ %176, %198 ], [ %176, %188 ], [ %176, %178 ], [ %147, %.preheader16 ]
+  %211 = icmp samesign uge i64 %.lcssa18, %147
   br label %212
 
 212:                                              ; preds = %210, %208, %165, %155, %144, %138, %126, %116, %55, %45, %35, %29, %17, %7
@@ -2981,7 +2982,8 @@ define internal fastcc i32 @intel_color_add_affected_planes(ptr noundef captures
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr %struct.__drm_crtcs_state, ptr %7, i64 %10, i32 2
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %7, i64 %10
+  %11 = getelementptr i8, ptr %.split, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %14 = load i8, ptr %13, align 8, !range !6, !noundef !7
@@ -4588,7 +4590,8 @@ define internal i32 @vlv_color_check(ptr noundef %0) #0 align 16 {
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 144
   %120 = load i32, ptr %119, align 8
   %121 = zext i32 %120 to i64
-  %122 = getelementptr %struct.__drm_crtcs_state, ptr %118, i64 %121, i32 2
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %118, i64 %121
+  %122 = getelementptr i8, ptr %.split, i64 16
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4754
   %125 = load i8, ptr %124, align 2, !range !6, !noundef !7
@@ -5198,10 +5201,10 @@ define internal zeroext i1 @i965_lut_equal(ptr noundef readonly captures(none) %
   br i1 %95, label %116, label %96, !llvm.loop !74
 
 96:                                               ; preds = %86
-  %97 = getelementptr %struct.drm_color_lut, ptr %50, i64 %84, i32 2
+  %97 = getelementptr i8, ptr %88, i64 4
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i64
-  %100 = getelementptr %struct.drm_color_lut, ptr %48, i64 %84, i32 2
+  %100 = getelementptr i8, ptr %87, i64 4
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i64
   %103 = sub nsw i64 %99, %102
@@ -5210,10 +5213,10 @@ define internal zeroext i1 @i965_lut_equal(ptr noundef readonly captures(none) %
   br i1 %105, label %116, label %106, !llvm.loop !74
 
 106:                                              ; preds = %96
-  %107 = getelementptr %struct.drm_color_lut, ptr %50, i64 %84, i32 1
+  %107 = getelementptr i8, ptr %88, i64 2
   %108 = load i16, ptr %107, align 2
   %109 = zext i16 %108 to i64
-  %110 = getelementptr %struct.drm_color_lut, ptr %48, i64 %84, i32 1
+  %110 = getelementptr i8, ptr %87, i64 2
   %111 = load i16, ptr %110, align 2
   %112 = zext i16 %111 to i64
   %113 = sub nsw i64 %109, %112
@@ -5830,7 +5833,8 @@ define internal i32 @i9xx_color_check(ptr noundef %0) #0 align 16 {
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 144
   %122 = load i32, ptr %121, align 8
   %123 = zext i32 %122 to i64
-  %124 = getelementptr %struct.__drm_crtcs_state, ptr %120, i64 %123, i32 2
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %120, i64 %123
+  %124 = getelementptr i8, ptr %.split, i64 16
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 744
   %127 = load ptr, ptr %126, align 8
@@ -6623,10 +6627,10 @@ define internal zeroext i1 @i9xx_lut_equal(ptr noundef readonly captures(none) %
   br i1 %98, label %119, label %99, !llvm.loop !74
 
 99:                                               ; preds = %89
-  %100 = getelementptr %struct.drm_color_lut, ptr %52, i64 %87, i32 2
+  %100 = getelementptr i8, ptr %91, i64 4
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i64
-  %103 = getelementptr %struct.drm_color_lut, ptr %50, i64 %87, i32 2
+  %103 = getelementptr i8, ptr %90, i64 4
   %104 = load i16, ptr %103, align 2
   %105 = zext i16 %104 to i64
   %106 = sub nsw i64 %102, %105
@@ -6635,10 +6639,10 @@ define internal zeroext i1 @i9xx_lut_equal(ptr noundef readonly captures(none) %
   br i1 %108, label %119, label %109, !llvm.loop !74
 
 109:                                              ; preds = %99
-  %110 = getelementptr %struct.drm_color_lut, ptr %52, i64 %87, i32 1
+  %110 = getelementptr i8, ptr %91, i64 2
   %111 = load i16, ptr %110, align 2
   %112 = zext i16 %111 to i64
-  %113 = getelementptr %struct.drm_color_lut, ptr %50, i64 %87, i32 1
+  %113 = getelementptr i8, ptr %90, i64 2
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %114 to i64
   %116 = sub nsw i64 %112, %115
@@ -6973,7 +6977,8 @@ define internal range(i32 -22, 1) i32 @icl_color_check(ptr noundef %0) #0 align 
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 144
   %185 = load i32, ptr %184, align 8
   %186 = zext i32 %185 to i64
-  %187 = getelementptr %struct.__drm_crtcs_state, ptr %183, i64 %186, i32 2
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %183, i64 %186
+  %187 = getelementptr i8, ptr %.split, i64 16
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 744
   %190 = load ptr, ptr %189, align 8
@@ -10479,10 +10484,10 @@ define internal zeroext i1 @icl_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %79, label %209, label %80, !llvm.loop !74
 
 80:                                               ; preds = %70
-  %81 = getelementptr %struct.drm_color_lut, ptr %34, i64 %68, i32 2
+  %81 = getelementptr i8, ptr %72, i64 4
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i64
-  %84 = getelementptr %struct.drm_color_lut, ptr %32, i64 %68, i32 2
+  %84 = getelementptr i8, ptr %71, i64 4
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i64
   %87 = sub nsw i64 %83, %86
@@ -10491,10 +10496,10 @@ define internal zeroext i1 @icl_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %89, label %209, label %90, !llvm.loop !74
 
 90:                                               ; preds = %80
-  %91 = getelementptr %struct.drm_color_lut, ptr %34, i64 %68, i32 1
+  %91 = getelementptr i8, ptr %72, i64 2
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i64
-  %94 = getelementptr %struct.drm_color_lut, ptr %32, i64 %68, i32 1
+  %94 = getelementptr i8, ptr %71, i64 2
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %95 to i64
   %97 = sub nsw i64 %93, %96
@@ -10515,7 +10520,7 @@ define internal zeroext i1 @icl_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %109, label %116, label %110
 
 110:                                              ; preds = %100
-  switch i32 %101, label %default.unreachable22 [
+  switch i32 %101, label %default.unreachable29 [
     i32 0, label %116
     i32 1, label %111
     i32 3, label %112
@@ -10528,7 +10533,7 @@ define internal zeroext i1 @icl_lut_equal(ptr noundef readonly captures(none) %0
 112:                                              ; preds = %110
   br label %116
 
-default.unreachable22:                            ; preds = %110
+default.unreachable29:                            ; preds = %110
   unreachable
 
 113:                                              ; preds = %110
@@ -10612,15 +10617,15 @@ default.unreachable22:                            ; preds = %110
   %173 = sub nsw i64 %169, %172
   %174 = tail call i64 @llvm.abs.i64(i64 %173, i1 true)
   %175 = icmp samesign ugt i64 %174, %147
-  br i1 %175, label %213, label %.preheader10
+  br i1 %175, label %213, label %.preheader17
 
-.preheader10:                                     ; preds = %166, %199
+.preheader17:                                     ; preds = %166, %199
   %176 = phi i64 [ %177, %199 ], [ 0, %166 ]
   %177 = add nuw nsw i64 %176, 1
   %178 = icmp eq i64 %177, %148
   br i1 %178, label %211, label %179, !llvm.loop !74
 
-179:                                              ; preds = %.preheader10
+179:                                              ; preds = %.preheader17
   %180 = getelementptr %struct.drm_color_lut, ptr %140, i64 %177
   %181 = getelementptr %struct.drm_color_lut, ptr %142, i64 %177
   %182 = load i16, ptr %181, align 2
@@ -10633,10 +10638,10 @@ default.unreachable22:                            ; preds = %110
   br i1 %188, label %211, label %189, !llvm.loop !74
 
 189:                                              ; preds = %179
-  %190 = getelementptr %struct.drm_color_lut, ptr %142, i64 %177, i32 2
+  %190 = getelementptr i8, ptr %181, i64 4
   %191 = load i16, ptr %190, align 2
   %192 = zext i16 %191 to i64
-  %193 = getelementptr %struct.drm_color_lut, ptr %140, i64 %177, i32 2
+  %193 = getelementptr i8, ptr %180, i64 4
   %194 = load i16, ptr %193, align 2
   %195 = zext i16 %194 to i64
   %196 = sub nsw i64 %192, %195
@@ -10645,25 +10650,25 @@ default.unreachable22:                            ; preds = %110
   br i1 %198, label %211, label %199, !llvm.loop !74
 
 199:                                              ; preds = %189
-  %200 = getelementptr %struct.drm_color_lut, ptr %142, i64 %177, i32 1
+  %200 = getelementptr i8, ptr %181, i64 2
   %201 = load i16, ptr %200, align 2
   %202 = zext i16 %201 to i64
-  %203 = getelementptr %struct.drm_color_lut, ptr %140, i64 %177, i32 1
+  %203 = getelementptr i8, ptr %180, i64 2
   %204 = load i16, ptr %203, align 2
   %205 = zext i16 %204 to i64
   %206 = sub nsw i64 %202, %205
   %207 = tail call i64 @llvm.abs.i64(i64 %206, i1 true)
   %208 = icmp samesign ugt i64 %207, %147
-  br i1 %208, label %211, label %.preheader10, !llvm.loop !74
+  br i1 %208, label %211, label %.preheader17, !llvm.loop !74
 
 209:                                              ; preds = %90, %80, %70, %.preheader
   %.lcssa = phi i64 [ %68, %90 ], [ %68, %80 ], [ %68, %70 ], [ %39, %.preheader ]
   %210 = icmp samesign uge i64 %.lcssa, %39
   br label %213
 
-211:                                              ; preds = %199, %189, %179, %.preheader10
-  %.lcssa12 = phi i64 [ %177, %199 ], [ %177, %189 ], [ %177, %179 ], [ %148, %.preheader10 ]
-  %212 = icmp samesign uge i64 %.lcssa12, %148
+211:                                              ; preds = %199, %189, %179, %.preheader17
+  %.lcssa19 = phi i64 [ %177, %199 ], [ %177, %189 ], [ %177, %179 ], [ %148, %.preheader17 ]
+  %212 = icmp samesign uge i64 %.lcssa19, %148
   br label %213
 
 213:                                              ; preds = %211, %209, %166, %156, %145, %138, %126, %116, %57, %47, %36, %30, %18, %7
@@ -12592,7 +12597,8 @@ ilk_lut_write.exit11:                             ; preds = %47, %75
   %101 = phi i64 [ 0, %84 ], [ %151, %ilk_lut_write.exit12 ]
   %102 = load i16, ptr %86, align 8
   %103 = icmp ugt i16 %102, 13
-  %104 = getelementptr %struct.drm_color_lut, ptr %.80.val, i64 %101, i32 1
+  %.split = getelementptr %struct.drm_color_lut, ptr %.80.val, i64 %101
+  %104 = getelementptr i8, ptr %.split, i64 2
   %105 = load i16, ptr %104, align 2
   br i1 %103, label %106, label %112
 
@@ -15248,7 +15254,8 @@ ilk_csc_limited_range.exit:                       ; preds = %103, %99, %94, %87,
   %287 = getelementptr inbounds nuw i8, ptr %282, i64 144
   %288 = load i32, ptr %287, align 8
   %289 = zext i32 %288 to i64
-  %290 = getelementptr %struct.__drm_crtcs_state, ptr %286, i64 %289, i32 2
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %286, i64 %289
+  %290 = getelementptr i8, ptr %.split, i64 16
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 744
   %293 = load ptr, ptr %292, align 8
@@ -16054,10 +16061,10 @@ define internal zeroext i1 @glk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %76, label %203, label %77, !llvm.loop !74
 
 77:                                               ; preds = %67
-  %78 = getelementptr %struct.drm_color_lut, ptr %32, i64 %65, i32 2
+  %78 = getelementptr i8, ptr %69, i64 4
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i64
-  %81 = getelementptr %struct.drm_color_lut, ptr %30, i64 %65, i32 2
+  %81 = getelementptr i8, ptr %68, i64 4
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i64
   %84 = sub nsw i64 %80, %83
@@ -16066,10 +16073,10 @@ define internal zeroext i1 @glk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %86, label %203, label %87, !llvm.loop !74
 
 87:                                               ; preds = %77
-  %88 = getelementptr %struct.drm_color_lut, ptr %32, i64 %65, i32 1
+  %88 = getelementptr i8, ptr %69, i64 2
   %89 = load i16, ptr %88, align 2
   %90 = zext i16 %89 to i64
-  %91 = getelementptr %struct.drm_color_lut, ptr %30, i64 %65, i32 1
+  %91 = getelementptr i8, ptr %68, i64 2
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i64
   %94 = sub nsw i64 %90, %93
@@ -16179,15 +16186,15 @@ define internal zeroext i1 @glk_lut_equal(ptr noundef readonly captures(none) %0
   %167 = sub nsw i64 %163, %166
   %168 = tail call i64 @llvm.abs.i64(i64 %167, i1 true)
   %169 = icmp samesign ugt i64 %168, %141
-  br i1 %169, label %207, label %.preheader9
+  br i1 %169, label %207, label %.preheader16
 
-.preheader9:                                      ; preds = %160, %193
+.preheader16:                                     ; preds = %160, %193
   %170 = phi i64 [ %171, %193 ], [ 0, %160 ]
   %171 = add nuw nsw i64 %170, 1
   %172 = icmp eq i64 %171, %142
   br i1 %172, label %205, label %173, !llvm.loop !74
 
-173:                                              ; preds = %.preheader9
+173:                                              ; preds = %.preheader16
   %174 = getelementptr %struct.drm_color_lut, ptr %135, i64 %171
   %175 = getelementptr %struct.drm_color_lut, ptr %137, i64 %171
   %176 = load i16, ptr %175, align 2
@@ -16200,10 +16207,10 @@ define internal zeroext i1 @glk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %182, label %205, label %183, !llvm.loop !74
 
 183:                                              ; preds = %173
-  %184 = getelementptr %struct.drm_color_lut, ptr %137, i64 %171, i32 2
+  %184 = getelementptr i8, ptr %175, i64 4
   %185 = load i16, ptr %184, align 2
   %186 = zext i16 %185 to i64
-  %187 = getelementptr %struct.drm_color_lut, ptr %135, i64 %171, i32 2
+  %187 = getelementptr i8, ptr %174, i64 4
   %188 = load i16, ptr %187, align 2
   %189 = zext i16 %188 to i64
   %190 = sub nsw i64 %186, %189
@@ -16212,25 +16219,25 @@ define internal zeroext i1 @glk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %192, label %205, label %193, !llvm.loop !74
 
 193:                                              ; preds = %183
-  %194 = getelementptr %struct.drm_color_lut, ptr %137, i64 %171, i32 1
+  %194 = getelementptr i8, ptr %175, i64 2
   %195 = load i16, ptr %194, align 2
   %196 = zext i16 %195 to i64
-  %197 = getelementptr %struct.drm_color_lut, ptr %135, i64 %171, i32 1
+  %197 = getelementptr i8, ptr %174, i64 2
   %198 = load i16, ptr %197, align 2
   %199 = zext i16 %198 to i64
   %200 = sub nsw i64 %196, %199
   %201 = tail call i64 @llvm.abs.i64(i64 %200, i1 true)
   %202 = icmp samesign ugt i64 %201, %141
-  br i1 %202, label %205, label %.preheader9, !llvm.loop !74
+  br i1 %202, label %205, label %.preheader16, !llvm.loop !74
 
 203:                                              ; preds = %87, %77, %67, %.preheader
   %.lcssa = phi i64 [ %65, %87 ], [ %65, %77 ], [ %65, %67 ], [ %36, %.preheader ]
   %204 = icmp samesign uge i64 %.lcssa, %36
   br label %207
 
-205:                                              ; preds = %193, %183, %173, %.preheader9
-  %.lcssa11 = phi i64 [ %171, %193 ], [ %171, %183 ], [ %171, %173 ], [ %142, %.preheader9 ]
-  %206 = icmp samesign uge i64 %.lcssa11, %142
+205:                                              ; preds = %193, %183, %173, %.preheader16
+  %.lcssa18 = phi i64 [ %171, %193 ], [ %171, %183 ], [ %171, %173 ], [ %142, %.preheader16 ]
+  %206 = icmp samesign uge i64 %.lcssa18, %142
   br label %207
 
 207:                                              ; preds = %205, %203, %160, %150, %139, %133, %121, %111, %54, %44, %34, %28, %16, %5
@@ -16697,11 +16704,11 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %.pre17 = load ptr, ptr %107, align 8
+  %.pre18 = load ptr, ptr %107, align 8
   br label %108
 
 108:                                              ; preds = %106, %94
-  %109 = phi ptr [ %.pre17, %106 ], [ %72, %94 ]
+  %109 = phi ptr [ %.pre18, %106 ], [ %72, %94 ]
   %110 = icmp eq ptr %109, null
   br i1 %110, label %116, label %111
 
@@ -16983,10 +16990,10 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %294 = getelementptr inbounds nuw i8, ptr %287, i64 80
   %295 = load ptr, ptr %294, align 8
   %296 = add i32 %291, -1
-  br i1 %284, label %.split.us, label %.split
+  br i1 %284, label %.split16.us, label %.split16
 
-.split.us:                                        ; preds = %289, %.split.us
-  %297 = phi i64 [ %326, %.split.us ], [ 0, %289 ]
+.split16.us:                                      ; preds = %289, %.split16.us
+  %297 = phi i64 [ %326, %.split16.us ], [ 0, %289 ]
   %298 = trunc i64 %297 to i32
   %299 = mul i32 %296, %298
   %300 = sdiv i32 %299, 511
@@ -17020,10 +17027,10 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   store i16 %324, ptr %325, align 2
   %326 = add nuw nsw i64 %297, 1
   %327 = icmp eq i64 %326, 512
-  br i1 %327, label %.thread15, label %.split.us, !llvm.loop !178
+  br i1 %327, label %.thread15, label %.split16.us, !llvm.loop !178
 
-.split:                                           ; preds = %289, %.split
-  %328 = phi i64 [ %336, %.split ], [ 0, %289 ]
+.split16:                                         ; preds = %289, %.split16
+  %328 = phi i64 [ %336, %.split16 ], [ 0, %289 ]
   %329 = trunc i64 %328 to i32
   %330 = mul i32 %296, %329
   %331 = sdiv i32 %330, 511
@@ -17034,7 +17041,7 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   store i64 %335, ptr %334, align 2
   %336 = add nuw nsw i64 %328, 1
   %337 = icmp eq i64 %336, 512
-  br i1 %337, label %.thread15, label %.split, !llvm.loop !178
+  br i1 %337, label %.thread15, label %.split16, !llvm.loop !178
 
 338:                                              ; preds = %283
   tail call void @drm_property_blob_put(ptr noundef %226) #12
@@ -17042,7 +17049,7 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %340 = trunc i64 %339 to i32
   br label %345
 
-.thread15:                                        ; preds = %.split, %.split.us
+.thread15:                                        ; preds = %.split16, %.split16.us
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %342 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef nonnull %341, ptr noundef %226) #12
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -17066,7 +17073,8 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %354 = getelementptr inbounds nuw i8, ptr %349, i64 144
   %355 = load i32, ptr %354, align 8
   %356 = zext i32 %355 to i64
-  %357 = getelementptr %struct.__drm_crtcs_state, ptr %353, i64 %356, i32 2
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %353, i64 %356
+  %357 = getelementptr i8, ptr %.split, i64 16
   %358 = load ptr, ptr %357, align 8
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 744
   %360 = load ptr, ptr %359, align 8
@@ -17808,10 +17816,10 @@ define internal zeroext i1 @ivb_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %93, label %228, label %94, !llvm.loop !74
 
 94:                                               ; preds = %84
-  %95 = getelementptr %struct.drm_color_lut, ptr %48, i64 %82, i32 2
+  %95 = getelementptr i8, ptr %86, i64 4
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i64
-  %98 = getelementptr %struct.drm_color_lut, ptr %46, i64 %82, i32 2
+  %98 = getelementptr i8, ptr %85, i64 4
   %99 = load i16, ptr %98, align 2
   %100 = zext i16 %99 to i64
   %101 = sub nsw i64 %97, %100
@@ -17820,10 +17828,10 @@ define internal zeroext i1 @ivb_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %103, label %228, label %104, !llvm.loop !74
 
 104:                                              ; preds = %94
-  %105 = getelementptr %struct.drm_color_lut, ptr %48, i64 %82, i32 1
+  %105 = getelementptr i8, ptr %86, i64 2
   %106 = load i16, ptr %105, align 2
   %107 = zext i16 %106 to i64
-  %108 = getelementptr %struct.drm_color_lut, ptr %46, i64 %82, i32 1
+  %108 = getelementptr i8, ptr %85, i64 2
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i64
   %111 = sub nsw i64 %107, %110
@@ -17953,15 +17961,15 @@ define internal zeroext i1 @ivb_lut_equal(ptr noundef readonly captures(none) %0
   %192 = sub nsw i64 %188, %191
   %193 = tail call i64 @llvm.abs.i64(i64 %192, i1 true)
   %194 = icmp samesign ugt i64 %193, %166
-  br i1 %194, label %232, label %.preheader11
+  br i1 %194, label %232, label %.preheader18
 
-.preheader11:                                     ; preds = %185, %218
+.preheader18:                                     ; preds = %185, %218
   %195 = phi i64 [ %196, %218 ], [ 0, %185 ]
   %196 = add nuw nsw i64 %195, 1
   %197 = icmp eq i64 %196, %167
   br i1 %197, label %230, label %198, !llvm.loop !74
 
-198:                                              ; preds = %.preheader11
+198:                                              ; preds = %.preheader18
   %199 = getelementptr %struct.drm_color_lut, ptr %160, i64 %196
   %200 = getelementptr %struct.drm_color_lut, ptr %162, i64 %196
   %201 = load i16, ptr %200, align 2
@@ -17974,10 +17982,10 @@ define internal zeroext i1 @ivb_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %207, label %230, label %208, !llvm.loop !74
 
 208:                                              ; preds = %198
-  %209 = getelementptr %struct.drm_color_lut, ptr %162, i64 %196, i32 2
+  %209 = getelementptr i8, ptr %200, i64 4
   %210 = load i16, ptr %209, align 2
   %211 = zext i16 %210 to i64
-  %212 = getelementptr %struct.drm_color_lut, ptr %160, i64 %196, i32 2
+  %212 = getelementptr i8, ptr %199, i64 4
   %213 = load i16, ptr %212, align 2
   %214 = zext i16 %213 to i64
   %215 = sub nsw i64 %211, %214
@@ -17986,25 +17994,25 @@ define internal zeroext i1 @ivb_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %217, label %230, label %218, !llvm.loop !74
 
 218:                                              ; preds = %208
-  %219 = getelementptr %struct.drm_color_lut, ptr %162, i64 %196, i32 1
+  %219 = getelementptr i8, ptr %200, i64 2
   %220 = load i16, ptr %219, align 2
   %221 = zext i16 %220 to i64
-  %222 = getelementptr %struct.drm_color_lut, ptr %160, i64 %196, i32 1
+  %222 = getelementptr i8, ptr %199, i64 2
   %223 = load i16, ptr %222, align 2
   %224 = zext i16 %223 to i64
   %225 = sub nsw i64 %221, %224
   %226 = tail call i64 @llvm.abs.i64(i64 %225, i1 true)
   %227 = icmp samesign ugt i64 %226, %166
-  br i1 %227, label %230, label %.preheader11, !llvm.loop !74
+  br i1 %227, label %230, label %.preheader18, !llvm.loop !74
 
 228:                                              ; preds = %104, %94, %84, %.preheader
   %.lcssa = phi i64 [ %82, %104 ], [ %82, %94 ], [ %82, %84 ], [ %53, %.preheader ]
   %229 = icmp samesign uge i64 %.lcssa, %53
   br label %232
 
-230:                                              ; preds = %218, %208, %198, %.preheader11
-  %.lcssa13 = phi i64 [ %196, %218 ], [ %196, %208 ], [ %196, %198 ], [ %167, %.preheader11 ]
-  %231 = icmp samesign uge i64 %.lcssa13, %167
+230:                                              ; preds = %218, %208, %198, %.preheader18
+  %.lcssa20 = phi i64 [ %196, %218 ], [ %196, %208 ], [ %196, %198 ], [ %167, %.preheader18 ]
+  %231 = icmp samesign uge i64 %.lcssa20, %167
   br label %232
 
 232:                                              ; preds = %230, %228, %185, %175, %164, %158, %146, %136, %71, %61, %50, %44, %32, %22
@@ -19801,7 +19809,8 @@ define internal i32 @ilk_color_check(ptr noundef %0) #0 align 16 {
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 144
   %130 = load i32, ptr %129, align 8
   %131 = zext i32 %130 to i64
-  %132 = getelementptr %struct.__drm_crtcs_state, ptr %128, i64 %131, i32 2
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %128, i64 %131
+  %132 = getelementptr i8, ptr %.split, i64 16
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 744
   %135 = load ptr, ptr %134, align 8
@@ -20293,10 +20302,10 @@ define internal zeroext i1 @ilk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %91, label %223, label %92, !llvm.loop !74
 
 92:                                               ; preds = %82
-  %93 = getelementptr %struct.drm_color_lut, ptr %46, i64 %80, i32 2
+  %93 = getelementptr i8, ptr %84, i64 4
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i64
-  %96 = getelementptr %struct.drm_color_lut, ptr %44, i64 %80, i32 2
+  %96 = getelementptr i8, ptr %83, i64 4
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i64
   %99 = sub nsw i64 %95, %98
@@ -20305,10 +20314,10 @@ define internal zeroext i1 @ilk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %101, label %223, label %102, !llvm.loop !74
 
 102:                                              ; preds = %92
-  %103 = getelementptr %struct.drm_color_lut, ptr %46, i64 %80, i32 1
+  %103 = getelementptr i8, ptr %84, i64 2
   %104 = load i16, ptr %103, align 2
   %105 = zext i16 %104 to i64
-  %106 = getelementptr %struct.drm_color_lut, ptr %44, i64 %80, i32 1
+  %106 = getelementptr i8, ptr %83, i64 2
   %107 = load i16, ptr %106, align 2
   %108 = zext i16 %107 to i64
   %109 = sub nsw i64 %105, %108
@@ -20425,15 +20434,15 @@ define internal zeroext i1 @ilk_lut_equal(ptr noundef readonly captures(none) %0
   %187 = sub nsw i64 %183, %186
   %188 = tail call i64 @llvm.abs.i64(i64 %187, i1 true)
   %189 = icmp samesign ugt i64 %188, %161
-  br i1 %189, label %227, label %.preheader9
+  br i1 %189, label %227, label %.preheader16
 
-.preheader9:                                      ; preds = %180, %213
+.preheader16:                                     ; preds = %180, %213
   %190 = phi i64 [ %191, %213 ], [ 0, %180 ]
   %191 = add nuw nsw i64 %190, 1
   %192 = icmp eq i64 %191, %162
   br i1 %192, label %225, label %193, !llvm.loop !74
 
-193:                                              ; preds = %.preheader9
+193:                                              ; preds = %.preheader16
   %194 = getelementptr %struct.drm_color_lut, ptr %155, i64 %191
   %195 = getelementptr %struct.drm_color_lut, ptr %157, i64 %191
   %196 = load i16, ptr %195, align 2
@@ -20446,10 +20455,10 @@ define internal zeroext i1 @ilk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %202, label %225, label %203, !llvm.loop !74
 
 203:                                              ; preds = %193
-  %204 = getelementptr %struct.drm_color_lut, ptr %157, i64 %191, i32 2
+  %204 = getelementptr i8, ptr %195, i64 4
   %205 = load i16, ptr %204, align 2
   %206 = zext i16 %205 to i64
-  %207 = getelementptr %struct.drm_color_lut, ptr %155, i64 %191, i32 2
+  %207 = getelementptr i8, ptr %194, i64 4
   %208 = load i16, ptr %207, align 2
   %209 = zext i16 %208 to i64
   %210 = sub nsw i64 %206, %209
@@ -20458,25 +20467,25 @@ define internal zeroext i1 @ilk_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %212, label %225, label %213, !llvm.loop !74
 
 213:                                              ; preds = %203
-  %214 = getelementptr %struct.drm_color_lut, ptr %157, i64 %191, i32 1
+  %214 = getelementptr i8, ptr %195, i64 2
   %215 = load i16, ptr %214, align 2
   %216 = zext i16 %215 to i64
-  %217 = getelementptr %struct.drm_color_lut, ptr %155, i64 %191, i32 1
+  %217 = getelementptr i8, ptr %194, i64 2
   %218 = load i16, ptr %217, align 2
   %219 = zext i16 %218 to i64
   %220 = sub nsw i64 %216, %219
   %221 = tail call i64 @llvm.abs.i64(i64 %220, i1 true)
   %222 = icmp samesign ugt i64 %221, %161
-  br i1 %222, label %225, label %.preheader9, !llvm.loop !74
+  br i1 %222, label %225, label %.preheader16, !llvm.loop !74
 
 223:                                              ; preds = %102, %92, %82, %.preheader
   %.lcssa = phi i64 [ %80, %102 ], [ %80, %92 ], [ %80, %82 ], [ %51, %.preheader ]
   %224 = icmp samesign uge i64 %.lcssa, %51
   br label %227
 
-225:                                              ; preds = %213, %203, %193, %.preheader9
-  %.lcssa11 = phi i64 [ %191, %213 ], [ %191, %203 ], [ %191, %193 ], [ %162, %.preheader9 ]
-  %226 = icmp samesign uge i64 %.lcssa11, %162
+225:                                              ; preds = %213, %203, %193, %.preheader16
+  %.lcssa18 = phi i64 [ %191, %213 ], [ %191, %203 ], [ %191, %193 ], [ %162, %.preheader16 ]
+  %226 = icmp samesign uge i64 %.lcssa18, %162
   br label %227
 
 227:                                              ; preds = %225, %223, %180, %170, %159, %153, %141, %131, %69, %59, %48, %42, %30, %20

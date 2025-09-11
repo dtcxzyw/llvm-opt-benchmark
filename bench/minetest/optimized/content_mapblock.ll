@@ -3167,7 +3167,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.end.i
   %494 = phi i8 [ %.pre56.i.i, %if.then.i.i ], [ %493, %if.end.i ]
-  %arrayidx5.1.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv.i, i64 1
+  %arrayidx5.1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i.i, i64 1
   %495 = load i8, ptr %arrayidx5.1.i.i, align 1, !tbaa !44
   %idxprom6.1.i.i = zext i8 %495 to i64
   %arrayidx7.1.i.i = getelementptr inbounds nuw %struct.LightInfo, ptr %lights, i64 %idxprom6.1.i.i
@@ -3216,7 +3216,7 @@ if.then.1.i.i:                                    ; preds = %if.end.i.i
 
 if.end.1.i.i:                                     ; preds = %if.then.1.i.i, %if.end.i.i
   %509 = phi i8 [ %.pre58.i.i, %if.then.1.i.i ], [ %508, %if.end.i.i ]
-  %arrayidx5.2.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv.i, i64 2
+  %arrayidx5.2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i.i, i64 2
   %510 = load i8, ptr %arrayidx5.2.i.i, align 2, !tbaa !44
   %idxprom6.2.i.i = zext i8 %510 to i64
   %arrayidx7.2.i.i = getelementptr inbounds nuw %struct.LightInfo, ptr %lights, i64 %idxprom6.2.i.i
@@ -3265,7 +3265,7 @@ if.then.2.i.i:                                    ; preds = %if.end.1.i.i
 
 if.end.2.i.i:                                     ; preds = %if.then.2.i.i, %if.end.1.i.i
   %524 = phi i8 [ %.pre60.i.i, %if.then.2.i.i ], [ %523, %if.end.1.i.i ]
-  %arrayidx5.3.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv.i, i64 3
+  %arrayidx5.3.i.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i.i, i64 3
   %525 = load i8, ptr %arrayidx5.3.i.i, align 1, !tbaa !44
   %idxprom6.3.i.i = zext i8 %525 to i64
   %arrayidx7.3.i.i = getelementptr inbounds nuw %struct.LightInfo, ptr %lights, i64 %idxprom6.3.i.i
@@ -4208,7 +4208,7 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134)
   call void @llvm.lifetime.end.p0(ptr nonnull %corner)
   call void @llvm.lifetime.start.p0(ptr nonnull %corner)
-  %arrayidx130.1 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv295, i64 1
+  %arrayidx130.1 = getelementptr inbounds nuw i8, ptr %arrayidx130, i64 1
   %99 = load i8, ptr %arrayidx130.1, align 1, !tbaa !44
   %idxprom131.1 = zext i8 %99 to i64
   %arrayidx132.1 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZL10light_dirs, i64 %idxprom131.1
@@ -4233,12 +4233,12 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   store i48 %retval.sroa.0.0.insert.insert.i254.1, ptr %ref.tmp134, align 8
   %106 = load ptr, ptr %this, align 8, !tbaa !12
   %call143.1 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %106)
-  %arrayidx147.1 = getelementptr inbounds nuw [4 x %struct.LightPair], ptr %lights117, i64 %indvars.iv295, i64 1
+  %arrayidx147.1 = getelementptr inbounds nuw i8, ptr %arrayidx147, i64 2
   store i16 %call143.1, ptr %arrayidx147.1, align 2, !tbaa.struct !132
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134)
   call void @llvm.lifetime.end.p0(ptr nonnull %corner)
   call void @llvm.lifetime.start.p0(ptr nonnull %corner)
-  %arrayidx130.2 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv295, i64 2
+  %arrayidx130.2 = getelementptr inbounds nuw i8, ptr %arrayidx130, i64 2
   %107 = load i8, ptr %arrayidx130.2, align 2, !tbaa !44
   %idxprom131.2 = zext i8 %107 to i64
   %arrayidx132.2 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZL10light_dirs, i64 %idxprom131.2
@@ -4263,12 +4263,12 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   store i48 %retval.sroa.0.0.insert.insert.i254.2, ptr %ref.tmp134, align 8
   %114 = load ptr, ptr %this, align 8, !tbaa !12
   %call143.2 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %114)
-  %arrayidx147.2 = getelementptr inbounds nuw [4 x %struct.LightPair], ptr %lights117, i64 %indvars.iv295, i64 2
+  %arrayidx147.2 = getelementptr inbounds nuw i8, ptr %arrayidx147, i64 4
   store i16 %call143.2, ptr %arrayidx147.2, align 4, !tbaa.struct !132
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134)
   call void @llvm.lifetime.end.p0(ptr nonnull %corner)
   call void @llvm.lifetime.start.p0(ptr nonnull %corner)
-  %arrayidx130.3 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13light_indices, i64 %indvars.iv295, i64 3
+  %arrayidx130.3 = getelementptr inbounds nuw i8, ptr %arrayidx130, i64 3
   %115 = load i8, ptr %arrayidx130.3, align 1, !tbaa !44
   %idxprom131.3 = zext i8 %115 to i64
   %arrayidx132.3 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr @_ZL10light_dirs, i64 %idxprom131.3
@@ -4293,7 +4293,7 @@ for.cond123.preheader:                            ; preds = %for.cond123.prehead
   store i48 %retval.sroa.0.0.insert.insert.i254.3, ptr %ref.tmp134, align 8
   %122 = load ptr, ptr %this, align 8, !tbaa !12
   %call143.3 = call noundef zeroext i16 @_Z19getSmoothLightSolidRKN3irr4core8vector3dIsEES4_S4_P12MeshMakeData(ptr noundef nonnull align 2 dereferenceable(6) %ref.tmp134, ptr noundef nonnull align 2 dereferenceable(6) %arrayidx141, ptr noundef nonnull align 2 dereferenceable(6) %corner, ptr noundef %122)
-  %arrayidx147.3 = getelementptr inbounds nuw [4 x %struct.LightPair], ptr %lights117, i64 %indvars.iv295, i64 3
+  %arrayidx147.3 = getelementptr inbounds nuw i8, ptr %arrayidx147, i64 6
   store i16 %call143.3, ptr %arrayidx147.3, align 2, !tbaa.struct !132
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134)
   call void @llvm.lifetime.end.p0(ptr nonnull %corner)
@@ -9934,7 +9934,8 @@ for.cond40.preheader.unr-lcssa:                   ; preds = %if.end
 for.body.epil:                                    ; preds = %if.end, %for.body.epil
   %indvars.iv.epil = phi i64 [ %indvars.iv.next.epil, %for.body.epil ], [ 0, %if.end ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.epil ], [ 0, %if.end ]
-  %Z37.epil = getelementptr inbounds nuw %"class.irr::core::vector3d.0", ptr %vertices, i64 %indvars.iv.epil, i32 2
+  %Z37.epil.split = getelementptr inbounds nuw %"class.irr::core::vector3d.0", ptr %vertices, i64 %indvars.iv.epil
+  %Z37.epil = getelementptr inbounds nuw i8, ptr %Z37.epil.split, i64 8
   %10 = load float, ptr %Z37.epil, align 4, !tbaa !50
   %add.epil = fadd nsz float %quad_offset, %10
   store float %add.epil, ptr %Z37.epil, align 4, !tbaa !50
@@ -13658,7 +13659,8 @@ invoke.cont165:                                   ; preds = %_ZNSt6vectorIfSaIfE
   %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i460, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i ], [ %sections.sroa.18.7709, %if.then.i.i457 ]
   %sections.sroa.0.8 = phi ptr [ %call5.i.i.i.i.i.i462, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i ], [ %sections.sroa.0.7710, %if.then.i.i457 ]
   %sections.sroa.18.8 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 4
-  %MaxEdge = getelementptr inbounds %"class.irr::core::aabbox3d", ptr %94, i64 %i.0711, i32 1
+  %MaxEdge.split = getelementptr inbounds %"class.irr::core::aabbox3d", ptr %94, i64 %i.0711
+  %MaxEdge = getelementptr inbounds nuw i8, ptr %MaxEdge.split, i64 12
   %add.ptr.i465 = getelementptr inbounds nuw float, ptr %MaxEdge, i64 %indvars.iv752
   %95 = load float, ptr %add.ptr.i465, align 4, !tbaa !49
   %conv171 = fpext float %95 to double
@@ -15590,7 +15592,8 @@ entry:
   %sub = add nsw i32 %tilecount, -1
   %cond = tail call i32 @llvm.smin.i32(i32 %sub, i32 0)
   %idxprom = sext i32 %cond to i64
-  %rotation = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom, i32 1
+  %rotation.split = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom
+  %rotation = getelementptr inbounds nuw i8, ptr %rotation.split, i64 1
   %42 = load i8, ptr %rotation, align 1, !tbaa !52
   %43 = extractelement <2 x float> %32, i64 1
   %44 = extractelement <2 x float> %32, i64 0
@@ -15672,7 +15675,8 @@ for.body191.us.preheader:                         ; preds = %entry
 for.cond.cleanup190:                              ; preds = %for.body191.us.preheader, %for.body191.us526.preheader, %for.body191.us536.preheader, %entry
   %cond.1 = tail call i32 @llvm.smin.i32(i32 %sub, i32 1)
   %idxprom.1 = sext i32 %cond.1 to i64
-  %rotation.1 = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom.1, i32 1
+  %rotation.1.split = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom.1
+  %rotation.1 = getelementptr inbounds nuw i8, ptr %rotation.1.split, i64 1
   %73 = load i8, ptr %rotation.1, align 1, !tbaa !52
   switch i8 %73, label %for.cond.cleanup190.1 [
     i8 3, label %for.body191.us.preheader.1
@@ -15748,7 +15752,8 @@ for.body191.us.preheader.1:                       ; preds = %for.cond.cleanup190
 for.cond.cleanup190.1:                            ; preds = %for.body191.us.preheader.1, %for.body191.us526.preheader.1, %for.body191.us536.preheader.1, %for.cond.cleanup190
   %cond.2 = tail call i32 @llvm.smin.i32(i32 %sub, i32 2)
   %idxprom.2 = sext i32 %cond.2 to i64
-  %rotation.2 = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom.2, i32 1
+  %rotation.2.split = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom.2
+  %rotation.2 = getelementptr inbounds nuw i8, ptr %rotation.2.split, i64 1
   %98 = load i8, ptr %rotation.2, align 1, !tbaa !52
   switch i8 %98, label %for.cond.cleanup190.2 [
     i8 3, label %for.body191.us.preheader.2
@@ -15824,7 +15829,8 @@ for.body191.us.preheader.2:                       ; preds = %for.cond.cleanup190
 for.cond.cleanup190.2:                            ; preds = %for.body191.us.preheader.2, %for.body191.us526.preheader.2, %for.body191.us536.preheader.2, %for.cond.cleanup190.1
   %cond.3 = tail call i32 @llvm.smin.i32(i32 %sub, i32 3)
   %idxprom.3 = sext i32 %cond.3 to i64
-  %rotation.3 = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom.3, i32 1
+  %rotation.3.split = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom.3
+  %rotation.3 = getelementptr inbounds nuw i8, ptr %rotation.3.split, i64 1
   %123 = load i8, ptr %rotation.3, align 1, !tbaa !52
   switch i8 %123, label %for.cond.cleanup190.3 [
     i8 3, label %for.body191.us.preheader.3
@@ -15900,7 +15906,8 @@ for.body191.us.preheader.3:                       ; preds = %for.cond.cleanup190
 for.cond.cleanup190.3:                            ; preds = %for.body191.us.preheader.3, %for.body191.us526.preheader.3, %for.body191.us536.preheader.3, %for.cond.cleanup190.2
   %cond.4 = tail call i32 @llvm.smin.i32(i32 %sub, i32 4)
   %idxprom.4 = sext i32 %cond.4 to i64
-  %rotation.4 = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom.4, i32 1
+  %rotation.4.split = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom.4
+  %rotation.4 = getelementptr inbounds nuw i8, ptr %rotation.4.split, i64 1
   %148 = load i8, ptr %rotation.4, align 1, !tbaa !52
   switch i8 %148, label %for.cond.cleanup190.4 [
     i8 3, label %for.body191.us.preheader.4
@@ -15963,7 +15970,8 @@ for.body191.us.preheader.4:                       ; preds = %for.cond.cleanup190
 for.cond.cleanup190.4:                            ; preds = %for.body191.us.preheader.4, %for.body191.us526.preheader.4, %for.body191.us536.preheader.4, %for.cond.cleanup190.3
   %cond.5 = tail call i32 @llvm.smin.i32(i32 %sub, i32 5)
   %idxprom.5 = sext i32 %cond.5 to i64
-  %rotation.5 = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom.5, i32 1
+  %rotation.5.split = getelementptr inbounds %struct.TileSpec, ptr %tiles, i64 %idxprom.5
+  %rotation.5 = getelementptr inbounds nuw i8, ptr %rotation.5.split, i64 1
   %160 = load i8, ptr %rotation.5, align 1, !tbaa !52
   switch i8 %160, label %for.cond.cleanup190.5 [
     i8 3, label %for.body191.us.preheader.5

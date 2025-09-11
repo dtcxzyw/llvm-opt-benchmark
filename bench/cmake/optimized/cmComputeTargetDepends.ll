@@ -2094,7 +2094,7 @@ define dso_local void @_ZN22cmComputeTargetDepends18DisplaySideEffectsEv(ptr nou
   ret void
 
 17:                                               ; preds = %.lr.ph42, %._crit_edge39
-  %.040 = phi i64 [ 0, %.lr.ph42 ], [ %52, %._crit_edge39 ]
+  %.040 = phi i64 [ 0, %.lr.ph42 ], [ %53, %._crit_edge39 ]
   %18 = load ptr, ptr %14, align 8, !tbaa !181
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.040
   %20 = load ptr, ptr %19, align 8, !tbaa !218
@@ -2103,91 +2103,92 @@ define dso_local void @_ZN22cmComputeTargetDepends18DisplaySideEffectsEv(ptr nou
   %23 = load ptr, ptr %22, align 8, !tbaa !174
   %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.13, i64 noundef %.040, ptr noundef %23) #29
   %25 = load ptr, ptr %6, align 8, !tbaa !183
-  %26 = getelementptr inbounds nuw %"struct.cmComputeTargetDepends::TargetSideEffects", ptr %25, i64 %.040, i32 0, i32 0, i32 0, i32 1, i32 1
-  %27 = load i64, ptr %26, align 8, !tbaa !231
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.loopexit, label %29
+  %26 = getelementptr inbounds nuw %"struct.cmComputeTargetDepends::TargetSideEffects", ptr %25, i64 %.040
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %28 = load i64, ptr %27, align 8, !tbaa !231
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %.loopexit, label %30
 
-29:                                               ; preds = %17
-  %30 = load ptr, ptr @stderr, align 8, !tbaa !232
-  %31 = call i64 @fwrite(ptr nonnull @.str.19, i64 18, i64 1, ptr %30) #30
-  %32 = load ptr, ptr %6, align 8, !tbaa !183
-  %33 = getelementptr inbounds nuw %"struct.cmComputeTargetDepends::TargetSideEffects", ptr %32, i64 %.040
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !14
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %.not30 = icmp eq ptr %35, %36
+30:                                               ; preds = %17
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !232
+  %32 = call i64 @fwrite(ptr nonnull @.str.19, i64 18, i64 1, ptr %31) #30
+  %33 = load ptr, ptr %6, align 8, !tbaa !183
+  %34 = getelementptr inbounds nuw %"struct.cmComputeTargetDepends::TargetSideEffects", ptr %33, i64 %.040
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %36 = load ptr, ptr %35, align 8, !tbaa !14
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %.not30 = icmp eq ptr %36, %37
   br i1 %.not30, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %29, %.lr.ph
-  %.sroa.025.031 = phi ptr [ %46, %.lr.ph ], [ %35, %29 ]
+.lr.ph:                                           ; preds = %30, %.lr.ph
+  %.sroa.025.031 = phi ptr [ %47, %.lr.ph ], [ %36, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.025.031, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !218
-  store ptr %38, ptr %2, align 8, !tbaa !218
-  %39 = load ptr, ptr @stderr, align 8, !tbaa !232
-  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %41 = load i64, ptr %40, align 8, !tbaa !173
-  %42 = load ptr, ptr %2, align 8, !tbaa !218
-  %43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK17cmGeneratorTarget7GetNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(2912) %42)
-  %44 = load ptr, ptr %43, align 8, !tbaa !174
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.20, i64 noundef %41, ptr noundef %44) #29
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.025.031, i64 32
+  %39 = load ptr, ptr %38, align 8, !tbaa !218
+  store ptr %39, ptr %2, align 8, !tbaa !218
+  %40 = load ptr, ptr @stderr, align 8, !tbaa !232
+  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %42 = load i64, ptr %41, align 8, !tbaa !173
+  %43 = load ptr, ptr %2, align 8, !tbaa !218
+  %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK17cmGeneratorTarget7GetNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(2912) %43)
+  %45 = load ptr, ptr %44, align 8, !tbaa !174
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.20, i64 noundef %42, ptr noundef %45) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %46 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.025.031) #31
-  %.not = icmp eq ptr %46, %36
+  %47 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.025.031) #31
+  %.not = icmp eq ptr %47, %37
   br i1 %.not, label %.loopexit.loopexit, label %.lr.ph
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %.pre = load ptr, ptr %6, align 8, !tbaa !183
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %29, %17
-  %47 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %32, %29 ], [ %25, %17 ]
-  %48 = getelementptr inbounds nuw %"struct.cmComputeTargetDepends::TargetSideEffects", ptr %47, i64 %.040, i32 1
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !14
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %.not2835 = icmp eq ptr %50, %51
+.loopexit:                                        ; preds = %.loopexit.loopexit, %30, %17
+  %48 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %33, %30 ], [ %25, %17 ]
+  %49 = getelementptr inbounds nuw %"struct.cmComputeTargetDepends::TargetSideEffects", ptr %48, i64 %.040
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
+  %51 = load ptr, ptr %50, align 8, !tbaa !14
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 56
+  %.not2835 = icmp eq ptr %51, %52
   br i1 %.not2835, label %._crit_edge39, label %.lr.ph38
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %.loopexit
-  %52 = add nuw i64 %.040, 1
-  %exitcond.not = icmp eq i64 %52, %13
+  %53 = add nuw i64 %.040, 1
+  %exitcond.not = icmp eq i64 %53, %13
   br i1 %exitcond.not, label %._crit_edge43, label %17, !llvm.loop !246
 
 .lr.ph38:                                         ; preds = %.loopexit, %._crit_edge
-  %.sroa.021.036 = phi ptr [ %60, %._crit_edge ], [ %50, %.loopexit ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.021.036, i64 32
-  %54 = load ptr, ptr @stderr, align 8, !tbaa !232
-  %55 = load ptr, ptr %53, align 8, !tbaa !174
-  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.21, ptr noundef %55) #29
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.021.036, i64 88
-  %58 = load ptr, ptr %57, align 8, !tbaa !14
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.021.036, i64 72
-  %.not2932 = icmp eq ptr %58, %59
+  %.sroa.021.036 = phi ptr [ %61, %._crit_edge ], [ %51, %.loopexit ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.021.036, i64 32
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !232
+  %56 = load ptr, ptr %54, align 8, !tbaa !174
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.21, ptr noundef %56) #29
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.021.036, i64 88
+  %59 = load ptr, ptr %58, align 8, !tbaa !14
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.021.036, i64 72
+  %.not2932 = icmp eq ptr %59, %60
   br i1 %.not2932, label %._crit_edge, label %.lr.ph34
 
 ._crit_edge:                                      ; preds = %.lr.ph34, %.lr.ph38
-  %60 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.021.036) #31
-  %.not28 = icmp eq ptr %60, %51
+  %61 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.021.036) #31
+  %.not28 = icmp eq ptr %61, %52
   br i1 %.not28, label %._crit_edge39, label %.lr.ph38
 
 .lr.ph34:                                         ; preds = %.lr.ph38, %.lr.ph34
-  %.sroa.017.033 = phi ptr [ %70, %.lr.ph34 ], [ %58, %.lr.ph38 ]
+  %.sroa.017.033 = phi ptr [ %71, %.lr.ph34 ], [ %59, %.lr.ph38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.017.033, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !218
-  store ptr %62, ptr %3, align 8, !tbaa !218
-  %63 = load ptr, ptr @stderr, align 8, !tbaa !232
-  %64 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %65 = load i64, ptr %64, align 8, !tbaa !173
-  %66 = load ptr, ptr %3, align 8, !tbaa !218
-  %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK17cmGeneratorTarget7GetNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(2912) %66)
-  %68 = load ptr, ptr %67, align 8, !tbaa !174
-  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.20, i64 noundef %65, ptr noundef %68) #29
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.017.033, i64 32
+  %63 = load ptr, ptr %62, align 8, !tbaa !218
+  store ptr %63, ptr %3, align 8, !tbaa !218
+  %64 = load ptr, ptr @stderr, align 8, !tbaa !232
+  %65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPK17cmGeneratorTargetmSt4lessIS2_ESaISt4pairIKS2_mEEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %66 = load i64, ptr %65, align 8, !tbaa !173
+  %67 = load ptr, ptr %3, align 8, !tbaa !218
+  %68 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK17cmGeneratorTarget7GetNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(2912) %67)
+  %69 = load ptr, ptr %68, align 8, !tbaa !174
+  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.20, i64 noundef %66, ptr noundef %69) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %70 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.017.033) #31
-  %.not29 = icmp eq ptr %70, %59
+  %71 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.017.033) #31
+  %.not29 = icmp eq ptr %71, %60
   br i1 %.not29, label %._crit_edge, label %.lr.ph34
 }
 

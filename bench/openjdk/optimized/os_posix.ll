@@ -3669,7 +3669,7 @@ declare void @llvm.va_start.p0(ptr) #23
 define linkonce_odr hidden void @_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 {
   %5 = alloca %struct.timespec, align 8
   %6 = tail call noundef zeroext i1 @_ZN7VMError17is_error_reportedEv() #28
-  br i1 %6, label %39, label %7
+  br i1 %6, label %41, label %7
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3708,19 +3708,21 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %7, %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %20 to i64
-  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %30, i64 %31, i32 1
-  store ptr %1, ptr %32, align 8
-  %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %33, i64 %31
-  store double %17, ptr %34, align 8
-  %35 = load ptr, ptr %29, align 8
-  %36 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %35, i64 %31, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = call i32 @jio_vsnprintf(ptr noundef %37, i64 noundef 256, ptr noundef %2, ptr noundef %3) #28
+  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %30, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr %1, ptr %33, align 8
+  %34 = load ptr, ptr %29, align 8
+  %35 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %34, i64 %31
+  store double %17, ptr %35, align 8
+  %36 = load ptr, ptr %29, align 8
+  %37 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %36, i64 %31
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i32 @jio_vsnprintf(ptr noundef %39, i64 noundef 256, ptr noundef %2, ptr noundef %3) #28
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #28
-  br label %39
+  br label %41
 
-39:                                               ; preds = %4, %_ZN11MutexLockerD2Ev.exit
+41:                                               ; preds = %4, %_ZN11MutexLockerD2Ev.exit
   ret void
 }
 

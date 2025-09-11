@@ -1145,7 +1145,8 @@ tcp_fastopen_cookie_check.exit:                   ; preds = %70, %40
 83:                                               ; preds = %79, %tcp_fastopen_cookie_check.exit
   %84 = phi i64 [ 0, %tcp_fastopen_cookie_check.exit ], [ %82, %79 ]
   %85 = or i32 %76, 256
-  %86 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %84, i64 6
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %84
+  %86 = getelementptr i8, ptr %.split, i64 48
   %87 = load ptr, ptr %86, align 16
   %88 = call noalias noundef align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %87, i32 noundef %85, i64 noundef 56) #10
   store ptr %88, ptr %10, align 64

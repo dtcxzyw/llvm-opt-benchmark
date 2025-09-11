@@ -1164,7 +1164,8 @@ define internal noundef range(i32 -22, 1) i32 @ilk_compute_pipe_wm(ptr noundef r
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr %struct.__drm_crtcs_state, ptr %8, i64 %11, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %8, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 24
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1660
@@ -1175,7 +1176,7 @@ define internal noundef range(i32 -22, 1) i32 @ilk_compute_pipe_wm(ptr noundef r
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 712
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %19
-  br i1 %21, label %.loopexit5, label %22
+  br i1 %21, label %.loopexit6, label %22
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 12
@@ -1198,7 +1199,8 @@ define internal noundef range(i32 -22, 1) i32 @ilk_compute_pipe_wm(ptr noundef r
 36:                                               ; preds = %26
   %37 = load ptr, ptr %25, align 8
   %38 = zext i32 %32 to i64
-  %39 = getelementptr %struct.__drm_planes_state, ptr %37, i64 %38, i32 1
+  %.split5 = getelementptr %struct.__drm_planes_state, ptr %37, i64 %38
+  %39 = getelementptr i8, ptr %.split5, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   %42 = getelementptr i8, ptr %27, i64 1232
@@ -1231,9 +1233,9 @@ define internal noundef range(i32 -22, 1) i32 @ilk_compute_pipe_wm(ptr noundef r
   %55 = phi ptr [ %28, %49 ], [ %44, %50 ], [ %28, %36 ], [ %28, %26 ], [ %28, %46 ], [ %28, %51 ]
   %56 = load ptr, ptr %27, align 8
   %57 = icmp eq ptr %56, %19
-  br i1 %57, label %.loopexit5, label %26, !llvm.loop !44
+  br i1 %57, label %.loopexit6, label %26, !llvm.loop !44
 
-.loopexit5:                                       ; preds = %52, %2
+.loopexit6:                                       ; preds = %52, %2
   %58 = phi ptr [ null, %2 ], [ %53, %52 ]
   %59 = phi ptr [ null, %2 ], [ %54, %52 ]
   %60 = phi ptr [ null, %2 ], [ %55, %52 ]
@@ -1289,7 +1291,7 @@ define internal noundef range(i32 -22, 1) i32 @ilk_compute_pipe_wm(ptr noundef r
   store i16 %103, ptr %3, align 8
   br i1 %98, label %110, label %104
 
-104:                                              ; preds = %.loopexit5
+104:                                              ; preds = %.loopexit6
   %105 = lshr i32 %97, 1
   %106 = select i1 %87, i32 127, i32 63
   %107 = select i1 %86, i32 255, i32 %106
@@ -1297,8 +1299,8 @@ define internal noundef range(i32 -22, 1) i32 @ilk_compute_pipe_wm(ptr noundef r
   %109 = trunc nuw nsw i32 %108 to i16
   br label %110
 
-110:                                              ; preds = %104, %.loopexit5
-  %111 = phi i16 [ %109, %104 ], [ 0, %.loopexit5 ]
+110:                                              ; preds = %104, %.loopexit6
+  %111 = phi i16 [ %109, %104 ], [ 0, %.loopexit6 ]
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %111, ptr %112, align 2
   %113 = icmp ugt i16 %85, 6
@@ -1387,9 +1389,10 @@ define internal noundef range(i32 -22, 1) i32 @ilk_compute_intermediate_wm(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 2
+  %12 = getelementptr i8, ptr %.split, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 1556
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 1660
@@ -1566,7 +1569,8 @@ define internal void @ilk_initial_watermarks(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 7032
   tail call void @mutex_lock(ptr noundef nonnull %11) #14
@@ -1585,7 +1589,8 @@ define internal void @ilk_optimize_watermarks(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4092
   %11 = load i8, ptr %10, align 4, !range !27, !noundef !28
@@ -3115,14 +3120,15 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 704
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %.loopexit21
+  br i1 %14, label %15, label %.loopexit22
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3220,7 +3226,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %87 = getelementptr i16, ptr %86, i64 %81
   %88 = load i16, ptr %87, align 2
   %89 = icmp eq i16 %88, 0
-  br i1 %89, label %.thread56, label %90
+  br i1 %89, label %.thread57, label %90
 
 90:                                               ; preds = %80
   %91 = tail call zeroext i1 @intel_wm_plane_visible(ptr noundef %9, ptr noundef %31) #14
@@ -3271,7 +3277,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %125 = tail call i32 @llvm.umin.i32(i32 %124, i32 65535)
   %126 = trunc nuw i32 %125 to i16
   %127 = icmp ult i16 %59, %126
-  br i1 %127, label %.thread56, label %.thread
+  br i1 %127, label %.thread57, label %.thread
 
 .thread:                                          ; preds = %92, %90, %113
   %128 = phi i16 [ %126, %113 ], [ 63, %92 ], [ 0, %90 ]
@@ -3286,21 +3292,21 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %136 = load i8, ptr %49, align 8
   %137 = zext i8 %136 to i64
   %138 = icmp samesign ult i64 %134, %137
-  br i1 %138, label %80, label %.loopexit20, !llvm.loop !79
+  br i1 %138, label %80, label %.loopexit21, !llvm.loop !79
 
-.thread56:                                        ; preds = %80, %113
+.thread57:                                        ; preds = %80, %113
   %139 = trunc nuw nsw i64 %81 to i32
-  br label %.loopexit20
+  br label %.loopexit21
 
-.loopexit20:                                      ; preds = %.thread, %.thread56
-  %140 = phi i8 [ %82, %.thread56 ], [ %133, %.thread ]
-  %141 = phi i32 [ %139, %.thread56 ], [ %135, %.thread ]
+.loopexit21:                                      ; preds = %.thread, %.thread57
+  %140 = phi i8 [ %82, %.thread57 ], [ %133, %.thread ]
+  %141 = phi i32 [ %139, %.thread57 ], [ %135, %.thread ]
   %142 = icmp ne i8 %140, 0
   br label %143
 
-143:                                              ; preds = %.loopexit20, %48
-  %144 = phi i32 [ 0, %48 ], [ %141, %.loopexit20 ]
-  %145 = phi i1 [ false, %48 ], [ %142, %.loopexit20 ]
+143:                                              ; preds = %.loopexit21, %48
+  %144 = phi i32 [ 0, %48 ], [ %141, %.loopexit21 ]
+  %145 = phi i1 [ false, %48 ], [ %142, %.loopexit21 ]
   %146 = load ptr, ptr %9, align 8
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 7024
@@ -3377,9 +3383,9 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %199 = load i32, ptr %198, align 8
   %200 = sext i32 %199 to i64
   %201 = icmp slt i64 %196, %200
-  br i1 %201, label %22, label %.loopexit21, !llvm.loop !80
+  br i1 %201, label %22, label %.loopexit22, !llvm.loop !80
 
-.loopexit21:                                      ; preds = %.critedge, %2
+.loopexit22:                                      ; preds = %.critedge, %2
   %202 = phi i32 [ 0, %2 ], [ %195, %.critedge ]
   %203 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %204 = load i8, ptr %203, align 2
@@ -3387,9 +3393,9 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %206 = icmp eq i8 %205, 0
   %207 = select i1 %206, i32 %202, i32 -1
   %208 = icmp eq i32 %207, 0
-  br i1 %208, label %.thread19, label %209
+  br i1 %208, label %.thread20, label %209
 
-209:                                              ; preds = %.loopexit21
+209:                                              ; preds = %.loopexit22
   %210 = and i32 %207, -129
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %352, label %212
@@ -3398,7 +3404,8 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %213 = load ptr, ptr %3, align 8
   %214 = load i32, ptr %5, align 8
   %215 = zext i32 %214 to i64
-  %216 = getelementptr %struct.__drm_crtcs_state, ptr %213, i64 %215, i32 2
+  %.split14 = getelementptr %struct.__drm_crtcs_state, ptr %213, i64 %215
+  %216 = getelementptr i8, ptr %.split14, i64 16
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 1758
   %219 = getelementptr inbounds nuw i8, ptr %9, i64 1758
@@ -3425,7 +3432,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %240 = add nuw nsw i32 %239, %235
   %241 = add nuw nsw i32 %240, %238
   %242 = icmp samesign ult i32 %241, 512
-  br i1 %242, label %243, label %.thread19
+  br i1 %242, label %243, label %.thread20
 
 243:                                              ; preds = %212
   %244 = tail call i32 @llvm.umax.i32(i32 %241, i32 1)
@@ -3487,24 +3494,24 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %284 = sdiv i32 %283, %281
   br label %285
 
-285:                                              ; preds = %.thread14, %274
-  %286 = phi i64 [ 0, %274 ], [ %306, %.thread14 ]
-  %287 = phi i32 [ %279, %274 ], [ %305, %.thread14 ]
+285:                                              ; preds = %.thread15, %274
+  %286 = phi i64 [ 0, %274 ], [ %306, %.thread15 ]
+  %287 = phi i32 [ %279, %274 ], [ %305, %.thread15 ]
   %288 = load i8, ptr %245, align 1
   %289 = zext i8 %288 to i64
   %290 = shl nuw nsw i64 1, %286
   %291 = and i64 %290, %289
   %292 = icmp eq i64 %291, 0
-  br i1 %292, label %.thread14, label %293
+  br i1 %292, label %.thread15, label %293
 
 293:                                              ; preds = %285
   %294 = icmp eq i32 %287, 0
-  br i1 %294, label %.thread17, label %295
+  br i1 %294, label %.thread18, label %295
 
 295:                                              ; preds = %293
   %296 = and i64 %290, %246
   %297 = icmp eq i64 %296, 0
-  br i1 %297, label %.thread14, label %298
+  br i1 %297, label %.thread15, label %298
 
 298:                                              ; preds = %295
   %299 = tail call i32 @llvm.smin.i32(i32 %284, i32 %287)
@@ -3514,15 +3521,15 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %303 = add i16 %301, %302
   store i16 %303, ptr %300, align 2
   %304 = sub i32 %287, %299
-  br label %.thread14
+  br label %.thread15
 
-.thread14:                                        ; preds = %295, %298, %285
+.thread15:                                        ; preds = %295, %298, %285
   %305 = phi i32 [ %287, %285 ], [ %287, %295 ], [ %304, %298 ]
   %306 = add nuw nsw i64 %286, 1
   %307 = icmp eq i64 %306, 8
   br i1 %307, label %308, label %285, !llvm.loop !82
 
-308:                                              ; preds = %.thread14
+308:                                              ; preds = %.thread15
   %309 = icmp ne i8 %225, 0
   %310 = icmp ne i32 %305, 0
   %311 = select i1 %309, i1 %310, i1 false
@@ -3537,13 +3544,13 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 80
   %318 = load ptr, ptr %317, align 8
   %319 = icmp eq ptr %318, null
-  br i1 %319, label %320, label %.thread16
+  br i1 %319, label %320, label %.thread17
 
 320:                                              ; preds = %312
   %321 = load ptr, ptr %316, align 8
-  br label %.thread16
+  br label %.thread17
 
-.thread16:                                        ; preds = %312, %320
+.thread17:                                        ; preds = %312, %320
   %322 = phi ptr [ %321, %320 ], [ %318, %312 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %315, ptr noundef %322, ptr noundef nonnull @.str.25) #14
   tail call void asm sideeffect "972: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 972b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 972) #14, !srcloc !85
@@ -3556,16 +3563,16 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %324 = icmp eq i8 %225, 0
   br i1 %324, label %326, label %343
 
-.thread17:                                        ; preds = %293
+.thread18:                                        ; preds = %293
   %325 = icmp eq i8 %225, 0
-  br i1 %325, label %.thread18, label %343
+  br i1 %325, label %.thread19, label %343
 
 326:                                              ; preds = %323
   %327 = icmp eq i32 %305, 511
-  br i1 %327, label %341, label %.thread18, !prof !83
+  br i1 %327, label %341, label %.thread19, !prof !83
 
-.thread18:                                        ; preds = %.thread17, %326
-  %328 = phi i32 [ %305, %326 ], [ 0, %.thread17 ]
+.thread19:                                        ; preds = %.thread18, %326
+  %328 = phi i32 [ %305, %326 ], [ 0, %.thread18 ]
   tail call void asm sideeffect "975: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 975b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 975) #14, !srcloc !89
   %329 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %330 = load ptr, ptr %329, align 8
@@ -3576,12 +3583,12 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   %335 = icmp eq ptr %334, null
   br i1 %335, label %336, label %338
 
-336:                                              ; preds = %.thread18
+336:                                              ; preds = %.thread19
   %337 = load ptr, ptr %332, align 8
   br label %338
 
-338:                                              ; preds = %336, %.thread18
-  %339 = phi ptr [ %337, %336 ], [ %334, %.thread18 ]
+338:                                              ; preds = %336, %.thread19
+  %339 = phi ptr [ %337, %336 ], [ %334, %.thread19 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %331, ptr noundef %339, ptr noundef nonnull @.str.26) #14
   tail call void asm sideeffect "976: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 976) #14, !srcloc !90
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1519, i32 2313, i64 12) #14, !srcloc !91
@@ -3595,7 +3602,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   store i16 %342, ptr %219, align 2
   br label %343
 
-343:                                              ; preds = %323, %341, %.thread16, %.thread17
+343:                                              ; preds = %323, %341, %.thread17, %.thread18
   %344 = load i8, ptr %203, align 2
   %345 = and i8 %344, 14
   %346 = icmp eq i8 %345, 0
@@ -3613,10 +3620,10 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
 
 352:                                              ; preds = %350, %347, %209
   %353 = tail call fastcc i32 @_vlv_compute_pipe_wm(ptr noundef %9), !range !94
-  br label %.thread19
+  br label %.thread20
 
-.thread19:                                        ; preds = %212, %352, %.loopexit21
-  %354 = phi i32 [ %353, %352 ], [ 0, %.loopexit21 ], [ -22, %212 ]
+.thread20:                                        ; preds = %212, %352, %.loopexit22
+  %354 = phi i32 [ %353, %352 ], [ 0, %.loopexit22 ], [ -22, %212 ]
   ret i32 %354
 }
 
@@ -3627,9 +3634,10 @@ define internal noundef i32 @vlv_compute_intermediate_wm(ptr noundef readonly ca
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 2
+  %10 = getelementptr i8, ptr %.split, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 1610
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1684
@@ -3819,7 +3827,8 @@ define internal void @vlv_initial_watermarks(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 7032
   tail call void @mutex_lock(ptr noundef nonnull %11) #14
@@ -3840,7 +3849,8 @@ define internal void @vlv_atomic_update_fifo(ptr noundef readonly captures(none)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 834
   %13 = load i8, ptr %12, align 2, !range !27, !noundef !28
@@ -4151,7 +4161,8 @@ define internal void @vlv_optimize_watermarks(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4092
   %11 = load i8, ptr %10, align 4, !range !27, !noundef !28
@@ -5714,7 +5725,8 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef r
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -6288,9 +6300,10 @@ define internal noundef i32 @g4x_compute_intermediate_wm(ptr noundef readonly ca
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8, i32 2
+  %11 = getelementptr i8, ptr %.split, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 1610
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 1644
@@ -6659,7 +6672,8 @@ define internal void @g4x_initial_watermarks(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 7032
   tail call void @mutex_lock(ptr noundef nonnull %11) #14
@@ -6678,7 +6692,8 @@ define internal void @g4x_optimize_watermarks(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
+  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4092
   %11 = load i8, ptr %10, align 4, !range !27, !noundef !28

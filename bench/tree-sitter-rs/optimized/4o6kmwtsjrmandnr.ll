@@ -4159,51 +4159,53 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$$u5b$tree_sitter_tags..Patte
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit"
-  %.09 = phi i64 [ %4, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit" ], [ 0, %2 ]
-  %4 = add nuw i64 %.09, 1
-  %5 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %.09, i32 1
-  %6 = load ptr, ptr %5, align 8, !alias.scope !1433, !noundef !10
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit", label %8
+  %.09 = phi i64 [ %5, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit" ], [ 0, %2 ]
+  %4 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %.09
+  %5 = add nuw i64 %.09, 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = load ptr, ptr %6, align 8, !alias.scope !1433, !noundef !10
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit", label %9
 
-8:                                                ; preds = %.lr.ph
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit" unwind label %10
+9:                                                ; preds = %.lr.ph
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
+          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit" unwind label %11
 
-"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit": ; preds = %8, %.lr.ph
-  %9 = icmp eq i64 %4, %1
-  br i1 %9, label %._crit_edge, label %.lr.ph
+"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit": ; preds = %9, %.lr.ph
+  %10 = icmp eq i64 %5, %1
+  br i1 %10, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit", %2
   ret void
 
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = icmp eq i64 %4, %1
-  br i1 %12, label %._crit_edge13, label %.lr.ph12
+  %13 = icmp eq i64 %5, %1
+  br i1 %13, label %._crit_edge13, label %.lr.ph12
 
-.lr.ph12:                                         ; preds = %10, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8"
-  %.110 = phi i64 [ %13, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8" ], [ %4, %10 ]
-  %13 = add i64 %.110, 1
-  %14 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %.110, i32 1
-  %15 = load ptr, ptr %14, align 8, !alias.scope !1438, !noundef !10
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8", label %17
+.lr.ph12:                                         ; preds = %11, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8"
+  %.110 = phi i64 [ %15, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8" ], [ %5, %11 ]
+  %14 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %.110
+  %15 = add i64 %.110, 1
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %17 = load ptr, ptr %16, align 8, !alias.scope !1438, !noundef !10
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8", label %19
 
-17:                                               ; preds = %.lr.ph12
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8" unwind label %19
+19:                                               ; preds = %.lr.ph12
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16)
+          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8" unwind label %21
 
-"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8": ; preds = %17, %.lr.ph12
-  %18 = icmp eq i64 %13, %1
-  br i1 %18, label %._crit_edge13, label %.lr.ph12
+"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8": ; preds = %19, %.lr.ph12
+  %20 = icmp eq i64 %15, %1
+  br i1 %20, label %._crit_edge13, label %.lr.ph12
 
-._crit_edge13:                                    ; preds = %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8", %10
-  resume { ptr, i32 } %11
+._crit_edge13:                                    ; preds = %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8", %11
+  resume { ptr, i32 } %12
 
-19:                                               ; preds = %17
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
@@ -5333,78 +5335,80 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$tree_sitt
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5e0ec3ddde87b1d9E.llvm.10717008487263263189.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i.i"
-  %.09.i.i = phi i64 [ %7, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i.i" ], [ 0, %1 ]
-  %7 = add nuw i64 %.09.i.i, 1
-  %8 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %3, i64 %.09.i.i, i32 1
-  %9 = load ptr, ptr %8, align 8, !alias.scope !1970, !noalias !1967, !noundef !10
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i.i", label %11
+  %.09.i.i = phi i64 [ %8, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %3, i64 %.09.i.i
+  %8 = add nuw i64 %.09.i.i, 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = load ptr, ptr %9, align 8, !alias.scope !1970, !noalias !1967, !noundef !10
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i.i", label %12
 
-11:                                               ; preds = %.lr.ph.i.i
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
-          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i.i" unwind label %13, !noalias !1967
+12:                                               ; preds = %.lr.ph.i.i
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
+          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i.i" unwind label %14, !noalias !1967
 
-"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i.i": ; preds = %11, %.lr.ph.i.i
-  %12 = icmp eq i64 %7, %5
-  br i1 %12, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5e0ec3ddde87b1d9E.llvm.10717008487263263189.exit", label %.lr.ph.i.i
+"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i.i": ; preds = %12, %.lr.ph.i.i
+  %13 = icmp eq i64 %8, %5
+  br i1 %13, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5e0ec3ddde87b1d9E.llvm.10717008487263263189.exit", label %.lr.ph.i.i
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp eq i64 %7, %5
-  br i1 %15, label %.body, label %.lr.ph12.i.i
+  %16 = icmp eq i64 %8, %5
+  br i1 %16, label %.body, label %.lr.ph12.i.i
 
-.lr.ph12.i.i:                                     ; preds = %13, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i"
-  %.110.i.i = phi i64 [ %16, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i" ], [ %7, %13 ]
-  %16 = add i64 %.110.i.i, 1
-  %17 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %3, i64 %.110.i.i, i32 1
-  %18 = load ptr, ptr %17, align 8, !alias.scope !1977, !noalias !1967, !noundef !10
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i", label %20
+.lr.ph12.i.i:                                     ; preds = %14, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i"
+  %.110.i.i = phi i64 [ %18, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i" ], [ %8, %14 ]
+  %17 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %3, i64 %.110.i.i
+  %18 = add i64 %.110.i.i, 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = load ptr, ptr %19, align 8, !alias.scope !1977, !noalias !1967, !noundef !10
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i", label %22
 
-20:                                               ; preds = %.lr.ph12.i.i
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
-          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i" unwind label %22, !noalias !1967
+22:                                               ; preds = %.lr.ph12.i.i
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19)
+          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i" unwind label %24, !noalias !1967
 
-"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i": ; preds = %20, %.lr.ph12.i.i
-  %21 = icmp eq i64 %16, %5
-  br i1 %21, label %.body, label %.lr.ph12.i.i
+"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i": ; preds = %22, %.lr.ph12.i.i
+  %23 = icmp eq i64 %18, %5
+  br i1 %23, label %.body, label %.lr.ph12.i.i
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20, !noalias !1967
   unreachable
 
-.body:                                            ; preds = %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i", %13
+.body:                                            ; preds = %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i.i", %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1982)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1985)
-  %24 = load i64, ptr %0, align 8, !alias.scope !1988, !noalias !1991, !noundef !10
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$tree_sitter_tags..PatternInfo$GT$$GT$17h50fae83a20975009E.llvm.10717008487263263189.exit", label %26
+  %26 = load i64, ptr %0, align 8, !alias.scope !1988, !noalias !1991, !noundef !10
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$tree_sitter_tags..PatternInfo$GT$$GT$17h50fae83a20975009E.llvm.10717008487263263189.exit", label %28
 
-26:                                               ; preds = %.body
-  %27 = mul nuw i64 %24, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %27, i64 noundef 8) #19, !noalias !1993
+28:                                               ; preds = %.body
+  %29 = mul nuw i64 %26, 48
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %29, i64 noundef 8) #19, !noalias !1993
   br label %"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$tree_sitter_tags..PatternInfo$GT$$GT$17h50fae83a20975009E.llvm.10717008487263263189.exit"
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5e0ec3ddde87b1d9E.llvm.10717008487263263189.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i.i", %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1994)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1997)
-  %28 = load i64, ptr %0, align 8, !alias.scope !2000, !noalias !2003, !noundef !10
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$tree_sitter_tags..PatternInfo$GT$$GT$17h50fae83a20975009E.llvm.10717008487263263189.exit1", label %30
+  %30 = load i64, ptr %0, align 8, !alias.scope !2000, !noalias !2003, !noundef !10
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$tree_sitter_tags..PatternInfo$GT$$GT$17h50fae83a20975009E.llvm.10717008487263263189.exit1", label %32
 
-30:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5e0ec3ddde87b1d9E.llvm.10717008487263263189.exit"
-  %31 = mul nuw i64 %28, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %31, i64 noundef 8) #19, !noalias !2005
+32:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5e0ec3ddde87b1d9E.llvm.10717008487263263189.exit"
+  %33 = mul nuw i64 %30, 48
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %33, i64 noundef 8) #19, !noalias !2005
   br label %"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$tree_sitter_tags..PatternInfo$GT$$GT$17h50fae83a20975009E.llvm.10717008487263263189.exit1"
 
-"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$tree_sitter_tags..PatternInfo$GT$$GT$17h50fae83a20975009E.llvm.10717008487263263189.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5e0ec3ddde87b1d9E.llvm.10717008487263263189.exit", %30
+"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$tree_sitter_tags..PatternInfo$GT$$GT$17h50fae83a20975009E.llvm.10717008487263263189.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5e0ec3ddde87b1d9E.llvm.10717008487263263189.exit", %32
   ret void
 
-"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$tree_sitter_tags..PatternInfo$GT$$GT$17h50fae83a20975009E.llvm.10717008487263263189.exit": ; preds = %26, %.body
-  resume { ptr, i32 } %14
+"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$tree_sitter_tags..PatternInfo$GT$$GT$17h50fae83a20975009E.llvm.10717008487263263189.exit": ; preds = %28, %.body
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -7577,48 +7581,50 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %6, label %"_ZN4core3ptr60drop_in_place$LT$$u5b$tree_sitter_tags..PatternInfo$u5d$$GT$17hfd74524dd6fe8af4E.llvm.10717008487263263189.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i"
-  %.09.i = phi i64 [ %7, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i" ], [ 0, %1 ]
-  %7 = add nuw i64 %.09.i, 1
-  %8 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %3, i64 %.09.i, i32 1
-  %9 = load ptr, ptr %8, align 8, !alias.scope !2517, !noundef !10
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i", label %11
+  %.09.i = phi i64 [ %8, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i" ], [ 0, %1 ]
+  %7 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %3, i64 %.09.i
+  %8 = add nuw i64 %.09.i, 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = load ptr, ptr %9, align 8, !alias.scope !2517, !noundef !10
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i", label %12
 
-11:                                               ; preds = %.lr.ph.i
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
-          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i" unwind label %13
+12:                                               ; preds = %.lr.ph.i
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
+          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i" unwind label %14
 
-"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i": ; preds = %11, %.lr.ph.i
-  %12 = icmp eq i64 %7, %5
-  br i1 %12, label %"_ZN4core3ptr60drop_in_place$LT$$u5b$tree_sitter_tags..PatternInfo$u5d$$GT$17hfd74524dd6fe8af4E.llvm.10717008487263263189.exit", label %.lr.ph.i
+"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit.i": ; preds = %12, %.lr.ph.i
+  %13 = icmp eq i64 %8, %5
+  br i1 %13, label %"_ZN4core3ptr60drop_in_place$LT$$u5b$tree_sitter_tags..PatternInfo$u5d$$GT$17hfd74524dd6fe8af4E.llvm.10717008487263263189.exit", label %.lr.ph.i
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp eq i64 %7, %5
-  br i1 %15, label %._crit_edge13.i, label %.lr.ph12.i
+  %16 = icmp eq i64 %8, %5
+  br i1 %16, label %._crit_edge13.i, label %.lr.ph12.i
 
-.lr.ph12.i:                                       ; preds = %13, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i"
-  %.110.i = phi i64 [ %16, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i" ], [ %7, %13 ]
-  %16 = add i64 %.110.i, 1
-  %17 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %3, i64 %.110.i, i32 1
-  %18 = load ptr, ptr %17, align 8, !alias.scope !2524, !noundef !10
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i", label %20
+.lr.ph12.i:                                       ; preds = %14, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i"
+  %.110.i = phi i64 [ %18, %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i" ], [ %8, %14 ]
+  %17 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %3, i64 %.110.i
+  %18 = add i64 %.110.i, 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = load ptr, ptr %19, align 8, !alias.scope !2524, !noundef !10
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i", label %22
 
-20:                                               ; preds = %.lr.ph12.i
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
-          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i" unwind label %22
+22:                                               ; preds = %.lr.ph12.i
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h67d95ac55c2e7b4cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19)
+          to label %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i" unwind label %24
 
-"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i": ; preds = %20, %.lr.ph12.i
-  %21 = icmp eq i64 %16, %5
-  br i1 %21, label %._crit_edge13.i, label %.lr.ph12.i
+"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i": ; preds = %22, %.lr.ph12.i
+  %23 = icmp eq i64 %18, %5
+  br i1 %23, label %._crit_edge13.i, label %.lr.ph12.i
 
-._crit_edge13.i:                                  ; preds = %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i", %13
-  resume { ptr, i32 } %14
+._crit_edge13.i:                                  ; preds = %"_ZN4core3ptr50drop_in_place$LT$tree_sitter_tags..PatternInfo$GT$17h7e052c2754797029E.exit8.i", %14
+  resume { ptr, i32 } %15
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable

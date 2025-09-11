@@ -712,11 +712,11 @@ define hidden double @cmsDetectRGBProfileGamma(ptr noundef %0, double noundef %1
   %5 = alloca [256 x float], align 16
   %6 = tail call i32 @cmsGetColorSpace(ptr noundef %0) #6
   %.not = icmp eq i32 %6, 1380401696
-  br i1 %.not, label %7, label %35
+  br i1 %.not, label %7, label %36
 
 7:                                                ; preds = %2
   %8 = tail call i32 @cmsGetDeviceClass(ptr noundef %0) #6
-  switch i32 %8, label %35 [
+  switch i32 %8, label %36 [
     i32 1936744803, label %9
     i32 1935896178, label %9
     i32 1886549106, label %9
@@ -727,7 +727,7 @@ define hidden double @cmsDetectRGBProfileGamma(ptr noundef %0, double noundef %1
   %10 = tail call ptr @cmsGetProfileContextID(ptr noundef %0) #6
   %11 = tail call ptr @cmsCreateXYZProfileTHR(ptr noundef %10) #6
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %35, label %13
+  br i1 %12, label %36, label %13
 
 13:                                               ; preds = %9
   %14 = tail call ptr @cmsCreateTransformTHR(ptr noundef %10, ptr noundef %0, i32 noundef 262170, ptr noundef nonnull %11, i32 noundef 4784152, i32 noundef 1, i32 noundef 256) #6
@@ -736,7 +736,7 @@ define hidden double @cmsDetectRGBProfileGamma(ptr noundef %0, double noundef %1
 
 16:                                               ; preds = %13
   %17 = tail call i32 @cmsCloseProfile(ptr noundef nonnull %11) #6
-  br label %35
+  br label %36
 
 .preheader:                                       ; preds = %13, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %13 ]
@@ -760,27 +760,28 @@ define hidden double @cmsDetectRGBProfileGamma(ptr noundef %0, double noundef %1
 
 25:                                               ; preds = %23, %25
   %indvars.iv46 = phi i64 [ 0, %23 ], [ %indvars.iv.next47, %25 ]
-  %26 = getelementptr inbounds nuw %struct.cmsCIEXYZ, ptr %4, i64 %indvars.iv46, i32 1
-  %27 = load double, ptr %26, align 8
-  %28 = fptrunc double %27 to float
-  %29 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv46
-  store float %28, ptr %29, align 4
+  %26 = getelementptr inbounds nuw %struct.cmsCIEXYZ, ptr %4, i64 %indvars.iv46
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load double, ptr %27, align 8
+  %29 = fptrunc double %28 to float
+  %30 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv46
+  store float %29, ptr %30, align 4
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 256
-  br i1 %exitcond49.not, label %30, label %25, !llvm.loop !11
+  br i1 %exitcond49.not, label %31, label %25, !llvm.loop !11
 
-30:                                               ; preds = %25
-  %31 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef %10, i32 noundef 256, ptr noundef nonnull %5) #6
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %35, label %33
+31:                                               ; preds = %25
+  %32 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef %10, i32 noundef 256, ptr noundef nonnull %5) #6
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %36, label %34
 
-33:                                               ; preds = %30
-  %34 = call double @cmsEstimateGamma(ptr noundef nonnull %31, double noundef %1) #6
-  call void @cmsFreeToneCurve(ptr noundef nonnull %31) #6
-  br label %35
+34:                                               ; preds = %31
+  %35 = call double @cmsEstimateGamma(ptr noundef nonnull %32, double noundef %1) #6
+  call void @cmsFreeToneCurve(ptr noundef nonnull %32) #6
+  br label %36
 
-35:                                               ; preds = %30, %9, %7, %2, %33, %16
-  %.039 = phi double [ -1.000000e+00, %16 ], [ %34, %33 ], [ -1.000000e+00, %2 ], [ -1.000000e+00, %7 ], [ -1.000000e+00, %9 ], [ -1.000000e+00, %30 ]
+36:                                               ; preds = %31, %9, %7, %2, %34, %16
+  %.039 = phi double [ -1.000000e+00, %16 ], [ %35, %34 ], [ -1.000000e+00, %2 ], [ -1.000000e+00, %7 ], [ -1.000000e+00, %9 ], [ -1.000000e+00, %31 ]
   ret double %.039
 }
 

@@ -4065,16 +4065,16 @@ declare void @_ZN13CollectedHeap20trace_heap_before_gcEPK8GCTracer(ptr noundef n
 define linkonce_odr hidden void @_ZN9Compacter25phase2_calculate_new_addrEv(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
-  %.not74 = icmp eq i32 %3, 0
-  br i1 %.not74, label %._crit_edge73, label %.lr.ph72
+  %.not73 = icmp eq i32 %3, 0
+  br i1 %.not73, label %._crit_edge72, label %.lr.ph71
 
-.lr.ph72:                                         ; preds = %1
+.lr.ph71:                                         ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %6
 
-6:                                                ; preds = %.lr.ph72, %262
-  %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %262 ]
+6:                                                ; preds = %.lr.ph71, %268
+  %indvars.iv = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next, %268 ]
   %7 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
@@ -4088,8 +4088,8 @@ define linkonce_odr hidden void @_ZN9Compacter25phase2_calculate_new_addrEv(ptr 
   %17 = icmp ne ptr %8, %16
   %18 = load i32, ptr @MarkSweepDeadRatio, align 4
   %19 = zext i32 %18 to i64
-  %.not58 = icmp eq i32 %18, 0
-  %.not = select i1 %17, i1 true, i1 %.not58
+  %.not57 = icmp eq i32 %18, 0
+  %.not = select i1 %17, i1 true, i1 %.not57
   br i1 %.not, label %_ZN10DeadSpacerC2EP15ContiguousSpace.exit, label %20
 
 20:                                               ; preds = %6
@@ -4119,17 +4119,17 @@ _ZN10DeadSpacerC2EP15ContiguousSpace.exit:        ; preds = %20, %6, %26
   br i1 %35, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZN10DeadSpacerC2EP15ContiguousSpace.exit
-  %36 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %indvars.iv, i32 2
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %37
 
-37:                                               ; preds = %.lr.ph, %_ZN9Compacter5allocEm.exit52
-  %.03269 = phi ptr [ %9, %.lr.ph ], [ %.1, %_ZN9Compacter5allocEm.exit52 ]
-  %.03368 = phi i8 [ 0, %.lr.ph ], [ %.134, %_ZN9Compacter5allocEm.exit52 ]
-  %.sroa.0.067 = phi i64 [ %.sroa.0.2, %.lr.ph ], [ %.sroa.0.1, %_ZN9Compacter5allocEm.exit52 ]
-  %.sroa.4.066 = phi i1 [ %.sroa.4.2, %.lr.ph ], [ %.sroa.4.1, %_ZN9Compacter5allocEm.exit52 ]
+37:                                               ; preds = %.lr.ph, %_ZN9Compacter5allocEm.exit51
+  %.03268 = phi ptr [ %9, %.lr.ph ], [ %.1, %_ZN9Compacter5allocEm.exit51 ]
+  %.03367 = phi i8 [ 0, %.lr.ph ], [ %.134, %_ZN9Compacter5allocEm.exit51 ]
+  %.sroa.0.066 = phi i64 [ %.sroa.0.2, %.lr.ph ], [ %.sroa.0.1, %_ZN9Compacter5allocEm.exit51 ]
+  %.sroa.4.065 = phi i1 [ %.sroa.4.2, %.lr.ph ], [ %.sroa.4.1, %_ZN9Compacter5allocEm.exit51 ]
   %38 = load i8, ptr @UseCompressedClassPointers, align 1
   %39 = trunc i8 %38 to i1
-  %40 = getelementptr inbounds nuw i8, ptr %.03269, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.03268, i64 8
   br i1 %39, label %41, label %51
 
 41:                                               ; preds = %37
@@ -4169,7 +4169,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %51, %41
   %62 = load ptr, ptr %.0.i.i, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 256
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.03269) #16
+  %65 = tail call noundef i64 %64(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.03268) #16
   br label %_ZN7oopDesc4sizeEv.exit
 
 66:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
@@ -4178,7 +4178,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %51, %41
 
 68:                                               ; preds = %66
   %69 = select i1 %39, i64 12, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %.03269, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %.03268, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = and i32 %54, 63
@@ -4202,15 +4202,15 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %51, %41
   %89 = load ptr, ptr %.0.i.i, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 256
   %91 = load ptr, ptr %90, align 8
-  %92 = tail call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.03269) #16
+  %92 = tail call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.03268) #16
   br label %_ZN7oopDesc4sizeEv.exit
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %58, %61, %68, %88
   %.0.i1.i = phi i64 [ %65, %61 ], [ %60, %58 ], [ %87, %68 ], [ %92, %88 ]
-  %93 = load volatile i64, ptr %.03269, align 8
+  %93 = load volatile i64, ptr %.03268, align 8
   %94 = and i64 %93, 3
   %95 = icmp eq i64 %94, 3
-  br i1 %95, label %96, label %142
+  br i1 %95, label %96, label %145
 
 96:                                               ; preds = %_ZN7oopDesc4sizeEv.exit
   %.promoted.i = load i32, ptr %4, align 4
@@ -4219,298 +4219,302 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %58, %61, %68, %88
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %97, i32 1
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = ptrtoint ptr %101 to i64
   %105 = ptrtoint ptr %103 to i64
   %106 = sub i64 %104, %105
   %107 = lshr i64 %106, 3
-  %.not9.i = icmp ugt i64 %.0.i1.i, %107
-  br i1 %.not9.i, label %.lr.ph.i, label %._crit_edge.i
+  %.not10.i = icmp ugt i64 %.0.i1.i, %107
+  br i1 %.not10.i, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %96
-  %.lcssa8.i = phi i32 [ %.promoted.i, %96 ], [ %124, %.lr.ph.i ]
-  %.lcssa7.i = phi ptr [ %102, %96 ], [ %130, %.lr.ph.i ]
-  %.lcssa6.i = phi ptr [ %103, %96 ], [ %131, %.lr.ph.i ]
-  %.lcssa.i = phi i64 [ %105, %96 ], [ %133, %.lr.ph.i ]
-  %108 = getelementptr inbounds ptr, ptr %.lcssa6.i, i64 %.0.i1.i
-  store ptr %108, ptr %.lcssa7.i, align 8
-  %109 = icmp eq i32 %.lcssa8.i, 0
-  br i1 %109, label %110, label %_ZN9Compacter5allocEm.exit
+  %108 = phi i64 [ %97, %96 ], [ %128, %.lr.ph.i ]
+  %.lcssa8.i = phi i32 [ %.promoted.i, %96 ], [ %127, %.lr.ph.i ]
+  %.lcssa6.i = phi ptr [ %103, %96 ], [ %134, %.lr.ph.i ]
+  %.lcssa.i = phi i64 [ %105, %96 ], [ %136, %.lr.ph.i ]
+  %109 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = getelementptr inbounds ptr, ptr %.lcssa6.i, i64 %.0.i1.i
+  store ptr %111, ptr %110, align 8
+  %112 = icmp eq i32 %.lcssa8.i, 0
+  br i1 %112, label %113, label %_ZN9Compacter5allocEm.exit
 
-110:                                              ; preds = %._crit_edge.i
-  %111 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
-  %112 = add i32 %111, -1
-  %113 = zext i32 %112 to i64
-  %114 = add i64 %.lcssa.i, %113
-  %115 = xor i64 %113, -1
-  %116 = and i64 %114, %115
-  %117 = inttoptr i64 %116 to ptr
-  %118 = icmp ugt ptr %108, %117
-  br i1 %118, label %119, label %_ZN9Compacter5allocEm.exit
+113:                                              ; preds = %._crit_edge.i
+  %114 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
+  %115 = add i32 %114, -1
+  %116 = zext i32 %115 to i64
+  %117 = add i64 %.lcssa.i, %116
+  %118 = xor i64 %116, -1
+  %119 = and i64 %117, %118
+  %120 = inttoptr i64 %119 to ptr
+  %121 = icmp ugt ptr %111, %120
+  br i1 %121, label %122, label %_ZN9Compacter5allocEm.exit
 
-119:                                              ; preds = %110
-  %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 176
-  %122 = load ptr, ptr %121, align 8
-  tail call void @_ZN22SerialBlockOffsetTable21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(136) %122, ptr noundef %.lcssa6.i, ptr noundef nonnull %108) #16
+122:                                              ; preds = %113
+  %123 = load ptr, ptr %5, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 176
+  %125 = load ptr, ptr %124, align 8
+  tail call void @_ZN22SerialBlockOffsetTable21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(136) %125, ptr noundef %.lcssa6.i, ptr noundef nonnull %111) #16
   br label %_ZN9Compacter5allocEm.exit
 
 .lr.ph.i:                                         ; preds = %96, %.lr.ph.i
-  %123 = phi i32 [ %124, %.lr.ph.i ], [ %.promoted.i, %96 ]
-  %124 = add i32 %123, 1
-  store i32 %124, ptr %4, align 4
-  %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %125
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %125, i32 1
-  %131 = load ptr, ptr %130, align 8
-  %132 = ptrtoint ptr %129 to i64
-  %133 = ptrtoint ptr %131 to i64
-  %134 = sub i64 %132, %133
-  %135 = lshr i64 %134, 3
-  %.not.i37 = icmp ugt i64 %.0.i1.i, %135
+  %126 = phi i32 [ %127, %.lr.ph.i ], [ %.promoted.i, %96 ]
+  %127 = add i32 %126, 1
+  store i32 %127, ptr %4, align 4
+  %128 = zext i32 %127 to i64
+  %129 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %128
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = ptrtoint ptr %132 to i64
+  %136 = ptrtoint ptr %134 to i64
+  %137 = sub i64 %135, %136
+  %138 = lshr i64 %137, 3
+  %.not.i37 = icmp ugt i64 %.0.i1.i, %138
   br i1 %.not.i37, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
 
-_ZN9Compacter5allocEm.exit:                       ; preds = %._crit_edge.i, %110, %119
-  %136 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
-  %137 = icmp sgt i64 %136, -1
-  br i1 %137, label %138, label %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit
+_ZN9Compacter5allocEm.exit:                       ; preds = %._crit_edge.i, %113, %122
+  %139 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
+  %140 = icmp sgt i64 %139, -1
+  br i1 %140, label %141, label %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit
 
-138:                                              ; preds = %_ZN9Compacter5allocEm.exit
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.03269, i64 %136) #16, !srcloc !14
+141:                                              ; preds = %_ZN9Compacter5allocEm.exit
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.03268, i64 %139) #16, !srcloc !14
   br label %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit
 
-_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit: ; preds = %_ZN9Compacter5allocEm.exit, %138
-  %.not.i38 = icmp eq ptr %.03269, %.lcssa6.i
-  %139 = ptrtoint ptr %.lcssa6.i to i64
-  %140 = or i64 %139, 3
-  %.sink.i = select i1 %.not.i38, i64 1, i64 %140
-  store volatile i64 %.sink.i, ptr %.03269, align 8
-  %141 = getelementptr inbounds ptr, ptr %.03269, i64 %.0.i1.i
-  br label %_ZN9Compacter5allocEm.exit52
+_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit: ; preds = %_ZN9Compacter5allocEm.exit, %141
+  %.not.i38 = icmp eq ptr %.03268, %.lcssa6.i
+  %142 = ptrtoint ptr %.lcssa6.i to i64
+  %143 = or i64 %142, 3
+  %.sink.i = select i1 %.not.i38, i64 1, i64 %143
+  store volatile i64 %.sink.i, ptr %.03268, align 8
+  %144 = getelementptr inbounds ptr, ptr %.03268, i64 %.0.i1.i
+  br label %_ZN9Compacter5allocEm.exit51
 
-142:                                              ; preds = %_ZN7oopDesc4sizeEv.exit
-  %143 = getelementptr inbounds ptr, ptr %.03269, i64 %.0.i1.i
-  %144 = icmp ult ptr %143, %11
-  br i1 %144, label %.lr.ph.i40, label %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit
+145:                                              ; preds = %_ZN7oopDesc4sizeEv.exit
+  %146 = getelementptr inbounds ptr, ptr %.03268, i64 %.0.i1.i
+  %147 = icmp ult ptr %146, %11
+  br i1 %147, label %.lr.ph.i40, label %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit
 
-.lr.ph.i40:                                       ; preds = %142, %_ZN7oopDesc4sizeEv.exit.i
-  %.01113.i = phi ptr [ %207, %_ZN7oopDesc4sizeEv.exit.i ], [ %143, %142 ]
-  %145 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
-  %146 = icmp sgt i64 %145, -1
-  br i1 %146, label %147, label %_ZN9Compacter18prefetch_read_scanEPv.exit.i
+.lr.ph.i40:                                       ; preds = %145, %_ZN7oopDesc4sizeEv.exit.i
+  %.01113.i = phi ptr [ %210, %_ZN7oopDesc4sizeEv.exit.i ], [ %146, %145 ]
+  %148 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
+  %149 = icmp sgt i64 %148, -1
+  br i1 %149, label %150, label %_ZN9Compacter18prefetch_read_scanEPv.exit.i
 
-147:                                              ; preds = %.lr.ph.i40
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.01113.i, i64 %145) #16, !srcloc !15
+150:                                              ; preds = %.lr.ph.i40
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.01113.i, i64 %148) #16, !srcloc !15
   br label %_ZN9Compacter18prefetch_read_scanEPv.exit.i
 
-_ZN9Compacter18prefetch_read_scanEPv.exit.i:      ; preds = %147, %.lr.ph.i40
-  %148 = load volatile i64, ptr %.01113.i, align 8
-  %149 = and i64 %148, 3
-  %150 = icmp eq i64 %149, 3
-  br i1 %150, label %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit, label %151
+_ZN9Compacter18prefetch_read_scanEPv.exit.i:      ; preds = %150, %.lr.ph.i40
+  %151 = load volatile i64, ptr %.01113.i, align 8
+  %152 = and i64 %151, 3
+  %153 = icmp eq i64 %152, 3
+  br i1 %153, label %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit, label %154
 
-151:                                              ; preds = %_ZN9Compacter18prefetch_read_scanEPv.exit.i
-  %152 = load i8, ptr @UseCompressedClassPointers, align 1
-  %153 = trunc i8 %152 to i1
-  %154 = getelementptr inbounds nuw i8, ptr %.01113.i, i64 8
-  br i1 %153, label %155, label %165
+154:                                              ; preds = %_ZN9Compacter18prefetch_read_scanEPv.exit.i
+  %155 = load i8, ptr @UseCompressedClassPointers, align 1
+  %156 = trunc i8 %155 to i1
+  %157 = getelementptr inbounds nuw i8, ptr %.01113.i, i64 8
+  br i1 %156, label %158, label %168
 
-155:                                              ; preds = %151
-  %156 = load i32, ptr %154, align 8
-  %157 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %158 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %159 = ptrtoint ptr %157 to i64
-  %160 = zext i32 %156 to i64
-  %161 = zext nneg i32 %158 to i64
-  %162 = shl i64 %160, %161
-  %163 = add i64 %162, %159
-  %164 = inttoptr i64 %163 to ptr
+158:                                              ; preds = %154
+  %159 = load i32, ptr %157, align 8
+  %160 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %161 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %162 = ptrtoint ptr %160 to i64
+  %163 = zext i32 %159 to i64
+  %164 = zext nneg i32 %161 to i64
+  %165 = shl i64 %163, %164
+  %166 = add i64 %165, %162
+  %167 = inttoptr i64 %166 to ptr
   br label %_ZNK7oopDesc5klassEv.exit.i.i
 
-165:                                              ; preds = %151
-  %166 = load ptr, ptr %154, align 8
+168:                                              ; preds = %154
+  %169 = load ptr, ptr %157, align 8
   br label %_ZNK7oopDesc5klassEv.exit.i.i
 
-_ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %165, %155
-  %.0.i.i.i = phi ptr [ %164, %155 ], [ %166, %165 ]
-  %167 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %168 = load i32, ptr %167, align 8
-  %169 = icmp sgt i32 %168, 0
-  br i1 %169, label %170, label %180
+_ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %168, %158
+  %.0.i.i.i = phi ptr [ %167, %158 ], [ %169, %168 ]
+  %170 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %171 = load i32, ptr %170, align 8
+  %172 = icmp sgt i32 %171, 0
+  br i1 %172, label %173, label %183
 
-170:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %171 = and i32 %168, 1
-  %.not.i.i.i = icmp eq i32 %171, 0
-  br i1 %.not.i.i.i, label %172, label %175
+173:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
+  %174 = and i32 %171, 1
+  %.not.i.i.i = icmp eq i32 %174, 0
+  br i1 %.not.i.i.i, label %175, label %178
 
-172:                                              ; preds = %170
-  %173 = lshr i32 %168, 3
-  %174 = zext nneg i32 %173 to i64
+175:                                              ; preds = %173
+  %176 = lshr i32 %171, 3
+  %177 = zext nneg i32 %176 to i64
   br label %_ZN7oopDesc4sizeEv.exit.i
 
-175:                                              ; preds = %170
-  %176 = load ptr, ptr %.0.i.i.i, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 256
-  %178 = load ptr, ptr %177, align 8
-  %179 = tail call noundef i64 %178(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.01113.i) #16
+178:                                              ; preds = %173
+  %179 = load ptr, ptr %.0.i.i.i, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 256
+  %181 = load ptr, ptr %180, align 8
+  %182 = tail call noundef i64 %181(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.01113.i) #16
   br label %_ZN7oopDesc4sizeEv.exit.i
 
-180:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %181 = icmp slt i32 %168, 0
-  br i1 %181, label %182, label %202
+183:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
+  %184 = icmp slt i32 %171, 0
+  br i1 %184, label %185, label %205
 
-182:                                              ; preds = %180
-  %183 = select i1 %153, i64 12, i64 16
-  %184 = getelementptr inbounds nuw i8, ptr %.01113.i, i64 %183
-  %185 = load i32, ptr %184, align 4
-  %186 = sext i32 %185 to i64
-  %187 = and i32 %168, 63
-  %188 = zext nneg i32 %187 to i64
-  %189 = shl i64 %186, %188
-  %190 = lshr i32 %168, 16
-  %191 = and i32 %190, 255
-  %192 = zext nneg i32 %191 to i64
-  %193 = add i64 %189, %192
-  %194 = load i32, ptr @MinObjAlignmentInBytes, align 4
-  %195 = add nsw i32 %194, -1
-  %196 = sext i32 %195 to i64
-  %197 = add i64 %193, %196
-  %198 = sub i32 0, %194
+185:                                              ; preds = %183
+  %186 = select i1 %156, i64 12, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %.01113.i, i64 %186
+  %188 = load i32, ptr %187, align 4
+  %189 = sext i32 %188 to i64
+  %190 = and i32 %171, 63
+  %191 = zext nneg i32 %190 to i64
+  %192 = shl i64 %189, %191
+  %193 = lshr i32 %171, 16
+  %194 = and i32 %193, 255
+  %195 = zext nneg i32 %194 to i64
+  %196 = add i64 %192, %195
+  %197 = load i32, ptr @MinObjAlignmentInBytes, align 4
+  %198 = add nsw i32 %197, -1
   %199 = sext i32 %198 to i64
-  %200 = and i64 %197, %199
-  %201 = lshr i64 %200, 3
+  %200 = add i64 %196, %199
+  %201 = sub i32 0, %197
+  %202 = sext i32 %201 to i64
+  %203 = and i64 %200, %202
+  %204 = lshr i64 %203, 3
   br label %_ZN7oopDesc4sizeEv.exit.i
 
-202:                                              ; preds = %180
-  %203 = load ptr, ptr %.0.i.i.i, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 256
-  %205 = load ptr, ptr %204, align 8
-  %206 = tail call noundef i64 %205(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.01113.i) #16
+205:                                              ; preds = %183
+  %206 = load ptr, ptr %.0.i.i.i, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 256
+  %208 = load ptr, ptr %207, align 8
+  %209 = tail call noundef i64 %208(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.01113.i) #16
   br label %_ZN7oopDesc4sizeEv.exit.i
 
-_ZN7oopDesc4sizeEv.exit.i:                        ; preds = %202, %182, %175, %172
-  %.0.i1.i.i = phi i64 [ %179, %175 ], [ %174, %172 ], [ %201, %182 ], [ %206, %202 ]
-  %207 = getelementptr inbounds ptr, ptr %.01113.i, i64 %.0.i1.i.i
-  %208 = icmp ult ptr %207, %11
-  br i1 %208, label %.lr.ph.i40, label %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit, !llvm.loop !16
+_ZN7oopDesc4sizeEv.exit.i:                        ; preds = %205, %185, %178, %175
+  %.0.i1.i.i = phi i64 [ %182, %178 ], [ %177, %175 ], [ %204, %185 ], [ %209, %205 ]
+  %210 = getelementptr inbounds ptr, ptr %.01113.i, i64 %.0.i1.i.i
+  %211 = icmp ult ptr %210, %11
+  br i1 %211, label %.lr.ph.i40, label %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit, !llvm.loop !16
 
-_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit: ; preds = %_ZN9Compacter18prefetch_read_scanEPv.exit.i, %_ZN7oopDesc4sizeEv.exit.i, %142
-  %.0.i = phi ptr [ %11, %142 ], [ %.01113.i, %_ZN9Compacter18prefetch_read_scanEPv.exit.i ], [ %11, %_ZN7oopDesc4sizeEv.exit.i ]
-  br i1 %.sroa.4.066, label %209, label %255
+_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit: ; preds = %_ZN9Compacter18prefetch_read_scanEPv.exit.i, %_ZN7oopDesc4sizeEv.exit.i, %145
+  %.0.i = phi ptr [ %11, %145 ], [ %.01113.i, %_ZN9Compacter18prefetch_read_scanEPv.exit.i ], [ %11, %_ZN7oopDesc4sizeEv.exit.i ]
+  br i1 %.sroa.4.065, label %212, label %261
 
-209:                                              ; preds = %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit
-  %210 = ptrtoint ptr %.0.i to i64
-  %211 = ptrtoint ptr %.03269 to i64
-  %212 = sub i64 %210, %211
-  %213 = lshr i64 %212, 3
-  %.not.i42 = icmp ult i64 %.sroa.0.067, %213
-  br i1 %.not.i42, label %255, label %214
+212:                                              ; preds = %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit
+  %213 = ptrtoint ptr %.0.i to i64
+  %214 = ptrtoint ptr %.03268 to i64
+  %215 = sub i64 %213, %214
+  %216 = lshr i64 %215, 3
+  %.not.i42 = icmp ult i64 %.sroa.0.066, %216
+  br i1 %.not.i42, label %261, label %217
 
-214:                                              ; preds = %209
-  %215 = sub nuw nsw i64 %.sroa.0.067, %213
-  tail call void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr noundef nonnull %.03269, i64 noundef %213, i1 noundef zeroext true) #16
+217:                                              ; preds = %212
+  %218 = sub nuw nsw i64 %.sroa.0.066, %216
+  tail call void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr noundef nonnull %.03268, i64 noundef %216, i1 noundef zeroext true) #16
   %.promoted.i43 = load i32, ptr %4, align 4
-  %216 = zext i32 %.promoted.i43 to i64
-  %217 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %216
-  %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %216, i32 1
-  %222 = load ptr, ptr %221, align 8
-  %223 = ptrtoint ptr %220 to i64
-  %224 = ptrtoint ptr %222 to i64
-  %225 = sub i64 %223, %224
-  %226 = lshr i64 %225, 3
-  %.not9.i44 = icmp samesign ugt i64 %213, %226
-  br i1 %.not9.i44, label %.lr.ph.i50, label %._crit_edge.i45
+  %219 = zext i32 %.promoted.i43 to i64
+  %220 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %219
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %220, i64 8
+  %225 = load ptr, ptr %224, align 8
+  %226 = ptrtoint ptr %223 to i64
+  %227 = ptrtoint ptr %225 to i64
+  %228 = sub i64 %226, %227
+  %229 = lshr i64 %228, 3
+  %.not10.i44 = icmp samesign ugt i64 %216, %229
+  br i1 %.not10.i44, label %.lr.ph.i49, label %._crit_edge.i45
 
-._crit_edge.i45:                                  ; preds = %.lr.ph.i50, %214
-  %.lcssa8.i46 = phi i32 [ %.promoted.i43, %214 ], [ %243, %.lr.ph.i50 ]
-  %.lcssa7.i47 = phi ptr [ %221, %214 ], [ %249, %.lr.ph.i50 ]
-  %.lcssa6.i48 = phi ptr [ %222, %214 ], [ %250, %.lr.ph.i50 ]
-  %.lcssa.i49 = phi i64 [ %224, %214 ], [ %252, %.lr.ph.i50 ]
-  %227 = getelementptr inbounds nuw ptr, ptr %.lcssa6.i48, i64 %213
-  store ptr %227, ptr %.lcssa7.i47, align 8
-  %228 = icmp eq i32 %.lcssa8.i46, 0
-  br i1 %228, label %229, label %_ZN9Compacter5allocEm.exit52
+._crit_edge.i45:                                  ; preds = %.lr.ph.i49, %217
+  %230 = phi i64 [ %219, %217 ], [ %250, %.lr.ph.i49 ]
+  %.lcssa8.i46 = phi i32 [ %.promoted.i43, %217 ], [ %249, %.lr.ph.i49 ]
+  %.lcssa6.i47 = phi ptr [ %225, %217 ], [ %256, %.lr.ph.i49 ]
+  %.lcssa.i48 = phi i64 [ %227, %217 ], [ %258, %.lr.ph.i49 ]
+  %231 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %230
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %233 = getelementptr inbounds nuw ptr, ptr %.lcssa6.i47, i64 %216
+  store ptr %233, ptr %232, align 8
+  %234 = icmp eq i32 %.lcssa8.i46, 0
+  br i1 %234, label %235, label %_ZN9Compacter5allocEm.exit51
 
-229:                                              ; preds = %._crit_edge.i45
-  %230 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
-  %231 = add i32 %230, -1
-  %232 = zext i32 %231 to i64
-  %233 = add i64 %.lcssa.i49, %232
-  %234 = xor i64 %232, -1
-  %235 = and i64 %233, %234
-  %236 = inttoptr i64 %235 to ptr
-  %237 = icmp ugt ptr %227, %236
-  br i1 %237, label %238, label %_ZN9Compacter5allocEm.exit52
+235:                                              ; preds = %._crit_edge.i45
+  %236 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
+  %237 = add i32 %236, -1
+  %238 = zext i32 %237 to i64
+  %239 = add i64 %.lcssa.i48, %238
+  %240 = xor i64 %238, -1
+  %241 = and i64 %239, %240
+  %242 = inttoptr i64 %241 to ptr
+  %243 = icmp ugt ptr %233, %242
+  br i1 %243, label %244, label %_ZN9Compacter5allocEm.exit51
 
-238:                                              ; preds = %229
-  %239 = load ptr, ptr %5, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 176
-  %241 = load ptr, ptr %240, align 8
-  tail call void @_ZN22SerialBlockOffsetTable21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(136) %241, ptr noundef %.lcssa6.i48, ptr noundef nonnull %227) #16
-  br label %_ZN9Compacter5allocEm.exit52
+244:                                              ; preds = %235
+  %245 = load ptr, ptr %5, align 8
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 176
+  %247 = load ptr, ptr %246, align 8
+  tail call void @_ZN22SerialBlockOffsetTable21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(136) %247, ptr noundef %.lcssa6.i47, ptr noundef nonnull %233) #16
+  br label %_ZN9Compacter5allocEm.exit51
 
-.lr.ph.i50:                                       ; preds = %214, %.lr.ph.i50
-  %242 = phi i32 [ %243, %.lr.ph.i50 ], [ %.promoted.i43, %214 ]
-  %243 = add i32 %242, 1
-  store i32 %243, ptr %4, align 4
-  %244 = zext i32 %243 to i64
-  %245 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %244
-  %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %244, i32 1
-  %250 = load ptr, ptr %249, align 8
-  %251 = ptrtoint ptr %248 to i64
-  %252 = ptrtoint ptr %250 to i64
-  %253 = sub i64 %251, %252
-  %254 = lshr i64 %253, 3
-  %.not.i51 = icmp samesign ugt i64 %213, %254
-  br i1 %.not.i51, label %.lr.ph.i50, label %._crit_edge.i45, !llvm.loop !13
+.lr.ph.i49:                                       ; preds = %217, %.lr.ph.i49
+  %248 = phi i32 [ %249, %.lr.ph.i49 ], [ %.promoted.i43, %217 ]
+  %249 = add i32 %248, 1
+  store i32 %249, ptr %4, align 4
+  %250 = zext i32 %249 to i64
+  %251 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %250
+  %252 = load ptr, ptr %251, align 8
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
+  %254 = load ptr, ptr %253, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %256 = load ptr, ptr %255, align 8
+  %257 = ptrtoint ptr %254 to i64
+  %258 = ptrtoint ptr %256 to i64
+  %259 = sub i64 %257, %258
+  %260 = lshr i64 %259, 3
+  %.not.i50 = icmp samesign ugt i64 %216, %260
+  br i1 %.not.i50, label %.lr.ph.i49, label %._crit_edge.i45, !llvm.loop !13
 
-255:                                              ; preds = %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit, %209
-  %256 = trunc nuw i8 %.03368 to i1
-  br i1 %256, label %258, label %257
+261:                                              ; preds = %_ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit, %212
+  %262 = trunc nuw i8 %.03367 to i1
+  br i1 %262, label %264, label %263
 
-257:                                              ; preds = %255
-  store ptr %.03269, ptr %36, align 8
-  br label %258
+263:                                              ; preds = %261
+  store ptr %.03268, ptr %36, align 8
+  br label %264
 
-258:                                              ; preds = %257, %255
-  store ptr %.0.i, ptr %.03269, align 8
-  br label %_ZN9Compacter5allocEm.exit52
+264:                                              ; preds = %263, %261
+  store ptr %.0.i, ptr %.03268, align 8
+  br label %_ZN9Compacter5allocEm.exit51
 
-_ZN9Compacter5allocEm.exit52:                     ; preds = %238, %229, %._crit_edge.i45, %258, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit
-  %.sroa.4.1 = phi i1 [ %.sroa.4.066, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ false, %258 ], [ true, %._crit_edge.i45 ], [ true, %229 ], [ true, %238 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.067, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.sroa.0.067, %258 ], [ %215, %._crit_edge.i45 ], [ %215, %229 ], [ %215, %238 ]
-  %.134 = phi i8 [ %.03368, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ 1, %258 ], [ %.03368, %._crit_edge.i45 ], [ %.03368, %229 ], [ %.03368, %238 ]
-  %.1 = phi ptr [ %141, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.0.i, %258 ], [ %.0.i, %._crit_edge.i45 ], [ %.0.i, %229 ], [ %.0.i, %238 ]
-  %259 = icmp ult ptr %.1, %11
-  br i1 %259, label %37, label %._crit_edge, !llvm.loop !17
+_ZN9Compacter5allocEm.exit51:                     ; preds = %244, %235, %._crit_edge.i45, %264, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit
+  %.sroa.4.1 = phi i1 [ %.sroa.4.065, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ false, %264 ], [ true, %._crit_edge.i45 ], [ true, %235 ], [ true, %244 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.066, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.sroa.0.066, %264 ], [ %218, %._crit_edge.i45 ], [ %218, %235 ], [ %218, %244 ]
+  %.134 = phi i8 [ %.03367, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ 1, %264 ], [ %.03367, %._crit_edge.i45 ], [ %.03367, %235 ], [ %.03367, %244 ]
+  %.1 = phi ptr [ %144, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.0.i, %264 ], [ %.0.i, %._crit_edge.i45 ], [ %.0.i, %235 ], [ %.0.i, %244 ]
+  %265 = icmp ult ptr %.1, %11
+  br i1 %265, label %37, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %_ZN9Compacter5allocEm.exit52
-  %260 = trunc nuw i8 %.134 to i1
-  br i1 %260, label %262, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %_ZN9Compacter5allocEm.exit51
+  %266 = trunc nuw i8 %.134 to i1
+  br i1 %266, label %268, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN10DeadSpacerC2EP15ContiguousSpace.exit, %._crit_edge
-  %261 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %indvars.iv, i32 2
-  store ptr %11, ptr %261, align 8
-  br label %262
+  %267 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %11, ptr %267, align 8
+  br label %268
 
-262:                                              ; preds = %._crit_edge, %._crit_edge.thread
+268:                                              ; preds = %._crit_edge, %._crit_edge.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %263 = load i32, ptr %2, align 8
-  %264 = zext i32 %263 to i64
-  %265 = icmp samesign ult i64 %indvars.iv.next, %264
-  br i1 %265, label %6, label %._crit_edge73, !llvm.loop !18
+  %269 = load i32, ptr %2, align 8
+  %270 = zext i32 %269 to i64
+  %271 = icmp samesign ult i64 %indvars.iv.next, %270
+  br i1 %271, label %6, label %._crit_edge72, !llvm.loop !18
 
-._crit_edge73:                                    ; preds = %262, %1
+._crit_edge72:                                    ; preds = %268, %1
   ret void
 }
 
@@ -4531,7 +4535,7 @@ define linkonce_odr hidden void @_ZN9Compacter22phase3_adjust_pointersEv(ptr nou
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %indvars.iv, i32 2
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ult ptr %7, %9
   br i1 %12, label %.lr.ph, label %._crit_edge
@@ -4690,7 +4694,7 @@ define linkonce_odr hidden void @_ZN9Compacter14phase4_compactEv(ptr noundef non
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %.lr.ph20
-  %13 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %indvars.iv, i32 2
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -4824,7 +4828,7 @@ _ZN9Compacter8relocateEPP12HeapWordImpl.exit:     ; preds = %53, %56, %63, %83
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %15
-  %90 = getelementptr inbounds nuw %"struct.Compacter::CompactionSpace", ptr %0, i64 %indvars.iv, i32 1
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %91 = load ptr, ptr %90, align 8
   store ptr %91, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

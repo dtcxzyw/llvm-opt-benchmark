@@ -6573,9 +6573,9 @@ define noundef zeroext i1 @"_ZN121_$LT$uv_distribution_types..resolution..Resolu
   %6 = select i1 %5, i64 %4, i64 2
   switch i64 %6, label %7 [
     i64 0, label %8
-    i64 1, label %55
-    i64 2, label %102
-    i64 3, label %147
+    i64 1, label %56
+    i64 2, label %104
+    i64 3, label %150
   ]
 
 7:                                                ; preds = %2
@@ -6616,11 +6616,11 @@ switch.lookup:                                    ; preds = %8
   %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 2)
   switch i64 %28, label %default.unreachable [
     i64 0, label %29
-    i64 1, label %39
-    i64 2, label %41
+    i64 1, label %40
+    i64 2, label %42
   ]
 
-default.unreachable:                              ; preds = %118, %73, %26
+default.unreachable:                              ; preds = %120, %74, %26
   unreachable
 
 29:                                               ; preds = %26
@@ -6640,254 +6640,257 @@ default.unreachable:                              ; preds = %118, %73, %26
 "_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i": ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %37 = load ptr, ptr %36, align 8, !alias.scope !1152, !noalias !1133, !nonnull !11, !noundef !11
-  %38 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %37, i64 %31, i32 1, i32 1
+  %38 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %37, i64 %31
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
 
-39:                                               ; preds = %26
-  %40 = getelementptr inbounds nuw i8, ptr %22, i64 136
+40:                                               ; preds = %26
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 136
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
 
-41:                                               ; preds = %26
-  %42 = getelementptr inbounds nuw i8, ptr %22, i64 128
+42:                                               ; preds = %26
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 128
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
 
 switch.lookup53:                                  ; preds = %20
-  %43 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %44 = load i64, ptr %43, align 8, !range !1087, !alias.scope !1154, !noalias !1133, !noundef !11
-  %45 = add nsw i64 %44, -2
-  %46 = icmp ult i64 %45, 5
-  %47 = select i1 %46, i64 %45, i64 3
-  %switch.gep54 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 %47
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %45 = load i64, ptr %44, align 8, !range !1087, !alias.scope !1154, !noalias !1133, !noundef !11
+  %46 = add nsw i64 %45, -2
+  %47 = icmp ult i64 %46, 5
+  %48 = select i1 %47, i64 %46, i64 3
+  %switch.gep54 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 %48
   %switch.load55 = load i64, ptr %switch.gep54, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 %switch.load55
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 %switch.load55
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
 
-"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit": ; preds = %switch.lookup, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i", %39, %41, %switch.lookup53
-  %.sroa.0.0.i = phi ptr [ %19, %switch.lookup ], [ %48, %switch.lookup53 ], [ %38, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i" ], [ %40, %39 ], [ %42, %41 ]
+"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit": ; preds = %switch.lookup, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i", %40, %42, %switch.lookup53
+  %.sroa.0.0.i = phi ptr [ %19, %switch.lookup ], [ %49, %switch.lookup53 ], [ %39, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i" ], [ %41, %40 ], [ %43, %42 ]
   %.val6 = load ptr, ptr %1, align 8, !nonnull !11, !noundef !11
   %.val7 = load ptr, ptr %.sroa.0.0.i, align 8, !nonnull !11, !noundef !11
-  %49 = icmp eq ptr %.val6, %.val7
-  br i1 %49, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", label %50
+  %50 = icmp eq ptr %.val6, %.val7
+  br i1 %50, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", label %51
 
-50:                                               ; preds = %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
-  %51 = load i64, ptr %.val6, align 8, !noundef !11
-  %52 = lshr i64 %51, 1
-  %53 = load i64, ptr %.val7, align 8, !noundef !11
-  %54 = lshr i64 %53, 1
-  %.not.i.i = icmp eq i64 %52, %54
+51:                                               ; preds = %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
+  %52 = load i64, ptr %.val6, align 8, !noundef !11
+  %53 = lshr i64 %52, 1
+  %54 = load i64, ptr %.val7, align 8, !noundef !11
+  %55 = lshr i64 %54, 1
+  %.not.i.i = icmp eq i64 %53, %55
   br i1 %.not.i.i, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split", label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit"
 
-55:                                               ; preds = %2
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+56:                                               ; preds = %2
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1157)
-  %57 = load i64, ptr %56, align 8, !range !915, !alias.scope !1157, !noundef !11
-  %58 = icmp eq i64 %57, 2
-  br i1 %58, label %switch.lookup56, label %67
+  %58 = load i64, ptr %57, align 8, !range !915, !alias.scope !1157, !noundef !11
+  %59 = icmp eq i64 %58, 2
+  br i1 %59, label %switch.lookup56, label %68
 
-switch.lookup56:                                  ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8, !alias.scope !1157, !nonnull !11, !noundef !11
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %62 = load i64, ptr %61, align 8, !range !1136, !alias.scope !1160, !noalias !1157, !noundef !11
-  %63 = add nsw i64 %62, -3
-  %64 = icmp ult i64 %63, 5
-  %65 = select i1 %64, i64 %63, i64 1
-  %switch.gep57 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN121_$LT$uv_distribution_types..resolution..ResolutionDiagnostic$u20$as$u20$uv_distribution_types..diagnostic..Diagnostic$GT$8includes17h2db4d6302617d4dfE.37", i64 %65
+switch.lookup56:                                  ; preds = %56
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %61 = load ptr, ptr %60, align 8, !alias.scope !1157, !nonnull !11, !noundef !11
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %63 = load i64, ptr %62, align 8, !range !1136, !alias.scope !1160, !noalias !1157, !noundef !11
+  %64 = add nsw i64 %63, -3
+  %65 = icmp ult i64 %64, 5
+  %66 = select i1 %65, i64 %64, i64 1
+  %switch.gep57 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN121_$LT$uv_distribution_types..resolution..ResolutionDiagnostic$u20$as$u20$uv_distribution_types..diagnostic..Diagnostic$GT$8includes17h2db4d6302617d4dfE.37", i64 %66
   %switch.load58 = load i64, ptr %switch.gep57, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 %switch.load58
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 %switch.load58
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16"
 
-67:                                               ; preds = %55
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %69 = load ptr, ptr %68, align 8, !alias.scope !1157, !nonnull !11, !noundef !11
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
+68:                                               ; preds = %56
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %70 = load ptr, ptr %69, align 8, !alias.scope !1157, !nonnull !11, !noundef !11
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1163)
-  %71 = load i64, ptr %70, align 8, !range !959, !alias.scope !1163, !noalias !1157, !noundef !11
-  %72 = icmp eq i64 %71, -9223372036854775806
-  br i1 %72, label %switch.lookup59, label %73
+  %72 = load i64, ptr %71, align 8, !range !959, !alias.scope !1163, !noalias !1157, !noundef !11
+  %73 = icmp eq i64 %72, -9223372036854775806
+  br i1 %73, label %switch.lookup59, label %74
 
-73:                                               ; preds = %67
+74:                                               ; preds = %68
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1166)
-  %74 = xor i64 %71, -9223372036854775808
-  %75 = tail call i64 @llvm.umin.i64(i64 %74, i64 2)
-  switch i64 %75, label %default.unreachable [
-    i64 0, label %76
-    i64 1, label %86
-    i64 2, label %88
+  %75 = xor i64 %72, -9223372036854775808
+  %76 = tail call i64 @llvm.umin.i64(i64 %75, i64 2)
+  switch i64 %76, label %default.unreachable [
+    i64 0, label %77
+    i64 1, label %88
+    i64 2, label %90
   ]
 
-76:                                               ; preds = %73
+77:                                               ; preds = %74
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1169)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1172)
-  %77 = getelementptr inbounds nuw i8, ptr %69, i64 128
-  %78 = load i64, ptr %77, align 8, !alias.scope !1175, !noalias !1157, !noundef !11
-  %79 = getelementptr inbounds nuw i8, ptr %69, i64 120
-  %80 = load i64, ptr %79, align 8, !alias.scope !1175, !noalias !1157, !noundef !11
-  %81 = icmp ult i64 %78, %80
-  br i1 %81, label %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10", label %82
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 128
+  %79 = load i64, ptr %78, align 8, !alias.scope !1175, !noalias !1157, !noundef !11
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 120
+  %81 = load i64, ptr %80, align 8, !alias.scope !1175, !noalias !1157, !noundef !11
+  %82 = icmp ult i64 %79, %81
+  br i1 %82, label %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10", label %83
 
-82:                                               ; preds = %76
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %78, i64 noundef %80, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3aa18e283ff517eb43af79d2053ec9e5.93.llvm.16679439562553428002) #45, !noalias !1176
+83:                                               ; preds = %77
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %79, i64 noundef %81, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3aa18e283ff517eb43af79d2053ec9e5.93.llvm.16679439562553428002) #45, !noalias !1176
   unreachable
 
-"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10": ; preds = %76
-  %83 = getelementptr inbounds nuw i8, ptr %69, i64 112
-  %84 = load ptr, ptr %83, align 8, !alias.scope !1175, !noalias !1157, !nonnull !11, !noundef !11
-  %85 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %84, i64 %78, i32 1, i32 1
+"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10": ; preds = %77
+  %84 = getelementptr inbounds nuw i8, ptr %70, i64 112
+  %85 = load ptr, ptr %84, align 8, !alias.scope !1175, !noalias !1157, !nonnull !11, !noundef !11
+  %86 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %85, i64 %79
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16"
 
-86:                                               ; preds = %73
-  %87 = getelementptr inbounds nuw i8, ptr %69, i64 136
+88:                                               ; preds = %74
+  %89 = getelementptr inbounds nuw i8, ptr %70, i64 136
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16"
 
-88:                                               ; preds = %73
-  %89 = getelementptr inbounds nuw i8, ptr %69, i64 128
+90:                                               ; preds = %74
+  %91 = getelementptr inbounds nuw i8, ptr %70, i64 128
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16"
 
-switch.lookup59:                                  ; preds = %67
-  %90 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %91 = load i64, ptr %90, align 8, !range !1087, !alias.scope !1177, !noalias !1157, !noundef !11
-  %92 = add nsw i64 %91, -2
-  %93 = icmp ult i64 %92, 5
-  %94 = select i1 %93, i64 %92, i64 3
-  %switch.gep60 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 %94
+switch.lookup59:                                  ; preds = %68
+  %92 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %93 = load i64, ptr %92, align 8, !range !1087, !alias.scope !1177, !noalias !1157, !noundef !11
+  %94 = add nsw i64 %93, -2
+  %95 = icmp ult i64 %94, 5
+  %96 = select i1 %95, i64 %94, i64 3
+  %switch.gep60 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 %96
   %switch.load61 = load i64, ptr %switch.gep60, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %90, i64 %switch.load61
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 %switch.load61
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16"
 
-"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16": ; preds = %switch.lookup56, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10", %86, %88, %switch.lookup59
-  %.sroa.0.0.i9 = phi ptr [ %66, %switch.lookup56 ], [ %95, %switch.lookup59 ], [ %85, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10" ], [ %87, %86 ], [ %89, %88 ]
+"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16": ; preds = %switch.lookup56, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10", %88, %90, %switch.lookup59
+  %.sroa.0.0.i9 = phi ptr [ %67, %switch.lookup56 ], [ %97, %switch.lookup59 ], [ %87, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i10" ], [ %89, %88 ], [ %91, %90 ]
   %.val4 = load ptr, ptr %1, align 8, !nonnull !11, !noundef !11
   %.val5 = load ptr, ptr %.sroa.0.0.i9, align 8, !nonnull !11, !noundef !11
-  %96 = icmp eq ptr %.val4, %.val5
-  br i1 %96, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", label %97
+  %98 = icmp eq ptr %.val4, %.val5
+  br i1 %98, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", label %99
 
-97:                                               ; preds = %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16"
-  %98 = load i64, ptr %.val4, align 8, !noundef !11
-  %99 = lshr i64 %98, 1
-  %100 = load i64, ptr %.val5, align 8, !noundef !11
+99:                                               ; preds = %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16"
+  %100 = load i64, ptr %.val4, align 8, !noundef !11
   %101 = lshr i64 %100, 1
-  %.not.i.i17 = icmp eq i64 %99, %101
+  %102 = load i64, ptr %.val5, align 8, !noundef !11
+  %103 = lshr i64 %102, 1
+  %.not.i.i17 = icmp eq i64 %101, %103
   br i1 %.not.i.i17, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split", label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit"
 
-102:                                              ; preds = %2
+104:                                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1180)
-  %103 = icmp eq i64 %3, 2
-  br i1 %103, label %switch.lookup62, label %112
+  %105 = icmp eq i64 %3, 2
+  br i1 %105, label %switch.lookup62, label %114
 
-switch.lookup62:                                  ; preds = %102
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %105 = load ptr, ptr %104, align 8, !alias.scope !1180, !nonnull !11, !noundef !11
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = load i64, ptr %106, align 8, !range !1136, !alias.scope !1183, !noalias !1180, !noundef !11
-  %108 = add nsw i64 %107, -3
-  %109 = icmp ult i64 %108, 5
-  %110 = select i1 %109, i64 %108, i64 1
-  %switch.gep63 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN121_$LT$uv_distribution_types..resolution..ResolutionDiagnostic$u20$as$u20$uv_distribution_types..diagnostic..Diagnostic$GT$8includes17h2db4d6302617d4dfE.37", i64 %110
+switch.lookup62:                                  ; preds = %104
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %107 = load ptr, ptr %106, align 8, !alias.scope !1180, !nonnull !11, !noundef !11
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %109 = load i64, ptr %108, align 8, !range !1136, !alias.scope !1183, !noalias !1180, !noundef !11
+  %110 = add nsw i64 %109, -3
+  %111 = icmp ult i64 %110, 5
+  %112 = select i1 %111, i64 %110, i64 1
+  %switch.gep63 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN121_$LT$uv_distribution_types..resolution..ResolutionDiagnostic$u20$as$u20$uv_distribution_types..diagnostic..Diagnostic$GT$8includes17h2db4d6302617d4dfE.37", i64 %112
   %switch.load64 = load i64, ptr %switch.gep63, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %106, i64 %switch.load64
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 %switch.load64
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28"
 
-112:                                              ; preds = %102
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %114 = load ptr, ptr %113, align 8, !alias.scope !1180, !nonnull !11, !noundef !11
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
+114:                                              ; preds = %104
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %116 = load ptr, ptr %115, align 8, !alias.scope !1180, !nonnull !11, !noundef !11
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1186)
-  %116 = load i64, ptr %115, align 8, !range !959, !alias.scope !1186, !noalias !1180, !noundef !11
-  %117 = icmp eq i64 %116, -9223372036854775806
-  br i1 %117, label %switch.lookup65, label %118
+  %118 = load i64, ptr %117, align 8, !range !959, !alias.scope !1186, !noalias !1180, !noundef !11
+  %119 = icmp eq i64 %118, -9223372036854775806
+  br i1 %119, label %switch.lookup65, label %120
 
-118:                                              ; preds = %112
+120:                                              ; preds = %114
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1189)
-  %119 = xor i64 %116, -9223372036854775808
-  %120 = tail call i64 @llvm.umin.i64(i64 %119, i64 2)
-  switch i64 %120, label %default.unreachable [
-    i64 0, label %121
-    i64 1, label %131
-    i64 2, label %133
+  %121 = xor i64 %118, -9223372036854775808
+  %122 = tail call i64 @llvm.umin.i64(i64 %121, i64 2)
+  switch i64 %122, label %default.unreachable [
+    i64 0, label %123
+    i64 1, label %134
+    i64 2, label %136
   ]
 
-121:                                              ; preds = %118
+123:                                              ; preds = %120
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1192)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1195)
-  %122 = getelementptr inbounds nuw i8, ptr %114, i64 128
-  %123 = load i64, ptr %122, align 8, !alias.scope !1198, !noalias !1180, !noundef !11
-  %124 = getelementptr inbounds nuw i8, ptr %114, i64 120
+  %124 = getelementptr inbounds nuw i8, ptr %116, i64 128
   %125 = load i64, ptr %124, align 8, !alias.scope !1198, !noalias !1180, !noundef !11
-  %126 = icmp ult i64 %123, %125
-  br i1 %126, label %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22", label %127
+  %126 = getelementptr inbounds nuw i8, ptr %116, i64 120
+  %127 = load i64, ptr %126, align 8, !alias.scope !1198, !noalias !1180, !noundef !11
+  %128 = icmp ult i64 %125, %127
+  br i1 %128, label %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22", label %129
 
-127:                                              ; preds = %121
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %123, i64 noundef %125, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3aa18e283ff517eb43af79d2053ec9e5.93.llvm.16679439562553428002) #45, !noalias !1199
+129:                                              ; preds = %123
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %125, i64 noundef %127, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3aa18e283ff517eb43af79d2053ec9e5.93.llvm.16679439562553428002) #45, !noalias !1199
   unreachable
 
-"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22": ; preds = %121
-  %128 = getelementptr inbounds nuw i8, ptr %114, i64 112
-  %129 = load ptr, ptr %128, align 8, !alias.scope !1198, !noalias !1180, !nonnull !11, !noundef !11
-  %130 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %129, i64 %123, i32 1, i32 1
+"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22": ; preds = %123
+  %130 = getelementptr inbounds nuw i8, ptr %116, i64 112
+  %131 = load ptr, ptr %130, align 8, !alias.scope !1198, !noalias !1180, !nonnull !11, !noundef !11
+  %132 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %131, i64 %125
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28"
 
-131:                                              ; preds = %118
-  %132 = getelementptr inbounds nuw i8, ptr %114, i64 136
+134:                                              ; preds = %120
+  %135 = getelementptr inbounds nuw i8, ptr %116, i64 136
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28"
 
-133:                                              ; preds = %118
-  %134 = getelementptr inbounds nuw i8, ptr %114, i64 128
+136:                                              ; preds = %120
+  %137 = getelementptr inbounds nuw i8, ptr %116, i64 128
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28"
 
-switch.lookup65:                                  ; preds = %112
-  %135 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  %136 = load i64, ptr %135, align 8, !range !1087, !alias.scope !1200, !noalias !1180, !noundef !11
-  %137 = add nsw i64 %136, -2
-  %138 = icmp ult i64 %137, 5
-  %139 = select i1 %138, i64 %137, i64 3
-  %switch.gep66 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 %139
+switch.lookup65:                                  ; preds = %114
+  %138 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %139 = load i64, ptr %138, align 8, !range !1087, !alias.scope !1200, !noalias !1180, !noundef !11
+  %140 = add nsw i64 %139, -2
+  %141 = icmp ult i64 %140, 5
+  %142 = select i1 %141, i64 %140, i64 3
+  %switch.gep66 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 %142
   %switch.load67 = load i64, ptr %switch.gep66, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %135, i64 %switch.load67
+  %143 = getelementptr inbounds nuw i8, ptr %138, i64 %switch.load67
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28"
 
-"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28": ; preds = %switch.lookup62, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22", %131, %133, %switch.lookup65
-  %.sroa.0.0.i21 = phi ptr [ %111, %switch.lookup62 ], [ %140, %switch.lookup65 ], [ %130, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22" ], [ %132, %131 ], [ %134, %133 ]
+"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28": ; preds = %switch.lookup62, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22", %134, %136, %switch.lookup65
+  %.sroa.0.0.i21 = phi ptr [ %113, %switch.lookup62 ], [ %143, %switch.lookup65 ], [ %133, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i22" ], [ %135, %134 ], [ %137, %136 ]
   %.val2 = load ptr, ptr %1, align 8, !nonnull !11, !noundef !11
   %.val3 = load ptr, ptr %.sroa.0.0.i21, align 8, !nonnull !11, !noundef !11
-  %141 = icmp eq ptr %.val2, %.val3
-  br i1 %141, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", label %142
+  %144 = icmp eq ptr %.val2, %.val3
+  br i1 %144, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", label %145
 
-142:                                              ; preds = %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28"
-  %143 = load i64, ptr %.val2, align 8, !noundef !11
-  %144 = lshr i64 %143, 1
-  %145 = load i64, ptr %.val3, align 8, !noundef !11
-  %146 = lshr i64 %145, 1
-  %.not.i.i29 = icmp eq i64 %144, %146
+145:                                              ; preds = %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28"
+  %146 = load i64, ptr %.val2, align 8, !noundef !11
+  %147 = lshr i64 %146, 1
+  %148 = load i64, ptr %.val3, align 8, !noundef !11
+  %149 = lshr i64 %148, 1
+  %.not.i.i29 = icmp eq i64 %147, %149
   br i1 %.not.i.i29, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split", label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit"
 
-147:                                              ; preds = %2
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
+150:                                              ; preds = %2
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %1, align 8, !nonnull !11, !noundef !11
-  %.val1 = load ptr, ptr %148, align 8, !nonnull !11, !noundef !11
-  %149 = icmp eq ptr %.val, %.val1
-  br i1 %149, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", label %150
+  %.val1 = load ptr, ptr %151, align 8, !nonnull !11, !noundef !11
+  %152 = icmp eq ptr %.val, %.val1
+  br i1 %152, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit", label %153
 
-150:                                              ; preds = %147
-  %151 = load i64, ptr %.val, align 8, !noundef !11
-  %152 = lshr i64 %151, 1
-  %153 = load i64, ptr %.val1, align 8, !noundef !11
-  %154 = lshr i64 %153, 1
-  %.not.i.i33 = icmp eq i64 %152, %154
+153:                                              ; preds = %150
+  %154 = load i64, ptr %.val, align 8, !noundef !11
+  %155 = lshr i64 %154, 1
+  %156 = load i64, ptr %.val1, align 8, !noundef !11
+  %157 = lshr i64 %156, 1
+  %.not.i.i33 = icmp eq i64 %155, %157
   br i1 %.not.i.i33, label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split", label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit"
 
-"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split": ; preds = %150, %142, %97, %50
-  %.val1.sink = phi ptr [ %.val7, %50 ], [ %.val5, %97 ], [ %.val3, %142 ], [ %.val1, %150 ]
-  %.val.sink = phi ptr [ %.val6, %50 ], [ %.val4, %97 ], [ %.val2, %142 ], [ %.val, %150 ]
-  %.sink52 = phi i64 [ %52, %50 ], [ %99, %97 ], [ %144, %142 ], [ %152, %150 ]
-  %155 = getelementptr inbounds nuw i8, ptr %.val1.sink, i64 16
-  %156 = getelementptr inbounds nuw i8, ptr %.val.sink, i64 16
-  %bcmp.i.i35 = tail call i32 @bcmp(ptr nonnull readonly align 1 %156, ptr nonnull readonly align 1 %155, i64 %.sink52)
-  %157 = icmp eq i32 %bcmp.i.i35, 0
+"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split": ; preds = %153, %145, %99, %51
+  %.val1.sink = phi ptr [ %.val7, %51 ], [ %.val5, %99 ], [ %.val3, %145 ], [ %.val1, %153 ]
+  %.val.sink = phi ptr [ %.val6, %51 ], [ %.val4, %99 ], [ %.val2, %145 ], [ %.val, %153 ]
+  %.sink52 = phi i64 [ %53, %51 ], [ %101, %99 ], [ %147, %145 ], [ %155, %153 ]
+  %158 = getelementptr inbounds nuw i8, ptr %.val1.sink, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %.val.sink, i64 16
+  %bcmp.i.i35 = tail call i32 @bcmp(ptr nonnull readonly align 1 %159, ptr nonnull readonly align 1 %158, i64 %.sink52)
+  %160 = icmp eq i32 %bcmp.i.i35, 0
   br label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit"
 
-"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit": ; preds = %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split", %150, %147, %142, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28", %97, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16", %50, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
-  %.sroa.0.0.in = phi i1 [ true, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit" ], [ false, %50 ], [ true, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16" ], [ false, %97 ], [ true, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28" ], [ false, %142 ], [ true, %147 ], [ false, %150 ], [ %157, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split" ]
+"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit": ; preds = %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split", %153, %150, %145, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28", %99, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16", %51, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
+  %.sroa.0.0.in = phi i1 [ true, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit" ], [ false, %51 ], [ true, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit16" ], [ false, %99 ], [ true, %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit28" ], [ false, %145 ], [ true, %150 ], [ false, %153 ], [ %160, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split" ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -6916,7 +6919,7 @@ define noundef zeroext i1 @"_ZN21uv_distribution_types6traits81_$LT$impl$u20$cor
   %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 2)
   switch i64 %9, label %default.unreachable [
     i64 0, label %10
-    i64 1, label %22
+    i64 1, label %23
     i64 2, label %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit"
   ]
 
@@ -6946,37 +6949,38 @@ default.unreachable:                              ; preds = %2
 "_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i": ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load ptr, ptr %18, align 8, !alias.scope !1212, !nonnull !11, !noundef !11
-  %20 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %19, i64 %12, i32 1, i32 1
-  store ptr %20, ptr %5, align 8
+  %20 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %19, i64 %12
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store ptr %21, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %21 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %19, i64 %12, i32 1
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit
 
-22:                                               ; preds = %2
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %23, ptr %5, align 8
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %24, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit
 
-_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit: ; preds = %22, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i", %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit"
-  %.pn2.i = phi ptr [ %21, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ %24, %22 ], [ %0, %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit" ]
-  %.sroa.0.0.i7 = phi i64 [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ 1, %22 ], [ 1, %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit" ]
+_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit: ; preds = %23, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i", %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit"
+  %.pn2.i = phi ptr [ %22, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ %25, %23 ], [ %0, %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit" ]
+  %.sroa.0.0.i7 = phi i64 [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ 1, %23 ], [ 1, %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit" ]
   store i64 %.sroa.0.0.i7, ptr %4, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.pn2.i, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %.pn2.i, ptr %26, align 8
   store ptr %5, ptr %6, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h6436cfa8fb05757dE", ptr %.sroa.42.0..sroa_idx, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %4, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %4, ptr %27, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @"_ZN77_$LT$uv_distribution_types..VersionOrUrlRef$u20$as$u20$core..fmt..Display$GT$3fmt17ha2ad5f0f7890df11E", ptr %.sroa.46.0..sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1213)
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %28 = load ptr, ptr %27, align 8, !alias.scope !1213, !noalias !1216, !nonnull !11, !align !56, !noundef !11
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %30 = load ptr, ptr %29, align 8, !alias.scope !1213, !noalias !1216, !nonnull !11, !align !59, !noundef !11
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %29 = load ptr, ptr %28, align 8, !alias.scope !1213, !noalias !1216, !nonnull !11, !align !56, !noundef !11
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %31 = load ptr, ptr %30, align 8, !alias.scope !1213, !noalias !1216, !nonnull !11, !align !59, !noundef !11
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1218
   store ptr @anon.3aa18e283ff517eb43af79d2053ec9e5.84.llvm.16679439562553428002, ptr %3, align 8, !noalias !1213
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6987,12 +6991,12 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.e
   store i64 2, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !1213
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !1213
-  %31 = call noundef zeroext i1 @_ZN4core3fmt5write17h5af61a909e3ec64dE(ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %30, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !1218
+  %32 = call noundef zeroext i1 @_ZN4core3fmt5write17h5af61a909e3ec64dE(ptr noundef nonnull align 1 %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %31, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !1218
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1218
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i1 %31
+  ret i1 %32
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7104,7 +7108,7 @@ define noundef zeroext i1 @"_ZN21uv_distribution_types6traits76_$LT$impl$u20$cor
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 2)
   switch i64 %11, label %default.unreachable [
     i64 0, label %12
-    i64 1, label %43
+    i64 1, label %45
     i64 2, label %28
   ]
 
@@ -7133,10 +7137,10 @@ default.unreachable:                              ; preds = %9
   %24 = select i1 %23, i64 %22, i64 3
   switch i64 %24, label %26 [
     i64 0, label %.thread18
-    i64 1, label %46
-    i64 2, label %46
+    i64 1, label %48
+    i64 2, label %48
     i64 3, label %.thread20
-    i64 4, label %46
+    i64 4, label %48
   ]
 
 .thread18:                                        ; preds = %19
@@ -7152,7 +7156,7 @@ default.unreachable:                              ; preds = %9
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %27, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %48
+  br label %50
 
 28:                                               ; preds = %9
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -7164,70 +7168,72 @@ default.unreachable:                              ; preds = %9
 30:                                               ; preds = %12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %32 = load ptr, ptr %31, align 8, !alias.scope !1243, !nonnull !11, !noundef !11
-  %33 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %32, i64 %14, i32 1, i32 1
-  store ptr %33, ptr %5, align 8
+  %33 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %32, i64 %14
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store ptr %34, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1250)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1253)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %35 = load i64, ptr %34, align 8, !alias.scope !1256, !noundef !11
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %37 = load i64, ptr %36, align 8, !alias.scope !1256, !noundef !11
-  %38 = icmp ult i64 %35, %37
-  br i1 %38, label %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i", label %39
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %36 = load i64, ptr %35, align 8, !alias.scope !1256, !noundef !11
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %38 = load i64, ptr %37, align 8, !alias.scope !1256, !noundef !11
+  %39 = icmp ult i64 %36, %38
+  br i1 %39, label %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i", label %40
 
-39:                                               ; preds = %30
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %35, i64 noundef %37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3aa18e283ff517eb43af79d2053ec9e5.93.llvm.16679439562553428002) #45, !noalias !1256
+40:                                               ; preds = %30
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %36, i64 noundef %38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3aa18e283ff517eb43af79d2053ec9e5.93.llvm.16679439562553428002) #45, !noalias !1256
   unreachable
 
 "_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i": ; preds = %30
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %41 = load ptr, ptr %40, align 8, !alias.scope !1256, !nonnull !11, !noundef !11
-  %42 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %41, i64 %35, i32 1
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %42 = load ptr, ptr %41, align 8, !alias.scope !1256, !nonnull !11, !noundef !11
+  %43 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %42, i64 %36
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit
 
-43:                                               ; preds = %9
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %44, ptr %5, align 8
+45:                                               ; preds = %9
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %46, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit
 
-46:                                               ; preds = %19, %19, %19
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %47, ptr %5, align 8
+48:                                               ; preds = %19, %19, %19
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %49, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1259)
   %switch = icmp eq i64 %24, 3
-  br i1 %switch, label %48, label %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i"
+  br i1 %switch, label %50, label %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i"
 
-48:                                               ; preds = %46, %.thread20
+50:                                               ; preds = %48, %.thread20
   br label %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i"
 
-"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i": ; preds = %46, %.thread18, %48
-  %.sink.i.i8 = phi i64 [ 24, %48 ], [ 64, %.thread18 ], [ 8, %46 ]
-  %.sroa.0.0.i2.i = phi i64 [ 1, %48 ], [ 0, %.thread18 ], [ 1, %46 ]
-  %49 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink.i.i8
+"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i": ; preds = %48, %.thread18, %50
+  %.sink.i.i8 = phi i64 [ 24, %50 ], [ 64, %.thread18 ], [ 8, %48 ]
+  %.sroa.0.0.i2.i = phi i64 [ 1, %50 ], [ 0, %.thread18 ], [ 1, %48 ]
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink.i.i8
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit
 
-_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit: ; preds = %28, %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i", %43, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i"
-  %.sroa.0.0.i2.pn.i = phi i64 [ %.sroa.0.0.i2.i, %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i" ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i" ], [ 1, %43 ], [ 1, %28 ]
-  %.pn4.i = phi ptr [ %49, %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i" ], [ %42, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i" ], [ %45, %43 ], [ %0, %28 ]
+_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.exit: ; preds = %28, %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i", %45, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i"
+  %.sroa.0.0.i2.pn.i = phi i64 [ %.sroa.0.0.i2.i, %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i" ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i" ], [ 1, %45 ], [ 1, %28 ]
+  %.pn4.i = phi ptr [ %51, %"_ZN105_$LT$uv_distribution_types..SourceDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h8963330b8d27eddbE.exit.i" ], [ %44, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i" ], [ %47, %45 ], [ %0, %28 ]
   store i64 %.sroa.0.0.i2.pn.i, ptr %4, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.pn4.i, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %.pn4.i, ptr %52, align 8
   store ptr %5, ptr %6, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h6436cfa8fb05757dE", ptr %.sroa.42.0..sroa_idx, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %4, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %4, ptr %53, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @"_ZN77_$LT$uv_distribution_types..VersionOrUrlRef$u20$as$u20$core..fmt..Display$GT$3fmt17ha2ad5f0f7890df11E", ptr %.sroa.46.0..sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1260)
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %53 = load ptr, ptr %52, align 8, !alias.scope !1260, !noalias !1263, !nonnull !11, !align !56, !noundef !11
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %55 = load ptr, ptr %54, align 8, !alias.scope !1260, !noalias !1263, !nonnull !11, !align !59, !noundef !11
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %55 = load ptr, ptr %54, align 8, !alias.scope !1260, !noalias !1263, !nonnull !11, !align !56, !noundef !11
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %57 = load ptr, ptr %56, align 8, !alias.scope !1260, !noalias !1263, !nonnull !11, !align !59, !noundef !11
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1265
   store ptr @anon.3aa18e283ff517eb43af79d2053ec9e5.84.llvm.16679439562553428002, ptr %3, align 8, !noalias !1260
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7238,12 +7244,12 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.16679439562553428002.e
   store i64 2, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !1260
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !1260
-  %56 = call noundef zeroext i1 @_ZN4core3fmt5write17h5af61a909e3ec64dE(ptr noundef nonnull align 1 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %55, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !1265
+  %58 = call noundef zeroext i1 @_ZN4core3fmt5write17h5af61a909e3ec64dE(ptr noundef nonnull align 1 %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %57, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !1265
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1265
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i1 %56
+  ret i1 %58
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10643,7 +10649,7 @@ _ZN21uv_distribution_types9BuiltDist5index17h23534220643b1049E.exit: ; preds = %
 define noundef align 8 dereferenceable_or_null(104) ptr @_ZN21uv_distribution_types4Dist4file17h2ba042bb6d9a3d52E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(160) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !959, !noundef !11
   %3 = icmp eq i64 %2, -9223372036854775806
-  br i1 %3, label %16, label %4
+  br i1 %3, label %17, label %4
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2016)
@@ -10666,21 +10672,22 @@ define noundef align 8 dereferenceable_or_null(104) ptr @_ZN21uv_distribution_ty
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i: ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8, !alias.scope !2022, !nonnull !11, !noundef !11
-  %14 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %13, i64 %7, i32 2
-  %15 = load ptr, ptr %14, align 8, !noalias !2016, !nonnull !11, !align !59, !noundef !11
+  %14 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %13, i64 %7
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %16 = load ptr, ptr %15, align 8, !noalias !2016, !nonnull !11, !align !59, !noundef !11
   br label %_ZN21uv_distribution_types9BuiltDist4file17h83bdb74c8b1ba9afE.exit
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !range !1087, !alias.scope !2023, !noundef !11
-  %switch1.i = icmp eq i64 %18, 2
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load ptr, ptr %19, align 8, !alias.scope !2023, !nonnull !11, !align !59
-  %.sroa.0.0.i1 = select i1 %switch1.i, ptr %20, ptr null
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load i64, ptr %18, align 8, !range !1087, !alias.scope !2023, !noundef !11
+  %switch1.i = icmp eq i64 %19, 2
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %21 = load ptr, ptr %20, align 8, !alias.scope !2023, !nonnull !11, !align !59
+  %.sroa.0.0.i1 = select i1 %switch1.i, ptr %21, ptr null
   br label %_ZN21uv_distribution_types9BuiltDist4file17h83bdb74c8b1ba9afE.exit
 
-_ZN21uv_distribution_types9BuiltDist4file17h83bdb74c8b1ba9afE.exit: ; preds = %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i, %4, %16
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i1, %16 ], [ %15, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i ], [ null, %4 ]
+_ZN21uv_distribution_types9BuiltDist4file17h83bdb74c8b1ba9afE.exit: ; preds = %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i, %4, %17
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i1, %17 ], [ %16, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i ], [ null, %4 ]
   ret ptr %.sroa.0.0
 }
 
@@ -10714,7 +10721,7 @@ define { ptr, i64 } @_ZN21uv_distribution_types4Dist11source_tree17hd829c61414be
 define noundef align 8 dereferenceable_or_null(16) ptr @_ZN21uv_distribution_types4Dist7version17hbc859c1f7d1bb088E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(160) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !959, !noundef !11
   %3 = icmp eq i64 %2, -9223372036854775806
-  br i1 %3, label %21, label %4
+  br i1 %3, label %22, label %4
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2029)
@@ -10722,8 +10729,8 @@ define noundef align 8 dereferenceable_or_null(16) ptr @_ZN21uv_distribution_typ
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 2)
   switch i64 %6, label %default.unreachable [
     i64 0, label %7
-    i64 1, label %17
-    i64 2, label %19
+    i64 1, label %18
+    i64 2, label %20
   ]
 
 default.unreachable:                              ; preds = %4
@@ -10745,27 +10752,28 @@ default.unreachable:                              ; preds = %4
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i: ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8, !alias.scope !2035, !nonnull !11, !noundef !11
-  %16 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %15, i64 %9, i32 1
+  %16 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %15, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   br label %_ZN21uv_distribution_types9BuiltDist7version17h199bfcd727576bc5E.exit
 
-17:                                               ; preds = %4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %_ZN21uv_distribution_types9BuiltDist7version17h199bfcd727576bc5E.exit
 
-19:                                               ; preds = %4
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %_ZN21uv_distribution_types9BuiltDist7version17h199bfcd727576bc5E.exit
 
-21:                                               ; preds = %1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load i64, ptr %22, align 8, !range !1087, !alias.scope !2036, !noundef !11
-  %switch1.i = icmp eq i64 %23, 2
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.sroa.0.0.i1 = select i1 %switch1.i, ptr %24, ptr null
+22:                                               ; preds = %1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load i64, ptr %23, align 8, !range !1087, !alias.scope !2036, !noundef !11
+  %switch1.i = icmp eq i64 %24, 2
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.sroa.0.0.i1 = select i1 %switch1.i, ptr %25, ptr null
   br label %_ZN21uv_distribution_types9BuiltDist7version17h199bfcd727576bc5E.exit
 
-_ZN21uv_distribution_types9BuiltDist7version17h199bfcd727576bc5E.exit: ; preds = %19, %17, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i, %21
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i1, %21 ], [ %16, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i ], [ %18, %17 ], [ %20, %19 ]
+_ZN21uv_distribution_types9BuiltDist7version17h199bfcd727576bc5E.exit: ; preds = %20, %18, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i, %22
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i1, %22 ], [ %17, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i ], [ %19, %18 ], [ %21, %20 ]
   ret ptr %.sroa.0.0
 }
 
@@ -10846,7 +10854,7 @@ _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.ex
 define noundef align 8 dereferenceable_or_null(104) ptr @_ZN21uv_distribution_types9BuiltDist4file17h83bdb74c8b1ba9afE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(160) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !55, !noundef !11
   %switch = icmp eq i64 %2, -9223372036854775808
-  br i1 %switch, label %3, label %14
+  br i1 %switch, label %3, label %15
 
 3:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2042)
@@ -10864,12 +10872,13 @@ define noundef align 8 dereferenceable_or_null(104) ptr @_ZN21uv_distribution_ty
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit: ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load ptr, ptr %10, align 8, !alias.scope !2042, !nonnull !11, !noundef !11
-  %12 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %11, i64 %5, i32 2
-  %13 = load ptr, ptr %12, align 8, !nonnull !11, !align !59, !noundef !11
-  br label %14
+  %12 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %11, i64 %5
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %14 = load ptr, ptr %13, align 8, !nonnull !11, !align !59, !noundef !11
+  br label %15
 
-14:                                               ; preds = %1, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit
-  %.sroa.0.0 = phi ptr [ %13, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit ], [ null, %1 ]
+15:                                               ; preds = %1, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit
+  %.sroa.0.0 = phi ptr [ %14, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit ], [ null, %1 ]
   ret ptr %.sroa.0.0
 }
 
@@ -10880,8 +10889,8 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN21uv_distribution_typ
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
   switch i64 %4, label %default.unreachable [
     i64 0, label %5
-    i64 1, label %15
-    i64 2, label %17
+    i64 1, label %16
+    i64 2, label %18
   ]
 
 default.unreachable:                              ; preds = %1
@@ -10903,19 +10912,20 @@ default.unreachable:                              ; preds = %1
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit: ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8, !alias.scope !2045, !nonnull !11, !noundef !11
-  %14 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %13, i64 %7, i32 1
-  br label %19
+  %14 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %13, i64 %7
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  br label %20
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  br label %19
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  br label %20
 
-17:                                               ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %19
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %20
 
-19:                                               ; preds = %17, %15, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit
-  %.sroa.0.0 = phi ptr [ %14, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit ], [ %16, %15 ], [ %18, %17 ]
+20:                                               ; preds = %18, %16, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit
+  %.sroa.0.0 = phi ptr [ %15, %_ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit ], [ %17, %16 ], [ %19, %18 ]
   ret ptr %.sroa.0.0
 }
 
@@ -11448,8 +11458,9 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN96_$LT$uv_distributio
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8, !alias.scope !2075, !nonnull !11, !noundef !11
-  %10 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %9, i64 %3, i32 1, i32 1
-  ret ptr %10
+  %10 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %9, i64 %3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -11514,8 +11525,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN88_$LT$uv_distributio
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
   switch i64 %4, label %default.unreachable [
     i64 0, label %5
-    i64 1, label %15
-    i64 2, label %17
+    i64 1, label %16
+    i64 2, label %18
   ]
 
 default.unreachable:                              ; preds = %1
@@ -11538,19 +11549,20 @@ default.unreachable:                              ; preds = %1
 "_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit": ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8, !alias.scope !2084, !nonnull !11, !noundef !11
-  %14 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %13, i64 %7, i32 1, i32 1
-  br label %19
+  %14 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %13, i64 %7
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  br label %20
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  br label %19
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  br label %20
 
-17:                                               ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  br label %19
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  br label %20
 
-19:                                               ; preds = %17, %15, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit"
-  %.sroa.0.0 = phi ptr [ %14, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit" ], [ %16, %15 ], [ %18, %17 ]
+20:                                               ; preds = %18, %16, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit"
+  %.sroa.0.0 = phi ptr [ %15, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit" ], [ %17, %16 ], [ %19, %18 ]
   ret ptr %.sroa.0.0
 }
 
@@ -11566,8 +11578,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN83_$LT$uv_distributio
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 2)
   switch i64 %6, label %default.unreachable [
     i64 0, label %7
-    i64 1, label %17
-    i64 2, label %19
+    i64 1, label %18
+    i64 2, label %20
   ]
 
 default.unreachable:                              ; preds = %4
@@ -11590,30 +11602,31 @@ default.unreachable:                              ; preds = %4
 "_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i": ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8, !alias.scope !2094, !nonnull !11, !noundef !11
-  %16 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %15, i64 %9, i32 1, i32 1
+  %16 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %15, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   br label %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit"
 
-17:                                               ; preds = %4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit"
 
-19:                                               ; preds = %4
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit"
 
 switch.lookup:                                    ; preds = %1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i64, ptr %21, align 8, !range !1087, !alias.scope !2095, !noundef !11
-  %23 = add nsw i64 %22, -2
-  %24 = icmp ult i64 %23, 5
-  %25 = select i1 %24, i64 %23, i64 3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 %25
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load i64, ptr %22, align 8, !range !1087, !alias.scope !2095, !noundef !11
+  %24 = add nsw i64 %23, -2
+  %25 = icmp ult i64 %24, 5
+  %26 = select i1 %25, i64 %24, i64 3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE", i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %switch.load
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 %switch.load
   br label %"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit"
 
-"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit": ; preds = %19, %17, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i", %switch.lookup
-  %.sroa.0.0 = phi ptr [ %26, %switch.lookup ], [ %16, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i" ], [ %18, %17 ], [ %20, %19 ]
+"_ZN88_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17hff395ff5dd7998d1E.exit": ; preds = %20, %18, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i", %switch.lookup
+  %.sroa.0.0 = phi ptr [ %27, %switch.lookup ], [ %17, %"_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i" ], [ %19, %18 ], [ %21, %20 ]
   ret ptr %.sroa.0.0
 }
 
@@ -11641,9 +11654,10 @@ define { i64, ptr } @"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8, !alias.scope !2098, !nonnull !11, !noundef !11
-  %10 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %9, i64 %3, i32 1
-  %11 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %10, 1
-  ret { i64, ptr } %11
+  %10 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %9, i64 %3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %11, 1
+  ret { i64, ptr } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -11714,8 +11728,8 @@ define { i64, ptr } @"_ZN104_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
   switch i64 %4, label %default.unreachable [
     i64 0, label %5
-    i64 1, label %15
-    i64 2, label %17
+    i64 1, label %16
+    i64 2, label %18
   ]
 
 default.unreachable:                              ; preds = %1
@@ -11738,19 +11752,20 @@ default.unreachable:                              ; preds = %1
 "_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit": ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8, !alias.scope !2107, !nonnull !11, !noundef !11
-  %14 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %13, i64 %7, i32 1
-  br label %17
+  %14 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %13, i64 %7
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  br label %18
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %17
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %18
 
-17:                                               ; preds = %1, %15, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit"
-  %.pn2 = phi ptr [ %14, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit" ], [ %16, %15 ], [ %0, %1 ]
-  %.sroa.0.0 = phi i64 [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit" ], [ 1, %15 ], [ 1, %1 ]
-  %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %19 = insertvalue { i64, ptr } %18, ptr %.pn2, 1
-  ret { i64, ptr } %19
+18:                                               ; preds = %1, %16, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit"
+  %.pn2 = phi ptr [ %15, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit" ], [ %17, %16 ], [ %0, %1 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit" ], [ 1, %16 ], [ 1, %1 ]
+  %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %20 = insertvalue { i64, ptr } %19, ptr %.pn2, 1
+  ret { i64, ptr } %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11765,7 +11780,7 @@ define { i64, ptr } @"_ZN99_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distri
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 2)
   switch i64 %6, label %default.unreachable [
     i64 0, label %7
-    i64 1, label %17
+    i64 1, label %18
     i64 2, label %"_ZN104_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17he8e41b7350d6f218E.exit"
   ]
 
@@ -11789,29 +11804,30 @@ default.unreachable:                              ; preds = %4
 "_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i": ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8, !alias.scope !2117, !nonnull !11, !noundef !11
-  %16 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %15, i64 %9, i32 1
+  %16 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %15, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   br label %"_ZN104_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17he8e41b7350d6f218E.exit"
 
-17:                                               ; preds = %4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %"_ZN104_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17he8e41b7350d6f218E.exit"
 
 switch.lookup:                                    ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8, !range !1087, !alias.scope !2118, !noundef !11
-  %21 = add nsw i64 %20, -2
-  %22 = icmp ult i64 %21, 5
-  %23 = select i1 %22, i64 %21, i64 3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN99_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h68549a9ee928fd64E", i64 %23
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = load i64, ptr %20, align 8, !range !1087, !alias.scope !2118, !noundef !11
+  %22 = add nsw i64 %21, -2
+  %23 = icmp ult i64 %22, 5
+  %24 = select i1 %23, i64 %22, i64 3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN99_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h68549a9ee928fd64E", i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep8 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN99_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h68549a9ee928fd64E.40", i64 %23
+  %switch.gep8 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN99_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h68549a9ee928fd64E.40", i64 %24
   %switch.load9 = load i64, ptr %switch.gep8, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %switch.load
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %switch.load
   br label %"_ZN104_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17he8e41b7350d6f218E.exit"
 
-"_ZN104_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17he8e41b7350d6f218E.exit": ; preds = %17, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i", %4, %switch.lookup
-  %.sroa.0.0.i2.pn = phi i64 [ %switch.load9, %switch.lookup ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ 1, %17 ], [ 1, %4 ]
-  %.pn4 = phi ptr [ %24, %switch.lookup ], [ %16, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ %18, %17 ], [ %0, %4 ]
+"_ZN104_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17he8e41b7350d6f218E.exit": ; preds = %18, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i", %4, %switch.lookup
+  %.sroa.0.0.i2.pn = phi i64 [ %switch.load9, %switch.lookup ], [ 0, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ 1, %18 ], [ 1, %4 ]
+  %.pn4 = phi ptr [ %25, %switch.lookup ], [ %17, %"_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i" ], [ %19, %18 ], [ %0, %4 ]
   %.pn3 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i2.pn, 0
   %.pn = insertvalue { i64, ptr } %.pn3, ptr %.pn4, 1
   ret { i64, ptr } %.pn
@@ -11867,23 +11883,24 @@ define void @"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit: ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !alias.scope !2130, !nonnull !11, !noundef !11
+  %11 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %10, i64 %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2133)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2136)
-  %11 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %10, i64 %4, i32 2
-  %12 = load ptr, ptr %11, align 8, !alias.scope !2136, !noalias !2133, !nonnull !11, !align !59, !noundef !11
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %13 = load ptr, ptr %12, align 8, !alias.scope !2136, !noalias !2133, !nonnull !11, !align !59, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2138)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2141)
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %14 = load ptr, ptr %13, align 8, !alias.scope !2141, !noalias !2143, !nonnull !11, !noundef !11
-  %15 = load i64, ptr %14, align 8, !noalias !2144, !noundef !11
-  %16 = lshr i64 %15, 1
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -9223372036854775808, ptr %18, align 8, !alias.scope !2145, !noalias !2146
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %15 = load ptr, ptr %14, align 8, !alias.scope !2141, !noalias !2143, !nonnull !11, !noundef !11
+  %16 = load i64, ptr %15, align 8, !noalias !2144, !noundef !11
+  %17 = lshr i64 %16, 1
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %19, align 8, !alias.scope !2145, !noalias !2146
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !2145, !noalias !2146
+  store ptr %18, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !2145, !noalias !2146
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %16, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !2145, !noalias !2146
+  store i64 %17, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !2145, !noalias !2146
   store i64 -9223372036854775802, ptr %0, align 8, !alias.scope !2145, !noalias !2146
   ret void
 }
@@ -11905,15 +11922,16 @@ define { i64, i64 } @"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8, !alias.scope !2147, !nonnull !11, !noundef !11
+  %10 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %9, i64 %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2150)
-  %10 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %9, i64 %3, i32 2
-  %11 = load ptr, ptr %10, align 8, !alias.scope !2150, !nonnull !11, !align !59, !noundef !11
-  %12 = load i64, ptr %11, align 8, !range !343, !alias.scope !2153, !noalias !2150, !noundef !11
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %14 = load i64, ptr %13, align 8, !alias.scope !2153, !noalias !2150
-  %15 = insertvalue { i64, i64 } poison, i64 %12, 0
-  %16 = insertvalue { i64, i64 } %15, i64 %14, 1
-  ret { i64, i64 } %16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %12 = load ptr, ptr %11, align 8, !alias.scope !2150, !nonnull !11, !align !59, !noundef !11
+  %13 = load i64, ptr %12, align 8, !range !343, !alias.scope !2153, !noalias !2150, !noundef !11
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %15 = load i64, ptr %14, align 8, !alias.scope !2153, !noalias !2150
+  %16 = insertvalue { i64, i64 } poison, i64 %13, 0
+  %17 = insertvalue { i64, i64 } %16, i64 %15, 1
+  ret { i64, i64 } %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -12362,8 +12380,8 @@ define void @"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribut
   %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 2)
   switch i64 %5, label %default.unreachable [
     i64 0, label %6
-    i64 1, label %23
-    i64 2, label %26
+    i64 1, label %24
+    i64 2, label %27
   ]
 
 default.unreachable:                              ; preds = %2
@@ -12387,38 +12405,39 @@ default.unreachable:                              ; preds = %2
 "_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$8filename17h3352c51d67318067E.exit": ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %14 = load ptr, ptr %13, align 8, !alias.scope !2234, !noalias !2226, !nonnull !11, !noundef !11
+  %15 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %14, i64 %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2236)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2239)
-  %15 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %14, i64 %8, i32 2
-  %16 = load ptr, ptr %15, align 8, !alias.scope !2239, !noalias !2241, !nonnull !11, !align !59, !noundef !11
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %17 = load ptr, ptr %16, align 8, !alias.scope !2239, !noalias !2241, !nonnull !11, !align !59, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2245)
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %18 = load ptr, ptr %17, align 8, !alias.scope !2245, !noalias !2247, !nonnull !11, !noundef !11
-  %19 = load i64, ptr %18, align 8, !noalias !2248, !noundef !11
-  %20 = lshr i64 %19, 1
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -9223372036854775808, ptr %22, align 8, !alias.scope !2249, !noalias !2250
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8, !alias.scope !2245, !noalias !2247, !nonnull !11, !noundef !11
+  %20 = load i64, ptr %19, align 8, !noalias !2248, !noundef !11
+  %21 = lshr i64 %20, 1
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %23, align 8, !alias.scope !2249, !noalias !2250
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %21, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !2249, !noalias !2250
+  store ptr %22, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !2249, !noalias !2250
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %20, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !2249, !noalias !2250
+  store i64 %21, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !2249, !noalias !2250
   store i64 -9223372036854775802, ptr %0, align 8, !alias.scope !2249, !noalias !2250
-  br label %28
+  br label %29
 
-23:                                               ; preds = %2
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %24), !noalias !2251
-  tail call void @"_ZN21uv_distribution_types82_$LT$impl$u20$uv_distribution_types..traits..RemoteSource$u20$for$u20$url..Url$GT$8filename17he1e3e4ff2b02ac47E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %25)
-  br label %28
+24:                                               ; preds = %2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %26 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %25), !noalias !2251
+  tail call void @"_ZN21uv_distribution_types82_$LT$impl$u20$uv_distribution_types..traits..RemoteSource$u20$for$u20$url..Url$GT$8filename17he1e3e4ff2b02ac47E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %26)
+  br label %29
 
-26:                                               ; preds = %2
-  %27 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1), !noalias !2254
-  tail call void @"_ZN21uv_distribution_types82_$LT$impl$u20$uv_distribution_types..traits..RemoteSource$u20$for$u20$url..Url$GT$8filename17he1e3e4ff2b02ac47E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %27)
-  br label %28
+27:                                               ; preds = %2
+  %28 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1), !noalias !2254
+  tail call void @"_ZN21uv_distribution_types82_$LT$impl$u20$uv_distribution_types..traits..RemoteSource$u20$for$u20$url..Url$GT$8filename17he1e3e4ff2b02ac47E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %28)
+  br label %29
 
-28:                                               ; preds = %26, %23, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$8filename17h3352c51d67318067E.exit"
+29:                                               ; preds = %27, %24, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$8filename17h3352c51d67318067E.exit"
   ret void
 }
 
@@ -12429,8 +12448,8 @@ define { i64, i64 } @"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_d
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
   switch i64 %4, label %default.unreachable [
     i64 0, label %5
-    i64 1, label %21
-    i64 2, label %24
+    i64 1, label %22
+    i64 2, label %25
   ]
 
 default.unreachable:                              ; preds = %1
@@ -12453,27 +12472,28 @@ default.unreachable:                              ; preds = %1
 "_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit": ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8, !alias.scope !2263, !nonnull !11, !noundef !11
+  %14 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %13, i64 %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2264)
-  %14 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %13, i64 %7, i32 2
-  %15 = load ptr, ptr %14, align 8, !alias.scope !2264, !noalias !2257, !nonnull !11, !align !59, !noundef !11
-  %16 = load i64, ptr %15, align 8, !range !343, !alias.scope !2267, !noalias !2270, !noundef !11
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load i64, ptr %17, align 8, !alias.scope !2267, !noalias !2270
-  %19 = insertvalue { i64, i64 } poison, i64 %16, 0
-  %20 = insertvalue { i64, i64 } %19, i64 %18, 1
-  br label %26
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %16 = load ptr, ptr %15, align 8, !alias.scope !2264, !noalias !2257, !nonnull !11, !align !59, !noundef !11
+  %17 = load i64, ptr %16, align 8, !range !343, !alias.scope !2267, !noalias !2270, !noundef !11
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = load i64, ptr %18, align 8, !alias.scope !2267, !noalias !2270
+  %20 = insertvalue { i64, i64 } poison, i64 %17, 0
+  %21 = insertvalue { i64, i64 } %20, i64 %19, 1
+  br label %27
 
-21:                                               ; preds = %1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %22)
-  br label %26
+22:                                               ; preds = %1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %23)
+  br label %27
 
-24:                                               ; preds = %1
-  %25 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %0)
-  br label %26
+25:                                               ; preds = %1
+  %26 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %0)
+  br label %27
 
-26:                                               ; preds = %24, %21, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit"
-  %.pn = phi { i64, i64 } [ %20, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit" ], [ { i64 0, i64 undef }, %21 ], [ { i64 0, i64 undef }, %24 ]
+27:                                               ; preds = %25, %22, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit"
+  %.pn = phi { i64, i64 } [ %21, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit" ], [ { i64 0, i64 undef }, %22 ], [ { i64 0, i64 undef }, %25 ]
   ret { i64, i64 } %.pn
 }
 
@@ -12500,7 +12520,7 @@ define void @"_ZN91_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_t
 define { i64, i64 } @"_ZN91_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h8efcde8597c0025fE"(ptr noalias noundef readonly align 8 dereferenceable(160) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !959, !noundef !11
   %3 = icmp eq i64 %2, -9223372036854775806
-  br i1 %3, label %28, label %4
+  br i1 %3, label %29, label %4
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2271)
@@ -12508,8 +12528,8 @@ define { i64, i64 } @"_ZN91_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distri
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 2)
   switch i64 %6, label %default.unreachable [
     i64 0, label %7
-    i64 1, label %23
-    i64 2, label %26
+    i64 1, label %24
+    i64 2, label %27
   ]
 
 default.unreachable:                              ; preds = %4
@@ -12532,76 +12552,77 @@ default.unreachable:                              ; preds = %4
 "_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit.i": ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8, !alias.scope !2280, !nonnull !11, !noundef !11
+  %16 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %15, i64 %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2281)
-  %16 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %15, i64 %9, i32 2
-  %17 = load ptr, ptr %16, align 8, !alias.scope !2281, !noalias !2284, !nonnull !11, !align !59, !noundef !11
-  %18 = load i64, ptr %17, align 8, !range !343, !alias.scope !2285, !noalias !2288, !noundef !11
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %20 = load i64, ptr %19, align 8, !alias.scope !2285, !noalias !2288
-  %21 = insertvalue { i64, i64 } poison, i64 %18, 0
-  %22 = insertvalue { i64, i64 } %21, i64 %20, 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %18 = load ptr, ptr %17, align 8, !alias.scope !2281, !noalias !2284, !nonnull !11, !align !59, !noundef !11
+  %19 = load i64, ptr %18, align 8, !range !343, !alias.scope !2285, !noalias !2288, !noundef !11
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %21 = load i64, ptr %20, align 8, !alias.scope !2285, !noalias !2288
+  %22 = insertvalue { i64, i64 } poison, i64 %19, 0
+  %23 = insertvalue { i64, i64 } %22, i64 %21, 1
   br label %"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit"
 
-23:                                               ; preds = %4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %24)
+24:                                               ; preds = %4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %25)
   br label %"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit"
 
-26:                                               ; preds = %4
-  %27 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %0)
+27:                                               ; preds = %4
+  %28 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %0)
   br label %"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit"
 
-28:                                               ; preds = %1
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+29:                                               ; preds = %1
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2289)
-  %30 = load i64, ptr %29, align 8, !range !1087, !alias.scope !2289, !noundef !11
-  %31 = add nsw i64 %30, -2
-  %32 = icmp ult i64 %31, 5
-  %33 = select i1 %32, i64 %31, i64 3
-  switch i64 %33, label %34 [
-    i64 0, label %35
-    i64 1, label %43
-    i64 2, label %46
-    i64 3, label %49
-    i64 4, label %52
+  %31 = load i64, ptr %30, align 8, !range !1087, !alias.scope !2289, !noundef !11
+  %32 = add nsw i64 %31, -2
+  %33 = icmp ult i64 %32, 5
+  %34 = select i1 %33, i64 %32, i64 3
+  switch i64 %34, label %35 [
+    i64 0, label %36
+    i64 1, label %44
+    i64 2, label %47
+    i64 3, label %50
+    i64 4, label %53
   ]
 
-34:                                               ; preds = %28
+35:                                               ; preds = %29
   unreachable
 
-35:                                               ; preds = %28
+36:                                               ; preds = %29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2292)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %37 = load ptr, ptr %36, align 8, !alias.scope !2295, !nonnull !11, !align !59, !noundef !11
-  %38 = load i64, ptr %37, align 8, !range !343, !alias.scope !2296, !noalias !2295, !noundef !11
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %40 = load i64, ptr %39, align 8, !alias.scope !2296, !noalias !2295
-  %41 = insertvalue { i64, i64 } poison, i64 %38, 0
-  %42 = insertvalue { i64, i64 } %41, i64 %40, 1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %38 = load ptr, ptr %37, align 8, !alias.scope !2295, !nonnull !11, !align !59, !noundef !11
+  %39 = load i64, ptr %38, align 8, !range !343, !alias.scope !2296, !noalias !2295, !noundef !11
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %41 = load i64, ptr %40, align 8, !alias.scope !2296, !noalias !2295
+  %42 = insertvalue { i64, i64 } poison, i64 %39, 0
+  %43 = insertvalue { i64, i64 } %42, i64 %41, 1
   br label %"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit"
 
-43:                                               ; preds = %28
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %44)
+44:                                               ; preds = %29
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %45)
   br label %"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit"
 
-46:                                               ; preds = %28
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %47)
+47:                                               ; preds = %29
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %48)
   br label %"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit"
 
-49:                                               ; preds = %28
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %51 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %50)
+50:                                               ; preds = %29
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %52 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %51)
   br label %"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit"
 
-52:                                               ; preds = %28
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %53)
+53:                                               ; preds = %29
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %55 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %54)
   br label %"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit"
 
-"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit": ; preds = %52, %49, %46, %43, %35, %26, %23, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit.i"
-  %.pn = phi { i64, i64 } [ %22, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit.i" ], [ { i64 0, i64 undef }, %23 ], [ { i64 0, i64 undef }, %26 ], [ %42, %35 ], [ { i64 0, i64 undef }, %43 ], [ { i64 0, i64 undef }, %46 ], [ { i64 0, i64 undef }, %49 ], [ { i64 0, i64 undef }, %52 ]
+"_ZN96_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17h1492c9efa35573c9E.exit": ; preds = %53, %50, %47, %44, %36, %27, %24, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit.i"
+  %.pn = phi { i64, i64 } [ %23, %"_ZN104_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..RemoteSource$GT$4size17hc4c4503c1de17c8eE.exit.i" ], [ { i64 0, i64 undef }, %24 ], [ { i64 0, i64 undef }, %27 ], [ %43, %36 ], [ { i64 0, i64 undef }, %44 ], [ { i64 0, i64 undef }, %47 ], [ { i64 0, i64 undef }, %50 ], [ { i64 0, i64 undef }, %53 ]
   ret { i64, i64 } %.pn
 }
 
@@ -12638,10 +12659,11 @@ define void @"_ZN102_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit: ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !alias.scope !2299, !nonnull !11, !noundef !11
+  %11 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %10, i64 %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2302)
-  %11 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %10, i64 %4, i32 2
-  %12 = load ptr, ptr %11, align 8, !alias.scope !2302, !noalias !2305, !nonnull !11, !align !59, !noundef !11
-  tail call void @"_ZN21uv_distribution_types105_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..file..File$GT$15distribution_id17hdda4325d3003940bE"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %12), !noalias !2302
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %13 = load ptr, ptr %12, align 8, !alias.scope !2302, !noalias !2305, !nonnull !11, !align !59, !noundef !11
+  tail call void @"_ZN21uv_distribution_types105_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..file..File$GT$15distribution_id17hdda4325d3003940bE"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %13), !noalias !2302
   ret void
 }
 
@@ -12662,10 +12684,11 @@ define void @"_ZN102_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit: ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8, !alias.scope !2307, !nonnull !11, !noundef !11
+  %11 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %10, i64 %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2310)
-  %11 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %10, i64 %4, i32 2
-  %12 = load ptr, ptr %11, align 8, !alias.scope !2310, !noalias !2313, !nonnull !11, !align !59, !noundef !11
-  tail call void @"_ZN21uv_distribution_types105_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..file..File$GT$11resource_id17h3ff18b72b5519830E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %12), !noalias !2310
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %13 = load ptr, ptr %12, align 8, !alias.scope !2310, !noalias !2313, !nonnull !11, !align !59, !noundef !11
+  tail call void @"_ZN21uv_distribution_types105_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..file..File$GT$11resource_id17h3ff18b72b5519830E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %13), !noalias !2310
   ret void
 }
 
@@ -12882,8 +12905,8 @@ define void @"_ZN94_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribut
   %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 2)
   switch i64 %5, label %default.unreachable [
     i64 0, label %6
-    i64 1, label %17
-    i64 2, label %20
+    i64 1, label %18
+    i64 2, label %21
   ]
 
 default.unreachable:                              ; preds = %2
@@ -12906,24 +12929,25 @@ default.unreachable:                              ; preds = %2
 "_ZN102_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Identifier$GT$15distribution_id17hce5e982d438a3cafE.exit": ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %14 = load ptr, ptr %13, align 8, !alias.scope !2355, !noalias !2356, !nonnull !11, !noundef !11
+  %15 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %14, i64 %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2359)
-  %15 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %14, i64 %8, i32 2
-  %16 = load ptr, ptr %15, align 8, !alias.scope !2359, !noalias !2362, !nonnull !11, !align !59, !noundef !11
-  tail call void @"_ZN21uv_distribution_types105_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..file..File$GT$15distribution_id17hdda4325d3003940bE"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %16), !noalias !2364
-  br label %22
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %17 = load ptr, ptr %16, align 8, !alias.scope !2359, !noalias !2362, !nonnull !11, !align !59, !noundef !11
+  tail call void @"_ZN21uv_distribution_types105_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..file..File$GT$15distribution_id17hdda4325d3003940bE"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %17), !noalias !2364
+  br label %23
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %18), !noalias !2365
-  tail call void @_ZN12uv_cache_key13canonical_url12CanonicalUrl3new17h3faf1e7fb423fc59E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %19)
-  br label %22
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %19), !noalias !2365
+  tail call void @_ZN12uv_cache_key13canonical_url12CanonicalUrl3new17h3faf1e7fb423fc59E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %20)
+  br label %23
 
-20:                                               ; preds = %2
-  %21 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1), !noalias !2368
-  tail call void @_ZN12uv_cache_key13canonical_url12CanonicalUrl3new17h3faf1e7fb423fc59E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %21)
-  br label %22
+21:                                               ; preds = %2
+  %22 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1), !noalias !2368
+  tail call void @_ZN12uv_cache_key13canonical_url12CanonicalUrl3new17h3faf1e7fb423fc59E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %22)
+  br label %23
 
-22:                                               ; preds = %20, %17, %"_ZN102_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Identifier$GT$15distribution_id17hce5e982d438a3cafE.exit"
+23:                                               ; preds = %21, %18, %"_ZN102_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Identifier$GT$15distribution_id17hce5e982d438a3cafE.exit"
   ret void
 }
 
@@ -12934,8 +12958,8 @@ define void @"_ZN94_$LT$uv_distribution_types..BuiltDist$u20$as$u20$uv_distribut
   %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 2)
   switch i64 %5, label %default.unreachable [
     i64 0, label %6
-    i64 1, label %17
-    i64 2, label %20
+    i64 1, label %18
+    i64 2, label %21
   ]
 
 default.unreachable:                              ; preds = %2
@@ -12958,24 +12982,25 @@ default.unreachable:                              ; preds = %2
 "_ZN102_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Identifier$GT$11resource_id17h58ddf051ae1d9184E.exit": ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %14 = load ptr, ptr %13, align 8, !alias.scope !2377, !noalias !2378, !nonnull !11, !noundef !11
+  %15 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %14, i64 %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2381)
-  %15 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %14, i64 %8, i32 2
-  %16 = load ptr, ptr %15, align 8, !alias.scope !2381, !noalias !2384, !nonnull !11, !align !59, !noundef !11
-  tail call void @"_ZN21uv_distribution_types105_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..file..File$GT$11resource_id17h3ff18b72b5519830E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %16), !noalias !2386
-  br label %22
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %17 = load ptr, ptr %16, align 8, !alias.scope !2381, !noalias !2384, !nonnull !11, !align !59, !noundef !11
+  tail call void @"_ZN21uv_distribution_types105_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..file..File$GT$11resource_id17h3ff18b72b5519830E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %17), !noalias !2386
+  br label %23
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %18), !noalias !2387
-  tail call void @_ZN12uv_cache_key13canonical_url13RepositoryUrl3new17hea157bdeec4ddd37E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %19)
-  br label %22
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %19), !noalias !2387
+  tail call void @_ZN12uv_cache_key13canonical_url13RepositoryUrl3new17hea157bdeec4ddd37E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %20)
+  br label %23
 
-20:                                               ; preds = %2
-  %21 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1), !noalias !2390
-  tail call void @_ZN12uv_cache_key13canonical_url13RepositoryUrl3new17hea157bdeec4ddd37E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %21)
-  br label %22
+21:                                               ; preds = %2
+  %22 = tail call noundef align 8 dereferenceable(88) ptr @"_ZN80_$LT$uv_pep508..verbatim_url..VerbatimUrl$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bf9bd74247a5004E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1), !noalias !2390
+  tail call void @_ZN12uv_cache_key13canonical_url13RepositoryUrl3new17hea157bdeec4ddd37E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %22)
+  br label %23
 
-22:                                               ; preds = %20, %17, %"_ZN102_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Identifier$GT$11resource_id17h58ddf051ae1d9184E.exit"
+23:                                               ; preds = %21, %18, %"_ZN102_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Identifier$GT$11resource_id17h58ddf051ae1d9184E.exit"
   ret void
 }
 

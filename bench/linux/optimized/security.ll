@@ -2023,9 +2023,9 @@ define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr n
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
   %40 = phi i32 [ %46, %.preheader ], [ %.pr, %.loopexit ]
-  %41 = add nsw i32 %40, -1
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr %struct.xattr, ptr %26, i64 %42, i32 1
+  %41 = zext nneg i32 %40 to i64
+  %42 = getelementptr %struct.xattr, ptr %26, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 -16
   %44 = load ptr, ptr %43, align 8
   call void @kfree(ptr noundef %44) #17
   %45 = load i32, ptr %6, align 4

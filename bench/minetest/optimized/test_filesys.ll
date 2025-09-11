@@ -1951,7 +1951,7 @@ for.cond112.preheader:                            ; preds = %for.cond112.prehead
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end236.11 ], [ 0, %for.cond112.preheader.preheader ]
   %arrayidx = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %paths, i64 %indvars.iv
   %call = invoke noundef zeroext i1 @_ZN2fs14PathStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) %paths)
-          to label %if.then142 unwind label %lpad118
+          to label %invoke.cont119 unwind label %lpad118
 
 for.cond.cleanup:                                 ; preds = %if.end236.11
   %118 = load ptr, ptr %arrayinit.element70, align 16, !tbaa !7
@@ -2247,6 +2247,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit798: ; preds = %if
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %paths
   br i1 %arraydestroy.done, label %ehcleanup257, label %arraydestroy.body
 
+invoke.cont119:                                   ; preds = %for.cond112.preheader
+  %arrayidx123 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv
+  br i1 %call, label %if.end236, label %if.then146
+
 if.then126:                                       ; preds = %if.then.11, %if.then.10, %if.then.9, %if.then.8, %if.then.7, %if.then.6, %if.then.5, %if.then.4, %if.then.3, %if.then.2, %if.then.1
   %exception = call ptr @__cxa_allocate_exception(i64 72) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp128)
@@ -2299,10 +2303,7 @@ cleanup.action139:                                ; preds = %ehcleanup135, %_ZNK
   call void @__cxa_free_exception(ptr %exception) #25
   br label %ehcleanup238
 
-if.then142:                                       ; preds = %for.cond112.preheader
-  br i1 %call, label %if.end236, label %if.then146
-
-if.then146:                                       ; preds = %if.then142.11, %if.then142.10, %if.then142.9, %if.then142.8, %if.then142.7, %if.then142.6, %if.then142.5, %if.then142.4, %if.then142.3, %if.then142.2, %if.then142.1, %if.then142
+if.then146:                                       ; preds = %if.then142.11, %if.then142.10, %if.then142.9, %if.then142.8, %if.then142.7, %if.then142.6, %if.then142.5, %if.then142.4, %if.then142.3, %if.then142.2, %if.then142.1, %invoke.cont119
   %exception147 = call ptr @__cxa_allocate_exception(i64 72) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp149)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp148, ptr noundef nonnull @.str.26, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp149)
@@ -2490,12 +2491,12 @@ cleanup.action229:                                ; preds = %ehcleanup225, %_ZNK
   call void @__cxa_free_exception(ptr %exception216) #25
   br label %ehcleanup238
 
-if.end236:                                        ; preds = %if.then142
+if.end236:                                        ; preds = %invoke.cont119
   %call.1 = invoke noundef zeroext i1 @_ZN2fs14PathStartsWithERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) %arrayinit.element)
           to label %invoke.cont119.1 unwind label %lpad118
 
 invoke.cont119.1:                                 ; preds = %if.end236
-  %arrayidx123.1 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 1
+  %arrayidx123.1 = getelementptr inbounds nuw i8, ptr %arrayidx123, i64 4
   %186 = load i32, ptr %arrayidx123.1, align 4, !tbaa !60
   switch i32 %186, label %if.end236.1 [
     i32 0, label %if.then.1
@@ -2525,7 +2526,7 @@ if.end236.1:                                      ; preds = %if.then.1, %if.then
           to label %invoke.cont119.2 unwind label %lpad118
 
 invoke.cont119.2:                                 ; preds = %if.end236.1
-  %arrayidx123.2 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 2
+  %arrayidx123.2 = getelementptr inbounds nuw i8, ptr %arrayidx123, i64 8
   %187 = load i32, ptr %arrayidx123.2, align 8, !tbaa !60
   switch i32 %187, label %if.end236.2 [
     i32 0, label %if.then.2
@@ -2555,7 +2556,7 @@ if.end236.2:                                      ; preds = %if.then.2, %if.then
           to label %invoke.cont119.3 unwind label %lpad118
 
 invoke.cont119.3:                                 ; preds = %if.end236.2
-  %arrayidx123.3 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 3
+  %arrayidx123.3 = getelementptr inbounds nuw i8, ptr %arrayidx123, i64 12
   %188 = load i32, ptr %arrayidx123.3, align 4, !tbaa !60
   switch i32 %188, label %if.end236.3 [
     i32 0, label %if.then.3
@@ -2585,7 +2586,7 @@ if.end236.3:                                      ; preds = %if.then.3, %if.then
           to label %invoke.cont119.4 unwind label %lpad118
 
 invoke.cont119.4:                                 ; preds = %if.end236.3
-  %arrayidx123.4 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 4
+  %arrayidx123.4 = getelementptr inbounds nuw i8, ptr %arrayidx123, i64 16
   %189 = load i32, ptr %arrayidx123.4, align 16, !tbaa !60
   switch i32 %189, label %if.end236.4 [
     i32 0, label %if.then.4
@@ -2615,7 +2616,7 @@ if.end236.4:                                      ; preds = %if.then.4, %if.then
           to label %invoke.cont119.5 unwind label %lpad118
 
 invoke.cont119.5:                                 ; preds = %if.end236.4
-  %arrayidx123.5 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 5
+  %arrayidx123.5 = getelementptr inbounds nuw i8, ptr %arrayidx123, i64 20
   %190 = load i32, ptr %arrayidx123.5, align 4, !tbaa !60
   switch i32 %190, label %if.end236.5 [
     i32 0, label %if.then.5
@@ -2645,7 +2646,7 @@ if.end236.5:                                      ; preds = %if.then.5, %if.then
           to label %invoke.cont119.6 unwind label %lpad118
 
 invoke.cont119.6:                                 ; preds = %if.end236.5
-  %arrayidx123.6 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 6
+  %arrayidx123.6 = getelementptr inbounds nuw i8, ptr %arrayidx123, i64 24
   %191 = load i32, ptr %arrayidx123.6, align 8, !tbaa !60
   switch i32 %191, label %if.end236.6 [
     i32 0, label %if.then.6
@@ -2675,7 +2676,7 @@ if.end236.6:                                      ; preds = %if.then.6, %if.then
           to label %invoke.cont119.7 unwind label %lpad118
 
 invoke.cont119.7:                                 ; preds = %if.end236.6
-  %arrayidx123.7 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 7
+  %arrayidx123.7 = getelementptr inbounds nuw i8, ptr %arrayidx123, i64 28
   %192 = load i32, ptr %arrayidx123.7, align 4, !tbaa !60
   switch i32 %192, label %if.end236.7 [
     i32 0, label %if.then.7
@@ -2705,7 +2706,7 @@ if.end236.7:                                      ; preds = %if.then.7, %if.then
           to label %invoke.cont119.8 unwind label %lpad118
 
 invoke.cont119.8:                                 ; preds = %if.end236.7
-  %arrayidx123.8 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 8
+  %arrayidx123.8 = getelementptr inbounds nuw i8, ptr %arrayidx123, i64 32
   %193 = load i32, ptr %arrayidx123.8, align 16, !tbaa !60
   switch i32 %193, label %if.end236.8 [
     i32 0, label %if.then.8
@@ -2735,7 +2736,7 @@ if.end236.8:                                      ; preds = %if.then.8, %if.then
           to label %invoke.cont119.9 unwind label %lpad118
 
 invoke.cont119.9:                                 ; preds = %if.end236.8
-  %arrayidx123.9 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 9
+  %arrayidx123.9 = getelementptr inbounds nuw i8, ptr %arrayidx123, i64 36
   %194 = load i32, ptr %arrayidx123.9, align 4, !tbaa !60
   switch i32 %194, label %if.end236.9 [
     i32 0, label %if.then.9
@@ -2765,7 +2766,7 @@ if.end236.9:                                      ; preds = %if.then.9, %if.then
           to label %invoke.cont119.10 unwind label %lpad118
 
 invoke.cont119.10:                                ; preds = %if.end236.9
-  %arrayidx123.10 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 10
+  %arrayidx123.10 = getelementptr inbounds nuw i8, ptr %arrayidx123, i64 40
   %195 = load i32, ptr %arrayidx123.10, align 8, !tbaa !60
   switch i32 %195, label %if.end236.10 [
     i32 0, label %if.then.10
@@ -2795,7 +2796,7 @@ if.end236.10:                                     ; preds = %if.then.10, %if.the
           to label %invoke.cont119.11 unwind label %lpad118
 
 invoke.cont119.11:                                ; preds = %if.end236.10
-  %arrayidx123.11 = getelementptr inbounds nuw [12 x i32], ptr @__const._ZN11TestFileSys18testPathStartsWithEv.expected_results, i64 %indvars.iv, i64 11
+  %arrayidx123.11 = getelementptr inbounds nuw i8, ptr %arrayidx123, i64 44
   %196 = load i32, ptr %arrayidx123.11, align 4, !tbaa !60
   switch i32 %196, label %if.end236.11 [
     i32 0, label %if.then.11

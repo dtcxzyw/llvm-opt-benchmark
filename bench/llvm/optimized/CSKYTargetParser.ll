@@ -2012,16 +2012,17 @@ define dso_local { ptr, i64 } @_ZN4llvm4CSKY10getFPUNameEj(i32 noundef %0) local
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_ZN4llvm4CSKY13getFPUVersionEj(i32 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ugt i32 %0, 8
-  br i1 %2, label %7, label %3
+  br i1 %2, label %8, label %3
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %"struct.llvm::CSKY::FPUName", ptr @_ZN4llvm4CSKYL8FPUNamesE, i64 %4, i32 3
-  %6 = load i32, ptr %5, align 4, !tbaa !122
-  br label %7
+  %5 = getelementptr inbounds nuw %"struct.llvm::CSKY::FPUName", ptr @_ZN4llvm4CSKYL8FPUNamesE, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %7 = load i32, ptr %6, align 4, !tbaa !122
+  br label %8
 
-7:                                                ; preds = %1, %3
-  %.0 = phi i32 [ %6, %3 ], [ 0, %1 ]
+8:                                                ; preds = %1, %3
+  %.0 = phi i32 [ %7, %3 ], [ 0, %1 ]
   ret i32 %.0
 }
 

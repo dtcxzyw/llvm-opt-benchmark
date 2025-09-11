@@ -72,44 +72,46 @@ define i32 @av_get_alt_sample_fmt(i32 noundef %0, i32 noundef %1) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @av_get_packed_sample_fmt(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 11
-  br i1 %or.cond, label %9, label %2
+  br i1 %or.cond, label %10, label %2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
   %4 = shl nuw nsw i64 1, %3
   %5 = and i64 %4, 1055
   %.not.not = icmp eq i64 %5, 0
-  br i1 %.not.not, label %6, label %9
+  br i1 %.not.not, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3, i32 3
-  %8 = load i32, ptr %7, align 4, !tbaa !11
-  br label %9
+  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load i32, ptr %8, align 4, !tbaa !11
+  br label %10
 
-9:                                                ; preds = %2, %1, %6
-  %.0 = phi i32 [ %8, %6 ], [ -1, %1 ], [ %0, %2 ]
+10:                                               ; preds = %2, %1, %6
+  %.0 = phi i32 [ %9, %6 ], [ -1, %1 ], [ %0, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @av_get_planar_sample_fmt(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 11
-  br i1 %or.cond, label %9, label %2
+  br i1 %or.cond, label %10, label %2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
   %4 = shl nuw nsw i64 1, %3
   %5 = and i64 %4, 1055
   %.not.not = icmp eq i64 %5, 0
-  br i1 %.not.not, label %9, label %6
+  br i1 %.not.not, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3, i32 3
-  %8 = load i32, ptr %7, align 4, !tbaa !11
-  br label %9
+  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load i32, ptr %8, align 4, !tbaa !11
+  br label %10
 
-9:                                                ; preds = %2, %1, %6
-  %.0 = phi i32 [ %8, %6 ], [ -1, %1 ], [ %0, %2 ]
+10:                                               ; preds = %2, %1, %6
+  %.0 = phi i32 [ %9, %6 ], [ -1, %1 ], [ %0, %2 ]
   ret i32 %.0
 }
 
@@ -153,33 +155,35 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 -268435456, 268435456) i32 @av_get_bytes_per_sample(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 11
-  br i1 %or.cond, label %7, label %2
+  br i1 %or.cond, label %8, label %2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3, i32 1
-  %5 = load i32, ptr %4, align 4, !tbaa !15
-  %6 = ashr i32 %5, 3
-  br label %7
+  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load i32, ptr %5, align 4, !tbaa !15
+  %7 = ashr i32 %6, 3
+  br label %8
 
-7:                                                ; preds = %1, %2
-  %8 = phi i32 [ %6, %2 ], [ 0, %1 ]
-  ret i32 %8
+8:                                                ; preds = %1, %2
+  %9 = phi i32 [ %7, %2 ], [ 0, %1 ]
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @av_sample_fmt_is_planar(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 11
-  br i1 %or.cond, label %6, label %2
+  br i1 %or.cond, label %7, label %2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3, i32 2
-  %5 = load i32, ptr %4, align 4, !tbaa !6
-  br label %6
+  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %6 = load i32, ptr %5, align 4, !tbaa !6
+  br label %7
 
-6:                                                ; preds = %1, %2
-  %.0 = phi i32 [ %5, %2 ], [ 0, %1 ]
+7:                                                ; preds = %1, %2
+  %.0 = phi i32 [ %6, %2 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -190,70 +194,71 @@ define i32 @av_samples_get_buffer_size(ptr noundef writeonly captures(address_is
 
 av_sample_fmt_is_planar.exit:                     ; preds = %5
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %6, i32 1
-  %8 = load i32, ptr %7, align 4, !tbaa !15
-  %9 = ashr i32 %8, 3
-  %10 = icmp slt i32 %2, 1
-  %11 = icmp slt i32 %1, 1
-  %or.cond3 = or i1 %11, %10
-  br i1 %or.cond3, label %av_sample_fmt_is_planar.exit.thread, label %12
+  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load i32, ptr %8, align 4, !tbaa !15
+  %10 = ashr i32 %9, 3
+  %11 = icmp slt i32 %2, 1
+  %12 = icmp slt i32 %1, 1
+  %or.cond3 = or i1 %12, %11
+  br i1 %or.cond3, label %av_sample_fmt_is_planar.exit.thread, label %13
 
-12:                                               ; preds = %av_sample_fmt_is_planar.exit
+13:                                               ; preds = %av_sample_fmt_is_planar.exit
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %13, label %18
+  br i1 %.not, label %14, label %19
 
-13:                                               ; preds = %12
-  %14 = icmp samesign ugt i32 %2, 2147483616
-  br i1 %14, label %av_sample_fmt_is_planar.exit.thread, label %15
+14:                                               ; preds = %13
+  %15 = icmp samesign ugt i32 %2, 2147483616
+  br i1 %15, label %av_sample_fmt_is_planar.exit.thread, label %16
 
-15:                                               ; preds = %13
-  %16 = add nuw nsw i32 %2, 31
-  %17 = and i32 %16, 2147483616
-  br label %18
+16:                                               ; preds = %14
+  %17 = add nuw nsw i32 %2, 31
+  %18 = and i32 %17, 2147483616
+  br label %19
 
-18:                                               ; preds = %15, %12
-  %.036 = phi i32 [ %4, %12 ], [ 1, %15 ]
-  %.035 = phi i32 [ %2, %12 ], [ %17, %15 ]
-  %19 = sdiv i32 2147483647, %.036
-  %20 = icmp sgt i32 %1, %19
-  br i1 %20, label %av_sample_fmt_is_planar.exit.thread, label %21
+19:                                               ; preds = %16, %13
+  %.036 = phi i32 [ %4, %13 ], [ 1, %16 ]
+  %.035 = phi i32 [ %2, %13 ], [ %18, %16 ]
+  %20 = sdiv i32 2147483647, %.036
+  %21 = icmp sgt i32 %1, %20
+  br i1 %21, label %av_sample_fmt_is_planar.exit.thread, label %22
 
-21:                                               ; preds = %18
-  %22 = zext nneg i32 %1 to i64
-  %23 = zext nneg i32 %.035 to i64
-  %24 = mul nuw nsw i64 %23, %22
-  %25 = mul nsw i32 %.036, %1
-  %26 = sub nsw i32 2147483647, %25
-  %27 = sdiv i32 %26, %9
-  %28 = sext i32 %27 to i64
-  %29 = icmp sgt i64 %24, %28
-  br i1 %29, label %av_sample_fmt_is_planar.exit.thread, label %30
+22:                                               ; preds = %19
+  %23 = zext nneg i32 %1 to i64
+  %24 = zext nneg i32 %.035 to i64
+  %25 = mul nuw nsw i64 %24, %23
+  %26 = mul nsw i32 %.036, %1
+  %27 = sub nsw i32 2147483647, %26
+  %28 = sdiv i32 %27, %10
+  %29 = sext i32 %28 to i64
+  %30 = icmp sgt i64 %25, %29
+  br i1 %30, label %av_sample_fmt_is_planar.exit.thread, label %31
 
-30:                                               ; preds = %21
-  %31 = shl nuw nsw i64 1, %6
-  %32 = and i64 %31, 1055
-  %.not42.not = icmp eq i64 %32, 0
-  %33 = select i1 %.not42.not, i32 1, i32 %1
-  %.sink55.v = mul i32 %9, %33
+31:                                               ; preds = %22
+  %32 = shl nuw nsw i64 1, %6
+  %33 = and i64 %32, 1055
+  %.not42.not = icmp eq i64 %33, 0
+  %34 = select i1 %.not42.not, i32 1, i32 %1
+  %.sink55.v = mul i32 %10, %34
   %.sink55 = mul i32 %.035, %.sink55.v
-  %34 = add i32 %.036, -1
-  %35 = add i32 %34, %.sink55
-  %36 = sub i32 0, %.036
-  %37 = and i32 %35, %36
+  %35 = add i32 %.036, -1
+  %36 = add i32 %35, %.sink55
+  %37 = sub i32 0, %.036
+  %38 = and i32 %36, %37
   %.not43 = icmp eq ptr %0, null
-  br i1 %.not43, label %39, label %38
+  br i1 %.not43, label %40, label %39
 
-38:                                               ; preds = %30
-  store i32 %37, ptr %0, align 4, !tbaa !14
-  br label %39
+39:                                               ; preds = %31
+  store i32 %38, ptr %0, align 4, !tbaa !14
+  br label %40
 
-39:                                               ; preds = %38, %30
-  %40 = select i1 %.not42.not, i32 %1, i32 1
-  %41 = mul nsw i32 %37, %40
+40:                                               ; preds = %39, %31
+  %41 = select i1 %.not42.not, i32 %1, i32 1
+  %42 = mul nsw i32 %38, %41
   br label %av_sample_fmt_is_planar.exit.thread
 
-av_sample_fmt_is_planar.exit.thread:              ; preds = %5, %18, %21, %13, %av_sample_fmt_is_planar.exit, %39
-  %.0 = phi i32 [ %41, %39 ], [ -22, %av_sample_fmt_is_planar.exit ], [ -22, %13 ], [ -22, %21 ], [ -22, %18 ], [ -22, %5 ]
+av_sample_fmt_is_planar.exit.thread:              ; preds = %5, %19, %22, %14, %av_sample_fmt_is_planar.exit, %40
+  %.0 = phi i32 [ %42, %40 ], [ -22, %av_sample_fmt_is_planar.exit ], [ -22, %14 ], [ -22, %22 ], [ -22, %19 ], [ -22, %5 ]
   ret i32 %.0
 }
 
@@ -264,102 +269,103 @@ define i32 @av_samples_fill_arrays(ptr noundef captures(none) %0, ptr noundef wr
 
 av_sample_fmt_is_planar.exit.i:                   ; preds = %7
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %8, i32 1
-  %10 = load i32, ptr %9, align 4, !tbaa !15
-  %11 = ashr i32 %10, 3
-  %12 = icmp slt i32 %4, 1
-  %13 = icmp slt i32 %3, 1
-  %or.cond3.i = or i1 %13, %12
-  br i1 %or.cond3.i, label %av_samples_get_buffer_size.exit.thread, label %14
+  %9 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i32, ptr %10, align 4, !tbaa !15
+  %12 = ashr i32 %11, 3
+  %13 = icmp slt i32 %4, 1
+  %14 = icmp slt i32 %3, 1
+  %or.cond3.i = or i1 %14, %13
+  br i1 %or.cond3.i, label %av_samples_get_buffer_size.exit.thread, label %15
 
-14:                                               ; preds = %av_sample_fmt_is_planar.exit.i
+15:                                               ; preds = %av_sample_fmt_is_planar.exit.i
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %15, label %20
+  br i1 %.not.i, label %16, label %21
 
-15:                                               ; preds = %14
-  %16 = icmp samesign ugt i32 %4, 2147483616
-  br i1 %16, label %av_samples_get_buffer_size.exit.thread, label %17
+16:                                               ; preds = %15
+  %17 = icmp samesign ugt i32 %4, 2147483616
+  br i1 %17, label %av_samples_get_buffer_size.exit.thread, label %18
 
-17:                                               ; preds = %15
-  %18 = add nuw nsw i32 %4, 31
-  %19 = and i32 %18, 2147483616
-  br label %20
+18:                                               ; preds = %16
+  %19 = add nuw nsw i32 %4, 31
+  %20 = and i32 %19, 2147483616
+  br label %21
 
-20:                                               ; preds = %17, %14
-  %.036.i = phi i32 [ %6, %14 ], [ 1, %17 ]
-  %.035.i = phi i32 [ %4, %14 ], [ %19, %17 ]
-  %21 = sdiv i32 2147483647, %.036.i
-  %22 = icmp sgt i32 %3, %21
-  br i1 %22, label %av_samples_get_buffer_size.exit.thread, label %23
+21:                                               ; preds = %18, %15
+  %.036.i = phi i32 [ %6, %15 ], [ 1, %18 ]
+  %.035.i = phi i32 [ %4, %15 ], [ %20, %18 ]
+  %22 = sdiv i32 2147483647, %.036.i
+  %23 = icmp sgt i32 %3, %22
+  br i1 %23, label %av_samples_get_buffer_size.exit.thread, label %24
 
-23:                                               ; preds = %20
-  %24 = zext nneg i32 %3 to i64
-  %25 = zext nneg i32 %.035.i to i64
-  %26 = mul nuw nsw i64 %25, %24
-  %27 = mul nsw i32 %.036.i, %3
-  %28 = sub nsw i32 2147483647, %27
-  %29 = sdiv i32 %28, %11
-  %30 = sext i32 %29 to i64
-  %31 = icmp sgt i64 %26, %30
-  br i1 %31, label %av_samples_get_buffer_size.exit.thread, label %av_samples_get_buffer_size.exit
+24:                                               ; preds = %21
+  %25 = zext nneg i32 %3 to i64
+  %26 = zext nneg i32 %.035.i to i64
+  %27 = mul nuw nsw i64 %26, %25
+  %28 = mul nsw i32 %.036.i, %3
+  %29 = sub nsw i32 2147483647, %28
+  %30 = sdiv i32 %29, %12
+  %31 = sext i32 %30 to i64
+  %32 = icmp sgt i64 %27, %31
+  br i1 %32, label %av_samples_get_buffer_size.exit.thread, label %av_samples_get_buffer_size.exit
 
-av_samples_get_buffer_size.exit:                  ; preds = %23
-  %32 = shl nuw nsw i64 1, %8
-  %.fr37 = freeze i64 %32
-  %33 = and i64 %.fr37, 1055
-  %.not42.not.i = icmp eq i64 %33, 0
-  %34 = select i1 %.not42.not.i, i32 1, i32 %3
-  %.sink55.v.i = mul i32 %11, %34
+av_samples_get_buffer_size.exit:                  ; preds = %24
+  %33 = shl nuw nsw i64 1, %8
+  %.fr37 = freeze i64 %33
+  %34 = and i64 %.fr37, 1055
+  %.not42.not.i = icmp eq i64 %34, 0
+  %35 = select i1 %.not42.not.i, i32 1, i32 %3
+  %.sink55.v.i = mul i32 %12, %35
   %.sink55.i = mul i32 %.sink55.v.i, %.035.i
-  %35 = add i32 %.036.i, -1
-  %36 = add i32 %35, %.sink55.i
-  %37 = sub i32 0, %.036.i
-  %38 = and i32 %36, %37
-  %39 = select i1 %.not42.not.i, i32 %3, i32 1
-  %40 = mul nsw i32 %38, %39
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %av_samples_get_buffer_size.exit.thread, label %42
+  %36 = add i32 %.036.i, -1
+  %37 = add i32 %36, %.sink55.i
+  %38 = sub i32 0, %.036.i
+  %39 = and i32 %37, %38
+  %40 = select i1 %.not42.not.i, i32 %3, i32 1
+  %41 = mul nsw i32 %39, %40
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %av_samples_get_buffer_size.exit.thread, label %43
 
-42:                                               ; preds = %av_samples_get_buffer_size.exit
+43:                                               ; preds = %av_samples_get_buffer_size.exit
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %44, label %43
+  br i1 %.not, label %45, label %44
 
-43:                                               ; preds = %42
-  store i32 %38, ptr %1, align 4, !tbaa !14
-  br label %44
+44:                                               ; preds = %43
+  store i32 %39, ptr %1, align 4, !tbaa !14
+  br label %45
 
-44:                                               ; preds = %43, %42
-  %45 = and i64 %.fr37, 3040
-  %46 = icmp ne i64 %45, 0
-  %47 = shl nuw nsw i64 %24, 3
-  %48 = select i1 %46, i64 %47, i64 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %48, i1 false)
+45:                                               ; preds = %44, %43
+  %46 = and i64 %.fr37, 3040
+  %47 = icmp ne i64 %46, 0
+  %48 = shl nuw nsw i64 %25, 3
+  %49 = select i1 %47, i64 %48, i64 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %49, i1 false)
   %.not27 = icmp eq ptr %2, null
-  br i1 %.not27, label %av_samples_get_buffer_size.exit.thread, label %49
+  br i1 %.not27, label %av_samples_get_buffer_size.exit.thread, label %50
 
-49:                                               ; preds = %44
+50:                                               ; preds = %45
   store ptr %2, ptr %0, align 8, !tbaa !16
-  %50 = icmp samesign ugt i32 %3, 1
-  %51 = and i1 %46, %50
-  br i1 %51, label %.lr.ph.split.preheader, label %av_samples_get_buffer_size.exit.thread
+  %51 = icmp samesign ugt i32 %3, 1
+  %52 = and i1 %47, %51
+  br i1 %52, label %.lr.ph.split.preheader, label %av_samples_get_buffer_size.exit.thread
 
-.lr.ph.split.preheader:                           ; preds = %49
-  %52 = sext i32 %38 to i64
+.lr.ph.split.preheader:                           ; preds = %50
+  %53 = sext i32 %39 to i64
   %load_initial = load ptr, ptr %0, align 8
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %store_forwarded = phi ptr [ %load_initial, %.lr.ph.split.preheader ], [ %54, %.lr.ph.split ]
+  %store_forwarded = phi ptr [ %load_initial, %.lr.ph.split.preheader ], [ %55, %.lr.ph.split ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %53 = getelementptr ptr, ptr %0, i64 %indvars.iv
-  %54 = getelementptr inbounds i8, ptr %store_forwarded, i64 %52
-  store ptr %54, ptr %53, align 8, !tbaa !16
+  %54 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %55 = getelementptr inbounds i8, ptr %store_forwarded, i64 %53
+  store ptr %55, ptr %54, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %24
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %25
   br i1 %exitcond.not, label %av_samples_get_buffer_size.exit.thread, label %.lr.ph.split, !llvm.loop !19
 
-av_samples_get_buffer_size.exit.thread:           ; preds = %.lr.ph.split, %49, %7, %20, %23, %15, %av_sample_fmt_is_planar.exit.i, %44, %av_samples_get_buffer_size.exit
-  %.0.i2835 = phi i32 [ %40, %44 ], [ %40, %av_samples_get_buffer_size.exit ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %15 ], [ -22, %23 ], [ -22, %20 ], [ -22, %7 ], [ %40, %49 ], [ %40, %.lr.ph.split ]
+av_samples_get_buffer_size.exit.thread:           ; preds = %.lr.ph.split, %50, %7, %21, %24, %16, %av_sample_fmt_is_planar.exit.i, %45, %av_samples_get_buffer_size.exit
+  %.0.i2835 = phi i32 [ %41, %45 ], [ %41, %av_samples_get_buffer_size.exit ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %16 ], [ -22, %24 ], [ -22, %21 ], [ -22, %7 ], [ %41, %50 ], [ %41, %.lr.ph.split ]
   ret i32 %.0.i2835
 }
 
@@ -373,173 +379,174 @@ define i32 @av_samples_alloc(ptr noundef captures(none) %0, ptr noundef writeonl
 
 av_sample_fmt_is_planar.exit.i:                   ; preds = %6
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %7, i32 1
-  %9 = load i32, ptr %8, align 4, !tbaa !15
-  %10 = ashr i32 %9, 3
-  %11 = icmp slt i32 %3, 1
-  %12 = icmp slt i32 %2, 1
-  %or.cond3.i = or i1 %12, %11
-  br i1 %or.cond3.i, label %av_samples_set_silence.exit, label %13
+  %8 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load i32, ptr %9, align 4, !tbaa !15
+  %11 = ashr i32 %10, 3
+  %12 = icmp slt i32 %3, 1
+  %13 = icmp slt i32 %2, 1
+  %or.cond3.i = or i1 %13, %12
+  br i1 %or.cond3.i, label %av_samples_set_silence.exit, label %14
 
-13:                                               ; preds = %av_sample_fmt_is_planar.exit.i
+14:                                               ; preds = %av_sample_fmt_is_planar.exit.i
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %14, label %19
+  br i1 %.not.i, label %15, label %20
 
-14:                                               ; preds = %13
-  %15 = icmp samesign ugt i32 %3, 2147483616
-  br i1 %15, label %av_samples_set_silence.exit, label %16
+15:                                               ; preds = %14
+  %16 = icmp samesign ugt i32 %3, 2147483616
+  br i1 %16, label %av_samples_set_silence.exit, label %17
 
-16:                                               ; preds = %14
-  %17 = add nuw nsw i32 %3, 31
-  %18 = and i32 %17, 2147483616
-  br label %19
+17:                                               ; preds = %15
+  %18 = add nuw nsw i32 %3, 31
+  %19 = and i32 %18, 2147483616
+  br label %20
 
-19:                                               ; preds = %16, %13
-  %.036.i = phi i32 [ %5, %13 ], [ 1, %16 ]
-  %.035.i = phi i32 [ %3, %13 ], [ %18, %16 ]
-  %20 = sdiv i32 2147483647, %.036.i
-  %21 = icmp sgt i32 %2, %20
-  br i1 %21, label %av_samples_set_silence.exit, label %22
+20:                                               ; preds = %17, %14
+  %.036.i = phi i32 [ %5, %14 ], [ 1, %17 ]
+  %.035.i = phi i32 [ %3, %14 ], [ %19, %17 ]
+  %21 = sdiv i32 2147483647, %.036.i
+  %22 = icmp sgt i32 %2, %21
+  br i1 %22, label %av_samples_set_silence.exit, label %23
 
-22:                                               ; preds = %19
-  %23 = zext nneg i32 %2 to i64
-  %24 = zext nneg i32 %.035.i to i64
-  %25 = mul nuw nsw i64 %24, %23
-  %26 = mul nsw i32 %.036.i, %2
-  %27 = sub nsw i32 2147483647, %26
-  %28 = sdiv i32 %27, %10
-  %29 = sext i32 %28 to i64
-  %30 = icmp sgt i64 %25, %29
-  br i1 %30, label %av_samples_set_silence.exit, label %av_samples_get_buffer_size.exit
+23:                                               ; preds = %20
+  %24 = zext nneg i32 %2 to i64
+  %25 = zext nneg i32 %.035.i to i64
+  %26 = mul nuw nsw i64 %25, %24
+  %27 = mul nsw i32 %.036.i, %2
+  %28 = sub nsw i32 2147483647, %27
+  %29 = sdiv i32 %28, %11
+  %30 = sext i32 %29 to i64
+  %31 = icmp sgt i64 %26, %30
+  br i1 %31, label %av_samples_set_silence.exit, label %av_samples_get_buffer_size.exit
 
-av_samples_get_buffer_size.exit:                  ; preds = %22
-  %31 = shl nuw nsw i64 1, %7
-  %.fr37.i = freeze i64 %31
-  %32 = and i64 %.fr37.i, 1055
-  %.not42.not.i = icmp eq i64 %32, 0
-  %33 = select i1 %.not42.not.i, i32 1, i32 %2
-  %.sink55.v.i = mul i32 %10, %33
+av_samples_get_buffer_size.exit:                  ; preds = %23
+  %32 = shl nuw nsw i64 1, %7
+  %.fr37.i = freeze i64 %32
+  %33 = and i64 %.fr37.i, 1055
+  %.not42.not.i = icmp eq i64 %33, 0
+  %34 = select i1 %.not42.not.i, i32 1, i32 %2
+  %.sink55.v.i = mul i32 %11, %34
   %.sink55.i = mul i32 %.sink55.v.i, %.035.i
-  %34 = add i32 %.036.i, -1
-  %35 = add i32 %34, %.sink55.i
-  %36 = sub i32 0, %.036.i
-  %37 = and i32 %35, %36
-  %38 = select i1 %.not42.not.i, i32 %2, i32 1
-  %39 = mul nsw i32 %37, %38
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %av_samples_set_silence.exit, label %41
+  %35 = add i32 %.036.i, -1
+  %36 = add i32 %35, %.sink55.i
+  %37 = sub i32 0, %.036.i
+  %38 = and i32 %36, %37
+  %39 = select i1 %.not42.not.i, i32 %2, i32 1
+  %40 = mul nsw i32 %38, %39
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %av_samples_set_silence.exit, label %42
 
-41:                                               ; preds = %av_samples_get_buffer_size.exit
-  %42 = zext nneg i32 %39 to i64
-  %43 = tail call noalias ptr @av_malloc(i64 noundef %42) #15
-  %.not = icmp eq ptr %43, null
+42:                                               ; preds = %av_samples_get_buffer_size.exit
+  %43 = zext nneg i32 %40 to i64
+  %44 = tail call noalias ptr @av_malloc(i64 noundef %43) #15
+  %.not = icmp eq ptr %44, null
   br i1 %.not, label %av_samples_set_silence.exit, label %av_sample_fmt_is_planar.exit.i.i
 
-av_sample_fmt_is_planar.exit.i.i:                 ; preds = %41
-  br i1 %.not.i, label %44, label %49
+av_sample_fmt_is_planar.exit.i.i:                 ; preds = %42
+  br i1 %.not.i, label %45, label %50
 
-44:                                               ; preds = %av_sample_fmt_is_planar.exit.i.i
-  %45 = icmp samesign ugt i32 %3, 2147483616
-  br i1 %45, label %81, label %46
+45:                                               ; preds = %av_sample_fmt_is_planar.exit.i.i
+  %46 = icmp samesign ugt i32 %3, 2147483616
+  br i1 %46, label %82, label %47
 
-46:                                               ; preds = %44
-  %47 = add nuw nsw i32 %3, 31
-  %48 = and i32 %47, 2147483616
-  br label %49
+47:                                               ; preds = %45
+  %48 = add nuw nsw i32 %3, 31
+  %49 = and i32 %48, 2147483616
+  br label %50
 
-49:                                               ; preds = %46, %av_sample_fmt_is_planar.exit.i.i
-  %.036.i.i = phi i32 [ %5, %av_sample_fmt_is_planar.exit.i.i ], [ 1, %46 ]
-  %.035.i.i = phi i32 [ %3, %av_sample_fmt_is_planar.exit.i.i ], [ %48, %46 ]
-  %50 = sdiv i32 2147483647, %.036.i.i
-  %51 = icmp sgt i32 %2, %50
-  br i1 %51, label %81, label %52
+50:                                               ; preds = %47, %av_sample_fmt_is_planar.exit.i.i
+  %.036.i.i = phi i32 [ %5, %av_sample_fmt_is_planar.exit.i.i ], [ 1, %47 ]
+  %.035.i.i = phi i32 [ %3, %av_sample_fmt_is_planar.exit.i.i ], [ %49, %47 ]
+  %51 = sdiv i32 2147483647, %.036.i.i
+  %52 = icmp sgt i32 %2, %51
+  br i1 %52, label %82, label %53
 
-52:                                               ; preds = %49
-  %53 = zext nneg i32 %.035.i.i to i64
-  %54 = mul nuw nsw i64 %53, %23
-  %55 = mul nsw i32 %.036.i.i, %2
-  %56 = sub nsw i32 2147483647, %55
-  %57 = sdiv i32 %56, %10
-  %58 = sext i32 %57 to i64
-  %59 = icmp sgt i64 %54, %58
-  br i1 %59, label %81, label %av_samples_get_buffer_size.exit.i
+53:                                               ; preds = %50
+  %54 = zext nneg i32 %.035.i.i to i64
+  %55 = mul nuw nsw i64 %54, %24
+  %56 = mul nsw i32 %.036.i.i, %2
+  %57 = sub nsw i32 2147483647, %56
+  %58 = sdiv i32 %57, %11
+  %59 = sext i32 %58 to i64
+  %60 = icmp sgt i64 %55, %59
+  br i1 %60, label %82, label %av_samples_get_buffer_size.exit.i
 
-av_samples_get_buffer_size.exit.i:                ; preds = %52
-  %60 = and i64 %.fr37.i, 1055
-  %.not42.not.i.i = icmp eq i64 %60, 0
-  %61 = select i1 %.not42.not.i.i, i32 1, i32 %2
-  %.sink55.v.i.i = mul i32 %10, %61
+av_samples_get_buffer_size.exit.i:                ; preds = %53
+  %61 = and i64 %.fr37.i, 1055
+  %.not42.not.i.i = icmp eq i64 %61, 0
+  %62 = select i1 %.not42.not.i.i, i32 1, i32 %2
+  %.sink55.v.i.i = mul i32 %11, %62
   %.sink55.i.i = mul i32 %.sink55.v.i.i, %.035.i.i
-  %62 = add i32 %.036.i.i, -1
-  %63 = add i32 %62, %.sink55.i.i
-  %64 = sub i32 0, %.036.i.i
-  %65 = and i32 %63, %64
-  %66 = select i1 %.not42.not.i.i, i32 %2, i32 1
-  %67 = mul nsw i32 %65, %66
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %81, label %69
+  %63 = add i32 %.036.i.i, -1
+  %64 = add i32 %63, %.sink55.i.i
+  %65 = sub i32 0, %.036.i.i
+  %66 = and i32 %64, %65
+  %67 = select i1 %.not42.not.i.i, i32 %2, i32 1
+  %68 = mul nsw i32 %66, %67
+  %69 = icmp slt i32 %68, 0
+  br i1 %69, label %82, label %70
 
-69:                                               ; preds = %av_samples_get_buffer_size.exit.i
+70:                                               ; preds = %av_samples_get_buffer_size.exit.i
   %.not.i28 = icmp eq ptr %1, null
-  br i1 %.not.i28, label %71, label %70
+  br i1 %.not.i28, label %72, label %71
 
-70:                                               ; preds = %69
-  store i32 %65, ptr %1, align 4, !tbaa !14
-  br label %71
+71:                                               ; preds = %70
+  store i32 %66, ptr %1, align 4, !tbaa !14
+  br label %72
 
-71:                                               ; preds = %69, %70
-  %72 = and i64 %.fr37.i, 3040
-  %73 = icmp ne i64 %72, 0
-  %74 = shl nuw nsw i64 %23, 3
-  %75 = select i1 %73, i64 %74, i64 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %75, i1 false)
-  store ptr %43, ptr %0, align 8, !tbaa !16
-  %76 = icmp samesign ugt i32 %2, 1
-  %77 = and i1 %76, %73
-  br i1 %77, label %.lr.ph.split.preheader.i, label %av_get_bytes_per_sample.exit.i
+72:                                               ; preds = %70, %71
+  %73 = and i64 %.fr37.i, 3040
+  %74 = icmp ne i64 %73, 0
+  %75 = shl nuw nsw i64 %24, 3
+  %76 = select i1 %74, i64 %75, i64 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %76, i1 false)
+  store ptr %44, ptr %0, align 8, !tbaa !16
+  %77 = icmp samesign ugt i32 %2, 1
+  %78 = and i1 %77, %74
+  br i1 %78, label %.lr.ph.split.preheader.i, label %av_get_bytes_per_sample.exit.i
 
-.lr.ph.split.preheader.i:                         ; preds = %71
-  %78 = sext i32 %65 to i64
+.lr.ph.split.preheader.i:                         ; preds = %72
+  %79 = sext i32 %66 to i64
   %load_initial = load ptr, ptr %0, align 8
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.split.preheader.i
-  %store_forwarded = phi ptr [ %load_initial, %.lr.ph.split.preheader.i ], [ %80, %.lr.ph.split.i ]
+  %store_forwarded = phi ptr [ %load_initial, %.lr.ph.split.preheader.i ], [ %81, %.lr.ph.split.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.split.i ]
-  %79 = getelementptr ptr, ptr %0, i64 %indvars.iv.i
-  %80 = getelementptr inbounds i8, ptr %store_forwarded, i64 %78
-  store ptr %80, ptr %79, align 8, !tbaa !16
+  %80 = getelementptr ptr, ptr %0, i64 %indvars.iv.i
+  %81 = getelementptr inbounds i8, ptr %store_forwarded, i64 %79
+  store ptr %81, ptr %80, align 8, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %23
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %24
   br i1 %exitcond.not.i, label %av_get_bytes_per_sample.exit.i, label %.lr.ph.split.i, !llvm.loop !19
 
-81:                                               ; preds = %av_samples_get_buffer_size.exit.i, %44, %52, %49
-  %.0.i2835.i.ph = phi i32 [ -22, %49 ], [ -22, %52 ], [ -22, %44 ], [ %67, %av_samples_get_buffer_size.exit.i ]
-  tail call void @av_free(ptr noundef nonnull %43) #15
+82:                                               ; preds = %av_samples_get_buffer_size.exit.i, %45, %53, %50
+  %.0.i2835.i.ph = phi i32 [ -22, %50 ], [ -22, %53 ], [ -22, %45 ], [ %68, %av_samples_get_buffer_size.exit.i ]
+  tail call void @av_free(ptr noundef nonnull %44) #15
   br label %av_samples_set_silence.exit
 
-av_get_bytes_per_sample.exit.i:                   ; preds = %.lr.ph.split.i, %71
-  %82 = icmp eq i32 %4, 0
-  %83 = icmp eq i32 %4, 5
-  %84 = or i1 %82, %83
-  %85 = mul i32 %61, %3
-  %86 = mul i32 %85, %10
-  %87 = select i1 %84, i8 -128, i8 0
-  %88 = sext i32 %86 to i64
-  %wide.trip.count.i = select i1 %.not42.not.i.i, i64 %23, i64 1
-  br label %89
+av_get_bytes_per_sample.exit.i:                   ; preds = %.lr.ph.split.i, %72
+  %83 = icmp eq i32 %4, 0
+  %84 = icmp eq i32 %4, 5
+  %85 = or i1 %83, %84
+  %86 = mul i32 %62, %3
+  %87 = mul i32 %86, %11
+  %88 = select i1 %85, i8 -128, i8 0
+  %89 = sext i32 %87 to i64
+  %wide.trip.count.i = select i1 %.not42.not.i.i, i64 %24, i64 1
+  br label %90
 
-89:                                               ; preds = %89, %av_get_bytes_per_sample.exit.i
-  %indvars.iv.i30 = phi i64 [ 0, %av_get_bytes_per_sample.exit.i ], [ %indvars.iv.next.i31, %89 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i30
-  %91 = load ptr, ptr %90, align 8, !tbaa !16
-  tail call void @llvm.memset.p0.i64(ptr align 1 %91, i8 %87, i64 %88, i1 false)
+90:                                               ; preds = %90, %av_get_bytes_per_sample.exit.i
+  %indvars.iv.i30 = phi i64 [ 0, %av_get_bytes_per_sample.exit.i ], [ %indvars.iv.next.i31, %90 ]
+  %91 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i30
+  %92 = load ptr, ptr %91, align 8, !tbaa !16
+  tail call void @llvm.memset.p0.i64(ptr align 1 %92, i8 %88, i64 %89, i1 false)
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, %wide.trip.count.i
-  br i1 %exitcond.not.i32, label %av_samples_set_silence.exit, label %89, !llvm.loop !20
+  br i1 %exitcond.not.i32, label %av_samples_set_silence.exit, label %90, !llvm.loop !20
 
-av_samples_set_silence.exit:                      ; preds = %89, %6, %19, %22, %14, %av_sample_fmt_is_planar.exit.i, %41, %av_samples_get_buffer_size.exit, %81
-  %.0 = phi i32 [ %.0.i2835.i.ph, %81 ], [ %39, %av_samples_get_buffer_size.exit ], [ -12, %41 ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %14 ], [ -22, %22 ], [ -22, %19 ], [ -22, %6 ], [ %67, %89 ]
+av_samples_set_silence.exit:                      ; preds = %90, %6, %20, %23, %15, %av_sample_fmt_is_planar.exit.i, %42, %av_samples_get_buffer_size.exit, %82
+  %.0 = phi i32 [ %.0.i2835.i.ph, %82 ], [ %40, %av_samples_get_buffer_size.exit ], [ -12, %42 ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %15 ], [ -22, %23 ], [ -22, %20 ], [ -22, %6 ], [ %68, %90 ]
   ret i32 %.0
 }
 
@@ -558,42 +565,43 @@ av_get_bytes_per_sample.exit:                     ; preds = %5
   %.fr = freeze i64 %7
   %8 = and i64 %.fr, 1055
   %.not.not = icmp eq i64 %8, 0
-  %9 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %6, i32 1
-  %10 = load i32, ptr %9, align 4, !tbaa !15
-  %11 = ashr i32 %10, 3
+  %9 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %6
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i32, ptr %10, align 4, !tbaa !15
+  %12 = ashr i32 %11, 3
   br i1 %.not.not, label %av_get_bytes_per_sample.exit.thread, label %.lr.ph
 
 av_get_bytes_per_sample.exit.thread:              ; preds = %av_get_bytes_per_sample.exit
-  %12 = icmp sgt i32 %3, 0
-  br i1 %12, label %.lr.ph, label %._crit_edge
+  %13 = icmp sgt i32 %3, 0
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %av_get_bytes_per_sample.exit, %5, %av_get_bytes_per_sample.exit.thread
-  %13 = phi i32 [ 1, %av_get_bytes_per_sample.exit.thread ], [ %3, %av_get_bytes_per_sample.exit ], [ %3, %5 ]
-  %14 = phi i32 [ %3, %av_get_bytes_per_sample.exit.thread ], [ 1, %av_get_bytes_per_sample.exit ], [ 1, %5 ]
-  %15 = phi i32 [ %11, %av_get_bytes_per_sample.exit.thread ], [ %11, %av_get_bytes_per_sample.exit ], [ 0, %5 ]
-  %16 = mul nsw i32 %13, %15
-  %17 = mul nsw i32 %16, %1
-  %18 = icmp eq i32 %4, 0
-  %19 = icmp eq i32 %4, 5
-  %20 = or i1 %18, %19
-  %21 = mul nsw i32 %16, %2
-  %22 = sext i32 %17 to i64
-  %23 = select i1 %20, i8 -128, i8 0
-  %24 = sext i32 %21 to i64
-  %wide.trip.count = zext nneg i32 %14 to i64
-  br label %25
+  %14 = phi i32 [ 1, %av_get_bytes_per_sample.exit.thread ], [ %3, %av_get_bytes_per_sample.exit ], [ %3, %5 ]
+  %15 = phi i32 [ %3, %av_get_bytes_per_sample.exit.thread ], [ 1, %av_get_bytes_per_sample.exit ], [ 1, %5 ]
+  %16 = phi i32 [ %12, %av_get_bytes_per_sample.exit.thread ], [ %12, %av_get_bytes_per_sample.exit ], [ 0, %5 ]
+  %17 = mul nsw i32 %14, %16
+  %18 = mul nsw i32 %17, %1
+  %19 = icmp eq i32 %4, 0
+  %20 = icmp eq i32 %4, 5
+  %21 = or i1 %19, %20
+  %22 = mul nsw i32 %17, %2
+  %23 = sext i32 %18 to i64
+  %24 = select i1 %21, i8 -128, i8 0
+  %25 = sext i32 %22 to i64
+  %wide.trip.count = zext nneg i32 %15 to i64
+  br label %26
 
-25:                                               ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8, !tbaa !16
-  %28 = getelementptr inbounds i8, ptr %27, i64 %22
-  tail call void @llvm.memset.p0.i64(ptr align 1 %28, i8 %23, i64 %24, i1 false)
+26:                                               ; preds = %.lr.ph, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %28 = load ptr, ptr %27, align 8, !tbaa !16
+  %29 = getelementptr inbounds i8, ptr %28, i64 %23
+  tail call void @llvm.memset.p0.i64(ptr align 1 %29, i8 %24, i64 %25, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %25, %av_get_bytes_per_sample.exit.thread
+._crit_edge:                                      ; preds = %26, %av_get_bytes_per_sample.exit.thread
   ret i32 0
 }
 
@@ -651,78 +659,79 @@ av_get_bytes_per_sample.exit:                     ; preds = %7
   %10 = and i64 %.fr, 1055
   %.not.not = icmp eq i64 %10, 0
   %11 = select i1 %.not.not, i32 %5, i32 1
-  %12 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %8, i32 1
-  %13 = load i32, ptr %12, align 4, !tbaa !15
-  %14 = ashr i32 %13, 3
+  %12 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load i32, ptr %13, align 4, !tbaa !15
+  %15 = ashr i32 %14, 3
   %spec.select = select i1 %.not.not, i32 1, i32 %5
   br label %av_get_bytes_per_sample.exit.thread
 
 av_get_bytes_per_sample.exit.thread:              ; preds = %av_get_bytes_per_sample.exit, %7
-  %15 = phi i32 [ 0, %7 ], [ %14, %av_get_bytes_per_sample.exit ]
-  %16 = phi i32 [ 1, %7 ], [ %11, %av_get_bytes_per_sample.exit ]
-  %17 = phi i32 [ %5, %7 ], [ %spec.select, %av_get_bytes_per_sample.exit ]
-  %18 = mul nsw i32 %17, %15
-  %19 = mul nsw i32 %18, %4
-  %20 = mul nsw i32 %18, %2
-  %21 = mul nsw i32 %18, %3
-  %22 = load ptr, ptr %0, align 8, !tbaa !16
-  %23 = load ptr, ptr %1, align 8, !tbaa !16
-  %24 = icmp ult ptr %22, %23
-  %25 = ptrtoint ptr %23 to i64
-  %26 = ptrtoint ptr %22 to i64
-  %27 = sub i64 %25, %26
-  %28 = sub i64 %26, %25
-  %29 = select i1 %24, i64 %27, i64 %28
-  %30 = sext i32 %19 to i64
-  %.not44 = icmp slt i64 %29, %30
-  %31 = icmp sgt i32 %16, 0
+  %16 = phi i32 [ 0, %7 ], [ %15, %av_get_bytes_per_sample.exit ]
+  %17 = phi i32 [ 1, %7 ], [ %11, %av_get_bytes_per_sample.exit ]
+  %18 = phi i32 [ %5, %7 ], [ %spec.select, %av_get_bytes_per_sample.exit ]
+  %19 = mul nsw i32 %18, %16
+  %20 = mul nsw i32 %19, %4
+  %21 = mul nsw i32 %19, %2
+  %22 = mul nsw i32 %19, %3
+  %23 = load ptr, ptr %0, align 8, !tbaa !16
+  %24 = load ptr, ptr %1, align 8, !tbaa !16
+  %25 = icmp ult ptr %23, %24
+  %26 = ptrtoint ptr %24 to i64
+  %27 = ptrtoint ptr %23 to i64
+  %28 = sub i64 %26, %27
+  %29 = sub i64 %27, %26
+  %30 = select i1 %25, i64 %28, i64 %29
+  %31 = sext i32 %20 to i64
+  %.not44 = icmp slt i64 %30, %31
+  %32 = icmp sgt i32 %17, 0
   br i1 %.not44, label %.preheader, label %.preheader51
 
 .preheader51:                                     ; preds = %av_get_bytes_per_sample.exit.thread
-  br i1 %31, label %.lr.ph, label %.loopexit
+  br i1 %32, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader51
-  %32 = sext i32 %20 to i64
   %33 = sext i32 %21 to i64
-  %wide.trip.count = zext nneg i32 %16 to i64
-  br label %36
+  %34 = sext i32 %22 to i64
+  %wide.trip.count = zext nneg i32 %17 to i64
+  br label %37
 
 .preheader:                                       ; preds = %av_get_bytes_per_sample.exit.thread
-  br i1 %31, label %.lr.ph55, label %.loopexit
+  br i1 %32, label %.lr.ph55, label %.loopexit
 
 .lr.ph55:                                         ; preds = %.preheader
-  %34 = sext i32 %20 to i64
   %35 = sext i32 %21 to i64
-  %wide.trip.count61 = zext nneg i32 %16 to i64
-  br label %43
+  %36 = sext i32 %22 to i64
+  %wide.trip.count61 = zext nneg i32 %17 to i64
+  br label %44
 
-36:                                               ; preds = %.lr.ph, %36
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %38 = load ptr, ptr %37, align 8, !tbaa !16
-  %39 = getelementptr inbounds i8, ptr %38, i64 %32
-  %40 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %41 = load ptr, ptr %40, align 8, !tbaa !16
-  %42 = getelementptr inbounds i8, ptr %41, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %42, i64 %30, i1 false)
+37:                                               ; preds = %.lr.ph, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+  %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %39 = load ptr, ptr %38, align 8, !tbaa !16
+  %40 = getelementptr inbounds i8, ptr %39, i64 %33
+  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %42 = load ptr, ptr %41, align 8, !tbaa !16
+  %43 = getelementptr inbounds i8, ptr %42, i64 %34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 1 %43, i64 %31, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !24
 
-43:                                               ; preds = %.lr.ph55, %43
-  %indvars.iv58 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next59, %43 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv58
-  %45 = load ptr, ptr %44, align 8, !tbaa !16
-  %46 = getelementptr inbounds i8, ptr %45, i64 %34
-  %47 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv58
-  %48 = load ptr, ptr %47, align 8, !tbaa !16
-  %49 = getelementptr inbounds i8, ptr %48, i64 %35
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %46, ptr align 1 %49, i64 %30, i1 false)
+44:                                               ; preds = %.lr.ph55, %44
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next59, %44 ]
+  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv58
+  %46 = load ptr, ptr %45, align 8, !tbaa !16
+  %47 = getelementptr inbounds i8, ptr %46, i64 %35
+  %48 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv58
+  %49 = load ptr, ptr %48, align 8, !tbaa !16
+  %50 = getelementptr inbounds i8, ptr %49, i64 %36
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %47, ptr align 1 %50, i64 %31, i1 false)
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %.loopexit, label %43, !llvm.loop !25
+  br i1 %exitcond62.not, label %.loopexit, label %44, !llvm.loop !25
 
-.loopexit:                                        ; preds = %36, %43, %.preheader51, %.preheader
+.loopexit:                                        ; preds = %37, %44, %.preheader51, %.preheader
   ret i32 0
 }
 

@@ -208,16 +208,17 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
   br label %.lr.ph68
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
-  %.265 = phi i32 [ %69, %.lr.ph66 ], [ 0, %.lr.ph66.preheader ]
+  %.265 = phi i32 [ %70, %.lr.ph66 ], [ 0, %.lr.ph66.preheader ]
   %63 = sext i32 %.265 to i64
-  %64 = getelementptr inbounds %struct.Util_ThData_t_, ptr %6, i64 %63, i32 4
-  %65 = load atomic i8, ptr %64 acquire, align 8
-  %66 = trunc i8 %65 to i1
-  %67 = call i32 @nanosleep(ptr noundef nonnull %8, ptr noundef null) #11
-  %68 = add nsw i32 %.265, 1
-  %69 = select i1 %66, i32 0, i32 %68
-  %70 = icmp slt i32 %69, %21
-  br i1 %70, label %.lr.ph66, label %.lr.ph68.preheader, !llvm.loop !28
+  %64 = getelementptr inbounds %struct.Util_ThData_t_, ptr %6, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %66 = load atomic i8, ptr %65 acquire, align 8
+  %67 = trunc i8 %66 to i1
+  %68 = call i32 @nanosleep(ptr noundef nonnull %8, ptr noundef null) #11
+  %69 = add nsw i32 %.265, 1
+  %70 = select i1 %67, i32 0, i32 %69
+  %71 = icmp slt i32 %70, %21
+  br i1 %71, label %.lr.ph66, label %.lr.ph68.preheader, !llvm.loop !28
 
 .lr.ph70.preheader:                               ; preds = %.lr.ph68
   %smax91 = call i32 @llvm.smax.i32(i32 %21, i32 1)
@@ -226,19 +227,19 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv82 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next83, %.lr.ph68 ]
-  %71 = getelementptr inbounds nuw %struct.Util_ThData_t_, ptr %6, i64 %indvars.iv82
-  store ptr null, ptr %71, align 16, !tbaa !11
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store atomic i8 1, ptr %72 release, align 8
+  %72 = getelementptr inbounds nuw %struct.Util_ThData_t_, ptr %6, i64 %indvars.iv82
+  store ptr null, ptr %72, align 16, !tbaa !11
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  store atomic i8 1, ptr %73 release, align 8
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count86
   br i1 %exitcond87.not, label %.lr.ph70.preheader, label %.lr.ph68, !llvm.loop !29
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv88 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next89, %.lr.ph70 ]
-  %73 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv88
-  %74 = load i64, ptr %73, align 8, !tbaa !30
-  %75 = call i32 @pthread_join(i64 noundef %74, ptr noundef null) #11
+  %74 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv88
+  %75 = load i64, ptr %74, align 8, !tbaa !30
+  %76 = call i32 @pthread_join(i64 noundef %75, ptr noundef null) #11
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count92
   br i1 %exitcond93.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !31

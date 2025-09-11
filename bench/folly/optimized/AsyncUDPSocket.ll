@@ -3881,7 +3881,7 @@ _ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.ex
 
 .lr.ph:                                           ; preds = %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit, %53
   %22 = phi i64 [ %54, %53 ], [ %.pre44, %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit ]
-  %.037 = phi i64 [ %58, %53 ], [ 0, %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit ]
+  %.037 = phi i64 [ %59, %53 ], [ 0, %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit ]
   %23 = getelementptr inbounds nuw %"class.folly::SocketAddress", ptr %1, i64 %.037
   %24 = load ptr, ptr %17, align 8
   %.not1.i.i.i24 = icmp slt i64 %22, 0
@@ -3901,7 +3901,7 @@ _ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.ex
 
 34:                                               ; preds = %30
   invoke void @_ZN5folly6detail16throw_exception_INS_24IPAddressFormatExceptionEJPKcEEEvDpT0_(ptr noundef nonnull @.str.19) #10
-          to label %.noexc unwind label %59
+          to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %34
   unreachable
@@ -3940,7 +3940,7 @@ _ZNK5folly9IPAddress4asV6Ev.exit.i.i:             ; preds = %35
 
 44:                                               ; preds = %_ZNK5folly9IPAddress4asV6Ev.exit.i.i
   invoke void @_ZNK5folly9IPAddress9asV6ThrowEv(ptr noundef nonnull align 8 dereferenceable(27) %23) #40
-          to label %.noexc25 unwind label %59
+          to label %.noexc25 unwind label %60
 
 .noexc25:                                         ; preds = %44
   unreachable
@@ -3955,7 +3955,7 @@ _ZNK5folly9IPAddress4asV6Ev.exit16.i.i:           ; preds = %_ZNK5folly9IPAddres
 
 49:                                               ; preds = %35
   invoke void @_ZN5folly6detail16throw_exception_INS_29InvalidAddressFamilyExceptionEJtEEEvDpT0_(i16 noundef zeroext %37) #10
-          to label %.noexc26 unwind label %59
+          to label %.noexc26 unwind label %60
 
 .noexc26:                                         ; preds = %49
   unreachable
@@ -3967,101 +3967,102 @@ _ZNK5folly9IPAddress4asV6Ev.exit16.i.i:           ; preds = %_ZNK5folly9IPAddres
 
 _ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit: ; preds = %50, %_ZNK5folly9IPAddress4asV6Ev.exit16.i.i, %_ZNK5folly9IPAddress4asV4Ev.exit.i.i
   %52 = invoke noundef i32 @_ZNK5folly13SocketAddress13getActualSizeEv(ptr noundef nonnull align 8 dereferenceable(27) %23)
-          to label %53 unwind label %61
+          to label %53 unwind label %62
 
 53:                                               ; preds = %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
   %54 = load i64, ptr %12, align 8, !tbaa !185
   %55 = load ptr, ptr %17, align 8
   %.not1.i.i.i27 = icmp slt i64 %54, 0
   %56 = select i1 %.not1.i.i.i27, ptr %55, ptr %17
-  %57 = getelementptr inbounds nuw %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %56, i64 %.037, i32 1
-  store i32 %52, ptr %57, align 8, !tbaa !187
-  %58 = add nuw i64 %.037, 1
-  %exitcond.not = icmp eq i64 %58, %16
+  %57 = getelementptr inbounds nuw %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %56, i64 %.037
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 128
+  store i32 %52, ptr %58, align 8, !tbaa !187
+  %59 = add nuw i64 %.037, 1
+  %exitcond.not = icmp eq i64 %59, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !189
 
-59:                                               ; preds = %49, %44, %34
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %49, %44, %34
+  %61 = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %96
 
-61:                                               ; preds = %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
+  %63 = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %96
 
 ._crit_edge:                                      ; preds = %53, %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit
-  %63 = phi i64 [ %.pre44, %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit ], [ %54, %53 ]
-  %64 = load ptr, ptr %17, align 8
-  %.not1.i.i = icmp slt i64 %63, 0
-  %65 = select i1 %.not1.i.i, ptr %64, ptr %17
-  %66 = and i64 %63, 4611686018427387903
-  %67 = getelementptr inbounds nuw %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %65, i64 %66
-  call void @_ZN5folly14AsyncUDPSocket10fillMsgVecENS_5RangeIPNS0_21full_sockaddr_storageEEEPmmP7mmsghdrP5iovecPKNS0_12WriteOptionsEPc(ptr noundef nonnull align 16 dereferenceable(768) %0, ptr %65, ptr %67, ptr noundef %3, i64 noundef %5, ptr noundef %6, ptr noundef %4, ptr noundef %7, ptr noundef %8)
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %.sroa.0.0.copyload = load i32, ptr %68, align 16, !tbaa !34
-  %69 = trunc i64 %5 to i32
-  %70 = load ptr, ptr %0, align 16, !tbaa !124
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 384
-  %72 = load ptr, ptr %71, align 8
-  %73 = invoke noundef i32 %72(ptr noundef nonnull align 16 dereferenceable(768) %0, i32 %.sroa.0.0.copyload, ptr noundef %6, i32 noundef %69, i32 noundef 0)
-          to label %74 unwind label %93
+  %64 = phi i64 [ %.pre44, %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvEC2Em.exit ], [ %54, %53 ]
+  %65 = load ptr, ptr %17, align 8
+  %.not1.i.i = icmp slt i64 %64, 0
+  %66 = select i1 %.not1.i.i, ptr %65, ptr %17
+  %67 = and i64 %64, 4611686018427387903
+  %68 = getelementptr inbounds nuw %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %66, i64 %67
+  call void @_ZN5folly14AsyncUDPSocket10fillMsgVecENS_5RangeIPNS0_21full_sockaddr_storageEEEPmmP7mmsghdrP5iovecPKNS0_12WriteOptionsEPc(ptr noundef nonnull align 16 dereferenceable(768) %0, ptr %66, ptr %68, ptr noundef %3, i64 noundef %5, ptr noundef %6, ptr noundef %4, ptr noundef %7, ptr noundef %8)
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %.sroa.0.0.copyload = load i32, ptr %69, align 16, !tbaa !34
+  %70 = trunc i64 %5 to i32
+  %71 = load ptr, ptr %0, align 16, !tbaa !124
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 384
+  %73 = load ptr, ptr %72, align 8
+  %74 = invoke noundef i32 %73(ptr noundef nonnull align 16 dereferenceable(768) %0, i32 %.sroa.0.0.copyload, ptr noundef %6, i32 noundef %70, i32 noundef 0)
+          to label %75 unwind label %94
 
-74:                                               ; preds = %._crit_edge
-  %75 = load i64, ptr %12, align 8, !tbaa !185
-  %76 = load ptr, ptr %17, align 8
-  %.not.i.i.i28 = icmp sgt i64 %75, -1
-  %.not6.i.i.i = icmp eq ptr %76, null
+75:                                               ; preds = %._crit_edge
+  %76 = load i64, ptr %12, align 8, !tbaa !185
+  %77 = load ptr, ptr %17, align 8
+  %.not.i.i.i28 = icmp sgt i64 %76, -1
+  %.not6.i.i.i = icmp eq ptr %77, null
   %or.cond.i.i = select i1 %.not.i.i.i28, i1 true, i1 %.not6.i.i.i
-  br i1 %or.cond.i.i, label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvED2Ev.exit, label %77
+  br i1 %or.cond.i.i, label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvED2Ev.exit, label %78
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %79 = load i64, ptr %78, align 8, !tbaa !190
-  %80 = mul i64 %79, 136
-  %81 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %82 = icmp eq i8 %81, 0
-  br i1 %82, label %83, label %_ZN5folly11canSdallocxEv.exit.i.i.i.i, !prof !193
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %80 = load i64, ptr %79, align 8, !tbaa !190
+  %81 = mul i64 %80, 136
+  %82 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %83 = icmp eq i8 %82, 0
+  br i1 %83, label %84, label %_ZN5folly11canSdallocxEv.exit.i.i.i.i, !prof !193
 
-83:                                               ; preds = %77
-  %84 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #36
-  %.not.i.i.i.i.i.i.i = icmp eq i32 %84, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i.i.i, label %85
+84:                                               ; preds = %78
+  %85 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #36
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %85, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i.i.i, label %86
 
-85:                                               ; preds = %83
+86:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %86 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %87 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %87 = zext i1 %86 to i8
-  store i8 %87, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194
-  %88 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %88 = zext i1 %87 to i8
+  store i8 %88, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194
+  %89 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #36
   br label %_ZN5folly11canSdallocxEv.exit.i.i.i.i
 
-_ZN5folly11canSdallocxEv.exit.i.i.i.i:            ; preds = %85, %83, %77
-  %89 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194, !range !21, !noundef !22
-  %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %91, label %92
-
-91:                                               ; preds = %_ZN5folly11canSdallocxEv.exit.i.i.i.i
-  call void @sdallocx(ptr noundef nonnull %76, i64 noundef %80, i32 noundef 0) #36
-  br label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvED2Ev.exit
+_ZN5folly11canSdallocxEv.exit.i.i.i.i:            ; preds = %86, %84, %78
+  %90 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !194, !range !21, !noundef !22
+  %91 = trunc nuw i8 %90 to i1
+  br i1 %91, label %92, label %93
 
 92:                                               ; preds = %_ZN5folly11canSdallocxEv.exit.i.i.i.i
-  call void @free(ptr noundef nonnull %76) #36
+  call void @sdallocx(ptr noundef nonnull %77, i64 noundef %81, i32 noundef 0) #36
   br label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvED2Ev.exit
 
-_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvED2Ev.exit: ; preds = %74, %91, %92
+93:                                               ; preds = %_ZN5folly11canSdallocxEv.exit.i.i.i.i
+  call void @free(ptr noundef nonnull %77) #36
+  br label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvED2Ev.exit
+
+_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvED2Ev.exit: ; preds = %75, %92, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  ret i32 %73
+  ret i32 %74
 
-93:                                               ; preds = %._crit_edge
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %._crit_edge
+  %95 = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %96
 
-95:                                               ; preds = %59, %61, %93
-  %.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %62, %61 ], [ %60, %59 ]
+96:                                               ; preds = %60, %62, %94
+  %.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %63, %62 ], [ %61, %60 ]
   call void @_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %12) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %.pn.pn

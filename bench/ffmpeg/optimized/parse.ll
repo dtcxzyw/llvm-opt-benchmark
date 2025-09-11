@@ -935,13 +935,9 @@ ff_sqrt.exit.thread:                              ; preds = %82
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %110, ptr %111, align 8, !tbaa !63
   %.not159 = icmp eq ptr %110, null
-  br i1 %.not159, label %150, label %.preheader
+  br i1 %.not159, label %150, label %.lr.ph188
 
-.preheader:                                       ; preds = %108
-  %.not189 = icmp eq i32 %40, 0
-  br i1 %.not189, label %._crit_edge, label %.lr.ph188
-
-.lr.ph188:                                        ; preds = %.preheader
+.lr.ph188:                                        ; preds = %108
   %112 = add nuw nsw i32 %.0134, %.0135
   %113 = shl nuw nsw i32 %.0135, 1
   br label %114
@@ -1019,7 +1015,7 @@ ff_sqrt.exit.thread:                              ; preds = %82
   %exitcond195.not = icmp eq i64 %indvars.iv.next, %109
   br i1 %exitcond195.not, label %._crit_edge, label %114, !llvm.loop !70
 
-._crit_edge:                                      ; preds = %144, %.preheader
+._crit_edge:                                      ; preds = %144
   %146 = call i32 @av_channel_layout_copy(ptr noundef nonnull %4, ptr noundef nonnull %3) #6
   %147 = icmp slt i32 %146, 0
   br i1 %147, label %150, label %148

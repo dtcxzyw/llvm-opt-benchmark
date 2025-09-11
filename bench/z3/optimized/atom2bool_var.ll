@@ -482,12 +482,13 @@ _ZNK6vectorIN7obj_mapI4exprjE8key_dataELb0EjE4sizeEv.exit: ; preds = %13
 
 19:                                               ; preds = %_ZNK6vectorIN7obj_mapI4exprjE8key_dataELb0EjE4sizeEv.exit
   %20 = zext i32 %.pr.then.val to i64
-  %21 = getelementptr inbounds nuw %"struct.obj_map<expr, unsigned int>::key_data", ptr %15, i64 %20, i32 1
-  %22 = load i32, ptr %21, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %"struct.obj_map<expr, unsigned int>::key_data", ptr %15, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load i32, ptr %22, align 8, !tbaa !11
   br label %_ZNK6vectorIN7obj_mapI4exprjE8key_dataELb0EjE4sizeEv.exit.thread
 
 _ZNK6vectorIN7obj_mapI4exprjE8key_dataELb0EjE4sizeEv.exit.thread: ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit, %2, %13, %_ZNK6vectorIN7obj_mapI4exprjE8key_dataELb0EjE4sizeEv.exit, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.cont, %19
-  %.0 = phi i32 [ %22, %19 ], [ 2147483647, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.cont ], [ 2147483647, %_ZNK6vectorIN7obj_mapI4exprjE8key_dataELb0EjE4sizeEv.exit ], [ 2147483647, %13 ], [ 2147483647, %2 ], [ 2147483647, %_ZNK6vectorIjLb0EjE3getEjRKj.exit ]
+  %.0 = phi i32 [ %23, %19 ], [ 2147483647, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.cont ], [ 2147483647, %_ZNK6vectorIN7obj_mapI4exprjE8key_dataELb0EjE4sizeEv.exit ], [ 2147483647, %13 ], [ 2147483647, %2 ], [ 2147483647, %_ZNK6vectorIjLb0EjE3getEjRKj.exit ]
   ret i32 %.0
 }
 

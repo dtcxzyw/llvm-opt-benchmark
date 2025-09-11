@@ -191,7 +191,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv1434 = phi i64 [ 0, %for.body.lr.ph ], [ %conv14, %for.inc ]
   %i.033 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %4 = load ptr, ptr %eps, align 8
-  %Length.i = getelementptr inbounds nuw %"class.llvh::ArrayRef.161", ptr %4, i64 %conv1434, i32 1
+  %add.ptr.i = getelementptr inbounds nuw %"class.llvh::ArrayRef.161", ptr %4, i64 %conv1434
+  %Length.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %5 = load i64, ptr %Length.i, align 8
   %cmp19.not = icmp eq i64 %5, 0
   br i1 %cmp19.not, label %for.inc, label %if.then20

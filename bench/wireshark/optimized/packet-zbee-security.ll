@@ -440,7 +440,7 @@ define internal void @uat_key_record_post_update() #0 {
 
 22:                                               ; preds = %13
   store i32 0, ptr %1, align 8
-  %23 = getelementptr %struct._uat_key_record_t, ptr %15, i64 %indvars.iv, i32 2
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = call noalias ptr @g_strdup(ptr noundef %24)
   store ptr %25, ptr %11, align 8

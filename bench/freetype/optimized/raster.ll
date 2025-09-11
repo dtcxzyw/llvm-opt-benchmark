@@ -3037,160 +3037,161 @@ declare hidden i64 @FT_MulDiv_No_Round(i64 noundef, i64 noundef, i64 noundef) lo
 ; Function Attrs: nounwind uwtable
 define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 2, 4) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.TPoint_, ptr %2, i64 %7, i32 1
-  %9 = load i64, ptr %8, align 8, !tbaa !141
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !141
-  %12 = icmp slt i64 %11, %4
-  %13 = icmp sgt i64 %9, %5
-  %or.cond = select i1 %12, i1 true, i1 %13
-  br i1 %or.cond, label %100, label %14
+  %8 = getelementptr inbounds nuw %struct.TPoint_, ptr %2, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load i64, ptr %9, align 8, !tbaa !141
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = load i64, ptr %11, align 8, !tbaa !141
+  %13 = icmp slt i64 %12, %4
+  %14 = icmp sgt i64 %10, %5
+  %or.cond = select i1 %13, i1 true, i1 %14
+  br i1 %or.cond, label %101, label %15
 
-14:                                               ; preds = %6
-  %15 = icmp sgt i64 %11, %5
-  br i1 %15, label %22, label %16
+15:                                               ; preds = %6
+  %16 = icmp sgt i64 %12, %5
+  br i1 %16, label %23, label %17
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !88
-  %19 = sub nsw i32 0, %18
-  %20 = sext i32 %19 to i64
-  %21 = and i64 %11, %20
-  br label %22
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !88
+  %20 = sub nsw i32 0, %19
+  %21 = sext i32 %20 to i64
+  %22 = and i64 %12, %21
+  br label %23
 
-22:                                               ; preds = %14, %16
-  %23 = phi i64 [ %21, %16 ], [ %5, %14 ]
-  %24 = icmp slt i64 %9, %4
-  br i1 %24, label %34, label %25
+23:                                               ; preds = %15, %17
+  %24 = phi i64 [ %22, %17 ], [ %5, %15 ]
+  %25 = icmp slt i64 %10, %4
+  br i1 %25, label %35, label %26
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !88
-  %28 = sext i32 %27 to i64
-  %29 = add i64 %9, -1
-  %30 = add i64 %29, %28
-  %31 = sub nsw i32 0, %27
-  %32 = sext i32 %31 to i64
-  %33 = and i64 %30, %32
-  br label %34
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !88
+  %29 = sext i32 %28 to i64
+  %30 = add i64 %10, -1
+  %31 = add i64 %30, %29
+  %32 = sub nsw i32 0, %28
+  %33 = sext i32 %32 to i64
+  %34 = and i64 %31, %33
+  br label %35
 
-34:                                               ; preds = %22, %25
-  %35 = phi i64 [ %33, %25 ], [ %4, %22 ]
-  %36 = icmp eq i64 %9, %35
-  br i1 %36, label %37, label %42
+35:                                               ; preds = %23, %26
+  %36 = phi i64 [ %34, %26 ], [ %4, %23 ]
+  %37 = icmp eq i64 %10, %36
+  br i1 %37, label %38, label %43
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !88
-  %40 = sext i32 %39 to i64
-  %41 = add nsw i64 %9, %40
-  br label %42
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %40 = load i32, ptr %39, align 4, !tbaa !88
+  %41 = sext i32 %40 to i64
+  %42 = add nsw i64 %10, %41
+  br label %43
 
-42:                                               ; preds = %37, %34
-  %.076 = phi i64 [ %41, %37 ], [ %35, %34 ]
-  %43 = icmp slt i64 %23, %.076
-  br i1 %43, label %100, label %44
+43:                                               ; preds = %38, %35
+  %.076 = phi i64 [ %42, %38 ], [ %36, %35 ]
+  %44 = icmp slt i64 %24, %.076
+  br i1 %44, label %101, label %45
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %46 = load ptr, ptr %45, align 8, !tbaa !100
-  %47 = sub nsw i64 %23, %.076
-  %48 = load i32, ptr %0, align 8, !tbaa !86
-  %49 = zext nneg i32 %48 to i64
-  %50 = lshr i64 %47, %49
-  %51 = getelementptr inbounds nuw i64, ptr %46, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %54 = load ptr, ptr %53, align 8, !tbaa !101
-  %.not = icmp ult ptr %52, %54
-  br i1 %.not, label %.preheader, label %58
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %47 = load ptr, ptr %46, align 8, !tbaa !100
+  %48 = sub nsw i64 %24, %.076
+  %49 = load i32, ptr %0, align 8, !tbaa !86
+  %50 = zext nneg i32 %49 to i64
+  %51 = lshr i64 %48, %50
+  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %55 = load ptr, ptr %54, align 8, !tbaa !101
+  %.not = icmp ult ptr %53, %55
+  br i1 %.not, label %.preheader, label %59
 
-.preheader:                                       ; preds = %44
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %56 = sub nsw i64 0, %7
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %60
+.preheader:                                       ; preds = %45
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %57 = sub nsw i64 0, %7
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %61
 
-58:                                               ; preds = %44
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 98, ptr %59, align 8, !tbaa !99
-  br label %100
+59:                                               ; preds = %45
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 98, ptr %60, align 8, !tbaa !99
+  br label %101
 
-60:                                               ; preds = %.preheader, %98
-  %.177 = phi i64 [ %.3, %98 ], [ %.076, %.preheader ]
-  %.074 = phi ptr [ %.175, %98 ], [ %2, %.preheader ]
-  %.0 = phi ptr [ %.2, %98 ], [ %46, %.preheader ]
-  %61 = getelementptr inbounds nuw i8, ptr %.074, i64 8
-  %62 = load i64, ptr %61, align 8, !tbaa !141
-  %63 = load i64, ptr %.074, align 8, !tbaa !139
-  %64 = icmp sgt i64 %62, %.177
-  br i1 %64, label %65, label %89
+61:                                               ; preds = %.preheader, %99
+  %.177 = phi i64 [ %.3, %99 ], [ %.076, %.preheader ]
+  %.074 = phi ptr [ %.175, %99 ], [ %2, %.preheader ]
+  %.0 = phi ptr [ %.2, %99 ], [ %47, %.preheader ]
+  %62 = getelementptr inbounds nuw i8, ptr %.074, i64 8
+  %63 = load i64, ptr %62, align 8, !tbaa !141
+  %64 = load i64, ptr %.074, align 8, !tbaa !139
+  %65 = icmp sgt i64 %63, %.177
+  br i1 %65, label %66, label %90
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw %struct.TPoint_, ptr %.074, i64 %7
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !141
-  %69 = sub nsw i64 %62, %68
-  %70 = load i64, ptr %66, align 8, !tbaa !139
-  %71 = sub nsw i64 %63, %70
-  %72 = load i32, ptr %57, align 8, !tbaa !87
-  %73 = sext i32 %72 to i64
-  %74 = icmp sgt i64 %69, %73
-  %75 = icmp sgt i64 %71, %73
-  %or.cond92 = select i1 %74, i1 true, i1 %75
-  %76 = sub nsw i64 0, %71
-  %77 = icmp sgt i64 %76, %73
-  %or.cond94 = select i1 %or.cond92, i1 true, i1 %77
-  br i1 %or.cond94, label %78, label %79
+66:                                               ; preds = %61
+  %67 = getelementptr inbounds nuw %struct.TPoint_, ptr %.074, i64 %7
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = load i64, ptr %68, align 8, !tbaa !141
+  %70 = sub nsw i64 %63, %69
+  %71 = load i64, ptr %67, align 8, !tbaa !139
+  %72 = sub nsw i64 %64, %71
+  %73 = load i32, ptr %58, align 8, !tbaa !87
+  %74 = sext i32 %73 to i64
+  %75 = icmp sgt i64 %70, %74
+  %76 = icmp sgt i64 %72, %74
+  %or.cond92 = select i1 %75, i1 true, i1 %76
+  %77 = sub nsw i64 0, %72
+  %78 = icmp sgt i64 %77, %74
+  %or.cond94 = select i1 %or.cond92, i1 true, i1 %78
+  br i1 %or.cond94, label %79, label %80
 
-78:                                               ; preds = %65
+79:                                               ; preds = %66
   tail call void %3(ptr noundef nonnull %.074) #10, !callees !147
-  br label %98
+  br label %99
 
-79:                                               ; preds = %65
-  %80 = sub nsw i64 %62, %.177
-  %81 = mul nsw i64 %71, %80
-  %82 = sdiv i64 %81, %69
-  %83 = sub nsw i64 %63, %82
-  %84 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i64 %83, ptr %.0, align 8, !tbaa !124
-  %85 = load i32, ptr %55, align 4, !tbaa !88
-  %86 = sext i32 %85 to i64
-  %87 = add nsw i64 %.177, %86
-  %88 = getelementptr inbounds %struct.TPoint_, ptr %.074, i64 %56
-  br label %98
+80:                                               ; preds = %66
+  %81 = sub nsw i64 %63, %.177
+  %82 = mul nsw i64 %72, %81
+  %83 = sdiv i64 %82, %70
+  %84 = sub nsw i64 %64, %83
+  %85 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store i64 %84, ptr %.0, align 8, !tbaa !124
+  %86 = load i32, ptr %56, align 4, !tbaa !88
+  %87 = sext i32 %86 to i64
+  %88 = add nsw i64 %.177, %87
+  %89 = getelementptr inbounds %struct.TPoint_, ptr %.074, i64 %57
+  br label %99
 
-89:                                               ; preds = %60
-  %90 = icmp eq i64 %62, %.177
-  br i1 %90, label %91, label %96
+90:                                               ; preds = %61
+  %91 = icmp eq i64 %63, %.177
+  br i1 %91, label %92, label %97
 
-91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i64 %63, ptr %.0, align 8, !tbaa !124
-  %93 = load i32, ptr %55, align 4, !tbaa !88
-  %94 = sext i32 %93 to i64
-  %95 = add nsw i64 %.177, %94
-  br label %96
+92:                                               ; preds = %90
+  %93 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store i64 %64, ptr %.0, align 8, !tbaa !124
+  %94 = load i32, ptr %56, align 4, !tbaa !88
+  %95 = sext i32 %94 to i64
+  %96 = add nsw i64 %.177, %95
+  br label %97
 
-96:                                               ; preds = %91, %89
-  %.278 = phi i64 [ %95, %91 ], [ %.177, %89 ]
-  %.1 = phi ptr [ %92, %91 ], [ %.0, %89 ]
-  %97 = getelementptr inbounds %struct.TPoint_, ptr %.074, i64 %56
-  br label %98
+97:                                               ; preds = %92, %90
+  %.278 = phi i64 [ %96, %92 ], [ %.177, %90 ]
+  %.1 = phi ptr [ %93, %92 ], [ %.0, %90 ]
+  %98 = getelementptr inbounds %struct.TPoint_, ptr %.074, i64 %57
+  br label %99
 
-98:                                               ; preds = %96, %79, %78
-  %.3 = phi i64 [ %.177, %78 ], [ %87, %79 ], [ %.278, %96 ]
-  %.175 = phi ptr [ %66, %78 ], [ %88, %79 ], [ %97, %96 ]
-  %.2 = phi ptr [ %.0, %78 ], [ %84, %79 ], [ %.1, %96 ]
-  %.not91 = icmp sgt i64 %.3, %23
-  br i1 %.not91, label %99, label %60, !llvm.loop !142
+99:                                               ; preds = %97, %80, %79
+  %.3 = phi i64 [ %.177, %79 ], [ %88, %80 ], [ %.278, %97 ]
+  %.175 = phi ptr [ %67, %79 ], [ %89, %80 ], [ %98, %97 ]
+  %.2 = phi ptr [ %.0, %79 ], [ %85, %80 ], [ %.1, %97 ]
+  %.not91 = icmp sgt i64 %.3, %24
+  br i1 %.not91, label %100, label %61, !llvm.loop !142
 
-99:                                               ; preds = %98
-  store ptr %.2, ptr %45, align 8, !tbaa !100
-  br label %100
+100:                                              ; preds = %99
+  store ptr %.2, ptr %46, align 8, !tbaa !100
+  br label %101
 
-100:                                              ; preds = %42, %6, %99, %58
-  %.073 = phi i8 [ 1, %58 ], [ 0, %99 ], [ 0, %6 ], [ 0, %42 ]
+101:                                              ; preds = %43, %6, %100, %59
+  %.073 = phi i8 [ 1, %59 ], [ 0, %100 ], [ 0, %6 ], [ 0, %43 ]
   ret i8 %.073
 }
 

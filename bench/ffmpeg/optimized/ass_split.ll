@@ -1273,8 +1273,8 @@ realloc_section_array.exit:                       ; preds = %111
   %148 = shl nuw nsw i32 %.013.lcssa27.i, 2
   %149 = zext nneg i32 %148 to i64
   %scevgep.i = getelementptr i8, ptr %139, i64 %149
-  %narrow.i = sub nsw i32 96, %148
-  %150 = zext i32 %narrow.i to i64
+  %narrow.i = sub nuw nsw i32 96, %148
+  %150 = zext nneg i32 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, i8 -1, i64 %150, i1 false), !tbaa !21
   br label %151
 

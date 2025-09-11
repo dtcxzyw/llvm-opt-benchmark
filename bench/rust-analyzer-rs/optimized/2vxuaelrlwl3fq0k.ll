@@ -19378,7 +19378,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr107drop_in_place$LT$core..array..iter..IntoIter$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$C$2_usize$GT$$GT$17h5fcaf2ce0b593b72E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) #26
-          to label %common.resume unwind label %31
+          to label %common.resume unwind label %33
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hd987165b8650f315E.llvm.835382560586912698.exit.loopexit: ; preds = %.noexc
   %.pre = load i64, ptr %5, align 8, !alias.scope !7335
@@ -19393,38 +19393,40 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd987165b8650f315E.llvm.8353825
   br label %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit.i.i.i"
 
 "_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit.i.i.i": ; preds = %20, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd987165b8650f315E.llvm.835382560586912698.exit
-  %.0.i.i.i = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd987165b8650f315E.llvm.835382560586912698.exit ], [ %21, %20 ]
+  %.0.i.i.i = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd987165b8650f315E.llvm.835382560586912698.exit ], [ %22, %20 ]
   %19 = icmp eq i64 %.0.i.i.i, %18
   br i1 %19, label %"_ZN4core3ptr107drop_in_place$LT$core..array..iter..IntoIter$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$C$2_usize$GT$$GT$17h5fcaf2ce0b593b72E.exit", label %20
 
 20:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit.i.i.i"
-  %21 = add i64 %.0.i.i.i, 1
-  %22 = getelementptr inbounds { i32, [1 x i32], { { { i64, ptr, {} }, i64 } } }, ptr %17, i64 %.0.i.i.i, i32 2
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$text_edit..Indel$GT$$GT$17ha42fc71bfed56894E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
-          to label %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit.i.i.i" unwind label %24
+  %21 = getelementptr inbounds { i32, [1 x i32], { { { i64, ptr, {} }, i64 } } }, ptr %17, i64 %.0.i.i.i
+  %22 = add i64 %.0.i.i.i, 1
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$text_edit..Indel$GT$$GT$17ha42fc71bfed56894E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
+          to label %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit.i.i.i" unwind label %25
 
-"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit7.i.i.i": ; preds = %26, %24
-  %.1.i.i.i = phi i64 [ %21, %24 ], [ %27, %26 ]
-  %23 = icmp eq i64 %.1.i.i.i, %18
-  br i1 %23, label %common.resume, label %26
+"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit7.i.i.i": ; preds = %27, %25
+  %.1.i.i.i = phi i64 [ %22, %25 ], [ %29, %27 ]
+  %24 = icmp eq i64 %.1.i.i.i, %18
+  br i1 %24, label %common.resume, label %27
 
-24:                                               ; preds = %20
-  %25 = landingpad { ptr, i32 }
+25:                                               ; preds = %20
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit7.i.i.i"
 
-26:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit7.i.i.i"
-  %27 = add i64 %.1.i.i.i, 1
-  %28 = getelementptr inbounds { i32, [1 x i32], { { { i64, ptr, {} }, i64 } } }, ptr %17, i64 %.1.i.i.i, i32 2
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$text_edit..Indel$GT$$GT$17ha42fc71bfed56894E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
-          to label %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit7.i.i.i" unwind label %29
+27:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit7.i.i.i"
+  %28 = getelementptr inbounds { i32, [1 x i32], { { { i64, ptr, {} }, i64 } } }, ptr %17, i64 %.1.i.i.i
+  %29 = add i64 %.1.i.i.i, 1
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$text_edit..Indel$GT$$GT$17ha42fc71bfed56894E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)
+          to label %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit7.i.i.i" unwind label %31
 
 common.resume:                                    ; preds = %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit7.i.i.i", %13
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %25, %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit7.i.i.i" ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %26, %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit7.i.i.i" ]
   resume { ptr, i32 } %common.resume.op
 
-29:                                               ; preds = %26
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %27
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #25
   unreachable
@@ -19432,8 +19434,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr62drop
 "_ZN4core3ptr107drop_in_place$LT$core..array..iter..IntoIter$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$C$2_usize$GT$$GT$17h5fcaf2ce0b593b72E.exit": ; preds = %"_ZN4core3ptr62drop_in_place$LT$$LP$vfs..FileId$C$text_edit..TextEdit$RP$$GT$17hb2bca29ac638fb76E.llvm.12053455592450410520.exit.i.i.i"
   ret void
 
-31:                                               ; preds = %13
-  %32 = landingpad { ptr, i32 }
+33:                                               ; preds = %13
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #25
   unreachable

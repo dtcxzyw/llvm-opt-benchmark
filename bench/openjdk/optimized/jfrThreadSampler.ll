@@ -435,7 +435,7 @@ define hidden noundef zeroext i1 @_ZN22JfrThreadSampleClosure21sample_thread_in_
   call void @_ZN19SuspendedThreadTask3runEv(ptr noundef nonnull align 8 dereferenceable(96) %5) #18
   %14 = load i8, ptr %8, align 1
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %24
+  br i1 %15, label %16, label %25
 
 16:                                               ; preds = %4
   %17 = load ptr, ptr %0, align 8
@@ -443,12 +443,13 @@ define hidden noundef zeroext i1 @_ZN22JfrThreadSampleClosure21sample_thread_in_
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -1
   %21 = zext i32 %20 to i64
-  %22 = call noundef i64 @_ZN23JfrStackTraceRepository3addERK13JfrStackTrace(ptr noundef nonnull align 8 dereferenceable(44) %11) #18
-  %23 = getelementptr inbounds nuw %class.EventExecutionSample, ptr %17, i64 %21, i32 2
-  store i64 %22, ptr %23, align 8
-  br label %24
+  %22 = getelementptr inbounds nuw %class.EventExecutionSample, ptr %17, i64 %21
+  %23 = call noundef i64 @_ZN23JfrStackTraceRepository3addERK13JfrStackTrace(ptr noundef nonnull align 8 dereferenceable(44) %11) #18
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store i64 %23, ptr %24, align 8
+  br label %25
 
-24:                                               ; preds = %4, %16
+25:                                               ; preds = %4, %16
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15OSThreadSampler, i64 16), ptr %5, align 8
   call void @_ZN13JfrStackTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %11) #18
   ret i1 %15
@@ -499,7 +500,7 @@ define hidden noundef zeroext i1 @_ZN22JfrThreadSampleClosure23sample_thread_in_
 20:                                               ; preds = %14, %16, %18, %19
   %21 = load i8, ptr %12, align 8
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %32
+  br i1 %22, label %23, label %33
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -508,12 +509,13 @@ define hidden noundef zeroext i1 @_ZN22JfrThreadSampleClosure23sample_thread_in_
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, -1
   %29 = zext i32 %28 to i64
-  %30 = call noundef i64 @_ZN23JfrStackTraceRepository3addERK13JfrStackTrace(ptr noundef nonnull align 8 dereferenceable(44) %11) #18
-  %31 = getelementptr inbounds nuw %class.EventNativeMethodSample, ptr %25, i64 %29, i32 2
-  store i64 %30, ptr %31, align 8
-  br label %32
+  %30 = getelementptr inbounds nuw %class.EventNativeMethodSample, ptr %25, i64 %29
+  %31 = call noundef i64 @_ZN23JfrStackTraceRepository3addERK13JfrStackTrace(ptr noundef nonnull align 8 dereferenceable(44) %11) #18
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store i64 %31, ptr %32, align 8
+  br label %33
 
-32:                                               ; preds = %20, %23
+33:                                               ; preds = %20, %23
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV24JfrNativeSamplerCallback, i64 16), ptr %5, align 8
   call void @_ZN13JfrStackTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %11) #18
   ret i1 %22

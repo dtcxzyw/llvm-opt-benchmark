@@ -86,7 +86,7 @@ define hidden range(i32 -1, 1) i32 @OnChangeBrowscap(ptr noundef readnone captur
 define internal fastcc void @browscap_bdata_dtor(ptr noundef captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !7
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %52, label %4
+  br i1 %.not, label %53, label %4
 
 4:                                                ; preds = %2
   tail call void @zend_hash_destroy(ptr noundef nonnull %3) #13
@@ -147,64 +147,65 @@ define internal fastcc void @browscap_bdata_dtor(ptr noundef captures(none) %0, 
 
 zend_string_release.exit:                         ; preds = %12, %19, %26, %27
   %28 = load ptr, ptr %11, align 8, !tbaa !13
-  %29 = getelementptr inbounds nuw %struct.browscap_kv, ptr %28, i64 %indvars.iv, i32 1
-  %30 = load ptr, ptr %29, align 8, !tbaa !19
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !4
-  %33 = and i32 %32, 64
-  %.not.i18 = icmp eq i32 %33, 0
-  br i1 %.not.i18, label %34, label %zend_string_release.exit20
+  %29 = getelementptr inbounds nuw %struct.browscap_kv, ptr %28, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !4
+  %34 = and i32 %33, 64
+  %.not.i18 = icmp eq i32 %34, 0
+  br i1 %.not.i18, label %35, label %zend_string_release.exit20
 
-34:                                               ; preds = %zend_string_release.exit
-  %35 = load i32, ptr %30, align 4, !tbaa !17
-  %36 = icmp ne i32 %35, 0
-  tail call void @llvm.assume(i1 %36)
-  %37 = add i32 %35, -1
-  store i32 %37, ptr %30, align 4, !tbaa !17
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %zend_string_release.exit20
+35:                                               ; preds = %zend_string_release.exit
+  %36 = load i32, ptr %31, align 4, !tbaa !17
+  %37 = icmp ne i32 %36, 0
+  tail call void @llvm.assume(i1 %37)
+  %38 = add i32 %36, -1
+  store i32 %38, ptr %31, align 4, !tbaa !17
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %zend_string_release.exit20
 
-39:                                               ; preds = %34
-  %40 = and i32 %32, 128
-  %.not5.i19 = icmp eq i32 %40, 0
-  br i1 %.not5.i19, label %42, label %41
+40:                                               ; preds = %35
+  %41 = and i32 %33, 128
+  %.not5.i19 = icmp eq i32 %41, 0
+  br i1 %.not5.i19, label %43, label %42
 
-41:                                               ; preds = %39
-  tail call void @free(ptr noundef nonnull %30) #13
+42:                                               ; preds = %40
+  tail call void @free(ptr noundef nonnull %31) #13
   br label %zend_string_release.exit20
 
-42:                                               ; preds = %39
-  tail call void @_efree(ptr noundef nonnull %30) #13
+43:                                               ; preds = %40
+  tail call void @_efree(ptr noundef nonnull %31) #13
   br label %zend_string_release.exit20
 
-zend_string_release.exit20:                       ; preds = %zend_string_release.exit, %34, %41, %42
+zend_string_release.exit20:                       ; preds = %zend_string_release.exit, %35, %42, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = load i32, ptr %9, align 8, !tbaa !12
-  %44 = zext i32 %43 to i64
-  %45 = icmp samesign ult i64 %indvars.iv.next, %44
-  br i1 %45, label %12, label %._crit_edge
+  %44 = load i32, ptr %9, align 8, !tbaa !12
+  %45 = zext i32 %44 to i64
+  %46 = icmp samesign ult i64 %indvars.iv.next, %45
+  br i1 %46, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %zend_string_release.exit20, %8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !13
-  br i1 %1, label %48, label %49
-
-48:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef %47) #13
-  br label %50
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !13
+  br i1 %1, label %49, label %50
 
 49:                                               ; preds = %._crit_edge
-  tail call void @_efree(ptr noundef %47) #13
-  br label %50
+  tail call void @free(ptr noundef %48) #13
+  br label %51
 
-50:                                               ; preds = %49, %48
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %51, align 8, !tbaa !13
-  br label %52
+50:                                               ; preds = %._crit_edge
+  tail call void @_efree(ptr noundef %48) #13
+  br label %51
 
-52:                                               ; preds = %50, %2
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %53, align 8, !tbaa !4
+51:                                               ; preds = %50, %49
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %52, align 8, !tbaa !13
+  br label %53
+
+53:                                               ; preds = %51, %2
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %54, align 8, !tbaa !4
   ret void
 }
 
@@ -985,30 +986,30 @@ zend_string_release_ex.exit.i:                    ; preds = %244, %239, %zend_in
   %264 = zext i32 %259 to i64
   br label %265
 
-265:                                              ; preds = %275, %.lr.ph.i64.i
-  %indvars.iv.i.i = phi i64 [ %264, %.lr.ph.i64.i ], [ %indvars.iv.next.i.i, %275 ]
+265:                                              ; preds = %276, %.lr.ph.i64.i
+  %indvars.iv.i.i = phi i64 [ %264, %.lr.ph.i64.i ], [ %indvars.iv.next.i.i, %276 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %266 = load ptr, ptr %262, align 8, !tbaa !13
-  %267 = getelementptr inbounds nuw %struct.browscap_kv, ptr %266, i64 %indvars.iv.i.i, i32 1
-  %268 = load ptr, ptr %267, align 8, !tbaa !19
-  store ptr %268, ptr %4, align 8, !tbaa !4
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 4
-  %270 = load i32, ptr %269, align 4, !tbaa !4
-  %271 = and i32 %270, 64
-  %.not.i65.i = icmp eq i32 %271, 0
-  br i1 %.not.i65.i, label %272, label %275
+  %267 = getelementptr inbounds nuw %struct.browscap_kv, ptr %266, i64 %indvars.iv.i.i
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  %269 = load ptr, ptr %268, align 8, !tbaa !19
+  store ptr %269, ptr %4, align 8, !tbaa !4
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 4
+  %271 = load i32, ptr %270, align 4, !tbaa !4
+  %272 = and i32 %271, 64
+  %.not.i65.i = icmp eq i32 %272, 0
+  br i1 %.not.i65.i, label %273, label %276
 
-272:                                              ; preds = %265
-  %273 = load i32, ptr %268, align 4, !tbaa !17
-  %274 = add i32 %273, 1
-  store i32 %274, ptr %268, align 4, !tbaa !17
-  br label %275
+273:                                              ; preds = %265
+  %274 = load i32, ptr %269, align 4, !tbaa !17
+  %275 = add i32 %274, 1
+  store i32 %275, ptr %269, align 4, !tbaa !17
+  br label %276
 
-275:                                              ; preds = %272, %265
-  %storemerge.i.i = phi i32 [ 262, %272 ], [ 6, %265 ]
+276:                                              ; preds = %273, %265
+  %storemerge.i.i = phi i32 [ 262, %273 ], [ 6, %265 ]
   store i32 %storemerge.i.i, ptr %263, align 8, !tbaa !4
-  %276 = getelementptr inbounds nuw %struct.browscap_kv, ptr %266, i64 %indvars.iv.i.i
-  %277 = load ptr, ptr %276, align 8, !tbaa !14
+  %277 = load ptr, ptr %267, align 8, !tbaa !14
   %278 = call ptr @zend_hash_add(ptr noundef %145, ptr noundef %277, ptr noundef nonnull %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1017,7 +1018,7 @@ zend_string_release_ex.exit.i:                    ; preds = %244, %239, %zend_in
   %281 = icmp samesign ult i64 %indvars.iv.next.i.i, %280
   br i1 %281, label %265, label %browscap_entry_to_array.exit
 
-browscap_entry_to_array.exit:                     ; preds = %275, %258
+browscap_entry_to_array.exit:                     ; preds = %276, %258
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %282 = load i8, ptr %7, align 1, !tbaa !27, !range !49, !noundef !36
   %283 = trunc nuw i8 %282 to i1
@@ -1080,30 +1081,30 @@ browscap_entry_to_array.exit:                     ; preds = %275, %258
   %314 = zext i32 %310 to i64
   br label %315
 
-315:                                              ; preds = %325, %.lr.ph.i
-  %indvars.iv.i146 = phi i64 [ %314, %.lr.ph.i ], [ %indvars.iv.next.i149, %325 ]
+315:                                              ; preds = %326, %.lr.ph.i
+  %indvars.iv.i146 = phi i64 [ %314, %.lr.ph.i ], [ %indvars.iv.next.i149, %326 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %316 = load ptr, ptr %301, align 8, !tbaa !13
-  %317 = getelementptr inbounds nuw %struct.browscap_kv, ptr %316, i64 %indvars.iv.i146, i32 1
-  %318 = load ptr, ptr %317, align 8, !tbaa !19
-  store ptr %318, ptr %3, align 8, !tbaa !4
-  %319 = getelementptr inbounds nuw i8, ptr %318, i64 4
-  %320 = load i32, ptr %319, align 4, !tbaa !4
-  %321 = and i32 %320, 64
-  %.not.i147 = icmp eq i32 %321, 0
-  br i1 %.not.i147, label %322, label %325
+  %317 = getelementptr inbounds nuw %struct.browscap_kv, ptr %316, i64 %indvars.iv.i146
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
+  %319 = load ptr, ptr %318, align 8, !tbaa !19
+  store ptr %319, ptr %3, align 8, !tbaa !4
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 4
+  %321 = load i32, ptr %320, align 4, !tbaa !4
+  %322 = and i32 %321, 64
+  %.not.i147 = icmp eq i32 %322, 0
+  br i1 %.not.i147, label %323, label %326
 
-322:                                              ; preds = %315
-  %323 = load i32, ptr %318, align 4, !tbaa !17
-  %324 = add i32 %323, 1
-  store i32 %324, ptr %318, align 4, !tbaa !17
-  br label %325
+323:                                              ; preds = %315
+  %324 = load i32, ptr %319, align 4, !tbaa !17
+  %325 = add i32 %324, 1
+  store i32 %325, ptr %319, align 4, !tbaa !17
+  br label %326
 
-325:                                              ; preds = %322, %315
-  %storemerge.i148 = phi i32 [ 262, %322 ], [ 6, %315 ]
+326:                                              ; preds = %323, %315
+  %storemerge.i148 = phi i32 [ 262, %323 ], [ 6, %315 ]
   store i32 %storemerge.i148, ptr %302, align 8, !tbaa !4
-  %326 = getelementptr inbounds nuw %struct.browscap_kv, ptr %316, i64 %indvars.iv.i146
-  %327 = load ptr, ptr %326, align 8, !tbaa !14
+  %327 = load ptr, ptr %317, align 8, !tbaa !14
   %328 = call ptr @zend_hash_add(ptr noundef %299, ptr noundef %327, ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i146, 1
@@ -1112,7 +1113,7 @@ browscap_entry_to_array.exit:                     ; preds = %275, %258
   %331 = icmp samesign ult i64 %indvars.iv.next.i149, %330
   br i1 %331, label %315, label %browscap_entry_add_kv_to_existing_array.exit
 
-browscap_entry_add_kv_to_existing_array.exit:     ; preds = %325, %307
+browscap_entry_add_kv_to_existing_array.exit:     ; preds = %326, %307
   %332 = getelementptr inbounds nuw i8, ptr %308, i64 8
   %333 = load ptr, ptr %332, align 8, !tbaa !47
   %.not124 = icmp eq ptr %333, null
@@ -2001,7 +2002,7 @@ browscap_add_kv.exit:                             ; preds = %._crit_edge.i, %164
   %168 = zext i32 %166 to i64
   %169 = getelementptr inbounds nuw %struct.browscap_kv, ptr %167, i64 %168
   store ptr %149, ptr %169, align 8, !tbaa !14
-  %170 = getelementptr inbounds nuw %struct.browscap_kv, ptr %167, i64 %168, i32 1
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store ptr %.092, ptr %170, align 8, !tbaa !19
   %171 = add i32 %166, 1
   store i32 %171, ptr %150, align 8, !tbaa !12

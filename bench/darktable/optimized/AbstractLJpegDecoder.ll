@@ -1896,8 +1896,7 @@ _ZN8rawspeed10ByteStream7getByteEv.exit31:        ; preds = %_ZN8rawspeed10ByteS
 
 60:                                               ; preds = %53
   %61 = sext i32 %spec.select to i64
-  %.idx = shl nuw nsw i64 %61, 4
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %62 = getelementptr inbounds nuw %"struct.rawspeed::JpegComponentInfo", ptr %3, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 %47, ptr %63, align 4, !tbaa !218
   %64 = add nuw nsw i32 %.045, 1

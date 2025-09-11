@@ -157,22 +157,22 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noun
   %.not3942 = icmp eq ptr %46, %47
   br i1 %.not3942, label %.loopexit, label %.lr.ph46
 
-.lr.ph46:                                         ; preds = %45, %85
-  %.144 = phi i32 [ %.2, %85 ], [ %.09, %45 ]
-  %.sroa.021.043 = phi ptr [ %86, %85 ], [ %46, %45 ]
+.lr.ph46:                                         ; preds = %45, %86
+  %.144 = phi i32 [ %.2, %86 ], [ %.09, %45 ]
+  %.sroa.021.043 = phi ptr [ %87, %86 ], [ %46, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 24
   %49 = load i16, ptr %48, align 8, !tbaa !23
   %.not13 = icmp eq i16 %49, 0
-  br i1 %.not13, label %85, label %50
+  br i1 %.not13, label %86, label %50
 
 50:                                               ; preds = %.lr.ph46
   %51 = load ptr, ptr %.sroa.021.043, align 8, !tbaa !27
   %.not14 = icmp eq ptr %51, null
-  br i1 %.not14, label %69, label %52
+  br i1 %.not14, label %70, label %52
 
 52:                                               ; preds = %50
   %53 = call noundef zeroext i1 @_ZNK3zmq13socket_base_t14is_thread_safeEv(ptr noundef nonnull align 8 dereferenceable(1825) %51)
-  br i1 %53, label %85, label %54
+  br i1 %53, label %86, label %54
 
 54:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -195,41 +195,42 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noun
 
 65:                                               ; preds = %60, %54
   %66 = load ptr, ptr %6, align 8, !tbaa !17
-  %67 = getelementptr inbounds %struct.pollfd, ptr %66, i64 %57, i32 1
-  store i16 1, ptr %67, align 4, !tbaa !36
-  %68 = add nsw i32 %.144, 1
+  %67 = getelementptr inbounds %struct.pollfd, ptr %66, i64 %57
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  store i16 1, ptr %68, align 4, !tbaa !36
+  %69 = add nsw i32 %.144, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %85
+  br label %86
 
-69:                                               ; preds = %50
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 8
-  %71 = load i32, ptr %70, align 8, !tbaa !42
-  %72 = load ptr, ptr %6, align 8, !tbaa !17
-  %73 = sext i32 %.144 to i64
-  %74 = getelementptr inbounds %struct.pollfd, ptr %72, i64 %73
-  store i32 %71, ptr %74, align 4, !tbaa !34
-  %75 = and i16 %49, 1
-  %76 = shl i16 %49, 1
-  %77 = and i16 %76, 4
-  %78 = or disjoint i16 %77, %75
-  %79 = lshr i16 %49, 2
-  %80 = and i16 %79, 2
-  %81 = or disjoint i16 %78, %80
-  %82 = getelementptr inbounds %struct.pollfd, ptr %72, i64 %73, i32 1
-  store i16 %81, ptr %82, align 4, !tbaa !36
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 28
-  store i32 %.144, ptr %83, align 4, !tbaa !43
-  %84 = add nsw i32 %.144, 1
-  br label %85
+70:                                               ; preds = %50
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 8
+  %72 = load i32, ptr %71, align 8, !tbaa !42
+  %73 = load ptr, ptr %6, align 8, !tbaa !17
+  %74 = sext i32 %.144 to i64
+  %75 = getelementptr inbounds %struct.pollfd, ptr %73, i64 %74
+  store i32 %72, ptr %75, align 4, !tbaa !34
+  %76 = and i16 %49, 1
+  %77 = shl i16 %49, 1
+  %78 = and i16 %77, 4
+  %79 = or disjoint i16 %78, %76
+  %80 = lshr i16 %49, 2
+  %81 = and i16 %80, 2
+  %82 = or disjoint i16 %79, %81
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  store i16 %82, ptr %83, align 4, !tbaa !36
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 28
+  store i32 %.144, ptr %84, align 4, !tbaa !43
+  %85 = add nsw i32 %.144, 1
+  br label %86
 
-85:                                               ; preds = %.lr.ph46, %52, %65, %69
-  %.2 = phi i32 [ %.144, %52 ], [ %68, %65 ], [ %84, %69 ], [ %.144, %.lr.ph46 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 32
-  %.not39 = icmp eq ptr %86, %47
+86:                                               ; preds = %.lr.ph46, %52, %65, %70
+  %.2 = phi i32 [ %.144, %52 ], [ %69, %65 ], [ %85, %70 ], [ %.144, %.lr.ph46 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.021.043, i64 32
+  %.not39 = icmp eq ptr %87, %47
   br i1 %.not39, label %.loopexit, label %.lr.ph46, !llvm.loop !44
 
-.loopexit:                                        ; preds = %85, %45, %._crit_edge, %34
-  %.0 = phi i32 [ -1, %34 ], [ 0, %._crit_edge ], [ 0, %45 ], [ 0, %85 ]
+.loopexit:                                        ; preds = %86, %45, %._crit_edge, %34
+  %.0 = phi i32 [ -1, %34 ], [ 0, %._crit_edge ], [ 0, %45 ], [ 0, %86 ]
   ret i32 %.0
 }
 
@@ -1023,9 +1024,9 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %14
 
-14:                                               ; preds = %.lr.ph, %72
-  %.04172 = phi i32 [ 0, %.lr.ph ], [ %.5, %72 ]
-  %.sroa.055.070 = phi ptr [ %7, %.lr.ph ], [ %73, %72 ]
+14:                                               ; preds = %.lr.ph, %73
+  %.04172 = phi i32 [ 0, %.lr.ph ], [ %.5, %73 ]
+  %.sroa.055.070 = phi ptr [ %7, %.lr.ph ], [ %74, %73 ]
   %15 = load ptr, ptr %.sroa.055.070, align 8, !tbaa !27
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %37, label %16
@@ -1069,7 +1070,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %.243.ph = phi i32 [ %.04172, %18 ], [ %35, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %72
+  br label %73
 
 36:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1080,7 +1081,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 24
   %39 = load i16, ptr %38, align 8, !tbaa !23
   %.not46 = icmp eq i16 %39, 0
-  br i1 %.not46, label %72, label %40
+  br i1 %.not46, label %73, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 28
@@ -1101,48 +1102,49 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %50 = phi i32 [ %.pre, %44 ], [ %42, %40 ]
   %51 = load ptr, ptr %13, align 8, !tbaa !17
   %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds %struct.pollfd, ptr %51, i64 %52, i32 2
-  %54 = load i16, ptr %53, align 2, !tbaa !62
-  %55 = and i16 %54, 1
-  %56 = lshr i16 %54, 1
-  %57 = and i16 %56, 2
-  %.1 = or disjoint i16 %57, %55
-  %58 = shl i16 %54, 2
-  %59 = and i16 %58, 8
-  %.2 = or disjoint i16 %.1, %59
-  %.not50 = icmp ult i16 %54, 8
-  %60 = or disjoint i16 %.2, 4
-  %.3 = select i1 %.not50, i16 %.2, i16 %60
+  %53 = getelementptr inbounds %struct.pollfd, ptr %51, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
+  %55 = load i16, ptr %54, align 2, !tbaa !62
+  %56 = and i16 %55, 1
+  %57 = lshr i16 %55, 1
+  %58 = and i16 %57, 2
+  %.1 = or disjoint i16 %58, %56
+  %59 = shl i16 %55, 2
+  %60 = and i16 %59, 8
+  %.2 = or disjoint i16 %.1, %60
+  %.not50 = icmp ult i16 %55, 8
+  %61 = or disjoint i16 %.2, 4
+  %.3 = select i1 %.not50, i16 %.2, i16 %61
   %.not51 = icmp eq i16 %.3, 0
-  br i1 %.not51, label %72, label %61
+  br i1 %.not51, label %73, label %62
 
-61:                                               ; preds = %49
-  %62 = sext i32 %.04172 to i64
-  %63 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %1, i64 %62
-  store ptr null, ptr %63, align 8, !tbaa !54
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 8
-  %65 = load i32, ptr %64, align 8, !tbaa !42
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i32 %65, ptr %66, align 8, !tbaa !56
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !60
-  %69 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store ptr %68, ptr %69, align 8, !tbaa !57
-  %70 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store i16 %.3, ptr %70, align 8, !tbaa !58
-  %71 = add nsw i32 %.04172, 1
-  br label %72
+62:                                               ; preds = %49
+  %63 = sext i32 %.04172 to i64
+  %64 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %1, i64 %63
+  store ptr null, ptr %64, align 8, !tbaa !54
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 8
+  %66 = load i32, ptr %65, align 8, !tbaa !42
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store i32 %66, ptr %67, align 8, !tbaa !56
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 16
+  %69 = load ptr, ptr %68, align 8, !tbaa !60
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store ptr %69, ptr %70, align 8, !tbaa !57
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  store i16 %.3, ptr %71, align 8, !tbaa !58
+  %72 = add nsw i32 %.04172, 1
+  br label %73
 
-72:                                               ; preds = %.thread, %49, %61, %37
-  %.5 = phi i32 [ %.04172, %37 ], [ %71, %61 ], [ %.04172, %49 ], [ %.243.ph, %.thread ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 32
-  %74 = icmp ne ptr %73, %9
-  %75 = icmp slt i32 %.5, %2
-  %76 = select i1 %74, i1 %75, i1 false
-  br i1 %76, label %14, label %.loopexit, !llvm.loop !63
+73:                                               ; preds = %.thread, %49, %62, %37
+  %.5 = phi i32 [ %.04172, %37 ], [ %72, %62 ], [ %.04172, %49 ], [ %.243.ph, %.thread ]
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.055.070, i64 32
+  %75 = icmp ne ptr %74, %9
+  %76 = icmp slt i32 %.5, %2
+  %77 = select i1 %75, i1 %76, i1 false
+  br i1 %77, label %14, label %.loopexit, !llvm.loop !63
 
-.loopexit:                                        ; preds = %72, %3, %36
-  %spec.select54 = phi i32 [ -1, %36 ], [ 0, %3 ], [ %.5, %72 ]
+.loopexit:                                        ; preds = %73, %3, %36
+  %spec.select54 = phi i32 [ -1, %36 ], [ 0, %3 ], [ %.5, %73 ]
   ret i32 %spec.select54
 }
 

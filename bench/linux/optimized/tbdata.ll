@@ -374,9 +374,9 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   %15 = load i8, ptr %14, align 2
   %16 = and i8 %15, 3
   %switch = icmp eq i8 %16, 1
-  br i1 %switch, label %17, label %.thread13
+  br i1 %switch, label %17, label %.thread14
 
-default.unreachable32:                            ; preds = %60
+default.unreachable33:                            ; preds = %60
   unreachable
 
 17:                                               ; preds = %13
@@ -386,7 +386,7 @@ default.unreachable32:                            ; preds = %60
   %21 = zext i32 %20 to i64
   %22 = tail call ptr @acpi_os_map_memory(i64 noundef %19, i64 noundef %21) #8
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread13, label %23
+  br i1 %.not, label %.thread14, label %23
 
 23:                                               ; preds = %17
   store ptr %22, ptr %4, align 8
@@ -406,12 +406,12 @@ default.unreachable32:                            ; preds = %60
 
 32:                                               ; preds = %27
   tail call void (ptr, i32, ptr, ...) @acpi_bios_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 513, ptr noundef nonnull @.str, i32 noundef %29, ptr noundef nonnull %1) #8
-  br label %117
+  br label %115
 
 33:                                               ; preds = %27, %24
   %34 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %.thread13, label %36
+  br i1 %35, label %.thread14, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -430,155 +430,155 @@ default.unreachable32:                            ; preds = %60
   %48 = trunc nuw i64 %47 to i32
   %49 = trunc i64 %46 to i32
   tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 528, i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef nonnull %45, i32 noundef %48, i32 noundef %49) #8
-  br label %117
+  br label %115
 
 50:                                               ; preds = %36
   %51 = icmp eq ptr %2, null
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %53 = icmp eq i32 %52, 0
   %or.cond = select i1 %51, i1 true, i1 %53
-  br i1 %or.cond, label %.thread16, label %.preheader
+  br i1 %or.cond, label %.thread17, label %.preheader
 
 .preheader:                                       ; preds = %50, %.critedge.thread
-  %54 = phi i64 [ %99, %.critedge.thread ], [ 0, %50 ]
+  %54 = phi i64 [ %97, %.critedge.thread ], [ 0, %50 ]
   %55 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %56 = getelementptr %struct.acpi_table_desc, ptr %55, i64 %54, i32 5
+  %.split = getelementptr %struct.acpi_table_desc, ptr %55, i64 %54
+  %56 = getelementptr i8, ptr %.split, i64 26
   %57 = load i8, ptr %56, align 2
   %58 = and i8 %57, 4
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %.critedge.thread, label %60
 
 60:                                               ; preds = %.preheader
-  %61 = getelementptr %struct.acpi_table_desc, ptr %55, i64 %54
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 26
-  %63 = and i8 %57, 3
-  switch i8 %63, label %default.unreachable32 [
-    i8 1, label %64
-    i8 2, label %70
-    i8 0, label %70
+  %61 = and i8 %57, 3
+  switch i8 %61, label %default.unreachable33 [
+    i8 1, label %62
+    i8 2, label %68
+    i8 0, label %68
     i8 3, label %.critedge.thread
   ]
 
-64:                                               ; preds = %60
-  %65 = load i64, ptr %61, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %67 = load i32, ptr %66, align 8
-  %68 = zext i32 %67 to i64
-  %69 = tail call ptr @acpi_os_map_memory(i64 noundef %65, i64 noundef %68) #8
-  br label %73
+62:                                               ; preds = %60
+  %63 = load i64, ptr %.split, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %.split, i64 16
+  %65 = load i32, ptr %64, align 8
+  %66 = zext i32 %65 to i64
+  %67 = tail call ptr @acpi_os_map_memory(i64 noundef %63, i64 noundef %66) #8
+  br label %71
 
-70:                                               ; preds = %60, %60
-  %71 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %72 = load ptr, ptr %71, align 8
-  br label %73
+68:                                               ; preds = %60, %60
+  %69 = getelementptr inbounds nuw i8, ptr %.split, i64 8
+  %70 = load ptr, ptr %69, align 8
+  br label %71
 
-73:                                               ; preds = %70, %64
-  %74 = phi ptr [ %72, %70 ], [ %69, %64 ]
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %.critedge.thread, label %76
+71:                                               ; preds = %68, %62
+  %72 = phi ptr [ %70, %68 ], [ %67, %62 ]
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %.critedge.thread, label %74
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %78 = load i32, ptr %77, align 8
-  %79 = load i8, ptr %62, align 2
-  %80 = and i8 %79, 3
-  %81 = icmp eq i8 %80, 1
-  %82 = load i32, ptr %37, align 8
-  %83 = icmp eq i32 %82, %78
-  br i1 %83, label %84, label %89
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %.split, i64 16
+  %76 = load i32, ptr %75, align 8
+  %77 = load i8, ptr %56, align 2
+  %78 = and i8 %77, 3
+  %79 = icmp eq i8 %78, 1
+  %80 = load i32, ptr %37, align 8
+  %81 = icmp eq i32 %80, %76
+  br i1 %81, label %82, label %87
 
-84:                                               ; preds = %76
-  %85 = load ptr, ptr %4, align 8
-  %86 = zext i32 %78 to i64
-  %87 = tail call i32 @bcmp(ptr %85, ptr nonnull %74, i64 %86)
-  %88 = icmp ne i32 %87, 0
-  br label %89
+82:                                               ; preds = %74
+  %83 = load ptr, ptr %4, align 8
+  %84 = zext i32 %76 to i64
+  %85 = tail call i32 @bcmp(ptr %83, ptr nonnull %72, i64 %84)
+  %86 = icmp ne i32 %85, 0
+  br label %87
 
-89:                                               ; preds = %84, %76
-  %90 = phi i1 [ true, %76 ], [ %88, %84 ]
-  br i1 %81, label %91, label %.critedge
+87:                                               ; preds = %82, %74
+  %88 = phi i1 [ true, %74 ], [ %86, %82 ]
+  br i1 %79, label %89, label %.critedge
 
-91:                                               ; preds = %89
-  %92 = zext i32 %78 to i64
-  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %74, i64 noundef %92) #8
+89:                                               ; preds = %87
+  %90 = zext i32 %76 to i64
+  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %72, i64 noundef %90) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %91, %89
-  br i1 %90, label %.critedge.thread, label %93
+.critedge:                                        ; preds = %89, %87
+  br i1 %88, label %.critedge.thread, label %91
 
-93:                                               ; preds = %.critedge
-  %94 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %95 = getelementptr %struct.acpi_table_desc, ptr %94, i64 %54, i32 5
-  %96 = load i8, ptr %95, align 2
-  %97 = and i8 %96, 8
-  %98 = icmp eq i8 %97, 0
-  br i1 %98, label %103, label %105
+91:                                               ; preds = %.critedge
+  %92 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  %.split12 = getelementptr %struct.acpi_table_desc, ptr %92, i64 %54
+  %93 = getelementptr i8, ptr %.split12, i64 26
+  %94 = load i8, ptr %93, align 2
+  %95 = and i8 %94, 8
+  %96 = icmp eq i8 %95, 0
+  br i1 %96, label %101, label %103
 
-.critedge.thread:                                 ; preds = %60, %73, %.critedge, %.preheader
-  %99 = add nuw nsw i64 %54, 1
-  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
-  %101 = zext i32 %100 to i64
-  %102 = icmp samesign ult i64 %99, %101
-  br i1 %102, label %.preheader, label %.thread16, !llvm.loop !5
+.critedge.thread:                                 ; preds = %60, %71, %.critedge, %.preheader
+  %97 = add nuw nsw i64 %54, 1
+  %98 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %99 = zext i32 %98 to i64
+  %100 = icmp samesign ult i64 %97, %99
+  br i1 %100, label %.preheader, label %.thread17, !llvm.loop !5
 
-103:                                              ; preds = %93
-  %104 = trunc nuw i64 %54 to i32
-  store i32 %104, ptr %2, align 4
-  br label %117
+101:                                              ; preds = %91
+  %102 = trunc nuw i64 %54 to i32
+  store i32 %102, ptr %2, align 4
+  br label %115
 
-105:                                              ; preds = %93
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %107 = tail call zeroext i8 @acpi_ut_valid_nameseg(ptr noundef nonnull %106) #8
-  %108 = icmp eq i8 %107, 0
-  %109 = select i1 %108, ptr @.str.2, ptr %106
-  %110 = load i64, ptr %0, align 8
-  %111 = lshr i64 %110, 32
-  %112 = trunc nuw i64 %111 to i32
-  %113 = trunc i64 %110 to i32
-  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 548, i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef nonnull %109, i32 noundef %112, i32 noundef %113) #8
-  br label %117
+103:                                              ; preds = %91
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %105 = tail call zeroext i8 @acpi_ut_valid_nameseg(ptr noundef nonnull %104) #8
+  %106 = icmp eq i8 %105, 0
+  %107 = select i1 %106, ptr @.str.2, ptr %104
+  %108 = load i64, ptr %0, align 8
+  %109 = lshr i64 %108, 32
+  %110 = trunc nuw i64 %109 to i32
+  %111 = trunc i64 %108 to i32
+  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 548, i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef nonnull %107, i32 noundef %110, i32 noundef %111) #8
+  br label %115
 
-.thread16:                                        ; preds = %.critedge.thread, %50
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %115 = load i8, ptr %114, align 2
-  %116 = or i8 %115, 4
-  store i8 %116, ptr %114, align 2
-  br label %.thread13
+.thread17:                                        ; preds = %.critedge.thread, %50
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %113 = load i8, ptr %112, align 2
+  %114 = or i8 %113, 4
+  store i8 %114, ptr %112, align 2
+  br label %.thread14
 
-117:                                              ; preds = %103, %105, %41, %32
-  %118 = phi i32 [ %39, %41 ], [ 7, %105 ], [ 8193, %32 ], [ 16387, %103 ]
-  %119 = load ptr, ptr %4, align 8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %.thread13, label %121
+115:                                              ; preds = %101, %103, %41, %32
+  %116 = phi i32 [ %39, %41 ], [ 7, %103 ], [ 8193, %32 ], [ 16387, %101 ]
+  %117 = load ptr, ptr %4, align 8
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %.thread14, label %119
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %123 = load i8, ptr %122, align 2
-  %124 = and i8 %123, 3
-  %125 = icmp eq i8 %124, 1
-  br i1 %125, label %126, label %130
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %121 = load i8, ptr %120, align 2
+  %122 = and i8 %121, 3
+  %123 = icmp eq i8 %122, 1
+  br i1 %123, label %124, label %128
 
-126:                                              ; preds = %121
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %128 = load i32, ptr %127, align 8
-  %129 = zext i32 %128 to i64
-  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %119, i64 noundef %129) #8
-  %.pre = load i8, ptr %122, align 2
-  br label %130
+124:                                              ; preds = %119
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %126 = load i32, ptr %125, align 8
+  %127 = zext i32 %126 to i64
+  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %117, i64 noundef %127) #8
+  %.pre = load i8, ptr %120, align 2
+  br label %128
 
-130:                                              ; preds = %126, %121
-  %131 = phi i8 [ %.pre, %126 ], [ %123, %121 ]
-  %132 = and i8 %131, 3
-  %133 = icmp eq i8 %132, 1
-  br i1 %133, label %134, label %.thread13
+128:                                              ; preds = %124, %119
+  %129 = phi i8 [ %.pre, %124 ], [ %121, %119 ]
+  %130 = and i8 %129, 3
+  %131 = icmp eq i8 %130, 1
+  br i1 %131, label %132, label %.thread14
 
-134:                                              ; preds = %130
+132:                                              ; preds = %128
   store ptr null, ptr %4, align 8
-  br label %.thread13
+  br label %.thread14
 
-.thread13:                                        ; preds = %13, %17, %134, %130, %117, %.thread16, %33
-  %135 = phi i32 [ 0, %.thread16 ], [ 0, %33 ], [ %118, %117 ], [ %118, %130 ], [ %118, %134 ], [ 4, %17 ], [ 4, %13 ]
-  ret i32 %135
+.thread14:                                        ; preds = %13, %17, %132, %128, %115, %.thread17, %33
+  %133 = phi i32 [ 0, %.thread17 ], [ 0, %33 ], [ %116, %115 ], [ %116, %128 ], [ %116, %132 ], [ 4, %17 ], [ 4, %13 ]
+  ret i32 %133
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -804,7 +804,8 @@ define dso_local i32 @acpi_tb_delete_namespace_by_owner(i32 noundef %0) local_un
 9:                                                ; preds = %4
   %10 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %11 = zext i32 %0 to i64
-  %12 = getelementptr %struct.acpi_table_desc, ptr %10, i64 %11, i32 4
+  %.split = getelementptr %struct.acpi_table_desc, ptr %10, i64 %11
+  %12 = getelementptr i8, ptr %.split, i64 24
   %13 = load i16, ptr %12, align 8
   %14 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #8
   %15 = tail call i32 @acpi_ut_acquire_write_lock(ptr noundef nonnull @acpi_gbl_namespace_rw_lock) #8
@@ -840,7 +841,8 @@ define dso_local i32 @acpi_tb_allocate_owner_id(i32 noundef %0) local_unnamed_ad
 5:                                                ; preds = %1
   %6 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %7 = zext i32 %0 to i64
-  %8 = getelementptr %struct.acpi_table_desc, ptr %6, i64 %7, i32 4
+  %.split = getelementptr %struct.acpi_table_desc, ptr %6, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   %9 = tail call i32 @acpi_ut_allocate_owner_id(ptr noundef %8) #8
   br label %10
 
@@ -863,7 +865,8 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_release_owner_id(i32 no
 5:                                                ; preds = %1
   %6 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %7 = zext i32 %0 to i64
-  %8 = getelementptr %struct.acpi_table_desc, ptr %6, i64 %7, i32 4
+  %.split = getelementptr %struct.acpi_table_desc, ptr %6, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 24
   tail call void @acpi_ut_release_owner_id(ptr noundef %8) #8
   br label %9
 
@@ -886,7 +889,8 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_get_owner_id(i32 nounde
 6:                                                ; preds = %2
   %7 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %8 = zext i32 %0 to i64
-  %9 = getelementptr %struct.acpi_table_desc, ptr %7, i64 %8, i32 4
+  %.split = getelementptr %struct.acpi_table_desc, ptr %7, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load i16, ptr %9, align 8
   store i16 %10, ptr %1, align 2
   br label %11
@@ -907,7 +911,8 @@ define dso_local zeroext range(i8 0, 9) i8 @acpi_tb_is_table_loaded(i32 noundef 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %7 = zext i32 %0 to i64
-  %8 = getelementptr %struct.acpi_table_desc, ptr %6, i64 %7, i32 5
+  %.split = getelementptr %struct.acpi_table_desc, ptr %6, i64 %7
+  %8 = getelementptr i8, ptr %.split, i64 26
   %9 = load i8, ptr %8, align 2
   %10 = and i8 %9, 8
   br label %11
@@ -929,7 +934,8 @@ define dso_local void @acpi_tb_set_table_loaded_flag(i32 noundef %0, i8 noundef 
   %7 = icmp eq i8 %1, 0
   %8 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %9 = zext i32 %0 to i64
-  %10 = getelementptr %struct.acpi_table_desc, ptr %8, i64 %9, i32 5
+  %.split = getelementptr %struct.acpi_table_desc, ptr %8, i64 %9
+  %10 = getelementptr i8, ptr %.split, i64 26
   %11 = load i8, ptr %10, align 2
   %12 = and i8 %11, -9
   %13 = select i1 %7, i8 0, i8 8
@@ -969,7 +975,8 @@ define dso_local i32 @acpi_tb_load_table(i32 noundef %0, ptr noundef %1) local_u
 15:                                               ; preds = %9
   %16 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %17 = zext i32 %0 to i64
-  %18 = getelementptr %struct.acpi_table_desc, ptr %16, i64 %17, i32 4
+  %.split = getelementptr %struct.acpi_table_desc, ptr %16, i64 %17
+  %18 = getelementptr i8, ptr %.split, i64 24
   %19 = load i16, ptr %18, align 8
   %20 = call i32 @acpi_ut_release_mutex(i32 noundef 2) #8
   call void @acpi_ev_update_gpes(i16 noundef zeroext %19) #8
@@ -1056,7 +1063,8 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %8 = zext i32 %0 to i64
-  %9 = getelementptr %struct.acpi_table_desc, ptr %7, i64 %8, i32 5
+  %.split = getelementptr %struct.acpi_table_desc, ptr %7, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 26
   %10 = load i8, ptr %9, align 2
   %11 = and i8 %10, 8
   %12 = icmp eq i8 %11, 0
@@ -1091,7 +1099,8 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %32 = getelementptr %struct.acpi_table_desc, ptr %31, i64 %8, i32 4
+  %.split.i = getelementptr %struct.acpi_table_desc, ptr %31, i64 %8
+  %32 = getelementptr i8, ptr %.split.i, i64 24
   %33 = load i16, ptr %32, align 8
   %34 = call i32 @acpi_ut_release_mutex(i32 noundef 2) #8
   %35 = call i32 @acpi_ut_acquire_write_lock(ptr noundef nonnull @acpi_gbl_namespace_rw_lock) #8
@@ -1108,7 +1117,8 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %43 = getelementptr %struct.acpi_table_desc, ptr %42, i64 %8, i32 4
+  %.split3 = getelementptr %struct.acpi_table_desc, ptr %42, i64 %8
+  %43 = getelementptr i8, ptr %.split3, i64 24
   call void @acpi_ut_release_owner_id(ptr noundef %43) #8
   br label %44
 
@@ -1121,7 +1131,8 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %51 = getelementptr %struct.acpi_table_desc, ptr %50, i64 %8, i32 5
+  %.split4 = getelementptr %struct.acpi_table_desc, ptr %50, i64 %8
+  %51 = getelementptr i8, ptr %.split4, i64 26
   %52 = load i8, ptr %51, align 2
   %53 = and i8 %52, -9
   store i8 %53, ptr %51, align 2

@@ -1833,40 +1833,41 @@ define void @_Z13mk_chi_lookupPPiiN3gmx8ArrayRefIK7t_dlistEE(ptr noundef readonl
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph.split.split.us42.preheader
 
-.lr.ph.split.split.us42:                          ; preds = %.lr.ph.split.split.us42.preheader, %18
-  %.126.us36 = phi i32 [ %.2.us, %18 ], [ %.034.us, %.lr.ph.split.split.us42.preheader ]
-  %.02024.us37 = phi i64 [ %19, %18 ], [ 0, %.lr.ph.split.split.us42.preheader ]
-  %gep.us = getelementptr %struct.t_dlist, ptr %invariant.gep.us, i64 %.02024.us37, i32 4, i32 7
-  %11 = load i32, ptr %gep.us, align 4, !tbaa !30
-  %.not22.us = icmp eq i32 %11, -1
-  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %.02024.us37
-  %13 = load ptr, ptr %12, align 8, !tbaa !54
-  %14 = getelementptr i32, ptr %13, i64 %indvars.iv
-  %15 = getelementptr i8, ptr %14, i64 -12
-  br i1 %.not22.us, label %17, label %.thread.us38
+.lr.ph.split.split.us42:                          ; preds = %.lr.ph.split.split.us42.preheader, %21
+  %.126.us36 = phi i32 [ %.2.us, %21 ], [ %.034.us, %.lr.ph.split.split.us42.preheader ]
+  %.02024.us37 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.split.split.us42.preheader ]
+  %11 = getelementptr inbounds %struct.t_dlist, ptr %2, i64 %.02024.us37
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4, !tbaa !30
+  %.not22.us = icmp eq i32 %14, -1
+  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %.02024.us37
+  %16 = load ptr, ptr %15, align 8, !tbaa !54
+  %17 = getelementptr i32, ptr %16, i64 %indvars.iv
+  %18 = getelementptr i8, ptr %17, i64 -12
+  br i1 %.not22.us, label %20, label %.thread.us38
 
 .thread.us38:                                     ; preds = %.lr.ph.split.split.us42
-  store i32 %.126.us36, ptr %15, align 4, !tbaa !30
-  %16 = add nsw i32 %.126.us36, 1
-  br label %18
+  store i32 %.126.us36, ptr %18, align 4, !tbaa !30
+  %19 = add nsw i32 %.126.us36, 1
+  br label %21
 
-17:                                               ; preds = %.lr.ph.split.split.us42
-  store i32 -1, ptr %15, align 4, !tbaa !30
-  br label %18
+20:                                               ; preds = %.lr.ph.split.split.us42
+  store i32 -1, ptr %18, align 4, !tbaa !30
+  br label %21
 
-18:                                               ; preds = %17, %.thread.us38
-  %.2.us = phi i32 [ %16, %.thread.us38 ], [ %.126.us36, %17 ]
-  %19 = add nuw i64 %.02024.us37, 1
-  %exitcond.not = icmp eq i64 %19, %10
+21:                                               ; preds = %20, %.thread.us38
+  %.2.us = phi i32 [ %19, %.thread.us38 ], [ %.126.us36, %20 ]
+  %22 = add nuw i64 %.02024.us37, 1
+  %exitcond.not = icmp eq i64 %22, %10
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.split.us42, !llvm.loop !56
 
 .lr.ph.split.split.us42.preheader:                ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv = phi i64 [ 3, %.preheader.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %.034.us = phi i32 [ 0, %.preheader.us.preheader ], [ %.2.us, %._crit_edge.us ]
-  %invariant.gep.us = getelementptr i32, ptr %2, i64 %indvars.iv
   br label %.lr.ph.split.split.us42
 
-._crit_edge.us:                                   ; preds = %18
+._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond51.not, label %._crit_edge35, label %.lr.ph.split.split.us42.preheader, !llvm.loop !57

@@ -99,51 +99,55 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
   %42 = load ptr, ptr %38, align 8
   %43 = load i32, ptr %11, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.PGEvent, ptr %42, i64 %44, i32 1
-  store ptr %41, ptr %45, align 8
-  %46 = load ptr, ptr %38, align 8
-  %47 = load i32, ptr %11, align 8
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds %struct.PGEvent, ptr %46, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %.not62 = icmp eq ptr %51, null
-  br i1 %.not62, label %.critedge, label %52
+  %45 = getelementptr inbounds %struct.PGEvent, ptr %42, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %41, ptr %46, align 8
+  %47 = load ptr, ptr %38, align 8
+  %48 = load i32, ptr %11, align 8
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds %struct.PGEvent, ptr %47, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %.not62 = icmp eq ptr %52, null
+  br i1 %.not62, label %.critedge, label %53
 
-52:                                               ; preds = %35
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %3, ptr %53, align 8
-  %54 = load ptr, ptr %38, align 8
-  %55 = load i32, ptr %11, align 8
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.PGEvent, ptr %54, i64 %56, i32 3
-  store ptr null, ptr %57, align 8
-  %58 = load ptr, ptr %38, align 8
-  %59 = load i32, ptr %11, align 8
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %struct.PGEvent, ptr %58, i64 %60, i32 4
-  store i8 0, ptr %61, align 8
-  %62 = load i32, ptr %11, align 8
-  %63 = add i32 %62, 1
-  store i32 %63, ptr %11, align 8
+53:                                               ; preds = %35
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  store ptr %3, ptr %54, align 8
+  %55 = load ptr, ptr %38, align 8
+  %56 = load i32, ptr %11, align 8
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds %struct.PGEvent, ptr %55, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  store ptr null, ptr %59, align 8
+  %60 = load ptr, ptr %38, align 8
+  %61 = load i32, ptr %11, align 8
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds %struct.PGEvent, ptr %60, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  store i8 0, ptr %64, align 8
+  %65 = load i32, ptr %11, align 8
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %11, align 8
   store ptr %0, ptr %5, align 8
-  %64 = call i32 %1(i32 noundef 0, ptr noundef nonnull %5, ptr noundef %3) #10
-  %.not63 = icmp eq i32 %64, 0
-  br i1 %.not63, label %65, label %.critedge
+  %67 = call i32 %1(i32 noundef 0, ptr noundef nonnull %5, ptr noundef %3) #10
+  %.not63 = icmp eq i32 %67, 0
+  br i1 %.not63, label %68, label %.critedge
 
-65:                                               ; preds = %52
-  %66 = load i32, ptr %11, align 8
-  %67 = add i32 %66, -1
-  store i32 %67, ptr %11, align 8
-  %68 = load ptr, ptr %38, align 8
-  %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.PGEvent, ptr %68, i64 %69, i32 1
-  %71 = load ptr, ptr %70, align 8
-  call void @free(ptr noundef %71) #10
+68:                                               ; preds = %53
+  %69 = load i32, ptr %11, align 8
+  %70 = add i32 %69, -1
+  store i32 %70, ptr %11, align 8
+  %71 = load ptr, ptr %38, align 8
+  %72 = sext i32 %70 to i64
+  %73 = getelementptr inbounds %struct.PGEvent, ptr %71, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = load ptr, ptr %74, align 8
+  call void @free(ptr noundef %75) #10
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %33, %52, %35, %4, %9, %65
-  %.0 = phi i32 [ 0, %65 ], [ 0, %9 ], [ 0, %4 ], [ 0, %35 ], [ 1, %52 ], [ 0, %33 ], [ 0, %17 ]
+.critedge:                                        ; preds = %17, %33, %53, %35, %4, %9, %68
+  %.0 = phi i32 [ 0, %68 ], [ 0, %9 ], [ 0, %4 ], [ 0, %35 ], [ 1, %53 ], [ 0, %33 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -341,50 +345,51 @@ define range(i32 0, 2) i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %9
 
-9:                                                ; preds = %.lr.ph, %25
-  %10 = phi i32 [ %5, %.lr.ph ], [ %26, %25 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.01519 = phi i32 [ 1, %.lr.ph ], [ %.2, %25 ]
+9:                                                ; preds = %.lr.ph, %26
+  %10 = phi i32 [ %5, %.lr.ph ], [ %27, %26 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
+  %.01519 = phi i32 [ 1, %.lr.ph ], [ %.2, %26 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %struct.PGEvent, ptr %11, i64 %indvars.iv, i32 4
-  %13 = load i8, ptr %12, align 8, !range !9, !noundef !10
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %25, label %15
+  %12 = getelementptr inbounds nuw %struct.PGEvent, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %14 = load i8, ptr %13, align 8, !range !9, !noundef !10
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %26, label %16
 
-15:                                               ; preds = %9
+16:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %8, align 8
-  %16 = getelementptr inbounds nuw %struct.PGEvent, ptr %11, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %17 = load ptr, ptr %12, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 %17(i32 noundef 3, ptr noundef nonnull %3, ptr noundef %19) #10
   %.not18 = icmp eq i32 %20, 0
-  br i1 %.not18, label %24, label %21
+  br i1 %.not18, label %25, label %21
 
-21:                                               ; preds = %15
+21:                                               ; preds = %16
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds nuw %struct.PGEvent, ptr %22, i64 %indvars.iv, i32 4
-  store i8 1, ptr %23, align 8
-  br label %24
-
-24:                                               ; preds = %15, %21
-  %.1 = phi i32 [ %.01519, %21 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre = load i32, ptr %4, align 8
+  %23 = getelementptr inbounds nuw %struct.PGEvent, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store i8 1, ptr %24, align 8
   br label %25
 
-25:                                               ; preds = %9, %24
-  %26 = phi i32 [ %10, %9 ], [ %.pre, %24 ]
-  %.2 = phi i32 [ %.01519, %9 ], [ %.1, %24 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %9, label %.loopexit, !llvm.loop !11
+25:                                               ; preds = %16, %21
+  %.1 = phi i32 [ %.01519, %21 ], [ 0, %16 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %.pre = load i32, ptr %4, align 8
+  br label %26
 
-.loopexit:                                        ; preds = %25, %.preheader, %2
-  %.016 = phi i32 [ 0, %2 ], [ 1, %.preheader ], [ %.2, %25 ]
+26:                                               ; preds = %9, %25
+  %27 = phi i32 [ %10, %9 ], [ %.pre, %25 ]
+  %.2 = phi i32 [ %.01519, %9 ], [ %.1, %25 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next, %28
+  br i1 %29, label %9, label %.loopexit, !llvm.loop !11
+
+.loopexit:                                        ; preds = %26, %.preheader, %2
+  %.016 = phi i32 [ 0, %2 ], [ 1, %.preheader ], [ %.2, %26 ]
   ret i32 %.016
 }
 

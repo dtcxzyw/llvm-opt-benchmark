@@ -13649,7 +13649,7 @@ while.body:                                       ; preds = %while.cond, %_ZN6go
   %conv.i = zext i8 %6 to i32
   %cmp.i = icmp sgt i8 %6, -1
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %ptr.addr.227, i64 1
-  br i1 %cmp.i, label %if.end, label %if.end.i
+  br i1 %cmp.i, label %handle_unusual, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
   %7 = load i8, ptr %add.ptr.i, align 1
@@ -13671,9 +13671,9 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %if.end.i
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %success, label %if.end
 
-if.end:                                           ; preds = %while.body, %if.then4.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
-  %retval.0.i32 = phi ptr [ %8, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %add.ptr5.i, %if.then4.i ], [ %add.ptr.i, %while.body ]
-  %tag.031 = phi i32 [ %9, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %add.i, %if.then4.i ], [ %conv.i, %while.body ]
+if.end:                                           ; preds = %if.then4.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
+  %retval.0.i32 = phi ptr [ %8, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %add.ptr5.i, %if.then4.i ]
+  %tag.031 = phi i32 [ %9, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %add.i, %if.then4.i ]
   %cmp = icmp eq i32 %tag.031, 202
   br i1 %cmp, label %if.then9, label %handle_unusual
 
@@ -13704,21 +13704,23 @@ while.cond.backedge:                              ; preds = %_ZN22protobuf_test_
   %ptr.addr.0.be = phi ptr [ %call11, %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension121_internal_mutable_strB5cxx11Ev.exit ], [ %call24, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ]
   br label %while.cond, !llvm.loop !44
 
-handle_unusual:                                   ; preds = %if.end
-  %and = and i32 %tag.031, 7
+handle_unusual:                                   ; preds = %while.body, %if.end
+  %tag.03139 = phi i32 [ %tag.031, %if.end ], [ %conv.i, %while.body ]
+  %retval.0.i3238 = phi ptr [ %retval.0.i32, %if.end ], [ %add.ptr.i, %while.body ]
+  %and = and i32 %tag.03139, 7
   %cmp18 = icmp eq i32 %and, 4
-  %cmp19 = icmp eq i32 %tag.031, 0
+  %cmp19 = icmp eq i32 %tag.03139, 0
   %or.cond = or i1 %cmp19, %cmp18
   br i1 %or.cond, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %handle_unusual
-  %sub.i8 = add i32 %tag.031, -1
+  %sub.i8 = add i32 %tag.03139, -1
   %last_tag_minus_1_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   store i32 %sub.i8, ptr %last_tag_minus_1_.i, align 8
   br label %success
 
 if.end21:                                         ; preds = %handle_unusual
-  %conv22 = zext i32 %tag.031 to i64
+  %conv22 = zext i32 %tag.03139 to i64
   %15 = load ptr, ptr %_internal_metadata_.i, align 8
   %16 = ptrtoint ptr %15 to i64
   %conv.i4 = and i64 %16, 1
@@ -13766,12 +13768,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
   %.pn = phi ptr [ %17, %if.then.i ], [ %call.i.sink11.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
   %retval.i.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %call24 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv22, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i32, ptr noundef nonnull %ctx)
+  %call24 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %conv22, ptr noundef nonnull %retval.i.0, ptr noundef nonnull %retval.0.i3238, ptr noundef nonnull %ctx)
   %cmp25.not = icmp eq ptr %call24, null
   br i1 %cmp25.not, label %success, label %while.cond.backedge
 
 success:                                          ; preds = %if.end.i.i, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension121_internal_mutable_strB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then20
-  %ptr.addr.1 = phi ptr [ %retval.0.i32, %if.then20 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension121_internal_mutable_strB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %ptr.addr.1 = phi ptr [ %retval.0.i3238, %if.then20 ], [ %ptr.addr.0, %if.end.i.i ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN22protobuf_test_messages6proto246TestAllTypesProto2_MessageSetCorrectExtension121_internal_mutable_strB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %4, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %ptr.addr.1
 }
 
@@ -33379,7 +33381,8 @@ if.then.i.i2643:                                  ; preds = %for.end447
 for.body456:                                      ; preds = %.noexc, %invoke.cont463
   %i453.07484 = phi i64 [ %inc466, %invoke.cont463 ], [ 0, %.noexc ]
   %target.addr.447483 = phi ptr [ %call464, %invoke.cont463 ], [ %target.addr.42.lcssa, %.noexc ]
-  %second = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call424, i64 %i453.07484, i32 1
+  %arrayidx.i2647 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call424, i64 %i453.07484
+  %second = getelementptr inbounds nuw i8, ptr %arrayidx.i2647, i64 8
   %165 = load ptr, ptr %second, align 8
   %second462 = getelementptr inbounds nuw i8, ptr %165, i64 4
   %call464 = invoke noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE5ELS4_5EE17InternalSerializeEiRKiS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 56, ptr noundef nonnull align 4 dereferenceable(4) %165, ptr noundef nonnull align 4 dereferenceable(4) %second462, ptr noundef %target.addr.447483, ptr noundef %stream)
@@ -33608,7 +33611,8 @@ if.then.i.i2737:                                  ; preds = %for.end532
 for.body542:                                      ; preds = %.noexc2744, %invoke.cont551
   %i539.07491 = phi i64 [ %inc554, %invoke.cont551 ], [ 0, %.noexc2744 ]
   %target.addr.477490 = phi ptr [ %call552, %invoke.cont551 ], [ %target.addr.43, %.noexc2744 ]
-  %second545 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.179", ptr %call497, i64 %i539.07491, i32 1
+  %arrayidx.i2746 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.179", ptr %call497, i64 %i539.07491
+  %second545 = getelementptr inbounds nuw i8, ptr %arrayidx.i2746, i64 8
   %200 = load ptr, ptr %second545, align 8
   %second550 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %call552 = invoke noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIllLNS1_14WireFormatLite9FieldTypeE3ELS4_3EE17InternalSerializeEiRKlS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 57, ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull align 8 dereferenceable(8) %second550, ptr noundef %target.addr.477490, ptr noundef %stream)
@@ -33837,7 +33841,8 @@ if.then.i.i2837:                                  ; preds = %for.end621
 for.body631:                                      ; preds = %.noexc2844, %invoke.cont640
   %i628.07498 = phi i64 [ %inc643, %invoke.cont640 ], [ 0, %.noexc2844 ]
   %target.addr.507497 = phi ptr [ %call641, %invoke.cont640 ], [ %target.addr.46, %.noexc2844 ]
-  %second634 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.190", ptr %call586, i64 %i628.07498, i32 1
+  %arrayidx.i2846 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.190", ptr %call586, i64 %i628.07498
+  %second634 = getelementptr inbounds nuw i8, ptr %arrayidx.i2846, i64 8
   %235 = load ptr, ptr %second634, align 8
   %second639 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %call641 = invoke noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIjjLNS1_14WireFormatLite9FieldTypeE13ELS4_13EE17InternalSerializeEiRKjS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 58, ptr noundef nonnull align 4 dereferenceable(4) %235, ptr noundef nonnull align 4 dereferenceable(4) %second639, ptr noundef %target.addr.507497, ptr noundef %stream)
@@ -34066,7 +34071,8 @@ if.then.i.i2937:                                  ; preds = %for.end710
 for.body720:                                      ; preds = %.noexc2944, %invoke.cont729
   %i717.07505 = phi i64 [ %inc732, %invoke.cont729 ], [ 0, %.noexc2944 ]
   %target.addr.537504 = phi ptr [ %call730, %invoke.cont729 ], [ %target.addr.49, %.noexc2944 ]
-  %second723 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.201", ptr %call675, i64 %i717.07505, i32 1
+  %arrayidx.i2946 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.201", ptr %call675, i64 %i717.07505
+  %second723 = getelementptr inbounds nuw i8, ptr %arrayidx.i2946, i64 8
   %270 = load ptr, ptr %second723, align 8
   %second728 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %call730 = invoke noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsImmLNS1_14WireFormatLite9FieldTypeE4ELS4_4EE17InternalSerializeEiRKmS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 59, ptr noundef nonnull align 8 dereferenceable(8) %270, ptr noundef nonnull align 8 dereferenceable(8) %second728, ptr noundef %target.addr.537504, ptr noundef %stream)
@@ -34295,7 +34301,8 @@ if.then.i.i3042:                                  ; preds = %for.end799
 for.body809:                                      ; preds = %.noexc3049, %invoke.cont818
   %i806.07512 = phi i64 [ %inc821, %invoke.cont818 ], [ 0, %.noexc3049 ]
   %target.addr.567511 = phi ptr [ %call819, %invoke.cont818 ], [ %target.addr.52, %.noexc3049 ]
-  %second812 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call764, i64 %i806.07512, i32 1
+  %arrayidx.i3052 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call764, i64 %i806.07512
+  %second812 = getelementptr inbounds nuw i8, ptr %arrayidx.i3052, i64 8
   %305 = load ptr, ptr %second812, align 8
   %second817 = getelementptr inbounds nuw i8, ptr %305, i64 4
   %call819 = invoke noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIiiLNS1_14WireFormatLite9FieldTypeE17ELS4_17EE17InternalSerializeEiRKiS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 60, ptr noundef nonnull align 4 dereferenceable(4) %305, ptr noundef nonnull align 4 dereferenceable(4) %second817, ptr noundef %target.addr.567511, ptr noundef %stream)
@@ -34524,7 +34531,8 @@ if.then.i.i3148:                                  ; preds = %for.end888
 for.body898:                                      ; preds = %.noexc3155, %invoke.cont907
   %i895.07519 = phi i64 [ %inc910, %invoke.cont907 ], [ 0, %.noexc3155 ]
   %target.addr.597518 = phi ptr [ %call908, %invoke.cont907 ], [ %target.addr.55, %.noexc3155 ]
-  %second901 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.179", ptr %call853, i64 %i895.07519, i32 1
+  %arrayidx.i3158 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.179", ptr %call853, i64 %i895.07519
+  %second901 = getelementptr inbounds nuw i8, ptr %arrayidx.i3158, i64 8
   %340 = load ptr, ptr %second901, align 8
   %second906 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %call908 = invoke noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIllLNS1_14WireFormatLite9FieldTypeE18ELS4_18EE17InternalSerializeEiRKlS7_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 61, ptr noundef nonnull align 8 dereferenceable(8) %340, ptr noundef nonnull align 8 dereferenceable(8) %second906, ptr noundef %target.addr.597518, ptr noundef %stream)
@@ -34753,7 +34761,8 @@ if.then.i.i3254:                                  ; preds = %for.end977
 for.body987:                                      ; preds = %.noexc3261, %invoke.cont996
   %i984.07526 = phi i64 [ %inc999, %invoke.cont996 ], [ 0, %.noexc3261 ]
   %target.addr.627525 = phi ptr [ %add.ptr.i.i20.i, %invoke.cont996 ], [ %target.addr.58, %.noexc3261 ]
-  %second990 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.190", ptr %call942, i64 %i984.07526, i32 1
+  %arrayidx.i3264 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.190", ptr %call942, i64 %i984.07526
+  %second990 = getelementptr inbounds nuw i8, ptr %arrayidx.i3264, i64 8
   %375 = load ptr, ptr %second990, align 8
   %second995 = getelementptr inbounds nuw i8, ptr %375, i64 4
   %376 = load ptr, ptr %stream, align 8
@@ -35069,7 +35078,8 @@ if.then.i.i3395:                                  ; preds = %for.end1066
 for.body1076:                                     ; preds = %.noexc3402, %invoke.cont1085
   %i1073.07533 = phi i64 [ %inc1088, %invoke.cont1085 ], [ 0, %.noexc3402 ]
   %target.addr.657532 = phi ptr [ %add.ptr.i.i20.i3429, %invoke.cont1085 ], [ %target.addr.61, %.noexc3402 ]
-  %second1079 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.201", ptr %call1031, i64 %i1073.07533, i32 1
+  %arrayidx.i3405 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.201", ptr %call1031, i64 %i1073.07533
+  %second1079 = getelementptr inbounds nuw i8, ptr %arrayidx.i3405, i64 8
   %420 = load ptr, ptr %second1079, align 8
   %second1084 = getelementptr inbounds nuw i8, ptr %420, i64 8
   %421 = load ptr, ptr %stream, align 8
@@ -35385,7 +35395,8 @@ if.then.i.i3552:                                  ; preds = %for.end1155
 for.body1165:                                     ; preds = %.noexc3559, %invoke.cont1174
   %i1162.07540 = phi i64 [ %inc1177, %invoke.cont1174 ], [ 0, %.noexc3559 ]
   %target.addr.687539 = phi ptr [ %add.ptr.i.i20.i3586, %invoke.cont1174 ], [ %target.addr.64, %.noexc3559 ]
-  %second1168 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call1120, i64 %i1162.07540, i32 1
+  %arrayidx.i3562 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call1120, i64 %i1162.07540
+  %second1168 = getelementptr inbounds nuw i8, ptr %arrayidx.i3562, i64 8
   %465 = load ptr, ptr %second1168, align 8
   %second1173 = getelementptr inbounds nuw i8, ptr %465, i64 4
   %466 = load ptr, ptr %stream, align 8
@@ -35701,7 +35712,8 @@ if.then.i.i3709:                                  ; preds = %for.end1244
 for.body1254:                                     ; preds = %.noexc3716, %invoke.cont1263
   %i1251.07547 = phi i64 [ %inc1266, %invoke.cont1263 ], [ 0, %.noexc3716 ]
   %target.addr.717546 = phi ptr [ %add.ptr.i.i20.i3743, %invoke.cont1263 ], [ %target.addr.67, %.noexc3716 ]
-  %second1257 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.179", ptr %call1209, i64 %i1251.07547, i32 1
+  %arrayidx.i3719 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.179", ptr %call1209, i64 %i1251.07547
+  %second1257 = getelementptr inbounds nuw i8, ptr %arrayidx.i3719, i64 8
   %510 = load ptr, ptr %second1257, align 8
   %second1262 = getelementptr inbounds nuw i8, ptr %510, i64 8
   %511 = load ptr, ptr %stream, align 8
@@ -36017,7 +36029,8 @@ if.then.i.i3862:                                  ; preds = %for.end1333
 for.body1343:                                     ; preds = %.noexc3869, %invoke.cont1352
   %i1340.07554 = phi i64 [ %inc1355, %invoke.cont1352 ], [ 0, %.noexc3869 ]
   %target.addr.747553 = phi ptr [ %call1353, %invoke.cont1352 ], [ %target.addr.70, %.noexc3869 ]
-  %second1346 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.212", ptr %call1298, i64 %i1340.07554, i32 1
+  %arrayidx.i3871 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.212", ptr %call1298, i64 %i1340.07554
+  %second1346 = getelementptr inbounds nuw i8, ptr %arrayidx.i3871, i64 8
   %555 = load ptr, ptr %second1346, align 8
   %second1351 = getelementptr inbounds nuw i8, ptr %555, i64 4
   %call1353 = invoke noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIifLNS1_14WireFormatLite9FieldTypeE5ELS4_2EE17InternalSerializeEiRKiRKfPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 66, ptr noundef nonnull align 4 dereferenceable(4) %555, ptr noundef nonnull align 4 dereferenceable(4) %second1351, ptr noundef %target.addr.747553, ptr noundef %stream)
@@ -36246,7 +36259,8 @@ if.then.i.i3962:                                  ; preds = %for.end1422
 for.body1432:                                     ; preds = %.noexc3969, %invoke.cont1441
   %i1429.07561 = phi i64 [ %inc1444, %invoke.cont1441 ], [ 0, %.noexc3969 ]
   %target.addr.777560 = phi ptr [ %call1442, %invoke.cont1441 ], [ %target.addr.73, %.noexc3969 ]
-  %second1435 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.223", ptr %call1387, i64 %i1429.07561, i32 1
+  %arrayidx.i3971 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.223", ptr %call1387, i64 %i1429.07561
+  %second1435 = getelementptr inbounds nuw i8, ptr %arrayidx.i3971, i64 8
   %590 = load ptr, ptr %second1435, align 8
   %second1440 = getelementptr inbounds nuw i8, ptr %590, i64 8
   %call1442 = invoke noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsIidLNS1_14WireFormatLite9FieldTypeE5ELS4_1EE17InternalSerializeEiRKiRKdPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 67, ptr noundef nonnull align 4 dereferenceable(4) %590, ptr noundef nonnull align 8 dereferenceable(8) %second1440, ptr noundef %target.addr.777560, ptr noundef %stream)
@@ -36476,7 +36490,8 @@ if.then.i.i4062:                                  ; preds = %for.end1511
 for.body1521:                                     ; preds = %.noexc4069, %invoke.cont1530
   %i1518.07568 = phi i64 [ %inc1533, %invoke.cont1530 ], [ 0, %.noexc4069 ]
   %target.addr.807567 = phi ptr [ %add.ptr.i.i28.i19.i, %invoke.cont1530 ], [ %target.addr.76, %.noexc4069 ]
-  %second1524 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.234", ptr %call1476, i64 %i1518.07568, i32 1
+  %arrayidx.i4071 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.234", ptr %call1476, i64 %i1518.07568
+  %second1524 = getelementptr inbounds nuw i8, ptr %arrayidx.i4071, i64 8
   %625 = load ptr, ptr %second1524, align 8
   %second1529 = getelementptr inbounds nuw i8, ptr %625, i64 1
   %626 = load ptr, ptr %stream, align 8

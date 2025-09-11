@@ -306,11 +306,10 @@ AES_unwrap.exit.thread66:                         ; preds = %83, %79
 AES_unwrap.exit:                                  ; preds = %83
   call void @gcry_cipher_close(ptr noundef %88)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.pre = and i32 %84, 65535
   br label %89
 
 89:                                               ; preds = %AES_unwrap.exit, %69
-  %.pre-phi = phi i32 [ %.pre, %AES_unwrap.exit ], [ %41, %69 ]
+  %.pre-phi = phi i32 [ %84, %AES_unwrap.exit ], [ %41, %69 ]
   call fastcc void @Dot11DecryptCopyKey(ptr noundef %14, ptr noundef %6)
   store i32 %.pre-phi, ptr %5, align 4
   br label %90

@@ -61,18 +61,19 @@ define void @_ZN12AtomIteratorC2ERK10gmx_mtop_ti(ptr noundef nonnull writeonly a
   %9 = load i32, ptr %8, align 8, !tbaa !17
   %10 = sext i32 %9 to i64
   %11 = load ptr, ptr %6, align 8, !tbaa !24
-  %12 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %11, i64 %10, i32 1
-  store ptr %12, ptr %5, align 8, !tbaa !27
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %13, align 8, !tbaa !28
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 764
-  %16 = load i32, ptr %15, align 4, !tbaa !29
-  store i32 %16, ptr %14, align 4, !tbaa !82
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %17, align 8, !tbaa !83
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %2, ptr %18, align 4, !tbaa !84
+  %12 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %11, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %13, ptr %5, align 8, !tbaa !27
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %14, align 8, !tbaa !28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 764
+  %17 = load i32, ptr %16, align 4, !tbaa !29
+  store i32 %17, ptr %15, align 4, !tbaa !82
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 0, ptr %18, align 8, !tbaa !83
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %2, ptr %19, align 4, !tbaa !84
   ret void
 }
 
@@ -90,7 +91,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN12AtomIteratorppEv(pt
   %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = load i32, ptr %9, align 8, !tbaa !85
   %.not = icmp slt i32 %4, %10
-  br i1 %.not, label %46, label %11
+  br i1 %.not, label %48, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -118,35 +119,37 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN12AtomIteratorppEv(pt
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !13
   %28 = load ptr, ptr %25, align 8, !tbaa !14
-  %29 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %28, i64 %27, i32 1
-  %30 = load i32, ptr %29, align 4, !tbaa !92
-  %.not3 = icmp slt i32 %24, %30
-  br i1 %.not3, label %46, label %31
+  %29 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %31 = load i32, ptr %30, align 4, !tbaa !92
+  %.not3 = icmp slt i32 %24, %31
+  br i1 %.not3, label %48, label %32
 
-31:                                               ; preds = %21
-  %32 = add i64 %27, 1
-  store i64 %32, ptr %26, align 8, !tbaa !13
-  %33 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  %34 = load ptr, ptr %33, align 8, !tbaa !93
-  %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %28 to i64
-  %37 = sub i64 %35, %36
-  %38 = sdiv exact i64 %37, 56
-  %.not4 = icmp ult i64 %32, %38
-  br i1 %.not4, label %39, label %46
+32:                                               ; preds = %21
+  %33 = add i64 %27, 1
+  store i64 %33, ptr %26, align 8, !tbaa !13
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 144
+  %35 = load ptr, ptr %34, align 8, !tbaa !93
+  %36 = ptrtoint ptr %35 to i64
+  %37 = ptrtoint ptr %28 to i64
+  %38 = sub i64 %36, %37
+  %39 = sdiv exact i64 %38, 56
+  %.not4 = icmp ult i64 %33, %39
+  br i1 %.not4, label %40, label %48
 
-39:                                               ; preds = %31
-  %40 = getelementptr inbounds nuw i8, ptr %14, i64 112
-  %41 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %28, i64 %32
-  %42 = load i32, ptr %41, align 8, !tbaa !17
-  %43 = sext i32 %42 to i64
-  %44 = load ptr, ptr %40, align 8, !tbaa !24
-  %45 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %44, i64 %43, i32 1
-  store ptr %45, ptr %8, align 8, !tbaa !27
+40:                                               ; preds = %32
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 112
+  %42 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %28, i64 %33
+  %43 = load i32, ptr %42, align 8, !tbaa !17
+  %44 = sext i32 %43 to i64
+  %45 = load ptr, ptr %41, align 8, !tbaa !24
+  %46 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %45, i64 %44
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store ptr %47, ptr %8, align 8, !tbaa !27
   store i32 0, ptr %22, align 8, !tbaa !28
-  br label %46
+  br label %48
 
-46:                                               ; preds = %1, %39, %21, %31
+48:                                               ; preds = %1, %40, %21, %32
   ret ptr %0
 }
 
@@ -212,15 +215,16 @@ define noundef ptr @_ZNK9AtomProxy11residueNameEv(ptr noundef nonnull readonly a
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !83
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.t_atom, ptr %6, i64 %9, i32 7
-  %11 = load i32, ptr %10, align 4, !tbaa !102
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !106
-  %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds %struct.t_resinfo, ptr %13, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !107
-  %17 = load ptr, ptr %16, align 8, !tbaa !100
-  ret ptr %17
+  %10 = getelementptr inbounds %struct.t_atom, ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %12 = load i32, ptr %11, align 4, !tbaa !102
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %14 = load ptr, ptr %13, align 8, !tbaa !106
+  %15 = sext i32 %12 to i64
+  %16 = getelementptr inbounds %struct.t_resinfo, ptr %14, i64 %15
+  %17 = load ptr, ptr %16, align 8, !tbaa !107
+  %18 = load ptr, ptr %17, align 8, !tbaa !100
+  ret ptr %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -233,33 +237,35 @@ define noundef i32 @_ZNK9AtomProxy13residueNumberEv(ptr noundef nonnull readonly
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !83
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.t_atom, ptr %6, i64 %9, i32 7
-  %11 = load i32, ptr %10, align 4, !tbaa !102
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %13 = load i32, ptr %12, align 8, !tbaa !90
-  %14 = load ptr, ptr %2, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 760
-  %16 = load i32, ptr %15, align 8, !tbaa !91
-  %.not = icmp sgt i32 %13, %16
-  br i1 %.not, label %22, label %17
+  %10 = getelementptr inbounds %struct.t_atom, ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %12 = load i32, ptr %11, align 4, !tbaa !102
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %14 = load i32, ptr %13, align 8, !tbaa !90
+  %15 = load ptr, ptr %2, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 760
+  %17 = load i32, ptr %16, align 8, !tbaa !91
+  %.not = icmp sgt i32 %14, %17
+  br i1 %.not, label %23, label %18
 
-17:                                               ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %19 = load i32, ptr %18, align 4, !tbaa !82
-  %20 = add i32 %11, 1
-  %21 = add i32 %20, %19
-  br label %28
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %20 = load i32, ptr %19, align 4, !tbaa !82
+  %21 = add i32 %12, 1
+  %22 = add i32 %21, %20
+  br label %30
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %24 = load ptr, ptr %23, align 8, !tbaa !106
-  %25 = sext i32 %11 to i64
-  %26 = getelementptr inbounds %struct.t_resinfo, ptr %24, i64 %25, i32 1
-  %27 = load i32, ptr %26, align 8, !tbaa !109
-  br label %28
+23:                                               ; preds = %1
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %25 = load ptr, ptr %24, align 8, !tbaa !106
+  %26 = sext i32 %12 to i64
+  %27 = getelementptr inbounds %struct.t_resinfo, ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !109
+  br label %30
 
-28:                                               ; preds = %22, %17
-  %.0 = phi i32 [ %21, %17 ], [ %27, %22 ]
+30:                                               ; preds = %23, %18
+  %.0 = phi i32 [ %22, %18 ], [ %29, %23 ]
   ret i32 %.0
 }
 
@@ -300,11 +306,12 @@ define noundef ptr @_Z28gmx_mtop_atomloop_block_initRK10gmx_mtop_t(ptr noundef n
   %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = sext i32 %7 to i64
   %9 = load ptr, ptr %4, align 8, !tbaa !24
-  %10 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %9, i64 %8, i32 1
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %10, ptr %11, align 8, !tbaa !113
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 -1, ptr %12, align 8, !tbaa !114
+  %10 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %9, i64 %8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %11, ptr %12, align 8, !tbaa !113
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 -1, ptr %13, align 8, !tbaa !114
   ret ptr %2
 }
 
@@ -388,7 +395,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.phi.trans.insert29 = getelementptr inbounds nuw i8, ptr %.pre, i64 136
   %.pre30 = load ptr, ptr %.phi.trans.insert29, align 8, !tbaa !14
   %31 = sext i32 %27 to i64
-  br label %50
+  br label %51
 
 32:                                               ; preds = %24
   %33 = add i64 %.pre28, 1
@@ -406,7 +413,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 42:                                               ; preds = %32
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull %0)
-  br label %60
+  br label %62
 
 43:                                               ; preds = %32
   %44 = getelementptr inbounds nuw i8, ptr %.pre, i64 112
@@ -414,27 +421,29 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %46 = load i32, ptr %45, align 8, !tbaa !17
   %47 = sext i32 %46 to i64
   %48 = load ptr, ptr %44, align 8, !tbaa !24
-  %49 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %48, i64 %47, i32 1
-  store ptr %49, ptr %28, align 8, !tbaa !113
+  %49 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %48, i64 %47
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store ptr %50, ptr %28, align 8, !tbaa !113
   store i32 0, ptr %25, align 8, !tbaa !114
-  br label %50
+  br label %51
 
-50:                                               ; preds = %._crit_edge, %43
-  %51 = phi ptr [ %37, %43 ], [ %.pre30, %._crit_edge ]
-  %52 = phi i64 [ %33, %43 ], [ %.pre28, %._crit_edge ]
-  %53 = phi i64 [ 0, %43 ], [ %31, %._crit_edge ]
-  %54 = phi ptr [ %49, %43 ], [ %29, %._crit_edge ]
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !97
-  %57 = getelementptr inbounds %struct.t_atom, ptr %56, i64 %53
-  store ptr %57, ptr %1, align 8, !tbaa !120
-  %58 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %51, i64 %52, i32 1
-  %59 = load i32, ptr %58, align 4, !tbaa !92
-  store i32 %59, ptr %2, align 4, !tbaa !121
-  br label %60
+51:                                               ; preds = %._crit_edge, %43
+  %52 = phi ptr [ %37, %43 ], [ %.pre30, %._crit_edge ]
+  %53 = phi i64 [ %33, %43 ], [ %.pre28, %._crit_edge ]
+  %54 = phi i64 [ 0, %43 ], [ %31, %._crit_edge ]
+  %55 = phi ptr [ %50, %43 ], [ %29, %._crit_edge ]
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !97
+  %58 = getelementptr inbounds %struct.t_atom, ptr %57, i64 %54
+  store ptr %58, ptr %1, align 8, !tbaa !120
+  %59 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %52, i64 %53
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %61 = load i32, ptr %60, align 4, !tbaa !92
+  store i32 %61, ptr %2, align 4, !tbaa !121
+  br label %62
 
-60:                                               ; preds = %50, %42
-  %.023 = phi i1 [ false, %42 ], [ true, %50 ]
+62:                                               ; preds = %51, %42
+  %.023 = phi i1 [ false, %42 ], [ true, %51 ]
   ret i1 %.023
 }
 
@@ -700,7 +709,7 @@ define noundef nonnull align 8 dereferenceable(2280) ptr @_ZNK10IListProxy4listE
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %17 = load ptr, ptr %16, align 8, !tbaa !132
-  br label %25
+  br label %26
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -708,11 +717,12 @@ define noundef nonnull align 8 dereferenceable(2280) ptr @_ZNK10IListProxy4listE
   %21 = load i32, ptr %20, align 8, !tbaa !17
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %19, align 8, !tbaa !24
-  %24 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %22, i32 2
-  br label %25
+  %24 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %23, i64 %22
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  br label %26
 
-25:                                               ; preds = %18, %15
-  %.0 = phi ptr [ %17, %15 ], [ %24, %18 ]
+26:                                               ; preds = %18, %15
+  %.0 = phi ptr [ %17, %15 ], [ %25, %18 ]
   ret ptr %.0
 }
 
@@ -731,15 +741,16 @@ define noundef i32 @_ZNK10IListProxy4nmolEv(ptr noundef nonnull readonly align 8
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 56
   %14 = icmp eq i64 %4, %13
-  br i1 %14, label %18, label %15
+  br i1 %14, label %19, label %15
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %9, i64 %4, i32 1
-  %17 = load i32, ptr %16, align 4, !tbaa !92
-  br label %18
+  %16 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %9, i64 %4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !92
+  br label %19
 
-18:                                               ; preds = %1, %15
-  %.0 = phi i32 [ %17, %15 ], [ 1, %1 ]
+19:                                               ; preds = %1, %15
+  %.0 = phi i32 [ %18, %15 ], [ 1, %1 ]
   ret i32 %.0
 }
 

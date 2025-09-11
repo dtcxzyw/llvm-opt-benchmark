@@ -4438,11 +4438,11 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPSt4pairIjjElN9__gnu_cxx
   %8 = icmp sgt i64 %7, 128
   br i1 %8, label %.lr.ph, label %_ZSt14__partial_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_T0_.exit
 
-.lr.ph:                                           ; preds = %3, %63
-  %.022 = phi ptr [ %65, %63 ], [ %1, %3 ]
-  %.01721 = phi i64 [ %64, %63 ], [ %2, %3 ]
+.lr.ph:                                           ; preds = %3, %64
+  %.022 = phi ptr [ %66, %64 ], [ %1, %3 ]
+  %.01721 = phi i64 [ %65, %64 ], [ %2, %3 ]
   %9 = icmp eq i64 %.01721, 0
-  br i1 %9, label %.lr.ph.i.i, label %63
+  br i1 %9, label %.lr.ph.i.i, label %64
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4472,96 +4472,97 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPSt4pairIjjElN9__gnu_cxx
   %.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %11 ]
   %22 = shl i64 %.029.i.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = getelementptr %"struct.std::pair", ptr %0, i64 %22
-  %25 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %23, i32 1
-  %26 = load i32, ptr %25, align 4, !tbaa !247
-  %27 = getelementptr i8, ptr %24, i64 12
-  %28 = load i32, ptr %27, align 4, !tbaa !247
-  %29 = icmp ugt i32 %26, %28
-  %30 = or disjoint i64 %22, 1
-  %spec.select.i.i.i.i = select i1 %29, i64 %30, i64 %23
-  %31 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i.i
-  %32 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.029.i.i.i.i
-  %33 = load i32, ptr %31, align 4, !tbaa !33
-  store i32 %33, ptr %32, align 4, !tbaa !249
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %35 = load i32, ptr %34, align 4, !tbaa !33
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 %35, ptr %36, align 4, !tbaa !247
-  %37 = icmp slt i64 %spec.select.i.i.i.i, %20
-  br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !425
+  %24 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %23
+  %25 = getelementptr %"struct.std::pair", ptr %0, i64 %22
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !247
+  %28 = getelementptr i8, ptr %25, i64 12
+  %29 = load i32, ptr %28, align 4, !tbaa !247
+  %30 = icmp ugt i32 %27, %29
+  %31 = or disjoint i64 %22, 1
+  %spec.select.i.i.i.i = select i1 %30, i64 %31, i64 %23
+  %32 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i.i
+  %33 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.029.i.i.i.i
+  %34 = load i32, ptr %32, align 4, !tbaa !33
+  store i32 %34, ptr %33, align 4, !tbaa !249
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %36 = load i32, ptr %35, align 4, !tbaa !33
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  store i32 %36, ptr %37, align 4, !tbaa !247
+  %38 = icmp slt i64 %spec.select.i.i.i.i, %20
+  br i1 %38, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !425
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %11
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %11 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %38 = and i64 %17, 8
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %52
+  %39 = and i64 %17, 8
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %41, label %53
 
-40:                                               ; preds = %._crit_edge.i.i.i.i
-  %41 = add nsw i64 %18, -2
-  %42 = ashr exact i64 %41, 1
-  %43 = icmp eq i64 %.0.lcssa.i.i.i.i, %42
-  br i1 %43, label %.thread.i.i.i, label %52
+41:                                               ; preds = %._crit_edge.i.i.i.i
+  %42 = add nsw i64 %18, -2
+  %43 = ashr exact i64 %42, 1
+  %44 = icmp eq i64 %.0.lcssa.i.i.i.i, %43
+  br i1 %44, label %.thread.i.i.i, label %53
 
-.thread.i.i.i:                                    ; preds = %40
-  %44 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %45 = or disjoint i64 %44, 1
-  %46 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %45
-  %47 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i.i
-  %48 = load i32, ptr %46, align 4, !tbaa !33
-  store i32 %48, ptr %47, align 4, !tbaa !249
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !33
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i32 %50, ptr %51, align 4, !tbaa !247
+.thread.i.i.i:                                    ; preds = %41
+  %45 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %46 = or disjoint i64 %45, 1
+  %47 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %46
+  %48 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %49 = load i32, ptr %47, align 4, !tbaa !33
+  store i32 %49, ptr %48, align 4, !tbaa !249
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %51 = load i32, ptr %50, align 4, !tbaa !33
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i32 %51, ptr %52, align 4, !tbaa !247
   br label %.lr.ph.i.i.preheader.i.i.i
 
-52:                                               ; preds = %40, %._crit_edge.i.i.i.i
+53:                                               ; preds = %41, %._crit_edge.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %52, %.thread.i.i.i
-  %.1.i16.i.i.i = phi i64 [ %45, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %52 ]
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %53, %.thread.i.i.i
+  %.1.i16.i.i.i = phi i64 [ %46, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %53 ]
   %.sroa.2.0.extract.trunc.i.i17.in.i.i.i = lshr i64 %.sroa.02.0.copyload.i.i.i, 32
   %.sroa.2.0.extract.trunc.i.i17.i.i.i = trunc nuw i64 %.sroa.2.0.extract.trunc.i.i17.in.i.i.i to i32
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %57, %.lr.ph.i.i.preheader.i.i.i
-  %.01317.i.i.i.i.i = phi i64 [ %.018.i.i910.i.i.i, %57 ], [ %.1.i16.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %58, %.lr.ph.i.i.preheader.i.i.i
+  %.01317.i.i.i.i.i = phi i64 [ %.018.i.i910.i.i.i, %58 ], [ %.1.i16.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
   %.018.in.i.i.i.i.i = add nsw i64 %.01317.i.i.i.i.i, -1
   %.018.i.i910.i.i.i = lshr i64 %.018.in.i.i.i.i.i, 1
-  %53 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.018.i.i910.i.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %55 = load i32, ptr %54, align 4, !tbaa !247
-  %56 = icmp ugt i32 %55, %.sroa.2.0.extract.trunc.i.i17.i.i.i
-  br i1 %56, label %57, label %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.i.i
+  %54 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.018.i.i910.i.i.i
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  %56 = load i32, ptr %55, align 4, !tbaa !247
+  %57 = icmp ugt i32 %56, %.sroa.2.0.extract.trunc.i.i17.i.i.i
+  br i1 %57, label %58, label %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.i.i
 
-57:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %58 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.01317.i.i.i.i.i
-  %59 = load i32, ptr %53, align 4, !tbaa !33
-  store i32 %59, ptr %58, align 4, !tbaa !249
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  store i32 %55, ptr %60, align 4, !tbaa !247
+58:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %59 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.01317.i.i.i.i.i
+  %60 = load i32, ptr %54, align 4, !tbaa !33
+  store i32 %60, ptr %59, align 4, !tbaa !249
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  store i32 %56, ptr %61, align 4, !tbaa !247
   %.not11.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
   br i1 %.not11.i.i.i, label %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !426
 
-_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.i.i: ; preds = %57, %.lr.ph.i.i.i.i.i, %52
-  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %52 ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %57 ]
-  %61 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i64 %.sroa.02.0.copyload.i.i.i, ptr %61, align 4
-  %62 = icmp sgt i64 %17, 8
-  br i1 %62, label %11, label %_ZSt14__partial_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_T0_.exit, !llvm.loop !427
+_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.i.i: ; preds = %58, %.lr.ph.i.i.i.i.i, %53
+  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %53 ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %58 ]
+  %62 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store i64 %.sroa.02.0.copyload.i.i.i, ptr %62, align 4
+  %63 = icmp sgt i64 %17, 8
+  br i1 %63, label %11, label %_ZSt14__partial_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_T0_.exit, !llvm.loop !427
 
-63:                                               ; preds = %.lr.ph
-  %64 = add nsw i64 %.01721, -1
-  %65 = tail call noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEET_S9_S9_T0_(ptr noundef %0, ptr noundef %.022)
-  tail call void @_ZSt16__introsort_loopIPSt4pairIjjElN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_T0_T1_(ptr noundef %65, ptr noundef %.022, i64 noundef %64)
-  %66 = ptrtoint ptr %65 to i64
-  %67 = sub i64 %66, %5
-  %68 = icmp sgt i64 %67, 128
-  br i1 %68, label %.lr.ph, label %_ZSt14__partial_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_T0_.exit, !llvm.loop !428
+64:                                               ; preds = %.lr.ph
+  %65 = add nsw i64 %.01721, -1
+  %66 = tail call noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEET_S9_S9_T0_(ptr noundef %0, ptr noundef %.022)
+  tail call void @_ZSt16__introsort_loopIPSt4pairIjjElN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_T0_T1_(ptr noundef %66, ptr noundef %.022, i64 noundef %65)
+  %67 = ptrtoint ptr %66 to i64
+  %68 = sub i64 %67, %5
+  %69 = icmp sgt i64 %68, 128
+  br i1 %69, label %.lr.ph, label %_ZSt14__partial_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_T0_.exit, !llvm.loop !428
 
-_ZSt14__partial_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_T0_.exit: ; preds = %63, %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.i.i, %3
+_ZSt14__partial_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_T0_.exit: ; preds = %64, %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.i.i, %3
   ret void
 }
 
@@ -4934,7 +4935,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPSt4pairIjjEN9__gnu_cxx5__ops
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us
-  %.015.us = phi i64 [ %51, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us ], [ %11, %9 ]
+  %.015.us = phi i64 [ %52, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us ], [ %11, %9 ]
   %22 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.015.us
   %.sroa.02.0.copyload.us = load i64, ptr %22, align 4
   %23 = icmp slt i64 %.015.us, %13
@@ -4944,132 +4945,134 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPSt4pairIjjEN9__gnu_cxx5__ops
   %.029.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.015.us, %.split.us ]
   %24 = shl i64 %.029.i.us, 1
   %25 = add i64 %24, 2
-  %26 = getelementptr %"struct.std::pair", ptr %0, i64 %24
-  %27 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %25, i32 1
-  %28 = load i32, ptr %27, align 4, !tbaa !247
-  %29 = getelementptr i8, ptr %26, i64 12
-  %30 = load i32, ptr %29, align 4, !tbaa !247
-  %31 = icmp ugt i32 %28, %30
-  %32 = or disjoint i64 %24, 1
-  %spec.select.i.us = select i1 %31, i64 %32, i64 %25
-  %33 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.us
-  %34 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.029.i.us
-  %35 = load i32, ptr %33, align 4, !tbaa !33
-  store i32 %35, ptr %34, align 4, !tbaa !249
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !33
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 %37, ptr %38, align 4, !tbaa !247
-  %39 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %39, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !425
+  %26 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %25
+  %27 = getelementptr %"struct.std::pair", ptr %0, i64 %24
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !247
+  %30 = getelementptr i8, ptr %27, i64 12
+  %31 = load i32, ptr %30, align 4, !tbaa !247
+  %32 = icmp ugt i32 %29, %31
+  %33 = or disjoint i64 %24, 1
+  %spec.select.i.us = select i1 %32, i64 %33, i64 %25
+  %34 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.us
+  %35 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.029.i.us
+  %36 = load i32, ptr %34, align 4, !tbaa !33
+  store i32 %36, ptr %35, align 4, !tbaa !249
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %38 = load i32, ptr %37, align 4, !tbaa !33
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store i32 %38, ptr %39, align 4, !tbaa !247
+  %40 = icmp slt i64 %spec.select.i.us, %13
+  br i1 %40, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !425
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %.sroa.2.0.extract.shift.i.i.us = lshr i64 %.sroa.02.0.copyload.us, 32
   %.sroa.2.0.extract.trunc.i.i.us = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.us to i32
-  %40 = icmp sgt i64 %spec.select.i.us, %.015.us
-  br i1 %40, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us
+  %41 = icmp sgt i64 %spec.select.i.us, %.015.us
+  br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us
 
-.lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us, %45
-  %.01317.i.i.us = phi i64 [ %.018.i.i.us, %45 ], [ %spec.select.i.us, %._crit_edge.i.us ]
+.lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us, %46
+  %.01317.i.i.us = phi i64 [ %.018.i.i.us, %46 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.018.i.i.us
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !247
-  %44 = icmp ugt i32 %43, %.sroa.2.0.extract.trunc.i.i.us
-  br i1 %44, label %45, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us
+  %42 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.018.i.i.us
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %44 = load i32, ptr %43, align 4, !tbaa !247
+  %45 = icmp ugt i32 %44, %.sroa.2.0.extract.trunc.i.i.us
+  br i1 %45, label %46, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us
 
-45:                                               ; preds = %.lr.ph.i.i.us
-  %46 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.01317.i.i.us
-  %47 = load i32, ptr %41, align 4, !tbaa !33
-  store i32 %47, ptr %46, align 4, !tbaa !249
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 %43, ptr %48, align 4, !tbaa !247
-  %49 = icmp sgt i64 %.018.i.i.us, %.015.us
-  br i1 %49, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !426
+46:                                               ; preds = %.lr.ph.i.i.us
+  %47 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.01317.i.i.us
+  %48 = load i32, ptr %42, align 4, !tbaa !33
+  store i32 %48, ptr %47, align 4, !tbaa !249
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  store i32 %44, ptr %49, align 4, !tbaa !247
+  %50 = icmp sgt i64 %.018.i.i.us, %.015.us
+  br i1 %50, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !426
 
-_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %45, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.015.us, %.split.us ], [ %.018.i.i.us, %45 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
-  %50 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.us
-  store i64 %.sroa.02.0.copyload.us, ptr %50, align 4
+_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %46, %.split.us, %._crit_edge.i.us
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.015.us, %.split.us ], [ %.018.i.i.us, %46 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
+  %51 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.us
+  store i64 %.sroa.02.0.copyload.us, ptr %51, align 4
   %.not.us = icmp eq i64 %.015.us, 0
-  %51 = add nsw i64 %.015.us, -1
+  %52 = add nsw i64 %.015.us, -1
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !436
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit
-  %.015 = phi i64 [ %86, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %52 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.015
-  %.sroa.02.0.copyload = load i64, ptr %52, align 4
-  %53 = icmp slt i64 %.015, %13
-  br i1 %53, label %.lr.ph.i, label %._crit_edge.i
+  %.015 = phi i64 [ %88, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit ], [ %11, %.split.preheader ]
+  %53 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.015
+  %.sroa.02.0.copyload = load i64, ptr %53, align 4
+  %54 = icmp slt i64 %.015, %13
+  br i1 %54, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.029.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.015, %.split ]
-  %54 = shl i64 %.029.i, 1
-  %55 = add i64 %54, 2
-  %56 = getelementptr %"struct.std::pair", ptr %0, i64 %54
-  %57 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %55, i32 1
-  %58 = load i32, ptr %57, align 4, !tbaa !247
-  %59 = getelementptr i8, ptr %56, i64 12
+  %55 = shl i64 %.029.i, 1
+  %56 = add i64 %55, 2
+  %57 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %56
+  %58 = getelementptr %"struct.std::pair", ptr %0, i64 %55
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !247
-  %61 = icmp ugt i32 %58, %60
-  %62 = or disjoint i64 %54, 1
-  %spec.select.i = select i1 %61, i64 %62, i64 %55
-  %63 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i
-  %64 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.029.i
-  %65 = load i32, ptr %63, align 4, !tbaa !33
-  store i32 %65, ptr %64, align 4, !tbaa !249
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !33
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  store i32 %67, ptr %68, align 4, !tbaa !247
-  %69 = icmp slt i64 %spec.select.i, %13
-  br i1 %69, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !425
+  %61 = getelementptr i8, ptr %58, i64 12
+  %62 = load i32, ptr %61, align 4, !tbaa !247
+  %63 = icmp ugt i32 %60, %62
+  %64 = or disjoint i64 %55, 1
+  %spec.select.i = select i1 %63, i64 %64, i64 %56
+  %65 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i
+  %66 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.029.i
+  %67 = load i32, ptr %65, align 4, !tbaa !33
+  store i32 %67, ptr %66, align 4, !tbaa !249
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %69 = load i32, ptr %68, align 4, !tbaa !33
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  store i32 %69, ptr %70, align 4, !tbaa !247
+  %71 = icmp slt i64 %spec.select.i, %13
+  br i1 %71, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !425
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.015, %.split ], [ %spec.select.i, %.lr.ph.i ]
-  %70 = icmp eq i64 %.0.lcssa.i, %16
-  br i1 %70, label %71, label %74
+  %72 = icmp eq i64 %.0.lcssa.i, %16
+  br i1 %72, label %73, label %76
 
-71:                                               ; preds = %._crit_edge.i
-  %72 = load i32, ptr %18, align 4, !tbaa !33
-  store i32 %72, ptr %19, align 4, !tbaa !249
-  %73 = load i32, ptr %20, align 4, !tbaa !33
-  store i32 %73, ptr %21, align 4, !tbaa !247
-  br label %74
+73:                                               ; preds = %._crit_edge.i
+  %74 = load i32, ptr %18, align 4, !tbaa !33
+  store i32 %74, ptr %19, align 4, !tbaa !249
+  %75 = load i32, ptr %20, align 4, !tbaa !33
+  store i32 %75, ptr %21, align 4, !tbaa !247
+  br label %76
 
-74:                                               ; preds = %71, %._crit_edge.i
-  %.1.i = phi i64 [ %17, %71 ], [ %.0.lcssa.i, %._crit_edge.i ]
+76:                                               ; preds = %73, %._crit_edge.i
+  %.1.i = phi i64 [ %17, %73 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %.sroa.2.0.extract.shift.i.i = lshr i64 %.sroa.02.0.copyload, 32
   %.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i to i32
-  %75 = icmp sgt i64 %.1.i, %.015
-  br i1 %75, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit
+  %77 = icmp sgt i64 %.1.i, %.015
+  br i1 %77, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %74, %80
-  %.01317.i.i = phi i64 [ %.018.i.i, %80 ], [ %.1.i, %74 ]
+.lr.ph.i.i:                                       ; preds = %76, %82
+  %.01317.i.i = phi i64 [ %.018.i.i, %82 ], [ %.1.i, %76 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %76 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.018.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  %78 = load i32, ptr %77, align 4, !tbaa !247
-  %79 = icmp ugt i32 %78, %.sroa.2.0.extract.trunc.i.i
-  br i1 %79, label %80, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit
+  %78 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.018.i.i
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %80 = load i32, ptr %79, align 4, !tbaa !247
+  %81 = icmp ugt i32 %80, %.sroa.2.0.extract.trunc.i.i
+  br i1 %81, label %82, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit
 
-80:                                               ; preds = %.lr.ph.i.i
-  %81 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.01317.i.i
-  %82 = load i32, ptr %76, align 4, !tbaa !33
-  store i32 %82, ptr %81, align 4, !tbaa !249
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  store i32 %78, ptr %83, align 4, !tbaa !247
-  %84 = icmp sgt i64 %.018.i.i, %.015
-  br i1 %84, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit, !llvm.loop !426
+82:                                               ; preds = %.lr.ph.i.i
+  %83 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.01317.i.i
+  %84 = load i32, ptr %78, align 4, !tbaa !33
+  store i32 %84, ptr %83, align 4, !tbaa !249
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  store i32 %80, ptr %85, align 4, !tbaa !247
+  %86 = icmp sgt i64 %.018.i.i, %.015
+  br i1 %86, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit, !llvm.loop !426
 
-_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit: ; preds = %.lr.ph.i.i, %80, %74
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %74 ], [ %.018.i.i, %80 ], [ %.01317.i.i, %.lr.ph.i.i ]
-  %85 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i
-  store i64 %.sroa.02.0.copyload, ptr %85, align 4
+_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit: ; preds = %.lr.ph.i.i, %82, %76
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %76 ], [ %.018.i.i, %82 ], [ %.01317.i.i, %.lr.ph.i.i ]
+  %87 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i
+  store i64 %.sroa.02.0.copyload, ptr %87, align 4
   %.not = icmp eq i64 %.015, 0
-  %86 = add nsw i64 %.015, -1
+  %88 = add nsw i64 %.015, -1
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !436
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit, %3

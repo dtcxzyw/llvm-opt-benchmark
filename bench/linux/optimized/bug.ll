@@ -39,7 +39,8 @@ define dso_local void @module_bug_finalize(ptr noundef readonly captures(none) %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr %struct.elf64_shdr, ptr %1, i64 %8, i32 4
+  %.split = getelementptr %struct.elf64_shdr, ptr %1, i64 %8
+  %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr i8, ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60

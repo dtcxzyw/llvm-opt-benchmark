@@ -1388,7 +1388,7 @@ _ZL18_findSameDataBlockPKjiii.exit.thread:        ; preds = %39, %54
   br i1 %78, label %.lr.ph30, label %.outer
 
 .lr.ph30:                                         ; preds = %.critedge
-  %79 = sub nsw i32 32, %64
+  %79 = sub nuw nsw i32 32, %64
   %80 = sext i32 %indvars.iv64 to i64
   br label %81
 
@@ -1403,7 +1403,7 @@ _ZL18_findSameDataBlockPKjiii.exit.thread:        ; preds = %39, %54
   %84 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv62
   store i32 %83, ptr %84, align 4, !tbaa !12
   %85 = add nsw i32 %.28427, -1
-  %86 = icmp sgt i32 %.28427, 1
+  %86 = icmp samesign ugt i32 %.28427, 1
   br i1 %86, label %81, label %.outer.loopexit41, !llvm.loop !48
 
 .critedge.thread:                                 ; preds = %38, %74, %_ZL18_findSameDataBlockPKjiii.exit.thread

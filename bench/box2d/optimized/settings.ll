@@ -58,15 +58,15 @@ define dso_local i32 @jsmn_parse(ptr noundef captures(none) %0, ptr noundef read
     i8 0, label %.critedge
     i8 123, label %19
     i8 91, label %19
-    i8 125, label %37
-    i8 93, label %37
-    i8 34, label %73
+    i8 125, label %38
+    i8 93, label %38
+    i8 34, label %71
     i8 9, label %.loopexit
     i8 13, label %.loopexit
     i8 10, label %.loopexit
     i8 32, label %.loopexit
-    i8 58, label %122
-    i8 44, label %124
+    i8 58, label %121
+    i8 44, label %123
   ]
 
 19:                                               ; preds = %11, %11
@@ -89,312 +89,306 @@ _ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit: ; preds = %21
   store i32 0, ptr %27, align 4, !tbaa !14
   %28 = load i32, ptr %10, align 4, !tbaa !15
   %.not139 = icmp eq i32 %28, -1
-  br i1 %.not139, label %34, label %29
+  br i1 %.not139, label %35, label %29
 
 29:                                               ; preds = %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %30, i32 3
-  %32 = load i32, ptr %31, align 4, !tbaa !14
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %31, align 4, !tbaa !14
-  br label %34
+  %31 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  %33 = load i32, ptr %32, align 4, !tbaa !14
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %32, align 4, !tbaa !14
+  br label %35
 
-34:                                               ; preds = %29, %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit
-  %35 = icmp eq i8 %18, 123
-  %36 = select i1 %35, i32 1, i32 2
-  store i32 %36, ptr %24, align 4, !tbaa !16
+35:                                               ; preds = %29, %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit
+  %36 = icmp eq i8 %18, 123
+  %37 = select i1 %36, i32 1, i32 2
+  store i32 %37, ptr %24, align 4, !tbaa !16
   store i32 %16, ptr %26, align 4, !tbaa !17
   store i32 %12, ptr %10, align 4, !tbaa !15
   br label %.loopexit
 
-37:                                               ; preds = %11, %11
-  br i1 %.not131, label %.loopexit, label %38
+38:                                               ; preds = %11, %11
+  br i1 %.not131, label %.loopexit, label %39
 
-38:                                               ; preds = %37
-  %39 = icmp eq i8 %18, 125
-  %40 = select i1 %39, i32 1, i32 2
+39:                                               ; preds = %38
+  %40 = icmp eq i8 %18, 125
+  %41 = select i1 %40, i32 1, i32 2
   %.0107202 = add i32 %12, -1
-  %41 = icmp sgt i32 %.0107202, -1
-  br i1 %41, label %.lr.ph205.preheader, label %.loopexit166
+  %42 = icmp sgt i32 %.0107202, -1
+  br i1 %42, label %.lr.ph205.preheader, label %.loopexit166
 
-.lr.ph205.preheader:                              ; preds = %38
-  %42 = zext nneg i32 %.0107202 to i64
+.lr.ph205.preheader:                              ; preds = %39
+  %43 = zext nneg i32 %.0107202 to i64
   br label %.lr.ph205
 
-.lr.ph205:                                        ; preds = %.lr.ph205.preheader, %56
-  %indvars.iv246 = phi i64 [ %42, %.lr.ph205.preheader ], [ %indvars.iv.next247, %56 ]
-  %.0107.in203 = phi i32 [ %12, %.lr.ph205.preheader ], [ %58, %56 ]
-  %43 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv246
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !17
-  %.not136 = icmp eq i32 %45, -1
-  br i1 %.not136, label %56, label %46
+.lr.ph205:                                        ; preds = %.lr.ph205.preheader, %53
+  %indvars.iv246 = phi i64 [ %43, %.lr.ph205.preheader ], [ %indvars.iv.next247, %53 ]
+  %44 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv246
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !17
+  %.not136 = icmp eq i32 %46, -1
+  br i1 %.not136, label %53, label %47
 
-46:                                               ; preds = %.lr.ph205
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %48 = load i32, ptr %47, align 4, !tbaa !11
-  %49 = icmp eq i32 %48, -1
-  br i1 %49, label %50, label %56
+47:                                               ; preds = %.lr.ph205
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %49 = load i32, ptr %48, align 4, !tbaa !11
+  %50 = icmp eq i32 %49, -1
+  br i1 %50, label %51, label %53
 
-50:                                               ; preds = %46
-  %51 = load i32, ptr %43, align 4, !tbaa !16
-  %.not137 = icmp eq i32 %51, %40
-  br i1 %.not137, label %52, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread
+51:                                               ; preds = %47
+  %52 = load i32, ptr %44, align 4, !tbaa !16
+  %.not137 = icmp eq i32 %52, %41
+  br i1 %.not137, label %.preheader, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %54 = trunc nuw nsw i64 %indvars.iv246 to i32
-  store i32 -1, ptr %10, align 4, !tbaa !15
-  %55 = add i32 %16, 1
-  store i32 %55, ptr %53, align 4, !tbaa !11
-  br label %.loopexit166
-
-56:                                               ; preds = %.lr.ph205, %46
+53:                                               ; preds = %.lr.ph205, %47
   %indvars.iv.next247 = add nsw i64 %indvars.iv246, -1
-  %57 = icmp sgt i64 %indvars.iv246, 0
-  %58 = trunc nuw nsw i64 %indvars.iv246 to i32
-  br i1 %57, label %.lr.ph205, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread, !llvm.loop !18
+  %54 = icmp sgt i64 %indvars.iv246, 0
+  br i1 %54, label %.lr.ph205, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread, !llvm.loop !18
 
-.loopexit166:                                     ; preds = %38, %52
-  %.0107.in179 = phi i32 [ %.0107.in203, %52 ], [ %12, %38 ]
-  %.0107177 = phi i32 [ %54, %52 ], [ %.0107202, %38 ]
-  %59 = icmp eq i32 %.0107.in179, 0
-  br i1 %59, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread, label %.preheader
+.loopexit166:                                     ; preds = %39
+  %55 = icmp eq i32 %12, 0
+  br i1 %55, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread, label %.loopexit
 
-.preheader:                                       ; preds = %.loopexit166
-  %60 = icmp sgt i32 %.0107177, -1
-  br i1 %60, label %.lr.ph208.preheader, label %.loopexit
+.preheader:                                       ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i32 -1, ptr %10, align 4, !tbaa !15
+  %57 = add i32 %16, 1
+  store i32 %57, ptr %56, align 4, !tbaa !11
+  %58 = icmp sgt i64 %indvars.iv246, -1
+  br i1 %58, label %.lr.ph208.preheader, label %.loopexit
 
 .lr.ph208.preheader:                              ; preds = %.preheader
-  %61 = zext nneg i32 %.0107177 to i64
+  %59 = and i64 %indvars.iv246, 4294967295
   br label %.lr.ph208
 
-.lr.ph208:                                        ; preds = %.lr.ph208.preheader, %71
-  %indvars.iv249 = phi i64 [ %61, %.lr.ph208.preheader ], [ %indvars.iv.next250, %71 ]
-  %62 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv249
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !17
-  %.not138 = icmp eq i32 %64, -1
-  br i1 %.not138, label %71, label %65
+.lr.ph208:                                        ; preds = %.lr.ph208.preheader, %69
+  %indvars.iv249 = phi i64 [ %59, %.lr.ph208.preheader ], [ %indvars.iv.next250, %69 ]
+  %60 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv249
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %62 = load i32, ptr %61, align 4, !tbaa !17
+  %.not138 = icmp eq i32 %62, -1
+  br i1 %.not138, label %69, label %63
 
-65:                                               ; preds = %.lr.ph208
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %67 = load i32, ptr %66, align 4, !tbaa !11
-  %68 = icmp eq i32 %67, -1
-  br i1 %68, label %69, label %71
+63:                                               ; preds = %.lr.ph208
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %65 = load i32, ptr %64, align 4, !tbaa !11
+  %66 = icmp eq i32 %65, -1
+  br i1 %66, label %67, label %69
 
-69:                                               ; preds = %65
-  %70 = trunc nuw nsw i64 %indvars.iv249 to i32
-  store i32 %70, ptr %10, align 4, !tbaa !15
+67:                                               ; preds = %63
+  %68 = trunc nuw nsw i64 %indvars.iv249 to i32
+  store i32 %68, ptr %10, align 4, !tbaa !15
   br label %.loopexit
 
-71:                                               ; preds = %.lr.ph208, %65
+69:                                               ; preds = %.lr.ph208, %63
   %indvars.iv.next250 = add nsw i64 %indvars.iv249, -1
-  %72 = icmp sgt i64 %indvars.iv249, 0
-  br i1 %72, label %.lr.ph208, label %.loopexit, !llvm.loop !20
+  %70 = icmp sgt i64 %indvars.iv249, 0
+  br i1 %70, label %.lr.ph208, label %.loopexit, !llvm.loop !20
 
-73:                                               ; preds = %11
-  %74 = add i32 %16, 1
-  store i32 %74, ptr %0, align 4, !tbaa !9
-  %75 = zext i32 %74 to i64
-  %76 = icmp ugt i64 %2, %75
-  br i1 %76, label %.lr.ph.i, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split
+71:                                               ; preds = %11
+  %72 = add i32 %16, 1
+  store i32 %72, ptr %0, align 4, !tbaa !9
+  %73 = zext i32 %72 to i64
+  %74 = icmp ugt i64 %2, %73
+  br i1 %74, label %.lr.ph.i, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split
 
-.lr.ph.i:                                         ; preds = %73, %105
-  %77 = phi i64 [ %107, %105 ], [ %75, %73 ]
-  %storemerge86.i = phi i32 [ %106, %105 ], [ %74, %73 ]
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !10
-  switch i8 %79, label %105 [
+.lr.ph.i:                                         ; preds = %71, %103
+  %75 = phi i64 [ %105, %103 ], [ %73, %71 ]
+  %storemerge86.i = phi i32 [ %104, %103 ], [ %72, %71 ]
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 %75
+  %77 = load i8, ptr %76, align 1, !tbaa !10
+  switch i8 %77, label %103 [
     i8 0, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split
-    i8 34, label %80
-    i8 92, label %83
+    i8 34, label %78
+    i8 92, label %81
   ]
 
-80:                                               ; preds = %.lr.ph.i
-  br i1 %.not131, label %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151, label %82
+78:                                               ; preds = %.lr.ph.i
+  br i1 %.not131, label %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151, label %80
 
-_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151: ; preds = %80
-  %81 = add nsw i32 %.0110212, 1
+_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151: ; preds = %78
+  %79 = add nsw i32 %.0110212, 1
   br label %.loopexit
 
-82:                                               ; preds = %80
+80:                                               ; preds = %78
   %.not.i.i = icmp ugt i32 %4, %13
   br i1 %.not.i.i, label %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split
 
-83:                                               ; preds = %.lr.ph.i
-  %84 = add i32 %storemerge86.i, 1
-  %85 = zext i32 %84 to i64
-  %86 = icmp ugt i64 %2, %85
-  br i1 %86, label %87, label %105
+81:                                               ; preds = %.lr.ph.i
+  %82 = add i32 %storemerge86.i, 1
+  %83 = zext i32 %82 to i64
+  %84 = icmp ugt i64 %2, %83
+  br i1 %84, label %85, label %103
 
-87:                                               ; preds = %83
-  store i32 %84, ptr %0, align 4, !tbaa !9
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 %85
-  %89 = load i8, ptr %88, align 1, !tbaa !10
-  switch i8 %89, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split [
-    i8 34, label %105
-    i8 47, label %105
-    i8 92, label %105
-    i8 98, label %105
-    i8 102, label %105
-    i8 114, label %105
-    i8 110, label %105
-    i8 116, label %105
-    i8 117, label %90
+85:                                               ; preds = %81
+  store i32 %82, ptr %0, align 4, !tbaa !9
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 %83
+  %87 = load i8, ptr %86, align 1, !tbaa !10
+  switch i8 %87, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split [
+    i8 34, label %103
+    i8 47, label %103
+    i8 92, label %103
+    i8 98, label %103
+    i8 102, label %103
+    i8 114, label %103
+    i8 110, label %103
+    i8 116, label %103
+    i8 117, label %88
   ]
 
-90:                                               ; preds = %87
-  %91 = add i32 %storemerge86.i, 2
-  store i32 %91, ptr %0, align 4, !tbaa !9
-  br label %92
+88:                                               ; preds = %85
+  %89 = add i32 %storemerge86.i, 2
+  store i32 %89, ptr %0, align 4, !tbaa !9
+  br label %90
 
-92:                                               ; preds = %101, %90
-  %93 = phi i32 [ %91, %90 ], [ %102, %101 ]
-  %.082.i = phi i32 [ 0, %90 ], [ %103, %101 ]
-  %94 = zext i32 %93 to i64
-  %95 = icmp ugt i64 %2, %94
-  br i1 %95, label %96, label %.critedge3.i
+90:                                               ; preds = %99, %88
+  %91 = phi i32 [ %89, %88 ], [ %100, %99 ]
+  %.082.i = phi i32 [ 0, %88 ], [ %101, %99 ]
+  %92 = zext i32 %91 to i64
+  %93 = icmp ugt i64 %2, %92
+  br i1 %93, label %94, label %.critedge3.i
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %94
-  %98 = load i8, ptr %97, align 1, !tbaa !10
-  %.fr.i = freeze i8 %98
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 %92
+  %96 = load i8, ptr %95, align 1, !tbaa !10
+  %.fr.i = freeze i8 %96
   %.not71.i = icmp eq i8 %.fr.i, 0
-  br i1 %.not71.i, label %.critedge3.i, label %99
+  br i1 %.not71.i, label %.critedge3.i, label %97
 
-99:                                               ; preds = %96
-  %100 = add i8 %.fr.i, -48
-  %or.cond.i = icmp ult i8 %100, 10
-  br i1 %or.cond.i, label %101, label %switch.early.test.i
+97:                                               ; preds = %94
+  %98 = add i8 %.fr.i, -48
+  %or.cond.i = icmp ult i8 %98, 10
+  br i1 %or.cond.i, label %99, label %switch.early.test.i
 
-switch.early.test.i:                              ; preds = %99
+switch.early.test.i:                              ; preds = %97
   switch i8 %.fr.i, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split [
-    i8 102, label %101
-    i8 101, label %101
-    i8 100, label %101
-    i8 99, label %101
-    i8 98, label %101
-    i8 97, label %101
-    i8 70, label %101
-    i8 69, label %101
-    i8 68, label %101
-    i8 67, label %101
-    i8 66, label %101
-    i8 65, label %101
+    i8 102, label %99
+    i8 101, label %99
+    i8 100, label %99
+    i8 99, label %99
+    i8 98, label %99
+    i8 97, label %99
+    i8 70, label %99
+    i8 69, label %99
+    i8 68, label %99
+    i8 67, label %99
+    i8 66, label %99
+    i8 65, label %99
   ]
 
-101:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %99
-  %102 = add i32 %93, 1
-  store i32 %102, ptr %0, align 4, !tbaa !9
-  %103 = add nuw nsw i32 %.082.i, 1
-  %exitcond.not.i = icmp eq i32 %103, 4
-  br i1 %exitcond.not.i, label %.critedge3.i, label %92, !llvm.loop !21
+99:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %97
+  %100 = add i32 %91, 1
+  store i32 %100, ptr %0, align 4, !tbaa !9
+  %101 = add nuw nsw i32 %.082.i, 1
+  %exitcond.not.i = icmp eq i32 %101, 4
+  br i1 %exitcond.not.i, label %.critedge3.i, label %90, !llvm.loop !21
 
-.critedge3.i:                                     ; preds = %101, %96, %92
-  %.promoted84.i = phi i32 [ %93, %92 ], [ %102, %101 ], [ %93, %96 ]
-  %104 = add i32 %.promoted84.i, -1
-  br label %105
+.critedge3.i:                                     ; preds = %99, %94, %90
+  %.promoted84.i = phi i32 [ %91, %90 ], [ %100, %99 ], [ %91, %94 ]
+  %102 = add i32 %.promoted84.i, -1
+  br label %103
 
-105:                                              ; preds = %.critedge3.i, %87, %87, %87, %87, %87, %87, %87, %87, %83, %.lr.ph.i
-  %.promoted85.i = phi i32 [ %storemerge86.i, %.lr.ph.i ], [ %storemerge86.i, %83 ], [ %104, %.critedge3.i ], [ %84, %87 ], [ %84, %87 ], [ %84, %87 ], [ %84, %87 ], [ %84, %87 ], [ %84, %87 ], [ %84, %87 ], [ %84, %87 ]
-  %106 = add i32 %.promoted85.i, 1
-  store i32 %106, ptr %0, align 4, !tbaa !9
-  %107 = zext i32 %106 to i64
-  %108 = icmp ugt i64 %2, %107
-  br i1 %108, label %.lr.ph.i, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split, !llvm.loop !22
+103:                                              ; preds = %.critedge3.i, %85, %85, %85, %85, %85, %85, %85, %85, %81, %.lr.ph.i
+  %.promoted85.i = phi i32 [ %storemerge86.i, %.lr.ph.i ], [ %storemerge86.i, %81 ], [ %102, %.critedge3.i ], [ %82, %85 ], [ %82, %85 ], [ %82, %85 ], [ %82, %85 ], [ %82, %85 ], [ %82, %85 ], [ %82, %85 ], [ %82, %85 ]
+  %104 = add i32 %.promoted85.i, 1
+  store i32 %104, ptr %0, align 4, !tbaa !9
+  %105 = zext i32 %104 to i64
+  %106 = icmp ugt i64 %2, %105
+  br i1 %106, label %.lr.ph.i, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split, !llvm.loop !22
 
-_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %82
-  %109 = zext i32 %13 to i64
-  %110 = add nuw i32 %13, 1
-  store i32 %110, ptr %6, align 4, !tbaa !4
-  %111 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %109
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  %114 = getelementptr inbounds nuw i8, ptr %111, i64 12
-  store i32 4, ptr %111, align 4, !tbaa !16
-  store i32 %74, ptr %113, align 4, !tbaa !17
-  store i32 %storemerge86.i, ptr %112, align 4, !tbaa !11
-  store i32 0, ptr %114, align 4, !tbaa !14
-  %115 = add nsw i32 %.0110212, 1
-  %116 = load i32, ptr %10, align 4, !tbaa !15
-  %.not = icmp eq i32 %116, -1
-  br i1 %.not, label %.loopexit, label %117
+_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %80
+  %107 = zext i32 %13 to i64
+  %108 = add nuw i32 %13, 1
+  store i32 %108, ptr %6, align 4, !tbaa !4
+  %109 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %107
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 12
+  store i32 4, ptr %109, align 4, !tbaa !16
+  store i32 %72, ptr %111, align 4, !tbaa !17
+  store i32 %storemerge86.i, ptr %110, align 4, !tbaa !11
+  store i32 0, ptr %112, align 4, !tbaa !14
+  %113 = add nsw i32 %.0110212, 1
+  %114 = load i32, ptr %10, align 4, !tbaa !15
+  %.not = icmp eq i32 %114, -1
+  br i1 %.not, label %.loopexit, label %115
 
-117:                                              ; preds = %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit
-  %118 = sext i32 %116 to i64
-  %119 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %118, i32 3
-  %120 = load i32, ptr %119, align 4, !tbaa !14
-  %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %119, align 4, !tbaa !14
+115:                                              ; preds = %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit
+  %116 = sext i32 %114 to i64
+  %117 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 12
+  %119 = load i32, ptr %118, align 4, !tbaa !14
+  %120 = add nsw i32 %119, 1
+  store i32 %120, ptr %118, align 4, !tbaa !14
   br label %.loopexit
 
-122:                                              ; preds = %11
-  %123 = add i32 %13, -1
-  store i32 %123, ptr %10, align 4, !tbaa !15
+121:                                              ; preds = %11
+  %122 = add i32 %13, -1
+  store i32 %122, ptr %10, align 4, !tbaa !15
   br label %.loopexit
 
-124:                                              ; preds = %11
-  br i1 %.not131, label %.loopexit, label %125
+123:                                              ; preds = %11
+  br i1 %.not131, label %.loopexit, label %124
 
-125:                                              ; preds = %124
-  %126 = load i32, ptr %10, align 4, !tbaa !15
-  %.not132 = icmp eq i32 %126, -1
-  br i1 %.not132, label %.loopexit, label %127
+124:                                              ; preds = %123
+  %125 = load i32, ptr %10, align 4, !tbaa !15
+  %.not132 = icmp eq i32 %125, -1
+  br i1 %.not132, label %.loopexit, label %126
 
-127:                                              ; preds = %125
-  %128 = sext i32 %126 to i64
-  %129 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %128
-  %130 = load i32, ptr %129, align 4, !tbaa !16
-  %.off = add i32 %130, -1
+126:                                              ; preds = %124
+  %127 = sext i32 %125 to i64
+  %128 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %127
+  %129 = load i32, ptr %128, align 4, !tbaa !16
+  %.off = add i32 %129, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %.loopexit, label %131
+  br i1 %switch, label %.loopexit, label %130
 
-131:                                              ; preds = %127
+130:                                              ; preds = %126
   %.2109199 = add i32 %14, -1
-  %132 = icmp sgt i32 %.2109199, -1
-  br i1 %132, label %.lr.ph.preheader, label %.loopexit
+  %131 = icmp sgt i32 %.2109199, -1
+  br i1 %131, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %131
-  %133 = zext nneg i32 %.2109199 to i64
+.lr.ph.preheader:                                 ; preds = %130
+  %132 = zext nneg i32 %.2109199 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %145
-  %indvars.iv = phi i64 [ %133, %.lr.ph.preheader ], [ %indvars.iv.next, %145 ]
-  %134 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv
-  %135 = load i32, ptr %134, align 4, !tbaa !16
-  %.off140 = add i32 %135, -1
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %144
+  %indvars.iv = phi i64 [ %132, %.lr.ph.preheader ], [ %indvars.iv.next, %144 ]
+  %133 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv
+  %134 = load i32, ptr %133, align 4, !tbaa !16
+  %.off140 = add i32 %134, -1
   %switch141 = icmp ult i32 %.off140, 2
-  br i1 %switch141, label %136, label %145
+  br i1 %switch141, label %135, label %144
 
-136:                                              ; preds = %.lr.ph
-  %137 = getelementptr inbounds nuw i8, ptr %134, i64 4
-  %138 = load i32, ptr %137, align 4, !tbaa !17
-  %.not135 = icmp eq i32 %138, -1
-  br i1 %.not135, label %145, label %139
+135:                                              ; preds = %.lr.ph
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 4
+  %137 = load i32, ptr %136, align 4, !tbaa !17
+  %.not135 = icmp eq i32 %137, -1
+  br i1 %.not135, label %144, label %138
 
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %141 = load i32, ptr %140, align 4, !tbaa !11
-  %142 = icmp eq i32 %141, -1
-  br i1 %142, label %143, label %145
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %140 = load i32, ptr %139, align 4, !tbaa !11
+  %141 = icmp eq i32 %140, -1
+  br i1 %141, label %142, label %144
 
-143:                                              ; preds = %139
-  %144 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %144, ptr %10, align 4, !tbaa !15
+142:                                              ; preds = %138
+  %143 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %143, ptr %10, align 4, !tbaa !15
   br label %.loopexit
 
-145:                                              ; preds = %.lr.ph, %139, %136
+144:                                              ; preds = %.lr.ph, %138, %135
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %146 = icmp sgt i64 %indvars.iv, 0
-  br i1 %146, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  %145 = icmp sgt i64 %indvars.iv, 0
+  br i1 %145, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
-.lr.ph.i147:                                      ; preds = %11, %153
-  %147 = phi i64 [ %155, %153 ], [ %15, %11 ]
-  %148 = phi i32 [ %154, %153 ], [ %16, %11 ]
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 %147
-  %150 = load i8, ptr %149, align 1, !tbaa !10
-  switch i8 %150, label %151 [
+.lr.ph.i147:                                      ; preds = %11, %152
+  %146 = phi i64 [ %154, %152 ], [ %15, %11 ]
+  %147 = phi i32 [ %153, %152 ], [ %16, %11 ]
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 %146
+  %149 = load i8, ptr %148, align 1, !tbaa !10
+  switch i8 %149, label %150 [
     i8 0, label %.critedge.i142
     i8 58, label %.critedge.i142
     i8 9, label %.critedge.i142
@@ -406,63 +400,64 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %82
     i8 125, label %.critedge.i142
   ]
 
-151:                                              ; preds = %.lr.ph.i147
-  %152 = add i8 %150, -127
-  %or.cond.i148 = icmp ult i8 %152, -95
-  br i1 %or.cond.i148, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split, label %153
+150:                                              ; preds = %.lr.ph.i147
+  %151 = add i8 %149, -127
+  %or.cond.i148 = icmp ult i8 %151, -95
+  br i1 %or.cond.i148, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split, label %152
 
-153:                                              ; preds = %151
-  %154 = add i32 %148, 1
-  store i32 %154, ptr %0, align 4, !tbaa !9
-  %155 = zext i32 %154 to i64
-  %156 = icmp ugt i64 %2, %155
-  br i1 %156, label %.lr.ph.i147, label %.critedge.i142, !llvm.loop !24
+152:                                              ; preds = %150
+  %153 = add i32 %147, 1
+  store i32 %153, ptr %0, align 4, !tbaa !9
+  %154 = zext i32 %153 to i64
+  %155 = icmp ugt i64 %2, %154
+  br i1 %155, label %.lr.ph.i147, label %.critedge.i142, !llvm.loop !24
 
-.critedge.i142:                                   ; preds = %153, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147
-  %.lcssa.i = phi i32 [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %148, %.lr.ph.i147 ], [ %154, %153 ]
-  br i1 %.not131, label %.thread, label %159
+.critedge.i142:                                   ; preds = %152, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147, %.lr.ph.i147
+  %.lcssa.i = phi i32 [ %147, %.lr.ph.i147 ], [ %147, %.lr.ph.i147 ], [ %147, %.lr.ph.i147 ], [ %147, %.lr.ph.i147 ], [ %147, %.lr.ph.i147 ], [ %147, %.lr.ph.i147 ], [ %147, %.lr.ph.i147 ], [ %147, %.lr.ph.i147 ], [ %147, %.lr.ph.i147 ], [ %153, %152 ]
+  br i1 %.not131, label %.thread, label %158
 
 .thread:                                          ; preds = %.critedge.i142
-  %157 = add i32 %.lcssa.i, -1
-  %158 = add nsw i32 %.0110212, 1
+  %156 = add i32 %.lcssa.i, -1
+  %157 = add nsw i32 %.0110212, 1
   br label %.loopexit
 
-159:                                              ; preds = %.critedge.i142
+158:                                              ; preds = %.critedge.i142
   %.not.i.i143 = icmp ugt i32 %4, %12
-  br i1 %.not.i.i143, label %160, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split
+  br i1 %.not.i.i143, label %159, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split
 
-160:                                              ; preds = %159
-  %161 = zext i32 %12 to i64
-  %162 = add nuw i32 %12, 1
-  store i32 %162, ptr %6, align 4, !tbaa !4
-  %163 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %161
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  %166 = getelementptr inbounds nuw i8, ptr %163, i64 12
-  store i32 8, ptr %163, align 4, !tbaa !16
-  store i32 %16, ptr %165, align 4, !tbaa !17
-  store i32 %.lcssa.i, ptr %164, align 4, !tbaa !11
-  store i32 0, ptr %166, align 4, !tbaa !14
-  %167 = add i32 %.lcssa.i, -1
-  %168 = add nsw i32 %.0110212, 1
-  %169 = load i32, ptr %10, align 4, !tbaa !15
-  %.not165 = icmp eq i32 %169, -1
-  br i1 %.not165, label %.loopexit, label %170
+159:                                              ; preds = %158
+  %160 = zext i32 %12 to i64
+  %161 = add nuw i32 %12, 1
+  store i32 %161, ptr %6, align 4, !tbaa !4
+  %162 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %160
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 12
+  store i32 8, ptr %162, align 4, !tbaa !16
+  store i32 %16, ptr %164, align 4, !tbaa !17
+  store i32 %.lcssa.i, ptr %163, align 4, !tbaa !11
+  store i32 0, ptr %165, align 4, !tbaa !14
+  %166 = add i32 %.lcssa.i, -1
+  %167 = add nsw i32 %.0110212, 1
+  %168 = load i32, ptr %10, align 4, !tbaa !15
+  %.not165 = icmp eq i32 %168, -1
+  br i1 %.not165, label %.loopexit, label %169
 
-170:                                              ; preds = %160
-  %171 = sext i32 %169 to i64
-  %172 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %171, i32 3
+169:                                              ; preds = %159
+  %170 = sext i32 %168 to i64
+  %171 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %170
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 12
   %173 = load i32, ptr %172, align 4, !tbaa !14
   %174 = add nsw i32 %173, 1
   store i32 %174, ptr %172, align 4, !tbaa !14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %145, %71, %131, %.preheader, %127, %11, %11, %11, %11, %160, %170, %124, %125, %143, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit, %117, %69, %37, %19, %122, %34, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151, %.thread
-  %175 = phi i32 [ %12, %.thread ], [ %12, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151 ], [ %12, %127 ], [ %12, %11 ], [ %12, %11 ], [ %12, %11 ], [ %12, %11 ], [ %12, %124 ], [ %12, %125 ], [ %12, %143 ], [ %12, %122 ], [ %110, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit ], [ %110, %117 ], [ %12, %69 ], [ %12, %37 ], [ %23, %34 ], [ %12, %19 ], [ %162, %160 ], [ %162, %170 ], [ %12, %.preheader ], [ %12, %131 ], [ %12, %71 ], [ %12, %145 ]
-  %176 = phi i32 [ %13, %.thread ], [ %13, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151 ], [ %13, %127 ], [ %13, %11 ], [ %13, %11 ], [ %13, %11 ], [ %13, %11 ], [ %13, %124 ], [ %13, %125 ], [ %13, %143 ], [ %13, %122 ], [ %110, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit ], [ %110, %117 ], [ %12, %69 ], [ %13, %37 ], [ %23, %34 ], [ %13, %19 ], [ %162, %160 ], [ %162, %170 ], [ %12, %.preheader ], [ %13, %131 ], [ %12, %71 ], [ %13, %145 ]
-  %177 = phi i32 [ %14, %.thread ], [ %14, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151 ], [ %14, %127 ], [ %14, %11 ], [ %14, %11 ], [ %14, %11 ], [ %14, %11 ], [ %14, %124 ], [ %14, %125 ], [ %14, %143 ], [ %13, %122 ], [ %110, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit ], [ %110, %117 ], [ %12, %69 ], [ %14, %37 ], [ %23, %34 ], [ %14, %19 ], [ %162, %160 ], [ %162, %170 ], [ %12, %.preheader ], [ %14, %131 ], [ %12, %71 ], [ %14, %145 ]
-  %178 = phi i32 [ %157, %.thread ], [ %storemerge86.i, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151 ], [ %16, %127 ], [ %16, %11 ], [ %16, %11 ], [ %16, %11 ], [ %16, %11 ], [ %16, %124 ], [ %16, %125 ], [ %16, %143 ], [ %16, %122 ], [ %storemerge86.i, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit ], [ %storemerge86.i, %117 ], [ %16, %69 ], [ %16, %37 ], [ %16, %34 ], [ %16, %19 ], [ %167, %160 ], [ %167, %170 ], [ %16, %.preheader ], [ %16, %131 ], [ %16, %71 ], [ %16, %145 ]
-  %.2112.ph = phi i32 [ %158, %.thread ], [ %81, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151 ], [ %.0110212, %127 ], [ %.0110212, %11 ], [ %.0110212, %11 ], [ %.0110212, %11 ], [ %.0110212, %11 ], [ %.0110212, %124 ], [ %.0110212, %125 ], [ %.0110212, %143 ], [ %.0110212, %122 ], [ %115, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit ], [ %115, %117 ], [ %.0110212, %69 ], [ %.0110212, %37 ], [ %20, %34 ], [ %20, %19 ], [ %168, %160 ], [ %168, %170 ], [ %.0110212, %.preheader ], [ %.0110212, %131 ], [ %.0110212, %71 ], [ %.0110212, %145 ]
+.loopexit:                                        ; preds = %144, %69, %.loopexit166, %130, %.preheader, %126, %11, %11, %11, %11, %159, %169, %123, %124, %142, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit, %115, %67, %38, %19, %121, %35, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151, %.thread
+  %175 = phi i32 [ %12, %.thread ], [ %12, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151 ], [ %12, %126 ], [ %12, %11 ], [ %12, %11 ], [ %12, %11 ], [ %12, %11 ], [ %12, %123 ], [ %12, %124 ], [ %12, %142 ], [ %12, %121 ], [ %108, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit ], [ %108, %115 ], [ %12, %67 ], [ %12, %38 ], [ %23, %35 ], [ %12, %19 ], [ %161, %159 ], [ %161, %169 ], [ %12, %.preheader ], [ %12, %130 ], [ %12, %.loopexit166 ], [ %12, %69 ], [ %12, %144 ]
+  %176 = phi i32 [ %13, %.thread ], [ %13, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151 ], [ %13, %126 ], [ %13, %11 ], [ %13, %11 ], [ %13, %11 ], [ %13, %11 ], [ %13, %123 ], [ %13, %124 ], [ %13, %142 ], [ %13, %121 ], [ %108, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit ], [ %108, %115 ], [ %12, %67 ], [ %13, %38 ], [ %23, %35 ], [ %13, %19 ], [ %161, %159 ], [ %161, %169 ], [ %12, %.preheader ], [ %13, %130 ], [ %12, %.loopexit166 ], [ %12, %69 ], [ %13, %144 ]
+  %177 = phi i32 [ %14, %.thread ], [ %14, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151 ], [ %14, %126 ], [ %14, %11 ], [ %14, %11 ], [ %14, %11 ], [ %14, %11 ], [ %14, %123 ], [ %14, %124 ], [ %14, %142 ], [ %13, %121 ], [ %108, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit ], [ %108, %115 ], [ %12, %67 ], [ %14, %38 ], [ %23, %35 ], [ %14, %19 ], [ %161, %159 ], [ %161, %169 ], [ %12, %.preheader ], [ %14, %130 ], [ %12, %.loopexit166 ], [ %12, %69 ], [ %14, %144 ]
+  %178 = phi i32 [ %156, %.thread ], [ %storemerge86.i, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151 ], [ %16, %126 ], [ %16, %11 ], [ %16, %11 ], [ %16, %11 ], [ %16, %11 ], [ %16, %123 ], [ %16, %124 ], [ %16, %142 ], [ %16, %121 ], [ %storemerge86.i, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit ], [ %storemerge86.i, %115 ], [ %16, %67 ], [ %16, %38 ], [ %16, %35 ], [ %16, %19 ], [ %166, %159 ], [ %166, %169 ], [ %16, %.preheader ], [ %16, %130 ], [ %16, %.loopexit166 ], [ %16, %69 ], [ %16, %144 ]
+  %.2112.ph = phi i32 [ %157, %.thread ], [ %79, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151 ], [ %.0110212, %126 ], [ %.0110212, %11 ], [ %.0110212, %11 ], [ %.0110212, %11 ], [ %.0110212, %11 ], [ %.0110212, %123 ], [ %.0110212, %124 ], [ %.0110212, %142 ], [ %.0110212, %121 ], [ %113, %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit ], [ %113, %115 ], [ %.0110212, %67 ], [ %.0110212, %38 ], [ %20, %35 ], [ %20, %19 ], [ %167, %159 ], [ %167, %169 ], [ %.0110212, %.preheader ], [ %.0110212, %130 ], [ %.0110212, %.loopexit166 ], [ %.0110212, %69 ], [ %.0110212, %144 ]
   %179 = add i32 %178, 1
   store i32 %179, ptr %0, align 4, !tbaa !9
   %180 = zext i32 %179 to i64
@@ -503,13 +498,13 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %82
   %194 = icmp sgt i64 %indvars.iv252, 0
   br i1 %194, label %.lr.ph219, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread, !llvm.loop !26
 
-_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split: ; preds = %159, %73, %82, %.lr.ph.i, %105, %87, %151, %switch.early.test.i
-  %.2.ph = phi i32 [ -2, %switch.early.test.i ], [ -2, %151 ], [ -2, %87 ], [ -3, %105 ], [ -3, %.lr.ph.i ], [ -1, %82 ], [ -3, %73 ], [ -1, %159 ]
+_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split: ; preds = %158, %71, %80, %.lr.ph.i, %103, %85, %150, %switch.early.test.i
+  %.2.ph = phi i32 [ -2, %switch.early.test.i ], [ -2, %150 ], [ -2, %85 ], [ -3, %103 ], [ -3, %.lr.ph.i ], [ -1, %80 ], [ -3, %71 ], [ -1, %158 ]
   store i32 %16, ptr %0, align 4, !tbaa !9
   br label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread
 
-_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread: ; preds = %21, %50, %.loopexit166, %56, %189, %193, %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split, %183, %.critedge
-  %.2 = phi i32 [ %.0110.lcssa, %.critedge ], [ %.0110.lcssa, %183 ], [ %.2.ph, %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split ], [ -3, %189 ], [ %.0110.lcssa, %193 ], [ -2, %56 ], [ -1, %21 ], [ -2, %.loopexit166 ], [ -2, %50 ]
+_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread: ; preds = %21, %51, %.loopexit166, %53, %189, %193, %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split, %183, %.critedge
+  %.2 = phi i32 [ %.0110.lcssa, %.critedge ], [ %.0110.lcssa, %183 ], [ %.2.ph, %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split ], [ -3, %189 ], [ %.0110.lcssa, %193 ], [ -2, %53 ], [ -1, %21 ], [ -2, %.loopexit166 ], [ -2, %51 ]
   ret i32 %.2
 }
 

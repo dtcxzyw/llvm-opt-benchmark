@@ -3930,10 +3930,11 @@ define internal range(i32 -8, 1) i32 @erf_dump_can_write_encap(i32 noundef %0) #
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
-  %4 = getelementptr %struct.anon.5, ptr @erf_to_wtap_map, i64 %indvars.iv.i, i32 1
-  %5 = load i32, ptr %4, align 4
-  %6 = icmp eq i32 %5, %0
-  br i1 %6, label %wtap_wtap_encap_to_erf_encap.exit, label %3
+  %4 = getelementptr %struct.anon.5, ptr @erf_to_wtap_map, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp eq i32 %6, %0
+  br i1 %7, label %wtap_wtap_encap_to_erf_encap.exit, label %3
 
 wtap_wtap_encap_to_erf_encap.exit:                ; preds = %3, %.preheader, %1
   %.0 = phi i32 [ 0, %1 ], [ -8, %3 ], [ 0, %.preheader ]

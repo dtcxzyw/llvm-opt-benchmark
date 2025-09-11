@@ -6485,7 +6485,7 @@ define hidden range(i32 0, 2) i32 @__itt_init_ittlib(ptr noundef %0, i32 noundef
   %7 = alloca %union.pthread_mutexattr_t, align 4
   %8 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 32), align 8, !tbaa !3
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %240
+  br i1 %.not, label %9, label %241
 
 9:                                                ; preds = %2
   %10 = icmp ne ptr @pthread_mutex_init, null
@@ -6576,12 +6576,12 @@ define hidden range(i32 0, 2) i32 @__itt_init_ittlib(ptr noundef %0, i32 noundef
 41:                                               ; preds = %.loopexit, %9
   %42 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 32), align 8, !tbaa !3
   %.not79 = icmp eq i64 %42, 0
-  br i1 %.not79, label %43, label %237
+  br i1 %.not79, label %43, label %238
 
 43:                                               ; preds = %41
   %44 = load volatile i64, ptr @__itt_init_ittlib.current_thread, align 8, !tbaa !30
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %46, label %237
+  br i1 %45, label %46, label %238
 
 46:                                               ; preds = %43
   br i1 %or.cond6, label %47, label %49
@@ -6867,13 +6867,13 @@ __itt_get_groups.exit:                            ; preds = %153, %132, %143
   %or.cond14 = and i1 %155, %156
   %157 = icmp ne ptr @dlclose, null
   %or.cond15 = and i1 %157, %or.cond14
-  br i1 %or.cond15, label %158, label %226
+  br i1 %or.cond15, label %158, label %227
 
 158:                                              ; preds = %__itt_get_groups.exit
   %159 = icmp ne i32 %.0.i, 0
   %160 = icmp ne ptr %.063, null
   %or.cond17 = select i1 %159, i1 true, i1 %160
-  br i1 %or.cond17, label %161, label %226
+  br i1 %or.cond17, label %161, label %227
 
 161:                                              ; preds = %158
   %162 = icmp eq ptr %.063, null
@@ -6881,7 +6881,7 @@ __itt_get_groups.exit:                            ; preds = %153, %132, %143
   %164 = call ptr @dlopen(ptr noundef nonnull %163, i32 noundef 1) #14
   store ptr %164, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 96), align 8, !tbaa !96
   %.not80 = icmp eq ptr %164, null
-  br i1 %.not80, label %214, label %165
+  br i1 %.not80, label %215, label %165
 
 165:                                              ; preds = %161
   store i32 4, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 160), align 8, !tbaa !122
@@ -6889,7 +6889,7 @@ __itt_get_groups.exit:                            ; preds = %153, %132, %143
   switch i32 %166, label %default.unreachable170 [
     i32 0, label %167
     i32 1, label %168
-    i32 2, label %210
+    i32 2, label %211
   ]
 
 167:                                              ; preds = %165
@@ -6906,185 +6906,186 @@ __itt_get_groups.exit:                            ; preds = %153, %132, %143
   %invariant.op = and i32 %.064, %1
   br label %.lr.ph119
 
-.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %198
-  %indvars.iv = phi i64 [ %indvars.iv.next, %198 ], [ 0, %.lr.ph119.preheader ]
-  %171 = phi ptr [ %201, %198 ], [ %170, %.lr.ph119.preheader ]
-  %172 = phi ptr [ %200, %198 ], [ %169, %.lr.ph119.preheader ]
+.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %199
+  %indvars.iv = phi i64 [ %indvars.iv.next, %199 ], [ 0, %.lr.ph119.preheader ]
+  %171 = phi ptr [ %202, %199 ], [ %170, %.lr.ph119.preheader ]
+  %172 = phi ptr [ %201, %199 ], [ %169, %.lr.ph119.preheader ]
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %174 = load i32, ptr %173, align 8, !tbaa !123
   %.reass.reass = and i32 %174, %invariant.op
   %.not83 = icmp eq i32 %.reass.reass, 0
-  br i1 %.not83, label %193, label %175
+  br i1 %.not83, label %194, label %175
 
 175:                                              ; preds = %.lr.ph119
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 96), align 8, !tbaa !96
   %177 = call ptr @dlsym(ptr noundef %176, ptr noundef nonnull %171) #14
   %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
-  %179 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %178, i64 %indvars.iv, i32 1
-  %180 = load ptr, ptr %179, align 8, !tbaa !101
-  store ptr %177, ptr %180, align 8, !tbaa !20
-  %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
-  %182 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %181, i64 %indvars.iv
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  %184 = load ptr, ptr %183, align 8, !tbaa !101
-  %185 = load ptr, ptr %184, align 8, !tbaa !20
-  %186 = icmp eq ptr %185, null
-  br i1 %186, label %187, label %198
+  %179 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %178, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %181 = load ptr, ptr %180, align 8, !tbaa !101
+  store ptr %177, ptr %181, align 8, !tbaa !20
+  %182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
+  %183 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %182, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %185 = load ptr, ptr %184, align 8, !tbaa !101
+  %186 = load ptr, ptr %185, align 8, !tbaa !20
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %188, label %199
 
-187:                                              ; preds = %175
-  %188 = getelementptr inbounds nuw i8, ptr %182, i64 24
-  %189 = load ptr, ptr %188, align 8, !tbaa !100
-  store ptr %189, ptr %184, align 8, !tbaa !20
-  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
-  %191 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %190, i64 %indvars.iv
-  %192 = load ptr, ptr %191, align 8, !tbaa !98
-  call void (i32, ...) @__itt_report_error(i32 noundef 2, ptr noundef %.063, ptr noundef %192)
-  br label %198
+188:                                              ; preds = %175
+  %189 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %190 = load ptr, ptr %189, align 8, !tbaa !100
+  store ptr %190, ptr %185, align 8, !tbaa !20
+  %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
+  %192 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %191, i64 %indvars.iv
+  %193 = load ptr, ptr %192, align 8, !tbaa !98
+  call void (i32, ...) @__itt_report_error(i32 noundef 2, ptr noundef %.063, ptr noundef %193)
+  br label %199
 
-193:                                              ; preds = %.lr.ph119
-  %194 = getelementptr inbounds nuw i8, ptr %172, i64 24
-  %195 = load ptr, ptr %194, align 8, !tbaa !100
-  %196 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %197 = load ptr, ptr %196, align 8, !tbaa !101
-  store ptr %195, ptr %197, align 8, !tbaa !20
-  br label %198
+194:                                              ; preds = %.lr.ph119
+  %195 = getelementptr inbounds nuw i8, ptr %172, i64 24
+  %196 = load ptr, ptr %195, align 8, !tbaa !100
+  %197 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %198 = load ptr, ptr %197, align 8, !tbaa !101
+  store ptr %196, ptr %198, align 8, !tbaa !20
+  br label %199
 
-198:                                              ; preds = %193, %187, %175
+199:                                              ; preds = %194, %188, %175
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
-  %200 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %199, i64 %indvars.iv.next
-  %201 = load ptr, ptr %200, align 8, !tbaa !98
-  %.not82 = icmp eq ptr %201, null
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
+  %201 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %200, i64 %indvars.iv.next
+  %202 = load ptr, ptr %201, align 8, !tbaa !98
+  %.not82 = icmp eq ptr %202, null
   br i1 %.not82, label %._crit_edge, label %.lr.ph119, !llvm.loop !124
 
-._crit_edge:                                      ; preds = %198, %168
-  %202 = icmp eq i32 %.064, 1
-  br i1 %202, label %203, label %__itt_nullify_all_pointers.exit94
+._crit_edge:                                      ; preds = %199, %168
+  %203 = icmp eq i32 %.064, 1
+  br i1 %203, label %204, label %__itt_nullify_all_pointers.exit94
 
-203:                                              ; preds = %._crit_edge
-  %204 = load ptr, ptr @__itt_thr_ignore_ptr__3_0, align 8, !tbaa !20
-  store ptr %204, ptr @__itt_thread_ignore_ptr__3_0, align 8, !tbaa !20
-  %205 = load ptr, ptr @__itt_sync_set_name_ptr__3_0, align 8, !tbaa !20
-  store ptr %205, ptr @__itt_sync_create_ptr__3_0, align 8, !tbaa !20
-  %206 = load ptr, ptr @__itt_notify_sync_prepare_ptr__3_0, align 8, !tbaa !20
-  store ptr %206, ptr @__itt_sync_prepare_ptr__3_0, align 8, !tbaa !20
-  %207 = load ptr, ptr @__itt_notify_sync_cancel_ptr__3_0, align 8, !tbaa !20
-  store ptr %207, ptr @__itt_sync_cancel_ptr__3_0, align 8, !tbaa !20
-  %208 = load ptr, ptr @__itt_notify_sync_acquired_ptr__3_0, align 8, !tbaa !20
-  store ptr %208, ptr @__itt_sync_acquired_ptr__3_0, align 8, !tbaa !20
-  %209 = load ptr, ptr @__itt_notify_sync_releasing_ptr__3_0, align 8, !tbaa !20
-  store ptr %209, ptr @__itt_sync_releasing_ptr__3_0, align 8, !tbaa !20
+204:                                              ; preds = %._crit_edge
+  %205 = load ptr, ptr @__itt_thr_ignore_ptr__3_0, align 8, !tbaa !20
+  store ptr %205, ptr @__itt_thread_ignore_ptr__3_0, align 8, !tbaa !20
+  %206 = load ptr, ptr @__itt_sync_set_name_ptr__3_0, align 8, !tbaa !20
+  store ptr %206, ptr @__itt_sync_create_ptr__3_0, align 8, !tbaa !20
+  %207 = load ptr, ptr @__itt_notify_sync_prepare_ptr__3_0, align 8, !tbaa !20
+  store ptr %207, ptr @__itt_sync_prepare_ptr__3_0, align 8, !tbaa !20
+  %208 = load ptr, ptr @__itt_notify_sync_cancel_ptr__3_0, align 8, !tbaa !20
+  store ptr %208, ptr @__itt_sync_cancel_ptr__3_0, align 8, !tbaa !20
+  %209 = load ptr, ptr @__itt_notify_sync_acquired_ptr__3_0, align 8, !tbaa !20
+  store ptr %209, ptr @__itt_sync_acquired_ptr__3_0, align 8, !tbaa !20
+  %210 = load ptr, ptr @__itt_notify_sync_releasing_ptr__3_0, align 8, !tbaa !20
+  store ptr %210, ptr @__itt_sync_releasing_ptr__3_0, align 8, !tbaa !20
   br label %__itt_nullify_all_pointers.exit94
 
-210:                                              ; preds = %165
-  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 96), align 8, !tbaa !96
-  %212 = call ptr @dlsym(ptr noundef %211, ptr noundef nonnull @.str.5) #14
-  %.not81 = icmp eq ptr %212, null
-  br i1 %.not81, label %__itt_nullify_all_pointers.exit94, label %213
+211:                                              ; preds = %165
+  %212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 96), align 8, !tbaa !96
+  %213 = call ptr @dlsym(ptr noundef %212, ptr noundef nonnull @.str.5) #14
+  %.not81 = icmp eq ptr %213, null
+  br i1 %.not81, label %__itt_nullify_all_pointers.exit94, label %214
 
-213:                                              ; preds = %210
-  call void %212(ptr noundef nonnull @__itt__ittapi_global, i32 noundef %1) #14
+214:                                              ; preds = %211
+  call void %213(ptr noundef nonnull @__itt__ittapi_global, i32 noundef %1) #14
   br label %__itt_nullify_all_pointers.exit94
 
 default.unreachable170:                           ; preds = %165
   unreachable
 
-214:                                              ; preds = %161
+215:                                              ; preds = %161
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 160), align 8, !tbaa !122
   call fastcc void @__itt_free_allocated_resources()
-  %215 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
-  %216 = load ptr, ptr %215, align 8, !tbaa !98
-  %.not4.i = icmp eq ptr %216, null
+  %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
+  %217 = load ptr, ptr %216, align 8, !tbaa !98
+  %.not4.i = icmp eq ptr %217, null
   br i1 %.not4.i, label %__itt_nullify_all_pointers.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %214, %.lr.ph.i
-  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %.lr.ph.i ], [ 0, %214 ]
-  %217 = phi ptr [ %223, %.lr.ph.i ], [ %215, %214 ]
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
-  %219 = load ptr, ptr %218, align 8, !tbaa !100
-  %220 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  %221 = load ptr, ptr %220, align 8, !tbaa !101
-  store ptr %219, ptr %221, align 8, !tbaa !20
+.lr.ph.i:                                         ; preds = %215, %.lr.ph.i
+  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %.lr.ph.i ], [ 0, %215 ]
+  %218 = phi ptr [ %224, %.lr.ph.i ], [ %216, %215 ]
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
+  %220 = load ptr, ptr %219, align 8, !tbaa !100
+  %221 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  %222 = load ptr, ptr %221, align 8, !tbaa !101
+  store ptr %220, ptr %222, align 8, !tbaa !20
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
-  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
-  %223 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %222, i64 %indvars.iv.next.i88
-  %224 = load ptr, ptr %223, align 8, !tbaa !98
-  %.not.i = icmp eq ptr %224, null
+  %223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
+  %224 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %223, i64 %indvars.iv.next.i88
+  %225 = load ptr, ptr %224, align 8, !tbaa !98
+  %.not.i = icmp eq ptr %225, null
   br i1 %.not.i, label %__itt_nullify_all_pointers.exit, label %.lr.ph.i, !llvm.loop !102
 
-__itt_nullify_all_pointers.exit:                  ; preds = %.lr.ph.i, %214
-  %225 = call ptr @dlerror() #14
-  call void (i32, ...) @__itt_report_error(i32 noundef 1, ptr noundef %.063, ptr noundef %225)
+__itt_nullify_all_pointers.exit:                  ; preds = %.lr.ph.i, %215
+  %226 = call ptr @dlerror() #14
+  call void (i32, ...) @__itt_report_error(i32 noundef 1, ptr noundef %.063, ptr noundef %226)
   br label %__itt_nullify_all_pointers.exit94
 
-226:                                              ; preds = %158, %__itt_get_groups.exit
+227:                                              ; preds = %158, %__itt_get_groups.exit
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 160), align 8, !tbaa !122
-  %227 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
-  %228 = load ptr, ptr %227, align 8, !tbaa !98
-  %.not4.i89 = icmp eq ptr %228, null
+  %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
+  %229 = load ptr, ptr %228, align 8, !tbaa !98
+  %.not4.i89 = icmp eq ptr %229, null
   br i1 %.not4.i89, label %__itt_nullify_all_pointers.exit94, label %.lr.ph.i90
 
-.lr.ph.i90:                                       ; preds = %226, %.lr.ph.i90
-  %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i92, %.lr.ph.i90 ], [ 0, %226 ]
-  %229 = phi ptr [ %235, %.lr.ph.i90 ], [ %227, %226 ]
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  %231 = load ptr, ptr %230, align 8, !tbaa !100
-  %232 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  %233 = load ptr, ptr %232, align 8, !tbaa !101
-  store ptr %231, ptr %233, align 8, !tbaa !20
+.lr.ph.i90:                                       ; preds = %227, %.lr.ph.i90
+  %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i92, %.lr.ph.i90 ], [ 0, %227 ]
+  %230 = phi ptr [ %236, %.lr.ph.i90 ], [ %228, %227 ]
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 24
+  %232 = load ptr, ptr %231, align 8, !tbaa !100
+  %233 = getelementptr inbounds nuw i8, ptr %230, i64 8
+  %234 = load ptr, ptr %233, align 8, !tbaa !101
+  store ptr %232, ptr %234, align 8, !tbaa !20
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
-  %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
-  %235 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %234, i64 %indvars.iv.next.i92
-  %236 = load ptr, ptr %235, align 8, !tbaa !98
-  %.not.i93 = icmp eq ptr %236, null
+  %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
+  %236 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %235, i64 %indvars.iv.next.i92
+  %237 = load ptr, ptr %236, align 8, !tbaa !98
+  %.not.i93 = icmp eq ptr %237, null
   br i1 %.not.i93, label %__itt_nullify_all_pointers.exit94, label %.lr.ph.i90, !llvm.loop !102
 
-__itt_nullify_all_pointers.exit94:                ; preds = %.lr.ph.i90, %226, %203, %._crit_edge, %213, %210, %__itt_nullify_all_pointers.exit
+__itt_nullify_all_pointers.exit94:                ; preds = %.lr.ph.i90, %227, %204, %._crit_edge, %214, %211, %__itt_nullify_all_pointers.exit
   store volatile i64 1, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 32), align 8, !tbaa !3
   store volatile i64 0, ptr @__itt_init_ittlib.current_thread, align 8, !tbaa !30
   store volatile i64 0, ptr @__itt_init_ittlib.current_thread, align 8, !tbaa !30
-  br label %237
+  br label %238
 
-237:                                              ; preds = %43, %__itt_nullify_all_pointers.exit94, %41
-  br i1 %or.cond6, label %238, label %240
+238:                                              ; preds = %43, %__itt_nullify_all_pointers.exit94, %41
+  br i1 %or.cond6, label %239, label %241
 
-238:                                              ; preds = %237
-  %239 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #14
-  br label %240
+239:                                              ; preds = %238
+  %240 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 56)) #14
+  br label %241
 
-240:                                              ; preds = %237, %238, %2
-  %241 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
-  %242 = load ptr, ptr %241, align 8, !tbaa !98
-  %.not84120 = icmp eq ptr %242, null
+241:                                              ; preds = %238, %239, %2
+  %242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__itt__ittapi_global, i64 120), align 8, !tbaa !97
+  %243 = load ptr, ptr %242, align 8, !tbaa !98
+  %.not84120 = icmp eq ptr %243, null
   br i1 %.not84120, label %._crit_edge124, label %.lr.ph123
 
-.lr.ph123:                                        ; preds = %240, %253
-  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %253 ], [ 0, %240 ]
-  %243 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %241, i64 %indvars.iv146
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  %245 = load ptr, ptr %244, align 8, !tbaa !101
-  %246 = load ptr, ptr %245, align 8, !tbaa !20
-  %247 = getelementptr inbounds nuw i8, ptr %243, i64 24
-  %248 = load ptr, ptr %247, align 8, !tbaa !100
-  %.not85 = icmp eq ptr %246, %248
-  br i1 %.not85, label %253, label %249
+.lr.ph123:                                        ; preds = %241, %254
+  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %254 ], [ 0, %241 ]
+  %244 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %242, i64 %indvars.iv146
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  %246 = load ptr, ptr %245, align 8, !tbaa !101
+  %247 = load ptr, ptr %246, align 8, !tbaa !20
+  %248 = getelementptr inbounds nuw i8, ptr %244, i64 24
+  %249 = load ptr, ptr %248, align 8, !tbaa !100
+  %.not85 = icmp eq ptr %247, %249
+  br i1 %.not85, label %254, label %250
 
-249:                                              ; preds = %.lr.ph123
-  %250 = getelementptr inbounds nuw i8, ptr %243, i64 32
-  %251 = load i32, ptr %250, align 8, !tbaa !123
-  %252 = and i32 %251, %1
-  %.not86 = icmp eq i32 %252, 0
-  br i1 %.not86, label %253, label %._crit_edge124
+250:                                              ; preds = %.lr.ph123
+  %251 = getelementptr inbounds nuw i8, ptr %244, i64 32
+  %252 = load i32, ptr %251, align 8, !tbaa !123
+  %253 = and i32 %252, %1
+  %.not86 = icmp eq i32 %253, 0
+  br i1 %.not86, label %254, label %._crit_edge124
 
-253:                                              ; preds = %.lr.ph123, %249
+254:                                              ; preds = %.lr.ph123, %250
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %254 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %241, i64 %indvars.iv.next147
-  %255 = load ptr, ptr %254, align 8, !tbaa !98
-  %.not84 = icmp eq ptr %255, null
+  %255 = getelementptr inbounds nuw %struct.___itt_api_info, ptr %242, i64 %indvars.iv.next147
+  %256 = load ptr, ptr %255, align 8, !tbaa !98
+  %.not84 = icmp eq ptr %256, null
   br i1 %.not84, label %._crit_edge124, label %.lr.ph123, !llvm.loop !125
 
-._crit_edge124:                                   ; preds = %249, %253, %240
-  %.0 = phi i32 [ 0, %240 ], [ 0, %253 ], [ 1, %249 ]
+._crit_edge124:                                   ; preds = %250, %254, %241
+  %.0 = phi i32 [ 0, %241 ], [ 0, %254 ], [ 1, %250 ]
   ret i32 %.0
 }
 

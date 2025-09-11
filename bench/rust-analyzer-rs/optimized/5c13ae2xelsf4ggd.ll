@@ -1166,49 +1166,49 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr5error17hbfd0fd7560cda079E(ptr
   %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %8, %19
-  %.027.i.i = phi i64 [ %23, %19 ], [ %12, %8 ]
-  %.01926.i.i = phi i64 [ %.022.i.i, %19 ], [ 0, %8 ]
-  %.02025.i.i = phi i64 [ %.021.i.i, %19 ], [ %12, %8 ]
+.lr.ph.i.i:                                       ; preds = %8, %20
+  %.027.i.i = phi i64 [ %24, %20 ], [ %12, %8 ]
+  %.01926.i.i = phi i64 [ %.022.i.i, %20 ], [ 0, %8 ]
+  %.02025.i.i = phi i64 [ %.021.i.i, %20 ], [ %12, %8 ]
   %14 = lshr i64 %.027.i.i, 1
   %15 = add i64 %14, %.01926.i.i
   %16 = icmp ult i64 %15, %12
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %10, i64 %15, i32 1
-  %.val23.i.i = load i32, ptr %17, align 8, !alias.scope !171, !noalias !176, !noundef !5
-  %18 = icmp eq i32 %.val23.i.i, %13
-  br i1 %18, label %26, label %19
+  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %10, i64 %15
+  %18 = getelementptr i8, ptr %17, i64 24
+  %.val23.i.i = load i32, ptr %18, align 8, !alias.scope !171, !noalias !176, !noundef !5
+  %19 = icmp eq i32 %.val23.i.i, %13
+  br i1 %19, label %27, label %20
 
-19:                                               ; preds = %.lr.ph.i.i
-  %20 = icmp ugt i32 %.val23.i.i, %13
-  %.021.i.i = select i1 %20, i64 %15, i64 %.02025.i.i
-  %21 = icmp ult i32 %.val23.i.i, %13
-  %22 = add nuw i64 %15, 1
-  %.022.i.i = select i1 %21, i64 %22, i64 %.01926.i.i
-  %23 = sub i64 %.021.i.i, %.022.i.i
-  %24 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %24, label %.lr.ph.i.i, label %.loopexit.loopexit
+20:                                               ; preds = %.lr.ph.i.i
+  %21 = icmp ugt i32 %.val23.i.i, %13
+  %.021.i.i = select i1 %21, i64 %15, i64 %.02025.i.i
+  %22 = icmp ult i32 %.val23.i.i, %13
+  %23 = add nuw i64 %15, 1
+  %.022.i.i = select i1 %22, i64 %23, i64 %.01926.i.i
+  %24 = sub i64 %.021.i.i, %.022.i.i
+  %25 = icmp ult i64 %.022.i.i, %.021.i.i
+  br i1 %25, label %.lr.ph.i.i, label %.loopexit.loopexit
 
-.loopexit.loopexit:                               ; preds = %19
-  %25 = icmp ule i64 %.022.i.i, %12
+.loopexit.loopexit:                               ; preds = %20
+  %26 = icmp ule i64 %.022.i.i, %12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %8
-  %.019.lcssa.i.i = phi i1 [ true, %8 ], [ %25, %.loopexit.loopexit ]
+  %.019.lcssa.i.i = phi i1 [ true, %8 ], [ %26, %.loopexit.loopexit ]
   tail call void @llvm.assume(i1 %.019.lcssa.i.i)
   br label %32
 
-26:                                               ; preds = %.lr.ph.i.i
-  %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %10, i64 %15
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+27:                                               ; preds = %.lr.ph.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !5
   br label %32
 
-32:                                               ; preds = %26, %.loopexit
-  %.sroa.3.0 = phi i64 [ %31, %26 ], [ undef, %.loopexit ]
-  %.sroa.0.0 = phi ptr [ %29, %26 ], [ null, %.loopexit ]
+32:                                               ; preds = %27, %.loopexit
+  %.sroa.3.0 = phi i64 [ %31, %27 ], [ undef, %.loopexit ]
+  %.sroa.0.0 = phi ptr [ %29, %27 ], [ null, %.loopexit ]
   %33 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %34 = insertvalue { ptr, i64 } %33, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %34

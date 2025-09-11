@@ -2876,12 +2876,12 @@ define range(i32 -98, 1) i32 @sp_submod_ct(ptr noundef readonly captures(none) %
   %51 = lshr i128 %49, 64
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i
-  br i1 %exitcond61.not.i, label %._crit_edge51.i, label %40, !llvm.loop !56
+  br i1 %exitcond61.not.i, label %.lr.ph.i.i, label %40, !llvm.loop !56
 
-._crit_edge51.i:                                  ; preds = %40, %._crit_edge51.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge51.i ], [ %wide.trip.count60.i, %40 ]
-  %.016.i.i = phi i16 [ %58, %._crit_edge51.i ], [ -1, %40 ]
-  %.01215.i.i = phi i16 [ %57, %._crit_edge51.i ], [ %5, %40 ]
+.lr.ph.i.i:                                       ; preds = %40, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ %wide.trip.count60.i, %40 ]
+  %.016.i.i = phi i16 [ %58, %.lr.ph.i.i ], [ -1, %40 ]
+  %.01215.i.i = phi i16 [ %57, %.lr.ph.i.i ], [ %5, %40 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %52 = getelementptr i64, ptr %3, i64 %indvars.iv.i.i
   %53 = load i64, ptr %52, align 8, !tbaa !8
@@ -2891,10 +2891,10 @@ define range(i32 -98, 1) i32 @sp_submod_ct(ptr noundef readonly captures(none) %
   %57 = sub i16 %.01215.i.i, %56
   %58 = select i1 %54, i16 %.016.i.i, i16 0
   %59 = icmp samesign ugt i64 %indvars.iv.i.i, 1
-  br i1 %59, label %._crit_edge51.i, label %_sp_submod_ct.exit, !llvm.loop !54
+  br i1 %59, label %.lr.ph.i.i, label %_sp_submod_ct.exit, !llvm.loop !54
 
-_sp_submod_ct.exit:                               ; preds = %._crit_edge51.i, %9
-  %.012.lcssa.i.i = phi i16 [ 0, %9 ], [ %57, %._crit_edge51.i ]
+_sp_submod_ct.exit:                               ; preds = %.lr.ph.i.i, %9
+  %.012.lcssa.i.i = phi i16 [ 0, %9 ], [ %57, %.lr.ph.i.i ]
   store i16 %.012.lcssa.i.i, ptr %3, align 8, !tbaa !12
   br label %60
 
@@ -10650,12 +10650,12 @@ sp_clamp_ct.exit:                                 ; preds = %308, %sp_rshb.exit1
   %352 = lshr i128 %350, 64
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %318
-  br i1 %exitcond61.not.i, label %._crit_edge51.i, label %.lr.ph50.i, !llvm.loop !56
+  br i1 %exitcond61.not.i, label %.lr.ph.i.i, label %.lr.ph50.i, !llvm.loop !56
 
-._crit_edge51.i:                                  ; preds = %.lr.ph50.i, %._crit_edge51.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge51.i ], [ %318, %.lr.ph50.i ]
-  %.016.i.i = phi i16 [ %359, %._crit_edge51.i ], [ -1, %.lr.ph50.i ]
-  %.01215.i.i = phi i16 [ %358, %._crit_edge51.i ], [ %317, %.lr.ph50.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph50.i, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ %318, %.lr.ph50.i ]
+  %.016.i.i = phi i16 [ %359, %.lr.ph.i.i ], [ -1, %.lr.ph50.i ]
+  %.01215.i.i = phi i16 [ %358, %.lr.ph.i.i ], [ %317, %.lr.ph50.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %353 = getelementptr i64, ptr %0, i64 %indvars.iv.i.i
   %354 = load i64, ptr %353, align 8, !tbaa !8
@@ -10665,10 +10665,10 @@ sp_clamp_ct.exit:                                 ; preds = %308, %sp_rshb.exit1
   %358 = sub i16 %.01215.i.i, %357
   %359 = select i1 %355, i16 %.016.i.i, i16 0
   %360 = icmp samesign ugt i64 %indvars.iv.i.i, 1
-  br i1 %360, label %._crit_edge51.i, label %_sp_cmp_abs.exit.sink.split, !llvm.loop !54
+  br i1 %360, label %.lr.ph.i.i, label %_sp_cmp_abs.exit.sink.split, !llvm.loop !54
 
-_sp_cmp_abs.exit.sink.split:                      ; preds = %._crit_edge51.i, %.preheader.i147, %._crit_edge.loopexit.i, %.critedge4.split.loop.exit112.i, %.loopexit
-  %.0.in.lcssa.i.sink = phi i16 [ 0, %.loopexit ], [ %252, %.critedge4.split.loop.exit112.i ], [ 0, %._crit_edge.loopexit.i ], [ 0, %.preheader.i147 ], [ %358, %._crit_edge51.i ]
+_sp_cmp_abs.exit.sink.split:                      ; preds = %.lr.ph.i.i, %.preheader.i147, %._crit_edge.loopexit.i, %.critedge4.split.loop.exit112.i, %.loopexit
+  %.0.in.lcssa.i.sink = phi i16 [ 0, %.loopexit ], [ %252, %.critedge4.split.loop.exit112.i ], [ 0, %._crit_edge.loopexit.i ], [ 0, %.preheader.i147 ], [ %358, %.lr.ph.i.i ]
   store i16 %.0.in.lcssa.i.sink, ptr %0, align 8, !tbaa !12
   br label %_sp_cmp_abs.exit
 
@@ -13293,9 +13293,9 @@ sp_cmp_d.exit.us.us:                              ; preds = %101, %103, %95, %92
 .preheader:                                       ; preds = %.lr.ph317, %118
   %indvars.iv = phi i64 [ %indvars.iv.next, %118 ], [ %113, %.lr.ph317 ]
   %117 = icmp sgt i64 %indvars.iv, 0
-  br i1 %117, label %118, label %thread-pre-split.thread269
+  br i1 %117, label %118, label %thread-pre-split.thread267
 
-thread-pre-split.thread269:                       ; preds = %.preheader
+thread-pre-split.thread267:                       ; preds = %.preheader
   store i16 0, ptr %37, align 16, !tbaa !12
   br label %sp_cmp_d.exit
 
@@ -13353,7 +13353,7 @@ thread-pre-split:                                 ; preds = %118
   %145 = icmp ult i64 %140, %142
   br i1 %145, label %_sp_cmp.exit, label %136, !llvm.loop !21
 
-sp_cmp_d.exit:                                    ; preds = %138, %136, %.lr.ph317, %thread-pre-split.thread269, %126, %129, %124
+sp_cmp_d.exit:                                    ; preds = %138, %136, %.lr.ph317, %thread-pre-split.thread267, %126, %129, %124
   %146 = call i32 @wc_RNG_GenerateBlock(ptr noundef %3, ptr noundef nonnull %56, i32 noundef %29) #19
   %.not = icmp eq i32 %146, 0
   br i1 %.not, label %.lr.ph317, label %.loopexit192
@@ -13395,10 +13395,8 @@ _sp_cmp.exit:                                     ; preds = %133, %98, %144, %10
   %162 = icmp ugt i32 %160, 7
   br i1 %162, label %.lr.ph29.i.i, label %.preheader.i.i102
 
-.preheader.i.i102:                                ; preds = %.lr.ph29.i.i, %.preheader23.i.i
-  %.018.lcssa.i.i = phi i32 [ %160, %.preheader23.i.i ], [ %164, %.lr.ph29.i.i ]
-  %.015.lcssa.i.i = phi ptr [ %.016.lcssa.i.i, %.preheader23.i.i ], [ %163, %.lr.ph29.i.i ]
-  %.not2232.i.i = icmp eq i32 %.018.lcssa.i.i, 0
+.preheader.i.i102:                                ; preds = %.preheader23.i.i
+  %.not2232.i.i = icmp eq i32 %160, 0
   br i1 %.not2232.i.i, label %.loopexit, label %.lr.ph35.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.preheader23.i.i, %.lr.ph29.i.i
@@ -13408,18 +13406,18 @@ _sp_cmp.exit:                                     ; preds = %133, %98, %144, %10
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !8
   %164 = add i32 %.01827.i.i, -8
   %165 = icmp ugt i32 %164, 7
-  br i1 %165, label %.lr.ph29.i.i, label %.preheader.i.i102, !llvm.loop !16
+  br i1 %165, label %.lr.ph29.i.i, label %.loopexit, !llvm.loop !16
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i102, %.lr.ph35.i.i
-  %.11734.i.i = phi ptr [ %167, %.lr.ph35.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i102 ]
-  %.11933.i.i = phi i32 [ %166, %.lr.ph35.i.i ], [ %.018.lcssa.i.i, %.preheader.i.i102 ]
-  %166 = add i32 %.11933.i.i, -1
+  %.11734.i.i = phi ptr [ %167, %.lr.ph35.i.i ], [ %.016.lcssa.i.i, %.preheader.i.i102 ]
+  %.11933.i.i = phi i32 [ %166, %.lr.ph35.i.i ], [ %160, %.preheader.i.i102 ]
+  %166 = add nsw i32 %.11933.i.i, -1
   %167 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !13
   %.not22.i.i = icmp eq i32 %166, 0
   br i1 %.not22.i.i, label %.loopexit, label %.lr.ph35.i.i, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.lr.ph35.i.i, %.preheader.i.i102
+.loopexit:                                        ; preds = %.lr.ph35.i.i, %.lr.ph29.i.i, %.preheader.i.i102
   %168 = load i16, ptr %51, align 2, !tbaa !10
   %169 = zext i16 %168 to i32
   %170 = shl nuw nsw i32 %169, 3
@@ -13442,10 +13440,8 @@ _sp_cmp.exit:                                     ; preds = %133, %98, %144, %10
   %177 = icmp ugt i32 %175, 7
   br i1 %177, label %.lr.ph29.i.i121, label %.preheader.i.i112
 
-.preheader.i.i112:                                ; preds = %.lr.ph29.i.i121, %.preheader23.i.i110
-  %.018.lcssa.i.i113 = phi i32 [ %175, %.preheader23.i.i110 ], [ %179, %.lr.ph29.i.i121 ]
-  %.015.lcssa.i.i114 = phi ptr [ %.016.lcssa.i.i111, %.preheader23.i.i110 ], [ %178, %.lr.ph29.i.i121 ]
-  %.not2232.i.i115 = icmp eq i32 %.018.lcssa.i.i113, 0
+.preheader.i.i112:                                ; preds = %.preheader23.i.i110
+  %.not2232.i.i115 = icmp eq i32 %175, 0
   br i1 %.not2232.i.i115, label %.preheader23.i.i132, label %.lr.ph35.i.i116
 
 .lr.ph29.i.i121:                                  ; preds = %.preheader23.i.i110, %.lr.ph29.i.i121
@@ -13455,18 +13451,18 @@ _sp_cmp.exit:                                     ; preds = %133, %98, %144, %10
   store volatile i64 0, ptr %.01528.i.i122, align 8, !tbaa !8
   %179 = add i32 %.01827.i.i123, -8
   %180 = icmp ugt i32 %179, 7
-  br i1 %180, label %.lr.ph29.i.i121, label %.preheader.i.i112, !llvm.loop !16
+  br i1 %180, label %.lr.ph29.i.i121, label %.preheader23.i.i132, !llvm.loop !16
 
 .lr.ph35.i.i116:                                  ; preds = %.preheader.i.i112, %.lr.ph35.i.i116
-  %.11734.i.i117 = phi ptr [ %182, %.lr.ph35.i.i116 ], [ %.015.lcssa.i.i114, %.preheader.i.i112 ]
-  %.11933.i.i118 = phi i32 [ %181, %.lr.ph35.i.i116 ], [ %.018.lcssa.i.i113, %.preheader.i.i112 ]
-  %181 = add i32 %.11933.i.i118, -1
+  %.11734.i.i117 = phi ptr [ %182, %.lr.ph35.i.i116 ], [ %.016.lcssa.i.i111, %.preheader.i.i112 ]
+  %.11933.i.i118 = phi i32 [ %181, %.lr.ph35.i.i116 ], [ %175, %.preheader.i.i112 ]
+  %181 = add nsw i32 %.11933.i.i118, -1
   %182 = getelementptr inbounds nuw i8, ptr %.11734.i.i117, i64 1
   store volatile i8 0, ptr %.11734.i.i117, align 1, !tbaa !13
   %.not22.i.i119 = icmp eq i32 %181, 0
   br i1 %.not22.i.i119, label %.preheader23.i.i132, label %.lr.ph35.i.i116, !llvm.loop !17
 
-.preheader23.i.i132:                              ; preds = %.lr.ph35.i.i116, %.preheader.i.i112
+.preheader23.i.i132:                              ; preds = %.lr.ph35.i.i116, %.lr.ph29.i.i121, %.preheader.i.i112
   %183 = load i16, ptr %49, align 2, !tbaa !10
   %.not188 = icmp eq i16 %183, 0
   br i1 %.not188, label %.preheader23.i.i154, label %.lr.ph29.i.i143.preheader

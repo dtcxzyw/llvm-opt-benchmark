@@ -8667,36 +8667,37 @@ define dso_local void @_ZNK4llvm6object23ImportDirectoryEntryRef21imported_symbo
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !506
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %5, i64 %8, i32 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %9, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !507
+  %9 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %10, align 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !507
   tail call void @llvm.experimental.noalias.scope.decl(metadata !514)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !514
   store i64 0, ptr %3, align 8, !tbaa !52, !noalias !514
-  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %11, i32 noundef %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !514
-  %12 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !514
-  %.not.i.i = icmp eq ptr %12, null
+  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %12, i32 noundef %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !514
+  %13 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !514
+  %.not.i.i = icmp eq ptr %13, null
   tail call void @llvm.assume(i1 %.not.i.i)
-  %13 = load i64, ptr %3, align 8, !tbaa !52, !noalias !514
+  %14 = load i64, ptr %3, align 8, !tbaa !52, !noalias !514
   tail call void @llvm.experimental.noalias.scope.decl(metadata !517)
-  %14 = load ptr, ptr %11, align 8, !tbaa !84, !noalias !520
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 376
-  %16 = load ptr, ptr %15, align 8, !noalias !520
-  %17 = tail call noundef zeroext i8 %16(ptr noundef nonnull align 8 dereferenceable(232) %11) #30, !noalias !520
-  %18 = icmp eq i8 %17, 4
-  %19 = inttoptr i64 %13 to ptr
-  %..i.i = select i1 %18, ptr %19, ptr null
-  %.22.i.i = select i1 %18, ptr null, ptr %19
+  %15 = load ptr, ptr %12, align 8, !tbaa !84, !noalias !520
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 376
+  %17 = load ptr, ptr %16, align 8, !noalias !520
+  %18 = tail call noundef zeroext i8 %17(ptr noundef nonnull align 8 dereferenceable(232) %12) #30, !noalias !520
+  %19 = icmp eq i8 %18, 4
+  %20 = inttoptr i64 %14 to ptr
+  %..i.i = select i1 %19, ptr %20, ptr null
+  %.22.i.i = select i1 %19, ptr null, ptr %20
   store ptr %..i.i, ptr %0, align 8, !tbaa !521, !alias.scope !520
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.22.i.i, ptr %20, align 8, !tbaa !523, !alias.scope !520
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %21, align 8, !tbaa !83, !alias.scope !520
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %11, ptr %22, align 8, !tbaa !369, !alias.scope !520
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.22.i.i, ptr %21, align 8, !tbaa !523, !alias.scope !520
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %22, align 8, !tbaa !83, !alias.scope !520
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %12, ptr %23, align 8, !tbaa !369, !alias.scope !520
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !514
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -8710,76 +8711,77 @@ define dso_local void @_ZNK4llvm6object23ImportDirectoryEntryRef19imported_symbo
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !506
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %5, i64 %8, i32 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %9, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !507
+  %9 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %10, align 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !507
   tail call void @llvm.experimental.noalias.scope.decl(metadata !525)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !525
   store i64 0, ptr %3, align 8, !tbaa !52, !noalias !525
-  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %11, i32 noundef %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !525
-  %12 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !525
-  %.not.i.i = icmp eq ptr %12, null
+  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %12, i32 noundef %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !525
+  %13 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !525
+  %.not.i.i = icmp eq ptr %13, null
   tail call void @llvm.assume(i1 %.not.i.i)
-  %13 = load ptr, ptr %11, align 8, !tbaa !84, !noalias !525
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 376
-  %15 = load ptr, ptr %14, align 8, !noalias !525
-  %16 = tail call noundef zeroext i8 %15(ptr noundef nonnull align 8 dereferenceable(232) %11) #30, !noalias !525
-  %17 = icmp eq i8 %16, 4
-  %18 = load i64, ptr %3, align 8, !tbaa !52, !noalias !525
-  %19 = inttoptr i64 %18 to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 1) ]
-  br i1 %17, label %20, label %23
+  %14 = load ptr, ptr %12, align 8, !tbaa !84, !noalias !525
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 376
+  %16 = load ptr, ptr %15, align 8, !noalias !525
+  %17 = tail call noundef zeroext i8 %16(ptr noundef nonnull align 8 dereferenceable(232) %12) #30, !noalias !525
+  %18 = icmp eq i8 %17, 4
+  %19 = load i64, ptr %3, align 8, !tbaa !52, !noalias !525
+  %20 = inttoptr i64 %19 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 1) ]
+  br i1 %18, label %21, label %24
 
-20:                                               ; preds = %2
-  %.0.copyload.i.i.i17.i = load i32, ptr %19, align 1, !noalias !525
+21:                                               ; preds = %2
+  %.0.copyload.i.i.i17.i = load i32, ptr %20, align 1, !noalias !525
   %.not1018.i = icmp eq i32 %.0.copyload.i.i.i17.i, 0
   br i1 %.not1018.i, label %_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit, label %.lr.ph21.i
 
-.lr.ph21.i:                                       ; preds = %20, %.lr.ph21.i
-  %.0820.i = phi ptr [ %21, %.lr.ph21.i ], [ %19, %20 ]
-  %.0919.i = phi i32 [ %22, %.lr.ph21.i ], [ 0, %20 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.0820.i, i64 4
-  %22 = add nuw nsw i32 %.0919.i, 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
-  %.0.copyload.i.i.i.i = load i32, ptr %21, align 1, !noalias !525
+.lr.ph21.i:                                       ; preds = %21, %.lr.ph21.i
+  %.0820.i = phi ptr [ %22, %.lr.ph21.i ], [ %20, %21 ]
+  %.0919.i = phi i32 [ %23, %.lr.ph21.i ], [ 0, %21 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.0820.i, i64 4
+  %23 = add nuw nsw i32 %.0919.i, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
+  %.0.copyload.i.i.i.i = load i32, ptr %22, align 1, !noalias !525
   %.not10.i = icmp eq i32 %.0.copyload.i.i.i.i, 0
   br i1 %.not10.i, label %_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit, label %.lr.ph21.i, !llvm.loop !528
 
-23:                                               ; preds = %2
-  %.0.copyload.i.i.i1113.i = load i64, ptr %19, align 1, !noalias !525
+24:                                               ; preds = %2
+  %.0.copyload.i.i.i1113.i = load i64, ptr %20, align 1, !noalias !525
   %.not14.i = icmp eq i64 %.0.copyload.i.i.i1113.i, 0
   br i1 %.not14.i, label %_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
-  %.016.i = phi ptr [ %24, %.lr.ph.i ], [ %19, %23 ]
-  %.215.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %23 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
-  %25 = add nuw nsw i32 %.215.i, 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
-  %.0.copyload.i.i.i11.i = load i64, ptr %24, align 1, !noalias !525
+.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
+  %.016.i = phi ptr [ %25, %.lr.ph.i ], [ %20, %24 ]
+  %.215.i = phi i32 [ %26, %.lr.ph.i ], [ 0, %24 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
+  %26 = add nuw nsw i32 %.215.i, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
+  %.0.copyload.i.i.i11.i = load i64, ptr %25, align 1, !noalias !525
   %.not.i = icmp eq i64 %.0.copyload.i.i.i11.i, 0
   br i1 %.not.i, label %_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit, label %.lr.ph.i, !llvm.loop !529
 
-_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit: ; preds = %.lr.ph.i, %.lr.ph21.i, %20, %23
-  %.1.i = phi i32 [ 0, %23 ], [ 0, %20 ], [ %22, %.lr.ph21.i ], [ %25, %.lr.ph.i ]
+_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit: ; preds = %.lr.ph.i, %.lr.ph21.i, %21, %24
+  %.1.i = phi i32 [ 0, %24 ], [ 0, %21 ], [ %23, %.lr.ph21.i ], [ %26, %.lr.ph.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !530)
-  %26 = load ptr, ptr %11, align 8, !tbaa !84, !noalias !533
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 376
-  %28 = load ptr, ptr %27, align 8, !noalias !533
-  %29 = tail call noundef zeroext i8 %28(ptr noundef nonnull align 8 dereferenceable(232) %11) #30, !noalias !533
-  %30 = icmp eq i8 %29, 4
-  %..i.i = select i1 %30, ptr %19, ptr null
-  %.22.i.i = select i1 %30, ptr null, ptr %19
+  %27 = load ptr, ptr %12, align 8, !tbaa !84, !noalias !533
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 376
+  %29 = load ptr, ptr %28, align 8, !noalias !533
+  %30 = tail call noundef zeroext i8 %29(ptr noundef nonnull align 8 dereferenceable(232) %12) #30, !noalias !533
+  %31 = icmp eq i8 %30, 4
+  %..i.i = select i1 %31, ptr %20, ptr null
+  %.22.i.i = select i1 %31, ptr null, ptr %20
   store ptr %..i.i, ptr %0, align 8, !tbaa !521, !alias.scope !533
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.22.i.i, ptr %31, align 8, !tbaa !523, !alias.scope !533
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.1.i, ptr %32, align 8, !tbaa !83, !alias.scope !533
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %11, ptr %33, align 8, !tbaa !369, !alias.scope !533
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.22.i.i, ptr %32, align 8, !tbaa !523, !alias.scope !533
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.1.i, ptr %33, align 8, !tbaa !83, !alias.scope !533
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %12, ptr %34, align 8, !tbaa !369, !alias.scope !533
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !525
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -8795,92 +8797,94 @@ define dso_local void @_ZNK4llvm6object23ImportDirectoryEntryRef16imported_symbo
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !506, !noalias !534
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %7, i64 %10, i32 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
-  %.0.copyload.i.i.i.i = load i32, ptr %11, align 1, !noalias !534
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !507, !noalias !534
+  %11 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
+  %.0.copyload.i.i.i.i = load i32, ptr %12, align 1, !noalias !534
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !507, !noalias !534
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !534
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !537
   store i64 0, ptr %5, align 8, !tbaa !52, !noalias !537
-  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(232) %13, i32 noundef %.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef null), !noalias !537
-  %14 = load ptr, ptr %6, align 8, !tbaa !79, !noalias !537
-  %.not.i.i.i = icmp eq ptr %14, null
+  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(232) %14, i32 noundef %.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef null), !noalias !537
+  %15 = load ptr, ptr %6, align 8, !tbaa !79, !noalias !537
+  %.not.i.i.i = icmp eq ptr %15, null
   tail call void @llvm.assume(i1 %.not.i.i.i)
-  %15 = load i64, ptr %5, align 8, !tbaa !52, !noalias !537
-  %16 = load ptr, ptr %13, align 8, !tbaa !84, !noalias !540
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 376
-  %18 = load ptr, ptr %17, align 8, !noalias !540
-  %19 = tail call noundef zeroext i8 %18(ptr noundef nonnull align 8 dereferenceable(232) %13) #30, !noalias !540
+  %16 = load i64, ptr %5, align 8, !tbaa !52, !noalias !537
+  %17 = load ptr, ptr %14, align 8, !tbaa !84, !noalias !540
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 376
+  %19 = load ptr, ptr %18, align 8, !noalias !540
+  %20 = tail call noundef zeroext i8 %19(ptr noundef nonnull align 8 dereferenceable(232) %14) #30, !noalias !540
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !537
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !534
-  %20 = load ptr, ptr %1, align 8, !tbaa !504, !noalias !543
-  %21 = load i32, ptr %8, align 8, !tbaa !506, !noalias !543
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %20, i64 %22, i32 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
-  %.0.copyload.i.i.i.i1 = load i32, ptr %23, align 1, !noalias !543
-  %24 = load ptr, ptr %12, align 8, !tbaa !507, !noalias !543
+  %21 = load ptr, ptr %1, align 8, !tbaa !504, !noalias !543
+  %22 = load i32, ptr %8, align 8, !tbaa !506, !noalias !543
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %21, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
+  %.0.copyload.i.i.i.i1 = load i32, ptr %25, align 1, !noalias !543
+  %26 = load ptr, ptr %13, align 8, !tbaa !507, !noalias !543
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !543
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !546
   store i64 0, ptr %3, align 8, !tbaa !52, !noalias !546
-  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %24, i32 noundef %.0.copyload.i.i.i.i1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !546
-  %25 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !546
-  %.not.i.i.i2 = icmp eq ptr %25, null
+  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %26, i32 noundef %.0.copyload.i.i.i.i1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !546
+  %27 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !546
+  %.not.i.i.i2 = icmp eq ptr %27, null
   tail call void @llvm.assume(i1 %.not.i.i.i2)
-  %26 = load ptr, ptr %24, align 8, !tbaa !84, !noalias !546
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 376
-  %28 = load ptr, ptr %27, align 8, !noalias !546
-  %29 = tail call noundef zeroext i8 %28(ptr noundef nonnull align 8 dereferenceable(232) %24) #30, !noalias !546
-  %30 = icmp eq i8 %29, 4
-  %31 = load i64, ptr %3, align 8, !tbaa !52, !noalias !546
-  %32 = inttoptr i64 %31 to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 1) ]
-  br i1 %30, label %33, label %36
+  %28 = load ptr, ptr %26, align 8, !tbaa !84, !noalias !546
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 376
+  %30 = load ptr, ptr %29, align 8, !noalias !546
+  %31 = tail call noundef zeroext i8 %30(ptr noundef nonnull align 8 dereferenceable(232) %26) #30, !noalias !546
+  %32 = icmp eq i8 %31, 4
+  %33 = load i64, ptr %3, align 8, !tbaa !52, !noalias !546
+  %34 = inttoptr i64 %33 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 1) ]
+  br i1 %32, label %35, label %38
 
-33:                                               ; preds = %2
-  %.0.copyload.i.i.i17.i.i = load i32, ptr %32, align 1, !noalias !546
+35:                                               ; preds = %2
+  %.0.copyload.i.i.i17.i.i = load i32, ptr %34, align 1, !noalias !546
   %.not1018.i.i = icmp eq i32 %.0.copyload.i.i.i17.i.i, 0
   br i1 %.not1018.i.i, label %_ZNK4llvm6object23ImportDirectoryEntryRef19imported_symbol_endEv.exit, label %.lr.ph21.i.i
 
-.lr.ph21.i.i:                                     ; preds = %33, %.lr.ph21.i.i
-  %.0820.i.i = phi ptr [ %34, %.lr.ph21.i.i ], [ %32, %33 ]
-  %.0919.i.i = phi i32 [ %35, %.lr.ph21.i.i ], [ 0, %33 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.0820.i.i, i64 4
-  %35 = add nuw nsw i32 %.0919.i.i, 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 1) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %34, align 1, !noalias !546
+.lr.ph21.i.i:                                     ; preds = %35, %.lr.ph21.i.i
+  %.0820.i.i = phi ptr [ %36, %.lr.ph21.i.i ], [ %34, %35 ]
+  %.0919.i.i = phi i32 [ %37, %.lr.ph21.i.i ], [ 0, %35 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.0820.i.i, i64 4
+  %37 = add nuw nsw i32 %.0919.i.i, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
+  %.0.copyload.i.i.i.i.i = load i32, ptr %36, align 1, !noalias !546
   %.not10.i.i = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %.not10.i.i, label %_ZNK4llvm6object23ImportDirectoryEntryRef19imported_symbol_endEv.exit, label %.lr.ph21.i.i, !llvm.loop !528
 
-36:                                               ; preds = %2
-  %.0.copyload.i.i.i1113.i.i = load i64, ptr %32, align 1, !noalias !546
+38:                                               ; preds = %2
+  %.0.copyload.i.i.i1113.i.i = load i64, ptr %34, align 1, !noalias !546
   %.not14.i.i = icmp eq i64 %.0.copyload.i.i.i1113.i.i, 0
   br i1 %.not14.i.i, label %_ZNK4llvm6object23ImportDirectoryEntryRef19imported_symbol_endEv.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %36, %.lr.ph.i.i
-  %.016.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %32, %36 ]
-  %.215.i.i = phi i32 [ %38, %.lr.ph.i.i ], [ 0, %36 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
-  %38 = add nuw nsw i32 %.215.i.i, 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 1) ]
-  %.0.copyload.i.i.i11.i.i = load i64, ptr %37, align 1, !noalias !546
+.lr.ph.i.i:                                       ; preds = %38, %.lr.ph.i.i
+  %.016.i.i = phi ptr [ %39, %.lr.ph.i.i ], [ %34, %38 ]
+  %.215.i.i = phi i32 [ %40, %.lr.ph.i.i ], [ 0, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
+  %40 = add nuw nsw i32 %.215.i.i, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
+  %.0.copyload.i.i.i11.i.i = load i64, ptr %39, align 1, !noalias !546
   %.not.i.i = icmp eq i64 %.0.copyload.i.i.i11.i.i, 0
   br i1 %.not.i.i, label %_ZNK4llvm6object23ImportDirectoryEntryRef19imported_symbol_endEv.exit, label %.lr.ph.i.i, !llvm.loop !529
 
-_ZNK4llvm6object23ImportDirectoryEntryRef19imported_symbol_endEv.exit: ; preds = %.lr.ph.i.i, %.lr.ph21.i.i, %33, %36
-  %.1.i.i = phi i32 [ 0, %36 ], [ 0, %33 ], [ %35, %.lr.ph21.i.i ], [ %38, %.lr.ph.i.i ]
-  %39 = icmp eq i8 %19, 4
-  %40 = inttoptr i64 %15 to ptr
-  %.22.i.i.i = select i1 %39, ptr null, ptr %40
-  %..i.i.i = select i1 %39, ptr %40, ptr null
-  %41 = load ptr, ptr %24, align 8, !tbaa !84, !noalias !549
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 376
-  %43 = load ptr, ptr %42, align 8, !noalias !549
-  %44 = tail call noundef zeroext i8 %43(ptr noundef nonnull align 8 dereferenceable(232) %24) #30, !noalias !549
-  %45 = icmp eq i8 %44, 4
-  %..i.i.i3 = select i1 %45, ptr %32, ptr null
-  %.22.i.i.i4 = select i1 %45, ptr null, ptr %32
+_ZNK4llvm6object23ImportDirectoryEntryRef19imported_symbol_endEv.exit: ; preds = %.lr.ph.i.i, %.lr.ph21.i.i, %35, %38
+  %.1.i.i = phi i32 [ 0, %38 ], [ 0, %35 ], [ %37, %.lr.ph21.i.i ], [ %40, %.lr.ph.i.i ]
+  %41 = icmp eq i8 %20, 4
+  %42 = inttoptr i64 %16 to ptr
+  %.22.i.i.i = select i1 %41, ptr null, ptr %42
+  %..i.i.i = select i1 %41, ptr %42, ptr null
+  %43 = load ptr, ptr %26, align 8, !tbaa !84, !noalias !549
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 376
+  %45 = load ptr, ptr %44, align 8, !noalias !549
+  %46 = tail call noundef zeroext i8 %45(ptr noundef nonnull align 8 dereferenceable(232) %26) #30, !noalias !549
+  %47 = icmp eq i8 %46, 4
+  %..i.i.i3 = select i1 %47, ptr %34, ptr null
+  %.22.i.i.i4 = select i1 %47, ptr null, ptr %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !546
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !543
   store ptr %..i.i.i, ptr %0, align 8
@@ -8889,15 +8893,15 @@ _ZNK4llvm6object23ImportDirectoryEntryRef19imported_symbol_endEv.exit: ; preds =
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %13, ptr %.sroa.7.0..sroa_idx, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %..i.i.i3, ptr %46, align 8
+  store ptr %14, ptr %.sroa.7.0..sroa_idx, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %..i.i.i3, ptr %48, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.22.i.i.i4, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %.1.i.i, ptr %.sroa.515.0..sroa_idx, align 8
   %.sroa.717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %24, ptr %.sroa.717.0..sroa_idx, align 8
+  store ptr %26, ptr %.sroa.717.0..sroa_idx, align 8
   ret void
 }
 
@@ -9154,29 +9158,30 @@ define dso_local void @_ZNK4llvm6object23ImportDirectoryEntryRef7getNameERNS_9St
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !506
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %7, i64 %10, i32 3
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %11, align 1
+  %11 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %12, align 1
   call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %6, i32 noundef %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.121)
-  %12 = load ptr, ptr %0, align 8, !tbaa !79
-  %.not = icmp eq ptr %12, null
+  %13 = load ptr, ptr %0, align 8, !tbaa !79
+  %.not = icmp eq ptr %13, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  %13 = load i64, ptr %4, align 8, !tbaa !52
-  %14 = inttoptr i64 %13 to ptr
-  %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit4, label %15
+  %14 = load i64, ptr %4, align 8, !tbaa !52
+  %15 = inttoptr i64 %14 to ptr
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit4, label %16
 
-15:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #30
+16:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
+  %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #30
   br label %_ZN4llvm5ErrorD2Ev.exit4
 
-_ZN4llvm5ErrorD2Ev.exit4:                         ; preds = %15, %_ZN4llvm5ErrorD2Ev.exit
-  %17 = phi i64 [ %16, %15 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit ]
-  store ptr %14, ptr %2, align 8, !tbaa !51
+_ZN4llvm5ErrorD2Ev.exit4:                         ; preds = %16, %_ZN4llvm5ErrorD2Ev.exit
+  %18 = phi i64 [ %17, %16 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit ]
+  store ptr %15, ptr %2, align 8, !tbaa !51
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %17, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !52
+  store i64 %18, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !52
   store ptr null, ptr %0, align 8, !tbaa !79
   br label %.critedge
 
@@ -9207,9 +9212,10 @@ _ZN4llvm5ErrorD2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !506
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %3, i64 %6, i32 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %7, align 1
+  %7 = getelementptr inbounds nuw %"struct.llvm::object::coff_import_directory_table_entry", ptr %3, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %8, align 1
   store i32 %.0.copyload.i.i.i, ptr %2, align 4, !tbaa !83
   store ptr null, ptr %0, align 8, !tbaa !79
   ret void
@@ -9246,36 +9252,37 @@ define dso_local void @_ZNK4llvm6object28DelayImportDirectoryEntryRef21imported_
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !586
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %5, i64 %8, i32 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %9, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !587
+  %9 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %10, align 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !587
   tail call void @llvm.experimental.noalias.scope.decl(metadata !588)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !588
   store i64 0, ptr %3, align 8, !tbaa !52, !noalias !588
-  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %11, i32 noundef %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !588
-  %12 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !588
-  %.not.i.i = icmp eq ptr %12, null
+  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %12, i32 noundef %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !588
+  %13 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !588
+  %.not.i.i = icmp eq ptr %13, null
   tail call void @llvm.assume(i1 %.not.i.i)
-  %13 = load i64, ptr %3, align 8, !tbaa !52, !noalias !588
+  %14 = load i64, ptr %3, align 8, !tbaa !52, !noalias !588
   tail call void @llvm.experimental.noalias.scope.decl(metadata !591)
-  %14 = load ptr, ptr %11, align 8, !tbaa !84, !noalias !594
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 376
-  %16 = load ptr, ptr %15, align 8, !noalias !594
-  %17 = tail call noundef zeroext i8 %16(ptr noundef nonnull align 8 dereferenceable(232) %11) #30, !noalias !594
-  %18 = icmp eq i8 %17, 4
-  %19 = inttoptr i64 %13 to ptr
-  %..i.i = select i1 %18, ptr %19, ptr null
-  %.22.i.i = select i1 %18, ptr null, ptr %19
+  %15 = load ptr, ptr %12, align 8, !tbaa !84, !noalias !594
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 376
+  %17 = load ptr, ptr %16, align 8, !noalias !594
+  %18 = tail call noundef zeroext i8 %17(ptr noundef nonnull align 8 dereferenceable(232) %12) #30, !noalias !594
+  %19 = icmp eq i8 %18, 4
+  %20 = inttoptr i64 %14 to ptr
+  %..i.i = select i1 %19, ptr %20, ptr null
+  %.22.i.i = select i1 %19, ptr null, ptr %20
   store ptr %..i.i, ptr %0, align 8, !tbaa !521, !alias.scope !594
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.22.i.i, ptr %20, align 8, !tbaa !523, !alias.scope !594
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %21, align 8, !tbaa !83, !alias.scope !594
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %11, ptr %22, align 8, !tbaa !369, !alias.scope !594
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.22.i.i, ptr %21, align 8, !tbaa !523, !alias.scope !594
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %22, align 8, !tbaa !83, !alias.scope !594
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %12, ptr %23, align 8, !tbaa !369, !alias.scope !594
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !588
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -9289,76 +9296,77 @@ define dso_local void @_ZNK4llvm6object28DelayImportDirectoryEntryRef19imported_
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !586
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %5, i64 %8, i32 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %9, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !587
+  %9 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %10, align 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !587
   tail call void @llvm.experimental.noalias.scope.decl(metadata !595)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !595
   store i64 0, ptr %3, align 8, !tbaa !52, !noalias !595
-  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %11, i32 noundef %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !595
-  %12 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !595
-  %.not.i.i = icmp eq ptr %12, null
+  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %12, i32 noundef %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !595
+  %13 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !595
+  %.not.i.i = icmp eq ptr %13, null
   tail call void @llvm.assume(i1 %.not.i.i)
-  %13 = load ptr, ptr %11, align 8, !tbaa !84, !noalias !595
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 376
-  %15 = load ptr, ptr %14, align 8, !noalias !595
-  %16 = tail call noundef zeroext i8 %15(ptr noundef nonnull align 8 dereferenceable(232) %11) #30, !noalias !595
-  %17 = icmp eq i8 %16, 4
-  %18 = load i64, ptr %3, align 8, !tbaa !52, !noalias !595
-  %19 = inttoptr i64 %18 to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 1) ]
-  br i1 %17, label %20, label %23
+  %14 = load ptr, ptr %12, align 8, !tbaa !84, !noalias !595
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 376
+  %16 = load ptr, ptr %15, align 8, !noalias !595
+  %17 = tail call noundef zeroext i8 %16(ptr noundef nonnull align 8 dereferenceable(232) %12) #30, !noalias !595
+  %18 = icmp eq i8 %17, 4
+  %19 = load i64, ptr %3, align 8, !tbaa !52, !noalias !595
+  %20 = inttoptr i64 %19 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 1) ]
+  br i1 %18, label %21, label %24
 
-20:                                               ; preds = %2
-  %.0.copyload.i.i.i17.i = load i32, ptr %19, align 1, !noalias !595
+21:                                               ; preds = %2
+  %.0.copyload.i.i.i17.i = load i32, ptr %20, align 1, !noalias !595
   %.not1018.i = icmp eq i32 %.0.copyload.i.i.i17.i, 0
   br i1 %.not1018.i, label %_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit, label %.lr.ph21.i
 
-.lr.ph21.i:                                       ; preds = %20, %.lr.ph21.i
-  %.0820.i = phi ptr [ %21, %.lr.ph21.i ], [ %19, %20 ]
-  %.0919.i = phi i32 [ %22, %.lr.ph21.i ], [ 0, %20 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.0820.i, i64 4
-  %22 = add nuw nsw i32 %.0919.i, 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
-  %.0.copyload.i.i.i.i = load i32, ptr %21, align 1, !noalias !595
+.lr.ph21.i:                                       ; preds = %21, %.lr.ph21.i
+  %.0820.i = phi ptr [ %22, %.lr.ph21.i ], [ %20, %21 ]
+  %.0919.i = phi i32 [ %23, %.lr.ph21.i ], [ 0, %21 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.0820.i, i64 4
+  %23 = add nuw nsw i32 %.0919.i, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
+  %.0.copyload.i.i.i.i = load i32, ptr %22, align 1, !noalias !595
   %.not10.i = icmp eq i32 %.0.copyload.i.i.i.i, 0
   br i1 %.not10.i, label %_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit, label %.lr.ph21.i, !llvm.loop !528
 
-23:                                               ; preds = %2
-  %.0.copyload.i.i.i1113.i = load i64, ptr %19, align 1, !noalias !595
+24:                                               ; preds = %2
+  %.0.copyload.i.i.i1113.i = load i64, ptr %20, align 1, !noalias !595
   %.not14.i = icmp eq i64 %.0.copyload.i.i.i1113.i, 0
   br i1 %.not14.i, label %_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
-  %.016.i = phi ptr [ %24, %.lr.ph.i ], [ %19, %23 ]
-  %.215.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %23 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
-  %25 = add nuw nsw i32 %.215.i, 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
-  %.0.copyload.i.i.i11.i = load i64, ptr %24, align 1, !noalias !595
+.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
+  %.016.i = phi ptr [ %25, %.lr.ph.i ], [ %20, %24 ]
+  %.215.i = phi i32 [ %26, %.lr.ph.i ], [ 0, %24 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
+  %26 = add nuw nsw i32 %.215.i, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
+  %.0.copyload.i.i.i11.i = load i64, ptr %25, align 1, !noalias !595
   %.not.i = icmp eq i64 %.0.copyload.i.i.i11.i, 0
   br i1 %.not.i, label %_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit, label %.lr.ph.i, !llvm.loop !529
 
-_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit: ; preds = %.lr.ph.i, %.lr.ph21.i, %20, %23
-  %.1.i = phi i32 [ 0, %23 ], [ 0, %20 ], [ %22, %.lr.ph21.i ], [ %25, %.lr.ph.i ]
+_ZL17importedSymbolEndjPKN4llvm6object14COFFObjectFileE.exit: ; preds = %.lr.ph.i, %.lr.ph21.i, %21, %24
+  %.1.i = phi i32 [ 0, %24 ], [ 0, %21 ], [ %23, %.lr.ph21.i ], [ %26, %.lr.ph.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !598)
-  %26 = load ptr, ptr %11, align 8, !tbaa !84, !noalias !601
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 376
-  %28 = load ptr, ptr %27, align 8, !noalias !601
-  %29 = tail call noundef zeroext i8 %28(ptr noundef nonnull align 8 dereferenceable(232) %11) #30, !noalias !601
-  %30 = icmp eq i8 %29, 4
-  %..i.i = select i1 %30, ptr %19, ptr null
-  %.22.i.i = select i1 %30, ptr null, ptr %19
+  %27 = load ptr, ptr %12, align 8, !tbaa !84, !noalias !601
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 376
+  %29 = load ptr, ptr %28, align 8, !noalias !601
+  %30 = tail call noundef zeroext i8 %29(ptr noundef nonnull align 8 dereferenceable(232) %12) #30, !noalias !601
+  %31 = icmp eq i8 %30, 4
+  %..i.i = select i1 %31, ptr %20, ptr null
+  %.22.i.i = select i1 %31, ptr null, ptr %20
   store ptr %..i.i, ptr %0, align 8, !tbaa !521, !alias.scope !601
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.22.i.i, ptr %31, align 8, !tbaa !523, !alias.scope !601
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.1.i, ptr %32, align 8, !tbaa !83, !alias.scope !601
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %11, ptr %33, align 8, !tbaa !369, !alias.scope !601
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.22.i.i, ptr %32, align 8, !tbaa !523, !alias.scope !601
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.1.i, ptr %33, align 8, !tbaa !83, !alias.scope !601
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %12, ptr %34, align 8, !tbaa !369, !alias.scope !601
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !595
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -9374,92 +9382,94 @@ define dso_local void @_ZNK4llvm6object28DelayImportDirectoryEntryRef16imported_
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !586, !noalias !602
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %7, i64 %10, i32 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
-  %.0.copyload.i.i.i.i = load i32, ptr %11, align 1, !noalias !602
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !587, !noalias !602
+  %11 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
+  %.0.copyload.i.i.i.i = load i32, ptr %12, align 1, !noalias !602
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !587, !noalias !602
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !602
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !605
   store i64 0, ptr %5, align 8, !tbaa !52, !noalias !605
-  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(232) %13, i32 noundef %.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef null), !noalias !605
-  %14 = load ptr, ptr %6, align 8, !tbaa !79, !noalias !605
-  %.not.i.i.i = icmp eq ptr %14, null
+  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef nonnull align 8 dereferenceable(232) %14, i32 noundef %.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef null), !noalias !605
+  %15 = load ptr, ptr %6, align 8, !tbaa !79, !noalias !605
+  %.not.i.i.i = icmp eq ptr %15, null
   tail call void @llvm.assume(i1 %.not.i.i.i)
-  %15 = load i64, ptr %5, align 8, !tbaa !52, !noalias !605
-  %16 = load ptr, ptr %13, align 8, !tbaa !84, !noalias !608
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 376
-  %18 = load ptr, ptr %17, align 8, !noalias !608
-  %19 = tail call noundef zeroext i8 %18(ptr noundef nonnull align 8 dereferenceable(232) %13) #30, !noalias !608
+  %16 = load i64, ptr %5, align 8, !tbaa !52, !noalias !605
+  %17 = load ptr, ptr %14, align 8, !tbaa !84, !noalias !608
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 376
+  %19 = load ptr, ptr %18, align 8, !noalias !608
+  %20 = tail call noundef zeroext i8 %19(ptr noundef nonnull align 8 dereferenceable(232) %14) #30, !noalias !608
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !605
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !602
-  %20 = load ptr, ptr %1, align 8, !tbaa !584, !noalias !611
-  %21 = load i32, ptr %8, align 8, !tbaa !586, !noalias !611
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %20, i64 %22, i32 4
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
-  %.0.copyload.i.i.i.i1 = load i32, ptr %23, align 1, !noalias !611
-  %24 = load ptr, ptr %12, align 8, !tbaa !587, !noalias !611
+  %21 = load ptr, ptr %1, align 8, !tbaa !584, !noalias !611
+  %22 = load i32, ptr %8, align 8, !tbaa !586, !noalias !611
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %21, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
+  %.0.copyload.i.i.i.i1 = load i32, ptr %25, align 1, !noalias !611
+  %26 = load ptr, ptr %13, align 8, !tbaa !587, !noalias !611
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !611
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !614
   store i64 0, ptr %3, align 8, !tbaa !52, !noalias !614
-  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %24, i32 noundef %.0.copyload.i.i.i.i1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !614
-  %25 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !614
-  %.not.i.i.i2 = icmp eq ptr %25, null
+  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %26, i32 noundef %.0.copyload.i.i.i.i1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null), !noalias !614
+  %27 = load ptr, ptr %4, align 8, !tbaa !79, !noalias !614
+  %.not.i.i.i2 = icmp eq ptr %27, null
   tail call void @llvm.assume(i1 %.not.i.i.i2)
-  %26 = load ptr, ptr %24, align 8, !tbaa !84, !noalias !614
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 376
-  %28 = load ptr, ptr %27, align 8, !noalias !614
-  %29 = tail call noundef zeroext i8 %28(ptr noundef nonnull align 8 dereferenceable(232) %24) #30, !noalias !614
-  %30 = icmp eq i8 %29, 4
-  %31 = load i64, ptr %3, align 8, !tbaa !52, !noalias !614
-  %32 = inttoptr i64 %31 to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 1) ]
-  br i1 %30, label %33, label %36
+  %28 = load ptr, ptr %26, align 8, !tbaa !84, !noalias !614
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 376
+  %30 = load ptr, ptr %29, align 8, !noalias !614
+  %31 = tail call noundef zeroext i8 %30(ptr noundef nonnull align 8 dereferenceable(232) %26) #30, !noalias !614
+  %32 = icmp eq i8 %31, 4
+  %33 = load i64, ptr %3, align 8, !tbaa !52, !noalias !614
+  %34 = inttoptr i64 %33 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 1) ]
+  br i1 %32, label %35, label %38
 
-33:                                               ; preds = %2
-  %.0.copyload.i.i.i17.i.i = load i32, ptr %32, align 1, !noalias !614
+35:                                               ; preds = %2
+  %.0.copyload.i.i.i17.i.i = load i32, ptr %34, align 1, !noalias !614
   %.not1018.i.i = icmp eq i32 %.0.copyload.i.i.i17.i.i, 0
   br i1 %.not1018.i.i, label %_ZNK4llvm6object28DelayImportDirectoryEntryRef19imported_symbol_endEv.exit, label %.lr.ph21.i.i
 
-.lr.ph21.i.i:                                     ; preds = %33, %.lr.ph21.i.i
-  %.0820.i.i = phi ptr [ %34, %.lr.ph21.i.i ], [ %32, %33 ]
-  %.0919.i.i = phi i32 [ %35, %.lr.ph21.i.i ], [ 0, %33 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.0820.i.i, i64 4
-  %35 = add nuw nsw i32 %.0919.i.i, 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 1) ]
-  %.0.copyload.i.i.i.i.i = load i32, ptr %34, align 1, !noalias !614
+.lr.ph21.i.i:                                     ; preds = %35, %.lr.ph21.i.i
+  %.0820.i.i = phi ptr [ %36, %.lr.ph21.i.i ], [ %34, %35 ]
+  %.0919.i.i = phi i32 [ %37, %.lr.ph21.i.i ], [ 0, %35 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.0820.i.i, i64 4
+  %37 = add nuw nsw i32 %.0919.i.i, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %36, i64 1) ]
+  %.0.copyload.i.i.i.i.i = load i32, ptr %36, align 1, !noalias !614
   %.not10.i.i = icmp eq i32 %.0.copyload.i.i.i.i.i, 0
   br i1 %.not10.i.i, label %_ZNK4llvm6object28DelayImportDirectoryEntryRef19imported_symbol_endEv.exit, label %.lr.ph21.i.i, !llvm.loop !528
 
-36:                                               ; preds = %2
-  %.0.copyload.i.i.i1113.i.i = load i64, ptr %32, align 1, !noalias !614
+38:                                               ; preds = %2
+  %.0.copyload.i.i.i1113.i.i = load i64, ptr %34, align 1, !noalias !614
   %.not14.i.i = icmp eq i64 %.0.copyload.i.i.i1113.i.i, 0
   br i1 %.not14.i.i, label %_ZNK4llvm6object28DelayImportDirectoryEntryRef19imported_symbol_endEv.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %36, %.lr.ph.i.i
-  %.016.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %32, %36 ]
-  %.215.i.i = phi i32 [ %38, %.lr.ph.i.i ], [ 0, %36 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
-  %38 = add nuw nsw i32 %.215.i.i, 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 1) ]
-  %.0.copyload.i.i.i11.i.i = load i64, ptr %37, align 1, !noalias !614
+.lr.ph.i.i:                                       ; preds = %38, %.lr.ph.i.i
+  %.016.i.i = phi ptr [ %39, %.lr.ph.i.i ], [ %34, %38 ]
+  %.215.i.i = phi i32 [ %40, %.lr.ph.i.i ], [ 0, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
+  %40 = add nuw nsw i32 %.215.i.i, 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
+  %.0.copyload.i.i.i11.i.i = load i64, ptr %39, align 1, !noalias !614
   %.not.i.i = icmp eq i64 %.0.copyload.i.i.i11.i.i, 0
   br i1 %.not.i.i, label %_ZNK4llvm6object28DelayImportDirectoryEntryRef19imported_symbol_endEv.exit, label %.lr.ph.i.i, !llvm.loop !529
 
-_ZNK4llvm6object28DelayImportDirectoryEntryRef19imported_symbol_endEv.exit: ; preds = %.lr.ph.i.i, %.lr.ph21.i.i, %33, %36
-  %.1.i.i = phi i32 [ 0, %36 ], [ 0, %33 ], [ %35, %.lr.ph21.i.i ], [ %38, %.lr.ph.i.i ]
-  %39 = icmp eq i8 %19, 4
-  %40 = inttoptr i64 %15 to ptr
-  %.22.i.i.i = select i1 %39, ptr null, ptr %40
-  %..i.i.i = select i1 %39, ptr %40, ptr null
-  %41 = load ptr, ptr %24, align 8, !tbaa !84, !noalias !617
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 376
-  %43 = load ptr, ptr %42, align 8, !noalias !617
-  %44 = tail call noundef zeroext i8 %43(ptr noundef nonnull align 8 dereferenceable(232) %24) #30, !noalias !617
-  %45 = icmp eq i8 %44, 4
-  %..i.i.i3 = select i1 %45, ptr %32, ptr null
-  %.22.i.i.i4 = select i1 %45, ptr null, ptr %32
+_ZNK4llvm6object28DelayImportDirectoryEntryRef19imported_symbol_endEv.exit: ; preds = %.lr.ph.i.i, %.lr.ph21.i.i, %35, %38
+  %.1.i.i = phi i32 [ 0, %38 ], [ 0, %35 ], [ %37, %.lr.ph21.i.i ], [ %40, %.lr.ph.i.i ]
+  %41 = icmp eq i8 %20, 4
+  %42 = inttoptr i64 %16 to ptr
+  %.22.i.i.i = select i1 %41, ptr null, ptr %42
+  %..i.i.i = select i1 %41, ptr %42, ptr null
+  %43 = load ptr, ptr %26, align 8, !tbaa !84, !noalias !617
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 376
+  %45 = load ptr, ptr %44, align 8, !noalias !617
+  %46 = tail call noundef zeroext i8 %45(ptr noundef nonnull align 8 dereferenceable(232) %26) #30, !noalias !617
+  %47 = icmp eq i8 %46, 4
+  %..i.i.i3 = select i1 %47, ptr %34, ptr null
+  %.22.i.i.i4 = select i1 %47, ptr null, ptr %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !614
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !611
   store ptr %..i.i.i, ptr %0, align 8
@@ -9468,15 +9478,15 @@ _ZNK4llvm6object28DelayImportDirectoryEntryRef19imported_symbol_endEv.exit: ; pr
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %13, ptr %.sroa.7.0..sroa_idx, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %..i.i.i3, ptr %46, align 8
+  store ptr %14, ptr %.sroa.7.0..sroa_idx, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %..i.i.i3, ptr %48, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.22.i.i.i4, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %.1.i.i, ptr %.sroa.515.0..sroa_idx, align 8
   %.sroa.717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %24, ptr %.sroa.717.0..sroa_idx, align 8
+  store ptr %26, ptr %.sroa.717.0..sroa_idx, align 8
   ret void
 }
 
@@ -9491,29 +9501,30 @@ define dso_local void @_ZNK4llvm6object28DelayImportDirectoryEntryRef7getNameERN
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !586
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %7, i64 %10, i32 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %11, align 1
+  %11 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %12, align 1
   call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %6, i32 noundef %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.122)
-  %12 = load ptr, ptr %0, align 8, !tbaa !79
-  %.not = icmp eq ptr %12, null
+  %13 = load ptr, ptr %0, align 8, !tbaa !79
+  %.not = icmp eq ptr %13, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
-  %13 = load i64, ptr %4, align 8, !tbaa !52
-  %14 = inttoptr i64 %13 to ptr
-  %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit4, label %15
+  %14 = load i64, ptr %4, align 8, !tbaa !52
+  %15 = inttoptr i64 %14 to ptr
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit4, label %16
 
-15:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #30
+16:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
+  %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #30
   br label %_ZN4llvm5ErrorD2Ev.exit4
 
-_ZN4llvm5ErrorD2Ev.exit4:                         ; preds = %15, %_ZN4llvm5ErrorD2Ev.exit
-  %17 = phi i64 [ %16, %15 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit ]
-  store ptr %14, ptr %2, align 8, !tbaa !51
+_ZN4llvm5ErrorD2Ev.exit4:                         ; preds = %16, %_ZN4llvm5ErrorD2Ev.exit
+  %18 = phi i64 [ %17, %16 ], [ 0, %_ZN4llvm5ErrorD2Ev.exit ]
+  store ptr %15, ptr %2, align 8, !tbaa !51
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %17, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !52
+  store i64 %18, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !52
   store ptr null, ptr %0, align 8, !tbaa !79
   br label %.critedge
 
@@ -9542,45 +9553,46 @@ define dso_local void @_ZNK4llvm6object28DelayImportDirectoryEntryRef16getImport
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !586
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %6, i64 %9, i32 3
-  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %10, align 1
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !587
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !58
-  %.not = icmp eq ptr %14, null
-  %15 = select i1 %.not, i32 2, i32 3
-  %16 = shl i32 %2, %15
-  %17 = add i32 %16, %.0.copyload.i.i.i
+  %10 = getelementptr inbounds nuw %"struct.llvm::object::delay_import_directory_table_entry", ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %11, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !587
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %15 = load ptr, ptr %14, align 8, !tbaa !58
+  %.not = icmp eq ptr %15, null
+  %16 = select i1 %.not, i32 2, i32 3
+  %17 = shl i32 %2, %16
+  %18 = add i32 %17, %.0.copyload.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !52
-  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %12, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.123)
-  %18 = load ptr, ptr %0, align 8, !tbaa !79
-  %.not11 = icmp eq ptr %18, null
+  call void @_ZNK4llvm6object14COFFObjectFile9getRvaPtrEjRmPKc(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %13, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.123)
+  %19 = load ptr, ptr %0, align 8, !tbaa !79
+  %.not11 = icmp eq ptr %19, null
   br i1 %.not11, label %_ZN4llvm5ErrorD2Ev.exit, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
-  %19 = load ptr, ptr %11, align 8, !tbaa !587
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %21 = load ptr, ptr %20, align 8, !tbaa !58
-  %.not12 = icmp eq ptr %21, null
-  %22 = load i64, ptr %5, align 8, !tbaa !52
-  %23 = inttoptr i64 %22 to ptr
-  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
-  br i1 %.not12, label %25, label %24
-
-24:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %.0.copyload.i.i.i7 = load i64, ptr %23, align 1
-  br label %_ZN4llvm5ErrorD2Ev.exit9
+  %20 = load ptr, ptr %12, align 8, !tbaa !587
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
+  %22 = load ptr, ptr %21, align 8, !tbaa !58
+  %.not12 = icmp eq ptr %22, null
+  %23 = load i64, ptr %5, align 8, !tbaa !52
+  %24 = inttoptr i64 %23 to ptr
+  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
+  br i1 %.not12, label %26, label %25
 
 25:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %.0.copyload.i.i.i8 = load i32, ptr %23, align 1
-  %26 = zext i32 %.0.copyload.i.i.i8 to i64
+  %.0.copyload.i.i.i7 = load i64, ptr %24, align 1
   br label %_ZN4llvm5ErrorD2Ev.exit9
 
-_ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %24, %25
-  %storemerge = phi i64 [ %26, %25 ], [ %.0.copyload.i.i.i7, %24 ]
+26:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
+  %.0.copyload.i.i.i8 = load i32, ptr %24, align 1
+  %27 = zext i32 %.0.copyload.i.i.i8 to i64
+  br label %_ZN4llvm5ErrorD2Ev.exit9
+
+_ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %25, %26
+  %storemerge = phi i64 [ %27, %26 ], [ %.0.copyload.i.i.i7, %25 ]
   store i64 %storemerge, ptr %3, align 8, !tbaa !52
   store ptr null, ptr %0, align 8, !tbaa !79
   br label %.critedge

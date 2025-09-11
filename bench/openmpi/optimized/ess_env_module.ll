@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i32 @prte_ess_base_std_prolog() #3
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %30
+  br i1 %.not, label %4, label %31
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @prte_ess_base_nspace, align 8, !tbaa !3
@@ -65,53 +65,54 @@ define internal i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0 {
   store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8, !tbaa !8
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4, !tbaa !15
   %or.cond.i = icmp ult i32 %17, 64
-  br i1 %or.cond.i, label %18, label %25
+  br i1 %or.cond.i, label %18, label %26
 
 18:                                               ; preds = %14
   %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %19, i32 2
-  %21 = load i32, ptr %20, align 4, !tbaa !25
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %23, label %25
+  %20 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %22 = load i32, ptr %21, align 4, !tbaa !25
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %18
-  %24 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #3
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %17, ptr noundef nonnull @.str.6, ptr noundef %24) #3
-  br label %25
+24:                                               ; preds = %18
+  %25 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #3
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %17, ptr noundef nonnull @.str.6, ptr noundef %25) #3
+  br label %26
 
-25:                                               ; preds = %23, %18, %14
-  %26 = load i32, ptr @prte_ess_base_num_procs, align 4, !tbaa !27
-  store i32 %26, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 792), align 8, !tbaa !28
+26:                                               ; preds = %24, %18, %14
+  %27 = load i32, ptr @prte_ess_base_num_procs, align 4, !tbaa !27
+  store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 792), align 8, !tbaa !28
   br label %env_set_name.exit
 
-env_set_name.exit:                                ; preds = %7, %12, %25
-  %27 = tail call i32 @prte_ess_base_prted_setup() #3
-  switch i32 %27, label %28 [
+env_set_name.exit:                                ; preds = %7, %12, %26
+  %28 = tail call i32 @prte_ess_base_prted_setup() #3
+  switch i32 %28, label %29 [
     i32 0, label %.thread
     i32 -43, label %.thread
   ]
 
-28:                                               ; preds = %env_set_name.exit
-  %29 = tail call ptr @prte_strerror(i32 noundef %27) #3
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %29, ptr noundef nonnull @.str.2, i32 noundef 100) #3
-  br label %30
+29:                                               ; preds = %env_set_name.exit
+  %30 = tail call ptr @prte_strerror(i32 noundef %28) #3
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %30, ptr noundef nonnull @.str.2, i32 noundef 100) #3
+  br label %31
 
-30:                                               ; preds = %28, %2
-  %.08 = phi i32 [ %3, %2 ], [ %27, %28 ]
-  %.0 = phi ptr [ @.str, %2 ], [ @.str.3, %28 ]
-  %31 = icmp eq i32 %.08, -43
-  %32 = load i8, ptr @prte_report_silent_errors, align 1, !range !29
-  %33 = trunc nuw i8 %32 to i1
-  %or.cond = select i1 %31, i1 true, i1 %33
-  br i1 %or.cond, label %.thread, label %34
+31:                                               ; preds = %29, %2
+  %.08 = phi i32 [ %3, %2 ], [ %28, %29 ]
+  %.0 = phi ptr [ @.str, %2 ], [ @.str.3, %29 ]
+  %32 = icmp eq i32 %.08, -43
+  %33 = load i8, ptr @prte_report_silent_errors, align 1, !range !29
+  %34 = trunc nuw i8 %33 to i1
+  %or.cond = select i1 %32, i1 true, i1 %34
+  br i1 %or.cond, label %.thread, label %35
 
-34:                                               ; preds = %30
-  %35 = tail call ptr @prte_strerror(i32 noundef %.08) #3
-  %36 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %.0, ptr noundef %35, i32 noundef %.08) #3
+35:                                               ; preds = %31
+  %36 = tail call ptr @prte_strerror(i32 noundef %.08) #3
+  %37 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %.0, ptr noundef %36, i32 noundef %.08) #3
   br label %.thread
 
-.thread:                                          ; preds = %env_set_name.exit, %30, %34, %env_set_name.exit
-  %.09 = phi i32 [ %27, %env_set_name.exit ], [ %.08, %34 ], [ %.08, %30 ], [ %27, %env_set_name.exit ]
+.thread:                                          ; preds = %env_set_name.exit, %31, %35, %env_set_name.exit
+  %.09 = phi i32 [ %28, %env_set_name.exit ], [ %.08, %35 ], [ %.08, %31 ], [ %28, %env_set_name.exit ]
   ret i32 %.09
 }
 

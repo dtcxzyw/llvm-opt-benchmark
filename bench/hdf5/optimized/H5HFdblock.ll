@@ -931,7 +931,7 @@ define ptr @H5HF__man_dblock_protect(ptr noundef %0, i64 noundef %1, i64 noundef
   %36 = load i64, ptr %35, align 8, !tbaa !82
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %36, ptr %37, align 8, !tbaa !81
-  %38 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %33, i64 %34, i32 1
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !84
   br label %42
 

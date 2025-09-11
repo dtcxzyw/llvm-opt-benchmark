@@ -1299,19 +1299,21 @@ define internal noundef range(i32 0, 3) i32 @"_ZZN4pkpy13DictItemsIter9_register
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr %4, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %18, i64 %20, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %15, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %24, ptr %15, align 8
-  store ptr %22, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %26 = load ptr, ptr %25, align 8
-  %27 = load i32, ptr %4, align 8
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %26, i64 %28, i32 1
-  %30 = load i32, ptr %29, align 4
-  store i32 %30, ptr %4, align 8
+  %21 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %18, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %15, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr %25, ptr %15, align 8
+  store ptr %23, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i32, ptr %4, align 8
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %27, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %32 = load i32, ptr %31, align 4
+  store i32 %32, ptr %4, align 8
   br label %"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit"
 
 "_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit": ; preds = %2, %7

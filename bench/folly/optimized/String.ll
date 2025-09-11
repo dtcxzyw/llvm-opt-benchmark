@@ -771,104 +771,105 @@ define void @_ZN5folly11prettyPrintB5cxx11EdNS_10PrettyTypeEb(ptr dead_on_unwind
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !36
 
 .lr.ph:                                           ; preds = %.lr.ph47
-  %18 = getelementptr inbounds nuw %"struct.folly::(anonymous namespace)::PrettySuffix", ptr %10, i64 %indvars.iv.next, i32 1
-  %19 = load double, ptr %18, align 8, !tbaa !35
-  %20 = fcmp ult double %11, %19
-  br i1 %20, label %.lr.ph47, label %.lr.ph._crit_edge, !llvm.loop !36
+  %18 = getelementptr inbounds nuw %"struct.folly::(anonymous namespace)::PrettySuffix", ptr %10, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load double, ptr %19, align 8, !tbaa !35
+  %21 = fcmp ult double %11, %20
+  br i1 %21, label %.lr.ph47, label %.lr.ph._crit_edge, !llvm.loop !36
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa44 = phi ptr [ %12, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  %.lcssa = phi double [ %14, %.lr.ph.preheader ], [ %19, %.lr.ph ]
-  %21 = fcmp une double %.lcssa, 0.000000e+00
-  %22 = fdiv double %1, %.lcssa
-  %23 = select i1 %21, double %22, double %1
-  %24 = select i1 %3, ptr @.str.5, ptr @.str.6
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.4, double noundef %23, ptr noundef nonnull %24, ptr noundef nonnull %.lcssa44) #27
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %26, ptr %0, align 8, !tbaa !14
-  %27 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #27
+  %.lcssa = phi double [ %14, %.lr.ph.preheader ], [ %20, %.lr.ph ]
+  %22 = fcmp une double %.lcssa, 0.000000e+00
+  %23 = fdiv double %1, %.lcssa
+  %24 = select i1 %22, double %23, double %1
+  %25 = select i1 %3, ptr @.str.5, ptr @.str.6
+  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.4, double noundef %24, ptr noundef nonnull %25, ptr noundef nonnull %.lcssa44) #27
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %27, ptr %0, align 8, !tbaa !14
+  %28 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %27, ptr %6, align 8, !tbaa !29
-  %28 = icmp ugt i64 %27, 15
-  br i1 %28, label %.noexc.i, label %._crit_edge.i.i
+  store i64 %28, ptr %6, align 8, !tbaa !29
+  %29 = icmp ugt i64 %28, 15
+  br i1 %29, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %.lr.ph._crit_edge
-  %29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
-  store ptr %29, ptr %0, align 8, !tbaa !24
-  %30 = load i64, ptr %6, align 8, !tbaa !29
-  store i64 %30, ptr %26, align 8, !tbaa !7
+  %30 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
+  store ptr %30, ptr %0, align 8, !tbaa !24
+  %31 = load i64, ptr %6, align 8, !tbaa !29
+  store i64 %31, ptr %27, align 8, !tbaa !7
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %.lr.ph._crit_edge
-  %31 = phi ptr [ %29, %.noexc.i ], [ %26, %.lr.ph._crit_edge ]
-  switch i64 %27, label %34 [
-    i64 1, label %32
-    i64 0, label %35
+  %32 = phi ptr [ %30, %.noexc.i ], [ %27, %.lr.ph._crit_edge ]
+  switch i64 %28, label %35 [
+    i64 1, label %33
+    i64 0, label %36
   ]
 
-32:                                               ; preds = %._crit_edge.i.i
-  %33 = load i8, ptr %7, align 16, !tbaa !7
-  store i8 %33, ptr %31, align 1, !tbaa !7
-  br label %35
+33:                                               ; preds = %._crit_edge.i.i
+  %34 = load i8, ptr %7, align 16, !tbaa !7
+  store i8 %34, ptr %32, align 1, !tbaa !7
+  br label %36
 
-34:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 16 %7, i64 %27, i1 false)
-  br label %35
+35:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 16 %7, i64 %28, i1 false)
+  br label %36
 
-35:                                               ; preds = %34, %32, %._crit_edge.i.i
-  %36 = load i64, ptr %6, align 8, !tbaa !29
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %36, ptr %37, align 8, !tbaa !21
-  %38 = load ptr, ptr %0, align 8, !tbaa !24
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %36
-  store i8 0, ptr %39, align 1, !tbaa !7
+36:                                               ; preds = %35, %33, %._crit_edge.i.i
+  %37 = load i64, ptr %6, align 8, !tbaa !29
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %37, ptr %38, align 8, !tbaa !21
+  %39 = load ptr, ptr %0, align 8, !tbaa !24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %37
+  store i8 0, ptr %40, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %55
+  br label %56
 
 .critedge:                                        ; preds = %.lr.ph47, %4
-  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.7, double noundef %1) #27
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %41, ptr %0, align 8, !tbaa !14
-  %42 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #27
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.7, double noundef %1) #27
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %42, ptr %0, align 8, !tbaa !14
+  %43 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #27
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %42, ptr %5, align 8, !tbaa !29
-  %43 = icmp ugt i64 %42, 15
-  br i1 %43, label %.noexc.i26, label %._crit_edge.i.i25
+  store i64 %43, ptr %5, align 8, !tbaa !29
+  %44 = icmp ugt i64 %43, 15
+  br i1 %44, label %.noexc.i26, label %._crit_edge.i.i25
 
 .noexc.i26:                                       ; preds = %.critedge
-  %44 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-  store ptr %44, ptr %0, align 8, !tbaa !24
-  %45 = load i64, ptr %5, align 8, !tbaa !29
-  store i64 %45, ptr %41, align 8, !tbaa !7
+  %45 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
+  store ptr %45, ptr %0, align 8, !tbaa !24
+  %46 = load i64, ptr %5, align 8, !tbaa !29
+  store i64 %46, ptr %42, align 8, !tbaa !7
   br label %._crit_edge.i.i25
 
 ._crit_edge.i.i25:                                ; preds = %.noexc.i26, %.critedge
-  %46 = phi ptr [ %44, %.noexc.i26 ], [ %41, %.critedge ]
-  switch i64 %42, label %49 [
-    i64 1, label %47
-    i64 0, label %50
+  %47 = phi ptr [ %45, %.noexc.i26 ], [ %42, %.critedge ]
+  switch i64 %43, label %50 [
+    i64 1, label %48
+    i64 0, label %51
   ]
 
-47:                                               ; preds = %._crit_edge.i.i25
-  %48 = load i8, ptr %7, align 16, !tbaa !7
-  store i8 %48, ptr %46, align 1, !tbaa !7
-  br label %50
+48:                                               ; preds = %._crit_edge.i.i25
+  %49 = load i8, ptr %7, align 16, !tbaa !7
+  store i8 %49, ptr %47, align 1, !tbaa !7
+  br label %51
 
-49:                                               ; preds = %._crit_edge.i.i25
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr nonnull align 16 %7, i64 %42, i1 false)
-  br label %50
+50:                                               ; preds = %._crit_edge.i.i25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 16 %7, i64 %43, i1 false)
+  br label %51
 
-50:                                               ; preds = %49, %47, %._crit_edge.i.i25
-  %51 = load i64, ptr %5, align 8, !tbaa !29
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %51, ptr %52, align 8, !tbaa !21
-  %53 = load ptr, ptr %0, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %51
-  store i8 0, ptr %54, align 1, !tbaa !7
+51:                                               ; preds = %50, %48, %._crit_edge.i.i25
+  %52 = load i64, ptr %5, align 8, !tbaa !29
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %52, ptr %53, align 8, !tbaa !21
+  %54 = load ptr, ptr %0, align 8, !tbaa !24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %52
+  store i8 0, ptr %55, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %55
+  br label %56
 
-55:                                               ; preds = %35, %50
+56:                                               ; preds = %36, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -1029,7 +1030,7 @@ _ZNK5folly5RangeIPKcE10startsWithERKS3_.exit.thread50: ; preds = %38, %35, %_ZNK
 
 50:                                               ; preds = %49
   invoke void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #28
-          to label %77 unwind label %52
+          to label %78 unwind label %52
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %._crit_edge.thread
   %51 = landingpad { ptr, i32 }
@@ -1082,14 +1083,15 @@ _ZN5folly5RangeIPKcE7advanceEm.exit49:            ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 %29
   store ptr %70, ptr %0, align 8, !tbaa !49
   %71 = sext i32 %.240 to i64
-  %72 = getelementptr inbounds %"struct.folly::(anonymous namespace)::PrettySuffix", ptr %24, i64 %71, i32 1
-  %73 = load double, ptr %72, align 8, !tbaa !35
-  %74 = fcmp une double %73, 0.000000e+00
-  %75 = fmul double %69, %73
-  %76 = select i1 %74, double %75, double %69
-  ret double %76
+  %72 = getelementptr inbounds %"struct.folly::(anonymous namespace)::PrettySuffix", ptr %24, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load double, ptr %73, align 8, !tbaa !35
+  %75 = fcmp une double %74, 0.000000e+00
+  %76 = fmul double %69, %74
+  %77 = select i1 %75, double %76, double %69
+  ret double %77
 
-77:                                               ; preds = %50
+78:                                               ; preds = %50
   unreachable
 }
 

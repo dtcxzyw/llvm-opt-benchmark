@@ -501,7 +501,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   %204 = add i64 %203, %201
   %205 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next281
   store i64 %204, ptr %205, align 8, !tbaa !15
-  %.not105.not = icmp sgt i64 %indvars.iv.next281, %194
+  %.not105.not = icmp samesign ugt i64 %indvars.iv.next281, %194
   br i1 %.not105.not, label %.lr.ph232, label %._crit_edge233, !llvm.loop !28
 
 .preheader164:                                    ; preds = %._crit_edge233

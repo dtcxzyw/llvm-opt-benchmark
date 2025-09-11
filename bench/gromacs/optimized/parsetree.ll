@@ -1539,38 +1539,38 @@ define void @_Z31_gmx_selelem_init_method_paramsRKSt10shared_ptrIN3gmx20Selectio
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next54, %39 ]
-  %14 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %11, i64 %indvars.iv53, i32 3
-  %15 = load i32, ptr %14, align 8, !tbaa !85
-  %16 = and i32 %15, -2
-  store i32 %16, ptr %14, align 8, !tbaa !85
-  %17 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %11, i64 %indvars.iv53, i32 1
-  tail call void @_Z22_gmx_selvalue_setstoreP18gmx_ana_selvalue_tPv(ptr noundef nonnull %17, ptr noundef null)
-  %18 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %11, i64 %indvars.iv53
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %20 = load i32, ptr %19, align 8, !tbaa !85
-  %21 = and i32 %20, 16
-  %.not40 = icmp eq i32 %21, 0
-  br i1 %.not40, label %24, label %22
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next55, %39 ]
+  %14 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %11, i64 %indvars.iv54
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %16 = load i32, ptr %15, align 8, !tbaa !85
+  %17 = and i32 %16, -2
+  store i32 %17, ptr %15, align 8, !tbaa !85
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  tail call void @_Z22_gmx_selvalue_setstoreP18gmx_ana_selvalue_tPv(ptr noundef nonnull %18, ptr noundef null)
+  %19 = load i32, ptr %15, align 8, !tbaa !85
+  %20 = and i32 %19, 16
+  %.not40 = icmp eq i32 %20, 0
+  br i1 %.not40, label %23, label %21
 
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  store i32 -1, ptr %23, align 4, !tbaa !88
-  br label %24
+21:                                               ; preds = %.lr.ph
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  store i32 -1, ptr %22, align 4, !tbaa !88
+  br label %23
 
-24:                                               ; preds = %22, %.lr.ph
-  %25 = and i32 %20, 128
-  %.not41 = icmp eq i32 %25, 0
-  br i1 %.not41, label %39, label %26
+23:                                               ; preds = %21, %.lr.ph
+  %24 = and i32 %19, 128
+  %.not41 = icmp eq i32 %24, 0
+  br i1 %.not41, label %39, label %25
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %9, i64 %indvars.iv53, i32 1, i32 2
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %9, i64 %indvars.iv54
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !16
   %.not42 = icmp eq ptr %28, null
   br i1 %.not42, label %39, label %.preheader
 
-.preheader:                                       ; preds = %26, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %26 ]
+.preheader:                                       ; preds = %25, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %25 ]
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !61
   %.not43 = icmp eq ptr %30, null
@@ -1580,8 +1580,8 @@ define void @_Z31_gmx_selelem_init_method_paramsRKSt10shared_ptrIN3gmx20Selectio
 31:                                               ; preds = %.preheader
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = add nuw nsw i32 %32, 1
-  tail call void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef nonnull %17, i32 noundef %33)
-  %34 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %11, i64 %indvars.iv53, i32 1, i32 2
+  tail call void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef nonnull %18, i32 noundef %33)
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !16
   %36 = load ptr, ptr %27, align 8, !tbaa !16
   %37 = zext nneg i32 %33 to i64
@@ -1589,9 +1589,9 @@ define void @_Z31_gmx_selelem_init_method_paramsRKSt10shared_ptrIN3gmx20Selectio
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(1) %36, i64 %38, i1 false)
   br label %39
 
-39:                                               ; preds = %24, %26, %31
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
+39:                                               ; preds = %23, %25, %31
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %39, %2
@@ -1607,11 +1607,11 @@ define void @_Z31_gmx_selelem_init_method_paramsRKSt10shared_ptrIN3gmx20Selectio
   %46 = tail call noundef ptr %44(i32 noundef %7, ptr noundef %11)
   %.pre = load ptr, ptr %0, align 8, !tbaa !30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %.pre56 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !16
+  %.pre57 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !16
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge
-  %48 = phi ptr [ %.pre56, %45 ], [ %42, %._crit_edge ]
+  %48 = phi ptr [ %.pre57, %45 ], [ %42, %._crit_edge ]
   %49 = phi ptr [ %.pre, %45 ], [ %40, %._crit_edge ]
   %.037 = phi ptr [ %46, %45 ], [ null, %._crit_edge ]
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -1627,14 +1627,14 @@ define void @_Z31_gmx_selelem_init_method_paramsRKSt10shared_ptrIN3gmx20Selectio
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8, !tbaa !92
   tail call void %58(ptr noundef %53, ptr noundef %.037)
-  %.pre57 = load ptr, ptr %0, align 8, !tbaa !30
-  %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %.pre57, i64 48
-  %.pre59 = load ptr, ptr %.phi.trans.insert58, align 8, !tbaa !16
+  %.pre58 = load ptr, ptr %0, align 8, !tbaa !30
+  %.phi.trans.insert59 = getelementptr inbounds nuw i8, ptr %.pre58, i64 48
+  %.pre60 = load ptr, ptr %.phi.trans.insert59, align 8, !tbaa !16
   br label %59
 
 59:                                               ; preds = %52, %47
-  %60 = phi ptr [ %.pre59, %52 ], [ %48, %47 ]
-  %61 = phi ptr [ %.pre57, %52 ], [ %49, %47 ]
+  %60 = phi ptr [ %.pre60, %52 ], [ %48, %47 ]
+  %61 = phi ptr [ %.pre58, %52 ], [ %49, %47 ]
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store ptr %11, ptr %62, align 8, !tbaa !84
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 56

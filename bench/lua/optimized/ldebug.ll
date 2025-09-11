@@ -97,7 +97,7 @@ define hidden i32 @luaG_getfuncline(ptr noundef readonly captures(none) %0, i32 
   %.pre-phi.i = phi i64 [ %.pre.i, %..critedge_crit_edge.i ], [ %wide.trip.count.i, %21 ]
   %25 = getelementptr inbounds %struct.AbsLineInfo, ptr %12, i64 %.pre-phi.i
   %26 = load i32, ptr %25, align 4, !tbaa !21
-  %27 = getelementptr inbounds %struct.AbsLineInfo, ptr %12, i64 %.pre-phi.i, i32 1
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   br label %getbaseline.exit
 
 getbaseline.exit:                                 ; preds = %15, %.critedge.i
@@ -844,7 +844,7 @@ funcinfo.exit.i:                                  ; preds = %75, %55
   %.pre-phi.i.i.i.i = phi i64 [ %.pre.i.i.i.i, %..critedge_crit_edge.i.i.i.i ], [ %wide.trip.count.i.i.i.i, %116 ]
   %120 = getelementptr inbounds %struct.AbsLineInfo, ptr %108, i64 %.pre-phi.i.i.i.i
   %121 = load i32, ptr %120, align 4, !tbaa !21
-  %122 = getelementptr inbounds %struct.AbsLineInfo, ptr %108, i64 %.pre-phi.i.i.i.i, i32 1
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 4
   br label %getbaseline.exit.i.i.i
 
 getbaseline.exit.i.i.i:                           ; preds = %.critedge.i.i.i.i, %110
@@ -1099,7 +1099,7 @@ getbaseline.exit.i.i.i39:                         ; preds = %226, %..critedge_cr
   %.pre-phi.i.i.i.i40 = phi i64 [ %.pre.i.i.i.i38, %..critedge_crit_edge.i.i.i.i36 ], [ %wide.trip.count.i.i.i.i32, %226 ]
   %230 = getelementptr inbounds %struct.AbsLineInfo, ptr %221, i64 %.pre-phi.i.i.i.i40
   %231 = load i32, ptr %230, align 4, !tbaa !21
-  %232 = getelementptr inbounds %struct.AbsLineInfo, ptr %221, i64 %.pre-phi.i.i.i.i40, i32 1
+  %232 = getelementptr inbounds nuw i8, ptr %230, i64 4
   %.017.i.i.i.i41 = load i32, ptr %232, align 4, !tbaa !23
   %233 = icmp slt i32 %231, 0
   br i1 %233, label %.lr.ph.preheader.i.i.i42, label %nextline.exit.i
@@ -1193,7 +1193,7 @@ nextline.exit.i:                                  ; preds = %.lr.ph.i.i.i43, %ge
   %.pre-phi.i.i.i42.i = phi i64 [ %.pre.i.i.i40.i, %..critedge_crit_edge.i.i.i38.i ], [ %wide.trip.count.i.i.i33.i, %265 ]
   %270 = getelementptr inbounds %struct.AbsLineInfo, ptr %256, i64 %.pre-phi.i.i.i42.i
   %271 = load i32, ptr %270, align 4, !tbaa !21
-  %272 = getelementptr inbounds %struct.AbsLineInfo, ptr %256, i64 %.pre-phi.i.i.i42.i, i32 1
+  %272 = getelementptr inbounds nuw i8, ptr %270, i64 4
   %273 = sext i32 %271 to i64
   br label %getbaseline.exit.i.i43.i
 
@@ -1629,7 +1629,7 @@ define hidden void @luaG_runerror(ptr noundef %0, ptr noundef %1, ...) local_unn
   %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %..critedge_crit_edge.i.i.i ], [ %wide.trip.count.i.i.i, %51 ]
   %55 = getelementptr inbounds %struct.AbsLineInfo, ptr %43, i64 %.pre-phi.i.i.i
   %56 = load i32, ptr %55, align 4, !tbaa !21
-  %57 = getelementptr inbounds %struct.AbsLineInfo, ptr %43, i64 %.pre-phi.i.i.i, i32 1
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 4
   br label %getbaseline.exit.i.i
 
 getbaseline.exit.i.i:                             ; preds = %.critedge.i.i.i, %45
@@ -2099,7 +2099,7 @@ define hidden range(i32 0, 2) i32 @luaG_traceexec(ptr noundef %0, ptr noundef %1
   %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %..critedge_crit_edge.i.i.i ], [ %wide.trip.count.i.i.i, %90 ]
   %94 = getelementptr inbounds %struct.AbsLineInfo, ptr %81, i64 %.pre-phi.i.i.i
   %95 = load i32, ptr %94, align 4, !tbaa !21
-  %96 = getelementptr inbounds %struct.AbsLineInfo, ptr %81, i64 %.pre-phi.i.i.i, i32 1
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
   br label %getbaseline.exit.i.i
 
 getbaseline.exit.i.i:                             ; preds = %.critedge.i.i.i, %84
@@ -2170,7 +2170,7 @@ luaG_getfuncline.exit.i:                          ; preds = %.lr.ph.i.i, %getbas
   %.pre-phi.i.i35.i = phi i64 [ %.pre.i.i33.i, %..critedge_crit_edge.i.i31.i ], [ %wide.trip.count.i.i26.i, %113 ]
   %117 = getelementptr inbounds %struct.AbsLineInfo, ptr %105, i64 %.pre-phi.i.i35.i
   %118 = load i32, ptr %117, align 4, !tbaa !21
-  %119 = getelementptr inbounds %struct.AbsLineInfo, ptr %105, i64 %.pre-phi.i.i35.i, i32 1
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 4
   br label %getbaseline.exit.i36.i
 
 getbaseline.exit.i36.i:                           ; preds = %.critedge.i.i34.i, %107
@@ -2256,7 +2256,7 @@ changedline.exit:                                 ; preds = %72
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %..critedge_crit_edge.i.i ], [ %wide.trip.count.i.i53, %140 ]
   %144 = getelementptr inbounds %struct.AbsLineInfo, ptr %132, i64 %.pre-phi.i.i
   %145 = load i32, ptr %144, align 4, !tbaa !21
-  %146 = getelementptr inbounds %struct.AbsLineInfo, ptr %132, i64 %.pre-phi.i.i, i32 1
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 4
   br label %getbaseline.exit.i
 
 getbaseline.exit.i:                               ; preds = %.critedge.i.i, %134

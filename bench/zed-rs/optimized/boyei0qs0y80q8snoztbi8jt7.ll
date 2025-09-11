@@ -1983,95 +1983,96 @@ _ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.11538535937534900153.exi
   br i1 %50, label %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit", label %.preheader.i
 
 .preheader.i:                                     ; preds = %45, %.preheader.i
-  %.sroa.07.0.i.i = phi i64 [ %59, %.preheader.i ], [ 0, %45 ]
-  %.sroa.09.0.i.i = phi i64 [ %60, %.preheader.i ], [ 0, %45 ]
-  %51 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %47, i64 %.sroa.09.0.i.i, i32 0, i32 1
-  %.val.i.i = load i64, ptr %51, align 8, !noalias !362, !noundef !4
-  %52 = or i64 %.val.i.i, 1
-  %53 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %52, i1 true)
-  %54 = xor i64 %53, 63
-  %55 = mul nuw nsw i64 %54, 9
-  %56 = add nuw nsw i64 %55, 73
-  %57 = lshr i64 %56, 6
-  %58 = add i64 %.val.i.i, %.sroa.07.0.i.i
-  %59 = add i64 %58, %57
-  %60 = add nuw i64 %.sroa.09.0.i.i, 1
-  %61 = icmp eq i64 %60, %49
-  br i1 %61, label %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit", label %.preheader.i
+  %.sroa.07.0.i.i = phi i64 [ %60, %.preheader.i ], [ 0, %45 ]
+  %.sroa.09.0.i.i = phi i64 [ %61, %.preheader.i ], [ 0, %45 ]
+  %51 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %47, i64 %.sroa.09.0.i.i
+  %52 = getelementptr i8, ptr %51, i64 16
+  %.val.i.i = load i64, ptr %52, align 8, !noalias !362, !noundef !4
+  %53 = or i64 %.val.i.i, 1
+  %54 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %53, i1 true)
+  %55 = xor i64 %54, 63
+  %56 = mul nuw nsw i64 %55, 9
+  %57 = add nuw nsw i64 %56, 73
+  %58 = lshr i64 %57, 6
+  %59 = add i64 %.val.i.i, %.sroa.07.0.i.i
+  %60 = add i64 %59, %58
+  %61 = add nuw i64 %.sroa.09.0.i.i, 1
+  %62 = icmp eq i64 %61, %49
+  br i1 %62, label %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit", label %.preheader.i
 
 "_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit": ; preds = %.preheader.i, %45
-  %.sroa.04.0.i.i = phi i64 [ 0, %45 ], [ %59, %.preheader.i ]
-  %62 = add i64 %49, %.sroa.0.0.i
-  %63 = add i64 %62, %.sroa.04.0.i.i
-  %64 = icmp ult i64 %63, 128
-  br i1 %64, label %._crit_edge, label %.lr.ph
+  %.sroa.04.0.i.i = phi i64 [ 0, %45 ], [ %60, %.preheader.i ]
+  %63 = add i64 %49, %.sroa.0.0.i
+  %64 = add i64 %63, %.sroa.04.0.i.i
+  %65 = icmp ult i64 %64, 128
+  br i1 %65, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit", %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit
-  %65 = phi i64 [ %75, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit ], [ %33, %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit" ]
-  %.sroa.0.09 = phi i64 [ %76, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit ], [ %63, %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit" ]
-  %66 = trunc i64 %.sroa.0.09 to i8
-  %67 = or i8 %66, -128
-  %68 = load i64, ptr %2, align 8, !alias.scope !365, !noalias !376, !noundef !4
-  %69 = icmp eq i64 %68, %65
-  br i1 %69, label %70, label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit
+  %66 = phi i64 [ %76, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit ], [ %33, %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit" ]
+  %.sroa.0.09 = phi i64 [ %77, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit ], [ %64, %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit" ]
+  %67 = trunc i64 %.sroa.0.09 to i8
+  %68 = or i8 %67, -128
+  %69 = load i64, ptr %2, align 8, !alias.scope !365, !noalias !376, !noundef !4
+  %70 = icmp eq i64 %69, %66
+  br i1 %70, label %71, label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit
 
-70:                                               ; preds = %.lr.ph
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4c482a34ee6c14cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %65, i64 noundef 1), !noalias !376
+71:                                               ; preds = %.lr.ph
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4c482a34ee6c14cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %66, i64 noundef 1), !noalias !376
   %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !365, !noalias !376
   br label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit
 
-_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit: ; preds = %.lr.ph, %70
-  %71 = phi i64 [ %.pre.i.i.i.i.i, %70 ], [ %65, %.lr.ph ]
-  %72 = load ptr, ptr %29, align 8, !alias.scope !365, !noalias !376, !nonnull !4, !noundef !4
-  %73 = getelementptr inbounds i8, ptr %72, i64 %71
-  store i8 %67, ptr %73, align 1
-  %74 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !365, !noalias !376, !noundef !4
-  %75 = add i64 %74, 1
-  store i64 %75, ptr %.phi.trans.insert.i, align 8, !alias.scope !365, !noalias !376
-  %76 = lshr i64 %.sroa.0.09, 7
-  %77 = icmp ult i64 %.sroa.0.09, 16384
-  br i1 %77, label %._crit_edge, label %.lr.ph
+_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit: ; preds = %.lr.ph, %71
+  %72 = phi i64 [ %.pre.i.i.i.i.i, %71 ], [ %66, %.lr.ph ]
+  %73 = load ptr, ptr %29, align 8, !alias.scope !365, !noalias !376, !nonnull !4, !noundef !4
+  %74 = getelementptr inbounds i8, ptr %73, i64 %72
+  store i8 %68, ptr %74, align 1
+  %75 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !365, !noalias !376, !noundef !4
+  %76 = add i64 %75, 1
+  store i64 %76, ptr %.phi.trans.insert.i, align 8, !alias.scope !365, !noalias !376
+  %77 = lshr i64 %.sroa.0.09, 7
+  %78 = icmp ult i64 %.sroa.0.09, 16384
+  br i1 %78, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit, %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit"
-  %78 = phi i64 [ %33, %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit" ], [ %75, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit ]
-  %.sroa.0.0.lcssa = phi i64 [ %63, %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit" ], [ %76, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit ]
-  %79 = trunc nuw nsw i64 %.sroa.0.0.lcssa to i8
-  %80 = load i64, ptr %2, align 8, !alias.scope !379, !noalias !390, !noundef !4
-  %81 = icmp eq i64 %80, %78
-  br i1 %81, label %82, label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit5
+  %79 = phi i64 [ %33, %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit" ], [ %76, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit ]
+  %.sroa.0.0.lcssa = phi i64 [ %64, %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h8c4170515e00c5b7E.llvm.11538535937534900153.exit" ], [ %77, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit ]
+  %80 = trunc nuw nsw i64 %.sroa.0.0.lcssa to i8
+  %81 = load i64, ptr %2, align 8, !alias.scope !379, !noalias !390, !noundef !4
+  %82 = icmp eq i64 %81, %79
+  br i1 %82, label %83, label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit5
 
-82:                                               ; preds = %._crit_edge
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4c482a34ee6c14cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %78, i64 noundef 1), !noalias !390
+83:                                               ; preds = %._crit_edge
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4c482a34ee6c14cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %79, i64 noundef 1), !noalias !390
   %.pre.i.i.i.i.i4 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !379, !noalias !390
   br label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit5
 
-_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit5: ; preds = %._crit_edge, %82
-  %83 = phi i64 [ %.pre.i.i.i.i.i4, %82 ], [ %78, %._crit_edge ]
-  %84 = load ptr, ptr %29, align 8, !alias.scope !379, !noalias !390, !nonnull !4, !noundef !4
-  %85 = getelementptr inbounds i8, ptr %84, i64 %83
-  store i8 %79, ptr %85, align 1
-  %86 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !379, !noalias !390, !noundef !4
-  %87 = add i64 %86, 1
-  store i64 %87, ptr %.phi.trans.insert.i, align 8, !alias.scope !379, !noalias !390
-  br i1 %.not.i, label %89, label %88
+_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit5: ; preds = %._crit_edge, %83
+  %84 = phi i64 [ %.pre.i.i.i.i.i4, %83 ], [ %79, %._crit_edge ]
+  %85 = load ptr, ptr %29, align 8, !alias.scope !379, !noalias !390, !nonnull !4, !noundef !4
+  %86 = getelementptr inbounds i8, ptr %85, i64 %84
+  store i8 %80, ptr %86, align 1
+  %87 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !379, !noalias !390, !noundef !4
+  %88 = add i64 %87, 1
+  store i64 %88, ptr %.phi.trans.insert.i, align 8, !alias.scope !379, !noalias !390
+  br i1 %.not.i, label %90, label %89
 
-88:                                               ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit5
+89:                                               ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit5
   tail call void @_ZN5prost8encoding5int326encode17h282e6eeaa5e351a5E(i32 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %34, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  br label %89
+  br label %90
 
-89:                                               ; preds = %88, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit5
+90:                                               ; preds = %89, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit5
   %.idx.i.i = mul nsw i64 %49, 24
-  %90 = getelementptr inbounds i8, ptr %47, i64 %.idx.i.i
+  %91 = getelementptr inbounds i8, ptr %47, i64 %.idx.i.i
   br i1 %50, label %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$10encode_raw17hf9c401867d511e1dE.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %89, %.lr.ph.i.i
-  %.sroa.0.04.i.i = phi ptr [ %91, %.lr.ph.i.i ], [ %47, %89 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 24
+.lr.ph.i.i:                                       ; preds = %90, %.lr.ph.i.i
+  %.sroa.0.04.i.i = phi ptr [ %92, %.lr.ph.i.i ], [ %47, %90 ]
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 24
   tail call void @_ZN5prost8encoding6string6encode17hb58d892e7a945cb2E(i32 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.04.i.i, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %92 = icmp eq ptr %91, %90
-  br i1 %92, label %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$10encode_raw17hf9c401867d511e1dE.exit", label %.lr.ph.i.i
+  %93 = icmp eq ptr %92, %91
+  br i1 %93, label %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$10encode_raw17hf9c401867d511e1dE.exit", label %.lr.ph.i.i
 
-"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$10encode_raw17hf9c401867d511e1dE.exit": ; preds = %.lr.ph.i.i, %89
+"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$10encode_raw17hf9c401867d511e1dE.exit": ; preds = %.lr.ph.i.i, %90
   ret void
 }
 
@@ -4462,7 +4463,7 @@ define hidden noundef i64 @"_ZN94_$LT$live_kit_server..proto..RoomCompositeEgres
   switch i64 %41, label %default.unreachable [
     i64 0, label %42
     i64 1, label %45
-    i64 2, label %76
+    i64 2, label %77
   ]
 
 default.unreachable:                              ; preds = %39
@@ -4502,86 +4503,87 @@ default.unreachable:                              ; preds = %39
   br i1 %62, label %_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i, label %.preheader.i.i.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %57, %.preheader.i.i.i.i.i
-  %.sroa.07.0.i.i.i.i.i.i = phi i64 [ %71, %.preheader.i.i.i.i.i ], [ 0, %57 ]
-  %.sroa.09.0.i.i.i.i.i.i = phi i64 [ %72, %.preheader.i.i.i.i.i ], [ 0, %57 ]
-  %63 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %59, i64 %.sroa.09.0.i.i.i.i.i.i, i32 0, i32 1
-  %.val.i.i.i.i.i.i = load i64, ptr %63, align 8, !noalias !1296, !noundef !4
-  %64 = or i64 %.val.i.i.i.i.i.i, 1
-  %65 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %64, i1 true)
-  %66 = xor i64 %65, 63
-  %67 = mul nuw nsw i64 %66, 9
-  %68 = add nuw nsw i64 %67, 73
-  %69 = lshr i64 %68, 6
-  %70 = add i64 %.val.i.i.i.i.i.i, %.sroa.07.0.i.i.i.i.i.i
-  %71 = add i64 %70, %69
-  %72 = add nuw i64 %.sroa.09.0.i.i.i.i.i.i, 1
-  %73 = icmp eq i64 %72, %61
-  br i1 %73, label %_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i, label %.preheader.i.i.i.i.i
+  %.sroa.07.0.i.i.i.i.i.i = phi i64 [ %72, %.preheader.i.i.i.i.i ], [ 0, %57 ]
+  %.sroa.09.0.i.i.i.i.i.i = phi i64 [ %73, %.preheader.i.i.i.i.i ], [ 0, %57 ]
+  %63 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %59, i64 %.sroa.09.0.i.i.i.i.i.i
+  %64 = getelementptr i8, ptr %63, i64 16
+  %.val.i.i.i.i.i.i = load i64, ptr %64, align 8, !noalias !1296, !noundef !4
+  %65 = or i64 %.val.i.i.i.i.i.i, 1
+  %66 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %65, i1 true)
+  %67 = xor i64 %66, 63
+  %68 = mul nuw nsw i64 %67, 9
+  %69 = add nuw nsw i64 %68, 73
+  %70 = lshr i64 %69, 6
+  %71 = add i64 %.val.i.i.i.i.i.i, %.sroa.07.0.i.i.i.i.i.i
+  %72 = add i64 %71, %70
+  %73 = add nuw i64 %.sroa.09.0.i.i.i.i.i.i, 1
+  %74 = icmp eq i64 %73, %61
+  br i1 %74, label %_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i, label %.preheader.i.i.i.i.i
 
 _ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i: ; preds = %.preheader.i.i.i.i.i, %57
-  %.sroa.04.0.i.i.i.i.i.i = phi i64 [ 0, %57 ], [ %71, %.preheader.i.i.i.i.i ]
-  %74 = add i64 %61, %.sroa.0.0.i.i.i.i.i
-  %75 = add i64 %74, %.sroa.04.0.i.i.i.i.i.i
+  %.sroa.04.0.i.i.i.i.i.i = phi i64 [ 0, %57 ], [ %72, %.preheader.i.i.i.i.i ]
+  %75 = add i64 %61, %.sroa.0.0.i.i.i.i.i
+  %76 = add i64 %75, %.sroa.04.0.i.i.i.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E.exit.i
 
-76:                                               ; preds = %39
-  %77 = tail call noundef i64 @"_ZN87_$LT$live_kit_server..proto..SegmentedFileOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h6989345ef68b590bE.llvm.11538535937534900153"(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) dereferenceable_or_null(176) %36), !alias.scope !1297
+77:                                               ; preds = %39
+  %78 = tail call noundef i64 @"_ZN87_$LT$live_kit_server..proto..SegmentedFileOutput$u20$as$u20$prost..message..Message$GT$11encoded_len17h6989345ef68b590bE.llvm.11538535937534900153"(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) dereferenceable_or_null(176) %36), !alias.scope !1297
   br label %_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E.exit.i
 
-_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E.exit.i: ; preds = %76, %_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i, %42
-  %.sink6.i.i.i = phi i64 [ %77, %76 ], [ %75, %_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i ], [ %44, %42 ]
-  %78 = or i64 %.sink6.i.i.i, 1
-  %79 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %78, i1 true)
-  %80 = xor i64 %79, 63
-  %81 = mul nuw nsw i64 %80, 9
-  %82 = add nuw nsw i64 %81, 73
-  %83 = lshr i64 %82, 6
-  %84 = add i64 %.sink6.i.i.i, 1
-  %85 = add i64 %84, %83
+_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E.exit.i: ; preds = %77, %_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i, %42
+  %.sink6.i.i.i = phi i64 [ %78, %77 ], [ %76, %_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i ], [ %44, %42 ]
+  %79 = or i64 %.sink6.i.i.i, 1
+  %80 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %79, i1 true)
+  %81 = xor i64 %80, 63
+  %82 = mul nuw nsw i64 %81, 9
+  %83 = add nuw nsw i64 %82, 73
+  %84 = lshr i64 %83, 6
+  %85 = add i64 %.sink6.i.i.i, 1
+  %86 = add i64 %85, %84
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.11538535937534900153.exit20", %_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E.exit.i
-  %.sroa.02.0.i = phi i64 [ %85, %_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E.exit.i ], [ 0, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.11538535937534900153.exit20" ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %87 = load i32, ptr %86, align 8, !range !1300, !noundef !4
-  %88 = icmp eq i32 %87, 2
-  br i1 %88, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1692effaf99c6182E.exit", label %89
+  %.sroa.02.0.i = phi i64 [ %86, %_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E.exit.i ], [ 0, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.11538535937534900153.exit20" ]
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %88 = load i32, ptr %87, align 8, !range !1300, !noundef !4
+  %89 = icmp eq i32 %88, 2
+  br i1 %89, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1692effaf99c6182E.exit", label %90
 
-89:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit"
-  %trunc.i.i.i = trunc nuw i32 %87 to i1
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  br i1 %trunc.i.i.i, label %101, label %91
+90:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit"
+  %trunc.i.i.i = trunc nuw i32 %88 to i1
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  br i1 %trunc.i.i.i, label %102, label %92
 
-91:                                               ; preds = %89
-  %92 = load i32, ptr %90, align 4, !alias.scope !1301, !noundef !4
-  %93 = or i32 %92, 1
-  %94 = sext i32 %93 to i64
-  %95 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %94, i1 true)
-  %96 = xor i64 %95, 63
-  %97 = mul nuw nsw i64 %96, 9
-  %98 = add nuw nsw i64 %97, 73
-  %99 = lshr i64 %98, 6
-  %100 = add nuw nsw i64 %99, 1
+92:                                               ; preds = %90
+  %93 = load i32, ptr %91, align 4, !alias.scope !1301, !noundef !4
+  %94 = or i32 %93, 1
+  %95 = sext i32 %94 to i64
+  %96 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %95, i1 true)
+  %97 = xor i64 %96, 63
+  %98 = mul nuw nsw i64 %97, 9
+  %99 = add nuw nsw i64 %98, 73
+  %100 = lshr i64 %99, 6
+  %101 = add nuw nsw i64 %100, 1
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1692effaf99c6182E.exit"
 
-101:                                              ; preds = %89
-  %102 = tail call noundef i64 @"_ZN83_$LT$live_kit_server..proto..EncodingOptions$u20$as$u20$prost..message..Message$GT$11encoded_len17hc27feba4bea0fa0aE.llvm.11538535937534900153"(ptr noalias noundef nonnull readonly align 4 dereferenceable(36) %90), !alias.scope !1308
-  %103 = add nuw nsw i64 %102, 2
+102:                                              ; preds = %90
+  %103 = tail call noundef i64 @"_ZN83_$LT$live_kit_server..proto..EncodingOptions$u20$as$u20$prost..message..Message$GT$11encoded_len17hc27feba4bea0fa0aE.llvm.11538535937534900153"(ptr noalias noundef nonnull readonly align 4 dereferenceable(36) %91), !alias.scope !1308
+  %104 = add nuw nsw i64 %103, 2
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1692effaf99c6182E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h1692effaf99c6182E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit", %91, %101
-  %.sroa.02.0.i21 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit" ], [ %100, %91 ], [ %103, %101 ]
-  %104 = add i64 %.sroa.01.0, %.sroa.0.0
-  %105 = shl nuw nsw i8 %23, 1
-  %spec.select = zext nneg i8 %105 to i64
-  %106 = add i64 %104, %spec.select
-  %107 = shl nuw nsw i8 %25, 1
-  %.sroa.03.0 = zext nneg i8 %107 to i64
-  %108 = add i64 %106, %.sroa.03.0
-  %109 = add i64 %108, %.sroa.04.0
-  %110 = add i64 %109, %.sroa.02.0.i
-  %111 = add i64 %110, %.sroa.02.0.i21
-  ret i64 %111
+"_ZN4core6option15Option$LT$T$GT$6map_or17h1692effaf99c6182E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit", %92, %102
+  %.sroa.02.0.i21 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit" ], [ %101, %92 ], [ %104, %102 ]
+  %105 = add i64 %.sroa.01.0, %.sroa.0.0
+  %106 = shl nuw nsw i8 %23, 1
+  %spec.select = zext nneg i8 %106 to i64
+  %107 = add i64 %105, %spec.select
+  %108 = shl nuw nsw i8 %25, 1
+  %.sroa.03.0 = zext nneg i8 %108 to i64
+  %109 = add i64 %107, %.sroa.03.0
+  %110 = add i64 %109, %.sroa.04.0
+  %111 = add i64 %110, %.sroa.02.0.i
+  %112 = add i64 %111, %.sroa.02.0.i21
+  ret i64 %112
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5486,27 +5488,28 @@ define hidden noundef i64 @"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$a
   br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7eadf18ddcbe7adcE.exit", label %.preheader
 
 .preheader:                                       ; preds = %13, %.preheader
-  %.sroa.07.0.i = phi i64 [ %27, %.preheader ], [ 0, %13 ]
-  %.sroa.09.0.i = phi i64 [ %28, %.preheader ], [ 0, %13 ]
-  %19 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %15, i64 %.sroa.09.0.i, i32 0, i32 1
-  %.val.i = load i64, ptr %19, align 8, !noundef !4
-  %20 = or i64 %.val.i, 1
-  %21 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %20, i1 true)
-  %22 = xor i64 %21, 63
-  %23 = mul nuw nsw i64 %22, 9
-  %24 = add nuw nsw i64 %23, 73
-  %25 = lshr i64 %24, 6
-  %26 = add i64 %.val.i, %.sroa.07.0.i
-  %27 = add i64 %26, %25
-  %28 = add nuw i64 %.sroa.09.0.i, 1
-  %29 = icmp eq i64 %28, %17
-  br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7eadf18ddcbe7adcE.exit", label %.preheader
+  %.sroa.07.0.i = phi i64 [ %28, %.preheader ], [ 0, %13 ]
+  %.sroa.09.0.i = phi i64 [ %29, %.preheader ], [ 0, %13 ]
+  %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %15, i64 %.sroa.09.0.i
+  %20 = getelementptr i8, ptr %19, i64 16
+  %.val.i = load i64, ptr %20, align 8, !noundef !4
+  %21 = or i64 %.val.i, 1
+  %22 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %21, i1 true)
+  %23 = xor i64 %22, 63
+  %24 = mul nuw nsw i64 %23, 9
+  %25 = add nuw nsw i64 %24, 73
+  %26 = lshr i64 %25, 6
+  %27 = add i64 %.val.i, %.sroa.07.0.i
+  %28 = add i64 %27, %26
+  %29 = add nuw i64 %.sroa.09.0.i, 1
+  %30 = icmp eq i64 %29, %17
+  br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7eadf18ddcbe7adcE.exit", label %.preheader
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7eadf18ddcbe7adcE.exit": ; preds = %.preheader, %13
-  %.sroa.04.0.i = phi i64 [ 0, %13 ], [ %27, %.preheader ]
-  %30 = add i64 %17, %.sroa.0.0
-  %31 = add i64 %30, %.sroa.04.0.i
-  ret i64 %31
+  %.sroa.04.0.i = phi i64 [ 0, %13 ], [ %28, %.preheader ]
+  %31 = add i64 %17, %.sroa.0.0
+  %32 = add i64 %31, %.sroa.04.0.i
+  ret i64 %32
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

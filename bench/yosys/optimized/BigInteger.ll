@@ -483,7 +483,7 @@ _ZNK10BigInteger24convertToSignedPrimitiveIlmEET_v.exit: ; preds = %1, %12, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10BigInteger5toIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK10BigInteger5toIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !6
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %_ZNK10BigInteger24convertToSignedPrimitiveIijEET_v.exit, label %4

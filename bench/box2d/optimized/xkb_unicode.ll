@@ -25,9 +25,9 @@ define hidden range(i32 -1, 16777216) i32 @_glfwKeySym2Unicode(i32 noundef %0) l
   %8 = and i32 %0, 16777215
   br label %.loopexit
 
-.preheader:                                       ; preds = %4, %26
-  %.02230 = phi i32 [ %.1, %26 ], [ 827, %4 ]
-  %.02329 = phi i32 [ %.124, %26 ], [ 0, %4 ]
+.preheader:                                       ; preds = %4, %27
+  %.02230 = phi i32 [ %.1, %27 ], [ 827, %4 ]
+  %.02329 = phi i32 [ %.124, %27 ], [ 0, %4 ]
   %9 = add nuw nsw i32 %.02230, %.02329
   %10 = lshr i32 %9, 1
   %11 = zext nneg i32 %10 to i64
@@ -39,7 +39,7 @@ define hidden range(i32 -1, 16777216) i32 @_glfwKeySym2Unicode(i32 noundef %0) l
 
 16:                                               ; preds = %.preheader
   %17 = add nuw nsw i32 %10, 1
-  br label %26
+  br label %27
 
 18:                                               ; preds = %.preheader
   %19 = icmp samesign ult i32 %0, %14
@@ -47,22 +47,23 @@ define hidden range(i32 -1, 16777216) i32 @_glfwKeySym2Unicode(i32 noundef %0) l
 
 20:                                               ; preds = %18
   %21 = add nsw i32 %10, -1
-  br label %26
+  br label %27
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw %struct.codepair, ptr @keysymtab, i64 %11, i32 1
-  %24 = load i16, ptr %23, align 2, !tbaa !8
-  %25 = zext i16 %24 to i32
+  %23 = getelementptr inbounds nuw %struct.codepair, ptr @keysymtab, i64 %11
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
+  %25 = load i16, ptr %24, align 2, !tbaa !8
+  %26 = zext i16 %25 to i32
   br label %.loopexit
 
-26:                                               ; preds = %20, %16
+27:                                               ; preds = %20, %16
   %.124 = phi i32 [ %17, %16 ], [ %.02329, %20 ]
   %.1 = phi i32 [ %.02230, %16 ], [ %21, %20 ]
   %.not = icmp slt i32 %.1, %.124
   br i1 %.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %26, %1, %22, %7
-  %.0 = phi i32 [ %8, %7 ], [ %25, %22 ], [ %0, %1 ], [ -1, %26 ]
+.loopexit:                                        ; preds = %27, %1, %22, %7
+  %.0 = phi i32 [ %8, %7 ], [ %26, %22 ], [ %0, %1 ], [ -1, %27 ]
   ret i32 %.0
 }
 

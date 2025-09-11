@@ -25745,7 +25745,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i: ; preds = %13
   ret void
 
 40:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hbef99d6b373999acE.exit", %._crit_edge.i
-  %.sroa.08.026 = phi i64 [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hbef99d6b373999acE.exit" ], [ %60, %._crit_edge.i ]
+  %.sroa.08.026 = phi i64 [ 0, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hbef99d6b373999acE.exit" ], [ %61, %._crit_edge.i ]
   %41 = phi i64 [ %.sroa.4.0.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hbef99d6b373999acE.exit" ], [ %59, %._crit_edge.i ]
   %.pre.i2225 = phi ptr [ %.sroa.10.0.i, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hbef99d6b373999acE.exit" ], [ %.pre.i21, %._crit_edge.i ]
   %42 = icmp eq i64 %.sroa.08.026, %41
@@ -25799,7 +25799,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
   %.sroa.6.0.i.ph.i.i = phi i64 [ %56, %53 ], [ undef, %.loopexit ]
   %.sroa.04.0.i.ph.i.i = phi i64 [ %54, %53 ], [ 0, %.loopexit ]
   invoke void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %.sroa.04.0.i.ph.i.i, i64 %.sroa.6.0.i.ph.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8d4d05d48f1984be0c820ace9dd61f64.148) #36
-          to label %.noexc unwind label %62
+          to label %.noexc unwind label %63
 
 .noexc:                                           ; preds = %57
   unreachable
@@ -25812,23 +25812,24 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
 ._crit_edge.i:                                    ; preds = %40, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h316cef0cbdc743d9E.exit.i"
   %.pre.i21 = phi ptr [ %58, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h316cef0cbdc743d9E.exit.i" ], [ %.pre.i2225, %40 ]
   %59 = phi i64 [ %45, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h316cef0cbdc743d9E.exit.i" ], [ %41, %40 ]
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { { { [4 x i64] } }, { i64 } }, ptr %.pre.i21, i64 %.sroa.08.026, i32 1
+  %60 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %.pre.i21, i64 %.sroa.08.026
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 32
   store i64 %.sroa.08.026, ptr %.sroa.3.0..sroa_idx, align 8, !noalias !1581
-  %60 = add nuw i64 %.sroa.08.026, 1
-  %exitcond.not = icmp eq i64 %60, %1
+  %61 = add nuw i64 %.sroa.08.026, 1
+  %exitcond.not = icmp eq i64 %61, %1
   br i1 %exitcond.not, label %27, label %40
 
-61:                                               ; preds = %62
-  resume { ptr, i32 } %63
+62:                                               ; preds = %63
+  resume { ptr, i32 } %64
 
-62:                                               ; preds = %57
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %57
+  %64 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr426drop_in_place$LT$alloc..vec..Vec$LT$concurrent_queue..bounded..Slot$LT$polars_stream..nodes..group_by..GroupBySinkState..combine_locals..ToDrop$LT$alloc..vec..Vec$LT$$LP$u64$C$polars_expr..hash_keys..HashKeys$C$polars_core..frame..DataFrame$RP$$GT$$C$alloc..vec..Vec$LT$$LP$polars_expr..hash_keys..HashKeys$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$polars_expr..reduce..GroupedReduction$GT$$GT$$RP$$GT$$GT$$GT$$GT$$GT$17hbc4745b5335c73f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #34
-          to label %61 unwind label %64
+          to label %62 unwind label %65
 
-64:                                               ; preds = %62
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %63
+  %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #35
   unreachable
@@ -26346,55 +26347,57 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h8
   %65 = atomicrmw or ptr %45, i64 2 acq_rel, align 8
   %66 = and i64 %65, 4
   %67 = icmp eq i64 %66, 0
-  br i1 %67, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit", label %78
+  br i1 %67, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit", label %79
 
-.lr.ph.i24:                                       ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he845af462f10f5f7E.exit", %77
-  %.sroa.0.04.i = phi i64 [ %68, %77 ], [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he845af462f10f5f7E.exit" ]
+.lr.ph.i24:                                       ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he845af462f10f5f7E.exit", %78
+  %.sroa.0.04.i = phi i64 [ %68, %78 ], [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he845af462f10f5f7E.exit" ]
   %68 = add nuw nsw i64 %.sroa.0.04.i, 1
-  %69 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i, i32 1
-  %70 = load atomic i64, ptr %69 acquire, align 8
-  %71 = and i64 %70, 2
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %77
+  %69 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %71 = load atomic i64, ptr %70 acquire, align 8
+  %72 = and i64 %71, 2
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %74, label %78
 
-73:                                               ; preds = %.lr.ph.i24
-  %74 = atomicrmw or ptr %69, i64 4 acq_rel, align 8
-  %75 = and i64 %74, 2
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit", label %77
+74:                                               ; preds = %.lr.ph.i24
+  %75 = atomicrmw or ptr %70, i64 4 acq_rel, align 8
+  %76 = and i64 %75, 2
+  %77 = icmp eq i64 %76, 0
+  br i1 %77, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit", label %78
 
-77:                                               ; preds = %73, %.lr.ph.i24
+78:                                               ; preds = %74, %.lr.ph.i24
   %exitcond.not.i = icmp eq i64 %68, 30
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit.sink.split", label %.lr.ph.i24
 
-78:                                               ; preds = %64
-  %79 = icmp samesign ult i64 %11, 29
-  br i1 %79, label %.lr.ph.i26, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit.sink.split"
+79:                                               ; preds = %64
+  %80 = icmp samesign ult i64 %11, 29
+  br i1 %80, label %.lr.ph.i26, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit.sink.split"
 
-.lr.ph.i26:                                       ; preds = %78, %89
-  %.sroa.0.04.i27 = phi i64 [ %80, %89 ], [ %41, %78 ]
-  %80 = add nuw nsw i64 %.sroa.0.04.i27, 1
-  %81 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i27, i32 1
-  %82 = load atomic i64, ptr %81 acquire, align 8
-  %83 = and i64 %82, 2
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %85, label %89
+.lr.ph.i26:                                       ; preds = %79, %91
+  %.sroa.0.04.i27 = phi i64 [ %81, %91 ], [ %41, %79 ]
+  %81 = add nuw nsw i64 %.sroa.0.04.i27, 1
+  %82 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i27
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  %84 = load atomic i64, ptr %83 acquire, align 8
+  %85 = and i64 %84, 2
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %91
 
-85:                                               ; preds = %.lr.ph.i26
-  %86 = atomicrmw or ptr %81, i64 4 acq_rel, align 8
-  %87 = and i64 %86, 2
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit", label %89
+87:                                               ; preds = %.lr.ph.i26
+  %88 = atomicrmw or ptr %83, i64 4 acq_rel, align 8
+  %89 = and i64 %88, 2
+  %90 = icmp eq i64 %89, 0
+  br i1 %90, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit", label %91
 
-89:                                               ; preds = %85, %.lr.ph.i26
-  %exitcond.not.i28 = icmp eq i64 %80, 30
+91:                                               ; preds = %87, %.lr.ph.i26
+  %exitcond.not.i28 = icmp eq i64 %81, 30
   br i1 %exitcond.not.i28, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit.sink.split", label %.lr.ph.i26
 
-"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit.sink.split": ; preds = %89, %77, %78
+"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit.sink.split": ; preds = %91, %78, %79
   call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.012.0, i64 noundef 1000, i64 noundef 8) #27
   br label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit"
 
-"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit": ; preds = %85, %73, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit.sink.split", %64
+"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit": ; preds = %87, %74, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h9553a3cc1d3cce02E.exit.sink.split", %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %34
 }
@@ -26737,55 +26740,57 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17he
   %65 = atomicrmw or ptr %45, i64 2 acq_rel, align 8
   %66 = and i64 %65, 4
   %67 = icmp eq i64 %66, 0
-  br i1 %67, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit", label %78
+  br i1 %67, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit", label %79
 
-.lr.ph.i24:                                       ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hd2335a66069631f5E.exit", %77
-  %.sroa.0.04.i = phi i64 [ %68, %77 ], [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hd2335a66069631f5E.exit" ]
+.lr.ph.i24:                                       ; preds = %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hd2335a66069631f5E.exit", %78
+  %.sroa.0.04.i = phi i64 [ %68, %78 ], [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hd2335a66069631f5E.exit" ]
   %68 = add nuw nsw i64 %.sroa.0.04.i, 1
-  %69 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i, i32 1
-  %70 = load atomic i64, ptr %69 acquire, align 8
-  %71 = and i64 %70, 2
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %77
+  %69 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %71 = load atomic i64, ptr %70 acquire, align 8
+  %72 = and i64 %71, 2
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %74, label %78
 
-73:                                               ; preds = %.lr.ph.i24
-  %74 = atomicrmw or ptr %69, i64 4 acq_rel, align 8
-  %75 = and i64 %74, 2
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit", label %77
+74:                                               ; preds = %.lr.ph.i24
+  %75 = atomicrmw or ptr %70, i64 4 acq_rel, align 8
+  %76 = and i64 %75, 2
+  %77 = icmp eq i64 %76, 0
+  br i1 %77, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit", label %78
 
-77:                                               ; preds = %73, %.lr.ph.i24
+78:                                               ; preds = %74, %.lr.ph.i24
   %exitcond.not.i = icmp eq i64 %68, 30
   br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit.sink.split", label %.lr.ph.i24
 
-78:                                               ; preds = %64
-  %79 = icmp samesign ult i64 %11, 29
-  br i1 %79, label %.lr.ph.i26, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit.sink.split"
+79:                                               ; preds = %64
+  %80 = icmp samesign ult i64 %11, 29
+  br i1 %80, label %.lr.ph.i26, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit.sink.split"
 
-.lr.ph.i26:                                       ; preds = %78, %89
-  %.sroa.0.04.i27 = phi i64 [ %80, %89 ], [ %41, %78 ]
-  %80 = add nuw nsw i64 %.sroa.0.04.i27, 1
-  %81 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i27, i32 1
-  %82 = load atomic i64, ptr %81 acquire, align 8
-  %83 = and i64 %82, 2
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %85, label %89
+.lr.ph.i26:                                       ; preds = %79, %91
+  %.sroa.0.04.i27 = phi i64 [ %81, %91 ], [ %41, %79 ]
+  %81 = add nuw nsw i64 %.sroa.0.04.i27, 1
+  %82 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i27
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  %84 = load atomic i64, ptr %83 acquire, align 8
+  %85 = and i64 %84, 2
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %91
 
-85:                                               ; preds = %.lr.ph.i26
-  %86 = atomicrmw or ptr %81, i64 4 acq_rel, align 8
-  %87 = and i64 %86, 2
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit", label %89
+87:                                               ; preds = %.lr.ph.i26
+  %88 = atomicrmw or ptr %83, i64 4 acq_rel, align 8
+  %89 = and i64 %88, 2
+  %90 = icmp eq i64 %89, 0
+  br i1 %90, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit", label %91
 
-89:                                               ; preds = %85, %.lr.ph.i26
-  %exitcond.not.i28 = icmp eq i64 %80, 30
+91:                                               ; preds = %87, %.lr.ph.i26
+  %exitcond.not.i28 = icmp eq i64 %81, 30
   br i1 %exitcond.not.i28, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit.sink.split", label %.lr.ph.i26
 
-"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit.sink.split": ; preds = %89, %77, %78
+"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit.sink.split": ; preds = %91, %78, %79
   call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.012.0, i64 noundef 1000, i64 noundef 8) #27
   br label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit"
 
-"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit": ; preds = %85, %73, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit.sink.split", %64
+"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit": ; preds = %87, %74, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h39c7e7df9965bdc5E.exit.sink.split", %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %34
 }

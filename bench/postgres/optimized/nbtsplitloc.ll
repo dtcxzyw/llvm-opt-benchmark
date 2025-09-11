@@ -234,13 +234,13 @@ BTreeTupleIsPosting.exit.thread.i123:             ; preds = %93
   %125 = sext i32 %.sroa.117.0497 to i64
   %126 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %125
   store i16 0, ptr %126, align 2
-  %127 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %125, i32 1
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 2
   store i16 %.1.i136, ptr %127, align 2
-  %128 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %125, i32 2
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i16 %.160.i135, ptr %128, align 2
-  %129 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %125, i32 3
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 6
   store i16 %.081498, ptr %129, align 2
-  %130 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %125, i32 4
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i8 0, ptr %130, align 2
   %131 = add i32 %.sroa.117.0497, 1
   br label %_bt_recsplitloc.exit146
@@ -312,13 +312,13 @@ _bt_recsplitloc.exit.sink.split:                  ; preds = %BTreeTupleIsPosting
   %157 = sext i32 %.sroa.117.5.sink555 to i64
   %158 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %157
   store i16 0, ptr %158, align 2
-  %159 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %157, i32 1
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 2
   store i16 %.1.i162, ptr %159, align 2
-  %160 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %157, i32 2
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store i16 %.160.i161, ptr %160, align 2
-  %161 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %157, i32 3
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 6
   store i16 %.081498, ptr %161, align 2
-  %162 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %157, i32 4
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i8 %.sink, ptr %162, align 2
   %163 = add i32 %.sroa.117.5.sink555, 1
   br label %_bt_recsplitloc.exit
@@ -364,13 +364,13 @@ BTreeTupleIsPosting.exit.thread.i175:             ; preds = %._crit_edge
   %175 = sext i32 %.sroa.117.0.lcssa to i64
   %176 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %175
   store i16 0, ptr %176, align 2
-  %177 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %175, i32 1
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 2
   store i16 %.1.i188, ptr %177, align 2
-  %178 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %175, i32 2
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 4
   store i16 %.160.i187, ptr %178, align 2
-  %179 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %175, i32 3
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 6
   store i16 %2, ptr %179, align 2
-  %180 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %175, i32 4
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store i8 0, ptr %180, align 2
   %181 = add i32 %.sroa.117.0.lcssa, 1
   br label %_bt_recsplitloc.exit198
@@ -895,7 +895,7 @@ _bt_split_firstright.exit56.i:                    ; preds = %_bt_split_lastleft.
 
 _bt_deltasortsplits.exit226:                      ; preds = %.lr.ph.split.us.i222, %.._crit_edge_crit_edge.i218
   %.pre-phi.i220 = phi i64 [ %.pre.i219, %.._crit_edge_crit_edge.i218 ], [ %401, %.lr.ph.split.us.i222 ]
-  tail call void @pg_qsort(ptr noundef %50, i64 noundef %.pre-phi.i220, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #7
+  tail call void @pg_qsort(ptr noundef nonnull %50, i64 noundef %.pre-phi.i220, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #7
   br label %_bt_strategy.exit
 
 _bt_strategy.exit:                                ; preds = %_bt_split_firstright.exit.i, %394, %_bt_split_firstright.exit56.i, %_bt_deltasortsplits.exit226
@@ -1063,7 +1063,7 @@ _bt_bestsplitloc.exit:                            ; preds = %._crit_edge.i.threa
   store i8 %483, ptr %5, align 1
   %484 = getelementptr inbounds nuw i8, ptr %.032.i, i64 6
   %485 = load i16, ptr %484, align 2
-  tail call void @pfree(ptr noundef %50) #7
+  tail call void @pfree(ptr noundef nonnull %50) #7
   br label %486
 
 486:                                              ; preds = %.thread425, %_bt_bestsplitloc.exit

@@ -1131,7 +1131,8 @@ invoke.cont195:                                   ; preds = %invoke.cont192
 invoke.cont198:                                   ; preds = %invoke.cont195
   %109 = load ptr, ptr %collectedData, align 8, !tbaa !51
   %110 = load ptr, ptr %109, align 8, !tbaa !52
-  %cumulatedCashFlows = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %110, i64 %i.5664, i32 1
+  %add.ptr.i349 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %110, i64 %i.5664
+  %cumulatedCashFlows = getelementptr inbounds nuw i8, ptr %add.ptr.i349, i64 8
   store double 0.000000e+00, ptr %cumulatedCashFlows, align 8, !tbaa !59
   br label %do.body201
 
@@ -1331,7 +1332,8 @@ invoke.cont293:                                   ; preds = %for.body286
   %152 = load ptr, ptr %collectedData, align 8, !tbaa !51
   %add.ptr.i369 = getelementptr inbounds nuw %"class.std::vector.33", ptr %152, i64 %nextExercise.1
   %153 = load ptr, ptr %add.ptr.i369, align 8, !tbaa !52
-  %cumulatedCashFlows299 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %153, i64 %i.5664, i32 1
+  %add.ptr.i370 = getelementptr inbounds nuw %"struct.QuantLib::NodeData", ptr %153, i64 %i.5664
+  %cumulatedCashFlows299 = getelementptr inbounds nuw i8, ptr %add.ptr.i370, i64 8
   %154 = load double, ptr %cumulatedCashFlows299, align 8, !tbaa !59
   %add300 = fadd double %div296, %154
   store double %add300, ptr %cumulatedCashFlows299, align 8, !tbaa !59

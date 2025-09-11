@@ -120,13 +120,13 @@ define dso_local void @subtract_range(ptr noundef captures(none) %0, i32 noundef
   %9 = zext nneg i32 %1 to i64
   br label %10
 
-10:                                               ; preds = %46, %8
-  %11 = phi i64 [ 0, %8 ], [ %47, %46 ]
+10:                                               ; preds = %45, %8
+  %11 = phi i64 [ 0, %8 ], [ %46, %45 ]
   %12 = getelementptr %struct.range, ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %46, label %16
+  br i1 %15, label %45, label %16
 
 16:                                               ; preds = %10
   %17 = load i64, ptr %12, align 8
@@ -137,7 +137,7 @@ define dso_local void @subtract_range(ptr noundef captures(none) %0, i32 noundef
 
 21:                                               ; preds = %16
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  br label %46
+  br label %45
 
 22:                                               ; preds = %16
   %23 = xor i1 %18, true
@@ -148,10 +148,10 @@ define dso_local void @subtract_range(ptr noundef captures(none) %0, i32 noundef
 
 27:                                               ; preds = %22
   store i64 %3, ptr %12, align 8
-  br label %46
+  br label %45
 
 28:                                               ; preds = %22
-  br i1 %18, label %29, label %46
+  br i1 %18, label %29, label %45
 
 29:                                               ; preds = %28
   %30 = icmp ule i64 %14, %3
@@ -161,44 +161,44 @@ define dso_local void @subtract_range(ptr noundef captures(none) %0, i32 noundef
 
 33:                                               ; preds = %29
   store i64 %2, ptr %13, align 8
-  br label %46
+  br label %45
 
 34:                                               ; preds = %29
-  br i1 %19, label %.preheader, label %46
+  br i1 %19, label %.preheader, label %45
 
 35:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = icmp eq i64 %indvars.iv.next, %9
-  br i1 %36, label %43, label %.preheader, !llvm.loop !8
+  br i1 %36, label %42, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %34, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %34 ]
-  %37 = getelementptr %struct.range, ptr %0, i64 %indvars.iv, i32 1
+  %.split = getelementptr %struct.range, ptr %0, i64 %indvars.iv
+  %37 = getelementptr i8, ptr %.split, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %40, label %35
 
 40:                                               ; preds = %.preheader
-  %41 = getelementptr %struct.range, ptr %0, i64 %indvars.iv
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 %14, ptr %42, align 8
-  store i64 %3, ptr %41, align 8
-  br label %45
+  %41 = getelementptr i8, ptr %.split, i64 8
+  store i64 %14, ptr %41, align 8
+  store i64 %3, ptr %.split, align 8
+  br label %44
 
-43:                                               ; preds = %35
-  %44 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.subtract_range) #10
-  br label %45
+42:                                               ; preds = %35
+  %43 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.subtract_range) #10
+  br label %44
 
-45:                                               ; preds = %43, %40
+44:                                               ; preds = %42, %40
   store i64 %2, ptr %13, align 8
-  br label %46
+  br label %45
 
-46:                                               ; preds = %45, %34, %33, %28, %27, %21, %10
-  %47 = add nuw nsw i64 %11, 1
-  %48 = icmp eq i64 %47, %9
-  br i1 %48, label %.loopexit, label %10, !llvm.loop !9
+45:                                               ; preds = %44, %34, %33, %28, %27, %21, %10
+  %46 = add nuw nsw i64 %11, 1
+  %47 = icmp eq i64 %46, %9
+  br i1 %47, label %.loopexit, label %10, !llvm.loop !9
 
-.loopexit:                                        ; preds = %46, %4
+.loopexit:                                        ; preds = %45, %4
   ret void
 }
 
@@ -209,9 +209,9 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
   %3 = add i32 %1, -1
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.preheader8, label %.loopexit9
+  br i1 %4, label %.preheader9, label %.loopexit10
 
-.preheader8:                                      ; preds = %2, %34
+.preheader9:                                      ; preds = %2, %34
   %5 = phi i64 [ %36, %34 ], [ 0, %2 ]
   %6 = phi i32 [ %35, %34 ], [ %3, %2 ]
   %7 = getelementptr %struct.range, ptr %0, i64 %5
@@ -220,10 +220,10 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %34
 
-11:                                               ; preds = %.preheader8
+11:                                               ; preds = %.preheader9
   %12 = sext i32 %6 to i64
   %13 = icmp slt i64 %5, %12
-  br i1 %13, label %14, label %.loopexit5
+  br i1 %13, label %14, label %.loopexit6
 
 14:                                               ; preds = %11
   %15 = trunc i64 %5 to i32
@@ -231,28 +231,29 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
 
 16:                                               ; preds = %20, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ %12, %14 ]
-  %17 = getelementptr %struct.range, ptr %0, i64 %indvars.iv, i32 1
+  %.split = getelementptr %struct.range, ptr %0, i64 %indvars.iv
+  %17 = getelementptr i8, ptr %.split, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %.loopexit5.loopexit.split.loop.exit
+  br i1 %19, label %20, label %.loopexit6.loopexit.split.loop.exit
 
 20:                                               ; preds = %16
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %21 = icmp slt i64 %5, %indvars.iv.next
-  br i1 %21, label %16, label %.loopexit5, !llvm.loop !10
+  br i1 %21, label %16, label %.loopexit6, !llvm.loop !10
 
-.loopexit5.loopexit.split.loop.exit:              ; preds = %16
+.loopexit6.loopexit.split.loop.exit:              ; preds = %16
   %22 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.loopexit5
+  br label %.loopexit6
 
-.loopexit5:                                       ; preds = %20, %.loopexit5.loopexit.split.loop.exit, %11
-  %23 = phi i32 [ %6, %11 ], [ %22, %.loopexit5.loopexit.split.loop.exit ], [ %15, %20 ]
-  %24 = phi i32 [ %6, %11 ], [ %22, %.loopexit5.loopexit.split.loop.exit ], [ %6, %20 ]
+.loopexit6:                                       ; preds = %20, %.loopexit6.loopexit.split.loop.exit, %11
+  %23 = phi i32 [ %6, %11 ], [ %22, %.loopexit6.loopexit.split.loop.exit ], [ %15, %20 ]
+  %24 = phi i32 [ %6, %11 ], [ %22, %.loopexit6.loopexit.split.loop.exit ], [ %6, %20 ]
   %25 = zext i32 %23 to i64
   %26 = icmp eq i64 %5, %25
-  br i1 %26, label %.loopexit9, label %27
+  br i1 %26, label %.loopexit10, label %27
 
-27:                                               ; preds = %.loopexit5
+27:                                               ; preds = %.loopexit6
   %28 = sext i32 %24 to i64
   %29 = getelementptr %struct.range, ptr %0, i64 %28
   %30 = load i64, ptr %29, align 8
@@ -264,39 +265,40 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %34
 
-34:                                               ; preds = %27, %.preheader8
-  %35 = phi i32 [ %6, %.preheader8 ], [ %33, %27 ]
+34:                                               ; preds = %27, %.preheader9
+  %35 = phi i32 [ %6, %.preheader9 ], [ %33, %27 ]
   %36 = add nuw nsw i64 %5, 1
   %37 = sext i32 %35 to i64
   %38 = icmp slt i64 %36, %37
-  br i1 %38, label %.preheader8, label %.loopexit9, !llvm.loop !11
+  br i1 %38, label %.preheader9, label %.loopexit10, !llvm.loop !11
 
-.loopexit9:                                       ; preds = %34, %.loopexit5, %2
+.loopexit10:                                      ; preds = %34, %.loopexit6, %2
   %39 = icmp sgt i32 %1, 0
   br i1 %39, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %.loopexit9
+.preheader.preheader:                             ; preds = %.loopexit10
   %40 = zext nneg i32 %1 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %44
-  %indvars.iv13 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next14, %44 ]
-  %41 = getelementptr %struct.range, ptr %0, i64 %indvars.iv13, i32 1
+  %indvars.iv14 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next15, %44 ]
+  %.split5 = getelementptr %struct.range, ptr %0, i64 %indvars.iv14
+  %41 = getelementptr i8, ptr %.split5, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %.loopexit.loopexit.split.loop.exit, label %44
 
 44:                                               ; preds = %.preheader
-  %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
-  %45 = icmp eq i64 %indvars.iv.next14, %40
+  %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
+  %45 = icmp eq i64 %indvars.iv.next15, %40
   br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.preheader
-  %46 = trunc nuw nsw i64 %indvars.iv13 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv14 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %44, %.loopexit.loopexit.split.loop.exit, %.loopexit9
-  %47 = phi i32 [ %1, %.loopexit9 ], [ %46, %.loopexit.loopexit.split.loop.exit ], [ %1, %44 ]
+.loopexit:                                        ; preds = %44, %.loopexit.loopexit.split.loop.exit, %.loopexit10
+  %47 = phi i32 [ %1, %.loopexit10 ], [ %46, %.loopexit.loopexit.split.loop.exit ], [ %1, %44 ]
   %48 = sext i32 %47 to i64
   tail call void @sort(ptr noundef %0, i64 noundef %48, i64 noundef 16, ptr noundef nonnull @cmp_range, ptr noundef null) #11
   ret i32 %47

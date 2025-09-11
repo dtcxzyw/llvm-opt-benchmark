@@ -793,7 +793,7 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
   call void @_Z11SecHideDataPvmbb(ptr noundef nonnull %6, i64 noundef 16, i1 noundef zeroext false, i1 noundef zeroext false)
   %31 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
-  br label %93
+  br label %95
 
 32:                                               ; preds = %.split, %23, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -867,15 +867,15 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
   %exitcond66.not = icmp eq i32 %61, 262144
   br i1 %exitcond66.not, label %45, label %46, !llvm.loop !42
 
-.preheader:                                       ; preds = %45, %78
-  %indvars.iv71 = phi i64 [ 0, %45 ], [ %indvars.iv.next72, %78 ]
+.preheader:                                       ; preds = %45, %79
+  %indvars.iv71 = phi i64 [ 0, %45 ], [ %indvars.iv.next72, %79 ]
   %62 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv71
   %63 = load i32, ptr %62, align 4, !tbaa !10
   %64 = shl nuw nsw i64 %indvars.iv71, 2
   %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 %64
-  br label %79
+  br label %80
 
-65:                                               ; preds = %78
+65:                                               ; preds = %79
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %67 = load i32, ptr %66, align 8, !tbaa !43
   %68 = zext i32 %67 to i64
@@ -887,54 +887,56 @@ define void @_ZN9CryptData8SetKey30EbP11SecPasswordPKwPKh(ptr noundef nonnull al
   store i8 %72, ptr %73, align 8, !tbaa !44
   %74 = load i32, ptr %66, align 8, !tbaa !43
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"struct.CryptData::KDF3CacheItem", ptr %0, i64 %75, i32 4
-  %77 = zext i1 %36 to i8
-  store i8 %77, ptr %76, align 8, !tbaa !27
-  br i1 %36, label %83, label %86
+  %76 = getelementptr inbounds nuw %"struct.CryptData::KDF3CacheItem", ptr %0, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 72
+  %78 = zext i1 %36 to i8
+  store i8 %78, ptr %77, align 8, !tbaa !27
+  br i1 %36, label %84, label %87
 
-78:                                               ; preds = %79
+79:                                               ; preds = %80
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 4
   br i1 %exitcond74.not, label %65, label %.preheader, !llvm.loop !45
 
-79:                                               ; preds = %.preheader, %79
-  %indvars.iv67 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next68, %79 ]
+80:                                               ; preds = %.preheader, %80
+  %indvars.iv67 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next68, %80 ]
   %indvars.iv67.tr = trunc i64 %indvars.iv67 to i32
-  %80 = shl i32 %indvars.iv67.tr, 3
-  %81 = lshr i32 %63, %80
-  %82 = trunc i32 %81 to i8
+  %81 = shl i32 %indvars.iv67.tr, 3
+  %82 = lshr i32 %63, %81
+  %83 = trunc i32 %82 to i8
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv67
-  store i8 %82, ptr %gep, align 1, !tbaa !3
+  store i8 %83, ptr %gep, align 1, !tbaa !3
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 4
-  br i1 %exitcond70.not, label %78, label %79, !llvm.loop !46
+  br i1 %exitcond70.not, label %79, label %80, !llvm.loop !46
 
-83:                                               ; preds = %65
-  %84 = getelementptr inbounds nuw %"struct.CryptData::KDF3CacheItem", ptr %0, i64 %75, i32 1
-  %85 = load i64, ptr %4, align 1
-  store i64 %85, ptr %84, align 8
-  br label %86
+84:                                               ; preds = %65
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %86 = load i64, ptr %4, align 1
+  store i64 %86, ptr %85, align 8
+  br label %87
 
-86:                                               ; preds = %83, %65
-  %87 = getelementptr inbounds nuw %"struct.CryptData::KDF3CacheItem", ptr %0, i64 %75, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
-  call void @_Z11SecHideDataPvmbb(ptr noundef nonnull %87, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false)
-  %88 = load i32, ptr %66, align 8, !tbaa !43
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %"struct.CryptData::KDF3CacheItem", ptr %0, i64 %89, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
-  %91 = add i32 %88, 1
-  %92 = and i32 %91, 3
-  store i32 %92, ptr %66, align 8, !tbaa !43
+87:                                               ; preds = %84, %65
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
+  call void @_Z11SecHideDataPvmbb(ptr noundef nonnull %88, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false)
+  %89 = load i32, ptr %66, align 8, !tbaa !43
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds nuw %"struct.CryptData::KDF3CacheItem", ptr %0, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
+  %93 = add i32 %89, 1
+  %94 = and i32 %93, 3
+  store i32 %94, ptr %66, align 8, !tbaa !43
   call void @_Z9cleandataPvm(ptr noundef nonnull %8, i64 noundef 1032)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %93
+  br label %95
 
-93:                                               ; preds = %.split51.us, %86
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  call void @_ZN8Rijndael4InitEbPKhjS1_(ptr noundef nonnull align 4 dereferenceable(264) %94, i1 noundef zeroext %1, ptr noundef nonnull %6, i32 noundef 128, ptr noundef nonnull %7)
+95:                                               ; preds = %.split51.us, %87
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  call void @_ZN8Rijndael4InitEbPKhjS1_(ptr noundef nonnull align 4 dereferenceable(264) %96, i1 noundef zeroext %1, ptr noundef nonnull %6, i32 noundef 128, ptr noundef nonnull %7)
   call void @_Z9cleandataPvm(ptr noundef nonnull %6, i64 noundef 16)
   call void @_Z9cleandataPvm(ptr noundef nonnull %7, i64 noundef 16)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -129,7 +129,7 @@ resolve_divisor_32.exit:                          ; preds = %17, %23
 
 86:                                               ; preds = %83, %79
   %87 = phi i32 [ %82, %79 ], [ %85, %83 ]
-  %.tr = trunc i32 %87 to i16
+  %.tr = trunc nsw i32 %87 to i16
   %88 = shl i16 %.tr, 6
   store i16 %88, ptr %7, align 4
   %89 = icmp slt i32 %9, 0
@@ -148,7 +148,7 @@ resolve_divisor_32.exit:                          ; preds = %17, %23
 
 97:                                               ; preds = %94, %90
   %98 = phi i32 [ %93, %90 ], [ %96, %94 ]
-  %.tr54 = trunc i32 %98 to i16
+  %.tr54 = trunc nsw i32 %98 to i16
   %99 = shl i16 %.tr54, 6
   store i16 %99, ptr %12, align 2
   %100 = icmp slt i32 %50, 0

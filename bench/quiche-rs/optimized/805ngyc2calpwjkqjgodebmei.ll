@@ -611,18 +611,19 @@ define internal fastcc noundef align 8 dereferenceable_or_null(104) ptr @"_ZN8in
   %117 = phi ptr [ %74, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h192f5e90dfc343c5E.exit.thread5" ], [ %112, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h192f5e90dfc343c5E.exit" ]
   %.sroa.5.0.i8 = phi i64 [ %110, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h192f5e90dfc343c5E.exit.thread5" ], [ 0, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h192f5e90dfc343c5E.exit" ]
   %118 = icmp ult i64 %.sroa.5.0.i8, %4
-  br i1 %118, label %119, label %121
+  br i1 %118, label %119, label %122
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [12 x i64] }, i64 }, ptr %117, i64 %.sroa.5.0.i8, i32 1
+  %120 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [12 x i64] }, i64 }, ptr %117, i64 %.sroa.5.0.i8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h192f5e90dfc343c5E.exit.thread"
 
-121:                                              ; preds = %116
+122:                                              ; preds = %116
   tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.sroa.5.0.i8, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e64d88381c081e9c15a61b1996b09e41.26) #22
   unreachable
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h192f5e90dfc343c5E.exit.thread": ; preds = %102, %2, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h192f5e90dfc343c5E.exit", %119
-  %.sroa.0.0 = phi ptr [ %120, %119 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h192f5e90dfc343c5E.exit" ], [ null, %2 ], [ null, %102 ]
+  %.sroa.0.0 = phi ptr [ %121, %119 ], [ null, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h192f5e90dfc343c5E.exit" ], [ null, %2 ], [ null, %102 ]
   ret ptr %.sroa.0.0
 }
 

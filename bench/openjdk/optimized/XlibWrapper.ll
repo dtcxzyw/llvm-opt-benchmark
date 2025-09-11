@@ -256,10 +256,11 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3, i32 3
-  %9 = load i32, ptr %8, align 8
-  %10 = sext i32 %9 to i64
-  ret i64 %10
+  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %10 = load i32, ptr %9, align 8
+  %11 = sext i32 %10 to i64
+  ret i64 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -267,10 +268,11 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3, i32 5
-  %9 = load i32, ptr %8, align 8
-  %10 = sext i32 %9 to i64
-  ret i64 %10
+  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %10 = load i32, ptr %9, align 8
+  %11 = sext i32 %10 to i64
+  ret i64 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -278,10 +280,11 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3, i32 4
-  %9 = load i32, ptr %8, align 4
-  %10 = sext i32 %9 to i64
-  ret i64 %10
+  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %10 = load i32, ptr %9, align 4
+  %11 = sext i32 %10 to i64
+  ret i64 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -289,10 +292,11 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3, i32 6
-  %9 = load i32, ptr %8, align 4
-  %10 = sext i32 %9 to i64
-  ret i64 %10
+  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %10 = load i32, ptr %9, align 4
+  %11 = sext i32 %10 to i64
+  ret i64 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -300,9 +304,10 @@ define i64 @Java_sun_awt_X11_XlibWrapper_RootWindow(ptr noundef readnone capture
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3, i32 2
-  %9 = load i64, ptr %8, align 8
-  ret i64 %9
+  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load i64, ptr %9, align 8
+  ret i64 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

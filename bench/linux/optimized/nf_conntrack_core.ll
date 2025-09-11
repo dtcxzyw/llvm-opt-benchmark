@@ -639,7 +639,8 @@ define dso_local noundef ptr @nf_ct_tmpl_alloc(ptr noundef %0, ptr readnone capt
 10:                                               ; preds = %6, %3
   %11 = phi i64 [ 0, %3 ], [ %9, %6 ]
   %12 = or i32 %2, 256
-  %13 = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %11, i64 8
+  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %11
+  %13 = getelementptr i8, ptr %.split, i64 64
   %14 = load ptr, ptr %13, align 16
   %15 = tail call noalias noundef align 8 dereferenceable_or_null(248) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %12, i64 noundef 248) #18
   %16 = icmp eq ptr %15, null
@@ -5303,7 +5304,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nf_ct_resolve_clash(ptr no
   %155 = and i64 %10, 7
   %156 = icmp samesign ugt i64 %155, 2
   %157 = zext i1 %156 to i64
-  %158 = getelementptr %struct.nf_conn_counter, ptr %152, i64 %157, i32 1
+  %.split = getelementptr %struct.nf_conn_counter, ptr %152, i64 %157
+  %158 = getelementptr i8, ptr %.split, i64 8
   %159 = load volatile i64, ptr %158, align 8
   %160 = getelementptr i8, ptr %7, i64 160
   %161 = load ptr, ptr %160, align 8
@@ -6628,7 +6630,8 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr noundef write
   %80 = getelementptr i8, ptr %79, i64 -16
   %81 = icmp eq i8 %76, 0
   %82 = zext i1 %81 to i64
-  %83 = getelementptr %struct.nf_conntrack_tuple_hash, ptr %79, i64 %82, i32 1
+  %.split = getelementptr %struct.nf_conntrack_tuple_hash, ptr %79, i64 %82
+  %83 = getelementptr i8, ptr %.split, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(40) %0, ptr noundef align 4 dereferenceable(40) %83, i64 40, i1 false)
   %84 = icmp eq ptr %80, null
   br i1 %84, label %.thread12, label %85

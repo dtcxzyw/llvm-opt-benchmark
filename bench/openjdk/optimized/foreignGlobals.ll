@@ -721,125 +721,126 @@ define hidden noundef range(i32 0, -7) i32 @_ZN14ForeignGlobals23java_calling_co
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %12
 
-12:                                               ; preds = %.lr.ph, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw %class.VMRegPair, ptr %6, i64 %indvars.iv, i32 1
+12:                                               ; preds = %.lr.ph, %69
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
+  %13 = getelementptr inbounds nuw %class.VMRegPair, ptr %6, i64 %indvars.iv
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %14 = load i8, ptr %13, align 1
-  %.not = icmp eq i8 %14, 14
-  br i1 %.not, label %68, label %15
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %15 = load i8, ptr %14, align 1
+  %.not = icmp eq i8 %15, 14
+  br i1 %.not, label %69, label %16
 
-15:                                               ; preds = %12
-  %16 = load i8, ptr @UseAPX, align 1
-  %17 = trunc i8 %16 to i1
-  %..i.i.i = select i1 %17, i32 64, i32 32
-  %18 = ptrtoint ptr %.sroa.1.0.copyload to i64
-  %19 = trunc i64 %18 to i32
-  %20 = sub i32 %19, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %21 = icmp ult i32 %20, %..i.i.i
-  br i1 %21, label %22, label %29
+16:                                               ; preds = %12
+  %17 = load i8, ptr @UseAPX, align 1
+  %18 = trunc i8 %17 to i1
+  %..i.i.i = select i1 %18, i32 64, i32 32
+  %19 = ptrtoint ptr %.sroa.1.0.copyload to i64
+  %20 = trunc i64 %19 to i32
+  %21 = sub i32 %20, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %22 = icmp ult i32 %21, %..i.i.i
+  br i1 %22, label %23, label %30
 
-22:                                               ; preds = %15
-  %23 = lshr i32 %20, 1
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %24
-  %26 = ptrtoint ptr %25 to i64
-  %27 = trunc i64 %26 to i32
-  %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %.sroa.3.0.insert.ext.i.i.i = zext i32 %28 to i64
+23:                                               ; preds = %16
+  %24 = lshr i32 %21, 1
+  %25 = zext nneg i32 %24 to i64
+  %26 = getelementptr inbounds nuw %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %25
+  %27 = ptrtoint ptr %26 to i64
+  %28 = trunc i64 %27 to i32
+  %29 = sub i32 %28, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %.sroa.3.0.insert.ext.i.i.i = zext i32 %29 to i64
   %.sroa.3.0.insert.shift.i.i.i = shl nuw i64 %.sroa.3.0.insert.ext.i.i.i, 32
   %.sroa.23.0.insert.insert.i.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i.i, 983040
   br label %_Z12as_VMStorageP9VMRegImpl9BasicType.exit
 
-29:                                               ; preds = %15
-  %30 = load i32, ptr @UseAVX, align 4
-  %31 = icmp slt i32 %30, 3
-  %32 = icmp sgt i32 %20, 79
-  %33 = select i1 %31, i32 336, i32 592
-  %34 = icmp samesign ult i32 %20, %33
-  %35 = select i1 %32, i1 %34, i1 false
-  br i1 %35, label %36, label %44
+30:                                               ; preds = %16
+  %31 = load i32, ptr @UseAVX, align 4
+  %32 = icmp slt i32 %31, 3
+  %33 = icmp sgt i32 %21, 79
+  %34 = select i1 %32, i32 336, i32 592
+  %35 = icmp samesign ult i32 %21, %34
+  %36 = select i1 %33, i1 %35, i1 false
+  br i1 %36, label %37, label %45
 
-36:                                               ; preds = %29
-  %37 = add i32 %19, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -80)
-  %38 = ashr i32 %37, 4
-  %or.cond.i.i9.i = icmp ult i32 %38, 32
-  %spec.select.i.i10.i = select i1 %or.cond.i.i9.i, i32 %38, i32 -1
-  %39 = sext i32 %spec.select.i.i10.i to i64
-  %40 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %39
-  %41 = ptrtoint ptr %40 to i64
-  %42 = trunc i64 %41 to i32
-  %43 = sub i32 %42, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %.sroa.3.0.insert.ext.i.i11.i = zext i32 %43 to i64
+37:                                               ; preds = %30
+  %38 = add i32 %20, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)), i32 -80)
+  %39 = ashr i32 %38, 4
+  %or.cond.i.i9.i = icmp ult i32 %39, 32
+  %spec.select.i.i10.i = select i1 %or.cond.i.i9.i, i32 %39, i32 -1
+  %40 = sext i32 %spec.select.i.i10.i to i64
+  %41 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %40
+  %42 = ptrtoint ptr %41 to i64
+  %43 = trunc i64 %42 to i32
+  %44 = sub i32 %43, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %.sroa.3.0.insert.ext.i.i11.i = zext i32 %44 to i64
   %.sroa.3.0.insert.shift.i.i12.i = shl nuw i64 %.sroa.3.0.insert.ext.i.i11.i, 32
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i12.i, 65537
   br label %_Z12as_VMStorageP9VMRegImpl9BasicType.exit
 
-44:                                               ; preds = %29
+45:                                               ; preds = %30
   %.not.i = icmp ult ptr %.sroa.1.0.copyload, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
-  br i1 %.not.i, label %49, label %45
+  br i1 %.not.i, label %50, label %46
 
-45:                                               ; preds = %44
-  %46 = sub i32 %19, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
-  %47 = mul nsw i32 %9, %46
-  %48 = and i32 %47, 65535
-  %.sroa.3.0.insert.ext.i.i13.i = zext nneg i32 %48 to i64
+46:                                               ; preds = %45
+  %47 = sub i32 %20, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
+  %48 = mul nsw i32 %9, %47
+  %49 = and i32 %48, 65535
+  %.sroa.3.0.insert.ext.i.i13.i = zext nneg i32 %49 to i64
   %.sroa.3.0.insert.shift.i.i14.i = shl nuw nsw i64 %.sroa.3.0.insert.ext.i.i13.i, 32
   %.sroa.0.0.insert.insert.i.i15.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i14.i, 524291
   br label %_Z12as_VMStorageP9VMRegImpl9BasicType.exit
 
-49:                                               ; preds = %44
-  %.not16.i = icmp eq i32 %20, -1
-  br i1 %.not16.i, label %_Z12as_VMStorageP9VMRegImpl9BasicType.exit, label %50
+50:                                               ; preds = %45
+  %.not16.i = icmp eq i32 %21, -1
+  br i1 %.not16.i, label %_Z12as_VMStorageP9VMRegImpl9BasicType.exit, label %51
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %51, align 1
+51:                                               ; preds = %50
+  %52 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %52, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 96) #13
   unreachable
 
-_Z12as_VMStorageP9VMRegImpl9BasicType.exit:       ; preds = %22, %36, %45, %49
-  %.sroa.08.0.i = phi i64 [ %.sroa.23.0.insert.insert.i.i.i, %22 ], [ %.sroa.0.0.insert.insert.i.i.i, %36 ], [ %.sroa.0.0.insert.insert.i.i15.i, %45 ], [ 255, %49 ]
-  %52 = load i32, ptr %2, align 8
-  %53 = load i32, ptr %10, align 4
-  %54 = icmp eq i32 %52, %53
-  br i1 %54, label %55, label %_ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit
+_Z12as_VMStorageP9VMRegImpl9BasicType.exit:       ; preds = %23, %37, %46, %50
+  %.sroa.08.0.i = phi i64 [ %.sroa.23.0.insert.insert.i.i.i, %23 ], [ %.sroa.0.0.insert.insert.i.i.i, %37 ], [ %.sroa.0.0.insert.insert.i.i15.i, %46 ], [ 255, %50 ]
+  %53 = load i32, ptr %2, align 8
+  %54 = load i32, ptr %10, align 4
+  %55 = icmp eq i32 %53, %54
+  br i1 %55, label %56, label %_ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit
 
-55:                                               ; preds = %_Z12as_VMStorageP9VMRegImpl9BasicType.exit
-  %56 = add nsw i32 %52, 1
-  %57 = icmp sgt i32 %52, -1
-  %58 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %56)
-  %59 = icmp samesign ult i32 %58, 2
-  %or.cond.i.i.i.i.i = select i1 %57, i1 %59, i1 false
-  %60 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %56, i1 true)
-  %61 = sub nuw nsw i32 32, %60
-  %62 = shl nuw i32 1, %61
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %56, i32 %62
+56:                                               ; preds = %_Z12as_VMStorageP9VMRegImpl9BasicType.exit
+  %57 = add nsw i32 %53, 1
+  %58 = icmp sgt i32 %53, -1
+  %59 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %57)
+  %60 = icmp samesign ult i32 %59, 2
+  %or.cond.i.i.i.i.i = select i1 %58, i1 %60, i1 false
+  %61 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %57, i1 true)
+  %62 = sub nuw nsw i32 32, %61
+  %63 = shl nuw i32 1, %62
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %57, i32 %63
   tail call void @_ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %.0.i.i.i.i.i)
   %.pre.i.i = load i32, ptr %2, align 8
   br label %_ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit
 
-_ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit: ; preds = %_Z12as_VMStorageP9VMRegImpl9BasicType.exit, %55
-  %63 = phi i32 [ %.pre.i.i, %55 ], [ %52, %_Z12as_VMStorageP9VMRegImpl9BasicType.exit ]
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %2, align 8
-  %65 = load ptr, ptr %11, align 8
-  %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds %class.VMStorage, ptr %65, i64 %66
-  store i64 %.sroa.08.0.i, ptr %67, align 4
-  br label %68
+_ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit: ; preds = %_Z12as_VMStorageP9VMRegImpl9BasicType.exit, %56
+  %64 = phi i32 [ %.pre.i.i, %56 ], [ %53, %_Z12as_VMStorageP9VMRegImpl9BasicType.exit ]
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %2, align 8
+  %66 = load ptr, ptr %11, align 8
+  %67 = sext i32 %64 to i64
+  %68 = getelementptr inbounds %class.VMStorage, ptr %66, i64 %67
+  store i64 %.sroa.08.0.i, ptr %68, align 4
+  br label %69
 
-68:                                               ; preds = %12, %_ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit
+69:                                               ; preds = %12, %_ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %68, %3
-  %69 = shl i32 %7, 2
-  %70 = add i32 %69, 4
-  %71 = and i32 %70, -8
-  ret i32 %71
+._crit_edge:                                      ; preds = %69, %3
+  %70 = shl i32 %7, 2
+  %71 = add i32 %70, 4
+  %72 = and i32 %71, -8
+  ret i32 %72
 }
 
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #5

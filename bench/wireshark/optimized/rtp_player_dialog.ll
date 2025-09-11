@@ -120,8 +120,8 @@ module asm ".previous"
 %class.CaptureEvent = type { i32, i32, %class.QString, ptr }
 %class.QByteArray = type { %struct.QArrayDataPointer.238 }
 %struct.QArrayDataPointer.238 = type { ptr, ptr, i64 }
-%class.QMultiHash = type { ptr, i64 }
 %"struct.QHashPrivate::Data<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::InsertionResult" = type <{ %"struct.QHashPrivate::iterator", i8, [7 x i8] }>
+%class.QMultiHash = type { ptr, i64 }
 %"struct.QHashPrivate::Data<QHashPrivate::Node<int, QHashDummyValue>>::InsertionResult" = type <{ %"struct.QHashPrivate::iterator.135", i8, [7 x i8] }>
 %"struct.QHashPrivate::iterator.135" = type { ptr, i64 }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
@@ -295,10 +295,6 @@ $_ZN17QArrayDataPointerIP14RtpAudioStreamE17reallocateAndGrowEN10QArrayData14Gro
 $_ZN17QArrayDataPointerIP14RtpAudioStreamE12allocateGrowERKS2_xN10QArrayData14GrowthPositionE = comdat any
 
 $_ZN10QMultiHashIjP14RtpAudioStreamE7emplaceIJRKS1_EEENS2_8iteratorEOjDpOT_ = comdat any
-
-$_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJS1_EEENS2_8iteratorEOjDpOT_ = comdat any
-
-$_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_ = comdat any
 
 $_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE12findOrInsertERKj = comdat any
 
@@ -11875,10 +11871,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %3
 23:                                               ; preds = %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i
   %24 = load ptr, ptr %21, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %36, label %35
+  br i1 %25, label %37, label %36
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i
-  %.012.i.i.i = phi ptr [ %34, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i ], [ %20, %.preheader.i ]
+  %.012.i.i.i = phi ptr [ %35, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i ], [ %20, %.preheader.i ]
   %26 = load i8, ptr %.012.i.i.i, align 1
   %.not11.i.i.i = icmp eq i8 %26, -1
   br i1 %.not11.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i, label %27
@@ -11886,39 +11882,40 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %3
 27:                                               ; preds = %.preheader.i.i.i
   %28 = load ptr, ptr %21, align 8
   %29 = zext i8 %26 to i64
-  %30 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %28, i64 %29, i32 0, i32 0, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %.not.i.i.i.i = icmp eq ptr %31, null
+  %30 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %27, %.lr.ph.i.i.i.i.i
-  %.068.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %31, %27 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.068.i.i.i.i.i, i64 8
-  %33 = load ptr, ptr %32, align 8
+  %.068.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %32, %27 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.068.i.i.i.i.i, i64 8
+  %34 = load ptr, ptr %33, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.068.i.i.i.i.i, i64 noundef 16) #29
-  %.not.i.i.i.i.i = icmp eq ptr %33, null
+  %.not.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !96
 
 _ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %27, %.preheader.i.i.i
-  %34 = getelementptr i8, ptr %.012.i.i.i, i64 1
-  %.not10.i.i.i = icmp eq ptr %34, %21
+  %35 = getelementptr i8, ptr %.012.i.i.i, i64 1
+  %.not10.i.i.i = icmp eq ptr %35, %21
   br i1 %.not10.i.i.i, label %23, label %.preheader.i.i.i
 
-35:                                               ; preds = %23
+36:                                               ; preds = %23
   tail call void @_ZdaPv(ptr noundef nonnull %24) #29
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35, %23
+37:                                               ; preds = %36, %23
   store ptr null, ptr %21, align 8
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit.i
 
-_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit.i: ; preds = %36, %.preheader.i
-  %37 = icmp eq ptr %20, %12
-  br i1 %37, label %.loopexit.i, label %.preheader.i
+_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit.i: ; preds = %37, %.preheader.i
+  %38 = icmp eq ptr %20, %12
+  br i1 %38, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit.i, %14
-  %38 = or disjoint i64 %.idx.i, 8
-  tail call void @_ZdaPvm(ptr noundef %15, i64 noundef %38) #29
+  %39 = or disjoint i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef %15, i64 noundef %39) #29
   br label %_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit
 
 _ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit: ; preds = %10, %.loopexit.i
@@ -19865,29 +19862,30 @@ define linkonce_odr void @_ZNK10QMultiHashIjP14RtpAudioStreamE6valuesERKj(ptr de
   %34 = icmp eq i8 %33, -1
   br i1 %34, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit.thread, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %9, %43
-  %35 = phi i8 [ %50, %43 ], [ %33, %9 ]
-  %36 = phi i64 [ %46, %43 ], [ %29, %9 ]
-  %.01827.i.i = phi i64 [ %spec.store.select.i.i.i, %43 ], [ %26, %9 ]
-  %37 = zext i8 %35 to i64
-  %38 = getelementptr %"struct.QHashPrivate::Span.205", ptr %28, i64 %36, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %39, i64 %37
-  %41 = load i32, ptr %40, align 4
-  %42 = icmp eq i32 %41, %12
-  br i1 %42, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.i, label %43
+.lr.ph.i.i:                                       ; preds = %9, %44
+  %35 = phi i8 [ %51, %44 ], [ %33, %9 ]
+  %36 = phi i64 [ %47, %44 ], [ %29, %9 ]
+  %.01827.i.i = phi i64 [ %spec.store.select.i.i.i, %44 ], [ %26, %9 ]
+  %37 = getelementptr %"struct.QHashPrivate::Span.205", ptr %28, i64 %36
+  %38 = zext i8 %35 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 128
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %40, i64 %38
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp eq i32 %42, %12
+  br i1 %43, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.i, label %44
 
-43:                                               ; preds = %.lr.ph.i.i
-  %44 = add i64 %.01827.i.i, 1
-  %45 = icmp eq i64 %44, %24
-  %spec.store.select.i.i.i = select i1 %45, i64 0, i64 %44
-  %46 = lshr i64 %spec.store.select.i.i.i, 7
-  %47 = and i64 %spec.store.select.i.i.i, 127
-  %48 = getelementptr %"struct.QHashPrivate::Span.205", ptr %28, i64 %46
-  %49 = getelementptr i8, ptr %48, i64 %47
-  %50 = load i8, ptr %49, align 1
-  %51 = icmp eq i8 %50, -1
-  br i1 %51, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit.thread, label %.lr.ph.i.i, !llvm.loop !137
+44:                                               ; preds = %.lr.ph.i.i
+  %45 = add i64 %.01827.i.i, 1
+  %46 = icmp eq i64 %45, %24
+  %spec.store.select.i.i.i = select i1 %46, i64 0, i64 %45
+  %47 = lshr i64 %spec.store.select.i.i.i, 7
+  %48 = and i64 %spec.store.select.i.i.i, 127
+  %49 = getelementptr %"struct.QHashPrivate::Span.205", ptr %28, i64 %47
+  %50 = getelementptr i8, ptr %49, i64 %48
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp eq i8 %51, -1
+  br i1 %52, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit.thread, label %.lr.ph.i.i, !llvm.loop !137
 
 _ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.i: ; preds = %.lr.ph.i.i
   %.pre7.i = and i64 %.01827.i.i, 127
@@ -19899,46 +19897,47 @@ _ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.i: ; p
   br i1 %.not.i.i, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit.thread, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit
 
 _ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit: ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.i
-  %52 = getelementptr %"struct.QHashPrivate::Span.205", ptr %28, i64 %.pre.i, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = zext i8 %.pre to i64
-  %55 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %53, i64 %54
-  %.not11 = icmp eq ptr %55, null
+  %53 = getelementptr %"struct.QHashPrivate::Span.205", ptr %28, i64 %.pre.i
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 128
+  %55 = load ptr, ptr %54, align 8
+  %56 = zext i8 %.pre to i64
+  %57 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %55, i64 %56
+  %.not11 = icmp eq ptr %57, null
   br i1 %.not11, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit
-  %.0.in17 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %.0.in17 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.018 = load ptr, ptr %.0.in17, align 8
   %.not1219 = icmp eq ptr %.018, null
   br i1 %.not1219, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %57
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %59
 
-57:                                               ; preds = %.lr.ph, %_ZN5QListIP14RtpAudioStreamE6appendES1_.exit
+59:                                               ; preds = %.lr.ph, %_ZN5QListIP14RtpAudioStreamE6appendES1_.exit
   %.020 = phi ptr [ %.018, %.lr.ph ], [ %.0, %_ZN5QListIP14RtpAudioStreamE6appendES1_.exit ]
-  %58 = load ptr, ptr %.020, align 8
+  %60 = load ptr, ptr %.020, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %58, ptr %4, align 8
-  %59 = load i64, ptr %56, align 8
-  invoke void @_ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE7emplaceIJRS2_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %0, i64 noundef %59, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZN5QListIP14RtpAudioStreamE6appendES1_.exit unwind label %60
+  store ptr %60, ptr %4, align 8
+  %61 = load i64, ptr %58, align 8
+  invoke void @_ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE7emplaceIJRS2_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %0, i64 noundef %61, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %_ZN5QListIP14RtpAudioStreamE6appendES1_.exit unwind label %62
 
-_ZN5QListIP14RtpAudioStreamE6appendES1_.exit:     ; preds = %57
+_ZN5QListIP14RtpAudioStreamE6appendES1_.exit:     ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.0.in = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not12 = icmp eq ptr %.0, null
-  br i1 %.not12, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit.thread, label %57
+  br i1 %.not12, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit.thread, label %59
 
-60:                                               ; preds = %57
-  %61 = landingpad { ptr, i32 }
+62:                                               ; preds = %59
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5QListIP14RtpAudioStreamED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) #26
-  resume { ptr, i32 } %61
+  resume { ptr, i32 } %63
 
-_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit.thread: ; preds = %43, %_ZN5QListIP14RtpAudioStreamE6appendES1_.exit, %9, %.preheader, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.i, %6, %3, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit
+_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit.thread: ; preds = %44, %_ZN5QListIP14RtpAudioStreamE6appendES1_.exit, %9, %.preheader, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.i, %6, %3, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8findNodeERKj.exit
   ret void
 }
 
@@ -28284,7 +28283,7 @@ define linkonce_odr noundef i64 @_ZN10QMultiHashIjP14RtpAudioStreamE6removeERKjR
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not.i = icmp eq i64 %5, 0
-  br i1 %.not.i, label %85, label %6
+  br i1 %.not.i, label %87, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
@@ -28315,120 +28314,123 @@ define linkonce_odr noundef i64 @_ZN10QMultiHashIjP14RtpAudioStreamE6removeERKjR
   %32 = icmp eq i8 %31, -1
   br i1 %32, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %6, %41
-  %33 = phi i8 [ %48, %41 ], [ %31, %6 ]
-  %34 = phi i64 [ %44, %41 ], [ %27, %6 ]
-  %.01827.i = phi i64 [ %spec.store.select.i.i, %41 ], [ %24, %6 ]
-  %35 = zext i8 %33 to i64
-  %36 = getelementptr %"struct.QHashPrivate::Span.205", ptr %26, i64 %34, i32 1
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %37, i64 %35
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp eq i32 %39, %10
-  br i1 %40, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %41
+.lr.ph.i:                                         ; preds = %6, %42
+  %33 = phi i8 [ %49, %42 ], [ %31, %6 ]
+  %34 = phi i64 [ %45, %42 ], [ %27, %6 ]
+  %.01827.i = phi i64 [ %spec.store.select.i.i, %42 ], [ %24, %6 ]
+  %35 = getelementptr %"struct.QHashPrivate::Span.205", ptr %26, i64 %34
+  %36 = zext i8 %33 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 128
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %38, i64 %36
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp eq i32 %40, %10
+  br i1 %41, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %42
 
-41:                                               ; preds = %.lr.ph.i
-  %42 = add i64 %.01827.i, 1
-  %43 = icmp eq i64 %42, %22
-  %spec.store.select.i.i = select i1 %43, i64 0, i64 %42
-  %44 = lshr i64 %spec.store.select.i.i, 7
-  %45 = and i64 %spec.store.select.i.i, 127
-  %46 = getelementptr %"struct.QHashPrivate::Span.205", ptr %26, i64 %44
-  %47 = getelementptr i8, ptr %46, i64 %45
-  %48 = load i8, ptr %47, align 1
-  %49 = icmp eq i8 %48, -1
-  br i1 %49, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !137
+42:                                               ; preds = %.lr.ph.i
+  %43 = add i64 %.01827.i, 1
+  %44 = icmp eq i64 %43, %22
+  %spec.store.select.i.i = select i1 %44, i64 0, i64 %43
+  %45 = lshr i64 %spec.store.select.i.i, 7
+  %46 = and i64 %spec.store.select.i.i, 127
+  %47 = getelementptr %"struct.QHashPrivate::Span.205", ptr %26, i64 %45
+  %48 = getelementptr i8, ptr %47, i64 %46
+  %49 = load i8, ptr %48, align 1
+  %50 = icmp eq i8 %49, -1
+  br i1 %50, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !137
 
-_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit: ; preds = %.lr.ph.i, %41, %6
-  %.018.lcssa.i = phi i64 [ %24, %6 ], [ %spec.store.select.i.i, %41 ], [ %.01827.i, %.lr.ph.i ]
+_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit: ; preds = %.lr.ph.i, %42, %6
+  %.018.lcssa.i = phi i64 [ %24, %6 ], [ %spec.store.select.i.i, %42 ], [ %.01827.i, %.lr.ph.i ]
   %.not.i23 = icmp eq ptr %7, null
-  br i1 %.not.i23, label %53, label %50
+  br i1 %.not.i23, label %54, label %51
 
-50:                                               ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
-  %51 = load atomic i32, ptr %7 monotonic, align 4
-  %52 = icmp ugt i32 %51, 1
-  br i1 %52, label %53, label %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit
+51:                                               ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
+  %52 = load atomic i32, ptr %7 monotonic, align 4
+  %53 = icmp ugt i32 %52, 1
+  br i1 %53, label %54, label %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit
 
-53:                                               ; preds = %50, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
-  %54 = tail call noundef ptr @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8detachedEPS5_m(ptr noundef %7, i64 noundef 0)
-  store ptr %54, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %54, i64 32
+54:                                               ; preds = %51, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
+  %55 = tail call noundef ptr @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8detachedEPS5_m(ptr noundef %7, i64 noundef 0)
+  store ptr %55, ptr %0, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %55, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit
 
-_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit: ; preds = %50, %53
-  %55 = phi ptr [ %26, %50 ], [ %.pre, %53 ]
-  %56 = phi ptr [ %7, %50 ], [ %54, %53 ]
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %58 = lshr i64 %.018.lcssa.i, 7
-  %59 = getelementptr %"struct.QHashPrivate::Span.205", ptr %55, i64 %58
-  %60 = and i64 %.018.lcssa.i, 127
-  %61 = getelementptr i8, ptr %59, i64 %60
-  %62 = load i8, ptr %61, align 1
-  %.not.i26 = icmp eq i8 %62, -1
-  br i1 %.not.i26, label %85, label %63
+_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit: ; preds = %51, %54
+  %56 = phi ptr [ %26, %51 ], [ %.pre, %54 ]
+  %57 = phi ptr [ %7, %51 ], [ %55, %54 ]
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %59 = lshr i64 %.018.lcssa.i, 7
+  %60 = getelementptr %"struct.QHashPrivate::Span.205", ptr %56, i64 %59
+  %61 = and i64 %.018.lcssa.i, 127
+  %62 = getelementptr i8, ptr %60, i64 %61
+  %63 = load i8, ptr %62, align 1
+  %.not.i26 = icmp eq i8 %63, -1
+  br i1 %.not.i26, label %87, label %64
 
-63:                                               ; preds = %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 128
-  %65 = load ptr, ptr %64, align 8
-  %66 = zext i8 %62 to i64
-  %67 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %65, i64 %66, i32 0, i32 0, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %.not33 = icmp eq ptr %68, null
+64:                                               ; preds = %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 128
+  %66 = load ptr, ptr %65, align 8
+  %67 = zext i8 %63 to i64
+  %68 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %66, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %.not33 = icmp eq ptr %70, null
   br i1 %.not33, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %63, %77
-  %69 = phi ptr [ %78, %77 ], [ %68, %63 ]
-  %.01735 = phi i64 [ %.118, %77 ], [ 0, %63 ]
-  %.01934 = phi ptr [ %.120, %77 ], [ %67, %63 ]
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %2, align 8
-  %72 = icmp eq ptr %70, %71
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  br i1 %72, label %74, label %77
+.lr.ph:                                           ; preds = %64, %79
+  %71 = phi ptr [ %80, %79 ], [ %70, %64 ]
+  %.01735 = phi i64 [ %.118, %79 ], [ 0, %64 ]
+  %.01934 = phi ptr [ %.120, %79 ], [ %69, %64 ]
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %2, align 8
+  %74 = icmp eq ptr %72, %73
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  br i1 %74, label %76, label %79
 
-74:                                               ; preds = %.lr.ph
-  %75 = load ptr, ptr %73, align 8
-  store ptr %75, ptr %.01934, align 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef 16) #29
-  %76 = add i64 %.01735, 1
-  br label %77
+76:                                               ; preds = %.lr.ph
+  %77 = load ptr, ptr %75, align 8
+  store ptr %77, ptr %.01934, align 8
+  tail call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef 16) #29
+  %78 = add i64 %.01735, 1
+  br label %79
 
-77:                                               ; preds = %.lr.ph, %74
-  %.120 = phi ptr [ %.01934, %74 ], [ %73, %.lr.ph ]
-  %.118 = phi i64 [ %76, %74 ], [ %.01735, %.lr.ph ]
-  %78 = load ptr, ptr %.120, align 8
-  %.not = icmp eq ptr %78, null
+79:                                               ; preds = %.lr.ph, %76
+  %.120 = phi ptr [ %.01934, %76 ], [ %75, %.lr.ph ]
+  %.118 = phi i64 [ %78, %76 ], [ %.01735, %.lr.ph ]
+  %80 = load ptr, ptr %.120, align 8
+  %.not = icmp eq ptr %80, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !161
 
-._crit_edge:                                      ; preds = %77
-  %.pre36 = load ptr, ptr %57, align 8
-  %.phi.trans.insert37 = getelementptr %"struct.QHashPrivate::Span.205", ptr %.pre36, i64 %58
+._crit_edge:                                      ; preds = %79
+  %.pre36 = load ptr, ptr %58, align 8
+  %.phi.trans.insert37 = getelementptr %"struct.QHashPrivate::Span.205", ptr %.pre36, i64 %59
   %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert37, i64 128
   %.pre39 = load ptr, ptr %.phi.trans.insert38, align 8
-  %.phi.trans.insert40 = getelementptr i8, ptr %.phi.trans.insert37, i64 %60
+  %.phi.trans.insert40 = getelementptr i8, ptr %.phi.trans.insert37, i64 %61
   %.pre41 = load i8, ptr %.phi.trans.insert40, align 1
   %.phi.trans.insert42 = zext i8 %.pre41 to i64
-  %.phi.trans.insert43 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %.pre39, i64 %.phi.trans.insert42, i32 0, i32 0, i64 8
-  %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8
-  %79 = icmp eq ptr %.pre44, null
-  br i1 %79, label %._crit_edge.thread, label %82
+  %.phi.trans.insert43 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %.pre39, i64 %.phi.trans.insert42
+  %.phi.trans.insert44 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert43, i64 8
+  %.pre45 = load ptr, ptr %.phi.trans.insert44, align 8
+  %81 = icmp eq ptr %.pre45, null
+  br i1 %81, label %._crit_edge.thread, label %84
 
-._crit_edge.thread:                               ; preds = %63, %._crit_edge
-  %.017.lcssa54 = phi i64 [ %.118, %._crit_edge ], [ 0, %63 ]
-  %80 = load ptr, ptr %0, align 8
-  %81 = tail call { ptr, i64 } @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseENS_8iteratorIS4_EE(ptr noundef align 8 dereferenceable_or_null(40) %80, ptr %56, i64 %.018.lcssa.i) #26
-  br label %82
+._crit_edge.thread:                               ; preds = %64, %._crit_edge
+  %.017.lcssa55 = phi i64 [ %.118, %._crit_edge ], [ 0, %64 ]
+  %82 = load ptr, ptr %0, align 8
+  %83 = tail call { ptr, i64 } @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseENS_8iteratorIS4_EE(ptr noundef align 8 dereferenceable_or_null(40) %82, ptr %57, i64 %.018.lcssa.i) #26
+  br label %84
 
-82:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.017.lcssa53 = phi i64 [ %.017.lcssa54, %._crit_edge.thread ], [ %.118, %._crit_edge ]
-  %83 = load i64, ptr %4, align 8
-  %84 = sub i64 %83, %.017.lcssa53
-  store i64 %84, ptr %4, align 8
-  br label %85
+84:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.017.lcssa54 = phi i64 [ %.017.lcssa55, %._crit_edge.thread ], [ %.118, %._crit_edge ]
+  %85 = load i64, ptr %4, align 8
+  %86 = sub i64 %85, %.017.lcssa54
+  store i64 %86, ptr %4, align 8
+  br label %87
 
-85:                                               ; preds = %82, %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit, %3
-  %.0 = phi i64 [ 0, %3 ], [ %.017.lcssa53, %82 ], [ 0, %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit ]
+87:                                               ; preds = %84, %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit, %3
+  %.0 = phi i64 [ 0, %3 ], [ %.017.lcssa54, %84 ], [ 0, %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit ]
   ret i64 %.0
 }
 
@@ -44552,264 +44554,315 @@ declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef rea
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN10QMultiHashIjP14RtpAudioStreamE7emplaceIJRKS1_EEENS2_8iteratorEOjDpOT_(ptr dead_on_unwind noalias writable sret(%"class.QMultiHash<unsigned int, RtpAudioStream *>::iterator") align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %1, ptr noundef align 4 dereferenceable(4) %2, ptr noundef align 8 dereferenceable(8) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca %class.QMultiHash, align 8
-  %7 = load ptr, ptr %1, align 8
-  %.not.i = icmp eq ptr %7, null
+  %5 = alloca %"struct.QHashPrivate::Data<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::InsertionResult", align 8
+  %6 = alloca %"struct.QHashPrivate::Data<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::InsertionResult", align 8
+  %7 = alloca %"struct.QHashPrivate::Data<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::InsertionResult", align 8
+  %8 = alloca %class.QMultiHash, align 8
+  %9 = load ptr, ptr %1, align 8
+  %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread, label %_ZNK10QMultiHashIjP14RtpAudioStreamE10isDetachedEv.exit
 
 _ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread: ; preds = %4
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr null, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8
-  store i64 %10, ptr %8, align 8
-  br label %31
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  store ptr null, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load i64, ptr %11, align 8
+  store i64 %12, ptr %10, align 8
+  br label %120
 
 _ZNK10QMultiHashIjP14RtpAudioStreamE10isDetachedEv.exit: ; preds = %4
-  %11 = load atomic i32, ptr %7 monotonic, align 4
-  %12 = icmp ult i32 %11, 2
-  br i1 %12, label %13, label %22
+  %13 = load atomic i32, ptr %9 monotonic, align 4
+  %14 = icmp ult i32 %13, 2
+  br i1 %14, label %15, label %111
 
-13:                                               ; preds = %_ZNK10QMultiHashIjP14RtpAudioStreamE10isDetachedEv.exit
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
+15:                                               ; preds = %_ZNK10QMultiHashIjP14RtpAudioStreamE10isDetachedEv.exit
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = lshr i64 %17, 1
-  %.not = icmp ult i64 %15, %18
-  br i1 %.not, label %21, label %19
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %19 = load i64, ptr %18, align 8
+  %20 = lshr i64 %19, 1
+  %.not = icmp ult i64 %17, %20
+  br i1 %.not, label %66, label %21
 
-19:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %20 = load ptr, ptr %3, align 8
-  store ptr %20, ptr %5, align 8
-  call void @_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJS1_EEENS2_8iteratorEOjDpOT_(ptr dead_on_unwind writable sret(%"class.QMultiHash<unsigned int, RtpAudioStream *>::iterator") align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %1, ptr noundef align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %37
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %3, align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !226
+  call void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE12findOrInsertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::InsertionResult") align 8 %7, ptr noundef nonnull align 8 dereferenceable_or_null(40) %9, ptr noundef align 4 dereferenceable(4) %2) #26, !noalias !226
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %24 = load i8, ptr %23, align 8, !range !47, !noalias !226, !noundef !48
+  %25 = trunc nuw i8 %24 to i1
+  %26 = load ptr, ptr %7, align 8, !noalias !226
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %28 = load ptr, ptr %27, align 8, !noalias !226
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %30 = load i64, ptr %29, align 8, !noalias !226
+  %31 = lshr i64 %30, 7
+  %32 = getelementptr %"struct.QHashPrivate::Span.205", ptr %28, i64 %31
+  %33 = and i64 %30, 127
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 128
+  %35 = load ptr, ptr %34, align 8, !noalias !226
+  %36 = getelementptr i8, ptr %32, i64 %33
+  %37 = load i8, ptr %36, align 1, !noalias !226
+  %38 = zext i8 %37 to i64
+  %39 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %35, i64 %38
+  %40 = call noalias noundef dereferenceable_or_null(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !226
+  store ptr %22, ptr %40, align 16, !noalias !226
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  br i1 %25, label %45, label %42
 
-21:                                               ; preds = %13
-  tail call void @_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_(ptr dead_on_unwind writable sret(%"class.QMultiHash<unsigned int, RtpAudioStream *>::iterator") align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %1, ptr noundef align 4 dereferenceable(4) %2, ptr noundef align 8 dereferenceable(8) %3)
-  br label %37
+42:                                               ; preds = %21
+  store ptr null, ptr %41, align 8, !noalias !226
+  %43 = load i32, ptr %2, align 4, !noalias !226
+  store i32 %43, ptr %39, align 8, !noalias !226
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store ptr %40, ptr %44, align 8, !noalias !226
+  br label %48
 
-22:                                               ; preds = %_ZNK10QMultiHashIjP14RtpAudioStreamE10isDetachedEv.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %7, ptr %6, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load i64, ptr %24, align 8
-  store i64 %25, ptr %23, align 8
-  %26 = load atomic i32, ptr %7 monotonic, align 4
-  %.not.i.i = icmp eq i32 %26, -1
-  br i1 %.not.i.i, label %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread12, label %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit
+45:                                               ; preds = %21
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %47 = load ptr, ptr %46, align 8, !noalias !226
+  store ptr %40, ptr %46, align 8, !noalias !226
+  store ptr %47, ptr %41, align 8, !noalias !226
+  br label %48
 
-_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit: ; preds = %22
-  %27 = atomicrmw add ptr %7, i32 1 seq_cst, align 4
+48:                                               ; preds = %45, %42
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %50 = load i64, ptr %49, align 8, !noalias !226
+  %51 = add i64 %50, 1
+  store i64 %51, ptr %49, align 8, !noalias !226
+  %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8, !noalias !226
+  %.sroa.2.0.copyload.i = load i64, ptr %29, align 8, !noalias !226
+  store ptr %.sroa.0.0.copyload.i, ptr %0, align 8, !alias.scope !226
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !226
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %52, align 8, !alias.scope !226
+  %.not.i.i.not.i = icmp eq ptr %.sroa.0.0.copyload.i, null
+  br i1 %.not.i.i.not.i, label %_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJS1_EEENS2_8iteratorEOjDpOT_.exit, label %53
+
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 32
+  %55 = load ptr, ptr %54, align 8, !noalias !226
+  %56 = lshr i64 %.sroa.2.0.copyload.i, 7
+  %57 = getelementptr %"struct.QHashPrivate::Span.205", ptr %55, i64 %56
+  %58 = and i64 %.sroa.2.0.copyload.i, 127
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 128
+  %60 = load ptr, ptr %59, align 8, !noalias !226
+  %61 = getelementptr i8, ptr %57, i64 %58
+  %62 = load i8, ptr %61, align 1, !noalias !226
+  %63 = zext i8 %62 to i64
+  %64 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %60, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store ptr %65, ptr %52, align 8, !alias.scope !226
+  br label %_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJS1_EEENS2_8iteratorEOjDpOT_.exit
+
+_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJS1_EEENS2_8iteratorEOjDpOT_.exit: ; preds = %48, %53
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !226
+  br label %172
+
+66:                                               ; preds = %15
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !229
+  call void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE12findOrInsertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::InsertionResult") align 8 %6, ptr noundef nonnull align 8 dereferenceable_or_null(40) %9, ptr noundef align 4 dereferenceable(4) %2) #26, !noalias !229
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %68 = load i8, ptr %67, align 8, !range !47, !noalias !229, !noundef !48
+  %69 = trunc nuw i8 %68 to i1
+  %70 = load ptr, ptr %6, align 8, !noalias !229
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
+  %72 = load ptr, ptr %71, align 8, !noalias !229
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %74 = load i64, ptr %73, align 8, !noalias !229
+  %75 = lshr i64 %74, 7
+  %76 = getelementptr %"struct.QHashPrivate::Span.205", ptr %72, i64 %75
+  %77 = and i64 %74, 127
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 128
+  %79 = load ptr, ptr %78, align 8, !noalias !229
+  %80 = getelementptr i8, ptr %76, i64 %77
+  %81 = load i8, ptr %80, align 1, !noalias !229
+  %82 = zext i8 %81 to i64
+  %83 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %79, i64 %82
+  %84 = call noalias noundef dereferenceable_or_null(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !229
+  %85 = load ptr, ptr %3, align 8, !noalias !229
+  store ptr %85, ptr %84, align 16, !noalias !229
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  br i1 %69, label %90, label %87
+
+87:                                               ; preds = %66
+  store ptr null, ptr %86, align 8, !noalias !229
+  %88 = load i32, ptr %2, align 4, !noalias !229
+  store i32 %88, ptr %83, align 8, !noalias !229
+  %89 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store ptr %84, ptr %89, align 8, !noalias !229
+  br label %93
+
+90:                                               ; preds = %66
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %92 = load ptr, ptr %91, align 8, !noalias !229
+  store ptr %84, ptr %91, align 8, !noalias !229
+  store ptr %92, ptr %86, align 8, !noalias !229
+  br label %93
+
+93:                                               ; preds = %90, %87
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %95 = load i64, ptr %94, align 8, !noalias !229
+  %96 = add i64 %95, 1
+  store i64 %96, ptr %94, align 8, !noalias !229
+  %.sroa.0.0.copyload.i8 = load ptr, ptr %6, align 8, !noalias !229
+  %.sroa.2.0.copyload.i10 = load i64, ptr %73, align 8, !noalias !229
+  store ptr %.sroa.0.0.copyload.i8, ptr %0, align 8, !alias.scope !229
+  %.sroa.4.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.2.0.copyload.i10, ptr %.sroa.4.0..sroa_idx.i.i11, align 8, !alias.scope !229
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %97, align 8, !alias.scope !229
+  %.not.i.i.not.i12 = icmp eq ptr %.sroa.0.0.copyload.i8, null
+  br i1 %.not.i.i.not.i12, label %_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_.exit, label %98
+
+98:                                               ; preds = %93
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i8, i64 32
+  %100 = load ptr, ptr %99, align 8, !noalias !229
+  %101 = lshr i64 %.sroa.2.0.copyload.i10, 7
+  %102 = getelementptr %"struct.QHashPrivate::Span.205", ptr %100, i64 %101
+  %103 = and i64 %.sroa.2.0.copyload.i10, 127
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 128
+  %105 = load ptr, ptr %104, align 8, !noalias !229
+  %106 = getelementptr i8, ptr %102, i64 %103
+  %107 = load i8, ptr %106, align 1, !noalias !229
+  %108 = zext i8 %107 to i64
+  %109 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %105, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  store ptr %110, ptr %97, align 8, !alias.scope !229
+  br label %_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_.exit
+
+_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_.exit: ; preds = %93, %98
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !229
+  br label %172
+
+111:                                              ; preds = %_ZNK10QMultiHashIjP14RtpAudioStreamE10isDetachedEv.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  store ptr %9, ptr %8, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %114 = load i64, ptr %113, align 8
+  store i64 %114, ptr %112, align 8
+  %115 = load atomic i32, ptr %9 monotonic, align 4
+  %.not.i.i = icmp eq i32 %115, -1
+  br i1 %.not.i.i, label %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread24, label %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit
+
+_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit: ; preds = %111
+  %116 = atomicrmw add ptr %9, i32 1 seq_cst, align 4
   %.pre = load ptr, ptr %1, align 8
-  %.not.i9 = icmp eq ptr %.pre, null
-  br i1 %.not.i9, label %31, label %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread12
+  %.not.i14 = icmp eq ptr %.pre, null
+  br i1 %.not.i14, label %120, label %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread24
 
-_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread12: ; preds = %22, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit
-  %28 = phi ptr [ %.pre, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit ], [ %7, %22 ]
-  %29 = load atomic i32, ptr %28 monotonic, align 4
-  %30 = icmp ugt i32 %29, 1
-  br i1 %30, label %31, label %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit
+_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread24: ; preds = %111, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit
+  %117 = phi ptr [ %.pre, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit ], [ %9, %111 ]
+  %118 = load atomic i32, ptr %117 monotonic, align 4
+  %119 = icmp ugt i32 %118, 1
+  br i1 %119, label %120, label %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit
 
-31:                                               ; preds = %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread12, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit
-  %32 = phi ptr [ null, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread ], [ %28, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread12 ], [ null, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit ]
-  %33 = invoke noundef ptr @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8detachedEPS5_m(ptr noundef %32, i64 noundef 0)
-          to label %.noexc unwind label %35
+120:                                              ; preds = %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread24, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit
+  %121 = phi ptr [ %11, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread ], [ %113, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread24 ], [ %113, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit ]
+  %122 = phi ptr [ null, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread ], [ %117, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread24 ], [ null, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit ]
+  %123 = invoke noundef ptr @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE8detachedEPS5_m(ptr noundef %122, i64 noundef 0)
+          to label %.noexc unwind label %170
 
-.noexc:                                           ; preds = %31
-  store ptr %33, ptr %1, align 8
+.noexc:                                           ; preds = %120
+  store ptr %123, ptr %1, align 8
   br label %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit
 
-_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit: ; preds = %.noexc, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread12
-  invoke void @_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_(ptr dead_on_unwind writable sret(%"class.QMultiHash<unsigned int, RtpAudioStream *>::iterator") align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %1, ptr noundef align 4 dereferenceable(4) %2, ptr noundef align 8 dereferenceable(8) %3)
-          to label %34 unwind label %35
+_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit: ; preds = %.noexc, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread24
+  %124 = phi ptr [ %121, %.noexc ], [ %113, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread24 ]
+  %125 = phi ptr [ %123, %.noexc ], [ %117, %_ZN10QMultiHashIjP14RtpAudioStreamEC2ERKS2_.exit.thread24 ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !232
+  call void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE12findOrInsertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::InsertionResult") align 8 %5, ptr noundef align 8 dereferenceable_or_null(40) %125, ptr noundef align 4 dereferenceable(4) %2) #26, !noalias !232
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %127 = load i8, ptr %126, align 8, !range !47, !noalias !232, !noundef !48
+  %128 = load ptr, ptr %5, align 8, !noalias !232
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  %130 = load ptr, ptr %129, align 8, !noalias !232
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %132 = load i64, ptr %131, align 8, !noalias !232
+  %133 = lshr i64 %132, 7
+  %134 = getelementptr %"struct.QHashPrivate::Span.205", ptr %130, i64 %133
+  %135 = and i64 %132, 127
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 128
+  %137 = load ptr, ptr %136, align 8, !noalias !232
+  %138 = getelementptr i8, ptr %134, i64 %135
+  %139 = load i8, ptr %138, align 1, !noalias !232
+  %140 = zext i8 %139 to i64
+  %141 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %137, i64 %140
+  %142 = invoke noalias noundef dereferenceable_or_null(16) ptr @_Znwm(i64 noundef 16) #28
+          to label %.noexc20 unwind label %170
 
-34:                                               ; preds = %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit
-  call void @_ZN10QMultiHashIjP14RtpAudioStreamED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %6) #26
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %37
+.noexc20:                                         ; preds = %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit
+  %143 = trunc nuw i8 %127 to i1
+  %144 = load ptr, ptr %3, align 8, !noalias !232
+  store ptr %144, ptr %142, align 16, !noalias !232
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  br i1 %143, label %149, label %146
 
-35:                                               ; preds = %31, %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit
-  %36 = landingpad { ptr, i32 }
+146:                                              ; preds = %.noexc20
+  store ptr null, ptr %145, align 8, !noalias !232
+  %147 = load i32, ptr %2, align 4, !noalias !232
+  store i32 %147, ptr %141, align 8, !noalias !232
+  %148 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  store ptr %142, ptr %148, align 8, !noalias !232
+  br label %152
+
+149:                                              ; preds = %.noexc20
+  %150 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %151 = load ptr, ptr %150, align 8, !noalias !232
+  store ptr %142, ptr %150, align 8, !noalias !232
+  store ptr %151, ptr %145, align 8, !noalias !232
+  br label %152
+
+152:                                              ; preds = %149, %146
+  %153 = load i64, ptr %124, align 8, !noalias !232
+  %154 = add i64 %153, 1
+  store i64 %154, ptr %124, align 8, !noalias !232
+  %.sroa.0.0.copyload.i15 = load ptr, ptr %5, align 8, !noalias !232
+  %.sroa.2.0.copyload.i17 = load i64, ptr %131, align 8, !noalias !232
+  store ptr %.sroa.0.0.copyload.i15, ptr %0, align 8, !alias.scope !232
+  %.sroa.4.0..sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.2.0.copyload.i17, ptr %.sroa.4.0..sroa_idx.i.i18, align 8, !alias.scope !232
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %155, align 8, !alias.scope !232
+  %.not.i.i.not.i19 = icmp eq ptr %.sroa.0.0.copyload.i15, null
+  br i1 %.not.i.i.not.i19, label %169, label %156
+
+156:                                              ; preds = %152
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i15, i64 32
+  %158 = load ptr, ptr %157, align 8, !noalias !232
+  %159 = lshr i64 %.sroa.2.0.copyload.i17, 7
+  %160 = getelementptr %"struct.QHashPrivate::Span.205", ptr %158, i64 %159
+  %161 = and i64 %.sroa.2.0.copyload.i17, 127
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 128
+  %163 = load ptr, ptr %162, align 8, !noalias !232
+  %164 = getelementptr i8, ptr %160, i64 %161
+  %165 = load i8, ptr %164, align 1, !noalias !232
+  %166 = zext i8 %165 to i64
+  %167 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %163, i64 %166
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  store ptr %168, ptr %155, align 8, !alias.scope !232
+  br label %169
+
+169:                                              ; preds = %156, %152
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !232
+  call void @_ZN10QMultiHashIjP14RtpAudioStreamED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %172
+
+170:                                              ; preds = %_ZN10QMultiHashIjP14RtpAudioStreamE6detachEv.exit, %120
+  %171 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10QMultiHashIjP14RtpAudioStreamED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %6) #26
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %36
+  call void @_ZN10QMultiHashIjP14RtpAudioStreamED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  resume { ptr, i32 } %171
 
-37:                                               ; preds = %34, %21, %19
-  ret void
-}
-
-; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define linkonce_odr void @_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJS1_EEENS2_8iteratorEOjDpOT_(ptr dead_on_unwind noalias writable sret(%"class.QMultiHash<unsigned int, RtpAudioStream *>::iterator") align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %1, ptr noundef align 4 dereferenceable(4) %2, ptr noundef align 8 dereferenceable(8) %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = alloca %"struct.QHashPrivate::Data<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::InsertionResult", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = load ptr, ptr %1, align 8
-  call void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE12findOrInsertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::InsertionResult") align 8 %5, ptr noundef align 8 dereferenceable_or_null(40) %6, ptr noundef align 4 dereferenceable(4) %2) #26
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = load i8, ptr %7, align 8, !range !47, !noundef !48
-  %9 = trunc nuw i8 %8 to i1
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = lshr i64 %14, 7
-  %16 = getelementptr %"struct.QHashPrivate::Span.205", ptr %12, i64 %15
-  %17 = and i64 %14, 127
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr i8, ptr %16, i64 %17
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i64
-  br i1 %9, label %30, label %23
-
-23:                                               ; preds = %4
-  %24 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %19, i64 %22
-  %25 = call noalias noundef dereferenceable_or_null(16) ptr @_Znwm(i64 noundef 16) #28
-  %26 = load ptr, ptr %3, align 8
-  store ptr %26, ptr %25, align 16
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr null, ptr %27, align 8
-  %28 = load i32, ptr %2, align 4
-  store i32 %28, ptr %24, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %25, ptr %29, align 8
-  br label %36
-
-30:                                               ; preds = %4
-  %31 = call noalias noundef dereferenceable_or_null(16) ptr @_Znwm(i64 noundef 16) #28
-  %32 = load ptr, ptr %3, align 8
-  store ptr %32, ptr %31, align 16
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %34 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %19, i64 %22, i32 0, i32 0, i64 8
-  %35 = load ptr, ptr %34, align 8
-  store ptr %31, ptr %34, align 8
-  store ptr %35, ptr %33, align 8
-  br label %36
-
-36:                                               ; preds = %30, %23
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load i64, ptr %37, align 8
-  %39 = add i64 %38, 1
-  store i64 %39, ptr %37, align 8
-  %.sroa.0.0.copyload = load ptr, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  store ptr %.sroa.0.0.copyload, ptr %0, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %40, align 8
-  %.not.i.i.not = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not.i.i.not, label %_ZN10QMultiHashIjP14RtpAudioStreamE8iteratorC2EN12QHashPrivate8iteratorINS4_9MultiNodeIjS1_EEEEPPNS4_14MultiNodeChainIS1_EE.exit, label %41
-
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 32
-  %43 = load ptr, ptr %42, align 8
-  %44 = lshr i64 %.sroa.2.0.copyload, 7
-  %45 = getelementptr %"struct.QHashPrivate::Span.205", ptr %43, i64 %44
-  %46 = and i64 %.sroa.2.0.copyload, 127
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 128
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr i8, ptr %45, i64 %46
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i64
-  %52 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %48, i64 %51, i32 0, i32 0, i64 8
-  store ptr %52, ptr %40, align 8
-  br label %_ZN10QMultiHashIjP14RtpAudioStreamE8iteratorC2EN12QHashPrivate8iteratorINS4_9MultiNodeIjS1_EEEEPPNS4_14MultiNodeChainIS1_EE.exit
-
-_ZN10QMultiHashIjP14RtpAudioStreamE8iteratorC2EN12QHashPrivate8iteratorINS4_9MultiNodeIjS1_EEEEPPNS4_14MultiNodeChainIS1_EE.exit: ; preds = %36, %41
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret void
-}
-
-; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define linkonce_odr void @_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_(ptr dead_on_unwind noalias writable sret(%"class.QMultiHash<unsigned int, RtpAudioStream *>::iterator") align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %1, ptr noundef align 4 dereferenceable(4) %2, ptr noundef align 8 dereferenceable(8) %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = alloca %"struct.QHashPrivate::Data<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::InsertionResult", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = load ptr, ptr %1, align 8
-  call void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE12findOrInsertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::InsertionResult") align 8 %5, ptr noundef align 8 dereferenceable_or_null(40) %6, ptr noundef align 4 dereferenceable(4) %2) #26
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = load i8, ptr %7, align 8, !range !47, !noundef !48
-  %9 = trunc nuw i8 %8 to i1
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = lshr i64 %14, 7
-  %16 = getelementptr %"struct.QHashPrivate::Span.205", ptr %12, i64 %15
-  %17 = and i64 %14, 127
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr i8, ptr %16, i64 %17
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i64
-  br i1 %9, label %30, label %23
-
-23:                                               ; preds = %4
-  %24 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %19, i64 %22
-  %25 = call noalias noundef dereferenceable_or_null(16) ptr @_Znwm(i64 noundef 16) #28
-  %26 = load ptr, ptr %3, align 8
-  store ptr %26, ptr %25, align 16
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr null, ptr %27, align 8
-  %28 = load i32, ptr %2, align 4
-  store i32 %28, ptr %24, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %25, ptr %29, align 8
-  br label %36
-
-30:                                               ; preds = %4
-  %31 = call noalias noundef dereferenceable_or_null(16) ptr @_Znwm(i64 noundef 16) #28
-  %32 = load ptr, ptr %3, align 8
-  store ptr %32, ptr %31, align 16
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %34 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %19, i64 %22, i32 0, i32 0, i64 8
-  %35 = load ptr, ptr %34, align 8
-  store ptr %31, ptr %34, align 8
-  store ptr %35, ptr %33, align 8
-  br label %36
-
-36:                                               ; preds = %30, %23
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load i64, ptr %37, align 8
-  %39 = add i64 %38, 1
-  store i64 %39, ptr %37, align 8
-  %.sroa.0.0.copyload = load ptr, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  store ptr %.sroa.0.0.copyload, ptr %0, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %40, align 8
-  %.not.i.i.not = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not.i.i.not, label %_ZN10QMultiHashIjP14RtpAudioStreamE8iteratorC2EN12QHashPrivate8iteratorINS4_9MultiNodeIjS1_EEEEPPNS4_14MultiNodeChainIS1_EE.exit, label %41
-
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 32
-  %43 = load ptr, ptr %42, align 8
-  %44 = lshr i64 %.sroa.2.0.copyload, 7
-  %45 = getelementptr %"struct.QHashPrivate::Span.205", ptr %43, i64 %44
-  %46 = and i64 %.sroa.2.0.copyload, 127
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 128
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr i8, ptr %45, i64 %46
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i64
-  %52 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %48, i64 %51, i32 0, i32 0, i64 8
-  store ptr %52, ptr %40, align 8
-  br label %_ZN10QMultiHashIjP14RtpAudioStreamE8iteratorC2EN12QHashPrivate8iteratorINS4_9MultiNodeIjS1_EEEEPPNS4_14MultiNodeChainIS1_EE.exit
-
-_ZN10QMultiHashIjP14RtpAudioStreamE8iteratorC2EN12QHashPrivate8iteratorINS4_9MultiNodeIjS1_EEEEPPNS4_14MultiNodeChainIS1_EE.exit: ; preds = %36, %41
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+172:                                              ; preds = %169, %_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_.exit, %_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJS1_EEENS2_8iteratorEOjDpOT_.exit
   ret void
 }
 
@@ -44818,7 +44871,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStrea
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %50, label %6
+  br i1 %.not, label %51, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -44846,212 +44899,214 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStrea
   %29 = icmp eq i8 %28, -1
   br i1 %29, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %6, %38
-  %30 = phi i8 [ %45, %38 ], [ %28, %6 ]
-  %31 = phi i64 [ %41, %38 ], [ %24, %6 ]
-  %.01827.i = phi i64 [ %spec.store.select.i.i, %38 ], [ %21, %6 ]
-  %32 = zext i8 %30 to i64
-  %33 = getelementptr %"struct.QHashPrivate::Span.205", ptr %23, i64 %31, i32 1
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %34, i64 %32
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp eq i32 %36, %9
-  br i1 %37, label %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge, label %38
+.lr.ph.i:                                         ; preds = %6, %39
+  %30 = phi i8 [ %46, %39 ], [ %28, %6 ]
+  %31 = phi i64 [ %42, %39 ], [ %24, %6 ]
+  %.01827.i = phi i64 [ %spec.store.select.i.i, %39 ], [ %21, %6 ]
+  %32 = getelementptr %"struct.QHashPrivate::Span.205", ptr %23, i64 %31
+  %33 = zext i8 %30 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 128
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %35, i64 %33
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp eq i32 %37, %9
+  br i1 %38, label %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge, label %39
 
 .lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge: ; preds = %.lr.ph.i
   %.pre21 = and i64 %.01827.i, 127
   %.pre = lshr i64 %.01827.i, 7
   br label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
 
-38:                                               ; preds = %.lr.ph.i
-  %39 = add i64 %.01827.i, 1
-  %40 = icmp eq i64 %39, %5
-  %spec.store.select.i.i = select i1 %40, i64 0, i64 %39
-  %41 = lshr i64 %spec.store.select.i.i, 7
-  %42 = and i64 %spec.store.select.i.i, 127
-  %43 = getelementptr %"struct.QHashPrivate::Span.205", ptr %23, i64 %41
-  %44 = getelementptr i8, ptr %43, i64 %42
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp eq i8 %45, -1
-  br i1 %46, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !137
+39:                                               ; preds = %.lr.ph.i
+  %40 = add i64 %.01827.i, 1
+  %41 = icmp eq i64 %40, %5
+  %spec.store.select.i.i = select i1 %41, i64 0, i64 %40
+  %42 = lshr i64 %spec.store.select.i.i, 7
+  %43 = and i64 %spec.store.select.i.i, 127
+  %44 = getelementptr %"struct.QHashPrivate::Span.205", ptr %23, i64 %42
+  %45 = getelementptr i8, ptr %44, i64 %43
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, -1
+  br i1 %47, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !137
 
-_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit: ; preds = %38, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge, %6
-  %.pre-phi20 = phi i64 [ %24, %6 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge ], [ %41, %38 ]
-  %.pre-phi = phi i64 [ %25, %6 ], [ %.pre21, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge ], [ %42, %38 ]
-  %.018.lcssa.i = phi i64 [ %21, %6 ], [ %.01827.i, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge ], [ %spec.store.select.i.i, %38 ]
-  %47 = getelementptr %"struct.QHashPrivate::Span.205", ptr %23, i64 %.pre-phi20
-  %48 = getelementptr i8, ptr %47, i64 %.pre-phi
-  %49 = load i8, ptr %48, align 1
-  %.not.i = icmp eq i8 %49, -1
-  br i1 %.not.i, label %50, label %136
+_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit: ; preds = %39, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge, %6
+  %.pre-phi20 = phi i64 [ %24, %6 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge ], [ %42, %39 ]
+  %.pre-phi = phi i64 [ %25, %6 ], [ %.pre21, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge ], [ %43, %39 ]
+  %.018.lcssa.i = phi i64 [ %21, %6 ], [ %.01827.i, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge ], [ %spec.store.select.i.i, %39 ]
+  %48 = getelementptr %"struct.QHashPrivate::Span.205", ptr %23, i64 %.pre-phi20
+  %49 = getelementptr i8, ptr %48, i64 %.pre-phi
+  %50 = load i8, ptr %49, align 1
+  %.not.i = icmp eq i8 %50, -1
+  br i1 %.not.i, label %51, label %138
 
-50:                                               ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, %3
+51:                                               ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, %3
   %.sroa.0.0 = phi ptr [ null, %3 ], [ %1, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit ]
   %.sroa.8.0 = phi i64 [ 0, %3 ], [ %.018.lcssa.i, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit ]
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load i64, ptr %51, align 8
-  %53 = lshr i64 %5, 1
-  %.not17 = icmp ult i64 %52, %53
-  br i1 %.not17, label %._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge, label %54
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %53 = load i64, ptr %52, align 8
+  %54 = lshr i64 %5, 1
+  %.not17 = icmp ult i64 %53, %54
+  br i1 %.not17, label %._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge, label %55
 
-._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge: ; preds = %50
+._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge: ; preds = %51
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre18 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11
 
-54:                                               ; preds = %50
-  %55 = add i64 %52, 1
-  invoke void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE6rehashEm(ptr noundef align 8 dereferenceable_or_null(40) %1, i64 noundef %55)
-          to label %56 unwind label %138
+55:                                               ; preds = %51
+  %56 = add i64 %53, 1
+  invoke void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE6rehashEm(ptr noundef align 8 dereferenceable_or_null(40) %1, i64 noundef %56)
+          to label %57 unwind label %140
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %58 = load i64, ptr %57, align 8
-  %59 = load i32, ptr %2, align 4
-  %60 = zext i32 %59 to i64
-  %61 = lshr i64 %58, 32
-  %62 = xor i64 %61, %60
-  %63 = xor i64 %62, %58
-  %64 = mul i64 %63, -2960836687051489901
-  %65 = lshr i64 %64, 32
-  %66 = xor i64 %65, %64
-  %67 = mul i64 %66, -2960836687051489901
-  %68 = lshr i64 %67, 32
-  %69 = xor i64 %68, %67
-  %70 = load i64, ptr %4, align 8
-  %71 = add i64 %70, -1
-  %72 = and i64 %69, %71
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %75 = lshr i64 %72, 7
-  %76 = and i64 %72, 127
-  %77 = getelementptr %"struct.QHashPrivate::Span.205", ptr %74, i64 %75
-  %78 = getelementptr i8, ptr %77, i64 %76
-  %79 = load i8, ptr %78, align 1
-  %80 = icmp eq i8 %79, -1
-  br i1 %80, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11, label %.lr.ph.i5
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %59 = load i64, ptr %58, align 8
+  %60 = load i32, ptr %2, align 4
+  %61 = zext i32 %60 to i64
+  %62 = lshr i64 %59, 32
+  %63 = xor i64 %62, %61
+  %64 = xor i64 %63, %59
+  %65 = mul i64 %64, -2960836687051489901
+  %66 = lshr i64 %65, 32
+  %67 = xor i64 %66, %65
+  %68 = mul i64 %67, -2960836687051489901
+  %69 = lshr i64 %68, 32
+  %70 = xor i64 %69, %68
+  %71 = load i64, ptr %4, align 8
+  %72 = add i64 %71, -1
+  %73 = and i64 %70, %72
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %75 = load ptr, ptr %74, align 8
+  %76 = lshr i64 %73, 7
+  %77 = and i64 %73, 127
+  %78 = getelementptr %"struct.QHashPrivate::Span.205", ptr %75, i64 %76
+  %79 = getelementptr i8, ptr %78, i64 %77
+  %80 = load i8, ptr %79, align 1
+  %81 = icmp eq i8 %80, -1
+  br i1 %81, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11, label %.lr.ph.i5
 
-.lr.ph.i5:                                        ; preds = %56, %89
-  %81 = phi i8 [ %96, %89 ], [ %79, %56 ]
-  %82 = phi i64 [ %92, %89 ], [ %75, %56 ]
-  %.01827.i6 = phi i64 [ %spec.store.select.i.i7, %89 ], [ %72, %56 ]
-  %83 = zext i8 %81 to i64
-  %84 = getelementptr %"struct.QHashPrivate::Span.205", ptr %74, i64 %82, i32 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %85, i64 %83
-  %87 = load i32, ptr %86, align 4
-  %88 = icmp eq i32 %87, %59
-  br i1 %88, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11, label %89
+.lr.ph.i5:                                        ; preds = %57, %91
+  %82 = phi i8 [ %98, %91 ], [ %80, %57 ]
+  %83 = phi i64 [ %94, %91 ], [ %76, %57 ]
+  %.01827.i6 = phi i64 [ %spec.store.select.i.i7, %91 ], [ %73, %57 ]
+  %84 = getelementptr %"struct.QHashPrivate::Span.205", ptr %75, i64 %83
+  %85 = zext i8 %82 to i64
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 128
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %87, i64 %85
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp eq i32 %89, %60
+  br i1 %90, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11, label %91
 
-89:                                               ; preds = %.lr.ph.i5
-  %90 = add i64 %.01827.i6, 1
-  %91 = icmp eq i64 %90, %70
-  %spec.store.select.i.i7 = select i1 %91, i64 0, i64 %90
-  %92 = lshr i64 %spec.store.select.i.i7, 7
-  %93 = and i64 %spec.store.select.i.i7, 127
-  %94 = getelementptr %"struct.QHashPrivate::Span.205", ptr %74, i64 %92
-  %95 = getelementptr i8, ptr %94, i64 %93
-  %96 = load i8, ptr %95, align 1
-  %97 = icmp eq i8 %96, -1
-  br i1 %97, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11, label %.lr.ph.i5, !llvm.loop !137
+91:                                               ; preds = %.lr.ph.i5
+  %92 = add i64 %.01827.i6, 1
+  %93 = icmp eq i64 %92, %71
+  %spec.store.select.i.i7 = select i1 %93, i64 0, i64 %92
+  %94 = lshr i64 %spec.store.select.i.i7, 7
+  %95 = and i64 %spec.store.select.i.i7, 127
+  %96 = getelementptr %"struct.QHashPrivate::Span.205", ptr %75, i64 %94
+  %97 = getelementptr i8, ptr %96, i64 %95
+  %98 = load i8, ptr %97, align 1
+  %99 = icmp eq i8 %98, -1
+  br i1 %99, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11, label %.lr.ph.i5, !llvm.loop !137
 
-_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11: ; preds = %89, %.lr.ph.i5, %._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge, %56
-  %98 = phi ptr [ %.pre18, %._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge ], [ %74, %56 ], [ %74, %.lr.ph.i5 ], [ %74, %89 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge ], [ %1, %56 ], [ %1, %.lr.ph.i5 ], [ %1, %89 ]
-  %.sroa.8.1 = phi i64 [ %.sroa.8.0, %._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge ], [ %72, %56 ], [ %spec.store.select.i.i7, %89 ], [ %.01827.i6, %.lr.ph.i5 ]
-  %99 = lshr i64 %.sroa.8.1, 7
-  %100 = getelementptr %"struct.QHashPrivate::Span.205", ptr %98, i64 %99
-  %101 = and i64 %.sroa.8.1, 127
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 137
-  %103 = load i8, ptr %102, align 1
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 136
-  %105 = load i8, ptr %104, align 8
-  %106 = icmp eq i8 %103, %105
-  br i1 %106, label %107, label %._crit_edge.i
+_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11: ; preds = %91, %.lr.ph.i5, %._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge, %57
+  %100 = phi ptr [ %.pre18, %._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge ], [ %75, %57 ], [ %75, %.lr.ph.i5 ], [ %75, %91 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge ], [ %1, %57 ], [ %1, %.lr.ph.i5 ], [ %1, %91 ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.0, %._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11_crit_edge ], [ %73, %57 ], [ %spec.store.select.i.i7, %91 ], [ %.01827.i6, %.lr.ph.i5 ]
+  %101 = lshr i64 %.sroa.8.1, 7
+  %102 = getelementptr %"struct.QHashPrivate::Span.205", ptr %100, i64 %101
+  %103 = and i64 %.sroa.8.1, 127
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 137
+  %105 = load i8, ptr %104, align 1
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 136
+  %107 = load i8, ptr %106, align 8
+  %108 = icmp eq i8 %105, %107
+  br i1 %108, label %109, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %100, i64 128
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %102, i64 128
   %.pre4.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %127
+  br label %129
 
-107:                                              ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11
-  %108 = zext i8 %103 to i64
-  %109 = add nuw nsw i64 %108, 16
-  %110 = shl nuw nsw i64 %109, 4
-  %111 = invoke noalias noundef ptr @_Znam(i64 noundef %110) #28
-          to label %.noexc unwind label %138
+109:                                              ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit11
+  %110 = zext i8 %105 to i64
+  %111 = add nuw nsw i64 %110, 16
+  %112 = shl nuw nsw i64 %111, 4
+  %113 = invoke noalias noundef ptr @_Znam(i64 noundef %112) #28
+          to label %.noexc unwind label %140
 
-.noexc:                                           ; preds = %107
-  %.not.i.i = icmp eq i8 %103, 0
-  br i1 %.not.i.i, label %.preheader, label %112
+.noexc:                                           ; preds = %109
+  %.not.i.i = icmp eq i8 %105, 0
+  br i1 %.not.i.i, label %.preheader, label %114
 
-.preheader:                                       ; preds = %112, %.noexc
-  br label %121
+.preheader:                                       ; preds = %114, %.noexc
+  br label %123
 
-112:                                              ; preds = %.noexc
-  %113 = getelementptr inbounds nuw i8, ptr %100, i64 128
-  %114 = load ptr, ptr %113, align 8
-  %115 = shl nuw nsw i64 %108, 4
-  %116 = tail call ptr @__memcpy_chk(ptr noundef %111, ptr noundef %114, i64 noundef %115, i64 noundef %110) #26, !alias.scope !226
+114:                                              ; preds = %.noexc
+  %115 = getelementptr inbounds nuw i8, ptr %102, i64 128
+  %116 = load ptr, ptr %115, align 8
+  %117 = shl nuw nsw i64 %110, 4
+  %118 = tail call ptr @__memcpy_chk(ptr noundef %113, ptr noundef %116, i64 noundef %117, i64 noundef %112) #26, !alias.scope !235
   br label %.preheader
 
-117:                                              ; preds = %121
-  %118 = getelementptr inbounds nuw i8, ptr %100, i64 128
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i, label %125
+119:                                              ; preds = %123
+  %120 = getelementptr inbounds nuw i8, ptr %102, i64 128
+  %121 = load ptr, ptr %120, align 8
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i, label %127
 
-121:                                              ; preds = %.preheader, %121
-  %.011.i.i = phi i64 [ %122, %121 ], [ %108, %.preheader ]
-  %122 = add nuw nsw i64 %.011.i.i, 1
-  %123 = trunc i64 %122 to i8
-  %124 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %111, i64 %.011.i.i
-  store i8 %123, ptr %124, align 1
-  %exitcond.not.i.i = icmp eq i64 %122, %109
-  br i1 %exitcond.not.i.i, label %117, label %121, !llvm.loop !230
+123:                                              ; preds = %.preheader, %123
+  %.011.i.i = phi i64 [ %124, %123 ], [ %110, %.preheader ]
+  %124 = add nuw nsw i64 %.011.i.i, 1
+  %125 = trunc i64 %124 to i8
+  %126 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %113, i64 %.011.i.i
+  store i8 %125, ptr %126, align 1
+  %exitcond.not.i.i = icmp eq i64 %124, %111
+  br i1 %exitcond.not.i.i, label %119, label %123, !llvm.loop !239
 
-125:                                              ; preds = %117
-  tail call void @_ZdaPv(ptr noundef nonnull %119) #29
-  %.pre.pre.i = load i8, ptr %102, align 1
+127:                                              ; preds = %119
+  tail call void @_ZdaPv(ptr noundef nonnull %121) #29
+  %.pre.pre.i = load i8, ptr %104, align 1
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i
 
-_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i: ; preds = %125, %117
-  %.pre.i = phi i8 [ %103, %117 ], [ %.pre.pre.i, %125 ]
-  store ptr %111, ptr %118, align 8
-  %126 = trunc i64 %109 to i8
-  store i8 %126, ptr %104, align 8
-  br label %127
+_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i: ; preds = %127, %119
+  %.pre.i = phi i8 [ %105, %119 ], [ %.pre.pre.i, %127 ]
+  store ptr %113, ptr %120, align 8
+  %128 = trunc i64 %111 to i8
+  store i8 %128, ptr %106, align 8
+  br label %129
 
-127:                                              ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i, %._crit_edge.i
-  %128 = phi ptr [ %111, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
-  %129 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %103, %._crit_edge.i ]
-  %130 = zext i8 %129 to i64
-  %131 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %128, i64 %130
-  %132 = load i8, ptr %131, align 1
-  store i8 %132, ptr %102, align 1
-  %133 = getelementptr i8, ptr %100, i64 %101
-  store i8 %129, ptr %133, align 1
-  %134 = load i64, ptr %51, align 8
-  %135 = add i64 %134, 1
-  store i64 %135, ptr %51, align 8
-  br label %136
+129:                                              ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i, %._crit_edge.i
+  %130 = phi ptr [ %113, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
+  %131 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %105, %._crit_edge.i ]
+  %132 = zext i8 %131 to i64
+  %133 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %130, i64 %132
+  %134 = load i8, ptr %133, align 1
+  store i8 %134, ptr %104, align 1
+  %135 = getelementptr i8, ptr %102, i64 %103
+  store i8 %131, ptr %135, align 1
+  %136 = load i64, ptr %52, align 8
+  %137 = add i64 %136, 1
+  store i64 %137, ptr %52, align 8
+  br label %138
 
-136:                                              ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, %127
-  %.sroa.0.1.sink = phi ptr [ %.sroa.0.1, %127 ], [ %1, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit ]
-  %.sroa.8.1.sink = phi i64 [ %.sroa.8.1, %127 ], [ %.018.lcssa.i, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit ]
-  %.sink = phi i8 [ 0, %127 ], [ 1, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit ]
+138:                                              ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, %129
+  %.sroa.0.1.sink = phi ptr [ %.sroa.0.1, %129 ], [ %1, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit ]
+  %.sroa.8.1.sink = phi i64 [ %.sroa.8.1, %129 ], [ %.018.lcssa.i, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit ]
+  %.sink = phi i8 [ 0, %129 ], [ 1, %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit ]
   store ptr %.sroa.0.1.sink, ptr %0, align 8
   %.sroa.8.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.8.1.sink, ptr %.sroa.8.0..sroa_idx13, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %137, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sink, ptr %139, align 8
   ret void
 
-138:                                              ; preds = %107, %54
-  %139 = landingpad { ptr, i32 }
+140:                                              ; preds = %109, %55
+  %141 = landingpad { ptr, i32 }
           catch ptr null
-  %140 = extractvalue { ptr, i32 } %139, 0
-  tail call void @__clang_call_terminate(ptr %140) #31
+  %142 = extractvalue { ptr, i32 } %141, 0
+  tail call void @__clang_call_terminate(ptr %142) #31
   unreachable
 }
 
@@ -45137,15 +45192,15 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
 
 ._crit_edge:                                      ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit, %.loopexit33
   %47 = icmp eq ptr %17, null
-  br i1 %47, label %177, label %152
+  br i1 %47, label %180, label %154
 
 48:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit
-  %.02235 = phi i64 [ 0, %.lr.ph ], [ %67, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit ]
+  %.02235 = phi i64 [ 0, %.lr.ph ], [ %68, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit ]
   %49 = getelementptr %"struct.QHashPrivate::Span.205", ptr %17, i64 %.02235
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 128
-  br label %68
+  br label %69
 
-51:                                               ; preds = %150
+51:                                               ; preds = %152
   %52 = load ptr, ptr %50, align 8
   %.not.i28 = icmp eq ptr %52, null
   br i1 %.not.i28, label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit, label %.preheader.i
@@ -45153,10 +45208,10 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
 53:                                               ; preds = %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i
   %54 = load ptr, ptr %50, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %66, label %65
+  br i1 %55, label %67, label %66
 
 .preheader.i:                                     ; preds = %51, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i
-  %.012.i = phi ptr [ %64, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i ], [ %49, %51 ]
+  %.012.i = phi ptr [ %65, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i ], [ %49, %51 ]
   %56 = load i8, ptr %.012.i, align 1
   %.not11.i = icmp eq i8 %56, -1
   br i1 %.not11.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i, label %57
@@ -45164,254 +45219,257 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
 57:                                               ; preds = %.preheader.i
   %58 = load ptr, ptr %50, align 8
   %59 = zext i8 %56 to i64
-  %60 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %58, i64 %59, i32 0, i32 0, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %.not.i.i = icmp eq ptr %61, null
+  %60 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %58, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %.not.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %57, %.lr.ph.i.i.i
-  %.068.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i ], [ %61, %57 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 8
-  %63 = load ptr, ptr %62, align 8
+  %.068.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i ], [ %62, %57 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 8
+  %64 = load ptr, ptr %63, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.068.i.i.i, i64 noundef 16) #29
-  %.not.i.i.i = icmp eq ptr %63, null
+  %.not.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !96
 
 _ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i: ; preds = %.lr.ph.i.i.i, %57, %.preheader.i
-  %64 = getelementptr i8, ptr %.012.i, i64 1
-  %.not10.i = icmp eq ptr %64, %50
+  %65 = getelementptr i8, ptr %.012.i, i64 1
+  %.not10.i = icmp eq ptr %65, %50
   br i1 %.not10.i, label %53, label %.preheader.i
 
-65:                                               ; preds = %53
+66:                                               ; preds = %53
   tail call void @_ZdaPv(ptr noundef nonnull %54) #29
-  br label %66
+  br label %67
 
-66:                                               ; preds = %65, %53
+67:                                               ; preds = %66, %53
   store ptr null, ptr %50, align 8
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit
 
-_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit: ; preds = %51, %66
-  %67 = add nuw nsw i64 %.02235, 1
-  %exitcond37.not = icmp eq i64 %67, %45
-  br i1 %exitcond37.not, label %._crit_edge, label %48, !llvm.loop !231
+_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit: ; preds = %51, %67
+  %68 = add nuw nsw i64 %.02235, 1
+  %exitcond37.not = icmp eq i64 %68, %45
+  br i1 %exitcond37.not, label %._crit_edge, label %48, !llvm.loop !240
 
-68:                                               ; preds = %48, %150
-  %.02334 = phi i64 [ 0, %48 ], [ %151, %150 ]
-  %69 = getelementptr i8, ptr %49, i64 %.02334
-  %70 = load i8, ptr %69, align 1
-  %.not = icmp eq i8 %70, -1
-  br i1 %.not, label %150, label %71
+69:                                               ; preds = %48, %152
+  %.02334 = phi i64 [ 0, %48 ], [ %153, %152 ]
+  %70 = getelementptr i8, ptr %49, i64 %.02334
+  %71 = load i8, ptr %70, align 1
+  %.not = icmp eq i8 %71, -1
+  br i1 %.not, label %152, label %72
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %50, align 8
-  %73 = zext i8 %70 to i64
-  %74 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %72, i64 %73
-  %75 = load i64, ptr %46, align 8
-  %76 = load i32, ptr %74, align 4
-  %77 = zext i32 %76 to i64
-  %78 = lshr i64 %75, 32
-  %79 = xor i64 %78, %77
-  %80 = xor i64 %79, %75
-  %81 = mul i64 %80, -2960836687051489901
-  %82 = lshr i64 %81, 32
-  %83 = xor i64 %82, %81
-  %84 = mul i64 %83, -2960836687051489901
-  %85 = lshr i64 %84, 32
-  %86 = xor i64 %85, %84
-  %87 = load i64, ptr %18, align 8
-  %88 = add i64 %87, -1
-  %89 = and i64 %86, %88
-  %90 = load ptr, ptr %16, align 8
-  %91 = lshr i64 %89, 7
-  %92 = and i64 %89, 127
-  %93 = getelementptr %"struct.QHashPrivate::Span.205", ptr %90, i64 %91
-  %94 = getelementptr i8, ptr %93, i64 %92
-  %95 = load i8, ptr %94, align 1
-  %96 = icmp eq i8 %95, -1
-  br i1 %96, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %50, align 8
+  %74 = zext i8 %71 to i64
+  %75 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %73, i64 %74
+  %76 = load i64, ptr %46, align 8
+  %77 = load i32, ptr %75, align 4
+  %78 = zext i32 %77 to i64
+  %79 = lshr i64 %76, 32
+  %80 = xor i64 %79, %78
+  %81 = xor i64 %80, %76
+  %82 = mul i64 %81, -2960836687051489901
+  %83 = lshr i64 %82, 32
+  %84 = xor i64 %83, %82
+  %85 = mul i64 %84, -2960836687051489901
+  %86 = lshr i64 %85, 32
+  %87 = xor i64 %86, %85
+  %88 = load i64, ptr %18, align 8
+  %89 = add i64 %88, -1
+  %90 = and i64 %87, %89
+  %91 = load ptr, ptr %16, align 8
+  %92 = lshr i64 %90, 7
+  %93 = and i64 %90, 127
+  %94 = getelementptr %"struct.QHashPrivate::Span.205", ptr %91, i64 %92
+  %95 = getelementptr i8, ptr %94, i64 %93
+  %96 = load i8, ptr %95, align 1
+  %97 = icmp eq i8 %96, -1
+  br i1 %97, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %71, %105
-  %97 = phi i8 [ %112, %105 ], [ %95, %71 ]
-  %98 = phi i64 [ %108, %105 ], [ %91, %71 ]
-  %.01827.i = phi i64 [ %spec.store.select.i.i, %105 ], [ %89, %71 ]
-  %99 = zext i8 %97 to i64
-  %100 = getelementptr %"struct.QHashPrivate::Span.205", ptr %90, i64 %98, i32 1
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %101, i64 %99
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %103, %76
-  br i1 %104, label %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge, label %105
+.lr.ph.i:                                         ; preds = %72, %107
+  %98 = phi i8 [ %114, %107 ], [ %96, %72 ]
+  %99 = phi i64 [ %110, %107 ], [ %92, %72 ]
+  %.01827.i = phi i64 [ %spec.store.select.i.i, %107 ], [ %90, %72 ]
+  %100 = getelementptr %"struct.QHashPrivate::Span.205", ptr %91, i64 %99
+  %101 = zext i8 %98 to i64
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 128
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %103, i64 %101
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, %77
+  br i1 %106, label %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge, label %107
 
 .lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge: ; preds = %.lr.ph.i
   %.pre40 = lshr i64 %.01827.i, 7
   %.pre = and i64 %.01827.i, 127
   br label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
 
-105:                                              ; preds = %.lr.ph.i
-  %106 = add i64 %.01827.i, 1
-  %107 = icmp eq i64 %106, %87
-  %spec.store.select.i.i = select i1 %107, i64 0, i64 %106
-  %108 = lshr i64 %spec.store.select.i.i, 7
-  %109 = and i64 %spec.store.select.i.i, 127
-  %110 = getelementptr %"struct.QHashPrivate::Span.205", ptr %90, i64 %108
-  %111 = getelementptr i8, ptr %110, i64 %109
-  %112 = load i8, ptr %111, align 1
-  %113 = icmp eq i8 %112, -1
-  br i1 %113, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !137
+107:                                              ; preds = %.lr.ph.i
+  %108 = add i64 %.01827.i, 1
+  %109 = icmp eq i64 %108, %88
+  %spec.store.select.i.i = select i1 %109, i64 0, i64 %108
+  %110 = lshr i64 %spec.store.select.i.i, 7
+  %111 = and i64 %spec.store.select.i.i, 127
+  %112 = getelementptr %"struct.QHashPrivate::Span.205", ptr %91, i64 %110
+  %113 = getelementptr i8, ptr %112, i64 %111
+  %114 = load i8, ptr %113, align 1
+  %115 = icmp eq i8 %114, -1
+  br i1 %115, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !137
 
-_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit: ; preds = %105, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge, %71
-  %.pre-phi39 = phi i64 [ %92, %71 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge ], [ %109, %105 ]
-  %.pre-phi = phi i64 [ %91, %71 ], [ %.pre40, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge ], [ %108, %105 ]
-  %114 = getelementptr %"struct.QHashPrivate::Span.205", ptr %90, i64 %.pre-phi
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 137
-  %116 = load i8, ptr %115, align 1
-  %117 = getelementptr inbounds nuw i8, ptr %114, i64 136
-  %118 = load i8, ptr %117, align 8
-  %119 = icmp eq i8 %116, %118
-  br i1 %119, label %120, label %._crit_edge.i
+_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit: ; preds = %107, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge, %72
+  %.pre-phi39 = phi i64 [ %93, %72 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge ], [ %111, %107 ]
+  %.pre-phi = phi i64 [ %92, %72 ], [ %.pre40, %.lr.ph.i._ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit.loopexit_crit_edge ], [ %110, %107 ]
+  %116 = getelementptr %"struct.QHashPrivate::Span.205", ptr %91, i64 %.pre-phi
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 137
+  %118 = load i8, ptr %117, align 1
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 136
+  %120 = load i8, ptr %119, align 8
+  %121 = icmp eq i8 %118, %120
+  br i1 %121, label %122, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %114, i64 128
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %116, i64 128
   %.pre4.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit
 
-120:                                              ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
-  %121 = zext i8 %116 to i64
-  %122 = add nuw nsw i64 %121, 16
-  %123 = shl nuw nsw i64 %122, 4
-  %124 = tail call noalias noundef ptr @_Znam(i64 noundef %123) #28
-  %.not.i.i29 = icmp eq i8 %116, 0
-  br i1 %.not.i.i29, label %.preheader66, label %125
+122:                                              ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
+  %123 = zext i8 %118 to i64
+  %124 = add nuw nsw i64 %123, 16
+  %125 = shl nuw nsw i64 %124, 4
+  %126 = tail call noalias noundef ptr @_Znam(i64 noundef %125) #28
+  %.not.i.i29 = icmp eq i8 %118, 0
+  br i1 %.not.i.i29, label %.preheader66, label %127
 
-.preheader66:                                     ; preds = %125, %120
-  br label %134
+.preheader66:                                     ; preds = %127, %122
+  br label %136
 
-125:                                              ; preds = %120
-  %126 = getelementptr inbounds nuw i8, ptr %114, i64 128
-  %127 = load ptr, ptr %126, align 8
-  %128 = shl nuw nsw i64 %121, 4
-  %129 = tail call ptr @__memcpy_chk(ptr noundef %124, ptr noundef %127, i64 noundef %128, i64 noundef %123) #26, !alias.scope !232
+127:                                              ; preds = %122
+  %128 = getelementptr inbounds nuw i8, ptr %116, i64 128
+  %129 = load ptr, ptr %128, align 8
+  %130 = shl nuw nsw i64 %123, 4
+  %131 = tail call ptr @__memcpy_chk(ptr noundef %126, ptr noundef %129, i64 noundef %130, i64 noundef %125) #26, !alias.scope !241
   br label %.preheader66
 
-130:                                              ; preds = %134
-  %131 = getelementptr inbounds nuw i8, ptr %114, i64 128
-  %132 = load ptr, ptr %131, align 8
-  %133 = icmp eq ptr %132, null
-  br i1 %133, label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i, label %138
+132:                                              ; preds = %136
+  %133 = getelementptr inbounds nuw i8, ptr %116, i64 128
+  %134 = load ptr, ptr %133, align 8
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i, label %140
 
-134:                                              ; preds = %.preheader66, %134
-  %.011.i.i = phi i64 [ %135, %134 ], [ %121, %.preheader66 ]
-  %135 = add nuw nsw i64 %.011.i.i, 1
-  %136 = trunc i64 %135 to i8
-  %137 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %124, i64 %.011.i.i
-  store i8 %136, ptr %137, align 1
-  %exitcond.not.i.i = icmp eq i64 %135, %122
-  br i1 %exitcond.not.i.i, label %130, label %134, !llvm.loop !230
+136:                                              ; preds = %.preheader66, %136
+  %.011.i.i = phi i64 [ %137, %136 ], [ %123, %.preheader66 ]
+  %137 = add nuw nsw i64 %.011.i.i, 1
+  %138 = trunc i64 %137 to i8
+  %139 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %126, i64 %.011.i.i
+  store i8 %138, ptr %139, align 1
+  %exitcond.not.i.i = icmp eq i64 %137, %124
+  br i1 %exitcond.not.i.i, label %132, label %136, !llvm.loop !239
 
-138:                                              ; preds = %130
-  tail call void @_ZdaPv(ptr noundef nonnull %132) #29
-  %.pre.pre.i = load i8, ptr %115, align 1
+140:                                              ; preds = %132
+  tail call void @_ZdaPv(ptr noundef nonnull %134) #29
+  %.pre.pre.i = load i8, ptr %117, align 1
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i
 
-_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i: ; preds = %138, %130
-  %.pre.i = phi i8 [ %116, %130 ], [ %.pre.pre.i, %138 ]
-  store ptr %124, ptr %131, align 8
-  %139 = trunc i64 %122 to i8
-  store i8 %139, ptr %117, align 8
+_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i: ; preds = %140, %132
+  %.pre.i = phi i8 [ %118, %132 ], [ %.pre.pre.i, %140 ]
+  store ptr %126, ptr %133, align 8
+  %141 = trunc i64 %124 to i8
+  store i8 %141, ptr %119, align 8
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit
 
 _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit: ; preds = %._crit_edge.i, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i
-  %140 = phi ptr [ %124, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
-  %141 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %116, %._crit_edge.i ]
-  %142 = zext i8 %141 to i64
-  %143 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %140, i64 %142
-  %144 = load i8, ptr %143, align 1
-  store i8 %144, ptr %115, align 1
-  %145 = getelementptr i8, ptr %114, i64 %.pre-phi39
-  store i8 %141, ptr %145, align 1
-  %146 = load i32, ptr %74, align 8
-  store i32 %146, ptr %143, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %148 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %149 = load ptr, ptr %148, align 8
-  store ptr null, ptr %148, align 8
-  store ptr %149, ptr %147, align 8
-  br label %150
+  %142 = phi ptr [ %126, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
+  %143 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %118, %._crit_edge.i ]
+  %144 = zext i8 %143 to i64
+  %145 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %142, i64 %144
+  %146 = load i8, ptr %145, align 1
+  store i8 %146, ptr %117, align 1
+  %147 = getelementptr i8, ptr %116, i64 %.pre-phi39
+  store i8 %143, ptr %147, align 1
+  %148 = load i32, ptr %75, align 8
+  store i32 %148, ptr %145, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %151 = load ptr, ptr %150, align 8
+  store ptr null, ptr %150, align 8
+  store ptr %151, ptr %149, align 8
+  br label %152
 
-150:                                              ; preds = %68, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit
-  %151 = add nuw nsw i64 %.02334, 1
-  %exitcond.not = icmp eq i64 %151, 128
-  br i1 %exitcond.not, label %51, label %68, !llvm.loop !236
+152:                                              ; preds = %69, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit
+  %153 = add nuw nsw i64 %.02334, 1
+  %exitcond.not = icmp eq i64 %153, 128
+  br i1 %exitcond.not, label %51, label %69, !llvm.loop !245
 
-152:                                              ; preds = %._crit_edge
-  %153 = getelementptr inbounds i8, ptr %17, i64 -8
-  %154 = load i64, ptr %153, align 8
-  %.idx = mul i64 %154, 144
-  %155 = icmp eq i64 %154, 0
-  br i1 %155, label %.loopexit, label %.preheader.preheader
+154:                                              ; preds = %._crit_edge
+  %155 = getelementptr inbounds i8, ptr %17, i64 -8
+  %156 = load i64, ptr %155, align 8
+  %.idx = mul i64 %156, 144
+  %157 = icmp eq i64 %156, 0
+  br i1 %157, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %152
-  %156 = getelementptr inbounds i8, ptr %17, i64 %.idx
+.preheader.preheader:                             ; preds = %154
+  %158 = getelementptr inbounds i8, ptr %17, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit
-  %157 = phi ptr [ %158, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit ], [ %156, %.preheader.preheader ]
-  %158 = getelementptr inbounds i8, ptr %157, i64 -144
-  %159 = getelementptr inbounds i8, ptr %157, i64 -16
-  %160 = load ptr, ptr %159, align 8
-  %.not.i.i30 = icmp eq ptr %160, null
+  %159 = phi ptr [ %160, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit ], [ %158, %.preheader.preheader ]
+  %160 = getelementptr inbounds i8, ptr %159, i64 -144
+  %161 = getelementptr inbounds i8, ptr %159, i64 -16
+  %162 = load ptr, ptr %161, align 8
+  %.not.i.i30 = icmp eq ptr %162, null
   br i1 %.not.i.i30, label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit, label %.preheader.i.i
 
-161:                                              ; preds = %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i
-  %162 = load ptr, ptr %159, align 8
-  %163 = icmp eq ptr %162, null
-  br i1 %163, label %174, label %173
+163:                                              ; preds = %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i
+  %164 = load ptr, ptr %161, align 8
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %177, label %176
 
 .preheader.i.i:                                   ; preds = %.preheader, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i
-  %.012.i.i = phi ptr [ %172, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i ], [ %158, %.preheader ]
-  %164 = load i8, ptr %.012.i.i, align 1
-  %.not11.i.i = icmp eq i8 %164, -1
-  br i1 %.not11.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i, label %165
+  %.012.i.i = phi ptr [ %175, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i ], [ %160, %.preheader ]
+  %166 = load i8, ptr %.012.i.i, align 1
+  %.not11.i.i = icmp eq i8 %166, -1
+  br i1 %.not11.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i, label %167
 
-165:                                              ; preds = %.preheader.i.i
-  %166 = load ptr, ptr %159, align 8
-  %167 = zext i8 %164 to i64
-  %168 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %166, i64 %167, i32 0, i32 0, i64 8
-  %169 = load ptr, ptr %168, align 8
-  %.not.i.i.i31 = icmp eq ptr %169, null
+167:                                              ; preds = %.preheader.i.i
+  %168 = load ptr, ptr %161, align 8
+  %169 = zext i8 %166 to i64
+  %170 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %168, i64 %169
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %172 = load ptr, ptr %171, align 8
+  %.not.i.i.i31 = icmp eq ptr %172, null
   br i1 %.not.i.i.i31, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %165, %.lr.ph.i.i.i.i
-  %.068.i.i.i.i = phi ptr [ %171, %.lr.ph.i.i.i.i ], [ %169, %165 ]
-  %170 = getelementptr inbounds nuw i8, ptr %.068.i.i.i.i, i64 8
-  %171 = load ptr, ptr %170, align 8
+.lr.ph.i.i.i.i:                                   ; preds = %167, %.lr.ph.i.i.i.i
+  %.068.i.i.i.i = phi ptr [ %174, %.lr.ph.i.i.i.i ], [ %172, %167 ]
+  %173 = getelementptr inbounds nuw i8, ptr %.068.i.i.i.i, i64 8
+  %174 = load ptr, ptr %173, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.068.i.i.i.i, i64 noundef 16) #29
-  %.not.i.i.i.i = icmp eq ptr %171, null
+  %.not.i.i.i.i = icmp eq ptr %174, null
   br i1 %.not.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !96
 
-_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %165, %.preheader.i.i
-  %172 = getelementptr i8, ptr %.012.i.i, i64 1
-  %.not10.i.i = icmp eq ptr %172, %159
-  br i1 %.not10.i.i, label %161, label %.preheader.i.i
+_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %167, %.preheader.i.i
+  %175 = getelementptr i8, ptr %.012.i.i, i64 1
+  %.not10.i.i = icmp eq ptr %175, %161
+  br i1 %.not10.i.i, label %163, label %.preheader.i.i
 
-173:                                              ; preds = %161
-  tail call void @_ZdaPv(ptr noundef nonnull %162) #29
-  br label %174
-
-174:                                              ; preds = %173, %161
-  store ptr null, ptr %159, align 8
-  br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit
-
-_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit: ; preds = %.preheader, %174
-  %175 = icmp eq ptr %158, %17
-  br i1 %175, label %.loopexit, label %.preheader
-
-.loopexit:                                        ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit, %152
-  %176 = or disjoint i64 %.idx, 8
-  tail call void @_ZdaPvm(ptr noundef %153, i64 noundef %176) #29
+176:                                              ; preds = %163
+  tail call void @_ZdaPv(ptr noundef nonnull %164) #29
   br label %177
 
-177:                                              ; preds = %.loopexit, %._crit_edge
+177:                                              ; preds = %176, %163
+  store ptr null, ptr %161, align 8
+  br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit
+
+_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit: ; preds = %.preheader, %177
+  %178 = icmp eq ptr %160, %17
+  br i1 %178, label %.loopexit, label %.preheader
+
+.loopexit:                                        ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit, %154
+  %179 = or disjoint i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef %155, i64 noundef %179) #29
+  br label %180
+
+180:                                              ; preds = %.loopexit, %._crit_edge
   ret void
 }
 
@@ -45505,11 +45563,11 @@ _ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEEC2Em.exit: ; preds = %
 42:                                               ; preds = %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %81
 
 44:                                               ; preds = %2
   invoke void @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEEC2ERKS5_m(ptr noundef align 8 dereferenceable_or_null(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1)
-          to label %45 unwind label %78
+          to label %45 unwind label %79
 
 45:                                               ; preds = %44
   %46 = load atomic i32, ptr %0 monotonic, align 4
@@ -45549,10 +45607,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %45
 62:                                               ; preds = %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i
   %63 = load ptr, ptr %60, align 8
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %75, label %74
+  br i1 %64, label %76, label %75
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i
-  %.012.i.i.i = phi ptr [ %73, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i ], [ %59, %.preheader.i ]
+  %.012.i.i.i = phi ptr [ %74, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i ], [ %59, %.preheader.i ]
   %65 = load i8, ptr %.012.i.i.i, align 1
   %.not11.i.i.i = icmp eq i8 %65, -1
   br i1 %.not11.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i, label %66
@@ -45560,55 +45618,56 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %45
 66:                                               ; preds = %.preheader.i.i.i
   %67 = load ptr, ptr %60, align 8
   %68 = zext i8 %65 to i64
-  %69 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %67, i64 %68, i32 0, i32 0, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %.not.i.i.i.i = icmp eq ptr %70, null
+  %69 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %67, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %.not.i.i.i.i = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %66, %.lr.ph.i.i.i.i.i
-  %.068.i.i.i.i.i = phi ptr [ %72, %.lr.ph.i.i.i.i.i ], [ %70, %66 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.068.i.i.i.i.i, i64 8
-  %72 = load ptr, ptr %71, align 8
+  %.068.i.i.i.i.i = phi ptr [ %73, %.lr.ph.i.i.i.i.i ], [ %71, %66 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.068.i.i.i.i.i, i64 8
+  %73 = load ptr, ptr %72, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.068.i.i.i.i.i, i64 noundef 16) #29
-  %.not.i.i.i.i.i = icmp eq ptr %72, null
+  %.not.i.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !96
 
 _ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %66, %.preheader.i.i.i
-  %73 = getelementptr i8, ptr %.012.i.i.i, i64 1
-  %.not10.i.i.i = icmp eq ptr %73, %60
+  %74 = getelementptr i8, ptr %.012.i.i.i, i64 1
+  %.not10.i.i.i = icmp eq ptr %74, %60
   br i1 %.not10.i.i.i, label %62, label %.preheader.i.i.i
 
-74:                                               ; preds = %62
+75:                                               ; preds = %62
   tail call void @_ZdaPv(ptr noundef nonnull %63) #29
-  br label %75
+  br label %76
 
-75:                                               ; preds = %74, %62
+76:                                               ; preds = %75, %62
   store ptr null, ptr %60, align 8
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit.i
 
-_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit.i: ; preds = %75, %.preheader.i
-  %76 = icmp eq ptr %59, %51
-  br i1 %76, label %.loopexit.i, label %.preheader.i
+_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit.i: ; preds = %76, %.preheader.i
+  %77 = icmp eq ptr %59, %51
+  br i1 %77, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit.i, %53
-  %77 = or disjoint i64 %.idx.i, 8
-  tail call void @_ZdaPvm(ptr noundef %54, i64 noundef %77) #29
+  %78 = or disjoint i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef %54, i64 noundef %78) #29
   br label %_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit
 
 _ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit: ; preds = %49, %.loopexit.i
   tail call void @_ZdlPvm(ptr noundef %0, i64 noundef 40) #29
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
-78:                                               ; preds = %44
-  %79 = landingpad { ptr, i32 }
+79:                                               ; preds = %44
+  %80 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %81
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %45, %_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEEC2Em.exit, %_ZN9QtPrivate8RefCount5derefEv.exit, %_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEED2Ev.exit
   ret ptr %3
 
-80:                                               ; preds = %78, %42
-  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %43, %42 ]
+81:                                               ; preds = %79, %42
+  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %43, %42 ]
   tail call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #29
   resume { ptr, i32 } %.pn
 }
@@ -45720,10 +45779,10 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
 59:                                               ; preds = %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit
   %60 = add nuw nsw i64 %.037, 1
   %exitcond39.not = icmp eq i64 %60, %52
-  br i1 %exitcond39.not, label %._crit_edge, label %54, !llvm.loop !237
+  br i1 %exitcond39.not, label %._crit_edge, label %54, !llvm.loop !246
 
 61:                                               ; preds = %54, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit
-  %.02335 = phi i64 [ 0, %54 ], [ %150, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit ]
+  %.02335 = phi i64 [ 0, %54 ], [ %151, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit ]
   %62 = getelementptr i8, ptr %56, i64 %.02335
   %63 = load i8, ptr %62, align 1
   %.not34 = icmp eq i8 %63, -1
@@ -45733,7 +45792,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %65 = load ptr, ptr %57, align 8
   %66 = zext i8 %63 to i64
   %67 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %65, i64 %66
-  br i1 %.not25, label %108, label %68
+  br i1 %.not25, label %109, label %68
 
 68:                                               ; preds = %64
   %69 = load i64, ptr %10, align 8
@@ -45760,136 +45819,137 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %90 = icmp eq i8 %89, -1
   br i1 %90, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %68, %99
-  %91 = phi i8 [ %106, %99 ], [ %89, %68 ]
-  %92 = phi i64 [ %102, %99 ], [ %85, %68 ]
-  %.01827.i = phi i64 [ %spec.store.select.i.i, %99 ], [ %83, %68 ]
-  %93 = zext i8 %91 to i64
-  %94 = getelementptr %"struct.QHashPrivate::Span.205", ptr %84, i64 %92, i32 1
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %95, i64 %93
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp eq i32 %97, %70
-  br i1 %98, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %99
+.lr.ph.i:                                         ; preds = %68, %100
+  %91 = phi i8 [ %107, %100 ], [ %89, %68 ]
+  %92 = phi i64 [ %103, %100 ], [ %85, %68 ]
+  %.01827.i = phi i64 [ %spec.store.select.i.i, %100 ], [ %83, %68 ]
+  %93 = getelementptr %"struct.QHashPrivate::Span.205", ptr %84, i64 %92
+  %94 = zext i8 %91 to i64
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 128
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %96, i64 %94
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp eq i32 %98, %70
+  br i1 %99, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %100
 
-99:                                               ; preds = %.lr.ph.i
-  %100 = add i64 %.01827.i, 1
-  %101 = icmp eq i64 %100, %81
-  %spec.store.select.i.i = select i1 %101, i64 0, i64 %100
-  %102 = lshr i64 %spec.store.select.i.i, 7
-  %103 = and i64 %spec.store.select.i.i, 127
-  %104 = getelementptr %"struct.QHashPrivate::Span.205", ptr %84, i64 %102
-  %105 = getelementptr i8, ptr %104, i64 %103
-  %106 = load i8, ptr %105, align 1
-  %107 = icmp eq i8 %106, -1
-  br i1 %107, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !137
+100:                                              ; preds = %.lr.ph.i
+  %101 = add i64 %.01827.i, 1
+  %102 = icmp eq i64 %101, %81
+  %spec.store.select.i.i = select i1 %102, i64 0, i64 %101
+  %103 = lshr i64 %spec.store.select.i.i, 7
+  %104 = and i64 %spec.store.select.i.i, 127
+  %105 = getelementptr %"struct.QHashPrivate::Span.205", ptr %84, i64 %103
+  %106 = getelementptr i8, ptr %105, i64 %104
+  %107 = load i8, ptr %106, align 1
+  %108 = icmp eq i8 %107, -1
+  br i1 %108, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !137
 
-108:                                              ; preds = %64
-  %109 = add nuw nsw i64 %.02335, %58
+109:                                              ; preds = %64
+  %110 = add nuw nsw i64 %.02335, %58
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
 
-_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit: ; preds = %99, %.lr.ph.i, %68, %108
-  %110 = phi ptr [ %.pre, %108 ], [ %84, %68 ], [ %84, %.lr.ph.i ], [ %84, %99 ]
-  %.sroa.4.0 = phi i64 [ %109, %108 ], [ %83, %68 ], [ %spec.store.select.i.i, %99 ], [ %.01827.i, %.lr.ph.i ]
-  %111 = lshr i64 %.sroa.4.0, 7
-  %112 = getelementptr %"struct.QHashPrivate::Span.205", ptr %110, i64 %111
-  %113 = and i64 %.sroa.4.0, 127
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 137
-  %115 = load i8, ptr %114, align 1
-  %116 = getelementptr inbounds nuw i8, ptr %112, i64 136
-  %117 = load i8, ptr %116, align 8
-  %118 = icmp eq i8 %115, %117
-  br i1 %118, label %119, label %._crit_edge.i
+_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit: ; preds = %100, %.lr.ph.i, %68, %109
+  %111 = phi ptr [ %.pre, %109 ], [ %84, %68 ], [ %84, %.lr.ph.i ], [ %84, %100 ]
+  %.sroa.4.0 = phi i64 [ %110, %109 ], [ %83, %68 ], [ %spec.store.select.i.i, %100 ], [ %.01827.i, %.lr.ph.i ]
+  %112 = lshr i64 %.sroa.4.0, 7
+  %113 = getelementptr %"struct.QHashPrivate::Span.205", ptr %111, i64 %112
+  %114 = and i64 %.sroa.4.0, 127
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 137
+  %116 = load i8, ptr %115, align 1
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 136
+  %118 = load i8, ptr %117, align 8
+  %119 = icmp eq i8 %116, %118
+  br i1 %119, label %120, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %112, i64 128
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %113, i64 128
   %.pre4.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit
 
-119:                                              ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
-  %120 = zext i8 %115 to i64
-  %121 = add nuw nsw i64 %120, 16
-  %122 = shl nuw nsw i64 %121, 4
-  %123 = tail call noalias noundef ptr @_Znam(i64 noundef %122) #28
-  %.not.i.i = icmp eq i8 %115, 0
-  br i1 %.not.i.i, label %.preheader, label %124
+120:                                              ; preds = %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
+  %121 = zext i8 %116 to i64
+  %122 = add nuw nsw i64 %121, 16
+  %123 = shl nuw nsw i64 %122, 4
+  %124 = tail call noalias noundef ptr @_Znam(i64 noundef %123) #28
+  %.not.i.i = icmp eq i8 %116, 0
+  br i1 %.not.i.i, label %.preheader, label %125
 
-.preheader:                                       ; preds = %124, %119
-  br label %133
+.preheader:                                       ; preds = %125, %120
+  br label %134
 
-124:                                              ; preds = %119
-  %125 = getelementptr inbounds nuw i8, ptr %112, i64 128
-  %126 = load ptr, ptr %125, align 8
-  %127 = shl nuw nsw i64 %120, 4
-  %128 = tail call ptr @__memcpy_chk(ptr noundef %123, ptr noundef %126, i64 noundef %127, i64 noundef %122) #26, !alias.scope !238
+125:                                              ; preds = %120
+  %126 = getelementptr inbounds nuw i8, ptr %113, i64 128
+  %127 = load ptr, ptr %126, align 8
+  %128 = shl nuw nsw i64 %121, 4
+  %129 = tail call ptr @__memcpy_chk(ptr noundef %124, ptr noundef %127, i64 noundef %128, i64 noundef %123) #26, !alias.scope !247
   br label %.preheader
 
-129:                                              ; preds = %133
-  %130 = getelementptr inbounds nuw i8, ptr %112, i64 128
-  %131 = load ptr, ptr %130, align 8
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i, label %137
+130:                                              ; preds = %134
+  %131 = getelementptr inbounds nuw i8, ptr %113, i64 128
+  %132 = load ptr, ptr %131, align 8
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i, label %138
 
-133:                                              ; preds = %.preheader, %133
-  %.011.i.i = phi i64 [ %134, %133 ], [ %120, %.preheader ]
-  %134 = add nuw nsw i64 %.011.i.i, 1
-  %135 = trunc i64 %134 to i8
-  %136 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %123, i64 %.011.i.i
-  store i8 %135, ptr %136, align 1
-  %exitcond.not.i.i = icmp eq i64 %134, %121
-  br i1 %exitcond.not.i.i, label %129, label %133, !llvm.loop !230
+134:                                              ; preds = %.preheader, %134
+  %.011.i.i = phi i64 [ %135, %134 ], [ %121, %.preheader ]
+  %135 = add nuw nsw i64 %.011.i.i, 1
+  %136 = trunc i64 %135 to i8
+  %137 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %124, i64 %.011.i.i
+  store i8 %136, ptr %137, align 1
+  %exitcond.not.i.i = icmp eq i64 %135, %122
+  br i1 %exitcond.not.i.i, label %130, label %134, !llvm.loop !239
 
-137:                                              ; preds = %129
-  tail call void @_ZdaPv(ptr noundef nonnull %131) #29
-  %.pre.pre.i = load i8, ptr %114, align 1
+138:                                              ; preds = %130
+  tail call void @_ZdaPv(ptr noundef nonnull %132) #29
+  %.pre.pre.i = load i8, ptr %115, align 1
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i
 
-_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i: ; preds = %137, %129
-  %.pre.i = phi i8 [ %115, %129 ], [ %.pre.pre.i, %137 ]
-  store ptr %123, ptr %130, align 8
-  %138 = trunc i64 %121 to i8
-  store i8 %138, ptr %116, align 8
+_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i: ; preds = %138, %130
+  %.pre.i = phi i8 [ %116, %130 ], [ %.pre.pre.i, %138 ]
+  store ptr %124, ptr %131, align 8
+  %139 = trunc i64 %122 to i8
+  store i8 %139, ptr %117, align 8
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit
 
 _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit: ; preds = %._crit_edge.i, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i
-  %139 = phi ptr [ %123, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
-  %140 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %115, %._crit_edge.i ]
-  %141 = zext i8 %140 to i64
-  %142 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %139, i64 %141
-  %143 = load i8, ptr %142, align 1
-  store i8 %143, ptr %114, align 1
-  %144 = getelementptr i8, ptr %112, i64 %113
-  store i8 %140, ptr %144, align 1
-  %145 = load i32, ptr %67, align 8
-  store i32 %145, ptr %142, align 8
+  %140 = phi ptr [ %124, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
+  %141 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE10addStorageEv.exit.i ], [ %116, %._crit_edge.i ]
+  %142 = zext i8 %141 to i64
+  %143 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %140, i64 %142
+  %144 = load i8, ptr %143, align 1
+  store i8 %144, ptr %115, align 1
+  %145 = getelementptr i8, ptr %113, i64 %114
+  store i8 %141, ptr %145, align 1
+  %146 = load i32, ptr %67, align 8
+  store i32 %146, ptr %143, align 8
   %.0.in10.i = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.011.i = load ptr, ptr %.0.in10.i, align 8
   %.not12.i = icmp eq ptr %.011.i, null
   br i1 %.not12.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit
-  %146 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 8
   br label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.lr.ph.i26, %.lr.ph.preheader.i
   %.014.i = phi ptr [ %.0.i27, %.lr.ph.i26 ], [ %.011.i, %.lr.ph.preheader.i ]
-  %.0913.i = phi ptr [ %149, %.lr.ph.i26 ], [ %146, %.lr.ph.preheader.i ]
-  %147 = tail call noalias noundef dereferenceable_or_null(16) ptr @_Znwm(i64 noundef 16) #28
-  %148 = load ptr, ptr %.014.i, align 8
-  store ptr %148, ptr %147, align 16
-  %149 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store ptr null, ptr %149, align 8
-  store ptr %147, ptr %.0913.i, align 8
+  %.0913.i = phi ptr [ %150, %.lr.ph.i26 ], [ %147, %.lr.ph.preheader.i ]
+  %148 = tail call noalias noundef dereferenceable_or_null(16) ptr @_Znwm(i64 noundef 16) #28
+  %149 = load ptr, ptr %.014.i, align 8
+  store ptr %149, ptr %148, align 16
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  store ptr null, ptr %150, align 8
+  store ptr %148, ptr %.0913.i, align 8
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
   %.0.i27 = load ptr, ptr %.0.in.i, align 8
   %.not.i28 = icmp eq ptr %.0.i27, null
-  br i1 %.not.i28, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit, label %.lr.ph.i26, !llvm.loop !242
+  br i1 %.not.i28, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit, label %.lr.ph.i26, !llvm.loop !251
 
 _ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit: ; preds = %.lr.ph.i26, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit, %61
-  %150 = add nuw nsw i64 %.02335, 1
-  %exitcond.not = icmp eq i64 %150, 128
-  br i1 %exitcond.not, label %59, label %61, !llvm.loop !243
+  %151 = add nuw nsw i64 %.02335, 1
+  %exitcond.not = icmp eq i64 %151, 128
+  br i1 %exitcond.not, label %59, label %61, !llvm.loop !252
 }
 
 ; Function Attrs: nounwind null_pointer_is_valid
@@ -47078,7 +47138,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate20sequential_erase_oneI5QLi
   %29 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 32
   %30 = add nsw i64 %.052.i.i.i, -1
   %31 = icmp sgt i64 %.052.i.i.i, 1
-  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !244
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !253
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %28
   %gepdiff = and i64 %.idx11, 24
@@ -47218,17 +47278,18 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAu
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = zext i8 %10 to i64
-  %14 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %12, i64 %13, i32 0, i32 0, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %.not.i.i = icmp eq ptr %15, null
+  %14 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
-  %.068.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i ], [ %15, %3 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 8
-  %17 = load ptr, ptr %16, align 8
+  %.068.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i ], [ %16, %3 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 8
+  %18 = load ptr, ptr %17, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.068.i.i.i, i64 noundef 16) #29
-  %.not.i.i.i = icmp eq ptr %17, null
+  %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !96
 
 _ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.loopexit.i: ; preds = %.lr.ph.i.i.i
@@ -47236,158 +47297,158 @@ _ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.loopexit.i: ; preds = %
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit
 
 _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit: ; preds = %3, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.loopexit.i
-  %18 = phi ptr [ %.pre.i, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.loopexit.i ], [ %12, %3 ]
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 137
-  %20 = load i8, ptr %19, align 1
-  %21 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %18, i64 %13
-  store i8 %20, ptr %21, align 1
-  store i8 %10, ptr %19, align 1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load i64, ptr %22, align 8
-  %24 = add i64 %23, -1
-  store i64 %24, ptr %22, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = add i64 %2, 1
-  %27 = load i64, ptr %25, align 8
-  %28 = icmp eq i64 %26, %27
-  %spec.store.select.i53 = select i1 %28, i64 0, i64 %26
-  %29 = lshr i64 %spec.store.select.i53, 7
-  %30 = and i64 %spec.store.select.i53, 127
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr %"struct.QHashPrivate::Span.205", ptr %31, i64 %29
-  %33 = getelementptr i8, ptr %32, i64 %30
-  %34 = load i8, ptr %33, align 1
-  %.not54 = icmp eq i8 %34, -1
+  %19 = phi ptr [ %.pre.i, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.loopexit.i ], [ %12, %3 ]
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 137
+  %21 = load i8, ptr %20, align 1
+  %22 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %19, i64 %13
+  store i8 %21, ptr %22, align 1
+  store i8 %10, ptr %20, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load i64, ptr %23, align 8
+  %25 = add i64 %24, -1
+  store i64 %25, ptr %23, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = add i64 %2, 1
+  %28 = load i64, ptr %26, align 8
+  %29 = icmp eq i64 %27, %28
+  %spec.store.select.i53 = select i1 %29, i64 0, i64 %27
+  %30 = lshr i64 %spec.store.select.i53, 7
+  %31 = and i64 %spec.store.select.i53, 127
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr %"struct.QHashPrivate::Span.205", ptr %32, i64 %30
+  %34 = getelementptr i8, ptr %33, i64 %31
+  %35 = load i8, ptr %34, align 1
+  %.not54 = icmp eq i8 %35, -1
   br i1 %.not54, label %._crit_edge, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %36
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %37
 
-36:                                               ; preds = %.lr.ph57, %.loopexit
-  %37 = phi i8 [ %34, %.lr.ph57 ], [ %85, %.loopexit ]
-  %38 = phi ptr [ %32, %.lr.ph57 ], [ %83, %.loopexit ]
-  %39 = phi ptr [ %31, %.lr.ph57 ], [ %82, %.loopexit ]
-  %40 = phi i64 [ %30, %.lr.ph57 ], [ %81, %.loopexit ]
-  %41 = phi i64 [ %29, %.lr.ph57 ], [ %80, %.loopexit ]
+37:                                               ; preds = %.lr.ph57, %.loopexit
+  %38 = phi i8 [ %35, %.lr.ph57 ], [ %86, %.loopexit ]
+  %39 = phi ptr [ %33, %.lr.ph57 ], [ %84, %.loopexit ]
+  %40 = phi ptr [ %32, %.lr.ph57 ], [ %83, %.loopexit ]
+  %41 = phi i64 [ %31, %.lr.ph57 ], [ %82, %.loopexit ]
+  %42 = phi i64 [ %30, %.lr.ph57 ], [ %81, %.loopexit ]
   %spec.store.select.i56 = phi i64 [ %spec.store.select.i53, %.lr.ph57 ], [ %spec.store.select.i, %.loopexit ]
-  %42 = phi i64 [ %27, %.lr.ph57 ], [ %78, %.loopexit ]
+  %43 = phi i64 [ %28, %.lr.ph57 ], [ %79, %.loopexit ]
   %.055 = phi i64 [ %2, %.lr.ph57 ], [ %.1, %.loopexit ]
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 128
-  %44 = load ptr, ptr %43, align 8
-  %45 = zext i8 %37 to i64
-  %46 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %44, i64 %45
-  %47 = load i64, ptr %35, align 8
-  %48 = load i32, ptr %46, align 4
-  %49 = zext i32 %48 to i64
-  %50 = lshr i64 %47, 32
-  %51 = xor i64 %50, %49
-  %52 = xor i64 %51, %47
-  %53 = mul i64 %52, -2960836687051489901
-  %54 = lshr i64 %53, 32
-  %55 = xor i64 %54, %53
-  %56 = mul i64 %55, -2960836687051489901
-  %57 = lshr i64 %56, 32
-  %58 = xor i64 %57, %56
-  %59 = add i64 %42, -1
-  %60 = and i64 %58, %59
-  %61 = icmp eq i64 %60, %spec.store.select.i56
-  br i1 %61, label %.loopexit, label %.lr.ph
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 128
+  %45 = load ptr, ptr %44, align 8
+  %46 = zext i8 %38 to i64
+  %47 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %45, i64 %46
+  %48 = load i64, ptr %36, align 8
+  %49 = load i32, ptr %47, align 4
+  %50 = zext i32 %49 to i64
+  %51 = lshr i64 %48, 32
+  %52 = xor i64 %51, %50
+  %53 = xor i64 %52, %48
+  %54 = mul i64 %53, -2960836687051489901
+  %55 = lshr i64 %54, 32
+  %56 = xor i64 %55, %54
+  %57 = mul i64 %56, -2960836687051489901
+  %58 = lshr i64 %57, 32
+  %59 = xor i64 %58, %57
+  %60 = add i64 %43, -1
+  %61 = and i64 %59, %60
+  %62 = icmp eq i64 %61, %spec.store.select.i56
+  br i1 %62, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %36, %73
-  %.03852 = phi i64 [ %spec.store.select.i43, %73 ], [ %60, %36 ]
-  %62 = icmp eq i64 %.03852, %.055
-  br i1 %62, label %63, label %73
+.lr.ph:                                           ; preds = %37, %74
+  %.03852 = phi i64 [ %spec.store.select.i43, %74 ], [ %61, %37 ]
+  %63 = icmp eq i64 %.03852, %.055
+  br i1 %63, label %64, label %74
 
-63:                                               ; preds = %.lr.ph
-  %64 = lshr i64 %.055, 7
-  %65 = and i64 %.055, 127
-  %66 = icmp eq i64 %41, %64
-  br i1 %66, label %67, label %71
+64:                                               ; preds = %.lr.ph
+  %65 = lshr i64 %.055, 7
+  %66 = and i64 %.055, 127
+  %67 = icmp eq i64 %42, %65
+  br i1 %67, label %68, label %72
 
-67:                                               ; preds = %63
-  %68 = getelementptr %"struct.QHashPrivate::Span.205", ptr %39, i64 %41
-  %69 = getelementptr i8, ptr %68, i64 %40
-  %70 = getelementptr i8, ptr %68, i64 %65
-  store i8 %37, ptr %70, align 1
-  store i8 -1, ptr %69, align 1
+68:                                               ; preds = %64
+  %69 = getelementptr %"struct.QHashPrivate::Span.205", ptr %40, i64 %42
+  %70 = getelementptr i8, ptr %69, i64 %41
+  %71 = getelementptr i8, ptr %69, i64 %66
+  store i8 %38, ptr %71, align 1
+  store i8 -1, ptr %70, align 1
   br label %.loopexit
 
-71:                                               ; preds = %63
-  %72 = getelementptr %"struct.QHashPrivate::Span.205", ptr %39, i64 %64
-  invoke void @_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE12moveFromSpanERS5_mm(ptr noundef align 8 dereferenceable_or_null(138) %72, ptr noundef align 8 dereferenceable(138) %38, i64 noundef %40, i64 noundef %65)
-          to label %.loopexit unwind label %109
+72:                                               ; preds = %64
+  %73 = getelementptr %"struct.QHashPrivate::Span.205", ptr %40, i64 %65
+  invoke void @_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE12moveFromSpanERS5_mm(ptr noundef align 8 dereferenceable_or_null(138) %73, ptr noundef align 8 dereferenceable(138) %39, i64 noundef %41, i64 noundef %66)
+          to label %.loopexit unwind label %110
 
-73:                                               ; preds = %.lr.ph
-  %74 = add i64 %.03852, 1
-  %75 = icmp eq i64 %74, %42
-  %spec.store.select.i43 = select i1 %75, i64 0, i64 %74
-  %76 = icmp eq i64 %spec.store.select.i43, %spec.store.select.i56
-  br i1 %76, label %.loopexit, label %.lr.ph, !llvm.loop !245
+74:                                               ; preds = %.lr.ph
+  %75 = add i64 %.03852, 1
+  %76 = icmp eq i64 %75, %43
+  %spec.store.select.i43 = select i1 %76, i64 0, i64 %75
+  %77 = icmp eq i64 %spec.store.select.i43, %spec.store.select.i56
+  br i1 %77, label %.loopexit, label %.lr.ph, !llvm.loop !254
 
-.loopexit:                                        ; preds = %73, %36, %71, %67
-  %.1 = phi i64 [ %spec.store.select.i56, %71 ], [ %spec.store.select.i56, %67 ], [ %.055, %36 ], [ %.055, %73 ]
-  %77 = add i64 %spec.store.select.i56, 1
-  %78 = load i64, ptr %25, align 8
-  %79 = icmp eq i64 %77, %78
-  %spec.store.select.i = select i1 %79, i64 0, i64 %77
-  %80 = lshr i64 %spec.store.select.i, 7
-  %81 = and i64 %spec.store.select.i, 127
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr %"struct.QHashPrivate::Span.205", ptr %82, i64 %80
-  %84 = getelementptr i8, ptr %83, i64 %81
-  %85 = load i8, ptr %84, align 1
-  %.not = icmp eq i8 %85, -1
-  br i1 %.not, label %._crit_edge, label %36
+.loopexit:                                        ; preds = %74, %37, %72, %68
+  %.1 = phi i64 [ %spec.store.select.i56, %72 ], [ %spec.store.select.i56, %68 ], [ %.055, %37 ], [ %.055, %74 ]
+  %78 = add i64 %spec.store.select.i56, 1
+  %79 = load i64, ptr %26, align 8
+  %80 = icmp eq i64 %78, %79
+  %spec.store.select.i = select i1 %80, i64 0, i64 %78
+  %81 = lshr i64 %spec.store.select.i, 7
+  %82 = and i64 %spec.store.select.i, 127
+  %83 = load ptr, ptr %6, align 8
+  %84 = getelementptr %"struct.QHashPrivate::Span.205", ptr %83, i64 %81
+  %85 = getelementptr i8, ptr %84, i64 %82
+  %86 = load i8, ptr %85, align 1
+  %.not = icmp eq i8 %86, -1
+  br i1 %.not, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit
-  %86 = phi ptr [ %31, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit ], [ %82, %.loopexit ]
-  %87 = phi i64 [ %27, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit ], [ %78, %.loopexit ]
-  %88 = add i64 %87, -1
-  %89 = icmp eq i64 %2, %88
-  br i1 %89, label %94, label %90
+  %87 = phi ptr [ %32, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit ], [ %83, %.loopexit ]
+  %88 = phi i64 [ %28, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit ], [ %79, %.loopexit ]
+  %89 = add i64 %88, -1
+  %90 = icmp eq i64 %2, %89
+  br i1 %90, label %95, label %91
 
-90:                                               ; preds = %._crit_edge
-  %91 = getelementptr %"struct.QHashPrivate::Span.205", ptr %86, i64 %4
-  %92 = getelementptr i8, ptr %91, i64 %5
-  %93 = load i8, ptr %92, align 1
-  %.not50 = icmp eq i8 %93, -1
-  br i1 %.not50, label %94, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP14RtpAudioStreamEEEppEv.exit
+91:                                               ; preds = %._crit_edge
+  %92 = getelementptr %"struct.QHashPrivate::Span.205", ptr %87, i64 %4
+  %93 = getelementptr i8, ptr %92, i64 %5
+  %94 = load i8, ptr %93, align 1
+  %.not50 = icmp eq i8 %94, -1
+  br i1 %.not50, label %95, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP14RtpAudioStreamEEEppEv.exit
 
-94:                                               ; preds = %90, %._crit_edge
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %97 = load i64, ptr %95, align 8
-  br label %98
+95:                                               ; preds = %91, %._crit_edge
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %98 = load i64, ptr %96, align 8
+  br label %99
 
-98:                                               ; preds = %102, %94
-  %99 = phi i64 [ %100, %102 ], [ %2, %94 ]
-  %100 = add i64 %99, 1
-  %101 = icmp eq i64 %100, %97
-  br i1 %101, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP14RtpAudioStreamEEEppEv.exit, label %102
+99:                                               ; preds = %103, %95
+  %100 = phi i64 [ %101, %103 ], [ %2, %95 ]
+  %101 = add i64 %100, 1
+  %102 = icmp eq i64 %101, %98
+  br i1 %102, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP14RtpAudioStreamEEEppEv.exit, label %103
 
-102:                                              ; preds = %98
-  %103 = load ptr, ptr %96, align 8
-  %104 = lshr i64 %100, 7
-  %105 = getelementptr %"struct.QHashPrivate::Span.205", ptr %103, i64 %104
-  %106 = and i64 %100, 127
-  %107 = getelementptr i8, ptr %105, i64 %106
-  %108 = load i8, ptr %107, align 1
-  %.not.i.i45 = icmp eq i8 %108, -1
-  br i1 %.not.i.i45, label %98, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP14RtpAudioStreamEEEppEv.exit, !llvm.loop !246
+103:                                              ; preds = %99
+  %104 = load ptr, ptr %97, align 8
+  %105 = lshr i64 %101, 7
+  %106 = getelementptr %"struct.QHashPrivate::Span.205", ptr %104, i64 %105
+  %107 = and i64 %101, 127
+  %108 = getelementptr i8, ptr %106, i64 %107
+  %109 = load i8, ptr %108, align 1
+  %.not.i.i45 = icmp eq i8 %109, -1
+  br i1 %.not.i.i45, label %99, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP14RtpAudioStreamEEEppEv.exit, !llvm.loop !255
 
-_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP14RtpAudioStreamEEEppEv.exit: ; preds = %102, %98, %90
-  %.sroa.0.0 = phi ptr [ %1, %90 ], [ null, %98 ], [ %1, %102 ]
-  %.sroa.4.0 = phi i64 [ %2, %90 ], [ 0, %98 ], [ %100, %102 ]
+_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP14RtpAudioStreamEEEppEv.exit: ; preds = %103, %99, %91
+  %.sroa.0.0 = phi ptr [ %1, %91 ], [ null, %99 ], [ %1, %103 ]
+  %.sroa.4.0 = phi i64 [ %2, %91 ], [ 0, %99 ], [ %101, %103 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
 
-109:                                              ; preds = %71
-  %110 = landingpad { ptr, i32 }
+110:                                              ; preds = %72
+  %111 = landingpad { ptr, i32 }
           catch ptr null
-  %111 = extractvalue { ptr, i32 } %110, 0
-  tail call void @__clang_call_terminate(ptr %111) #31
+  %112 = extractvalue { ptr, i32 } %111, 0
+  tail call void @__clang_call_terminate(ptr %112) #31
   unreachable
 }
 
@@ -47415,7 +47476,7 @@ define linkonce_odr void @_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStrea
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = shl nuw nsw i64 %11, 4
-  %19 = tail call ptr @__memcpy_chk(ptr noundef %14, ptr noundef %17, i64 noundef %18, i64 noundef %13) #26, !alias.scope !247
+  %19 = tail call ptr @__memcpy_chk(ptr noundef %14, ptr noundef %17, i64 noundef %18, i64 noundef %13) #26, !alias.scope !256
   br label %.preheader
 
 20:                                               ; preds = %24
@@ -47431,7 +47492,7 @@ define linkonce_odr void @_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStrea
   %27 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::MultiNode<unsigned int, RtpAudioStream *>>::Entry", ptr %14, i64 %.011.i
   store i8 %26, ptr %27, align 1
   %exitcond.not.i = icmp eq i64 %25, %12
-  br i1 %exitcond.not.i, label %20, label %24, !llvm.loop !230
+  br i1 %exitcond.not.i, label %20, label %24, !llvm.loop !239
 
 28:                                               ; preds = %20
   tail call void @_ZdaPv(ptr noundef nonnull %22) #29
@@ -48014,7 +48075,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %50, label %6
+  br i1 %.not, label %51, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -48042,212 +48103,214 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE1
   %29 = icmp eq i8 %28, -1
   br i1 %29, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %6, %38
-  %30 = phi i8 [ %45, %38 ], [ %28, %6 ]
-  %31 = phi i64 [ %41, %38 ], [ %24, %6 ]
-  %.01827.i = phi i64 [ %spec.store.select.i.i, %38 ], [ %21, %6 ]
-  %32 = zext i8 %30 to i64
-  %33 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %31, i32 1
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %34, i64 %32
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp eq i32 %36, %9
-  br i1 %37, label %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge, label %38
+.lr.ph.i:                                         ; preds = %6, %39
+  %30 = phi i8 [ %46, %39 ], [ %28, %6 ]
+  %31 = phi i64 [ %42, %39 ], [ %24, %6 ]
+  %.01827.i = phi i64 [ %spec.store.select.i.i, %39 ], [ %21, %6 ]
+  %32 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %31
+  %33 = zext i8 %30 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 128
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %35, i64 %33
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp eq i32 %37, %9
+  br i1 %38, label %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge, label %39
 
 .lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge: ; preds = %.lr.ph.i
   %.pre21 = and i64 %.01827.i, 127
   %.pre = lshr i64 %.01827.i, 7
   br label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit
 
-38:                                               ; preds = %.lr.ph.i
-  %39 = add i64 %.01827.i, 1
-  %40 = icmp eq i64 %39, %5
-  %spec.store.select.i.i = select i1 %40, i64 0, i64 %39
-  %41 = lshr i64 %spec.store.select.i.i, 7
-  %42 = and i64 %spec.store.select.i.i, 127
-  %43 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %41
-  %44 = getelementptr i8, ptr %43, i64 %42
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp eq i8 %45, -1
-  br i1 %46, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !251
+39:                                               ; preds = %.lr.ph.i
+  %40 = add i64 %.01827.i, 1
+  %41 = icmp eq i64 %40, %5
+  %spec.store.select.i.i = select i1 %41, i64 0, i64 %40
+  %42 = lshr i64 %spec.store.select.i.i, 7
+  %43 = and i64 %spec.store.select.i.i, 127
+  %44 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %42
+  %45 = getelementptr i8, ptr %44, i64 %43
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, -1
+  br i1 %47, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !260
 
-_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit: ; preds = %38, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge, %6
-  %.pre-phi20 = phi i64 [ %24, %6 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge ], [ %41, %38 ]
-  %.pre-phi = phi i64 [ %25, %6 ], [ %.pre21, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge ], [ %42, %38 ]
-  %.018.lcssa.i = phi i64 [ %21, %6 ], [ %.01827.i, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge ], [ %spec.store.select.i.i, %38 ]
-  %47 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %.pre-phi20
-  %48 = getelementptr i8, ptr %47, i64 %.pre-phi
-  %49 = load i8, ptr %48, align 1
-  %.not.i = icmp eq i8 %49, -1
-  br i1 %.not.i, label %50, label %136
+_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit: ; preds = %39, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge, %6
+  %.pre-phi20 = phi i64 [ %24, %6 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge ], [ %42, %39 ]
+  %.pre-phi = phi i64 [ %25, %6 ], [ %.pre21, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge ], [ %43, %39 ]
+  %.018.lcssa.i = phi i64 [ %21, %6 ], [ %.01827.i, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge ], [ %spec.store.select.i.i, %39 ]
+  %48 = getelementptr %"struct.QHashPrivate::Span", ptr %23, i64 %.pre-phi20
+  %49 = getelementptr i8, ptr %48, i64 %.pre-phi
+  %50 = load i8, ptr %49, align 1
+  %.not.i = icmp eq i8 %50, -1
+  br i1 %.not.i, label %51, label %138
 
-50:                                               ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, %3
+51:                                               ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, %3
   %.sroa.0.0 = phi ptr [ null, %3 ], [ %1, %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit ]
   %.sroa.8.0 = phi i64 [ 0, %3 ], [ %.018.lcssa.i, %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit ]
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load i64, ptr %51, align 8
-  %53 = lshr i64 %5, 1
-  %.not17 = icmp ult i64 %52, %53
-  br i1 %.not17, label %._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge, label %54
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %53 = load i64, ptr %52, align 8
+  %54 = lshr i64 %5, 1
+  %.not17 = icmp ult i64 %53, %54
+  br i1 %.not17, label %._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge, label %55
 
-._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge: ; preds = %50
+._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge: ; preds = %51
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre18 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11
 
-54:                                               ; preds = %50
-  %55 = add i64 %52, 1
-  invoke void @_ZN12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE6rehashEm(ptr noundef align 8 dereferenceable_or_null(40) %1, i64 noundef %55)
-          to label %56 unwind label %138
+55:                                               ; preds = %51
+  %56 = add i64 %53, 1
+  invoke void @_ZN12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE6rehashEm(ptr noundef align 8 dereferenceable_or_null(40) %1, i64 noundef %56)
+          to label %57 unwind label %140
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %58 = load i64, ptr %57, align 8
-  %59 = load i32, ptr %2, align 4
-  %60 = sext i32 %59 to i64
-  %61 = xor i64 %58, %60
-  %62 = lshr i64 %61, 32
-  %63 = xor i64 %62, %61
-  %64 = mul i64 %63, -2960836687051489901
-  %65 = lshr i64 %64, 32
-  %66 = xor i64 %65, %64
-  %67 = mul i64 %66, -2960836687051489901
-  %68 = lshr i64 %67, 32
-  %69 = xor i64 %68, %67
-  %70 = load i64, ptr %4, align 8
-  %71 = add i64 %70, -1
-  %72 = and i64 %69, %71
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %75 = lshr i64 %72, 7
-  %76 = and i64 %72, 127
-  %77 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %75
-  %78 = getelementptr i8, ptr %77, i64 %76
-  %79 = load i8, ptr %78, align 1
-  %80 = icmp eq i8 %79, -1
-  br i1 %80, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11, label %.lr.ph.i5
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %59 = load i64, ptr %58, align 8
+  %60 = load i32, ptr %2, align 4
+  %61 = sext i32 %60 to i64
+  %62 = xor i64 %59, %61
+  %63 = lshr i64 %62, 32
+  %64 = xor i64 %63, %62
+  %65 = mul i64 %64, -2960836687051489901
+  %66 = lshr i64 %65, 32
+  %67 = xor i64 %66, %65
+  %68 = mul i64 %67, -2960836687051489901
+  %69 = lshr i64 %68, 32
+  %70 = xor i64 %69, %68
+  %71 = load i64, ptr %4, align 8
+  %72 = add i64 %71, -1
+  %73 = and i64 %70, %72
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %75 = load ptr, ptr %74, align 8
+  %76 = lshr i64 %73, 7
+  %77 = and i64 %73, 127
+  %78 = getelementptr %"struct.QHashPrivate::Span", ptr %75, i64 %76
+  %79 = getelementptr i8, ptr %78, i64 %77
+  %80 = load i8, ptr %79, align 1
+  %81 = icmp eq i8 %80, -1
+  br i1 %81, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11, label %.lr.ph.i5
 
-.lr.ph.i5:                                        ; preds = %56, %89
-  %81 = phi i8 [ %96, %89 ], [ %79, %56 ]
-  %82 = phi i64 [ %92, %89 ], [ %75, %56 ]
-  %.01827.i6 = phi i64 [ %spec.store.select.i.i7, %89 ], [ %72, %56 ]
-  %83 = zext i8 %81 to i64
-  %84 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %82, i32 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %85, i64 %83
-  %87 = load i32, ptr %86, align 4
-  %88 = icmp eq i32 %87, %59
-  br i1 %88, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11, label %89
+.lr.ph.i5:                                        ; preds = %57, %91
+  %82 = phi i8 [ %98, %91 ], [ %80, %57 ]
+  %83 = phi i64 [ %94, %91 ], [ %76, %57 ]
+  %.01827.i6 = phi i64 [ %spec.store.select.i.i7, %91 ], [ %73, %57 ]
+  %84 = getelementptr %"struct.QHashPrivate::Span", ptr %75, i64 %83
+  %85 = zext i8 %82 to i64
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 128
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %87, i64 %85
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp eq i32 %89, %60
+  br i1 %90, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11, label %91
 
-89:                                               ; preds = %.lr.ph.i5
-  %90 = add i64 %.01827.i6, 1
-  %91 = icmp eq i64 %90, %70
-  %spec.store.select.i.i7 = select i1 %91, i64 0, i64 %90
-  %92 = lshr i64 %spec.store.select.i.i7, 7
-  %93 = and i64 %spec.store.select.i.i7, 127
-  %94 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %92
-  %95 = getelementptr i8, ptr %94, i64 %93
-  %96 = load i8, ptr %95, align 1
-  %97 = icmp eq i8 %96, -1
-  br i1 %97, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11, label %.lr.ph.i5, !llvm.loop !251
+91:                                               ; preds = %.lr.ph.i5
+  %92 = add i64 %.01827.i6, 1
+  %93 = icmp eq i64 %92, %71
+  %spec.store.select.i.i7 = select i1 %93, i64 0, i64 %92
+  %94 = lshr i64 %spec.store.select.i.i7, 7
+  %95 = and i64 %spec.store.select.i.i7, 127
+  %96 = getelementptr %"struct.QHashPrivate::Span", ptr %75, i64 %94
+  %97 = getelementptr i8, ptr %96, i64 %95
+  %98 = load i8, ptr %97, align 1
+  %99 = icmp eq i8 %98, -1
+  br i1 %99, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11, label %.lr.ph.i5, !llvm.loop !260
 
-_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11: ; preds = %89, %.lr.ph.i5, %._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge, %56
-  %98 = phi ptr [ %.pre18, %._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge ], [ %74, %56 ], [ %74, %.lr.ph.i5 ], [ %74, %89 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge ], [ %1, %56 ], [ %1, %.lr.ph.i5 ], [ %1, %89 ]
-  %.sroa.8.1 = phi i64 [ %.sroa.8.0, %._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge ], [ %72, %56 ], [ %spec.store.select.i.i7, %89 ], [ %.01827.i6, %.lr.ph.i5 ]
-  %99 = lshr i64 %.sroa.8.1, 7
-  %100 = getelementptr %"struct.QHashPrivate::Span", ptr %98, i64 %99
-  %101 = and i64 %.sroa.8.1, 127
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 137
-  %103 = load i8, ptr %102, align 1
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 136
-  %105 = load i8, ptr %104, align 8
-  %106 = icmp eq i8 %103, %105
-  br i1 %106, label %107, label %._crit_edge.i
+_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11: ; preds = %91, %.lr.ph.i5, %._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge, %57
+  %100 = phi ptr [ %.pre18, %._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge ], [ %75, %57 ], [ %75, %.lr.ph.i5 ], [ %75, %91 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge ], [ %1, %57 ], [ %1, %.lr.ph.i5 ], [ %1, %91 ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.0, %._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11_crit_edge ], [ %73, %57 ], [ %spec.store.select.i.i7, %91 ], [ %.01827.i6, %.lr.ph.i5 ]
+  %101 = lshr i64 %.sroa.8.1, 7
+  %102 = getelementptr %"struct.QHashPrivate::Span", ptr %100, i64 %101
+  %103 = and i64 %.sroa.8.1, 127
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 137
+  %105 = load i8, ptr %104, align 1
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 136
+  %107 = load i8, ptr %106, align 8
+  %108 = icmp eq i8 %105, %107
+  br i1 %108, label %109, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %100, i64 128
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %102, i64 128
   %.pre4.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %127
+  br label %129
 
-107:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11
-  %108 = zext i8 %103 to i64
-  %109 = add nuw nsw i64 %108, 16
-  %110 = shl nuw nsw i64 %109, 2
-  %111 = invoke noalias noundef ptr @_Znam(i64 noundef %110) #28
-          to label %.noexc unwind label %138
+109:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit11
+  %110 = zext i8 %105 to i64
+  %111 = add nuw nsw i64 %110, 16
+  %112 = shl nuw nsw i64 %111, 2
+  %113 = invoke noalias noundef ptr @_Znam(i64 noundef %112) #28
+          to label %.noexc unwind label %140
 
-.noexc:                                           ; preds = %107
-  %.not.i.i = icmp eq i8 %103, 0
-  br i1 %.not.i.i, label %.preheader, label %112
+.noexc:                                           ; preds = %109
+  %.not.i.i = icmp eq i8 %105, 0
+  br i1 %.not.i.i, label %.preheader, label %114
 
-.preheader:                                       ; preds = %112, %.noexc
-  br label %121
+.preheader:                                       ; preds = %114, %.noexc
+  br label %123
 
-112:                                              ; preds = %.noexc
-  %113 = getelementptr inbounds nuw i8, ptr %100, i64 128
-  %114 = load ptr, ptr %113, align 8
-  %115 = shl nuw nsw i64 %108, 2
-  %116 = tail call ptr @__memcpy_chk(ptr noundef %111, ptr noundef %114, i64 noundef %115, i64 noundef %110) #26, !alias.scope !252
+114:                                              ; preds = %.noexc
+  %115 = getelementptr inbounds nuw i8, ptr %102, i64 128
+  %116 = load ptr, ptr %115, align 8
+  %117 = shl nuw nsw i64 %110, 2
+  %118 = tail call ptr @__memcpy_chk(ptr noundef %113, ptr noundef %116, i64 noundef %117, i64 noundef %112) #26, !alias.scope !261
   br label %.preheader
 
-117:                                              ; preds = %121
-  %118 = getelementptr inbounds nuw i8, ptr %100, i64 128
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i, label %125
+119:                                              ; preds = %123
+  %120 = getelementptr inbounds nuw i8, ptr %102, i64 128
+  %121 = load ptr, ptr %120, align 8
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i, label %127
 
-121:                                              ; preds = %.preheader, %121
-  %.011.i.i = phi i64 [ %122, %121 ], [ %108, %.preheader ]
-  %122 = add nuw nsw i64 %.011.i.i, 1
-  %123 = trunc i64 %122 to i8
-  %124 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %111, i64 %.011.i.i
-  store i8 %123, ptr %124, align 1
-  %exitcond.not.i.i = icmp eq i64 %122, %109
-  br i1 %exitcond.not.i.i, label %117, label %121, !llvm.loop !256
+123:                                              ; preds = %.preheader, %123
+  %.011.i.i = phi i64 [ %124, %123 ], [ %110, %.preheader ]
+  %124 = add nuw nsw i64 %.011.i.i, 1
+  %125 = trunc i64 %124 to i8
+  %126 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %113, i64 %.011.i.i
+  store i8 %125, ptr %126, align 1
+  %exitcond.not.i.i = icmp eq i64 %124, %111
+  br i1 %exitcond.not.i.i, label %119, label %123, !llvm.loop !265
 
-125:                                              ; preds = %117
-  tail call void @_ZdaPv(ptr noundef nonnull %119) #29
-  %.pre.pre.i = load i8, ptr %102, align 1
+127:                                              ; preds = %119
+  tail call void @_ZdaPv(ptr noundef nonnull %121) #29
+  %.pre.pre.i = load i8, ptr %104, align 1
   br label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i
 
-_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i: ; preds = %125, %117
-  %.pre.i = phi i8 [ %103, %117 ], [ %.pre.pre.i, %125 ]
-  store ptr %111, ptr %118, align 8
-  %126 = trunc i64 %109 to i8
-  store i8 %126, ptr %104, align 8
-  br label %127
+_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i: ; preds = %127, %119
+  %.pre.i = phi i8 [ %105, %119 ], [ %.pre.pre.i, %127 ]
+  store ptr %113, ptr %120, align 8
+  %128 = trunc i64 %111 to i8
+  store i8 %128, ptr %106, align 8
+  br label %129
 
-127:                                              ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i, %._crit_edge.i
-  %128 = phi ptr [ %111, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
-  %129 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %103, %._crit_edge.i ]
-  %130 = zext i8 %129 to i64
-  %131 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %128, i64 %130
-  %132 = load i8, ptr %131, align 1
-  store i8 %132, ptr %102, align 1
-  %133 = getelementptr i8, ptr %100, i64 %101
-  store i8 %129, ptr %133, align 1
-  %134 = load i64, ptr %51, align 8
-  %135 = add i64 %134, 1
-  store i64 %135, ptr %51, align 8
-  br label %136
+129:                                              ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i, %._crit_edge.i
+  %130 = phi ptr [ %113, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
+  %131 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %105, %._crit_edge.i ]
+  %132 = zext i8 %131 to i64
+  %133 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %130, i64 %132
+  %134 = load i8, ptr %133, align 1
+  store i8 %134, ptr %104, align 1
+  %135 = getelementptr i8, ptr %102, i64 %103
+  store i8 %131, ptr %135, align 1
+  %136 = load i64, ptr %52, align 8
+  %137 = add i64 %136, 1
+  store i64 %137, ptr %52, align 8
+  br label %138
 
-136:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, %127
-  %.sroa.0.1.sink = phi ptr [ %.sroa.0.1, %127 ], [ %1, %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit ]
-  %.sroa.8.1.sink = phi i64 [ %.sroa.8.1, %127 ], [ %.018.lcssa.i, %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit ]
-  %.sink = phi i8 [ 0, %127 ], [ 1, %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit ]
+138:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, %129
+  %.sroa.0.1.sink = phi ptr [ %.sroa.0.1, %129 ], [ %1, %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit ]
+  %.sroa.8.1.sink = phi i64 [ %.sroa.8.1, %129 ], [ %.018.lcssa.i, %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit ]
+  %.sink = phi i8 [ 0, %129 ], [ 1, %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit ]
   store ptr %.sroa.0.1.sink, ptr %0, align 8
   %.sroa.8.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.8.1.sink, ptr %.sroa.8.0..sroa_idx13, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %137, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sink, ptr %139, align 8
   ret void
 
-138:                                              ; preds = %107, %54
-  %139 = landingpad { ptr, i32 }
+140:                                              ; preds = %109, %55
+  %141 = landingpad { ptr, i32 }
           catch ptr null
-  %140 = extractvalue { ptr, i32 } %139, 0
-  tail call void @__clang_call_terminate(ptr %140) #31
+  %142 = extractvalue { ptr, i32 } %141, 0
+  tail call void @__clang_call_terminate(ptr %142) #31
   unreachable
 }
 
@@ -48333,7 +48396,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
 
 ._crit_edge:                                      ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE8freeDataEv.exit, %.loopexit31
   %47 = icmp eq ptr %17, null
-  br i1 %47, label %148, label %136
+  br i1 %47, label %149, label %137
 
 48:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE8freeDataEv.exit
   %.02233 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE8freeDataEv.exit ]
@@ -48341,7 +48404,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 128
   br label %55
 
-51:                                               ; preds = %134
+51:                                               ; preds = %135
   %52 = load ptr, ptr %50, align 8
   %.not.i28 = icmp eq ptr %52, null
   br i1 %.not.i28, label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE8freeDataEv.exit, label %53
@@ -48354,14 +48417,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
 _ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE8freeDataEv.exit: ; preds = %51, %53
   %54 = add nuw nsw i64 %.02233, 1
   %exitcond35.not = icmp eq i64 %54, %45
-  br i1 %exitcond35.not, label %._crit_edge, label %48, !llvm.loop !257
+  br i1 %exitcond35.not, label %._crit_edge, label %48, !llvm.loop !266
 
-55:                                               ; preds = %48, %134
-  %.02332 = phi i64 [ 0, %48 ], [ %135, %134 ]
+55:                                               ; preds = %48, %135
+  %.02332 = phi i64 [ 0, %48 ], [ %136, %135 ]
   %56 = getelementptr i8, ptr %49, i64 %.02332
   %57 = load i8, ptr %56, align 1
   %.not = icmp eq i8 %57, -1
-  br i1 %.not, label %134, label %58
+  br i1 %.not, label %135, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %50, align 8
@@ -48391,148 +48454,149 @@ _ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE8freeDataEv.exit: ; preds =
   %83 = icmp eq i8 %82, -1
   br i1 %83, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %58, %92
-  %84 = phi i8 [ %99, %92 ], [ %82, %58 ]
-  %85 = phi i64 [ %95, %92 ], [ %78, %58 ]
-  %.01827.i = phi i64 [ %spec.store.select.i.i, %92 ], [ %76, %58 ]
-  %86 = zext i8 %84 to i64
-  %87 = getelementptr %"struct.QHashPrivate::Span", ptr %77, i64 %85, i32 1
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %88, i64 %86
-  %90 = load i32, ptr %89, align 4
-  %91 = icmp eq i32 %90, %63
-  br i1 %91, label %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge, label %92
+.lr.ph.i:                                         ; preds = %58, %93
+  %84 = phi i8 [ %100, %93 ], [ %82, %58 ]
+  %85 = phi i64 [ %96, %93 ], [ %78, %58 ]
+  %.01827.i = phi i64 [ %spec.store.select.i.i, %93 ], [ %76, %58 ]
+  %86 = getelementptr %"struct.QHashPrivate::Span", ptr %77, i64 %85
+  %87 = zext i8 %84 to i64
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 128
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %89, i64 %87
+  %91 = load i32, ptr %90, align 4
+  %92 = icmp eq i32 %91, %63
+  br i1 %92, label %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge, label %93
 
 .lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge: ; preds = %.lr.ph.i
   %.pre38 = lshr i64 %.01827.i, 7
   %.pre = and i64 %.01827.i, 127
   br label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit
 
-92:                                               ; preds = %.lr.ph.i
-  %93 = add i64 %.01827.i, 1
-  %94 = icmp eq i64 %93, %74
-  %spec.store.select.i.i = select i1 %94, i64 0, i64 %93
-  %95 = lshr i64 %spec.store.select.i.i, 7
-  %96 = and i64 %spec.store.select.i.i, 127
-  %97 = getelementptr %"struct.QHashPrivate::Span", ptr %77, i64 %95
-  %98 = getelementptr i8, ptr %97, i64 %96
-  %99 = load i8, ptr %98, align 1
-  %100 = icmp eq i8 %99, -1
-  br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !251
+93:                                               ; preds = %.lr.ph.i
+  %94 = add i64 %.01827.i, 1
+  %95 = icmp eq i64 %94, %74
+  %spec.store.select.i.i = select i1 %95, i64 0, i64 %94
+  %96 = lshr i64 %spec.store.select.i.i, 7
+  %97 = and i64 %spec.store.select.i.i, 127
+  %98 = getelementptr %"struct.QHashPrivate::Span", ptr %77, i64 %96
+  %99 = getelementptr i8, ptr %98, i64 %97
+  %100 = load i8, ptr %99, align 1
+  %101 = icmp eq i8 %100, -1
+  br i1 %101, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !260
 
-_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit: ; preds = %92, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge, %58
-  %.pre-phi37 = phi i64 [ %79, %58 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge ], [ %96, %92 ]
-  %.pre-phi = phi i64 [ %78, %58 ], [ %.pre38, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge ], [ %95, %92 ]
-  %101 = getelementptr %"struct.QHashPrivate::Span", ptr %77, i64 %.pre-phi
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 137
-  %103 = load i8, ptr %102, align 1
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 136
-  %105 = load i8, ptr %104, align 8
-  %106 = icmp eq i8 %103, %105
-  br i1 %106, label %107, label %._crit_edge.i
+_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit: ; preds = %93, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge, %58
+  %.pre-phi37 = phi i64 [ %79, %58 ], [ %.pre, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge ], [ %97, %93 ]
+  %.pre-phi = phi i64 [ %78, %58 ], [ %.pre38, %.lr.ph.i._ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit.loopexit_crit_edge ], [ %96, %93 ]
+  %102 = getelementptr %"struct.QHashPrivate::Span", ptr %77, i64 %.pre-phi
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 137
+  %104 = load i8, ptr %103, align 1
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 136
+  %106 = load i8, ptr %105, align 8
+  %107 = icmp eq i8 %104, %106
+  br i1 %107, label %108, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %101, i64 128
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %102, i64 128
   %.pre4.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit
 
-107:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit
-  %108 = zext i8 %103 to i64
-  %109 = add nuw nsw i64 %108, 16
-  %110 = shl nuw nsw i64 %109, 2
-  %111 = tail call noalias noundef ptr @_Znam(i64 noundef %110) #28
-  %.not.i.i = icmp eq i8 %103, 0
-  br i1 %.not.i.i, label %.preheader56, label %112
+108:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit
+  %109 = zext i8 %104 to i64
+  %110 = add nuw nsw i64 %109, 16
+  %111 = shl nuw nsw i64 %110, 2
+  %112 = tail call noalias noundef ptr @_Znam(i64 noundef %111) #28
+  %.not.i.i = icmp eq i8 %104, 0
+  br i1 %.not.i.i, label %.preheader56, label %113
 
-.preheader56:                                     ; preds = %112, %107
-  br label %121
+.preheader56:                                     ; preds = %113, %108
+  br label %122
 
-112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw i8, ptr %101, i64 128
-  %114 = load ptr, ptr %113, align 8
-  %115 = shl nuw nsw i64 %108, 2
-  %116 = tail call ptr @__memcpy_chk(ptr noundef %111, ptr noundef %114, i64 noundef %115, i64 noundef %110) #26, !alias.scope !258
+113:                                              ; preds = %108
+  %114 = getelementptr inbounds nuw i8, ptr %102, i64 128
+  %115 = load ptr, ptr %114, align 8
+  %116 = shl nuw nsw i64 %109, 2
+  %117 = tail call ptr @__memcpy_chk(ptr noundef %112, ptr noundef %115, i64 noundef %116, i64 noundef %111) #26, !alias.scope !267
   br label %.preheader56
 
-117:                                              ; preds = %121
-  %118 = getelementptr inbounds nuw i8, ptr %101, i64 128
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i, label %125
+118:                                              ; preds = %122
+  %119 = getelementptr inbounds nuw i8, ptr %102, i64 128
+  %120 = load ptr, ptr %119, align 8
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i, label %126
 
-121:                                              ; preds = %.preheader56, %121
-  %.011.i.i = phi i64 [ %122, %121 ], [ %108, %.preheader56 ]
-  %122 = add nuw nsw i64 %.011.i.i, 1
-  %123 = trunc i64 %122 to i8
-  %124 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %111, i64 %.011.i.i
-  store i8 %123, ptr %124, align 1
-  %exitcond.not.i.i = icmp eq i64 %122, %109
-  br i1 %exitcond.not.i.i, label %117, label %121, !llvm.loop !256
+122:                                              ; preds = %.preheader56, %122
+  %.011.i.i = phi i64 [ %123, %122 ], [ %109, %.preheader56 ]
+  %123 = add nuw nsw i64 %.011.i.i, 1
+  %124 = trunc i64 %123 to i8
+  %125 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %112, i64 %.011.i.i
+  store i8 %124, ptr %125, align 1
+  %exitcond.not.i.i = icmp eq i64 %123, %110
+  br i1 %exitcond.not.i.i, label %118, label %122, !llvm.loop !265
 
-125:                                              ; preds = %117
-  tail call void @_ZdaPv(ptr noundef nonnull %119) #29
-  %.pre.pre.i = load i8, ptr %102, align 1
+126:                                              ; preds = %118
+  tail call void @_ZdaPv(ptr noundef nonnull %120) #29
+  %.pre.pre.i = load i8, ptr %103, align 1
   br label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i
 
-_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i: ; preds = %125, %117
-  %.pre.i = phi i8 [ %103, %117 ], [ %.pre.pre.i, %125 ]
-  store ptr %111, ptr %118, align 8
-  %126 = trunc i64 %109 to i8
-  store i8 %126, ptr %104, align 8
+_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i: ; preds = %126, %118
+  %.pre.i = phi i8 [ %104, %118 ], [ %.pre.pre.i, %126 ]
+  store ptr %112, ptr %119, align 8
+  %127 = trunc i64 %110 to i8
+  store i8 %127, ptr %105, align 8
   br label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit: ; preds = %._crit_edge.i, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i
-  %127 = phi ptr [ %111, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
-  %128 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %103, %._crit_edge.i ]
-  %129 = zext i8 %128 to i64
-  %130 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %127, i64 %129
-  %131 = load i8, ptr %130, align 1
-  store i8 %131, ptr %102, align 1
-  %132 = getelementptr i8, ptr %101, i64 %.pre-phi37
-  store i8 %128, ptr %132, align 1
-  %133 = load i32, ptr %61, align 4
-  store i32 %133, ptr %130, align 4
-  br label %134
+  %128 = phi ptr [ %112, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
+  %129 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %104, %._crit_edge.i ]
+  %130 = zext i8 %129 to i64
+  %131 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %128, i64 %130
+  %132 = load i8, ptr %131, align 1
+  store i8 %132, ptr %103, align 1
+  %133 = getelementptr i8, ptr %102, i64 %.pre-phi37
+  store i8 %129, ptr %133, align 1
+  %134 = load i32, ptr %61, align 4
+  store i32 %134, ptr %131, align 4
+  br label %135
 
-134:                                              ; preds = %55, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit
-  %135 = add nuw nsw i64 %.02332, 1
-  %exitcond.not = icmp eq i64 %135, 128
-  br i1 %exitcond.not, label %51, label %55, !llvm.loop !262
+135:                                              ; preds = %55, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit
+  %136 = add nuw nsw i64 %.02332, 1
+  %exitcond.not = icmp eq i64 %136, 128
+  br i1 %exitcond.not, label %51, label %55, !llvm.loop !271
 
-136:                                              ; preds = %._crit_edge
-  %137 = getelementptr inbounds i8, ptr %17, i64 -8
-  %138 = load i64, ptr %137, align 8
-  %.idx = mul i64 %138, 144
-  %139 = icmp eq i64 %138, 0
-  br i1 %139, label %.loopexit, label %.preheader.preheader
+137:                                              ; preds = %._crit_edge
+  %138 = getelementptr inbounds i8, ptr %17, i64 -8
+  %139 = load i64, ptr %138, align 8
+  %.idx = mul i64 %139, 144
+  %140 = icmp eq i64 %139, 0
+  br i1 %140, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %17, i64 %.idx
+.preheader.preheader:                             ; preds = %137
+  %141 = getelementptr inbounds i8, ptr %17, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEED2Ev.exit
-  %141 = phi ptr [ %142, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEED2Ev.exit ], [ %140, %.preheader.preheader ]
-  %142 = getelementptr inbounds i8, ptr %141, i64 -144
-  %143 = getelementptr inbounds i8, ptr %141, i64 -16
-  %144 = load ptr, ptr %143, align 8
-  %.not.i.i29 = icmp eq ptr %144, null
-  br i1 %.not.i.i29, label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEED2Ev.exit, label %145
+  %142 = phi ptr [ %143, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEED2Ev.exit ], [ %141, %.preheader.preheader ]
+  %143 = getelementptr inbounds i8, ptr %142, i64 -144
+  %144 = getelementptr inbounds i8, ptr %142, i64 -16
+  %145 = load ptr, ptr %144, align 8
+  %.not.i.i29 = icmp eq ptr %145, null
+  br i1 %.not.i.i29, label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEED2Ev.exit, label %146
 
-145:                                              ; preds = %.preheader
-  tail call void @_ZdaPv(ptr noundef nonnull %144) #29
-  store ptr null, ptr %143, align 8
+146:                                              ; preds = %.preheader
+  tail call void @_ZdaPv(ptr noundef nonnull %145) #29
+  store ptr null, ptr %144, align 8
   br label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEED2Ev.exit
 
-_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEED2Ev.exit: ; preds = %.preheader, %145
-  %146 = icmp eq ptr %142, %17
-  br i1 %146, label %.loopexit, label %.preheader
+_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEED2Ev.exit: ; preds = %.preheader, %146
+  %147 = icmp eq ptr %143, %17
+  br i1 %147, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEED2Ev.exit, %136
-  %147 = or disjoint i64 %.idx, 8
-  tail call void @_ZdaPvm(ptr noundef %137, i64 noundef %147) #29
-  br label %148
+.loopexit:                                        ; preds = %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEED2Ev.exit, %137
+  %148 = or disjoint i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef %138, i64 noundef %148) #29
+  br label %149
 
-148:                                              ; preds = %.loopexit, %._crit_edge
+149:                                              ; preds = %.loopexit, %._crit_edge
   ret void
 }
 
@@ -48791,23 +48855,23 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %58 = shl nuw i64 %.033, 7
   br label %61
 
-59:                                               ; preds = %146
+59:                                               ; preds = %147
   %60 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %60, %52
-  br i1 %exitcond35.not, label %._crit_edge, label %54, !llvm.loop !263
+  br i1 %exitcond35.not, label %._crit_edge, label %54, !llvm.loop !272
 
-61:                                               ; preds = %54, %146
-  %.02331 = phi i64 [ 0, %54 ], [ %147, %146 ]
+61:                                               ; preds = %54, %147
+  %.02331 = phi i64 [ 0, %54 ], [ %148, %147 ]
   %62 = getelementptr i8, ptr %56, i64 %.02331
   %63 = load i8, ptr %62, align 1
   %.not30 = icmp eq i8 %63, -1
-  br i1 %.not30, label %146, label %64
+  br i1 %.not30, label %147, label %64
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %57, align 8
   %66 = zext i8 %63 to i64
   %67 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %65, i64 %66
-  br i1 %.not25, label %108, label %68
+  br i1 %.not25, label %109, label %68
 
 68:                                               ; preds = %64
   %69 = load i64, ptr %10, align 8
@@ -48834,115 +48898,116 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   %90 = icmp eq i8 %89, -1
   br i1 %90, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %68, %99
-  %91 = phi i8 [ %106, %99 ], [ %89, %68 ]
-  %92 = phi i64 [ %102, %99 ], [ %85, %68 ]
-  %.01827.i = phi i64 [ %spec.store.select.i.i, %99 ], [ %83, %68 ]
-  %93 = zext i8 %91 to i64
-  %94 = getelementptr %"struct.QHashPrivate::Span", ptr %84, i64 %92, i32 1
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %95, i64 %93
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp eq i32 %97, %70
-  br i1 %98, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %99
+.lr.ph.i:                                         ; preds = %68, %100
+  %91 = phi i8 [ %107, %100 ], [ %89, %68 ]
+  %92 = phi i64 [ %103, %100 ], [ %85, %68 ]
+  %.01827.i = phi i64 [ %spec.store.select.i.i, %100 ], [ %83, %68 ]
+  %93 = getelementptr %"struct.QHashPrivate::Span", ptr %84, i64 %92
+  %94 = zext i8 %91 to i64
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 128
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %96, i64 %94
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp eq i32 %98, %70
+  br i1 %99, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %100
 
-99:                                               ; preds = %.lr.ph.i
-  %100 = add i64 %.01827.i, 1
-  %101 = icmp eq i64 %100, %81
-  %spec.store.select.i.i = select i1 %101, i64 0, i64 %100
-  %102 = lshr i64 %spec.store.select.i.i, 7
-  %103 = and i64 %spec.store.select.i.i, 127
-  %104 = getelementptr %"struct.QHashPrivate::Span", ptr %84, i64 %102
-  %105 = getelementptr i8, ptr %104, i64 %103
-  %106 = load i8, ptr %105, align 1
-  %107 = icmp eq i8 %106, -1
-  br i1 %107, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !251
+100:                                              ; preds = %.lr.ph.i
+  %101 = add i64 %.01827.i, 1
+  %102 = icmp eq i64 %101, %81
+  %spec.store.select.i.i = select i1 %102, i64 0, i64 %101
+  %103 = lshr i64 %spec.store.select.i.i, 7
+  %104 = and i64 %spec.store.select.i.i, 127
+  %105 = getelementptr %"struct.QHashPrivate::Span", ptr %84, i64 %103
+  %106 = getelementptr i8, ptr %105, i64 %104
+  %107 = load i8, ptr %106, align 1
+  %108 = icmp eq i8 %107, -1
+  br i1 %108, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !260
 
-108:                                              ; preds = %64
-  %109 = add nuw nsw i64 %.02331, %58
+109:                                              ; preds = %64
+  %110 = add nuw nsw i64 %.02331, %58
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit
 
-_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit: ; preds = %99, %.lr.ph.i, %68, %108
-  %110 = phi ptr [ %.pre, %108 ], [ %84, %68 ], [ %84, %.lr.ph.i ], [ %84, %99 ]
-  %.sroa.4.0 = phi i64 [ %109, %108 ], [ %83, %68 ], [ %spec.store.select.i.i, %99 ], [ %.01827.i, %.lr.ph.i ]
-  %111 = lshr i64 %.sroa.4.0, 7
-  %112 = getelementptr %"struct.QHashPrivate::Span", ptr %110, i64 %111
-  %113 = and i64 %.sroa.4.0, 127
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 137
-  %115 = load i8, ptr %114, align 1
-  %116 = getelementptr inbounds nuw i8, ptr %112, i64 136
-  %117 = load i8, ptr %116, align 8
-  %118 = icmp eq i8 %115, %117
-  br i1 %118, label %119, label %._crit_edge.i
+_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit: ; preds = %100, %.lr.ph.i, %68, %109
+  %111 = phi ptr [ %.pre, %109 ], [ %84, %68 ], [ %84, %.lr.ph.i ], [ %84, %100 ]
+  %.sroa.4.0 = phi i64 [ %110, %109 ], [ %83, %68 ], [ %spec.store.select.i.i, %100 ], [ %.01827.i, %.lr.ph.i ]
+  %112 = lshr i64 %.sroa.4.0, 7
+  %113 = getelementptr %"struct.QHashPrivate::Span", ptr %111, i64 %112
+  %114 = and i64 %.sroa.4.0, 127
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 137
+  %116 = load i8, ptr %115, align 1
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 136
+  %118 = load i8, ptr %117, align 8
+  %119 = icmp eq i8 %116, %118
+  br i1 %119, label %120, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %112, i64 128
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %113, i64 128
   %.pre4.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit
 
-119:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit
-  %120 = zext i8 %115 to i64
-  %121 = add nuw nsw i64 %120, 16
-  %122 = shl nuw nsw i64 %121, 2
-  %123 = tail call noalias noundef ptr @_Znam(i64 noundef %122) #28
-  %.not.i.i = icmp eq i8 %115, 0
-  br i1 %.not.i.i, label %.preheader, label %124
+120:                                              ; preds = %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit
+  %121 = zext i8 %116 to i64
+  %122 = add nuw nsw i64 %121, 16
+  %123 = shl nuw nsw i64 %122, 2
+  %124 = tail call noalias noundef ptr @_Znam(i64 noundef %123) #28
+  %.not.i.i = icmp eq i8 %116, 0
+  br i1 %.not.i.i, label %.preheader, label %125
 
-.preheader:                                       ; preds = %124, %119
-  br label %133
+.preheader:                                       ; preds = %125, %120
+  br label %134
 
-124:                                              ; preds = %119
-  %125 = getelementptr inbounds nuw i8, ptr %112, i64 128
-  %126 = load ptr, ptr %125, align 8
-  %127 = shl nuw nsw i64 %120, 2
-  %128 = tail call ptr @__memcpy_chk(ptr noundef %123, ptr noundef %126, i64 noundef %127, i64 noundef %122) #26, !alias.scope !264
+125:                                              ; preds = %120
+  %126 = getelementptr inbounds nuw i8, ptr %113, i64 128
+  %127 = load ptr, ptr %126, align 8
+  %128 = shl nuw nsw i64 %121, 2
+  %129 = tail call ptr @__memcpy_chk(ptr noundef %124, ptr noundef %127, i64 noundef %128, i64 noundef %123) #26, !alias.scope !273
   br label %.preheader
 
-129:                                              ; preds = %133
-  %130 = getelementptr inbounds nuw i8, ptr %112, i64 128
-  %131 = load ptr, ptr %130, align 8
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i, label %137
+130:                                              ; preds = %134
+  %131 = getelementptr inbounds nuw i8, ptr %113, i64 128
+  %132 = load ptr, ptr %131, align 8
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i, label %138
 
-133:                                              ; preds = %.preheader, %133
-  %.011.i.i = phi i64 [ %134, %133 ], [ %120, %.preheader ]
-  %134 = add nuw nsw i64 %.011.i.i, 1
-  %135 = trunc i64 %134 to i8
-  %136 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %123, i64 %.011.i.i
-  store i8 %135, ptr %136, align 1
-  %exitcond.not.i.i = icmp eq i64 %134, %121
-  br i1 %exitcond.not.i.i, label %129, label %133, !llvm.loop !256
+134:                                              ; preds = %.preheader, %134
+  %.011.i.i = phi i64 [ %135, %134 ], [ %121, %.preheader ]
+  %135 = add nuw nsw i64 %.011.i.i, 1
+  %136 = trunc i64 %135 to i8
+  %137 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %124, i64 %.011.i.i
+  store i8 %136, ptr %137, align 1
+  %exitcond.not.i.i = icmp eq i64 %135, %122
+  br i1 %exitcond.not.i.i, label %130, label %134, !llvm.loop !265
 
-137:                                              ; preds = %129
-  tail call void @_ZdaPv(ptr noundef nonnull %131) #29
-  %.pre.pre.i = load i8, ptr %114, align 1
+138:                                              ; preds = %130
+  tail call void @_ZdaPv(ptr noundef nonnull %132) #29
+  %.pre.pre.i = load i8, ptr %115, align 1
   br label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i
 
-_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i: ; preds = %137, %129
-  %.pre.i = phi i8 [ %115, %129 ], [ %.pre.pre.i, %137 ]
-  store ptr %123, ptr %130, align 8
-  %138 = trunc i64 %121 to i8
-  store i8 %138, ptr %116, align 8
+_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i: ; preds = %138, %130
+  %.pre.i = phi i8 [ %116, %130 ], [ %.pre.pre.i, %138 ]
+  store ptr %124, ptr %131, align 8
+  %139 = trunc i64 %122 to i8
+  store i8 %139, ptr %117, align 8
   br label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit: ; preds = %._crit_edge.i, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i
-  %139 = phi ptr [ %123, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
-  %140 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %115, %._crit_edge.i ]
-  %141 = zext i8 %140 to i64
-  %142 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %139, i64 %141
-  %143 = load i8, ptr %142, align 1
-  store i8 %143, ptr %114, align 1
-  %144 = getelementptr i8, ptr %112, i64 %113
-  store i8 %140, ptr %144, align 1
-  %145 = load i32, ptr %67, align 4
-  store i32 %145, ptr %142, align 4
-  br label %146
+  %140 = phi ptr [ %124, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %.pre4.i, %._crit_edge.i ]
+  %141 = phi i8 [ %.pre.i, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE10addStorageEv.exit.i ], [ %116, %._crit_edge.i ]
+  %142 = zext i8 %141 to i64
+  %143 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, QHashDummyValue>>::Entry", ptr %140, i64 %142
+  %144 = load i8, ptr %143, align 1
+  store i8 %144, ptr %115, align 1
+  %145 = getelementptr i8, ptr %113, i64 %114
+  store i8 %141, ptr %145, align 1
+  %146 = load i32, ptr %67, align 4
+  store i32 %146, ptr %143, align 4
+  br label %147
 
-146:                                              ; preds = %61, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit
-  %147 = add nuw nsw i64 %.02331, 1
-  %exitcond.not = icmp eq i64 %147, 128
-  br i1 %exitcond.not, label %59, label %61, !llvm.loop !268
+147:                                              ; preds = %61, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit
+  %148 = add nuw nsw i64 %.02331, 1
+  %exitcond.not = icmp eq i64 %148, 128
+  br i1 %exitcond.not, label %59, label %61, !llvm.loop !277
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
@@ -49092,7 +49157,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN5QListIiE8iteratorExN9__gnu_cx
   %33 = getelementptr i32, ptr %0, i64 %.035.i.i.i.i
   store i32 %32, ptr %33, align 4
   %34 = icmp slt i64 %spec.select.i.i.i.i, %21
-  br i1 %34, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !269
+  br i1 %34, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !278
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -49136,14 +49201,14 @@ define linkonce_odr void @_ZSt16__introsort_loopIN5QListIiE8iteratorExN9__gnu_cx
   %51 = getelementptr i32, ptr %0, i64 %.019.i.i.i.i.i
   store i32 %48, ptr %51, align 4
   %.not7.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
-  br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !270
+  br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !279
 
 _ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.i.i: ; preds = %50, %.lr.ph.i.i.i.i.i, %46
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %46 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %50 ]
   %52 = getelementptr i32, ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store i32 %15, ptr %52, align 4
   %53 = icmp sgt i64 %18, 4
-  br i1 %53, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_.exit, !llvm.loop !271
+  br i1 %53, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_.exit, !llvm.loop !280
 
 54:                                               ; preds = %10
   %55 = add i64 %.019, -1
@@ -49220,14 +49285,14 @@ _ZSt22__move_median_to_firstIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_i
   %83 = load i32, ptr %.sroa.010.1.i.i, align 4
   %84 = icmp slt i32 %83, %81
   %85 = getelementptr i8, ptr %.sroa.010.1.i.i, i64 4
-  br i1 %84, label %82, label %.preheader.i.i, !llvm.loop !272
+  br i1 %84, label %82, label %.preheader.i.i, !llvm.loop !281
 
 .preheader.i.i:                                   ; preds = %82, %.preheader.i.i
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %82 ]
   %.sroa.0.1.i.i = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -4
   %86 = load i32, ptr %.sroa.0.1.i.i, align 4
   %87 = icmp slt i32 %81, %86
-  br i1 %87, label %.preheader.i.i, label %88, !llvm.loop !273
+  br i1 %87, label %.preheader.i.i, label %88, !llvm.loop !282
 
 88:                                               ; preds = %.preheader.i.i
   %89 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
@@ -49236,7 +49301,7 @@ _ZSt22__move_median_to_firstIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_i
 90:                                               ; preds = %88
   store i32 %86, ptr %.sroa.010.1.i.i, align 4
   store i32 %83, ptr %.sroa.0.1.i.i, align 4
-  br label %_ZSt22__move_median_to_firstIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_S6_T0_.exit.i, !llvm.loop !274
+  br label %_ZSt22__move_median_to_firstIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_S6_T0_.exit.i, !llvm.loop !283
 
 _ZSt27__unguarded_partition_pivotIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEET_S6_S6_T0_.exit: ; preds = %88
   tail call void @_ZSt16__introsort_loopIN5QListIiE8iteratorExN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_(ptr %.sroa.010.1.i.i, ptr %storemerge18, i64 noundef %55)
@@ -49244,7 +49309,7 @@ _ZSt27__unguarded_partition_pivotIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_l
   %92 = sub i64 %91, %4
   %93 = ashr exact i64 %92, 2
   %94 = icmp sgt i64 %93, 16
-  br i1 %94, label %10, label %_ZSt14__partial_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_.exit, !llvm.loop !275
+  br i1 %94, label %10, label %_ZSt14__partial_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_.exit, !llvm.loop !284
 
 _ZSt14__partial_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEET_S6_S6_T0_.exit, %_ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.i.i, %3
   ret void
@@ -49292,7 +49357,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN5QListIiE8iteratorEN9__g
   store i32 %19, ptr %20, align 4
   %21 = add nsw i64 %.010.i.i.i.i.i.i, -1
   %22 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
-  br i1 %22, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i, !llvm.loop !276
+  br i1 %22, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i, !llvm.loop !285
 
 23:                                               ; preds = %8
   %24 = load i32, ptr %.pn18.i, align 4
@@ -49307,14 +49372,14 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN5QListIiE8iteratorEN9__g
   %.sroa.0.0.i.i = getelementptr i8, ptr %.sroa.0.09.i.i, i64 -4
   %27 = load i32, ptr %.sroa.0.0.i.i, align 4
   %28 = icmp slt i32 %9, %27
-  br i1 %28, label %.lr.ph.i.i, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i, !llvm.loop !277
+  br i1 %28, label %.lr.ph.i.i, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i, !llvm.loop !286
 
 _ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i.i.i, %23, %12
   %.sink.i = phi ptr [ %0, %12 ], [ %.sroa.0.019.i, %23 ], [ %0, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.09.i.i, %.lr.ph.i.i ]
   store i32 %9, ptr %.sink.i, align 4
   %.sroa.0.0.i = getelementptr i8, ptr %.sroa.0.019.i, i64 4
   %.not.i = icmp eq ptr %.sroa.0.0.i, %7
-  br i1 %.not.i, label %_ZSt16__insertion_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %8, !llvm.loop !278
+  br i1 %.not.i, label %_ZSt16__insertion_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %8, !llvm.loop !287
 
 _ZSt16__insertion_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i
   %.not5.i = icmp eq ptr %7, %1
@@ -49336,14 +49401,14 @@ _ZSt16__insertion_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEv
   %.sroa.0.0.i.i12 = getelementptr i8, ptr %.sroa.0.09.i.i10, i64 -4
   %33 = load i32, ptr %.sroa.0.0.i.i12, align 4
   %34 = icmp slt i32 %29, %33
-  br i1 %34, label %.lr.ph.i.i9, label %_ZSt25__unguarded_linear_insertIN5QListIiE8iteratorEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !277
+  br i1 %34, label %.lr.ph.i.i9, label %_ZSt25__unguarded_linear_insertIN5QListIiE8iteratorEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !286
 
 _ZSt25__unguarded_linear_insertIN5QListIiE8iteratorEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i9, %.lr.ph.i7
   %.sroa.04.0.lcssa.i.i = phi ptr [ %.sroa.0.06.i, %.lr.ph.i7 ], [ %.sroa.0.09.i.i10, %.lr.ph.i.i9 ]
   store i32 %29, ptr %.sroa.04.0.lcssa.i.i, align 4
   %35 = getelementptr i8, ptr %.sroa.0.06.i, i64 4
   %.not.i8 = icmp eq ptr %35, %1
-  br i1 %.not.i8, label %_ZSt26__unguarded_insertion_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %.lr.ph.i7, !llvm.loop !279
+  br i1 %.not.i8, label %_ZSt26__unguarded_insertion_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %.lr.ph.i7, !llvm.loop !288
 
 36:                                               ; preds = %2
   %37 = icmp eq ptr %0, %1
@@ -49380,7 +49445,7 @@ _ZSt25__unguarded_linear_insertIN5QListIiE8iteratorEN9__gnu_cxx5__ops14_Val_less
   store i32 %48, ptr %49, align 4
   %50 = add nsw i64 %.010.i.i.i.i.i.i29, -1
   %51 = icmp samesign ugt i64 %.010.i.i.i.i.i.i29, 1
-  br i1 %51, label %.lr.ph.i.i.i.i.i.i28, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i19, !llvm.loop !276
+  br i1 %51, label %.lr.ph.i.i.i.i.i.i28, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i19, !llvm.loop !285
 
 52:                                               ; preds = %.lr.ph.i16
   %53 = load i32, ptr %.pn18.i18, align 4
@@ -49395,14 +49460,14 @@ _ZSt25__unguarded_linear_insertIN5QListIiE8iteratorEN9__gnu_cxx5__ops14_Val_less
   %.sroa.0.0.i.i26 = getelementptr i8, ptr %.sroa.0.09.i.i24, i64 -4
   %56 = load i32, ptr %.sroa.0.0.i.i26, align 4
   %57 = icmp slt i32 %38, %56
-  br i1 %57, label %.lr.ph.i.i23, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i19, !llvm.loop !277
+  br i1 %57, label %.lr.ph.i.i23, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i19, !llvm.loop !286
 
 _ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i19: ; preds = %.lr.ph.i.i23, %.lr.ph.i.i.i.i.i.i28, %52, %41
   %.sink.i20 = phi ptr [ %0, %41 ], [ %.sroa.0.019.i17, %52 ], [ %0, %.lr.ph.i.i.i.i.i.i28 ], [ %.sroa.0.09.i.i24, %.lr.ph.i.i23 ]
   store i32 %38, ptr %.sink.i20, align 4
   %.sroa.0.0.i21 = getelementptr i8, ptr %.sroa.0.019.i17, i64 4
   %.not.i22 = icmp eq ptr %.sroa.0.0.i21, %1
-  br i1 %.not.i22, label %_ZSt26__unguarded_insertion_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %.lr.ph.i16, !llvm.loop !278
+  br i1 %.not.i22, label %_ZSt26__unguarded_insertion_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %.lr.ph.i16, !llvm.loop !287
 
 _ZSt26__unguarded_insertion_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i19, %_ZSt25__unguarded_linear_insertIN5QListIiE8iteratorEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %36, %_ZSt16__insertion_sortIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit
   ret void
@@ -49464,7 +49529,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN5QListIiE8iteratorEN9__gnu_cxx5__
   %33 = getelementptr i32, ptr %.fr28, i64 %.035.i.i.us
   store i32 %32, ptr %33, align 4
   %34 = icmp slt i64 %spec.select.i.i.us, %11
-  br i1 %34, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !269
+  br i1 %34, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !278
 
 35:                                               ; preds = %._crit_edge.i.i.loopexit.us
   %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
@@ -49492,7 +49557,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN5QListIiE8iteratorEN9__gnu_cxx5__
   %41 = getelementptr i32, ptr %.fr28, i64 %.019.i.i.i.us
   store i32 %38, ptr %41, align 4
   %.not7.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
-  br i1 %.not7.i.us, label %_ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !270
+  br i1 %.not7.i.us, label %_ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !279
 
 _ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %40, %35
   %.0.lcssa.i.i.i.us = phi i64 [ 0, %35 ], [ %.019.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %40 ]
@@ -49503,7 +49568,7 @@ _ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S
 43:                                               ; preds = %_ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_RT0_.exit.us, %.lr.ph.split.us
   %44 = getelementptr i8, ptr %.sroa.0.012.us, i64 4
   %45 = icmp ult ptr %44, %2
-  br i1 %45, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !280
+  br i1 %45, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !289
 
 ._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
   %46 = icmp eq i64 %spec.select.i.i.us, %16
@@ -49546,7 +49611,7 @@ _ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S
 55:                                               ; preds = %._crit_edge.i.i.us14.us, %.lr.ph.split.split.us.split.us
   %56 = getelementptr i8, ptr %.sroa.0.012.us13.us, i64 4
   %57 = icmp ult ptr %56, %2
-  br i1 %57, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !280
+  br i1 %57, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !289
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %61
   %58 = phi i32 [ %62, %61 ], [ %.pre32, %.lr.ph.split.split.us.split.preheader ]
@@ -49564,7 +49629,7 @@ _ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S
   %62 = phi i32 [ %59, %._crit_edge.i.i.us14 ], [ %58, %.lr.ph.split.split.us.split ]
   %63 = getelementptr i8, ptr %.sroa.0.012.us13, i64 4
   %64 = icmp ult ptr %63, %2
-  br i1 %64, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !280
+  br i1 %64, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !289
 
 ._crit_edge:                                      ; preds = %68, %61, %55, %43, %3
   ret void
@@ -49585,7 +49650,7 @@ _ZSt10__pop_heapIN5QListIiE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S
   %69 = phi i32 [ %65, %.lr.ph.split.split ], [ %66, %._crit_edge.i.i ]
   %70 = getelementptr i8, ptr %.sroa.0.012, i64 4
   %71 = icmp ult ptr %70, %2
-  br i1 %71, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !280
+  br i1 %71, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !289
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
@@ -49638,7 +49703,7 @@ define linkonce_odr void @_ZSt11__make_heapIN5QListIiE8iteratorEN9__gnu_cxx5__op
   %33 = getelementptr i32, ptr %.fr16, i64 %.035.i.us
   store i32 %32, ptr %33, align 4
   %34 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !269
+  br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !278
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %35 = icmp sgt i64 %spec.select.i.us, %.010.us
@@ -49657,7 +49722,7 @@ define linkonce_odr void @_ZSt11__make_heapIN5QListIiE8iteratorEN9__gnu_cxx5__op
   %40 = getelementptr i32, ptr %.fr16, i64 %.019.i.i.us
   store i32 %37, ptr %40, align 4
   %41 = icmp sgt i64 %.0920.i.i.us, %.010.us
-  br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit.us, !llvm.loop !270
+  br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit.us, !llvm.loop !279
 
 _ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.010.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
@@ -49665,7 +49730,7 @@ _ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT
   store i32 %21, ptr %42, align 4
   %.not.us = icmp eq i64 %.010.us, 0
   %43 = add nsw i64 %.010.us, -1
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !281
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !290
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit
   %.010 = phi i64 [ %71, %_ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit ], [ %11, %.split.preheader ]
@@ -49690,7 +49755,7 @@ _ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT
   %57 = getelementptr i32, ptr %.fr16, i64 %.035.i
   store i32 %56, ptr %57, align 4
   %58 = icmp slt i64 %spec.select.i, %13
-  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !269
+  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !278
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.010, %.split ], [ %spec.select.i, %.lr.ph.i ]
@@ -49720,7 +49785,7 @@ _ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT
   %68 = getelementptr i32, ptr %.fr16, i64 %.019.i.i
   store i32 %65, ptr %68, align 4
   %69 = icmp sgt i64 %.0920.i.i, %.010
-  br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit, !llvm.loop !270
+  br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit, !llvm.loop !279
 
 _ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit: ; preds = %.lr.ph.i.i, %67, %62
   %.0.lcssa.i.i = phi i64 [ %.1.i, %62 ], [ %.0920.i.i, %67 ], [ %.019.i.i, %.lr.ph.i.i ]
@@ -49728,7 +49793,7 @@ _ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT
   store i32 %45, ptr %70, align 4
   %.not = icmp eq i64 %.010, 0
   %71 = add nsw i64 %.010, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !281
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !290
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit.us, %_ZSt13__adjust_heapIN5QListIiE8iteratorExiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit, %3
   ret void
@@ -50124,7 +50189,7 @@ define linkonce_odr noundef i64 @_ZN9QtPrivate19sequential_erase_ifI5QListIP14Rt
   %29 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 32
   %30 = add nsw i64 %.052.i.i.i, -1
   %31 = icmp sgt i64 %.052.i.i.i, 1
-  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !282
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !291
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %28
   %gepdiff = and i64 %.idx44, 24
@@ -50260,7 +50325,7 @@ _ZSt4nextIN5QListIP14RtpAudioStreamE8iteratorEET_S5_NSt15iterator_traitsIS5_E15d
   %.sroa.038.1 = phi ptr [ %.sroa.038.054, %.lr.ph ], [ %78, %77 ]
   %80 = getelementptr i8, ptr %72, i64 8
   %.not = icmp eq ptr %80, %68
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !283
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !292
 
 ._crit_edge.loopexit:                             ; preds = %79
   %.pre62 = load ptr, ptr %3, align 8
@@ -50619,25 +50684,25 @@ attributes #33 = { cold noreturn }
 !223 = distinct !{!223, !224, !"_ZZNK8QMapDataISt3mapI7QStringbSt4lessIS1_ESaISt4pairIKS1_bEEEE4keysEvENKUlRKT_E_clIS6_EEDaSC_: argument 0"}
 !224 = distinct !{!224, !"_ZZNK8QMapDataISt3mapI7QStringbSt4lessIS1_ESaISt4pairIKS1_bEEEE4keysEvENKUlRKT_E_clIS6_EEDaSC_"}
 !225 = distinct !{!225, !40}
-!226 = !{!227, !229}
-!227 = distinct !{!227, !228, !"memcpy.inline: argument 0"}
-!228 = distinct !{!228, !"memcpy.inline"}
-!229 = distinct !{!229, !228, !"memcpy.inline: argument 1"}
-!230 = distinct !{!230, !40}
-!231 = distinct !{!231, !40}
-!232 = !{!233, !235}
-!233 = distinct !{!233, !234, !"memcpy.inline: argument 0"}
-!234 = distinct !{!234, !"memcpy.inline"}
-!235 = distinct !{!235, !234, !"memcpy.inline: argument 1"}
-!236 = distinct !{!236, !40}
-!237 = distinct !{!237, !40}
-!238 = !{!239, !241}
-!239 = distinct !{!239, !240, !"memcpy.inline: argument 0"}
-!240 = distinct !{!240, !"memcpy.inline"}
-!241 = distinct !{!241, !240, !"memcpy.inline: argument 1"}
-!242 = distinct !{!242, !40}
-!243 = distinct !{!243, !40}
-!244 = distinct !{!244, !40}
+!226 = !{!227}
+!227 = distinct !{!227, !228, !"_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJS1_EEENS2_8iteratorEOjDpOT_: argument 0"}
+!228 = distinct !{!228, !"_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJS1_EEENS2_8iteratorEOjDpOT_"}
+!229 = !{!230}
+!230 = distinct !{!230, !231, !"_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_: argument 0"}
+!231 = distinct !{!231, !"_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_"}
+!232 = !{!233}
+!233 = distinct !{!233, !234, !"_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_: argument 0"}
+!234 = distinct !{!234, !"_ZN10QMultiHashIjP14RtpAudioStreamE14emplace_helperIJRKS1_EEENS2_8iteratorEOjDpOT_"}
+!235 = !{!236, !238}
+!236 = distinct !{!236, !237, !"memcpy.inline: argument 0"}
+!237 = distinct !{!237, !"memcpy.inline"}
+!238 = distinct !{!238, !237, !"memcpy.inline: argument 1"}
+!239 = distinct !{!239, !40}
+!240 = distinct !{!240, !40}
+!241 = !{!242, !244}
+!242 = distinct !{!242, !243, !"memcpy.inline: argument 0"}
+!243 = distinct !{!243, !"memcpy.inline"}
+!244 = distinct !{!244, !243, !"memcpy.inline: argument 1"}
 !245 = distinct !{!245, !40}
 !246 = distinct !{!246, !40}
 !247 = !{!248, !250}
@@ -50645,31 +50710,31 @@ attributes #33 = { cold noreturn }
 !249 = distinct !{!249, !"memcpy.inline"}
 !250 = distinct !{!250, !249, !"memcpy.inline: argument 1"}
 !251 = distinct !{!251, !40}
-!252 = !{!253, !255}
-!253 = distinct !{!253, !254, !"memcpy.inline: argument 0"}
-!254 = distinct !{!254, !"memcpy.inline"}
-!255 = distinct !{!255, !254, !"memcpy.inline: argument 1"}
-!256 = distinct !{!256, !40}
-!257 = distinct !{!257, !40}
-!258 = !{!259, !261}
-!259 = distinct !{!259, !260, !"memcpy.inline: argument 0"}
-!260 = distinct !{!260, !"memcpy.inline"}
-!261 = distinct !{!261, !260, !"memcpy.inline: argument 1"}
-!262 = distinct !{!262, !40}
-!263 = distinct !{!263, !40}
-!264 = !{!265, !267}
-!265 = distinct !{!265, !266, !"memcpy.inline: argument 0"}
-!266 = distinct !{!266, !"memcpy.inline"}
-!267 = distinct !{!267, !266, !"memcpy.inline: argument 1"}
-!268 = distinct !{!268, !40}
-!269 = distinct !{!269, !40}
-!270 = distinct !{!270, !40}
+!252 = distinct !{!252, !40}
+!253 = distinct !{!253, !40}
+!254 = distinct !{!254, !40}
+!255 = distinct !{!255, !40}
+!256 = !{!257, !259}
+!257 = distinct !{!257, !258, !"memcpy.inline: argument 0"}
+!258 = distinct !{!258, !"memcpy.inline"}
+!259 = distinct !{!259, !258, !"memcpy.inline: argument 1"}
+!260 = distinct !{!260, !40}
+!261 = !{!262, !264}
+!262 = distinct !{!262, !263, !"memcpy.inline: argument 0"}
+!263 = distinct !{!263, !"memcpy.inline"}
+!264 = distinct !{!264, !263, !"memcpy.inline: argument 1"}
+!265 = distinct !{!265, !40}
+!266 = distinct !{!266, !40}
+!267 = !{!268, !270}
+!268 = distinct !{!268, !269, !"memcpy.inline: argument 0"}
+!269 = distinct !{!269, !"memcpy.inline"}
+!270 = distinct !{!270, !269, !"memcpy.inline: argument 1"}
 !271 = distinct !{!271, !40}
 !272 = distinct !{!272, !40}
-!273 = distinct !{!273, !40}
-!274 = distinct !{!274, !40}
-!275 = distinct !{!275, !40}
-!276 = distinct !{!276, !40}
+!273 = !{!274, !276}
+!274 = distinct !{!274, !275, !"memcpy.inline: argument 0"}
+!275 = distinct !{!275, !"memcpy.inline"}
+!276 = distinct !{!276, !275, !"memcpy.inline: argument 1"}
 !277 = distinct !{!277, !40}
 !278 = distinct !{!278, !40}
 !279 = distinct !{!279, !40}
@@ -50677,3 +50742,12 @@ attributes #33 = { cold noreturn }
 !281 = distinct !{!281, !40}
 !282 = distinct !{!282, !40}
 !283 = distinct !{!283, !40}
+!284 = distinct !{!284, !40}
+!285 = distinct !{!285, !40}
+!286 = distinct !{!286, !40}
+!287 = distinct !{!287, !40}
+!288 = distinct !{!288, !40}
+!289 = distinct !{!289, !40}
+!290 = distinct !{!290, !40}
+!291 = distinct !{!291, !40}
+!292 = distinct !{!292, !40}

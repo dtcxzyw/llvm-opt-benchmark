@@ -1773,50 +1773,52 @@ define internal void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   br label %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit.i"
 
 "_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit.i": ; preds = %6, %1
-  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %7, %6 ]
+  %.sroa.0.0.i = phi i64 [ 0, %1 ], [ %8, %6 ]
   %5 = icmp eq i64 %.sroa.0.0.i, %4
   br i1 %5, label %"_ZN4core3ptr54drop_in_place$LT$$u5b$wasmi..module..Imported$u5d$$GT$17h5f93e47d8d175badE.exit", label %6
 
 6:                                                ; preds = %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit.i"
-  %7 = add i64 %.sroa.0.0.i, 1
-  %8 = getelementptr inbounds nuw { i64, [4 x i64] }, ptr %2, i64 %.sroa.0.0.i, i32 1
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$wasmi..module..import..ImportName$GT$17h7f3e706be27fd8f0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
-          to label %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit.i" unwind label %10
+  %7 = getelementptr inbounds nuw { i64, [4 x i64] }, ptr %2, i64 %.sroa.0.0.i
+  %8 = add i64 %.sroa.0.0.i, 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$wasmi..module..import..ImportName$GT$17h7f3e706be27fd8f0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
+          to label %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit.i" unwind label %11
 
-"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit7.i": ; preds = %12, %10
-  %.sroa.0.1.i = phi i64 [ %7, %10 ], [ %13, %12 ]
-  %9 = icmp eq i64 %.sroa.0.1.i, %4
-  br i1 %9, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i", label %12
+"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit7.i": ; preds = %13, %11
+  %.sroa.0.1.i = phi i64 [ %8, %11 ], [ %15, %13 ]
+  %10 = icmp eq i64 %.sroa.0.1.i, %4
+  br i1 %10, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i", label %13
 
-10:                                               ; preds = %6
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %6
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit7.i"
 
-12:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit7.i"
-  %13 = add i64 %.sroa.0.1.i, 1
-  %14 = getelementptr inbounds nuw { i64, [4 x i64] }, ptr %2, i64 %.sroa.0.1.i, i32 1
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$wasmi..module..import..ImportName$GT$17h7f3e706be27fd8f0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-          to label %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit7.i" unwind label %15
+13:                                               ; preds = %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit7.i"
+  %14 = getelementptr inbounds nuw { i64, [4 x i64] }, ptr %2, i64 %.sroa.0.1.i
+  %15 = add i64 %.sroa.0.1.i, 1
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$wasmi..module..import..ImportName$GT$17h7f3e706be27fd8f0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16)
+          to label %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit7.i" unwind label %17
 
-15:                                               ; preds = %12
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #33
   unreachable
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i": ; preds = %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit7.i"
-  %17 = mul nuw nsw i64 %4, 40
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef %17, i64 noundef 8) #22
-  resume { ptr, i32 } %11
-
-"_ZN4core3ptr54drop_in_place$LT$$u5b$wasmi..module..Imported$u5d$$GT$17h5f93e47d8d175badE.exit": ; preds = %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit.i"
-  %18 = icmp eq i64 %4, 0
-  br i1 %18, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf66bb19d053bb290E.exit5", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4"
-
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4": ; preds = %"_ZN4core3ptr54drop_in_place$LT$$u5b$wasmi..module..Imported$u5d$$GT$17h5f93e47d8d175badE.exit"
   %19 = mul nuw nsw i64 %4, 40
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef 8) #22
+  resume { ptr, i32 } %12
+
+"_ZN4core3ptr54drop_in_place$LT$$u5b$wasmi..module..Imported$u5d$$GT$17h5f93e47d8d175badE.exit": ; preds = %"_ZN4core3ptr44drop_in_place$LT$wasmi..module..Imported$GT$17h605aefbc70407db3E.exit.i"
+  %20 = icmp eq i64 %4, 0
+  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf66bb19d053bb290E.exit5", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4"
+
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4": ; preds = %"_ZN4core3ptr54drop_in_place$LT$$u5b$wasmi..module..Imported$u5d$$GT$17h5f93e47d8d175badE.exit"
+  %21 = mul nuw nsw i64 %4, 40
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef %21, i64 noundef 8) #22
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf66bb19d053bb290E.exit5"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf66bb19d053bb290E.exit5": ; preds = %"_ZN4core3ptr54drop_in_place$LT$$u5b$wasmi..module..Imported$u5d$$GT$17h5f93e47d8d175badE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4"

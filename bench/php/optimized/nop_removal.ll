@@ -160,14 +160,14 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %75 = load i32, ptr %74, align 4, !tbaa !28
   %76 = sub i32 %72, %75
   store i32 %76, ptr %71, align 4, !tbaa !33
-  %77 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %67, i64 %indvars.iv, i32 1
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !35
   %79 = zext i32 %78 to i64
   %80 = getelementptr inbounds nuw i32, ptr %13, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !28
   %82 = sub i32 %78, %81
   store i32 %82, ptr %77, align 4, !tbaa !35
-  %83 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %67, i64 %indvars.iv, i32 2
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %84 = load i32, ptr %83, align 4, !tbaa !36
   %.not117 = icmp eq i32 %84, 0
   br i1 %.not117, label %96, label %85
@@ -178,7 +178,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %88 = load i32, ptr %87, align 4, !tbaa !28
   %89 = sub i32 %84, %88
   store i32 %89, ptr %83, align 4, !tbaa !36
-  %90 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %67, i64 %indvars.iv, i32 3
+  %90 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %91 = load i32, ptr %90, align 4, !tbaa !37
   %92 = zext i32 %91 to i64
   %93 = getelementptr inbounds nuw i32, ptr %13, i64 %92

@@ -692,8 +692,8 @@ define dso_local zeroext i1 @heap_attisnull(ptr noundef readonly captures(none) 
 
 12:                                               ; preds = %11
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr %struct.CompactAttribute, ptr %2, i64 %13, i32 4
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %14 = getelementptr %struct.CompactAttribute, ptr %2, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 4, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %39, label %18
@@ -876,9 +876,8 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 .lr.ph192:                                        ; preds = %60, %62
   %.0130191 = phi i32 [ %63, %62 ], [ 0, %60 ]
   %64 = sext i32 %.0130191 to i64
-  %.idx = shl nsw i64 %64, 4
-  %65 = getelementptr i8, ptr %29, i64 %.idx
-  %66 = getelementptr i8, ptr %65, i64 4
+  %65 = getelementptr inbounds %struct.CompactAttribute, ptr %29, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i16, ptr %66, align 4
   %68 = icmp slt i16 %67, 1
   br i1 %68, label %.preheader, label %62

@@ -102,39 +102,40 @@ define void @col_setup(ptr noundef captures(none) initializes((8, 12), (16, 40))
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr %struct.col_item_t, ptr %14, i64 %indvars.iv, i32 5
-  store ptr null, ptr %15, align 8
+  %15 = getelementptr %struct.col_item_t, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr null, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %16 = add i32 %1, 1
-  %17 = sext i32 %16 to i64
-  %18 = tail call noalias ptr @g_malloc_n(i64 noundef %17, i64 noundef 8) #18
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %18, ptr %19, align 8
-  %20 = tail call noalias ptr @g_malloc_n(i64 noundef %17, i64 noundef 8) #18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %20, ptr %21, align 8
-  br label %22
+  %17 = add i32 %1, 1
+  %18 = sext i32 %17 to i64
+  %19 = tail call noalias ptr @g_malloc_n(i64 noundef %18, i64 noundef 8) #18
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %19, ptr %20, align 8
+  %21 = tail call noalias ptr @g_malloc_n(i64 noundef %18, i64 noundef 8) #18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %21, ptr %22, align 8
+  br label %23
 
-22:                                               ; preds = %._crit_edge, %22
-  %indvars.iv92 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next93, %22 ]
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr i32, ptr %23, i64 %indvars.iv92
-  store i32 -1, ptr %24, align 4
-  %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr i32, ptr %25, i64 %indvars.iv92
-  store i32 -1, ptr %26, align 4
+23:                                               ; preds = %._crit_edge, %23
+  %indvars.iv92 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next93, %23 ]
+  %24 = load ptr, ptr %10, align 8
+  %25 = getelementptr i32, ptr %24, i64 %indvars.iv92
+  store i32 -1, ptr %25, align 4
+  %26 = load ptr, ptr %12, align 8
+  %27 = getelementptr i32, ptr %26, i64 %indvars.iv92
+  store i32 -1, ptr %27, align 4
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 47
-  br i1 %exitcond95.not, label %27, label %22, !llvm.loop !8
+  br i1 %exitcond95.not, label %28, label %23, !llvm.loop !8
 
-27:                                               ; preds = %22
-  %28 = tail call ptr @g_regex_new(ptr noundef nonnull @.str, i32 noundef 2048, i32 noundef 0, ptr noundef null)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %28, ptr %29, align 8
+28:                                               ; preds = %23
+  %29 = tail call ptr @g_regex_new(ptr noundef nonnull @.str, i32 noundef 2048, i32 noundef 0, ptr noundef null)
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %29, ptr %30, align 8
   ret void
 }
 
@@ -3152,69 +3153,70 @@ define zeroext i1 @col_has_time_fmt(ptr noundef readonly captures(none) %0, i32 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr %struct.col_item_t, ptr %4, i64 %5, i32 1
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr i8, ptr %7, i64 46
-  %9 = load i8, ptr %8, align 1, !range !11, !noundef !13
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %46, label %11
+  %6 = getelementptr %struct.col_item_t, ptr %4, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr i8, ptr %8, i64 46
+  %10 = load i8, ptr %9, align 1, !range !11, !noundef !13
+  %11 = trunc nuw i8 %10 to i1
+  br i1 %11, label %47, label %12
 
-11:                                               ; preds = %2
-  %12 = getelementptr i8, ptr %7, i64 2
-  %13 = load i8, ptr %12, align 1, !range !11, !noundef !13
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %46, label %15
+12:                                               ; preds = %2
+  %13 = getelementptr i8, ptr %8, i64 2
+  %14 = load i8, ptr %13, align 1, !range !11, !noundef !13
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %47, label %16
 
-15:                                               ; preds = %11
-  %16 = load i8, ptr %7, align 1, !range !11, !noundef !13
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %46, label %18
+16:                                               ; preds = %12
+  %17 = load i8, ptr %8, align 1, !range !11, !noundef !13
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %47, label %19
 
-18:                                               ; preds = %15
-  %19 = getelementptr i8, ptr %7, i64 1
-  %20 = load i8, ptr %19, align 1, !range !11, !noundef !13
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %46, label %22
+19:                                               ; preds = %16
+  %20 = getelementptr i8, ptr %8, i64 1
+  %21 = load i8, ptr %20, align 1, !range !11, !noundef !13
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %47, label %23
 
-22:                                               ; preds = %18
-  %23 = getelementptr i8, ptr %7, i64 45
-  %24 = load i8, ptr %23, align 1, !range !11, !noundef !13
-  %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %46, label %26
+23:                                               ; preds = %19
+  %24 = getelementptr i8, ptr %8, i64 45
+  %25 = load i8, ptr %24, align 1, !range !11, !noundef !13
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %47, label %27
 
-26:                                               ; preds = %22
-  %27 = getelementptr i8, ptr %7, i64 43
-  %28 = load i8, ptr %27, align 1, !range !11, !noundef !13
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %46, label %30
+27:                                               ; preds = %23
+  %28 = getelementptr i8, ptr %8, i64 43
+  %29 = load i8, ptr %28, align 1, !range !11, !noundef !13
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %47, label %31
 
-30:                                               ; preds = %26
-  %31 = getelementptr i8, ptr %7, i64 44
-  %32 = load i8, ptr %31, align 1, !range !11, !noundef !13
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %46, label %34
+31:                                               ; preds = %27
+  %32 = getelementptr i8, ptr %8, i64 44
+  %33 = load i8, ptr %32, align 1, !range !11, !noundef !13
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %47, label %35
 
-34:                                               ; preds = %30
-  %35 = getelementptr i8, ptr %7, i64 36
-  %36 = load i8, ptr %35, align 1, !range !11, !noundef !13
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %46, label %38
+35:                                               ; preds = %31
+  %36 = getelementptr i8, ptr %8, i64 36
+  %37 = load i8, ptr %36, align 1, !range !11, !noundef !13
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %47, label %39
 
-38:                                               ; preds = %34
-  %39 = getelementptr i8, ptr %7, i64 5
-  %40 = load i8, ptr %39, align 1, !range !11, !noundef !13
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %46, label %42
+39:                                               ; preds = %35
+  %40 = getelementptr i8, ptr %8, i64 5
+  %41 = load i8, ptr %40, align 1, !range !11, !noundef !13
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %47, label %43
 
-42:                                               ; preds = %38
-  %43 = getelementptr i8, ptr %7, i64 6
-  %44 = load i8, ptr %43, align 1, !range !11, !noundef !13
-  %45 = trunc nuw i8 %44 to i1
-  br label %46
+43:                                               ; preds = %39
+  %44 = getelementptr i8, ptr %8, i64 6
+  %45 = load i8, ptr %44, align 1, !range !11, !noundef !13
+  %46 = trunc nuw i8 %45 to i1
+  br label %47
 
-46:                                               ; preds = %42, %38, %34, %30, %26, %22, %18, %15, %11, %2
-  %47 = phi i1 [ true, %38 ], [ true, %34 ], [ true, %30 ], [ true, %26 ], [ true, %22 ], [ true, %18 ], [ true, %15 ], [ true, %11 ], [ true, %2 ], [ %45, %42 ]
-  ret i1 %47
+47:                                               ; preds = %43, %39, %35, %31, %27, %23, %19, %16, %12, %2
+  %48 = phi i1 [ true, %39 ], [ true, %35 ], [ true, %31 ], [ true, %27 ], [ true, %23 ], [ true, %19 ], [ true, %16 ], [ true, %12 ], [ true, %2 ], [ %46, %43 ]
+  ret i1 %48
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4101,8 +4103,8 @@ define void @col_fill_in_frame_data(ptr noundef %0, ptr noundef readonly capture
     i32 36, label %23
     i32 5, label %23
     i32 6, label %23
-    i32 34, label %245
-    i32 3, label %252
+    i32 34, label %259
+    i32 3, label %266
   ]
 
 10:                                               ; preds = %4
@@ -4134,405 +4136,419 @@ define void @col_fill_in_frame_data(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not.i, label %31, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr %struct.col_item_t, ptr %6, i64 %7, i32 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i64 @g_strlcpy(ptr noundef %29, ptr noundef nonnull @.str.30, i64 noundef 2048)
   br label %col_set_fmt_time.exit
 
 31:                                               ; preds = %23
-  switch i32 %9, label %244 [
+  switch i32 %9, label %258 [
     i32 46, label %32
-    i32 2, label %159
-    i32 0, label %179
-    i32 1, label %180
-    i32 36, label %200
-    i32 5, label %201
-    i32 6, label %202
-    i32 45, label %203
-    i32 43, label %223
-    i32 44, label %224
+    i32 2, label %169
+    i32 0, label %190
+    i32 1, label %191
+    i32 36, label %212
+    i32 5, label %213
+    i32 6, label %214
+    i32 45, label %215
+    i32 43, label %236
+    i32 44, label %237
   ]
 
 32:                                               ; preds = %31
   %33 = tail call i32 @timestamp_get_type()
   switch i32 %33, label %col_set_fmt_time.exit [
     i32 1, label %34
-    i32 2, label %55
-    i32 3, label %56
-    i32 0, label %77
-    i32 4, label %78
-    i32 5, label %79
-    i32 6, label %80
-    i32 7, label %115
-    i32 8, label %136
-    i32 9, label %137
-    i32 10, label %158
+    i32 2, label %57
+    i32 3, label %58
+    i32 0, label %81
+    i32 4, label %82
+    i32 5, label %83
+    i32 6, label %84
+    i32 7, label %121
+    i32 8, label %144
+    i32 9, label %145
+    i32 10, label %168
   ]
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr %struct.col_item_t, ptr %35, i64 %7, i32 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr @col_decimal_point, align 8
-  tail call fastcc void @set_abs_time(ptr noundef %0, ptr noundef %37, ptr noundef %38, i1 noundef zeroext true)
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr ptr, ptr %40, i64 %7
-  store ptr @.str.32, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr ptr, ptr %43, i64 %7
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr %struct.col_item_t, ptr %46, i64 %7, i32 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call i64 @g_strlcpy(ptr noundef %45, ptr noundef %48, i64 noundef 2048)
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr %struct.col_item_t, ptr %50, i64 %7
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 56
-  store ptr %53, ptr %54, align 8
+  %36 = getelementptr %struct.col_item_t, ptr %35, i64 %7
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr @col_decimal_point, align 8
+  tail call fastcc void @set_abs_time(ptr noundef %0, ptr noundef %38, ptr noundef %39, i1 noundef zeroext true)
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr ptr, ptr %41, i64 %7
+  store ptr @.str.32, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr ptr, ptr %44, i64 %7
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr %struct.col_item_t, ptr %47, i64 %7
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call i64 @g_strlcpy(ptr noundef %46, ptr noundef %50, i64 noundef 2048)
+  %52 = load ptr, ptr %5, align 8
+  %53 = getelementptr %struct.col_item_t, ptr %52, i64 %7
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 56
+  store ptr %55, ptr %56, align 8
   br label %col_set_fmt_time.exit
 
-55:                                               ; preds = %32
+57:                                               ; preds = %32
   tail call fastcc void @col_set_abs_ymd_time(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
-56:                                               ; preds = %32
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr %struct.col_item_t, ptr %57, i64 %7, i32 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr @col_decimal_point, align 8
-  tail call fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %59, ptr noundef %60, i1 noundef zeroext true)
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 40
+58:                                               ; preds = %32
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr %struct.col_item_t, ptr %59, i64 %7
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr ptr, ptr %62, i64 %7
-  store ptr @.str.32, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %63 = load ptr, ptr @col_decimal_point, align 8
+  tail call fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %62, ptr noundef %63, i1 noundef zeroext true)
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr ptr, ptr %65, i64 %7
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr %struct.col_item_t, ptr %68, i64 %7, i32 8
+  store ptr @.str.32, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr ptr, ptr %68, i64 %7
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call i64 @g_strlcpy(ptr noundef %67, ptr noundef %70, i64 noundef 2048)
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr %struct.col_item_t, ptr %72, i64 %7
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 56
-  store ptr %75, ptr %76, align 8
+  %71 = load ptr, ptr %5, align 8
+  %72 = getelementptr %struct.col_item_t, ptr %71, i64 %7
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call i64 @g_strlcpy(ptr noundef %70, ptr noundef %74, i64 noundef 2048)
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr %struct.col_item_t, ptr %76, i64 %7
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 56
+  store ptr %79, ptr %80, align 8
   br label %col_set_fmt_time.exit
 
-77:                                               ; preds = %32
+81:                                               ; preds = %32
   tail call fastcc void @col_set_rel_time(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
-78:                                               ; preds = %32
+82:                                               ; preds = %32
   tail call fastcc void @col_set_delta_time(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
-79:                                               ; preds = %32
+83:                                               ; preds = %32
   tail call fastcc void @col_set_delta_time_dis(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
-80:                                               ; preds = %32
-  %81 = load ptr, ptr %5, align 8
-  %82 = getelementptr %struct.col_item_t, ptr %81, i64 %7, i32 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = load i16, ptr %24, align 1
-  %85 = and i16 %84, 128
-  %.not.i.not.i.i.i = icmp eq i16 %85, 0
-  br i1 %.not.i.not.i.i.i, label %set_epoch_time.exit.i.i.i, label %86
+84:                                               ; preds = %32
+  %85 = load ptr, ptr %5, align 8
+  %86 = getelementptr %struct.col_item_t, ptr %85, i64 %7
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 64
+  %88 = load ptr, ptr %87, align 8
+  %89 = load i16, ptr %24, align 1
+  %90 = and i16 %89, 128
+  %.not.i.not.i.i.i = icmp eq i16 %90, 0
+  br i1 %.not.i.not.i.i.i, label %set_epoch_time.exit.i.i.i, label %91
 
-86:                                               ; preds = %80
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %88 = tail call i32 @timestamp_get_precision()
-  %89 = icmp eq i32 %88, -1
-  br i1 %89, label %90, label %95
+91:                                               ; preds = %84
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %93 = tail call i32 @timestamp_get_precision()
+  %94 = icmp eq i32 %93, -1
+  br i1 %94, label %95, label %100
 
-90:                                               ; preds = %86
-  %91 = load i16, ptr %24, align 1
-  %92 = lshr i16 %91, 10
-  %93 = and i16 %92, 15
-  %94 = zext nneg i16 %93 to i32
-  br label %98
+95:                                               ; preds = %91
+  %96 = load i16, ptr %24, align 1
+  %97 = lshr i16 %96, 10
+  %98 = and i16 %97, 15
+  %99 = zext nneg i16 %98 to i32
+  br label %103
 
-95:                                               ; preds = %86
-  %96 = icmp slt i32 %88, 0
-  br i1 %96, label %97, label %98
+100:                                              ; preds = %91
+  %101 = icmp slt i32 %93, 0
+  br i1 %101, label %102, label %103
 
-97:                                               ; preds = %95
+102:                                              ; preds = %100
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
   unreachable
 
-set_epoch_time.exit.i.i.i:                        ; preds = %80
-  store i8 0, ptr %83, align 1
+set_epoch_time.exit.i.i.i:                        ; preds = %84
+  store i8 0, ptr %88, align 1
   br label %col_set_epoch_time.exit.i.i
 
-98:                                               ; preds = %95, %90
-  %.0.i.i.i.i.i = phi i32 [ %94, %90 ], [ %88, %95 ]
+103:                                              ; preds = %100, %95
+  %.0.i.i.i.i.i = phi i32 [ %99, %95 ], [ %93, %100 ]
   %spec.store.select.i.i.i.i.i = tail call range(i32 0, 10) i32 @llvm.umin.i32(i32 %.0.i.i.i.i.i, i32 9)
-  tail call void @display_epoch_time(ptr noundef %83, i64 noundef 2048, ptr noundef nonnull %87, i32 noundef %spec.store.select.i.i.i.i.i)
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr ptr, ptr %100, i64 %7
-  store ptr @.str.31, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr ptr, ptr %103, i64 %7
+  tail call void @display_epoch_time(ptr noundef %88, i64 noundef 2048, ptr noundef nonnull %92, i32 noundef %spec.store.select.i.i.i.i.i)
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr %struct.col_item_t, ptr %106, i64 %7, i32 8
+  %106 = getelementptr ptr, ptr %105, i64 %7
+  store ptr @.str.31, ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call i64 @g_strlcpy(ptr noundef %105, ptr noundef %108, i64 noundef 2048)
+  %109 = getelementptr ptr, ptr %108, i64 %7
+  %110 = load ptr, ptr %109, align 8
+  %111 = load ptr, ptr %5, align 8
+  %112 = getelementptr %struct.col_item_t, ptr %111, i64 %7
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call i64 @g_strlcpy(ptr noundef %110, ptr noundef %114, i64 noundef 2048)
   br label %col_set_epoch_time.exit.i.i
 
-col_set_epoch_time.exit.i.i:                      ; preds = %98, %set_epoch_time.exit.i.i.i
-  %110 = load ptr, ptr %5, align 8
-  %111 = getelementptr %struct.col_item_t, ptr %110, i64 %7
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 64
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %111, i64 56
-  store ptr %113, ptr %114, align 8
-  br label %col_set_fmt_time.exit
-
-115:                                              ; preds = %32
+col_set_epoch_time.exit.i.i:                      ; preds = %103, %set_epoch_time.exit.i.i.i
   %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr %struct.col_item_t, ptr %116, i64 %7, i32 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = load ptr, ptr @col_decimal_point, align 8
-  tail call fastcc void @set_abs_time(ptr noundef %0, ptr noundef %118, ptr noundef %119, i1 noundef zeroext false)
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr ptr, ptr %121, i64 %7
-  store ptr @.str.32, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr ptr, ptr %124, i64 %7
-  %126 = load ptr, ptr %125, align 8
-  %127 = load ptr, ptr %5, align 8
-  %128 = getelementptr %struct.col_item_t, ptr %127, i64 %7, i32 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = tail call i64 @g_strlcpy(ptr noundef %126, ptr noundef %129, i64 noundef 2048)
-  %131 = load ptr, ptr %5, align 8
-  %132 = getelementptr %struct.col_item_t, ptr %131, i64 %7
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 64
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %132, i64 56
-  store ptr %134, ptr %135, align 8
+  %117 = getelementptr %struct.col_item_t, ptr %116, i64 %7
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 56
+  store ptr %119, ptr %120, align 8
   br label %col_set_fmt_time.exit
 
-136:                                              ; preds = %32
+121:                                              ; preds = %32
+  %122 = load ptr, ptr %5, align 8
+  %123 = getelementptr %struct.col_item_t, ptr %122, i64 %7
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 64
+  %125 = load ptr, ptr %124, align 8
+  %126 = load ptr, ptr @col_decimal_point, align 8
+  tail call fastcc void @set_abs_time(ptr noundef %0, ptr noundef %125, ptr noundef %126, i1 noundef zeroext false)
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr ptr, ptr %128, i64 %7
+  store ptr @.str.32, ptr %129, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr ptr, ptr %131, i64 %7
+  %133 = load ptr, ptr %132, align 8
+  %134 = load ptr, ptr %5, align 8
+  %135 = getelementptr %struct.col_item_t, ptr %134, i64 %7
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 64
+  %137 = load ptr, ptr %136, align 8
+  %138 = tail call i64 @g_strlcpy(ptr noundef %133, ptr noundef %137, i64 noundef 2048)
+  %139 = load ptr, ptr %5, align 8
+  %140 = getelementptr %struct.col_item_t, ptr %139, i64 %7
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 64
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 56
+  store ptr %142, ptr %143, align 8
+  br label %col_set_fmt_time.exit
+
+144:                                              ; preds = %32
   tail call fastcc void @col_set_utc_ymd_time(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
-137:                                              ; preds = %32
-  %138 = load ptr, ptr %5, align 8
-  %139 = getelementptr %struct.col_item_t, ptr %138, i64 %7, i32 8
-  %140 = load ptr, ptr %139, align 8
-  %141 = load ptr, ptr @col_decimal_point, align 8
-  tail call fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %140, ptr noundef %141, i1 noundef zeroext false)
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr ptr, ptr %143, i64 %7
-  store ptr @.str.32, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr ptr, ptr %146, i64 %7
-  %148 = load ptr, ptr %147, align 8
-  %149 = load ptr, ptr %5, align 8
-  %150 = getelementptr %struct.col_item_t, ptr %149, i64 %7, i32 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = tail call i64 @g_strlcpy(ptr noundef %148, ptr noundef %151, i64 noundef 2048)
-  %153 = load ptr, ptr %5, align 8
-  %154 = getelementptr %struct.col_item_t, ptr %153, i64 %7
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 64
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %154, i64 56
-  store ptr %156, ptr %157, align 8
+145:                                              ; preds = %32
+  %146 = load ptr, ptr %5, align 8
+  %147 = getelementptr %struct.col_item_t, ptr %146, i64 %7
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 64
+  %149 = load ptr, ptr %148, align 8
+  %150 = load ptr, ptr @col_decimal_point, align 8
+  tail call fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %149, ptr noundef %150, i1 noundef zeroext false)
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr ptr, ptr %152, i64 %7
+  store ptr @.str.32, ptr %153, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr ptr, ptr %155, i64 %7
+  %157 = load ptr, ptr %156, align 8
+  %158 = load ptr, ptr %5, align 8
+  %159 = getelementptr %struct.col_item_t, ptr %158, i64 %7
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 64
+  %161 = load ptr, ptr %160, align 8
+  %162 = tail call i64 @g_strlcpy(ptr noundef %157, ptr noundef %161, i64 noundef 2048)
+  %163 = load ptr, ptr %5, align 8
+  %164 = getelementptr %struct.col_item_t, ptr %163, i64 %7
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 64
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 56
+  store ptr %166, ptr %167, align 8
   br label %col_set_fmt_time.exit
 
-158:                                              ; preds = %32
+168:                                              ; preds = %32
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1635, ptr noundef nonnull @__func__.col_set_cls_time, ptr noundef nonnull @.str.9) #21
   unreachable
 
-159:                                              ; preds = %31
-  %160 = getelementptr %struct.col_item_t, ptr %6, i64 %7, i32 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = load ptr, ptr @col_decimal_point, align 8
-  tail call fastcc void @set_abs_time(ptr noundef %0, ptr noundef %161, ptr noundef %162, i1 noundef zeroext true)
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr ptr, ptr %164, i64 %7
-  store ptr @.str.32, ptr %165, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr ptr, ptr %167, i64 %7
-  %169 = load ptr, ptr %168, align 8
-  %170 = load ptr, ptr %5, align 8
-  %171 = getelementptr %struct.col_item_t, ptr %170, i64 %7, i32 8
-  %172 = load ptr, ptr %171, align 8
-  %173 = tail call i64 @g_strlcpy(ptr noundef %169, ptr noundef %172, i64 noundef 2048)
-  %174 = load ptr, ptr %5, align 8
-  %175 = getelementptr %struct.col_item_t, ptr %174, i64 %7
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 64
+169:                                              ; preds = %31
+  %170 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %171 = load ptr, ptr %170, align 8
+  %172 = load ptr, ptr @col_decimal_point, align 8
+  tail call fastcc void @set_abs_time(ptr noundef %0, ptr noundef %171, ptr noundef %172, i1 noundef zeroext true)
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr ptr, ptr %174, i64 %7
+  store ptr @.str.32, ptr %175, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %175, i64 56
-  store ptr %177, ptr %178, align 8
+  %178 = getelementptr ptr, ptr %177, i64 %7
+  %179 = load ptr, ptr %178, align 8
+  %180 = load ptr, ptr %5, align 8
+  %181 = getelementptr %struct.col_item_t, ptr %180, i64 %7
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 64
+  %183 = load ptr, ptr %182, align 8
+  %184 = tail call i64 @g_strlcpy(ptr noundef %179, ptr noundef %183, i64 noundef 2048)
+  %185 = load ptr, ptr %5, align 8
+  %186 = getelementptr %struct.col_item_t, ptr %185, i64 %7
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 64
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 56
+  store ptr %188, ptr %189, align 8
   br label %col_set_fmt_time.exit
 
-179:                                              ; preds = %31
+190:                                              ; preds = %31
   tail call fastcc void @col_set_abs_ymd_time(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
-180:                                              ; preds = %31
-  %181 = getelementptr %struct.col_item_t, ptr %6, i64 %7, i32 8
-  %182 = load ptr, ptr %181, align 8
-  %183 = load ptr, ptr @col_decimal_point, align 8
-  tail call fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %182, ptr noundef %183, i1 noundef zeroext true)
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr ptr, ptr %185, i64 %7
-  store ptr @.str.32, ptr %186, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr ptr, ptr %188, i64 %7
-  %190 = load ptr, ptr %189, align 8
-  %191 = load ptr, ptr %5, align 8
-  %192 = getelementptr %struct.col_item_t, ptr %191, i64 %7, i32 8
+191:                                              ; preds = %31
+  %192 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %193 = load ptr, ptr %192, align 8
-  %194 = tail call i64 @g_strlcpy(ptr noundef %190, ptr noundef %193, i64 noundef 2048)
-  %195 = load ptr, ptr %5, align 8
-  %196 = getelementptr %struct.col_item_t, ptr %195, i64 %7
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 64
-  %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %196, i64 56
-  store ptr %198, ptr %199, align 8
+  %194 = load ptr, ptr @col_decimal_point, align 8
+  tail call fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %193, ptr noundef %194, i1 noundef zeroext true)
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr ptr, ptr %196, i64 %7
+  store ptr @.str.32, ptr %197, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %199 = load ptr, ptr %198, align 8
+  %200 = getelementptr ptr, ptr %199, i64 %7
+  %201 = load ptr, ptr %200, align 8
+  %202 = load ptr, ptr %5, align 8
+  %203 = getelementptr %struct.col_item_t, ptr %202, i64 %7
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 64
+  %205 = load ptr, ptr %204, align 8
+  %206 = tail call i64 @g_strlcpy(ptr noundef %201, ptr noundef %205, i64 noundef 2048)
+  %207 = load ptr, ptr %5, align 8
+  %208 = getelementptr %struct.col_item_t, ptr %207, i64 %7
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 64
+  %210 = load ptr, ptr %209, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 56
+  store ptr %210, ptr %211, align 8
   br label %col_set_fmt_time.exit
 
-200:                                              ; preds = %31
+212:                                              ; preds = %31
   tail call fastcc void @col_set_rel_time(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
-201:                                              ; preds = %31
+213:                                              ; preds = %31
   tail call fastcc void @col_set_delta_time(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
-202:                                              ; preds = %31
+214:                                              ; preds = %31
   tail call fastcc void @col_set_delta_time_dis(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
-203:                                              ; preds = %31
-  %204 = getelementptr %struct.col_item_t, ptr %6, i64 %7, i32 8
-  %205 = load ptr, ptr %204, align 8
-  %206 = load ptr, ptr @col_decimal_point, align 8
-  tail call fastcc void @set_abs_time(ptr noundef %0, ptr noundef %205, ptr noundef %206, i1 noundef zeroext false)
-  %207 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr ptr, ptr %208, i64 %7
-  store ptr @.str.32, ptr %209, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr ptr, ptr %211, i64 %7
-  %213 = load ptr, ptr %212, align 8
-  %214 = load ptr, ptr %5, align 8
-  %215 = getelementptr %struct.col_item_t, ptr %214, i64 %7, i32 8
-  %216 = load ptr, ptr %215, align 8
-  %217 = tail call i64 @g_strlcpy(ptr noundef %213, ptr noundef %216, i64 noundef 2048)
-  %218 = load ptr, ptr %5, align 8
-  %219 = getelementptr %struct.col_item_t, ptr %218, i64 %7
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 64
-  %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %219, i64 56
-  store ptr %221, ptr %222, align 8
+215:                                              ; preds = %31
+  %216 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %217 = load ptr, ptr %216, align 8
+  %218 = load ptr, ptr @col_decimal_point, align 8
+  tail call fastcc void @set_abs_time(ptr noundef %0, ptr noundef %217, ptr noundef %218, i1 noundef zeroext false)
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr ptr, ptr %220, i64 %7
+  store ptr @.str.32, ptr %221, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr ptr, ptr %223, i64 %7
+  %225 = load ptr, ptr %224, align 8
+  %226 = load ptr, ptr %5, align 8
+  %227 = getelementptr %struct.col_item_t, ptr %226, i64 %7
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 64
+  %229 = load ptr, ptr %228, align 8
+  %230 = tail call i64 @g_strlcpy(ptr noundef %225, ptr noundef %229, i64 noundef 2048)
+  %231 = load ptr, ptr %5, align 8
+  %232 = getelementptr %struct.col_item_t, ptr %231, i64 %7
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 64
+  %234 = load ptr, ptr %233, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %232, i64 56
+  store ptr %234, ptr %235, align 8
   br label %col_set_fmt_time.exit
 
-223:                                              ; preds = %31
+236:                                              ; preds = %31
   tail call fastcc void @col_set_utc_ymd_time(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2)
   br label %col_set_fmt_time.exit
 
-224:                                              ; preds = %31
-  %225 = getelementptr %struct.col_item_t, ptr %6, i64 %7, i32 8
-  %226 = load ptr, ptr %225, align 8
-  %227 = load ptr, ptr @col_decimal_point, align 8
-  tail call fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %226, ptr noundef %227, i1 noundef zeroext false)
-  %228 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr ptr, ptr %229, i64 %7
-  store ptr @.str.32, ptr %230, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr ptr, ptr %232, i64 %7
-  %234 = load ptr, ptr %233, align 8
-  %235 = load ptr, ptr %5, align 8
-  %236 = getelementptr %struct.col_item_t, ptr %235, i64 %7, i32 8
-  %237 = load ptr, ptr %236, align 8
-  %238 = tail call i64 @g_strlcpy(ptr noundef %234, ptr noundef %237, i64 noundef 2048)
-  %239 = load ptr, ptr %5, align 8
-  %240 = getelementptr %struct.col_item_t, ptr %239, i64 %7
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 64
+237:                                              ; preds = %31
+  %238 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %239 = load ptr, ptr %238, align 8
+  %240 = load ptr, ptr @col_decimal_point, align 8
+  tail call fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %239, ptr noundef %240, i1 noundef zeroext false)
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %240, i64 56
-  store ptr %242, ptr %243, align 8
+  %243 = getelementptr ptr, ptr %242, i64 %7
+  store ptr @.str.32, ptr %243, align 8
+  %244 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %245 = load ptr, ptr %244, align 8
+  %246 = getelementptr ptr, ptr %245, i64 %7
+  %247 = load ptr, ptr %246, align 8
+  %248 = load ptr, ptr %5, align 8
+  %249 = getelementptr %struct.col_item_t, ptr %248, i64 %7
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 64
+  %251 = load ptr, ptr %250, align 8
+  %252 = tail call i64 @g_strlcpy(ptr noundef %247, ptr noundef %251, i64 noundef 2048)
+  %253 = load ptr, ptr %5, align 8
+  %254 = getelementptr %struct.col_item_t, ptr %253, i64 %7
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 64
+  %256 = load ptr, ptr %255, align 8
+  %257 = getelementptr inbounds nuw i8, ptr %254, i64 56
+  store ptr %256, ptr %257, align 8
   br label %col_set_fmt_time.exit
 
-244:                                              ; preds = %31
+258:                                              ; preds = %31
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1688, ptr noundef nonnull @__func__.col_set_fmt_time, ptr noundef nonnull @.str.9) #21
   unreachable
 
-245:                                              ; preds = %4
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %247 = load i32, ptr %246, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %249 = load ptr, ptr %248, align 8
-  tail call void @uint32_to_str_buf(i32 noundef %247, ptr noundef %249, i64 noundef 2048)
-  %250 = load ptr, ptr %248, align 8
-  %251 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store ptr %250, ptr %251, align 8
-  br label %col_set_fmt_time.exit
-
-252:                                              ; preds = %4
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %254 = load i32, ptr %253, align 8
-  %255 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %256 = load ptr, ptr %255, align 8
-  tail call void @uint32_to_str_buf(i32 noundef %254, ptr noundef %256, i64 noundef 2048)
-  %257 = load ptr, ptr %255, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store ptr %257, ptr %258, align 8
-  br label %col_set_fmt_time.exit
-
-col_set_fmt_time.exit:                            ; preds = %224, %223, %203, %202, %201, %200, %180, %179, %159, %137, %136, %115, %col_set_epoch_time.exit.i.i, %79, %78, %77, %56, %55, %34, %32, %27, %4, %252, %245, %16, %10
-  br i1 %3, label %259, label %272
-
-259:                                              ; preds = %col_set_fmt_time.exit
-  %260 = load i32, ptr %8, align 8
-  switch i32 %260, label %272 [
-    i32 32, label %.sink.split
-    i32 34, label %261
-  ]
-
-261:                                              ; preds = %259
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %259, %261
-  %.str.10.sink = phi ptr [ @.str.11, %261 ], [ @.str.10, %259 ]
-  %262 = getelementptr inbounds nuw i8, ptr %1, i64 40
+259:                                              ; preds = %4
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %261 = load i32, ptr %260, align 8
+  %262 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr ptr, ptr %263, i64 %7
-  store ptr %.str.10.sink, ptr %264, align 8
-  %265 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr ptr, ptr %266, i64 %7
-  %268 = load ptr, ptr %267, align 8
+  tail call void @uint32_to_str_buf(i32 noundef %261, ptr noundef %263, i64 noundef 2048)
+  %264 = load ptr, ptr %262, align 8
+  %265 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store ptr %264, ptr %265, align 8
+  br label %col_set_fmt_time.exit
+
+266:                                              ; preds = %4
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %268 = load i32, ptr %267, align 8
   %269 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %270 = load ptr, ptr %269, align 8
-  %271 = tail call i64 @g_strlcpy(ptr noundef %268, ptr noundef %270, i64 noundef 2048)
-  br label %272
+  tail call void @uint32_to_str_buf(i32 noundef %268, ptr noundef %270, i64 noundef 2048)
+  %271 = load ptr, ptr %269, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store ptr %271, ptr %272, align 8
+  br label %col_set_fmt_time.exit
 
-272:                                              ; preds = %.sink.split, %259, %col_set_fmt_time.exit
+col_set_fmt_time.exit:                            ; preds = %237, %236, %215, %214, %213, %212, %191, %190, %169, %145, %144, %121, %col_set_epoch_time.exit.i.i, %83, %82, %81, %58, %57, %34, %32, %27, %4, %266, %259, %16, %10
+  br i1 %3, label %273, label %286
+
+273:                                              ; preds = %col_set_fmt_time.exit
+  %274 = load i32, ptr %8, align 8
+  switch i32 %274, label %286 [
+    i32 32, label %.sink.split
+    i32 34, label %275
+  ]
+
+275:                                              ; preds = %273
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %273, %275
+  %.str.10.sink = phi ptr [ @.str.11, %275 ], [ @.str.10, %273 ]
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %277 = load ptr, ptr %276, align 8
+  %278 = getelementptr ptr, ptr %277, i64 %7
+  store ptr %.str.10.sink, ptr %278, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %280 = load ptr, ptr %279, align 8
+  %281 = getelementptr ptr, ptr %280, i64 %7
+  %282 = load ptr, ptr %281, align 8
+  %283 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %284 = load ptr, ptr %283, align 8
+  %285 = tail call i64 @g_strlcpy(ptr noundef %282, ptr noundef %284, i64 noundef 2048)
+  br label %286
+
+286:                                              ; preds = %.sink.split, %273, %col_set_fmt_time.exit
   ret void
 }
 
@@ -4559,9 +4575,9 @@ define void @col_fill_in(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroe
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %16
 
-16:                                               ; preds = %.lr.ph, %86
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %17 = phi ptr [ %5, %.lr.ph ], [ %87, %86 ]
+16:                                               ; preds = %.lr.ph, %87
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
+  %17 = phi ptr [ %5, %.lr.ph ], [ %88, %87 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr %struct.col_item_t, ptr %19, i64 %indvars.iv
@@ -4605,98 +4621,98 @@ define void @col_fill_in(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroe
     i32 12, label %54
     i32 9, label %54
     i32 10, label %56
-    i32 4, label %86
+    i32 4, label %87
     i32 47, label %58
   ]
 
 22:                                               ; preds = %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16
-  br i1 %2, label %23, label %86
+  br i1 %2, label %23, label %87
 
 23:                                               ; preds = %22
   %24 = load ptr, ptr %15, align 8
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @col_fill_in_frame_data(ptr noundef %24, ptr noundef %17, i32 noundef %25, i1 noundef zeroext %1)
-  br label %86
+  br label %87
 
 26:                                               ; preds = %16, %16
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %14, i1 noundef zeroext true, i1 noundef zeroext %1, i1 noundef zeroext true)
-  br label %86
+  br label %87
 
 28:                                               ; preds = %16
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %29, ptr noundef nonnull %14, i1 noundef zeroext true, i1 noundef zeroext %1, i1 noundef zeroext false)
-  br label %86
+  br label %87
 
 30:                                               ; preds = %16, %16
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %31, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext %1, i1 noundef zeroext true)
-  br label %86
+  br label %87
 
 32:                                               ; preds = %16
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %33, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext %1, i1 noundef zeroext false)
-  br label %86
+  br label %87
 
 34:                                               ; preds = %16, %16
   %35 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %35, ptr noundef nonnull %12, i1 noundef zeroext true, i1 noundef zeroext %1, i1 noundef zeroext true)
-  br label %86
+  br label %87
 
 36:                                               ; preds = %16
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %37, ptr noundef nonnull %12, i1 noundef zeroext true, i1 noundef zeroext %1, i1 noundef zeroext false)
-  br label %86
+  br label %87
 
 38:                                               ; preds = %16, %16
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %39, ptr noundef nonnull %11, i1 noundef zeroext false, i1 noundef zeroext %1, i1 noundef zeroext true)
-  br label %86
+  br label %87
 
 40:                                               ; preds = %16
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %41, ptr noundef nonnull %11, i1 noundef zeroext false, i1 noundef zeroext %1, i1 noundef zeroext false)
-  br label %86
+  br label %87
 
 42:                                               ; preds = %16, %16
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %43, ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext %1, i1 noundef zeroext true)
-  br label %86
+  br label %87
 
 44:                                               ; preds = %16
   %45 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %45, ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext %1, i1 noundef zeroext false)
-  br label %86
+  br label %87
 
 46:                                               ; preds = %16, %16
   %47 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %47, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext %1, i1 noundef zeroext true)
-  br label %86
+  br label %87
 
 48:                                               ; preds = %16
   %49 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_addr(ptr noundef %0, i32 noundef %49, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext %1, i1 noundef zeroext false)
-  br label %86
+  br label %87
 
 50:                                               ; preds = %16, %16
   %51 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_port(ptr noundef %0, i32 noundef %51, i1 noundef zeroext true, i1 noundef zeroext true)
-  br label %86
+  br label %87
 
 52:                                               ; preds = %16
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_port(ptr noundef %0, i32 noundef %53, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %86
+  br label %87
 
 54:                                               ; preds = %16, %16
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_port(ptr noundef %0, i32 noundef %55, i1 noundef zeroext true, i1 noundef zeroext false)
-  br label %86
+  br label %87
 
 56:                                               ; preds = %16
   %57 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @col_set_port(ptr noundef %0, i32 noundef %57, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %86
+  br label %87
 
 58:                                               ; preds = %16
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 2053, ptr noundef nonnull @__func__.col_fill_in, ptr noundef nonnull @.str.9) #21
@@ -4711,7 +4727,7 @@ define void @col_fill_in(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroe
   unreachable
 
 62:                                               ; preds = %59
-  br i1 %1, label %63, label %86
+  br i1 %1, label %63, label %87
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %20, i64 80
@@ -4731,24 +4747,25 @@ define void @col_fill_in(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroe
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr %struct.col_item_t, ptr %79, i64 %indvars.iv, i32 7
-  %81 = load ptr, ptr %80, align 8
-  %82 = load i32, ptr %20, align 8
-  %83 = icmp eq i32 %82, 25
-  %84 = select i1 %83, i64 4096, i64 2048
-  %85 = tail call i64 @g_strlcpy(ptr noundef %77, ptr noundef %81, i64 noundef %84)
-  br label %86
+  %80 = getelementptr %struct.col_item_t, ptr %79, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
+  %82 = load ptr, ptr %81, align 8
+  %83 = load i32, ptr %20, align 8
+  %84 = icmp eq i32 %83, 25
+  %85 = select i1 %84, i64 4096, i64 2048
+  %86 = tail call i64 @g_strlcpy(ptr noundef %77, ptr noundef %82, i64 noundef %85)
+  br label %87
 
-86:                                               ; preds = %16, %23, %22, %62, %63, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26
+87:                                               ; preds = %16, %23, %22, %62, %63, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load i32, ptr %88, align 8
-  %90 = sext i32 %89 to i64
-  %91 = icmp slt i64 %indvars.iv.next, %90
-  br i1 %91, label %16, label %.loopexit, !llvm.loop !34
+  %88 = load ptr, ptr %4, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load i32, ptr %89, align 8
+  %91 = sext i32 %90 to i64
+  %92 = icmp slt i64 %indvars.iv.next, %91
+  br i1 %92, label %16, label %.loopexit, !llvm.loop !34
 
-.loopexit:                                        ; preds = %86, %.preheader, %3
+.loopexit:                                        ; preds = %87, %.preheader, %3
   ret void
 }
 
@@ -4762,7 +4779,7 @@ define internal fastcc void @col_set_addr(ptr noundef readonly captures(none) %0
   %12 = getelementptr %struct.col_item_t, ptr %10, i64 %11
   %13 = load i32, ptr %2, align 8
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %61, label %15
+  br i1 %14, label %62, label %15
 
 15:                                               ; preds = %6
   br i1 %5, label %16, label %20
@@ -4786,7 +4803,7 @@ define internal fastcc void @col_set_addr(ptr noundef readonly captures(none) %0
   br label %24
 
 24:                                               ; preds = %20, %18
-  br i1 %4, label %25, label %61
+  br i1 %4, label %25, label %62
 
 25:                                               ; preds = %24
   %26 = tail call ptr @address_type_column_filter_string(ptr noundef %2, i1 noundef zeroext %3)
@@ -4810,7 +4827,7 @@ define internal fastcc void @col_set_addr(ptr noundef readonly captures(none) %0
   %39 = getelementptr ptr, ptr %38, i64 %11
   %40 = load ptr, ptr %39, align 8
   tail call void @address_to_str_buf(ptr noundef %2, ptr noundef %40, i32 noundef 2048)
-  br label %61
+  br label %62
 
 41:                                               ; preds = %25
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 80
@@ -4830,12 +4847,13 @@ define internal fastcc void @col_set_addr(ptr noundef readonly captures(none) %0
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr %struct.col_item_t, ptr %57, i64 %11, i32 7
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call i64 @g_strlcpy(ptr noundef %55, ptr noundef %59, i64 noundef 2048)
-  br label %61
+  %58 = getelementptr %struct.col_item_t, ptr %57, i64 %11
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call i64 @g_strlcpy(ptr noundef %55, ptr noundef %60, i64 noundef 2048)
+  br label %62
 
-61:                                               ; preds = %36, %41, %24, %6
+62:                                               ; preds = %36, %41, %24, %6
   ret void
 }
 
@@ -5389,65 +5407,67 @@ define internal fastcc void @col_set_abs_ymd_time(ptr noundef %0, ptr noundef re
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr %struct.col_item_t, ptr %5, i64 %6, i32 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr @col_decimal_point, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %11 = load i16, ptr %10, align 1
-  %12 = and i16 %11, 128
-  %.not.i = icmp eq i16 %12, 0
-  br i1 %.not.i, label %13, label %14
-
-13:                                               ; preds = %3
-  store i8 0, ptr %8, align 1
-  br label %set_abs_ymd_time.exit
+  %7 = getelementptr %struct.col_item_t, ptr %5, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr @col_decimal_point, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 57
+  %12 = load i16, ptr %11, align 1
+  %13 = and i16 %12, 128
+  %.not.i = icmp eq i16 %13, 0
+  br i1 %.not.i, label %14, label %15
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = tail call i32 @timestamp_get_precision()
-  %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %23
+  store i8 0, ptr %9, align 1
+  br label %set_abs_ymd_time.exit
 
-18:                                               ; preds = %14
-  %19 = load i16, ptr %10, align 1
-  %20 = lshr i16 %19, 10
-  %21 = and i16 %20, 15
-  %22 = zext nneg i16 %21 to i32
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = tail call i32 @timestamp_get_precision()
+  %18 = icmp eq i32 %17, -1
+  br i1 %18, label %19, label %24
+
+19:                                               ; preds = %15
+  %20 = load i16, ptr %11, align 1
+  %21 = lshr i16 %20, 10
+  %22 = and i16 %21, 15
+  %23 = zext nneg i16 %22 to i32
   br label %get_frame_timestamp_precision.exit.i
 
-23:                                               ; preds = %14
-  %24 = icmp slt i32 %16, 0
-  br i1 %24, label %25, label %get_frame_timestamp_precision.exit.i
+24:                                               ; preds = %15
+  %25 = icmp slt i32 %17, 0
+  br i1 %25, label %26, label %get_frame_timestamp_precision.exit.i
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
   unreachable
 
-get_frame_timestamp_precision.exit.i:             ; preds = %23, %18
-  %.0.i.i = phi i32 [ %22, %18 ], [ %16, %23 ]
+get_frame_timestamp_precision.exit.i:             ; preds = %24, %19
+  %.0.i.i = phi i32 [ %23, %19 ], [ %17, %24 ]
   %spec.store.select.i.i = tail call range(i32 0, 10) i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
-  tail call void @format_nstime_as_iso8601(ptr noundef %8, i64 noundef 2048, ptr noundef nonnull %15, ptr noundef %9, i1 noundef zeroext true, i32 noundef %spec.store.select.i.i)
+  tail call void @format_nstime_as_iso8601(ptr noundef %9, i64 noundef 2048, ptr noundef nonnull %16, ptr noundef %10, i1 noundef zeroext true, i32 noundef %spec.store.select.i.i)
   br label %set_abs_ymd_time.exit
 
-set_abs_ymd_time.exit:                            ; preds = %13, %get_frame_timestamp_precision.exit.i
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr ptr, ptr %27, i64 %6
-  store ptr @.str.32, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr ptr, ptr %30, i64 %6
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr %struct.col_item_t, ptr %33, i64 %6, i32 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call i64 @g_strlcpy(ptr noundef %32, ptr noundef %35, i64 noundef 2048)
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr %struct.col_item_t, ptr %37, i64 %6
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  store ptr %40, ptr %41, align 8
+set_abs_ymd_time.exit:                            ; preds = %14, %get_frame_timestamp_precision.exit.i
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr ptr, ptr %28, i64 %6
+  store ptr @.str.32, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr ptr, ptr %31, i64 %6
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr %struct.col_item_t, ptr %34, i64 %6
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call i64 @g_strlcpy(ptr noundef %33, ptr noundef %37, i64 noundef 2048)
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr %struct.col_item_t, ptr %39, i64 %6
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  store ptr %42, ptr %43, align 8
   ret void
 }
 
@@ -5459,131 +5479,135 @@ define internal fastcc void @col_set_rel_time(ptr noundef %0, ptr noundef readon
   %6 = load i16, ptr %5, align 1
   %7 = and i16 %6, 128
   %.not = icmp eq i16 %7, 0
-  br i1 %.not, label %8, label %14
+  br i1 %.not, label %8, label %15
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
-  %12 = getelementptr %struct.col_item_t, ptr %10, i64 %11, i32 8
-  %13 = load ptr, ptr %12, align 8
-  store i8 0, ptr %13, align 1
-  br label %79
+  %12 = getelementptr %struct.col_item_t, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %14 = load ptr, ptr %13, align 8
+  store i8 0, ptr %14, align 1
+  br label %83
 
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %17 = load i32, ptr %16, align 8
-  call void @frame_delta_abs_time(ptr noundef %15, ptr noundef %0, i32 noundef %17, ptr noundef nonnull %4)
-  %18 = call i32 @timestamp_get_seconds_type()
-  switch i32 %18, label %71 [
-    i32 0, label %19
-    i32 1, label %46
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %1, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = load i32, ptr %17, align 8
+  call void @frame_delta_abs_time(ptr noundef %16, ptr noundef %0, i32 noundef %18, ptr noundef nonnull %4)
+  %19 = call i32 @timestamp_get_seconds_type()
+  switch i32 %19, label %75 [
+    i32 0, label %20
+    i32 1, label %49
   ]
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = sext i32 %2 to i64
-  %23 = getelementptr %struct.col_item_t, ptr %21, i64 %22, i32 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @timestamp_get_precision()
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %27, label %32
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = sext i32 %2 to i64
+  %24 = getelementptr %struct.col_item_t, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %26 = load ptr, ptr %25, align 8
+  %27 = call i32 @timestamp_get_precision()
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %29, label %34
 
-27:                                               ; preds = %19
-  %28 = load i16, ptr %5, align 1
-  %29 = lshr i16 %28, 10
-  %30 = and i16 %29, 15
-  %31 = zext nneg i16 %30 to i32
+29:                                               ; preds = %20
+  %30 = load i16, ptr %5, align 1
+  %31 = lshr i16 %30, 10
+  %32 = and i16 %31, 15
+  %33 = zext nneg i16 %32 to i32
   br label %set_time_seconds.exit
 
-32:                                               ; preds = %19
-  %33 = icmp slt i32 %25, 0
-  br i1 %33, label %34, label %set_time_seconds.exit
+34:                                               ; preds = %20
+  %35 = icmp slt i32 %27, 0
+  br i1 %35, label %36, label %set_time_seconds.exit
 
-34:                                               ; preds = %32
+36:                                               ; preds = %34
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
   unreachable
 
-set_time_seconds.exit:                            ; preds = %27, %32
-  %.0.i.i = phi i32 [ %31, %27 ], [ %25, %32 ]
+set_time_seconds.exit:                            ; preds = %29, %34
+  %.0.i.i = phi i32 [ %33, %29 ], [ %27, %34 ]
   %spec.store.select.i.i = call range(i32 0, 10) i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
-  call void @display_signed_time(ptr noundef %24, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i)
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr ptr, ptr %36, i64 %22
-  store ptr @.str.33, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr ptr, ptr %39, i64 %22
+  call void @display_signed_time(ptr noundef %26, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i)
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr ptr, ptr %38, i64 %23
+  store ptr @.str.33, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %20, align 8
-  %43 = getelementptr %struct.col_item_t, ptr %42, i64 %22, i32 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i64 @g_strlcpy(ptr noundef %41, ptr noundef %44, i64 noundef 2048)
-  br label %72
+  %42 = getelementptr ptr, ptr %41, i64 %23
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %21, align 8
+  %45 = getelementptr %struct.col_item_t, ptr %44, i64 %23
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
+  %47 = load ptr, ptr %46, align 8
+  %48 = call i64 @g_strlcpy(ptr noundef %43, ptr noundef %47, i64 noundef 2048)
+  br label %76
 
-46:                                               ; preds = %14
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = sext i32 %2 to i64
-  %50 = getelementptr %struct.col_item_t, ptr %48, i64 %49, i32 8
+49:                                               ; preds = %15
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr @col_decimal_point, align 8
-  %.val = load i64, ptr %4, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.val26 = load i32, ptr %53, align 8
-  call fastcc void @set_time_hour_min_sec(ptr noundef %0, i64 %.val, i32 %.val26, ptr noundef %51, ptr noundef %52)
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %52 = sext i32 %2 to i64
+  %53 = getelementptr %struct.col_item_t, ptr %51, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr ptr, ptr %55, i64 %49
-  store ptr @.str.33, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr ptr, ptr %58, i64 %49
-  %60 = load ptr, ptr %59, align 8
-  %61 = call i32 @timestamp_get_precision()
-  %62 = icmp eq i32 %61, -1
-  br i1 %62, label %63, label %68
+  %56 = load ptr, ptr @col_decimal_point, align 8
+  %.val = load i64, ptr %4, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.val26 = load i32, ptr %57, align 8
+  call fastcc void @set_time_hour_min_sec(ptr noundef %0, i64 %.val, i32 %.val26, ptr noundef %55, ptr noundef %56)
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr ptr, ptr %59, i64 %52
+  store ptr @.str.33, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr ptr, ptr %62, i64 %52
+  %64 = load ptr, ptr %63, align 8
+  %65 = call i32 @timestamp_get_precision()
+  %66 = icmp eq i32 %65, -1
+  br i1 %66, label %67, label %72
 
-63:                                               ; preds = %46
-  %64 = load i16, ptr %5, align 1
-  %65 = lshr i16 %64, 10
-  %66 = and i16 %65, 15
-  %67 = zext nneg i16 %66 to i32
+67:                                               ; preds = %49
+  %68 = load i16, ptr %5, align 1
+  %69 = lshr i16 %68, 10
+  %70 = and i16 %69, 15
+  %71 = zext nneg i16 %70 to i32
   br label %set_time_seconds.exit29
 
-68:                                               ; preds = %46
-  %69 = icmp slt i32 %61, 0
-  br i1 %69, label %70, label %set_time_seconds.exit29
+72:                                               ; preds = %49
+  %73 = icmp slt i32 %65, 0
+  br i1 %73, label %74, label %set_time_seconds.exit29
 
-70:                                               ; preds = %68
+74:                                               ; preds = %72
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
   unreachable
 
-set_time_seconds.exit29:                          ; preds = %63, %68
-  %.0.i.i27 = phi i32 [ %67, %63 ], [ %61, %68 ]
+set_time_seconds.exit29:                          ; preds = %67, %72
+  %.0.i.i27 = phi i32 [ %71, %67 ], [ %65, %72 ]
   %spec.store.select.i.i28 = call range(i32 0, 10) i32 @llvm.umin.i32(i32 %.0.i.i27, i32 9)
-  call void @display_signed_time(ptr noundef %60, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i28)
-  br label %72
+  call void @display_signed_time(ptr noundef %64, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i28)
+  br label %76
 
-71:                                               ; preds = %14
+75:                                               ; preds = %15
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1295, ptr noundef nonnull @__func__.col_set_rel_time, ptr noundef nonnull @.str.9) #21
   unreachable
 
-72:                                               ; preds = %set_time_seconds.exit29, %set_time_seconds.exit
-  %.pre-phi = phi i64 [ %49, %set_time_seconds.exit29 ], [ %22, %set_time_seconds.exit ]
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr %struct.col_item_t, ptr %74, i64 %.pre-phi
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  store ptr %77, ptr %78, align 8
-  br label %79
+76:                                               ; preds = %set_time_seconds.exit29, %set_time_seconds.exit
+  %.pre-phi = phi i64 [ %52, %set_time_seconds.exit29 ], [ %23, %set_time_seconds.exit ]
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr %struct.col_item_t, ptr %78, i64 %.pre-phi
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 56
+  store ptr %81, ptr %82, align 8
+  br label %83
 
-79:                                               ; preds = %72, %8
+83:                                               ; preds = %76, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -5596,131 +5620,135 @@ define internal fastcc void @col_set_delta_time(ptr noundef %0, ptr noundef read
   %6 = load i16, ptr %5, align 1
   %7 = and i16 %6, 128
   %.not = icmp eq i16 %7, 0
-  br i1 %.not, label %8, label %14
+  br i1 %.not, label %8, label %15
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
-  %12 = getelementptr %struct.col_item_t, ptr %10, i64 %11, i32 8
-  %13 = load ptr, ptr %12, align 8
-  store i8 0, ptr %13, align 1
-  br label %79
+  %12 = getelementptr %struct.col_item_t, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %14 = load ptr, ptr %13, align 8
+  store i8 0, ptr %14, align 1
+  br label %83
 
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %1, align 8
-  %16 = load i32, ptr %0, align 8
-  %17 = add i32 %16, -1
-  call void @frame_delta_abs_time(ptr noundef %15, ptr noundef %0, i32 noundef %17, ptr noundef nonnull %4)
-  %18 = call i32 @timestamp_get_seconds_type()
-  switch i32 %18, label %71 [
-    i32 0, label %19
-    i32 1, label %46
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %1, align 8
+  %17 = load i32, ptr %0, align 8
+  %18 = add i32 %17, -1
+  call void @frame_delta_abs_time(ptr noundef %16, ptr noundef %0, i32 noundef %18, ptr noundef nonnull %4)
+  %19 = call i32 @timestamp_get_seconds_type()
+  switch i32 %19, label %75 [
+    i32 0, label %20
+    i32 1, label %49
   ]
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = sext i32 %2 to i64
-  %23 = getelementptr %struct.col_item_t, ptr %21, i64 %22, i32 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @timestamp_get_precision()
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %27, label %32
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = sext i32 %2 to i64
+  %24 = getelementptr %struct.col_item_t, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %26 = load ptr, ptr %25, align 8
+  %27 = call i32 @timestamp_get_precision()
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %29, label %34
 
-27:                                               ; preds = %19
-  %28 = load i16, ptr %5, align 1
-  %29 = lshr i16 %28, 10
-  %30 = and i16 %29, 15
-  %31 = zext nneg i16 %30 to i32
+29:                                               ; preds = %20
+  %30 = load i16, ptr %5, align 1
+  %31 = lshr i16 %30, 10
+  %32 = and i16 %31, 15
+  %33 = zext nneg i16 %32 to i32
   br label %set_time_seconds.exit
 
-32:                                               ; preds = %19
-  %33 = icmp slt i32 %25, 0
-  br i1 %33, label %34, label %set_time_seconds.exit
+34:                                               ; preds = %20
+  %35 = icmp slt i32 %27, 0
+  br i1 %35, label %36, label %set_time_seconds.exit
 
-34:                                               ; preds = %32
+36:                                               ; preds = %34
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
   unreachable
 
-set_time_seconds.exit:                            ; preds = %27, %32
-  %.0.i.i = phi i32 [ %31, %27 ], [ %25, %32 ]
+set_time_seconds.exit:                            ; preds = %29, %34
+  %.0.i.i = phi i32 [ %33, %29 ], [ %27, %34 ]
   %spec.store.select.i.i = call range(i32 0, 10) i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
-  call void @display_signed_time(ptr noundef %24, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i)
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr ptr, ptr %36, i64 %22
-  store ptr @.str.31, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr ptr, ptr %39, i64 %22
+  call void @display_signed_time(ptr noundef %26, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i)
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr ptr, ptr %38, i64 %23
+  store ptr @.str.31, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %20, align 8
-  %43 = getelementptr %struct.col_item_t, ptr %42, i64 %22, i32 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i64 @g_strlcpy(ptr noundef %41, ptr noundef %44, i64 noundef 2048)
-  br label %72
+  %42 = getelementptr ptr, ptr %41, i64 %23
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %21, align 8
+  %45 = getelementptr %struct.col_item_t, ptr %44, i64 %23
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
+  %47 = load ptr, ptr %46, align 8
+  %48 = call i64 @g_strlcpy(ptr noundef %43, ptr noundef %47, i64 noundef 2048)
+  br label %76
 
-46:                                               ; preds = %14
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = sext i32 %2 to i64
-  %50 = getelementptr %struct.col_item_t, ptr %48, i64 %49, i32 8
+49:                                               ; preds = %15
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr @col_decimal_point, align 8
-  %.val = load i64, ptr %4, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.val26 = load i32, ptr %53, align 8
-  call fastcc void @set_time_hour_min_sec(ptr noundef %0, i64 %.val, i32 %.val26, ptr noundef %51, ptr noundef %52)
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %52 = sext i32 %2 to i64
+  %53 = getelementptr %struct.col_item_t, ptr %51, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr ptr, ptr %55, i64 %49
-  store ptr @.str.31, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr ptr, ptr %58, i64 %49
-  %60 = load ptr, ptr %59, align 8
-  %61 = call i32 @timestamp_get_precision()
-  %62 = icmp eq i32 %61, -1
-  br i1 %62, label %63, label %68
+  %56 = load ptr, ptr @col_decimal_point, align 8
+  %.val = load i64, ptr %4, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.val26 = load i32, ptr %57, align 8
+  call fastcc void @set_time_hour_min_sec(ptr noundef %0, i64 %.val, i32 %.val26, ptr noundef %55, ptr noundef %56)
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr ptr, ptr %59, i64 %52
+  store ptr @.str.31, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr ptr, ptr %62, i64 %52
+  %64 = load ptr, ptr %63, align 8
+  %65 = call i32 @timestamp_get_precision()
+  %66 = icmp eq i32 %65, -1
+  br i1 %66, label %67, label %72
 
-63:                                               ; preds = %46
-  %64 = load i16, ptr %5, align 1
-  %65 = lshr i16 %64, 10
-  %66 = and i16 %65, 15
-  %67 = zext nneg i16 %66 to i32
+67:                                               ; preds = %49
+  %68 = load i16, ptr %5, align 1
+  %69 = lshr i16 %68, 10
+  %70 = and i16 %69, 15
+  %71 = zext nneg i16 %70 to i32
   br label %set_time_seconds.exit29
 
-68:                                               ; preds = %46
-  %69 = icmp slt i32 %61, 0
-  br i1 %69, label %70, label %set_time_seconds.exit29
+72:                                               ; preds = %49
+  %73 = icmp slt i32 %65, 0
+  br i1 %73, label %74, label %set_time_seconds.exit29
 
-70:                                               ; preds = %68
+74:                                               ; preds = %72
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
   unreachable
 
-set_time_seconds.exit29:                          ; preds = %63, %68
-  %.0.i.i27 = phi i32 [ %67, %63 ], [ %61, %68 ]
+set_time_seconds.exit29:                          ; preds = %67, %72
+  %.0.i.i27 = phi i32 [ %71, %67 ], [ %65, %72 ]
   %spec.store.select.i.i28 = call range(i32 0, 10) i32 @llvm.umin.i32(i32 %.0.i.i27, i32 9)
-  call void @display_signed_time(ptr noundef %60, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i28)
-  br label %72
+  call void @display_signed_time(ptr noundef %64, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i28)
+  br label %76
 
-71:                                               ; preds = %14
+75:                                               ; preds = %15
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1324, ptr noundef nonnull @__func__.col_set_delta_time, ptr noundef nonnull @.str.9) #21
   unreachable
 
-72:                                               ; preds = %set_time_seconds.exit29, %set_time_seconds.exit
-  %.pre-phi = phi i64 [ %49, %set_time_seconds.exit29 ], [ %22, %set_time_seconds.exit ]
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr %struct.col_item_t, ptr %74, i64 %.pre-phi
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  store ptr %77, ptr %78, align 8
-  br label %79
+76:                                               ; preds = %set_time_seconds.exit29, %set_time_seconds.exit
+  %.pre-phi = phi i64 [ %52, %set_time_seconds.exit29 ], [ %23, %set_time_seconds.exit ]
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr %struct.col_item_t, ptr %78, i64 %.pre-phi
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 56
+  store ptr %81, ptr %82, align 8
+  br label %83
 
-79:                                               ; preds = %72, %8
+83:                                               ; preds = %76, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -5733,131 +5761,135 @@ define internal fastcc void @col_set_delta_time_dis(ptr noundef %0, ptr noundef 
   %6 = load i16, ptr %5, align 1
   %7 = and i16 %6, 128
   %.not = icmp eq i16 %7, 0
-  br i1 %.not, label %8, label %14
+  br i1 %.not, label %8, label %15
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
-  %12 = getelementptr %struct.col_item_t, ptr %10, i64 %11, i32 8
-  %13 = load ptr, ptr %12, align 8
-  store i8 0, ptr %13, align 1
-  br label %79
+  %12 = getelementptr %struct.col_item_t, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %14 = load ptr, ptr %13, align 8
+  store i8 0, ptr %14, align 1
+  br label %83
 
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %17 = load i32, ptr %16, align 4
-  call void @frame_delta_abs_time(ptr noundef %15, ptr noundef %0, i32 noundef %17, ptr noundef nonnull %4)
-  %18 = call i32 @timestamp_get_seconds_type()
-  switch i32 %18, label %71 [
-    i32 0, label %19
-    i32 1, label %46
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %1, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %18 = load i32, ptr %17, align 4
+  call void @frame_delta_abs_time(ptr noundef %16, ptr noundef %0, i32 noundef %18, ptr noundef nonnull %4)
+  %19 = call i32 @timestamp_get_seconds_type()
+  switch i32 %19, label %75 [
+    i32 0, label %20
+    i32 1, label %49
   ]
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = sext i32 %2 to i64
-  %23 = getelementptr %struct.col_item_t, ptr %21, i64 %22, i32 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @timestamp_get_precision()
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %27, label %32
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = sext i32 %2 to i64
+  %24 = getelementptr %struct.col_item_t, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %26 = load ptr, ptr %25, align 8
+  %27 = call i32 @timestamp_get_precision()
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %29, label %34
 
-27:                                               ; preds = %19
-  %28 = load i16, ptr %5, align 1
-  %29 = lshr i16 %28, 10
-  %30 = and i16 %29, 15
-  %31 = zext nneg i16 %30 to i32
+29:                                               ; preds = %20
+  %30 = load i16, ptr %5, align 1
+  %31 = lshr i16 %30, 10
+  %32 = and i16 %31, 15
+  %33 = zext nneg i16 %32 to i32
   br label %set_time_seconds.exit
 
-32:                                               ; preds = %19
-  %33 = icmp slt i32 %25, 0
-  br i1 %33, label %34, label %set_time_seconds.exit
+34:                                               ; preds = %20
+  %35 = icmp slt i32 %27, 0
+  br i1 %35, label %36, label %set_time_seconds.exit
 
-34:                                               ; preds = %32
+36:                                               ; preds = %34
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
   unreachable
 
-set_time_seconds.exit:                            ; preds = %27, %32
-  %.0.i.i = phi i32 [ %31, %27 ], [ %25, %32 ]
+set_time_seconds.exit:                            ; preds = %29, %34
+  %.0.i.i = phi i32 [ %33, %29 ], [ %27, %34 ]
   %spec.store.select.i.i = call range(i32 0, 10) i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
-  call void @display_signed_time(ptr noundef %24, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i)
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr ptr, ptr %36, i64 %22
-  store ptr @.str.34, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr ptr, ptr %39, i64 %22
+  call void @display_signed_time(ptr noundef %26, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i)
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr ptr, ptr %38, i64 %23
+  store ptr @.str.34, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %20, align 8
-  %43 = getelementptr %struct.col_item_t, ptr %42, i64 %22, i32 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i64 @g_strlcpy(ptr noundef %41, ptr noundef %44, i64 noundef 2048)
-  br label %72
+  %42 = getelementptr ptr, ptr %41, i64 %23
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %21, align 8
+  %45 = getelementptr %struct.col_item_t, ptr %44, i64 %23
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
+  %47 = load ptr, ptr %46, align 8
+  %48 = call i64 @g_strlcpy(ptr noundef %43, ptr noundef %47, i64 noundef 2048)
+  br label %76
 
-46:                                               ; preds = %14
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = sext i32 %2 to i64
-  %50 = getelementptr %struct.col_item_t, ptr %48, i64 %49, i32 8
+49:                                               ; preds = %15
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr @col_decimal_point, align 8
-  %.val = load i64, ptr %4, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.val26 = load i32, ptr %53, align 8
-  call fastcc void @set_time_hour_min_sec(ptr noundef %0, i64 %.val, i32 %.val26, ptr noundef %51, ptr noundef %52)
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %52 = sext i32 %2 to i64
+  %53 = getelementptr %struct.col_item_t, ptr %51, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr ptr, ptr %55, i64 %49
-  store ptr @.str.34, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr ptr, ptr %58, i64 %49
-  %60 = load ptr, ptr %59, align 8
-  %61 = call i32 @timestamp_get_precision()
-  %62 = icmp eq i32 %61, -1
-  br i1 %62, label %63, label %68
+  %56 = load ptr, ptr @col_decimal_point, align 8
+  %.val = load i64, ptr %4, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.val26 = load i32, ptr %57, align 8
+  call fastcc void @set_time_hour_min_sec(ptr noundef %0, i64 %.val, i32 %.val26, ptr noundef %55, ptr noundef %56)
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr ptr, ptr %59, i64 %52
+  store ptr @.str.34, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr ptr, ptr %62, i64 %52
+  %64 = load ptr, ptr %63, align 8
+  %65 = call i32 @timestamp_get_precision()
+  %66 = icmp eq i32 %65, -1
+  br i1 %66, label %67, label %72
 
-63:                                               ; preds = %46
-  %64 = load i16, ptr %5, align 1
-  %65 = lshr i16 %64, 10
-  %66 = and i16 %65, 15
-  %67 = zext nneg i16 %66 to i32
+67:                                               ; preds = %49
+  %68 = load i16, ptr %5, align 1
+  %69 = lshr i16 %68, 10
+  %70 = and i16 %69, 15
+  %71 = zext nneg i16 %70 to i32
   br label %set_time_seconds.exit29
 
-68:                                               ; preds = %46
-  %69 = icmp slt i32 %61, 0
-  br i1 %69, label %70, label %set_time_seconds.exit29
+72:                                               ; preds = %49
+  %73 = icmp slt i32 %65, 0
+  br i1 %73, label %74, label %set_time_seconds.exit29
 
-70:                                               ; preds = %68
+74:                                               ; preds = %72
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
   unreachable
 
-set_time_seconds.exit29:                          ; preds = %63, %68
-  %.0.i.i27 = phi i32 [ %67, %63 ], [ %61, %68 ]
+set_time_seconds.exit29:                          ; preds = %67, %72
+  %.0.i.i27 = phi i32 [ %71, %67 ], [ %65, %72 ]
   %spec.store.select.i.i28 = call range(i32 0, 10) i32 @llvm.umin.i32(i32 %.0.i.i27, i32 9)
-  call void @display_signed_time(ptr noundef %60, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i28)
-  br label %72
+  call void @display_signed_time(ptr noundef %64, i64 noundef 2048, ptr noundef nonnull %4, i32 noundef %spec.store.select.i.i28)
+  br label %76
 
-71:                                               ; preds = %14
+75:                                               ; preds = %15
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 1354, ptr noundef nonnull @__func__.col_set_delta_time_dis, ptr noundef nonnull @.str.9) #21
   unreachable
 
-72:                                               ; preds = %set_time_seconds.exit29, %set_time_seconds.exit
-  %.pre-phi = phi i64 [ %49, %set_time_seconds.exit29 ], [ %22, %set_time_seconds.exit ]
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr %struct.col_item_t, ptr %74, i64 %.pre-phi
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  store ptr %77, ptr %78, align 8
-  br label %79
+76:                                               ; preds = %set_time_seconds.exit29, %set_time_seconds.exit
+  %.pre-phi = phi i64 [ %52, %set_time_seconds.exit29 ], [ %23, %set_time_seconds.exit ]
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr %struct.col_item_t, ptr %78, i64 %.pre-phi
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 56
+  store ptr %81, ptr %82, align 8
+  br label %83
 
-79:                                               ; preds = %72, %8
+83:                                               ; preds = %76, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -5867,65 +5899,67 @@ define internal fastcc void @col_set_utc_ymd_time(ptr noundef %0, ptr noundef re
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr %struct.col_item_t, ptr %5, i64 %6, i32 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr @col_decimal_point, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %11 = load i16, ptr %10, align 1
-  %12 = and i16 %11, 128
-  %.not.i = icmp eq i16 %12, 0
-  br i1 %.not.i, label %13, label %14
-
-13:                                               ; preds = %3
-  store i8 0, ptr %8, align 1
-  br label %set_abs_ymd_time.exit
+  %7 = getelementptr %struct.col_item_t, ptr %5, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr @col_decimal_point, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 57
+  %12 = load i16, ptr %11, align 1
+  %13 = and i16 %12, 128
+  %.not.i = icmp eq i16 %13, 0
+  br i1 %.not.i, label %14, label %15
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = tail call i32 @timestamp_get_precision()
-  %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %23
+  store i8 0, ptr %9, align 1
+  br label %set_abs_ymd_time.exit
 
-18:                                               ; preds = %14
-  %19 = load i16, ptr %10, align 1
-  %20 = lshr i16 %19, 10
-  %21 = and i16 %20, 15
-  %22 = zext nneg i16 %21 to i32
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = tail call i32 @timestamp_get_precision()
+  %18 = icmp eq i32 %17, -1
+  br i1 %18, label %19, label %24
+
+19:                                               ; preds = %15
+  %20 = load i16, ptr %11, align 1
+  %21 = lshr i16 %20, 10
+  %22 = and i16 %21, 15
+  %23 = zext nneg i16 %22 to i32
   br label %get_frame_timestamp_precision.exit.i
 
-23:                                               ; preds = %14
-  %24 = icmp slt i32 %16, 0
-  br i1 %24, label %25, label %get_frame_timestamp_precision.exit.i
+24:                                               ; preds = %15
+  %25 = icmp slt i32 %17, 0
+  br i1 %25, label %26, label %get_frame_timestamp_precision.exit.i
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.7, i64 noundef 996, ptr noundef nonnull @__func__.get_frame_timestamp_precision, ptr noundef nonnull @.str.9) #21
   unreachable
 
-get_frame_timestamp_precision.exit.i:             ; preds = %23, %18
-  %.0.i.i = phi i32 [ %22, %18 ], [ %16, %23 ]
+get_frame_timestamp_precision.exit.i:             ; preds = %24, %19
+  %.0.i.i = phi i32 [ %23, %19 ], [ %17, %24 ]
   %spec.store.select.i.i = tail call range(i32 0, 10) i32 @llvm.umin.i32(i32 %.0.i.i, i32 9)
-  tail call void @format_nstime_as_iso8601(ptr noundef %8, i64 noundef 2048, ptr noundef nonnull %15, ptr noundef %9, i1 noundef zeroext false, i32 noundef %spec.store.select.i.i)
+  tail call void @format_nstime_as_iso8601(ptr noundef %9, i64 noundef 2048, ptr noundef nonnull %16, ptr noundef %10, i1 noundef zeroext false, i32 noundef %spec.store.select.i.i)
   br label %set_abs_ymd_time.exit
 
-set_abs_ymd_time.exit:                            ; preds = %13, %get_frame_timestamp_precision.exit.i
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr ptr, ptr %27, i64 %6
-  store ptr @.str.32, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr ptr, ptr %30, i64 %6
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr %struct.col_item_t, ptr %33, i64 %6, i32 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call i64 @g_strlcpy(ptr noundef %32, ptr noundef %35, i64 noundef 2048)
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr %struct.col_item_t, ptr %37, i64 %6
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  store ptr %40, ptr %41, align 8
+set_abs_ymd_time.exit:                            ; preds = %14, %get_frame_timestamp_precision.exit.i
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr ptr, ptr %28, i64 %6
+  store ptr @.str.32, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr ptr, ptr %31, i64 %6
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr %struct.col_item_t, ptr %34, i64 %6
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call i64 @g_strlcpy(ptr noundef %33, ptr noundef %37, i64 noundef 2048)
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr %struct.col_item_t, ptr %39, i64 %6
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  store ptr %42, ptr %43, align 8
   ret void
 }
 

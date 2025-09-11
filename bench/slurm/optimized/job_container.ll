@@ -299,19 +299,20 @@ define dso_local i32 @container_g_join_external(i32 noundef %0) local_unnamed_ad
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(i32 noundef %0) #7
+  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i32 %7(i32 noundef %0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr @g_container_context_num, align 4
-  %9 = sext i32 %8 to i64
-  %10 = icmp slt i64 %indvars.iv.next, %9
-  %11 = icmp eq i32 %7, 0
-  %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  %9 = load i32, ptr @g_container_context_num, align 4
+  %10 = sext i32 %9 to i64
+  %11 = icmp slt i64 %indvars.iv.next, %10
+  %12 = icmp eq i32 %8, 0
+  %13 = select i1 %11, i1 %12, i1 false
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %8, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -324,19 +325,20 @@ define dso_local i32 @container_g_restore(ptr noundef %0, i1 noundef zeroext %1)
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %5 = load ptr, ptr @ops, align 8
-  %6 = getelementptr inbounds nuw %struct.job_container_ops, ptr %5, i64 %indvars.iv, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %0, i1 noundef zeroext %1) #7
+  %6 = getelementptr inbounds nuw %struct.job_container_ops, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 %8(ptr noundef %0, i1 noundef zeroext %1) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = load i32, ptr @g_container_context_num, align 4
-  %10 = sext i32 %9 to i64
-  %11 = icmp slt i64 %indvars.iv.next, %10
-  %12 = icmp eq i32 %8, 0
-  %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %10 = load i32, ptr @g_container_context_num, align 4
+  %11 = sext i32 %10 to i64
+  %12 = icmp slt i64 %indvars.iv.next, %11
+  %13 = icmp eq i32 %9, 0
+  %14 = select i1 %12, i1 %13, i1 false
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %9, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -349,19 +351,20 @@ define dso_local i32 @container_g_stepd_create(i32 noundef %0, ptr noundef %1) l
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %5 = load ptr, ptr @ops, align 8
-  %6 = getelementptr inbounds nuw %struct.job_container_ops, ptr %5, i64 %indvars.iv, i32 3
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(i32 noundef %0, ptr noundef %1) #7
+  %6 = getelementptr inbounds nuw %struct.job_container_ops, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 %8(i32 noundef %0, ptr noundef %1) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = load i32, ptr @g_container_context_num, align 4
-  %10 = sext i32 %9 to i64
-  %11 = icmp slt i64 %indvars.iv.next, %10
-  %12 = icmp eq i32 %8, 0
-  %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  %10 = load i32, ptr @g_container_context_num, align 4
+  %11 = sext i32 %10 to i64
+  %12 = icmp slt i64 %indvars.iv.next, %11
+  %13 = icmp eq i32 %9, 0
+  %14 = select i1 %12, i1 %13, i1 false
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %8, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %9, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -374,19 +377,20 @@ define dso_local i32 @container_g_stepd_delete(i32 noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 4
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(i32 noundef %0) #7
+  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i32 %7(i32 noundef %0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr @g_container_context_num, align 4
-  %9 = sext i32 %8 to i64
-  %10 = icmp slt i64 %indvars.iv.next, %9
-  %11 = icmp eq i32 %7, 0
-  %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  %9 = load i32, ptr @g_container_context_num, align 4
+  %10 = sext i32 %9 to i64
+  %11 = icmp slt i64 %indvars.iv.next, %10
+  %12 = icmp eq i32 %8, 0
+  %13 = select i1 %11, i1 %12, i1 false
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %8, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -399,19 +403,20 @@ define dso_local i32 @container_g_send_stepd(i32 noundef %0) local_unnamed_addr 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 5
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(i32 noundef %0) #7
+  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i32 %7(i32 noundef %0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr @g_container_context_num, align 4
-  %9 = sext i32 %8 to i64
-  %10 = icmp slt i64 %indvars.iv.next, %9
-  %11 = icmp eq i32 %7, 0
-  %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  %9 = load i32, ptr @g_container_context_num, align 4
+  %10 = sext i32 %9 to i64
+  %11 = icmp slt i64 %indvars.iv.next, %10
+  %12 = icmp eq i32 %8, 0
+  %13 = select i1 %11, i1 %12, i1 false
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %8, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -424,19 +429,20 @@ define dso_local i32 @container_g_recv_stepd(i32 noundef %0) local_unnamed_addr 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 6
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(i32 noundef %0) #7
+  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i32 %7(i32 noundef %0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr @g_container_context_num, align 4
-  %9 = sext i32 %8 to i64
-  %10 = icmp slt i64 %indvars.iv.next, %9
-  %11 = icmp eq i32 %7, 0
-  %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  %9 = load i32, ptr @g_container_context_num, align 4
+  %10 = sext i32 %9 to i64
+  %11 = icmp slt i64 %indvars.iv.next, %10
+  %12 = icmp eq i32 %8, 0
+  %13 = select i1 %11, i1 %12, i1 false
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %7, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %8, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 

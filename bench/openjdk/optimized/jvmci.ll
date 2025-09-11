@@ -899,15 +899,17 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %31, %21
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %25 to i64
-  %37 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %35, i64 %36, i32 1
-  store ptr %18, ptr %37, align 8
-  %38 = load ptr, ptr %34, align 8
-  %39 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %38, i64 %36
-  store double %22, ptr %39, align 8
-  %40 = load ptr, ptr %34, align 8
-  %41 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %40, i64 %36, i32 2
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @jio_vsnprintf(ptr noundef %42, i64 noundef 256, ptr noundef %1, ptr noundef %2) #13
+  %37 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %35, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %18, ptr %38, align 8
+  %39 = load ptr, ptr %34, align 8
+  %40 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %39, i64 %36
+  store double %22, ptr %40, align 8
+  %41 = load ptr, ptr %34, align 8
+  %42 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %41, i64 %36
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call i32 @jio_vsnprintf(ptr noundef %44, i64 noundef 256, ptr noundef %1, ptr noundef %2) #13
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #13
   br label %_ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit
 

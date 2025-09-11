@@ -2630,17 +2630,17 @@ value_guard.exit1071:                             ; preds = %value_guard.exit107
   %907 = shl nuw nsw i64 1, %906
   %908 = and i64 %907, 10605088518
   %.not78.i = icmp eq i64 %908, 0
-  br i1 %.not78.i, label %909, label %.thread6.i
+  br i1 %.not78.i, label %909, label %.thread5.i
 
 909:                                              ; preds = %905
   %910 = and i64 %907, 4406259960
   %.not79.i = icmp eq i64 %910, 0
-  br i1 %.not79.i, label %.critedge.i, label %.thread6.i
+  br i1 %.not79.i, label %.critedge.i, label %.thread5.i
 
 .critedge.i:                                      ; preds = %909
   %911 = and i64 %907, 21037057
   %.not80.i = icmp eq i64 %911, 0
-  br i1 %.not80.i, label %939, label %.thread6.i
+  br i1 %.not80.i, label %939, label %.thread5.i
 
 912:                                              ; preds = %value_guard.exit1071
   %913 = load i32, ptr @hf_elf64_dynamic_tag, align 4
@@ -2698,7 +2698,7 @@ value_guard.exit.i1072:                           ; preds = %919
   %935 = add i32 %.09621252, 16
   br label %dissect_dynamic.exit
 
-.thread6.i:                                       ; preds = %.critedge.i, %909, %905
+.thread5.i:                                       ; preds = %.critedge.i, %909, %905
   %hf_elf_dynamic_value.sink.i = phi ptr [ @hf_elf_dynamic_value, %905 ], [ @hf_elf_dynamic_pointer, %909 ], [ @hf_elf_dynamic_ignored, %.critedge.i ]
   %936 = load i32, ptr %hf_elf_dynamic_value.sink.i, align 4
   %937 = call ptr @proto_tree_add_item(ptr noundef %892, i32 noundef %936, ptr noundef %0, i32 noundef %903, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %.)
@@ -2716,9 +2716,9 @@ value_guard.exit.i1072:                           ; preds = %919
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.666, ptr noundef nonnull @.str.667, i32 noundef 647, ptr noundef nonnull @.str.668, ptr noundef nonnull @.str.669) #6
   unreachable
 
-dissect_dynamic.exit:                             ; preds = %.thread.i1073, %.thread6.i, %939
-  %.04.i = phi i32 [ %935, %.thread.i1073 ], [ %942, %939 ], [ %938, %.thread6.i ]
-  %.0713.i = phi i32 [ %923, %.thread.i1073 ], [ %902, %939 ], [ %902, %.thread6.i ]
+dissect_dynamic.exit:                             ; preds = %.thread.i1073, %.thread5.i, %939
+  %.04.i = phi i32 [ %935, %.thread.i1073 ], [ %942, %939 ], [ %938, %.thread5.i ]
+  %.0713.i = phi i32 [ %923, %.thread.i1073 ], [ %902, %939 ], [ %902, %.thread5.i ]
   %945 = call ptr @rval_to_str_const(i32 noundef %.0713.i, ptr noundef nonnull @dynamic_tag_rvals, ptr noundef nonnull @.str.644)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %893, ptr noundef nonnull @.str.653, ptr noundef %945)
   %946 = mul nuw nsw i64 %890, %.0961

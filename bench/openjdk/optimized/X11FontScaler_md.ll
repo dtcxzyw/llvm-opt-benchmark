@@ -24,61 +24,62 @@ define hidden range(i32 0, 12) i32 @CreatePixmapAndGC(i32 noundef %0, i32 nounde
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.Screen, ptr %5, i64 %8, i32 2
-  %10 = load i64, ptr %9, align 8
+  %9 = getelementptr inbounds %struct.Screen, ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %10, align 8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %0, i32 100)
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %1, i32 100)
   store i32 %spec.store.select1, ptr @pixmapHeight, align 4
   store i32 %spec.store.select, ptr @pixmapWidth, align 4
-  %11 = load i64, ptr @pixmap, align 8
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %14, label %12
+  %12 = load i64, ptr @pixmap, align 8
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %15, label %13
 
-12:                                               ; preds = %2
-  %13 = tail call i32 @XFreePixmap(ptr noundef nonnull %3, i64 noundef %11) #8
+13:                                               ; preds = %2
+  %14 = tail call i32 @XFreePixmap(ptr noundef nonnull %3, i64 noundef %12) #8
   %.pre12.pre = load ptr, ptr @awt_display, align 8
-  br label %14
+  br label %15
 
-14:                                               ; preds = %12, %2
-  %.pre12 = phi ptr [ %.pre12.pre, %12 ], [ %3, %2 ]
-  %15 = load ptr, ptr @pixmapGC, align 8
-  %.not11 = icmp eq ptr %15, null
-  br i1 %.not11, label %18, label %16
+15:                                               ; preds = %13, %2
+  %.pre12 = phi ptr [ %.pre12.pre, %13 ], [ %3, %2 ]
+  %16 = load ptr, ptr @pixmapGC, align 8
+  %.not11 = icmp eq ptr %16, null
+  br i1 %.not11, label %19, label %17
 
-16:                                               ; preds = %14
-  %17 = tail call i32 @XFreeGC(ptr noundef %.pre12, ptr noundef nonnull %15) #8
+17:                                               ; preds = %15
+  %18 = tail call i32 @XFreeGC(ptr noundef %.pre12, ptr noundef nonnull %16) #8
   %.pre = load ptr, ptr @awt_display, align 8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %16, %14
-  %19 = phi ptr [ %.pre, %16 ], [ %.pre12, %14 ]
-  %20 = load i32, ptr @pixmapWidth, align 4
-  %21 = load i32, ptr @pixmapHeight, align 4
-  %22 = tail call i64 @XCreatePixmap(ptr noundef %19, i64 noundef %10, i32 noundef %20, i32 noundef %21, i32 noundef 1) #8
-  store i64 %22, ptr @pixmap, align 8
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %37, label %24
+19:                                               ; preds = %17, %15
+  %20 = phi ptr [ %.pre, %17 ], [ %.pre12, %15 ]
+  %21 = load i32, ptr @pixmapWidth, align 4
+  %22 = load i32, ptr @pixmapHeight, align 4
+  %23 = tail call i64 @XCreatePixmap(ptr noundef %20, i64 noundef %11, i32 noundef %21, i32 noundef %22, i32 noundef 1) #8
+  store i64 %23, ptr @pixmap, align 8
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %38, label %25
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr @awt_display, align 8
-  %26 = tail call ptr @XCreateGC(ptr noundef %25, i64 noundef %22, i64 noundef 0, ptr noundef null) #8
-  store ptr %26, ptr @pixmapGC, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %37, label %28
+25:                                               ; preds = %19
+  %26 = load ptr, ptr @awt_display, align 8
+  %27 = tail call ptr @XCreateGC(ptr noundef %26, i64 noundef %23, i64 noundef 0, ptr noundef null) #8
+  store ptr %27, ptr @pixmapGC, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %38, label %29
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr @awt_display, align 8
-  %30 = load i64, ptr @pixmap, align 8
-  %31 = load i32, ptr @pixmapWidth, align 4
-  %32 = load i32, ptr @pixmapHeight, align 4
-  %33 = tail call i32 @XFillRectangle(ptr noundef %29, i64 noundef %30, ptr noundef nonnull %26, i32 noundef 0, i32 noundef 0, i32 noundef %31, i32 noundef %32) #8
-  %34 = load ptr, ptr @awt_display, align 8
-  %35 = load ptr, ptr @pixmapGC, align 8
-  %36 = tail call i32 @XSetForeground(ptr noundef %34, ptr noundef %35, i64 noundef 1) #8
-  br label %37
+29:                                               ; preds = %25
+  %30 = load ptr, ptr @awt_display, align 8
+  %31 = load i64, ptr @pixmap, align 8
+  %32 = load i32, ptr @pixmapWidth, align 4
+  %33 = load i32, ptr @pixmapHeight, align 4
+  %34 = tail call i32 @XFillRectangle(ptr noundef %30, i64 noundef %31, ptr noundef nonnull %27, i32 noundef 0, i32 noundef 0, i32 noundef %32, i32 noundef %33) #8
+  %35 = load ptr, ptr @awt_display, align 8
+  %36 = load ptr, ptr @pixmapGC, align 8
+  %37 = tail call i32 @XSetForeground(ptr noundef %35, ptr noundef %36, i64 noundef 1) #8
+  br label %38
 
-37:                                               ; preds = %24, %18, %28
-  %.0 = phi i32 [ 0, %28 ], [ 11, %18 ], [ 11, %24 ]
+38:                                               ; preds = %25, %19, %29
+  %.0 = phi i32 [ 0, %29 ], [ 11, %19 ], [ 11, %25 ]
   ret i32 %.0
 }
 

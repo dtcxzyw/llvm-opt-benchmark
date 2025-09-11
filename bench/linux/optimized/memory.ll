@@ -899,7 +899,8 @@ define dso_local void @pmd_install(ptr noundef %0, ptr noundef %1, ptr noundef c
   %14 = select i1 %10, i64 %11, i64 %13
   %15 = add i64 %9, %14
   %16 = lshr i64 %15, 12
-  %17 = getelementptr %struct.page, ptr %6, i64 %16, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %6, i64 %16
+  %17 = getelementptr i8, ptr %.split, i64 40
   tail call void @_raw_spin_lock(ptr noundef %17) #18
   %18 = load i64, ptr %1, align 8
   %19 = and i64 %18, -97
@@ -949,7 +950,8 @@ define dso_local noundef range(i32 -12, 1) i32 @__pte_alloc(ptr noundef %0, ptr 
   %16 = select i1 %12, i64 %13, i64 %15
   %17 = add i64 %11, %16
   %18 = lshr i64 %17, 12
-  %19 = getelementptr %struct.page, ptr %8, i64 %18, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %8, i64 %18
+  %19 = getelementptr i8, ptr %.split, i64 40
   tail call void @_raw_spin_lock(ptr noundef %19) #18
   %20 = load i64, ptr %1, align 8
   %21 = and i64 %20, -97
@@ -9495,7 +9497,8 @@ define dso_local range(i32 0, 257) i32 @finish_fault(ptr noundef %0) local_unnam
   %46 = select i1 %42, i64 %43, i64 %45
   %47 = add i64 %41, %46
   %48 = lshr i64 %47, 12
-  %49 = getelementptr %struct.page, ptr %38, i64 %48, i32 1, i32 0, i32 3
+  %.split = getelementptr %struct.page, ptr %38, i64 %48
+  %49 = getelementptr i8, ptr %.split, i64 40
   tail call void @_raw_spin_lock(ptr noundef %49) #18
   %50 = load i64, ptr %26, align 8
   %51 = and i64 %50, -97
@@ -12555,7 +12558,7 @@ define dso_local void @clear_huge_page(ptr noundef %0, i64 noundef %1, i32 nound
   %33 = tail call { ptr, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09call ${2:P}\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 9*32+ 9)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call ${3:P}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09call ${4:P}\0A6652:\0A.popsection\0A", "={di},={rsp},i,i,i,0,{rsp},~{cc},~{memory},~{rax},~{rcx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @clear_page_orig, ptr nonnull @clear_page_rep, ptr nonnull @clear_page_erms, ptr %31, i64 %32) #18, !srcloc !170
   %34 = extractvalue { ptr, i64 } %33, 1
   tail call void @llvm.write_register.i64(metadata !0, i64 %34)
-  %35 = icmp sgt i64 %22, %19
+  %35 = icmp samesign ugt i64 %22, %19
   br i1 %35, label %20, label %.loopexit5, !llvm.loop !221
 
 36:                                               ; preds = %6
@@ -12694,7 +12697,7 @@ define dso_local range(i32 -133, 1) i32 @copy_user_large_folio(ptr noundef %0, p
 .thread:                                          ; preds = %4, %8
   %15 = phi i32 [ %10, %8 ], [ 1, %4 ]
   %16 = phi i64 [ %11, %8 ], [ 1, %4 ]
-  %17 = mul nuw i64 %16, 17592186040320
+  %17 = mul nuw nsw i64 %16, 17592186040320
   %18 = tail call i32 @__SCT__might_resched() #18
   %19 = xor i64 %17, -1
   %20 = and i64 %2, %19

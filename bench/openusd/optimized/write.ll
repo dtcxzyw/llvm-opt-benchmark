@@ -1345,1668 +1345,1677 @@ define hidden i32 @avifEncoderFinish(ptr noundef %0, ptr noundef %1) local_unnam
 
 136:                                              ; preds = %.lr.ph1111, %.loopexit1089
   %indvars.iv1222 = phi i64 [ 0, %.lr.ph1111 ], [ %indvars.iv.next1223, %.loopexit1089 ]
-  %137 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %135, i64 %indvars.iv1222, i32 3
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 12
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %.loopexit1089, label %.preheader1088
+  %137 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %135, i64 %indvars.iv1222
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 12
+  %141 = load i32, ptr %140, align 4
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %.loopexit1089, label %.preheader1088
 
 .preheader1088:                                   ; preds = %136
-  %142 = load ptr, ptr %138, align 8
-  %wide.trip.count = zext i32 %140 to i64
-  br label %144
+  %143 = load ptr, ptr %139, align 8
+  %wide.trip.count = zext i32 %141 to i64
+  br label %145
 
-143:                                              ; preds = %144
+144:                                              ; preds = %145
   %indvars.iv.next1220 = add nuw nsw i64 %indvars.iv1219, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1220, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %144, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge, label %145, !llvm.loop !11
 
-144:                                              ; preds = %.preheader1088, %143
-  %indvars.iv1219 = phi i64 [ 0, %.preheader1088 ], [ %indvars.iv.next1220, %143 ]
-  %145 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %142, i64 %indvars.iv1219, i32 1
-  %146 = load i32, ptr %145, align 8
-  %.not = icmp eq i32 %146, 0
-  br i1 %.not, label %.loopexit1089, label %143
+145:                                              ; preds = %.preheader1088, %144
+  %indvars.iv1219 = phi i64 [ 0, %.preheader1088 ], [ %indvars.iv.next1220, %144 ]
+  %146 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %143, i64 %indvars.iv1219
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
+  %148 = load i32, ptr %147, align 8
+  %.not = icmp eq i32 %148, 0
+  br i1 %.not, label %.loopexit1089, label %144
 
-.loopexit1089:                                    ; preds = %144, %136
+.loopexit1089:                                    ; preds = %145, %136
   %indvars.iv.next1223 = add nuw nsw i64 %indvars.iv1222, 1
   %exitcond1226.not = icmp eq i64 %indvars.iv.next1223, %wide.trip.count1225
   br i1 %exitcond1226.not, label %.critedge, label %136, !llvm.loop !12
 
-.critedge:                                        ; preds = %.loopexit1089, %143, %.preheader1090, %._crit_edge, %128
-  %147 = phi ptr [ @.str.1, %128 ], [ @.str.1, %._crit_edge ], [ @.str.2, %.preheader1090 ], [ @.str.2, %143 ], [ @.str.2, %.loopexit1089 ]
-  %148 = phi i1 [ false, %128 ], [ false, %._crit_edge ], [ true, %.preheader1090 ], [ true, %143 ], [ true, %.loopexit1089 ]
-  %.not847 = phi i1 [ true, %128 ], [ true, %._crit_edge ], [ true, %.preheader1090 ], [ false, %143 ], [ true, %.loopexit1089 ]
-  %149 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, i64 noundef 0, ptr noundef nonnull %5) #13
-  %.not843 = icmp eq i32 %149, 0
-  br i1 %.not843, label %150, label %.loopexit
+.critedge:                                        ; preds = %.loopexit1089, %144, %.preheader1090, %._crit_edge, %128
+  %149 = phi ptr [ @.str.1, %128 ], [ @.str.1, %._crit_edge ], [ @.str.2, %.preheader1090 ], [ @.str.2, %144 ], [ @.str.2, %.loopexit1089 ]
+  %150 = phi i1 [ false, %128 ], [ false, %._crit_edge ], [ true, %.preheader1090 ], [ true, %144 ], [ true, %.loopexit1089 ]
+  %.not847 = phi i1 [ true, %128 ], [ true, %._crit_edge ], [ true, %.preheader1090 ], [ false, %144 ], [ true, %.loopexit1089 ]
+  %151 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, i64 noundef 0, ptr noundef nonnull %5) #13
+  %.not843 = icmp eq i32 %151, 0
+  br i1 %.not843, label %152, label %.loopexit
 
-150:                                              ; preds = %.critedge
-  %151 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull %147, i64 noundef 4) #13
-  %.not844 = icmp eq i32 %151, 0
-  br i1 %.not844, label %152, label %.loopexit
-
-152:                                              ; preds = %150
-  %153 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
-  %.not845 = icmp eq i32 %153, 0
-  br i1 %.not845, label %154, label %.loopexit
+152:                                              ; preds = %.critedge
+  %153 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull %149, i64 noundef 4) #13
+  %.not844 = icmp eq i32 %153, 0
+  br i1 %.not844, label %154, label %.loopexit
 
 154:                                              ; preds = %152
-  %155 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, i64 noundef 4) #13
-  %.not846 = icmp eq i32 %155, 0
-  br i1 %.not846, label %156, label %.loopexit
+  %155 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
+  %.not845 = icmp eq i32 %155, 0
+  br i1 %.not845, label %156, label %.loopexit
 
 156:                                              ; preds = %154
-  br i1 %.not847, label %159, label %157
+  %157 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, i64 noundef 4) #13
+  %.not846 = icmp eq i32 %157, 0
+  br i1 %.not846, label %158, label %.loopexit
 
-157:                                              ; preds = %156
-  %158 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, i64 noundef 4) #13
-  %.not848 = icmp eq i32 %158, 0
-  br i1 %.not848, label %159, label %.loopexit
+158:                                              ; preds = %156
+  br i1 %.not847, label %161, label %159
 
-159:                                              ; preds = %157, %156
-  br i1 %148, label %160, label %166
+159:                                              ; preds = %158
+  %160 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, i64 noundef 4) #13
+  %.not848 = icmp eq i32 %160, 0
+  br i1 %.not848, label %161, label %.loopexit
 
-160:                                              ; preds = %159
-  %161 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i64 noundef 4) #13
-  %.not849 = icmp eq i32 %161, 0
-  br i1 %.not849, label %162, label %.loopexit
+161:                                              ; preds = %159, %158
+  br i1 %150, label %162, label %168
 
-162:                                              ; preds = %160
-  %163 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i64 noundef 4) #13
-  %.not850 = icmp eq i32 %163, 0
-  br i1 %.not850, label %164, label %.loopexit
+162:                                              ; preds = %161
+  %163 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i64 noundef 4) #13
+  %.not849 = icmp eq i32 %163, 0
+  br i1 %.not849, label %164, label %.loopexit
 
 164:                                              ; preds = %162
-  %165 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, i64 noundef 4) #13
-  %.not851 = icmp eq i32 %165, 0
-  br i1 %.not851, label %166, label %.loopexit
+  %165 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i64 noundef 4) #13
+  %.not850 = icmp eq i32 %165, 0
+  br i1 %.not850, label %166, label %.loopexit
 
-166:                                              ; preds = %159, %164
-  %167 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i64 noundef 4) #13
-  %.not852 = icmp eq i32 %167, 0
-  br i1 %.not852, label %168, label %.loopexit
+166:                                              ; preds = %164
+  %167 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, i64 noundef 4) #13
+  %.not851 = icmp eq i32 %167, 0
+  br i1 %.not851, label %168, label %.loopexit
 
-168:                                              ; preds = %166
-  %169 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, i64 noundef 4) #13
-  %.not853 = icmp eq i32 %169, 0
-  br i1 %.not853, label %170, label %.loopexit
+168:                                              ; preds = %161, %166
+  %169 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i64 noundef 4) #13
+  %.not852 = icmp eq i32 %169, 0
+  br i1 %.not852, label %170, label %.loopexit
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %172 = load i32, ptr %171, align 8
-  switch i32 %172, label %180 [
-    i32 8, label %173
-    i32 10, label %173
+  %171 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, i64 noundef 4) #13
+  %.not853 = icmp eq i32 %171, 0
+  br i1 %.not853, label %172, label %.loopexit
+
+172:                                              ; preds = %170
+  %173 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %174 = load i32, ptr %173, align 8
+  switch i32 %174, label %182 [
+    i32 8, label %175
+    i32 10, label %175
   ]
 
-173:                                              ; preds = %170, %170
-  %174 = getelementptr inbounds nuw i8, ptr %122, i64 12
-  %175 = load i32, ptr %174, align 4
-  switch i32 %175, label %180 [
-    i32 3, label %176
-    i32 1, label %178
+175:                                              ; preds = %172, %172
+  %176 = getelementptr inbounds nuw i8, ptr %122, i64 12
+  %177 = load i32, ptr %176, align 4
+  switch i32 %177, label %182 [
+    i32 3, label %178
+    i32 1, label %180
   ]
 
-176:                                              ; preds = %173
-  %177 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, i64 noundef 4) #13
-  %.not855 = icmp eq i32 %177, 0
-  br i1 %.not855, label %180, label %.loopexit
+178:                                              ; preds = %175
+  %179 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, i64 noundef 4) #13
+  %.not855 = icmp eq i32 %179, 0
+  br i1 %.not855, label %182, label %.loopexit
 
-178:                                              ; preds = %173
-  %179 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.10, i64 noundef 4) #13
-  %.not854 = icmp eq i32 %179, 0
-  br i1 %.not854, label %180, label %.loopexit
+180:                                              ; preds = %175
+  %181 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.10, i64 noundef 4) #13
+  %.not854 = icmp eq i32 %181, 0
+  br i1 %.not854, label %182, label %.loopexit
 
-180:                                              ; preds = %173, %170, %176, %178
-  %181 = load i64, ptr %5, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %181) #13
-  %182 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.11, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #13
-  %.not856 = icmp eq i32 %182, 0
-  br i1 %.not856, label %183, label %.loopexit
+182:                                              ; preds = %175, %172, %178, %180
+  %183 = load i64, ptr %5, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %183) #13
+  %184 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.11, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #13
+  %.not856 = icmp eq i32 %184, 0
+  br i1 %.not856, label %185, label %.loopexit
 
-183:                                              ; preds = %180
-  %184 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #13
-  %.not857 = icmp eq i32 %184, 0
-  br i1 %.not857, label %185, label %.loopexit
-
-185:                                              ; preds = %183
-  %186 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
-  %.not858 = icmp eq i32 %186, 0
-  br i1 %.not858, label %187, label %.loopexit
+185:                                              ; preds = %182
+  %186 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #13
+  %.not857 = icmp eq i32 %186, 0
+  br i1 %.not857, label %187, label %.loopexit
 
 187:                                              ; preds = %185
-  %188 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.13, i64 noundef 4) #13
-  %.not859 = icmp eq i32 %188, 0
-  br i1 %.not859, label %189, label %.loopexit
+  %188 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
+  %.not858 = icmp eq i32 %188, 0
+  br i1 %.not858, label %189, label %.loopexit
 
 189:                                              ; preds = %187
-  %190 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 12) #13
-  %.not860 = icmp eq i32 %190, 0
-  br i1 %.not860, label %191, label %.loopexit
+  %190 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.13, i64 noundef 4) #13
+  %.not859 = icmp eq i32 %190, 0
+  br i1 %.not859, label %191, label %.loopexit
 
 191:                                              ; preds = %189
-  %192 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i64 noundef 8) #13
-  %.not861 = icmp eq i32 %192, 0
-  br i1 %.not861, label %193, label %.loopexit
+  %192 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 12) #13
+  %.not860 = icmp eq i32 %192, 0
+  br i1 %.not860, label %193, label %.loopexit
 
 193:                                              ; preds = %191
-  %194 = load i64, ptr %7, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %194) #13
-  %195 = load ptr, ptr %45, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 474
-  %197 = load i16, ptr %196, align 2
-  %.not862 = icmp eq i16 %197, 0
-  br i1 %.not862, label %205, label %198
+  %194 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i64 noundef 8) #13
+  %.not861 = icmp eq i32 %194, 0
+  br i1 %.not861, label %195, label %.loopexit
 
-198:                                              ; preds = %193
-  %199 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, i64 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef null) #13
-  %.not863 = icmp eq i32 %199, 0
-  br i1 %.not863, label %200, label %.loopexit
+195:                                              ; preds = %193
+  %196 = load i64, ptr %7, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %196) #13
+  %197 = load ptr, ptr %45, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 474
+  %199 = load i16, ptr %198, align 2
+  %.not862 = icmp eq i16 %199, 0
+  br i1 %.not862, label %207, label %200
 
-200:                                              ; preds = %198
-  %201 = load ptr, ptr %45, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 474
-  %203 = load i16, ptr %202, align 2
-  %204 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %203) #13
-  %.not864 = icmp eq i32 %204, 0
-  br i1 %.not864, label %205, label %.loopexit
+200:                                              ; preds = %195
+  %201 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, i64 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef null) #13
+  %.not863 = icmp eq i32 %201, 0
+  br i1 %.not863, label %202, label %.loopexit
 
-205:                                              ; preds = %193, %200
-  %206 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8) #13
-  %.not865 = icmp eq i32 %206, 0
-  br i1 %.not865, label %207, label %.loopexit
+202:                                              ; preds = %200
+  %203 = load ptr, ptr %45, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 474
+  %205 = load i16, ptr %204, align 2
+  %206 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %205) #13
+  %.not864 = icmp eq i32 %206, 0
+  br i1 %.not864, label %207, label %.loopexit
 
-207:                                              ; preds = %205
-  %208 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 4, i64 noundef 4) #13
-  %.not866 = icmp eq i32 %208, 0
-  br i1 %.not866, label %209, label %.loopexit
+207:                                              ; preds = %195, %202
+  %208 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8) #13
+  %.not865 = icmp eq i32 %208, 0
+  br i1 %.not865, label %209, label %.loopexit
 
 209:                                              ; preds = %207
   %210 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 4, i64 noundef 4) #13
-  %.not867 = icmp eq i32 %210, 0
-  br i1 %.not867, label %211, label %.loopexit
+  %.not866 = icmp eq i32 %210, 0
+  br i1 %.not866, label %211, label %.loopexit
 
 211:                                              ; preds = %209
-  %212 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 0, i64 noundef 4) #13
-  %.not868 = icmp eq i32 %212, 0
-  br i1 %.not868, label %213, label %.loopexit
+  %212 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 4, i64 noundef 4) #13
+  %.not867 = icmp eq i32 %212, 0
+  br i1 %.not867, label %213, label %.loopexit
 
 213:                                              ; preds = %211
   %214 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 0, i64 noundef 4) #13
-  %.not869 = icmp eq i32 %214, 0
-  br i1 %.not869, label %215, label %.loopexit
+  %.not868 = icmp eq i32 %214, 0
+  br i1 %.not868, label %215, label %.loopexit
 
 215:                                              ; preds = %213
-  %216 = load ptr, ptr %45, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %218 = load i32, ptr %217, align 4
-  %219 = trunc i32 %218 to i16
-  %220 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %219) #13
-  %.not870 = icmp eq i32 %220, 0
+  %216 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 0, i64 noundef 4) #13
+  %.not869 = icmp eq i32 %216, 0
+  br i1 %.not869, label %217, label %.loopexit
+
+217:                                              ; preds = %215
+  %218 = load ptr, ptr %45, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 12
+  %220 = load i32, ptr %219, align 4
+  %221 = trunc i32 %220 to i16
+  %222 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %221) #13
+  %.not870 = icmp eq i32 %222, 0
   br i1 %.not870, label %.preheader1085, label %.loopexit
 
-.preheader1085:                                   ; preds = %215
-  %221 = load ptr, ptr %45, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 12
-  %223 = load i32, ptr %222, align 4
-  %.not1170 = icmp eq i32 %223, 0
+.preheader1085:                                   ; preds = %217
+  %223 = load ptr, ptr %45, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 12
+  %225 = load i32, ptr %224, align 4
+  %.not1170 = icmp eq i32 %225, 0
   br i1 %.not1170, label %._crit_edge1116, label %.lr.ph1115
 
 .lr.ph1115:                                       ; preds = %.preheader1085, %.loopexit1082
   %indvars.iv1232 = phi i64 [ %indvars.iv.next1233, %.loopexit1082 ], [ 0, %.preheader1085 ]
-  %224 = phi ptr [ %268, %.loopexit1082 ], [ %221, %.preheader1085 ]
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %225, i64 %indvars.iv1232
-  %227 = load i16, ptr %226, align 8
-  %228 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %227) #13
-  %.not1032 = icmp eq i32 %228, 0
-  br i1 %.not1032, label %229, label %.loopexit
+  %226 = phi ptr [ %271, %.loopexit1082 ], [ %223, %.preheader1085 ]
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %227, i64 %indvars.iv1232
+  %229 = load i16, ptr %228, align 8
+  %230 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %229) #13
+  %.not1032 = icmp eq i32 %230, 0
+  br i1 %.not1032, label %231, label %.loopexit
 
-229:                                              ; preds = %.lr.ph1115
-  %230 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not1033 = icmp eq i32 %230, 0
-  br i1 %.not1033, label %231, label %.loopexit
+231:                                              ; preds = %.lr.ph1115
+  %232 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
+  %.not1033 = icmp eq i32 %232, 0
+  br i1 %.not1033, label %233, label %.loopexit
 
-231:                                              ; preds = %229
-  %232 = getelementptr inbounds nuw i8, ptr %226, i64 152
-  %233 = load i32, ptr %232, align 8
-  %.not1034 = icmp eq i32 %233, 0
-  br i1 %.not1034, label %251, label %234
+233:                                              ; preds = %231
+  %234 = getelementptr inbounds nuw i8, ptr %228, i64 152
+  %235 = load i32, ptr %234, align 8
+  %.not1034 = icmp eq i32 %235, 0
+  br i1 %.not1034, label %254, label %236
 
-234:                                              ; preds = %231
-  %235 = add i32 %233, 1
-  %236 = trunc i32 %235 to i16
-  %237 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %236) #13
-  %.not1040 = icmp eq i32 %237, 0
+236:                                              ; preds = %233
+  %237 = add i32 %235, 1
+  %238 = trunc i32 %237 to i16
+  %239 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %238) #13
+  %.not1040 = icmp eq i32 %239, 0
   br i1 %.not1040, label %.preheader1081, label %.loopexit
 
-.preheader1081:                                   ; preds = %234
-  %.not1171 = icmp eq i32 %235, 0
+.preheader1081:                                   ; preds = %236
+  %.not1171 = icmp eq i32 %237, 0
   br i1 %.not1171, label %.loopexit1082, label %.lr.ph1113
 
 .lr.ph1113:                                       ; preds = %.preheader1081
-  %238 = getelementptr inbounds nuw i8, ptr %226, i64 16
-  %wide.trip.count1230 = zext i32 %235 to i64
-  br label %240
+  %240 = getelementptr inbounds nuw i8, ptr %228, i64 16
+  %wide.trip.count1230 = zext i32 %237 to i64
+  br label %242
 
-239:                                              ; preds = %244
+241:                                              ; preds = %246
   %indvars.iv.next1228 = add nuw nsw i64 %indvars.iv1227, 1
   %exitcond1231.not = icmp eq i64 %indvars.iv.next1228, %wide.trip.count1230
-  br i1 %exitcond1231.not, label %.loopexit1082, label %240, !llvm.loop !13
+  br i1 %exitcond1231.not, label %.loopexit1082, label %242, !llvm.loop !13
 
-240:                                              ; preds = %.lr.ph1113, %239
-  %indvars.iv1227 = phi i64 [ 0, %.lr.ph1113 ], [ %indvars.iv.next1228, %239 ]
-  %241 = call fastcc i32 @avifEncoderItemAddMdatFixup(ptr noundef nonnull %226, ptr noundef %4)
-  %.not1041 = icmp eq i32 %241, 0
-  br i1 %.not1041, label %242, label %.loopexit
-
-242:                                              ; preds = %240
-  %243 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
-  %.not1042 = icmp eq i32 %243, 0
-  br i1 %.not1042, label %244, label %.loopexit
+242:                                              ; preds = %.lr.ph1113, %241
+  %indvars.iv1227 = phi i64 [ 0, %.lr.ph1113 ], [ %indvars.iv.next1228, %241 ]
+  %243 = call fastcc i32 @avifEncoderItemAddMdatFixup(ptr noundef nonnull %228, ptr noundef %4)
+  %.not1041 = icmp eq i32 %243, 0
+  br i1 %.not1041, label %244, label %.loopexit
 
 244:                                              ; preds = %242
-  %245 = load ptr, ptr %238, align 8
-  %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %246, i64 %indvars.iv1227, i32 0, i32 1
-  %248 = load i64, ptr %247, align 8
-  %249 = trunc i64 %248 to i32
-  %250 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %249) #13
-  %.not1043 = icmp eq i32 %250, 0
-  br i1 %.not1043, label %239, label %.loopexit
+  %245 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
+  %.not1042 = icmp eq i32 %245, 0
+  br i1 %.not1042, label %246, label %.loopexit
 
-251:                                              ; preds = %231
-  %252 = getelementptr inbounds nuw i8, ptr %226, i64 32
-  %253 = getelementptr inbounds nuw i8, ptr %226, i64 16
-  %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 12
-  %256 = load i32, ptr %255, align 4
-  %.not1035 = icmp eq i32 %256, 0
-  br i1 %.not1035, label %260, label %257
+246:                                              ; preds = %244
+  %247 = load ptr, ptr %240, align 8
+  %248 = load ptr, ptr %247, align 8
+  %249 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %248, i64 %indvars.iv1227
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
+  %251 = load i64, ptr %250, align 8
+  %252 = trunc i64 %251 to i32
+  %253 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %252) #13
+  %.not1043 = icmp eq i32 %253, 0
+  br i1 %.not1043, label %241, label %.loopexit
 
-257:                                              ; preds = %251
-  %258 = load ptr, ptr %254, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
-  br label %260
+254:                                              ; preds = %233
+  %255 = getelementptr inbounds nuw i8, ptr %228, i64 32
+  %256 = getelementptr inbounds nuw i8, ptr %228, i64 16
+  %257 = load ptr, ptr %256, align 8
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 12
+  %259 = load i32, ptr %258, align 4
+  %.not1035 = icmp eq i32 %259, 0
+  br i1 %.not1035, label %263, label %260
 
-260:                                              ; preds = %251, %257
-  %.0625.in.in = phi ptr [ %259, %257 ], [ %252, %251 ]
+260:                                              ; preds = %254
+  %261 = load ptr, ptr %257, align 8
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
+  br label %263
+
+263:                                              ; preds = %254, %260
+  %.0625.in.in = phi ptr [ %262, %260 ], [ %255, %254 ]
   %.0625.in = load i64, ptr %.0625.in.in, align 8
   %.0625 = trunc i64 %.0625.in to i32
-  %261 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 1) #13
-  %.not1036 = icmp eq i32 %261, 0
-  br i1 %.not1036, label %262, label %.loopexit
+  %264 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 1) #13
+  %.not1036 = icmp eq i32 %264, 0
+  br i1 %.not1036, label %265, label %.loopexit
 
-262:                                              ; preds = %260
-  %263 = call fastcc i32 @avifEncoderItemAddMdatFixup(ptr noundef nonnull %226, ptr noundef %4)
-  %.not1037 = icmp eq i32 %263, 0
-  br i1 %.not1037, label %264, label %.loopexit
+265:                                              ; preds = %263
+  %266 = call fastcc i32 @avifEncoderItemAddMdatFixup(ptr noundef nonnull %228, ptr noundef %4)
+  %.not1037 = icmp eq i32 %266, 0
+  br i1 %.not1037, label %267, label %.loopexit
 
-264:                                              ; preds = %262
-  %265 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
-  %.not1038 = icmp eq i32 %265, 0
-  br i1 %.not1038, label %266, label %.loopexit
+267:                                              ; preds = %265
+  %268 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
+  %.not1038 = icmp eq i32 %268, 0
+  br i1 %.not1038, label %269, label %.loopexit
 
-266:                                              ; preds = %264
-  %267 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %.0625) #13
-  %.not1039 = icmp eq i32 %267, 0
+269:                                              ; preds = %267
+  %270 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %.0625) #13
+  %.not1039 = icmp eq i32 %270, 0
   br i1 %.not1039, label %.loopexit1082, label %.loopexit
 
-.loopexit1082:                                    ; preds = %239, %.preheader1081, %266
+.loopexit1082:                                    ; preds = %241, %.preheader1081, %269
   %indvars.iv.next1233 = add nuw nsw i64 %indvars.iv1232, 1
-  %268 = load ptr, ptr %45, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 12
-  %270 = load i32, ptr %269, align 4
-  %271 = zext i32 %270 to i64
-  %272 = icmp samesign ult i64 %indvars.iv.next1233, %271
-  br i1 %272, label %.lr.ph1115, label %._crit_edge1116, !llvm.loop !14
+  %271 = load ptr, ptr %45, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 12
+  %273 = load i32, ptr %272, align 4
+  %274 = zext i32 %273 to i64
+  %275 = icmp samesign ult i64 %indvars.iv.next1233, %274
+  br i1 %275, label %.lr.ph1115, label %._crit_edge1116, !llvm.loop !14
 
 ._crit_edge1116:                                  ; preds = %.loopexit1082, %.preheader1085
-  %273 = load i64, ptr %8, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %273) #13
-  %274 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9) #13
-  %.not871 = icmp eq i32 %274, 0
-  br i1 %.not871, label %275, label %.loopexit
+  %276 = load i64, ptr %8, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %276) #13
+  %277 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9) #13
+  %.not871 = icmp eq i32 %277, 0
+  br i1 %.not871, label %278, label %.loopexit
 
-275:                                              ; preds = %._crit_edge1116
-  %276 = load ptr, ptr %45, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %276, i64 12
-  %278 = load i32, ptr %277, align 4
-  %279 = trunc i32 %278 to i16
-  %280 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %279) #13
-  %.not872 = icmp eq i32 %280, 0
+278:                                              ; preds = %._crit_edge1116
+  %279 = load ptr, ptr %45, align 8
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 12
+  %281 = load i32, ptr %280, align 4
+  %282 = trunc i32 %281 to i16
+  %283 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %282) #13
+  %.not872 = icmp eq i32 %283, 0
   br i1 %.not872, label %.preheader1078, label %.loopexit
 
-.preheader1078:                                   ; preds = %275
-  %281 = load ptr, ptr %45, align 8
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 12
-  %283 = load i32, ptr %282, align 4
-  %.not1172 = icmp eq i32 %283, 0
+.preheader1078:                                   ; preds = %278
+  %284 = load ptr, ptr %45, align 8
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 12
+  %286 = load i32, ptr %285, align 4
+  %.not1172 = icmp eq i32 %286, 0
   br i1 %.not1172, label %._crit_edge1119, label %.lr.ph1118
 
-.lr.ph1118:                                       ; preds = %.preheader1078, %313
-  %indvars.iv1235 = phi i64 [ %indvars.iv.next1236, %313 ], [ 0, %.preheader1078 ]
-  %284 = phi ptr [ %315, %313 ], [ %281, %.preheader1078 ]
-  %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %285, i64 %indvars.iv1235
-  %287 = getelementptr inbounds nuw i8, ptr %286, i64 60
-  %288 = load i32, ptr %287, align 4
-  %.not1023 = icmp ne i32 %288, 0
-  %289 = zext i1 %.not1023 to i32
-  %290 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.18, i64 noundef 0, i32 noundef 2, i32 noundef %289, ptr noundef nonnull %10) #13
-  %.not1024 = icmp eq i32 %290, 0
-  br i1 %.not1024, label %291, label %.loopexit
+.lr.ph1118:                                       ; preds = %.preheader1078, %316
+  %indvars.iv1235 = phi i64 [ %indvars.iv.next1236, %316 ], [ 0, %.preheader1078 ]
+  %287 = phi ptr [ %318, %316 ], [ %284, %.preheader1078 ]
+  %288 = load ptr, ptr %287, align 8
+  %289 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %288, i64 %indvars.iv1235
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 60
+  %291 = load i32, ptr %290, align 4
+  %.not1023 = icmp ne i32 %291, 0
+  %292 = zext i1 %.not1023 to i32
+  %293 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.18, i64 noundef 0, i32 noundef 2, i32 noundef %292, ptr noundef nonnull %10) #13
+  %.not1024 = icmp eq i32 %293, 0
+  br i1 %.not1024, label %294, label %.loopexit
 
-291:                                              ; preds = %.lr.ph1118
-  %292 = load i16, ptr %286, align 8
-  %293 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %292) #13
-  %.not1025 = icmp eq i32 %293, 0
-  br i1 %.not1025, label %294, label %.loopexit
+294:                                              ; preds = %.lr.ph1118
+  %295 = load i16, ptr %289, align 8
+  %296 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %295) #13
+  %.not1025 = icmp eq i32 %296, 0
+  br i1 %.not1025, label %297, label %.loopexit
 
-294:                                              ; preds = %291
-  %295 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not1026 = icmp eq i32 %295, 0
-  br i1 %.not1026, label %296, label %.loopexit
+297:                                              ; preds = %294
+  %298 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
+  %.not1026 = icmp eq i32 %298, 0
+  br i1 %.not1026, label %299, label %.loopexit
 
-296:                                              ; preds = %294
-  %297 = getelementptr inbounds nuw i8, ptr %286, i64 2
-  %298 = call i32 @avifRWStreamWrite(ptr noundef nonnull %4, ptr noundef nonnull %297, i64 noundef 4) #13
-  %.not1027 = icmp eq i32 %298, 0
-  br i1 %.not1027, label %299, label %.loopexit
+299:                                              ; preds = %297
+  %300 = getelementptr inbounds nuw i8, ptr %289, i64 2
+  %301 = call i32 @avifRWStreamWrite(ptr noundef nonnull %4, ptr noundef nonnull %300, i64 noundef 4) #13
+  %.not1027 = icmp eq i32 %301, 0
+  br i1 %.not1027, label %302, label %.loopexit
 
-299:                                              ; preds = %296
-  %300 = getelementptr inbounds nuw i8, ptr %286, i64 64
-  %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %286, i64 72
-  %303 = load i64, ptr %302, align 8
-  %304 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef %301, i64 noundef %303) #13
-  %.not1028 = icmp eq i32 %304, 0
-  br i1 %.not1028, label %305, label %.loopexit
+302:                                              ; preds = %299
+  %303 = getelementptr inbounds nuw i8, ptr %289, i64 64
+  %304 = load ptr, ptr %303, align 8
+  %305 = getelementptr inbounds nuw i8, ptr %289, i64 72
+  %306 = load i64, ptr %305, align 8
+  %307 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef %304, i64 noundef %306) #13
+  %.not1028 = icmp eq i32 %307, 0
+  br i1 %.not1028, label %308, label %.loopexit
 
-305:                                              ; preds = %299
-  %306 = getelementptr inbounds nuw i8, ptr %286, i64 80
-  %307 = load ptr, ptr %306, align 8
-  %.not1029 = icmp eq ptr %307, null
-  br i1 %.not1029, label %313, label %308
-
-308:                                              ; preds = %305
-  %309 = getelementptr inbounds nuw i8, ptr %286, i64 88
-  %310 = load i64, ptr %309, align 8
-  %.not1030 = icmp eq i64 %310, 0
-  br i1 %.not1030, label %313, label %311
+308:                                              ; preds = %302
+  %309 = getelementptr inbounds nuw i8, ptr %289, i64 80
+  %310 = load ptr, ptr %309, align 8
+  %.not1029 = icmp eq ptr %310, null
+  br i1 %.not1029, label %316, label %311
 
 311:                                              ; preds = %308
-  %312 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull %307, i64 noundef %310) #13
-  %.not1031 = icmp eq i32 %312, 0
-  br i1 %.not1031, label %313, label %.loopexit
+  %312 = getelementptr inbounds nuw i8, ptr %289, i64 88
+  %313 = load i64, ptr %312, align 8
+  %.not1030 = icmp eq i64 %313, 0
+  br i1 %.not1030, label %316, label %314
 
-313:                                              ; preds = %311, %308, %305
-  %314 = load i64, ptr %10, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %314) #13
+314:                                              ; preds = %311
+  %315 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull %310, i64 noundef %313) #13
+  %.not1031 = icmp eq i32 %315, 0
+  br i1 %.not1031, label %316, label %.loopexit
+
+316:                                              ; preds = %314, %311, %308
+  %317 = load i64, ptr %10, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %317) #13
   %indvars.iv.next1236 = add nuw nsw i64 %indvars.iv1235, 1
-  %315 = load ptr, ptr %45, align 8
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 12
-  %317 = load i32, ptr %316, align 4
-  %318 = zext i32 %317 to i64
-  %319 = icmp samesign ult i64 %indvars.iv.next1236, %318
-  br i1 %319, label %.lr.ph1118, label %._crit_edge1119, !llvm.loop !15
+  %318 = load ptr, ptr %45, align 8
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 12
+  %320 = load i32, ptr %319, align 4
+  %321 = zext i32 %320 to i64
+  %322 = icmp samesign ult i64 %indvars.iv.next1236, %321
+  br i1 %322, label %.lr.ph1118, label %._crit_edge1119, !llvm.loop !15
 
-._crit_edge1119:                                  ; preds = %313, %.preheader1078
-  %320 = load i64, ptr %9, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %320) #13
+._crit_edge1119:                                  ; preds = %316, %.preheader1078
+  %323 = load i64, ptr %9, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %323) #13
   store i64 0, ptr %11, align 8
-  %321 = load ptr, ptr %45, align 8
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 12
-  %323 = load i32, ptr %322, align 4
-  %.not1173 = icmp eq i32 %323, 0
+  %324 = load ptr, ptr %45, align 8
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 12
+  %326 = load i32, ptr %325, align 4
+  %.not1173 = icmp eq i32 %326, 0
   br i1 %.not1173, label %._crit_edge1128.thread, label %.lr.ph1127
 
-.lr.ph1127:                                       ; preds = %._crit_edge1119, %387
-  %indvars.iv1245 = phi i64 [ %indvars.iv.next1246, %387 ], [ 0, %._crit_edge1119 ]
-  %324 = phi i32 [ %390, %387 ], [ %323, %._crit_edge1119 ]
-  %325 = phi ptr [ %388, %387 ], [ %321, %._crit_edge1119 ]
-  %326 = load ptr, ptr %325, align 8
-  %327 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %326, i64 %indvars.iv1245
-  %328 = load i16, ptr %327, align 8
-  %umax = call i32 @llvm.umax.i32(i32 %324, i32 1)
+.lr.ph1127:                                       ; preds = %._crit_edge1119, %391
+  %indvars.iv1245 = phi i64 [ %indvars.iv.next1246, %391 ], [ 0, %._crit_edge1119 ]
+  %327 = phi i32 [ %394, %391 ], [ %326, %._crit_edge1119 ]
+  %328 = phi ptr [ %392, %391 ], [ %324, %._crit_edge1119 ]
+  %329 = load ptr, ptr %328, align 8
+  %330 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %329, i64 %indvars.iv1245
+  %331 = load i16, ptr %330, align 8
+  %umax = call i32 @llvm.umax.i32(i32 %327, i32 1)
   %wide.trip.count1240 = zext i32 %umax to i64
-  br label %329
+  br label %332
 
-329:                                              ; preds = %.lr.ph1127, %329
-  %indvars.iv1238 = phi i64 [ 0, %.lr.ph1127 ], [ %indvars.iv.next1239, %329 ]
-  %.06291121 = phi i16 [ 0, %.lr.ph1127 ], [ %spec.select, %329 ]
-  %330 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %326, i64 %indvars.iv1238, i32 21
-  %331 = load i16, ptr %330, align 4
-  %332 = icmp eq i16 %331, %328
-  %333 = zext i1 %332 to i16
-  %spec.select = add i16 %.06291121, %333
+332:                                              ; preds = %.lr.ph1127, %332
+  %indvars.iv1238 = phi i64 [ 0, %.lr.ph1127 ], [ %indvars.iv.next1239, %332 ]
+  %.06291121 = phi i16 [ 0, %.lr.ph1127 ], [ %spec.select, %332 ]
+  %333 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %329, i64 %indvars.iv1238
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 156
+  %335 = load i16, ptr %334, align 4
+  %336 = icmp eq i16 %335, %331
+  %337 = zext i1 %336 to i16
+  %spec.select = add i16 %.06291121, %337
   %indvars.iv.next1239 = add nuw nsw i64 %indvars.iv1238, 1
   %exitcond1241.not = icmp eq i64 %indvars.iv.next1239, %wide.trip.count1240
-  br i1 %exitcond1241.not, label %334, label %329, !llvm.loop !16
+  br i1 %exitcond1241.not, label %338, label %332, !llvm.loop !16
 
-334:                                              ; preds = %329
+338:                                              ; preds = %332
   %.not1009 = icmp eq i16 %spec.select, 0
-  br i1 %.not1009, label %366, label %335
+  br i1 %.not1009, label %370, label %339
 
-335:                                              ; preds = %334
-  %336 = load i64, ptr %11, align 8
-  %.not1010 = icmp eq i64 %336, 0
-  br i1 %.not1010, label %337, label %339
-
-337:                                              ; preds = %335
-  %338 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11) #13
-  %.not1011 = icmp eq i32 %338, 0
-  br i1 %.not1011, label %339, label %.loopexit
-
-339:                                              ; preds = %335, %337
-  %340 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.20, i64 noundef 0, ptr noundef nonnull %12) #13
-  %.not1012 = icmp eq i32 %340, 0
-  br i1 %.not1012, label %341, label %.loopexit
+339:                                              ; preds = %338
+  %340 = load i64, ptr %11, align 8
+  %.not1010 = icmp eq i64 %340, 0
+  br i1 %.not1010, label %341, label %343
 
 341:                                              ; preds = %339
-  %342 = load i16, ptr %327, align 8
-  %343 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %342) #13
-  %.not1013 = icmp eq i32 %343, 0
-  br i1 %.not1013, label %344, label %.loopexit
+  %342 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11) #13
+  %.not1011 = icmp eq i32 %342, 0
+  br i1 %.not1011, label %343, label %.loopexit
 
-344:                                              ; preds = %341
-  %345 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %spec.select) #13
-  %.not1014 = icmp eq i32 %345, 0
+343:                                              ; preds = %339, %341
+  %344 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.20, i64 noundef 0, ptr noundef nonnull %12) #13
+  %.not1012 = icmp eq i32 %344, 0
+  br i1 %.not1012, label %345, label %.loopexit
+
+345:                                              ; preds = %343
+  %346 = load i16, ptr %330, align 8
+  %347 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %346) #13
+  %.not1013 = icmp eq i32 %347, 0
+  br i1 %.not1013, label %348, label %.loopexit
+
+348:                                              ; preds = %345
+  %349 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %spec.select) #13
+  %.not1014 = icmp eq i32 %349, 0
   br i1 %.not1014, label %.preheader1074, label %.loopexit
 
-.preheader1074:                                   ; preds = %344
-  %346 = load ptr, ptr %45, align 8
-  %347 = getelementptr inbounds nuw i8, ptr %346, i64 12
-  %348 = load i32, ptr %347, align 4
-  %.not1174 = icmp eq i32 %348, 0
+.preheader1074:                                   ; preds = %348
+  %350 = load ptr, ptr %45, align 8
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 12
+  %352 = load i32, ptr %351, align 4
+  %.not1174 = icmp eq i32 %352, 0
   br i1 %.not1174, label %._crit_edge1124, label %.lr.ph1123
 
-.lr.ph1123:                                       ; preds = %.preheader1074, %359
-  %349 = phi ptr [ %360, %359 ], [ %346, %.preheader1074 ]
-  %indvars.iv1242 = phi i64 [ %indvars.iv.next1243, %359 ], [ 0, %.preheader1074 ]
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %350, i64 %indvars.iv1242
-  %352 = getelementptr inbounds nuw i8, ptr %351, i64 156
-  %353 = load i16, ptr %352, align 4
-  %354 = load i16, ptr %327, align 8
-  %355 = icmp eq i16 %353, %354
-  br i1 %355, label %356, label %359
+.lr.ph1123:                                       ; preds = %.preheader1074, %363
+  %353 = phi ptr [ %364, %363 ], [ %350, %.preheader1074 ]
+  %indvars.iv1242 = phi i64 [ %indvars.iv.next1243, %363 ], [ 0, %.preheader1074 ]
+  %354 = load ptr, ptr %353, align 8
+  %355 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %354, i64 %indvars.iv1242
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 156
+  %357 = load i16, ptr %356, align 4
+  %358 = load i16, ptr %330, align 8
+  %359 = icmp eq i16 %357, %358
+  br i1 %359, label %360, label %363
 
-356:                                              ; preds = %.lr.ph1123
-  %357 = load i16, ptr %351, align 8
-  %358 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %357) #13
-  %.not1022 = icmp eq i32 %358, 0
+360:                                              ; preds = %.lr.ph1123
+  %361 = load i16, ptr %355, align 8
+  %362 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %361) #13
+  %.not1022 = icmp eq i32 %362, 0
   br i1 %.not1022, label %._crit_edge1286, label %.loopexit
 
-._crit_edge1286:                                  ; preds = %356
+._crit_edge1286:                                  ; preds = %360
   %.pre1287 = load ptr, ptr %45, align 8
-  br label %359
+  br label %363
 
-359:                                              ; preds = %._crit_edge1286, %.lr.ph1123
-  %360 = phi ptr [ %.pre1287, %._crit_edge1286 ], [ %349, %.lr.ph1123 ]
+363:                                              ; preds = %._crit_edge1286, %.lr.ph1123
+  %364 = phi ptr [ %.pre1287, %._crit_edge1286 ], [ %353, %.lr.ph1123 ]
   %indvars.iv.next1243 = add nuw nsw i64 %indvars.iv1242, 1
-  %361 = getelementptr inbounds nuw i8, ptr %360, i64 12
-  %362 = load i32, ptr %361, align 4
-  %363 = zext i32 %362 to i64
-  %364 = icmp samesign ult i64 %indvars.iv.next1243, %363
-  br i1 %364, label %.lr.ph1123, label %._crit_edge1124, !llvm.loop !17
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 12
+  %366 = load i32, ptr %365, align 4
+  %367 = zext i32 %366 to i64
+  %368 = icmp samesign ult i64 %indvars.iv.next1243, %367
+  br i1 %368, label %.lr.ph1123, label %._crit_edge1124, !llvm.loop !17
 
-._crit_edge1124:                                  ; preds = %359, %.preheader1074
-  %365 = load i64, ptr %12, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %365) #13
-  br label %366
+._crit_edge1124:                                  ; preds = %363, %.preheader1074
+  %369 = load i64, ptr %12, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %369) #13
+  br label %370
 
-366:                                              ; preds = %._crit_edge1124, %334
-  %367 = getelementptr inbounds nuw i8, ptr %327, i64 120
-  %368 = load i16, ptr %367, align 8
-  %.not1015 = icmp eq i16 %368, 0
-  br i1 %.not1015, label %387, label %369
+370:                                              ; preds = %._crit_edge1124, %338
+  %371 = getelementptr inbounds nuw i8, ptr %330, i64 120
+  %372 = load i16, ptr %371, align 8
+  %.not1015 = icmp eq i16 %372, 0
+  br i1 %.not1015, label %391, label %373
 
-369:                                              ; preds = %366
-  %370 = load i64, ptr %11, align 8
-  %.not1016 = icmp eq i64 %370, 0
-  br i1 %.not1016, label %371, label %373
+373:                                              ; preds = %370
+  %374 = load i64, ptr %11, align 8
+  %.not1016 = icmp eq i64 %374, 0
+  br i1 %.not1016, label %375, label %377
 
-371:                                              ; preds = %369
-  %372 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11) #13
-  %.not1017 = icmp eq i32 %372, 0
-  br i1 %.not1017, label %373, label %.loopexit
+375:                                              ; preds = %373
+  %376 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11) #13
+  %.not1017 = icmp eq i32 %376, 0
+  br i1 %.not1017, label %377, label %.loopexit
 
-373:                                              ; preds = %369, %371
-  %374 = getelementptr inbounds nuw i8, ptr %327, i64 128
-  %375 = load ptr, ptr %374, align 8
-  %376 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef %375, i64 noundef 0, ptr noundef nonnull %13) #13
-  %.not1018 = icmp eq i32 %376, 0
-  br i1 %.not1018, label %377, label %.loopexit
+377:                                              ; preds = %373, %375
+  %378 = getelementptr inbounds nuw i8, ptr %330, i64 128
+  %379 = load ptr, ptr %378, align 8
+  %380 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef %379, i64 noundef 0, ptr noundef nonnull %13) #13
+  %.not1018 = icmp eq i32 %380, 0
+  br i1 %.not1018, label %381, label %.loopexit
 
-377:                                              ; preds = %373
-  %378 = load i16, ptr %327, align 8
-  %379 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %378) #13
-  %.not1019 = icmp eq i32 %379, 0
-  br i1 %.not1019, label %380, label %.loopexit
+381:                                              ; preds = %377
+  %382 = load i16, ptr %330, align 8
+  %383 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %382) #13
+  %.not1019 = icmp eq i32 %383, 0
+  br i1 %.not1019, label %384, label %.loopexit
 
-380:                                              ; preds = %377
-  %381 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 1) #13
-  %.not1020 = icmp eq i32 %381, 0
-  br i1 %.not1020, label %382, label %.loopexit
+384:                                              ; preds = %381
+  %385 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 1) #13
+  %.not1020 = icmp eq i32 %385, 0
+  br i1 %.not1020, label %386, label %.loopexit
 
-382:                                              ; preds = %380
-  %383 = load i16, ptr %367, align 8
-  %384 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %383) #13
-  %.not1021 = icmp eq i32 %384, 0
-  br i1 %.not1021, label %385, label %.loopexit
+386:                                              ; preds = %384
+  %387 = load i16, ptr %371, align 8
+  %388 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %387) #13
+  %.not1021 = icmp eq i32 %388, 0
+  br i1 %.not1021, label %389, label %.loopexit
 
-385:                                              ; preds = %382
-  %386 = load i64, ptr %13, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %386) #13
-  br label %387
+389:                                              ; preds = %386
+  %390 = load i64, ptr %13, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %390) #13
+  br label %391
 
-387:                                              ; preds = %366, %385
+391:                                              ; preds = %370, %389
   %indvars.iv.next1246 = add nuw nsw i64 %indvars.iv1245, 1
-  %388 = load ptr, ptr %45, align 8
-  %389 = getelementptr inbounds nuw i8, ptr %388, i64 12
-  %390 = load i32, ptr %389, align 4
-  %391 = zext i32 %390 to i64
-  %392 = icmp samesign ult i64 %indvars.iv.next1246, %391
-  br i1 %392, label %.lr.ph1127, label %._crit_edge1128, !llvm.loop !18
+  %392 = load ptr, ptr %45, align 8
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 12
+  %394 = load i32, ptr %393, align 4
+  %395 = zext i32 %394 to i64
+  %396 = icmp samesign ult i64 %indvars.iv.next1246, %395
+  br i1 %396, label %.lr.ph1127, label %._crit_edge1128, !llvm.loop !18
 
-._crit_edge1128:                                  ; preds = %387
+._crit_edge1128:                                  ; preds = %391
   %.pre1288 = load i64, ptr %11, align 8
   %.not873 = icmp eq i64 %.pre1288, 0
-  br i1 %.not873, label %._crit_edge1128.thread, label %393
+  br i1 %.not873, label %._crit_edge1128.thread, label %397
 
-393:                                              ; preds = %._crit_edge1128
+397:                                              ; preds = %._crit_edge1128
   call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %.pre1288) #13
   br label %._crit_edge1128.thread
 
-._crit_edge1128.thread:                           ; preds = %._crit_edge1119, %._crit_edge1128, %393
-  %394 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, i64 noundef 0, ptr noundef nonnull %14) #13
-  %.not874 = icmp eq i32 %394, 0
-  br i1 %.not874, label %395, label %.loopexit
+._crit_edge1128.thread:                           ; preds = %._crit_edge1119, %._crit_edge1128, %397
+  %398 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, i64 noundef 0, ptr noundef nonnull %14) #13
+  %.not874 = icmp eq i32 %398, 0
+  br i1 %.not874, label %399, label %.loopexit
 
-395:                                              ; preds = %._crit_edge1128.thread
-  %396 = call fastcc ptr @avifItemPropertyDedupCreate()
-  %.not875 = icmp eq ptr %396, null
-  br i1 %.not875, label %.loopexit, label %397
-
-397:                                              ; preds = %395
-  %398 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.22, i64 noundef 0, ptr noundef nonnull %15) #13
-  %.not876 = icmp eq i32 %398, 0
-  br i1 %.not876, label %399, label %.loopexit
-
-399:                                              ; preds = %397
-  %400 = call fastcc i32 @avifRWStreamWriteProperties(ptr noundef %396, ptr noundef %4, ptr noundef nonnull %0, ptr noundef %122)
-  call fastcc void @avifItemPropertyDedupDestroy(ptr noundef %396)
-  %.not877 = icmp eq i32 %400, 0
-  br i1 %.not877, label %401, label %.loopexit
+399:                                              ; preds = %._crit_edge1128.thread
+  %400 = call fastcc ptr @avifItemPropertyDedupCreate()
+  %.not875 = icmp eq ptr %400, null
+  br i1 %.not875, label %.loopexit, label %401
 
 401:                                              ; preds = %399
-  %402 = load i64, ptr %15, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %402) #13
-  %403 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.23, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %16) #13
-  %.not878 = icmp eq i32 %403, 0
+  %402 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.22, i64 noundef 0, ptr noundef nonnull %15) #13
+  %.not876 = icmp eq i32 %402, 0
+  br i1 %.not876, label %403, label %.loopexit
+
+403:                                              ; preds = %401
+  %404 = call fastcc i32 @avifRWStreamWriteProperties(ptr noundef %400, ptr noundef %4, ptr noundef nonnull %0, ptr noundef %122)
+  call fastcc void @avifItemPropertyDedupDestroy(ptr noundef %400)
+  %.not877 = icmp eq i32 %404, 0
+  br i1 %.not877, label %405, label %.loopexit
+
+405:                                              ; preds = %403
+  %406 = load i64, ptr %15, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %406) #13
+  %407 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.23, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %16) #13
+  %.not878 = icmp eq i32 %407, 0
   br i1 %.not878, label %.preheader1073, label %.loopexit
 
-.preheader1073:                                   ; preds = %401
-  %404 = load ptr, ptr %45, align 8
-  %405 = getelementptr inbounds nuw i8, ptr %404, i64 12
-  %406 = load i32, ptr %405, align 4
-  %.not1175 = icmp eq i32 %406, 0
+.preheader1073:                                   ; preds = %405
+  %408 = load ptr, ptr %45, align 8
+  %409 = getelementptr inbounds nuw i8, ptr %408, i64 12
+  %410 = load i32, ptr %409, align 4
+  %.not1175 = icmp eq i32 %410, 0
   br i1 %.not1175, label %._crit_edge1132, label %.lr.ph1131
 
 .lr.ph1131:                                       ; preds = %.preheader1073
-  %407 = load ptr, ptr %404, align 8
-  %wide.trip.count1251 = zext i32 %406 to i64
-  br label %408
+  %411 = load ptr, ptr %408, align 8
+  %wide.trip.count1251 = zext i32 %410 to i64
+  br label %412
 
-408:                                              ; preds = %.lr.ph1131, %408
-  %indvars.iv1248 = phi i64 [ 0, %.lr.ph1131 ], [ %indvars.iv.next1249, %408 ]
-  %.06341130 = phi i32 [ 0, %.lr.ph1131 ], [ %spec.select1051, %408 ]
-  %409 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %407, i64 %indvars.iv1248, i32 22, i32 2
-  %410 = load i8, ptr %409, align 8
-  %.not1008 = icmp ne i8 %410, 0
-  %411 = zext i1 %.not1008 to i32
-  %spec.select1051 = add nuw nsw i32 %.06341130, %411
+412:                                              ; preds = %.lr.ph1131, %412
+  %indvars.iv1248 = phi i64 [ 0, %.lr.ph1131 ], [ %indvars.iv.next1249, %412 ]
+  %.06341130 = phi i32 [ 0, %.lr.ph1131 ], [ %spec.select1051, %412 ]
+  %413 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %411, i64 %indvars.iv1248
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 240
+  %415 = load i8, ptr %414, align 8
+  %.not1008 = icmp ne i8 %415, 0
+  %416 = zext i1 %.not1008 to i32
+  %spec.select1051 = add nuw nsw i32 %.06341130, %416
   %indvars.iv.next1249 = add nuw nsw i64 %indvars.iv1248, 1
   %exitcond1252.not = icmp eq i64 %indvars.iv.next1249, %wide.trip.count1251
-  br i1 %exitcond1252.not, label %._crit_edge1132, label %408, !llvm.loop !19
+  br i1 %exitcond1252.not, label %._crit_edge1132, label %412, !llvm.loop !19
 
-._crit_edge1132:                                  ; preds = %408, %.preheader1073
-  %.0634.lcssa = phi i32 [ 0, %.preheader1073 ], [ %spec.select1051, %408 ]
-  %412 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %.0634.lcssa) #13
-  %.not879 = icmp eq i32 %412, 0
+._crit_edge1132:                                  ; preds = %412, %.preheader1073
+  %.0634.lcssa = phi i32 [ 0, %.preheader1073 ], [ %spec.select1051, %412 ]
+  %417 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %.0634.lcssa) #13
+  %.not879 = icmp eq i32 %417, 0
   br i1 %.not879, label %.preheader1070, label %.loopexit
 
 .preheader1070:                                   ; preds = %._crit_edge1132
-  %413 = load ptr, ptr %45, align 8
-  %414 = getelementptr inbounds nuw i8, ptr %413, i64 12
-  %415 = load i32, ptr %414, align 4
-  %.not1176 = icmp eq i32 %415, 0
+  %418 = load ptr, ptr %45, align 8
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 12
+  %420 = load i32, ptr %419, align 4
+  %.not1176 = icmp eq i32 %420, 0
   br i1 %.not1176, label %._crit_edge1138, label %.lr.ph1137
 
 .lr.ph1137:                                       ; preds = %.preheader1070, %.loopexit1067
   %indvars.iv1256 = phi i64 [ %indvars.iv.next1257, %.loopexit1067 ], [ 0, %.preheader1070 ]
-  %416 = phi ptr [ %445, %.loopexit1067 ], [ %413, %.preheader1070 ]
-  %417 = load ptr, ptr %416, align 8
-  %418 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %417, i64 %indvars.iv1256
-  %419 = getelementptr inbounds nuw i8, ptr %418, i64 160
-  %420 = getelementptr inbounds nuw i8, ptr %418, i64 240
-  %421 = load i8, ptr %420, align 8
-  %422 = icmp eq i8 %421, 0
-  br i1 %422, label %.loopexit1067, label %423
+  %421 = phi ptr [ %450, %.loopexit1067 ], [ %418, %.preheader1070 ]
+  %422 = load ptr, ptr %421, align 8
+  %423 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %422, i64 %indvars.iv1256
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 160
+  %425 = getelementptr inbounds nuw i8, ptr %423, i64 240
+  %426 = load i8, ptr %425, align 8
+  %427 = icmp eq i8 %426, 0
+  br i1 %427, label %.loopexit1067, label %428
 
-423:                                              ; preds = %.lr.ph1137
-  %424 = load i16, ptr %418, align 8
-  %425 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %424) #13
-  %.not1003 = icmp eq i32 %425, 0
-  br i1 %.not1003, label %426, label %.loopexit
+428:                                              ; preds = %.lr.ph1137
+  %429 = load i16, ptr %423, align 8
+  %430 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %429) #13
+  %.not1003 = icmp eq i32 %430, 0
+  br i1 %.not1003, label %431, label %.loopexit
 
-426:                                              ; preds = %423
-  %427 = load i8, ptr %420, align 8
-  %428 = call i32 @avifRWStreamWriteU8(ptr noundef nonnull %4, i8 noundef zeroext %427) #13
-  %.not1004 = icmp eq i32 %428, 0
+431:                                              ; preds = %428
+  %432 = load i8, ptr %425, align 8
+  %433 = call i32 @avifRWStreamWriteU8(ptr noundef nonnull %4, i8 noundef zeroext %432) #13
+  %.not1004 = icmp eq i32 %433, 0
   br i1 %.not1004, label %.preheader1066, label %.loopexit
 
-.preheader1066:                                   ; preds = %426
-  %429 = load i8, ptr %420, align 8
-  %.not1177 = icmp eq i8 %429, 0
+.preheader1066:                                   ; preds = %431
+  %434 = load i8, ptr %425, align 8
+  %.not1177 = icmp eq i8 %434, 0
   br i1 %.not1177, label %.loopexit1067, label %.lr.ph1135
 
 .lr.ph1135:                                       ; preds = %.preheader1066
-  %430 = getelementptr inbounds nuw i8, ptr %418, i64 176
-  br label %435
+  %435 = getelementptr inbounds nuw i8, ptr %423, i64 176
+  br label %440
 
-431:                                              ; preds = %440
+436:                                              ; preds = %445
   %indvars.iv.next1254 = add nuw nsw i64 %indvars.iv1253, 1
-  %432 = load i8, ptr %420, align 8
-  %433 = zext i8 %432 to i64
-  %434 = icmp samesign ult i64 %indvars.iv.next1254, %433
-  br i1 %434, label %435, label %.loopexit1067, !llvm.loop !20
+  %437 = load i8, ptr %425, align 8
+  %438 = zext i8 %437 to i64
+  %439 = icmp samesign ult i64 %indvars.iv.next1254, %438
+  br i1 %439, label %440, label %.loopexit1067, !llvm.loop !20
 
-435:                                              ; preds = %.lr.ph1135, %431
-  %indvars.iv1253 = phi i64 [ 0, %.lr.ph1135 ], [ %indvars.iv.next1254, %431 ]
-  %436 = getelementptr inbounds nuw i32, ptr %430, i64 %indvars.iv1253
-  %437 = load i32, ptr %436, align 4
-  %.not1005 = icmp ne i32 %437, 0
-  %438 = zext i1 %.not1005 to i32
-  %439 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef %438, i64 noundef 1) #13
-  %.not1006 = icmp eq i32 %439, 0
-  br i1 %.not1006, label %440, label %.loopexit
+440:                                              ; preds = %.lr.ph1135, %436
+  %indvars.iv1253 = phi i64 [ 0, %.lr.ph1135 ], [ %indvars.iv.next1254, %436 ]
+  %441 = getelementptr inbounds nuw i32, ptr %435, i64 %indvars.iv1253
+  %442 = load i32, ptr %441, align 4
+  %.not1005 = icmp ne i32 %442, 0
+  %443 = zext i1 %.not1005 to i32
+  %444 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef %443, i64 noundef 1) #13
+  %.not1006 = icmp eq i32 %444, 0
+  br i1 %.not1006, label %445, label %.loopexit
 
-440:                                              ; preds = %435
-  %441 = getelementptr inbounds nuw i8, ptr %419, i64 %indvars.iv1253
-  %442 = load i8, ptr %441, align 1
-  %443 = zext i8 %442 to i32
-  %444 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef %443, i64 noundef 7) #13
-  %.not1007 = icmp eq i32 %444, 0
-  br i1 %.not1007, label %431, label %.loopexit
+445:                                              ; preds = %440
+  %446 = getelementptr inbounds nuw i8, ptr %424, i64 %indvars.iv1253
+  %447 = load i8, ptr %446, align 1
+  %448 = zext i8 %447 to i32
+  %449 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef %448, i64 noundef 7) #13
+  %.not1007 = icmp eq i32 %449, 0
+  br i1 %.not1007, label %436, label %.loopexit
 
-.loopexit1067:                                    ; preds = %431, %.preheader1066, %.lr.ph1137
+.loopexit1067:                                    ; preds = %436, %.preheader1066, %.lr.ph1137
   %indvars.iv.next1257 = add nuw nsw i64 %indvars.iv1256, 1
-  %445 = load ptr, ptr %45, align 8
-  %446 = getelementptr inbounds nuw i8, ptr %445, i64 12
-  %447 = load i32, ptr %446, align 4
-  %448 = zext i32 %447 to i64
-  %449 = icmp samesign ult i64 %indvars.iv.next1257, %448
-  br i1 %449, label %.lr.ph1137, label %._crit_edge1138, !llvm.loop !21
+  %450 = load ptr, ptr %45, align 8
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 12
+  %452 = load i32, ptr %451, align 4
+  %453 = zext i32 %452 to i64
+  %454 = icmp samesign ult i64 %indvars.iv.next1257, %453
+  br i1 %454, label %.lr.ph1137, label %._crit_edge1138, !llvm.loop !21
 
 ._crit_edge1138:                                  ; preds = %.loopexit1067, %.preheader1070
-  %450 = load i64, ptr %16, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %450) #13
-  %451 = load i64, ptr %14, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %451) #13
-  %452 = load ptr, ptr %45, align 8
-  %453 = getelementptr inbounds nuw i8, ptr %452, i64 492
-  %454 = load i32, ptr %453, align 4
-  %.not880 = icmp eq i32 %454, 0
-  br i1 %.not880, label %458, label %455
+  %455 = load i64, ptr %16, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %455) #13
+  %456 = load i64, ptr %14, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %456) #13
+  %457 = load ptr, ptr %45, align 8
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 492
+  %459 = load i32, ptr %458, align 4
+  %.not880 = icmp eq i32 %459, 0
+  br i1 %.not880, label %463, label %460
 
-455:                                              ; preds = %._crit_edge1138
-  %456 = getelementptr inbounds nuw i8, ptr %452, i64 480
-  %457 = call fastcc i32 @avifWriteAltrGroup(ptr noundef %4, ptr noundef nonnull %456)
-  %.not881 = icmp eq i32 %457, 0
-  br i1 %.not881, label %458, label %.loopexit
+460:                                              ; preds = %._crit_edge1138
+  %461 = getelementptr inbounds nuw i8, ptr %457, i64 480
+  %462 = call fastcc i32 @avifWriteAltrGroup(ptr noundef %4, ptr noundef nonnull %461)
+  %.not881 = icmp eq i32 %462, 0
+  br i1 %.not881, label %463, label %.loopexit
 
-458:                                              ; preds = %455, %._crit_edge1138
-  %459 = load i64, ptr %6, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %459) #13
-  br i1 %148, label %460, label %865
+463:                                              ; preds = %460, %._crit_edge1138
+  %464 = load i64, ptr %6, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %464) #13
+  br i1 %150, label %465, label %874
 
-460:                                              ; preds = %458
-  %461 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %462 = load i32, ptr %461, align 8
-  %.not882 = icmp eq i32 %462, -1
-  %or.cond = icmp sgt i32 %462, -2
+465:                                              ; preds = %463
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %467 = load i32, ptr %466, align 8
+  %.not882 = icmp eq i32 %467, -1
+  %or.cond = icmp sgt i32 %467, -2
   br i1 %or.cond, label %.preheader1065, label %.loopexit
 
-.preheader1065:                                   ; preds = %460
-  %463 = load ptr, ptr %45, align 8
-  %464 = getelementptr inbounds nuw i8, ptr %463, i64 36
-  %465 = load i32, ptr %464, align 4
-  %.not1178 = icmp eq i32 %465, 0
+.preheader1065:                                   ; preds = %465
+  %468 = load ptr, ptr %45, align 8
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 36
+  %470 = load i32, ptr %469, align 4
+  %.not1178 = icmp eq i32 %470, 0
   br i1 %.not1178, label %._crit_edge1142, label %.lr.ph1141
 
 .lr.ph1141:                                       ; preds = %.preheader1065
-  %466 = getelementptr inbounds nuw i8, ptr %463, i64 24
-  %467 = load ptr, ptr %466, align 8
-  %wide.trip.count1262 = zext i32 %465 to i64
-  br label %468
+  %471 = getelementptr inbounds nuw i8, ptr %468, i64 24
+  %472 = load ptr, ptr %471, align 8
+  %wide.trip.count1262 = zext i32 %470 to i64
+  br label %473
 
-468:                                              ; preds = %.lr.ph1141, %468
-  %indvars.iv1259 = phi i64 [ 0, %.lr.ph1141 ], [ %indvars.iv.next1260, %468 ]
-  %.06391140 = phi i64 [ 0, %.lr.ph1141 ], [ %471, %468 ]
-  %469 = getelementptr inbounds nuw %struct.avifEncoderFrame, ptr %467, i64 %indvars.iv1259
-  %470 = load i64, ptr %469, align 8
-  %471 = add i64 %470, %.06391140
+473:                                              ; preds = %.lr.ph1141, %473
+  %indvars.iv1259 = phi i64 [ 0, %.lr.ph1141 ], [ %indvars.iv.next1260, %473 ]
+  %.06391140 = phi i64 [ 0, %.lr.ph1141 ], [ %476, %473 ]
+  %474 = getelementptr inbounds nuw %struct.avifEncoderFrame, ptr %472, i64 %indvars.iv1259
+  %475 = load i64, ptr %474, align 8
+  %476 = add i64 %475, %.06391140
   %indvars.iv.next1260 = add nuw nsw i64 %indvars.iv1259, 1
   %exitcond1263.not = icmp eq i64 %indvars.iv.next1260, %wide.trip.count1262
-  br i1 %exitcond1263.not, label %._crit_edge1142, label %468, !llvm.loop !22
+  br i1 %exitcond1263.not, label %._crit_edge1142, label %473, !llvm.loop !22
 
-._crit_edge1142:                                  ; preds = %468, %.preheader1065
-  %.0639.lcssa = phi i64 [ 0, %.preheader1065 ], [ %471, %468 ]
-  br i1 %.not882, label %477, label %472
+._crit_edge1142:                                  ; preds = %473, %.preheader1065
+  %.0639.lcssa = phi i64 [ 0, %.preheader1065 ], [ %476, %473 ]
+  br i1 %.not882, label %482, label %477
 
-472:                                              ; preds = %._crit_edge1142
-  %473 = add nuw nsw i32 %462, 1
-  %474 = zext nneg i32 %473 to i64
-  %mul = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0639.lcssa, i64 %474)
+477:                                              ; preds = %._crit_edge1142
+  %478 = add nuw nsw i32 %467, 1
+  %479 = zext nneg i32 %478 to i64
+  %mul = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0639.lcssa, i64 %479)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
-  br i1 %mul.ov, label %.loopexit, label %475
+  br i1 %mul.ov, label %.loopexit, label %480
 
-475:                                              ; preds = %472
-  %476 = mul i64 %.0639.lcssa, %474
-  br label %477
+480:                                              ; preds = %477
+  %481 = mul i64 %.0639.lcssa, %479
+  br label %482
 
-477:                                              ; preds = %._crit_edge1142, %475
-  %.0641 = phi i64 [ %476, %475 ], [ -1, %._crit_edge1142 ]
-  %478 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.24, i64 noundef 0, ptr noundef nonnull %17) #13
-  %.not883 = icmp eq i32 %478, 0
-  br i1 %.not883, label %479, label %.loopexit
+482:                                              ; preds = %._crit_edge1142, %480
+  %.0641 = phi i64 [ %481, %480 ], [ -1, %._crit_edge1142 ]
+  %483 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.24, i64 noundef 0, ptr noundef nonnull %17) #13
+  %.not883 = icmp eq i32 %483, 0
+  br i1 %.not883, label %484, label %.loopexit
 
-479:                                              ; preds = %477
-  %480 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.25, i64 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %18) #13
-  %.not884 = icmp eq i32 %480, 0
-  br i1 %.not884, label %481, label %.loopexit
+484:                                              ; preds = %482
+  %485 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.25, i64 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %18) #13
+  %.not884 = icmp eq i32 %485, 0
+  br i1 %.not884, label %486, label %.loopexit
 
-481:                                              ; preds = %479
-  %482 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
-  %.not885 = icmp eq i32 %482, 0
-  br i1 %.not885, label %483, label %.loopexit
+486:                                              ; preds = %484
+  %487 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
+  %.not885 = icmp eq i32 %487, 0
+  br i1 %.not885, label %488, label %.loopexit
 
-483:                                              ; preds = %481
-  %484 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
-  %.not886 = icmp eq i32 %484, 0
-  br i1 %.not886, label %485, label %.loopexit
+488:                                              ; preds = %486
+  %489 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
+  %.not886 = icmp eq i32 %489, 0
+  br i1 %.not886, label %490, label %.loopexit
 
-485:                                              ; preds = %483
-  %486 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %487 = load i64, ptr %486, align 8
-  %488 = trunc i64 %487 to i32
-  %489 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %488) #13
-  %.not887 = icmp eq i32 %489, 0
-  br i1 %.not887, label %490, label %.loopexit
+490:                                              ; preds = %488
+  %491 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %492 = load i64, ptr %491, align 8
+  %493 = trunc i64 %492 to i32
+  %494 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %493) #13
+  %.not887 = icmp eq i32 %494, 0
+  br i1 %.not887, label %495, label %.loopexit
 
-490:                                              ; preds = %485
-  %491 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %.0641) #13
-  %.not888 = icmp eq i32 %491, 0
-  br i1 %.not888, label %492, label %.loopexit
+495:                                              ; preds = %490
+  %496 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %.0641) #13
+  %.not888 = icmp eq i32 %496, 0
+  br i1 %.not888, label %497, label %.loopexit
 
-492:                                              ; preds = %490
-  %493 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 65536) #13
-  %.not889 = icmp eq i32 %493, 0
-  br i1 %.not889, label %494, label %.loopexit
+497:                                              ; preds = %495
+  %498 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 65536) #13
+  %.not889 = icmp eq i32 %498, 0
+  br i1 %.not889, label %499, label %.loopexit
 
-494:                                              ; preds = %492
-  %495 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 256) #13
-  %.not890 = icmp eq i32 %495, 0
-  br i1 %.not890, label %496, label %.loopexit
+499:                                              ; preds = %497
+  %500 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 256) #13
+  %.not890 = icmp eq i32 %500, 0
+  br i1 %.not890, label %501, label %.loopexit
 
-496:                                              ; preds = %494
-  %497 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not891 = icmp eq i32 %497, 0
-  br i1 %.not891, label %498, label %.loopexit
+501:                                              ; preds = %499
+  %502 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
+  %.not891 = icmp eq i32 %502, 0
+  br i1 %.not891, label %503, label %.loopexit
 
-498:                                              ; preds = %496
-  %499 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 8) #13
-  %.not892 = icmp eq i32 %499, 0
-  br i1 %.not892, label %500, label %.loopexit
+503:                                              ; preds = %501
+  %504 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 8) #13
+  %.not892 = icmp eq i32 %504, 0
+  br i1 %.not892, label %505, label %.loopexit
 
-500:                                              ; preds = %498
-  %501 = call i32 @avifRWStreamWrite(ptr noundef nonnull %4, ptr noundef nonnull @avifEncoderFinish.unityMatrix, i64 noundef 36) #13
-  %.not893 = icmp eq i32 %501, 0
-  br i1 %.not893, label %502, label %.loopexit
+505:                                              ; preds = %503
+  %506 = call i32 @avifRWStreamWrite(ptr noundef nonnull %4, ptr noundef nonnull @avifEncoderFinish.unityMatrix, i64 noundef 36) #13
+  %.not893 = icmp eq i32 %506, 0
+  br i1 %.not893, label %507, label %.loopexit
 
-502:                                              ; preds = %500
-  %503 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 24) #13
-  %.not894 = icmp eq i32 %503, 0
-  br i1 %.not894, label %504, label %.loopexit
+507:                                              ; preds = %505
+  %508 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 24) #13
+  %.not894 = icmp eq i32 %508, 0
+  br i1 %.not894, label %509, label %.loopexit
 
-504:                                              ; preds = %502
-  %505 = load ptr, ptr %45, align 8
-  %506 = getelementptr inbounds nuw i8, ptr %505, i64 12
-  %507 = load i32, ptr %506, align 4
-  %508 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %507) #13
-  %.not895 = icmp eq i32 %508, 0
-  br i1 %.not895, label %509, label %.loopexit
+509:                                              ; preds = %507
+  %510 = load ptr, ptr %45, align 8
+  %511 = getelementptr inbounds nuw i8, ptr %510, i64 12
+  %512 = load i32, ptr %511, align 4
+  %513 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %512) #13
+  %.not895 = icmp eq i32 %513, 0
+  br i1 %.not895, label %514, label %.loopexit
 
-509:                                              ; preds = %504
-  %510 = load i64, ptr %18, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %510) #13
-  %511 = load ptr, ptr %45, align 8
-  %512 = getelementptr inbounds nuw i8, ptr %511, i64 12
-  %513 = load i32, ptr %512, align 4
-  %.not1179 = icmp eq i32 %513, 0
+514:                                              ; preds = %509
+  %515 = load i64, ptr %18, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %515) #13
+  %516 = load ptr, ptr %45, align 8
+  %517 = getelementptr inbounds nuw i8, ptr %516, i64 12
+  %518 = load i32, ptr %517, align 4
+  %.not1179 = icmp eq i32 %518, 0
   br i1 %.not1179, label %._crit_edge1165, label %.lr.ph1164
 
-.lr.ph1164:                                       ; preds = %509
-  %514 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  br label %515
+.lr.ph1164:                                       ; preds = %514
+  %519 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  br label %520
 
-515:                                              ; preds = %.lr.ph1164, %858
-  %516 = phi ptr [ %511, %.lr.ph1164 ], [ %859, %858 ]
-  %indvars.iv1283 = phi i64 [ 0, %.lr.ph1164 ], [ %indvars.iv.next1284.pre-phi, %858 ]
-  %517 = load ptr, ptr %516, align 8
-  %518 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %517, i64 %indvars.iv1283
-  %519 = getelementptr inbounds nuw i8, ptr %518, i64 16
-  %520 = load ptr, ptr %519, align 8
-  %521 = getelementptr inbounds nuw i8, ptr %520, i64 12
-  %522 = load i32, ptr %521, align 4
-  %523 = icmp eq i32 %522, 0
-  br i1 %523, label %._crit_edge1294, label %.preheader1062
+520:                                              ; preds = %.lr.ph1164, %867
+  %521 = phi ptr [ %516, %.lr.ph1164 ], [ %868, %867 ]
+  %indvars.iv1283 = phi i64 [ 0, %.lr.ph1164 ], [ %indvars.iv.next1284.pre-phi, %867 ]
+  %522 = load ptr, ptr %521, align 8
+  %523 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %522, i64 %indvars.iv1283
+  %524 = getelementptr inbounds nuw i8, ptr %523, i64 16
+  %525 = load ptr, ptr %524, align 8
+  %526 = getelementptr inbounds nuw i8, ptr %525, i64 12
+  %527 = load i32, ptr %526, align 4
+  %528 = icmp eq i32 %527, 0
+  br i1 %528, label %._crit_edge1294, label %.preheader1062
 
-._crit_edge1294:                                  ; preds = %515
+._crit_edge1294:                                  ; preds = %520
   %.pre1295 = add nuw nsw i64 %indvars.iv1283, 1
-  br label %858
+  br label %867
 
-.preheader1062:                                   ; preds = %515
-  %524 = load ptr, ptr %520, align 8
-  %wide.trip.count1267 = zext i32 %522 to i64
-  br label %525
+.preheader1062:                                   ; preds = %520
+  %529 = load ptr, ptr %525, align 8
+  %wide.trip.count1267 = zext i32 %527 to i64
+  br label %530
 
-525:                                              ; preds = %.preheader1062, %525
-  %indvars.iv1264 = phi i64 [ 0, %.preheader1062 ], [ %indvars.iv.next1265, %525 ]
-  %.06481145 = phi i32 [ 0, %.preheader1062 ], [ %spec.select1052, %525 ]
-  %526 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %524, i64 %indvars.iv1264, i32 1
-  %527 = load i32, ptr %526, align 8
-  %.not1002 = icmp ne i32 %527, 0
-  %528 = zext i1 %.not1002 to i32
-  %spec.select1052 = add i32 %.06481145, %528
+530:                                              ; preds = %.preheader1062, %530
+  %indvars.iv1264 = phi i64 [ 0, %.preheader1062 ], [ %indvars.iv.next1265, %530 ]
+  %.06481145 = phi i32 [ 0, %.preheader1062 ], [ %spec.select1052, %530 ]
+  %531 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %529, i64 %indvars.iv1264
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 16
+  %533 = load i32, ptr %532, align 8
+  %.not1002 = icmp ne i32 %533, 0
+  %534 = zext i1 %.not1002 to i32
+  %spec.select1052 = add i32 %.06481145, %534
   %indvars.iv.next1265 = add nuw nsw i64 %indvars.iv1264, 1
   %exitcond1268.not = icmp eq i64 %indvars.iv.next1265, %wide.trip.count1267
-  br i1 %exitcond1268.not, label %529, label %525, !llvm.loop !23
+  br i1 %exitcond1268.not, label %535, label %530, !llvm.loop !23
 
-529:                                              ; preds = %525
-  %530 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.26, i64 noundef 0, ptr noundef nonnull %19) #13
-  %.not899 = icmp eq i32 %530, 0
-  br i1 %.not899, label %531, label %.loopexit
-
-531:                                              ; preds = %529
-  %532 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.27, i64 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %20) #13
-  %.not900 = icmp eq i32 %532, 0
-  br i1 %.not900, label %533, label %.loopexit
-
-533:                                              ; preds = %531
-  %534 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
-  %.not901 = icmp eq i32 %534, 0
-  br i1 %.not901, label %535, label %.loopexit
-
-535:                                              ; preds = %533
-  %536 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
-  %.not902 = icmp eq i32 %536, 0
-  br i1 %.not902, label %537, label %.loopexit
+535:                                              ; preds = %530
+  %536 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.26, i64 noundef 0, ptr noundef nonnull %19) #13
+  %.not899 = icmp eq i32 %536, 0
+  br i1 %.not899, label %537, label %.loopexit
 
 537:                                              ; preds = %535
-  %538 = add nuw nsw i64 %indvars.iv1283, 1
-  %539 = trunc nuw i64 %538 to i32
-  %540 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %539) #13
-  %.not903 = icmp eq i32 %540, 0
-  br i1 %.not903, label %541, label %.loopexit
+  %538 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.27, i64 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %20) #13
+  %.not900 = icmp eq i32 %538, 0
+  br i1 %.not900, label %539, label %.loopexit
 
-541:                                              ; preds = %537
-  %542 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
-  %.not904 = icmp eq i32 %542, 0
-  br i1 %.not904, label %543, label %.loopexit
+539:                                              ; preds = %537
+  %540 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
+  %.not901 = icmp eq i32 %540, 0
+  br i1 %.not901, label %541, label %.loopexit
+
+541:                                              ; preds = %539
+  %542 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
+  %.not902 = icmp eq i32 %542, 0
+  br i1 %.not902, label %543, label %.loopexit
 
 543:                                              ; preds = %541
-  %544 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %.0641) #13
-  %.not905 = icmp eq i32 %544, 0
-  br i1 %.not905, label %545, label %.loopexit
+  %544 = add nuw nsw i64 %indvars.iv1283, 1
+  %545 = trunc nuw i64 %544 to i32
+  %546 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %545) #13
+  %.not903 = icmp eq i32 %546, 0
+  br i1 %.not903, label %547, label %.loopexit
 
-545:                                              ; preds = %543
-  %546 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 8) #13
-  %.not906 = icmp eq i32 %546, 0
-  br i1 %.not906, label %547, label %.loopexit
-
-547:                                              ; preds = %545
-  %548 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not907 = icmp eq i32 %548, 0
-  br i1 %.not907, label %549, label %.loopexit
+547:                                              ; preds = %543
+  %548 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
+  %.not904 = icmp eq i32 %548, 0
+  br i1 %.not904, label %549, label %.loopexit
 
 549:                                              ; preds = %547
-  %550 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not908 = icmp eq i32 %550, 0
-  br i1 %.not908, label %551, label %.loopexit
+  %550 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %.0641) #13
+  %.not905 = icmp eq i32 %550, 0
+  br i1 %.not905, label %551, label %.loopexit
 
 551:                                              ; preds = %549
-  %552 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not909 = icmp eq i32 %552, 0
-  br i1 %.not909, label %553, label %.loopexit
+  %552 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 8) #13
+  %.not906 = icmp eq i32 %552, 0
+  br i1 %.not906, label %553, label %.loopexit
 
 553:                                              ; preds = %551
   %554 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not910 = icmp eq i32 %554, 0
-  br i1 %.not910, label %555, label %.loopexit
+  %.not907 = icmp eq i32 %554, 0
+  br i1 %.not907, label %555, label %.loopexit
 
 555:                                              ; preds = %553
-  %556 = call i32 @avifRWStreamWrite(ptr noundef nonnull %4, ptr noundef nonnull @avifEncoderFinish.unityMatrix, i64 noundef 36) #13
-  %.not911 = icmp eq i32 %556, 0
-  br i1 %.not911, label %557, label %.loopexit
+  %556 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
+  %.not908 = icmp eq i32 %556, 0
+  br i1 %.not908, label %557, label %.loopexit
 
 557:                                              ; preds = %555
-  %558 = load i32, ptr %122, align 8
-  %559 = shl i32 %558, 16
-  %560 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %559) #13
-  %.not912 = icmp eq i32 %560, 0
-  br i1 %.not912, label %561, label %.loopexit
+  %558 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
+  %.not909 = icmp eq i32 %558, 0
+  br i1 %.not909, label %559, label %.loopexit
 
-561:                                              ; preds = %557
-  %562 = load i32, ptr %514, align 4
-  %563 = shl i32 %562, 16
-  %564 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %563) #13
-  %.not913 = icmp eq i32 %564, 0
-  br i1 %.not913, label %565, label %.loopexit
+559:                                              ; preds = %557
+  %560 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
+  %.not910 = icmp eq i32 %560, 0
+  br i1 %.not910, label %561, label %.loopexit
 
-565:                                              ; preds = %561
-  %566 = load i64, ptr %20, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %566) #13
-  %567 = getelementptr inbounds nuw i8, ptr %518, i64 120
-  %568 = load i16, ptr %567, align 8
-  %.not914 = icmp eq i16 %568, 0
-  br i1 %.not914, label %582, label %569
+561:                                              ; preds = %559
+  %562 = call i32 @avifRWStreamWrite(ptr noundef nonnull %4, ptr noundef nonnull @avifEncoderFinish.unityMatrix, i64 noundef 36) #13
+  %.not911 = icmp eq i32 %562, 0
+  br i1 %.not911, label %563, label %.loopexit
 
-569:                                              ; preds = %565
-  %570 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.28, i64 noundef 0, ptr noundef nonnull %21) #13
-  %.not915 = icmp eq i32 %570, 0
-  br i1 %.not915, label %571, label %.loopexit
+563:                                              ; preds = %561
+  %564 = load i32, ptr %122, align 8
+  %565 = shl i32 %564, 16
+  %566 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %565) #13
+  %.not912 = icmp eq i32 %566, 0
+  br i1 %.not912, label %567, label %.loopexit
 
-571:                                              ; preds = %569
-  %572 = getelementptr inbounds nuw i8, ptr %518, i64 128
-  %573 = load ptr, ptr %572, align 8
-  %574 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef %573, i64 noundef 0, ptr noundef nonnull %22) #13
-  %.not916 = icmp eq i32 %574, 0
-  br i1 %.not916, label %575, label %.loopexit
+567:                                              ; preds = %563
+  %568 = load i32, ptr %519, align 4
+  %569 = shl i32 %568, 16
+  %570 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %569) #13
+  %.not913 = icmp eq i32 %570, 0
+  br i1 %.not913, label %571, label %.loopexit
+
+571:                                              ; preds = %567
+  %572 = load i64, ptr %20, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %572) #13
+  %573 = getelementptr inbounds nuw i8, ptr %523, i64 120
+  %574 = load i16, ptr %573, align 8
+  %.not914 = icmp eq i16 %574, 0
+  br i1 %.not914, label %588, label %575
 
 575:                                              ; preds = %571
-  %576 = load i16, ptr %567, align 8
-  %577 = zext i16 %576 to i32
-  %578 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %577) #13
-  %.not917 = icmp eq i32 %578, 0
-  br i1 %.not917, label %579, label %.loopexit
+  %576 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.28, i64 noundef 0, ptr noundef nonnull %21) #13
+  %.not915 = icmp eq i32 %576, 0
+  br i1 %.not915, label %577, label %.loopexit
 
-579:                                              ; preds = %575
-  %580 = load i64, ptr %22, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %580) #13
-  %581 = load i64, ptr %21, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %581) #13
-  br label %582
+577:                                              ; preds = %575
+  %578 = getelementptr inbounds nuw i8, ptr %523, i64 128
+  %579 = load ptr, ptr %578, align 8
+  %580 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef %579, i64 noundef 0, ptr noundef nonnull %22) #13
+  %.not916 = icmp eq i32 %580, 0
+  br i1 %.not916, label %581, label %.loopexit
 
-582:                                              ; preds = %565, %579
-  %583 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.29, i64 noundef 0, ptr noundef nonnull %23) #13
-  %.not918 = icmp eq i32 %583, 0
-  br i1 %.not918, label %584, label %.loopexit
+581:                                              ; preds = %577
+  %582 = load i16, ptr %573, align 8
+  %583 = zext i16 %582 to i32
+  %584 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %583) #13
+  %.not917 = icmp eq i32 %584, 0
+  br i1 %.not917, label %585, label %.loopexit
 
-584:                                              ; preds = %582
-  %585 = load i32, ptr %461, align 8
-  %586 = icmp ne i32 %585, 0
-  %587 = zext i1 %586 to i32
-  %588 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.30, i64 noundef 0, i32 noundef 1, i32 noundef %587, ptr noundef nonnull %24) #13
-  %.not919 = icmp eq i32 %588, 0
-  br i1 %.not919, label %589, label %.loopexit
+585:                                              ; preds = %581
+  %586 = load i64, ptr %22, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %586) #13
+  %587 = load i64, ptr %21, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %587) #13
+  br label %588
 
-589:                                              ; preds = %584
-  %590 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
-  %.not920 = icmp eq i32 %590, 0
-  br i1 %.not920, label %591, label %.loopexit
+588:                                              ; preds = %571, %585
+  %589 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.29, i64 noundef 0, ptr noundef nonnull %23) #13
+  %.not918 = icmp eq i32 %589, 0
+  br i1 %.not918, label %590, label %.loopexit
 
-591:                                              ; preds = %589
-  %592 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %.0639.lcssa) #13
-  %.not921 = icmp eq i32 %592, 0
-  br i1 %.not921, label %593, label %.loopexit
+590:                                              ; preds = %588
+  %591 = load i32, ptr %466, align 8
+  %592 = icmp ne i32 %591, 0
+  %593 = zext i1 %592 to i32
+  %594 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.30, i64 noundef 0, i32 noundef 1, i32 noundef %593, ptr noundef nonnull %24) #13
+  %.not919 = icmp eq i32 %594, 0
+  br i1 %.not919, label %595, label %.loopexit
 
-593:                                              ; preds = %591
-  %594 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef 0) #13
-  %.not922 = icmp eq i32 %594, 0
-  br i1 %.not922, label %595, label %.loopexit
-
-595:                                              ; preds = %593
-  %596 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 1) #13
-  %.not923 = icmp eq i32 %596, 0
-  br i1 %.not923, label %597, label %.loopexit
+595:                                              ; preds = %590
+  %596 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
+  %.not920 = icmp eq i32 %596, 0
+  br i1 %.not920, label %597, label %.loopexit
 
 597:                                              ; preds = %595
-  %598 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not924 = icmp eq i32 %598, 0
-  br i1 %.not924, label %599, label %.loopexit
+  %598 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %.0639.lcssa) #13
+  %.not921 = icmp eq i32 %598, 0
+  br i1 %.not921, label %599, label %.loopexit
 
 599:                                              ; preds = %597
-  %600 = load i64, ptr %24, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %600) #13
-  %601 = load i64, ptr %23, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %601) #13
-  %602 = getelementptr inbounds nuw i8, ptr %518, i64 56
-  %603 = load i32, ptr %602, align 8
-  %.not925 = icmp eq i32 %603, 1
-  br i1 %.not925, label %606, label %604
+  %600 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef 0) #13
+  %.not922 = icmp eq i32 %600, 0
+  br i1 %.not922, label %601, label %.loopexit
 
-604:                                              ; preds = %599
-  %605 = call fastcc i32 @avifEncoderWriteTrackMetaBox(ptr noundef nonnull %0, ptr noundef %4)
-  %.not926 = icmp eq i32 %605, 0
-  br i1 %.not926, label %606, label %.loopexit
+601:                                              ; preds = %599
+  %602 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 1) #13
+  %.not923 = icmp eq i32 %602, 0
+  br i1 %.not923, label %603, label %.loopexit
 
-606:                                              ; preds = %599, %604
-  %607 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.31, i64 noundef 0, ptr noundef nonnull %25) #13
-  %.not927 = icmp eq i32 %607, 0
-  br i1 %.not927, label %608, label %.loopexit
+603:                                              ; preds = %601
+  %604 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
+  %.not924 = icmp eq i32 %604, 0
+  br i1 %.not924, label %605, label %.loopexit
 
-608:                                              ; preds = %606
-  %609 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.32, i64 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %26) #13
-  %.not928 = icmp eq i32 %609, 0
-  br i1 %.not928, label %610, label %.loopexit
+605:                                              ; preds = %603
+  %606 = load i64, ptr %24, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %606) #13
+  %607 = load i64, ptr %23, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %607) #13
+  %608 = getelementptr inbounds nuw i8, ptr %523, i64 56
+  %609 = load i32, ptr %608, align 8
+  %.not925 = icmp eq i32 %609, 1
+  br i1 %.not925, label %612, label %610
 
-610:                                              ; preds = %608
-  %611 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
-  %.not929 = icmp eq i32 %611, 0
-  br i1 %.not929, label %612, label %.loopexit
+610:                                              ; preds = %605
+  %611 = call fastcc i32 @avifEncoderWriteTrackMetaBox(ptr noundef nonnull %0, ptr noundef %4)
+  %.not926 = icmp eq i32 %611, 0
+  br i1 %.not926, label %612, label %.loopexit
 
-612:                                              ; preds = %610
-  %613 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
-  %.not930 = icmp eq i32 %613, 0
-  br i1 %.not930, label %614, label %.loopexit
+612:                                              ; preds = %605, %610
+  %613 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.31, i64 noundef 0, ptr noundef nonnull %25) #13
+  %.not927 = icmp eq i32 %613, 0
+  br i1 %.not927, label %614, label %.loopexit
 
 614:                                              ; preds = %612
-  %615 = load i64, ptr %486, align 8
-  %616 = trunc i64 %615 to i32
-  %617 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %616) #13
-  %.not931 = icmp eq i32 %617, 0
-  br i1 %.not931, label %618, label %.loopexit
+  %615 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.32, i64 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %26) #13
+  %.not928 = icmp eq i32 %615, 0
+  br i1 %.not928, label %616, label %.loopexit
 
-618:                                              ; preds = %614
-  %619 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %.0639.lcssa) #13
-  %.not932 = icmp eq i32 %619, 0
-  br i1 %.not932, label %620, label %.loopexit
+616:                                              ; preds = %614
+  %617 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
+  %.not929 = icmp eq i32 %617, 0
+  br i1 %.not929, label %618, label %.loopexit
+
+618:                                              ; preds = %616
+  %619 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %124) #13
+  %.not930 = icmp eq i32 %619, 0
+  br i1 %.not930, label %620, label %.loopexit
 
 620:                                              ; preds = %618
-  %621 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 21956) #13
-  %.not933 = icmp eq i32 %621, 0
-  br i1 %.not933, label %622, label %.loopexit
+  %621 = load i64, ptr %491, align 8
+  %622 = trunc i64 %621 to i32
+  %623 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %622) #13
+  %.not931 = icmp eq i32 %623, 0
+  br i1 %.not931, label %624, label %.loopexit
 
-622:                                              ; preds = %620
-  %623 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not934 = icmp eq i32 %623, 0
-  br i1 %.not934, label %624, label %.loopexit
+624:                                              ; preds = %620
+  %625 = call i32 @avifRWStreamWriteU64(ptr noundef nonnull %4, i64 noundef %.0639.lcssa) #13
+  %.not932 = icmp eq i32 %625, 0
+  br i1 %.not932, label %626, label %.loopexit
 
-624:                                              ; preds = %622
-  %625 = load i64, ptr %26, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %625) #13
-  %626 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %27) #13
-  %.not935 = icmp eq i32 %626, 0
-  br i1 %.not935, label %627, label %.loopexit
+626:                                              ; preds = %624
+  %627 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 21956) #13
+  %.not933 = icmp eq i32 %627, 0
+  br i1 %.not933, label %628, label %.loopexit
 
-627:                                              ; preds = %624
-  %628 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
-  %.not936 = icmp eq i32 %628, 0
-  br i1 %.not936, label %629, label %.loopexit
+628:                                              ; preds = %626
+  %629 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
+  %.not934 = icmp eq i32 %629, 0
+  br i1 %.not934, label %630, label %.loopexit
 
-629:                                              ; preds = %627
-  %630 = load i32, ptr %602, align 8
-  %631 = icmp eq i32 %630, 1
-  %632 = select i1 %631, ptr @.str.33, ptr @.str.13
-  %633 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull %632, i64 noundef 4) #13
-  %.not937 = icmp eq i32 %633, 0
-  br i1 %.not937, label %634, label %.loopexit
+630:                                              ; preds = %628
+  %631 = load i64, ptr %26, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %631) #13
+  %632 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %27) #13
+  %.not935 = icmp eq i32 %632, 0
+  br i1 %.not935, label %633, label %.loopexit
 
-634:                                              ; preds = %629
-  %635 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 12) #13
-  %.not938 = icmp eq i32 %635, 0
-  br i1 %.not938, label %636, label %.loopexit
+633:                                              ; preds = %630
+  %634 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
+  %.not936 = icmp eq i32 %634, 0
+  br i1 %.not936, label %635, label %.loopexit
 
-636:                                              ; preds = %634
-  %637 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i64 noundef 8) #13
-  %.not939 = icmp eq i32 %637, 0
-  br i1 %.not939, label %638, label %.loopexit
+635:                                              ; preds = %633
+  %636 = load i32, ptr %608, align 8
+  %637 = icmp eq i32 %636, 1
+  %638 = select i1 %637, ptr @.str.33, ptr @.str.13
+  %639 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull %638, i64 noundef 4) #13
+  %.not937 = icmp eq i32 %639, 0
+  br i1 %.not937, label %640, label %.loopexit
 
-638:                                              ; preds = %636
-  %639 = load i64, ptr %27, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %639) #13
-  %640 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.34, i64 noundef 0, ptr noundef nonnull %28) #13
-  %.not940 = icmp eq i32 %640, 0
-  br i1 %.not940, label %641, label %.loopexit
+640:                                              ; preds = %635
+  %641 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 12) #13
+  %.not938 = icmp eq i32 %641, 0
+  br i1 %.not938, label %642, label %.loopexit
 
-641:                                              ; preds = %638
-  %642 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.35, i64 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %29) #13
-  %.not941 = icmp eq i32 %642, 0
-  br i1 %.not941, label %643, label %.loopexit
+642:                                              ; preds = %640
+  %643 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i64 noundef 8) #13
+  %.not939 = icmp eq i32 %643, 0
+  br i1 %.not939, label %644, label %.loopexit
 
-643:                                              ; preds = %641
-  %644 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not942 = icmp eq i32 %644, 0
-  br i1 %.not942, label %645, label %.loopexit
+644:                                              ; preds = %642
+  %645 = load i64, ptr %27, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %645) #13
+  %646 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.34, i64 noundef 0, ptr noundef nonnull %28) #13
+  %.not940 = icmp eq i32 %646, 0
+  br i1 %.not940, label %647, label %.loopexit
 
-645:                                              ; preds = %643
-  %646 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 6) #13
-  %.not943 = icmp eq i32 %646, 0
-  br i1 %.not943, label %647, label %.loopexit
+647:                                              ; preds = %644
+  %648 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.35, i64 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %29) #13
+  %.not941 = icmp eq i32 %648, 0
+  br i1 %.not941, label %649, label %.loopexit
 
-647:                                              ; preds = %645
-  %648 = load i64, ptr %29, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %648) #13
-  %649 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.36, i64 noundef 0, ptr noundef nonnull %30) #13
-  %.not944 = icmp eq i32 %649, 0
-  br i1 %.not944, label %650, label %.loopexit
+649:                                              ; preds = %647
+  %650 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
+  %.not942 = icmp eq i32 %650, 0
+  br i1 %.not942, label %651, label %.loopexit
 
-650:                                              ; preds = %647
-  %651 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.37, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %31) #13
-  %.not945 = icmp eq i32 %651, 0
-  br i1 %.not945, label %652, label %.loopexit
+651:                                              ; preds = %649
+  %652 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 6) #13
+  %.not943 = icmp eq i32 %652, 0
+  br i1 %.not943, label %653, label %.loopexit
 
-652:                                              ; preds = %650
-  %653 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
-  %.not946 = icmp eq i32 %653, 0
-  br i1 %.not946, label %654, label %.loopexit
+653:                                              ; preds = %651
+  %654 = load i64, ptr %29, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %654) #13
+  %655 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.36, i64 noundef 0, ptr noundef nonnull %30) #13
+  %.not944 = icmp eq i32 %655, 0
+  br i1 %.not944, label %656, label %.loopexit
 
-654:                                              ; preds = %652
-  %655 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.38, i64 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null) #13
-  %.not947 = icmp eq i32 %655, 0
-  br i1 %.not947, label %656, label %.loopexit
+656:                                              ; preds = %653
+  %657 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.37, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %31) #13
+  %.not945 = icmp eq i32 %657, 0
+  br i1 %.not945, label %658, label %.loopexit
 
-656:                                              ; preds = %654
-  %657 = load i64, ptr %31, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %657) #13
-  %658 = load i64, ptr %30, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %658) #13
-  %659 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.39, i64 noundef 0, ptr noundef nonnull %32) #13
-  %.not948 = icmp eq i32 %659, 0
-  br i1 %.not948, label %660, label %.loopexit
+658:                                              ; preds = %656
+  %659 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
+  %.not946 = icmp eq i32 %659, 0
+  br i1 %.not946, label %660, label %.loopexit
 
-660:                                              ; preds = %656
-  %661 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.40, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %33) #13
-  %.not949 = icmp eq i32 %661, 0
-  br i1 %.not949, label %662, label %.loopexit
+660:                                              ; preds = %658
+  %661 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.38, i64 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null) #13
+  %.not947 = icmp eq i32 %661, 0
+  br i1 %.not947, label %662, label %.loopexit
 
 662:                                              ; preds = %660
-  %663 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
-  %.not950 = icmp eq i32 %663, 0
-  br i1 %.not950, label %664, label %.loopexit
+  %663 = load i64, ptr %31, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %663) #13
+  %664 = load i64, ptr %30, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %664) #13
+  %665 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.39, i64 noundef 0, ptr noundef nonnull %32) #13
+  %.not948 = icmp eq i32 %665, 0
+  br i1 %.not948, label %666, label %.loopexit
 
-664:                                              ; preds = %662
-  %665 = load ptr, ptr %45, align 8
-  %666 = getelementptr inbounds nuw i8, ptr %665, i64 520
-  %667 = load ptr, ptr %666, align 8
-  %668 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef %667, i64 noundef 0, ptr noundef nonnull %34) #13
-  %.not951 = icmp eq i32 %668, 0
-  br i1 %.not951, label %669, label %.loopexit
+666:                                              ; preds = %662
+  %667 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.40, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %33) #13
+  %.not949 = icmp eq i32 %667, 0
+  br i1 %.not949, label %668, label %.loopexit
 
-669:                                              ; preds = %664
-  %670 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 6) #13
-  %.not952 = icmp eq i32 %670, 0
-  br i1 %.not952, label %671, label %.loopexit
+668:                                              ; preds = %666
+  %669 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
+  %.not950 = icmp eq i32 %669, 0
+  br i1 %.not950, label %670, label %.loopexit
 
-671:                                              ; preds = %669
-  %672 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 1) #13
-  %.not953 = icmp eq i32 %672, 0
-  br i1 %.not953, label %673, label %.loopexit
+670:                                              ; preds = %668
+  %671 = load ptr, ptr %45, align 8
+  %672 = getelementptr inbounds nuw i8, ptr %671, i64 520
+  %673 = load ptr, ptr %672, align 8
+  %674 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %4, ptr noundef %673, i64 noundef 0, ptr noundef nonnull %34) #13
+  %.not951 = icmp eq i32 %674, 0
+  br i1 %.not951, label %675, label %.loopexit
 
-673:                                              ; preds = %671
-  %674 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not954 = icmp eq i32 %674, 0
-  br i1 %.not954, label %675, label %.loopexit
-
-675:                                              ; preds = %673
-  %676 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
-  %.not955 = icmp eq i32 %676, 0
-  br i1 %.not955, label %677, label %.loopexit
+675:                                              ; preds = %670
+  %676 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 6) #13
+  %.not952 = icmp eq i32 %676, 0
+  br i1 %.not952, label %677, label %.loopexit
 
 677:                                              ; preds = %675
-  %678 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 12) #13
-  %.not956 = icmp eq i32 %678, 0
-  br i1 %.not956, label %679, label %.loopexit
+  %678 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 1) #13
+  %.not953 = icmp eq i32 %678, 0
+  br i1 %.not953, label %679, label %.loopexit
 
 679:                                              ; preds = %677
-  %680 = load i32, ptr %122, align 8
-  %681 = trunc i32 %680 to i16
-  %682 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %681) #13
-  %.not957 = icmp eq i32 %682, 0
-  br i1 %.not957, label %683, label %.loopexit
+  %680 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
+  %.not954 = icmp eq i32 %680, 0
+  br i1 %.not954, label %681, label %.loopexit
 
-683:                                              ; preds = %679
-  %684 = load i32, ptr %514, align 4
-  %685 = trunc i32 %684 to i16
-  %686 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %685) #13
-  %.not958 = icmp eq i32 %686, 0
-  br i1 %.not958, label %687, label %.loopexit
+681:                                              ; preds = %679
+  %682 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 0) #13
+  %.not955 = icmp eq i32 %682, 0
+  br i1 %.not955, label %683, label %.loopexit
 
-687:                                              ; preds = %683
-  %688 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 4718592) #13
-  %.not959 = icmp eq i32 %688, 0
-  br i1 %.not959, label %689, label %.loopexit
+683:                                              ; preds = %681
+  %684 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 12) #13
+  %.not956 = icmp eq i32 %684, 0
+  br i1 %.not956, label %685, label %.loopexit
 
-689:                                              ; preds = %687
-  %690 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 4718592) #13
-  %.not960 = icmp eq i32 %690, 0
-  br i1 %.not960, label %691, label %.loopexit
+685:                                              ; preds = %683
+  %686 = load i32, ptr %122, align 8
+  %687 = trunc i32 %686 to i16
+  %688 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %687) #13
+  %.not957 = icmp eq i32 %688, 0
+  br i1 %.not957, label %689, label %.loopexit
 
-691:                                              ; preds = %689
-  %692 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
-  %.not961 = icmp eq i32 %692, 0
-  br i1 %.not961, label %693, label %.loopexit
+689:                                              ; preds = %685
+  %690 = load i32, ptr %519, align 4
+  %691 = trunc i32 %690 to i16
+  %692 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext %691) #13
+  %.not958 = icmp eq i32 %692, 0
+  br i1 %.not958, label %693, label %.loopexit
 
-693:                                              ; preds = %691
-  %694 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 1) #13
-  %.not962 = icmp eq i32 %694, 0
-  br i1 %.not962, label %695, label %.loopexit
+693:                                              ; preds = %689
+  %694 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 4718592) #13
+  %.not959 = icmp eq i32 %694, 0
+  br i1 %.not959, label %695, label %.loopexit
 
 695:                                              ; preds = %693
-  %696 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.41, i64 noundef 11) #13
-  %.not963 = icmp eq i32 %696, 0
-  br i1 %.not963, label %697, label %.loopexit
+  %696 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 4718592) #13
+  %.not960 = icmp eq i32 %696, 0
+  br i1 %.not960, label %697, label %.loopexit
 
 697:                                              ; preds = %695
-  %698 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 21) #13
-  %.not964 = icmp eq i32 %698, 0
-  br i1 %.not964, label %699, label %.loopexit
+  %698 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
+  %.not961 = icmp eq i32 %698, 0
+  br i1 %.not961, label %699, label %.loopexit
 
 699:                                              ; preds = %697
-  %700 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 24) #13
-  %.not965 = icmp eq i32 %700, 0
-  br i1 %.not965, label %701, label %.loopexit
+  %700 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 1) #13
+  %.not962 = icmp eq i32 %700, 0
+  br i1 %.not962, label %701, label %.loopexit
 
 701:                                              ; preds = %699
-  %702 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext -1) #13
-  %.not966 = icmp eq i32 %702, 0
-  br i1 %.not966, label %703, label %.loopexit
+  %702 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @.str.41, i64 noundef 11) #13
+  %.not963 = icmp eq i32 %702, 0
+  br i1 %.not963, label %703, label %.loopexit
 
 703:                                              ; preds = %701
-  %704 = getelementptr inbounds nuw i8, ptr %518, i64 40
-  %705 = load ptr, ptr %45, align 8
-  %706 = getelementptr inbounds nuw i8, ptr %705, i64 528
-  %707 = load ptr, ptr %706, align 8
-  %708 = call fastcc i32 @writeConfigBox(ptr noundef %4, ptr noundef nonnull %704, ptr noundef %707)
-  %.not967 = icmp eq i32 %708, 0
-  br i1 %.not967, label %709, label %.loopexit
+  %704 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %4, i64 noundef 21) #13
+  %.not964 = icmp eq i32 %704, 0
+  br i1 %.not964, label %705, label %.loopexit
 
-709:                                              ; preds = %703
-  %710 = load i32, ptr %602, align 8
-  %711 = icmp eq i32 %710, 0
-  br i1 %711, label %712, label %716
+705:                                              ; preds = %703
+  %706 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext 24) #13
+  %.not965 = icmp eq i32 %706, 0
+  br i1 %.not965, label %707, label %.loopexit
 
-712:                                              ; preds = %709
-  %713 = call fastcc i32 @avifEncoderWriteColorProperties(ptr noundef %4, ptr noundef nonnull %122, ptr noundef null, ptr noundef null)
-  %.not968 = icmp eq i32 %713, 0
-  br i1 %.not968, label %714, label %.loopexit
+707:                                              ; preds = %705
+  %708 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %4, i16 noundef zeroext -1) #13
+  %.not966 = icmp eq i32 %708, 0
+  br i1 %.not966, label %709, label %.loopexit
 
-714:                                              ; preds = %712
-  %715 = call fastcc i32 @avifEncoderWriteHDRProperties(ptr noundef null, ptr noundef %4, ptr noundef nonnull %122, ptr noundef null, ptr noundef null)
-  %.not969 = icmp eq i32 %715, 0
-  br i1 %.not969, label %716, label %.loopexit
+709:                                              ; preds = %707
+  %710 = getelementptr inbounds nuw i8, ptr %523, i64 40
+  %711 = load ptr, ptr %45, align 8
+  %712 = getelementptr inbounds nuw i8, ptr %711, i64 528
+  %713 = load ptr, ptr %712, align 8
+  %714 = call fastcc i32 @writeConfigBox(ptr noundef %4, ptr noundef nonnull %710, ptr noundef %713)
+  %.not967 = icmp eq i32 %714, 0
+  br i1 %.not967, label %715, label %.loopexit
 
-716:                                              ; preds = %709, %714
-  %717 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.42, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %35) #13
-  %.not970 = icmp eq i32 %717, 0
-  br i1 %.not970, label %718, label %.loopexit
+715:                                              ; preds = %709
+  %716 = load i32, ptr %608, align 8
+  %717 = icmp eq i32 %716, 0
+  br i1 %717, label %718, label %722
 
-718:                                              ; preds = %716
-  %719 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 0, i64 noundef 1) #13
-  %.not971 = icmp eq i32 %719, 0
-  br i1 %.not971, label %720, label %.loopexit
+718:                                              ; preds = %715
+  %719 = call fastcc i32 @avifEncoderWriteColorProperties(ptr noundef %4, ptr noundef nonnull %122, ptr noundef null, ptr noundef null)
+  %.not968 = icmp eq i32 %719, 0
+  br i1 %.not968, label %720, label %.loopexit
 
 720:                                              ; preds = %718
-  %721 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 1, i64 noundef 1) #13
-  %.not972 = icmp eq i32 %721, 0
-  br i1 %.not972, label %722, label %.loopexit
+  %721 = call fastcc i32 @avifEncoderWriteHDRProperties(ptr noundef null, ptr noundef %4, ptr noundef nonnull %122, ptr noundef null, ptr noundef null)
+  %.not969 = icmp eq i32 %721, 0
+  br i1 %.not969, label %722, label %.loopexit
 
-722:                                              ; preds = %720
-  %723 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 15, i64 noundef 4) #13
-  %.not973 = icmp eq i32 %723, 0
-  br i1 %.not973, label %724, label %.loopexit
+722:                                              ; preds = %715, %720
+  %723 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.42, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %35) #13
+  %.not970 = icmp eq i32 %723, 0
+  br i1 %.not970, label %724, label %.loopexit
 
 724:                                              ; preds = %722
-  %725 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 0, i64 noundef 26) #13
-  %.not974 = icmp eq i32 %725, 0
-  br i1 %.not974, label %726, label %.loopexit
+  %725 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 0, i64 noundef 1) #13
+  %.not971 = icmp eq i32 %725, 0
+  br i1 %.not971, label %726, label %.loopexit
 
 726:                                              ; preds = %724
-  %727 = load i64, ptr %35, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %727) #13
-  %728 = load i32, ptr %602, align 8
-  %729 = icmp eq i32 %728, 1
-  br i1 %729, label %730, label %736
+  %727 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 1, i64 noundef 1) #13
+  %.not972 = icmp eq i32 %727, 0
+  br i1 %.not972, label %728, label %.loopexit
 
-730:                                              ; preds = %726
-  %731 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.43, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %36) #13
-  %.not975 = icmp eq i32 %731, 0
-  br i1 %.not975, label %732, label %.loopexit
+728:                                              ; preds = %726
+  %729 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 15, i64 noundef 4) #13
+  %.not973 = icmp eq i32 %729, 0
+  br i1 %.not973, label %730, label %.loopexit
+
+730:                                              ; preds = %728
+  %731 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %4, i32 noundef 0, i64 noundef 26) #13
+  %.not974 = icmp eq i32 %731, 0
+  br i1 %.not974, label %732, label %.loopexit
 
 732:                                              ; preds = %730
-  %733 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @alphaURN, i64 noundef 44) #13
-  %.not976 = icmp eq i32 %733, 0
-  br i1 %.not976, label %734, label %.loopexit
+  %733 = load i64, ptr %35, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %733) #13
+  %734 = load i32, ptr %608, align 8
+  %735 = icmp eq i32 %734, 1
+  br i1 %735, label %736, label %742
 
-734:                                              ; preds = %732
-  %735 = load i64, ptr %36, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %735) #13
-  br label %736
+736:                                              ; preds = %732
+  %737 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.43, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %36) #13
+  %.not975 = icmp eq i32 %737, 0
+  br i1 %.not975, label %738, label %.loopexit
 
-736:                                              ; preds = %734, %726
-  %737 = load i64, ptr %34, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %737) #13
-  %738 = load i64, ptr %33, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %738) #13
-  %739 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.44, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %37) #13
-  %.not977 = icmp eq i32 %739, 0
-  br i1 %.not977, label %740, label %.loopexit
+738:                                              ; preds = %736
+  %739 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %4, ptr noundef nonnull @alphaURN, i64 noundef 44) #13
+  %.not976 = icmp eq i32 %739, 0
+  br i1 %.not976, label %740, label %.loopexit
 
-740:                                              ; preds = %736
-  %741 = call i64 @avifRWStreamOffset(ptr noundef nonnull %4) #13
-  %742 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
-  %.not978 = icmp eq i32 %742, 0
+740:                                              ; preds = %738
+  %741 = load i64, ptr %36, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %741) #13
+  br label %742
+
+742:                                              ; preds = %740, %732
+  %743 = load i64, ptr %34, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %743) #13
+  %744 = load i64, ptr %33, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %744) #13
+  %745 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.44, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %37) #13
+  %.not977 = icmp eq i32 %745, 0
+  br i1 %.not977, label %746, label %.loopexit
+
+746:                                              ; preds = %742
+  %747 = call i64 @avifRWStreamOffset(ptr noundef nonnull %4) #13
+  %748 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
+  %.not978 = icmp eq i32 %748, 0
   br i1 %.not978, label %.preheader1060, label %.loopexit
 
-.preheader1060:                                   ; preds = %740
-  %743 = load ptr, ptr %45, align 8
-  %744 = getelementptr inbounds nuw i8, ptr %743, i64 36
-  %745 = load i32, ptr %744, align 4
-  %.not1180 = icmp eq i32 %745, 0
+.preheader1060:                                   ; preds = %746
+  %749 = load ptr, ptr %45, align 8
+  %750 = getelementptr inbounds nuw i8, ptr %749, i64 36
+  %751 = load i32, ptr %750, align 4
+  %.not1180 = icmp eq i32 %751, 0
   br i1 %.not1180, label %._crit_edge1150, label %.lr.ph1149
 
-.lr.ph1149:                                       ; preds = %.preheader1060, %769
-  %746 = phi ptr [ %770, %769 ], [ %743, %.preheader1060 ]
-  %indvars.iv1269 = phi i64 [ %indvars.iv.next1270.pre-phi, %769 ], [ 0, %.preheader1060 ]
-  %747 = phi i32 [ %772, %769 ], [ %745, %.preheader1060 ]
-  %.06431147 = phi i32 [ %.1644, %769 ], [ 0, %.preheader1060 ]
-  %.06461146 = phi i32 [ %.1647, %769 ], [ 0, %.preheader1060 ]
-  %748 = getelementptr inbounds nuw i8, ptr %746, i64 24
-  %749 = load ptr, ptr %748, align 8
-  %750 = getelementptr inbounds nuw %struct.avifEncoderFrame, ptr %749, i64 %indvars.iv1269
-  %751 = add i32 %.06431147, 1
-  %752 = add i32 %747, -1
-  %753 = zext i32 %752 to i64
-  %754 = icmp samesign ult i64 %indvars.iv1269, %753
-  br i1 %754, label %755, label %761
+.lr.ph1149:                                       ; preds = %.preheader1060, %775
+  %752 = phi ptr [ %776, %775 ], [ %749, %.preheader1060 ]
+  %indvars.iv1269 = phi i64 [ %indvars.iv.next1270.pre-phi, %775 ], [ 0, %.preheader1060 ]
+  %753 = phi i32 [ %778, %775 ], [ %751, %.preheader1060 ]
+  %.06431147 = phi i32 [ %.1644, %775 ], [ 0, %.preheader1060 ]
+  %.06461146 = phi i32 [ %.1647, %775 ], [ 0, %.preheader1060 ]
+  %754 = getelementptr inbounds nuw i8, ptr %752, i64 24
+  %755 = load ptr, ptr %754, align 8
+  %756 = getelementptr inbounds nuw %struct.avifEncoderFrame, ptr %755, i64 %indvars.iv1269
+  %757 = add i32 %.06431147, 1
+  %758 = add i32 %753, -1
+  %759 = zext i32 %758 to i64
+  %760 = icmp samesign ult i64 %indvars.iv1269, %759
+  br i1 %760, label %761, label %767
 
-755:                                              ; preds = %.lr.ph1149
-  %756 = add nuw nsw i64 %indvars.iv1269, 1
-  %757 = getelementptr inbounds nuw %struct.avifEncoderFrame, ptr %749, i64 %756
-  %758 = load i64, ptr %750, align 8
-  %759 = load i64, ptr %757, align 8
-  %760 = icmp eq i64 %758, %759
-  br i1 %760, label %769, label %761
+761:                                              ; preds = %.lr.ph1149
+  %762 = add nuw nsw i64 %indvars.iv1269, 1
+  %763 = getelementptr inbounds nuw %struct.avifEncoderFrame, ptr %755, i64 %762
+  %764 = load i64, ptr %756, align 8
+  %765 = load i64, ptr %763, align 8
+  %766 = icmp eq i64 %764, %765
+  br i1 %766, label %775, label %767
 
-761:                                              ; preds = %.lr.ph1149, %755
-  %762 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %751) #13
-  %.not1000 = icmp eq i32 %762, 0
-  br i1 %.not1000, label %763, label %.loopexit
+767:                                              ; preds = %.lr.ph1149, %761
+  %768 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %757) #13
+  %.not1000 = icmp eq i32 %768, 0
+  br i1 %.not1000, label %769, label %.loopexit
 
-763:                                              ; preds = %761
-  %764 = load i64, ptr %750, align 8
-  %765 = trunc i64 %764 to i32
-  %766 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %765) #13
-  %.not1001 = icmp eq i32 %766, 0
-  br i1 %.not1001, label %767, label %.loopexit
+769:                                              ; preds = %767
+  %770 = load i64, ptr %756, align 8
+  %771 = trunc i64 %770 to i32
+  %772 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %771) #13
+  %.not1001 = icmp eq i32 %772, 0
+  br i1 %.not1001, label %773, label %.loopexit
 
-767:                                              ; preds = %763
-  %768 = add i32 %.06461146, 1
+773:                                              ; preds = %769
+  %774 = add i32 %.06461146, 1
   %.pre1289 = load ptr, ptr %45, align 8
   %.pre1293 = add nuw nsw i64 %indvars.iv1269, 1
-  br label %769
+  br label %775
 
-769:                                              ; preds = %755, %767
-  %indvars.iv.next1270.pre-phi = phi i64 [ %756, %755 ], [ %.pre1293, %767 ]
-  %770 = phi ptr [ %746, %755 ], [ %.pre1289, %767 ]
-  %.1647 = phi i32 [ %.06461146, %755 ], [ %768, %767 ]
-  %.1644 = phi i32 [ %751, %755 ], [ 0, %767 ]
-  %771 = getelementptr inbounds nuw i8, ptr %770, i64 36
-  %772 = load i32, ptr %771, align 4
-  %773 = zext i32 %772 to i64
-  %774 = icmp samesign ult i64 %indvars.iv.next1270.pre-phi, %773
-  br i1 %774, label %.lr.ph1149, label %._crit_edge1150, !llvm.loop !24
+775:                                              ; preds = %761, %773
+  %indvars.iv.next1270.pre-phi = phi i64 [ %762, %761 ], [ %.pre1293, %773 ]
+  %776 = phi ptr [ %752, %761 ], [ %.pre1289, %773 ]
+  %.1647 = phi i32 [ %.06461146, %761 ], [ %774, %773 ]
+  %.1644 = phi i32 [ %757, %761 ], [ 0, %773 ]
+  %777 = getelementptr inbounds nuw i8, ptr %776, i64 36
+  %778 = load i32, ptr %777, align 4
+  %779 = zext i32 %778 to i64
+  %780 = icmp samesign ult i64 %indvars.iv.next1270.pre-phi, %779
+  br i1 %780, label %.lr.ph1149, label %._crit_edge1150, !llvm.loop !24
 
-._crit_edge1150:                                  ; preds = %769, %.preheader1060
-  %.0646.lcssa = phi i32 [ 0, %.preheader1060 ], [ %.1647, %769 ]
-  %775 = call i64 @avifRWStreamOffset(ptr noundef nonnull %4) #13
-  call void @avifRWStreamSetOffset(ptr noundef nonnull %4, i64 noundef %741) #13
-  %776 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %.0646.lcssa) #13
-  %.not979 = icmp eq i32 %776, 0
-  br i1 %.not979, label %777, label %.loopexit
+._crit_edge1150:                                  ; preds = %775, %.preheader1060
+  %.0646.lcssa = phi i32 [ 0, %.preheader1060 ], [ %.1647, %775 ]
+  %781 = call i64 @avifRWStreamOffset(ptr noundef nonnull %4) #13
+  call void @avifRWStreamSetOffset(ptr noundef nonnull %4, i64 noundef %747) #13
+  %782 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %.0646.lcssa) #13
+  %.not979 = icmp eq i32 %782, 0
+  br i1 %.not979, label %783, label %.loopexit
 
-777:                                              ; preds = %._crit_edge1150
-  call void @avifRWStreamSetOffset(ptr noundef nonnull %4, i64 noundef %775) #13
-  %778 = load i64, ptr %37, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %778) #13
-  %779 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.45, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %38) #13
-  %.not980 = icmp eq i32 %779, 0
-  br i1 %.not980, label %780, label %.loopexit
+783:                                              ; preds = %._crit_edge1150
+  call void @avifRWStreamSetOffset(ptr noundef nonnull %4, i64 noundef %781) #13
+  %784 = load i64, ptr %37, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %784) #13
+  %785 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.45, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %38) #13
+  %.not980 = icmp eq i32 %785, 0
+  br i1 %.not980, label %786, label %.loopexit
 
-780:                                              ; preds = %777
-  %781 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
-  %.not981 = icmp eq i32 %781, 0
-  br i1 %.not981, label %782, label %.loopexit
+786:                                              ; preds = %783
+  %787 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
+  %.not981 = icmp eq i32 %787, 0
+  br i1 %.not981, label %788, label %.loopexit
 
-782:                                              ; preds = %780
-  %783 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
-  %.not982 = icmp eq i32 %783, 0
-  br i1 %.not982, label %784, label %.loopexit
+788:                                              ; preds = %786
+  %789 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
+  %.not982 = icmp eq i32 %789, 0
+  br i1 %.not982, label %790, label %.loopexit
 
-784:                                              ; preds = %782
-  %785 = load ptr, ptr %519, align 8
-  %786 = getelementptr inbounds nuw i8, ptr %785, i64 12
-  %787 = load i32, ptr %786, align 4
-  %788 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %787) #13
-  %.not983 = icmp eq i32 %788, 0
-  br i1 %.not983, label %789, label %.loopexit
+790:                                              ; preds = %788
+  %791 = load ptr, ptr %524, align 8
+  %792 = getelementptr inbounds nuw i8, ptr %791, i64 12
+  %793 = load i32, ptr %792, align 4
+  %794 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %793) #13
+  %.not983 = icmp eq i32 %794, 0
+  br i1 %.not983, label %795, label %.loopexit
 
-789:                                              ; preds = %784
-  %790 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
-  %.not984 = icmp eq i32 %790, 0
-  br i1 %.not984, label %791, label %.loopexit
+795:                                              ; preds = %790
+  %796 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
+  %.not984 = icmp eq i32 %796, 0
+  br i1 %.not984, label %797, label %.loopexit
 
-791:                                              ; preds = %789
-  %792 = load i64, ptr %38, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %792) #13
-  %793 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.46, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %39) #13
-  %.not985 = icmp eq i32 %793, 0
-  br i1 %.not985, label %794, label %.loopexit
+797:                                              ; preds = %795
+  %798 = load i64, ptr %38, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %798) #13
+  %799 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.46, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %39) #13
+  %.not985 = icmp eq i32 %799, 0
+  br i1 %.not985, label %800, label %.loopexit
 
-794:                                              ; preds = %791
-  %795 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
-  %.not986 = icmp eq i32 %795, 0
-  br i1 %.not986, label %796, label %.loopexit
+800:                                              ; preds = %797
+  %801 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 0) #13
+  %.not986 = icmp eq i32 %801, 0
+  br i1 %.not986, label %802, label %.loopexit
 
-796:                                              ; preds = %794
-  %797 = load ptr, ptr %519, align 8
-  %798 = getelementptr inbounds nuw i8, ptr %797, i64 12
-  %799 = load i32, ptr %798, align 4
-  %800 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %799) #13
-  %.not987 = icmp eq i32 %800, 0
+802:                                              ; preds = %800
+  %803 = load ptr, ptr %524, align 8
+  %804 = getelementptr inbounds nuw i8, ptr %803, i64 12
+  %805 = load i32, ptr %804, align 4
+  %806 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %805) #13
+  %.not987 = icmp eq i32 %806, 0
   br i1 %.not987, label %.preheader1058, label %.loopexit
 
-.preheader1058:                                   ; preds = %796
-  %801 = load ptr, ptr %519, align 8
-  %802 = getelementptr inbounds nuw i8, ptr %801, i64 12
-  %803 = load i32, ptr %802, align 4
-  %.not1181 = icmp eq i32 %803, 0
+.preheader1058:                                   ; preds = %802
+  %807 = load ptr, ptr %524, align 8
+  %808 = getelementptr inbounds nuw i8, ptr %807, i64 12
+  %809 = load i32, ptr %808, align 4
+  %.not1181 = icmp eq i32 %809, 0
   br i1 %.not1181, label %._crit_edge1154, label %.lr.ph1153
 
-804:                                              ; preds = %.lr.ph1153
+810:                                              ; preds = %.lr.ph1153
   %indvars.iv.next1273 = add nuw nsw i64 %indvars.iv1272, 1
-  %805 = load ptr, ptr %519, align 8
-  %806 = getelementptr inbounds nuw i8, ptr %805, i64 12
-  %807 = load i32, ptr %806, align 4
-  %808 = zext i32 %807 to i64
-  %809 = icmp samesign ult i64 %indvars.iv.next1273, %808
-  br i1 %809, label %.lr.ph1153, label %._crit_edge1154, !llvm.loop !25
+  %811 = load ptr, ptr %524, align 8
+  %812 = getelementptr inbounds nuw i8, ptr %811, i64 12
+  %813 = load i32, ptr %812, align 4
+  %814 = zext i32 %813 to i64
+  %815 = icmp samesign ult i64 %indvars.iv.next1273, %814
+  br i1 %815, label %.lr.ph1153, label %._crit_edge1154, !llvm.loop !25
 
-.lr.ph1153:                                       ; preds = %.preheader1058, %804
-  %indvars.iv1272 = phi i64 [ %indvars.iv.next1273, %804 ], [ 0, %.preheader1058 ]
-  %810 = phi ptr [ %805, %804 ], [ %801, %.preheader1058 ]
-  %811 = load ptr, ptr %810, align 8
-  %812 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %811, i64 %indvars.iv1272, i32 0, i32 1
-  %813 = load i64, ptr %812, align 8
-  %814 = trunc i64 %813 to i32
-  %815 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %814) #13
-  %.not999 = icmp eq i32 %815, 0
-  br i1 %.not999, label %804, label %.loopexit
+.lr.ph1153:                                       ; preds = %.preheader1058, %810
+  %indvars.iv1272 = phi i64 [ %indvars.iv.next1273, %810 ], [ 0, %.preheader1058 ]
+  %816 = phi ptr [ %811, %810 ], [ %807, %.preheader1058 ]
+  %817 = load ptr, ptr %816, align 8
+  %818 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %817, i64 %indvars.iv1272
+  %819 = getelementptr inbounds nuw i8, ptr %818, i64 8
+  %820 = load i64, ptr %819, align 8
+  %821 = trunc i64 %820 to i32
+  %822 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %821) #13
+  %.not999 = icmp eq i32 %822, 0
+  br i1 %.not999, label %810, label %.loopexit
 
-._crit_edge1154:                                  ; preds = %804, %.preheader1058
-  %816 = load i64, ptr %39, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %816) #13
-  %817 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.47, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %40) #13
-  %.not988 = icmp eq i32 %817, 0
-  br i1 %.not988, label %818, label %.loopexit
+._crit_edge1154:                                  ; preds = %810, %.preheader1058
+  %823 = load i64, ptr %39, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %823) #13
+  %824 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.47, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %40) #13
+  %.not988 = icmp eq i32 %824, 0
+  br i1 %.not988, label %825, label %.loopexit
 
-818:                                              ; preds = %._crit_edge1154
-  %819 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
-  %.not989 = icmp eq i32 %819, 0
-  br i1 %.not989, label %820, label %.loopexit
+825:                                              ; preds = %._crit_edge1154
+  %826 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
+  %.not989 = icmp eq i32 %826, 0
+  br i1 %.not989, label %827, label %.loopexit
 
-820:                                              ; preds = %818
-  %821 = call fastcc i32 @avifEncoderItemAddMdatFixup(ptr noundef nonnull %518, ptr noundef %4)
-  %.not990 = icmp eq i32 %821, 0
-  br i1 %.not990, label %822, label %.loopexit
+827:                                              ; preds = %825
+  %828 = call fastcc i32 @avifEncoderItemAddMdatFixup(ptr noundef nonnull %523, ptr noundef %4)
+  %.not990 = icmp eq i32 %828, 0
+  br i1 %.not990, label %829, label %.loopexit
 
-822:                                              ; preds = %820
-  %823 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
-  %.not991 = icmp eq i32 %823, 0
-  br i1 %.not991, label %824, label %.loopexit
+829:                                              ; preds = %827
+  %830 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef 1) #13
+  %.not991 = icmp eq i32 %830, 0
+  br i1 %.not991, label %831, label %.loopexit
 
-824:                                              ; preds = %822
-  %825 = load i64, ptr %40, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %825) #13
-  %826 = load ptr, ptr %519, align 8
-  %827 = getelementptr inbounds nuw i8, ptr %826, i64 12
-  %828 = load i32, ptr %827, align 4
-  %.not9941155.not = icmp eq i32 %828, 0
+831:                                              ; preds = %829
+  %832 = load i64, ptr %40, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %832) #13
+  %833 = load ptr, ptr %524, align 8
+  %834 = getelementptr inbounds nuw i8, ptr %833, i64 12
+  %835 = load i32, ptr %834, align 4
+  %.not9941155.not = icmp eq i32 %835, 0
   br i1 %.not9941155.not, label %.critedge1054, label %.lr.ph1158
 
-.lr.ph1158:                                       ; preds = %824
-  %829 = load ptr, ptr %826, align 8
-  %wide.trip.count1278 = zext i32 %828 to i64
-  br label %831
+.lr.ph1158:                                       ; preds = %831
+  %836 = load ptr, ptr %833, align 8
+  %wide.trip.count1278 = zext i32 %835 to i64
+  br label %838
 
-830:                                              ; preds = %831
+837:                                              ; preds = %838
   %indvars.iv.next1276 = add nuw nsw i64 %indvars.iv1275, 1
   %exitcond1279.not = icmp eq i64 %indvars.iv.next1276, %wide.trip.count1278
-  br i1 %exitcond1279.not, label %.critedge1054, label %831, !llvm.loop !26
+  br i1 %exitcond1279.not, label %.critedge1054, label %838, !llvm.loop !26
 
-831:                                              ; preds = %.lr.ph1158, %830
-  %indvars.iv1275 = phi i64 [ 0, %.lr.ph1158 ], [ %indvars.iv.next1276, %830 ]
-  %832 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %829, i64 %indvars.iv1275, i32 1
-  %833 = load i32, ptr %832, align 8
-  %.not992 = icmp eq i32 %833, 0
-  br i1 %.not992, label %834, label %830
+838:                                              ; preds = %.lr.ph1158, %837
+  %indvars.iv1275 = phi i64 [ 0, %.lr.ph1158 ], [ %indvars.iv.next1276, %837 ]
+  %839 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %836, i64 %indvars.iv1275
+  %840 = getelementptr inbounds nuw i8, ptr %839, i64 16
+  %841 = load i32, ptr %840, align 8
+  %.not992 = icmp eq i32 %841, 0
+  br i1 %.not992, label %842, label %837
 
-834:                                              ; preds = %831
-  %835 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.48, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %41) #13
-  %.not995 = icmp eq i32 %835, 0
-  br i1 %.not995, label %836, label %.loopexit
+842:                                              ; preds = %838
+  %843 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %4, ptr noundef nonnull @.str.48, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %41) #13
+  %.not995 = icmp eq i32 %843, 0
+  br i1 %.not995, label %844, label %.loopexit
 
-836:                                              ; preds = %834
-  %837 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %spec.select1052) #13
-  %.not996 = icmp eq i32 %837, 0
+844:                                              ; preds = %842
+  %845 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %spec.select1052) #13
+  %.not996 = icmp eq i32 %845, 0
   br i1 %.not996, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %836
-  %838 = load ptr, ptr %519, align 8
-  %839 = getelementptr inbounds nuw i8, ptr %838, i64 12
-  %840 = load i32, ptr %839, align 4
-  %.not1182 = icmp eq i32 %840, 0
+.preheader:                                       ; preds = %844
+  %846 = load ptr, ptr %524, align 8
+  %847 = getelementptr inbounds nuw i8, ptr %846, i64 12
+  %848 = load i32, ptr %847, align 4
+  %.not1182 = icmp eq i32 %848, 0
   br i1 %.not1182, label %._crit_edge1161, label %.lr.ph1160
 
 .lr.ph1160:                                       ; preds = %.preheader, %.lr.ph1160._crit_edge
-  %841 = phi ptr [ %848, %.lr.ph1160._crit_edge ], [ %838, %.preheader ]
+  %849 = phi ptr [ %857, %.lr.ph1160._crit_edge ], [ %846, %.preheader ]
   %indvars.iv1280 = phi i64 [ %.pre1296, %.lr.ph1160._crit_edge ], [ 0, %.preheader ]
-  %842 = load ptr, ptr %841, align 8
-  %843 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %842, i64 %indvars.iv1280, i32 1
-  %844 = load i32, ptr %843, align 8
-  %.not997 = icmp eq i32 %844, 0
+  %850 = load ptr, ptr %849, align 8
+  %851 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %850, i64 %indvars.iv1280
+  %852 = getelementptr inbounds nuw i8, ptr %851, i64 16
+  %853 = load i32, ptr %852, align 8
+  %.not997 = icmp eq i32 %853, 0
   %.pre1296 = add nuw nsw i64 %indvars.iv1280, 1
-  br i1 %.not997, label %.lr.ph1160._crit_edge, label %845
+  br i1 %.not997, label %.lr.ph1160._crit_edge, label %854
 
-845:                                              ; preds = %.lr.ph1160
-  %846 = trunc nuw i64 %.pre1296 to i32
-  %847 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %846) #13
-  %.not998 = icmp eq i32 %847, 0
+854:                                              ; preds = %.lr.ph1160
+  %855 = trunc nuw i64 %.pre1296 to i32
+  %856 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %4, i32 noundef %855) #13
+  %.not998 = icmp eq i32 %856, 0
   br i1 %.not998, label %._crit_edge1290, label %.loopexit
 
-._crit_edge1290:                                  ; preds = %845
-  %.pre1291 = load ptr, ptr %519, align 8
+._crit_edge1290:                                  ; preds = %854
+  %.pre1291 = load ptr, ptr %524, align 8
   br label %.lr.ph1160._crit_edge
 
 .lr.ph1160._crit_edge:                            ; preds = %.lr.ph1160, %._crit_edge1290
-  %848 = phi ptr [ %.pre1291, %._crit_edge1290 ], [ %841, %.lr.ph1160 ]
-  %849 = getelementptr inbounds nuw i8, ptr %848, i64 12
-  %850 = load i32, ptr %849, align 4
-  %851 = zext i32 %850 to i64
-  %852 = icmp samesign ult i64 %.pre1296, %851
-  br i1 %852, label %.lr.ph1160, label %._crit_edge1161, !llvm.loop !27
+  %857 = phi ptr [ %.pre1291, %._crit_edge1290 ], [ %849, %.lr.ph1160 ]
+  %858 = getelementptr inbounds nuw i8, ptr %857, i64 12
+  %859 = load i32, ptr %858, align 4
+  %860 = zext i32 %859 to i64
+  %861 = icmp samesign ult i64 %.pre1296, %860
+  br i1 %861, label %.lr.ph1160, label %._crit_edge1161, !llvm.loop !27
 
 ._crit_edge1161:                                  ; preds = %.lr.ph1160._crit_edge, %.preheader
-  %853 = load i64, ptr %41, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %853) #13
+  %862 = load i64, ptr %41, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %862) #13
   br label %.critedge1054
 
-.critedge1054:                                    ; preds = %830, %824, %._crit_edge1161
-  %854 = load i64, ptr %32, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %854) #13
-  %855 = load i64, ptr %28, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %855) #13
-  %856 = load i64, ptr %25, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %856) #13
-  %857 = load i64, ptr %19, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %857) #13
-  %.pre1292 = load ptr, ptr %45, align 8
-  br label %858
-
-858:                                              ; preds = %._crit_edge1294, %.critedge1054
-  %indvars.iv.next1284.pre-phi = phi i64 [ %.pre1295, %._crit_edge1294 ], [ %538, %.critedge1054 ]
-  %859 = phi ptr [ %516, %._crit_edge1294 ], [ %.pre1292, %.critedge1054 ]
-  %860 = getelementptr inbounds nuw i8, ptr %859, i64 12
-  %861 = load i32, ptr %860, align 4
-  %862 = zext i32 %861 to i64
-  %863 = icmp ult i64 %indvars.iv.next1284.pre-phi, %862
-  br i1 %863, label %515, label %._crit_edge1165, !llvm.loop !28
-
-._crit_edge1165:                                  ; preds = %858, %509
-  %864 = load i64, ptr %17, align 8
+.critedge1054:                                    ; preds = %837, %831, %._crit_edge1161
+  %863 = load i64, ptr %32, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %863) #13
+  %864 = load i64, ptr %28, align 8
   call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %864) #13
-  br label %865
+  %865 = load i64, ptr %25, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %865) #13
+  %866 = load i64, ptr %19, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %866) #13
+  %.pre1292 = load ptr, ptr %45, align 8
+  br label %867
 
-865:                                              ; preds = %._crit_edge1165, %458
-  %866 = call i32 @avifArrayCreate(ptr noundef nonnull %42, i32 noundef 8, i32 noundef 1) #13
-  %.not896 = icmp ne i32 %866, 0
-  %867 = call i32 @avifArrayCreate(ptr noundef nonnull %43, i32 noundef 8, i32 noundef 1) #13
-  %.not897 = icmp ne i32 %867, 0
+867:                                              ; preds = %._crit_edge1294, %.critedge1054
+  %indvars.iv.next1284.pre-phi = phi i64 [ %.pre1295, %._crit_edge1294 ], [ %544, %.critedge1054 ]
+  %868 = phi ptr [ %521, %._crit_edge1294 ], [ %.pre1292, %.critedge1054 ]
+  %869 = getelementptr inbounds nuw i8, ptr %868, i64 12
+  %870 = load i32, ptr %869, align 4
+  %871 = zext i32 %870 to i64
+  %872 = icmp ult i64 %indvars.iv.next1284.pre-phi, %871
+  br i1 %872, label %520, label %._crit_edge1165, !llvm.loop !28
+
+._crit_edge1165:                                  ; preds = %867, %514
+  %873 = load i64, ptr %17, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %4, i64 noundef %873) #13
+  br label %874
+
+874:                                              ; preds = %._crit_edge1165, %463
+  %875 = call i32 @avifArrayCreate(ptr noundef nonnull %42, i32 noundef 8, i32 noundef 1) #13
+  %.not896 = icmp ne i32 %875, 0
+  %876 = call i32 @avifArrayCreate(ptr noundef nonnull %43, i32 noundef 8, i32 noundef 1) #13
+  %.not897 = icmp ne i32 %876, 0
   %.not1057 = select i1 %.not897, i1 %.not896, i1 false
-  br i1 %.not1057, label %868, label %870
+  br i1 %.not1057, label %877, label %879
 
-868:                                              ; preds = %865
-  %869 = call fastcc i32 @avifEncoderWriteMediaDataBox(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %42, ptr noundef %43)
-  br label %870
+877:                                              ; preds = %874
+  %878 = call fastcc i32 @avifEncoderWriteMediaDataBox(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %42, ptr noundef %43)
+  br label %879
 
-870:                                              ; preds = %868, %865
-  %.2 = phi i32 [ %869, %868 ], [ 26, %865 ]
+879:                                              ; preds = %877, %874
+  %.2 = phi i32 [ %878, %877 ], [ 26, %874 ]
   call void @avifArrayDestroy(ptr noundef nonnull %42) #13
   call void @avifArrayDestroy(ptr noundef nonnull %43) #13
   %.not898 = icmp eq i32 %.2, 0
-  br i1 %.not898, label %871, label %.loopexit
+  br i1 %.not898, label %880, label %.loopexit
 
-871:                                              ; preds = %870
+880:                                              ; preds = %879
   call void @avifRWStreamFinishWrite(ptr noundef nonnull %4) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %266, %264, %262, %260, %234, %229, %.lr.ph1115, %244, %242, %240, %311, %299, %296, %294, %291, %.lr.ph1118, %382, %380, %377, %373, %371, %344, %341, %339, %337, %356, %426, %423, %440, %435, %836, %834, %822, %820, %818, %._crit_edge1154, %796, %794, %791, %789, %784, %782, %780, %777, %._crit_edge1150, %740, %736, %732, %730, %724, %722, %720, %718, %716, %714, %712, %703, %701, %699, %697, %695, %693, %691, %689, %687, %683, %679, %677, %675, %673, %671, %669, %664, %662, %660, %656, %654, %652, %650, %647, %645, %643, %641, %638, %636, %634, %629, %627, %624, %622, %620, %618, %614, %612, %610, %608, %606, %604, %597, %595, %593, %591, %589, %584, %582, %575, %571, %569, %561, %557, %555, %553, %551, %549, %547, %545, %543, %541, %537, %535, %533, %531, %529, %763, %761, %.lr.ph1153, %845, %870, %504, %502, %500, %498, %496, %494, %492, %490, %485, %483, %481, %479, %477, %472, %460, %455, %._crit_edge1132, %401, %399, %397, %395, %._crit_edge1128.thread, %275, %._crit_edge1116, %215, %213, %211, %209, %207, %205, %200, %198, %191, %189, %187, %185, %183, %180, %178, %176, %168, %166, %164, %162, %160, %157, %154, %152, %150, %.critedge, %50, %2, %871, %108, %90, %81, %69
-  %.0 = phi i32 [ %85, %81 ], [ 24, %90 ], [ %73, %69 ], [ %112, %108 ], [ 0, %871 ], [ 3, %2 ], [ 15, %50 ], [ %149, %.critedge ], [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %158, %157 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %177, %176 ], [ %179, %178 ], [ %182, %180 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %199, %198 ], [ %204, %200 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %220, %215 ], [ %274, %._crit_edge1116 ], [ %280, %275 ], [ %394, %._crit_edge1128.thread ], [ 26, %395 ], [ %398, %397 ], [ %400, %399 ], [ %403, %401 ], [ %412, %._crit_edge1132 ], [ %457, %455 ], [ 24, %460 ], [ 24, %472 ], [ %478, %477 ], [ %480, %479 ], [ %482, %481 ], [ %484, %483 ], [ %489, %485 ], [ %491, %490 ], [ %493, %492 ], [ %495, %494 ], [ %497, %496 ], [ %499, %498 ], [ %501, %500 ], [ %503, %502 ], [ %508, %504 ], [ %.2, %870 ], [ %847, %845 ], [ %815, %.lr.ph1153 ], [ %766, %763 ], [ %762, %761 ], [ %837, %836 ], [ %835, %834 ], [ %823, %822 ], [ %821, %820 ], [ %819, %818 ], [ %817, %._crit_edge1154 ], [ %800, %796 ], [ %795, %794 ], [ %793, %791 ], [ %790, %789 ], [ %788, %784 ], [ %783, %782 ], [ %781, %780 ], [ %779, %777 ], [ %776, %._crit_edge1150 ], [ %742, %740 ], [ %739, %736 ], [ %733, %732 ], [ %731, %730 ], [ %725, %724 ], [ %723, %722 ], [ %721, %720 ], [ %719, %718 ], [ %717, %716 ], [ %715, %714 ], [ %713, %712 ], [ %708, %703 ], [ %702, %701 ], [ %700, %699 ], [ %698, %697 ], [ %696, %695 ], [ %694, %693 ], [ %692, %691 ], [ %690, %689 ], [ %688, %687 ], [ %686, %683 ], [ %682, %679 ], [ %678, %677 ], [ %676, %675 ], [ %674, %673 ], [ %672, %671 ], [ %670, %669 ], [ %668, %664 ], [ %663, %662 ], [ %661, %660 ], [ %659, %656 ], [ %655, %654 ], [ %653, %652 ], [ %651, %650 ], [ %649, %647 ], [ %646, %645 ], [ %644, %643 ], [ %642, %641 ], [ %640, %638 ], [ %637, %636 ], [ %635, %634 ], [ %633, %629 ], [ %628, %627 ], [ %626, %624 ], [ %623, %622 ], [ %621, %620 ], [ %619, %618 ], [ %617, %614 ], [ %613, %612 ], [ %611, %610 ], [ %609, %608 ], [ %607, %606 ], [ %605, %604 ], [ %598, %597 ], [ %596, %595 ], [ %594, %593 ], [ %592, %591 ], [ %590, %589 ], [ %588, %584 ], [ %583, %582 ], [ %578, %575 ], [ %574, %571 ], [ %570, %569 ], [ %564, %561 ], [ %560, %557 ], [ %556, %555 ], [ %554, %553 ], [ %552, %551 ], [ %550, %549 ], [ %548, %547 ], [ %546, %545 ], [ %544, %543 ], [ %542, %541 ], [ %540, %537 ], [ %536, %535 ], [ %534, %533 ], [ %532, %531 ], [ %530, %529 ], [ %444, %440 ], [ %439, %435 ], [ %428, %426 ], [ %425, %423 ], [ %358, %356 ], [ %384, %382 ], [ %381, %380 ], [ %379, %377 ], [ %376, %373 ], [ %372, %371 ], [ %345, %344 ], [ %343, %341 ], [ %340, %339 ], [ %338, %337 ], [ %312, %311 ], [ %304, %299 ], [ %298, %296 ], [ %295, %294 ], [ %293, %291 ], [ %290, %.lr.ph1118 ], [ %250, %244 ], [ %243, %242 ], [ %241, %240 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %237, %234 ], [ %230, %229 ], [ %228, %.lr.ph1115 ]
+.loopexit:                                        ; preds = %269, %267, %265, %263, %236, %231, %.lr.ph1115, %246, %244, %242, %314, %302, %299, %297, %294, %.lr.ph1118, %386, %384, %381, %377, %375, %348, %345, %343, %341, %360, %431, %428, %445, %440, %844, %842, %829, %827, %825, %._crit_edge1154, %802, %800, %797, %795, %790, %788, %786, %783, %._crit_edge1150, %746, %742, %738, %736, %730, %728, %726, %724, %722, %720, %718, %709, %707, %705, %703, %701, %699, %697, %695, %693, %689, %685, %683, %681, %679, %677, %675, %670, %668, %666, %662, %660, %658, %656, %653, %651, %649, %647, %644, %642, %640, %635, %633, %630, %628, %626, %624, %620, %618, %616, %614, %612, %610, %603, %601, %599, %597, %595, %590, %588, %581, %577, %575, %567, %563, %561, %559, %557, %555, %553, %551, %549, %547, %543, %541, %539, %537, %535, %769, %767, %.lr.ph1153, %854, %879, %509, %507, %505, %503, %501, %499, %497, %495, %490, %488, %486, %484, %482, %477, %465, %460, %._crit_edge1132, %405, %403, %401, %399, %._crit_edge1128.thread, %278, %._crit_edge1116, %217, %215, %213, %211, %209, %207, %202, %200, %193, %191, %189, %187, %185, %182, %180, %178, %170, %168, %166, %164, %162, %159, %156, %154, %152, %.critedge, %50, %2, %880, %108, %90, %81, %69
+  %.0 = phi i32 [ %85, %81 ], [ 24, %90 ], [ %73, %69 ], [ %112, %108 ], [ 0, %880 ], [ 3, %2 ], [ 15, %50 ], [ %151, %.critedge ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %160, %159 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %179, %178 ], [ %181, %180 ], [ %184, %182 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %201, %200 ], [ %206, %202 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %222, %217 ], [ %277, %._crit_edge1116 ], [ %283, %278 ], [ %398, %._crit_edge1128.thread ], [ 26, %399 ], [ %402, %401 ], [ %404, %403 ], [ %407, %405 ], [ %417, %._crit_edge1132 ], [ %462, %460 ], [ 24, %465 ], [ 24, %477 ], [ %483, %482 ], [ %485, %484 ], [ %487, %486 ], [ %489, %488 ], [ %494, %490 ], [ %496, %495 ], [ %498, %497 ], [ %500, %499 ], [ %502, %501 ], [ %504, %503 ], [ %506, %505 ], [ %508, %507 ], [ %513, %509 ], [ %.2, %879 ], [ %856, %854 ], [ %822, %.lr.ph1153 ], [ %772, %769 ], [ %768, %767 ], [ %845, %844 ], [ %843, %842 ], [ %830, %829 ], [ %828, %827 ], [ %826, %825 ], [ %824, %._crit_edge1154 ], [ %806, %802 ], [ %801, %800 ], [ %799, %797 ], [ %796, %795 ], [ %794, %790 ], [ %789, %788 ], [ %787, %786 ], [ %785, %783 ], [ %782, %._crit_edge1150 ], [ %748, %746 ], [ %745, %742 ], [ %739, %738 ], [ %737, %736 ], [ %731, %730 ], [ %729, %728 ], [ %727, %726 ], [ %725, %724 ], [ %723, %722 ], [ %721, %720 ], [ %719, %718 ], [ %714, %709 ], [ %708, %707 ], [ %706, %705 ], [ %704, %703 ], [ %702, %701 ], [ %700, %699 ], [ %698, %697 ], [ %696, %695 ], [ %694, %693 ], [ %692, %689 ], [ %688, %685 ], [ %684, %683 ], [ %682, %681 ], [ %680, %679 ], [ %678, %677 ], [ %676, %675 ], [ %674, %670 ], [ %669, %668 ], [ %667, %666 ], [ %665, %662 ], [ %661, %660 ], [ %659, %658 ], [ %657, %656 ], [ %655, %653 ], [ %652, %651 ], [ %650, %649 ], [ %648, %647 ], [ %646, %644 ], [ %643, %642 ], [ %641, %640 ], [ %639, %635 ], [ %634, %633 ], [ %632, %630 ], [ %629, %628 ], [ %627, %626 ], [ %625, %624 ], [ %623, %620 ], [ %619, %618 ], [ %617, %616 ], [ %615, %614 ], [ %613, %612 ], [ %611, %610 ], [ %604, %603 ], [ %602, %601 ], [ %600, %599 ], [ %598, %597 ], [ %596, %595 ], [ %594, %590 ], [ %589, %588 ], [ %584, %581 ], [ %580, %577 ], [ %576, %575 ], [ %570, %567 ], [ %566, %563 ], [ %562, %561 ], [ %560, %559 ], [ %558, %557 ], [ %556, %555 ], [ %554, %553 ], [ %552, %551 ], [ %550, %549 ], [ %548, %547 ], [ %546, %543 ], [ %542, %541 ], [ %540, %539 ], [ %538, %537 ], [ %536, %535 ], [ %449, %445 ], [ %444, %440 ], [ %433, %431 ], [ %430, %428 ], [ %362, %360 ], [ %388, %386 ], [ %385, %384 ], [ %383, %381 ], [ %380, %377 ], [ %376, %375 ], [ %349, %348 ], [ %347, %345 ], [ %344, %343 ], [ %342, %341 ], [ %315, %314 ], [ %307, %302 ], [ %301, %299 ], [ %298, %297 ], [ %296, %294 ], [ %293, %.lr.ph1118 ], [ %253, %246 ], [ %245, %244 ], [ %243, %242 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %239, %236 ], [ %232, %231 ], [ %230, %.lr.ph1115 ]
   ret i32 %.0
 }
 
@@ -3107,9 +3116,9 @@ define internal fastcc i32 @avifRWStreamWriteProperties(ptr noundef nonnull %0, 
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %19
 
-19:                                               ; preds = %.lr.ph242, %145
-  %indvars.iv311 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next312, %145 ]
-  %20 = phi ptr [ %11, %.lr.ph242 ], [ %146, %145 ]
+19:                                               ; preds = %.lr.ph242, %146
+  %indvars.iv311 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next312, %146 ]
+  %20 = phi ptr [ %11, %.lr.ph242 ], [ %147, %146 ]
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %21, i64 %indvars.iv311
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 136
@@ -3125,7 +3134,7 @@ define internal fastcc i32 @avifRWStreamWriteProperties(ptr noundef nonnull %0, 
   %30 = icmp ne ptr %29, null
   %or.cond = select i1 %30, i1 true, i1 %25
   %or.cond3 = select i1 %or.cond, i1 true, i1 %.not
-  br i1 %or.cond3, label %31, label %145
+  br i1 %or.cond3, label %31, label %146
 
 31:                                               ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 156
@@ -3188,7 +3197,7 @@ avifEncoderDataFindItemByID.exit:                 ; preds = %44
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %27, ptr noundef nonnull align 8 dereferenceable(84) %58, i64 84, i1 false)
-  br label %145
+  br label %146
 
 59:                                               ; preds = %.lr.ph, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3330,7 +3339,7 @@ avifEncoderDataFindItemByID.exit:                 ; preds = %44
   %116 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %117 = load i32, ptr %116, align 8
   %.not209 = icmp eq i32 %117, 0
-  br i1 %.not209, label %145, label %118
+  br i1 %.not209, label %146, label %118
 
 118:                                              ; preds = %115
   call void @avifRWStreamStart(ptr noundef nonnull %15, ptr noundef nonnull %16) #13
@@ -3354,77 +3363,78 @@ avifEncoderDataFindItemByID.exit:                 ; preds = %44
 125:                                              ; preds = %.lr.ph234, %125
   %indvars.iv298 = phi i64 [ 0, %.lr.ph234 ], [ %indvars.iv.next299, %125 ]
   %.0163232 = phi i32 [ 0, %.lr.ph234 ], [ %spec.select, %125 ]
-  %126 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %124, i64 %indvars.iv298, i32 0, i32 1
-  %127 = load i64, ptr %126, align 8
-  %128 = trunc i64 %127 to i32
-  %129 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv298
-  store i32 %128, ptr %129, align 4
-  %130 = icmp ugt i32 %128, 65535
-  %spec.select = select i1 %130, i32 1, i32 %.0163232
+  %126 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %124, i64 %indvars.iv298
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load i64, ptr %127, align 8
+  %129 = trunc i64 %128 to i32
+  %130 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv298
+  store i32 %129, ptr %130, align 4
+  %131 = icmp ugt i32 %129, 65535
+  %spec.select = select i1 %131, i32 1, i32 %.0163232
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %exitcond302.not = icmp eq i64 %indvars.iv.next299, %wide.trip.count301
   br i1 %exitcond302.not, label %._crit_edge, label %125, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %125, %120
   %.0163.lcssa = phi i32 [ 0, %120 ], [ %spec.select, %125 ]
-  %131 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %15, i32 noundef 0, i64 noundef 7) #13
-  %.not211 = icmp eq i32 %131, 0
-  br i1 %.not211, label %132, label %.loopexit
+  %132 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %15, i32 noundef 0, i64 noundef 7) #13
+  %.not211 = icmp eq i32 %132, 0
+  br i1 %.not211, label %133, label %.loopexit
 
-132:                                              ; preds = %._crit_edge
-  %133 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %15, i32 noundef %.0163.lcssa, i64 noundef 1) #13
-  %.not213 = icmp eq i32 %133, 0
+133:                                              ; preds = %._crit_edge
+  %134 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %15, i32 noundef %.0163.lcssa, i64 noundef 1) #13
+  %.not213 = icmp eq i32 %134, 0
   br i1 %.not213, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %132
+.preheader:                                       ; preds = %133
   %.not212.not = icmp eq i32 %.0163.lcssa, 0
   br i1 %.not212.not, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %138
-  %indvars.iv307 = phi i64 [ %indvars.iv.next308, %138 ], [ 0, %.preheader ]
-  %134 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv307
-  %135 = load i32, ptr %134, align 4
-  %136 = trunc i32 %135 to i16
-  %137 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %15, i16 noundef zeroext %136) #13
-  %.not215.us = icmp eq i32 %137, 0
-  br i1 %.not215.us, label %138, label %.loopexit
+.preheader.split.us:                              ; preds = %.preheader, %139
+  %indvars.iv307 = phi i64 [ %indvars.iv.next308, %139 ], [ 0, %.preheader ]
+  %135 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv307
+  %136 = load i32, ptr %135, align 4
+  %137 = trunc i32 %136 to i16
+  %138 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %15, i16 noundef zeroext %137) #13
+  %.not215.us = icmp eq i32 %138, 0
+  br i1 %.not215.us, label %139, label %.loopexit
 
-138:                                              ; preds = %.preheader.split.us
+139:                                              ; preds = %.preheader.split.us
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %exitcond310.not = icmp eq i64 %indvars.iv.next308, 3
   br i1 %exitcond310.not, label %.split.us, label %.preheader.split.us, !llvm.loop !33
 
-.preheader.split:                                 ; preds = %.preheader, %142
-  %indvars.iv303 = phi i64 [ %indvars.iv.next304, %142 ], [ 0, %.preheader ]
-  %139 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv303
-  %140 = load i32, ptr %139, align 4
-  %141 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %15, i32 noundef %140) #13
-  %.not216 = icmp eq i32 %141, 0
-  br i1 %.not216, label %142, label %.loopexit
+.preheader.split:                                 ; preds = %.preheader, %143
+  %indvars.iv303 = phi i64 [ %indvars.iv.next304, %143 ], [ 0, %.preheader ]
+  %140 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv303
+  %141 = load i32, ptr %140, align 4
+  %142 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %15, i32 noundef %141) #13
+  %.not216 = icmp eq i32 %142, 0
+  br i1 %.not216, label %143, label %.loopexit
 
-142:                                              ; preds = %.preheader.split
+143:                                              ; preds = %.preheader.split
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond306.not = icmp eq i64 %indvars.iv.next304, 3
   br i1 %exitcond306.not, label %.split.us, label %.preheader.split, !llvm.loop !33
 
-.split.us:                                        ; preds = %142, %138
-  %143 = load i64, ptr %8, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %15, i64 noundef %143) #13
-  %144 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %27, i32 noundef 0)
-  %.not214 = icmp eq i32 %144, 0
-  br i1 %.not214, label %145, label %.loopexit
+.split.us:                                        ; preds = %143, %139
+  %144 = load i64, ptr %8, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %15, i64 noundef %144) #13
+  %145 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %27, i32 noundef 0)
+  %.not214 = icmp eq i32 %145, 0
+  br i1 %.not214, label %146, label %.loopexit
 
-145:                                              ; preds = %57, %115, %.split.us, %19
+146:                                              ; preds = %57, %115, %.split.us, %19
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
-  %146 = load ptr, ptr %10, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 12
-  %148 = load i32, ptr %147, align 4
-  %149 = zext i32 %148 to i64
-  %150 = icmp samesign ult i64 %indvars.iv.next312, %149
-  br i1 %150, label %19, label %.loopexit, !llvm.loop !34
+  %147 = load ptr, ptr %10, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 12
+  %149 = load i32, ptr %148, align 4
+  %150 = zext i32 %149 to i64
+  %151 = icmp samesign ult i64 %indvars.iv.next312, %150
+  br i1 %151, label %19, label %.loopexit, !llvm.loop !34
 
-.loopexit:                                        ; preds = %.critedge, %63, %65, %67, %78, %81, %88, %93, %99, %103, %105, %107, %110, %113, %118, %._crit_edge, %132, %.split.us, %145, %.preheader220, %.preheader.split, %.preheader.split.us, %4
-  %.0 = phi i32 [ 0, %4 ], [ %137, %.preheader.split.us ], [ %141, %.preheader.split ], [ %87, %.preheader220 ], [ %62, %.critedge ], [ %64, %63 ], [ %66, %65 ], [ %69, %67 ], [ %80, %78 ], [ %82, %81 ], [ %90, %88 ], [ %98, %93 ], [ %100, %99 ], [ %104, %103 ], [ %106, %105 ], [ %109, %107 ], [ %111, %110 ], [ %114, %113 ], [ %119, %118 ], [ %131, %._crit_edge ], [ %133, %132 ], [ %144, %.split.us ], [ 0, %145 ]
+.loopexit:                                        ; preds = %.critedge, %63, %65, %67, %78, %81, %88, %93, %99, %103, %105, %107, %110, %113, %118, %._crit_edge, %133, %.split.us, %146, %.preheader220, %.preheader.split, %.preheader.split.us, %4
+  %.0 = phi i32 [ 0, %4 ], [ %138, %.preheader.split.us ], [ %142, %.preheader.split ], [ %87, %.preheader220 ], [ %62, %.critedge ], [ %64, %63 ], [ %66, %65 ], [ %69, %67 ], [ %80, %78 ], [ %82, %81 ], [ %90, %88 ], [ %98, %93 ], [ %100, %99 ], [ %104, %103 ], [ %106, %105 ], [ %109, %107 ], [ %111, %110 ], [ %114, %113 ], [ %119, %118 ], [ %132, %._crit_edge ], [ %134, %133 ], [ %145, %.split.us ], [ 0, %146 ]
   ret i32 %.0
 }
 
@@ -3524,250 +3534,251 @@ define internal fastcc i32 @avifEncoderWriteTrackMetaBox(ptr noundef readonly ca
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.0119185 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %15 ]
-  %16 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %12, i64 %indvars.iv, i32 1
-  %bcmp179 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %16, ptr noundef nonnull dereferenceable(4) %14, i64 4)
+  %16 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %12, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %bcmp179 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %17, ptr noundef nonnull dereferenceable(4) %14, i64 4)
   %.not180 = icmp ne i32 %bcmp179, 0
-  %17 = zext i1 %.not180 to i32
-  %spec.select = add i32 %.0119185, %17
+  %18 = zext i1 %.not180 to i32
+  %spec.select = add i32 %.0119185, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %15
-  %18 = icmp eq i32 %spec.select, 0
-  br i1 %18, label %.loopexit, label %19
+  %19 = icmp eq i32 %spec.select, 0
+  br i1 %19, label %.loopexit, label %20
 
-19:                                               ; preds = %._crit_edge
-  %20 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %3) #13
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %21, label %.loopexit
+20:                                               ; preds = %._crit_edge
+  %21 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %3) #13
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %22, label %.loopexit
 
-21:                                               ; preds = %19
-  %22 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %1, ptr noundef nonnull @.str.12, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #13
-  %.not151 = icmp eq i32 %22, 0
-  br i1 %.not151, label %23, label %.loopexit
+22:                                               ; preds = %20
+  %23 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %1, ptr noundef nonnull @.str.12, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #13
+  %.not151 = icmp eq i32 %23, 0
+  br i1 %.not151, label %24, label %.loopexit
 
-23:                                               ; preds = %21
-  %24 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %1, i32 noundef 0) #13
-  %.not152 = icmp eq i32 %24, 0
-  br i1 %.not152, label %25, label %.loopexit
+24:                                               ; preds = %22
+  %25 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %1, i32 noundef 0) #13
+  %.not152 = icmp eq i32 %25, 0
+  br i1 %.not152, label %26, label %.loopexit
 
-25:                                               ; preds = %23
-  %26 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, i64 noundef 4) #13
-  %.not153 = icmp eq i32 %26, 0
-  br i1 %.not153, label %27, label %.loopexit
+26:                                               ; preds = %24
+  %27 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, i64 noundef 4) #13
+  %.not153 = icmp eq i32 %27, 0
+  br i1 %.not153, label %28, label %.loopexit
 
-27:                                               ; preds = %25
-  %28 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %1, i64 noundef 12) #13
-  %.not154 = icmp eq i32 %28, 0
-  br i1 %.not154, label %29, label %.loopexit
+28:                                               ; preds = %26
+  %29 = call i32 @avifRWStreamWriteZeros(ptr noundef nonnull %1, i64 noundef 12) #13
+  %.not154 = icmp eq i32 %29, 0
+  br i1 %.not154, label %30, label %.loopexit
 
-29:                                               ; preds = %27
-  %30 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %1, ptr noundef nonnull @.str.14, i64 noundef 8) #13
-  %.not155 = icmp eq i32 %30, 0
-  br i1 %.not155, label %31, label %.loopexit
+30:                                               ; preds = %28
+  %31 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %1, ptr noundef nonnull @.str.14, i64 noundef 8) #13
+  %.not155 = icmp eq i32 %31, 0
+  br i1 %.not155, label %32, label %.loopexit
 
-31:                                               ; preds = %29
-  %32 = load i64, ptr %4, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %1, i64 noundef %32) #13
-  %33 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #13
-  %.not156 = icmp eq i32 %33, 0
-  br i1 %.not156, label %34, label %.loopexit
+32:                                               ; preds = %30
+  %33 = load i64, ptr %4, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %1, i64 noundef %33) #13
+  %34 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #13
+  %.not156 = icmp eq i32 %34, 0
+  br i1 %.not156, label %35, label %.loopexit
 
-34:                                               ; preds = %31
-  %35 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %1, i32 noundef 4, i64 noundef 4) #13
-  %.not157 = icmp eq i32 %35, 0
-  br i1 %.not157, label %36, label %.loopexit
+35:                                               ; preds = %32
+  %36 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %1, i32 noundef 4, i64 noundef 4) #13
+  %.not157 = icmp eq i32 %36, 0
+  br i1 %.not157, label %37, label %.loopexit
 
-36:                                               ; preds = %34
-  %37 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %1, i32 noundef 4, i64 noundef 4) #13
-  %.not158 = icmp eq i32 %37, 0
-  br i1 %.not158, label %38, label %.loopexit
+37:                                               ; preds = %35
+  %38 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %1, i32 noundef 4, i64 noundef 4) #13
+  %.not158 = icmp eq i32 %38, 0
+  br i1 %.not158, label %39, label %.loopexit
 
-38:                                               ; preds = %36
-  %39 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %1, i32 noundef 0, i64 noundef 4) #13
-  %.not159 = icmp eq i32 %39, 0
-  br i1 %.not159, label %40, label %.loopexit
+39:                                               ; preds = %37
+  %40 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %1, i32 noundef 0, i64 noundef 4) #13
+  %.not159 = icmp eq i32 %40, 0
+  br i1 %.not159, label %41, label %.loopexit
 
-40:                                               ; preds = %38
-  %41 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %1, i32 noundef 0, i64 noundef 4) #13
-  %.not160 = icmp eq i32 %41, 0
-  br i1 %.not160, label %42, label %.loopexit
+41:                                               ; preds = %39
+  %42 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %1, i32 noundef 0, i64 noundef 4) #13
+  %.not160 = icmp eq i32 %42, 0
+  br i1 %.not160, label %43, label %.loopexit
 
-42:                                               ; preds = %40
-  %43 = trunc i32 %spec.select to i16
-  %44 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext %43) #13
-  %.not161 = icmp eq i32 %44, 0
+43:                                               ; preds = %41
+  %44 = trunc i32 %spec.select to i16
+  %45 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext %44) #13
+  %.not161 = icmp eq i32 %45, 0
   br i1 %.not161, label %.preheader181, label %.loopexit
 
-.preheader181:                                    ; preds = %42
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  %47 = load i32, ptr %46, align 4
-  %.not193 = icmp eq i32 %47, 0
+.preheader181:                                    ; preds = %43
+  %46 = load ptr, ptr %8, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  %48 = load i32, ptr %47, align 4
+  %.not193 = icmp eq i32 %48, 0
   br i1 %.not193, label %._crit_edge188, label %.lr.ph187
 
-.lr.ph187:                                        ; preds = %.preheader181, %71
-  %48 = phi ptr [ %72, %71 ], [ %45, %.preheader181 ]
-  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %71 ], [ 0, %.preheader181 ]
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %49, i64 %indvars.iv198
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 2
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 520
-  %53 = load ptr, ptr %52, align 8
-  %bcmp172 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %51, ptr noundef nonnull dereferenceable(4) %53, i64 4)
-  %54 = icmp eq i32 %bcmp172, 0
-  br i1 %54, label %71, label %55
+.lr.ph187:                                        ; preds = %.preheader181, %72
+  %49 = phi ptr [ %73, %72 ], [ %46, %.preheader181 ]
+  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %72 ], [ 0, %.preheader181 ]
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %50, i64 %indvars.iv198
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 520
+  %54 = load ptr, ptr %53, align 8
+  %bcmp172 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %52, ptr noundef nonnull dereferenceable(4) %54, i64 4)
+  %55 = icmp eq i32 %bcmp172, 0
+  br i1 %55, label %72, label %56
 
-55:                                               ; preds = %.lr.ph187
-  %56 = load i16, ptr %50, align 8
-  %57 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext %56) #13
-  %.not173 = icmp eq i32 %57, 0
-  br i1 %.not173, label %58, label %.loopexit
+56:                                               ; preds = %.lr.ph187
+  %57 = load i16, ptr %51, align 8
+  %58 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext %57) #13
+  %.not173 = icmp eq i32 %58, 0
+  br i1 %.not173, label %59, label %.loopexit
 
-58:                                               ; preds = %55
-  %59 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext 0) #13
-  %.not174 = icmp eq i32 %59, 0
-  br i1 %.not174, label %60, label %.loopexit
+59:                                               ; preds = %56
+  %60 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext 0) #13
+  %.not174 = icmp eq i32 %60, 0
+  br i1 %.not174, label %61, label %.loopexit
 
-60:                                               ; preds = %58
-  %61 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext 1) #13
-  %.not175 = icmp eq i32 %61, 0
-  br i1 %.not175, label %62, label %.loopexit
+61:                                               ; preds = %59
+  %62 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext 1) #13
+  %.not175 = icmp eq i32 %62, 0
+  br i1 %.not175, label %63, label %.loopexit
 
-62:                                               ; preds = %60
-  %63 = call fastcc i32 @avifEncoderItemAddMdatFixup(ptr noundef nonnull %50, ptr noundef %1)
-  %.not176 = icmp eq i32 %63, 0
-  br i1 %.not176, label %64, label %.loopexit
+63:                                               ; preds = %61
+  %64 = call fastcc i32 @avifEncoderItemAddMdatFixup(ptr noundef nonnull %51, ptr noundef %1)
+  %.not176 = icmp eq i32 %64, 0
+  br i1 %.not176, label %65, label %.loopexit
 
-64:                                               ; preds = %62
-  %65 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %1, i32 noundef 0) #13
-  %.not177 = icmp eq i32 %65, 0
-  br i1 %.not177, label %66, label %.loopexit
+65:                                               ; preds = %63
+  %66 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %1, i32 noundef 0) #13
+  %.not177 = icmp eq i32 %66, 0
+  br i1 %.not177, label %67, label %.loopexit
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %68 = load i64, ptr %67, align 8
-  %69 = trunc i64 %68 to i32
-  %70 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %1, i32 noundef %69) #13
-  %.not178 = icmp eq i32 %70, 0
+67:                                               ; preds = %65
+  %68 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %69 = load i64, ptr %68, align 8
+  %70 = trunc i64 %69 to i32
+  %71 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %1, i32 noundef %70) #13
+  %.not178 = icmp eq i32 %71, 0
   br i1 %.not178, label %._crit_edge204, label %.loopexit
 
-._crit_edge204:                                   ; preds = %66
+._crit_edge204:                                   ; preds = %67
   %.pre = load ptr, ptr %8, align 8
-  br label %71
+  br label %72
 
-71:                                               ; preds = %._crit_edge204, %.lr.ph187
-  %72 = phi ptr [ %.pre, %._crit_edge204 ], [ %48, %.lr.ph187 ]
+72:                                               ; preds = %._crit_edge204, %.lr.ph187
+  %73 = phi ptr [ %.pre, %._crit_edge204 ], [ %49, %.lr.ph187 ]
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
-  %74 = load i32, ptr %73, align 4
-  %75 = zext i32 %74 to i64
-  %76 = icmp samesign ult i64 %indvars.iv.next199, %75
-  br i1 %76, label %.lr.ph187, label %._crit_edge188, !llvm.loop !37
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
+  %75 = load i32, ptr %74, align 4
+  %76 = zext i32 %75 to i64
+  %77 = icmp samesign ult i64 %indvars.iv.next199, %76
+  br i1 %77, label %.lr.ph187, label %._crit_edge188, !llvm.loop !37
 
-._crit_edge188:                                   ; preds = %71, %.preheader181
-  %77 = load i64, ptr %5, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %1, i64 noundef %77) #13
-  %78 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %1, ptr noundef nonnull @.str.17, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #13
-  %.not162 = icmp eq i32 %78, 0
-  br i1 %.not162, label %79, label %.loopexit
+._crit_edge188:                                   ; preds = %72, %.preheader181
+  %78 = load i64, ptr %5, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %1, i64 noundef %78) #13
+  %79 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %1, ptr noundef nonnull @.str.17, i64 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #13
+  %.not162 = icmp eq i32 %79, 0
+  br i1 %.not162, label %80, label %.loopexit
 
-79:                                               ; preds = %._crit_edge188
-  %80 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext %43) #13
-  %.not163 = icmp eq i32 %80, 0
+80:                                               ; preds = %._crit_edge188
+  %81 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext %44) #13
+  %.not163 = icmp eq i32 %81, 0
   br i1 %.not163, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %79
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  %83 = load i32, ptr %82, align 4
-  %.not194 = icmp eq i32 %83, 0
+.preheader:                                       ; preds = %80
+  %82 = load ptr, ptr %8, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 12
+  %84 = load i32, ptr %83, align 4
+  %.not194 = icmp eq i32 %84, 0
   br i1 %.not194, label %._crit_edge191, label %.lr.ph190
 
-.lr.ph190:                                        ; preds = %.preheader, %116
-  %84 = phi ptr [ %117, %116 ], [ %81, %.preheader ]
-  %indvars.iv201 = phi i64 [ %indvars.iv.next202, %116 ], [ 0, %.preheader ]
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %85, i64 %indvars.iv201
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 2
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 520
-  %89 = load ptr, ptr %88, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %87, ptr noundef nonnull dereferenceable(4) %89, i64 4)
-  %90 = icmp eq i32 %bcmp, 0
-  br i1 %90, label %116, label %91
+.lr.ph190:                                        ; preds = %.preheader, %117
+  %85 = phi ptr [ %118, %117 ], [ %82, %.preheader ]
+  %indvars.iv201 = phi i64 [ %indvars.iv.next202, %117 ], [ 0, %.preheader ]
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw %struct.avifEncoderItem, ptr %86, i64 %indvars.iv201
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 520
+  %90 = load ptr, ptr %89, align 8
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %88, ptr noundef nonnull dereferenceable(4) %90, i64 4)
+  %91 = icmp eq i32 %bcmp, 0
+  br i1 %91, label %117, label %92
 
-91:                                               ; preds = %.lr.ph190
-  %92 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, i64 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #13
-  %.not164 = icmp eq i32 %92, 0
-  br i1 %.not164, label %93, label %.loopexit
+92:                                               ; preds = %.lr.ph190
+  %93 = call i32 @avifRWStreamWriteFullBox(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, i64 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #13
+  %.not164 = icmp eq i32 %93, 0
+  br i1 %.not164, label %94, label %.loopexit
 
-93:                                               ; preds = %91
-  %94 = load i16, ptr %86, align 8
-  %95 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext %94) #13
-  %.not165 = icmp eq i32 %95, 0
-  br i1 %.not165, label %96, label %.loopexit
+94:                                               ; preds = %92
+  %95 = load i16, ptr %87, align 8
+  %96 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext %95) #13
+  %.not165 = icmp eq i32 %96, 0
+  br i1 %.not165, label %97, label %.loopexit
 
-96:                                               ; preds = %93
-  %97 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext 0) #13
-  %.not166 = icmp eq i32 %97, 0
-  br i1 %.not166, label %98, label %.loopexit
+97:                                               ; preds = %94
+  %98 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %1, i16 noundef zeroext 0) #13
+  %.not166 = icmp eq i32 %98, 0
+  br i1 %.not166, label %99, label %.loopexit
 
-98:                                               ; preds = %96
-  %99 = call i32 @avifRWStreamWrite(ptr noundef nonnull %1, ptr noundef nonnull %87, i64 noundef 4) #13
-  %.not167 = icmp eq i32 %99, 0
-  br i1 %.not167, label %100, label %.loopexit
+99:                                               ; preds = %97
+  %100 = call i32 @avifRWStreamWrite(ptr noundef nonnull %1, ptr noundef nonnull %88, i64 noundef 4) #13
+  %.not167 = icmp eq i32 %100, 0
+  br i1 %.not167, label %101, label %.loopexit
 
-100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw i8, ptr %86, i64 64
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %86, i64 72
-  %104 = load i64, ptr %103, align 8
-  %105 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %1, ptr noundef %102, i64 noundef %104) #13
-  %.not168 = icmp eq i32 %105, 0
-  br i1 %.not168, label %106, label %.loopexit
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %87, i64 64
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %87, i64 72
+  %105 = load i64, ptr %104, align 8
+  %106 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %1, ptr noundef %103, i64 noundef %105) #13
+  %.not168 = icmp eq i32 %106, 0
+  br i1 %.not168, label %107, label %.loopexit
 
-106:                                              ; preds = %100
-  %107 = getelementptr inbounds nuw i8, ptr %86, i64 80
-  %108 = load ptr, ptr %107, align 8
-  %.not169 = icmp eq ptr %108, null
-  br i1 %.not169, label %114, label %109
+107:                                              ; preds = %101
+  %108 = getelementptr inbounds nuw i8, ptr %87, i64 80
+  %109 = load ptr, ptr %108, align 8
+  %.not169 = icmp eq ptr %109, null
+  br i1 %.not169, label %115, label %110
 
-109:                                              ; preds = %106
-  %110 = getelementptr inbounds nuw i8, ptr %86, i64 88
-  %111 = load i64, ptr %110, align 8
-  %.not170 = icmp eq i64 %111, 0
-  br i1 %.not170, label %114, label %112
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds nuw i8, ptr %87, i64 88
+  %112 = load i64, ptr %111, align 8
+  %.not170 = icmp eq i64 %112, 0
+  br i1 %.not170, label %115, label %113
 
-112:                                              ; preds = %109
-  %113 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %1, ptr noundef nonnull %108, i64 noundef %111) #13
-  %.not171 = icmp eq i32 %113, 0
-  br i1 %.not171, label %114, label %.loopexit
+113:                                              ; preds = %110
+  %114 = call i32 @avifRWStreamWriteChars(ptr noundef nonnull %1, ptr noundef nonnull %109, i64 noundef %112) #13
+  %.not171 = icmp eq i32 %114, 0
+  br i1 %.not171, label %115, label %.loopexit
 
-114:                                              ; preds = %112, %109, %106
-  %115 = load i64, ptr %7, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %1, i64 noundef %115) #13
+115:                                              ; preds = %113, %110, %107
+  %116 = load i64, ptr %7, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %1, i64 noundef %116) #13
   %.pre205 = load ptr, ptr %8, align 8
-  br label %116
+  br label %117
 
-116:                                              ; preds = %.lr.ph190, %114
-  %117 = phi ptr [ %84, %.lr.ph190 ], [ %.pre205, %114 ]
+117:                                              ; preds = %.lr.ph190, %115
+  %118 = phi ptr [ %85, %.lr.ph190 ], [ %.pre205, %115 ]
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 12
-  %119 = load i32, ptr %118, align 4
-  %120 = zext i32 %119 to i64
-  %121 = icmp samesign ult i64 %indvars.iv.next202, %120
-  br i1 %121, label %.lr.ph190, label %._crit_edge191, !llvm.loop !38
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 12
+  %120 = load i32, ptr %119, align 4
+  %121 = zext i32 %120 to i64
+  %122 = icmp samesign ult i64 %indvars.iv.next202, %121
+  br i1 %122, label %.lr.ph190, label %._crit_edge191, !llvm.loop !38
 
-._crit_edge191:                                   ; preds = %116, %.preheader
-  %122 = load i64, ptr %6, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %1, i64 noundef %122) #13
-  %123 = load i64, ptr %3, align 8
+._crit_edge191:                                   ; preds = %117, %.preheader
+  %123 = load i64, ptr %6, align 8
   call void @avifRWStreamFinishBox(ptr noundef nonnull %1, i64 noundef %123) #13
+  %124 = load i64, ptr %3, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %1, i64 noundef %124) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %66, %64, %62, %60, %58, %55, %112, %100, %98, %96, %93, %91, %2, %79, %._crit_edge188, %42, %40, %38, %36, %34, %31, %29, %27, %25, %23, %21, %19, %._crit_edge, %._crit_edge191
-  %.0 = phi i32 [ 0, %._crit_edge191 ], [ 0, %._crit_edge ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %33, %31 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %44, %42 ], [ %78, %._crit_edge188 ], [ %80, %79 ], [ 0, %2 ], [ %113, %112 ], [ %105, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %93 ], [ %92, %91 ], [ %70, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %55 ]
+.loopexit:                                        ; preds = %67, %65, %63, %61, %59, %56, %113, %101, %99, %97, %94, %92, %2, %80, %._crit_edge188, %43, %41, %39, %37, %35, %32, %30, %28, %26, %24, %22, %20, %._crit_edge, %._crit_edge191
+  %.0 = phi i32 [ 0, %._crit_edge191 ], [ 0, %._crit_edge ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %34, %32 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %45, %43 ], [ %79, %._crit_edge188 ], [ %81, %80 ], [ 0, %2 ], [ %114, %113 ], [ %106, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %94 ], [ %93, %92 ], [ %71, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %56 ]
   ret i32 %.0
 }
 
@@ -5687,13 +5698,13 @@ define internal fastcc i32 @avifEncoderDataShouldForceKeyframeForAlpha(ptr nound
   %6 = and i32 %2, 2
   %.not11 = icmp eq i32 %6, 0
   %or.cond = and i1 %.not11, %.not
-  br i1 %or.cond, label %7, label %23
+  br i1 %or.cond, label %7, label %24
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %23, label %11
+  br i1 %10, label %24, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5702,18 +5713,19 @@ define internal fastcc i32 @avifEncoderDataShouldForceKeyframeForAlpha(ptr nound
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %9, 1
   %.not12 = icmp eq i32 %16, %15
-  br i1 %.not12, label %17, label %23
+  br i1 %.not12, label %17, label %24
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %13, align 8
   %19 = add i32 %15, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %18, i64 %20, i32 1
-  %22 = load i32, ptr %21, align 8
-  br label %23
+  %21 = getelementptr inbounds nuw %struct.avifEncodeSample, ptr %18, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load i32, ptr %22, align 8
+  br label %24
 
-23:                                               ; preds = %11, %7, %3, %17
-  %.0 = phi i32 [ %22, %17 ], [ 0, %3 ], [ 0, %7 ], [ 0, %11 ]
+24:                                               ; preds = %11, %7, %3, %17
+  %.0 = phi i32 [ %23, %17 ], [ 0, %3 ], [ 0, %7 ], [ 0, %11 ]
   ret i32 %.0
 }
 

@@ -3192,62 +3192,63 @@ define hidden ptr @_PyPegen_make_module(ptr noundef readonly captures(none) %0, 
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %13
 
-13:                                               ; preds = %.lr.ph, %35
-  %.02742 = phi i64 [ 0, %.lr.ph ], [ %37, %35 ]
+13:                                               ; preds = %.lr.ph, %36
+  %.02742 = phi i64 [ 0, %.lr.ph ], [ %38, %36 ]
   %14 = load ptr, ptr %3, align 8, !tbaa !118
-  %15 = getelementptr %struct.anon.832, ptr %14, i64 %.02742, i32 1
-  %16 = load ptr, ptr %15, align 8, !tbaa !119
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #12
-  %18 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef nonnull %16, i64 noundef %17, ptr noundef null) #11
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %.critedge, label %20
+  %15 = getelementptr %struct.anon.832, ptr %14, i64 %.02742
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !119
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #12
+  %19 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef nonnull %17, i64 noundef %18, ptr noundef null) #11
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %.critedge, label %21
 
-20:                                               ; preds = %13
-  %21 = load ptr, ptr %8, align 8, !tbaa !4
-  %22 = tail call i32 @_PyArena_AddPyObject(ptr noundef %21, ptr noundef nonnull %18) #11
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %24, label %_PyPegen_new_type_comment.exit
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %8, align 8, !tbaa !4
+  %23 = tail call i32 @_PyArena_AddPyObject(ptr noundef %22, ptr noundef nonnull %19) #11
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %25, label %_PyPegen_new_type_comment.exit
 
-24:                                               ; preds = %20
-  %25 = load i32, ptr %18, align 8, !tbaa !27
-  %.not.i.i = icmp sgt i32 %25, -1
-  br i1 %.not.i.i, label %26, label %.critedge
+25:                                               ; preds = %21
+  %26 = load i32, ptr %19, align 8, !tbaa !27
+  %.not.i.i = icmp sgt i32 %26, -1
+  br i1 %.not.i.i, label %27, label %.critedge
 
-26:                                               ; preds = %24
-  %27 = add nsw i32 %25, -1
-  store i32 %27, ptr %18, align 8, !tbaa !27
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %.critedge
+27:                                               ; preds = %25
+  %28 = add nsw i32 %26, -1
+  store i32 %28, ptr %19, align 8, !tbaa !27
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %.critedge
 
-29:                                               ; preds = %26
-  tail call void @_Py_Dealloc(ptr noundef nonnull %18) #11
+30:                                               ; preds = %27
+  tail call void @_Py_Dealloc(ptr noundef nonnull %19) #11
   br label %.critedge
 
-_PyPegen_new_type_comment.exit:                   ; preds = %20
-  %30 = load ptr, ptr %3, align 8, !tbaa !118
-  %31 = getelementptr %struct.anon.832, ptr %30, i64 %.02742
-  %32 = load i32, ptr %31, align 8, !tbaa !122
-  %33 = load ptr, ptr %8, align 8, !tbaa !4
-  %34 = tail call ptr @_PyAST_TypeIgnore(i32 noundef %32, ptr noundef nonnull %18, ptr noundef %33) #11
-  %.not39 = icmp eq ptr %34, null
-  br i1 %.not39, label %.critedge, label %35
+_PyPegen_new_type_comment.exit:                   ; preds = %21
+  %31 = load ptr, ptr %3, align 8, !tbaa !118
+  %32 = getelementptr %struct.anon.832, ptr %31, i64 %.02742
+  %33 = load i32, ptr %32, align 8, !tbaa !122
+  %34 = load ptr, ptr %8, align 8, !tbaa !4
+  %35 = tail call ptr @_PyAST_TypeIgnore(i32 noundef %33, ptr noundef nonnull %19, ptr noundef %34) #11
+  %.not39 = icmp eq ptr %35, null
+  br i1 %.not39, label %.critedge, label %36
 
-35:                                               ; preds = %_PyPegen_new_type_comment.exit
-  %36 = getelementptr ptr, ptr %12, i64 %.02742
-  store ptr %34, ptr %36, align 8, !tbaa !123
-  %37 = add nuw nsw i64 %.02742, 1
-  %exitcond.not = icmp eq i64 %37, %5
+36:                                               ; preds = %_PyPegen_new_type_comment.exit
+  %37 = getelementptr ptr, ptr %12, i64 %.02742
+  store ptr %35, ptr %37, align 8, !tbaa !123
+  %38 = add nuw nsw i64 %.02742, 1
+  %exitcond.not = icmp eq i64 %38, %5
   br i1 %exitcond.not, label %.critedge37, label %13, !llvm.loop !125
 
-.critedge37:                                      ; preds = %35, %2
-  %.026 = phi ptr [ null, %2 ], [ %10, %35 ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !4
-  %40 = tail call ptr @_PyAST_Module(ptr noundef %1, ptr noundef %.026, ptr noundef %39) #11
+.critedge37:                                      ; preds = %36, %2
+  %.026 = phi ptr [ null, %2 ], [ %10, %36 ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %40 = load ptr, ptr %39, align 8, !tbaa !4
+  %41 = tail call ptr @_PyAST_Module(ptr noundef %1, ptr noundef %.026, ptr noundef %40) #11
   br label %.critedge
 
-.critedge:                                        ; preds = %13, %_PyPegen_new_type_comment.exit, %29, %26, %24, %7, %.critedge37
-  %.0 = phi ptr [ %40, %.critedge37 ], [ null, %7 ], [ null, %24 ], [ null, %26 ], [ null, %29 ], [ null, %_PyPegen_new_type_comment.exit ], [ null, %13 ]
+.critedge:                                        ; preds = %13, %_PyPegen_new_type_comment.exit, %30, %27, %25, %7, %.critedge37
+  %.0 = phi ptr [ %41, %.critedge37 ], [ null, %7 ], [ null, %25 ], [ null, %27 ], [ null, %30 ], [ null, %_PyPegen_new_type_comment.exit ], [ null, %13 ]
   ret ptr %.0
 }
 

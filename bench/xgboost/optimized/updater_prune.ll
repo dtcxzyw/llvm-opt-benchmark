@@ -2022,153 +2022,159 @@ define linkonce_odr noundef i32 @_ZN7xgboost4tree10TreePruner12TryPruneLeafEPKNS
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %10 = sext i32 %3 to i64
   %11 = load ptr, ptr %9, align 8, !tbaa !114
-  %12 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %11, i64 %10, i32 1
-  %13 = load i32, ptr %12, align 4, !tbaa !115
-  %14 = icmp eq i32 %13, -1
-  br i1 %14, label %23, label %15, !prof !123
+  %12 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %11, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !115
+  %15 = icmp eq i32 %14, -1
+  br i1 %15, label %24, label %16, !prof !123
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %16 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
-  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %16, ptr noundef nonnull @.str.9, i32 noundef 50)
-  %17 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit unwind label %20
+  %17 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %17, ptr noundef nonnull @.str.9, i32 noundef 50)
+  %18 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit unwind label %21
 
-_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %15
-  %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.13, i64 noundef 32)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %20
+_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %16
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.13, i64 noundef 32)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %21
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.14, i64 noundef 2)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43 unwind label %20
+  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.14, i64 noundef 2)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43 unwind label %21
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load ptr, ptr %9, align 8, !tbaa !114
-  br label %23
+  br label %24
 
-20:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit, %15
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit, %16
+  %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %22 unwind label %79
+          to label %23 unwind label %82
 
-22:                                               ; preds = %20
+23:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %78
+  br label %81
 
-23:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43, %6
-  %24 = phi ptr [ %.pre, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43 ], [ %11, %6 ]
-  %25 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %24, i64 %10
-  %26 = load i32, ptr %25, align 4, !tbaa !119
-  %27 = icmp eq i32 %26, -1
-  br i1 %27, label %.critedge, label %28
+24:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43, %6
+  %25 = phi ptr [ %.pre, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43 ], [ %11, %6 ]
+  %26 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %25, i64 %10
+  %27 = load i32, ptr %26, align 4, !tbaa !119
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %.critedge, label %29
 
-28:                                               ; preds = %23
-  %29 = and i32 %26, 2147483647
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %24, i64 %30, i32 1
-  %32 = load i32, ptr %31, align 4, !tbaa !115
-  %33 = icmp eq i32 %32, -1
-  br i1 %33, label %34, label %42, !prof !124
+29:                                               ; preds = %24
+  %30 = and i32 %27, 2147483647
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %25, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %34 = load i32, ptr %33, align 4, !tbaa !115
+  %35 = icmp eq i32 %34, -1
+  br i1 %35, label %36, label %44, !prof !124
 
-34:                                               ; preds = %28
+36:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %35 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
-  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %35, ptr noundef nonnull @.str.9, i32 noundef 55)
-  %36 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit44 unwind label %39
+  %37 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %37, ptr noundef nonnull @.str.9, i32 noundef 55)
+  %38 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit44 unwind label %41
 
-_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit44: ; preds = %34
-  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull @.str.15, i64 noundef 33)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45 unwind label %39
+_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit44: ; preds = %36
+  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.15, i64 noundef 33)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45 unwind label %41
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45: ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit44
-  %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull @.str.14, i64 noundef 2)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46 unwind label %39
+  %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.14, i64 noundef 2)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46 unwind label %41
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre47 = load ptr, ptr %9, align 8, !tbaa !114
-  br label %42
+  %.phi.trans.insert = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %.pre47, i64 %31
+  %.phi.trans.insert48 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 4
+  %.pre49 = load i32, ptr %.phi.trans.insert48, align 4, !tbaa !115
+  br label %44
 
-39:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit44, %34
-  %40 = landingpad { ptr, i32 }
+41:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit44, %36
+  %42 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %41 unwind label %79
+          to label %43 unwind label %82
 
-41:                                               ; preds = %39
+43:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %78
+  br label %81
 
-42:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46, %28
-  %43 = phi ptr [ %.pre47, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46 ], [ %24, %28 ]
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %45 = load ptr, ptr %44, align 8, !tbaa !125
-  %46 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %45, i64 %30
-  %47 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %43, i64 %30
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !115
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %51 = load i32, ptr %50, align 4, !tbaa !126
-  %52 = sext i32 %49 to i64
-  %53 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %43, i64 %52, i32 1
-  %54 = load i32, ptr %53, align 4, !tbaa !115
-  %55 = icmp eq i32 %54, -1
-  %56 = icmp ne i32 %51, -1
-  %or.cond = and i1 %56, %55
-  br i1 %or.cond, label %57, label %.critedge
+44:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46, %29
+  %45 = phi i32 [ %.pre49, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46 ], [ %34, %29 ]
+  %46 = phi ptr [ %.pre47, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46 ], [ %25, %29 ]
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %48 = load ptr, ptr %47, align 8, !tbaa !125
+  %49 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %48, i64 %31
+  %50 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %46, i64 %31
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %51, align 4, !tbaa !126
+  %53 = sext i32 %45 to i64
+  %54 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %46, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  %56 = load i32, ptr %55, align 4, !tbaa !115
+  %57 = icmp eq i32 %56, -1
+  %58 = icmp ne i32 %52, -1
+  %or.cond = and i1 %58, %57
+  br i1 %or.cond, label %59, label %.critedge
 
-57:                                               ; preds = %42
-  %58 = sext i32 %51 to i64
-  %59 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %43, i64 %58, i32 1
-  %60 = load i32, ptr %59, align 4, !tbaa !115
-  %61 = icmp eq i32 %60, -1
-  br i1 %61, label %62, label %.critedge
+59:                                               ; preds = %44
+  %60 = sext i32 %52 to i64
+  %61 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %46, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %63 = load i32, ptr %62, align 4, !tbaa !115
+  %64 = icmp eq i32 %63, -1
+  br i1 %64, label %65, label %.critedge
 
-62:                                               ; preds = %57
-  %63 = load float, ptr %46, align 4, !tbaa !127
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %65 = load float, ptr %64, align 8, !tbaa !130
-  %66 = fcmp olt float %63, %65
-  br i1 %66, label %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit.thread, label %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit
+65:                                               ; preds = %59
+  %66 = load float, ptr %49, align 4, !tbaa !127
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %68 = load float, ptr %67, align 8, !tbaa !130
+  %69 = fcmp olt float %66, %68
+  br i1 %69, label %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit.thread, label %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit
 
-_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit:  ; preds = %62
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = load i32, ptr %67, align 4, !tbaa !135
-  %.not.i = icmp ne i32 %68, 0
-  %69 = icmp sgt i32 %4, %68
-  %spec.select.i = and i1 %.not.i, %69
+_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit:  ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %71 = load i32, ptr %70, align 4, !tbaa !135
+  %.not.i = icmp ne i32 %71, 0
+  %72 = icmp sgt i32 %4, %71
+  %spec.select.i = and i1 %.not.i, %72
   br i1 %spec.select.i, label %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit.thread, label %.critedge
 
-_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit.thread: ; preds = %62, %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %71 = load float, ptr %70, align 4, !tbaa !136
-  %72 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %73 = load float, ptr %72, align 4, !tbaa !137
-  %74 = fmul float %71, %73
-  call void @_ZN7xgboost7RegTree12ChangeToLeafEif(ptr noundef nonnull align 8 dereferenceable(312) %2, i32 noundef %29, float noundef %74)
-  %75 = add nsw i32 %4, -1
-  %76 = add nsw i32 %5, 2
-  %77 = call noundef i32 @_ZN7xgboost4tree10TreePruner12TryPruneLeafEPKNS0_10TrainParamEPNS_7RegTreeEiii(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %29, i32 noundef %75, i32 noundef %76)
+_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit.thread: ; preds = %65, %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %74 = load float, ptr %73, align 4, !tbaa !136
+  %75 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %76 = load float, ptr %75, align 4, !tbaa !137
+  %77 = fmul float %74, %76
+  call void @_ZN7xgboost7RegTree12ChangeToLeafEif(ptr noundef nonnull align 8 dereferenceable(312) %2, i32 noundef %30, float noundef %77)
+  %78 = add nsw i32 %4, -1
+  %79 = add nsw i32 %5, 2
+  %80 = call noundef i32 @_ZN7xgboost4tree10TreePruner12TryPruneLeafEPKNS0_10TrainParamEPNS_7RegTreeEiii(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %30, i32 noundef %78, i32 noundef %79)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit.thread, %42, %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit, %57, %23
-  %.0 = phi i32 [ %5, %23 ], [ %77, %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit.thread ], [ %5, %42 ], [ %5, %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit ], [ %5, %57 ]
+.critedge:                                        ; preds = %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit.thread, %44, %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit, %59, %24
+  %.0 = phi i32 [ %5, %24 ], [ %80, %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit.thread ], [ %5, %44 ], [ %5, %_ZNK7xgboost4tree10TrainParam9NeedPruneEdi.exit ], [ %5, %59 ]
   ret i32 %.0
 
-78:                                               ; preds = %41, %22
-  %.pn = phi { ptr, i32 } [ %40, %41 ], [ %21, %22 ]
+81:                                               ; preds = %43, %23
+  %.pn = phi { ptr, i32 } [ %42, %43 ], [ %22, %23 ]
   resume { ptr, i32 } %.pn
 
-79:                                               ; preds = %39, %20
-  %80 = landingpad { ptr, i32 }
+82:                                               ; preds = %41, %21
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #33
+  %84 = extractvalue { ptr, i32 } %83, 0
+  call void @__clang_call_terminate(ptr %84) #33
   unreachable
 }
 
@@ -2291,114 +2297,120 @@ define linkonce_odr void @_ZN7xgboost7RegTree12ChangeToLeafEif(ptr noundef nonnu
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = sext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !114
-  %9 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %8, i64 %7, i32 1
-  %10 = load i32, ptr %9, align 4, !tbaa !115
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %8, i64 %11, i32 1
-  %13 = load i32, ptr %12, align 4, !tbaa !115
-  %14 = icmp eq i32 %13, -1
-  br i1 %14, label %23, label %15, !prof !123
+  %9 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %8, i64 %7
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !115
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %8, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %15 = load i32, ptr %14, align 4, !tbaa !115
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %25, label %17, !prof !123
 
-15:                                               ; preds = %3
+17:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %16 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %16, ptr noundef nonnull @.str.32, i32 noundef 300)
-  %17 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit unwind label %20
+  %18 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %18, ptr noundef nonnull @.str.32, i32 noundef 300)
+  %19 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit unwind label %22
 
-_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %15
-  %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.33, i64 noundef 55)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %20
+_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %17
+  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.33, i64 noundef 55)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %22
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.14, i64 noundef 2)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10 unwind label %20
+  %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.14, i64 noundef 2)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10 unwind label %22
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %6, align 8, !tbaa !114
-  br label %23
+  br label %25
 
-20:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit, %15
-  %21 = landingpad { ptr, i32 }
+22:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit, %17
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %22 unwind label %52
+          to label %24 unwind label %58
 
-22:                                               ; preds = %20
+24:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %51
+  br label %57
 
-23:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10, %3
-  %24 = phi ptr [ %.pre, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10 ], [ %8, %3 ]
-  %25 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %24, i64 %7, i32 2
-  %26 = load i32, ptr %25, align 4, !tbaa !126
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %24, i64 %27, i32 1
-  %29 = load i32, ptr %28, align 4, !tbaa !115
-  %30 = icmp eq i32 %29, -1
-  br i1 %30, label %39, label %31, !prof !123
+25:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10, %3
+  %26 = phi ptr [ %.pre, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10 ], [ %8, %3 ]
+  %27 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %26, i64 %7
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load i32, ptr %28, align 4, !tbaa !126
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %26, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !115
+  %34 = icmp eq i32 %33, -1
+  br i1 %34, label %43, label %35, !prof !123
 
-31:                                               ; preds = %23
+35:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %32 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %32, ptr noundef nonnull @.str.32, i32 noundef 301)
-  %33 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit11 unwind label %36
+  %36 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %36, ptr noundef nonnull @.str.32, i32 noundef 301)
+  %37 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit11 unwind label %40
 
-_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit11: ; preds = %31
-  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.34, i64 noundef 55)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 unwind label %36
+_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit11: ; preds = %35
+  %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.34, i64 noundef 55)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 unwind label %40
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12: ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit11
-  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.14, i64 noundef 2)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13 unwind label %36
+  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.14, i64 noundef 2)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13 unwind label %40
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre14 = load ptr, ptr %6, align 8, !tbaa !114
-  br label %39
+  br label %43
 
-36:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit11, %31
-  %37 = landingpad { ptr, i32 }
+40:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit11, %35
+  %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %38 unwind label %52
+          to label %42 unwind label %58
 
-38:                                               ; preds = %36
+42:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %51
+  br label %57
 
-39:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13, %23
-  %40 = phi ptr [ %.pre14, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13 ], [ %24, %23 ]
-  %41 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %40, i64 %7, i32 1
-  %42 = load i32, ptr %41, align 4, !tbaa !115
-  call void @_ZN7xgboost7RegTree10DeleteNodeEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %42)
-  %43 = load ptr, ptr %6, align 8, !tbaa !114
-  %44 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %43, i64 %7, i32 2
-  %45 = load i32, ptr %44, align 4, !tbaa !126
-  call void @_ZN7xgboost7RegTree10DeleteNodeEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %45)
-  %46 = load ptr, ptr %6, align 8, !tbaa !114
-  %47 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %46, i64 %7
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store float %2, ptr %48, align 4, !tbaa !23
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i32 -1, ptr %49, align 4, !tbaa !115
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 -1, ptr %50, align 4, !tbaa !126
+43:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13, %25
+  %44 = phi ptr [ %.pre14, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13 ], [ %26, %25 ]
+  %45 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %44, i64 %7
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %47 = load i32, ptr %46, align 4, !tbaa !115
+  call void @_ZN7xgboost7RegTree10DeleteNodeEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %47)
+  %48 = load ptr, ptr %6, align 8, !tbaa !114
+  %49 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %48, i64 %7
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 4, !tbaa !126
+  call void @_ZN7xgboost7RegTree10DeleteNodeEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %51)
+  %52 = load ptr, ptr %6, align 8, !tbaa !114
+  %53 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %52, i64 %7
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store float %2, ptr %54, align 4, !tbaa !23
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store i32 -1, ptr %55, align 4, !tbaa !115
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i32 -1, ptr %56, align 4, !tbaa !126
   ret void
 
-51:                                               ; preds = %38, %22
-  %.pn = phi { ptr, i32 } [ %37, %38 ], [ %21, %22 ]
+57:                                               ; preds = %42, %24
+  %.pn = phi { ptr, i32 } [ %41, %42 ], [ %23, %24 ]
   resume { ptr, i32 } %.pn
 
-52:                                               ; preds = %36, %20
-  %53 = landingpad { ptr, i32 }
+58:                                               ; preds = %40, %22
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #33
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #33
   unreachable
 }
 
@@ -3911,7 +3923,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14: ; preds = %_ZStl
   %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %22 unwind label %80
+          to label %22 unwind label %81
 
 22:                                               ; preds = %20, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %21, %20 ]
@@ -4040,19 +4052,20 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %53, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
   %75 = phi ptr [ %35, %53 ], [ %.pre, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ]
-  %76 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %75, i64 %34, i32 3
-  store i32 -1, ptr %76, align 4, !tbaa !117
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %78 = load i32, ptr %77, align 8, !tbaa !122
-  %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %77, align 8, !tbaa !122
+  %76 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %75, i64 %34
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 12
+  store i32 -1, ptr %77, align 4, !tbaa !117
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %79 = load i32, ptr %78, align 8, !tbaa !122
+  %80 = add nsw i32 %79, 1
+  store i32 %80, ptr %78, align 8, !tbaa !122
   ret void
 
-80:                                               ; preds = %20
-  %81 = landingpad { ptr, i32 }
+81:                                               ; preds = %20
+  %82 = landingpad { ptr, i32 }
           catch ptr null
-  %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #33
+  %83 = extractvalue { ptr, i32 } %82, 0
+  call void @__clang_call_terminate(ptr %83) #33
   unreachable
 }
 
@@ -4300,23 +4313,25 @@ define linkonce_odr noundef i32 @_ZNK7xgboost7RegTree8MaxDepthEi(ptr noundef non
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !114
-  %6 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %5, i64 %4, i32 1
-  %7 = load i32, ptr %6, align 4, !tbaa !115
-  %8 = icmp eq i32 %7, -1
-  br i1 %8, label %common.ret7, label %9
+  %6 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %5, i64 %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %8 = load i32, ptr %7, align 4, !tbaa !115
+  %9 = icmp eq i32 %8, -1
+  br i1 %9, label %common.ret7, label %10
 
-common.ret7:                                      ; preds = %2, %9
-  %common.ret7.op = phi i32 [ %.sroa.speculated, %9 ], [ 0, %2 ]
+common.ret7:                                      ; preds = %2, %10
+  %common.ret7.op = phi i32 [ %.sroa.speculated, %10 ], [ 0, %2 ]
   ret i32 %common.ret7.op
 
-9:                                                ; preds = %2
-  %10 = tail call noundef i32 @_ZNK7xgboost7RegTree8MaxDepthEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %7)
-  %11 = load ptr, ptr %3, align 8, !tbaa !114
-  %12 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %11, i64 %4, i32 2
-  %13 = load i32, ptr %12, align 4, !tbaa !126
-  %14 = tail call noundef i32 @_ZNK7xgboost7RegTree8MaxDepthEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %13)
-  %15 = tail call i32 @llvm.smax.i32(i32 %10, i32 %14)
-  %.sroa.speculated = add nsw i32 %15, 1
+10:                                               ; preds = %2
+  %11 = tail call noundef i32 @_ZNK7xgboost7RegTree8MaxDepthEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %8)
+  %12 = load ptr, ptr %3, align 8, !tbaa !114
+  %13 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %12, i64 %4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load i32, ptr %14, align 4, !tbaa !126
+  %16 = tail call noundef i32 @_ZNK7xgboost7RegTree8MaxDepthEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %15)
+  %17 = tail call i32 @llvm.smax.i32(i32 %11, i32 %16)
+  %.sroa.speculated = add nsw i32 %17, 1
   br label %common.ret7
 }
 

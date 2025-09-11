@@ -266,7 +266,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i.i:     ; preds = %safe_realloc_nofree
   %35 = load i64, ptr %28, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %33, i64 %35
   store i64 %9, ptr %36, align 8, !tbaa !16
-  %37 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %33, i64 %35, i32 1
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 12, ptr %37, align 8, !tbaa !18
   %38 = add i64 %35, 1
   store i64 %38, ptr %28, align 8, !tbaa !15
@@ -474,7 +474,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i125.i:  ; preds = %safe_realloc_nofree
   %146 = load i64, ptr %28, align 8, !tbaa !15
   %147 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %144, i64 %146
   store i64 %67, ptr %147, align 8, !tbaa !16
-  %148 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %144, i64 %146, i32 1
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store i32 %137, ptr %148, align 8, !tbaa !18
   %149 = add i64 %146, 1
   store i64 %149, ptr %28, align 8, !tbaa !15
@@ -651,7 +651,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i.i:     ; preds = %safe_realloc_nofree
   %44 = load i64, ptr %36, align 8, !tbaa !15
   %45 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %41, i64 %44
   store i64 %10, ptr %45, align 8, !tbaa !16
-  %46 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %41, i64 %44, i32 1
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 12, ptr %46, align 8, !tbaa !18
   %47 = add i64 %44, 1
   store i64 %47, ptr %36, align 8, !tbaa !15
@@ -850,7 +850,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i210.i:  ; preds = %safe_realloc_nofree
   %119 = load i64, ptr %36, align 8, !tbaa !15
   %120 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %116, i64 %119
   store i64 %64, ptr %120, align 8, !tbaa !16
-  %121 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %116, i64 %119, i32 1
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i32 %108, ptr %121, align 8, !tbaa !18
   %122 = add i64 %119, 1
   store i64 %122, ptr %36, align 8, !tbaa !15
@@ -1164,7 +1164,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i.i:     ; preds = %safe_realloc_nofree
   %34 = load i64, ptr %27, align 8, !tbaa !15
   %35 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %32, i64 %34
   store i64 %9, ptr %35, align 8, !tbaa !16
-  %36 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %32, i64 %34, i32 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 40, ptr %36, align 8, !tbaa !18
   %37 = add i64 %34, 1
   store i64 %37, ptr %27, align 8, !tbaa !15
@@ -1316,7 +1316,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i112.i:  ; preds = %safe_realloc_nofree
   %97 = load i64, ptr %27, align 8, !tbaa !15
   %98 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %95, i64 %97
   store i64 %46, ptr %98, align 8, !tbaa !16
-  %99 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %95, i64 %97, i32 1
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i32 %88, ptr %99, align 8, !tbaa !18
   %100 = add i64 %97, 1
   store i64 %100, ptr %27, align 8, !tbaa !15
@@ -1383,11 +1383,11 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr n
 
 8:                                                ; preds = %4
   %.not30 = icmp eq ptr %3, null
-  br i1 %.not30, label %110, label %9
+  br i1 %.not30, label %111, label %9
 
 9:                                                ; preds = %8
   store ptr @.str.7, ptr %3, align 8, !tbaa !12
-  br label %110
+  br label %111
 
 10:                                               ; preds = %4
   %11 = tail call i32 @FLAC__metadata_simple_iterator_init(ptr noundef nonnull %7, ptr noundef %2, i32 noundef 1, i32 noundef 0) #14
@@ -1404,7 +1404,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr n
 
 14:                                               ; preds = %13, %12
   tail call void @FLAC__metadata_simple_iterator_delete(ptr noundef nonnull %7) #14
-  br label %110
+  br label %111
 
 15:                                               ; preds = %10
   %16 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str.3)
@@ -1421,7 +1421,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr n
 
 20:                                               ; preds = %19, %18
   tail call void @FLAC__metadata_simple_iterator_delete(ptr noundef nonnull %7) #14
-  br label %110
+  br label %111
 
 21:                                               ; preds = %15
   %22 = tail call noalias ptr @fopen64(ptr noundef %2, ptr noundef nonnull @.str.10)
@@ -1439,7 +1439,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr n
 26:                                               ; preds = %25, %24
   tail call void @FLAC__metadata_simple_iterator_delete(ptr noundef nonnull %7) #14
   %27 = tail call i32 @fclose(ptr noundef nonnull %16)
-  br label %110
+  br label %111
 
 28:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1459,7 +1459,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr n
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.loopexit.i, %.preheader.lr.ph.i
-  %.057.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %105, %.loopexit.i ]
+  %.057.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %106, %.loopexit.i ]
   br label %38
 
 38:                                               ; preds = %42, %.preheader.i
@@ -1584,66 +1584,67 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr n
 
 90:                                               ; preds = %80
   %91 = load ptr, ptr %33, align 8, !tbaa !11
-  %92 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %91, i64 %.057.i, i32 1
-  %93 = load i32, ptr %92, align 8, !tbaa !18
+  %92 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %91, i64 %.057.i
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = load i32, ptr %93, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not27.i.i = icmp eq i32 %93, 0
+  %.not27.i.i = icmp eq i32 %94, 0
   br i1 %.not27.i.i, label %.loopexit.i, label %fread.inline.exit.i.preheader.i
 
 fread.inline.exit.i.preheader.i:                  ; preds = %90
-  %94 = zext i32 %93 to i64
+  %95 = zext i32 %94 to i64
   br label %fread.inline.exit.i.i
 
-95:                                               ; preds = %101
-  %96 = sub i64 %.02028.i.i, %97
-  %.not.i.i = icmp eq i64 %96, 0
+96:                                               ; preds = %102
+  %97 = sub i64 %.02028.i.i, %98
+  %.not.i.i = icmp eq i64 %97, 0
   br i1 %.not.i.i, label %.loopexit.i, label %fread.inline.exit.i.i, !llvm.loop !30
 
-fread.inline.exit.i.i:                            ; preds = %95, %fread.inline.exit.i.preheader.i
-  %.02028.i.i = phi i64 [ %96, %95 ], [ %94, %fread.inline.exit.i.preheader.i ]
-  %97 = call i64 @llvm.umin.i64(i64 %.02028.i.i, i64 4096)
-  %98 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %97, ptr noundef nonnull %16)
-  %99 = icmp ult i64 %98, %97
-  br i1 %99, label %100, label %101
+fread.inline.exit.i.i:                            ; preds = %96, %fread.inline.exit.i.preheader.i
+  %.02028.i.i = phi i64 [ %97, %96 ], [ %95, %fread.inline.exit.i.preheader.i ]
+  %98 = call i64 @llvm.umin.i64(i64 %.02028.i.i, i64 4096)
+  %99 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %98, ptr noundef nonnull %16)
+  %100 = icmp ult i64 %99, %98
+  br i1 %100, label %101, label %102
 
-100:                                              ; preds = %fread.inline.exit.i.i
+101:                                              ; preds = %fread.inline.exit.i.i
   %.not26.i.i = icmp eq ptr %3, null
   br i1 %.not26.i.i, label %copy_data_.exit.thread.i, label %.critedge.sink.split.i.i
 
-101:                                              ; preds = %fread.inline.exit.i.i
-  %102 = call i64 @fwrite(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %97, ptr noundef nonnull %22)
-  %103 = icmp ult i64 %102, %97
-  br i1 %103, label %104, label %95
+102:                                              ; preds = %fread.inline.exit.i.i
+  %103 = call i64 @fwrite(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %98, ptr noundef nonnull %22)
+  %104 = icmp ult i64 %103, %98
+  br i1 %104, label %105, label %96
 
-104:                                              ; preds = %101
+105:                                              ; preds = %102
   %.not25.i.i = icmp eq ptr %3, null
   br i1 %.not25.i.i, label %copy_data_.exit.thread.i, label %.critedge.sink.split.i.i
 
-.critedge.sink.split.i.i:                         ; preds = %104, %100
-  %.sink.i.i = phi ptr [ @.str.88, %100 ], [ @.str.89, %104 ]
+.critedge.sink.split.i.i:                         ; preds = %105, %101
+  %.sink.i.i = phi ptr [ @.str.88, %101 ], [ @.str.89, %105 ]
   store ptr %.sink.i.i, ptr %3, align 8, !tbaa !12
   br label %copy_data_.exit.thread.i
 
-copy_data_.exit.thread.i:                         ; preds = %.critedge.sink.split.i.i, %104, %100
+copy_data_.exit.thread.i:                         ; preds = %.critedge.sink.split.i.i, %105, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %write_to_flac_.exit
 
-.loopexit.i:                                      ; preds = %95, %90
+.loopexit.i:                                      ; preds = %96, %90
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %105 = add nuw i64 %.057.i, 1
-  %106 = load i64, ptr %31, align 8, !tbaa !15
-  %107 = icmp ult i64 %105, %106
-  br i1 %107, label %.preheader.i, label %write_to_flac_.exit, !llvm.loop !31
+  %106 = add nuw i64 %.057.i, 1
+  %107 = load i64, ptr %31, align 8, !tbaa !15
+  %108 = icmp ult i64 %106, %107
+  br i1 %108, label %.preheader.i, label %write_to_flac_.exit, !llvm.loop !31
 
 write_to_flac_.exit:                              ; preds = %.loopexit.i, %28, %40, %41, %51, %52, %57, %58, %63, %64, %73, %74, %78, %79, %88, %89, %copy_data_.exit.thread.i
   %.041.i = phi i32 [ 0, %41 ], [ 0, %40 ], [ 0, %52 ], [ 0, %51 ], [ 0, %58 ], [ 0, %57 ], [ 0, %64 ], [ 0, %63 ], [ 0, %74 ], [ 0, %73 ], [ 0, %79 ], [ 0, %78 ], [ 0, %89 ], [ 0, %88 ], [ 0, %copy_data_.exit.thread.i ], [ 1, %28 ], [ 1, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @FLAC__metadata_simple_iterator_delete(ptr noundef nonnull %7) #14
-  %108 = call i32 @fclose(ptr noundef nonnull %16)
-  %109 = call i32 @fclose(ptr noundef nonnull %22)
-  br label %110
+  %109 = call i32 @fclose(ptr noundef nonnull %16)
+  %110 = call i32 @fclose(ptr noundef nonnull %22)
+  br label %111
 
-110:                                              ; preds = %8, %9, %write_to_flac_.exit, %26, %20, %14
+111:                                              ; preds = %8, %9, %write_to_flac_.exit, %26, %20, %14
   %.0 = phi i32 [ 0, %20 ], [ 0, %26 ], [ %.041.i, %write_to_flac_.exit ], [ 0, %14 ], [ 0, %9 ], [ 0, %8 ]
   ret i32 %.0
 }
@@ -2158,7 +2159,7 @@ append_block_.exit.i:                             ; preds = %safe_realloc_nofree
   %181 = load i64, ptr %27, align 8, !tbaa !15
   %182 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %180, i64 %181
   store i64 %.reass.i, ptr %182, align 8, !tbaa !16
-  %183 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %180, i64 %181, i32 1
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i32 %173, ptr %183, align 8, !tbaa !18
   %184 = add i64 %181, 1
   store i64 %184, ptr %27, align 8, !tbaa !15
@@ -2240,11 +2241,11 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_iff(ptr no
 
 14:                                               ; preds = %7
   %.not20 = icmp eq ptr %6, null
-  br i1 %.not20, label %174, label %15
+  br i1 %.not20, label %177, label %15
 
 15:                                               ; preds = %14
   store ptr @.str.13, ptr %6, align 8, !tbaa !12
-  br label %174
+  br label %177
 
 16:                                               ; preds = %7
   %17 = tail call noalias ptr @fopen64(ptr noundef %2, ptr noundef nonnull @.str.10)
@@ -2261,7 +2262,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_iff(ptr no
 
 21:                                               ; preds = %20, %19
   %22 = tail call i32 @fclose(ptr noundef nonnull %12)
-  br label %174
+  br label %177
 
 23:                                               ; preds = %16
   %24 = tail call i32 @fseeko64(ptr noundef nonnull %17, i64 noundef %3, i32 noundef 0)
@@ -2291,7 +2292,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_iff(ptr no
   br label %36
 
 36:                                               ; preds = %.loopexit128.i, %.lr.ph.i
-  %.0139.i = phi i64 [ %31, %.lr.ph.i ], [ %59, %.loopexit128.i ]
+  %.0139.i = phi i64 [ %31, %.lr.ph.i ], [ %60, %.loopexit128.i ]
   %37 = load ptr, ptr %35, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %37, i64 %.0139.i
   %39 = load i64, ptr %38, align 8, !tbaa !16
@@ -2309,359 +2310,362 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_iff(ptr no
 
 44:                                               ; preds = %36
   %45 = load ptr, ptr %35, align 8, !tbaa !11
-  %46 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %45, i64 %.0139.i, i32 1
-  %47 = load i32, ptr %46, align 8, !tbaa !18
+  %46 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %45, i64 %.0139.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load i32, ptr %47, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %.not27.i.i = icmp eq i32 %47, 0
+  %.not27.i.i = icmp eq i32 %48, 0
   br i1 %.not27.i.i, label %.loopexit128.i, label %fread.inline.exit.i.preheader.i
 
 fread.inline.exit.i.preheader.i:                  ; preds = %44
-  %48 = zext i32 %47 to i64
+  %49 = zext i32 %48 to i64
   br label %fread.inline.exit.i.i
 
-49:                                               ; preds = %55
-  %50 = sub i64 %.02028.i.i, %51
-  %.not.i.i = icmp eq i64 %50, 0
+50:                                               ; preds = %56
+  %51 = sub i64 %.02028.i.i, %52
+  %.not.i.i = icmp eq i64 %51, 0
   br i1 %.not.i.i, label %.loopexit128.i, label %fread.inline.exit.i.i, !llvm.loop !30
 
-fread.inline.exit.i.i:                            ; preds = %49, %fread.inline.exit.i.preheader.i
-  %.02028.i.i = phi i64 [ %50, %49 ], [ %48, %fread.inline.exit.i.preheader.i ]
-  %51 = call i64 @llvm.umin.i64(i64 %.02028.i.i, i64 4096)
-  %52 = call i64 @fread(ptr noundef nonnull %11, i64 noundef 1, i64 noundef %51, ptr noundef nonnull %12)
-  %53 = icmp ult i64 %52, %51
-  br i1 %53, label %54, label %55
+fread.inline.exit.i.i:                            ; preds = %50, %fread.inline.exit.i.preheader.i
+  %.02028.i.i = phi i64 [ %51, %50 ], [ %49, %fread.inline.exit.i.preheader.i ]
+  %52 = call i64 @llvm.umin.i64(i64 %.02028.i.i, i64 4096)
+  %53 = call i64 @fread(ptr noundef nonnull %11, i64 noundef 1, i64 noundef %52, ptr noundef nonnull %12)
+  %54 = icmp ult i64 %53, %52
+  br i1 %54, label %55, label %56
 
-54:                                               ; preds = %fread.inline.exit.i.i
+55:                                               ; preds = %fread.inline.exit.i.i
   %.not26.i.i = icmp eq ptr %6, null
   br i1 %.not26.i.i, label %copy_data_.exit.thread.i, label %.critedge.sink.split.i.i
 
-55:                                               ; preds = %fread.inline.exit.i.i
-  %56 = call i64 @fwrite(ptr noundef nonnull %11, i64 noundef 1, i64 noundef %51, ptr noundef nonnull %17)
-  %57 = icmp ult i64 %56, %51
-  br i1 %57, label %58, label %49
+56:                                               ; preds = %fread.inline.exit.i.i
+  %57 = call i64 @fwrite(ptr noundef nonnull %11, i64 noundef 1, i64 noundef %52, ptr noundef nonnull %17)
+  %58 = icmp ult i64 %57, %52
+  br i1 %58, label %59, label %50
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   %.not25.i.i = icmp eq ptr %6, null
   br i1 %.not25.i.i, label %copy_data_.exit.thread.i, label %.critedge.sink.split.i.i
 
-.critedge.sink.split.i.i:                         ; preds = %58, %54
-  %.sink.i.i = phi ptr [ @.str.121, %54 ], [ @.str.122, %58 ]
+.critedge.sink.split.i.i:                         ; preds = %59, %55
+  %.sink.i.i = phi ptr [ @.str.121, %55 ], [ @.str.122, %59 ]
   store ptr %.sink.i.i, ptr %6, align 8, !tbaa !12
   br label %copy_data_.exit.thread.i
 
-copy_data_.exit.thread.i:                         ; preds = %.critedge.sink.split.i.i, %58, %54
+copy_data_.exit.thread.i:                         ; preds = %.critedge.sink.split.i.i, %59, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %write_to_iff_.exit
 
-.loopexit128.i:                                   ; preds = %49, %44
+.loopexit128.i:                                   ; preds = %50, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %59 = add nuw i64 %.0139.i, 1
-  %60 = load i64, ptr %32, align 8, !tbaa !20
-  %61 = icmp ult i64 %59, %60
-  br i1 %61, label %36, label %._crit_edge.i, !llvm.loop !38
+  %60 = add nuw i64 %.0139.i, 1
+  %61 = load i64, ptr %32, align 8, !tbaa !20
+  %62 = icmp ult i64 %60, %61
+  br i1 %62, label %36, label %._crit_edge.i, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %.loopexit128.i, %28
-  %.0.lcssa.i = phi i64 [ %31, %28 ], [ %59, %.loopexit128.i ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %63 = load i32, ptr %62, align 8, !tbaa !35
-  %.not75.i = icmp eq i32 %63, 0
-  br i1 %.not75.i, label %101, label %64
+  %.0.lcssa.i = phi i64 [ %31, %28 ], [ %60, %.loopexit128.i ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %64 = load i32, ptr %63, align 8, !tbaa !35
+  %.not75.i = icmp eq i32 %64, 0
+  br i1 %.not75.i, label %102, label %65
 
-64:                                               ; preds = %._crit_edge.i
-  %65 = call i32 @fseeko64(ptr noundef nonnull %17, i64 noundef 30, i32 noundef 1)
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %67, label %69
+65:                                               ; preds = %._crit_edge.i
+  %66 = call i32 @fseeko64(ptr noundef nonnull %17, i64 noundef 30, i32 noundef 1)
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %68, label %70
 
-67:                                               ; preds = %64
+68:                                               ; preds = %65
   %.not85.i = icmp eq ptr %6, null
-  br i1 %.not85.i, label %write_to_iff_.exit, label %68
+  br i1 %.not85.i, label %write_to_iff_.exit, label %69
 
-68:                                               ; preds = %67
+69:                                               ; preds = %68
   store ptr @.str.123, ptr %6, align 8, !tbaa !12
   br label %write_to_iff_.exit
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !11
-  %72 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %71, i64 %.0.lcssa.i
-  %73 = load i64, ptr %72, align 8, !tbaa !16
-  %74 = add nsw i64 %73, 30
-  %75 = call i32 @fseeko64(ptr noundef nonnull %12, i64 noundef %74, i32 noundef 0)
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %77, label %79
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !11
+  %73 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %72, i64 %.0.lcssa.i
+  %74 = load i64, ptr %73, align 8, !tbaa !16
+  %75 = add nsw i64 %74, 30
+  %76 = call i32 @fseeko64(ptr noundef nonnull %12, i64 noundef %75, i32 noundef 0)
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %78, label %80
 
-77:                                               ; preds = %69
+78:                                               ; preds = %70
   %.not84.i = icmp eq ptr %6, null
-  br i1 %.not84.i, label %write_to_iff_.exit, label %78
+  br i1 %.not84.i, label %write_to_iff_.exit, label %79
 
-78:                                               ; preds = %77
+79:                                               ; preds = %78
   store ptr @.str.120, ptr %6, align 8, !tbaa !12
   br label %write_to_iff_.exit
 
-79:                                               ; preds = %69
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %81 = load i32, ptr %80, align 8, !tbaa !37
-  %82 = add i32 %81, -34
+80:                                               ; preds = %70
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %82 = load i32, ptr %81, align 8, !tbaa !37
+  %83 = add i32 %82, -34
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %.not27.i89.i = icmp eq i32 %82, 0
+  %.not27.i89.i = icmp eq i32 %83, 0
   br i1 %.not27.i89.i, label %.loopexit127.i, label %fread.inline.exit.i90.preheader.i
 
-fread.inline.exit.i90.preheader.i:                ; preds = %79
-  %83 = zext i32 %82 to i64
+fread.inline.exit.i90.preheader.i:                ; preds = %80
+  %84 = zext i32 %83 to i64
   br label %fread.inline.exit.i90.i
 
-84:                                               ; preds = %90
-  %85 = sub i64 %.02028.i91.i, %86
-  %.not.i92.i = icmp eq i64 %85, 0
+85:                                               ; preds = %91
+  %86 = sub i64 %.02028.i91.i, %87
+  %.not.i92.i = icmp eq i64 %86, 0
   br i1 %.not.i92.i, label %.loopexit127.loopexit.i, label %fread.inline.exit.i90.i, !llvm.loop !30
 
-fread.inline.exit.i90.i:                          ; preds = %84, %fread.inline.exit.i90.preheader.i
-  %.02028.i91.i = phi i64 [ %85, %84 ], [ %83, %fread.inline.exit.i90.preheader.i ]
-  %86 = call i64 @llvm.umin.i64(i64 %.02028.i91.i, i64 4096)
-  %87 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %86, ptr noundef nonnull %12)
-  %88 = icmp ult i64 %87, %86
-  br i1 %88, label %89, label %90
+fread.inline.exit.i90.i:                          ; preds = %85, %fread.inline.exit.i90.preheader.i
+  %.02028.i91.i = phi i64 [ %86, %85 ], [ %84, %fread.inline.exit.i90.preheader.i ]
+  %87 = call i64 @llvm.umin.i64(i64 %.02028.i91.i, i64 4096)
+  %88 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %87, ptr noundef nonnull %12)
+  %89 = icmp ult i64 %88, %87
+  br i1 %89, label %90, label %91
 
-89:                                               ; preds = %fread.inline.exit.i90.i
+90:                                               ; preds = %fread.inline.exit.i90.i
   %.not26.i97.i = icmp eq ptr %6, null
   br i1 %.not26.i97.i, label %copy_data_.exit98.thread.i, label %.critedge.sink.split.i95.i
 
-90:                                               ; preds = %fread.inline.exit.i90.i
-  %91 = call i64 @fwrite(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %86, ptr noundef nonnull %17)
-  %92 = icmp ult i64 %91, %86
-  br i1 %92, label %93, label %84
+91:                                               ; preds = %fread.inline.exit.i90.i
+  %92 = call i64 @fwrite(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %87, ptr noundef nonnull %17)
+  %93 = icmp ult i64 %92, %87
+  br i1 %93, label %94, label %85
 
-93:                                               ; preds = %90
+94:                                               ; preds = %91
   %.not25.i94.i = icmp eq ptr %6, null
   br i1 %.not25.i94.i, label %copy_data_.exit98.thread.i, label %.critedge.sink.split.i95.i
 
-.critedge.sink.split.i95.i:                       ; preds = %93, %89
-  %.sink.i96.i = phi ptr [ @.str.121, %89 ], [ @.str.122, %93 ]
+.critedge.sink.split.i95.i:                       ; preds = %94, %90
+  %.sink.i96.i = phi ptr [ @.str.121, %90 ], [ @.str.122, %94 ]
   store ptr %.sink.i96.i, ptr %6, align 8, !tbaa !12
   br label %copy_data_.exit98.thread.i
 
-copy_data_.exit98.thread.i:                       ; preds = %.critedge.sink.split.i95.i, %93, %89
+copy_data_.exit98.thread.i:                       ; preds = %.critedge.sink.split.i95.i, %94, %90
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %write_to_iff_.exit
 
-.loopexit127.loopexit.i:                          ; preds = %84
-  %.pre.i = load i32, ptr %80, align 8, !tbaa !37
-  %94 = sub i32 4, %.pre.i
-  %95 = sext i32 %94 to i64
+.loopexit127.loopexit.i:                          ; preds = %85
+  %.pre.i = load i32, ptr %81, align 8, !tbaa !37
+  %95 = sub i32 4, %.pre.i
+  %96 = sext i32 %95 to i64
   br label %.loopexit127.i
 
-.loopexit127.i:                                   ; preds = %.loopexit127.loopexit.i, %79
-  %96 = phi i64 [ %95, %.loopexit127.loopexit.i ], [ -30, %79 ]
+.loopexit127.i:                                   ; preds = %.loopexit127.loopexit.i, %80
+  %97 = phi i64 [ %96, %.loopexit127.loopexit.i ], [ -30, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %97 = call i32 @fseeko64(ptr noundef nonnull %17, i64 noundef %96, i32 noundef 1)
-  %98 = icmp slt i32 %97, 0
-  br i1 %98, label %99, label %101
+  %98 = call i32 @fseeko64(ptr noundef nonnull %17, i64 noundef %97, i32 noundef 1)
+  %99 = icmp slt i32 %98, 0
+  br i1 %99, label %100, label %102
 
-99:                                               ; preds = %.loopexit127.i
+100:                                              ; preds = %.loopexit127.i
   %.not83.i = icmp eq ptr %6, null
-  br i1 %.not83.i, label %write_to_iff_.exit, label %100
+  br i1 %.not83.i, label %write_to_iff_.exit, label %101
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   store ptr @.str.123, ptr %6, align 8, !tbaa !12
   br label %write_to_iff_.exit
 
-101:                                              ; preds = %.loopexit127.i, %._crit_edge.i
-  %102 = call i32 @fseeko64(ptr noundef nonnull %17, i64 noundef %4, i32 noundef 0)
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %104, label %106
+102:                                              ; preds = %.loopexit127.i, %._crit_edge.i
+  %103 = call i32 @fseeko64(ptr noundef nonnull %17, i64 noundef %4, i32 noundef 0)
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %105, label %107
 
-104:                                              ; preds = %101
+105:                                              ; preds = %102
   %.not82.i = icmp eq ptr %6, null
-  br i1 %.not82.i, label %write_to_iff_.exit, label %105
+  br i1 %.not82.i, label %write_to_iff_.exit, label %106
 
-105:                                              ; preds = %104
+106:                                              ; preds = %105
   store ptr @.str.83, ptr %6, align 8, !tbaa !12
   br label %write_to_iff_.exit
 
-106:                                              ; preds = %101
-  %107 = load i64, ptr %32, align 8, !tbaa !20
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.1140.i = add i64 %107, 1
-  %109 = load i64, ptr %108, align 8, !tbaa !21
-  %110 = icmp ult i64 %.1140.i, %109
-  br i1 %110, label %.lr.ph143.i, label %._crit_edge144.i
+107:                                              ; preds = %102
+  %108 = load i64, ptr %32, align 8, !tbaa !20
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.1140.i = add i64 %108, 1
+  %110 = load i64, ptr %109, align 8, !tbaa !21
+  %111 = icmp ult i64 %.1140.i, %110
+  br i1 %111, label %.lr.ph143.i, label %._crit_edge144.i
 
-.lr.ph143.i:                                      ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %112
+.lr.ph143.i:                                      ; preds = %107
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %113
 
-112:                                              ; preds = %copy_data_.exit108.i, %.lr.ph143.i
+113:                                              ; preds = %copy_data_.exit108.i, %.lr.ph143.i
   %.1141.i = phi i64 [ %.1140.i, %.lr.ph143.i ], [ %.1.i, %copy_data_.exit108.i ]
-  %113 = load ptr, ptr %111, align 8, !tbaa !11
-  %114 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %113, i64 %.1141.i
-  %115 = load i64, ptr %114, align 8, !tbaa !16
-  %116 = call i32 @fseeko64(ptr noundef nonnull %12, i64 noundef %115, i32 noundef 0)
-  %117 = icmp slt i32 %116, 0
-  br i1 %117, label %118, label %120
+  %114 = load ptr, ptr %112, align 8, !tbaa !11
+  %115 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %114, i64 %.1141.i
+  %116 = load i64, ptr %115, align 8, !tbaa !16
+  %117 = call i32 @fseeko64(ptr noundef nonnull %12, i64 noundef %116, i32 noundef 0)
+  %118 = icmp slt i32 %117, 0
+  br i1 %118, label %119, label %121
 
-118:                                              ; preds = %112
+119:                                              ; preds = %113
   %.not81.i = icmp eq ptr %6, null
-  br i1 %.not81.i, label %write_to_iff_.exit, label %119
+  br i1 %.not81.i, label %write_to_iff_.exit, label %120
 
-119:                                              ; preds = %118
+120:                                              ; preds = %119
   store ptr @.str.120, ptr %6, align 8, !tbaa !12
   br label %write_to_iff_.exit
 
-120:                                              ; preds = %112
-  %121 = load ptr, ptr %111, align 8, !tbaa !11
-  %122 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %121, i64 %.1141.i, i32 1
-  %123 = load i32, ptr %122, align 8, !tbaa !18
+121:                                              ; preds = %113
+  %122 = load ptr, ptr %112, align 8, !tbaa !11
+  %123 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %122, i64 %.1141.i
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = load i32, ptr %124, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.not27.i99.i = icmp eq i32 %123, 0
+  %.not27.i99.i = icmp eq i32 %125, 0
   br i1 %.not27.i99.i, label %copy_data_.exit108.i, label %fread.inline.exit.i100.preheader.i
 
-fread.inline.exit.i100.preheader.i:               ; preds = %120
-  %124 = zext i32 %123 to i64
+fread.inline.exit.i100.preheader.i:               ; preds = %121
+  %126 = zext i32 %125 to i64
   br label %fread.inline.exit.i100.i
 
-125:                                              ; preds = %131
-  %126 = sub i64 %.02028.i101.i, %127
-  %.not.i102.i = icmp eq i64 %126, 0
+127:                                              ; preds = %133
+  %128 = sub i64 %.02028.i101.i, %129
+  %.not.i102.i = icmp eq i64 %128, 0
   br i1 %.not.i102.i, label %copy_data_.exit108.i, label %fread.inline.exit.i100.i, !llvm.loop !30
 
-fread.inline.exit.i100.i:                         ; preds = %125, %fread.inline.exit.i100.preheader.i
-  %.02028.i101.i = phi i64 [ %126, %125 ], [ %124, %fread.inline.exit.i100.preheader.i ]
-  %127 = call i64 @llvm.umin.i64(i64 %.02028.i101.i, i64 4096)
-  %128 = call i64 @fread(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %127, ptr noundef nonnull %12)
-  %129 = icmp ult i64 %128, %127
-  br i1 %129, label %130, label %131
+fread.inline.exit.i100.i:                         ; preds = %127, %fread.inline.exit.i100.preheader.i
+  %.02028.i101.i = phi i64 [ %128, %127 ], [ %126, %fread.inline.exit.i100.preheader.i ]
+  %129 = call i64 @llvm.umin.i64(i64 %.02028.i101.i, i64 4096)
+  %130 = call i64 @fread(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %129, ptr noundef nonnull %12)
+  %131 = icmp ult i64 %130, %129
+  br i1 %131, label %132, label %133
 
-130:                                              ; preds = %fread.inline.exit.i100.i
+132:                                              ; preds = %fread.inline.exit.i100.i
   %.not26.i107.i = icmp eq ptr %6, null
   br i1 %.not26.i107.i, label %copy_data_.exit108.thread.i, label %.critedge.sink.split.i105.i
 
-131:                                              ; preds = %fread.inline.exit.i100.i
-  %132 = call i64 @fwrite(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %127, ptr noundef nonnull %17)
-  %133 = icmp ult i64 %132, %127
-  br i1 %133, label %134, label %125
+133:                                              ; preds = %fread.inline.exit.i100.i
+  %134 = call i64 @fwrite(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %129, ptr noundef nonnull %17)
+  %135 = icmp ult i64 %134, %129
+  br i1 %135, label %136, label %127
 
-134:                                              ; preds = %131
+136:                                              ; preds = %133
   %.not25.i104.i = icmp eq ptr %6, null
   br i1 %.not25.i104.i, label %copy_data_.exit108.thread.i, label %.critedge.sink.split.i105.i
 
-.critedge.sink.split.i105.i:                      ; preds = %134, %130
-  %.sink.i106.i = phi ptr [ @.str.121, %130 ], [ @.str.122, %134 ]
+.critedge.sink.split.i105.i:                      ; preds = %136, %132
+  %.sink.i106.i = phi ptr [ @.str.121, %132 ], [ @.str.122, %136 ]
   store ptr %.sink.i106.i, ptr %6, align 8, !tbaa !12
   br label %copy_data_.exit108.thread.i
 
-copy_data_.exit108.thread.i:                      ; preds = %.critedge.sink.split.i105.i, %134, %130
+copy_data_.exit108.thread.i:                      ; preds = %.critedge.sink.split.i105.i, %136, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %write_to_iff_.exit
 
-copy_data_.exit108.i:                             ; preds = %125, %120
+copy_data_.exit108.i:                             ; preds = %127, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.1.i = add nuw i64 %.1141.i, 1
-  %135 = load i64, ptr %108, align 8, !tbaa !21
-  %136 = icmp ult i64 %.1.i, %135
-  br i1 %136, label %112, label %._crit_edge144.i, !llvm.loop !39
+  %137 = load i64, ptr %109, align 8, !tbaa !21
+  %138 = icmp ult i64 %.1.i, %137
+  br i1 %138, label %113, label %._crit_edge144.i, !llvm.loop !39
 
-._crit_edge144.i:                                 ; preds = %copy_data_.exit108.i, %106
-  %137 = call i32 @fseeko64(ptr noundef nonnull %17, i64 noundef %5, i32 noundef 0)
-  %138 = icmp slt i32 %137, 0
-  br i1 %138, label %139, label %141
+._crit_edge144.i:                                 ; preds = %copy_data_.exit108.i, %107
+  %139 = call i32 @fseeko64(ptr noundef nonnull %17, i64 noundef %5, i32 noundef 0)
+  %140 = icmp slt i32 %139, 0
+  br i1 %140, label %141, label %143
 
-139:                                              ; preds = %._crit_edge144.i
+141:                                              ; preds = %._crit_edge144.i
   %.not79.i = icmp eq ptr %6, null
-  br i1 %.not79.i, label %write_to_iff_.exit, label %140
+  br i1 %.not79.i, label %write_to_iff_.exit, label %142
 
-140:                                              ; preds = %139
+142:                                              ; preds = %141
   store ptr @.str.119, ptr %6, align 8, !tbaa !12
   br label %write_to_iff_.exit
 
-141:                                              ; preds = %._crit_edge144.i
-  %142 = load i64, ptr %108, align 8, !tbaa !21
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.2145.i = add i64 %142, 1
-  %144 = load i64, ptr %143, align 8, !tbaa !15
-  %145 = icmp ult i64 %.2145.i, %144
-  br i1 %145, label %.lr.ph148.i, label %write_to_iff_.exit
+143:                                              ; preds = %._crit_edge144.i
+  %144 = load i64, ptr %109, align 8, !tbaa !21
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.2145.i = add i64 %144, 1
+  %146 = load i64, ptr %145, align 8, !tbaa !15
+  %147 = icmp ult i64 %.2145.i, %146
+  br i1 %147, label %.lr.ph148.i, label %write_to_iff_.exit
 
-.lr.ph148.i:                                      ; preds = %141
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %147
+.lr.ph148.i:                                      ; preds = %143
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %149
 
-147:                                              ; preds = %copy_data_.exit118.i, %.lr.ph148.i
+149:                                              ; preds = %copy_data_.exit118.i, %.lr.ph148.i
   %.2146.i = phi i64 [ %.2145.i, %.lr.ph148.i ], [ %.2.i, %copy_data_.exit118.i ]
-  %148 = load ptr, ptr %146, align 8, !tbaa !11
-  %149 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %148, i64 %.2146.i
-  %150 = load i64, ptr %149, align 8, !tbaa !16
-  %151 = call i32 @fseeko64(ptr noundef nonnull %12, i64 noundef %150, i32 noundef 0)
-  %152 = icmp slt i32 %151, 0
-  br i1 %152, label %153, label %155
+  %150 = load ptr, ptr %148, align 8, !tbaa !11
+  %151 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %150, i64 %.2146.i
+  %152 = load i64, ptr %151, align 8, !tbaa !16
+  %153 = call i32 @fseeko64(ptr noundef nonnull %12, i64 noundef %152, i32 noundef 0)
+  %154 = icmp slt i32 %153, 0
+  br i1 %154, label %155, label %157
 
-153:                                              ; preds = %147
+155:                                              ; preds = %149
   %.not78.i = icmp eq ptr %6, null
-  br i1 %.not78.i, label %write_to_iff_.exit, label %154
+  br i1 %.not78.i, label %write_to_iff_.exit, label %156
 
-154:                                              ; preds = %153
+156:                                              ; preds = %155
   store ptr @.str.120, ptr %6, align 8, !tbaa !12
   br label %write_to_iff_.exit
 
-155:                                              ; preds = %147
-  %156 = load ptr, ptr %146, align 8, !tbaa !11
-  %157 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %156, i64 %.2146.i, i32 1
-  %158 = load i32, ptr %157, align 8, !tbaa !18
+157:                                              ; preds = %149
+  %158 = load ptr, ptr %148, align 8, !tbaa !11
+  %159 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %158, i64 %.2146.i
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  %161 = load i32, ptr %160, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %.not27.i109.i = icmp eq i32 %158, 0
+  %.not27.i109.i = icmp eq i32 %161, 0
   br i1 %.not27.i109.i, label %copy_data_.exit118.i, label %fread.inline.exit.i110.preheader.i
 
-fread.inline.exit.i110.preheader.i:               ; preds = %155
-  %159 = zext i32 %158 to i64
+fread.inline.exit.i110.preheader.i:               ; preds = %157
+  %162 = zext i32 %161 to i64
   br label %fread.inline.exit.i110.i
 
-160:                                              ; preds = %166
-  %161 = sub i64 %.02028.i111.i, %162
-  %.not.i112.i = icmp eq i64 %161, 0
+163:                                              ; preds = %169
+  %164 = sub i64 %.02028.i111.i, %165
+  %.not.i112.i = icmp eq i64 %164, 0
   br i1 %.not.i112.i, label %copy_data_.exit118.i, label %fread.inline.exit.i110.i, !llvm.loop !30
 
-fread.inline.exit.i110.i:                         ; preds = %160, %fread.inline.exit.i110.preheader.i
-  %.02028.i111.i = phi i64 [ %161, %160 ], [ %159, %fread.inline.exit.i110.preheader.i ]
-  %162 = call i64 @llvm.umin.i64(i64 %.02028.i111.i, i64 4096)
-  %163 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %162, ptr noundef nonnull %12)
-  %164 = icmp ult i64 %163, %162
-  br i1 %164, label %165, label %166
+fread.inline.exit.i110.i:                         ; preds = %163, %fread.inline.exit.i110.preheader.i
+  %.02028.i111.i = phi i64 [ %164, %163 ], [ %162, %fread.inline.exit.i110.preheader.i ]
+  %165 = call i64 @llvm.umin.i64(i64 %.02028.i111.i, i64 4096)
+  %166 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %165, ptr noundef nonnull %12)
+  %167 = icmp ult i64 %166, %165
+  br i1 %167, label %168, label %169
 
-165:                                              ; preds = %fread.inline.exit.i110.i
+168:                                              ; preds = %fread.inline.exit.i110.i
   %.not26.i117.i = icmp eq ptr %6, null
   br i1 %.not26.i117.i, label %copy_data_.exit118.thread.i, label %.critedge.sink.split.i115.i
 
-166:                                              ; preds = %fread.inline.exit.i110.i
-  %167 = call i64 @fwrite(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %162, ptr noundef nonnull %17)
-  %168 = icmp ult i64 %167, %162
-  br i1 %168, label %169, label %160
+169:                                              ; preds = %fread.inline.exit.i110.i
+  %170 = call i64 @fwrite(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %165, ptr noundef nonnull %17)
+  %171 = icmp ult i64 %170, %165
+  br i1 %171, label %172, label %163
 
-169:                                              ; preds = %166
+172:                                              ; preds = %169
   %.not25.i114.i = icmp eq ptr %6, null
   br i1 %.not25.i114.i, label %copy_data_.exit118.thread.i, label %.critedge.sink.split.i115.i
 
-.critedge.sink.split.i115.i:                      ; preds = %169, %165
-  %.sink.i116.i = phi ptr [ @.str.121, %165 ], [ @.str.122, %169 ]
+.critedge.sink.split.i115.i:                      ; preds = %172, %168
+  %.sink.i116.i = phi ptr [ @.str.121, %168 ], [ @.str.122, %172 ]
   store ptr %.sink.i116.i, ptr %6, align 8, !tbaa !12
   br label %copy_data_.exit118.thread.i
 
-copy_data_.exit118.thread.i:                      ; preds = %.critedge.sink.split.i115.i, %169, %165
+copy_data_.exit118.thread.i:                      ; preds = %.critedge.sink.split.i115.i, %172, %168
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %write_to_iff_.exit
 
-copy_data_.exit118.i:                             ; preds = %160, %155
+copy_data_.exit118.i:                             ; preds = %163, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.2.i = add nuw i64 %.2146.i, 1
-  %170 = load i64, ptr %143, align 8, !tbaa !15
-  %171 = icmp ult i64 %.2.i, %170
-  br i1 %171, label %147, label %write_to_iff_.exit, !llvm.loop !40
+  %173 = load i64, ptr %145, align 8, !tbaa !15
+  %174 = icmp ult i64 %.2.i, %173
+  br i1 %174, label %149, label %write_to_iff_.exit, !llvm.loop !40
 
-write_to_iff_.exit:                               ; preds = %copy_data_.exit118.i, %26, %27, %42, %43, %copy_data_.exit.thread.i, %67, %68, %77, %78, %copy_data_.exit98.thread.i, %99, %100, %104, %105, %118, %119, %copy_data_.exit108.thread.i, %139, %140, %141, %153, %154, %copy_data_.exit118.thread.i
-  %.071.i = phi i32 [ 0, %27 ], [ 0, %26 ], [ 0, %43 ], [ 0, %42 ], [ 0, %68 ], [ 0, %67 ], [ 0, %78 ], [ 0, %77 ], [ 0, %100 ], [ 0, %99 ], [ 0, %105 ], [ 0, %104 ], [ 0, %119 ], [ 0, %118 ], [ 0, %140 ], [ 0, %139 ], [ 0, %154 ], [ 0, %153 ], [ 0, %copy_data_.exit.thread.i ], [ 0, %copy_data_.exit98.thread.i ], [ 0, %copy_data_.exit108.thread.i ], [ 0, %copy_data_.exit118.thread.i ], [ 1, %141 ], [ 1, %copy_data_.exit118.i ]
-  %172 = call i32 @fclose(ptr noundef nonnull %12)
-  %173 = call i32 @fclose(ptr noundef nonnull %17)
-  br label %174
+write_to_iff_.exit:                               ; preds = %copy_data_.exit118.i, %26, %27, %42, %43, %copy_data_.exit.thread.i, %68, %69, %78, %79, %copy_data_.exit98.thread.i, %100, %101, %105, %106, %119, %120, %copy_data_.exit108.thread.i, %141, %142, %143, %155, %156, %copy_data_.exit118.thread.i
+  %.071.i = phi i32 [ 0, %27 ], [ 0, %26 ], [ 0, %43 ], [ 0, %42 ], [ 0, %69 ], [ 0, %68 ], [ 0, %79 ], [ 0, %78 ], [ 0, %101 ], [ 0, %100 ], [ 0, %106 ], [ 0, %105 ], [ 0, %120 ], [ 0, %119 ], [ 0, %142 ], [ 0, %141 ], [ 0, %156 ], [ 0, %155 ], [ 0, %copy_data_.exit.thread.i ], [ 0, %copy_data_.exit98.thread.i ], [ 0, %copy_data_.exit108.thread.i ], [ 0, %copy_data_.exit118.thread.i ], [ 1, %143 ], [ 1, %copy_data_.exit118.i ]
+  %175 = call i32 @fclose(ptr noundef nonnull %12)
+  %176 = call i32 @fclose(ptr noundef nonnull %17)
+  br label %177
 
-174:                                              ; preds = %14, %15, %write_to_iff_.exit, %21
+177:                                              ; preds = %14, %15, %write_to_iff_.exit, %21
   %.0 = phi i32 [ 0, %21 ], [ %.071.i, %write_to_iff_.exit ], [ 0, %15 ], [ 0, %14 ]
   ret i32 %.0
 }
@@ -2678,11 +2682,11 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_compare_with_iff(pt
 
 12:                                               ; preds = %5
   %.not18 = icmp eq ptr %4, null
-  br i1 %.not18, label %97, label %13
+  br i1 %.not18, label %99, label %13
 
 13:                                               ; preds = %12
   store ptr @.str.15, ptr %4, align 8, !tbaa !12
-  br label %97
+  br label %99
 
 14:                                               ; preds = %5
   %15 = tail call noalias ptr @fopen64(ptr noundef %2, ptr noundef nonnull @.str.3)
@@ -2699,7 +2703,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_compare_with_iff(pt
 
 19:                                               ; preds = %18, %17
   %20 = tail call i32 @fclose(ptr noundef nonnull %10)
-  br label %97
+  br label %99
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2708,7 +2712,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_compare_with_iff(pt
   br label %25
 
 25:                                               ; preds = %.loopexit62.i, %21
-  %.069.i = phi i64 [ 0, %21 ], [ %59, %.loopexit62.i ]
+  %.069.i = phi i64 [ 0, %21 ], [ %60, %.loopexit62.i ]
   %26 = load ptr, ptr %23, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %26, i64 %.069.i
   %28 = load i64, ptr %27, align 8, !tbaa !16
@@ -2726,190 +2730,192 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_compare_with_iff(pt
 
 33:                                               ; preds = %25
   %34 = load ptr, ptr %23, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %34, i64 %.069.i, i32 1
-  %36 = load i32, ptr %35, align 8, !tbaa !18
-  %37 = zext i32 %36 to i64
-  %38 = icmp eq i64 %.069.i, 0
-  br i1 %38, label %46, label %39
+  %35 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %34, i64 %.069.i
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load i32, ptr %36, align 8, !tbaa !18
+  %38 = zext i32 %37 to i64
+  %39 = icmp eq i64 %.069.i, 0
+  br i1 %39, label %47, label %40
 
-39:                                               ; preds = %33
-  %40 = load i64, ptr %24, align 8, !tbaa !20
-  %41 = icmp eq i64 %.069.i, %40
-  br i1 %41, label %46, label %42
+40:                                               ; preds = %33
+  %41 = load i64, ptr %24, align 8, !tbaa !20
+  %42 = icmp eq i64 %.069.i, %41
+  br i1 %42, label %47, label %43
 
-42:                                               ; preds = %39
-  %43 = load i64, ptr %22, align 8, !tbaa !21
-  %44 = icmp eq i64 %.069.i, %43
-  %45 = select i1 %44, ptr @.str.127, ptr @.str.128
-  br label %46
+43:                                               ; preds = %40
+  %44 = load i64, ptr %22, align 8, !tbaa !21
+  %45 = icmp eq i64 %.069.i, %44
+  %46 = select i1 %45, ptr @.str.127, ptr @.str.128
+  br label %47
 
-46:                                               ; preds = %42, %39, %33
-  %47 = phi ptr [ @.str.125, %33 ], [ %45, %42 ], [ @.str.126, %39 ]
+47:                                               ; preds = %43, %40, %33
+  %48 = phi ptr [ @.str.125, %33 ], [ %46, %43 ], [ @.str.126, %40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.not1.i.i = icmp eq i32 %36, 0
+  %.not1.i.i = icmp eq i32 %37, 0
   br i1 %.not1.i.i, label %.loopexit62.i, label %fread.inline.exit38.i.i
 
-48:                                               ; preds = %57
-  %49 = sub i64 %.0242.i.i, %50
-  %.not.i.i = icmp eq i64 %49, 0
+49:                                               ; preds = %58
+  %50 = sub i64 %.0242.i.i, %51
+  %.not.i.i = icmp eq i64 %50, 0
   br i1 %.not.i.i, label %.loopexit62.i, label %fread.inline.exit38.i.i, !llvm.loop !41
 
-fread.inline.exit38.i.i:                          ; preds = %46, %48
-  %.0242.i.i = phi i64 [ %49, %48 ], [ %37, %46 ]
-  %50 = call i64 @llvm.umin.i64(i64 %.0242.i.i, i64 4096)
-  %51 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %50, ptr noundef nonnull %10)
-  %52 = icmp ult i64 %51, %50
-  br i1 %52, label %53, label %fread.inline.exit.i.i
+fread.inline.exit38.i.i:                          ; preds = %47, %49
+  %.0242.i.i = phi i64 [ %50, %49 ], [ %38, %47 ]
+  %51 = call i64 @llvm.umin.i64(i64 %.0242.i.i, i64 4096)
+  %52 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %51, ptr noundef nonnull %10)
+  %53 = icmp ult i64 %52, %51
+  br i1 %53, label %54, label %fread.inline.exit.i.i
 
-53:                                               ; preds = %fread.inline.exit38.i.i
+54:                                               ; preds = %fread.inline.exit38.i.i
   %.not33.i.i = icmp eq ptr %4, null
   br i1 %.not33.i.i, label %compare_data_.exit.thread.i, label %.critedge.sink.split.i.i
 
 fread.inline.exit.i.i:                            ; preds = %fread.inline.exit38.i.i
-  %54 = call i64 @fread(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %50, ptr noundef nonnull %15)
-  %55 = icmp ult i64 %54, %50
-  br i1 %55, label %56, label %57
+  %55 = call i64 @fread(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %51, ptr noundef nonnull %15)
+  %56 = icmp ult i64 %55, %51
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %fread.inline.exit.i.i
+57:                                               ; preds = %fread.inline.exit.i.i
   %.not32.i.i = icmp eq ptr %4, null
   br i1 %.not32.i.i, label %compare_data_.exit.thread.i, label %.critedge.sink.split.i.i
 
-57:                                               ; preds = %fread.inline.exit.i.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %9, i64 %50)
+58:                                               ; preds = %fread.inline.exit.i.i
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %9, i64 %51)
   %.not30.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not30.i.i, label %48, label %58
+  br i1 %.not30.i.i, label %49, label %59
 
-58:                                               ; preds = %57
+59:                                               ; preds = %58
   %.not31.i.i = icmp eq ptr %4, null
   br i1 %.not31.i.i, label %compare_data_.exit.thread.i, label %.critedge.sink.split.i.i
 
-.critedge.sink.split.i.i:                         ; preds = %58, %56, %53
-  %.str.121.sink.i.i = phi ptr [ @.str.121, %53 ], [ @.str.124, %56 ], [ %47, %58 ]
+.critedge.sink.split.i.i:                         ; preds = %59, %57, %54
+  %.str.121.sink.i.i = phi ptr [ @.str.121, %54 ], [ @.str.124, %57 ], [ %48, %59 ]
   store ptr %.str.121.sink.i.i, ptr %4, align 8, !tbaa !12
   br label %compare_data_.exit.thread.i
 
-compare_data_.exit.thread.i:                      ; preds = %.critedge.sink.split.i.i, %58, %56, %53
+compare_data_.exit.thread.i:                      ; preds = %.critedge.sink.split.i.i, %59, %57, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %compare_with_iff_.exit
 
-.loopexit62.i:                                    ; preds = %48, %46
+.loopexit62.i:                                    ; preds = %49, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %59 = add i64 %.069.i, 1
-  %60 = load i64, ptr %22, align 8, !tbaa !21
-  %.not.i = icmp ugt i64 %59, %60
-  br i1 %.not.i, label %61, label %25, !llvm.loop !42
+  %60 = add i64 %.069.i, 1
+  %61 = load i64, ptr %22, align 8, !tbaa !21
+  %.not.i = icmp ugt i64 %60, %61
+  br i1 %.not.i, label %62, label %25, !llvm.loop !42
 
-61:                                               ; preds = %.loopexit62.i
-  %62 = call i32 @fseeko64(ptr noundef nonnull %15, i64 noundef %3, i32 noundef 0)
-  %63 = icmp slt i32 %62, 0
-  br i1 %63, label %67, label %.preheader.i
+62:                                               ; preds = %.loopexit62.i
+  %63 = call i32 @fseeko64(ptr noundef nonnull %15, i64 noundef %3, i32 noundef 0)
+  %64 = icmp slt i32 %63, 0
+  br i1 %64, label %68, label %.preheader.i
 
-.preheader.i:                                     ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = load i64, ptr %64, align 8, !tbaa !15
-  %66 = icmp ult i64 %59, %65
-  br i1 %66, label %.lr.ph.i, label %compare_with_iff_.exit
+.preheader.i:                                     ; preds = %62
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %66 = load i64, ptr %65, align 8, !tbaa !15
+  %67 = icmp ult i64 %60, %66
+  br i1 %67, label %.lr.ph.i, label %compare_with_iff_.exit
 
-67:                                               ; preds = %61
+68:                                               ; preds = %62
   %.not40.i = icmp eq ptr %4, null
-  br i1 %.not40.i, label %compare_with_iff_.exit, label %68
+  br i1 %.not40.i, label %compare_with_iff_.exit, label %69
 
-68:                                               ; preds = %67
+69:                                               ; preds = %68
   store ptr @.str.119, ptr %4, align 8, !tbaa !12
   br label %compare_with_iff_.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.loopexit.i
-  %.170.i = phi i64 [ %92, %.loopexit.i ], [ %59, %.preheader.i ]
-  %69 = load ptr, ptr %23, align 8, !tbaa !11
-  %70 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %69, i64 %.170.i
-  %71 = load i64, ptr %70, align 8, !tbaa !16
-  %72 = call i32 @fseeko64(ptr noundef nonnull %10, i64 noundef %71, i32 noundef 0)
-  %73 = icmp slt i32 %72, 0
-  br i1 %73, label %74, label %76
+  %.170.i = phi i64 [ %94, %.loopexit.i ], [ %60, %.preheader.i ]
+  %70 = load ptr, ptr %23, align 8, !tbaa !11
+  %71 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %70, i64 %.170.i
+  %72 = load i64, ptr %71, align 8, !tbaa !16
+  %73 = call i32 @fseeko64(ptr noundef nonnull %10, i64 noundef %72, i32 noundef 0)
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %75, label %77
 
-74:                                               ; preds = %.lr.ph.i
+75:                                               ; preds = %.lr.ph.i
   %.not39.i = icmp eq ptr %4, null
-  br i1 %.not39.i, label %compare_with_iff_.exit, label %75
+  br i1 %.not39.i, label %compare_with_iff_.exit, label %76
 
-75:                                               ; preds = %74
+76:                                               ; preds = %75
   store ptr @.str.120, ptr %4, align 8, !tbaa !12
   br label %compare_with_iff_.exit
 
-76:                                               ; preds = %.lr.ph.i
-  %77 = load ptr, ptr %23, align 8, !tbaa !11
-  %78 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %77, i64 %.170.i, i32 1
-  %79 = load i32, ptr %78, align 8, !tbaa !18
+77:                                               ; preds = %.lr.ph.i
+  %78 = load ptr, ptr %23, align 8, !tbaa !11
+  %79 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %78, i64 %.170.i
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load i32, ptr %80, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.not1.i43.i = icmp eq i32 %79, 0
+  %.not1.i43.i = icmp eq i32 %81, 0
   br i1 %.not1.i43.i, label %.loopexit.i, label %fread.inline.exit38.i44.preheader.i
 
-fread.inline.exit38.i44.preheader.i:              ; preds = %76
-  %80 = zext i32 %79 to i64
+fread.inline.exit38.i44.preheader.i:              ; preds = %77
+  %82 = zext i32 %81 to i64
   br label %fread.inline.exit38.i44.i
 
-81:                                               ; preds = %90
-  %82 = sub i64 %.0242.i45.i, %83
-  %.not.i53.i = icmp eq i64 %82, 0
+83:                                               ; preds = %92
+  %84 = sub i64 %.0242.i45.i, %85
+  %.not.i53.i = icmp eq i64 %84, 0
   br i1 %.not.i53.i, label %.loopexit.i, label %fread.inline.exit38.i44.i, !llvm.loop !41
 
-fread.inline.exit38.i44.i:                        ; preds = %81, %fread.inline.exit38.i44.preheader.i
-  %.0242.i45.i = phi i64 [ %82, %81 ], [ %80, %fread.inline.exit38.i44.preheader.i ]
-  %83 = call i64 @llvm.umin.i64(i64 %.0242.i45.i, i64 4096)
-  %84 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %83, ptr noundef nonnull %10)
-  %85 = icmp ult i64 %84, %83
-  br i1 %85, label %86, label %fread.inline.exit.i46.i
+fread.inline.exit38.i44.i:                        ; preds = %83, %fread.inline.exit38.i44.preheader.i
+  %.0242.i45.i = phi i64 [ %84, %83 ], [ %82, %fread.inline.exit38.i44.preheader.i ]
+  %85 = call i64 @llvm.umin.i64(i64 %.0242.i45.i, i64 4096)
+  %86 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %85, ptr noundef nonnull %10)
+  %87 = icmp ult i64 %86, %85
+  br i1 %87, label %88, label %fread.inline.exit.i46.i
 
-86:                                               ; preds = %fread.inline.exit38.i44.i
+88:                                               ; preds = %fread.inline.exit38.i44.i
   %.not33.i55.i = icmp eq ptr %4, null
   br i1 %.not33.i55.i, label %compare_data_.exit56.thread.i, label %.critedge.sink.split.i50.i
 
 fread.inline.exit.i46.i:                          ; preds = %fread.inline.exit38.i44.i
-  %87 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %83, ptr noundef nonnull %15)
-  %88 = icmp ult i64 %87, %83
-  br i1 %88, label %89, label %90
+  %89 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %85, ptr noundef nonnull %15)
+  %90 = icmp ult i64 %89, %85
+  br i1 %90, label %91, label %92
 
-89:                                               ; preds = %fread.inline.exit.i46.i
+91:                                               ; preds = %fread.inline.exit.i46.i
   %.not32.i54.i = icmp eq ptr %4, null
   br i1 %.not32.i54.i, label %compare_data_.exit56.thread.i, label %.critedge.sink.split.i50.i
 
-90:                                               ; preds = %fread.inline.exit.i46.i
-  %bcmp.i47.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %7, i64 %83)
+92:                                               ; preds = %fread.inline.exit.i46.i
+  %bcmp.i47.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %7, i64 %85)
   %.not30.i48.i = icmp eq i32 %bcmp.i47.i, 0
-  br i1 %.not30.i48.i, label %81, label %91
+  br i1 %.not30.i48.i, label %83, label %93
 
-91:                                               ; preds = %90
+93:                                               ; preds = %92
   %.not31.i49.i = icmp eq ptr %4, null
   br i1 %.not31.i49.i, label %compare_data_.exit56.thread.i, label %.critedge.sink.split.i50.i
 
-.critedge.sink.split.i50.i:                       ; preds = %91, %89, %86
-  %.str.121.sink.i51.i = phi ptr [ @.str.121, %86 ], [ @.str.124, %89 ], [ @.str.128, %91 ]
+.critedge.sink.split.i50.i:                       ; preds = %93, %91, %88
+  %.str.121.sink.i51.i = phi ptr [ @.str.121, %88 ], [ @.str.124, %91 ], [ @.str.128, %93 ]
   store ptr %.str.121.sink.i51.i, ptr %4, align 8, !tbaa !12
   br label %compare_data_.exit56.thread.i
 
-compare_data_.exit56.thread.i:                    ; preds = %.critedge.sink.split.i50.i, %91, %89, %86
+compare_data_.exit56.thread.i:                    ; preds = %.critedge.sink.split.i50.i, %93, %91, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %compare_with_iff_.exit
 
-.loopexit.i:                                      ; preds = %81, %76
+.loopexit.i:                                      ; preds = %83, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %92 = add nuw i64 %.170.i, 1
-  %93 = load i64, ptr %64, align 8, !tbaa !15
-  %94 = icmp ult i64 %92, %93
-  br i1 %94, label %.lr.ph.i, label %compare_with_iff_.exit, !llvm.loop !43
+  %94 = add nuw i64 %.170.i, 1
+  %95 = load i64, ptr %65, align 8, !tbaa !15
+  %96 = icmp ult i64 %94, %95
+  br i1 %96, label %.lr.ph.i, label %compare_with_iff_.exit, !llvm.loop !43
 
-compare_with_iff_.exit:                           ; preds = %.loopexit.i, %31, %32, %compare_data_.exit.thread.i, %.preheader.i, %67, %68, %74, %75, %compare_data_.exit56.thread.i
-  %.035.i = phi i32 [ 0, %32 ], [ 0, %31 ], [ 0, %68 ], [ 0, %67 ], [ 0, %75 ], [ 0, %74 ], [ 0, %compare_data_.exit.thread.i ], [ 0, %compare_data_.exit56.thread.i ], [ 1, %.preheader.i ], [ 1, %.loopexit.i ]
-  %95 = call i32 @fclose(ptr noundef nonnull %10)
-  %96 = call i32 @fclose(ptr noundef nonnull %15)
-  br label %97
+compare_with_iff_.exit:                           ; preds = %.loopexit.i, %31, %32, %compare_data_.exit.thread.i, %.preheader.i, %68, %69, %75, %76, %compare_data_.exit56.thread.i
+  %.035.i = phi i32 [ 0, %32 ], [ 0, %31 ], [ 0, %69 ], [ 0, %68 ], [ 0, %76 ], [ 0, %75 ], [ 0, %compare_data_.exit.thread.i ], [ 0, %compare_data_.exit56.thread.i ], [ 1, %.preheader.i ], [ 1, %.loopexit.i ]
+  %97 = call i32 @fclose(ptr noundef nonnull %10)
+  %98 = call i32 @fclose(ptr noundef nonnull %15)
+  br label %99
 
-97:                                               ; preds = %12, %13, %compare_with_iff_.exit, %19
+99:                                               ; preds = %12, %13, %compare_with_iff_.exit, %19
   %.0 = phi i32 [ 0, %19 ], [ %.035.i, %compare_with_iff_.exit ], [ 0, %13 ], [ 0, %12 ]
   ret i32 %.0
 }

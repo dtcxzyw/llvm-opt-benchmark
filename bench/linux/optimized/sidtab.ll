@@ -1094,9 +1094,11 @@ define internal fastcc i32 @sidtab_convert_tree(ptr noundef captures(none) %0, p
 41:                                               ; preds = %37
   %42 = load ptr, ptr %5, align 8
   %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr %struct.sidtab_entry, ptr %43, i64 %39, i32 2
+  %.split = getelementptr %struct.sidtab_entry, ptr %43, i64 %39
+  %44 = getelementptr i8, ptr %.split, i64 8
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr %struct.sidtab_entry, ptr %45, i64 %39, i32 2
+  %.split6 = getelementptr %struct.sidtab_entry, ptr %45, i64 %39
+  %46 = getelementptr i8, ptr %.split6, i64 8
   %47 = tail call i32 @services_convert_context(ptr noundef %42, ptr noundef %44, ptr noundef %46, i32 noundef 3264) #13
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %.loopexit

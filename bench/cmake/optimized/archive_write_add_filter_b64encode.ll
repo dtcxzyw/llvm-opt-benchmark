@@ -93,8 +93,9 @@ define internal range(i32 -30, 1) i32 @archive_filter_b64encode_open(ptr noundef
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %12
-  %14 = urem i64 65536, %10
-  %15 = sub nuw nsw i64 65536, %14
+  %14 = urem i32 65536, %9
+  %narrow = sub nuw nsw i32 65536, %14
+  %15 = zext nneg i32 %narrow to i64
   br label %16
 
 16:                                               ; preds = %8, %13, %12, %1

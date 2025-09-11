@@ -303,50 +303,51 @@ _ZNSt6vectorIN2cv5Size_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = 
 ._crit_edge:                                      ; preds = %19, %.thread
   %17 = phi ptr [ null, %.thread ], [ %13, %19 ]
   %18 = invoke { i64, i64 } @_ZN2cv6detail9resultRoiERKSt6vectorINS_6Point_IiEESaIS3_EERKS1_INS_5Size_IiEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %28 unwind label %30
+          to label %29 unwind label %31
 
 19:                                               ; preds = %.lr.ph, %19
-  %.01018 = phi i64 [ 0, %.lr.ph ], [ %26, %19 ]
-  %20 = getelementptr inbounds nuw %"class.cv::UMat", ptr %6, i64 %.01018, i32 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !37
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !3
-  %24 = load i32, ptr %21, align 4, !tbaa !3
-  %.sroa.2.0.insert.ext.i = zext i32 %24 to i64
+  %.01018 = phi i64 [ 0, %.lr.ph ], [ %27, %19 ]
+  %20 = getelementptr inbounds nuw %"class.cv::UMat", ptr %6, i64 %.01018
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %22 = load ptr, ptr %21, align 8, !tbaa !37
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !3
+  %25 = load i32, ptr %22, align 4, !tbaa !3
+  %.sroa.2.0.insert.ext.i = zext i32 %25 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %23 to i64
+  %.sroa.0.0.insert.ext.i = zext i32 %24 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %25 = getelementptr inbounds nuw %"class.cv::Size_", ptr %13, i64 %.01018
-  store i64 %.sroa.0.0.insert.insert.i, ptr %25, align 4
-  %26 = add nuw nsw i64 %.01018, 1
-  %27 = icmp samesign ult i64 %26, %10
-  br i1 %27, label %19, label %._crit_edge, !llvm.loop !39
+  %26 = getelementptr inbounds nuw %"class.cv::Size_", ptr %13, i64 %.01018
+  store i64 %.sroa.0.0.insert.insert.i, ptr %26, align 4
+  %27 = add nuw nsw i64 %.01018, 1
+  %28 = icmp samesign ult i64 %27, %10
+  br i1 %28, label %19, label %._crit_edge, !llvm.loop !39
 
-28:                                               ; preds = %._crit_edge
+29:                                               ; preds = %._crit_edge
   %.not.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit, label %29
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit, label %30
 
-29:                                               ; preds = %28
+30:                                               ; preds = %29
   tail call void @_ZdlPv(ptr noundef nonnull %17) #21
   br label %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit:     ; preds = %28, %29
+_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit:     ; preds = %29, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret { i64, i64 } %18
 
-30:                                               ; preds = %._crit_edge
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %._crit_edge
+  %32 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i16 = icmp eq ptr %17, null
-  br i1 %.not.i.i.i16, label %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit17, label %32
+  br i1 %.not.i.i.i16, label %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit17, label %33
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   tail call void @_ZdlPv(ptr noundef nonnull %17) #21
   br label %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit17
 
-_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit17:   ; preds = %32, %30
+_ZNSt6vectorIN2cv5Size_IiEESaIS2_EED2Ev.exit17:   ; preds = %33, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %31
+  resume { ptr, i32 } %32
 }
 
 declare i32 @__gxx_personality_v0(...)

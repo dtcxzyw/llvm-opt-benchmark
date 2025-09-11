@@ -126,44 +126,45 @@ define hidden i32 @_glfwSelectPlatform(i32 noundef %0, ptr noundef %1) local_unn
   br label %.preheader44
 
 20:                                               ; preds = %.preheader
-  br i1 %21, label %.preheader, label %25
+  br i1 %21, label %.preheader, label %26
 
 .preheader:                                       ; preds = %.preheader.preheader, %20
   %21 = phi i1 [ false, %20 ], [ true, %.preheader.preheader ]
   %.03646 = phi i64 [ 1, %20 ], [ 0, %.preheader.preheader ]
-  %22 = getelementptr inbounds nuw %struct.anon, ptr @supportedPlatforms, i64 %.03646, i32 1
-  %23 = load ptr, ptr %22, align 8, !tbaa !3
-  %24 = tail call i32 %23(i32 noundef 393216, ptr noundef %1) #5
-  %.not43 = icmp eq i32 %24, 0
+  %22 = getelementptr inbounds nuw %struct.anon, ptr @supportedPlatforms, i64 %.03646
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !3
+  %25 = tail call i32 %24(i32 noundef 393216, ptr noundef %1) #5
+  %.not43 = icmp eq i32 %25, 0
   br i1 %.not43, label %20, label %.loopexit
 
-25:                                               ; preds = %20
+26:                                               ; preds = %20
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65550, ptr noundef nonnull @.str.6) #5
   br label %.loopexit
 
-26:                                               ; preds = %.preheader44
-  br i1 %27, label %.preheader44, label %35
+27:                                               ; preds = %.preheader44
+  br i1 %28, label %.preheader44, label %36
 
-.preheader44:                                     ; preds = %.preheader44.preheader, %26
-  %27 = phi i1 [ false, %26 ], [ true, %.preheader44.preheader ]
-  %.145 = phi i64 [ 1, %26 ], [ 0, %.preheader44.preheader ]
-  %28 = getelementptr inbounds nuw %struct.anon, ptr @supportedPlatforms, i64 %.145
-  %29 = load i32, ptr %28, align 16, !tbaa !9
-  %30 = icmp eq i32 %29, %.037
-  br i1 %30, label %31, label %26
+.preheader44:                                     ; preds = %.preheader44.preheader, %27
+  %28 = phi i1 [ false, %27 ], [ true, %.preheader44.preheader ]
+  %.145 = phi i64 [ 1, %27 ], [ 0, %.preheader44.preheader ]
+  %29 = getelementptr inbounds nuw %struct.anon, ptr @supportedPlatforms, i64 %.145
+  %30 = load i32, ptr %29, align 16, !tbaa !9
+  %31 = icmp eq i32 %30, %.037
+  br i1 %31, label %32, label %27
 
-31:                                               ; preds = %.preheader44
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !3
-  %34 = tail call i32 %33(i32 noundef %.037, ptr noundef %1) #5
+32:                                               ; preds = %.preheader44
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !3
+  %35 = tail call i32 %34(i32 noundef %.037, ptr noundef %1) #5
   br label %.loopexit
 
-35:                                               ; preds = %26
+36:                                               ; preds = %27
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65550, ptr noundef nonnull @.str.7) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %25, %35, %31, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ %7, %6 ], [ %34, %31 ], [ 0, %35 ], [ 0, %25 ], [ 1, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %26, %36, %32, %6, %4
+  %.0 = phi i32 [ 0, %4 ], [ %7, %6 ], [ %35, %32 ], [ 0, %36 ], [ 0, %26 ], [ 1, %.preheader ]
   ret i32 %.0
 }
 

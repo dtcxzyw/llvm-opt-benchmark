@@ -183,7 +183,7 @@ select.unfold.i:                                  ; preds = %12, %9
 mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_head.exit.i.i.i
   %30 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %.preheader, label %241
+  br i1 %.not, label %.preheader, label %242
 
 .preheader:                                       ; preds = %select.unfold.i, %2, %mXactCacheGetBySet.exit
   %31 = icmp sgt i32 %0, 0
@@ -194,7 +194,7 @@ mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_hea
   br label %.lr.ph
 
 32:                                               ; preds = %.lr.ph
-  %.0.mux = select i1 %35, i1 true, i1 %.034
+  %.0.mux = select i1 %36, i1 true, i1 %.034
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -202,400 +202,401 @@ mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_hea
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
   %.034 = phi i1 [ false, %.lr.ph.preheader ], [ %.0.mux, %32 ]
-  %33 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %1, i64 %indvars.iv, i32 1
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp ugt i32 %34, 3
-  %brmerge.not = select i1 %35, i1 %.034, i1 false
-  br i1 %brmerge.not, label %36, label %32
+  %33 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %1, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp ugt i32 %35, 3
+  %brmerge.not = select i1 %36, i1 %.034, i1 false
+  br i1 %brmerge.not, label %37, label %32
 
-36:                                               ; preds = %.lr.ph
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call ptr @mxid_to_string(i32 noundef 0, i32 noundef %0, ptr noundef nonnull %1)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %38) #13
+37:                                               ; preds = %.lr.ph
+  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %38)
+  %39 = tail call ptr @mxid_to_string(i32 noundef 0, i32 noundef %0, ptr noundef nonnull %1)
+  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %39) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 852, ptr noundef nonnull @__func__.MultiXactIdCreateFromMembers) #13
   unreachable
 
 ._crit_edge:                                      ; preds = %32, %.preheader
-  %40 = tail call zeroext i1 @RecoveryInProgress() #13
-  br i1 %40, label %41, label %44
+  %41 = tail call zeroext i1 @RecoveryInProgress() #13
+  br i1 %41, label %42, label %45
 
-41:                                               ; preds = %._crit_edge
-  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %42)
-  %43 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29) #13
+42:                                               ; preds = %._crit_edge
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %43)
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1041, ptr noundef nonnull @__func__.GetNewMultiXactId) #13
   unreachable
 
-44:                                               ; preds = %._crit_edge
-  %45 = load ptr, ptr @MainLWLockArray, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1664
-  %47 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %46, i32 noundef 0) #13
-  %48 = load ptr, ptr @MultiXactState, align 8
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %52
+45:                                               ; preds = %._crit_edge
+  %46 = load ptr, ptr @MainLWLockArray, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1664
+  %48 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %47, i32 noundef 0) #13
+  %49 = load ptr, ptr @MultiXactState, align 8
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %44
-  store i32 1, ptr %48, align 4
-  br label %52
+52:                                               ; preds = %45
+  store i32 1, ptr %49, align 4
+  br label %53
 
-52:                                               ; preds = %51, %44
-  %53 = phi i32 [ 1, %51 ], [ %49, %44 ]
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 28
-  %55 = load i32, ptr %54, align 4
-  %56 = sub i32 %53, %55
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %110, label %58
+53:                                               ; preds = %52, %45
+  %54 = phi i32 [ 1, %52 ], [ %50, %45 ]
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 28
+  %56 = load i32, ptr %55, align 4
+  %57 = sub i32 %54, %56
+  %58 = icmp slt i32 %57, 0
+  br i1 %58, label %111, label %59
 
-58:                                               ; preds = %52
-  %59 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %48, i64 36
-  %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %66 = load i32, ptr %65, align 4
-  %67 = load ptr, ptr @MainLWLockArray, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1664
-  tail call void @LWLockRelease(ptr noundef nonnull %68) #13
-  %69 = load i8, ptr @IsUnderPostmaster, align 1, !range !7, !noundef !8
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %.thread.i
+59:                                               ; preds = %53
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 36
+  %63 = load i32, ptr %62, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %65 = load i32, ptr %64, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %67 = load i32, ptr %66, align 4
+  %68 = load ptr, ptr @MainLWLockArray, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1664
+  tail call void @LWLockRelease(ptr noundef nonnull %69) #13
+  %70 = load i8, ptr @IsUnderPostmaster, align 1, !range !7, !noundef !8
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %.thread.i
 
-71:                                               ; preds = %58
-  %72 = sub i32 %53, %62
-  %73 = icmp slt i32 %72, 0
-  br i1 %73, label %84, label %74
+72:                                               ; preds = %59
+  %73 = sub i32 %54, %63
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %85, label %75
 
-74:                                               ; preds = %71
-  %75 = tail call ptr @get_database_name(i32 noundef %66) #13
+75:                                               ; preds = %72
+  %76 = tail call ptr @get_database_name(i32 noundef %67) #13
   tail call void @SendPostmasterSignal(i32 noundef 3) #13
-  %.not.i29 = icmp eq ptr %75, null
-  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %76)
-  %77 = tail call i32 @errcode(i32 noundef 261) #13
-  br i1 %.not.i29, label %81, label %78
+  %.not.i29 = icmp eq ptr %76, null
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %77)
+  %78 = tail call i32 @errcode(i32 noundef 261) #13
+  br i1 %.not.i29, label %82, label %79
 
-78:                                               ; preds = %74
-  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef nonnull %75) #13
-  %80 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.31) #13
+79:                                               ; preds = %75
+  %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef nonnull %76) #13
+  %81 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.31) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1100, ptr noundef nonnull @__func__.GetNewMultiXactId) #13
   unreachable
 
-81:                                               ; preds = %74
-  %82 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, i32 noundef %66) #13
-  %83 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.31) #13
+82:                                               ; preds = %75
+  %83 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, i32 noundef %67) #13
+  %84 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.31) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1107, ptr noundef nonnull @__func__.GetNewMultiXactId) #13
   unreachable
 
-84:                                               ; preds = %71
-  %85 = and i32 %53, 65535
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %.thread.i
+85:                                               ; preds = %72
+  %86 = and i32 %54, 65535
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %.thread.i
 
-87:                                               ; preds = %84
+88:                                               ; preds = %85
   tail call void @SendPostmasterSignal(i32 noundef 3) #13
   br label %.thread.i
 
-.thread.i:                                        ; preds = %87, %84, %58
-  %88 = sub i32 %53, %60
-  %89 = icmp slt i32 %88, 0
-  br i1 %89, label %104, label %90
+.thread.i:                                        ; preds = %88, %85, %59
+  %89 = sub i32 %54, %61
+  %90 = icmp slt i32 %89, 0
+  br i1 %90, label %105, label %91
 
-90:                                               ; preds = %.thread.i
-  %91 = tail call ptr @get_database_name(i32 noundef %66) #13
-  %.not50.i = icmp eq ptr %91, null
-  %92 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
-  br i1 %.not50.i, label %98, label %93
+91:                                               ; preds = %.thread.i
+  %92 = tail call ptr @get_database_name(i32 noundef %67) #13
+  %.not50.i = icmp eq ptr %92, null
+  %93 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
+  br i1 %.not50.i, label %99, label %94
 
-93:                                               ; preds = %90
-  br i1 %92, label %94, label %104
+94:                                               ; preds = %91
+  br i1 %93, label %95, label %105
 
-94:                                               ; preds = %93
-  %95 = sub i32 %64, %53
-  %96 = zext i32 %95 to i64
-  %97 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i64 noundef %96, ptr noundef nonnull %91, i32 noundef %95) #13
+95:                                               ; preds = %94
+  %96 = sub i32 %65, %54
+  %97 = zext i32 %96 to i64
+  %98 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i64 noundef %97, ptr noundef nonnull %92, i32 noundef %96) #13
   br label %.sink.split.i
 
-98:                                               ; preds = %90
-  br i1 %92, label %99, label %104
+99:                                               ; preds = %91
+  br i1 %93, label %100, label %105
 
-99:                                               ; preds = %98
-  %100 = sub i32 %64, %53
-  %101 = zext i32 %100 to i64
-  %102 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i64 noundef %101, i32 noundef %66, i32 noundef %100) #13
+100:                                              ; preds = %99
+  %101 = sub i32 %65, %54
+  %102 = zext i32 %101 to i64
+  %103 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i64 noundef %102, i32 noundef %67, i32 noundef %101) #13
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %99, %94
-  %.sink70.i = phi i32 [ 1131, %94 ], [ 1140, %99 ]
-  %103 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.31) #13
+.sink.split.i:                                    ; preds = %100, %95
+  %.sink70.i = phi i32 [ 1131, %95 ], [ 1140, %100 ]
+  %104 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.31) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink70.i, ptr noundef nonnull @__func__.GetNewMultiXactId) #13
-  br label %104
+  br label %105
 
-104:                                              ; preds = %.sink.split.i, %98, %93, %.thread.i
-  %105 = load ptr, ptr @MainLWLockArray, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1664
-  %107 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %106, i32 noundef 0) #13
-  %108 = load ptr, ptr @MultiXactState, align 8
-  %109 = load i32, ptr %108, align 4
-  %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %109, i32 1)
-  br label %110
+105:                                              ; preds = %.sink.split.i, %99, %94, %.thread.i
+  %106 = load ptr, ptr @MainLWLockArray, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1664
+  %108 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %107, i32 noundef 0) #13
+  %109 = load ptr, ptr @MultiXactState, align 8
+  %110 = load i32, ptr %109, align 4
+  %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %110, i32 1)
+  br label %111
 
-110:                                              ; preds = %104, %52
-  %111 = phi ptr [ %48, %52 ], [ %108, %104 ]
-  %.046.i = phi i32 [ %53, %52 ], [ %spec.store.select.i, %104 ]
-  %112 = and i32 %.046.i, 2047
-  %113 = icmp ne i32 %112, 0
-  %114 = icmp ne i32 %.046.i, 1
-  %or.cond.i.i = and i1 %114, %113
-  br i1 %or.cond.i.i, label %ExtendMultiXactOffset.exit.i, label %115
+111:                                              ; preds = %105, %53
+  %112 = phi ptr [ %49, %53 ], [ %109, %105 ]
+  %.046.i = phi i32 [ %54, %53 ], [ %spec.store.select.i, %105 ]
+  %113 = and i32 %.046.i, 2047
+  %114 = icmp ne i32 %113, 0
+  %115 = icmp ne i32 %.046.i, 1
+  %or.cond.i.i = and i1 %115, %114
+  br i1 %or.cond.i.i, label %ExtendMultiXactOffset.exit.i, label %116
 
-115:                                              ; preds = %110
-  %116 = lshr i32 %.046.i, 11
-  %117 = zext nneg i32 %116 to i64
+116:                                              ; preds = %111
+  %117 = lshr i32 %.046.i, 11
+  %118 = zext nneg i32 %117 to i64
   %MultiXactOffsetCtlData.val.i.i = load ptr, ptr @MultiXactOffsetCtlData, align 8
   %MultiXactOffsetCtlData.val7.i.i = load i16, ptr getelementptr inbounds nuw (i8, ptr @MultiXactOffsetCtlData, i64 8), align 8
-  %118 = getelementptr i8, ptr %MultiXactOffsetCtlData.val.i.i, i64 56
-  %MultiXactOffsetCtlData.val.val.i.i = load ptr, ptr %118, align 8
+  %119 = getelementptr i8, ptr %MultiXactOffsetCtlData.val.i.i, i64 56
+  %MultiXactOffsetCtlData.val.val.i.i = load ptr, ptr %119, align 8
   %.rhs.trunc.i.i = zext i16 %MultiXactOffsetCtlData.val7.i.i to i32
-  %119 = urem i32 %116, %.rhs.trunc.i.i
-  %120 = shl nuw nsw i32 %119, 7
-  %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw i8, ptr %MultiXactOffsetCtlData.val.val.i.i, i64 %121
-  %123 = tail call zeroext i1 @LWLockAcquire(ptr noundef %122, i32 noundef 0) #13
-  %124 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %117) #13
+  %120 = urem i32 %117, %.rhs.trunc.i.i
+  %121 = shl nuw nsw i32 %120, 7
+  %122 = zext nneg i32 %121 to i64
+  %123 = getelementptr inbounds nuw i8, ptr %MultiXactOffsetCtlData.val.val.i.i, i64 %122
+  %124 = tail call zeroext i1 @LWLockAcquire(ptr noundef %123, i32 noundef 0) #13
+  %125 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %118) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %117, ptr %4, align 8
+  store i64 %118, ptr %4, align 8
   tail call void @XLogBeginInsert() #13
   call void @XLogRegisterData(ptr noundef nonnull %4, i32 noundef 8) #13
-  %125 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 0) #13
+  %126 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @LWLockRelease(ptr noundef %122) #13
+  call void @LWLockRelease(ptr noundef %123) #13
   %.pre.i = load ptr, ptr @MultiXactState, align 8
   br label %ExtendMultiXactOffset.exit.i
 
-ExtendMultiXactOffset.exit.i:                     ; preds = %115, %110
-  %126 = phi ptr [ %111, %110 ], [ %.pre.i, %115 ]
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  %128 = load i32, ptr %127, align 4
-  %129 = icmp eq i32 %128, 0
-  %spec.select.i = call i32 @llvm.umax.i32(i32 %128, i32 1)
-  %130 = zext i1 %129 to i32
-  %spec.select71.i = add i32 %0, %130
-  %131 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %132 = load i8, ptr %131, align 4, !range !7, !noundef !8
-  %133 = trunc nuw i8 %132 to i1
-  br i1 %133, label %134, label %._crit_edge.i
+ExtendMultiXactOffset.exit.i:                     ; preds = %116, %111
+  %127 = phi ptr [ %112, %111 ], [ %.pre.i, %116 ]
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
+  %129 = load i32, ptr %128, align 4
+  %130 = icmp eq i32 %129, 0
+  %spec.select.i = call i32 @llvm.umax.i32(i32 %129, i32 1)
+  %131 = zext i1 %130 to i32
+  %spec.select71.i = add i32 %0, %131
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %133 = load i8, ptr %132, align 4, !range !7, !noundef !8
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %135, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %ExtendMultiXactOffset.exit.i
-  %.pre63.i = add i32 %spec.select71.i, %128
-  br label %166
+  %.pre63.i = add i32 %spec.select71.i, %129
+  br label %167
 
-134:                                              ; preds = %ExtendMultiXactOffset.exit.i
-  %135 = getelementptr inbounds nuw i8, ptr %126, i64 44
-  %136 = load i32, ptr %135, align 4
-  %137 = add i32 %spec.select71.i, %128
-  %138 = icmp ult i32 %137, %128
-  %139 = zext i1 %138 to i32
-  %spec.select.i.i = add nuw i32 %137, %139
-  %140 = icmp ult i32 %128, %136
-  %141 = icmp uge i32 %spec.select.i.i, %136
-  %142 = icmp ult i32 %spec.select.i.i, %128
-  br i1 %140, label %143, label %MultiXactOffsetWouldWrap.exit.i
+135:                                              ; preds = %ExtendMultiXactOffset.exit.i
+  %136 = getelementptr inbounds nuw i8, ptr %127, i64 44
+  %137 = load i32, ptr %136, align 4
+  %138 = add i32 %spec.select71.i, %129
+  %139 = icmp ult i32 %138, %129
+  %140 = zext i1 %139 to i32
+  %spec.select.i.i = add nuw i32 %138, %140
+  %141 = icmp ult i32 %129, %137
+  %142 = icmp uge i32 %spec.select.i.i, %137
+  %143 = icmp ult i32 %spec.select.i.i, %129
+  br i1 %141, label %144, label %MultiXactOffsetWouldWrap.exit.i
 
-143:                                              ; preds = %134
-  %144 = or i1 %142, %141
-  br i1 %144, label %146, label %161
+144:                                              ; preds = %135
+  %145 = or i1 %143, %142
+  br i1 %145, label %147, label %162
 
-MultiXactOffsetWouldWrap.exit.i:                  ; preds = %134
-  %145 = and i1 %142, %141
-  br i1 %145, label %146, label %161
+MultiXactOffsetWouldWrap.exit.i:                  ; preds = %135
+  %146 = and i1 %143, %142
+  br i1 %146, label %147, label %162
 
-146:                                              ; preds = %MultiXactOffsetWouldWrap.exit.i, %143
+147:                                              ; preds = %MultiXactOffsetWouldWrap.exit.i, %144
   call void @SendPostmasterSignal(i32 noundef 3) #13
-  %147 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %147)
-  %148 = call i32 @errcode(i32 noundef 261) #13
-  %149 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33) #13
-  %150 = load ptr, ptr @MultiXactState, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 44
-  %152 = load i32, ptr %151, align 4
-  %153 = xor i32 %128, -1
-  %154 = add i32 %152, %153
-  %155 = zext i32 %154 to i64
-  %156 = call i32 (ptr, ptr, i64, ...) @errdetail_plural(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i64 noundef %155, i32 noundef %spec.select71.i, i32 noundef %154) #13
-  %157 = load ptr, ptr @MultiXactState, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  %159 = load i32, ptr %158, align 4
-  %160 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.36, i32 noundef %159) #13
+  %148 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %148)
+  %149 = call i32 @errcode(i32 noundef 261) #13
+  %150 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33) #13
+  %151 = load ptr, ptr @MultiXactState, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 44
+  %153 = load i32, ptr %152, align 4
+  %154 = xor i32 %129, -1
+  %155 = add i32 %153, %154
+  %156 = zext i32 %155 to i64
+  %157 = call i32 (ptr, ptr, i64, ...) @errdetail_plural(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i64 noundef %156, i32 noundef %spec.select71.i, i32 noundef %155) #13
+  %158 = load ptr, ptr @MultiXactState, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
+  %160 = load i32, ptr %159, align 4
+  %161 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.36, i32 noundef %160) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1202, ptr noundef nonnull @__func__.GetNewMultiXactId) #13
   unreachable
 
-161:                                              ; preds = %MultiXactOffsetWouldWrap.exit.i, %143
-  %162 = getelementptr inbounds nuw i8, ptr %126, i64 20
-  %163 = load i32, ptr %162, align 4
-  %164 = sub i32 %128, %163
-  %165 = icmp slt i32 %164, 0
-  br i1 %165, label %166, label %.thread69.i
+162:                                              ; preds = %MultiXactOffsetWouldWrap.exit.i, %144
+  %163 = getelementptr inbounds nuw i8, ptr %127, i64 20
+  %164 = load i32, ptr %163, align 4
+  %165 = sub i32 %129, %164
+  %166 = icmp slt i32 %165, 0
+  br i1 %166, label %167, label %.thread69.i
 
-166:                                              ; preds = %161, %._crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre63.i, %._crit_edge.i ], [ %137, %161 ]
-  %167 = udiv i32 %128, 1636
-  %168 = udiv i32 %.pre-phi.i, 1636
-  %.not51.unshifted60.i = xor i32 %168, %167
+167:                                              ; preds = %162, %._crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre63.i, %._crit_edge.i ], [ %138, %162 ]
+  %168 = udiv i32 %129, 1636
+  %169 = udiv i32 %.pre-phi.i, 1636
+  %.not51.unshifted60.i = xor i32 %169, %168
   %.not51.i = icmp samesign ult i32 %.not51.unshifted60.i, 32
-  br i1 %.not51.i, label %170, label %169
+  br i1 %.not51.i, label %171, label %170
 
-169:                                              ; preds = %166
+170:                                              ; preds = %167
   call void @SendPostmasterSignal(i32 noundef 3) #13
   %.pre61.i = load ptr, ptr @MultiXactState, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre61.i, i64 24
   %.pre62.i = load i8, ptr %.phi.trans.insert.i, align 4, !range !7
-  br label %170
+  br label %171
 
-170:                                              ; preds = %169, %166
-  %171 = phi i8 [ %132, %166 ], [ %.pre62.i, %169 ]
-  %172 = phi ptr [ %126, %166 ], [ %.pre61.i, %169 ]
-  %173 = trunc nuw i8 %171 to i1
-  br i1 %173, label %..thread69.i_crit_edge, label %198
+171:                                              ; preds = %170, %167
+  %172 = phi i8 [ %133, %167 ], [ %.pre62.i, %170 ]
+  %173 = phi ptr [ %127, %167 ], [ %.pre61.i, %170 ]
+  %174 = trunc nuw i8 %172 to i1
+  br i1 %174, label %..thread69.i_crit_edge, label %199
 
-..thread69.i_crit_edge:                           ; preds = %170
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %172, i64 44
+..thread69.i_crit_edge:                           ; preds = %171
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %173, i64 44
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %.pre37 = add i32 %spec.select71.i, %128
+  %.pre37 = add i32 %spec.select71.i, %129
   br label %.thread69.i
 
-.thread69.i:                                      ; preds = %..thread69.i_crit_edge, %161
-  %.pre-phi = phi i32 [ %.pre37, %..thread69.i_crit_edge ], [ %137, %161 ]
-  %174 = phi i32 [ %.pre, %..thread69.i_crit_edge ], [ %136, %161 ]
-  %175 = add i32 %.pre-phi, 1047040
-  %176 = icmp ult i32 %175, %128
-  %177 = zext i1 %176 to i32
-  %spec.select.i53.i = add nuw i32 %175, %177
-  %178 = icmp ult i32 %128, %174
-  %179 = icmp uge i32 %spec.select.i53.i, %174
-  %180 = icmp ult i32 %spec.select.i53.i, %128
-  br i1 %178, label %181, label %MultiXactOffsetWouldWrap.exit55.i
+.thread69.i:                                      ; preds = %..thread69.i_crit_edge, %162
+  %.pre-phi = phi i32 [ %.pre37, %..thread69.i_crit_edge ], [ %138, %162 ]
+  %175 = phi i32 [ %.pre, %..thread69.i_crit_edge ], [ %137, %162 ]
+  %176 = add i32 %.pre-phi, 1047040
+  %177 = icmp ult i32 %176, %129
+  %178 = zext i1 %177 to i32
+  %spec.select.i53.i = add nuw i32 %176, %178
+  %179 = icmp ult i32 %129, %175
+  %180 = icmp uge i32 %spec.select.i53.i, %175
+  %181 = icmp ult i32 %spec.select.i53.i, %129
+  br i1 %179, label %182, label %MultiXactOffsetWouldWrap.exit55.i
 
-181:                                              ; preds = %.thread69.i
-  %182 = or i1 %180, %179
-  br i1 %182, label %184, label %198
+182:                                              ; preds = %.thread69.i
+  %183 = or i1 %181, %180
+  br i1 %183, label %185, label %199
 
 MultiXactOffsetWouldWrap.exit55.i:                ; preds = %.thread69.i
-  %183 = and i1 %180, %179
-  br i1 %183, label %184, label %198
+  %184 = and i1 %181, %180
+  br i1 %184, label %185, label %199
 
-184:                                              ; preds = %MultiXactOffsetWouldWrap.exit55.i, %181
-  %185 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
-  br i1 %185, label %186, label %198
+185:                                              ; preds = %MultiXactOffsetWouldWrap.exit55.i, %182
+  %186 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
+  br i1 %186, label %187, label %199
 
-186:                                              ; preds = %184
-  %187 = call i32 @errcode(i32 noundef 261) #13
-  %188 = load ptr, ptr @MultiXactState, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 44
-  %190 = load i32, ptr %189, align 4
-  %191 = sub i32 %190, %128
-  %192 = add i32 %191, %spec.select71.i
-  %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  %195 = load i32, ptr %194, align 4
-  %196 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i64 noundef %193, i32 noundef %195, i32 noundef %192) #13
-  %197 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.39) #13
+187:                                              ; preds = %185
+  %188 = call i32 @errcode(i32 noundef 261) #13
+  %189 = load ptr, ptr @MultiXactState, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 44
+  %191 = load i32, ptr %190, align 4
+  %192 = sub i32 %191, %129
+  %193 = add i32 %192, %spec.select71.i
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  %196 = load i32, ptr %195, align 4
+  %197 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i64 noundef %194, i32 noundef %196, i32 noundef %193) #13
+  %198 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.39) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1237, ptr noundef nonnull @__func__.GetNewMultiXactId) #13
-  br label %198
+  br label %199
 
-198:                                              ; preds = %186, %184, %MultiXactOffsetWouldWrap.exit55.i, %181, %170
-  %199 = icmp sgt i32 %spec.select71.i, 0
-  br i1 %199, label %.lr.ph.i.i, label %GetNewMultiXactId.exit
+199:                                              ; preds = %187, %185, %MultiXactOffsetWouldWrap.exit55.i, %182, %171
+  %200 = icmp sgt i32 %spec.select71.i, 0
+  br i1 %200, label %.lr.ph.i.i, label %GetNewMultiXactId.exit
 
-.lr.ph.i.i:                                       ; preds = %198, %221
-  %.022.i.i = phi i32 [ %223, %221 ], [ %128, %198 ]
-  %.01821.i.i = phi i32 [ %222, %221 ], [ %spec.select71.i, %198 ]
-  %200 = lshr i32 %.022.i.i, 2
-  %201 = urem i32 %200, 409
-  %202 = and i32 %.022.i.i, 3
-  %203 = or i32 %201, %202
-  %or.cond.i56.i = icmp eq i32 %203, 0
-  br i1 %or.cond.i56.i, label %204, label %215
+.lr.ph.i.i:                                       ; preds = %199, %222
+  %.022.i.i = phi i32 [ %224, %222 ], [ %129, %199 ]
+  %.01821.i.i = phi i32 [ %223, %222 ], [ %spec.select71.i, %199 ]
+  %201 = lshr i32 %.022.i.i, 2
+  %202 = urem i32 %201, 409
+  %203 = and i32 %.022.i.i, 3
+  %204 = or i32 %202, %203
+  %or.cond.i56.i = icmp eq i32 %204, 0
+  br i1 %or.cond.i56.i, label %205, label %216
 
-204:                                              ; preds = %.lr.ph.i.i
-  %205 = udiv i32 %.022.i.i, 1636
-  %206 = zext nneg i32 %205 to i64
+205:                                              ; preds = %.lr.ph.i.i
+  %206 = udiv i32 %.022.i.i, 1636
+  %207 = zext nneg i32 %206 to i64
   %MultiXactMemberCtlData.val.i.i = load ptr, ptr @MultiXactMemberCtlData, align 8
   %MultiXactMemberCtlData.val20.i.i = load i16, ptr getelementptr inbounds nuw (i8, ptr @MultiXactMemberCtlData, i64 8), align 8
-  %207 = getelementptr i8, ptr %MultiXactMemberCtlData.val.i.i, i64 56
-  %MultiXactMemberCtlData.val.val.i.i = load ptr, ptr %207, align 8
+  %208 = getelementptr i8, ptr %MultiXactMemberCtlData.val.i.i, i64 56
+  %MultiXactMemberCtlData.val.val.i.i = load ptr, ptr %208, align 8
   %.rhs.trunc.i57.i = zext i16 %MultiXactMemberCtlData.val20.i.i to i32
-  %208 = urem i32 %205, %.rhs.trunc.i57.i
-  %209 = shl nuw nsw i32 %208, 7
-  %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr inbounds nuw i8, ptr %MultiXactMemberCtlData.val.val.i.i, i64 %210
-  %212 = call zeroext i1 @LWLockAcquire(ptr noundef %211, i32 noundef 0) #13
-  %213 = call i32 @SimpleLruZeroPage(ptr noundef nonnull @MultiXactMemberCtlData, i64 noundef %206) #13
+  %209 = urem i32 %206, %.rhs.trunc.i57.i
+  %210 = shl nuw nsw i32 %209, 7
+  %211 = zext nneg i32 %210 to i64
+  %212 = getelementptr inbounds nuw i8, ptr %MultiXactMemberCtlData.val.val.i.i, i64 %211
+  %213 = call zeroext i1 @LWLockAcquire(ptr noundef %212, i32 noundef 0) #13
+  %214 = call i32 @SimpleLruZeroPage(ptr noundef nonnull @MultiXactMemberCtlData, i64 noundef %207) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %206, ptr %3, align 8
+  store i64 %207, ptr %3, align 8
   call void @XLogBeginInsert() #13
   call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 8) #13
-  %214 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 16) #13
+  %215 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 16) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @LWLockRelease(ptr noundef %211) #13
-  br label %215
+  call void @LWLockRelease(ptr noundef %212) #13
+  br label %216
 
-215:                                              ; preds = %204, %.lr.ph.i.i
-  %216 = icmp ugt i32 %.022.i.i, -1037
-  br i1 %216, label %217, label %219
+216:                                              ; preds = %205, %.lr.ph.i.i
+  %217 = icmp ugt i32 %.022.i.i, -1037
+  br i1 %217, label %218, label %220
 
-217:                                              ; preds = %215
-  %218 = sub nsw i32 0, %.022.i.i
-  br label %221
+218:                                              ; preds = %216
+  %219 = sub nsw i32 0, %.022.i.i
+  br label %222
 
-219:                                              ; preds = %215
-  %220 = urem i32 %.022.i.i, 1636
-  %narrow.i.i = sub nuw nsw i32 1636, %220
-  br label %221
+220:                                              ; preds = %216
+  %221 = urem i32 %.022.i.i, 1636
+  %narrow.i.i = sub nuw nsw i32 1636, %221
+  br label %222
 
-221:                                              ; preds = %219, %217
-  %.019.i.i = phi i32 [ %218, %217 ], [ %narrow.i.i, %219 ]
-  %222 = sub nsw i32 %.01821.i.i, %.019.i.i
-  %223 = add i32 %.019.i.i, %.022.i.i
-  %224 = icmp sgt i32 %222, 0
-  br i1 %224, label %.lr.ph.i.i, label %GetNewMultiXactId.exit, !llvm.loop !9
+222:                                              ; preds = %220, %218
+  %.019.i.i = phi i32 [ %219, %218 ], [ %narrow.i.i, %220 ]
+  %223 = sub nsw i32 %.01821.i.i, %.019.i.i
+  %224 = add i32 %.019.i.i, %.022.i.i
+  %225 = icmp sgt i32 %223, 0
+  br i1 %225, label %.lr.ph.i.i, label %GetNewMultiXactId.exit, !llvm.loop !9
 
-GetNewMultiXactId.exit:                           ; preds = %221, %198
-  %225 = load volatile i32, ptr @CritSectionCount, align 4
-  %226 = add i32 %225, 1
-  store volatile i32 %226, ptr @CritSectionCount, align 4
-  %227 = load ptr, ptr @MultiXactState, align 8
-  %228 = load i32, ptr %227, align 4
-  %229 = add i32 %228, 1
-  store i32 %229, ptr %227, align 4
-  %230 = getelementptr inbounds nuw i8, ptr %227, i64 4
-  %231 = load i32, ptr %230, align 4
-  %232 = add i32 %231, %spec.select71.i
-  store i32 %232, ptr %230, align 4
-  %233 = load ptr, ptr @MainLWLockArray, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 1664
-  call void @LWLockRelease(ptr noundef nonnull %234) #13
+GetNewMultiXactId.exit:                           ; preds = %222, %199
+  %226 = load volatile i32, ptr @CritSectionCount, align 4
+  %227 = add i32 %226, 1
+  store volatile i32 %227, ptr @CritSectionCount, align 4
+  %228 = load ptr, ptr @MultiXactState, align 8
+  %229 = load i32, ptr %228, align 4
+  %230 = add i32 %229, 1
+  store i32 %230, ptr %228, align 4
+  %231 = getelementptr inbounds nuw i8, ptr %228, i64 4
+  %232 = load i32, ptr %231, align 4
+  %233 = add i32 %232, %spec.select71.i
+  store i32 %233, ptr %231, align 4
+  %234 = load ptr, ptr @MainLWLockArray, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 1664
+  call void @LWLockRelease(ptr noundef nonnull %235) #13
   store i32 %.046.i, ptr %5, align 4
-  %235 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %spec.select.i, ptr %235, align 4
-  %236 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %0, ptr %236, align 4
+  %236 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %spec.select.i, ptr %236, align 4
+  %237 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %0, ptr %237, align 4
   call void @XLogBeginInsert() #13
   call void @XLogRegisterData(ptr noundef nonnull %5, i32 noundef 12) #13
-  %237 = shl i32 %0, 3
-  call void @XLogRegisterData(ptr noundef %1, i32 noundef %237) #13
-  %238 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 32) #13
+  %238 = shl i32 %0, 3
+  call void @XLogRegisterData(ptr noundef %1, i32 noundef %238) #13
+  %239 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 32) #13
   call fastcc void @RecordNewMultiXact(i32 noundef %.046.i, i32 noundef %spec.select.i, i32 noundef %0, ptr noundef %1)
-  %239 = load volatile i32, ptr @CritSectionCount, align 4
-  %240 = add i32 %239, -1
-  store volatile i32 %240, ptr @CritSectionCount, align 4
+  %240 = load volatile i32, ptr @CritSectionCount, align 4
+  %241 = add i32 %240, -1
+  store volatile i32 %241, ptr @CritSectionCount, align 4
   call fastcc void @mXactCachePut(i32 noundef %.046.i, i32 noundef %0, ptr noundef %1)
-  br label %241
+  br label %242
 
-241:                                              ; preds = %mXactCacheGetBySet.exit, %GetNewMultiXactId.exit
+242:                                              ; preds = %mXactCacheGetBySet.exit, %GetNewMultiXactId.exit
   %.025 = phi i32 [ %.046.i, %GetNewMultiXactId.exit ], [ %30, %mXactCacheGetBySet.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.025
@@ -686,7 +687,7 @@ define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noun
   %38 = sext i32 %.042 to i64
   %39 = getelementptr inbounds %struct.MultiXactMember, ptr %24, i64 %38
   store i32 %37, ptr %39, align 4
-  %40 = getelementptr inbounds nuw %struct.MultiXactMember, ptr %.pre.pre, i64 %indvars.iv48, i32 1
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %.042, 1
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -3170,7 +3171,7 @@ define dso_local i64 @pg_get_multixact_members(ptr noundef %0) local_unnamed_add
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = icmp slt i32 %41, %43
-  br i1 %44, label %45, label %75
+  br i1 %44, label %45, label %76
 
 45:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3183,57 +3184,58 @@ define dso_local i64 @pg_get_multixact_members(ptr noundef %0) local_unnamed_add
   %51 = load ptr, ptr %39, align 8
   %52 = load i32, ptr %40, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %struct.MultiXactMember, ptr %51, i64 %53, i32 1
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp ult i32 %55, 6
-  br i1 %56, label %switch.lookup, label %57
+  %54 = getelementptr inbounds %struct.MultiXactMember, ptr %51, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp ult i32 %56, 6
+  br i1 %57, label %switch.lookup, label %58
 
-57:                                               ; preds = %45
-  %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %58)
-  %59 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47, i32 noundef %55) #13
+58:                                               ; preds = %45
+  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %59)
+  %60 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47, i32 noundef %56) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1771, ptr noundef nonnull @__func__.mxstatus_to_string) #13
   unreachable
 
 switch.lookup:                                    ; preds = %45
-  %60 = zext nneg i32 %55 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pg_get_multixact_members, i64 %60
+  %61 = zext nneg i32 %56 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pg_get_multixact_members, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %switch.load, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %63 = load ptr, ptr %62, align 8
-  %64 = call ptr @BuildTupleFromCStrings(ptr noundef %63, ptr noundef nonnull %3) #13
-  %65 = load i32, ptr %40, align 4
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %40, align 4
-  %67 = load ptr, ptr %3, align 16
-  call void @pfree(ptr noundef %67) #13
-  %68 = load i64, ptr %37, align 8
-  %69 = add i64 %68, 1
-  store i64 %69, ptr %37, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  store i32 1, ptr %72, align 8
-  %73 = getelementptr i8, ptr %64, i64 16
-  %.val = load ptr, ptr %73, align 8
-  %74 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #13
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %switch.load, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %64 = load ptr, ptr %63, align 8
+  %65 = call ptr @BuildTupleFromCStrings(ptr noundef %64, ptr noundef nonnull %3) #13
+  %66 = load i32, ptr %40, align 4
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %40, align 4
+  %68 = load ptr, ptr %3, align 16
+  call void @pfree(ptr noundef %68) #13
+  %69 = load i64, ptr %37, align 8
+  %70 = add i64 %69, 1
+  store i64 %70, ptr %37, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  store i32 1, ptr %73, align 8
+  %74 = getelementptr i8, ptr %65, i64 16
+  %.val = load ptr, ptr %74, align 8
+  %75 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %80
+  br label %81
 
-75:                                               ; preds = %36
+76:                                               ; preds = %36
   call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %37) #13
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  store i32 2, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %79, align 4
-  br label %80
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  store i32 2, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %80, align 4
+  br label %81
 
-80:                                               ; preds = %switch.lookup, %75
-  %.0 = phi i64 [ %74, %switch.lookup ], [ 0, %75 ]
+81:                                               ; preds = %switch.lookup, %76
+  %.0 = phi i64 [ %75, %switch.lookup ], [ 0, %76 ]
   ret i64 %.0
 }
 

@@ -21,43 +21,45 @@ define hidden noundef i64 @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter
   br label %12
 
 12:                                               ; preds = %12, %7
-  %.sroa.07.0.i = phi i64 [ %1, %7 ], [ %15, %12 ]
-  %.sroa.09.0.i = phi i64 [ 0, %7 ], [ %16, %12 ]
-  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %3, i64 %.sroa.09.0.i, i32 2
-  %14 = load i64, ptr %13, align 8, !noundef !3
-  %15 = add i64 %14, %.sroa.07.0.i
-  %16 = add nuw i64 %.sroa.09.0.i, 1
-  %17 = icmp eq i64 %16, %11
-  br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit", label %12
+  %.sroa.07.0.i = phi i64 [ %1, %7 ], [ %16, %12 ]
+  %.sroa.09.0.i = phi i64 [ 0, %7 ], [ %17, %12 ]
+  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %3, i64 %.sroa.09.0.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !3
+  %16 = add i64 %15, %.sroa.07.0.i
+  %17 = add nuw i64 %.sroa.09.0.i, 1
+  %18 = icmp eq i64 %17, %11
+  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit", label %12
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit": ; preds = %12, %2
-  %.sroa.04.0.i = phi i64 [ %1, %2 ], [ %15, %12 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
-  %22 = icmp eq ptr %19, %21
-  br i1 %22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit4", label %23
+  %.sroa.04.0.i = phi i64 [ %1, %2 ], [ %16, %12 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
+  %23 = icmp eq ptr %20, %22
+  br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit4", label %24
 
-23:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit"
-  %24 = ptrtoint ptr %21 to i64
-  %25 = ptrtoint ptr %19 to i64
-  %26 = sub nuw i64 %24, %25
-  %27 = lshr exact i64 %26, 5
-  br label %28
+24:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit"
+  %25 = ptrtoint ptr %22 to i64
+  %26 = ptrtoint ptr %20 to i64
+  %27 = sub nuw i64 %25, %26
+  %28 = lshr exact i64 %27, 5
+  br label %29
 
-28:                                               ; preds = %28, %23
-  %.sroa.07.0.i1 = phi i64 [ %.sroa.04.0.i, %23 ], [ %31, %28 ]
-  %.sroa.09.0.i2 = phi i64 [ 0, %23 ], [ %32, %28 ]
-  %29 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %19, i64 %.sroa.09.0.i2, i32 2
-  %30 = load i64, ptr %29, align 8, !noundef !3
-  %31 = add i64 %30, %.sroa.07.0.i1
-  %32 = add nuw i64 %.sroa.09.0.i2, 1
-  %33 = icmp eq i64 %32, %27
-  br i1 %33, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit4", label %28
+29:                                               ; preds = %29, %24
+  %.sroa.07.0.i1 = phi i64 [ %.sroa.04.0.i, %24 ], [ %33, %29 ]
+  %.sroa.09.0.i2 = phi i64 [ 0, %24 ], [ %34, %29 ]
+  %30 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %20, i64 %.sroa.09.0.i2
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load i64, ptr %31, align 8, !noundef !3
+  %33 = add i64 %32, %.sroa.07.0.i1
+  %34 = add nuw i64 %.sroa.09.0.i2, 1
+  %35 = icmp eq i64 %34, %28
+  br i1 %35, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit4", label %29
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit4": ; preds = %28, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit"
-  %.sroa.04.0.i3 = phi i64 [ %.sroa.04.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit" ], [ %31, %28 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit4": ; preds = %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit"
+  %.sroa.04.0.i3 = phi i64 [ %.sroa.04.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d44104491e58febE.llvm.2490662233498465319.exit" ], [ %33, %29 ]
   ret i64 %.sroa.04.0.i3
 }
 
@@ -472,17 +474,18 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   br label %12
 
 12:                                               ; preds = %12, %7
-  %.sroa.07.0 = phi i64 [ %2, %7 ], [ %15, %12 ]
-  %.sroa.09.0 = phi i64 [ 0, %7 ], [ %16, %12 ]
-  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %0, i64 %.sroa.09.0, i32 2
-  %14 = load i64, ptr %13, align 8, !noundef !3
-  %15 = add i64 %14, %.sroa.07.0
-  %16 = add nuw i64 %.sroa.09.0, 1
-  %17 = icmp eq i64 %16, %11
-  br i1 %17, label %.loopexit, label %12
+  %.sroa.07.0 = phi i64 [ %2, %7 ], [ %16, %12 ]
+  %.sroa.09.0 = phi i64 [ 0, %7 ], [ %17, %12 ]
+  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %0, i64 %.sroa.09.0
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !3
+  %16 = add i64 %15, %.sroa.07.0
+  %17 = add nuw i64 %.sroa.09.0, 1
+  %18 = icmp eq i64 %17, %11
+  br i1 %18, label %.loopexit, label %12
 
 .loopexit:                                        ; preds = %12, %4
-  %.sroa.04.0 = phi i64 [ %2, %4 ], [ %15, %12 ]
+  %.sroa.04.0 = phi i64 [ %2, %4 ], [ %16, %12 ]
   ret i64 %.sroa.04.0
 }
 

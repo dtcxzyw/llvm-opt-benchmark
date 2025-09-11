@@ -5029,10 +5029,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal33StringToUnsignedIntC
   %69 = getelementptr inbounds nuw i8, ptr %.01824, i64 4
   %70 = load i8, ptr %60, align 1, !tbaa !12
   %71 = add i8 %70, -48
-  %72 = mul i16 %66, 10
+  %72 = mul nuw i16 %66, 10
   %73 = icmp ult i8 %71, 10
   %74 = zext nneg i8 %71 to i16
-  %75 = add i16 %72, %74
+  %75 = add nuw i16 %72, %74
   br i1 %73, label %76, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit
 
 76:                                               ; preds = %68

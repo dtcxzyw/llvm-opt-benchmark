@@ -1577,7 +1577,7 @@ define dso_local void @snd_interval_muldivk(ptr noundef readonly captures(none) 
   br i1 %66, label %72, label %68
 
 68:                                               ; preds = %51
-  %69 = add i32 %63, 1
+  %69 = add nuw i32 %63, 1
   store i32 %69, ptr %67, align 4
   %70 = or i8 %52, 2
   br label %84
@@ -1707,7 +1707,7 @@ define dso_local void @snd_interval_mulkdiv(ptr noundef readonly captures(none) 
   br i1 %67, label %71, label %68
 
 68:                                               ; preds = %53
-  %69 = add i32 %63, 1
+  %69 = add nuw i32 %63, 1
   store i32 %69, ptr %65, align 4
   %70 = or i8 %50, 2
   br label %86

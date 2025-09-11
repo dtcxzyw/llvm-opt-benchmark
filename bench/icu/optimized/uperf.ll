@@ -465,7 +465,7 @@ define noundef ptr @_ZN9UPerfTest8getLinesER10UErrorCode(ptr noundef nonnull ali
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds %struct.ULine, ptr %25, i64 %27
   store ptr %24, ptr %28, align 8, !tbaa !42
-  %29 = getelementptr inbounds %struct.ULine, ptr %25, i64 %27, i32 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %19, ptr %29, align 8, !tbaa !44
   %30 = shl nsw i32 %19, 1
   %31 = sext i32 %30 to i64

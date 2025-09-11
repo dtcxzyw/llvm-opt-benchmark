@@ -63,13 +63,13 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
   %14 = load float, ptr %13, align 4, !tbaa !9
   %15 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv
   store float %14, ptr %15, align 4, !tbaa !11
-  %16 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv, i32 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float 0.000000e+00, ptr %16, align 4, !tbaa !13
   %17 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %18 = load float, ptr %17, align 4, !tbaa !9
   %19 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv
   store float %18, ptr %19, align 4, !tbaa !11
-  %20 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv, i32 1
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float 0.000000e+00, ptr %20, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -79,11 +79,11 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
   %indvars.iv62 = phi i64 [ %12, %.lr.ph52.preheader ], [ %indvars.iv.next63, %.lr.ph52 ]
   %21 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv62
   store float 0.000000e+00, ptr %21, align 4, !tbaa !11
-  %22 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv62, i32 1
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store float 0.000000e+00, ptr %22, align 4, !tbaa !13
   %23 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv62
   store float 0.000000e+00, ptr %23, align 4, !tbaa !11
-  %24 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv62, i32 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float 0.000000e+00, ptr %24, align 4, !tbaa !13
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65

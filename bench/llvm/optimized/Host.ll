@@ -1473,7 +1473,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   %36 = sub i64 %33, %.sroa.speculated4.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load ptr, ptr %6, align 8, !tbaa !39
-  %.phi.trans.insert2443 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %indvars.iv, i32 1
+  %.phi.trans.insert = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert2443 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre2444 = load i64, ptr %.phi.trans.insert2443, align 8, !tbaa !44
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread1607
 
@@ -1511,7 +1512,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit76.thread1608: ; preds = %_ZNK4llvm9Str
   %50 = sub i64 %47, %.sroa.speculated4.i.i.i82
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre2445 = load ptr, ptr %6, align 8, !tbaa !39
-  %.phi.trans.insert2447 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre2445, i64 %indvars.iv, i32 1
+  %.phi.trans.insert2446 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre2445, i64 %indvars.iv
+  %.phi.trans.insert2447 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert2446, i64 8
   %.pre2448 = load i64, ptr %.phi.trans.insert2447, align 8, !tbaa !44
   %.not.i85 = icmp ult i64 %.pre2448, 8
   br i1 %.not.i85, label %_ZNK4llvm9StringRef11starts_withES0_.exit87.thread1609, label %_ZNK4llvm9StringRef11starts_withES0_.exit87

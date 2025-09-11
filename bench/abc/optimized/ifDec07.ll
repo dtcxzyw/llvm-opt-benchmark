@@ -298,13 +298,13 @@ define void @If_Dec7Verify(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br i1 %.not24.i, label %34, label %31
 
 31:                                               ; preds = %.preheader.i
-  %32 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 %indvars.iv.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !10
   br label %39
 
 34:                                               ; preds = %.preheader.i
   %35 = xor i64 %30, -1
-  %36 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 %indvars.iv.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !10
   %38 = xor i64 %37, -1
   br label %39
@@ -388,13 +388,13 @@ If_Dec7ComposeLut4.exit:                          ; preds = %46
   br i1 %.not24.i29, label %85, label %82
 
 82:                                               ; preds = %.preheader.i25
-  %83 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 %indvars.iv.i26, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !10
   br label %90
 
 85:                                               ; preds = %.preheader.i25
   %86 = xor i64 %81, -1
-  %87 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 %indvars.iv.i26, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %88 = load i64, ptr %87, align 8, !tbaa !10
   %89 = xor i64 %88, -1
   br label %90

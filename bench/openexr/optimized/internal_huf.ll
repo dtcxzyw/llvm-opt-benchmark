@@ -1525,7 +1525,7 @@ fasthuf_read_bits.exit169.i:                      ; preds = %fasthuf_read_bits.e
   %147 = add i64 %146, %144
   %148 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.next303.i
   store i64 %147, ptr %148, align 8, !tbaa !7
-  %.not155.not.i = icmp sgt i64 %indvars.iv.next303.i, %133
+  %.not155.not.i = icmp samesign ugt i64 %indvars.iv.next303.i, %133
   br i1 %.not155.not.i, label %.lr.ph255.i, label %.preheader209.i, !llvm.loop !73
 
 .lr.ph259.preheader.i:                            ; preds = %.preheader209.i
@@ -2025,8 +2025,7 @@ hufUnpackEncTable.exit:                           ; preds = %282, %300, %getBits
 
 364:                                              ; preds = %369, %362
   %indvars.iv.i86 = phi i64 [ 0, %362 ], [ %indvars.iv.next.i87, %369 ]
-  %.idx = shl nuw nsw i64 %indvars.iv.i86, 4
-  %365 = getelementptr inbounds nuw i8, ptr %275, i64 %.idx
+  %365 = getelementptr inbounds nuw %struct._HufDec, ptr %275, i64 %indvars.iv.i86
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 8
   %367 = load ptr, ptr %366, align 8, !tbaa !97
   %.not12.i = icmp eq ptr %367, null

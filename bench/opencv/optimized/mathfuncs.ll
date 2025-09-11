@@ -8302,8 +8302,7 @@ _ZN2cv3Mat2atIdEERT_i.exit252.us:                 ; preds = %_ZN2cv3Mat2atIdEERT
 
 .lr.ph348:                                        ; preds = %.lr.ph348.preheader, %352
   %indvars.iv379 = phi i64 [ 0, %.lr.ph348.preheader ], [ %indvars.iv.next380, %352 ]
-  %.idx = shl nuw nsw i64 %indvars.iv379, 4
-  %346 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx
+  %346 = getelementptr inbounds nuw %"class.cv::Complex", ptr %93, i64 %indvars.iv379
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %348 = load double, ptr %347, align 8, !tbaa !218
   %349 = call double @llvm.fabs.f64(double %348)

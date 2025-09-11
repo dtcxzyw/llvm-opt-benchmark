@@ -1437,66 +1437,65 @@ define hidden i32 @OBJ_obj2nid(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %8
   tail call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !15
-  br label %bsearch.exit.thread
+  br label %bsearch.exit.thread.sink.split
 
 .thread:                                          ; preds = %8, %6
   tail call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = sext i32 %14 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %12 = load i32, ptr %11, align 4, !tbaa !13
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = sext i32 %12 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %obj_cmp.exit.thread, %.thread
   %.01621.i = phi i64 [ %.1.i, %obj_cmp.exit.thread ], [ 0, %.thread ]
   %.01720.i = phi i64 [ %.118.i, %obj_cmp.exit.thread ], [ 876, %.thread ]
-  %17 = add i64 %.01720.i, %.01621.i
-  %18 = lshr i64 %17, 1
-  %19 = shl i64 %18, 2
-  %20 = getelementptr inbounds nuw i8, ptr @kNIDsInOIDOrder, i64 %19
-  %21 = load i32, ptr %20, align 4, !tbaa !20
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  %25 = load i32, ptr %24, align 4, !tbaa !13
-  %26 = icmp slt i32 %14, %25
-  br i1 %26, label %obj_cmp.exit.thread, label %27
+  %15 = add i64 %.01720.i, %.01621.i
+  %16 = lshr i64 %15, 1
+  %17 = shl i64 %16, 2
+  %18 = getelementptr inbounds nuw i8, ptr @kNIDsInOIDOrder, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !20
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 20
+  %23 = load i32, ptr %22, align 4, !tbaa !13
+  %24 = icmp slt i32 %12, %23
+  br i1 %24, label %obj_cmp.exit.thread, label %25
 
-27:                                               ; preds = %.lr.ph.i
-  %28 = icmp sgt i32 %14, %25
-  br i1 %28, label %.thread24, label %obj_cmp.exit
+25:                                               ; preds = %.lr.ph.i
+  %26 = icmp sgt i32 %12, %23
+  br i1 %26, label %.thread24, label %obj_cmp.exit
 
-obj_cmp.exit:                                     ; preds = %27
-  %29 = load ptr, ptr %15, align 8, !tbaa !14
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !14
-  %32 = tail call i32 @memcmp(ptr noundef %29, ptr noundef %31, i64 noundef %16) #12
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %obj_cmp.exit.thread, label %34
+obj_cmp.exit:                                     ; preds = %25
+  %27 = load ptr, ptr %13, align 8, !tbaa !14
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !14
+  %30 = tail call i32 @memcmp(ptr noundef %27, ptr noundef %29, i64 noundef %14) #12
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %obj_cmp.exit.thread, label %32
 
-34:                                               ; preds = %obj_cmp.exit
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %bsearch.exit, label %.thread24
+32:                                               ; preds = %obj_cmp.exit
+  %.not.i = icmp eq i32 %30, 0
+  br i1 %.not.i, label %bsearch.exit.thread.sink.split, label %.thread24
 
-.thread24:                                        ; preds = %27, %34
-  %35 = add nuw i64 %18, 1
+.thread24:                                        ; preds = %25, %32
+  %33 = add nuw i64 %16, 1
   br label %obj_cmp.exit.thread
 
 obj_cmp.exit.thread:                              ; preds = %.lr.ph.i, %.thread24, %obj_cmp.exit
-  %.118.i = phi i64 [ %.01720.i, %.thread24 ], [ %18, %obj_cmp.exit ], [ %18, %.lr.ph.i ]
-  %.1.i = phi i64 [ %35, %.thread24 ], [ %.01621.i, %obj_cmp.exit ], [ %.01621.i, %.lr.ph.i ]
-  %36 = icmp ult i64 %.1.i, %.118.i
-  br i1 %36, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !21
+  %.118.i = phi i64 [ %.01720.i, %.thread24 ], [ %16, %obj_cmp.exit ], [ %16, %.lr.ph.i ]
+  %.1.i = phi i64 [ %33, %.thread24 ], [ %.01621.i, %obj_cmp.exit ], [ %.01621.i, %.lr.ph.i ]
+  %34 = icmp ult i64 %.1.i, %.118.i
+  br i1 %34, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !21
 
-bsearch.exit:                                     ; preds = %34
-  %37 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %22, i32 2
-  %38 = load i32, ptr %37, align 8, !tbaa !15
+bsearch.exit.thread.sink.split:                   ; preds = %32, %10
+  %.sink39 = phi ptr [ %9, %10 ], [ %21, %32 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sink39, i64 16
+  %36 = load i32, ptr %35, align 8, !tbaa !15
   br label %bsearch.exit.thread
 
-bsearch.exit.thread:                              ; preds = %obj_cmp.exit.thread, %10, %3, %1, %bsearch.exit
-  %.0 = phi i32 [ %38, %bsearch.exit ], [ %12, %10 ], [ 0, %1 ], [ %5, %3 ], [ 0, %obj_cmp.exit.thread ]
+bsearch.exit.thread:                              ; preds = %obj_cmp.exit.thread, %bsearch.exit.thread.sink.split, %3, %1
+  %.0 = phi i32 [ 0, %1 ], [ %5, %3 ], [ %36, %bsearch.exit.thread.sink.split ], [ 0, %obj_cmp.exit.thread ]
   ret i32 %.0
 }
 
@@ -1590,7 +1589,7 @@ define hidden i32 @OBJ_sn2nid(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %24, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !21
 
 bsearch.exit:                                     ; preds = %20
-  %25 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %15, i32 2
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !15
   br label %bsearch.exit.thread
 
@@ -1630,42 +1629,43 @@ define hidden i32 @OBJ_ln2nid(ptr noundef %0) local_unnamed_addr #0 {
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %24, %10
-  %.01621.i = phi i64 [ %.1.i, %24 ], [ 0, %10 ]
-  %.01720.i = phi i64 [ %.118.i, %24 ], [ 941, %10 ]
+.lr.ph.i:                                         ; preds = %25, %10
+  %.01621.i = phi i64 [ %.1.i, %25 ], [ 0, %10 ]
+  %.01720.i = phi i64 [ %.118.i, %25 ], [ 941, %10 ]
   %11 = add i64 %.01720.i, %.01621.i
   %12 = lshr i64 %11, 1
   %13 = shl i64 %12, 2
   %14 = getelementptr inbounds nuw i8, ptr @kNIDsInLongNameOrder, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %16, i32 1
-  %18 = load ptr, ptr %17, align 8, !tbaa !16
-  %19 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %18) #12
-  %20 = icmp slt i32 %19, 0
-  br i1 %20, label %24, label %21
+  %17 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
+  %20 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %19) #12
+  %21 = icmp slt i32 %20, 0
+  br i1 %21, label %25, label %22
 
-21:                                               ; preds = %.lr.ph.i
-  %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %bsearch.exit, label %22
+22:                                               ; preds = %.lr.ph.i
+  %.not.i = icmp eq i32 %20, 0
+  br i1 %.not.i, label %bsearch.exit, label %23
 
-22:                                               ; preds = %21
-  %23 = add nuw i64 %12, 1
-  br label %24
+23:                                               ; preds = %22
+  %24 = add nuw i64 %12, 1
+  br label %25
 
-24:                                               ; preds = %22, %.lr.ph.i
-  %.118.i = phi i64 [ %.01720.i, %22 ], [ %12, %.lr.ph.i ]
-  %.1.i = phi i64 [ %23, %22 ], [ %.01621.i, %.lr.ph.i ]
-  %25 = icmp ult i64 %.1.i, %.118.i
-  br i1 %25, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !21
+25:                                               ; preds = %23, %.lr.ph.i
+  %.118.i = phi i64 [ %.01720.i, %23 ], [ %12, %.lr.ph.i ]
+  %.1.i = phi i64 [ %24, %23 ], [ %.01621.i, %.lr.ph.i ]
+  %26 = icmp ult i64 %.1.i, %.118.i
+  br i1 %26, label %.lr.ph.i, label %bsearch.exit.thread, !llvm.loop !21
 
-bsearch.exit:                                     ; preds = %21
-  %26 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %16, i32 2
-  %27 = load i32, ptr %26, align 8, !tbaa !15
+bsearch.exit:                                     ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %28 = load i32, ptr %27, align 8, !tbaa !15
   br label %bsearch.exit.thread
 
-bsearch.exit.thread:                              ; preds = %24, %7, %bsearch.exit
-  %.1 = phi i32 [ %27, %bsearch.exit ], [ %9, %7 ], [ 0, %24 ]
+bsearch.exit.thread:                              ; preds = %25, %7, %bsearch.exit
+  %.1 = phi i32 [ %28, %bsearch.exit ], [ %9, %7 ], [ 0, %25 ]
   ret i32 %.1
 }
 
@@ -1704,14 +1704,11 @@ define hidden ptr @OBJ_txt2obj(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 11:                                               ; preds = %.thread
   %12 = zext nneg i32 %.01926 to i64
-  %13 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %12, i32 2
-  %14 = load i32, ptr %13, align 8, !tbaa !15
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %24, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %11
-  %16 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %12
-  br label %OBJ_nid2obj.exit
+  %13 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load i32, ptr %14, align 8, !tbaa !15
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %24, label %OBJ_nid2obj.exit
 
 17:                                               ; preds = %.thread
   tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @global_added_lock) #10
@@ -1770,8 +1767,8 @@ define hidden ptr @OBJ_txt2obj(ptr noundef %0, i32 noundef %1) local_unnamed_add
   call void @free(ptr noundef nonnull %31) #10
   br label %OBJ_nid2obj.exit
 
-OBJ_nid2obj.exit:                                 ; preds = %24, %22, %._crit_edge.i, %25, %34, %33
-  %.0 = phi ptr [ null, %33 ], [ %37, %34 ], [ null, %25 ], [ null, %24 ], [ %16, %._crit_edge.i ], [ %21, %22 ]
+OBJ_nid2obj.exit:                                 ; preds = %11, %24, %22, %25, %34, %33
+  %.0 = phi ptr [ null, %33 ], [ %37, %34 ], [ null, %25 ], [ null, %24 ], [ %21, %22 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -1784,7 +1781,7 @@ define hidden range(i32 0, 2) i32 @OBJ_nid2cbb(ptr noundef %0, i32 noundef %1) l
   %3 = alloca %struct.asn1_object_st, align 8
   %4 = alloca %struct.cbb_st, align 8
   %or.cond.i = icmp ult i32 %1, 949
-  br i1 %or.cond.i, label %5, label %12
+  br i1 %or.cond.i, label %5, label %13
 
 5:                                                ; preds = %2
   %.not13.i = icmp eq i32 %1, 0
@@ -1792,73 +1789,74 @@ define hidden range(i32 0, 2) i32 @OBJ_nid2cbb(ptr noundef %0, i32 noundef %1) l
 
 6:                                                ; preds = %5
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %7, i32 2
-  %9 = load i32, ptr %8, align 8, !tbaa !15
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %OBJ_nid2obj.exit, label %._crit_edge.i
+  %8 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = load i32, ptr %9, align 8, !tbaa !15
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %OBJ_nid2obj.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %6, %5
   %.pre-phi.i = phi i64 [ %7, %6 ], [ 0, %5 ]
-  %11 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi.i
+  %12 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi.i
+  br label %20
+
+13:                                               ; preds = %2
+  tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @global_added_lock) #10
+  %14 = load ptr, ptr @global_added_by_nid, align 8, !tbaa !18
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %19, label %15
+
+15:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %1, ptr %16, align 8, !tbaa !15
+  %17 = call ptr @lh_retrieve(ptr noundef nonnull %14, ptr noundef nonnull %3) #10
+  %.not12.not.i = icmp eq ptr %17, null
+  br i1 %.not12.not.i, label %.thread.i, label %18
+
+.thread.i:                                        ; preds = %15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
-12:                                               ; preds = %2
-  tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @global_added_lock) #10
-  %13 = load ptr, ptr @global_added_by_nid, align 8, !tbaa !18
-  %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %18, label %14
-
-14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %1, ptr %15, align 8, !tbaa !15
-  %16 = call ptr @lh_retrieve(ptr noundef nonnull %13, ptr noundef nonnull %3) #10
-  %.not12.not.i = icmp eq ptr %16, null
-  br i1 %.not12.not.i, label %.thread.i, label %17
-
-.thread.i:                                        ; preds = %14
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %18
-
-17:                                               ; preds = %14
+18:                                               ; preds = %15
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %19
+  br label %20
 
-18:                                               ; preds = %.thread.i, %12
+19:                                               ; preds = %.thread.i, %13
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   br label %OBJ_nid2obj.exit
 
-OBJ_nid2obj.exit:                                 ; preds = %6, %18
+OBJ_nid2obj.exit:                                 ; preds = %6, %19
   call void @ERR_put_error(i32 noundef 8, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 340) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %30
+  br label %31
 
-19:                                               ; preds = %._crit_edge.i, %17
-  %.010.i.ph = phi ptr [ %16, %17 ], [ %11, %._crit_edge.i ]
+20:                                               ; preds = %._crit_edge.i, %18
+  %.010.i.ph = phi ptr [ %17, %18 ], [ %12, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %20 = call i32 @CBB_add_asn1(ptr noundef %0, ptr noundef nonnull %4, i8 noundef zeroext 6) #10
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %30, label %21
+  %21 = call i32 @CBB_add_asn1(ptr noundef %0, ptr noundef nonnull %4, i8 noundef zeroext 6) #10
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %31, label %22
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %.010.i.ph, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !14
-  %24 = getelementptr inbounds nuw i8, ptr %.010.i.ph, i64 20
-  %25 = load i32, ptr %24, align 4, !tbaa !13
-  %26 = sext i32 %25 to i64
-  %27 = call i32 @CBB_add_bytes(ptr noundef nonnull %4, ptr noundef %23, i64 noundef %26) #10
-  %.not7 = icmp eq i32 %27, 0
-  br i1 %.not7, label %30, label %28
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %.010.i.ph, i64 24
+  %24 = load ptr, ptr %23, align 8, !tbaa !14
+  %25 = getelementptr inbounds nuw i8, ptr %.010.i.ph, i64 20
+  %26 = load i32, ptr %25, align 4, !tbaa !13
+  %27 = sext i32 %26 to i64
+  %28 = call i32 @CBB_add_bytes(ptr noundef nonnull %4, ptr noundef %24, i64 noundef %27) #10
+  %.not7 = icmp eq i32 %28, 0
+  br i1 %.not7, label %31, label %29
 
-28:                                               ; preds = %21
-  %29 = call i32 @CBB_flush(ptr noundef %0) #10
-  %.not8 = icmp ne i32 %29, 0
+29:                                               ; preds = %22
+  %30 = call i32 @CBB_flush(ptr noundef %0) #10
+  %.not8 = icmp ne i32 %30, 0
   %spec.select = zext i1 %.not8 to i32
-  br label %30
+  br label %31
 
-30:                                               ; preds = %OBJ_nid2obj.exit, %28, %19, %21
-  %.0 = phi i32 [ 0, %21 ], [ 0, %19 ], [ 0, %OBJ_nid2obj.exit ], [ %spec.select, %28 ]
+31:                                               ; preds = %OBJ_nid2obj.exit, %29, %20, %22
+  %.0 = phi i32 [ 0, %22 ], [ 0, %20 ], [ 0, %OBJ_nid2obj.exit ], [ %spec.select, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1867,7 +1865,7 @@ OBJ_nid2obj.exit:                                 ; preds = %6, %18
 define hidden ptr @OBJ_nid2obj(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.asn1_object_st, align 8
   %or.cond = icmp ult i32 %0, 949
-  br i1 %or.cond, label %3, label %10
+  br i1 %or.cond, label %3, label %11
 
 3:                                                ; preds = %1
   %.not13 = icmp eq i32 %0, 0
@@ -1875,49 +1873,50 @@ define hidden ptr @OBJ_nid2obj(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %5, i32 2
-  %7 = load i32, ptr %6, align 8, !tbaa !15
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %17, label %._crit_edge
+  %6 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load i32, ptr %7, align 8, !tbaa !15
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %4
   %.pre-phi = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi
-  br label %18
+  %10 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi
+  br label %19
 
-10:                                               ; preds = %1
+11:                                               ; preds = %1
   tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @global_added_lock) #10
-  %11 = load ptr, ptr @global_added_by_nid, align 8, !tbaa !18
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %16, label %12
+  %12 = load ptr, ptr @global_added_by_nid, align 8, !tbaa !18
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %17, label %13
 
-12:                                               ; preds = %10
+13:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %0, ptr %13, align 8, !tbaa !15
-  %14 = call ptr @lh_retrieve(ptr noundef nonnull %11, ptr noundef nonnull %2) #10
-  %.not12.not = icmp eq ptr %14, null
-  br i1 %.not12.not, label %.thread, label %15
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %0, ptr %14, align 8, !tbaa !15
+  %15 = call ptr @lh_retrieve(ptr noundef nonnull %12, ptr noundef nonnull %2) #10
+  %.not12.not = icmp eq ptr %15, null
+  br i1 %.not12.not, label %.thread, label %16
 
-.thread:                                          ; preds = %12
+.thread:                                          ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %16
-
-15:                                               ; preds = %12
-  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %18
-
-16:                                               ; preds = %.thread, %10
-  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   br label %17
 
-17:                                               ; preds = %4, %16
-  call void @ERR_put_error(i32 noundef 8, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 340) #10
+16:                                               ; preds = %13
+  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %19
+
+17:                                               ; preds = %.thread, %11
+  call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   br label %18
 
-18:                                               ; preds = %15, %17, %._crit_edge
-  %.010 = phi ptr [ null, %17 ], [ %9, %._crit_edge ], [ %14, %15 ]
+18:                                               ; preds = %4, %17
+  call void @ERR_put_error(i32 noundef 8, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 340) #10
+  br label %19
+
+19:                                               ; preds = %16, %18, %._crit_edge
+  %.010 = phi ptr [ null, %18 ], [ %10, %._crit_edge ], [ %15, %16 ]
   ret ptr %.010
 }
 
@@ -1931,7 +1930,7 @@ declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #1
 define hidden ptr @OBJ_nid2sn(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.asn1_object_st, align 8
   %or.cond.i = icmp ult i32 %0, 949
-  br i1 %or.cond.i, label %3, label %10
+  br i1 %or.cond.i, label %3, label %11
 
 3:                                                ; preds = %1
   %.not13.i = icmp eq i32 %0, 0
@@ -1939,54 +1938,55 @@ define hidden ptr @OBJ_nid2sn(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %5, i32 2
-  %7 = load i32, ptr %6, align 8, !tbaa !15
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %OBJ_nid2obj.exit, label %._crit_edge.i
+  %6 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load i32, ptr %7, align 8, !tbaa !15
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %OBJ_nid2obj.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %4, %3
   %.pre-phi.i = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi.i
+  %10 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi.i
+  br label %18
+
+11:                                               ; preds = %1
+  tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @global_added_lock) #10
+  %12 = load ptr, ptr @global_added_by_nid, align 8, !tbaa !18
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %17, label %13
+
+13:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %0, ptr %14, align 8, !tbaa !15
+  %15 = call ptr @lh_retrieve(ptr noundef nonnull %12, ptr noundef nonnull %2) #10
+  %.not12.not.i = icmp eq ptr %15, null
+  br i1 %.not12.not.i, label %.thread.i, label %16
+
+.thread.i:                                        ; preds = %13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %17
 
-10:                                               ; preds = %1
-  tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @global_added_lock) #10
-  %11 = load ptr, ptr @global_added_by_nid, align 8, !tbaa !18
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %16, label %12
-
-12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %0, ptr %13, align 8, !tbaa !15
-  %14 = call ptr @lh_retrieve(ptr noundef nonnull %11, ptr noundef nonnull %2) #10
-  %.not12.not.i = icmp eq ptr %14, null
-  br i1 %.not12.not.i, label %.thread.i, label %15
-
-.thread.i:                                        ; preds = %12
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %16
-
-15:                                               ; preds = %12
+16:                                               ; preds = %13
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %17
+  br label %18
 
-16:                                               ; preds = %.thread.i, %10
+17:                                               ; preds = %.thread.i, %11
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   br label %OBJ_nid2obj.exit
 
-OBJ_nid2obj.exit:                                 ; preds = %4, %16
+OBJ_nid2obj.exit:                                 ; preds = %4, %17
   call void @ERR_put_error(i32 noundef 8, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 340) #10
-  br label %19
+  br label %20
 
-17:                                               ; preds = %._crit_edge.i, %15
-  %.010.i.ph = phi ptr [ %14, %15 ], [ %9, %._crit_edge.i ]
-  %18 = load ptr, ptr %.010.i.ph, align 8, !tbaa !17
-  br label %19
+18:                                               ; preds = %._crit_edge.i, %16
+  %.010.i.ph = phi ptr [ %15, %16 ], [ %10, %._crit_edge.i ]
+  %19 = load ptr, ptr %.010.i.ph, align 8, !tbaa !17
+  br label %20
 
-19:                                               ; preds = %OBJ_nid2obj.exit, %17
-  %.0 = phi ptr [ %18, %17 ], [ null, %OBJ_nid2obj.exit ]
+20:                                               ; preds = %OBJ_nid2obj.exit, %18
+  %.0 = phi ptr [ %19, %18 ], [ null, %OBJ_nid2obj.exit ]
   ret ptr %.0
 }
 
@@ -1994,7 +1994,7 @@ OBJ_nid2obj.exit:                                 ; preds = %4, %16
 define hidden ptr @OBJ_nid2ln(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.asn1_object_st, align 8
   %or.cond.i = icmp ult i32 %0, 949
-  br i1 %or.cond.i, label %3, label %10
+  br i1 %or.cond.i, label %3, label %11
 
 3:                                                ; preds = %1
   %.not13.i = icmp eq i32 %0, 0
@@ -2002,55 +2002,56 @@ define hidden ptr @OBJ_nid2ln(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %5, i32 2
-  %7 = load i32, ptr %6, align 8, !tbaa !15
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %OBJ_nid2obj.exit, label %._crit_edge.i
+  %6 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load i32, ptr %7, align 8, !tbaa !15
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %OBJ_nid2obj.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %4, %3
   %.pre-phi.i = phi i64 [ %5, %4 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi.i
+  %10 = getelementptr inbounds nuw %struct.asn1_object_st, ptr @kObjects, i64 %.pre-phi.i
+  br label %18
+
+11:                                               ; preds = %1
+  tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @global_added_lock) #10
+  %12 = load ptr, ptr @global_added_by_nid, align 8, !tbaa !18
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %17, label %13
+
+13:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %0, ptr %14, align 8, !tbaa !15
+  %15 = call ptr @lh_retrieve(ptr noundef nonnull %12, ptr noundef nonnull %2) #10
+  %.not12.not.i = icmp eq ptr %15, null
+  br i1 %.not12.not.i, label %.thread.i, label %16
+
+.thread.i:                                        ; preds = %13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %17
 
-10:                                               ; preds = %1
-  tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @global_added_lock) #10
-  %11 = load ptr, ptr @global_added_by_nid, align 8, !tbaa !18
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %16, label %12
-
-12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %0, ptr %13, align 8, !tbaa !15
-  %14 = call ptr @lh_retrieve(ptr noundef nonnull %11, ptr noundef nonnull %2) #10
-  %.not12.not.i = icmp eq ptr %14, null
-  br i1 %.not12.not.i, label %.thread.i, label %15
-
-.thread.i:                                        ; preds = %12
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %16
-
-15:                                               ; preds = %12
+16:                                               ; preds = %13
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %17
+  br label %18
 
-16:                                               ; preds = %.thread.i, %10
+17:                                               ; preds = %.thread.i, %11
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @global_added_lock) #10
   br label %OBJ_nid2obj.exit
 
-OBJ_nid2obj.exit:                                 ; preds = %4, %16
+OBJ_nid2obj.exit:                                 ; preds = %4, %17
   call void @ERR_put_error(i32 noundef 8, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 340) #10
-  br label %20
+  br label %21
 
-17:                                               ; preds = %._crit_edge.i, %15
-  %.010.i.ph = phi ptr [ %14, %15 ], [ %9, %._crit_edge.i ]
-  %18 = getelementptr inbounds nuw i8, ptr %.010.i.ph, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !16
-  br label %20
+18:                                               ; preds = %._crit_edge.i, %16
+  %.010.i.ph = phi ptr [ %15, %16 ], [ %10, %._crit_edge.i ]
+  %19 = getelementptr inbounds nuw i8, ptr %.010.i.ph, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !16
+  br label %21
 
-20:                                               ; preds = %OBJ_nid2obj.exit, %17
-  %.0 = phi ptr [ %19, %17 ], [ null, %OBJ_nid2obj.exit ]
+21:                                               ; preds = %OBJ_nid2obj.exit, %18
+  %.0 = phi ptr [ %20, %18 ], [ null, %OBJ_nid2obj.exit ]
   ret ptr %.0
 }
 

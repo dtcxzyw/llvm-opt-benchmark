@@ -420,7 +420,7 @@ define hidden zeroext i1 @X11_Vulkan_GetPresentationSupport(ptr noundef readonly
 
 9:                                                ; preds = %4
   %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.13) #5
-  br label %51
+  br label %52
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1368
@@ -431,7 +431,7 @@ define hidden zeroext i1 @X11_Vulkan_GetPresentationSupport(ptr noundef readonly
 
 15:                                               ; preds = %11
   %16 = tail call i64 @SDL_strtol_REAL(ptr noundef nonnull %14, ptr noundef null, i32 noundef 0) #5
-  br label %28
+  br label %29
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr @X11_XVisualIDFromVisual, align 8
@@ -441,54 +441,55 @@ define hidden zeroext i1 @X11_Vulkan_GetPresentationSupport(ptr noundef readonly
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.Screen, ptr %21, i64 %24, i32 10
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call i64 %18(ptr noundef %26) #5
-  br label %28
+  %25 = getelementptr inbounds %struct.Screen, ptr %21, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call i64 %18(ptr noundef %27) #5
+  br label %29
 
-28:                                               ; preds = %17, %15
-  %.025 = phi i64 [ %16, %15 ], [ %27, %17 ]
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 1744
-  %30 = load ptr, ptr %29, align 8
-  %.not30 = icmp eq ptr %30, null
-  br i1 %.not30, label %43, label %31
+29:                                               ; preds = %17, %15
+  %.025 = phi i64 [ %16, %15 ], [ %28, %17 ]
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 1744
+  %31 = load ptr, ptr %30, align 8
+  %.not30 = icmp eq ptr %31, null
+  br i1 %.not30, label %44, label %32
 
-31:                                               ; preds = %28
-  %32 = tail call ptr %13(ptr noundef %1, ptr noundef nonnull @.str.22) #5
-  %.not32 = icmp eq ptr %32, null
-  br i1 %.not32, label %33, label %35
+32:                                               ; preds = %29
+  %33 = tail call ptr %13(ptr noundef %1, ptr noundef nonnull @.str.22) #5
+  %.not32 = icmp eq ptr %33, null
+  br i1 %.not32, label %34, label %36
 
-33:                                               ; preds = %31
-  %34 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #5
-  br label %51
+34:                                               ; preds = %32
+  %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #5
+  br label %52
 
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 1752
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = tail call ptr %37(ptr noundef %38) #5
-  %40 = trunc i64 %.025 to i32
-  %41 = tail call i32 %32(ptr noundef %2, i32 noundef %3, ptr noundef %39, i32 noundef %40) #5
-  %42 = icmp ne i32 %41, 0
-  br label %51
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 1752
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %6, align 8
+  %40 = tail call ptr %38(ptr noundef %39) #5
+  %41 = trunc i64 %.025 to i32
+  %42 = tail call i32 %33(ptr noundef %2, i32 noundef %3, ptr noundef %40, i32 noundef %41) #5
+  %43 = icmp ne i32 %42, 0
+  br label %52
 
-43:                                               ; preds = %28
-  %44 = tail call ptr %13(ptr noundef %1, ptr noundef nonnull @.str.23) #5
-  %.not31 = icmp eq ptr %44, null
-  br i1 %.not31, label %45, label %47
+44:                                               ; preds = %29
+  %45 = tail call ptr %13(ptr noundef %1, ptr noundef nonnull @.str.23) #5
+  %.not31 = icmp eq ptr %45, null
+  br i1 %.not31, label %46, label %48
 
-45:                                               ; preds = %43
-  %46 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.19) #5
-  br label %51
+46:                                               ; preds = %44
+  %47 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.19) #5
+  br label %52
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %6, align 8
-  %49 = tail call i32 %44(ptr noundef %2, i32 noundef %3, ptr noundef %48, i64 noundef %.025) #5
-  %50 = icmp ne i32 %49, 0
-  br label %51
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %6, align 8
+  %50 = tail call i32 %45(ptr noundef %2, i32 noundef %3, ptr noundef %49, i64 noundef %.025) #5
+  %51 = icmp ne i32 %50, 0
+  br label %52
 
-51:                                               ; preds = %45, %47, %33, %35, %9
-  %.0 = phi i1 [ %10, %9 ], [ %42, %35 ], [ %34, %33 ], [ %50, %47 ], [ %46, %45 ]
+52:                                               ; preds = %46, %48, %34, %36, %9
+  %.0 = phi i1 [ %10, %9 ], [ %43, %36 ], [ %35, %34 ], [ %51, %48 ], [ %47, %46 ]
   ret i1 %.0
 }
 

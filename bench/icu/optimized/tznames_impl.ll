@@ -1329,7 +1329,7 @@ define noundef ptr @_ZN6icu_7711TextTrieMap12addChildNodeEPNS_13CharacterNodeEDs
   %55 = trunc i32 %54 to i16
   %56 = getelementptr inbounds nuw i8, ptr %.027, i64 10
   store i16 %55, ptr %56, align 2, !tbaa !47
-  br label %64
+  br label %65
 
 57:                                               ; preds = %.thread46._crit_edge
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1337,18 +1337,19 @@ define noundef ptr @_ZN6icu_7711TextTrieMap12addChildNodeEPNS_13CharacterNodeEDs
   %60 = trunc i32 %59 to i16
   %61 = load ptr, ptr %58, align 8, !tbaa !33
   %62 = zext i16 %.031.lcssa to i64
-  %63 = getelementptr inbounds nuw %"struct.icu_77::CharacterNode", ptr %61, i64 %62, i32 3
-  store i16 %60, ptr %63, align 4, !tbaa !46
-  br label %64
+  %63 = getelementptr inbounds nuw %"struct.icu_77::CharacterNode", ptr %61, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
+  store i16 %60, ptr %64, align 4, !tbaa !46
+  br label %65
 
-64:                                               ; preds = %57, %53
-  %65 = phi i32 [ %59, %57 ], [ %54, %53 ]
-  %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %21, align 4, !tbaa !32
+65:                                               ; preds = %57, %53
+  %66 = phi i32 [ %59, %57 ], [ %54, %53 ]
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %21, align 4, !tbaa !32
   br label %.thread
 
-.thread:                                          ; preds = %11, %.thread55, %64, %4
-  %.0 = phi ptr [ null, %4 ], [ %49, %64 ], [ null, %.thread55 ], [ %13, %11 ]
+.thread:                                          ; preds = %11, %.thread55, %65, %4
+  %.0 = phi ptr [ null, %4 ], [ %49, %65 ], [ null, %.thread55 ], [ %13, %11 ]
   ret ptr %.0
 }
 

@@ -476,7 +476,7 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !96
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %205
+  br i1 %12, label %13, label %206
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -711,85 +711,86 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %.pre-phi.i = phi i64 [ %.pre.i, %.preheader.._crit_edge122_crit_edge.i ], [ %163, %.lr.ph121.i ]
   %165 = getelementptr inbounds nuw i8, ptr %20, i64 344
   %166 = load ptr, ptr %165, align 8, !tbaa !205
-  %167 = getelementptr inbounds nuw %struct.AtomToThreadMap, ptr %166, i64 %indvars.iv, i32 2
-  %168 = getelementptr i32, ptr %.0114.i, i64 %.pre-phi.i
-  %169 = getelementptr i8, ptr %168, i64 -4
-  %170 = load i32, ptr %169, align 4, !tbaa !96
-  %171 = sext i32 %170 to i64
-  invoke void @_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %167, i64 noundef %171)
-          to label %.noexc unwind label %196
+  %167 = getelementptr inbounds nuw %struct.AtomToThreadMap, ptr %166, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
+  %169 = getelementptr i32, ptr %.0114.i, i64 %.pre-phi.i
+  %170 = getelementptr i8, ptr %169, i64 -4
+  %171 = load i32, ptr %170, align 4, !tbaa !96
+  %172 = sext i32 %171 to i64
+  invoke void @_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %168, i64 noundef %172)
+          to label %.noexc unwind label %197
 
 .noexc:                                           ; preds = %._crit_edge122.i
-  %172 = load i32, ptr %56, align 8, !tbaa !203
-  %173 = icmp sgt i32 %172, 1
-  br i1 %173, label %.lr.ph125.preheader.i, label %._crit_edge126.i
+  %173 = load i32, ptr %56, align 8, !tbaa !203
+  %174 = icmp sgt i32 %173, 1
+  br i1 %174, label %.lr.ph125.preheader.i, label %._crit_edge126.i
 
 .lr.ph125.preheader.i:                            ; preds = %.noexc
-  %174 = zext nneg i32 %172 to i64
+  %175 = zext nneg i32 %173 to i64
   br label %.lr.ph125.i
 
 .lr.ph125.i:                                      ; preds = %.lr.ph125.i, %.lr.ph125.preheader.i
-  %indvars.iv139.i = phi i64 [ %174, %.lr.ph125.preheader.i ], [ %indvars.iv.next140.i, %.lr.ph125.i ]
+  %indvars.iv139.i = phi i64 [ %175, %.lr.ph125.preheader.i ], [ %indvars.iv.next140.i, %.lr.ph125.i ]
   %indvars.iv.next140.i = add nsw i64 %indvars.iv139.i, -1
-  %175 = getelementptr i32, ptr %.0114.i, i64 %indvars.iv139.i
-  %176 = getelementptr i8, ptr %175, i64 -8
-  %177 = load i32, ptr %176, align 4, !tbaa !96
-  %178 = getelementptr inbounds nuw i32, ptr %.0114.i, i64 %indvars.iv.next140.i
-  store i32 %177, ptr %178, align 4, !tbaa !96
-  %179 = icmp samesign ugt i64 %indvars.iv139.i, 2
-  br i1 %179, label %.lr.ph125.i, label %._crit_edge126.i, !llvm.loop !213
+  %176 = getelementptr i32, ptr %.0114.i, i64 %indvars.iv139.i
+  %177 = getelementptr i8, ptr %176, i64 -8
+  %178 = load i32, ptr %177, align 4, !tbaa !96
+  %179 = getelementptr inbounds nuw i32, ptr %.0114.i, i64 %indvars.iv.next140.i
+  store i32 %178, ptr %179, align 4, !tbaa !96
+  %180 = icmp samesign ugt i64 %indvars.iv139.i, 2
+  br i1 %180, label %.lr.ph125.i, label %._crit_edge126.i, !llvm.loop !213
 
 ._crit_edge126.i:                                 ; preds = %.lr.ph125.i, %.noexc
   store i32 0, ptr %.0114.i, align 4, !tbaa !96
   br i1 %69, label %.lr.ph129.i, label %_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit
 
 .lr.ph129.i:                                      ; preds = %._crit_edge126.i
-  %180 = getelementptr inbounds nuw i8, ptr %20, i64 320
-  %181 = load ptr, ptr %180, align 8, !tbaa !204
-  %182 = load ptr, ptr %167, align 8, !tbaa !204
-  %183 = sext i32 %26 to i64
+  %181 = getelementptr inbounds nuw i8, ptr %20, i64 320
+  %182 = load ptr, ptr %181, align 8, !tbaa !204
+  %183 = load ptr, ptr %168, align 8, !tbaa !204
+  %184 = sext i32 %26 to i64
   %wide.trip.count145.i = sext i32 %29 to i64
-  br label %184
+  br label %185
 
-184:                                              ; preds = %184, %.lr.ph129.i
-  %indvars.iv142.i = phi i64 [ %183, %.lr.ph129.i ], [ %indvars.iv.next143.i, %184 ]
-  %185 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv142.i
-  %186 = load i32, ptr %185, align 4, !tbaa !96
-  %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds i32, ptr %.0114.i, i64 %187
-  %189 = load i32, ptr %188, align 4, !tbaa !96
-  %190 = add nsw i32 %189, 1
-  store i32 %190, ptr %188, align 4, !tbaa !96
-  %191 = sext i32 %189 to i64
-  %192 = getelementptr inbounds nuw i32, ptr %182, i64 %191
-  %193 = trunc nsw i64 %indvars.iv142.i to i32
-  store i32 %193, ptr %192, align 4, !tbaa !96
+185:                                              ; preds = %185, %.lr.ph129.i
+  %indvars.iv142.i = phi i64 [ %184, %.lr.ph129.i ], [ %indvars.iv.next143.i, %185 ]
+  %186 = getelementptr inbounds nuw i32, ptr %182, i64 %indvars.iv142.i
+  %187 = load i32, ptr %186, align 4, !tbaa !96
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds i32, ptr %.0114.i, i64 %188
+  %190 = load i32, ptr %189, align 4, !tbaa !96
+  %191 = add nsw i32 %190, 1
+  store i32 %191, ptr %189, align 4, !tbaa !96
+  %192 = sext i32 %190 to i64
+  %193 = getelementptr inbounds nuw i32, ptr %183, i64 %192
+  %194 = trunc nsw i64 %indvars.iv142.i to i32
+  store i32 %194, ptr %193, align 4, !tbaa !96
   %indvars.iv.next143.i = add nsw i64 %indvars.iv142.i, 1
   %exitcond146.not.i = icmp eq i64 %indvars.iv.next143.i, %wide.trip.count145.i
-  br i1 %exitcond146.not.i, label %_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit, label %184, !llvm.loop !214
+  br i1 %exitcond146.not.i, label %_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit, label %185, !llvm.loop !214
 
-_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit: ; preds = %184, %._crit_edge.i, %._crit_edge126.i
-  %194 = load i32, ptr %8, align 4, !tbaa !96
-  %195 = sext i32 %194 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %195
+_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit: ; preds = %185, %._crit_edge.i, %._crit_edge126.i
+  %195 = load i32, ptr %8, align 4, !tbaa !96
+  %196 = sext i32 %195 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %196
   br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
-196:                                              ; preds = %._crit_edge122.i
-  %197 = landingpad { ptr, i32 }
+197:                                              ; preds = %._crit_edge122.i
+  %198 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  %198 = extractvalue { ptr, i32 } %197, 0
-  %199 = extractvalue { ptr, i32 } %197, 1
-  %200 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #2
-  %201 = icmp eq i32 %199, %200
-  br i1 %201, label %202, label %209
+  %199 = extractvalue { ptr, i32 } %198, 0
+  %200 = extractvalue { ptr, i32 } %198, 1
+  %201 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #2
+  %202 = icmp eq i32 %200, %201
+  br i1 %202, label %203, label %210
 
-202:                                              ; preds = %196
-  %203 = call ptr @__cxa_begin_catch(ptr %198) #2
-  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %203) #18
-          to label %204 unwind label %206
+203:                                              ; preds = %197
+  %204 = call ptr @__cxa_begin_catch(ptr %199) #2
+  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %204) #18
+          to label %205 unwind label %207
 
-204:                                              ; preds = %202
+205:                                              ; preds = %203
   unreachable
 
 ._crit_edge:                                      ; preds = %_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit, %13
@@ -798,20 +799,20 @@ _ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %205
+  br label %206
 
-205:                                              ; preds = %._crit_edge, %6
+206:                                              ; preds = %._crit_edge, %6
   ret void
 
-206:                                              ; preds = %202
-  %207 = landingpad { ptr, i32 }
+207:                                              ; preds = %203
+  %208 = landingpad { ptr, i32 }
           catch ptr null
-  %208 = extractvalue { ptr, i32 } %207, 0
-  call void @__clang_call_terminate(ptr %208) #19
+  %209 = extractvalue { ptr, i32 } %208, 0
+  call void @__clang_call_terminate(ptr %209) #19
   unreachable
 
-209:                                              ; preds = %196
-  call void @__clang_call_terminate(ptr %198) #19
+210:                                              ; preds = %197
+  call void @__clang_call_terminate(ptr %199) #19
   unreachable
 }
 

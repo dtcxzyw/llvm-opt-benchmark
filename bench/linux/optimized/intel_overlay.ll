@@ -729,18 +729,18 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noun
   %4 = load i32, ptr %1, align 4
   %5 = and i32 %4, 65280
   %6 = add nsw i32 %5, -256
-  %7 = icmp ugt i32 %6, 1023
-  %8 = lshr exact i32 %6, 4
-  %switch.shiftamt = zext nneg i32 %8 to i64
+  %7 = lshr exact i32 %6, 4
+  %8 = icmp ugt i32 %6, 1023
+  %9 = lshr exact i32 %6, 4
+  %switch.shiftamt = zext nneg i32 %9 to i64
   %switch.downshift = lshr i64 1125908497039362, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i16
-  %.rhs.trunc17 = select i1 %7, i16 -22, i16 %switch.masked
-  %9 = icmp ult i32 %6, 1024
-  %10 = lshr exact i32 %6, 4
-  %switch.shiftamt24 = zext nneg i32 %10 to i64
+  %.rhs.trunc17 = select i1 %8, i16 -22, i16 %switch.masked
+  %10 = icmp ugt i32 %6, 1023
+  %switch.shiftamt24 = zext nneg i32 %7 to i64
   %switch.downshift25 = lshr i64 562958543421441, %switch.shiftamt24
   %switch.masked26 = trunc i64 %switch.downshift25 to i16
-  %.rhs.trunc = select i1 %9, i16 %switch.masked26, i16 -22
+  %.rhs.trunc = select i1 %10, i16 -22, i16 %switch.masked26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 48
@@ -803,7 +803,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noun
   br i1 %44, label %46, label %125
 
 45:                                               ; preds = %33
-  br i1 %7, label %125, label %46
+  br i1 %8, label %125, label %46
 
 46:                                               ; preds = %45, %37
   %47 = srem i16 %31, %.rhs.trunc17

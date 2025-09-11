@@ -1968,7 +1968,7 @@ _ZN12_GLOBAL__N_115MCMachOStreamer20createAddrSigSectionEv.exit: ; preds = %_ZN1
 .lr.ph57:                                         ; preds = %123, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit
   %.sroa.032.055 = phi ptr [ %.sroa.032.0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit ], [ %.sroa.032.051, %123 ]
   %.054 = phi ptr [ %spec.select, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit ], [ null, %123 ]
-  %.02153 = phi i64 [ %155, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit ], [ 0, %123 ]
+  %.02153 = phi i64 [ %156, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit ], [ 0, %123 ]
   %128 = load ptr, ptr %2, align 8, !tbaa !438
   %129 = load i32, ptr %22, align 8, !tbaa !441
   %130 = icmp eq i32 %129, 0
@@ -2007,15 +2007,16 @@ _ZN12_GLOBAL__N_115MCMachOStreamer20createAddrSigSectionEv.exit: ; preds = %_ZN1
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6doFindIS4_EEPKSC_RKT_.exit.i: ; preds = %144, %131
   %151 = phi i64 [ %138, %131 ], [ %147, %144 ]
-  %152 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.326", ptr %128, i64 %151, i32 0, i32 1
-  %153 = load ptr, ptr %152, align 8, !tbaa !255
+  %152 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.326", ptr %128, i64 %151
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %154 = load ptr, ptr %153, align 8, !tbaa !255
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit: ; preds = %.lr.ph.i.i.i, %.lr.ph57, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6doFindIS4_EEPKSC_RKT_.exit.i
-  %154 = phi ptr [ %153, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6doFindIS4_EEPKSC_RKT_.exit.i ], [ null, %.lr.ph57 ], [ null, %.lr.ph.i.i.i ]
-  %.not = icmp eq ptr %154, null
-  %spec.select = select i1 %.not, ptr %.054, ptr %154
-  %155 = add i64 %.02153, 1
+  %155 = phi ptr [ %154, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10MCFragmentEPKNS_8MCSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6doFindIS4_EEPKSC_RKT_.exit.i ], [ null, %.lr.ph57 ], [ null, %.lr.ph.i.i.i ]
+  %.not = icmp eq ptr %155, null
+  %spec.select = select i1 %.not, ptr %.054, ptr %155
+  %156 = add i64 %.02153, 1
   call void @_ZN4llvm14MCSectionMachO7setAtomEmPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(192) %124, i64 noundef %.02153, ptr noundef %spec.select) #19
   %.sroa.032.0 = load ptr, ptr %.sroa.032.055, align 8, !tbaa !406
   %.not47 = icmp eq ptr %.sroa.032.0, null
